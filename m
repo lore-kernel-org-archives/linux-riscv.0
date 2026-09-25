@@ -4,92 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF52FC9831E
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 02:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4ABBC98321
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 04:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2iANXP5le0jaW8KmvzGjOWcigPctfqL7Ax61tAwx+x0=; b=gntqS4d9qtR0Zu
-	LirvUn4s+EUhDOt3EDwMtXNjAP5m7oJJnlQvqJB366UdLeHub54vTlJmH9JCumn72sy07oGxIrtEY
-	CCotAWUKZKj8gMDQEq1uDj+fnIStTFNlzUZhdIyHpl69fFitMakgYEI8/Uzyj6mVQ8FB11DRXG1aC
-	3ucsiHqMchac6qbjnnGcpSCLjoXlKLZCcpe27edw94EKOMOsaNJS8N+WPNuSB4S7ZjWRhJoVWTOVd
-	x19TukiMBYQTp/xyMyKLyRHMV5+swhCa8ymIdu7KkLNvwhAlP72oTPwA5+tRYSkt9mYzQusGfc5ij
-	C2oCPGPgxELDYkAz+ZtQ==;
+	List-Owner; bh=rCRJaFTHmVJM59B9SSOknrPaNAlMAnJhiplQVBhA1jM=; b=rosN6MfXZLxxb9
+	l7PD5J3TNK1YqQBqG1sYcehSFQeWWs7f/CyWHqppP10Lfp7XXG/XCiI/1nOQm+eTc8MoAQN22Tibk
+	utkOPs7+CawWjTTELOAG4NhW6HMwiJtp35bQJxU1hBgDfV7erlUC1LH9gdKfdbdTPXuxpP/CIUA4Z
+	3ChvaxqvJXgNbDcON02CErlSSOSSjYRfxsF5PmOuFoTiBzstV0zxqimTMkzhoeKEejD77Rp8PQqnu
+	xxfp1n8+MMSVZLc1+cSByxu1iNeeRv0KGRf/EQ1PVC942w1so8SVlz5hinK1lUCMwYDrNWs/2JFrO
+	0VwNFGY3vGLNjvkjZTzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9vyQ-0000000CYiD-0SVU;
-	Fri, 25 Sep 2026 02:47:42 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1x9xdG-0000000CcNX-19ol;
+	Fri, 25 Sep 2026 04:33:58 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9vyM-0000000CYhh-36NY
+	id 1x9xdD-0000000CcMy-2L7l
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Sep 2026 02:47:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790304456;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=v8EtPgWWYNY80em52aLaC/rO6GqRYVPI8oPHvOAJ7uk=;
-	b=Og0WhiKNGFGlzj4KiujkfsaBdl3jtYT5OJa6y9kkqsPpDMFCEAZuGbR71P+WzdRqMbIpg3
-	SjmidBFRFp7u9vvhCBKWcVH6I5BFaF0s0Pddn20kaMQ7UFE1/8ilJ+wDYgwQ0mmKwEoIWc
-	euXOejsNjDA3PedQjudWdmGPuUUb1Kc=
-Received: from mail-yx1-f70.google.com (mail-yx1-f70.google.com
- [74.125.224.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-650-9t17fL51MiGNVMkCpVe86Q-1; Thu, 24 Sep 2026 22:47:34 -0400
-X-MC-Unique: 9t17fL51MiGNVMkCpVe86Q-1
-X-Mimecast-MFC-AGG-ID: 9t17fL51MiGNVMkCpVe86Q_1790304454
-Received: by mail-yx1-f70.google.com with SMTP id 956f58d0204a3-66e5862a158so487404d50.2
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Sep 2026 19:47:34 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790304454; x=1790909254;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=v8EtPgWWYNY80em52aLaC/rO6GqRYVPI8oPHvOAJ7uk=;
-        b=2GaWOCaG6Ks+9ZdsUHJod9xrNl4l00n1yLdlseBd2jHYUgpNXguTEjA0+Y6yDfYgpP
-         trzcd1r+Srq/jEmIvah8HqKJ36ZfkDD+A6SK2VPmTLO4BzToqcJ3288AewnWU4HYvJyK
-         zANIsJdt3CdC2bmbSjvujVdihozdE2rWxDYXIMXzlPa89+9gO4iAqLcHby7arYgplGUk
-         hmxXqefG6i7RFAku64/AsEN5/hc5s7X2GmN8XBFKj4XTqCn+KM2R8lzKT9ajpeMEvxPZ
-         DyojIwShiUtbHGxxfS8PvTuVWzhbh9s+5qkkHIPqz4DGXesnA7kqTeCsKuQ441BrGtk5
-         yx8Q==
-X-Forwarded-Encrypted: i=1; AKwUvBycdK0WaWuA6Utp2QFTTeQZL1g5Lpj/F6XXGEijNtPL9iQMlDtfYXY6wVa0DZSWqivERC69vdd0hJQa7w==@lists.infradead.org
-X-Gm-Message-State: AFuF++kg6CjKlBuBJ9WJCrXb9hZInHKdzFSa1Bs1UNu1emJ11G8i5Mdt
-	uD5wl46i8qp2/prott+ayY10ryNv7RsWki82bMM0ef1RxMWsNvyK8E860rwhjNmo+wIZkFKCy4G
-	FKMdP3uPSUR7P7mHhUIu9i4AG07ZKxLwJuQD8UszMdSHObqzrYWCNCQyAp3f12LwR4eaMt+jJB+
-	xvZASx5z9F5tuxfSunoIiB76Vxlw0JqZFesnwnxABLN9S2
-X-Gm-Gg: AYBFou21W97NVnz3vrKQCCnPRcH8lickAwiUZqhH7uaclVI5Aibjx8F9aMVoR4jA8Fq
-	exYPXIleqIJbuqNohdGotg1mXuQW0K4hpSkXdYAfdkAmsgLxC4f71mTBCcqdbYsKdHxlYCtZod2
-	qHTfYg2BbODSPepnasF6ZvszTh5qKAm+hcAbczlpfBnQYVbdA6zm4l4CBgusqIZgYRi1GLvg==
-X-Received: by 2002:a05:690e:400b:b0:66f:c1be:a650 with SMTP id 956f58d0204a3-672ed484568mr2732712d50.66.1790304454181;
-        Thu, 24 Sep 2026 19:47:34 -0700 (PDT)
-X-Received: by 2002:a05:690e:400b:b0:66f:c1be:a650 with SMTP id
- 956f58d0204a3-672ed484568mr2732707d50.66.1790304453685; Thu, 24 Sep 2026
- 19:47:33 -0700 (PDT)
+	Fri, 25 Sep 2026 04:33:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=7hQ11hEZQrpBkoI/YAXz3ZjiMto8X2wVm1c+8n1Ybso=; b=BJHQrLaX1bNEXN49+vdvDEqUPK
+	hNZ6qD/0aUTH5S3mmoT2ussX7XsJkxg0glr8SrMIwHUgc1ON7zXjuxULhoiQzlVCQoIkevMM4jAPz
+	Km2+xT9x1DfvHx1zbwRxI2QnvcGyn1+bVXJVVuNzdU8MawUb2INqoYd3IzJ6aO1FJPY6CHmCtHrgk
+	tGmfx+QjpEvKpZjRhuodeHNdGjUIfQ/K0ko5EAFi4fTGFgFnsM5JmdCTzTdequFvNSwIcaq+MSiTO
+	EWhOMjXuT5HeYtk+tfFPG9vKLOx2rI08TTX9afcAqZ8GW3y9JiPnL4IGrvxOvytGhtpGHvhnY0B6F
+	9nE/aJRQ==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1x9xd8-00000009gVM-24Fa;
+	Fri, 25 Sep 2026 06:33:50 +0200
+Date: Fri, 25 Sep 2026 06:33:50 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Guobin Zhang <guobin.zhang@intel.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: signal: protect regs->status RMW from concurrent
+ preemption
+Message-ID: <arX5rpNRRk8r2Nve@aurel32.net>
+Mail-Followup-To: Guobin Zhang <guobin.zhang@intel.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260807-vector_fpu_regs_status_rmw_fix-v1-1-0c16848b60db@intel.com>
 MIME-Version: 1.0
-References: <20260924105708488K1vV5J_xi9COWY7TvJawc@zte.com.cn> <arSr8E0CYQRi8wMs@aurel32.net>
-In-Reply-To: <arSr8E0CYQRi8wMs@aurel32.net>
-From: Jason Montleon <jmontleo@redhat.com>
-Date: Thu, 24 Sep 2026 22:47:22 -0400
-X-Gm-Features: AclHuK_n-7A1LEiaPaMaU-m1zfMfdrRJtsrU1av0U8CI_yqyYkPrXTJhyjfUgBE
-Message-ID: <CAJD_bPJdR1QOD-O5P1-eDjm8xDFqN=rzVya8T0T3S3TGNoW4Fg@mail.gmail.com>
-Subject: =?UTF-8?Q?Re=3A_=5BPATCH_v2=5D_riscv=3A_fix_strnlen=28=29_overflow_in_Zbb?=
-	=?UTF-8?Q?=C2=A0implementation?=
-To: aurelien@aurel32.net
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	gao.rui@zte.com.cn, jiangfeng@kylinos.cn, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: HWl7nsMNDYb84NXkoQ25iCP-ZvWI83sfHyhCTdLKGAo_1790304454
-X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+In-Reply-To: <20260807-vector_fpu_regs_status_rmw_fix-v1-1-0c16848b60db@intel.com>
+User-Agent: Mutt/2.4.1 (2026-07-04)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_194738_858836_9C23E5A6 
-X-CRM114-Status: GOOD (  21.73  )
+X-CRM114-CacheID: sfid-20260924_213355_633096_88140959 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,61 +75,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBTZXAgMjQsIDIwMjYgYXQgMTI6NTDigK9BTSBBdXJlbGllbiBKYXJubyA8YXVyZWxp
-ZW5AYXVyZWwzMi5uZXQ+IHdyb3RlOgo+Cj4gSGksCj4KPiBPbiAyMDI2LTA5LTI0IDEwOjU3LCBn
-YW8ucnVpQHp0ZS5jb20uY24gd3JvdGU6Cj4gPiBUaGUgUklTQy1WIFpiYiBvcHRpbWl6ZWQgc3Ry
-bmxlbigpIGltcGxlbWVudGF0aW9uIGNhbiByZXR1cm4gaW5jb3JyZWN0Cj4gPiByZXN1bHRzIHdo
-ZW4gdmVyeSBsYXJnZSBjb3VudCB2YWx1ZXMgYXJlIHN1cHBsaWVkLgo+ID4KPiA+IFRoZSBwcmV2
-aW91cyBpbXBsZW1lbnRhdGlvbiBjYWxjdWxhdGVzIGFuIGVuZCBhZGRyZXNzIGJhc2VkIG9uIHRo
-ZQo+ID4gaW5wdXQgcG9pbnRlciBhbmQgY291bnQuIFdoZW4gY291bnQgaXMgY2xvc2UgdG8gU0la
-RV9NQVgsIHRoZSBhZGRyZXNzCj4gPiBjYWxjdWxhdGlvbiBtYXkgb3ZlcmZsb3csIHJlc3VsdGlu
-ZyBpbiBpbmNvcnJlY3QgdGVybWluYXRpb24gY2hlY2tzIGFuZAo+ID4gd3JvbmcgcmV0dXJuIHZh
-bHVlcy4KPiA+Cj4gPiBUaGlzIGlzc3VlIHdhcyBvYnNlcnZlZCB3aGlsZSBydW5uaW5nIGRldmlj
-ZS1tYXBwZXIgdGVzdHM6Cj4gPgo+ID4gZG1zZXR1cCBjcmVhdGUgdGVzdG5hbWU5IC0tdGFibGUg
-IjAgOCB6ZXJvIgo+ID4gY2F0IC9zeXMvYmxvY2svZG0tKi9kbS9uYW1lCj4gPiBkbXNldHVwIHJl
-bW92ZSB0ZXN0bmFtZTkKPiA+Cj4gPiBSZXdvcmsgdGhlIFpiYiBpbXBsZW1lbnRhdGlvbiB0byB1
-c2UgYSBkZWNyZW1lbnRpbmcgd29yZCBjb3VudGVyLgo+ID4gVGhpcyByZW1vdmVzIHRoZSBkZXBl
-bmRlbmN5IG9uIGVuZC1hZGRyZXNzIGNhbGN1bGF0aW9ucywKPiA+IGF2b2lkcyBvdmVyZmxvdyBl
-bnRpcmVseSwgYW5kIHNpbXBsaWZpZXMgdGhlIHdvcmQgc2Nhbm5pbmcgbG9vcC4KPiA+Cj4gPiBQ
-ZXJmb3JtYW5jZSB3YXMgZXZhbHVhdGVkIHdpdGggc3RyaW5nX2JlbmNoX3N0cm5sZW46Cj4gPgo+
-ID4gTmV3IEltcGxlbWVudGF0aW9uIFByZXZpb3VzIEltcGxlbWVudGF0aW9uCj4gPgo+ID4gbGVu
-PTAgOiA3MCBucy9jYWxsIDcwIG5zL2NhbGwKPiA+IGxlbj0xIDogODEgbnMvY2FsbCA4MSBucy9j
-YWxsCj4gPiBsZW49NyA6IDgxIG5zL2NhbGwgODEgbnMvY2FsbAo+ID4gbGVuPTggOiA4MSBucy9j
-YWxsIDgxIG5zL2NhbGwKPiA+IGxlbj0xNiA6IDk3IG5zL2NhbGwgOTAgbnMvY2FsbAo+ID4gbGVu
-PTMxIDogMTE5IG5zL2NhbGwgMTEzIG5zL2NhbGwKPiA+IGxlbj02NCA6IDE3NCBucy9jYWxsIDE2
-MiBucy9jYWxsCj4gPiBsZW49MTI3IDogMjY0IG5zL2NhbGwgMjU4IG5zL2NhbGwKPiA+IGxlbj01
-MTIgOiA4MDEgbnMvY2FsbCA4MjQgbnMvY2FsbAo+ID4gbGVuPTEwMjQgOiAxNTc4IG5zL2NhbGwg
-MTU1MCBucy9jYWxsCj4gPiBsZW49MzE3MyA6IDQ1NDEgbnMvY2FsbCA0NzAzIG5zL2NhbGwKPiA+
-IGxlbj00MDk2IDogNTk4NCBucy9jYWxsIDU5ODIgbnMvY2FsbAo+ID4KPiA+IFJlc3VsdHMgc2hv
-dyBjb21wYXJhYmxlIHBlcmZvcm1hbmNlIHRvIHRoZSBwcmV2aW91cyBpbXBsZW1lbnRhdGlvbgo+
-ID4gd2hpbGUgZml4aW5nIHRoZSBvdmVyZmxvdyBpc3N1ZS4KPiA+Cj4gPiBGaXhlczogNWJhMTVk
-NDE5ZmFiICgicmlzY3Y6IGxpYjogYWRkIHN0cm5sZW4oKSBpbXBsZW1lbnRhdGlvbiIpCj4gPiBT
-aWduZWQtb2ZmLWJ5OiBHYW8gUnVpIDxnYW8ucnVpQHp0ZS5jb20uY24+Cj4gPgo+ID4gLS0tCj4g
-PiB2MjoKPiA+IC0gUmV3b3JrIHRoZSBaYmIgaW1wbGVtZW50YXRpb24gdG8gZWxpbWluYXRlIGVu
-ZC1hZGRyZXNzIG92ZXJmbG93Cj4gPiBpbnN0ZWFkIG9mIGZhbGxpbmcgYmFjayB0byB0aGUgZ2Vu
-ZXJpYyBwYXRoLgo+ID4gLSBVc2UgYSBkZWNyZW1lbnRpbmcgd29yZCBjb3VudGVyIGZvciB3b3Jk
-IHNjYW5uaW5nLgo+ID4gLSBSZXBsYWNlIG51bWVyaWMgbGFiZWxzIHdpdGggZGVzY3JpcHRpdmUg
-bG9jYWwgbGFiZWxzLgo+ID4gLSBBZGQgY29tbWVudHMgZGVzY3JpYmluZyB0aGUgbG9vcCBzdHJ1
-Y3R1cmUuCj4gPiAtIFJ1biBLVW5pdCBzdHJpbmcgdGVzdHMgc3VjY2Vzc2Z1bGx5Lgo+ID4gLSBB
-ZGQgc3RyaW5nX2JlbmNoX3N0cm5sZW4gYmVuY2htYXJrIHJlc3VsdHMuCj4gPiAtLS0KPiA+ICBh
-cmNoL3Jpc2N2L2xpYi9zdHJubGVuLlMgfCAxMTEgKysrKysrKysrKysrKysrKystLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tCj4gPiAgMSBmaWxlIGNoYW5nZWQsIDQ4IGluc2VydGlvbnMoKyksIDYzIGRl
-bGV0aW9ucygtKQo+Cj4gTm90ZSB0aGF0IHRoZSBmb2xsb3dpbmcgcGF0Y2ggd2FzIGFsc28gcG9z
-dGVkLCB0byB3aGF0IEkgYmVsaWV2ZSBpcyB0aGUKPiBzYW1lIGlzc3VlOgo+Cj4gaHR0cHM6Ly9s
-b3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvRExMSkRMS1BaNFMzLjFLUTVPNE9RQkJURVdAbGlu
-dXguZGV2Cj4KCkkgdHJpZWQgYSBidWlsZCB3aXRoIHRoZSBwYXRjaCBmcm9tIHRoaXMgdGhyZWFk
-IGFuZCBhbm90aGVyIGJ1aWxkIHdpdGgKdGhlIG9uZSBmcm9tIHRoZSB0aHJlYWQgeW91IGxpbmtl
-ZC4gSW4gYm90aCBjYXNlcyB0aGUgVVVJRCBpcyBubwpsb25nZXIgdHJ1bmNhdGVkIGFuZCBJIHN1
-Y2Nlc3NmdWxseSBib290ZWQgdGhlIGFmZmVjdGVkIGltYWdlIHdpdGggWkJCCmVuYWJsZWQuIEkg
-ZG8gbm90IGtub3cgd2hpY2ggaXMgcHJlZmVyYWJsZS4KClRoYW5rIHlvdSwKSmFzb24gTW9udGxl
-b24KCj4gUmVnYXJkcwo+IEF1cmVsaWVuCj4KPiAtLQo+IEF1cmVsaWVuIEphcm5vICAgICAgICAg
-ICAgICAgICAgICAgICAgICBHUEc6IDQwOTZSLzFEREQ4QzlCCj4gYXVyZWxpZW5AYXVyZWwzMi5u
-ZXQgICAgICAgICAgICAgICAgICAgICBodHRwOi8vYXVyZWwzMi5uZXQKPgoKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Guobin,
+
+On 2026-08-07 11:00, Guobin Zhang wrote:
+> __fstate_clean() performs a non-atomic read-modify-write (RMW) on
+> task_pt_regs(current)->status to clear the FS bits. This RMW is
+> unprotected - it runs with preemption enabled and IRQs on during
+> signal delivery (setup_rt_frame -> fstate_save) and sigreturn
+> (restore_fp_state -> fstate_restore).
+> 
+> If a reschedule IPI or timer interrupt triggers preemption between
+> the load and store of this RMW, __switch_to_vector() calls
+> riscv_v_vstate_set_restore() which modifies the VS bits of the
+> same regs->status. When the preempted task resumes, it stores back
+> the stale value captured before preemption, overwriting the VS
+> update and restoring VS=DIRTY while TIF_RISCV_V_DEFER_RESTORE
+> remains set - a combination that should never occur and leads to
+> vector state corruption.
+> 
+> The race window:
+> 
+>   __fstate_clean (signal path)      set_restore (schedule path)
+>   -----------------------------     -----------------------------
+>   ld  a0, regs->status  // VS=DIRTY, FS=DIRTY
+>                                      <- preempted (reschedule IPI)
+>                                      regs->status VS = INITIAL
+>                                      set TIF_RISCV_V_DEFER_RESTORE
+>                                      <- resumed
+>   andi a0, ~FS
+>   ori  a0, FS_CLEAN     // stale a0 still has VS=DIRTY
+>   sd   a0, regs->status // overwrites VS=INITIAL with VS=DIRTY
+>   -> result: VS=DIRTY + DEFER -> ANOMALY
+> 
+> Fix by adding preempt_disable/enable around the RMW in
+> __fstate_clean() and fstate_off(). riscv_v_vstate_set_restore()
+> has the identical hazard: it is called from __restore_v_state()
+> (sigreturn path) with preemption enabled, and it can race the same
+> way against the scheduler's own call to riscv_v_vstate_set_restore()
+> for the same task in __switch_to_vector(). Wrap that call site with
+> preempt_disable/enable as well.
+> 
+> Add WARN_ON_ONCE(preemptible()) to riscv_v_vstate_restore()
+> to catch any future unprotected callers at development time.
+> 
+> Signed-off-by: Guobin Zhang <guobin.zhang@intel.com>
+> ---
+> Race: regs->status is shared between the FPU (SR_FS) and vector
+> (SR_VS) state machines. Three call sites do a non-atomic RMW on it
+> while preemptible: __fstate_clean()/fstate_off() in switch_to.h, and
+> riscv_v_vstate_set_restore() as called from signal.c's
+> __restore_v_state() (sigreturn path).
+> 
+> Cause: if the task is preempted between the load and the store, the
+> scheduler's own switch_to() writes the other half of the same
+> register word when switching this task back in. The task then
+> resumes and stores its stale value, clobbering that write.
+> 
+> Fix: wrap each RMW with preempt_disable()/preempt_enable(). This is
+> sufficient because the conflicting writer only runs via an actual
+> context switch of this task, which preempt_disable() prevents.
+> local_irq_disable() is not needed: no IRQ handler touches
+> regs->status, so masking IRQs would add latency without closing any
+> extra race.
+> 
+> Reproduced on Spacemit K1 hardware; not reproducible under QEMU/TCG
+> (see commit message for the full race-window trace).
+> ---
+>  arch/riscv/include/asm/switch_to.h | 4 ++++
+>  arch/riscv/include/asm/vector.h    | 2 ++
+>  arch/riscv/kernel/signal.c         | 2 ++
+>  3 files changed, 8 insertions(+)
+
+Han Gao pointed me to this patch as a possible fix to the issue I 
+encountered on the SpacemiT K1 [1]. So far, my first tests show
+that it either fixes the issue or at the bare minimum hides it.
+
+As you also mention that you reproduced the issue on the Spacemit K1 
+hardware, can you please tell me if the bug appeared with similar 
+symptoms?
+
+Thanks
+Aurelien
+
+[1] https://lore.kernel.org/spacemit/apSYF5x1Tu7PlyL1@aurel32.net
+
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
