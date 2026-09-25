@@ -4,122 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0023CC9830E
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 20:14:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A031C9830E
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 20:54:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v0psjSjQeAdJLBE1EjgjZlRNJWsO9jMabZYY30Aylc8=; b=WpTqnedxYx5ZoR
-	3M2X/cZF0owiO6I/22vCDeV4AEJwakSSKqcyGrVIBgAFjknalmoqrVIP/7YlQZxHiF5t+V14vmFDe
-	n/JMYDD4alIDqTM98AXFsAkQCUtXVl+8Z1oz0BCWOOCjzopAPE76wP2JJnBLHqGD/wRSc/IN0M79J
-	q4N4SUchSsm3bPjbD00vU7StycoCK+/gZOif63hPQ2iKimriCyB9BYNOfWuam9aF7RSJjk+Hlxqza
-	7d51UI0pQoL6HC39qsbIZqj4wXuQZ7+n9xHWmi+DNKk/tO1eLahXtnbAcVqdbhsU4XM1DAZJGjiNh
-	mBLiNV8JcyNx2/4FsYkQ==;
+	List-Owner; bh=o2ew4aBxgURv7UPJTdCy7kDd/Ba4ykPpC3ED8AwEMA4=; b=rcyX4D8I1AGzaJ
+	ZO6g5d2oFweU/jmnLRcMGkUxV1YT2CHgFb7Keqt8UzCiZXh1cUoCM1kaNBIUUvjck2cwHfBdSe9bB
+	QSUZVrU8udLZkLqSj2IScLXopmJ5mQ/9b6Ancvqe7racBSyT/60YV8lUZTT/6cTAJq5o2jnNI7OUd
+	EU5EjBm7uBh4II8MDyRIm4rfz0gy1KLmgPxovM0yoRK1FqvM51HgqHcQCeqEPZJF9xs81hM47bU2k
+	mb4yLD32jyG/35l6i5sXVUiEbeuq54Bf45EFYWKf0rH7LdpS0hu4929Yg21wVZrkRhgyFUOyWrB7x
+	MgVIf4A9gFlNAf7TOxJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xACJI-0000000EMqw-2mDl;
-	Fri, 25 Sep 2026 20:14:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xACwI-0000000ERGi-09ZP;
+	Fri, 25 Sep 2026 20:54:38 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xACJH-0000000EMqB-0Wth;
-	Fri, 25 Sep 2026 20:14:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CB80C43927;
-	Fri, 25 Sep 2026 20:14:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B7DC1F000FF;
-	Fri, 25 Sep 2026 20:13:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790367258;
-	bh=EF8OyDut2rayuYx4pymsb162cHu8KROP/4zU982aGoA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Tu8dpedeUynCnlq7Wxf4f9JCPrda0/Y0Tmaz1KTS9GhPwPBdedBTQWw3UhI8XcXMN
-	 qrjOjBi+3lRlLTda3X+1K4Kudkf8/gcJhM/wzaAhMXThsSmK+fW9duXf2WLFxNYtWb
-	 89EFQ+Pb3CZgoB8haOE2CvuTiR0Fx3WHrIzKr1daiy+pKbIyD9KemfkSgwf+ftcchJ
-	 1ZDRuI+H747LYk47f0YOz+UoLOH+bqQ55biVx1Y75rv6aIuCzcus4e6lAz/qjtmRor
-	 x0R3nx7I6Xd2o0CoRbj1AuDam9d9DcnDUvzaGWQfs+CUpemegdemifjfX7ZQcmzWhq
-	 APU1v55lYeH5A==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Fri, 25 Sep 2026 21:09:47 +0100
-Subject: [PATCH v5 12/12] mm: change the contract for free_pgtables(),
- update docs
+	id 1xACwF-0000000ERFX-2hrY
+	for linux-riscv@lists.infradead.org;
+	Fri, 25 Sep 2026 20:54:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=tdnR0hQoks1raul8LJNCZKc3Dj++dhTUAanHv/0PU4c=; b=Av1CNv7IACArSn3DGiaeJ3WK3f
+	YcC2faFWdSr0Ti5EmseHpaYxdnh2txUUOdYhkQXDj2ikzVbm2Ykg+r32UcOsj5HgIMCywnRpYLATC
+	2DjXSzjSBjhP4lkqlXthnxjF3g75rj7j+iaFIeuc4X1a94zP5iWI8Ruy1CcQTA8rbQBtbSapPsMOP
+	5dNodJz57NXsJmzo504CNqMQPbP/xqn0sSKN6cXNzUZIXlPPiWl2/8vUwds0mWG0eJTZQeaVKzWLy
+	RnyVVTR5RYFmHK7vdx3a63Htb2vKXPOIxF+n2gOblBer3QadHmsP2LR4fOMGHbp2X9to+xPA3s3xP
+	Q3f56uUg==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1xACw0-0000000Ac8p-1mNt;
+	Fri, 25 Sep 2026 22:54:20 +0200
+Date: Fri, 25 Sep 2026 22:54:19 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: shao.mingyin@zte.com.cn
+Cc: pjw@kernel.org, mikey@neuling.org, jiangfeng@kylinos.cn,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	zhang.yue5@zte.com.cn, david.laight.linux@gmail.com,
+	qingfang.deng@linux.dev
+Subject: Re: [PATCH v4] riscv: lib: Fix =?utf-8?Q?Z?=
+ =?utf-8?Q?BB_strnlen_wrap-around_regression_on=C2=A0huge?= counts
+Message-ID: <arbfe8ZROfJshMJ_@aurel32.net>
+Mail-Followup-To: shao.mingyin@zte.com.cn, pjw@kernel.org,
+	mikey@neuling.org, jiangfeng@kylinos.cn, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	zhang.yue5@zte.com.cn, david.laight.linux@gmail.com,
+	qingfang.deng@linux.dev
+References: <20260915152656708z04s4oSYY2BGj34F36RZa@zte.com.cn>
 MIME-Version: 1.0
-Message-Id: <20260925-rcu-pagetable-freeing-v5-12-31e91065fea4@kernel.org>
-References: <20260925-rcu-pagetable-freeing-v5-0-31e91065fea4@kernel.org>
-In-Reply-To: <20260925-rcu-pagetable-freeing-v5-0-31e91065fea4@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>, 
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
- Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
- Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>, 
- Dinh Nguyen <dinguyen@kernel.org>, 
- Simon Schuster <schuster.simon@siemens-energy.com>, 
- Jonas Bonn <jonas@southpole.se>, 
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
- Stafford Horne <shorne@gmail.com>, Rich Felker <dalias@libc.org>, 
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Russell King <linux@armlinux.org.uk>, Vineet Gupta <vgupta@kernel.org>, 
- Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>, 
- Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>, 
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, 
- Nick Piggin <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
- "David S. Miller" <davem@davemloft.net>, 
- Andreas Larsson <andreas@gaisler.com>, 
- Richard Henderson <richard.henderson@linaro.org>, 
- Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>, 
- WANG Xuerui <kernel@xen0n.name>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>, 
- Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
- Johannes Berg <johannes@sipsolutions.net>, 
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
- Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka <vbabka@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
- Michal Hocko <mhocko@suse.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
- John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
- Yoshinori Sato <ysato@users.sourceforge.jp>, 
- Shakeel Butt <shakeel.butt@linux.dev>, Jonathan Corbet <corbet@lwn.net>, 
- Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
- linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, 
- linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-snps-arc@lists.infradead.org, 
- linux-arch@vger.kernel.org, sparclinux@vger.kernel.org, 
- linux-alpha@vger.kernel.org, loongarch@lists.linux.dev, 
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
- linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>, 
- Qi Zheng <qi.zheng@linux.dev>, linux-doc@vger.kernel.org, 
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3600; i=ljs@kernel.org;
- h=from:subject:message-id; bh=PnRbJJLEs7BWuuMfKr3yc/Hi0NQ6wkh885+GUnZfEK0=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLK2XeWINjBRU37zm32Wbs8P7izmFYt4L0/ebb5Vs/hB2
- tO/W64wdZSyMIhxMciKKbI8/yK+P0gkbF7nBX83mDmsTCBDGLg4BWAifF6MDJePGHHv6hU8Ze44
- 1fzZijY7DVWGH3IB127aH/2f7sG2wYThN6uth35MleD6POFM1mvnpzi7vDeUYklY/u9rioI45/d
- 9/AA=
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Content-Disposition: inline
+In-Reply-To: <20260915152656708z04s4oSYY2BGj34F36RZa@zte.com.cn>
+User-Agent: Mutt/2.4.1 (2026-07-04)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_135435_691384_2AFD4FBD 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,76 +84,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that page tables are freed after an RCU grace period, it is safe for
-read-only page table walkers to walk page table ranges that are being
-concurrently torn down, provided the mm is kept alive via mmgrab().
+On 2026-09-15 15:26, shao.mingyin@zte.com.cn wrote:
+> From: Shao Mingyin <shao.mingyin@zte.com.cn>
+> 
+> The aligned scan boundary is derived from the last valid byte,
+> (s + count - 1).  When count is huge (e.g. SIZE_MAX, which FORTIFY
+> strcat/strlcat pass when the destination size is not known at compile
+> time), s + count wraps around and the boundary lands before s, so the
+> ZBB path returns a bogus length.  The original implementation
+> (5ba15d419fab) had the same wrap-around in its (s + count) & ~7
+> boundary computation; after 5d588c684833 the wrapped boundary is caught
+> by the pre-loop guard "bgeu t0, t4, 2f", which then always exits for
+> aligned strings of 8 or more characters and strnlen() returns 8
+> instead of the real length.
+> 
+> This silently truncates strings built by fortified strcat: the dm
+> sysfs name attribute shows "live-bas" instead of "live-base", the
+> truncated name pollutes the udev database, and blivet/anaconda (as
+> well as LVM/dm-crypt/multipath userspace) break on RISC-V systems.
+> 
+> Detect the wrap-around and saturate the boundary to the top of the
+> address space, making the scan equivalent to strlen().  The saturation
+> clamps the increment to ~s, so it stays branchless and wrap-free:
+> 
+> 	s + min(count - 1, ~s) == saturating_add(s, count - 1)
+> 
+> Normal counts are unaffected.
+> 
+> Fixes: 5ba15d419fab ("riscv: lib: add strnlen() implementation")
+> Cc: stable@vger.kernel.org
+> Suggested-by: David Laight <david.laight.linux@gmail.com>
+> Suggested-by: Qingfang Deng <qingfang.deng@linux.dev>
+> Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
+> Acked-by: Michael Neuling <mikey@neuling.org>
+> ---
+> Changes in v4:
+> - Use Zbb minu to clamp the increment (addi/not/minu/add): one
+>   instruction less than the sltu/mask/or sequence and no extra
+>   register (Qingfang Deng).  Clobbers stays t0-t4.
+> 
+> Changes in v3:
+> - Replace the taken branch in the saturation with a branchless
+>   sltu/mask/or sequence (David Laight).
+> - Update the Clobbers list for the additional t5 register.
+> - Michael's Acked-by is kept: the patch semantics are unchanged, only
+>   the saturation sequence is branchless now.
+> 
+> Changes in v2:
+> - Point Fixes: at the original implementation (5ba15d419fab) and reword
+>   the commit message accordingly: the wrap-around exists since the
+>   original implementation, 5d588c684833 only changed how it surfaces
+>   (Michael Neuling).
+> - Add Acked-by from Michael Neuling.
+> 
+> v3: https://lore.kernel.org/all/20260914162123230u1y1M4UHrO8E-cU-opJ_7@zte.com.cn/
+> v2: https://lore.kernel.org/all/20260914145205778-sZJbZc1D-XBfWRXO2f-o@zte.com.cn/
+> v1: https://lore.kernel.org/all/20260828145152578tXQPUG9lxxgbJjmfpuaQz@zte.com.cn/
+> 
+>  arch/riscv/lib/strnlen.S | 20 ++++++++++++++++++--
+>  1 file changed, 18 insertions(+), 2 deletions(-)
 
-It is however unsafe for writers to do so, as they must obtain an
-appropriate lock to do so safely.
-
-Update the pte_offset_map_lock()'s comment block to reflect this.
-
-Similarly update the process addresses documentation.
-
-Acked-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
- Documentation/mm/process_addrs.rst | 11 +++++++++++
- mm/pgtable-generic.c               | 15 +++++++++++----
- 2 files changed, 22 insertions(+), 4 deletions(-)
-
-diff --git a/Documentation/mm/process_addrs.rst b/Documentation/mm/process_addrs.rst
-index a7296f251799..78231995e490 100644
---- a/Documentation/mm/process_addrs.rst
-+++ b/Documentation/mm/process_addrs.rst
-@@ -537,6 +537,17 @@ We establish basic locking rules when interacting with page tables:
- * When changing a page table entry the page table lock for that page table
-   **must** be held, except if you can safely assume nobody can access the page
-   tables concurrently (such as on invocation of :c:func:`!free_pgtables`).
-+* Page tables may be *walked* under RCU alone, as page tables are freed only
-+  after an RCU grace period has elapsed. However, any entry found must be
-+  revalidated after the page table lock is taken (such as the
-+  :c:func:`!pmd_same` recheck performed by :c:func:`!pte_offset_map_lock`)
-+  before it is acted upon. Changing an entry requires the page table lock
-+  and one of the locks that excludes teardown (any one of the mmap, VMA or
-+  rmap locks).
-+* When traversing page tables under RCU alone it is important to take care
-+  when operating upon leaf entries - if the value is operated upon (for
-+  instance getting the folio associated with a PTE) an appropriate lock must
-+  be taken to prevent concurrent modification.
- * Reads from and writes to page table entries must be *appropriately*
-   atomic. See the section on atomicity below for details.
- * Populating previously empty entries requires that the mmap or VMA locks are
-diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
-index b91b1a98029c..a127e3e8f9b9 100644
---- a/mm/pgtable-generic.c
-+++ b/mm/pgtable-generic.c
-@@ -385,10 +385,17 @@ pte_t *pte_offset_map_rw_nolock(struct mm_struct *mm, pmd_t *pmd,
-  * Note: "RO" / "RW" expresses the intended semantics, not that the *kmap* will
-  * be read-only/read-write protected.
-  *
-- * Note that free_pgtables(), used after unmapping detached vmas, or when
-- * exiting the whole mm, does not take page table lock before freeing a page
-- * table, and may not use RCU at all: "outsiders" like khugepaged should avoid
-- * pte_offset_map() and co once the vma is detached from mm or mm_users is zero.
-+ * Note that free_pgtables(), used after unmapping detached vmas or when exiting
-+ * the whole mm, does not take a page table lock before freeing a page table.
-+ *
-+ * As page table freeing itself is RCU-safe, page table readers can safely run
-+ * concurrently with page table teardown.
-+ *
-+ * However, writers CANNOT as, without a lock being held, nothing prevents
-+ * concurrent teardown.
-+ *
-+ * Also note that the PGD itself is freed at mmdrop() time, not under RCU - so
-+ * the walker must keep the mm alive either by pinning the mm or the VMA.
-  */
- pte_t *pte_offset_map_lock(struct mm_struct *mm, pmd_t *pmd,
- 			   unsigned long addr, spinlock_t **ptlp)
+Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
 
 -- 
-2.55.0
-
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
