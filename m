@@ -4,65 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 811B9C9830D
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 04:40:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C02EC98306
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 06:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j9jNJS2+swqOlfpzUw8NgTwnaoGBj9fsGMn/cuG5BBA=; b=BSyoDR1SO4hjO2
-	EyZZp09w+doaXwv21d2vnMXpJBt7lWE4UaH1En93/5NBKlzozqc+fkO9Fe9NZbh9LwemjIf951jpW
-	Viiu9fVEBnC1fCYKAu7pi9y9cx6/clg0gZfkglomdYnU5khcALklzxXJkf3/Yr3VOvCuQwIak1YeE
-	+A3o5JPB6teUPJNMkCjHue1TJ8eFL+XsrPVXMt8Bj7RgscVsZBk064b5czDh41n9/72RHSrPESNbI
-	r67OL4c0GDSzuhFl/hLOb3iMe8tCc+pEzZWWXJpMZpGptg8ul3DAxeeUURrV+ToCX8aRac5WkFxDW
-	qlz7nGPnCJ9T3Jzy0b+g==;
+	List-Owner; bh=nCo6ZcbVy/nzAmXpB0iyeEKfT4KupSZZSm1uOz+qcqM=; b=mSsYF7a1Eot7ew
+	Xg6WIWQw6uRfuQTe4USC7Kmv46ub/hIaLCD5788ANVJX/XXNNi5Fdy09gwUFkzKfd5Dcc/itN2sJZ
+	KQt0gIpSW32HzyL2xqxsm9xgA5Sdw6IHP0TuPqgSfMd7RIb2uF5jj8OmU5CRNXUEDf28XbZVkucyj
+	HhTZwyFcMokv5OuT/ticAeV1pvDHjDMOKFWbOk/nGXq8aoU9RnUcfc0tb+DnxoclKXA5aMg7uFKEM
+	yYJmPPFQqd0wUTjxUf4ql9WqpI7qFMUOpi8YcS2xcCwX5y16QPPOVP7WvaDg3oCyQapPov9oGG/3+
+	VZLb4GifK7IsYuJnrJZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9xjg-0000000CcgD-3vZz;
-	Fri, 25 Sep 2026 04:40:36 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1x9z68-0000000CjTI-2i3R;
+	Fri, 25 Sep 2026 06:07:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9xjd-0000000Ccfo-3N3W
+	id 1x9z66-0000000CjTB-3JGk
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Sep 2026 04:40:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=sXcHkvmEDQb95xO+WnTUyB8W57ObEH1tkNyscCOypJ8=; b=EqpfudDoW1OLUsayAgWvqZ6jWn
-	6ljNv83y6UzA+pq00Rr4pa3abKgbvo+liICioNJ2K4MIv+kl1H5Zhl+y/0sfQygrhG9vgpOefCSlL
-	9lGpliSVS/hzOHswfOVii1vQ7QsnVo/5ggbvFuqQyNbRnxcHjQAU2bCxy1OuoTCqJmEljvx+1s9jD
-	f/Tu50JZ6N2JzBkhGiYgdjRqbkJx3JS8SX36Mpm4SeIrDCh+VpEi4xE3tOJB+dzqM8Jj1dRZupJpb
-	J+Mw3cbF2VlrY7OqsPul4XC+9X+prTgY7534/+DMtFc6Fe7HeDLN0OqYsrtg/87lrQw9X4guZhxn0
-	87k9nWHA==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1x9xjb-00000009gz9-348u;
-	Fri, 25 Sep 2026 06:40:31 +0200
-Date: Fri, 25 Sep 2026 06:40:31 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Andy Chiu <tchiu@tenstorrent.com>, spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org
-Subject: Re: Random corruption on SpacemiT K1 (and K3) with RVV
-Message-ID: <arX7PwOnlz0N9rUc@aurel32.net>
-References: <apSYF5x1Tu7PlyL1@aurel32.net>
- <ap-SIQ9DLt-CfAx6@aurel32.net>
- <aqGNGp8PInSV4vty@aurel32.net>
- <arL0QBe_XYLO8Yy7@Tao-Chiu's-Mac>
- <arSshYwcyHjC2dh3@aurel32.net>
- <arS-yYLK8Df5knSE@gmail.com>
+	Fri, 25 Sep 2026 06:07:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 47F424395F;
+	Fri, 25 Sep 2026 06:07:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36EF71F00893;
+	Fri, 25 Sep 2026 06:07:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790316470;
+	bh=V/Rde7Pu1QJlzfTLgLLTNkfrkC3adTY/8gUH/cM57PE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=J4JbbUXFXUzFJNzKlDRluSBGCiqRJKJf6Ke9Vo/CtlPs8kmCt1nmnmjd5RwTk+vhv
+	 E/DK04Ay5JbIcuvCIx023v15UUMBzlXCCYeGk9DOUUAtXJiDnVpDaFJQqnwUEGfdQi
+	 Hln55xBUNkhxyipkfkZpwo9AATRn1NN18tOwiECpupbreYgD+Ex7zjGZr/MgBMa9QT
+	 e0dtBpY3KRwC3ZSQ1QHd2Yh8K2EQrDsp7lJ5KklPsP89FSE+vKnZK6xALfeMek0cJ6
+	 79QyKxAiHEEJecxLGPYPIMMI+wtu+4ytLfbiuFJJynfD4r1ksVDZ/zoJrA1cWnMSz7
+	 OtLjvJTrNozQw==
+Message-ID: <0db3ed29-8bb8-4dc3-a4cb-cc5b9bf2e893@kernel.org>
+Date: Fri, 25 Sep 2026 08:07:40 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <arS-yYLK8Df5knSE@gmail.com>
-User-Agent: Mutt/2.4.1 (2026-07-04)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_214033_873610_DD9C3E7A 
-X-CRM114-Status: GOOD (  24.10  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] dt-bindings: regulator: Add RPMI voltage service
+ bindings
+To: Joshua Yeong <joshua.yeong@starfivetech.com>,
+ Mark Brown <broonie@kernel.org>
+Cc: "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
+ "rahul@summations.net" <rahul@summations.net>,
+ "anup@brainfault.org" <anup@brainfault.org>,
+ "lftan.linux@gmail.com" <lftan.linux@gmail.com>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "pjw@kernel.org" <pjw@kernel.org>, "palmer@dabbelt.com"
+ <palmer@dabbelt.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "alex@ghiti.fr" <alex@ghiti.fr>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20260923070014.1340761-1-joshua.yeong@starfivetech.com>
+ <20260923070014.1340761-2-joshua.yeong@starfivetech.com>
+ <9c0ae39b-d214-40f5-b010-cdea14ccc774@kernel.org>
+ <c2c57bf0-e610-4353-93a4-84edfd08e767@sirena.org.uk>
+ <SH0PR01MB08411AA7F403A71D2D7470A6F9802@SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <SH0PR01MB08411AA7F403A71D2D7470A6F9802@SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,92 +129,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Karl,
+On 25/09/2026 04:21, Joshua Yeong wrote:
+> On Thu, Sep 24, 2026 at 10:00:06PM +0100, Mark Brown <broonie@kernel.org> wrote:
+>> On Wed, Sep 23, 2026 at 10:35:08PM +0200, Krzysztof Kozlowski wrote:
+>>> On 23/09/2026 09:00, Joshua Yeong wrote:
+>>
+>>>> +    voltage-service {
+>>
+>>> There is no such service. Don't invent names. See DT spec.
+>>
+>> Looks like it comes from the RPMI spec:
+>>
+>>    
+>> https://github.com/riscv-non-isa/riscv-rpmi/blob/main/src/srvgrp-volta
+>> ge.adoc
+>>
+>>>> +  "#voltage-domain-cells" on the provider, a consumer lists  
+>>>> + "voltage-domains = <&provider DOMAIN_ID>" and names each entry 
+>>>> + in  "voltage-domain-names", the way it names a voltage power 
+>>>> + domain. Both  properties belong to the consumer, so a consumer 
+>>>> + binding describes them
+>>>> +  itself:
+>>
+>>> And where do you explain what is that "voltage domain" and why it is 
+>>> completely different than everything else we have?
+>>
+>>> No, don't come up with your own naming for standard things.
+>>
+>> That also looks like what the spec says (some of the description is 
+>> copied pretty closely from the spec).
+> 
+> The RPMI specification uses the word voltage instead of 'regulator' in the 
+> kernel here. We need something like power-domain-cells,
+> performance-domain-cells or clock-cells that isn't supported by regulator 
+> framework. While I have no prior history on the regulator framework but 
+> the RPMI voltage service drivers trying to upstream here need some 
+> mechanism to map just the domain id to the RPMI services.
+> 
+> The driver would still work with the existing voltage device tree structure.
+> I understand other drivers may not use voltage-domain like RPMI
+> voltage service, so I only add the support for this on the RPMI
+> voltage driver and not on the framework side.
 
-On 2026-09-24 08:15, Karl Mehltretter wrote:
-> On Thu, Sep 24, 2026 at 06:52:21AM +0100, Aurelien Jarno wrote:
-> > Thanks for your feedback. Note that at this stage I have not been able 
-> > to reproduce the issue with QEMU. I guess it's very timing dependent, 
-> > also I am not sure if QEMU simulates partially executed instructions 
-> > (outside of page faults).
-> > 
-> 
-> Hello Aurelien, Andy,
-> 
-> I tested this with a local TCG diagnostic change. It did not reproduce
-> the K1 failure, but it answers the partial-instruction question.
-> 
-> My LLM agent helped me running these tests.
-> 
-> In stock TCG at 7074591d7954, vle8.v can leave partial state on a memory
-> fault, but the vector helper runs atomically with respect to guest
-> interrupts [1,2]. Stock QEMU therefore cannot take an asynchronous
-> interrupt partway through this load.
-> 
-> In a bare-metal test at VLEN=256 and LMUL=8, a page fault after element
-> 16 left vstart=16 and a snapshot containing 16 source bytes followed by
-> 240 poison bytes. After the missing page was mapped, QEMU resumed the
-> load and completed the copy correctly.
-> 
-> I then added a hook to QEMU vector-load which performs 16 elements, sets
-> vstart=16, raises a timer interrupt, and resumes at the same vle8.v. The
-> bare-metal test completed 262,145 such restarts and 67,108,864 copied
-> bytes without a mismatch.
-> 
-> I also booted Linux 388b607d107c with:
-> 
->   CONFIG_RISCV_ISA_V=y
->   CONFIG_RISCV_ISA_V_UCOPY_THRESHOLD=1
->   CONFIG_RISCV_ISA_V_PREEMPTIVE=n
-> 
-> With the hook restricted to S-mode loads with SUM and SIE set, a checked
-> pipe test completed 90,308,608 bytes across copy_from_user() and
-> copy_to_user(), including demand-faulting source and destination pages.
-> The hook logged at least 327,680 forced interruptions at vstart=16,
-> without a byte mismatch.
-> 
-> As a negative control, I made one load read 16 elements and then retire
-> as if all 256 had completed. That produced the 16-source/240-poison
-> signature in bare metal, and the Linux checker reported exactly 240
-> differing bytes. This is an injected symptom, but confirms that the test
-> detects the reported failure shape.
-> 
-> Correct QEMU fault recovery and forced interrupt restart therefore did
-> not produce the corruption. Reaching the 16/240 result required
-> deliberately modelling a load that completed early without a trap. That
-> fits the observed first load/store pair, but does not establish its
-> cause. Your IRQ-disabled result also makes a normal asynchronous restart
-> a poor fit.
 
-Thanks for all those extensive tests.
+As discussed on IRC #devicetree, that's either power-domains or
+regulator supplies. If you need anything else, you need to explain. Not we.
 
-> The normal Linux load-fault path exits before vse8.v and falls back to
-> the scalar copy [3,4]. Do you have the original trap PC, cause and fault
-> address for the second-iteration fault? Those values could show whether
-> an unexpected synchronous trap is involved.
-
-Unfortunately the issue is quite rare, so I have not found a way to 
-trace all that information when the issue happens.
-
-That said Han Gao pointed me to this patch:
-https://lore.kernel.org/linux-riscv/20260807-vector_fpu_regs_status_rmw_fix-v1-1-0c16848b60db@intel.com/
-
-I have been testing it, and so far it seems to fix my issue with both 
-CONFIG_RISCV_ISA_V_PREEMPTIVE enable and disabled. Or maybe it just 
-hides the issue by changing the timing, as at this point, I haven't 
-fully understood how the bug fixed by this patch can completely explain 
-my observations.
-
-I still observe a few GCC crashes, on both the K3, but more rarely, but 
-without this corruption pattern, just as non reproducible ICE in GCC. It 
-is likely a different issue.
-
-Regards
-Aurelien
-
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
