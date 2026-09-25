@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7154EC9830E
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 23:46:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F207C9830E
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 23:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BXfNUgZ+gr1x9S05TBZhsUBnlThL/Lav9xPoPVep7h4=; b=e276ywCCmCpsbw
-	IsrFU2DrXC7yZ+T20zkvahUgbZtily0O0Kvk3sJjofht2Ja37MyIzVVGk8gfk5VdS8vem78ZYJGBK
-	YaEVTupXLqsOK6iVkmsk3pi3Glb0Zo+3escdQAfo+wO6dSAoqsspQLAymO3i9SlOcVrNi9etXhUwR
-	IYdrEh6En+KcmBqxhnXlV9HuXp0OMmjbUcB3XAuo6ORqJV25jDrk3WqCXn7pRmHR1KOFcSrz0yWSv
-	vdi9JzOHCM6hxiNW1K20cbegjH/Q+vlzmr1gkZfa/ryUf0IVo0wWG84WEWs55nDMK8377w4o4BPqh
-	9wjdR4vF4TypwTz31J1Q==;
+	List-Owner; bh=cBejcRZRbLkq1xNvCLbYOhQLH9taPIE11koVurSeNsc=; b=VPQA3DhvbgAwnt
+	/OQL8TK0xOR4R4RF4dswYBnmN2Mk5RE05+6VU8i570n3FOR34TpXJ0DWovTm1HLBlPTsFWiLuko/7
+	qeen1PRXue5ujXDOaWSz9+s06EtibnyJA1fstpAZDoF5ItcSuJicUg0i34iu/jAs8STBtAHrMbDBM
+	0Zp6AXQPK57gNjGuIE2VdaUtCfTVNcT6W+p6998cHqWMSi+Ef6P35ftgloZzC0n2LsprnmGkGI5Wj
+	UO6dOAY18WTnbT/T1fV3ajq2L7Wv1sZrJF+nGQOD6Q+TafCbi6oVPCNlB4QaHuVPRgEsZpvQhtLxD
+	Trw0CKTjGpymI3QGidbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAFcr-0000000EhRj-0a9o;
-	Fri, 25 Sep 2026 23:46:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xAFej-0000000Ehgm-1ToQ;
+	Fri, 25 Sep 2026 23:48:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAFcp-0000000EhRH-0rsW
+	id 1xAFei-0000000Ehgg-2xCb
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Sep 2026 23:46:43 +0000
+	Fri, 25 Sep 2026 23:48:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 45C0D60136;
-	Fri, 25 Sep 2026 23:46:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 428AB1F000FF;
-	Fri, 25 Sep 2026 23:46:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2D66843045;
+	Fri, 25 Sep 2026 23:48:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 612491F000FF;
+	Fri, 25 Sep 2026 23:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790380002;
-	bh=vxMcCs7n6HTqPEhkYEmyi+rSro0fFNKi9/FAkeoxwwE=;
+	s=k20260515; t=1790380120;
+	bh=J+M33NAyGSzOubJELAznu648UId0n2/UxhskdMsd6PU=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=a+Nvr7Xfh88c3BgaGQ8/YQVhpV4/pJK73Nw5qE0yy1TQTw9cbGb0LQaHgZ2TWL3oq
-	 MSzPcT4cTel//AJ/OT4cTTUyR/Zobf9vTwmj41ge3JxVwlTlB+A6HeqhlLscwsTu03
-	 LRyTzf1B64cNlrekNoYGEmVx2tPp6EwkpFpCvHt3y5VoT5cKUa+H2p8u5UyMgNXTP3
-	 RNfp8mQLTRLs+ItsowUdFfG1ouPr2H/0++icaduDL+5+QvlfInOljEV8+mMIYcSUzA
-	 WoTBnXigHZZ5I5Xs29sqzamF/Tuuzq/6i+zZx//hkWEOEKru4qehmru/hNQYEseftX
-	 Ku7MXBCc0DcGQ==
-Date: Fri, 25 Sep 2026 17:46:38 -0600 (MDT)
+	b=YDGo+f8SBIabB5AlVZjw1FBM4xikyYXwnmWgVWQLVSNoNF2PprCkjdb7oSzinUEfb
+	 NSvjQYRjIjLcohyVj50K7FPbwutcyTS2YyahXw1Td1G8CewaZupgCEee7MVb+XCmTC
+	 LBOD2hdrsbExKVb/FBbcGCRhlPJntzO1PssAbKyoWESRRQcZFB/lwP/kSOhW8IoRYS
+	 /18a7ip9c586i7h8fD+HtItMQiRWxh8mAs5Unz/DcBeRtz9AJfueQkmKVmr4J/qEjK
+	 nQ5VwFAFfaOJGYSMdCDEwa9Djkfs3jo64Z0QnNGK2Ao1LTTvNqeKQZOPBcAHnYjPcQ
+	 31j7DPl2y/5nw==
+Date: Fri, 25 Sep 2026 17:48:38 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: sun.wenhan@zte.com.cn
-cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    liu.qingtao2@zte.com.cn, lv.yating@zte.com.cn, guo.chang2@zte.com.cn, 
-    deng.weixian@zte.com.cn, hu.yuye@zte.com.cn
-Subject: =?ISO-8859-15?Q?Re=3A_=A0=5BPATCH=5D_riscv=3A_align_pcie_bus_?=
- =?ISO-8859-15?Q?assign_logic_with_ARM64?=
-In-Reply-To: <202609220934.68M9Y2eC015972@mse-db.zte.com.cn>
-Message-ID: <c8bd7448-e9f3-72fc-9c91-db0c2525a3a1@kernel.org>
-References: <202609220934.68M9Y2eC015972@mse-db.zte.com.cn>
+To: Thorsten Blum <blum@kernel.org>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Deepak Gupta <debug@rivosinc.com>, Zong Li <zong.li@sifive.com>, 
+    Samuel Holland <samuel.holland@sifive.com>, Zishun Yi <vulab@iscas.ac.cn>, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: process: Use str_supported_unsupported() in
+ compat_mode_detect()
+In-Reply-To: <20260924213256.122530-2-blum@kernel.org>
+Message-ID: <15d659fe-c9cb-fa65-5dd6-7182fb152317@kernel.org>
+References: <20260924213256.122530-2-blum@kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,46 +72,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi
+On Thu, 24 Sep 2026, Thorsten Blum wrote:
 
-On Tue, 22 Sep 2026, sun.wenhan@zte.com.cn wrote:
+> Replace hard-coded strings with the str_supported_unsupported() helper.
+> This unifies the output and helps the linker with deduplication, which
+> can result in a smaller binary.
+> 
+> Signed-off-by: Thorsten Blum <blum@kernel.org>
 
-> RISC-V currently relies on the asm-generic default of
-> pcibios_assign_all_busses() returning 1, so the kernel always
-> re-assigns all PCI bus numbers and ignores the bus numbers already
-> set up by the firmware. This has two downsides:
-> 
-> 1. As UEFI 2.8 has brought mature firmware support to RISC-V servers,
-> the OS can trust and inherit the PCI bus enumeration done by the
-> BIOS, skipping a redundant re-enumeration at boot and improving
-> the boot time.
-> 
-> 2. The unconditional re-assignment causes bus numbering conflicts
-> during PCI rescan. When a root port that is not the last one in
-> the hierarchy is removed and the bus is rescanned, the kernel
-> fails with:
-> 
-> pci_bus 0000:01: busn_res: can not insert [bus 01-ff] under
-> [bus 00-ff] (conflicts with (null) [bus 02])
-> 
-> as reported for the same generic code in commit bd8cbe66c01d
-> ("PCI: Make PCI bus renumbering configurable to avoid rescan
-> conflicts").
-> 
-> Define pcibios_assign_all_busses() the same way as ARM64,
-> so that RISC-V also preserves the bus numbers assigned by the
-> firmware by default instead of always re-assigning them. This keeps
-> RISC-V consistent with the other major architectures.
-> 
-> Signed-off-by: sun wenhan <sun.wenhan@zte.com.cn>
-
-This patch doesn't apply -- see 
-https://gist.github.com/linux-riscv-bot/4f238956cd137e576af24c32c44d3437
--- and the commit ID mentioned in the patch description doesn't appear to 
-exist in mainline.  Can you please fix these issues and resend?
-
-thanks,
-
+Thanks, queued for v7.4.
 
 - Paul
 
