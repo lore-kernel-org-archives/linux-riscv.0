@@ -4,62 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB8BC98318
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 02:10:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFF80C9831E
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 02:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CCO0ymMpFfrymOmFyugI+m4VXvgs9QYm3KjEti4l8Ik=; b=KelzGuHK05deur
-	M0ILuINgH2g/Xk1Qfb0y3TEFp/safibpKfcqN2ZTWy6cHJmjWaDMj4OdlvZgBJnDoze1QZdzO4LZN
-	QxI+3jLCsB0bestkXBTk0QjkkLjeR21dUBoFhJqflqj99ZfHsPfnZwfTkyon+9oQFR8GV93Wn7BmL
-	AyLyFOFOoIfOywVHEZuti/43hGhHavAPBj3BxjmnIsjj5GxTmVaGi/c6Y5KdgEW2biaitr9eFQFOK
-	/owyPMcJ4Rw9zd4SdSqzw7bexxQmp1i8tkBPRyrj6qvCDUGjkQjUQ5rofVmzbh9JrwAR5o7svrOAX
-	kAzdZCXeYgpvIZ+BKHFw==;
+	List-Owner; bh=lznjZv6QFgMcA6pmfddNK69e6yEzdY+c7vSlyGba5cw=; b=IsePkWDN2uboeT
+	uh8GBAv2p6uk1sOgfd9mO0GW2iwDtoMdecvn4JhkJm21XbbSDv/Y/uJL/NxwDxu5tsRJhsu480Om/
+	2ths/CDd+QYIjEQOAoyPTG4dLj+dd70Xee/qPyiO0gasroMsZB6YSkWwg/7nWI8SGt6nrIiNEUmjM
+	gX9x+bSLBjm4efs5unUaECf8bde+AwOBTj25OSVamz363ksMJM/+bilZEGlcxbPR8pTir2QeRvfM5
+	4vLhoGMDwoBAaoYJ23kx1IUUXVRn8LkWJViYi5G1o3dpC5XYV1xcB5nCm08I44Ikh31Tyr9jbKF1Q
+	GqOiBAEjFKUk87IJrn4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9vNZ-0000000CWxf-30Rv;
-	Fri, 25 Sep 2026 02:09:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x9vaD-0000000CXPv-0ZHx;
+	Fri, 25 Sep 2026 02:22:41 +0000
+Received: from mail-sh0chn02on20709.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::709] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9vNX-0000000CWxY-3nZA
+	id 1x9vaA-0000000CXPX-1RBk
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Sep 2026 02:09:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E7BC6022E;
-	Fri, 25 Sep 2026 02:09:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A196E1F000FF;
-	Fri, 25 Sep 2026 02:09:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790302174;
-	bh=lEL7RjYejIrWAwKkZbGHqb91M2mSRkyiPtdwFTRkUfM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NjvVMfzuQCo1u9YBX0Kqq6OQK8qMet0GOlgyftH8Xn5HAFe4a19psJzg8db7IDl3y
-	 MGfBw7+mCm+4acLgm2C+IyYsVAgZO+IVOwWLOWiqndh0FzfEoJriPO4mA+p7yy7l+t
-	 78DGZRlhCVkcSpqEUxCHKCv4eAwpJSEsyehM/qmNIGbPy0PtYDGdFqPHf9NXzAdoFv
-	 8eBbH3r57ldzviReBBmTK2h7yx9stzZ51ReVF+ZJ5c6eDvYJYpZPxx9gM+yaRJ71Rd
-	 ekx61NS913qmU4GdoXSZ/NFrDyCSY4BIX+k9wa8QYLnpw6CiS5Qo3SCww98BF2wS5F
-	 vqkZjsszoFDKg==
-Date: Thu, 24 Sep 2026 19:09:33 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Cc: Drew Fustini <dfustini@oss.tenstorrent.com>,
-	Joel Stanley <jms@oss.tenstorrent.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Brian Masney <bmasney@redhat.com>, linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: Re: [PATCH] clk: tenstorrent: Fix refcount leak on shared gate clk
- enable failure
-Message-ID: <arXX3RkaFvEwTySN@thelio>
-References: <20260924-atlantis_gate_shared_enable_fix-v1-1-303f925b8a3d@oss.tenstorrent.com>
+	Fri, 25 Sep 2026 02:22:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=RhIaHHzvvA3XHsZAZkqdRvXBD72XHIebEV5MXJkIx/gugZWqeYQDJbKEjna069vxxVdMQFWscpNUXWcDBpzMi6z+g5YrVy4HXgdppBh1hg1FcKGimByqaNp7PPfCqCx8MjD61YhPw9Zk50EEviw109ihj0ZKmm37usi3pkBVo3HQ4s0zJC5Npp1jZJSyLXnPla93lRQtBWoA11zbBp1ULcYV1sSKkdmLH0AU/5MjyeX4lwDTnL9u5ieA5XfyZAZZgWC8lJEIfAysjHohmsCWM7Tt4oBqmZZBe3WEvm4iuTBdDnHEtVRQjGG3UptxL+HRoT+hksG6DvR3sdvuBFXaKQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9uiximgws1gLOxeiaGn1oDaNHBOBDVaRoRUb6V6Ve3g=;
+ b=cpFTEdhScyXSe9HVawDIWClEl6i2Bg7E5oXV8XGEU5mnR34V9HMEdGgjfapRB6F8A3bnou3RRSIdL5FAkhLXMucveKKpbHuIa0mHtm7OFKICKo6/W1lZtH8CKy6ak6tUEz+e7uEsA+yS1tVYPkNuoR1eJLSU1ojg1zpeiSQ0hpB0NQczK0eOjFqbNzV5EUbLl0xDV99z94nNlT9iDUVs6rEh6V7c+CJ8mCaikIOd0/uIWCwQWMt07DIyLzg8jLFwxkS0vGkFhRqKogMi2lNWEtVTAMMmMfa79jouPyy7tHyvMk3fMAiEzVi/j/b2wP7IEKDO+bbQzJqFJeDtovERoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:20::14) by SH0PR01MB0666.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:22::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Fri, 25 Sep
+ 2026 02:21:51 +0000
+Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ ([fe80::435e:52b5:c524:459c]) by
+ SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn ([fe80::435e:52b5:c524:459c%3])
+ with mapi id 15.21.0451.014; Fri, 25 Sep 2026 02:21:51 +0000
+From: Joshua Yeong <joshua.yeong@starfivetech.com>
+To: Mark Brown <broonie@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
+CC: "lgirdwood@gmail.com" <lgirdwood@gmail.com>, "rahul@summations.net"
+	<rahul@summations.net>, "anup@brainfault.org" <anup@brainfault.org>,
+	"lftan.linux@gmail.com" <lftan.linux@gmail.com>, "robh@kernel.org"
+	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "pjw@kernel.org"
+	<pjw@kernel.org>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "alex@ghiti.fr"
+	<alex@ghiti.fr>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v2 1/3] dt-bindings: regulator: Add RPMI voltage service
+ bindings
+Thread-Topic: [PATCH v2 1/3] dt-bindings: regulator: Add RPMI voltage service
+ bindings
+Thread-Index: AQHdSylV/+AHvSJ/TkisWFCqzwhgHrbcn7gAgAGZTwCAAFYf0A==
+Date: Fri, 25 Sep 2026 02:21:51 +0000
+Message-ID: <SH0PR01MB08411AA7F403A71D2D7470A6F9802@SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn>
+References: <20260923070014.1340761-1-joshua.yeong@starfivetech.com>
+ <20260923070014.1340761-2-joshua.yeong@starfivetech.com>
+ <9c0ae39b-d214-40f5-b010-cdea14ccc774@kernel.org>
+ <c2c57bf0-e610-4353-93a4-84edfd08e767@sirena.org.uk>
+In-Reply-To: <c2c57bf0-e610-4353-93a4-84edfd08e767@sirena.org.uk>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SH0PR01MB0841:EE_|SH0PR01MB0666:EE_
+x-ms-office365-filtering-correlation-id: 769d094f-1499-4ec5-480a-08df1aabc27c
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|23010399003|1800799024|38070700021|10067099003|4143699003|56012099006|22082099003|18002099003;
+x-microsoft-antispam-message-info: tQJHYnjxFi2gxlOK4WSYcHT9uZA7Qek9wrEZWJ1g0cZ9GQs34SQAUDR9PCGS/HmY79sGmiGHgxpxVZEcFEOUZ7Fk9aN7l6bxXDWINevUQ2C+tvXOActGQ2yNW2qnwSuq3YRQBcsYSRziOd/PAYzY9eKGCG9t+zpgMoNOXpvjkd8PPAEVwFP6O+9Nf4JFgmWcVM/Bw6a7NJ2u+Hv/agTD35hni+dOFuHwjrt5mY0tR0uV8mEaRGYp7sJPfp618ku6/Bo91kMjGyIDQCi+vgJT4BJdRx7pCp8u3x46EKFcKogDkeOcTLDHc7LyZCgalTY34bsWSe2xHz9h/g0X2kkvd7oZy5yBTBxiPFEsaHYczcQf4cPScn4PfkamiBcXOUogvOymIZIpLOtQT/nnztjxwNiMzoCnG6tbCocQKPE9L74Xrto1Sf/3C54gQuY+JUl1L3dnwmrcEjFZ+QWqtH9CwgQ0VQEIxkcfYMVsS2JSfBdXmEvGhp+x9FGl202tUsUMvqD4/kjEQRRSQVdXAl1IgJmujyJFQt8erL41bqOIACgNyOVka6zWkRWefx33Cdnc
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(23010399003)(1800799024)(38070700021)(10067099003)(4143699003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ebKSccny6PdqCgJGObgtxavUfnx4if/lwqr2MK/JEw3tfwurpOEf7a7dgNHW?=
+ =?us-ascii?Q?/ixEta+Xk9Yb5wPsj/o+ioqxjmS0kx/A7drlkCFgwU8OWhYMCqPh+jxA2Jj9?=
+ =?us-ascii?Q?KlVKqYLqYVxbzfTSxwH7rvGevpPu3bKxC722sXGyywzYaq/zSUZ8qT4I/Wfm?=
+ =?us-ascii?Q?jdnMEvlG915OAXe2tSxN8Pn0gyTymWecKs3VKMf6kuj86JvlM+WMQHD25Jrw?=
+ =?us-ascii?Q?+FdLNFZXnSc5R4I9YsZEVKRUrAOAtrtleP7j9SKASsbE6hsnWMn7mR/YxBaU?=
+ =?us-ascii?Q?dJBAkl6/ocUaqaPBiGCwlDz8lYdThqliOvSq1dmpHHGNMjlPkxaDmAr2Xb3N?=
+ =?us-ascii?Q?Smn/d+1/VXIciaG9doQMEWyOPjVXa+eoPamIfoQ04B9DFcLZVZEalcO3tIge?=
+ =?us-ascii?Q?sPsh4E0XTqUGrr92E/BPxvHt6atoB0QnNHp0dxEgSUYXP0CLvWJe/bkpPM9o?=
+ =?us-ascii?Q?m1wfQ4LMPw3e9IneeVyRsflzOozsWxwiDJPhzLzbE9APz+6YB8DTN7QarM0I?=
+ =?us-ascii?Q?ugcC0WAUDZOhSeAg5xPuPKtcOK17bKPfXspLNhMJ7RE+so/hv727cVJ0pFDQ?=
+ =?us-ascii?Q?FeO59Sp1hgirrGcZS0fd1GWKeEaBhfIai45eEjicnicR//zSVS4O2U2o05xB?=
+ =?us-ascii?Q?3e/bvHN1TQyyH6qeyDCB9qJEnLIiuv8fEK3RjaNF2GET2pNdd3GrLtlp0Vnl?=
+ =?us-ascii?Q?O13srul6ysWK8iIq43hjOACN8MQbqnf1LqwgiSz/Ua5Jcp4lAsxkilfZLvd4?=
+ =?us-ascii?Q?MHmmaSkVua2fs3m1FLX05xaFbZPUlyVEk43GYdSKsNzthPLP8dVjDMV5hJdQ?=
+ =?us-ascii?Q?t5amLHHZVag4gY1eu2RxftFw17UtB+UFs4qMeSJNwug7NGO4dMvri0c6CLB9?=
+ =?us-ascii?Q?DLCRYzKw0QmIeNMdSd8XNiYPmLDX01old6n2Q7GZgxOlk/KQjY/2XTF/xb0w?=
+ =?us-ascii?Q?UIGkhCZL8MD/hCLkxqOyxFBJ0XmALn/CNNGqNY6pdDVtKaSyEvLBFuYaUDC8?=
+ =?us-ascii?Q?UuFhmC8u6DnKA217g5CLQXqIEuvyuipayrOw4+dOUSlaElTcN2/cSPEql9gE?=
+ =?us-ascii?Q?4109ZJs20Cs+qrV7I5nu+K7A8Ts8klLFP++k0Q/Uu7ZYbQtW0P8Hq5e0RKgi?=
+ =?us-ascii?Q?3xZiaJQTfN44nwTRKdHQD8Oey4fGGlvABut8YQH66bRQ/a5+gZ5gdo8uYpZJ?=
+ =?us-ascii?Q?Pn7Uyb7k3299T68WXL2xei+TazPZQ3wp/Yfvk9tm8AVFVsYKzokfjZn1P4pE?=
+ =?us-ascii?Q?rzvFZZaHl14yVTfz0HfELXcMJ5yaX7zrs5UPZPUCkLW32h3M2NNKME12NM7J?=
+ =?us-ascii?Q?rnszQ2Qa9pUNPi1icMWdgh55d+mk76eD5sZjPiC1QSTk0S+G+VWJVH5dZH3z?=
+ =?us-ascii?Q?0qE5V/Esnn6avIyKES7vGRZmzB/yjaX27jBgyWty1DjIl4ukGzQZ09BKJXI1?=
+ =?us-ascii?Q?Lv2zu1Sr17TIRPSVErIe/Kgngg2PM5QLT352SgeiYUr9WK23gPVUfrz+XIKU?=
+ =?us-ascii?Q?V+PmZY/NlWuhfQGY9frIorTN4b3BUaUlpfnmQJlP2UG81HDLa3/ndlW1syOK?=
+ =?us-ascii?Q?MNSqtmjNh7BrMXEISNUrmiCSARVpQt0plv8mHHKhWHR7DXQJI3W3t5ItwIFF?=
+ =?us-ascii?Q?W1nF8NSPCaQ3Q0+JE11fvll0cX55gLl+TF01ZbLfSH+b2cccYiRxOEF2SuLY?=
+ =?us-ascii?Q?alapdYq3kQ22p6tM2aj9UNA+z1EusJFk3EBOzwC9zh69UyAZlgQ/FDNIzJ5Q?=
+ =?us-ascii?Q?UZ8GEMd247Kx9aSsWXwZ4ZxwQdXorb4=3D?=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260924-atlantis_gate_shared_enable_fix-v1-1-303f925b8a3d@oss.tenstorrent.com>
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 769d094f-1499-4ec5-480a-08df1aabc27c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Sep 2026 02:21:51.4016
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: rI11qP/eziGvhyyyv9MGTh8bMIg1/vR1LDlL8hlUJ8SB7Hqi6K6MF5MHTxYgNsWnLMKiB3OznI/gSskLKd4uvPO39Q50uCZKsoBXubtp4Q4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SH0PR01MB0666
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260924_192238_388339_D4548CE7 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,32 +146,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 10:31:51AM -0500, Anirudh Srinivasan wrote:
-> atlantis_clk_gate_shared_enable() increments the refcount for the number
-> of clks requesting the shared gate clk to be enabled always. It should
-> only do this when the enable for the gate took effect in hardware. It's
-> possible to end up in a situation where the gate enable failed, but the
-> refcount is incremented anyway, so subsequent requests by other clks
-> that share the same refcount get ignored and the gate enable is never
-> retried.
-> 
-> Update this function so that the refcount is not incremented when the
-> gate clk enable fails in hardware.
-> 
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Link: https://sashiko.dev/#/patchset/AS8P251MB00013BD9A093C06D2D60E10EC8B42%40AS8P251MB0001.EURP251.PROD.OUTLOOK.COM
-> Fixes: 23c8ebc95284 ("clk: tenstorrent: Add Atlantis clock controller driver")
-> Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-> ---
->  drivers/clk/tenstorrent/atlantis-prcm.c | 19 +++++++++----------
->  1 file changed, 9 insertions(+), 10 deletions(-)
+On Thu, Sep 24, 2026 at 10:00:06PM +0100, Mark Brown <broonie@kernel.org> wrote:
+> On Wed, Sep 23, 2026 at 10:35:08PM +0200, Krzysztof Kozlowski wrote:
+> > On 23/09/2026 09:00, Joshua Yeong wrote:
+>
+> > > +    voltage-service {
+>
+> > There is no such service. Don't invent names. See DT spec.
+>
+> Looks like it comes from the RPMI spec:
+>
+>    
+> https://github.com/riscv-non-isa/riscv-rpmi/blob/main/src/srvgrp-volta
+> ge.adoc
+>
+> > > +  "#voltage-domain-cells" on the provider, a consumer lists  
+> > > + "voltage-domains = <&provider DOMAIN_ID>" and names each entry 
+> > > + in  "voltage-domain-names", the way it names a voltage power 
+> > > + domain. Both  properties belong to the consumer, so a consumer 
+> > > + binding describes them
+> > > +  itself:
+>
+> > And where do you explain what is that "voltage domain" and why it is 
+> > completely different than everything else we have?
+>
+> > No, don't come up with your own naming for standard things.
+>
+> That also looks like what the spec says (some of the description is 
+> copied pretty closely from the spec).
 
-Reviewed-by: Drew Fustini (Tenstorrent) <fustini@kernel.org>
+The RPMI specification uses the word voltage instead of 'regulator' in the 
+kernel here. We need something like power-domain-cells,
+performance-domain-cells or clock-cells that isn't supported by regulator 
+framework. While I have no prior history on the regulator framework but 
+the RPMI voltage service drivers trying to upstream here need some 
+mechanism to map just the domain id to the RPMI services.
 
-I will apply this to tenstorrent-clk-for-next.
-
-Thanks,
-Drew
+The driver would still work with the existing voltage device tree structure.
+I understand other drivers may not use voltage-domain like RPMI
+voltage service, so I only add the support for this on the RPMI
+voltage driver and not on the framework side.
 
 _______________________________________________
 linux-riscv mailing list
