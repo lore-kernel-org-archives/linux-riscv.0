@@ -4,70 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A031C9830E
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 20:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C42C98321
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 21:06:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o2ew4aBxgURv7UPJTdCy7kDd/Ba4ykPpC3ED8AwEMA4=; b=rcyX4D8I1AGzaJ
-	ZO6g5d2oFweU/jmnLRcMGkUxV1YT2CHgFb7Keqt8UzCiZXh1cUoCM1kaNBIUUvjck2cwHfBdSe9bB
-	QSUZVrU8udLZkLqSj2IScLXopmJ5mQ/9b6Ancvqe7racBSyT/60YV8lUZTT/6cTAJq5o2jnNI7OUd
-	EU5EjBm7uBh4II8MDyRIm4rfz0gy1KLmgPxovM0yoRK1FqvM51HgqHcQCeqEPZJF9xs81hM47bU2k
-	mb4yLD32jyG/35l6i5sXVUiEbeuq54Bf45EFYWKf0rH7LdpS0hu4929Yg21wVZrkRhgyFUOyWrB7x
-	MgVIf4A9gFlNAf7TOxJw==;
+	List-Owner; bh=mYz5PoIDptqxWL0niRID0iL3DbbbOImanrtD0i12tA8=; b=jj9NEV3RDb2r1N
+	Y/ki6sNjuBtxjsmVa5226CpO15Y7YZG+a4kF6WJHTbwE+xJCodfm4SWfhBfaIJkr/NkxuWipJNsCv
+	KVTHIv+QiGkGLwKWtoa8yO9YktQIIGSQH4SJQqbBvM78zBhwp/uNqJawWfXVNoSIkT9DkHp/DWlpt
+	sjGKQ5tBEi8Xos/QPlM5lmIPpgRY4OUqu9YSVmm/WJx05c3dbaxKQ7M+Q4DW0YVFbQLUy1it/bTQk
+	8kW21uRHBwHk8ibGzjx8Utb4GcWtMdoYo3MLibOzVvFloSGl1koMrvv9pqxeoz1IPkP0FTUzKVVCi
+	R1Mrad9megtdzKUNNrdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xACwI-0000000ERGi-09ZP;
-	Fri, 25 Sep 2026 20:54:38 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1xAD7G-0000000ESdn-3dBi;
+	Fri, 25 Sep 2026 21:05:58 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xACwF-0000000ERFX-2hrY
-	for linux-riscv@lists.infradead.org;
-	Fri, 25 Sep 2026 20:54:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=tdnR0hQoks1raul8LJNCZKc3Dj++dhTUAanHv/0PU4c=; b=Av1CNv7IACArSn3DGiaeJ3WK3f
-	YcC2faFWdSr0Ti5EmseHpaYxdnh2txUUOdYhkQXDj2ikzVbm2Ykg+r32UcOsj5HgIMCywnRpYLATC
-	2DjXSzjSBjhP4lkqlXthnxjF3g75rj7j+iaFIeuc4X1a94zP5iWI8Ruy1CcQTA8rbQBtbSapPsMOP
-	5dNodJz57NXsJmzo504CNqMQPbP/xqn0sSKN6cXNzUZIXlPPiWl2/8vUwds0mWG0eJTZQeaVKzWLy
-	RnyVVTR5RYFmHK7vdx3a63Htb2vKXPOIxF+n2gOblBer3QadHmsP2LR4fOMGHbp2X9to+xPA3s3xP
-	Q3f56uUg==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1xACw0-0000000Ac8p-1mNt;
-	Fri, 25 Sep 2026 22:54:20 +0200
-Date: Fri, 25 Sep 2026 22:54:19 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: shao.mingyin@zte.com.cn
-Cc: pjw@kernel.org, mikey@neuling.org, jiangfeng@kylinos.cn,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	zhang.yue5@zte.com.cn, david.laight.linux@gmail.com,
-	qingfang.deng@linux.dev
-Subject: Re: [PATCH v4] riscv: lib: Fix =?utf-8?Q?Z?=
- =?utf-8?Q?BB_strnlen_wrap-around_regression_on=C2=A0huge?= counts
-Message-ID: <arbfe8ZROfJshMJ_@aurel32.net>
-Mail-Followup-To: shao.mingyin@zte.com.cn, pjw@kernel.org,
-	mikey@neuling.org, jiangfeng@kylinos.cn, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	zhang.yue5@zte.com.cn, david.laight.linux@gmail.com,
-	qingfang.deng@linux.dev
-References: <20260915152656708z04s4oSYY2BGj34F36RZa@zte.com.cn>
+	id 1xAD7B-0000000ESc8-3dCp;
+	Fri, 25 Sep 2026 21:05:56 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260925210544euoutp0243b789d72a0438105cf8c503582698ec~YrFfDN8xy1957819578euoutp02g;
+	Fri, 25 Sep 2026 21:05:44 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260925210544euoutp0243b789d72a0438105cf8c503582698ec~YrFfDN8xy1957819578euoutp02g
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1790370344;
+	bh=qk8Ge4T09jwT9y52eGQdabyjZGZHTm4rz1alzvhqzEo=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=CVZtL4P01wXy1+ugGq9YEKbXZtnS2m47LDVMgeukd6k9aRE2PKTyTewEyd+xd1xUz
+	 8XKsChiKzsHX6DVkdi2FeObuR4HvgrN2iAyS5sv8IPM1Qj2rOSydSod94INXrs4zeX
+	 5ElvIi0+nZqcmJqlTKr1DtZBGumK+I3xrSlCxzds=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260925210543eucas1p2a1839e7e4c6489c00394e4e8a41e38dd~YrFdyTFmE0692106921eucas1p2t;
+	Fri, 25 Sep 2026 21:05:43 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260925210541eusmtip20e82e1fc97240a09f0da0d95e25d9799~YrFcD3k-g2562925629eusmtip2U;
+	Fri, 25 Sep 2026 21:05:41 +0000 (GMT)
+Message-ID: <1a1a9b49-430b-4218-b27d-e133d488e8d9@samsung.com>
+Date: Fri, 25 Sep 2026 23:05:41 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260915152656708z04s4oSYY2BGj34F36RZa@zte.com.cn>
-User-Agent: Mutt/2.4.1 (2026-07-04)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
+ starfive,jh7110-inno-hdmi-phy
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
+	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
+	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
+	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
+	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
+	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
+	Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
+	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
+	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
+	Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Joshua Peisach <jpeisach@ubuntu.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@baylibre.com>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <20260917-mutant-chamois-of-competence-46ca77@quoll>
+X-CMS-MailID: 20260925210543eucas1p2a1839e7e4c6489c00394e4e8a41e38dd
+X-Msg-Generator: CA
+X-RootMTR: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
+X-EPHeader: CA
+X-CMS-RootMailID: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
+References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+	<CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com>
+	<20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com>
+	<20260917-mutant-chamois-of-competence-46ca77@quoll>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_135435_691384_2AFD4FBD 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20260925_140554_480615_F34DC8C7 
+X-CRM114-Status: GOOD (  27.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,71 +109,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-09-15 15:26, shao.mingyin@zte.com.cn wrote:
-> From: Shao Mingyin <shao.mingyin@zte.com.cn>
-> 
-> The aligned scan boundary is derived from the last valid byte,
-> (s + count - 1).  When count is huge (e.g. SIZE_MAX, which FORTIFY
-> strcat/strlcat pass when the destination size is not known at compile
-> time), s + count wraps around and the boundary lands before s, so the
-> ZBB path returns a bogus length.  The original implementation
-> (5ba15d419fab) had the same wrap-around in its (s + count) & ~7
-> boundary computation; after 5d588c684833 the wrapped boundary is caught
-> by the pre-loop guard "bgeu t0, t4, 2f", which then always exits for
-> aligned strings of 8 or more characters and strnlen() returns 8
-> instead of the real length.
-> 
-> This silently truncates strings built by fortified strcat: the dm
-> sysfs name attribute shows "live-bas" instead of "live-base", the
-> truncated name pollutes the udev database, and blivet/anaconda (as
-> well as LVM/dm-crypt/multipath userspace) break on RISC-V systems.
-> 
-> Detect the wrap-around and saturate the boundary to the top of the
-> address space, making the scan equivalent to strlen().  The saturation
-> clamps the increment to ~s, so it stays branchless and wrap-free:
-> 
-> 	s + min(count - 1, ~s) == saturating_add(s, count - 1)
-> 
-> Normal counts are unaffected.
-> 
-> Fixes: 5ba15d419fab ("riscv: lib: add strnlen() implementation")
-> Cc: stable@vger.kernel.org
-> Suggested-by: David Laight <david.laight.linux@gmail.com>
-> Suggested-by: Qingfang Deng <qingfang.deng@linux.dev>
-> Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
-> Acked-by: Michael Neuling <mikey@neuling.org>
-> ---
-> Changes in v4:
-> - Use Zbb minu to clamp the increment (addi/not/minu/add): one
->   instruction less than the sltu/mask/or sequence and no extra
->   register (Qingfang Deng).  Clobbers stays t0-t4.
-> 
-> Changes in v3:
-> - Replace the taken branch in the saturation with a branchless
->   sltu/mask/or sequence (David Laight).
-> - Update the Clobbers list for the additional t5 register.
-> - Michael's Acked-by is kept: the patch semantics are unchanged, only
->   the saturation sequence is branchless now.
-> 
-> Changes in v2:
-> - Point Fixes: at the original implementation (5ba15d419fab) and reword
->   the commit message accordingly: the wrap-around exists since the
->   original implementation, 5d588c684833 only changed how it surfaces
->   (Michael Neuling).
-> - Add Acked-by from Michael Neuling.
-> 
-> v3: https://lore.kernel.org/all/20260914162123230u1y1M4UHrO8E-cU-opJ_7@zte.com.cn/
-> v2: https://lore.kernel.org/all/20260914145205778-sZJbZc1D-XBfWRXO2f-o@zte.com.cn/
-> v1: https://lore.kernel.org/all/20260828145152578tXQPUG9lxxgbJjmfpuaQz@zte.com.cn/
-> 
->  arch/riscv/lib/strnlen.S | 20 ++++++++++++++++++--
->  1 file changed, 18 insertions(+), 2 deletions(-)
 
-Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
 
+On 9/17/26 08:51, Krzysztof Kozlowski wrote:
+> On Tue, Sep 15, 2026 at 05:32:09PM +0200, Michal Wilczynski wrote:
+>> Add the dt-binding for the StarFive JH7110 Innosilicon HDMI PHY.
+>>
+>> This device is a child of the starfive,jh7110-hdmi-subsystem node. It
+>> functions as both a PHY provider for the controller and as a clock
+>> provider for the variable pixel clock (hdmi_pclk), which it generates
+>> from its refoclk.
+>>
+>> Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+> 
+> While I appreciate other people looking at this, I don't think review
+> here applies. It was a blanket tag, given to the entire series, with
+> exception that it is from newbie, thus I want to ask: was this binding
+> REALLY reviewed by Joshua?
+> 
+> Are the rest of the patches actually reviewed or just "looks good to
+> me"? I see no comments from Joshua on v3, v2 and v1, which is usual sign
+> of doing review.
+> 
+> 
+>> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+>> ---
+>>  .../phy/starfive,jh7110-inno-hdmi-phy.yaml         | 49 ++++++++++++++++++++++
+>>  1 file changed, 49 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..f838fcc238ec7db0a8e794234bdceec36cb6d9e7
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
+>> @@ -0,0 +1,49 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: https://protect2.fireeye.com/v1/url?k=1b336029-7ab87530-1b32eb66-74fe485cbfec-59631fa23f87244c&q=1&e=7e2eb06f-7b14-4bec-84e5-b60bb954d80a&u=http%3A%2F%2Fdevicetree.org%2Fschemas%2Fphy%2Fstarfive%2Cjh7110-inno-hdmi-phy.yaml%23
+>> +$schema: https://protect2.fireeye.com/v1/url?k=46734e4d-27f85b54-4672c502-74fe485cbfec-9b6e35999c41723e&q=1&e=7e2eb06f-7b14-4bec-84e5-b60bb954d80a&u=http%3A%2F%2Fdevicetree.org%2Fmeta-schemas%2Fcore.yaml%23
+>> +
+>> +title: StarFive JH7110 Innosilicon INNO HDMI PHY
+>> +
+>> +maintainers:
+>> +  - Michal Wilczynski <m.wilczynski@samsung.com>
+>> +
+>> +description:
+>> +  The PHY portion of the StarFive JH7110 INNO HDMI IP.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: starfive,jh7110-inno-hdmi-phy
+>> +
+>> +  clocks:
+>> +    maxItems: 1
+>> +    description: Reference oscillator.
+> 
+> This barely counts as a resource, so usual question: no resources here?
+> no MMIO? Even the user of this phy is the block itself.
+> 
+> This makes me wonder if this should be a device node in the first place
+> (instead folded into the parent).
+
+The PHY has no reg because the reg is shared with the controller and
+owned by the parent - patch 9 lets the bridge take its regmap from
+there.
+
+The user of the PHY is not only the block itself. It is the pixel clock
+provider for the whole display subsystem, voutcrg takes hdmitx0_pixelclk
+as the parent of its DC8200 pixel MUXes, and while HDMI output is active
+it is the only intended source for that clock. The parent has to be
+assigned explicitly so the general PLL does not end up driving the pixel
+clock, and so a DSI user does not reach the HDMI PHY clock generator.
+
+So it has to be its own node. The HDMI block has two independent
+functions with different clock inputs and one of them feeds back into
+the SoC clock tree. The PHY generates hdmitx0_pixelclk which voutcrg
+consumes the controller consumes pclk/mclk/bclk from voutcrg. Folded
+into one node that node is both a provider to and a consumer of
+voutcrg which is a cycle in the hardware description, not just in Linux.
+
+> 
+> 
+> Best regards,
+> Krzysztof
+> 
+> 
+
+Best regards,
 -- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+Michal Wilczynski <m.wilczynski@samsung.com>
 
 _______________________________________________
 linux-riscv mailing list
