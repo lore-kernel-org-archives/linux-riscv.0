@@ -4,92 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A317C98321
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 14:59:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E59BC98321
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 15:01:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0vHrgxTiuD+zNWzGkB6peL1sikpjVzuavNXFQ1+2bCo=; b=V3OOf0CiKltk68
-	LFPFIyyKgILRKuGwkZmReTe5bO2CL4Gxg/BlSfzbTmnKYzMTpW9wQ/J4ADNQe37f7Yckhyapo9v0p
-	LTWVJso5YmH7BN4+O9GFqJv5E2Fc8MPYNlx+KLbYBNOHPtn0teisejyENnystH6WzbJ6ncLj/uBLN
-	cLDySZbdv86HAxfpcjRtVFADZW3AmTUuwaLUFvA99EK8T3JgSLpBusI5oiMenynTFyLJ9UvtTNCQK
-	l3fVoJg2TIBKLgLX2YcNQRxBI45r5zem/7iibRsDVZqMYy1eP4B452hnTp+wC5EQDC/XGd7K5RE8z
-	SEhwJQcG04M3X8JV4AAg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=37w3v3+E1FXypJbffCRcQpXJlQwa4/dPEK7Xm0Lz54c=; b=OJqk5V0v0nh+BPyXk6is9ui/8k
+	2ZqpY7Qzs/XG8H5kt3NVXxkU1m7Y0To3I2yIouk2SPAhYwwKC1tjDVQ0fp3tmZpgqmDFjX1eL2WNN
+	hQxPSdRSFOWsIhWK4q1XFxx43WudOP9qRxrvXt6LP49KP3/tVHD8ay2Jdh0g3BhYUPqMsh0IYvIkq
+	6S9HQB8UZStTkq2a/tIwtGzPpYQA1zVa7iaSG7Shgo6LoNjU6cSlA7HFmgTEhb5TkakHA8N4Pcg9/
+	MI/fOwHd6Nl2bu5JdmVFDs88I+iHuHC9KNXXsYnMP1+jMs2hcGCTkltshEbEa3fu3okgfisl3nrLc
+	7eC4Bujg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA7Nu-0000000DfbL-2RwX;
-	Fri, 25 Sep 2026 14:58:46 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1xA7QY-0000000DgGi-3MzO;
+	Fri, 25 Sep 2026 15:01:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA7Nq-0000000Dfa1-3z4T
+	id 1xA7QX-0000000DgGZ-1zeH
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Sep 2026 14:58:44 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49cd38e0f79so6004295e9.3
-        for <linux-riscv@lists.infradead.org>; Fri, 25 Sep 2026 07:58:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1790348321; x=1790953121; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=W3mmzkhyErUd9nhmX6bMHHacdtyTPprVFWqekxL7BwQ=;
-        b=J2Zi/dQmtz9+FtsWs0ed62F2o2Jx0/7Dct158GcIthKewdPyXsRTiZtyDGucTwDRRQ
-         xOKV3j3f+TFIrOQKtxHCUGbi1ySFuBdKf61oaR1chNmmb9v5wczjnYRQTfcreT8h6DYf
-         G/8kes8ms8vIKhno6VIX5lXbE3KdsyZgd1F7CTUuP0yKsIutbkQLk4vyMcNH/W2qc5bo
-         FlNEhst+i9Oc+c+zK4dLj+KCZ3FEwz1xYZMgugfnw673RbViFO38QUiyea/XOy8ORN0v
-         bpxSAURyVFGnRj/Ro8hzWGLU1xSY5luTWKNXwZ30l47u1rvmocnMnOBcQIEVRSz0wxw1
-         usag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790348321; x=1790953121;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=W3mmzkhyErUd9nhmX6bMHHacdtyTPprVFWqekxL7BwQ=;
-        b=JP30EGKSu606qisXeTX0tfHtd+K2Vjb4Pcw3/tupiansxVARLsTeTGZYgqLn18Cqy5
-         rJIJorww8IXb91Dz2T2B4tXT3QmDMJggQf56s5V8YbGjZ4TOyhPxfLdIjZBL1Cj5ie2V
-         I3HTfQWKGmiJLhcGCpBKfzZ9xxueXHy6oEyC/+2wS2o2p8dZOwGmC7v/h0/L/8fzsVg/
-         rBV85tprfkc8yyUCIyJSvisE967aB+gBLCXMOeuRtNpOU2nVPAyT6ONveP8Dy3XukW6m
-         YkM8IJY6+rJXGT8ebTfugVItytJEdWzUYKFf5XqtwekLCi+KvdlBI3OgBmeGMUfzNiyp
-         Nbjw==
-X-Forwarded-Encrypted: i=1; AKwUvBxEQTr74yislsB+yRG8o7D+aNnsgraWR6T9quaAbRxpEsK3Wkw8j+FsQ8m5+LAo8ps7+TgPZEt0uye5Kg==@lists.infradead.org
-X-Gm-Message-State: AFuF++lCoFjgyXX7+Qw3vTBolHsYBPzvR5r6HDhxbzZ7ETuIJN/cXNix
-	vHwuv6zH9oZoUyAExolnEPj1+GVtFKXwoXPcdsX7MboX4fsxPPsgK7GAIeX0cnS0EvPOMd0j3ZN
-	Nep/nrxc=
-X-Gm-Gg: AYBFou1DkDMzlAg0FWm1v830noVknZ2X8Lr4vrYeje9cn+RzGdDx2IToMKzHE8TQFFZ
-	Ra1ySm78TKEA6Vwu2fvhieifYr6lPbcqQ1wfm+ZJJD20ixAvFYjSuIhXTbku2HNR84k1037XcKe
-	Q0Ac+l6ew/sI9IZMIxafm96SMmGLEYYb01srmk5+ZQi544EslchyZFx/vm0be3raej1t8EP7+mQ
-	g5xKK1Ukn/BXubFYuXOWkazpdW4MG/Wc9MN+2cHB893WB9L827lk4+H88OZ1gQ7mPsDergyd5q2
-	264iGcDkWTwgHtw+vnVvURhJaIZrOIvwrPIaUr9zAh7asCIFuGH2SQHJ8QpnsCZkUWwEOnr/78i
-	/tUCurnmQAor/gWgHrARF9ny73Un05YX1X5Hu0L6zG0K5qZV6EQGoFqqsFRA0MDf+3nP/kl+BeF
-	SjcGLfrTQnoWVbQPJFt1C81STR46sgJA1OY1IKXHAuR6voPsqtGYZ7BqtUl5nr0eJ1SLcoF6Gix
-	pV2yvDWgQkivjv7Ew==
-X-Received: by 2002:a05:600c:154b:b0:49c:ed94:cdd8 with SMTP id 5b1f17b1804b1-49fe66c863cmr109626585e9.6.1790348321076;
-        Fri, 25 Sep 2026 07:58:41 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ff13b3c58sm27350435e9.0.2026.09.25.07.58.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 07:58:39 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>, Stephen Boyd
- <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet
- <jbrunet+clk@baylibre.com>, Yixun Lan <dlan@kernel.org>, Alex Elder
- <elder@riscstar.com>, Inochi Amaoto <inochiama@outlook.com>, Haylen Chu
- <heylenay@4d2.org>
-Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, Troy Mitchell
- <troy.mitchell@linux.spacemit.com>
-Subject: Re: [PATCH 0/5] clk: spacemit: preserve and safely synchronize
- firmware PLLs
-In-Reply-To: <20260909-spacemit-pll-init-v1-0-b3065ad5a4ac@linux.spacemit.com>
-References: <20260909-spacemit-pll-init-v1-0-b3065ad5a4ac@linux.spacemit.com>
-Date: Fri, 25 Sep 2026 16:58:38 +0200
-Message-ID: <1jtsnd74yp.fsf@starbuckisacylon.baylibre.com>
+	Fri, 25 Sep 2026 15:01:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E1D25423E1;
+	Fri, 25 Sep 2026 15:01:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52D3B1F000FF;
+	Fri, 25 Sep 2026 15:01:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790348488;
+	bh=DI+mmXxD7qUxnKcKdDCwsrln8WdylVQzYC7Pf1iU2YU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=APBM9T0H4epfRZuAsOSkI4OmSNz2xWx7pvMxg9LdZ/BkzFp68hZrkvzqR71QPnbQp
+	 7tiOQxHfG8mhlhK76VzWNabLKjEp0k6FqJH9sTdW9G/kG/WneOCiOHO7b+6Ha2O/KW
+	 cmOPzvDWQz3CaaBSUwimDP8xZSra3Q/Sl3qXKQw2Bb+AWrPe7++HqDtJlWYYltRnTH
+	 OBzeuMLvQKmb3WKbOm7FPjg09I/E3gVfgrrNjJGelH2tSmWlhQ2K0hQm9aXOGZ4OIT
+	 ZSQ+1/CWV3thNbcVu/ENALD6ddWwIqGdEDwBgQc0a1QD6YOdIR/ZEveZ30/6kXpnmd
+	 YVDnOcbVnM4ew==
+Date: Fri, 25 Sep 2026 16:01:24 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com
+Subject: Re: [PATCH v3 3/5] riscv: support early isa ext and use it to
+ optimize pgtable_l4|l5_enabled
+Message-ID: <20260925-hermit-unguided-6092dbf18a69@spud>
+References: <20260909150158.9313-1-jszhang@kernel.org>
+ <20260909150158.9313-4-jszhang@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_075843_030062_FBB545A7 
-X-CRM114-Status: GOOD (  15.14  )
+In-Reply-To: <20260909150158.9313-4-jszhang@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,72 +72,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4591930951246171894=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On mer. 09 sept. 2026 at 22:07, Troy Mitchell <troy.mitchell@linux.spacemit.com> wrote:
+--===============4591930951246171894==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="riYNickt+IUsKtV0"
+Content-Disposition: inline
 
-> Firmware may leave PLLs running with valid settings absent from Linux's
-> rate tables. Replacing those settings during clock registration can
-> stop CPUs that depend on them.
+--riYNickt+IUsKtV0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-A provider should not act on the clock on its own. 
+On Wed, Sep 09, 2026 at 11:01:56PM +0800, Jisheng Zhang wrote:
+> The pgtable_l4|[l5]_enabled check sits at hot code path, performance
+> is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
+> boot, we can use alternative mechanism to optimize them.
+>=20
+> So the question is whether we can add RISCV_ISA_EXT_SV48/SV5 and use
+> riscv_has_extension_*() or not. Per [1] and [2], SV48 and SV57 are ISA
+> exensions too. From another side, riscv_has_extension_[un]likely() and
+> other related functions report whether the extension is supported and
+> enabled on the platform. So SV48 and SV57 can be supported with current
+> isa extension alternative mechanism.
+>=20
+> However, to use it to optimize pgtable_l4|l5_enabled, we have support
+> the "early" characteristic, I.E besides risc_isa bitmap setting, we
+> need to support appling alternative early before MMU on.
+>=20
+> After that, use it to optimize pgtable_l4|l5_enabled.
+>=20
+> For the typical access_ok(addr, 1);
+> before the patch:
+>=20
+> ...
+> auipc	a5,0xb43
+> lbu	a5,100(a5) # ffffffff80b51f68 <pgtable_l5_enabled>
+> bnez	a5,ffffffff8000ef46 <foo+0x56>
+> auipc	a5,0xb43
+> lbu	a5,91(a5) # ffffffff80b51f69 <pgtable_l4_enabled>
+> beqz	a5,ffffffff8000ef5a <foo+0x6a>
+> ...
+>=20
+> after the patch:
+> These memory load and test branch instructions are replaced with only
+> two j or nop instructions.
+>=20
+> Initial test lmbench's lat_syscall write on TH1520 platforms shows that
+> the write syscall latency is reduced by about 2.38%.
+>=20
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> Link: https://github.com/riscv/riscv-isa-manual/blob/main/src/profiles/pr=
+ofiles.adoc [1]
+> Link: https://riscv.atlassian.net/wiki/spaces/HOME/pages/16154732/Ratifie=
+d+ISA+Extensions [2]
 
->
-> This series removes the init fallback to the first rate-table entry,
-> decodes hardware rates directly and preserves unlisted rates. Opt-in
-> synchronization applies only to differing parameters for the same
-> decoded rate.
+I don't love the early business at all, but I do prefer this diff to the
+previous one.
 
-Don't think the provider should be responsible for that
+> @@ -1147,6 +1159,8 @@ void __init riscv_fill_hwcap(void)
+>  	isa2hwcap[RISCV_ISA_EXT_C] =3D COMPAT_HWCAP_ISA_C;
+>  	isa2hwcap[RISCV_ISA_EXT_V] =3D COMPAT_HWCAP_ISA_V;
+> =20
+> +	bitmap_zero(riscv_isa, RISCV_ISA_EXT_MAX);
+> +
 
-> It temporarily moves mapped CPU consumers to validated
-> PLL1 branches and restores their parents after the reprogrammed PLL
-> locks.
+The only real gripe I have is that this should probably have a comment
+explaining why it is being zeroed. I can see reasons to zero it (fresh
+slate) and to keep it (otherwise nothing will set the sv48/sv57 bits in
+the register, since we don't actually read the associated devicetree
+properties after this point).
 
-This is typically a use case or policy choice that belong in whatever
-consumes the clock. Your DVFS driver maybe ?
+=46rom my point of view, with this niggle resolved, I'm happy with the
+code that's here but I have no opinion on whether or not this should be
+done in the first place. Conditional on the comment,
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-> PLL1 itself is not synchronized, and enabled outputs outside the
-> managed CPU paths prevent synchronization.
->
-> The series also corrects CPU divider and shared-parent modeling and
-> makes MIX rate selection agree with programming. Runtime PLL rate
-> changes still require a stopped PLL; automatic DVFS switching and new
-> rate-table entries are outside this series.
->
-> ---
-> Troy Mitchell (5):
->       clk: spacemit: derive PLL rates from hardware
->       clk: spacemit: make MIX rate selection consistent
->       clk: spacemit: describe CPU clock dividers and shared PLL muxes
->       clk: spacemit: reject rate changes to running firmware PLLs
->       clk: spacemit: safely synchronize PLL parameters during init
->
->  drivers/clk/spacemit/ccu-k1.c     |  60 +++--
->  drivers/clk/spacemit/ccu-k3.c     | 137 +++++++---
->  drivers/clk/spacemit/ccu_common.c |  12 +
->  drivers/clk/spacemit/ccu_common.h |   2 +
->  drivers/clk/spacemit/ccu_mix.c    |  35 ++-
->  drivers/clk/spacemit/ccu_mix.h    |  18 ++
->  drivers/clk/spacemit/ccu_pll.c    | 535 +++++++++++++++++++++++++++++++-------
->  drivers/clk/spacemit/ccu_pll.h    |  43 ++-
->  8 files changed, 689 insertions(+), 153 deletions(-)
-> ---
-> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-> change-id: 20260907-spacemit-pll-init-c942bb249244
->
-> Best regards,
-> --  
-> Troy Mitchell <troy.mitchell@linux.spacemit.com>
->
+Thanks,
+Conor.
 
--- 
-Jerome
+
+>  	if (!acpi_disabled) {
+>  		riscv_fill_hwcap_from_isa_string(isa2hwcap);
+>  	} else {
+
+
+--riYNickt+IUsKtV0
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaraMwwAKCRB4tDGHoIJi
+0nlxAP9aQI2jdznCg+jCY7tUqZzI3gd60ouoaT+AFmAELGGeYAEAqUvmaoS3BvOB
+WWgD6+OQ3LY0LzP7qzJrOQaSmbN2UQc=
+=FTwT
+-----END PGP SIGNATURE-----
+
+--riYNickt+IUsKtV0--
+
+
+--===============4591930951246171894==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4591930951246171894==--
+
