@@ -4,85 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F90FC9830E
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 21:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC632C9832A
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 21:53:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tRkRfKOqlP5Sb9Kx91ZLR/8TPbwKomQ98gZyOwNIR7Y=; b=e8XFDmNySgNkr3
-	9wVDGQBkXf2jB4aYgecCzAF4n6zNs3lW8tSKsrds9UXxw5B5kKmIQqDKnModDoaJJMvXhBES75TjF
-	Q/pT54um+T5emcUfpkmiSS+wiebDp/Z0f+M/U5Z39wCAbmv0PXd7Gb3BQFo/01WDouoygMuFzxZBj
-	FYjCQbx2+RhI62+8YHjiAdltBB3QFUso7e5mmvPdzq2bRn96L84g8ShBL9EWa4hbe+oJhKZFDL4zk
-	4sNmL+CY8QWIwFXWdbCaqnksmGtspmk7/dD7YF51eSzb4RM1v2uLlmeNJGP3hgwTdHtPdQrxSjyMl
-	QmKUzAlcqCGQVR8aztAA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uy+Iz0xm1IFLZF6gq5Ydi+T0M/+glIRvR1OJdkqEHlM=; b=nXCU/jMJc5OKOH
+	+4oRgj+4BKhAXvrgS/FBvl33wHLqToL7UOMjvDqrW5ywVt9tIAfwhnCOXXDDXI7IMDusazLs3dC9N
+	3ytMx24WOxL6fRus7U0bvXHcvH9IPC/k17k8nX6DmRAYVBF73QjxBkA1Arb8lHPsTLWOR4jW3OOzQ
+	EggWfw9PemfMo7Qzu0BEIijwHj1NPoiFP3pazbV0DVDIVIBv7hMXP5CieiFQQh1W+3k3+YuGdIwRI
+	3PRfY+W22oOELMB5ueHg0gcuRmiCc5r00j2VkdnfIoC3PdSCQhuU4w4ulPKM/DvoWtuChGwfNX/wc
+	mVRLWlwaEu/IN+j+swRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xADkm-0000000EWcw-1Obp;
-	Fri, 25 Sep 2026 21:46:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xADrG-0000000EXE6-0QWm;
+	Fri, 25 Sep 2026 21:53:30 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xADkl-0000000EWcK-1DVk;
-	Fri, 25 Sep 2026 21:46:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A0EA140144;
-	Fri, 25 Sep 2026 21:46:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3DD01F000FF;
-	Fri, 25 Sep 2026 21:46:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790372806;
-	bh=DKt6P2Fl5MJjmmPs8iOrbwYY7/Dy3c/10TSsSmLgIWU=;
-	h=From:Date:Subject:To:Cc;
-	b=mjOCOMxonBQrI/fWpS54CVTATTo2gTSmDIx5aJ2pamRmFgvZF5+jTtkD2lXzW8h23
-	 iCt9xJxaT8Cwn9jUJ7x5eM/8xQYEG1K7HmXFs8oPHgMXCR81FPLutdDlGc7y4/usU4
-	 WTkRzjzEgLLxiqaALt9vAiBFnSJAvkQAZ9/35jSPzYb2YPYVrSG+4I//jtfWz3gOtJ
-	 wCbBCh30deIt82y6rl6EiHrzpsl9UpbQjO+QXGPDjCdf3VC7kEQnzc/9t4B7r2mmiz
-	 vssEJMjBYYxV3di4i2cTuY2PFnbGOaiUOJudDc5wKq02b/0xINAToZSlzKZ1SBgRkC
-	 b+aQmc990kQzQ==
-From: Nathan Chancellor <nathan@kernel.org>
-Date: Fri, 25 Sep 2026 22:46:32 +0100
-Subject: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
- reserved in __cvdso_getrandom_data()
+	id 1xADrC-0000000EXD6-45ex
+	for linux-riscv@lists.infradead.org;
+	Fri, 25 Sep 2026 21:53:28 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-485ac898fa4so1081094f8f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Sep 2026 14:53:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790373204; cv=none;
+        d=google.com; s=arc-20260327;
+        b=GwCBSdXUT743naIzD8QTPPUusam7v3RuQVcgoofzO2IFnrMy9pn5VlvBVodWa+Itbn
+         ChaedP3uwwi1DkpL2E7IFFXCdO0L/hbCg3hYLD866gmws9dCuKSjwBdMsK1q0t5z5cCU
+         JiGlY+dmm2EgKEBdmpMGqT6EpiiuBr8u5auZvp2ES7ZQmzUraAIIGLhPmAQ4EIlKbuvd
+         3KU/CqXkx5uFyLFyWnngAcK9G/1KpcfK0QnMABcv8KWSs+7OJKf2U6x4YQHTpTx/1H8F
+         Ly6KDC8Ns4fSxwp+IL8N3mr/uW4rDdlhlQ+bPVAokKKvoyaop+O8fgeA3fKRakdCwrj6
+         EU2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=dVV1KtWyTLSLHpIl6BWB4AgM90d4cWInAt7fjY5duR4=;
+        fh=Z3AQwVYP9XPPOuvhhR+hSsLKbxwmP1msDuFd9OT2wTA=;
+        b=gk4istF7+EMrNryJJPj5v+jgbgzh+lZuRz/CMWUvr4Fl6mjIoYud7PijlYSL6PLmti
+         JKFKY8aRiD69cwDaPcBbspOLmxV3hibRnjyAcQ3kb1zZToSb+BTEfvo9YmLbevyqv8Ly
+         5PjoU0zLvLi/L4nOmsMDW0BL70PMjaWiQ5V7DOxdNivHbDh3OMe9jFesSVPY970CQuX6
+         xF0GQ6HPupiKRTPG4AZCyvLYvh5m+t0GSrxpX6/r+8bJ09DfuBQCSI4jjGZonkLyjwZE
+         oMHTrD3/HKoc654fiCfA01YoEKwY87mSpOo/SLXKHsMc0judx0BOgAtbKS1mkp90UjHw
+         lorA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790373204; x=1790978004; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=dVV1KtWyTLSLHpIl6BWB4AgM90d4cWInAt7fjY5duR4=;
+        b=qsiSkajhZVI37l7qokn/IGRxt/mvegbvfq0F/fVBKQyl2T79imEH2m4uQb9atDwrb/
+         V8/7Vfuo7B3AX+T4pkCeM8oA9CZmrw6k9hCtioy26wsJoUYIHcJ9JXUYH/E2Q8fCTpAK
+         Jnq5axxZ22UfLONUY+DXaOiwSKCktxq9gNqMdOivTovs3z/3IFUl0MYwePWIrroriobK
+         kaNK14sxG4pwhK2/zkX2EmqUPv/9Y3GbNsRbIQ1YMGSien3nx5MRbawlkmMKpR5jBsYT
+         7UHc4QeFuaFc/RGjG5EvKap1mjtjhjqfjTBvnzGAcW03pIVxB5Vk3J2J1mGel9K8vsFx
+         O74g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790373204; x=1790978004;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dVV1KtWyTLSLHpIl6BWB4AgM90d4cWInAt7fjY5duR4=;
+        b=DTNMzdK0WGewqaS8/WieRwQSAdKWdTOKlzx6ZJKa/7knF73ll4gHAyOHrXc9DVsTu0
+         3vgJW2edRmLsgmeQYG7FDFf5c6gACMeUSEoevVyIbvqzr11qMnN0ZKjZWMrJA+X2wn0z
+         odne6BRtiBje8fFJ5yw767n0JstF3iQNfc7dfCzPL6AjWIVy5qdwD9IEbMcX7flxKPr0
+         Tnx2i+bLYPmxLaGHRmzyppHVubXluUTQJQEkmqZK4B2TNvW1MKNHPHw66D1W/9DMmlmh
+         m2jMQURalaOtF4sXufdJy6YD2AT//r7QU3HgD6yjgRz6FFn3kdNn7Z797AvpbanhOYhw
+         Q3MA==
+X-Forwarded-Encrypted: i=1; AKwUvBxaIfgob1I50w+2S2yg7FW/ksVcMTwLTz45Caa1ALpgJlmoYejmrOmbBXfGtyZ0Sga8XQQqn1J6hEgZbQ==@lists.infradead.org
+X-Gm-Message-State: AFuF++kDa69MDOtHavJIR85KXYH0fOhIakcIYyZjevYuQ+aFE/6JiRox
+	+WMFKEEmmIkp2fiP3l0PxOZ6jhuaA+KBQa5CPJo36Zz7MAIHIozbPbogS9Y6iuGq1dP03/gMZ+l
+	hJ/4HCqPBbJVwcIc2BXmyrvRsYcxIyNCMIzgF2Ilm
+X-Gm-Gg: AYBFou2crYjmpgbLidPqUe0clQDBUmZz0Ijkk+uzTfCjec+MkXSuCOn4pVFBKxzLXtq
+	ZcEU/dM4fRfKp2gk3251U509qNmf2u3nu4KZY0SIxIPql4j2bghXuOHB+9wHSPWdBEN2Wv3U0gU
+	Rk0x4TesT60Fy22OPKpSn8gIrtyxI6btpVVRe1LxUuK4aJ69ekzh4kC62O0sGQKF8kmKoqKzHtt
+	cUQasXL8/wlGc+wxewI9RhWgmPBwUkABtzgsVyc2awcygBVg0uFr6GaTLMQZf84TdSQGoQkTYmK
+	bUCIYTbYP1RchKpPNtpwtRe1UXaTfd+IyjTFDgaUj6dduGf9CR1RgrrpB9RR3/qnySkMiop1kcM
+	7DB5JIwmG6kHV3Ltf/Aqi4/4Ef894GfowlDdiuXfpsK9GC+6qXYkIM3ys2xm0pg0HmTslNg==
+X-Received: by 2002:a5d:59c9:0:b0:488:8232:d16e with SMTP id
+ ffacd0b85a97d-4888232d398mr4215448f8f.45.1790373203169; Fri, 25 Sep 2026
+ 14:53:23 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WOQQ6CMBBFr0K6dkw7Aoor72FYVDpAlbamrY2G9
- O4CnsDlS17++zML5DUFdi5m5inpoJ1dAHcF60ZpBwKtFmbIseaNqCGp4GCg6KVVzoBMTiswZAJ
- FmKZkAEs4lqqselnzgyC2LD099fq9Va7tj8PrdqcurtOrMeoQnf9sN5JYvf+KSYCAE5cN9kiIl
- bw8yFua9s4PrM05fwFKSm2x6QAAAA==
-X-Change-ID: 20260916-vdso-getrandom-avoid-memset-llvm-24-74d45fa6031e
-To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>
-Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>, 
- WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
- "H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
- llvm@lists.linux.dev, Nathan Chancellor <nathan@kernel.org>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8506; i=nathan@kernel.org;
- h=from:subject:message-id; bh=qfYb8LExFZKhOZoo6PYdu/74pKDZe28vsCDbBPgPD0M=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDFnbXu9RDM6o0Jg05QFvWviEi/3+0srrju74P981Zgq/2
- K8vv456d5SyMIhxMciKKbJUP1Y9bmg45yzjjVOTYOawMoEMYeDiFICJvHvJ8D/avGLj8+5Nfocn
- sPIeE4lQ+qWUtcnXoez+07kPXa+bTXRk+J99+5f4t2va6xcujGQ2+XRa9aPGrBMBqyRmTn4sLnp
- S4jQDAA==
-X-Developer-Key: i=nathan@kernel.org; a=openpgp;
- fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+References: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
+In-Reply-To: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Fri, 25 Sep 2026 14:53:11 -0700
+X-Gm-Features: AclHuK_Ft21uXDV_iMRtDzCCVqU8DQdapOlwM8X7gfzinGS8ws8kiw9mFw7TZZY
+Message-ID: <CAKwvOdmuvn0LZkYEsH84hnOGTYhTtzuWs3wMARtWdTeL6dD9sA@mail.gmail.com>
+Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
+ reserved in __cvdso_getrandom_data()
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>, "Theodore Ts'o" <tytso@mit.edu>, 
+	"Jason A. Donenfeld" <Jason@zx2c4.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	llvm@lists.linux.dev
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_145327_088350_5781F254 
+X-CRM114-Status: GOOD (  33.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,206 +129,176 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-After a recent change in LLVM [1], builds with the random vDSO
-implementation, such as PowerPC and RISC-V, fail when checking the vDSO:
-
-  arch/powerpc/kernel/vdso/vdso32.so.dbg: dynamic relocations are not supported
-  arch/riscv/kernel/vdso/vdso.so.dbg: dynamic relocations are not supported
-
-memset() is now generated when zeroing params->reserved for some builds
-because LLVM has an optimization (now run in more instances) that can
-recognize at compile time when it is assigning a static value to a
-contiguous area of memory and turn that into a call to memset(). Both
-clang and GCC assume memset() is always available [2].
-
-clang provides a builtin, __builtin_memset_inline [3][4], that can be
-used to ensure an external function call is not generated when zeroing
-this memory. Use it when it is available.
-
-While GCC has no issues with the current code, it has generated memset()
-before, as seen in commit b7bad082e113 ("random: vDSO: avoid call to out
-of line memset()"). GCC 14 provides '-finline-stringops=memset' [5][6]
-with a similar guarantee to the clang builtin, so use it and
-__builtin_memset() when available.
-
-If no option is available, provide a simple memset_inline() like the one
-from lib/string.c to avoid adding an ugly ifdef.
-
-Link: https://github.com/llvm/llvm-project/commit/90cebef1411617fc3eedd359bdf00cb44b1c2439 [1]
-Link: https://gcc.gnu.org/onlinedocs/gcc-16.2.0/gcc/Standards.html#index-ffreestanding [2]
-Link: https://github.com/llvm/llvm-project/commit/38637ee477541370a90b37f149069d8e5c0c2efd [3]
-Link: https://clang.llvm.org/docs/LanguageExtensions.html#guaranteed-inlined-memset [4]
-Link: https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=1ff6d9f7428b0668cd8ab0b3e3ab94f1d733124d [5]
-Link: https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html#index-finline-stringops [6]
-Suggested-by: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
----
-Changes in v2:
-- Switch approach entirely (Jason, Nick)
-  - clang: use __builtin_memset_inline() to avoid external call
-  - GCC 14+: use __builtin_memset + -finline-stringops=memset (hence the
-    massive CC list increase)
-  - GCC < 14: no issues currently but avoid ifdef with simple memset
-    implementation
-- Link to v1: https://patch.msgid.link/20260916-vdso-getrandom-avoid-memset-llvm-24-v1-1-80a92f2e225a@kernel.org
----
- arch/arm64/kernel/vdso/Makefile     |  2 +-
- arch/loongarch/vdso/Makefile        |  1 +
- arch/powerpc/kernel/vdso/Makefile   |  1 +
- arch/riscv/kernel/vdso/Makefile     |  1 +
- arch/s390/kernel/vdso/Makefile      |  1 +
- arch/x86/entry/vdso/vdso64/Makefile |  2 +-
- init/Kconfig                        |  7 +++++++
- lib/vdso/getrandom.c                | 19 +++++++++++++++++--
- 8 files changed, 30 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
-index 7dec05dd33b7..f6619e1cb2ce 100644
---- a/arch/arm64/kernel/vdso/Makefile
-+++ b/arch/arm64/kernel/vdso/Makefile
-@@ -41,7 +41,7 @@ CC_FLAGS_REMOVE_VDSO := $(CC_FLAGS_FTRACE) -Os $(CC_FLAGS_SCS) \
- 			$(CC_FLAGS_LTO) $(CC_FLAGS_CFI) \
- 			-Wmissing-prototypes -Wmissing-declarations
- 
--CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables
-+CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables $(CONFIG_CC_OPT_INLINE_MEMSET)
- 
- CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_REMOVE_VDSO)
- CFLAGS_REMOVE_vgetrandom.o = $(CC_FLAGS_REMOVE_VDSO)
-diff --git a/arch/loongarch/vdso/Makefile b/arch/loongarch/vdso/Makefile
-index 9c9181bb4071..0b84892d084b 100644
---- a/arch/loongarch/vdso/Makefile
-+++ b/arch/loongarch/vdso/Makefile
-@@ -16,6 +16,7 @@ ccflags-vdso := \
- 	$(filter -m64,$(KBUILD_CFLAGS)) \
- 	$(filter -march=%,$(KBUILD_CFLAGS)) \
- 	$(filter -m%-float,$(KBUILD_CFLAGS)) \
-+	$(CONFIG_CC_OPT_INLINE_MEMSET) \
- 	$(CLANG_FLAGS) \
- 	-D__VDSO__
- 
-diff --git a/arch/powerpc/kernel/vdso/Makefile b/arch/powerpc/kernel/vdso/Makefile
-index 368759f81708..0d1a49529885 100644
---- a/arch/powerpc/kernel/vdso/Makefile
-+++ b/arch/powerpc/kernel/vdso/Makefile
-@@ -43,6 +43,7 @@ ccflags-y := -fno-common -fno-builtin -DBUILD_VDSO
- ccflags-y += $(DISABLE_LATENT_ENTROPY_PLUGIN)
- ccflags-y += $(call cc-option, -fno-stack-protector)
- ccflags-y += -DDISABLE_BRANCH_PROFILING
-+ccflags-y += $(CONFIG_CC_OPT_INLINE_MEMSET)
- ccflags-y += -ffreestanding -fasynchronous-unwind-tables
- ccflags-remove-y := $(CC_FLAGS_FTRACE)
- ldflags-y := -Wl,--hash-style=both -nostdlib -shared -z noexecstack $(CLANG_FLAGS)
-diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-index 8dbf2532a573..c023046a3fd7 100644
---- a/arch/riscv/kernel/vdso/Makefile
-+++ b/arch/riscv/kernel/vdso/Makefile
-@@ -36,6 +36,7 @@ endif
- ccflags-y := -fno-stack-protector
- ccflags-y += -DDISABLE_BRANCH_PROFILING
- ccflags-y += -fno-builtin
-+ccflags-y += $(CONFIG_CC_OPT_INLINE_MEMSET)
- ccflags-y += $(KBUILD_BASE_ISA)$(CFI_MARCH)
- ccflags-y += $(CFI_FULL)
- asflags-y += $(KBUILD_BASE_ISA)$(CFI_MARCH)
-diff --git a/arch/s390/kernel/vdso/Makefile b/arch/s390/kernel/vdso/Makefile
-index 35c834b895ec..54bcf2984ca1 100644
---- a/arch/s390/kernel/vdso/Makefile
-+++ b/arch/s390/kernel/vdso/Makefile
-@@ -29,6 +29,7 @@ KBUILD_CFLAGS_VDSO := $(filter-out -munaligned-symbols,$(KBUILD_CFLAGS_VDSO))
- KBUILD_CFLAGS_VDSO := $(filter-out -fno-asynchronous-unwind-tables,$(KBUILD_CFLAGS_VDSO))
- KBUILD_CFLAGS_VDSO += -fPIC -fno-common -fno-builtin -fasynchronous-unwind-tables
- KBUILD_CFLAGS_VDSO += -fno-stack-protector $(DISABLE_KSTACK_ERASE)
-+KBUILD_CFLAGS_VDSO += $(CONFIG_CC_OPT_INLINE_MEMSET)
- ldflags-y := -shared -soname=linux-vdso.so.1 \
- 	     --hash-style=both --build-id=sha1 \
- 	     $(call ld-option, --eh-frame-hdr) -T
-diff --git a/arch/x86/entry/vdso/vdso64/Makefile b/arch/x86/entry/vdso/vdso64/Makefile
-index 7c0790065b5e..c2353a065279 100644
---- a/arch/x86/entry/vdso/vdso64/Makefile
-+++ b/arch/x86/entry/vdso/vdso64/Makefile
-@@ -14,7 +14,7 @@ vobjs-$(CONFIG_X86_SGX)			+= vsgx.o
- vobjs-$(CONFIG_FUTEX_ROBUST_UNLOCK)	+= vfutex.o
- 
- # Compilation flags
--flags-y				:= -DBUILD_VDSO64 -m64 -mcmodel=small
-+flags-y				:= -DBUILD_VDSO64 -m64 -mcmodel=small $(CONFIG_CC_OPT_INLINE_MEMSET)
- 
- # The location of this include matters!
- include $(src)/../common/Makefile.include
-diff --git a/init/Kconfig b/init/Kconfig
-index 8583d9f06c52..ff3f8475dd2f 100644
---- a/init/Kconfig
-+++ b/init/Kconfig
-@@ -173,6 +173,13 @@ config CC_HAS_ALLOC_TOKEN
- config CC_HAS_MULTIDIMENSIONAL_NONSTRING
- 	def_bool $(success,echo 'char tag[][4] __attribute__((__nonstring__)) = { };' | $(CC) $(CLANG_FLAGS) -x c - -c -o /dev/null -Werror)
- 
-+config CC_HAS_OPT_INLINE_MEMSET
-+	def_bool $(cc-option,-finline-stringops=memset)
-+
-+config CC_OPT_INLINE_MEMSET
-+	string
-+	default "-finline-stringops=memset" if CC_HAS_OPT_INLINE_MEMSET
-+
- config LD_CAN_USE_KEEP_IN_OVERLAY
- 	# ld.lld prior to 21.0.0 did not support KEEP within an overlay description
- 	# https://github.com/llvm/llvm-project/pull/130661
-diff --git a/lib/vdso/getrandom.c b/lib/vdso/getrandom.c
-index 2851afa9154f..f5cad5641985 100644
---- a/lib/vdso/getrandom.c
-+++ b/lib/vdso/getrandom.c
-@@ -29,6 +29,22 @@
- 	}									\
- } while (0)
- 
-+#if __has_builtin(__builtin_memset_inline)
-+#define memset_inline(dst, value, size) __builtin_memset_inline(dst, value, size)
-+#elif IS_ENABLED(CONFIG_CC_HAS_OPT_INLINE_MEMSET)
-+#define memset_inline(dst, value, size) __builtin_memset(dst, value, size)
-+#else
-+static inline void *memset_inline(void *dst, int value, size_t size)
-+{
-+	char *d = dst;
-+
-+	while (size--)
-+		*d++ = value;
-+
-+	return d;
-+}
-+#endif
-+
- static void memcpy_and_zero_src(void *dst, void *src, size_t len)
- {
- 	if (IS_ENABLED(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS)) {
-@@ -83,8 +99,7 @@ __cvdso_getrandom_data(const struct vdso_rng_data *rng_info, void *buffer, size_
- 		params->size_of_opaque_state = sizeof(*state);
- 		params->mmap_prot = PROT_READ | PROT_WRITE;
- 		params->mmap_flags = MAP_DROPPABLE | MAP_ANONYMOUS;
--		for (size_t i = 0; i < ARRAY_SIZE(params->reserved); ++i)
--			params->reserved[i] = 0;
-+		memset_inline(params->reserved, 0, sizeof(params->reserved));
- 		return 0;
- 	}
- 
-
----
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-change-id: 20260916-vdso-getrandom-avoid-memset-llvm-24-74d45fa6031e
-
-Best regards,
---  
-Cheers,
-Nathan
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBTZXAgMjUsIDIwMjYgYXQgMjo0NuKAr1BNIE5hdGhhbiBDaGFuY2VsbG9yIDxuYXRo
+YW5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBBZnRlciBhIHJlY2VudCBjaGFuZ2UgaW4gTExWTSBb
+MV0sIGJ1aWxkcyB3aXRoIHRoZSByYW5kb20gdkRTTwo+IGltcGxlbWVudGF0aW9uLCBzdWNoIGFz
+IFBvd2VyUEMgYW5kIFJJU0MtViwgZmFpbCB3aGVuIGNoZWNraW5nIHRoZSB2RFNPOgo+Cj4gICBh
+cmNoL3Bvd2VycGMva2VybmVsL3Zkc28vdmRzbzMyLnNvLmRiZzogZHluYW1pYyByZWxvY2F0aW9u
+cyBhcmUgbm90IHN1cHBvcnRlZAo+ICAgYXJjaC9yaXNjdi9rZXJuZWwvdmRzby92ZHNvLnNvLmRi
+ZzogZHluYW1pYyByZWxvY2F0aW9ucyBhcmUgbm90IHN1cHBvcnRlZAo+Cj4gbWVtc2V0KCkgaXMg
+bm93IGdlbmVyYXRlZCB3aGVuIHplcm9pbmcgcGFyYW1zLT5yZXNlcnZlZCBmb3Igc29tZSBidWls
+ZHMKPiBiZWNhdXNlIExMVk0gaGFzIGFuIG9wdGltaXphdGlvbiAobm93IHJ1biBpbiBtb3JlIGlu
+c3RhbmNlcykgdGhhdCBjYW4KPiByZWNvZ25pemUgYXQgY29tcGlsZSB0aW1lIHdoZW4gaXQgaXMg
+YXNzaWduaW5nIGEgc3RhdGljIHZhbHVlIHRvIGEKPiBjb250aWd1b3VzIGFyZWEgb2YgbWVtb3J5
+IGFuZCB0dXJuIHRoYXQgaW50byBhIGNhbGwgdG8gbWVtc2V0KCkuIEJvdGgKPiBjbGFuZyBhbmQg
+R0NDIGFzc3VtZSBtZW1zZXQoKSBpcyBhbHdheXMgYXZhaWxhYmxlIFsyXS4KPgo+IGNsYW5nIHBy
+b3ZpZGVzIGEgYnVpbHRpbiwgX19idWlsdGluX21lbXNldF9pbmxpbmUgWzNdWzRdLCB0aGF0IGNh
+biBiZQo+IHVzZWQgdG8gZW5zdXJlIGFuIGV4dGVybmFsIGZ1bmN0aW9uIGNhbGwgaXMgbm90IGdl
+bmVyYXRlZCB3aGVuIHplcm9pbmcKPiB0aGlzIG1lbW9yeS4gVXNlIGl0IHdoZW4gaXQgaXMgYXZh
+aWxhYmxlLgo+Cj4gV2hpbGUgR0NDIGhhcyBubyBpc3N1ZXMgd2l0aCB0aGUgY3VycmVudCBjb2Rl
+LCBpdCBoYXMgZ2VuZXJhdGVkIG1lbXNldCgpCj4gYmVmb3JlLCBhcyBzZWVuIGluIGNvbW1pdCBi
+N2JhZDA4MmUxMTMgKCJyYW5kb206IHZEU086IGF2b2lkIGNhbGwgdG8gb3V0Cj4gb2YgbGluZSBt
+ZW1zZXQoKSIpLiBHQ0MgMTQgcHJvdmlkZXMgJy1maW5saW5lLXN0cmluZ29wcz1tZW1zZXQnIFs1
+XVs2XQo+IHdpdGggYSBzaW1pbGFyIGd1YXJhbnRlZSB0byB0aGUgY2xhbmcgYnVpbHRpbiwgc28g
+dXNlIGl0IGFuZAo+IF9fYnVpbHRpbl9tZW1zZXQoKSB3aGVuIGF2YWlsYWJsZS4KPgo+IElmIG5v
+IG9wdGlvbiBpcyBhdmFpbGFibGUsIHByb3ZpZGUgYSBzaW1wbGUgbWVtc2V0X2lubGluZSgpIGxp
+a2UgdGhlIG9uZQo+IGZyb20gbGliL3N0cmluZy5jIHRvIGF2b2lkIGFkZGluZyBhbiB1Z2x5IGlm
+ZGVmLgo+Cj4gTGluazogaHR0cHM6Ly9naXRodWIuY29tL2xsdm0vbGx2bS1wcm9qZWN0L2NvbW1p
+dC85MGNlYmVmMTQxMTYxN2ZjM2VlZGQzNTliZGYwMGNiNDRiMWMyNDM5IFsxXQo+IExpbms6IGh0
+dHBzOi8vZ2NjLmdudS5vcmcvb25saW5lZG9jcy9nY2MtMTYuMi4wL2djYy9TdGFuZGFyZHMuaHRt
+bCNpbmRleC1mZnJlZXN0YW5kaW5nIFsyXQo+IExpbms6IGh0dHBzOi8vZ2l0aHViLmNvbS9sbHZt
+L2xsdm0tcHJvamVjdC9jb21taXQvMzg2MzdlZTQ3NzU0MTM3MGE5MGIzN2YxNDkwNjlkOGU1YzBj
+MmVmZCBbM10KPiBMaW5rOiBodHRwczovL2NsYW5nLmxsdm0ub3JnL2RvY3MvTGFuZ3VhZ2VFeHRl
+bnNpb25zLmh0bWwjZ3VhcmFudGVlZC1pbmxpbmVkLW1lbXNldCBbNF0KPiBMaW5rOiBodHRwczov
+L2djYy5nbnUub3JnL2dpdC8/cD1nY2MuZ2l0O2E9Y29tbWl0O2g9MWZmNmQ5Zjc0MjhiMDY2OGNk
+OGFiMGIzZTNhYjk0ZjFkNzMzMTI0ZCBbNV0KPiBMaW5rOiBodHRwczovL2djYy5nbnUub3JnL29u
+bGluZWRvY3MvZ2NjL09wdGltaXplLU9wdGlvbnMuaHRtbCNpbmRleC1maW5saW5lLXN0cmluZ29w
+cyBbNl0KPiBTdWdnZXN0ZWQtYnk6ICJKYXNvbiBBLiBEb25lbmZlbGQiIDxKYXNvbkB6eDJjNC5j
+b20+Cj4gU3VnZ2VzdGVkLWJ5OiBOaWNrIERlc2F1bG5pZXJzIDxuZGVzYXVsbmllcnNAZ29vZ2xl
+LmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBOYXRoYW4gQ2hhbmNlbGxvciA8bmF0aGFuQGtlcm5lbC5v
+cmc+Cj4gLS0tCj4gQ2hhbmdlcyBpbiB2MjoKPiAtIFN3aXRjaCBhcHByb2FjaCBlbnRpcmVseSAo
+SmFzb24sIE5pY2spCj4gICAtIGNsYW5nOiB1c2UgX19idWlsdGluX21lbXNldF9pbmxpbmUoKSB0
+byBhdm9pZCBleHRlcm5hbCBjYWxsCj4gICAtIEdDQyAxNCs6IHVzZSBfX2J1aWx0aW5fbWVtc2V0
+ICsgLWZpbmxpbmUtc3RyaW5nb3BzPW1lbXNldCAoaGVuY2UgdGhlCj4gICAgIG1hc3NpdmUgQ0Mg
+bGlzdCBpbmNyZWFzZSkKPiAgIC0gR0NDIDwgMTQ6IG5vIGlzc3VlcyBjdXJyZW50bHkgYnV0IGF2
+b2lkIGlmZGVmIHdpdGggc2ltcGxlIG1lbXNldAo+ICAgICBpbXBsZW1lbnRhdGlvbgo+IC0gTGlu
+ayB0byB2MTogaHR0cHM6Ly9wYXRjaC5tc2dpZC5saW5rLzIwMjYwOTE2LXZkc28tZ2V0cmFuZG9t
+LWF2b2lkLW1lbXNldC1sbHZtLTI0LXYxLTEtODBhOTJmMmUyMjVhQGtlcm5lbC5vcmcKPiAtLS0K
+PiAgYXJjaC9hcm02NC9rZXJuZWwvdmRzby9NYWtlZmlsZSAgICAgfCAgMiArLQo+ICBhcmNoL2xv
+b25nYXJjaC92ZHNvL01ha2VmaWxlICAgICAgICB8ICAxICsKPiAgYXJjaC9wb3dlcnBjL2tlcm5l
+bC92ZHNvL01ha2VmaWxlICAgfCAgMSArCj4gIGFyY2gvcmlzY3Yva2VybmVsL3Zkc28vTWFrZWZp
+bGUgICAgIHwgIDEgKwo+ICBhcmNoL3MzOTAva2VybmVsL3Zkc28vTWFrZWZpbGUgICAgICB8ICAx
+ICsKPiAgYXJjaC94ODYvZW50cnkvdmRzby92ZHNvNjQvTWFrZWZpbGUgfCAgMiArLQo+ICBpbml0
+L0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICB8ICA3ICsrKysrKysKPiAgbGliL3Zkc28v
+Z2V0cmFuZG9tLmMgICAgICAgICAgICAgICAgfCAxOSArKysrKysrKysrKysrKysrKy0tCj4gIDgg
+ZmlsZXMgY2hhbmdlZCwgMzAgaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkKPgo+IGRpZmYg
+LS1naXQgYS9hcmNoL2FybTY0L2tlcm5lbC92ZHNvL01ha2VmaWxlIGIvYXJjaC9hcm02NC9rZXJu
+ZWwvdmRzby9NYWtlZmlsZQo+IGluZGV4IDdkZWMwNWRkMzNiNy4uZjY2MTllMWNiMmNlIDEwMDY0
+NAo+IC0tLSBhL2FyY2gvYXJtNjQva2VybmVsL3Zkc28vTWFrZWZpbGUKPiArKysgYi9hcmNoL2Fy
+bTY0L2tlcm5lbC92ZHNvL01ha2VmaWxlCj4gQEAgLTQxLDcgKzQxLDcgQEAgQ0NfRkxBR1NfUkVN
+T1ZFX1ZEU08gOj0gJChDQ19GTEFHU19GVFJBQ0UpIC1PcyAkKENDX0ZMQUdTX1NDUykgXAo+ICAg
+ICAgICAgICAgICAgICAgICAgICAgICQoQ0NfRkxBR1NfTFRPKSAkKENDX0ZMQUdTX0NGSSkgXAo+
+ICAgICAgICAgICAgICAgICAgICAgICAgIC1XbWlzc2luZy1wcm90b3R5cGVzIC1XbWlzc2luZy1k
+ZWNsYXJhdGlvbnMKPgo+IC1DQ19GTEFHU19BRERfVkRTTyA6PSAtTzIgLW1jbW9kZWw9dGlueSAt
+ZmFzeW5jaHJvbm91cy11bndpbmQtdGFibGVzCj4gK0NDX0ZMQUdTX0FERF9WRFNPIDo9IC1PMiAt
+bWNtb2RlbD10aW55IC1mYXN5bmNocm9ub3VzLXVud2luZC10YWJsZXMgJChDT05GSUdfQ0NfT1BU
+X0lOTElORV9NRU1TRVQpCj4KPiAgQ0ZMQUdTX1JFTU9WRV92Z2V0dGltZW9mZGF5Lm8gPSAkKEND
+X0ZMQUdTX1JFTU9WRV9WRFNPKQo+ICBDRkxBR1NfUkVNT1ZFX3ZnZXRyYW5kb20ubyA9ICQoQ0Nf
+RkxBR1NfUkVNT1ZFX1ZEU08pCj4gZGlmZiAtLWdpdCBhL2FyY2gvbG9vbmdhcmNoL3Zkc28vTWFr
+ZWZpbGUgYi9hcmNoL2xvb25nYXJjaC92ZHNvL01ha2VmaWxlCj4gaW5kZXggOWM5MTgxYmI0MDcx
+Li4wYjg0ODkyZDA4NGIgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9sb29uZ2FyY2gvdmRzby9NYWtlZmls
+ZQo+ICsrKyBiL2FyY2gvbG9vbmdhcmNoL3Zkc28vTWFrZWZpbGUKPiBAQCAtMTYsNiArMTYsNyBA
+QCBjY2ZsYWdzLXZkc28gOj0gXAo+ICAgICAgICAgJChmaWx0ZXIgLW02NCwkKEtCVUlMRF9DRkxB
+R1MpKSBcCj4gICAgICAgICAkKGZpbHRlciAtbWFyY2g9JSwkKEtCVUlMRF9DRkxBR1MpKSBcCj4g
+ICAgICAgICAkKGZpbHRlciAtbSUtZmxvYXQsJChLQlVJTERfQ0ZMQUdTKSkgXAo+ICsgICAgICAg
+JChDT05GSUdfQ0NfT1BUX0lOTElORV9NRU1TRVQpIFwKPiAgICAgICAgICQoQ0xBTkdfRkxBR1Mp
+IFwKPiAgICAgICAgIC1EX19WRFNPX18KPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Bvd2VycGMva2Vy
+bmVsL3Zkc28vTWFrZWZpbGUgYi9hcmNoL3Bvd2VycGMva2VybmVsL3Zkc28vTWFrZWZpbGUKPiBp
+bmRleCAzNjg3NTlmODE3MDguLjBkMWE0OTUyOTg4NSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Bvd2Vy
+cGMva2VybmVsL3Zkc28vTWFrZWZpbGUKPiArKysgYi9hcmNoL3Bvd2VycGMva2VybmVsL3Zkc28v
+TWFrZWZpbGUKPiBAQCAtNDMsNiArNDMsNyBAQCBjY2ZsYWdzLXkgOj0gLWZuby1jb21tb24gLWZu
+by1idWlsdGluIC1EQlVJTERfVkRTTwo+ICBjY2ZsYWdzLXkgKz0gJChESVNBQkxFX0xBVEVOVF9F
+TlRST1BZX1BMVUdJTikKPiAgY2NmbGFncy15ICs9ICQoY2FsbCBjYy1vcHRpb24sIC1mbm8tc3Rh
+Y2stcHJvdGVjdG9yKQo+ICBjY2ZsYWdzLXkgKz0gLURESVNBQkxFX0JSQU5DSF9QUk9GSUxJTkcK
+PiArY2NmbGFncy15ICs9ICQoQ09ORklHX0NDX09QVF9JTkxJTkVfTUVNU0VUKQo+ICBjY2ZsYWdz
+LXkgKz0gLWZmcmVlc3RhbmRpbmcgLWZhc3luY2hyb25vdXMtdW53aW5kLXRhYmxlcwo+ICBjY2Zs
+YWdzLXJlbW92ZS15IDo9ICQoQ0NfRkxBR1NfRlRSQUNFKQo+ICBsZGZsYWdzLXkgOj0gLVdsLC0t
+aGFzaC1zdHlsZT1ib3RoIC1ub3N0ZGxpYiAtc2hhcmVkIC16IG5vZXhlY3N0YWNrICQoQ0xBTkdf
+RkxBR1MpCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3Zkc28vTWFrZWZpbGUgYi9h
+cmNoL3Jpc2N2L2tlcm5lbC92ZHNvL01ha2VmaWxlCj4gaW5kZXggOGRiZjI1MzJhNTczLi5jMDIz
+MDQ2YTNmZDcgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9NYWtlZmlsZQo+
+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Zkc28vTWFrZWZpbGUKPiBAQCAtMzYsNiArMzYsNyBA
+QCBlbmRpZgo+ICBjY2ZsYWdzLXkgOj0gLWZuby1zdGFjay1wcm90ZWN0b3IKPiAgY2NmbGFncy15
+ICs9IC1ERElTQUJMRV9CUkFOQ0hfUFJPRklMSU5HCj4gIGNjZmxhZ3MteSArPSAtZm5vLWJ1aWx0
+aW4KPiArY2NmbGFncy15ICs9ICQoQ09ORklHX0NDX09QVF9JTkxJTkVfTUVNU0VUKQo+ICBjY2Zs
+YWdzLXkgKz0gJChLQlVJTERfQkFTRV9JU0EpJChDRklfTUFSQ0gpCj4gIGNjZmxhZ3MteSArPSAk
+KENGSV9GVUxMKQo+ICBhc2ZsYWdzLXkgKz0gJChLQlVJTERfQkFTRV9JU0EpJChDRklfTUFSQ0gp
+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvczM5MC9rZXJuZWwvdmRzby9NYWtlZmlsZSBiL2FyY2gvczM5
+MC9rZXJuZWwvdmRzby9NYWtlZmlsZQo+IGluZGV4IDM1YzgzNGI4OTVlYy4uNTRiY2YyOTg0Y2Ex
+IDEwMDY0NAo+IC0tLSBhL2FyY2gvczM5MC9rZXJuZWwvdmRzby9NYWtlZmlsZQo+ICsrKyBiL2Fy
+Y2gvczM5MC9rZXJuZWwvdmRzby9NYWtlZmlsZQo+IEBAIC0yOSw2ICsyOSw3IEBAIEtCVUlMRF9D
+RkxBR1NfVkRTTyA6PSAkKGZpbHRlci1vdXQgLW11bmFsaWduZWQtc3ltYm9scywkKEtCVUlMRF9D
+RkxBR1NfVkRTTykpCj4gIEtCVUlMRF9DRkxBR1NfVkRTTyA6PSAkKGZpbHRlci1vdXQgLWZuby1h
+c3luY2hyb25vdXMtdW53aW5kLXRhYmxlcywkKEtCVUlMRF9DRkxBR1NfVkRTTykpCj4gIEtCVUlM
+RF9DRkxBR1NfVkRTTyArPSAtZlBJQyAtZm5vLWNvbW1vbiAtZm5vLWJ1aWx0aW4gLWZhc3luY2hy
+b25vdXMtdW53aW5kLXRhYmxlcwo+ICBLQlVJTERfQ0ZMQUdTX1ZEU08gKz0gLWZuby1zdGFjay1w
+cm90ZWN0b3IgJChESVNBQkxFX0tTVEFDS19FUkFTRSkKPiArS0JVSUxEX0NGTEFHU19WRFNPICs9
+ICQoQ09ORklHX0NDX09QVF9JTkxJTkVfTUVNU0VUKQo+ICBsZGZsYWdzLXkgOj0gLXNoYXJlZCAt
+c29uYW1lPWxpbnV4LXZkc28uc28uMSBcCj4gICAgICAgICAgICAgIC0taGFzaC1zdHlsZT1ib3Ro
+IC0tYnVpbGQtaWQ9c2hhMSBcCj4gICAgICAgICAgICAgICQoY2FsbCBsZC1vcHRpb24sIC0tZWgt
+ZnJhbWUtaGRyKSAtVAo+IGRpZmYgLS1naXQgYS9hcmNoL3g4Ni9lbnRyeS92ZHNvL3Zkc282NC9N
+YWtlZmlsZSBiL2FyY2gveDg2L2VudHJ5L3Zkc28vdmRzbzY0L01ha2VmaWxlCj4gaW5kZXggN2Mw
+NzkwMDY1YjVlLi5jMjM1M2EwNjUyNzkgMTAwNjQ0Cj4gLS0tIGEvYXJjaC94ODYvZW50cnkvdmRz
+by92ZHNvNjQvTWFrZWZpbGUKPiArKysgYi9hcmNoL3g4Ni9lbnRyeS92ZHNvL3Zkc282NC9NYWtl
+ZmlsZQo+IEBAIC0xNCw3ICsxNCw3IEBAIHZvYmpzLSQoQ09ORklHX1g4Nl9TR1gpICAgICAgICAg
+ICAgICAgICAgICAgICArPSB2c2d4Lm8KPiAgdm9ianMtJChDT05GSUdfRlVURVhfUk9CVVNUX1VO
+TE9DSykgICAgKz0gdmZ1dGV4Lm8KPgo+ICAjIENvbXBpbGF0aW9uIGZsYWdzCj4gLWZsYWdzLXkg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDo9IC1EQlVJTERfVkRTTzY0IC1tNjQgLW1j
+bW9kZWw9c21hbGwKPiArZmxhZ3MteSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOj0g
+LURCVUlMRF9WRFNPNjQgLW02NCAtbWNtb2RlbD1zbWFsbCAkKENPTkZJR19DQ19PUFRfSU5MSU5F
+X01FTVNFVCkKPgo+ICAjIFRoZSBsb2NhdGlvbiBvZiB0aGlzIGluY2x1ZGUgbWF0dGVycyEKPiAg
+aW5jbHVkZSAkKHNyYykvLi4vY29tbW9uL01ha2VmaWxlLmluY2x1ZGUKPiBkaWZmIC0tZ2l0IGEv
+aW5pdC9LY29uZmlnIGIvaW5pdC9LY29uZmlnCj4gaW5kZXggODU4M2Q5ZjA2YzUyLi5mZjNmODQ3
+NWRkMmYgMTAwNjQ0Cj4gLS0tIGEvaW5pdC9LY29uZmlnCj4gKysrIGIvaW5pdC9LY29uZmlnCj4g
+QEAgLTE3Myw2ICsxNzMsMTMgQEAgY29uZmlnIENDX0hBU19BTExPQ19UT0tFTgo+ICBjb25maWcg
+Q0NfSEFTX01VTFRJRElNRU5TSU9OQUxfTk9OU1RSSU5HCj4gICAgICAgICBkZWZfYm9vbCAkKHN1
+Y2Nlc3MsZWNobyAnY2hhciB0YWdbXVs0XSBfX2F0dHJpYnV0ZV9fKChfX25vbnN0cmluZ19fKSkg
+PSB7IH07JyB8ICQoQ0MpICQoQ0xBTkdfRkxBR1MpIC14IGMgLSAtYyAtbyAvZGV2L251bGwgLVdl
+cnJvcikKPgo+ICtjb25maWcgQ0NfSEFTX09QVF9JTkxJTkVfTUVNU0VUCj4gKyAgICAgICBkZWZf
+Ym9vbCAkKGNjLW9wdGlvbiwtZmlubGluZS1zdHJpbmdvcHM9bWVtc2V0KQo+ICsKPiArY29uZmln
+IENDX09QVF9JTkxJTkVfTUVNU0VUCj4gKyAgICAgICBzdHJpbmcKPiArICAgICAgIGRlZmF1bHQg
+Ii1maW5saW5lLXN0cmluZ29wcz1tZW1zZXQiIGlmIENDX0hBU19PUFRfSU5MSU5FX01FTVNFVAo+
+ICsKPiAgY29uZmlnIExEX0NBTl9VU0VfS0VFUF9JTl9PVkVSTEFZCj4gICAgICAgICAjIGxkLmxs
+ZCBwcmlvciB0byAyMS4wLjAgZGlkIG5vdCBzdXBwb3J0IEtFRVAgd2l0aGluIGFuIG92ZXJsYXkg
+ZGVzY3JpcHRpb24KPiAgICAgICAgICMgaHR0cHM6Ly9naXRodWIuY29tL2xsdm0vbGx2bS1wcm9q
+ZWN0L3B1bGwvMTMwNjYxCj4gZGlmZiAtLWdpdCBhL2xpYi92ZHNvL2dldHJhbmRvbS5jIGIvbGli
+L3Zkc28vZ2V0cmFuZG9tLmMKPiBpbmRleCAyODUxYWZhOTE1NGYuLmY1Y2FkNTY0MTk4NSAxMDA2
+NDQKPiAtLS0gYS9saWIvdmRzby9nZXRyYW5kb20uYwo+ICsrKyBiL2xpYi92ZHNvL2dldHJhbmRv
+bS5jCj4gQEAgLTI5LDYgKzI5LDIyIEBACj4gICAgICAgICB9ICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gIH0g
+d2hpbGUgKDApCj4KPiArI2lmIF9faGFzX2J1aWx0aW4oX19idWlsdGluX21lbXNldF9pbmxpbmUp
+Cj4gKyNkZWZpbmUgbWVtc2V0X2lubGluZShkc3QsIHZhbHVlLCBzaXplKSBfX2J1aWx0aW5fbWVt
+c2V0X2lubGluZShkc3QsIHZhbHVlLCBzaXplKQo+ICsjZWxpZiBJU19FTkFCTEVEKENPTkZJR19D
+Q19IQVNfT1BUX0lOTElORV9NRU1TRVQpCj4gKyNkZWZpbmUgbWVtc2V0X2lubGluZShkc3QsIHZh
+bHVlLCBzaXplKSBfX2J1aWx0aW5fbWVtc2V0KGRzdCwgdmFsdWUsIHNpemUpCj4gKyNlbHNlCj4g
+K3N0YXRpYyBpbmxpbmUgdm9pZCAqbWVtc2V0X2lubGluZSh2b2lkICpkc3QsIGludCB2YWx1ZSwg
+c2l6ZV90IHNpemUpCj4gK3sKPiArICAgICAgIGNoYXIgKmQgPSBkc3Q7Cj4gKwo+ICsgICAgICAg
+d2hpbGUgKHNpemUtLSkKPiArICAgICAgICAgICAgICAgKmQrKyA9IHZhbHVlOwo+ICsKPiArICAg
+ICAgIHJldHVybiBkOwo+ICt9Cj4gKyNlbmRpZgoKRG9lcyB0aGlzIHdvcms/Cmh0dHBzOi8vZ29k
+Ym9sdC5vcmcvei9UeDZFYUdNZmIKCihTb3JyeSwgSSBfc2hvdWxkXyBoYXZlIHJlcGxpZWQgdG8g
+SmFzb24gb24gVjEuIEknbSBub3QgaWdub3JpbmcgaGltLApqdXN0IHdheSBiZWhpbmQgb24gbXkg
+Y29kZSByZXZpZXdzLiBTb3JyeSEpCgo+ICsKPiAgc3RhdGljIHZvaWQgbWVtY3B5X2FuZF96ZXJv
+X3NyYyh2b2lkICpkc3QsIHZvaWQgKnNyYywgc2l6ZV90IGxlbikKPiAgewo+ICAgICAgICAgaWYg
+KElTX0VOQUJMRUQoQ09ORklHX0hBVkVfRUZGSUNJRU5UX1VOQUxJR05FRF9BQ0NFU1MpKSB7Cj4g
+QEAgLTgzLDggKzk5LDcgQEAgX19jdmRzb19nZXRyYW5kb21fZGF0YShjb25zdCBzdHJ1Y3QgdmRz
+b19ybmdfZGF0YSAqcm5nX2luZm8sIHZvaWQgKmJ1ZmZlciwgc2l6ZV8KPiAgICAgICAgICAgICAg
+ICAgcGFyYW1zLT5zaXplX29mX29wYXF1ZV9zdGF0ZSA9IHNpemVvZigqc3RhdGUpOwo+ICAgICAg
+ICAgICAgICAgICBwYXJhbXMtPm1tYXBfcHJvdCA9IFBST1RfUkVBRCB8IFBST1RfV1JJVEU7Cj4g
+ICAgICAgICAgICAgICAgIHBhcmFtcy0+bW1hcF9mbGFncyA9IE1BUF9EUk9QUEFCTEUgfCBNQVBf
+QU5PTllNT1VTOwo+IC0gICAgICAgICAgICAgICBmb3IgKHNpemVfdCBpID0gMDsgaSA8IEFSUkFZ
+X1NJWkUocGFyYW1zLT5yZXNlcnZlZCk7ICsraSkKPiAtICAgICAgICAgICAgICAgICAgICAgICBw
+YXJhbXMtPnJlc2VydmVkW2ldID0gMDsKPiArICAgICAgICAgICAgICAgbWVtc2V0X2lubGluZShw
+YXJhbXMtPnJlc2VydmVkLCAwLCBzaXplb2YocGFyYW1zLT5yZXNlcnZlZCkpOwo+ICAgICAgICAg
+ICAgICAgICByZXR1cm4gMDsKPiAgICAgICAgIH0KPgo+Cj4gLS0tCj4gYmFzZS1jb21taXQ6IGNl
+ZTkzOTVhY2Q4MDQzYmUwNjQ0YjI1YzM0YmZhODY2MjNmMmI5MzUKPiBjaGFuZ2UtaWQ6IDIwMjYw
+OTE2LXZkc28tZ2V0cmFuZG9tLWF2b2lkLW1lbXNldC1sbHZtLTI0LTc0ZDQ1ZmE2MDMxZQo+Cj4g
+QmVzdCByZWdhcmRzLAo+IC0tCj4gQ2hlZXJzLAo+IE5hdGhhbgo+CgoKLS0gClRoYW5rcywKfk5p
+Y2sgRGVzYXVsbmllcnMKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
