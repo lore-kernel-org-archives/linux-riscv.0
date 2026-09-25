@@ -4,58 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F8E0CA5FB2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5861CA5FB3
 	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 01:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SFAClDRpEcxQryvLyjvuXfvCOOI1lYaGPxVPjbQpJME=; b=VAXI3vkMIGW40s
-	3wEMwLYV2OUWrQctC78FgxOKIxoPyoGyWQ2/VT4pJsgTae/mLfnh8q9dIPy0oyDA2WJdmlHAgSRk4
-	UlqTYp1AFirL49oK97QwRdk2ZBuK8ks8HCA5p+dfnmpfkwvacQd5mryii9tVZUnECCPDfISoRlX9V
-	SGo+vcI6uJHXl+QVOYlHYRXUxcw24y4RyYvXPJgSbE5E2ocMCSN4kJZ5BC2NXsSj4FZf7SAbKBsrX
-	wiDEGBwqzhlj0xqj3jMQrH+lX/oA6uGW34MyQ/R1FqDaJQPBnguNcdqsj5MA0PMMABeLGt6iRbrSj
-	u/aVX/4mhn282js5OqnA==;
+	List-Owner; bh=CPUiD8Nz6BbMvs9Dr45Ny6hwEIRXhkC42kbxxixOqTQ=; b=NROoG2biIO+ImI
+	2peUIJRD09aS8jY55HU+5EGN983BtTbhwHYVSL6TJzxD0S7Gr19S56fABPRqXdvcecdCS4SasjZh0
+	eVZdsqbS6jaoB/OFNn7id841JuK51mmxFyD7NinPbE9mmXeQMOS4zY9Egsep/5H8sNIz05aLYPTHZ
+	yrPHKfJwHLP0mPK2gBfoe2KkLj/I+Fm6r2dwqAEZqxG9tWYzrnKAAb3PAoS8KsnibX0/KsgFd29Ns
+	c+JJTXKvqZ9/AoRNyunarx++nbzAsT3nmKVvbqcdydTfjIxMfrUmBjed91hugmtVBu/HLJjBsogwO
+	KEIPwZZKHx4Zv883PA4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBMNI-000000020fI-2oAF;
-	Tue, 29 Sep 2026 01:11:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBMNH-000000020eX-1lku;
+	Tue, 29 Sep 2026 01:11:15 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xASMR-0000000FSQ2-2RCk;
-	Sat, 26 Sep 2026 13:22:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DAC1D60514;
-	Sat, 26 Sep 2026 13:22:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B984F1F000FF;
-	Sat, 26 Sep 2026 13:22:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790428957;
-	bh=Ho6ODA6dlgcOvdPnhowd9GgmBiom3Zlo2XTvzY/VTW0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gn1PEczgsD5J29kex3G7noDS0spUTsU0srsr+zO1nZZFuyKKVJFH88OWSVdctFAta
-	 v7+cMia70kZ1YiuCIVpgK+S7YUkcgPcfUscXxMIVNy2T0tNen4vpOI9UIX+1BDQbbc
-	 ePRW1SWCr2qEbUMLcslI3kLtHSdkz6HzShrhvUDCAIXM9cTBfN59vnzkvSpAY5sH1A
-	 HiO3kEDoHq52UM6A/hwkWmFG1rbuJuaaijRW4+S7BnYNa61yNGGxIUvVs8xVjcKOaU
-	 2ZsrOuBc7LttfpdBhGRS97sgpAQW2anj2l9mfgb3mnYHtFFH+/VpzMj5GLRW0f0MCb
-	 rDkMkQL9UaUiA==
-Date: Sat, 26 Sep 2026 14:22:06 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, "Vlastimil Babka (SUSE)" <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, "David Hildenbrand (Red Hat)" <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, "Kirill A. Shutemov" <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Jaya Kumar <jayalk@intworks.biz>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, peterx <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Dave Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>, Nicholas Piggin <npiggin@gmail.com>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, Matthew Wilcox <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S . Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, 
- Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-usb@vger.kernel.org, linux-rdma@vger.kernel.org, selinux@vger.kernel.org, linux-sound@vger.kernel.org, bpf@vger.kernel.org, linux-scsi@vger.kernel.org, linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>, linux-fsdevel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, fuse-devel@lists.linux.dev, Takashi Iwai <tiwai@suse.de>, Emil Tsalapatis <emil@etsalapatis.com>
-Subject: Re: [PATCH v3 00/40] mm: make VMA flag semantics explicit, eliminate
- VM_SPECIAL
-Message-ID: <arfGmNiEngnO3JKm@gremlin>
-References: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-0-4583d8a23bca@kernel.org>
- <d4d7d4c2-a1d5-41d0-b1c8-8ea0cc5a0397@app.fastmail.com>
- <areSEI5pWBadkqIe@gremlin>
- <408aef6e-5b0a-482f-8ba8-f8c20ee870e5@app.fastmail.com>
+	id 1xA0TE-0000000ColL-49SZ
+	for linux-riscv@lists.infradead.org;
+	Fri, 25 Sep 2026 07:35:50 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-6aa13d8d9d0so7217a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Sep 2026 00:35:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790321747; cv=none;
+        d=google.com; s=arc-20260327;
+        b=eswrHU1P+98x5guhdnL6D0P2fgG66vzSqpoav7iZy8DLdFNViullpDbniMDg3U4c+i
+         iCPXaTPIbIoGRiL6Zsh+Jw0uKSJ1lzIsoHG7tbvZGnFxFXqB6jcjUxim9NODwBli3bbd
+         4uQ2CheoJlivqXdoAKuuH0lk3QUa8b9GXUErbYzjsa153avK9BNt3Gyg2L5iSa0FH9de
+         p7ue/SNN0GJc46/72zCwCWHC+u3tNte20f2HaXElDU5mhOnEdfWzjW+FwC4A9c6l5vMt
+         MuFHqEmRwEVjgANywDSbjvI6gDEFkx6SZk0naVCRG08slXcao9z9LuUoSyHn8Hyo5u4M
+         D/Ig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=TiarA2FI5/GYv9nr9lV3Ck7oSnVRWS2NuO02/gM+R5Q=;
+        fh=s65Ph5gnBVGZC0AmhyyAfgcBJi0LWy/vTgscOySZ1CY=;
+        b=baXQ7AL2kMUKwMDqPEXgvcqoXJVKMYj2mSV+ou1OKjhdz2w3m9BTwalU7n60DjlA++
+         eEeP3juJS7fGPv+xslX9V+BAc2Lib9aYgOssbyIWDyeq8zeiJLt69L/Ujdj+QtDRtZpi
+         7yE7vvkbOwrssvydPecOOYHK3yp9pjU6XC/J2DxnEdILFW0//oJ6kHIE4FFJJYCJON78
+         zYTE4O5bnsz/4DRte6NdXjkCIJ9Ib9/T1LM2BxEGQ51uXYTaSX1F79/RlExJHU305RKo
+         wu6ALRjImVRG/kvNW72AcWz2kpyJ5MK5OuCUGKWbOvghcUIqbUFybFUaLeNiJPcKtKma
+         R41g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790321747; x=1790926547; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=TiarA2FI5/GYv9nr9lV3Ck7oSnVRWS2NuO02/gM+R5Q=;
+        b=e2tScsc+xfvGCacmq2oAOi0XvvXyZlQsGt0HdVlrBQ+CuH+1DUdKcp18nw7hNdBK0N
+         JleYv57wXXWiJ4Bq+MBhYITv6B/fhm7B9avk9MX8+FJQPePv+2gh0ANTGxeg/OgSZEsU
+         LEjH7DV7rxdG4TX/Sw+BFvH1NMevA1Brgl0An7CaWHFQobjdJ1yKCQwmd4ga+gxTOxEB
+         uFER77vtuznXX+d/637c9e/BxCk5pOX1SbMolcAZDB36VjZ8AQClMhFUEG8bZLarB4R5
+         YR5K/RWkEdzf+VVdlEnzHEWpiuZlkI1Wn4jGSSijSWmGwkD7hfUeWrn0N1qIpzV9p78m
+         7kbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790321747; x=1790926547;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TiarA2FI5/GYv9nr9lV3Ck7oSnVRWS2NuO02/gM+R5Q=;
+        b=Q2q3sL7oRcCQOtz/12qRZ/ZBjA4Cn3++c0bN8Qrm51FN1SDxqfPG5LoaF+KO83rD9A
+         w150qYpIKVkor3u9k9tAr0H1QxiNYXHDTkMYxOCduMeDbKFxpX+HOIppNufEu08CczK8
+         hrB9L2vLUtkbC/n+rJMhy1FZWpnaFu3Vme27NRK646hABZJN4es251Ht5SWg0RxOypnS
+         /ZQEj+c22KFoxv1VAg2cfPcuQVCo8z7Q+XAv4z85jQoztad/aLJL7/ooCHrjanA9wv7x
+         xI6FAKPD1+11AmYxB4m2yrOWJipweVIAWpmQpWGROtEDQzh6S6potWrN3Z8JV4UGKg9r
+         MivQ==
+X-Forwarded-Encrypted: i=1; AKwUvByvy/DZktcOpm8aFl7YLp1E6Eos8qxptfzcWQ2jYJUnvJVljfIH4TqHzmn45i2nu898WIcm2JbQznDDVQ==@lists.infradead.org
+X-Gm-Message-State: AFuF++l+sq1Byd231CPDyJwRw4XDQPFBgCcgEwZ2J66vvQEcVtVeZVcE
+	8cm1xHRGyJBBOpFTDRUkxNDnQrLjftBR/ClhfuaXO1OPBoQGJp6l+7hMjFQslryRGy7mRA3Do3u
+	pW9xcdbsZa3QfYhILyKwvsPxJs0VjRla+e1cEbB6/
+X-Gm-Gg: AYBFou0WVJDQ/HLFiWXGwNv6nQrJyJJXFBGUgAhwM0zuwETTsbIdSGsYCDRWu8zaRaR
+	7etYGMxudgFyFvFnjBnFA1+s8Vj8aYbucfsWyBvNdsUX+4WgREYDOfpfX3foqqeGmSbFmub3UlY
+	T1E8HXYtPvoSiq6aq9NNxvRD0Awy4iwg9QVVIOvrPuy/baZobjPOiCSYtLg0OeQTJIn+EMLl4hc
+	wMMDxnDaY2yT1cLocsq+HNlpBQx2rp+IJral3z7e4DgXjWmVlj74T0c3O3pWumx5gNe5NXSTnFu
+	Jk/ZRmqgw+lOsZSX8rVGgfhwnptK7o87GciutbGCqxKHxXrRhVdf6i1p+1ZUMwpf
+X-Received: by 2002:aa7:c64c:0:b0:6aa:e332:b762 with SMTP id
+ 4fb4d7f45d1cf-6aae49c58f0mr23500a12.8.1790321746110; Fri, 25 Sep 2026
+ 00:35:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <408aef6e-5b0a-482f-8ba8-f8c20ee870e5@app.fastmail.com>
+References: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-0-4583d8a23bca@kernel.org>
+ <20260917-b4-mmap-prepare-vma-flag-sanify-v3-6-4583d8a23bca@kernel.org> <DLNSNQP7L4FM.1JZQ0GS9300H9@nvidia.com>
+In-Reply-To: <DLNSNQP7L4FM.1JZQ0GS9300H9@nvidia.com>
+From: Suren Baghdasaryan <surenb@google.com>
+Date: Fri, 25 Sep 2026 00:35:33 -0700
+X-Gm-Features: AclHuK_NuiQlFRW78Nf23QbG4E3oej6nx-ZjiAb0IRRSHloLT2xGmv-6NXWsN8E
+Message-ID: <CAJuCfpHpo58c6eOPY_CvP+ts2zwXQEDNX2bohXd0CBANYWrBWQ@mail.gmail.com>
+Subject: Re: [PATCH v3 06/40] mm: make map_kernel_pages_[prepare,complete]
+ internal and unexported
+To: Zi Yan <ziy@nvidia.com>
+Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Jaya Kumar <jayalk@intworks.biz>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>, linux-mm@kvack.org, 
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-usb@vger.kernel.org, linux-rdma@vger.kernel.org, selinux@vger.kernel.org, linux-sound@vger.kernel.org, bpf@vger.kernel.org, linux-scsi@vger.kernel.org, linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, linux-arch@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, fuse-devel@lists.linux.dev
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_003549_059718_ADCB4F3D 
+X-CRM114-Status: GOOD (  19.30  )
 X-Mailman-Approved-At: Mon, 28 Sep 2026 18:11:13 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,176 +115,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 26, 2026 at 03:06:33PM +0200, Arnd Bergmann wrote:
-> On Sat, Sep 26, 2026, at 11:40, Lorenzo Stoakes (ARM) wrote:
-> > On Sat, Sep 26, 2026 at 12:06:22AM +0200, Arnd Bergmann wrote:
-> >>
-> >> mm/vma.c: In function '__mmap_region':
-> >> mm/vma.c:3083:1: error: the frame size of 1552 bytes is larger than 1536 bytes [-Werror=frame-larger-than=]
-> >>
-> >> I don't immediately see anything that you did that would have introduced
-> >> something bad that wasn't already there, so it's likely just gone from
-> >> just below the limit I was using for my testing to just above. The 1536
-> >> byte limit is what I use on 64-bit builds with KASAN and otherwise
-> >> still has a clean build (with a small number of local fixup patches).
-> >
-> > Hmm are you specifying this limit manually somehow?
->
-> It's a Kconfig setting upstream, but the way I'm doing it is to have
-> patch that calculates a sensible default based on other options that
-> is a little smaller than the default (currently 2048 bytes) on x86-64
-> to catch more cases where something sticks out.
-
-I see.
-
-So this is an early warning more or less :)
-
->
-> >> If I sprinkle some 'noinline_for_stack' annotations on functions
-> >> called by __mmap_region(), I can get the size down to 1144 in this
-> >> config, but that doesn't sound like a great workaround.
-> >>
-> >> The large stack usage is potentially harmful if this ends up
-> >> in call chains that have additional large stack usage (e.g.
-> >> kmalloc() leading to reclaim). Any ideas for how to reduce it here?
-> >
-> > That can never happen :) this call chain is _only_ for an mmap() call.
->
-> I mean more functions called /from/ here, something like
->
->   __mmap_region()
->   __mmap_new_vma()
->   vm_area_alloc()
->   kmem_cache_alloc(..., GFP_KERNEL)
->   slab_alloc_node()
->   allocate_slab()
->   alloc_slab_page()
->   __alloc_pages_slowpath()
->   __alloc_pages_direct_reclaim()
->   __perform_reclaim()
->   try_to_free_pages()
->   shrink_zones()
->   shrink_node()
->   lru_gen_shrink_node()
->   shrink_many()
->   shrink_one()
->   try_to_shrink_lruvec()
->   evict_folios()
->   shrink_folio_list()
->   pageout()
->   shmem_writeout()
->   swap_writeout()
->   swap_add_folio()
->   swap_write_submit()
->   nfs_swap_submit_write()
->   nfs_file_direct_write()
->   nfs_direct_extract_pages()
->   nfs_do_recoalesce()
->   __nfs_pageio_add_request()
->   nfs_pageio_doio()
->   pnfs_generic_pg_writepages()
->   pnfs_do_write()
->   pnfs_try_to_write_data()
->   filelayout_write_pagelist()
->   nfs_initiate_pgio()
->   nfs_local_doio()
->   nfs_local_do_write()
->   nfs_local_call_write()
->   ->write_iter()
->   generic_file_write_iter()
->   generic_write_sync()
->   vfs_fsync_range()
->   ->fsync()
->   xfs_file_fsync()
->   file_write_and_wait_range()
->   filemap_fdatawrite_range()
->   filemap_writeback()
->   do_writepages()
->   ->writepages()
->   xfs_vm_writepages()
->   iomap_writepages()
->   iomap_writeback_folio()
->   iomap_writeback_range()
->   ->writeback_range()
->   xfs_zoned_writeback_range()
->   iomap_add_to_ioend()
->   ->writeback_submit()
->   xfs_zoned_writeback_submit()
->   xfs_zone_alloc_and_submit()
->   xfs_submit_zoned_bio()
->   submit_bio()
->   submit_bio_noacct()
->   submit_bio_noacct_nocheck()
->   __submit_bio_noacct()
->   __submit_bio()
->   blk_mq_submit_bio()
->   blk_mq_run_dispatch_ops()
->   blk_mq_try_issue_directly()
->   blk_mq_run_hw_queue()
->   blk_mq_sched_dispatch_requests()
->   blk_mq_do_dispatch_sched()
->   __blk_mq_do_dispatch_sched()
->   blk_mq_dispatch_rq_list()
->   ->queue_rq()
->   scsi_queue_rq()
->   scsi_dispatch_cmd()
->   ->queuecommand()
->   ata_scsi_queuecmd()
->   __ata_scsi_queuecmd()
->   ata_scsi_translate()
->   ata_scsi_qc_issue()
->   ata_qc_issue()
->   qc_issue()
->   ata_sff_qc_issue()
->   ata_sff_queue_pio_task()
-
-Ugh delightful :)
-
->
-> There are many ways the call chain can go of course, but the actual
-> stack overflows do tend to follow this pattern where you are at a
-> function with high stack usage and call kmalloc() during low memory
-> condition and that ends up waiting for a block I/O down the line.
-> (you normally don't go through swap and nfs, I was just looking
-> for the worst case I could easily see in the code)
-
-You certainly found quite the example haha.
-
->
-> > In general I am absolutely taking this seriously and will find a way to
-> > reduce this, but my only question is whether this is actually something
-> > that needs to be done in this series?
-> >
-> > Because it's already huge and I would rather avoid adding yet another patch
-> > to it if possible.
-> >
-> > If I can do it as a follow-up that'd be ideal!
->
-> What I was hoping for is that as you are already deep into the
-> exact code that caused the warning and you can already see something
-> in there that may help.
->
-> I don't think it's urgent, I just don't want it to be forgotten.
-
-It won't be, it's now on my TODO and I see it as a relatively high priority
-thing to follow up with.
-
-Will likely send a patch for it next cycle (this is about the worst cycle I've
-seen workload-size for mm so I don't really want to send anything more this time
-around).
-
->
->      Arnd
-
---
-Cheers, Lorenzo
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBTZXAgMjQsIDIwMjYgYXQgMTI6MzDigK9QTSBaaSBZYW4gPHppeUBudmlkaWEuY29t
+PiB3cm90ZToKPgo+IE9uIFRodSBTZXAgMTcsIDIwMjYgYXQgMTI6MjIgUE0gRURULCBMb3Jlbnpv
+IFN0b2FrZXMgKEFSTSkgd3JvdGU6Cj4gPiBUaGVyZSdzIG5vIHJlYXNvbiB0byBleHBvcnQgdGhl
+IHN5bWJvbHMgZm9yIHRoZXNlIGZ1bmN0aW9ucyB3aGljaCBhcmUgb25seQo+ID4gY2FsbGVkIGZy
+b20gaW50ZXJuYWwgbW0gbG9naWMsIGFkZGl0aW9uYWxseSB0aGVyZSdzIG5vIHJlYXNvbiBmb3Ig
+dGhlbSB0bwo+ID4gYmUgZGVjbGFyZWQgaW4gbW0uaC4KPiA+Cj4gPiBUaGlzIHBhdGNoIHRoZXJl
+Zm9yZSByZW1vdmVzIHRoZSBleHBvcnRzIGFuZCBtb3ZlcyB0aGUgZGVjbGFyYXRpb25zIHRvCj4g
+PiBtbS9pbnRlcm5hbC5oLgo+ID4KPiA+IE5vIGZ1bmN0aW9uYWwgY2hhbmdlIGludGVuZGVkLgo+
+ID4KPiA+IFNpZ25lZC1vZmYtYnk6IExvcmVuem8gU3RvYWtlcyAoQVJNKSA8bGpzQGtlcm5lbC5v
+cmc+Cj4gPiAtLS0KPiA+ICBpbmNsdWRlL2xpbnV4L21tLmggfCAzIC0tLQo+ID4gIG1tL2ludGVy
+bmFsLmggICAgICB8IDMgKysrCj4gPiAgbW0vbWVtb3J5LmMgICAgICAgIHwgMiAtLQo+ID4gIDMg
+ZmlsZXMgY2hhbmdlZCwgMyBpbnNlcnRpb25zKCspLCA1IGRlbGV0aW9ucygtKQo+ID4KPgo+IE1h
+a3NlIHNlbnNlLgo+Cj4gUmV2aWV3ZWQtYnk6IFppIFlhbiA8eml5QG52aWRpYS5jb20+CgpSZXZp
+ZXdlZC1ieTogU3VyZW4gQmFnaGRhc2FyeWFuIDxzdXJlbmJAZ29vZ2xlLmNvbT4KCj4KPiAtLQo+
+IEJlc3QgUmVnYXJkcywKPiBZYW4sIFppCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
