@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C02EC98306
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 06:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF9D7C98306
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 06:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nCo6ZcbVy/nzAmXpB0iyeEKfT4KupSZZSm1uOz+qcqM=; b=mSsYF7a1Eot7ew
-	Xg6WIWQw6uRfuQTe4USC7Kmv46ub/hIaLCD5788ANVJX/XXNNi5Fdy09gwUFkzKfd5Dcc/itN2sJZ
-	KQt0gIpSW32HzyL2xqxsm9xgA5Sdw6IHP0TuPqgSfMd7RIb2uF5jj8OmU5CRNXUEDf28XbZVkucyj
-	HhTZwyFcMokv5OuT/ticAeV1pvDHjDMOKFWbOk/nGXq8aoU9RnUcfc0tb+DnxoclKXA5aMg7uFKEM
-	yYJmPPFQqd0wUTjxUf4ql9WqpI7qFMUOpi8YcS2xcCwX5y16QPPOVP7WvaDg3oCyQapPov9oGG/3+
-	VZLb4GifK7IsYuJnrJZw==;
+	List-Owner; bh=CFTI+4BbrCOR4Su0CCiCgzXMME5Ne6h0S8f2QltWXpM=; b=LpJ1IdXSQUBSHK
+	7yVtN5wAKCikanQBq+leNBXqcr+xZ1Jls7wFC+5erCNxCupzKL/OY6NHq8+e/JyGL+dwiZGD3Xu+7
+	gvr1P+hlApnnkwytiuGGlwZ7P16N8lQeRolCwZq5kRAkonRaMdd9IW5vHZQ6Y6sZu1iXbX7IJI692
+	SUqtxB3OxlxnV9+9EdNrqxwIl6nnJaX6uiXvcPcID+RRLC2Yt85H84EAd48SK80ObA8aOZk8xNKUX
+	K48LDMeM9MoCZj8j8aSyC4e8ZJYIBAn7QvouUuTEZmAkR0sGiteQpVAGrb2wNacrw8runKrCqP61b
+	/5dO1Jg/+27X/8/8sagg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9z68-0000000CjTI-2i3R;
-	Fri, 25 Sep 2026 06:07:52 +0000
+	id 1x9zAD-0000000Cjc8-0ICF;
+	Fri, 25 Sep 2026 06:12:05 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9z66-0000000CjTB-3JGk
+	id 1x9zAB-0000000Cjc2-3Qkt
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Sep 2026 06:07:50 +0000
+	Fri, 25 Sep 2026 06:12:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 47F424395F;
-	Fri, 25 Sep 2026 06:07:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36EF71F00893;
-	Fri, 25 Sep 2026 06:07:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8DDE84090A;
+	Fri, 25 Sep 2026 06:12:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 299541F000FF;
+	Fri, 25 Sep 2026 06:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790316470;
-	bh=V/Rde7Pu1QJlzfTLgLLTNkfrkC3adTY/8gUH/cM57PE=;
+	s=k20260515; t=1790316723;
+	bh=6BBc7PZzAtuwYqKiWWmyCuxmF7mQJ+bFX37tr/EEmGo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=J4JbbUXFXUzFJNzKlDRluSBGCiqRJKJf6Ke9Vo/CtlPs8kmCt1nmnmjd5RwTk+vhv
-	 E/DK04Ay5JbIcuvCIx023v15UUMBzlXCCYeGk9DOUUAtXJiDnVpDaFJQqnwUEGfdQi
-	 Hln55xBUNkhxyipkfkZpwo9AATRn1NN18tOwiECpupbreYgD+Ex7zjGZr/MgBMa9QT
-	 e0dtBpY3KRwC3ZSQ1QHd2Yh8K2EQrDsp7lJ5KklPsP89FSE+vKnZK6xALfeMek0cJ6
-	 79QyKxAiHEEJecxLGPYPIMMI+wtu+4ytLfbiuFJJynfD4r1ksVDZ/zoJrA1cWnMSz7
-	 OtLjvJTrNozQw==
-Message-ID: <0db3ed29-8bb8-4dc3-a4cb-cc5b9bf2e893@kernel.org>
-Date: Fri, 25 Sep 2026 08:07:40 +0200
+	b=QbOOHaJcgxq53J1PhFN+ffiS5JfB4KMY5tkyr1g1HRQbaQ856ggHkP8Br0ZyRn6Ak
+	 MUIDI2jnTLYi+k/7rhKqcjPTUuKQ6nsKtGJp7KwvCSuRQ4UYng8XaW2IIrv7zq/NIq
+	 JUCQsYQQX+62v3zUlIm+7lNN0OD1tV7/AOqWISG5AyhRVoMzrHDubhETz2USqLLKal
+	 v99GDehiWZpbJN++FHshcdEmVIPnO/4OKh5/faRrD17zxDoz2rx/Tk1eSG0LAYPR31
+	 TI17AetTh3kaDrTdO8FYTB1AK4svSxRb4ZYX//gMjqQR8GLhRJYwXCgT2JxJdUTU9E
+	 hry/832sHHgvw==
+Message-ID: <48ba811e-e293-4e94-af38-5cdae4562739@kernel.org>
+Date: Fri, 25 Sep 2026 08:11:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 1/3] dt-bindings: regulator: Add RPMI voltage service
  bindings
-To: Joshua Yeong <joshua.yeong@starfivetech.com>,
- Mark Brown <broonie@kernel.org>
-Cc: "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
- "rahul@summations.net" <rahul@summations.net>,
- "anup@brainfault.org" <anup@brainfault.org>,
- "lftan.linux@gmail.com" <lftan.linux@gmail.com>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "pjw@kernel.org" <pjw@kernel.org>, "palmer@dabbelt.com"
- <palmer@dabbelt.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "alex@ghiti.fr" <alex@ghiti.fr>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Joshua Yeong <joshua.yeong@starfivetech.com>, lgirdwood@gmail.com,
+ rahul@summations.net, anup@brainfault.org, lftan.linux@gmail.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 References: <20260923070014.1340761-1-joshua.yeong@starfivetech.com>
  <20260923070014.1340761-2-joshua.yeong@starfivetech.com>
  <9c0ae39b-d214-40f5-b010-cdea14ccc774@kernel.org>
  <c2c57bf0-e610-4353-93a4-84edfd08e767@sirena.org.uk>
- <SH0PR01MB08411AA7F403A71D2D7470A6F9802@SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -112,7 +104,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <SH0PR01MB08411AA7F403A71D2D7470A6F9802@SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn>
+In-Reply-To: <c2c57bf0-e610-4353-93a4-84edfd08e767@sirena.org.uk>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,51 +121,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 25/09/2026 04:21, Joshua Yeong wrote:
-> On Thu, Sep 24, 2026 at 10:00:06PM +0100, Mark Brown <broonie@kernel.org> wrote:
->> On Wed, Sep 23, 2026 at 10:35:08PM +0200, Krzysztof Kozlowski wrote:
->>> On 23/09/2026 09:00, Joshua Yeong wrote:
->>
->>>> +    voltage-service {
->>
->>> There is no such service. Don't invent names. See DT spec.
->>
->> Looks like it comes from the RPMI spec:
->>
->>    
->> https://github.com/riscv-non-isa/riscv-rpmi/blob/main/src/srvgrp-volta
->> ge.adoc
->>
->>>> +  "#voltage-domain-cells" on the provider, a consumer lists  
->>>> + "voltage-domains = <&provider DOMAIN_ID>" and names each entry 
->>>> + in  "voltage-domain-names", the way it names a voltage power 
->>>> + domain. Both  properties belong to the consumer, so a consumer 
->>>> + binding describes them
->>>> +  itself:
->>
->>> And where do you explain what is that "voltage domain" and why it is 
->>> completely different than everything else we have?
->>
->>> No, don't come up with your own naming for standard things.
->>
->> That also looks like what the spec says (some of the description is 
->> copied pretty closely from the spec).
+On 24/09/2026 23:00, Mark Brown wrote:
+> On Wed, Sep 23, 2026 at 10:35:08PM +0200, Krzysztof Kozlowski wrote:
+>>> +  "#voltage-domain-cells" on the provider, a consumer lists
+>>> +  "voltage-domains = <&provider DOMAIN_ID>" and names each entry in
+>>> +  "voltage-domain-names", the way it names a voltage power domain. Both
+>>> +  properties belong to the consumer, so a consumer binding describes them
+>>> +  itself:
 > 
-> The RPMI specification uses the word voltage instead of 'regulator' in the 
-> kernel here. We need something like power-domain-cells,
-> performance-domain-cells or clock-cells that isn't supported by regulator 
-> framework. While I have no prior history on the regulator framework but 
-> the RPMI voltage service drivers trying to upstream here need some 
-> mechanism to map just the domain id to the RPMI services.
+>> And where do you explain what is that "voltage domain" and why it is
+>> completely different than everything else we have?
 > 
-> The driver would still work with the existing voltage device tree structure.
-> I understand other drivers may not use voltage-domain like RPMI
-> voltage service, so I only add the support for this on the RPMI
-> voltage driver and not on the framework side.
+>> No, don't come up with your own naming for standard things.
+> 
+> That also looks like what the spec says (some of the description is
+> copied pretty closely from the spec).
 
-
-As discussed on IRC #devicetree, that's either power-domains or
-regulator supplies. If you need anything else, you need to explain. Not we.
+I think we should not create complete new bindings for one spec, but
+rather map that spec to existing code.
 
 Best regards,
 Krzysztof
