@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EEACC9832A
-	for <linux-riscv@archiver.kernel.org>; Sat, 26 Sep 2026 15:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB9FEC9832F
+	for <linux-riscv@archiver.kernel.org>; Sat, 26 Sep 2026 15:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=17srbCT7MtaBh86vDiU18LzIVLfJuk6x/Kn+yipZo3k=; b=c5KAS5M0HFzGT1
-	QDd6I3IIZWfNYFEnreZPx+6BPrDIkGhB4RmK8bubPZXXjzPUgkJ1k1pOaGmBW9waz0gALdMHxrkTX
-	lZZn/7pchHzDYxa5PdOTsnNejAsFCi7Hkd2mGVebGuUzl+efOzu8etZb7H0oA++KpiB9dn0PXA7Sd
-	q6qnpngKum3uGPz5qj1iooMLpw07xlDkat3J4ExCT0S5EZozHc+09JjTJLeyKfhKzJMrxuxp4qodY
-	rXGytIp4Ay7OkuM6ckZ03mGVeXp9sPbPuiBIlw5eCSSmAIQ42J6kTMUTkw1zNHUVHhKuEIGwUGEJ4
-	PqoXRulDDua8EDpI5Lvw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mLX2IQzdicVZN8VHdoN87PBWYn7FkqW9mDbvMqWniX4=; b=0rsDV0ET5d4NvZ
+	+b2xV6U3hz1pwPqzfBVDo+UthJ4WEkH7Vi1RoWku+/z2AaqGFo3IANcNWiSSb0Fi4i1Ehh2H8FJSa
+	4UycyWo94bFuJ+Df85tA1OAElUq90IisO/3uL+eEZsc+4FS/O+CII8gXkXIFIOlieofGGb0OnDiyw
+	q8HzCQRKYBRXivf0D6vywFvY7na6g8thdEpNoVD+7+G7f05LVSiCr8WZzTCUs5zI6h7EC6E4Y5tnL
+	wk3WY0t8TmEUmj1ZcdxvG2ooRHGx9XgfYOyyrD2VKR/dcZQxWiqQErFNsdXuVb315/yLwm7VosTiu
+	kidVRogsfd48zgHnT6VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAUkc-0000000Fcmx-212j;
-	Sat, 26 Sep 2026 15:55:46 +0000
-Received: from mail-oo2-x2a.google.com ([2607:f8b0:4864:31::2a])
+	id 1xAUkY-0000000Fcll-15yv;
+	Sat, 26 Sep 2026 15:55:42 +0000
+Received: from mail-oi2-x11.google.com ([2607:f8b0:4864:32::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAUka-0000000Fcm6-2rGj
+	id 1xAUkV-0000000Fcky-1n1n
 	for linux-riscv@lists.infradead.org;
-	Sat, 26 Sep 2026 15:55:45 +0000
-Received: by mail-oo2-x2a.google.com with SMTP id 46e09a7af769-7f4f0c89e34so1171641a34.1
-        for <linux-riscv@lists.infradead.org>; Sat, 26 Sep 2026 08:55:44 -0700 (PDT)
+	Sat, 26 Sep 2026 15:55:40 +0000
+Received: by mail-oi2-x11.google.com with SMTP id 5614622812f47-4c13f2685f2so1027401b6e.1
+        for <linux-riscv@lists.infradead.org>; Sat, 26 Sep 2026 08:55:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790438143; x=1791042943; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=S/X8WtMKO+kM8/RymoeclZdtD8nVgAtWR81xquL6WA4=;
-        b=qFjoe9h31M4C6V4A1fuFgCTTaQk34Es+CUBVkljl28Nh2nKEXWzJBjkszUvVqK/ZVm
-         Clv696ffda4bsROSspcCjjWwzHfLaE55kWNcCq6Dr9ZIXr+NF38kxaJ8By6vnDRhWcyD
-         +gJqjWTIM9Z7n7C0SuqlRCEkQgiybC+BMXEgwxG7eyNoVAL9uBCl//bvptr29rzuYG9C
-         ghizoWAVyFwWYlRE/3FxJ4gKVWXKih1tmJQZ75RSdtYDfVQIP10bErGDjSFyU5XASoiq
-         w/kjGb9gf2G4uNeis0a782OfhWHcrptdiFSeMWTUIdVOkyiv/xFonH2EzZbCqrOLmyz0
-         kHUg==
+        d=gmail.com; s=20251104; t=1790438138; x=1791042938; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=FL/IwT1Hb4lximhhDXismKRaoV2j4LIwOh7vqKvTOc0=;
+        b=m2ZHSOpsxixo/fBf9sjvVedL5xhJ9oCeBVaa8GjUnmMTZJQULRzjb9by5lv46tNd0w
+         1dswLJ1hfWUwM7Ykk2KBchBYJopUf0GD1WDDCIDLZ20WwwPzCEzJTAP5VV3D3XDqHigD
+         dOiSG942BqSkHvKSPabE3bgrf1OPvARq9Dbk2VgdizjWFCjOpB4sY4X502RGnCcURuLE
+         SB2978YOwq6nUZCeLGXkvAwiJJlj/4WhCguFKAYZv9Tn0riamk2B9J610r9Fe2n3p6+9
+         rDDm6wRnZeVx2Mo6PSo/v9qpJcGwy53OH8CdD8CdnYT1iMf2Eb8cqIBZNV8Brvvfpnhp
+         JkgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790438143; x=1791042943;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=S/X8WtMKO+kM8/RymoeclZdtD8nVgAtWR81xquL6WA4=;
-        b=irZv6zK42hxTxiw1g7Jor644gVPLe+ENHo0HjQFNy7tQjqGJ0V7+xGhMNUyhbXM6XB
-         26FMxaAxCcGOGcrGybJu1jtC5LMC4o40yZhwdMjIT7wTyhs17lxFGknJX+L45ISLaki4
-         YF7kfEi2kYe4aDbhqagtU/kXv0atSIfG99zTuCiurgAA58uJrADb14fJSrNQOFUDL7Nb
-         0nOjKku7UHQ/WuW+zfqscTas0mgLsxhLrIknC82URmi/GlgTmS/zD+enfWGh1GTZi4T3
-         OzST3b/+R/PvOSjfzoksPf6XgkMd6CVnrVQjI1QaOkuwhyH5hdxrdR5HAgH1fiB7myJL
-         SJjw==
-X-Forwarded-Encrypted: i=1; AKwUvBw5mFowDdd46k3AYnW1g/PqEVsMb81MYM9OmUimEOq+5Ttr9d94K5g1fQMDTd8X+8Jq5sRJ8GGPEwIcnw==@lists.infradead.org
-X-Gm-Message-State: AFuF++mwAVyDZE+zAyOekQ961z2R2U550NBaJvfXjn8KV1aS/iAiseh9
-	+Wy8eoX9m1qU1O4LYBsYtr1BgmBsWdZkAzz8HW9+mQ5/moSHqhU/Ss1X
-X-Gm-Gg: AYBFou17+dfD9ba1lCgEdYMfJwpxI/1DPNtcjoymQfLpt2XV2vyFbvRBcJlxlX/f5Af
-	EiMrWrRh+HLHGNCrAGodlk5/gtEN64KxvG02y/cx4ax6LDzNJi/3bI26snwFuPOSH0+2Eybxxrs
-	SDhOmpTqYkfPjA3+y9OZWn+1ZLQbY05mHqWRwCfPfacLYFClhmw3pyl9gEFIDVlRmVDik3ANSd1
-	tk5O8hyWQNy4iQzWekEj+052w2/ba0xmmFJOChyn2T4lLXDoQnMA/j4YlNyGwe8DCzXAYeTZPM3
-	R6EPCR89XePMkQqpuTb0cvd2b3R1Ynw++JxZsbhNNQY784BvUtP0WesL06pFFFoDF7trzlhe8gf
-	va4dMDEwYr0MXthLYcjgMeodVo5hThJur3XS5msvKOpIvkbHa9E0zKQ23kjDfmxgbi8uzYBfVV5
-	xBAlFkMJYKhooFsu0Ayi/n1+2V93qbiubXD/FfFCBf9bLBvUkltHu7HQu16jybkDdR6XWGqpsuf
-	FRFNeLGId1Qhunf440qefARvaYn5pOCljLfqUJGhqjwvhK1f0U=
-X-Received: by 2002:a05:6808:23ce:b0:4c0:9d00:b46d with SMTP id 5614622812f47-4d72be38df9mr8255004b6e.13.1790438143549;
-        Sat, 26 Sep 2026 08:55:43 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1790438138; x=1791042938;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FL/IwT1Hb4lximhhDXismKRaoV2j4LIwOh7vqKvTOc0=;
+        b=wu01va14W2H+FjH4dBzGbdfkGlTPXdPB8WA9mC9h+HDE7l1MtL7R3ZF1jFtKt6WIMH
+         5z143JhO2IZd13tU7kdXzX82tl1lblf5c43j3FmA4GV07xJzocQ837vj2AezhGknDE/L
+         RA/Vb/FVB3PhIM+hU4tdvzeS5qi2zjsbG0aNoLNsiz3ZPpxv+fDvsnpYKtqk54QLHfcf
+         5iUiOAvtr/Dab9qoxsmRONU1ckFiKJrYuvIvBlI5lcuc20OSYMIeZYqmQap1NppkqqSU
+         W9Gt0GLm4tBjN39xU3KtsijVajylVRm4bPcotEB3jE7vcpESL6HZL4eZHFijX4/ifVzb
+         Vrew==
+X-Forwarded-Encrypted: i=1; AKwUvBxO09aG8YTSsUFa5rhkMLZkjjjCZwsf/p4x/jS9Kt73hyEJ85tIDOMnzqhlQ4l9TR2Vg+hOB7uG2YY64g==@lists.infradead.org
+X-Gm-Message-State: AFuF++nBZtIxKyUBTpcK+C0W43LEx/G1Qxrt7vqNLJR7O8bCwboPrRYK
+	bUH0Pw4JoNYLUvvo27qKoa8xZdSMx1j8LcswzT+Be5gz/JgwS+xCNmRV
+X-Gm-Gg: AYBFou2CEhus5lxhe9M+rgyBfIWqWv7ewsoydMDzArjYjzx1EzO7/P2Inhsarjvva7t
+	5DkkKrhJkUhFmNfqzGCD7WaV6Q2Wlla7rb4iZJiO/XS8wqrbXEwVsy4ODenSLjElq2dSqNobbGb
+	62HzsHLm6qK0D9DC8qMN6fLPYY4XydOAjT3Dl9UhG7Zf4PnbaBYmZj5kH9T+FEms7Ki2/Cowcmr
+	eumW6EB8RXl1qdmBye6+fgAxZk7ntrUBOlI3oC0oQNp8Kvya0z1W2VvrbpRIzuC3k2VwZzsIVLt
+	+7+4PGiW2tynJR3YKWTO8NSYx3n8HL6meZxqzj+QzwiuFiGn3DuZ5Sx75ZJ3YiGN1xQPGhSBkiJ
+	vVQrrcWbHJUAsBj1b1ffvvRIdmKkNXH7q4C00LDpSQSam6+9Yb22cOAy5QH7z9XBBHV2or7T09Y
+	nVGjXshD2TYeGW3M7VtzuEiTuxoL951ySFWgJ7b7RmWUpPRDM41CwfQxHBLlurshb47PT1dm3kJ
+	FXQZKe2M2F3+mWv/eMwgOnNLa029150AA/vJCdi
+X-Received: by 2002:a05:6808:1185:b0:4c3:b6cb:da37 with SMTP id 5614622812f47-4d72df6ccdamr9178567b6e.35.1790438137587;
+        Sat, 26 Sep 2026 08:55:37 -0700 (PDT)
 Received: from archlinux.lan ([136.34.156.120])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-4dbf3d74e99sm4577446b6e.4.2026.09.26.08.55.41
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4dbf3d74e99sm4577446b6e.4.2026.09.26.08.55.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 26 Sep 2026 08:55:42 -0700 (PDT)
+        Sat, 26 Sep 2026 08:55:36 -0700 (PDT)
 From: Danish Khateeb <danishkhateeb03@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -83,16 +82,15 @@ Cc: Shuah Khan <shuah@kernel.org>,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Danish Khateeb <danishkhateeb03@gmail.com>
-Subject: [PATCH 2/2] selftests: riscv: vector: Fix the check for children exiting with -1
-Date: Sat, 26 Sep 2026 10:55:35 -0500
-Message-ID: <20260926155535.306111-3-danishkhateeb03@gmail.com>
+Subject: [PATCH 0/2] selftests: riscv: vector: Fix the checks of the child's exit status
+Date: Sat, 26 Sep 2026 10:55:33 -0500
+Message-ID: <20260926155535.306111-1-danishkhateeb03@gmail.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260926155535.306111-1-danishkhateeb03@gmail.com>
-References: <20260926155535.306111-1-danishkhateeb03@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_085544_747234_3F6C1B28 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20260926_085539_489919_C23D6D24 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,53 +107,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-vstate_exec_nolibc and launch_test() look for a child which failed with
-exit(-1) by checking WEXITSTATUS(status) == -1. But WEXITSTATUS() only
-returns the low 8 bits of the exit code, so the check never matches.
+Two fixes for vstate_exec_nolibc, found through a kernel test robot
+warning [1]. Patch 1 checks the return value of waitpid(), which GCC
+warns about. Patch 2 fixes a check which never matches, so that a child
+reporting a failure no longer lets the tests pass.
 
-vstate_exec_nolibc then returns ctrl as if the child had succeeded,
-which is the value the harness expects. So when a child finds that its
-vstate_ctrl differs from its parent's, it prints an error, but the test
-still passes.
+Tested in QEMU (virt, rv64 with and without V) on a v7.3-rc1 defconfig
+kernel, running vstate_prctl as init:
 
-Compare the exit status with 255 instead. A successful child exits with
-its vstate_ctrl, which is at most 0x1f. launch_test() already failed
-the test on 255, but now reports it as an abnormal exit.
+- vstate_prctl passes 13/13 with and without the series.
+- With the child's vstate_ctrl check forced to fail, it still passes
+  13/13 without patch 2, and fails the 6 affected tests with it.
+- The warning is gone with GCC 14.2 and 16.2.
 
-Fixes: 7cf6198ce22d ("selftests: Test RISC-V Vector prctl interface")
-Assisted-by: LLM
-Signed-off-by: Danish Khateeb <danishkhateeb03@gmail.com>
----
+[1] https://lore.kernel.org/r/202609250003.hvssJlRZ-lkp@intel.com/
+
+Danish Khateeb (2):
+  selftests: riscv: vstate_exec_nolibc: Check the return value of
+    waitpid()
+  selftests: riscv: vector: Fix the check for children exiting with -1
+
  tools/testing/selftests/riscv/vector/v_helpers.c          | 2 +-
- tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c | 6 +++++-
+ 2 files changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/tools/testing/selftests/riscv/vector/v_helpers.c b/tools/testing/selftests/riscv/vector/v_helpers.c
-index de6da7c8d2f1..8942ddf2b52b 100644
---- a/tools/testing/selftests/riscv/vector/v_helpers.c
-+++ b/tools/testing/selftests/riscv/vector/v_helpers.c
-@@ -81,7 +81,7 @@ int launch_test(char *next_program, int test_inherit, int xtheadvector)
- 		return -3;
- 	}
- 
--	if ((WIFEXITED(status) && WEXITSTATUS(status) == -1) ||
-+	if ((WIFEXITED(status) && WEXITSTATUS(status) == 255) ||
- 	    WIFSIGNALED(status)) {
- 		printf("child exited abnormally\n");
- 		return -4;
-diff --git a/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c b/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
-index 5f53e5e8ac52..05f18b13a36a 100644
---- a/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
-+++ b/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
-@@ -74,7 +74,7 @@ int main(int argc, char **argv)
- 		exit(-1);
- 	}
- 
--	if (WIFEXITED(status) && WEXITSTATUS(status) == -1) {
-+	if (WIFEXITED(status) && WEXITSTATUS(status) == 255) {
- 		puts("child exited abnormally\n");
- 		exit(-1);
- 	}
+
+base-commit: a06776565b9e73512e880a95b66c198ae8e7e24a
 -- 
 2.55.0
 
