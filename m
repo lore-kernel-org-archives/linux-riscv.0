@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB9FEC9832F
-	for <linux-riscv@archiver.kernel.org>; Sat, 26 Sep 2026 15:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 921D5C9832F
+	for <linux-riscv@archiver.kernel.org>; Sat, 26 Sep 2026 15:56:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mLX2IQzdicVZN8VHdoN87PBWYn7FkqW9mDbvMqWniX4=; b=0rsDV0ET5d4NvZ
-	+b2xV6U3hz1pwPqzfBVDo+UthJ4WEkH7Vi1RoWku+/z2AaqGFo3IANcNWiSSb0Fi4i1Ehh2H8FJSa
-	4UycyWo94bFuJ+Df85tA1OAElUq90IisO/3uL+eEZsc+4FS/O+CII8gXkXIFIOlieofGGb0OnDiyw
-	q8HzCQRKYBRXivf0D6vywFvY7na6g8thdEpNoVD+7+G7f05LVSiCr8WZzTCUs5zI6h7EC6E4Y5tnL
-	wk3WY0t8TmEUmj1ZcdxvG2ooRHGx9XgfYOyyrD2VKR/dcZQxWiqQErFNsdXuVb315/yLwm7VosTiu
-	kidVRogsfd48zgHnT6VQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TJ6pu43BoIoGqUz6UkHAfN1+w4v4XIxop+0/aG4VdUY=; b=FWvFFMG/fbWjnF
+	hBNs8qB00dgUXMTpfmHBzpu7OVj4scT3V+ZGeTDB6CPt0SzU2cN5ps9khxryro9vYDwAUOrd8Xt0m
+	GUy4OhL7OF0F4y8SMu7sxVgFiFCIlkcr5NM12QqI4eJamkZTh7nqZJUf0xT3OJTYrOsRNwllzfnvz
+	Qdpq1ADZPnXN3HTC8tce1GAtTvfqOCItjODZFy9WGSccnx0UC32liwoN44h+9/B0GVrQI70hL4OiT
+	EjblwBEOCbQCrG7iPJWlsFLtW9MzZ1yjmSY7HtVmBUKC1mQnKcsTg+bt6Ttqnq+XzX9uhI0hRDWdv
+	0RtZ7hpvcEsYkx5FnRZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAUkY-0000000Fcll-15yv;
-	Sat, 26 Sep 2026 15:55:42 +0000
-Received: from mail-oi2-x11.google.com ([2607:f8b0:4864:32::11])
+	id 1xAUkZ-0000000Fcly-1ekS;
+	Sat, 26 Sep 2026 15:55:43 +0000
+Received: from mail-oo2-x0f.google.com ([2607:f8b0:4864:31::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAUkV-0000000Fcky-1n1n
+	id 1xAUkX-0000000FclN-40aq
 	for linux-riscv@lists.infradead.org;
-	Sat, 26 Sep 2026 15:55:40 +0000
-Received: by mail-oi2-x11.google.com with SMTP id 5614622812f47-4c13f2685f2so1027401b6e.1
-        for <linux-riscv@lists.infradead.org>; Sat, 26 Sep 2026 08:55:38 -0700 (PDT)
+	Sat, 26 Sep 2026 15:55:43 +0000
+Received: by mail-oo2-x0f.google.com with SMTP id 46e09a7af769-81b15bca7dfso154292a34.0
+        for <linux-riscv@lists.infradead.org>; Sat, 26 Sep 2026 08:55:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790438138; x=1791042938; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FL/IwT1Hb4lximhhDXismKRaoV2j4LIwOh7vqKvTOc0=;
-        b=m2ZHSOpsxixo/fBf9sjvVedL5xhJ9oCeBVaa8GjUnmMTZJQULRzjb9by5lv46tNd0w
-         1dswLJ1hfWUwM7Ykk2KBchBYJopUf0GD1WDDCIDLZ20WwwPzCEzJTAP5VV3D3XDqHigD
-         dOiSG942BqSkHvKSPabE3bgrf1OPvARq9Dbk2VgdizjWFCjOpB4sY4X502RGnCcURuLE
-         SB2978YOwq6nUZCeLGXkvAwiJJlj/4WhCguFKAYZv9Tn0riamk2B9J610r9Fe2n3p6+9
-         rDDm6wRnZeVx2Mo6PSo/v9qpJcGwy53OH8CdD8CdnYT1iMf2Eb8cqIBZNV8Brvvfpnhp
-         JkgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790438138; x=1791042938;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1790438141; x=1791042941; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=FL/IwT1Hb4lximhhDXismKRaoV2j4LIwOh7vqKvTOc0=;
-        b=wu01va14W2H+FjH4dBzGbdfkGlTPXdPB8WA9mC9h+HDE7l1MtL7R3ZF1jFtKt6WIMH
-         5z143JhO2IZd13tU7kdXzX82tl1lblf5c43j3FmA4GV07xJzocQ837vj2AezhGknDE/L
-         RA/Vb/FVB3PhIM+hU4tdvzeS5qi2zjsbG0aNoLNsiz3ZPpxv+fDvsnpYKtqk54QLHfcf
-         5iUiOAvtr/Dab9qoxsmRONU1ckFiKJrYuvIvBlI5lcuc20OSYMIeZYqmQap1NppkqqSU
-         W9Gt0GLm4tBjN39xU3KtsijVajylVRm4bPcotEB3jE7vcpESL6HZL4eZHFijX4/ifVzb
-         Vrew==
-X-Forwarded-Encrypted: i=1; AKwUvBxO09aG8YTSsUFa5rhkMLZkjjjCZwsf/p4x/jS9Kt73hyEJ85tIDOMnzqhlQ4l9TR2Vg+hOB7uG2YY64g==@lists.infradead.org
-X-Gm-Message-State: AFuF++nBZtIxKyUBTpcK+C0W43LEx/G1Qxrt7vqNLJR7O8bCwboPrRYK
-	bUH0Pw4JoNYLUvvo27qKoa8xZdSMx1j8LcswzT+Be5gz/JgwS+xCNmRV
-X-Gm-Gg: AYBFou2CEhus5lxhe9M+rgyBfIWqWv7ewsoydMDzArjYjzx1EzO7/P2Inhsarjvva7t
-	5DkkKrhJkUhFmNfqzGCD7WaV6Q2Wlla7rb4iZJiO/XS8wqrbXEwVsy4ODenSLjElq2dSqNobbGb
-	62HzsHLm6qK0D9DC8qMN6fLPYY4XydOAjT3Dl9UhG7Zf4PnbaBYmZj5kH9T+FEms7Ki2/Cowcmr
-	eumW6EB8RXl1qdmBye6+fgAxZk7ntrUBOlI3oC0oQNp8Kvya0z1W2VvrbpRIzuC3k2VwZzsIVLt
-	+7+4PGiW2tynJR3YKWTO8NSYx3n8HL6meZxqzj+QzwiuFiGn3DuZ5Sx75ZJ3YiGN1xQPGhSBkiJ
-	vVQrrcWbHJUAsBj1b1ffvvRIdmKkNXH7q4C00LDpSQSam6+9Yb22cOAy5QH7z9XBBHV2or7T09Y
-	nVGjXshD2TYeGW3M7VtzuEiTuxoL951ySFWgJ7b7RmWUpPRDM41CwfQxHBLlurshb47PT1dm3kJ
-	FXQZKe2M2F3+mWv/eMwgOnNLa029150AA/vJCdi
-X-Received: by 2002:a05:6808:1185:b0:4c3:b6cb:da37 with SMTP id 5614622812f47-4d72df6ccdamr9178567b6e.35.1790438137587;
-        Sat, 26 Sep 2026 08:55:37 -0700 (PDT)
+        bh=+8tzVjsh/cKn4B5b5sbwN+m7Qf+Lv5/itTNncc1/vcs=;
+        b=W3r51BJC6rJZTzZ+pmH5vgldJ4ucE0OJnFtMIZbfeZ9HpMfqI/pxgLOj8FF758LM8T
+         YCQkEIxZkPd6G8SqRMrWYmDO60Gxu5uVfIXSPiBAZbakLVt2aYystlYonITSIaYel61R
+         XVpklb4xvXENv6jAX9nVsStZbZCn12a1wKwQsYVrLZwmcuPSYWt7/RFxfl09wwx0JYlY
+         7HDkcAaa/oOqk7xw6mZb/rPItjdOBCrum4i2rrVT0v4IAthW7tu1V9T5ZdtNo2DIG3ms
+         Miw4mIt6HF597R9GL+LgQDn9Or/aM9T6srtIbxhC4WCabXeyfiOBFVHcyOxLIiq4C5DN
+         4eMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790438141; x=1791042941;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+8tzVjsh/cKn4B5b5sbwN+m7Qf+Lv5/itTNncc1/vcs=;
+        b=wchqz3GuhIdRXkse+x83m6QKnolNzd5qLO3Tc1x3vHzqX/SYtYhah5ZoahEq/ShNDv
+         uKRrDWLjMQXNGvVIki1N6/uyLuH8xVq9AYcK87K42lfgaC9FWnG5G/GtpdeStzAE0GvQ
+         1DCRODWvq69/5m93P1WOxVZHQ+ajP4bJED7cA5KzDmtYb8++GbBZakhTl3m7RNnQ/3yt
+         FKtXjhTgFv1vHpjGdOQSTalol2svHqeJKkXwS2Cso4AkvQ8peQiAQVxHvgIUp26CI5N6
+         0AvJE7+E9Mf1jFjEikfn8kA00P+nq7dwuIrWV4Yn0ZvMzuhL7n4lJsOpgw3arg4YxdXE
+         yIuQ==
+X-Forwarded-Encrypted: i=1; AKwUvByDEYtlcVhqL8962Xe03InWLsVMR3Qgh/2Kdoj3q3JEKJdAWLgoZ34blWcfE1+A+b0znO1tR0LL3zCQrQ==@lists.infradead.org
+X-Gm-Message-State: AFuF++moBjP44paSeJkOTWs43BZEWWkeA3mep3ZNGHMmhYQRdikokBFF
+	+HiMNom9cpAs8qhMPefAhYOHexolvc7p4d/1Xn3+EPD/ITHQkrJ8Dz8F
+X-Gm-Gg: AYBFou1e1zeRFkZQGZK2vixP+vpG+odLBhbvu3MyaAZm1u4HBH9PPnmUPt0aoqtQTxq
+	zeOei8CXMa9T2iSMhLqY/N04A3jxO6UnQrAIAYJACdE+wRHbDLVjrHCEG8jmJUj46F/6O1bS6Uf
+	h3ykzhpZk44Il19ph83RzQxDc/2SE8NR32xkc+pEyx1nswuSD6FIaZVQXTHi21hfV0mQgiODs+6
+	rl02T8J0obotXrYRCifrWpjG0fHniF/Qrg520E2c2Vc17ZxzG/KJ0HWCGAZ+RXMOurlylg4Irhr
+	6VE1eOr2e25+baadWsMguvxuPAvgivq3t8DSGNVH/Qu6rSa0surU+xwwafdXHkt6tbjwTt5/UZ6
+	geUFY3b9Jp/mgHkQh2wOsf9N1v+wU+dRJwQlbIXAq8cx4NF3qBq3ead6hvCLtOuVh5F2xLpVew9
+	cauQS8QpO55NwqO6T/Nw4fAun75YbK0nmVz4ILj19IOTF+ScUOMb87Ao5blwB3T6HvY+lRDbbY0
+	UTcigoBBxjFQrd2JtNCiC2olJYF0cbyNPdiCsBs
+X-Received: by 2002:a05:6808:c210:b0:4d6:9232:b3be with SMTP id 5614622812f47-4d72cd37bcemr8543745b6e.53.1790438140875;
+        Sat, 26 Sep 2026 08:55:40 -0700 (PDT)
 Received: from archlinux.lan ([136.34.156.120])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-4dbf3d74e99sm4577446b6e.4.2026.09.26.08.55.35
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4dbf3d74e99sm4577446b6e.4.2026.09.26.08.55.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 26 Sep 2026 08:55:36 -0700 (PDT)
+        Sat, 26 Sep 2026 08:55:39 -0700 (PDT)
 From: Danish Khateeb <danishkhateeb03@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -81,15 +82,18 @@ Cc: Shuah Khan <shuah@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Danish Khateeb <danishkhateeb03@gmail.com>
-Subject: [PATCH 0/2] selftests: riscv: vector: Fix the checks of the child's exit status
-Date: Sat, 26 Sep 2026 10:55:33 -0500
-Message-ID: <20260926155535.306111-1-danishkhateeb03@gmail.com>
+	Danish Khateeb <danishkhateeb03@gmail.com>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH 1/2] selftests: riscv: vstate_exec_nolibc: Check the return value of waitpid()
+Date: Sat, 26 Sep 2026 10:55:34 -0500
+Message-ID: <20260926155535.306111-2-danishkhateeb03@gmail.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260926155535.306111-1-danishkhateeb03@gmail.com>
+References: <20260926155535.306111-1-danishkhateeb03@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_085539_489919_C23D6D24 
-X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-CacheID: sfid-20260926_085542_005193_3EFE1395 
+X-CRM114-Status: UNSURE (   9.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,32 +111,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Two fixes for vstate_exec_nolibc, found through a kernel test robot
-warning [1]. Patch 1 checks the return value of waitpid(), which GCC
-warns about. Patch 2 fixes a check which never matches, so that a child
-reporting a failure no longer lets the tests pass.
+vstate_exec_nolibc does not check whether waitpid() succeeds, so status
+is used uninitialized if it fails. Since nolibc implements waitpid() on
+top of waitid(), GCC can see this, and warns:
 
-Tested in QEMU (virt, rv64 with and without V) on a v7.3-rc1 defconfig
-kernel, running vstate_prctl as init:
+  vstate_exec_nolibc.c:78:12: warning: 'status' may be used uninitialized [-Wmaybe-uninitialized]
 
-- vstate_prctl passes 13/13 with and without the series.
-- With the child's vstate_ctrl check forced to fail, it still passes
-  13/13 without patch 2, and fails the 6 affected tests with it.
-- The warning is gone with GCC 14.2 and 16.2.
+Fail if waitpid() fails, as launch_test() does for the same call.
 
-[1] https://lore.kernel.org/r/202609250003.hvssJlRZ-lkp@intel.com/
+Fixes: 7cf6198ce22d ("selftests: Test RISC-V Vector prctl interface")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/r/202609250003.hvssJlRZ-lkp@intel.com/
+Assisted-by: LLM
+Signed-off-by: Danish Khateeb <danishkhateeb03@gmail.com>
+---
+ tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Danish Khateeb (2):
-  selftests: riscv: vstate_exec_nolibc: Check the return value of
-    waitpid()
-  selftests: riscv: vector: Fix the check for children exiting with -1
-
- tools/testing/selftests/riscv/vector/v_helpers.c          | 2 +-
- tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c | 6 +++++-
- 2 files changed, 6 insertions(+), 2 deletions(-)
-
-
-base-commit: a06776565b9e73512e880a95b66c198ae8e7e24a
+diff --git a/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c b/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
+index 12f1b1b1c7aa..5f53e5e8ac52 100644
+--- a/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
++++ b/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
+@@ -69,6 +69,10 @@ int main(int argc, char **argv)
+ 	}
+ 
+ 	rc = waitpid(-1, &status, 0);
++	if (rc == -1) {
++		puts("waitpid failed\n");
++		exit(-1);
++	}
+ 
+ 	if (WIFEXITED(status) && WEXITSTATUS(status) == -1) {
+ 		puts("child exited abnormally\n");
 -- 
 2.55.0
 
