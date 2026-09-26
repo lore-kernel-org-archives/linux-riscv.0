@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25813C9831E
-	for <linux-riscv@archiver.kernel.org>; Sat, 26 Sep 2026 06:48:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 407B3C98328
+	for <linux-riscv@archiver.kernel.org>; Sat, 26 Sep 2026 07:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W5LY+d7MsfpR9LWQeiOffEv+NzGcnSMawaueg6A9jvM=; b=4mwD2Qx5biwxNj
-	zLSWEkdh3nuFaiZNvU+5fkshYf+IlbNARmHjBzvEoADMGpVPuiVL7megf9APewRZa44wRuYmnavqt
-	XcxvNyu/mNGMx/Pt6opGqT73UVjeu39s3HapMlxf7k9mFUT3+Ks96nL5Mh0nnpdH7bfJ1xGN7+B1U
-	+oWGnUNpPb4vjhxJBr93z8AMOUdjpJVqJ45f7ewGnf7lwcArZiLG449zy54qmnMgBb4Xucl9hFvcH
-	yVOjQJAGspxj1mfk3P2X2P6Bn/e6YN4QRmi0IydbpGe3utn+uA5kgYAgEL0ol5MtqDHcH3BG1H166
-	K1tEW//iOnXJLJJ+UgXQ==;
+	List-Owner; bh=95G5zAYmpDhTMT5De93/K7G/4FWuOqeJzLxXZjveZxk=; b=jmM9feaEonXAj+
+	U8J/ouIoMMo4kwaEEgckW/HrOkM/Rv3kfp0h7SaRjR+DW7A1iGKNf27EKKcMr/bZNFHpMjPaXfItd
+	qC1iG2H+FAm3rzNEVRT7wpniKi/1L0fLtJVXO0PWnEfxc7YqyXCLlNEj0EyUjyyYUu4LbT+Szvk3Y
+	nE/1OvNzXE2iE1lat/v7rwkrLREN6mi9kkOileiJZgtEuZkhZ4DMIBoCHByscoQlxRRzUBG13mwAH
+	QmnT2TDwwPj1qenXMGmMa7jck1glPdsOs3QGhsnAci0lLf4aRfTW/es/CNSP6V5rJk46Ec5W/hzul
+	blDbFoccDZJkMJ6/3UBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAMCe-0000000F5h2-11MW;
-	Sat, 26 Sep 2026 06:48:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xAN7m-0000000F7aY-1SNL;
+	Sat, 26 Sep 2026 07:47:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAMCb-0000000F5gf-3WY1;
-	Sat, 26 Sep 2026 06:48:05 +0000
+	id 1xAN7k-0000000F7ZS-1REU;
+	Sat, 26 Sep 2026 07:47:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8E8FE6020C;
-	Sat, 26 Sep 2026 06:48:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D5191F000FF;
-	Sat, 26 Sep 2026 06:47:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 788B943C06;
+	Sat, 26 Sep 2026 07:47:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F58A1F000FF;
+	Sat, 26 Sep 2026 07:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790405284;
-	bh=/ZtlgtRXx70iH42f7yzu0ahvdG98SNDqpIESzbWq6Cs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=K7hP34PKJi6Bjcv22MS8TIn+XW0Rx8BecEVNFElkjULeWp5il9FmTmLHnrmZjURsm
-	 MY4G/yFSo+VHJObjR7+6NyMJS/So7NLbCyIm5z3wbX9ZDaldB9bZxr8o2l6JTW1SP1
-	 6svZup3jHwklut1SBhO1rWLTHK4uxE6WEIwRsyLDMs3Ah7CYv9BQ/tDG3rUmhoszL/
-	 nh0r368reX/onFa7qh1GDmxQSQE/9gaWT8iwumST8Ty1lUAsrRwO1gPAkNXtXNGrRb
-	 9A/PimWd4GasDWyRp82vXjmsfkojPF4x4FM8hU8HJRNWYavd1OdmlOr6/xw6hXpxms
-	 dTurdAJ5oUfYQ==
-Message-ID: <c8bd5eb2-d411-4b11-8f51-1309374bd466@kernel.org>
-Date: Sat, 26 Sep 2026 08:47:50 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	s=k20260515; t=1790408827;
+	bh=wrw6MYauCv8ojbkVGE0/DH1V6nBqh+BVfWF8V89VP1s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OLfMscGBr6BX8Yna19+gsaP22UJ+VC6W76Sm1UE/FlcJ15iqFYFvbP8d90Igg0AX1
+	 etwZZWvdBFqYZ7NSvihHp+SwEwBuk701GAxfmSO6piNYjNYiaHlu046T9GjwlMO2xf
+	 4c1bAB9kwCau4RjnCCKk9fIPdqnFDhybBXluZ4npAQ+/Qvix5ljL2AzBzj8Usd+RJB
+	 alu3Ul+qNVip0JJyq+c0VPs71CaO7MwDN5xY42FOblZ0wy/sGg+Vkn4Rt8NPoSJNVK
+	 MPrtXSD7KUf/JpSLiGjV6OU4NBwSkGGFUelmNzH6itp7ArEwWPKw0np5F/RZkSk9Pv
+	 v3y9vQMfZ/lsg==
+Date: Sat, 26 Sep 2026 10:46:54 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Hocko <mhocko@suse.com>, Nicholas Piggin <npiggin@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Ritesh Harjani <ritesh.list@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
 Subject: Re: [PATCH] arch, mm: promote DEBUG_WX to CHECK_WX
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
- Alexander Gordeev <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@kernel.org>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Mark Rutland <mark.rutland@arm.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Michal Hocko <mhocko@suse.com>, Nicholas Piggin <npiggin@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ritesh Harjani <ritesh.list@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Shrikanth Hegde
- <sshegde@linux.ibm.com>, Suren Baghdasaryan <surenb@google.com>,
- Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
- Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@kernel.org>,
- Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org
+Message-ID: <ard4bg-fJZUwlZav@kernel.org>
 References: <20260925-direct-map-verify-wx-v1-1-7fd2f7d6d23b@kernel.org>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <20260925-direct-map-verify-wx-v1-1-7fd2f7d6d23b@kernel.org>
+ <c8bd5eb2-d411-4b11-8f51-1309374bd466@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <c8bd5eb2-d411-4b11-8f51-1309374bd466@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,52 +91,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTWlrZSwKCkxlIDI1LzA5LzIwMjYgw6AgMTE6NTMsIE1pa2UgUmFwb3BvcnQgKE1pY3Jvc29m
-dCkgYSDDqWNyaXTCoDoKPiBWZXJpZmljYXRpb24gdGhhdCB0aGUga2VybmVsIGRvZXMgbm90IGhh
-dmUgd3JpdGFibGUgKyBleGVjdXRhYmxlCj4gbWFwcGluZ3MgaXMgYWJvdXQgZGV0ZWN0aW5nIHNl
-Y3VyaXR5IHJpc2tzIHJhdGhlciB0aGFuIGEgcHVyZSBkZWJ1Zwo+IGZlYXR1cmUuCj4gCj4gTWFq
-b3IgZGlzdHJpYnV0aW9uIGNvbmZpZ3VyYXRpb25zIGVuYWJsZSBpdCBpbiB0aGVpciBrZXJuZWxz
-IGFzIHdlbGwgYXMKPiBkZWZjb25maWdzIG9mIG1vc3QgYXJjaGl0ZWN0dXJlcyB0aGF0IGhhdmUg
-QVJDSF9IQVNfREVCVUdfV1guCj4gCj4gUmVuYW1lIHJlbGV2YW50IGdlbmVyaWMgY29uZmlndXJh
-dGlvbiBvcHRpb25zIHRvIHVzZSBDSEVDS19XWCBhbmQgbW92ZQo+IHRoZWlyIGRlZmluaXRpb25z
-IGZyb20gbW0vS2NvbmZpZy5kZWJ1ZyB0byBtbS9LY29uZmlnLgo+IAo+IEZvciBhcm0gdGhhdCBk
-b2VzIG5vdCB3aWRlbHkgZW5hYmxlIGl0LCBvbmx5IHJlbmFtZSBpdHMgdmFyaWFudHMgb2YgdGhl
-Cj4gY29uZmlnIG9wdGlvbnMuCj4gCj4gRW5hYmxpbmcgQ0hFQ0tfV1ggYWRkcyBhIGZldyBraWxv
-Ynl0ZXMgdG8gdGhlIGtlcm5lbCBiaW5hcnkgYW5kIHdoaWxlCj4gdGhlIGFkZGVkIHNpemUgY2Fu
-IGJlIHNsaWdodGx5IHJlZHVjZWQgd2l0aCBjaHVybnkgdXBkYXRlcyBvZgo+IGFyY2hpdGVjdHVy
-ZSBpbXBsZW1lbnRhdGlvbnMgb2YgcHRkdW1wLCB0aGUgY29yZSBmdW5jdGlvbmFsaXR5IHRha2Vz
-Cj4gbW9zdCBvZiB0aGUgYWRkZWQgc2l6ZS4gSXQgY2Fubm90IGJlIG1vdmVkIHRvIC5pbml0LnRl
-eHQgYmVjYXVzZSB0aGUKPiB2ZXJpZmljYXRpb24gaGFzIHRvIGhhcHBlbiBhZnRlciBpbml0IHNl
-Y3Rpb25zIGFyZSBmcmVlZC4KPiAKPiBXaXRoIHRoaXMsIG1ha2UgZ2VuZXJpYyBDSEVDS19XWCBk
-ZWZhdWx0IHRvIFNUUklDVF9LRVJORUxfUldYIHdoaWxlCj4gc3RpbGwgbGVhdmluZyB1c2VycyB0
-YXJnZXRpbmcgc21hbGwga2VybmVscyB0aGUgcG9zc2liaWxpdHkgdG8gb3B0LW91dC4KCkxvb2tp
-bmcgYXQgaG93IGl0IGlzIGRvbmUgaW4gcG93ZXJwYyBJIGhhdmUgc29tZSBkb3VidCB3aXRoIHlv
-dXIgcmVhc29uaW5nLgoKcHRkdW1wX2NoZWNrX3d4KCkgd2lsbCByZXBvcnQgcmVnYXJkbGVzcyBv
-ZiBDT05GSUdfREVCVUdfV1g6CgoJaWYgKHN0Lnd4X3BhZ2VzKSB7CgkJcHJfd2FybigiQ2hlY2tl
-ZCBXK1ggbWFwcGluZ3M6IEZBSUxFRCwgJWx1IFcrWCBwYWdlcyBmb3VuZFxuIiwKCQkJc3Qud3hf
-cGFnZXMpOwoKCQlyZXR1cm4gZmFsc2U7Cgl9IGVsc2UgewoJCXByX2luZm8oIkNoZWNrZWQgVytY
-IG1hcHBpbmdzOiBwYXNzZWQsIG5vIFcrWCBwYWdlcyBmb3VuZFxuIik7CgoJCXJldHVybiB0cnVl
-OwoJfQoKVGhlIG9ubHkgZGlmZmVyZW5jZSBpcyB3ZSB3b24ndCBnZXQgdGhlIFdBUk5fT05DRSgp
-OgoKCVdBUk5fT05DRShJU19FTkFCTEVEKENPTkZJR19ERUJVR19XWCksCgkJICAicG93ZXJwYy9t
-bTogRm91bmQgaW5zZWN1cmUgVytYIG1hcHBpbmcgYXQgYWRkcmVzcyAlcC8lcFNcbiIsCgkJICAo
-dm9pZCAqKXN0LT5zdGFydF9hZGRyZXNzLCAodm9pZCAqKXN0LT5zdGFydF9hZGRyZXNzKTsKCgpB
-bmQgSSBiZWxpZXZlIGEgYmlnIGZhdCB3YXJuaW5nIGxpa2UgdGhpcyBpcyBhIGRlYnVnIG9wdGlv
-biBub3QgdG8gYmUgCmVuYWJsZWQgb24gcHJvZHVjdGlvbiBrZXJuZWxzLgoKU28gSSB0aGluayB3
-ZSBzaG91bGQgaW5zdGVhZCBkbzoKCmRpZmYgLS1naXQgYS9pbmNsdWRlL2xpbnV4L3B0ZHVtcC5o
-IGIvaW5jbHVkZS9saW51eC9wdGR1bXAuaAppbmRleCAyNDBiZDNiZmYxOGRkLi43MTRmNjNmYjYw
-NGEwIDEwMDY0NAotLS0gYS9pbmNsdWRlL2xpbnV4L3B0ZHVtcC5oCisrKyBiL2luY2x1ZGUvbGlu
-dXgvcHRkdW1wLmgKQEAgLTMzLDcgKzMzLDcgQEAgYm9vbCBwdGR1bXBfY2hlY2tfd3godm9pZCk7
-CgogIHN0YXRpYyBpbmxpbmUgdm9pZCBkZWJ1Z19jaGVja3d4KHZvaWQpCiAgewotCWlmIChJU19F
-TkFCTEVEKENPTkZJR19ERUJVR19XWCkpCisJaWYgKElTX0VOQUJMRUQoQ09ORklHX1BURFVNUCkp
-CiAgCQlwdGR1bXBfY2hlY2tfd3goKTsKICB9CgoKVGhhdCB3YXkgeW91IHNob3VsZCBnZXQgKHVu
-dGVzdGVkKSB0aGUgZm9sbG93aW5nIHdhcm5pbmcgYnV0IG5vdCB0aGUgYmlnIApmYXQgZGVidWcg
-V0FSTigpOgoKICAgQ2hlY2tlZCBXK1ggbWFwcGluZ3M6IEZBSUxFRCwgJWx1IFcrWCBwYWdlcyBm
-b3VuZAoKQ2hyaXN0b3BoZQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+On Sat, Sep 26, 2026 at 08:47:50AM +0200, Christophe Leroy (CS GROUP) wrote:
+> Hi Mike,
+> =
+
+> Le 25/09/2026 =E0 11:53, Mike Rapoport (Microsoft) a =E9crit=A0:
+> > Verification that the kernel does not have writable + executable
+> > mappings is about detecting security risks rather than a pure debug
+> > feature.
+> > =
+
+> > Major distribution configurations enable it in their kernels as well as
+> > defconfigs of most architectures that have ARCH_HAS_DEBUG_WX.
+> > =
+
+> > Rename relevant generic configuration options to use CHECK_WX and move
+> > their definitions from mm/Kconfig.debug to mm/Kconfig.
+> > =
+
+> > For arm that does not widely enable it, only rename its variants of the
+> > config options.
+> > =
+
+> > Enabling CHECK_WX adds a few kilobytes to the kernel binary and while
+> > the added size can be slightly reduced with churny updates of
+> > architecture implementations of ptdump, the core functionality takes
+> > most of the added size. It cannot be moved to .init.text because the
+> > verification has to happen after init sections are freed.
+> > =
+
+> > With this, make generic CHECK_WX default to STRICT_KERNEL_RWX while
+> > still leaving users targeting small kernels the possibility to opt-out.
+> =
+
+> Looking at how it is done in powerpc I have some doubt with your reasonin=
+g.
+> =
+
+> ptdump_check_wx() will report regardless of CONFIG_DEBUG_WX:
+> =
+
+> 	if (st.wx_pages) {
+> 		pr_warn("Checked W+X mappings: FAILED, %lu W+X pages found\n",
+> 			st.wx_pages);
+> =
+
+> 		return false;
+> 	} else {
+> 		pr_info("Checked W+X mappings: passed, no W+X pages found\n");
+> =
+
+> 		return true;
+> 	}
+> =
+
+> The only difference is we won't get the WARN_ONCE():
+> =
+
+> 	WARN_ONCE(IS_ENABLED(CONFIG_DEBUG_WX),
+> 		  "powerpc/mm: Found insecure W+X mapping at address %p/%pS\n",
+> 		  (void *)st->start_address, (void *)st->start_address);
+> =
+
+> =
+
+> And I believe a big fat warning like this is a debug option not to be
+> enabled on production kernels.
+
+It's arguable that this indicates a security risk and you want to see it in
+production as well. And on many major distros DEBUG_WX is on, so you do
+have it in production.
+ =
+
+> So I think we should instead do:
+> =
+
+> diff --git a/include/linux/ptdump.h b/include/linux/ptdump.h
+> index 240bd3bff18dd..714f63fb604a0 100644
+> --- a/include/linux/ptdump.h
+> +++ b/include/linux/ptdump.h
+> @@ -33,7 +33,7 @@ bool ptdump_check_wx(void);
+> =
+
+>  static inline void debug_checkwx(void)
+>  {
+> -	if (IS_ENABLED(CONFIG_DEBUG_WX))
+> +	if (IS_ENABLED(CONFIG_PTDUMP))
+
+I don't think we should change that.
+It's up to the architecture how they want to report it. If an architecture
+wants to keep the warning only for debug it should convert WARN_ to
+VM_WARN_.
+
+What we actually should change is debug_checkwx name :)
+
+>  		ptdump_check_wx();
+>  }
+> =
+
+> =
+
+> That way you should get (untested) the following warning but not the big =
+fat
+> debug WARN():
+> =
+
+>   Checked W+X mappings: FAILED, %lu W+X pages found
+> =
+
+> Christophe
+> =
+
+
+-- =
+
+Sincerely yours,
+Mike.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
