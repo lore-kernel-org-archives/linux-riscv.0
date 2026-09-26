@@ -4,54 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0512C98332
-	for <linux-riscv@archiver.kernel.org>; Sat, 26 Sep 2026 12:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D08DAC98318
+	for <linux-riscv@archiver.kernel.org>; Sat, 26 Sep 2026 12:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Kx3beoPu5EyxgM1yXq9YQKnfLYaNtvshsUyZU7MsQOg=; b=Xy2PTWljVsFY0C
-	oSdK0z48VSVQ8CrtUfxaahsfjDwe6oSKXkiwExGSYx3j2bCbHxf3/rbeJSW7TuVQcfZ9ZfV9My/mj
-	7bgRQ9tx9vALRzypxHyySjYteAd4ekaWpE/RZVPdAjZN/K4YdsvjWeIdKAeAXbUiDlxh6kO7soMa/
-	W3WrestipxZXZ3P+Go7s6i31I47RzdmX8FZ3c2JrIG7+lHJyDd5hRfTrzSVe7Y89UOLfJz92D0aK/
-	3/XghlGDFVz4PAQsK3XH0yIogmvjnMqwaJWn+ZmYzDIb2LxBiiobbFMoo6VQO+2Nsay/a+YIPhQ7s
-	WoJTzATOekTevfnV4peg==;
+	List-Owner; bh=R4g4yqF+Uk1Sp9fGwAJJqFFdXZoHyRJLmFMS2K5jpx4=; b=L0DM1yxEFx0juk
+	x+xfmAMt2Tdd7vsruJD3bPtUNnvY67yzxBG8oBYIpzdAl/gbyvRnOssUFTmJhUSReAFhOx1jfJrdg
+	C3Qzv6LgGTtMQqoi+DKIK6KKU1pPlvLdovbyjHKtpoMlPx1MeK/Rcibw5IEPyOZ5Sg2B5Umd8/tl9
+	53VKVjHOt407HxuWhtt/fhUA9B2/xa6F+Z6oGYSqTFTJ/0TveaZFEln34my9gRubfS1DfCezjzTtI
+	raL3MA1koZUbX0EMYWQcRAdjb5f9kzryeV0ytENsXUcnDfelBDQfPlh5PlC/0Q412fbWl+53Gy7Qs
+	1Co/RagMvz0qOZBsS7vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xARaU-0000000FNpe-1ddo;
-	Sat, 26 Sep 2026 12:33:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xARgU-0000000FOeO-2AuY;
+	Sat, 26 Sep 2026 12:39:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xARaS-0000000FNoz-3ryW;
-	Sat, 26 Sep 2026 12:33:05 +0000
+	id 1xARgS-0000000FOdv-3uny;
+	Sat, 26 Sep 2026 12:39:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DB1AB6020C;
-	Sat, 26 Sep 2026 12:33:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C15541F000FF;
-	Sat, 26 Sep 2026 12:32:59 +0000 (UTC)
-Authentication-Results: smtp.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=zx2c4.com header.i=@zx2c4.com header.a=rsa-sha256 header.s=20210105 header.b=jlCeeByi
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
-	t=1790425978;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wN9D2nKA01y/2x8IJdWZfEnnjMzwFRK3N4mVnSJjkBY=;
-	b=jlCeeByiKyNAkRDIl4L4BWyGHQY1JK/6GovcSrkf8oXtiWNghruM3MspMqAjQRrS0A5Y4N
-	9+00l0im2/J3X1CtQ1hGQXUesbacPr8oKkkGy3jQrUfnbQNxrABBNqKeaKwtQlF9FRtom+
-	IijiL9NA1TH1lfYG6igzuyjRxzyvjCg=
-Received: by mail.zx2c4.com (OpenSMTPD) with ESMTPSA id 6d775622 (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
-	Sat, 26 Sep 2026 12:32:58 +0000 (UTC)
-Date: Sat, 26 Sep 2026 14:32:49 +0200
-From: "Jason A. Donenfeld" <Jason@zx2c4.com>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Andreas Schwab <schwab@linux-m68k.org>,
+	by sea.source.kernel.org (Postfix) with ESMTP id 2188E44079;
+	Sat, 26 Sep 2026 12:39:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8CFA1F000FF;
+	Sat, 26 Sep 2026 12:39:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790426355;
+	bh=xUrWyqVmnKFt3e8RhkrZ2j3Y0i3O/ft05oQJMh6wlj4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mqO5QHmRcMSYwDEgOPDLIZcr6jr2YfLZFqWA7XF/GlNNvRhVaLD2MqTlse+KUluEL
+	 xzQtAcTaB0AUUAyhyXub2Dl1sDoMhQBVGpEqYPhOFnxMIeHAfILAjiNHt5KASH4zgE
+	 9rM1gY9zZsC843JVDcJ/evpaUDkxxUnTOWMufD7S2+kem/c2g2lrgfyGSMRjpNUarx
+	 z5QFeWBKFuAmXjti4J2zAENqDWuza+nvxNd9M8lkcQxgEaFZWFlweuEwmQoJ24uygc
+	 ZwThu0B4gX8MvLQqagGgOMSxUH5JZWmq/Uwr7kjbGCVNI+MI7sGEzKwfcBn23nv76b
+	 a+d3+QTbcxiZg==
+Date: Sat, 26 Sep 2026 13:39:06 +0100
+From: Nathan Chancellor <nathan@kernel.org>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
 	Andy Lutomirski <luto@kernel.org>,
 	Thomas Gleixner <tglx@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
 	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
@@ -60,9 +57,8 @@ Cc: Andreas Schwab <schwab@linux-m68k.org>,
 	WANG Xuerui <kernel@xen0n.name>,
 	Madhavan Srinivasan <maddy@linux.ibm.com>,
 	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Nicholas Piggin <npiggin@gmail.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	Heiko Carstens <hca@linux.ibm.com>,
 	Vasily Gorbik <gor@linux.ibm.com>,
@@ -78,13 +74,16 @@ Cc: Andreas Schwab <schwab@linux-m68k.org>,
 	llvm@lists.linux.dev
 Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
  reserved in __cvdso_getrandom_data()
-Message-ID: <are7cfMIHZZn6jLz@zx2c4.com>
+Message-ID: <20260926123906.GB1486962@ax162>
 References: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
- <87zex4ic68.fsf@linux-m68k.org>
- <20260926121927.GA1486962@ax162>
+ <CAKwvOdmuvn0LZkYEsH84hnOGTYhTtzuWs3wMARtWdTeL6dD9sA@mail.gmail.com>
+ <CAKwvOdnxKVpn=nAFaqP+9PTx4PqgHsUVWv6e60Pcr29W_eZrpQ@mail.gmail.com>
+ <CAKwvOdmNZL3eFvV3v77GXDzL+XLgz+BT9TA=my0yTnbsHqVeSg@mail.gmail.com>
+ <areYMjNcaqe86ds4@zx2c4.com>
+ <9d1c338b-368f-4ea2-a12e-c28d49adff5e@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260926121927.GA1486962@ax162>
+In-Reply-To: <9d1c338b-368f-4ea2-a12e-c28d49adff5e@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,48 +95,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 26, 2026 at 01:19:27PM +0100, Nathan Chancellor wrote:
-> On Sat, Sep 26, 2026 at 11:39:43AM +0200, Andreas Schwab wrote:
-> > On Sep 25 2026, Nathan Chancellor wrote:
-> > 
-> > > +#if __has_builtin(__builtin_memset_inline)
-> > > +#define memset_inline(dst, value, size) __builtin_memset_inline(dst, value, size)
-> > > +#elif IS_ENABLED(CONFIG_CC_HAS_OPT_INLINE_MEMSET)
-> > > +#define memset_inline(dst, value, size) __builtin_memset(dst, value, size)
-> > > +#else
-> > > +static inline void *memset_inline(void *dst, int value, size_t size)
-> > > +{
-> > > +	char *d = dst;
-> > > +
-> > > +	while (size--)
-> > > +		*d++ = value;
-> > > +
-> > > +	return d;
-> > > +}
-> > > +#endif
-> > > +
-> > 
-> > memset actually returns the original pointer, not the incremented one.
-> > Nothing uses the return value of memset_inline here, but it is
-> > confusing.
-> 
-> Whoops, good catch, I guess my fingers gave up on those last two
-> characters :) I will fix this for v3 once there has been some time for
-> further review.
+On Sat, Sep 26, 2026 at 12:55:34PM +0200, Christophe Leroy (CS GROUP) wrote:
+> Le 26/09/2026 =E0 12:02, Jason A. Donenfeld a =E9crit=A0:
+> > Apparently not on RISCV, which is what prompted this patch in the first
+> > place. So I suspect Nathan's v2 here is the way to go.
+> =
 
-Do we even need to return a value at all? Might as well just make the
-function two lines:
+> =
 
-+       for (char *d = dst; size--;)
-+               *d++ = value;
+> Don't you have -fno-builtin on RISCV like we have on powerpc ?
+> =
 
-(Technically that could even be one, but maybe that sort of golf loses
-clarity. Your choice.)
+> Or is it clang that is missing this option ?
+
+Yes, clang has -fno-builtin but as I mention in the commit message, that
+may not always stop the compiler from generating calls to memset(),
+which it is allowed to do even with -ffreestanding (which implies
+-fno-builtin) per GCC's documentation. -fno-builtin with GCC < 14 just
+happens to avoid generating memset() for memset_inline() in all of my
+tests, hence why I went with this approach as suggested by Jason.
+
+-- =
+
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
