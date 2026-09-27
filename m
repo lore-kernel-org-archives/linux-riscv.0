@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3735C98338
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Sep 2026 16:44:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3540C9832F
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Sep 2026 16:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6dpyalORpczrhsdG5LQdHsgWnN2m3kRK79eBchqVjyE=; b=nSIKyEkWUwd55Y
-	8voOISyqKfXM6CwrXlb37VjGnssx4ccNksAHQaFvUg1mLtJLoi32M43MPJ//+L3z5YlqDKN3lEpgJ
-	dMRDBChSvbmUD2EYSglmxkj4jVZs/HoPicyvatSnrCMf4V2kgQ5Shj8wn7/zLpugzXDMYOmXHwpE3
-	O42juRQvFZojonOhEg03GoGAUzn+KzLkBw3O1F/01YIO5pe4msUUMmtcpsFTAFQAVTc/CvXNDZerV
-	4oZ5OCuWkXjVGn7sCGkNXnKFGYoyfP5QoBsbr0x7l+Skqmgx6XwcM146Ln1bsx+c87k/YAxotMgs2
-	V6TLpHM2YoO8/yKUqXVg==;
+	List-Owner; bh=6VnxHhbfjeXMCMLglQnajP5ED9gkKaouUdWPOAyqVnQ=; b=0pX9rGdCKGZhfb
+	s5fBtnDpfc9BYXhIoLRCJSgjfrFHSDVjbZBfaeNNS4zwz9LJy2X+MEitvUxHrLZkFIGcJkB26rByr
+	qYUe2H7DYv/BPtQxtnSFfl2C1BybNO2U+jOS/8ZTA1cpOfULWbKn+sRu7RleWuLYVARPJwNgzXh8V
+	vsUrJO5IpqcH9z7uKUaxJQUh6bgN2qZ9Y7N/t7oNUWmh2XkVGH3Dk2S93nrqWrITdGtawNG7fTVTU
+	5gKD4aVKt/5oWIFgJdSL85ZFWoWb7xZOSv0wK6syWaoqPhcDRXUzP6CgguZlkEp+GiGmnXcCFG/N8
+	7TJV730X/blxzUZ1GPRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArzX-0000000Gc9z-2nHn;
-	Sun, 27 Sep 2026 16:44:43 +0000
+	id 1xArzb-0000000GcBz-3BIN;
+	Sun, 27 Sep 2026 16:44:47 +0000
 Received: from mail-lr2-x10.google.com ([2a00:1450:4864:38::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArzV-0000000Gc8s-32mc
+	id 1xArzZ-0000000GcAO-1vhH
 	for linux-riscv@lists.infradead.org;
-	Sun, 27 Sep 2026 16:44:43 +0000
-Received: by mail-lr2-x10.google.com with SMTP id 38308e7fff4ca-3a2ff148dfdso16568661fa.1
-        for <linux-riscv@lists.infradead.org>; Sun, 27 Sep 2026 09:44:41 -0700 (PDT)
+	Sun, 27 Sep 2026 16:44:46 +0000
+Received: by mail-lr2-x10.google.com with SMTP id 38308e7fff4ca-3a59bc470d6so22800341fa.0
+        for <linux-riscv@lists.infradead.org>; Sun, 27 Sep 2026 09:44:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790527479; x=1791132279; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790527484; x=1791132284; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Dv/smFAyNI+/T4zmB6bAUmDWj4koE82HeZ/XI0Xh8LE=;
-        b=OenoJdVsTTFBJWmJXy1+O7KiqOJ+n3rlSBulo9HLqE0TZsR+m76oubEdlZ9csWVTfe
-         sgvDQy0Ixjuwl0GNxa5AELIM8chz9bpyhuRh9eTUwqsutiFIiC2bbBrLQFXXxo2axtvl
-         5Nw3BsMjGGHDlXWltOr9FchSifh4PId3JASmXKAZaqxvFvoFBH89ObOmnNDc4iKxzeBt
-         fJ4PmEVr5EpRqv2t0xhPc1V5ztNmCXC4JOYaEKOd662+qGEudbeCMUp84fYlA8PAWKeT
-         co0K2nDB4xYT9QxQYD4NGxFofSIkU5/UmGxrf4vVAN7mItp1WaScW6z50m96U8tXuKLl
-         j4yg==
+        bh=+NxJpu186+SP46KgosTgr8E7d2y7iRUk9Jv2CU5ub00=;
+        b=lSmuicyB7b0Ht3kRPdkgpqouuSnuRaoknMAfYmtDVZy3i8qb1rAddTBJbmiLFG7Dji
+         EA5M5tFXoBYWxu0O002fxNCmaAEow9IMs3tdUbkV9G0NDdm/DuRgh/nOemekHLS5qG14
+         xEjZzu8UE+jQc0IjNCZ1zPyEJQPbB3lKxcWGRpSVPjv6tWJU4wyreh6c0ARg2WoT95oU
+         3zDLxMjQLhID2bFgyZtqo7hjt/r8rFnsdSYlrcRBGPzHJ4eEdW7kasBbxhi6byh5Bp2b
+         JaNKFkuq9EvQ2SxW3tfSe9vjMqyqfzM3776LyFr+dZpm24vxX0bghFQS0WQgn1oG9dvJ
+         +y8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790527479; x=1791132279;
+        d=1e100.net; s=20260707; t=1790527484; x=1791132284;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Dv/smFAyNI+/T4zmB6bAUmDWj4koE82HeZ/XI0Xh8LE=;
-        b=O5xq2vyzR4hvl4zhIkV1DwyByQG+hc+dd3ohJ044CPteig1D6I6XkZpAS48ShuDsU1
-         VDw7WIyLEyXtOT2hoA2dZ37LqcBcOZkS488tEzmJiRrQWQdgOyYgQNaQcKyGg7EdxXp3
-         DDlosepfSUghQGcOVp4oLnZG04hvaLVdm9HkmCP1hFUdjJ7qEr15TrwDuMnZI4r8k9Hi
-         9NJUXNl6/ofV5gj0kg0Chqq2HOrxIzoP83XjKtg+c/3TWMaPaOMGPd89QW5wuVKJvsjs
-         bc5we03TmwHha/rx9aTdfPPH9yDWswQXhkQEU49R3etnCjVNPPj0AW6IzR7ybj1ZUrWT
-         jg8g==
-X-Forwarded-Encrypted: i=1; AKwUvBwaxfnWqUwY/AdzLEUHXoXV57TXbYjffcjnVsc/283+8jIXbRkj2dtT6BrwcxmzyObTR1oATj3a2iJNfQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYIEmZuZSDUgxmwANzuu+nCV1uh2VO8iUdRp7gFr7y4GVySCwyTn
-	K+OC09C8XheVnCeyqxD1jQfyo0Ur74iGIxzDVpR9f/zLdX/P2j5j+w4b
-X-Gm-Gg: AYBFou3UFuJkhM+XtNBFt95BOcgTMW9vlLdOJ71hFkGjMFeOPnVHQnw0xgurZ9+HqN3
-	cR1/xjbrFh5LwOxLlElP3zLbVcXcxZCwxYCGabIwZ91yKUBKT6sF9PAjcW15iOtIS7vCzXMUgDn
-	xTMx+bipDoYo6Dg1ssQ8vTdxzQd0RfuTfQc9wfvZoneOuc1JEa4yUGqEUPDCg/zz2zv3lcBxJcK
-	kOXssEkOYuon7JsBJaDdIRF6TYF35i06aJv34xwOxzFTItw5l0751INJ07BN2nNwmhud4Dm8BP5
-	LY9ieo8NQwvTZ/E/R5/RO83uoueDavbhSanWRp9K7RrbIon6qc8wYse9N39mr0y1n9S51Ezi+6O
-	FV23BbqwM6jdUTpUWd2/1kqNOirLHtAiaSL0yA9vaavtwankWGDH57X/vhhR3BVq2WPHwcop4yc
-	1iLuCFzL/06LqHbT2MpCQVl8mQYAwQxe1rMnE3rAZamIICNZ8hWEe5qDjNGwtfS+nRxzndo/yM5
-	/PL5qMc9k80IR1IB2UEGxjUNy4RGpME
-X-Received: by 2002:a05:651c:b23:b0:3a5:e027:1b49 with SMTP id 38308e7fff4ca-3a64c71fe9bmr18935721fa.2.1790527479362;
-        Sun, 27 Sep 2026 09:44:39 -0700 (PDT)
+        bh=+NxJpu186+SP46KgosTgr8E7d2y7iRUk9Jv2CU5ub00=;
+        b=G2UYDj3wdPXXJK/z/TwIY1RwzylA+Doi8b458z6Sl8EPUZibqDX/HYet35ZdV3fwgS
+         u1T8S2ZnGPZl4KmG/bu9w9eoUMZugz9lZN18eModpYxNfrLhsInGy0rlghrCdLB91tTc
+         jX4qSJ5w9G3WHDdzT4N16Y6nxWglVG4zKQAjbX6IHPIr/ZIW6H4JeC+gUlEwYor3hR/I
+         qftsm39DjzpmX9WiPUJZdWRi9IOnXEYxCnxkG3ZZCzMpsxzTSwPRt9W032fSPBUjIBN0
+         SCbBa0l69dP4pi0cL1kjLlW9hOCoyqfUhODnQDa7LIMntxGVpBxBOyd1nHnf5K6L4Ni4
+         wssA==
+X-Forwarded-Encrypted: i=1; AKwUvBwIFcWp2wOsl+cXTqoJ/I/JuXV5LssdP5fXdf238mHfY9W4/WOyf7o/+TJOpVlFBApNKnB2g57mlwAFnw==@lists.infradead.org
+X-Gm-Message-State: AFq9FYLQCcghwUAPNH5+o/boYCXl/sFP3q7x54cP878hcwhEzmj0cs2O
+	uBG/bkTEkZ8VAfTjFp+gJIXTFxpkxI6MLZS7BBXvrgmatYYrt7Jr4N0F
+X-Gm-Gg: AYBFou1fGwkG5W/Ikt5lECn8trvMTgMNc/JZ22wQcE0GEV+ydIgKbpL6H8KJV25jYah
+	TIqoXzMjlvRtDfLWD/QwTOd8jv7JcJoanhXETXy+f/BhhKf9HwUngZ/yj1KjeIR6aIN2BJL1rQp
+	NCVQLUgA3WZXweEQX/4COflOqR0Hp6s8Papv6SBCSkMh8C085iKiJk3d41ZbMc0/3H/Ihe/4zoO
+	9ho/ew53e0WXaecj5EXQIM6nezAoiS+7AeMBosUZVY85oDxxyyh7Bk92k/t2eJSQdhf3VWdaxQ/
+	ilz2NNkWcZTkLa/I9TRY1daCiVmcuRWPhv5OwiWoFy4wgmGpjbHhzx0z/7I3Trb6pBpDAwneGkf
+	kV5Vm2gA4oftr/ULMN9oCn5raZUeXvhaw+mbiwkixSKSmevjh322w9vsZetmIX00j1BXrcxO1cU
+	qJK8IA7hJMOdQ0c+Oosqj4Gc2jHymwYWPGnfAU96grbsAcsIrkkIOgAbLETMffgUDbQv16Q8AHa
+	6/tKeeXxWySqCDyidAfK/IuzH971UDOWai4antoBeM=
+X-Received: by 2002:a05:651c:a164:b0:3a5:f041:d7c2 with SMTP id 38308e7fff4ca-3a63c0f4a16mr25583771fa.15.1790527483544;
+        Sun, 27 Sep 2026 09:44:43 -0700 (PDT)
 Received: from artemiipatov-ThinkPad-T14-Gen-2i.. ([185.119.0.68])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a64b580b28sm22425781fa.11.2026.09.27.09.44.38
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a64b580b28sm22425781fa.11.2026.09.27.09.44.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Sep 2026 09:44:39 -0700 (PDT)
+        Sun, 27 Sep 2026 09:44:43 -0700 (PDT)
 From: artemiispatov@gmail.com
 To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
@@ -84,16 +84,16 @@ Cc: tglx@kernel.org,
 	conor@kernel.org,
 	hui.wang@canonical.com,
 	artemiispatov@gmail.com
-Subject: [PATCH 1/2] cpu/hotplug: Skip kick stage if the AP is stuck in SYNC_STATE_ALIVE
-Date: Sun, 27 Sep 2026 19:44:17 +0300
-Message-ID: <20260927164418.3090433-2-artemiispatov@gmail.com>
+Subject: [PATCH 2/2] riscv: sbi: Accept SBI_ERR_ALREADY_AVAILABLE in sbi_hsm_hart_start
+Date: Sun, 27 Sep 2026 19:44:18 +0300
+Message-ID: <20260927164418.3090433-3-artemiispatov@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260927164418.3090433-1-artemiispatov@gmail.com>
 References: <20260927164418.3090433-1-artemiispatov@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_094441_795266_3C29FB7C 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20260927_094445_524849_CEBE2D47 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,85 +112,61 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Artemii Patov <artemiispatov@gmail.com>
 
-There are scenarios where the AP gets stuck in cpuhp_ap_sync_alive()
-during bringup. For example, when the AP starts late, the control CPU
-may time out in cpuhp_wait_for_sync_state() waiting for the ALIVE state
-and abort the bringup with an error.
+Commit 8ac00cddc1a6 ("cpu/hotplug: Skip kick stage if the AP is stuck in
+SYNC_STATE_ALIVE") changes the sync-state switching in kernel/cpu.c so
+that a second AP bringup is no longer aborted. For that to work on
+RISC-V, sbi_hsm_hart_start() must treat SBI_ERR_ALREADY_AVAILABLE as
+a successful start: HSM returns this error when the hart is already
+running.
 
-The AP eventually reaches cpuhp_ap_sync_alive(), marks itself ALIVE and
-spins, waiting for the control CPU to release it. The only way out of
-this loop is the compare-exchange in cpuhp_wait_for_sync_state(), which
-is invoked from cpuhp_bp_sync_alive() and transitions
-SYNC_STATE_ALIVE to SYNC_STATE_SHOULD_ONLINE.
+Add the SBI_ERR_ALREADY_AVAILABLE -> -EALREADY mapping to
+sbi_err_map_linux_errno() and treat -EALREADY as success in
+sbi_hsm_hart_start(). Otherwise the error propagates through
+arch_cpuhp_kick_ap_alive() to cpuhp_kick_ap_alive(), which fails the
+retry and aborts the bringup.
 
-On a retry of the bringup, the ALIVE state was treated as a CPU which
-did not come up: cpuhp_can_boot_ap() overwrote SYNC_STATE_ALIVE with
-SYNC_STATE_KICKED and the kick stage tried to start the AP again. That
-would require the AP to run through the boot stages once more until it
-sets SYNC_STATE_ALIVE, which the kick mechanism cannot guarantee: on
-RISC-V, sbi_hsm_hart_start() on an already running hart returns
-SBI_ERR_ALREADY_AVAILABLE and does not reset it. So the AP remained
-stuck and the retry failed.
-
-Fix this by treating SYNC_STATE_ALIVE as "already alive, no kick
-needed": cpuhp_can_boot_ap() leaves the state unchanged and
-cpuhp_kick_ap_alive() skips the kick in that case. The retry then
-proceeds to cpuhp_wait_for_sync_state(), which performs the
-ALIVE -> SHOULD_ONLINE transition and releases the stuck CPU.
-
-In cpuhp_ap_sync_alive() promote SYNC_STATE_KICKED to SYNC_STATE_ALIVE
-only, so that SYNC_STATE_SHOULD_ONLINE set earlier by the control CPU
-(e.g. when the AP re-enters the sync point on a retry after a failed
-bringup attempt) is not overwritten.
-
-Fixes: 6f0621238b7e ("cpu/hotplug: Add CPU state tracking and synchronization")
 Signed-off-by: Artemii Patov <artemiispatov@gmail.com>
 ---
- kernel/cpu.c | 17 +++++++++++++++--
- 1 file changed, 15 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/sbi.h    | 2 ++
+ arch/riscv/kernel/cpu_ops_sbi.c | 7 ++++++-
+ 2 files changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/kernel/cpu.c b/kernel/cpu.c
-index b3c8553d7bd6..eb9cb7c3e565 100644
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -392,7 +392,11 @@ void cpuhp_ap_sync_alive(void)
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 5725e0ca4dda..25016f1a9ad0 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -664,6 +664,8 @@ static inline int sbi_err_map_linux_errno(int err)
+ 		return -EINVAL;
+ 	case SBI_ERR_BAD_RANGE:
+ 		return -ERANGE;
++	case SBI_ERR_ALREADY_AVAILABLE:
++		return -EALREADY;
+ 	case SBI_ERR_INVALID_ADDRESS:
+ 		return -EFAULT;
+ 	case SBI_ERR_NO_SHMEM:
+diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
+index ee6e4b5cc39e..5acca3f4f8c0 100644
+--- a/arch/riscv/kernel/cpu_ops_sbi.c
++++ b/arch/riscv/kernel/cpu_ops_sbi.c
+@@ -26,12 +26,17 @@ static struct sbi_hart_boot_data boot_data[NR_CPUS];
+ static int sbi_hsm_hart_start(unsigned long hartid, unsigned long saddr,
+ 			      unsigned long priv)
  {
- 	atomic_t *st = this_cpu_ptr(&cpuhp_state.ap_sync_state);
++	int err;
+ 	struct sbiret ret;
  
--	cpuhp_ap_update_sync_state(SYNC_STATE_ALIVE);
-+	/*
-+	 * Compare-exchange failure means that the state is either SYNC_STATE_ALIVE
-+	 * or SYNC_STATE_SHOULD_ONLINE, both are acceptable.
-+	 */
-+	atomic_cmpxchg(st, SYNC_STATE_KICKED, SYNC_STATE_ALIVE);
+ 	ret = sbi_ecall(SBI_EXT_HSM, SBI_EXT_HSM_HART_START,
+ 			hartid, saddr, priv, 0, 0, 0);
  
- 	/* Wait for the control CPU to release it. */
- 	while (atomic_read(st) != SYNC_STATE_SHOULD_ONLINE)
-@@ -414,7 +418,7 @@ static bool cpuhp_can_boot_ap(unsigned int cpu)
- 		break;
- 	case SYNC_STATE_ALIVE:
- 		/* CPU is stuck cpuhp_ap_sync_alive(). */
--		break;
-+		return true;
- 	default:
- 		/* CPU failed to report online or dead and is in limbo state. */
- 		return false;
-@@ -822,6 +826,15 @@ static int bringup_wait_for_ap_online(unsigned int cpu)
- #ifdef CONFIG_HOTPLUG_SPLIT_STARTUP
- static int cpuhp_kick_ap_alive(unsigned int cpu)
- {
-+	struct cpuhp_cpu_state *st = per_cpu_ptr(&cpuhp_state, cpu);
-+
-+	/*
-+	 * The AP is already alive and waiting in cpuhp_ap_sync_alive().
-+	 * cpuhp_bp_sync_alive() will release it, so skip the kick.
-+	 */
-+	if (atomic_read(&st->ap_sync_state) == SYNC_STATE_ALIVE)
+-	return sbi_err_map_linux_errno(ret.error);
++	err = sbi_err_map_linux_errno(ret.error);
++	if (err == -EALREADY)
 +		return 0;
 +
- 	if (!cpuhp_can_boot_ap(cpu))
- 		return -EAGAIN;
++	return err;
+ }
  
+ #ifdef CONFIG_HOTPLUG_CPU
 -- 
 2.43.0
 
