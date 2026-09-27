@@ -4,60 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5595C9830E
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Sep 2026 22:45:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CB65C9830E
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Sep 2026 22:55:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N/O3wRm/xShVDzldghdMQPzxJi+c5OoBBzMjvdB89EQ=; b=n4PcP1ZZ2X1inc
-	R3WKtVl1iDHqL+TrN30P9N0P4AVdKKCZel50dSpQLIrR3Qn1iF0A7fw+hKb8VfpbVBJEqf0rdQanB
-	tiahucNM+KVDkLn4BX+USyPHU1jcAL/KY0fG+hbANtWBtP0hWJmq/k5uJFThbd4ykugxBnK/1toJY
-	son2im+SGYy428s2vfCAemMBCEkiDImyquBfW4a5br4U1MQyp7WSNv1VJHQ12c29qmAUhK50KMQ9C
-	16/rCEjHBv0M4twiVIwLoMQZ5qH8/cMKI6r3/8n17D+VEbajLESAtV1ir8wRJ1oPxH6S/m7ZuuK+T
-	EFHCBTTPQTqpIIR34s8Q==;
+	List-Owner; bh=8mkZv1lFUFwKbKAAR0+yx2WVZet+j/0X1OgM1+T7Sn0=; b=yOcNmiexXNoDr1
+	cvm8MsKG7OQycgNBxczQr5CClcsEmxWt59IbYsQj5Nk1BpvP9W8mSyzvT+YCR5HYRNaUVT1BeenXr
+	zQgdOlQNft6gsnEZ10FSNutjHM7N70EfNb8N0MrZw7B0HZg7PdEIPnCUupoo5tszcNnSXE6G36KBd
+	nrCrO3TpNDiWKaUV+Kk6foIa07a7Zo1NOzQ+9gEwCwoL0M9GIFqPi2jvuga6Nd4NCVufhXuk9F6XY
+	6A9iUjQ/kdczykhn0pdCE5G+szqKRlzkftWJAmxGMs7i1M0UfDiFlKlkfzqXdLgYccwO4MwsSBDFE
+	U9hgTJ3i80q8zOOki9pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAxby-0000000GwTJ-0yUY;
-	Sun, 27 Sep 2026 22:44:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xAxm1-0000000GyiZ-01e2;
+	Sun, 27 Sep 2026 22:55:09 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAxbt-0000000GwR2-1Wdf
-	for linux-riscv@lists.infradead.org;
-	Sun, 27 Sep 2026 22:44:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 23FB8444ED;
-	Sun, 27 Sep 2026 22:44:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1AD31F00893;
-	Sun, 27 Sep 2026 22:44:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790549081;
-	bh=PcsrPVJ/UMD1DI0RT43ecOt4FiB+9EnHO4w28Q6a8/w=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=VN84ExcFxTdtL9iQpuJbjCKgS56QPisU7CADxnSnoMGeaXhfwuXQLd0m74m7+nsnq
-	 v4tNeVSfwmLPdLjqRVBQSOirLmTr/8Jw+MuhobpVfKWgglyRo8y3ckIKeKWFEQ0mkH
-	 gRoUg0kvLLjDnEFJNSO00mRj0dCU+amI8UkCVQKtSzpkuadITSQC6/X28n2VaieIQ0
-	 sFXuvi57f3Jkk7/WcBy4tRv/LeyE2IalrpU86JHfKfU3JxTDn5Y59YVcOcBr1OdfBE
-	 g1fKTHXWxhQ2QxAKkAcVK2/AdMDy+Lsq7bi/lZBrlRKv9CKt8tx0Jv1yf6DDHKTkd5
-	 Ezbv/gzI7PNnw==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	x86@kernel.org,
-	linux-riscv@lists.infradead.org,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 06/20] lib/crypto: x86/aes-ctr: Add AES-NI optimization
-Date: Sun, 27 Sep 2026 15:42:57 -0700
-Message-ID: <20260927224418.109759-7-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260927224418.109759-1-ebiggers@kernel.org>
-References: <20260927224418.109759-1-ebiggers@kernel.org>
+	id 1xAxlz-0000000GyiA-21Ot;
+	Sun, 27 Sep 2026 22:55:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=fonZKBEVnLUi3nmIxkkXaoCZILdYms0d8ZYuqeeaJBg=; b=eIGI0kb8JoQ6f59QATnKY4VWTy
+	KlWA18PX6hX10BKhOmxNq0tGi3u1aRfvl4+RCRxnypG+Q3zub+tAGfPLahvJ7UxrqebG6Hw87AV+5
+	pjJ5wII77N8SG6ISTZur4tDlzHyQJG/AruwRnBvYUL5h5vM1R4LIVih5MQuljHXPOD6svEMX0vt5w
+	fN1uh3q8xkndWOy2mJeEInuuRC2htXs6SWKt9eP27BmPHjB6Elzy1vZxpqCT0Gl7etIkQcBpxUbK4
+	n8v611VA11zwhLqKPmNANUdBBOafXd7NBkYlngO75KzUN/H3oVubmt74amemlxLWMaFpHJpsXr2/5
+	Lk6vs5tg==;
+Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xAxlt-000000025TY-0cPK;
+	Sun, 27 Sep 2026 22:55:01 +0000
+Date: Sun, 27 Sep 2026 23:55:01 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Hongru Zhang <zhanghongru06@gmail.com>, akpm@linux-foundation.org,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, baohua@kernel.org,
+	surenb@google.com, david@kernel.org, liam@infradead.org,
+	mhocko@suse.com, rppt@kernel.org, shakeel.butt@linux.dev,
+	vbabka@kernel.org, zhaonanzhe@xiaomi.com, linux@armlinux.org.uk,
+	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org, chenhuacai@kernel.org,
+	kernel@xen0n.name, loongarch@lists.linux.dev, maddy@linux.ibm.com,
+	mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org,
+	linuxppc-dev@lists.ozlabs.org, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org, agordeev@linux.ibm.com,
+	gerald.schaefer@linux.ibm.com, hca@linux.ibm.com, gor@linux.ibm.com,
+	borntraeger@linux.ibm.com, svens@linux.ibm.com,
+	linux-s390@vger.kernel.org, dave.hansen@linux.intel.com,
+	luto@kernel.org, peterz@infradead.org, tglx@kernel.org,
+	mingo@redhat.com, bp@alien8.de, x86@kernel.org, hpa@zytor.com,
+	Hongru Zhang <zhanghongru@xiaomi.com>
+Subject: Re: [PATCH v6] mm: retry page faults once under the per-VMA lock
+Message-ID: <armexcXDiG8ryZd6@casper.infradead.org>
+References: <20260911025613.1220845-1-zhanghongru@xiaomi.com>
+ <arFYRAa-i7CIwmHL@gremlin>
+ <arF-E3Nsw9ZliH0t@casper.infradead.org>
+ <arI_w2wTfA00Mgy9@gremlin>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <arI_w2wTfA00Mgy9@gremlin>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,247 +85,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Optimize the crypto library's AES-CTR support with AES-NI, bringing its
-performance on par with the "ctr-aes-aesni" skcipher algorithm it will
-supersede.
+On Tue, Sep 22, 2026 at 09:55:23AM +0100, Lorenzo Stoakes (ARM) wrote:
+> On Mon, Sep 21, 2026 at 07:57:23PM +0100, Matthew Wilcox wrote:
+> > more to say on this in two weeks at Plumbers.
+> 
+> I look forward to it :)
 
-The new assembly function is written from scratch to fit well into the
-crypto library and to be more consistent with aes-ctr-avx-x86_64.S than
-the code in arch/x86/crypto/aesni-intel_asm.S that it will supersede.
-That includes using the "ctr64" convention, where the assembly code is
-simplified by making the C code handle incrementing the high 64 bits of
-the counter.  Unlike the ECB, CBC, and XTS code, 32-bit support is *not*
-included for this one, as the existing CTR code didn't have it.
+So while doing my slides, I realised that what we need to avoid doing
+is (a) sleeping while holding the mmap_lock (b) returning RETRY while
+holding the VMA lock
 
-Note: the priority of ctr-aes-lib is left unchanged at 110 temporarily.
-It will be increased when the AVX-optimized code is migrated too.
+And that turns out to be as simple as this patch:
 
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
----
- lib/crypto/x86/aes-aesni.S | 130 ++++++++++++++++++++++++++++++++++++-
- lib/crypto/x86/aes.h       |  54 +++++++++++++++
- 2 files changed, 183 insertions(+), 1 deletion(-)
-
-diff --git a/lib/crypto/x86/aes-aesni.S b/lib/crypto/x86/aes-aesni.S
-index 51c8522416d7..297fe21ba830 100644
---- a/lib/crypto/x86/aes-aesni.S
-+++ b/lib/crypto/x86/aes-aesni.S
-@@ -4,7 +4,8 @@
- //
- // Copyright 2026 Google LLC
- //
--// The code in this file supports 32-bit and 64-bit CPUs, and it doesn't require
-+// The code in this file supports 32-bit and 64-bit CPUs (except for
-+// aes_ctr64_crypt_aesni() which supports 64-bit only), and it doesn't require
- // AVX.  It does use up to SSE4.1, which all CPUs with AES-NI have.
- #include <linux/linkage.h>
- 
-@@ -48,6 +49,12 @@
- 
- .section .rodata
- .p2align 4
-+#ifdef __x86_64__
-+.Lbswap_mask:
-+	// A mask for pshufb that byte-reflects the value.
-+	.byte	15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0
-+#endif
-+
- .Lexpandkey_mask:
- 	// A mask for pshufb that extracts the last dword, rotates it right by 8
- 	// bits, and copies the result to all four dwords.
-@@ -634,3 +641,124 @@ SYM_FUNC_END(aes_cbc_cts_encrypt_aesni)
- SYM_FUNC_START(aes_cbc_cts_decrypt_aesni)
- 	_aes_cbc_cts_crypt	0
- SYM_FUNC_END(aes_cbc_cts_decrypt_aesni)
-+
-+#ifdef __x86_64__
-+// void aes_ctr64_crypt_aesni(u8 *dst, const u8 *src, s64 len,
-+//			      const u64 le_ctr[2],
-+//			      const struct aes_enckey *key);
-+SYM_FUNC_START(aes_ctr64_crypt_aesni)
-+	// Arguments
-+	.set	DST,		ARG0
-+	.set	SRC,		ARG1
-+	.set	LEN,		ARG2
-+	.set	LEN32,		ARG2_32	// Used for improved code density
-+	.set	LE_CTR_PTR,	ARG3	// Used as temp reg after LE_CTR is loaded
-+	.set	KEY,		ARG4
-+
-+	// Other local variables
-+	.set	AESDATA0,	%xmm0
-+	.set	AESDATA1,	%xmm1
-+	.set	AESDATA2,	%xmm2
-+	.set	AESDATA3,	%xmm3
-+	.set	LE_CTR,		%xmm4	// Current 128-bit little endian counter
-+	.set	LE_CTR_INC,	%xmm5	// Initialized to (u64[])[1, 0]
-+	.set	BSWAP_MASK,	%xmm6
-+	.set	RNDKEY,		%xmm7
-+	.set	RNDKEY_PTR,	LE_CTR_PTR  // Temporary register for _do_aes
-+	.set	NROUNDS,	TMP_32	// Temporary register for _do_aes
-+
-+	// Initialize LE_CTR, BSWAP_MASK, and LE_CTR_INC.
-+	movdqu		(LE_CTR_PTR), LE_CTR
-+	movdqa		RODATA(.Lbswap_mask), BSWAP_MASK
-+	mov		$1, TMP_32
-+	movd		TMP_32, LE_CTR_INC
-+
-+	// Encrypt and XOR four blocks (64 bytes) at a time.
-+	sub		$64, LEN
-+	jl		.Lctr_loop4_done
-+.p2align 5
-+.Lctr_loop4:
-+.irp i, 0,1,2,3
-+	movdqa		LE_CTR, AESDATA\i
-+	pshufb		BSWAP_MASK, AESDATA\i	// => big endian counter
-+	paddq		LE_CTR_INC, LE_CTR
-+.endr
-+	_do_aes		1, 0,1,2,3
-+	// AESDATA[0-3] now contain four keystream blocks.
-+.irp i, 0,1,2,3
-+	movdqu		\i*16(SRC), RNDKEY	// Use RNDKEY as temp register.
-+	pxor		RNDKEY, AESDATA\i
-+	movdqu		AESDATA\i, \i*16(DST)
-+.endr
-+	add		$64, SRC
-+	add		$64, DST
-+	sub		$64, LEN
-+	jge		.Lctr_loop4
-+.Lctr_loop4_done:
-+	add		$64, LEN32
-+	jz		.Lctr_done
-+
-+	// 1 <= LEN <= 63 bytes remain.  Prepare four more keystream blocks.
-+.irp i, 0,1,2,3
-+	movdqa		LE_CTR, AESDATA\i
-+	pshufb		BSWAP_MASK, AESDATA\i	// => big endian counter
-+  .if \i != 3
-+	paddq		LE_CTR_INC, LE_CTR
-+  .endif
-+.endr
-+	_do_aes		1, 0,1,2,3
-+	// AESDATA[0-3] now contain four keystream blocks.
-+
-+	// XOR one block (16 bytes) at a time.
-+	sub		$16, LEN32
-+	jl		.Lctr_xor_partial
-+.Lctr_xor1:
-+	movdqu		(SRC), RNDKEY		// Use RNDKEY as temp register.
-+	pxor		RNDKEY, AESDATA0
-+	movdqu		AESDATA0, (DST)
-+	movdqa		AESDATA1, AESDATA0
-+	movdqa		AESDATA2, AESDATA1
-+	movdqa		AESDATA3, AESDATA2
-+	add		$16, SRC
-+	add		$16, DST
-+	sub		$16, LEN32
-+	jge		.Lctr_xor1
-+
-+	// XOR the remaining LEN mod 16 bytes.
-+.Lctr_xor_partial:
-+	test		$8, LEN32
-+	jz		1f
-+	movq		AESDATA0, TMP
-+	xor		(SRC), TMP	// XOR 8 bytes.
-+	mov		TMP, (DST)
-+	add		$8, SRC
-+	add		$8, DST
-+	psrldq		$8, AESDATA0
-+1:
-+	test		$4, LEN32
-+	jz		2f
-+	movd		AESDATA0, TMP_32
-+	xor		(SRC), TMP_32	// XOR 4 bytes.
-+	mov		TMP_32, (DST)
-+	add		$4, SRC
-+	add		$4, DST
-+	psrldq		$4, AESDATA0
-+2:
-+	test		$2, LEN32
-+	jz		3f
-+	movd		AESDATA0, TMP_32
-+	xor		(SRC), TMP_16	// XOR 2 bytes.
-+	mov		TMP_16, (DST)
-+	add		$2, SRC
-+	add		$2, DST
-+	psrldq		$2, AESDATA0
-+3:
-+	test		$1, LEN32
-+	jz		.Lctr_done
-+	movd		AESDATA0, TMP_32
-+	xor		(SRC), TMP_8	// XOR 1 byte.
-+	mov		TMP_8, (DST)
-+.Lctr_done:
-+	RET
-+SYM_FUNC_END(aes_ctr64_crypt_aesni)
-+#endif // __x86_64__
-diff --git a/lib/crypto/x86/aes.h b/lib/crypto/x86/aes.h
-index a0346cb3ecb5..2a2b26d10e87 100644
---- a/lib/crypto/x86/aes.h
-+++ b/lib/crypto/x86/aes.h
-@@ -205,6 +205,60 @@ static bool aes_cbc_cts_decrypt_arch(u8 *dst, const u8 *src, size_t len,
- }
- #endif /* CONFIG_CRYPTO_LIB_AES_CBC */
- 
-+#if IS_ENABLED(CONFIG_CRYPTO_LIB_AES_CTR) && IS_ENABLED(CONFIG_X86_64)
-+void aes_ctr64_crypt_aesni(u8 *dst, const u8 *src, s64 len, const u64 le_ctr[2],
-+			   const struct aes_enckey *key);
-+
-+static void aes_ctr64_x86(u8 *dst, const u8 *src, size_t len,
-+			  const u64 le_ctr[2], const struct aes_enckey *key)
-+{
-+	aes_ctr64_crypt_aesni(dst, src, len, le_ctr, key);
-+}
-+
-+#define aes_ctr_arch aes_ctr_arch
-+static bool aes_ctr_arch(u8 *dst, const u8 *src, size_t len,
-+			 u8 ctr[AES_BLOCK_SIZE], const struct aes_enckey *key)
-+{
-+	u64 le_ctr[2];
-+	u64 ctr64;
-+	size_t nblocks;
-+	size_t part1_len;
-+
-+	if (!static_branch_likely(&have_aesni) || unlikely(!irq_fpu_usable()))
-+		return false;
-+
-+	ctr64 = le_ctr[0] = get_unaligned_be64(&ctr[8]);
-+	le_ctr[1] = get_unaligned_be64(&ctr[0]);
-+
-+	kernel_fpu_begin();
-+
-+	nblocks = DIV_ROUND_UP(len, AES_BLOCK_SIZE);
-+	ctr64 += nblocks;
-+
-+	if (likely(ctr64 >= nblocks)) {
-+		/* The low 64 bits of the counter won't overflow. */
-+		aes_ctr64_x86(dst, src, len, le_ctr, key);
-+	} else {
-+		/*
-+		 * The low 64 bits of the counter will overflow.  The
-+		 * assembly doesn't handle this case, so split the
-+		 * operation into two at the point where the overflow
-+		 * will occur.  After the first part, add the carry bit.
-+		 */
-+		part1_len = min(len, (nblocks - ctr64) * AES_BLOCK_SIZE);
-+		aes_ctr64_x86(dst, src, part1_len, le_ctr, key);
-+		le_ctr[0] = 0;
-+		le_ctr[1]++;
-+		aes_ctr64_x86(dst + part1_len, src + part1_len, len - part1_len,
-+			      le_ctr, key);
-+	}
-+	kernel_fpu_end();
-+	put_unaligned_be64(ctr64, &ctr[8]);
-+	put_unaligned_be64(le_ctr[1], &ctr[0]);
-+	return true;
-+}
-+#endif /* CONFIG_CRYPTO_LIB_AES_CTR && CONFIG_X86_64 */
-+
- #define aes_mod_init_arch aes_mod_init_arch
- static void aes_mod_init_arch(void)
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index dd09c438fa23..94ed2333f8d8 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -723,6 +723,8 @@ enum {
+  */
+ static inline bool fault_flag_allow_retry_first(enum fault_flag flags)
  {
--- 
-2.55.0
++	if (flags & FAULT_FLAG_VMA_LOCK)
++		return false;
+ 	return (flags & FAULT_FLAG_ALLOW_RETRY) &&
+ 	    (!(flags & FAULT_FLAG_TRIED));
+ }
 
+OK, this is a hack.  The function is spectacularly badly named, and
+needs to be renamed before a patch can go upstream.  But this should
+fix the contention on mmap_lock.
+
+Could somebody try it?  I've verified it boots and runs some userspace
+fine, but I don't have the workload to test the contention.
 
 _______________________________________________
 linux-riscv mailing list
