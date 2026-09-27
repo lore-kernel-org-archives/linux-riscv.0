@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1E43CA5FA2
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Sep 2026 22:45:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C4DECA5FA3
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Sep 2026 22:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nZ8TRvpeJ07hMiBIZ3IgRGwGZclS9lLRqSJkgKhWqo4=; b=DoqJbnJq7+a5uW
-	f34bZ+uNR1pQo+1sd1fPJZB5dsTOvlR13GN+j4VauyiUaoV/ggydAKunVPDLxT/miWaESaq7NcnUM
-	uT9E8PQG8IT72ynTtl6fTrenclLFICnqwGBUtlL1ksRR7LJOQtC5OtGJ+MyBJAmjPSmM2m+fYqTju
-	lbLaZvDIJ3FJ7zZ+QwzanQNpGHNFqF1RVNjJCafQK5Mn8LRz/kwefMoJwCB84Px4gVqRef8W7yThf
-	KDzAYYI2AOY+tVwVHaTZGYC4+YniJ2CckxyNj3hQgvscRAuZUjoDyd1T4IEVCajFq2ctkKGoKaIFS
-	uu5UNLv5XUtycfl9IYwQ==;
+	List-Owner; bh=MNqzsYQBrsKFOIrvMvHOE8qz4hZBv6/HSc2rwJfO1KY=; b=CGuKnoBTHo5hDx
+	KaR4EwhQ+SVqfuw2h2TVbFNiSDfNiy+P6eYwaoF3ViT68KiNmy7RIT9EkwT1eTYAoB5W/W5OUP2/L
+	Rchx40Sk0I/EwVII55EB68FHagPpqoDxy3+uob5ax28/nLM2I8+8fgyx/Z/y+/PflOBhAUo/oz1WD
+	D5Cq6f3u7d99Og7Fsh+f3eu1Vrpi5kQFN8HJAsPjyg3+4RvYza6kSG+7iIRKVGz5hWudTYut6yDpO
+	JRITFgWnXWUD1RvlEwzk7VijDnttHojDL0fC1jyiN4UT7Hw//G2PyLevrZvjQk8n5AjfH3cNJkHim
+	OG/ThLQ4/OQOPj2G1PDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAxcI-0000000GwjM-2CYU;
+	id 1xAxcI-0000000Gwjl-3FFB;
 	Sun, 27 Sep 2026 22:45:06 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAxbx-0000000GwSh-1Z68
+	id 1xAxbx-0000000GwSh-3B3w
 	for linux-riscv@lists.infradead.org;
 	Sun, 27 Sep 2026 22:44:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC82260AB9;
-	Sun, 27 Sep 2026 22:44:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B48C1F0089D;
-	Sun, 27 Sep 2026 22:44:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9532860D79;
+	Sun, 27 Sep 2026 22:44:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 146251F0089F;
+	Sun, 27 Sep 2026 22:44:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790549084;
-	bh=JtXdB4tOMY8yQZAnGFn5daFwsAwdwklSo1JeZmkW/k8=;
+	s=k20260515; t=1790549085;
+	bh=lphM/Brm+7rxF8TBpgy6Mr3aozf2S07ib6PKnHYEgDA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=hAhSqQ+BdpMqT/boahogshc0pgCr0u9/OMSLT26q5IA1bUa+DzpNzdmv1lCzE1wE7
-	 vIaxy5iR/cTXJxja7xrroG1B+GYHBGc9cMKV0T955LaNqXK6LXfJd4n0ml2i0f0nu5
-	 Y2cFAfiXqJVR53ESgo0P/PTdpcWmVmEMbTfNIbqgu0cJX/XypKMMeEuT5SIIdjP8F0
-	 8enwImzvRIdRhlT+3EXyw3WjQRp7lBjfvB8aYUQ1SyN9u6tX14DXTyeB/Uc8JvXw3C
-	 MXSAu9vV/us/s9ij0l5n6sYsmr76shZaqTZBR8doZ6N1tx06sE+fIQwiUGqlU33JdX
-	 HeqeQjt3AO82A==
+	b=AwLMsfkHBrX+u6qMIMwq1y2pA8VHzNx7/jsfcXLCnQWUo2DcalGu+L8kciTBlOk76
+	 VbQvFY1c9C7k0CJZd4g23XcvLpyd22dPDVCC6tNjviqT5cTXA1qS7uUYPlhIcxk4EG
+	 1nzMCh7PS9/GOZ0Acg+HF4Ah2bFF54Jh8/7tQo3YxMfMCPAXue92F9FOiKLqAVD45N
+	 11neXV/FHpb2J6NlSMgb3A737LR5CHZ0OZnjngMHvH7hCRYcqV1p1SnPifONhZHB8g
+	 X4s+XQh+/uLYLBs1MylACwtqscXNGaMamOiJ0E08q3Gui+27EcarBiABWPJxtJ9SbH
+	 xszVb+6OBnDew==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -51,9 +51,9 @@ Cc: linux-kernel@vger.kernel.org,
 	x86@kernel.org,
 	linux-riscv@lists.infradead.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 15/20] lib/crypto: riscv/aes: Copy aes-macros.S to library
-Date: Sun, 27 Sep 2026 15:43:06 -0700
-Message-ID: <20260927224418.109759-16-ebiggers@kernel.org>
+Subject: [PATCH v2 17/20] lib/crypto: riscv/aes-ecb: Migrate optimized code into library
+Date: Sun, 27 Sep 2026 15:43:08 -0700
+Message-ID: <20260927224418.109759-18-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260927224418.109759-1-ebiggers@kernel.org>
 References: <20260927224418.109759-1-ebiggers@kernel.org>
@@ -69,131 +69,324 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Q29weSBhcmNoL3Jpc2N2L2NyeXB0by9hZXMtbWFjcm9zLlMgdG8gbGliL2NyeXB0by9yaXNjdi9h
-ZXMtbWFjcm9zLlMgYW5kCm1ha2UgbGliL2NyeXB0by9yaXNjdi9hZXMtcmlzY3Y2NC16dmtuZWQu
-UyBpbmNsdWRlIHRoZSBsYXR0ZXIgY29weS4KClRoaXMgbWFrZXMgaXQgcG9zc2libGUgdG8gY2hh
-bmdlIHRoZXNlIG1hY3JvcyB3aXRob3V0IGludGVyZmVyaW5nIHdpdGgKdGhlIHJlbWFpbmluZyBj
-b2RlIGluIGFyY2gvcmlzY3YvY3J5cHRvLy4KCk9mIGNvdXJzZSwgdGhlIGNvcHkgaW4gYXJjaC9y
-aXNjdi9jcnlwdG8vIHdpbGwgYmUgcmVtb3ZlZCBvbmNlIHRoZSByZXN0Cm9mIHRoZSBBRVMgY29k
-ZSB0aGVyZSBpcyBtaWdyYXRlZCB0byB0aGUgbGlicmFyeS4KClNpZ25lZC1vZmYtYnk6IEVyaWMg
-QmlnZ2VycyA8ZWJpZ2dlcnNAa2VybmVsLm9yZz4KLS0tCiBsaWIvY3J5cHRvL3Jpc2N2L2Flcy1t
-YWNyb3MuUyAgICAgICAgIHwgMTY2ICsrKysrKysrKysrKysrKysrKysrKysrKysrCiBsaWIvY3J5
-cHRvL3Jpc2N2L2Flcy1yaXNjdjY0LXp2a25lZC5TIHwgICAyICstCiAyIGZpbGVzIGNoYW5nZWQs
-IDE2NyBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCiBjcmVhdGUgbW9kZSAxMDA2NDQgbGli
-L2NyeXB0by9yaXNjdi9hZXMtbWFjcm9zLlMKCmRpZmYgLS1naXQgYS9saWIvY3J5cHRvL3Jpc2N2
-L2Flcy1tYWNyb3MuUyBiL2xpYi9jcnlwdG8vcmlzY3YvYWVzLW1hY3Jvcy5TCm5ldyBmaWxlIG1v
-ZGUgMTAwNjQ0CmluZGV4IDAwMDAwMDAwMDAwMC4uMTM4NDE2NDYyMWE1Ci0tLSAvZGV2L251bGwK
-KysrIGIvbGliL2NyeXB0by9yaXNjdi9hZXMtbWFjcm9zLlMKQEAgLTAsMCArMSwxNjYgQEAKKy8q
-IFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBBcGFjaGUtMi4wIE9SIEJTRC0yLUNsYXVzZSAqLwor
-Ly8KKy8vIFRoaXMgZmlsZSBpcyBkdWFsLWxpY2Vuc2VkLCBtZWFuaW5nIHRoYXQgeW91IGNhbiB1
-c2UgaXQgdW5kZXIgeW91cgorLy8gY2hvaWNlIG9mIGVpdGhlciBvZiB0aGUgZm9sbG93aW5nIHR3
-byBsaWNlbnNlczoKKy8vCisvLyBDb3B5cmlnaHQgMjAyMyBUaGUgT3BlblNTTCBQcm9qZWN0IEF1
-dGhvcnMuIEFsbCBSaWdodHMgUmVzZXJ2ZWQuCisvLworLy8gTGljZW5zZWQgdW5kZXIgdGhlIEFw
-YWNoZSBMaWNlbnNlIDIuMCAodGhlICJMaWNlbnNlIikuIFlvdSBjYW4gb2J0YWluCisvLyBhIGNv
-cHkgaW4gdGhlIGZpbGUgTElDRU5TRSBpbiB0aGUgc291cmNlIGRpc3RyaWJ1dGlvbiBvciBhdAor
-Ly8gaHR0cHM6Ly93d3cub3BlbnNzbC5vcmcvc291cmNlL2xpY2Vuc2UuaHRtbAorLy8KKy8vIG9y
-CisvLworLy8gQ29weXJpZ2h0IChjKSAyMDIzLCBDaHJpc3RvcGggTcO8bGxuZXIgPGNocmlzdG9w
-aC5tdWVsbG5lckB2cnVsbC5ldT4KKy8vIENvcHlyaWdodCAoYykgMjAyMywgUGhvZWJlIENoZW4g
-PHBob2ViZS5jaGVuQHNpZml2ZS5jb20+CisvLyBDb3B5cmlnaHQgKGMpIDIwMjMsIEplcnJ5IFNo
-aWggPGplcnJ5LnNoaWhAc2lmaXZlLmNvbT4KKy8vIENvcHlyaWdodCAyMDI0IEdvb2dsZSBMTEMK
-Ky8vIEFsbCByaWdodHMgcmVzZXJ2ZWQuCisvLworLy8gUmVkaXN0cmlidXRpb24gYW5kIHVzZSBp
-biBzb3VyY2UgYW5kIGJpbmFyeSBmb3Jtcywgd2l0aCBvciB3aXRob3V0CisvLyBtb2RpZmljYXRp
-b24sIGFyZSBwZXJtaXR0ZWQgcHJvdmlkZWQgdGhhdCB0aGUgZm9sbG93aW5nIGNvbmRpdGlvbnMK
-Ky8vIGFyZSBtZXQ6CisvLyAxLiBSZWRpc3RyaWJ1dGlvbnMgb2Ygc291cmNlIGNvZGUgbXVzdCBy
-ZXRhaW4gdGhlIGFib3ZlIGNvcHlyaWdodAorLy8gICAgbm90aWNlLCB0aGlzIGxpc3Qgb2YgY29u
-ZGl0aW9ucyBhbmQgdGhlIGZvbGxvd2luZyBkaXNjbGFpbWVyLgorLy8gMi4gUmVkaXN0cmlidXRp
-b25zIGluIGJpbmFyeSBmb3JtIG11c3QgcmVwcm9kdWNlIHRoZSBhYm92ZSBjb3B5cmlnaHQKKy8v
-ICAgIG5vdGljZSwgdGhpcyBsaXN0IG9mIGNvbmRpdGlvbnMgYW5kIHRoZSBmb2xsb3dpbmcgZGlz
-Y2xhaW1lciBpbiB0aGUKKy8vICAgIGRvY3VtZW50YXRpb24gYW5kL29yIG90aGVyIG1hdGVyaWFs
-cyBwcm92aWRlZCB3aXRoIHRoZSBkaXN0cmlidXRpb24uCisvLworLy8gVEhJUyBTT0ZUV0FSRSBJ
-UyBQUk9WSURFRCBCWSBUSEUgQ09QWVJJR0hUIEhPTERFUlMgQU5EIENPTlRSSUJVVE9SUworLy8g
-IkFTIElTIiBBTkQgQU5ZIEVYUFJFU1MgT1IgSU1QTElFRCBXQVJSQU5USUVTLCBJTkNMVURJTkcs
-IEJVVCBOT1QKKy8vIExJTUlURUQgVE8sIFRIRSBJTVBMSUVEIFdBUlJBTlRJRVMgT0YgTUVSQ0hB
-TlRBQklMSVRZIEFORCBGSVRORVNTIEZPUgorLy8gQSBQQVJUSUNVTEFSIFBVUlBPU0UgQVJFIERJ
-U0NMQUlNRUQuIElOIE5PIEVWRU5UIFNIQUxMIFRIRSBDT1BZUklHSFQKKy8vIE9XTkVSIE9SIENP
-TlRSSUJVVE9SUyBCRSBMSUFCTEUgRk9SIEFOWSBESVJFQ1QsIElORElSRUNULCBJTkNJREVOVEFM
-LAorLy8gU1BFQ0lBTCwgRVhFTVBMQVJZLCBPUiBDT05TRVFVRU5USUFMIERBTUFHRVMgKElOQ0xV
-RElORywgQlVUIE5PVAorLy8gTElNSVRFRCBUTywgUFJPQ1VSRU1FTlQgT0YgU1VCU1RJVFVURSBH
-T09EUyBPUiBTRVJWSUNFUzsgTE9TUyBPRiBVU0UsCisvLyBEQVRBLCBPUiBQUk9GSVRTOyBPUiBC
-VVNJTkVTUyBJTlRFUlJVUFRJT04pIEhPV0VWRVIgQ0FVU0VEIEFORCBPTiBBTlkKKy8vIFRIRU9S
-WSBPRiBMSUFCSUxJVFksIFdIRVRIRVIgSU4gQ09OVFJBQ1QsIFNUUklDVCBMSUFCSUxJVFksIE9S
-IFRPUlQKKy8vIChJTkNMVURJTkcgTkVHTElHRU5DRSBPUiBPVEhFUldJU0UpIEFSSVNJTkcgSU4g
-QU5ZIFdBWSBPVVQgT0YgVEhFIFVTRQorLy8gT0YgVEhJUyBTT0ZUV0FSRSwgRVZFTiBJRiBBRFZJ
-U0VEIE9GIFRIRSBQT1NTSUJJTElUWSBPRiBTVUNIIERBTUFHRS4KKworLy8gVGhpcyBmaWxlIGNv
-bnRhaW5zIG1hY3JvcyB0aGF0IGFyZSBzaGFyZWQgYnkgdGhlIG90aGVyIGFlcy0qLlMgZmlsZXMu
-ICBUaGUKKy8vIGdlbmVyYXRlZCBjb2RlIG9mIHRoZXNlIG1hY3JvcyBkZXBlbmRzIG9uIHRoZSBm
-b2xsb3dpbmcgUklTQy1WIGV4dGVuc2lvbnM6CisvLyAtIFJWNjRJCisvLyAtIFJJU0MtViBWZWN0
-b3IgKCdWJykgd2l0aCBWTEVOID49IDEyOAorLy8gLSBSSVNDLVYgVmVjdG9yIEFFUyBibG9jayBj
-aXBoZXIgZXh0ZW5zaW9uICgnWnZrbmVkJykKKworLy8gTG9hZHMgdGhlIEFFUyByb3VuZCBrZXlz
-IGZyb20gXGtleXAgaW50byB2ZWN0b3IgcmVnaXN0ZXJzIGFuZCBqdW1wcyB0byBjb2RlCisvLyBz
-cGVjaWZpYyB0byB0aGUgbGVuZ3RoIG9mIHRoZSBrZXkuICBTcGVjaWZpY2FsbHk6CisvLyAgIC0g
-SWYgQUVTLTEyOCwgbG9hZHMgcm91bmQga2V5cyBpbnRvIHYxLXYxMSBhbmQganVtcHMgdG8gXGxh
-YmVsMTI4LgorLy8gICAtIElmIEFFUy0xOTIsIGxvYWRzIHJvdW5kIGtleXMgaW50byB2MS12MTMg
-YW5kIGp1bXBzIHRvIFxsYWJlbDE5Mi4KKy8vICAgLSBJZiBBRVMtMjU2LCBsb2FkcyByb3VuZCBr
-ZXlzIGludG8gdjEtdjE1IGFuZCBjb250aW51ZXMgb253YXJkcy4KKy8vCisvLyBBbHNvIHNldHMg
-dmw9NCBhbmQgdnR5cGU9ZTMyLG0xLHRhLG1hLiAgQ2xvYmJlcnMgdDAgYW5kIHQxLgorLm1hY3Jv
-CWFlc19iZWdpbglrZXlwLCBsYWJlbDEyOCwgbGFiZWwxOTIsIGtleV9sZW4KKy5pZmIgXGtleV9s
-ZW4KKwlsd3UJCXQwLCA0ODAoXGtleXApCS8vIHQwID0ga2V5IGxlbmd0aCBpbiBieXRlcworLmVu
-ZGlmCisJbGkJCXQxLCAyNAkJLy8gdDEgPSBrZXkgbGVuZ3RoIGZvciBBRVMtMTkyCisJdnNldGl2
-bGkJemVybywgNCwgZTMyLCBtMSwgdGEsIG1hCisJdmxlMzIudgkJdjEsIChca2V5cCkKKwlhZGRp
-CQlca2V5cCwgXGtleXAsIDE2CisJdmxlMzIudgkJdjIsIChca2V5cCkKKwlhZGRpCQlca2V5cCwg
-XGtleXAsIDE2CisJdmxlMzIudgkJdjMsIChca2V5cCkKKwlhZGRpCQlca2V5cCwgXGtleXAsIDE2
-CisJdmxlMzIudgkJdjQsIChca2V5cCkKKwlhZGRpCQlca2V5cCwgXGtleXAsIDE2CisJdmxlMzIu
-dgkJdjUsIChca2V5cCkKKwlhZGRpCQlca2V5cCwgXGtleXAsIDE2CisJdmxlMzIudgkJdjYsIChc
-a2V5cCkKKwlhZGRpCQlca2V5cCwgXGtleXAsIDE2CisJdmxlMzIudgkJdjcsIChca2V5cCkKKwlh
-ZGRpCQlca2V5cCwgXGtleXAsIDE2CisJdmxlMzIudgkJdjgsIChca2V5cCkKKwlhZGRpCQlca2V5
-cCwgXGtleXAsIDE2CisJdmxlMzIudgkJdjksIChca2V5cCkKKwlhZGRpCQlca2V5cCwgXGtleXAs
-IDE2CisJdmxlMzIudgkJdjEwLCAoXGtleXApCisJYWRkaQkJXGtleXAsIFxrZXlwLCAxNgorCXZs
-ZTMyLnYJCXYxMSwgKFxrZXlwKQorLmlmYiBca2V5X2xlbgorCWJsdAkJdDAsIHQxLCBcbGFiZWwx
-MjgJLy8gSWYgQUVTLTEyOCwgZ290byBsYWJlbDEyOC4KKy5lbHNlCisJYmx0CQlca2V5X2xlbiwg
-dDEsIFxsYWJlbDEyOAkvLyBJZiBBRVMtMTI4LCBnb3RvIGxhYmVsMTI4LgorLmVuZGlmCisJYWRk
-aQkJXGtleXAsIFxrZXlwLCAxNgorCXZsZTMyLnYJCXYxMiwgKFxrZXlwKQorCWFkZGkJCVxrZXlw
-LCBca2V5cCwgMTYKKwl2bGUzMi52CQl2MTMsIChca2V5cCkKKy5pZmIgXGtleV9sZW4KKwliZXEJ
-CXQwLCB0MSwgXGxhYmVsMTkyCS8vIElmIEFFUy0xOTIsIGdvdG8gbGFiZWwxOTIuCisuZWxzZQor
-CWJlcQkJXGtleV9sZW4sIHQxLCBcbGFiZWwxOTIJLy8gSWYgQUVTLTE5MiwgZ290byBsYWJlbDE5
-Mi4KKy5lbmRpZgorCS8vIEVsc2UsIGl0J3MgQUVTLTI1Ni4KKwlhZGRpCQlca2V5cCwgXGtleXAs
-IDE2CisJdmxlMzIudgkJdjE0LCAoXGtleXApCisJYWRkaQkJXGtleXAsIFxrZXlwLCAxNgorCXZs
-ZTMyLnYJCXYxNSwgKFxrZXlwKQorLmVuZG0KKworLy8gRW5jcnlwdHMgXGRhdGEgdXNpbmcgenZr
-bmVkIGluc3RydWN0aW9ucywgdXNpbmcgdGhlIHJvdW5kIGtleXMgbG9hZGVkIGludG8KKy8vIHYx
-LXYxMSAoZm9yIEFFUy0xMjgpLCB2MS12MTMgKGZvciBBRVMtMTkyKSwgb3IgdjEtdjE1IChmb3Ig
-QUVTLTI1NikuICBca2V5bGVuCisvLyBpcyB0aGUgQUVTIGtleSBsZW5ndGggaW4gYml0cy4gIHZs
-IGFuZCB2dHlwZSBtdXN0IGFscmVhZHkgYmUgc2V0CisvLyBhcHByb3ByaWF0ZWx5LiAgTm90ZSB0
-aGF0IGlmIHZsID4gNCwgbXVsdGlwbGUgYmxvY2tzIGFyZSBlbmNyeXB0ZWQuCisubWFjcm8JYWVz
-X2VuY3J5cHQJZGF0YSwga2V5bGVuCisJdmFlc3oudnMJXGRhdGEsIHYxCisJdmFlc2VtLnZzCVxk
-YXRhLCB2MgorCXZhZXNlbS52cwlcZGF0YSwgdjMKKwl2YWVzZW0udnMJXGRhdGEsIHY0CisJdmFl
-c2VtLnZzCVxkYXRhLCB2NQorCXZhZXNlbS52cwlcZGF0YSwgdjYKKwl2YWVzZW0udnMJXGRhdGEs
-IHY3CisJdmFlc2VtLnZzCVxkYXRhLCB2OAorCXZhZXNlbS52cwlcZGF0YSwgdjkKKwl2YWVzZW0u
-dnMJXGRhdGEsIHYxMAorLmlmIFxrZXlsZW4gPT0gMTI4CisJdmFlc2VmLnZzCVxkYXRhLCB2MTEK
-Ky5lbHNlaWYgXGtleWxlbiA9PSAxOTIKKwl2YWVzZW0udnMJXGRhdGEsIHYxMQorCXZhZXNlbS52
-cwlcZGF0YSwgdjEyCisJdmFlc2VmLnZzCVxkYXRhLCB2MTMKKy5lbHNlCisJdmFlc2VtLnZzCVxk
-YXRhLCB2MTEKKwl2YWVzZW0udnMJXGRhdGEsIHYxMgorCXZhZXNlbS52cwlcZGF0YSwgdjEzCisJ
-dmFlc2VtLnZzCVxkYXRhLCB2MTQKKwl2YWVzZWYudnMJXGRhdGEsIHYxNQorLmVuZGlmCisuZW5k
-bQorCisvLyBTYW1lIGFzIGFlc19lbmNyeXB0LCBidXQgZGVjcnlwdHMgaW5zdGVhZCBvZiBlbmNy
-eXB0cy4KKy5tYWNybwlhZXNfZGVjcnlwdAlkYXRhLCBrZXlsZW4KKy5pZiBca2V5bGVuID09IDEy
-OAorCXZhZXN6LnZzCVxkYXRhLCB2MTEKKy5lbHNlaWYgXGtleWxlbiA9PSAxOTIKKwl2YWVzei52
-cwlcZGF0YSwgdjEzCisJdmFlc2RtLnZzCVxkYXRhLCB2MTIKKwl2YWVzZG0udnMJXGRhdGEsIHYx
-MQorLmVsc2UKKwl2YWVzei52cwlcZGF0YSwgdjE1CisJdmFlc2RtLnZzCVxkYXRhLCB2MTQKKwl2
-YWVzZG0udnMJXGRhdGEsIHYxMworCXZhZXNkbS52cwlcZGF0YSwgdjEyCisJdmFlc2RtLnZzCVxk
-YXRhLCB2MTEKKy5lbmRpZgorCXZhZXNkbS52cwlcZGF0YSwgdjEwCisJdmFlc2RtLnZzCVxkYXRh
-LCB2OQorCXZhZXNkbS52cwlcZGF0YSwgdjgKKwl2YWVzZG0udnMJXGRhdGEsIHY3CisJdmFlc2Rt
-LnZzCVxkYXRhLCB2NgorCXZhZXNkbS52cwlcZGF0YSwgdjUKKwl2YWVzZG0udnMJXGRhdGEsIHY0
-CisJdmFlc2RtLnZzCVxkYXRhLCB2MworCXZhZXNkbS52cwlcZGF0YSwgdjIKKwl2YWVzZGYudnMJ
-XGRhdGEsIHYxCisuZW5kbQorCisvLyBFeHBhbmRzIHRvIGFlc19lbmNyeXB0IG9yIGFlc19kZWNy
-eXB0IGFjY29yZGluZyB0byBcZW5jLCB3aGljaCBpcyAxIG9yIDAuCisubWFjcm8JYWVzX2NyeXB0
-CWRhdGEsIGVuYywga2V5bGVuCisuaWYgXGVuYworCWFlc19lbmNyeXB0CVxkYXRhLCBca2V5bGVu
-CisuZWxzZQorCWFlc19kZWNyeXB0CVxkYXRhLCBca2V5bGVuCisuZW5kaWYKKy5lbmRtCmRpZmYg
-LS1naXQgYS9saWIvY3J5cHRvL3Jpc2N2L2Flcy1yaXNjdjY0LXp2a25lZC5TIGIvbGliL2NyeXB0
-by9yaXNjdi9hZXMtcmlzY3Y2NC16dmtuZWQuUwppbmRleCAwZDk4OGJjM2QzN2IuLjdhNTJlYTZj
-NjY5ZCAxMDA2NDQKLS0tIGEvbGliL2NyeXB0by9yaXNjdi9hZXMtcmlzY3Y2NC16dmtuZWQuUwor
-KysgYi9saWIvY3J5cHRvL3Jpc2N2L2Flcy1yaXNjdjY0LXp2a25lZC5TCkBAIC00OCw3ICs0OCw3
-IEBACiAudGV4dAogLm9wdGlvbiBhcmNoLCArenZrbmVkCiAKLSNpbmNsdWRlICIuLi8uLi9hcmNo
-L3Jpc2N2L2NyeXB0by9hZXMtbWFjcm9zLlMiCisjaW5jbHVkZSAiYWVzLW1hY3Jvcy5TIgogCiAj
-ZGVmaW5lIFJOREtFWVMJCWEwCiAjZGVmaW5lIEtFWV9MRU4JCWExCi0tIAoyLjU1LjAKCgpfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
-YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
-aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Instead of exposing the riscv-optimized AES-ECB code via a
+riscv-specific crypto_skcipher algorithm, just implement the AES-ECB
+library functions.  This is simpler, it makes the AES-ECB library
+functions be riscv-optimized, and it also fixes the longstanding issue
+where the riscv-optimized AES-ECB code was disabled by default.  AES-ECB
+support still remains available through crypto_skcipher via
+crypto/aes.c, but individual architectures no longer need to handle it.
+
+To match what the library expects, update the assembly functions to
+operate on struct aes_enckey or struct aes_key rather than struct
+crypto_aes_ctx, and adjust the argument order.
+
+Bump up the priority of the corresponding library-based algorithm on
+riscv now that it no longer has to be lower than arch/riscv/crypto/.
+
+Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+---
+ arch/riscv/crypto/Kconfig              |  4 +-
+ arch/riscv/crypto/aes-riscv64-glue.c   | 61 +-------------------------
+ arch/riscv/crypto/aes-riscv64-zvkned.S | 39 ----------------
+ crypto/aes.c                           |  3 +-
+ lib/crypto/riscv/aes-riscv64-zvkned.S  | 51 +++++++++++++++++++++
+ lib/crypto/riscv/aes.h                 | 33 ++++++++++++++
+ 6 files changed, 89 insertions(+), 102 deletions(-)
+
+diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
+index 6905232ddb03..84c41824b433 100644
+--- a/arch/riscv/crypto/Kconfig
++++ b/arch/riscv/crypto/Kconfig
+@@ -3,13 +3,13 @@
+ menu "Accelerated Cryptographic Algorithms for CPU (riscv)"
+ 
+ config CRYPTO_AES_RISCV64
+-	tristate "Ciphers: AES, modes: ECB, CBC, CTS, CTR, XTS"
++	tristate "Ciphers: AES, modes: CBC, CTS, CTR, XTS"
+ 	depends on 64BIT && TOOLCHAIN_HAS_VECTOR_CRYPTO && \
+ 		   RISCV_EFFICIENT_VECTOR_UNALIGNED_ACCESS
+ 	select CRYPTO_LIB_AES
+ 	select CRYPTO_SKCIPHER
+ 	help
+-	  Length-preserving ciphers: AES with ECB, CBC, CTS, CTR, XTS
++	  Length-preserving ciphers: AES with CBC, CTS, CTR, XTS
+ 
+ 	  Architecture: riscv64 using:
+ 	  - Zvkned vector crypto extension
+diff --git a/arch/riscv/crypto/aes-riscv64-glue.c b/arch/riscv/crypto/aes-riscv64-glue.c
+index bbd920c9e29d..f7c492dcfd57 100644
+--- a/arch/riscv/crypto/aes-riscv64-glue.c
++++ b/arch/riscv/crypto/aes-riscv64-glue.c
+@@ -22,11 +22,6 @@
+ #include <linux/minmax.h>
+ #include <linux/module.h>
+ 
+-asmlinkage void aes_ecb_encrypt_zvkned(const struct crypto_aes_ctx *key,
+-				       const u8 *in, u8 *out, size_t len);
+-asmlinkage void aes_ecb_decrypt_zvkned(const struct crypto_aes_ctx *key,
+-				       const u8 *in, u8 *out, size_t len);
+-
+ asmlinkage void aes_cbc_encrypt_zvkned(const struct crypto_aes_ctx *key,
+ 				       const u8 *in, u8 *out, size_t len,
+ 				       u8 iv[AES_BLOCK_SIZE]);
+@@ -86,44 +81,6 @@ static int riscv64_aes_setkey_skcipher(struct crypto_skcipher *tfm,
+ 	return riscv64_aes_setkey(ctx, key, keylen);
+ }
+ 
+-/* AES-ECB */
+-
+-static inline int riscv64_aes_ecb_crypt(struct skcipher_request *req, bool enc)
+-{
+-	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
+-	const struct crypto_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
+-	struct skcipher_walk walk;
+-	unsigned int nbytes;
+-	int err;
+-
+-	err = skcipher_walk_virt(&walk, req, false);
+-	while ((nbytes = walk.nbytes) != 0) {
+-		kernel_vector_begin();
+-		if (enc)
+-			aes_ecb_encrypt_zvkned(ctx, walk.src.virt.addr,
+-					       walk.dst.virt.addr,
+-					       nbytes & ~(AES_BLOCK_SIZE - 1));
+-		else
+-			aes_ecb_decrypt_zvkned(ctx, walk.src.virt.addr,
+-					       walk.dst.virt.addr,
+-					       nbytes & ~(AES_BLOCK_SIZE - 1));
+-		kernel_vector_end();
+-		err = skcipher_walk_done(&walk, nbytes & (AES_BLOCK_SIZE - 1));
+-	}
+-
+-	return err;
+-}
+-
+-static int riscv64_aes_ecb_encrypt(struct skcipher_request *req)
+-{
+-	return riscv64_aes_ecb_crypt(req, true);
+-}
+-
+-static int riscv64_aes_ecb_decrypt(struct skcipher_request *req)
+-{
+-	return riscv64_aes_ecb_crypt(req, false);
+-}
+-
+ /* AES-CBC */
+ 
+ static int riscv64_aes_cbc_crypt(struct skcipher_request *req, bool enc)
+@@ -411,21 +368,6 @@ static int riscv64_aes_xts_decrypt(struct skcipher_request *req)
+ 
+ static struct skcipher_alg riscv64_zvkned_aes_skcipher_algs[] = {
+ 	{
+-		.setkey = riscv64_aes_setkey_skcipher,
+-		.encrypt = riscv64_aes_ecb_encrypt,
+-		.decrypt = riscv64_aes_ecb_decrypt,
+-		.min_keysize = AES_MIN_KEY_SIZE,
+-		.max_keysize = AES_MAX_KEY_SIZE,
+-		.walksize = 8 * AES_BLOCK_SIZE, /* matches LMUL=8 */
+-		.base = {
+-			.cra_blocksize = AES_BLOCK_SIZE,
+-			.cra_ctxsize = sizeof(struct crypto_aes_ctx),
+-			.cra_priority = 300,
+-			.cra_name = "ecb(aes)",
+-			.cra_driver_name = "ecb-aes-riscv64-zvkned",
+-			.cra_module = THIS_MODULE,
+-		},
+-	}, {
+ 		.setkey = riscv64_aes_setkey_skcipher,
+ 		.encrypt = riscv64_aes_cbc_encrypt,
+ 		.decrypt = riscv64_aes_cbc_decrypt,
+@@ -555,11 +497,10 @@ static void __exit riscv64_aes_mod_exit(void)
+ module_init(riscv64_aes_mod_init);
+ module_exit(riscv64_aes_mod_exit);
+ 
+-MODULE_DESCRIPTION("AES-ECB/CBC/CTS/CTR/XTS (RISC-V accelerated)");
++MODULE_DESCRIPTION("AES-CBC/CTS/CTR/XTS (RISC-V accelerated)");
+ MODULE_AUTHOR("Jerry Shih <jerry.shih@sifive.com>");
+ MODULE_LICENSE("GPL");
+ MODULE_ALIAS_CRYPTO("aes");
+-MODULE_ALIAS_CRYPTO("ecb(aes)");
+ MODULE_ALIAS_CRYPTO("cbc(aes)");
+ MODULE_ALIAS_CRYPTO("cts(cbc(aes))");
+ MODULE_ALIAS_CRYPTO("ctr(aes)");
+diff --git a/arch/riscv/crypto/aes-riscv64-zvkned.S b/arch/riscv/crypto/aes-riscv64-zvkned.S
+index d0fc4581a380..00f8a06596d3 100644
+--- a/arch/riscv/crypto/aes-riscv64-zvkned.S
++++ b/arch/riscv/crypto/aes-riscv64-zvkned.S
+@@ -56,45 +56,6 @@
+ #define LEN		a3
+ #define IVP		a4
+ 
+-.macro	__aes_ecb_crypt	enc, keylen
+-	srli		t0, LEN, 2
+-	// t0 is the remaining length in 32-bit words.  It's a multiple of 4.
+-1:
+-	vsetvli		t1, t0, e32, m8, ta, ma
+-	sub		t0, t0, t1	// Subtract number of words processed
+-	slli		t1, t1, 2	// Words to bytes
+-	vle32.v		v16, (INP)
+-	aes_crypt	v16, \enc, \keylen
+-	vse32.v		v16, (OUTP)
+-	add		INP, INP, t1
+-	add		OUTP, OUTP, t1
+-	bnez		t0, 1b
+-
+-	ret
+-.endm
+-
+-.macro	aes_ecb_crypt	enc
+-	aes_begin	KEYP, 128f, 192f
+-	__aes_ecb_crypt	\enc, 256
+-128:
+-	__aes_ecb_crypt	\enc, 128
+-192:
+-	__aes_ecb_crypt	\enc, 192
+-.endm
+-
+-// void aes_ecb_encrypt_zvkned(const struct crypto_aes_ctx *key,
+-//			       const u8 *in, u8 *out, size_t len);
+-//
+-// |len| must be nonzero and a multiple of 16 (AES_BLOCK_SIZE).
+-SYM_FUNC_START(aes_ecb_encrypt_zvkned)
+-	aes_ecb_crypt	1
+-SYM_FUNC_END(aes_ecb_encrypt_zvkned)
+-
+-// Same prototype and calling convention as the encryption function
+-SYM_FUNC_START(aes_ecb_decrypt_zvkned)
+-	aes_ecb_crypt	0
+-SYM_FUNC_END(aes_ecb_decrypt_zvkned)
+-
+ .macro	aes_cbc_encrypt	keylen
+ 	vle32.v		v16, (IVP)	// Load IV
+ 1:
+diff --git a/crypto/aes.c b/crypto/aes.c
+index 756fce2157be..9b9e5b413fc4 100644
+--- a/crypto/aes.c
++++ b/crypto/aes.c
+@@ -610,7 +610,8 @@ static struct skcipher_alg skcipher_algs[] = {
+ 	{
+ 		.base.cra_name = "ecb(aes)",
+ 		.base.cra_driver_name = "ecb-aes-lib",
+-		.base.cra_priority = IS_ENABLED(CONFIG_X86) ? 300 : 110,
++		.base.cra_priority = (IS_ENABLED(CONFIG_RISCV) ||
++				      IS_ENABLED(CONFIG_X86)) ? 300 : 110,
+ 		.base.cra_blocksize = AES_BLOCK_SIZE,
+ 		.base.cra_ctxsize = sizeof(struct aes_key),
+ 		.base.cra_module = THIS_MODULE,
+diff --git a/lib/crypto/riscv/aes-riscv64-zvkned.S b/lib/crypto/riscv/aes-riscv64-zvkned.S
+index fb35f694b5ac..3700028e62ea 100644
+--- a/lib/crypto/riscv/aes-riscv64-zvkned.S
++++ b/lib/crypto/riscv/aes-riscv64-zvkned.S
+@@ -81,3 +81,54 @@ SYM_FUNC_END(aes_encrypt_zvkned)
+ SYM_FUNC_START(aes_decrypt_zvkned)
+ 	aes_crypt_zvkned	0
+ SYM_FUNC_END(aes_decrypt_zvkned)
++
++#undef KEYP
++#undef OUTP
++#undef INP
++
++#define DST	a0
++#define SRC	a1
++#define LEN	a2
++#define KEYP	a3
++
++.macro	__aes_ecb_crypt	enc, keylen
++	srli		t0, LEN, 2
++	// t0 is the remaining length in 32-bit words.  It's a multiple of 4.
++1:
++	vsetvli		t1, t0, e32, m8, ta, ma
++	sub		t0, t0, t1	// Subtract number of words processed
++	slli		t1, t1, 2	// Words to bytes
++	vle32.v		v16, (SRC)
++	aes_crypt	v16, \enc, \keylen
++	vse32.v		v16, (DST)
++	add		SRC, SRC, t1
++	add		DST, DST, t1
++	bnez		t0, 1b
++
++	ret
++.endm
++
++.macro	aes_ecb_crypt	enc
++	aes_begin	KEYP, 128f, 192f
++	__aes_ecb_crypt	\enc, 256
++128:
++	__aes_ecb_crypt	\enc, 128
++192:
++	__aes_ecb_crypt	\enc, 192
++.endm
++
++// void aes_ecb_encrypt_zvkned(u8 *dst, const u8 *src, size_t len,
++//			       const struct aes_enckey *key);
++//
++// |len| must be nonzero and a multiple of 16 (AES_BLOCK_SIZE).
++SYM_FUNC_START(aes_ecb_encrypt_zvkned)
++	aes_ecb_crypt	1
++SYM_FUNC_END(aes_ecb_encrypt_zvkned)
++
++// void aes_ecb_decrypt_zvkned(u8 *dst, const u8 *src, size_t len,
++//			       const struct aes_key *key);
++//
++// |len| must be nonzero and a multiple of 16 (AES_BLOCK_SIZE).
++SYM_FUNC_START(aes_ecb_decrypt_zvkned)
++	aes_ecb_crypt	0
++SYM_FUNC_END(aes_ecb_decrypt_zvkned)
+diff --git a/lib/crypto/riscv/aes.h b/lib/crypto/riscv/aes.h
+index 9de9dbd1e887..5b36d0147d93 100644
+--- a/lib/crypto/riscv/aes.h
++++ b/lib/crypto/riscv/aes.h
+@@ -60,6 +60,39 @@ static void aes_decrypt_arch(const struct aes_key *key,
+ 	}
+ }
+ 
++#if IS_ENABLED(CONFIG_CRYPTO_LIB_AES_ECB)
++void aes_ecb_encrypt_zvkned(u8 *dst, const u8 *src, size_t len,
++			    const struct aes_enckey *key);
++void aes_ecb_decrypt_zvkned(u8 *dst, const u8 *src, size_t len,
++			    const struct aes_key *key);
++
++/* len is always a positive multiple of AES_BLOCK_SIZE here. */
++#define aes_ecb_encrypt_arch aes_ecb_encrypt_arch
++static bool aes_ecb_encrypt_arch(u8 *dst, const u8 *src, size_t len,
++				 const struct aes_enckey *key)
++{
++	if (!static_branch_likely(&have_zvkned) || unlikely(!may_use_simd()))
++		return false;
++	kernel_vector_begin();
++	aes_ecb_encrypt_zvkned(dst, src, len, key);
++	kernel_vector_end();
++	return true;
++}
++
++/* len is always a positive multiple of AES_BLOCK_SIZE here. */
++#define aes_ecb_decrypt_arch aes_ecb_decrypt_arch
++static bool aes_ecb_decrypt_arch(u8 *dst, const u8 *src, size_t len,
++				 const struct aes_key *key)
++{
++	if (!static_branch_likely(&have_zvkned) || unlikely(!may_use_simd()))
++		return false;
++	kernel_vector_begin();
++	aes_ecb_decrypt_zvkned(dst, src, len, key);
++	kernel_vector_end();
++	return true;
++}
++#endif /* CONFIG_CRYPTO_LIB_AES_ECB */
++
+ #define aes_mod_init_arch aes_mod_init_arch
+ static void aes_mod_init_arch(void)
+ {
+-- 
+2.55.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
