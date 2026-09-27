@@ -4,54 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B7CC9832F
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Sep 2026 20:41:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE6BC98338
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Sep 2026 21:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ajJ4RIqvyR4SH8iXfYNjs9M+lWCm9lsCELUrL2YoQaU=; b=tpsazHrUyrmj0bD8a3tLD6WsOS
-	avx1e/TpmpSUlthEZ1jhlNPTasQN4YKw5vG19+LmEqqBh50PMKDa4XkqnBmRQ4Q7CHezfXFQcS+ds
-	WGVPmpKeX0KsPqXwEIBjXgdHGCO6jEDtPFGXj5zgJebBjBR7YN+Pm7y19PfsbV/6MsmbOV5EXMibV
-	rEzC3RFdtl6anvcLEEJ/fdncQAw06oR1oFewOSscWuhNVqYJmGDkofepVRFisnweQN1OMkDtZclAD
-	zv/ZvTw86ZXzz4JbqrIV2RjMk8vGjirBCIEORGWUTFSxTSdJVso0cyCNblQcLBuiV49QQI33nIwLH
-	x4EWkomQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eWvVvoxAJpUIr3oX89D0wiNd9c0DqNdq3XMcfmdqerE=; b=F8yJY6TIzMOgky
+	r6YWaGZAwOOAxBsXaxBFcIdvFIxX2pBtYlhSYQkUzqPWa3XiYUnHWDgdVPCDx57rFz5B3lRq1fu+C
+	P/h7p7ZTPR1p68R6Rxps8yyy1UWEsJzV539sdctGfzDYmq4Nu7Hrjvc8OaoeSRuqMpjCZP5NgWd/5
+	SzI2SVhG13seW/IsooSPeY1RzUDOxfz3aFIYi2Zd7IVNDK+awJFyULGtMgd14YjO/Z0oRIt8vv+uF
+	xveY4w5AMF8c9lZs4Ktdr2va7Bj0PeBLyu8G7glojcDb0At5gGYdyRbLfVBjnwwF5bdfyGX4/J9cB
+	JkvBI1sIaoEPsdLp3bSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAvgU-0000000GpuQ-14d1;
-	Sun, 27 Sep 2026 20:41:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xAwGQ-0000000GsnQ-3CKF;
+	Sun, 27 Sep 2026 21:18:26 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAvgR-0000000GpuE-48fc;
-	Sun, 27 Sep 2026 20:41:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3B34041526;
-	Sun, 27 Sep 2026 20:41:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58C091F000FF;
-	Sun, 27 Sep 2026 20:41:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790541675;
-	bh=vLO37l59WyVXOc1GaSGyfri+C0pwbOWgxmIfm+nlpBs=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=TuTmdGnt2aTd7EYBIGzQPK6hgv2mwZj/e+iMLaZQhl+kbqjNk+Gn0JGXGu+zgmfyt
-	 x+Jeaumu4xurUfC51qiVkNk0aZqWfE6CifBVSz0/DVzlYQAmvmm3NBDuVE8n/xtFeN
-	 /T62KvCuyw7jcMax/bVpfRf7QBJnNqHjfoKjCz1UuB6bWyLjvMjJmDUFCT9aw1ttAd
-	 nReKDQGOh6/xSa+g0Xh/CaBwmnUWNv9LiHwGPUx39dhZZG3dK6Yzs4TcoD96N7bqud
-	 7Ar3WdLf7zr4A7TmUGMUZPzNmmmQZiAt4yLw5kf/7+H14P9PFbPxJ9MmSslmJB0L8d
-	 STXnJylkLfaIQ==
-Content-Type: multipart/mixed; boundary="===============7476743973010168723=="
+	id 1xAwGO-0000000Gsmy-0rSW
+	for linux-riscv@lists.infradead.org;
+	Sun, 27 Sep 2026 21:18:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=33MsHDwPKKkx+NSkez8Et2HM/X24ivhJAbyLs8SiZQw=; b=Si+XEBRscLmCml1/lRIrfwcH5M
+	MI5OhSA8PoN9qtCZVS0OgnoqsdinGm8UdpAQNxfzwsjI4EfN9YT0h+y17f0At4B/LNVR9LKnEBSA6
+	LcQeQHdxqns41n5OIv3N6Trf3N746CDPoRex/acXy7we9vM5BT4z6g8+PZzlVsnI+TXNT1JpgOtM2
+	dA7pJbAweyePTZAp3mffCHHkpcItFPZo+Lc76jVbO0giudX8S8Oc/0KKeuphZ56sv9zyyFZOXLHTo
+	3g8x9N22+VhD2ICCCFy20VaJMi4mO0Kdm4w8SYMvHuOpdPR6bbkB+fu2qAWuKd8X+cSn4InqCbxr6
+	GviGGnfg==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1xAwGC-0000000DQ9b-0cFC;
+	Sun, 27 Sep 2026 23:18:12 +0200
+Date: Sun, 27 Sep 2026 23:18:11 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Aurelien Jarno <aurelien@aurel32.net>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+Subject: Re: [PATCH v3 1/5] riscv: dts: spacemit: k3: move USB3 phy to board
+ level
+Message-ID: <armIExWjR43ar50t@aurel32.net>
+Mail-Followup-To: linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>, Inochi Amaoto <inochiama@gmail.com>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+References: <20260831044540.3304350-1-aurelien@aurel32.net>
+ <20260831044540.3304350-2-aurelien@aurel32.net>
+ <20260831045448.58B591F000E9@smtp.kernel.org>
 MIME-Version: 1.0
-Message-Id: <9d932a22ca908da9378ea281633ddb749453911ac6ae7a27a09e376f9ad02ff7@mail.kernel.org>
-In-Reply-To: <20260926135605.1217928-2-florent.revest@linux.dev>
-References: <20260926135605.1217928-2-florent.revest@linux.dev>
-Subject: Re: [PATCH bpf v5 1/3] bpf: Wait for an RCU tasks grace period before freeing trampoline progs
-From: bot+bpf-ci@kernel.org
-To: florent.revest@linux.dev,bpf@vger.kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org
-Cc: florent.revest@linux.dev,martin.lau@linux.dev,eddyz87@gmail.com,memxor@gmail.com,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,kpsingh@kernel.org,john.fastabend@gmail.com,leon.hwang@linux.dev,zirajs7@gmail.com,rhkrqnwk98@gmail.com,puranjay@kernel.org,xukuohai@huaweicloud.com,iii@linux.ibm.com,hbathini@linux.ibm.com,chleroy@kernel.org,naveen@kernel.org,bjorn@kernel.org,pulehui@huawei.com,yangtiezhu@loongson.cn,hengqi.chen@gmail.com,linux-kernel@vger.kernel.org,aou@eecs.berkeley.edu,agordeev@linux.ibm.com,alex@ghiti.fr,bp@alien8.de,catalin.marinas@arm.com,borntraeger@linux.ibm.com,dave.hansen@linux.intel.com,emil@etsalapatis.com,hca@linux.ibm.com,hpa@zytor.com,chenhuacai@kernel.org,ihor.solodrai@linux.dev,mingo@redhat.com,linux-arm-kernel@lists.infradead.org,linux-kselftest@vger.kernel.org,linuxppc-dev@lists.ozlabs.org,linux-riscv@lists.infradead.org,linux-s390@vger.kernel.org,loongarch@lists.linux.dev,maddy@linux.ibm.com,mark.rutland@arm.com,mpe@ellerman.id.au,npiggin@g
- mail.com,palmer@dabbelt.com,paulmck@kernel.org,pjw@kernel.org,ritesh.list@gmail.com,sshegde@linux.ibm.com,shuah@kernel.org,svens@linux.ibm.com,tglx@kernel.org,gor@linux.ibm.com,kernel@xen0n.name,will@kernel.org,x86@kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Sun, 27 Sep 2026 20:41:12 +0000 (UTC)
+Content-Disposition: inline
+In-Reply-To: <20260831045448.58B591F000E9@smtp.kernel.org>
+User-Agent: Mutt/2.4.1 (2026-07-04)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260927_141824_249196_43790A95 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,85 +89,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7476743973010168723==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-
-> bpf: Wait for an RCU tasks grace period before freeing trampoline progs
->
-> When a prog is detached from a trampoline, it is freed after an RCU
-> grace period, or an RCU tasks trace one if it is sleepable. This covers
-> the tasks that are running the prog, since the prog's enter helper takes
-> the matching read lock before the prog is called. On a preemptible
-> kernel, it doesn't cover a task that was preempted in the trampoline
-> just before the enter helper. That task holds no lock yet, and it calls
-> the prog after it was freed:
->
->   BUG: KASAN: vmalloc-out-of-bounds in __bpf_prog_enter_recur+0x3a5/0x3f0
->   Read of size 8 at addr ffffc90000055040 by task candidate/110
->   CPU: 1 UID: 0 PID: 110 Comm: candidate Not tainted 7.3.0-rc2-00014-g15071f2a1263-dirty #2 PREEMPT(full)
->   Call Trace:
->    <TASK>
->    __bpf_prog_enter_recur+0x3a5/0x3f0
->    bpf_trampoline_6442509193+0x37/0xf1
->    __x64_sys_futex+0x9/0x410
->    do_syscall_64+0xb0/0x530
->    ...
->
-> Wait for an RCU tasks grace period before the existing one when freeing
-> a prog that was linked to a trampoline. An RCU tasks grace period only
-> ends once the tasks that were preempted have run again, and
-> bpf_tramp_image_put() already relies on it to free the image. It doesn't
-> wait for tasks that sleep in the trampoline, the next commit takes care
-> of those.
->
-> Only progs that were linked to a trampoline can be called this way, so
-> bpf_trampoline_add_prog() marks them and other progs are still freed as
-> before.
->
-> Fixes: e21aa341785c ("bpf: Fix fexit trampoline.")
-
-Is this the right Fixes: target?
-
-The race being closed here (a task preempted inside the trampoline image
-before __bpf_prog_enter*() takes its RCU read lock, while the prog is freed
-after only a regular RCU or RCU tasks trace grace period) appears to predate
-e21aa341785c.
-
-In fec56f5890d9 ("bpf: Introduce BPF trampoline") bpf_trampoline_update()
-switched images with no tasks RCU wait, and __bpf_prog_put_noref() freed the
-prog with a plain call_rcu(&prog->aux->rcu, __bpf_prog_put_rcu).
-
-Just before e21aa341785c, the synchronize_rcu_mult(call_rcu_tasks,
-call_rcu_tasks_trace) in bpf_trampoline_update() ran before
-arch_prepare_bpf_trampoline() rather than after the new image was installed,
-and the total == 0 unregister_fentry() path had no wait at all, so a task
-preempted in the old image could already reach a freed prog.
-
-Would Fixes: fec56f5890d9 ("bpf: Introduce BPF trampoline") be more
-accurate, so that stable trees without e21aa341785c also pick this up? The
-follow-up 49ca60187380 in this series uses the same tag.
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/36346518503
---===============7476743973010168723==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7476743973010168723==--
-
+SGksCgpPbiAyMDI2LTA4LTMxIDA0OjU0LCBzYXNoaWtvLWJvdEBrZXJuZWwub3JnIHdyb3RlOgo+
+IFRoYW5rIHlvdSBmb3IgeW91ciBjb250cmlidXRpb24hIFNhc2hpa28gQUkgcmV2aWV3IGZvdW5k
+IDEgcG90ZW50aWFsIGlzc3VlKHMpIHRvIGNvbnNpZGVyOgo+IC0gW0xvd10gUmVtb3ZpbmcgJ3Bo
+eXMnIGFuZCAncGh5LW5hbWVzJyBmcm9tIHRoZSBiYXNlIGszLmR0c2kgYnJlYWtzIERUIHNjaGVt
+YSB2YWxpZGF0aW9uIChkdGJzX2NoZWNrKSBmb3IgZGlzYWJsZWQgbm9kZXMgYW5kIGltcHJvcGVy
+bHkgZGVsZWdhdGVzIGZpeGVkIFNvQyByb3V0aW5nIHRvIGJvYXJkIGZpbGVzLgo+IC0tCj4gCj4g
+Y29tbWl0IGU5ZGM3YWQ5MmQ1ZjRhODA1Y2YzNjJmZGQ1MWM2YWUxNjBkYTE5MzQKPiBBdXRob3I6
+IEF1cmVsaWVuIEphcm5vIDxhdXJlbGllbkBhdXJlbDMyLm5ldD4KPiAKPiByaXNjdjogZHRzOiBz
+cGFjZW1pdDogazM6IG1vdmUgVVNCMyBwaHkgdG8gYm9hcmQgbGV2ZWwKPiAKPiBUaGlzIGNvbW1p
+dCBtb3ZlcyB0aGUgVVNCMyBwaHkgZGVmaW5pdGlvbnMgZnJvbSB0aGUgU29DIGR0c2kgdG8gdGhl
+IGJvYXJkCj4gbGV2ZWwgZHRzIGZpbGVzIGZvciB0aGUgU3BhY2VtaVQgSzMgU29DLiBJdCBhaW1z
+IHRvIHByZXZlbnQgUEhZIG1vZGUKPiBjb25maWd1cmF0aW9uIGVycm9ycyB3aGVuIHRoZSBjb21i
+byBQSFkgbGluZXMgYXJlIHVzZWQgZm9yIFBDSWUgcmF0aGVyIHRoYW4KPiBVU0IzLgo+IAo+IFsg
+Li4uIF0KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2szLmR0
+c2kgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2szLmR0c2kKPiA+IGluZGV4IGMzZjJk
+Y2UwOTY5YzAuLjZmOGQ1NWVhZTZmNmIgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2Jvb3Qv
+ZHRzL3NwYWNlbWl0L2szLmR0c2kKPiA+ICsrKyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2Vt
+aXQvazMuZHRzaQo+ID4gQEAgLTQ1Miw5ICs0NTIsNiBAQCB1c2IzZDogdXNiQDgxYTAwMDAwIHsK
+PiA+ICAJCQkJIDwmc3lzY29uX2FwbXUgUkVTRVRfQVBNVV9VU0IzX0RfVkNDPiwKPiA+ICAJCQkJ
+IDwmc3lzY29uX2FwbXUgUkVTRVRfQVBNVV9VU0IzX0RfUEhZPjsKPiA+ICAJCQlyZXNldC1uYW1l
+cyA9ICJhaGIiLCAidmNjIiwgInBoeSI7Cj4gPiAtCQkJcGh5cyA9IDwmdXNiM2RfdTJwaHk+LAo+
+ID4gLQkJCSAgICAgICA8JmNvbWJvcGh5IDQgUEhZX1RZUEVfVVNCMz47Cj4gPiAtCQkJcGh5LW5h
+bWVzID0gInVzYjItcGh5IiwgInVzYjMtcGh5IjsKPiAKPiBbU2V2ZXJpdHk6IExvd10KPiBEb2Vz
+IHJlbW92aW5nIHBoeXMgYW5kIHBoeS1uYW1lcyBmcm9tIHRoZSBiYXNlIGszLmR0c2kgYnJlYWsg
+RFQgc2NoZW1hCj4gdmFsaWRhdGlvbiAoZHRic19jaGVjaykgZm9yIGRpc2FibGVkIG5vZGVzPwoK
+Tm8gaXQgZG9lc24ndC4gZHRic19jaGVjayBzZWVtcyB0byBpZ25vcmUgZGlzYWJsZWQgbm9kZXMu
+Cgo+IFRvIHNhdGlzZnkgdGhlIHNjaGVtYSdzIG1pbkl0ZW1zOiAxIHJlcXVpcmVtZW50IHdoaWxl
+IHN1cHBvcnRpbmcgYm9hcmQtbGV2ZWwKPiBjb21ibyBQSFkgY29uZmlndXJhdGlvbiwgc2hvdWxk
+IHRoZSBkZWRpY2F0ZWQgaW50ZXJuYWwgU29DIFBIWSAodXNiM2RfdTJwaHkpCj4gaGF2ZSBiZWVu
+IHJldGFpbmVkIGluIHRoZSBiYXNlIGZpbGU/Cj4gCj4gVGhlIGR0YnNfY2hlY2sgdmFsaWRhdGlv
+biB3aWxsIGZhaWwgZm9yIGFueSBib2FyZCBEVCB0aGF0IGluY2x1ZGVzIGszLmR0c2kKPiBidXQg
+ZG9lcyBub3Qgb3ZlcnJpZGUgdGhlIHVzYjNkIG5vZGUgdG8gcHJvdmlkZSB0aGUgcGh5cyBhbmQg
+cGh5LW5hbWVzCj4gcHJvcGVydGllcyAoZS5nLiwgazMtY29tMjYwLWlmeC5kdHMgYW5kIGszLWRl
+ZXBjb21wdXRpbmctZm1sMTN2MDUuZHRzKS4KCkkgaGF2ZSBqdXN0IHRyaWVkLCBpbiBwcmFjdGlj
+ZSBpdCBkb2Vzbid0LiBJJ2xsIHNlbmQgYSBuZXcgdmVyc2lvbiAKbWVudGlvbmluZyB0aGF0LgoK
+PiBUaGlzIGhhcHBlbnMgYmVjYXVzZSB0aGUgc2NoZW1hIHNwYWNlbWl0LGsxLWR3YzMueWFtbCB1
+bmNvbmRpdGlvbmFsbHkKPiByZXF1aXJlcyB0aGVzZSBwcm9wZXJ0aWVzLCBhbmQgZHQtc2NoZW1h
+IGV2YWx1YXRlcyBhbGwgbm9kZXMsIGV2ZW4gZGlzYWJsZWQKPiBvbmVzLgo+IAo+ID4gIAkJCXBo
+eV90eXBlID0gInV0bWkiOwo+ID4gIAkJCXNucHMsZGlzX2VuYmxzbHBtX3F1aXJrOwo+ID4gIAkJ
+CXNucHMsZGlzX3UyX3N1c3BoeV9xdWlyazsKPiAKPiAtLSAKPiBTYXNoaWtvIEFJIHJldmlldyDC
+tyBodHRwczovL3Nhc2hpa28uZGV2LyMvcGF0Y2hzZXQvMjAyNjA4MzEwNDQ1NDAuMzMwNDM1MC0x
+LWF1cmVsaWVuQGF1cmVsMzIubmV0P3BhcnQ9MQo+IAoKLS0gCkF1cmVsaWVuIEphcm5vICAgICAg
+ICAgICAgICAgICAgICAgICAgICBHUEc6IDQwOTZSLzFEREQ4QzlCCmF1cmVsaWVuQGF1cmVsMzIu
+bmV0ICAgICAgICAgICAgICAgICAgICAgaHR0cDovL2F1cmVsMzIubmV0CgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
