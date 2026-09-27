@@ -4,110 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03240C98324
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Sep 2026 07:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20BDFC98324
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Sep 2026 11:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=udShBe/9uaXR1UMGoba63o/NQaliL/VHp3oK41VCYcE=; b=qJY0DnpfW62v6E
-	LAUEwZ/gbx3QyuBU+ZU4od8E5yjti2sDgjG9rfd7t+pGqb3tvuCXlYyRsZZAJ+vCfF21DkGPEq6UK
-	bZ0YmzrQFbvipcIlw6VYkI28ntw5dxDw9nP2AorwnLsEY79C5Yz2auLqAefhaVxQMt5DLBmJFib05
-	7E+nFpAVukMBEqbtZgJ+ZvYFbnLVvXWUcZqdm1GRnqycVuH+zaUZ46v5M+OmcPyW3akace3BBQQ+2
-	m2MKO9GANkOvzwu1wHtkLvIBPfS1MxXguVkx6InVyw1i2lDMEH8BvRMVlSLN1bsCeNaF76BokbbhI
-	rtzvkWZt3+Xd9tNVe6GA==;
+	List-Owner; bh=C785HNnujfbJf696XEuZtwAQe/fk+knCPG60/jf12CA=; b=x0fHKoNAiwS7e+
+	QFZHyMoA2ikCws8sN/BOcs5LO2uajDmtKgA8vIOs443ljwOGMrPuTbvZBisODZ7DX78EopRPcL6Y5
+	0Ir3hNBoIOzDBn60QtfhvHMcEDAjCwJXG83QIoI6L6qHOuctn4Z2dxyGxE6tg8srOwIlGkEMQMWCO
+	ZmHVe/M7feI1DCTZxqPxMfqU9hntSHJerauIEI84e6mGAXstz8VhCHCs88LroBnfjrdvBgVbsn4Jr
+	K4VGOJLrtvlRsXdvFe5mNN9jU6BJd52n86tN8cReGO6aUi1roynl/NXcGLSKzMatyJkP0r9ZL6f1u
+	2oUvvfD7RZfjPPakS/Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAiu9-0000000G5OI-1gt7;
-	Sun, 27 Sep 2026 07:02:33 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1xAn2S-0000000GEni-1Qpa;
+	Sun, 27 Sep 2026 11:27:24 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAiu6-0000000G5NH-2cZm
+	id 1xAn2P-0000000GEmw-3t3v
 	for linux-riscv@lists.infradead.org;
-	Sun, 27 Sep 2026 07:02:32 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ffed768deso2810315e9.1
-        for <linux-riscv@lists.infradead.org>; Sun, 27 Sep 2026 00:02:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790492548; x=1791097348; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=RJKp/brBpZ8U6kwJIcmM4FiZnVhsdc/GYabd2hj9ep0=;
-        b=sh9xIpS95lfenlEobk6PO5gnn/WyjELws59JQ8FC9HXW8WOVLUmEgFvGRNIrnjy4nc
-         dAL4XkDM5I4OBzO7w6z86qIB+56op+9zT2coUZxXZ4LLcw/GL5Y7uq8jtS3L08/VsNI+
-         mOySkoJByPRxh7ljPjpJihZ6zeKsONFeWE/ejBCA662s/Hn5/z3edm9TA55JmscyE1de
-         jm4EGcwfAaGkUDu8zr1iU8/vslNnr6RPCVPNPZ6xpm6QZPPCE8/hIfNhPEbeDwSBS4an
-         Qcu6KpUQNCJd8Vsl7kvJ0zjaN1oJ8XC9iMgksXJwqSJiDk4VzeW5R/krFu13dzRsU8m6
-         zFNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790492548; x=1791097348;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RJKp/brBpZ8U6kwJIcmM4FiZnVhsdc/GYabd2hj9ep0=;
-        b=q0aWMlH9rXU9icGHJRJ9MVjzQgi4xAORfTC//0ptvEfE0dv+jKaMblCoNFNW7kWWKQ
-         C9WA0Fq5TTIlYTCxkb6j/jAtLFAYCMEU7urJL4DIL3b2j+fGE9Mxsbat9Q+jgdW6U4fu
-         J+XxQgaRRHjj+U4NLf31LOdAqVwdk8IsN//gThZGd2wsP8RNVA/Gsp4h4AL8cHmY3TU0
-         9TdBF0FHBfKvChCnUWuG5heuBrbzlwr5EFYJ40QrFqeplZJW0UN6GaQG5hjbAtfvqzD+
-         rWdVPzTxguY+IMikY+bnl2UPmoj/BuqLTsfLAVrwSvfo1CJFJJar8jtTmsRNzu6NPFfm
-         XU9g==
-X-Forwarded-Encrypted: i=1; AKwUvBzIDXfjmOC8kcN3qucxTnslQaUGgBlOyTvv3UvS/MGqi6aM9oIh6sSx0OBPUY31ZE5qUxdQuTOUHV/IAQ==@lists.infradead.org
-X-Gm-Message-State: AFuF++kdhxDlv9vTgyglZPyk16zocUd/iz/OtkGntjr4bppa7jMcPWgS
-	zdrEAkA/iWdbfkskYWshL7LIrbekPln72PupkoXbusQEc8P5G6g1XqRl
-X-Gm-Gg: AYBFou1jy84jypql5+FkphVRABYcZGjfj/D0geWsUp1m4ArpYsOfu3CxPxWb5q6lBBZ
-	lri8cWZ5AgU5kCaegx+jhmdFQqHQypSEQJW70dxB0Ek/gEhOsmo7wnQ5N+hwVq3197SKYnRkjV8
-	hoT1c5pQfPG2FcTpYjShL0BjcO5L8XVmiVxXi658X5l5MkWE4AxhWnJEfTCntryDgdEJkkU7USk
-	U5ym10HYYEMr6g+k6x0sOmMd4LPzDwFuCOIGBjzkEJg3PmcqWaul0nfRwS7zAJoCzrpyfML+2cD
-	P4ceNE9t6NRX00BiPz0iz9EBCnhVHVvjt/MqGIlP9gWTzimHwbVMpbCqfpVldRWt/pLVgnUkwuB
-	qQDtih505aVvBzp4HKF3Wh3I3QT0esZ9Kc4DQ+YBM/7QiPpoAyujbsF0XFssknFVMWq+fqm22Um
-	apRZF0uJPq3D8nY13zLqfOP7ZV77ct0rxagSP5eHJ9mAA/RRunUEPMBWXOrgVAgFuJU8TeUAqMz
-	SmkKpni/O4IxP1qjAzG/BRFTJ0oGw97cqU/
-X-Received: by 2002:a05:600c:1f83:b0:49b:8f5e:51fb with SMTP id 5b1f17b1804b1-49fe66c8087mr175447355e9.3.1790492548064;
-        Sun, 27 Sep 2026 00:02:28 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a0018f0e79sm57015315e9.7.2026.09.27.00.02.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Sep 2026 00:02:27 -0700 (PDT)
-Date: Sun, 27 Sep 2026 08:02:25 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Andreas Schwab
- <schwab@linux-m68k.org>, Andy Lutomirski <luto@kernel.org>, Thomas Gleixner
- <tglx@kernel.org>, Theodore Ts'o <tytso@mit.edu>, Vincenzo Frascino
- <vincenzo.frascino@arm.com>, Nick Desaulniers <ndesaulniers@google.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens
- <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Ingo
- Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
- x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
- reserved in __cvdso_getrandom_data()
-Message-ID: <20260927080225.37534e7c@pumpkin>
-In-Reply-To: <are7cfMIHZZn6jLz@zx2c4.com>
-References: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
-	<87zex4ic68.fsf@linux-m68k.org>
-	<20260926121927.GA1486962@ax162>
-	<are7cfMIHZZn6jLz@zx2c4.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Sun, 27 Sep 2026 11:27:23 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id DF3BC240101
+	for <linux-riscv@lists.infradead.org>; Sun, 27 Sep 2026 13:27:13 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net;
+	s=1984.8680eb; t=1790508433;
+	bh=HWuajKBzp5P29va8dZADm3KIQPoT99vey4Xoq4mmV6I=;
+	h=Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:From;
+	b=FDKqYl2m9mgBMrcaQyDOw6uuRDzKZaAbEYIcvYmyKRN8YMH8VxaNmWINo/KxF4E1c
+	 jMolL98c40uz3uSA4R4YSar3nduTbBbjC9kwaUSYbxoHImr+1iHiZTW0sYlHctmmYZ
+	 38YwBJLxkKbdWsaTAGC3jjwobkf6wLXX6W9Jlv7Y3HRFOlVfYptrux0AEi7fRLCXsm
+	 N02+RP1BSxYzaiXS5J6KutQ1fPOFVLB2wSHjkFNNFmX5Ma+ywTH2ihEI6DzxKz+X91
+	 Ob/MCPng6t1dlgrNewOcUTxgGVh30PlDy/sIFtmcxizn2NZsmY8m8DnAc8U8fCzVQm
+	 Oi0BPfG1QDPqw==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4ht2GN34T4z9rxB;
+	Sun, 27 Sep 2026 13:27:08 +0200 (CEST)
+Date: Sun, 27 Sep 2026 11:27:12 +0000
+From: Wilken Gottwalt <wilken.gottwalt@posteo.net>
+To: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>
+Cc: Bjorn Andersson <andersson@kernel.org>, Baolin Wang
+ <baolin.wang@linux.alibaba.com>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
+ Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
+ Holland <samuel@sholland.org>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, Andre
+ Przywara <andre.przywara@arm.com>, Bastian Germann <bage@debian.org>,
+ linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] riscv: dts: allwinner: d1-t113: Add the hardware
+ spinlock
+Message-ID: <20260927132707.5f484946@posteo.net>
+In-Reply-To: <20260927025626.69614-4-tien.nguyenminh@embeddedlinux.blog>
+References: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
+	<20260927025626.69614-4-tien.nguyenminh@embeddedlinux.blog>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_000230_677036_9615A290 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20260927_042722_259904_3ED108B2 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,54 +84,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 26 Sep 2026 14:32:49 +0200
-"Jason A. Donenfeld" <Jason@zx2c4.com> wrote:
+On Sun, 27 Sep 2026 09:56:26 +0700
+Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog> wrote:
 
-> On Sat, Sep 26, 2026 at 01:19:27PM +0100, Nathan Chancellor wrote:
-> > On Sat, Sep 26, 2026 at 11:39:43AM +0200, Andreas Schwab wrote:  
-> > > On Sep 25 2026, Nathan Chancellor wrote:
-> > >   
-> > > > +#if __has_builtin(__builtin_memset_inline)
-> > > > +#define memset_inline(dst, value, size) __builtin_memset_inline(dst, value, size)
-> > > > +#elif IS_ENABLED(CONFIG_CC_HAS_OPT_INLINE_MEMSET)
-> > > > +#define memset_inline(dst, value, size) __builtin_memset(dst, value, size)
-> > > > +#else
-> > > > +static inline void *memset_inline(void *dst, int value, size_t size)
-> > > > +{
-> > > > +	char *d = dst;
-> > > > +
-> > > > +	while (size--)
-> > > > +		*d++ = value;
-> > > > +
-> > > > +	return d;
-> > > > +}
-> > > > +#endif
-> > > > +  
-> > > 
-> > > memset actually returns the original pointer, not the incremented one.
-> > > Nothing uses the return value of memset_inline here, but it is
-> > > confusing.  
-> > 
-> > Whoops, good catch, I guess my fingers gave up on those last two
-> > characters :) I will fix this for v3 once there has been some time for
-> > further review.  
+> Add the hardware spinlock of the D1 and T113. It goes in
+> sunxi-d1-t113.dtsi rather than sunxi-d1s-t113.dtsi, as the D1s manual
+> has no spinlock in its memory map.
 > 
-> Do we even need to return a value at all? Might as well just make the
-> function two lines:
+> Signed-off-by: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>
+> ---
+>  arch/riscv/boot/dts/allwinner/sunxi-d1-t113.dtsi | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 > 
-> +       for (char *d = dst; size--;)
-> +               *d++ = value;
+> diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1-t113.dtsi
+> b/arch/riscv/boot/dts/allwinner/sunxi-d1-t113.dtsi index 3b077dc086..228cc5c074 100644
+> --- a/arch/riscv/boot/dts/allwinner/sunxi-d1-t113.dtsi
+> +++ b/arch/riscv/boot/dts/allwinner/sunxi-d1-t113.dtsi
+> @@ -11,5 +11,14 @@ dsp_wdt: watchdog@1700400 {
+>  			clock-names = "hosc", "losc";
+>  			status = "reserved";
+>  		};
+> +
+> +		hwlock: hwlock@3005000 {
+> +			compatible = "allwinner,sun20i-d1-hwspinlock",
+> +				     "allwinner,sun6i-a31-hwspinlock";
+> +			reg = <0x3005000 0x1000>;
+> +			clocks = <&ccu CLK_BUS_SPINLOCK>;
+> +			resets = <&ccu RST_BUS_SPINLOCK>;
+> +			#hwlock-cells = <1>;
+> +		};
+>  	};
+>  };
 
-Wouldn't it be better to add a barrier() or similar in there to
-stop the compiler playing unwanted games>
+Wouldn't it make more sense to add the "allwinner,sun20i-d1-hwspinlock" line to
+the driver in the sun6i_hwspinlock_ids struct, drop
+"allwinner,sun6i-a31-hwspinlock" here in the D1 device tree and update the yaml
+file accordingly? Hmm, there are actually a lot more devices, which support that
+spinlock (H2, H2+, H3, H5, H6...). A31 was the first one introducing that IP
+core, but newer reference manuals removed the spinlock section completely.
+There it is an unnamed 4k block in the memory map.
 
-David
+Bjorn, what do you think? Just stay with the "allwinner,sun6i-a31-hwspinlock"
+string or add all the possible combinations like
+"allwinner,sun8i-h2-plus-hwspinlock" or "allwinner,sun8i-a83t-hwspinlock".
+I mean, it is just a naming game and there are 10+ SoCs supporting this
+spinlock register file.
 
-> 
-> (Technically that could even be one, but maybe that sort of golf loses
-> clarity. Your choice.)
-> 
+Oh, and I may be able to test it against the D1, I own a Sipeed Nezha. Though,
+setting that one up for kernel + FreeRTOS testing is really, uhm, annoying.
 
+greetings,
+Wilken
 
 _______________________________________________
 linux-riscv mailing list
