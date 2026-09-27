@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D48C9832A
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Sep 2026 02:57:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FA40C9833E
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Sep 2026 02:57:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dma5rB2dx9vHCoJ66xYn1+m8oxCt+cEaAuyp4Dzd8kA=; b=eE1TE+zFs3j2gN
-	be+c9uXD3aftKN1xwGOmoUSA9HzPc8vbaFJQnSLWBAmn+9T5jWpgDBbfmpfh824fuSuDyNHNkxUWC
-	De7CwhHYhEyFM1cEsDK7/NYqSqFE3A5js4iT61xnu3ZCbpKLU8DbaAZD28uYHRfdYHeR0T8vQMAXv
-	tsnfHvt3e+c4jOGK3LHvdvxYxsVFC1TQL6DKRcw08wuTNP2nVoAPhsYSXsDzqtQgmQvvNqMYcd9KD
-	IM0GxY86OYn6ELjYFIAXhlhKVfp0at6BJMP303pjpTmZzZpfIJJYXMEy23p4Qy2hIA8VL3bPnUiYN
-	QY/PN8qf6CMkuHh52/8Q==;
+	List-Owner; bh=3s8vxw6U7FBCyL7KYbz2UlUPK7e9tekYGVSgW98H5VY=; b=Gj9MfPYn0YQzie
+	jicKe2GMDRmsDXtIC+JcziuH+8cF6wuy7DEBoKLyZhoPH7dlmnXsjjAkZrTM0TXgMSsslREG/6C6S
+	AxV0AsR9dMu4ghV9tUT828dXUBX3pREHr5dfjkfyvnbmSI7NG+pisUU6bE5vGG96q9aneImMrcre7
+	QPz/tnEAJFrBQYoXCWgRufTOvWU8ie2LkI4DgBuknH78uYgEJ63VDB/OOhAxk/ecNA1uuWcxRzI1/
+	TqY36p2sjPgXPvCP6VjhGOk1AXVrvHSU8djuHEjA+peSGP4+ENLN4POUmLzUKv5rVtXKIfDSLTomO
+	CIOmgdKn/dnMkcne3ZXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAf4N-0000000FxXf-1Edn;
-	Sun, 27 Sep 2026 02:56:51 +0000
-Received: from mail-pj2-x09.google.com ([2607:f8b0:4864:39::9])
+	id 1xAf4V-0000000Fxbo-2A1C;
+	Sun, 27 Sep 2026 02:56:59 +0000
+Received: from mail-pj2-x0e.google.com ([2607:f8b0:4864:39::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAf4E-0000000FxUX-2y4k
+	id 1xAf4K-0000000FxVw-0tb0
 	for linux-riscv@lists.infradead.org;
-	Sun, 27 Sep 2026 02:56:44 +0000
-Received: by mail-pj2-x09.google.com with SMTP id d9443c01a7336-2dfb6149d59so3016455ad.0
-        for <linux-riscv@lists.infradead.org>; Sat, 26 Sep 2026 19:56:42 -0700 (PDT)
+	Sun, 27 Sep 2026 02:56:49 +0000
+Received: by mail-pj2-x0e.google.com with SMTP id d9443c01a7336-2df4aa80a73so11348595ad.3
+        for <linux-riscv@lists.infradead.org>; Sat, 26 Sep 2026 19:56:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=embeddedlinux.blog; s=google; t=1790477802; x=1791082602; darn=lists.infradead.org;
+        d=embeddedlinux.blog; s=google; t=1790477807; x=1791082607; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=qyMsLj0hkCZGFDmY3GbC7EId9UWnZfSNH3ILjJaXTeM=;
-        b=rdx7XSEMYn55E8kJZnU9tTzV8cF+jrPycAzD4KLWNfEHhr7Tf5UbbCHHg+mgSircyU
-         exBO5zwHcoW6YTzXFvGkQXaGV/HPZkmtPu4ZKjfoTvupgva0ZnIGaZiNO0FOOGcbUtio
-         uhzjc7i00anhh+xH9lPW5U2Qcnrt5zSeUsegTu+hxEmJN0LKwKEJD1cBpWod2FAY7fBh
-         48IZsgHJ/l9Icj0vvRwDx288fToxANXNo9ezlKAkK+/vsv4hXTjfGPqWDGNhq6GlaKpE
-         SPNQI5whNnZV11iLRyM9qpv7z5FAFJAffZ9oxUp5t3SABbfcf8QmB2Cf5KHWlAt2GSzs
-         cXPA==
+        bh=W0OAcRU9c9mu0nqvpBUc1aIVBrp3XjCBrBUSr/EQyOo=;
+        b=odWue2yHt99HR3pvG2aKLP98lwM+LnRQXQEpVj7myQE8FWN5ZRuhGLkowP+gHa8H/X
+         +UvUQ00hkJi7GmodKAs03TUYg2lqaFzCk+Z+uK024StOCJGlxcz7QyTNoMS5+EbD2Ual
+         8OkUauehk8camq7SHNTOdc+s++h1pptIJ5o0H1kHdqeNl3JZbzM+9yGGe+fk/TMohAnb
+         3oFMSXPuD7Qv1wvY6PAyl0miBjKSDdla75IF8z+HB1+M/pl9hSo9GQSrlqo8pfP9C23J
+         D3lDT7zwlevs5dIbptsi0fE+Tc2tbYgzN4CxRfpNomRETv4Hwxd1CGNZQc4ImFYH/Cy9
+         3Xiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790477802; x=1791082602;
+        d=1e100.net; s=20260707; t=1790477807; x=1791082607;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qyMsLj0hkCZGFDmY3GbC7EId9UWnZfSNH3ILjJaXTeM=;
-        b=amyl2Mj7K4T5Yu2KSGCPU4VyYqhy0xnYMR1UcJlj7mllsWRhriWDDYrMCYuf9VN9w5
-         8wyXNVwPE/N1bTJ04cOLPZY9+9TFJETCihIMHpwrvfVxUppsKh+47p4A83JAs8Yjl1Lg
-         UpR2z2K9Hs01FhrynOLt2JZ/HymosBlewn9BCK700juSOizRbUbOMlFExIxDeuP1vcuE
-         8jdUgCEWqvJyQ+slsJUAkGI662MxLTtbU72kxA3DpNx09fyqhxMrZtSHUf0PIprfI6UX
-         yhdvpa84q/k8hHwoGUewO5tBx8hBEduL7+VIazfUMcmB+uqAkWstJRzE1YR3pIE8M6UV
-         Fd/Q==
-X-Forwarded-Encrypted: i=1; AKwUvByf6EC200EI/ibtwwVli4GJM6njT5DqnT5I/pz+P0ErsiNwFoe9QM5jvfD0wSBUwlP7DEyMw+LUk6rfpA==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKusuV/cf2yZrIIu/ygJmWFrDgoXht05IeXpymHe7Ods6iVMtPJ
-	tHDPTihAbj5WBVBCoZqRtrixy7QU/JEzKCvM5LF+4czYKpWUY+grDB+rledrCEdiONzZ
-X-Gm-Gg: AYBFou3C7MjJkRa2I/pIU6Wm3wBkb5kC1ACpXimJlpwa4JWcZ3rR+1ts+QiUWBMjPLC
-	lM/G//eQFGzKWaTWx3pqbuS383/+6fo9MZeUrcG3RLuqGtZUhI3HM3gPJN9XbhMVNmDm8kNxG5/
-	V+78QFRXpOMjy9ISoywrfHzAMP8qEW3iMmBF6HNMYxqpIhQKS3VncstvGsgvwb4fAdSIlGlaw9U
-	2dLGbm31NoL1IG9k7VzBeccqHcNhZGLuqk8+uKUqvck6UFNxHC+IsHLxEVFwT+HO6bGqsYTDFsz
-	qTvRWkToLjeEX6BcoIWPZbw0ZARkbsv0it3g+eNweZBzZPXuRk1BfV6CkHauPGXkTLSxi4PQ9q0
-	dw6mfLSpuQVy7zY33AsASRp8TlitaT1ETwekAe4S61rcINJXVyF9KNLv4SjDIeXSeEOG82eShCL
-	QYURFGWf1DFO89kuugh/YgEIiCoMZ4SXdKI3sOwOYjgyIATX6n2Y86D+Wh2zla73Rtlg==
-X-Received: by 2002:a17:902:e94f:b0:2df:a4a0:6443 with SMTP id d9443c01a7336-2dfa4a06479mr31921045ad.13.1790477801815;
-        Sat, 26 Sep 2026 19:56:41 -0700 (PDT)
+        bh=W0OAcRU9c9mu0nqvpBUc1aIVBrp3XjCBrBUSr/EQyOo=;
+        b=t2bql6MkYTgSP2O60R0oyu+JB9LRJb838IyvKkVMFstRykKwcdm7xxGg6RlICRSezx
+         4QM6r5hcaqGgFE/bGPf7RaLs1eNuF8LvmSKtvbaoujReWgtOq3PlH0DHMbriudF8yAyT
+         abFXI+3C/4nerwvrRo9xdqmwKMZcYWoPi/M53/BZPKR7uleMhYCVCukfS2nmWR0cK5xA
+         pgqeG3tW+/+BeilTZSi9VoKX26g/t69yR3yfoJFtTONy7ze5mbDuUn7F96sGHXPEMh96
+         JwdcLla+Vln7kRiotG1T9II5hTRw1mWZyLstwPQh3FylMTrPAj1kI13/p8tQPFkAvVF8
+         6bfw==
+X-Forwarded-Encrypted: i=1; AKwUvBxKHK2Bveq2TZK6Dx1ZYIL+UefWg5zKhDbTffe6Rjaude4ERC+jrS3HpYraBG0lgCQPiBstTxhbJiCIbQ==@lists.infradead.org
+X-Gm-Message-State: AFq9FYInln7ZNBWFaWsv17/l6MtIZmqdOJjj6p3kJqa8GvYk0cPiwmr2
+	nCJmGlcI0luhDNotPEn0/k50C7CdElf4UUXeTiEDTw85wtYgL9sxQc1MOJIA4XaEw9rG
+X-Gm-Gg: AYBFou05pMMLiuX1W+4Jzhqa4zxaqKi0EbyX+4GlDsWfRUHzBn0FUd/XnhO5xSPuDal
+	aUM+xxj81dUaKaaAeBf3U9setjfOPoJ5q7igc+TRSUYVL7FhOrF6NBdo+EVHfDQguDgKzVHcgxV
+	HoLsmGvCVe8llnMlLoGgfgm+eGisQk9vyeuzVVdwHif6pEJSsTtfPEpspT06Zf2F3ZrQOH6Uhzn
+	dlYukev0dGaGGFv5cOGJIjPDKH/QxJ0oi3Wa/MVuj0EjsSMlJD41KxZi45H7ohgxGH2oNZBYBC1
+	b/SPSS8LAcwsfeKeHdQGEtDiBQWJ8eA45LtgtiONtexRkU8eqJL7hXwdrVhOat1K/EzOF4LfIq4
+	5EG+ZwNyym5rK1D9seVilEzyugGVaQ55LCKk5eQshIP/o8MEIlHR+42ImlsocJCUKS7iA4Ng8KR
+	496YETJFWnXlZEEisksQqlYANYwwZOq3nrsng/iHvaIWTyVQif8mT318u9EjSkOHRf+g==
+X-Received: by 2002:a17:903:228c:b0:2dd:ad73:c982 with SMTP id d9443c01a7336-2df7dc41d3cmr92788095ad.26.1790477807346;
+        Sat, 26 Sep 2026 19:56:47 -0700 (PDT)
 Received: from ltu.. ([171.245.4.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df9142bfd4sm25512285ad.52.2026.09.26.19.56.35
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df9142bfd4sm25512285ad.52.2026.09.26.19.56.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 26 Sep 2026 19:56:40 -0700 (PDT)
+        Sat, 26 Sep 2026 19:56:46 -0700 (PDT)
 From: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>
 To: Wilken Gottwalt <wilken.gottwalt@posteo.net>,
 	Bjorn Andersson <andersson@kernel.org>
@@ -93,16 +93,17 @@ Cc: Baolin Wang <baolin.wang@linux.alibaba.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	tien.nguyenminh@embeddedlinux.blog
-Subject: [PATCH 1/3] hwspinlock: sun6i: Get the clock and the reset without names
-Date: Sun, 27 Sep 2026 09:56:24 +0700
-Message-Id: <20260927025626.69614-2-tien.nguyenminh@embeddedlinux.blog>
+Subject: [PATCH 2/3] dt-bindings: hwlock: sun6i: Add compatible for Allwinner D1
+Date: Sun, 27 Sep 2026 09:56:25 +0700
+Message-Id: <20260927025626.69614-3-tien.nguyenminh@embeddedlinux.blog>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
 References: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_195642_771516_79BAD112 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20260926_195648_323927_0240D767 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,46 +120,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The driver looks up its clock and reset by the name "ahb", but the
-binding doesn't define clock-names or reset-names, so a node that
-follows the binding fails to probe:
+The D1 and T113 have a hardware spinlock with the register layout the
+sun6i driver handles. Add a compatible for it, with the A31 one as
+fallback.
 
-  sun6i_hwspinlock 3005000.hwlock: unable to get AHB clock (-2)
-
-There is only one of each, so get them without a name. That is what
-was asked for when the names were added to an A64 node, and nodes that
-do set "ahb" keep working. For the reset, call the explicit
-devm_reset_control_get_exclusive(), which devm_reset_control_get()
-only wraps.
-
-Fixes: 3c881e05c814 ("hwspinlock: add sun6i hardware spinlock support")
-Link: https://lore.kernel.org/f720eaf9-01d0-0e57-f6bf-9aade00aafb8@linaro.org
 Signed-off-by: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>
 ---
- drivers/hwspinlock/sun6i_hwspinlock.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ .../bindings/hwlock/allwinner,sun6i-a31-hwspinlock.yaml    | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/hwspinlock/sun6i_hwspinlock.c b/drivers/hwspinlock/sun6i_hwspinlock.c
-index c2d3145880..e7cc121310 100644
---- a/drivers/hwspinlock/sun6i_hwspinlock.c
-+++ b/drivers/hwspinlock/sun6i_hwspinlock.c
-@@ -104,14 +104,14 @@ static int sun6i_hwspinlock_probe(struct platform_device *pdev)
- 	if (!priv)
- 		return -ENOMEM;
+diff --git a/Documentation/devicetree/bindings/hwlock/allwinner,sun6i-a31-hwspinlock.yaml b/Documentation/devicetree/bindings/hwlock/allwinner,sun6i-a31-hwspinlock.yaml
+index 584cce3211..13f9a20ae1 100644
+--- a/Documentation/devicetree/bindings/hwlock/allwinner,sun6i-a31-hwspinlock.yaml
++++ b/Documentation/devicetree/bindings/hwlock/allwinner,sun6i-a31-hwspinlock.yaml
+@@ -15,7 +15,12 @@ description:
  
--	priv->ahb_clk = devm_clk_get(&pdev->dev, "ahb");
-+	priv->ahb_clk = devm_clk_get(&pdev->dev, NULL);
- 	if (IS_ERR(priv->ahb_clk)) {
- 		err = PTR_ERR(priv->ahb_clk);
- 		dev_err(&pdev->dev, "unable to get AHB clock (%d)\n", err);
- 		return err;
- 	}
+ properties:
+   compatible:
+-    const: allwinner,sun6i-a31-hwspinlock
++    oneOf:
++      - const: allwinner,sun6i-a31-hwspinlock
++      - items:
++          - enum:
++              - allwinner,sun20i-d1-hwspinlock
++          - const: allwinner,sun6i-a31-hwspinlock
  
--	priv->reset = devm_reset_control_get(&pdev->dev, "ahb");
-+	priv->reset = devm_reset_control_get_exclusive(&pdev->dev, NULL);
- 	if (IS_ERR(priv->reset))
- 		return dev_err_probe(&pdev->dev, PTR_ERR(priv->reset),
- 				     "unable to get reset control\n");
+   reg:
+     maxItems: 1
 -- 
 2.34.1
 
