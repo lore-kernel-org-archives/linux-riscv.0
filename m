@@ -4,80 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE6BC98338
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Sep 2026 21:18:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D57C9830E
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Sep 2026 22:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eWvVvoxAJpUIr3oX89D0wiNd9c0DqNdq3XMcfmdqerE=; b=F8yJY6TIzMOgky
-	r6YWaGZAwOOAxBsXaxBFcIdvFIxX2pBtYlhSYQkUzqPWa3XiYUnHWDgdVPCDx57rFz5B3lRq1fu+C
-	P/h7p7ZTPR1p68R6Rxps8yyy1UWEsJzV539sdctGfzDYmq4Nu7Hrjvc8OaoeSRuqMpjCZP5NgWd/5
-	SzI2SVhG13seW/IsooSPeY1RzUDOxfz3aFIYi2Zd7IVNDK+awJFyULGtMgd14YjO/Z0oRIt8vv+uF
-	xveY4w5AMF8c9lZs4Ktdr2va7Bj0PeBLyu8G7glojcDb0At5gGYdyRbLfVBjnwwF5bdfyGX4/J9cB
-	JkvBI1sIaoEPsdLp3bSQ==;
+	List-Owner; bh=7uLiKBmfNEntwaFsNYAK2oUCOiSveL5/qxLPuuLMVsE=; b=MBzvvgvkNZRy1N
+	0OEM6dDloOtLRADSCIM9o46uwPiYkC24f87mY3N8qG0BzxH/VaubaGfZhk92noJQ6D9i4ny0PN+vh
+	XSvbCK3WmgT+zmwBwRJ2OKQvzqd+Rik1OQZwwiBuZVpvuQuakQUjTUBOn5TfNN4gwA+D1/3E0Oonf
+	5k2ZXtKJ6vTMf36U438BNVvQCDrQOkkfmE8Wu4Y60qk7vTiz8AgiWDwz9m3o+X3bh/T1LK2iBrQdP
+	KD+6wsVdnNdMx3CO9152yO6jK2bUMV7mdCmsjWVlGv8D3kIczvNZZCca8VOE1WzrW8Q2GEeb21HK4
+	xZRWCFJaJ3sEsKxeKlKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAwGQ-0000000GsnQ-3CKF;
-	Sun, 27 Sep 2026 21:18:26 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1xAxbz-0000000GwU2-0mjf;
+	Sun, 27 Sep 2026 22:44:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAwGO-0000000Gsmy-0rSW
+	id 1xAxbv-0000000GwRv-3KGw
 	for linux-riscv@lists.infradead.org;
-	Sun, 27 Sep 2026 21:18:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=33MsHDwPKKkx+NSkez8Et2HM/X24ivhJAbyLs8SiZQw=; b=Si+XEBRscLmCml1/lRIrfwcH5M
-	MI5OhSA8PoN9qtCZVS0OgnoqsdinGm8UdpAQNxfzwsjI4EfN9YT0h+y17f0At4B/LNVR9LKnEBSA6
-	LcQeQHdxqns41n5OIv3N6Trf3N746CDPoRex/acXy7we9vM5BT4z6g8+PZzlVsnI+TXNT1JpgOtM2
-	dA7pJbAweyePTZAp3mffCHHkpcItFPZo+Lc76jVbO0giudX8S8Oc/0KKeuphZ56sv9zyyFZOXLHTo
-	3g8x9N22+VhD2ICCCFy20VaJMi4mO0Kdm4w8SYMvHuOpdPR6bbkB+fu2qAWuKd8X+cSn4InqCbxr6
-	GviGGnfg==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1xAwGC-0000000DQ9b-0cFC;
-	Sun, 27 Sep 2026 23:18:12 +0200
-Date: Sun, 27 Sep 2026 23:18:11 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Aurelien Jarno <aurelien@aurel32.net>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH v3 1/5] riscv: dts: spacemit: k3: move USB3 phy to board
- level
-Message-ID: <armIExWjR43ar50t@aurel32.net>
-Mail-Followup-To: linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>, Inochi Amaoto <inochiama@gmail.com>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-References: <20260831044540.3304350-1-aurelien@aurel32.net>
- <20260831044540.3304350-2-aurelien@aurel32.net>
- <20260831045448.58B591F000E9@smtp.kernel.org>
+	Sun, 27 Sep 2026 22:44:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E44760D96;
+	Sun, 27 Sep 2026 22:44:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B24411F0089C;
+	Sun, 27 Sep 2026 22:44:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790549083;
+	bh=94rcIlv3vZyLxuX81C0MdHB/b/LSKu6DIYJXRb0ypv8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=fKJaEc9a+/XIo2bZ/ciYEkYsQrap3qkmX6HmNeZCbcki6l3w9HCuffJdoFM8EDnRU
+	 3+tJ1cNdTb6PsLSz9o65jVy1mdykSth8DIK/cjgypYmMZxqJ0ABZFXTDcjunkeU8Ey
+	 v2DVMn2JHpg4SV2uTgY79bF5O5MtSIlMgl8ujKYZdNR49WsH8nAZzSPhu3tXIB6lD8
+	 BQzVZNoox6Ez/4TeC4ghuho3v1fSbPo+Mtd/LmaSq6LrgfblsmdFHPdbZ0By6VGXVf
+	 PR60bVUpl0DBLQ9FXPPZIewKmZsgDZzhJQ9wV71v8oGtGqu2uRDWZ2hr4s9s7CaTfL
+	 BEWLIX6ujneHA==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	x86@kernel.org,
+	linux-riscv@lists.infradead.org,
+	Eric Biggers <ebiggers@kernel.org>
+Subject: [PATCH v2 11/20] crypto: x86/aes-ctr - Remove superseded CTR skcipher
+Date: Sun, 27 Sep 2026 15:43:02 -0700
+Message-ID: <20260927224418.109759-12-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260927224418.109759-1-ebiggers@kernel.org>
+References: <20260927224418.109759-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260831045448.58B591F000E9@smtp.kernel.org>
-User-Agent: Mutt/2.4.1 (2026-07-04)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_141824_249196_43790A95 
-X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,55 +69,266 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksCgpPbiAyMDI2LTA4LTMxIDA0OjU0LCBzYXNoaWtvLWJvdEBrZXJuZWwub3JnIHdyb3RlOgo+
-IFRoYW5rIHlvdSBmb3IgeW91ciBjb250cmlidXRpb24hIFNhc2hpa28gQUkgcmV2aWV3IGZvdW5k
-IDEgcG90ZW50aWFsIGlzc3VlKHMpIHRvIGNvbnNpZGVyOgo+IC0gW0xvd10gUmVtb3ZpbmcgJ3Bo
-eXMnIGFuZCAncGh5LW5hbWVzJyBmcm9tIHRoZSBiYXNlIGszLmR0c2kgYnJlYWtzIERUIHNjaGVt
-YSB2YWxpZGF0aW9uIChkdGJzX2NoZWNrKSBmb3IgZGlzYWJsZWQgbm9kZXMgYW5kIGltcHJvcGVy
-bHkgZGVsZWdhdGVzIGZpeGVkIFNvQyByb3V0aW5nIHRvIGJvYXJkIGZpbGVzLgo+IC0tCj4gCj4g
-Y29tbWl0IGU5ZGM3YWQ5MmQ1ZjRhODA1Y2YzNjJmZGQ1MWM2YWUxNjBkYTE5MzQKPiBBdXRob3I6
-IEF1cmVsaWVuIEphcm5vIDxhdXJlbGllbkBhdXJlbDMyLm5ldD4KPiAKPiByaXNjdjogZHRzOiBz
-cGFjZW1pdDogazM6IG1vdmUgVVNCMyBwaHkgdG8gYm9hcmQgbGV2ZWwKPiAKPiBUaGlzIGNvbW1p
-dCBtb3ZlcyB0aGUgVVNCMyBwaHkgZGVmaW5pdGlvbnMgZnJvbSB0aGUgU29DIGR0c2kgdG8gdGhl
-IGJvYXJkCj4gbGV2ZWwgZHRzIGZpbGVzIGZvciB0aGUgU3BhY2VtaVQgSzMgU29DLiBJdCBhaW1z
-IHRvIHByZXZlbnQgUEhZIG1vZGUKPiBjb25maWd1cmF0aW9uIGVycm9ycyB3aGVuIHRoZSBjb21i
-byBQSFkgbGluZXMgYXJlIHVzZWQgZm9yIFBDSWUgcmF0aGVyIHRoYW4KPiBVU0IzLgo+IAo+IFsg
-Li4uIF0KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2szLmR0
-c2kgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2szLmR0c2kKPiA+IGluZGV4IGMzZjJk
-Y2UwOTY5YzAuLjZmOGQ1NWVhZTZmNmIgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2Jvb3Qv
-ZHRzL3NwYWNlbWl0L2szLmR0c2kKPiA+ICsrKyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2Vt
-aXQvazMuZHRzaQo+ID4gQEAgLTQ1Miw5ICs0NTIsNiBAQCB1c2IzZDogdXNiQDgxYTAwMDAwIHsK
-PiA+ICAJCQkJIDwmc3lzY29uX2FwbXUgUkVTRVRfQVBNVV9VU0IzX0RfVkNDPiwKPiA+ICAJCQkJ
-IDwmc3lzY29uX2FwbXUgUkVTRVRfQVBNVV9VU0IzX0RfUEhZPjsKPiA+ICAJCQlyZXNldC1uYW1l
-cyA9ICJhaGIiLCAidmNjIiwgInBoeSI7Cj4gPiAtCQkJcGh5cyA9IDwmdXNiM2RfdTJwaHk+LAo+
-ID4gLQkJCSAgICAgICA8JmNvbWJvcGh5IDQgUEhZX1RZUEVfVVNCMz47Cj4gPiAtCQkJcGh5LW5h
-bWVzID0gInVzYjItcGh5IiwgInVzYjMtcGh5IjsKPiAKPiBbU2V2ZXJpdHk6IExvd10KPiBEb2Vz
-IHJlbW92aW5nIHBoeXMgYW5kIHBoeS1uYW1lcyBmcm9tIHRoZSBiYXNlIGszLmR0c2kgYnJlYWsg
-RFQgc2NoZW1hCj4gdmFsaWRhdGlvbiAoZHRic19jaGVjaykgZm9yIGRpc2FibGVkIG5vZGVzPwoK
-Tm8gaXQgZG9lc24ndC4gZHRic19jaGVjayBzZWVtcyB0byBpZ25vcmUgZGlzYWJsZWQgbm9kZXMu
-Cgo+IFRvIHNhdGlzZnkgdGhlIHNjaGVtYSdzIG1pbkl0ZW1zOiAxIHJlcXVpcmVtZW50IHdoaWxl
-IHN1cHBvcnRpbmcgYm9hcmQtbGV2ZWwKPiBjb21ibyBQSFkgY29uZmlndXJhdGlvbiwgc2hvdWxk
-IHRoZSBkZWRpY2F0ZWQgaW50ZXJuYWwgU29DIFBIWSAodXNiM2RfdTJwaHkpCj4gaGF2ZSBiZWVu
-IHJldGFpbmVkIGluIHRoZSBiYXNlIGZpbGU/Cj4gCj4gVGhlIGR0YnNfY2hlY2sgdmFsaWRhdGlv
-biB3aWxsIGZhaWwgZm9yIGFueSBib2FyZCBEVCB0aGF0IGluY2x1ZGVzIGszLmR0c2kKPiBidXQg
-ZG9lcyBub3Qgb3ZlcnJpZGUgdGhlIHVzYjNkIG5vZGUgdG8gcHJvdmlkZSB0aGUgcGh5cyBhbmQg
-cGh5LW5hbWVzCj4gcHJvcGVydGllcyAoZS5nLiwgazMtY29tMjYwLWlmeC5kdHMgYW5kIGszLWRl
-ZXBjb21wdXRpbmctZm1sMTN2MDUuZHRzKS4KCkkgaGF2ZSBqdXN0IHRyaWVkLCBpbiBwcmFjdGlj
-ZSBpdCBkb2Vzbid0LiBJJ2xsIHNlbmQgYSBuZXcgdmVyc2lvbiAKbWVudGlvbmluZyB0aGF0LgoK
-PiBUaGlzIGhhcHBlbnMgYmVjYXVzZSB0aGUgc2NoZW1hIHNwYWNlbWl0LGsxLWR3YzMueWFtbCB1
-bmNvbmRpdGlvbmFsbHkKPiByZXF1aXJlcyB0aGVzZSBwcm9wZXJ0aWVzLCBhbmQgZHQtc2NoZW1h
-IGV2YWx1YXRlcyBhbGwgbm9kZXMsIGV2ZW4gZGlzYWJsZWQKPiBvbmVzLgo+IAo+ID4gIAkJCXBo
-eV90eXBlID0gInV0bWkiOwo+ID4gIAkJCXNucHMsZGlzX2VuYmxzbHBtX3F1aXJrOwo+ID4gIAkJ
-CXNucHMsZGlzX3UyX3N1c3BoeV9xdWlyazsKPiAKPiAtLSAKPiBTYXNoaWtvIEFJIHJldmlldyDC
-tyBodHRwczovL3Nhc2hpa28uZGV2LyMvcGF0Y2hzZXQvMjAyNjA4MzEwNDQ1NDAuMzMwNDM1MC0x
-LWF1cmVsaWVuQGF1cmVsMzIubmV0P3BhcnQ9MQo+IAoKLS0gCkF1cmVsaWVuIEphcm5vICAgICAg
-ICAgICAgICAgICAgICAgICAgICBHUEc6IDQwOTZSLzFEREQ4QzlCCmF1cmVsaWVuQGF1cmVsMzIu
-bmV0ICAgICAgICAgICAgICAgICAgICAgaHR0cDovL2F1cmVsMzIubmV0CgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Now that the crypto library's AES-CTR support is optimized with AES-NI
+(without AVX), the similar code in aesni-intel is redundant.  Remove it.
+
+This only affects the non-AVX implementation ("ctr-aes-aesni"), not
+aes-ctr-avx-x86_64.S which is handled later.
+
+Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+---
+ arch/x86/crypto/aesni-intel_asm.S  | 125 -----------------------------
+ arch/x86/crypto/aesni-intel_glue.c |  54 -------------
+ 2 files changed, 179 deletions(-)
+
+diff --git a/arch/x86/crypto/aesni-intel_asm.S b/arch/x86/crypto/aesni-intel_asm.S
+index 16c406781b24..c4d54c4a2c23 100644
+--- a/arch/x86/crypto/aesni-intel_asm.S
++++ b/arch/x86/crypto/aesni-intel_asm.S
+@@ -33,10 +33,6 @@
+ #define KEY	%xmm2
+ #define IV	%xmm3
+ 
+-#define BSWAP_MASK %xmm10
+-#define CTR	%xmm11
+-#define INC	%xmm12
+-
+ #define GF128MUL_MASK %xmm7
+ 
+ #ifdef __x86_64__
+@@ -51,7 +47,6 @@
+ #define T1	%r10
+ #define TKEYP	T1
+ #define T2	%r11
+-#define TCTR_LOW T2
+ #else
+ #define AREG	%eax
+ #define KEYP	%edi
+@@ -610,128 +605,8 @@ SYM_FUNC_END(_aesni_dec4)
+ 	.byte		0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f
+ 	.byte		0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80
+ 	.byte		0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80
+-#ifdef __x86_64__
+-.Lbswap_mask:
+-	.byte 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0
+-#endif
+ .popsection
+ 
+-#ifdef __x86_64__
+-/*
+- * _aesni_inc_init:	internal ABI
+- *	setup registers used by _aesni_inc
+- * input:
+- *	IV
+- * output:
+- *	CTR:	== IV, in little endian
+- *	TCTR_LOW: == lower qword of CTR
+- *	INC:	== 1, in little endian
+- *	BSWAP_MASK == endian swapping mask
+- */
+-SYM_FUNC_START_LOCAL(_aesni_inc_init)
+-	movaps .Lbswap_mask(%rip), BSWAP_MASK
+-	movaps IV, CTR
+-	pshufb BSWAP_MASK, CTR
+-	mov $1, TCTR_LOW
+-	movq TCTR_LOW, INC
+-	movq CTR, TCTR_LOW
+-	RET
+-SYM_FUNC_END(_aesni_inc_init)
+-
+-/*
+- * _aesni_inc:		internal ABI
+- *	Increase IV by 1, IV is in big endian
+- * input:
+- *	IV
+- *	CTR:	== IV, in little endian
+- *	TCTR_LOW: == lower qword of CTR
+- *	INC:	== 1, in little endian
+- *	BSWAP_MASK == endian swapping mask
+- * output:
+- *	IV:	Increase by 1
+- * changed:
+- *	CTR:	== output IV, in little endian
+- *	TCTR_LOW: == lower qword of CTR
+- */
+-SYM_FUNC_START_LOCAL(_aesni_inc)
+-	paddq INC, CTR
+-	add $1, TCTR_LOW
+-	jnc .Linc_low
+-	pslldq $8, INC
+-	paddq INC, CTR
+-	psrldq $8, INC
+-.Linc_low:
+-	movaps CTR, IV
+-	pshufb BSWAP_MASK, IV
+-	RET
+-SYM_FUNC_END(_aesni_inc)
+-
+-/*
+- * void aesni_ctr_enc(struct crypto_aes_ctx *ctx, const u8 *dst, u8 *src,
+- *		      size_t len, u8 *iv)
+- */
+-SYM_FUNC_START(aesni_ctr_enc)
+-	ANNOTATE_NOENDBR
+-	FRAME_BEGIN
+-	cmp $16, LEN
+-	jb .Lctr_enc_just_ret
+-	mov 480(KEYP), KLEN
+-	movups (IVP), IV
+-	call _aesni_inc_init
+-	cmp $64, LEN
+-	jb .Lctr_enc_loop1
+-.align 4
+-.Lctr_enc_loop4:
+-	movaps IV, STATE1
+-	call _aesni_inc
+-	movups (INP), IN1
+-	movaps IV, STATE2
+-	call _aesni_inc
+-	movups 0x10(INP), IN2
+-	movaps IV, STATE3
+-	call _aesni_inc
+-	movups 0x20(INP), IN3
+-	movaps IV, STATE4
+-	call _aesni_inc
+-	movups 0x30(INP), IN4
+-	call _aesni_enc4
+-	pxor IN1, STATE1
+-	movups STATE1, (OUTP)
+-	pxor IN2, STATE2
+-	movups STATE2, 0x10(OUTP)
+-	pxor IN3, STATE3
+-	movups STATE3, 0x20(OUTP)
+-	pxor IN4, STATE4
+-	movups STATE4, 0x30(OUTP)
+-	sub $64, LEN
+-	add $64, INP
+-	add $64, OUTP
+-	cmp $64, LEN
+-	jge .Lctr_enc_loop4
+-	cmp $16, LEN
+-	jb .Lctr_enc_ret
+-.align 4
+-.Lctr_enc_loop1:
+-	movaps IV, STATE
+-	call _aesni_inc
+-	movups (INP), IN
+-	call _aesni_enc1
+-	pxor IN, STATE
+-	movups STATE, (OUTP)
+-	sub $16, LEN
+-	add $16, INP
+-	add $16, OUTP
+-	cmp $16, LEN
+-	jge .Lctr_enc_loop1
+-.Lctr_enc_ret:
+-	movups IV, (IVP)
+-.Lctr_enc_just_ret:
+-	FRAME_END
+-	RET
+-SYM_FUNC_END(aesni_ctr_enc)
+-
+-#endif
+-
+ .section	.rodata.cst16.gf128mul_x_ble_mask, "aM", @progbits, 16
+ .align 16
+ .Lgf128mul_x_ble_mask:
+diff --git a/arch/x86/crypto/aesni-intel_glue.c b/arch/x86/crypto/aesni-intel_glue.c
+index 3fd76dd82e1b..d2e5a88b409c 100644
+--- a/arch/x86/crypto/aesni-intel_glue.c
++++ b/arch/x86/crypto/aesni-intel_glue.c
+@@ -41,7 +41,6 @@
+ 
+ #define AESNI_ALIGN	16
+ #define AESNI_ALIGN_ATTR __attribute__ ((__aligned__(AESNI_ALIGN)))
+-#define AES_BLOCK_MASK	(~(AES_BLOCK_SIZE - 1))
+ #define AESNI_ALIGN_EXTRA ((AESNI_ALIGN - 1) & ~(CRYPTO_MINALIGN - 1))
+ #define CRYPTO_AES_CTX_SIZE (sizeof(struct crypto_aes_ctx) + AESNI_ALIGN_EXTRA)
+ #define XTS_AES_CTX_SIZE (sizeof(struct aesni_xts_ctx) + AESNI_ALIGN_EXTRA)
+@@ -68,9 +67,6 @@ asmlinkage void aesni_xts_enc(const struct crypto_aes_ctx *ctx, u8 *out,
+ asmlinkage void aesni_xts_dec(const struct crypto_aes_ctx *ctx, u8 *out,
+ 			      const u8 *in, unsigned int len, u8 *iv);
+ 
+-asmlinkage void aesni_ctr_enc(struct crypto_aes_ctx *ctx, u8 *out,
+-			      const u8 *in, unsigned int len, u8 *iv);
+-
+ static inline struct crypto_aes_ctx *aes_ctx(void *raw_ctx)
+ {
+ 	return aes_align_addr(raw_ctx);
+@@ -105,40 +101,6 @@ static int aesni_skcipher_setkey(struct crypto_skcipher *tfm, const u8 *key,
+ 	return aes_set_key_common(aes_ctx(crypto_skcipher_ctx(tfm)), key, len);
+ }
+ 
+-/* This is the non-AVX version. */
+-static int ctr_crypt_aesni(struct skcipher_request *req)
+-{
+-	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
+-	struct crypto_aes_ctx *ctx = aes_ctx(crypto_skcipher_ctx(tfm));
+-	u8 keystream[AES_BLOCK_SIZE];
+-	struct skcipher_walk walk;
+-	unsigned int nbytes;
+-	int err;
+-
+-	err = skcipher_walk_virt(&walk, req, false);
+-
+-	while ((nbytes = walk.nbytes) > 0) {
+-		kernel_fpu_begin();
+-		if (nbytes & AES_BLOCK_MASK)
+-			aesni_ctr_enc(ctx, walk.dst.virt.addr,
+-				      walk.src.virt.addr,
+-				      nbytes & AES_BLOCK_MASK, walk.iv);
+-		nbytes &= ~AES_BLOCK_MASK;
+-
+-		if (walk.nbytes == walk.total && nbytes > 0) {
+-			aesni_enc(ctx, keystream, walk.iv);
+-			crypto_xor_cpy(walk.dst.virt.addr + walk.nbytes - nbytes,
+-				       walk.src.virt.addr + walk.nbytes - nbytes,
+-				       keystream, nbytes);
+-			crypto_inc(walk.iv, AES_BLOCK_SIZE);
+-			nbytes = 0;
+-		}
+-		kernel_fpu_end();
+-		err = skcipher_walk_done(&walk, nbytes);
+-	}
+-	return err;
+-}
+-
+ static int xts_setkey_aesni(struct crypto_skcipher *tfm, const u8 *key,
+ 			    unsigned int keylen)
+ {
+@@ -296,22 +258,6 @@ static int xts_decrypt_aesni(struct skcipher_request *req)
+ 
+ static struct skcipher_alg aesni_skciphers[] = {
+ 	{
+-		.base = {
+-			.cra_name		= "ctr(aes)",
+-			.cra_driver_name	= "ctr-aes-aesni",
+-			.cra_priority		= 400,
+-			.cra_blocksize		= 1,
+-			.cra_ctxsize		= CRYPTO_AES_CTX_SIZE,
+-			.cra_module		= THIS_MODULE,
+-		},
+-		.min_keysize	= AES_MIN_KEY_SIZE,
+-		.max_keysize	= AES_MAX_KEY_SIZE,
+-		.ivsize		= AES_BLOCK_SIZE,
+-		.chunksize	= AES_BLOCK_SIZE,
+-		.setkey		= aesni_skcipher_setkey,
+-		.encrypt	= ctr_crypt_aesni,
+-		.decrypt	= ctr_crypt_aesni,
+-	}, {
+ 		.base = {
+ 			.cra_name		= "xts(aes)",
+ 			.cra_driver_name	= "xts-aes-aesni",
+-- 
+2.55.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
