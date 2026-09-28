@@ -4,76 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D88C9832F
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 07:29:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1EEEC9832F
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 08:16:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TbFBc+AZmlfkcfVoPu8/m2yHWPzzUr4YSfQ3m4C1SNU=; b=m7PAAKACTiuMzy
-	okMKfZD3RBd9HK3Mh61FAn4LKd35rOe0sBvbrjGux9ZAzF+p5gwl0EQRMuN97AFSoPUry6B4pbJMA
-	/TEIf7HYPzJmiP2+vgREoI25GkIlxWCMObzM+PTw0XcfN+W9pHDzGeiVEHpQHo77VOQ2SBrsaV7fI
-	MOVnKRoAoHVQrg++6xcdNi3/s1wxZ2Fs+vAEg4eZj2IRDFfamFEtjOrT246n6ndwc2C5Hwwc2GdVH
-	6io3xqSZ9C5h704DXlr9Q4/7sP9sLzp+YolxkdeLarqo3NEerofhmhdK/0jFeDXo3Y689KilcS8gI
-	Hkfh54m+6B1ncgimyyQg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UygiiB3/qfAX5GXIdRumk842p/PSiBg1fClORvphr4o=; b=x9UuSxnHvrGrnk
+	NW5GGpEWVb3Vlz6m4fXRped2KXLAGXXdQh7bkb5wvr3hMfSP//56GIs07FwDHUgRHOzNozSZcqMGl
+	JvFyJUARbHEqVrheZWLo77RGtxktwIL6ixgYDcVAgnsHxqWA3CALSqKsOfEQ2uIHdWsjexT2vJ35e
+	43z1XwHIbjJ1+VnlnRWUq1UN4I0+nnXlZv3SokpL3j0mQKxCtBzyeviAX89oIRL+mAnQyRDIsw6Xo
+	I/ODdxDKxq3K9vRq3PZYJ1xWzh/P5GhObZHl4yX0n9huRJuhc7Lbpy7FLwigJScUDWD6qBP4GVey6
+	13FDBIxMDIJ0qqheEobQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB5n8-0000000HY1K-135T;
-	Mon, 28 Sep 2026 07:28:50 +0000
-Received: from sender5-op-o15.zoho.com ([165.173.182.15])
+	id 1xB6Wx-000000003Cc-1Z0E;
+	Mon, 28 Sep 2026 08:16:11 +0000
+Received: from out-66.mta1.migadu.com ([2001:41d0:203:375::42] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB5n5-0000000HY0Z-3Tq1
+	id 1xB6Wt-0000000039A-1HnS
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Sep 2026 07:28:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790580503; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Jy+gdPpOvbttocgYqvQFWHsCT63CS+8NcC3CaY3Hgkt5iQR+5NWtGds2xRe/RmfeU3/7doB7i84KFYzIO+alvkQf3fiBKIguZAPwJxvXy5HVKMMrznpxG9RJ+fMTE2hW8QKYAqjXYJZ6DsNmho/JtIIFpu/2oAfx7v3OUpvlI4k=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790580503; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=qQ+wkOzeHNyM57nSul7YmRy/aNPxKWQliQukKQfWXHs=; 
-	b=hZa6oVL6IRlZ4EsQqAOLknfLGs2ruIgWh9aDZCQciY2Viqv+6a1gyoHgB+XxsG5HcsCDUEDwK9OrAd+2GUVZTe0hM5cuH6ANdP+oMWlkZwBrwci6612cqyfYAQjy2cGsGRJoACwe8ZA0VIks8RRjPUW9NM9ULrZ0zZw3UTU22+Y=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790580503;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=qQ+wkOzeHNyM57nSul7YmRy/aNPxKWQliQukKQfWXHs=;
-	b=TxqEjZEGRsuygd3NwRjtGHrFIk2d1ohm3jbR43kD06NZaNrZv9yQRTOD0hxwGHGp
-	GF60LiRGQ4yHogwunVMkgGUlrQv4VqqyQGSU9X3U1bVDITUAw9D2AkF7Et2p7qv6HL6
-	2mP9xDjjdh8od2uJW+2hjESsw81u6Mbjrlwd6jUlHveTOq7X7DBDXdjprd4J8Hl8L9D
-	QjFkbw+aJvMi9Wr0KsCv+RoIobryk3BMRO9nnEjuKnSMi4d757GOhTJcGRuScgHDoYS
-	WD54YKoIRzX9vFSuYSNSgceQSdhLXiUAXaqYdE+BtHzr8RdIQSLT+ZosOQ+DQc51HCc
-	OZBSFTRScA==
-Received: by smtp.zohomail.com with SMTPS id 1790580502126809.1352746111535;
-	Mon, 28 Sep 2026 00:28:22 -0700 (PDT)
-Message-ID: <ef09da01179a1ec707ae33b7e6aa5252ebe4fa69.camel@icenowy.me>
-Subject: Re: [PATCH 0/2] drm/bridge: th1520-dw-hdmi: Two fixes
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Felix Gu <ustc.gu@gmail.com>, Drew Fustini <fustini@kernel.org>, Guo Ren
-	 <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Andrzej Hajda	
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman	 <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>
-Cc: linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Date: Mon, 28 Sep 2026 15:28:13 +0800
-In-Reply-To: <20260321-th1520-v1-0-ec877197770d@gmail.com>
-References: <20260321-th1520-v1-0-ec877197770d@gmail.com>
-Organization: Anthon Open-Source Community
-User-Agent: Evolution 3.58.3 
+	Mon, 28 Sep 2026 08:16:09 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=4nfGVGrts9wIIS/qPwNM+5g6z35RooC5Zn4qvOag/3E=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790583363; v=1; x=1791188163;
+ b=T37fRs8fq5/mX5gQRy7x6R6/ukmUf93gbnnc8xX4WuTmamR7NTFykLhfLqExMYKJlhYgYXHf
+ 7fpqpd6r6co0iXOP/S3X7dct847lSuq29LqVNxD1LZKR7qhdnuoDF2xwRdmBx2NUZQArmNEDLge
+ 546e3wfINp2bvP4Rk0MHHMPY=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id e3fae377f424b059;
+	Mon, 28 Sep 2026 08:16:03 +0000
+X-Mizu-Trace-ID: e3fae377f424b059
+X-Migadu-Flow: FLOW_OUT
+From: Ye Liu <ye.liu@linux.dev>
+Subject: [PATCH v4 0/2] mm/vmalloc: fix vmalloc_dump_obj VA lookup
+Date: Mon, 28 Sep 2026 16:15:53 +0800
+Message-Id: <20260928-vmalloc_dump_obj-v4-0-6f288a431edc@linux.dev>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+X-B4-Tracking: v=1; b=H4sIADkiumoC/33OywrCMBAF0F+RrI3kZR+u/A+RkmSmNlJbSTQop
+ f9uIghFxOWFuefORAJ6h4HsVhPxGF1w45CCWq+I7fRwQuogZSKYKFjNCxovuu9H28D9cm1Gc6Z
+ QsZpVSpWyqEmqXT227vEmD8eUjQ5IjdeD7TL06XvUkM87F26jf74fiDyX/mxFThkttVZMgBAK2
+ n3vhvtjAxhJ3opiAQj+AxAZkK1FIxG4rb4BuQTUD0AmYGsAUYKWpZFLYJ7nF/ZNjz1RAQAA
+X-Change-ID: 20260916-vmalloc_dump_obj-d80908447369
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ Uladzislau Rezki <urezki@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Ye Liu <liuye@kylinos.cn>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_002847_958351_CB6AF7D3 
-X-CRM114-Status: UNSURE (   6.76  )
+X-CRM114-CacheID: sfid-20260928_011607_506659_5981182B 
+X-CRM114-Status: UNSURE (   6.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,23 +72,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjYtMDMtMjHlha3nmoQgMDM6MTIgKzA4MDDvvIxGZWxpeCBHdeWGmemBk++8mgo+IFNp
-Z25lZC1vZmYtYnk6IEZlbGl4IEd1IDx1c3RjLmd1QGdtYWlsLmNvbT4KClNvcnJ5IGZvciBmb3Jn
-ZXR0aW5nIHRoaXMgcGF0Y2hzZXQuIEknbSBnb2luZyB0byBhcHBseSBpdC4KClRoaXMgcGF0Y2hz
-ZXQgc2hvdWxkIGJlIG5vdzoKCkNjOiBzdGFibGVAdmdlci5rZXJuZWwub3JnCgpUaGFua3MsCklj
-ZW5vd3kKCj4gLS0tCj4gRmVsaXggR3UgKDIpOgo+IMKgwqDCoMKgwqAgZHJtL2JyaWRnZTogdGgx
-NTIwLWR3LWhkbWk6IEZpeCBlcnJvciBjaGVjayBvbiBkd19oZG1pX3Byb2JlKCkKPiByZXR1cm4g
-dmFsdWUKPiDCoMKgwqDCoMKgIGRybS9icmlkZ2U6IHRoMTUyMC1kdy1oZG1pOiBGaXggcmVtb3Zl
-KCkgY2FsbGJhY2sKPiAKPiDCoGRyaXZlcnMvZ3B1L2RybS9icmlkZ2UvdGgxNTIwLWR3LWhkbWku
-YyB8IDggKysrKy0tLS0KPiDCoDEgZmlsZSBjaGFuZ2VkLCA0IGluc2VydGlvbnMoKyksIDQgZGVs
-ZXRpb25zKC0pCj4gLS0tCj4gYmFzZS1jb21taXQ6IGI1ZDA4M2EzZWQxZTI3OTgzOTZkNWU0OTE0
-MzJlODg3ZGE4ZDRhMDYKPiBjaGFuZ2UtaWQ6IDIwMjYwMzIxLXRoMTUyMC1mNDMyNjEzOGM5YmYK
-PiAKPiBCZXN0IHJlZ2FyZHMsCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+vmalloc_dump_obj() has two bugs that cause it to miss vmalloc
+allocations.
+
+  1. PAGE_ALIGN() rounds up, pushing last-page addresses to va_end
+     and outside the VA lookup range.
+
+  2. The function searches only one vmap node, but allocations
+     larger than 64 KiB may span multiple vmap zones whose VA
+     is stored in a different node's rb-tree.
+
+Patch 1 fixes the alignment, patch 2 fixes the cross-zone search.
+
+Signed-off-by: Ye Liu <liuye@kylinos.cn>
+---
+Changes in v4:
+- Patch2: Simplify find_vmap_area() to return va directly.
+- Patch2: Simplify locked_vn initialization in find_vmap_area_lock().
+- Link to v3: https://lore.kernel.org/r/20260924-vmalloc_dump_obj-v3-0-5bdee3da37b3@linux.dev
+
+Changes in v3:
+- Patch3 drop.
+- Patch2 Extract find_vmap_area_lock as a helper to simplify the code.
+- Link to v2: https://lore.kernel.org/r/20260921-vmalloc_dump_obj-v2-0-73fceb3ed1c8@linux.dev
+
+Changes in v2:
+- Use is_vmalloc_or_module_addr() instead of is_vmalloc_addr() to
+  avoid filtering module/BPF/execmem addresses. (sashiko-bot)
+- Link to v1: https://lore.kernel.org/r/20260916-vmalloc_dump_obj-v1-0-7aa402d224df@linux.dev
+
+---
+Ye Liu (2):
+      mm/vmalloc: fix vmalloc_dump_obj address alignment for last-page lookups
+      mm/vmalloc: fix vmalloc_dump_obj cross-zone VA lookup
+
+ mm/vmalloc.c | 110 ++++++++++++++++++++++++++++++++++++-----------------------
+ 1 file changed, 67 insertions(+), 43 deletions(-)
+---
+base-commit: e6e35979777d646fe3c7c94dca7dd32fb25d45f4
+change-id: 20260916-vmalloc_dump_obj-d80908447369
+
+Best regards,
+-- 
+Ye Liu <ye.liu@linux.dev>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
