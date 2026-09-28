@@ -4,52 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1EEEC9832F
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 08:16:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F0DFC9833E
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 08:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UygiiB3/qfAX5GXIdRumk842p/PSiBg1fClORvphr4o=; b=x9UuSxnHvrGrnk
-	NW5GGpEWVb3Vlz6m4fXRped2KXLAGXXdQh7bkb5wvr3hMfSP//56GIs07FwDHUgRHOzNozSZcqMGl
-	JvFyJUARbHEqVrheZWLo77RGtxktwIL6ixgYDcVAgnsHxqWA3CALSqKsOfEQ2uIHdWsjexT2vJ35e
-	43z1XwHIbjJ1+VnlnRWUq1UN4I0+nnXlZv3SokpL3j0mQKxCtBzyeviAX89oIRL+mAnQyRDIsw6Xo
-	I/ODdxDKxq3K9vRq3PZYJ1xWzh/P5GhObZHl4yX0n9huRJuhc7Lbpy7FLwigJScUDWD6qBP4GVey6
-	13FDBIxMDIJ0qqheEobQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UTUeSEEwclno7Sz7VltWpucRcybA9CDtbP6oiLOUbgI=; b=al+KiiW6OOfF2O
+	uDu+d/C/+S49F6so9iTGwAPpHoPjUihQ83O81V/UjFJuvGoKLJdTckDu9ZVKCypOFREPAGShIRgPj
+	zlqcvAsd6VvLALDepSEYGe5hrDuZ4vM46cjcTeFXl9iyAvc2tfL9/ZerZIjygsId3v3VghGLCJNcN
+	jqSQjNEBwmEqeh8PPYII4+e1eLSw28unBNtp7eK8Rv6SjvyfqV4c/hExA8a0wK7/f0gdFGRluLemi
+	9wRPMBA7pvhplja04mBgIQ7SGTscswfFdXcSPAUTcldlsAdXz0NLTNDwjcGlC8CC2RwCc2uU48XiY
+	iwKLWNI3Hdlz0LkTUjIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6Wx-000000003Cc-1Z0E;
-	Mon, 28 Sep 2026 08:16:11 +0000
-Received: from out-66.mta1.migadu.com ([2001:41d0:203:375::42] helo=mta1.migadu.com)
+	id 1xB6X0-000000003EH-25Ds;
+	Mon, 28 Sep 2026 08:16:14 +0000
+Received: from out-70.mta1.migadu.com ([2001:41d0:203:375::46] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6Wt-0000000039A-1HnS
+	id 1xB6Wx-000000003Bz-2TAf
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Sep 2026 08:16:09 +0000
+	Mon, 28 Sep 2026 08:16:12 +0000
 X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=4nfGVGrts9wIIS/qPwNM+5g6z35RooC5Zn4qvOag/3E=;
+DKIM-Signature: a=rsa-sha256; bh=VMcXVA6Q//nucy9IuPEO+cpUVY2addflHX+2AAjGN8s=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790583363; v=1; x=1791188163;
- b=T37fRs8fq5/mX5gQRy7x6R6/ukmUf93gbnnc8xX4WuTmamR7NTFykLhfLqExMYKJlhYgYXHf
- 7fpqpd6r6co0iXOP/S3X7dct847lSuq29LqVNxD1LZKR7qhdnuoDF2xwRdmBx2NUZQArmNEDLge
- 546e3wfINp2bvP4Rk0MHHMPY=
+ t=1790583369; v=1; x=1791188169;
+ b=q7EnVjPGsA2MPgdvy4SRmdL6nLfeABvwkDrtR7Bkx7AXEyA1csFUVqkM6q9wKM56NbLhqDt5
+ p8JhBZtzUaZiR09kx6orWO2yi/cNRYbqWEwmh+bk9qyDPA9gs1pDipcoPtp1XFYa3s+GypHFg4A
+ 1PaLf8wbjsTN8MO6zWVpexcM=
 X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id e3fae377f424b059;
-	Mon, 28 Sep 2026 08:16:03 +0000
-X-Mizu-Trace-ID: e3fae377f424b059
+Received: by smtp.migadu.com with ESMTPS id 954cb9b4744235b9;
+	Mon, 28 Sep 2026 08:16:09 +0000
+X-Mizu-Trace-ID: 954cb9b4744235b9
 X-Migadu-Flow: FLOW_OUT
 From: Ye Liu <ye.liu@linux.dev>
-Subject: [PATCH v4 0/2] mm/vmalloc: fix vmalloc_dump_obj VA lookup
-Date: Mon, 28 Sep 2026 16:15:53 +0800
-Message-Id: <20260928-vmalloc_dump_obj-v4-0-6f288a431edc@linux.dev>
+Date: Mon, 28 Sep 2026 16:15:54 +0800
+Subject: [PATCH v4 1/2] mm/vmalloc: fix vmalloc_dump_obj address alignment
+ for last-page lookups
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIADkiumoC/33OywrCMBAF0F+RrI3kZR+u/A+RkmSmNlJbSTQop
- f9uIghFxOWFuefORAJ6h4HsVhPxGF1w45CCWq+I7fRwQuogZSKYKFjNCxovuu9H28D9cm1Gc6Z
- QsZpVSpWyqEmqXT227vEmD8eUjQ5IjdeD7TL06XvUkM87F26jf74fiDyX/mxFThkttVZMgBAK2
- n3vhvtjAxhJ3opiAQj+AxAZkK1FIxG4rb4BuQTUD0AmYGsAUYKWpZFLYJ7nF/ZNjz1RAQAA
-X-Change-ID: 20260916-vmalloc_dump_obj-d80908447369
+Message-Id: <20260928-vmalloc_dump_obj-v4-1-6f288a431edc@linux.dev>
+References: <20260928-vmalloc_dump_obj-v4-0-6f288a431edc@linux.dev>
+In-Reply-To: <20260928-vmalloc_dump_obj-v4-0-6f288a431edc@linux.dev>
 To: Andrew Morton <akpm@linux-foundation.org>, 
  Uladzislau Rezki <urezki@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -58,9 +56,8 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, Ye Liu <liuye@kylinos.cn>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_011607_506659_5981182B 
-X-CRM114-Status: UNSURE (   6.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260928_011611_777268_ADB3CAD6 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,49 +74,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-vmalloc_dump_obj() has two bugs that cause it to miss vmalloc
-allocations.
+From: Ye Liu <liuye@kylinos.cn>
 
-  1. PAGE_ALIGN() rounds up, pushing last-page addresses to va_end
-     and outside the VA lookup range.
+vmalloc_dump_obj() uses PAGE_ALIGN() to normalize the input address
+before looking it up in the per-node busy tree.  PAGE_ALIGN() rounds
+up, which can push an address in the last page of a vmalloc allocation
+to va_end -- outside the [va_start, va_end) range that
+__find_vmap_area() searches.  This causes the lookup to miss the VA
+and return false, degrading diagnostic output in OOM dumps and KASAN
+reports to the less informative "vmalloc memory" fallback.
 
-  2. The function searches only one vmap node, but allocations
-     larger than 64 KiB may span multiple vmap zones whose VA
-     is stored in a different node's rb-tree.
+The upward alignment can also change the addr_to_node() mapping when
+the page boundary crosses a vmap zone boundary, causing the search to
+hit the wrong node entirely.
 
-Patch 1 fixes the alignment, patch 2 fixes the cross-zone search.
+Use PAGE_ALIGN_DOWN() instead, which rounds down to the page
+containing the address.  This keeps the address within the VA range
+and preserves the correct node mapping.
 
 Signed-off-by: Ye Liu <liuye@kylinos.cn>
+Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
 ---
-Changes in v4:
-- Patch2: Simplify find_vmap_area() to return va directly.
-- Patch2: Simplify locked_vn initialization in find_vmap_area_lock().
-- Link to v3: https://lore.kernel.org/r/20260924-vmalloc_dump_obj-v3-0-5bdee3da37b3@linux.dev
+ mm/vmalloc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Changes in v3:
-- Patch3 drop.
-- Patch2 Extract find_vmap_area_lock as a helper to simplify the code.
-- Link to v2: https://lore.kernel.org/r/20260921-vmalloc_dump_obj-v2-0-73fceb3ed1c8@linux.dev
+diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+index 859e6d2d57a3..df42d8a6f058 100644
+--- a/mm/vmalloc.c
++++ b/mm/vmalloc.c
+@@ -5277,7 +5277,7 @@ bool vmalloc_dump_obj(void *object)
+ 	unsigned long addr;
+ 	unsigned long nr_pages;
+ 
+-	addr = PAGE_ALIGN((unsigned long) object);
++	addr = PAGE_ALIGN_DOWN((unsigned long) object);
+ 	vn = addr_to_node(addr);
+ 
+ 	if (!spin_trylock(&vn->busy.lock))
 
-Changes in v2:
-- Use is_vmalloc_or_module_addr() instead of is_vmalloc_addr() to
-  avoid filtering module/BPF/execmem addresses. (sashiko-bot)
-- Link to v1: https://lore.kernel.org/r/20260916-vmalloc_dump_obj-v1-0-7aa402d224df@linux.dev
-
----
-Ye Liu (2):
-      mm/vmalloc: fix vmalloc_dump_obj address alignment for last-page lookups
-      mm/vmalloc: fix vmalloc_dump_obj cross-zone VA lookup
-
- mm/vmalloc.c | 110 ++++++++++++++++++++++++++++++++++++-----------------------
- 1 file changed, 67 insertions(+), 43 deletions(-)
----
-base-commit: e6e35979777d646fe3c7c94dca7dd32fb25d45f4
-change-id: 20260916-vmalloc_dump_obj-d80908447369
-
-Best regards,
 -- 
-Ye Liu <ye.liu@linux.dev>
+2.25.1
 
 
 _______________________________________________
