@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC94CA5FA2
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 16:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9942CA5FA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 16:51:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=louRcTJiwzyhly6J00KqCVdcWgGYamcKG5cxkyv6N5c=; b=hErkuy56CKQa1w
-	ZDFTM6KG98FJoJz4Cvc+sm9jG8ygv2eIvSL/pIfqWdHsa4SfOs1hxqXq9WRkRX8I10cKsyRQ2hS3F
-	4Eepr4fOC+kT4INtV8bOOu+J65h/BFGT243/90obNHHqiSM24BZuJ/Ag0e/bTkfAzoQ0nKDDsyzXV
-	aqbD1aZe5KhAoJ7rqNw/u8rwnpX4Jz+9g+m/i6m85hFD9VnbL46Q2dnAfzsy27ajRYsHO6WtKJsiF
-	sUV+uyKVeNkewi3cqgMvWikI8JyQpPpZyeR6XKLC1X+ts+iEAOD4PJjVDvOTT8Lavv4Qyn6WHC0jL
-	Vd2pgBaojO/FKFnMtr+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qbHsQEXTS8Vt8bYrGp6/kn8VovgWoSJPrF6jNvkFqYw=; b=iXWp9QtLQcjmDdupzWy3Ukovya
+	jg31G06bC2M+1u+hq8oEzn3r3B8lVmbEnKXpvQKI4yRg1U9dygygz9T48gUH2Ls5kDlr+FP3TZRMI
+	K++xjhmt+VNGx3H+RMuhu9lJ4RRR1OQb8lvpkDeFI+HQZsqEI9NMQMCnNKO3iRiA5lwhfigYbrGKX
+	WEdSxg5NRqwd6bIaAfeGp5QMHVKt2iw2KGRIZ8iXJ+uf1IDbrdfAwNN4nuJM8CJ7o3cEo1/HnEz7G
+	/0nRpAL1NcYawn8w6X6gRDxArn+h48bXG/v6o+MB1F7GgJtiPl627pcI8HVwCCTh0IgHtcu9vSQ7b
+	l6qM06bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBEJV-000000012jz-1nzK;
-	Mon, 28 Sep 2026 16:34:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBEJS-000000012ir-2vtG;
-	Mon, 28 Sep 2026 16:34:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9BAD11655;
-	Mon, 28 Sep 2026 09:34:41 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B01ED3F86F;
-	Mon, 28 Sep 2026 09:34:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790613285; bh=obZsD+FWW3oqDzsoLNMqpqUaAsf4d521DemQEYwhIjU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PI/8/8J8yrQrFMZmzJQgn4uZ6EucWfJXdonIN5VW9GDb+Fl2Ed+/YbTA2ld8DpBf6
-	 xLBfyPEJBbn/pxoChCazWY6CLeHsF/yzNHXbn5zE7xL1YPzyxKpyvvkRvpJYQ9M3WJ
-	 BaknA+7RpTNlK65eSpRK9TeSihlbN9KXV2idnFZk=
-Date: Mon, 28 Sep 2026 17:34:42 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Chen Pei <cp0613@linux.alibaba.com>
-Cc: acme@kernel.org, peterz@infradead.org, mingo@redhat.com,
-	namhyung@kernel.org, mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com, james.clark@linaro.org,
-	leo.yan@linux.dev, john.g.garry@oracle.com, will@kernel.org,
-	mike.leach@arm.com, pjw@kernel.org, palmer@dabbelt.com,
-	guoren@kernel.org, linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] perf tsc: Replace the compile-time TSC support check
- with a weak hook
-Message-ID: <20260928163442.GG14479@e132581.arm.com>
-References: <20260928094739.2605-1-cp0613@linux.alibaba.com>
- <20260928094739.2605-3-cp0613@linux.alibaba.com>
+	id 1xBEZI-000000015FB-1yyC;
+	Mon, 28 Sep 2026 16:51:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBEZG-000000015EQ-4Bpi;
+	Mon, 28 Sep 2026 16:51:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AB91C429EC;
+	Mon, 28 Sep 2026 16:51:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DD871F000FF;
+	Mon, 28 Sep 2026 16:51:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790614266;
+	bh=7qujMjalLm+fR9p2YtYH4uWTPdLVJMOUVJv4gYWrE8Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OVcc4nwtk75SjYcZBGTZBLVBZdYzxJNk3wCeIOjJUcHdOzA28qnXyoMHtALghanJc
+	 TZlDrvfBIx/0/Qf8U1OF70LV/xFJXyubsPVOUCk47JaN7BmzHZ/udeZiTlIBfJbiq5
+	 89eTp4DvJ4j058sTLQZze5JLuGrGNMxnEMTdHG9APGrGkRl6n/R6+4HSoGzgc53LKA
+	 GylfwUKKoCrjhjbidIsU30R8FN59svuN5tLUC9HVKyQt8miRZmQ0/BJPfD2s8hhiOk
+	 fctHLUGySdovImS4cSVXTo3ugfeUy4I7mgHVRgWgvuaJXU1L4MuriR2MOJrh0Lu+Iu
+	 aQsyONrMj0bDw==
+Date: Mon, 28 Sep 2026 17:51:00 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>
+Cc: Wilken Gottwalt <wilken.gottwalt@posteo.net>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Bastian Germann <bage@debian.org>, linux-remoteproc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] dt-bindings: hwlock: sun6i: Add compatible for
+ Allwinner D1
+Message-ID: <20260928-reorder-laborious-73515b6ef657@spud>
+References: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
+ <20260927025626.69614-3-tien.nguyenminh@embeddedlinux.blog>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260928094739.2605-3-cp0613@linux.alibaba.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_093446_788095_B6F0D524 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260927025626.69614-3-tien.nguyenminh@embeddedlinux.blog>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,31 +78,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1500606969628975819=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 28, 2026 at 05:47:39PM +0800, Chen Pei wrote:
+--===============1500606969628975819==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="MUxTtFBeNtxJvpZQ"
+Content-Disposition: inline
 
-[...]
+--MUxTtFBeNtxJvpZQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> Add a weak arch__rdtsc_supported() next to the weak rdtsc(), let the
-> test query it instead of the macros, and have x86, arm64 and riscv
-> override it in the file where they implement rdtsc().
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-The patch itself is fine for me.
+--MUxTtFBeNtxJvpZQ
+Content-Type: application/pgp-signature; name=signature.asc
 
-Just a bit on refactoring. You could refer to the implementation of
-PERF_HAVE_JITDUMP in arch Makefile and "CFLAGS += -DHAVE_JITDUMP" and
-do similiar thing for rdtsc.
+-----BEGIN PGP SIGNATURE-----
 
-Seems to me, we can just use build system for configurations.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCarqa9AAKCRB4tDGHoIJi
+0lVQAP49KPJ6ClOf6NzSjcHl7OvrOuUz/0otTRx2Ry1qRLGnFgEAub8iEEd4aYlo
+TYoCQmOGZ2i8zKTGaXDzcxb42/ym2Qo=
+=Rij2
+-----END PGP SIGNATURE-----
 
-Thanks,
-Leo
+--MUxTtFBeNtxJvpZQ--
+
+
+--===============1500606969628975819==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1500606969628975819==--
+
