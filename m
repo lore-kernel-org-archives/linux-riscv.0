@@ -4,81 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6024EC9832F
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 09:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F51C9833F
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 10:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bDL/LTjiqMb/v6V0gCw4IvYgYEGz50nNzBYpN0FqZAI=; b=0S86azta6+rfZR
-	0FjvdlOY3e+HAirBz8xmrXrokg6JIN+A5ZKzu1veQ8byHh1lHGByAM+UOVldvDPlZPMr+ZWs98snH
-	mc2nJ0jQFLWnVrz6CfCewAW0YXrNa+dxgnrZ1TBYgYXIb0C1+SbIeM9ykkIeRCYHMhyKPb6itFX97
-	WPciaJBAYp7qQkjCKD240x31eRNdHEMboyPFMZ8OOVtLTfwpGLrfjnnp/eeJNPt9tETKazPTaqKKl
-	alCdGgSpcqWghds/kMcPwW6MElwC2dQtptnjUaqPO6lc10g4LhcvoYjFbAobEVJFaaI0wittefaGy
-	ke7GHHWt2Xuu2JoEj5iQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mWdzrGw5Rj4/GbtYve3gWnO303tB9gBDw4OP3XhAThs=; b=YiM1by67W/f7qp
+	Vpq7JKQStX2gqR2cLuUhXXoYwt04/p/S8e6YtE9bRmqWQbHKXAvWnF73JU02fOkoWcqUJdLClW+Mc
+	1vr4CSbbbKPbJlCWkXQi6JTVcUd3dxbKAS8YtW1FNXf2Al7jbxpgrLMsTEn4ojZLUXdK1XcL9ximC
+	4SRVlxP2uHJVT2hsGOSI0kCNVzTdptoZ+wP4rCRTnYpcnJo6sXEyFJXlKVgYyiuvWd/Q4y5i2VFBb
+	9tmOSYrIpr4ztg3q1U8VEu43+lv0woHCKFbj+nm6UNHcICnbQlwo6DfGUVSDqLFqNmViCti7ZnzDq
+	0ta86cogCBigP6VvDu9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7xy-00000000GsW-2X84;
-	Mon, 28 Sep 2026 09:48:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xB8Tk-00000000Kme-1QLV;
+	Mon, 28 Sep 2026 10:21:00 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7xq-00000000Gmk-3IjO;
-	Mon, 28 Sep 2026 09:48:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=EMqR6vKqG0eu05A9NobGOudkspzGkyf5Myx8wtsS/mc=; b=c83lEO3t1By6HM120bk23LVdvJ
-	EZG96rPpfWMKFsWFTzpCsqJ1IRiweNS1+Ul0OHuo006QDQtmqlKkoPQwx9XbgHfYOUpA6IRqBecAc
-	X5UP8jWwWKW66Fsci3150y5g2IQ0Dw7hjM6oJxn2mBIgTV2APpOmcPXc5HmkqP55PX4GCa3dPS3bD
-	hzW/Ll1eBDfLCZWJud1d3Svr1iP0PBE/5eBqB7Fiq6ZdhdQtLL3g7lq2qd63Cvf/93YP/ipQDwp2o
-	8rA3wYlAtWUFKrKMQRgfeNuEQUiD5WjVRJwaqJVRG0MvXt/GpgHj/FFRFdjy1U5mGC2BD2hv5TxCE
-	GEqzc1+g==;
-Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xB7xm-00000001KK2-3zXD;
-	Mon, 28 Sep 2026 09:48:01 +0000
+	id 1xB8Th-00000000KmA-2t0C
+	for linux-riscv@lists.infradead.org;
+	Mon, 28 Sep 2026 10:20:59 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68S9MIBj546996
+	for <linux-riscv@lists.infradead.org>; Mon, 28 Sep 2026 10:20:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=LNvreq1RRV6+/G/WXMIv7HZy
+	uYx4WiTqcHV8qcpeqIo=; b=hKFVFnf5bWxCxr/6oIfHPODASy6vBNTHh6i07HZS
+	UTbq/qoAv6JZVNBYZwH+1aBstmm+aN7BWrn4Ebh2ZakOLP/kdDenS7Tq24jfFvtt
+	L/r6BXWlloTHkc+Bv/V1TF+8Trl/SqsEw1jfJ0PukKSmHDEmppsBFeKBJP5mjupG
+	1JPsZOzkj/DQN4B+vT7OMHUKLzgJBG9RAyMBhIekq8OoO9Ngc9eNoFYshJkVg2G0
+	TFuOrqHa6anHINX+9K6bspSc1R6lEU2TPlRO2gbzJ2b8e/pcSKIsAdSbWTyszEC7
+	cF+3irStk4OYHwitYEGO1W4Kfap2y7BwESqGCiMxtZ+3Pg==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gyav4a0th-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Mon, 28 Sep 2026 10:20:56 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93c5c205127so287595885a.2
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Sep 2026 03:20:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1790588865; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=EMqR6vKqG0eu05A9NobGOudkspzGkyf5Myx8wtsS/mc=;
-	b=h/GLixwKtVEJnsNZvjgtVnvFxdgxmJotz3Kf1VYdIIemaS2HpupGq88aaWDiWvTts4oH5/lak7qu6gLWWmxUZnF8whgREoN0So7R7p7FEpnA3SwnWbLF95UkIgKtL58xo+xl0ywAl8x89kVgQs/YKpsEOfLwC4nhZ4+Cq2oEEzQ=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=21;SR=0;TI=SMTPD_---0XBlsELq_1790588859;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XBlsELq_1790588859 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 28 Sep 2026 17:47:44 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: acme@kernel.org,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	namhyung@kernel.org
-Cc: mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	james.clark@linaro.org,
-	leo.yan@linux.dev,
-	john.g.garry@oracle.com,
-	will@kernel.org,
-	mike.leach@arm.com,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	guoren@kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] perf riscv: Implement rdtsc()
-Date: Mon, 28 Sep 2026 17:47:37 +0800
-Message-ID: <20260928094739.2605-1-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
+        d=oss.qualcomm.com; s=google; t=1790590856; x=1791195656; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=LNvreq1RRV6+/G/WXMIv7HZyuYx4WiTqcHV8qcpeqIo=;
+        b=bPG3K44xX9KXXVhcaumMICGvC6NoesWLadQFCiP3TW0bu/TPp5X1gvqkHhiL54X2vN
+         VkajTCJcHX5qoIcvYSxSNDcCl/8Z8X3r1l3SR7w/YQ9inAoPdChya/N/onEotO7Rwpcw
+         b+iwS0CLAEzcROaZAwH/6TUtvYtLoDjurejWZMvBKJqf7mP7aZpdyRbVJUXbMH9sjVf0
+         wWEzLpKpluYPPQtWjT99ZZMWH4mS+15Vmzc+PTuLNbK7zDVg5KuTN1kvoovqo3j1ig5p
+         wiqd7cqFDE45hqwiqb/8YcgNFmO2iR56YO2BciOm86yccyqevqBY3mqqJGI2zU8+RCk8
+         EV+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790590856; x=1791195656;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LNvreq1RRV6+/G/WXMIv7HZyuYx4WiTqcHV8qcpeqIo=;
+        b=D7+Us3DQjnccxJSqJmkAa33Yi0dgGiZA1R0MCoZNtiXNYXeKApo5VSMZWN/hlK5y5n
+         J4pmENSXUy2AQO0giQUR3Ug9/LNESX9xDY8WM07qkhx+DsU5A3Cmi7BkhlqaVVfk0k4B
+         BYod4CIYdJMR5Y5a6jk9Vdg9qieWcCFDOUWx4juC5/nWPnQoXApmVVCa82+6fEvUEgCH
+         f8Dq1Z/ceiXM+fUNnyA0NQOxW2hq3ppA0m98dfVQBarxeq10QSMlMKdmCYHZQmKZwnq6
+         o3qGBB0HJbo4pwq9XIdUCuFIlKHsjkfhOCAOOOBrC6BIdGZ/QiPraFTG48XX45GXhA9w
+         OByw==
+X-Gm-Message-State: AFuF++mrUlWl7cLCqKfu0pXJ+NKZtjgTe+0EuSenwbqDZs44y3ZP/f2o
+	pABJWolJ4U2N8VIZU8mmBuADAhDRWxc0XRLHK47Efy78A69rNgcTt2oYrt90g+aHHpOx+pq+38W
+	rrCvHMu1VhiI4f8mgUAFY18ErYvvU1ACTAM6vugubLho6pR+ml2smHkEaz+ePBoR4xKv3zKFShz
+	DXni0=
+X-Gm-Gg: AYBFou3Apc9hoXqk04bbocUrs7quUIioFBJkItSprIMvc4fJEbxFTXgD1yZOUJGcAr1
+	EDzmVPA43Ghf+as4KM9p14VATzPUjbjf5+faW7eb8w8V/fbsO5LCFinX65fogG3oWO7nyZh7xSU
+	paJXeMaYFbEUigz956J3BafbQ4tcgng4B9Jj1MXebE5B3SdDUiOCJTjmSyZ6m936FQSCJoFt9UE
+	mJlWqUDyB1gj/R+hcOVdstj1Qdufco64hgUK0S6bm25vUyw7KHdd6bLDERO1Jsun+1/Au8qZsJ2
+	JPIF0ZrKtVbfPw/PdJjRs4JST4nO4AHNaEte04wVnU1xqL7pQwXFixUmNrKctabdE96oXmJ/kLJ
+	cZBJzQGWD4hl3QPer2qhYtlK5nq7tznv1c6hzVw==
+X-Received: by 2002:a05:620a:40d2:b0:93b:fafd:3adf with SMTP id af79cd13be357-93c43d0ddf0mr1872145385a.48.1790590855785;
+        Mon, 28 Sep 2026 03:20:55 -0700 (PDT)
+X-Received: by 2002:a05:620a:40d2:b0:93b:fafd:3adf with SMTP id af79cd13be357-93c43d0ddf0mr1872141985a.48.1790590855273;
+        Mon, 28 Sep 2026 03:20:55 -0700 (PDT)
+Received: from localhost (ip-86-49-245-11.bb.vodafone.cz. [86.49.245.11])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a64ef3asm26815729f8f.30.2026.09.28.03.20.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Sep 2026 03:20:54 -0700 (PDT)
+Date: Mon, 28 Sep 2026 12:20:52 +0200
+From: Andrew Jones <andrew.jones@oss.qualcomm.com>
+To: linux-riscv@lists.infradead.org, iommu@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
+        tjeznach@rivosinc.com, jgg@ziepe.ca, jgg@nvidia.com, joro@8bytes.org,
+        will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
+        palmer@dabbelt.com, anup@brainfault.org, tglx@kernel.org,
+        kevin.tian@intel.com, fangyu.yu@linux.alibaba.com
+Subject: Re: [PATCH v6 10/16] irqchip/riscv-imsic: Add MSI address list
+Message-ID: <ocjk3jylktlomol75tprkquallwhajlrcrjcjfiycfnhlsxcep@nk73eccs2gqc>
+References: <20260925151659.419512-1-andrew.jones@oss.qualcomm.com>
+ <20260925151659.419512-11-andrew.jones@oss.qualcomm.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260925151659.419512-11-andrew.jones@oss.qualcomm.com>
+X-Proofpoint-GUID: IwsairUlL51GCzG2I-M8friG_dYTUtR2
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI4MDA0MSBTYWx0ZWRfX+dplPmJY23xT
+ kRzm2RJlvcDiY4pFdQFbL2KbZb53yExdWkpaWYpPPt+VCx9qD9QVgGJHhJ2huGnaZooudMdk9/c
+ 7ZjkozHEZXw8FY0OlqqzJcQDEVcn7zC1VH3J/ErL9qTEqyxecG6bQg3V9HQylKohifbek5WkjtO
+ Nsa6O0EKqtrfllWWCpm0aMNE9GyWx7VRqRs4foSVrDfhlPdGVY8fXbzVDPiE1gl5XGORopEVWYJ
+ 1eB8sBQA4L/AQJlk/L7hTXLlrDJppt6O6e+BPHcS7Ky2+iTUGaQOGIyEgeGTC/lcocmSeQEpvaa
+ lWLVnlB6MXtamCrOqfhPGdDNj08F3ULMQ7bKJr0oa3KcDk8Jhmmo5uW6YCv41IPbNNhLoEWZ6aF
+ 8S6LQFo5bNBTSxKZdSuVAEl3XJErJwc90hD2IxpOc5QqclB77vAmKGfaQK3/QagEj0WX0rAFsce
+ x6WLnfuCrvm1dpOrVZw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI4MDA0MSBTYWx0ZWRfX+xEijVBvIpoW
+ KvWNIzpjKEbKDqiL9g9VBhUxi+IQGyhKIcmuBy1cm046fGfnePARgDw9X6pgyMMhL6aEqUEx414
+ ZldcWknGhbFxTEFr7tO/VI8HtS7DcdA=
+X-Proofpoint-ORIG-GUID: IwsairUlL51GCzG2I-M8friG_dYTUtR2
+X-Authority-Analysis: v=2.4 cv=MqLHeGae c=1 sm=1 tr=0 ts=6aba3f88 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=4CXLxsOAgPM/krjtHEZQyA==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=SRrdq9N9AAAA:8 a=azrel2x1CCEZ_N9yfE4A:9
+ a=CjuIK1q_8ugA:10 a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-28_02,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 lowpriorityscore=0 suspectscore=0 impostorscore=0 phishscore=0
+ adultscore=0 clxscore=1015 priorityscore=1501 spamscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609280041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_104759_342851_48E74E72 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20260928_032057_734031_88EB8533 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,63 +149,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-tools/perf falls back to the __weak rdtsc() stub in tools/perf/util/tsc.c
-on every architecture that does not override it, riscv included.  The
-stub returns a constant 0, so anything that reaches for the counter gets
-a value that means nothing and cannot tell it apart from a counter that
-happens to be at 0.
+On Fri, Sep 25, 2026 at 05:16:53PM +0200, Andrew Jones wrote:
+> Upcoming RISC-V IOMMU interrupt remapping needs to map every possible
+> host IMSIC target into one contiguous MSI IOVA range. MSI message
+> composition then uses the target CPU's position within that range.
+> 
+> Build an IMSIC physical address array indexed by logical CPU.
+> Require every possible CPU to have an initialized IMSIC page before
+> publishing the array. This preserves physical address zero as a valid
+> target and guarantees the array has num_possible_cpus() entries.
+> 
+> The array size and each target's index can therefore be derived
+> directly, without storing duplicate count or per-CPU index metadata.
+> 
+> Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+> Tested-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+> ---
+>  drivers/irqchip/irq-riscv-imsic-state.c | 32 +++++++++++++++++++++++++
+>  drivers/irqchip/irq-riscv-imsic-state.h |  3 +++
+>  2 files changed, 35 insertions(+)
+>
 
-The time CSR is a natural TSC equivalent on riscv: readable from user
-mode, constant frequency, and the same counter that riscv's
-arch_perf_update_userpage() feeds the user page conversion fields from,
-ever since commit 83c5e13b8cbb ("riscv: Prepare for user-space perf
-event mmap support").  This series registers that on the tools side.
+Regarding the Sashiko findings for this patch. The first I already
+responded to on v5[1] and the second, which is new, is complaining
+about the error handing in imsic_setup_state() for the new call to
+imsic_init_msi_pa_list(), but the error handling follows the pattern
+of all other error handling for that function. So there is nothing
+to do for Sashiko here.
 
-The two patches are split so that the first stands on its own:
+[1] https://lore.kernel.org/all/20260901133835.345001-1-andrew.jones@oss.qualcomm.com/
 
-1. Implement rdtsc() over the time CSR for riscv.
-
-2. Replace the compile-time TSC support check with a weak
-   arch__rdtsc_supported() hook, so that support is declared next to
-   the rdtsc() it describes rather than in the central list of compiler
-   macros.
-
-What this is worth beyond the subtest result:
-
-1. The subtest is the only reader of those conversion fields riscv
-   can run, so it guards arithmetic that has shipped unexercised;
-   registering the counter at the same time leaves a future riscv
-   auxtrace driver the reading and the conversion already in place.
-
-2. The hook gives a caller something to ask the architecture before
-   it uses the counter value, instead of each caller keeping its own
-   copy of the macro list.
-
-Tests:
-======
-- The "Convert perf time to TSC" test in a riscv64 QEMU virt guest
-  with sscofpmf: the subtest skips before the series, passes after it.
-- With the riscv implementation left out of the build, so that the
-  weak defaults are in effect, the subtest still skips: the behaviour
-  of an architecture without a counter is unchanged.
-
-Chen Pei (2):
-  perf riscv: Implement rdtsc()
-  perf tsc: Replace the compile-time TSC support check with a weak hook
-
- tools/perf/arch/arm64/util/tsc.c    |  5 +++++
- tools/perf/arch/riscv/util/Build    |  1 +
- tools/perf/arch/riscv/util/tsc.c    | 24 ++++++++++++++++++++++++
- tools/perf/arch/x86/util/tsc.c      |  5 +++++
- tools/perf/tests/perf-time-to-tsc.c | 12 +-----------
- tools/perf/util/tsc.c               |  9 +++++++++
- tools/perf/util/tsc.h               |  1 +
- 7 files changed, 46 insertions(+), 11 deletions(-)
- create mode 100644 tools/perf/arch/riscv/util/tsc.c
-
--- 
-2.50.1
-
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
