@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9942CA5FA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 16:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC1ECA5FA2
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 18:02:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qbHsQEXTS8Vt8bYrGp6/kn8VovgWoSJPrF6jNvkFqYw=; b=iXWp9QtLQcjmDdupzWy3Ukovya
-	jg31G06bC2M+1u+hq8oEzn3r3B8lVmbEnKXpvQKI4yRg1U9dygygz9T48gUH2Ls5kDlr+FP3TZRMI
-	K++xjhmt+VNGx3H+RMuhu9lJ4RRR1OQb8lvpkDeFI+HQZsqEI9NMQMCnNKO3iRiA5lwhfigYbrGKX
-	WEdSxg5NRqwd6bIaAfeGp5QMHVKt2iw2KGRIZ8iXJ+uf1IDbrdfAwNN4nuJM8CJ7o3cEo1/HnEz7G
-	/0nRpAL1NcYawn8w6X6gRDxArn+h48bXG/v6o+MB1F7GgJtiPl627pcI8HVwCCTh0IgHtcu9vSQ7b
-	l6qM06bA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=siN995uHVEMriGQYCc/4y+dYeHV/hw8cTzrG6TnF5i8=; b=PRjFeEkxfC+FTn
+	bLzzOpRuqifmC9OrKgE0kkTYtR5xjE/7t3hHYCVhp+csOh++oY0AwzTw1LhPysLhDKucsEoKWsc/j
+	JkdKDQR0r9g2pM6BcSXAHKw/lPxmDb6VhpvRRUJG2BA/KFTejUrddE2H/oSHAmRC1h17AcVGmudLI
+	GG7H0Okio43NtaIeW8K6M07SNBe07erFYBrdcxRA+7TQOJyiT38EvytBr/GYIc03mG54HftaQRw0w
+	+vmS/5nRJ8Gqt9TNmd+YpI8B6G/trEkRJYkA7O1qi48s754XrlIY7vG3/bsGpKBq37lKdCA2cMRtH
+	GgdEz6Yp5nOceRfU7lDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBEZI-000000015FB-1yyC;
-	Mon, 28 Sep 2026 16:51:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBFgS-00000001GIu-0zUn;
+	Mon, 28 Sep 2026 18:02:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBEZG-000000015EQ-4Bpi;
-	Mon, 28 Sep 2026 16:51:07 +0000
+	id 1xBFgQ-00000001GIg-2zeH
+	for linux-riscv@lists.infradead.org;
+	Mon, 28 Sep 2026 18:02:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AB91C429EC;
-	Mon, 28 Sep 2026 16:51:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DD871F000FF;
-	Mon, 28 Sep 2026 16:51:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D299B600E2;
+	Mon, 28 Sep 2026 18:02:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 594301F000FF;
+	Mon, 28 Sep 2026 18:02:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790614266;
-	bh=7qujMjalLm+fR9p2YtYH4uWTPdLVJMOUVJv4gYWrE8Y=;
+	s=k20260515; t=1790618553;
+	bh=7doqCw9sONY187zVfnBddDxjdMAo8jRbJl758NpeHj8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OVcc4nwtk75SjYcZBGTZBLVBZdYzxJNk3wCeIOjJUcHdOzA28qnXyoMHtALghanJc
-	 TZlDrvfBIx/0/Qf8U1OF70LV/xFJXyubsPVOUCk47JaN7BmzHZ/udeZiTlIBfJbiq5
-	 89eTp4DvJ4j058sTLQZze5JLuGrGNMxnEMTdHG9APGrGkRl6n/R6+4HSoGzgc53LKA
-	 GylfwUKKoCrjhjbidIsU30R8FN59svuN5tLUC9HVKyQt8miRZmQ0/BJPfD2s8hhiOk
-	 fctHLUGySdovImS4cSVXTo3ugfeUy4I7mgHVRgWgvuaJXU1L4MuriR2MOJrh0Lu+Iu
-	 aQsyONrMj0bDw==
-Date: Mon, 28 Sep 2026 17:51:00 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>
-Cc: Wilken Gottwalt <wilken.gottwalt@posteo.net>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Rob Herring <robh@kernel.org>,
+	b=VsqInaDGfyu3eBlOMauTl9QQj3ap1Uao8vdmqdM0sfnuxrAh4nBunFzLQjkZGkeVM
+	 oElhYeF8PBSA9o5dF0Kswr0rKAIZni/kGUQmWFclltIsMC0igQ+OyB74MzPKmrrndI
+	 W6vXvVSZgbrtc3LI73nHKDS+gzMs6fVvlaXjw3UI3rC4YqZ9So3aV0JWlH6Wb13JqT
+	 CV1GoQdB4X2cWeLaW+Qvryyc0t+ByJbX2hqBJvSUTC1x7zmBkL6AN19MBp8UDKNvWp
+	 NUEcH4qUgLITUBbTt1BUUOMOkKAAi5tlvoD6/0BxkHFHQuIse+vJoQnP3Kdw3Trk2p
+	 GzDUNLRQVJUlw==
+Date: Mon, 28 Sep 2026 13:02:32 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Bastian Germann <bage@debian.org>, linux-remoteproc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org,
+	Anup Patel <anup@brainfault.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	devicetree@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>,
+	Bo Gan <ganboing@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Yixun Lan <dlan@kernel.org>, Guodong Xu <docular.xu@gmail.com>,
+	Radu Rendec <radu@rendec.net>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Thomas Gleixner <tglx@kernel.org>, spacemit@lists.linux.dev,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <pjw@kernel.org>,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] dt-bindings: hwlock: sun6i: Add compatible for
- Allwinner D1
-Message-ID: <20260928-reorder-laborious-73515b6ef657@spud>
-References: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
- <20260927025626.69614-3-tien.nguyenminh@embeddedlinux.blog>
+Subject: Re: [PATCH v3 4/6] dt-bindings: timer: sifive,clint: Remove
+ spacemit,k3-clint
+Message-ID: <179061855158.116521.9196507271431226216.robh@kernel.org>
+References: <20260918-k3-aclint-v3-0-cf4fd4050e14@pigmoral.tech>
+ <20260918-k3-aclint-v3-4-cf4fd4050e14@pigmoral.tech>
 MIME-Version: 1.0
-In-Reply-To: <20260927025626.69614-3-tien.nguyenminh@embeddedlinux.blog>
+Content-Disposition: inline
+In-Reply-To: <20260918-k3-aclint-v3-4-cf4fd4050e14@pigmoral.tech>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,46 +78,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1500606969628975819=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1500606969628975819==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="MUxTtFBeNtxJvpZQ"
-Content-Disposition: inline
 
---MUxTtFBeNtxJvpZQ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Fri, 18 Sep 2026 00:29:36 +0800, Junhui Liu wrote:
+> The SpacemiT K3 implements separate ACLINT MSWI, MTIMER and SSWI
+> devices. The existing spacemit,k3-clint compatible incorrectly describes
+> the SSWI register space as a legacy CLINT.
+> 
+> Remove this compatible, as it never matched the actual hardware and
+> has no remaining users.
+> 
+> Fixes: 6cdeb30db4d8 ("dt-bindings: timer: add SpacemiT K3 CLINT")
+> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+> ---
+>  Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 -
+>  1 file changed, 1 deletion(-)
+> 
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
---MUxTtFBeNtxJvpZQ
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCarqa9AAKCRB4tDGHoIJi
-0lVQAP49KPJ6ClOf6NzSjcHl7OvrOuUz/0otTRx2Ry1qRLGnFgEAub8iEEd4aYlo
-TYoCQmOGZ2i8zKTGaXDzcxb42/ym2Qo=
-=Rij2
------END PGP SIGNATURE-----
-
---MUxTtFBeNtxJvpZQ--
-
-
---===============1500606969628975819==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1500606969628975819==--
-
