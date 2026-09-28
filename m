@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B045ACA5FA5
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 14:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B702CA5FA5
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 14:32:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I4PLcwlGdHxmzzFbBhBuvwhsCirL3ZZzf/adhLsWMUw=; b=hKKTrTTtnrvsP8
-	XYjPvw/AzFcsOY1WLgwBXLw3TDh3Dq9282oVwe76U+QDWMxBYxdmEa9K+f71WltE+YKYN1jHHaoQJ
-	b8gOyqC0UJGQ/YqA2vtdWhbe7h2M3n11SRPt4N4xQEsyITNDow6mgpeXr+3HnJgCzT4Dq/nZl2YvV
-	yaQT+BO9zxEoXsfjn7ebiuCcrCyiH7H08tYgJ1IMW0jJpBVBhgBnHVAJbyO5k2b97i5a99jrVjc4g
-	di+5Jgd+72xEaT1dfBeUiLFCgnwFnyYTZr95J4gxss47iD2QZtRUCIEvSRp2M/wy1WvvVQNHWTLKE
-	LXOCQq0AKRMMgfo22yhQ==;
+	List-Owner; bh=P1Nvm3RfGQptWGmbhluM6/WDaX4szK60xiqzqT2OOSc=; b=bJrh0VuZHXlgil
+	JZGzAg/JfjSu3CUgTMxbof2DsBvr/rw8Wm4q63sUO5sPfod0wU/GxDPcKBGdGTH5U3b18h4Ha/+39
+	NMF9fQjKpqTqhx4xegPFFdFISYWzI0EbpRYHnpEctzDS2I1nx+91JdCke0rbzr/oDpgH5QOmnvyiP
+	NzgjbJe69DrJ1LGfwxu7GsKGaVLCn345T9TfXQte88cx41iZlgKOP8H50qkXht+uO88Tu8EWG9Pdy
+	ZjLp8CItU+HmUcqLa/NRaDomcT45Wiq+ziFUaTKUPKR2CaljFhTlqiP596Fx0ji850hvhgsc6/YEJ
+	dUV9aHuypfXboxq6sDyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCOz-00000000leY-1Cuc;
-	Mon, 28 Sep 2026 14:32:21 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xBCP4-00000000ljJ-1xJT;
+	Mon, 28 Sep 2026 14:32:26 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCOw-00000000lb0-0WBa
+	id 1xBCOx-00000000ldU-3M4W
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Sep 2026 14:32:19 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68SBAAax1682774
-	for <linux-riscv@lists.infradead.org>; Mon, 28 Sep 2026 14:32:17 GMT
+	Mon, 28 Sep 2026 14:32:20 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68SBA9D71433709
+	for <linux-riscv@lists.infradead.org>; Mon, 28 Sep 2026 14:32:19 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=tI0/0AlrGk4
-	2VaUy8+Xxm3J8luGbxvuymvvOE+J35b8=; b=A8NI/LobiXh3JAgoo9EIqClixRv
-	HGKgrcNTY20la81ohTExobt76KZw5Zf+sqOIb+kIrJ5vx+OAdGlKhnVn9PWBVLT1
-	/jcH57XUMj7RLl7Smv+Vq3DHFhKObWtmGPMyIsQInCPEgluIUC2HFvQx1rCO2qep
-	09zFysoeJ1GamOTXMY3FX/J73ozjUgHowlAfBFfeOwoUW7Gpt0ayPKwZt0kYernI
-	HZpoC7BdXpXOaEw+SFquZeaTtQbD8XBPB7g7m1uLI38Y5QyLYS4wVafTbtDnNsKi
-	vYn+9bVHZe2FGU7FcC/oMM+E6pnrLTAaZKPGliQTelNmUrtJhw1yiqFPhDQ==
-Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gynfks5c3-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=g7ykt7LSEJe
+	/IvR1ZzOjMBU3wKZ7WY6AweTJQ2yjaag=; b=A1khsbUY53TyX+IouxKKcQgcDYK
+	8RmG3YIwh2qQRPk8L9AOg75iU5OhtzUQo61HU6vp30hzLq8NwzUNx3kABtBGg8bB
+	zFC3VvlPM/YcW73HckfLlY8b6h1eHSfB79tRRdkKLZYXGZvUlzpOCqLolVE/fOMz
+	9SDa14kaU0pqJkAuyegYSvTOjpLEQO+VzjNVEX2T6oCjSEhv0VsItB82zWcvTth0
+	KSM3IeTuI+7qhUIK0Vdgz4ClN4LxsH7fpUi4hsp+TVNP04VOUCVNboUePJxH0T4v
+	MDK4OqUJJhF49TuMdt+sEFKGLQ5SyOyP5hOVkMx67Z2RNROj3R9QZAJNVzQ==
+Received: from mail-ua1-f69.google.com (mail-ua1-f69.google.com [209.85.222.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gyj2s1yw5-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Mon, 28 Sep 2026 14:32:17 +0000 (GMT)
-Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-7b37c39d36fso497377137.0
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Sep 2026 07:32:16 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Mon, 28 Sep 2026 14:32:19 +0000 (GMT)
+Received: by mail-ua1-f69.google.com with SMTP id a1e0cc1a2514c-98087b0c5deso2512818241.2
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Sep 2026 07:32:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790605936; x=1791210736; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1790605938; x=1791210738; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=tI0/0AlrGk42VaUy8+Xxm3J8luGbxvuymvvOE+J35b8=;
-        b=GGw/H0kdqL3Q20U83hRtVCZTpoNQswAlkNh8mZ7WgsRkzNJVf39CyGAu04JrKJGDC0
-         uCBE8dZMA3Ae8Hqf4Ui4JkvhMvdUNRacz/ft3ew6Dqjd8oUz+lDxKdJi3vPPDaX8++cp
-         DpKCKO9JTDokHC/vBW2YHYDwWErBrETXGLtLzC+G1ZDtepsMSMfXwyjWHM1xh6cZWp0R
-         M9D1/EmWchm+LfGBxIIw9naVKhd07xvBpbJnkZm5lSUuFSw1yzofTkJdgW4LK0byiat7
-         r9ugAngHLd8C0Zp1YwrqZbeS90wG0FFoxP9ZhqnivXP4+9bjnu2iq5vIfflpjUqkXGmI
-         s2Pg==
+        bh=g7ykt7LSEJe/IvR1ZzOjMBU3wKZ7WY6AweTJQ2yjaag=;
+        b=S8NGc/PTKN228FwBaz3CB7ZAoNFG8AWEW2/pZ/bOkuTrnft6aVG7UVBs04if4IX7fq
+         Y4gAGBsZv2cU/yGIXHtxTn16AKPDRHNhpZRFW9SlpQnaXn084IdXqbIy+WKouUQ/ETmQ
+         6Yi5drOcatY9xQNQik6bsuheWcMwcShh7cmMXm8EJVGRRLhPCqrMbFoSexw8rh9nflSS
+         cu9a+Pf0Vai7x9KBPcoo6/Cc+VBK82SMleQaNvFuxxI++58i4tnwHQZ/0vfTmBFlA1CF
+         oZfh3jRVWBy7bpiWRbI+nnnculvatUJ8ZNEm69nLk9Igkk0i+z2xRjNRo4Kte4KSV4rz
+         i0ig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790605936; x=1791210736;
+        d=1e100.net; s=20260707; t=1790605938; x=1791210738;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tI0/0AlrGk42VaUy8+Xxm3J8luGbxvuymvvOE+J35b8=;
-        b=SVT2xbnYFjRsTKpRHaeZQptg3htRcPtnAz5tVit9TCrtELHvzkG6020e5EVDSxOb/S
-         b1973I/XQUhDt7cKufwv9+u4A4QreqTy6ayKZLHIovtwsq7cO4Lx5sFXCjMDh/ljPalO
-         TO84Dmb/xyUQ+WpJZyMjtdv/9Kvpd4JNQ2EvVs/71xSYUv1pAGnvo0+pTJVzTZY1dQCh
-         F8UXf/SfmaHare1gBgpL3OP4a75y/9MVHoVglzan1btehs60tIg2wsL0S9PhezPI+6KK
-         JdS5a5+zaf8Jmu5NObqIuyDG+J3LweL/bOZhLZjtnXkbZ4sFoBTgszEEt5unCjOUBL5F
-         fRJg==
-X-Forwarded-Encrypted: i=1; AKwUvBx8Ujdq2+ANWmiT+aN4T1wYLSnmRC1xED1v9FgOOmM1+lo4df5WEVLiKBb23RpbkEzRt/Xf54VW+GhE6A==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJEv9gt1ACFfbXRGwbm4N0QOGpFiW9ybfHY49L4ZvRCaQQikmi2
-	4bOvgY19D56oY0b601Sb8zkFugJ6zxLZVzLZJma4MWdWVuWWdRPjo0OUx03qWWTEuiO84KHF9Nm
-	NKLd1r0/YHuR/8LKXKhafdNVFwmJFPaWooTEcEclX9m4vqQ5eMW93zX85l53mn4MuBEkT6d4=
-X-Gm-Gg: AYBFou1b26fpS+uTg9HPp/ZcFRgqZGjD+c3ynFLXei56sG9C85QhnseQ0VTU6A1/ycx
-	yIfnEnoyklCT56fVvAVKPorHIjCPs3YSeoo+k3XvnRAJnBnvLwqlB9EQWXj2OrZwykjEuh8DnFk
-	StSVy+4jU6mRoGFR7U003wni0/s+BoqYRFV3ff27vW3jKKMiwFu+luEcpzhFBKI/I5a2SNIxRaA
-	/f/2uYd1ydXfo8Hdaneo1nGlP41Xem2E7F/zWJhR+txAFbuXoG5IgjgBxHHBX0o5FP2r/zEZiIX
-	jsjjdTkH0LEMDG43Yt6KlKVTsurQMOtRcyb6Hlogol5CHVwr5blifZPKxlNlELH6tdiQYtB2+51
-	KJ1V6psK4F3cfUzSHyGO4m3U4a1WW/S/KANEZjA==
-X-Received: by 2002:a05:6102:548a:b0:7b8:1a1b:8e79 with SMTP id ada2fe7eead31-7b81a1b939bmr496640137.0.1790605936256;
-        Mon, 28 Sep 2026 07:32:16 -0700 (PDT)
-X-Received: by 2002:a05:6102:548a:b0:7b8:1a1b:8e79 with SMTP id ada2fe7eead31-7b81a1b939bmr496616137.0.1790605935660;
-        Mon, 28 Sep 2026 07:32:15 -0700 (PDT)
+        bh=g7ykt7LSEJe/IvR1ZzOjMBU3wKZ7WY6AweTJQ2yjaag=;
+        b=fBFGSvrj+NGiCMdn/j4pno1xMmJ/y3YAMeVLSD+tzrrgtRBAr9wUjcH5VKeFOEJhwo
+         C72m+t556JqYzxrF1E9H1JpWMeQrxdfHTO/tjFB3mXap01CbyalLOyeIoV9fjQTpN4V1
+         b+U/+cYkAPaaF4cEgUqBK5mvArpOInFwaqzj4/J8qaet0hrbcDjzOmQW+JLymsd2D6ag
+         z1NWyyzvvWX2SrycPGFZa2WTGY6C75vjSHl3/XAlpB0CYr08mXIQP01p3yLC4srktZQN
+         AlRKACyD5uugLe7ol38/Jx/FTq9j008SBqL88QC+hSob3dqzWjLmM9Dum7WVSzcg/IV+
+         7UHg==
+X-Forwarded-Encrypted: i=1; AKwUvByR5nfzojREMBzucIpVs04fU1MGzyHXeyZPVarEJgPzRNnl3Yih8hKtkjCzz6g8KhSNZfKTNucTnCtMkQ==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKrfhGZNPWFR+R4wxUPkeWuXiT76+6TkDz3KZLueAK1dmfB3e9d
+	CoSh09/ggvqpIQujB5nbg//tfM5j8LYSb24xK1w3Q4sluXdQn/yALbuYZG9yyrnLL5FX0rU0Rt2
+	Xc9dOe+2O22Nq0X26cIlxJtHQFH5Fn/Lym/j5a/PWU5PcOjdIpjYgMBxB5Jyj6/fWR8myO/M=
+X-Gm-Gg: AYBFou0EL5lmDmE0ymARFJRgy75iSwci1E3ylR+EjR9z5/2qVEPoUNaP4a9s7oBFfjy
+	gbU/Dr85bFn2FoNx3J27Zr1VlPqZC8p6d3vmlNtA4BPgE4rtwV8AsJ3CYNGx+r6aHm7ZykxLC6t
+	npLoWITg1bmkEAP6NmZjy6cafn+N5pjLzTrerqaFtkDZV1dO5gyikisZJL6fconW0U8pEwe61ja
+	5Ww07lDYeruIJurG5yA25BuXNtFyLgcxF67k+votyOPK/ajJbudWXq5ThtqRSV4BA3UyWo2saNT
+	/glkLfpZqRhIW2G+kO1oar2KiU7ueVVEZ5HhET7fhpRsc5Lct3loU6+fvQeSZXgj7AMPKfgSoJh
+	O7xmIzbNKYq8VXQtkl4fm8uPwcFApOFOq/Yz5Aw==
+X-Received: by 2002:a05:6102:32d0:b0:7b2:7aac:8ccf with SMTP id ada2fe7eead31-7b27aac8d4bmr3266550137.29.1790605937943;
+        Mon, 28 Sep 2026 07:32:17 -0700 (PDT)
+X-Received: by 2002:a05:6102:32d0:b0:7b2:7aac:8ccf with SMTP id ada2fe7eead31-7b27aac8d4bmr3266533137.29.1790605937424;
+        Mon, 28 Sep 2026 07:32:17 -0700 (PDT)
 Received: from localhost (ip-86-49-245-11.bb.vodafone.cz. [86.49.245.11])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6aae5dc0cddsm4296245a12.14.2026.09.28.07.32.13
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2dcf626b3esm211882366b.27.2026.09.28.07.32.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 07:32:14 -0700 (PDT)
+        Mon, 28 Sep 2026 07:32:16 -0700 (PDT)
 From: Andrew Jones <andrew.jones@oss.qualcomm.com>
 To: iommu@lists.linux.dev, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
         linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
@@ -95,42 +95,43 @@ Cc: tomasz.jeznach@linux.dev, jgg@ziepe.ca, jgg@nvidia.com, joro@8bytes.org,
         palmer@dabbelt.com, tglx@kernel.org, anup@brainfault.org,
         atish.patra@linux.dev, fangyu.yu@linux.alibaba.com,
         zhangzhanpeng.jasper@bytedance.com, zong.li@sifive.com
-Subject: [RFC PATCH v3 10/14] iommu/riscv: Add IRQ domain for interrupt remapping
-Date: Mon, 28 Sep 2026 16:31:09 +0200
-Message-ID: <20260928143113.49838-11-andrew.jones@oss.qualcomm.com>
+Subject: [RFC PATCH v3 11/14] iommu/riscv: Prepare info->domain for concurrent RCU access
+Date: Mon, 28 Sep 2026 16:31:10 +0200
+Message-ID: <20260928143113.49838-12-andrew.jones@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260928143113.49838-1-andrew.jones@oss.qualcomm.com>
 References: <20260928143113.49838-1-andrew.jones@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI4MDA1NyBTYWx0ZWRfX8FYTA5ZORqkz
- otSk9doQUB8CKtxigTZDGVboghL1iJwNedUK8CvmA92w8pJ1gZQ0Lxkv6pnUHmKwX9p2QmYpZip
- C1kBggNnuioR2DGINpro6diCdEYVX2RZ0xDZHaFOHFRjtShcVNcjCZoT407f0jr5hgAaxfUFccA
- qvRkMN1aVcsPn4iH7M47+QANOofg0em1/AHKzI+3FLZltTlHeS+NzsCPzfPbNtTEeVLmz2SVhb2
- qG1Z1Cfv6VlwSCcLKEHMbyBvrv7X9qRem3buBcgi/qSIHYCR/Wyuswt8Z04rLZK+cNIK4U/w0pa
- LbTsQs8mwDBxbxbs4arNcZeoOSe2GUwG8gByIfD/Arm+G+TpCvCU2hCUE183rAv/ojLZRXu77VV
- 0R88itpcrw/xO3k7v96D6n2xnAxt7zErDypQ6VfaM5e3MriK0b2Jfn/G+UJ8Hz/3HyZJEMKzZnD
- WIZQLYEpOsOXFup3Z5Q==
-X-Authority-Analysis: v=2.4 cv=e6aT2qp/ c=1 sm=1 tr=0 ts=6aba7a71 cx=c_pps
- a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=4CXLxsOAgPM/krjtHEZQyA==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI4MDA1NyBTYWx0ZWRfXzuaFzE9aU1W5
+ xysP84t6ownDj4eRpYbmSz36UAXOl0UmU364lE6+JhkLeyxNNwgVFBnxAi1yR/RtETjlS/iZsvW
+ InqFbyhB9hFYY/IFWP67ZkFuI8FCjguCZIn8VZypOSHU/JYYAGH7nCRZ7BRozFEIdOl6W7IgpJi
+ 0P5wW9AoloqaIRj5Swv3BaERJcMreBCr2Vx4diJXtBVAF4Xi9eBffa6ge2LQ/KxTqvHrNpEq5tM
+ KDbAEPQ/IBPdXhazx+Cn54shEO7V3abd4fB+iCDP5cwCIcbxTXAKHUz3L6fDEIW1jR7578M9Swr
+ NT47TRGpSefG49fp5upoVDbBlr9MedAv/qPtZJ8IVntRAETNKJdO9sUH9BKYDEjfAEASNtoD7Na
+ ZKi/nYt2aRclCjtdZ7qySIsXJbTMmbfN2PJUnUQCzsNo+n2fe1nkTwzNAcaP2BO79IJClPVtkuG
+ Ny+MDDgxP37ECkl92eA==
+X-Proofpoint-ORIG-GUID: wRn2brLlkAkOAJXIb3WYpfp_CdoGbrh0
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI4MDA1NyBTYWx0ZWRfX0s8OQNotR1Lq
+ JMxG6wjvzL77kgIhxSYLvbDjZGExQ/kuxPgeilfTXkMiysd6paqfugV78NpES8ysm/wznC5E8i+
+ llTEkdwwvbVJfjD7kvhcJ76L7BSYxEg=
+X-Proofpoint-GUID: wRn2brLlkAkOAJXIb3WYpfp_CdoGbrh0
+X-Authority-Analysis: v=2.4 cv=TptzFzXh c=1 sm=1 tr=0 ts=6aba7a73 cx=c_pps
+ a=UbhLPJ621ZpgOD2l3yZY1w==:117 a=4CXLxsOAgPM/krjtHEZQyA==:17
  a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
- a=35qlKtXXEZa0C2bHkQ4A:9 a=gYDTvv6II1OnSo0itH1n:22
-X-Proofpoint-GUID: T4qjC4I_d-nrpXR4bSJ1PRWkLiHVlQ_3
-X-Proofpoint-ORIG-GUID: T4qjC4I_d-nrpXR4bSJ1PRWkLiHVlQ_3
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI4MDA1NyBTYWx0ZWRfX/6X7EFeM4ZBh
- G7BNyOaf7AtNsds8O2+okwn/xe/IYkWX2BdTYWlU+pdQhWbKi7Qoks3PVSz+aUDIg56/s+OhIWc
- Xg1tBVHlulHPDy1cT/yMvGTesXC2qV8=
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8
+ a=YVOiLqTVN_ovv9J5ge0A:9 a=TOPH6uDL9cOC6tEoww4z:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-28_03,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 priorityscore=1501 adultscore=0 suspectscore=0 bulkscore=0
- clxscore=1015 impostorscore=0 malwarescore=0 phishscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609280057
+ impostorscore=0 priorityscore=1501 adultscore=0 lowpriorityscore=0
+ bulkscore=0 phishscore=0 suspectscore=0 clxscore=1015 malwarescore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609280057
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_073218_285263_74FFF8A6 
-X-CRM114-Status: GOOD (  26.46  )
+X-CRM114-CacheID: sfid-20260928_073219_855798_2B42A580 
+X-CRM114-Status: GOOD (  19.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,399 +148,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Create a per-IOMMU MSI parent irqdomain as the hierarchy hook for
-future interrupt remapping. The remapping tables will be owned by the
-attached paging domain since the MSI mappings live in its MSI table.
+Upcoming interrupt-remapping callbacks need to resolve a device's
+currently attached domain from IRQ context, concurrent with domain
+switches.
 
-The IRQ domain is created lazily from probe_device(), installed on
-eligible devices for their managed lifetime, and removed with the
-physical IOMMU. This is only the initial skeleton: it does not remap
-interrupts yet, and non-paging IOMMU domains will fall back to the raw
-IMSIC physical address when remapping is added.
+Protect info->domain with RCU and wait for readers before freeing paging
+domains. Provide an RCU accessor for the domain-owned MSI table so
+interrupt-remapping code does not need the private domain definition.
+
+Use the stable old domain supplied by the attachment callback when
+unlinking its bond instead of dereferencing the now RCU-protected
+info->domain.
 
 Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
 ---
- drivers/iommu/riscv/Makefile            |   1 +
- drivers/iommu/riscv/iommu-ir.c          | 148 ++++++++++++++++++++++++
- drivers/iommu/riscv/iommu.c             |  25 ++--
- drivers/iommu/riscv/iommu.h             |  36 ++++++
- drivers/irqchip/irq-riscv-imsic-state.c |   6 +
- include/linux/irqchip/riscv-imsic.h     |   8 ++
- 6 files changed, 213 insertions(+), 11 deletions(-)
- create mode 100644 drivers/iommu/riscv/iommu-ir.c
+ drivers/iommu/riscv/iommu.c | 34 +++++++++++++++++++++++++---------
+ drivers/iommu/riscv/iommu.h |  5 ++++-
+ 2 files changed, 29 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/iommu/riscv/Makefile b/drivers/iommu/riscv/Makefile
-index b5929f9f23e6..891810146fce 100644
---- a/drivers/iommu/riscv/Makefile
-+++ b/drivers/iommu/riscv/Makefile
-@@ -1,3 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0-only
- obj-y += iommu.o iommu-platform.o
- obj-$(CONFIG_RISCV_IOMMU_PCI) += iommu-pci.o
-+obj-$(CONFIG_RISCV_IMSIC) += iommu-ir.o
-diff --git a/drivers/iommu/riscv/iommu-ir.c b/drivers/iommu/riscv/iommu-ir.c
-new file mode 100644
-index 000000000000..c5603cb9f258
---- /dev/null
-+++ b/drivers/iommu/riscv/iommu-ir.c
-@@ -0,0 +1,148 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * IOMMU Interrupt Remapping
-+ *
-+ * Copyright (c) 2026 Qualcomm Technologies, Inc.
-+ */
-+#include <linux/cleanup.h>
-+#include <linux/irqchip/riscv-imsic.h>
-+#include <linux/msi.h>
-+#include <linux/slab.h>
-+
-+#include "iommu.h"
-+
-+static struct irq_chip riscv_iommu_ir_irq_chip = {
-+	.name			= "IOMMU-IR",
-+	.irq_ack		= irq_chip_ack_parent,
-+	.irq_mask		= irq_chip_mask_parent,
-+	.irq_unmask		= irq_chip_unmask_parent,
-+	.irq_set_affinity	= irq_chip_set_affinity_parent,
-+};
-+
-+static int riscv_iommu_ir_irq_domain_alloc_irqs(struct irq_domain *irqdomain,
-+						unsigned int irq_base, unsigned int nr_irqs,
-+						void *arg)
-+{
-+	int ret;
-+
-+	ret = irq_domain_alloc_irqs_parent(irqdomain, irq_base, nr_irqs, arg);
-+	if (ret)
-+		return ret;
-+
-+	for (unsigned int i = 0; i < nr_irqs; i++) {
-+		ret = irq_domain_set_hwirq_and_chip(irqdomain, irq_base + i,
-+						    irq_base + i,
-+						    &riscv_iommu_ir_irq_chip, NULL);
-+		if (ret) {
-+			irq_domain_free_irqs_parent(irqdomain, irq_base, nr_irqs);
-+			return ret;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct irq_domain_ops riscv_iommu_ir_irq_domain_ops = {
-+	.alloc			= riscv_iommu_ir_irq_domain_alloc_irqs,
-+	.free			= irq_domain_free_irqs_parent,
-+};
-+
-+static const struct msi_parent_ops riscv_iommu_ir_msi_parent_ops = {
-+	.prefix			= "IR-",
-+	.supported_flags	= MSI_GENERIC_FLAGS_MASK |
-+				  MSI_FLAG_PCI_MSIX,
-+	.required_flags		= MSI_FLAG_USE_DEF_DOM_OPS |
-+				  MSI_FLAG_USE_DEF_CHIP_OPS |
-+				  MSI_FLAG_PCI_MSI_MASK_PARENT,
-+	.chip_flags		= MSI_CHIP_FLAG_SET_ACK,
-+	.init_dev_msi_info	= msi_parent_init_dev_msi_info,
-+};
-+
-+static struct irq_domain *riscv_iommu_ir_irq_domain_create(struct riscv_iommu_device *iommu,
-+							   struct irq_domain *irqparent)
-+{
-+	char *fwname __free(kfree) = NULL;
-+	struct irq_domain *irqdomain;
-+	struct fwnode_handle *fn;
-+
-+	fwname = kasprintf(GFP_KERNEL, "IOMMU-IR-%s", dev_name(iommu->dev));
-+	if (!fwname)
-+		return ERR_PTR(-ENOMEM);
-+
-+	fn = irq_domain_alloc_named_fwnode(fwname);
-+	if (!fn)
-+		return ERR_PTR(-ENOMEM);
-+
-+	irqdomain = irq_domain_create_hierarchy(irqparent, 0, 0, fn,
-+						&riscv_iommu_ir_irq_domain_ops, iommu);
-+	if (!irqdomain) {
-+		irq_domain_free_fwnode(fn);
-+		return ERR_PTR(-ENOMEM);
-+	}
-+
-+	/*
-+	 * The RISC-V IOMMU doesn't validate MSI data, so we can't set
-+	 * IRQ_DOMAIN_FLAG_ISOLATED_MSI. The means VFIO requires its
-+	 * allow_unsafe_interrupts module parameter.
-+	 */
-+	irqdomain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
-+	irqdomain->msi_parent_ops = &riscv_iommu_ir_msi_parent_ops;
-+	irq_domain_update_bus_token(irqdomain, DOMAIN_BUS_MSI_REMAP);
-+
-+	return irqdomain;
-+}
-+
-+void riscv_iommu_ir_irq_domain_remove(struct riscv_iommu_device *iommu)
-+{
-+	struct irq_domain *irqdomain = iommu->irqdomain;
-+	struct fwnode_handle *fn;
-+
-+	if (!irqdomain)
-+		return;
-+
-+	fn = irqdomain->fwnode;
-+	irq_domain_remove(irqdomain);
-+	iommu->irqdomain = NULL;
-+	irq_domain_free_fwnode(fn);
-+}
-+
-+int riscv_iommu_ir_probe_device(struct riscv_iommu_device *iommu, struct device *dev,
-+				struct riscv_iommu_info *info)
-+{
-+	struct irq_domain *msi_parent = dev_get_msi_domain(iommu->dev);
-+	struct irq_domain *irqdomain;
-+
-+	info->old_msi_parent = NULL;
-+
-+	if (iommu->fctl & RISCV_IOMMU_FCTL_WSI)
-+		msi_parent = imsic_get_base_domain();
-+	else if (!imsic_dev_has_imsic_msi_parent(iommu->dev))
-+		return 0;
-+
-+	if (!msi_parent || dev_get_msi_domain(dev) != msi_parent)
-+		return 0;
-+
-+	irqdomain = iommu->irqdomain;
-+	if (!irqdomain) {
-+		irqdomain = riscv_iommu_ir_irq_domain_create(iommu, msi_parent);
-+		if (IS_ERR(irqdomain))
-+			return PTR_ERR(irqdomain);
-+		iommu->irqdomain = irqdomain;
-+	} else if (irqdomain->parent != msi_parent) {
-+		return 0;
-+	}
-+
-+	if (!device_link_add(dev, iommu->dev, DL_FLAG_AUTOREMOVE_SUPPLIER))
-+		return -ENODEV;
-+
-+	info->old_msi_parent = msi_parent;
-+	dev_set_msi_domain(dev, irqdomain);
-+
-+	return 0;
-+}
-+
-+void riscv_iommu_ir_release_device(struct device *dev, struct riscv_iommu_info *info)
-+{
-+	if (info->old_msi_parent)
-+		dev_set_msi_domain(dev, info->old_msi_parent);
-+}
 diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index db4539fbcb95..7a8b40d311ea 100644
+index 7a8b40d311ea..514470291fd9 100644
 --- a/drivers/iommu/riscv/iommu.c
 +++ b/drivers/iommu/riscv/iommu.c
-@@ -869,13 +869,6 @@ PT_IOMMU_CHECK_DOMAIN(struct riscv_iommu_domain, riscvpt.iommu, domain);
+@@ -869,6 +869,16 @@ PT_IOMMU_CHECK_DOMAIN(struct riscv_iommu_domain, riscvpt.iommu, domain);
  #define iommu_domain_to_riscv(iommu_domain) \
  	container_of(iommu_domain, struct riscv_iommu_domain, domain)
  
--/* Private IOMMU data for managed devices, dev_iommu_priv_* */
--struct riscv_iommu_info {
--	struct riscv_iommu_domain *domain;
--	struct riscv_iommu_dc dc;
--	unsigned int nr_forwarded_irqs;
--};
--
++struct riscv_iommu_msi_table *riscv_iommu_msi_table_rcu(struct riscv_iommu_info *info)
++{
++	struct riscv_iommu_domain *domain;
++
++	lockdep_assert_in_rcu_read_lock();
++	domain = rcu_dereference(info->domain);
++
++	return domain ? &domain->msi_table : NULL;
++}
++
  static struct riscv_iommu_msi_table *riscv_iommu_domain_msi_table(struct iommu_domain *iommu_domain)
  {
  	struct riscv_iommu_domain *domain;
-@@ -1465,13 +1458,15 @@ static bool riscv_iommu_iohgatp_supported(struct riscv_iommu_device *iommu,
+@@ -968,18 +978,22 @@ static void riscv_iommu_bond_link(struct riscv_iommu_domain *domain,
+ 	smp_mb();
  }
  
- static int riscv_iommu_msi_table_alloc(struct riscv_iommu_domain *domain,
--				       struct riscv_iommu_device *iommu)
-+				       struct riscv_iommu_device *iommu,
-+				       struct riscv_iommu_info *info)
+-static void riscv_iommu_bond_unlink(struct riscv_iommu_domain *domain,
++static void riscv_iommu_bond_unlink(struct iommu_domain *iommu_domain,
+ 				    struct device *dev)
  {
- 	struct riscv_iommu_msi_table *msi_table = &domain->msi_table;
- 	struct riscv_iommu_msipte *root;
- 	size_t size;
+-	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
++	struct riscv_iommu_domain *domain;
++	struct riscv_iommu_device *iommu;
+ 	struct riscv_iommu_bond *bond, *found = NULL;
+ 	struct riscv_iommu_command cmd;
+ 	unsigned long flags;
+ 	int count = 0;
  
--	if (!(iommu->caps & RISCV_IOMMU_CAPABILITIES_MSI_FLAT))
-+	if (!(iommu->caps & RISCV_IOMMU_CAPABILITIES_MSI_FLAT) ||
-+	    !riscv_iommu_ir_device_enabled(info))
- 		return 0;
+-	if (!domain)
++	if (!iommu_domain || !(iommu_domain->type & __IOMMU_DOMAIN_PAGING))
+ 		return;
  
- 	guard(mutex)(&domain->mutex);
-@@ -1544,7 +1539,7 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
- 		if (!riscv_iommu_iohgatp_supported(iommu, pt_info.iohgatp_mode))
- 			return -ENODEV;
- 
--		ret = riscv_iommu_msi_table_alloc(domain, iommu);
-+		ret = riscv_iommu_msi_table_alloc(domain, iommu, info);
- 		if (ret)
- 			return ret;
- 
-@@ -1811,8 +1806,8 @@ static struct iommu_device *riscv_iommu_probe_device(struct device *dev)
- 	struct riscv_iommu_device *iommu;
- 	struct riscv_iommu_info *info;
- 	struct riscv_iommu_dc *dc;
-+	int i, ret;
- 	u64 tc;
--	int i;
- 
- 	if (!fwspec || !fwspec->iommu_fwnode->dev || !fwspec->num_ids)
- 		return ERR_PTR(-ENODEV);
-@@ -1847,6 +1842,12 @@ static struct iommu_device *riscv_iommu_probe_device(struct device *dev)
- 		WRITE_ONCE(dc->tc, tc);
- 	}
- 
-+	ret = riscv_iommu_ir_probe_device(iommu, dev, info);
-+	if (ret) {
-+		kfree(info);
-+		return ERR_PTR(ret);
-+	}
++	domain = iommu_domain_to_riscv(iommu_domain);
++	iommu = dev_to_iommu(dev);
 +
- 	dev_iommu_priv_set(dev, info);
+ 	raw_spin_lock_irqsave(&domain->lock, flags);
+ 	list_for_each_entry(bond, &domain->bonds, list) {
+ 		if (found && count)
+@@ -1415,6 +1429,8 @@ static void riscv_iommu_free_paging_domain(struct iommu_domain *iommu_domain)
  
- 	return &iommu->iommu;
-@@ -1856,6 +1857,7 @@ static void riscv_iommu_release_device(struct device *dev)
- {
- 	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
+ 	WARN_ON(!list_empty(&domain->bonds));
  
-+	riscv_iommu_ir_release_device(dev, info);
- 	kfree_rcu_mightsleep(info);
- }
++	synchronize_rcu();
++
+ 	if (domain->pscid > 0)
+ 		ida_free(&riscv_iommu_pscids, domain->pscid);
+ 	if (domain->gscid > 0)
+@@ -1577,8 +1593,8 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+ 	info->dc = dc;
+ 	riscv_iommu_bond_link(domain, bond);
+ 	riscv_iommu_iodir_update(dev, &info->dc);
+-	riscv_iommu_bond_unlink(info->domain, dev);
+-	info->domain = domain;
++	riscv_iommu_bond_unlink(old, dev);
++	rcu_assign_pointer(info->domain, domain);
+ 	riscv_iommu_msi_tables_unlock(old, iommu_domain, flags);
  
-@@ -1950,6 +1952,7 @@ void riscv_iommu_remove(struct riscv_iommu_device *iommu)
- 	riscv_iommu_iodir_set_mode(iommu, RISCV_IOMMU_DDTP_IOMMU_MODE_OFF);
- 	riscv_iommu_queue_disable(&iommu->cmdq);
- 	riscv_iommu_queue_disable(&iommu->fltq);
-+	riscv_iommu_ir_irq_domain_remove(iommu);
- }
+ 	return 0;
+@@ -1732,8 +1748,8 @@ static int riscv_iommu_attach_blocking_domain(struct iommu_domain *iommu_domain,
+ 	flags = riscv_iommu_msi_tables_lock(old, NULL);
+ 	info->dc = dc;
+ 	riscv_iommu_iodir_update(dev, &info->dc);
+-	riscv_iommu_bond_unlink(info->domain, dev);
+-	info->domain = NULL;
++	riscv_iommu_bond_unlink(old, dev);
++	rcu_assign_pointer(info->domain, NULL);
+ 	riscv_iommu_msi_tables_unlock(old, NULL, flags);
  
- int riscv_iommu_init(struct riscv_iommu_device *iommu)
+ 	return 0;
+@@ -1760,8 +1776,8 @@ static int riscv_iommu_attach_identity_domain(struct iommu_domain *iommu_domain,
+ 	flags = riscv_iommu_msi_tables_lock(old, NULL);
+ 	info->dc = dc;
+ 	riscv_iommu_iodir_update(dev, &info->dc);
+-	riscv_iommu_bond_unlink(info->domain, dev);
+-	info->domain = NULL;
++	riscv_iommu_bond_unlink(old, dev);
++	rcu_assign_pointer(info->domain, NULL);
+ 	riscv_iommu_msi_tables_unlock(old, NULL, flags);
+ 
+ 	return 0;
 diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
-index deb57b6a6c4b..4c1c681ba2a2 100644
+index 4c1c681ba2a2..ed973979d795 100644
 --- a/drivers/iommu/riscv/iommu.h
 +++ b/drivers/iommu/riscv/iommu.h
-@@ -15,6 +15,7 @@
- #include <linux/spinlock.h>
+@@ -16,6 +16,7 @@
  #include <linux/types.h>
  #include <linux/iopoll.h>
-+#include <linux/irqdomain.h>
+ #include <linux/irqdomain.h>
++#include <linux/rcupdate.h>
  #include <linux/sizes.h>
  
  #include "iommu-bits.h"
-@@ -23,6 +24,7 @@
- #define RISCV_IOMMU_MSI_IOVA_BASE	SZ_16M
+@@ -85,7 +86,7 @@ struct riscv_iommu_msi_table {
  
- struct riscv_iommu_device;
-+struct riscv_iommu_domain;
- 
- struct riscv_iommu_queue {
- 	atomic_t prod;				/* unbounded producer allocation index */
-@@ -66,6 +68,9 @@ struct riscv_iommu_device {
- 	unsigned int ddt_mode;
- 	dma_addr_t ddt_phys;
- 	u64 *ddt_root;
-+
-+	/* MSI remapping */
-+	struct irq_domain *irqdomain;
- };
- 
- struct riscv_iommu_msi_table {
-@@ -78,6 +83,19 @@ struct riscv_iommu_msi_table {
- 	u64 msi_addr_pattern;
- };
- 
-+/* Private IOMMU data for managed devices, dev_iommu_priv_* */
-+struct riscv_iommu_info {
-+	struct riscv_iommu_domain *domain;
-+	struct riscv_iommu_dc dc;
-+	struct irq_domain *old_msi_parent;
-+	unsigned int nr_forwarded_irqs;
-+};
-+
-+static inline bool riscv_iommu_ir_device_enabled(const struct riscv_iommu_info *info)
-+{
-+	return info->old_msi_parent != NULL;
-+}
-+
- int riscv_iommu_init(struct riscv_iommu_device *iommu);
+ /* Private IOMMU data for managed devices, dev_iommu_priv_* */
+ struct riscv_iommu_info {
+-	struct riscv_iommu_domain *domain;
++	struct riscv_iommu_domain __rcu *domain;
+ 	struct riscv_iommu_dc dc;
+ 	struct irq_domain *old_msi_parent;
+ 	unsigned int nr_forwarded_irqs;
+@@ -100,6 +101,8 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu);
  void riscv_iommu_remove(struct riscv_iommu_device *iommu);
  void riscv_iommu_disable(struct riscv_iommu_device *iommu);
-@@ -86,6 +104,24 @@ void riscv_iommu_msi_table_inval(struct riscv_iommu_msi_table *msi_table, unsign
+ 
++/* Caller must hold rcu_read_lock() while using the returned pointer. */
++struct riscv_iommu_msi_table *riscv_iommu_msi_table_rcu(struct riscv_iommu_info *info);
+ void riscv_iommu_msi_table_inval(struct riscv_iommu_msi_table *msi_table, unsigned long addr);
  void riscv_iommu_msi_table_inval_all(struct riscv_iommu_msi_table *msi_table);
  void riscv_iommu_msi_table_update(struct riscv_iommu_msi_table *msi_table, bool activate);
- 
-+#ifdef CONFIG_RISCV_IMSIC
-+void riscv_iommu_ir_irq_domain_remove(struct riscv_iommu_device *iommu);
-+int riscv_iommu_ir_probe_device(struct riscv_iommu_device *iommu, struct device *dev,
-+				struct riscv_iommu_info *info);
-+void riscv_iommu_ir_release_device(struct device *dev, struct riscv_iommu_info *info);
-+#else
-+static inline void riscv_iommu_ir_irq_domain_remove(struct riscv_iommu_device *iommu) { }
-+static inline int riscv_iommu_ir_probe_device(struct riscv_iommu_device *iommu,
-+					      struct device *dev,
-+					      struct riscv_iommu_info *info)
-+{
-+	info->old_msi_parent = NULL;
-+	return 0;
-+}
-+static inline void riscv_iommu_ir_release_device(struct device *dev,
-+						 struct riscv_iommu_info *info) { }
-+#endif
-+
- #define riscv_iommu_readl(iommu, addr) \
- 	readl_relaxed((iommu)->reg + (addr))
- 
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
-index abd1cdb640ea..0e6c86840242 100644
---- a/drivers/irqchip/irq-riscv-imsic-state.c
-+++ b/drivers/irqchip/irq-riscv-imsic-state.c
-@@ -64,6 +64,12 @@ const struct imsic_global_config *imsic_get_global_config(void)
- }
- EXPORT_SYMBOL_GPL(imsic_get_global_config);
- 
-+struct irq_domain *imsic_get_base_domain(void)
-+{
-+	return imsic ? imsic->base_domain : NULL;
-+}
-+EXPORT_SYMBOL_GPL(imsic_get_base_domain);
-+
- /**
-  * imsic_dev_has_imsic_msi_parent - Check for an IMSIC MSI parent
-  * @dev: Device to check
-diff --git a/include/linux/irqchip/riscv-imsic.h b/include/linux/irqchip/riscv-imsic.h
-index d024a6524baa..02a836ce03b4 100644
---- a/include/linux/irqchip/riscv-imsic.h
-+++ b/include/linux/irqchip/riscv-imsic.h
-@@ -11,6 +11,8 @@
- #include <linux/device.h>
- #include <linux/fwnode.h>
- 
-+struct irq_domain;
-+
- #define IMSIC_MMIO_PAGE_SHIFT		12
- #define IMSIC_MMIO_PAGE_SZ		BIT(IMSIC_MMIO_PAGE_SHIFT)
- #define IMSIC_MMIO_PAGE_LE		0x00
-@@ -81,6 +83,7 @@ struct imsic_global_config {
- #ifdef CONFIG_RISCV_IMSIC
- 
- const struct imsic_global_config *imsic_get_global_config(void);
-+struct irq_domain *imsic_get_base_domain(void);
- bool imsic_dev_has_imsic_msi_parent(struct device *dev);
- 
- #else
-@@ -90,6 +93,11 @@ static inline const struct imsic_global_config *imsic_get_global_config(void)
- 	return NULL;
- }
- 
-+static inline struct irq_domain *imsic_get_base_domain(void)
-+{
-+	return NULL;
-+}
-+
- static inline bool imsic_dev_has_imsic_msi_parent(struct device *dev)
- {
- 	return false;
 -- 
 2.43.0
 
