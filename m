@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ABA9C9833E
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 08:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF143C9832F
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 09:02:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:Cc:To:
-	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TihHqO7KKcyufGGCvPL6m1tdHHJKqHrvhrM4MERZYhs=; b=2eYfjo0GEwjiwT
-	tujq8UqtDpM44+01YD8oVHahka4gN6leW3azhZfVOJ6t++/yADfRFdkZeRiAsHCsb7HZC0g9evUPu
-	pi4paYQ35hNYujK29U5COeIXJ1F8nGUekPPFMwCh0dlSgS+Qws5m6hRejmawBkutJu1d5NY0a0R6V
-	AsQGaYOJnwiJ5lSvJk9u5ubo+Uz4/PTTUuHdCZs8VCYORDmO4yvz00zT5A8vOey4OQdCSShyZjwz6
-	MLrmFou9ss2LwoT2lleCagOwdRrbR7iwBNtpoXLrqV1kqGfsyfC9q7ghK+KiBq2o+wqCDmHLScceA
-	txjW7M7UYi8AWgQStf1A==;
+	List-Owner; bh=UGBlwJILR4WaBSs/Ctf9aLUXyJnoFZnKhC8LqCTL3s4=; b=zyKn3F/Dhx1gWD
+	PKEZGrQRuMv83FrtTZGGVqSfA5Qt2gxwjpIbXX6yE0P5PZLEYORM17ZS+YPLXVRJVfmRA/cBfTWYf
+	Clfj8XtqvVD6kOWNcFi/wVude1w6yE4kENpGt8bEGWeWDBMPVIsUdxQApI5F3VlXlCXdLzIj5Rylq
+	OM01lay8p0lUtjG7lgND9b64YbtCeYGAlJQ2iWs/gQYP24lY2/1/ByVw4oduYyotVg5ZePqlbRGcz
+	Ef9/li9l4cnnOpy0xtEO1SbHzu8izbmw/M24qWbPsoXWshnR8EyRDW8UtYzyWQWbj262UVJLqX7jk
+	kMFAWb9TCG/38nmrcc/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB74k-0000000098m-2IO9;
-	Mon, 28 Sep 2026 08:51:06 +0000
-Received: from out-247.mta1.migadu.com ([2001:41d0:203:375::f7] helo=mta1.migadu.com)
+	id 1xB7Fg-00000000AHj-1SCF;
+	Mon, 28 Sep 2026 09:02:24 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB74h-0000000097m-0GYc
+	id 1xB7Fe-00000000AHK-0eEr
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Sep 2026 08:51:05 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=09WBzyqcOHBSt5hLHqAwbTciP1G0S+c8iry/IFi/HlI=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790585459; v=1; x=1791190259;
- b=hlJSyJb4zyvL5tTc5B+UKJvJCZdxkTMJPLEWB4nUbp/tleH04SocnIPGb4w8yi3m5ovXyx/z
- NSXt9VR0s+2Xg/Os5fYU54qClXCgayhYrJKbIYjmLqn2jdYk36jdndIr87ji4R0cYdAR0U+78QB
- B7kA8WSWg0tewIstOzALdJoI=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id dcca5a333ecbdbdc;
-	Mon, 28 Sep 2026 08:50:58 +0000
-X-Mizu-Trace-ID: dcca5a333ecbdbdc
-X-Migadu-Flow: FLOW_OUT
-Mime-Version: 1.0
-Date: Mon, 28 Sep 2026 08:50:55 +0000
-Message-Id: <DLQTKIGNXKLS.1E0Y9RS93S82N@linux.dev>
-From: "Florent Revest" <florent.revest@linux.dev>
-To: <bot+bpf-ci@kernel.org>, <bpf@vger.kernel.org>, <ast@kernel.org>,
- <daniel@iogearbox.net>, <andrii@kernel.org>
-Cc: <martin.lau@linux.dev>, <eddyz87@gmail.com>, <memxor@gmail.com>,
- <song@kernel.org>, <yonghong.song@linux.dev>, <jolsa@kernel.org>,
- <kpsingh@kernel.org>, <john.fastabend@gmail.com>, <leon.hwang@linux.dev>,
- <zirajs7@gmail.com>, <rhkrqnwk98@gmail.com>, <puranjay@kernel.org>,
- <xukuohai@huaweicloud.com>, <iii@linux.ibm.com>, <hbathini@linux.ibm.com>,
- <chleroy@kernel.org>, <naveen@kernel.org>, <bjorn@kernel.org>,
- <pulehui@huawei.com>, <yangtiezhu@loongson.cn>, <hengqi.chen@gmail.com>,
- <linux-kernel@vger.kernel.org>, <aou@eecs.berkeley.edu>,
- <agordeev@linux.ibm.com>, <alex@ghiti.fr>, <bp@alien8.de>,
- <catalin.marinas@arm.com>, <borntraeger@linux.ibm.com>,
- <dave.hansen@linux.intel.com>, <emil@etsalapatis.com>, <hca@linux.ibm.com>,
- <hpa@zytor.com>, <chenhuacai@kernel.org>, <ihor.solodrai@linux.dev>,
- <mingo@redhat.com>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kselftest@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
- <linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
- <loongarch@lists.linux.dev>, <maddy@linux.ibm.com>, <mark.rutland@arm.com>,
- <mpe@ellerman.id.au>, <npiggin@g>
-Subject: Re: [PATCH bpf v5 1/3] bpf: Wait for an RCU tasks grace period
- before freeing trampoline progs
-X-Mailer: aerc 0.17.0
-References: <20260926135605.1217928-2-florent.revest@linux.dev>
- <9d932a22ca908da9378ea281633ddb749453911ac6ae7a27a09e376f9ad02ff7@mail.kernel.org>
-In-Reply-To: <9d932a22ca908da9378ea281633ddb749453911ac6ae7a27a09e376f9ad02ff7@mail.kernel.org>
+	Mon, 28 Sep 2026 09:02:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=by
+	nvqUvi7ZvHMOfmQxc2l/YnI5j0vDTfWUTS7y+yRh0=; b=kg/cZdFrczmYAtaU0h
+	hPHugj9lJAKrpOVIHJjdiQvsiC/VfS/lta7xC1mQgV51Qs7SPmqsYsLqrXCqXLSV
+	Bb4EzPvZCRKLT7TGBbYUPoxezo3P4ZsUervS0CO8LotJxdlW6RxuWHH1ZQOuZIBJ
+	ca6cbjuL3aFPVjVGG0/N6WI54=
+Received: from thinkpadx13gen2i.. (unknown [])
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wDnL5v0LLpqbpJxBQ--.14765S2;
+	Mon, 28 Sep 2026 17:01:40 +0800 (CST)
+From: Zongmin Zhou <min_halo@163.com>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: david.laight.linux@gmail.com,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Zongmin Zhou <zhouzongmin@kylinos.cn>
+Subject: [RESEND PATCH v2] riscv: lib: optimize strchr() with Zbb extension
+Date: Mon, 28 Sep 2026 17:01:23 +0800
+Message-Id: <20260928090123.43899-1-min_halo@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260512073006.363434-1-min_halo@163.com>
+References: <20260512073006.363434-1-min_halo@163.com>
+MIME-Version: 1.0
+X-CM-TRANSID: _____wDnL5v0LLpqbpJxBQ--.14765S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxXr4fGr1DJw4UtF43ZFWUurg_yoWrZrWDpF
+	4Skwnxt3ykKw1xursIyF409rs8Xrn5KFW3K3sxtFyrAa4jkr1Fqr93t3WrXrWDArWrGryS
+	vFWUK3srur17Z3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UlYLPUUUUU=
+X-CM-SenderInfo: pplqsxxdorqiywtou0bp/xtbC9BSRPWq6LPSboQAA3+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_015103_239626_91191036 
-X-CRM114-Status: GOOD (  21.68  )
+X-CRM114-CacheID: sfid-20260928_020222_563902_6B124314 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,65 +77,193 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun Sep 27, 2026 at 8:41 PM UTC,  wrote:
-> > bpf: Wait for an RCU tasks grace period before freeing trampoline progs
-> >
-> > When a prog is detached from a trampoline, it is freed after an RCU
-> > grace period, or an RCU tasks trace one if it is sleepable. This covers
-> > the tasks that are running the prog, since the prog's enter helper takes
-> > the matching read lock before the prog is called. On a preemptible
-> > kernel, it doesn't cover a task that was preempted in the trampoline
-> > just before the enter helper. That task holds no lock yet, and it calls
-> > the prog after it was freed:
-> >
-> >   BUG: KASAN: vmalloc-out-of-bounds in __bpf_prog_enter_recur+0x3a5/0x3f0
-> >   Read of size 8 at addr ffffc90000055040 by task candidate/110
-> >   CPU: 1 UID: 0 PID: 110 Comm: candidate Not tainted 7.3.0-rc2-00014-g15071f2a1263-dirty #2 PREEMPT(full)
-> >   Call Trace:
-> >    <TASK>
-> >    __bpf_prog_enter_recur+0x3a5/0x3f0
-> >    bpf_trampoline_6442509193+0x37/0xf1
-> >    __x64_sys_futex+0x9/0x410
-> >    do_syscall_64+0xb0/0x530
-> >    ...
-> >
-> > Wait for an RCU tasks grace period before the existing one when freeing
-> > a prog that was linked to a trampoline. An RCU tasks grace period only
-> > ends once the tasks that were preempted have run again, and
-> > bpf_tramp_image_put() already relies on it to free the image. It doesn't
-> > wait for tasks that sleep in the trampoline, the next commit takes care
-> > of those.
-> >
-> > Only progs that were linked to a trampoline can be called this way, so
-> > bpf_trampoline_add_prog() marks them and other progs are still freed as
-> > before.
-> >
-> > Fixes: e21aa341785c ("bpf: Fix fexit trampoline.")
->
-> Is this the right Fixes: target?
->
-> The race being closed here (a task preempted inside the trampoline image
-> before __bpf_prog_enter*() takes its RCU read lock, while the prog is freed
-> after only a regular RCU or RCU tasks trace grace period) appears to predate
-> e21aa341785c.
->
-> In fec56f5890d9 ("bpf: Introduce BPF trampoline") bpf_trampoline_update()
-> switched images with no tasks RCU wait, and __bpf_prog_put_noref() freed the
-> prog with a plain call_rcu(&prog->aux->rcu, __bpf_prog_put_rcu).
->
-> Just before e21aa341785c, the synchronize_rcu_mult(call_rcu_tasks,
-> call_rcu_tasks_trace) in bpf_trampoline_update() ran before
-> arch_prepare_bpf_trampoline() rather than after the new image was installed,
-> and the total == 0 unregister_fentry() path had no wait at all, so a task
-> preempted in the old image could already reach a freed prog.
->
-> Would Fixes: fec56f5890d9 ("bpf: Introduce BPF trampoline") be more
-> accurate, so that stable trees without e21aa341785c also pick this up? The
-> follow-up 49ca60187380 in this series uses the same tag.
+From: Zongmin Zhou <zhouzongmin@kylinos.cn>
 
-Yeah, that seems right. It shouldn't make much of a difference for stable
-because both have been introduced in the same 5.10.y. I can either switch this
-if there's a v6 or a maintainer can change when applying.
+Add a Zbb-powered optimization to the existing strchr() implementation
+using the 'orc.b' instruction, following the same pattern established
+by strnlen().
+
+The Zbb variant processes data in word-sized chunks using orc.b to
+detect both NUL terminators and target characters in parallel. On
+systems without Zbb support, the original byte-by-byte implementation
+is used as a fallback via the alternatives mechanism.
+
+Benchmark results (QEMU TCG, rv64):
+  Length | zbb=off (MB/s) | zbb=on (MB/s) | Improvement
+  -------|----------------|---------------|------------
+  1 B    | 27             | 24            | -11.1%
+  7 B    | 148            | 125           | -15.5%
+  16 B   | 218            | 363           | +66.5%
+  64 B   | 384            | 1044          | +171.9%
+  512 B  | 424            | 2081          | +390.8%
+  4096 B | 498            | 2636          | +429.3%
+
+The regression on very short strings (1-7 bytes) is due to the fixed
+overhead of the word-level path: broadcasting the target character to
+all byte lanes via multiplication and checking pointer alignment before
+entering the main loop. For strings shorter than one machine word, this
+setup cost outweighs the benefit of parallel comparison. As string
+length increases beyond 16 bytes, the word-at-a-time processing shows
+significant gains.
+
+Suggested-by: David Laight <david.laight.linux@gmail.com>
+Signed-off-by: Zongmin Zhou <zhouzongmin@kylinos.cn>
+---
+Changes in v2:
+- Move alignment handling out-of-line (optimize hot path).
+- Hide load latency by reordering REG_L and addi.
+- Simplify loop branching.
+
+ arch/riscv/lib/strchr.S | 119 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 119 insertions(+)
+
+diff --git a/arch/riscv/lib/strchr.S b/arch/riscv/lib/strchr.S
+index 48c3a9da53e3..b7abf8b609b6 100644
+--- a/arch/riscv/lib/strchr.S
++++ b/arch/riscv/lib/strchr.S
+@@ -6,9 +6,15 @@
+ 
+ #include <linux/linkage.h>
+ #include <asm/asm.h>
++#include <asm/alternative-macros.h>
++#include <asm/hwcap.h>
+ 
+ /* char *strchr(const char *s, int c) */
+ SYM_FUNC_START(strchr)
++
++	__ALTERNATIVE_CFG("nop", "j strchr_zbb", 0, RISCV_ISA_EXT_ZBB,
++		IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
++
+ 	/*
+ 	 * Parameters
+ 	 *   a0 - The string to be searched
+@@ -29,6 +35,119 @@ SYM_FUNC_START(strchr)
+ 	li	a0, 0
+ 2:
+ 	ret
++
++/*
++ * Variant of strchr using the ZBB extension if available
++ *
++ * This implementation uses orc.b to detect both NUL terminators and target
++ * characters in parallel, processing word-sized chunks for efficiency.
++ */
++#if defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)
++strchr_zbb:
++
++#ifdef CONFIG_CPU_BIG_ENDIAN
++# define CZ	clz
++#else
++# define CZ	ctz
++#endif
++
++.option push
++.option arch,+zbb
++
++	/*
++	 * Returns
++	 *   a0 - Address of first occurrence of 'c' or NULL
++	 *
++	 * Parameters
++	 *   a0 - String to search
++	 *   a1 - Character to find
++	 *
++	 * Clobbers
++	 *   t0, t1, t2, t3, t4
++	 */
++
++	/*
++	 * Prepare target character mask.
++	 * Broadcast target character to all bytes using multiply.
++	 */
++	andi	a1, a1, 0xff
++	li	t1, 0x01010101
++#if __riscv_xlen == 64
++	slli	t2, t1, 32
++	or	t1, t1, t2
++#endif
++	mul	t2, a1, t1
++
++	/* All-ones mask for orc.b comparisons. */
++	li	t4, -1
++
++	/* Check alignment: jump out-of-line if misaligned. */
++	andi	t0, a0, SZREG-1
++	bnez	t0, 10f
++
++	/* Entry Path A: Directly aligned. Pre-bias for the loop. */
++	addi	a0, a0, -SZREG
++
++2:
++	/* Main loop: process word-sized chunks. */
++	REG_L	t0, SZREG(a0)
++	addi	a0, a0, SZREG
++
++	/* Check for NUL terminator. */
++	orc.b	t1, t0
++	bne	t1, t4, 3f
++
++	/* Check for target character. */
++	xor	t1, t0, t2
++	orc.b	t1, t1
++	beq	t1, t4, 2b
++
++	/* Target found in chunk without NUL. */
++	not	t1, t1
++	CZ	t1, t1
++	srli	t1, t1, 3
++	add	a0, a0, t1
++	ret
++
++3:
++	/* NUL found in current chunk. Check if target appears before NUL. */
++	not	t1, t1
++
++	xor	t3, t0, t2
++	orc.b	t3, t3
++	not	t3, t3
++
++	CZ	t3, t3
++	CZ	t1, t1
++
++	/* If NUL appears before target, character not found. */
++	bltu	t1, t3, 8f
++
++	srli	t3, t3, 3
++	add	a0, a0, t3
++	ret
++
++8:
++	/* Character not found, return NULL. */
++	li	a0, 0
++9:
++	ret
++
++	/* --- Out-of-line: Handle misaligned portion byte-by-byte --- */
++10:
++	lbu	t1, 0(a0)
++	beq	t1, a1, 9b
++	beqz	t1, 8b
++	addi	a0, a0, 1
++	andi	t0, a0, SZREG-1
++	bnez	t0, 10b
++
++	/* Entry Path B: Misalignment fixed. Pre-bias and enter main loop. */
++	addi	a0, a0, -SZREG
++	j	2b
++
++.option pop
++#endif
+ SYM_FUNC_END(strchr)
+ 
+ SYM_FUNC_ALIAS_WEAK(__pi_strchr, strchr)
+-- 
+2.43.0
+
+
+No virus found
+		Checked by Hillstone Network AntiVirus
+
 
 _______________________________________________
 linux-riscv mailing list
