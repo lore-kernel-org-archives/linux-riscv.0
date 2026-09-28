@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9952C9833E
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 05:18:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E5F7C98328
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 05:22:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bijYir1ul8nn/8JZal4zazJdEW+yCUZ8FIvl+D8moxA=; b=GYiKVwW+GINnjp
-	p+hGKHVSN3jqN/TYMevkaCJ+0EjUN2XjIDGmJGPYNnheBBzSgGopccibHwvSfaIyffbabKIRcz4Oh
-	UhU28INXlocGdD8jHGRtQBjgy1GuPvQzxoLp+8N0Aiqk6ZPfPWrnaq4fAcn7AVk/LSOYp3Jq9R4uh
-	Ernw1vyLUMq1XasMq0dca9Q+4SG52Chjrl+hXwZ5UQx9h9Y4vo0tyLvnp8zyFMcPdZCINmacFrinn
-	WlJEKNy6Ul26ONyX628IpM2sio45Xe54CLCAL438hcWEep6Gz63NgL2p2xC/8RIwYl3ePXUgzv3Zu
-	4WBWnoYpOmnhOyXdCabA==;
+	List-Owner; bh=fcQ7xq8dgXFc0mhaUj12S94RdXIaYXYe9p9cmLOCEnM=; b=p8OzUoK/OP765C
+	tF/8amztheYkVO/h57P8+ay/BxBCxXgKgoGXvsZ0yLf3l1QgRLrgZc8m9neaCaMV4ZkFHnAL14lvL
+	yKdi1p3jqgtF93GlU253GT7Rds5AURLRE85p1qrTCefWY30Y52G59NoCWAC9Wyu9NrPZ15W48BnA8
+	UFOceC9brb8OwPrEcT7isFf6frsgTFv7g06n6I6Rm1sNLCcAdDTIm0EI5HQF3bSCMbi+sUSWiC8qS
+	l9zOQM6AADGB+04Qig9jtP1DLQuxIQKmciG4U2bbcgw9EYByW17bItkOXYk8ahtTuAGNnoV4/Cfw1
+	jxHpWtdS2PHw4n8galTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB3kK-0000000HLpS-0gil;
-	Mon, 28 Sep 2026 05:17:48 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1xB3oG-0000000HMCq-3Lvt;
+	Mon, 28 Sep 2026 05:21:52 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB3kH-0000000HLor-0qEh
+	id 1xB3oE-0000000HMCT-1nd4
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Sep 2026 05:17:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=g0urVNX8ATEeOHGXP86K6LmXYM7IrN5hrV8PI7/e+Bk=; 
-	b=dFMmu984dAtawQ423gsVyUC4zFZWVprPabJ0C+rVE9whvBqO8AgEKSe30ieqccgf2TP+pXT6RjP
-	3FflfBCIRHkUB8IQZcLcXAtwk9qyw+LX1BBBLuHrElqAvYHO7n/k+toyUP6oQNI+L4wqc0FsQGjUf
-	cMuVr6oWRqa59fs3XU+Ij/DkBGDJAmvZ1d1aLTexcjlFMQOagnpklv4gJlxk4cjO4NPMzgqkGROaP
-	TkOhCfnmm1iACvdIxUIXKjdLNw8niOmqwn+o5pIVGt/K/z9Evsh1x0N9mg/XJ/d7KiJ5ymii7XOYq
-	3T5Xgm1QUu7ZS8oY0wlBTnrQG8Q5gVKVLtPw==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1xB3jp-00000000w9f-3e6c;
-	Mon, 28 Sep 2026 13:17:18 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 28 Sep 2026 15:17:17 +1000
-Date: Mon, 28 Sep 2026 15:17:17 +1000
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: "Ousherovitch, Alex" <aousherovitch@rambus.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	"Krishnamoorthy, Saravanakrishnan" <skrishnamoorthy@rambus.com>,
-	Shuah Khan <shuah@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"Wittenauer, Joel" <Joel.Wittenauer@cryptography.com>,
-	"linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
-	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	"Nguyen, Thi" <thin@rambus.com>
-Subject: Re: [PATCH v5 04/19] crypto: cmh - add SHA-2/SHA-3/SHAKE ahash
-Message-ID: <arn4XYwPYt6i2k7d@gondor.apana.org.au>
-References: <20260917225929.2494111-1-aousherovitch@rambus.com>
- <20260917225929.2494111-5-aousherovitch@rambus.com>
- <arNn_fjy4jamSitO@gondor.apana.org.au>
- <LV8PR04MB9006374FD8621EBF3C7E7F6CD7822@LV8PR04MB9006.namprd04.prod.outlook.com>
+	Mon, 28 Sep 2026 05:21:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Reply-To:Content-ID:Content-Description;
+	bh=NSgjgIxlZWIP91WRA68CtWz6iKTotqGWktSzB7+lfPw=; b=h6tzgx8qZTPckLfOqRI7EEubF3
+	6GL77s+pNOiJtc1K+lkLJjnRUrqM9D5UB39t3RF+kAwbWL9LszJF7J3BCsjmJm6xTkDWKMsxH4x2t
+	9gH9fZ/CFfvqz2RlefvY8WEKlOiwee/2i/di5odjviFVDyVd1y4tF1bo6Kz1gaqkPSSOqyd7FaLc6
+	jv6eCwwAsZGiewidIA5/C6EvIG4yqY/ITE3GtoB37xYS87SJdACpXzK307NDLcNq0CiKl1aDK/HGk
+	bqe3RuRjc5kWsh39ej+UJKI9H6DTg/yuRUGStpxX5RVhCuAVD7jdUuuWe3cp/wWLwtvcqit8QjDGh
+	j+5fpVoQ==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128)
+	(Exim 4.96)
+	(envelope-from <domibel@debian.org>)
+	id 1xB3o9-007Ocz-0K
+	for linux-riscv@lists.infradead.org;
+	Mon, 28 Sep 2026 05:21:45 +0000
+Received: by mail-pz2-f38.google.com with SMTP id d2e1a72fcca58-881a3a28e72so341491b3a.2
+        for <linux-riscv@lists.infradead.org>; Sun, 27 Sep 2026 22:21:44 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzMgaQrZk2IyYt9PwfVmH/w9L2KoLLfHuBFMdMxJP/xfbNSFQ4OTe9gtYxk0ZHbv33AIJ1JoOHMGCcwEQ==@lists.infradead.org
+X-Gm-Message-State: AFuF++mfDINC1WhgIk+2dDubkFZg+QfHrOroI8y11DNU+9s/mS43Zg4d
+	ChnUC/iTslHcfdZT2vVK+mxIiWVeWMV6CvGZq473eXG96lzEBY4erRJMBLS30gPhiSH0yKN6LqL
+	8oHSm8T5I9jdkOf7eAwPxXHhMJ0yv3yM=
+X-Received: by 2002:a05:6a00:7096:b0:880:dfaa:a6d5 with SMTP id
+ d2e1a72fcca58-880dfaaa996mr4280850b3a.33.1790572901657; Sun, 27 Sep 2026
+ 22:21:41 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <LV8PR04MB9006374FD8621EBF3C7E7F6CD7822@LV8PR04MB9006.namprd04.prod.outlook.com>
+References: <20260505042631.1916555-1-domibel@debian.org> <8d1e3735c40b452f7ab89228ad5a0040f5f41b35.camel@iscas.ac.cn>
+In-Reply-To: <8d1e3735c40b452f7ab89228ad5a0040f5f41b35.camel@iscas.ac.cn>
+From: Dominique Belhachemi <domibel@debian.org>
+Date: Mon, 28 Sep 2026 01:21:30 -0400
+X-Gmail-Original-Message-ID: <CAAvaLCy7jC-jFM5ZpPVeg7gKpweAW4nPKn4HXR+xpqUHD2soXQ@mail.gmail.com>
+X-Gm-Features: AclHuK_UWybYUev4CCs0rM775Ij7Xct5Xij80ErUW_bz9ilg74HVWT_ebZnQGS8
+Message-ID: <CAAvaLCy7jC-jFM5ZpPVeg7gKpweAW4nPKn4HXR+xpqUHD2soXQ@mail.gmail.com>
+Subject: Re: [PATCH] drm: verisilicon: support non-coherent DMA framebuffers
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Cc: Maxime Ripard <mripard@kernel.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Simona Vetter <simona@ffwll.ch>, 
+	Paul Cercueil <paul@crapouillou.net>, Michal Wilczynski <m.wilczynski@samsung.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, ganboing@gmail.com
+X-Debian-User: domibel
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_221745_247033_0E3AF9E9 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20260927_222150_475715_EDEFDDBC 
+X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,49 +86,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 08:50:55PM +0000, Ousherovitch, Alex wrote:
->
-> - shake128/256, cshake, kmac and poly1305 have no matching provider
->   registered in this tree, so the allocation fails and the transform can't
->   be created at all. NO_FALLBACK is required to instantiate them.
-
-Hang on, if an algorithm isn't even implemented in generic C for
-the Crypto API, then it should not be implemented by a driver
-either.
-
-The reason these algorithms aren't in the Crypto API is because
-they have no users.
-
-So please drop them.
-
-> - sha2, sha3 and sm3 do have a software provider, so the transform loads,
->   but the auto-fallback can't stand in for the hardware on the streaming
->   path: our exported state is the opaque HW save/restore checkpoint, not
->   the canonical state, so a multi-part export/import round-trip through the
->   fallback misinterprets it (and for SHA-2/SHA-3 the statesize exceeds
->   HASH_MAX_STATESIZE, so ahash_do_req_chain() returns -ENOSYS). A one-shot
->   digest could still use the software provider, but a fallback that only
->   covers one-shot and corrupts streaming isn't usable.
-
-Sorry, that is not supported by our API.  If you cannot export the
-hash state in a compatible format, then you will have to switch over
-to fallbacks and only support digest operations.
-
-Please also elaborate what you mean by opaque checkpoint, does it
-contain the entire hash state or not?
-
-Cheers,
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBTZXAgMTEsIDIwMjYgYXQgMTE6MzPigK9BTSBJY2Vub3d5IFpoZW5nIDx6aGVuZ3hp
+bmdkYUBpc2Nhcy5hYy5jbj4gd3JvdGU6Cj4KPiBJIGFtIHN0aWxsIHRoaW5raW5nIGhvdyB0byBk
+ZWNpZGUgd2hldGhlciB0byB1c2UgZGlydHktdHJhY2tpbmctYmFzZWQKPiBjYWNoZSBjb2hlcmVu
+dCBtYWludGVuYW5jZSBvciB3cml0ZWNvbWJpbmUvdW5jYWNoZWQgbWFwcGluZy4KPgpIaSBJY2Vu
+b3d5LAoKSSBsb29rZWQgaW50byB0aGlzIGFnYWluIGFuZCB3cml0ZWNvbWJpbmUvdW5jYWNoZWQg
+bWFwcGluZyBpcyB0aGUgd2F5IHRvIGdvLgpJIHVzZWQgQm8gR2FuJ3MgWFBibXRVQyBzZXJpZXMg
+YW5kIE1pY2hhbCBXaWxjenluc2tpJ3Mgamg3MTEwIGRpc3BsYXkKc2VyaWVzIGFuZCBmaW5hbGx5
+IGdvdCB0aGUgaW50ZWdyYXRlZCBCWEUtNC0zMiBHUFUgdG8gd29yay4KCmh0dHBzOi8vbG9yZS5r
+ZXJuZWwub3JnL2FsbC8yMDI2MDMxNjA2MDMyOC4xMTczNjM0LTEtZ2FuYm9pbmdAZ21haWwuY29t
+LwpodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNjA5MTUtamg3MTEwLWNsZWFuLXNlbmQt
+djQtMC1mMGU0ZmQ2ZjJjYzhAc2Ftc3VuZy5jb20vCmh0dHBzOi8vZ2l0aHViLmNvbS9kb21pYmVs
+L3Zpc2lvbmZpdmUyX2dwdV9icmluZ3VwCgpCZXN0Ci1Eb21pbmlxdWUKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
