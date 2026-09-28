@@ -4,63 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF143C9832F
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 09:02:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D562EC9833E
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 09:06:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UGBlwJILR4WaBSs/Ctf9aLUXyJnoFZnKhC8LqCTL3s4=; b=zyKn3F/Dhx1gWD
-	PKEZGrQRuMv83FrtTZGGVqSfA5Qt2gxwjpIbXX6yE0P5PZLEYORM17ZS+YPLXVRJVfmRA/cBfTWYf
-	Clfj8XtqvVD6kOWNcFi/wVude1w6yE4kENpGt8bEGWeWDBMPVIsUdxQApI5F3VlXlCXdLzIj5Rylq
-	OM01lay8p0lUtjG7lgND9b64YbtCeYGAlJQ2iWs/gQYP24lY2/1/ByVw4oduYyotVg5ZePqlbRGcz
-	Ef9/li9l4cnnOpy0xtEO1SbHzu8izbmw/M24qWbPsoXWshnR8EyRDW8UtYzyWQWbj262UVJLqX7jk
-	kMFAWb9TCG/38nmrcc/A==;
+	List-Owner; bh=gN8c2QND8slaLj0TiaRkIKZPATvae40020PwRoJLbmg=; b=hCQPodNxtrVoDk
+	sT4ptBPJ14J6vVRK/53zQCKVnoExsKsy/Sh4yV0/aksrXny1F9Bjl63Szl35V3T7XmC4jN51n+gis
+	Gy5EVjx4gUG0+plyLNoKBZFw9nROgkJ/EY3QoxWl3JR67V0xErjydUoSCsMRa5Wr26Odrno/6QOs2
+	NtBoCpUBAUGxjarINAf+zv+tSNYSEnNyp3RLS9Pyuo2m2FtybyUNLpO0xJ9YeSJm3+A8a97kir0TX
+	MOX8FelEU67KsVjX4MbsLb2+bhN0GxKsr12ITL5kg727DBIcXz2H8oVxQKM+mtpqjlqvbZeB5zHeW
+	cRzkd6t/hqiJ7shHdF6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7Fg-00000000AHj-1SCF;
-	Mon, 28 Sep 2026 09:02:24 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1xB7JN-00000000Avz-26Ca;
+	Mon, 28 Sep 2026 09:06:13 +0000
+Received: from mail-ej2-x0d.google.com ([2a00:1450:4864:34::d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7Fe-00000000AHK-0eEr
+	id 1xB7JK-00000000AvI-3fIv
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Sep 2026 09:02:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=by
-	nvqUvi7ZvHMOfmQxc2l/YnI5j0vDTfWUTS7y+yRh0=; b=kg/cZdFrczmYAtaU0h
-	hPHugj9lJAKrpOVIHJjdiQvsiC/VfS/lta7xC1mQgV51Qs7SPmqsYsLqrXCqXLSV
-	Bb4EzPvZCRKLT7TGBbYUPoxezo3P4ZsUervS0CO8LotJxdlW6RxuWHH1ZQOuZIBJ
-	ca6cbjuL3aFPVjVGG0/N6WI54=
-Received: from thinkpadx13gen2i.. (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wDnL5v0LLpqbpJxBQ--.14765S2;
-	Mon, 28 Sep 2026 17:01:40 +0800 (CST)
-From: Zongmin Zhou <min_halo@163.com>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: david.laight.linux@gmail.com,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Zongmin Zhou <zhouzongmin@kylinos.cn>
-Subject: [RESEND PATCH v2] riscv: lib: optimize strchr() with Zbb extension
-Date: Mon, 28 Sep 2026 17:01:23 +0800
-Message-Id: <20260928090123.43899-1-min_halo@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260512073006.363434-1-min_halo@163.com>
-References: <20260512073006.363434-1-min_halo@163.com>
+	Mon, 28 Sep 2026 09:06:12 +0000
+Received: by mail-ej2-x0d.google.com with SMTP id a640c23a62f3a-c2dca989afcso146754566b.2
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Sep 2026 02:06:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790586368; x=1791191168; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=XtSlOLaW3Y5DkxUyXc5MQJfomo4EWRSttsNoIPMu1rQ=;
+        b=JIuWYG854G4KzcJ1CZGd84PTk7nLkIy94pzWpYyEfzc7Wy4d6JycwrZq88aKR0Zbfo
+         tbeAIKS2ybLciUNlJrbrdI0FSf6s6XFynD88y/sfnB0yAjx3BCGbasIRMQFL/xCcrVZz
+         KvmkFCoMOCO92KpCeFkswn55QLDZAyS1PzKcMbl6H7l+Bp/xmBeEJElkYS1fCpP0D556
+         G7megK1piQ3yo25+l/6Z2Gfx2ZbpZ//QpveWY36OQM8f/T/ZKQEX0YhRDrh8+fB2kdOi
+         DctLoxCLTmOMu5dQy3SC2/sxgeqhLIYK+YUQbVtVXDlQs1rckPwNelt6wpsAKAuNHLVq
+         NU+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790586368; x=1791191168;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XtSlOLaW3Y5DkxUyXc5MQJfomo4EWRSttsNoIPMu1rQ=;
+        b=0CWe0uzeDqn63H6QsRlhFRlLxlaMx9hhUFcsdWzHq6PsmKv5dSKcc1Or71UgQCAMJC
+         6xnIdzJXvd1MKcuqGggEZ3QLXOmg4gILhUmAKixidGc9j3Xfmyg095W5mQoM6xEGaXfc
+         dYJ3qFptLbylWU4NQ4eySk9KR1xWomtr/9Xs1KLJaWBwPHSmz0IVyAJtcfKjXQwxPZPz
+         duAW6zpfnZprJ/PDXIm/YN7m1LUFXDIZ+jJp4R6DxQ9qyeyZisCvSHNFgs4hfIORr6y1
+         jdczH8GkNiCUTzz5Nv470wxHDqehQNs7Vas9hst+nInDjrhmbfaZEsyKTH+332SZ+ppC
+         /thQ==
+X-Forwarded-Encrypted: i=1; AKwUvBz3H4d3dWg8GuKqvX8caTvZjaw9juwoazTXYLFBxjjiI3AHE9FWim5kZgRqYqGbwcwHpRALnbny2OXmqg==@lists.infradead.org
+X-Gm-Message-State: AFuF++kl2TaRGZqjwtGxXHzk4rRyIGx5PJRjgpm3l5u9N+eTfiOO8yIB
+	gGgXgIbnKIqcIyHBc/kL6d/psxJKBRSAjz6nX++mtA9BT5qpIaE4j/aR
+X-Gm-Gg: AYBFou1IhJcse2iFre1N8JpoxcLZ6tXnRQUyRwDxRmmq6FGhDn4wCJM+YY1+7kwv0q9
+	s1PgdcATkkTX+O2FQPNV1SLyIk1Tk3sUvV1E0FHIHFuRfVaG7ZTyLH2HCJZECPiXFJbyYicO5O6
+	yMTPhsc+HncYk7Us9jvtUlSYAKjj/XuM3Zs8beXWQJbgPbKKqu/vf4PLeQF5eTlcScsXfM1ukj+
+	E7QAewcact2pKBZCgIHO4pauCa/nM7/mvREG5ykv2bTpYYiprwhAY8hu48NLs/rsYoAl0S84ELu
+	8a/PhTxG3x1xeqGk9hMDsh4p0D3Fe2rBfaVkPUQlVYIl6Ba1QdFzCtFrgJa6+Sgo8NQTojakcte
+	4TVk4xw5ySq+lRoutAV0MdbwOhzgsJjp+L0ssGXhF8SjtSc1yeA+EThuD8ORedGsOCzYVWrHWT4
+	K08Gbut5VwllcVgNZYFDFOBUyPDoYAcR3AE/4=
+X-Received: by 2002:a17:907:9447:b0:c26:2eee:ffc7 with SMTP id a640c23a62f3a-c2ac250ec3emr1002093866b.35.1790586367856;
+        Mon, 28 Sep 2026 02:06:07 -0700 (PDT)
+Received: from milan ([2001:9b1:d5a0:a500::24b])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2ae7356d1csm441929866b.18.2026.09.28.02.06.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Sep 2026 02:06:07 -0700 (PDT)
+From: Uladzislau Rezki <urezki@gmail.com>
+X-Google-Original-From: Uladzislau Rezki <urezki@milan>
+Date: Mon, 28 Sep 2026 11:06:04 +0200
+To: Ye Liu <ye.liu@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Ye Liu <liuye@kylinos.cn>
+Subject: Re: [PATCH v4 2/2] mm/vmalloc: fix vmalloc_dump_obj cross-zone VA
+ lookup
+Message-ID: <arot_MLB2tWwR7ue@milan>
+References: <20260928-vmalloc_dump_obj-v4-0-6f288a431edc@linux.dev>
+ <20260928-vmalloc_dump_obj-v4-2-6f288a431edc@linux.dev>
 MIME-Version: 1.0
-X-CM-TRANSID: _____wDnL5v0LLpqbpJxBQ--.14765S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxXr4fGr1DJw4UtF43ZFWUurg_yoWrZrWDpF
-	4Skwnxt3ykKw1xursIyF409rs8Xrn5KFW3K3sxtFyrAa4jkr1Fqr93t3WrXrWDArWrGryS
-	vFWUK3srur17Z3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UlYLPUUUUU=
-X-CM-SenderInfo: pplqsxxdorqiywtou0bp/xtbC9BSRPWq6LPSboQAA3+
+Content-Disposition: inline
+In-Reply-To: <20260928-vmalloc_dump_obj-v4-2-6f288a431edc@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_020222_563902_6B124314 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20260928_020610_941408_46CB9971 
+X-CRM114-Status: GOOD (  32.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,193 +107,188 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Zongmin Zhou <zhouzongmin@kylinos.cn>
+On Mon, Sep 28, 2026 at 04:15:55PM +0800, Ye Liu wrote:
+> From: Ye Liu <liuye@kylinos.cn>
+> 
+> vmalloc_dump_obj() searches only one vmap node (addr_to_node(addr)),
+> but a vmalloc allocation may span multiple vmap zones.  The VA is
+> stored in only one node's rb-tree (addr_to_node(va_start)), so an
+> object pointer in a different zone than va_start maps to a different
+> node and the search misses.  This affects any allocation larger than
+> vmap_zone_size (64 KiB) on multi-CPU systems.
+> 
+> Extract find_vmap_area_lock() from find_vmap_area() to share the
+> cross-node iteration logic.  The helper supports both spin_lock and
+> spin_trylock, the latter for atomic dump contexts (OOM, KASAN, RCU).
+> 
+> Signed-off-by: Ye Liu <liuye@kylinos.cn>
+> ---
+>  mm/vmalloc.c | 108 ++++++++++++++++++++++++++++++++++++-----------------------
+>  1 file changed, 66 insertions(+), 42 deletions(-)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index df42d8a6f058..4f4d7453962f 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -2517,67 +2517,94 @@ static void free_unmap_vmap_area(struct vmap_area *va)
+>  	free_vmap_area_noflush(va);
+>  }
+>  
+> -struct vmap_area *find_vmap_area(unsigned long addr)
+> +static inline int next_vmap_node_id(int i)
+> +{
+> +	return (i + nr_vmap_nodes - 1) % nr_vmap_nodes;
+> +}
+> +
+> +enum vmap_lock_mode {
+> +	VMAP_LOCK,
+> +	VMAP_TRYLOCK,
+> +};
+> +
+> +/*
+> + * Search for a vmap_area at @addr across all vmap nodes.  An
+> + * addr_to_node_id(addr) converts an address to a node index where
+> + * a VA is located. If VA spans several zones and passed addr is not
+> + * the same as va->va_start, what is not common, we may need to scan
+> + * extra nodes. See an example:
+> + *
+> + *      <----va---->
+> + * -|-----|-----|-----|-----|-
+> + *     1     2     0     1
+> + *
+> + * VA resides in node 1 whereas it spans 1, 2 an 0. If passed addr
+> + * is within 2 or 0 nodes we should do extra work.
+> + *
+> + * Returns the VA with @locked_vn->busy.lock held; the caller must
+> + * release it. If @mode is VMAP_TRYLOCK, nodes that cannot be locked
+> + * are skipped.
+> + */
+> +static struct vmap_area *
+> +find_vmap_area_lock(unsigned long addr, struct vmap_node **locked_vn,
+> +		enum vmap_lock_mode mode)
+>  {
+>  	struct vmap_node *vn;
+>  	struct vmap_area *va;
+>  	int i, j;
+>  
+> +	*locked_vn = NULL;
+> +
+>  	if (unlikely(!vmap_initialized))
+>  		return NULL;
+>  
+> -	/*
+> -	 * An addr_to_node_id(addr) converts an address to a node index
+> -	 * where a VA is located. If VA spans several zones and passed
+> -	 * addr is not the same as va->va_start, what is not common, we
+> -	 * may need to scan extra nodes. See an example:
+> -	 *
+> -	 *      <----va---->
+> -	 * -|-----|-----|-----|-----|-
+> -	 *     1     2     0     1
+> -	 *
+> -	 * VA resides in node 1 whereas it spans 1, 2 an 0. If passed
+> -	 * addr is within 2 or 0 nodes we should do extra work.
+> -	 */
+>  	i = j = addr_to_node_id(addr);
+>  	do {
+>  		vn = &vmap_nodes[i];
+>  
+> -		spin_lock(&vn->busy.lock);
+> -		va = __find_vmap_area(addr, &vn->busy.root);
+> -		spin_unlock(&vn->busy.lock);
+> +		if (mode == VMAP_LOCK) {
+> +			spin_lock(&vn->busy.lock);
+> +		} else {
+> +			if (!spin_trylock(&vn->busy.lock))
+> +				continue;
+> +		}
+>  
+> -		if (va)
+> +		va = __find_vmap_area(addr, &vn->busy.root);
+> +		if (va) {
+> +			*locked_vn = vn;
+>  			return va;
+> -	} while ((i = (i + nr_vmap_nodes - 1) % nr_vmap_nodes) != j);
+> +		}
+> +
+> +		spin_unlock(&vn->busy.lock);
+> +	} while ((i = next_vmap_node_id(i)) != j);
+>  
+>  	return NULL;
+>  }
+>  
+> -static struct vmap_area *find_unlink_vmap_area(unsigned long addr)
+> +struct vmap_area *find_vmap_area(unsigned long addr)
+>  {
+>  	struct vmap_node *vn;
+>  	struct vmap_area *va;
+> -	int i, j;
+> -
+> -	/*
+> -	 * Check the comment in the find_vmap_area() about the loop.
+> -	 */
+> -	i = j = addr_to_node_id(addr);
+> -	do {
+> -		vn = &vmap_nodes[i];
+>  
+> -		spin_lock(&vn->busy.lock);
+> -		va = __find_vmap_area(addr, &vn->busy.root);
+> -		if (va)
+> -			unlink_va(va, &vn->busy.root);
+> +	va = find_vmap_area_lock(addr, &vn, VMAP_LOCK);
+> +	if (va)
+>  		spin_unlock(&vn->busy.lock);
+>  
+> -		if (va)
+> -			return va;
+> -	} while ((i = (i + nr_vmap_nodes - 1) % nr_vmap_nodes) != j);
+> +	return va;
+> +}
+>  
+> -	return NULL;
+> +static struct vmap_area *find_unlink_vmap_area(unsigned long addr)
+> +{
+> +	struct vmap_node *vn;
+> +	struct vmap_area *va;
+> +
+> +	va = find_vmap_area_lock(addr, &vn, VMAP_LOCK);
+> +	if (va) {
+> +		unlink_va(va, &vn->busy.root);
+> +		spin_unlock(&vn->busy.lock);
+> +	}
+> +
+> +	return va;
+>  }
+>  
+>  /*** Per cpu kva allocator ***/
+> @@ -5278,14 +5305,11 @@ bool vmalloc_dump_obj(void *object)
+>  	unsigned long nr_pages;
+>  
+>  	addr = PAGE_ALIGN_DOWN((unsigned long) object);
+> -	vn = addr_to_node(addr);
+> -
+> -	if (!spin_trylock(&vn->busy.lock))
+> -		return false;
+>  
+> -	va = __find_vmap_area(addr, &vn->busy.root);
+> +	va = find_vmap_area_lock(addr, &vn, VMAP_TRYLOCK);
+>  	if (!va || !va->vm) {
+> -		spin_unlock(&vn->busy.lock);
+> +		if (va)
+> +			spin_unlock(&vn->busy.lock);
+>  		return false;
+>  	}
+>  
+> 
+> -- 
+> 2.25.1
+> 
+LGTM:
 
-Add a Zbb-powered optimization to the existing strchr() implementation
-using the 'orc.b' instruction, following the same pattern established
-by strnlen().
+Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
 
-The Zbb variant processes data in word-sized chunks using orc.b to
-detect both NUL terminators and target characters in parallel. On
-systems without Zbb support, the original byte-by-byte implementation
-is used as a fallback via the alternatives mechanism.
-
-Benchmark results (QEMU TCG, rv64):
-  Length | zbb=off (MB/s) | zbb=on (MB/s) | Improvement
-  -------|----------------|---------------|------------
-  1 B    | 27             | 24            | -11.1%
-  7 B    | 148            | 125           | -15.5%
-  16 B   | 218            | 363           | +66.5%
-  64 B   | 384            | 1044          | +171.9%
-  512 B  | 424            | 2081          | +390.8%
-  4096 B | 498            | 2636          | +429.3%
-
-The regression on very short strings (1-7 bytes) is due to the fixed
-overhead of the word-level path: broadcasting the target character to
-all byte lanes via multiplication and checking pointer alignment before
-entering the main loop. For strings shorter than one machine word, this
-setup cost outweighs the benefit of parallel comparison. As string
-length increases beyond 16 bytes, the word-at-a-time processing shows
-significant gains.
-
-Suggested-by: David Laight <david.laight.linux@gmail.com>
-Signed-off-by: Zongmin Zhou <zhouzongmin@kylinos.cn>
----
-Changes in v2:
-- Move alignment handling out-of-line (optimize hot path).
-- Hide load latency by reordering REG_L and addi.
-- Simplify loop branching.
-
- arch/riscv/lib/strchr.S | 119 ++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 119 insertions(+)
-
-diff --git a/arch/riscv/lib/strchr.S b/arch/riscv/lib/strchr.S
-index 48c3a9da53e3..b7abf8b609b6 100644
---- a/arch/riscv/lib/strchr.S
-+++ b/arch/riscv/lib/strchr.S
-@@ -6,9 +6,15 @@
- 
- #include <linux/linkage.h>
- #include <asm/asm.h>
-+#include <asm/alternative-macros.h>
-+#include <asm/hwcap.h>
- 
- /* char *strchr(const char *s, int c) */
- SYM_FUNC_START(strchr)
-+
-+	__ALTERNATIVE_CFG("nop", "j strchr_zbb", 0, RISCV_ISA_EXT_ZBB,
-+		IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
-+
- 	/*
- 	 * Parameters
- 	 *   a0 - The string to be searched
-@@ -29,6 +35,119 @@ SYM_FUNC_START(strchr)
- 	li	a0, 0
- 2:
- 	ret
-+
-+/*
-+ * Variant of strchr using the ZBB extension if available
-+ *
-+ * This implementation uses orc.b to detect both NUL terminators and target
-+ * characters in parallel, processing word-sized chunks for efficiency.
-+ */
-+#if defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)
-+strchr_zbb:
-+
-+#ifdef CONFIG_CPU_BIG_ENDIAN
-+# define CZ	clz
-+#else
-+# define CZ	ctz
-+#endif
-+
-+.option push
-+.option arch,+zbb
-+
-+	/*
-+	 * Returns
-+	 *   a0 - Address of first occurrence of 'c' or NULL
-+	 *
-+	 * Parameters
-+	 *   a0 - String to search
-+	 *   a1 - Character to find
-+	 *
-+	 * Clobbers
-+	 *   t0, t1, t2, t3, t4
-+	 */
-+
-+	/*
-+	 * Prepare target character mask.
-+	 * Broadcast target character to all bytes using multiply.
-+	 */
-+	andi	a1, a1, 0xff
-+	li	t1, 0x01010101
-+#if __riscv_xlen == 64
-+	slli	t2, t1, 32
-+	or	t1, t1, t2
-+#endif
-+	mul	t2, a1, t1
-+
-+	/* All-ones mask for orc.b comparisons. */
-+	li	t4, -1
-+
-+	/* Check alignment: jump out-of-line if misaligned. */
-+	andi	t0, a0, SZREG-1
-+	bnez	t0, 10f
-+
-+	/* Entry Path A: Directly aligned. Pre-bias for the loop. */
-+	addi	a0, a0, -SZREG
-+
-+2:
-+	/* Main loop: process word-sized chunks. */
-+	REG_L	t0, SZREG(a0)
-+	addi	a0, a0, SZREG
-+
-+	/* Check for NUL terminator. */
-+	orc.b	t1, t0
-+	bne	t1, t4, 3f
-+
-+	/* Check for target character. */
-+	xor	t1, t0, t2
-+	orc.b	t1, t1
-+	beq	t1, t4, 2b
-+
-+	/* Target found in chunk without NUL. */
-+	not	t1, t1
-+	CZ	t1, t1
-+	srli	t1, t1, 3
-+	add	a0, a0, t1
-+	ret
-+
-+3:
-+	/* NUL found in current chunk. Check if target appears before NUL. */
-+	not	t1, t1
-+
-+	xor	t3, t0, t2
-+	orc.b	t3, t3
-+	not	t3, t3
-+
-+	CZ	t3, t3
-+	CZ	t1, t1
-+
-+	/* If NUL appears before target, character not found. */
-+	bltu	t1, t3, 8f
-+
-+	srli	t3, t3, 3
-+	add	a0, a0, t3
-+	ret
-+
-+8:
-+	/* Character not found, return NULL. */
-+	li	a0, 0
-+9:
-+	ret
-+
-+	/* --- Out-of-line: Handle misaligned portion byte-by-byte --- */
-+10:
-+	lbu	t1, 0(a0)
-+	beq	t1, a1, 9b
-+	beqz	t1, 8b
-+	addi	a0, a0, 1
-+	andi	t0, a0, SZREG-1
-+	bnez	t0, 10b
-+
-+	/* Entry Path B: Misalignment fixed. Pre-bias and enter main loop. */
-+	addi	a0, a0, -SZREG
-+	j	2b
-+
-+.option pop
-+#endif
- SYM_FUNC_END(strchr)
- 
- SYM_FUNC_ALIAS_WEAK(__pi_strchr, strchr)
--- 
-2.43.0
-
-
-No virus found
-		Checked by Hillstone Network AntiVirus
-
+--
+Uladzislau Rezki
 
 _______________________________________________
 linux-riscv mailing list
