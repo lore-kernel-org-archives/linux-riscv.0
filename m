@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E702C9832F
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 04:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9952C9833E
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 05:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A6iwW+YRNUkvLpA1P40bX2bbwTtUqYSXyGxtxyeM17k=; b=L6cGgf0VgkRvbm
-	E9hiSh4x7KUQ32kjV1HKsnOLv1o/pC5bMmHZXrcMIQLASeDsoSnPeotm/mVzA+KwybXVvrnaMly6d
-	77ZG3GsnRq5qTbo0Q+NDjqS50HfkZ8xftAtX2TStQ3p3je9gd/KEjNWqWxRBPcXM/zEWXQ+nO1rT6
-	m3J1pOVCnHhXViFk3zeLNeKhWeWT18JNBiEGsr+aL4bLHuBcu3kAnlTXl5gt9SYeq8rvrnCHhav2O
-	VaLpgdd4H1LWAlxgxvrSvueLsXZzFe/wRlAw9Q/7NttM3oXHsExRGgFHCXH98glEaMqP9Xs85JOqk
-	ZDkz8k8nBSFTrVIbsESQ==;
+	List-Owner; bh=bijYir1ul8nn/8JZal4zazJdEW+yCUZ8FIvl+D8moxA=; b=GYiKVwW+GINnjp
+	p+hGKHVSN3jqN/TYMevkaCJ+0EjUN2XjIDGmJGPYNnheBBzSgGopccibHwvSfaIyffbabKIRcz4Oh
+	UhU28INXlocGdD8jHGRtQBjgy1GuPvQzxoLp+8N0Aiqk6ZPfPWrnaq4fAcn7AVk/LSOYp3Jq9R4uh
+	Ernw1vyLUMq1XasMq0dca9Q+4SG52Chjrl+hXwZ5UQx9h9Y4vo0tyLvnp8zyFMcPdZCINmacFrinn
+	WlJEKNy6Ul26ONyX628IpM2sio45Xe54CLCAL438hcWEep6Gz63NgL2p2xC/8RIwYl3ePXUgzv3Zu
+	4WBWnoYpOmnhOyXdCabA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB32l-0000000HJsN-16yu;
-	Mon, 28 Sep 2026 04:32:47 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1xB3kK-0000000HLpS-0gil;
+	Mon, 28 Sep 2026 05:17:48 +0000
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB32i-0000000HJrr-1gGT
+	id 1xB3kH-0000000HLor-0qEh
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Sep 2026 04:32:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=xmk5euR5PRSTE9/TBR12w66CsbiVK597hUhgaveMVSI=; b=qLyctAVp1Ua5wXeJGUXKJ3Gjmz
-	HrVDu7pCr/x3SvuT9+XlwcYr+z67OYbjLv2TjlJStsEK+ry0yY+0Q4UUakGUf5qam31CSR9S28PJX
-	Ql5XPnLiwKIfcb7itfyi2e5pZsZ4GqJXYIUSmV1d4yabKUYDlB9mY+40u85urWVSodj3BS9Zf9GdR
-	1btAfOS16NAuCEt5xQHIO96qMxIpLZEIt8q4LdyHnWSg5Zv/tVBpO97ZUSUCWAF3AUgD78M88PjF2
-	21oXle8SIFYmh5x436tn6eRajI1PJJIkxiMr/nt84t3WKbypyOog0+jru82kFoRCzNMbz6wBixSks
-	nx7Q4ckg==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1xB32e-0000000E2Dv-3397;
-	Mon, 28 Sep 2026 06:32:40 +0200
-Date: Mon, 28 Sep 2026 06:32:40 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Andy Chiu <tchiu@tenstorrent.com>, spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org
-Subject: Re: Random corruption on SpacemiT K1 (and K3) with RVV
-Message-ID: <arnt6EEacEm3YRIC@aurel32.net>
-References: <apSYF5x1Tu7PlyL1@aurel32.net>
- <ap-SIQ9DLt-CfAx6@aurel32.net>
- <aqGNGp8PInSV4vty@aurel32.net>
- <arL0QBe_XYLO8Yy7@Tao-Chiu's-Mac>
- <arSshYwcyHjC2dh3@aurel32.net>
- <arS-yYLK8Df5knSE@gmail.com>
- <arX7PwOnlz0N9rUc@aurel32.net>
+	Mon, 28 Sep 2026 05:17:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=g0urVNX8ATEeOHGXP86K6LmXYM7IrN5hrV8PI7/e+Bk=; 
+	b=dFMmu984dAtawQ423gsVyUC4zFZWVprPabJ0C+rVE9whvBqO8AgEKSe30ieqccgf2TP+pXT6RjP
+	3FflfBCIRHkUB8IQZcLcXAtwk9qyw+LX1BBBLuHrElqAvYHO7n/k+toyUP6oQNI+L4wqc0FsQGjUf
+	cMuVr6oWRqa59fs3XU+Ij/DkBGDJAmvZ1d1aLTexcjlFMQOagnpklv4gJlxk4cjO4NPMzgqkGROaP
+	TkOhCfnmm1iACvdIxUIXKjdLNw8niOmqwn+o5pIVGt/K/z9Evsh1x0N9mg/XJ/d7KiJ5ymii7XOYq
+	3T5Xgm1QUu7ZS8oY0wlBTnrQG8Q5gVKVLtPw==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1xB3jp-00000000w9f-3e6c;
+	Mon, 28 Sep 2026 13:17:18 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 28 Sep 2026 15:17:17 +1000
+Date: Mon, 28 Sep 2026 15:17:17 +1000
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: "Ousherovitch, Alex" <aousherovitch@rambus.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	"Krishnamoorthy, Saravanakrishnan" <skrishnamoorthy@rambus.com>,
+	Shuah Khan <shuah@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"Wittenauer, Joel" <Joel.Wittenauer@cryptography.com>,
+	"linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	"Nguyen, Thi" <thin@rambus.com>
+Subject: Re: [PATCH v5 04/19] crypto: cmh - add SHA-2/SHA-3/SHAKE ahash
+Message-ID: <arn4XYwPYt6i2k7d@gondor.apana.org.au>
+References: <20260917225929.2494111-1-aousherovitch@rambus.com>
+ <20260917225929.2494111-5-aousherovitch@rambus.com>
+ <arNn_fjy4jamSitO@gondor.apana.org.au>
+ <LV8PR04MB9006374FD8621EBF3C7E7F6CD7822@LV8PR04MB9006.namprd04.prod.outlook.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <arX7PwOnlz0N9rUc@aurel32.net>
-User-Agent: Mutt/2.4.1 (2026-07-04)
+In-Reply-To: <LV8PR04MB9006374FD8621EBF3C7E7F6CD7822@LV8PR04MB9006.namprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_213244_442867_14F35D49 
-X-CRM114-Status: GOOD (  29.31  )
+X-CRM114-CacheID: sfid-20260927_221745_247033_0E3AF9E9 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,94 +90,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Sep 23, 2026 at 08:50:55PM +0000, Ousherovitch, Alex wrote:
+>
+> - shake128/256, cshake, kmac and poly1305 have no matching provider
+>   registered in this tree, so the allocation fails and the transform can't
+>   be created at all. NO_FALLBACK is required to instantiate them.
 
-On 2026-09-25 06:40, Aurelien Jarno wrote:
-> Hi Karl,
-> 
-> On 2026-09-24 08:15, Karl Mehltretter wrote:
-> > On Thu, Sep 24, 2026 at 06:52:21AM +0100, Aurelien Jarno wrote:
-> > > Thanks for your feedback. Note that at this stage I have not been able 
-> > > to reproduce the issue with QEMU. I guess it's very timing dependent, 
-> > > also I am not sure if QEMU simulates partially executed instructions 
-> > > (outside of page faults).
-> > > 
-> > 
-> > Hello Aurelien, Andy,
-> > 
-> > I tested this with a local TCG diagnostic change. It did not reproduce
-> > the K1 failure, but it answers the partial-instruction question.
-> > 
-> > My LLM agent helped me running these tests.
-> > 
-> > In stock TCG at 7074591d7954, vle8.v can leave partial state on a memory
-> > fault, but the vector helper runs atomically with respect to guest
-> > interrupts [1,2]. Stock QEMU therefore cannot take an asynchronous
-> > interrupt partway through this load.
-> > 
-> > In a bare-metal test at VLEN=256 and LMUL=8, a page fault after element
-> > 16 left vstart=16 and a snapshot containing 16 source bytes followed by
-> > 240 poison bytes. After the missing page was mapped, QEMU resumed the
-> > load and completed the copy correctly.
-> > 
-> > I then added a hook to QEMU vector-load which performs 16 elements, sets
-> > vstart=16, raises a timer interrupt, and resumes at the same vle8.v. The
-> > bare-metal test completed 262,145 such restarts and 67,108,864 copied
-> > bytes without a mismatch.
-> > 
-> > I also booted Linux 388b607d107c with:
-> > 
-> >   CONFIG_RISCV_ISA_V=y
-> >   CONFIG_RISCV_ISA_V_UCOPY_THRESHOLD=1
-> >   CONFIG_RISCV_ISA_V_PREEMPTIVE=n
-> > 
-> > With the hook restricted to S-mode loads with SUM and SIE set, a checked
-> > pipe test completed 90,308,608 bytes across copy_from_user() and
-> > copy_to_user(), including demand-faulting source and destination pages.
-> > The hook logged at least 327,680 forced interruptions at vstart=16,
-> > without a byte mismatch.
-> > 
-> > As a negative control, I made one load read 16 elements and then retire
-> > as if all 256 had completed. That produced the 16-source/240-poison
-> > signature in bare metal, and the Linux checker reported exactly 240
-> > differing bytes. This is an injected symptom, but confirms that the test
-> > detects the reported failure shape.
-> > 
-> > Correct QEMU fault recovery and forced interrupt restart therefore did
-> > not produce the corruption. Reaching the 16/240 result required
-> > deliberately modelling a load that completed early without a trap. That
-> > fits the observed first load/store pair, but does not establish its
-> > cause. Your IRQ-disabled result also makes a normal asynchronous restart
-> > a poor fit.
-> 
-> Thanks for all those extensive tests.
-> 
-> > The normal Linux load-fault path exits before vse8.v and falls back to
-> > the scalar copy [3,4]. Do you have the original trap PC, cause and fault
-> > address for the second-iteration fault? Those values could show whether
-> > an unexpected synchronous trap is involved.
-> 
-> Unfortunately the issue is quite rare, so I have not found a way to 
-> trace all that information when the issue happens.
-> 
-> That said Han Gao pointed me to this patch:
-> https://lore.kernel.org/linux-riscv/20260807-vector_fpu_regs_status_rmw_fix-v1-1-0c16848b60db@intel.com/
-> 
-> I have been testing it, and so far it seems to fix my issue with both 
-> CONFIG_RISCV_ISA_V_PREEMPTIVE enable and disabled. Or maybe it just 
-> hides the issue by changing the timing, as at this point, I haven't 
-> fully understood how the bug fixed by this patch can completely explain 
-> my observations.
+Hang on, if an algorithm isn't even implemented in generic C for
+the Crypto API, then it should not be implemented by a driver
+either.
 
-Unfortunately, I have been able to reproduce the issue, even with this 
-patch applied. It just significantly reduces the frequency of the issue.
+The reason these algorithms aren't in the Crypto API is because
+they have no users.
 
-Regards
-Aurelien
+So please drop them.
 
+> - sha2, sha3 and sm3 do have a software provider, so the transform loads,
+>   but the auto-fallback can't stand in for the hardware on the streaming
+>   path: our exported state is the opaque HW save/restore checkpoint, not
+>   the canonical state, so a multi-part export/import round-trip through the
+>   fallback misinterprets it (and for SHA-2/SHA-3 the statesize exceeds
+>   HASH_MAX_STATESIZE, so ahash_do_req_chain() returns -ENOSYS). A one-shot
+>   digest could still use the software provider, but a fallback that only
+>   covers one-shot and corrupts streaming isn't usable.
+
+Sorry, that is not supported by our API.  If you cannot export the
+hash state in a compatible format, then you will have to switch over
+to fallbacks and only support digest operations.
+
+Please also elaborate what you mean by opaque checkpoint, does it
+contain the entire hash state or not?
+
+Cheers,
 -- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
 _______________________________________________
 linux-riscv mailing list
