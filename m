@@ -4,66 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E3BECA5FA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 23:03:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22292CA5FA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 23:21:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yfyaw+gLfBcyyZUO6EIF9s5WiFUwSAbCa1eNN2TXCTo=; b=GEwcQAnk+an82O
-	yexZ15f6SysyQZy7I/Crt+vXIIXv/Jiml6w0na9t1/1RNrT0b976vZIJJePaqF27l2h2tgwnJ+Lr2
-	sBfOvRE5Mpa3g2ayRpQzvP1DvSqqXbmjooKDUWCqTpsphr1r+8TE2g3DIuLZnVXL7cqReb9nS7HrN
-	X1AtCA3aDV16bTAPZz6SOLrVd5HALEAr1LXmj4q4rX/YFpCil1rKlNagf1eZHwz1r0I55bKUCs/TU
-	uet84By5em9WU4hYT+w8uuoduDRvJJlmGiIjstI8n57DCuV6QStQDWywKSbYOE1QCxHX+4oULmnde
-	wtEt5sFCdcgzteiazYvA==;
+	List-Owner; bh=GMz6LN/J827T/wHhFeTmttczF2W2vtpvJZ+MkRMA/Q4=; b=wV4dzDI5PPtTZG
+	filYzozk0DMtu35I6RrznpGGjBKpxVs6HlvQxIi3nKjOwH9HUxzUJfE9nHBxi6XF3pP7Cw4/zCaiK
+	ljfyECzoLL7MKRNPkw57Z5z+a2v/stggHz5ufKT+9o5mMGkS7zt0g8Ms3YrlRapzVX7KXdNnfLKjs
+	Z1GXrU5crx0Xz95ynzH3ghH/Ril5tRL4fywNnfAY180aP/NRZGAJ41M7mSB8Ewyc5b65p5d16d7G2
+	DL0ZLhmfPHqfiXjWKstllD/DEYLPVXhbSQSN4+SiXDPxk2LODDM4qAv9gsmpBZDdvNRkSPn34bTFP
+	ehL1ohnCCyuutj3n8XUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBKNP-00000001odR-0ttQ;
-	Mon, 28 Sep 2026 23:03:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBKen-00000001rOg-0EBE;
+	Mon, 28 Sep 2026 23:21:13 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBKNN-00000001odL-3eaa
+	id 1xBKek-00000001rNe-3Sl5
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Sep 2026 23:03:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0F74560210;
-	Mon, 28 Sep 2026 23:03:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 467D01F00899;
-	Mon, 28 Sep 2026 23:03:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790636592;
-	bh=KuqmdeBCx72SaUXKQSQQxu5JtyZyMYa7iPdmUqkdNWI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aePDqIKYLLkaJCp5DjwnmNByYccW9cKLDaQdKTEd1iaMi73TCW9Ujz0G1CkjYqaNP
-	 uo9pIFDb2U110ovMPZ5MBlPw1Gt6/LkWgUpi+xB5jaTiyAgI7zhAy0hKN57+T/lJm+
-	 c/te2KkaO1AY92ii9DHGabdvgNYCaUjKwg2Us54CMJcEyl9k4OvxQQZCdaNZEEZl9j
-	 5g1eF4kGd4sLHCSOzyoP4K1777ZPlQZxuyXs+6nyRMi4wMsq011I4M11/6lZr62SDZ
-	 CABkR2uI1CU92Oz1zm+W1WCjXK0H5XKtHCRMmQE0UU6b13pH34dECVLxyuh5ApJ3X5
-	 nzIaB/dJc1aJQ==
-Date: Mon, 28 Sep 2026 23:03:10 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Junzhong Pan <panjunzhong@linux.spacemit.com>,
-	Rob Herring <robh@kernel.org>,
+	Mon, 28 Sep 2026 23:21:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790637670;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=45/Cb1sUktpiMdyfE/exim2HZWKPpOnrWEl0XH8E2LY=;
+	b=aDgoRl2KQT4XpHUR6q4mBkfYmevaCBJqkh23meeIjsoDXWoDHTooA0rA8Fq/2fs8gtcxgB
+	W2sZPP1ytj6YO9RfkcDyv4XxO1CcgmdU0sRK8c23ssWH/+NVlDGsTBShRoeZkNupVGLq6h
+	CU5AXTbu//mJFzEd1bI8abDbSret0Zk=
+Received: from mail-yx1-f69.google.com (mail-yx1-f69.google.com
+ [74.125.224.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-661-9bTr2dkvOHOOfqtDUmDiiQ-1; Mon, 28 Sep 2026 19:19:40 -0400
+X-MC-Unique: 9bTr2dkvOHOOfqtDUmDiiQ-1
+X-Mimecast-MFC-AGG-ID: 9bTr2dkvOHOOfqtDUmDiiQ_1790637580
+Received: by mail-yx1-f69.google.com with SMTP id 956f58d0204a3-671321441d1so5057232d50.1
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Sep 2026 16:19:40 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790637579; x=1791242379;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=45/Cb1sUktpiMdyfE/exim2HZWKPpOnrWEl0XH8E2LY=;
+        b=m46GxDtwefhBfdObFvY9Z1j6vlenzaD8S/dnDEPVl3doxOTjQaMRravS8Hf4IqXFIz
+         9UcF3AQOn9idc9/uAaYU4ovIFOyDQoVnPQW7Sm2rkbvpoJGoenNBt2GY5aBlmUXmgEF9
+         SS2AdmmJJtq/p0wUFjxTYegMzx81bUZnlexU6KTg6bXG0audofVONvC2b1/xYhx+5qXH
+         4Zs3ObLaQxXiH8ZjCnvFXMI3JP1t087MPxDoyOBmfDwLqWTPJ7hFpBXzwlKtRs/Bqd1F
+         6hZmUPL0wrEfdK+4U+8eqdsPpsjWDwj8vp4fKE83QKWn9bGCdlZa2CNTut/LveaZeK3d
+         Na8Q==
+X-Forwarded-Encrypted: i=1; AKwUvBzCqqUmMWd3MBOfu9ywsi8Bf00wklZgsADPCLjS/3I3mGRgo7ueh6GD7vy6EDyLbsh9YEVVoo2K3MRGaQ==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKG/CFPZD4gF1ZoGv3MgpulXKN+rlDMj3KQswBYrxFTq0rBjhWZ
+	BKQsDqBp975qqRys+05bJpuOzQK2McN87EqoniSU8Eo7JanzRySzeI8PskwHeKpy69SGJLyLznk
+	c5eqFWB/6RWz82nyw0XoOXznad1e5Hgsnf0h5U+KE5SO0ll/jHa45g9e/4LpMT4XaxXyCLewWbk
+	oSU3MV
+X-Gm-Gg: AYBFou3dihM5aqAK7faYA7fdVLo3hQKMsxvFiqX9JobpuJwrw9QVhPKXVn0I3nF3FKw
+	VV96w/L0RPr/DwxjOTfKpaaZdH+m5chBZ+tJ39spi8fIh5CKV3i2lTiYW+AZFQnvDyTvj34uqdn
+	JOhrT9Sl0DaI7TW5R1hlvt7OgdspUmF+BLgdTi6+yymqc/zIHtlyLmwroywIdzgFqu9zYkrzocf
+	qLGNKfRW73jvWWyrY733F4AD8axeyK2/ZzsLk4kkZgnqFSnkriqWXNd7nnKYAcAFgE++Q56sTza
+	4ihDfV9zJV0UWPH1LL767yyvhw7bYWyZwWu2U/jXhO9wjplS97jdKg==
+X-Received: by 2002:a05:690e:1c0e:b0:675:3431:d51c with SMTP id 956f58d0204a3-6753431da19mr2783192d50.50.1790637579502;
+        Mon, 28 Sep 2026 16:19:39 -0700 (PDT)
+X-Received: by 2002:a05:690e:1c0e:b0:675:3431:d51c with SMTP id 956f58d0204a3-6753431da19mr2783181d50.50.1790637579018;
+        Mon, 28 Sep 2026 16:19:39 -0700 (PDT)
+Received: from rhdev ([2600:1700:f361:20bf::14c1])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8a860f9cdb0sm51374117b3.24.2026.09.28.16.19.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Sep 2026 16:19:37 -0700 (PDT)
+From: Jennifer Berringer <jberring@redhat.com>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Xu Yang <xu.yang_2@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>, Peter Chen <peter.chen@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, Conor Dooley <conor.dooley@microchip.com>,
-	Ze Huang <huang.ze@linux.dev>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: Re: [PATCH v3 0/8] Add SpacemiT K1 USB2.0 controllers support
-Message-ID: <20260928230310-GKB2079@kernel.org>
-References: <20260927-b4-spacemit-k1-usb2-v3-0-ce7095896039@linux.spacemit.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	James Morris <jmorris@namei.org>,
+	Jennifer Berringer <jberring@redhat.com>
+Subject: [PATCH 3/4] riscv: dts: spacemit: k3-com260-ifx: Add PCIe nodes
+Date: Mon, 28 Sep 2026 19:18:06 -0400
+Message-ID: <20260928231807.1757995-4-jberring@redhat.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260928231807.1757995-1-jberring@redhat.com>
+References: <20260928231807.1757995-1-jberring@redhat.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260927-b4-spacemit-k1-usb2-v3-0-ce7095896039@linux.spacemit.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: WqIqSVkiRnJUh4LA9ln61AszxRn4WYEDHBNq05SqraY_1790637580
+X-Mimecast-Originator: redhat.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_162110_938307_C1A998FD 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,50 +119,147 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Greg,
+K3 CoM260 Dev Kit uses PCIe for three M.2 slots:
 
-On 19:40 Sun 27 Sep     , Junzhong Pan wrote:
-> The SpacemiT K1 SoC has two USB2.0 controllers, one has Dual-Role
-> support, but the hardware has no internal OTG registers, the other is
-> Host only. These controllers are compatible with Chipidea USB2 driver
-> with some flags set and reset control support.
-> 
-> This series is based on 7.3-rc1 and has been tested on Banana Pi F3
-> development board.
-> 
-> A self-powered USB device/hub is needed to test the host function of the
-> dual-role controller on Banana Pi F3, a MINI-PCIe USB2.0 module (a
-> cellular module e.g.) is needed to test the host only controller.
-> 
-> ---
-> Changes in v3:
-> - collect tags
-> - merge the two dt-binding commits
-> - use local variables when acquiring devm managed clock/reset
-> - drop manual clk_disable_unprepare() from the remove path
-> - enable related drivers as modules in defconfig
-> - Link to v2: https://lore.kernel.org/r/20260908-b4-spacemit-k1-usb2-v2-0-f07342ffa051@linux.spacemit.com
-> 
-> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
-> 
+- M.2 M-key 2280: PCIe 3.0 x4 (pcie0_rc)
+- M.2 M-key 2230: PCIe 3.0 x1+1 (pcie3_rc)
+- M.2 E-key 2230: PCIe 3.0 x1 (pcie4_rc)
 
-> ---
-> Junzhong Pan (8):
->       dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible
->       usb: chipidea: usb2: use devm_clk_get_optional_enabled()
->       usb: chipidea: usb2: add optional reset support
->       usb: chipidea: usb2: add SpacemiT K1 support
->       riscv: dts: spacemit: add USB2.0 controller nodes for K1
->       riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3
->       riscv: dts: spacemit: enable USB2.0 controllers on OrangePi RV2
->       riscv: defconfig: enable ChipIdea USB controller support
-> 
-Any chance to queue these patches (1-4) for v7.4 cycle? Hope it not too late,
-and then I will handle the rest part, thanks
+The M.2 M-key 2230 slot is connected to two PCIe lanes, with lane 0
+on combo phy 4 and lane 1 on combo phy 3. The K3 combo phy cannot be
+configured to use these as one PCIe 3.0 x2 device; treat this slot as x1
+only instead.
 
+The E-key slot has an RTL8852BE WiFi+BT NIC installed from factory.
 
+Signed-off-by: Jennifer Berringer <jberring@redhat.com>
+---
+ .../riscv/boot/dts/spacemit/k3-com260-ifx.dts | 45 +++++++++++++++++++
+ arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi  | 33 ++++++++++++++
+ 2 files changed, 78 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+index a4dfa25c837fe..01e286cb05797 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
++++ b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+@@ -39,6 +39,14 @@ reg_vbus_5v: regulator-usb3-vbus-5v {
+ 		gpio = <&gpio K3_GPIO(67) GPIO_ACTIVE_HIGH>;
+ 		enable-active-high;
+ 	};
++
++	reg_aux_vcc3v3: regulator-aux-vcc3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "AUX_VCC3V3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-always-on;
++	};
+ };
+ 
+ &combophy {
+@@ -61,6 +69,43 @@ eeprom@50 {
+ 	};
+ };
+ 
++&pcie0_rc {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie0_1_cfg>;
++	num-lanes = <4>;
++	status = "okay";
++
++	pcie@0 {
++		vpcie3v3-supply = <&reg_aux_vcc3v3>;
++		phys = <&combophy 0 PHY_TYPE_PCIE>,
++		       <&combophy 1 PHY_TYPE_PCIE>;
++	};
++};
++
++&pcie3_rc {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie3_0_cfg>;
++	num-lanes = <1>;
++	status = "okay";
++
++	pcie@0 {
++		vpcie3v3-supply = <&reg_aux_vcc3v3>;
++		phys = <&combophy 4 PHY_TYPE_PCIE>;
++	};
++};
++
++&pcie4_rc {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie4_1_cfg>;
++	num-lanes = <1>;
++	status = "okay";
++
++	pcie@0 {
++		vpcie3v3-supply = <&reg_aux_vcc3v3>;
++		phys = <&combophy 5 PHY_TYPE_PCIE>;
++	};
++};
++
+ &usb2_host {
+ 	status = "okay";
+ };
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+index 1b19979f150ce..36f7780860f50 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+@@ -800,6 +800,17 @@ pcie0-0-pins {
+ 		};
+ 	};
+ 
++	pcie0_1_cfg: pcie0-1-cfg {
++		pcie0-0-pins {
++			pinmux = <K3_PADCONF(79, 5)>,   /* pcie0 perst */
++				 <K3_PADCONF(81, 5)>;	/* pcie0 clkreq */
++
++			bias-pull-up = <1>;
++			drive-strength = <38>;
++			power-source = <3300>;
++		};
++	};
++
+ 	pcie2_0_cfg: pcie2-0-cfg {
+ 		pcie2-0-pins {
+ 			pinmux = <K3_PADCONF(25, 4)>,	/* pcie2 perst */
+@@ -810,6 +821,17 @@ pcie2-0-pins {
+ 		};
+ 	};
+ 
++	pcie3_0_cfg: pcie3-0-cfg {
++		pcie3-0-pins {
++			pinmux = <K3_PADCONF(3, 4)>,	/* pcie3 perst */
++				 <K3_PADCONF(5, 4)>;	/* pcie3 clkreq */
++
++			bias-pull-up = <1>;
++			drive-strength = <38>;
++			power-source = <3300>;
++		};
++	};
++
+ 	pcie4_0_cfg: pcie4-0-cfg {
+ 		pcie4-0-pins {
+ 			pinmux = <K3_PADCONF(76, 5)>,	/* pcie4 perst */
+@@ -821,4 +843,15 @@ pcie4-0-pins {
+ 			power-source = <1800>;
+ 		};
+ 	};
++
++	pcie4_1_cfg: pcie4-1-cfg {
++		pcie4-0-pins {
++			pinmux = <K3_PADCONF(76, 5)>,	/* pcie4 perst */
++				 <K3_PADCONF(78, 5)>;	/* pcie4 clkreq */
++
++			bias-pull-up = <1>;
++			drive-strength = <38>;
++			power-source = <3300>;
++		};
++	};
+ };
 -- 
-Yixun Lan (dlan)
+2.55.0
+
 
 _______________________________________________
 linux-riscv mailing list
