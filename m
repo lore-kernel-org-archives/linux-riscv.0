@@ -4,95 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5CCECA5FA2
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 18:34:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EDC2CA5FA3
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Sep 2026 20:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=se6B+Xx7f2Onu9z/o7m3qpwKp4RwkaU/H66r0y8ibKk=; b=heAKFOQTAo1q6q
-	dZjNKOgulN7pHVVf2CX2jCWde0rg48/m3kuDK1cHyj2Tzs39AfyBKE8yHDx8rZ58jaaObFHxk1YHq
-	/E+sLD4aE+E8Pjx5EdTi0sHetPphF/6UbK9UfEdb1sn2EYS5DnSs/AAokuYRazttocOcJHsU34Tal
-	xB79uoXnfc+xM/zEGvxnZuurnNMSCeQ4gYeIGN1SFTXDeeucj5aaQ00SORH1cYoPMA9NQKPKhnVGH
-	HZCXC4XslCEpKoQQ6SknKHBKsF2k8e0Vt6dieLzvP3QJuMnCjYIfi1VmJMQVCHxBpVsiWV4Iuo7OT
-	InJ78wlt5MwJIRXSD77A==;
+	List-Owner; bh=pitMBbhM89x/mrSSrQ6uNKtcFAedhZGWzvyPO7FJY3E=; b=emzXTqkz/Lk1jO
+	RkfWpBQkuKIfcGS0g0MpF6R7//Jv3xJrQAfQ5xQevht6ESiEX8J0EN71WyCmdBAdbcxzZSNB3uRDQ
+	qB06wppsfyZfzsSCMQhi0y560/jWH63vIXeyp79t0VrsOZH+5FAKk7FU5M/OT3kSZUZCEcpobKceR
+	cKWn5kqGqkpfNVjU0A4xPjeMUq5MM7o+nkcsNvW1le4+hmjNIPigFvYL+N0nUipKx8BYWRCyohd+x
+	SDMqNPRlIm2ueEQykOAVtGysvgzH2SbsDHYLLTbx+DcwbtzZ6I+5wY1RIwWyBLB3jThhf1hQJTQM7
+	377T+34/jIJGFa55qF2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBGBZ-00000001LD4-206t;
-	Mon, 28 Sep 2026 18:34:45 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1xBIJQ-00000001c6Y-2zXS;
+	Mon, 28 Sep 2026 20:51:00 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBGBQ-00000001L96-1hXN;
-	Mon, 28 Sep 2026 18:34:38 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260928183430euoutp02d8c2ceefbbbee78d8631d795eb470987~Zj9SaDp1F1266812668euoutp02d;
-	Mon, 28 Sep 2026 18:34:30 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260928183430euoutp02d8c2ceefbbbee78d8631d795eb470987~Zj9SaDp1F1266812668euoutp02d
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1790620470;
-	bh=4Zph+siZBeGkLK5OkBadCTawnz0zQ5RVLKRomkp3JFM=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=ooCPWuWAFvYF4ZM2kjMd6Sk5u8LAPjsE03rJcvHzAe/OskadksFIcixYe9TFn3SG5
-	 x2Lag0CNxSduPsZVTUcvY8qADKxrETrS0mODDs5RLBK7W0fG+vhAH96c+oaZU+BhSr
-	 uY8fE2y2hrrSNfQ4261WxiEAHHMqI6kqWuuKrmhg=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260928183429eucas1p291d65fe935c65b88fc63e99837bf87f8~Zj9RjhP5N2664926649eucas1p2Q;
-	Mon, 28 Sep 2026 18:34:29 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260928183427eusmtip29fd870671ef52906c604dca1dab6db1e~Zj9Pk2-JD0396803968eusmtip22;
-	Mon, 28 Sep 2026 18:34:27 +0000 (GMT)
-Message-ID: <d4fb48de-829d-4285-9ca6-ab418a6f4987@samsung.com>
-Date: Mon, 28 Sep 2026 20:34:26 +0200
+	id 1xBIJL-00000001c3r-2S3I
+	for linux-riscv@lists.infradead.org;
+	Mon, 28 Sep 2026 20:50:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Content-Type:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=KX61QIrNDMGQZNkhbujvGPtXrkJ/uJvb5+zoWtNRHjk=; b=PupotxndoUuSa+pFDde4WTWN4P
+	tEarGnKKUwRirrBPpXIvvUYSgG5ZlZIiifTlXalzhldJOcA1F6oFPdTBb6saCrMiHrv0YBgrJ36pV
+	GmpkfSH5Tftd8tQ2qsMgSpJ74D+57kBVIIQqHYlnaGpPN2NIOsbl18s4C5RD1RioWE9OeavQ7Ka/t
+	gbQVdK9AmOc+tGluBeHUvLCUEwtPJDVUN0PusBMSnfn1TkWHMdx1tgrraUHAjpKMSpjoV3hukQErW
+	1/cvYey3t71jE/vLQ/Lne40VDmME9FvZqrrXJuHmeZrodJHv9f7B7swYyZ+76R5PliH3/ZokLguW8
+	DQRhssOg==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1xBIJI-0000000F7qj-1t8K;
+	Mon, 28 Sep 2026 22:50:52 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: linux-kernel@vger.kernel.org,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: Aurelien Jarno <aurelien@aurel32.net>,
+	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE)
+Subject: [PATCH v5 5/5] riscv64: defconfig: Enable BT and WLAN support for SpacemiT K3 Pico-ITX board
+Date: Mon, 28 Sep 2026 22:49:10 +0200
+Message-ID: <20260928205012.3689405-6-aurelien@aurel32.net>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260928205012.3689405-1-aurelien@aurel32.net>
+References: <20260928205012.3689405-1-aurelien@aurel32.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 03/20] dt-bindings: mfd: Add
- starfive,jh7110-hdmi-subsystem
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
-	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
-	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
-	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
-	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
-	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
-	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
-	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
-	Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
-	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
-	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
-	Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Joshua Peisach <jpeisach@ubuntu.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
-	<u.kleine-koenig@baylibre.com>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20260917-colossal-phenomenal-rattlesnake-7aca88@quoll>
-X-CMS-MailID: 20260928183429eucas1p291d65fe935c65b88fc63e99837bf87f8
-X-Msg-Generator: CA
-X-RootMTR: 20260915153218eucas1p278c4870936afe1aaa52438660418f8c8
-X-EPHeader: CA
-X-CMS-RootMailID: 20260915153218eucas1p278c4870936afe1aaa52438660418f8c8
-References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-	<CGME20260915153218eucas1p278c4870936afe1aaa52438660418f8c8@eucas1p2.samsung.com>
-	<20260915-jh7110-clean-send-v4-3-f0e4fd6f2cc8@samsung.com>
-	<20260917-colossal-phenomenal-rattlesnake-7aca88@quoll>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_113437_040804_3F85479A 
-X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-CacheID: sfid-20260928_135055_677765_90DC7105 
+X-CRM114-Status: UNSURE (   7.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,21 +78,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The SpacemiT K3 Pico-ITX board has a RTL8852BE Bluetooth and WLAN
+controller connected through PCIe and USB. For the WLAN part, enable
+CFG80211, MAC80211, RTW89 and RTW89_8852BE as modules. For the
+Bluetooth, enable CONFIG_BT and CONFIG_BT_HCIBTUSB as modules.
 
+Both also require RFKILL and RFKILL_GPIO.
 
-On 9/17/26 08:54, Krzysztof Kozlowski wrote:
-> On Tue, Sep 15, 2026 at 05:32:11PM +0200, Michal Wilczynski wrote:
->> Add the dt-binding for the StarFive JH7110 HDMI subsystem.
-> 
-> Your cover letter, in the first paragraph, should explain the
-> merging/dependencies constraints - this depends on previous patches and
-> cannot be taken alone.
+Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+---
+ arch/riscv/configs/defconfig | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-OK I will update this in the v5
-
-Best regards,
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index 04ae305d5511b..1bc79ba2ee649 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -100,6 +100,12 @@ CONFIG_NET_CLS_CGROUP=m
+ CONFIG_NETLINK_DIAG=y
+ CONFIG_CGROUP_NET_PRIO=y
+ CONFIG_CAN=m
++CONFIG_BT=m
++CONFIG_BT_HCIBTUSB=m
++CONFIG_CFG80211=m
++CONFIG_MAC80211=m
++CONFIG_RFKILL=m
++CONFIG_RFKILL_GPIO=m
+ CONFIG_NET_9P=y
+ CONFIG_NET_9P_VIRTIO=y
+ CONFIG_PCI=y
+@@ -143,6 +149,8 @@ CONFIG_DWMAC_THEAD=m
+ CONFIG_MICREL_PHY=y
+ CONFIG_MICROSEMI_PHY=y
+ CONFIG_MOTORCOMM_PHY=y
++CONFIG_RTW89=m
++CONFIG_RTW89_8852BE=m
+ CONFIG_INPUT_MOUSEDEV=y
+ CONFIG_INPUT_EVDEV=y
+ CONFIG_KEYBOARD_GPIO=y
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+2.53.0
+
 
 _______________________________________________
 linux-riscv mailing list
