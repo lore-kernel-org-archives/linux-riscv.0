@@ -4,52 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56DC1CA5FAD
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 10:23:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 991D5CA5FA1
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 10:23:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=crQdid/IiLD0TpvW/LYYBuCZFnCQHBomauKf0f4tsSA=; b=lQ7uWNYDDq5OO+
-	mStOtKR9cHSrjvR+Gz5xGmPcQ7o/6CWTBloqRARa6z/kVCbjjaPgbl57SHyHIfUFY3BwvsCTbdbmP
-	+JhetlBu58Ubd/fjbcwjUy4lvgBMoVzWCgl7kJgq80GA0z6swO6zFS+abMq2RXIEfSdMQWqhuvIZ6
-	tkCoMKvGvus8jMI7qfYQUmeW7ci99cIKliGvY1udG6tFSaXk4w3RKXbBVXkX1dxDNcSf7kiaClAeS
-	z6bej17cVED1LRcAis4PYN26MUZPYikEx5R9hOBEGO57AGcQeBOPp/ZyabNUOajG44ONce4SvSNQW
-	leIIuX9tSjSti3ZpsxOA==;
+	List-Owner; bh=qsX/6mOUP2+Bc5fnhqDfRHblPomNlMAsXdEM8xOWoMg=; b=OhnxC8jsA5ufme
+	njSkhMDztBZGiCfvl10rRi7W0z/7MGVB0/7nVMjmQnQfU3K0boqfHo3zHYJ3djNxRqnoiaOKkIzBE
+	hs+P5aCtm3cxB+tM7XEJMPK/VdSDiV37Wo9yk+7DerjPKYbiKH4GTM1/rfVYr+qAs8NYQCor1GLiH
+	BtdecoUB7dhwPOtk4NDhJhEHcSzs36vaCQ13RAZSEM4zjVEkjXCIVZSNTJkiB0KnlsOPwwGrbX56D
+	/71j4ztS9heySCOlfcLIlXIFE217U4ZLtY7X7vymSUlqGb8Eyni4+Cd68UhSPn7/qN2vrMxODoamK
+	sAzibRYZRINx+Uu06vsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUzl-000000038oX-1uC2;
-	Tue, 29 Sep 2026 10:23:33 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUzk-000000038nZ-0Jgh
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 29 Sep 2026 10:23:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=QaAlWRDyiOiRcFAJOBkbM0yJuHJnyMq/B48v1y/xV3s=; b=CJWv8tdZWfKnPB98g1qlHiv1IX
-	Efbkwq4yTP6cCcbDQmLmY1D1/Tj3EMg3T1wcqCbAxqzT60N0R59s1UqJo2JWr/2bCPlGig6PQdRXR
-	hwd2RmmgEjaCZZKUdmDdIee35XIMoDkGBhA3ZURRk8NMscXmcTRANIR8yp7bXX7wseJqSg9kpkUqS
-	pQHNj9IdZs2NHgDCMY8H0nksvyAm0Lc8zjiTKAkWrzhnAcTJRSfFN0d3eOxWv7djX6zS1+MlsrY6V
-	g2lh2x+CObmh9J0/g/W6QeIAGbc4MwD52cshRymsS2Yppal31ZCyAiPsbejelcLYiXqTRP5PDfFmW
-	IMJhmVtA==;
+	id 1xBUzh-000000038mu-0ENO;
+	Tue, 29 Sep 2026 10:23:29 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBUzg-00000002TOv-16lA
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBUzd-000000038kf-3UGg
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Sep 2026 10:23:30 +0000
+	Tue, 29 Sep 2026 10:23:27 +0000
 Received: from [127.0.1.1] (unknown [223.166.93.127])
-	by APP-01 (Coremail) with SMTP id qwCowAD3kPR2kbtqxsxdCQ--.22338S4;
+	by APP-01 (Coremail) with SMTP id qwCowAD3kPR2kbtqxsxdCQ--.22338S3;
 	Tue, 29 Sep 2026 18:23:18 +0800 (CST)
 From: Han Gao <gaohan@iscas.ac.cn>
-Date: Tue, 29 Sep 2026 18:22:46 +0800
-Subject: [PATCH 2/4] riscv: dts: thead: add Milk-V Meles
+Date: Tue, 29 Sep 2026 18:22:45 +0800
+Subject: [PATCH 1/4] dt-bindings: riscv: thead: add Milk-V Meles
 MIME-Version: 1.0
-Message-Id: <20260929-rv-meles-v1-2-effdd14a76e8@iscas.ac.cn>
+Message-Id: <20260929-rv-meles-v1-1-effdd14a76e8@iscas.ac.cn>
 References: <20260929-rv-meles-v1-0-effdd14a76e8@iscas.ac.cn>
 In-Reply-To: <20260929-rv-meles-v1-0-effdd14a76e8@iscas.ac.cn>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,29 +47,30 @@ Cc: Han Gao <rabenda.cn@gmail.com>, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Han Gao <gaohan@iscas.ac.cn>
 X-Mailer: b4 0.14.2
-X-CM-TRANSID: qwCowAD3kPR2kbtqxsxdCQ--.22338S4
-X-Coremail-Antispam: 1UD129KBjvJXoW3GF4DCr18JFWUJFWfKF45Jrb_yoW7Aw43pa
-	yIk3ySgFWkWF4Sg34ayrW0vF1UKan5CFykKrnrWFyxXFs2g3ykC34SqrZ7Zr1qqrW5Ww1f
-	Xrs8WryIkr10k3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmj14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
-	8EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AI
-	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
-	vE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
-	r2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04
-	v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j
-	6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7
-	AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE
-	2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcV
-	C2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2Kfnx
-	nUUI43ZEXa7VUbH5lUUUUUU==
+X-CM-TRANSID: qwCowAD3kPR2kbtqxsxdCQ--.22338S3
+X-Coremail-Antispam: 1UD129KBjvdXoW7JF1DCw4xZrWfZFy7Wry5CFg_yoWfAwc_uF
+	4xAFs8uay5Aas5KF4qyrW8GFy5Z3yxCr97Aw1q9FsYkw1kZFZ8Was7tas8Cr17Cr4UuFyf
+	Jws7XrW7CFsrWjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbyAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGwA2048vs2IY02
+	0Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xv
+	wVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwA2z4
+	x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS0I0E
+	0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67
+	AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48I
+	cxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2xKxw
+	CY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8
+	JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1V
+	AFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4
+	A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU
+	0xZFpf9x0JU4OJ5UUUUU=
 X-Originating-IP: [223.166.93.127]
-X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiBwEFDGq7jfMLKQAAsC
+X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiCRUFDGq7i2gUaQABsb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_112329_038977_9BE38ECB 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20260929_032326_249525_15A0FB4D 
+X-CRM114-Status: UNSURE (   6.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,261 +87,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the Milk-V Meles board with UART0, eMMC, SD, Ethernet and the PWM2
-fan. Describe the board pin assignments and the PHY on the GMAC0 MDIO
-bus. Give GPIO banks aliases and name the exposed 40-pin header lines.
-
-The eMMC I/O supply is fixed at 1.8 V. Enable DDR52 at that voltage and
-retain the 52 MHz board limit. Describe 8 GiB as the default memory
-size; firmware updates it to match the detected RAM capacity.
+Document the Milk-V Meles board compatible with the TH1520 fallback.
 
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- arch/riscv/boot/dts/thead/Makefile               |   1 +
- arch/riscv/boot/dts/thead/th1520-milkv-meles.dts | 227 +++++++++++++++++++++++
- 2 files changed, 228 insertions(+)
+ Documentation/devicetree/bindings/riscv/thead.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/thead/Makefile b/arch/riscv/boot/dts/thead/Makefile
-index b55a17127c2bc06cbfb06d5f7c92dc7296e98437..25f7fe068368c97df2490bedc3eae70276a2e442 100644
---- a/arch/riscv/boot/dts/thead/Makefile
-+++ b/arch/riscv/boot/dts/thead/Makefile
-@@ -1,2 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_ARCH_THEAD) += th1520-lichee-pi-4a.dtb th1520-beaglev-ahead.dtb
-+dtb-$(CONFIG_ARCH_THEAD) += th1520-milkv-meles.dtb
-diff --git a/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts b/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..3714047190789bfccd8ff6810342d7ff865e74e4
---- /dev/null
-+++ b/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts
-@@ -0,0 +1,227 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2021-2022 Alibaba Group Holding Limited.
-+ * Copyright (C) 2026 Han Gao <gaohan@iscas.ac.cn>
-+ */
-+
-+/dts-v1/;
-+
-+#include "th1520.dtsi"
-+
-+/ {
-+	model = "Milk-V Meles";
-+	compatible = "milkv,meles", "thead,th1520";
-+
-+	aliases {
-+		ethernet0 = &gmac0;
-+		gpio0 = &gpio0;
-+		gpio1 = &gpio1;
-+		gpio2 = &gpio2;
-+		gpio3 = &gpio3;
-+		gpio4 = &gpio4;
-+		gpio5 = &aogpio;
-+		mmc0 = &emmc;
-+		mmc1 = &sdio0;
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x0 0x2 0x0>;
-+	};
-+
-+	fan: pwm-fan {
-+		compatible = "pwm-fan";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&fan_pins>;
-+		pwms = <&pwm 2 10000000 0>;
-+		cooling-levels = <0 64 192 255>;
-+		#cooling-cells = <2>;
-+	};
-+};
-+
-+/* Names follow the 40-pin header signal labels. */
-+&aogpio {
-+	gpio-line-names = "", "", "", "", "", "", "", "AOGPIO_7",
-+			  "AOGPIO_8", "", "AOGPIO_10", "AOGPIO_11";
-+};
-+
-+&emmc {
-+	bus-width = <8>;
-+	max-frequency = <52000000>;
-+	cap-mmc-highspeed;
-+	mmc-ddr-1_8v;
-+	non-removable;
-+	no-sdio;
-+	no-sd;
-+
-+	status = "okay";
-+};
-+
-+&gmac0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac0_pins>, <&mdio0_pins>;
-+	phy-handle = <&phy0>;
-+	phy-mode = "rgmii-id";
-+
-+	status = "okay";
-+};
-+
-+&gpio0 {
-+	gpio-line-names = "", "", "", "", "", "", "", "", "GPIO0_8",
-+			  "GPIO0_9", "GPIO0_10", "GPIO0_11", "", "", "",
-+			  "", "GPIO0_16", "GPIO0_17";
-+};
-+
-+&gpio2 {
-+	gpio-line-names = "GPIO2_0", "GPIO2_1", "", "", "", "", "", "",
-+			  "", "", "", "GPIO2_11", "GPIO2_12", "",
-+			  "GPIO2_14", "GPIO2_15", "GPIO2_16", "GPIO2_17",
-+			  "", "", "", "", "GPIO2_22", "GPIO2_23",
-+			  "GPIO2_24", "GPIO2_25", "", "", "", "", "",
-+			  "GPIO2_31";
-+};
-+
-+&gpio3 {
-+	gpio-line-names = "GPIO3_0", "GPIO3_1", "GPIO3_2", "GPIO3_3";
-+};
-+
-+&mdio0 {
-+	phy0: ethernet-phy@1 {
-+		reg = <1>;
-+	};
-+};
-+
-+&osc {
-+	clock-frequency = <24000000>;
-+};
-+
-+&osc_32k {
-+	clock-frequency = <32768>;
-+};
-+
-+&padctrl0_apsys {
-+	fan_pins: fan-0 {
-+		pwm2-pins {
-+			pins = "QSPI0_CSN1";
-+			function = "pwm";
-+			bias-disable;
-+			drive-strength = <25>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	gmac0_pins: gmac0-0 {
-+		tx-pins {
-+			pins = "GMAC0_TX_CLK",
-+			       "GMAC0_TXEN",
-+			       "GMAC0_TXD0",
-+			       "GMAC0_TXD1",
-+			       "GMAC0_TXD2",
-+			       "GMAC0_TXD3";
-+			function = "gmac0";
-+			bias-disable;
-+			drive-strength = <25>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		rx-pins {
-+			pins = "GMAC0_RX_CLK",
-+			       "GMAC0_RXDV",
-+			       "GMAC0_RXD0",
-+			       "GMAC0_RXD1",
-+			       "GMAC0_RXD2",
-+			       "GMAC0_RXD3";
-+			function = "gmac0";
-+			bias-disable;
-+			drive-strength = <1>;
-+			input-enable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	mdio0_pins: mdio0-0 {
-+		mdc-pins {
-+			pins = "GMAC0_MDC";
-+			function = "gmac0";
-+			bias-disable;
-+			drive-strength = <13>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		mdio-pins {
-+			pins = "GMAC0_MDIO";
-+			function = "gmac0";
-+			bias-disable;
-+			drive-strength = <13>;
-+			input-enable;
-+			input-schmitt-enable;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	sdio0_pins: sdio0-0 {
-+		detn-pins {
-+			pins = "SDIO0_DETN";
-+			function = "sdio";
-+			bias-disable; /* external pull-up */
-+			drive-strength = <1>;
-+			input-enable;
-+			input-schmitt-enable;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	uart0_pins: uart0-0 {
-+		tx-pins {
-+			pins = "UART0_TXD";
-+			function = "uart";
-+			bias-disable;
-+			drive-strength = <3>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		rx-pins {
-+			pins = "UART0_RXD";
-+			function = "uart";
-+			bias-disable;
-+			drive-strength = <1>;
-+			input-enable;
-+			input-schmitt-enable;
-+			slew-rate = <0>;
-+		};
-+	};
-+};
-+
-+&sdio0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sdio0_pins>;
-+	bus-width = <4>;
-+	max-frequency = <50000000>;
-+	cap-sd-highspeed;
-+	no-1-8-v;
-+	disable-wp;
-+	no-sdio;
-+
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_pins>;
-+
-+	status = "okay";
-+};
+diff --git a/Documentation/devicetree/bindings/riscv/thead.yaml b/Documentation/devicetree/bindings/riscv/thead.yaml
+index 301912dcd290e60f816d380152591106de9415b4..5361021b8dcc9897803a5915665c6bb83309fe53 100644
+--- a/Documentation/devicetree/bindings/riscv/thead.yaml
++++ b/Documentation/devicetree/bindings/riscv/thead.yaml
+@@ -21,6 +21,10 @@ properties:
+         items:
+           - const: beagle,beaglev-ahead
+           - const: thead,th1520
++      - description: Milk-V Meles single board computer
++        items:
++          - const: milkv,meles
++          - const: thead,th1520
+       - description: Sipeed Lichee Pi 4A board for the Sipeed Lichee Module 4A
+         items:
+           - enum:
 
 -- 
 2.47.3
