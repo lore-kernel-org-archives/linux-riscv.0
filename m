@@ -4,105 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C65BCCA5FC5
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 15:21:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA1B0CA5FC5
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 15:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Cc:
+	Subject:From:To:Message-Id:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sizi22Y348asHHFoWf5vyPP+AXLuJNhNK6moMK8iy3E=; b=O7Ef2+N2VqoF9c
-	b6Mill9cKWQCFGitpWo6FQ9upjyy0p2O2yfw+qg69vGaWIMjnT3y3O60Qhi0bwVqwkql3u1+0B6JL
-	i+9IE7/rvAPc+vH+t9rNqZQmjrMiSZetVlFhLQfepSGiqNwEMacnG5SQ0hFyniZ/tUgChqEYLSgUh
-	VN5oQzKnaP2m51hQpLnG8i0ygP6SVguNWTNJHq9McYittyLN34g5QojNSdDdGpMslNBbauq6STx6c
-	S9MIX3d1z9WqUBHU08kBW/AufxSqjDO1wTH2ZtRZe5E8vuFiusmaNgH9/mL7BBxgCxHYfzOeuxUSF
-	35TW4NNTgYdVrSUcSzTw==;
+	List-Owner; bh=yRI9hWwwCtOSkJ2IhhVVryY4fpM2cHqYL7HMzqS6XGw=; b=k1NQhEWtNdm0md
+	o7DdzSkTvle+h8csr+PVKbUYrH5hyyzQjFcaV5pmfCjb35DKJ+hhJ6MHqM+SL5SyO7DFudF6tDyFH
+	gv8OIRAwjI9jn73qFP59EMTpe521WvjU/KWdClu8u15H5Not8aoMoJdtrKvLdWbty7z6EQcrqUuNv
+	HPwrzLhxEX+CqKU+gNjfENLYXiMJzJvI+IhGadYb9OHanLvMxj4Bj4twP98VRV0Ziaeauazq6LEOC
+	W0iZo4Dw5tFLZOvXeJO1RAStxJJR8iA82+JJ0l8+m/VrgBlRuKX1eAQIuJWh9SlR+kipFYvdBeNzC
+	EYHSjsje7d3Hcslfu5IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBw7j-00000006Td9-04hI;
-	Wed, 30 Sep 2026 15:21:35 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xBw9k-00000006Trx-1MQE;
+	Wed, 30 Sep 2026 15:23:40 +0000
+Received: from mail-westus3azon11011003.outbound.protection.outlook.com ([40.107.208.3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBw7f-00000006Tce-3aZr
-	for linux-riscv@lists.infradead.org;
-	Wed, 30 Sep 2026 15:21:33 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68UDxuB63668587;
-	Wed, 30 Sep 2026 15:21:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=KoebPdZumrJ
-	+t+P7VrpyqkLGk5RloNTpjCXrgw76pzs=; b=HSwJjS3urkpSo94w4FSoKMpz4dW
-	GCIAlTV6t54Cpma083bxZe1qCb6yViSEIAaiKS3l7xtN8bPO2G8k1UXudEnNMy7O
-	Uu8lDx2YpjO/ND3BJ8RRZLSl5KbrDYLT/72UgmV7lfLqkYExkv4uSfvI/+FnAMMP
-	HBWATaABBjqwW+hWI2UCpS5Z7MYCZHyNjnR7zvfK5NEDkrwzEPacT5U0W/wKsSJe
-	8EWBS1SYPgrIeAgUw8I/pTgPCilwlRJ5W75GcpQkAduqQZ6QlarTRto2VbmV2jgW
-	QH/2vgs1YJ2bCGUfgBZ48sQdogLRgb2bo54oqn/dAc8XinsVfrGj5feMyYg==
-Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h0rj2uj1b-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 30 Sep 2026 15:21:22 +0000 (GMT)
-Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 68UF2KYH1902864;
-	Wed, 30 Sep 2026 15:02:20 GMT
-Received: from hu-devc-blr-u24-a.qualcomm.com (hu-anuppate-blr.qualcomm.com [10.131.36.165])
-	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 68UF2Jp91902836
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 30 Sep 2026 15:02:19 +0000 (GMT)
-Received: by hu-devc-blr-u24-a.qualcomm.com (Postfix, from userid 486687)
-	id 494B323334; Wed, 30 Sep 2026 20:32:19 +0530 (+0530)
-From: Anup Patel <anup.patel@oss.qualcomm.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-        Rahul Pathak <rahul@summations.net>, Stephen Boyd <sboyd@kernel.org>,
-        Brian Masney <bmasney+clk@redhat.com>,
-        Jerome Brunet <jbrunet+clk@baylibre.com>,
-        Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
-        Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Himanshu Chauhan <hchauhan@ventanamicro.com>,
-        Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>,
-        Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>,
-        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-clk@vger.kernel.org, Anup Patel <anup.patel@oss.qualcomm.com>
-Subject: [PATCH 2/4] RISC-V: Factor-out per-hart MPXY shared-memory acquisition
-Date: Wed, 30 Sep 2026 20:32:11 +0530
-Message-ID: <20260930150213.799245-3-anup.patel@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260930150213.799245-1-anup.patel@oss.qualcomm.com>
-References: <20260930150213.799245-1-anup.patel@oss.qualcomm.com>
+	id 1xBNKR-000000026px-1EG7;
+	Tue, 29 Sep 2026 02:12:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=leeJ8nG6kj+Isq6S32I/3jiDio4VD8pSbkms/J2QD/IoX8aLjHdso07oB/5c35shMYDpTwrel4o7mU4I1FWDN1AFAmeR/3R/NWNSVOl8pcMqS6kOgC5pT9tYA8/Ofn+tXn7rhqOudPS9JUhFuMNxboeOVhrACy5P6LkekpgZv3i5dw80SaSNAGPAMLPxZtg2+iT2IQxUpebjAPr9T0CIrXgCYf8Dqe0eh0+kNpenBcJ9k3zaXNia9AT/8Ieewx7u1VGQb19YkesBEYCMdnAf9p6qVUTkQHMWowi+2t9pL8nWE5ZUz5brT9TpM4o4VOzL/uCBGqII4umw7zkax/LubA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Rvbe69xBIpzGsOrw6VbYQRORSyH1zSp/rLtFmlWZcCQ=;
+ b=BrZGvAynJ4ponUIVOC/cXDvrF1+Etamv2w8qVqOlmhTL8aiE49f6Fr+pOZGCxpsZ8U5TWZJeYCRTF0JCQRuPP55AJVZuwoRVfyelTWQbndJxpUDeg27fFcjsLvOWUBI2Lppn2TBIn+kkt+PdquLDl+M2IX9quoD3CNvn6dG+bzbCQcY8jNjTrlvky7Kvf2JnQ3oXOrvRgEnO3TC7qBz+Li/Di6Uy5qjKJrHOPmtgB+xJpTRvLbcJxCi2zqCf+Oif/79m+P6CKx8IGZcMsnRlxfrvt6nscsBQs4/yY6DxAyUtoYbi9lMgkjHr5wnZKQfQr9weeVUnEx3FaP0LAf7nfw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Rvbe69xBIpzGsOrw6VbYQRORSyH1zSp/rLtFmlWZcCQ=;
+ b=nbSi06XgCR12RiFIHX53tm05VV6tvR8/+VLSfACKpV0nx74Nc/5S3tSezV1wqhbi0cq7fG5akeV+5ugVQEXZx8Ie72mN77tyNZKtIUXyfDpSyG/LqGOli/zt8QYC6byGtv4stGz12SOqQoiRkvlmC5mA4TMRiAQjpdyH1OJDE8LjQT4riv3BdU3C10yuHgc7649NY12R+CP4T1Tx1zYNsnEdcUpL0LVGqJ3HBYH4wwX1QmohJ86A9KA7M9mf/oIfEsTLcjSvbAqkkynzOcQySH2+tGANArdLXGiXQ1vmHAEC4/c4SlOl4OsmwIK78JCfEw4GrAkf2wlBAgXZBE6c6Q==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from IA0PR12MB8374.namprd12.prod.outlook.com (2603:10b6:208:40e::7)
+ by SA1PR12MB8161.namprd12.prod.outlook.com (2603:10b6:806:330::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Tue, 29 Sep
+ 2026 02:12:09 +0000
+Received: from IA0PR12MB8374.namprd12.prod.outlook.com
+ ([fe80::d85f:4c87:ae84:3f16]) by IA0PR12MB8374.namprd12.prod.outlook.com
+ ([fe80::d85f:4c87:ae84:3f16%6]) with mapi id 15.21.0451.022; Tue, 29 Sep 2026
+ 02:12:09 +0000
+Date: Mon, 28 Sep 2026 22:12:02 -0400
+Message-Id: <DLRFPN5JH235.34HHA5QDQGSBT@nvidia.com>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, "Andrew Morton" <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, "Vlastimil Babka" <vbabka@kernel.org>, "Jann Horn" <jannh@google.com>, "Pedro Falcato" <pfalcato@suse.de>, "David Hildenbrand" <david@kernel.org>, "Mike Rapoport" <rppt@kernel.org>, "Suren Baghdasaryan" <surenb@google.com>, "Michal Hocko" <mhocko@suse.com>, "Jonathan Corbet" <corbet@lwn.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, "Dennis Dalessandro" <dennis.dalessandro@cornelisnetworks.com>, "Jason Gunthorpe" <jgg@ziepe.ca>, "Leon Romanovsky" <leon@kernel.org>, "Paul Moore" <paul@paul-moore.com>, "Stephen Smalley" <stephen.smalley.work@gmail.com>, "Jaroslav Kysela" <perex@perex.cz>, "Takashi Iwai" <tiwai@suse.com>, "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko" <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, "Baolin Wang" <baolin.wang@linux.alibaba.com>, "Nico Pache" <nico.pache@linux.dev>, "Ryan Roberts" <ryan.roberts@arm.com>, "Dev Jain" <dev.jain@arm.com>, "Barry Song" <baohua@kernel.org>, "Lance Yang" <lance.yang@linux.dev>, "Usama Arif" <usama.arif@linux.dev>, "Kiryl Shutsemau" <kas@kernel.org>, "Doug Gilbert" <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, "Jaya Kumar" <jayalk@intworks.biz>, "Simona Vetter" <simona@ffwll.ch>, "Helge Deller" <deller@gmx.de>, "Sebastian Reichel" <sre@kernel.org>, "John Hubbard" <jhubbard@nvidia.com>, "Peter Xu" <peterx@redhat.com>, "Masami Hiramatsu" <mhiramat@kernel.org>, "Oleg Nesterov" <oleg@redhat.com>, "Peter Zijlstra" <peterz@infradead.org>, "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, "Dave Hansen" <dave.hansen@linux.intel.com>, <x86@kernel.org>, "Arnaldo Carvalho de Melo" <acme@kernel.org>, "Namhyung Kim" <namhyung@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>, "Rik van Riel" <riel@surriel.com>, "Harry Yoo" <harry@kernel.org>, "Juri Lelli" <juri.lelli@redhat.com>, "Vincent Guittot" <vincent.guittot@linaro.org>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>, "Will Deacon" <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, "Nick Piggin" <npiggin@gmail.com>, "Arnd Bergmann" <arnd@arndb.de>, "Muchun Song" <muchun.song@linux.dev>, "Oscar Salvador" <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, "Jan Kara" <jack@suse.cz>, "Marc Zyngier" <maz@kernel.org>, "Oliver Upton" <oupton@kernel.org>, "Catalin Marinas" <catalin.marinas@arm.com>, "Madhavan Srinivasan" <maddy@linux.ibm.com>, "Anup Patel" <anup@brainfault.org>, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Christian Borntraeger" <borntraeger@linux.ibm.com>, "Janosch Frank" <frankja@linux.ibm.com>, "Claudio Imbrenda" <imbrenda@linux.ibm.com>, "Alexander Gordeev" <agordeev@linux.ibm.com>, "Gerald Schaefer" <gerald.schaefer@linux.ibm.com>, "Heiko Carstens" <hca@linux.ibm.com>, "Vasily Gorbik" <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, "Andreas Larsson" <andreas@gaisler.com>, "Alexander Viro" <viro@zeniv.linux.org.uk>, "Christian Brauner" <brauner@kernel.org>, "Matthew Brost" <matthew.brost@intel.com>, "Joshua Hahn" <joshua.hahnjy@gmail.com>, "Rakie Kim" <rakie.kim@sk.com>, "Byungchul Park" <byungchul@sk.com>, "Gregory Price" <gourry@gourry.net>, "Ying Huang" <ying.huang@linux.alibaba.com>, "Alistair Popple" <apopple@nvidia.com>, "Chris Li" <chrisl@kernel.org>, "Kairui Song" <kasong@tencent.com>, "Kemeng Shi" <shikemeng@huaweicloud.com>, "Nhat Pham" <nphamcs@gmail.com>, "Baoquan He" <baoquan.he@linux.dev>, "Youngjun Park" <youngjun.park@lge.com>, "Johannes Weiner" <hannes@cmpxchg.org>, "Qi Zheng" <qi.zheng@linux.dev>, "Shakeel Butt" <shakeel.butt@linux.dev>, "Axel Rasmussen"
+ <axelrasmussen@google.com>, "Yuanchu Xie" <yuanchu@google.com>, "Wei Xu" <weixugc@google.com>, "Chengming Zhou" <chengming.zhou@linux.dev>, "Michal Hocko" <mhocko@kernel.org>, "Miklos Szeredi" <miklos@szeredi.hu>, "Xu Xin" <xu.xin@linux.dev>
+From: "Zi Yan" <ziy@nvidia.com>
+Subject: Re: [PATCH v3 25/40] mm/vma: enforce that only kernel-owned
+ mappings may set VMA_IO_BIT
+Cc: <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>,
+ <linux-doc@vger.kernel.org>, <linux-usb@vger.kernel.org>,
+ <linux-rdma@vger.kernel.org>, <selinux@vger.kernel.org>,
+ <linux-sound@vger.kernel.org>, <bpf@vger.kernel.org>,
+ <linux-scsi@vger.kernel.org>, <linux-fbdev@vger.kernel.org>,
+ <dri-devel@lists.freedesktop.org>, <linux-trace-kernel@vger.kernel.org>,
+ <linux-perf-users@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+ <linux-fsdevel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <kvmarm@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
+ <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+ <linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
+ <sparclinux@vger.kernel.org>, <fuse-devel@lists.linux.dev>
+X-Mailer: aerc 0.22.0
+References: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-0-4583d8a23bca@kernel.org> <20260917-b4-mmap-prepare-vma-flag-sanify-v3-25-4583d8a23bca@kernel.org>
+In-Reply-To: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-25-4583d8a23bca@kernel.org>
+X-ClientProxiedBy: YQBPR0101CA0340.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:6b::17) To IA0PR12MB8374.namprd12.prod.outlook.com
+ (2603:10b6:208:40e::7)
 MIME-Version: 1.0
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: 9W7OtKleHLC8GrBnER8Pc5XweUARe7Ul
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2MSBTYWx0ZWRfXxepiJYH9Ujwo
- ISTOKrdYtAWT6XL+uBdXLGZPEqV0OGtRIPUCjjPGqIFppqQbqzwGWN3oJ3oFPqzqqHZOFDROgIb
- 3Dlouc/LZUdfoxPzCjwBdIzC07MjvAgCyDkjwUY09f3xprKsmDrIbsMMEHKvUsh6Tc/lzcBLZI4
- W5YhFPh4TeGpWbaihZK6vymac8l4mgfsdHd4s9e6Q1JxsNGRq/Bes2mXwN2i4HCNut6gmgwt/7h
- jw1jZpf0rCXV8KcdDmUXir35u8hOw2XJZtUsm6xZS1ib6RAwmzkMSJuqKxPpB8JkQ7TYcYABB4U
- Zula48K3vNipi/dxoD6LdS3OctLOkuxGVGU7z2jUvuDFEHej3oO6COu8eRNBK6QCDRzxgt0lZw4
- Wfs6pis0N3pAfaG+l2ZwYyDCCEpGo/JNYfjF8bSTDdTINnndrsfapWWJFfeV76YUaZ+VMJr1Q6K
- NOr+1PzLnTExhE0NU8Q==
-X-Proofpoint-GUID: uv-uKGRPoWwmIh4zDb9dt9ZRppQAT4HO
-X-Authority-Analysis: v=2.4 cv=Ypya1IYX c=1 sm=1 tr=0 ts=6abd28f3 cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8 a=cr3hh7Z65q3g749AKskA:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2MSBTYWx0ZWRfXyVADw42t/u8W
- s1DA3HolzvcODahl4zqmLxRy8PWrZUUILKEExxIhAt48OK7gmtnpTx/DCgXGTu0buR3Z1VrXb14
- kre79ljlID7tLEw+SVb8ECLo8O1QZjw=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-30_03,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 lowpriorityscore=0 priorityscore=1501 malwarescore=0
- adultscore=0 impostorscore=0 spamscore=0 bulkscore=0 phishscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609300061
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA0PR12MB8374:EE_|SA1PR12MB8161:EE_
+X-MS-Office365-Filtering-Correlation-Id: 929b79cd-7fd3-4fe7-b0ea-08df1dcf10e1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|921020|10067099003|4143699003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 55V5jLLqnKa+bap2rTDpyXvJ3MS2KeCN1v66hI6BgDtw24iIHyBtnFcsj40HGTzEsTDv6VVOvLjR+3RKHA13ORaZjm94lG+Mm6zU/Gi5YMuUYQVpJFkYr14j9O2JEahCemsUkSAvCXrpWSlLjvgVYmWUWb2pMyw+ENNOeNu9ib40HzVvAlZ1hnYPKjBOGJmIhdSQahYFF2kBaQUuxI+GQ4Ggj6FQYrR3/VE+qJZJpfwcECIAFB4twVQa+hLHa0Ve0J3DSJT24HEHLYU4q4AkQdTVE/lEl/AIeXhgOUupKjHD9yu256BAbRce7VT6kw5gebvfaLB6PeRavLv8twn1I6OdyXfs2CsChLXJoeTSySz6laOIKou7jk9lJDIHvpn2NJ5j7FFWDYru8bNGIOYxS1D+oJOd1no8EYCKcS4FoVqOMZu8SxD6nI5W5LesieW6vo4Z8G5btadzb3CVLJi4YBw3XHQLNI+VkzVKhIJ3Kfq7hEkvvjn5jzX89cxCQekRNonJwLSUjc/eR/gZhHhBjnF7/pvLR4MhCfy5mos6X7sd77iTwY9mB+IEyGRt4oEGSOqPdlvWFtngelGgsZMcvRpKdOIJw9eZjxzu9+i3vf8mLI9h8wzHVv4jGxA0NzZEI8IofRgVaKEHJFZm2obMyU03kiQn9zErw/yXQeNHOCl8QWdt64j6Ft1G9PwSg+AhwwMh3EGQOYEH+UNFKOBvCw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB8374.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(921020)(10067099003)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZmpGRzdZTUhYUEpidGovM2ltbThTWDBuQlNLbW1uZHRGTXl4Y05XRWxVcDVz?=
+ =?utf-8?B?YXh6OFhPd3JhNTdtSytoMm91Yi9lVlp0NWJueS9wM3RRMW80QURYV29RUWg1?=
+ =?utf-8?B?dnlVRWpVN1pMS2lkZlFOb0U1UGtzeVNkZjFUdFdXcEZTOEVGcWdzcU5zdlpv?=
+ =?utf-8?B?QnJnL0JXQjBDVHVsNWt1SFB6LzZGWjlzRWdXTVYvNC9EVFJBTVlSRE9iQUJh?=
+ =?utf-8?B?b3cvcWV6NTZXT2dOS1VmVUk2NHBHeE5NbGlYdithNC9VUHV4c1FMcnM3MXpX?=
+ =?utf-8?B?cExGellJTFBXOU4xUlpwWkNnSTM1dzU0WkpRTytlNTQydUw2WGtTbHdJSEc4?=
+ =?utf-8?B?M0dudWh6d2JMQUVKWWlZajhGMGhHZU9DWUNYckVUWG1YWDA2TFU0SEliL0RN?=
+ =?utf-8?B?dERYNHEvQVJzWkNma3hSVndMVCtoc3o1MGhWdVNET3F1MGRjQUxPQmdaRmZC?=
+ =?utf-8?B?Nzc5WFhkbVRkcldBdmVvZjF2T2tKVG1iRXdqWGVmdzYxaS80N0U0RWczNkpC?=
+ =?utf-8?B?OWFjamVLOVBsVTNJR0U4V2lWVFRxSDJVSGZFZkhrY3BPTmRKei9YbXFuZ21L?=
+ =?utf-8?B?UGx4R2VkM0sxMnZhd0RsejdGbTEzcUUxdmRyY2J3Ry9DWXc3Q2lVSHozbng3?=
+ =?utf-8?B?c3hQMEJpWWdPdFpqZ3dybUxabmdOK1JQSE5UM0RyOGxRSVBwQzVneXF5UzRi?=
+ =?utf-8?B?bEhJM3NMcjNiK1Evd2Y1eFNVRHQ3WnQ3c2RJNTNPZWwzM1dBTDN0RzZZQU1D?=
+ =?utf-8?B?QWw2SDNwbCtsa010aEd2aVZoYnBXN1BKd3NxeW42WCtLUmFtdnRzVnkwbVlR?=
+ =?utf-8?B?OWxkL1RQNlUrSTBkRTBsZ04zbG9iUy9jYTdqRjVudmg5RDlmWkhwNDRQUFlp?=
+ =?utf-8?B?a2l0ZkFOdStOL1V4OVIzbDRFVFB6TWViQVc3OWRUZDducUlDMTZBZTNMcmVD?=
+ =?utf-8?B?Ry90emRCTHd3NnQxZWFxelZDM2ttY2xrMklDd3M4dXJwV0Y3b2hhd0lnQnlr?=
+ =?utf-8?B?bXlyOWt1NkNJZXc0VjNHLzFFT0NsQ1hwLzgwUzZKQ1VsNkk5eU5rR3F0cWRH?=
+ =?utf-8?B?T3Zkc2Q4ZHh0cWhMbkwvQ3JCc0J0OWtuaTRVa1RFbnFBT1BQckJkS1FGN1ZV?=
+ =?utf-8?B?QzM3Q2JSVzBzUzFJQWNZN3dOSEErZ2Q2dVl3WEk5dnBFRmxTc0RLWHFtNUZa?=
+ =?utf-8?B?V01xWTI0R2hEbnp6d1RiekZGL0wwUzdkVjZ2RFVhTFU1OU5qZ1J2SXZQL05t?=
+ =?utf-8?B?SzZSRzRiWWtDZ3MrL1FEVnVNUE1TZzh4UnV4a2w5R2RiQktjdmhWMEo5Y1Yz?=
+ =?utf-8?B?YXoyYUQxd2J4WUo5Q0d1TUw0YVBDbUxjbEQwbEZpQStPZjVOQmZTakdTdVkw?=
+ =?utf-8?B?elU2ZkZod2JERHpXek94UUJDTFZMVjF1Rnd5bVNTSUJ5bUVQRlpCamtCWkdq?=
+ =?utf-8?B?bVJLbG1JS1BCS1dhQ0hMUTJNc3A5UFliOTkrWmdhMzFjbTh6OXZyMk9sa1p4?=
+ =?utf-8?B?R2pyelhlU1BMZDg2VFN4SW5XbGdrWmQwOWdHV0l1ejBKS0hzK1AvMmJjRW5q?=
+ =?utf-8?B?clh4cjhkb3VNdDA5T3pVNTc4dUFCUEJ2ZzZiSjlhY0pYRmF5Y1RDU1F3OVkw?=
+ =?utf-8?B?VG1SdDdFTFRKU2FFL241cnhWNEFKWnRHdW15OXhaTUp2UjF0TnpiMUt4REdE?=
+ =?utf-8?B?T01ETHRmdHRXcmpBcThpUE9ocFgrK2huT2N6bElBNWc2MkVEL2YvdHR1Z1M0?=
+ =?utf-8?B?UXBkdTc0cVdjWEw4Sld2RHlFUkJnellpaUR5ZGUxNnIwRGJIa0RxY2pGWkFa?=
+ =?utf-8?B?aGphNUFOL3c5dG1Lb0w5Y29DampLbGNIbHg4OThUY2NCRG1FTHdxaFg2OG0w?=
+ =?utf-8?B?MkoyanMyY3BTVUl6dUZmcjF0MmZLNFZNSGpKY0w0NGtsVWYwOWJZbk9Xb2sy?=
+ =?utf-8?B?NTE1Z2ZWZDZjMFVFdnZ5VUJmVmRyV1JDN1ErZFBwZ1E2VlJGQUYrck1WRzRa?=
+ =?utf-8?B?aVROVjZRMW5mb1lWY1lZSlh3aVVzeEpWNmp3NGw2RG5oczIrS1YrUTlIYXNX?=
+ =?utf-8?B?Zk9XRWt2VFVYc211ZVR4dUwzendWSkg3WWRKYkljWk5pUFNTcGxFMDd6UXE1?=
+ =?utf-8?B?WmNHcVJlR1ZSYmRNWHFHdzVyeGJGQ1pRVVQyanhJUmpvUjRNb2dId1k3TDAr?=
+ =?utf-8?B?T29MU2QrYTEyMWhudFFBN2FGQTd2ekZDMnJ4c2pubzBOdk9kcTBxSVFRSnJi?=
+ =?utf-8?B?K3Y2QWJVRVZ4YmZHbGhFazFSdDdadkp2cEUyMmVQRUdMdzNVaENVd2hFUmxC?=
+ =?utf-8?Q?nxE//RYebAqK4lZhk9?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 929b79cd-7fd3-4fe7-b0ea-08df1dcf10e1
+X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB8374.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 02:12:09.0376
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: iGPiS2Ywd+V6AhZ66j60qQ5UQnjbvbizvRjnGHh57Z10grwgY/ZHiviWZgnay2r+
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8161
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_082132_272606_4947D796 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20260928_191223_341882_979629D6 
+X-CRM114-Status: GOOD (  16.38  )
+X-Mailman-Approved-At: Wed, 30 Sep 2026 08:23:38 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,337 +157,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
+On Thu Sep 17, 2026 at 12:22 PM EDT, Lorenzo Stoakes (ARM) wrote:
+> It makes no sense for a mapping whose contents the kernel does not own to
+> specify that the range is MMIO.
+>
+> Prior to this patch, all in-tree drivers which did so have been updated
+> such that they are marked as kernel-owned. The check WARNs and fails the
+> mmap for any out-of-tree driver that still sets VMA_IO_BIT without a kernel
+> mapping.
+>
+> No functional change intended for in-tree code.
+>
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> ---
+>  mm/vma.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/mm/vma.c b/mm/vma.c
+> index 1db8b218fe64..56a0cd154419 100644
+> --- a/mm/vma.c
+> +++ b/mm/vma.c
+> @@ -2787,6 +2787,12 @@ static int mmap_validate_vma_flags(const vma_flags_t *flags)
+>  		return -EINVAL;
+>  #endif
+>  
+> +	if (!vma_flags_test_any(flags, VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT)) {
 
-Most of the SBI MPXY functions need to access MPXY shared-memory so
-they have to acquire underlying host CPU before accessing the MPXY
-shared-memory and release the host CPU after the work is done.
+I thought why not just using vma_flags_is_kernel_owned(), then realize
+that function is still checking VMA_IO_BIT. And you convert it in the
+next patch.
 
-Factor-out the above mentioned per-hart MPXY shared-memory and host
-CPU acquisition into mpxy_local_get()/put() functions.
+LGTM.
 
-Signed-off-by: Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
-Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
----
- arch/riscv/kernel/sbi_mpxy.c | 159 ++++++++++++++++++++++-------------
- 1 file changed, 100 insertions(+), 59 deletions(-)
+Reviewed-by: Zi Yan <ziy@nvidia.com>
 
-diff --git a/arch/riscv/kernel/sbi_mpxy.c b/arch/riscv/kernel/sbi_mpxy.c
-index 17a2cee21311..b2b34991fd42 100644
---- a/arch/riscv/kernel/sbi_mpxy.c
-+++ b/arch/riscv/kernel/sbi_mpxy.c
-@@ -40,6 +40,26 @@ static DEFINE_PER_CPU(struct mpxy_local, mpxy_local);
- static unsigned long mpxy_shmem_size;
- static bool mpxy_shmem_init_done;
- 
-+static int mpxy_local_get(struct mpxy_local **out)
-+{
-+	struct mpxy_local *mpxy;
-+
-+	get_cpu();
-+	mpxy = this_cpu_ptr(&mpxy_local);
-+	if (!mpxy->shmem_active) {
-+		put_cpu();
-+		return -ENODEV;
-+	}
-+
-+	*out = mpxy;
-+	return 0;
-+}
-+
-+static void mpxy_local_put(void)
-+{
-+	put_cpu();
-+}
-+
- unsigned long sbi_mpxy_shmem_size(void)
- {
- 	if (!mpxy_shmem_init_done)
-@@ -50,53 +70,61 @@ EXPORT_SYMBOL_GPL(sbi_mpxy_shmem_size);
- 
- int sbi_mpxy_get_channel_count(u32 *channel_count)
- {
--	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
--	struct sbi_mpxy_channel_ids_data *sdata = mpxy->shmem;
-+	struct sbi_mpxy_channel_ids_data *sdata;
-+	struct mpxy_local *mpxy;
- 	u32 remaining, returned;
- 	struct sbiret sret;
-+	int rc = 0;
- 
--	if (!mpxy->shmem_active)
--		return -ENODEV;
- 	if (!channel_count)
- 		return -EINVAL;
- 
--	get_cpu();
-+	rc = mpxy_local_get(&mpxy);
-+	if (rc)
-+		return rc;
-+	sdata = mpxy->shmem;
- 
- 	/* Get the remaining and returned fields to calculate total */
- 	sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_GET_CHANNEL_IDS,
- 			 0, 0, 0, 0, 0, 0);
--	if (sret.error)
--		goto err_put_cpu;
-+	if (sret.error) {
-+		rc = sbi_err_map_linux_errno(sret.error);
-+		goto out;
-+	}
- 
- 	remaining = le32_to_cpu(sdata->remaining);
- 	returned = le32_to_cpu(sdata->returned);
- 	*channel_count = remaining + returned;
- 
--err_put_cpu:
--	put_cpu();
--	return sbi_err_map_linux_errno(sret.error);
-+out:
-+	mpxy_local_put();
-+	return rc;
- }
- EXPORT_SYMBOL_GPL(sbi_mpxy_get_channel_count);
- 
- int sbi_mpxy_get_channel_ids(u32 channel_count, u32 *channel_ids)
- {
--	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
--	struct sbi_mpxy_channel_ids_data *sdata = mpxy->shmem;
- 	u32 remaining, returned, count, start_index = 0;
-+	struct sbi_mpxy_channel_ids_data *sdata;
-+	struct mpxy_local *mpxy;
- 	struct sbiret sret;
-+	int rc = 0;
- 
--	if (!mpxy->shmem_active)
--		return -ENODEV;
- 	if (!channel_count || !channel_ids)
- 		return -EINVAL;
- 
--	get_cpu();
-+	rc = mpxy_local_get(&mpxy);
-+	if (rc)
-+		return rc;
-+	sdata = mpxy->shmem;
- 
- 	do {
- 		sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_GET_CHANNEL_IDS,
- 				 start_index, 0, 0, 0, 0, 0);
--		if (sret.error)
--			goto err_put_cpu;
-+		if (sret.error) {
-+			rc = sbi_err_map_linux_errno(sret.error);
-+			goto out;
-+		}
- 
- 		remaining = le32_to_cpu(sdata->remaining);
- 		returned = le32_to_cpu(sdata->returned);
-@@ -107,56 +135,60 @@ int sbi_mpxy_get_channel_ids(u32 channel_count, u32 *channel_ids)
- 		start_index += count;
- 	} while (remaining && start_index < channel_count);
- 
--err_put_cpu:
--	put_cpu();
--	return sbi_err_map_linux_errno(sret.error);
-+out:
-+	mpxy_local_put();
-+	return rc;
- }
- EXPORT_SYMBOL_GPL(sbi_mpxy_get_channel_ids);
- 
- int sbi_mpxy_read_attrs(u32 channel_id, u32 base_attrid, u32 attr_count,
- 			u32 *attrs_buf)
- {
--	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
-+	struct mpxy_local *mpxy;
- 	struct sbiret sret;
-+	int rc = 0;
- 
--	if (!mpxy->shmem_active)
--		return -ENODEV;
- 	if (!attr_count || !attrs_buf)
- 		return -EINVAL;
- 
--	get_cpu();
-+	rc = mpxy_local_get(&mpxy);
-+	if (rc)
-+		return rc;
- 
- 	sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_READ_ATTRS,
- 			 channel_id, base_attrid, attr_count, 0, 0, 0);
--	if (sret.error)
--		goto err_put_cpu;
-+	if (sret.error) {
-+		rc = sbi_err_map_linux_errno(sret.error);
-+		goto out;
-+	}
- 
- 	memcpy_from_le32(attrs_buf, (__le32 *)mpxy->shmem, attr_count);
- 
--err_put_cpu:
--	put_cpu();
--	return sbi_err_map_linux_errno(sret.error);
-+out:
-+	mpxy_local_put();
-+	return rc;
- }
- EXPORT_SYMBOL_GPL(sbi_mpxy_read_attrs);
- 
- int sbi_mpxy_write_attrs(u32 channel_id, u32 base_attrid, u32 attr_count,
- 			 u32 *attrs_buf)
- {
--	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
-+	struct mpxy_local *mpxy;
- 	struct sbiret sret;
-+	int rc = 0;
- 
--	if (!mpxy->shmem_active)
--		return -ENODEV;
- 	if (!attr_count || !attrs_buf)
- 		return -EINVAL;
- 
--	get_cpu();
-+	rc = mpxy_local_get(&mpxy);
-+	if (rc)
-+		return rc;
- 
- 	memcpy_to_le32((__le32 *)mpxy->shmem, attrs_buf, attr_count);
- 	sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_WRITE_ATTRS,
- 			 channel_id, base_attrid, attr_count, 0, 0, 0);
- 
--	put_cpu();
-+	mpxy_local_put();
- 	return sbi_err_map_linux_errno(sret.error);
- }
- EXPORT_SYMBOL_GPL(sbi_mpxy_write_attrs);
-@@ -166,16 +198,17 @@ int sbi_mpxy_send_message_with_resp(u32 channel_id, u32 msg_id,
- 				    void *rx, unsigned long max_rx_len,
- 				    unsigned long *rx_len)
- {
--	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
-+	struct mpxy_local *mpxy;
- 	unsigned long rx_bytes;
- 	struct sbiret sret;
-+	int rc = 0;
- 
--	if (!mpxy->shmem_active)
--		return -ENODEV;
- 	if (!tx && tx_len)
- 		return -EINVAL;
- 
--	get_cpu();
-+	rc = mpxy_local_get(&mpxy);
-+	if (rc)
-+		return rc;
- 
- 	/* Message protocols allowed to have no data in messages */
- 	if (tx_len)
-@@ -186,8 +219,8 @@ int sbi_mpxy_send_message_with_resp(u32 channel_id, u32 msg_id,
- 	if (rx && !sret.error) {
- 		rx_bytes = sret.value;
- 		if (rx_bytes > max_rx_len) {
--			put_cpu();
--			return -ENOSPC;
-+			rc = -ENOSPC;
-+			goto out;
- 		}
- 
- 		memcpy(rx, mpxy->shmem, rx_bytes);
-@@ -195,23 +228,26 @@ int sbi_mpxy_send_message_with_resp(u32 channel_id, u32 msg_id,
- 			*rx_len = rx_bytes;
- 	}
- 
--	put_cpu();
--	return sbi_err_map_linux_errno(sret.error);
-+	rc = sbi_err_map_linux_errno(sret.error);
-+out:
-+	mpxy_local_put();
-+	return rc;
- }
- EXPORT_SYMBOL_GPL(sbi_mpxy_send_message_with_resp);
- 
- int sbi_mpxy_send_message_without_resp(u32 channel_id, u32 msg_id,
- 				       void *tx, unsigned long tx_len)
- {
--	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
-+	struct mpxy_local *mpxy;
- 	struct sbiret sret;
-+	int rc = 0;
- 
--	if (!mpxy->shmem_active)
--		return -ENODEV;
- 	if (!tx && tx_len)
- 		return -EINVAL;
- 
--	get_cpu();
-+	rc = mpxy_local_get(&mpxy);
-+	if (rc)
-+		return rc;
- 
- 	/* Message protocols allowed to have no data in messages */
- 	if (tx_len)
-@@ -220,8 +256,9 @@ int sbi_mpxy_send_message_without_resp(u32 channel_id, u32 msg_id,
- 	sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_SEND_MSG_WITHOUT_RESP,
- 			 channel_id, msg_id, tx_len, 0, 0, 0);
- 
--	put_cpu();
--	return sbi_err_map_linux_errno(sret.error);
-+	rc = sbi_err_map_linux_errno(sret.error);
-+	mpxy_local_put();
-+	return rc;
- }
- EXPORT_SYMBOL_GPL(sbi_mpxy_send_message_without_resp);
- 
-@@ -229,32 +266,36 @@ int sbi_mpxy_get_notifications(u32 channel_id,
- 			       struct sbi_mpxy_notification_data *notif_data,
- 			       unsigned long *events_data_len)
- {
--	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
-+	struct mpxy_local *mpxy;
- 	struct sbiret sret;
-+	int rc = 0;
- 
--	if (!mpxy->shmem_active)
--		return -ENODEV;
- 	if (!notif_data || !events_data_len)
- 		return -EINVAL;
- 
--	get_cpu();
-+	rc = mpxy_local_get(&mpxy);
-+	if (rc)
-+		return rc;
- 
- 	sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_GET_NOTIFICATION_EVENTS,
- 			 channel_id, 0, 0, 0, 0, 0);
--	if (sret.error)
--		goto err_put_cpu;
-+	if (sret.error) {
-+		rc = sbi_err_map_linux_errno(sret.error);
-+		goto out;
-+	}
- 	if (sret.value < 0 || mpxy_shmem_size < sizeof(*notif_data) ||
- 	    sret.value > mpxy_shmem_size - sizeof(*notif_data)) {
--		put_cpu();
--		return -EOVERFLOW;
-+		rc = -EOVERFLOW;
-+		goto out;
- 	}
- 
- 	memcpy(notif_data, mpxy->shmem, sret.value + sizeof(*notif_data));
- 	*events_data_len = sret.value;
- 
--err_put_cpu:
--	put_cpu();
--	return sbi_err_map_linux_errno(sret.error);
-+	rc = sbi_err_map_linux_errno(sret.error);
-+out:
-+	mpxy_local_put();
-+	return rc;
- }
- EXPORT_SYMBOL_GPL(sbi_mpxy_get_notifications);
- 
+
+
 -- 
-2.43.0
+Best Regards,
+Yan, Zi
 
 
 _______________________________________________
