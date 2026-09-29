@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA46ECA5FA7
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 22:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D55FBCA5FA5
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 23:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ccPG5u3qKflRx0/bJGZc1KE1fw0Irf8lQEvjvoUu2gE=; b=ABAD5C4lzfKb8B
-	ybK3QzqWRur3KGqi4sQQzguIRy5OZvlHJR+PTw6SRgiZ1gE7WSKOM/n43ku/1kSR6bnNfdWuF4Zfg
-	fwjRiQKI+ibjNUa9enFSfGtHgjg0Td6vvOoUjns+ZPhew4tkzGsSrmZ5s5HzU9htTUNSd2uvT/FgV
-	V1QwMecgR38vMIIh4oSryiA0pE3ux5Xm90Exy4JGquy+CXmBhZky6/fodtx7oZ2XDwuF0qDJqVWeo
-	Vp8v2CbohxOgWeIdzrnf6qX9cCqyHoxokpflbMIwPCoXOAkgGbNzI5adQM38Di+8Ld9/9drZnqwPF
-	zN/0fnGxJdBiq70DpCdg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
+	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qBAYRGXoldPiHAcdu4pmK++dwJUpVSiQTL2PktR9Xjs=; b=3DKX/JpZMkuVgu
+	twTnPXnBecoaK8I3gp4LQqOLwEw3AfG2DvofW+C8XERUfvvUAWui9wYMbWk6bA2ChHWVVeSwA1X2J
+	SLrgjeLiqMCN13tPXid3CKR8p6Us9BrcBTrZQzIRzegCg62KmUx2PfUKL+ZJU/ncdDsCmsv3M4eLv
+	37l6JV1pfAYGO9KSDsaMuWOaKBKx1J5fEi7YLm1/OJYRcFTzoUXhPogAmDtF1NO39F+S5xeuZ07BR
+	rZmiOjWSgDPYfs7bIhoXhdGndIuGq9cilrRAIif0cyxG3LuEJ7pxb9pRA8cL0WaM3Knv4u7Zky+77
+	3fdE01t+ouUSadJ4y0ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBgUB-00000004ioR-1NeS;
-	Tue, 29 Sep 2026 22:39:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBhcb-00000004mej-1h92;
+	Tue, 29 Sep 2026 23:52:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBgUA-00000004ioG-2WH9
+	id 1xBhca-00000004mea-2AOH
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 29 Sep 2026 23:52:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
+	Subject:To:From:Date:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=9Oklwia5HgEZOvXxS1ulCHmSLw8O5GR4I/AE2lHqbUE=; b=pRrzQplZTW8bsBBTaEah+D6Pqx
+	jh40Doj84UpDt+x9hEf7V/nbcPUYeYftmW5wjVZhox8iJbRFRSQh0JgfDC8KfoWMsDuwQ1IgCGn60
+	CM6s908gimLnWu1Gta3QsTZ6X28/W0SFeIk8SfVDWhjpTC/ynTeW2e1eNGDwRcTxd1RzwoYhw+wDL
+	T5Y4aAyo3giQqWKXrpCDS+JoXx0MMgP9KSYYJlWU18FihE0XZWofvvvp1n3NTHme+iXGi+MMy9Y5c
+	oIMSUIb8wpdvA4W/LN97yWMwF/Py18eeNAiKr1c90du5ljN3uJBAUyT4EhIF0KtIl5Qolgry0syJg
+	3+HN/WJg==;
+Received: from namei.org ([65.99.196.166] helo=mail.namei.org)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBhcW-00000003BWK-25wK
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Sep 2026 22:39:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0E5BE6022B;
-	Tue, 29 Sep 2026 22:39:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 723381F000FF;
-	Tue, 29 Sep 2026 22:39:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790721581;
-	bh=mFtGGCLVV5rmv+Xh2UYKAbY9gvj9cxkqM2U8a49A7Mc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NjDXrUz+ThTSNc1oh9hWIDJ96fDUWXY8RGjqUOdMQAXf7a4aUwkz3lro9Khz9cgip
-	 tWd5txGT2XmH4QgyboWgW+//Ur/RvS02deKzWgEi/jJriepGgNnYsAXtVXHyWLC82+
-	 AhFXoPlCtp0zZtajUYZenccXut8Il5lgpbTFKV0yq6exjVb59yxhJALdR/ohGaMwIO
-	 qoXK5EVR9HRFbkqmzWU2c9AOJaYnjTOLVofJpBcydR5qSXe3iariOxYaI3fTBZcHSJ
-	 vc5nD3+O580iVkFYIEIgFCpMgV995vEumIBKnP1ryynNKqDIOuOJ/6Wp5fITtDBzvy
-	 exwFK/5XzBkmw==
-Date: Tue, 29 Sep 2026 15:39:40 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Han Gao <gaohan@iscas.ac.cn>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Han Gao <rabenda.cn@gmail.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/4] riscv: dts: thead: enable HDMI on Milk-V Meles
-Message-ID: <arw-LGxaHEYnBeCH@thelio>
-References: <20260929-rv-meles-v1-0-effdd14a76e8@iscas.ac.cn>
- <20260929-rv-meles-v1-4-effdd14a76e8@iscas.ac.cn>
+	Tue, 29 Sep 2026 23:52:27 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by mail.namei.org (Postfix) with ESMTPS id 9D0DD2C5;
+	Tue, 29 Sep 2026 23:52:18 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.namei.org 9D0DD2C5
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=namei.org; s=2;
+	t=1790725938; bh=9Oklwia5HgEZOvXxS1ulCHmSLw8O5GR4I/AE2lHqbUE=;
+	h=Date:From:To:Subject:From;
+	b=bGbCtvOCi7bXlHEuMcMuiOl07kVoB9QJLjOJhU4dBn8Rcv1Pzn7768OgEjrDrf8yE
+	 w+JYNaTnlF5D6QqxiYf0xCQgRa68zQveqvtd6fTgQL0K3yvmrpMUrrg2R7FpJOw6ew
+	 bhZob5g3GhwQW4TtnebuU3hrlfUc3O/JSJn8LyP8=
+Date: Tue, 29 Sep 2026 16:52:18 -0700 (PDT)
+From: James Morris <jmorris@namei.org>
+To: devel@lists.fedoraproject.org, linux-riscv@lists.infradead.org, 
+    spacemit@lists.linux.dev
+Subject: Wiki resource for Fedora RISC-V + KVM on the Spacemit K3 Com260
+ board
+Message-ID: <b143791b-7bba-a6a4-64ac-9c6dc0735ff3@namei.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260929-rv-meles-v1-4-effdd14a76e8@iscas.ac.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_005225_069796_E0C2884E 
+X-CRM114-Status: UNSURE (   6.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,17 +80,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 06:22:48PM +0800, Han Gao wrote:
-> Enable the DC8200 display controller and DW-HDMI transmitter. Connect
-> the transmitter to the board Type-A HDMI connector with reciprocal graph
-> endpoints.
-> 
-> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
-> ---
->  arch/riscv/boot/dts/thead/th1520-milkv-meles.dts | 25 ++++++++++++++++++++++++
->  1 file changed, 25 insertions(+)
+Hi Folks,
 
-Reviewed-by: Drew Fustini <fustini@kernel.org>
+I've been playing with Fedora RISC-V on the Spacemit K3 Com260 board 
+(which implements full virtualization per the RVA23 spec).
+
+I've captured the bringup process as a wiki with the help of an LLM. This 
+supports a native KVM host running an F44 guest image. It's current for 
+F44, with F45-beta a WIP.
+
+Wiki: https://github.com/xjamesmorris/k3-com260-info/wiki
+
+
+
+-- 
+James Morris
+<jmorris@namei.org>
+https://mastodon.social/@xjamesmorris
+
 
 _______________________________________________
 linux-riscv mailing list
