@@ -4,95 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C09CA5FA1
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 08:29:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38706CA5FA5
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 08:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IH450oMQ58sWJOvEsnEOv0Lrhm3RTyYlJ5OJppdfRHY=; b=1a9OwTyyo1wW0n
-	I9nDmSlzAKY2kUFOhCRLFSLV8FwgAEtRXCGqqYS/03MNgoc7pQmsKK6xNXP5nebw2L/v5DVmgZ67f
-	Eo2UIdtq2gwNj5UueqsYwH1HeG7xTyMO9I+V8fGn+yMWeUJI+FyA4XQkUyI+Bm0aSAMkkIvMn2fGt
-	VbbuujzWu2Ia2JsHqwVK9XkJhhwRxFcZrySniBvVCDVqgLDcvj79yj4kN4bR4nzSJWdkfFPCps37I
-	dSEqqMcyFCCNIs6jSACDbmdMsDnlFDHZArR7o0slDzeJiXvJarqUKCwVZ5yGIVKIJBdaJLh8U8HxG
-	wNR5sspjuEk1N9jeq6Rg==;
+	List-Owner; bh=mxAcLKCArmAQvILA0s+CQW8uvJaGMWt8R5VX9sPISA4=; b=iUGWGQIWcnPeAW
+	UuA7+veGcvqL9+Kv5j2qm5dI+nWKsROFCQVheLz0fjAv5MXC7ZONirWfUqnqD6gmnDA9feOYiO0Rr
+	Vh4oEsASkfrTA2M2eP2XXgrpd1arxx3pvsuuPYJQLmASEw/yKGmleE5FSIGXVhSj2mQ7IMN5OKzaq
+	sZBn2jQUk3rhr0EPVgVt1AlIEA3x9wafFjwXoK7dCJN1AtBvsEfl6fWP9oY+6BpODvyBum+9tK0wK
+	CoZz6S7mX8P/qAYzZgfG7M45UBP8n6fGAH+bY1vX41D32XU0r3QiKlc1SGXCavMuc8fXVXIdr6xpd
+	qsNH8S7KDyZXOxxazuHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTCr-00000002m4L-06Qh;
-	Tue, 29 Sep 2026 08:28:57 +0000
-Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
+	id 1xBTJB-00000002nEV-3R7c;
+	Tue, 29 Sep 2026 08:35:29 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTCo-00000002m34-2Pfx
+	id 1xBTJ7-00000002nCK-49zj
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Sep 2026 08:28:55 +0000
-Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-4887f690df6so2760798f8f.1
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Sep 2026 01:28:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790670532; x=1791275332; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=dkGqvg8vL8qJpC16ZqaKGFhzOUdsa/w+9z6yCQwg5qo=;
-        b=q08fR3JcTD1QlkCVZT09EQQMXCFaXwkk39a9K4OuB29AqaQxBlsH7VEgriFumGnutq
-         DpVLof8rBE5oVKCBsYXH1aAzYpGOP9Vfve7wdoOfm8b/Nfl6gRmY8ACsWZy7jKQwYXFt
-         cd3vifYRgdRMSJKQIha0pUXtxikD3ofrzq34u3lRROdcNdFRmqbP5UnkMDYA0Wmprl6a
-         WUtHCWSqqaWdp/4f2dvf/SpHypSAfgI6KkHvSg4SepTuPoGX/KJ2QwaQADylhDn22dtJ
-         mxVQUJSUFkg8dW+uCnKPP7slviwEmjHm3UlnKPpjv1INH8PvjMxI2jccYJ8Y8OjD91HT
-         GsJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790670532; x=1791275332;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dkGqvg8vL8qJpC16ZqaKGFhzOUdsa/w+9z6yCQwg5qo=;
-        b=dLOCwsh79O3q7cyCci4lhjUPMUhHFkBo4K3kwl3tvlf/bnHhNUWRn+8P3l9j0a24pu
-         bSAn026A0evUy5x9IIreGv+i6ajgi7Ubr59or48MsF5zhprtZbbm1Kkvrh90zPLiNo0K
-         f8IQTH1EsLfM+u3py21MpXLJW2INTwSF8xXPy/ZsdsnGQRsNOVE9CXmN10pCRQ9BzFMK
-         NfdbBjGi+9MT68merSqvHHor/VxVCxaN9s+Ju1TG9L838Pu+rMRuUdiSPLi0epJEaSD9
-         bRP8FSkcI2xwEIuuiu8swRo9D0FbAGlc16XaHunOg9WtYIlebg2/pptUNRwLC8cKYhLX
-         zjpg==
-X-Forwarded-Encrypted: i=1; AKwUvBzJWzKRKlOqiLhWhU9HTFno5171mUy/97GSV/fJlQdpFlSwlCVu0jbOxRrwum0bF7Ggh1dybOeorWFauQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKmf0suFaNGsZkCVXL7AGkC75pqLMBRxtQ3ajawJUdomDSrR0VI
-	BeyI/57djBRcWBu8DsMEkkm087HgaI0QXvpgnlpTWOHlqB2mOCMMZPbD
-X-Gm-Gg: AYBFou25aD5Z0ddtg/iPLo9FYAh7sMDeLEiyKZXszeDnMc5OOaoCNbcrvyO3a1z2Nm3
-	kY2rIctoSc6pQfX6U8fu0XP+EJDfSwLwGQuh74MF5dXVQy7nxR5gTmwVY6GO7bp+bPoWiukJCD+
-	BISqxNkGEttffksPmzMtwWN5+WPnpoyPOGAISka0DDQgCU/+pczeFJVHF8knZM+NVG3+SnoYoYD
-	nMgBaaUF7MDymsv0umMXSrr6aj30att75x2aisJuYwL3mgMrsiDc9C29IFL4yE1AmAMcQzEdgyX
-	lo4Ecud/Y6H7jooWn3+Kdwmv9R1FpH9S5NczYDqPw2RK8ZQOjzRw3Dm7g1cfj3AtSAuLh+GyZX6
-	NaIBDqALMQp3MDae7z8mTYAyxl47d8ozV64yRfPliyeyLfNEtHa+1FO7V9SYZdSrB5bVvbieLCc
-	j9RYpmA6+nLTGuGX1ymBUpoACtmusejY7cHE1igfBVTna5x+7NfeJtfMGK0k5gcGcn/B5CrbjXG
-	jrGAKci66FWrQTPvug1Ljqw0URAyuD3NNA=
-X-Received: by 2002:a05:6000:25f7:b0:487:40a:5ba8 with SMTP id ffacd0b85a97d-48af5e29b48mr821503f8f.15.1790670531954;
-        Tue, 29 Sep 2026 01:28:51 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48af50513c7sm2242165f8f.16.2026.09.29.01.28.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 01:28:51 -0700 (PDT)
-Date: Tue, 29 Sep 2026 09:28:50 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Chen Pei <cp0613@linux.alibaba.com>
-Cc: acme@kernel.org, peterz@infradead.org, mingo@redhat.com,
- namhyung@kernel.org, mark.rutland@arm.com,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, james.clark@linaro.org, leo.yan@linux.dev,
- john.g.garry@oracle.com, will@kernel.org, mike.leach@arm.com,
- pjw@kernel.org, palmer@dabbelt.com, guoren@kernel.org,
- linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] perf tsc: Replace the compile-time TSC support
- check with a weak hook
-Message-ID: <20260929092850.697bce16@pumpkin>
-In-Reply-To: <20260928094739.2605-3-cp0613@linux.alibaba.com>
-References: <20260928094739.2605-1-cp0613@linux.alibaba.com>
-	<20260928094739.2605-3-cp0613@linux.alibaba.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Tue, 29 Sep 2026 08:35:28 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hvBLf4NtMzYQv1y
+	for <linux-riscv@lists.infradead.org>; Tue, 29 Sep 2026 16:34:50 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id 8A7C64056E
+	for <linux-riscv@lists.infradead.org>; Tue, 29 Sep 2026 16:35:17 +0800 (CST)
+Received: from ultra.huawei.com (unknown [10.90.53.71])
+	by APP4 (Coremail) with UTF8SMTPA id gCh0CgBXdShEeLtqhxloCA--.42471S5;
+	Tue, 29 Sep 2026 16:35:17 +0800 (CST)
+From: Pu Lehui <pulehui@huaweicloud.com>
+To: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Pu Lehui <pulehui@huawei.com>
+Subject: [PATCH bpf-next 3/5] selftests/bpf: Use /tmp for temporary file in d_path
+Date: Tue, 29 Sep 2026 08:39:22 +0000
+Message-Id: <20260929083924.1851840-4-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260929083924.1851840-1-pulehui@huaweicloud.com>
+References: <20260929083924.1851840-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
+X-CM-TRANSID: gCh0CgBXdShEeLtqhxloCA--.42471S5
+X-Coremail-Antispam: 1UD129KBjvJXoW7AFyxGw4DZr4fJr1DZry7ZFb_yoW8GF48pa
+	48Wwn8KF1Ik3ZIgryxCF4xWr47GF4kX342kr48Jry8A3ZxJ3s7XFWIkFW2qFn3uF93X3s3
+	Za4rJr9Y9w18Xa7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPab4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUWw
+	A2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
+	w2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
+	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAF
+	wI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2
+	WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkE
+	bVWUJVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7
+	AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02
+	F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_Wr
+	ylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7Cj
+	xVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxV
+	WUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU
+	4R6zUUUUU
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_012854_632858_E1007E72 
-X-CRM114-Status: GOOD (  29.31  )
+X-CRM114-CacheID: sfid-20260929_013526_355083_84241542 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,153 +102,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Sep 2026 17:47:39 +0800
-Chen Pei <cp0613@linux.alibaba.com> wrote:
+From: Pu Lehui <pulehui@huawei.com>
 
-> The "TSC support" subtest of the "Convert perf time to TSC" test decides
-> whether the architecture is covered by matching compiler macros for
-> x86_64, i386 and arm64.  That list has to be edited for every new
-> architecture, and it can drift apart from the set of architectures that
-> really provide a counter: util/tsc.c already ships a weak rdtsc() which
-> an architecture overrides with a strong definition when it has one.
+When running selftests via vmtest.sh on riscv64, the d_path test fails.
 
-If you mark the prototype in the .h file 'weak' you don't need a
-default - instead check the symbol for being NULL.
+The failure occurs because the rootfs created by libbpf/ci [0] does not
+mount /dev/shm, causing temporary file creation under /dev/shm to fail.
 
-Then you can do:
-	if (!rdtsc)  {
- 		pr_debug("Test not supported on this architecture\n");
- 		return TEST_SKIP;
- 	}
+Let's switch to using /tmp instead to fix this issue.
 
-David
+Note that older rootfs images did not mount tmpfs on /tmp, writing
+temporary files directly into the image. This has been fixed in [1] for
+newly built images.
 
-> 
-> Add a weak arch__rdtsc_supported() next to the weak rdtsc(), let the
-> test query it instead of the macros, and have x86, arm64 and riscv
-> override it in the file where they implement rdtsc().  Support is then
-> declared next to the counter it describes, and a caller can tell a stub
-> apart from a real counter without keeping its own copy of the macro
-> list.  This follows the pattern of the other optional per-architecture
-> hooks in util/ such as get_cpuid_str().
-> 
-> x86 and arm64 keep the same behaviour, and riscv starts running the
-> subtest because it gained rdtsc() in the previous patch.
-> 
-> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
-> ---
->  tools/perf/arch/arm64/util/tsc.c    |  5 +++++
->  tools/perf/arch/riscv/util/tsc.c    |  5 +++++
->  tools/perf/arch/x86/util/tsc.c      |  5 +++++
->  tools/perf/tests/perf-time-to-tsc.c | 12 +-----------
->  tools/perf/util/tsc.c               |  9 +++++++++
->  tools/perf/util/tsc.h               |  1 +
->  6 files changed, 26 insertions(+), 11 deletions(-)
-> 
-> diff --git a/tools/perf/arch/arm64/util/tsc.c b/tools/perf/arch/arm64/util/tsc.c
-> index cc85bd9e73f1..fd7fba50d0a6 100644
-> --- a/tools/perf/arch/arm64/util/tsc.c
-> +++ b/tools/perf/arch/arm64/util/tsc.c
-> @@ -19,3 +19,8 @@ u64 rdtsc(void)
->  
->  	return val;
->  }
-> +
-> +bool arch__rdtsc_supported(void)
-> +{
-> +	return true;
-> +}
-> diff --git a/tools/perf/arch/riscv/util/tsc.c b/tools/perf/arch/riscv/util/tsc.c
-> index 7cc4710ac38c..312b0c755439 100644
-> --- a/tools/perf/arch/riscv/util/tsc.c
-> +++ b/tools/perf/arch/riscv/util/tsc.c
-> @@ -17,3 +17,8 @@ u64 rdtsc(void)
->  
->  	return val;
->  }
-> +
-> +bool arch__rdtsc_supported(void)
-> +{
-> +	return true;
-> +}
-> diff --git a/tools/perf/arch/x86/util/tsc.c b/tools/perf/arch/x86/util/tsc.c
-> index 3a439e4b12d2..6c01e96b5c2e 100644
-> --- a/tools/perf/arch/x86/util/tsc.c
-> +++ b/tools/perf/arch/x86/util/tsc.c
-> @@ -17,6 +17,11 @@ u64 rdtsc(void)
->  	return low | ((u64)high) << 32;
->  }
->  
-> +bool arch__rdtsc_supported(void)
-> +{
-> +	return true;
-> +}
-> +
->  /*
->   * Derive the TSC frequency in Hz from the /proc/cpuinfo, for example:
->   * ...
-> diff --git a/tools/perf/tests/perf-time-to-tsc.c b/tools/perf/tests/perf-time-to-tsc.c
-> index f8f71fdd32b1..c91e22d93b53 100644
-> --- a/tools/perf/tests/perf-time-to-tsc.c
-> +++ b/tools/perf/tests/perf-time-to-tsc.c
-> @@ -22,16 +22,6 @@
->  #include "tests.h"
->  #include "util/sample.h"
->  
-> -/*
-> - * Except x86_64/i386 and Arm64, other archs don't support TSC in perf.  Just
-> - * enable the test for x86_64/i386 and Arm64 archs.
-> - */
-> -#if defined(__x86_64__) || defined(__i386__) || defined(__aarch64__)
-> -#define TSC_IS_SUPPORTED 1
-> -#else
-> -#define TSC_IS_SUPPORTED 0
-> -#endif
-> -
->  #define CHECK__(x) {				\
->  	while ((x) < 0) {			\
->  		pr_debug(#x " failed!\n");	\
-> @@ -49,7 +39,7 @@
->  static int test__tsc_is_supported(struct test_suite *test __maybe_unused,
->  				  int subtest __maybe_unused)
->  {
-> -	if (!TSC_IS_SUPPORTED) {
-> +	if (!arch__rdtsc_supported()) {
->  		pr_debug("Test not supported on this architecture\n");
->  		return TEST_SKIP;
->  	}
-> diff --git a/tools/perf/util/tsc.c b/tools/perf/util/tsc.c
-> index ebf289bf6b9d..815621b1d112 100644
-> --- a/tools/perf/util/tsc.c
-> +++ b/tools/perf/util/tsc.c
-> @@ -113,6 +113,15 @@ u64 __weak rdtsc(void)
->  	return 0;
->  }
->  
-> +/*
-> + * An architecture that implements rdtsc() with a real counter should override
-> + * this, so that users of the counter can tell a stub apart from support.
-> + */
-> +bool __weak arch__rdtsc_supported(void)
-> +{
-> +	return false;
-> +}
-> +
->  size_t perf_event__fprintf_time_conv(union perf_event *event, FILE *fp)
->  {
->  	struct perf_record_time_conv *tc = (struct perf_record_time_conv *)event;
-> diff --git a/tools/perf/util/tsc.h b/tools/perf/util/tsc.h
-> index 57ce8449647f..83e76b207365 100644
-> --- a/tools/perf/util/tsc.h
-> +++ b/tools/perf/util/tsc.h
-> @@ -25,6 +25,7 @@ int perf_read_tsc_conversion(const struct perf_event_mmap_page *pc,
->  u64 perf_time_to_tsc(u64 ns, struct perf_tsc_conversion *tc);
->  u64 tsc_to_perf_time(u64 cyc, struct perf_tsc_conversion *tc);
->  u64 rdtsc(void);
-> +bool arch__rdtsc_supported(void);
->  u64 arch_get_tsc_freq(void);
->  
->  size_t perf_event__fprintf_time_conv(union perf_event *event, FILE *fp);
+Link: https://github.com/libbpf/ci/tree/main/rootfs [0]
+Link: https://github.com/libbpf/ci/commit/92caeba5960c [1]
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
+ tools/testing/selftests/bpf/prog_tests/d_path.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/testing/selftests/bpf/prog_tests/d_path.c b/tools/testing/selftests/bpf/prog_tests/d_path.c
+index 1a2a2f1abf03..b72825d1edee 100644
+--- a/tools/testing/selftests/bpf/prog_tests/d_path.c
++++ b/tools/testing/selftests/bpf/prog_tests/d_path.c
+@@ -220,7 +220,7 @@ static void test_d_path_check_types(void)
+ static void test_d_path_mem_access(void)
+ {
+ 	int localfd = -1;
+-	char path_template[] = "/dev/shm/d_path_loadgen.XXXXXX";
++	char path_template[] = "/tmp/d_path_loadgen.XXXXXX";
+ 	struct test_d_path__bss *bss;
+ 	struct test_d_path *skel;
+ 
+-- 
+2.34.1
 
 
 _______________________________________________
