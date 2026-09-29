@@ -4,62 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38C70CA5FA7
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 09:42:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21AA5CA5FA5
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 09:49:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vCpPe7nY/TQv9v0WIuu8x6J9WL+0mKplEJZmUB7sF4w=; b=S5+LWskHFk3SS2
-	cztC/T0P3qa4TMOS5bWrRs9r+XTD4U1DDkhSBnTpPSg5+3OjrOJlWBcQwM8vtfi2veyjFWMjbtKSm
-	fvJqhfgYv4jD9Q1jMfYK8Jk9tjWLyQmmp2BbLoh7M7m/Wja6ehRBox4N2NwKVXZD5vchT7CdWfAqU
-	bZaIrrzwpJJQwdSvzijCbkNPEa6jo7XDUVVyMcyWPKS957t+VOA5zOWz1qJtxK9NW+70yO4xR+mgK
-	Q9X1xG4Z7QTV4Fu1r3IINkHheGQPTmIQjplAS+Aj76ghEfuWgpM/ZUpp4cmVT9H5zLNvwv+7ykzRV
-	v9DoTSnHMU89JvdDnw3Q==;
+	List-Owner; bh=dg2dL0kXqL/dsmtfOC+utKh4qxfv266OW4rcoBAm8Co=; b=cTGkBMPkNT+T7r
+	IHxVhrUHjL6YgqSnIEliXhWv7KHUqEtSZB8UrlGo7qPYBdW167n/INMyJ58RUn4i+tkGeNPdrYPlH
+	l9TA04A91F22nuZwzja+WmHvM/zqfBbyoefR78b5vLxobee/NxbZ/OjD85hWs3Lcp8pJp+MVZBWAP
+	y/+fEnnChacawlixxsiZrwXM5Z+yEXOj3wqIIqPjqMgbVHLxf2vMiEU2nHzOP8u+ABAu6PwCS2H7T
+	qlb+dwx6lTPmv+szdlqYY/UB7hT1GVJzbH+Jfy8ERaDcgaR/Xhor9f6MbfrMff7eb0jgfik2BlF7g
+	LBpzC8M7pE50LqHnBlBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBULT-00000002zzg-0Vkt;
-	Tue, 29 Sep 2026 09:41:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBUSr-000000031Kt-337t;
+	Tue, 29 Sep 2026 09:49:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBULR-00000002zyg-3CA1
-	for linux-riscv@lists.infradead.org;
-	Tue, 29 Sep 2026 09:41:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D11142A0A;
-	Tue, 29 Sep 2026 09:41:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A57051F00893;
-	Tue, 29 Sep 2026 09:41:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790674913;
-	bh=+F5NumrZf1XyIZbQp91DpBQmedu/Ecq+2WveBOr2pps=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=di9ZkO5KspEV6z4evgG83zBoudsAPd4OAJTLUsZbjopg08XUdO0h2CvjtAM/m7GvZ
-	 UcaKiUtYl8RSDOcJGUYicjHrUgEzPDFlAsp2Mlq8tfcIsI9brGeRa4v59dRSLaf9jr
-	 ENqMa7FgPAb0v6uI1Fa3P5r43kM7QdPC0+RUmoLzeyqN35lNpn6xdCv2TjlomdgdY6
-	 KbyS5AnAFHNULK9BypuiYVpaJHDzobxM5nMVRGdBSXn8RuvI0xoDeQj4NzGG8c3BxO
-	 2Et8qZ7KPAGTlIMeafsQGTMJxxjfErPumMiFiZZSHHMKirE7dzI6Qk8NpAParF87BX
-	 3d9+Qj/wCmXZw==
-Date: Tue, 29 Sep 2026 11:41:47 +0200
-From: Thorsten Blum <blum@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Deepak Gupta <debug@rivosinc.com>, Zong Li <zong.li@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Zishun Yi <vulab@iscas.ac.cn>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: process: Use str_supported_unsupported() in
- compat_mode_detect()
-Message-ID: <aruH26spDeM8O9dh@kernel.org>
-References: <20260924213256.122530-2-blum@kernel.org>
- <15d659fe-c9cb-fa65-5dd6-7182fb152317@kernel.org>
- <CAMuHMdVK-MzcnNgobviFf8rxkko_sBT43+gZdEG45fN+vyo1xA@mail.gmail.com>
+	id 1xBUSp-000000031K5-1dYY;
+	Tue, 29 Sep 2026 09:49:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=VwC4Pl3ixdsKxogKtIndvZ7a3yWTyDGNv04lRon5xhk=; b=FMQ9Jsm6A6WEe8gE3fmtcBk9Ra
+	oRhPKSDE38wXvLvSxyegSzJIb20HGGfKDeCV+CJWSjkFBv0guhJJCIz7eAsxCW/TMU+hs0lONPySa
+	2eaHGraP3wxlpPW1Oh7qN5+KRfVB1bVX+qKZZzzy2UddqH15gpn0k5A+UWW89/sJd0E4W9VZOq5sg
+	Vo0GMPMG9gWj2UGPNRC+dj5C5pOFb7aTYXqTn2den/qUC7tjEObA2JGBSCnNK8ijnAVbSv2IUmt/b
+	hgaWy8EJSIhn2xRewbdBi/gWhAxEYipnMhUucUnlx/hsr1499StgzKGWzTRbUoldJm6L/6oc8hiUE
+	RgsSeEUA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBUSm-00000002RHq-1100;
+	Tue, 29 Sep 2026 09:49:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E63A1516;
+	Tue, 29 Sep 2026 02:49:22 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0C0AB3F85F;
+	Tue, 29 Sep 2026 02:49:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790675365; bh=B9AAocrpolX4MxYBlzxMX1TENfUxNfjQH6oUrO3W3l0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qC2KTCuZf1CyxLBk3z1uaYKc2/4FlbYgOLxClpx43M4zdwowQSacqxR/KYheG79UL
+	 oeo9BoxlKy4bqg9qJZXTF7z4xAFsYcgGhgkBTPS9RZ96bh+yoFlF80aIjoNApnjkf+
+	 mUd/yI9YIBnotXjhq1Vj2M7shHyZd5qNTtG5lNfw=
+Date: Tue, 29 Sep 2026 10:49:23 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Chen Pei <cp0613@linux.alibaba.com>
+Cc: acme@kernel.org, peterz@infradead.org, mingo@redhat.com,
+	namhyung@kernel.org, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com, james.clark@linaro.org,
+	leo.yan@linux.dev, john.g.garry@oracle.com, will@kernel.org,
+	mike.leach@arm.com, pjw@kernel.org, palmer@dabbelt.com,
+	guoren@kernel.org, linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] perf tsc: Declare TSC support from the build
+ system
+Message-ID: <20260929094923.GH14479@e132581.arm.com>
+References: <20260929034133.2153-1-cp0613@linux.alibaba.com>
+ <20260929034133.2153-3-cp0613@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAMuHMdVK-MzcnNgobviFf8rxkko_sBT43+gZdEG45fN+vyo1xA@mail.gmail.com>
+In-Reply-To: <20260929034133.2153-3-cp0613@linux.alibaba.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260929_104928_661979_16C911D9 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,37 +87,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBTZXAgMjksIDIwMjYgYXQgMTE6MTE6NTVBTSArMDIwMCwgR2VlcnQgVXl0dGVyaG9l
-dmVuIHdyb3RlOgo+IEhpIFBhdWwsIFRob3JzdGVuLAo+IAo+IE9uIFNhdCwgMjYgU2VwdCAyMDI2
-IGF0IDAxOjQ4LCBQYXVsIFdhbG1zbGV5IDxwandAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPiBPbiBU
-aHUsIDI0IFNlcCAyMDI2LCBUaG9yc3RlbiBCbHVtIHdyb3RlOgo+ID4gPiBSZXBsYWNlIGhhcmQt
-Y29kZWQgc3RyaW5ncyB3aXRoIHRoZSBzdHJfc3VwcG9ydGVkX3Vuc3VwcG9ydGVkKCkgaGVscGVy
-Lgo+ID4gPiBUaGlzIHVuaWZpZXMgdGhlIG91dHB1dCBhbmQgaGVscHMgdGhlIGxpbmtlciB3aXRo
-IGRlZHVwbGljYXRpb24sIHdoaWNoCj4gPiA+IGNhbiByZXN1bHQgaW4gYSBzbWFsbGVyIGJpbmFy
-eS4KPiA+ID4KPiA+ID4gU2lnbmVkLW9mZi1ieTogVGhvcnN0ZW4gQmx1bSA8Ymx1bUBrZXJuZWwu
-b3JnPgo+ID4KPiA+IFRoYW5rcywgcXVldWVkIGZvciB2Ny40Lgo+IAo+IFRoYW5rcyBmb3IgeW91
-ciBwYXRjaCwgd2hpY2ggaXMgbm93IGNvbW1pdCBhMDY3NzY1NjViOWU3MzUxICgicmlzY3Y6Cj4g
-cHJvY2VzczogVXNlIHN0cl9zdXBwb3J0ZWRfdW5zdXBwb3J0ZWQoKSBpbiBjb21wYXRfbW9kZV9k
-ZXRlY3QoKSIpCj4gaW4gcmlzY3YvZm9yLW5leHQuCj4gCj4gVGhpcyBmYWlscyB0byBidWlsZDoK
-PiAKPiAgICAgYXJjaC9yaXNjdi9rZXJuZWwvcHJvY2Vzcy5jOiBJbiBmdW5jdGlvbiDigJhjb21w
-YXRfbW9kZV9kZXRlY3TigJk6Cj4gICAgIGFyY2gvcmlzY3Yva2VybmVsL3Byb2Nlc3MuYzoxMzg6
-MTc6IGVycm9yOiBpbXBsaWNpdCBkZWNsYXJhdGlvbiBvZgo+IGZ1bmN0aW9uIOKAmHN0cl9zdXBw
-b3J0ZWRfdW5zdXBwb3J0ZWTigJkKPiBbLVdlcnJvcj1pbXBsaWNpdC1mdW5jdGlvbi1kZWNsYXJh
-dGlvbl0KPiAgICAgICAxMzggfCAgICAgICAgICAgICAgICAgc3RyX3N1cHBvcnRlZF91bnN1cHBv
-cnRlZChjb21wYXRfbW9kZV9zdXBwb3J0ZWQpKTsKPiAgICAgICAgICAgfCAgICAgICAgICAgICAg
-ICAgXn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fgo+IAo+IGFzIGl0IGhhcyBhIGhhcmQgZGVwZW5k
-ZW5jeSBvbiBjb21taXQgNTM4M2NmMjgwZWY0ZjAwYgo+ICgibGliL3N0cmluZ19jaG9pY2VzOiBB
-ZGQgc3RyX3N1cHBvcnRlZF91bnN1cHBvcnRlZCgpCj4gaGVscGVyIiksIHdoaWNoIGlzIG9ubHkg
-cHJlc2VudCBpbiB0aGUgZm9yLW5leHQgYnJhbmNoIG9mCj4gaHR0cHM6Ly9naXQua2VybmVsLm9y
-Zy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvcGR4ODYvcGxhdGZvcm0tZHJpdmVycy14ODYuZ2l0
-LgoKSGkgR2VlcnQsCgpJdCdzIGFsc28gaW4gbGludXgtbmV4dDoKCmh0dHBzOi8vZ2l0Lmtlcm5l
-bC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L25leHQvbGludXgtbmV4dC5naXQvY29tbWl0
-Lz9pZD01MzgzY2YyODBlZjRmMDBiMTVmMWQ5ZTJhMjg4NmQwZDAyYzAxMThiCgpUaGFua3MsClRo
-b3JzdGVuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Sep 29, 2026 at 11:41:33AM +0800, Chen Pei wrote:
+
+> x86 and arm64 keep the same behaviour, riscv starts running the subtest
+> where the previous patch defines rdtsc().
+> 
+> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+
+For arm64:
+
+Tested-by: Leo Yan <leo.yan@arm.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
