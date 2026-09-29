@@ -4,41 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292CACA5FA1
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 10:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40236CA5FA5
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 10:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=QFUF5DuJtFDa25rj7B0wpdI+vAwWGlMiTP2Id6bY6RA=; b=Xa2bCd6Fq7KaRH
-	+wgGWHaCinzui1qSHN+6LyKTydeYzhac2D1DQ1MLni/L6z+qPRi0MkYH0ru38pPR3d5BvFrqQAj4N
-	+BY6VaY7/z3f/uiPUaFYsAoFvehYXMiDbVYBqhH0ncIMkP13V/KtBTKMCfmcModIwio/WbdcgkgKa
-	C0DYuBIC3VmgZMaewInEL/tQ3wpOIeZYaW5DC29fJdDrx/XsrltM0r4sDOaL6nmy17MArQkCOoETB
-	/OLCKKBwqn7EPBFv0nRvbTBh1wR6u6IIUgPF+/X2p8QOW4bVuMOS3Iln7FBaKQH7h7mZO4qiPGjpt
-	6cgoUGR/xGRqVRawQteg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wjzla2ZxRakDM0ODoPA/3Fa4eGxyKpSAX8d2nD5WOaA=; b=fqQDtt8J6ZbmXi
+	tXnEUZRjrZFKR4FeiJbEQsAQr1BZp+cD0ynqRzHzlmTx8RpNCxdIrMLJzkZut1AOWzFfM2YHiDhg7
+	t2TK+lSunanjLmQ4CLrZzIOaJzhNTb8Xx8F4v0MoH62YMIplW8yRJQLLtTDxrnLG8FSS6/Hju0CZO
+	S2D/TD+ltOb6jOQixGMTnWJmxIOuf43s1tgUVwsNVNVP7oWqATihmFbuFa8RsdUBvwXR7VUbIT3ua
+	WfoTuk1labS8QRWD7l7BxbeVme0BRZR07+Kzgfn3vAN0VMr2VBYNJBBDBYnILzs1nS0umb2KxcfqH
+	qCmix16qYRYgl6lQJJlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUzh-000000038my-0kg9;
-	Tue, 29 Sep 2026 10:23:29 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1xBUzl-000000038oN-1BRr;
+	Tue, 29 Sep 2026 10:23:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUzd-000000038kZ-3XvE
+	id 1xBUzk-000000038nd-0UlR
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 29 Sep 2026 10:23:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=VyvUVRKH5BsOu7x7CCzy/4uTLPKkX05hLrcXyYg/cOg=; b=S8hsZJjd7+qIhULjnlKT4KRlZh
+	rOkJn4poI7CK273M2uTV5NgIkbEulEQ5n+sINrmnAlHk3vmMqwHpo8fRT3ieqt+xEmi6Q+tvD+ZP9
+	7yOwRFZZ8zfxCPB7VUvPYz5N6fDSc28KBPrBzyzyc5IrJbdEPImnuc133sVZ6yZtuX31n83c/57ce
+	wU6oN61a+QVyjSOaoARkS0a4Uu1MKG5UTcH8l3k9di+LGeXxWammjf9IyhAmhPCXMDe5nalIrH4Vn
+	9bLw0A/ny70I5WljrW7JByAD/bBpH1Vxk2x+DWwp3x7RrkQEgrRMu+SnT0D9k12ixQHkACpQZfD6T
+	cURcDd7Q==;
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBUzg-00000002TP3-0pqV
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Sep 2026 10:23:27 +0000
+	Tue, 29 Sep 2026 10:23:30 +0000
 Received: from [127.0.1.1] (unknown [223.166.93.127])
-	by APP-01 (Coremail) with SMTP id qwCowAD3kPR2kbtqxsxdCQ--.22338S2;
-	Tue, 29 Sep 2026 18:23:17 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowAD3kPR2kbtqxsxdCQ--.22338S6;
+	Tue, 29 Sep 2026 18:23:19 +0800 (CST)
 From: Han Gao <gaohan@iscas.ac.cn>
-Subject: [PATCH 0/4] riscv: dts: thead: Add Milk-V Meles support
-Date: Tue, 29 Sep 2026 18:22:44 +0800
-Message-Id: <20260929-rv-meles-v1-0-effdd14a76e8@iscas.ac.cn>
+Date: Tue, 29 Sep 2026 18:22:48 +0800
+Subject: [PATCH 4/4] riscv: dts: thead: enable HDMI on Milk-V Meles
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAHSRu2oC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDSyNL3aIy3dzUnNRiXSPTFEMDQxOLlGSDZCWg8oKi1LTMCrBR0bG1tQB
- xEVDcWgAAAA==
-X-Change-ID: 20260929-rv-meles-25d10148dc0c
+Message-Id: <20260929-rv-meles-v1-4-effdd14a76e8@iscas.ac.cn>
+References: <20260929-rv-meles-v1-0-effdd14a76e8@iscas.ac.cn>
+In-Reply-To: <20260929-rv-meles-v1-0-effdd14a76e8@iscas.ac.cn>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -49,28 +62,29 @@ Cc: Han Gao <rabenda.cn@gmail.com>, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Han Gao <gaohan@iscas.ac.cn>
 X-Mailer: b4 0.14.2
-X-CM-TRANSID: qwCowAD3kPR2kbtqxsxdCQ--.22338S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GF43Kw48Xr4UZryUCFy8Krg_yoWkGwcEkF
-	s2krZ7ua1UGFykKFW7Ar18CFWkuFW7A3Z3AF10v3yakasruw43Wa9rt34Ykr18Zay5Kr9x
-	Zw1kXryxJw4q9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb38FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
-	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
-	cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
-	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
-	0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
-	v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
-	1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
-	AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
-	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
-	evJa73UjIFyTuYvjfUonmRUUUUU
+X-CM-TRANSID: qwCowAD3kPR2kbtqxsxdCQ--.22338S6
+X-Coremail-Antispam: 1UD129KBjvJXoW7CF17Zw45AFW7Ar1kKF1rJFb_yoW8Xr45pa
+	n3Cr4FkF9akr4fGrnIyrWjgrn8KFZ5uF9Iyr13W34UCFsrX395A34rJrySgFWDJay3Xw4S
+	yr4kAw1UWw1Dtw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUm214x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
+	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr
+	1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0D
+	M2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjx
+	v20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1l
+	F7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2
+	IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY
+	6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17
+	CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF
+	0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMI
+	IF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVF
+	xhVjvjDU0xZFpf9x0JUQFxUUUUUU=
 X-Originating-IP: [223.166.93.127]
-X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiBgcFDGq7hl0qMQAAsZ
+X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiDAIFDGq7jI8QYAAAsl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_032326_267098_91DFC05E 
-X-CRM114-Status: UNSURE (   5.95  )
+X-CRM114-CacheID: sfid-20260929_112329_031268_1508D3EA 
+X-CRM114-Status: UNSURE (   9.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,37 +102,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Milk-V Meles is a single-board computer powered by T-HEAD's TH1520
-SoC with four C910 RISC-V cores. Add the board compatible and device
-tree for the Milk-V Meles.
-
-Enable UART0, eMMC, microSD, Gigabit Ethernet and the PWM fan, and
-name the GPIO lines exposed on the 40-pin header. Add AP6256 Wi-Fi
-support over SDIO and enable HDMI output through the DC8200 display
-controller and DW-HDMI transmitter.
-
-Board details:
-https://milkv.io/docs/meles/overview
+Enable the DC8200 display controller and DW-HDMI transmitter. Connect
+the transmitter to the board Type-A HDMI connector with reciprocal graph
+endpoints.
 
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
-Han Gao (4):
-      dt-bindings: riscv: thead: add Milk-V Meles
-      riscv: dts: thead: add Milk-V Meles
-      riscv: dts: thead: enable AP6256 Wi-Fi on Milk-V Meles
-      riscv: dts: thead: enable HDMI on Milk-V Meles
+ arch/riscv/boot/dts/thead/th1520-milkv-meles.dts | 25 ++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
- Documentation/devicetree/bindings/riscv/thead.yaml |   4 +
- arch/riscv/boot/dts/thead/Makefile                 |   1 +
- arch/riscv/boot/dts/thead/th1520-milkv-meles.dts   | 345 +++++++++++++++++++++
- 3 files changed, 350 insertions(+)
----
-base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
-change-id: 20260929-rv-meles-25d10148dc0c
+diff --git a/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts b/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts
+index 92b44cb90f57f4830efd29145744c005afa73119..47b1ce4316468ff94b161cbf56e634040fd03306 100644
+--- a/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts
++++ b/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts
+@@ -38,6 +38,17 @@ wifi_32k: clock-wifi-32k {
+ 		/* The module LPO input is supplied by PMIC_32K_OUT. */
+ 	};
+ 
++	hdmi-connector {
++		compatible = "hdmi-connector";
++		type = "a";
++
++		port {
++			hdmi_con_in: endpoint {
++				remote-endpoint = <&hdmi_out_con>;
++			};
++		};
++	};
++
+ 	memory@0 {
+ 		device_type = "memory";
+ 		reg = <0x0 0x0 0x2 0x0>;
+@@ -83,6 +94,10 @@ &aogpio {
+ 			  "AOGPIO_8", "", "AOGPIO_10", "AOGPIO_11";
+ };
+ 
++&dpu {
++	status = "okay";
++};
++
+ &emmc {
+ 	bus-width = <8>;
+ 	max-frequency = <52000000>;
+@@ -133,6 +148,16 @@ &gpio3 {
+ 	gpio-line-names = "GPIO3_0", "GPIO3_1", "GPIO3_2", "GPIO3_3";
+ };
+ 
++&hdmi {
++	status = "okay";
++};
++
++&hdmi_out_port {
++	hdmi_out_con: endpoint {
++		remote-endpoint = <&hdmi_con_in>;
++	};
++};
++
+ &mdio0 {
+ 	phy0: ethernet-phy@1 {
+ 		reg = <1>;
 
-Best regards,
 -- 
-Han Gao <gaohan@iscas.ac.cn>
+2.47.3
 
 
 _______________________________________________
