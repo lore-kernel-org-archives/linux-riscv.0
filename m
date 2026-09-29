@@ -4,87 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71FDACA5FA5
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 10:23:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D44CA5FA1
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 10:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XCVOsDPzHlilMIvP0+Bh1S87pQIPX/B/m+J0duyAD8c=; b=KzuqBY9rEoTub2
-	8lMM3GmcM7qDCyr5nDbuTzrMtmH8G1ABfmsm7Z2PRs63Yalq4Is2v0gbjcMBOh2FOIyUpiFq6xKhm
-	E3p4M7ADqUt9OE8igiNRHHA9WK5yAjg4BDEdewaIwM/YXzs6am2z+/ORMGxwzJ6bcZyRUdT8a4PhO
-	mRWO5nFypdykXVSReF3wFRUz9ICPbcwP9y0gl6j33pSodgCr0i2LqZ33f9ij4rm0BYCqNsOzM+Dwo
-	ujCUDm2XjsW/U/aYot1KLp84bKtVM2R4Y22TPuD6gVvS81o9Mhvaf6g5C4Vxp7zthjubqxpgO+7Ne
-	Sg2GyL1RNirllE5tjkhQ==;
+	List-Owner; bh=ZF7JIu/D30Z5uBddPjIKW8p4Biz3JxkjqO2oCKyg6Q4=; b=wIjLsyGKXddTY1
+	HxZxDDvXaERr0qUk7K689pZ2nO0UnykK6SSEDMEKhpZDie7WNYcOYNfwdDsoPxi9f3Mlz9Fu1qScR
+	4Zs+n+Ug9DZmpkzBzCBf5x+FrzQxDBLITxgaeCLf4uLliVvv57UAzhTlXyarrXWcE8DJ0lNwNlCOl
+	yVPSa0NKedApUF+Cw5oOpkGKo6gm34gG7mj0LhXGHUoBAL3/MsjBySHBQIf/RHSmaPTEfOL4AERlC
+	7ysOIVNekqDCzLm9RwzfUok7zOW+SX1TOxqRxQF3iTBuKW4MI7CnF8v9ZjwkfCGyzDuGSiQhplB/s
+	iTEWyAi+akuwOnbcJKPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUzp-000000038qh-2azd;
-	Tue, 29 Sep 2026 10:23:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBV11-000000039Hg-3S8O;
+	Tue, 29 Sep 2026 10:24:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUzl-000000038oE-2QYK
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 29 Sep 2026 10:23:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=WvgJ48+flKsthVHZJ6xX2VEDe68WuRHfNQO5WceT81k=; b=h6kE2Ehl1Srqq2mTTRCCKKaEKK
-	PO09cVQyROiW0Zc7f3EylhxYUTGyHTKeKdRSPIGdU1A+PRgYaGx3EUiDdtqQ7kz+crTk+cPA0yeD9
-	dEXaOErrjVdPFlKJzRtBkXYm9tanhdBHgn3BG6QrQv+BlXvgSp5ERg3dKsyyexc2IMH3IP7HZ7woV
-	yArbu0PIGUB+1EVQoCXkiULFRoN3unG0nBJOIg2YhiPIZVnX2ylZArcneQg6yTaRX29cf6WO1WVVh
-	VMBbcnZq/C0uMlA7X7thlBzMBaGSjZBqwCto0eoOdFwpD54Xgjxl+oK/zSuhWXEUyOQzw5orKKsWc
-	YwZX+jOw==;
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBUzg-00000002TOq-0cnd
+	id 1xBV10-000000039HS-2dYV
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Sep 2026 10:23:32 +0000
-Received: from [127.0.1.1] (unknown [223.166.93.127])
-	by APP-01 (Coremail) with SMTP id qwCowAD3kPR2kbtqxsxdCQ--.22338S5;
-	Tue, 29 Sep 2026 18:23:19 +0800 (CST)
-From: Han Gao <gaohan@iscas.ac.cn>
-Date: Tue, 29 Sep 2026 18:22:47 +0800
-Subject: [PATCH 3/4] riscv: dts: thead: enable AP6256 Wi-Fi on Milk-V Meles
+	Tue, 29 Sep 2026 10:24:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C815860008;
+	Tue, 29 Sep 2026 10:24:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A762E1F000FF;
+	Tue, 29 Sep 2026 10:24:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790677489;
+	bh=/rVf2O0JTYEDoiN4Nj8RRj7N07I8m7kIhRk3ZpRZQ1U=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=O0q+RSs6UKkSaApvmLoshdgcx5DZay6ngjqP9DtodZsZz3fvpCyRHGbrY/J5TnOSP
+	 pyVub8gEh+3jOm5HLVlm9vNt4KGPJJ8scJIn09zV5ERklhiOLAVGMY22yY+uSwWsf/
+	 Tw2eWKEzHzM+W9g1YA009r7d5d1vh59sUPsvBFVh632pNKdarRUyZJfQkkM+Bca0NM
+	 Da1ByzSwJqKKdsBG0ns7+WMA62WH1k7sZP+dcGPPBHqhEUXq7KwUKN1wtd8JIf6mNr
+	 9EW6xtjWHsoTbhGhSXbwG6u4X7u5dhz3dkE01tYCiG7vZbtTYkaEkOAAPdhTTzYvT1
+	 50hMxzRWlYL8g==
+From: Andreas Hindborg <a.hindborg@kernel.org>
+To: FUJITA Tomonori <tomo@flapping.org>, ojeda@kernel.org,
+ fustini@kernel.org, guoren@kernel.org, wefu@redhat.com
+Cc: acourbot@nvidia.com, aliceryhl@google.com, bjorn3_gh@protonmail.com,
+ boqun@kernel.org, dakr@kernel.org, daniel.almeida@collabora.com,
+ gary@garyguo.net, lossin@kernel.org, tamird@kernel.org, tmgross@umich.edu,
+ work@onurozkan.dev, rust-for-linux@vger.kernel.org,
+ linux-riscv@lists.infradead.org, FUJITA Tomonori
+ <fujita.tomonori@gmail.com>
+Subject: Re: [PATCH v1] pwm: th1520: Fix 32-bit build with COMPILE_TEST
+In-Reply-To: <20260929095612.1072417-1-tomo@flapping.org>
+References: <8Hw8rFOzHELmQvD7ZIatk1FJqh39-AbzNppa9asPFp0Cp9gFzcQ7zs_34jnuQGt5ukgNPqz0yxdaIyT2SHtACA==@protonmail.internalid>
+ <20260929095612.1072417-1-tomo@flapping.org>
+Date: Tue, 29 Sep 2026 12:24:38 +0200
+Message-ID: <875wzotkwp.fsf@t14s.mail-host-address-is-not-set>
 MIME-Version: 1.0
-Message-Id: <20260929-rv-meles-v1-3-effdd14a76e8@iscas.ac.cn>
-References: <20260929-rv-meles-v1-0-effdd14a76e8@iscas.ac.cn>
-In-Reply-To: <20260929-rv-meles-v1-0-effdd14a76e8@iscas.ac.cn>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Jisheng Zhang <jszhang@kernel.org>, 
- Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>
-Cc: Han Gao <rabenda.cn@gmail.com>, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Han Gao <gaohan@iscas.ac.cn>
-X-Mailer: b4 0.14.2
-X-CM-TRANSID: qwCowAD3kPR2kbtqxsxdCQ--.22338S5
-X-Coremail-Antispam: 1UD129KBjvJXoWxAF1ftrW8Zr1UtFW5uF45ZFb_yoWrGrWfpa
-	ySkrs3XF93uFWfKwsIvF4I9F15Wr48Jas2krn5Wry8uFWjgasrZr1Fkr1rZFyqgFW5Zw4a
-	vrWrAry2yr12k3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUm014x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
-	8EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AI
-	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
-	vE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
-	r2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04
-	v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j
-	6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7
-	AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE
-	2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0x
-	vEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVj
-	vjDU0xZFpf9x0JUHWlkUUUUU=
-X-Originating-IP: [223.166.93.127]
-X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiBgQFDGq7hl0qPQABsX
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_112329_473707_FE501C85 
-X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,167 +74,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Connect AP6256 to SDIO1 with its fixed supplies and PMIC LPO clock.
-Use GPIO0_20 for WL_REG_ON and GPIO0_21 for the host-wake interrupt.
-Keep GPIO1_24 low to select the external antenna by default.
+"FUJITA Tomonori" <tomo@flapping.org> writes:
 
-Use the existing BCM43456 binding and the 198 MHz board limit.
-Keep module power during suspend and assign mmc2 to SDIO1.
+> From: FUJITA Tomonori <fujita.tomonori@gmail.com>
+>
+> Fix the following build error on 32-bit ARM with COMPILE_TEST:
+>
+>   ERROR: modpost: drivers/pwm/pwm_th1520.ko: symbol '__aeabi_uldivmod' undefined!
+>
+> The driver divides u64 values when it converts between nanoseconds and
+> clock cycles. On 32-bit ARM, these divisions are compiled to calls to
+> __aeabi_uldivmod, which the kernel does not provide.
+>
+> he TH1520 is a 64-bit RISC-V SoC, so the driver is only used on
+> 64-bit kernels. There is no point in compile testing it on 32-bit.
+> Limit COMPILE_TEST to 64BIT instead of changing the arithmetic to use
+> the div64 helpers.
+>
+> Fixes: 3c180003dffb ("pwm: th1520: Fix missing Kconfig dependencies")
+> Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
 
-Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
----
- arch/riscv/boot/dts/thead/th1520-milkv-meles.dts | 93 ++++++++++++++++++++++++
- 1 file changed, 93 insertions(+)
+Reviewed-by: Andreas Hindborg <a.hindborg@kernel.org>
 
-diff --git a/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts b/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts
-index 3714047190789bfccd8ff6810342d7ff865e74e4..92b44cb90f57f4830efd29145744c005afa73119 100644
---- a/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts
-+++ b/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts
-@@ -7,6 +7,7 @@
- /dts-v1/;
- 
- #include "th1520.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
- 
- / {
- 	model = "Milk-V Meles";
-@@ -22,6 +23,7 @@ aliases {
- 		gpio5 = &aogpio;
- 		mmc0 = &emmc;
- 		mmc1 = &sdio0;
-+		mmc2 = &sdio1;
- 		serial0 = &uart0;
- 	};
- 
-@@ -29,6 +31,13 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
- 
-+	wifi_32k: clock-wifi-32k {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <32768>;
-+		/* The module LPO input is supplied by PMIC_32K_OUT. */
-+	};
-+
- 	memory@0 {
- 		device_type = "memory";
- 		reg = <0x0 0x0 0x2 0x0>;
-@@ -42,6 +51,30 @@ fan: pwm-fan {
- 		cooling-levels = <0 64 192 255>;
- 		#cooling-cells = <2>;
- 	};
-+
-+	wifi_vbat: regulator-wifi-vbat {
-+		compatible = "regulator-fixed";
-+		regulator-name = "WIFI_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+	};
-+
-+	wifi_vddio: regulator-wifi-vddio {
-+		compatible = "regulator-fixed";
-+		regulator-name = "WIFI_VDDIO";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-always-on;
-+	};
-+
-+	wifi_pwrseq: wifi-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wifi_enable_pins>;
-+		reset-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
-+		post-power-on-delay-ms = <50>;
-+	};
- };
- 
- /* Names follow the 40-pin header signal labels. */
-@@ -77,6 +110,16 @@ &gpio0 {
- 			  "", "GPIO0_16", "GPIO0_17";
- };
- 
-+&gpio1 {
-+	/* GPIO1_24 low selects the external antenna through U39. */
-+	wifi-antenna-select-hog {
-+		gpio-hog;
-+		gpios = <24 GPIO_ACTIVE_HIGH>;
-+		output-low;
-+		line-name = "wifi-external-antenna";
-+	};
-+};
-+
- &gpio2 {
- 	gpio-line-names = "GPIO2_0", "GPIO2_1", "", "", "", "", "", "",
- 			  "", "", "", "GPIO2_11", "GPIO2_12", "",
-@@ -206,6 +249,26 @@ rx-pins {
- 	};
- };
- 
-+&padctrl1_apsys {
-+	wifi_enable_pins: wifi-enable-0 {
-+		gpio-pins {
-+			pins = "GPIO0_20";
-+			bias-disable;
-+			drive-strength = <7>;
-+			input-disable;
-+		};
-+	};
-+
-+	wifi_host_wake_pins: wifi-host-wake-0 {
-+		gpio-pins {
-+			pins = "GPIO0_21";
-+			bias-disable;
-+			input-enable;
-+			input-schmitt-enable;
-+		};
-+	};
-+};
-+
- &sdio0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&sdio0_pins>;
-@@ -219,6 +282,36 @@ &sdio0 {
- 	status = "okay";
- };
- 
-+&sdio1 {
-+	bus-width = <4>;
-+	max-frequency = <198000000>;
-+	cap-sd-highspeed;
-+	cap-sdio-irq;
-+	non-removable;
-+	no-sd;
-+	no-mmc;
-+	keep-power-in-suspend;
-+	vmmc-supply = <&wifi_vbat>;
-+	vqmmc-supply = <&wifi_vddio>;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	status = "okay";
-+
-+	wifi@1 {
-+		compatible = "brcm,bcm43456-fmac", "brcm,bcm4329-fmac";
-+		reg = <1>;
-+		clocks = <&wifi_32k>;
-+		clock-names = "lpo";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wifi_host_wake_pins>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <21 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "host-wake";
-+	};
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_pins>;
+Best regards,
+Andreas Hindborg
 
--- 
-2.47.3
 
 
 _______________________________________________
