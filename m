@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB80CA5FA5
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 08:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2666DCA5FA1
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 08:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X5DOGXUc6ziUJO8IkO4AfDLFDzxEvqdbhz0+Bo/aBQc=; b=r95sKlmvl0q/en
-	0nYdrN24hNcyOsiHIV+UWqFRwWaWEij4/OVLSF6AbZaYS/0f3mKJlsOjbQw19k2/SIdCcl8AYfRXt
-	dcsN7VUB01CrZkmWNvFvp0sW1zTmhAwJO2//+2D2u1k7ITbMhsUWAsMkTr/CFb6H1bWr0C1FOD+O6
-	OeEIt5IafYrLge4pZt1y0GqHlRP6991mNoLD0cJ14RW7KVhjfgvMI7b7kF8qLNsct1MTCwAQOTWo3
-	XuNj0RJKr7e4RpSvPAyLvcmU/VhBoEqD2EIZtpkrAlMnqmDvR0czf14/c3HErzX9RC7b1a1Gf3eXB
-	tzdDGgFCNW6zx4HEIiDg==;
+	List-Owner; bh=GrZiqniSBX6i9tfNIvLXuehiuTSRkMInVixKEzOB0B0=; b=3Vf/jvGGM9bDdz
+	HchEgDlwHE2MH2IsUyaMxrj+Gp9aSLXDUs0ho5a2G4X74CDXTXgLX/Pc8P5AnCaYpYayKtTZpP/Ur
+	hY93uAiVD0AraXovx68V+xi8eTNk5P/lI+RR9t/dSyRDsu+P8c8jNOt0ef9AsNMe3AWuuU6UZW9xZ
+	kWMABO5aBVFDZYIYy3l9yX9fMarATrKjYw73MJNjJ/szM0QvxJE/tpOcqPnMkEGY/57a+3FfQufdw
+	PiXZW8QLQ+qUozmC437rIklG9152t57r2HebEsR07hftfZQk1xZvGxzRWZHDW3tNWWZC7TlazytVX
+	U8ZV15r50uzo77FEK7cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTLv-00000002oBb-0TlA;
-	Tue, 29 Sep 2026 08:38:19 +0000
-Received: from mail-pj2-x2b.google.com ([2607:f8b0:4864:39::2b])
+	id 1xBTLz-00000002oF0-16N2;
+	Tue, 29 Sep 2026 08:38:23 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTLs-00000002oAO-3BM7
+	id 1xBTLu-00000002oBJ-3pwU
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Sep 2026 08:38:17 +0000
-Received: by mail-pj2-x2b.google.com with SMTP id 98e67ed59e1d1-3a49b6bb21eso405177a91.3
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Sep 2026 01:38:16 -0700 (PDT)
+	Tue, 29 Sep 2026 08:38:20 +0000
+Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-398cb5615deso3164115a91.3
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Sep 2026 01:38:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790671096; x=1791275896; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790671098; x=1791275898; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=HjSZP90MeKeabAnBLqvA1Hzeszd2ueVzqTRJsmZUKHU=;
-        b=ZKHnLTxBARuUO3OD76u0lKfeJfRLTbx0SvWrhbwjo04fLMvSEcodPYeEUyVwF632h3
-         /rJQ9T7+HmmS4CS6kb4lfQO6PjfnqFd4Fx15SeejFa4C/21zFoIuTqcJ9aZC79mAm/Ky
-         IQKmWQ7PAB2aUbc2KfigVpFhuHqs4G5UQzDjyyfGGn7CePhAOmHE0CPWyVRTqnMNtYwO
-         4ZqlIdRmbcMKfRB5J5xPMsqzEpucnwmwDYrF4ySsvJLz43Rdh6ic2lojme2V5lwgbebG
-         4JH4pMS0yJf8h3SIRbJAiOVbN0H5kuvS5xeR0niD33GyUgJdhM/iJdsBi0MnN0gPO9w2
-         sZ4A==
+        bh=7AEeGlWy9uXP/q/PPr93GfqgOECgNHQd0LWMUmr1tVw=;
+        b=rOp9NIDsuVLk7jvd3+eIP4/wCANdutjm1e7ENJux1NgVy53l0igrvftyTJvFEmYfkv
+         G2XYIU+2VkQS8PtOJJ8QsRgr5lkjdZcDbOHJ1pDpSghX2QedqODXlRoKHBm+0kRfbqvV
+         onJjmDhRZ7MOTYCXAmW6dudMML6EnXXdE6l/BzNQBw+4qsflc9TwNqOnWecWy3myAyam
+         DDOf61UfiTJgwX9pugrNbZMFKf+0igT1e18q4U/yX8nay9wy6zdoEs1E8LGC1L7k4m/V
+         IsehwWUjQAbAQ/wQGGj4Zh5oPx4uxy/RK8Y+r93jdq5OOD52WB14PT38NsMN2Acl8WoO
+         BUjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790671096; x=1791275896;
+        d=1e100.net; s=20260707; t=1790671098; x=1791275898;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HjSZP90MeKeabAnBLqvA1Hzeszd2ueVzqTRJsmZUKHU=;
-        b=LVRNzZzcbE+SX51NJaRUr7ekE5w0mGGTCcWDIMYHkT8OFCK/F9K1RIQUnhQJ8Cx7I3
-         aT8EKjNSf9qucGk8TkjJ8hkuzwI7Kk4dgera67m/UszVyU6fQraqy3SElKPk35clDhLy
-         cGkkOJI6MttuQgudAeWthKGseuHRjDqGsgW/KeiyonHkEbnUt79JmVTMNuN/KJ6GhuWV
-         xGkJdFskR8nrO/Q8noz9ZdSr1S8pcu0dA8BVU1jw+T5cWO8bVReqtCydsTXqOsrTTHDM
-         QzeG5Qpl4fK+cGwl0cLLajNrsBqDg45h+Ljfj1LxZzNOKqay79SiuAXtj9PePFFi783y
-         EuMQ==
-X-Forwarded-Encrypted: i=1; AKwUvByolxJAWWyM4/mr4hsE2NeeKgFej4BVfvJakc5v+LkoV25EQFEBlOFkQsL2mp11qUy8y5+0xFzp1Lqd2w==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKQvBn1sW0myeARj5RS94OblPyBky1WoEz4FxYMMxSq+Whggc90
-	DfQV9pd4y1a9hVvrjX3XbE1JMOfcSAD2N6ayL0K9CwrVNWp5KUQjGNuO
-X-Gm-Gg: AYBFou3A2kvctwDsNpO/GrmcSiUcCcGr7N1ZDHlWfExH7i/A1UlUZP53MOIvXHYAdkQ
-	9aeZSe+Xd6bXEAVP9Frppw0pzcYt+oapNK+s1mgpAMm+GhGhnRYwWaPoV9LibBER5nJ948zLEN3
-	2vM1GMIANXYCHHm5x3NgBT5cS++GNcmwNCQQIMMQjEhc/ldiGspiTvFZgiCDwru/Sume9jg/FJ/
-	cR72RiMd98luMgTex9FCU9K8+JZzx275bYe4EBr5cSQrProoNQPmKeRjJfrKoFnWwTAB9z2piHa
-	lcY3UvJFuQrPAYZa+xjXGugjtSXpRyvckLNKaWs8f3gUmdtuQinl+XkNtlVFhAO6OtLbFY7YJec
-	h+MTeQ3wH4wugjDHR3cdsHXPTnKGESCwaq6zce/HTQOpxlp8xoHkvqQ9X0EpQgfn+yluGb/bYpX
-	0/Yz3LQOvqizpgAK6Ci1tBqQwfojiuavtE+EiRwhGDSxLZNJ/2ApFOfmpO7yRcWKE+WNC+
-X-Received: by 2002:a17:90b:17c6:b0:3a0:516d:9f88 with SMTP id 98e67ed59e1d1-3a098761df2mr11251455a91.26.1790671095882;
-        Tue, 29 Sep 2026 01:38:15 -0700 (PDT)
+        bh=7AEeGlWy9uXP/q/PPr93GfqgOECgNHQd0LWMUmr1tVw=;
+        b=ZomOABQi6L+XPMDuB3EA7r0clkbZbk0TLx5pQoheljnhqQm6ofBSa+TF/Bhn+wT3VR
+         kuFYX03oFNcBQ9bnX/+p+DpE6mF2J+Q7tQaqx8wbPrI64fca79TihLRIvQEw1yRTeMdG
+         GC8bXyFU2YpGXrOkuMqTfhTrX4q1qLsWaNYItQz4x5nOdjS0bsi8C5nAzNqLqSYucM5o
+         /pVgB7Rv1on1v8IIGBwxnB0T0p3ee2C9mrC4Oc2SKNj0HmtETn5xvgtxTTMwr1kWwqKb
+         gNlY+s+AD7NSYzwPLR59WkkYMalXOt54g3bI/DUUVqTBqfa27c3exqzo4tCBlCImsYNg
+         TSqw==
+X-Forwarded-Encrypted: i=1; AKwUvBy49IrDlMwjx2dQtuuMsh07NmBG3ZcXCqHzIRuEaRx2rsv9bbWdfXzw2jevhQKrbUx0kvr8vf+/MKmCHQ==@lists.infradead.org
+X-Gm-Message-State: AFq9FYLpYh2aCTA7nOlc3jvfus8hATrpwiEOAb+4SncLV5IguyfQw44r
+	mhVYkAX8R3k9pXaJ9mNI0rAj3zDYwle7ttGUqY2qLdHeNvCkCXSvi7jh
+X-Gm-Gg: AYBFou2Z+XXARqOMa+LUzktHcXyqrtxE/hbYUvmvnhG3GIWQof6szVOQG4BlCAsf0bB
+	j/XABZZAnqjYFoSojmJgbaeW0K4Ytk3itc382z7CDGIDu1dPRj3kYXyh8eRuYYIynzSci00/oJY
+	cTBxKr556JIJKrBRM+pwDlx+JbogCNHF3S3SzT36OLBId+gQp7gcTsipzoTSG+Hf1QNp74WSPmm
+	yR3DOfOz5VkuZR/Y5OdCzYXaham1d0kOcZBMnosxUsfdiuSMp4a8s5RnxuoUBq7Dip5CTyPJa0b
+	ztYj+0SSQ27GNJc5CwNtm2+An7zfwyQIYZnTu0l7WakN1zGm8rI31Xy/gyweS5dXhdVpTyn9ws/
+	WS1Q8v9iY4f3jh4gc+VL4VlvZjOit+C6HAPGVLYFss6eZdVVGuRNSN4i6AvTJzMtJ0vNdYjNzng
+	NQbQTHlL3UbXEFm8n16a0TYjrtiO5KaQM5J5WTpaJn8lCzcTN5gJoc16ehVyqwIjHDnxX1
+X-Received: by 2002:a17:90b:2251:b0:3a0:9640:8031 with SMTP id 98e67ed59e1d1-3a098d4364cmr12391254a91.8.1790671098293;
+        Tue, 29 Sep 2026 01:38:18 -0700 (PDT)
 Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e2c9d06766sm5127845ad.54.2026.09.29.01.38.15
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc7a3b8d70csm3751988a12.9.2026.09.29.01.38.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 01:38:15 -0700 (PDT)
+        Tue, 29 Sep 2026 01:38:17 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Jingoo Han <jingoohan1@gmail.com>,
 	Manivannan Sadhasivam <mani@kernel.org>,
@@ -108,16 +108,17 @@ Cc: linux-pci@vger.kernel.org,
 	spacemit@lists.linux.dev,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v7 3/6] PCI: spacemit-k1: Add device id update helper
-Date: Tue, 29 Sep 2026 16:37:49 +0800
-Message-ID: <20260929083755.458238-4-inochiama@gmail.com>
+Subject: [PATCH v7 4/6] dt-bindings: PCI: snps,dw-pcie: Add msi-parent for MSI handle check
+Date: Tue, 29 Sep 2026 16:37:50 +0800
+Message-ID: <20260929083755.458238-5-inochiama@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260929083755.458238-1-inochiama@gmail.com>
 References: <20260929083755.458238-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_013816_800387_A1EA16ED 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20260929_013818_974773_28341FE4 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,63 +135,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Both K1 and K3 need to set vendor id and device id, add a helper function
-to simplify this.
+The IMSIC device on RISC-V based system does not require ID
+remapping for MSI. So this device only needs "msi-parent"
+property for IMSIC-based SoC, and the "msi-map" is not a
+necessary property.
+
+Add new condition for MSI handling on IMSIC based SoC.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/pci/controller/dwc/pcie-spacemit-k1.c | 17 +++++++++++++----
- 1 file changed, 13 insertions(+), 4 deletions(-)
+ Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-index 8c4f0b09fe24..ec59ccb710ec 100644
---- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-+++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-@@ -52,6 +52,7 @@ struct k1_pcie_device_data {
- 	const struct dw_pcie_ops *ops;
- 	int (*parse_port)(struct k1_pcie *k1);
- 	unsigned int max_phy_count;
-+	unsigned int device_id;
- };
- 
- struct k1_pcie {
-@@ -153,6 +154,16 @@ static void k1_pcie_disable_aspm_l1(struct k1_pcie *k1)
- 	dw_pcie_dbi_ro_wr_dis(pci);
- }
- 
-+static void k1_pcie_set_device_id(struct k1_pcie *k1)
-+{
-+	struct dw_pcie *pci = &k1->pci;
-+
-+	dw_pcie_dbi_ro_wr_en(pci);
-+	dw_pcie_writew_dbi(pci, PCI_VENDOR_ID, PCI_VENDOR_ID_SPACEMIT);
-+	dw_pcie_writew_dbi(pci, PCI_DEVICE_ID, k1->data->device_id);
-+	dw_pcie_dbi_ro_wr_dis(pci);
-+}
-+
- static int k1_pcie_init(struct dw_pcie_rp *pp)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-@@ -168,10 +179,7 @@ static int k1_pcie_init(struct dw_pcie_rp *pp)
- 		return ret;
- 
- 	/* Set the PCI vendor and device ID */
--	dw_pcie_dbi_ro_wr_en(pci);
--	dw_pcie_writew_dbi(pci, PCI_VENDOR_ID, PCI_VENDOR_ID_SPACEMIT);
--	dw_pcie_writew_dbi(pci, PCI_DEVICE_ID, PCI_DEVICE_ID_SPACEMIT_K1);
--	dw_pcie_dbi_ro_wr_dis(pci);
-+	k1_pcie_set_device_id(k1);
- 
- 	/*
- 	 * Start by asserting fundamental reset (drive PERST# low).  The
-@@ -381,6 +389,7 @@ static const struct k1_pcie_device_data k1_pcie_device_data = {
- 	.ops		= &k1_pcie_ops,
- 	.parse_port	= k1_pcie_parse_port,
- 	.max_phy_count	= 1,
-+	.device_id	= PCI_DEVICE_ID_SPACEMIT_K1,
- };
- 
- static const struct of_device_id k1_pcie_of_match_table[] = {
+diff --git a/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml b/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
+index b3216141881c..91bbbc8924f6 100644
+--- a/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
+@@ -27,8 +27,11 @@ allOf:
+   - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
+   - if:
+       not:
+-        required:
+-          - msi-map
++        anyOf:
++          - required:
++              - msi-map
++          - required:
++              - msi-parent
+     then:
+       properties:
+         interrupt-names:
 -- 
 2.55.0
 
