@@ -4,99 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64900CA5FAD
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 17:28:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF02CA5FA5
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 17:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wC4r6jFSSscUJvJdVDF+T9083Jdbb0DLUXtFVU1DAcY=; b=422G60WUASf80P
-	xjp7SW43F0WcrqBBYad3yr/sMR/0cjTG7CROM3Q9bKF10dv9lJ71VjLJL1e118ZFPHyDWgc8jcZYy
-	iPi+2mbyFlxS7GqdbIyPfWrk8EQuqEdr2rXYqhBvl23JfCdFs6nrczvKoJGNs+tOu24lofPpGyDjd
-	r0/ADxph6cKmqRyTiGPLkZkD6K6zb4VfE4/LQoaEGf732INX91hykn/FJQVUPBOvHcayOON3Cbhb6
-	eadbtH6mW8DHAUdtn1KvIHXbIdRA/Ktbow2dNWcJVAHN9and2xhnfQYW84JIA7R+LQLQFvv+9ev5W
-	5+dl/Iy1ziuZg3w7xxfQ==;
+	List-Owner; bh=PMQjFte1JhC+EHHId2ap2iYoF0LiKrNMRqXn2mkDaa4=; b=0QkEFQ4R+GDdOu
+	88b47NitveK21rALXjB8qNHau12Rczo1+CJwifHf7PWoqH4AkryWKHdITD8BP+zsW7ZY0SCLEC/2n
+	mEV87BHX+lBJLyQug+53U+phthAEPI7ObG+6vhpJYbm3Cyls3QyyXwFarkVLJPCnyJHI3S6EZQsBa
+	ubaDDJVleGE9Ww5nTRWN/MqXu+eK+w6eOYh7CrsAUnMpzqib98yVoGTSpCvMe0fqDtgDkyjrKoeGx
+	Nb5q+51WtaM9T4KDK2qX1S5s7sCN+qYcvvszV7aqFinKImdDrLF5rx+hwTsKJZlctQjRfqMxFplA8
+	lqsGSHxbzPDg1mSWmDDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBbd5-00000004C1K-3NrM;
-	Tue, 29 Sep 2026 17:28:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBbsS-00000004Dlh-1yvv;
+	Tue, 29 Sep 2026 17:44:28 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBbd0-00000004BxB-2cUB;
-	Tue, 29 Sep 2026 17:28:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Z9xKr36T7cCv0D99bQk1KgbtvplOO9pUVM2GS00wRTU=; b=Se+7k5bKtEIiiZDYwh3M7dShGa
-	MJw/qCBz1LI0wc8YiNFBM0l4e0QoI1RNwqRsSuzJM/FjsiQLTZY+/k1AGuTUrwF6/hlN5eDm5dmvC
-	2x50sb6LP1dur2WT8cHRsKqssBXCVZD7atHPTyp7JLKjOC8Z6zmIulS1kKvJ72Y0rQFzHZnHEi762
-	QSGeWRsbyjM1sEC7RpLD/eQ9z2WLl3OwKuKYVy+0uldquIIonTs+CQVN5WPO2z6bX1Js22D/GrPUW
-	MGrUy+pJlUfo7tpiFyYCjWagn7OEp/L892WbAadmR9aV0Hi/aLpr/FxcaU9yBrD+8DQl+fEf71uwZ
-	Xg2vJfMA==;
-Received: from sender5-op-o15.zoho.com ([165.173.182.15])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBbcx-00000002uAT-1IA5;
-	Tue, 29 Sep 2026 17:28:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790702885; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Wyn6AUI9gFlvzj08i1fD7/dOmBycKRXMHTGATD8bAq+T5S0tCCPIezwszJMiStqEf5DanbNIw0jQ2WL0pDXfbf5Ou38Nx9JvIQrXzwcJbLSozsmCi3zR4VjPLcwVpoCd5PXai6fHyAOeoHe1KqlHC2869evCtZdHU2xyGzX8QdI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790702885; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Z9xKr36T7cCv0D99bQk1KgbtvplOO9pUVM2GS00wRTU=; 
-	b=LOOYGZipPupR/QsmAsG4gYW2ilWh12Vy4ErQQG0YAzfZm7dJwnMuRykG0Wcdn79ONSBers3Uc+2rF4+qoOv2SSJ5az0o5GV7Q2dgE2G346pRRTHH4aLuM27Iei6ZpCrOKbImXd3IaOJAULCzg/+/wAN6AMSrtY5CvmFXaXvcvu4=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790702885;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=Z9xKr36T7cCv0D99bQk1KgbtvplOO9pUVM2GS00wRTU=;
-	b=lItJDZGfEKqVRvhZEy+O//gWEo/wSx2UdMRT/YqObCM2Hl3x5o5hOwt4lRT9IIUU
-	q4KLIDJM2aoHp3ecKtwg2vutQOtRnefoPW7xK5qZZMA2kXJZ3KmVU3GTEBGc02QE1JI
-	7QXpnpNFp86sndqNbIscFnrtcgksrpLWaHicTc1A=
-Received: by smtp.zohomail.com with SMTPS id 1790702884696829.796239581199;
-	Tue, 29 Sep 2026 10:28:04 -0700 (PDT)
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Wed, 30 Sep 2026 01:26:15 +0800
-Subject: [PATCH v5 8/8] clk: sunxi-ng: a733: Add reset lines
+	id 1xBbsP-00000004Dkx-2nng
+	for linux-riscv@lists.infradead.org;
+	Tue, 29 Sep 2026 17:44:27 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ff9621c5dso24600945e9.0
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Sep 2026 10:44:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790703864; x=1791308664; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=k31zVVbNicpwi9YDlhFvR6Wyco71XCVxmV3/xYq3pxI=;
+        b=oLXJSKDC4O6iHyT8nZl71L+iyIbQkaGxOdIFZe+mto/VuLLK64j5xF1uOfivQ0hSzH
+         t0UNfktoSpVq8pKmzixgeUuNBebDSwTHrgeCJfnZ1Vv9c5In+MnQXbQ2AGicE3CbBz1U
+         k+Q47zUbXnlytQSo2OJRZ0r+Ef6Au3dV+fWuTOmnMyiujvcJbvSY2vSDodWBah3uZCSe
+         2gEVa31nXfe9R5kU0JEENzR/gaFB3amLik0OHRGl+5YIAF1SkHzGGAtaw4Wt5CVcCapf
+         6RWg7KQU22GPBgs8WQBw0tEZPZ7byS+cXkd6xaryLaJCkjAJqa8qui+7I51OzZ0jWIRD
+         VzvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790703864; x=1791308664;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=k31zVVbNicpwi9YDlhFvR6Wyco71XCVxmV3/xYq3pxI=;
+        b=PjmjBNtdzw+7usUYTjZyzx7wKJauVfQGodawYx2rYyhxfTI0WAavxCUFoOK5zWaUoA
+         DX0H8MN2cUyTeZaQ9rElDa+vCNDZJHTNfGHcR0I3lmdjjkyFwJ1Ugmti06Wy09BsuxN1
+         VD9eYyU1lCcztiup6Lsd6f4BxpuvjJSkOxiHStJBZc7OxqTfYWa1QjtTFavWYVkczRVH
+         zLrxaMCjUU3za6enm8JV239LE6DzEnthGS2gDddl1Qu/rdNuH5L+u8Ya2djmpz+AbL6k
+         8aRgXrG78t27GsPukn89IUeCdrMyObideV2R9Qp3k72ySASHv5max5KmZ4wL/r6XCM4K
+         X2OA==
+X-Forwarded-Encrypted: i=1; AKwUvBwsFmLMu9Fa9HhgVV7JkYZCre/B24/ah5JudjvVS9Ll3EWxqSSI7DsAomDBKgcWFwP5r0PDjDKo0HCYhA==@lists.infradead.org
+X-Gm-Message-State: AFuF++nVTDr2oF2mZlbk4jgyfME7OWsl7lw8CfeJXMokL1QQLPJ+OoeV
+	LEIWvhyVmeIMVZVaHnNGrAugvVTqGSsnUMZ3qydgrqRbivFhJFEfUzks
+X-Gm-Gg: AYBFou1PUBL9AD4Wm+ZFsvJ3JEVFT9mWBKQScp0Njjbl1AYJ70IXw0cTQh0qW61f+uU
+	TmqfvIFVPGjzQdaKPCeXNV7N4prRd1/aSA068YXPC2A5y46N3K729k4m1a12Zw3OuHXZHu2tevO
+	dbEO/sJPSbXEGL6V81faY4GNgp7RV97O2X1Px5NO7qg3cE33sxv94PwPMona0tf6yMQ+ks4ivza
+	fEr2kM1jjWwYL2EQQfDMj4kjYCMZ58VlJd5/oZr+tQeD4FCy+hkm5CEBPU886+uoRgL0OjHsezI
+	OFMu2MdKzB77NCR0UvK3sNI4xfVF3DEmArjeW24dwGw1sKkiMvzuIoTyzePJ/NerwMLpyZoviE7
+	cpMrx+R6UaFTWGfM69KyC1ylf4RUP8Ej+ZGxC7NhfPFypFPXUicjJkYdtIcB0uKIpHUT4u+JocP
+	4oVL4vo0RX4EyXbeAqa68cVv0l5E7CuVTu3h1qtVcWdBZlGNq/bwPB89DjUZ0kLsyvY2EYd9V4F
+	IF9VIBbe9uGqERWuD1S4PzJxiuRr1YGxV4=
+X-Received: by 2002:a05:600c:4e12:b0:49d:1842:f001 with SMTP id 5b1f17b1804b1-49fe66b6e0emr305056015e9.14.1790703863276;
+        Tue, 29 Sep 2026 10:44:23 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a00cfae123sm103285395e9.13.2026.09.29.10.44.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Sep 2026 10:44:22 -0700 (PDT)
+Date: Tue, 29 Sep 2026 18:44:15 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, Andreas Schwab
+ <schwab@linux-m68k.org>, Andy Lutomirski <luto@kernel.org>, Thomas Gleixner
+ <tglx@kernel.org>, Theodore Ts'o <tytso@mit.edu>, Vincenzo Frascino
+ <vincenzo.frascino@arm.com>, Nick Desaulniers <ndesaulniers@google.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens
+ <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Ingo
+ Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
+ reserved in __cvdso_getrandom_data()
+Message-ID: <20260929184415.1920fe91@pumpkin>
+In-Reply-To: <20260929165939.GA1890629@ax162>
+References: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
+	<87zex4ic68.fsf@linux-m68k.org>
+	<20260926121927.GA1486962@ax162>
+	<are7cfMIHZZn6jLz@zx2c4.com>
+	<20260927080225.37534e7c@pumpkin>
+	<20260929165939.GA1890629@ax162>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Message-Id: <20260930-a733-clk-v5-8-11175b41cd2d@pigmoral.tech>
-References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
-In-Reply-To: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, 
- Enzo Adriano <enzo.adriano.code@gmail.com>, 
- Andre Przywara <andre.przywara@arm.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7014;
- i=junhui.liu@pigmoral.tech; h=from:subject:message-id;
- bh=XdT2iJdckE28YBUVfkZ3eyryqxQGnL/JDWvrAO60CLI=;
- b=kA0DAAoWY61lynhep/wByyZiAGq79M7I6RNNydBhpFXZpCT3e8KAPzD7gWDl1YaXQguWolk+9
- Ih1BAAWCgAdFiEECk8X/jssDPbEEIXfY61lynhep/wFAmq79M4ACgkQY61lynhep/zv9AD8Dg4H
- 3PXp9bszsRqffgdRc08XpSIXZXCTHv672zWM2XMA/j/CwDePxZ/eD7B8PIC0qYHHljMpmZfFaCv
- fRCPR2awJ
-X-Developer-Key: i=junhui.liu@pigmoral.tech; a=openpgp;
- fpr=15B30CC69C4BF0CC3C08F85A2A90CDC122DF37BF
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_182827_703818_AEE4EE34 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20260929_104425_725519_03544C7E 
+X-CRM114-Status: GOOD (  21.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,172 +126,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the reset lines for the Allwinner A733 SoC. These reset control bits
-are integrated into the Bus Gate Reset (BGR) registers, typically
-sharing the same register address with their corresponding bus clock
-gates. Integrate them into the main CCU driver using the existing
-sunxi-ng ccu_reset framework, allowing the CCU to also function as a
-reset controller for the SoC.
+On Tue, 29 Sep 2026 18:59:39 +0200
+Nathan Chancellor <nathan@kernel.org> wrote:
 
-Tested-by: Jerome Brunet <jbrunet@baylibre.com>
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
----
- drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 126 +++++++++++++++++++++++++++++++++
- 1 file changed, 126 insertions(+)
+> On Sun, Sep 27, 2026 at 08:02:25AM +0100, David Laight wrote:
+> > On Sat, 26 Sep 2026 14:32:49 +0200
+> > "Jason A. Donenfeld" <Jason@zx2c4.com> wrote:  
+> > > Do we even need to return a value at all? Might as well just make the
+> > > function two lines:
+> > > 
+> > > +       for (char *d = dst; size--;)
+> > > +               *d++ = value;  
+> > 
+> > Wouldn't it be better to add a barrier() or similar in there to
+> > stop the compiler playing unwanted games>  
+> 
+> Wouldn't that just result in the same code generation issue that Jason
+> pointed out on my v1?
+> 
+>   https://lore.kernel.org/aquyVkdYceiWdckX@zx2c4.com/
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-index b077e5d2f32c..dff3300b9849 100644
---- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-@@ -19,6 +19,7 @@
- #include <dt-bindings/reset/allwinner,sun60i-a733-ccu.h>
- 
- #include "ccu_common.h"
-+#include "ccu_reset.h"
- 
- #include "ccu_div.h"
- #include "ccu_gate.h"
-@@ -2196,11 +2197,136 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
- 	.num	= CLK_FANOUT3 + 1,
- };
- 
-+static const struct ccu_reset_map sun60i_a733_ccu_resets[] = {
-+	[RST_BUS_ITS_PCIE0]		= { 0x574, BIT(16) },
-+	[RST_BUS_IOMMU0_SYS]		= { 0x58c, BIT(16) },
-+	[RST_BUS_MSI_LITE0_AHB]		= { 0x594, BIT(16) },
-+	[RST_BUS_MSI_LITE0_MBUS]	= { 0x594, BIT(17) },
-+	[RST_BUS_MSI_LITE1_AHB]		= { 0x59c, BIT(16) },
-+	[RST_BUS_MSI_LITE1_MBUS]	= { 0x59c, BIT(17) },
-+	[RST_BUS_MSI_LITE2_AHB]		= { 0x5a4, BIT(16) },
-+	[RST_BUS_MSI_LITE2_MBUS]	= { 0x5a4, BIT(17) },
-+	[RST_BUS_IOMMU1_SYS]		= { 0x5b4, BIT(16) },
-+	[RST_BUS_DMA0]			= { 0x704, BIT(16) },
-+	[RST_BUS_DMA1]			= { 0x70c, BIT(16) },
-+	[RST_BUS_SPINLOCK]		= { 0x724, BIT(16) },
-+	[RST_BUS_MSGBOX]		= { 0x744, BIT(16) },
-+	[RST_BUS_PWM0]			= { 0x784, BIT(16) },
-+	[RST_BUS_PWM1]			= { 0x78c, BIT(16) },
-+	[RST_BUS_DBG]			= { 0x7a4, BIT(16) },
-+	[RST_BUS_SYSDAP]		= { 0x7ac, BIT(16) },
-+	[RST_BUS_TIMER0]		= { 0x850, BIT(16) },
-+	[RST_BUS_DE0]			= { 0xa04, BIT(16) },
-+	[RST_BUS_DI]			= { 0xa24, BIT(16) },
-+	[RST_BUS_G2D]			= { 0xa44, BIT(16) },
-+	[RST_BUS_EINK]			= { 0xa6c, BIT(16) },
-+	[RST_BUS_DE_SYS]		= { 0xa74, BIT(16) },
-+	[RST_BUS_VE_ENC0]		= { 0xa8c, BIT(16) },
-+	[RST_BUS_VE_DEC0]		= { 0xa8c, BIT(18) },
-+	[RST_BUS_CE]			= { 0xac4, BIT(16) },
-+	[RST_BUS_CE_SYS]		= { 0xac4, BIT(17) },
-+	[RST_BUS_NPU_CORE]		= { 0xb04, BIT(16) },
-+	[RST_BUS_NPU_AXI]		= { 0xb04, BIT(17) },
-+	[RST_BUS_NPU_AHB]		= { 0xb04, BIT(18) },
-+	[RST_BUS_NPU_SRAM]		= { 0xb04, BIT(19) },
-+	[RST_BUS_GPU0]			= { 0xb24, BIT(16) },
-+	[RST_BUS_DRAM0]			= { 0xc0c, BIT(16) },
-+	[RST_BUS_NAND0]			= { 0xc8c, BIT(16) },
-+	[RST_BUS_MMC0]			= { 0xd0c, BIT(16) },
-+	[RST_BUS_MMC1]			= { 0xd1c, BIT(16) },
-+	[RST_BUS_MMC2]			= { 0xd2c, BIT(16) },
-+	[RST_BUS_MMC3]			= { 0xd3c, BIT(16) },
-+	[RST_BUS_UFS_AHB]		= { 0xd8c, BIT(16) },
-+	[RST_BUS_UFS_AXI]		= { 0xd8c, BIT(17) },
-+	[RST_BUS_UFS_PHY]		= { 0xd8c, BIT(18) },
-+	[RST_BUS_UFS_CORE]		= { 0xd8c, BIT(19) },
-+	[RST_BUS_UART0]			= { 0xe00, BIT(16) },
-+	[RST_BUS_UART1]			= { 0xe04, BIT(16) },
-+	[RST_BUS_UART2]			= { 0xe08, BIT(16) },
-+	[RST_BUS_UART3]			= { 0xe0c, BIT(16) },
-+	[RST_BUS_UART4]			= { 0xe10, BIT(16) },
-+	[RST_BUS_UART5]			= { 0xe14, BIT(16) },
-+	[RST_BUS_UART6]			= { 0xe18, BIT(16) },
-+	[RST_BUS_I2C0]			= { 0xe80, BIT(16) },
-+	[RST_BUS_I2C1]			= { 0xe84, BIT(16) },
-+	[RST_BUS_I2C2]			= { 0xe88, BIT(16) },
-+	[RST_BUS_I2C3]			= { 0xe8c, BIT(16) },
-+	[RST_BUS_I2C4]			= { 0xe90, BIT(16) },
-+	[RST_BUS_I2C5]			= { 0xe94, BIT(16) },
-+	[RST_BUS_I2C6]			= { 0xe98, BIT(16) },
-+	[RST_BUS_I2C7]			= { 0xe9c, BIT(16) },
-+	[RST_BUS_I2C8]			= { 0xea0, BIT(16) },
-+	[RST_BUS_I2C9]			= { 0xea4, BIT(16) },
-+	[RST_BUS_I2C10]			= { 0xea8, BIT(16) },
-+	[RST_BUS_I2C11]			= { 0xeac, BIT(16) },
-+	[RST_BUS_I2C12]			= { 0xeb0, BIT(16) },
-+	[RST_BUS_SPI0]			= { 0xf04, BIT(16) },
-+	[RST_BUS_SPI1]			= { 0xf0c, BIT(16) },
-+	[RST_BUS_SPI2]			= { 0xf14, BIT(16) },
-+	[RST_BUS_SPIF]			= { 0xf1c, BIT(16) },
-+	[RST_BUS_SPI3]			= { 0xf24, BIT(16) },
-+	[RST_BUS_SPI4]			= { 0xf2c, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_GPADC0]		= { 0xfc4, BIT(16) },
-+	[RST_BUS_THS0]			= { 0xfe4, BIT(16) },
-+	[RST_BUS_IRRX]			= { 0x1004, BIT(16) },
-+	[RST_BUS_IRTX]			= { 0x100c, BIT(16) },
-+	[RST_BUS_LRADC]			= { 0x1024, BIT(16) },
-+	[RST_BUS_SGPIO]			= { 0x1064, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_LPC]			= { 0x1084, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_I2SPCM0]		= { 0x120c, BIT(16) },
-+	[RST_BUS_I2SPCM1]		= { 0x121c, BIT(16) },
-+	[RST_BUS_I2SPCM2]		= { 0x122c, BIT(16) },
-+	[RST_BUS_I2SPCM3]		= { 0x123c, BIT(16) },
-+	[RST_BUS_I2SPCM4]		= { 0x124c, BIT(16) },
-+	[RST_BUS_SPDIF]			= { 0x128c, BIT(16) },
-+	[RST_BUS_DMIC]			= { 0x12cc, BIT(16) },
-+	[RST_USB_PHY0]			= { 0x1300, BIT(30) },
-+	[RST_BUS_OHCI0]			= { 0x1304, BIT(16) },
-+	[RST_BUS_EHCI0]			= { 0x1304, BIT(20) },
-+	[RST_BUS_OTG]			= { 0x1304, BIT(24) },
-+	[RST_USB_PHY1]			= { 0x1308, BIT(30) },
-+	[RST_BUS_OHCI1]			= { 0x130c, BIT(16) },
-+	[RST_BUS_EHCI1]			= { 0x130c, BIT(20) },
-+	[RST_BUS_USB2]			= { 0x135c, BIT(16) },
-+	[RST_BUS_PCIE_PWRUP]		= { 0x138c, BIT(16) },
-+	[RST_BUS_PCIE]			= { 0x138c, BIT(17) },
-+	[RST_BUS_SERDES]		= { 0x13c4, BIT(16) },
-+	[RST_BUS_GMAC0]			= { 0x141c, BIT(16) },
-+	[RST_BUS_GMAC0_AXI]		= { 0x141c, BIT(17) },
-+	[RST_BUS_GMAC1]			= { 0x142c, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_GMAC1_AXI]		= { 0x142c, BIT(17) }, /* From the vendor kernel. */
-+	[RST_BUS_TCON_LCD0]		= { 0x1504, BIT(16) },
-+	[RST_BUS_TCON_LCD1]		= { 0x150c, BIT(16) },
-+	[RST_BUS_TCON_LCD2]		= { 0x1514, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_LVDS0]			= { 0x1544, BIT(16) },
-+	[RST_BUS_LVDS1]			= { 0x154c, BIT(16) },
-+	[RST_BUS_DSI0]			= { 0x1584, BIT(16) },
-+	[RST_BUS_DSI1]			= { 0x158c, BIT(16) },
-+	[RST_BUS_TCON_TV0]		= { 0x1604, BIT(16) },
-+	[RST_BUS_TCON_TV1]		= { 0x160c, BIT(16) },
-+	[RST_BUS_EDP]			= { 0x164c, BIT(16) },
-+	[RST_BUS_HDMI_MAIN]		= { 0x168c, BIT(16) },
-+	[RST_BUS_HDMI_SUB]		= { 0x168c, BIT(17) },
-+	[RST_BUS_HDMI_HDCP]		= { 0x168c, BIT(18) },
-+	[RST_BUS_DPSS_TOP0]		= { 0x16c4, BIT(16) },
-+	[RST_BUS_DPSS_TOP1]		= { 0x16cc, BIT(16) },
-+	[RST_BUS_VIDEO_OUT0]		= { 0x16e4, BIT(16) },
-+	[RST_BUS_VIDEO_OUT1]		= { 0x16ec, BIT(16) },
-+	[RST_BUS_LEDC]			= { 0x1704, BIT(16) },
-+	[RST_BUS_DSC]			= { 0x1744, BIT(16) },
-+	[RST_BUS_CSI]			= { 0x1844, BIT(16) },
-+	[RST_BUS_VIDEO_IN]		= { 0x1884, BIT(16) },
-+	[RST_BUS_APB2JTAG]		= { 0x1c04, BIT(16) },
-+};
-+
- static const struct sunxi_ccu_desc sun60i_a733_ccu_desc = {
- 	.ccu_clks	= sun60i_a733_ccu_clks,
- 	.num_ccu_clks	= ARRAY_SIZE(sun60i_a733_ccu_clks),
- 
- 	.hw_clks	= &sun60i_a733_hw_clks,
-+
-+	.resets		= sun60i_a733_ccu_resets,
-+	.num_resets	= ARRAY_SIZE(sun60i_a733_ccu_resets),
- };
- 
- static const u32 pll_regs[] = {
+I missed that one going past....
+You only get 'rep stosq' because the compiler first converts it to memset(). 
 
--- 
-2.55.0
+> Maybe that doesn't matter because modern compilers have better options?
+
+A lot of cpu will run the 'rep stosq' very slowly (it has a big fixed cost).
+
+At a guess the loop is 3 clocks (possibly 2; but that usually needs
+you to use negative offsets from the end - and gcc doesn't like that).
+That is comparable to a mispredicted branch (and you might get two of them).
+It still might actually be faster than the 'rep stosq' version!
+
+I suspect the fastest code is to unroll the loop.
+	xor %eax, %eax
+	movl %eax, 12(%rbx)
+	movq %rax, 16(%rbx)
+	movq %rax, 24(%rbx)
+	movq %rax, 32(%rbx)
+	movq %rax, 40(%rbx)
+	movq %rax, 48(%rbx)
+	movq %rax, 56(%rbx)
+8 clocks on old cpu, 4 on newer ones.
+But more likely to be limited be I-cache reads.
+
+If you are going to use 'rep stos' then you might as well write
+13 32bit words.
+
+David
 
 
 _______________________________________________
