@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E15C3CA5FA1
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 08:51:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8D2CA5FA5
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 08:51:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qGGIIDMgmTEPIlrQf5EGMMrAStATKME8rilxUtiX3Jw=; b=t/gpQt3+XHMpB4
-	NFY/Dyk9TdN2uMk7AAZ83kV4WWNJ40H7PWzTxdWEecFSkmKtXfelLY8PPOGhPG/20mA5JV+dYW2S4
-	8/EsC/Gu9Xr+o1CsebM3zZ3CvZ3qPThm3fheD1BcShEq+HZoRTOZQZGCMV6Z0MVoLePtyxEixBif0
-	gUr/HM4T8ujbFa2ZbxGQg0FxvWa6Gwx7pjj6IhPeOKzHUeRF6AgcTA+7IBeTySHomK46re6+e3prT
-	Ik6RxvPZOI1iewws+bmyByxwBU1CMBk2ramuQS1tDr4fVlr757lCbcNsGB038/GIMbmry7KUCViO4
-	QpaCDBJXLDR5Iu+RxG0A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=o4cWCzR7LJf/0kOT+n/+vUzMV1UfYG0DLqfp3C+UzcI=; b=ShJXQcRGfbG3kr
+	a/EfXVbgm50F7ZfcZ4Zun6wN7KWg1j47oRWrXpdQePNirPNq3xf7hi815pqTNbnHHQ8fkHD7VMx6w
+	cVgYN8Sgdgfsl7TVc2EgMyUXXZUBifJgDOFN3NuHnUJ3fEN7T4D8JRXMjEpFkH7juOF8U3jvsXO+I
+	DCBztL2hLdsDsJghqqnBlrKKrFdtQP5nZ08koI/SB1Yy5HUdGFsJh/6j3NE8ZSPO7d2z0fkT3E9GE
+	C7Pd0HK5Ax6ZUR1nUSnNTCwtMUkkbV6InoBSVikqc8d/gj2oVuCB7zLIDuYGz54AvZfRwF8V0+BSY
+	xDNPB3qUQS4djsgajk7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTY4-00000002rnT-3W6f;
-	Tue, 29 Sep 2026 08:50:52 +0000
+	id 1xBTY6-00000002roT-3vTW;
+	Tue, 29 Sep 2026 08:50:54 +0000
 Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTY0-00000002rkZ-3vkz
+	id 1xBTY0-00000002rkY-3vWu
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Sep 2026 08:50:51 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hvBhS038gzYQv25
+	Tue, 29 Sep 2026 08:50:53 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.177])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hvBhR6fWFzYQv21
 	for <linux-riscv@lists.infradead.org>; Tue, 29 Sep 2026 16:50:15 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id E8BBB40577
+	by mail.maildlp.com (Postfix) with ESMTP id D92DE40925
 	for <linux-riscv@lists.infradead.org>; Tue, 29 Sep 2026 16:50:42 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP4 (Coremail) with UTF8SMTPA id gCh0CgDn_iHie7tqgXJpCA--.48809S3;
+	by APP4 (Coremail) with UTF8SMTPA id gCh0CgDn_iHie7tqgXJpCA--.48809S2;
 	Tue, 29 Sep 2026 16:50:42 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
@@ -58,35 +58,32 @@ Cc: Alexei Starovoitov <ast@kernel.org>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Pu Lehui <pulehui@huawei.com>,
 	Pu Lehui <pulehui@huaweicloud.com>
-Subject: [PATCH bpf-next 1/2] riscv, bpf: Support indirect calls to bpf subprogs (callx)
-Date: Tue, 29 Sep 2026 08:54:49 +0000
-Message-Id: <20260929085450.1852617-2-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next 0/2] riscv, bpf: Support indirect calls to bpf subprogs (callx)
+Date: Tue, 29 Sep 2026 08:54:48 +0000
+Message-Id: <20260929085450.1852617-1-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260929085450.1852617-1-pulehui@huaweicloud.com>
-References: <20260929085450.1852617-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: gCh0CgDn_iHie7tqgXJpCA--.48809S3
-X-Coremail-Antispam: 1UD129KBjvdXoWrZrW7KrW5urWDWr4kury3Jwb_yoWkCFc_uw
-	1xtayxX398JFsrXa1jyF45KFykCw4rKF1DZFnYgry2k3Z5Xa1xArWkKryDZry7XryrKF45
-	u3s3AaySyw42yjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbkkFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGwA2048vs2IY02
-	0Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xv
-	wVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1l84
-	ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AI
-	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
-	vE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
-	r2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04
-	v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j
-	6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7
-	AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE
-	2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcV
-	C2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVj
-	vjDU0xZFpf9x0JUU9N3UUUUU=
+X-CM-TRANSID: gCh0CgDn_iHie7tqgXJpCA--.48809S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrZFWDArWfJF47Aw4rZr48Crg_yoWfXwbEk3
+	9YqF97ta93AFsFya17Cwn5WFyUCw4aqry7KF12qFyayw1rWr45GF4vy34Yqry8Zay5Xa9I
+	vr4Duay0kr4agjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb3kFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
+	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
+	17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
+	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
+	IxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0pRiSdgUUUUU=
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_015049_408210_51B310F9 
-X-CRM114-Status: UNSURE (   7.13  )
+X-CRM114-CacheID: sfid-20260929_015049_444334_F1959F37 
+X-CRM114-Status: UNSURE (   5.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,42 +103,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pu Lehui <pulehui@huawei.com>
 
-Implement callx by emitting a jalr instruction to jump to the target
-subprog address held in rd, and marking the call as it clobbers
-RV_REG_RA.
+This series implements support for indirect calls to bpf subprogs on
+riscv64 and enables the corresponding selftests.
 
-Signed-off-by: Pu Lehui <pulehui@huawei.com>
----
- arch/riscv/net/bpf_jit_comp64.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Meanwhile, this series also resolves the test_verifier failures
+previously captured by riscv-bpf-daily due to missing callx support [0].
 
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index 7ce9f8460c59..88430825f4f5 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -2071,6 +2071,13 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 			emit_mv(bpf_to_rv_reg(BPF_REG_0, ctx), RV_REG_A0, ctx);
- 		break;
- 	}
-+
-+	/* indirect call to a bpf subprog via the address in rd */
-+	case BPF_JMP | BPF_CALL | BPF_X:
-+		mark_call(ctx);
-+		emit_jalr(RV_REG_RA, rd, 0, ctx);
-+		break;
-+
- 	/* tail call */
- 	case BPF_JMP | BPF_TAIL_CALL:
- 		if (emit_bpf_tail_call(i, ctx))
-@@ -2397,3 +2404,8 @@ bool bpf_jit_supports_exceptions(void)
- 	 */
- 	return IS_ENABLED(CONFIG_FRAME_POINTER);
- }
-+
-+bool bpf_jit_supports_callx(void)
-+{
-+	return true;
-+}
+[0] https://github.com/pulehui/riscv-bpf-daily/issues/11
+
+Pu Lehui (2):
+  riscv, bpf: Support indirect calls to bpf subprogs (callx)
+  selftests/bpf: Enable callx related testcases for RV64
+
+ arch/riscv/net/bpf_jit_comp64.c                      | 12 ++++++++++++
+ .../selftests/bpf/prog_tests/callx_func_ptr_map.c    |  3 ++-
+ .../selftests/bpf/prog_tests/callx_rodata_lskel.c    |  3 ++-
+ tools/testing/selftests/bpf/progs/verifier_callx.c   |  3 ++-
+ .../selftests/bpf/progs/verifier_callx_rodata.c      |  3 ++-
+ 5 files changed, 20 insertions(+), 4 deletions(-)
+
 -- 
 2.34.1
 
