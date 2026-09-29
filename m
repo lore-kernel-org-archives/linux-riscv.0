@@ -4,93 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00862CA5FA5
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 21:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B8CCA5FA7
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 21:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PJZ+LHswrgWLVcfJzxs/LS0TLG4yPbUPM+g1KLdZENU=; b=uyQrkg5qOq/OfK
-	DfVeSHGcDn+Do5u3XpP3CGCao9ZNNxr4lBANk+tnZXL+ZoTEmdkkHbqr+o9KZx3nNzcQknnLComAM
-	Xrq02ANT6zcO5zfyfVYFDssvVm8YUGO0Ng4mM/Z4uDTHGXsuGzkP6zLtfzAzKt66+IGa3rhL9T3/i
-	OGJDUYuMyDVwSUxg1gbYoRrdQs2wFtoHIrXID14TNa3jD/bQHqJQgTYsyQ/E8CA0wlVwU8MJgY3L8
-	5jYBFsCpixw2P0eA/zyiDG9zpp+cyAzAd39GTdCVqTr5l6RtG4XGpfEap8I91JtI0vMbBTNkVs3Sh
-	RkboxnM/ngdDIOPUj3/g==;
+	List-Owner; bh=hikCMQNvCBxmmuG4cEpKMsraz7h0csmeyYTx3p3QB1I=; b=shGTCr+cbaJzmF
+	7HkHNA8+UFQ/QS+mf2cDk+h44c4XtFwWRlxM6NjWyzANEEM/cQXHE3ija2HbrhTzGAka1LvAeXc9L
+	R2bxLzbCb9d6zJxoJiWOj4wmu18G5ReZI1dvUXf3+ZWeCSeyNMY2ycrt/UfRpXFVok4HqgDtdizSv
+	t6VaSdKjttREFkq3OveypeuuJA9kY7qYG02ZZMF2wgxEeUiFjWxzdEuQCURjirwfoG3hYOIM5E5dp
+	lsPw9QnBXIUPBOgDkh9fKoCk5vuMpyoRldFuX03ewWZi7ru9HHbx1VqFIKlCPwLHpor5nViCbdf5P
+	FD2bF5XcUIhKinb37m8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBewE-00000004YZx-38IF;
-	Tue, 29 Sep 2026 21:00:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBfBO-00000004a5X-1Mqo;
+	Tue, 29 Sep 2026 21:16:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBewC-00000004YZG-3Cul;
-	Tue, 29 Sep 2026 21:00:32 +0000
+	id 1xBfBN-00000004a5O-0Kei
+	for linux-riscv@lists.infradead.org;
+	Tue, 29 Sep 2026 21:16:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id ABA976022B;
-	Tue, 29 Sep 2026 21:00:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20E411F000FF;
-	Tue, 29 Sep 2026 21:00:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 084BE44000;
+	Tue, 29 Sep 2026 21:16:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FEC81F000FF;
+	Tue, 29 Sep 2026 21:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790715631;
-	bh=bTrVUzFHW3Oj2CSlNbzlRmytUYv+2bWZ46hvpaZRjPE=;
+	s=k20260515; t=1790716571;
+	bh=xpw024FPprsgBJNE+ZftfnLgbwyIdP1EDp11HcHw3IU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JyRa5Ac9b1U1vLHqhBLIX/oo7sKjKipP9//jXhI9SeVf4EVAq1kZ3CFPaXFN0bul6
-	 d53C4S2tdma+FaMP1AqWi2hYj951uAdN3xtsA1zflfjG4zYnd3BC+H8G40zNFJfKX2
-	 C/eltXspluel5iPOFbHNdeQ9x7N1nme2hi2vOMoiwhM/ewAN30q6vN28FMQw+gNK+3
-	 lOFnceu8YKafKw+60VyJeDjRFVkcMn5TG41TbJWK9MZcz9h9w7GUR7yjXNuPKQZK5a
-	 TB8qUto/O9M0fnxM11oWQmgBlzRiHHGKiVBFuwIzq7fY9duRTAeVTX6gTxe6w6cwta
-	 Z9jAI5WNe+S8A==
-Date: Tue, 29 Sep 2026 16:00:29 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Maud Spierings <maud_spierings@murena.io>,
-	Jonas Karlman <jonas@kwiboo.se>, linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Maxime Ripard <mripard@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Robert Foss <rfoss@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-clk@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Dominique Belhachemi <db@domibel.de>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Graham Markall <hello@big-grey.co.uk>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Joshua Peisach <jpeisach@ubuntu.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	linux-rockchip@lists.infradead.org,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [PATCH v5 03/21] dt-bindings: display: bridge: Add
- starfive,jh7110-inno-hdmi-controller
-Message-ID: <179071558022.2715907.15730978189912998246.robh@kernel.org>
-References: <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
- <CGME20260929103207eucas1p26e12772a3af606f651f1bb396686e8f8@eucas1p2.samsung.com>
- <20260929-jh7110-clean-send-v5-3-82b4d8e3c6c7@samsung.com>
+	b=LHt2E58QCAUzIRlzpO6t7v+9zqFQJx+Jwc46d3dgQ5lIjV8BcZ2JPYxER+oq+CsYl
+	 od7zS9SWrctFtLl+s9Uks5G9FH2b6B5esIaprOPo5il3JGGHFWWQOd/swDCLowTCq0
+	 G92spy4chD19G1XJwxbrPHXhazJce0yxPyaAny9c1mRn343MWrfSkOW3WjKP6YiAym
+	 /l7Ey8BAIfg7io4+BQk+H+H7oca5+I9+WvPFzpWjrMCSTPNI5pay/i22+AEX6AqFyw
+	 NJRu1AN6MplN/+0d3kq+qIYV0TeAN28F3DVUUPezv7nkLajI+6M1AVr/EkqvuNwduq
+	 SUukdTAnGKU3Q==
+Date: Tue, 29 Sep 2026 23:16:08 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>, g@zenone.zhora.eu
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Mika Westerberg <mika.westerberg@linux.intel.com>, linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Min Lin <linmin@eswincomputing.com>, Yulin Lu <luyulin@eswincomputing.com>, 
+	Samuel Holland <samuel.holland@sifive.com>, Darshan Prajapati <darshan.prajapati@einfochips.com>, 
+	Pritesh Patel <pritesh.patel@einfochips.com>
+Subject: Re: [PATCH v4 5/7] dt-bindings: i2c: dw: add ESWIN EIC7700 SoC I2C
+ controller
+Message-ID: <arwqgeAvwVFyLBHE@zenone.zhora.eu>
+References: <20260814070007.1662455-1-pinkesh.vaghela@einfochips.com>
+ <20260814070007.1662455-6-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260929-jh7110-clean-send-v5-3-82b4d8e3c6c7@samsung.com>
+In-Reply-To: <20260814070007.1662455-6-pinkesh.vaghela@einfochips.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,24 +78,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Pinkesh,
 
-On Tue, 29 Sep 2026 12:31:00 +0200, Michal Wilczynski wrote:
-> Add the dt-binding for the StarFive JH7110 Innosilicon HDMI controller
-> (DRM bridge).
+On Fri, Aug 14, 2026 at 12:30:05PM +0530, Pinkesh Vaghela wrote:
+> From: Pritesh Patel <pritesh.patel@einfochips.com>
 > 
-> This device is the second child of the starfive,jh7110-hdmi-subsystem node.
-> It consumes its register access, audio master and audio bit clocks
-> (pclk, mclk, bclk) from voutcrg, and both the pixel clock (pixel) and
-> the PHY from its hdmi_phy sibling.
+> Add compatible string for the DesignWare-based I2C controllers present
+> in ESWIN EIC7700 SoC.
 > 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  .../starfive,jh7110-inno-hdmi-controller.yaml      | 121 +++++++++++++++++++++
->  1 file changed, 121 insertions(+)
-> 
+> Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Acked-by: Mika Westerberg <mika.westerberg@linux.intel.com>
+> Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Andi Shyti <andi.shyti@kernel.org>
 
+Thanks,
+Andi
 
 _______________________________________________
 linux-riscv mailing list
