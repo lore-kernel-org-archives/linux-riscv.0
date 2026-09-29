@@ -4,107 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3868CA5FA5
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 10:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5BF6CA5FA5
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 11:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IlP8823LCWFrDx8fk8rlh9sHqXxVM8Y/FaLWinnht/8=; b=TtkiOU2lvgwHTj
-	+v2byFhzDkeiPrtBxbD25nD5q5m30rFUoa4k5I+0EnaGaEe9h1ctdAJU6KHrzmh5g/5XSKipUdpRB
-	PuoRltI4YmsIHp1sVj+11K838B0e9nabTAdMCxBls3enbZQCzgX+FsP/qyFe0fF2zxiSNgcA+oPku
-	GqHMkc8RUzvKO1XkKYfG83lDoCg6l8jqNE73fx6iLNPj6a/XebtYuK6qXCw7x2WSQmuHM32W2/Pwa
-	QYXFlUifKKz4U1cunOZEz504Vijc5p5qDsOaCk+JJ+AcyzWuj8WvLJOM77e6zdm89Z/JlCedqD0DY
-	AuGYNBYsU+SKoMRjBLnA==;
+	List-Owner; bh=yw8ablg0SJf987cyDIrbeJQCO+uj9h1MV55ab2HpCH0=; b=pYusIyt3JwTr1S
+	vvhXl4H2FOO+t7Pp80gUT6+RgahWjROadHhm5kkChlY/bLsBxOsCyV/cTcvnpF71vufBbiu88qcd2
+	sPJPJKJgLeAdP/mOtIx8KHgx46rnVczMRT0gOtBzhHvJyL2qbtXJVez3n0KE9f8qbsDoN15Q9jOgG
+	zXVjgsILFwCol3zZuXOp9hgRm/vuG2ZS6/NpPfn+9+uW6azKxeCVDK6AS1B2GotbEQNodgPLWLsy9
+	fdLrXYS4yAYS+fH8aYZPOdao5le22DcNzCxAggBKyK8TiVeBXf8U2WHJ4RH/vphcQBZiUl5wTbbSV
+	cfMDc7OkYUdFNngeQ74Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVBj-00000003Fkp-0DGI;
-	Tue, 29 Sep 2026 10:35:55 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1xBVqS-00000003Nuq-0Dgj;
+	Tue, 29 Sep 2026 11:18:00 +0000
+Received: from mail-ukwestazon11022093.outbound.protection.outlook.com ([52.101.101.93] helo=CWXP265CU010.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBV8o-00000003CHd-38GC;
-	Tue, 29 Sep 2026 10:32:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=References:Content-Type:Cc:To:
-	In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=r457fqQsZjuEuXBSPoj5rDr27WgbPfP74A0q9KhjNco=; b=CbjIz9O+w6vmiYlqjAQBC0NGJA
-	X8kJvja4HA1M+dGOGkSvNo25A/M9IiC+dKzc7PkK7JKJ8igq03uwvVaM8dOX8Gd19NxDHVcA39V98
-	fXasVL+/xp61nGDz9XgmpNW/gnT66n9+zBE1XYbKQj4VGnMhE9aymw24+lmcywMATk3ecIk/hlbHj
-	Dom2u8iVmplX/aUSpJ7h8E6UAadW3345bzbiWbcb0JD44K4iEAhhRAY7yt6ArkPXM2vn3Xj1NO6Mr
-	ox/d4yXDizmBknxu2yn3lK0lqa1TBfq2FxpmE3FT2E0o3ULm1yZVebxr5EwK9VDdGFV9NqlIUdhAv
-	fGIMj+MA==;
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBV8l-0000000CJiT-2MCX;
-	Tue, 29 Sep 2026 10:32:53 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260929103250euoutp028c99beba02b74f50a7961d4572873ae2~ZxCCLUUT12627126271euoutp02i;
-	Tue, 29 Sep 2026 10:32:50 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260929103250euoutp028c99beba02b74f50a7961d4572873ae2~ZxCCLUUT12627126271euoutp02i
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1790677970;
-	bh=r457fqQsZjuEuXBSPoj5rDr27WgbPfP74A0q9KhjNco=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=Dip6HfjTv58iDU4hbp+FJ2c/oDjy6s9wK+vNapH0RJIEEwt6gCQhSb7eizZwa72W7
-	 Ms5RYbVo4eIHF1XULMAu1EBZ+VsSk1ovtFdO0W0gTPrmLPuxlQktRqR7FBaXszWrF+
-	 vTR+J7nxi31ygx3i4M7gyzUbHyZS1jbfhlU2jwic=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260929103250eucas1p1ea04d70d2cc6c4ddfe11e596ea9814a1~ZxCBhfDIO0556805568eucas1p1V;
-	Tue, 29 Sep 2026 10:32:50 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260929103247eusmtip131972b1ab22df47a0a0b5e5a1dbd5012~ZxB-HaPDZ2959829598eusmtip1X;
-	Tue, 29 Sep 2026 10:32:47 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Tue, 29 Sep 2026 12:31:18 +0200
-Subject: [PATCH v5 21/21] MAINTAINERS: Add StarFive JH7110 display subsystem
- entry
+	id 1xBVqP-00000003Nu4-2grh
+	for linux-riscv@lists.infradead.org;
+	Tue, 29 Sep 2026 11:17:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nMBz9Lr0oSW9sA3o1qdNb7SfAUMKgALvvLDzBWt6PkdKhMJleqPRNnEusjisKIHjs8p+eQB0AC4seJ6oYf+a4tnsmH8MdI1eeXvQkGmWnv4EX0vLzyOBYmcqFsHoI8eH8rVOzw4b596qDW0BxlXe/hehTIa6vE1gUibORAm/SygqVjMe4LisbRJR18e2xL5AYoZpcHbJzevnF/y4PHt3dRhH6Jp2kgr7n6BuLpBplbpSGIkULluaXovBTwNUj587UDAfaPiJQqIYjx0CoTZqYqYmqX/+CoriwCvietgAHHKKszqC4vEMgMggPnHsxuBHijJO143JXLx1iz79N11dxw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ibM3GthIA2jgx2uZ/fVzSC/EKYdkKPuQx8+AeoTjnhQ=;
+ b=b1If3aoyYA4ExJLnEGjMZ9Wd2CMC/9KV4d3xnkoypiEa5AoBfCOuOxGtGyXBvZHNRk3OnQYZus5IjlOvygcfMfCmD9ODfsLYchLdhjbSSQ4qSCxrYZVJ9QClexnS22Us0cl7076lFJk2Ec3AzGtlMgc/mYw25MTgG0fr3aVUlFEB6y7sIIgU60vF/+E/dsZpak6VReuAT54Bhb3RogYt09Le9Ox0TgG01LRVa9/ULkiAvxrEZxUpzV/k3fKggS6QHLe0ss/uCVqrTpQJ9HD5pClaFzQsibNTxR4qAd5xvCPtkNsLlm96qNOlMTc0vQSi2M7u2NXOPiVeyNMuVemBHg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ibM3GthIA2jgx2uZ/fVzSC/EKYdkKPuQx8+AeoTjnhQ=;
+ b=UVUSglJ09pJRTbFxbABG0cZeYcXVumiTMd587RwEid8Rr4nquMqLzTyiN53C6+WCkmUTKsBjasTwdjwyDFxXoenMOueY3g6kXLBGq+X6qnB0xgWhwCyZLUDU9GoZk4W0DDrOEsjNNuofVNcDHHoZhkujQeMAZqbogAC3ahxdMZY=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:4ab::19)
+ by LO0P265MB6727.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:30d::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.25; Tue, 29 Sep
+ 2026 11:17:49 +0000
+Received: from LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::f60b:1537:68d7:4fc1]) by LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::f60b:1537:68d7:4fc1%6]) with mapi id 15.21.0451.024; Tue, 29 Sep 2026
+ 11:17:49 +0000
+Date: Tue, 29 Sep 2026 12:17:48 +0100
+Message-Id: <DLRRBILPITPS.25SC9GL1ORLPW@garyguo.net>
+Cc: <a.hindborg@kernel.org>, <acourbot@nvidia.com>, <aliceryhl@google.com>,
+ <bjorn3_gh@protonmail.com>, <boqun@kernel.org>, <dakr@kernel.org>,
+ <daniel.almeida@collabora.com>, <gary@garyguo.net>, <lossin@kernel.org>,
+ <tamird@kernel.org>, <tmgross@umich.edu>, <work@onurozkan.dev>,
+ <rust-for-linux@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ "FUJITA Tomonori" <fujita.tomonori@gmail.com>
+Subject: Re: [PATCH v1] pwm: th1520: Fix 32-bit build with COMPILE_TEST
+From: "Gary Guo" <gary@garyguo.net>
+To: "FUJITA Tomonori" <tomo@flapping.org>, <ojeda@kernel.org>,
+ <fustini@kernel.org>, <guoren@kernel.org>, <wefu@redhat.com>
+X-Mailer: aerc 0.22.0
+References: <20260929095612.1072417-1-tomo@flapping.org>
+In-Reply-To: <20260929095612.1072417-1-tomo@flapping.org>
+X-ClientProxiedBy: LO4P123CA0673.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:351::8) To LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:4ab::19)
 MIME-Version: 1.0
-Message-Id: <20260929-jh7110-clean-send-v5-21-82b4d8e3c6c7@samsung.com>
-In-Reply-To: <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
-To: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
-	<conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,  Robert Foss
-	<rfoss@kernel.org>,  Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,  Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,  Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,  Andy Yan
-	<andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>,  Emil
-	Renner Berthing <kernel@esmil.dk>,  Hal Feng <hal.feng@starfivetech.com>, 
-	Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
-	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>,  Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,  Dominique
-	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>,  Jerome
-	Brunet <jbrunet+clk@baylibre.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,  Marek
-	Szyprowski <m.szyprowski@samsung.com>,  Maud Spierings
-	<maud_spierings@murena.io>,  Graham Markall <hello@big-grey.co.uk>,  Icenowy
-	Zheng <zhengxingda@iscas.ac.cn>,  Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-	Joshua Peisach <jpeisach@ubuntu.com>,  =?utf-8?q?Uwe_Kleine-K=C3=B6nig?=
-	<u.kleine-koenig@baylibre.com>,  Michal Wilczynski
-	<m.wilczynski@samsung.com>
-X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20260929103250eucas1p1ea04d70d2cc6c4ddfe11e596ea9814a1
-X-Msg-Generator: CA
-X-RootMTR: 20260929103250eucas1p1ea04d70d2cc6c4ddfe11e596ea9814a1
-X-EPHeader: CA
-X-CMS-RootMailID: 20260929103250eucas1p1ea04d70d2cc6c4ddfe11e596ea9814a1
-References: <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
-	<CGME20260929103250eucas1p1ea04d70d2cc6c4ddfe11e596ea9814a1@eucas1p1.samsung.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LOAP265MB8560:EE_|LO0P265MB6727:EE_
+X-MS-Office365-Filtering-Correlation-Id: b3e69f01-e445-4fff-400a-08df1e1b4b93
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|10070799003|23010399003|1800799024|10067099003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: GaFMdwD13rZMNpC9yLGxLpg0/lgnQWD4ofuzGbXtqEbbjd8y+X4JCfAFy5Ts8KYqx7g1DCVU0HJ+kFBEgfjI44DaRu/vrh+/2bQE5ylx0fjYQWm/uBxV8j6Zmi29m2eWnQfX2w05+iuIWT0sB846Od83n6m/+w+XXsd74nc8dFSZf0ThW4DEtP8zNVtClL1OEi+2nXiiAXs7ANzRMImUW9tQndEqBUOjLDqkHtL4hKjwrfPX6t+SH+fFnHFurmmzCC5obF+6hFd+Fav/p1XQ+kgIpU7waUSEDfFVyA8NUiOgmVbyz5608STTOAVmJUqGfoS7Ysj9CDTmMwmqzh6pVKamAqs3aw9PXThLUihu/ekw9CtvVJ30nZlwsyO6U2rZqJ4a938qUvvdXe3Udo34bErl/tmsF1V8NjDXnZD+PL+LjT+I0sRIdXCSszhUWp392gHC6hOcYo4pulpJeFVi9eKNL7IH3DH27x16KllQMIRxr5vTJ6Qy2tZ0urGhrGvi5X19SaV20pUXam3iC/YBwdU47nV/0VarVqJNMBlYOrJizRC4fu0KSVAFfsBYms+lqZ6Tc5trhEr28INIMEbopPzzxuMw5lyoy0ULfqJdivGT4VUndKyi+/u/dsi1eCwWGe9wfL4ChI60KNpUCEaDJI4W9HSX7Wm90wfpttTam+Q=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(10070799003)(23010399003)(1800799024)(10067099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y3NvdVZDRmtvRSswSDhlZUk0b0k0ZG5xaCtlcFFVMTBzSDVKeUNQdVZsUCtx?=
+ =?utf-8?B?VXJkdllIWjJSY0RnSklTelJ3REszMEYremRMcDdSaTNFTXJDMnZ6bW1aOGwz?=
+ =?utf-8?B?UjJsN09YdkNscjU1a1I0MzRLMzB0dEhMNG4waDRIYTluSlNRSmROUmI1VGU3?=
+ =?utf-8?B?TURPMU9SVjhNZGwvWGppNVlSdE5zOXVXR1Y5MDBjbG5hNGJNNy9mUHdqNitr?=
+ =?utf-8?B?eFdVQTY4UTdSZldGSkFjSWcyb3hFRlJDbVliQUpEbFRYajVVWlEvWVNROGdR?=
+ =?utf-8?B?Vll6QzVkTjJNR05rMkpiS3dnNXpmUDhJYkhWb1ZvUHVVZjNlNFQ1YkYrd3lp?=
+ =?utf-8?B?WUJybUhQM3EyTk92MGRNVWlWMVJ2SENERitGdGdKMlZqT1NtSnYwbXVmVzlR?=
+ =?utf-8?B?dEtGTklES1prWmhWY1NsQU56Mjk1K2VPa1cwb01KRmIvS3BuWHp3MzQ4YVBB?=
+ =?utf-8?B?aUFTU09Ua1R0VG5jNUZxMzYwWUxqUkJpd1ZjRUU2U29lOFRPbzFCOStWOWZJ?=
+ =?utf-8?B?MGpMdkdzdXpLTWtxbGc3VldYMTJ1eGVsUFRMclowQ1gxMUU0am5Nd1BzYzNK?=
+ =?utf-8?B?ZjJ1SGVFMlFLL1RuVFFUb0xaU1ZPR1huc3NkeGNTTktLazhuNG5mV0gzVzRK?=
+ =?utf-8?B?U3llWlRrRE1leFIyZWVZdlRETWJUWkc1ZzgwYklsMlY1V0Z2cktoV25nNEZK?=
+ =?utf-8?B?UG1BcGE1MXFpQVhOVERLamxwNjNtSCtvQy9LOTRSUGpHY1RFWGRrNWlEMmFh?=
+ =?utf-8?B?enB4YXFPT056aXdSdSs3UHl6RGwzNWtuV29tb2FtVUJzZlh4OTlFNEJIbXBK?=
+ =?utf-8?B?TWMweE9vazlIY2Vnd0E4VjVPOElwejJqTWVkWTJFY3NsL3ZaU0JKZFdOaiti?=
+ =?utf-8?B?Mk4rb0pJeFpraWIxQURNbTgrcUwyTUcrRjRkNUJ6UW4xdnN1UmVDcDQwWG8y?=
+ =?utf-8?B?ZE1kdXI4OU9reDlEQlNkRG9CSTZGb1BwUkRDR0RaVTNRTHhNYy81aGlXWi9J?=
+ =?utf-8?B?cGU0dUVkTVZGYWNNbzY2QitHbjZFK0l2TEh5eEZEUFVicmdNUnM3SVpmUVZp?=
+ =?utf-8?B?OTlDMnF4T0h1eGY5RTJtTFh4YjNyeGZEVUx4ZWlZMlhmK2s4Q3Q0endEV01F?=
+ =?utf-8?B?UDFjNEZiektHamozQzIzN3ZvTm9SK01wNnlWbmwzUEtJM1lQQzFKWmxoRVFs?=
+ =?utf-8?B?Wk1Cb3VLOCtwR0o5WHlFdWR0eG5aWm1UZEo4SGNkaEpKVk5iN3ZyQU9YMXla?=
+ =?utf-8?B?bTlSQ1lKazNoby9MZGlMT3BzbThZWWtPRkhCR3RBZmxrdERJNGVua3J0WjVX?=
+ =?utf-8?B?QlN1M2l5eDBhV3A0N3NTZldrSFgvL1hKWlZSVlpPL2hDY3UvSUd4S1o2VWFo?=
+ =?utf-8?B?bU9OYmV1ZGFjZzlRRDN4OGVBck1wdEEyWXl5OUJMbDZ1VGdrUWYwV1FBVldj?=
+ =?utf-8?B?TnhRT2JCNmtiSEFlSHZ4YTNjeGNzblZraGZ0OERtM2FtUUQ0SHVzbmNKTUZh?=
+ =?utf-8?B?ZE82UjJrcnpaOHZrMGZsSC9RWkU3K2tmcjQ0WG1DZDllbU43ZWxwblllVWF3?=
+ =?utf-8?B?NUVVVCtBK2w4cUUxRVc3ekJiZlVQRkUxSHJKRmRHVG5HSzRLVWJvblZsbVpv?=
+ =?utf-8?B?aitobnRhcGg5enJLeHY0WW9yK28xa2pTL2ZoK3pJQWRocjhpY29acGdXUHFI?=
+ =?utf-8?B?TnRsL0J1NnpuRUp0bTh1Mi95bXhTcVhnWWpvOUFuaWR1TDkwYWo5Q3Eva3E3?=
+ =?utf-8?B?THprZDNHNkZ0ZVJ0VnVvWXppbklzYnUvYnB6WG1LaGk5a2NFc0pMMG1ReXFw?=
+ =?utf-8?B?ZEM5U284eE5ja2ZtUEF6NEpkWFpFbjNRWnV1Y1RRUktTWEQ2d0JzYzRKcnNw?=
+ =?utf-8?B?aFF0TVVCWE9DOWs5UmY1a29kQ08vVGN2bHVSR1RGY2JidG9Hd0o4UmVXT0xj?=
+ =?utf-8?B?T1pmc2Zva3RJREgrQUtvOU9ZR2NOU0I1YVl3Z1dXQ1pYbzhOdnN1UVl2MFhS?=
+ =?utf-8?B?SkRsbU1sUjlWN3owQlFQU0hJTlNjWGZzeWdsSTUxNllZbW0vdzdIcTB1VkNR?=
+ =?utf-8?B?VWM5Z1V4c3VZdzJWQm9rRWNudkh3Rm5IeGhORHBtRy9PNlFqZzJzZ1pWUGxn?=
+ =?utf-8?B?Y0xtVFhYZEs2bStxeElCaExKTXFOL3NjakxTVXpIZ0hoRUNIbTJkQU9PZGlF?=
+ =?utf-8?B?VmlMcVN3a2dBeVk1dzdQY3dmeWZ0L1NMWFVBQlE5VFVud0lLcjMxOHE1YlQ3?=
+ =?utf-8?B?eHFncHFFZngrV1ZnVzkzQThXaVVLdlM0Zk01Sy9DeEtabVRxN21oOE02VXk1?=
+ =?utf-8?B?SWlDNUxaWXhXdzlNR2EraDljclhUcVltVk1qT3lxdDA3SDk3R1NjQT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: b3e69f01-e445-4fff-400a-08df1e1b4b93
+X-MS-Exchange-CrossTenant-AuthSource: LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 11:17:49.1619
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MceS/Yn6CqDtZ91n87kpa90QbiyjRfEFbSDMNQTubJxGl5RbVFUQ9soL0ZADsQrVEXBx/jICHWnimr8LCvba7w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO0P265MB6727
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_113251_659001_44A85975 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260929_041757_695071_8398853C 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,44 +150,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The JH7110 display subsystem spans a PHY driver, a DRM bridge driver,
-a parent device and their bindings, and has no existing maintainer entry.
+On Tue Sep 29, 2026 at 10:56 AM BST, FUJITA Tomonori wrote:
+> From: FUJITA Tomonori <fujita.tomonori@gmail.com>
+> 
+> Fix the following build error on 32-bit ARM with COMPILE_TEST:
+> 
+>   ERROR: modpost: drivers/pwm/pwm_th1520.ko: symbol '__aeabi_uldivmod' undefined!
+> 
+> The driver divides u64 values when it converts between nanoseconds and
+> clock cycles. On 32-bit ARM, these divisions are compiled to calls to
+> __aeabi_uldivmod, which the kernel does not provide.
+> 
+> he TH1520 is a 64-bit RISC-V SoC, so the driver is only used on
+> 64-bit kernels. There is no point in compile testing it on 32-bit.
+> Limit COMPILE_TEST to 64BIT instead of changing the arithmetic to use
+> the div64 helpers.
+> 
+> Fixes: 3c180003dffb ("pwm: th1520: Fix missing Kconfig dependencies")
+> Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
 
-Add an entry covering them so patches reach someone who can review them.
+Reviewed-by: Gary Guo <gary@garyguo.net>
 
-Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
- MAINTAINERS | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 72294ddfa5b757f805640919e3d6d5d7c4c48582..bd0a485744864cb713be759911c62442f0ffdaa5 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -26076,6 +26076,19 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
- F:	drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
- 
-+STARFIVE JH7110 DISPLAY SUBSYSTEM
-+M:	Michal Wilczynski <m.wilczynski@samsung.com>
-+R:	Icenowy Zheng <zhengxingda@iscas.ac.cn>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/display/bridge/starfive,jh7110-inno-hdmi-controller.yaml
-+F:	Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
-+F:	Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-hdmi-subsystem.yaml
-+F:	Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-vout-subsystem.yaml
-+F:	drivers/gpu/drm/bridge/jh7110-inno-hdmi.c
-+F:	drivers/phy/starfive/phy-jh7110-inno-hdmi.c
-+F:	drivers/soc/starfive/jh7110-hdmi-subsystem.c
-+F:	drivers/soc/starfive/jh7110-vout-subsystem.c
-+
- STARFIVE JH7110 DPHY RX DRIVER
- M:	Jack Zhu <jack.zhu@starfivetech.com>
- M:	Changhuang Liang <changhuang.liang@starfivetech.com>
-
--- 
-2.34.1
+> ---
+>  drivers/pwm/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
 
 _______________________________________________
