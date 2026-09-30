@@ -4,57 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A10ECA5FC1
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 07:55:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA71CA5FC1
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 07:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CQKBXUfChlt9mwNX6Zxndqegy4KJXI4vQ/yYfALxu7I=; b=l2G9VJwzryipif
-	o5ZmbfPUpNK4hlH/HohX0neOUG1VRkWVqcz0X23O4nvbASoOCr6mUHqKsyOR2GqVetsDy45ZfZbYg
-	yeaRSRZxqVMLPdQgicczoOvBHxUImdg29lSsjiB0SgNpj7s+miY5aDb8VIdRqJ6g1uKTI+4LebQ8Z
-	+WaBb/t4Um+9wYL2IcLqNwINUX0sbHDqdZrYYjOePUiQEDZM39zn3XBS8KK4E7tPQqDWJTQT2l1Q2
-	qqNS245XMc0Z/pySO62tP2jXndhLVIZRwUfz3AbYNPD/+cP+o3jGTivLh6fcuU0Z0PqRf5PFN3EpW
-	nSurRzolW5LDIWhan4bg==;
+	List-Owner; bh=/hrRmqjld7AMC9iq0NogheyDPXQ0iLLGH2HWdG9XA1M=; b=Hie6kmL+YpIEHI
+	m2OFlPX8Q9UOfD3dEZJd6as7ggLDCfuwKcjFBFmq1GVdhAjvHjUlwr6CTkwQ375NBKOvzuRBpoMLG
+	DUj7SRiC4VlpAjaLXM7O47uZWdw/wO4/ng8VeXwMW+4plZFBh3dVfqApPGiOvcWX7AI8egZzSBdwt
+	mydysRhT8OU/tmySGT+V4TcZQNX8oLeCZ+UYsDsU6Bg5ob60ld6fop2z6yZ5Fi6J66+Rxr4orEVCW
+	CJAopbKbpN8s2rVBytLzsw7IY/uDYrt8Dyiy9iBqCQGGJQwKCQ7ncaER7OhhThNJ5fYye7nX1VUkz
+	lkXMzEq+t5BaUWdmA5Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBp9s-00000005M1v-2JhY;
-	Wed, 30 Sep 2026 07:55:20 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1xBpCU-00000005MVt-1u8D;
+	Wed, 30 Sep 2026 07:58:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBp9p-00000005M1D-4Bt2
+	id 1xBpCT-00000005MVc-3N1B
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 30 Sep 2026 07:58:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=6IDbZ39JbpPhLRQxZLNZ9ubfSsFOonfZJEG8FR2i4m8=; b=Kxu/KiKsBF4gjapKpoxNIQi8aq
+	zBL+xhxbWQIYHXMBB5mrO/emSlhE+9X9kJ6tgSOVRAxtPBt8psOOnEEVWxEQ9wX/pxgUG4ww9eCOn
+	13JTzF6QxdH/OaS0I6yJmfewty3529I6KticCi/14d0xpY2zLQbUAScGXm7rlNY/3fqvwQORcN7wo
+	tlLg2dJEJWx0kRqorfKRzOzJflAmimz1psZzbzwXR3HwqJf2XsNrx1ik3RMzVYhyZYvd5qT1vnd7W
+	mycYUPUu4CIT5U0zVuH2fs2thDCbJxXFLxgekAH0ACE+0FpMpBXBJjKmLkJYeBZPCtKV7X+0L68dj
+	xFC89DNw==;
+Received: from mgamail.intel.com ([192.198.163.7])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBpCP-00000003VE5-0nCM
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Sep 2026 07:55:19 +0000
+	Wed, 30 Sep 2026 07:57:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790754918; x=1822290918;
+  t=1790755077; x=1822291077;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=B61XW8XeEOvbO64OXAmt70gDgEVyAKlU4t+7RQokYBA=;
-  b=YExljP0cvdidZPHp/BaIl8isV2uEGe9sd8CGK9EGzxU2gwdXo6MEumKz
-   LA3JhGNtnTMzujFbEp9C9KtFidIL0SE5ZPN/0W+vQA6s+pcjMpbuj+kVT
-   xy8vzhOfx1zzako9i6vny4oQUElOCGDO7H3KoqzwKgU/vNHdUBFOQUHzd
-   wNE7/XdbfkHzfl4H2WE2VVtQt0X5a17hc5FUJoTsGvKrTWkXo17xhqTQN
-   08hgpDaRYIM8tmwWKKU2RYt/3XmrWaVhjT5TsqZPXmhS/p/YWYN0wcT0O
-   hmfXYW9o3v6GAB3LRTBwP8xcrCmQZ1dmfkH156RGETiBzJNzOvccmfpZj
-   w==;
-X-CSE-ConnectionGUID: +Sk9QsmyTo2OgIKZ844iaQ==
-X-CSE-MsgGUID: 6aFTdFHMRIKyntR5Y1YrRw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11920"; a="79052474"
+  bh=cuwgXGs90Gk/ODGQsA6axEGFAM6CWZSsxbIz/u4KVd0=;
+  b=NafkLX/f72XiQY/HYhwHnlPfp98LlGfsxlGXcBc/dluGU4NwJY2qZFfk
+   SWODYvJmh12dwmhl6daIjGi6iVR+/ziPivpVYfEQM5Opjzy2lrE4Vp1vR
+   bHb3nKgGWTfXNOmVZCgFm47lAt336ZBRrLQjBMu4MnZuS74OSRFtvKLqR
+   YKaND2fmTdk+rlBImdDc3Euej6zKGbbhCJcvIcwg5aWuM+Z7FAqaD2hU0
+   sB5vwvYzNq7CphorZOn82isEQXDqaDgXZ+klqF+08ztns11pbIhMM5Z5C
+   6FSMOJEa5T8Zfouu8mdwajnid9rF2a7cdmlFvs73PQsDlsgbCV/lUhDAx
+   A==;
+X-CSE-ConnectionGUID: vMdGa8BcSx2wOl7kcFarkg==
+X-CSE-MsgGUID: 0YSr8UIRT4qbqUluoxF3jQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11920"; a="117015333"
 X-IronPort-AV: E=Sophos;i="6.27,132,1787036400"; 
-   d="scan'208";a="79052474"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 00:55:17 -0700
-X-CSE-ConnectionGUID: qWb3F+3+QfK/XgRyBorc3g==
-X-CSE-MsgGUID: gnqi5VzCTu6vqGUSdVV/SA==
+   d="scan'208";a="117015333"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 00:57:51 -0700
+X-CSE-ConnectionGUID: DPdnac1mRyaoOETELn+/aQ==
+X-CSE-MsgGUID: Paabs1L0TRi7PxRmTrUolw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,132,1787036400"; 
-   d="scan'208";a="313558644"
+   d="scan'208";a="279419770"
 Received: from spandruv-desk1.amr.corp.intel.com (HELO localhost) ([10.245.245.137])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 00:55:09 -0700
-Date: Wed, 30 Sep 2026 10:55:07 +0300
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 00:57:44 -0700
+Date: Wed, 30 Sep 2026 10:57:41 +0300
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Inochi Amaoto <inochiama@gmail.com>
 Cc: Jingoo Han <jingoohan1@gmail.com>,
@@ -85,19 +100,18 @@ Cc: Jingoo Han <jingoohan1@gmail.com>,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v7 1/6] PCI: spacemit-k1: Add device data support
-Message-ID: <arzAW7corpPippxP@ashevche-desk.local>
+Subject: Re: [PATCH v7 2/6] PCI: spacemit-k1: Add multiple PHY handles support
+Message-ID: <arzA9VgJvKr2G7bq@ashevche-desk.local>
 References: <20260929083755.458238-1-inochiama@gmail.com>
- <20260929083755.458238-2-inochiama@gmail.com>
+ <20260929083755.458238-3-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260929083755.458238-2-inochiama@gmail.com>
+In-Reply-To: <20260929083755.458238-3-inochiama@gmail.com>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_005518_071814_B0247F65 
-X-CRM114-Status: UNSURE (   7.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260930_085758_151173_01BDCCB2 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,10 +128,10 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 04:37:47PM +0800, Inochi Amaoto wrote:
-> To reuse the K1 PCIe driver logic for K3 PCIe controller, add device
-> data to handle the K1 specific logic and make room for the incoming
-> logic for K3.
+On Tue, Sep 29, 2026 at 04:37:48PM +0800, Inochi Amaoto wrote:
+> The PCIe controller on Spacemit K3 may use multiple PHYs at the
+> same time. The feature is not supported by the current driver.
+> So extend the PHY definition to support multiple PHY handles.
 
 Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
