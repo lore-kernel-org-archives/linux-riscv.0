@@ -4,37 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C608CA5FC5
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 18:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC7CCA5FC4
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 18:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q9GZA+vfGiJNyTfDnKe+IakkxeiCdLrEX6RrKs2XyAQ=; b=CRKVAYl0AwwV0D
-	mSLXJ73s5WUTUeXcoNr+mcaE7pkPzxythC3fa1F64RtvFYuzRx23dU/Zh+yvcAYlBjskOw/nXwhKo
-	YNuSiSs2NTX4DK6u9kBSB1D62r2gekCQycC4kuoliqcK4sEzlId4fqKq6rwTIf0z/OfjgndiZubjj
-	kpyahtmp8svn5R5JEGj15dJViXcTamEHHKED27dmosCa0Xa5acJFTpHa1aaPLB3D4iYQ/F9AAPkbQ
-	tBhFHi/QDlOETcUBgu+Uqu9Rnn0IAcEtxYMhqtRahmvHNX3Kibr91ETmUrviVhKjyozyu4sgxrXyL
-	RHzpQTheXKOfrlVjoVmg==;
+	List-Owner; bh=lDZCzeui17wJTeZtVq8gq2P/MxuQFe8opbPrePYeDu4=; b=3UTCXR+XJ+fZUT
+	Zk22LkNL2lpW/gIE6QBsrqIBeYO0xRp9lo2P2vpDdYY6tk6qjdQDARocb4lKDyZJXIli4oWz+R/UD
+	cLnV4Ti6a85+wBwZqEBstLwBU/hSkbvl9uTMmfD8CmFVMV6MqT9YFCgY29vcUlSEeoKLRl1N9nWQE
+	zE0R/DfVHOud+FvajTXQciBTr3tPi+8huBA5hh/f5NfiOV/2d8cmf0rEmq4UMrFQug7LM0D1/wYiQ
+	3X7F/Yr8QpPzL8yl4q+L1FYViGhd+JjHrsaeYXulBZgaBFGaJtJ50zITvOGNOqSULAnGEGUahoFE2
+	2cSwRNli/y/r0al2jucQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xByxc-00000006xdn-2kXz;
-	Wed, 30 Sep 2026 18:23:20 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1xByxh-00000006xev-3zQ5;
+	Wed, 30 Sep 2026 18:23:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xByxY-00000006xcD-134Y
+	id 1xByxh-00000006xeY-08rP
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 30 Sep 2026 18:23:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=jzFEwFhNEEl2QweEnFUgmbuXT1hIaNrPA0h4pJRAEBg=; b=Aq2klcz4ztRbJTsDgehB7QjReJ
+	iw6IrWCULtX1I28OkUe0giKtUnZVtaqMeQRSOoAo0SUzUylbhtfbBCBkJb+h7/w6vvbSLEDehgH/M
+	Nm7K3gifwRmMdHtotDAfgf+hu1fW7gZjtPgEiElEImzU5koJUDs6eHQttU33tb26p0QnyyYrEjspZ
+	KKmU4vYwBtbTlq45dIJrssEdvrBBBp5INdABMkh6/AkbUNu7aewH/D1TPx4peGEURLp7fKTAgtnB8
+	CWeqdsINh2bCINMZ4999gmxWyYgk7K9L9BcBkybHxRYb0RsPZZ3Wzj/1stLw6GJ3e7A3d4zSIGTGP
+	j9UiRT/Q==;
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xByxb-00000004BwX-2fBD
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Sep 2026 18:23:19 +0000
+	Wed, 30 Sep 2026 18:23:23 +0000
 Received: from [127.0.1.1] (unknown [223.166.93.127])
-	by APP-01 (Coremail) with SMTP id qwCowAAHofR9U71q8y58CQ--.14027S3;
-	Thu, 01 Oct 2026 02:23:03 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowAAHofR9U71q8y58CQ--.14027S6;
+	Thu, 01 Oct 2026 02:23:05 +0800 (CST)
 From: Han Gao <gaohan@iscas.ac.cn>
-Date: Thu, 01 Oct 2026 02:22:50 +0800
-Subject: [PATCH v2 1/4] spi: sg2044-nor: Return transfer errors
+Date: Thu, 01 Oct 2026 02:22:53 +0800
+Subject: [PATCH v2 4/4] riscv: dts: sophgo: Limit SG2042 SPI NOR to 12.5
+ MHz
 MIME-Version: 1.0
-Message-Id: <20261001-fix-sg204xspi-v2-1-014dbaf22b5e@iscas.ac.cn>
+Message-Id: <20261001-fix-sg204xspi-v2-4-014dbaf22b5e@iscas.ac.cn>
 References: <20261001-fix-sg204xspi-v2-0-014dbaf22b5e@iscas.ac.cn>
 In-Reply-To: <20261001-fix-sg204xspi-v2-0-014dbaf22b5e@iscas.ac.cn>
 To: Mark Brown <broonie@kernel.org>, Longbin Li <looong.bin@gmail.com>, 
@@ -48,30 +64,29 @@ Cc: Han Gao <rabenda.cn@gmail.com>, Hangfan Li <lihangfan@iscas.ac.cn>,
  devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
  linux-riscv@lists.infradead.org, Han Gao <gaohan@iscas.ac.cn>
 X-Mailer: b4 0.14.2
-X-CM-TRANSID: qwCowAAHofR9U71q8y58CQ--.14027S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7uFW5Aw4rCF45ZrW5Aw43ZFb_yoW8ZF4Dpa
-	47ua1Utr1rKa1UAF4fJ3W7Xayay34fKa4UK347Kw1fZF4DZ3WUJF40vFyfXFy3tFy2qr1q
-	vF42vry5Cr1DK37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQ2b7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
-	8067AKxVWUGwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
-	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcV
-	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv
-	6xkF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4
-	CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvj
-	eVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I
-	1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vI
-	r41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8Gjc
-	xK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0
-	cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8V
-	AvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E
-	14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRUGYdUUUUU
+X-CM-TRANSID: qwCowAAHofR9U71q8y58CQ--.14027S6
+X-Coremail-Antispam: 1UD129KBjvJXoWxZF48XrWkWw4UArykZF4fZrb_yoW5GF48pa
+	n5urW3CaySgrnYyay3tFyFgr43JrW8u3W7Kr1rC34UJw4kZayDt3y7Xw13Jr17Za1Yq393
+	Wrn5G3s5Gr1aqaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmv14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
+	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
+	4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4U
+	JVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx
+	0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWU
+	JVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxV
+	A2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC
+	6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWw
+	C2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_
+	JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr
+	0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUv
+	cSsGvfC2KfnxnUUI43ZEXa7sRiHUDtUUUUU==
 X-Originating-IP: [223.166.93.127]
-X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiCRUGDGq9GDh2-wAAso
+X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiCRIGDGq9GDh3AgAAsT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_112316_667191_53F37120 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260930_192320_427024_91D04978 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,64 +103,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The transfer helpers return errors, but both dispatchers discard them.
-Return these errors to the SPI memory layer instead of reporting success.
+Use 12.5 MHz on the SG2042 EVBs and Milk-V Pioneer to match the vendor
+kernel. The existing 50 MHz limit raises SCK once the driver starts
+honoring spi-max-frequency.
 
-Fixes: de16c322eefb ("spi: sophgo: add SG2044 SPI NOR controller driver")
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- drivers/spi/spi-sg2044-nor.c | 17 +++++++++--------
- 1 file changed, 9 insertions(+), 8 deletions(-)
+ arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts        | 4 ++--
+ arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts        | 2 +-
+ arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts | 4 ++--
+ 3 files changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/spi/spi-sg2044-nor.c b/drivers/spi/spi-sg2044-nor.c
-index f3bcb8a1b92bb1ceee298fa0b720f55f22cf20c3..ff026ca0f76635fee959d7502f457d43dbec0706 100644
---- a/drivers/spi/spi-sg2044-nor.c
-+++ b/drivers/spi/spi-sg2044-nor.c
-@@ -307,15 +307,15 @@ static ssize_t sg2044_spifmc_tran_cmd(struct sg2044_spifmc *spifmc,
- 	return 0;
- }
- 
--static void sg2044_spifmc_trans(struct sg2044_spifmc *spifmc,
--				const struct spi_mem_op *op)
-+static int sg2044_spifmc_trans(struct sg2044_spifmc *spifmc,
-+			       const struct spi_mem_op *op)
- {
- 	if (op->data.dir == SPI_MEM_DATA_IN)
--		sg2044_spifmc_read(spifmc, op);
-+		return sg2044_spifmc_read(spifmc, op);
- 	else if (op->data.dir == SPI_MEM_DATA_OUT)
--		sg2044_spifmc_write(spifmc, op);
-+		return sg2044_spifmc_write(spifmc, op);
- 	else
--		sg2044_spifmc_tran_cmd(spifmc, op);
-+		return sg2044_spifmc_tran_cmd(spifmc, op);
- }
- 
- static ssize_t sg2044_spifmc_trans_reg(struct sg2044_spifmc *spifmc,
-@@ -389,19 +389,20 @@ static int sg2044_spifmc_exec_op(struct spi_mem *mem,
- 				 const struct spi_mem_op *op)
- {
- 	struct sg2044_spifmc *spifmc;
-+	int ret;
- 
- 	spifmc = spi_controller_get_devdata(mem->spi->controller);
- 
- 	mutex_lock(&spifmc->lock);
- 
- 	if (op->addr.nbytes == 0)
--		sg2044_spifmc_trans_reg(spifmc, op);
-+		ret = sg2044_spifmc_trans_reg(spifmc, op);
- 	else
--		sg2044_spifmc_trans(spifmc, op);
-+		ret = sg2044_spifmc_trans(spifmc, op);
- 
- 	mutex_unlock(&spifmc->lock);
- 
--	return 0;
-+	return ret;
- }
- 
- static const struct spi_controller_mem_ops sg2044_spifmc_mem_ops = {
+diff --git a/arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts b/arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts
+index b116dfa904cd982dc41c8cffdc770d4d0f81e0a7..9f403e564694eae14913f6ab23080a6333df15ae 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts
++++ b/arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts
+@@ -256,7 +256,7 @@ &spifmc0 {
+ 	flash@0 {
+ 		compatible = "jedec,spi-nor";
+ 		reg = <0>;
+-		spi-max-frequency = <50000000>;
++		spi-max-frequency = <12500000>;
+ 		spi-tx-bus-width = <1>;
+ 		spi-rx-bus-width = <1>;
+ 	};
+@@ -268,7 +268,7 @@ &spifmc1 {
+ 	flash@0 {
+ 		compatible = "jedec,spi-nor";
+ 		reg = <0>;
+-		spi-max-frequency = <50000000>;
++		spi-max-frequency = <12500000>;
+ 		spi-tx-bus-width = <1>;
+ 		spi-rx-bus-width = <1>;
+ 	};
+diff --git a/arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts b/arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts
+index b2ceae2d8829ec16c99c2ea2b040c433b819093e..d8c5814f22581076e6b5114f762d4fd090681b80 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts
++++ b/arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts
+@@ -244,7 +244,7 @@ &spifmc1 {
+ 	flash@0 {
+ 		compatible = "jedec,spi-nor";
+ 		reg = <0>;
+-		spi-max-frequency = <50000000>;
++		spi-max-frequency = <12500000>;
+ 		spi-tx-bus-width = <1>;
+ 		spi-rx-bus-width = <1>;
+ 	};
+diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+index ecf8c1e290792c3a27651040eae3c603741cd0c7..4f39eb56b364894f17b97d482b6d9d867a32ad2e 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
++++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+@@ -177,7 +177,7 @@ &spifmc0 {
+ 	flash@0 {
+ 		compatible = "jedec,spi-nor";
+ 		reg = <0>;
+-		spi-max-frequency = <50000000>;
++		spi-max-frequency = <12500000>;
+ 		spi-tx-bus-width = <1>;
+ 		spi-rx-bus-width = <1>;
+ 	};
+@@ -189,7 +189,7 @@ &spifmc1 {
+ 	flash@0 {
+ 		compatible = "jedec,spi-nor";
+ 		reg = <0>;
+-		spi-max-frequency = <50000000>;
++		spi-max-frequency = <12500000>;
+ 		spi-tx-bus-width = <1>;
+ 		spi-rx-bus-width = <1>;
+ 	};
 
 -- 
 2.47.3
