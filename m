@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D55FBCA5FA5
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2026 23:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66BCDCA5FAD
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 00:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
-	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qBAYRGXoldPiHAcdu4pmK++dwJUpVSiQTL2PktR9Xjs=; b=3DKX/JpZMkuVgu
-	twTnPXnBecoaK8I3gp4LQqOLwEw3AfG2DvofW+C8XERUfvvUAWui9wYMbWk6bA2ChHWVVeSwA1X2J
-	SLrgjeLiqMCN13tPXid3CKR8p6Us9BrcBTrZQzIRzegCg62KmUx2PfUKL+ZJU/ncdDsCmsv3M4eLv
-	37l6JV1pfAYGO9KSDsaMuWOaKBKx1J5fEi7YLm1/OJYRcFTzoUXhPogAmDtF1NO39F+S5xeuZ07BR
-	rZmiOjWSgDPYfs7bIhoXhdGndIuGq9cilrRAIif0cyxG3LuEJ7pxb9pRA8cL0WaM3Knv4u7Zky+77
-	3fdE01t+ouUSadJ4y0ZQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:In-Reply-To:
+	Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wFz7QVWffCF7gMk+LuqT7PP0CwSWtDONk4AYu91KEYA=; b=hzEhXElGHBCHYvhxPweVDMexpf
+	GF8uXmZCuOphpdmecjhaKnpoC6nhk2ax/dESyPMrPxXqn1EEZircsRaRuZ0t/5TE1FnxTw4lDNFIs
+	puf3Xg11YcluGqwRptetjIquUMculvtJLZFms/gkDAgGCiNCWz43ZOXCSReT8qOy6hxnLO4AQCinN
+	Q0LVbrHy1ObRolNoL0+tXh6ZC4/o6WPJ4zxoowVXxUuvSTPn3VxG1MM9kFAAUUsTEgrWYhEKRJiL8
+	aM7zuism91hn3Qm7lsLGJKq9rdFmsL/wQwvbGy4RJ1UNr6wS3bKxAGzC8SG/1UgK+sLXmxi/huhcS
+	w3I7bg3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBhcb-00000004mej-1h92;
-	Tue, 29 Sep 2026 23:52:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBi4B-00000004oPB-0crI;
+	Wed, 30 Sep 2026 00:20:59 +0000
+Received: from winds.org ([68.75.195.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBhca-00000004mea-2AOH
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 29 Sep 2026 23:52:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Subject:To:From:Date:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=9Oklwia5HgEZOvXxS1ulCHmSLw8O5GR4I/AE2lHqbUE=; b=pRrzQplZTW8bsBBTaEah+D6Pqx
-	jh40Doj84UpDt+x9hEf7V/nbcPUYeYftmW5wjVZhox8iJbRFRSQh0JgfDC8KfoWMsDuwQ1IgCGn60
-	CM6s908gimLnWu1Gta3QsTZ6X28/W0SFeIk8SfVDWhjpTC/ynTeW2e1eNGDwRcTxd1RzwoYhw+wDL
-	T5Y4aAyo3giQqWKXrpCDS+JoXx0MMgP9KSYYJlWU18FihE0XZWofvvvp1n3NTHme+iXGi+MMy9Y5c
-	oIMSUIb8wpdvA4W/LN97yWMwF/Py18eeNAiKr1c90du5ljN3uJBAUyT4EhIF0KtIl5Qolgry0syJg
-	3+HN/WJg==;
-Received: from namei.org ([65.99.196.166] helo=mail.namei.org)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBhcW-00000003BWK-25wK
-	for linux-riscv@lists.infradead.org;
-	Tue, 29 Sep 2026 23:52:27 +0000
+	id 1xBi47-00000004oNo-04QW;
+	Wed, 30 Sep 2026 00:20:56 +0000
+Received: by winds.org (Postfix, from userid 100)
+	id 26A288F95F83; Tue, 29 Sep 2026 20:20:50 -0400 (EDT)
 Received: from localhost (localhost [127.0.0.1])
-	by mail.namei.org (Postfix) with ESMTPS id 9D0DD2C5;
-	Tue, 29 Sep 2026 23:52:18 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.namei.org 9D0DD2C5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=namei.org; s=2;
-	t=1790725938; bh=9Oklwia5HgEZOvXxS1ulCHmSLw8O5GR4I/AE2lHqbUE=;
-	h=Date:From:To:Subject:From;
-	b=bGbCtvOCi7bXlHEuMcMuiOl07kVoB9QJLjOJhU4dBn8Rcv1Pzn7768OgEjrDrf8yE
-	 w+JYNaTnlF5D6QqxiYf0xCQgRa68zQveqvtd6fTgQL0K3yvmrpMUrrg2R7FpJOw6ew
-	 bhZob5g3GhwQW4TtnebuU3hrlfUc3O/JSJn8LyP8=
-Date: Tue, 29 Sep 2026 16:52:18 -0700 (PDT)
-From: James Morris <jmorris@namei.org>
-To: devel@lists.fedoraproject.org, linux-riscv@lists.infradead.org, 
-    spacemit@lists.linux.dev
-Subject: Wiki resource for Fedora RISC-V + KVM on the Spacemit K3 Com260
- board
-Message-ID: <b143791b-7bba-a6a4-64ac-9c6dc0735ff3@namei.org>
+	by winds.org (Postfix) with ESMTP id 2557E13363343;
+	Tue, 29 Sep 2026 20:20:50 -0400 (EDT)
+Date: Tue, 29 Sep 2026 20:20:50 -0400 (EDT)
+From: Byron Stanoszek <gandalf@winds.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+cc: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+    Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+    Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+    Conor Dooley <conor+dt@kernel.org>, 
+    Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
+    Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+    Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+    Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+    Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+    Maxime Ripard <mripard@kernel.org>, 
+    Thomas Zimmermann <tzimmermann@suse.de>, 
+    Andy Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+    Emil Renner Berthing <kernel@esmil.dk>, 
+    Hal Feng <hal.feng@starfivetech.com>, 
+    Michael Turquette <mturquette@baylibre.com>, 
+    Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+    Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Dominique Belhachemi <db@domibel.de>, 
+    Brian Masney <bmasney+clk@redhat.com>, 
+    Jerome Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org, 
+    devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+    dri-devel@lists.freedesktop.org, linux-clk@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+    linux-riscv@lists.infradead.org, 
+    Marek Szyprowski <m.szyprowski@samsung.com>, 
+    Maud Spierings <maud_spierings@murena.io>, 
+    Graham Markall <hello@big-grey.co.uk>, 
+    Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
+    Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+    Joshua Peisach <jpeisach@ubuntu.com>, 
+    =?ISO-8859-15?Q?Uwe_Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>, 
+    Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v5 00/21] drm: starfive: jh7110: Enable display
+ subsystem
+In-Reply-To: <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
+Message-ID: <e946786b-e063-6ddc-6b07-2fb67ff7a459@polinggroup.com>
+References: <CGME20260929103200eucas1p17af134cc3b93c242227964f574f13aa5@eucas1p1.samsung.com> <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_005225_069796_E0C2884E 
-X-CRM114-Status: UNSURE (   6.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260929_172055_152920_21BA96E1 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,28 +87,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Folks,
+On Tue, 29 Sep 2026, Michal Wilczynski wrote:
 
-I've been playing with Fedora RISC-V on the Spacemit K3 Com260 board 
-(which implements full virtualization per the RVA23 spec).
+> This series enables the display subsystem on the StarFive JH7110.
+>
+> [...]
+> - New patch 1 fixes v_HSYNC_POLARITY and v_VSYNC_POLARITY, which have
+>  been swapped in inno-hdmi since the driver was merged. The hardware
+>  puts HSYNC in bit 2 and VSYNC in bit 3, and the driver had them the
+>  other way round. Almost all CEA modes drive both syncs with the same
+>  polarity, so the two writes are indistinguishable and the bug only
+>  shows on a mode whose polarities differ - a band of black rows at the
+>  top of the screen, vsync_end - vsync_start + 1 rows tall. Reported
+>  independently by Dominique Belhachemi, Maud Spierings and Byron
+>  Stanoszek, and confirmed against the RK3128 TRM by Icenowy Zheng, so
+>  this is a Rockchip fix too.
+> - Added a 201 MHz entry to the JH7110 pre-PLL table for a 2560x1440
+>  mode Byron Stanoszek runs on a Dell U2711. It is derived the same way
+>  as the neighbouring entries (fbdiv 134, /16, VCO 3.216 GHz) but I have
+>  no sink that asks for it, so it is untested on my hardware.
 
-I've captured the bringup process as a wiki with the help of an LLM. This 
-supports a native KVM host running an F44 guest image. It's current for 
-F44, with F45-beta a WIP.
+Hi Michal,
 
-Wiki: https://github.com/xjamesmorris/k3-com260-info/wiki
+I confirm that the hsync/vsync polarity and 201 MHz mode are both working on my
+setup in v5. Tested against 7.3-rc5 with af384d6e0573 and Bo Gan's cache
+coherency fixes. Thanks again for your work on this series!
 
+Tested-by: Byron Stanoszek <gandalf@winds.org>
 
-
--- 
-James Morris
-<jmorris@namei.org>
-https://mastodon.social/@xjamesmorris
+Best regards,
+  -Byron
 
 
 _______________________________________________
