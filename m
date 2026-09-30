@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFA7FCA5FB1
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 07:54:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A10ECA5FC1
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 07:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zbqs+ePuxzuVm7d/ySGjiQqOu+VO6sBI+o+SV0OylEs=; b=O0HkMS/6nBAWx2
-	TqVymdK94lEZLjA95izV7Xd99J2PC5fp5kG0QbImCz3Kfxo7Escu2YEtkOoRHn5sup3aLszSvzdQ3
-	fDxOsCGHZJPI4sXK8qmaVVDS1z407NPPpFBUwNHepXUIkRAoyQXlqrZ0F6Aww5/RUaYQMcP36NtFK
-	RGTuSiDvCn/OQiopVbGG+JgseLmQSHPoWzCPPgQNZvB1ThQj6dlL2LVoVfLEft/3gFQCpo1rBn8Aa
-	ZESNucvgUJKI7FQujvPfrlEbCcGAc4FaNgGhF+SSENTnbw5oiQU9BmjYDxxAKDfkBpe5egMEGFE1G
-	YRo4cdFfXK4IOYcMgMbQ==;
+	List-Owner; bh=CQKBXUfChlt9mwNX6Zxndqegy4KJXI4vQ/yYfALxu7I=; b=l2G9VJwzryipif
+	o5ZmbfPUpNK4hlH/HohX0neOUG1VRkWVqcz0X23O4nvbASoOCr6mUHqKsyOR2GqVetsDy45ZfZbYg
+	yeaRSRZxqVMLPdQgicczoOvBHxUImdg29lSsjiB0SgNpj7s+miY5aDb8VIdRqJ6g1uKTI+4LebQ8Z
+	+WaBb/t4Um+9wYL2IcLqNwINUX0sbHDqdZrYYjOePUiQEDZM39zn3XBS8KK4E7tPQqDWJTQT2l1Q2
+	qqNS245XMc0Z/pySO62tP2jXndhLVIZRwUfz3AbYNPD/+cP+o3jGTivLh6fcuU0Z0PqRf5PFN3EpW
+	nSurRzolW5LDIWhan4bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBp8n-00000005LnE-0qqJ;
-	Wed, 30 Sep 2026 07:54:13 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1xBp9s-00000005M1v-2JhY;
+	Wed, 30 Sep 2026 07:55:20 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBp8l-00000005Lma-1LlQ
+	id 1xBp9p-00000005M1D-4Bt2
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Sep 2026 07:54:12 +0000
+	Wed, 30 Sep 2026 07:55:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790754851; x=1822290851;
+  t=1790754918; x=1822290918;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=bp4reCZPd2XicV3CZCU05AoXT61eeQMuU3TMTWKtudM=;
-  b=ZsvQoenGSXuj+4sZfap/tgcp5WbI4NeXzbp3MTzcY3O9jtUitRIqwD5P
-   YpE8KIbMFHTkzGm+3E2jmWbYPm92OYtKqTn2KrT0G4vp7r7s2hqlHVLwc
-   9sIgdS9tHhenDYFFHtSdGPLW0TjILAVM2Ezcgx6yFr+7KKLDYC0Q+mtHB
-   5r3bzpBho5MYvHFfRwudXBKYNPL2eisDbPKGiuiRzElimd+8En7flBtQi
-   yKrMzLT5AWmWwIncs1JoQmoUNjkS70H/r/vhM59BVFmXSnlnUCAybDhze
-   OkWO/c+kwMQ8rwNGdCR35cw5GIHWuGjZhejSEPCLtz2RASCGzRrNwP8Pa
-   Q==;
-X-CSE-ConnectionGUID: E6hTCixfT1Gyma3Ji3fOwA==
-X-CSE-MsgGUID: dehG6kZiSrasqkf9m5cNCw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11920"; a="90346981"
+  bh=B61XW8XeEOvbO64OXAmt70gDgEVyAKlU4t+7RQokYBA=;
+  b=YExljP0cvdidZPHp/BaIl8isV2uEGe9sd8CGK9EGzxU2gwdXo6MEumKz
+   LA3JhGNtnTMzujFbEp9C9KtFidIL0SE5ZPN/0W+vQA6s+pcjMpbuj+kVT
+   xy8vzhOfx1zzako9i6vny4oQUElOCGDO7H3KoqzwKgU/vNHdUBFOQUHzd
+   wNE7/XdbfkHzfl4H2WE2VVtQt0X5a17hc5FUJoTsGvKrTWkXo17xhqTQN
+   08hgpDaRYIM8tmwWKKU2RYt/3XmrWaVhjT5TsqZPXmhS/p/YWYN0wcT0O
+   hmfXYW9o3v6GAB3LRTBwP8xcrCmQZ1dmfkH156RGETiBzJNzOvccmfpZj
+   w==;
+X-CSE-ConnectionGUID: +Sk9QsmyTo2OgIKZ844iaQ==
+X-CSE-MsgGUID: 6aFTdFHMRIKyntR5Y1YrRw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11920"; a="79052474"
 X-IronPort-AV: E=Sophos;i="6.27,132,1787036400"; 
-   d="scan'208";a="90346981"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 00:54:10 -0700
-X-CSE-ConnectionGUID: KyEvnr4UQQ6q6aJZsLT+gg==
-X-CSE-MsgGUID: VBbluRZLSkqZAQgOMC+6EA==
+   d="scan'208";a="79052474"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 00:55:17 -0700
+X-CSE-ConnectionGUID: qWb3F+3+QfK/XgRyBorc3g==
+X-CSE-MsgGUID: gnqi5VzCTu6vqGUSdVV/SA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,132,1787036400"; 
-   d="scan'208";a="278823387"
+   d="scan'208";a="313558644"
 Received: from spandruv-desk1.amr.corp.intel.com (HELO localhost) ([10.245.245.137])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 00:54:03 -0700
-Date: Wed, 30 Sep 2026 10:54:00 +0300
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 00:55:09 -0700
+Date: Wed, 30 Sep 2026 10:55:07 +0300
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Inochi Amaoto <inochiama@gmail.com>
 Cc: Jingoo Han <jingoohan1@gmail.com>,
@@ -85,19 +85,19 @@ Cc: Jingoo Han <jingoohan1@gmail.com>,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v7 6/6] PCI: spacemit-k1: Add Spacemit K3 PCIe host
- controller support
-Message-ID: <arzAGOKLOustEW7F@ashevche-desk.local>
+Subject: Re: [PATCH v7 1/6] PCI: spacemit-k1: Add device data support
+Message-ID: <arzAW7corpPippxP@ashevche-desk.local>
 References: <20260929083755.458238-1-inochiama@gmail.com>
- <20260929083755.458238-7-inochiama@gmail.com>
+ <20260929083755.458238-2-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260929083755.458238-7-inochiama@gmail.com>
+In-Reply-To: <20260929083755.458238-2-inochiama@gmail.com>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_005411_573100_0A471C64 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20260930_005518_071814_B0247F65 
+X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,98 +114,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 04:37:52PM +0800, Inochi Amaoto wrote:
-> The PCIe controller on Spacemit K3 is almost a standard Synopsys
-> DesignWare PCIe IP with extra link and reset control. Unlike
-> the PCIe controller on K1, this controller supports external MSI
-> interrupt controller and can use multiple PHYs at the same time.
-> 
-> Add driver to support PCIe controller on Spacemit K3 PCIe.
+On Tue, Sep 29, 2026 at 04:37:47PM +0800, Inochi Amaoto wrote:
+> To reuse the K1 PCIe driver logic for K3 PCIe controller, add device
+> data to handle the K1 specific logic and make room for the incoming
+> logic for K3.
 
-...
-
-> +static int k3_pcie_init(struct dw_pcie_rp *pp)
-> +{
-> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> +	struct k1_pcie *k1 = to_k1_pcie(pci);
-> +	u32 reset_ctrl = k1->pmu_off + PCIE_CLK_RESET_CONTROL;
-> +	u32 val;
-> +	int ret;
-> +
-> +	regmap_clear_bits(k1->pmu, reset_ctrl, LTSSM_EN);
-> +
-> +	k1_pcie_toggle_soft_reset(k1);
-> +
-> +	/* K3: Set IGNORE_PERSTN and drive PERSTN_OE high (assert reset) */
-> +	regmap_update_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
-> +			   PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE | PCIE_PERSTN_OUT,
-> +			   PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE);
-
-Would it make sense to define permutations
-
-  PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE
-
-for here...
-
-> +	ret = k1_pcie_enable_resources(k1);
-> +	if (ret)
-> +		goto failed_resources;
-> +
-> +	regmap_set_bits(k1->pmu, reset_ctrl, PCIE_AUX_PWR_DET);
-> +	regmap_clear_bits(k1->pmu, reset_ctrl, APP_HOLD_PHY_RST);
-> +
-> +	ret = phy_bulk_init(k1->phy_count, k1->phys);
-> +	if (ret)
-> +		goto failed_phy_init;
-> +
-> +	ret = phy_bulk_power_on(k1->phy_count, k1->phys);
-> +	if (ret)
-> +		goto failed_phy_power_on;
-> +
-> +	msleep(PCIE_T_PVPERL_MS);
-> +
-> +	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
-> +			PCIE_PERSTN_OUT | PCIE_PERSTN_OE);
-
-...and
-
-  PCIE_PERSTN_OUT | PCIE_PERSTN_OE
-
-for here and elsewhere?
-
-> +	val = dw_pcie_readl_dbi(pci, GEN3_EQ_CONTROL_OFF);
-
-> +	val = u32_replace_bits(val, BIT(7),
-> +			       GEN3_EQ_CONTROL_OFF_PSET_REQ_VEC);
-
-It's perfectly a single line. Check your editor settings (I believe I have
-commented on a such in one of the previous rounds).
-
-> +	dw_pcie_writel_dbi(pci, GEN3_EQ_CONTROL_OFF, val);
-> +
-> +	k1_pcie_set_device_id(k1);
-> +
-> +	/* Finally, as a workaround, disable ASPM L1 */
-> +	k1_pcie_disable_aspm_l1(k1);
-> +
-> +	return 0;
-> +
-> +failed_phy_power_on:
-> +	phy_bulk_exit(k1->phy_count, k1->phys);
-> +failed_phy_init:
-> +	k1_pcie_disable_resources(k1);
-> +failed_resources:
-> +	regmap_update_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
-> +			   PCIE_PERSTN_OUT | PCIE_PERSTN_OE,
-> +			   PCIE_PERSTN_OE);
-> +
-> +	return ret;
-> +}
-
-...
-
-You checked everything but regmap IO. Why? Do you except it won't ever fail?
-Perhaps to add a note about this (if not yet) to the cover letter?
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
 -- 
 With Best Regards,
