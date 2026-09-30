@@ -4,102 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E2CBCA5FC5
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 15:06:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD25BCA5FC7
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 15:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WSNabj4106rdZVCkmOVYtYRCHId4xDcq1v2wWsZUjUI=; b=cALv7yfFTvBAFo
-	p7/fdGG0nkAyJLcUfZrKn7ZcDkT9Ug8Pphv0lgrjEI1TrXsHoPtIyiPfYFJojoo04BA+XU7gTo3ta
-	442WhxRCh0yhNswhsc8DIOJbnLpNqiLsC0STXg9VGZTj/SljP/+GpAgvt6R8foJtz/6+4NNODQaWV
-	xpyusGxOd23970PqEBo9l+J0kOPZY4LhwrdF4DH8LT9WQpmiLDpQMRVP0pawmXJORkhvGsmCz7+kR
-	sE/x9q85ozW+Z4vMV7WcbIZOnCvaRSD9P/hZH+Cgjiiq6W5Wn1Lgzh19y12SzLEAr6qMhk1LNcB0F
-	8Ckurl12pSSWUP5NX6kA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GmWQqpnSF8VD6v8F3Uo9qQxBCC5s3DI4YbMD9dihi64=; b=A/p62oDJ9ZtYP1
+	8s9eYlVEHmNejSu3Xm3rFxVVJNi0vgDAGeUgAEubgmWuH67+Q68ZmSr9yr4FNPsRD490p6wMeAaWH
+	KnOd7PbvJHRZ3te8IVmITcaAibc/EExSXIRXy7w4IOEnZNjd3/YA/iQxPyCXZVmJo2RbfKn+cM+L4
+	8cESuaqp2mHGplIHzFAGBNmvhUUip8pSWSniVkqM+ZCM107hnie/lkeEV5u9GQyE4NHjy6CsDnKSM
+	VppWUBT1v7lMy6BxS8siSQQ72+FuJemxHcSNJKl3HA07d+04xk+4sQ6JLGgq5BaN/oTzjj+J9ajDJ
+	rwRma9AY3V+yo4uQCjJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBvtI-00000006QVh-0Tzf;
-	Wed, 30 Sep 2026 15:06:40 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xBw0D-00000006SJy-1k9l;
+	Wed, 30 Sep 2026 15:13:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBvtD-00000006QU8-34oh
-	for linux-riscv@lists.infradead.org;
-	Wed, 30 Sep 2026 15:06:37 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68UEvEev273373;
-	Wed, 30 Sep 2026 15:06:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=DAl1khxKLlKTN4Vvtu6J7wGLshT6/GMxMc6
-	ex3KF3tk=; b=dPFDWEINqiEdd2zVWx2bp2xMtj0/sDL1ktbp6ScrNEBbMPdOasg
-	f1mfpO/fqaTjZY736UZWOyrqxz8mxA02+Dl4ItO1noGgl1F0nuTFb/B+9hqwSErM
-	lJS0Tqlzedx08l18Q1PnDR1IaX0GCNEuP+0gzXiQXduE7BWmT2KbreimRkoYEGoA
-	x4WBWIWWWvgY9kmAuN3v5Rhvxuz4qWag0PKPo94FrlOD7Wg7Ss6yCvivWw55ZUOS
-	pEAMll7PU6wEj8CEeB61NZwZxerbzaW5QbDKX/UXNPLgQW9tT6hgJ+xjOjILzWII
-	JluPqEVR9fiBWQbpmnMdMs97eazGqkcd0vw==
-Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h14n201ma-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 30 Sep 2026 15:06:23 +0000 (GMT)
-Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 68UF2KoH1902865;
-	Wed, 30 Sep 2026 15:02:20 GMT
-Received: from hu-devc-blr-u24-a.qualcomm.com (hu-anuppate-blr.qualcomm.com [10.131.36.165])
-	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 68UF2Jc71902838
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 30 Sep 2026 15:02:19 +0000 (GMT)
-Received: by hu-devc-blr-u24-a.qualcomm.com (Postfix, from userid 486687)
-	id 42A5B22151; Wed, 30 Sep 2026 20:32:19 +0530 (+0530)
-From: Anup Patel <anup.patel@oss.qualcomm.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-        Rahul Pathak <rahul@summations.net>, Stephen Boyd <sboyd@kernel.org>,
-        Brian Masney <bmasney+clk@redhat.com>,
-        Jerome Brunet <jbrunet+clk@baylibre.com>,
-        Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
-        Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Himanshu Chauhan <hchauhan@ventanamicro.com>,
-        Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>,
-        Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>,
-        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-clk@vger.kernel.org, Anup Patel <anup.patel@oss.qualcomm.com>
-Subject: [PATCH 0/4] Parallel message send using SBI MPXY
-Date: Wed, 30 Sep 2026 20:32:09 +0530
-Message-ID: <20260930150213.799245-1-anup.patel@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
+	id 1xBw0C-00000006SJF-0PeB;
+	Wed, 30 Sep 2026 15:13:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 72D144369F;
+	Wed, 30 Sep 2026 15:13:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FD9E1F00893;
+	Wed, 30 Sep 2026 15:13:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790781227;
+	bh=VjvLVAMdH25Pwcx27KXLJsLgwjves/K/FG5W879yHtw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=n05xolRqMZoeGMX1Ra4yjBtIDnmfnQ1LRl61P06RLuxE0uOOHM/URSrWqCi1e5N5n
+	 +mdD4PMTU1Q5epP+tXpj2DjPMhXSXpLaFHOJqibdDNkpBWWZ/nVCo2zgFbkYaLSUF1
+	 YufuCIwyVjzc1U2iSBQhPuWlPi1tqYXi0imKd0lPbYcF2S28XjmlPiWUlpR8etfQvF
+	 ahR1ytm89zid5O4hkJLCUT8HepSgXHEJCFv3ViscDLZ4eEWA5fb406Hz9q21Z7AgLj
+	 QKh8gF/YA+kzVc4c2H/gw4DLcW6PckFQ+eVhgrUAY04S9NR7ZD3xsEA7stQCEkG7oz
+	 yjSHW/SJMBLDg==
+Date: Wed, 30 Sep 2026 17:13:37 +0200
+From: Nathan Chancellor <nathan@kernel.org>
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
+ reserved in __cvdso_getrandom_data()
+Message-ID: <20260930151337.GD3142230@ax162>
+References: <CAKwvOdmuvn0LZkYEsH84hnOGTYhTtzuWs3wMARtWdTeL6dD9sA@mail.gmail.com>
+ <CAKwvOdnxKVpn=nAFaqP+9PTx4PqgHsUVWv6e60Pcr29W_eZrpQ@mail.gmail.com>
+ <CAKwvOdmNZL3eFvV3v77GXDzL+XLgz+BT9TA=my0yTnbsHqVeSg@mail.gmail.com>
+ <areYMjNcaqe86ds4@zx2c4.com>
+ <9d1c338b-368f-4ea2-a12e-c28d49adff5e@kernel.org>
+ <are6s5e6On3hpD3M@zx2c4.com>
+ <CAKwvOd=BrMfFT88jsvBPhh383qqk5G+J07CsofNu0MVkziyhCg@mail.gmail.com>
+ <20260930133813.GA3142230@ax162>
+ <ar0a4b9CjL2YHCkY@zx2c4.com>
+ <ar0gTS71qxnx9AkW@zx2c4.com>
 MIME-Version: 1.0
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=Gr3XaU1C c=1 sm=1 tr=0 ts=6abd256f cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=3WHJM1ZQz_JShphwDgj5:22 a=NEAV23lmAAAA:8 a=v1LW-1MmbVdIZeTtpKQA:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2MCBTYWx0ZWRfX2TdcuMAf9mtF
- Gpt7/9p50PmgFBVJ+/xnX0aVTipK6NVVesh9MdTzzpVpXa5ezABLNcu1aKE9ImpVBnWi6pMpqLr
- ofinFcVFxRXAvfbB9wYDwSF3Wj57SPs=
-X-Proofpoint-GUID: ga7lEutmpDqU94jfNJG4J7kTUhLrsflB
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2MCBTYWx0ZWRfX6oIAOveFQwPJ
- yotaerQAH9rG65/3hdBeulA8lUMrzjwTsobIki+aXmrp1ZUCiPigY0/EZm/Lw+WY3QZ5YkLMEUA
- l+j3sAxyJ/rWnhdQtFFrK/jfkXMck2aDQnt07KgkaI/Jo6ylXNRi4u/yOaGhG4ccJpUIDU1b62s
- qQq5tZTeP3GZOKHBmk2zmUpjvyAto2bz0g3CvLOsyxVuxJbwC1yZ+p4XR7G9rYK7HGyTDdUWslT
- Zh83KnDWaL2VskXQn8RutB/PCDrpxCoq8Ka6C2Bq/1lDsZZlrWBhEfH5GrRsDhOfk6VNzNYVtjf
- DybtNb8AB8Q6i+IhXKiTCxyXxhS2EidPyI8PSmgT7QUpuI+1XYuPVzl3wR/BltIhwWNZZ7pr3uo
- VFbLIcMULh+9h4/jT7ft7hC/YCQFFqXm4SZUMLaOIXRDf3z8L35wmBQzab9fiSkHScAuenfzLZO
- 9D/A3PEmCdSE/eUHPrQ==
-X-Proofpoint-ORIG-GUID: u9C9WKVBg4YBSX4js2tkOSH3SThBGCkZ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-30_03,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 bulkscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0
- spamscore=0 suspectscore=0 impostorscore=0 priorityscore=1501 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300060
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_080636_014005_205429D7 
-X-CRM114-Status: GOOD (  10.29  )
+Content-Disposition: inline
+In-Reply-To: <ar0gTS71qxnx9AkW@zx2c4.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,38 +104,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series primarily extends mailbox framework and SBI MPXY mailbox
-driver to allow sending messages in-parallel from multiple CPUs. It
-also serves as perparatory series for the upcoming RISC-V ACPI EINJ
-support and RISC-V TEE support.
+On Wed, Sep 30, 2026 at 04:44:29PM +0200, Jason A. Donenfeld wrote:
+> Nathan, would this be okay with you?
+> https://git.zx2c4.com/linux-rng/commit/?id=d216701724b7d8209ff42150658ad5c712bdb503
 
-These patches can also be found in the riscv_mpxy_imp_v1 branch at:
-https://github.com/avpatel/linux.git
+Can you stick
 
-Amirreza Zarrabi (2):
-  RISC-V: Factor-out per-hart MPXY shared-memory acquisition
-  mailbox: add direct synchronous send support
+  Cc: stable@vger.kernel.org # v6.12+
+  Closes: https://github.com/ClangBuiltLinux/linux/issues/2183
 
-Anup Patel (2):
-  RISC-V: Move common MPXY helper routines to arch/riscv
-  mailbox: riscv-sbi-mpxy: Move to send_data_sync() for sending messages
-
- arch/riscv/include/asm/sbi.h               |  84 +++-
- arch/riscv/kernel/Makefile                 |   2 +-
- arch/riscv/kernel/sbi_mpxy.c               | 381 +++++++++++++++++++
- drivers/clk/clk-rpmi.c                     |   2 +-
- drivers/irqchip/irq-riscv-rpmi-sysmsi.c    |   2 +-
- drivers/mailbox/mailbox.c                  |  72 +++-
- drivers/mailbox/riscv-sbi-mpxy-mbox.c      | 423 +++------------------
- include/linux/mailbox/riscv-rpmi-message.h |  18 +-
- include/linux/mailbox_client.h             |   3 +
- include/linux/mailbox_controller.h         |  10 +
- 10 files changed, 605 insertions(+), 392 deletions(-)
- create mode 100644 arch/riscv/kernel/sbi_mpxy.c
+on that? Otherwise, looks good to me, that's basically what I had for my
+v3 locally.
 
 -- 
-2.43.0
-
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
