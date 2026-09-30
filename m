@@ -4,102 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C14CA5FC1
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 08:32:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD6EBCA5FB1
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 08:45:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kqzsNb+Spr6a90E/iooM0EBB9Vew0JD5rRssdnJ0990=; b=bnCA/NE6g04JJ1
-	C6XvLJV0d++G4FZFKoSVd56iBtnL0HHY8h/x44lLntd4xf+kXfPxhpiJOsW4vwVZEHH/p+69WgfXH
-	uWRAoSinaZopTp2NTI4gmpu6Qaj4QCS+8NcrZr0ZsxfEiPfvq2RfZhe7GwtmGllSO9F9bu3+LIPbE
-	nVbQPRWgOdnwRy5tcs2VSiBcFub+r6YLlQpYJ0Guf9I10OjyNTGbXkcmqvBSPykY094+sl9mpOIhn
-	VUYYtEhetVS0Ks0sK6vMYGOzN/n7DlQN/nkX21U/TzsBk8NFdNsOY9l6HL2ttRZgfbxJPXiGs6H0x
-	sA1OSHYnPRrZHrqcNn7g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uCCBKwKRwDc547sM2fCD2A0GRKmXzGgFhXhVfM8j39s=; b=V2AMuuR75EMk79
+	4Zl2YmhOcDTm6jKzjvgI2/zE+Ik2lnhben+0Q3MpMSudtPDHygpw77AIsQHk9Jv9eOim+7uEol7qc
+	Ljr4JhPsARgwBvXIeZkmFnyr/solqRYyqfQJyZrHD4atC3WVf6N7HgbD9Ls3PzC4qMov13gY+klRE
+	EzHw06BXGfCfKfkLd1gWJMd9Y1+q0URa/nK1lmfDS8rmK6Ec4l6oEkvsTzvCjOPoe1WoyEP5STpKL
+	f22AWMSLZRhZppK95lMI64FRrZAWpaFozVhYlu5kRcCNJWPdNoRUEuER9wgeBjfpnQLbOXtR3xFWO
+	1c2x/ruE1/d6nlu+6IOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpj2-00000005QoI-0WOy;
-	Wed, 30 Sep 2026 08:31:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBpwg-00000005TWj-2rRD;
+	Wed, 30 Sep 2026 08:45:46 +0000
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpiv-00000005Qlp-2cwY
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 30 Sep 2026 08:31:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=x5tyGY1vbHXF7UKT7OYcN/uRbwBJgO9+WStlnv/PDSw=; b=MBE383KYfCSSHUP1QgHYekUSJC
-	/tTHAcbHwWJ6TboHchbHlbAzIUYvNBcvJOy3UEiEJZMBrzVVLR1afQRBTpKajwvYDKCCquDjwiU8/
-	Q28z/6eQV5IT2FC2wRBo31LnpgghbI0K0C8NrP7B7gdxfR3gQFY0gsrbwtV/s2rg1xhvicynk0Gi8
-	rAUAkGvnHsZO2DziwVtYvrYoAMYkhLMvlgPF0ZECPhmdMtzkirZC5MuQBzGqTXgutM8cpkVTCCOSR
-	dzu5uwNpv9ar9mtxzvGSSO76iKfmU50PN8Rgo71r2X7OvYRERbMTKRRNmOgZQgIAygMNDKpZmXmxP
-	bsNN9TlQ==;
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBpip-00000003Wo3-0RXA
+	id 1xBpwe-00000005TVu-0b5y
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Sep 2026 08:31:32 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4hvpCN2L61zKHMbj
-	for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2026 16:30:40 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 5D27340574
-	for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2026 16:31:17 +0800 (CST)
-Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP4 (Coremail) with UTF8SMTPA id gCh0CgDXpyrRyLxq8dflCA--.24306S2;
-	Wed, 30 Sep 2026 16:31:15 +0800 (CST)
-From: Pu Lehui <pulehui@huaweicloud.com>
-To: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Pu Lehui <pulehui@huawei.com>,
-	Pu Lehui <pulehui@huaweicloud.com>
-Subject: [PATCH bpf-next v3 0/4] riscv, bpf: Prepare for upcoming daily CI
-Date: Wed, 30 Sep 2026 08:35:18 +0000
-Message-Id: <20260930083522.1914145-1-pulehui@huaweicloud.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 30 Sep 2026 08:45:45 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-482f63546c5so4505825f8f.2
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2026 01:45:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790757942; x=1791362742; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mF7HlrBlQvO0gfGzj2Av7N0MU2dcxYSnBCQbxi4I9IE=;
+        b=O9MFMiBy1rVjgBzhXdmXRBdUzxsBRDDF03Ci+hJa/POWBdQlIUx0tAITFY1O3yL+2h
+         +fACQrxpB7+hYkIlvDKfcksTjfyA7QQFvMtmm6jLxLgsXskAd9H2SRJZq4pb9uWDSXYw
+         MKfNZ9omqMFsVD7S0qtsMrY3IrLfXx/R11EqVl9WWZUSGsKj6zCIcVI6smVk9sLtHwbu
+         sHG7j3Xor+FEbfHVX3STJ4OY+j3EAon94MEwye9/oNWN8tyhXJkKFBRz6w7mfVueOUCo
+         5FFbQjxmBIsyEWtI9/yLKH/aLiOAPKMvlzDnlNaA0j9Dn4sVGo3jDkXp8gydVq9oqsVM
+         7eAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790757942; x=1791362742;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mF7HlrBlQvO0gfGzj2Av7N0MU2dcxYSnBCQbxi4I9IE=;
+        b=0LnfEjcaJC88gLwQaezTIqSbesAKZd87UgTmSZC+9pW1pFXPyEobGUvuCBkzPHqQZe
+         Ad3RBjQWlH9V92VtUoFUnQ6GFoiexB6CU+aEqeck40F1lNC+7Wf13nAcV4gZLnINKRzN
+         z8eOqeRb/LkEd6AXnMLX4EsJPcBlfE9RMwuuI174DF/aqZCBKOTZt6dSmVzVSFqRZ7hH
+         TcIT/8w/MKI7uJBVWqcE1WdnJgsfyFT1AHkK4WzWWKT9hWA0W4wcG7l++PTvXlj9W0D/
+         +KGGeWbtKvst3FvU+sYV+J9xEMTC64Im/zkMNmLPe4SDe/i0p8meR9phPfu7/kIfli6R
+         cAPg==
+X-Forwarded-Encrypted: i=1; AKwUvBwzBqofddQxuefaCKy0dX17f3cnegXxOLytY99BBUecTbdiO4WFy3C8ewgH9YD6KL8vpdGN9kDdJTGOmA==@lists.infradead.org
+X-Gm-Message-State: AFq9FYIQnEFghpxXEYN+RCJwKb4oqIMvOWseujF4rhKcAO+tSP/0/rD7
+	k4umu+awbPqpkcvpNl20IgFmYnf//fAIrQOAwky7wE4OwXV9Gb7ktSTH
+X-Gm-Gg: AYBFou3H3Z7YutpndMbz6TO7jj8ABCHr6FthBfNLCvosMJjmyvOR8bKBHxOVtpE8KuU
+	ViAk10SjapV6ejHtzToFxp0HPaGEyzAQjv4VZlDc6IQ6cxOa4OkW6H0A28ywVe0F96p47yI6hqb
+	H0oFAaUfeAAkSTxnD8ZQwIQ8EOuZqRa8lAcJoNYFeMeWO83bvvzXqsQbPPQKdk7ES29eckTQrIs
+	HKScHtgwgTEFg49sX8VGoJU/+Bhy96kbDXSpGxFxsOlQWX9HfbfgJlYVN6UHKdPe3m/pYhPwIfc
+	CpIyhQ5k5yjg4nasMrW4wMJb0UbhzVMUZIS8Sav1kAfBAvmP8uNDjnIMYm0Ap7xFoN4190Y53Jz
+	7616PssKKpGG3F5zYrbQ0L0my3M07YNTgudjFcFOa9t+DFjfPGe3X4q0gmkzdOATNJIWeodphrc
+	8RZwN/lPtocQOnph1S6jOtbAoJ4L+tB0fgkQ7er2HfRzrLRMJwwMGcWl4Awq+Rh9l1g5b9iPaE/
+	xyp500obEwT7PmkskHsjRS750P7MhM0Ctc=
+X-Received: by 2002:a05:6000:471a:b0:487:b4a:3f54 with SMTP id ffacd0b85a97d-48b024e51dcmr1351463f8f.29.1790757941376;
+        Wed, 30 Sep 2026 01:45:41 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b02949f45sm1854526f8f.2.2026.09.30.01.45.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Sep 2026 01:45:40 -0700 (PDT)
+Date: Wed, 30 Sep 2026 09:45:39 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: <gao.rui@zte.com.cn>
+Cc: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+ <alex@ghiti.fr>, <jiangfeng@kylinos.cn>, <linux-riscv@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <jmontleo@redhat.com>
+Subject: Re: [PATCH v3] riscv: fix strnlen() overflow in Zbb implementation
+Message-ID: <20260930094539.6242e256@pumpkin>
+In-Reply-To: <202609300948576198tT3nfO5VwsTwUw23gA9v@zte.com.cn>
+References: <202609300948576198tT3nfO5VwsTwUw23gA9v@zte.com.cn>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-X-CM-TRANSID: gCh0CgDXpyrRyLxq8dflCA--.24306S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxZw4ruw4kKFy8XFWUZFy8Grg_yoW5Xr4UpF
-	Z5Cr15ur95Wr1aq39Fk3y7ZFW0gr4kCr13Cw18Ww15ZrZ0gFy0qrn29rWYqFZxCFyDW3ya
-	ya4agrnY9w18ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcS
-	sGvfC2KfnxnUUI43ZEXa7sRidbbtUUUUU==
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_093128_007533_1C4FCB2A 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260930_014544_224728_7D594076 
+X-CRM114-Status: GOOD (  36.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,59 +102,211 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pu Lehui <pulehui@huawei.com>
+On Wed, 30 Sep 2026 09:48:57 +0800 (CST)
+<gao.rui@zte.com.cn> wrote:
 
-For some time, bpf selftests on riscv64 have suffered from several
-silent breakages and test failures. These mainly stemmed from changes
-such as riscv ftrace atomic patching [0], qemu pmu behavior changes, and
-environment mismatches. While some issues have already been addressed in
-previous patches [1-3] and some are in progress [4], the remaining ones
-are handled in this series.
+> riscv: fix strnlen() overflow in Zbb implementation
+> 
+> The RISC-V Zbb optimized strnlen() implementation can return incorrect
+> results when very large count values are supplied.
+> 
+> The previous implementation calculates an end address based on the
+> input pointer and count. When count is close to SIZE_MAX, the address
+> calculation may overflow, resulting in incorrect termination checks and
+> wrong return values.
+> 
+> This issue was observed while running device-mapper tests:
+> 
+> dmsetup create testname9 --table "0 8 zero"
+> cat /sys/block/dm-*/dm/name
+> dmsetup remove testname9
+> 
+> Rework the Zbb implementation to use a word counter instead of an end
+> address. This removes the dependency on end-address calculations,
+> avoids overflow entirely, and simplifies the termination condition of
+> the word scanning loop. The final length is calculated using the saved
+> original pointer.
+> 
+> Performance was evaluated with string_bench_strnlen:
+> 
+> New Implementation Previous Implementation
+> 
+> len=0 : 71 ns/call 70 ns/call
+> len=1 : 82 ns/call 81 ns/call
+> len=7 : 83 ns/call 81 ns/call
+> len=8 : 83 ns/call 81 ns/call
+> len=16 : 94 ns/call 90 ns/call
+> len=31 : 117 ns/call 113 ns/call
+> len=64 : 175 ns/call 167 ns/call
+> len=127 : 259 ns/call 258 ns/call
+> len=512 : 802 ns/call 833 ns/call
+> len=1024 : 1512 ns/call 1536 ns/call
+> len=3173 : 4581 ns/call 4640 ns/call
+> len=4096 : 6256 ns/call 6068 ns/call
+> 
+> Results show comparable performance to the previous implementation
+> while fixing the overflow issue.
+> 
+> Fixes: 5ba15d419fab ("riscv: lib: add strnlen() implementation")
+> Suggested-by: DavidLaight <david.laight.linux@gmail.com>
+> Signed-off-by: Gao Rui <gao.rui@zte.com.cn>
+> 
+> ---
+> v3:
+> - Keep the original register allocation (t0-t4) and numeric labels.
+> - Keep the original comments.
+> - Calculate word count as (remaining - 1) / SZREG + 1, removing the
+>   branch from the calculation.
+> v2:
+> - Rework the Zbb implementation to eliminate end-address overflow
+>   instead of falling back to the generic path.
+> - Use a decrementing word counter for word scanning.
+> - Run KUnit string tests successfully.
+> - Add string_bench_strnlen benchmark results.
+> ---
+>  arch/riscv/lib/strnlen.S | 54 +++++++++++++++++--------------
+>  1 file changed, 29 insertions(+), 25 deletions(-)
+> 
+> diff --git a/arch/riscv/lib/strnlen.S b/arch/riscv/lib/strnlen.S
+> index a8911605c248..000000000000 100644
+> --- a/arch/riscv/lib/strnlen.S
+> +++ b/arch/riscv/lib/strnlen.S
+> @@ -73,6 +73,9 @@
+>  	/* If maxlen is 0, return 0. */
+>  	beqz	a1, 3f
+> 
+> +	/* Save original pointer for final length calculation. */
+> +	mv	t4, a0
+> +
+>  	/* Number of irrelevant bytes in the first word. */
+>  	andi	t2, a0, SZREG-1
+> 
+> @@ -82,15 +85,6 @@
+>  	li	t3, SZREG
+>  	sub	t3, t3, t2
+>  	slli	t2, t2, 3
+> -
+> -	/*
+> -	 * Aligned boundary.  Use the address of the last valid byte
+> -	 * (s + count - 1) to avoid loading a word past the count
+> -	 * boundary in the loop below.  count == 0 is handled above.
+> -	 */
+> -	add	t4, a0, a1
+> -	addi	t4, t4, -1
+> -	andi	t4, t4, -SZREG
+> 
+>  	/* Get the first word.  */
+>  	REG_L	t1, 0(t0)
+> @@ -125,15 +119,26 @@
+> 
+>  	bgtu	t3, a0, 2f
+> 
+> -	/* All remaining bytes are in the first word, no loop needed. */
+> -	bgeu	t0, t4, 2f
+> +	/*
+> +	 * Use a word counter to avoid calculating an end address,
+> +	 * which might overflow when count is close to SIZE_MAX.
+> +	 */
+> +	sub	t2, a1, t3
+> +	beqz	t2, 3f
 
-To catch regressions promptly and close this long-standing riscv bpf CI
-gap, the riscv-bpf-daily project [5] is introduced here. With the
-assistance of LLMs, putting together this automated workflow was fairly
-straightforward. The pipeline pulls the latest bpf-next branch daily,
-executes both test_progs and test_verifier, and automatically creates
-github issues with brief failure descriptions and sends notifications
-when failures occur. It has been running smoothly for over a week and
-has already proven its value by catching some real jit bugs.
+Is that right?
+The equality check seems wrong.
+Does it work when there are more characters in the first word than
+the caller specified length.
 
-To pave the way for riscv-bpf-daily, this patchset addresses the
-remaining fixes, test adaptations, and environment dependencies.
+> 
+> -	/* Prepare for the word comparison loop. */
+> -	addi	t2, t0, SZREG
+> +	/* Calculate the word count: count = (remaining - 1) / SZREG + 1 */
+> +	addi	t2, t2, -1
+> +#if defined(CONFIG_64BIT)
+> +	srli	t1, t2, 3
+> +#else
+> +	srli	t1, t2, 2
+> +#endif
+> +	addi	t2, t1, 1
+> +
+>  	li	t3, -1
+> 
+>  	/*
+> -	 * Our critical loop is 4 instructions and processes data in
+> +	 * Our critical loop is 6 instructions and processes data in
 
-[0] https://lore.kernel.org/all/20250407180838.42877-5-andybnac@gmail.com/
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2820d227ad4e
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f2aaa6215910
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c7e617552938
-[4] https://lore.kernel.org/bpf/20260722140015.1982158-1-varunrmallya@gmail.com
-[5] https://github.com/pulehui/riscv-bpf-daily
+The diff below adds one instruction - I make that 5.
+But the instruction count isn't what really matters, what matters
+is the number of clocks it takes the loop to execute.
 
-v3:
-- Update comment in vmtest.sh about qemu.
+>  	 * 4 byte or 8 byte chunks.
+>  	 */
+>  	.p2align 3
+> @@ -141,23 +146,22 @@
+>  	REG_L	t1, SZREG(t0)
+>  	addi	t0, t0, SZREG
+>  	orc.b	t1, t1
+> -	bgeu	t0, t4, 4f
 
-v2: https://lore.kernel.org/bpf/20260930064607.1908864-1-pulehui@huaweicloud.com
-- Change test value in setget_sockopt to avoid quantization error.
-- Drop path modify in d_path testcase as will mount /dev/shm in rootfs.
+Hasn't that (the old code) just read beyond the end of the buffer
 
-v1: https://lore.kernel.org/bpf/20260929083924.1851840-1-pulehui@huaweicloud.com
+> -	beq	t1, t3, 1b
+> +	bne	t1, t3, 4f
+> +	addi	t2, t2, -1
+> +	bnez	t2, 1b
 
-Kumar Kartikeya Dwivedi (1):
-  bpf, riscv: Fix stack-passed arguments for indirect trampolines
+You want to put the 'addi t2, t2, -1' higher up next to the other addi.
+Then simple cpu will execute it while waiting for the read to complete.
+The old code did that - but got it wrong.
+You can do the length check while the cpu is (otherwise) stalled waiting
+for the read. So something like:
+1:	REG_L	t1, SZREG(t0)
+	addi	t0, t0, SZREG
+	addi	t2, t2, -1
+	bnez	t2, 3f
+	orc.b	t1, t1
+	beq	t1, t3, 1b
+2:	// Found a zero
+	...
+	ret
 
-Pu Lehui (3):
-  selftests/bpf: Avoid jiffies quantization error in setget_sockopt
-  selftests/bpf: Update qemu config for riscv64 in vmtest.sh
-  selftests/bpf: Update DENYLIST.riscv64
+3:	orc.b	t1, t1
+	bne	t1, t3, 2b
+	// No zero
 
- arch/riscv/net/bpf_jit_comp64.c                    | 14 ++++++++++----
- tools/testing/selftests/bpf/DENYLIST.riscv64       |  1 +
- tools/testing/selftests/bpf/progs/setget_sockopt.c |  4 ++--
- tools/testing/selftests/bpf/vmtest.sh              |  6 +++---
- 4 files changed, 16 insertions(+), 9 deletions(-)
+The count (t1) would need to be one lower.
 
--- 
-2.34.1
+Did you try just subtracting SZREG from the length-left
+and doing an unsigned compare against the original size?
+I think it should work and saves the setup code.
+
+David
+
+> +
+> +	/* Scanned all words without finding NUL, return maxlen. */
+> +	mv	a0, a1
+> +	ret
+> +
+>  4:
+>  	not	t1, t1
+>  	CZ	t1, t1
+>  	srli	t1, t1, 3
+> 
+> -	/* Get number of processed bytes. */
+> -	sub	t2, t0, t2
+> -
+> -	/* Add number of characters in the first word.  */
+> -	add	a0, a0, t2
+> -
+> -	/* Add number of characters in the last word.  */
+> +	/* Length = (current - original) + offset in final word. */
+> +	sub	a0, t0, t4
+>  	add	a0, a0, t1
+> -
+> -	/* Ensure the final result does not exceed maxlen. */
+>  	minu	a0, a0, a1
+>  2:
+>  	ret
+> --
+> 2.27.0
 
 
 _______________________________________________
