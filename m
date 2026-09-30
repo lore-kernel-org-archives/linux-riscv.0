@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B7F0CA5FAC
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 12:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 793EFCA5FBE
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 12:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xzIH3UY5QpC3W4ABS0GbSM/76RGH6U9reP8yXHQa270=; b=0C+6oBb7tLemP0
-	FXVbE5FumV2fM/EyMzGR3jOK3//cr+FKOrIw8657skdLvB/+yD14AisH8dukQU6zJBNxKfGKr3NdF
-	nF1BCtFfbFpl90oww9Za64cmPQ3dVNQ9w8I8ZdNT4J/lKUyiKWEC6+hDAbU8ohDF8wmhFn723zBD5
-	5K/3xiOciY8KsqgNVzBXBx5wLZulmO/Jm3JcgvQo4Qjxkko7NOaAkSnGvL/OqNZRwbznKxMKcCEKe
-	TK8vah8Q5V4AllC7CrS+fXjGoyYfNOqCFb/IhMTIWu9Pp3TOl7BwtmIdxHPW21KfPdw/RljYGxiiI
-	qUTbIztu5+XQdlbRFxtQ==;
+	List-Owner; bh=Ch+UE4hhfIe4j2yRWMJjWduudjSNCFhKt1WJ3BOACCQ=; b=amzJlUep778na/
+	qc6TLeOCwhKiUcMgtNxwn+vd66/1AOBjcJvdeAUhRKvGt3Q4X+GWDrMPV+9Scp5t8FoeOMVeCyRPx
+	z9Ta540yLVIswLJISpUZSX0ogMEJpTthSiNRQdn9HBn3xgVEZ6oRUk4V9auz2omD11q0P4xr5Xj7o
+	A6LC8VDrW3JVanjUh+NA/RgDv3YTfbelBFsE2zo+O/pU40UwqnGKPwqPTArFIlN8uvuzAEd2go7Df
+	g8fgCrcCRIHBd8VkgCxPzmlYUKKBwjyTK5L5OZZSUigmMksFaL/7K9Ff/4PBH51tsP4wVTv+bihah
+	mFAsIZrm0nDDLtQU3tUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtgv-000000062i7-1j6I;
-	Wed, 30 Sep 2026 12:45:45 +0000
+	id 1xBtgw-000000062j5-1cSJ;
+	Wed, 30 Sep 2026 12:45:46 +0000
 Received: from mail-sh0chn02on2134.outbound.protection.partner.outlook.cn ([139.219.146.134] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtgF-000000061Y0-3bJ4
+	id 1xBtg4-000000061Y0-2gAn
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Sep 2026 12:45:09 +0000
+	Wed, 30 Sep 2026 12:45:02 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=gKRSPnowx8qnwSiWAPukHfiKzmMwDSRArfFnBwqAkYNux0/0YrE6P40DvyTfh8kspDWkjTyqQN8OLC48NDHH8cgPc6SNzrBWWa/LfaS+DKphI0/rxa24Qo/eUi6fBWINBOnGq8qMPqGXuKKdBXVsjonUFVE4s1iKebk5pMytCNQltPqvwnsrhr/T31eYDswgjUd7xvIOOh2HknV3ENn4TnnV2379splEEje45F+m5vRtmCIawLr8wjzIj6d9N6sPuaW77kQyEhovJa3ErcyE6dPlEqkE5hnMbXqVCyedArLFsbUHN1kNLQ5aPwpubTbfnFL+mHkZMSKQhHMq7+nseA==
+ b=ji7wxRa6ILug1iMHDzf9Frt11uQyCYIXlXi3dUQK7gJf+hwtDZa4/XtNbqTDnN9gCGO2XCvqefUf7m1IdsLNEbGM88900gZmQ7+/or9JF2q15I6EicX4CFKpRK4s+L/ZG8EbyA34wP77rB8hscMe/wc5W2smA452ca4RBYcvyPN+vHnqzxhpnktouv3OJVjUkAOzUy+S9CQgeMuBS2Zp+/szxGIoml6qkeyiFOoThcTN6BPiNsPoBP9PdRn6D6NgkV0Co05bK4GQmixmlVUZBcU36/xKgim9VhIhXP5nc3Ff9GtClX7hm76V/FL12iXS2nGZlKNrFHQLXVAJmQlqig==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QekrJvFzbRGlSrJPqTxk6rC9KdJkrVtXD0+PSHtlGgU=;
- b=nJlHivPoMfNPEsqgzEGcnqbOOto7JJSyp8fShXBlNunn3qx8OK0JYIE2vtUttCc2P5rLnI460ePh+d90nGC1L/+tGCKFotZLWvdBIuwVqdTEgZLWoCbyehkl5xwJv1DvaQ9mKwMCMqMA9rH/cPXrNURDZ1RPN/X08ZJmpPGGujW3IXI0gUjIIM4zs/lwE2qCLoMmIi0b7V1G0CI+AC9y5Cpfrgmsv4Aw/cuQfceW0vKJKl9RwtXFPCvxQG0+Il6UYNjV7t1k710dwzwy422R+/ZgvmJWDbjtPVScaDZnRTzD/S+NdWAayaf5aCNK6lgGRq9gNFX3XlQqHXjgaOp/ew==
+ bh=xGRCnPe5SrhWgJUFcql3Y1OHApggMchPr9en3umJqv0=;
+ b=BBpKogcfhmWsFY2x0LlkpsMxRuhBbfgPkfB6HnpAwuPY4zdJDVA2kwb/DIakXHALbrM7ME6FKbDYaq+cg3WL3Yl2p8o4COBReTe4oF1FFN6UGiYvMhCp3nQoy13GTEOl1YeAEEXwA1RH0x2O7QSM5y5isGqoeh1ezP3rUCCl7P07NV3n5WPAP2tCu5/grPXLDvRd+UlZh+cD+2F42ENiBSp+IXujoxRakWs1M6cA7zbDeW7V4/iJoRtJG5jYgRt+/X88GpwnEJKz30zsghsSZ3UEBP06z9vbMRZiQtop6LQRrV9iHZrJUxZKfxnKoA5LjqVIoRhNXFTM2IWNgVJ/gg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:17::6) by ZQ4PR01MB1267.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:16::5) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.16; Wed, 30 Sep
- 2026 12:44:12 +0000
+ 2026 12:44:05 +0000
 Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  ([fe80::e7d4:256c:b066:850d]) by
  ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0451.026; Wed, 30 Sep 2026 12:44:12 +0000
+ with mapi id 15.21.0451.026; Wed, 30 Sep 2026 12:44:05 +0000
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Brian Masney <bmasney@redhat.com>,
@@ -73,9 +73,9 @@ Cc: linux-clk@vger.kernel.org,
 	netdev@vger.kernel.org,
 	Hal Feng <hal.feng@starfivetech.com>,
 	Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: [PATCH v5 23/23] riscv: dts: starfive: jhb100: Add clocks and resets nodes
-Date: Wed, 30 Sep 2026 05:43:17 -0700
-Message-Id: <20260930124317.5648-24-changhuang.liang@starfivetech.com>
+Subject: [PATCH v5 19/23] dt-bindings: clock: Add StarFive JHB100 Peripheral-3 clock and reset generator
+Date: Wed, 30 Sep 2026 05:43:13 -0700
+Message-Id: <20260930124317.5648-20-changhuang.liang@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260930124317.5648-1-changhuang.liang@starfivetech.com>
 References: <20260930124317.5648-1-changhuang.liang@starfivetech.com>
@@ -85,57 +85,56 @@ X-ClientProxiedBy: BJSPR01CA0006.CHNPR01.prod.partner.outlook.cn
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1267:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67b2768e-947b-4b9c-5be5-08df1ef0876d
+X-MS-Office365-Filtering-Correlation-Id: ab93d72f-3b64-44c4-cf39-08df1ef0836a
 X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|23010399003|366016|1800799024|10067099003|56012099006|260925022911599003|260925021911599003|260925021311599003|921020|18002099003|22082099003|38350700014;
-X-Microsoft-Antispam-Message-Info: hUewW1ybeh31qz/v3VBWR7kNO73kwW7MONLtb2cnZjeqeA6+7ZECNWf7uGOG2I+Jt1N3kHcvArf1IrUvIXnebwfUWtVGxoFB02tEZKZxZGZetg2xsySVwA9guIO2qvUJ40dPH09M10KHGFl1JUZ/oiIucjJ/9SDC2NRL7sLfQaaquLQ8G3I5OLSg8NV8J9k240aQ1HWgEkdtw7HffMGkpiUTt8YJ7cyKJ/bzayS3c5ehJIK4JPSgbOqb5OpaECxjZTdw5bIZqU7soswZJYDeSRZe4yBZXWdX5iCbefddGNdsG+N2KXNBqhkGAMVRWR31jKU+r/2hj3lXfV3qlyT4kfMwI4fbiHksZLFBlD8cqoXi/YXJjhBzxMeuHIUNWzIWgXO3KSUvb1EodW5JicjelNP076U+FeTY6zv8K7H81O7HeG7h/gUOTHdt63FeE6IKc85iDuuKuwN5nvCJnQaLwaEwf3jtUh2v2+6UejAmDVXnWAfuxRRaXLj6kWnZHtcMF2b2hG27kvlfjrRB5ATB5CMAXyOzAufg6WyCLdzDmDhoZM5fSNJP1C3xEPIWDfZ7BLWY1sFMVzi/4F3556x6gg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(23010399003)(366016)(1800799024)(10067099003)(56012099006)(260925022911599003)(260925021911599003)(260925021311599003)(921020)(18002099003)(22082099003)(38350700014);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|23010399003|366016|1800799024|10067099003|56012099006|921020|3023799007|18002099003|22082099003|38350700014;
+X-Microsoft-Antispam-Message-Info: RExp4ueo5Hlkfr3lLPMzXfSv9qhO2/cFKjFnr43x/Ileu2SFQ+LVluUtmCmIuqSg4PT0fiN4a/19VMdSgky9XyiH4GIx9voVfX8PxosY++YAEzxzH7FdcV2DkWhGw6wj8kEi6vleg0klsVmS59azJrc/z94x+RCJoIaqffMKyCwJXPXCexL06rZizSYVmXzSV3kKdgEk7dAhbOYneC6JcuSaLlUtT3PqTTMd1/6SAsn7TLJcm66OpPrcOruYePP77yrQYnXBPdrfG7t6qPK9m2oxG14seunsvphd/b17xL7th4bPb5MoY210uGDXmqtrwG0QAoUMhODrHiYWUONP/mCCo4TW4YqcMhS3Mr4YUmFQz/mu+/cFSKLjxSnTBGZfyLGVTWbJ+vAMBhMuBdUqi1PzH1zz29vA2MGgSUtnNBf+s5D2fp542wWs0cxfUifQK6eeNHWKH8hxjgZH6+Vl6SENwF/+9T4rAINi09WEkAIiVuBs72mD9c7ReC/KeTyAbhbNxRj2vZP5bmKykcRhTOEt2YtPSBIsbQhOalGDA7/rJiYkbA+XCpT2wevErzm9oXbminnHJbYU4lma2S8KQw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(23010399003)(366016)(1800799024)(10067099003)(56012099006)(921020)(3023799007)(18002099003)(22082099003)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?opDUy4S7ohsdXV+Y5DMjmjxTv5ntKxWYreNZJxl+0lCgOB+5w56NF5O8/PvD?=
- =?us-ascii?Q?6UiQA5aoE7kaZWfvr/JH3YHl6p+VyUIuHGX7LjBos/21RNnx6YcYhy890FMS?=
- =?us-ascii?Q?TuLy6WYTQz/JK67LrE9lRDyYhkxxbES/gtZfyDhetW+o2m4lRWafUtt4HKQ6?=
- =?us-ascii?Q?Nwg4tVSH4zLeABpX0LgilXiEPl9MCthoyBoahUQQ/PhZn0819MK7k/U9rL9P?=
- =?us-ascii?Q?aTOhcLzyVgPO9/xHDeu/esvd0cpYCVfzhj9S/lkdDzWAbyz619w8A0NZ8q6F?=
- =?us-ascii?Q?SFsy9gsiAfl9GOvYNbFN0xqVg1AsWr6W12o2zTk2n/0eujiiKk3uMihKG+hR?=
- =?us-ascii?Q?9Ms8yaR29IHahfqsMdxq/fiZzF3TkaatDXVSzLhwEZvEI/bXmZVVQJyCZZBX?=
- =?us-ascii?Q?DIPYhNwy/8RJutJ4IyudAIXiJbjqZKD409XVqaRFVsM3FwPseuY749xCXwRD?=
- =?us-ascii?Q?QHsT4ThU3PIlQH+99auytiul6w8XIA/juuBVreaFXx2l1OV8nSVhRs36b662?=
- =?us-ascii?Q?K4A5fHEnwLkJy07UwgmMSg2/ajq3wiqgkuHOKLDnI0D2nptWeiNpxo3KrcbT?=
- =?us-ascii?Q?nazqQEjzJBzCi1s0BCAoP5nlB0SzEYRX9L/JCgs+AlqKN85GNVd6zmwpOjTa?=
- =?us-ascii?Q?ctnMmv5OGpRTHD3KLjKdU6kl4PXFaXx5ibxXJnLZWMDFLBy3fZEycITbXOkS?=
- =?us-ascii?Q?iTaEGNbmnIVK2Ar06VTdwkngsOV7vRAsUIO2DxW+YEfnz+3DCjq4WfQNkI+/?=
- =?us-ascii?Q?qWpzu62U97+fyUEIGYkU2xtuqSmHzolwOYJtgUZwfR48ej0U5xDfEspvVO1Z?=
- =?us-ascii?Q?Ur/viz5j5ltSJVocUlFeWHoNptg2/muiZvR4Z9p5mwOOW0QXIcvvwNcTx116?=
- =?us-ascii?Q?oBKHc44ayU0zFaFmxKK3DJdWU7NWRmFo3o4kKS8VqUX3VfhIQTeP7C94Ziph?=
- =?us-ascii?Q?zmtCSky7GMf75q//XqhTrrCP4oXS4M7Qck+2C6NfbLKQIFNWeiRXVJ2PBIt/?=
- =?us-ascii?Q?t7CkpqXE6wo5hT8ejs0P8S0zov58n3qlwS0UV84St1jgwIpIZY2WVDGZLr5P?=
- =?us-ascii?Q?CdQ2fI7Nr+zypmjF0s9sqQhmGwuw9CaI0GezLReqdMCkVUY42rnarJefXM0V?=
- =?us-ascii?Q?uDrwjtzH+gycXhaQFRdKtDijuWxWGRCoxDu99ufM+iYV9EM5rI9iLMIgw0Tz?=
- =?us-ascii?Q?ApVaxDw3e+UU1WkNLWQ6kdV3x0eDd1esd9k7BCLEYPiVjI2P8zyYQc0yhfJe?=
- =?us-ascii?Q?3nb6LtRVTmJ03hQLStEXJFp72h6+MNo0E7F6v9spkTgFu4SSLgtHYXPiTBRI?=
- =?us-ascii?Q?z12ZJeCyepuUz0pmxD3HwdevYIyiNoRqnvmry0SuovjXPjzrRNnl1qkGkQLx?=
- =?us-ascii?Q?nBMv0DDmBpp2zX8ULwZ+N+99rJA0nyvFcLEkDBTy/+FkjgaKFuVd9SdH/RS/?=
- =?us-ascii?Q?vK3aEsxjzly57qHDIXc3lxZz/mIU7xS818tQ0HZ+6NMfy3NIo0pF3MVxb1KE?=
- =?us-ascii?Q?ViyfI81RjigLnbhxrpYM1XPxPgJYGOUGG3lbTPn2gI9CnlxhppTl2LnJ8vcR?=
- =?us-ascii?Q?Tni5Ez2FYY8luFFg6AcG8skXYctCOI0RhwGmDZOCt4UXdFu2kMngq8i3Azd5?=
- =?us-ascii?Q?q9lIXHVoqj8MxiNroBIh6Re1ZUn0Xyx1UTi26+qJILbby4Daj6ayI7uPpF6x?=
- =?us-ascii?Q?Ye+knFrX6nL0OhMP2c9HYS0BFIorYaUjtu90is3bR/j9RLWVKudUUcaZyPv5?=
- =?us-ascii?Q?8+UAPgy4oRUYXoupIELHqDK1rs0OzpVHx64ZkuZbic0zoLqULuQg?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RWoWdclnZuzD9MVnQPqc0LEe+ALklJMXJmXPpoSDOIq3bVZlcrGPoHAyS34U?=
+ =?us-ascii?Q?HW7jZxq7HIOSRKkraJ/ITehYn1g3QrpXuqhG2iY505rjLbF6aAzOVxFu3Zro?=
+ =?us-ascii?Q?IZRm9uJp8+etMPS22ZTUf68FdJsXJNdpwbPWb5Gn2KomzNaG2u61SXVQtwZp?=
+ =?us-ascii?Q?uHDGoPdfjqB3Oy5wV77jSe9n6Q8GL+OuluD5oxN0xkbriXezzHQzXjHRsxKQ?=
+ =?us-ascii?Q?D9bf7pSVe7DQSpO7MgVF4gP/aZftHdMUChpzdlyNditugH0PA8tGrbLDNbmc?=
+ =?us-ascii?Q?V2joFiQKRsv9fOwOglT6MAE/2U9M8ToAJXzIvpIb1toLEpIh9uGedTVouwbf?=
+ =?us-ascii?Q?xEMPuxyin99to57UAYoGjBySVdx7piMJLGxW7OoEp73E8Xec/nRtT05l7LPq?=
+ =?us-ascii?Q?/f/ZM5oftoLDlCh4cUdxUwBXLFsOoUBZAsONspv+yRlz6DAQKGMHIvL6snN0?=
+ =?us-ascii?Q?ZmRdKBz8tLQpLnSpMCnl0ckZRVazDITcaUy5uwZiIlBtaaBl6nkoPK4/nBG9?=
+ =?us-ascii?Q?bevg9FaFqmpRcXnU4dG7gASxYx4AHSAPY+EzH5g1qM7BHyUOkjmxNKhKO4HV?=
+ =?us-ascii?Q?KpQ1qrB790HfBpyLFrh0sU8QS30LZzv1/lmjSuFHvHYZ+1lpTpxlvqRscgiW?=
+ =?us-ascii?Q?W2ty3t9bmiIL0niGrwEqzqwXElmtfw9yPwm0sNtgIaK2NG25LD+lT8JTCTla?=
+ =?us-ascii?Q?MsbxVzgY+1/YvT9e+GKGfn2HVcHGNZjK2yWT3S3V2RlAMX6AWDQvFmRz/d+M?=
+ =?us-ascii?Q?JomMIYsfoZqGlTNPiIHH8TCKLj6pmxMOFH6o6fUINdTg0Lv3P4/EyXNIvPzI?=
+ =?us-ascii?Q?mj9APOuc+j+MNn56s1jiRXmm7jwnVuTsMPfjofb5AALFbORkB4+lODPeAF2w?=
+ =?us-ascii?Q?A/Z+QTlCdRFgOgXJDgAMU873JNd2hOGvsd+lnSvkbPvnMBS+nIttqGl7v7U0?=
+ =?us-ascii?Q?QCLDIOkxWDINdLFN7aTj+MFnuC+qRdg0i036ShWq7huX/RaGJoGYxbYsxfy8?=
+ =?us-ascii?Q?FDIlDCC5GbnMfsIB0sZnXNQJOrdV87yHKkpZh4IWf+TXLaL0uI41G3qOydgP?=
+ =?us-ascii?Q?yVCkuOvvNs3UOlis7FC/q1o+35M70AMckuwKrgBCxZVoUsoUYXW5Z5NxFrT0?=
+ =?us-ascii?Q?rmXEQHL2UA3jLIfIEuQHrOEgN8dqd2eVDOYyrUOPDOTerOikuBtrg1l74i/M?=
+ =?us-ascii?Q?9lAcMRLNGmGspLok8F4KvxKOVLORpf+CncYpZw3isTR88ZCkV1KD79WBvIRc?=
+ =?us-ascii?Q?UVis1+lBx/nplONamJYYKfWR9RojBg9Mq3gQR/MBtBDlyJWkU2jQipgVAdbp?=
+ =?us-ascii?Q?e0EcdDvMBXr36AgVl0pNxAxF6GPzpPCC/gNzNWTsb3lF95Awt74tmM0bfe75?=
+ =?us-ascii?Q?3vtiBpUfajPABPZfwRJo92PwMEvPYCLF0d3bjUX1WNv6wWPP71pbARetivuO?=
+ =?us-ascii?Q?ITdzQp/bCUXA2DbvB4G+oZfrokuk8l/cMV99MfWc3TX5JGW32eAGUxkdgZmp?=
+ =?us-ascii?Q?Sv4lOEBQOJ3RIP3BSW7y+euNr7gn0HIitBIQQFFU7XHp0M/Zfq0Rlyfl1IOL?=
+ =?us-ascii?Q?ulUvL8V9VisNWOdlz0HMoSXMeKNekf+Y4TTwvxa9Fb6XKXgqUywvXrWeMEsi?=
+ =?us-ascii?Q?cF5z8ZGX77zNiQmGrF39g9X9dfI3vmIhzLOdNeFz22u920AX87ifPpkB83p3?=
+ =?us-ascii?Q?og4kKlY/SPpvi7oSjKltRoysKH+hFCGbeUo36peHWfpF3NVIUoeUQ2miWTTI?=
+ =?us-ascii?Q?6hLWszwFTdwzsWIUOLOzlaVFT26vBcC8jIotH8ufsJ7EIoUlKrWJ?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67b2768e-947b-4b9c-5be5-08df1ef0876d
+X-MS-Exchange-CrossTenant-Network-Message-Id: ab93d72f-3b64-44c4-cf39-08df1ef0836a
 X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 12:44:12.4275
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 12:44:05.7173
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hc69c1rHuSn3gRyV1Nn6KAmbcTKXjMJ+KztG0YSBXjzNEiIYbEGb5+UoqvlDGQmIB4hwcNqy46J2sSFCGiV5CWMcCMFpOlZbQ+8rxOyhxKg0ozhHwTgBg11/ioTX01Au
+X-MS-Exchange-CrossTenant-UserPrincipalName: OEB8slGhkDLCJZ03O/yPTXtYsd3Kj/X2tkc+zOi0ueIeYScNfZyfbVPDyHP/m4keh5aw27V8hrv9Ycv5Vld3ED64K38R9bqn0mzVdT3KZ6mP2nOkm2Z0DwiLcHpWl8kE
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1267
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_054504_190318_405330AE 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260930_054453_658984_07476003 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,249 +151,162 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add clocks and resets nodes for JHB100 RISC-V BMC SoC. They contain
-sys0crg/sys1crg/sys2crg/per0crg/per1crg/per2crg/per3crg.
+Add bindings for the Peripheral-3 clock and reset generator (PER3CRG)
+on the JHB100 RISC-V SoC by StarFive Ltd.
 
 Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- arch/riscv/boot/dts/starfive/jhb100.dtsi | 198 ++++++++++++++++++++++-
- 1 file changed, 195 insertions(+), 3 deletions(-)
+ .../clock/starfive,jhb100-per3crg.yaml        | 76 +++++++++++++++++++
+ .../dt-bindings/clock/starfive,jhb100-crg.h   | 35 +++++++++
+ .../dt-bindings/reset/starfive,jhb100-crg.h   |  9 +++
+ 3 files changed, 120 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jhb100-per3crg.yaml
 
-diff --git a/arch/riscv/boot/dts/starfive/jhb100.dtsi b/arch/riscv/boot/dts/starfive/jhb100.dtsi
-index 14ab83ed4482..6b2863fd3fd3 100644
---- a/arch/riscv/boot/dts/starfive/jhb100.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jhb100.dtsi
-@@ -4,6 +4,8 @@
-  */
+diff --git a/Documentation/devicetree/bindings/clock/starfive,jhb100-per3crg.yaml b/Documentation/devicetree/bindings/clock/starfive,jhb100-per3crg.yaml
+new file mode 100644
+index 000000000000..2c3b9f4146b5
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/starfive,jhb100-per3crg.yaml
+@@ -0,0 +1,76 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/starfive,jhb100-per3crg.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JHB100 Peripheral-3 Clock and Reset Generator
++
++maintainers:
++  - Changhuang Liang <changhuang.liang@starfivetech.com>
++
++properties:
++  compatible:
++    const: starfive,jhb100-per3crg
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Non Coherent NOC Initiator
++      - description: Non Coherent NOC Target
++      - description: Configure 125MHz
++      - description: GMAC0 RMII Reference clock
++      - description: GMAC1 SGMII TX
++      - description: GMAC1 SGMII RX
++      - description: Main Oscillator (25 MHz)
++
++  clock-names:
++    items:
++      - const: ncnoc_init
++      - const: ncnoc_targ
++      - const: cfg_125
++      - const: gmac0_rmii_rclki
++      - const: gmac1_sgmii_tx
++      - const: gmac1_sgmii_rx
++      - const: osc
++
++  '#clock-cells':
++    const: 1
++    description:
++      See <dt-bindings/clock/starfive,jhb100-crg.h> for valid indices.
++
++  '#reset-cells':
++    const: 1
++    description:
++      See <dt-bindings/reset/starfive,jhb100-crg.h> for valid indices.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - '#clock-cells'
++  - '#reset-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-controller@11c40000 {
++      compatible = "starfive,jhb100-per3crg";
++      reg = <0x11c40000 0x1000>;
++      clocks = <&sys0crg 65>,
++               <&sys1crg 18>,
++               <&sys1crg 19>,
++               <&per3_gmac0_rmii_rclki>,
++               <&per3_gmac1_sgmii_tx>,
++               <&per3_gmac1_sgmii_rx>,
++               <&osc>;
++      clock-names = "ncnoc_init", "ncnoc_targ", "cfg_125",
++                    "gmac0_rmii_rclki", "gmac1_sgmii_tx",
++                    "gmac1_sgmii_rx", "osc";
++      #clock-cells = <1>;
++      #reset-cells = <1>;
++    };
+diff --git a/include/dt-bindings/clock/starfive,jhb100-crg.h b/include/dt-bindings/clock/starfive,jhb100-crg.h
+index 2b2e148ce5ce..bdf7d628b381 100644
+--- a/include/dt-bindings/clock/starfive,jhb100-crg.h
++++ b/include/dt-bindings/clock/starfive,jhb100-crg.h
+@@ -504,4 +504,39 @@
+ #define JHB100_PER2CLK_MAIN_ICG_EN_GMAC2		69
+ #define JHB100_PER2CLK_MAIN_ICG_EN_GMAC3		70
  
- /dts-v1/;
-+#include <dt-bindings/clock/starfive,jhb100-crg.h>
-+#include <dt-bindings/reset/starfive,jhb100-crg.h>
++/* PER3CRG clocks */
++#define JHB100_PER3CLK_300				0
++#define JHB100_PER3CLK_200				1
++#define JHB100_PER3CLK_GMAC1_PTP_REF			2
++#define JHB100_PER3CLK_GMAC1_TX_125_MUX			3
++#define JHB100_PER3CLK_GMAC1_TX				4
++#define JHB100_PER3CLK_GMAC1_RX_125_MUX			5
++#define JHB100_PER3CLK_GMAC1_RX				6
++#define JHB100_PER3CLK_GMAC0_PTP_REF			7
++#define JHB100_PER3CLK_GMAC0_RMII_PLL			8
++#define JHB100_PER3CLK_GMAC0_RMII_MUX			9
++#define JHB100_PER3CLK_GMAC0_RMII_MUX_DIV2		10
++
++#define JHB100_PER3CLK_ETHER0_RMII_CLK_TX_I		17
++#define JHB100_PER3CLK_ETHER0_RMII_CLK_RX_I		18
++#define JHB100_PER3CLK_ETHER0_RMII_CLK_PTP_REF_I	19
++#define JHB100_PER3CLK_ETHER0_RMII_CLK_RMII_I		20
++#define JHB100_PER3CLK_ETHER0_RMII_CLK_CSR_I		21
++#define JHB100_PER3CLK_ETHER0_RMII_ACLK_I		22
++#define JHB100_PER3CLK_GMAC0_RMII_RCLKO			23
++#define JHB100_PER3CLK_ETHER0_SGMII_CLK_TX_I		24
++#define JHB100_PER3CLK_ETHER0_SGMII_CLK_RX_I		25
++#define JHB100_PER3CLK_ETHER0_SGMII_CLK_TX_125_I	26
++#define JHB100_PER3CLK_ETHER0_SGMII_CLK_RX_125_I	27
++#define JHB100_PER3CLK_ETHER0_SGMII_CLK_PTP_REF_I	28
++#define JHB100_PER3CLK_ETHER0_SGMII_CLK_REF_25_I	29
++#define JHB100_PER3CLK_ETHER0_SGMII_CLK_CSR_I		30
++#define JHB100_PER3CLK_ETHER0_SGMII_ACLK_I		31
++#define JHB100_PER3CLK_ETHER0_SGMII_PHY_PCLK_I		32
++#define JHB100_PER3CLK_MAIN_ICG_EN_SENSORS_PERIPH3	33
++#define JHB100_PER3CLK_MAIN_ICG_EN_PECI0		34
++#define JHB100_PER3CLK_MAIN_ICG_EN_PECI1		35
++#define JHB100_PER3CLK_MAIN_ICG_EN_GMAC0		36
++#define JHB100_PER3CLK_MAIN_ICG_EN_GMAC1		37
++
+ #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JHB100_H__ */
+diff --git a/include/dt-bindings/reset/starfive,jhb100-crg.h b/include/dt-bindings/reset/starfive,jhb100-crg.h
+index 0965f3798397..872a4dd25beb 100644
+--- a/include/dt-bindings/reset/starfive,jhb100-crg.h
++++ b/include/dt-bindings/reset/starfive,jhb100-crg.h
+@@ -174,4 +174,13 @@
+ #define JHB100_PER2RST_ADC1_IOMUX_PRESETN				13
+ #define JHB100_PER2RST_MAIN_RSTN_PERIPH2_SENSORS			14
  
- / {
- 	compatible = "starfive,jhb100";
-@@ -262,12 +264,96 @@ pmu {
- 			<0x00 0x22 0xFFFFFFFF 0xFFFFFF22 0x00007FF8>;	/* Event ID 34 */
- 	};
- 
--	clk_uart: clock-uart {
--		compatible = "fixed-clock"; /* Initial clock handler for UART */
-+	osc: clock-osc {
-+		compatible = "fixed-clock";
- 		#clock-cells = <0>;
- 		clock-frequency = <25000000>;
- 	};
- 
-+	pll0: clock-pll0 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <2400000000>;
-+	};
++/* PER3CRG resets */
++#define JHB100_PER3RST_SYSREG_RSTN					0
++#define JHB100_PER3RST_MAIN_RSTN_GMAC0					1
++#define JHB100_PER3RST_MAIN_RSTN_GMAC1					2
++#define JHB100_PER3RST_MAIN_RSTN_PECI0					3
++#define JHB100_PER3RST_MAIN_RSTN_PECI1					4
++#define JHB100_PER3RST_MAIN_RSTN_PERIPH3_SENSORS			5
++#define JHB100_PER3RST_IOMUX_PRESETN					6
 +
-+	pll1: clock-pll1 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <1000000000>;
-+	};
-+
-+	pll2: clock-pll2 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <903168000>;
-+	};
-+
-+	pll4: clock-pll4 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <100700000>;
-+	};
-+
-+	pll5: clock-pll5 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <100700000>;
-+	};
-+
-+	pll6: clock-pll6 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <2400000000>;
-+	};
-+
-+	pll7: clock-pll7 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <1950000000>;
-+	};
-+
-+	per2_gmac2_rgmii_rx: clock-per2-gmac2-rgmii-rx {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <125000000>;
-+	};
-+
-+	per2_gmac2_rmii_ref: clock-per2-gmac2-rmii-ref {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <50000000>;
-+	};
-+
-+	per2_gmac3_sgmii_tx: clock-per2-gmac3-sgmii-tx {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <125000000>;
-+	};
-+
-+	per2_gmac3_sgmii_rx: clock-per2-gmac3-sgmii-rx {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <125000000>;
-+	};
-+
-+	per3_gmac0_rmii_rclki: clock-per3-gmac0-rmii-rclki {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <50000000>;
-+	};
-+
-+	per3_gmac1_sgmii_tx: clock-per3-gmac1-sgmii-tx {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <125000000>;
-+	};
-+
-+	per3_gmac1_sgmii_rx: clock-per3-gmac1-sgmii-rx {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <125000000>;
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		interrupt-parent = <&plic>;
-@@ -310,8 +396,10 @@ bus_nioc: bus {
- 			uart6: serial@11982000 {
- 				compatible = "starfive,jhb100-uart", "snps,dw-apb-uart";
- 				reg = <0x0 0x11982000 0x0 0x400>;
--				clocks = <&clk_uart>, <&clk_uart>;
-+				clocks = <&per0crg JHB100_PER0CLK_SCLK_UART6>,
-+					 <&per0crg JHB100_PER0CLK_APB_UART6>;
- 				clock-names = "baudclk", "apb_pclk";
-+				resets = <&per0crg JHB100_PER0RST_MAIN_RSTN_UART6>;
- 				interrupt-parent = <&intc>;
- 				interrupts = <26>;
- 				reg-io-width = <4>;
-@@ -319,6 +407,110 @@ uart6: serial@11982000 {
- 				status = "disabled";
- 			};
- 
-+			per0crg: clock-controller@11a08000 {
-+				compatible = "starfive,jhb100-per0crg";
-+				reg = <0x0 0x11a08000 0x0 0x1000>;
-+				clocks = <&osc>, <&pll6>,
-+					 <&sys0crg JHB100_SYS0CLK_BMCPER0_CFG_400>,
-+					 <&sys0crg JHB100_SYS0CLK_BMCPER0_CFG_800>,
-+					 <&sys0crg JHB100_SYS0CLK_BMCPER0_NCNOC_INIT>,
-+					 <&sys2crg JHB100_SYS2CLK_BMCPER0_NCNOC_TARG>;
-+				clock-names = "osc", "pll6", "cfg_400",
-+					      "cfg_800", "ncnoc_init",
-+					      "ncnoc_targ";
-+				#clock-cells = <1>;
-+				#reset-cells = <1>;
-+			};
-+
-+			per1crg: clock-controller@11b40000 {
-+				compatible = "starfive,jhb100-per1crg";
-+				reg = <0x0 0x11b40000 0x0 0x1000>;
-+				clocks = <&pll7>,
-+					 <&sys0crg JHB100_SYS0CLK_BMCPER1_NCNOC_INIT>,
-+					 <&sys0crg JHB100_SYS0CLK_BMCPER1_CFG_800>,
-+					 <&sys2crg JHB100_SYS2CLK_BMCPER1_NCNOC_TARG>,
-+					 <&sys2crg JHB100_SYS2CLK_BMCPER1_CFG_143>;
-+				clock-names = "pll7", "ncnoc_init",
-+					      "cfg_800", "ncnoc_targ",
-+					      "cfg_143";
-+				#clock-cells = <1>;
-+				#reset-cells = <1>;
-+			};
-+
-+			per2crg: clock-controller@11bc0000 {
-+				compatible = "starfive,jhb100-per2crg";
-+				reg = <0x0 0x11bc0000 0x0 0x1000>;
-+				clocks = <&sys0crg JHB100_SYS0CLK_BMCPER2_NCNOC_INIT>,
-+					 <&sys0crg JHB100_SYS0CLK_BMCPER2_CFG_400>,
-+					 <&sys0crg JHB100_SYS0CLK_BMCPER2_CFG_125>,
-+					 <&per2_gmac2_rgmii_rx>,
-+					 <&per2_gmac2_rmii_ref>,
-+					 <&per2_gmac3_sgmii_tx>,
-+					 <&per2_gmac3_sgmii_rx>,
-+					 <&osc>;
-+				clock-names = "ncnoc_init", "cfg_400", "cfg_125",
-+					      "gmac2_rgmii_rx",
-+					      "gmac2_rmii_ref",
-+					      "gmac3_sgmii_tx",
-+					      "gmac3_sgmii_rx",
-+					      "osc";
-+				#clock-cells = <1>;
-+				#reset-cells = <1>;
-+			};
-+
-+			per3crg: clock-controller@11c40000 {
-+				compatible = "starfive,jhb100-per3crg";
-+				reg = <0x0 0x11c40000 0x0 0x1000>;
-+				clocks = <&sys0crg JHB100_SYS0CLK_BMCPER3_NCNOC_INIT>,
-+					 <&sys1crg JHB100_SYS1CLK_BMCPER3_NCNOC_TARG>,
-+					 <&sys1crg JHB100_SYS1CLK_BMCPER3_CFG_125>,
-+					 <&per3_gmac0_rmii_rclki>,
-+					 <&per3_gmac1_sgmii_tx>,
-+					 <&per3_gmac1_sgmii_rx>,
-+					 <&osc>;
-+				clock-names = "ncnoc_init", "ncnoc_targ", "cfg_125",
-+					      "gmac0_rmii_rclki",
-+					      "gmac1_sgmii_tx",
-+					      "gmac1_sgmii_rx",
-+					      "osc";
-+				#clock-cells = <1>;
-+				#reset-cells = <1>;
-+			};
-+
-+			sys0crg: clock-controller@13000000 {
-+				compatible = "starfive,jhb100-sys0crg";
-+				reg = <0x0 0x13000000 0x0 0x4000>;
-+				clocks = <&osc>, <&pll0>, <&pll1>,
-+					 <&pll2>;
-+				clock-names = "osc", "pll0", "pll1", "pll2";
-+				#clock-cells = <1>;
-+				#reset-cells = <1>;
-+			};
-+
-+			sys1crg: clock-controller@13004000 {
-+				compatible = "starfive,jhb100-sys1crg";
-+				reg = <0x0 0x13004000 0x0 0x4000>;
-+				clocks = <&osc>, <&pll0>, <&pll1>,
-+					 <&pll2>, <&pll4>, <&pll5>,
-+					 <&sys0crg JHB100_SYS0CLK_NPU_NCNOC_INIT>;
-+				clock-names = "osc", "pll0", "pll1", "pll2",
-+					      "pll4", "pll5", "npu_ncnoc_init";
-+				#clock-cells = <1>;
-+				#reset-cells = <1>;
-+			};
-+
-+			sys2crg: clock-controller@13008000 {
-+				compatible = "starfive,jhb100-sys2crg";
-+				reg = <0x0 0x13008000 0x0 0x4000>;
-+				clocks = <&osc>, <&pll1>,
-+					 <&sys0crg JHB100_SYS0CLK_GPU0_NCNOC_INIT>,
-+					 <&sys0crg JHB100_SYS0CLK_GPU1_NCNOC_INIT>;
-+				clock-names = "osc", "pll1", "gpu0_ncnoc_init",
-+					      "gpu1_ncnoc_init";
-+				#clock-cells = <1>;
-+				#reset-cells = <1>;
-+			};
-+
- 			intc: interrupt-controller@13220000 {
- 				compatible = "starfive,jhb100-intc";
- 				reg = <0x0 0x13220000 0x0 0x80>;
+ #endif /* __DT_BINDINGS_RESET_STARFIVE_JHB100_CRG_H__ */
 -- 
 2.25.1
 
