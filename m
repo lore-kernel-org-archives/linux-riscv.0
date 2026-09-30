@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E20BCA5FC4
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 22:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F827CA5FC4
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 22:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FN0Td/iDs/Y8UqXS/rdRITYsf5wK41iNR8xdXgxvmns=; b=YJVZ8Pi6pn48coRagpD/OAurUb
-	aP88IVD0fj6gLi3+ZFhHrsCsPWP3t7FF6/kdmT0sQQIoCCMJENNPbdM4WvpkhguqeFvW6zLNz/k+C
-	0BIH7s9qbWILJN2ZOetjJDZSxDmH7jy6GRblxiShepgPtqPZtc/LlR/r2rJ/WgSd7SjMB4ZLQmlrL
-	PPpYrt+AiHvZvJdvdwrHhFJTbUJm5dQlBo5B9qMyR/sWU2iJhZ1e3OGvTBLy4trkNIy65/npJ4xuB
-	x+ntWHb/p1pHUCR7hh9KNCSz1TNUmQb7z0Vbnur33bcz7PYLpy5HZ3ti8R2pt2K48APYX+JRKDTSg
-	cnC6lpRQ==;
+	bh=VqbUTZ3DORiRCyaEiHdg+GyhZTN4+3FJInUqBzYFoMA=; b=HpWMug4X+B9lVDM9fsG1pcRLYT
+	FjCu0CYQn/7ZD6TprWhe+AzEJUdOWm2Tnd4B6NBggFnh2LOeJW5Q2Jjm9FDPeFypzQjxiHcid/xfR
+	XsHoR4Yzn0swCb7y2TpFIclkK9SenM0B1DrYc5s0xxDWr8OWMP9o4MzmQV0S61qExxYALd1s5XtLa
+	srSIAc7XztJB2F7qdGNmrdAEUYJj5wJMAJB/nuTVWwGzw9X5NlF716+jeT81k5f3lfdo+MIrOQiAH
+	czmhtPp4Hz0ZJUQ1Mj4hRUFwhTEjUc1AMMyDJ8a7AVYShi0TnLiPF0i+YT9bnNUrIKl+8NuP2DDmp
+	6AxMkpnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2sL-00000007NMj-3DjW;
-	Wed, 30 Sep 2026 22:34:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xC31O-00000007Oy7-3Vy2;
+	Wed, 30 Sep 2026 22:43:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2sK-00000007NMd-3m3Y
+	id 1xC31N-00000007Oy1-42qo
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Sep 2026 22:34:09 +0000
+	Wed, 30 Sep 2026 22:43:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0D8C2601F1;
-	Wed, 30 Sep 2026 22:34:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92C661F000FF;
-	Wed, 30 Sep 2026 22:34:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EF615601F1;
+	Wed, 30 Sep 2026 22:43:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FFF31F000FF;
+	Wed, 30 Sep 2026 22:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790807647;
-	bh=Y9zMIJNxKpa5Bhx46XZTOnTAHlsLD1gKMetTQhVVcgw=;
+	s=k20260515; t=1790808208;
+	bh=Cvx9L07M33gn8Y74tUeJcRYqmrgbju7YiUCcwjoMfhA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AaqhdASa8v9wWTPxKWm2KF3pmZykgLgqZfaVVC+OKDJthjCaVn0MR9j+myN4oxS87
-	 3ml3pP9tZs41KnQSCrcScQgRK0U46yRAa2dSCtVLqeJlXQLfVoReLzYRrT1JDtjhAD
-	 jRCyOn9Bmuo8c0qloxjFBB3uNGHYIOoVfszPhdmLO5qDD1J2FSFC1+jNOA/5a50aF3
-	 8oBkd41Nh6wuVNPxDRXeuFsMANxdca1bCvdyIpvZTSYhxXRiYMM3xLvOH6qDYy4zGd
-	 4mzKvVZEHqsZN0SrfcMLGuM/rj18CbQvBCbKHnBqdo8e30rAo7fJzR3YEx1czWF2W+
-	 o+pnzAnGkFrww==
-Date: Wed, 30 Sep 2026 23:34:02 +0100
+	b=O9xQnJwM1f9MCNSrfh67FeQv98nRF0mAx1b78otrvCccpVrNRsXXEPE3pIMiqphLk
+	 SGmgQeR+UbbNggwNo5vtGk08HoX3g993v67QGqXV68gydbN/RmmYXl1zaBidRP4iWO
+	 R1jz+CbAoBdtMDeeFD0HfWn9p+B7qkhk4oiwNUyiiCYPkTWEXASIvbwwBFEs9bnsYE
+	 lAj0HJQeVAu5/cMdul+vtUq9t02twcRk9gS/X9N4Gj6gs8kqMaA1HwdSHCgOZLQVZo
+	 lAcSds3Df3Lf4JKDX/l73/jm+OeuLfgmaEuOUZjd2hoPM/sM4efhzFE9EWvh2N7mq5
+	 oztzKeIMG3Zqg==
+Date: Wed, 30 Sep 2026 23:43:22 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Changhuang Liang <changhuang.liang@starfivetech.com>,
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Brian Masney <bmasney@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
-Subject: Re: [PATCH v8 00/22] Add basic pinctrl drivers for JHB100 SoC
-Message-ID: <20260930-frantic-enviable-55c1a78fe7d4@spud>
-References: <20260910100357.130134-1-changhuang.liang@starfivetech.com>
- <CAD++jLmts76o8wyR=eY=vdNsh8+916YqK9qwM3b=R624AYM1XA@mail.gmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Emil Renner Berthing <kernel@esmil.dk>, Kees Cook <kees@kernel.org>,
+	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-hardening@vger.kernel.org, netdev@vger.kernel.org,
+	Hal Feng <hal.feng@starfivetech.com>
+Subject: Re: [PATCH v5 00/23] Add basic clocks and resets for JHB100 SoC
+Message-ID: <20260930-grafting-undertake-ff3e01060284@spud>
+References: <20260930124317.5648-1-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <CAD++jLmts76o8wyR=eY=vdNsh8+916YqK9qwM3b=R624AYM1XA@mail.gmail.com>
+In-Reply-To: <20260930124317.5648-1-changhuang.liang@starfivetech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,81 +78,201 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6033706737623120958=="
+Content-Type: multipart/mixed; boundary="===============1215730112345775944=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6033706737623120958==
+--===============1215730112345775944==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="PlRoT138GtctrPoH"
+	protocol="application/pgp-signature"; boundary="GmYp61kn4TS9EarS"
 Content-Disposition: inline
 
---PlRoT138GtctrPoH
-Content-Type: text/plain; charset=utf-8
+--GmYp61kn4TS9EarS
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Oct 01, 2026 at 12:20:01AM +0200, Linus Walleij wrote:
-> Hi Changuang,
->=20
-> On Thu, Sep 10, 2026 at 12:04=E2=80=AFPM Changhuang Liang
-> <changhuang.liang@starfivetech.com> wrote:
->=20
-> > Changhuang Liang (22):
-> >   dt-bindings: pincfg-node: Add property 'input-debounce-ns'
-> >   pinctrl: pinconf-generic: Add property 'input-debounce-ns'
-> >   dt-bindings: pinctrl: Add starfive,jhb100-sys0-pinctrl
-> >   pinctrl: starfive: Add StarFive JHB100 sys0 controller driver
-> >   dt-bindings: pinctrl: Add starfive,jhb100-sys0h-pinctrl
-> >   pinctrl: starfive: Add StarFive JHB100 sys0h controller driver
-> >   dt-bindings: pinctrl: Add starfive,jhb100-sys1-pinctrl
-> >   pinctrl: starfive: Add StarFive JHB100 sys1 controller driver
-> >   dt-bindings: pinctrl: Add starfive,jhb100-sys2-pinctrl
-> >   pinctrl: starfive: Add StarFive JHB100 sys2 controller driver
-> >   dt-bindings: pinctrl: Add starfive,jhb100-per0-pinctrl
-> >   pinctrl: starfive: Add StarFive JHB100 per0 controller driver
-> >   dt-bindings: pinctrl: Add starfive,jhb100-per1-pinctrl
-> >   pinctrl: starfive: Add StarFive JHB100 per1 controller driver
-> >   dt-bindings: pinctrl: Add starfive,jhb100-per2-pinctrl
-> >   pinctrl: starfive: Add StarFive JHB100 per2 controller driver
-> >   dt-bindings: pinctrl: Add starfive,jhb100-per2pok-pinctrl
-> >   pinctrl: starfive: Add StarFive JHB100 per2pok controller driver
-> >   dt-bindings: pinctrl: Add starfive,jhb100-per3-pinctrl
-> >   pinctrl: starfive: Add StarFive JHB100 per3 controller driver
->=20
-> All of those applied to the pinctrl tree!
->=20
-> I had to manually adjust the MAINTAINERS patch because it is based
-> on some reset controller patch I don't have in v7.3-rc1.
+FYI clock folks,
 
-I believe that patch doesn't exist anywhere other than on the mailing
-list :p
-
-> >   riscv: dts: starfive: Add JHB100 pinctrl pad number header
-> >   riscv: dts: starfive: jhb100: Add pinctrl nodes
+On Wed, Sep 30, 2026 at 05:42:54AM -0700, Changhuang Liang wrote:
+> The JHB100 SoC includes CRG (Clock and Reset Generator) for multiple
+> subsystems:
 >=20
-> Please funnel these through the SoC tree.
+> The JHB100 SoC is divided into multiple subsystems, and basically
+> each subsystem includes a CRG(Clock and Reset Generator):
+>  - sys0crg/sys1crg/sys2crg/
+>  - per0crg/per1crg/per2crg/per3crg/
+>  - voutcrg
+>  - vcecrg
+>  - gpu0crg/gpu1crg
+>  - cpucrg
+>  - usbcrg
+>  - host0crg/host1crg
+>  - pcierpcrg
+>  - husb0crg/husb1crg
+>  - husbcmncrg
+>  - husbd0crg/husbd1crg
+>  - npucrg
+>=20
+> In the current series, we will only add the following CRG:
+>  - sys0crg/sys1crg/sys2crg/
+>  - per0crg/per1crg/per2crg/per3crg/
+>=20
+> The remaining CRG will be implemented in future series.
+>=20
+> This series depends on the series:
+> https://lore.kernel.org/all/20260806122553.182449-1-changhuang.liang@star=
+fivetech.com/
+> and it has been tested on the StarFive JHB100 EVB-1.
 
-Ye, I got my eye on them, don't worry.
+If this revision of the series is acceptable, I'd (although I'm not a
+listed driver maintainer) like to send you a PR as I've done in the past
+for Starfive stuff so that I can get some of these binding patches that
+contain headers as part of a shared tag to be able to unblock a bunch of
+the soc tree stuff. With conferences next week I understand that, with it
+being -rc5, it's probably this doesn't make v7.4 but I figured it was
+worth getting my intentions out there!
 
-btw, are you going to be at LPC or OSS Linus? I'll have to make sure to
-say hi if so.
+Cheers,
+Conor.
 
---PlRoT138GtctrPoH
+>=20
+> changes since v4:
+> - Remove patches 1/2/3/4 in v4, and patches 1/2/3 are newly introduced in=
+ v5.
+> - Refactor the shared clock and reset implementation into JH71x0-specific=
+ helpers, updating
+>   the affected drivers (These include patches 4/6/8/10/12/14/16/18/20/21/=
+22 in v5.) to use
+>   the new interfaces.
+> - Split patch 6 in v4 into patch 4 and patch 6 in the current v5.
+> - Split patch 21 in v4 into patch 21 and patch 22 in the current v5.
+>=20
+> PATCH 17: (in v5)
+> - Add Krzysztof's Reviewed-by tag
+>=20
+> v4: https://lore.kernel.org/all/20260920120044.194901-1-changhuang.liang@=
+starfivetech.com/
+> v3: https://lore.kernel.org/all/20260807112923.191627-1-changhuang.liang@=
+starfivetech.com/
+> v2: https://lore.kernel.org/all/20260508053632.818548-1-changhuang.liang@=
+starfivetech.com/
+> v1: https://lore.kernel.org/all/20260402105523.447523-1-changhuang.liang@=
+starfivetech.com/
+>=20
+> Changhuang Liang (23):
+>   clk: starfive: jh7110-sys: Fix memory leak in reset controller
+>     register
+>   clk: starfive: JH71x0: Move reset controller registration to jh71x0
+>     common code
+>   reset: starfive: jh7110: Match auxiliary device names to jh71x0 clk
+>     driver
+>   clk: starfive: jh71x0: Add generic CRG probe helper
+>   dt-bindings: clock: Add StarFive JHB100 System-0 clock and reset
+>     generator
+>   clk: starfive: Add JHB100 System-0 clock generator driver
+>   dt-bindings: clock: Add StarFive JHB100 System-1 clock and reset
+>     generator
+>   clk: starfive: Add JHB100 System-1 clock generator driver
+>   dt-bindings: clock: Add StarFive JHB100 System-2 clock and reset
+>     generator
+>   clk: starfive: Add JHB100 System-2 clock generator driver
+>   dt-bindings: clock: Add StarFive JHB100 Peripheral-0 clock and reset
+>     generator
+>   clk: starfive: Introduce idiv ops for inverted divider clocks
+>   clk: starfive: Expand the storage of clock parent index
+>   clk: starfive: Add StarFive JHB100 Peripheral-0 clock driver
+>   dt-bindings: clock: Add StarFive JHB100 Peripheral-1 clock and reset
+>     generator
+>   clk: starfive: Add StarFive JHB100 Peripheral-1 clock driver
+>   dt-bindings: clock: Add StarFive JHB100 Peripheral-2 clock and reset
+>     generator
+>   clk: starfive: Add StarFive JHB100 Peripheral-2 clock driver
+>   dt-bindings: clock: Add StarFive JHB100 Peripheral-3 clock and reset
+>     generator
+>   clk: starfive: Add StarFive JHB100 Peripheral-3 clock driver
+>   reset: starfive: jh71x0: Support discontiguous reset IDs
+>   reset: starfive: Add StarFive JHB100 reset driver
+>   riscv: dts: starfive: jhb100: Add clocks and resets nodes
+>=20
+>  .../clock/starfive,jhb100-per0crg.yaml        |  70 ++
+>  .../clock/starfive,jhb100-per1crg.yaml        |  70 ++
+>  .../clock/starfive,jhb100-per2crg.yaml        |  76 +++
+>  .../clock/starfive,jhb100-per3crg.yaml        |  76 +++
+>  .../clock/starfive,jhb100-sys0crg.yaml        |  63 ++
+>  .../clock/starfive,jhb100-sys1crg.yaml        |  71 +++
+>  .../clock/starfive,jhb100-sys2crg.yaml        |  64 ++
+>  MAINTAINERS                                   |  13 +
+>  arch/riscv/boot/dts/starfive/jhb100.dtsi      | 198 +++++-
+>  drivers/clk/starfive/Kconfig                  |  72 ++-
+>  drivers/clk/starfive/Makefile                 |   8 +
+>  .../clk/starfive/clk-starfive-jh7110-aon.c    |   2 +-
+>  .../clk/starfive/clk-starfive-jh7110-isp.c    |   2 +-
+>  .../clk/starfive/clk-starfive-jh7110-stg.c    |   2 +-
+>  .../clk/starfive/clk-starfive-jh7110-sys.c    |  57 +-
+>  .../clk/starfive/clk-starfive-jh7110-vout.c   |   2 +-
+>  drivers/clk/starfive/clk-starfive-jh7110.h    |   4 -
+>  drivers/clk/starfive/clk-starfive-jh71x0.c    | 161 ++++-
+>  drivers/clk/starfive/clk-starfive-jh71x0.h    |  24 +-
+>  .../clk/starfive/clk-starfive-jhb100-per0.c   | 599 ++++++++++++++++++
+>  .../clk/starfive/clk-starfive-jhb100-per1.c   | 149 +++++
+>  .../clk/starfive/clk-starfive-jhb100-per2.c   | 174 +++++
+>  .../clk/starfive/clk-starfive-jhb100-per3.c   | 132 ++++
+>  .../clk/starfive/clk-starfive-jhb100-sys0.c   | 150 +++++
+>  .../clk/starfive/clk-starfive-jhb100-sys1.c   | 105 +++
+>  .../clk/starfive/clk-starfive-jhb100-sys2.c   | 129 ++++
+>  drivers/reset/starfive/Kconfig                |   9 +
+>  drivers/reset/starfive/Makefile               |   1 +
+>  .../reset/starfive/reset-starfive-jh7110.c    |  10 +-
+>  .../reset/starfive/reset-starfive-jh71x0.c    |  99 ++-
+>  .../reset/starfive/reset-starfive-jh71x0.h    |  19 +
+>  .../reset/starfive/reset-starfive-jhb100.c    | 302 +++++++++
+>  .../dt-bindings/clock/starfive,jhb100-crg.h   | 542 ++++++++++++++++
+>  .../dt-bindings/reset/starfive,jhb100-crg.h   | 186 ++++++
+>  34 files changed, 3553 insertions(+), 88 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jhb1=
+00-per0crg.yaml
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jhb1=
+00-per1crg.yaml
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jhb1=
+00-per2crg.yaml
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jhb1=
+00-per3crg.yaml
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jhb1=
+00-sys0crg.yaml
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jhb1=
+00-sys1crg.yaml
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jhb1=
+00-sys2crg.yaml
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-per0.c
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-per1.c
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-per2.c
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-per3.c
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-sys0.c
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-sys1.c
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-sys2.c
+>  create mode 100644 drivers/reset/starfive/reset-starfive-jhb100.c
+>  create mode 100644 include/dt-bindings/clock/starfive,jhb100-crg.h
+>  create mode 100644 include/dt-bindings/reset/starfive,jhb100-crg.h
+>=20
+> --
+> 2.25.1
+
+--GmYp61kn4TS9EarS
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCar2OWgAKCRB4tDGHoIJi
-0grzAP9Fs6ouvcThAMVjQbj6XU2gdVLZc/LBnWTeH4InJf79kQEAohOH8MQi/Wti
-rReWTShRPoUOU1zat+wE0KfWpAY7owM=
-=TNVs
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCar2QigAKCRB4tDGHoIJi
+0oVVAP0c47tKWIuayAkDGb+sm29ALOHttM++ue/mqJZmjW48awEAxWm2rARVM9lR
+6Ilj3pz4tC9NQZDgEAnwBnkNggJTCgg=
+=hlmd
 -----END PGP SIGNATURE-----
 
---PlRoT138GtctrPoH--
+--GmYp61kn4TS9EarS--
 
 
---===============6033706737623120958==
+--===============1215730112345775944==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -160,5 +283,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6033706737623120958==--
+--===============1215730112345775944==--
 
