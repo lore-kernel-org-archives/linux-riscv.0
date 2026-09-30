@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DF12CA5FAC
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 12:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B6ABCA5FBA
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 12:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T1EDv2/W2M1gHcucYAt8VfYwZTiVh1LL7n3Jp6H+7Hc=; b=dgXlJTsLZjyFAA
-	vB6lb+VsXvP/6t1mWU7PAa05k/HT4Lej6XzDqV3qbpou8N3pdNRISjGKY+1jSYX942JJ1TJ7Cw3nd
-	FMCUatPOwT5g2p/TyI4IUW5t3EkWgycM5Mwcek7eSdmXXgfOr5S1vWtXTzrp9Fws0iBecjTuQTf0s
-	xWI5ilqRYX2VmzC4dY+RgZEw5l2ObUcAneeOQyfc6H/iZwFwULIh3/cJrd2/8GOcLy94Rfku/tzCS
-	Ao1Y/UJp/5sepLW9TeLpwePScEGivE80p8ZhirTcKbzQzkxZo7xpWRAyncRkra4XeSJI61BsBXdzS
-	ASrh/E3XNKYAaFhM8WUw==;
+	List-Owner; bh=cGCdfc6ilDE1ftqMewme/R+WSmvSyy6U+Ocoqsu6jJM=; b=QDGgvS4QqpdOA3
+	tpaXPZ7hmm2fg3yycR15iCAxqDSuCt9qCJCCiwLmdAhqqwEo0/KpPhi3LVjQnFL1xmMmhd4V731TE
+	3cCV+2vk4ZmEbjwM82R1S/r5db8PKNjkbWPRARAYidXt+/pCM6I/T6nqNffx9OPcaZmIUvztGUfWt
+	I795rmUUOqo9hFyUaWQT9XiR/RHnwgPOGoXSKt+Vg9lSy5+iarxxHuj39VwErpaTduJgN1rYRwz71
+	sC+BnvrvJHSLVJNFXp9X+dkMKK7tdR38fXgYtlz7fnNr4aKwdkpYFoGrG+mputAjMV9ncw2KgZQ+j
+	Ki91g55/e17XCQSv8IXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtfN-000000061Lc-1zFI;
-	Wed, 30 Sep 2026 12:44:09 +0000
+	id 1xBtfQ-000000061Mc-34kd;
+	Wed, 30 Sep 2026 12:44:12 +0000
 Received: from mail-bjschn02on2071b.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::71b] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtfJ-000000061J6-06qX
+	id 1xBtfL-000000061J6-4Ak7
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Sep 2026 12:44:07 +0000
+	Wed, 30 Sep 2026 12:44:09 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=dCZYRr53hZOy5RIENjE+zKvcgD1PbDm6EmzgwnKYnNUg0EQEiSKCJgV8PLIiWHxbsw1OqgYnw3MDgGDhFOnY0RDRD/caHQDu5MKaQiO3yGOhgqBAjE/0nQ5mv4M4lfwsHjC2m0ZB4okai+H3sViunIylg5NgsXCxvB0wKLKRrmFE0cjzD9JyNufg9DfmzqdwMrMNJE4Bn/q4uQIWX0m3hWFMwJ1OJHqdA12+YWjt6u1PLZQFeYptYwc8UAfHp27S+v7+Wt5+ByBbif7x36sfzbUTreaRwNGvHq89bUcR6vc6J45QJD3cyuBTgs2l+JOgrykcKrDidD3xpFB9xwRfzw==
+ b=N+l9e1eJsS64z3oeHt1nnXMDdLjyVgAW9LLc+bP3pRUSWgYiOvvbVgK27i0pTBRL+uhiSWp7EcgVrc/05KKKc464u+bo2F7SA1m4Rw7O5YhZLEuWr7EVTsj55IBlOUP052hXPH4GvPO/fUbgGi633oghxArRTA45s7vaqj3l+fy8/3PyAg2hRr9SbWoCnqAnxTGPVyRQpT1H8RyShJ0RF0qdnngcJRT6DTfUZ5ehErckHlfwrBulpSqwssNDnUZOlcSdfM1PtiIMuEnAvHj0EJ6zDxBgBN0PUtCQHohcszR+ohCEM+aoi8ozyfYqQVeOBdJxw3yuep4gTtbSTdZThg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vxN378Fl91XwyIRxcPY3l9M7RWfQNVX8cDr5JYi4Mp8=;
- b=WRBYLEi5n/LEOHS/fbNwssVzc8ifAdsQ1eF2sdRGg4s8Gi5Ft7TmAv9trQw1cePfHl7epNqt7mvzj18l9hp61mAa8S2Po67eSbRYUmkBi4diWS7IfAOx9XbktK0WTs/2B8xT6KBCwrt47hL5pzKEU55KfEHGDh5eTXsp7bkk9Lh2c5aHAcZFXbffLGMbj8+/pwL9104XPkQml05hnBwinQBkSchY0lze/dtgI3UP97LnfRZMWHYoXU9h6u3VWrIOii09LGgbnJh1bUFKTQYwObrqCKDhJv04YreTTcrihN5zlxw+ARstHS4xNb7P0o+ii5CR1IvLXjhrcpeVpzQAXg==
+ bh=lgQJzqNzMNQKSUJiz/5fjNJ3DzvoNFpu5AquOA3Mohw=;
+ b=FRSXE5CZk+QzK+5TYBIyYwIZXNqAJaMljWjql6ATsfyLiHFajqTeUubB1Oh0VZMhfIpTzfCRA2sMUjClO0nRPHdydLCkDEFZa96PGMjZNy+2i6onSyf3VFw8EvYTKzy7Qy18q+uBuMnP7vBPLkARO6WXTKI1GtRw7CsQoE5te7/uY3xZHjc6RomeKsBCBgE+UUTcW4EHUHyv6z8UexBMatO3o9MofzCRbRhoAvPajv25b8wPUMXzzD7REqQ6B48KuWvT34YBBHX1gC0y/Tffqq6cfTOZIoM1msc9cWR4B5TZ76zHNVbh9DFU8Yetag+32wkGo1kIxanbuVA3Cn5vDg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:17::6) by ZQ4PR01MB1297.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:13::7) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.16; Wed, 30 Sep
- 2026 12:43:35 +0000
+ 2026 12:43:37 +0000
 Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  ([fe80::e7d4:256c:b066:850d]) by
  ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0451.026; Wed, 30 Sep 2026 12:43:35 +0000
+ with mapi id 15.21.0451.026; Wed, 30 Sep 2026 12:43:37 +0000
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Brian Masney <bmasney@redhat.com>,
@@ -73,9 +73,9 @@ Cc: linux-clk@vger.kernel.org,
 	netdev@vger.kernel.org,
 	Hal Feng <hal.feng@starfivetech.com>,
 	Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: [PATCH v5 02/23] clk: starfive: JH71x0: Move reset controller registration to jh71x0 common code
-Date: Wed, 30 Sep 2026 05:42:56 -0700
-Message-Id: <20260930124317.5648-3-changhuang.liang@starfivetech.com>
+Subject: [PATCH v5 03/23] reset: starfive: jh7110: Match auxiliary device names to jh71x0 clk driver
+Date: Wed, 30 Sep 2026 05:42:57 -0700
+Message-Id: <20260930124317.5648-4-changhuang.liang@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260930124317.5648-1-changhuang.liang@starfivetech.com>
 References: <20260930124317.5648-1-changhuang.liang@starfivetech.com>
@@ -85,56 +85,56 @@ X-ClientProxiedBy: BJSPR01CA0006.CHNPR01.prod.partner.outlook.cn
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1297:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67f02ef9-288a-4bfc-b36c-08df1ef07131
+X-MS-Office365-Filtering-Correlation-Id: f843e187-6435-4470-d37b-08df1ef072a7
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|52116014|10067099003|56012099006|22082099003|18002099003|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: yX3as+jQ8FT+gIEaL39UqfmqvM3AlZrmodSJ4/Kj9ei5TVFsfZkkgJZo60YPpSDrAtRVtV0Jouxcjqt73A4mTxRlxrX/oqRUGAPxNPJUkGaClu+DdYNS/FlwGwtnp4nES+xk2QMj9C3jdnYPSjzVI1vQ6eTF4qsbmlFWNQp3l1Ta2u9DSbwkQI7/50nyo6CpRKvFYG8OSkdbr1Y0vd+hdOjKo8eSQl05LFUptLEqip/5s2QmopGbX9OIISxSjq27h46CzP1ZFspR5QsMeqhPbYes3588pVu5r/sd0BhgwVl8ynZy3C/0eaozgtW70HRBGnSLQ6tUCo9FeOV0X1wJDl/N+r0QMvBcgo46hydYdf///oSyOBmqlwU4IFpooiCJrFrlZyKLFcpiEM1npoABx4KYwYv/icgHhq5Qm8enIgMe04kNU2UuhOcfpCGMw54vHWYif/LZbKlUCxrAsWmUHAIwsPdn+0Y/lzJfyTCPLFLZngVu+QImdS1tDnrNkVG7Rj1kk7gLUjwYdBHxQubzBuFfHqNXbMXs/pHPh1IPYz41QPgQSIh47kqSHJPQdvFSt1O0L+qWsIZXEgv7g9Zt2Q==
+X-Microsoft-Antispam-Message-Info: PuFyydwfcYBd3NHqubw89DkrZd4/o6tS9uo4UZp8RRNLYbp/1Cu7l6xSwTEHocJ+U4kaRNUHCGVVmssLgdTI7OzOovicLTg7PMzLpphx2NLRw7mWKjpaKrvfuTBj2dUNFRimhmkHJiiUWNYniej+4Gqc45XrBjGW/fAp1q00cit2UDNXmRofLRqQ6dEeHGhc5qB5awVSzVU1PrPtPTU3bTmQqx2pNHFu2PFF4Tz8yc0GwAEPXBBf6vDRw9wSb5rX5rj9bl8EFYfYyTcUUru9cJbAu95h1wLRK9f0z3X9ErN4my3Kmz5AMoJiBpddfm1V3t+OVtAgribOtkNDpJtj5Xonlv/yprdpmEvHNPbRGkHL3vwWDI63aS2j3EoD5AdfrUZbDDqX6kolnRW3uXYrsuRnEWmPcqL0FNJNQTuhYz1G4lYPbMv6hq3+FiFYe0Gbz355vQHOGV0Inc3SMffkVBDm9AdY4XlPy4rrqfL+vOsN6csT0zYCtp8HiVpWOaDV+H5Z4/a+jH7jkUTMCDtc3HHyaw+dPyh2Y/BiUUiY07jweDpwPaGY/4r0aha+N//1T7dIqOLts8KGTV7kc+ROIQ==
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(52116014)(10067099003)(56012099006)(22082099003)(18002099003)(921020)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?TudHOum1j4r4HddqVLUNxgw3caDcznYCJa0jIKQ5pIeYPMKWxQWxSz0Lnaxx?=
- =?us-ascii?Q?5y/FYIKUwAs8w0xq2Ka+jG78sfNvnbRlrTRU2OMLH9AhEOHVM8yUPxi1Cx/v?=
- =?us-ascii?Q?b+IJ7SMEWZfvFPwuEFYdRVhC7WW5JCJ3aYtG1SWdj7Mw7NzhuJymt9+OcwJW?=
- =?us-ascii?Q?L9DQKqMT/IvjJUYGRSbyHuGV6BH84Y7x83/hI/c4BveGwv5nxLnV8M/0GChd?=
- =?us-ascii?Q?TuXWsb0KmTHqjt/lhulEWZcrHicvEttX80xRqE87yLbjswnRW1dKCl6WgxMZ?=
- =?us-ascii?Q?v+yxXr92P7aMK1OtkxaJrB1HDCghrR/inMq7qoyBAuOX3c4ydumj+F4Cz2mj?=
- =?us-ascii?Q?tnEjUEH5rRRV28BdV5sEfTihpywzj2FPFwuA+eRcjvzanQ0ZhMESB+7i1xWX?=
- =?us-ascii?Q?O3KM4kbADUexxJN47MLEFh9KT3lQgaUQdmD1mTaEJ35iK59ytKbwWY9QFTux?=
- =?us-ascii?Q?vOwvDuvNVc/oF3C7sYYFm/kiQ0ALxjwXMclGh633kJNohrotLoRTj/XjgdMx?=
- =?us-ascii?Q?lGBBkRUurqklqr0uoFaaOZQic2J+LTQ2Od9GMAeqnWPlnxiZtWBWkdGgn7uk?=
- =?us-ascii?Q?beuWS7VYmpR01UbLX336htGBaIOlzU0JDmuvzyMbYjFpTVVE9TcojJdNPqdr?=
- =?us-ascii?Q?sGNqHkI2HmALBuGVtFJCDnGeCXCYdXHI/RSe8W4Tro8w0C09DnJJrY50nQzk?=
- =?us-ascii?Q?09yYAxWGdiVihq2KjRAO20ZKRIQ7hkgcsYa21bvqFpR1ULwJar4QsR6t/Z6E?=
- =?us-ascii?Q?wl7peKQkOByxykvbeg/htqmJ92Zs4a6S2mS0DUkMYY1eEnPEwPaik+5PiNEG?=
- =?us-ascii?Q?IeMrn0ZFK5A75+ajKRiHqqjSGjr8aS/PJxzbrDxY/hiwPBx5kp1FEnliEkL7?=
- =?us-ascii?Q?xAGsntRBeOgaT8C5GukLz16sN0Cc9LIddr1zudbYfssyPW4QSqndnNTORLpu?=
- =?us-ascii?Q?5ozdEsLiRsK5lXAwQTqJoChm6S0U6b0CfcesFtnAJRNsVIO4hrAgBpL1f+ZI?=
- =?us-ascii?Q?EJun0N4wnftnscYJh0PhMTfv5FtGLeK5TrSpHgZn/y6WpBrlbgaYKsU26F+T?=
- =?us-ascii?Q?N57SlV47EcSscQvRaopNhTxZCPqHMvqHOhyFn82SBGP69hjQMn9j4uOByfZM?=
- =?us-ascii?Q?unSrNNVVGUJNjWwWdeuxrTWegZMhOgb69VMVftXlz/6FnJQaMMkQ/jplWjk9?=
- =?us-ascii?Q?EB4XePupl6UnaY8x319N2HlhfCoXkHcdI/1rdh19+hJNVrBKwykEM2k2vmx5?=
- =?us-ascii?Q?N1y8cd7t0S/o+U04i6EH8Ey2t4cSyTpIjxB1uP3aV91n+BN4AL5TJM+uR/r/?=
- =?us-ascii?Q?Xa6JfzwqO+iiZmZX7HQpiYCgFCnsB5RbltN66ROATXr5Mjb/XiDN9A7bywr0?=
- =?us-ascii?Q?RzWbkdSDZTHiPqwAsig4wqqm2W3sHDJAQdFqT91HIZsa3+3ZrDzBStqYmMKT?=
- =?us-ascii?Q?hGM4UOGm4I4l+ObYWQ90iAp1IWzqB8afWXgal/QUUOXsBNWqmwatttdSsatU?=
- =?us-ascii?Q?1k5YiKyjAyPW/3yc1MsF9UHPypWt1yI/0216Zb4pgLbIirDdJg6EtxOBB1FY?=
- =?us-ascii?Q?V92qNNV8OX+1/KRV96pQRwgxnF+tblWqJTzH+rpJnU2FAijEeLX8CYh4I4FN?=
- =?us-ascii?Q?VqmyUOzPD/E5HBFWNJRE0ax9p1SDXjt+LHTplPL3FAqjL81LtnmbkO8erixe?=
- =?us-ascii?Q?90ocfL3oiKcY4Q1fU49mtdrnK2z6rrZCHPuAHA10oGjDo4ntuuZZmt5KnUZl?=
- =?us-ascii?Q?N62cYuZso5BMuYwdv3Xh7/XmRGen+2Y2OQhlAKZXLNBYytJaJV1a?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?evWE7HFveXqZ66ELPdd2MG6DI7U0tC5ePmct3tFpv43nVsORd23a1fKHXAK4?=
+ =?us-ascii?Q?TrMynua1wyzRqlQFQOBy30dw9kXBqcysUFnbgBLUs2/euxWxfD3CSmz/smPP?=
+ =?us-ascii?Q?V6/zVQlFwPldHbiYmtGt+e7R7ZpfvqDUezDQo5I9to96UVb710M9tONnYOIF?=
+ =?us-ascii?Q?BcESOweBPY9F/1C9t0jobnCWqiOrmmGS4QNpbooOjq3bJoH/AFKWKb+cDKX5?=
+ =?us-ascii?Q?zifP/c9G/KIrz9ny4NZGG3uK0MtxVcPetdIVbUL9gsN0MIgPChtO+nwTlGSL?=
+ =?us-ascii?Q?BZalb5NUOFTtuVhSFyLGA0lLlwu6fqfEh8HeYovpj9WLPb3ChnaVVBgmuRHy?=
+ =?us-ascii?Q?nnujcm4IQYy/AE/JtAShHx28RabF9AK6ld7eNADZoGLhH99WX7Ri2Vde5wjO?=
+ =?us-ascii?Q?C7FdQWkfWLqZiHZMikHpwE/eYu2zWq13u3lK+3u9fnO9Hhl13iX/ZnZiF35L?=
+ =?us-ascii?Q?jLb+YwWlBi/9yZ6G1jK4on5avsC9AACffjpcBNStNtehRpP7xvi9CYHZJoE0?=
+ =?us-ascii?Q?kC1fx/I3179DNAxuzHYb5cGKq/REH69lAMzWGrkcSu0RJOJlSvd64J2TtAm6?=
+ =?us-ascii?Q?Uc4c4gH+PaszbtFyLL62CxOSKDxefs5zbSlpbSQ9YV9gm3TVQsIws8Ev4VJt?=
+ =?us-ascii?Q?Of/xg90V0R97M8HlGjEBdWdO5/dOFdJytlpTNf1JhQ4Tq03irrySgoodOiUs?=
+ =?us-ascii?Q?IpH6a7Or1YLFRuyi2OZ6pHPosw0a5jGF967ncHeabV+jw4bcNJoiLmPl9cLd?=
+ =?us-ascii?Q?0jHCMDGcX9UWXUSrpJkP2Ct9o8Hkn5rzrdVnMk/CX1zrFL17Ni228be9Iuej?=
+ =?us-ascii?Q?E/QfX5RJ5Y5B9LzhAsuTVY48gradXYjrBDrusl5deSseqdck3+6wKDlhUwc/?=
+ =?us-ascii?Q?mT8OXUQ5dD3dbOSQu+pGdXdSDBtZAmQIeIDHsW1Ay4hs4Xm97VW8UZx/gF0+?=
+ =?us-ascii?Q?B+bVTpblm5Erv6ppVzUp42NbYFGpyyA5bXJVHJL0xX57SOTDMWC9De21qe7F?=
+ =?us-ascii?Q?rq39vJNFlmiv7QoPqwL5TeKJQkhAy9D2iNQZh9gFIRotSkh/QYbtTZnascYs?=
+ =?us-ascii?Q?+L0a4xVSCPoZe1bcUiVGYOqOCZACDyD7WlNpBDMlHKELvxglJ6iEPjbWMGhV?=
+ =?us-ascii?Q?xLUAoowALQwGtiijBufIiIkTCl0SiS0qoRyHDO2Nyly31DR6RUf8Fa1JUHC/?=
+ =?us-ascii?Q?haB3kl7BnUNWoqgkFLkCbrTmINIzHhC1WT1a56nuaLhc+qw8ZuJ4ydEv/6MO?=
+ =?us-ascii?Q?MROExzas3K6HC/FiG2d+NJW05/vc3e+BvnaL4mtArd9Ln1kP209G2xeOqPCB?=
+ =?us-ascii?Q?OJoSgxN3YcKQVxvO7wd9jjCV5CbI0K4fqWd0LOmfdnUHUP9LUzkufOIvDMTz?=
+ =?us-ascii?Q?+IozKklzNE5sXoXYtEnfZzoyVB//KA5fcLJFCPvozDhbGyDxQ3/HGPgCN7p3?=
+ =?us-ascii?Q?EizlOMYy4LtWIi/e/G0OTVtxENYif+1Kfo6zTfkCnUlJou5W14YJcWnbq6RE?=
+ =?us-ascii?Q?2h1zwWKXEVuBhtt5wleyNOvRpZc07QG4nmD361o611x/Zcg7JBvYsqximGUq?=
+ =?us-ascii?Q?nrVdkQOgJRtGwFXG555lYsHM17CMLOw4Hy3eS+es1LnAI8eLkidHIM1KDJNO?=
+ =?us-ascii?Q?kR+vtnkRiEpq2u/gZQfyz8buRnNn3sPJmFBFCnA25AdiSRIAeXQ4X1qHpxqI?=
+ =?us-ascii?Q?8JE5slwkx5iOWujSpjE07OsBvxy9wfqQzOjJ7WGvvYVHHhLcahYI00254Ayr?=
+ =?us-ascii?Q?0V8e+nDEYX9jNvTEbhpbo22Mky1U0cbur22lHSgKjf+s4k3DQWfL?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67f02ef9-288a-4bfc-b36c-08df1ef07131
+X-MS-Exchange-CrossTenant-Network-Message-Id: f843e187-6435-4470-d37b-08df1ef072a7
 X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 12:43:35.1450
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 12:43:37.7537
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HmWBDlcbN/cINXuLsZ5LCt6WH0TbCA1DWiuk4ALdWMrDcOIemKhmL81jtphJK4xSPzL9+VxgIivWZBhM//z7Hux3koG4WCrOwpCFcchiLCClhmhSRDzRd88d1G+H3ik+
+X-MS-Exchange-CrossTenant-UserPrincipalName: fLT//1ZqYIzGMr5taLtj8vibTyKYD4qZyCKHZS/5lSoSnqEaP9jIzw5UsbR37+oIVajFghMx1VilbWCyCYJ9Cf7XjGnt29CANcK/tiPlaaCwaQOZHvXgyB5zrtLAjA++
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1297
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_054405_261209_96B65184 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20260930_054408_053415_3CB7DF2A 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,291 +151,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-jh7110_reset_controller_register() is only tied to the JH7110 system
-clock driver by its location. Its logic is generic: allocate a
-struct jh71x0_reset_adev, point it at the CRG register base and add it
-as an auxiliary device for the reset driver to bind to.
+The JH7110 reset driver binds to auxiliary devices created by the
+StarFive clock driver. As part of moving the reset controller registration
+helper into clk-starfive-jh71x0.c so that it can be shared by other
+StarFive SoCs, the auxiliary device names are now prefixed with
+"clk_starfive_jh71x0" instead of "clk_starfive_jh7110_sys".
 
-Move it to clk-starfive-jh71x0.c as jh71x0_reset_controller_register()
-so that the clock drivers of other StarFive SoCs can reuse it, and make
-CLK_STARFIVE_JH71X0 select AUXILIARY_BUS accordingly.
-
-The auxiliary device ID is dropped: every CRG already uses a distinct
-auxiliary device name, so the ID is not needed to keep the device names
-unique, and it is always 0 now.
+Update the auxiliary_device_id table accordingly, otherwise the reset
+driver fails to probe.
 
 Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 ---
- drivers/clk/starfive/Kconfig                  |  2 +-
- .../clk/starfive/clk-starfive-jh7110-aon.c    |  2 +-
- .../clk/starfive/clk-starfive-jh7110-isp.c    |  2 +-
- .../clk/starfive/clk-starfive-jh7110-stg.c    |  2 +-
- .../clk/starfive/clk-starfive-jh7110-sys.c    | 59 +------------------
- .../clk/starfive/clk-starfive-jh7110-vout.c   |  2 +-
- drivers/clk/starfive/clk-starfive-jh7110.h    |  4 --
- drivers/clk/starfive/clk-starfive-jh71x0.c    | 54 +++++++++++++++++
- drivers/clk/starfive/clk-starfive-jh71x0.h    |  2 +
- 9 files changed, 62 insertions(+), 67 deletions(-)
+ drivers/reset/starfive/reset-starfive-jh7110.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-index bd29358ffeec..51716655554f 100644
---- a/drivers/clk/starfive/Kconfig
-+++ b/drivers/clk/starfive/Kconfig
-@@ -2,6 +2,7 @@
+diff --git a/drivers/reset/starfive/reset-starfive-jh7110.c b/drivers/reset/starfive/reset-starfive-jh7110.c
+index 29a43f0f2ad6..c936e61156a2 100644
+--- a/drivers/reset/starfive/reset-starfive-jh7110.c
++++ b/drivers/reset/starfive/reset-starfive-jh7110.c
+@@ -69,23 +69,23 @@ static int jh7110_reset_probe(struct auxiliary_device *adev,
  
- config CLK_STARFIVE_JH71X0
- 	bool
-+	select AUXILIARY_BUS
- 
- config CLK_STARFIVE_JH7100
- 	bool "StarFive JH7100 clock support"
-@@ -32,7 +33,6 @@ config CLK_STARFIVE_JH7110_PLL
- config CLK_STARFIVE_JH7110_SYS
- 	bool "StarFive JH7110 system clock support"
- 	depends on ARCH_STARFIVE || COMPILE_TEST
--	select AUXILIARY_BUS
- 	select CLK_STARFIVE_JH71X0
- 	select RESET_STARFIVE_JH7110 if RESET_CONTROLLER
- 	select CLK_STARFIVE_JH7110_PLL
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-aon.c b/drivers/clk/starfive/clk-starfive-jh7110-aon.c
-index 6f67587f4335..66f1c56a7169 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-aon.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-aon.c
-@@ -121,7 +121,7 @@ static int jh7110_aoncrg_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	return jh7110_reset_controller_register(priv, "rst-aon", 1);
-+	return jh71x0_reset_controller_register(priv, "rst-aon");
- }
- 
- static const struct of_device_id jh7110_aoncrg_match[] = {
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-isp.c b/drivers/clk/starfive/clk-starfive-jh7110-isp.c
-index c02c8b29a123..f8222d3c81ee 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-isp.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-isp.c
-@@ -180,7 +180,7 @@ static int jh7110_ispcrg_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_exit;
- 
--	ret = jh7110_reset_controller_register(priv, "rst-isp", 3);
-+	ret = jh71x0_reset_controller_register(priv, "rst-isp");
- 	if (ret)
- 		goto err_exit;
- 
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-stg.c b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
-index 2a5ad0e07d1d..5ae63e18aa4f 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-stg.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
-@@ -139,7 +139,7 @@ static int jh7110_stgcrg_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	return jh7110_reset_controller_register(priv, "rst-stg", 2);
-+	return jh71x0_reset_controller_register(priv, "rst-stg");
- }
- 
- static const struct of_device_id jh7110_stgcrg_match[] = {
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-index 1d460a03f936..6c5e9c54dfcd 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-@@ -6,15 +6,11 @@
-  * Copyright (C) 2022 StarFive Technology Co., Ltd.
-  */
- 
--#include <linux/auxiliary_bus.h>
- #include <linux/clk.h>
- #include <linux/clk-provider.h>
- #include <linux/init.h>
- #include <linux/io.h>
- #include <linux/platform_device.h>
--#include <linux/slab.h>
--
--#include <soc/starfive/reset-starfive-jh71x0.h>
- 
- #include <dt-bindings/clock/starfive,jh7110-crg.h>
- 
-@@ -323,59 +319,6 @@ static const struct jh71x0_clk_data jh7110_sysclk_data[] __initconst = {
- 		    JH7110_SYSCLK_OSC),
- };
- 
--static void jh7110_reset_unregister_adev(void *_adev)
--{
--	struct auxiliary_device *adev = _adev;
--
--	auxiliary_device_delete(adev);
--	auxiliary_device_uninit(adev);
--}
--
--static void jh7110_reset_adev_release(struct device *dev)
--{
--	struct auxiliary_device *adev = to_auxiliary_dev(dev);
--	struct jh71x0_reset_adev *rdev = to_jh71x0_reset_adev(adev);
--
--	kfree(rdev);
--}
--
--int jh7110_reset_controller_register(struct jh71x0_clk_priv *priv,
--				     const char *adev_name,
--				     u32 adev_id)
--{
--	struct jh71x0_reset_adev *rdev;
--	struct auxiliary_device *adev;
--	int ret;
--
--	rdev = kzalloc_obj(*rdev);
--	if (!rdev)
--		return -ENOMEM;
--
--	rdev->base = priv->base;
--
--	adev = &rdev->adev;
--	adev->name = adev_name;
--	adev->dev.parent = priv->dev;
--	adev->dev.release = jh7110_reset_adev_release;
--	adev->id = adev_id;
--
--	ret = auxiliary_device_init(adev);
--	if (ret) {
--		kfree(rdev);
--		return ret;
--	}
--
--	ret = auxiliary_device_add(adev);
--	if (ret) {
--		auxiliary_device_uninit(adev);
--		return ret;
--	}
--
--	return devm_add_action_or_reset(priv->dev,
--					jh7110_reset_unregister_adev, adev);
--}
--EXPORT_SYMBOL_GPL(jh7110_reset_controller_register);
--
- /*
-  * This clock notifier is called when the rate of PLL0 clock is to be changed.
-  * The cpu_root clock should save the current parent clock and switch its parent
-@@ -525,7 +468,7 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	return jh7110_reset_controller_register(priv, "rst-sys", 0);
-+	return jh71x0_reset_controller_register(priv, "rst-sys");
- }
- 
- static const struct of_device_id jh7110_syscrg_match[] = {
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-vout.c b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
-index aeba42cd3c44..14e5b8286671 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-vout.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
-@@ -189,7 +189,7 @@ static int jh7110_voutcrg_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_exit;
- 
--	ret = jh7110_reset_controller_register(priv, "rst-vo", 4);
-+	ret = jh71x0_reset_controller_register(priv, "rst-vo");
- 	if (ret)
- 		goto err_exit;
- 
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110.h b/drivers/clk/starfive/clk-starfive-jh7110.h
-index 0659adae4d76..55374ee24d4d 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110.h
-+++ b/drivers/clk/starfive/clk-starfive-jh7110.h
-@@ -10,8 +10,4 @@ struct jh7110_top_sysclk {
- 	int top_clks_num;
- };
- 
--int jh7110_reset_controller_register(struct jh71x0_clk_priv *priv,
--				     const char *adev_name,
--				     u32 adev_id);
--
- #endif
-diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.c b/drivers/clk/starfive/clk-starfive-jh71x0.c
-index 80e9157347eb..2cc71f49ddee 100644
---- a/drivers/clk/starfive/clk-starfive-jh71x0.c
-+++ b/drivers/clk/starfive/clk-starfive-jh71x0.c
-@@ -5,10 +5,13 @@
-  * Copyright (C) 2021-2022 Emil Renner Berthing <kernel@esmil.dk>
-  */
- 
-+#include <linux/auxiliary_bus.h>
- #include <linux/clk-provider.h>
- #include <linux/debugfs.h>
- #include <linux/device.h>
- #include <linux/io.h>
-+#include <linux/slab.h>
-+#include <soc/starfive/reset-starfive-jh71x0.h>
- 
- #include "clk-starfive-jh71x0.h"
- 
-@@ -337,3 +340,54 @@ struct clk_hw *jh71x0_clk_get(struct of_phandle_args *clkspec, void *data)
- 	return ERR_PTR(-EINVAL);
- }
- EXPORT_SYMBOL_GPL(jh71x0_clk_get);
-+
-+static void jh71x0_reset_unregister_adev(void *_adev)
-+{
-+	struct auxiliary_device *adev = _adev;
-+
-+	auxiliary_device_delete(adev);
-+	auxiliary_device_uninit(adev);
-+}
-+
-+static void jh71x0_reset_adev_release(struct device *dev)
-+{
-+	struct auxiliary_device *adev = to_auxiliary_dev(dev);
-+	struct jh71x0_reset_adev *rdev = to_jh71x0_reset_adev(adev);
-+
-+	kfree(rdev);
-+}
-+
-+int jh71x0_reset_controller_register(struct jh71x0_clk_priv *priv,
-+				     const char *adev_name)
-+{
-+	struct jh71x0_reset_adev *rdev;
-+	struct auxiliary_device *adev;
-+	int ret;
-+
-+	rdev = kzalloc_obj(*rdev);
-+	if (!rdev)
-+		return -ENOMEM;
-+
-+	rdev->base = priv->base;
-+
-+	adev = &rdev->adev;
-+	adev->name = adev_name;
-+	adev->dev.parent = priv->dev;
-+	adev->dev.release = jh71x0_reset_adev_release;
-+
-+	ret = auxiliary_device_init(adev);
-+	if (ret) {
-+		kfree(rdev);
-+		return ret;
-+	}
-+
-+	ret = auxiliary_device_add(adev);
-+	if (ret) {
-+		auxiliary_device_uninit(adev);
-+		return ret;
-+	}
-+
-+	return devm_add_action_or_reset(priv->dev,
-+					jh71x0_reset_unregister_adev, adev);
-+}
-+EXPORT_SYMBOL_GPL(jh71x0_reset_controller_register);
-diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.h b/drivers/clk/starfive/clk-starfive-jh71x0.h
-index 9d5dec1d5cd1..322a05157faf 100644
---- a/drivers/clk/starfive/clk-starfive-jh71x0.h
-+++ b/drivers/clk/starfive/clk-starfive-jh71x0.h
-@@ -123,5 +123,7 @@ struct jh71x0_clk_priv {
- 
- const struct clk_ops *starfive_jh71x0_clk_ops(u32 max);
- struct clk_hw *jh71x0_clk_get(struct of_phandle_args *clkspec, void *data);
-+int jh71x0_reset_controller_register(struct jh71x0_clk_priv *priv,
-+				     const char *adev_name);
- 
- #endif
+ static const struct auxiliary_device_id jh7110_reset_ids[] = {
+ 	{
+-		.name = "clk_starfive_jh7110_sys.rst-sys",
++		.name = "clk_starfive_jh71x0.rst-sys",
+ 		.driver_data = (kernel_ulong_t)&jh7110_sys_info,
+ 	},
+ 	{
+-		.name = "clk_starfive_jh7110_sys.rst-aon",
++		.name = "clk_starfive_jh71x0.rst-aon",
+ 		.driver_data = (kernel_ulong_t)&jh7110_aon_info,
+ 	},
+ 	{
+-		.name = "clk_starfive_jh7110_sys.rst-stg",
++		.name = "clk_starfive_jh71x0.rst-stg",
+ 		.driver_data = (kernel_ulong_t)&jh7110_stg_info,
+ 	},
+ 	{
+-		.name = "clk_starfive_jh7110_sys.rst-isp",
++		.name = "clk_starfive_jh71x0.rst-isp",
+ 		.driver_data = (kernel_ulong_t)&jh7110_isp_info,
+ 	},
+ 	{
+-		.name = "clk_starfive_jh7110_sys.rst-vo",
++		.name = "clk_starfive_jh71x0.rst-vo",
+ 		.driver_data = (kernel_ulong_t)&jh7110_vout_info,
+ 	},
+ 	{ /* sentinel */ }
 -- 
 2.25.1
 
