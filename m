@@ -4,137 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F352ACA5FB1
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 12:45:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BA1CCA5FAC
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 12:45:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=18iUdFMawkeXChWYALgJldVWi7+mwCdvaMUBiLKszmE=; b=t3hUrRApi4rcDV
-	CJcfUhZCV6MxBXSHFKdy7Zntwq+dnLdy76O8rhhYr8QxeDPq7bMCoDYaSETxwRXo7q9qm+EZB2Gcx
-	fotKCt02QALYkSX1iMd1qZkV1/IRGW2RTImjsAo6ZBI/zHtDSkxCCI4nYPs8g5ECPAZdqDHkChgbi
-	UsWYv2zVIUkh5saYY+dfZECvJs7rqGoqO4TgwcGuNXTKb7THrYBuV0PLX7a5pgj3Vzo+M61D/n1CP
-	7JsvsWUmLbVkYTnXqGw3o2te7aoogykBPSPeZ8bG+R0+v7CbzIPpkKSQ2cnx0mvrrhcrbXMutoAM+
-	1y4wYbobblMsSN0Yl+Ag==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VsANxZdV0bElPNKBQPXfB+Z9jgh/BJgk1XPHWfEVVKI=; b=rrHOWOC/SZKrd7
+	zI/aFkJvZlRyY8yyIYLacG3hoPM0IgUxf0vx1L9VUi9HIyzUL9fmhz8+yrEpodvU4yodtPUXUcuz7
+	BKy3aqlflk9vP6lOqvChRDvZSqfdu+2TIhFmOQO4L5CuHoe11OD0AZOo9At2wd4ML8iAReFMs04zP
+	Ewn8PKcC31DW8imRN4/C3T5z/ETLrGteNGopL+Zb+7zgLCNhRizSJc0FDGHTh2g5smPf78pCdPrb+
+	4RC8fsf7EQFSHVrFljiqOo8muWPeXjoNRmuMCghU9HORiBnC1tN0mBg8cwlYysxmo4Q6yiOZwEoxI
+	ouOIb4onsgha37uTW37w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtgF-0000000622T-0gz8;
-	Wed, 30 Sep 2026 12:45:03 +0000
-Received: from mail-sh0chn02on2134.outbound.protection.partner.outlook.cn ([139.219.146.134] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1xBtgI-0000000626B-1Wl1;
+	Wed, 30 Sep 2026 12:45:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtfp-000000061Y0-2b7d
+	id 1xBtg4-000000061oQ-0gzq
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 30 Sep 2026 12:44:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Subject:Cc:To:From:
+	Mime-Version:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=RhlVICFdXecndS+aWKhmHPUIYabUI6XUNNG8PYn8pmw=; b=XLhg4/ly7tkq20S33oRTd5L+gI
+	bioZmzJTM0HuQAgO7IPDrsxNMPjFUdEioADdsSI+2RQnrUQS1iGZMdMDE7LkrmGsb7mM3dbt28qWn
+	V5Gu/Oz3tYq+VFDQW70ekLQaL0kO0NFGw8GWBMToyd3RcwCgAFolpmWOvJ2pN1nxz+xcUZ+OFkkjc
+	MRuuUHV+uHAK+gxbtbB/51q/jy9pXdmjoQxc/lXcWS9+f2swlDfCfIOC0aPzRXbLEjRX1+fPtv4tu
+	R39ILzNiJaLdCLVbxIYbxhILsvwABnBzd7YfHvJzHSuu63QLz+xoP3ndVhvkFg6jnaeDIVqow9DDd
+	5g/rDjrA==;
+Received: from mxhk.zte.com.cn ([160.30.148.35])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBtg0-00000003nhC-33y3
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Sep 2026 12:44:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=S5nnv1bKKneHMgcUap7oNwGieoEHemChXt7WCfD7BgDtnZ5iZbbrpkHV5nl9ahTrqjU3n9MLua87DHjyI+gXDADh5c7k7Du7E6JZ/nfBf5ipAelDh+v+RWv65C9ZPR2I1YMXfbZXLdJxRV0jrGnVNLM3cAQsaapA2whNJXxTuHHf+cOwWZhTAor9wivwC5mrRs5rbKD4ufW8VJfovLYzOgBaPI8CV3myAytvCylWDSAOO7g0BSf90N08gfrPbUkAJZjUkLkDDS4b+QN4amjuk1DqcgpYkwq7NqJY6xw8CmWG+qP7kU/MFd3tWqTVsUJ756aMoov1qM+g9HDNdXUlCQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XkGP3+GVo9AOWdSKY8aBZ/0h8Q/E/xBcXYIiscj+7h8=;
- b=ecvBiz2g14hSKr5R/TnQ/W0cJ3UJpRZQlI5bvO48qaQb5ZNWphE8iU50Dx7Jj8Hh0SaQGKJgNhc0Phc9BD5z+cUiauMuPvd7pcHdbGkTA6VnfFNQ9/ekozWB2Wt8wTLlLKHrQ11M7za0YseAu/zMV5rfwDMvw2uZ+rFW84bgou5Y+WD0HVC2eq3ifjK+NZs7yrlPSKYN7HRliD1o/C2mIerkGw4yWEoliLG5zWPiHfhTT07GZEsmFxAdxStUoDLkLM3DxXgo1f1od5XSa8MeSvIGVANtuPNBFltkOLIg+G83wgbmvaUdEktpsWPPbuBrwFxEbiIW1wMZt1A4Kpop6A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1267.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:16::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.16; Wed, 30 Sep
- 2026 12:43:59 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0451.026; Wed, 30 Sep 2026 12:43:59 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Brian Masney <bmasney@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-hardening@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: [PATCH v5 15/23] dt-bindings: clock: Add StarFive JHB100 Peripheral-1 clock and reset generator
-Date: Wed, 30 Sep 2026 05:43:09 -0700
-Message-Id: <20260930124317.5648-16-changhuang.liang@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260930124317.5648-1-changhuang.liang@starfivetech.com>
-References: <20260930124317.5648-1-changhuang.liang@starfivetech.com>
-X-ClientProxiedBy: BJSPR01CA0006.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:c::18) To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1267:EE_
-X-MS-Office365-Filtering-Correlation-Id: 89f79ba6-6c06-4bd3-96ac-08df1ef07f67
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|23010399003|366016|1800799024|10067099003|56012099006|921020|3023799007|18002099003|22082099003|38350700014;
-X-Microsoft-Antispam-Message-Info: 7D31QCMQSVYRR3ae/a6fiqRSwbdJQrmKU1XNI6amdM4jPUfg1/NCnMf6MJvSYX44ka0MBYNS2QHHQ68ogizF9m+Bxt91Fv/Ssuroi7FJRimoQFz+oqRlyUsbqk6WrWYlXMrLelYxoulKsbd6BgruLK8GYC/w83KiJl9v2umZmjAea8KdniZPX/wgH3OgxKSqvMD1AzFm4PSV3yCy3g0jXtXL3AW4db4kH9cb+v089vT1sJuXJXeydX6Xt/4KORbD+vSzWNX6CJoDqkd+NSlQCZVkUQDTroqoOp3zJfTISo8J+ty5MaLvaKg1jgne2YXC80REVgt6x4572NXSUraln/3yY/LvR75glSb8Y4Lc23QG+/HyAo/sNpobCAdQcenYB1MjDNbVD8XJobsRyGGqHd4YO7OxfVKNF7CotUTDptdVmNlL2OHQ+WbuJIFWl2NjMKBLf59NcAyR8e9LrgGrN4JS5M+lVC4tmpBqQQInbJToAMMHvg95G9SGhf0lxRZeKDPWpdMqTDJA6IBk7Yy8qG6gzfL976LtzIiUnaMVDyFn+0MNxU4DyGNCB2EOX61nqRZ3nSCqKB0fPGnbR/m+3A==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(23010399003)(366016)(1800799024)(10067099003)(56012099006)(921020)(3023799007)(18002099003)(22082099003)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6JpGVB9nl8bjPOmOmUCnBvBkIDlq5+sc3I9VWttIfFp2P46xgc5iAoZ5Fn1E?=
- =?us-ascii?Q?lkCsj8KJNN/wEuCGpzZ736m7CH9kWWjuz1JmHV3D9Yv7l8mmNvhWoIYBCPhQ?=
- =?us-ascii?Q?xgvQ05MwW+t6S3aNbvfbwXfeN7utsIcf1rAnujLODCJOVApt9BVqOLHa7/jm?=
- =?us-ascii?Q?8yG5gwjklRtYz1bitltCwY5qgI5xxva1vEKXKs877cc0l/KiP2ASKc6fJf+O?=
- =?us-ascii?Q?vp/c4lhA4dQn1iyhEWEsUA1pt24V0tckdLE+IIT8KvKjzT+HYo5kZTo0W1iN?=
- =?us-ascii?Q?VxUd9Ks80wZFrha5SmsnRBukhD0zf10n40lTnGESTgIC+eDrJUnogUAiTvTd?=
- =?us-ascii?Q?YZWziNMTa5vasrHsADssKeOZtjlJ9VDEddn+FOxjilVhf84qUM6jFDmOV11u?=
- =?us-ascii?Q?/LnhMEpERqIIf8/U0io8uH1QTQLJNWsVDYV8dtrCTEMzEA4yUbooFZ/fOj2+?=
- =?us-ascii?Q?otDwx0FA1N4CKS1Hw/UTKYYUSNkqtG2C9eAVddHXHNqjPZx6aUg1fMi6Rnk7?=
- =?us-ascii?Q?fpqFnkZAH4Hfvi7QSaNVB+MlgywiL+iDPZGagbM1SNtA7Y+NW8Go7wI6Sq/R?=
- =?us-ascii?Q?YFiK6Cfa1to6AKB9Wc7eO9y4ngekleMmgwucE/jnjgcr9BhWhbfm2dEdlqgA?=
- =?us-ascii?Q?dI7V3Aua/3JQGuRomgPHQt1155LiVvEGUgYStOUf0ur4x2SmFS0jO2RtSu1j?=
- =?us-ascii?Q?oseKCcol+mFspkj6OvbJ+FSbDfr+BtOYLJU38mvrvYXR8R6DdmybJtbAMq5a?=
- =?us-ascii?Q?P2+OFm3N7qOwprrTjNdx2YlgRWIIbvSRyvsJiFo2YiiZorWLIKjNC0qOxR5K?=
- =?us-ascii?Q?0JT61f16vduh+P8WF6uaVoHKLXjcVNAAtaeaqFMoFnLybSUVapV2XBcX8xxJ?=
- =?us-ascii?Q?L6QmK636VFtPx0UYSBMkYnALkaoRM0FzjgUnNnfnrPh2ofjj1h5ByhnLhodg?=
- =?us-ascii?Q?c0wquAuXeujY7kbe6MsdGjbLOJJXnwvvnzAy3m86ueiWqg/uV+Xro4ApDbMZ?=
- =?us-ascii?Q?rHNdXgFWMmkNH9wot8rC5sGclwdWCmNeyliKoJb881faC6diRcNlBPyCPmoo?=
- =?us-ascii?Q?4jDSiBRjM534pNby4+1ntl+sHzihbqK/GE6HlswjaYr9C0Gi5UTC1fC9g16i?=
- =?us-ascii?Q?dpVc85h5nDikWv1YBXXmWX6JRoohCqHe0W+db7gF/PntqEAm67mKBOaLvt1z?=
- =?us-ascii?Q?6mQu2DG0yq//lPOAuGc/BTyRnQKrqorR6UDD8PnrcXnb6y1idVy9zmE+6XTq?=
- =?us-ascii?Q?3EakSgQAtTBokXvL/kEIvSScvmRWfCX5h0u8mbWSrtUmS4s9iBX/+0ZneCNt?=
- =?us-ascii?Q?4mEuK8VTZ5XOQPwcZr6HnGQeJ15gyWLMut9mHRg7kcxDE75zSqK6/NB0+9ip?=
- =?us-ascii?Q?jodGzTGUiPxTllIVkV5wSybsc+wCJ9StBIGUzzqXGECFS5YdKPmH7Frbth2b?=
- =?us-ascii?Q?sf/VjxNyKBoZ7b/QqLSuhvkcZVYCeDGJFPqBYtWf16/BVtwHSn6PgHIW3Lld?=
- =?us-ascii?Q?c41xfir6LMgcZ764uUR+Bu4UFETXn3gYqiBrIp9BY/UUJnvehgAjYqiWuaQB?=
- =?us-ascii?Q?L3Y9If4I/KhrV/dmZNfG/Z3bGDqc6B8+NNcfcoMkQGmftByYu/Wal7DevojF?=
- =?us-ascii?Q?qlWZ8MKRp9+GV3MFpajoJcyRN6TlUIxmMQKGjfSMpFjuukzBgUsNXEXGhIyq?=
- =?us-ascii?Q?1L2AP76MI0Y1nwFMYybGsQzvVO8Au85aT0TXdFGGcMsUx59Zmmw0QGJuwye5?=
- =?us-ascii?Q?aXe6GP2WAE+hE+c7BoVzGJbQy5z1FMfxPLZw3tbtkqRYCSH36Pwf?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 89f79ba6-6c06-4bd3-96ac-08df1ef07f67
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 12:43:58.9806
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NFMADdtoxUh/DKOFdrgUY5XSNfz5Pu5CoxgDbaTY7BoGaqqqyxfwnuYHH9fokOxZ7PUDuc8hVcC44Qp5vEZYZSlQWP9zsT25hVPDYTbFrOKKjPk6pxY/y165WaMPrV8G
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1267
+	Wed, 30 Sep 2026 12:44:50 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4hvvrS4WQ0z8XrrX;
+	Wed, 30 Sep 2026 20:44:40 +0800 (CST)
+Received: from szxl2zmapp05.zte.com.cn ([10.1.32.37])
+	by mse-fl2.zte.com.cn with SMTP id 68UCiWqe008576;
+	Wed, 30 Sep 2026 20:44:32 +0800 (+08)
+	(envelope-from gao.rui@zte.com.cn)
+Received: from mapi (szxlzmapp03[null])
+	by mapi (Zmail) with MAPI id mid12;
+	Wed, 30 Sep 2026 20:44:35 +0800 (CST)
+X-Zmail-TransId: 2b056abd04331fe-2db6d
+X-Mailer: Zmail v1.0
+Message-ID: <20260930204435252HHqIHw0fBhdP4X3CWnK02@zte.com.cn>
+Date: Wed, 30 Sep 2026 20:44:35 +0800 (CST)
+Mime-Version: 1.0
+From: <gao.rui@zte.com.cn>
+To: <david.laight.linux@gmail.com>
+Cc: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <alex@ghiti.fr>, <jiangfeng@kylinos.cn>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <jmontleo@redhat.com>
+Subject: =?UTF-8?B?UmU6IFtQQVRDSCB2M10gcmlzY3Y6IGZpeCBzdHJubGVuKCkgb3ZlcmZsb3cgaW4gWmJiIGltcGxlbWVudGF0aW9u?=
+X-MAIL: mse-fl2.zte.com.cn 68UCiWqe008576
+X-TLS: YES
+X-ENVELOPE-SENDER: gao.rui@zte.com.cn
+X-SOURCE-IP: 10.5.228.133 unknown Wed, 30 Sep 2026 20:44:40 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6ABD0438.000/4hvvrS4WQ0z8XrrX
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_054441_570489_C233DFF9 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20260930_134449_223444_27EF5A13 
+X-CRM114-Status: GOOD (  35.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,194 +93,257 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bindings for the Peripheral-1 clock and reset generator (PER1CRG)
-on the JHB100 RISC-V SoC by StarFive Ltd.
+Hi David,
 
-Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../clock/starfive,jhb100-per1crg.yaml        | 70 +++++++++++++++++++
- .../dt-bindings/clock/starfive,jhb100-crg.h   | 60 ++++++++++++++++
- .../dt-bindings/reset/starfive,jhb100-crg.h   | 19 +++++
- 3 files changed, 149 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jhb100-per1crg.yaml
+Thanks for the detailed review.
 
-diff --git a/Documentation/devicetree/bindings/clock/starfive,jhb100-per1crg.yaml b/Documentation/devicetree/bindings/clock/starfive,jhb100-per1crg.yaml
-new file mode 100644
-index 000000000000..c72a355ceb34
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/starfive,jhb100-per1crg.yaml
-@@ -0,0 +1,70 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/starfive,jhb100-per1crg.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive JHB100 Peripheral-1 Clock and Reset Generator
-+
-+maintainers:
-+  - Changhuang Liang <changhuang.liang@starfivetech.com>
-+
-+properties:
-+  compatible:
-+    const: starfive,jhb100-per1crg
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: PLL7
-+      - description: Non Coherent NOC Initiator
-+      - description: Configure 800MHz
-+      - description: Non Coherent NOC Target
-+      - description: Configure 143MHz
-+
-+  clock-names:
-+    items:
-+      - const: pll7
-+      - const: ncnoc_init
-+      - const: cfg_800
-+      - const: ncnoc_targ
-+      - const: cfg_143
-+
-+  '#clock-cells':
-+    const: 1
-+    description:
-+      See <dt-bindings/clock/starfive,jhb100-crg.h> for valid indices.
-+
-+  '#reset-cells':
-+    const: 1
-+    description:
-+      See <dt-bindings/reset/starfive,jhb100-crg.h> for valid indices.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - '#clock-cells'
-+  - '#reset-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    clock-controller@11b40000 {
-+      compatible = "starfive,jhb100-per1crg";
-+      reg = <0x11b40000 0x1000>;
-+      clocks = <&pll7>,
-+               <&sys0crg 68>,
-+               <&sys0crg 69>,
-+               <&sys2crg 19>,
-+               <&sys2crg 22>;
-+      clock-names = "pll7", "ncnoc_init",
-+                    "cfg_800", "ncnoc_targ",
-+                    "cfg_143";
-+      #clock-cells = <1>;
-+      #reset-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/clock/starfive,jhb100-crg.h b/include/dt-bindings/clock/starfive,jhb100-crg.h
-index add2cd093dbd..7f508574177c 100644
---- a/include/dt-bindings/clock/starfive,jhb100-crg.h
-+++ b/include/dt-bindings/clock/starfive,jhb100-crg.h
-@@ -387,4 +387,64 @@
- #define JHB100_PER0CLK_MAIN_ICG_EN_SENSORS_DMAC		339
- #define JHB100_PER0CLK_MAIN_ICG_EN_TRNG			340
- 
-+/* PER1CRG clocks */
-+#define JHB100_PER1CLK_100				0
-+#define JHB100_PER1CLK_1				1
-+#define JHB100_PER1CLK_200_DIVN0			2
-+#define JHB100_PER1CLK_200_DIVN1			3
-+#define JHB100_PER1CLK_200_DIVN2			4
-+#define JHB100_PER1CLK_200_DIVN3			5
-+#define JHB100_PER1CLK_200_CCLK_DIV			6
-+
-+#define JHB100_PER1CLK_SGPIO0_PCLK			15
-+#define JHB100_PER1CLK_SGPIO0_DCLK			16
-+#define JHB100_PER1CLK_SGPIO1_PCLK			17
-+#define JHB100_PER1CLK_SGPIO1_DCLK			18
-+
-+#define JHB100_PER1CLK_EMMC0_BCLK			22
-+
-+#define JHB100_PER1CLK_EMMC0_CCLK			25
-+
-+#define JHB100_PER1CLK_DMAC1_1CH_CORE			29
-+
-+#define JHB100_PER1CLK_DMAC1_1CH_ACLK			31
-+
-+#define JHB100_PER1CLK_DMAC2_1CH_CORE			33
-+
-+#define JHB100_PER1CLK_DMAC2_1CH_ACLK			35
-+
-+#define JHB100_PER1CLK_DMAC3_1CH_CORE			37
-+
-+#define JHB100_PER1CLK_DMAC3_1CH_ACLK			39
-+
-+#define JHB100_PER1CLK_DMAC0_2CH_CORE			41
-+
-+#define JHB100_PER1CLK_DMAC0_2CH_ACLK			43
-+
-+#define JHB100_PER1CLK_UFS_REF				45
-+#define JHB100_PER1CLK_UFS_300				46
-+#define JHB100_PER1CLK_UFS_150				47
-+#define JHB100_PER1CLK_UFS_400				48
-+#define JHB100_PER1CLK_UFS_75				49
-+#define JHB100_PER1CLK_UFS_37_5				50
-+#define JHB100_PER1CLK_UFS_7_5				51
-+#define JHB100_PER1CLK_UFS_1_875			52
-+#define JHB100_PER1CLK_UFS_7_143			53
-+#define JHB100_PER1CLK_UFS_3_5715			54
-+
-+#define JHB100_PER1CLK_MAIN_ICG_EN_SFC0			63
-+#define JHB100_PER1CLK_MAIN_ICG_EN_SFC1			64
-+#define JHB100_PER1CLK_MAIN_ICG_EN_SFC2			65
-+#define JHB100_PER1CLK_MAIN_ICG_EN_SPI0			66
-+#define JHB100_PER1CLK_MAIN_ICG_EN_SGPIO0		67
-+#define JHB100_PER1CLK_MAIN_ICG_EN_SGPIO1		68
-+#define JHB100_PER1CLK_MAIN_ICG_EN_SENSORS_PERIPH1	69
-+#define JHB100_PER1CLK_MAIN_ICG_EN_EMMC0		70
-+#define JHB100_PER1CLK_MAIN_ICG_EN_DMAC_SFC0		71
-+#define JHB100_PER1CLK_MAIN_ICG_EN_DMAC_SFC1		72
-+#define JHB100_PER1CLK_MAIN_ICG_EN_DMAC_SFC2		73
-+#define JHB100_PER1CLK_MAIN_ICG_EN_DMAC_SPI0		74
-+#define JHB100_PER1CLK_MAIN_ICG_EN_RAS			75
-+#define JHB100_PER1CLK_MAIN_ICG_EN_UFS			76
-+
- #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JHB100_H__ */
-diff --git a/include/dt-bindings/reset/starfive,jhb100-crg.h b/include/dt-bindings/reset/starfive,jhb100-crg.h
-index ccfb7616e1a7..cf933a1befbb 100644
---- a/include/dt-bindings/reset/starfive,jhb100-crg.h
-+++ b/include/dt-bindings/reset/starfive,jhb100-crg.h
-@@ -138,4 +138,23 @@
- #define JHB100_PER0RST_GPIO_IOMUX_PRESETN				73
- #define JHB100_PER0RST_UART_MUX_REG_WRAP				74
- 
-+/* PER1CRG resets */
-+#define JHB100_PER1RST_IOMUX_PRESETN					0
-+#define JHB100_PER1RST_SYSCON_PRESETN					1
-+#define JHB100_PER1RST_MAIN_RSTN_SFC0					2
-+#define JHB100_PER1RST_MAIN_RSTN_SFC1					3
-+#define JHB100_PER1RST_MAIN_RSTN_SFC2					4
-+#define JHB100_PER1RST_MAIN_RSTN_SPI0					5
-+#define JHB100_PER1RST_MAIN_RSTN_PERIPH1_SENSORS			6
-+#define JHB100_PER1RST_MAIN_RSTN_SGPIO0					7
-+#define JHB100_PER1RST_MAIN_RSTN_SGPIO1					8
-+#define JHB100_PER1RST_MAIN_RSTN_EMMC0					9
-+#define JHB100_PER1RST_MAIN_RSTN_UFS					10
-+#define JHB100_PER1RST_MAIN_RSTN_UFS_PHY				11
-+#define JHB100_PER1RST_MAIN_RSTN_DMAC_SFC0				12
-+#define JHB100_PER1RST_MAIN_RSTN_DMAC_SFC1				13
-+#define JHB100_PER1RST_MAIN_RSTN_DMAC_SFC2				14
-+#define JHB100_PER1RST_MAIN_RSTN_DMAC_SPI0				15
-+#define JHB100_PER1RST_MAIN_RSTN_PERIPH1_RAS				16
-+
- #endif /* __DT_BINDINGS_RESET_STARFIVE_JHB100_CRG_H__ */
--- 
-2.25.1
+>On Wed, 30 Sep 2026 09:48:57 +0800 (CST)
+><gao.rui@zte.com.cn> wrote:
+>
+>> riscv: fix strnlen() overflow in Zbb implementation
+>> 
+>> The RISC-V Zbb optimized strnlen() implementation can return incorrect
+>> results when very large count values are supplied.
+>> 
+>> The previous implementation calculates an end address based on the
+>> input pointer and count. When count is close to SIZE_MAX, the address
+>> calculation may overflow, resulting in incorrect termination checks and
+>> wrong return values.
+>> 
+>> This issue was observed while running device-mapper tests:
+>> 
+>> dmsetup create testname9 --table "0 8 zero"
+>> cat /sys/block/dm-*/dm/name
+>> dmsetup remove testname9
+>> 
+>> Rework the Zbb implementation to use a word counter instead of an end
+>> address. This removes the dependency on end-address calculations,
+>> avoids overflow entirely, and simplifies the termination condition of
+>> the word scanning loop. The final length is calculated using the saved
+>> original pointer.
+>> 
+>> Performance was evaluated with string_bench_strnlen:
+>> 
+>> New Implementation Previous Implementation
+>> 
+>> len=0 : 71 ns/call 70 ns/call
+>> len=1 : 82 ns/call 81 ns/call
+>> len=7 : 83 ns/call 81 ns/call
+>> len=8 : 83 ns/call 81 ns/call
+>> len=16 : 94 ns/call 90 ns/call
+>> len=31 : 117 ns/call 113 ns/call
+>> len=64 : 175 ns/call 167 ns/call
+>> len=127 : 259 ns/call 258 ns/call
+>> len=512 : 802 ns/call 833 ns/call
+>> len=1024 : 1512 ns/call 1536 ns/call
+>> len=3173 : 4581 ns/call 4640 ns/call
+>> len=4096 : 6256 ns/call 6068 ns/call
+>> 
+>> Results show comparable performance to the previous implementation
+>> while fixing the overflow issue.
+>> 
+>> Fixes: 5ba15d419fab ("riscv: lib: add strnlen() implementation")
+>> Suggested-by: DavidLaight <david.laight.linux@gmail.com>
+>> Signed-off-by: Gao Rui <gao.rui@zte.com.cn>
+>> 
+>> ---
+>> v3:
+>> - Keep the original register allocation (t0-t4) and numeric labels.
+>> - Keep the original comments.
+>> - Calculate word count as (remaining - 1) / SZREG + 1, removing the
+>>   branch from the calculation.
+>> v2:
+>> - Rework the Zbb implementation to eliminate end-address overflow
+>>   instead of falling back to the generic path.
+>> - Use a decrementing word counter for word scanning.
+>> - Run KUnit string tests successfully.
+>> - Add string_bench_strnlen benchmark results.
+>> ---
+>>  arch/riscv/lib/strnlen.S | 54 +++++++++++++++++--------------
+>>  1 file changed, 29 insertions(+), 25 deletions(-)
+>> 
+>> diff --git a/arch/riscv/lib/strnlen.S b/arch/riscv/lib/strnlen.S
+>> index a8911605c248..000000000000 100644
+>> --- a/arch/riscv/lib/strnlen.S
+>> +++ b/arch/riscv/lib/strnlen.S
+>> @@ -73,6 +73,9 @@
+>>      /* If maxlen is 0, return 0. */
+>>      beqz    a1, 3f
+>> 
+>> +    /* Save original pointer for final length calculation. */
+>> +    mv    t4, a0
+>> +
+>>      /* Number of irrelevant bytes in the first word. */
+>>      andi    t2, a0, SZREG-1
+>> 
+>> @@ -82,15 +85,6 @@
+>>      li    t3, SZREG
+>>      sub    t3, t3, t2
+>>      slli    t2, t2, 3
+>> -
+>> -    /*
+>> -     * Aligned boundary.  Use the address of the last valid byte
+>> -     * (s + count - 1) to avoid loading a word past the count
+>> -     * boundary in the loop below.  count == 0 is handled above.
+>> -     */
+>> -    add    t4, a0, a1
+>> -    addi    t4, t4, -1
+>> -    andi    t4, t4, -SZREG
+>> 
+>>      /* Get the first word.  */
+>>      REG_L    t1, 0(t0)
+>> @@ -125,15 +119,26 @@
+>> 
+>>      bgtu    t3, a0, 2f
+>> 
+>> -    /* All remaining bytes are in the first word, no loop needed. */
+>> -    bgeu    t0, t4, 2f
+>> +    /*
+>> +     * Use a word counter to avoid calculating an end address,
+>> +     * which might overflow when count is close to SIZE_MAX.
+>> +     */
+>> +    sub    t2, a1, t3
+>> +    beqz    t2, 3f
+>
+>Is that right?
+>The equality check seems wrong.
+>Does it work when there are more characters in the first word than
+>the caller specified length.
+>
+It does. The new code is only reached when the preceding
 
+bgtu t3, a0, 2f
+
+does not branch. a0 is min(offset of the first NUL in the shifted
+word, a1), and the shifted first word has exactly t3 significant
+bytes, so the offset is within [0, t3].
+
+>> 
+>> -    /* Prepare for the word comparison loop. */
+>> -    addi    t2, t0, SZREG
+>> +    /* Calculate the word count: count = (remaining - 1) / SZREG + 1 */
+>> +    addi    t2, t2, -1
+>> +#if defined(CONFIG_64BIT)
+>> +    srli    t1, t2, 3
+>> +#else
+>> +    srli    t1, t2, 2
+>> +#endif
+>> +    addi    t2, t1, 1
+>> +
+>>      li    t3, -1
+>> 
+>>      /*
+>> -     * Our critical loop is 4 instructions and processes data in
+>> +     * Our critical loop is 6 instructions and processes data in
+>
+>The diff below adds one instruction - I make that 5.
+>But the instruction count isn't what really matters, what matters
+>is the number of clocks it takes the loop to execute.
+>
+
+Correct, I'll fix the comment to say 5.
+
+>>       * 4 byte or 8 byte chunks.
+>>       */
+>>      .p2align 3
+>> @@ -141,23 +146,22 @@
+>>      REG_L    t1, SZREG(t0)
+>>      addi    t0, t0, SZREG
+>>      orc.b    t1, t1
+>> -    bgeu    t0, t4, 4f
+>
+>Hasn't that (the old code) just read beyond the end of the buffer
+>
+Yes. The final iteration loads the aligned word containing
+s + count - 1, which may extend up to SZREG - 1 bytes beyond the
+logical end. That is safe because the load is SZREG-aligned and
+cannot cross a page boundary, which is the same approach used in
+strlen.S. The new word-count loop preserves that property.
+
+>> -    beq    t1, t3, 1b
+>> +    bne    t1, t3, 4f
+>> +    addi    t2, t2, -1
+>> +    bnez    t2, 1b
+>
+>You want to put the 'addi t2, t2, -1' higher up next to the other addi.
+>Then simple cpu will execute it while waiting for the read to complete.
+>The old code did that - but got it wrong.
+>You can do the length check while the cpu is (otherwise) stalled waiting
+>for the read. So something like:
+>1:    REG_L    t1, SZREG(t0)
+>    addi    t0, t0, SZREG
+>    addi    t2, t2, -1
+>    bnez    t2, 3f
+>    orc.b    t1, t1
+>    beq    t1, t3, 1b
+>2:    // Found a zero
+>    ...
+>    ret
+>
+>3:    orc.b    t1, t1
+>    bne    t1, t3, 2b
+>    // No zero
+>
+>The count (t1) would need to be one lower.
+>
+Done. I've moved the decrement closer to the load while keeping the
+NUL check before the counter check 
+
+>Did you try just subtracting SZREG from the length-left
+>and doing an unsigned compare against the original size?
+>I think it should work and saves the setup code.
+>
+>David
+>
+I think that approach needs some additional care around the same
+overflow corner case that this patch is addressing.
+
+For example, when a1 = SIZE_MAX and t3 = 1, the remaining-byte
+counter starts at SIZE_MAX - 1. On the final iteration, subtracting
+SZREG causes it to wrap into the range
+[2^XLEN - SZREG + 1, 2^XLEN - 1]. Depending on the exact unsigned
+termination test, that wrapped value may still compare as in-range,
+making it easy to miss the termination condition.
+
+The current implementation computes
+
+words = (remaining - 1) / SZREG + 1
+
+once during setup and then uses an exact decrementing word counter.
+This avoids any dependence on wrapped byte counts, works for all
+values of a1, and only costs a few setup instructions, so I'd
+prefer to keep this approach.
+
+ Thanks,
+Rui
+
+>> +
+>> +    /* Scanned all words without finding NUL, return maxlen. */
+>> +    mv    a0, a1
+>> +    ret
+>> +
+>>  4:
+>>      not    t1, t1
+>>      CZ    t1, t1
+>>      srli    t1, t1, 3
+>> 
+>> -    /* Get number of processed bytes. */
+>> -    sub    t2, t0, t2
+>> -
+>> -    /* Add number of characters in the first word.  */
+>> -    add    a0, a0, t2
+>> -
+>> -    /* Add number of characters in the last word.  */
+>> +    /* Length = (current - original) + offset in final word. */
+>> +    sub    a0, t0, t4
+>>      add    a0, a0, t1
+>> -
+>> -    /* Ensure the final result does not exceed maxlen. */
+>>      minu    a0, a0, a1
+>>  2:
+>>      ret
+>> --
+>> 2.27.0
 
 _______________________________________________
 linux-riscv mailing list
