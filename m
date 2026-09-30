@@ -4,137 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 552D5CA5FAC
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 12:59:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1422FCA5FB1
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 13:01:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g2uduN/MjsJTsvhxeXbUS0YW+Mhbfp0uiCPdMbo/EAM=; b=wWTKvfJiM5zv4u
-	iZe3MdLV6vnJ+XHg0WDEckgH3CAGqTgH3XFuGuHQh4F1gp3zeYyT7H16VI2t/ptiXHDmKJ5aHB0xi
-	dKBLXGgdKWjkmwE1m2AXFOyfWbiCe+7Yyb5l8nu86GezG4ZUKqv8zCCBsLkcGw60NhqypQO/4flCk
-	18Qvigy6XRWpx4VyirKa5YQ95VjXGim9Uty+uer6CQdO8d6LYqImLoC3eTa5EoQxyjb6hFyZHqegZ
-	VVVCTxMYdgWkzOwN3gefKs/CqRJS+Y6KCc+qRGuLMMPVNeDwowUqWd4IFgY7aixjT5OR5D6AWq6+9
-	nthQpqJV8u81U53GYUdg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=AfKoysl94rUoSVNlBng0a3BlXOT9U2YTs/O4okST/3g=; b=lnzynq7jaueFry
+	PDO5gxjba77WbrbtgPmTy62+1RVsEv6VKLH9RLHmfiVNrEc331YPJOc6/56fs3caJhTh+j8525Ezb
+	xcsJu/njNB5FSg8I+1sLxCqP1wiJJGNKheg0hraO7HhG+w0lMI7cgxVgWSELoVx4fJFeZmpQRRttW
+	QWI6V0rCmpcWsuFEa4Cvx96CrogXSj8oS0GvZ7u1Fi1W4O5YNMHIjzAKtFSHeyrYqVE/i46GEaBJz
+	gdC0d8ZZwfF7XWhbJCwj6lt2PhCvegkK8KfcXmKeaSS2J1zFz4R4ghK+bbpPxanx45xOn7fekjUEg
+	XHSz8kqhpfaYL52pxn7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtuB-000000064Z1-3OMB;
-	Wed, 30 Sep 2026 12:59:27 +0000
-Received: from mail-sh0chn02on2091.outbound.protection.partner.outlook.cn ([139.219.146.91] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1xBtvY-000000064ja-0B1n;
+	Wed, 30 Sep 2026 13:00:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtu8-000000064YQ-1mdb
+	id 1xBtvW-000000064jQ-2v5D
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Sep 2026 12:59:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=CFOJcejzJ47VH7CS/KJsvDQbuEacFh1GNWAoeVQ74nEjjEBE6+rM37WIro/vHtKge8k/n27Qqz366kp3pJ0KnWTviuHauH1oJaxkNox/wxxjfn5RVTsBKBfwi6C9/ycSYLU97L9z4HrBn35Y5UCBeFwfffYs2JXlJPEx4M1n/cjqMgu6US1xIHPUdGwC3+yr+aJf3oT00mIVZbHQuiVZpOF/ASF/bzYbkky8KuAC4FfbG4z+VifZCwLdeB/cpfhl2GcyF6P5xhQM7U8w/J7Uy97VpvOynlvqTTaY7VpP2INwelb/iB1xfYpR8FFkv350ob1k55GMuYbEbEiKci6hsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZFQBehvpGkg6Ibwftzvq/hAGZuFGKCLctIg4/y1brHg=;
- b=SyDuUTXpaw39HBV2UuQYRZEt/7crTD3Am9oDxks0PaYVjU8meH06oImcD0J3PrVR9SZV88iHI/wmn/vh4AJAaAtMeWx/mE9LbMW9McmLH+SG098Tua8rmOS1UfBIuogDcGo2eomgUun9DnJm+Jbma/hRN+N6Veq5PlEZsrnDjx1XrCODRruORS8IpHcA0crqs4ywu/QC03VtcQyjdZFjtlHqwGkYToGIpZ2e/04Lib23T6tZxZOCqLzSyulbY++TQd327/QfyqCNKXz6EyD2i1rDuVE9j2FEH4jZiWRNERvHMRPpF8HW1KZXbQCT7LBpE2PeDPqzmr3z7ixcn7AQXA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1297.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:13::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.16; Wed, 30 Sep
- 2026 12:43:33 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0451.026; Wed, 30 Sep 2026 12:43:33 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Brian Masney <bmasney@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
+	Wed, 30 Sep 2026 13:00:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 18A2543E9A;
+	Wed, 30 Sep 2026 13:00:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9739C1F000FF;
+	Wed, 30 Sep 2026 13:00:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790773250;
+	bh=BN61Chre73hrYLj0CBq/u0yA/QVkhU4K+myvgwugnmI=;
+	h=From:To:Cc:Subject:Date;
+	b=U4geHWF3sGD8zeH7k7va2WH/jQHrLWud0syMY6PYrIvnSyPkMEss2x8l8EaAwp0hd
+	 L0ZezYAAPC+z/QbPC2f4clQlgbXV6nZmULk6yu7zhxV0dDXS6piq2yHu/ioZOFyCmK
+	 SIZp28bMtWH00nHKwGklpPI/L2TfQGUbxSscpT8hC22vgQn7LsXxPBlaRu7JnAICWQ
+	 +tCmO0aly6FhOvTnRxYCNzFrxkgIAZn4os4Zc1d9crzttq14Wd75M9sFKhpPDQ0noa
+	 P1XTxu+G6T2SiIUBnGX6B1eWyEYzy0+uRbK8H+PcgfJttwNbrkrKhpKWkbX+4/sMrw
+	 HhxHNIc3+KMeg==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-hardening@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: [PATCH v5 01/23] clk: starfive: jh7110-sys: Fix memory leak in reset controller register
-Date: Wed, 30 Sep 2026 05:42:55 -0700
-Message-Id: <20260930124317.5648-2-changhuang.liang@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260930124317.5648-1-changhuang.liang@starfivetech.com>
-References: <20260930124317.5648-1-changhuang.liang@starfivetech.com>
-X-ClientProxiedBy: BJSPR01CA0006.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:c::18) To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6)
+	Nam Cao <namcao@linutronix.de>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 0/3] riscv: word-at-a-time: improve find_zero()
+Date: Wed, 30 Sep 2026 20:40:49 +0800
+Message-ID: <20260930124052.21986-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1297:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0ca92cfc-2e18-4301-f611-08df1ef07030
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|52116014|10067099003|56012099006|22082099003|18002099003|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: /WCwRoNKBgO7Ah8XjSqyqpsO932cGdfc/Rs+0xp4eMCSl8aQXBji32q8Ad+z3LLP2d8axc1agtPf95vUu+HeJFyVLrAuJxpFZyR/zThAz9ofE05PRTQt6pXwaHFzO2xLO6R12SRq6CMZxImhgLRxaex7E7V/YEqYiED1vT1Kaz5ULdiMsK2TbiTSOPQZiksBM2OLPMoLHpqnaZYtiDubTNLJmzuZTbJfQyfTx9/qUi+DlmwfJSgzJGMvjfG3Tz0TL/gKaOy6mi5UZzmm+k2n0aAJbKZJrjfhFT1K0rchjJrXcsEzEYBE3Xsiw2zGCECrJ0JUQRtOF32Wo9QeiQUIiF+nPQVMb7JmnSDrzPB5fw74MERDNxuv/3FtjBr+BgqnsSsuKsvDudkogty6zRtcUjDI0V9x9vc5i4rAkvFx5nUeMA3c3b5zGSGXImbh9wDQ9Ang2g1xKxy8SXAgExlMq5k8A4H23tJ6oqFq0Geue3zM9cWTQsP0RisxpXj9wvT0G5YSp6oNwn+kpLo7X8iupMeSOPDb+328wEsqIAiw64MRQLT0uvsQEQacq/m9iET6ukqE7UuEEETGwtD+htQCvg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(52116014)(10067099003)(56012099006)(22082099003)(18002099003)(921020)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WbLYHWzopzew/RsefVGW7saaVQlGXAzKwbPdc+peGsvLJE0dM/8ilMrqL/Rd?=
- =?us-ascii?Q?yNVMRFWJwlddPaDSC1g/oHY9sbAzSXDExr4+Du+z2q7G5Ytd2aE3XP+lN8lv?=
- =?us-ascii?Q?9qlCf2geS/mCZgB3bbIabdpi2OH7ER8H8M/JSlXN9aFYY+2gTDj+jUbGi5Jv?=
- =?us-ascii?Q?eOdGLvuNoGRsqtxemRJkSD9pdZufZOQI8tD65cLFOJuuUTMEuREt/1SAh2UH?=
- =?us-ascii?Q?PYIUaONVJDeXKZbY5ItO7FQ6HYJzgDHHv/IPO4C7Rf+SJAwk0To+mSCbtdqG?=
- =?us-ascii?Q?IPb1iJf4/GovMPo1BRi/hKTIXUdFlFFCyGhzcksBeaAvUB7qt4AmoIhipY3W?=
- =?us-ascii?Q?Z1Crot5zVweOEwlXbAaRAuD1Ci8VFjWE6xDYMkefGMrAYFtLhKhl0xAmzgDB?=
- =?us-ascii?Q?jVvOO8BncIBBSo3x5VWi+DHUQO54XdfB40/QXe2Jd0YVp8dG+K5CmGcGsRag?=
- =?us-ascii?Q?1OCIaGgvQCoWIagsCoDJmeJWuYrtEB9AE6InUkmV3nTo37GVEgT5yHpDMKCF?=
- =?us-ascii?Q?RAl9S9HFtOIFhePomS0e7G6IzVab5TZ+fmiQt8Iq5PeiBPzW1QcN3rPNOHnL?=
- =?us-ascii?Q?EvCH6qRw7vzSiRQXBonsHHR8MLxEpS+G69Vb7aoRfDp7T1LHeplpyOWXh5jn?=
- =?us-ascii?Q?0/7wi7+kI/QIx0A+at3hw2eKccsmwfTqPzvnZuPV7g209B6GAYWFzjh1hJUa?=
- =?us-ascii?Q?2z5jzPXs2nMAIEu6qtxCFR8dfInsA9gh8HrrZGCPCMVenZJNZgUUWEHPBWtq?=
- =?us-ascii?Q?WKNfvEQlVW4N8fYd5ktOGpNY8MTncE3HQTpxdZyPozwTzn93uyLJr1/jXZhG?=
- =?us-ascii?Q?8+j6khw0grJnJ8VxNjIHswp4W2rsJFAJvzMXNIpgBYx8QgzvXZ9TkdNnXc3N?=
- =?us-ascii?Q?OqnTBn3PEGLcVG5FS6UXguBKGjAAOkFx+P2L9o2XtPBxa9K2UPnCWq6x1c8/?=
- =?us-ascii?Q?GMluR3OsAyuW8uJi+a44vMkCWUki2zaCwNnWwwWZEsOtX5v7LSinNlGIfMRf?=
- =?us-ascii?Q?c4UdDWZL4D2Kci47kPxR0xmouYPaCycLx337+RYwaZwvKdsCt9TjQFOzhJFP?=
- =?us-ascii?Q?IJBlWyT0g/bcNh1BLsIjACG1vtXPPgHQNpz6C8Lr3pieDQM89qEsyOwOxD0o?=
- =?us-ascii?Q?wk0rVzbFlbEWP1yUlSNtmqwQ97h1sujZ4clqa+eWeKmP8NUo5qHs/c/OigFn?=
- =?us-ascii?Q?2bkwk8zV1iaSZ2BUboaeDYm0It/0rDDCG0lwe0E5pZzL1WwzZ4ug7vyF/yC/?=
- =?us-ascii?Q?QHgVmGAqa1IYam16xxkSH3Ft5VwWQE/SzjKDbQX1gt7DgB10FhlVDfiOd21K?=
- =?us-ascii?Q?d21a7vHcPntcPq2Ku0je50ITg18tdylID6NIpivs43aoCkwmQsE77jqzvYX0?=
- =?us-ascii?Q?fvVCWsOpGD5VIxtfJm1o0/Th1PlGsCXLyUdHAeUowJGYre8Wkjb0N9/zPlnf?=
- =?us-ascii?Q?L/0py5TqrjqbO+GepqdNKHjS1uhx1qC+IkNWsFX5tQZ0dUbmDg1Gen3mH9/r?=
- =?us-ascii?Q?fOT+duQN3ZB2Ssxc5G7weaLXFlDl5VTIACt8bULsSJxDklBswhH2jgrGRe0v?=
- =?us-ascii?Q?x0XshBXUuWRK6meSzJt0M1Mt3vtdJ3TywzQYN1QO4JSI2qkVzkRjqQXdNVOT?=
- =?us-ascii?Q?PU1j7V85kL14NycjmNJ8pusiJVt3o2Lxci/UfU8rWjRbcO2vvy3fn18vm8+u?=
- =?us-ascii?Q?NYbjDROw0YQ++Lus76IGvER6OM5Hex3daUPBA4YfmCxx44k4RRFJyX4dSiyD?=
- =?us-ascii?Q?MXKvfo/fZd0CmJThdTe66Jt8E05ts1Ha83yCLUnHXkRAmtKCarVU?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0ca92cfc-2e18-4301-f611-08df1ef07030
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 12:43:33.4666
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: B2hjYKD4wV5M6xLSkwDvLUTUlpROXigEfOnFL3fFXmiXU42Xg3vpMLtPo/NG0dbZNB5wzb9c/1drkkpMf8Qlp3gHGQtCvDWJihPFTxFfu12eOM3KNTUzzAlINu8wo/dB
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1297
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_055924_674125_E047C20B 
-X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,36 +71,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-auxiliary_device_init() returns an error before device_initialize() is
-called, so the release callback never runs on this path and the rdev
-allocated in jh7110_reset_controller_register() is leaked.
+Currently, there are two problems with riscv find_zero():
 
-Free rdev when auxiliary_device_init() fails.
+1. When !RISCV_ISA_ZBB, the generic fls64() bring non-optimal code.
 
-Fixes: edab7204afe5 ("clk: starfive: Add StarFive JH7110 system clock driver")
-Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
----
- drivers/clk/starfive/clk-starfive-jh7110-sys.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+But in word-at-a-time case, we don't have to go with fls64() code path,
+instead, we can fallback to the generic word-at-a-time implementaion.
 
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-index 847c0a39e5ab..1d460a03f936 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-@@ -360,8 +360,10 @@ int jh7110_reset_controller_register(struct jh71x0_clk_priv *priv,
- 	adev->id = adev_id;
- 
- 	ret = auxiliary_device_init(adev);
--	if (ret)
-+	if (ret) {
-+		kfree(rdev);
- 		return ret;
-+	}
- 
- 	ret = auxiliary_device_add(adev);
- 	if (ret) {
+What's more, the fls64() brings non-necessary zero bits couting for
+RV32. In fact, fls() is enough.
+
+2. Similar as 1, the generic fls64() also brings non-optimal code when
+RISCV_ISA_ZBB=y but HW doesn't support Zbb.
+
+So this series tries to improve find_zero() by falling back to generic
+word-at-a-time implementaion where necessary. We dramatically reduce
+the instructions of find_zero() from 33 to 8! Also testing with the
+micro-benchamrk in patch1 shows that the performance is improved by
+about 1150%!
+
+After that, we improve find_zero() for Zbb further by applying similar
+optimization as Linus did in commit f915a3e5b018 ("arm64:
+word-at-a-time: improve byte count calculations for LE"), so that
+we share the similar improvements:
+
+"The difference between the old and the new implementation is that
+"count_zero()" ends up scheduling better because it is being done on a
+value that is available earlier (before the final mask).
+
+But more importantly, it can be implemented without the insane semantics
+of the standard bit finding helpers that have the off-by-one issue and
+have to special-case the zero mask situation."
+
+On RV64 w/ Zbb, the new "find_zero()" ends up just "ctz" plus the shift
+right that then ends up being subsumed by the "add to final length".
+Reduce the total instructions from 7 to 3!
+
+But I have no HW platform which supports Zbb, so I can't get the
+performance improvement numbers by the last patch, only built and
+tested the patch on QEMU.
+
+Since v3:
+  - fold part of patch2 into patch1 and make the RV32 improvement
+    as patch2.
+
+Since v2:
+  - fix wrong version(PATCH vs "PATCH v2" in cover letter)
+
+Since v1:
+  - rebase on the latest rc1
+  - Use if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB) &&
+	    riscv_has_extension_likely(RISCV_ISA_EXT_ZBB))
+
+
+Jisheng Zhang (3):
+  riscv: word-at-a-time: improve find_zero() for !RISCV_ISA_ZBB or no
+    Zbb
+  riscv: word-at-a-time: improve find_zero() for RV32
+  riscv: word-at-a-time: improve find_zero() for Zbb
+
+ arch/riscv/include/asm/word-at-a-time.h | 46 +++++++++++++++++++++++--
+ 1 file changed, 43 insertions(+), 3 deletions(-)
+
 -- 
-2.25.1
+2.51.0
 
 
 _______________________________________________
