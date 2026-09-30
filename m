@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACAD3CA5FC1
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 08:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C14CA5FC1
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 08:32:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=39IsfDgMfK3w65huwuGpeL0CaAXMurGzQ9dO8FqHCXQ=; b=NY5sVSE327T5w3
-	m7P5xoZ5vsDGyWyVrCngxK1AEEwZDxT/XbkEe5sVVhnT2Rifd7qtIqHD3QgCnlvH3qMC9MxRQKJ0S
-	l6fWvEMaEBal/cm5GL0v2iHujXO206Y0aAQXARcW0oxdR/Ns3mDNG2l92XiBeyR1brdK9/CpCnFPO
-	dEeo8wVUusJYSnv+FrW3rnSVjuT2ty68evsW1wMq907LwuL7Sr7cVlG+YPKarvSvECKWUeqDeWPSi
-	99Km6nV/G6WEXOBFQTf2t9uo5DNXFOelzIFBtKB9To+YzDWBgLM8qbXlClWyovWCAbnFH7mIyDVCE
-	3dWie3Nx1naANO5WGjdg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kqzsNb+Spr6a90E/iooM0EBB9Vew0JD5rRssdnJ0990=; b=bnCA/NE6g04JJ1
+	C6XvLJV0d++G4FZFKoSVd56iBtnL0HHY8h/x44lLntd4xf+kXfPxhpiJOsW4vwVZEHH/p+69WgfXH
+	uWRAoSinaZopTp2NTI4gmpu6Qaj4QCS+8NcrZr0ZsxfEiPfvq2RfZhe7GwtmGllSO9F9bu3+LIPbE
+	nVbQPRWgOdnwRy5tcs2VSiBcFub+r6YLlQpYJ0Guf9I10OjyNTGbXkcmqvBSPykY094+sl9mpOIhn
+	VUYYtEhetVS0Ks0sK6vMYGOzN/n7DlQN/nkX21U/TzsBk8NFdNsOY9l6HL2ttRZgfbxJPXiGs6H0x
+	sA1OSHYnPRrZHrqcNn7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpj4-00000005Qoz-171X;
+	id 1xBpj2-00000005QoI-0WOy;
 	Wed, 30 Sep 2026 08:31:42 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpiv-00000005Qln-2dK3
+	id 1xBpiv-00000005Qlp-2cwY
 	for linux-riscv@bombadil.infradead.org;
 	Wed, 30 Sep 2026 08:31:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=z1tRCCj29YWXNSecoXVeUwkQlDeTLcAoXsBgIvAhC+E=; b=Uhkp3LJDtugLCufPCUBCXkmZYH
-	USdIZMB7kydPc4xeVUp/h8xAE7FtcEyjsdWztF+IwvsSRcPdYYltnujlywnnyHbJUIN6l/x1WjpIw
-	a+/vI60H3E4+YtgX2QTjo1OE4qVdE6Vb6X1FsEjQLlMTkzHWXcv7FIQ0xCyfAiGiQ+f4K/DDxHuJ+
-	3EjBI8TkvuqU5j9v3GeY1IkeaZ4Eb4zlwWPYJshuSJaE0gPKrY7xbzTejI6N2NHdyYu+dBEe7mHHT
-	s1rzFW85LFFrnsbZXQTUXYoU2GFh6TzgJOxRwykF9BqCEjIk5QGnGwpPZ3Tva99pfsoWRzCvGRvjL
-	q2F1XVUA==;
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=x5tyGY1vbHXF7UKT7OYcN/uRbwBJgO9+WStlnv/PDSw=; b=MBE383KYfCSSHUP1QgHYekUSJC
+	/tTHAcbHwWJ6TboHchbHlbAzIUYvNBcvJOy3UEiEJZMBrzVVLR1afQRBTpKajwvYDKCCquDjwiU8/
+	Q28z/6eQV5IT2FC2wRBo31LnpgghbI0K0C8NrP7B7gdxfR3gQFY0gsrbwtV/s2rg1xhvicynk0Gi8
+	rAUAkGvnHsZO2DziwVtYvrYoAMYkhLMvlgPF0ZECPhmdMtzkirZC5MuQBzGqTXgutM8cpkVTCCOSR
+	dzu5uwNpv9ar9mtxzvGSSO76iKfmU50PN8Rgo71r2X7OvYRERbMTKRRNmOgZQgIAygMNDKpZmXmxP
+	bsNN9TlQ==;
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBpip-00000003Wo2-0IPD
+	id 1xBpip-00000003Wo3-0RXA
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Sep 2026 08:31:30 +0000
+	Wed, 30 Sep 2026 08:31:32 +0000
 Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hvpCY5WByzYQv05
-	for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2026 16:30:49 +0800 (CST)
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4hvpCN2L61zKHMbj
+	for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2026 16:30:40 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 67E3740574
-	for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2026 16:31:18 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTP id 5D27340574
+	for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2026 16:31:17 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP4 (Coremail) with UTF8SMTPA id gCh0CgDXpyrRyLxq8dflCA--.24306S5;
-	Wed, 30 Sep 2026 16:31:17 +0800 (CST)
+	by APP4 (Coremail) with UTF8SMTPA id gCh0CgDXpyrRyLxq8dflCA--.24306S2;
+	Wed, 30 Sep 2026 16:31:15 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	bpf@vger.kernel.org,
@@ -73,35 +73,32 @@ Cc: Alexei Starovoitov <ast@kernel.org>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Pu Lehui <pulehui@huawei.com>,
 	Pu Lehui <pulehui@huaweicloud.com>
-Subject: [PATCH bpf-next v3 3/4] selftests/bpf: Update qemu config for riscv64 in vmtest.sh
-Date: Wed, 30 Sep 2026 08:35:21 +0000
-Message-Id: <20260930083522.1914145-4-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next v3 0/4] riscv, bpf: Prepare for upcoming daily CI
+Date: Wed, 30 Sep 2026 08:35:18 +0000
+Message-Id: <20260930083522.1914145-1-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260930083522.1914145-1-pulehui@huaweicloud.com>
-References: <20260930083522.1914145-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: gCh0CgDXpyrRyLxq8dflCA--.24306S5
-X-Coremail-Antispam: 1UD129KBjvJXoW7Kw1UAF1DGF4UKrW3Xw18Zrb_yoW8uryrpw
-	4kJryYk3sYg3W3ur1kArWj9FWrGrsavrW8Cw48Gw17Zw12yFy8Xr97Kw4Ut3Z3WFZYgrW5
-	C34IgFyY93WkJ37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUm214x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1l
-	e2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI
-	8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwAC
-	jcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0x
-	kIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_
-	Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1V
-	AY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAI
-	cVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIx
-	AIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVF
-	xhVjvjDU0xZFpf9x0pRl_MsUUUUU=
+X-CM-TRANSID: gCh0CgDXpyrRyLxq8dflCA--.24306S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxZw4ruw4kKFy8XFWUZFy8Grg_yoW5Xr4UpF
+	Z5Cr15ur95Wr1aq39Fk3y7ZFW0gr4kCr13Cw18Ww15ZrZ0gFy0qrn29rWYqFZxCFyDW3ya
+	ya4agrnY9w18ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
+	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
+	zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
+	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
+	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcS
+	sGvfC2KfnxnUUI43ZEXa7sRidbbtUUUUU==
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_093127_842458_5B435147 
-X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-CacheID: sfid-20260930_093128_007533_1C4FCB2A 
+X-CRM114-Status: UNSURE (   9.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,52 +118,55 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pu Lehui <pulehui@huawei.com>
 
-When running vmtest.sh on riscv64, the kernel panic at boot due to an
-illegal instruction. This is because '-cpu rv64' only enables a baseline
-set of riscv extensions, whereas the kernel or toolchain requires newer
-extensions. Switch to '-cpu max' so qemu enables all supported
-extensions, and bump the required qemu version accordingly.
+For some time, bpf selftests on riscv64 have suffered from several
+silent breakages and test failures. These mainly stemmed from changes
+such as riscv ftrace atomic patching [0], qemu pmu behavior changes, and
+environment mismatches. While some issues have already been addressed in
+previous patches [1-3] and some are in progress [4], the remaining ones
+are handled in this series.
 
-Additionally, qemu's pmu emulation for riscv64 currently has issues,
-causing perf_event_open-related tests to fail. Temporarily disable the
-sscofpmf extension to bypass these failures for now, and will try to
-investigate and address it later.
+To catch regressions promptly and close this long-standing riscv bpf CI
+gap, the riscv-bpf-daily project [5] is introduced here. With the
+assistance of LLMs, putting together this automated workflow was fairly
+straightforward. The pipeline pulls the latest bpf-next branch daily,
+executes both test_progs and test_verifier, and automatically creates
+github issues with brief failure descriptions and sends notifications
+when failures occur. It has been running smoothly for over a week and
+has already proven its value by catching some real jit bugs.
 
-While at it, update the libbpf/ci branch in INDEX_URL from 'master' to
-'main'.
+To pave the way for riscv-bpf-daily, this patchset addresses the
+remaining fixes, test adaptations, and environment dependencies.
 
-Signed-off-by: Pu Lehui <pulehui@huawei.com>
----
- tools/testing/selftests/bpf/vmtest.sh | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+[0] https://lore.kernel.org/all/20250407180838.42877-5-andybnac@gmail.com/
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2820d227ad4e
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f2aaa6215910
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c7e617552938
+[4] https://lore.kernel.org/bpf/20260722140015.1982158-1-varunrmallya@gmail.com
+[5] https://github.com/pulehui/riscv-bpf-daily
 
-diff --git a/tools/testing/selftests/bpf/vmtest.sh b/tools/testing/selftests/bpf/vmtest.sh
-index e7e0b419a0b8..c4663cad74f5 100755
---- a/tools/testing/selftests/bpf/vmtest.sh
-+++ b/tools/testing/selftests/bpf/vmtest.sh
-@@ -35,11 +35,11 @@ aarch64)
- 	ARCH="arm64"
- 	;;
- riscv64)
--	# required qemu version v7.2.0+
-+	# required qemu version v8.2.0+
- 	QEMU_BINARY=qemu-system-riscv64
- 	QEMU_CONSOLE="ttyS0,115200"
- 	HOST_FLAGS=(-M virt -cpu host -enable-kvm -smp 8)
--	CROSS_FLAGS=(-M virt -cpu rv64,sscofpmf=true -smp 8)
-+	CROSS_FLAGS=(-M virt -cpu max,sscofpmf=false -smp 8)
- 	BZIMAGE="arch/riscv/boot/Image"
- 	ARCH="riscv"
- 	;;
-@@ -65,7 +65,7 @@ OUTPUT_DIR="$HOME/.bpf_selftests"
- KCONFIG_REL_PATHS=("tools/testing/selftests/bpf/config"
- 	"tools/testing/selftests/bpf/config.vm"
- 	"tools/testing/selftests/bpf/config.${PLATFORM}")
--INDEX_URL="https://raw.githubusercontent.com/libbpf/ci/master/INDEX"
-+INDEX_URL="https://raw.githubusercontent.com/libbpf/ci/main/INDEX"
- NUM_COMPILE_JOBS="$(nproc)"
- LOG_FILE_BASE="$(date +"bpf_selftests.%Y-%m-%d_%H-%M-%S")"
- LOG_FILE="${LOG_FILE_BASE}.log"
+v3:
+- Update comment in vmtest.sh about qemu.
+
+v2: https://lore.kernel.org/bpf/20260930064607.1908864-1-pulehui@huaweicloud.com
+- Change test value in setget_sockopt to avoid quantization error.
+- Drop path modify in d_path testcase as will mount /dev/shm in rootfs.
+
+v1: https://lore.kernel.org/bpf/20260929083924.1851840-1-pulehui@huaweicloud.com
+
+Kumar Kartikeya Dwivedi (1):
+  bpf, riscv: Fix stack-passed arguments for indirect trampolines
+
+Pu Lehui (3):
+  selftests/bpf: Avoid jiffies quantization error in setget_sockopt
+  selftests/bpf: Update qemu config for riscv64 in vmtest.sh
+  selftests/bpf: Update DENYLIST.riscv64
+
+ arch/riscv/net/bpf_jit_comp64.c                    | 14 ++++++++++----
+ tools/testing/selftests/bpf/DENYLIST.riscv64       |  1 +
+ tools/testing/selftests/bpf/progs/setget_sockopt.c |  4 ++--
+ tools/testing/selftests/bpf/vmtest.sh              |  6 +++---
+ 4 files changed, 16 insertions(+), 9 deletions(-)
+
 -- 
 2.34.1
 
