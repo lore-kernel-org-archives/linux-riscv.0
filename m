@@ -4,87 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06411CA5FC1
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 08:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5F3CA5FB1
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 08:29:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lt37Rbjgouq45ix5OYaeTb7LThwIqjAvy65wiSAmPUw=; b=nT/08WpnWDJL6N
-	3bUm+CQppMfposxfv3d2jmvRqCKPoOYxsfd+kcyuta2314AiJz3MMZcLeMr9/hzEY+CQxqLMEYCpo
-	tC5a9o6lwA8KZjnjCjZOsmc8L0dkaTarUWbMuWD8JaRKthsAeLNc8xFgWovbcDEP9a4QDmJtZQGI1
-	pQlRlPDckpQDE3WeGXbU0Beth/YIv5bbYsJzS/fT03+0q8k7iNoxsBjJnb8BRP/Rnpt+trH2LJr3u
-	3/pnf5I7Fpi+6UNqAWSSempxEsupiyP89novipPETTdQB6MwkiNhDV03ngLpmwy6/T0VxeN0zxtYS
-	eNJM1Di4uQA4nNCfiIIw==;
+	List-Owner; bh=8Reo2iVvBmfseTshVUN4zfUVzHgpt0KzUz6W9A/3p/M=; b=mehsB1dIZGwzNA
+	FAyC7la5EIfr5/gGNM8plVwSa7e6/C8OX9V7l1yJw2kXU/kE4fPUgEicYppQOrWmSM3Dfd4h8MWyR
+	v1miASkos+MwXmd20o3404s4YZGMiXnj3eZe+LmuECSlDoyWeMakVSAko214ZpO5Kecnwn1yspemH
+	tZCmoxBfIggZM1kOYRNt2+d7HL3GrOaxpv1dD64XljXnrS79yoEREHdnD+VMNy/BWbwtJDmQwmXsm
+	heQP9+9tA11wbIXYTp4ezuqa5ouB2kiSqdw+0S7IaPBXFjX9nYa46l+YSu95p+9RV5VmEmhYJ3bw9
+	HN7giPH440OnFFhUvOMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpWa-00000005P1w-41UX;
-	Wed, 30 Sep 2026 08:18:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBpgE-00000005Q4a-1Nmy;
+	Wed, 30 Sep 2026 08:28:46 +0000
+Received: from mail-bjschn02on20729.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::729] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpWZ-00000005P1d-3D6L
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 30 Sep 2026 08:18:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=H/v8r7WAxF+ClL9lg5Ll6V9s2rSOCFEtn12e421wW7k=; b=O8b3dV+SWm+ZTnN5m3Nxx9AnNQ
-	9m4RjZf3l2L8RaeHQX3F1p1elUQbJu5e8WwPrMSdpieFmAqN7BhrXOEELpOmutmKP8ZFnsFJjtH+o
-	ygnYY7ES6gEE16xX6WChSIWXnuYei8A3tc4GbE07cU1SL9UKGXkOQl9ktyLQ4xkqX19tCwMZu5JKV
-	8YtQex9BD+7TTaSnJy6TiX9VV2wVOp2fdxH6GDjSqk0uIOlS5qgQAmGs/L6SKlMUkO/M3fldY+TaU
-	i4SgLoksbnBesZglrNtwjk33R8GY/Wj2bnMkWUnZ0LDrCqkx8cxKPQG8VfMY0XLCMnnOGHILk15PK
-	mZRw/7Cg==;
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBpWV-00000003WAd-0Hv2
+	id 1xBpgA-00000005Q33-2DV4
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Sep 2026 08:18:46 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=H/v8r7WAxF+ClL9lg5Ll6V9s2rSOCFEtn12e421wW7k=;
-	b=31BUgC0QH5FLNXCVCICCF4YtBGI1mNCmBLH9PhuSjKoqnLZlaGaK5mx5StnxveLmG8yZNxQmv
-	vsjSutx17yihJIeAupMhNcWFL3IGtdOmKQZL0KE4EY66yL1AbVEi4apjkOg8wxZeqS8ywCh9QmI
-	dqIXtZQIlhOFyfYz0cvfDF4=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hvng84xY9zmV8H;
-	Wed, 30 Sep 2026 16:06:12 +0800 (CST)
-Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id 84CA140586;
-	Wed, 30 Sep 2026 16:18:21 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemf100007.china.huawei.com
- (7.202.181.221) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
- 2026 16:18:20 +0800
-Message-ID: <469b2e24-dad9-4e78-a390-03f9a7f00853@huawei.com>
-Date: Wed, 30 Sep 2026 16:18:20 +0800
+	Wed, 30 Sep 2026 08:28:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=kSMDGsiQRLvkv9xCd7D5oGgjBKoaxMy81zUxXoX1qLoygw9QjSCfPSobNQXol6bqMJL4fSKhGePD0K0lzWfmoRoAHbi26QsBdylL83wd1NkMRAc4o7z0n5cLC16hFAKmTHdo9GYANeABJhCaKRRaJMtPhpSrXDoo045SWxfU0v+cuA+NsXUQjuhiOp+4vMDHDHGR/OWNO8rP4gPkM9bO3qZ31vh/8cFGWeYHK4L1wy8MwQnj2E8Irk24TLmPoQCIQTB+D1reG+VxijiYF6Wi74IrUWMlZol0E/J2ZlRDSjdSLRm+AysdO0J4+CCkn/w/tn++PqQOUtmFrwNdg1BM3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/qtUxTpZeBf1fIpkeUG3jp0Wm19P1AexI7jxJ5mVCMk=;
+ b=A9QIsKyUPrppQ9+zFA0AUbG6UDhIPBFDDMKFp/VbQ1Qpzj338qGb/noG2Np/BWxabUp9N7MwXabqIcr5A6n0KeRFxX1St5MX2dVVOSw92FyvkLc90uq4oQMUaLCxmOnbuo0Smy28qwdefIernTfg7lEfdLDlMaIJ768aF3ZgDF6MhpjNvfWJO7LpDtdnu3KDJo8fjhVQCXXDsMNBW1HQhSGnKsVM1CLzg2wvQo44DVGXTcb2BFm9+jF0EwcO5zfQNxqXwlKlCqJNw9IkA0kfpNSSpmF7dwl+dOhbBSlzSajlzd1yxxfywBH+3tglpVvLXdYA+6x9Skr2hSG4qbBykA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1331.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:16::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.26; Wed, 30 Sep
+ 2026 08:27:59 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
+ with mapi id 15.21.0451.026; Wed, 30 Sep 2026 08:27:59 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Jerome Brunet <jbrunet@baylibre.com>, Michael Turquette
+	<mturquette@baylibre.com>, Brian Masney <bmasney@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Kees Cook
+	<kees@kernel.org>, "Gustavo A . R . Silva" <gustavoars@kernel.org>, Richard
+ Cochran <richardcochran@gmail.com>
+CC: "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>, Hal Feng
+	<hal.feng@starfivetech.com>
+Subject: Re: [PATCH v4 03/22] clk: starfive: Rename file name "jh71x0" to
+ "common"
+Thread-Topic: [PATCH v4 03/22] clk: starfive: Rename file name "jh71x0" to
+ "common"
+Thread-Index: AQHdSPew5FxIBMEJ4kOnpM+hu5x6v7bfcogAgARvjxCAAvFdgIAABc8Q
+Date: Wed, 30 Sep 2026 08:27:59 +0000
+Message-ID: <ZQ4PR01MB12026522469590AF04BAB1ACF28B2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+References: <20260920120044.194901-1-changhuang.liang@starfivetech.com>
+ <20260920120044.194901-4-changhuang.liang@starfivetech.com>
+ <1jqzih73ob.fsf@starbuckisacylon.baylibre.com>
+ <ZQ4PR01MB12022FD5940DAA1AC1279B8FF28D2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ <1jtsn72mds.fsf@starbuckisacylon.baylibre.com>
+In-Reply-To: <1jtsn72mds.fsf@starbuckisacylon.baylibre.com>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1331:EE_
+x-ms-office365-filtering-correlation-id: 49c02d1e-5925-43d3-7c81-08df1eccbc7b
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|366016|376014|10067099003|56012099006|921020|4143699003|18002099003|22082099003|38070700021;
+x-microsoft-antispam-message-info: WGDEY3LJNKj90KJ6294/RSj/FVaQfmaYoOc0t1siAzZ0LX2h4/1HlA27Yy0rNvaUShx4GGe7TWtBqOAcWmiCkpUAnchhyEoUacDqdZOLjXmITXmP4zDb2tQXPB/gGbgp0nu1APC43NS8C1vilK+TKrgPzTySItjX4TaCdiSp4HTuI9W0K1vRWmJTL/CHl6Bk+It9qSVjzHFaoNcD5/UD1fOaQrPkUnJzjUR0zSDh2gXAxQxNVUNUci7djA3RkIMxSEodIow8Rcue7vLouNnfiQj3VSfrtCzjuxp7pWtCwCqYgGb70AnrLgSylPn+BV7BjNegGxilJ17vXJcqpY6PEZOwUFEJ/Rc92tT0jI+NJg13+PMLD4MqfFWMT+HFzUBcFhbUTk3MulQR+Kekka6OxjesgKvJMERR8sPbP1onKlbPQgknDHOy3/AQ4GnBDpagB/uCTCRRxekcqtX3M1QXUktn2leA9enkFJm4hy5zu1AhxIQjmtlT9xmpXUzKYjB5sFNtdQJr8k+k9fRmpwUDo+H+6l8M8nmoZcjyvRdXG9MVCSXCJztZIsOiRnA2DuVLufNWcAqNrBp6xjtmoLwAeg==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(366016)(376014)(10067099003)(56012099006)(921020)(4143699003)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?8v9TTaOqdj84DaDw+hiAPNng2a9tk3GQZBJ+E2w899+Uz+HSOVRF0KaX5IG1?=
+ =?us-ascii?Q?S3MyVYshi3NhNfgr5KqiJyfaCqO9Tmd9EcZGK/y+b/mkIFPgcEBmOHhYKNjf?=
+ =?us-ascii?Q?f7zuw8tTNFUMv82XaRHiUBpHwektEQZKG49OFUJJaxA0/fSrPscl6k+o/0w1?=
+ =?us-ascii?Q?TPSsaumHXR0RXwYd7drE4lt2Ylj1gFK9APWh2Hm7UlKt8JqHR4XxQdAHI9DQ?=
+ =?us-ascii?Q?BDZmVCFdTHmNSNrqaFcsS+RB5v+4BD+eMXQheHY1iyx+y2Qqb6ib+Pj759TC?=
+ =?us-ascii?Q?Z836acmRHzACZfPyMTBpfL+Uym3pfpPRnJJS5P9QtmXBaxiGtEVNu/9rq4le?=
+ =?us-ascii?Q?8ISSxEA6DqPfF2306S+83HtbPmPtvb7rsudmHpwzqUT+XBX8NwYqPqUVFRlv?=
+ =?us-ascii?Q?IjYpiwxoZJNTk8LZ0Ng6cvW1Vq5Z4OBYoyku1gJ4JQvpbjq5T6zNLBN92SII?=
+ =?us-ascii?Q?Y62tjbJsrLEldutX1ImzH13dBwCcY6p4R5d/0+7lDhHHO6JNSAEG/PwAwRCV?=
+ =?us-ascii?Q?G6JwZK/QSpVhTbZ7iU2VNf/cqD1XzNU75b+Ecgni/PeJzebdMB5e7jr9oO+Q?=
+ =?us-ascii?Q?2l2pg0JTP7COeSVLXtr6jvt9U21+pR5PHWxjozEhaKGSt4PpiPDsYkbeEUxP?=
+ =?us-ascii?Q?wAZxYkSgoaZrojcue/6I8VYEKT57+OKD62tTcI/kfpGyqLJSUiR2Oni2QGsM?=
+ =?us-ascii?Q?LfQZ6B2ZGKWwRAPj7fNoW79qxD5QggyLJ/OUytvflmS0Ka2jHvyf4XodmXEo?=
+ =?us-ascii?Q?z2KVlq5pH/7is8wb77E7sXfQV2sgjwBQOd+I8/eOwT2wfmNxyAjqVSr/7VeF?=
+ =?us-ascii?Q?qc4DS8YDyFiD/sbYIdfVr7YhUb8i48L2eQF87yHk+tMVuP520GIUa1I/jk87?=
+ =?us-ascii?Q?9Yoit+SNn5kIDw5BeQf+Pqwk8eh9Y/r0GCzvvijJFjTic1PQL1kLQdrDp8KW?=
+ =?us-ascii?Q?Kd/O/7qFNQIUGFYHmpE0aMbVAW6w93SPsTJ8EJZEBV8Wcax7+7f6gm0CgaBL?=
+ =?us-ascii?Q?fENFZdXdvw2P63JwaPTWw78MKdN4lxh4bnJF2AmCBIgopjeTPEeESevAcD5s?=
+ =?us-ascii?Q?VQdGl1/OMzNG/ioL4LnJ7mx2IgXi0vI8cQ/CEKo+OP16ghumAPAmNoYQxvaD?=
+ =?us-ascii?Q?F2yu9WFGvgA6jKWbiweTgTCtww4kfscWygdCmV4MQGFQOaN8FwzNshWNXzN1?=
+ =?us-ascii?Q?y4hXZ/rVOFOZrBkdDskSkDL6Y6wBFwxi8xlMVBpOqZNKLlXJB1bkHrDwVm6n?=
+ =?us-ascii?Q?IPhmYQe9pmgnbelx9RVgq1S2gTqTLNU6Zno5pLvBT+ERw5655YN16nZ65L3u?=
+ =?us-ascii?Q?SrP5UvaMKQHbhJ5Hd56j755QpWiEElsVSXO/n1VngiKHDvoZqdxg9OODt/Wc?=
+ =?us-ascii?Q?OM7lDUVxFz3t7RzN6AQFmIWCyLyy9OdvbZQiPQm/ymUT+1XSat/ugZHMn4nv?=
+ =?us-ascii?Q?2DqPxiNdya4rjQN7lBrXBFPlLih8KJzuFBmZzs6duDBEZeWUonng176p400I?=
+ =?us-ascii?Q?a0tBb4siBQjrb6HyplmBgEodXuJqq4wBmbIOApU48pRHDXQ48MMQtVX+EAAL?=
+ =?us-ascii?Q?xtlZAEnq2pF0gEBGpDYr9RpEtL5dLQUevyi6z2xuwWYGXvcl+cKmFTzxLiQK?=
+ =?us-ascii?Q?q1/giKuAQKbA2tjV/1nHduDSGBAc4bdJrNJrmNa76tyOVEZasFXdwTSbnXFq?=
+ =?us-ascii?Q?fiUCHerh1OUluqtzqWTDqDoxAUCPeS+Z+i+y+ClVLLlrt/5lR4OtPB/4wFyN?=
+ =?us-ascii?Q?MLiF3mHrkJ2eCQtqzziqZVfzJ5pf+Gg=3D?=
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v2 3/4] selftests/bpf: Update qemu config for
- riscv64 in vmtest.sh
-To: <bot+bpf-ci@kernel.org>, <pulehui@huaweicloud.com>, <bjorn@kernel.org>,
-	<bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <ast@kernel.org>, <daniel@iogearbox.net>, <andrii@kernel.org>,
-	<eddyz87@gmail.com>, <memxor@gmail.com>, <martin.lau@linux.dev>,
-	<song@kernel.org>, <yonghong.song@linux.dev>, <jolsa@kernel.org>,
-	<emil@etsalapatis.com>, <ihor.solodrai@linux.dev>, <puranjay@kernel.org>,
-	<pjw@kernel.org>, <palmer@dabbelt.com>, <alex@ghiti.fr>,
-	<martin.lau@kernel.org>, <mason@kernel.org>
-References: <20260930064607.1908864-4-pulehui@huaweicloud.com>
- <f5ed8c5179098109e321e1cc42ced4bf30fc4bf80603fdaeef517277f38834eb@mail.kernel.org>
-Content-Language: en-US
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <f5ed8c5179098109e321e1cc42ced4bf30fc4bf80603fdaeef517277f38834eb@mail.kernel.org>
-X-Originating-IP: [10.67.110.68]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemf100007.china.huawei.com (7.202.181.221)
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 49c02d1e-5925-43d3-7c81-08df1eccbc7b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Sep 2026 08:27:59.3809
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Sb9tN59D5hGUQ+ZHGSvtQAarEITcs9Ym6/pD6Ybo+oHSiwAOhGR9PPupSshXXPSfrFd3kq0exhF6JKfQXvMlC2Djac5YPCzdYBnH+RdUNSnjdE32PL+rw1GwXc6b1ycn
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1331
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_091843_938312_08CADC72 
-X-CRM114-Status: GOOD (  15.24  )
+X-CRM114-CacheID: sfid-20260930_012842_569031_61B34344 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,71 +146,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi, Jerome
 
+> On lun. 28 sept. 2026 at 11:10, Changhuang Liang
+> <changhuang.liang@starfivetech.com> wrote:
+> 
+> > Hi, Jerome
+> >
+> > Thanks for the review.
+> >
+> >> On dim. 20 sept. 2026 at 05:00, Changhuang Liang
+> >> <changhuang.liang@starfivetech.com> wrote:
+> >>
+> >> > From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> >> >
+> >> > StarFive JHB100 shares a similar clock and reset design with JH7110.
+> >> > To facilitate the reuse of the file and its functionalities, files
+> >> > containing the "jh71x0" naming convention are renamed to use the
+> >> > "common" wording.
+> >>
+> >> Is this really necessary ? Rename are generally not recommended.
+> >> Do we really care if your new soc use something named after the older
+> one ?
+> >>
+> >> You are naming it common now but how long is it going to stay "common" ?
+> >> If your next SoC does not use this anymore it won't be common for long ...
+> >>
+> >
+> > Okay, I will drop the current PATCH 1/2/3/4 and directly reuse the current
+> JH71x0-related interfaces.
+> >
+> 
+> Please make sure your series applies on clk-next next time around.
+> This one failed to apply when it was sent.
 
-On 2026/9/30 15:19, bot+bpf-ci@kernel.org wrote:
->> selftests/bpf: Update qemu config for riscv64 in vmtest.sh
-> 
-> TL;DR: The new '-cpu max' riscv64 option in vmtest.sh needs qemu 8.2.0+, so
-> cross-runs on qemu 7.2 to 8.1 may fail; the "v7.2.0+" comment and commit
-> message may be stale.
-> 
->> diff --git a/tools/testing/selftests/bpf/vmtest.sh b/tools/testing/selftests/bpf/vmtest.sh
->> --- a/tools/testing/selftests/bpf/vmtest.sh
->> +++ b/tools/testing/selftests/bpf/vmtest.sh
-> 
-> [ ... ]
-> 
->> @@ -36,13 +36,13 @@ aarch64)
->>   	;;
->>   riscv64)
->>   	# required qemu version v7.2.0+
->>   	QEMU_BINARY=qemu-system-riscv64
->>   	QEMU_CONSOLE="ttyS0,115200"
->>   	HOST_FLAGS=(-M virt -cpu host -enable-kvm -smp 8)
->> -	CROSS_FLAGS=(-M virt -cpu rv64,sscofpmf=true -smp 8)
->> +	CROSS_FLAGS=(-M virt -cpu max,sscofpmf=false -smp 8)
->>   	BZIMAGE="arch/riscv/boot/Image"
->>   	ARCH="riscv"
->>   	;;
-> 
-> Is the "required qemu version v7.2.0+" comment still accurate after this
-> change?
-> 
-> The riscv 'max' CPU model isn't available in qemu before v8.2.0.  In
-> target/riscv/cpu.c, v7.2.0 and v8.1.0 have no riscv_max_cpu_init() and no
-> TYPE_RISCV_CPU_MAX, and v8.2.0 is the release that adds:
-> 
->      DEFINE_DYNAMIC_CPU(TYPE_RISCV_CPU_MAX, riscv_max_cpu_init)
-> 
-> The previous '-cpu rv64,sscofpmf=true' worked on qemu 7.2 because the
-> sscofpmf property already exists there.
-> 
-> On a non-riscv host, run-qemu takes the CROSS_FLAGS path and runs
-> ${QEMU_BINARY} with "${QEMU_FLAGS[@]}".  With qemu 7.2 through 8.1 (Debian 12
-> ships 7.2, for example), qemu-system-riscv64 would fail with "unable to find
-> CPU model 'max'" and the script would abort under 'set -e'.
-> 
-> The commit message doesn't mention the raised minimum qemu version either.
-> Should the comment be updated to v8.2.0+, or should the commit message state
-> the new requirement?
+Okay, I will send the next version based on clk-next.
 
-make sense
+Best Regards,
 
-> 
-> [ ... ]
-> 
-> 
-> ---
-> AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-> See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-> 
-> CI run summary: https://github.com/kernel-patches/bpf/actions/runs/36681333169
 
 _______________________________________________
 linux-riscv mailing list
