@@ -4,79 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D63CA5FBA
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 10:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1DE5CA5FB1
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2026 11:02:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NNCvP82JDjX7xSU8YjcaIYfKqbVTm6LrDyabC8BVnyA=; b=unYDNpv6dh9Q9R
-	f9vRwszzn8xj60MVTHANIEfk0pyZZjOVlkpNi6gFJY494Ud2IEVKB28Jdnpg00eA1kICDPy3tN8/1
-	LbClgp9smsSM9MSlZ23Pi5DumH+px+Epst7fZAmUbD6vmRsEJXwd7Ib0+aCOMjM28lJANukOXgh3q
-	jXBkEdVLGb7AMHoA00iv+6pL7rMFTCcKGbmAt4Cnolt3pEewc8neK2SsB9zh4U1VHPHqSrz6e16AZ
-	vqQCQ9rSxT0RyoSkK9xT84HXklJbjSIzKFKzOYmWmdlo2P71QbSUCYCLKz4YtUoBt/DJgHeqFDkyv
-	gvyeoJCoJf3mW++wgJiQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Mkjhv8WOc26FDGczNamfV6Yf8bIYwS+2XlyTXPsbCXU=; b=c0gH5odl5V0GLz
+	jQTv/yP/iSovOpE8TA8h6HPZbRrxV4mXvOb/JRusKONGjweMHRs+/H7wKGYAw9jkGgEm4S7G8xY5E
+	RFZSS7fkQr3Ed9eRhZ6hLZpGiDN9NU1uEPUewctSr9FUbD4PvJUFeToxnwkHYMMk5w5sM978TydNe
+	ESS18oSk8wL7oeVoh3sNnjIFwCe11Q9x3N+TFnKsGBkG2TrGorId0Fa88clo0iJwnqx5f1/nJyP4r
+	B25/vLlN/Ps60zsRqK2ioROA6yVmAqdJljxs6AfR8kdOqiX1PIinTP+JwyzYCYlsohyq+y2i+kqsK
+	8i9jcK+sK4gX1HqCfJvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBrmI-00000005mey-0ADy;
-	Wed, 30 Sep 2026 10:43:10 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1xBs4O-00000005oV9-0FFx;
+	Wed, 30 Sep 2026 11:01:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBrmE-00000005mdo-1tpd
-	for linux-riscv@lists.infradead.org;
-	Wed, 30 Sep 2026 10:43:08 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4hvs7B628KzKHMgc
-	for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2026 18:42:14 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 0DAA240574
-	for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2026 18:42:52 +0800 (CST)
-Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP4 (Coremail) with UTF8SMTPA id gCh0CgBHZCeq57xqgX_xCA--.57102S2;
-	Wed, 30 Sep 2026 18:42:51 +0800 (CST)
-From: Pu Lehui <pulehui@huaweicloud.com>
-To: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Luke Nelson <luke.r.nels@gmail.com>,
-	Xi Wang <xi.wang@gmail.com>
-Cc: bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Pu Lehui <pulehui@huawei.com>,
-	Pu Lehui <pulehui@huaweicloud.com>
-Subject: [PATCH bpf] MAINTAINERS: Add myself as co-maintainer of riscv bpf
-Date: Wed, 30 Sep 2026 10:46:59 +0000
-Message-Id: <20260930104659.1919027-1-pulehui@huaweicloud.com>
-X-Mailer: git-send-email 2.34.1
+	id 1xBs4M-00000005oU3-2Iub;
+	Wed, 30 Sep 2026 11:01:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 721A660008;
+	Wed, 30 Sep 2026 11:01:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6BFF1F000FF;
+	Wed, 30 Sep 2026 11:01:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790766109;
+	bh=9bi/i2/aWze1bEGDde8mb4HVoivi8jt5RnjoRegpme8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=kwqcvJqG1zng3JAdzZvvRl3xl1DseZ3TkRS3norZFgdnNiGjQ99aHK63nTWAW0LE+
+	 tj9QX+qvUi0Accx8sb2cHH5/p9/xlSCHc5fxa5schyZsasHCMdUg0VqHNkTUIVXG/k
+	 XGQu7lKCzB4d2zN1fjEWnaKg9ex9JIdVqlTLGWeWwoWiX8FXV/FeZ9+/s/4p8E88QL
+	 jmiN+T6isod3NKrstQORYbPJZCgqmYYngmP4Clg7mKDdKAcYf+vNsiXz8aJYlJVgLQ
+	 hH2+xV26luJZ29/dVp29GQUrnE2KuzIk+0cpyKoJAZXA+Jo8Pptui+LdRHGs+6ZhLn
+	 jFCQWevto44/w==
+Message-ID: <6cf9e611-bfc5-407b-8132-bd328f8b61fc@kernel.org>
+Date: Wed, 30 Sep 2026 13:01:30 +0200
 MIME-Version: 1.0
-X-CM-TRANSID: gCh0CgBHZCeq57xqgX_xCA--.57102S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CrWrAr17XF1fKr1rXr48Crg_yoW8AF43pa
-	15Gw15C34kWr1xAr4rGF1jqayrA3WkG3y5CrZrW3s8AFn3Kw10gr10ka1Uua109FWrur4S
-	yry3Xr1vyaykAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCT
-	nIWIevJa73UjIFyTuYvjfUonmRUUUUU
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_034306_829090_7BAF9719 
-X-CRM114-Status: GOOD (  10.37  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
+ starfive,jh7110-inno-hdmi-phy
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Lee Jones <lee@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Emil Renner Berthing <kernel@esmil.dk>, Hal Feng
+ <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Dominique Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Maud Spierings <maud_spierings@murena.io>,
+ Graham Markall <hello@big-grey.co.uk>,
+ Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ Joshua Peisach <jpeisach@ubuntu.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+ <CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com>
+ <20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com>
+ <20260917-mutant-chamois-of-competence-46ca77@quoll>
+ <1a1a9b49-430b-4218-b27d-e133d488e8d9@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <1a1a9b49-430b-4218-b27d-e133d488e8d9@samsung.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,42 +140,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogUHUgTGVodWkgPHB1bGVodWlAaHVhd2VpLmNvbT4KCk92ZXIgdGhlIHllYXJzLCBJIGhh
-dmUgYmVlbiBhY3RpdmVseSBpbnZvbHZlZCBpbiB0aGUgZGV2ZWxvcG1lbnQgYW5kCmhhdmUgcHJv
-YWN0aXZlbHkgdGFrZW4gb24gbWFpbnRlbmFuY2UgcmVzcG9uc2liaWxpdGllcyBmb3IgdGhlIFJW
-NjQgSklULApjb3ZlcmluZyB0aGUgcmVsYXRlZCBicGYgY29yZSwgcmlzY3YgYXJjaGl0ZWN0dXJl
-LCBhbmQgc2VsZnRlc3RzL0NJCmluZnJhc3RydWN0dXJlLiBXaXRoIHRoZSBjb250aW51b3VzIGdy
-b3d0aCBvZiByaXNjdiBicGYgZmVhdHVyZXMgYW5kCnRlc3Rpbmcgd29ya2xvYWQsIGFkZGluZyBh
-IGNvLW1haW50YWluZXIgaGVscHMgc2hhcmUgdGhlIHJldmlldyBidXJkZW4KYW5kIGVuc3VyZSB0
-aW1lbHkgcGF0Y2ggaGFuZGxpbmcuCgpBcyBmb3IgdGhlIFJWMzIgSklULCB0aGVyZSBoYXMgYmVl
-biBhIGxhY2sgb2YgYWN0aXZlIG1haW50YWluZXIgcmVzcG9uc2UKZm9yIHNldmVyYWwgeWVhcnMs
-IGxlYXZpbmcgaW5jb21pbmcgcGF0Y2hlcyBvY2Nhc2lvbmFsbHkgc3RhbGxlZC4gQWN0aXZlCm1h
-aW50ZW5hbmNlIGlzIG5lZWRlZCB0byByZXZpZXcgaW5jb21pbmcgcGF0Y2hlcyBhbmQgZW5zdXJl
-IGlzc3VlcyBhcmUKYWRkcmVzc2VkIGluIGEgdGltZWx5IG1hbm5lci4KClRoZXJlZm9yZSwgSSB3
-b3VsZCBsaWtlIHRvIHJlcXVlc3QgdGFraW5nIG9uIHRoZSBjby1tYWludGFpbmVyIHJvbGUgZm9y
-CmJvdGggdGhlIFJWNjQgYW5kIFJWMzIgSklUcy4gRm9yIG1lLCBiZWluZyBhIG1haW50YWluZXIg
-aXMgYm90aCBhbiBob25vcgphbmQgYSByZXNwb25zaWJpbGl0eSwgYW5kIGl0IGFsc28gbWFrZXMg
-aXQgZWFzaWVyIGZvciBtZSB0byBwYXJ0aWNpcGF0ZQppbiByaXNjdiBicGYgd29yaywgd2hlcmUg
-SSBsb29rIGZvcndhcmQgdG8gZGVkaWNhdGluZyBtb3JlIHRpbWUgYW5kCmVmZm9ydC4KClNpZ25l
-ZC1vZmYtYnk6IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Ci0tLQogTUFJTlRBSU5FUlMg
-fCAzICsrLQogMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQoK
-ZGlmZiAtLWdpdCBhL01BSU5UQUlORVJTIGIvTUFJTlRBSU5FUlMKaW5kZXggMTQwZWFmY2JiZDc4
-Li5jMjcxMTk1MDAxNTIgMTAwNjQ0Ci0tLSBhL01BSU5UQUlORVJTCisrKyBiL01BSU5UQUlORVJT
-CkBAIC00ODcyLDYgKzQ4NzIsNyBAQCBGOglhcmNoL3Bvd2VycGMvbmV0LwogQlBGIEpJVCBmb3Ig
-UklTQy1WICgzMi1iaXQpCiBNOglMdWtlIE5lbHNvbiA8bHVrZS5yLm5lbHNAZ21haWwuY29tPgog
-TToJWGkgV2FuZyA8eGkud2FuZ0BnbWFpbC5jb20+CitNOglQdSBMZWh1aSA8cHVsZWh1aUBodWF3
-ZWkuY29tPgogTDoJYnBmQHZnZXIua2VybmVsLm9yZwogUzoJTWFpbnRhaW5lZAogRjoJYXJjaC9y
-aXNjdi9uZXQvCkBAIC00ODc5LDcgKzQ4ODAsNyBAQCBYOglhcmNoL3Jpc2N2L25ldC9icGZfaml0
-X2NvbXA2NC5jCiAKIEJQRiBKSVQgZm9yIFJJU0MtViAoNjQtYml0KQogTToJQmrDtnJuIFTDtnBl
-bCA8Ympvcm5Aa2VybmVsLm9yZz4KLVI6CVB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+CitN
-OglQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWkuY29tPgogUjoJUHVyYW5qYXkgTW9oYW4gPHB1cmFu
-amF5QGtlcm5lbC5vcmc+CiBMOglicGZAdmdlci5rZXJuZWwub3JnCiBTOglNYWludGFpbmVkCi0t
-IAoyLjM0LjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+On 25/09/2026 23:05, Michal Wilczynski wrote:
+>>> +  clocks:
+>>> +    maxItems: 1
+>>> +    description: Reference oscillator.
+>>
+>> This barely counts as a resource, so usual question: no resources here?
+>> no MMIO? Even the user of this phy is the block itself.
+>>
+>> This makes me wonder if this should be a device node in the first place
+>> (instead folded into the parent).
+> 
+> The PHY has no reg because the reg is shared with the controller and
+> owned by the parent - patch 9 lets the bridge take its regmap from
+> there.
+> 
+> The user of the PHY is not only the block itself. It is the pixel clock
+> provider for the whole display subsystem, voutcrg takes hdmitx0_pixelclk
+> as the parent of its DC8200 pixel MUXes, and while HDMI output is active
+> it is the only intended source for that clock. The parent has to be
+> assigned explicitly so the general PLL does not end up driving the pixel
+> clock, and so a DSI user does not reach the HDMI PHY clock generator.
+> 
+> So it has to be its own node. The HDMI block has two independent
+
+I do not see the logic which lead to this conclusion. Pixel clock
+provider, so a clock controller, cannot be a user of a phy. Clock
+controller does not have a physical layer.
+
+And really, I have no clue what hdmitx0_pixelclk and voutcrg are. I
+could probably study the patches a lot to figure that out, but my review
+queue has still 200 more, so I'll skip.
+
+But nevertheless assigning clock parent of HDMI clock to PHY is
+standard, most of the platforms have it, thus it is not a justification
+for odd design.
+
+> functions with different clock inputs and one of them feeds back into
+> the SoC clock tree. The PHY generates hdmitx0_pixelclk which voutcrg
+> consumes the controller consumes pclk/mclk/bclk from voutcrg. Folded
+> into one node that node is both a provider to and a consumer of
+> voutcrg which is a cycle in the hardware description, not just in Linux.
+
+
+Best regards,
+Krzysztof
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
