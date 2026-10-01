@@ -4,90 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED921CA5FA5
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 05:24:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE85CA5FA5
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 05:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T0viwwPZqFhn4zhJSHZjJ4Qr3+U5k4VPLUgJfBVP89g=; b=qvG3f/gGUi9XjU
-	Gckg3W2T8O89zA8u63S4sEWT/WKKKWsmbg7efZ+z5J92DORKSdJvUCiNg1i9T1mui1ZS0LZCLAsTD
-	EhOHKdzmgB17S5JzwVX8rzIr2H52WIK5rc22BGYhEAwgEfDhJ6tPKbT5eRPCI4XuC8wcZaw4cmKhg
-	9d6tyXnyFkL2OOevA4OYnUuCfRISXVKbj4ywxDUYHpDsijFjCfCzzR6eb23PwZg1p8sVLgYEBPJ0J
-	2UsU1CnThsrPUPbb1tVfyatk83Jka/7+LnC/jvUvRYUuB4jUtw1grMP7gtrUCrcgmSX/Ov/gl/Wrz
-	O7AzL3b9kk69l65wUvPQ==;
+	List-Owner; bh=O4c9t2iEnQXWQ25foNwkivw96Zp/Dfz1F4fjOhY1txI=; b=wrfYk1rU00bz20
+	7xZNNN1UmW8UH7r1ngpgg7qyA5yxaHUxhFn8UPJfaGcpHEcXhPA4cZswhwiqte3AZMyc1oikjvgLB
+	ZNrkUkfS7mXq4gXFJFhwUldn8Wj/hPQJ1cYsjuJPxyc0/sJuLpm9+GsQZg5Rtixpyb4WjgUlBGDlg
+	YFNTIn7zxBPxAjaXyyBjCuIQbwZw6bzx2T0RyVqJhJpyfkIA3AM5qvmLjqU6XWXntYoArjwm8LvPf
+	Yu1KT/Kt2+TOe+0BCEQYosEnrVPzzoJbK/FvExYyQ+c9qesPiss1yEqeeDatGejBKBQhYbloeEc5/
+	O2Lbs3NQCDMzPNjg8bnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC9H7-00000007naI-0xvN;
-	Thu, 01 Oct 2026 05:24:09 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xC9HD-00000007ndm-1Sfq;
+	Thu, 01 Oct 2026 05:24:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC9H4-00000007nYi-1dxG
+	id 1xC9HB-00000007ncd-0t5X
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 01 Oct 2026 05:24:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=N+RkyGHAtZ4jeVfeYfJcIP0Ux1XRCteHgZPTH9XttmY=; b=XUbTifNqeE02DC1y2S0sxsbBxs
+	nbK3ZLTLmOZjk9lBVcH3RsuxJ9ABvXUbHrJX1l4xp/71GalLQOqBHyG7/B18SPm4nodaborNjxKLN
+	BhxS7Is2Doc/CaZWf1sb9RY26vHGSEdkRzO7JApcVA+S8wdLuTO2k4gEMOksi0q4KH0ta+V2LjZ8v
+	UnS5RqyWms0wMOKyhR59ssniBYN859QYRalX1sleJUv9TzUuL2Ho9dxMbYS17Dp/LW+MNbcswMG0m
+	SrXFh/PkMywCtoyiQGd6SpZ/vU7nfcJYfzhfvxTbXbNz2usGNv6UBXZQ7oNoGZuoeMlNQKBuIGGp1
+	delz6iwg==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xC9Gx-00000004aj6-2WAo
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Oct 2026 05:24:07 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6913gXw91240206
-	for <linux-riscv@lists.infradead.org>; Thu, 1 Oct 2026 05:24:05 GMT
+	Thu, 01 Oct 2026 05:24:11 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6915GM9I1953560
+	for <linux-riscv@lists.infradead.org>; Thu, 1 Oct 2026 05:23:57 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=hdmJBOURZFk
-	lDL2G+CgifetZhhumtO7AZp3GzGIPueQ=; b=pzKcGLkoAGuQyphMlTQGjDL5nHr
-	RUGVSK6PwFnL6jcgXJvVsOhumo6LKovj/FJEiwMafqQVd6NaxgJ2Ux3FiYWYL6l0
-	0xjszU2WBrX0xs2CzpRtdIIrIw8Ca4zkF5kPuipwyLZpfOvF4RM3u2QSkG3h+4xk
-	ctfVyXKIFmQI2n4iaMFaU0CT4DYUN7dbPLmtZ/hjLsKbovmRZogqzGeQwt9Nlzke
-	ZJptSenFJBxmbZQMtu+oaiNM7zp10QNaqQrpIxKnrHeRFwlRfW2iImiy+UsToqHY
-	XnS7Ebnr2OQvKoWT7kLy25FN2FSl7HB71ZKAsFJPdzsxrlsvGw2G+/kQ6tA==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h167pjm97-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=N+RkyGHAtZ4
+	jeVfeYfJcIP0Ux1XRCteHgZPTH9XttmY=; b=ji/BgsvIC+b247yWn+Xq+qQxWUc
+	A8AqWvwnSt25Tjn1VYXPsJdndfKwwtDGTZkXJRC7iWlHVHDQWWXoFRKTNZQZSxvj
+	QhmQ3xp0RU1FXc/dfKBgzOoy4Ka1+1DkX3vEkz01fiysh2L8x1Bs9GKkS3xrD4Cp
+	w3ceBBVTU3SyGeuCpYXxhP+sDDKqAUdlNpQFZP60cicErZsg4u893i3nYckMLqEA
+	xXnkgw/Lb5pkx2ZDYG01n7+yayA7DYIy6a2Ek6j900Axu6zRU9BnB9I+jjVwsIQm
+	TNVdo6NQuacZduFc3wrucnIxY6akY1/R+lMqKuxzso+uTafpzAFKflcc7Xw==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h1h7nr19q-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 01 Oct 2026 05:24:05 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2e2e0bc619fso14531175ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2026 22:24:05 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Thu, 01 Oct 2026 05:23:57 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3a470ead068so3674680a91.3
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2026 22:23:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790832244; x=1791437044; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1790832236; x=1791437036; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=hdmJBOURZFklDL2G+CgifetZhhumtO7AZp3GzGIPueQ=;
-        b=HSgsrqq78QrOoiwQEOOyCFBdQBAfRPkgtAq5whk0rRQETFfvl/ioBFAQIs3YDIU25S
-         6Gj5B0aoVpPxdHmIT35Drn3X+EkD0bJ3pVSHWNv4HcpegQsB1Oz7qBpEpaa3GYUbOCds
-         zAfnkWtZsdyoVCHg1cd0uA2jJkbpBiS/KKx1mIo8NIDSJSE4LofKAjEW/UvWywJ+c2mo
-         Onq46YY0gP5FKb3tpqZIvSJPp/O5sUnR27Y2exmc6wI9z/m2TOTNZkTFjBwH5EabcdVB
-         ImQ7aX94wkp7DHMOwJkU9oW6QwBXL5MXMvuuDoXi10JX1voekvwKgI95nD7xy+vFc7tJ
-         8+GQ==
+        bh=N+RkyGHAtZ4jeVfeYfJcIP0Ux1XRCteHgZPTH9XttmY=;
+        b=ZRBHe5kGbrmxP6JS/2BRH52IE3U9tmmjl6nG3p3TsI31qwJYYsS8JWyMO+NZhsNU8e
+         452q9KcODdCAX7r59cT7XX6pNpOT1DL1VTQmKUWPmXrLmbfydFkbQEqVY/k3aXY2nPUW
+         hCphqCYnYst7Fm7rHuw6j04Xwj+S9POSo0zyqTzFSgniwPxnwcuQ4tnP6v9kvbpT7zmj
+         kx3tvN6ehYrn/wVBdSS52uQu2/dktuTZiOLGp5tAooNB5DXY4m0dR5H9yWbavKCcngqr
+         ojc2COXW3ia6pDrfQK4OxXmoqtL5GK5h82SySJAOBEAAPBQN+r17/UnJTL+O8SGRIOMD
+         xqrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790832244; x=1791437044;
+        d=1e100.net; s=20260707; t=1790832236; x=1791437036;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hdmJBOURZFklDL2G+CgifetZhhumtO7AZp3GzGIPueQ=;
-        b=ebv/tgprT85wGBZm/5LwT6E+ULB0MJRaWVBqRP6Ix/r1vway4iJYrg07keST2JV6v/
-         rpwJgolfW3UUB1DjEWN8B8n+1N4Vhog4vt8lt/Z6CRBdMdkN3b+3DCUFSiFVTb0FYcGs
-         /Vzue6Ampsa3u6JL7XCb7xYOFZbKSnjdEaz2mfDhlpbrjTUPt3IBuUcHS0sTW7C8+IWZ
-         ZnmRRixXIaCI5zf+CamSMk+Eh9437vPEPWGtzjdVa+fNj3H8dtdrwmeA/QTQEXUx22+7
-         QLV+Yun9/WjUQjq518BuVi3orn7kD8c4FWWK8nq3J1KODV+0zJvZ8hx9rCdaDhUeNS5j
-         fzuQ==
-X-Forwarded-Encrypted: i=1; AKwUvByC3GUwg9uaJVdLEImaAJp/RGh6yMA+v0YqTtEuYhAA1i+wD3cye9cub7y9u/10hKbz8QnOxmbs3AFYGA==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKUaKhHV4zFyvH8ZBEICBBgfTwTsAql9VrtQAIyMpFYyv6ZK/19
-	gWjD5Uml4FzWJGlWnzdPp+rptdBmykvrWIexJ7nU0Smx5RrvQLZEZF3iAbUDmjTMyDkOu6+uX9c
-	omzd0tQtQKs5mE/s0rcss3+y7AVN53kW40d2pHooGeGIffCo/abIBOVuaifJttYacmtq3WWA=
-X-Gm-Gg: AYBFou1rm/aCaupZlzJljzg9ZWMDxvza0Aa4mchBezwcTRAuMY2evrXRYA9dSbAvE5H
-	ZpUu6TViIsd85kBQf5E6uGEfDLkiwl/XkQUjvQyhbjEfBfWMqRjW/Trepk+aZgzQp7Q05uN5L8U
-	JgiocbsVr+aKULp42mTa2orw0pCzpUQ/Wt3S2jG7mBoTArG5QiMqxkvpVxX/2mLj2gZPBh5tADe
-	/iPBHpQce2cNOrOHJaV6b3e0xeTCrY5d4BtIvb6pCBT384TAMlR3ZdeIkM/MBi7WJnMciWsa2dz
-	yxhhyMUYAyu9IQYhXrjuD8XLFT2dwRq7SiOIp93wKKpvv+s41dZ6aIJJri0A9gZV++IW09sQibI
-	jDK2ap7QCWpsujRbVqqgdzeTFdCEZKxnO2n5Hj5s1C8e7JwLwgcZb3fRL081h/RFzfws2m62EjN
-	SLaFAkzbHxvZIdMjddr4nssAyP
-X-Received: by 2002:a17:902:d489:b0:2e2:c2a6:48bf with SMTP id d9443c01a7336-2e2e4b33993mr27533875ad.26.1790832244402;
-        Wed, 30 Sep 2026 22:24:04 -0700 (PDT)
-X-Received: by 2002:a17:902:d489:b0:2e2:c2a6:48bf with SMTP id d9443c01a7336-2e2e4b33993mr27533625ad.26.1790832243901;
-        Wed, 30 Sep 2026 22:24:03 -0700 (PDT)
+        bh=N+RkyGHAtZ4jeVfeYfJcIP0Ux1XRCteHgZPTH9XttmY=;
+        b=d6/+igJiE97QzGaMardte0zHZjCJy4GWpOpAEUO88XyxAgVa0rrEpw8FXejLalPUwm
+         bsjihE1kHk2kQqoe5e07tU3SoCFCkbeZ1FrpZf09sfhLHHTNNhXwqryoWuwDR+EE7DYk
+         9U1FS2bMDv35YynubSUnCcnMMA3+cBBnZgdhLpgr+4JL1P8k6tYA8T4REppoteMzwCe6
+         mhzWt0ebBmQcaWAKw96l0RltRfcFcj91ljK6hdaelsi3kVVed4xly5Cj/NMmcOVWCZ7F
+         tynAy3+JNQOnyXs4y95A71ev4MN5RiBrVF7o3GpQ5xTPsK0ZuNvyNJa+jCxJtgd+ogmq
+         pI4Q==
+X-Forwarded-Encrypted: i=1; AKwUvBxISpYh0JfoaRI1dml0w/kKlfND/prsqDLtbLt0+igo3rlJz/EQKqcKiZPMtUyHxPV0YrVZnbNen1xTCA==@lists.infradead.org
+X-Gm-Message-State: AFq9FYLY32hXQlvYXVRABUrCBkvCeTMuyP8z7wkFlwIVm8zgFUqDO212
+	T4vF7QVVnaBvUM6uZOUCfNkANzMIQDEBSmlaVynRjjqwN/72aBc4cUudKi3d+70C5O3FK73HII8
+	VaZqR+IAyaAXedcAdFhw03O91fX9c5RsXrj8lJ5CjygUzM6IKzGWo4y1kdVQp3i3i+FANW6M=
+X-Gm-Gg: AYBFou00FbvcJz5caInREVehaALwCAz6a38fK9y0g6JvQETJO9K+FqJhIQo6OkQ0bWo
+	sjeOEZvDleDyip4Z+klz+If4hDVQ6rmUways73nLaZ/PxzDHMRrK8OHwrxccbQCopIxr+3UREw/
+	C1hGZ4Tdhmr7X8dZUNBgJ9A/ajgIiNxCexb+MgJYuOGPqFnBNW95MoFb009TpgBv20w0ZMCNQTa
+	bGeti6m4AcCymFPM7FrAdhGOS46Mm4i8/6nmA3UA0O1rI7r+iPH/dGccHUelsBy1yQouYA8tTiC
+	40HBmi4D1sFTGurq8rMnYIoeWxNP2efLys4i23enwLwPe7OgQBpgTOBzy7etCQT6i5Gz8RWNw0J
+	y5mpMLrMlHegRVM0daZMnYakTtH33fLqsF2xYiPVQbmD2uHA3a3fyb9jRpDVTZSdlNkBLQxRnKc
+	/Lehv11vRKlnvrADEDhJM5EDPj
+X-Received: by 2002:a17:903:b8e:b0:2d6:fd55:3a9d with SMTP id d9443c01a7336-2e2e48b8521mr28656225ad.3.1790832236325;
+        Wed, 30 Sep 2026 22:23:56 -0700 (PDT)
+X-Received: by 2002:a17:903:b8e:b0:2d6:fd55:3a9d with SMTP id d9443c01a7336-2e2e48b8521mr28656015ad.3.1790832235856;
+        Wed, 30 Sep 2026 22:23:55 -0700 (PDT)
 Received: from hu-mchitale-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2e300b851b9sm5152715ad.78.2026.09.30.22.23.56
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2e300b851b9sm5152715ad.78.2026.09.30.22.23.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Sep 2026 22:24:03 -0700 (PDT)
+        Wed, 30 Sep 2026 22:23:55 -0700 (PDT)
 From: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>,
@@ -95,9 +110,9 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Greg KH <gregkh@linuxfoundation.org>,
         Alexander Shishkin <alexander.shishkin@linux.intel.com>,
         Ian Rogers <irogers@google.com>
-Cc: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
-        Alexandre Ghiti <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>,
-        Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+Cc: Anup Patel <anup.patel@oss.qualcomm.com>, Alexandre Ghiti <alex@ghiti.fr>,
+        Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+        Namhyung Kim <namhyung@kernel.org>,
         Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
         Adrian Hunter <adrian.hunter@intel.com>,
         Mayuresh Chitale <mchitale@gmail.com>,
@@ -105,44 +120,44 @@ Cc: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
         Andrew Jones <andrew.jones@oss.qualcomm.com>,
         Sunil V L <sunilvl@oss.qualcomm.com>, linux-riscv@lists.infradead.org,
         devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Anup Patel <anup.patel@oss.qualcomm.com>,
+        Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
         Zane Leung <liangzhen@linux.spacemit.com>
-Subject: [PATCH v6 05/14] gtrace: Add functions to start/stop tracing on a component path
-Date: Thu,  1 Oct 2026 10:52:16 +0530
-Message-ID: <20261001052243.3042627-6-mayuresh.chitale@oss.qualcomm.com>
+Subject: [PATCH v6 04/14] gtrace: Add functions to create/destroy a trace component path
+Date: Thu,  1 Oct 2026 10:52:15 +0530
+Message-ID: <20261001052243.3042627-5-mayuresh.chitale@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261001052243.3042627-1-mayuresh.chitale@oss.qualcomm.com>
 References: <20261001052243.3042627-1-mayuresh.chitale@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Proofpoint-ORIG-GUID: zF-Y2x_FWGfN4yaLmiHqRtVEQFSKOmJN
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAxMDAyMSBTYWx0ZWRfXybD2p5yi+XGX
- b81kH5b1HxACYhsnKzViL9M/SBvBMoFSUwlE0rCJhgkk+oa891Wklby7D7TSK+gVViZA7YJyuHd
- feaopw9QSx65K7gjZmTbpah0bwsjAQI=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAxMDAyMSBTYWx0ZWRfXwQRIHgp74sEG
- GzhN7weQTQSeJ64nVP1Kxm3H0jBgkh+4pLXbo7RGW1Tct99Zwo86FEJ0IygFzexyk7bX2i+N/N9
- wyhFXSqvJ3JTVCP723uahGWJ/1cXbVJoN911lLYIOl/jIcTJ4BpMb3cA0zb3DHvRnPJ0wHVIYFQ
- j5Pocjoyyv4bZcZaSMjYz0GUR80wLlhbUVYbXyRB8sOWhNHPiuC6gYkGuukbRGzqmaAH6Jc5KRG
- jc2az5vjR1RuuLizyyEgphtX1gdxiRsrFiG5PICvESPt0vm9JOFAHwQFmWboBhkAYy8fjIQYP6g
- JE7noCBmqyA+ISkB3RnUV1IE5wbZ917dmw6aqZNEzJJ/SpT+htD8L55RGHBuqF59IEeE3hlTMG9
- +eEF2EYw7UKMcv6bYs/4jv0cYvn1QTXRElWf6I/hitmuwJ9ypO7DW2epN9ONDFo5F53bVr3Un/C
- f0FqsF/egwusrKtw4lA==
-X-Proofpoint-GUID: zF-Y2x_FWGfN4yaLmiHqRtVEQFSKOmJN
-X-Authority-Analysis: v=2.4 cv=WpC+otfv c=1 sm=1 tr=0 ts=6abdee75 cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+X-Authority-Analysis: v=2.4 cv=OI6yTiaB c=1 sm=1 tr=0 ts=6abdee6d cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
  a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8
- a=Be7mbbALSbNoa8F8jQ8A:9 a=1OuFwYUASf3TG4hYMiVC:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
+ a=Z2DXsEUlK3EcHYVHAYUA:9 a=iS9zxrgQBfv6-_F4QbHw:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAxMDAyMSBTYWx0ZWRfX3TLh0kiZUAFJ
+ 03K3RbNwTes8MAOFHa/Pv4NisiOwxKFnvORWIG8eJoqFogAHvpnvuk8zU0ab3oPJ81aYWksJwJr
+ PVPA4ADNY5XErtUfF3LeYCKrbvsIN2M=
+X-Proofpoint-ORIG-GUID: G2yKR_eezco-EO-mmkSzAk9bsC8UR8_m
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAxMDAyMSBTYWx0ZWRfX4KaP8ApnmDHv
+ FkM+FAgY6Ax9Ztq9Az0ddFdyADGfaaUs57yyGZ/1wwUkPoy8Fg8TZwDbApOGDbohdevE4HJX4sQ
+ m5eeM/NLQMwG7Z0L4GduFvYODY7Rg2oq0FVnEEKF7k+uxabVoS9w1eUnlPYkFEh2htDMlwt4NpZ
+ BwnU6S7XmWyBK2oqgd0qSFDPkrrOn8Ky3cSldVAyyo3lLALKD9HZenWmmvHP0IoK2RpUcv44A9w
+ vH0Jddj9qNyOaJUIsnl8VrchpDvA/pnjT1MIt7x7m3iEhm44ABQldLRjY0jqcOBcXRHwznw7YzF
+ 8hDsxN+QUd9Lbuji9nQ439LCbf92zdpQ1jfv4JeFl3NkiNlHKV2x9Q9y90OwG5pTMvBAiXBMGaC
+ 0T4ZcZWbs8hbuAAa1KKNzv0oiCxQ7MQtJpeCHP/gskAdPlamsjoYP/pUeVgS9U2yc2KKdD3LUkH
+ Yhk9egco/SEJvnsfO9Q==
+X-Proofpoint-GUID: G2yKR_eezco-EO-mmkSzAk9bsC8UR8_m
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-01_02,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 phishscore=0 bulkscore=0 priorityscore=1501 suspectscore=0
- malwarescore=0 impostorscore=0 adultscore=0 clxscore=1015 spamscore=0
+ priorityscore=1501 lowpriorityscore=0 phishscore=0 adultscore=0 clxscore=1015
+ suspectscore=0 bulkscore=0 spamscore=0 malwarescore=0 impostorscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610010021
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_222406_551086_E6289531 
-X-CRM114-Status: GOOD (  23.57  )
+X-CRM114-CacheID: sfid-20261001_062410_196455_E369361E 
+X-CRM114-Status: GOOD (  26.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,191 +174,329 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The perf driver framework needs to be able to start / stop all components
-in a trace component path during its operation. Add gtrace_path_start()
-and gtrace_path_stop() functions for this purpose.
+From: Anup Patel <anup.patel@oss.qualcomm.com>
 
-Co-developed-by: Anup Patel <anup.patel@oss.qualcomm.com>
+Trace needs to be configured on a chain of trace components which are
+connected to each other. These chain of components is also referred
+to as trace component path. Add functions to create/destroy a trace
+component path which will be later used by gtrace perf support.
+
 Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
+Co-developed-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
 Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
 ---
- drivers/hwtracing/gtrace/gtrace-core.c | 104 +++++++++++++++++++++++++
- include/linux/gtrace.h                 |   7 ++
- 2 files changed, 111 insertions(+)
+ drivers/hwtracing/gtrace/gtrace-core.c | 241 +++++++++++++++++++++++++
+ include/linux/gtrace.h                 |  24 +++
+ 2 files changed, 265 insertions(+)
 
 diff --git a/drivers/hwtracing/gtrace/gtrace-core.c b/drivers/hwtracing/gtrace/gtrace-core.c
-index f750025104ec..d7f1df90aa31 100644
+index d374c679a649..f750025104ec 100644
 --- a/drivers/hwtracing/gtrace/gtrace-core.c
 +++ b/drivers/hwtracing/gtrace/gtrace-core.c
-@@ -10,6 +10,7 @@
- #include <linux/module.h>
- #include <linux/mutex.h>
- #include <linux/percpu.h>
-+#include <linux/spinlock.h>
- #include <linux/xarray.h>
- #include <linux/gtrace.h>
- 
-@@ -24,7 +25,15 @@ static DEFINE_PER_CPU(struct gtrace_component *, gtrace_cpu_source_comp);
- /* gtrace comp specific data, to be used by core functions only */
- struct gtrace_comp_priv {
+@@ -26,6 +26,7 @@ struct gtrace_comp_priv {
  	struct gtrace_component comp;
-+	/*
-+	 * Protects start_count and owner. Serializes start/stop against other paths
-+	 * sharing this component and, for a sink, against gtrace_path_copyto_auxbuf().
-+	 * Raw because the PMU start/stop callbacks are called with the rq_lock held.
-+	 */
-+	raw_spinlock_t lock;
  	u32 type_idx;
-+	u32 start_count;
-+	pid_t owner;
  	bool ready;
- 	bool visited;
++	bool visited;
  };
-@@ -418,6 +427,7 @@ struct gtrace_component *gtrace_register_component(struct gtrace_component_id *i
- 		ret = -ENOMEM;
- 		goto err_out;
- 	}
-+	raw_spin_lock_init(&cpriv->lock);
- 	comp = &cpriv->comp;
- 	comp->pdata = pdata;
- 	comp->id = *id;
-@@ -611,6 +621,100 @@ static void gtrace_release_path_nodes(struct gtrace_path *path)
- 	}
- }
  
-+static int __gtrace_comp_start(struct gtrace_component *comp, pid_t owner)
+ #define to_gtrace_comp_priv(__comp)	\
+@@ -224,6 +225,62 @@ int gtrace_reset_component(struct gtrace_component *comp)
+ }
+ EXPORT_SYMBOL_GPL(gtrace_reset_component);
+ 
++static int __gtrace_walk_output_components(struct gtrace_component *comp,
++					   bool *stop, void *priv,
++					   int (*fn)(struct gtrace_component *comp, bool *stop,
++						     struct gtrace_connection *stop_conn,
++						     void *priv))
 +{
 +	struct gtrace_comp_priv *cpriv = to_gtrace_comp_priv(comp);
-+	const struct gtrace_driver *gtdrv = to_gtrace_driver(comp->dev.driver);
-+	unsigned long flags;
-+	int ret = 0;
++	struct gtrace_connection *conn, *stop_conn = NULL;
++	struct gtrace_platform_data *pdata = comp->pdata;
++	int i, ret;
 +
-+	if (!gtdrv)
-+		return -ENODEV;
-+
-+	raw_spin_lock_irqsave(&cpriv->lock, flags);
-+	if (cpriv->start_count) {
-+		if (cpriv->owner != owner) {
-+			ret = -EBUSY;
-+			goto out;
-+		}
-+	} else {
-+		if (gtdrv->start) {
-+			ret = gtdrv->start(comp);
-+			if (ret)
-+				goto out;
-+		}
-+		cpriv->owner = owner;
++	if (cpriv->visited) {
++		dev_err(&comp->dev, "loop detected, please fix the firmware\n");
++		return -ELOOP;
 +	}
++	cpriv->visited = true;
 +
-+	cpriv->start_count++;
-+out:
-+	raw_spin_unlock_irqrestore(&cpriv->lock, flags);
-+	return ret;
-+}
-+
-+static int __gtrace_comp_stop(struct gtrace_component *comp)
-+{
-+	struct gtrace_comp_priv *cpriv = to_gtrace_comp_priv(comp);
-+	const struct gtrace_driver *gtdrv = to_gtrace_driver(comp->dev.driver);
-+	unsigned long flags;
-+	int ret = 0;
-+
-+	raw_spin_lock_irqsave(&cpriv->lock, flags);
-+	if (!cpriv->start_count) {
-+		ret = -EINVAL;
-+		goto out;
-+	}
-+
-+	cpriv->start_count--;
-+	if (!cpriv->start_count) {
-+		if (!gtdrv) {
-+			ret = -ENODEV;
-+			goto out;
++	for (i = 0; i < pdata->nr_outconns; i++) {
++		conn = pdata->outconns[i];
++		ret = __gtrace_walk_output_components(conn->dest_comp, stop, priv, fn);
++		if (ret) {
++			cpriv->visited = false;
++			return ret;
 +		}
 +
-+		if (gtdrv->stop)
-+			ret = gtdrv->stop(comp);
-+	}
-+out:
-+	raw_spin_unlock_irqrestore(&cpriv->lock, flags);
-+	return ret;
-+}
-+
-+int gtrace_path_start(struct gtrace_path *path)
-+{
-+	struct gtrace_path_node *node;
-+	int ret = 0;
-+
-+	list_for_each_entry_reverse(node, &path->comp_list, head) {
-+		ret = __gtrace_comp_start(node->comp, path->owner);
-+		if (ret)
++		if (*stop) {
++			stop_conn = conn;
 +			break;
++		}
 +	}
 +
-+	/* If a component failed to start, stop all the components that were started before it */
-+	if (ret)
-+		list_for_each_entry_continue(node, &path->comp_list, head)
-+			__gtrace_comp_stop(node->comp);
++	ret = fn(comp, stop, stop_conn, priv);
++	cpriv->visited = false;
 +
 +	return ret;
 +}
-+EXPORT_SYMBOL_GPL(gtrace_path_start);
 +
-+int gtrace_path_stop(struct gtrace_path *path)
++int gtrace_walk_output_components(struct gtrace_component *comp, void *priv,
++				  int (*fn)(struct gtrace_component *comp, bool *stop,
++					    struct gtrace_connection *stop_conn,
++					    void *priv))
++{
++	bool stop = false;
++	int ret;
++
++	if (!comp || !fn)
++		return -EINVAL;
++
++	mutex_lock(&gtrace_mutex);
++	ret = __gtrace_walk_output_components(comp, &stop, priv, fn);
++	mutex_unlock(&gtrace_mutex);
++
++	return ret;
++}
++EXPORT_SYMBOL_GPL(gtrace_walk_output_components);
++
+ struct gtrace_component *gtrace_cpu_source(unsigned int cpu)
+ {
+ 	if (!cpu_present(cpu))
+@@ -431,6 +488,190 @@ void gtrace_unregister_component(struct gtrace_component *comp)
+ }
+ EXPORT_SYMBOL_GPL(gtrace_unregister_component);
+ 
++struct gtrace_path_node {
++	struct list_head		head;
++	struct gtrace_component		*comp;
++	struct gtrace_connection	*conn;
++};
++
++struct gtrace_component *gtrace_path_source(struct gtrace_path *path)
 +{
 +	struct gtrace_path_node *node;
-+	int ret = 0, err;
++
++	node = list_first_entry(&path->comp_list, struct gtrace_path_node, head);
++	return node->comp;
++}
++EXPORT_SYMBOL_GPL(gtrace_path_source);
++
++struct gtrace_component *gtrace_path_sink(struct gtrace_path *path)
++{
++	struct gtrace_path_node *node;
++
++	node = list_last_entry(&path->comp_list, struct gtrace_path_node, head);
++	return node->comp;
++}
++EXPORT_SYMBOL_GPL(gtrace_path_sink);
++
++static int gtrace_assign_trace_id(struct gtrace_path *path)
++{
++	const struct gtrace_driver *gtdrv;
++	struct gtrace_component *comp;
++	struct gtrace_path_node *node;
++	int trace_id;
 +
 +	list_for_each_entry(node, &path->comp_list, head) {
-+		err = __gtrace_comp_stop(node->comp);
-+		if (err && !ret)
-+			ret = err;
++		comp = node->comp;
++		gtdrv = to_gtrace_driver(comp->dev.driver);
++
++		if (!gtdrv || !gtdrv->get_trace_id)
++			continue;
++
++		trace_id = gtdrv->get_trace_id(comp, path->mode);
++		if (trace_id > 0) {
++			path->trace_id = trace_id;
++			return 0;
++		} else if (trace_id < 0) {
++			return trace_id;
++		}
 +	}
 +
-+	return ret;
++	return 0;
 +}
-+EXPORT_SYMBOL_GPL(gtrace_path_stop);
 +
- struct gtrace_path *gtrace_create_path(struct gtrace_component *source,
- 				       struct gtrace_component *sink,
- 				       enum gtrace_component_mode mode)
++static void gtrace_unassign_trace_id(struct gtrace_path *path)
++{
++	const struct gtrace_driver *gtdrv;
++	struct gtrace_component *comp;
++	struct gtrace_path_node *node;
++
++	list_for_each_entry(node, &path->comp_list, head) {
++		comp = node->comp;
++		gtdrv = to_gtrace_driver(comp->dev.driver);
++
++		if (!gtdrv || !gtdrv->put_trace_id)
++			continue;
++
++		gtdrv->put_trace_id(comp, path->mode, path->trace_id);
++	}
++}
++
++static bool gtrace_path_ready(struct gtrace_path *path)
++{
++	struct gtrace_comp_priv *cpriv;
++	struct gtrace_path_node *node;
++
++	list_for_each_entry(node, &path->comp_list, head) {
++		cpriv = to_gtrace_comp_priv(node->comp);
++		if (!cpriv->ready)
++			return false;
++	}
++
++	return true;
++}
++
++struct build_path_walk_priv {
++	struct gtrace_path		*path;
++	struct gtrace_component		*sink;
++};
++
++static int build_path_walk_fn(struct gtrace_component *comp, bool *stop,
++			      struct gtrace_connection *stop_conn,
++			      void *priv)
++{
++	struct build_path_walk_priv *ppriv = priv;
++	struct gtrace_path *path = ppriv->path;
++	struct gtrace_path_node *node;
++
++	if ((!ppriv->sink && gtrace_is_sink(comp->pdata)) ||
++	    (ppriv->sink && ppriv->sink == comp))
++		*stop = true;
++
++	if (*stop) {
++		node = kzalloc_obj(*node);
++		if (!node)
++			return -ENOMEM;
++		INIT_LIST_HEAD(&node->head);
++		gtrace_get_component(comp);
++		node->comp = comp;
++		node->conn = stop_conn;
++		list_add(&node->head, &path->comp_list);
++	}
++
++	return 0;
++}
++
++static void gtrace_release_path_nodes(struct gtrace_path *path)
++{
++	struct gtrace_path_node *node, *node1;
++
++	list_for_each_entry_safe(node, node1, &path->comp_list, head) {
++		list_del(&node->head);
++		gtrace_put_component(node->comp);
++		kfree(node);
++	}
++}
++
++struct gtrace_path *gtrace_create_path(struct gtrace_component *source,
++				       struct gtrace_component *sink,
++				       enum gtrace_component_mode mode)
++{
++	struct build_path_walk_priv priv;
++	struct gtrace_path *path;
++	int ret = 0;
++
++	if (!source || mode >= GTRACE_COMPONENT_MODE_MAX) {
++		ret = -EINVAL;
++		goto err_out;
++	}
++
++	path = kzalloc(sizeof(*path), GFP_KERNEL);
++	if (!path) {
++		ret = -ENOMEM;
++		goto err_out;
++	}
++	INIT_LIST_HEAD(&path->comp_list);
++	path->mode = mode;
++	path->trace_id = GTRACE_INVALID_TRACE_ID;
++
++	priv.path = path;
++	priv.sink = sink;
++	ret = gtrace_walk_output_components(source, &priv, build_path_walk_fn);
++	if (ret < 0)
++		goto err_release_path_nodes;
++
++	/* Before proceeding, check that a valid path was built. */
++	if (list_empty(&path->comp_list)) {
++		ret = -ENODEV;
++		goto err_release_path_nodes;
++	}
++
++	if (!gtrace_path_ready(path)) {
++		ret = -EOPNOTSUPP;
++		goto err_release_path_nodes;
++	}
++
++	ret = gtrace_assign_trace_id(path);
++	if (ret < 0)
++		goto err_release_path_nodes;
++
++	return path;
++
++err_release_path_nodes:
++	gtrace_release_path_nodes(path);
++	kfree(path);
++err_out:
++	return ERR_PTR(ret);
++}
++EXPORT_SYMBOL_GPL(gtrace_create_path);
++
++void gtrace_destroy_path(struct gtrace_path *path)
++{
++	gtrace_unassign_trace_id(path);
++	gtrace_release_path_nodes(path);
++	kfree(path);
++}
++EXPORT_SYMBOL_GPL(gtrace_destroy_path);
++
+ int __gtrace_register_driver(struct module *owner, struct gtrace_driver *gtdrv)
+ {
+ 	gtdrv->driver.owner = owner;
 diff --git a/include/linux/gtrace.h b/include/linux/gtrace.h
-index 2c3be4d161c6..a4b99c87d250 100644
+index 5368dca0e936..2c3be4d161c6 100644
 --- a/include/linux/gtrace.h
 +++ b/include/linux/gtrace.h
-@@ -254,6 +254,7 @@ struct gtrace_path {
- 	enum gtrace_component_mode	mode;
- 	u32				trace_id;
- #define GTRACE_INVALID_TRACE_ID	0
-+	pid_t				owner;
- };
+@@ -229,6 +229,10 @@ int gtrace_enable_component(struct gtrace_component *comp);
+ int gtrace_disable_component(struct gtrace_component *comp);
+ int gtrace_reset_component(struct gtrace_component *comp);
  
- struct gtrace_component *gtrace_path_source(struct gtrace_path *path);
-@@ -262,10 +263,14 @@ struct gtrace_path *gtrace_create_path(struct gtrace_component *source,
- 				       struct gtrace_component *sink,
- 				       enum gtrace_component_mode mode);
- void gtrace_destroy_path(struct gtrace_path *path);
-+int gtrace_path_start(struct gtrace_path *path);
-+int gtrace_path_stop(struct gtrace_path *path);
++int gtrace_walk_output_components(struct gtrace_component *comp, void *priv,
++				  int (*fn)(struct gtrace_component *comp, bool *stop,
++					    struct gtrace_connection *stop_conn,
++					    void *priv));
+ struct gtrace_component *gtrace_cpu_source(unsigned int cpu);
  
+ struct gtrace_component *gtrace_register_component(struct gtrace_component_id *id,
+@@ -239,6 +243,26 @@ void gtrace_unregister_component(struct gtrace_component *comp);
+ int gtrace_of_parse_outconns(struct gtrace_platform_data *pdata);
+ int gtrace_of_parse_inconns(struct gtrace_platform_data *pdata);
+ 
++/**
++ * struct gtrace_path - Representation of a trace path from source to sink.
++ * @comp_list: List of trace components in the path.
++ * @mode:      Usage mode for trace components.
++ * @trace_id:  ID of the trace source (typically hart/CPU id).
++ */
++struct gtrace_path {
++	struct list_head		comp_list;
++	enum gtrace_component_mode	mode;
++	u32				trace_id;
++#define GTRACE_INVALID_TRACE_ID	0
++};
++
++struct gtrace_component *gtrace_path_source(struct gtrace_path *path);
++struct gtrace_component *gtrace_path_sink(struct gtrace_path *path);
++struct gtrace_path *gtrace_create_path(struct gtrace_component *source,
++				       struct gtrace_component *sink,
++				       enum gtrace_component_mode mode);
++void gtrace_destroy_path(struct gtrace_path *path);
++
  /**
   * struct gtrace_driver - Representation of a trace driver.
   * @id_table:      Table to match components handled by the driver.
-+ * @start:         Callback to start tracing.
-+ * @stop:          Callback to stop tracing.
-  * @probe:         Driver probe() function.
-  * @remove:        Driver remove() function.
-  * @get_trace_id:  Get/allocate a trace ID.
-@@ -274,6 +279,8 @@ void gtrace_destroy_path(struct gtrace_path *path);
-  */
- struct gtrace_driver {
- 	const struct gtrace_component_id *id_table;
-+	int			(*start)(struct gtrace_component *comp);
-+	int			(*stop)(struct gtrace_component *comp);
- 	int			(*probe)(struct gtrace_component *comp);
- 	void			(*remove)(struct gtrace_component *comp);
- 	int			(*get_trace_id)(struct gtrace_component *comp,
 -- 
 2.43.0
 
