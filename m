@@ -4,61 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 161F5CA5FA5
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 06:28:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87536CA5FC5
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 07:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aiVDezWvQeJdgmzfxqjvfz41miq7xlYNe60RlUj3WR8=; b=KUNv9e8HQRfDa9L1rcgRkILCbl
-	rZLITyo7M/1t8Pvn/9qQ1j2TyP3EPYkmD7u613Op6/DtWE+Va6JSd4gHNTl+l9kzee7KMjeasERiG
-	UEX9e8o32pkpmxw72jSPsqB4ND9A7qX/kx63wz/YBARofxwIeJAu08H3imNu1Dl092jAbQdc+KKrz
-	D9iqrGzmi5kRxHT88IP7Sl0NSRrUBnfvIUiZx8erOd+Zb2dl7jrpSua0H15A5RjitLR580nSK8l3L
-	oT1z0RzmEEQm/0fku5E1Z/xUZQAAIoi+Ab4aM0vCCoOUYNCJ+WN5x8bxuF9yjsQpDxiYQfPaBQmy9
-	VcmMcljg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	References:MIME-Version:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=BXB4rdLTZgDTzKEmaTk3CPzRcnK83QSIyPkqpwe/ihg=; b=Z/xNkpbC/e3jEjY2NP59mTx0Tv
+	BYqszudHhlcGAoIA0UpAvsIsMf4lHrONLRhDIBEKTUFfmO4Qfi3gz/eAZZv4BgPdlHnFq6XbB8eM1
+	rxyB66sx97wRZNnZw6EZxuyunyc8B2erqRD0RpmfOckZrU/5WoeCK3lI28sr/FBT//17wBcmOovcr
+	1TdPiovC24s0fgkYUXNwfiPMqHJ5jvPNzj3VWjBp5kC7sBGwc0AeGdsfDlDQ7rQpJqGXooKH5m4/8
+	eJ10J0lfGBtmV1rfIu42hkFrCVAdODlAhR+OPjcVulbqkSVH4dNgHXwl7h/9KCfydEYgLiXxhSA/v
+	2cibjIdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCAGl-00000007tE6-0uNy;
-	Thu, 01 Oct 2026 06:27:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xCBH2-000000080DI-3BKE;
+	Thu, 01 Oct 2026 07:32:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCAGj-00000007tDt-1rZf
+	id 1xCBH1-000000080CS-25mE
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Oct 2026 06:27:49 +0000
+	Thu, 01 Oct 2026 07:32:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id D570540429;
-	Thu,  1 Oct 2026 06:27:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 2D9051F000FF;
-	Thu,  1 Oct 2026 06:27:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EFBEF44795
+	for <linux-riscv@lists.infradead.org>; Thu,  1 Oct 2026 07:32:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB7B91F00A06
+	for <linux-riscv@lists.infradead.org>; Thu,  1 Oct 2026 07:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790836068;
-	bh=r2CPx4Pf1KhkRJ8d7Y2xOX9yFZxqZFrZ0p+dx0BeQAE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=F946ULR8rmlyOwkZs/oFd62UfkJGKAO+LW7WoXvLaXulDZRCx0/FnyavJt6R8/NhB
-	 BYX8RUE4x36611USodHkcTunOP9BEM5Ona+OrUOFrrUQoGg0z958dZwN9om8otNo1u
-	 gq2RCcBbGXHbOWugOMLhY0jPy23+Pv5E7gC1DbP68tScTmOWMatGkejL8zHp1ipjqZ
-	 2T2faDBbQeMIkV1AC0wkS5mO0p1XRjMMrPsUmj4csBnKpAgDZL5VcaO6SZdh33wu9+
-	 mHfoc9Rgka6kduLBXBMRExUmFMpXJwdpxOj/6vsFYE6kuJ3Nnmw32GcV/OrsTE7eaJ
-	 qX/0oRkflmV0w==
-Date: Thu, 1 Oct 2026 08:27:45 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: FUJITA Tomonori <tomo@flapping.org>
-Cc: fustini@kernel.org, guoren@kernel.org, wefu@redhat.com, 
-	a.hindborg@kernel.org, acourbot@nvidia.com, aliceryhl@google.com, 
-	bjorn3_gh@protonmail.com, boqun@kernel.org, dakr@kernel.org, daniel.almeida@collabora.com, 
-	gary@garyguo.net, linux-riscv@lists.infradead.org, lossin@kernel.org, 
-	m.wilczynski@samsung.com, ojeda@kernel.org, tamird@kernel.org, tmgross@umich.edu, 
-	work@onurozkan.dev, linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	fujita.tomonori@gmail.com, stable@vger.kernel.org
-Subject: Re: [PATCH v2] pwm: th1520: Fix 32-bit build with COMPILE_TEST
-Message-ID: <ar38qq0q8f2Vecuw@monoceros>
-References: <20260930101257.1649945-1-tomo@flapping.org>
- <arz487DLBlaBrWLN@monoceros>
- <20261001.070215.521963012921142699.tomo@flapping.org>
+	s=k20260515; t=1790839930;
+	bh=ELdBCMU5f7/O4ZMIta9o4UVKjIIZnw/X5SSJeT3GM90=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=m9ED6XoyFU6f6NSxPdVX7ZgGtbARjsD/CvfZD8tuhOkiZ6dKnPRKSRSktb3gLidmc
+	 VPbCeYi2IKHwWOv9a94mqT6hb1QyGGIuQBER4nXjiOTZRozsX037c2spwbLmYAMdft
+	 hSocy81uy0QFI/ZtDOvX28+07QuujnXHssLX3bpIUqE7ULrFoS3pV03E333y7RCNzK
+	 HsH5YwqLVDE8Ag8eULAvrQkln7YBVbnRdOZn5XnVa80W1ViRxENJZnXfTYVrjFagcy
+	 G3vUUO2AFJbwfAf2/N1XRAUG8lpRgJF09f4ryfCh5u+wg5DjSHuu95Tq7PJHOpKRZi
+	 qrKAsvE+hguKQ==
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5ba3d90ac37so1785368e87.3
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Oct 2026 00:32:10 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxNrzFYOHJUexx0LXUTNFTntwnLFMnedTLgU/ZYdbPKWW845pSkkv2b3oDT+NPrXPYr6//tQZpXibYsAA==@lists.infradead.org
+X-Gm-Message-State: AFq9FYLQPQ6ch/v9DbA7k4ROWz4+rBQqZ07yYUmcPi0+Gy2o595d08eC
+	2+tO+12rULXgvkJ6tPFpFbTZi48Z9QIOIMPetU8XPB2wjmN5BNGzElC2d8PLJeCJ6/OpaGmAraB
+	zGwbUO5+CAdvR/wlIa83CjZg51JEr2t4KdYm2iYWKsA==
+X-Received: by 2002:ac2:42d0:0:b0:5b8:f97f:7a22 with SMTP id
+ 2adb3069b0e04-5ba405ec7a1mr1161789e87.54.1790839929167; Thu, 01 Oct 2026
+ 00:32:09 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 1 Oct 2026 10:32:07 +0300
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 1 Oct 2026 10:32:07 +0300
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260930163334.60b4a88c@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20261001.070215.521963012921142699.tomo@flapping.org>
+References: <20260923-qcom-sa8255p-emac-v15-0-e82f33720737@oss.qualcomm.com>
+ <20260923-qcom-sa8255p-emac-v15-1-e82f33720737@oss.qualcomm.com> <20260930163334.60b4a88c@kernel.org>
+Date: Thu, 1 Oct 2026 10:32:07 +0300
+X-Gmail-Original-Message-ID: <CAMRc=MeUx2iHf8-d9yjZZ=n7VaG_GROvO2dW-bxavAS+XbGMFg@mail.gmail.com>
+X-Gm-Features: AclHuK8P_ZwjJ__3SNp9LNTCdpGSDaQAP4RQWoM4JsBj1lq1vbQDeX8sSTrNEMU
+Message-ID: <CAMRc=MeUx2iHf8-d9yjZZ=n7VaG_GROvO2dW-bxavAS+XbGMFg@mail.gmail.com>
+Subject: Re: [PATCH net-next v15 1/9] net: phy: aquantia: fix system interface
+ type not updated in forced mode
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Vinod Koul <vkoul@kernel.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Fabio Estevam <festevam@gmail.com>, Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com, 
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>, Romain Gantois <romain.gantois@bootlin.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Maxime Ripard <mripard@kernel.org>, Christophe Roullier <christophe.roullier@foss.st.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Radu Rendec <radu@rendec.net>, linux-arm-msm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
+	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org, 
+	linux-mips@vger.kernel.org, imx@lists.linux.dev, 
+	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, stable@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,106 +102,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3632776773792910715=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, 1 Oct 2026 01:33:34 +0200, Jakub Kicinski <kuba@kernel.org> said:
+> On Wed, 23 Sep 2026 17:14:35 +0200 Bartosz Golaszewski wrote:
+>> aqr_gen1_read_status() decodes the MDIO_PHYXS_VEND_IF_STATUS register
+>> to determine which SerDes interface the PHY is currently using on its
+>> system side and stores the result in phydev->interface. phylink relies
+>> on this value to configure the MAC.
+>>
+>> The autoneg == AUTONEG_DISABLE check is not correct:
+>> MDIO_PHYXS_VEND_IF_STATUS is set by the PHY firmware based on the
+>> negotiated link speed, not based on whether autoneg was used to reach
+>> it. When the link comes up at 1G in forced mode, the register correctly
+>> reads SGMII, but the early return prevents phydev->interface from being
+>> updated. It stays at whatever value it held before (typically 2500BASE-X
+>> from the initial autoneg run), so phylink configures the MAC for the
+>> wrong interface and the link cannot come up.
+>>
+>> Remove the autoneg guard so that the system interface type is always
+>> decoded when the link is up.
+>>
+>> Cc: stable@vger.kernel.org
+>> Fixes: 110a2432c520 ("net: phy: aquantia: add downshift support")
+>> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+>
+> Sounds like a real regression, is it? Should we ship it to Linus
+> tomorrow so that it makes 7.3? stable + next does not compute for me
+>
 
---===============3632776773792910715==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="stj2fwtn3fuo7uyp"
-Content-Disposition: inline
+Yes, this is independent from the rest of the series and a small fix. It sounds
+good to send it upstream ASAP.
 
-
---stj2fwtn3fuo7uyp
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2] pwm: th1520: Fix 32-bit build with COMPILE_TEST
-MIME-Version: 1.0
-
-Hello,
-
-On Thu, Oct 01, 2026 at 07:02:15AM +0900, FUJITA Tomonori wrote:
-> On Wed, 30 Sep 2026 13:57:31 +0200
-> Uwe Kleine-K=F6nig <ukleinek@kernel.org> wrote:
->=20
-> >> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> >> index 729776086879..abecd95b0c3c 100644
-> >> --- a/drivers/pwm/Kconfig
-> >> +++ b/drivers/pwm/Kconfig
-> >> @@ -772,7 +772,7 @@ config PWM_TEGRA
-> >> =20
-> >>  config PWM_TH1520
-> >>  	tristate "TH1520 PWM support"
-> >> -	depends on ARCH_THEAD || COMPILE_TEST
-> >> +	depends on ARCH_THEAD || (COMPILE_TEST && 64BIT)
-> >>  	depends on RUST
-> >>  	depends on HAS_IOMEM && COMMON_CLK
-> >>  	select RUST_PWM_ABSTRACTIONS
-> >=20
-> > Can't we do better than that? For C code the right thing to do is to use
-> > one of the div helpers instead of a plain / for types bigger than long.
->=20
-> Indeed. Rust code already uses some div helpers. However, the kernel
-> crate does not have Rust wrappers for the helpers this driver needs,
-> such as mul_u64_u64_div_u64(), so we need to add them first. The
-> changes would be too large for stable.
->=20
-> So how about merging this as a fix? I will work on patches to use div
-> helpers in the driver.
-
-Fine, then let me just wonder about the expression you chose, that makes
-it look as if 64BIT was only needed for COMPILE_TEST.
-
-How about making this
-
-diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-index 729776086879..4cc2911a0673 100644
---- a/drivers/pwm/Kconfig
-+++ b/drivers/pwm/Kconfig
-@@ -774,6 +774,7 @@ config PWM_TH1520
- 	tristate "TH1520 PWM support"
- 	depends on ARCH_THEAD || COMPILE_TEST
- 	depends on RUST
-+	depends on 64BIT # no 64bit division available on 32 bit builds
- 	depends on HAS_IOMEM && COMMON_CLK
- 	select RUST_PWM_ABSTRACTIONS
- 	help
-
-instead?
-
-Best regards
-Uwe
-
---stj2fwtn3fuo7uyp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmq9/V8ACgkQj4D7WH0S
-/k5Drwf/Sw5Vll4mVUIaUUIfPVOTKcvnUPTbSsiEPg/zQCFDF+2xbpHGqSzWAOKO
-I53Fjvjcij0Lml9edp+4pfDyYoMRkkvFQb0j85wphCv9+SNEIBbiM0SVNyd/Ia6W
-csXCuvU7WDJ5bmDbf+25dDjYKuSqgsiNIlx9lrmHFP8qllxTFo6T7xUbsIAxkgzE
-kUIfMstkJ3K7ptzP4xzswX0pt/w5Ae+3GrwI+hJasrZiOO97FRhVFd8L6+ffu5rz
-Uj76zQUPOWZPSELZa3Lk86Rc1ejd/siAYTjaeG8IRCxjtoseBVa3wTkLopVuT8Gs
-ZUsb3LFu+IWbIcojTrp36W1R2rGVaw==
-=KnGj
------END PGP SIGNATURE-----
-
---stj2fwtn3fuo7uyp--
-
-
---===============3632776773792910715==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Bart
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3632776773792910715==--
-
