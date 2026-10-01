@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F63CCA5FB3
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 05:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED921CA5FA5
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 05:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ewTHj0nMdMeuuL1SGHdWlHD1E3pU7MmJ2pFlxLHSRHs=; b=3MimPRbU0Hms9b
-	bFAeD6GhK6ZEtok4fHKwOY4GySZCG0zQqiQB18WjFgqR74Zk2+PuDb+rgxQr0opykHiH71HufBV8E
-	fcPQ3Jum3XUX3ezR+I0ImP+6a3QoPQcQSAYAk3GcPC5UlEyxRf02IyrXD412jtba9NJ5F8Zg8bwD8
-	TAGFT/kbwN5ouomkMISK+m/pCtwV005KeiYyU5H/TESNJqPXBtmHC2ZYTET8AzoSknc2ZgfTCQjkM
-	WJFHu0A5rowC8sN5zZDdlR4T4m2euWRNfaNIew+qlz3/3w9F8T8Yqm0TNmxHmyqwmGQcEkMN8FweR
-	A/uSlqj1BTpORgH4ciAw==;
+	List-Owner; bh=T0viwwPZqFhn4zhJSHZjJ4Qr3+U5k4VPLUgJfBVP89g=; b=qvG3f/gGUi9XjU
+	Gckg3W2T8O89zA8u63S4sEWT/WKKKWsmbg7efZ+z5J92DORKSdJvUCiNg1i9T1mui1ZS0LZCLAsTD
+	EhOHKdzmgB17S5JzwVX8rzIr2H52WIK5rc22BGYhEAwgEfDhJ6tPKbT5eRPCI4XuC8wcZaw4cmKhg
+	9d6tyXnyFkL2OOevA4OYnUuCfRISXVKbj4ywxDUYHpDsijFjCfCzzR6eb23PwZg1p8sVLgYEBPJ0J
+	2UsU1CnThsrPUPbb1tVfyatk83Jka/7+LnC/jvUvRYUuB4jUtw1grMP7gtrUCrcgmSX/Ov/gl/Wrz
+	O7AzL3b9kk69l65wUvPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC9Gt-00000007nUD-0RNr;
-	Thu, 01 Oct 2026 05:23:55 +0000
+	id 1xC9H7-00000007naI-0xvN;
+	Thu, 01 Oct 2026 05:24:09 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC9Go-00000007nSf-3cxi
+	id 1xC9H4-00000007nYi-1dxG
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Oct 2026 05:23:53 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6913gPwa1914608
-	for <linux-riscv@lists.infradead.org>; Thu, 1 Oct 2026 05:23:50 GMT
+	Thu, 01 Oct 2026 05:24:07 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6913gXw91240206
+	for <linux-riscv@lists.infradead.org>; Thu, 1 Oct 2026 05:24:05 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=3DsIgeaBr3q
-	KKU0wkToE8BS3wkTVxiMyMWIJlILltbo=; b=ULYoWAkLg4rOGoqS5c6HXXfEcsU
-	1HrvcTzYfPPidxBGVquTbkOkxR8mu2Z7CmN8lVRaJAY+BShQsoX9l0Bd93xMLtUQ
-	aHR/z0PLtbnxBzGzvYC6AioDpDNS74AkaxysfMiXj3/mJB2wzj92Gh/FJmdG8w5Q
-	cnBgfyNvhho/frZxkv1VkvbwrBFZUZEPXpvBRRVXiy+NIUwDIw68z/ONnf5iGCQS
-	q0J6ssim28jw1rTjTJBLd3D4VucK/EFJRnMOBF4eXlM4fELk/OOkjtM7zs/YPdBr
-	rSWInUHUcAnUvCVu4M86hxUcXRy/vjRuuz9NeN1vsMj4chyooM2L0A5L/Vg==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h14n233br-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=hdmJBOURZFk
+	lDL2G+CgifetZhhumtO7AZp3GzGIPueQ=; b=pzKcGLkoAGuQyphMlTQGjDL5nHr
+	RUGVSK6PwFnL6jcgXJvVsOhumo6LKovj/FJEiwMafqQVd6NaxgJ2Ux3FiYWYL6l0
+	0xjszU2WBrX0xs2CzpRtdIIrIw8Ca4zkF5kPuipwyLZpfOvF4RM3u2QSkG3h+4xk
+	ctfVyXKIFmQI2n4iaMFaU0CT4DYUN7dbPLmtZ/hjLsKbovmRZogqzGeQwt9Nlzke
+	ZJptSenFJBxmbZQMtu+oaiNM7zp10QNaqQrpIxKnrHeRFwlRfW2iImiy+UsToqHY
+	XnS7Ebnr2OQvKoWT7kLy25FN2FSl7HB71ZKAsFJPdzsxrlsvGw2G+/kQ6tA==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h167pjm97-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 01 Oct 2026 05:23:49 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3a4aa263a4aso2537787a91.1
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2026 22:23:49 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Thu, 01 Oct 2026 05:24:05 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2e2e0bc619fso14531175ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2026 22:24:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790832229; x=1791437029; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1790832244; x=1791437044; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=3DsIgeaBr3qKKU0wkToE8BS3wkTVxiMyMWIJlILltbo=;
-        b=VmJVPvY6kTWBLQD+GJLxf82U1pEGCve1LXvz9mKWRvK3Itd6nldk9qVl0opd/Ln22R
-         W7FALLh/bPWh6rB5M7C0blX/dedhrQSONQEVyq2y2Ptse16eNJDncZBl1Bc7NtveT1Iz
-         FNvrMRsy75F4C6AmdIUPha4oFZS44GnU+qD84X/ag6Xp8zKUkC3cyjMxcFX/N7+4U0LT
-         2nNWQjdR8Wiy+V2uUAFvZBzzDQ+UJY2vuawsI5JbKhW6uyH/Ia9XW5s7pXPbzHEAIwB7
-         a74lQeorsLe0A7Idz23Inpiuf1sXcfAWdPcZ874Jx1wD5owdA2geRLXb8vk5ADanoQL+
-         R4GQ==
+        bh=hdmJBOURZFklDL2G+CgifetZhhumtO7AZp3GzGIPueQ=;
+        b=HSgsrqq78QrOoiwQEOOyCFBdQBAfRPkgtAq5whk0rRQETFfvl/ioBFAQIs3YDIU25S
+         6Gj5B0aoVpPxdHmIT35Drn3X+EkD0bJ3pVSHWNv4HcpegQsB1Oz7qBpEpaa3GYUbOCds
+         zAfnkWtZsdyoVCHg1cd0uA2jJkbpBiS/KKx1mIo8NIDSJSE4LofKAjEW/UvWywJ+c2mo
+         Onq46YY0gP5FKb3tpqZIvSJPp/O5sUnR27Y2exmc6wI9z/m2TOTNZkTFjBwH5EabcdVB
+         ImQ7aX94wkp7DHMOwJkU9oW6QwBXL5MXMvuuDoXi10JX1voekvwKgI95nD7xy+vFc7tJ
+         8+GQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790832229; x=1791437029;
+        d=1e100.net; s=20260707; t=1790832244; x=1791437044;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3DsIgeaBr3qKKU0wkToE8BS3wkTVxiMyMWIJlILltbo=;
-        b=nfNyzUcB5dDFZhxptBmFEqQoPC+V7O2VH+vZzx17p9xyHZ0pw9M/eAmyJBBZT5YrGN
-         gkLiOSptDMHs3y3rqKDWzbVyah2S8ZNVOPW6QRBMMNU3hGU4vaoWAvVD6MSEUPySmDob
-         i3nkhp4EurRM/lNK++SQmlXwNb3Jzkz4goHn90t3eQkNmnWjGynDJCULtePeREmU6EL9
-         IatHsimHO/2GwdcSvEcW/lYpTgiF/BFyjw58vLjs3znleqyeB8mt6wpWFfkZf4Pqtp8P
-         +/2KawfNswIHFBtZ1VyjHr5IZdDUmdrbQwLYrdU1HS3nFMsaC5Yu2qNE79bRhrlimCrS
-         lMew==
-X-Forwarded-Encrypted: i=1; AKwUvBwVpk81PDVassVGC0TMkr8GSt+kTJO47ET5yxb8UdbJ+mtCvQhxVaVbH4171o62oUYOK4Ir+JGFtO0Ihg==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJYItALwHkP/7/FO74mSUECZXyfB2t5aF0tAeOw0PBsUNUqitMV
-	4zWF3xySNWgZYpTcvLn2ISr6aM8jHgxM157PJ9V+wUswv1P9jxh1x7WW0m2hAWifTzPXMo/aEPZ
-	DwPakNibN/OCsZZc02os7pILKtRJOk2F82KNY3as/Hkg0EhdR95O/o7pZOKhRnevMxssF8zg=
-X-Gm-Gg: AYBFou346URPTJflnxiTjXp6PjqcHhebX0eENMiQBHskk0roA5G3OJDdtsQBfpFDu4d
-	YoMRCVT0PiPTL+Ivx80jj9B7GLkOg2m1AhYD8euAOID82GbSk5iSvlLode+NmRn0KbpkQsFzV2q
-	O6UWhwsRhW7QzhG2iUjfKiUGIzWxy8i+VcPTWkpvDDowtrUWZ6U0dtuVEPtk0D63enJqoH7sVM3
-	v49Qn18E3Z10gcetPLWz9NdbeYPb68RUDQkxi0W+XV6OaY9eA6+ntbe0S+sUpOQ/w3QEhOSlAB0
-	B85ckDGZpAir5eYwzBPcF/lHfOkWyXxQa/LyQKeqRXYtt+LP8lc/QAVAhbMDzqSjML7boFIme+N
-	cZhh5G2ujq/bfTuyVO8zaodBe6zSME+Nt74PuFoOwz6W7RRCyFBsrctwN7z0P9nG4+IUL/e1QyU
-	N4atDi7FaXP01Pa5MniLPIxOpt
-X-Received: by 2002:a17:90b:2b44:b0:398:c3ca:1ebc with SMTP id 98e67ed59e1d1-3a4d1509d61mr2868104a91.18.1790832228476;
-        Wed, 30 Sep 2026 22:23:48 -0700 (PDT)
-X-Received: by 2002:a17:90b:2b44:b0:398:c3ca:1ebc with SMTP id 98e67ed59e1d1-3a4d1509d61mr2868073a91.18.1790832227876;
-        Wed, 30 Sep 2026 22:23:47 -0700 (PDT)
+        bh=hdmJBOURZFklDL2G+CgifetZhhumtO7AZp3GzGIPueQ=;
+        b=ebv/tgprT85wGBZm/5LwT6E+ULB0MJRaWVBqRP6Ix/r1vway4iJYrg07keST2JV6v/
+         rpwJgolfW3UUB1DjEWN8B8n+1N4Vhog4vt8lt/Z6CRBdMdkN3b+3DCUFSiFVTb0FYcGs
+         /Vzue6Ampsa3u6JL7XCb7xYOFZbKSnjdEaz2mfDhlpbrjTUPt3IBuUcHS0sTW7C8+IWZ
+         ZnmRRixXIaCI5zf+CamSMk+Eh9437vPEPWGtzjdVa+fNj3H8dtdrwmeA/QTQEXUx22+7
+         QLV+Yun9/WjUQjq518BuVi3orn7kD8c4FWWK8nq3J1KODV+0zJvZ8hx9rCdaDhUeNS5j
+         fzuQ==
+X-Forwarded-Encrypted: i=1; AKwUvByC3GUwg9uaJVdLEImaAJp/RGh6yMA+v0YqTtEuYhAA1i+wD3cye9cub7y9u/10hKbz8QnOxmbs3AFYGA==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKUaKhHV4zFyvH8ZBEICBBgfTwTsAql9VrtQAIyMpFYyv6ZK/19
+	gWjD5Uml4FzWJGlWnzdPp+rptdBmykvrWIexJ7nU0Smx5RrvQLZEZF3iAbUDmjTMyDkOu6+uX9c
+	omzd0tQtQKs5mE/s0rcss3+y7AVN53kW40d2pHooGeGIffCo/abIBOVuaifJttYacmtq3WWA=
+X-Gm-Gg: AYBFou1rm/aCaupZlzJljzg9ZWMDxvza0Aa4mchBezwcTRAuMY2evrXRYA9dSbAvE5H
+	ZpUu6TViIsd85kBQf5E6uGEfDLkiwl/XkQUjvQyhbjEfBfWMqRjW/Trepk+aZgzQp7Q05uN5L8U
+	JgiocbsVr+aKULp42mTa2orw0pCzpUQ/Wt3S2jG7mBoTArG5QiMqxkvpVxX/2mLj2gZPBh5tADe
+	/iPBHpQce2cNOrOHJaV6b3e0xeTCrY5d4BtIvb6pCBT384TAMlR3ZdeIkM/MBi7WJnMciWsa2dz
+	yxhhyMUYAyu9IQYhXrjuD8XLFT2dwRq7SiOIp93wKKpvv+s41dZ6aIJJri0A9gZV++IW09sQibI
+	jDK2ap7QCWpsujRbVqqgdzeTFdCEZKxnO2n5Hj5s1C8e7JwLwgcZb3fRL081h/RFzfws2m62EjN
+	SLaFAkzbHxvZIdMjddr4nssAyP
+X-Received: by 2002:a17:902:d489:b0:2e2:c2a6:48bf with SMTP id d9443c01a7336-2e2e4b33993mr27533875ad.26.1790832244402;
+        Wed, 30 Sep 2026 22:24:04 -0700 (PDT)
+X-Received: by 2002:a17:902:d489:b0:2e2:c2a6:48bf with SMTP id d9443c01a7336-2e2e4b33993mr27533625ad.26.1790832243901;
+        Wed, 30 Sep 2026 22:24:03 -0700 (PDT)
 Received: from hu-mchitale-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2e300b851b9sm5152715ad.78.2026.09.30.22.23.40
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2e300b851b9sm5152715ad.78.2026.09.30.22.23.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Sep 2026 22:23:47 -0700 (PDT)
+        Wed, 30 Sep 2026 22:24:03 -0700 (PDT)
 From: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>,
@@ -95,9 +95,9 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Greg KH <gregkh@linuxfoundation.org>,
         Alexander Shishkin <alexander.shishkin@linux.intel.com>,
         Ian Rogers <irogers@google.com>
-Cc: Anup Patel <anup.patel@oss.qualcomm.com>, Alexandre Ghiti <alex@ghiti.fr>,
-        Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-        Namhyung Kim <namhyung@kernel.org>,
+Cc: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
+        Alexandre Ghiti <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>,
+        Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
         Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
         Adrian Hunter <adrian.hunter@intel.com>,
         Mayuresh Chitale <mchitale@gmail.com>,
@@ -105,44 +105,44 @@ Cc: Anup Patel <anup.patel@oss.qualcomm.com>, Alexandre Ghiti <alex@ghiti.fr>,
         Andrew Jones <andrew.jones@oss.qualcomm.com>,
         Sunil V L <sunilvl@oss.qualcomm.com>, linux-riscv@lists.infradead.org,
         devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
+        Anup Patel <anup.patel@oss.qualcomm.com>,
         Zane Leung <liangzhen@linux.spacemit.com>
-Subject: [PATCH v6 03/14] gtrace: Add RISC-V platform driver for the gtrace framework
-Date: Thu,  1 Oct 2026 10:52:14 +0530
-Message-ID: <20261001052243.3042627-4-mayuresh.chitale@oss.qualcomm.com>
+Subject: [PATCH v6 05/14] gtrace: Add functions to start/stop tracing on a component path
+Date: Thu,  1 Oct 2026 10:52:16 +0530
+Message-ID: <20261001052243.3042627-6-mayuresh.chitale@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261001052243.3042627-1-mayuresh.chitale@oss.qualcomm.com>
 References: <20261001052243.3042627-1-mayuresh.chitale@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Authority-Analysis: v=2.4 cv=Gr3XaU1C c=1 sm=1 tr=0 ts=6abdee65 cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+X-Proofpoint-ORIG-GUID: zF-Y2x_FWGfN4yaLmiHqRtVEQFSKOmJN
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAxMDAyMSBTYWx0ZWRfXybD2p5yi+XGX
+ b81kH5b1HxACYhsnKzViL9M/SBvBMoFSUwlE0rCJhgkk+oa891Wklby7D7TSK+gVViZA7YJyuHd
+ feaopw9QSx65K7gjZmTbpah0bwsjAQI=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAxMDAyMSBTYWx0ZWRfXwQRIHgp74sEG
+ GzhN7weQTQSeJ64nVP1Kxm3H0jBgkh+4pLXbo7RGW1Tct99Zwo86FEJ0IygFzexyk7bX2i+N/N9
+ wyhFXSqvJ3JTVCP723uahGWJ/1cXbVJoN911lLYIOl/jIcTJ4BpMb3cA0zb3DHvRnPJ0wHVIYFQ
+ j5Pocjoyyv4bZcZaSMjYz0GUR80wLlhbUVYbXyRB8sOWhNHPiuC6gYkGuukbRGzqmaAH6Jc5KRG
+ jc2az5vjR1RuuLizyyEgphtX1gdxiRsrFiG5PICvESPt0vm9JOFAHwQFmWboBhkAYy8fjIQYP6g
+ JE7noCBmqyA+ISkB3RnUV1IE5wbZ917dmw6aqZNEzJJ/SpT+htD8L55RGHBuqF59IEeE3hlTMG9
+ +eEF2EYw7UKMcv6bYs/4jv0cYvn1QTXRElWf6I/hitmuwJ9ypO7DW2epN9ONDFo5F53bVr3Un/C
+ f0FqsF/egwusrKtw4lA==
+X-Proofpoint-GUID: zF-Y2x_FWGfN4yaLmiHqRtVEQFSKOmJN
+X-Authority-Analysis: v=2.4 cv=WpC+otfv c=1 sm=1 tr=0 ts=6abdee75 cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
  a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
- a=MynGWnbBoGqc5BfHMUQA:9 a=uKXjsCUrEbL0IQVhDsJ9:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAxMDAyMSBTYWx0ZWRfX/d0g3Hh8FAxp
- jcsJW59qszAkI7/1bQqIOgzFwcRr6zuO7DwXfU/CCmPqFfESoCu2Agti0k3DQZroVUPT2jceQON
- Kc33pe2VcGnvBhjOialkRQHVLno3+D8=
-X-Proofpoint-GUID: ScZG7ehfzMd3TVBz_U4nFtoe0NprN7tj
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAxMDAyMSBTYWx0ZWRfX/bK88F28P7yD
- ahfOfF2sYT7bdM5EBXB1e3hAqp7IYxWtfe0r1+3Vhd6FhWZHkS4vWDrH2njogi9NH9m4eZZbwXJ
- OydcAAO4Ca7xv7lbWxGdUUGYtrtEBZ4/+LCIpOew+3dUuA4ZRVmaAUnOe4T+bS52amcvWp5ZkjL
- pWIY8rzCvuYkLtHOhRsyNp4ZWsh9XRBKfT+tJnYB0EyPT7eXk4FjNUW4X9f74ZBsQQ2Jaz5/KEI
- sUGXuc4gsM4LSfADaASrhPF6lbiHBBWIGDVkNCShsAZKw9COxzdC5Bn383Tz+EM3Pud9TP18xlZ
- awhX5vP+IQ6m88x2gBnKSIWJtkZTVac6ux7yQ6w9xwt+eMKdMK3v0j5bq4DKHtxseneA/FpfrhL
- TJm5rdpM3hU9zxzVo0uXA8cnSPgcrvhIqMBiA5H0F8IQ9m0Yi4KPLq2MCanWDygJQnZYn08m1eG
- ylmfuAnC7Wndb9nTuDw==
-X-Proofpoint-ORIG-GUID: ScZG7ehfzMd3TVBz_U4nFtoe0NprN7tj
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8
+ a=Be7mbbALSbNoa8F8jQ8A:9 a=1OuFwYUASf3TG4hYMiVC:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-01_02,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 bulkscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0
- spamscore=0 suspectscore=0 impostorscore=0 priorityscore=1501 phishscore=0
+ lowpriorityscore=0 phishscore=0 bulkscore=0 priorityscore=1501 suspectscore=0
+ malwarescore=0 impostorscore=0 adultscore=0 clxscore=1015 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610010021
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_222351_033141_FD263DEB 
-X-CRM114-Status: GOOD (  26.09  )
+X-CRM114-CacheID: sfid-20260930_222406_551086_E6289531 
+X-CRM114-Status: GOOD (  23.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,532 +159,191 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Anup Patel <anup.patel@oss.qualcomm.com>
+The perf driver framework needs to be able to start / stop all components
+in a trace component path during its operation. Add gtrace_path_start()
+and gtrace_path_stop() functions for this purpose.
 
-The RISC-V trace components defined by the RISC-V Trace Control Interface
-Specification are memory mapped devices which are organized in a
-graph-like topology and described in the device tree.
-
-Add the RISC-V platform driver for the gtrace framework. The driver
-parses the RISC-V component topology from the device tree, discovers the
-type and version of each component from its IMPL register, provides the
-RISC-V register level control ops and registers each component with the
-gtrace core.
-
+Co-developed-by: Anup Patel <anup.patel@oss.qualcomm.com>
 Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
-Co-developed-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
 Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
 ---
- drivers/hwtracing/gtrace/Kconfig            |  15 ++
- drivers/hwtracing/gtrace/Makefile           |   3 +
- drivers/hwtracing/gtrace/gtrace-of.c        | 126 +++++++++++++
- drivers/hwtracing/gtrace/rvtrace-platform.c | 186 ++++++++++++++++++++
- drivers/hwtracing/gtrace/rvtrace.h          | 121 +++++++++++++
- include/linux/gtrace.h                      |   3 +
- 6 files changed, 454 insertions(+)
- create mode 100644 drivers/hwtracing/gtrace/gtrace-of.c
- create mode 100644 drivers/hwtracing/gtrace/rvtrace-platform.c
- create mode 100644 drivers/hwtracing/gtrace/rvtrace.h
+ drivers/hwtracing/gtrace/gtrace-core.c | 104 +++++++++++++++++++++++++
+ include/linux/gtrace.h                 |   7 ++
+ 2 files changed, 111 insertions(+)
 
-diff --git a/drivers/hwtracing/gtrace/Kconfig b/drivers/hwtracing/gtrace/Kconfig
-index bcc3b4169a76..04986f216549 100644
---- a/drivers/hwtracing/gtrace/Kconfig
-+++ b/drivers/hwtracing/gtrace/Kconfig
-@@ -13,3 +13,18 @@ menuconfig GTRACE
+diff --git a/drivers/hwtracing/gtrace/gtrace-core.c b/drivers/hwtracing/gtrace/gtrace-core.c
+index f750025104ec..d7f1df90aa31 100644
+--- a/drivers/hwtracing/gtrace/gtrace-core.c
++++ b/drivers/hwtracing/gtrace/gtrace-core.c
+@@ -10,6 +10,7 @@
+ #include <linux/module.h>
+ #include <linux/mutex.h>
+ #include <linux/percpu.h>
++#include <linux/spinlock.h>
+ #include <linux/xarray.h>
+ #include <linux/gtrace.h>
  
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called gtrace.
-+
-+config RVTRACE
-+	tristate "RISC-V Trace Support"
-+	depends on RISCV
-+	depends on OF
-+	depends on GTRACE
-+	default RISCV
-+	help
-+	  This provides the RISC-V backend for the generic hardware trace
-+	  (gtrace) framework. It parses the RISC-V trace component topology,
-+	  provides the RISC-V register-level control ops and registers each
-+	  component with the gtrace core.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called rvtrace.
-diff --git a/drivers/hwtracing/gtrace/Makefile b/drivers/hwtracing/gtrace/Makefile
-index 3f90fb99c514..20f67a78b8ab 100644
---- a/drivers/hwtracing/gtrace/Makefile
-+++ b/drivers/hwtracing/gtrace/Makefile
-@@ -2,3 +2,6 @@
+@@ -24,7 +25,15 @@ static DEFINE_PER_CPU(struct gtrace_component *, gtrace_cpu_source_comp);
+ /* gtrace comp specific data, to be used by core functions only */
+ struct gtrace_comp_priv {
+ 	struct gtrace_component comp;
++	/*
++	 * Protects start_count and owner. Serializes start/stop against other paths
++	 * sharing this component and, for a sink, against gtrace_path_copyto_auxbuf().
++	 * Raw because the PMU start/stop callbacks are called with the rq_lock held.
++	 */
++	raw_spinlock_t lock;
+ 	u32 type_idx;
++	u32 start_count;
++	pid_t owner;
+ 	bool ready;
+ 	bool visited;
+ };
+@@ -418,6 +427,7 @@ struct gtrace_component *gtrace_register_component(struct gtrace_component_id *i
+ 		ret = -ENOMEM;
+ 		goto err_out;
+ 	}
++	raw_spin_lock_init(&cpriv->lock);
+ 	comp = &cpriv->comp;
+ 	comp->pdata = pdata;
+ 	comp->id = *id;
+@@ -611,6 +621,100 @@ static void gtrace_release_path_nodes(struct gtrace_path *path)
+ 	}
+ }
  
- obj-$(CONFIG_GTRACE) += gtrace.o
- gtrace-y := gtrace-core.o
-+gtrace-$(CONFIG_OF) += gtrace-of.o
-+
-+obj-$(CONFIG_RVTRACE) += rvtrace-platform.o
-diff --git a/drivers/hwtracing/gtrace/gtrace-of.c b/drivers/hwtracing/gtrace/gtrace-of.c
-new file mode 100644
-index 000000000000..8f99cd35dcce
---- /dev/null
-+++ b/drivers/hwtracing/gtrace/gtrace-of.c
-@@ -0,0 +1,126 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2026 Qualcomm Technologies, Inc.
-+ */
-+
-+#include <linux/device.h>
-+#include <linux/export.h>
-+#include <linux/gtrace.h>
-+#include <linux/of.h>
-+#include <linux/of_graph.h>
-+#include <linux/property.h>
-+
-+/*
-+ * Parse the "out-ports" graph of the component's device tree node and fill
-+ * pdata->outconns.
-+ * Return: 0 on success or when there are no output ports
-+ *         -EPROBE_DEFER if a destination is not registered yet
-+ *         negative error code otherwise.
-+ */
-+int gtrace_of_parse_outconns(struct gtrace_platform_data *pdata)
++static int __gtrace_comp_start(struct gtrace_component *comp, pid_t owner)
 +{
-+	struct device_node *parent, *ep_node, *rep_node, *rdev_node;
-+	struct gtrace_connection *conn;
-+	struct of_endpoint ep, rep;
-+	int ret = 0, i = 0;
-+
-+	parent = of_get_child_by_name(dev_of_node(pdata->dev), "out-ports");
-+	if (!parent)
-+		return 0;
-+
-+	pdata->nr_outconns = of_graph_get_endpoint_count(parent);
-+	pdata->outconns = devm_kcalloc(pdata->dev, pdata->nr_outconns,
-+				       sizeof(*pdata->outconns), GFP_KERNEL);
-+	if (!pdata->outconns) {
-+		ret = -ENOMEM;
-+		goto done;
-+	}
-+
-+	for_each_endpoint_of_node(parent, ep_node) {
-+		conn = devm_kzalloc(pdata->dev, sizeof(*conn), GFP_KERNEL);
-+		if (!conn) {
-+			of_node_put(ep_node);
-+			ret = -ENOMEM;
-+			break;
-+		}
-+
-+		ret = of_graph_parse_endpoint(ep_node, &ep);
-+		if (ret) {
-+			of_node_put(ep_node);
-+			break;
-+		}
-+
-+		rep_node = of_graph_get_remote_endpoint(ep_node);
-+		if (!rep_node) {
-+			ret = -ENODEV;
-+			of_node_put(ep_node);
-+			break;
-+		}
-+		rdev_node = of_graph_get_port_parent(rep_node);
-+
-+		ret = of_graph_parse_endpoint(rep_node, &rep);
-+		if (ret) {
-+			of_node_put(ep_node);
-+			of_node_put(rep_node);
-+			of_node_put(rdev_node);
-+			break;
-+		}
-+
-+		conn->src_port = ep.port;
-+		conn->src_fwnode = dev_fwnode(pdata->dev);
-+		/* The 'src_comp' is set by gtrace_register_component() */
-+		conn->src_comp = NULL;
-+		conn->dest_port = rep.port;
-+		conn->dest_fwnode = of_fwnode_handle(rdev_node);
-+		fwnode_handle_get(conn->dest_fwnode);
-+		conn->dest_comp = gtrace_find_by_fwnode(conn->dest_fwnode);
-+		if (!conn->dest_comp) {
-+			ret = -EPROBE_DEFER;
-+			of_node_put(ep_node);
-+			of_node_put(rep_node);
-+			of_node_put(rdev_node);
-+			break;
-+		}
-+
-+		pdata->outconns[i] = conn;
-+		i++;
-+	}
-+
-+done:
-+	if (ret) {
-+		for (i = 0; i < pdata->nr_outconns && pdata->outconns; i++) {
-+			conn = pdata->outconns[i];
-+			if (conn && conn->dest_fwnode)
-+				fwnode_handle_put(conn->dest_fwnode);
-+		}
-+	}
-+	of_node_put(parent);
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(gtrace_of_parse_outconns);
-+
-+/*
-+ * Parse the "out-ports" graph of the component's device tree node and allocate
-+ * pdata->inconns.
-+ *
-+ * Return: 0 on success or when there are no input ports, -ENOMEM otherwise.
-+ */
-+int gtrace_of_parse_inconns(struct gtrace_platform_data *pdata)
-+{
-+	struct device_node *parent;
++	struct gtrace_comp_priv *cpriv = to_gtrace_comp_priv(comp);
++	const struct gtrace_driver *gtdrv = to_gtrace_driver(comp->dev.driver);
++	unsigned long flags;
 +	int ret = 0;
 +
-+	parent = of_get_child_by_name(dev_of_node(pdata->dev), "in-ports");
-+	if (!parent)
-+		return 0;
++	if (!gtdrv)
++		return -ENODEV;
 +
-+	pdata->nr_inconns = of_graph_get_endpoint_count(parent);
-+	pdata->inconns = devm_kcalloc(pdata->dev, pdata->nr_inconns,
-+				      sizeof(*pdata->inconns), GFP_KERNEL);
-+	if (!pdata->inconns)
-+		ret = -ENOMEM;
++	raw_spin_lock_irqsave(&cpriv->lock, flags);
++	if (cpriv->start_count) {
++		if (cpriv->owner != owner) {
++			ret = -EBUSY;
++			goto out;
++		}
++	} else {
++		if (gtdrv->start) {
++			ret = gtdrv->start(comp);
++			if (ret)
++				goto out;
++		}
++		cpriv->owner = owner;
++	}
 +
-+	of_node_put(parent);
++	cpriv->start_count++;
++out:
++	raw_spin_unlock_irqrestore(&cpriv->lock, flags);
 +	return ret;
 +}
-+EXPORT_SYMBOL_GPL(gtrace_of_parse_inconns);
-diff --git a/drivers/hwtracing/gtrace/rvtrace-platform.c b/drivers/hwtracing/gtrace/rvtrace-platform.c
-new file mode 100644
-index 000000000000..a5655e983e51
---- /dev/null
-+++ b/drivers/hwtracing/gtrace/rvtrace-platform.c
-@@ -0,0 +1,186 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2026 Qualcomm Technologies, Inc.
-+ */
 +
-+#include <linux/device.h>
-+#include <linux/gtrace.h>
-+#include <linux/io.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/types.h>
-+#include "rvtrace.h"
-+
-+static int rvtrace_hw_enable(struct gtrace_platform_data *pdata)
++static int __gtrace_comp_stop(struct gtrace_component *comp)
 +{
-+	u32 val;
++	struct gtrace_comp_priv *cpriv = to_gtrace_comp_priv(comp);
++	const struct gtrace_driver *gtdrv = to_gtrace_driver(comp->dev.driver);
++	unsigned long flags;
++	int ret = 0;
 +
-+	val = gtrace_read32(pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
-+	val |= BIT(RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT);
-+	gtrace_write32(pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
-+	return gtrace_poll_bit(pdata, RVTRACE_COMPONENT_CTRL_OFFSET,
-+			       RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT, 1,
-+			       pdata->control_poll_timeout_usecs);
-+}
-+
-+static int rvtrace_hw_disable(struct gtrace_platform_data *pdata)
-+{
-+	u32 val;
-+
-+	val = gtrace_read32(pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
-+	val &= ~BIT(RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT);
-+	gtrace_write32(pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
-+	return gtrace_poll_bit(pdata, RVTRACE_COMPONENT_CTRL_OFFSET,
-+			       RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT, 0,
-+			       pdata->control_poll_timeout_usecs);
-+}
-+
-+static int rvtrace_hw_reset(struct gtrace_platform_data *pdata)
-+{
-+	int ret;
-+
-+	gtrace_write32(pdata, 0, RVTRACE_COMPONENT_CTRL_OFFSET);
-+	ret = gtrace_poll_bit(pdata, RVTRACE_COMPONENT_CTRL_OFFSET,
-+			      RVTRACE_COMPONENT_CTRL_ACTIVE_SHIFT, 0,
-+			      pdata->control_poll_timeout_usecs);
-+	if (ret)
-+		return ret;
-+
-+	gtrace_write32(pdata, RVTRACE_COMPONENT_CTRL_ACTIVE_MASK,
-+		       RVTRACE_COMPONENT_CTRL_OFFSET);
-+	return gtrace_poll_bit(pdata, RVTRACE_COMPONENT_CTRL_OFFSET,
-+			       RVTRACE_COMPONENT_CTRL_ACTIVE_SHIFT, 1,
-+			       pdata->control_poll_timeout_usecs);
-+}
-+
-+const struct gtrace_hw_ops rvtrace_hw_ops = {
-+	.enable		= rvtrace_hw_enable,
-+	.disable	= rvtrace_hw_disable,
-+	.reset		= rvtrace_hw_reset,
-+};
-+
-+static int rvtrace_platform_probe(struct platform_device *pdev)
-+{
-+	struct gtrace_platform_data *pdata;
-+	struct device *dev = &pdev->dev;
-+	struct gtrace_component_id id;
-+	struct gtrace_component *comp;
-+	u32 impl, type, major, minor;
-+	struct device_node *node;
-+	struct resource *res;
-+	int gtype;
-+	int ret;
-+
-+	pdata = devm_kzalloc(dev, sizeof(*pdata), GFP_KERNEL);
-+	if (!pdata)
-+		return -ENOMEM;
-+	pdata->dev = dev;
-+	pdata->impid = RVTRACE_COMPONENT_IMPID_UNKNOWN;
-+	pdata->hw_ops = &rvtrace_hw_ops;
-+	pdata->format = (uintptr_t)device_get_match_data(dev);
-+
-+	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	if (!res)
-+		return -EINVAL;
-+
-+	pdata->io_mem = true;
-+	pdata->base = devm_ioremap(&pdev->dev, res->start, resource_size(res));
-+	if (!pdata->base)
-+		return dev_err_probe(dev, -ENOMEM, "failed to ioremap %pR\n", res);
-+
-+	pdata->bound_cpu = -1;
-+	node = of_parse_phandle(dev_of_node(dev), "cpus", 0);
-+	if (node) {
-+		ret = of_cpu_node_to_id(node);
-+		of_node_put(node);
-+		if (ret < 0)
-+			return dev_err_probe(dev, ret, "failed to get CPU id for %pOF\n", node);
-+		pdata->bound_cpu = ret;
++	raw_spin_lock_irqsave(&cpriv->lock, flags);
++	if (!cpriv->start_count) {
++		ret = -EINVAL;
++		goto out;
 +	}
 +
-+	/* Default control poll timeout */
-+	pdata->control_poll_timeout_usecs = 10;
++	cpriv->start_count--;
++	if (!cpriv->start_count) {
++		if (!gtdrv) {
++			ret = -ENODEV;
++			goto out;
++		}
 +
-+	ret = gtrace_of_parse_outconns(pdata);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to parse output connections\n");
-+
-+	ret = gtrace_of_parse_inconns(pdata);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to parse input connections\n");
-+
-+	/* Reset the component before it is registered with the gtrace core. */
-+	ret = rvtrace_hw_reset(pdata);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to reset component\n");
-+
-+	impl = gtrace_read32(pdata, RVTRACE_COMPONENT_IMPL_OFFSET);
-+	type = (impl >> RVTRACE_COMPONENT_IMPL_TYPE_SHIFT) &
-+		RVTRACE_COMPONENT_IMPL_TYPE_MASK;
-+	major = (impl >> RVTRACE_COMPONENT_IMPL_VERMAJOR_SHIFT) &
-+		RVTRACE_COMPONENT_IMPL_VERMAJOR_MASK;
-+	minor = (impl >> RVTRACE_COMPONENT_IMPL_VERMINOR_SHIFT) &
-+		RVTRACE_COMPONENT_IMPL_VERMINOR_MASK;
-+
-+	gtype = rvtrace_type_to_gtrace(type);
-+	if (gtype < 0)
-+		return dev_err_probe(dev, -ENODEV, "unsupported component type %u\n", type);
-+
-+	id.type = gtype;
-+	id.version = rvtrace_component_mkversion(major, minor);
-+
-+	comp = gtrace_register_component(&id, rvtrace_type_name(gtype), pdata);
-+	if (IS_ERR(comp))
-+		return PTR_ERR(comp);
-+
-+	platform_set_drvdata(pdev, comp);
-+	return 0;
++		if (gtdrv->stop)
++			ret = gtdrv->stop(comp);
++	}
++out:
++	raw_spin_unlock_irqrestore(&cpriv->lock, flags);
++	return ret;
 +}
 +
-+static void rvtrace_platform_remove(struct platform_device *pdev)
++int gtrace_path_start(struct gtrace_path *path)
 +{
-+	struct gtrace_component *comp = platform_get_drvdata(pdev);
-+	struct gtrace_platform_data *pdata = comp->pdata;
-+	struct gtrace_connection *conn;
-+	int i;
++	struct gtrace_path_node *node;
++	int ret = 0;
 +
-+	for (i = 0; i < pdata->nr_outconns; i++) {
-+		conn = pdata->outconns[i];
-+		if (conn && conn->dest_fwnode)
-+			fwnode_handle_put(conn->dest_fwnode);
++	list_for_each_entry_reverse(node, &path->comp_list, head) {
++		ret = __gtrace_comp_start(node->comp, path->owner);
++		if (ret)
++			break;
 +	}
 +
-+	gtrace_unregister_component(comp);
++	/* If a component failed to start, stop all the components that were started before it */
++	if (ret)
++		list_for_each_entry_continue(node, &path->comp_list, head)
++			__gtrace_comp_stop(node->comp);
++
++	return ret;
 +}
++EXPORT_SYMBOL_GPL(gtrace_path_start);
 +
-+static const struct of_device_id rvtrace_platform_match[] = {
-+	{ .compatible = "riscv,trace-component", .data = (void *)GTRACE_FORMAT_ETRACE },
-+	{}
-+};
-+
-+static struct platform_driver rvtrace_platform_driver = {
-+	.driver = {
-+		.name		= "rvtrace",
-+		.of_match_table	= rvtrace_platform_match,
-+	},
-+	.probe = rvtrace_platform_probe,
-+	.remove = rvtrace_platform_remove,
-+};
-+
-+static int __init rvtrace_platform_init(void)
++int gtrace_path_stop(struct gtrace_path *path)
 +{
-+	return platform_driver_register(&rvtrace_platform_driver);
-+}
++	struct gtrace_path_node *node;
++	int ret = 0, err;
 +
-+static void __exit rvtrace_platform_exit(void)
-+{
-+	platform_driver_unregister(&rvtrace_platform_driver);
-+}
-+
-+module_init(rvtrace_platform_init);
-+module_exit(rvtrace_platform_exit);
-+
-+MODULE_AUTHOR("Anup Patel");
-+MODULE_DESCRIPTION("RISC-V backend for the generic trace framework");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/hwtracing/gtrace/rvtrace.h b/drivers/hwtracing/gtrace/rvtrace.h
-new file mode 100644
-index 000000000000..e6be1ce303cc
---- /dev/null
-+++ b/drivers/hwtracing/gtrace/rvtrace.h
-@@ -0,0 +1,121 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (c) 2026 Qualcomm Technologies, Inc.
-+ *
-+ * RISC-V trace component register layout and helpers for the RISC-V backend
-+ * of the generic trace (gtrace) framework. These definitions are specific to
-+ * the RISC-V Trace Control Interface and must not be used by the generic core.
-+ */
-+
-+#ifndef __LINUX_RVTRACE_H__
-+#define __LINUX_RVTRACE_H__
-+
-+#include <linux/gtrace.h>
-+#include <linux/types.h>
-+
-+/* Control register common across all RISC-V trace components */
-+#define RVTRACE_COMPONENT_CTRL_OFFSET		0x000
-+#define RVTRACE_COMPONENT_CTRL_ACTIVE_MASK	0x1
-+#define RVTRACE_COMPONENT_CTRL_ACTIVE_SHIFT	0
-+#define RVTRACE_COMPONENT_CTRL_ENABLE_MASK	0x1
-+#define RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT	1
-+#define RVTRACE_COMPONENT_CTRL_EMPTY_SHIFT	3
-+
-+/* Implementation register common across all RISC-V trace components */
-+#define RVTRACE_COMPONENT_IMPL_OFFSET		0x004
-+#define RVTRACE_COMPONENT_IMPL_VERMAJOR_MASK	0xf
-+#define RVTRACE_COMPONENT_IMPL_VERMAJOR_SHIFT	0
-+#define RVTRACE_COMPONENT_IMPL_VERMINOR_MASK	0xf
-+#define RVTRACE_COMPONENT_IMPL_VERMINOR_SHIFT	4
-+#define RVTRACE_COMPONENT_IMPL_TYPE_MASK	0xf
-+#define RVTRACE_COMPONENT_IMPL_TYPE_SHIFT	8
-+
-+/* Component types defined by the RISC-V Trace Control Interface */
-+enum rvtrace_component_type {
-+	RVTRACE_COMPONENT_TYPE_RESV0,
-+	RVTRACE_COMPONENT_TYPE_ENCODER, /* 0x1 */
-+	RVTRACE_COMPONENT_TYPE_RESV2,
-+	RVTRACE_COMPONENT_TYPE_RESV3,
-+	RVTRACE_COMPONENT_TYPE_RESV4,
-+	RVTRACE_COMPONENT_TYPE_RESV5,
-+	RVTRACE_COMPONENT_TYPE_RESV6,
-+	RVTRACE_COMPONENT_TYPE_RESV7,
-+	RVTRACE_COMPONENT_TYPE_FUNNEL, /* 0x8 */
-+	RVTRACE_COMPONENT_TYPE_RAMSINK, /* 0x9 */
-+	RVTRACE_COMPONENT_TYPE_PIBSINK, /* 0xA */
-+	RVTRACE_COMPONENT_TYPE_RESV11,
-+	RVTRACE_COMPONENT_TYPE_RESV12,
-+	RVTRACE_COMPONENT_TYPE_RESV13,
-+	RVTRACE_COMPONENT_TYPE_ATBBRIDGE, /* 0xE */
-+	RVTRACE_COMPONENT_TYPE_RESV15,
-+	RVTRACE_COMPONENT_TYPE_MAX
-+};
-+
-+/*
-+ * Possible component implementation IDs discovered from DT or ACPI
-+ * shared across the RISC-V trace drivers to infer trace parameters,
-+ * quirks, and work-arounds. These component implementation IDs are
-+ * internal to Linux and must not be exposed to user-space.
-+ *
-+ * The component implementation ID should be named as follows:
-+ *    RVTRACE_COMPONENT_IMPID_<vendor>_<part>
-+ */
-+enum rvtrace_component_impid {
-+	RVTRACE_COMPONENT_IMPID_UNKNOWN,
-+	RVTRACE_COMPONENT_IMPID_MAX
-+};
-+
-+#define rvtrace_component_version_major(__version)	\
-+	(((__version) >> 16) & 0xffff)
-+#define rvtrace_component_version_minor(__version)	\
-+	((__version) & 0xffff)
-+#define rvtrace_component_mkversion(__major, __minor)	\
-+	((((__major) & 0xffff) << 16) | ((__minor) & 0xffff))
-+
-+/* Map a RISC-V hardware component type to the global gtrace type */
-+static inline int rvtrace_type_to_gtrace(enum rvtrace_component_type type)
-+{
-+	switch (type) {
-+	case RVTRACE_COMPONENT_TYPE_ENCODER:
-+		return GTRACE_RVTRACE_ENCODER;
-+	case RVTRACE_COMPONENT_TYPE_FUNNEL:
-+		return GTRACE_RVTRACE_FUNNEL;
-+	case RVTRACE_COMPONENT_TYPE_RAMSINK:
-+		return GTRACE_RVTRACE_RAMSINK;
-+	case RVTRACE_COMPONENT_TYPE_PIBSINK:
-+		return GTRACE_RVTRACE_PIBSINK;
-+	case RVTRACE_COMPONENT_TYPE_ATBBRIDGE:
-+		return GTRACE_RVTRACE_ATBBRIDGE;
-+	default:
-+		return -EINVAL;
++	list_for_each_entry(node, &path->comp_list, head) {
++		err = __gtrace_comp_stop(node->comp);
++		if (err && !ret)
++			ret = err;
 +	}
++
++	return ret;
 +}
++EXPORT_SYMBOL_GPL(gtrace_path_stop);
 +
-+static inline const char *rvtrace_type_name(enum gtrace_component_type type)
-+{
-+	switch (type) {
-+	case GTRACE_RVTRACE_ENCODER:
-+		return "encoder";
-+	case GTRACE_RVTRACE_FUNNEL:
-+		return "funnel";
-+	case GTRACE_RVTRACE_RAMSINK:
-+		return "ramsink";
-+	case GTRACE_RVTRACE_PIBSINK:
-+		return "pibsink";
-+	case GTRACE_RVTRACE_ATBBRIDGE:
-+		return "atbbridge";
-+	default:
-+		return NULL;
-+	}
-+}
-+
-+static inline int rvtrace_comp_poll_empty(struct gtrace_component *comp)
-+{
-+	return gtrace_poll_bit(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET,
-+			       RVTRACE_COMPONENT_CTRL_EMPTY_SHIFT, 1,
-+			       comp->pdata->control_poll_timeout_usecs);
-+}
-+
-+extern const struct gtrace_hw_ops rvtrace_hw_ops;
-+
-+#endif /* __LINUX_RVTRACE_H__ */
+ struct gtrace_path *gtrace_create_path(struct gtrace_component *source,
+ 				       struct gtrace_component *sink,
+ 				       enum gtrace_component_mode mode)
 diff --git a/include/linux/gtrace.h b/include/linux/gtrace.h
-index 3ae9fcf5bcfa..5368dca0e936 100644
+index 2c3be4d161c6..a4b99c87d250 100644
 --- a/include/linux/gtrace.h
 +++ b/include/linux/gtrace.h
-@@ -236,6 +236,9 @@ struct gtrace_component *gtrace_register_component(struct gtrace_component_id *i
- 						   struct gtrace_platform_data *pdata);
- void gtrace_unregister_component(struct gtrace_component *comp);
+@@ -254,6 +254,7 @@ struct gtrace_path {
+ 	enum gtrace_component_mode	mode;
+ 	u32				trace_id;
+ #define GTRACE_INVALID_TRACE_ID	0
++	pid_t				owner;
+ };
  
-+int gtrace_of_parse_outconns(struct gtrace_platform_data *pdata);
-+int gtrace_of_parse_inconns(struct gtrace_platform_data *pdata);
-+
+ struct gtrace_component *gtrace_path_source(struct gtrace_path *path);
+@@ -262,10 +263,14 @@ struct gtrace_path *gtrace_create_path(struct gtrace_component *source,
+ 				       struct gtrace_component *sink,
+ 				       enum gtrace_component_mode mode);
+ void gtrace_destroy_path(struct gtrace_path *path);
++int gtrace_path_start(struct gtrace_path *path);
++int gtrace_path_stop(struct gtrace_path *path);
+ 
  /**
   * struct gtrace_driver - Representation of a trace driver.
   * @id_table:      Table to match components handled by the driver.
++ * @start:         Callback to start tracing.
++ * @stop:          Callback to stop tracing.
+  * @probe:         Driver probe() function.
+  * @remove:        Driver remove() function.
+  * @get_trace_id:  Get/allocate a trace ID.
+@@ -274,6 +279,8 @@ void gtrace_destroy_path(struct gtrace_path *path);
+  */
+ struct gtrace_driver {
+ 	const struct gtrace_component_id *id_table;
++	int			(*start)(struct gtrace_component *comp);
++	int			(*stop)(struct gtrace_component *comp);
+ 	int			(*probe)(struct gtrace_component *comp);
+ 	void			(*remove)(struct gtrace_component *comp);
+ 	int			(*get_trace_id)(struct gtrace_component *comp,
 -- 
 2.43.0
 
