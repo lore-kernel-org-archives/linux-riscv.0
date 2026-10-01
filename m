@@ -4,60 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A10CA5FCF
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 16:45:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F3BBCA5FCF
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 16:49:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OEGKxNpzHNMBqBQseXTnuf/Ma/fWEve7aXJw+ixwx7A=; b=hYtO1kiSQtj7b7KmpPeTsTj/Ye
-	w9LgkupVMx1m29Rjs8nMAGTltAmQR78FDjbn9CVC6vtgg/ZjEUd+0afoPYQ2Jh+DosAtjVk0hyi5P
-	nKILb85OCTv67WZgLDfVBKqYK+zgeOvRE45tfMdc4/sJOr8sgMgYUAS0B4+G4XXstACkzddHEPooM
-	EzVeFCVt0EuOwRl6epwLf7Yud1Mm3np68L9YABrDHI+Tx3ATEpC9IHsEkzfZn0NjfmtVZ2PcAqzgq
-	g6cv3LJVjehSa3Olkz2GnY2NxsOwLg0IsZFJFgRe5hgj6IDcuA8K25N9UkD4tD8frrg9XObiW4HYa
-	iCHPTA3g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DSuXibg/NF+r01OvNIxQQTkxxL8uKAjSNjkQriF4hU0=; b=HZOcZyPbb6Ysvt
+	Il3yzztOVHKC7VVSEZ1k5q3XGn9wIfTAQW8WUUHw8XW6uSsyKYwRPlrKv7afiM06Ex5b/tcDgt/+T
+	L3Zx2MFQ5OxkGAo1tmIh8NTmQNknLptn0skCf2VVkbb7R59lK+f4H+x+QX0LE5otmPy8XuiRshAel
+	DJay7Fd5VYpiaT4Yt5dxDlRQ3i0GCXH9r7T/h9pVfHt3c9Bbpw7lj+88qtMQtZ/ZkIWXpS1ctyfUS
+	G3PikUm1pb/xvZjz+3BJYd/8MfuHm7rf96Ebzd0GaE2xb6YBowLwcbeH5L400gzGFbgapKqJv1c8L
+	I4yiMyjIxxwkFdudSlKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJuF-00000009lGT-2pHk;
-	Thu, 01 Oct 2026 16:45:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xCJy1-00000009lu4-1QBM;
+	Thu, 01 Oct 2026 16:49:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJuE-00000009lGM-3oSQ
+	id 1xCJxz-00000009ltl-2PDB
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Oct 2026 16:45:14 +0000
+	Thu, 01 Oct 2026 16:49:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9032543584;
-	Thu,  1 Oct 2026 16:45:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7F941F00898;
-	Thu,  1 Oct 2026 16:45:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 091166021D;
+	Thu,  1 Oct 2026 16:49:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 767851F00898;
+	Thu,  1 Oct 2026 16:49:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790873114;
-	bh=oiy1TAmPvuT7fLgnrKrdYEj5f+TvhnwsMZ7DNxp6rLQ=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=iT9Mtm6wRxYeDEIlw+cANrV8UaSNQf0lRzkY+mc7M4JJ/UisPozUXJ90qCFrebGQm
-	 6G3DBn3zXNvHRgJexj/zsUqs0ZbFkPQm5R9jxnORayKqYHXuf5cGv4jEeOeGuNEiPj
-	 eKHrDx2bLiBemd0nck2O3srd4zLlKouT2Et4F6cLGTgme0seXFx9s70l2LRexkykAi
-	 /OyUOz2G8EP6NqaWOJPV7hQ6Q+39AdsPKxF3VUI100I5yUFmYxSfeLbnCkXHP2NjTv
-	 jS3dtnCs6dvhRoiPprGFwgoc82qODCT0Ryp/6y1qV1YY1uAD7/wgEnTxULZcldugd3
-	 k6WxzWqub6JXg==
-Date: Thu, 1 Oct 2026 10:45:11 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Thorsten Blum <blum@kernel.org>
-cc: Geert Uytterhoeven <geert@linux-m68k.org>, Paul Walmsley <pjw@kernel.org>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Alexandre Ghiti <alex@ghiti.fr>, Deepak Gupta <debug@rivosinc.com>, 
-    Zong Li <zong.li@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
-    Zishun Yi <vulab@iscas.ac.cn>, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: process: Use str_supported_unsupported() in
- compat_mode_detect()
-In-Reply-To: <aruH26spDeM8O9dh@kernel.org>
-Message-ID: <7d4e8a05-4e4e-55be-2a9d-715c65787c38@kernel.org>
-References: <20260924213256.122530-2-blum@kernel.org> <15d659fe-c9cb-fa65-5dd6-7182fb152317@kernel.org> <CAMuHMdVK-MzcnNgobviFf8rxkko_sBT43+gZdEG45fN+vyo1xA@mail.gmail.com> <aruH26spDeM8O9dh@kernel.org>
+	s=k20260515; t=1790873346;
+	bh=GLOsEiOcPOwu3tKOoAo8L8EDZt9SBH1wAKk2F8CTFEo=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=eOB/kesqHLJRSdE609agTLKKGnMa7Ih0at/KhR2ZNy2nW5EJX/Wk0TwbYy7ukJRC5
+	 0wQCqcfOdpMux40JHu73U5qpjVCXcwDmvV38e5w0NVlvuphhwM4GM+2JejXQ+6wiSu
+	 O87GeBFD5cTighRCytgl4ZfxsUQZKUkhi4dgLb8xCzKfDH0KRg8vqjiNg31O9ZQEa0
+	 XCGDwgAXpRbLm3TWBUL0NM9D9/IZJy0y9VUfXk1tFMyWUsJcYZQyq/QU+ba33OX2R0
+	 pMAcJi5Aby3zUAARnI4Q80vzmjJyirB6OzbNn0n1BLtyV0AfgPQYWOnjKxbKXrfDeR
+	 Z7NeRTdn+nd0Q==
+From: Mark Brown <broonie@kernel.org>
+To: Longbin Li <looong.bin@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <chen.wang@linux.dev>, 
+ Inochi Amaoto <inochiama@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Han Gao <gaohan@iscas.ac.cn>
+Cc: Han Gao <rabenda.cn@gmail.com>, Hangfan Li <lihangfan@iscas.ac.cn>, 
+ linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
+ linux-riscv@lists.infradead.org
+In-Reply-To: <20261001-fix-sg204xspi-v2-0-014dbaf22b5e@iscas.ac.cn>
+References: <20261001-fix-sg204xspi-v2-0-014dbaf22b5e@iscas.ac.cn>
+Subject: Re: (subset) [PATCH v2 0/4] spi: sophgo: Fix SPI NOR errors and
+ clock limits
+Message-Id: <179087050674.90966.6118735285003982694.b4-ty@b4>
+Date: Thu, 01 Oct 2026 17:01:46 +0100
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-407165345-1790873114=:2885293"
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1558; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=yi/iOdB3XkeKJG4NywuSBty4SjiQPj4PbgkDK2mpvFM=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqvo788QZjKL23ksoySCouh5gJZmYiqbz6jZtdu
+ ozueBDU8qSJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCar6O/AAKCRAk1otyXVSH
+ 0GxxB/9Wup5wcUaF+oupk4Z0bZHrFp+CXB+s6cyynLtA1FATbYaKy9AW9Umn2LTq5tnhzsV9uLh
+ PXKst0WcQJswkkRqg0ZCiFtok4Pori0LnaCQvR4ZJ2jUsptfrDskBdbhYQOYkayZw1B99gniw4z
+ V5R63ephcglhYWnChADM6EQkMOnCFwU9bre3K+TNplH/0xlh20/4NsN5Tcx/FB40C8eXQiJB3rH
+ OozsbkSBDPaMZKhSgFLHRFlVOEuA5iE7VcdRUSeFyWnIVNB7I0etj5+BxElBLXiDPST5z7x5KQG
+ 9kG2Cgh3FbYn1NcUMk5VzEJBeAOJGt4e0wznLitAauuwqr3S
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,69 +83,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
-
---8323329-407165345-1790873114=:2885293
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8BIT
-
-On Tue, 29 Sep 2026, Thorsten Blum wrote:
-
-> On Tue, Sep 29, 2026 at 11:11:55AM +0200, Geert Uytterhoeven wrote:
-> > Hi Paul, Thorsten,
-> > 
-> > On Sat, 26 Sept 2026 at 01:48, Paul Walmsley <pjw@kernel.org> wrote:
-> > > On Thu, 24 Sep 2026, Thorsten Blum wrote:
-> > > > Replace hard-coded strings with the str_supported_unsupported() helper.
-> > > > This unifies the output and helps the linker with deduplication, which
-> > > > can result in a smaller binary.
-> > > >
-> > > > Signed-off-by: Thorsten Blum <blum@kernel.org>
-> > >
-> > > Thanks, queued for v7.4.
-> > 
-> > Thanks for your patch, which is now commit a06776565b9e7351 ("riscv:
-> > process: Use str_supported_unsupported() in compat_mode_detect()")
-> > in riscv/for-next.
-> > 
-> > This fails to build:
-> > 
-> >     arch/riscv/kernel/process.c: In function ‘compat_mode_detect’:
-> >     arch/riscv/kernel/process.c:138:17: error: implicit declaration of
-> > function ‘str_supported_unsupported’
-> > [-Werror=implicit-function-declaration]
-> >       138 |                 str_supported_unsupported(compat_mode_supported));
-> >           |                 ^~~~~~~~~~~~~~~~~~~~~~~~~
-> > 
-> > as it has a hard dependency on commit 5383cf280ef4f00b
-> > ("lib/string_choices: Add str_supported_unsupported()
-> > helper"), which is only present in the for-next branch of
-> > https://git.kernel.org/pub/scm/linux/kernel/git/pdx86/platform-drivers-x86.git.
+On Thu, 01 Oct 2026 02:22:49 +0800, Han Gao wrote:
+> spi: sophgo: Fix SPI NOR errors and clock limits
 > 
-> Hi Geert,
+> The SG204x SPI NOR driver ignores transfer errors and clock limits.
+> Fix both, enable SPI NOR on SRD3-10, and use 12.5 MHz on SRD3-10 and
+> SG2042 to match EDK2 and the vendor kernel, respectively.
 > 
-> It's also in linux-next:
+> Tested on SRD3-12 at 12.5 MHz: both flashes identify correctly, SFDP
+> reads succeed, and two full 64 MiB reads per flash match.
 > 
-> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=5383cf280ef4f00b15f1d9e2a2886d0d02c0118b
+> [...]
 
-I'm dropping this one until the dependency lands in mainline.  
+Applied to
 
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.4
 
-- Paul
---8323329-407165345-1790873114=:2885293
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks!
+
+[1/4] spi: sg2044-nor: Return transfer errors
+      https://git.kernel.org/broonie/spi/c/53cdc4266b93
+[2/4] spi: sg2044-nor: Honor SPI clock limits
+      https://git.kernel.org/broonie/spi/c/ed400c241b3c
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-407165345-1790873114=:2885293--
-
