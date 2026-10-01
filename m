@@ -4,118 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 328B8CA5FC5
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 07:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7636CA5FC5
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 07:44:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WdqiEH38JffVFa64QTBwV745oCw281CuMvWNiZaDado=; b=ha14eXapCMBGB0
-	5zNNFhcZhL94oCnSSiZBn8SYOu/oLQiSOS+pEpDTwKkWki7VceETjw/ZpSSpigpjGwMgtajHmoAKd
-	GAbnmQVbAuaro0wsEDIr1w5IFReJ+YiFdQ76vr4BESMoUbyH1T14u63yi7l1f5QY2VZJT8U9DcSYy
-	Zdhx2Zkhz5gIqUEXAUZRWnZTl+BOBgwO+ZV5e/IHZkS73tRHNgBRIjIyAnawtfQ+zWQ23WC3CTqVt
-	rUVRhpSoduDc1hyNNtW4A1fgK4UHqIwsx4eq208XhIJt2Uup/Zl/ElUYpJndIpB2NW1FmqTvR2sUV
-	LPJ8rF/F6l2VGewVmLJA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qRazyolciILGw4krflN6agHSAymnYy1S1iq4aRsM0kc=; b=lIivXgWAaZ5A3k
+	YcfSf7uM5B0p+BFdm/MWUqLdkkMWc9LwanP3cC1aRRqC4HJtrRlDSm6w1VfuxSCjB1XecOkJ44h1q
+	CvUbV75MuEYyNXEhIEsu6UWYvaJ+j+JJBpL1qc8s7nH4XkxevYajqXAHXJb5aVadQrurFM2YDmVuc
+	+wvZo/BAU+49ILb/nbPiPP3fAc0FALJONivV24NTKfVE0ySOw7t41aoQRYiUZ3QmZfa67QqSzI4f8
+	HwkOIN9tt6Rspjz5X7GcoV0fYGZj9GuFA+9hExoCJZ1B+ELE8DEqPPrfwg5dqY81tMT8EC2ng2ev+
+	Hra3+Yerbjs4eRLdVTMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCBKD-000000080zJ-1K3z;
-	Thu, 01 Oct 2026 07:35:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xCBSw-000000082MS-1Mrh;
+	Thu, 01 Oct 2026 07:44:30 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCBKB-000000080yn-3TDe
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 01 Oct 2026 07:35:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=b+RBOt3rS/J9etAr3asGin1fc499s7yddsi1unBuAEY=; b=OskP4YKJJ17aWr78hihypQLKoP
-	AX5f1FXkOvszO65tVErY87sXPHfR+LU/Wl6QKx3qGC9NHUj15Kl9MgkSCjCj61KYkAOh7XEeomnpG
-	nlnA8CQz/AqvB2nL2u6NHIzqDbRQUE4rM5acRIx6GVzXS+DftUWOKjiONL20LBgtrq3OvVSEhHozp
-	D4fV2ZsgT+o/WqrKAY+5ZlUsLz5efEEGbDhyLT10RE4+3RB7UrOw71Q+fkKF8ZfG/37gikJ/mnxCi
-	EU6XeRCCrc6PejsFXWtlSqy/P3dOp2UuUwPPEIbMYdNXMX4rJ6WMMrj7aGmHvhAnrRisD3jnnuRfb
-	9nEiTpuA==;
-Received: from mail-wm2-f12.google.com ([74.125.225.140])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCBK5-00000004gWX-3o4l
+	id 1xCBSr-000000082K4-3EjG
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Oct 2026 07:35:26 +0000
-Received: by mail-wm2-f12.google.com with SMTP id 5b1f17b1804b1-4a006bb267eso22402115e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Oct 2026 00:35:20 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790840119; x=1791444919;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=b+RBOt3rS/J9etAr3asGin1fc499s7yddsi1unBuAEY=;
-        b=f8/xvTVtcIC04zTmcQVIqhqz62JCw5c46bnZwPoj/AXGhV/wcDRtdK9Xr1lvC3ltSz
-         OXJBRnO+JNg95lT+0rIzrOsoUYMjXrlyw93pzml3TSakftEkKjdoXKB3ScDh2lnU+nE4
-         wfVr92GvQ/hlZWsRqV+9aX1005LFPKl/M6Zpw3O7YYDbM2/bmBfJNbyQcTY6UNqbR3+V
-         ZSXkEAS/iIXWU5/ASYX3w0LJuI5h1idOsTzGNPFmmzM1Ebn2Pcb23AVGnQ1fGgfVYrGX
-         AUV0La5Fe2WOZGZFZNXbva6ua/bNu6+1nrqbhNXzvQFjGyJfgljwJYqVXPRnlx2Y3/HK
-         fEgA==
-X-Forwarded-Encrypted: i=1; AKwUvBwF5Knpz6dyP2x+xHdyB0enPoQtpf7iF3wOqTNRmz7a7u+D3BOx5wHzXbUKtIwIiD+zsHgnNvU84cSRuQ==@lists.infradead.org
-X-Gm-Message-State: AFuF++nDxXAmgMTa0OPqHWJ4hBiWMcRUtoD7pl82ZD+xQOuHvGM6EdLN
-	qebcVrkSe6dzuf96K6U36MqXH29WJ0YjNoQ+fi/DxVLuqeNlsViEIu1f
-X-Gm-Gg: AYBFou1j2owADp/68s91o2sr7GEZp/MP7X0RYDSme+zjWr5sX342pvt+fsO4kpeaCme
-	sLmloNvFQyM+EAWFyC6QwSe7oXloFrdCzUEw+6DZHIsku0G0TEJVZmBsBz9Dy6bhmmGLmBTVI6c
-	qGjLnmfWyAS0mqbxHeZbs8A/mm9RHniEfiJT43+8JNQSE7OqH/rhJzKIq2dmO+Gitlyz6FoqRXw
-	WbcHY42vPGHKhP30AQk7Lj1QBPV3cF9sorLfGgTPRs5OhkQJUV9i1P/tbSlgDsY7zyiqgadOddk
-	Tlrxm4ZcuFkoVqPqzcZrIaKXezESgn2pHTOnImchE7rii0JdB8fx2miFb0MWdDamDNMmgvNK1ix
-	UfavPxGIT88iVHoeZVz+/U0O9Dk7+hUbt460EXKIT0lp6sVwArLgfaw/gLd2vjL4AFxCEEhMA17
-	bXXBm0obaotL+bcnX5MJLTpvn6QjBL7UniO52HO4N4MVIJNuy5q7huhgjnt2OQORn/49agBnl+J
-	9i0ZJ/9mZ8kxUSgCKUtj5t0nJnzM/FppfI9C8reRjQmuwjO6RioX/EtKVB+HJyJRHaHLrNDpPAW
-	mw==
-X-Received: by 2002:a05:600c:c3db:20b0:4a0:37d:9e21 with SMTP id 5b1f17b1804b1-4a01affcedemr49892375e9.29.1790840119247;
-        Thu, 01 Oct 2026 00:35:19 -0700 (PDT)
-Received: from mac.fritz.box (p200300eee7049d00f14da2a424a76ad6.dip0.t-ipconnect.de. [2003:ee:e704:9d00:f14d:a2a4:24a7:6ad6])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a01f922ac4sm45890045e9.6.2026.10.01.00.35.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Oct 2026 00:35:18 -0700 (PDT)
-From: Stefan Butz <mail@butz.st>
-Date: Thu, 01 Oct 2026 09:35:07 +0200
-Subject: [PATCH] RISC-V: KVM: Don't write MMIO load result to x0
+	Thu, 01 Oct 2026 07:44:28 +0000
+Received: from [127.0.1.1] (unknown [223.166.93.127])
+	by APP-05 (Coremail) with SMTP id zQCowAD3J0JPD75qjtLZCQ--.7172S5;
+	Thu, 01 Oct 2026 15:44:19 +0800 (CST)
+From: Han Gao <gaohan@iscas.ac.cn>
+Date: Thu, 01 Oct 2026 15:44:12 +0800
+Subject: [PATCH v2 3/4] riscv: dts: thead: enable AP6256 Wi-Fi on Milk-V
+ Meles
 MIME-Version: 1.0
-Message-Id: <20261001-b4-mmio_load_protect_x0-v1-1-90515d86f201@butz.st>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBCF4avIrA1kgnHhVUoJMZnUkWokSYsg3
- t20Lj947z8gU2LKMDQHJPpy5rhWYNuAm+z6IsG+GpRUPUqJYuzEsnA072i92VIs5IrZpdBBB4d
- IVisL9b0lCrz/y4/n7fwZ57r+5eA8L7Cnm3N7AAAA
-X-Change-ID: 20261001-b4-mmio_load_protect_x0-5f5fc11ea52a
-To: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Paolo Bonzini <pbonzini@redhat.com>, Alexander Graf <graf@amazon.com>, 
- Yifei Jiang <jiangyifei@huawei.com>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>, kvm@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Stefan Butz <mail@butz.st>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openssh-sha256; t=1790840118; l=1161;
- i=mail@butz.st; h=from:subject:message-id;
- bh=9Ow88ngY/eToV6q2OOUEvhdkMKoiN6ZQlSDSuhIxvjU=;
- b=U1NIU0lHAAAAAQAAAZcAAAAHc3NoLXJzYQAAAAMBAAEAAAGBAOJW8yHG2FdKcC8jiWoQyd2Z6
- SNHh+aJB0RLkH7BFF7Yy7MymfE5UJE2mmoucIa3HiNQdlVZjgqLY7wph/VSM4kniDO57IG9Q9jN
- x96oOAzzWWJEVrh8vlxRGXatNy8ywcO9WExvzLop5s2ddP08f0Wrzn/55mpqoLJyoKaIbk10kxz
- JW1GONHT8nsNvBpVB2lnzA2jhv7DC79UlHzA98+sp8eX6kmUips+9LpTJLDeVna8f/vwkU708PI
- Qxt/5nhmFXKj/su/CMFivCLHckdmMOem/4UNoTyRcAbcoFQ9WWyYHvAD/bRuYZVEA2hfoBEQVu2
- FGHdG/OimvbT/GseVmWjiw7WV9HUOJJawVmfoTEJynX9BbV+VNMKZVpW5YaAaps6/KOC7V2bM7P
- hvORUmj3b8eUr418GYC3M4rLJtrj6Vu2cUyTV9Q5dvq9Lg2TIj/jpbEWpOqn2FSGkQcLvcDksNk
- jOSGmdG4h+OJ3vbGrva5UCJF/KIyuV4ozlSU7awAAAAZwYXRhdHQAAAAAAAAABnNoYTUxMgAAAZ
- QAAAAMcnNhLXNoYTItNTEyAAABgNFm4MOaEyzELZNBwbPaVz9/x1KmXNjfSW2SxHyCKpy6XafGX
- BCXcTrwCvg1f/y/bHmlxQanPGKYZp46WedmvlcguZHU4ivCQiw5rnXtH9OxaKHdox/dRhSlUHWj
- SnOPY5e79+yrKjpMK/uzUY16o6I4aIusq/3qQ+mazCVEmx8t3Gt9tIo/y4swzu61Zze/LmMDIjH
- R4pLtYxuWChtgj0HgOU7+oA1yIKWYY31cq4NNXsBDtzVsAxKV/BvmX49yfLB3iqN6oN31Y4srrc
- 5R+hyD54KYZJ1dx6toBBzUnNMtsCaox4R8hIBYAJ04wQ8qnWez7ie4GbLSJu2h1Y/kEqupriFHx
- Yz2fv0TxpEdzXtw8P4pNHAQ0BwVnszRLvbN0ZgNngYbEgdombqJAbfZ2yw9kzRCdiik+NDxCHsg
- 4sdBkUV7/mU+ifx+ZPbsOlkqDb7cvzm+JNnmbH7xaIMoGelqUVTMkTkcVRACC1R67RkpnITYeXV
- 6CnNZONNm2anAHA==
-X-Developer-Key: i=mail@butz.st; a=openssh;
- fpr=SHA256:jcZFBs39daoQJIontO/rJaVachWp/oqTbhNpQk8+REQ
+Message-Id: <20261001-rv-meles-v2-3-c61052262f84@iscas.ac.cn>
+References: <20261001-rv-meles-v2-0-c61052262f84@iscas.ac.cn>
+In-Reply-To: <20261001-rv-meles-v2-0-c61052262f84@iscas.ac.cn>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Jisheng Zhang <jszhang@kernel.org>, 
+ Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ Fu Wei <wefu@redhat.com>
+Cc: Han Gao <rabenda.cn@gmail.com>, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Han Gao <gaohan@iscas.ac.cn>
+X-Mailer: b4 0.14.2
+X-CM-TRANSID: zQCowAD3J0JPD75qjtLZCQ--.7172S5
+X-Coremail-Antispam: 1UD129KBjvJXoWxAF1ftrW7Kr1fKw4fWF1ftFb_yoWrGw4fpa
+	yIkws3XF93uFWrKwsIvF4IvF15Wr48Aas2krn5Wry8urW0gasrZrZYkr1rZFyqqFW5Zw4a
+	vrWrAry2yr1jk3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmY14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
+	8EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AI
+	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
+	vE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
+	r2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04
+	v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j
+	6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7
+	AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE
+	2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0x
+	vEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIev
+	Ja73UjIFyTuYvjfUO_MaUUUUU
+X-Originating-IP: [223.166.93.127]
+X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiBwgHDGq9sM65JQAAsx
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_083524_452193_E388880F 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20261001_004426_183621_1AE1A355 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,40 +88,169 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-An MMIO load with rd=x0 writes the result into guest_context.zero,
-which is never cleared, so later emulated reads of x0 return garbage.
+Connect AP6256 to SDIO1 with its fixed supplies and PMIC LPO clock.
+Use GPIO0_20 for WL_REG_ON and GPIO0_21 for the host-wake interrupt.
+Keep GPIO1_24 low to select the external antenna by default.
 
-Fixes: 9f7013265112 ("RISC-V: KVM: Handle MMIO exits for VCPU")
+Use the existing BCM43456 binding and the 198 MHz board limit.
+Keep module power during suspend and assign mmc2 to SDIO1.
 
-Signed-off-by: Stefan Butz <mail@butz.st>
+Reviewed-by: Drew Fustini <fustini@kernel.org>
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
-An MMIO load with rd=x0 writes the result into guest_context.zero,
-which is never cleared, so later emulated reads of x0 return garbage.
----
- arch/riscv/kvm/vcpu_insn.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/boot/dts/thead/th1520-milkv-meles.dts | 94 ++++++++++++++++++++++++
+ 1 file changed, 94 insertions(+)
 
-diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
-index adbbb59a0f36..2a8dc2b88ba8 100644
---- a/arch/riscv/kvm/vcpu_insn.c
-+++ b/arch/riscv/kvm/vcpu_insn.c
-@@ -647,7 +647,7 @@ int kvm_riscv_vcpu_mmio_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
- 	vcpu->arch.mmio_decode.return_handled = 1;
- 	insn = vcpu->arch.mmio_decode.insn;
+diff --git a/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts b/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts
+index 3714047190789bfccd8ff6810342d7ff865e74e4..bb1be377569063b0f6d6864c8d18d37103c2c7a6 100644
+--- a/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts
++++ b/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts
+@@ -7,6 +7,7 @@
+ /dts-v1/;
  
--	if (run->mmio.is_write)
-+	if (run->mmio.is_write || !((insn >> SH_RD) & MASK_RX))
- 		goto done;
+ #include "th1520.dtsi"
++#include <dt-bindings/gpio/gpio.h>
  
- 	len = vcpu->arch.mmio_decode.len;
+ / {
+ 	model = "Milk-V Meles";
+@@ -22,6 +23,7 @@ aliases {
+ 		gpio5 = &aogpio;
+ 		mmc0 = &emmc;
+ 		mmc1 = &sdio0;
++		mmc2 = &sdio1;
+ 		serial0 = &uart0;
+ 	};
+ 
+@@ -29,6 +31,13 @@ chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
+ 
++	wifi_32k: clock-wifi-32k {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <32768>;
++		/* The module LPO input is supplied by PMIC_32K_OUT. */
++	};
++
+ 	memory@0 {
+ 		device_type = "memory";
+ 		reg = <0x0 0x0 0x2 0x0>;
+@@ -42,6 +51,30 @@ fan: pwm-fan {
+ 		cooling-levels = <0 64 192 255>;
+ 		#cooling-cells = <2>;
+ 	};
++
++	wifi_vbat: regulator-wifi-vbat {
++		compatible = "regulator-fixed";
++		regulator-name = "WIFI_3V3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-always-on;
++	};
++
++	wifi_vddio: regulator-wifi-vddio {
++		compatible = "regulator-fixed";
++		regulator-name = "WIFI_VDDIO";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		regulator-always-on;
++	};
++
++	wifi_pwrseq: wifi-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		pinctrl-names = "default";
++		pinctrl-0 = <&wifi_enable_pins>;
++		reset-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
++		post-power-on-delay-ms = <50>;
++	};
+ };
+ 
+ /* Names follow the 40-pin header signal labels. */
+@@ -77,6 +110,16 @@ &gpio0 {
+ 			  "", "GPIO0_16", "GPIO0_17";
+ };
+ 
++&gpio1 {
++	/* GPIO1_24 low selects the external antenna through U39. */
++	wifi-antenna-select-hog {
++		gpio-hog;
++		gpios = <24 GPIO_ACTIVE_HIGH>;
++		output-low;
++		line-name = "wifi-external-antenna";
++	};
++};
++
+ &gpio2 {
+ 	gpio-line-names = "GPIO2_0", "GPIO2_1", "", "", "", "", "", "",
+ 			  "", "", "", "GPIO2_11", "GPIO2_12", "",
+@@ -206,6 +249,27 @@ rx-pins {
+ 	};
+ };
+ 
++&padctrl1_apsys {
++	wifi_enable_pins: wifi-enable-0 {
++		gpio-pins {
++			pins = "GPIO0_20";
++			bias-disable;
++			drive-strength = <7>;
++			input-disable;
++		};
++	};
++
++	wifi_host_wake_pins: wifi-host-wake-0 {
++		gpio-pins {
++			pins = "GPIO0_21";
++			function = "gpio";
++			bias-disable;
++			input-enable;
++			input-schmitt-enable;
++		};
++	};
++};
++
+ &sdio0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&sdio0_pins>;
+@@ -219,6 +283,36 @@ &sdio0 {
+ 	status = "okay";
+ };
+ 
++&sdio1 {
++	bus-width = <4>;
++	max-frequency = <198000000>;
++	cap-sd-highspeed;
++	cap-sdio-irq;
++	non-removable;
++	no-sd;
++	no-mmc;
++	keep-power-in-suspend;
++	vmmc-supply = <&wifi_vbat>;
++	vqmmc-supply = <&wifi_vddio>;
++	mmc-pwrseq = <&wifi_pwrseq>;
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	status = "okay";
++
++	wifi@1 {
++		compatible = "brcm,bcm43456-fmac", "brcm,bcm4329-fmac";
++		reg = <1>;
++		clocks = <&wifi_32k>;
++		clock-names = "lpo";
++		pinctrl-names = "default";
++		pinctrl-0 = <&wifi_host_wake_pins>;
++		interrupt-parent = <&gpio0>;
++		interrupts = <21 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "host-wake";
++	};
++};
++
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_pins>;
 
----
-base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
-change-id: 20261001-b4-mmio_load_protect_x0-5f5fc11ea52a
-
-Best regards,
---  
-Stefan Butz <mail@butz.st>
+-- 
+2.47.3
 
 
 _______________________________________________
