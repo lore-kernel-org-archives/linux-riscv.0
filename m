@@ -4,90 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4085CA5FCB
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 15:15:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54ABBCA5FD6
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 15:38:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0emREzupGppE1mHnJFArz4pHyU3To7tnrBsNWIOCLxE=; b=FWVpSQv1STDpa8
-	j+VbeVLTSieXxnRbBmgFIoODt6IJbZXxoT3kIR6v5vlyuw5M7rbRU6kbSiAYARvWo/jbNek3j249M
-	AlINCC0GTYGuQWE8GaTMqfcBLhbbGEVkqUf84XM7aSflOiXLvtR+Lm6UR13Y+5pheObTK5z0J2bDP
-	y8Txc52Y0fBamZUNxgZ3+9JaZLS8cFegrFfiZJxi1nLOSa+aP+V0IVNBNZ7F5FcXlVy9q2gZZefKN
-	NlTzR2X/yvG4Z8YgKC0DnpPGI8EsxYrhbXQXizo8DmE0EmnmJPYVLOea1LgNL86Xg8OJc1REDCjKE
-	5duEG6bLKZ2aQoxXgPug==;
+	List-Owner; bh=zVANVzOSL8E30yebGcuYqqUoHrFW9CnxGiy3/fC2spk=; b=Q94/8MlbzIoKrE
+	pc1UFLOsm6qe+fqiUvCVf3TVO5ccfu8QX+HnYqTNY8KRunUls4v4u3sTXvU9106vAqhQ3sHHyieyW
+	ad9he3ksU5DqvNJcMSyTJldkqbgWdMDj4PwMeuyaqfRIvr0VTLNqoKZQqfejZ2lQ0K6HYcdUE1oAA
+	vc/+qjRs2UzWCmdAQ0U5uA7c/4yoPM87PidoDb5Omf0Nq8jJi6qAyNm1eHJ2Ig5soqErmdFGh30Zi
+	hn21kPizfIG1fc4bTAbcs13gaFu8iYAw4eW9mIov4dzHU5V3m5owaA6fl61jDNhnmJUxVdrN8cAoC
+	dZodeM+5xJMCcaoBPUbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIUn-00000009URL-2sqP;
-	Thu, 01 Oct 2026 15:14:53 +0000
-Received: from mail-wr2-x0e.google.com ([2a00:1450:4864:30::e])
+	id 1xCIru-00000009Z1A-1Oxw;
+	Thu, 01 Oct 2026 15:38:46 +0000
+Received: from email2.ecloud.global ([2a01:4f9:4b:5387::2] helo=mail2.ecloud.global)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIUl-00000009UQz-1tol
-	for linux-riscv@lists.infradead.org;
-	Thu, 01 Oct 2026 15:14:52 +0000
-Received: by mail-wr2-x0e.google.com with SMTP id ffacd0b85a97d-48aff58e6abso1180636f8f.3
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Oct 2026 08:14:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790867689; x=1791472489; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=GVazF3gyk1J8hFATxW/Weu9ULHvZlQGk8yLNNrf/izQ=;
-        b=D7SOfW/UN3CPMPrGp6y88lIoNTEqke/3KgBIxCLdQSlkkMqjtQcSbp0RE5D3eyxADJ
-         BIX83fsLjl5UzthipScA/+rsX/27l2Zv0x4aFPJNnxiq99VoxIWUx8sH/cZdBBKzGtP8
-         WHaC6XHnwSw029aWfNSRTkSaz7Db+iSoTjvHSNGT4ZLbeqmh50kIT7TgoBNtHnAsrI5Y
-         fl++DzJLw73AM8NKydgsKMM74HPeTv0c2JqqRhlpSC2mqCjzaCNDJGIQMWBm4tvyE//i
-         sgH3eQk6tM+1ygu7w26bK5bWgzi67o2FwXiQNGtalHAI4c7IOl/w12uKbR7wyrR1o8AG
-         xRqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790867689; x=1791472489;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=GVazF3gyk1J8hFATxW/Weu9ULHvZlQGk8yLNNrf/izQ=;
-        b=tsn+V7yEtpcZBYwbWf8tm6J67IYsFgqs60FRVp9m6Zg72X+Qwk7DCSYYSJSfJCrVs+
-         FU1qi8MInvUimevHwwJWbfNvXNkjlpjNsV5gDyiSsXIJmhXf/pB0cGIlG67inpwOD46d
-         gA1Q+oSIRW7Ts2bDUjXt1aX4nfReV7H/V4AgGf/USrkLreXFFoqqLsykXrokDoMLrFgm
-         1p62n4RacTkwLnK85XWrh/6a2G3ocgW24/JFuey2G6j/pB42yqQ5HRSY46CaeVFcb4A5
-         F2w6IY1btyMUqGsTyFpiGqFeA3Shz+pEtKBwcvTqRXJ3HB/GdzbRXR/VbqsbxaJcceyB
-         kskA==
-X-Forwarded-Encrypted: i=1; AKwUvBwLU2WYaqSiFLRomufZhGrN8IjZupFPK418b/YMkaKlZASbRQCGOZ/1ryzC7hV32pGW8RY+dm2L/PFNYg==@lists.infradead.org
-X-Gm-Message-State: AFq9FYLEWoxPxArqBXTZS1G3jGsI5FbKraOaaZDLBTb1CIFnv5GTRUR7
-	LgO/RV2q4WtyEUOA6fsvOQaT1UhIqpYdoCIkiMx9dfUEM13E1SjQW8zS3QiJf9MxAJY=
-X-Gm-Gg: AYBFou0MvWHDWAhh15FNwLns0m+3kuocFsueuqgXFUqg70Z8Y0DXZnpic1PmtH4X0+8
-	n4IExd3CA2cimdYn8z+NRRbVhejqdW2QNNreARo6CSfzoEVjACQeXgnkSryL72Qx4M7/0RtS39/
-	MmIIP64ptx+dbXXVYpbCA3yXqoFu2cvGRZUaB2k8iF4nIpIFuElStYW0O0cFZ3GVUia0TMVzY2W
-	M9u+6N1vi69hT8AfHh5zPurrIR24KmjhbLYtDNZybEDfPpDHsofWrIgNZro3B4x9sgcxQDP9iJo
-	9mtCnLVb0x7ewdgE74zvl5nGKC+OkJIGhm9X1HZc9t76K2parXx9clzgZFJVdN1xa2Fibhej7ve
-	1bSC5FEaTAF5DaiwUcsCwXdzPsBX/6tDD2PCqvi6KyrOXbSUd0qqQlPLIbt7T1pQVsBTks1MLNC
-	TmmVglLrSzmOzS7R0KLPAkrtyEYFWSPl8L5LKisOJP3pxjoMz13zoGRJDZO1elh8M+fblxH3X6M
-	CQGpoxeu1Nj/XpeSk6TtWcabMfUftcMfZlI0/NdGVhG3O/GvwWMOm7iYgI38jBx+gK9c8CfFH87
-	o0DwdVAwFXmVZXDIxjBEBJrDq58=
-X-Received: by 2002:a05:6000:1ac7:b0:488:823d:5060 with SMTP id ffacd0b85a97d-48b02544bf6mr9213320f8f.48.1790867688738;
-        Thu, 01 Oct 2026 08:14:48 -0700 (PDT)
-Received: from thinkpad-p52.telekom.ip (2a02-8388-e6ca-5780-e161-768d-5c97-84d0.cable.dynamic.v6.surfer.at. [2a02:8388:e6ca:5780:e161:768d:5c97:84d0])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b0db6de0dsm3293500f8f.43.2026.10.01.08.14.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Oct 2026 08:14:48 -0700 (PDT)
-From: Andrei Lalaev <andrey.lalaev@gmail.com>
-To: hfranco@baylibre.com
-Cc: devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: sophgo: cv1800b-milkv-duo: enable ethernet 
-Date: Thu,  1 Oct 2026 17:14:47 +0200
-Message-ID: <20261001151447.12076-1-andrey.lalaev@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260930-milkv-duo-ethernet-v1-1-428ff137f5d3@baylibre.com>
-References: <20260930-milkv-duo-ethernet-v1-1-428ff137f5d3@baylibre.com>
+	id 1xCIrq-00000009Yzf-3npw;
+	Thu, 01 Oct 2026 15:38:44 +0000
+Received: from authenticated-user (mail2.ecloud.global [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail2.ecloud.global (Postfix) with ESMTPSA id 3A32C720B98;
+	Thu, 01 Oct 2026 15:38:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=murena.io; s=mail2;
+	t=1790869113;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xx70lC/bWUp788wCvnZl/epp/8zx5Fhu34iv8tJWVos=;
+	b=ToqdSVrd1HsEwQzmjfBFjYDZriKj3Sm05yKCCOdKEyfTliJyEP2YF4EEk8MenyLA9MSni7
+	GG43lHUfIUmAetKOeV1Ptr15wnRIInrp1qj7QaJKcQOslpMkya+w288xPjrp06HiB9VkwE
+	WXIw4BIPap4JOIojeomLaOpZ/sdWYWw=
+ARC-Seal: i=1; a=rsa-sha256; d=murena.io; s=mail2; cv=none; t=1790869113;
+	b=Ko5QVLSK+WrA7oMsstFqO36iwQ4nJpom37gtaBSd3BXP7TUrNUIDhYeZVK9BeJt3RMRkKj
+	vzWcU8F9J8ZrlYnMOUcDK6T404QQg1U0Gsx6kLkH1JPbEJkf6kFJyDFAP39PSJadud8ohU
+	e3c/yGRhMRfGyQuktdMVJ7V+6ZLnsNI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=murena.io;
+	s=mail2; t=1790869113;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xx70lC/bWUp788wCvnZl/epp/8zx5Fhu34iv8tJWVos=;
+	b=KPA9poo3H1N3+NopbQsllMRGvV20jq2v4Z9vJVtKN2JJKhB3uNRwhvrNu7iSWLfZvfTH0G
+	1fynS3FwlDKdQJiNqQhOIDExt0R1yFuv8eNBmGwcEvIpkwnw6luXLOgu1Nw0747QfDpET6
+	IZf+7KD7h27N9TPbnX3mv2Y7mMc8R/g=
+ARC-Authentication-Results: i=1;
+	mail2.ecloud.global;
+	auth=pass smtp.mailfrom=maud_spierings@murena.io
+Message-ID: <7d41064a-1f7f-4461-a4ea-513d6afce267@murena.io>
+Date: Thu, 1 Oct 2026 17:38:30 +0200
 MIME-Version: 1.0
+Subject: Re: [PATCH v5 13/21] drm/bridge: inno-hdmi: Make the register clock
+ source selectable
+To: Michal Wilczynski <m.wilczynski@samsung.com>,
+ Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Emil Renner Berthing <kernel@esmil.dk>, Hal Feng
+ <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Dominique Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Graham Markall <hello@big-grey.co.uk>,
+ Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ Joshua Peisach <jpeisach@ubuntu.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+References: <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
+ <CGME20260929103233eucas1p1bc0682334aad710c3894271f46ba1f47@eucas1p1.samsung.com>
+ <20260929-jh7110-clean-send-v5-13-82b4d8e3c6c7@samsung.com>
+Content-Language: en-US
+From: Maud Spierings <maud_spierings@murena.io>
+In-Reply-To: <20260929-jh7110-clean-send-v5-13-82b4d8e3c6c7@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_081451_497577_DB139F10 
-X-CRM114-Status: UNSURE (   5.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261001_083843_170396_061A5F74 
+X-CRM114-Status: GOOD (  21.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,21 +113,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Hiago,
+Hi Michal,
 
-Please take a look at the patch [1] and the discussion.
+Can confirm that this is fixed now! Thanks for integrating this!
 
-Thank you!
+Tested-by: Maud Spierings <maud_spierings@murena.io>
 
-1 - https://lore.kernel.org/sophgo/20260803163323.74414-1-chenyou910331@gmail.com/
+Kind regards,
+Maud
 
-Best regards,
-Andrei Lalaev
+On 9/29/26 12:31, Michal Wilczynski wrote:
+> inno_hdmi_init_hw() drives the register interface from the system clock
+> on every platform, by setting v_REG_CLK_SOURCE_SYS unconditionally in
+> HDMI_SYS_CTRL.
+> 
+> That is not right everywhere. On the JH7110 a Framework 13 (fml13v01)
+> panel flickers continuously with the system clock selected and behaves
+> once the TMDS clock drives the register interface instead. Maud Spierings
+> found this by diffing HDMI_SYS_CTRL against the StarFive vendor kernel,
+> which leaves the bit clear.
+> 
+> Add a plat_data flag for it rather than changing the bit for everyone.
+> The Rockchip integrations keep the system clock, so this is a no-op for
+> them; only a platform that asks for it gets the TMDS clock.
+> 
+> Reported-by: Maud Spierings <maud_spierings@murena.io>
+> Closes: https://lore.kernel.org/all/e780ecb8-918f-4816-99c8-b69b10b25a18@murena.io/
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>   drivers/gpu/drm/bridge/inno-hdmi.c | 4 +++-
+>   include/drm/bridge/inno_hdmi.h     | 2 ++
+>   2 files changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
+> index 56f7d41cdae49ae872599a86799412c421158369..db92013a3b1e7c1b6668e9257523a0ca8d2c23d7 100644
+> --- a/drivers/gpu/drm/bridge/inno-hdmi.c
+> +++ b/drivers/gpu/drm/bridge/inno-hdmi.c
+> @@ -580,7 +580,9 @@ static void inno_hdmi_init_hw(struct inno_hdmi *hdmi)
+>   	usleep_range(100, 150);
+>   
+>   	msk = m_REG_CLK_INV | m_REG_CLK_SOURCE | m_POWER | m_INT_POL;
+> -	val = v_REG_CLK_INV | v_REG_CLK_SOURCE_SYS | v_PWR_ON | v_INT_POL_HIGH;
+> +	val = v_REG_CLK_INV | v_PWR_ON | v_INT_POL_HIGH;
+> +	val |= hdmi->plat_data->reg_clk_source_tmds ? v_REG_CLK_SOURCE_TMDS :
+> +						      v_REG_CLK_SOURCE_SYS;
+>   	hdmi_modb(hdmi, HDMI_SYS_CTRL, msk, val);
+>   
+>   	inno_hdmi_standby(hdmi);
+> diff --git a/include/drm/bridge/inno_hdmi.h b/include/drm/bridge/inno_hdmi.h
+> index 1e9974401c39e3773bb339eaec0b45ff1dd9c975..620f035eb9846762ff91cd933b30e07eaeeae8ed 100644
+> --- a/include/drm/bridge/inno_hdmi.h
+> +++ b/include/drm/bridge/inno_hdmi.h
+> @@ -32,6 +32,8 @@ struct inno_hdmi_plat_data {
+>   	const struct inno_hdmi_plat_ops *ops;
+>   	struct inno_hdmi_phy_config *phy_configs;
+>   	struct inno_hdmi_phy_config *default_phy_config;
+> +	/* Clock the register interface from the TMDS clock, not the system clock. */
+> +	bool reg_clk_source_tmds;
+>   };
+>   
+>   struct inno_hdmi *inno_hdmi_bind(struct device *pdev,
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
