@@ -4,49 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397BDCA5FCB
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 10:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 067DCCA5FCB
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 11:03:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nvxzpDijyunSAV8wnMnOQWvCOYQAaanAYGbWsb1uvuA=; b=dWAFCgrG+1+SUL
-	4M/pv2YHNMyWwZqe9aYLGsODAi0iJI8VUumZW6wWq8UsGCmXK72Qq23Pcdf0cX6sFLzP8FkXBPwIu
-	CVbKOCM74y+7J4bp4/R/izEV5RGIk/mjIExyTkNZU6Q/lkGvWfCs1CfJy+sP1cXXvEcwiIJQGI2QN
-	I4Fp66zWNhlGZzoGv6wDW7AkxipUAgNIR1rWozD67feuAGfwZXx0eoh8fFI7sK55xnHb9iCh4+Wrs
-	qHmoN5DLljV3D7PoXkuGEMMRR5hyyx85H/XKi76nY0gKsWTjAHYs1XPmNcEe0gNzlNE95iH5yAEo6
-	mnsjzZHGlDvpi32szTiw==;
+	List-Owner; bh=c4BN0KCH6CkBhDKIYW9cf6gyLX2vk6EqMFbY1hnT+No=; b=a2hr+oxRchor0y
+	ZStomM2pkamTfhCir4t60gQu3fxZIn8aeFFq0KANmH1f64c4xTkYSHl6o4pvg9kmS+5pPa0KJvl1N
+	NsNnpNA3lp/hKlgYrgYVFn6y3zoAM181LSym+US8fnQ6okF+AZA1hMRMYDDR5ppyX8vdx5k+qLTWv
+	SZEfjgxsn7cuzI4d5pbgCulI5ncibtXOkrucVw+9p19yi5u9m/XHKvbVo6tUxj+uGbiWhp4YO8g48
+	Gd1TkvB7elrQYimc5/O4S7/9uKFlovrPb6AW/QkwWb/6R1/qI67hDwb1Zjos2NG4WWficiMeL+K9p
+	nTjDIbX37H1J9/sZigpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCEKt-00000008YKC-0U2Z;
-	Thu, 01 Oct 2026 10:48:23 +0000
+	id 1xCEZO-00000008a7W-3Dh3;
+	Thu, 01 Oct 2026 11:03:22 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCEKr-00000008YJz-23uC;
-	Thu, 01 Oct 2026 10:48:21 +0000
+	id 1xCEZN-00000008a6o-1oce;
+	Thu, 01 Oct 2026 11:03:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D801141768;
-	Thu,  1 Oct 2026 10:48:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D6031F000FF;
-	Thu,  1 Oct 2026 10:48:17 +0000 (UTC)
-Authentication-Results: smtp.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=zx2c4.com header.i=@zx2c4.com header.a=rsa-sha256 header.s=20210105 header.b=B57mDsY4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
-	t=1790851695;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/oOpPY/gsh1NivZHQbt/4ewXmUw4hi2f8c5A+91XjAQ=;
-	b=B57mDsY4+jopKLImXZNVOWxdVpQrgNONXSBu75IrKyl7123Al4mEDaeWWuv661fwT5QFtp
-	DyBe8f04ARHZI529RupFjeyvDFHWlpXWFuVEmNR4jf9UiXLsJ+Xu0/uwQUzKXb1sdqw5Bu
-	rwXQT6Por1A+lDJO9XzMggVf/BrbZ0A=
-Received: by mail.zx2c4.com (OpenSMTPD) with ESMTPSA id 03abc62d (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
-	Thu, 1 Oct 2026 10:48:15 +0000 (UTC)
-Date: Thu, 1 Oct 2026 12:48:10 +0200
-From: "Jason A. Donenfeld" <Jason@zx2c4.com>
-To: Nathan Chancellor <nathan@kernel.org>
+	by sea.source.kernel.org (Postfix) with ESMTP id D89AD401C2;
+	Thu,  1 Oct 2026 11:03:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E9AB1F00899;
+	Thu,  1 Oct 2026 11:03:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790852600;
+	bh=6Fz/XiVPQbxeCrS6Ooyx7iK8DZuaZzJa+GXwQ5Vs63Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ilyZfZwcyiaalOxi9FuCnkRKhUhFz2Rp84s1uKKcWMtsnqyjRTK4chwYRwfKNBpcG
+	 xSWBcawjlZQB5N6YjSTxTcpFx29bHpXUFY+OWY1TkZB40Znnbzavrt+0sofMnIlCUg
+	 Od59qfNTDltB+xCARwtpINaIAgDE6VSmDVPbipxbZz19xRjIq2SM0ui5Q0u18s0Gtl
+	 NeQeaadbEMr4KuuuBha6lwUTBYKyOGuVxY1TXFcDAM/cJYztQkrdJjzWvC7M2HCZFM
+	 aTGy5tCkS+EUw48u7uFYxLL2NBl9H+HwOLOBoQLTpCYdKAAi0YFeiPNJ2tJBVrTE2s
+	 KBIVWg2Z/PAVA==
+Date: Thu, 1 Oct 2026 13:03:10 +0200
+From: Nathan Chancellor <nathan@kernel.org>
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	Andy Lutomirski <luto@kernel.org>,
@@ -77,9 +74,8 @@ Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
 	llvm@lists.linux.dev
 Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
  reserved in __cvdso_getrandom_data()
-Message-ID: <ar46ap4jzLWyP92C@zx2c4.com>
-References: <are6s5e6On3hpD3M@zx2c4.com>
- <CAKwvOd=BrMfFT88jsvBPhh383qqk5G+J07CsofNu0MVkziyhCg@mail.gmail.com>
+Message-ID: <20261001110310.GA138012@ax162>
+References: <CAKwvOd=BrMfFT88jsvBPhh383qqk5G+J07CsofNu0MVkziyhCg@mail.gmail.com>
  <20260930133813.GA3142230@ax162>
  <ar0a4b9CjL2YHCkY@zx2c4.com>
  <ar0gTS71qxnx9AkW@zx2c4.com>
@@ -88,9 +84,10 @@ References: <are6s5e6On3hpD3M@zx2c4.com>
  <ede392d7-3104-4a0f-9fa1-99b22552dcd6@kernel.org>
  <ar4nD8aRH7wEvTMt@zx2c4.com>
  <20261001102059.GA4176271@ax162>
+ <ar46ap4jzLWyP92C@zx2c4.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261001102059.GA4176271@ax162>
+In-Reply-To: <ar46ap4jzLWyP92C@zx2c4.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,32 +104,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 12:20:59PM +0200, Nathan Chancellor wrote:
-> control. The change that introduced -max-store-memset only did it to
-> "allow fine-tuning of the inlining threshold for performance analysis
-> and optimization". If they decide to remove it for whatever reason,
-> we're back to square one.
+On Thu, Oct 01, 2026 at 12:48:10PM +0200, Jason A. Donenfeld wrote:
+> On Thu, Oct 01, 2026 at 12:20:59PM +0200, Nathan Chancellor wrote:
+> > control. The change that introduced -max-store-memset only did it to
+> > "allow fine-tuning of the inlining threshold for performance analysis
+> > and optimization". If they decide to remove it for whatever reason,
+> > we're back to square one.
+> 
+> I suppose all the more reason to get -finline-stringops=memset added to
+> clang. Then the dual-default thing you came up with below will naturally
+> start choosing the first option when it becomes available.
 
-I suppose all the more reason to get -finline-stringops=memset added to
-clang. Then the dual-default thing you came up with below will naturally
-start choosing the first option when it becomes available.
+Fair point, I can file an issue with LLVM upstream.
 
-> I know something like below would be uglier due to the ifdef but it
-> would avoid changing anything for GCC while clearing up the issue at
-> hand for clang in a guaranteed stable and succinct manner.
+> > I know something like below would be uglier due to the ifdef but it
+> > would avoid changing anything for GCC while clearing up the issue at
+> > hand for clang in a guaranteed stable and succinct manner.
+> 
+> But then we're back to the byte-by-byte codegen that Christophe pointed
+> out.
 
-But then we're back to the byte-by-byte codegen that Christophe pointed
-out.
- 
-> If that is not acceptable, something like the following does appear to
-> work for me.
+I thought that was only because the fallback memset_inline() from v2 was
+doing a byte-by-byte initialization? With my suggested diff, nothing
+should change for GCC, as it does not have __builtin_memset_inline(), so
+the "Before the patch" code generation that Christophe showed should
+still be present.
 
-Okay, great, let's do that.
+> > If that is not acceptable, something like the following does appear to
+> > work for me.
+> 
+> Okay, great, let's do that.
+> 
+> Does this commit seem okay with you? I used the diff you sent below and
+> adjusted the commit message: https://git.zx2c4.com/linux-rng/commit/?id=56ff95ee85715047eb5b5220243778af657778c8
 
-Does this commit seem okay with you? I used the diff you sent below and
-adjusted the commit message: https://git.zx2c4.com/linux-rng/commit/?id=56ff95ee85715047eb5b5220243778af657778c8
+Yeah, that seems fine to me, thanks for taking care of it!
 
-Jason
+-- 
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
