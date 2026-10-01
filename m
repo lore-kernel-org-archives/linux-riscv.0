@@ -4,105 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA3ECA5FB3
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 05:25:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E26CA5FA5
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 05:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jdclbav0RZ9KWV1pt7EgvW8Y0MQn1SS3CxPEBd8Rrwk=; b=C/4dFLjAVJvVl1
-	uGD8CGLshEAf96GM53h3iq8YKMrsIo/uvqJIFkDc6M0O5ax0GApybtVqaGP2dSj3i+0UjiO0Aj4XH
-	/roHD35CO/QWYbgVIqYrY6gR4nK1cw4CidiEaplSACKdGJ9S6bSxfs/1cDbGK757WauPFP1kOZNBa
-	0fUgXg8i7HVXgBl8xeLXNZLCMqVDuQoLqvfWn7LLWDzIv4dhZakzrmFMvmymEPrSPZgDAvlpc8iKJ
-	uXgtdaECQGUGvCc8dWdE3fQWZ0eCYmXTrb77kYDdwHAm0yId471x9iiD8cvYrt6mgaBHKa4NSWUBH
-	HL60++tybi/m/yczpLnA==;
+	List-Owner; bh=lQHTw/5KapHmuK8azDYqiYwRAYaZiO47gKLFd8fInPo=; b=GwRLkuIoLADvpj
+	mpqDpbs4uFB7ITIZM70XQ4JaLbQzUo+6Dop3SObVGIMM6+drKHWF0GckDaPk27VmCaCDtRK017PX2
+	83w+5QHkK767w2VFSurrp/9EsNIhjgUCj61lHpepi14e8ufD2CeYOHppiF1+ZBvUHNtTOxrvgdkpA
+	+l1xn3LnK1/V37q241NP4FAV70uJsi5uJPAUZfp46/ErFacQt9urdBaGeyEWWbj4xaeBpdg0Oe64G
+	Pt4vH3FPxv2UtnxTjmXJTTZhwn3XyrmjFC7gaLqbkbitGstwt3D4I2mjIrGAPmgXSFR84cUGslrG/
+	MZ42aFFEXAA5T7lQmRAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC9IA-00000007oHg-1nXj;
-	Thu, 01 Oct 2026 05:25:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC9I8-00000007oE0-0OSC
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 01 Oct 2026 05:25:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=N3NTLUpYd7ZKV17LvK4wnaZohbRNGYM6kX6pL9COets=; b=WiWhifcj3mvL7ZFr7IvfOvh1b/
-	dOhvMmGQqSL4zboKJeDb7eizYqtTv3OiR46ty0vh60JW8fHwkeDSiAsU6u027hPb4OcEa3PgjNIEh
-	0xJlYu4dZ1OPsTQyYfDb3NEDq2EQemcJzjgvrm/pVrGGd/wDU/I7vbHa4ZBnUAJWvP2hARb4yV45L
-	aKtI1T8RSFHIpbosSMGLbZKeoXm+qQ625l747M9fmUrfGJsiAawAWd2ExIngoojMmkbXW3orYZosJ
-	jBZ/IQ7j7vbZKLDEGv12/dAG45qlvL6WKxn8FvbJmrqghgR/8u6TsZoxNn85gp0JMPqArROaE4IEx
-	vWoa3YzA==;
+	id 1xC9IC-00000007oJc-2dlu;
+	Thu, 01 Oct 2026 05:25:16 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xC9Hr-00000004arI-3g8m
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xC9I6-00000007oCt-0Juk
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Oct 2026 05:25:04 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6913gWHI1914826
-	for <linux-riscv@lists.infradead.org>; Thu, 1 Oct 2026 05:24:53 GMT
+	Thu, 01 Oct 2026 05:25:13 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6913g2Wv1509997
+	for <linux-riscv@lists.infradead.org>; Thu, 1 Oct 2026 05:25:09 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=N3NTLUpYd7Z
-	KV17LvK4wnaZohbRNGYM6kX6pL9COets=; b=Qeq9YtvyXFGxWXutdQENY5A1iof
-	atlKMPoYLRBPf9c6DvRgv5x5fN+enXGo41ELr2TH5h2CFJjPEkYdgXvDYjij2inr
-	YFaiVF/6ZmkDR6OW8B43NBENvyfJ65/BUVfUujKEFH8GgabTZDFUmS3fHGq98dz7
-	BLc31PCm3WUWfrd9FhTaI5QCQab3gIteBaHuz2rr4vT/FbyyA2CDncNZJAie8PZ9
-	cEctemuUp4SEL/XlDAfVAN8oZSJDKYs6CRRBY0J7EaWOjlXcrFXQCIWU0BaENozI
-	+uXByGvf3Elq8pe8JhwQg/PSInmOGkZYTiyFdd0XoGK4cojuaW941Zu9KkQ==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h14n233j2-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=7YB32//p3Rb
+	6ZZhkIM1gj9mqbzqbA+d2U4F99K6T7xY=; b=WAlX5eIHvmri2GqG1yrmW3xQ0S3
+	AIFn/D4W0gzoA8Ohw7aukh9YFfU0+8BuYaEdnOA9jsFVGj0M19VzQYuX3xMBuCVW
+	cLDkBy829qvwNN/IETSfev7dMT+LrItUE66qq4XMGxFyp8plXQlf82gTkL5og2zE
+	1A3UfdgdHuzbAisTYNN2sPNIn40y8a4J5a0snDXHcA1eK3fQ/r84YQKuPiWA6dzb
+	+4OU1lOut7ESuSc3HMUtuc6P9QV++OHV+oMngrgBI0pypVFS3W+znNB85T9EsyVl
+	KxljRlrD0IagB8qvV1I0+L8WqU7M73NssCKata1cA8ONHrzVrk3eNzwfjrw==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h10bkca7e-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 01 Oct 2026 05:24:53 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2df5a65671eso6104705ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2026 22:24:53 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Thu, 01 Oct 2026 05:25:09 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2e2d83bb68cso15751615ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2026 22:25:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790832292; x=1791437092; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1790832308; x=1791437108; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=N3NTLUpYd7ZKV17LvK4wnaZohbRNGYM6kX6pL9COets=;
-        b=O3k1oZSsONZepPBz69RuztykE8nrKiB0PIPPM3PLRCK91hMA9ZaPmbTns76d2hQqk9
-         /NSlBRrLJbcy1bhn4a+oNBlBDlAt8NPqK9PhBdrIDBiximjJ6Fz0Z28Fb3IcKPvXRMCM
-         pzTwFeOKEMyM0G/HJlCUdpZtzNF4F2Q+GsOCUGeRoYj3AeCzMpVI0EZIAr85fY6pdxFp
-         5LDSmCpfD6K6NjmgNxF/pW7UFgL4YCCYoWw3zPVA90y9KVjMV4jkpM2hXctG5bLwsGxY
-         7acfrG7uFbUgDuJg+n2LPhtLX8D7A3OApHCBSOzNJ3HpAOmpYagiUlK8+rOYxSVXMvMt
-         6IoQ==
+        bh=7YB32//p3Rb6ZZhkIM1gj9mqbzqbA+d2U4F99K6T7xY=;
+        b=Bc0dKVTgSlfcLRrFTSLx7BgZ/UMkMPK0+37BJrGpByW6zgVyXVI8KXeS16prJ9/pn8
+         U5Aa4StNPUVmspM6DZ8otHph9xUORjAosNTXhck4LHOdbKJGuTLcEhCwXNfQrR98ewNA
+         QeKjCepTfPutVeWPoy1OpSe0ir3p6tT+jDPzQziLx/BQgxfV1iEc+GLdur2LzmpoMY5S
+         JvJ+/sr9j1mc1K0E4Z/9NmijDzUaZawPUMYroB38O5NFZsE3uYzbmlUlS9KLvx7UZ0m1
+         /AHj796zzdcQVpC3zIOfCHCvGUtze0ucCVTUDyVX4y5IBzQ2ibC5TfNTXhtwQgHnz1jw
+         /Z2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790832292; x=1791437092;
+        d=1e100.net; s=20260707; t=1790832308; x=1791437108;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=N3NTLUpYd7ZKV17LvK4wnaZohbRNGYM6kX6pL9COets=;
-        b=kxDcbctwKK2zk+sEDWhaGenOM5tyEGFt8QFxfnO+03jQahFNlut/dJY0jN8a37Rl4O
-         NrzFWZIfe47IE0Gc8MT0kZRcymGrQgScq0r+MTagH8bOXnddU60lfaMCqqSxjbaSl3Iy
-         FdtmMQosos0s7Ibdi4wQVmGlbiVoCo1taN/igkf+uwUDcF72Z28QtkpANfOmVmDwkwaI
-         LiRHmbh7r+U0d7EUCZzMmpvfBDsA/WiY1euSoNxynPenxsTHadaCSFcr1GurX2saavI6
-         W0giZZ/aQlW4GV6ivX2YJMNyG2oTGXnhT3NHkfEQ6c39MODduNXBp17MxfDbUJR+CoZi
-         jMBA==
-X-Forwarded-Encrypted: i=1; AKwUvBwuXolET8JlxUmgUAFC7hPleLFYhcoyOpUDbIk5TMEwuiD64BYwdg3l9WJbGpCJQdF8UNCTxr6j+kSomQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYIxDzWFH+wvSdGelHQcpf2+W6thG2+rPHDr1h23MD/E6FKfI0XC
-	PGcZ5ayicAR75o5JB+YJLY7EFIOY0NpPDbuamvCZImAf+mqVDHCmdmVeUmWY3Ju/J0+yfpQLIaE
-	eiUnPXeta6Yd1ETK8Qhu/irS8Fh9wrqHHRYbf7mSAqJzRB2YubRE67TmKPY+q5YQ7dxv+0EQ=
-X-Gm-Gg: AYBFou2h2o6ozsZ6j96HgT0Wo29kDcZAI7yzXs0bLZ3GNOnHsEBaJ6QixWyodybq9ry
-	MH6JsoF9mKzcy08zlzZ4waDTVd/oK5RbnBejAKzJaBJgTZ9IglgvbSOnuK7OrdebFmz1v4CSq4N
-	7+cNfZe0x3Sz/I99dNnGiuIS2nutP42DrlZkJPEizgsjFXqxzvlGilbAXUjatkIVw4e63ExCihK
-	zIfehtL0/n5T4MEEa6/my3Wa42DczKPKf0DGz8eIh1VhvbnwQh15odN1LjJW4oEJCJW5BZq69SD
-	9/c3uecA53Qkn/hVTtMYynyFL/1eM7gwyMDnp3XDlbG43pz0Nj88k+2p8Y6iWD3p1D88R1b/ESL
-	CsEDf/u8eJ0gpZFN+xxThyaQiaZ1ettQ3Y7DVGASWTIv340sS5SKTaL5lpe/UGLp5U9azGkpWA7
-	zS99zfYedcl/V1JPk7N4ygY/xF
-X-Received: by 2002:a17:902:e94d:b0:2df:a59f:b141 with SMTP id d9443c01a7336-2e30029b5f4mr9967335ad.30.1790832291889;
-        Wed, 30 Sep 2026 22:24:51 -0700 (PDT)
-X-Received: by 2002:a17:902:e94d:b0:2df:a59f:b141 with SMTP id d9443c01a7336-2e30029b5f4mr9967175ad.30.1790832291356;
-        Wed, 30 Sep 2026 22:24:51 -0700 (PDT)
+        bh=7YB32//p3Rb6ZZhkIM1gj9mqbzqbA+d2U4F99K6T7xY=;
+        b=b1TLgNqG2DZlwnv49FQ3mBsEiVYyy2+WLU6UqscAcT5w+XLkCV5iGvMEBwyqkqlclx
+         YsdTvKzpd4C4DGl+8xOxVdjmSoIOPHK78HeNTm/vVWhSmnkjHS+crSMQQhJ2xQgcicnL
+         bYYRAty2yAMUt7vGmUkUGjgJLEkeWQzFkvNS5nVqGssGx5jf129C4LrEeqfpYxlgKpZH
+         7mEnQZJ4Y5icT+kxMOnvqNvdzrtpXT50yoOzp26WNsexSaC90ZpY0k+Go343aBtNXy+k
+         z4arKMahQ5mXL0Cx3cGhF4MaKFt7MjE10d/AoiibH+ZCYNDbCxpVw4mjE2ZYDejGhmdE
+         neRw==
+X-Forwarded-Encrypted: i=1; AKwUvBxWFheM0AgwdjVQj8E5J+TEu0p513fV2sEPP29Ye1wHvNbMftLCHhuqPdgHYR0Hys6x+o65LeKPApD5Ew==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKGU5CohT1qT4aIm8yItirPfj/Ju9NRShxLK3+6Xnw0dIJCE48e
+	qPvyEoT66878K1XeZLawiFy+gUakwWtwmeZjLDHargdr8u7KhX/Dk0i1N1yVgHfAN8VoWsfrwKZ
+	jpQZjBj7hoP7itXdb4osyejwld6qId2LHU1A9/Er7FWZnUPXRiIExSgqqj2JlM6RY7C5fLdg=
+X-Gm-Gg: AYBFou0E7VoMbBQHPncXS9wf6/9N5cy0imocz6SlV9JXaroISwib2k4GA4L7MJP08oC
+	WWo+53R9a1NJibRFBjL1sRVfG/HwOSxHRTtc65BoWQ+vo8ILmPbypaprhE0PzKA+jl3uwn6GLho
+	05rtII5LvirKs024ZxncJ9SURdGZn+v8UrllUKAvsZ4rRtyLL92YQeGNfuGVYZHlGiwuTlRWTf+
+	yMohPtQhW+LKw89QeX6DkdvtVTdAClIoViCX3tkQNasaHhhW9xjOUD026RVO/82Gte2sD5KRrAC
+	8d19MO5o2G2kxCq2CFlYx42919ggqNHP8ERUW1pz40vycRRLAdE2KFmmQAID38LkEvR+BBCeCbq
+	V1QXVPCgrTvzmp13jJedgyhabPSfe/xKTtgnQVfMrRph/+DfxyhTqbswIcpaueOEqE86ijGsMnK
+	Zxj+7TgpZYwKKwZkFXmt/6JbPY
+X-Received: by 2002:a17:903:b8e:b0:2d6:fd55:3a9d with SMTP id d9443c01a7336-2e2e48b8521mr28672865ad.3.1790832308101;
+        Wed, 30 Sep 2026 22:25:08 -0700 (PDT)
+X-Received: by 2002:a17:903:b8e:b0:2d6:fd55:3a9d with SMTP id d9443c01a7336-2e2e48b8521mr28672595ad.3.1790832307607;
+        Wed, 30 Sep 2026 22:25:07 -0700 (PDT)
 Received: from hu-mchitale-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2e300b851b9sm5152715ad.78.2026.09.30.22.24.43
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2e300b851b9sm5152715ad.78.2026.09.30.22.25.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Sep 2026 22:24:50 -0700 (PDT)
+        Wed, 30 Sep 2026 22:25:07 -0700 (PDT)
 From: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>,
@@ -122,42 +107,43 @@ Cc: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
         devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
         Anup Patel <anup.patel@oss.qualcomm.com>,
         Zane Leung <liangzhen@linux.spacemit.com>
-Subject: [PATCH v6 11/14] gtrace: Add perf driver for tracing using perf tool
-Date: Thu,  1 Oct 2026 10:52:22 +0530
-Message-ID: <20261001052243.3042627-12-mayuresh.chitale@oss.qualcomm.com>
+Subject: [PATCH v6 13/14] perf tools: Initial support for gtrace decoder
+Date: Thu,  1 Oct 2026 10:52:24 +0530
+Message-ID: <20261001052243.3042627-14-mayuresh.chitale@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261001052243.3042627-1-mayuresh.chitale@oss.qualcomm.com>
 References: <20261001052243.3042627-1-mayuresh.chitale@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Authority-Analysis: v=2.4 cv=Gr3XaU1C c=1 sm=1 tr=0 ts=6abdeea5 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+X-Proofpoint-GUID: NVp0I6kzIV_G4F86rZZwTf1ZvhSrMhIf
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAxMDAyMSBTYWx0ZWRfXzxtiiU1t2LH6
+ U3Wp2nnj72K/Xrpbet6uH55kcBfiSU2iX7wQaqZpw/BVFowRBNPgtLCPrGUsDzYVqTuQ5NbUOXi
+ nSwscGU9lW4uoGzNECNYgQGIHqWkf8p+RIPYI9aIXLaIUuZ8CVp46AMdQ1TIYJqlCc38rGMa4Fy
+ RUmZss0sgdjG9/3BLhtbm1XAm+ye8iYj2cQ5FhiDeE/M2TV5p+4x7Xy8YGJXXM5mUbqAiGaKmlt
+ k6cQAMYIanQ7Sqci26HssSM6zvXG4Oc4BGxtJe2WfGVMGvH8CnZXjdhbWkCjxjMwKULIyqTnu9M
+ oUI5qe2pMJLp1v8kHsBt/qQPzVP1PiORIzlDB4LL4ivyY1qR1Pa8NFDC6IR+b67ytpIPxE6NmDq
+ C/HXiYZwN39yDB1tD7QmxEIHuY1wdhpz51DQpAixPnvvhcOn4eEO7Gkv2KOO5d1hZV166bFlMfL
+ RG0gRZmmswaFsKk9SRw==
+X-Authority-Analysis: v=2.4 cv=MZn5KJ/f c=1 sm=1 tr=0 ts=6abdeeb5 cx=c_pps
+ a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
  a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
- a=nFZh5ErKNFa2br0MvREA:9 a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAxMDAyMSBTYWx0ZWRfX8tcv7n+kBoC9
- VAsqrxq1HBvMticD4+cMTEtug5IQzHD9nJ/IEJWY2fWWR5TDcIPSpkP13t/r8nnNNLxYg6Xevcb
- yiAh0CvaJWqcMFMMeo5wTCvq7pYrXXE=
-X-Proofpoint-GUID: 3ncbV4LLDXMiYh6OrMiDz7pRFOyqPlja
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAxMDAyMSBTYWx0ZWRfX2QjO8Rjwq/AQ
- J8uMpvYnDUv/LdEi79/4XKFEFvJui4gOMX3yZ+mvsxUW6t7yW6k3/w9r43J+t1dSDruBHFrs3HN
- zLstJl+jAHtF1YEXZdAk1lempdQ73Zt2yCfORQAe5DHe8z3r40K41I98QbRGs5+7+SJ252G/CbB
- EbmmwUwa5aWTuRZ7qlbLmHieDpPlub9Fs+Fi++++wIrh2/ddJRkJHeIi93bfpDhHa4iLtLN04U6
- qG+Uy33Kuv7mtzlUxgUVIl9j24zgeCONyXvblYAdeSS+Rpo8bF/Z+UbDqZZmrJuuTRsxlzrvgs7
- o8W/5gZDVQumawJeJR1PNDiEVCjezvRInKQp+n+al6GlCBalLmchPyaEijSRLIXRVGLYInC3Yat
- jED4906Cxnq6jvYK//HwJuDp7p1GHUJpmwGsnk3DSfuyhQFPJzOjfDH65sE1KP7FnJwymHgkx5E
- VhVaQJ1OTBNuzhFsBJg==
-X-Proofpoint-ORIG-GUID: 3ncbV4LLDXMiYh6OrMiDz7pRFOyqPlja
+ a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=EUspDBNiAAAA:8
+ a=QyXUC8HyAAAA:8 a=pBE9Ga8SiHy0nNBnfKcA:9 a=GvdueXVYPmCkWapjIL-Q:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAxMDAyMSBTYWx0ZWRfX1U/09TAMJH2H
+ btsFUjDsATa0qhVhOmPekx/zyHuByhBHPxeyTTyjZ8MK90rzI36Nl8hPr2ZplJweSTIn3N8MG2j
+ F1MCal9VLCNJ6Vy8469mo5qstqsycVY=
+X-Proofpoint-ORIG-GUID: NVp0I6kzIV_G4F86rZZwTf1ZvhSrMhIf
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-01_02,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 bulkscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0
- spamscore=0 suspectscore=0 impostorscore=0 priorityscore=1501 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610010021
+ malwarescore=0 lowpriorityscore=0 spamscore=0 suspectscore=0
+ priorityscore=1501 bulkscore=0 clxscore=1015 impostorscore=0 adultscore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2610010021
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_062500_888122_DA8461A6 
-X-CRM114-Status: GOOD (  32.48  )
+X-CRM114-CacheID: sfid-20260930_222510_230355_6F7A8255 
+X-CRM114-Status: GOOD (  22.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,489 +160,168 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add perf driver for the gtrace similar to ARM Coresight and Hisilicon
-PTT drivers. The driver adds 'gtrace' event descriptor which can be used
-by the perf tool to record the trace data. The actual data format depends
-on type of encoder device and optionally the PMU specific trace format
-type.
+Add bare bones support for gtrace decoder so that the data received
+from the hardware by the gtrace perf driver can be written to the
+perf record output file. Actual decoding of the trace payload is not yet
+implemented.
 
 Co-developed-by: Anup Patel <anup.patel@oss.qualcomm.com>
 Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
+Reviewed-by: Adrian Hunter <adrian.hunter@intel.com>
 Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
 ---
- drivers/hwtracing/gtrace/Kconfig       |   1 +
- drivers/hwtracing/gtrace/Makefile      |   2 +-
- drivers/hwtracing/gtrace/gtrace-core.c |  15 +-
- drivers/hwtracing/gtrace/gtrace-perf.c | 390 +++++++++++++++++++++++++
- include/linux/gtrace.h                 |   3 +
- 5 files changed, 409 insertions(+), 2 deletions(-)
- create mode 100644 drivers/hwtracing/gtrace/gtrace-perf.c
+ tools/perf/util/Build            |  1 +
+ tools/perf/util/auxtrace.c       |  3 +
+ tools/perf/util/gtrace-decoder.c | 95 ++++++++++++++++++++++++++++++++
+ tools/perf/util/gtrace.h         |  1 +
+ 4 files changed, 100 insertions(+)
+ create mode 100644 tools/perf/util/gtrace-decoder.c
 
-diff --git a/drivers/hwtracing/gtrace/Kconfig b/drivers/hwtracing/gtrace/Kconfig
-index de4a3b533591..e5b62d65e2fd 100644
---- a/drivers/hwtracing/gtrace/Kconfig
-+++ b/drivers/hwtracing/gtrace/Kconfig
-@@ -3,6 +3,7 @@
- menuconfig GTRACE
- 	tristate "Generic Hardware Trace Support"
- 	depends on OF
-+	select PERF_EVENTS
- 	help
- 	  This framework provides an architecture-neutral kernel interface
- 	  for hardware trace drivers. It builds a topological view of the
-diff --git a/drivers/hwtracing/gtrace/Makefile b/drivers/hwtracing/gtrace/Makefile
-index 31262cf5993d..33274a1ed0b8 100644
---- a/drivers/hwtracing/gtrace/Makefile
-+++ b/drivers/hwtracing/gtrace/Makefile
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
+diff --git a/tools/perf/util/Build b/tools/perf/util/Build
+index b26a0b1ddfa3..d25140a0d64f 100644
+--- a/tools/perf/util/Build
++++ b/tools/perf/util/Build
+@@ -149,6 +149,7 @@ perf-util-y += cs-etm.o
+ perf-util-y += cs-etm-decoder/
+ endif
+ perf-util-y += cs-etm-base.o
++perf-util-y += gtrace-decoder.o
  
- obj-$(CONFIG_GTRACE) += gtrace.o
--gtrace-y := gtrace-core.o
-+gtrace-y := gtrace-core.o gtrace-perf.o
- gtrace-$(CONFIG_OF) += gtrace-of.o
+ perf-util-y += parse-branch-options.o
+ perf-util-y += parse-regs-options.o
+diff --git a/tools/perf/util/auxtrace.c b/tools/perf/util/auxtrace.c
+index 1ecdde597153..ba750d089a7a 100644
+--- a/tools/perf/util/auxtrace.c
++++ b/tools/perf/util/auxtrace.c
+@@ -54,6 +54,7 @@
+ #include "arm-spe.h"
+ #include "hisi-ptt.h"
+ #include "s390-cpumsf.h"
++#include "gtrace.h"
+ #include "util/mmap.h"
+ #include "powerpc-vpadtl.h"
  
- obj-$(CONFIG_RVTRACE) += rvtrace-platform.o
-diff --git a/drivers/hwtracing/gtrace/gtrace-core.c b/drivers/hwtracing/gtrace/gtrace-core.c
-index acbeb3df2135..034987237abc 100644
---- a/drivers/hwtracing/gtrace/gtrace-core.c
-+++ b/drivers/hwtracing/gtrace/gtrace-core.c
-@@ -828,13 +828,26 @@ EXPORT_SYMBOL_GPL(__gtrace_register_driver);
- 
- static int __init gtrace_init(void)
- {
-+	int ret;
-+
- 	gtrace_init_type_idx();
- 
--	return bus_register(&gtrace_bustype);
-+	ret = bus_register(&gtrace_bustype);
-+	if (ret)
-+		return ret;
-+
-+	ret = gtrace_perf_init();
-+	if (ret) {
-+		bus_unregister(&gtrace_bustype);
-+		return ret;
-+	}
-+
-+	return 0;
- }
- 
- static void __exit gtrace_exit(void)
- {
-+	gtrace_perf_exit();
- 	bus_unregister(&gtrace_bustype);
- }
- 
-diff --git a/drivers/hwtracing/gtrace/gtrace-perf.c b/drivers/hwtracing/gtrace/gtrace-perf.c
+@@ -1433,6 +1434,8 @@ int perf_event__process_auxtrace_info(const struct perf_tool *tool __maybe_unuse
+ 		err = powerpc_vpadtl_process_auxtrace_info(event, session);
+ 		break;
+ 	case PERF_AUXTRACE_GTRACE:
++		err = gtrace__process_auxtrace_info(event, session);
++		break;
+ 	case PERF_AUXTRACE_UNKNOWN:
+ 	default:
+ 		return -EINVAL;
+diff --git a/tools/perf/util/gtrace-decoder.c b/tools/perf/util/gtrace-decoder.c
 new file mode 100644
-index 000000000000..928f0405c6c1
+index 000000000000..c25fbfc61928
 --- /dev/null
-+++ b/drivers/hwtracing/gtrace/gtrace-perf.c
-@@ -0,0 +1,390 @@
++++ b/tools/perf/util/gtrace-decoder.c
+@@ -0,0 +1,95 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
++ * Generic hardware trace (gtrace) decoder
 + * Copyright (c) 2026 Qualcomm Technologies, Inc.
 + */
 +
-+#include <linux/bitfield.h>
-+#include <linux/cpumask.h>
-+#include <linux/device.h>
-+#include <linux/err.h>
-+#include <linux/list.h>
-+#include <linux/mm.h>
-+#include <linux/init.h>
-+#include <linux/perf_event.h>
-+#include <linux/vmalloc.h>
-+#include <linux/percpu-defs.h>
-+#include <linux/sched.h>
-+#include <linux/slab.h>
-+#include <linux/stringhash.h>
-+#include <linux/types.h>
-+#include <linux/workqueue.h>
-+#include <linux/gtrace.h>
++#include <errno.h>
++#include <inttypes.h>
++#include <stdlib.h>
++#include <internal/lib.h>
++#include <linux/zalloc.h>
++#include "evlist.h"
++#include "session.h"
++#include "gtrace.h"
 +
-+#define GTRACE_PMU_NAME "gtrace"
-+static struct pmu gtrace_pmu;
-+static struct workqueue_struct *gtrace_wq;
-+
-+/**
-+ * struct gtrace_event_data - generic hardware trace perf event data
-+ * @work:		Handle to free allocated memory outside IRQ context.
-+ * @mask:		Hold the CPU(s) this event was set for.
-+ * @aux_hwid_done:	Whether a CPU has emitted the TraceID packet or not.
-+ * @path:		An array of path, each slot for one CPU.
-+ * @buf:		Aux buffer / pages allocated by perf framework.
-+ */
-+struct gtrace_event_data {
-+	struct work_struct work;
-+	cpumask_t mask;
-+	cpumask_t aux_hwid_done;
-+	struct gtrace_path * __percpu *path;
-+	struct gtrace_perf_auxbuf buf;
++struct gtrace_decoder {
++	struct auxtrace auxtrace;
++	u32 auxtrace_type;
++	struct perf_session *session;
++	struct machine *machine;
++	u32 pmu_type;
 +};
 +
-+struct gtrace_ctxt {
-+	struct perf_output_handle handle;
-+	struct gtrace_event_data *event_data;
-+};
-+
-+static DEFINE_PER_CPU(struct gtrace_ctxt, gtrace_ctxt);
-+
-+static void *alloc_event_data(int cpu)
++static int gtrace_process_event(struct perf_session *session __maybe_unused,
++				 union perf_event *event __maybe_unused,
++				 struct perf_sample *sample __maybe_unused,
++				 const struct perf_tool *tool __maybe_unused)
 +{
-+	struct gtrace_event_data *event_data;
-+	cpumask_t *mask;
-+
-+	event_data = kzalloc_obj(*event_data);
-+	if (!event_data)
-+		return NULL;
-+
-+	/* Update mask as per selected CPUs */
-+	mask = &event_data->mask;
-+	if (cpu != -1)
-+		cpumask_set_cpu(cpu, mask);
-+	else
-+		cpumask_copy(mask, cpu_present_mask);
-+
-+	event_data->path = alloc_percpu(struct gtrace_path *);
-+	if (!event_data->path) {
-+		kfree(event_data);
-+		return NULL;
-+	}
-+
-+	return event_data;
-+}
-+
-+static void gtrace_free_aux(void *data)
-+{
-+	struct gtrace_event_data *event_data = data;
-+
-+	queue_work(gtrace_wq, &event_data->work);
-+}
-+
-+static struct gtrace_path **gtrace_event_cpu_path_ptr(struct gtrace_event_data *data,
-+							int cpu)
-+{
-+	return per_cpu_ptr(data->path, cpu);
-+}
-+
-+static void free_event_data(struct work_struct *work)
-+{
-+	struct gtrace_event_data *event_data;
-+	struct gtrace_path *path;
-+	cpumask_t *mask;
-+	int cpu;
-+
-+	event_data = container_of(work, struct gtrace_event_data, work);
-+	mask = &event_data->mask;
-+	for_each_cpu(cpu, mask) {
-+		path = *gtrace_event_cpu_path_ptr(event_data, cpu);
-+		gtrace_destroy_path(path);
-+	}
-+	if (event_data->buf.base)
-+		vunmap(event_data->buf.base);
-+	free_percpu(event_data->path);
-+	kfree(event_data);
-+}
-+
-+static void *gtrace_setup_aux(struct perf_event *event, void **pages,
-+			       int nr_pages, bool overwrite)
-+{
-+	struct gtrace_event_data *event_data = NULL;
-+	struct page **pagelist;
-+	int cpu = event->cpu, i;
-+	cpumask_t *mask;
-+
-+	event_data = alloc_event_data(cpu);
-+	if (!event_data)
-+		return NULL;
-+
-+	INIT_WORK(&event_data->work, free_event_data);
-+	mask = &event_data->mask;
-+	/*
-+	 * Create the path for each CPU in the mask. In case of any failure skip the CPU
-+	 */
-+	for_each_cpu(cpu, mask) {
-+		struct gtrace_component *src;
-+		struct gtrace_path *path;
-+
-+		src = gtrace_cpu_source(cpu);
-+		if (!src) {
-+			cpumask_clear_cpu(cpu, mask);
-+			continue;
-+		}
-+
-+		path = gtrace_create_path(src, NULL, GTRACE_COMPONENT_MODE_PERF);
-+		if (IS_ERR(path)) {
-+			cpumask_clear_cpu(cpu, mask);
-+			continue;
-+		}
-+
-+		path->owner = task_pid_nr(event->owner);
-+		*gtrace_event_cpu_path_ptr(event_data, cpu) = path;
-+	}
-+
-+	/* If we don't have any CPUs ready for tracing, abort */
-+	cpu = cpumask_first(&event_data->mask);
-+	if (cpu >= nr_cpu_ids)
-+		goto err;
-+
-+	pagelist = kcalloc(nr_pages, sizeof(*pagelist), GFP_KERNEL);
-+	if (!pagelist)
-+		goto err;
-+
-+	for (i = 0; i < nr_pages; i++)
-+		pagelist[i] = virt_to_page(pages[i]);
-+
-+	event_data->buf.base = vmap(pagelist, nr_pages, VM_MAP, PAGE_KERNEL);
-+	kfree(pagelist);
-+	if (!event_data->buf.base)
-+		goto err;
-+
-+	event_data->buf.nr_pages = nr_pages;
-+	event_data->buf.length = nr_pages * PAGE_SIZE;
-+	event_data->buf.pos = 0;
-+	return event_data;
-+err:
-+	gtrace_free_aux(event_data);
-+	return NULL;
-+}
-+
-+static u64 gtrace_path_aux_format(struct gtrace_path *path)
-+{
-+	struct gtrace_component *src = gtrace_path_source(path);
-+
-+	switch (src->pdata->format) {
-+	case GTRACE_FORMAT_ETRACE:
-+		return PERF_AUX_FLAG_GTRACE_FORMAT_ETRACE;
-+	case GTRACE_FORMAT_NTRACE:
-+		return PERF_AUX_FLAG_GTRACE_FORMAT_NTRACE;
-+	default:
-+		return PERF_AUX_FLAG_GTRACE_FORMAT_UNKNOWN;
-+	}
-+}
-+
-+static void gtrace_event_read(struct perf_event *event)
-+{
-+}
-+
-+static void gtrace_event_destroy(struct perf_event *event)
-+{
-+}
-+
-+static int gtrace_event_init(struct perf_event *event)
-+{
-+	if (event->attr.type != gtrace_pmu.type)
-+		return -EINVAL;
-+
-+	event->destroy = gtrace_event_destroy;
 +	return 0;
 +}
 +
-+static void gtrace_event_start(struct perf_event *event, int flags)
++static int gtrace_process_auxtrace_event(struct perf_session *session __maybe_unused,
++					  union perf_event *event __maybe_unused,
++					  const struct perf_tool *tool __maybe_unused)
 +{
-+	struct gtrace_ctxt *ctxt = this_cpu_ptr(&gtrace_ctxt);
-+	struct perf_output_handle *handle = &ctxt->handle;
-+	struct gtrace_event_data *event_data;
-+	int cpu = smp_processor_id();
-+	struct gtrace_path *path;
-+
-+	if (WARN_ON(ctxt->event_data))
-+		goto fail;
-+
-+	/*
-+	 * Deal with the ring buffer API and get a handle on the
-+	 * session's information.
-+	 */
-+	event_data = perf_aux_output_begin(handle, event);
-+	if (!event_data)
-+		goto fail;
-+
-+	if (!cpumask_test_cpu(cpu, &event_data->mask))
-+		goto out;
-+
-+	event_data->buf.pos = handle->head % event_data->buf.length;
-+	path = *gtrace_event_cpu_path_ptr(event_data, cpu);
-+	if (!path) {
-+		dev_err_ratelimited(gtrace_pmu.dev, "Error. Path not found on cpu %d\n", cpu);
-+		goto fail_end;
-+	}
-+
-+	if (gtrace_path_start(path)) {
-+		dev_err_ratelimited(gtrace_pmu.dev, "Error. Tracing not started on cpu %d\n", cpu);
-+		goto fail_end;
-+	}
-+
-+	/*
-+	 * output cpu / trace ID in perf record, once for the lifetime
-+	 * of the event.
-+	 */
-+	if (!cpumask_test_cpu(cpu, &event_data->aux_hwid_done)) {
-+		cpumask_set_cpu(cpu, &event_data->aux_hwid_done);
-+		perf_report_aux_output_id(event, cpu);
-+	}
-+
-+out:
-+	/* Tell the perf core the event is alive */
-+	event->hw.state = 0;
-+	ctxt->event_data = event_data;
-+	return;
-+fail_end:
-+	perf_aux_output_end(handle, 0);
-+fail:
-+	event->hw.state = PERF_HES_STOPPED;
++	return 0;
 +}
 +
-+static void gtrace_event_stop(struct perf_event *event, int mode)
++static int gtrace_flush(struct perf_session *session __maybe_unused,
++			 const struct perf_tool *tool __maybe_unused)
 +{
-+	struct gtrace_ctxt *ctxt = this_cpu_ptr(&gtrace_ctxt);
-+	struct perf_output_handle *handle = &ctxt->handle;
-+	u64 format = PERF_AUX_FLAG_GTRACE_FORMAT_UNKNOWN;
-+	struct gtrace_event_data *event_data;
-+	int ret, cpu = smp_processor_id();
-+	struct gtrace_path *path;
-+	size_t size = 0;
-+
-+	if (event->hw.state == PERF_HES_STOPPED)
-+		return;
-+
-+	if (handle->event && WARN_ON(perf_get_aux(handle) != ctxt->event_data))
-+		return;
-+
-+	event_data = ctxt->event_data;
-+	ctxt->event_data = NULL;
-+
-+	if (WARN_ON(!event_data))
-+		return;
-+
-+	if (!cpumask_test_cpu(cpu, &event_data->mask))
-+		goto out_end;
-+
-+	/* stop tracing */
-+	path = *gtrace_event_cpu_path_ptr(event_data, cpu);
-+	if (!path) {
-+		dev_err_ratelimited(gtrace_pmu.dev, "Error. Path not found on cpu %d\n", cpu);
-+		goto out_end;
-+	}
-+
-+	if (gtrace_path_stop(path)) {
-+		dev_err_ratelimited(gtrace_pmu.dev, "Error. Tracing not stopped on cpu %d\n", cpu);
-+		goto out_end;
-+	}
-+
-+	event->hw.state = PERF_HES_STOPPED;
-+	if (handle->event && (mode & PERF_EF_UPDATE)) {
-+		if (WARN_ON_ONCE(handle->event != event))
-+			return;
-+		ret = gtrace_path_copyto_auxbuf(path, &event_data->buf, &size, &format);
-+		WARN_ON_ONCE(ret);
-+		format = gtrace_path_aux_format(path);
-+		if (READ_ONCE(handle->event)) {
-+			/* Tag the AUX data with the source's trace format. */
-+			perf_aux_output_flag(handle, format);
-+			if (size > handle->size) {
-+				size = handle->size;
-+				perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED);
-+			}
-+			perf_aux_output_end(handle, size);
-+		} else
-+			WARN_ON(size);
-+	}
-+
-+	return;
-+
-+out_end:
-+	event->hw.state = PERF_HES_STOPPED;
-+	if (handle->event && (mode & PERF_EF_UPDATE))
-+		perf_aux_output_end(handle, 0);
++	return 0;
 +}
 +
-+static int gtrace_event_add(struct perf_event *event, int mode)
++static void gtrace_free_events(struct perf_session *session __maybe_unused)
 +{
-+	struct hw_perf_event *hwc = &event->hw;
-+	int ret = 0;
-+
-+	if (mode & PERF_EF_START) {
-+		gtrace_event_start(event, 0);
-+		if (hwc->state & PERF_HES_STOPPED)
-+			ret = -EINVAL;
-+	} else {
-+		hwc->state = PERF_HES_STOPPED;
-+	}
-+
-+	return ret;
 +}
 +
-+static void gtrace_event_del(struct perf_event *event, int mode)
++static void gtrace_free(struct perf_session *session)
 +{
-+	gtrace_event_stop(event, PERF_EF_UPDATE);
++	struct gtrace_decoder *ptr = container_of(session->auxtrace, struct gtrace_decoder,
++					    auxtrace);
++
++	session->auxtrace = NULL;
++	free(ptr);
 +}
 +
-+PMU_FORMAT_ATTR(event, "config:0-0");
-+
-+static struct attribute *gtrace_pmu_formats_attr[] = {
-+	&format_attr_event.attr,
-+	NULL,
-+};
-+
-+static struct attribute_group gtrace_pmu_format_group = {
-+	.name = "format",
-+	.attrs = gtrace_pmu_formats_attr,
-+};
-+
-+static const struct attribute_group *gtrace_pmu_attr_groups[] = {
-+	&gtrace_pmu_format_group,
-+	NULL,
-+};
-+
-+int __init gtrace_perf_init(void)
++static bool gtrace_evsel_is_auxtrace(struct perf_session *session,
++				      struct evsel *evsel)
 +{
-+	int ret;
++	struct gtrace_decoder *ptr = container_of(session->auxtrace,
++						   struct gtrace_decoder, auxtrace);
 +
-+	gtrace_pmu.capabilities	= (PERF_PMU_CAP_EXCLUSIVE | PERF_PMU_CAP_ITRACE);
-+	gtrace_pmu.attr_groups		= gtrace_pmu_attr_groups;
-+	gtrace_pmu.task_ctx_nr		= perf_sw_context;
-+	gtrace_pmu.read		= gtrace_event_read;
-+	gtrace_pmu.event_init		= gtrace_event_init;
-+	gtrace_pmu.setup_aux		= gtrace_setup_aux;
-+	gtrace_pmu.free_aux		= gtrace_free_aux;
-+	gtrace_pmu.start		= gtrace_event_start;
-+	gtrace_pmu.stop		= gtrace_event_stop;
-+	gtrace_pmu.add			= gtrace_event_add;
-+	gtrace_pmu.del			= gtrace_event_del;
-+	gtrace_pmu.module		= THIS_MODULE;
++	return evsel->core.attr.type == ptr->pmu_type;
++}
 +
-+	gtrace_wq = alloc_workqueue(GTRACE_PMU_NAME, WQ_UNBOUND, 0);
-+	if (!gtrace_wq)
++int gtrace__process_auxtrace_info(union perf_event *event,
++				   struct perf_session *session)
++{
++	struct perf_record_auxtrace_info *auxtrace_info = &event->auxtrace_info;
++	struct gtrace_decoder *ptr;
++
++	if (auxtrace_info->header.size < GTRACE_AUXTRACE_PRIV_SIZE +
++	    sizeof(struct perf_record_auxtrace_info))
++		return -EINVAL;
++
++	ptr = zalloc(sizeof(*ptr));
++	if (!ptr)
 +		return -ENOMEM;
 +
-+	ret = perf_pmu_register(&gtrace_pmu, GTRACE_PMU_NAME, -1);
-+	if (ret)
-+		destroy_workqueue(gtrace_wq);
++	ptr->session = session;
++	ptr->machine = &session->machines.host;
++	ptr->auxtrace_type = auxtrace_info->type;
++	ptr->pmu_type = auxtrace_info->priv[0];
 +
-+	return ret;
-+}
++	ptr->auxtrace.process_event = gtrace_process_event;
++	ptr->auxtrace.process_auxtrace_event = gtrace_process_auxtrace_event;
++	ptr->auxtrace.flush_events = gtrace_flush;
++	ptr->auxtrace.free_events = gtrace_free_events;
++	ptr->auxtrace.free = gtrace_free;
++	ptr->auxtrace.evsel_is_auxtrace = gtrace_evsel_is_auxtrace;
++	session->auxtrace = &ptr->auxtrace;
 +
-+void __exit gtrace_perf_exit(void)
-+{
-+	perf_pmu_unregister(&gtrace_pmu);
-+	/* Wait for any pending free_event_data() before the module exits. */
-+	destroy_workqueue(gtrace_wq);
++	return 0;
 +}
-diff --git a/include/linux/gtrace.h b/include/linux/gtrace.h
-index ed0e751faa91..da8ba3779193 100644
---- a/include/linux/gtrace.h
-+++ b/include/linux/gtrace.h
-@@ -326,4 +326,7 @@ static inline void gtrace_unregister_driver(struct gtrace_driver *gtdrv)
- 		driver_unregister(&gtdrv->driver);
- }
+diff --git a/tools/perf/util/gtrace.h b/tools/perf/util/gtrace.h
+index 343d2e9d4fa1..02db4f2ff9f5 100644
+--- a/tools/perf/util/gtrace.h
++++ b/tools/perf/util/gtrace.h
+@@ -13,5 +13,6 @@ struct perf_session;
  
-+int gtrace_perf_init(void);
-+void gtrace_perf_exit(void);
-+
- #endif /* __LINUX_GTRACE_H__ */
+ #define GTRACE_AUXTRACE_PRIV_SIZE      sizeof(u64)
+ 
++int gtrace__process_auxtrace_info(union perf_event *event, struct perf_session *session);
+ #endif
+ 
 -- 
 2.43.0
 
