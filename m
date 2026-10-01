@@ -4,105 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E45EACA5FD2
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 15:40:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90730CA5FD2
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2026 15:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gVBpbUdaYjbvaKJN2HLUwyyJ92Ty7kqzPaHCvnylbA8=; b=njWCLgyrm1StBT
-	h18ev8AcHL7s6wuUJPL2HbKvPTU/BHJ6Rv+VI0s+SqOT9Q8yMvsrbdqmfeTOdhD2nG7E6wHDHhtIR
-	GWAw/PDQfB8T62JcCj0XU9S3ZvbgNo2MHfon8eQ4zvcpWTJU5TsSRKYOparP7Jf3Ao6T78mIgTWi5
-	FnHe1tAgwxz7QEkHk0BVRnl3DANB1JWS0/ebQN6VgZS0U0U1P+s/uwVEcGqeTvuaVUWI9QWCpg0l8
-	bpNn7Ymt+Nke9FEuNlVeRiBZf+wai2LoZ9Y9QkZf7+J0HMhXDTMnE4XNamqNIYyQQI4eZrzhZ/2GM
-	PSLVnWWeFv0QyAfEKX5A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NORBgg7/nyuyfwsjS34EjQVe+4BJMCRC5mcos1DoYzU=; b=gjGuW+USxz492m
+	xlZiU2AlOdq6J3dD3anWbpabW/ol0rT0/hOtDXQLtUw9hxu+o9k1uhccPTis33Qht84AH5hYviFTC
+	dyU3AWTT2z7NBKgq7V6vekwC9TL2ZXrN4CscLlWzKWeqtswy4xItZHcDUh3l6dJDxlnySYTX6EkuM
+	L+4b+2Tus7T3FI3KfVb32HLkWFi+Hp5MlYhgVV0NBzL/CxMmEzTaTui9S9E9JZfZQ7NW0E1dKhUzp
+	ryN5m8oYg6QlEpTy9Lr736aE/9W0ytb6bGW8bYtKkPM5IzNlX6sfQG4WCF6oBGaYn5IOsjKoMikkl
+	GlrjPXRX19NR0ZowgpZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCItM-00000009ZNW-2Z0v;
-	Thu, 01 Oct 2026 15:40:16 +0000
-Received: from mail2.ecloud.global ([135.181.6.248])
+	id 1xCIun-00000009ZnF-25lB;
+	Thu, 01 Oct 2026 15:41:45 +0000
+Received: from out-29.mta1.migadu.com ([95.215.58.29] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCItJ-00000009ZKp-1z3o;
-	Thu, 01 Oct 2026 15:40:15 +0000
-Received: from authenticated-user (mail2.ecloud.global [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail2.ecloud.global (Postfix) with ESMTPSA id F0DEB720BA3;
-	Thu, 01 Oct 2026 15:40:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=murena.io; s=mail2;
-	t=1790869209;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qKDPtfxAhV/dREsJEcSyq7SoOHuO3ciIber1G1Mlbkk=;
-	b=TCEoFDBbjYRUo3c3fevSgQ02QIdoN8xUTOuZX4DnbNjkrxZf3NsSMJCDP/MJ2ahHmsp/ob
-	CZm9EzW0JqyQepC+Mnx/wD6iInO/gE6qqTN6uPkLE2YHijtYT2D6xeDv6kzMtQ2zw9Yp6m
-	oqIa9aQsK+srkNwKqeXCFbnHDAubzL8=
-ARC-Seal: i=1; a=rsa-sha256; d=murena.io; s=mail2; cv=none; t=1790869209;
-	b=VNETGM+K8h+iqT1UgCB1Tyj/1jgj3s+OJmVqwrK8EC6gaoplSJXbAgezfVTDHlQqR7w31Y
-	pJJjeVIznq7magjlH4S0Y4KzwY/p8b8liSEVRALNAhMz6cVOJT5tnFoOv1mhJrF2LsWiVD
-	RwXYI5A6T6b7Ep9svcPR2Rxzh01/mPM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=murena.io;
-	s=mail2; t=1790869209;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qKDPtfxAhV/dREsJEcSyq7SoOHuO3ciIber1G1Mlbkk=;
-	b=ZNq50gAmDVE09SbtqXvrb4VyxebLiZgRYzrViBFsX459PliBv+F2kxIilSuf95+w28YMvk
-	pKYEUbbhSKrCyLVj+Klf7A5Rg3h61gXuL5gSAokYwrBVKrb0/Rr3OS4KugTIbU9NALael8
-	V9nPlJRRQHNAr/SJI/WBGam7iDaXO7w=
-ARC-Authentication-Results: i=1;
-	mail2.ecloud.global;
-	auth=pass smtp.mailfrom=maud_spierings@murena.io
-Message-ID: <6462d084-5861-4df6-94ca-dbd23e619a61@murena.io>
-Date: Thu, 1 Oct 2026 17:40:06 +0200
+	id 1xCIuk-00000009ZlY-199N
+	for linux-riscv@lists.infradead.org;
+	Thu, 01 Oct 2026 15:41:43 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=S9MbpFYOyRT/9+KRnGcXzjKFgivK18Y9a7e4BZyewfE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790869295; v=1; x=1791474095;
+ b=RXmIkPuWLMPEyFKRHcMJfalc83Xlh+uD4nnctwK/qwHr+pOj43GE7+68AGj2UXt5td7U+9Kp
+ mfhqLie3SRaF1pxBh3omtjNcwPpmYlR6LuiPFBXoGzNMtc3j3hiZE37n+jTk3xh3EBteh7AK5LR
+ u8VSFdMWhOXgIHP15o9U7nDI=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by mta11.migadu.com with ESMTPS id 30b8e7bec69cf5c8;
+	Thu, 01 Oct 2026 15:41:34 +0000
+X-Mizu-Trace-ID: 30b8e7bec69cf5c8
+X-Migadu-Flow: FLOW_OUT
+From: KaFai Wan <kafai.wan@linux.dev>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Pu Lehui <pulehui@huawei.com>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: KaFai Wan <kafai.wan@linux.dev>
+Subject: [PATCH bpf 1/1] bpf, riscv: Fix stack arguments of struct_ops trampolines
+Date: Thu,  1 Oct 2026 23:40:38 +0800
+Message-ID: <20261001154038.2265210-1-kafai.wan@linux.dev>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Subject: Re: [PATCH v5 01/21] drm/bridge: inno-hdmi: fix swapped HSYNC and
- VSYNC polarity
-To: Michal Wilczynski <m.wilczynski@samsung.com>,
- Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Andy Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Emil Renner Berthing <kernel@esmil.dk>, Hal Feng
- <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Dominique Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Graham Markall <hello@big-grey.co.uk>,
- Icenowy Zheng <zhengxingda@iscas.ac.cn>,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>,
- Joshua Peisach <jpeisach@ubuntu.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Byron Stanoszek <gandalf@winds.org>
-References: <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
- <CGME20260929103203eucas1p14cb6262ba2c7bbaf36856f24f7bdc9e7@eucas1p1.samsung.com>
- <20260929-jh7110-clean-send-v5-1-82b4d8e3c6c7@samsung.com>
-Content-Language: en-US
-From: Maud Spierings <maud_spierings@murena.io>
-In-Reply-To: <20260929-jh7110-clean-send-v5-1-82b4d8e3c6c7@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_084013_707616_C12B7D3D 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20261001_084142_540495_958D00E4 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,53 +82,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Michal,
+When a struct_ops trampoline takes more than 8 arguments (up to 12), the
+9th and beyond are passed on the stack. store_args() copies them into the
+trampoline frame using a hard-coded FP + 16 base:
 
-Fixed! Thanks!
+	emit_ld(RV_REG_T1, 16 + (i - RV_MAX_REG_ARGS) * 8, RV_REG_FP, ctx);
 
-Tested-by: Maud Spierings <maud_spierings@murena.io>
+That offset only holds for fentry trampolines, where the traced function's
+T0/FP are saved at FP - 8/FP - 16 and its stack arguments start at FP + 16.
+A struct_ops trampoline is called directly, so its stack arguments start at
+FP + 0 and store_args() reads the wrong words. BPF programs then see garbage
+for arg9 and beyond, which fails the selftest:
 
-Kind regards,
-Maud
+  struct_ops_multi_args/test_trampoline_stack_args:FAIL
 
-On 9/29/26 12:30, Michal Wilczynski wrote:
-> v_HSYNC_POLARITY() and v_VSYNC_POLARITY() write the wrong bits: the
-> hardware puts HSYNC in bit 2 and VSYNC in bit 3, the macros do the
-> opposite. Most CEA modes drive both syncs with the same polarity so it
-> goes unnoticed; it only shows up on modes where the two differ.
-> 
-> Fixes: 412d4ae6b7a5 ("drm/rockchip: hdmi: add Innosilicon HDMI support")
-> Reported-by: Maud Spierings <maud_spierings@murena.io>
-> Closes: https://lore.kernel.org/all/e780ecb8-918f-4816-99c8-b69b10b25a18@murena.io/
-> Reported-by: Byron Stanoszek <gandalf@winds.org>
-> Closes: https://lore.kernel.org/all/b8b046ee-c574-3e16-6079-2fc415633dae@winds.org/
-> Suggested-by: Dominique Belhachemi <db@domibel.de>
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->   drivers/gpu/drm/bridge/inno-hdmi.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
-> index dd35f5a875d3d842fee6d2ead0de88503f9914e1..d7c33b92e2ddf4ced84d17304463f44be52270b8 100644
-> --- a/drivers/gpu/drm/bridge/inno-hdmi.c
-> +++ b/drivers/gpu/drm/bridge/inno-hdmi.c
-> @@ -122,8 +122,8 @@ enum {
->   #define v_VIDEO_MUTE(n)			((n) << 0)
->   
->   #define HDMI_VIDEO_TIMING_CTL		0x08
-> -#define v_HSYNC_POLARITY(n)		((n) << 3)
-> -#define v_VSYNC_POLARITY(n)		((n) << 2)
-> +#define v_VSYNC_POLARITY(n)		((n) << 3)
-> +#define v_HSYNC_POLARITY(n)		((n) << 2)
->   #define v_INETLACE(n)			((n) << 1)
->   #define v_EXTERANL_VIDEO(n)		((n) << 0)
->   
-> 
+Pass the stack argument base offset to store_args(): 0 for struct_ops
+trampolines, 16 otherwise.
+
+Fixes: 6801b0aef79d ("riscv, bpf: Add 12-argument support for RV64 bpf trampoline")
+Signed-off-by: KaFai Wan <kafai.wan@linux.dev>
+---
+ arch/riscv/net/bpf_jit_comp64.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index 01fe66774f02..4ae6674f58ed 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -875,7 +875,7 @@ int bpf_arch_text_poke(void *ip, enum bpf_text_poke_type old_t,
+ 	return ret;
+ }
+ 
+-static void store_args(int nr_arg_slots, int args_off, struct rv_jit_context *ctx)
++static void store_args(int nr_arg_slots, int args_off, int stack_base, struct rv_jit_context *ctx)
+ {
+ 	int i;
+ 
+@@ -883,8 +883,7 @@ static void store_args(int nr_arg_slots, int args_off, struct rv_jit_context *ct
+ 		if (i < RV_MAX_REG_ARGS) {
+ 			emit_sd(RV_REG_FP, -args_off, RV_REG_A0 + i, ctx);
+ 		} else {
+-			/* skip slots for T0 and FP of traced function */
+-			emit_ld(RV_REG_T1, 16 + (i - RV_MAX_REG_ARGS) * 8, RV_REG_FP, ctx);
++			emit_ld(RV_REG_T1, stack_base + (i - RV_MAX_REG_ARGS) * 8, RV_REG_FP, ctx);
+ 			emit_sd(RV_REG_FP, -args_off, RV_REG_T1, ctx);
+ 		}
+ 		args_off -= 8;
+@@ -1179,7 +1178,8 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+ 	func_meta = nr_arg_slots;
+ 	emit_store_stack_imm64(RV_REG_T1, -func_meta_off, func_meta, ctx);
+ 
+-	store_args(nr_arg_slots, args_off, ctx);
++	/* skip slots for T0 and FP of traced function */
++	store_args(nr_arg_slots, args_off, is_struct_ops ? 0 : 16, ctx);
+ 
+ 	if (bpf_fsession_cnt(tnodes)) {
+ 		/* clear all session cookies' value */
+-- 
+2.43.0
 
 
 _______________________________________________
