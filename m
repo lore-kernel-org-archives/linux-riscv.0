@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2340CA6007
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D12B4CA600A
 	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 17:53:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,56 +12,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=di/6cCAHkWeTOL1LFVbWVDxf9e5/d9Ibi7cVf3hUjhI=; b=cNnVvw4jB8zRM3
-	TRNAvgqkqj9n4zR0LxlgjKUKkj6DDiSDpydu0LQTFvGOQsR/ih2MSf4k4Sj9aCewXuJxFSRWj3EVd
-	angvuRuF4ny6wm9sOZ0mqn034vuAmFMvRiDvh7HNNRINIBfkfibeDg6e0fp9xCiwnaOZ5W7lWUm1f
-	fKAw7Abxp6uHfaNVks5kQy/W/U5/aBfm8rJNsLA9e1Zif5c1FIynKsYUqfr/wQglN6LNbeLSqMGNq
-	cLuF9v4ZyQOZGK59FpofH5NjhFkHRQv3qh7F9eJ+7WjaBXh8fv1x4njUPyWq5r9VL2ztMAeldyyXh
-	XFiLoLAsnPW9vlj/ikqw==;
+	List-Owner; bh=EXa9b7Ak6apiv7QOO6x7MegKAKz1OQTab5Y9cRURPDU=; b=EJ1eftxCRIPhgu
+	Fiqq55cjX2Ml+s5u2xwIT9Ota6r5EA9jSj8N2AOiZroCo9rvPbjU0I/hkEDisHBZNK8bScoTWRHkR
+	pmNXX5UonIZeDMfXsJ61y6z0CyigTg1zwE1HwPE48xAr5Fp/Htgmdyl1BWxyokLP8TzaSqyczC2Cp
+	T20R2HoJzWQsLLkoFG/zyzQPHWhX2hEdU9vq7T9iRD6XZr7vYUjovSWjKReRwuha1UTid0a+nU9S9
+	45UKEhUVS+9u5hEhcmoWVvfpxSHLTcnREXOlcObbIpnmKms3osYiB6skZhwvOpX8m9ipCHW+Obk89
+	LnnZ4KaZjsYUen9fKlCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEVol-00000002pFI-35Ch;
-	Wed, 07 Oct 2026 17:52:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xEVoq-00000002pMA-261I;
+	Wed, 07 Oct 2026 17:52:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXB0-0000000Aksi-2Wno;
-	Fri, 02 Oct 2026 06:55:26 +0000
+	id 1xCd3R-0000000BdyD-0qfl;
+	Fri, 02 Oct 2026 13:12:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F091560A5E;
-	Fri,  2 Oct 2026 06:55:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA2B81F000FF;
-	Fri,  2 Oct 2026 06:54:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 93EC1436BF;
+	Fri,  2 Oct 2026 13:12:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDC6B1F000FF;
+	Fri,  2 Oct 2026 13:11:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790924125;
-	bh=ISzeg/djpEJgZuQfNd3fqeQR/RcIoDTgRKI00G7Zcuw=;
+	s=k20260515; t=1790946720;
+	bh=QbhUP9iXRT9busjJARvsVsEKsH2Ps/ZqLFS4bca4bFI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=jcg3T8LtVGFeCP22PjJ5Kmv9ARB/xlyzs+V7VKXWrcGliXXGU0CUjthFJOOOSg0Hx
-	 6CU6htfWrkq8uVkwnyN4p20qhOGNewwRU/UbFZx50g58zMqo9rZghxxOXE5Sgn4Byk
-	 cCtePOS4ForF7OdoDSH4CGhjCIkqhnRDQcxizGY2lVyeFq5pdQhwHHIXJGGnnpU5c5
-	 f0rMdqdkNfLNmT6GRUD7iuUwxWsVvZ303YXTDcZkh980uO2TEGwYTNmDpVxNp4xXDJ
-	 MbMPkkMYN3WygH1pwmvSsevDkxgASGDEHdWFY8ljYW0NPayHu1k6zMXETsr4Yf+YHO
-	 xBkzjLjRmFNXA==
-Message-ID: <2c01f806-0428-4a96-85de-6a853605a537@kernel.org>
-Date: Fri, 2 Oct 2026 08:54:42 +0200
+	b=EHWU0mbTANCXNOi3Zz8vfaluwXiHb6NrEeQE3579lOgrAlHyG4bhLJxtrP5SUxJ53
+	 qyuyt7WwDms+J9SU6tj1doNb8ixs5S/dfzu1LKAyzLmCA11j1Lj0zCtK60fbB19ybx
+	 3qiK3mWy3UStlhPrmaJU1AZq+hxZAKISulldff17r1WWYubrmXtDF0LmP4+X+Wm6bd
+	 BOzsfTZ78ABQCyKcm+yss2YPRtG6Dauzuh8gKGZxzEuKnmayEwg8S4NJjxmkbEjVzs
+	 TlQyReq4OVNz5qAdPorvbksNtN11kzuoPIYJM5l9/ocKXRgGPmsMbmcutbMweewTer
+	 BEcqQ9TLZwBbw==
+Message-ID: <3387642b-c39f-4f19-ba0c-267bbd2fe91d@kernel.org>
+Date: Fri, 2 Oct 2026 15:11:27 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 29/40] mm: drop some redundant checks around hugetlb
- VMAs
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Jaya Kumar <jayalk@intworks.biz>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-rdma@vger.kernel.org, selinux@vger.kernel.org,
- linux-sound@vger.kernel.org, bpf@vger.kernel.org,
- linux-scsi@vger.kernel.org, linux-fbdev@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-trace-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
- fuse-devel@lists.linux.dev
+Subject: Re: [PATCH v3 31/40] mm/vma: introduce vma[_flags]_is_persistent()
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Jaya Kumar <jayalk@intworks.biz>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>,
+ Xu Xin <xu.xin@linux.dev>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-usb@vger.kernel.org, linux-rdma@vger.kernel.org, selinux@vger.kernel.org, linux-sound@vger.kernel.org, bpf@vger.kernel.org, linux-scsi@vger.kernel.org, linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, linux-arch@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, fuse-devel@lists.linux.dev
 References: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-0-4583d8a23bca@kernel.org>
- <20260917-b4-mmap-prepare-vma-flag-sanify-v3-29-4583d8a23bca@kernel.org>
+ <20260917-b4-mmap-prepare-vma-flag-sanify-v3-31-4583d8a23bca@kernel.org>
+ <9bbdf4e8-6984-4477-a183-f0b236047381@kernel.org>
+ <3557015d-23dd-41ef-9832-78b58587f3f4@kernel.org>
+ <81e1e5ae-0aab-4584-81e6-3fc9c2634d07@kernel.org> <ar-b_Ug__TBzIZsb@gremlin>
+ <2e5a4e6c-8f9c-4050-8998-454b83f4823b@kernel.org> <ar-luB9QVCRshtIw@gremlin>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -108,7 +101,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-29-4583d8a23bca@kernel.org>
+In-Reply-To: <ar-luB9QVCRshtIw@gremlin>
 X-Mailman-Approved-At: Wed, 07 Oct 2026 10:52:37 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -126,29 +119,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/17/26 18:22, Lorenzo Stoakes (ARM) wrote:
-> Adjust code which inadvertently perform redundant checks on hugetlb VMAs
-> and clean them up:
+On 10/2/26 14:48, Lorenzo Stoakes (ARM) wrote:
+> On Fri, Oct 02, 2026 at 02:35:06PM +0200, David Hildenbrand (Arm) wrote:
+>> On 10/2/26 14:08, Lorenzo Stoakes (ARM) wrote:
+>>>
+>>> No, see below.
+>>>
+>>>
+>>> Anything that requires stuff not to be dropped behind the user's back, which is
+>>> at least 4 cases!
+>>>
+>>> That being open-coded all over the place is a problem I think, and I think stuff
+>>> like the PMD device private are a reminder that open-coding all over can cause
+>>> problems.
+>>>
+>>>
+>>> There are 4 open-coded checks that test four ad-hoc flag combinations checking
+>>> for the same thing - 'can the kernel or a driver change things or discard stuff
+>>> behind my back?'
+>>>
+>>> So abstracting that to a helper, alongside the other 'let's ask based on
+>>> semantics' helpers, seems sensible.
+>>>
+>>> Maybe invert the meaning to make it clearer?
+>>>
+>>> 	vma_kernel_may_change_contents()?
+>>>
+>>
+>> This is all super confusing and I don't think we should try to describe the
+>> semantics that way.
+>>
+>> Just imagine having udmabuf use a PFNMAP of folios obtained from shmem. For sure
+>> the kernel could now change the shmem pages that are mapped in some ordinary VMA.
 > 
-> * hugetlb VMAs have VMA_DONTEXPAND_BIT set so a VMA_SPECIAL_FLAGS check
->   suffices. (migrate_vma_setup() regains an explicit hugetlb test later in
->   the series, once VMA_SPECIAL_FLAGS is removed.)
+> There's always edge cases like this.
+> > In each of these conditionals that this helper replaces, that's exactly what's
+> being checked for.
 > 
-> * hugetlb VMAs unconditionally set vma->vm_ops, so they are never
->   anonymous.
+> A driver could GUP anything and access the page raw and do things like that
+> too...
 > 
-> * hugetlb VMAs do not set VMA_PFNMAP_BIT so checking for this is redundant.
+> Without this we lose all that and are back to arbitrary flag checks again. It
+> seems unwise.
 > 
-> While we're here also drop a VM_BUG_ON() which the simplified check above
-> makes unreachable, and use the new VMA flag API.
+>>
+>>
+>> Likely we don't have to squeeze everything into a single helper that is hard to
+>> describe.
 > 
-> No functional change intended.
+> I'm not trying to do that :)
 > 
-> Acked-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> ---
+> There are plenty of edge cases I left alone.
+> 
+> This one explicitly is one that can end up very easily broken in the future.
+> 
+> Already there's been issues as I recall with people forgetting about droppable.
+> 
+>>
+>> Maybe we can pull parts of it into a separate helper with semantics that are
+>> easier to describe?
+> 
+> But then you lose the whole purpose of this, which is to not miss things.
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+I think it's perfectly fine to instead have helper like
+
+	vma_is_dumpable()
+
+that maybe have a single purpose but are centralized and well documented. If we
+can construct them out of other helpers, great.
+
+> 
+>>
+>>
+>> vma_is_user_memory() && !vma_is_droppable_memory()
+> 
+> I find vma_is_user_memory() _very_ confusing :) I have no idea what that means.
+
+If we can find some way to describe "anon+pagecache" ... maybe something around
+folios (future oriented).
+
+> 
+> And vma_is_droppable_memory() is a semi-pointless wrapper for checking the
+> droppable flag no?
+
+Sure, no strong opinion on that. It's a bit easier on the eye than bit checks.
+(and can have a nicer description maybe).
+
+
+> 
+>>
+>> Although I am not sure user_memory is exactly precise (pagecache+anon) and what
+>> we want? It's all super confusing (thanks for deciphering it).
+> 
+> That name isn't great, as userland memory is defined as that which can be mapped
+> in the userland portion of the virtual memory address map, and all VMAs describe
+> that :)
+> 
+> And then you can go on from there as to pedantic issues, the very same shmem
+> stuff you mention above can be put forward as an argument, etc. etc.
+>>
+>>
+>>> vma_contents_may_change() is shorter but easily confused with something being
+>>> writable by userland etc.
+>>>
+>>> Or maybe:
+>>>
+>>> 	vma_is_volatile()
+>>>
+>>> ?
+>>>
+>>> Which is analogous to the meaning of the volatile keyword.
+>> This is all confusing because persistent and volatile are established concept
+>> when talking about memory. And see my example above, it's not even clear what it
+>> means that "the kernel can modify something".
+> 
+> Yep I guess volatile vs. non-volatile.
+> 
+> But a VMA describes a mapping not backing and 'volatile' in C is pretty clear -
+> something can be touched by something else so don't make assumptions.
+> 
+> I mean if people are confused they can look at the comment. We argue about
+> details meanwhile the code is full of terrible naming that's duplicated 100
+> times :)
+> 
+> And you can come up with edge cases to a lot of things. That doesn't invalidate
+> the intent.
+> 
+> Right now the code is duplicative and I found multiple instances of e.g. drivers
+> doing completely the wrong thing.
+> 
+> In any case, you seem to feel very strongly about this - so maybe best I drop
+> this patch from the series to be revisited later?
+
+I'd be very happy if we could find a clear way to describe "this is what we call
+user memory: anon+pagecache", if that could come handy in such a context.
+
+In the end, it's mostly all about: this is nothing special (lol), it's just
+ordinary user memory (anon+pagecache), and in some cases we want to also ignore
+weird droppable mappings, because why e.g., dump them if the context is just
+irrelevant.
 
 -- 
 Cheers,
