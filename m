@@ -4,56 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E494CA5FDD
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 17:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F4ECA5FC4
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 17:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bgQpXwu/RrPcZqnF063TRC7I+8lI3S1UzjPT7JQF5Wg=; b=p1h4ChMwS38d87rPynr2c+RZ8t
-	FtXDj1FEF3n6/VEvrRcEV/Ov8r2MQksUtrbLGG3TvMiCmjfLTCmKA83b/I8F2Hf3GmhH3CJ77PTEV
-	qgC/4G6O0RYzw+EFckDqKtDvg8m7t3PO7K+jl9rimsp8Fz618dzW9mZGlVlTZkf5llXjoTv+DaKp5
-	VxDdlcBYo4cEMzTHPXl6dZg+TV7lC+S2v7XOAYJtxSSo8qdj6K0qHJMqB9ADqatXeQtP+15HPRWaI
-	JPPejyfKGYUp0kfks/F6zGyEJF46cZ/Ibl87LBZknevNK/iIyr7pW6O5XzIk50lxNeko2wDLGxhLk
-	EZLWh3ZQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/kjf9BOILBnxrbC1e/KGfHKh/AV93edME9T/3FoUMxI=; b=AUjUhkcbOl/OO+
+	rSukIcnL6aB77Morrt57RdgPeNXDs5dl0Rj2G45m5IJ+RjgBaYMWLCofG6pHUlyxQjUwnkEq4uSYO
+	0haU2bVpvYotPCrb236WzTug2YktaF0Edvd1hlNjuIIFTvSiw+F/lsIsGO8LrEfKcZkKpJ3maQH27
+	2xOdOlMQJ+2jwBSkxAFTyKJMYZMfPtPAVsGqsXTDj/0goTancR4x2KBcMlDJWiu9Qs0nK3Tx7HIAG
+	u1fNE73+pli8LEbaWKiKA1AxMeL6l7BSenlWRQzfxDChliytE/RsMlzGcm4frEyjIAEhs+r449nHp
+	V8OOz3Ir/jRND2+p7xwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xChN4-0000000CDoe-35Me;
-	Fri, 02 Oct 2026 17:48:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xChW7-0000000CEEu-2OAs;
+	Fri, 02 Oct 2026 17:57:55 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xChN2-0000000CDoX-426o
+	id 1xChW4-0000000CEDx-2JRE
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Oct 2026 17:48:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0797660A52;
-	Fri,  2 Oct 2026 17:48:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AE511F000FF;
-	Fri,  2 Oct 2026 17:48:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790963311;
-	bh=ykPG4LTazY7mEGUpCqq30LX7Z/QJVbAjnGxXM3vIyyU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=J7tgbc9gdAobHCnQwaLwlrM+iOu4owVdRLFlB7mQn/Lkg8d0FAo0jhN2r3gvia8Yr
-	 eRfrceZztwtDFCOrV7us2JN3oKx9mO4x3/rODjyLaPiTEGooUEHKONN/brg3bJzQZe
-	 3j7RLIn9ppKNzux/JSkJX9w8Imu1yZhGTWR66IKkPTN6F0Ke/NexI1w+Y8wkK5Dohm
-	 1GVetnxB7iOSMBiKvPuvvU7wyHvrw3FXSBSrb63OkVjF3Nlg9a0NJyRoP/wD26zg1F
-	 AkxhfM20LAG0RvS1OWYpm7D6YaSj3CWfklrU/mvj7kvgobuWDcTobUmD2q81KFs8zg
-	 eZwScsgPdgp0A==
-Date: Fri, 2 Oct 2026 18:48:28 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: conor.dooley@microchip.com, daire.mcnamara@microchip.com,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] soc: microchip: mpfs: Fix flash leak in
- mpfs_sys_controller_probe()
-Message-ID: <20261002-garnish-president-6e8abfdacf4c@spud>
-References: <20260917153550.2160672-1-vulab@iscas.ac.cn>
+	Fri, 02 Oct 2026 17:57:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790963871;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YRmfniRYY3gDZtpbulPtdSLopqAgCcIdSXqyEPuAkSA=;
+	b=ZVLWSCyOMZYM4xQeejfTvNkawDgetUWv9+MDLvrEqW9jDdyR3MXd/T+7Qf6y0a8rTy6YG+
+	wIa3aS+ZQuqXUDvP4G2TNiY3QRE1FuYPmBfzTjCZ3+dWVaY6pGodwq4XZYwgGbfLmKuFKi
+	1IlcN/btCkNpJHt9CWAIof8+1Crdy+c=
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com
+ [209.85.160.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-94-622HDaWpP66OBfJBs54P8Q-1; Fri, 02 Oct 2026 13:57:49 -0400
+X-MC-Unique: 622HDaWpP66OBfJBs54P8Q-1
+X-Mimecast-MFC-AGG-ID: 622HDaWpP66OBfJBs54P8Q_1790963869
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-5338c59f90dso4742691cf.1
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Oct 2026 10:57:49 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790963869; x=1791568669;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YRmfniRYY3gDZtpbulPtdSLopqAgCcIdSXqyEPuAkSA=;
+        b=xd6UXFfpef5MMSzM/c6wBfXARuetfIBU4dTuFXQFZM//T1vJmdpMuaeXgJumq3EhCk
+         Q2CjZRxV7NVK62tb+mn5Q7vUM8t1eLMvPrJXd1juQ6n3+rD5QIVjHyGGFlgFF2G6a8p3
+         6iBbqO/F4AiUN1Zg0hTZDmBBZzVjPFR4uPUoukiryOtaNxzP5kYYDkDILl4mhx5yE1XW
+         t532lz3bcEHIZ3RJh9y2FcnZLoUCyzkhhR7rYyEGbVzMB494ih3lrMuz1L+jsdLJgags
+         5fbchKj91Q7pwLhqUiqd8DStfDXTfuS9fRcwCR8INXEUrODpGCBh5cKKgtrYjG58hLCe
+         7fRg==
+X-Forwarded-Encrypted: i=1; AKwUvBzClWKk0GRNbw/gZHRIpcHr7BPQpCpfVzy5muvcRw0VWxJj/H6ypjFBWqkqLUjROOAlkr+bSaLRWIEF2w==@lists.infradead.org
+X-Gm-Message-State: AFuF++kM71S6HwJbSDGYAQ17gERg3syMk8JdSZv9wi1W21WJ23vTT3wj
+	P/vp+AsK6URasjse0VsongnN0PzsB6fQjq8hDwdF0hSk4XzHlOmHGr5yGd1h6mQdkqowRRTMGpS
+	QaR9DnHxpcSUI+ZP+1u14ACnJXSPVlRbJylgbLnmqoe76+Vl328MYnQbJA0N5Sp982q+jZg==
+X-Gm-Gg: AYBFou1TI0fbjqE886uj4dnSJBAQvxSCoo/2MAjxwkrDdYFi+a6KR7fJw/0LpbGc9//
+	jdulNA36ylFRSUEsV+a+3pcmjguk5Qsef0jqlMh1A5GMJkQUl3JvLKN+P/Lfhqt7x+FHBPJJFHQ
+	qUyBbxGkjI765QHPDS0M3oEnHxrA/7W4C4bw975lpJPKCbz1XBJA5zaUHHBpJ777kuifUFOvd66
+	Tf/gu8/NBpj0LFReZeKliGnjrDE/ERoN1Z7VEVOdqGijkKSilxvwS8pm7e0+PTQ8VWvBoeQYsRB
+	DeAiGLOl8yVv/jjh/Y2mm5FRhwyO7AiWCcrulyvef/nCRI+Y1wPcaL0pw2XNU0dYhaYD+kHj9A=
+	=
+X-Received: by 2002:ac8:5750:0:b0:532:8063:4ccc with SMTP id d75a77b69052e-533831271a9mr130026061cf.3.1790963869177;
+        Fri, 02 Oct 2026 10:57:49 -0700 (PDT)
+X-Received: by 2002:ac8:5750:0:b0:532:8063:4ccc with SMTP id d75a77b69052e-533831271a9mr130025521cf.3.1790963868585;
+        Fri, 02 Oct 2026 10:57:48 -0700 (PDT)
+Received: from redhat.com ([2600:382:7723:4eba:66b1:961f:1a2d:af55])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-53398bdd010sm33168861cf.19.2026.10.02.10.57.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 Oct 2026 10:57:47 -0700 (PDT)
+Date: Fri, 2 Oct 2026 13:57:45 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Junhui Liu <junhui.liu@pigmoral.tech>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Yixun Lan <dlan@kernel.org>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] riscv: dts: anlogic: drop unused DR1V90 external
+ clocks
+Message-ID: <ar_wmUWEXgIzq1XM@redhat.com>
+References: <20261003-dr1v90-cru-dt-fix-v2-0-6e7d96612ac0@pigmoral.tech>
+ <20261003-dr1v90-cru-dt-fix-v2-2-6e7d96612ac0@pigmoral.tech>
+ <20261002-crimson-unwrapped-b067e86de38c@spud>
 MIME-Version: 1.0
-In-Reply-To: <20260917153550.2160672-1-vulab@iscas.ac.cn>
+In-Reply-To: <20261002-crimson-unwrapped-b067e86de38c@spud>
+User-Agent: Mutt/2.4.2 (2026-08-30)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: uyY565KsGb_9jHIiXabVBaZGa0gQggrhz34_4Fi0fNQ_1790963869
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261002_105752_726891_F95272B3 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,121 +117,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7655146170207532922=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7655146170207532922==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="AeA2r8DeWrkmCnTz"
-Content-Disposition: inline
+On Fri, Oct 02, 2026 at 05:33:24PM +0100, Conor Dooley wrote:
+> On Sat, Oct 03, 2026 at 12:28:40AM +0800, Junhui Liu wrote:
+> > The external CAN and watchdog clock inputs are not routed on the MLKPAI
+> > FS01, the only board currently supported. Drop the two fixed-clock
+> > placeholders from the common dtsi, as fixed clocks require a valid
+> > clock-frequency property.
+> > 
+> > Both clock muxes select their internal parent clocks after reset, so
+> > the CRU operates correctly without the external inputs. Keep only the
+> > required oscillator input to the CRU.
+> > 
+> > A board using these external clocks should define them in its own
+> > board-level dts and override the clocks and clock-names properties of
+> > the CRU node.
+> > 
+> > Reported-by: Yixun Lan <dlan@kernel.org>
+> > Fixes: 7849521aaac2 ("riscv: dts: anlogic: add clocks and CRU for DR1V90")
+> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> > Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+> 
+> Per the v1, Brian said he would rebase the clock tree, so I'll just
+> squash this into the original patch I think.
 
---AeA2r8DeWrkmCnTz
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+It's already rebased, and dropped from the clk-next history.
 
-On Thu, Sep 17, 2026 at 03:35:50PM +0000, Wentao Liang wrote:
-> of_get_mtd_device_by_node() returns an MTD device reference that the
-> caller has to drop with put_mtd_device().  The probe error paths return
-> without releasing it, and the reference stored in sys_controller->flash
-> is never dropped when the controller is destroyed either.
->=20
-> Release the flash on the probe error paths and in
-> mpfs_sys_controller_delete(), so the reference is always put.
+Brian
 
-Is this diff sufficient?
-If probe passes, shouldn't the driver also call this during removal?
-
-Removal here just decrements the refcount, so the delete function is
-where the call would have to go. Another patch for this driver pointed
-out that the teardown code should actually call mpfs_sys_controller_put()
-https://patchwork.kernel.org/project/lei-conor/patch/20260924110054.1553880=
--1-lgs201920130244@gmail.com/
-so the right thing to do here is probably a mix of what you've got here
-and what was done in that patch?
-
-I note that the other user of this function, u-boot-env.c, doesn't call
-this either.
-
-Cheers,
-Conor.
-
->=20
-> Fixes: 742aa6c563d2 ("soc: microchip: mpfs: enable access to the system c=
-ontroller's flash")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
-> ---
->  drivers/soc/microchip/mpfs-sys-controller.c | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/mi=
-crochip/mpfs-sys-controller.c
-> index 92d1142a59e6..ad57b09e5807 100644
-> --- a/drivers/soc/microchip/mpfs-sys-controller.c
-> +++ b/drivers/soc/microchip/mpfs-sys-controller.c
-> @@ -98,6 +98,8 @@ static void mpfs_sys_controller_delete(struct kref *kre=
-f)
->  	struct mpfs_sys_controller *sys_controller =3D
->  		container_of(kref, struct mpfs_sys_controller, consumers);
-> =20
-> +	if (sys_controller->flash)
-> +		put_mtd_device(sys_controller->flash);
->  	mbox_free_channel(sys_controller->chan);
->  	kfree(sys_controller);
->  }
-> @@ -159,7 +161,8 @@ static int mpfs_sys_controller_probe(struct platform_=
-device *pdev)
->  	of_data =3D (struct mpfs_syscon_config *) device_get_match_data(dev);
->  	if (!of_data) {
->  		dev_err(dev, "Error getting match data\n");
-> -		return -EINVAL;
-> +		ret =3D -EINVAL;
-> +		goto out_free;
->  	}
-> =20
->  	for (i =3D 0; i < of_data->nb_subdevs; i++) {
-> @@ -174,6 +177,10 @@ static int mpfs_sys_controller_probe(struct platform=
-_device *pdev)
->  	return 0;
-> =20
->  out_free:
-> +	if (!IS_ERR_OR_NULL(sys_controller->flash))
-> +		put_mtd_device(sys_controller->flash);
-> +	if (!IS_ERR_OR_NULL(sys_controller->chan))
-> +		mbox_free_channel(sys_controller->chan);
->  	kfree(sys_controller);
->  	return ret;
->  }
-> --=20
-> 2.34.1
->=20
-
---AeA2r8DeWrkmCnTz
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCar/ubAAKCRB4tDGHoIJi
-0q9gAPwOqw6b+rPa2O3uY3QDQsysyaypgaQIPm3etHg877e13QEAyW0l4YP6uI2r
-ExrwZKUFMctUPZcDqWEQsuHc3TJFQQk=
-=7bV1
------END PGP SIGNATURE-----
-
---AeA2r8DeWrkmCnTz--
-
-
---===============7655146170207532922==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7655146170207532922==--
-
