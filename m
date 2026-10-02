@@ -4,114 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E96CA5FE6
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 21:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1068CA5FE6
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 23:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D36zcTSnsLzPPj1p7O8tgG1G/qRudZgog8anA8zB9JM=; b=amqCGtKrqmXQgM
-	wQIysWQI30flKSpnrkfCHiMwhxsS2GkOOSp5shqcCrakFDJyoGoYZ76fGlQKEQs390igeXxfnXyht
-	w3a04WRnPSrwARIUz3K+FxZW0IQVxojsvxvY53bZJEoQ3M0EDnMNiZLJsgq+X+Jt6EywRd5fKcjdL
-	7ZG+fmfdq3QLQ46pJPLVN0aT6aF40QzU0OwhY9UEW1WidRjz4aUQliAQ08flkXBb8ZyY25mL6nJ+Y
-	MNG+DAO3LlpD/qQr77w6vO7zpenh+5mEjSuAoTmjM+2J1R0vLIwV+we2db0SrpXzBRN9ZagvQgkA/
-	ubfv04plKgaELWIlgpug==;
+	List-Owner; bh=114mGa9cW6EVn5oMB3x2c855JcDwETRne4QQ9rSiBGQ=; b=aQFCRTvihwosvc
+	nWN2bydme7LKt8PCcrP4GocjS+F+CvD6v479+vpu34bOBLCjvN/mxPnDCvuz2GM+kP1it5q55R+0+
+	J/kIcUJFmmppR2dDBJ4w/edX6lINprNPGzVj+txHN2hxeSnf4oVBxfucrZpg02cVSMHz9lllcl0qb
+	LwO1e+yHSVNjE5SANu60gX+MFh2b0hpWTYbPtpZquKqx7oIb+bqU6jF9xQiM0MClJjHWqhorcQMBp
+	kiV+OBrVwokG6kgAYMMFlslhJ52hznTMJhNEIJRNJj1rH5gb6vhz2Dp+xjL1qH/pyBN02T0rN7Wwk
+	5G/b0ezKx/CnZuMKYNkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCl6b-0000000CYW1-1s7C;
-	Fri, 02 Oct 2026 21:47:49 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1xCmjZ-0000000Ch9a-41rd;
+	Fri, 02 Oct 2026 23:32:09 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCl6Y-0000000CYVW-1nVo
-	for linux-riscv@lists.infradead.org;
-	Fri, 02 Oct 2026 21:47:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790977664;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=G9GZFvY+OivcXtxJyc9Ua27iVVl5yXvMnk0Q8270BFo=;
-	b=Wt2GedY0mNvaegwdUOefcjVptXLbWQ7C8t/y8yWlAUWeT60olCQYibcQsceSgTn2gCOMoB
-	LPzyPRLOKUWg9cLJMHhhnovdWnGZcCxgVlMni7Bhg1w1iKUh3lGjTJUuOk5YzXEdfCvGU1
-	/lQKTpxXLbeUvaj6ZzXR/nCbK6DFnRQ=
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
- [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-186-CNzDSAL-N7WpGT5DONrUDA-1; Fri, 02 Oct 2026 17:47:43 -0400
-X-MC-Unique: CNzDSAL-N7WpGT5DONrUDA-1
-X-Mimecast-MFC-AGG-ID: CNzDSAL-N7WpGT5DONrUDA_1790977663
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93cc5f70c8dso2073585a.3
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Oct 2026 14:47:43 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790977663; x=1791582463;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=G9GZFvY+OivcXtxJyc9Ua27iVVl5yXvMnk0Q8270BFo=;
-        b=qkBgVA4MwXxFLktlKUsXcY2UGa1vPwT2g0JOcS3CasX0SytFB8Q4/hFwcjyJO9wXWp
-         HDglDbZ3NUuGOFLyHPQ50e2tgp/eWm5YCcnP235EeIvEH7EeDXpj4IusHZvHmTdkn9Dq
-         Sllcu6EiElAf8ekY3tk7FlO1uwI6/ctA+r504FNmLiLosXMSV6ntwwdQ0UPhkGsnelYw
-         FZsFHw9hZukCbWpdxxoe6pyIa+j1RE1UKBO8UWFwqWeItbyMW8y5g7iBNxrm+m0hiIB9
-         RoFobAgMEdI88snEfIj36b+X8yguvWmJDRSC173wKbz3KXleR4jIUXnTeFZiSz4bkvBP
-         2dfQ==
-X-Forwarded-Encrypted: i=1; AKwUvByAx6lPQ1J1SMBO17RTZrd0a/q9bSUTKzEHTtRj7MQ8qSClJ2pIf/QW3kkfA+ii5VMmv4HJWvB/roq1ug==@lists.infradead.org
-X-Gm-Message-State: AFuF++n43KqcFYWLU79sBXR2j6W65UX4dSXJoPt3ka+Eh5BCWH6hL7SY
-	NUa6fWMPreeO4tLpTp8rDCYRwdmh8B/2zEumjKvkHhilmdu37NVq90LUtm4Xcg78KWpA5wkVLBD
-	Ia3i/RHdCbBMm5nIRAT3i53abdKPORPh1ha4rb+ivZkIhpofynJJQF2ProwehVo69Cw3wng==
-X-Gm-Gg: AYBFou3KnAHH827DwVoicdiFNJAhq3cu/l4GvbDLlt+JNF1DjgAjDit3SST6zXhtgEf
-	byRf7p/PXTyS3SbJESn6UPnEC2XUb/duBzpaMGBpbJOE9JCxOISr6iX+tYog1vxOwjYNlzIMc4Z
-	zlyqd7OM9/ZudSAu1uVTxjiwUCF4MJG7Dx3W0NzrPFLVKObnBJbmc6WF3N5sQ4QYflvFZSxQqbr
-	uXqpW9dsVaE24eh3NHWdNFEjLbFtrj6eLUQNrwX3CMC46l8agNOLUDP/QI1X3gC6q5ygYTrQQyp
-	MU3g0KVwlsB5J/mVIXKqB84LAU2HGWwx40oG/Lxy9NMoYAENVDvSYqMFVXndu1U6XjUo/ikmAVc
-	WanmUYQ==
-X-Received: by 2002:a05:620a:700c:b0:939:fd0e:9fd7 with SMTP id af79cd13be357-93e510819ccmr112759785a.43.1790977662676;
-        Fri, 02 Oct 2026 14:47:42 -0700 (PDT)
-X-Received: by 2002:a05:620a:700c:b0:939:fd0e:9fd7 with SMTP id af79cd13be357-93e510819ccmr112754785a.43.1790977661924;
-        Fri, 02 Oct 2026 14:47:41 -0700 (PDT)
-Received: from redhat.com ([69.43.42.202])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93e4e96acebsm97276885a.21.2026.10.02.14.47.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 14:47:40 -0700 (PDT)
-Date: Fri, 2 Oct 2026 17:47:38 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Changhuang Liang <changhuang.liang@starfivetech.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	id 1xCmjY-0000000Ch8x-0YzD;
+	Fri, 02 Oct 2026 23:32:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hhgFqUPK+i2ep6HOiMdLPWdHidf5MCZ3c5aqQ6DdKc9+fQtmzhp+8999hfMCOrFAfO+jv+3IwDNPQBMQXxlJustRc4PAewGeHqu1F0rR9rJLFJAfpPyyEqMGlO+LvMvkZyYeyqtfCGLTiBL6c8DjLSX0W9AYzcn8HgHir03326emIVzkdMQHZfjX9wvQKWkPpquSIiz1vGN7A6yqb7uTCgWiFsDrnPRP8HYS9WLOwCndOEQEkbfMCDVhASNHTTfkeQjf++p3m/bkNVBia90OdycZWU+wPuEj8zvXy4Ve2nFY106BgbXhnW5IPHR7+pSr8a1Ar2IFkd1iNayf0BwYMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4wyNxMLNGhlEsio0XGhr6I7R5duSJRbIEQiNOHeb5tg=;
+ b=HmQW/NAcSUYfMOPzgAfC9kPujhs7Y5wX1dXNX6v36YOgY8RGiArp4hqWEYna13XS2pPe5EYCB2ze+yjM8bqRJBO+OA+hhYiuUpvCdxpcYwtuVbFvK89zW27ytkIcMO5sWyu7+tBuZV4jteq9PXx2t7dNQ5AOoBeEEuO4CUO1XoCauO2ZS5WjJSMNssq5CqDwfmdpYJA+8DUUUCHUL31QIE5KtNFcVvQBeEBUGpQiRFrJEr/VyO8dcaiTQSpCOxwcZHIgfCAw4Xu6GydFUZ3gMawyAnNITCak8szzayW3IqS1K4J4gxDmNS80uUCnGks0a/37MGHxk8zrD/s8B6UaMw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4wyNxMLNGhlEsio0XGhr6I7R5duSJRbIEQiNOHeb5tg=;
+ b=EvFFd4GzgRMYJ5uRfHV+Z0A6gS8CVX+hbntxDtkVTCTaoajMVqf3/wFER1H11UPTXB2TeqBkwTPmMgaLplGEKzWpxZCvdWa4SyhlMYE1I9BbqTrIG4MYyzhI5ZcvsWRC0ysc1kN9ZgxTopqosHpEG47JD/6FUG6HPQKn/1DLcZ7ln1+JgSvTtxFAIqzG/g9Ro/Jcavu4GcMLWkBbL/qKRnqppTR6jBbcA+yR6Pk5XQqSQWZtTgETzLdmbjG15UW6qnJDgUTsFN8jQeLGbc4ICsWVJgkfRCKx605e53OH7UX/nn08eGZqO5t6cIXRjKqUlZlrUPTYcGsbfjGEtQYZ9g==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LY0PR12MB325698.namprd12.prod.outlook.com
+ (2603:10b6:408:3bb::14) by PH7PR12MB5830.namprd12.prod.outlook.com
+ (2603:10b6:510:1d5::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Fri, 2 Oct
+ 2026 23:31:54 +0000
+Received: from LY0PR12MB325698.namprd12.prod.outlook.com
+ ([fe80::b65f:1548:5b35:e2b5]) by LY0PR12MB325698.namprd12.prod.outlook.com
+ ([fe80::b65f:1548:5b35:e2b5%5]) with mapi id 15.21.0472.016; Fri, 2 Oct 2026
+ 23:31:54 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	David Sterba <dsterba@suse.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-efi@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Emil Renner Berthing <kernel@esmil.dk>, Kees Cook <kees@kernel.org>,
-	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-hardening@vger.kernel.org, netdev@vger.kernel.org,
-	Hal Feng <hal.feng@starfivetech.com>
-Subject: Re: [PATCH v5 00/23] Add basic clocks and resets for JHB100 SoC
-Message-ID: <asAmejPowNLKnmto@redhat.com>
-References: <20260930124317.5648-1-changhuang.liang@starfivetech.com>
- <20260930-grafting-undertake-ff3e01060284@spud>
- <ar_4NBLHrq2W7_vc@redhat.com>
- <20261002-amigo-joyfully-6894bdfa17e3@spud>
- <20261002-doorbell-recycler-f386e3b8d5a4@spud>
+	Paul Walmsley <pjw@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Simon Glass <sjg@chromium.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Nick Terrell <terrelln@fb.com>,
+	Will Deacon <will@kernel.org>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+	linux-integrity@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	patches@lists.linux.dev,
+	=?utf-8?q?Piotr_Kr=C3=B3l?= <piotr.krol@3mdeb.com>,
+	Ross Philipson <ross.philipson@gmail.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Song Shuai <songshuaishuai@tinylab.org>
+Subject: [PATCH v2 06/15] efi/zboot: Lift efi_cache_sync_image() from efi_zboot_decompress()
+Date: Fri,  2 Oct 2026 20:31:43 -0300
+Message-ID: <6-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+In-Reply-To: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+References: 
+X-ClientProxiedBy: PH7PR10CA0019.namprd10.prod.outlook.com
+ (2603:10b6:510:23d::27) To LY0PR12MB325698.namprd12.prod.outlook.com
+ (2603:10b6:408:3bb::14)
 MIME-Version: 1.0
-In-Reply-To: <20261002-doorbell-recycler-f386e3b8d5a4@spud>
-User-Agent: Mutt/2.4.2 (2026-08-30)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 0wo3PONdmbMGPy-7RUKrLkzK8w9JtKZ2DZl_AEl1PcM_1790977663
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LY0PR12MB325698:EE_|PH7PR12MB5830:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3cb9eca9-a8ef-42e6-7b3b-08df20dd57de
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|23010399003|376014|10067099003|11063799006|921020|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: g88JC/egnz33uWKhAqqoHu7bNjW7tq1xwq2ba9gjL5xdXTKqGcxkL0+ueDJXw7Py/RW0Z5p7Fw0HnPExnrAuI1XZpkA3aSKcYwaKZMEieYBDO2mo5DCyQMpUwozmxDg+1xq46kVwDO7UkTwDPX6zbQtb7Qwuasmf0ZTBnuoxWTtyNMHayNpD3+A3iUC9od/S5AzVEx/wZgXV9WYpVW+9x1p+bQo3JKWxNHoiL6RTIMdFDvgJxeYqHdDjZMAdwgWUBQyC5wqz6jmWDb/UBA97dL1hphctayCeBIL/6PQsLgCLD0UbO5AYrW5iTYnLRTdcHGtmY6BI6bzPOVRdl4VNL/L19sZrdanBC5SfcRS9G7njeBcnSSnAalkc/3ob+LVjFGEBA6Y5Vt/HMcAd7GKG6Av34zcsL1eu1sKr+bI1kHXqigGsrSsBYcacUkzoXbOSeeDxVryywCRepkXJT9K3DlBz2L8F2084KHDCWcDGHgcRiLetEbXLv+gTupGBUtd6pDpKcqPq+fYRsXqv9/vHfZnlbluVPVG33XrtvOqMS6kPIy3sZmbWFDG7ZBKyTfuFiL2oS6AKno89TOOL6Or0Pa9fQgHZQeo4wTqATRfzEQ64UlXDaiYdhT5Qx2GN7nrm2oSXsEscbANO4GLUzxeuAMsC+A7BSAQuWaQWmLp8UZdZPpXvRquewKSML2f3egL7HLat1o8qQrFTxhyeK7C0rg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LY0PR12MB325698.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(23010399003)(376014)(10067099003)(11063799006)(921020)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/3IZHjZ0k4zPvMrwWtL/nMx6mVbjFyV5uA1nLDF3kg3XDhe23j854bcUz+Ma?=
+ =?us-ascii?Q?J6wY94V1Qg7JjZqe9w8Tw8sKeqevhrXky2u1FMsrqtkzaS3iekrYgKu7Xk8A?=
+ =?us-ascii?Q?xEm+gxB+Uslofn/o+vMwUokuwiSAIVmPPS3nCt5xJx4chAGZdARWbdmscBNf?=
+ =?us-ascii?Q?9Gz77oD4bVp69aR23J8yG4gvOExSUNtGSyNr2mrDuxpnceb3eRPYZyrvsFM+?=
+ =?us-ascii?Q?jpelYMhCL4XSGh3qNkACHzRdEL+j9fEuutqsc/CB99sDdhytcHN2P7wOjdLJ?=
+ =?us-ascii?Q?4Soym8L5cNFTNTJPpQrhO5QhKy6N8FpbZsRmCrpYtVO2qgS2jzbptvh8A4S9?=
+ =?us-ascii?Q?wgxWbR2BU8r4NChYBhiWyXW976ft0bu7fkcu8OPRVG+4kYRyaAWvniUc2koj?=
+ =?us-ascii?Q?fKM50dv+Rp6ZR+B7lualHXM/T4XZKyQW4T39NI7NicEweK6F/fnq2tDophDC?=
+ =?us-ascii?Q?AQb0RicYZCYVM7efmp3cDzBxrn55cCbeYJO8KbXT2xI4WFmeOaHGa6wvVclN?=
+ =?us-ascii?Q?cCznUUd+AhGg1WcyL0TmSoxd/szSbXhReYSQU7Jb/viskAOMHn0e671NtiXP?=
+ =?us-ascii?Q?6c77eTsVW0zfbb+C5zu7jibl+PByECdF+DF7R8n6tHHAGS7RTOMXAo0tcUEh?=
+ =?us-ascii?Q?hCxVp8oPl7S988yciMlJf/ZqFZRT1pvkxk8+gjhdGlpymknK3QIGiKD9OV8W?=
+ =?us-ascii?Q?6bA9wv4Wmm7WzV/VOW1W9cHbpIc+yTf5xBLrJPn1FK3F+zONZboWzilGDWa5?=
+ =?us-ascii?Q?VfFvdgSxJZsKW2WlisM03+AgBb36a09D209lM1BXHHPeUBKB37w9hwQWyTz+?=
+ =?us-ascii?Q?5MP7YkdqFfh6WLVmQjhoXejzGOC7dn7iNaOeghYHV94N69I2TrI+A6GCaYJM?=
+ =?us-ascii?Q?XVo3woRoE+op2Uqfo6Ux5snq19uebybCaEG+j9JtksWGF/ujUjyc491CADgA?=
+ =?us-ascii?Q?RzRl3o0z0cXBdHXfFEjOWEol8AQHXV8N5RzApwpngZ95BOSFb5+gQHopVTN3?=
+ =?us-ascii?Q?8KtChWrk7Zg8NsGl7KJMhicC2J8JtSxwqoR8BukrA0shhf/e+W0wN6E4lv8a?=
+ =?us-ascii?Q?kt1bg8n6cFCv+LL+IhHFP++8uXQEZ1DEmHj9fswvfxl4cuWUVxd5XOAT9qUo?=
+ =?us-ascii?Q?AiPLqnn34sauIQpWpkGbzVmjUJhOeDnFne/6Aqf5znOJGeA4HsD1di1S5O9h?=
+ =?us-ascii?Q?bfP0mh8/A25QpwJONjr2T7mOuYNaK272VYVCWLSVDBWSupliZxGuTadm8pnU?=
+ =?us-ascii?Q?/lrMtykIMHqeq/wK2quJJh0FfsOJ/+2ISQJNCVzhL7JlyaCZJ+F983HooR5R?=
+ =?us-ascii?Q?M05CpfmtSqmcW+9pjrAsML54chGkORUmZpZcF892uthWd8EVUZBFyiVbbB+Z?=
+ =?us-ascii?Q?vQf5090Gcw5noaMKdgeAOeX/uDKCPKj6xMud1iB3C67L8FEe9IeMA8nWN6r0?=
+ =?us-ascii?Q?1YtOy1X8Lt/WzKvX/8WHh62IywpZfFc7bYD3UHhYeZx8IaAvGpvPD3bpbJzk?=
+ =?us-ascii?Q?JzU0pN3oZ7k9e/jd8uGfm+Oqg6p86pVujql4kq8d3Dbp+TVu8ebg7OBF52lB?=
+ =?us-ascii?Q?uLMRJ3vazeSCzGBybZshaWHwZKcbLCWHiTLZsK7b/XRUYymOEiu5M/l7n29R?=
+ =?us-ascii?Q?xUPng6Z3l2uKhPC9O6e28Eeuto5wqjuorOIJBXsbsmetW1XQRnxluj5Feq7N?=
+ =?us-ascii?Q?eRblww9kol7hMOgtXWqQVGZc/p6XLMZe6B1IJ4V13JkpDHfg?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3cb9eca9-a8ef-42e6-7b3b-08df20dd57de
+X-MS-Exchange-CrossTenant-AuthSource: LY0PR12MB325698.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Oct 2026 23:31:54.5286
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sYY5s94ELf157e/j3Z/pPZsH32S+WfzTwNBZYFzuYrY6gzh8FUJxxQLFZHpqcshe
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5830
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_144746_566565_78E33024 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20261002_163208_190841_D5B1452E 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,61 +161,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+The two decompressors duplicate this call and the next patch needs to
+change the argument. Hoist it up to remove the duplication.
 
-On Fri, Oct 02, 2026 at 09:26:34PM +0100, Conor Dooley wrote:
-> > btw, will you be at LPC or OSSEU?
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+---
+ drivers/firmware/efi/libstub/zboot-decompress-gzip.c | 2 --
+ drivers/firmware/efi/libstub/zboot-decompress-zstd.c | 2 --
+ drivers/firmware/efi/libstub/zboot.c                 | 8 +++++---
+ 3 files changed, 5 insertions(+), 7 deletions(-)
 
-Yes, I'll be at LPC. I'm giving a clk talk the second day, so you can
-find me there if we don't cross paths before then.
-
-> ... As I went about aligning more ducks, I recalled that the syscon/pll
-> series also depends on some of the binding header files in this series.
-> 
-> I've made another tag with an additional binding that you'll need to
-> apply the clock patches in this series:
-> https://lore.kernel.org/all/20260828095608.19955-2-changhuang.liang@starfivetech.com/
-> 
-> This tag will actually appear in linux-next as of the next iteration,
-> because the socinfo driver I will definitely submit as 7.4 material.
-> 
-> Thanks,
-> Conor.
-> 
-> The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
-> 
->   Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
-> 
-> are available in the Git repository at:
-> 
->   https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ clk-starfive-jhb100-plus-soc-header
-> 
-> for you to fetch changes up to c4a545d3e428e9600d670fa8a08098b7bc82d5ec:
-> 
->   dt-bindings: soc: starfive: Add StarFive JHB100 syscon modules (2026-10-02 21:17:31 +0100)
-> 
-> ----------------------------------------------------------------
-> jhb100 clock binding + syscon binding shared tag
-> 
-> This is a second shared tag for the Starfive jhb100 clock bindings, between
-> the riscv soc tree and clock tree.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> 
-> ----------------------------------------------------------------
-> Changhuang Liang (8):
->       dt-bindings: clock: Add StarFive JHB100 System-0 clock and reset generator
->       dt-bindings: clock: Add StarFive JHB100 System-1 clock and reset generator
->       dt-bindings: clock: Add StarFive JHB100 System-2 clock and reset generator
->       dt-bindings: clock: Add StarFive JHB100 Peripheral-0 clock and reset generator
->       dt-bindings: clock: Add StarFive JHB100 Peripheral-1 clock and reset generator
->       dt-bindings: clock: Add StarFive JHB100 Peripheral-2 clock and reset generator
->       dt-bindings: clock: Add StarFive JHB100 Peripheral-3 clock and reset generator
->       dt-bindings: soc: starfive: Add StarFive JHB100 syscon modules
-
-Pulled into clk-next.
-
-Brian
+diff --git a/drivers/firmware/efi/libstub/zboot-decompress-gzip.c b/drivers/firmware/efi/libstub/zboot-decompress-gzip.c
+index e97a7e9d3c980b..79cf8c48b03385 100644
+--- a/drivers/firmware/efi/libstub/zboot-decompress-gzip.c
++++ b/drivers/firmware/efi/libstub/zboot-decompress-gzip.c
+@@ -62,7 +62,5 @@ efi_status_t efi_zboot_decompress(u8 *out, unsigned long outlen)
+ 		return EFI_LOAD_ERROR;
+ 	}
+ 
+-	efi_cache_sync_image((unsigned long)out, outlen);
+-
+ 	return EFI_SUCCESS;
+ }
+diff --git a/drivers/firmware/efi/libstub/zboot-decompress-zstd.c b/drivers/firmware/efi/libstub/zboot-decompress-zstd.c
+index bde9d94dd2e3ac..dd7f11238154e1 100644
+--- a/drivers/firmware/efi/libstub/zboot-decompress-zstd.c
++++ b/drivers/firmware/efi/libstub/zboot-decompress-zstd.c
+@@ -43,7 +43,5 @@ efi_status_t efi_zboot_decompress(u8 *out, unsigned long outlen)
+ 		return EFI_LOAD_ERROR;
+ 	}
+ 
+-	efi_cache_sync_image((unsigned long)out, outlen);
+-
+ 	return EFI_SUCCESS;
+ }
+diff --git a/drivers/firmware/efi/libstub/zboot.c b/drivers/firmware/efi/libstub/zboot.c
+index 4b76f74c56dae0..e3abaa05fc4183 100644
+--- a/drivers/firmware/efi/libstub/zboot.c
++++ b/drivers/firmware/efi/libstub/zboot.c
+@@ -92,9 +92,11 @@ efi_zboot_entry(efi_handle_t handle, efi_system_table_t *systab)
+ 	}
+ 
+ 	// Decompress the payload into the newly allocated buffer
+-	status = efi_zboot_decompress((void *)image_base, alloc_size) ?:
+-	         efi_stub_common(handle, image, image_base, cmdline_ptr);
+-
++	status = efi_zboot_decompress((void *)image_base, alloc_size);
++	if (status == EFI_SUCCESS) {
++		efi_cache_sync_image(image_base, alloc_size);
++		status = efi_stub_common(handle, image, image_base, cmdline_ptr);
++	}
+ 	efi_free(alloc_size, image_base);
+ 	return status;
+ }
+-- 
+2.43.0
 
 
 _______________________________________________
