@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69FBACA5FD9
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 07:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E68E8CA5FD9
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 07:49:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date
+	:From:In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SfttXWvzZYe51DtYJiH4xPQ6XALYvkau/oJBSj58qOw=; b=4fL4JDhA8Df/mc
-	5h7cVxUn0wTw2sVBA8+B5/7+18kKfYAhenNK4BAI9eynUMYTFI7u8SdhH/kjjjenNyPtvGiLLjvdB
-	5lnMKUThTdHX9dCjlyntK0m5wbpJ1iLlUaFmAiuPPdWU4gIaqVHRFODhlr394TeSaZQMnPojhy9Mn
-	jul8s5mShAcZYrXB7+UzH0UJEVr7BCawqLZbYUI/jhbTEQxY2tjYL1FrhZc8OlgG7hDYeFa2nHOea
-	mY2hhe0FWDzOq1PKOe5bm8DGQJir4/WobuuHJ97R05bDOEqUzur92wXSQY+pW3L4YkWHr3019z4fO
-	3x6rxaP53eZqPr5R0sFA==;
+	List-Owner; bh=EfL5IMkYtyeHq54nVliPOZt4FWk5OwATXt8ud0ycF/Q=; b=LDjgVPCYYMCtXN
+	nm8HUnU0N6auIpTGlJa4G8AlwW8/k89EJxsqmdtVbakwXerYYon4h7hfbel/hSI837ACETzNO4uYY
+	q5liIzOnqNxZeI53VSW8TNmIcDPwbIaloVzeKqO1BbrX8dS84N5rxpeTmbPQLCpyQeEG5lU9eK1rm
+	Hq3oAHd6fzD6Xgcyjs4D4iRm7sxQTATGITRrSn5vaRb+VUtxcLCN0ExLSAZnlKKQ0+wb1Ybmti0fb
+	2yTTiHZ7fAEC4804+tlrHIsLbAfALUojaWVaUFjQrubuLYIwUhPUPCB2ba+OdrfwhflfmPcQj8xtB
+	ggudzs0IGQmqCCBNZOCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCY0P-0000000AtuL-1JtQ;
-	Fri, 02 Oct 2026 07:48:33 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1xCY0o-0000000Au3x-1pCl;
+	Fri, 02 Oct 2026 07:48:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCY0M-0000000AttE-3qZF
+	id 1xCY0l-0000000Au1z-2oyh
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Oct 2026 07:48:32 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id C8B7D240101
-	for <linux-riscv@lists.infradead.org>; Fri,  2 Oct 2026 09:48:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net;
-	s=1984.8680eb; t=1790927302;
-	bh=TDtD1RuEvO0usfXj2x7thtiRxuzLJn150R30ry9M7hc=;
-	h=Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:From;
-	b=LkNO0LWfhS3/tZymvtKqSFt3Ttbdc5qZUXCH9BnuTQpxYKANnCe4R1xRX4+WwJy9p
-	 JoeE5JOd8wQyqL6MMHzy4o6IUlMkqVM4Iw3LdSKBD0IJLRNTcwxJhtT97Pzj/RdEvS
-	 +E6TmAQkQsPu7KMRWnNkjWmTuaOEDBJTilM+JxqufApE85NDMe8LhlRuV5y5DZLgrE
-	 6F7eBVg+gq9o6m+y+KPPzeYbvPss83zO4dR0Ms5kcewTaiRbH3AV05F1/PD9BLEQYL
-	 RESPuZWCkTBFw3hIUHLY/hw/55HVyDARYIUmztqgXjKAgPLhfCqQv1P28h8aC6x130
-	 vHSqQHE03j6zA==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4hx19Y3Xh3z6twQ;
-	Fri,  2 Oct 2026 09:48:17 +0200 (CEST)
-Date: Fri, 02 Oct 2026 07:48:21 +0000
-From: Wilken Gottwalt <wilken.gottwalt@posteo.net>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>, Bjorn Andersson
- <andersson@kernel.org>, Baolin Wang <baolin.wang@linux.alibaba.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert
- Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel
- <p.zabel@pengutronix.de>, Andre Przywara <andre.przywara@arm.com>, Bastian
- Germann <bage@debian.org>, <linux-remoteproc@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-sunxi@lists.linux.dev>, <linux-riscv@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 3/3] riscv: dts: allwinner: d1-t113: Add the hardware
- spinlock
-Message-ID: <20261002094816.64349979@posteo.net>
-In-Reply-To: <20261002-matted-tux-5b4059bc305a@wendy>
-References: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
-	<20260927025626.69614-4-tien.nguyenminh@embeddedlinux.blog>
-	<20260927132707.5f484946@posteo.net>
-	<20260930130221.129529-1-tien.nguyenminh@embeddedlinux.blog>
-	<20260930160541.040ccc0e@posteo.net>
-	<20261002-matted-tux-5b4059bc305a@wendy>
+	Fri, 02 Oct 2026 07:48:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A13B4478C
+	for <linux-riscv@lists.infradead.org>; Fri,  2 Oct 2026 07:48:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40F2E1F008A4
+	for <linux-riscv@lists.infradead.org>; Fri,  2 Oct 2026 07:48:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790927335;
+	bh=K/6dk9nrqC/MKrnHwwRY81eqOJFcj++Fe93uSmAxRa8=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=WSkLxcBV8rOs1pRakbDhFdSdzRUyIybCbVyESybWpJEoxHEI3bOnqFnDOf8+zKHr0
+	 rDC+w/uzqqxpyhYxFQYnCdrZr2yR/vUOUQuDkpjWikmYFE9ZkNGlaV4Pav458TKY5e
+	 tZH1RGFqG6HdYOyOuhY5n+i27May7nzMphKSwS0on2OpLZfDtJzJ1oMzfMINn89Yv0
+	 ku9wVJKH8Qg0gty6LeSD2XLGjcXCXRa/J5DbD1hzZpWCjQPH3uIWRMXLspS5ssASVX
+	 gxIiexEs7f/Ya3Fb6vvgcdtB0ULyp9Bun8rJtF6rE5Aee6mCwdSpiwjokwQ8dH+asI
+	 Hxf26SfFBLLcA==
+Received: by mail-lr2-f40.google.com with SMTP id 38308e7fff4ca-3a5da7416f9so63125091fa.2
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Oct 2026 00:48:55 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBy8ZpLy97vkvMtQ+Z+zDpb68JuAob7BPYDFkxX+bakiAM+9uHX6SVt2QvKvFRlXvyUEB4kFkOMhUQrSXg==@lists.infradead.org
+X-Gm-Message-State: AFq9FYLDO/BZZ7MOaMNSZx30pKdCZ3AzrMDdX/doM+C6xfzCNk/W5Z0/
+	AqeYW0SMKI+1/5krGwxXF0P8yEloTy1BjIVS3wgrhd7HetCn0JvUFfOValdVgXcMpZcEDTy+hWu
+	NbjbHhc8X0a9lvI5edlf+lzo7DDc0e8s=
+X-Received: by 2002:a05:651c:a214:10b0:3a6:58fb:8540 with SMTP id
+ 38308e7fff4ca-3a8877acfdbmr2899761fa.19.1790927333136; Fri, 02 Oct 2026
+ 00:48:53 -0700 (PDT)
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_004831_253858_22CB3569 
-X-CRM114-Status: GOOD (  37.23  )
+References: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
+ <20260927025626.69614-4-tien.nguyenminh@embeddedlinux.blog>
+ <20260927132707.5f484946@posteo.net> <20260930130221.129529-1-tien.nguyenminh@embeddedlinux.blog>
+ <20260930160541.040ccc0e@posteo.net> <20261002-matted-tux-5b4059bc305a@wendy>
+In-Reply-To: <20261002-matted-tux-5b4059bc305a@wendy>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Fri, 2 Oct 2026 15:48:40 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67N_c9qQYCkO3qyAJBD_AiS7121w7TdzaEo+oCHejZz4A@mail.gmail.com>
+X-Gm-Features: AclHuK_MycTfrXnUdqDSD2u0CizqQBnqOmkhjG3IcG03pU3h9DtnRs-NxqNzvuk
+Message-ID: <CAGb2v67N_c9qQYCkO3qyAJBD_AiS7121w7TdzaEo+oCHejZz4A@mail.gmail.com>
+Subject: Re: [PATCH 3/3] riscv: dts: allwinner: d1-t113: Add the hardware spinlock
+To: Wilken Gottwalt <wilken.gottwalt@posteo.net>, 
+	Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>
+Cc: Conor Dooley <conor.dooley@microchip.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Andre Przywara <andre.przywara@arm.com>, Bastian Germann <bage@debian.org>, 
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,71 +86,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Reply-To: wens@kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2 Oct 2026 08:32:51 +0100
-Conor Dooley <conor.dooley@microchip.com> wrote:
-
-> On Wed, Sep 30, 2026 at 02:05:47PM +0000, Wilken Gottwalt wrote:
-> > On Wed, 30 Sep 2026 20:02:21 +0700
-> > Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog> wrote:
-> > 
-> > > Hi Wilken,
-> > > 
-> > > > Wouldn't it make more sense to add the "allwinner,sun20i-d1-hwspinlock" line to
-> > > > the driver in the sun6i_hwspinlock_ids struct, drop
-> > > > "allwinner,sun6i-a31-hwspinlock" here in the D1 device tree and update the yaml
-> > > > file accordingly?
-> > > 
-> > > Thanks for looking at it. Bjorn hasn't replied yet, so I looked a bit
-> > > more at the naming. I'd like to keep the A31 fallback: it's the usual
-> > > pattern, other blocks in this dtsi do the same (timer, I2S, LED
-> > > controller), and Conor already acked the binding in 2/3. If Bjorn
-> > > prefers a driver entry instead, I'm fine to change it.
-> > 
-> > Yeah, Conor was a bit quick to act here, such things happen often with patchsets
-> > made out of documentation/devicetrees and code. Though, the get clock and resets
-> > patch is fine. The driver could use some modernization.
-> 
-> I dunno, was I too quick to act? The patched looked correct to me, since
-> it was using a fallback to a device that it appears to be compatible
-> with. Had the series done what you're suggesting, my review feedback
-> would have been to tell the Tien to add a fallback.
-
-I'm just not sure how to actually do it right, because so many SoCs include that
-feature. That is why I asked how you would do it having more insight as a
-subsystem maintainer. It just looks incomplete to me. In the past I actually
-verified it working with H2, H2+ and H3, none of them being
-"allwinner,sun6i-a31-hwspinlock".
-
-> > > Bjorn, what do you think? Just stay with the "allwinner,sun6i-a31-hwspinlock"
-> > > string or add all the possible combinations like
-> > > "allwinner,sun8i-h2-plus-hwspinlock" or "allwinner,sun8i-a83t-hwspinlock".
-> > > I mean, it is just a naming game and there are 10+ SoCs supporting this
-> > > spinlock register file
-> 
-> All devices compatible with the a31 should use the a31 as a fallback.
-> 
-> > 
-> > > > Oh, and I may be able to test it against the D1, I own a Sipeed Nezha.
-> > > 
-> > > That would be great. You don't need FreeRTOS for it: I tested with a
-> > > small Linux module that takes each lock and checks the status
-> > > register. I can clean it up for the single-core D1 and send it.
-> > 
-> > Uhm, the Linux-only test doesn't work as a hwspinlock test, it misses the entire
-> > point of the primitive. A hwspinlock arbitrates between two independent agents,
-> > in this case, Linux running on the C906 core and FreeRTOS running on the HiFi
-> > DSP, both sharing the same memory bus and other hardware. If Linux is the only
-> > one who ever takes the locks, it is simultaneously writer and reader of the status
-> > register, so the test cannot fail even for a broken (or fake) implementation. That
-> > would basically test nothing at all, well, maybe it would be some kind of bring-up
-> > test, but overall quite useless.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBPY3QgMiwgMjAyNiBhdCAzOjM04oCvUE0gQ29ub3IgRG9vbGV5IDxjb25vci5kb29s
+ZXlAbWljcm9jaGlwLmNvbT4gd3JvdGU6Cj4KPiBPbiBXZWQsIFNlcCAzMCwgMjAyNiBhdCAwMjow
+NTo0N1BNICswMDAwLCBXaWxrZW4gR290dHdhbHQgd3JvdGU6Cj4gPiBPbiBXZWQsIDMwIFNlcCAy
+MDI2IDIwOjAyOjIxICswNzAwCj4gPiBOZ3V5ZW4gTWluaCBUaWVuIDx0aWVuLm5ndXllbm1pbmhA
+ZW1iZWRkZWRsaW51eC5ibG9nPiB3cm90ZToKPiA+Cj4gPiA+IEhpIFdpbGtlbiwKPiA+ID4KPiA+
+ID4gPiBXb3VsZG4ndCBpdCBtYWtlIG1vcmUgc2Vuc2UgdG8gYWRkIHRoZSAiYWxsd2lubmVyLHN1
+bjIwaS1kMS1od3NwaW5sb2NrIiBsaW5lIHRvCj4gPiA+ID4gdGhlIGRyaXZlciBpbiB0aGUgc3Vu
+NmlfaHdzcGlubG9ja19pZHMgc3RydWN0LCBkcm9wCj4gPiA+ID4gImFsbHdpbm5lcixzdW42aS1h
+MzEtaHdzcGlubG9jayIgaGVyZSBpbiB0aGUgRDEgZGV2aWNlIHRyZWUgYW5kIHVwZGF0ZSB0aGUg
+eWFtbAo+ID4gPiA+IGZpbGUgYWNjb3JkaW5nbHk/Cj4gPiA+Cj4gPiA+IFRoYW5rcyBmb3IgbG9v
+a2luZyBhdCBpdC4gQmpvcm4gaGFzbid0IHJlcGxpZWQgeWV0LCBzbyBJIGxvb2tlZCBhIGJpdAo+
+ID4gPiBtb3JlIGF0IHRoZSBuYW1pbmcuIEknZCBsaWtlIHRvIGtlZXAgdGhlIEEzMSBmYWxsYmFj
+azogaXQncyB0aGUgdXN1YWwKPiA+ID4gcGF0dGVybiwgb3RoZXIgYmxvY2tzIGluIHRoaXMgZHRz
+aSBkbyB0aGUgc2FtZSAodGltZXIsIEkyUywgTEVECj4gPiA+IGNvbnRyb2xsZXIpLCBhbmQgQ29u
+b3IgYWxyZWFkeSBhY2tlZCB0aGUgYmluZGluZyBpbiAyLzMuIElmIEJqb3JuCj4gPiA+IHByZWZl
+cnMgYSBkcml2ZXIgZW50cnkgaW5zdGVhZCwgSSdtIGZpbmUgdG8gY2hhbmdlIGl0Lgo+ID4KPiA+
+IFllYWgsIENvbm9yIHdhcyBhIGJpdCBxdWljayB0byBhY3QgaGVyZSwgc3VjaCB0aGluZ3MgaGFw
+cGVuIG9mdGVuIHdpdGggcGF0Y2hzZXRzCj4gPiBtYWRlIG91dCBvZiBkb2N1bWVudGF0aW9uL2Rl
+dmljZXRyZWVzIGFuZCBjb2RlLiBUaG91Z2gsIHRoZSBnZXQgY2xvY2sgYW5kIHJlc2V0cwo+ID4g
+cGF0Y2ggaXMgZmluZS4gVGhlIGRyaXZlciBjb3VsZCB1c2Ugc29tZSBtb2Rlcm5pemF0aW9uLgo+
+Cj4gSSBkdW5ubywgd2FzIEkgdG9vIHF1aWNrIHRvIGFjdD8gVGhlIHBhdGNoZWQgbG9va2VkIGNv
+cnJlY3QgdG8gbWUsIHNpbmNlCj4gaXQgd2FzIHVzaW5nIGEgZmFsbGJhY2sgdG8gYSBkZXZpY2Ug
+dGhhdCBpdCBhcHBlYXJzIHRvIGJlIGNvbXBhdGlibGUKPiB3aXRoLiBIYWQgdGhlIHNlcmllcyBk
+b25lIHdoYXQgeW91J3JlIHN1Z2dlc3RpbmcsIG15IHJldmlldyBmZWVkYmFjawo+IHdvdWxkIGhh
+dmUgYmVlbiB0byB0ZWxsIHRoZSBUaWVuIHRvIGFkZCBhIGZhbGxiYWNrLgo+Cj4gPiA+IEJqb3Ju
+LCB3aGF0IGRvIHlvdSB0aGluaz8gSnVzdCBzdGF5IHdpdGggdGhlICJhbGx3aW5uZXIsc3VuNmkt
+YTMxLWh3c3BpbmxvY2siCj4gPiA+IHN0cmluZyBvciBhZGQgYWxsIHRoZSBwb3NzaWJsZSBjb21i
+aW5hdGlvbnMgbGlrZQo+ID4gPiAiYWxsd2lubmVyLHN1bjhpLWgyLXBsdXMtaHdzcGlubG9jayIg
+b3IgImFsbHdpbm5lcixzdW44aS1hODN0LWh3c3BpbmxvY2siLgo+ID4gPiBJIG1lYW4sIGl0IGlz
+IGp1c3QgYSBuYW1pbmcgZ2FtZSBhbmQgdGhlcmUgYXJlIDEwKyBTb0NzIHN1cHBvcnRpbmcgdGhp
+cwo+ID4gPiBzcGlubG9jayByZWdpc3RlciBmaWxlCj4KPiBBbGwgZGV2aWNlcyBjb21wYXRpYmxl
+IHdpdGggdGhlIGEzMSBzaG91bGQgdXNlIHRoZSBhMzEgYXMgYSBmYWxsYmFjay4KCisxLgoKSWYg
+dGhlIGhhcmR3YXJlIGlzIGJhY2t3YXJkIGNvbXBhdGlibGUsIHRoZW4gd2l0aCB0aGUgZmFsbGJh
+Y2sgY29tcGF0aWJsZQpldmVyeXRoaW5nIHdvcmtzLgoKV2UgYXNrIGZvbGtzIHRvIGFsd2F5cyBh
+ZGQgU29DLXNwZWNpZmljIGNvbXBhdGlibGVzIGp1c3QgaW4gY2FzZS4KCgpDaGVuWXUKCj4gPgo+
+ID4gPiA+IE9oLCBhbmQgSSBtYXkgYmUgYWJsZSB0byB0ZXN0IGl0IGFnYWluc3QgdGhlIEQxLCBJ
+IG93biBhIFNpcGVlZCBOZXpoYS4KPiA+ID4KPiA+ID4gVGhhdCB3b3VsZCBiZSBncmVhdC4gWW91
+IGRvbid0IG5lZWQgRnJlZVJUT1MgZm9yIGl0OiBJIHRlc3RlZCB3aXRoIGEKPiA+ID4gc21hbGwg
+TGludXggbW9kdWxlIHRoYXQgdGFrZXMgZWFjaCBsb2NrIGFuZCBjaGVja3MgdGhlIHN0YXR1cwo+
+ID4gPiByZWdpc3Rlci4gSSBjYW4gY2xlYW4gaXQgdXAgZm9yIHRoZSBzaW5nbGUtY29yZSBEMSBh
+bmQgc2VuZCBpdC4KPiA+Cj4gPiBVaG0sIHRoZSBMaW51eC1vbmx5IHRlc3QgZG9lc24ndCB3b3Jr
+IGFzIGEgaHdzcGlubG9jayB0ZXN0LCBpdCBtaXNzZXMgdGhlIGVudGlyZQo+ID4gcG9pbnQgb2Yg
+dGhlIHByaW1pdGl2ZS4gQSBod3NwaW5sb2NrIGFyYml0cmF0ZXMgYmV0d2VlbiB0d28gaW5kZXBl
+bmRlbnQgYWdlbnRzLAo+ID4gaW4gdGhpcyBjYXNlLCBMaW51eCBydW5uaW5nIG9uIHRoZSBDOTA2
+IGNvcmUgYW5kIEZyZWVSVE9TIHJ1bm5pbmcgb24gdGhlIEhpRmkKPiA+IERTUCwgYm90aCBzaGFy
+aW5nIHRoZSBzYW1lIG1lbW9yeSBidXMgYW5kIG90aGVyIGhhcmR3YXJlLiBJZiBMaW51eCBpcyB0
+aGUgb25seQo+ID4gb25lIHdobyBldmVyIHRha2VzIHRoZSBsb2NrcywgaXQgaXMgc2ltdWx0YW5l
+b3VzbHkgd3JpdGVyIGFuZCByZWFkZXIgb2YgdGhlIHN0YXR1cwo+ID4gcmVnaXN0ZXIsIHNvIHRo
+ZSB0ZXN0IGNhbm5vdCBmYWlsIGV2ZW4gZm9yIGEgYnJva2VuIChvciBmYWtlKSBpbXBsZW1lbnRh
+dGlvbi4gVGhhdAo+ID4gd291bGQgYmFzaWNhbGx5IHRlc3Qgbm90aGluZyBhdCBhbGwsIHdlbGws
+IG1heWJlIGl0IHdvdWxkIGJlIHNvbWUga2luZCBvZiBicmluZy11cAo+ID4gdGVzdCwgYnV0IG92
+ZXJhbGwgcXVpdGUgdXNlbGVzcy4KPiA+Cj4gPiBncmVldGluZ3MsCj4gPiBXaWxrZW4KCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
