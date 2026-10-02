@@ -4,149 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05FF5CA5FC4
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 09:52:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF3BCA5FD4
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 10:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DmhwcPZiZNvdF9YoGKex36v0zZAH92ehXWYhMV0uJtI=; b=BY0XRor01ImnMx
-	v4ag4rKiLBOKOn0x4ac7O58brkfuyGiH2nqaOiuUFX10skLhJFzsliYmjg06xxjAURvfS9oRxCN49
-	Cc7PC5FX27Fc3smoqzAslaWqLvASdZsjvk4VWg7dmBHJ0YlTSJLxGVFE1Ynn3d+LHB2GfMqdePHcA
-	D7N7AUUIhTLT35b+tEp4ckZv2FBEkTmXAOgU9JlNZZ8lbjecl4IWBuC+sLMqYWu0vR2fiqnsjNBr9
-	iJ748l8Exz0t4BcqMUmXoDQJgWoM05PIIuKUrC3S4AxXsr1agMFv0t+LcfqQjIBMxCSd4/t4nznLB
-	u3u/hXf0GDbt6m7Ra6zQ==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+NOmQw7AfAX561ESekH78wJ7XANcTrx10xBT6zwecCI=; b=e6NHdOAuQGXasZYY0kn6VYT9Um
+	vQyvy65bNBFOvDz8kYpr83uqYl7U+2GfahxpLFTLoKpjLF89GlTzuR4vIP0+zdqEBxE+qv/G7vDZ3
+	+JA8Q/KSHnX1TuQEegdBMkjRpUlP3KPTX91JdkaPzuaTlJ9+AKXVhBSCW60H0aKRyxus1hh60f+yb
+	qAWmJXsli39vwn6gNq0TqxgHuh5XXjPoYOnlgZ1P6HZ4UdBn/c6YB7BHx4blrLP9b17l0IKZzWgY8
+	HcoQZyaLMNp/cIRb2IqYte7oT1Wd1e3ITjKNjrVE85pZx95K5pwguZViU/XvKaSB/ue5NbkVFteQH
+	b31MgwgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZwS-0000000BDCx-03OS;
-	Fri, 02 Oct 2026 09:52:36 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xCa9P-0000000BFiP-1VJk;
+	Fri, 02 Oct 2026 10:05:59 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZwP-0000000BDBu-3YGS
+	id 1xCa9M-0000000BFhA-2tED
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Oct 2026 09:52:34 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6929nYcI3935002
-	for <linux-riscv@lists.infradead.org>; Fri, 2 Oct 2026 09:52:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	6m2y1KtWVZtI5Dc4dXOHeD8LNqvt0R4u9wS9uoheMY4=; b=TZFAZPXJvSUNssIP
-	kbk4Y3PNfs53YClIJ7NeWTLSU8weFgQIhT0GriEVdsvjpKB5nQqVG2mF18cyI+hj
-	TxMj+coha0MF9X5GnZRp0uy44Oi4HleRM+fPsU1qSAfPz7fksKJD7FFLF1ZVF13b
-	r8OVcf9DdQ3OG6r/TrU7ZtqsuNAjkYFZyizO+z1/l7vRtJ/mSOPNVCPFy7/4amZg
-	rB4V986F0pYY7OEry2uircqTrRflMnOt74soam/7mi5DQLYHbFdDNdAlZk81UyuZ
-	8mti8T1dPGhaMMSipI4VKklJ25Psf88ohK304inRExITdggAOZpJ6WTjwj/MpE1g
-	pjBHZA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h1vxeaksv-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Fri, 02 Oct 2026 09:52:32 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-934963b2bc0so1831630385a.3
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Oct 2026 02:52:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790934751; x=1791539551; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6m2y1KtWVZtI5Dc4dXOHeD8LNqvt0R4u9wS9uoheMY4=;
-        b=LNxvDpF33F2kUTSmuhS/AOmO5sNr1tb04VookCK3cUkK+DAZD9NFiHWZKFYju8M+xq
-         Zx03Ak01qAL7HR/TfvKeXCUvDdq5W4u2rRu6OrwxNUsy4jNmJ1vk6vnaHfQIFt7h/AuE
-         jeiL9AxCTCs1OXJTfkENTTJvJwQZ+DEZAxx4CRArQDMUM9pGeUcSKX3cr/iDna/lflPf
-         LJP9W6Y72t4l5kePGhz1HHTfsWKk4NBwUMk7uD2+44FA/xU65xVktOrIze7lE3VZdsn7
-         MpArKWfziOkFiz2inYL5kb6mU1pfI9KT04Gd/glujOSvJtfNVJAgy7U8ZR7YfOjmX+A8
-         2jhw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790934751; x=1791539551;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6m2y1KtWVZtI5Dc4dXOHeD8LNqvt0R4u9wS9uoheMY4=;
-        b=eE7tIKLAFAtZkQV5oaVsmpI6FkaE3hyE5sHX4Ps32bNvoyUHnjBO/VL8UzrLGlOYkV
-         Ll3Ek11oFVuDrvI5z73URW8ZfCpo6PFVjOiQ3R9VSnSp1RHW9RdkXmSWcN06r4eKHXgV
-         u0q7HhGTOFX8DHPOOPxA/xNhwp1TaliMQ1oWTLhsQvpLb1s1GJdMMchz7BJk300Wezhy
-         WyKVs0UobzLkYrT0Ow4+RJRF7HgBG9GEDP+Yo66J4SxErmob0pHgc89VTmj1/kE4sfEe
-         FBEUGZ4gVUe9GLHpeXQvTm3jICM5b9T0vpKPdKuYVsPuI03RgklTgeYMBjs7qZ6V2Tih
-         vOAA==
-X-Gm-Message-State: AFuF++kOsy2S39F89U3eWbk5usvX8/zl4UgQNuctMTL4ypsAVNrldu2N
-	FXK6ZLrdcPq6D+EBs2B2hI6raqUDyydEHglL+QKCblDU3z6P155znopk0gVgTRM5u1wzB6272cb
-	ZaiFgYYKPAsPzEgB7W0IsJKgVzYG8A29RnPXx9/WiijnmG9A4h1/GENoqm3pxijq8YK7M0WQ=
-X-Gm-Gg: AYBFou0pompPhYgmEkD/Yst+oRZmherE0rDv9h0gUdH9LWU82SciK1IQ9HSa8NcJY8g
-	kxrmF2umluYmtf//c9ncusvsA+yrbStd+S/9UJpjR29HvNtxml3mRSQCgjiDRYD4uk6kbet1PIq
-	Vlue1BNtdFUg14fmjlPFczoyTTJm3JNMFwzTqezERS4i3NYPQSNFSeBqM2SaoXRTEcofZomnhoo
-	j4oegaKBS9Qep5abuwNgp0l0+eSAY2X8XvPWz+PqT0hEBbNU4ZdOOdq2PFOokhQO76EPRYmwEz8
-	62cQV1M5FX2h/9ThH4up1hSGaWJvm6fku++TanUdv5G13Ace5WC7wv/fV7E7NH+S6U0aa31ME3V
-	TOsCAaMuG8/5s14xDbG0bwamZP9bYgqscdBRuPTHWlrrbiQmIC/YT7uRmsXQX/A==
-X-Received: by 2002:a05:620a:a790:20b0:93c:bb75:d8f0 with SMTP id af79cd13be357-93cf170b54cmr237249085a.27.1790934751380;
-        Fri, 02 Oct 2026 02:52:31 -0700 (PDT)
-X-Received: by 2002:a05:620a:a790:20b0:93c:bb75:d8f0 with SMTP id af79cd13be357-93cf170b54cmr237245885a.27.1790934750933;
-        Fri, 02 Oct 2026 02:52:30 -0700 (PDT)
-Received: from ?IPV6:2a05:6e02:1041:c10:f14c:b716:c104:4712? ([2a05:6e02:1041:c10:f14c:b716:c104:4712])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a0280d1e38sm55681315e9.13.2026.10.02.02.52.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 02 Oct 2026 02:52:30 -0700 (PDT)
-Message-ID: <94e3f42c-4ffd-417a-9bee-69c504360af9@oss.qualcomm.com>
-Date: Fri, 2 Oct 2026 11:52:28 +0200
+	Fri, 02 Oct 2026 10:05:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1790935556; x=1822471556;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=98P1EsH1CiDVYz6+zMdaA6M1c9emp98ZounDfs767bM=;
+  b=tu01q9mtT4kYq9PRc1DL+2+4lNxcT0iVhf3Kbw7K8cREIjym88DIMAmk
+   QlI5QfU7+4txthfhYxmGyh56sx6DIzKNL812g13iAMwSqmpZM997xD046
+   vSAbvZ0Q9L54WUSBg84WwbrUC8rvGb9yLPGYlCZjuCevnUcpzZvP/8C++
+   uXUos6deAU7DLD6bsO+SVn7GNHB4INbID31Zi3nom0dKqThAgiz00BGeJ
+   R03Ch776uLUjEGvsW5FN9OO2IslprWi2Qhs0ou2PX3ddqf8ToCUdUCkEe
+   lbNyTM6Xxn/33/95ZOvE/zQPRmSBdyRMiZzRMRIlAEiZj3STYKOivWoF2
+   A==;
+X-CSE-ConnectionGUID: 9KaUDp3dRV2TwHyLsfdFzw==
+X-CSE-MsgGUID: t0C0kCkzRpii0oAsAl49jw==
+X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
+   d="asc'?scan'208";a="63548948"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 02 Oct 2026 03:05:55 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Fri, 2 Oct 2026 03:05:55 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
+ Transport; Fri, 2 Oct 2026 03:05:53 -0700
+Date: Fri, 2 Oct 2026 11:04:33 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Bo Gan <ganboing@gmail.com>
+CC: <linux-riscv@lists.infradead.org>, <samuel.holland@sifive.com>,
+	<david@redhat.com>, <palmer@dabbelt.com>, <pjw@kernel.org>,
+	<gaohan@iscas.ac.cn>, <me@ziyao.cc>, <lizhi2@eswincomputing.com>,
+	<hal.feng@starfivetech.com>, <marcel@ziswiler.com>, <conor@kernel.org>,
+	<kernel@esmil.dk>, <devicetree@vger.kernel.org>
+Subject: Re: [RFC PATCH v2 0/3] riscv: support EIC770X/JH7110 noncoherent
+ devices with XPbmtUC
+Message-ID: <20261002-demeanor-demeaning-db463813c033@wendy>
+References: <20260316060328.1173634-1-ganboing@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/6] clocksource: clint: Use IPI_MAX for IPI muxing
-To: "GUO Ren (XuanTie)" <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Alexandre Ghiti <alex@ghiti.fr>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
-        Anup Patel <anup@brainfault.org>,
-        Tiffany Lin <tiffany.lin@mediatek.com>,
-        Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
-        Yunfei Dong <yunfei.dong@mediatek.com>,
-        Minghsiu Tsai <minghsiu.tsai@mediatek.com>,
-        Houlong Wei <houlong.wei@mediatek.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org
-References: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
- <20260911-ipi_max-v2-3-a77826ff189e@kernel.org>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-In-Reply-To: <20260911-ipi_max-v2-3-a77826ff189e@kernel.org>
-X-Authority-Analysis: v=2.4 cv=fdc4WEQF c=1 sm=1 tr=0 ts=6abf7ee0 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=uCLItbk5GdqmTsIkEKsA:9 a=QEXdDO2ut3YA:10 a=Dn0JnjMMefUA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-GUID: lfAcU7ddGp3RDqPmdjqfMdHLXa6IcTnU
-X-Proofpoint-ORIG-GUID: lfAcU7ddGp3RDqPmdjqfMdHLXa6IcTnU
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAyMDAzOSBTYWx0ZWRfX7wIxVXjvWove
- yY4AeQww7JL2faw6dmA8zWpqBIfa9FA/3TQeIIQtJs6xbt0SEvcNndXdr90hQibfw+553LeRQZQ
- Ctte0DrR72MvQ+tyWXc6v/aKxfpc54feC+OoNaCtXjrIS5V2tUPK6CJxmQlXOw0RaXxK/B3jnb2
- jrcFMIUbMI1v3AVEUwey0S4VA7qA3+K2dlnYzCRwWcB0hOrI/MURX+IiA/5udOzDv+P42bWN+FF
- QP8h1jR4LHpOCUl/MyYsWrE3Gyls4YSAZKEHUZgE/0qgQcG7HO066dh3HxciOPryafi/Du0wxXR
- /bz7vWboPV6yGFCuBcY1svKP4UMPlQ69cBKMhMdtJ8OU0MGvisqh2qkKvJRE1W61t0YMMpM/fcf
- w8C3uRVMCvxeWq5VB5rEDBvagIjkUPi+5f4MYu1P/V9tZsPEilxV+n1/U/3gwk8wsd98Hb96BDt
- HdT1lCHqLJaTBiRpdUA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAyMDAzOSBTYWx0ZWRfX5v2jt5WozBCm
- r7k8RkZBs+CMMCrUw5WF5cI2GffrNMus4W2sq1Cp8rcY2t1SDIuJsYuILYTlE6TO4Ud1AK10mQN
- ylzWFd0eA+pEOq4Jf6xx7nKA+AP5UGA=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-02_03,2026-10-01_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 phishscore=0 impostorscore=0 bulkscore=0 clxscore=1015
- priorityscore=1501 suspectscore=0 adultscore=0 spamscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610020039
+In-Reply-To: <20260316060328.1173634-1-ganboing@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_025233_899220_93744445 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261002_030556_802282_77533023 
+X-CRM114-Status: GOOD (  44.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,20 +84,215 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============4287006624320486047=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/11/26 05:27, GUO Ren (XuanTie) wrote:
-> Replace the hard-coded BITS_PER_BYTE with IPI_MAX now that the
-> constant is exported from riscv asm/smp.h.
-> 
-> Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
+--===============4287006624320486047==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="A6+7ibGAiMjBL0qL"
+Content-Disposition: inline
+
+--A6+7ibGAiMjBL0qL
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey,
+
+Once again, I am sorry for how long this has taken me. I've had this
+sitting at the base of my review mailbox and kept meaning to get to it,
+but due to being at the bottom I always got here when I was already
+tired and could never face into actually sitting down and looking at
+what the EIC7700 opensbi changes actually did.
+
+On Sun, Mar 15, 2026 at 11:03:25PM -0700, Bo Gan wrote:
+> SoCs with pre-Svpbmt Sifive cores, e.g., Starfive JH7110 and ESWIN
+> EIC770X both have non cache-coherent peripherals. On JH7110[1], video
+> subsystem (GPU/VOUT/VPU/ISP) is routed to the sys port, making them not
+> cache-coherent. On EIC770X, all peripherals are routed to the sys port,
+> and none is cache-coherent. Instead of Svpbmt, these SoCs map system
+> memory twice -- the conventional cached region (through front port),
+> and the uncached alias (through sys port) at different base addresses.
+> The uncached alias implicitly applies the uncacheable PMA. Drivers
+> working with noncoherent devices can utilize the uncache alias to map
+> DMA buffers, without doing explicit cache flushes.
+>=20
+> This feature is not an ISA standard, and the cache/uncache base can be
+> configured by the SoC vendor. To expose it properly, introduce a Sifive
+> "errata", namely "XPbmtUC", to model the setup as a customized version
+> of Svpbmt. It choses a single, artificial bit in PTE at runtime for
+> cache/uncache control, effectively offsetting the PPN by power-of-2.
+> On JH7110, it aligns perfectly with the HW: it maps the cached region
+> at 0x40000000, and the uncached alias at 0x4_40000000. Chosing bit 32
+> (PPN bit 34) as the UC bit matches HW exactly.
+>=20
+> Starfive JH7110 (Sifive U74 core) memory map:
+>=20
+>           [0x0,   0x40000000) Low MMIO
+>    [0x40000000, 0x2_40000000) Cached Mem
+>  [0x4_40000000, 0x6_40000000) Uncached Mem (UC+)
+>  [0x9_00000000, 0x9_d0000000) High MMIO
+>=20
+> On EIC770X, the aliased UC region is put to a offset not power-of-2.
+> There can also be 2 NUMA node (dual-die) with 2 separate memory regions
+> and their UC alias counterparts are offsetted differently. We detect if
+> the firmware has the capability to re-arrange the memory map, using
+> G-stage pagetable, making the the offsets power-of-2 again.
+>=20
+>             [0x0,     0x20000000) Core Internal
+>      [0x20000000,     0x40000000) Core Internal (Die 1)
+>      [0x40000000,     0x60000000) Low MMIO
+>      [0x60000000,     0x80000000) Low MMIO (Die 1)
+>      [0x80000000,  0x10_80000000) Cached Mem
+>   [0x20_00000000,  0x30_00000000) Cached Mem (Die 1)
+>   [0x80_00000000,  0xa0_00000000) High MMIO
+>   [0xa0_00000000,  0xc0_00000000) High MMIO (Die 1)
+>   [0xc0_00000000,  0xd0_00000000) Uncached Mem <----------.
+>   [0xe0_00000000,  0xf0_00000000) Uncached Mem (Die 1) <--+--.
+> with firmware/hypervisor re-mapping:                      |  |
+> ------------------------------------                      |  |
+>  [0x100_80000000, 0x110_80000000) Mem UC+ ----------------'  |
+>  [0x120_00000000, 0x130_00000000) Mem UC+ (Die 1) -----------'
+>=20
+> The "XPbmtUC" alternative PTE format is the cleanest solution I can
+> think of to solve the non-coherent device enablement w/o Svpbmt from
+> kernel side. Drivers can do explicit cache flushes to workaround the
+> problem, but a. it pushes the burden of cache flushes to driver code,
+> and we don't want to complicate them if it's already written with the
+> cache coherent assumption in mind. b. complex drivers like GPU could
+> allow user-space to mmap DMA pages, but userspace can't flush caches
+> due to the lack of Zicbom on these SoCs.
+
+he other day Icenowy submitted some patches for the drm driver used on
+the JH7110 that are not actually that intrusive:
+https://lore.kernel.org/all/20260930073528.3369325-3-zhengxingda@iscas.ac.c=
+n/
+
+No idea if the DRM maintainers will find this kind of thing acceptable
+though, there's every chance that they hate the idea. On the JH7110 I
+don't mind what's done in this series - especially given that what the
+JH7100 is doing with reserved memory is something Rob considered to be a
+bit of an abuse. But if the DRM guys are okay with Icenowy's work, the
+value of this is obviously much reduced. One new alternative (that could
+be avoided entirely if the erratum config is disabled) isn't much of a
+price to pay here if the userspace flushing is important (I really dunno
+anything at all about how useful that is to GPU stuff).
+
+> I'm aware there's an ongoing
+> series[2] that Samuel sent for physical memory aliases, which is
+> essentially a superset of my patch. I don't mean to step ahead of him,
+> but try to find a middle ground if the community still worries about
+> his change touching too many areas. My change is very minimal and
+> local. It's fairly easy to remove, too.
+
+I dunno, it's not that easy to remove I don't think. Switching from this
+to Samuel's approach requires a DT change, so you're looking at
+regressions if this is removed.
+
+> ----------------------------------------
+> Notes about PoC firmware implementation on EIC7700X[3]:
+>=20
+> The OpenSBI is augmented to provide a very thin layer hypervisor, where
+> it runs the entire host OS in VS-mode, and provide the aforementioned
+> remapping. I remap UC+ memory to 2^40+ to make the 2-stage translation
+> efficient, where I can utilize Sv39x4 G-stage scheme to map the entire
+> physical address space at bottom-half, and the uncache counterparts to
+> system memory at top-half. I also make use of the largest page in Sv39
+> -- 1GB page, to map everything, keeping the G-stage page-table minimal,
+> only 16KB in size, while also minimizing TLB misses. A very slight,
+> unavoidable, slow down is with the external interrupt delivery. Due to
+> the lack of AIA in EIC770X, all device irq now needs to trap to M mode
+> first, before forwarding to VS mode. The overhead of running KVM in
+> such setup is yet unknown, and may well be noticeable. All HS-qualified
+> instructions will trap to M mode, which is costly. The NACL extension,
+> if implemented, will alleviate it, but there's also the extra cost of
+> flushing G/VS-stage TLBs. I'm analyzing it in parallel.
+
+The problem with this idea though is how it works on EIC7700. This is
+very invasive and the impact this has on hypervisor use (on one of the
+only hypervisor capable boards) probably makes this unacceptable to most
+users, compared to a solution like Samuel's that has nothing like that.
+
+On top of that, it has firmware changes that really would need to be
+either upstream or shipped by the vendor to make this acceptable. I know
+vendors are willing to ship all sorts of things, but with that in mind,
+they could just ship Samuel's series downstream without the downsides
+the opensbi change here has. Upstreaming it may not be possible, which
+would leave things in a really weird state.
+
+I know Samuel's series has been stalled for a long time, but I expect it
+to get revived when the eic7700 support patches progress past the
+simpler peripherals.
+Without the vendors (be that sifive or eswin or einfochips) showing
+interest in this method it's really hard to sit here and tell you to
+pursue this further, since you're probably gonna face resistance getting
+the opensbi stuff anywhere.
+
+Thanks,
+Conor.
+
+>=20
+> Use [4] if you have a Hifive Premier P550 to try it out.
+>=20
+> [1] https://github.com/starfive-tech/JH7100_Docs/blob/main/JH7100%20Cache=
+%20Coherence%20V1.0.pdf
+> [2] https://lore.kernel.org/all/20251113014656.2605447-20-samuel.holland@=
+sifive.com/
+> [3] https://github.com/ganboing/opensbi/tree/eic77x-vspt-physalias-wip
+> [4] https://github.com/ganboing/linux-eic77/tree/ganboing-xpbmt-uc-v2-eic=
+77-clk-v15
+>=20
 > ---
-Acked-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+> v2:
+>  - Move the core logic to Sifive errata to address Conor's comments
+>=20
+> v1: https://lore.kernel.org/linux-riscv/338f0f79-1eed-4c5c-9966-04a2eaeb3=
+d98@gmail.com
+>=20
+> Bo Gan (3):
+>   riscv: alternatives: support auipc+load pair
+>   riscv: errata: sifive: support auipc/load pair in patched alternatives
+>   riscv: errata: sifive: Add an "errata" to simulate Svpbmt on cores
+>     without
+>=20
+>  arch/riscv/Kconfig.errata                    | 13 ++++
+>  arch/riscv/errata/sifive/errata.c            | 80 +++++++++++++++++++-
+>  arch/riscv/include/asm/errata_list.h         | 19 ++++-
+>  arch/riscv/include/asm/errata_list_vendors.h |  3 +-
+>  arch/riscv/include/asm/insn.h                |  8 ++
+>  arch/riscv/include/asm/pgtable-64.h          |  9 ++-
+>  arch/riscv/kernel/alternative.c              | 11 +--
+>  7 files changed, 132 insertions(+), 11 deletions(-)
+>=20
+> --=20
+> 2.34.1
+>=20
+
+--A6+7ibGAiMjBL0qL
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCar+BsAAKCRB4tDGHoIJi
+0lE3AQCOfH/GLXkVBPB2jihGgynqx7D1JZMi2N3fCiqGnAA7JAD+LyDk+xsEUOFx
+SJOVch+YywckyodTU923LTpElyFSlQY=
+=b0l0
+-----END PGP SIGNATURE-----
+
+--A6+7ibGAiMjBL0qL--
+
+
+--===============4287006624320486047==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4287006624320486047==--
+
