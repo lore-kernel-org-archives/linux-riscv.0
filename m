@@ -4,100 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD474CA5FDD
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 19:31:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A24DDCA5FE5
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 19:51:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=of4VsijMJiRNXLPIxYFAlbLmCHs7xw9DnrMWJ74AZDc=; b=aQpyyk3lTPqUzF
-	qToKxRQRrFTJLRA7ISDPUrot5pHkziYlDT9SeWjovFAXSsEVU45IjQA8WgGyu0/UqbzWx5Dr1cCqm
-	RpJtBJrpQ+aBeoT7k5JSQ26ElmGpnvjtfg8HlURL9plOEk6heF+eOw7Emy0Hn0U467pBpAg9VRTbk
-	rqGnJL7mvX7hd1L4J5exuCScE64H/qaVohrSq1LGuHoef2BLJ2l5DscjYdfuvgLJFj6pv8ofVMmrs
-	MnTnqYaEI60mHCAsg/b0mlNnt5SxUydGlObUKu8ID6+qjmepl8M+uwCa+FYwsUG6GWhHrihO90Uwg
-	uJDIMbbbO5i+P33f2tYQ==;
+	List-Owner; bh=bjlurI6guI0sSWeKN+1kYzUTfgzfECCRnFp3hwMVedQ=; b=HY9ROO1pFQSXJU
+	NIfiu0wT34wdO0HbIgZIV3Peo/pZN3MLDAWHsNayDQ++65eIlByvUrr117w71LU9z6Zrfjp5d61ER
+	4iVsWfozS1i38wWVkcZYz8wiQvha8pqnNqB2h+2MeT3ywl5HIveYbeM+ewOaZYnyWJFqo8nho4zZs
+	1uGW/ZSDzCQkU9vJO3XKK2WMyrTvphzV3/ajHrfniXHRyHkdlQ5zIpOPbdgsfxp6yNV+t9Jbv9GST
+	MVhP+poIok1nACeKqC3oe3rcM4Iyrj3udtjv4L41/RGPTT4Hs0OGZg1XdMatV+hJQcwaKmI5qtOuB
+	XX6MXsvXMoLf5Poxu3zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCiy0-0000000COr7-23Ep;
-	Fri, 02 Oct 2026 19:30:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xCjHM-0000000CR0n-3Jgh;
+	Fri, 02 Oct 2026 19:50:49 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCixz-0000000COqZ-21qV;
-	Fri, 02 Oct 2026 19:30:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8CF3360D77;
-	Fri,  2 Oct 2026 19:30:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 748A01F000FF;
-	Fri,  2 Oct 2026 19:30:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790969446;
-	bh=ekKUYOby3c2j+NEGwfq/n/16hDsQN2mSgzvQPgHiWWI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=d2r2hK5kCljTlCYwbBufk/wivX4jkvPY5GtMgJLcUIUGT4ktspgfRBivcG57guSh0
-	 hmkWr9NCuIzN8DuY1j8dpdZ4MIgpfoMkhqfwhFne9TUTm7tvkDIkyqcyp6gifsaedU
-	 mNrCV965QKAOpjo5mT0u9456Q2feFcLsrcpn4yK2t79qy6ksjZH9IjiJABakb9YbL5
-	 heJGGdWiGwwTNHAPJgbj/idVxDZSAeMzL3J8SODqqJovLo/2+7RpFWIqHOSOxNi79y
-	 Uw9DHbuSk9BoX3hzMhPL2bfOom2XjyLWZ7KwO9IQVaU87sthIFLqZfHTTSxGRCaWc8
-	 PWPWsigErZcDg==
-From: Barry Song <baohua@kernel.org>
-To: willy@infradead.org
-Cc: agordeev@linux.ibm.com,
-	akpm@linux-foundation.org,
-	alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
-	baohua@kernel.org,
-	borntraeger@linux.ibm.com,
-	bp@alien8.de,
-	catalin.marinas@arm.com,
-	chenhuacai@kernel.org,
-	chleroy@kernel.org,
-	dave.hansen@linux.intel.com,
-	david@kernel.org,
-	gerald.schaefer@linux.ibm.com,
-	gor@linux.ibm.com,
-	hca@linux.ibm.com,
-	hpa@zytor.com,
-	kernel@xen0n.name,
-	liam@infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux@armlinux.org.uk,
-	linuxppc-dev@lists.ozlabs.org,
-	ljs@kernel.org,
-	loongarch@lists.linux.dev,
-	luto@kernel.org,
-	maddy@linux.ibm.com,
-	mark.rutland@arm.com,
-	mhocko@suse.com,
-	mingo@redhat.com,
-	mpe@ellerman.id.au,
-	npiggin@gmail.com,
-	palmer@dabbelt.com,
-	peterz@infradead.org,
-	pjw@kernel.org,
-	rppt@kernel.org,
-	shakeel.butt@linux.dev,
-	surenb@google.com,
-	svens@linux.ibm.com,
-	tglx@kernel.org,
-	vbabka@kernel.org,
-	will@kernel.org,
-	x86@kernel.org,
-	zhanghongru06@gmail.com,
-	zhanghongru@xiaomi.com,
-	zhaonanzhe@xiaomi.com
-Subject: Re: [PATCH v6] mm: retry page faults once under the per-VMA lock
-Date: Sat,  3 Oct 2026 03:30:34 +0800
-Message-Id: <20261002193034.86218-1-baohua@kernel.org>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <ar7MsOb6IJLt4eLo@casper.infradead.org>
-References: <ar7MsOb6IJLt4eLo@casper.infradead.org>
+	id 1xCjHJ-0000000CR0Q-2muo
+	for linux-riscv@lists.infradead.org;
+	Fri, 02 Oct 2026 19:50:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790970644;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=F25QBZ61ZmBrTf7fU7xFNKMRCKDf4lsr8/BxhtCtQxg=;
+	b=fVLWMH+yuPFYzuO4xiKa9+Fl73p4+uhPGqXXxaJqEv8L7Y0FLwUmuo36VD73G+/en05UGn
+	pTf4RIoqVx/tfudGIlR+QIoTH8sU4edlVYR8lNIqczbnxBvnnxNW3aZsgW9nBMnoKbbm/g
+	GcxFkSlPJ6dyYpElHpOUHaM3PpIA2jI=
+Received: from mail-yw1-f200.google.com (mail-yw1-f200.google.com
+ [209.85.128.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-686-h6fKlkcQOFCHfD3Y5fpAEQ-1; Fri, 02 Oct 2026 15:50:40 -0400
+X-MC-Unique: h6fKlkcQOFCHfD3Y5fpAEQ-1
+X-Mimecast-MFC-AGG-ID: h6fKlkcQOFCHfD3Y5fpAEQ_1790970640
+Received: by mail-yw1-f200.google.com with SMTP id 00721157ae682-895241d7405so125906347b3.2
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Oct 2026 12:50:40 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790970640; x=1791575440;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=F25QBZ61ZmBrTf7fU7xFNKMRCKDf4lsr8/BxhtCtQxg=;
+        b=o0SFWXwGX+9fMN7g0lnLxd+o5b7E/QQ7AeJdhcxMA5SKEypv12OL2vbX0MtjAGc/ou
+         kCv2yuY1E6sJ7oCtbTTw/JSu9STb25Ls5RUJqg8RuOlau+8oRbUVFG3sjAtmvk6NRLUw
+         vasqtvuKLu3eWOWJ0/koF56v6oBBEXskVu9WktkPRE2Zq8kExO1H1Z8Kere5ofOFQpfm
+         aoiH8dhnV+Xr2JgbBFwdFPBnADGZgiaGr/tGe+0JBD4eZZXjJ+8tHx7C3+ulmLosl1JI
+         7/aDmDmP+BnYmWJvLJU3kBIh1F1ZRUfElYPXHsklUzAGlVTHdCMBBqaNYCGx0d7EI/Nb
+         u14g==
+X-Forwarded-Encrypted: i=1; AKwUvBzJGad0CTB3JiuJdxomQ+XACu77Q2h6CAQbS6FzmYnbABLL6vQ9EutUigmWt++kys+w8U+48qhLyDc+WQ==@lists.infradead.org
+X-Gm-Message-State: AFq9FYImjoD+2jkv213bIFYpwraDEmCxh7wrorHlzj6+0bwnamn4fPaG
+	uhEfA9nMWHykvOY87T5UD9NIrRxquCdrvl1V2vpcHK5y0OnaskwUUn4GO86kHgavSbYeV3P1pKN
+	jUOUZ52BLBxJMFTVzIqPL8NVCyi8KXV0B+5xr87oXtEaePaH/L/z4FsHmt7eTOyVa+uIFLQ==
+X-Gm-Gg: AYBFou0V9EkqrWIm7q0KYjntReoLlBgtBYMS1NHWh6cUOSwz6GvuniSqrJz8K0NJzMl
+	Rn0iWZHPyvvSNgN+XT8pCeZ7wmcNEhHUI1SsOqzQOWZShV83AaRjUIfpAvyTeOX7MtguQn9Cx+O
+	qHzzHBgVz7eH8Y7qbXcbC3TOemzPSM+0U5eQjYV7Z1mpmd2q0F5LEMxX36r1ahZWRpi6xELaj8m
+	SxrGutmz2iFnPzSNosqg+O143pSII3IKy/XXUbBvsXbLP88/+DQ1e/dgmgFrM66vytG3oSFS5MP
+	bUu4MOXaDpwHU8HDffLxLH2mHp7S4rcuycoPTM33JpghZxQbG8OPIsSBUA6t61KaGHDz+ud8jA=
+	=
+X-Received: by 2002:a05:690c:808:b0:894:4ded:2746 with SMTP id 00721157ae682-8ae39bc3a5emr15283767b3.36.1790970639965;
+        Fri, 02 Oct 2026 12:50:39 -0700 (PDT)
+X-Received: by 2002:a05:690c:808:b0:894:4ded:2746 with SMTP id 00721157ae682-8ae39bc3a5emr15283607b3.36.1790970639475;
+        Fri, 02 Oct 2026 12:50:39 -0700 (PDT)
+Received: from redhat.com ([2600:382:850b:d4de:3546:fbce:3693:8762])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8ae32cf2f27sm13728657b3.26.2026.10.02.12.50.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 Oct 2026 12:50:38 -0700 (PDT)
+Date: Fri, 2 Oct 2026 15:50:34 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Emil Renner Berthing <kernel@esmil.dk>, Kees Cook <kees@kernel.org>,
+	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-hardening@vger.kernel.org, netdev@vger.kernel.org,
+	Hal Feng <hal.feng@starfivetech.com>
+Subject: Re: [PATCH v5 10/23] clk: starfive: Add JHB100 System-2 clock
+ generator driver
+Message-ID: <asALCsosWkutrwUK@redhat.com>
+References: <20260930124317.5648-1-changhuang.liang@starfivetech.com>
+ <20260930124317.5648-11-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
+In-Reply-To: <20260930124317.5648-11-changhuang.liang@starfivetech.com>
+User-Agent: Mutt/2.4.2 (2026-08-30)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: NFI_wTSoyZN-qiVFvxCQlcNg6AwByn-Ao8OoDwX1Q_Q_1790970640
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261002_125045_781703_EE1B5DA1 
+X-CRM114-Status: GOOD (  21.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,110 +120,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBPY3QgMiwgMjAyNiBhdCA1OjEy4oCvQU0gTWF0dGhldyBXaWxjb3ggPHdpbGx5QGlu
-ZnJhZGVhZC5vcmc+IHdyb3RlOgo+Cj4gT24gTW9uLCBTZXAgMjgsIDIwMjYgYXQgMTA6NDg6NDFB
-TSArMDgwMCwgQmFycnkgU29uZyB3cm90ZToKPiA+IE9uIE1vbiwgU2VwIDI4LCAyMDI2IGF0IDY6
-NTXigK9BTSBNYXR0aGV3IFdpbGNveCA8d2lsbHlAaW5mcmFkZWFkLm9yZz4gd3JvdGU6Cj4gPiA+
-IFNvIHdoaWxlIGRvaW5nIG15IHNsaWRlcywgSSByZWFsaXNlZCB0aGF0IHdoYXQgd2UgbmVlZCB0
-byBhdm9pZCBkb2luZwo+ID4gPiBpcyAoYSkgc2xlZXBpbmcgd2hpbGUgaG9sZGluZyB0aGUgbW1h
-cF9sb2NrIChiKSByZXR1cm5pbmcgUkVUUlkgd2hpbGUKPiA+ID4gaG9sZGluZyB0aGUgVk1BIGxv
-Y2sKPiA+ID4KPiA+ID4gQW5kIHRoYXQgdHVybnMgb3V0IHRvIGJlIGFzIHNpbXBsZSBhcyB0aGlz
-IHBhdGNoOgo+ID4gPgo+ID4gPiBkaWZmIC0tZ2l0IGEvaW5jbHVkZS9saW51eC9tbS5oIGIvaW5j
-bHVkZS9saW51eC9tbS5oCj4gPiA+IGluZGV4IGRkMDljNDM4ZmEyMy4uOTRlZDIzMzNmOGQ4IDEw
-MDY0NAo+ID4gPiAtLS0gYS9pbmNsdWRlL2xpbnV4L21tLmgKPiA+ID4gKysrIGIvaW5jbHVkZS9s
-aW51eC9tbS5oCj4gPiA+IEBAIC03MjMsNiArNzIzLDggQEAgZW51bSB7Cj4gPiA+IMKgICovCj4g
-PiA+IMKgc3RhdGljIGlubGluZSBib29sIGZhdWx0X2ZsYWdfYWxsb3dfcmV0cnlfZmlyc3QoZW51
-bSBmYXVsdF9mbGFnIGZsYWdzKQo+ID4gPiDCoHsKPiA+ID4gKyDCoCDCoCDCoCBpZiAoZmxhZ3Mg
-JiBGQVVMVF9GTEFHX1ZNQV9MT0NLKQo+ID4gPiArIMKgIMKgIMKgIMKgIMKgIMKgIMKgIHJldHVy
-biBmYWxzZTsKPiA+ID4gwqAgwqAgwqAgwqAgcmV0dXJuIChmbGFncyAmIEZBVUxUX0ZMQUdfQUxM
-T1dfUkVUUlkpICYmCj4gPiA+IMKgIMKgIMKgIMKgIMKgIMKgICghKGZsYWdzICYgRkFVTFRfRkxB
-R19UUklFRCkpOwo+ID4gPiDCoH0KPiA+ID4KPiA+ID4gT0ssIHRoaXMgaXMgYSBoYWNrLiDCoFRo
-ZSBmdW5jdGlvbiBpcyBzcGVjdGFjdWxhcmx5IGJhZGx5IG5hbWVkLCBhbmQKPiA+ID4gbmVlZHMg
-dG8gYmUgcmVuYW1lZCBiZWZvcmUgYSBwYXRjaCBjYW4gZ28gdXBzdHJlYW0uIMKgQnV0IHRoaXMg
-c2hvdWxkCj4gPiA+IGZpeCB0aGUgY29udGVudGlvbiBvbiBtbWFwX2xvY2suCj4gPgo+ID4gVGhh
-bmtzIGZvciB5b3VyIHN1Z2dlc3Rpb24uCj4gPiBUaGlzIGlzIGV4YWN0bHkgd2hhdCB3ZSBkaWQg
-aW4gQW5kcm9pZCBDb21tb24gS2VybmVsIGJlZm9yZSB3ZSBoYWQKPiA+IExvcmVuem8ncyBwcm9w
-b3NhbCAoYnlwYXNzaW5nIGBmYXVsdF9mbGFnX2FsbG93X3JldHJ5X2ZpcnN0KClgKToKPiA+Cj4g
-PiBodHRwczovL2FuZHJvaWQuZ29vZ2xlc291cmNlLmNvbS9rZXJuZWwvY29tbW9uLysvMWI5YjA0
-NWE1ODYyNDVjYzFjMjliMjc0N2M2NTg2MjM0YzdmNWJhZCU1RSUyMS8jRjIKPgo+IExvb2tzIGxp
-a2UgdGhhdCBvbmUgZGlkbid0IGNvdmVyIF9fZm9saW9fbG9ja19vcl9yZXRyeSgpLCBidXQgdGhh
-dAo+IGRvZXNuJ3QgaW52YWxpZGF0ZSB5b3VyIHBvaW50LgpZZXAuIGBfX2ZvbGlvX2xvY2tfb3Jf
-cmV0cnkoKWAgd2lsbCBtYWtlIHRoZSBzYW1lIHRoaW5nIHRydWUgZm9yIGFub24KVk1Bcywgc28g
-d2UgaW50ZW50aW9uYWxseSBtYWRlIHRoZSBob29rIHZhbGlkIG9ubHkgZm9yIGZpbGUgVk1Bcy5P
-bmx5IHRvdWNoaW5nIHRoZSBmaWxlIHJldHJ5IHBhdGggc2VlbXMgdG8gaW52b2x2ZSBsZXNzIFZN
-QQpjb250ZW50aW9uLgoKPgo+ID4gTm90ZSB0aGF0IExvcmVuem8ncyBwcm9wb3NhbCBhdm9pZHMg
-bW1hcF9sb2NrIGNvbnRlbnRpb24gd2l0aG91dAo+ID4gaW50cm9kdWNpbmcgYW55IG5ldyBWTUEg
-bG9jayBjb250ZW50aW9uLiBJdCBhbHNvIGRvZXNuJ3QgcmVxdWlyZSBhIG5ldwo+ID4gZmxhZyB0
-aGF0IHdvdWxkIGJyZWFrIEtNSS4gU28gdGhpcyBpcyBjbGVhcmx5IHRoZSBwcmVmZXJyZWQgYXBw
-cm9hY2guCj4KPiBCdXQgaXQgZG9lcyByZXRyeSBtdWx0aXBsZSB0aW1lcyBpbiBjYXNlcyB3aGVy
-ZSB3ZSBrbm93IHRoZSBmYXVsdAo+IHdpbGwgYWx3YXlzIGZhaWwgKGVnIHRoZSBmYXVsdCBpcyBv
-biBhIGRldmljZS1wcml2YXRlIFZNQSkKPgpSaWdodCBub3csIHRoZXNlIG1pZ2h0IHJlcXVpcmUg
-YSBzaW5nbGUgZXh0cmEgcmV0cnkgZm9yIGRldmljZS1wcml2YXRlCmFuZCBgX192bWZfYW5vbl9w
-cmVwYXJlKClgIGNhc2VzLiBUaGUgY29tbWl0IGxvZyBhbHNvIG1lbnRpb25zIHRoaXMuCgoiU29t
-ZSBmYXVsdHMgbWF5CnJldHJ5IHVubmVjZXNzYXJpbHksIGZvciBleGFtcGxlLCB0aG9zZSBpbiBf
-X3ZtZl9hbm9uX3ByZXBhcmUoKSBvcgpkZXZpY2UtcHJpdmF0ZSBmYXVsdCBoYW5kbGluZywgd2hp
-Y2ggcmVxdWlyZSB0aGUgbW1hcF9sb2NrLiBIb3dldmVyLAp0aGVzZSBjYXNlcyBhcmUgZXhwZWN0
-ZWQgdG8gYmUgaW5mcmVxdWVudCBhbmQgb25seSBhZGQgb25lIGNoZWFwCnBlci1WTUEgbG9jayBh
-dHRlbXB0LiIKCklmIHdlIGRvIHdhbnQgdG8gcmVtb3ZlIHRoZSBleHRyYSBWTUEgbG9jayBhdHRl
-bXB0LCB3ZSBtaWdodCBzdGlsbApuZWVkIGFuIGFkZGl0aW9uYWwgZmxhZyBzdWNoIGFzIFZNX0ZB
-VUxUX05FRURfTU1BUF9MT0NLOgoKZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQvbW0vZmF1bHQuYyBi
-L2FyY2gvYXJtNjQvbW0vZmF1bHQuYwppbmRleCAyY2VjZjZiYTZkZjcuLjI4MjFlM2JkNzQ2MiAx
-MDA2NDQKLS0tIGEvYXJjaC9hcm02NC9tbS9mYXVsdC5jCisrKyBiL2FyY2gvYXJtNjQvbW0vZmF1
-bHQuYwpAQCAtNjIwLDYgKzYyMCw3IEBAIHN0YXRpYyBpbnQgX19rcHJvYmVzIGRvX3BhZ2VfZmF1
-bHQodW5zaWduZWQgbG9uZyBmYXIsIHVuc2lnbmVkIGxvbmcgZXNyLAogCXN0cnVjdCB2bV9hcmVh
-X3N0cnVjdCAqdm1hOwogCWludCBzaV9jb2RlOwogCWludCBwa2V5ID0gLTE7CisJYm9vbCB2bWFf
-bG9ja19yZXRyaWVkID0gZmFsc2U7CiAKIAlpZiAoa3Byb2JlX3BhZ2VfZmF1bHQocmVncywgZXNy
-KSkKIAkJcmV0dXJuIDA7CkBAIC02ODgsNiArNjg5LDcgQEAgc3RhdGljIGludCBfX2twcm9iZXMg
-ZG9fcGFnZV9mYXVsdCh1bnNpZ25lZCBsb25nIGZhciwgdW5zaWduZWQgbG9uZyBlc3IsCiAJaWYg
-KCEobW1fZmxhZ3MgJiBGQVVMVF9GTEFHX1VTRVIpKQogCQlnb3RvIGxvY2tfbW1hcDsKIAorbG9j
-a192bWE6CiAJdm1hID0gbG9ja192bWFfdW5kZXJfcmN1KG1tLCBhZGRyKTsKIAlpZiAoIXZtYSkK
-IAkJZ290byBsb2NrX21tYXA7CkBAIC03MzQsNiArNzM2LDEyIEBAIHN0YXRpYyBpbnQgX19rcHJv
-YmVzIGRvX3BhZ2VfZmF1bHQodW5zaWduZWQgbG9uZyBmYXIsIHVuc2lnbmVkIGxvbmcgZXNyLAog
-CQkJZ290byBub19jb250ZXh0OwogCQlyZXR1cm4gMDsKIAl9CisKKwlpZiAoIXZtYV9sb2NrX3Jl
-dHJpZWQgJiYgIShmYXVsdCAmIFZNX0ZBVUxUX05FRURfTU1BUF9MT0NLKSkgeworCQl2bWFfbG9j
-a19yZXRyaWVkID0gdHJ1ZTsKKwkJZ290byBsb2NrX3ZtYTsKKwl9CisKIGxvY2tfbW1hcDoKIAog
-cmV0cnk6CmRpZmYgLS1naXQgYS9pbmNsdWRlL2xpbnV4L21tX3R5cGVzLmggYi9pbmNsdWRlL2xp
-bnV4L21tX3R5cGVzLmgKaW5kZXggNjE0MTE2MGVjNjUyLi5iYWFkYWI1OThkOTggMTAwNjQ0Ci0t
-LSBhL2luY2x1ZGUvbGludXgvbW1fdHlwZXMuaAorKysgYi9pbmNsdWRlL2xpbnV4L21tX3R5cGVz
-LmgKQEAgLTE3MzQsMTAgKzE3MzQsMTEgQEAgZW51bSB2bV9mYXVsdF9yZWFzb24gewogCVZNX0ZB
-VUxUX05PUEFHRSAgICAgICAgID0gKF9fZm9yY2Ugdm1fZmF1bHRfdCkweDAwMDEwMCwKIAlWTV9G
-QVVMVF9MT0NLRUQgICAgICAgICA9IChfX2ZvcmNlIHZtX2ZhdWx0X3QpMHgwMDAyMDAsCiAJVk1f
-RkFVTFRfUkVUUlkgICAgICAgICAgPSAoX19mb3JjZSB2bV9mYXVsdF90KTB4MDAwNDAwLAotCVZN
-X0ZBVUxUX0ZBTExCQUNLICAgICAgID0gKF9fZm9yY2Ugdm1fZmF1bHRfdCkweDAwMDgwMCwKLQlW
-TV9GQVVMVF9ET05FX0NPVyAgICAgICA9IChfX2ZvcmNlIHZtX2ZhdWx0X3QpMHgwMDEwMDAsCi0J
-Vk1fRkFVTFRfTkVFRERTWU5DICAgICAgPSAoX19mb3JjZSB2bV9mYXVsdF90KTB4MDAyMDAwLAot
-CVZNX0ZBVUxUX0NPTVBMRVRFRCAgICAgID0gKF9fZm9yY2Ugdm1fZmF1bHRfdCkweDAwNDAwMCwK
-KwlWTV9GQVVMVF9ORUVEX01NQVBfTE9DSyAgICAgPSAoX19mb3JjZSB2bV9mYXVsdF90KTB4MDAw
-ODAwLAorCVZNX0ZBVUxUX0ZBTExCQUNLICAgICAgID0gKF9fZm9yY2Ugdm1fZmF1bHRfdCkweDAw
-MTAwMCwKKwlWTV9GQVVMVF9ET05FX0NPVyAgICAgICA9IChfX2ZvcmNlIHZtX2ZhdWx0X3QpMHgw
-MDIwMDAsCisJVk1fRkFVTFRfTkVFRERTWU5DICAgICAgPSAoX19mb3JjZSB2bV9mYXVsdF90KTB4
-MDA0MDAwLAorCVZNX0ZBVUxUX0NPTVBMRVRFRCAgICAgID0gKF9fZm9yY2Ugdm1fZmF1bHRfdCkw
-eDAwODAwMCwKIAlWTV9GQVVMVF9ISU5ERVhfTUFTSyAgICA9IChfX2ZvcmNlIHZtX2ZhdWx0X3Qp
-MHgwZjAwMDAsCiB9OwogCmRpZmYgLS1naXQgYS9tbS9odWdlX21lbW9yeS5jIGIvbW0vaHVnZV9t
-ZW1vcnkuYwppbmRleCBkZGM2MzFhMzg4YjkuLjY0ZTA4YzYxNTNjZiAxMDA2NDQKLS0tIGEvbW0v
-aHVnZV9tZW1vcnkuYworKysgYi9tbS9odWdlX21lbW9yeS5jCkBAIC0xNDgwLDcgKzE0ODAsNyBA
-QCB2bV9mYXVsdF90IGRvX2h1Z2VfcG1kX2RldmljZV9wcml2YXRlKHN0cnVjdCB2bV9mYXVsdCAq
-dm1mKQogCiAJaWYgKHZtZi0+ZmxhZ3MgJiBGQVVMVF9GTEFHX1ZNQV9MT0NLKSB7CiAJCXZtYV9l
-bmRfcmVhZCh2bWEpOwotCQlyZXR1cm4gVk1fRkFVTFRfUkVUUlk7CisJCXJldHVybiBWTV9GQVVM
-VF9SRVRSWSB8IFZNX0ZBVUxUX05FRURfTU1BUF9MT0NLOwogCX0KIAogCXB0bCA9IHBtZF9sb2Nr
-KHZtYS0+dm1fbW0sIHZtZi0+cG1kKTsKZGlmZiAtLWdpdCBhL21tL21lbW9yeS5jIGIvbW0vbWVt
-b3J5LmMKaW5kZXggMWY4M2EyNmY4NzMzLi44OWM4YzhhNTJjMTYgMTAwNjQ0Ci0tLSBhL21tL21l
-bW9yeS5jCisrKyBiL21tL21lbW9yeS5jCkBAIC0zOTgwLDcgKzM5ODAsNyBAQCB2bV9mYXVsdF90
-IF9fdm1mX2Fub25fcHJlcGFyZShzdHJ1Y3Qgdm1fZmF1bHQgKnZtZikKIAkJcmV0dXJuIDA7CiAJ
-aWYgKHZtZi0+ZmxhZ3MgJiBGQVVMVF9GTEFHX1ZNQV9MT0NLKSB7CiAJCWlmICghbW1hcF9yZWFk
-X3RyeWxvY2sodm1hLT52bV9tbSkpCi0JCQlyZXR1cm4gVk1fRkFVTFRfUkVUUlk7CisJCQlyZXR1
-cm4gVk1fRkFVTFRfUkVUUlkgfCBWTV9GQVVMVF9ORUVEX01NQVBfTE9DSzsKIAl9CiAJaWYgKF9f
-YW5vbl92bWFfcHJlcGFyZSh2bWEpKQogCQlyZXQgPSBWTV9GQVVMVF9PT007CkBAIC00OTM3LDcg
-KzQ5MzcsNyBAQCB2bV9mYXVsdF90IGRvX3N3YXBfcGFnZShzdHJ1Y3Qgdm1fZmF1bHQgKnZtZikK
-IAkJCQkgKiB1bmRlciBWTUEgbG9jay4KIAkJCQkgKi8KIAkJCQl2bWFfZW5kX3JlYWQodm1hKTsK
-LQkJCQlyZXQgPSBWTV9GQVVMVF9SRVRSWTsKKwkJCQlyZXQgPSBWTV9GQVVMVF9SRVRSWSB8IFZN
-X0ZBVUxUX05FRURfTU1BUF9MT0NLOwogCQkJCWdvdG8gb3V0OwogCQkJfQogCi0tIAoyLjM5LjMg
-KEFwcGxlIEdpdC0xNDYpCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+Hi Changhuang,
+
+On Wed, Sep 30, 2026 at 05:43:04AM -0700, Changhuang Liang wrote:
+> Add support for JHB100 System-2 clock generator (SYS2CRG).
+> 
+> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> ---
+>  drivers/clk/starfive/Kconfig                  |  10 ++
+>  drivers/clk/starfive/Makefile                 |   1 +
+>  .../clk/starfive/clk-starfive-jhb100-sys2.c   | 129 ++++++++++++++++++
+>  3 files changed, 140 insertions(+)
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-sys2.c
+> 
+> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
+> index 11da8bcc4046..cfaac934a8e0 100644
+> --- a/drivers/clk/starfive/Kconfig
+> +++ b/drivers/clk/starfive/Kconfig
+> @@ -92,3 +92,13 @@ config CLK_STARFIVE_JHB100_SYS1
+>  	help
+>  	  Say yes here to support the system-1 clock controller on the
+>  	  StarFive JHB100 SoC.
+> +
+> +config CLK_STARFIVE_JHB100_SYS2
+> +	bool "StarFive JHB100 system-2 clock support"
+> +	depends on ARCH_STARFIVE || COMPILE_TEST
+> +	select CLK_STARFIVE_JH71X0
+> +	select RESET_STARFIVE_JHB100 if RESET_CONTROLLER
+> +	default ARCH_STARFIVE
+> +	help
+> +	  Say yes here to support the system-2 clock controller on the
+> +	  StarFive JHB100 SoC.
+> diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
+> index 0061550e0f7e..29cdef20575e 100644
+> --- a/drivers/clk/starfive/Makefile
+> +++ b/drivers/clk/starfive/Makefile
+> @@ -13,3 +13,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+= clk-starfive-jh7110-vout.o
+>  
+>  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS0)		+= clk-starfive-jhb100-sys0.o
+>  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS1)		+= clk-starfive-jhb100-sys1.o
+> +obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS2)		+= clk-starfive-jhb100-sys2.o
+> diff --git a/drivers/clk/starfive/clk-starfive-jhb100-sys2.c b/drivers/clk/starfive/clk-starfive-jhb100-sys2.c
+> new file mode 100644
+> index 000000000000..a2c7e8eba9b6
+> --- /dev/null
+> +++ b/drivers/clk/starfive/clk-starfive-jhb100-sys2.c
+> @@ -0,0 +1,129 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * StarFive JHB100 System-2 Clock Driver
+> + *
+> + * Copyright (C) 2024 StarFive Technology Co., Ltd.
+> + *
+> + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
+> + *
+> + */
+> +
+> +#include <dt-bindings/clock/starfive,jhb100-crg.h>
+> +#include <linux/init.h>
+> +#include <linux/platform_device.h>
+> +
+> +#include "clk-starfive-jh71x0.h"
+> +
+> +#define JHB100_SYS2CLK_NUM_CLKS			(JHB100_SYS2CLK_MAIN_ICG_EN_JTAG1 + 1)
+> +
+> +/* external clocks */
+> +#define JHB100_SYS2CLK_OSC			(JHB100_SYS2CLK_NUM_CLKS + 0)
+> +#define JHB100_SYS2CLK_PLL1			(JHB100_SYS2CLK_NUM_CLKS + 1)
+> +#define JHB100_SYS2CLK_GPU0_NCNOC_INIT		(JHB100_SYS2CLK_NUM_CLKS + 2)
+> +#define JHB100_SYS2CLK_GPU1_NCNOC_INIT		(JHB100_SYS2CLK_NUM_CLKS + 3)
+> +
+> +static const char * const jhb100_sys2_ext_clk[] = {
+> +	"osc",
+> +	"pll1",
+> +	"gpu0_ncnoc_init",
+> +	"gpu1_ncnoc_init",
+> +};
+> +
+> +static const struct jh71x0_clk_data jhb100_sys2crg_clk_data[] = {
+> +	/* jtag mst*/
+> +	JH71X0__DIV(JHB100_SYS2CLK_JTAGM0_HCLK, "jtagm0_hclk", 6,
+> +		    JHB100_SYS2CLK_PLL1),
+> +	JH71X0__DIV(JHB100_SYS2CLK_JTAGM1_HCLK, "jtagm1_hclk", 6,
+> +		    JHB100_SYS2CLK_PLL1),
+> +	JH71X0__DIV(JHB100_SYS2CLK_JTAGM0_ATPG, "jtagm0_ATPG", 12,
+> +		    JHB100_SYS2CLK_PLL1),
+> +	JH71X0__DIV(JHB100_SYS2CLK_JTAGM1_ATPG, "jtagm1_ATPG", 12,
+> +		    JHB100_SYS2CLK_PLL1),
+> +	JH71X0__DIV(JHB100_SYS2CLK_JTAGM0_ATPG_TCLOCK, "jtagm0_atpg_tclock", 2,
+> +		    JHB100_SYS2CLK_JTAGM0_ATPG),
+> +	JH71X0__DIV(JHB100_SYS2CLK_JTAGM1_ATPG_TCLOCK, "jtagm1_atpg_tclock", 2,
+> +		    JHB100_SYS2CLK_JTAGM1_ATPG),
+> +	JH71X0_GATE(JHB100_SYS2CLK_JTAG0_MST_WRAP_HCLK, "jtag0_mst_wrap_hclk",
+> +		    CLK_IGNORE_UNUSED, JHB100_SYS2CLK_JTAGM0_HCLK),
+
+Can you leave a comment somewhere about why CLK_IGNORE_UNUSED is on some
+of these clocks? We may be able to deprecate this flag once some
+variation of the clk sync_state support lands:
+
+https://lore.kernel.org/linux-clk/20260626-clk-sync-state-v1-0-4156d8196dc8@redhat.com/
+
+
+> +	JH71X0_GATE(JHB100_SYS2CLK_JTAG0_MST_WRAP_CLK_JTAG, "jtag0_mst_wrap_clk_jtag",
+> +		    CLK_IGNORE_UNUSED, JHB100_SYS2CLK_JTAGM0_HCLK),
+> +	JH71X0_GATE(JHB100_SYS2CLK_JTAG0_MST_WRAP_APB_PCLK, "jtag0_mst_wrap_apb_pclk",
+> +		    CLK_IGNORE_UNUSED, JHB100_SYS2CLK_JTAGM0_ATPG),
+> +	JH71X0_GATE(JHB100_SYS2CLK_JTAG0_MST_WRAP_ATPG_TCLOCK, "jtag0_mst_wrap_atpg_tclock",
+> +		    CLK_IGNORE_UNUSED, JHB100_SYS2CLK_JTAGM0_ATPG),
+> +	JH71X0_GATE(JHB100_SYS2CLK_JTAG1_MST_WRAP_HCLK, "jtag1_mst_wrap_hclk",
+> +		    CLK_IGNORE_UNUSED, JHB100_SYS2CLK_JTAGM1_HCLK),
+> +	JH71X0_GATE(JHB100_SYS2CLK_JTAG1_MST_WRAP_CLK_JTAG, "jtag1_mst_wrap_clk_jtag",
+> +		    CLK_IGNORE_UNUSED, JHB100_SYS2CLK_JTAGM1_HCLK),
+> +	JH71X0_GATE(JHB100_SYS2CLK_JTAG1_MST_WRAP_APB_PCLK, "jtag1_mst_wrap_apb_pclk",
+> +		    CLK_IGNORE_UNUSED, JHB100_SYS2CLK_JTAGM1_ATPG),
+> +	JH71X0_GATE(JHB100_SYS2CLK_JTAG1_MST_WRAP_ATPG_TCLOCK, "jtag1_mst_wrap_atpg_tclock",
+> +		    CLK_IGNORE_UNUSED, JHB100_SYS2CLK_JTAGM1_ATPG),
+> +	/* hostusbcmn */
+> +	JH71X0__DIV(JHB100_SYS2CLK_HOSTUSB_NCNOC_TARG, "hostusb_ncnoc_targ", 12,
+> +		    JHB100_SYS2CLK_PLL1),
+> +	JH71X0__DIV(JHB100_SYS2CLK_HOSTUSBCMN_CFG_500, "hostusbcmn_cfg_500", 4,
+> +		    JHB100_SYS2CLK_PLL1),
+> +	/* bmcperiph1 */
+> +	JH71X0__DIV(JHB100_SYS2CLK_BMCPER1_NCNOC_TARG, "bmcper1_ncnoc_targ", 6,
+> +		    JHB100_SYS2CLK_PLL1),
+> +	JH71X0__DIV(JHB100_SYS2CLK_BMCPER1_CFG_250, "bmcper1_cfg_250", 5,
+> +		    JHB100_SYS2CLK_PLL1),
+> +	JH71X0__DIV(JHB100_SYS2CLK_BMCPER1_CFG_143_DFT, "bmcper1_cfg_143_dft", 8,
+> +		    JHB100_SYS2CLK_PLL1),
+> +	JH71X0_GATE(JHB100_SYS2CLK_BMCPER1_CFG_143, "bmcper1_cfg_143", CLK_IS_CRITICAL,
+
+Also please leave a comment why CLK_IS_CRITICAL is needed as well for
+these particular clocks.
+
+Brian
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
