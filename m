@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A84CA5FDD
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 16:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3B6FCA5FC4
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 16:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3Beyk7zBs3wlJr5EJO0h+kslYBSFALPUPvU74ynbXpQ=; b=kWB7XXWKWy0jP5
-	2gF20qx1vogCKVcKW3OnBm9zGRDwsxQ/QtMRC0Z+WwxXIHqOuXlkDTFjdUhBdw6xU72cTOJh8uksC
-	Xa5/4Up5cCdDL32BipxP0aVT1J+oL+DhlO/1FCd/rqCCQxVz74Ec5SQWWHZEJR/KLjg4J/CKrLGCV
-	yLxpEJx3vzCi4qMQaAridEbA1fPFZGnOsGq1VhkC9YhLO5WfA7/U+nmpAEyFXZGPAa6Pc+DcFC8A+
-	lC0xgyxQKmd0P3LdTrFtzaKrcJD0lZoZ7xEjSgsiueodv+WBJatm/2M7sHoalIy8B24Atk731la6Z
-	PrAHEY/ov9S/qp7/tehQ==;
+	List-Owner; bh=01e2Navhs+i+UniWbhlaFstAGKb5ufXa5kDLvIdqwI4=; b=YktBYNPhK70jUR
+	YF8kblJLbNcvlF6Cd+Xe/mbphxdbrjfLJQsxMD0/nagTRxO1LXtzPrnEMpfiEp4e/bDuIOdLyxC+W
+	HktBLZVaehXh9bHKwZ7L960uIIersmREn21HdlhRjmgkAWB+b+SZpPofJUwKYQKn6B17z3D8XdxGp
+	bgdbVWIDsk1zO72pl6USBUGEbuCrKwVcc94yft3tVy+4WcwnBokqpqAICZPVnZXu6e2U6alAB+5fB
+	EvWy2hPajICiZRy/PFwka+06++vpknVOV1BlPQbkpP9FoUH8eZZnnaMNOZZAYs6YTjtPJvTy5mSUM
+	KLPOAyZbTarjn1NTC9iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfkY-0000000C06G-27O7;
-	Fri, 02 Oct 2026 16:04:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCfkX-0000000C063-1pUE
+	id 1xCg0l-0000000C1R7-1zFI;
+	Fri, 02 Oct 2026 16:21:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCg0i-0000000C1QI-3OjR
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Oct 2026 16:04:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CB21C40565;
-	Fri,  2 Oct 2026 16:04:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 538021F000FF;
-	Fri,  2 Oct 2026 16:04:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790957080;
-	bh=1N9GGvHvpZVJHlUkgN3OWhrxMMxchoK7cbMI25aUeMo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jUO2yu/Ab+fNmPTO53QM1J4il/ADJVaPOO0fOqgMCG7H+y0g6Fwj1rX7QAFcPKJa1
-	 3GypmAkyexudTh74cCr6QVtvPbBw/xAZV3SS09r1N2AfEMI0oa29ykaEmnk6ogExI0
-	 qUl7VzcgFacSKdQSE1okQADXcI0lmsJJDDZnixmWJH5uGG6VJ4FSqHgIOC3mtWYzQt
-	 wn0SXJAA16LpFSDGLLri8/uaOVlT/leJs1QJ+DWca2kbnjhECxz5jR4K3EAdlhW05/
-	 qOYWGyv0fZ3Deu1c1GwJwGEWiXhh0ljI1FBbbIowyMSiNPkrY4GRUHR5RsoJiaW6F4
-	 Kov5ix9L+pKrw==
-Date: Fri, 2 Oct 2026 23:44:42 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] riscv: mm: Trace TLB flush path selection
-Message-ID: <ar_Rathmoj2aP-H7@xhacker>
-References: <20260830-tlb_tracepoint-v2-1-e3c88c24df5b@gmail.com>
+	Fri, 02 Oct 2026 16:21:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52B252F;
+	Fri,  2 Oct 2026 09:21:18 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EEB003F86F;
+	Fri,  2 Oct 2026 09:21:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790958081; bh=EYCHNwLbd3FNIDPR3reQ4ONA0wMTkDrOokTErY8y4V4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=olcmUA92VImZqoHucFH9jJErBKuWGpxulrDFs6b9vsSgvv2YZSgnblb2DLCm95NSa
+	 +To8qzdoedK9DlFM+0OU9zmP7vUhZnvaMG6n+ELx31fY7f4rcQ3L4pUn6FiKvJx83y
+	 /4YNsAqYITtBT+t6KRM4vH96VpJaff87v4JKMymE=
+Message-ID: <18c9b030-8dc6-4242-8e66-0448ee125d7d@arm.com>
+Date: Fri, 2 Oct 2026 17:21:18 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260830-tlb_tracepoint-v2-1-e3c88c24df5b@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 01/16] iommu/dma: Prepare MSI physical address lists
+To: Andrew Jones <andrew.jones@oss.qualcomm.com>,
+ linux-riscv@lists.infradead.org, iommu@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
+ tjeznach@rivosinc.com, jgg@ziepe.ca, jgg@nvidia.com, joro@8bytes.org,
+ will@kernel.org, pjw@kernel.org, palmer@dabbelt.com, anup@brainfault.org,
+ tglx@kernel.org, kevin.tian@intel.com, fangyu.yu@linux.alibaba.com
+References: <20260925151659.419512-1-andrew.jones@oss.qualcomm.com>
+ <20260925151659.419512-2-andrew.jones@oss.qualcomm.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260925151659.419512-2-andrew.jones@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261002_092125_180392_720F7617 
+X-CRM114-Status: GOOD (  41.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,332 +69,252 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 30, 2026 at 04:36:37PM +0200, Roman 'Hedin' Storozhenko wrote:
-> Make RISC-V TLB flush path selection observable. Record whether Linux
-> handles an invalidation locally, delegates it to SBI RFENCE, or executes
-> it through a cross-CPU call, so MM activity can be correlated with the
-> RISC-V, firmware, or Linux cross-CPU path carrying the request.
+On 25/09/2026 4:16 pm, Andrew Jones wrote:
+> Software MSI mappings may cover an ordered list of physical addresses
+> which must be mapped into one contiguous IOVA range. Extend the internal
+> DMA-IOMMU mapping helpers to accept an address array, address count, and
+> required mapping granule.
+> 
+> Teach iommu_dma_get_msi_page() to map the list into one contiguous IOVA
+> allocation. Keep the existing per-page cache entries and mark the first
+> entry with the size of the allocation so an identical list can reuse the
+> mapping without changing the existing cache representation.
+> 
+> This prepares for the forthcoming iommu_dma_prepare_msi_list() API.
 
-I didn't see too much usefullness of the trace here. why not use kprobe
-instead? can you plz show a real usage example of the trace? Which
-bug/performance problem can be solved conveniently with this trace only?
+Sorry, but this looks pretty bonkers, even before we get to patch #8. 
+You already end up adding what is effectively a RISC-V-specific 
+entrypoint, so you may as well just carry that all the way through to 
+its own effectively RISC-V-specific implementation, without making an 
+unmaintainable mess of the existing code.
 
-From another side, except x86, other architectures don't have the trace
-in the TLB path.
+The current design for both DMA_IOVA and DMA_MSI cookies is based on the 
+(Arm-centric) notion that different devices may be associated with 
+different MSI controllers that are independent of each other, so we only 
+map what we know we need (and have a way to get the address of at all), 
+and the list lookup is to save redundant mappings and IOVA space when 
+devices do happen to share. Your requirement is almost the complete 
+opposite, where *any* device needs *every* possible MSI controller 
+mapped up-front, plus the MSI controller driver has to be in on this 
+notion too, so it really doesn't fit the same logic well at all. In fact 
+IIUC it should be far simpler - you shouldn't need a list, nor even 
+really care about the addresses, it should merely be a case of whether 
+a) this is the first call for the given cookie so everything needs 
+mapping, or b) it's not the first call, so everything must already be 
+mapped and we can just return the IOVA. If trying to cram these opposing 
+notions down the same path results in a bunch of weird complexity for 
+pretending to support distinct and overlapping values of "everything", 
+which neither case needs, that seems like a pretty clear sign of it 
+being a bad idea IMO.
 
-> 
-> The generic tlb:tlb_flush event describes TLB flush activity using
-> architecture-independent reason and page-count information. The RISC-V
-> implementation subsequently selects between local invalidation, SBI
-> RFENCE, and Linux cross-CPU coordination, with additional
-> architecture-specific request context available at that point.
-> 
-> Making this selection observable is useful when debugging RISC-V TLB
-> shootdowns. When a remote invalidation is observed to be slow, the
-> selected path determines whether to investigate SBI firmware and
-> platform handling or Linux cross-CPU and IPI handling. An unexpectedly
-> broad target mask can reveal an unintended address-space CPU footprint,
-> while the range and stride distinguish invalidation requests with
+Note that since the core cookie rework, untangling the DMA_MSI 
+implementation from DMA_IOVA has been on the table, at which point 
+adding more top-level types of MSI-only cookies would clearly be 
+straightforward. However for DMA_IOVA that could end up getting a bit 
+combinatorial, and keeping an internal sub-type (like for flush queues) 
+would probably be simpler, so it may well make sense to take the latter 
+approach for both, at least to start with. But getting rid of those odd 
+special cases in iommu_dma_{alloc,free}_iova() and the clunkiness of 
+cookie_msi_{granule,pages}() would still be nice either way...
 
-> different mapping granularities.
-> 
-> Place the event in the RISC-V implementation because the local, SBI
-> RFENCE, or cross-CPU choice is made there, and SBI RFENCE and the
-> invalidation stride are RISC-V-specific semantics rather than properties
-> of the generic MM flush request.
-> 
-> Add riscv_tlb:riscv_tlb_flush_path in flush_tlb_all() and
-> __flush_tlb_range(). Record start, size, stride, the hardware-visible
-> ASID, whether a specific mm is associated with the request, the target
-> CPU mask and its weight, the requested scope, and the selected path.
+At very worst, a separate hook to just pre-populate msi_page_list with a 
+regular page for each IMSIC address, such that the existing reuse 
+mechanism keeps working as-is, could probably suffice without any other 
+major structural changes; it's only really the IOVA allocation and the 
+fact that it all has to be done under a single lock acquisition that's 
+special.
 
+Thanks,
+Robin.
 
-> 
-> Record the complete target mask in addition to its weight because CPU
-> identity cannot be reconstructed from a count and is needed to correlate
-> the request with per-CPU scheduler, IPI, and firmware activity.
-> 
-> The event records the invalidation request and the path selected by Linux
-> before the operation is dispatched. In particular, selecting the SBI
-> RFENCE path means that Linux delegated the request to firmware; the event
-> does not describe the implementation or outcome of that delegated
-> operation.
-> 
-> Tested on QEMU virt with OpenSBI using local and shared-mm
-> mprotect()/munmap() workloads. Local requests reported path=local,
-> while remote requests reported path=sbi-rfence and were followed by the
-> existing riscv:sbi_call RFENCE event.
-> 
-> The cross-CPU-call path was tested with QEMU virt using APLIC+IMSIC.
-> A MADV_PAGEOUT reclaim workload was used to exercise mm-independent
-> global flushes. All reported path values (local, sbi-rfence and
-> cross-cpu-call) and scope values (single, range, address-space and all)
-> were observed.
-> 
-> Signed-off-by: Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
+> Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+> Tested-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 > ---
-> Add a RISC-V tracepoint for observing the path selected by Linux for TLB
-> invalidation requests: local invalidation, SBI RFENCE, or Linux
-> cross-CPU coordination.
+>   drivers/iommu/dma-iommu.c | 116 +++++++++++++++++++++++++++++---------
+>   1 file changed, 88 insertions(+), 28 deletions(-)
 > 
-> The tracepoint is intended to make RISC-V TLB shootdown behavior easier
-> to correlate with MM activity, CPU targeting, SBI calls, and IPI
-> handling. The patch records the invalidation request context and the
-> Linux path-selection decision before the operation is dispatched.
-> 
-> The patch was tested on QEMU virt with both the SBI RFENCE path and an
-> APLIC+IMSIC configuration. Local, SBI RFENCE, and cross-CPU-call paths
-> were exercised. All reported scope values -- single, range,
-> address-space, and all -- were also observed.
-> ---
-> Changes in v2:
-> - Use trace_call__riscv_tlb_flush_path() after the explicit
->   trace_riscv_tlb_flush_path_enabled() check to avoid a second
->   tracepoint static-key test, as suggested by Steven Rostedt.
-> - Link to v1: https://lore.kernel.org/r/20260829-tlb_tracepoint-v1-1-dfdaede7e741@gmail.com
-> ---
->  arch/riscv/mm/tlbflush.c         |  60 +++++++++++++++++++--
->  include/trace/events/riscv_tlb.h | 113 +++++++++++++++++++++++++++++++++++++++
->  2 files changed, 169 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-> index 962db300a166..cefce9364bd2 100644
-> --- a/arch/riscv/mm/tlbflush.c
-> +++ b/arch/riscv/mm/tlbflush.c
-> @@ -9,6 +9,9 @@
->  #include <asm/mmu_context.h>
->  #include <asm/cpufeature.h>
->  
-> +#define CREATE_TRACE_POINTS
-> +#include <trace/events/riscv_tlb.h>
-> +
->  #define has_svinval()	riscv_has_extension_unlikely(RISCV_ISA_EXT_SVINVAL)
->  
->  /*
-> @@ -63,6 +66,33 @@ void local_flush_tlb_kernel_range(unsigned long start, unsigned long end)
->  	local_flush_tlb_range_asid(start, end - start, PAGE_SIZE, FLUSH_TLB_NO_ASID);
->  }
->  
-> +static enum riscv_tlb_flush_scope
-> +riscv_tlb_get_flush_scope(unsigned long size, unsigned long stride, bool has_mm)
+> diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
+> index 58c624513cd4..0b4eb47d1a95 100644
+> --- a/drivers/iommu/dma-iommu.c
+> +++ b/drivers/iommu/dma-iommu.c
+> @@ -42,6 +42,7 @@ struct iommu_dma_msi_page {
+>   	struct list_head	list;
+>   	dma_addr_t		iova;
+>   	phys_addr_t		phys;
+> +	size_t			range_size; /* IOVA range size, or 0 if not the first map */
+>   };
+>   
+>   enum iommu_dma_queue_type {
+> @@ -481,7 +482,7 @@ static int cookie_init_hw_msi_region(struct iommu_dma_cookie *cookie,
+>   	num_pages = iova_align(iovad, end - start) >> iova_shift(iovad);
+>   
+>   	for (i = 0; i < num_pages; i++) {
+> -		msi_page = kmalloc_obj(*msi_page);
+> +		msi_page = kzalloc_obj(*msi_page);
+>   		if (!msi_page)
+>   			return -ENOMEM;
+>   
+> @@ -2191,15 +2192,42 @@ static struct list_head *cookie_msi_pages(const struct iommu_domain *domain)
+>   	}
+>   }
+>   
+> +static bool iommu_dma_msi_range_matches(struct list_head *msi_page_list,
+> +					const struct iommu_dma_msi_page *base_page,
+> +					const phys_addr_t *phys_addrs,
+> +					unsigned int nr_addrs, size_t granule)
 > +{
-> +	if (size == FLUSH_TLB_MAX_SIZE)
-> +		return has_mm ? RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE :
-> +			RISCV_TLB_FLUSH_SCOPE_ALL;
+> +	const struct iommu_dma_msi_page *msi_page;
+> +	unsigned int nr_found = 0;
+> +	dma_addr_t offset;
 > +
-> +	return size <= stride ? RISCV_TLB_FLUSH_SCOPE_SINGLE :
-> +		RISCV_TLB_FLUSH_SCOPE_RANGE;
-> +}
-> +
-> +static __always_inline void
-> +riscv_tlb_trace_flush_path(const struct cpumask *cmask, unsigned long start,
-> +			   unsigned long size, unsigned long stride,
-> +			   unsigned long asid, bool has_mm,
-> +			   enum riscv_tlb_flush_path path)
-> +{
-> +	enum riscv_tlb_flush_scope scope;
-> +
-> +	if (!trace_riscv_tlb_flush_path_enabled())
-> +		return;
-> +
-> +	scope = riscv_tlb_get_flush_scope(size, stride, has_mm);
-> +	trace_call__riscv_tlb_flush_path(start, size, stride, asid, has_mm,
-> +			 cmask, scope, path);
-> +}
-> +
->  static void __ipi_flush_tlb_all(void *info)
->  {
->  	local_flush_tlb_all();
-> @@ -70,12 +100,26 @@ static void __ipi_flush_tlb_all(void *info)
->  
->  void flush_tlb_all(void)
->  {
-> -	if (num_online_cpus() < 2)
-> +	if (num_online_cpus() < 2) {
-> +		riscv_tlb_trace_flush_path(cpu_online_mask, 0,
-> +					   FLUSH_TLB_MAX_SIZE, 0,
-> +					   FLUSH_TLB_NO_ASID, false,
-> +					   RISCV_TLB_FLUSH_PATH_LOCAL);
->  		local_flush_tlb_all();
-> -	else if (riscv_use_sbi_for_rfence())
-> -		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE, FLUSH_TLB_NO_ASID);
-> -	else
-> +	} else if (riscv_use_sbi_for_rfence()) {
-> +		riscv_tlb_trace_flush_path(cpu_online_mask, 0,
-> +					   FLUSH_TLB_MAX_SIZE, 0,
-> +					   FLUSH_TLB_NO_ASID, false,
-> +					   RISCV_TLB_FLUSH_PATH_SBI_RFENCE);
-> +		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE,
-> +					   FLUSH_TLB_NO_ASID);
-> +	} else {
-> +		riscv_tlb_trace_flush_path(cpu_online_mask, 0,
-> +					   FLUSH_TLB_MAX_SIZE, 0,
-> +					   FLUSH_TLB_NO_ASID, false,
-> +					   RISCV_TLB_FLUSH_PATH_CROSS_CPU_CALL);
->  		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
+> +	list_for_each_entry(msi_page, msi_page_list, list) {
+> +		if (msi_page->iova < base_page->iova)
+> +			continue;
+> +		offset = msi_page->iova - base_page->iova;
+> +		if (offset >= base_page->range_size)
+> +			continue;
+> +		if (!IS_ALIGNED((size_t)offset, granule) ||
+> +		    msi_page->phys != phys_addrs[(size_t)offset / granule])
+> +			return false;
+> +		nr_found++;
 > +	}
->  }
->  
->  struct flush_tlb_range_data {
-> @@ -107,12 +151,20 @@ static void __flush_tlb_range(struct mm_struct *mm,
->  
->  	/* Check if the TLB flush needs to be sent to other CPUs. */
->  	if (cpumask_any_but(cmask, cpu) >= nr_cpu_ids) {
-> +		riscv_tlb_trace_flush_path(cmask, start, size, stride, asid,
-> +					   !!mm, RISCV_TLB_FLUSH_PATH_LOCAL);
->  		local_flush_tlb_range_asid(start, size, stride, asid);
->  	} else if (riscv_use_sbi_for_rfence()) {
-> +		riscv_tlb_trace_flush_path(cmask, start, size, stride, asid,
-> +					   !!mm, RISCV_TLB_FLUSH_PATH_SBI_RFENCE);
->  		sbi_remote_sfence_vma_asid(cmask, start, size, asid);
->  	} else {
->  		struct flush_tlb_range_data ftd;
->  
-> +		riscv_tlb_trace_flush_path(cmask, start, size, stride, asid,
-> +					   !!mm,
-> +					   RISCV_TLB_FLUSH_PATH_CROSS_CPU_CALL);
 > +
->  		ftd.asid = asid;
->  		ftd.start = start;
->  		ftd.size = size;
-> diff --git a/include/trace/events/riscv_tlb.h b/include/trace/events/riscv_tlb.h
-> new file mode 100644
-> index 000000000000..3eff171ec54f
-> --- /dev/null
-> +++ b/include/trace/events/riscv_tlb.h
-> @@ -0,0 +1,113 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#undef TRACE_SYSTEM
-> +#define TRACE_SYSTEM riscv_tlb
+> +	return nr_found == nr_addrs;
+> +}
 > +
-> +#if !defined(_TRACE_RISCV_TLB_H) || defined(TRACE_HEADER_MULTI_READ)
-> +#define _TRACE_RISCV_TLB_H
+>   static struct iommu_dma_msi_page *iommu_dma_get_msi_page(struct device *dev,
+> -		phys_addr_t msi_addr, struct iommu_domain *domain)
+> +		const phys_addr_t *phys_addrs, unsigned int nr_addrs, size_t granule,
+> +		struct iommu_domain *domain)
+>   {
+>   	struct list_head *msi_page_list = cookie_msi_pages(domain);
+> -	struct iommu_dma_msi_page *msi_page;
+> -	dma_addr_t iova;
+> +	struct iommu_dma_msi_page *msi_page, *first_page = NULL;
+>   	int prot = IOMMU_WRITE | IOMMU_NOEXEC | IOMMU_MMIO;
+> -	size_t size = cookie_msi_granule(domain);
+>   	static DEFINE_MUTEX(msi_prepare_lock);
+> +	LIST_HEAD(new_msi_pages);
+> +	dma_addr_t base_iova;
+> +	unsigned int i;
+> +	size_t size;
+>   
+>   	/*
+>   	 * Normally a device's default domain is only ever attached to that
+> @@ -2213,32 +2241,60 @@ static struct iommu_dma_msi_page *iommu_dma_get_msi_page(struct device *dev,
+>   	 */
+>   	guard(mutex)(&msi_prepare_lock);
+>   
+> -	msi_addr &= ~(phys_addr_t)(size - 1);
+> -	list_for_each_entry(msi_page, msi_page_list, list)
+> -		if (msi_page->phys == msi_addr)
+> +	if (!nr_addrs || nr_addrs > SIZE_MAX / granule)
+> +		return NULL;
+> +	size = nr_addrs * granule;
 > +
-> +#include <linux/cpumask.h>
-> +#include <linux/tracepoint.h>
+> +	list_for_each_entry(msi_page, msi_page_list, list) {
+> +		if (msi_page->phys != phys_addrs[0])
+> +			continue;
+> +		if (nr_addrs == 1)
+> +			return msi_page;
+> +		if (msi_page->range_size == size &&
+> +		    iommu_dma_msi_range_matches(msi_page_list, msi_page, phys_addrs,
+> +						nr_addrs, granule))
+>   			return msi_page;
+> +	}
+>   
+> -	msi_page = kzalloc_obj(*msi_page);
+> -	if (!msi_page)
+> -		return NULL;
+> +	for (i = 0; i < nr_addrs; i++) {
+> +		msi_page = kzalloc_obj(*msi_page);
+> +		if (!msi_page)
+> +			goto out_free_pages;
+> +		list_add_tail(&msi_page->list, &new_msi_pages);
+> +	}
+>   
+> -	iova = iommu_dma_alloc_iova(domain, size, dma_get_mask(dev), dev);
+> -	if (!iova)
+> -		goto out_free_page;
+> +	base_iova = iommu_dma_alloc_iova(domain, size, dma_get_mask(dev), dev);
+> +	if (!base_iova)
+> +		goto out_free_pages;
+>   
+> -	if (iommu_map(domain, iova, msi_addr, size, prot, GFP_KERNEL))
+> -		goto out_free_iova;
+> +	i = 0;
+> +	list_for_each_entry(msi_page, &new_msi_pages, list) {
+> +		msi_page->phys = phys_addrs[i];
+> +		msi_page->iova = base_iova + i * granule;
+> +		if (!i)
+> +			first_page = msi_page;
+> +		if (iommu_map(domain, msi_page->iova, msi_page->phys, granule, prot, GFP_KERNEL))
+> +			goto out_unmap;
+> +		i++;
+> +	}
+>   
+> -	INIT_LIST_HEAD(&msi_page->list);
+> -	msi_page->phys = msi_addr;
+> -	msi_page->iova = iova;
+> -	list_add(&msi_page->list, msi_page_list);
+> -	return msi_page;
+> +	first_page->range_size = size;
+> +	list_splice(&new_msi_pages, msi_page_list);
+> +	return first_page;
+>   
+> -out_free_iova:
+> -	iommu_dma_free_iova(domain, iova, size, NULL);
+> -out_free_page:
+> -	kfree(msi_page);
+> +out_unmap:
+> +	if (i) {
+> +		size_t unmap = iommu_unmap(domain, base_iova, i * granule);
 > +
-> +#ifndef _TRACE_RISCV_TLB_ENUMS
-> +#define _TRACE_RISCV_TLB_ENUMS
+> +		WARN_ON_ONCE(unmap != i * granule);
+> +	}
+> +	iommu_dma_free_iova(domain, base_iova, size, NULL);
+> +out_free_pages:
+> +	while (!list_empty(&new_msi_pages)) {
+> +		msi_page = list_first_entry(&new_msi_pages, typeof(*msi_page), list);
+> +		list_del(&msi_page->list);
+> +		kfree(msi_page);
+> +	}
+>   	return NULL;
+>   }
+>   
+> @@ -2247,19 +2303,23 @@ int iommu_dma_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
+>   {
+>   	struct device *dev = msi_desc_to_dev(desc);
+>   	const struct iommu_dma_msi_page *msi_page;
+> +	phys_addr_t phys_addr;
+> +	size_t granule;
+>   
+>   	if (!has_msi_cookie(domain)) {
+>   		msi_desc_set_iommu_msi_iova(desc, 0, 0);
+>   		return 0;
+>   	}
+>   
+> +	granule = cookie_msi_granule(domain);
+> +	phys_addr = ALIGN_DOWN(msi_addr, granule);
 > +
-> +enum riscv_tlb_flush_scope {
-> +	RISCV_TLB_FLUSH_SCOPE_SINGLE,
-> +	RISCV_TLB_FLUSH_SCOPE_RANGE,
-> +	RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE,
-> +	RISCV_TLB_FLUSH_SCOPE_ALL,
-> +};
-> +
-> +enum riscv_tlb_flush_path {
-> +	RISCV_TLB_FLUSH_PATH_LOCAL,
-> +	RISCV_TLB_FLUSH_PATH_SBI_RFENCE,
-> +	RISCV_TLB_FLUSH_PATH_CROSS_CPU_CALL,
-> +};
-> +
-> +#endif /* _TRACE_RISCV_TLB_ENUMS */
-> +
-> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_SINGLE);
-> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_RANGE);
-> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE);
-> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_ALL);
-> +
-> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_PATH_LOCAL);
-> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_PATH_SBI_RFENCE);
-> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_PATH_CROSS_CPU_CALL);
-> +
-> +#define show_riscv_tlb_flush_scope(scope) \
-> +	__print_symbolic(scope, \
-> +		{ RISCV_TLB_FLUSH_SCOPE_SINGLE,        "single" }, \
-> +		{ RISCV_TLB_FLUSH_SCOPE_RANGE,         "range" }, \
-> +		{ RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE, "address-space" }, \
-> +		{ RISCV_TLB_FLUSH_SCOPE_ALL,           "all" })
-> +
-> +#define show_riscv_tlb_flush_path(path) \
-> +	__print_symbolic(path, \
-> +		{ RISCV_TLB_FLUSH_PATH_LOCAL,          "local" }, \
-> +		{ RISCV_TLB_FLUSH_PATH_SBI_RFENCE,     "sbi-rfence" }, \
-> +		{ RISCV_TLB_FLUSH_PATH_CROSS_CPU_CALL, "cross-cpu-call" })
-> +
-> +/*
-> + * Record the invalidation request received by the RISC-V architecture code
-> + * and the path selected by Linux.
-> + *
-> + * The target CPU mask represents the CPUs Linux intends to cover for the
-> + * request. It can be correlated with per-CPU activity, but does not describe
-> + * which harts ultimately performed an invalidation.
-> + *
-> + * The ASID is hardware-visible and may be reused. It must not be treated as a
-> + * persistent identifier for an mm.
-> + *
-> + * The stride describes the invalidation granularity supplied to the RISC-V
-> + * implementation. SBI RFENCE receives start, size and ASID, but not stride.
-> + *
-> + * The event is emitted at path selection time. For SBI RFENCE, it records
-> + * delegation of the request to firmware; firmware processing after that
-> + * point is outside the event's scope.
-> + */
-> +TRACE_EVENT(riscv_tlb_flush_path,
-> +	TP_PROTO(unsigned long start, unsigned long size,
-> +		 unsigned long stride, unsigned long asid, bool has_mm,
-> +		 const struct cpumask *cmask,
-> +		 enum riscv_tlb_flush_scope scope,
-> +		 enum riscv_tlb_flush_path path),
-> +
-> +	TP_ARGS(start, size, stride, asid, has_mm, cmask, scope, path),
-> +
-> +	TP_STRUCT__entry(
-> +		__field(unsigned long, start)
-> +		__field(unsigned long, size)
-> +		__field(unsigned long, stride)
-> +		__field(unsigned long, asid)
-> +		__field(bool, has_mm)
-> +		__field(unsigned int, target_mask_weight)
-> +		__cpumask(target_cpus)
-> +		__field(u8, scope)
-> +		__field(u8, path)
-> +	),
-> +
-> +	TP_fast_assign(
-> +		__entry->start = start;
-> +		__entry->size = size;
-> +		__entry->stride = stride;
-> +		__entry->asid = asid;
-> +		__entry->has_mm = has_mm;
-> +		__entry->target_mask_weight = cpumask_weight(cmask);
-> +		__assign_cpumask(target_cpus, cpumask_bits(cmask));
-> +		__entry->scope = scope;
-> +		__entry->path = path;
-> +	),
-> +
-> +	TP_printk("start=%#lx size=%#lx stride=%#lx asid=%#lx has_mm=%d target_mask_weight=%u target_cpus=%s scope=%s path=%s",
-> +		  __entry->start, __entry->size, __entry->stride,
-> +		  __entry->asid, __entry->has_mm,
-> +		  __entry->target_mask_weight, __get_cpumask(target_cpus),
-> +		  show_riscv_tlb_flush_scope(__entry->scope),
-> +		  show_riscv_tlb_flush_path(__entry->path))
-> +);
-> +
-> +#endif /* _TRACE_RISCV_TLB_H */
-> +
-> +/* This part must be outside protection. */
-> +#include <trace/define_trace.h>
-> 
-> ---
-> base-commit: 77ae27fd98f3b548797c9f22c10ab5cf1c4ada53
-> change-id: 20260829-tlb_tracepoint-844105ab5092
-> 
-> Best regards,
-> -- 
-> Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>   	iommu_group_mutex_assert(dev);
+> -	msi_page = iommu_dma_get_msi_page(dev, msi_addr, domain);
+> +	msi_page = iommu_dma_get_msi_page(dev, &phys_addr, 1, granule, domain);
+>   	if (!msi_page)
+>   		return -ENOMEM;
+>   
+> -	msi_desc_set_iommu_msi_iova(desc, msi_page->iova,
+> -				    ilog2(cookie_msi_granule(domain)));
+> +	msi_desc_set_iommu_msi_iova(desc, msi_page->iova, ilog2(granule));
+>   	return 0;
+>   }
+>   
+
 
 _______________________________________________
 linux-riscv mailing list
