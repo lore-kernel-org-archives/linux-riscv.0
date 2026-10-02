@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5741DCA5FDD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98610CA5FE0
 	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 18:52:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,74 +12,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
 	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8FZBlALegRFrOuUOnXaMC1eOK3M2JGQuVmGLSbE42qE=; b=dDsvU4617My1Y2
-	/5e/YEzz13+HiOH3CsYHyYg6sSaZbhnX+rUt9YACJqLDEBfh0B/jLurMuP3Z+rFXhmBv0heePTRYc
-	Qv6kqSJ3St3M2ziWhnbfIiLfhou2DjU1Td0eIRYCYyOYZrFd3gU+dHhDI2obVOOc3WSScpwY3/35/
-	wwrx7t2fIhFQZfiD7X36SKmQjJvxTrGYhCw7Q/NMGAuqsJeZ8hScAvFijCQ/993mzVarECWZpd1ZG
-	Ig8+PeAoLKenUsZFDL/mo3kT+8SvueoJVgoJ8Z3ZPcDF4C0Im0F2TRT2QwXLhKqDy0+YCzy8QA7Ul
-	qh5xYOxV1XxkZXI3HMVg==;
+	List-Owner; bh=rmn7lqE6EsjPbx3o44pBKB8dr8h2ImrYQzUXRIgePNs=; b=FR/qJDkjxDKDGR
+	DNfmhe9nrpFDQJNSMUoXH/0iui57V6NTNBPkGOB/Lurk9ESlcNDKrk/AH92ZNLii3HMBOvcoGF36m
+	ZuznHi1AEewWcuX3ocedwaM5YXTteVeh45S4zNaEA0mm1AWpwlORqV3yym8GVElg03tJo7MkkKibF
+	Y4b0PKpRoWR2T+UDsapuiYHSOplrpx+KyBmRxMjHeVAEnSDcxouUbgWgv3bNKsK4JXxKke9DED+Bg
+	WMQ6Q63w3W0zSb5eLmX7IgD8BWi0JKQVhdO9H3dtcuI9XHWXK1zv5MfqpFxRf2SvihwRtFqvMRqlB
+	49B3x3HS2SX0MwulRTSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCiMW-0000000CIzN-2w8v;
-	Fri, 02 Oct 2026 18:52:04 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCiMU-0000000CIyT-2lAb
-	for linux-riscv@lists.infradead.org;
+	id 1xCiMV-0000000CIyr-2WXh;
 	Fri, 02 Oct 2026 18:52:03 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCiMS-0000000CIx9-0XOU
+	for linux-riscv@lists.infradead.org;
+	Fri, 02 Oct 2026 18:52:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790967121;
+	s=mimecast20190719; t=1790967119;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8ZbusdJQDLU9CqEcp+iezpSfVMrYKCe1NKRzE9U8ZfQ=;
-	b=KpwvNA6yyHps7fBy23Jiy6/hPp/Nzm3EqGCQYLs6FY/iUkxwaRokU50jEp5EmLK7kVu6TO
-	3MgGuRovlVpDX7/V+QMNsfYQn6JHFJZFDKF8qIboU2x6yyrkY1Wm01rmN7V2qZcckiM0Qs
-	2HVwjkWml7cSg0/IjClbNvSwioib3SY=
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
- [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=r0MvWYWwsu7LG0V0ETPW58ud5t6tmXACPDGuesfQVDA=;
+	b=HuGmaO/o9vKa496/1RyoY0obRUI20MtNMpCaJAuxSydQfiEWDxwFtoh4z7IgZqcIgp9SZv
+	3cwoGbYBSGT2ZyR1Sk8shpZfnHP6+KYrvY/TWozQE9xen09EBkwyHq7apyLNN3XEDE1M8e
+	1iWY05iuKJhK3Qevh5otCn34d5olaN4=
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
+ [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-589-A__7zdtqM0eugyMmSer-vA-1; Fri, 02 Oct 2026 14:52:00 -0400
-X-MC-Unique: A__7zdtqM0eugyMmSer-vA-1
-X-Mimecast-MFC-AGG-ID: A__7zdtqM0eugyMmSer-vA_1790967120
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93caa0ce0cdso368938685a.2
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Oct 2026 11:52:00 -0700 (PDT)
+ us-mta-564-Q-SnPMA0NJCLp0pPUqiWyg-1; Fri, 02 Oct 2026 14:51:57 -0400
+X-MC-Unique: Q-SnPMA0NJCLp0pPUqiWyg-1
+X-Mimecast-MFC-AGG-ID: Q-SnPMA0NJCLp0pPUqiWyg_1790967117
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-917b7dd3f1dso3300966d6.3
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Oct 2026 11:51:57 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790967120; x=1791571920;
+        d=1e100.net; s=20260707; t=1790967117; x=1791571917;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=8ZbusdJQDLU9CqEcp+iezpSfVMrYKCe1NKRzE9U8ZfQ=;
-        b=d5wvqcx+837p2ZhekyMkFiC0vkzcMCBim1dZ/hOBRVFf3Nmv282XSm1n9ydx122i1P
-         oWVSYo80QFNAYAeIbwLK8TFPm6+Ja1GkvAZa2kkjUExHfrpey1go4Ra0yxV84mNhLQac
-         9WIyyelbUsmwkHUcf+6lyNQ11rEDIU+xX+pwu+F+28CRdjEL7rOtbuJzROux301KXGs/
-         k1JA2MVCwUK1cW5+3wwdgypwbHKqmUqIP+3FAx2+0ToDRWIIirSyFv/iBG5ojMp3TgRx
-         eqMzmUd9poMc6fA9LfhaNriw7WJqipuMJznFv4G/YDR8xbkW/ftlAQ0pjGszICx9pDfO
-         hNrw==
-X-Forwarded-Encrypted: i=1; AKwUvBy46HefETMySgxg/7w7Bh8hwXOJeJQIDcRe7LBh25XI/nlJnWgDPcVUVPWc6qVR10nMe9AFki1AHcMb0w==@lists.infradead.org
-X-Gm-Message-State: AFuF++mH6xPreZgADC4kwOpTuCbdZgpKzw2fC96iguaSwP4Aw6D+lDeZ
-	Nayx/D2Vmy25KffAafenWEqXpADPrvdvIi/6eP55rVhTE81cLy1p0T8gRLw4MuWhBqi2TiYHNan
-	s6iVDBk4F4K3Q4s7cabAWwxq8gugUM4XfbFxwHAmwvKfJCBOd/UIBbAAwgZozXrwJhiJlQ+6xIJ
-	FzXA==
-X-Gm-Gg: AYBFou09z+I9B0LJmLZW1Nm3wQTZSYtQ1QfRzkh8HZjTQywqdz3WXWoejeNF2EgKZgW
-	JZXHxcIYVVy9IRJrvNyN6HegDVZIByUW1nzOUaRvHQtOxVnRcfTHU3t+Uj5VTYR4nGdl0X1Z145
-	gAKMS0YZcvbpMAtFHUxYfIn3hxvRgefhZHtNb3tqsSETPYGDkMAGtDxsSvhqS4IMDzT/1oOHzIf
-	awB660nWgc0je1GAwUQSnkxQAgWziBaH/j0Ohe2tXROqpyuyr+p2dfHnJ2EVuaieDgu1QBcFlGb
-	5+pVUvnmTg/sNnJ9ZH2XdCjEGo5zHtER9K0YyFYyDp7F0Nyd3ipPNYyR06RMtG0PNo9yzR34OUy
-	1OYCctRr164pAkw==
-X-Received: by 2002:a05:620a:1707:b0:93c:ab7d:af7 with SMTP id af79cd13be357-93e510eda88mr48339585a.54.1790967119624;
-        Fri, 02 Oct 2026 11:51:59 -0700 (PDT)
-X-Received: by 2002:a05:620a:1707:b0:93c:ab7d:af7 with SMTP id af79cd13be357-93e510eda88mr48333485a.54.1790967118935;
-        Fri, 02 Oct 2026 11:51:58 -0700 (PDT)
+        bh=r0MvWYWwsu7LG0V0ETPW58ud5t6tmXACPDGuesfQVDA=;
+        b=kzubTAXaMJIbuYCzVM6+zEkzDBvE8BnnrIe6kF7qRtl442jsyPiRg/8g5hJTPZsoex
+         +EZD25GrN5sE1n2u60hDfVnU6KuNa1fchN5QNG/+8fJFGLi1oEXiOYMu5c2rgoDz2qaX
+         hu/FNNYtDDtGFgNcaWy2lbf/M9b0LIq7IUzbM4Z77s6qGORz2wb0GrpBt8afOjydWCf3
+         DUKyE0v79sp3r4bK8lrknw1pzoZlAdhvzu5Sl4LSf9/4KDJ4MSVYVCNkVS/I1GAD74eU
+         leD6HhJQaxJCRCjp7Zvc0FZn0L+ZE7uUYz21vGd0L2IUBpW23kt5EDEA+tgSagKrtdJa
+         KoUw==
+X-Forwarded-Encrypted: i=1; AKwUvBycAijbyN6dRbTg1wiZou9XVNn/gRiTEMlKIix4pH2jSDCEQL7UIQEYgN1xUmHzjg8kX+64D1Hc9gLVeA==@lists.infradead.org
+X-Gm-Message-State: AFuF++l9lssnq+kf62+4BQ1agVLAarh2g980F49Ort3R7OakERM2gkb4
+	Ahrdw8LLeudN9r2hE3Tm/S4RLJGIXy9LsrftWRsghGuUusam8KAlViSLLGMFrGGrw3yJNyMsNS+
+	wHFIcaq1aYzJ05pTfCtPmNhDm2D97puFZlQXZ3XxRKAgApfVWfMHtrZ+89fkZBr3s95dv6A==
+X-Gm-Gg: AYBFou1Yh1/y2TtNGcVBPf5sXtZTEE68RafwJNu2ctzMTTbpcbIQFB4oFs+LuzaWFCi
+	wFE7284rDACY+zrt6VwzQ7whCND6QeBnUHckZKMYQmNAS2ZDfDYG0vqcW8tTj8hM38M4PSngD6I
+	1+F4/qCgiQaAm20RVpthM/JNRHEYxmuKeTb9nXVk88NWST9z8feeNjnFXzEmxBvPfYYgBiwbEkk
+	AUi6zeAae6Jxv6IyRyJ1740PHBqmqEVHk6CQpvwU02bx8rO6ktEAJotMmrFB/nqLHaEaK6HPM40
+	9E6GNjK2si9Da8oZM9HDBqNUk6EDkt1D1F0VtUaIQYRjqUGBojvpbBmFy+EYZRe4U94FHQ0as4h
+	Lgp3rUU75+RFPBg==
+X-Received: by 2002:a05:620a:7105:b0:93a:824:ac8d with SMTP id af79cd13be357-93e5102406amr48500785a.27.1790967116782;
+        Fri, 02 Oct 2026 11:51:56 -0700 (PDT)
+X-Received: by 2002:a05:620a:7105:b0:93a:824:ac8d with SMTP id af79cd13be357-93e5102406amr48495985a.27.1790967116138;
+        Fri, 02 Oct 2026 11:51:56 -0700 (PDT)
 Received: from bmasney-x1.rmtuswv.csb ([2600:382:7723:4eba:66b1:961f:1a2d:af55])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93cca03a1bbsm290352485a.1.2026.10.02.11.51.56
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93cca03a1bbsm290352485a.1.2026.10.02.11.51.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 11:51:58 -0700 (PDT)
+        Fri, 02 Oct 2026 11:51:55 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH v5 12/23] clk: starfive: Introduce idiv ops for
- inverted divider clocks
+Subject: Re: [PATCH v5 11/23] dt-bindings: clock: Add StarFive JHB100
+ Peripheral-0 clock and reset generator
 From: Brian Masney <bmasney@redhat.com>
 To: Changhuang Liang <changhuang.liang@starfivetech.com>
 Cc: Michael Turquette <mturquette@baylibre.com>, 
@@ -95,27 +94,27 @@ Cc: Michael Turquette <mturquette@baylibre.com>,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-riscv@lists.infradead.org, linux-hardening@vger.kernel.org, 
  netdev@vger.kernel.org, Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <20260930124317.5648-13-changhuang.liang@starfivetech.com>
+In-Reply-To: <20260930124317.5648-12-changhuang.liang@starfivetech.com>
 References: <20260930124317.5648-1-changhuang.liang@starfivetech.com>
- <20260930124317.5648-13-changhuang.liang@starfivetech.com>
+ <20260930124317.5648-12-changhuang.liang@starfivetech.com>
 Date: Fri, 02 Oct 2026 14:51:13 -0400
-Message-Id: <179096707366.821688.7143884804671628088.b4-review@b4>
+Message-Id: <179096707365.821688.14329539857628581125.b4-review@b4>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1581; i=bmasney@redhat.com;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1426; i=bmasney@redhat.com;
  s=20250903; h=from:subject:message-id;
- bh=DHchWNZ1wELl9N/w6lEvEhX4ovGIqMkBB+Mj5IaftOY=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLL2/7W9zLXuyMqzenaif56235iYH37vy6njq2S21Ouo+
- +7y2HUxvaOUhUGMi0FWTJFlSa5RQUTqKtt7dzRZYOawMoEMYeDiFICJdK5hZOiut5vCynTqZcHe
- S+F3wxhvO356uFlMyslMe9Iri3Oa/ikM/2MWlG1+tWHSu7i1E1iyY9Z/9z/fdPbqy3Oxs2tXT/8
- VOYsRAA==
+ bh=d+7Dzq3mPeyFPY32y86AvdtMGs9/cR+SwwsFl7j1jgU=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLL2/7Wx/KcQOOltnNfPrdMX3LuT/HC+0e60NpG6lD1rZ
+ 17q/rvbvKOUhUGMi0FWTJFlSa5RQUTqKtt7dzRZYOawMoEMYeDiFICJ/DvF8JvNMflnwRuHRRt/
+ inec9nG6u3qLz7SmebNcL5042au9L+cTw28Wm8MCxyYbZ0apt67dn7TKUV08XMTt6JZbavvlIy/
+ UbmYAAA==
 X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
  fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: za6n8afS-9fnBXKMrREQqb2alkH_MgjQMZcxIG1_63s_1790967120
+X-Mimecast-MFC-PROC-ID: V4lxThhprBHK4SHUfVcFpJgmHJnnabXQsw6HJI-FDRA_1790967117
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_115202_773843_EEA4CF77 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20261002_115200_249564_F3F50C87 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,44 +133,45 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi Changhuang,
 
-> Some StarFive clocks only advertise the divider and invert capabilities
-> (via JH71X0_CLK_INVERT, without ENABLE). Add the JH71X0_IDIV() macro
-> to declare such clocks, and jh71x0_clk_idiv_ops, which combines the
-> divider rate operations with get_phase/set_phase.
+> Add bindings for the Peripheral-0 clock and reset generator (PER0CRG)
+> on the JHB100 RISC-V SoC by StarFive Ltd.
 > 
 > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 >
-> diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.c b/drivers/clk/starfive/clk-starfive-jh71x0.c
-> index bb7706ede1a6..1f98f1f8f0a5 100644
-> --- a/drivers/clk/starfive/clk-starfive-jh71x0.c
-> +++ b/drivers/clk/starfive/clk-starfive-jh71x0.c
-> @@ -302,6 +302,15 @@ static const struct clk_ops jh71x0_clk_inv_ops = {
->  	.debug_init = jh71x0_clk_debug_init,
->  };
->  
-> +static const struct clk_ops jh71x0_clk_idiv_ops = {
-> +	.get_phase = jh71x0_clk_get_phase,
-> +	.set_phase = jh71x0_clk_set_phase,
-> +	.recalc_rate = jh71x0_clk_recalc_rate,
-> +	.determine_rate = jh71x0_clk_determine_rate,
-> +	.set_rate = jh71x0_clk_set_rate,
-> +	.debug_init = jh71x0_clk_debug_init,
-> +};
+> diff --git a/Documentation/devicetree/bindings/clock/starfive,jhb100-per0crg.yaml b/Documentation/devicetree/bindings/clock/starfive,jhb100-per0crg.yaml
+> new file mode 100644
+> index 000000000000..db43e03fd60c
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/starfive,jhb100-per0crg.yaml
+> @@ -0,0 +1,70 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/starfive,jhb100-per0crg.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
->  const struct clk_ops *starfive_jh71x0_clk_ops(u32 max)
->  {
->  	if (max & JH71X0_CLK_DIV_MASK) {
-> @@ -312,6 +321,9 @@ const struct clk_ops *starfive_jh71x0_clk_ops(u32 max)
->  		}
->  		if (max & JH71X0_CLK_ENABLE)
->  			return &jh71x0_clk_gdiv_ops;
-> +		else if (max & JH71X0_CLK_INVERT)
-> +			return &jh71x0_clk_idiv_ops;
+> +title: StarFive JHB100 Peripheral-0 Clock and Reset Generator
 > +
->  		if (max == JH71X0_CLK_FRAC_MAX)
->  			return &jh71x0_clk_fdiv_ops;
+> +maintainers:
+> +  - Changhuang Liang <changhuang.liang@starfivetech.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: starfive,jhb100-per0crg
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: Main Oscillator (25 MHz)
+> +      - description: PLL6
+> +      - description: Configure 400MHz
+> +      - description: Configure 800MHZ
 
-else if so that it's with the block above.
+There's a mismatch here in the casing of the units. One line has MHz and
+the other has MHZ.
 
 Brian
 
