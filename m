@@ -4,93 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81DE9CA5FDD
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 15:20:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B193BCA5FDD
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 15:23:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VPVo1VEvkgk5r4NygRABicaln2sd4ka9tDCAVdCUtWA=; b=2zl8GTgIKbHcSo
-	XxpTQxdyp6tGteDPqsdZ+Yh2AnGmBrOi0zkjq2xEhOUxan1s7sU558JevPiCea4aiNXofPRR/J4d1
-	X+BYzfh6tVpg4AQRU75177vtxxWVfRGo4vmXDvUmm2s9iFlhcuILlZKJSlWFjwizI9UBtcXYFnrB+
-	KNMlzAV8kuYynM/ShwTJczXRRTo+Yz9Ac+u+J0cLgFINnGXPiiDxUuusyhFfqobw2U/B1O5mXYF4Y
-	2qXYFsbQ5Ve5QLs2W0EevGnl4Lf5p3MXg7g9C+p7TWkTfLW7DEDc3T/k1MqYTler5GFfO9OgJcV97
-	tREKPdXoHqfxp3owMnPA==;
+	List-Owner; bh=OagijPKukz+5p/irEFRYgIGcCmqLz38C3dMNnb/TBzs=; b=eKpAxwGnxt3LzF
+	ByfiOsRaGhshiH4z2LLaZbM3cITYZbDgA6+iOFXQqzxkm0GiA5smcISke7yi90M+IbYdG7Y4CX9hA
+	XIEOa8R1Qc6mEcNFJnZHCNgEo+WbvexLLhFB/Z7BXlRdha9ufcoUJJDqULsHO+kqG71h0C7soqb3H
+	FavqAt7N2RfgO5NI+S+4vhhJ6XPUanBA1ViMB7qX7GZ001zESdXdSwJiGFqwBTFqbTjFOLGzdsn+k
+	aV6XaXDruiW9x0lvteoY3p7W9FgVqwZuRT6TD2sCxN9jO1zD5pjGsl8URYX6KAsczhdINAKDlZ7Il
+	wQmkDxEO2iSYDWg5e13Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCf35-0000000Btcf-1aNW;
-	Fri, 02 Oct 2026 15:19:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCf32-0000000Btbq-1kdo;
-	Fri, 02 Oct 2026 15:19:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01F1B143D;
-	Fri,  2 Oct 2026 08:19:37 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 641853F85F;
-	Fri,  2 Oct 2026 08:19:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790954380; bh=SSl2JQPa1sjMP27v12qlQtHRT4X5Eb5ZVPfcjcc+ylY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IlyejI7qb0gs7j139i/OXFX7YSa7K8RDIzOWTpRuOE9JAmghBbLW79oG+rU9uR0nM
-	 /TUyql12KMCKrjEBq3NTEwvaca43sTKTauxz9jPkFBtfHxO2tjJ+5SNvDYkgZd4Cbt
-	 yJb4XX+muSik5WMBpZk3TvG/LO7AvQ/V672lsWiA=
-Date: Fri, 2 Oct 2026 16:19:32 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Muhammad Usama Anjum <usama.anjum@arm.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-mm@kvack.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-openrisc@vger.kernel.org, Sohil Mehta <sohil.mehta@intel.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Barry Song <baohua@kernel.org>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	David Hildenbrand <david@kernel.org>,
-	Michal Hocko <mhocko@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	id 1xCf6v-0000000BuV3-2nTY;
+	Fri, 02 Oct 2026 15:23:45 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCf6s-0000000BuUa-1OEq
+	for linux-riscv@lists.infradead.org;
+	Fri, 02 Oct 2026 15:23:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790954621;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iVjH0D2jt0kRvnH6DkUbM3A4qPDRx66aQ27YIk5b7Y4=;
+	b=a691xB4ddkHHoeeItF1tespNc5rc3EoKp+JvgoQDlJluXtrr1kAX/6VLYRfbS6s8DemVGX
+	9mJxdZl3EAGdT47psa0Fj4YkvfeqJzNCRuphegRPAx5PzaXFcuZdGDNJRmbDBQ0w9aLAj/
+	FdoJwSaI1c9X7EdUNdUDaFnv8rb48ag=
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
+ [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-564-6KzaHOJJMXOq0ro5YCYwJQ-1; Fri, 02 Oct 2026 11:23:39 -0400
+X-MC-Unique: 6KzaHOJJMXOq0ro5YCYwJQ-1
+X-Mimecast-MFC-AGG-ID: 6KzaHOJJMXOq0ro5YCYwJQ_1790954619
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93a082c014aso478481485a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Oct 2026 08:23:39 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790954619; x=1791559419;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iVjH0D2jt0kRvnH6DkUbM3A4qPDRx66aQ27YIk5b7Y4=;
+        b=HreRNnZ+9GElNISYUQzaPO70FhfUm/S+A/nYfoWa3B6Rp9znaCwW6TfqHeLxB9vJfx
+         iC2l915GTyizT3py5MYsaBzZtTkizBmuOMSMPEasHVFuOnG7nc0pMChUZ8zcSobvquet
+         kjm3QvsLS7yaZfcubouRQhpmdRfgn0gpD4J125+B9CGHuCnc+ppX7MeQkLxa115D71+0
+         MYVKKNiZCwhX+wWbB6Of41eoU6oieGZaDCTMjks8SBfgx6DVoYE5ANPsscOZDER3pklh
+         J5xKTuarS18fD1qJoiTpFdfD+QTAk8JuoLtjntfcpmox2v96sXaMFuP3IImGLqNEsEWY
+         yRWw==
+X-Forwarded-Encrypted: i=1; AKwUvBwOe7QDZI0JDKnSDikL5gxBKwP4nM9/34Jv8dQFAW62ttNWXOXfDf9Qr0htygS1UAxHlJNKKBdHRD4P9w==@lists.infradead.org
+X-Gm-Message-State: AFuF++kaN1HQfdN4eLcK5XgCTmTk7995qu9qBLOi/QmXEDh/8Eq8qNcg
+	vWuKjH6+/8EgFBLLjRsKTULPGBCipOfxkvrsWTA4VIC0st1zkF1ZmN7+fmPQba4RfmxLZVYrcgD
+	GO478TzJqSOmt1HBCS4wK7k6mbglUsRzW/pm6vLHIR+DrN7I3KHHxqOfKmGticRUXFL/dc08SdM
+	/eAw==
+X-Gm-Gg: AYBFou1VwlUdQ7ZvMl2rqgZgfj2c2c5Owoy0/afmVOOg6OPtGBWRKG6iXnWRpNuuO7L
+	nNO5VPVhivXE7CwM3Enl6vPLDt2ML+0EofjBSJcAk2sxWcyud+H9koQaq0kV3zBYC1gfdQTCql7
+	9m3yQusG/Bbwq+JKrZoFRw9DeZRBBiTNMz0V8fpPNbwNAtuv2gi2MmoAHzBuGsIHgJxPgyoSTTL
+	pTSuPVVz3jboEQ0DxYfe75uPcuLaZ65rZBzB+Z/+S1bvl+3avsKNzX5GmcmgMa+3eNLdm0UKt8w
+	kR+eJ6aAeVcOwlY3Dih5/qaStXKQeojMVGcUm5Xl13ArGOT5xELQWSK10y5vyn+klHNcsxguiGG
+	dLzimDAQ9ewZok0uZ18U5QbF9mvpvmINuTuw=
+X-Received: by 2002:a05:620a:480a:b0:93a:d67:9ab0 with SMTP id af79cd13be357-93ce7a85665mr565821385a.4.1790954619250;
+        Fri, 02 Oct 2026 08:23:39 -0700 (PDT)
+X-Received: by 2002:a05:620a:480a:b0:93a:d67:9ab0 with SMTP id af79cd13be357-93ce7a85665mr565813085a.4.1790954618588;
+        Fri, 02 Oct 2026 08:23:38 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93cca2ec917sm242866585a.46.2026.10.02.08.23.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 Oct 2026 08:23:37 -0700 (PDT)
+Date: Fri, 2 Oct 2026 11:23:35 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Junhui Liu <junhui.liu@pigmoral.tech>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Jonas Bonn <jonas@southpole.se>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>
-Subject: Re: [PATCH 00/21] mm: change behavior of pXdp_get()/pXd_page() in
- compile-time folded pgtable
-Message-ID: <ar_LhBOaywb-n_H2@e129823.arm.com>
-References: <20260921-dummy_ptxp3-v1-0-cd40cf68242e@arm.com>
- <81b1fec1-3b5e-43ed-a5b3-1a73c80201d8@arm.com>
+	Yixun Lan <dlan@kernel.org>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/2] riscv: dts: anlogic: drop unused DR1V90 external
+ clocks
+Message-ID: <ar_MdxhafYCvqci_@redhat.com>
+References: <20261002-dr1v90-cru-dt-fix-v1-0-c3e0b5d4c30d@pigmoral.tech>
+ <20261002-dr1v90-cru-dt-fix-v1-2-c3e0b5d4c30d@pigmoral.tech>
+ <20261002-manpower-croon-26d578f57143@wendy>
 MIME-Version: 1.0
+In-Reply-To: <20261002-manpower-croon-26d578f57143@wendy>
+User-Agent: Mutt/2.4.2 (2026-08-30)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: nsBRGMYE3nWWGG42g7XUURv2wpzgx_42tCcodx2FBN8_1790954619
+X-Mimecast-Originator: redhat.com
 Content-Disposition: inline
-In-Reply-To: <81b1fec1-3b5e-43ed-a5b3-1a73c80201d8@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_081944_538974_DC59B705 
-X-CRM114-Status: GOOD (  39.42  )
+X-CRM114-CacheID: sfid-20261002_082342_476147_7978A3D7 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,146 +122,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 10:11:04PM +0100, Muhammad Usama Anjum wrote:
-> On 21/09/2026 11:55 am, Yeoreum Yun wrote:
-> > Using ptep_get() and its counterparts in common code is suboptimal on
-> > kernel configurations with generic compile-time folded page tables.
-> > By default, ptep_get() and its friends expands to READ_ONCE(),
-> > forcing the compiler to emit a load even when the value is not used afterwards.
+Hi Conor,
+
+On Fri, Oct 02, 2026 at 08:09:08AM +0100, Conor Dooley wrote:
+> On Fri, Oct 02, 2026 at 02:07:01PM +0800, Junhui Liu wrote:
+> > The external CAN and watchdog clock inputs are not routed on the MLKPAI
+> > FS01, the only board currently supported. Drop the two fixed-clock
+> > placeholders from the common dtsi, as fixed clocks require a valid
+> > clock-frequency property.
 > > 
-> > This issue was recently reported by Christophe Leroy [1] for ppc32
-> > preventing futher code conversion to ptep_get()/pmdp_get()/... helper
-> > and the same behavior can also be observed on arm64 when built with
-> > 2- or 3-level page tables
+> > Both clock muxes select their internal parent clocks after reset, so
+> > the CRU operates correctly without the external inputs. Keep only the
+> > required oscillator input to the CRU.
 > > 
-> > e.g) perf_get_page_size() in arm64 with CONFIG_PGTABLE_LEVEL=3:
+> > A board using these external clocks should define them in its own
+> > board-level dts and override the clocks and clock-names properties of
+> > the CRU node.
 > > 
-> > 00000000000052a0 <perf_get_page_size>:
-> >     ...
-> >     52dc: d53b4234     	mrs	x20, DAIF
-> >     52e0: d50343df     	msr	DAIFSet, #0x3
-> >     ...
-> >     52fc: d35e9a69     	ubfx	x9, x19, #30, #9        /* pud_offset_lockless() */
-> >     5300: f9403508     	ldr	x8, [x8, #0x68]
-> >     5304: f869790a     	ldr	x10, [x8, x9, lsl #3]   /* pudp_get() */
-> >     5308: f90007ea     	str	x10, [sp, #0x8]
-> >     530c: f8697908     	ldr	x8, [x8, x9, lsl #3]    /* pudp_get() */
-> >     ...
-> >     5360: 90000009     	adrp	x9, 0x5000 <perf_prepare_sample+0x548>
-> >     5364: 92746908     	and	x8, x8, #0x7ffffff000
-> >     5368: d3557675     	ubfx	x21, x19, #21, #9       /* pmd_offset_lockless() */
-> >     ...
-> >     5394: f8757ac8     	ldr	x8, [x22, x21, lsl #3]  /* pmdp_get() */
-> > 
-> > Though PGTABLE_LEVEL=3, since the pudp_get() still remain with
-> > READ_ONCE(), there's redundant load for the pud which is folded.
-> > 
-> > To prevent generating suboptimal code, make pXdp_get() return a dummy
-> > entry for compile-time folded page tables, make the helpers such as
-> > pXd_offset()/pXd_offset_lockless(), set_pXd() validate dummy entries
-> > at compile time to catch the wrong usage and prohibit calls to
-> > pXd_page() in pgtable-nopXd.h.
-> > 
-> > This series does not change the behaviour of existing code that directly
-> > manipulates folded page-table levels using set_pgd(), pgd_page_vaddr(), and
-> > related helpers. Those helpers continue to behave as before.
-> > 
-> > The new restrictions only apply to code that adopts the pXdp_get()-based
-> > access model for compile-time folded page tables.
-> > 
-> > As the pXdp_get() can return *dummy* entry, some of code using
-> > the stack value where saves the pXdp_get() could be a problematic:
-> > 
-> >   1. Passing address of stack value where saves the pXdp_get() result
-> >      to pXd_offset() for example:
-> > 
-> >        pud_t *pudp, pud;
-> >        pmd_t *pmdp;
-> > 
-> >        pud = pudp_get(pudp, address);
-> >        pmdp = pmd_offset(&pud, pud, address);
-> > 
-> >      (e.g. host_pfn_mapping_level() in loongarch).
-> > 
-> >   2. Using the pXdp_get() result to use as argument of pXd_val() and
-> >      to check prot without checking pgtable is folded.
-> >      for example, x86's effective_prot().
-> > 
-> >   3. Using set_pXd() with pXdp_get() will set problematic dummy entry
-> >      in folded page table like:
-> > 
-> >        set_pXd(pxdp, pXdp_get(pxdp_k));
-> > 
-> >   4. Using pgd_page_vaddr() to get the first-level pgtable.
-> >      passing dummy pxdp_get() for pgd_page_vaddr() will return wrong
-> >      address. Therefore, make pgd_page_vaddr() and pXd_pgtable() to
-> >      trigger the error for improper usage with folded dummy entry in the
-> >      generic compile-time folded pgtable.
-> > 
-> > Thanksfully, above cases are rare since (1) most of usage using
-> > pXd_offset() with result of upper pXd_offset(), (2) it's extreamely
-> > rare to use pXd_val() for non-leaf entry in the kernel,
-> > (3) is to handle the vmalloc_fault or set the first level of page table
-> > and (4) to setup early page table and etc.
-> > 
-> > Therefore, properly handle this uncommon and problematic pattern, and
-> > document the current design of compile-time folded page tables.
-> > 
-> > This patch is based on mm-unstable.
-> > 
-> > Future work
-> > ===========
-> >  - print_bad_page_map() and show_pte() still prints dummy values
-> >    instead of printing the same content for all generic compile-time
-> >    folded page tables. We might want to skip printing dummy values later.
-> > 
-> >  - We currently catch abuse of dummy values on the stack at compile-time by
-> >    relying on constant propagation by the compiler. Usama's work [3] on using
-> >    distinct types for sw vs. hw PTEs could help here as well."
-> > 
-> >  - Clean up vmalloc fault handling by synchronizing the vmalloc entry on
-> >    32-bit architectures. This code is almost identical across architectures.
-> > 
-> >  - Unfortunately, the current design of compile-time folded page tables appears
-> >    to be internally consistent but confusing. For example,
-> >    when CONFIG_PGTABLE_LEVELS is 2, p4d, pud, and pmd are expected to
-> >    be folded into pgd. However, the architecture code uses set_pmd()
-> >    to update the top-level page-table entry, even though it includes pgtable-nopmd.h.
-> > 
-> >    In the future, it would be good to eliminate this source of confusion,
-> >    possibly by treating all folded upper levels consistently as dummy wrappers
-> >    around the highest real page-table level:
-> > 
-> >          NOPGD
-> >    --> +------+           P4D
-> >        | ptr0 |-------> +------+           PUD
-> >        +------+         | ptr0 |-------> +-----+
-> >                         | ptr1 |-        | ptr | -------> ...
-> >                         | ptr2 | \       | ptr |
-> >                         | ptr3 |  \        ...
-> >                           ...      \
-> >                                     \        PUD
-> >                                      +----> +-----+
-> >                                             | ptr | -------> ...
-> >                                             | ptr |
-> >                                               ...
-> > 
-> > Link: [1] https://lore.kernel.org/all/0019d675-ce3d-4a5c-89ed-f126c45145c9@kernel.org/
-> > Link: [2] https://lore.kernel.org/all/20251113014656.2605447-1-samuel.holland@sifive.com/
-> > Link: [3] https://lore.kernel.org/r/74182e50-b54f-4d2d-a27f-3a59a538d6bc@arm.com
+> > Reported-by: Yixun Lan <dlan@kernel.org>
+> > Fixes: 7849521aaac2 ("riscv: dts: anlogic: add clocks and CRU for DR1V90")
 > 
-> I applied all 21 patches to the declared base and built and booted the
-> kernels before and after on x86_64 and arm64 using virtme-ng.
+> Uh, why is this in linux next?
 > 
-> Tested-by: Muhammad Usama Anjum <usama.anjum@arm.com>
+> Brian, please don't apply dts patches to the clock (or any other) driver
+> tree in the future.
 
-Thanks for your testing ;)
+OK, sorry. I just checked clk-next and this is the only dts that I
+applied. I'll rebase clk-next and drop this so that the tree only
+contains the drivers.
 
-[...]
+Brian
 
--- 
-Sincerely,
-Yeoreum Yun
+> 
+> Patch itself makes total sense,
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> and because it's easier
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> 
+> > Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+> > ---
+> >  arch/riscv/boot/dts/anlogic/dr1v90.dtsi | 16 ++--------------
+> >  1 file changed, 2 insertions(+), 14 deletions(-)
+> > 
+> > diff --git a/arch/riscv/boot/dts/anlogic/dr1v90.dtsi b/arch/riscv/boot/dts/anlogic/dr1v90.dtsi
+> > index 574c6608aef0..fe85d01563ad 100644
+> > --- a/arch/riscv/boot/dts/anlogic/dr1v90.dtsi
+> > +++ b/arch/riscv/boot/dts/anlogic/dr1v90.dtsi
+> > @@ -44,23 +44,11 @@ cpu0_intc: interrupt-controller {
+> >  	};
+> >  
+> >  	clocks {
+> > -		can_ext: clock-ext-can {
+> > -			compatible = "fixed-clock";
+> > -			clock-output-names = "can_ext";
+> > -			#clock-cells = <0>;
+> > -		};
+> > -
+> >  		osc: clock-osc {
+> >  			compatible = "fixed-clock";
+> >  			clock-output-names = "osc";
+> >  			#clock-cells = <0>;
+> >  		};
+> > -
+> > -		wdt_ext: clock-ext-wdt {
+> > -			compatible = "fixed-clock";
+> > -			clock-output-names = "wdt_ext";
+> > -			#clock-cells = <0>;
+> > -		};
+> >  	};
+> >  
+> >  	soc {
+> > @@ -128,8 +116,8 @@ uart1: serial@f8401000 {
+> >  		cru: clock-controller@f8801000 {
+> >  			compatible = "anlogic,dr1v90-cru";
+> >  			reg = <0x0 0xf8801000 0 0x400>;
+> > -			clocks = <&osc>, <&can_ext>, <&wdt_ext>;
+> > -			clock-names = "osc", "can_ext", "wdt_ext";
+> > +			clocks = <&osc>;
+> > +			clock-names = "osc";
+> >  			#clock-cells = <1>;
+> >  			#reset-cells = <1>;
+> >  		};
+> > 
+> > -- 
+> > 2.55.0
+> > 
+
+
 
 _______________________________________________
 linux-riscv mailing list
