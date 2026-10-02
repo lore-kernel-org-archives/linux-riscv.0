@@ -4,75 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF3BCA5FD4
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 10:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C0ACA5FC4
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 10:13:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+NOmQw7AfAX561ESekH78wJ7XANcTrx10xBT6zwecCI=; b=e6NHdOAuQGXasZYY0kn6VYT9Um
-	vQyvy65bNBFOvDz8kYpr83uqYl7U+2GfahxpLFTLoKpjLF89GlTzuR4vIP0+zdqEBxE+qv/G7vDZ3
-	+JA8Q/KSHnX1TuQEegdBMkjRpUlP3KPTX91JdkaPzuaTlJ9+AKXVhBSCW60H0aKRyxus1hh60f+yb
-	qAWmJXsli39vwn6gNq0TqxgHuh5XXjPoYOnlgZ1P6HZ4UdBn/c6YB7BHx4blrLP9b17l0IKZzWgY8
-	HcoQZyaLMNp/cIRb2IqYte7oT1Wd1e3ITjKNjrVE85pZx95K5pwguZViU/XvKaSB/ue5NbkVFteQH
-	b31MgwgA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=W0rv7NjyaOwDv3SpO8/vPV4cB9OOGxvN32RD8399SF0=; b=McVq63mIr0Lb0P
+	A1ZFhsrwAS//pnSx5hjWA2j9zmXKKMn1Jy03wsHlE/sH5CPeRQjU0aRnqxDkK9cPtT2zYu9XoFHoI
+	jNy1n5e5yDqPb6uqIllXgZakC3OQ0VaYPiyz9pySm80cIQYBv2WMzBWNyQ6MyWyZr61jMCzxHV1JL
+	tSSvEgusI3Hp9zCdWKN4ji66SCOmvRmnCarazBmWOfnqQDGvWmPwxIeSFTVfhAKcgo2cCxveHeL91
+	aK1jE6HE8Y7v3BPXfhQY3ndnMPjX8YS8Zrz5W+lpJW2vKcG4YcIYCtt1X94JMKaN6rDTF0k4qxcbC
+	GsZPwGvagpTxZviiphsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCa9P-0000000BFiP-1VJk;
-	Fri, 02 Oct 2026 10:05:59 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1xCaGo-0000000BH0w-1tWU;
+	Fri, 02 Oct 2026 10:13:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCa9M-0000000BFhA-2tED
-	for linux-riscv@lists.infradead.org;
-	Fri, 02 Oct 2026 10:05:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1790935556; x=1822471556;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=98P1EsH1CiDVYz6+zMdaA6M1c9emp98ZounDfs767bM=;
-  b=tu01q9mtT4kYq9PRc1DL+2+4lNxcT0iVhf3Kbw7K8cREIjym88DIMAmk
-   QlI5QfU7+4txthfhYxmGyh56sx6DIzKNL812g13iAMwSqmpZM997xD046
-   vSAbvZ0Q9L54WUSBg84WwbrUC8rvGb9yLPGYlCZjuCevnUcpzZvP/8C++
-   uXUos6deAU7DLD6bsO+SVn7GNHB4INbID31Zi3nom0dKqThAgiz00BGeJ
-   R03Ch776uLUjEGvsW5FN9OO2IslprWi2Qhs0ou2PX3ddqf8ToCUdUCkEe
-   lbNyTM6Xxn/33/95ZOvE/zQPRmSBdyRMiZzRMRIlAEiZj3STYKOivWoF2
-   A==;
-X-CSE-ConnectionGUID: 9KaUDp3dRV2TwHyLsfdFzw==
-X-CSE-MsgGUID: t0C0kCkzRpii0oAsAl49jw==
-X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
-   d="asc'?scan'208";a="63548948"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 02 Oct 2026 03:05:55 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 2 Oct 2026 03:05:55 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Fri, 2 Oct 2026 03:05:53 -0700
-Date: Fri, 2 Oct 2026 11:04:33 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Bo Gan <ganboing@gmail.com>
-CC: <linux-riscv@lists.infradead.org>, <samuel.holland@sifive.com>,
-	<david@redhat.com>, <palmer@dabbelt.com>, <pjw@kernel.org>,
-	<gaohan@iscas.ac.cn>, <me@ziyao.cc>, <lizhi2@eswincomputing.com>,
-	<hal.feng@starfivetech.com>, <marcel@ziswiler.com>, <conor@kernel.org>,
-	<kernel@esmil.dk>, <devicetree@vger.kernel.org>
-Subject: Re: [RFC PATCH v2 0/3] riscv: support EIC770X/JH7110 noncoherent
- devices with XPbmtUC
-Message-ID: <20261002-demeanor-demeaning-db463813c033@wendy>
-References: <20260316060328.1173634-1-ganboing@gmail.com>
+	id 1xCaGn-0000000BH0X-2KdU;
+	Fri, 02 Oct 2026 10:13:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1DD20415DD;
+	Fri,  2 Oct 2026 10:13:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFE5E1F000FF;
+	Fri,  2 Oct 2026 10:13:33 +0000 (UTC)
+Authentication-Results: smtp.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=zx2c4.com header.i=@zx2c4.com header.a=rsa-sha256 header.s=20210105 header.b=YtBXFh9D
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
+	t=1790936012;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bOzm6aI90EpK2LXg0mKkr8pixnkrVyev2/1n2mK0D2E=;
+	b=YtBXFh9DHcA4h2DpmpNDa4WiBetUEUDqY34cjYXeg5spaRZvTZtgHlC3h9zJDu3n4WoGNL
+	eIH3xyvt4QPZt8bElnZ5+/wBUcdC0za4zMqnHaO0omBSBFmvf0W7aqB54s/3WAlVF8ST0G
+	/X9dszl5qzotlF9SKwDebP7b/CNvzVE=
+Received: by mail.zx2c4.com (OpenSMTPD) with ESMTPSA id 6ecc7897 (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
+	Fri, 2 Oct 2026 10:13:31 +0000 (UTC)
+Date: Fri, 2 Oct 2026 12:13:27 +0200
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
+ reserved in __cvdso_getrandom_data()
+Message-ID: <ar-Dx-deXN93M24v@zx2c4.com>
+References: <ar0a4b9CjL2YHCkY@zx2c4.com>
+ <ar0gTS71qxnx9AkW@zx2c4.com>
+ <20260930151337.GD3142230@ax162>
+ <CAHmME9pA+AntJ6hWoFYpTVjh-NUSd0ZGXp5XiUuhQcq3HjQT3g@mail.gmail.com>
+ <ede392d7-3104-4a0f-9fa1-99b22552dcd6@kernel.org>
+ <ar4nD8aRH7wEvTMt@zx2c4.com>
+ <20261001102059.GA4176271@ax162>
+ <ar46ap4jzLWyP92C@zx2c4.com>
+ <20261001110310.GA138012@ax162>
+ <20261002094932.GA3435055@ax162>
 MIME-Version: 1.0
-In-Reply-To: <20260316060328.1173634-1-ganboing@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_030556_802282_77533023 
-X-CRM114-Status: GOOD (  44.49  )
+Content-Disposition: inline
+In-Reply-To: <20261002094932.GA3435055@ax162>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,215 +102,176 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4287006624320486047=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4287006624320486047==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="A6+7ibGAiMjBL0qL"
-Content-Disposition: inline
+On Fri, Oct 02, 2026 at 11:49:32AM +0200, Nathan Chancellor wrote:
+> On Thu, Oct 01, 2026 at 01:03:10PM +0200, Nathan Chancellor wrote:
+> > On Thu, Oct 01, 2026 at 12:48:10PM +0200, Jason A. Donenfeld wrote:
+> > > Does this commit seem okay with you? I used the diff you sent below and
+> > > adjusted the commit message: https://git.zx2c4.com/linux-rng/commit/?id=56ff95ee85715047eb5b5220243778af657778c8
+> > 
+> > Yeah, that seems fine to me, thanks for taking care of it!
+> 
+> Can you adjust the LLVM value by one from 4294967295 to 4294967294? ~0U
+> is actually a special value, so we hit an assertion in the SystemZ
+> backend.
+> 
+>   https://github.com/llvm/llvm-project/blob/3f48e22a1f321d5d3341bd812803694cea588785/llvm/lib/CodeGen/SelectionDAG/SelectionDAG.cpp#L9547
+>   https://github.com/llvm/llvm-project/blob/3f48e22a1f321d5d3341bd812803694cea588785/llvm/lib/Target/SystemZ/SystemZISelLowering.cpp#L1470-L1471
+> 
+> clang: llvm/lib/Target/SystemZ/SystemZISelLowering.cpp:1471: virtual bool llvm::SystemZTargetLowering::findOptimalMemOpLowering(LLVMContext &, std::vector<EVT> &, unsigned int, const MemOp &, unsigned int, unsigned int, const AttributeList &, EVT *) const: Assertion `Limit != ~0U && "Expected EmitTargetCodeForMemXXX() to handle AlwaysInline cases."' failed.
+> PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace and dumped files.
+> Stack dump:
+> 0.      Program arguments: ...
+> 1.      <eof> parser at end of file
+> 2.      Code generation
+> 3.      Running pass 'Function Pass Manager' on module 'arch/s390/kernel/vdso/vgetrandom.c'.
+> 4.      Running pass 'SystemZ DAG->DAG Pattern Instruction Selection' on function '@__kernel_getrandom'
+> ...
 
---A6+7ibGAiMjBL0qL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey,
-
-Once again, I am sorry for how long this has taken me. I've had this
-sitting at the base of my review mailbox and kept meaning to get to it,
-but due to being at the bottom I always got here when I was already
-tired and could never face into actually sitting down and looking at
-what the EIC7700 opensbi changes actually did.
-
-On Sun, Mar 15, 2026 at 11:03:25PM -0700, Bo Gan wrote:
-> SoCs with pre-Svpbmt Sifive cores, e.g., Starfive JH7110 and ESWIN
-> EIC770X both have non cache-coherent peripherals. On JH7110[1], video
-> subsystem (GPU/VOUT/VPU/ISP) is routed to the sys port, making them not
-> cache-coherent. On EIC770X, all peripherals are routed to the sys port,
-> and none is cache-coherent. Instead of Svpbmt, these SoCs map system
-> memory twice -- the conventional cached region (through front port),
-> and the uncached alias (through sys port) at different base addresses.
-> The uncached alias implicitly applies the uncacheable PMA. Drivers
-> working with noncoherent devices can utilize the uncache alias to map
-> DMA buffers, without doing explicit cache flushes.
->=20
-> This feature is not an ISA standard, and the cache/uncache base can be
-> configured by the SoC vendor. To expose it properly, introduce a Sifive
-> "errata", namely "XPbmtUC", to model the setup as a customized version
-> of Svpbmt. It choses a single, artificial bit in PTE at runtime for
-> cache/uncache control, effectively offsetting the PPN by power-of-2.
-> On JH7110, it aligns perfectly with the HW: it maps the cached region
-> at 0x40000000, and the uncached alias at 0x4_40000000. Chosing bit 32
-> (PPN bit 34) as the UC bit matches HW exactly.
->=20
-> Starfive JH7110 (Sifive U74 core) memory map:
->=20
->           [0x0,   0x40000000) Low MMIO
->    [0x40000000, 0x2_40000000) Cached Mem
->  [0x4_40000000, 0x6_40000000) Uncached Mem (UC+)
->  [0x9_00000000, 0x9_d0000000) High MMIO
->=20
-> On EIC770X, the aliased UC region is put to a offset not power-of-2.
-> There can also be 2 NUMA node (dual-die) with 2 separate memory regions
-> and their UC alias counterparts are offsetted differently. We detect if
-> the firmware has the capability to re-arrange the memory map, using
-> G-stage pagetable, making the the offsets power-of-2 again.
->=20
->             [0x0,     0x20000000) Core Internal
->      [0x20000000,     0x40000000) Core Internal (Die 1)
->      [0x40000000,     0x60000000) Low MMIO
->      [0x60000000,     0x80000000) Low MMIO (Die 1)
->      [0x80000000,  0x10_80000000) Cached Mem
->   [0x20_00000000,  0x30_00000000) Cached Mem (Die 1)
->   [0x80_00000000,  0xa0_00000000) High MMIO
->   [0xa0_00000000,  0xc0_00000000) High MMIO (Die 1)
->   [0xc0_00000000,  0xd0_00000000) Uncached Mem <----------.
->   [0xe0_00000000,  0xf0_00000000) Uncached Mem (Die 1) <--+--.
-> with firmware/hypervisor re-mapping:                      |  |
-> ------------------------------------                      |  |
->  [0x100_80000000, 0x110_80000000) Mem UC+ ----------------'  |
->  [0x120_00000000, 0x130_00000000) Mem UC+ (Die 1) -----------'
->=20
-> The "XPbmtUC" alternative PTE format is the cleanest solution I can
-> think of to solve the non-coherent device enablement w/o Svpbmt from
-> kernel side. Drivers can do explicit cache flushes to workaround the
-> problem, but a. it pushes the burden of cache flushes to driver code,
-> and we don't want to complicate them if it's already written with the
-> cache coherent assumption in mind. b. complex drivers like GPU could
-> allow user-space to mmap DMA pages, but userspace can't flush caches
-> due to the lack of Zicbom on these SoCs.
-
-he other day Icenowy submitted some patches for the drm driver used on
-the JH7110 that are not actually that intrusive:
-https://lore.kernel.org/all/20260930073528.3369325-3-zhengxingda@iscas.ac.c=
-n/
-
-No idea if the DRM maintainers will find this kind of thing acceptable
-though, there's every chance that they hate the idea. On the JH7110 I
-don't mind what's done in this series - especially given that what the
-JH7100 is doing with reserved memory is something Rob considered to be a
-bit of an abuse. But if the DRM guys are okay with Icenowy's work, the
-value of this is obviously much reduced. One new alternative (that could
-be avoided entirely if the erratum config is disabled) isn't much of a
-price to pay here if the userspace flushing is important (I really dunno
-anything at all about how useful that is to GPU stuff).
-
-> I'm aware there's an ongoing
-> series[2] that Samuel sent for physical memory aliases, which is
-> essentially a superset of my patch. I don't mean to step ahead of him,
-> but try to find a middle ground if the community still worries about
-> his change touching too many areas. My change is very minimal and
-> local. It's fairly easy to remove, too.
-
-I dunno, it's not that easy to remove I don't think. Switching from this
-to Samuel's approach requires a DT change, so you're looking at
-regressions if this is removed.
-
-> ----------------------------------------
-> Notes about PoC firmware implementation on EIC7700X[3]:
->=20
-> The OpenSBI is augmented to provide a very thin layer hypervisor, where
-> it runs the entire host OS in VS-mode, and provide the aforementioned
-> remapping. I remap UC+ memory to 2^40+ to make the 2-stage translation
-> efficient, where I can utilize Sv39x4 G-stage scheme to map the entire
-> physical address space at bottom-half, and the uncache counterparts to
-> system memory at top-half. I also make use of the largest page in Sv39
-> -- 1GB page, to map everything, keeping the G-stage page-table minimal,
-> only 16KB in size, while also minimizing TLB misses. A very slight,
-> unavoidable, slow down is with the external interrupt delivery. Due to
-> the lack of AIA in EIC770X, all device irq now needs to trap to M mode
-> first, before forwarding to VS mode. The overhead of running KVM in
-> such setup is yet unknown, and may well be noticeable. All HS-qualified
-> instructions will trap to M mode, which is costly. The NACL extension,
-> if implemented, will alleviate it, but there's also the extra cost of
-> flushing G/VS-stage TLBs. I'm analyzing it in parallel.
-
-The problem with this idea though is how it works on EIC7700. This is
-very invasive and the impact this has on hypervisor use (on one of the
-only hypervisor capable boards) probably makes this unacceptable to most
-users, compared to a solution like Samuel's that has nothing like that.
-
-On top of that, it has firmware changes that really would need to be
-either upstream or shipped by the vendor to make this acceptable. I know
-vendors are willing to ship all sorts of things, but with that in mind,
-they could just ship Samuel's series downstream without the downsides
-the opensbi change here has. Upstreaming it may not be possible, which
-would leave things in a really weird state.
-
-I know Samuel's series has been stalled for a long time, but I expect it
-to get revived when the eic7700 support patches progress past the
-simpler peripherals.
-Without the vendors (be that sifive or eswin or einfochips) showing
-interest in this method it's really hard to sit here and tell you to
-pursue this further, since you're probably gonna face resistance getting
-the opensbi stuff anywhere.
-
-Thanks,
-Conor.
-
->=20
-> Use [4] if you have a Hifive Premier P550 to try it out.
->=20
-> [1] https://github.com/starfive-tech/JH7100_Docs/blob/main/JH7100%20Cache=
-%20Coherence%20V1.0.pdf
-> [2] https://lore.kernel.org/all/20251113014656.2605447-20-samuel.holland@=
-sifive.com/
-> [3] https://github.com/ganboing/opensbi/tree/eic77x-vspt-physalias-wip
-> [4] https://github.com/ganboing/linux-eic77/tree/ganboing-xpbmt-uc-v2-eic=
-77-clk-v15
->=20
-> ---
-> v2:
->  - Move the core logic to Sifive errata to address Conor's comments
->=20
-> v1: https://lore.kernel.org/linux-riscv/338f0f79-1eed-4c5c-9966-04a2eaeb3=
-d98@gmail.com
->=20
-> Bo Gan (3):
->   riscv: alternatives: support auipc+load pair
->   riscv: errata: sifive: support auipc/load pair in patched alternatives
->   riscv: errata: sifive: Add an "errata" to simulate Svpbmt on cores
->     without
->=20
->  arch/riscv/Kconfig.errata                    | 13 ++++
->  arch/riscv/errata/sifive/errata.c            | 80 +++++++++++++++++++-
->  arch/riscv/include/asm/errata_list.h         | 19 ++++-
->  arch/riscv/include/asm/errata_list_vendors.h |  3 +-
->  arch/riscv/include/asm/insn.h                |  8 ++
->  arch/riscv/include/asm/pgtable-64.h          |  9 ++-
->  arch/riscv/kernel/alternative.c              | 11 +--
->  7 files changed, 132 insertions(+), 11 deletions(-)
->=20
-> --=20
-> 2.34.1
->=20
-
---A6+7ibGAiMjBL0qL
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCar+BsAAKCRB4tDGHoIJi
-0lE3AQCOfH/GLXkVBPB2jihGgynqx7D1JZMi2N3fCiqGnAA7JAD+LyDk+xsEUOFx
-SJOVch+YywckyodTU923LTpElyFSlQY=
-=b0l0
------END PGP SIGNATURE-----
-
---A6+7ibGAiMjBL0qL--
+Holy smokes. Sure, fixed:  https://git.zx2c4.com/linux-rng/commit/?id=eb13a1ff271b0d180687eebb30611b0b276d5193
 
 
---===============4287006624320486047==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+From eb13a1ff271b0d180687eebb30611b0b276d5193 Mon Sep 17 00:00:00 2001
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Fri, 25 Sep 2026 22:46:32 +0100
+Subject: [PATCH] random: vDSO: avoid call to memset() when zeroing reserved
+ parameter
+
+After a recent change in LLVM [1], builds with the random vDSO
+implementation, such as PowerPC and RISC-V, fail when checking the vDSO:
+
+  arch/powerpc/kernel/vdso/vdso32.so.dbg: dynamic relocations are not supported
+  arch/riscv/kernel/vdso/vdso.so.dbg: dynamic relocations are not supported
+
+memset() is now generated when zeroing params->reserved for some builds
+because LLVM has an optimization (now run in more instances) that can
+recognize at compile time when it is assigning a static value to a
+contiguous area of memory and turn that into a call to memset(). Both
+clang and GCC assume memset() is always available [2].
+
+Clang has an internal fiddly hook, -max-store-memset, which we can set
+to a high number, to disable generating out of line memset calls [3].
+Similarly, GCC has -finline-stringops=memset to do the same [4], should
+this issue ever hit future version of GCC. While these options wouldn't
+make sense for normal kernel code, it is fine for the extremely limited
+and intentionally compact vDSO code.
+
+Link: https://github.com/llvm/llvm-project/commit/90cebef1411617fc3eedd359bdf00cb44b1c2439 [1]
+Link: https://gcc.gnu.org/onlinedocs/gcc-16.2.0/gcc/Standards.html#index-ffreestanding [2]
+Link: https://github.com/llvm/llvm-project/commit/b28eeb28bea39148738dc375e8a97072a1907e64 [3]
+Link: https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html#index-finline-stringops [4]
+Closes: https://github.com/ClangBuiltLinux/linux/issues/2183
+Cc: stable@vger.kernel.org # v6.12+
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+---
+ arch/arm64/kernel/vdso/Makefile     | 2 +-
+ arch/loongarch/vdso/Makefile        | 1 +
+ arch/powerpc/kernel/vdso/Makefile   | 1 +
+ arch/riscv/kernel/vdso/Makefile     | 1 +
+ arch/s390/kernel/vdso/Makefile      | 1 +
+ arch/x86/entry/vdso/vdso64/Makefile | 2 +-
+ init/Kconfig                        | 5 +++++
+ 7 files changed, 11 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
+index 7dec05dd33b7..f6619e1cb2ce 100644
+--- a/arch/arm64/kernel/vdso/Makefile
++++ b/arch/arm64/kernel/vdso/Makefile
+@@ -41,7 +41,7 @@ CC_FLAGS_REMOVE_VDSO := $(CC_FLAGS_FTRACE) -Os $(CC_FLAGS_SCS) \
+ 			$(CC_FLAGS_LTO) $(CC_FLAGS_CFI) \
+ 			-Wmissing-prototypes -Wmissing-declarations
+
+-CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables
++CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables $(CONFIG_CC_OPT_INLINE_MEMSET)
+
+ CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_REMOVE_VDSO)
+ CFLAGS_REMOVE_vgetrandom.o = $(CC_FLAGS_REMOVE_VDSO)
+diff --git a/arch/loongarch/vdso/Makefile b/arch/loongarch/vdso/Makefile
+index 9c9181bb4071..0b84892d084b 100644
+--- a/arch/loongarch/vdso/Makefile
++++ b/arch/loongarch/vdso/Makefile
+@@ -16,6 +16,7 @@ ccflags-vdso := \
+ 	$(filter -m64,$(KBUILD_CFLAGS)) \
+ 	$(filter -march=%,$(KBUILD_CFLAGS)) \
+ 	$(filter -m%-float,$(KBUILD_CFLAGS)) \
++	$(CONFIG_CC_OPT_INLINE_MEMSET) \
+ 	$(CLANG_FLAGS) \
+ 	-D__VDSO__
+
+diff --git a/arch/powerpc/kernel/vdso/Makefile b/arch/powerpc/kernel/vdso/Makefile
+index 368759f81708..0d1a49529885 100644
+--- a/arch/powerpc/kernel/vdso/Makefile
++++ b/arch/powerpc/kernel/vdso/Makefile
+@@ -43,6 +43,7 @@ ccflags-y := -fno-common -fno-builtin -DBUILD_VDSO
+ ccflags-y += $(DISABLE_LATENT_ENTROPY_PLUGIN)
+ ccflags-y += $(call cc-option, -fno-stack-protector)
+ ccflags-y += -DDISABLE_BRANCH_PROFILING
++ccflags-y += $(CONFIG_CC_OPT_INLINE_MEMSET)
+ ccflags-y += -ffreestanding -fasynchronous-unwind-tables
+ ccflags-remove-y := $(CC_FLAGS_FTRACE)
+ ldflags-y := -Wl,--hash-style=both -nostdlib -shared -z noexecstack $(CLANG_FLAGS)
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index 8dbf2532a573..c023046a3fd7 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -36,6 +36,7 @@ endif
+ ccflags-y := -fno-stack-protector
+ ccflags-y += -DDISABLE_BRANCH_PROFILING
+ ccflags-y += -fno-builtin
++ccflags-y += $(CONFIG_CC_OPT_INLINE_MEMSET)
+ ccflags-y += $(KBUILD_BASE_ISA)$(CFI_MARCH)
+ ccflags-y += $(CFI_FULL)
+ asflags-y += $(KBUILD_BASE_ISA)$(CFI_MARCH)
+diff --git a/arch/s390/kernel/vdso/Makefile b/arch/s390/kernel/vdso/Makefile
+index 35c834b895ec..54bcf2984ca1 100644
+--- a/arch/s390/kernel/vdso/Makefile
++++ b/arch/s390/kernel/vdso/Makefile
+@@ -29,6 +29,7 @@ KBUILD_CFLAGS_VDSO := $(filter-out -munaligned-symbols,$(KBUILD_CFLAGS_VDSO))
+ KBUILD_CFLAGS_VDSO := $(filter-out -fno-asynchronous-unwind-tables,$(KBUILD_CFLAGS_VDSO))
+ KBUILD_CFLAGS_VDSO += -fPIC -fno-common -fno-builtin -fasynchronous-unwind-tables
+ KBUILD_CFLAGS_VDSO += -fno-stack-protector $(DISABLE_KSTACK_ERASE)
++KBUILD_CFLAGS_VDSO += $(CONFIG_CC_OPT_INLINE_MEMSET)
+ ldflags-y := -shared -soname=linux-vdso.so.1 \
+ 	     --hash-style=both --build-id=sha1 \
+ 	     $(call ld-option, --eh-frame-hdr) -T
+diff --git a/arch/x86/entry/vdso/vdso64/Makefile b/arch/x86/entry/vdso/vdso64/Makefile
+index 7c0790065b5e..c2353a065279 100644
+--- a/arch/x86/entry/vdso/vdso64/Makefile
++++ b/arch/x86/entry/vdso/vdso64/Makefile
+@@ -14,7 +14,7 @@ vobjs-$(CONFIG_X86_SGX)			+= vsgx.o
+ vobjs-$(CONFIG_FUTEX_ROBUST_UNLOCK)	+= vfutex.o
+
+ # Compilation flags
+-flags-y				:= -DBUILD_VDSO64 -m64 -mcmodel=small
++flags-y				:= -DBUILD_VDSO64 -m64 -mcmodel=small $(CONFIG_CC_OPT_INLINE_MEMSET)
+
+ # The location of this include matters!
+ include $(src)/../common/Makefile.include
+diff --git a/init/Kconfig b/init/Kconfig
+index 8583d9f06c52..ad592fdf29af 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -173,6 +173,11 @@ config CC_HAS_ALLOC_TOKEN
+ config CC_HAS_MULTIDIMENSIONAL_NONSTRING
+ 	def_bool $(success,echo 'char tag[][4] __attribute__((__nonstring__)) = { };' | $(CC) $(CLANG_FLAGS) -x c - -c -o /dev/null -Werror)
+
++config CC_OPT_INLINE_MEMSET
++	string
++	default "-finline-stringops=memset" if $(cc-option,-finline-stringops=memset)
++	default "-mllvm -max-store-memset=4294967294" if $(cc-option,-mllvm -max-store-memset=4294967294)
++
+ config LD_CAN_USE_KEEP_IN_OVERLAY
+ 	# ld.lld prior to 21.0.0 did not support KEEP within an overlay description
+ 	# https://github.com/llvm/llvm-project/pull/130661
+--
+2.55.0
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4287006624320486047==--
-
