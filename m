@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90BFCCA5FDD
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 18:52:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48F08CA5FE5
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 18:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
 	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qLSofB/UoeC82QOWo5VzzLVkJfBxo48BMQvPVWjw3gU=; b=DboA/VBPLY4H54
-	X3G3IR5s7UNuTsjIg54hmGIm4bBmYphYKtTCSjm0T3sByvPmSxTOkeePwLO5SzCoaP6JcesK60Jxx
-	9AOdaoytVm/0qFHY5NIKYzGYnhM8YyVEoPWa5fsoskNp/hOKS7p/p+hlPSjeAeeuIT6FtXusy+d7m
-	UnXbzxkRSsivGQOrNYGAMzROebHDdQHeHR2aYit5mhUQuRh4xxghKgvsrNDxYKlqWfmv+LcWSePWG
-	LfkI9/SO+djRzIzB2Z8JDcFnFUj1xjRwFwndIDOGBOKP1gvvgGD0ixD0CAmXBCK8CDvkGbnp2lTGP
-	zSO8jahpV1XkobY08F6Q==;
+	List-Owner; bh=t6h7zOQtZAVbRYhX0YieT+HG59GbhSvqXf3KLabyZS8=; b=rMSnt/W2P3D4wS
+	hnc6rgE/nF5F3QPT4yLam6gmrktuaOfHQkbwXwwfVHS3v7fEvcuUUQ2Jxj/ZgaPwcGJ1dPJsVJTyE
+	ft8q6zwnpAyIuLSa9WxWPWgkcDxgQg3EJAIkix4SVRBowzC0OvzeHLshdtaMMKte7JdnZCuU3Xfup
+	v0AxPV7b7BVL1KBzyMMSyzp5SjY+PR7EgichwSGIx8hWvVqNUwU3VvobyRMNkiU6KXVIh1dh4sS/j
+	LiSvoukNsvksvasK1pkY6vBCRJAcAEUhfawJbEzLW3YFS2H20uQrsBLtS/RmhRetstUdIgCbP9fqi
+	zZ7Izx9QzjSZan9i8eUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCiMQ-0000000CIwU-1WG8;
-	Fri, 02 Oct 2026 18:51:58 +0000
+	id 1xCiMR-0000000CIx7-1zUC;
+	Fri, 02 Oct 2026 18:51:59 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCiMN-0000000CIv8-2XCn
+	id 1xCiMO-0000000CIvF-0nXC
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Oct 2026 18:51:56 +0000
+	Fri, 02 Oct 2026 18:51:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790967114;
+	s=mimecast20190719; t=1790967115;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=lViRkD+J4l6mElusP3QWY+NSQ6ORF7js4Y4aeDT+mp0=;
-	b=i1tlYHHqOg6DzfQzDRI44MIPzxcDl/GPCYu4hOKXI0SjG15mCsJO/R1sbumyZKcmEMyAD1
-	rl/rrxETyAjH9VVcnU/mln5FoYFScbuuw3OSuEqrvYDK092YSLkM1wULSZbCmmdGW8lXrl
-	MlqoJIBSc4wcQhQBSTzFCnvuMbTQA2Y=
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
- [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=sFsvLQiLKfq21A28GjN0uk1v82NHBHz0YcGin5ZMxfw=;
+	b=iriv70T4Hq/HhXWV3bQIsmHvoGCCYJpQsKpjnKmMX0IGsyctfD0ZlPmhIPJ3e7Jdq57IJv
+	pJAY8CpuIMPVcLonTqMWCKkh8uoVXp2XTKbzbGetyIOz9mkpgdXPB8EYgMv1l19a837NWk
+	lK7tT/q651LFFhrtmjcLcJghTQnGZaM=
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
+ [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-527-X9Lpx-6fPPidp2gf5vd-EQ-1; Fri, 02 Oct 2026 14:51:51 -0400
-X-MC-Unique: X9Lpx-6fPPidp2gf5vd-EQ-1
-X-Mimecast-MFC-AGG-ID: X9Lpx-6fPPidp2gf5vd-EQ_1790967110
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-91786869e8cso3229196d6.0
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Oct 2026 11:51:51 -0700 (PDT)
+ us-mta-327-EcpizhG0MKWAwpQO03dpXA-1; Fri, 02 Oct 2026 14:51:54 -0400
+X-MC-Unique: EcpizhG0MKWAwpQO03dpXA-1
+X-Mimecast-MFC-AGG-ID: EcpizhG0MKWAwpQO03dpXA_1790967114
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93cb7f9bb86so445557185a.2
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Oct 2026 11:51:54 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790967110; x=1791571910;
+        d=1e100.net; s=20260707; t=1790967114; x=1791571914;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=lViRkD+J4l6mElusP3QWY+NSQ6ORF7js4Y4aeDT+mp0=;
-        b=Xxpyb3skyavcee2zt/RSqLuxayYlJm30wAvOOEgjRoWYunhs/BW5ew0oTz+S1EqzOr
-         7gne68q+S2NAimOxpe6TKlpullUJHeYnSw/figUPd2KBg4d3u4+vY4wikARDCtjbIFlC
-         PXSGcLBaoouI9V7cEB+qv/VGJw/NU3h/9lOYsifQY2Tzll3+MxBBWKsUHXZm2wfpE7Cz
-         BjjNO3h/UZnbjnz5JuuNC+Bs+RsSr13nwsofB6XIaliFbsa79DUnj8jJeO+88X3+nORd
-         XcIY6ywY0PYd+gnirM/SvzLg/+N5nE1osIr5du3HjRXivC0wykBC+U0JJXWjNnOvbz+g
-         HK9g==
-X-Forwarded-Encrypted: i=1; AKwUvBzX8ZROn5fViT1S0b+KeEV2hGzd4xECt233GclaUWDy3nZxlETVOHAUje5Ofl0Ex9YfaOzrTgUv3baIWQ==@lists.infradead.org
-X-Gm-Message-State: AFuF++kRXhSlZRFgwsEqe8Ik7WDOThqTlkAcKCpRST0SXEF1Ga8u9pnn
-	RRex1HTGam8KyOH39B9AMJMFaHHnCC1J64GkWH7SVLuwPT6s9cfX/j7AXfedJg6L3tuD7+IFuAl
-	pKQdDn8qepUzr254tc1M/flCpNOK7HXE4QJFW/J8HvTwG7CzvCQZFb54kEj1KStR+NG8fFg==
-X-Gm-Gg: AYBFou09VSRHfvBgFJ0Y9RvuPZT3y1oaeYyfRwXHTIvFbAqR8DokDOClfeuBch3LlYq
-	9dZWSLq610m0g4Odp8+PlCYekKYTU5pcHEmc7+3wbfAqJV8cP0mufPU/EWIdCPFg0SicDySlGlN
-	OWvzhslqHscEpZ6wtBug4C1lDLLhC4pDym+FyZsrY55ax4Y0Han8XcPRixGq7ermORo+OroX2QM
-	Es3kfUxtXSFreY7Xy/eOC6h70EKjogqlix96hJQHE0OeAZrqSSg34pcMhEx4zqKEQvOrgVBn+mg
-	vXy+WJ09G/dFX3tYErWTqRrmNI6guiVScLjPHG3tlT3eSG2JYz2FyEiFOgKLmWcU0WKZxL0dOzS
-	xQQ04rE1bQkFEBA==
-X-Received: by 2002:a05:620a:bd4:b0:93b:c58c:d3be with SMTP id af79cd13be357-93cf17664b4mr670124185a.37.1790967110543;
-        Fri, 02 Oct 2026 11:51:50 -0700 (PDT)
-X-Received: by 2002:a05:620a:bd4:b0:93b:c58c:d3be with SMTP id af79cd13be357-93cf17664b4mr670117885a.37.1790967109968;
-        Fri, 02 Oct 2026 11:51:49 -0700 (PDT)
+        bh=sFsvLQiLKfq21A28GjN0uk1v82NHBHz0YcGin5ZMxfw=;
+        b=pzELcoQADOz+c4XQAPit/NiseJ/FNWW6GEsMifwErg/fYqXY4RDAKPtx1gs1qTNwdj
+         g+RngmZJOTbEvtXbMmUdhdei+KmWs3ar5oAEgYslzZWdH68Leu806h8f3Ny3sRU1S7lp
+         RfqsGKUCYtvs6ilhzwKZ98yKHPAlc0C7rkFFk9hZ0rk6biTKeGGPsUVwbDsdoAp9Q2kd
+         zM8hEOraikuYZpDwPuwmIfIXnZEQI8rA6MT57A1xBPvkSVX4YCUbuzypAF+IUD2Eu1W7
+         hphh48vdmBBjp0UZYT40rZkakyPwb5/nxlbXf4bNnp/0nALze9/fzfcnsnXs6yRr3Ril
+         LUfA==
+X-Forwarded-Encrypted: i=1; AKwUvBx2tpy9VxnHPkDlHMwsmYJJpbasAiKxVyftHxxLYdMfRb49SHH9oWudk+eTAk8IKA6eRRapLRVw2tuVJw==@lists.infradead.org
+X-Gm-Message-State: AFuF++kRP1KpjqaPDfrVTGzNgjRWi+EH0F0nFg81x03jGx6zBsuQbWvU
+	uDWi/yY9Awozt/osmDtm06/NScYaB/8KHsXyVY0X0qCq064Jh+PgxgYm2buKlA9cVCP5xK/s9e3
+	46MSIhdUXzpIyihE6tJniaTunnTc1/uAZKSh/zrhv79OYG8FPh4qWayvZniQCaqF4liOZEQ==
+X-Gm-Gg: AYBFou2z4UBG50wwQOMRiQb+85p4RtMwrHpl1LAReluWs2t+GwJFhyQq7BLtRk97FI1
+	OocM9s9o/r8Uy7KhKLoi1tYXAbrfk8SfY8QX4zWFhygiswEX+ZvkfH0YuN2TyqytA0aHU7OmUpF
+	P6YLDGiZhUvNdQPL/XmEbD40iUgoWy6RLfEAZ6/L1IfCUPhxZ+ccE1gwmQbZily7JRbIXro7CkB
+	LLfuOWlfv82nZKKBn/rNi7ohneW2cK67SREBBJoNVxNK/GPBrbIw009agG3VTV1/l3tT5uzvceI
+	yiRq7BHj1vZORZ+mTwbwknlrubhWyMohn6x5PEb+qnUQa1wJRtZOBXSqySGzRTGrJm1dBlEeiV1
+	bK4JobJz9yFY+QA==
+X-Received: by 2002:a05:620a:1984:b0:93b:d7a0:d9dc with SMTP id af79cd13be357-93cf189c270mr681523485a.54.1790967113586;
+        Fri, 02 Oct 2026 11:51:53 -0700 (PDT)
+X-Received: by 2002:a05:620a:1984:b0:93b:d7a0:d9dc with SMTP id af79cd13be357-93cf189c270mr681517785a.54.1790967112966;
+        Fri, 02 Oct 2026 11:51:52 -0700 (PDT)
 Received: from bmasney-x1.rmtuswv.csb ([2600:382:7723:4eba:66b1:961f:1a2d:af55])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93cca03a1bbsm290352485a.1.2026.10.02.11.51.46
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93cca03a1bbsm290352485a.1.2026.10.02.11.51.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 11:51:48 -0700 (PDT)
+        Fri, 02 Oct 2026 11:51:52 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH v5 06/23] clk: starfive: Add JHB100 System-0 clock
+Subject: Re: [PATCH v5 10/23] clk: starfive: Add JHB100 System-2 clock
  generator driver
 From: Brian Masney <bmasney@redhat.com>
 To: Changhuang Liang <changhuang.liang@starfivetech.com>
@@ -94,27 +94,27 @@ Cc: Michael Turquette <mturquette@baylibre.com>,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-riscv@lists.infradead.org, linux-hardening@vger.kernel.org, 
  netdev@vger.kernel.org, Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <20260930124317.5648-7-changhuang.liang@starfivetech.com>
+In-Reply-To: <20260930124317.5648-11-changhuang.liang@starfivetech.com>
 References: <20260930124317.5648-1-changhuang.liang@starfivetech.com>
- <20260930124317.5648-7-changhuang.liang@starfivetech.com>
+ <20260930124317.5648-11-changhuang.liang@starfivetech.com>
 Date: Fri, 02 Oct 2026 14:51:13 -0400
-Message-Id: <179096707364.821688.18177370718453496156.b4-review@b4>
+Message-Id: <179096707365.821688.712584426844385414.b4-review@b4>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=922; i=bmasney@redhat.com;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3217; i=bmasney@redhat.com;
  s=20250903; h=from:subject:message-id;
- bh=SvlLnlt6KHX1Jrj2D3pJtCaILFR/9gRc9iadqwmEB5E=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLL2/7X6vESXVZZr6Wxj3c4lz4Xy5qcm7nt4+OjFy0fUf
- A+ZPjGe2lHKwiDGxSArpsiyJNeoICJ1le29O5osMHNYmUCGMHBxCsBEEhsZ/ue2hf3l4ON+PnHv
- SvOQsrfpJYHf/Bvm7VBe9Kfo56vsPbqMDKs+HVC7yjLx7g35VuZFnkG3JLSO37uqbflrXT1jv6R
- dLzcA
+ bh=z5nIZYok1fhLZRQ7QC3TZVSMxWJtY/Swhyul/D70q5M=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLL2/7XmcHX65ip36MSC8m+bH/Q2KG5etNSV+ef2F7bvy
+ u7EOFlP7ShlYRDjYpAVU2RZkmtUEJG6yvbeHU0WmDmsTCBDGLg4BWAiWvEM/wuePzdyPLAh2H83
+ d0Jandj25LP1dgoer/dF3uqZr6C9axojw2meCs535p3fj//U/hfPvWHpVNPKItOIU/u3X/rCZ6D
+ myQ0A
 X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
  fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 9K-7Nfpo-fgQZmS1nDG7-_IzjPrN9D6liVfqYqyp23E_1790967110
+X-Mimecast-MFC-PROC-ID: VG_hDXCurdCwMtsvqRa1vJikjvYkjEZ4kwetWxL3yz4_1790967114
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_115155_725240_FD2CC786 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20261002_115156_381384_6E7CD36E 
+X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,27 +133,87 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi Changhuang,
 
-> Add support for JHB100 System-0 clock generator (SYS0CRG).
+> Add support for JHB100 System-2 clock generator (SYS2CRG).
 > 
 > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 >
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 4f72b4ac27ee..a0e5b4df96aa 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -26097,6 +26097,13 @@ S:	Supported
->  F:	Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-rx.yaml
->  F:	drivers/phy/starfive/phy-jh7110-dphy-rx.c
+> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
+> index 11da8bcc4046..cfaac934a8e0 100644
+> --- a/drivers/clk/starfive/Kconfig
+> +++ b/drivers/clk/starfive/Kconfig
+> @@ -92,3 +92,13 @@ config CLK_STARFIVE_JHB100_SYS1
+>  	help
+>  	  Say yes here to support the system-1 clock controller on the
+>  	  StarFive JHB100 SoC.
+> +
+> +config CLK_STARFIVE_JHB100_SYS2
+> +	bool "StarFive JHB100 system-2 clock support"
+> +	depends on ARCH_STARFIVE || COMPILE_TEST
+> +	select CLK_STARFIVE_JH71X0
+> +	select RESET_STARFIVE_JHB100 if RESET_CONTROLLER
+> +	default ARCH_STARFIVE
+> +	help
+> +	  Say yes here to support the system-2 clock controller on the
+> +	  StarFive JHB100 SoC.
+> diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
+> index 0061550e0f7e..29cdef20575e 100644
+> --- a/drivers/clk/starfive/Makefile
+> +++ b/drivers/clk/starfive/Makefile
+> @@ -13,3 +13,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+= clk-starfive-jh7110-vout.o
 >  
-> +STARFIVE JHB100 CLOCK DRIVERS
-> +M:     Changhuang Liang <changhuang.liang@starfivetech.com>
-> +S:     Supported
-> +F:     Documentation/devicetree/bindings/clock/starfive,jhb1*.yaml
-> +F:     drivers/clk/starfive/clk-starfive-jhb1*
-> +F:     include/dt-bindings/clock/starfive,jhb1*.h
+>  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS0)		+= clk-starfive-jhb100-sys0.o
+>  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS1)		+= clk-starfive-jhb100-sys1.o
+> +obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS2)		+= clk-starfive-jhb100-sys2.o
+> diff --git a/drivers/clk/starfive/clk-starfive-jhb100-sys2.c b/drivers/clk/starfive/clk-starfive-jhb100-sys2.c
+> new file mode 100644
+> index 000000000000..a2c7e8eba9b6
+> --- /dev/null
+> +++ b/drivers/clk/starfive/clk-starfive-jhb100-sys2.c
+> @@ -0,0 +1,129 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * StarFive JHB100 System-2 Clock Driver
+> + *
+> + * Copyright (C) 2024 StarFive Technology Co., Ltd.
+> + *
+> + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
+> + *
+> + */
+> +
+> +#include <dt-bindings/clock/starfive,jhb100-crg.h>
+> +#include <linux/init.h>
+> +#include <linux/platform_device.h>
+> +
+> +#include "clk-starfive-jh71x0.h"
+> +
+> +#define JHB100_SYS2CLK_NUM_CLKS			(JHB100_SYS2CLK_MAIN_ICG_EN_JTAG1 + 1)
+> +
+> +/* external clocks */
+> +#define JHB100_SYS2CLK_OSC			(JHB100_SYS2CLK_NUM_CLKS + 0)
+> +#define JHB100_SYS2CLK_PLL1			(JHB100_SYS2CLK_NUM_CLKS + 1)
+> +#define JHB100_SYS2CLK_GPU0_NCNOC_INIT		(JHB100_SYS2CLK_NUM_CLKS + 2)
+> +#define JHB100_SYS2CLK_GPU1_NCNOC_INIT		(JHB100_SYS2CLK_NUM_CLKS + 3)
+> +
+> +static const char * const jhb100_sys2_ext_clk[] = {
+> +	"osc",
+> +	"pll1",
+> +	"gpu0_ncnoc_init",
+> +	"gpu1_ncnoc_init",
+> +};
+> +
+> +static const struct jh71x0_clk_data jhb100_sys2crg_clk_data[] = {
+> +	/* jtag mst*/
+> +	JH71X0__DIV(JHB100_SYS2CLK_JTAGM0_HCLK, "jtagm0_hclk", 6,
+> +		    JHB100_SYS2CLK_PLL1),
+> +	JH71X0__DIV(JHB100_SYS2CLK_JTAGM1_HCLK, "jtagm1_hclk", 6,
+> +		    JHB100_SYS2CLK_PLL1),
+> +	JH71X0__DIV(JHB100_SYS2CLK_JTAGM0_ATPG, "jtagm0_ATPG", 12,
+> +		    JHB100_SYS2CLK_PLL1),
+> +	JH71X0__DIV(JHB100_SYS2CLK_JTAGM1_ATPG, "jtagm1_ATPG", 12,
+> +		    JHB100_SYS2CLK_PLL1),
 
-The spacing after the : doesn't line up with the other sections. It
-looks like this is using spaces instead of a tab.
+The ATPG portion of the clock name is uppercase. Can this be lowercase
+for consistency?
 
 Brian
 
