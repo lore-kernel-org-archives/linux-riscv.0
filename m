@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 083EDCA600A
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 17:53:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10D44CA5FFC
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 17:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w2+yWlZtW2LWVSQYwO0xXnDjznxntcFoq3oyONuoWgI=; b=BE324nf3XBACnz
-	yw4KZzZUqH/YjeE4/mWc0CTM3NCP1wTkh22qwR8I0czWae3nm1s022FY7rthkgv1mcbdGm5axWgSG
-	wqztdyzzB/LKafnc5ORX1IHiPKQkV02Ba3h1aTDW7KHG+nz9n6OjWeLFWEQdOPQLMDB/jt8fKE7DD
-	0A1yQe9IZdsu/7ATpemRg96hwCKXhmj0Sbu4OepptQAZ1cZUYNLJyZ6R3ryS+LmGgvv0Ac00sHnaT
-	JeokYnhc5G68uU9gwd2smEEYokETTYtdfMToR7cKZokbDxvYIJ5WlNXBo+FzjqhBPKEG3yLfP/Ks3
-	qB5OhwnVQqoQsCjnqhzg==;
+	List-Owner; bh=ukXoQzIUf1kI3LTSIKXcWa5+MmUiw0NVaTfFGY11YFw=; b=l3aM53i9QtzUOX
+	bFyFa/NHwWXQ56QVqDp4BSM37mAsoobk94D+crZdYjOaS5rmLhaQJx/Mayh/pyudfs3JWe6kaBfsX
+	2uus/k4urmv4DbJyxLBPwmVnQlLzCPk5Y77tqhh4d+JtSqVxiFDNQJZPkScna0PUziepFyZj3FjZA
+	uH8xK9PbPfJEk8PKvGVU+i4asNd26pJZkD8FqNZqE1a8ks9OX/K9K+nsBjLM8hmTFOvPHzsp7HY1I
+	sddYNhK6lUu68z5RcRg0BLq9u6JEJTnD/rJZ27x3rWo/hUgT6ufCrfTMkOX7hDZzfWceEu+b30u9t
+	4dUZWhlTxInja/bihY+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEVom-00000002pFk-3ndY;
+	id 1xEVom-00000002pFV-0SOB;
 	Wed, 07 Oct 2026 17:52:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXLC-0000000Alpg-20E0;
-	Fri, 02 Oct 2026 07:05:58 +0000
+	id 1xCXIO-0000000AlRX-1Dy4;
+	Fri, 02 Oct 2026 07:03:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DE67342DA9;
-	Fri,  2 Oct 2026 07:05:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CDDD1F000FF;
-	Fri,  2 Oct 2026 07:05:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AC5BD41A72;
+	Fri,  2 Oct 2026 07:03:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E14C1F00893;
+	Fri,  2 Oct 2026 07:02:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790924757;
-	bh=q+RvJ5qQrWBaQpl+ZByeC1Yxk5dq3iA4mzzIbyaM97Q=;
+	s=k20260515; t=1790924583;
+	bh=2e5cYzTU0sh5LNP2W4Golqb2KICqZdt5/yieI4RARk0=;
 	h=Date:Subject:From:To:Cc:References:In-Reply-To;
-	b=JBPHev7dzw5KD3Do2o8jF2ClqL/VcD0yCkArauPDfrzaWNjSv0XIlRwHjQBeniken
-	 NuNKmbo1MBwL69yqS5Sd8ywgt1EEYGe/6Wj7zcDEOhAnrr1K3MC70BRFm7u9B4iM1N
-	 4I03aUKcH1MBgVKhfTFIKagNUEA0JPLd9zbULjK3Db7lYftI6JNGvu1ciQ80IVvVG5
-	 EgGTQrKbozWbbm+kwXtj74BDBhrPgfQoXRujJt4scdrIStbreYpXI2f1hrMueTIlQF
-	 rEwp9zrdvfowaI03UERnsKaFeZl0IaxTOFnnbweIZS/4kslHiNxS3xEO94PnbKiKho
-	 TgLz7N0kwYc9Q==
-Message-ID: <81e1e5ae-0aab-4584-81e6-3fc9c2634d07@kernel.org>
-Date: Fri, 2 Oct 2026 09:05:15 +0200
+	b=ijpyrGWnbwdrhe2jSIA1tgjRHqpEFUuAuz2LAEPYijz+fXIwGq93mJDGEe3i4p03a
+	 1AVGdzilUttbUPpMOUj04JL1e9sSyWG+acUrJzdTAjfiLeciL3f8g6h+U/TZatFcIF
+	 U866q+DJ7IA9Boh/zre7ocVlNathCqD5gQ6etybZAUwNUTH167xXnXPTfAsZZqEwe4
+	 DuJ8aLGp5g+gqy0B3Wp22qbl+WPtsYQwd01ik2WjOH5Jg6dYWPEEx21Ac0zdqIs7+9
+	 kxAVyqvMkf8gmPDrdkN16r36L6W1KBCW+EuwCxuwuaQPDB4Lc/r7HUMYNn1ffvpga4
+	 AkJ/nVm1Xlhew==
+Message-ID: <3557015d-23dd-41ef-9832-78b58587f3f4@kernel.org>
+Date: Fri, 2 Oct 2026 09:02:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 31/40] mm/vma: introduce vma[_flags]_is_persistent()
@@ -63,7 +63,6 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
 References: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-0-4583d8a23bca@kernel.org>
  <20260917-b4-mmap-prepare-vma-flag-sanify-v3-31-4583d8a23bca@kernel.org>
  <9bbdf4e8-6984-4477-a183-f0b236047381@kernel.org>
- <3557015d-23dd-41ef-9832-78b58587f3f4@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -109,7 +108,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <3557015d-23dd-41ef-9832-78b58587f3f4@kernel.org>
+In-Reply-To: <9bbdf4e8-6984-4477-a183-f0b236047381@kernel.org>
 X-Mailman-Approved-At: Wed, 07 Oct 2026 10:52:37 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -127,30 +126,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/2/26 09:02, David Hildenbrand (Arm) wrote:
-> On 10/2/26 08:59, David Hildenbrand (Arm) wrote:
->> On 9/17/26 18:22, Lorenzo Stoakes (ARM) wrote:
->>> Introduce vma[_flags]_is_persistent() for the purposes of identifying
->>> mappings that are persistent in the sense that bytes to the mapping stay
->>> there, and bytes read from the mapping are the same unless changed by
->>> actions taken by userland.
->>
->> That's extremely confusing, sorry. We have to find a better name for that.
->>
->> Is this really all about user pages (pagecache, anon) that we would find through
->> the rmap?
->>
+On 10/2/26 08:59, David Hildenbrand (Arm) wrote:
+> On 9/17/26 18:22, Lorenzo Stoakes (ARM) wrote:
+>> Introduce vma[_flags]_is_persistent() for the purposes of identifying
+>> mappings that are persistent in the sense that bytes to the mapping stay
+>> there, and bytes read from the mapping are the same unless changed by
+>> actions taken by userland.
 > 
-> It's also about droppable mappings AFAIKs. How many more users will we have for
-> that function?
+> That's extremely confusing, sorry. We have to find a better name for that.
 > 
-> If it's "no others" then please don't add a helper function with misleading
-> names for it and just keep the special "dumpable" check in the new form in
-> madvise_vma_behavior().
+> Is this really all about user pages (pagecache, anon) that we would find through
+> the rmap?
+> 
 
-Talking to myself ... the more usage I see of the vma_is_persistent() the more I
-think this shouldn't be a helper at all. Especially not one with such a
-confusing name :P
+It's also about droppable mappings AFAIKs. How many more users will we have for
+that function?
+
+If it's "no others" then please don't add a helper function with misleading
+names for it and just keep the special "dumpable" check in the new form in
+madvise_vma_behavior().
 
 -- 
 Cheers,
