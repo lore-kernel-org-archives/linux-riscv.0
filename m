@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48F08CA5FE5
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 18:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5741DCA5FDD
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 18:52:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
 	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t6h7zOQtZAVbRYhX0YieT+HG59GbhSvqXf3KLabyZS8=; b=rMSnt/W2P3D4wS
-	hnc6rgE/nF5F3QPT4yLam6gmrktuaOfHQkbwXwwfVHS3v7fEvcuUUQ2Jxj/ZgaPwcGJ1dPJsVJTyE
-	ft8q6zwnpAyIuLSa9WxWPWgkcDxgQg3EJAIkix4SVRBowzC0OvzeHLshdtaMMKte7JdnZCuU3Xfup
-	v0AxPV7b7BVL1KBzyMMSyzp5SjY+PR7EgichwSGIx8hWvVqNUwU3VvobyRMNkiU6KXVIh1dh4sS/j
-	LiSvoukNsvksvasK1pkY6vBCRJAcAEUhfawJbEzLW3YFS2H20uQrsBLtS/RmhRetstUdIgCbP9fqi
-	zZ7Izx9QzjSZan9i8eUw==;
+	List-Owner; bh=8FZBlALegRFrOuUOnXaMC1eOK3M2JGQuVmGLSbE42qE=; b=dDsvU4617My1Y2
+	/5e/YEzz13+HiOH3CsYHyYg6sSaZbhnX+rUt9YACJqLDEBfh0B/jLurMuP3Z+rFXhmBv0heePTRYc
+	Qv6kqSJ3St3M2ziWhnbfIiLfhou2DjU1Td0eIRYCYyOYZrFd3gU+dHhDI2obVOOc3WSScpwY3/35/
+	wwrx7t2fIhFQZfiD7X36SKmQjJvxTrGYhCw7Q/NMGAuqsJeZ8hScAvFijCQ/993mzVarECWZpd1ZG
+	Ig8+PeAoLKenUsZFDL/mo3kT+8SvueoJVgoJ8Z3ZPcDF4C0Im0F2TRT2QwXLhKqDy0+YCzy8QA7Ul
+	qh5xYOxV1XxkZXI3HMVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCiMR-0000000CIx7-1zUC;
-	Fri, 02 Oct 2026 18:51:59 +0000
+	id 1xCiMW-0000000CIzN-2w8v;
+	Fri, 02 Oct 2026 18:52:04 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCiMO-0000000CIvF-0nXC
+	id 1xCiMU-0000000CIyT-2lAb
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Oct 2026 18:51:57 +0000
+	Fri, 02 Oct 2026 18:52:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790967115;
+	s=mimecast20190719; t=1790967121;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=sFsvLQiLKfq21A28GjN0uk1v82NHBHz0YcGin5ZMxfw=;
-	b=iriv70T4Hq/HhXWV3bQIsmHvoGCCYJpQsKpjnKmMX0IGsyctfD0ZlPmhIPJ3e7Jdq57IJv
-	pJAY8CpuIMPVcLonTqMWCKkh8uoVXp2XTKbzbGetyIOz9mkpgdXPB8EYgMv1l19a837NWk
-	lK7tT/q651LFFhrtmjcLcJghTQnGZaM=
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
- [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=8ZbusdJQDLU9CqEcp+iezpSfVMrYKCe1NKRzE9U8ZfQ=;
+	b=KpwvNA6yyHps7fBy23Jiy6/hPp/Nzm3EqGCQYLs6FY/iUkxwaRokU50jEp5EmLK7kVu6TO
+	3MgGuRovlVpDX7/V+QMNsfYQn6JHFJZFDKF8qIboU2x6yyrkY1Wm01rmN7V2qZcckiM0Qs
+	2HVwjkWml7cSg0/IjClbNvSwioib3SY=
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
+ [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-327-EcpizhG0MKWAwpQO03dpXA-1; Fri, 02 Oct 2026 14:51:54 -0400
-X-MC-Unique: EcpizhG0MKWAwpQO03dpXA-1
-X-Mimecast-MFC-AGG-ID: EcpizhG0MKWAwpQO03dpXA_1790967114
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93cb7f9bb86so445557185a.2
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Oct 2026 11:51:54 -0700 (PDT)
+ us-mta-589-A__7zdtqM0eugyMmSer-vA-1; Fri, 02 Oct 2026 14:52:00 -0400
+X-MC-Unique: A__7zdtqM0eugyMmSer-vA-1
+X-Mimecast-MFC-AGG-ID: A__7zdtqM0eugyMmSer-vA_1790967120
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93caa0ce0cdso368938685a.2
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Oct 2026 11:52:00 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790967114; x=1791571914;
+        d=1e100.net; s=20260707; t=1790967120; x=1791571920;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=sFsvLQiLKfq21A28GjN0uk1v82NHBHz0YcGin5ZMxfw=;
-        b=pzELcoQADOz+c4XQAPit/NiseJ/FNWW6GEsMifwErg/fYqXY4RDAKPtx1gs1qTNwdj
-         g+RngmZJOTbEvtXbMmUdhdei+KmWs3ar5oAEgYslzZWdH68Leu806h8f3Ny3sRU1S7lp
-         RfqsGKUCYtvs6ilhzwKZ98yKHPAlc0C7rkFFk9hZ0rk6biTKeGGPsUVwbDsdoAp9Q2kd
-         zM8hEOraikuYZpDwPuwmIfIXnZEQI8rA6MT57A1xBPvkSVX4YCUbuzypAF+IUD2Eu1W7
-         hphh48vdmBBjp0UZYT40rZkakyPwb5/nxlbXf4bNnp/0nALze9/fzfcnsnXs6yRr3Ril
-         LUfA==
-X-Forwarded-Encrypted: i=1; AKwUvBx2tpy9VxnHPkDlHMwsmYJJpbasAiKxVyftHxxLYdMfRb49SHH9oWudk+eTAk8IKA6eRRapLRVw2tuVJw==@lists.infradead.org
-X-Gm-Message-State: AFuF++kRP1KpjqaPDfrVTGzNgjRWi+EH0F0nFg81x03jGx6zBsuQbWvU
-	uDWi/yY9Awozt/osmDtm06/NScYaB/8KHsXyVY0X0qCq064Jh+PgxgYm2buKlA9cVCP5xK/s9e3
-	46MSIhdUXzpIyihE6tJniaTunnTc1/uAZKSh/zrhv79OYG8FPh4qWayvZniQCaqF4liOZEQ==
-X-Gm-Gg: AYBFou2z4UBG50wwQOMRiQb+85p4RtMwrHpl1LAReluWs2t+GwJFhyQq7BLtRk97FI1
-	OocM9s9o/r8Uy7KhKLoi1tYXAbrfk8SfY8QX4zWFhygiswEX+ZvkfH0YuN2TyqytA0aHU7OmUpF
-	P6YLDGiZhUvNdQPL/XmEbD40iUgoWy6RLfEAZ6/L1IfCUPhxZ+ccE1gwmQbZily7JRbIXro7CkB
-	LLfuOWlfv82nZKKBn/rNi7ohneW2cK67SREBBJoNVxNK/GPBrbIw009agG3VTV1/l3tT5uzvceI
-	yiRq7BHj1vZORZ+mTwbwknlrubhWyMohn6x5PEb+qnUQa1wJRtZOBXSqySGzRTGrJm1dBlEeiV1
-	bK4JobJz9yFY+QA==
-X-Received: by 2002:a05:620a:1984:b0:93b:d7a0:d9dc with SMTP id af79cd13be357-93cf189c270mr681523485a.54.1790967113586;
-        Fri, 02 Oct 2026 11:51:53 -0700 (PDT)
-X-Received: by 2002:a05:620a:1984:b0:93b:d7a0:d9dc with SMTP id af79cd13be357-93cf189c270mr681517785a.54.1790967112966;
-        Fri, 02 Oct 2026 11:51:52 -0700 (PDT)
+        bh=8ZbusdJQDLU9CqEcp+iezpSfVMrYKCe1NKRzE9U8ZfQ=;
+        b=d5wvqcx+837p2ZhekyMkFiC0vkzcMCBim1dZ/hOBRVFf3Nmv282XSm1n9ydx122i1P
+         oWVSYo80QFNAYAeIbwLK8TFPm6+Ja1GkvAZa2kkjUExHfrpey1go4Ra0yxV84mNhLQac
+         9WIyyelbUsmwkHUcf+6lyNQ11rEDIU+xX+pwu+F+28CRdjEL7rOtbuJzROux301KXGs/
+         k1JA2MVCwUK1cW5+3wwdgypwbHKqmUqIP+3FAx2+0ToDRWIIirSyFv/iBG5ojMp3TgRx
+         eqMzmUd9poMc6fA9LfhaNriw7WJqipuMJznFv4G/YDR8xbkW/ftlAQ0pjGszICx9pDfO
+         hNrw==
+X-Forwarded-Encrypted: i=1; AKwUvBy46HefETMySgxg/7w7Bh8hwXOJeJQIDcRe7LBh25XI/nlJnWgDPcVUVPWc6qVR10nMe9AFki1AHcMb0w==@lists.infradead.org
+X-Gm-Message-State: AFuF++mH6xPreZgADC4kwOpTuCbdZgpKzw2fC96iguaSwP4Aw6D+lDeZ
+	Nayx/D2Vmy25KffAafenWEqXpADPrvdvIi/6eP55rVhTE81cLy1p0T8gRLw4MuWhBqi2TiYHNan
+	s6iVDBk4F4K3Q4s7cabAWwxq8gugUM4XfbFxwHAmwvKfJCBOd/UIBbAAwgZozXrwJhiJlQ+6xIJ
+	FzXA==
+X-Gm-Gg: AYBFou09z+I9B0LJmLZW1Nm3wQTZSYtQ1QfRzkh8HZjTQywqdz3WXWoejeNF2EgKZgW
+	JZXHxcIYVVy9IRJrvNyN6HegDVZIByUW1nzOUaRvHQtOxVnRcfTHU3t+Uj5VTYR4nGdl0X1Z145
+	gAKMS0YZcvbpMAtFHUxYfIn3hxvRgefhZHtNb3tqsSETPYGDkMAGtDxsSvhqS4IMDzT/1oOHzIf
+	awB660nWgc0je1GAwUQSnkxQAgWziBaH/j0Ohe2tXROqpyuyr+p2dfHnJ2EVuaieDgu1QBcFlGb
+	5+pVUvnmTg/sNnJ9ZH2XdCjEGo5zHtER9K0YyFYyDp7F0Nyd3ipPNYyR06RMtG0PNo9yzR34OUy
+	1OYCctRr164pAkw==
+X-Received: by 2002:a05:620a:1707:b0:93c:ab7d:af7 with SMTP id af79cd13be357-93e510eda88mr48339585a.54.1790967119624;
+        Fri, 02 Oct 2026 11:51:59 -0700 (PDT)
+X-Received: by 2002:a05:620a:1707:b0:93c:ab7d:af7 with SMTP id af79cd13be357-93e510eda88mr48333485a.54.1790967118935;
+        Fri, 02 Oct 2026 11:51:58 -0700 (PDT)
 Received: from bmasney-x1.rmtuswv.csb ([2600:382:7723:4eba:66b1:961f:1a2d:af55])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93cca03a1bbsm290352485a.1.2026.10.02.11.51.50
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93cca03a1bbsm290352485a.1.2026.10.02.11.51.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Oct 2026 11:51:52 -0700 (PDT)
+        Fri, 02 Oct 2026 11:51:58 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH v5 10/23] clk: starfive: Add JHB100 System-2 clock
- generator driver
+Subject: Re: [PATCH v5 12/23] clk: starfive: Introduce idiv ops for
+ inverted divider clocks
 From: Brian Masney <bmasney@redhat.com>
 To: Changhuang Liang <changhuang.liang@starfivetech.com>
 Cc: Michael Turquette <mturquette@baylibre.com>, 
@@ -94,27 +95,27 @@ Cc: Michael Turquette <mturquette@baylibre.com>,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-riscv@lists.infradead.org, linux-hardening@vger.kernel.org, 
  netdev@vger.kernel.org, Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <20260930124317.5648-11-changhuang.liang@starfivetech.com>
+In-Reply-To: <20260930124317.5648-13-changhuang.liang@starfivetech.com>
 References: <20260930124317.5648-1-changhuang.liang@starfivetech.com>
- <20260930124317.5648-11-changhuang.liang@starfivetech.com>
+ <20260930124317.5648-13-changhuang.liang@starfivetech.com>
 Date: Fri, 02 Oct 2026 14:51:13 -0400
-Message-Id: <179096707365.821688.712584426844385414.b4-review@b4>
+Message-Id: <179096707366.821688.7143884804671628088.b4-review@b4>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3217; i=bmasney@redhat.com;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1581; i=bmasney@redhat.com;
  s=20250903; h=from:subject:message-id;
- bh=z5nIZYok1fhLZRQ7QC3TZVSMxWJtY/Swhyul/D70q5M=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLL2/7XmcHX65ip36MSC8m+bH/Q2KG5etNSV+ef2F7bvy
- u7EOFlP7ShlYRDjYpAVU2RZkmtUEJG6yvbeHU0WmDmsTCBDGLg4BWAiWvEM/wuePzdyPLAh2H83
- d0Jandj25LP1dgoer/dF3uqZr6C9axojw2meCs535p3fj//U/hfPvWHpVNPKItOIU/u3X/rCZ6D
- myQ0A
+ bh=DHchWNZ1wELl9N/w6lEvEhX4ovGIqMkBB+Mj5IaftOY=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLL2/7W9zLXuyMqzenaif56235iYH37vy6njq2S21Ouo+
+ +7y2HUxvaOUhUGMi0FWTJFlSa5RQUTqKtt7dzRZYOawMoEMYeDiFICJdK5hZOiut5vCynTqZcHe
+ S+F3wxhvO356uFlMyslMe9Iri3Oa/ikM/2MWlG1+tWHSu7i1E1iyY9Z/9z/fdPbqy3Oxs2tXT/8
+ VOYsRAA==
 X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
  fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: VG_hDXCurdCwMtsvqRa1vJikjvYkjEZ4kwetWxL3yz4_1790967114
+X-Mimecast-MFC-PROC-ID: za6n8afS-9fnBXKMrREQqb2alkH_MgjQMZcxIG1_63s_1790967120
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_115156_381384_6E7CD36E 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20261002_115202_773843_EEA4CF77 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,87 +134,44 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi Changhuang,
 
-> Add support for JHB100 System-2 clock generator (SYS2CRG).
+> Some StarFive clocks only advertise the divider and invert capabilities
+> (via JH71X0_CLK_INVERT, without ENABLE). Add the JH71X0_IDIV() macro
+> to declare such clocks, and jh71x0_clk_idiv_ops, which combines the
+> divider rate operations with get_phase/set_phase.
 > 
 > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 >
-> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-> index 11da8bcc4046..cfaac934a8e0 100644
-> --- a/drivers/clk/starfive/Kconfig
-> +++ b/drivers/clk/starfive/Kconfig
-> @@ -92,3 +92,13 @@ config CLK_STARFIVE_JHB100_SYS1
->  	help
->  	  Say yes here to support the system-1 clock controller on the
->  	  StarFive JHB100 SoC.
-> +
-> +config CLK_STARFIVE_JHB100_SYS2
-> +	bool "StarFive JHB100 system-2 clock support"
-> +	depends on ARCH_STARFIVE || COMPILE_TEST
-> +	select CLK_STARFIVE_JH71X0
-> +	select RESET_STARFIVE_JHB100 if RESET_CONTROLLER
-> +	default ARCH_STARFIVE
-> +	help
-> +	  Say yes here to support the system-2 clock controller on the
-> +	  StarFive JHB100 SoC.
-> diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
-> index 0061550e0f7e..29cdef20575e 100644
-> --- a/drivers/clk/starfive/Makefile
-> +++ b/drivers/clk/starfive/Makefile
-> @@ -13,3 +13,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+= clk-starfive-jh7110-vout.o
+> diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.c b/drivers/clk/starfive/clk-starfive-jh71x0.c
+> index bb7706ede1a6..1f98f1f8f0a5 100644
+> --- a/drivers/clk/starfive/clk-starfive-jh71x0.c
+> +++ b/drivers/clk/starfive/clk-starfive-jh71x0.c
+> @@ -302,6 +302,15 @@ static const struct clk_ops jh71x0_clk_inv_ops = {
+>  	.debug_init = jh71x0_clk_debug_init,
+>  };
 >  
->  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS0)		+= clk-starfive-jhb100-sys0.o
->  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS1)		+= clk-starfive-jhb100-sys1.o
-> +obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS2)		+= clk-starfive-jhb100-sys2.o
-> diff --git a/drivers/clk/starfive/clk-starfive-jhb100-sys2.c b/drivers/clk/starfive/clk-starfive-jhb100-sys2.c
-> new file mode 100644
-> index 000000000000..a2c7e8eba9b6
-> --- /dev/null
-> +++ b/drivers/clk/starfive/clk-starfive-jhb100-sys2.c
-> @@ -0,0 +1,129 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * StarFive JHB100 System-2 Clock Driver
-> + *
-> + * Copyright (C) 2024 StarFive Technology Co., Ltd.
-> + *
-> + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
-> + *
-> + */
-> +
-> +#include <dt-bindings/clock/starfive,jhb100-crg.h>
-> +#include <linux/init.h>
-> +#include <linux/platform_device.h>
-> +
-> +#include "clk-starfive-jh71x0.h"
-> +
-> +#define JHB100_SYS2CLK_NUM_CLKS			(JHB100_SYS2CLK_MAIN_ICG_EN_JTAG1 + 1)
-> +
-> +/* external clocks */
-> +#define JHB100_SYS2CLK_OSC			(JHB100_SYS2CLK_NUM_CLKS + 0)
-> +#define JHB100_SYS2CLK_PLL1			(JHB100_SYS2CLK_NUM_CLKS + 1)
-> +#define JHB100_SYS2CLK_GPU0_NCNOC_INIT		(JHB100_SYS2CLK_NUM_CLKS + 2)
-> +#define JHB100_SYS2CLK_GPU1_NCNOC_INIT		(JHB100_SYS2CLK_NUM_CLKS + 3)
-> +
-> +static const char * const jhb100_sys2_ext_clk[] = {
-> +	"osc",
-> +	"pll1",
-> +	"gpu0_ncnoc_init",
-> +	"gpu1_ncnoc_init",
+> +static const struct clk_ops jh71x0_clk_idiv_ops = {
+> +	.get_phase = jh71x0_clk_get_phase,
+> +	.set_phase = jh71x0_clk_set_phase,
+> +	.recalc_rate = jh71x0_clk_recalc_rate,
+> +	.determine_rate = jh71x0_clk_determine_rate,
+> +	.set_rate = jh71x0_clk_set_rate,
+> +	.debug_init = jh71x0_clk_debug_init,
 > +};
 > +
-> +static const struct jh71x0_clk_data jhb100_sys2crg_clk_data[] = {
-> +	/* jtag mst*/
-> +	JH71X0__DIV(JHB100_SYS2CLK_JTAGM0_HCLK, "jtagm0_hclk", 6,
-> +		    JHB100_SYS2CLK_PLL1),
-> +	JH71X0__DIV(JHB100_SYS2CLK_JTAGM1_HCLK, "jtagm1_hclk", 6,
-> +		    JHB100_SYS2CLK_PLL1),
-> +	JH71X0__DIV(JHB100_SYS2CLK_JTAGM0_ATPG, "jtagm0_ATPG", 12,
-> +		    JHB100_SYS2CLK_PLL1),
-> +	JH71X0__DIV(JHB100_SYS2CLK_JTAGM1_ATPG, "jtagm1_ATPG", 12,
-> +		    JHB100_SYS2CLK_PLL1),
+>  const struct clk_ops *starfive_jh71x0_clk_ops(u32 max)
+>  {
+>  	if (max & JH71X0_CLK_DIV_MASK) {
+> @@ -312,6 +321,9 @@ const struct clk_ops *starfive_jh71x0_clk_ops(u32 max)
+>  		}
+>  		if (max & JH71X0_CLK_ENABLE)
+>  			return &jh71x0_clk_gdiv_ops;
+> +		else if (max & JH71X0_CLK_INVERT)
+> +			return &jh71x0_clk_idiv_ops;
+> +
+>  		if (max == JH71X0_CLK_FRAC_MAX)
+>  			return &jh71x0_clk_fdiv_ops;
 
-The ATPG portion of the clock name is uppercase. Can this be lowercase
-for consistency?
+else if so that it's with the block above.
 
 Brian
 
