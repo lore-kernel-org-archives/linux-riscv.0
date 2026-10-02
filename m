@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1E7CCA5FC4
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 08:17:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D150CA5FD9
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 08:38:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IbvmSon76p2irkg+0QapWH/6YcEkuhM0J+wmBER0rVY=; b=gl4TiGSTTYdiWW
-	ugdRADga+di4vVGiYKhl21spqtQa1/2MxaIh4Ngf3ueSHdGEZYjJ3StEuiFc3tB7xLE0/OLUiFUnS
-	jj0McJaxPLdeYcYEwXkGKZMpHd+wzJpI0cynPOn6X1ZyGfaTCH0qR+Z6CFXh1XK4sDkjGX5+v2hsU
-	k18OF00MKU/G9tDP5tScvoMrUVNmJoPe7bacovNwjOOIh6sMGUE75gLUNi9VNB8lSPkm/8h4i0Mrn
-	GM0zGwO9rDcsc62FWwXknYtTHltYXJazSus54N8JBx+DQyHL4ff37RMVUdVp1aRH0B4UObj5C/bq8
-	8nw7oRARy7wQf6TlopIA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DQ/qzgsrhQVMhvkqr8E4rXFYZv3mGQt94uzsOuY4Gqk=; b=X2U7apIDfe6o5ykE7vj3PQ6329
+	FdHsFSI7wiXDTZZd3Yy4Nckj/PsTAyyFO0H6jUafWtKJX3kKugM3Rsp2itU2VmDSkDLBTl7jk0zO2
+	qSAFyZU0QOcmB6KfILlUuBh02mCjLyiasQ0w30UfSr5b9zFPlXhv9VYTTrLnA6I3tbVNCZnlArDGW
+	0v5hYOoZnMmjsEMCwVxGU4LmHVinXOf7thiKd0M1Wxvz0YsvWj1AICE3A8BZn36YwwBk48TuAHEsY
+	xm57TZ/QzMGkUwj/NnaQKmVkSWVwDijwhPD+tb3Mo8K+591dx/KZUPlWAO74MsbnZ9wUj1Divy+7O
+	wHO0hZyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCYSE-0000000AxtP-04Xj;
-	Fri, 02 Oct 2026 08:17:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xCYmw-0000000B0rb-2sCw;
+	Fri, 02 Oct 2026 08:38:42 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCYSC-0000000Axse-3Gdw;
-	Fri, 02 Oct 2026 08:17:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2C41C41E45;
-	Fri,  2 Oct 2026 08:17:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50E981F000FF;
-	Fri,  2 Oct 2026 08:17:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790929036;
-	bh=9yx8ebg2bvWYOV3tWECQ37hO2lwB9L2e0febzTmH5JU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nQXXNjLkwYz58zsrBOiKsev3kSoSv0Qn6uiQT1NeTnbVNcw1p5XvMUficJ1jAi+Ak
-	 IrQUl6apYNM0BZb+MwY+skimjk4Gaz+DKfu2Z7rrlWqcHeKazOZ/231skNjWs+VoHH
-	 hvldwUO3pE+zFitrOfFP0Nw36i/xpINvewLoPaNmIPApssJKO+twQoB8Do6cTfiqc5
-	 iB8xlM34AUVUaxFI7uiDOgQFd78kW0wtR2JuI/FknTclevK64ODgJXoQ+NBv/ZOiVh
-	 paTytyIjv85kIpY8OrS5F04vP35/hXTrzck/QL84DN+aQFgoAt0oSjO6j+qJxAzJrr
-	 gQoYq19TSfH3Q==
-Date: Fri, 2 Oct 2026 10:17:05 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Wandun Chen <chenwandun1@gmail.com>
-Cc: robh@kernel.org, baoquan.he@linux.dev, m.szyprowski@samsung.com,
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
-	chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	saravanak@kernel.org, akpm@linux-foundation.org,
-	pasha.tatashin@soleen.com, pratyush@kernel.org,
-	ruirui.yang@linux.dev, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-mm@kvack.org, iommu@lists.linux.dev
-Subject: Re: [PATCH v7 0/9] kdump: reduce vmcore size and capture time
-Message-ID: <ar9ogXc12cLjziHS@kernel.org>
-References: <20260922084256.1515554-1-chenwandun1@gmail.com>
+	id 1xCYms-0000000B0pO-3Kjr;
+	Fri, 02 Oct 2026 08:38:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1790930324; x=1822466324;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=m2cFnAtT5MsA9ZPOO80aU+rmS5QfQRGlkAlnRNZL7ec=;
+  b=wDzE+YNNautdQXlDKmbtaoOA3JQ6fpIWGJz5c+bLnmPkLLkJRZbSKh8m
+   DKjz0lj5fHdVkaxEgsnQdYnp5BxUj2wjj5PPtnT65wuoEPVE1baYKOaVR
+   UhKYd+0wHbDqM/h0cwUETLBUFfzKsRY5O+yYDhTWQTl3droGfLBEqZns2
+   NIa5byeXs3sRAnj225gv3gi4EY90x3M5qwXlPiVvC75nOgt3/6wHb6hQi
+   7wCoMB06OmIGekJ4eSmFFFNOLeYcTQtPGkaTBNVK4Aerb6yck8yIqHlX1
+   eY/5s/WqeRHmypr/nmnXJe3TboFmC0Fqi0U28/WKZwPx4tAexzw9d6KTG
+   Q==;
+X-CSE-ConnectionGUID: IGBhx96nQiGuf1zNHIDITA==
+X-CSE-MsgGUID: zO5TVFTHSu2pS70GJ2FXCw==
+X-IronPort-AV: E=Sophos;i="6.27,136,1787036400"; 
+   d="asc'?scan'208";a="64775344"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 02 Oct 2026 01:38:41 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Fri, 2 Oct 2026 01:38:36 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
+ Transport; Fri, 2 Oct 2026 01:38:32 -0700
+Date: Fri, 2 Oct 2026 09:37:12 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Wilken Gottwalt <wilken.gottwalt@posteo.net>
+CC: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>, Bjorn Andersson
+	<andersson@kernel.org>, Baolin Wang <baolin.wang@linux.alibaba.com>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
+	<jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Paul
+ Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Andre Przywara <andre.przywara@arm.com>, Bastian
+ Germann <bage@debian.org>, <linux-remoteproc@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 3/3] riscv: dts: allwinner: d1-t113: Add the hardware
+ spinlock
+Message-ID: <20261002-backroom-surcharge-ac224e920d44@wendy>
+References: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
+ <20260927025626.69614-4-tien.nguyenminh@embeddedlinux.blog>
+ <20260927132707.5f484946@posteo.net>
+ <20260930130221.129529-1-tien.nguyenminh@embeddedlinux.blog>
+ <20260930160541.040ccc0e@posteo.net>
+ <20261002-matted-tux-5b4059bc305a@wendy>
+ <20261002094816.64349979@posteo.net>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260922084256.1515554-1-chenwandun1@gmail.com>
+In-Reply-To: <20261002094816.64349979@posteo.net>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261002_013839_109595_90C1A161 
+X-CRM114-Status: GOOD (  30.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,155 +96,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8664538684150085653=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Wandun,
+--===============8664538684150085653==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="DZ11gBOYyAJHJUPX"
+Content-Disposition: inline
 
-On Tue, Sep 22, 2026 at 04:42:47PM +0800, Wandun Chen wrote:
-> From: Wandun Chen <chenwandun@lixiang.com>
-> 
-> On SoCs that carve out large firmware-owned reserved memory (GPU,
-> camera ISP, ...), kdump currently dumps those carveouts as part of
-> system RAM even though their contents are firmware state that is not
-> useful for kernel crash analysis.
-> 
-> This series introduces a MEMBLOCK_NODUMP flag in memblock to filter
-> reserved memory on DT-based architectures (arm64, riscv, loongarch).
-> Reserved regions are marked MEMBLOCK_NODUMP by default so kdump omits
-> them; reusable CMA regions are different because their pages are handed
-> back to the buddy allocator and may carry crash-relevant data.
-> 
-> ACPI systems already filter reserved memory out of the vmcore through
-> their existing path; only DT-based systems currently fail to filter these
-> regions, which is what this series addresses. The flag lives in memblock
-> itself rather than in a DT-only structure, so both ACPI and DT systems
-> can benefit from it (suggested by Rob, thanks).
+--DZ11gBOYyAJHJUPX
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Can you elaborate how ACPI systems filter their reserved memory?
-With your patches, the memblock flag becomes a part of DT-only
-infrastructure, so that claim that both ACPI and DT benefit from it does
-not hold, doesn't it?
- 
-> Since the reserved memory regions are filtered out, the vmcore is
-> smaller in size and faster to produce.
-> 
-> The series is based on linux-next and is organized as follows:
-> 
-> Patches 1-3: Preparation and bugfixes: switch riscv crash_mem to memblock,
-> 	     fold the duplicated per-arch memblock walks into the weak
->              defaults, and serialize crash header preparation against
->              memory hotplug.
-> Patches 4-8: NODUMP infrastructure: switch crash_core to
->              for_each_mem_region(), introduce the MEMBLOCK_NODUMP flag,
-> 	     add a dumpable flag to struct reserved_mem, and mark
-> 	     /reserved-memory and /memreserve/ entries with MEMBLOCK_NODUMP
-> 	     flag.
-> Patch 9:     Exclude MEMBLOCK_NODUMP regions from the vmcore ELF
->              header.
-> 
-> v6 --> v7:
-> 1. Fix a stale MEMBLOCK_NODUMP flag issue [1]. Memory reserved and
->    marked as NODUMP may later be freed (the initrd, for example),
->    so the NODUMP flag must be cleared accordingly. Since the fix is
->    part of the NODUMP infrastructure introduced by patch 5, it has
->    been folded into that patch.
-> 
-> 2. Drop the "generic" related description in the cover letter.
-> 
-> 3. Collect the Acked-by and Reviewed-by tags received during the v6
->    review (thanks to Baoquan, Mike, Rob and Marek). Patch 5 is the
->    only one without a tag, as its Reviewed-by was dropped when the
->    fix was folded in.
-> 
-> 4. Drop patch 1 of v6, which has been merged separately.
-> 
-> 
-> v5 --> v6:
-> 1. Serialize crash header preparation against memory hotplug to avoid
->    out-of-bounds or use-after-free issues.
-> 2. MEMBLOCK_NODUMP marking is now done after memblock allows resizing,
->    avoiding a panic from too few regions before resize is permitted.
-> 3. Reordered the patches, put pre-existing bugfixes earlier in the series.
-> 
-> 
-> v4 --> v5:
-> 1. Rework the mechanism around a memblock-level MEMBLOCK_NODUMP flag
->    (suggested by Rob) instead of the v4 opt-in 'dumpable' flag on
->    DT-only struct reserved_mem [2].
-> 2. Switch the riscv vmcore elf header preparation to use memblock
->    instead of the resource tree, aligning it with arm64 and loongarch,
->    so riscv also can exclude reserved memory from vmcore.
-> 3. Deduplicate the vmcore elf header preparation: arm64, riscv and
->    loongarch open-coded the same logic, so fold it into shared
->     __weak defaults in crash_core.
-> 4.  Drop the v4 patch that saved /memreserve/ entries into the
->     reserved_mem array; /memreserve/ is now marked MEMBLOCK_NODUMP
->     directly.
-> 
-> v3 --> v4:
-> 1. Rebase this series on v7.2-rc1.
-> 2. Add two cleanup patches (patch 02/03).
-> 3. Simplify patch 03 to avoid checking whether initial_boot_params is
->    NULL multiple times, suggested by Rob.
-> 
-> v2 --> v3:
-> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.
-> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
-> 3. Add some prepare patches.
-> 
-> v1 --> v2:
-> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
->    feedback [3], v2 drop that property and exclude reserve memory
->    by default.
-> 2. Split some prepared patches from the original patches.
-> 3. Address coding-style comments on patch 5 from Rob.
-> 
-> [1] https://sashiko.dev/#/message/20260917220750.GA4013814-robh%40kernel.org
-> [2] https://lore.kernel.org/lkml/20260723234126.GA3253409-robh@kernel.org/
-> [3] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
-> 
-> 
-> 
-> Wandun Chen (9):
->   riscv: build crash_mem ranges from memblock instead of resource tree
->   crash_core: fold duplicated memblock arch hooks into the weak default
->   crash_core: serialize crash header preparation against hotplug
->   crash_core: replace for_each_mem_range() with for_each_mem_region()
->   memblock: introduce MEMBLOCK_NODUMP flag
->   of: reserved_mem: add dumpable flag to opt-in vmcore
->   of: reserved_mem: mark /reserved-memory entries with MEMBLOCK_NODUMP
->   of: reserved_mem: mark /memreserve/ entries as MEMBLOCK_NODUMP
->   crash_core: skip MEMBLOCK_NODUMP regions when building vmcore ELF
->     header
-> 
->  arch/arm64/kernel/machine_kexec_file.c     | 29 ------------
->  arch/loongarch/kernel/machine_kexec_file.c | 27 ------------
->  arch/riscv/Kconfig                         |  2 +-
->  arch/riscv/kernel/machine_kexec_file.c     | 33 --------------
->  arch/x86/kernel/crash.c                    |  2 +-
->  drivers/of/fdt.c                           |  2 +
->  drivers/of/of_private.h                    |  2 +
->  drivers/of/of_reserved_mem.c               | 48 ++++++++++++++++++++
->  include/linux/crash_core.h                 |  2 +
->  include/linux/memblock.h                   |  9 ++++
->  include/linux/of_reserved_mem.h            |  1 +
->  kernel/crash_core.c                        | 51 ++++++++++++++++++++--
->  kernel/dma/contiguous.c                    |  1 +
->  mm/memblock.c                              | 43 +++++++++++++++++-
->  14 files changed, 155 insertions(+), 97 deletions(-)
-> 
-> -- 
-> 2.43.0
-> 
+On Fri, Oct 02, 2026 at 07:48:21AM +0000, Wilken Gottwalt wrote:
+> On Fri, 2 Oct 2026 08:32:51 +0100
+> Conor Dooley <conor.dooley@microchip.com> wrote:
+>=20
+> > On Wed, Sep 30, 2026 at 02:05:47PM +0000, Wilken Gottwalt wrote:
+> > > On Wed, 30 Sep 2026 20:02:21 +0700
+> > > Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog> wrote:
+> > >=20
+> > > > Hi Wilken,
+> > > >=20
+> > > > > Wouldn't it make more sense to add the "allwinner,sun20i-d1-hwspi=
+nlock" line to
+> > > > > the driver in the sun6i_hwspinlock_ids struct, drop
+> > > > > "allwinner,sun6i-a31-hwspinlock" here in the D1 device tree and u=
+pdate the yaml
+> > > > > file accordingly?
+> > > >=20
+> > > > Thanks for looking at it. Bjorn hasn't replied yet, so I looked a b=
+it
+> > > > more at the naming. I'd like to keep the A31 fallback: it's the usu=
+al
+> > > > pattern, other blocks in this dtsi do the same (timer, I2S, LED
+> > > > controller), and Conor already acked the binding in 2/3. If Bjorn
+> > > > prefers a driver entry instead, I'm fine to change it.
+> > >=20
+> > > Yeah, Conor was a bit quick to act here, such things happen often wit=
+h patchsets
+> > > made out of documentation/devicetrees and code. Though, the get clock=
+ and resets
+> > > patch is fine. The driver could use some modernization.
+> >=20
+> > I dunno, was I too quick to act? The patched looked correct to me, since
+> > it was using a fallback to a device that it appears to be compatible
+> > with. Had the series done what you're suggesting, my review feedback
+> > would have been to tell the Tien to add a fallback.
+>=20
+> I'm just not sure how to actually do it right, because so many SoCs inclu=
+de that
+> feature.
 
--- 
-Sincerely yours,
-Mike.
+If devices share a programming model with existing devices or have a
+programming model that's a functional superset of existing devices (so a
+new optional feature etc) they should use the existing device as a
+fallback compatible.
+
+> That is why I asked how you would do it having more insight as a
+> subsystem maintainer.
+
+
+> It just looks incomplete to me. In the past I actually
+> verified it working with H2, H2+ and H3, none of them being
+> "allwinner,sun6i-a31-hwspinlock".
+
+Then probably there should be a patch adding all of these to the enum
+alongside the new d1 compatible.
+
+Cheers,
+Conor.
+
+--DZ11gBOYyAJHJUPX
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCar9tOAAKCRB4tDGHoIJi
+0iytAP4kiIuP9DCdaR3lgIGUSddG4JYzELBic1ApDlqgZ/SNEQD/RKVu9GbrGwDd
+rnTBgqaVMmHVFVBx47bm5hVDIO0d+wc=
+=9vte
+-----END PGP SIGNATURE-----
+
+--DZ11gBOYyAJHJUPX--
+
+
+--===============8664538684150085653==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8664538684150085653==--
+
