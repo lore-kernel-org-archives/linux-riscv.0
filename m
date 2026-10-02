@@ -4,73 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 820D6CA5FDD
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 13:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5451CA5FD4
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2026 13:44:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References:Message-ID
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Op+Bubi1W6Okoi3/2fDJIYgakqh+do7wxmjYKolYsAs=; b=fo/7ijzzrfy3aL
-	skSHbL+KuwlBZLB1NCZjc8YDM5o7yG/EA1xUr7c6U6aRCHNvjWjjIq/3pl1ARqV8WZ6jaQ5XPw4Zy
-	vX+xW6bAgl8W0PgKlVZBHguY1Qpovjcac3VWSuyRsUYlb4hlVyLWMygKEVLGshNhUniHw1Zp38Kkj
-	apOnGTXHuBLXbyTFq7nhd0e+B0PNdziCFBu71Q0lLj64lFkpYQ9TqwbRqtUe9QgIn4eqFWU3QhZY6
-	fj9JWByR8IBheDRRXJF07Z1j5mFESsluaj5kZvocWIcB4+PGA+BI6xa+ieipfbuvNqqUHJGI71XJc
-	qjxCtUph/doD7MS0ZJrw==;
+	List-Owner; bh=8q3dwyiGDaXA5ODunTfJkJvctQ+6bnXeAsZZUfFoRak=; b=V828i9Id9wk7Vb
+	We5Zvn8WsVGYE8fu1QpkbakCRxd5PwrRAM+64lr0Ab1HL/ECUmr1KDLxdGxlnUMXBNTEcfk0g4HdN
+	B/XNecajVPcLFfFORzLgPtuqZKY2LC5EV2AuR00ShQEeCA5wE3nZUGtn9o1FYAoo9X0pse2VksWnH
+	KlT3hjtu0DSihy2sNti1VI0irGKCITyRY/Eh0eT6GH4Mhd2uvEHWUz8oInUya2S32qxYIxzyekbrC
+	CJKiXLCIQ/T1K3XecZywSZPjMJRRtM973cY9RgNpEefJShHnczVGz5iYjmotTXTopVg0aNcIoLzMB
+	XPdQ1VTGVjQuEUB4l4/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCd4F-0000000Be5e-0Hlm;
-	Fri, 02 Oct 2026 13:12:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xCdYS-0000000Bgfg-30uF;
+	Fri, 02 Oct 2026 13:44:04 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCd4D-0000000Be51-1bk2;
-	Fri, 02 Oct 2026 13:12:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1A3FB416D0;
-	Fri,  2 Oct 2026 13:12:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 146F21F000FF;
-	Fri,  2 Oct 2026 13:12:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790946769;
-	bh=aVf/lW0mxR5mXdPtanEkjzxn8Fb60gYR+l6Vjdu9n/c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ieMGCLHoWcdWZqqVFKPKXIS0eM9hbG1CO7Dc+7PdoebGcn+t/bHl9TBQM31iVvvKH
-	 sr6l9ON1qqrsQ4QD+q2zh6ZpqbK87lcUGEFjUxQpx8SShovUWaE4a8z7ueb6+gmknD
-	 NPlt8vSsqGncCUfFU0sJanXwSEXDF4kuuKDFCNUgsJVblssmLNEtYVCPgKZYvhvaQF
-	 E10xzk2JFaujiQhB9qemiQ70mRCz6twd561Pw5dPervZAYe73/tha+Z07Ie07NlG/n
-	 XYTcGsdeCSMiqcmGA4xMLtT6e6E0QRnGha7Rvbwp9K2B3v4WIWn3B57UNJOeuf8r7I
-	 Yvn+lZ6wx0gaQ==
-Date: Fri, 2 Oct 2026 14:12:35 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Barry Song <baohua@kernel.org>, Hongru Zhang <zhanghongru06@gmail.com>, 
-	akpm@linux-foundation.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	surenb@google.com, david@kernel.org, liam@infradead.org, mhocko@suse.com, 
-	rppt@kernel.org, shakeel.butt@linux.dev, vbabka@kernel.org, zhaonanzhe@xiaomi.com, 
-	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
-	linux-arm-kernel@lists.infradead.org, chenhuacai@kernel.org, kernel@xen0n.name, 
-	loongarch@lists.linux.dev, maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, 
-	chleroy@kernel.org, linuxppc-dev@lists.ozlabs.org, pjw@kernel.org, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	linux-riscv@lists.infradead.org, agordeev@linux.ibm.com, gerald.schaefer@linux.ibm.com, 
-	hca@linux.ibm.com, gor@linux.ibm.com, borntraeger@linux.ibm.com, 
-	svens@linux.ibm.com, linux-s390@vger.kernel.org, dave.hansen@linux.intel.com, 
-	luto@kernel.org, peterz@infradead.org, tglx@kernel.org, mingo@redhat.com, 
-	bp@alien8.de, x86@kernel.org, hpa@zytor.com, 
-	Hongru Zhang <zhanghongru@xiaomi.com>
-Subject: Re: [PATCH v6] mm: retry page faults once under the per-VMA lock
-Message-ID: <ar-o1TrOMGrrcxLX@gremlin>
-References: <20260911025613.1220845-1-zhanghongru@xiaomi.com>
- <arFYRAa-i7CIwmHL@gremlin>
- <arF-E3Nsw9ZliH0t@casper.infradead.org>
- <arI_w2wTfA00Mgy9@gremlin>
- <armexcXDiG8ryZd6@casper.infradead.org>
- <CAGsJ_4xuFi7K+crAcFQ998SxXS0xPM6QeA34JV+6+Sy005rXLg@mail.gmail.com>
- <ar7MsOb6IJLt4eLo@casper.infradead.org>
+	id 1xCdYQ-0000000Bgeu-1lqo
+	for linux-riscv@lists.infradead.org;
+	Fri, 02 Oct 2026 13:44:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cRjBzMloBtHmXPqbAl7VOjwlIilrwlV2WbM7o7jorMaOP0sVmbqQxK2QVOaWijws1y0qnpclLQFtBNdCayJeLGF+pl2omXTbfyd9ai1DR4cCGeSK31NoxoA6p6vMaUAZGHpaxSdgATShzAAvBKwsOD63XgyRzUmOxqwabPTXxmggwt0Y5Zwexz8J4H1SiJdaDsVRgVY71JStvrQ1knf+GbqvdkvCW/cBJ02bAO0/wAPcNspZWRiITI6fKfWvHvxTBJoWTJo/ZPwO3eoj2fWHGqKdIWnakz4mA0+n8RboUcuk1az5jTE2QZJYY+6Qc5JAEidCfyvA83kSrk9PfufU3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TdU3OGTDSkpdKuvVrmRqbuMtjUdr6614nI2kT7EGXSA=;
+ b=fXfrKxB/HjlZzbI6HdPPIHgYYi8Crx5m99th51h4GW4B47e90UHlbSS+JWBbSbUM0K5cjZj2ns3XeqYdi+z2irX2CnRwcdz56wMUV5Qc0XfK30KCmkvAwZjB3cpWgoxD7xd1FgmqfI5sUdna+J9JZpka+7bPuJAnfKsXQnnCHdeBdBleB3JwXh6iKYOms2F9dT3aygwO+gtyofzElZP8bzsUcOD2OZ3AcbNSv4TwF+BF4UMyibVovwyLxvvWGSaBDM/WbVkjF81VOAQX3wSDb46uq9T/AhvD0fYKyckzimVT+92Ih2ls8Ea2Gq0psa+NWdyRT4ZXg3qRPiF71iNBWg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 195.60.68.100) smtp.rcpttodomain=dabbelt.com smtp.mailfrom=axis.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=axis.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TdU3OGTDSkpdKuvVrmRqbuMtjUdr6614nI2kT7EGXSA=;
+ b=WRvshvsMUmnk6vIUWR+1j/Ix05fNyxEs0KUnXXbY7wHWAwK44e0MqlzyIqaZ9SNf0j24qhKIQNmeexMMVol9OMr6JqgbhP2g6pVVXnNwpJH2skfv35MzEeVX/aFoENunzeBE3zRnqZ8KD5PLV90VJ5HERuF0GK0Otq046TMS8Wc=
+Received: from OS6P279CA0164.NORP279.PROD.OUTLOOK.COM (2603:10a6:e10:39::17)
+ by DBAPR02MB6037.eurprd02.prod.outlook.com (2603:10a6:10:180::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Fri, 2 Oct
+ 2026 13:43:52 +0000
+Received: from CPH1EPF0000051F.eurprd04.prod.outlook.com
+ (2603:10a6:e10:39:cafe::63) by OS6P279CA0164.outlook.office365.com
+ (2603:10a6:e10:39::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.19 via Frontend Transport; Fri, 2
+ Oct 2026 13:43:51 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 195.60.68.100) smtp.mailfrom=axis.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=axis.com;
+Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
+ 195.60.68.100 as permitted sender) receiver=protection.outlook.com;
+ client-ip=195.60.68.100; helo=mail.axis.com; pr=C
+Received: from mail.axis.com (195.60.68.100) by
+ CPH1EPF0000051F.mail.protection.outlook.com (10.167.241.234) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Fri, 2 Oct 2026 13:43:51 +0000
+Received: from se-mail10w.axis.com (10.20.40.10) by se-mail11w.axis.com
+ (10.20.40.11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.39; Fri, 2 Oct
+ 2026 15:43:51 +0200
+Received: from se-intmail01x.se.axis.com (10.4.0.28) by se-mail10w.axis.com
+ (10.20.40.10) with Microsoft SMTP Server id 15.2.1748.39 via Frontend
+ Transport; Fri, 2 Oct 2026 15:43:51 +0200
+Received: from pc66231-2602.sto.se.axis.com (pc66231-2602.sto.se.axis.com [10.133.4.42])
+	by se-intmail01x.se.axis.com (Postfix) with ESMTP id 26AA34AC7;
+	Fri,  2 Oct 2026 15:43:51 +0200 (CEST)
+Received: by pc66231-2602.sto.se.axis.com (Postfix, from userid 21940)
+	id 0F9B6305CE1C; Fri,  2 Oct 2026 15:43:51 +0200 (CEST)
+From: Kanak Shilledar <kanak.shilledar@axis.com>
+Date: Fri, 2 Oct 2026 15:43:36 +0200
+Subject: [PATCH 4/4] riscv: dts: thead: th1520-lichee-pi-4a: Cleanup with
+ dt-check-style
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ar7MsOb6IJLt4eLo@casper.infradead.org>
+Message-ID: <20261002-fix-dts-th1520-v1-4-9a8810091d47@axis.com>
+References: <20261002-fix-dts-th1520-v1-0-9a8810091d47@axis.com>
+In-Reply-To: <20261002-fix-dts-th1520-v1-0-9a8810091d47@axis.com>
+To: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei
+	<wefu@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Kanak Shilledar <kanak.shilledar@axis.com>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4427;
+ i=kanak.shilledar@axis.com; h=from:subject:message-id;
+ bh=yGoXnU6dpHuWFmeKb+g8CH+o1wV6cAYQCbN80Dsrops=;
+ b=owGbwMvMwCV2JPnG7+2HZqUznlZLYsjav1Vs8+fkCWK6982axRwvKe8/ab9nwfXvh+RZ3P6uX
+ BB+9nz1gY4SFgYxLgZZMUWWc0bbo/cn/9OdI+10CWYOKxPIEAYuTgGYSIAAw19hv2vn3m81O/tb
+ bW6GN1tGe+rso0nH+NiFj3Y4pYisfsvO8E13xt/S572qnIcW63mf8Qtf2bDSafqx31vvvq//5rd
+ Dhw8A
+X-Developer-Key: i=kanak.shilledar@axis.com; a=openpgp;
+ fpr=CDB0F1C8EAD5B522C7B3A77928221FF065DB55F9
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CPH1EPF0000051F:EE_|DBAPR02MB6037:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5738cab0-37e4-4eb3-1650-08df208b31d6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|82310400026|36860700016|921020|10067099003|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: hCQP3xRE4nglJhQl/71w/gneXN644LWnnXqFQQucTtc3jEMEyk88o6q24h2H3Bf57JDDerCOZXehyQw4Yc3lIuA1BkyC5Lv8E2NuEnTNIvSbNokZTT18P8W6sE1tz8s0t4fngRz9Cj5G/ioIOJebRXMLU344ehJYBdZ1dExCyeA0DVctfTajfW+iddfMM2wHXonRnEB+XMNuwFk66ksKMIaVtm0y+Mzxz2hXfQ9UhR+Q5Bk++oV6HJLGxRQiZwdOkhZXPW4x8j9r8ZejhccsqbrHTX48NtmIHEr4fX7J3BiB3Q8ZXlQvxrxmqBf4/RPCBtvfqsZP/Er+/rOKR5UZwlYv/R/5uiO6GDN+J+vEmvDPLs/tvyxUM0PYfquT7w4+ZbRbwEstKrYis7XVib0k+W0d6v8gmfGrX5N7v+vlVb6x2vaAGvVbk2E6IAaRQMQZ4uhUcmvuHSJCdfXARUSB5bJCb7zgi940ieigI3LplKBCnq7E+jO4bCj7TJkbxQScPX1CPIO6aDC81rz929JwTmXQSP2Dqqdjt0B/65EKdhfYRHZyT5+ECaIpyQhXl1srxOgm99CPYPTpbAe8mhXWd1ukyGJsqSi8QzOQcB8uS/t2Xu6CdJAwwxYpPsbzETnYiM9n9w2gwVhJ+TAkvVjSn0xYOitFH6anmIaf+bnQS55tY5rINfwvDgyM1uwBb9gRb5VkPLQVH/r0pxUaJIWAhWLDt9vaZlcMqYEkLhajnXBjqqPkqZxSM3lo7GXlhMYs
+X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(82310400026)(36860700016)(921020)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: PyelJu5Go78kANc3PFtzQhHDzmyZvUGDm4m0OuEfAXKq14Ii87x5xQflaHJ+qcZgif/alkPjVJcMS9ilOIgGGkgeOgOS1hL/muBCwtCbFpkglszXfU/rCk//5K0G+HSQbxrd4oI9YZ/fE2pOk9ZxQGWtGhXWtXxSsKLKBNcVMkJkEqzJyYjNXVthXrPhFa9yjfcECwy7oFFAjJ0Advt7WPlKnJW/TFhb0eK1DtUX7Lx75YVJhudmSChY0/K6jEHTV1klPlTEqG+++gBM6waV5r8U30qshpNjseq9SChkldLLUujOYCs/8rd59OGC+jkARH2z3vApOuB3Xx01F4ITAEUKpxwSphHh08bOJjOFSL2j+SYx5gXBgAd4ymqopzsJaeIA2Nh68v4ktsRRXxM/CB04OYuaMy3LO+oXNtqUBjLO0uVC9HQbOLo0k5kgi00R
+X-OriginatorOrg: axis.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Oct 2026 13:43:51.8361
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5738cab0-37e4-4eb3-1650-08df208b31d6
+X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
+X-MS-Exchange-CrossTenant-AuthSource: CPH1EPF0000051F.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR02MB6037
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261002_064402_489856_04771398 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,131 +139,194 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 10:12:16PM +0100, Matthew Wilcox wrote:
-> So what I didn't realise is that fork() waits for page faults to finish.
-> I don't think that's necessary, so we can just stop doing that (whitespace
-> damaged):
->
-> diff --git a/mm/mmap.c b/mm/mmap.c
-> index 4bf26b0f1e6e..e79555247d3a 100644
-> --- a/mm/mmap.c
-> +++ b/mm/mmap.c
-> @@ -1739,9 +1739,6 @@ __latent_entropy int dup_mmap(struct mm_struct *mm, struct mm_struct *oldmm)
->         for_each_vma(vmi, mpnt) {
->                 struct file *file;
->
-> -               retval = vma_start_write_killable(mpnt);
-> -               if (retval < 0)
-> -                       goto loop_out;
->                 if (vma_test(mpnt, VMA_DONTCOPY_BIT)) {
->                         retval = vma_iter_clear_gfp(&vmi, mpnt->vm_start,
->                                                     mpnt->vm_end, GFP_KERNEL);
->
-> I think this is safe.  I've booted a kernel with this change, and
+Fix warnings thrown by krzk's recent updates to the dt-check-style
+tool when run with strict mode. Fix the following warnings:
 
-I'm afraid it's not safe :)
+	thead/th1520-lichee-pi-4a.dts:161: [property-order] property 'pinctrl-names' must be placed after 'pinctrl-0'
+	thead/th1520-lichee-pi-4a.dts:163: [required-blank-lines] "status" must be preceded by a blank line
+	thead/th1520-lichee-pi-4a.dts:217: [child-name-order] child node 'rx-pins' out of name order
 
-We already actually did this (by mistake I think?) before. See commit
-fb49c455323f ("fork: lock VMAs of the parent process when forking") - we shipped
-that in 6.4.0 -> 6.4.2 and it corrupted memory all over the place.
+After this patch, there are no more warnings thrown. Fix these
+warnings to make the file more readable and maintainable along with
+that to make it more compliant with the devicetree specifications.
 
-Reports + a consistent reproducer:
+Signed-off-by: Kanak Shilledar <kanak.shilledar@axis.com>
+---
+ arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts | 90 ++++++++++++-----------
+ 1 file changed, 47 insertions(+), 43 deletions(-)
 
-https://bugzilla.kernel.org/show_bug.cgi?id=217624
-https://lore.kernel.org/all/dbdef34c-3a07-5951-e1ae-e9c6e3cdf51b@kernel.org/
-https://lore.kernel.org/all/b198d649-f4bf-b971-31d0-e8433ec2a34c@applied-asynchrony.com/
+diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+index 1eb575aa9a74f..5908b21d558d4 100644
+--- a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
++++ b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+@@ -41,10 +41,13 @@ hdmi_con_in: endpoint {
+ 		};
+ 	};
+ 
+-	wifi_pwrseq: wifi-pwrseq {
+-		compatible = "mmc-pwrseq-simple";
+-		reset-gpios = <&ioexp2 4 GPIO_ACTIVE_LOW>;
+-		post-power-on-delay-ms = <200>;
++	fan: pwm-fan {
++		compatible = "pwm-fan";
++		pinctrl-0 = <&fan_pins>;
++		pinctrl-names = "default";
++		#cooling-cells = <2>;
++		pwms = <&pwm 1 10000000 0>;
++		cooling-levels = <0 66 196 255>;
+ 	};
+ 
+ 	thermal-zones {
+@@ -53,6 +56,23 @@ cpu-thermal {
+ 			polling-delay-passive = <1000>;
+ 			thermal-sensors = <&pvt 0>;
+ 
++			cooling-maps {
++				map-active-0 {
++					cooling-device = <&fan 1 1>;
++					trip = <&fan_config0>;
++				};
++
++				map-active-1 {
++					cooling-device = <&fan 2 2>;
++					trip = <&fan_config1>;
++				};
++
++				map-active-2 {
++					cooling-device = <&fan 3 3>;
++					trip = <&fan_config2>;
++				};
++			};
++
+ 			trips {
+ 				fan_config0: fan-trip0 {
+ 					temperature = <39000>;
+@@ -72,35 +92,14 @@ fan_config2: fan-trip2 {
+ 					type = "active";
+ 				};
+ 			};
+-
+-			cooling-maps {
+-				map-active-0 {
+-					cooling-device = <&fan 1 1>;
+-					trip = <&fan_config0>;
+-				};
+-
+-				map-active-1 {
+-					cooling-device = <&fan 2 2>;
+-					trip = <&fan_config1>;
+-				};
+-
+-				map-active-2 {
+-					cooling-device = <&fan 3 3>;
+-					trip = <&fan_config2>;
+-				};
+-			};
+ 		};
+ 	};
+ 
+-	fan: pwm-fan {
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&fan_pins>;
+-		compatible = "pwm-fan";
+-		#cooling-cells = <2>;
+-		pwms = <&pwm 1 10000000 0>;
+-		cooling-levels = <0 66 196 255>;
++	wifi_pwrseq: wifi-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		reset-gpios = <&ioexp2 4 GPIO_ACTIVE_LOW>;
++		post-power-on-delay-ms = <200>;
+ 	};
+-
+ };
+ 
+ &dpu {
+@@ -119,8 +118,9 @@ hdmi_out_con: endpoint {
+ 
+ &i2c0 {
+ 	clock-frequency = <400000>;
+-	pinctrl-names = "default";
+ 	pinctrl-0 = <&i2c0_pins>;
++	pinctrl-names = "default";
++
+ 	status = "okay";
+ 
+ 	ioexp1: gpio@18 {
+@@ -136,8 +136,9 @@ ioexp1: gpio@18 {
+ 
+ &i2c1 {
+ 	clock-frequency = <400000>;
+-	pinctrl-names = "default";
+ 	pinctrl-0 = <&i2c1_pins>;
++	pinctrl-names = "default";
++
+ 	status = "okay";
+ 
+ 	ioexp2: gpio@18 {
+@@ -158,8 +159,9 @@ ioexp2: gpio@18 {
+ 
+ &i2c3 {
+ 	clock-frequency = <400000>;
+-	pinctrl-names = "default";
+ 	pinctrl-0 = <&i2c3_pins>;
++	pinctrl-names = "default";
++
+ 	status = "okay";
+ 
+ 	ioexp3: gpio@18 {
+@@ -204,16 +206,6 @@ i2c-pins {
+ 	};
+ 
+ 	uart0_pins: uart0-0 {
+-		tx-pins {
+-			pins = "UART0_TXD";
+-			function = "uart";
+-			bias-disable;
+-			drive-strength = <3>;
+-			input-disable;
+-			input-schmitt-disable;
+-			slew-rate = <0>;
+-		};
+-
+ 		rx-pins {
+ 			pins = "UART0_RXD";
+ 			function = "uart";
+@@ -223,6 +215,16 @@ rx-pins {
+ 			input-schmitt-enable;
+ 			slew-rate = <0>;
+ 		};
++
++		tx-pins {
++			pins = "UART0_TXD";
++			function = "uart";
++			bias-disable;
++			drive-strength = <3>;
++			input-disable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
+ 	};
+ };
+ 
+@@ -261,11 +263,13 @@ &sdio1 {
+ 	keep-power-in-suspend;
+ 	mmc-pwrseq = <&wifi_pwrseq>;
+ 	non-removable;
++
+ 	status = "okay";
+ };
+ 
+ &uart0 {
+-	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_pins>;
++	pinctrl-names = "default";
++
+ 	status = "okay";
+ };
 
-Also we have asserts for this lock in copy_page_range() and
-copy_hugetlb_page_range() which will now fail (and possibly more further down
-the stack?)
+-- 
+2.43.0
 
-> My argument for why it's safe is that a thread which takes a page
-> fault during fork() might have taken the page fault either before or
-> after fork().  The faults will definitely happen in the parent process.
-> They may or may not have happened in the child process, which can't
-> possibly care whether or not they've happened.
-
-The problem isn't the child it's the parent - copy_page_range() _modifies_ the
-_parent_'s page tables in-place, on assumption that nothing else can access
-them (for CoW).
-
-And actually nowadays things are _even_ worse, you could also have concurrent
-page faults, MADV_DONTNEED, MADV_FREE, MADV_GUARD_INSTALL/REMOVE, UFFDIO_COPY +
-UFFDIO_MOVE (yikes) all of which might introduce new issues + would have to be
-audited too.
-
-So - it turns out a lot of stuff implicitly assumes VMA write lock now:
-
-1. CoW - deferred TLB flush race
-
-(The issue above)
-
-https://lore.kernel.org/all/20230705171213.2843068-2-surenb@google.com/
-
-This happens because __copy_present_ptes() does wrprotect_ptes() on the parent
-without a TLB flush (that's deferred until the end of the fork).
-
-But unfortunately without a VMA write lock something can then replace the page
-table entry in the meantime and you can end up with data loss as a result.
-
-Same issue exists with hugetlb wp too. And god only knows with uffd wp :)
-
-2. THP - can destroy parent THP mappings
-
-copy_pmd_range() does:
-
-	if (pmd_is_huge(*src_pmd)) { copy_huge_pmd(); ... }
-	if (pmd_none_or_clear_bad(src_pmd))
-		continue;
-
-Without the write lock, a concurrent fault can install a huge PMD via
-do_huge_pmd_anonymous_page() or filemap_map_pmd()/do_set_pmd().
-
-The issue is that pmd_bad() fires for leaf PMD (ugh) on at least x86 and arm64,
-meaning that'll clear the page table entry.
-
-I think Hugh left a comment alluding to this before:
-
-	 * copy_pmd_range()'s prior pmd_none_or_clear_bad(src_pmd), and the
-	 * error handling here, assume that exclusive mmap_lock on dst and src
-	 * protects anon from unexpected THP transitions; ...
-
-It's like the mess around pmd_trans_unstable() :(
-
-3. copy_pte_range() skips the required pmd_same() recheck assuming write lock
-
-It uses pte_offset_map_rw_nolock() with a dummy pmdval and:
-
-	 * We already hold the exclusive mmap_lock, the copy_pte_range() and
-	 * retract_page_tables() are using vma->anon_vma to be exclusive, so
-	 * the PTE page is stable, and there is no need to get pmdval and do
-	 * pmd_same() check.
-
-(Probably needs updating for VMA write lock...)
-
-4. The asserts
-
-Mentioned above!
-
-I suspect there's more as well.
-
-Some of it could be changed, but it'd all be at the cost of behaving very
-strangely (no VMA lock but mmap write lock) while manipulating things.
-
-And I am not really happy with changing page table entries in the parent VMA
-(for CoW) without a VMA write lock held.
-
-I also wonder whether it would achieve all that much really - the issue is with
-holding the VMA lock across I/O, anything else that tries to grab a write lock
-is going to end up being the new thing that's blocked (mprotect, munmap, mremap,
-mlock etc.)
-
-I think doing something like this would need a very significant redesign and I'm
-not convinced it's one that really achieves what we want given all the other
-cases that'd get blocked by the VMA lock being held still.
-
---
-Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
