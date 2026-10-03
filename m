@@ -4,137 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6334CA5FDD
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2026 12:04:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C21DBCA5FC1
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2026 12:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z+KxUm4OwxCIdqKBI8t4nIZzOsdpS7jLszpMC1z+0uA=; b=3Wqh7Yo1goRSWS
-	Y+P+231yC0a9YyRxMP50havTLlc16IzXMqcKOxCDxVZGyQda1DYJ6XHuH/rPXZGDXgomPGkyfeNty
-	DrVCwYNTnsX/OAups1tEIqW00zKNDYZkt6Q1H/qhX3naX/ltoIZgo8B+JUFNV4GIhk2aQCjbjQLvv
-	qKtYpUUwa/XceF7iLblQXdAZw5Jj74Sp7sduTLxhP0JrHUth7232Nw30hqZRa7XTDC+a6y/57akxS
-	nxCuoKD/HJR+ynAa0MvqvqSZBzpoB6xxWAYAclF0NTfipVjb5E7V2Ci+rXT0Qch0r0zjOGgGl63HQ
-	zopKeLKK7RWRfrlrzCtA==;
+	List-Owner; bh=mt6ZRa/l3t552MyQAV8NR2F3H0AMEDuUubspw08L/bk=; b=w1+yJ7vpD96WME
+	VjkiAeFMJHBshIQ0tHf+f29LpTSSQxXN1Lp8RMYwF4dvDlSvSEP2Tm3wMs1WChO1SY8ZHbhLGv3Hr
+	pqskHtJtYx0KJLqfyFVl3mGhNa1LjsvN9R8dolaC3aIm3S/SlW4mS60icYghbYgkXCVa5vKJgjAmy
+	pZuPKCa+9f2kKDRcAWY/PDTvpomogB27riDMkhA4xGQcYE2XubZvRDvttgcRzpS3tOqoZCMm25FaN
+	5FT400/b/d0pct9PcnfLWdKfLHsgm01h8AT+c/hORzNgZgOzsuHLljtG9YB2sLyShbQKV8A363YDs
+	8XEZ9+WIwerYG0nCNPqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCySt-0000000DSFt-3LU7;
-	Sat, 03 Oct 2026 12:03:43 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xCyby-0000000DTi6-1hYg;
+	Sat, 03 Oct 2026 12:13:06 +0000
+Received: from mail-westusazon11010056.outbound.protection.outlook.com ([52.101.85.56] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCySq-0000000DSFV-3MaV
+	id 1xCybu-0000000DThA-3kVh
 	for linux-riscv@lists.infradead.org;
-	Sat, 03 Oct 2026 12:03:42 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 693Attko365542
-	for <linux-riscv@lists.infradead.org>; Sat, 3 Oct 2026 12:03:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=ld0OrougPNfBp6Ry3148Z2Li
-	9neJoj1Ak158VsVyVmo=; b=iaPbbMLi2rtDwRfy/OT6hy7GqUujdf404T8d/T9O
-	sKhA14+aPKlNSOfIAqwoI9Gqe/qCTLjw6wpZxa4xs6HFlfDxQzBEX42km7tthw4Q
-	GIU/WQkR1xGKW1jPoz/QxCZEoDAca/pBbLT2F/9RA4ZZT8gI1+6SWavNpYhubaOF
-	KEvO4F+TPCjusBwwIroVCK1YeFKbVF5gKW0IfqNIUOQKCA+LnZXRAUNZswGfOxAo
-	MG2bnrEScHPcrhNycWBdjGhCjF48ZJoNeU1wXl8VODbMLgQS/HNwfKFAe6BWhmQQ
-	tS3EDMQk3WIr1adwX45D1p9BWFvjjHfz5KD21rtUI3WrNg==
-Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h2spa0sq9-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Sat, 03 Oct 2026 12:03:38 +0000 (GMT)
-Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-5c7c0d2b0aaso168838e0c.1
-        for <linux-riscv@lists.infradead.org>; Sat, 03 Oct 2026 05:03:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791029018; x=1791633818; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ld0OrougPNfBp6Ry3148Z2Li9neJoj1Ak158VsVyVmo=;
-        b=Ca2Mky9MiksGJzUX6tVMNbK1PQ9gWAkakYaK8KFriWejPyyKA0K/VXVOfjromf6v8t
-         IUqQ6bgl+FppfdgRzQjFljenapfp2xUbv4yrqI0ykIkS5H3viTtO+DMR8kfURiRn5krQ
-         m8Yb3IyfuipXE1/kzvj5TWBxtZHML7iZhiiXyqyi1wyjn6y49CIk1zHMjcwyvzCwCwvm
-         j2xSTJi+zEh5+hnM6ICEiGmP6HxJQjYneFfXGsjgxn/gAOex1D8rKp0ofUZalNmsv+qa
-         zGZX7kAJ4RH8d5E8JX0tGWpg3a5XFLlf85eq85JQjrtOxYMzVpzFXc/5U7A0hhowjJL1
-         aS6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791029018; x=1791633818;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ld0OrougPNfBp6Ry3148Z2Li9neJoj1Ak158VsVyVmo=;
-        b=fG5LewhVt3Z4dlZ5tNijH0KSnHj8p4E4ovUDU5zlrtKvyfQUy/S6zJD3NH0tqLk/dM
-         x62f/e18l6cBk3mAIVIPEpmnpk+gGUYQQD0ILZ95mdbppC46a7ucTYokp3qN3TueUE9o
-         qpqDq2uNZnxZgZZCmxbKXc3wncF4QplP+a7xaVrxjjrR1Di6hR39u0wssziYV4/rW9bo
-         AS8Ypd9q/ezblXTGYHosGQRTsFuYEuIIKIiEvQWPrR8AgJdGL672+IdWNLagZ6KN3b5B
-         nSfYokVYAX+jINnXPnaOr/9ix0BGPXpn8kZ2DHrRK2GfStGn+KV+FeyVw+MOHuJZ44l7
-         yjcQ==
-X-Gm-Message-State: AFq9FYLw2qMeQ6wDSoG8V9kOP/auR7anCi0zuKqPTillatgYk2Bs5NCQ
-	n65Bj/Flsn59jTr1LwE+EEhKU7JXiSwF0v5qIY+1i48M1+vl+F0sZhS/fsiyH+h28BzvIrIbYoU
-	uk6VTvu9VP6v45AooBSTyjh3vdsy145hBs+HBCgGwRQu6F+A85Fu3OUaQ0sMBS9vAlt0ozVQ=
-X-Gm-Gg: AYBFou2BYt7PYzESn1+mkiRLf+bIEPNHP/TcIRmjePsn15WuImSESLidJRuiWELt0PE
-	fRZaP2SMi7JDI4s72yfr9wRlloI9w8CRnmxIx4DSHAs7s5uY5igzha+Yuh0gs9uC27YE9TslOk1
-	AiFCsPkcaE499RX7qFU48CdPYDK1+eXAHIhH5dCeJGqvsaAVRfJkVC8+HLNTYo7Qbgc+dwsKh2p
-	tDYRYS9n3FKqdBiMRP0A3CU754Wk14KPOh24gpVSAm0BCbOFbrh8qYBqZ2nxvMS36164pjhQFgi
-	91nhQ4bek1CnpeHhyla+HUdIlC1TpMJ4ZvRj3czb840sW0uWdexZcQE6enyK/2K37wfG8+RP2ga
-	aqUtdGtPqi2Kfns6FiMcmxWbg+MLG
-X-Received: by 2002:a05:6102:6415:b0:7c1:75c5:c4c with SMTP id ada2fe7eead31-7c175c521afmr567406137.25.1791029017733;
-        Sat, 03 Oct 2026 05:03:37 -0700 (PDT)
-X-Received: by 2002:a05:6102:6415:b0:7c1:75c5:c4c with SMTP id ada2fe7eead31-7c175c521afmr567402137.25.1791029017224;
-        Sat, 03 Oct 2026 05:03:37 -0700 (PDT)
-Received: from localhost (109-81-9-204.rct.o2.cz. [109.81.9.204])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a0394c937csm97187345e9.1.2026.10.03.05.03.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 03 Oct 2026 05:03:36 -0700 (PDT)
-Date: Sat, 3 Oct 2026 14:03:35 +0200
-From: Andrew Jones <andrew.jones@oss.qualcomm.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: linux-riscv@lists.infradead.org, iommu@lists.linux.dev,
-        linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
-        tjeznach@rivosinc.com, jgg@ziepe.ca, jgg@nvidia.com, joro@8bytes.org,
-        will@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
-        anup@brainfault.org, tglx@kernel.org, kevin.tian@intel.com,
-        fangyu.yu@linux.alibaba.com
+	Sat, 03 Oct 2026 12:13:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BYnDcw6QqZhifEgRm+6Nj7KvOiAOfN3+sO0uO2+TosuNKbBOZL/5fsxs9hqPQSLdOG/ibvvn+wAdsw9zL/+moMgvQOnspXy20aLsCiyDb3Zvw6IKza733Mj01tTlQyGZrZDajMuGAofxVOqNQ7ODgNMBGtbCQiMqsnhkjRVj/UQvku1NcWHEkpsamtI7rFr7G4NRioCfXbkhBhulLYEhXpN24DNIsASG5TDufsNnBOjbq4aYEAElZA/FqiwcNZKPKy1FzpXD+WeO6MT56hZrRIrf1L/DFzyw25sJgLU+LAY8cQCjm7vmk5kEt8/0e+W4N0AhFfc7Th9cv32o6i9qKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KAy+rEbd3t9toj9RUI/d6qpRXZPbZhJ4XvyM6ZvdyRo=;
+ b=W3vXwW4bUTw43wrF04MmZHxwSYa5Dl/6+FMEdnbNiHt83f4HMgp4Qrr8a5sRJdL39COsK6pQDNVDXXY36a2Ic8mio7fWymTyyVCrPm0+8OtyWLbInVY1TPYjpO+s/jRVnWYm6hV6Ue5MYwOLevbuXgO2cEXdc24oqkf8+yP1UsAsUhaNgalrUtaObgI7dql4r0jw2v8RZtMAaopacoi/iqYrHhV2nDE/CidhtsBPV4voQaA6KjaQa9MhVvMj5R7MGzWxRxuP1vq8ZzYwCFyo0OEVZKukTE/RmxfotCjIMK0qb3PT7y/zzHQWhXTxzr8hfSbQlNhSL5sArolNf/qTlA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KAy+rEbd3t9toj9RUI/d6qpRXZPbZhJ4XvyM6ZvdyRo=;
+ b=RQx/KdPyf6XiD364pUAyqWER/E10rroPIMl1tFHyzehLTeCjb/PTGAdNWCsuSmHWRvrF5WyaLkcUQyoLDW8fztKsf6vFMNPe/mgcoydw4RYU7LQLwONa6/MGxabgcVFlCumkJfRibbLpanqHT4BJqlPG1LMEMdROaAqtLGTVHAEQjnY+ZLXKNVwjKYXmpAGNcj3HawTS2cnIqcv0gIsoL3oEwkj5wO0oNMtTCWvMJa5Yl5hhkNrTuuIJdLMxFME7629/LQ74Y+6c1zBxPPTt5u+PNmHAoS13sLLQKoa/DMRTc5LfpRLwmijt+BbtZJ7bS1kvqc9GBM3o6tcpEFZGjg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by LV2PR12MB683086.namprd12.prod.outlook.com
+ (2603:10b6:408:414::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Sat, 3 Oct
+ 2026 12:10:51 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0472.016; Sat, 3 Oct 2026
+ 12:10:50 +0000
+Date: Sat, 3 Oct 2026 09:10:49 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Andrew Jones <andrew.jones@oss.qualcomm.com>
+Cc: Robin Murphy <robin.murphy@arm.com>, linux-riscv@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	tomasz.jeznach@linux.dev, tjeznach@rivosinc.com, joro@8bytes.org,
+	will@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+	anup@brainfault.org, tglx@kernel.org, kevin.tian@intel.com,
+	fangyu.yu@linux.alibaba.com
 Subject: Re: [PATCH v6 01/16] iommu/dma: Prepare MSI physical address lists
-Message-ID: <pph73bajtpgp3u5vb7xjqmbrz35zs2lw7fpkhobg5jdzbjw2vq@usg3jbbneskp>
+Message-ID: <20261003121049.GX1616761@nvidia.com>
 References: <20260925151659.419512-1-andrew.jones@oss.qualcomm.com>
  <20260925151659.419512-2-andrew.jones@oss.qualcomm.com>
  <18c9b030-8dc6-4242-8e66-0448ee125d7d@arm.com>
-MIME-Version: 1.0
+ <pph73bajtpgp3u5vb7xjqmbrz35zs2lw7fpkhobg5jdzbjw2vq@usg3jbbneskp>
 Content-Disposition: inline
-In-Reply-To: <18c9b030-8dc6-4242-8e66-0448ee125d7d@arm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAzMDA0NyBTYWx0ZWRfX1uxHOMni6A/v
- Q6FGOOr70wu7wwGVUk1CPMX2RJVq1LCZzhZb8hh+0reCraFGNjyJUXaG1sIh6ka57YACR1VdYQC
- QnZhcWK/DEqQdMDr0mM9O09w3K/jBauqlCHEfLQYn9YcCMkO+OT8KfSmXYV0J+8qU/UkPIuLX+C
- sJkiOEs4dnMbMRog8MkErAAnis/lBkmaiyvuNTOrHhmGvq+09/cSypG2socM4hba5dz+E+/5uTG
- ftUy/4qCX9vwU5BuE7Xv2zbPbjdoLIwM3H5HEVLLzoFIEe6y341PL4jbAaTidfcbe1y5K3aYif8
- 8fGbi/fPGVQV3zP4b5GCw4T857H+tDRalx5pex/LCQB4TmCjj4r78upcfimFqm8cl4MND9vzJDg
- i5zd6nOzpXvpwhY0ly8eCHCZvUqRxyS1ryWMttPha7jkTKBF5GzAoG9NPeXxsU+x47dbMJGeyux
- jDo5QlhsCLJpm1mVz4A==
-X-Authority-Analysis: v=2.4 cv=b7MncdGx c=1 sm=1 tr=0 ts=6ac0ef1a cx=c_pps
- a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=0bpig9kOJEczWR0iouTWkw==:17
- a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=PG2Lv3-wYJ-N5-kAUs0A:9 a=CjuIK1q_8ugA:10
- a=tNoRWFLymzeba-QzToBc:22
-X-Proofpoint-ORIG-GUID: Ds5RViq-i02jOwdEzmp9_R73FAJDcd07
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAzMDA0NyBTYWx0ZWRfX1NtcZcRvioIL
- Im4JUgTUJotW9clHAPaigVCu1tD3ItjBDljxTWOfnl5zs0wNUTNkraW0IPDcSkZTA3iAEOSNZym
- Y7xnOfL+lWtA9DlSrXAb/zHPIsmC4Uc=
-X-Proofpoint-GUID: Ds5RViq-i02jOwdEzmp9_R73FAJDcd07
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-03_01,2026-10-02_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 impostorscore=0 adultscore=0 clxscore=1015 phishscore=0
- bulkscore=0 malwarescore=0 suspectscore=0 priorityscore=1501
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2610030047
+In-Reply-To: <pph73bajtpgp3u5vb7xjqmbrz35zs2lw7fpkhobg5jdzbjw2vq@usg3jbbneskp>
+X-ClientProxiedBy: SA0PR11CA0106.namprd11.prod.outlook.com
+ (2603:10b6:806:d1::21) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|LV2PR12MB683086:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9e9044a5-5fdb-4884-c362-08df21475da3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|23010399003|10067099003|56012099006|11063799006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: zbDRNFYX+m/MOXMxkKnV3fcYc55Jt7Ud3K86fb2UWsoBOzNySMOM3WGyOGInM/IZB5u+UVnGpA8abWDGvGOpLwTEhmh5VfPhviw5zzXoG23YaqLPqB57EgjzMkFXJ+OZ3UZQC+4kIbix+Kr8KwRhiUEAle4CsF0n+4C9TxARGrVGUUq6eEIceGR47r1Oe5SDl+TnqsdS23G7WMrgE28L3MlkL2dsuEbBh3bl9CfY4JGR5Q4U/zIWGNNwfllWNkrJVfm/2kwMXWFXwCRysSMSgRzUvAG2iGPFinB+cieHjnIc5eqSkrnwNGYg+zCnPFtwepxP9KaVZ640S7VH6v7A3Pv3XvxmT9RprxwKUCGIDwMMAfB/eE1MsMFNx5IqJRoTmZ6s1LK2XEta6fMnLhjjhJc62/FKmokkXTuZqT3TytXCZuXRntiGVxyBYRGZXsF3VzLw4sb5TmpI6fC+uVkvSL7aY9TzPThDIKx5cbE9119uUs98QcAgaHvEBynTXZNVsIODbqnXe3nBYNbeZapWRy0BnlYAJUwxyOaBx26mxNt6X/jXvJc/tuHi/2iL+aq5EN8swnZSzaaj9ccs0ssqEg3BkzBpW6qsckJFOON8OfYp4w2n27Gnx3PnpJ5Baf99qzP/YJXT8OUHITg8TnZkdO9SfKPCWjCjeR33FgIoqqg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(23010399003)(10067099003)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/C+OrBE/L8YS5js7EiIBP3vpSdRyStb05c0FAVbM563So1bOhWiwakdeyqOd?=
+ =?us-ascii?Q?hZerG6MJOBNZd+QHvC1+2TbsKHy3frHxnVMPIq2Hk8YMEI0awDe6j22XnTB2?=
+ =?us-ascii?Q?hCBxRusD3A6oTdDW2FkDe8DlGR8AgRu+uGDo5asOApoLVLU1yMt1bFxeYUt+?=
+ =?us-ascii?Q?t+3eB+YkrpyGmRTU6NNHStcYEe6r5riJb2XV6lRxIqvp1qs578jvS2xctx/D?=
+ =?us-ascii?Q?8FEcaFfn2DaeWXiG+svDJxEyBHPGWU1Tq7x1iMqm4cxwb7poHEHGsGls7ThE?=
+ =?us-ascii?Q?66KrfYtSJS0TLYR2bQaq2bk7ac5HLVEH+lyx/MSJHxF2SCV29ULX1jQoYVWJ?=
+ =?us-ascii?Q?XdQQscADZmJOHI2v4SLW25f1RaC3cw0NL75ZITYwgcG7U7/TKbI11J7HmUhr?=
+ =?us-ascii?Q?LQJA6k/rNl2i0noGykry/5ewUZoszRw97L/9C1h7/d2N6mleofO5NjJTyzlu?=
+ =?us-ascii?Q?9igjITKFWSQ5ny5eVnZ7PQN4JHiQayzSk6TXCqXncXafm4GiidoHrT0tqPKW?=
+ =?us-ascii?Q?uHZmOY7nw5Z82NvC74r+BFmyM92PdxUW3MR8MAe9v2ZFvGQImgVorvTnW4CV?=
+ =?us-ascii?Q?L3hDQ3+3XDPjiu5qVND9vdFUePU2hOtgtJV8MDzCylRvT9cmZ4LPsjA8NAl0?=
+ =?us-ascii?Q?9J/kOJRFf0jGECrObieUYkxFXdBwG88Ix2NPx+tc9vFESXIwa4OYHK7H2HMU?=
+ =?us-ascii?Q?WMuWkvx2oyOSozFRCmOTmD631kcVVXbwaSF+GOkLif89oqNypP+auVlGDvdF?=
+ =?us-ascii?Q?CQaig69T92Fu/bZdCOGgwNMg3D5ghVptgCQ0LvfRHOFf4uJArKgzwnveY44t?=
+ =?us-ascii?Q?RNe9wockzoqrumiVDZ/p9XoZPA6Vk7UOZYZnp1JJqM1hDrTSaMP6qtjuyfVH?=
+ =?us-ascii?Q?HVNIUV6gkaGIKuswys0xgWtBpFLsiOqTInlOtAGESYX44WVhEBLSjU6w+nq0?=
+ =?us-ascii?Q?ZvaL/Viys5ImfqQ5kL7+vCqzTrVuoRGaJmjofjIh/X7g2EYR0RxY8ttBmgak?=
+ =?us-ascii?Q?BVgPSBf9pvuiQ5DlY2cr/UpOaCIAmuU17WIBxWmOL7rBgUYHcB8egj7D+h/m?=
+ =?us-ascii?Q?S5C73CvWk4x6MAYs5u5JxGASM50gaYBawFHwTxg73tAQIyV0OgzdDS0CEYeI?=
+ =?us-ascii?Q?O5NGjWXKlx4h4miS+SKIjUPqeOYwN597Tu2F4BpvUvGJZydcaBrauar0+PPL?=
+ =?us-ascii?Q?utt1B6voy9w/nGSp7KMC1PCLnjVa5Pi06QOY2IZvXa9x4Cb270kdzhYEGCDr?=
+ =?us-ascii?Q?q3uo1RFKY9uCdrxDhNbAzx4voCRkav3GVL2CULMZAndATjJ/uu1k/vtLRzqJ?=
+ =?us-ascii?Q?CotVn/c7t7v5bwbRJaBhQeBGu24aD5HuKCq7TNDiMIMXP2Zkx9BZXbCqQH36?=
+ =?us-ascii?Q?zkJzRELGVyYxAVXTHh7/A/SlMoyg5L17qme/JP2QOifgbWp2xGD4Uayx5+Ti?=
+ =?us-ascii?Q?oBrqHCntvpdIVPjhjz8Rtyh/pEa7kggX6x4m0vmszpdZ0nr9sGahUvvsmqng?=
+ =?us-ascii?Q?XsqVPlJE8yUqvb+//hbG3JZzIi4QnoaLKYbLUmtg9HS2BmwcdyAFihfpbB/J?=
+ =?us-ascii?Q?6ENdR8xjPeed2q/OkNQJMkguFzupxxfFnlFiyDArvWQpxFDSvyqvPCcfF75w?=
+ =?us-ascii?Q?bVeCa4T1mtc1xXz69zu4s8DgKcTKdGV4Fhg2VUCATEe4fQvuRp7XLfS3rmYW?=
+ =?us-ascii?Q?r/FVHhlYx+sWdIlEnFM/Sn5vKg8lzyLLBCtaYrbQDC69ecrX?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9e9044a5-5fdb-4884-c362-08df21475da3
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Oct 2026 12:10:50.8348
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: w/7k6Dke9Wc5YaZoMd15Vso57UY5U0a7CC/bDJlrEyMEzuwCeoAJUM1tv0/KyC+N
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB683086
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_050340_979122_F6879457 
-X-CRM114-Status: GOOD (  21.11  )
+X-CRM114-CacheID: sfid-20261003_051302_939690_2BD61058 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,66 +142,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sat, Oct 03, 2026 at 02:03:35PM +0200, Andrew Jones wrote:
+> 
+> Hi Robin,
+> 
+> On Fri, Oct 02, 2026 at 05:21:18PM +0100, Robin Murphy wrote:
+> > You already end up adding what is effectively a RISC-V-specific
+> > entrypoint, so you may as well just carry that all the way through to
+> > its own effectively RISC-V-specific implementation
+> 
+> The list API came out of the v4[1] discussion with Jason. Preparing the
+> targets as one contiguous IOVA range lets the MSI descriptor cache the
+> base and IMSIC compose the address as base + CPU offset. That got
+> rid of the separate domain-local lookup table and its lifetime handling,
+> which I think was a worthwhile improvement.
 
-Hi Robin,
+Yeah, I prefer this idea to what you had earlier, however it is
+accomodated.
 
-On Fri, Oct 02, 2026 at 05:21:18PM +0100, Robin Murphy wrote:
-> You already end up adding what is effectively a RISC-V-specific
-> entrypoint, so you may as well just carry that all the way through to
-> its own effectively RISC-V-specific implementation
+> > it should merely be a case of whether a) this is the first call for
+> > the given cookie so everything needs mapping, or b) it's not the
+> > first call, so everything must already be mapped and we can just
+> > return the IOVA.
+> 
+> For DMA-IOMMU, yes, remembering the base would let us drop the range
+> matching. We'd still need the contiguous IOVA allocation, mapping loop,
+> rollback on failure, and locking across the whole operation.
 
-The list API came out of the v4[1] discussion with Jason. Preparing the
-targets as one contiguous IOVA range lets the MSI descriptor cache the
-base and IMSIC compose the address as base + CPU offset. That got
-rid of the separate domain-local lookup table and its lifetime handling,
-which I think was a worthwhile improvement.
+I fell like dma-iommu should have a way to map a page list to iova and
+maybe that is all the shared code with arm there is.
 
-I'd like to keep that model. I'm open to splitting the implementation,
-but most of the added code seems necessary to prepare multiple targets
-together, regardless of whether the list is fixed.
-
-> it should merely be a case of whether a) this is the first call for
-> the given cookie so everything needs mapping, or b) it's not the
-> first call, so everything must already be mapped and we can just
-> return the IOVA.
-
-For DMA-IOMMU, yes, remembering the base would let us drop the range
-matching. We'd still need the contiguous IOVA allocation, mapping loop,
-rollback on failure, and locking across the whole operation.
-
-For iommufd, there are also separate things to track: whether the context
-has allocated IOVAs for the set, whether a particular HWPT has those
-mappings installed, and whether a group needs them installed when its
-domain is replaced. Having one fixed list doesn't by itself remove
-that bookkeeping.
-
-The current IMSIC caller does always supply the same list. We could make
-that a requirement, but we'd need to define its scope: per cookie for
-DMA-IOMMU, and how it applies across groups and HWPTs for iommufd. The
-current interface instead takes an ordered list and provides contiguous
-IOVAs for it; the range matching makes reuse honor that contract.
-
-> At very worst, a separate hook to just pre-populate msi_page_list
-> with a regular page for each IMSIC address [...] could probably
-> suffice without any other major structural changes
-
-Is the main concern the range matching, or the shared mapping path
-itself? Apart from lookup, both paths need much the same allocation,
-mapping, locking, cleanup, and descriptor handling. Keeping those
-separate seems likely to duplicate code, while factoring them into
-shared helpers seems likely to bring us back towards a list-based
-mapping helper.
-
-We could handle lookup of existing mappings separately for the single-page
-and list cases while sharing the allocation and mapping code. But I'm not
-yet seeing a substantial overall simplification from requiring a fixed
-list. Is there more bookkeeping you have in mind that could go away with
-that restriction?
-
-[1] https://lore.kernel.org/all/20260820214150.545737-3-andrew.jones@oss.qualcomm.com/
-
-Thanks,
-drew
+Jason
 
 _______________________________________________
 linux-riscv mailing list
