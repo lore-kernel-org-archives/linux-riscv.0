@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 934CACA600A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 966CFCA600C
 	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 17:52:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,51 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SH5BPAadwN1lJKBV6fmmVZKNTUnqIoR+BuMpjvh47/Q=; b=Pv/k9qyL177e7g
-	ZfMZTYYXhjQ76mK/paWtdRaVmzYeM86a9PRZhyrDrDhHxfGm/dJ04UXAci+K2HSruQJ07D89yngR8
-	dfNiA9VqLi5FQK6e51x4N70LltCvKyqqYj8XRIQheFh7sDq5y5ZZPyCxbS+mQlwXNqPHNU9KqNStr
-	8cqnk8brKRvrYLl6qkI3jfy232y3RqJ76/xjNfwZCIzpF+fQQWSeCckRcGsQoS7pNcQEAuVFRlrIW
-	JRYjcaGO3PrYMXdF+Xjj0H1UcNpYDpRcGhm+Svx7ljbR9qulNeqVg3i8X1t1swrzBdnxquC/3bNoH
-	HWX6L3cN5+kCO5FuaS6Q==;
+	List-Owner; bh=wIq5eLOqNQDQccJ9FnU6mSAJpC58VXF8S0LrRdE50Bg=; b=gj8QQTVcruXDXw
+	hBWt+agnkU4s55Ko4kwQXXd6Wn/SshQFA27mw4VQ67dH2CZYom/wFaCTxehPrTVkdB5CBh7XVIu+3
+	yLhW56sl0CdZs3tfqJBYICzCzJWCiA/jBSMrhOXkBNNx1p41cB4YLF1P2C6AKBW9Q9LUkXgNUCREu
+	1FXu7LIDr70Pj/EtBlfXf5eFb0aZuIlmrZv5/XPiFP85Fm8sWb7x6nptt75t4rEoaBfqZ6349H+gl
+	VMaFF882hXGssrGhuOw6AB0PbmNg5MuQxVuRxyJcQDEJ00xmytwJ71X49Khckm55EbKLPMS1kWn0u
+	n0S+XchEAf7S9rJDyZOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEVoo-00000002pHO-2wrV;
-	Wed, 07 Oct 2026 17:52:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xEVos-00000002pPq-336m;
+	Wed, 07 Oct 2026 17:52:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCc4T-0000000BXk5-3NQj;
-	Fri, 02 Oct 2026 12:09:01 +0000
+	id 1xCzc6-0000000DWm2-373u;
+	Sat, 03 Oct 2026 13:17:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4341A42DAA;
-	Fri,  2 Oct 2026 12:09:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F14641F000FF;
-	Fri,  2 Oct 2026 12:08:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D3A1D60D8D;
+	Sat,  3 Oct 2026 13:17:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98E6A1F0089B;
+	Sat,  3 Oct 2026 13:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790942941;
-	bh=8XFpzUVlPtubZNxGByXwzZH4ApuR2nkpwtpFdh8/JOw=;
+	s=k20260515; t=1791033437;
+	bh=/jEE4HcLwsM6TWLGremQKfzztE+rwvfFYJGPZmoq8a8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Uy5taaACkmw4lszKyU7Yeuv+r4seDzQWxkXBg+0TVdf8xxURZsAxbErhYfWWrxxpc
-	 ioGRh0AkeUlNaM0O/76kHyq/jNHajZ49qlp7kzTK/y9hmtsTG1lIh8zALpUqCprNPh
-	 blExfXgLSv3QlLino90K+6/VPwq5Sd4fz4m+VygMzwLykCThr26SJaC6bhFxWHUwuU
-	 RW3dRxgv9qthrHmsQVLnchIEH1GFQYCaQedJVw2qJ7fKb4CeudG3fK6a/HZ/Cbqk5l
-	 1HvNfpJUOxI5LDkvyRmFGaGRuDENXBtw49ZrKzFNSoza42QyfDgjqhIdIeOYrklqzK
-	 NX8pFIwFQbflg==
-Date: Fri, 2 Oct 2026 13:08:31 +0100
+	b=EgLBtik0WJzJCXWY/9/TI+W7fRx1wIZ9UfQuWfc+RhMCCFMM/xZJ03UyprLnrZDIx
+	 +hSP6z4pIAKExuSJlxbZygGALgGCQywzqqoPN2+Boz6NDgyFCoTr0xtw8XwpV2ytvg
+	 iOEb69EMyCjSZk8NVHT0gmIKW0rVbZ0F8RMvb9s4VF2Dbo0UftiN8tf9aa6rRRTzuW
+	 Fpm1LnU0F8ufx8E3b1Xf3T36YgbMjc4jOyHoaXzj2tW9/dfBgzxbHqld35pMVHgUgN
+	 4zsEh/CAz3fCIdmxhWutMDOLIRfajy8aGYLGHSvm01TwlgzafI+V3dGI5soFrbsjYq
+	 SFWdbxe9eRGJQ==
+Date: Sat, 3 Oct 2026 14:16:46 +0100
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 To: "David Hildenbrand (Arm)" <david@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Jaya Kumar <jayalk@intworks.biz>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>, linux-mm@kvack.org, 
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-usb@vger.kernel.org, linux-rdma@vger.kernel.org, selinux@vger.kernel.org, linux-sound@vger.kernel.org, bpf@vger.kernel.org, linux-scsi@vger.kernel.org, linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, linux-arch@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, fuse-devel@lists.linux.dev
 Subject: Re: [PATCH v3 31/40] mm/vma: introduce vma[_flags]_is_persistent()
-Message-ID: <ar-b_Ug__TBzIZsb@gremlin>
-References: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-0-4583d8a23bca@kernel.org>
- <20260917-b4-mmap-prepare-vma-flag-sanify-v3-31-4583d8a23bca@kernel.org>
+Message-ID: <asD6cgnNVJhZA98p@gremlin>
+References: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-31-4583d8a23bca@kernel.org>
  <9bbdf4e8-6984-4477-a183-f0b236047381@kernel.org>
  <3557015d-23dd-41ef-9832-78b58587f3f4@kernel.org>
  <81e1e5ae-0aab-4584-81e6-3fc9c2634d07@kernel.org>
+ <ar-b_Ug__TBzIZsb@gremlin>
+ <2e5a4e6c-8f9c-4050-8998-454b83f4823b@kernel.org>
+ <ar-luB9QVCRshtIw@gremlin>
+ <3387642b-c39f-4f19-ba0c-267bbd2fe91d@kernel.org>
+ <ar-ux41ILjI1Px9S@gremlin>
+ <a202523f-a696-4a8e-be77-7170c3913cdf@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <81e1e5ae-0aab-4584-81e6-3fc9c2634d07@kernel.org>
-X-Mailman-Approved-At: Wed, 07 Oct 2026 10:52:37 -0700
+In-Reply-To: <a202523f-a696-4a8e-be77-7170c3913cdf@kernel.org>
+X-Mailman-Approved-At: Wed, 07 Oct 2026 10:52:38 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,64 +78,140 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 02, 2026 at 09:05:15AM +0200, David Hildenbrand (Arm) wrote:
-> On 10/2/26 09:02, David Hildenbrand (Arm) wrote:
-> > On 10/2/26 08:59, David Hildenbrand (Arm) wrote:
-> >> On 9/17/26 18:22, Lorenzo Stoakes (ARM) wrote:
-> >>> Introduce vma[_flags]_is_persistent() for the purposes of identifying
-> >>> mappings that are persistent in the sense that bytes to the mapping stay
-> >>> there, and bytes read from the mapping are the same unless changed by
-> >>> actions taken by userland.
-> >>
-> >> That's extremely confusing, sorry. We have to find a better name for that.
-> >>
-> >> Is this really all about user pages (pagecache, anon) that we would find through
-> >> the rmap?
-
-No, see below.
-
-> >>
+On Fri, Oct 02, 2026 at 11:43:53PM +0200, David Hildenbrand (Arm) wrote:
+> On 10/2/26 15:59, Lorenzo Stoakes (ARM) wrote:
+> > On Fri, Oct 02, 2026 at 03:11:27PM +0200, David Hildenbrand (Arm) wrote:
+> >> I'd be very happy if we could find a clear way to describe "this is what we call
+> >> user memory: anon+pagecache", if that could come handy in such a context.
 > >
-> > It's also about droppable mappings AFAIKs. How many more users will we have for
-> > that function?
-
-Anything that requires stuff not to be dropped behind the user's back, which is
-at least 4 cases!
-
-That being open-coded all over the place is a problem I think, and I think stuff
-like the PMD device private are a reminder that open-coding all over can cause
-problems.
-
+> > Rather than arguing about it, how about shifting things to 'what backs the
+> > mapping' and something like:
 > >
-> > If it's "no others" then please don't add a helper function with misleading
-> > names for it and just keep the special "dumpable" check in the new form in
-> > madvise_vma_behavior().
+> > /* big long kdoc... */
+> > static inline bool vma_flags_is_mm_backed(const vma_flags_t *flags)
+> > {
+> > 	/* hugetlb is a fixed mapping, but the mm owns it entirely. */
+> > 	if (vma_flags_is_hugetlb(flags))
+> > 		return true;
+> >
+> > 	/*
+> > 	 * Kernel-owned mappings are populated by their owner, and fixed mappings
+> > 	 * have a layout the mm cannot assume ordinary fault semantics over.
+> > 	 */
+> > 	if (vma_flags_is_kernel_owned(flags) ||
+> > 	    vma_flags_is_fixed_mapping(flags))
+> > 		return false;
+> >
+> > 	/* The mm has promised it may discard droppable memory at any time. */
+> > 	return !vma_flags_test_single_mask(flags, VMA_DROPPABLE);
+> > }
 >
-> Talking to myself ... the more usage I see of the vma_is_persistent() the more I
-> think this shouldn't be a helper at all. Especially not one with such a
-> confusing name :P
+> In my other mail I was wondering whether we could use vma_is_mm_managed() to
+> express !vma_is_kernel_owned(). Maybe vma_is_mm_backed() could fit into that
+> picture.
 
-There are 4 open-coded checks that test four ad-hoc flag combinations checking
-for the same thing - 'can the kernel or a driver change things or discard stuff
-behind my back?'
+Yeah, vma_is_mm_backed() = 'and the mm actually keeps it there' in effect :)
 
-So abstracting that to a helper, alongside the other 'let's ask based on
-semantics' helpers, seems sensible.
+>
+> Reading above I am still confused why something that expresses "backed" talks
+> about "fixed mappings and ownership", sorry :(
 
-Maybe invert the meaning to make it clearer?
+I'll rework the kdoc to be clearer - I think with vma_is_mm_managed() the
+picture actually becomes clearer.
 
-	vma_kernel_may_change_contents()?
+>
+> It's late here, and this is a hard nut to crack.
 
-vma_contents_may_change() is shorter but easily confused with something being
-writable by userland etc.
+Yes :)
 
-Or maybe:
+Thanks for taking the time with this, I know some of it is pretty heavy going.
 
-	vma_is_volatile()
+>
+> What we have here is:
+>
+> 1) Is this an ordinary MM-managed VMA. So far so good, I understand that. (with
+>    a twist what I just learned about things that map random allocated pages
+>    through -> fault, but so far so good)
 
-?
+Ack yeah. And ack on ->fault.
 
-Which is analogous to the meaning of the volatile keyword.
+It feels like we let ->fault be FAR too permissive. In retrospect, arbitrarily
+being able to put WHATEVER YOU WANT there was... unwise shall we say.
+
+>
+> 2) Is this MM "fixed" that makes expand/merge tricky, except if it's hugetlb
+>    where we can still handle it.
+
+Yeah the trickiest bit is the 'don't expand'.
+
+The hugetlb exception is ugh, but hugetlb was engineered terribly,
+essentially 'stick something in with total disregard for everything in core
+mm and make it an exception you just have to remember for everything'.
+
+I hope we all learn some lessons about what not to do from hugetlb and uffd
+:)
+
+>
+> I think VM_DONTEXPAND is also rather misnamed :( I assume it really means, using
+> sel_mmap_policy_ops() as an example: the MM manages the things that are getting
+> mapped in here (->fault), but the pages are not really pagecache/anon, but some
+> other shit. So we cannot expand the mapping.
+
+Yeah. And it is terribly named.
+
+>
+> Gah, so complicated.
+>
+> 3) Can the MM drop the pages at any time.
+>
+>
+> I still think that 3) does not quite fit into that picture. Using something like
+
+If you look at what the callers do it makes more sense - mlock pins pages,
+ksm merges them, dump writes them out and uffd hands their faults to userspace.
+
+All four need the page behind the mapping to be the mm's own and _still
+there the next time they look_.
+
+With that in place it's not stable so it's not right to let such callers
+have access, and all the callers have to remember to check that.
+
+>
+> "vma_is_mm_backed" to say "this is mm-managed, but all things in there come from
+> core-mm and not some other random shit people punch into ->fault" would work for me.
+
+Yeah agreed, I will update the kdoc to be clear about that.
+
+>
+> (not sure if there is still some other way how someone could get random pages
+> into a VMA ... or how to catch someone not setting the DONTEXPAND flag)
+
+vm_insert_pages() + friends sets VMA_MIXEDMAP_BIT now and
+vmf_insert_page_mkwrite() is DAX only (a follow up will make that a thing)
+so it's the damn ->fault that's the only thing left now.
+
+Right now I think that everyone that does something weird sets
+VMA_DONTEXPAND_BIT.
+
+It needs renaming to something like VMA_CUSTOM_FAULTED_BIT or
+something. That's probably a terrible name but you get the idea... :)
+
+>
+> God, this is all such a confusing mess with so many ways of getting stuff messed
+> up by other parts of the system. Thanks for working on cleaning that up.
+
+No worries :)
+
+The whole point of the series is to stop treating these flags as vague
+things (which VM_SPECIAL symbolised the most) so a. we can make sensible
+assumptions about flag combinations and b. people can use meaningful
+semantic checks rather than guessing (sometimes wrong).
+
+Hopefully the pain here is all worth it :)
+
+Thanks again for reviewing!
+
+I will respin with kdoc changes.
 
 >
 > --
