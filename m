@@ -4,79 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 211DCCA5FDD
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2026 14:36:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF775CA5FDD
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2026 14:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:Subject:Cc:
-	To:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:From:To:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2Z7OuJNrT0h2f/TDeGl8KJ5C7jotXaneRk5AQ/j2BeI=; b=1ruXe1Kele4KWb
-	WELHXNzqk1eLfgSNJB/wkpcxbmlIVti5AxtWzWKPdEpgKdA+uKpMvaMF87BOHapwO1lkXWyKgnewU
-	TGifGVwqLcqaEFoAsGFGsy52KtPjSvcT02R539O735SVPL/hnSFx86sMgkIEwRyGT+GKbdQsUe2nB
-	9BpJifdcrSk2j4FFEYOBS+BGIyoVqNXDMrtzJ+KyOMBOO6FVThJkUs/t7oH40myyx0CthSeRCnvYQ
-	Ugr3tC2jzNpbcHnXSZwGQcdr9KWDKjv+IXF8ecXuNZ+/0Ja7+wD0+D6MlWAuMYE7wx7IZBRyeCHsh
-	fIKlNoztzl/QpioxytCQ==;
+	List-Owner; bh=x2R8kZddOglWUDb5/ncBdRL3Os65FGOhFvNrzVBJBuY=; b=Bk2OKCx4LRknUe
+	6jOiu4HAAfKorr/W8aGbo+VlqybyWAKrcvEDSMG22W8ct1/hQt7GGUEORjGDJjplGrxtFTa98jVxN
+	dqVGH/7Yyb/vLh8BnqYWlJGPqi6i5SvvVbR3/E+cUKc4/qpAK+507pjVv2bHNmgjPwTCI7P1E2pbp
+	dje3F6PovcQXYQSylngRPoZ18+UnIuxfaMrr3cpYzLbdxKX+DU6hDIMnLwH/MU5hAPviPIiD4LAsF
+	hEJd9mdlmNhNRW4FzfuLwgJLQZIWXyiOdG/Q1HgjY8N0+Prs4jSeXP44VLSQwRoh/ba08QfDywyAz
+	80FCW/l3HBoR3lJPMSlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD0qr-0000000Dd5v-1XpE;
-	Sat, 03 Oct 2026 14:36:37 +0000
-Received: from sender5-op-o12.zoho.com ([165.173.182.12])
+	id 1xD1Az-0000000Dear-3ldq;
+	Sat, 03 Oct 2026 14:57:25 +0000
+Received: from mail-4322.protonmail.ch ([185.70.43.22])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD0qn-0000000Dd5K-16Mn;
-	Sat, 03 Oct 2026 14:36:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1791038153; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=kLHYAhye2LfTlMwX0V6q6TTBkux+wUFvoV4mXNTnSVevlJCYF5FyMMRkdeFkH0XszsbgO+qYY2nuDmDtmuWaPe/Qry8FJt2ZBs79Ypjdi3fNNl4hpSYv+BiOAYPvjEGr930y6mI6YFb29oTMGzg8MfOcXrhEuaUKicppeQkNN0A=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1791038153; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=9Egv4q97ghG6oqT2h8uxYWEJx97iLxhYm/0+T/pO2i4=; 
-	b=kRHyPxPAhgGthdAaCK3cR3qk8LPjw/tJr7goGPLgT4hdbGXJLOiOJ1lqY0IdtuTXa9XDacMAmTO1f4RS03uNFPlHZxXQGT2pAIugaTweekvCg9hn+GKltqoM9snXW4m7nB8EGOvghDWut1qOUqMP68/t2wHIXMBOcPKR2QN3pmM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791038153;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:To:To:Cc:Cc:Subject:Subject:From:From:In-Reply-To:Reply-To;
-	bh=9Egv4q97ghG6oqT2h8uxYWEJx97iLxhYm/0+T/pO2i4=;
-	b=aVP6eu9QquEmV95y1DiK1BJcTJUnvthZ3+boRCVkxLohCUk8OTC/+kQtbqhGdwwC
-	V3gRD61LqmAqz0zOpqvCC3f+OHP72cIIbFN5+2qPbvitDeoBI/XjkIeRaTIsvgm5ev7
-	f6L/Rn7N7zv+L3ETm7cY0TEXFhKrt4FIczIQYM5w=
-Received: by smtp.zohomail.com with SMTPS id 1791038151074231.15688188388413;
-	Sat, 3 Oct 2026 07:35:51 -0700 (PDT)
-Mime-Version: 1.0
-Date: Sat, 03 Oct 2026 22:35:41 +0800
-Message-Id: <DLVA17A4RRG7.2ECQKV3SJDAGI@pigmoral.tech>
-To: <wens@kernel.org>, "Junhui Liu" <junhui.liu@pigmoral.tech>
-Cc: "Stephen Boyd" <sboyd@kernel.org>, "Brian Masney"
- <bmasney+clk@redhat.com>, "Jerome Brunet" <jbrunet+clk@baylibre.com>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>,
- "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
- <richardcochran@gmail.com>, <linux-clk@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>, "Jerome
- Brunet" <jbrunet@baylibre.com>, "Enzo Adriano"
- <enzo.adriano.code@gmail.com>, "Andre Przywara" <andre.przywara@arm.com>,
- "Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>, "Yixun Lan"
- <dlan@gentoo.org>
-Subject: Re: [PATCH v5 0/8] clk: sunxi-ng: Add support for Allwinner A733
- CCU and PRCM
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-X-Mailer: aerc 0.22.0
-References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
- <CAGb2v66O7Ze=TiHO_5q=76QpU8ZXraFyV+HfO+_HpkTDr1U-nQ@mail.gmail.com>
-In-Reply-To: <CAGb2v66O7Ze=TiHO_5q=76QpU8ZXraFyV+HfO+_HpkTDr1U-nQ@mail.gmail.com>
-X-ZohoMailClient: External
+	id 1xD1Aw-0000000DeZc-0sMA
+	for linux-riscv@lists.infradead.org;
+	Sat, 03 Oct 2026 14:57:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1791039437; x=1791298637;
+	bh=uXJZsVteBsFqjHbXMx/x9zuPLikQCN04yzIKRIVguww=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=krETLDSJFteY5BJdc1leBNvIaU/JT5EvBg0qmMKmXAMGCIixEkKBV1/RvNOYdQNw4
+	 ZsMOUI8PVJcNmD4cwCsqYEwSO1hPSPcxcghYh0Y+2aJWcf1SfpWdekhQ7DuhwqBykO
+	 VUXFMH0QoyueBEwkYDaSW5eMsWpZ3fEFxIQDnQOk+IZ3JV/xbTQWlVPnCa1ElVBqgg
+	 YKWVur9NcKXLKhovIH7SaxfSVYNlUVkXUxk0Dw2Pjp40jnM5TAuc74RmvmTek+xenm
+	 ANkIPCqfLyq9n/Z/WaUiiHW4GS1/o4g8n/OdqjVoRtyEpC0OMBhPTiMFBBWjDUGyK6
+	 NyyvFIp5tt/Lg==
+Date: Sat, 03 Oct 2026 14:57:11 +0000
+To: wens@kernel.org
+From: Norman Herms <dockseed@proton.me>
+Cc: Junhui Liu <junhui.liu@pigmoral.tech>, Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, Enzo Adriano <enzo.adriano.code@gmail.com>, Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v5 3/8] clk: sunxi-ng: a733: Add PRCM CCU
+Message-ID: <Xss-x8UR9RSDehrUzeE27kgFWXhob67jMdSrxfgSV5FIhrtDiD5VRcpJYP2-j7itF4eArxOmzsGWXqQucflO9EJqt7LK70OVjFmCjsaqHc0=@proton.me>
+In-Reply-To: <CAGb2v65q8w6NLzTtuMX3HZR98nAvR=Z4ODUCFZb5j3TgkDu_3Q@mail.gmail.com>
+References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech> <20260930-a733-clk-v5-3-11175b41cd2d@pigmoral.tech> <CAGb2v65q8w6NLzTtuMX3HZR98nAvR=Z4ODUCFZb5j3TgkDu_3Q@mail.gmail.com>
+Feedback-ID: 144388465:user:proton
+X-Pm-Message-ID: 1db97b86471db45a5d153e83a4f06e314e249029
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_073633_788384_77AC9C90 
-X-CRM114-Status: GOOD (  22.83  )
+X-CRM114-CacheID: sfid-20261003_075722_869742_7402053D 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,60 +65,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2hlbi1ZdSwKCk9uIFNhdCBPY3QgMywgMjAyNiBhdCA5OjM3IFBNIENTVCwgQ2hlbi1ZdSBU
-c2FpIHdyb3RlOgo+IE9uIFdlZCwgU2VwIDMwLCAyMDI2IGF0IDE6MjfigK9BTSBKdW5odWkgTGl1
-IDxqdW5odWkubGl1QHBpZ21vcmFsLnRlY2g+IHdyb3RlOgo+Pgo+PiBBZGQgc3VwcG9ydCBmb3Ig
-dGhlIG1haW4gQ0NVIGFuZCB0aGUgUFJDTSBtb2R1bGUgKFItQ0NVKSBmb3VuZCBpbiB0aGUKPj4g
-QWxsd2lubmVyIEE3MzMgU29DLiBUaGUgY2xvY2sgYXJjaGl0ZWN0dXJlIGlzIGRlcml2ZWQgZnJv
-bSB0aGUgcHJldmlvdXMKPj4gQTUyMyBkZXNpZ24sIHdpdGggdGhlIE1DVV9DQ1UgcmVtb3ZlZCBh
-bmQgdGhlIGNsb2NrIHRyZWUgZXh0ZW5kZWQgZm9yCj4+IHRoZSBhZGRpdGlvbmFsIGZ1bmN0aW9u
-YWwgYmxvY2tzIGZvdW5kIG9uIHRoZSBBNzMzLgo+Pgo+PiBUaGUgQTczMyBpbnRyb2R1Y2VzIGEg
-InBsbC1yZWYiIGNsb2NrIHRoYXQgbm9ybWFsaXplcyB0aGUgcGh5c2ljYWwKPj4gb3NjaWxsYXRv
-ciBmcmVxdWVuY3ksIHdoaWNoIGNhbiBiZSAxOS4yTUh6LCAyNE1Ieiwgb3IgMjZNSHosIGludG8g
-YQo+PiBjb25zaXN0ZW50IDI0TUh6IHJlZmVyZW5jZSBmb3IgdGhlIFBMTCBjbG9jayB0cmVlLgo+
-Pgo+PiBUaGUgcGVyaXBoZXJhbCwgdmlkZW8sIGFuZCBERSBQTExzIHByb3ZpZGUgbXVsdGlwbGUg
-aW5kZXBlbmRlbnRseSBnYXRlZAo+PiBvdXRwdXRzIHdpdGggcHJvZ3JhbW1hYmxlIGRpdmlkZXJz
-LiBNb2RlbCB0aGVzZSBvdXRwdXRzIGFzIHNlcGFyYXRlCj4+IGRpdmlkZXItYW5kLWdhdGUgY2hp
-bGQgY2xvY2tzLiBBbHNvIGZvbGxvdyB0aGUgZG9jdW1lbnRlZCBoaWVyYXJjaHkgZm9yCj4+IHRo
-ZSBkZXJpdmVkIHBlcmlwaGVyYWwgUExMIG91dHB1dHMuIFRoZSBleHBsaWNpdGx5IG5hbWVkIFBM
-TF9BVURJTzEgLzIKPj4gYW5kIC81IG91dHB1dHMgYXJlIG1vZGVsZWQgYXMgZml4ZWQtZmFjdG9y
-IGNsb2Nrcywgd2l0aCB0aGVpciBkaXZpZGVyCj4+IGZpZWxkcyBpbml0aWFsaXplZCBhY2NvcmRp
-bmdseS4KPj4KPj4gQWxzbyBleHRlbmQgdGhlIHN1bnhpLW5nIFNETSAoU2lnbWEtRGVsdGEgTW9k
-dWxhdGlvbikgc3VwcG9ydCBmb3IgdGhlCj4+IGR1YWwtcGF0dGVybiByZWdpc3RlciBsYXlvdXQg
-dXNlZCBieSB0aGUgQTczMyBQTExzLiBQTExfQVVESU8wIHVzZXMgdGhlCj4+IGR1YWwtcGF0dGVy
-biBTRE0gc3VwcG9ydCB0byBzeW50aGVzaXplIGl0cyBmcmFjdGlvbmFsIG91dHB1dC4KPj4gUExM
-X0FVRElPMSBkb2VzIG5vdCBleHBvc2UgZnJhY3Rpb25hbCByYXRlcywgYnV0IGl0cyBTRE0gY29u
-dHJvbHMgYXJlCj4+IG1vZGVsZWQgc28gdGhhdCBzdGFsZSBzZXR0aW5ncyBsZWZ0IGJ5IGZpcm13
-YXJlIGNhbiBiZSBkaXNhYmxlZCB3aGVuIGFuCj4+IGludGVnZXIgcmF0ZSBpcyBwcm9ncmFtbWVk
-Lgo+Cj4gU29tZSBvZiB0aGUgY2xvY2sgY29udHJvbHMsIGxpa2UgdGhlIFBMTCBhbmQgQUhCL0FQ
-QiBidXMgZGl2aWRlcnMsIGFyZQo+IHNlY3VyZSBieSBkZWZhdWx0IGFuZCBuZWVkIHRvIGJlIHNl
-dCB0byBub24tc2VjdXJlIGZvciBMaW51eCB0byBiZSBhYmxlCj4gdG8gdXNlIHRoZW0gcHJvcGVy
-bHkuIEFuZCB0aGVyZSBpcyBhbHNvIGEgVFdEIGNsb2NrIGluIHRoZSBQUkNNIHRoYXQgdGhlCj4g
-dXNlciBtYW51YWwgc2F5cyBpcyBzZWN1cmUgb25seS4KPgo+IEhhdmUgeW91IGdpdmVuIGFueSB0
-aG91Z2h0IHRvIHRoaXM/IElmIHdlIGVuZCB1cCBoYXZpbmcgdG8gY29udmVydCB0bwo+IFNDTUkg
-b3Igc29tZXRoaW5nIHRvIGhhbmRsZSB0aG9zZSBjbG9ja3MgaXQncyBnb2luZyB0byBiZSBhIGJp
-dCB1Z2x5Lgo+Cj4gQW5kIHByZXN1bWFibHkgdGhpbmdzIHdvcmsgbm93IGJlY2F1c2UgdGhlIHNl
-Y3VyZS9ub24tc2VjdXJlIGFjY2VzcyBiaXQKPiBpc24ndCBpbiBlZmZlY3QgcmlnaHQgbm93IGJl
-Y2F1c2UgeW91IGFyZW4ndCB1c2luZyBzZWN1cmUgYm9vdD8gQXQgbGVhc3QKPiB0aGlzIHdhcyBh
-IHRoaW5nIGluIHRoZSBwYXN0Li4uCj4KClRoYW5rcyBmb3IgcG9pbnRpbmcgdGhpcyBvdXQuIFRo
-aXMgaXMgaW5kZWVkIHNvbWV0aGluZyBJIGhhZCBub3QKY29uc2lkZXJlZCBiZWZvcmUuIEkgd2ls
-bCB0cnkgZW5hYmxpbmcgc2VjdXJlIGJvb3Qgb24gbXkgc3BhcmUgQ3ViaWUgQTdaCmJvYXJkIGFu
-ZCB0ZXN0IGl0IG9uIGFjdHVhbCBoYXJkd2FyZS4KCkZvciB0aGUgUExMIGFuZCBBSEIvQVBCIGJ1
-cyBjbG9jayBjb250cm9scywgdGhlIHVzZXIgbWFudWFsIGluZGljYXRlcwp0aGF0IHRoZSByZWxl
-dmFudCBzZWN1cml0eSBiaXRzIGNhbiBiZSBzZXQgYnkgVEYtQSB0byBhbGxvdyB0aGUga2VybmVs
-CnRvIGFjY2VzcyB0aGVzZSByZWdpc3RlcnMuIFRoaXMgYWxzbyBhcHBlYXJzIHRvIGJlIGhvdyB0
-aGlzIGhhcwp0cmFkaXRpb25hbGx5IGJlZW4gaGFuZGxlZCBvbiBzdW54aSBwbGF0Zm9ybXMuIFNv
-IEkgdGhpbmsgd2UgY2FuIGRvIHRoZQpzYW1lIGluIFRGLUEgZm9yIHRoZSBBNzMzLgoKRm9yIGJ1
-c19yX3R3ZF9jbGssIEkgd2lsbCB0ZXN0IHdoZXRoZXIgdGhlIHJlZ2lzdGVyIGlzIGluZGVlZCBh
-bHdheXMKc2VjdXJlLiBJZiBpdCBpcywgSSB0aGluayB0aGUgY2xvY2sgY2FuIGJlIHJlbW92ZWQg
-ZnJvbSB0aGUga2VybmVsIGFuZApsZWZ0IGVuYWJsZWQgYnkgaXRzIGhhcmR3YXJlIHJlc2V0IHZh
-bHVlIG9yIGJ5IHRoZSBib290IGZpcm13YXJlLgoKPgo+IFRoYW5rcwo+IENoZW5ZdQo+CgotLSAK
-QmVzdCByZWdhcmRzLApKdW5odWkgTGl1CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+Hi ChenYu,
+
+Measurements for your comments on this patch. Same two Radxa Cubie A7S
+boards and boot chain as in my reply to the cover letter (SID + 0xA0 =
+0, no secure boot). Cold boot, register reads from U-Boot at
+non-secure EL2 on both boards (same values). On one board also a
+non-secure write test, and reads from EL3 with a test BL31 that only
+reads, before and after sunxi_security_setup(). Again done by AI agents
+(Claude) on my boards, so a report, not a Tested-by.
+
+> The three bus dividers are secure by default, and either need to be toggled
+> to non-secure by the bootloader, or (I'm guessing) the system is running
+> without secure boot and the secure access bit isn't in effect.
+
+On our boards the bootloader toggles them. Bit 0 of PRCM_SEC_SWITCH_REG
+(UM 4.2.5.26) covers exactly AHBS/APBS0/APBS1, and TF-A's common
+sunxi_security_setup() writes 0x1 to that register (our BL31 and the
+vendor BL31 set 0x7). From EL3 it reads 0 before and 0x7 after that
+write. From non-secure: 0x07010290 = 0x7, r-ahb = 0x03000000, r-apb1 =
+0x04000000. Both differ from the reset value 0, so these registers are
+readable. We have not checked non-secure access to them before BL31
+sets the switch. Note that secure filtering is active on these parts
+even without the fuse, see the TWD gate below.
+
+> > +static SUNXI_CCU_GATE_HW(bus_r_twd_clk, "bus-r-twd", &r_apb0_clk.common.hw, 0x12c, BIT(0), 0);
+>
+> User manual says this is secure only.
+
+On our boards it behaves like that even without secure boot. From EL3,
+S_TWD_BGR_REG (0x0701012C) reads its UM default 0x1, before and after
+the BL31 security setup, so the gate is open after reset. From
+non-secure it reads 0 on both boards, and a non-secure write of 0x1
+does not stick.
+
+> BSP sources say there is a "dma-clken-sw" gate at 0x1dc bit 0. Same on the
+> A523, though it's unclear what it does or controls.
+
+The A733 UM lists no register at 0x1DC (the S_PRCM list goes from
+0x01CC to 0x020C). In the Radxa BSP (radxa/allwinner-bsp, branch
+cubie-aiot-v1.5.0) "dma-clken-sw" exists in ccu-sun55iw3-r.c and
+ccu-sun60iw1-r.c, but not in ccu-sun60iw2-r.c, the A733 one. On our
+boards 0x070101DC reads 0 from non-secure.
+
+Thanks,
+Norman
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
