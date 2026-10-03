@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F14CA5FE3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE92BCA5FE8
 	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2026 08:47:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=EfeZNqG84Vm+GSpoXCqXQyrVfHvzK1XbN73+tPK/an4=; b=cF+2AyDfYIQ9w1
-	+aFLsRKsUT+fw99EDzPD/bP2Rjqwan9HJWzXuWUbDqhMUQoVsxUaPzuptudT4996J1JoPU5OI66UX
-	qASfSnvqzOQ44VKTKc5cEiJ7NCDhAZiEgEAQ7T4dss3AJx1bMI+i7cgkHk998KGZ4/q9KsvMmEZTT
-	KQypDVq5muS9i7mxORqcL/OhjQQV7Zq8WaLcT30RxKjjWlCkigdCosFSkJhgD2pEH91urL7YY3TQ6
-	3Xks15Cf42K+yXWHK4Sy63RZe8eM67R/7ub8W/V9BpDNT1wv0zdGAKPur6/SDY2hkvMV7+M1M44Kf
-	ZN4hlO4PHsYZUXcakplQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=X2XEoiKeQQszlCGdljDzUS/GNU+X89FB9PX+7hKVBRE=; b=NNun1AHskxEnXX
+	8pymXrz/SzDLM3D9Hv4a+r1Q6+BMqJPGlv651TqlS5GAuKJEP8EfGk5ckFKQoCR7cVKQoKL/GXkJC
+	FVmNJ9hY9NhwxnlUGqNw4PT7dlT3UG7sk+WxBdy/wfNmtH2SjnGeBb3+QZFiQluv7U3B8FrLqBbqb
+	DcNqal3lOQUcc3aejTsAaUqT4L2dRbNIuEka9vxzVvosZODc7pC4oIdRDWHYgjRzvUwNErdRv+3NH
+	EGvOtFJCTsKtqetIQ+iSASfBfFXCVkAHRYqfZ1GlDzYRf8LMDfdgrC0rdW9W+OoXyoGqAZ79A8fcr
+	bk8UYVISCEk7xYai39Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCvOF-0000000DD44-24Tc;
-	Sat, 03 Oct 2026 08:46:43 +0000
-Received: from mail-pj2-x0d.google.com ([2607:f8b0:4864:39::d])
+	id 1xCvOK-0000000DD5Y-2Yae;
+	Sat, 03 Oct 2026 08:46:48 +0000
+Received: from mail-pz2-x0e.google.com ([2607:f8b0:4864:3b::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCvOC-0000000DD3c-3LIZ
+	id 1xCvOH-0000000DD4S-2vLr
 	for linux-riscv@lists.infradead.org;
-	Sat, 03 Oct 2026 08:46:42 +0000
-Received: by mail-pj2-x0d.google.com with SMTP id 98e67ed59e1d1-3a794cce022so5721a91.0
-        for <linux-riscv@lists.infradead.org>; Sat, 03 Oct 2026 01:46:40 -0700 (PDT)
+	Sat, 03 Oct 2026 08:46:47 +0000
+Received: by mail-pz2-x0e.google.com with SMTP id 41be03b00d2f7-cc4e4979c55so51111a12.1
+        for <linux-riscv@lists.infradead.org>; Sat, 03 Oct 2026 01:46:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791017199; x=1791621999; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=t/wrLOCtE1sCCWrIKRX05ezT6tc6dZyG9f7Xo2wQXRw=;
-        b=k/0gzmGsaWOfu1v8adgC87BnrzR1Z8FFrAQt/IWof9wE+xJUyrtE6cJCPg9xVzDjYo
-         zsqALuS2PwyG2/b2guZeQrVzMalpU376GERfGB3U09G7ZTZuRlGl9awL36ozWW7Bm5CO
-         8zdJn0Ahep1HVq1KXXR1bRIHP4/Y+eLzOX/UtwiqfDI1DQ7OApBDqQsdnNCwG0ImgCFT
-         exdXFVt1S9ivFemr+KTLGqrgXcV9n0VPV7H1P27UZ0gPsHelHxTbLQ1RwFk6phnfJyWH
-         1xpWYhAczcYyEsxGZ2sN+I+m4zMl7xpGkF4MZ23fwoyA2iJYzv6jWayeSL8WyQKDy/CW
-         Y8hQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791017199; x=1791621999;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1791017205; x=1791622005; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=t/wrLOCtE1sCCWrIKRX05ezT6tc6dZyG9f7Xo2wQXRw=;
-        b=P9mrMlj077OcmCHbRYNfXd4kQVoFHhSL3EgOA7ZSWTe2uzmCIN7CeDx/orlA4Nz90D
-         CS5uZKnHetJBaMsDa1UXRC6c/Cwa+o+2KhkCCq7eSLNLVtxXjdEQP/nk3N8TapFqZw2t
-         o1wjdS5tNuAV52KoA11llYXdKOLj/zRItf/+6uGDz2ls7vT3CLYCsiBk/wWMWBNV3+Rf
-         dNQceZ4fGSA9F6+AiEBwCwJEKkVofZhTPcE1b8cgyfom+oITKEtIKeI/0td0bQDC3TXE
-         gHs3iFNVjvw4odpLT/n2cvwymm5gdvtzN6bXEUS1F+f6PcMhftXMRiKkIwozd6RgfE0G
-         Xu8g==
-X-Forwarded-Encrypted: i=1; AKwUvByWpBuBOt14Q5htXg3YqwaLbg9gik7nkB4/AY3JLWtbNHvi1BovgJNuOe9xGFkLBnq5bMFWDOuMy2FzJg==@lists.infradead.org
-X-Gm-Message-State: AFq9FYLvAkrkmxvFKSJBkImrym+awbVJ86CuguqqlIHY/h1hfaUboVWR
-	DndRUZh/OEDsQzJkfkEP5t/4zB+MgI/lV1oInpzLW5VhTaCFcaUeLNt1
-X-Gm-Gg: AYBFou1jmi0dw51VSiIt7AqBRdfY9JnGGKjCV9LMX8STmOWAQEAayKqzptuvpn1gdJM
-	mJLGJd4FNPesb9VcUM20Kv+HHw22MW/G22koJKad5YOwXs8/lSMf7ckX+CbHgZyg8kbwMaYxnI/
-	8/pAIMHYZvyw0IiT4epTHkxPThE4VrQKgIj7hgZqFuDpklkKPcs7Y2PicbHtqjXLK5MDCNRQEvH
-	Gg4uHLZpj+ERPm7VBx9qc2cM86QEpX1moGBzmG59qmk3aLas32+9Vi04344vjA2ytGdfAguYAi8
-	CCvYAMQImrs1h200GMPBLaU4RYiBud2GSHGZ9sT1Ow/BwRcseqYEA/ikM9EidBwErDqpsawoXkZ
-	kVOlgGvGq2iPwwNzFGe/rL50R7c/nxC1Y+yyhU963BYILS/gRvEmczyXq4yFk7ntdLhYwAR1f41
-	xZbyur2LgA9d1TxSR8ALOcbwSU8HQ8vdED6LGKRTmsihpTDVQ7OZYMCLdB6afGL2R/1rqsdsXkV
-	KM1wXcYVtraKzsMlqeuCKpkMwQg1F9BUHLflPwmCe7O6u5Tc8BNrZjbaHMsKLYw+IFbPrA=
-X-Received: by 2002:a17:90b:4ac3:b0:3a4:9d98:f980 with SMTP id 98e67ed59e1d1-3a6ce5eb2b0mr7077989a91.1.1791017199330;
-        Sat, 03 Oct 2026 01:46:39 -0700 (PDT)
+        bh=y2X6RfdoRZCSwn03+0O701g2gXtz+LDb8LKtxHTTyDg=;
+        b=MnD8kB+SsHeWwrb0qn9vq/sv/KPCjLEM+vLOWT2SPyirNNA/3kXlPGX2I3P9UpfSrd
+         W4R5tFqBugEGm2B1RFKT7W67Z/zG7zO4IGudxPtx76M/FQNuwSpq6dwHKKWc03PZosB+
+         z5Z1ETqLUOqyA71uG6l/egd7hHiQONvec/7ILwYG3fgXC0zBpgPH5DkaS3ruYitknXQL
+         lSifkBP5q2ek9pnGassbYYXjmPMB6roz/L7cE9oc+uuKGIwBFfJ2MNvzGDcACpA1gMpf
+         rALDlDfLabEPB6j/e97iQs/WRfkbEc8hyDBkL107Lcfgr6N+MypnxoTtO7iuS0IOpRJ5
+         4kNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791017205; x=1791622005;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=y2X6RfdoRZCSwn03+0O701g2gXtz+LDb8LKtxHTTyDg=;
+        b=LkFOdNQiuXWKU7ymytBfANVgNIbeEQBRsnXSNxRkJKK7T01b5EtSSLo6wHrL5qvW6m
+         1+vcqvnMAdzQfEaojt3bDKDmRnE3wNh2nA/oIUgAaHb64qg9EaKBrLPILlGMUUCmAFNs
+         5BmGv/27U6PskX6alkQ+vm0ylRwCLjghb0H6/kykTr5VaVCwqphLQgxjes4hHKBuX0PV
+         Esuqwst3uNTDhz5KrAXchVDUJE9D8Ce8xP+F4lanWbb1+H5502yKxRG97ZBReimGg9bR
+         NufYPTFrwVnzgSeuqV3+arJdFSTcIC4bhbP6f0vd/uexw1TJz6MPyujNzzfqfyFSAKz3
+         3n3Q==
+X-Forwarded-Encrypted: i=1; AKwUvBwB0Lx3NksoTfa30QZOorFB4Jt1az1IzJ1kEVpnrTzTBXEMuHCaTjy0hMT/EBzhBAUKwisz/swbVXfuBw==@lists.infradead.org
+X-Gm-Message-State: AFq9FYIf9iC9oZLDRR7mdZqSMEAe47J2L/k+KQu7SZTsSlysqSaVJFLz
+	TGUxAsB4QRj5Q1XkYodwaN+E1z56wA0lBLW//hGWEds0M+GzhIP5fJEr
+X-Gm-Gg: AYBFou2gb8aN2sL8raL31E7k7oW1Yi7RPkjC220dKqE1LpKctxlAPLAznZ/n8ABhSCk
+	yG4QvWHn8ZgdE5z19ydWtzAPy8uuf/aDT/TKnp8RS/q4q4io8lSQoZ9KjyWFTQMyoy276WKASuj
+	VGzNiw9hTE73uc8BiPaR0qFjeJ/EeS8z1sBZqF1gJrZW36hRaCRKgvEz+qGl0Gyk0wdyGvK+ukG
+	tLsREHtDZnaiUNLuDLS4dqMvvKYSJy3xVF/xWvOk7ZqBw/MPoCeu4Mehtj+eaAbRX4CvjbXO4gP
+	4vsprtTKv54phQLfMev0JmTs8vwgEaiEyu723F0kKlECFCWwkeMxnZ9eBygr9JdISfbLAOXdq+T
+	gwTfsaFtmxpNQiLYHeYWJru4TXQzMVdpbEshuQWgoP//IDbZqe8g/WnjctPZ18bJhO9mmLJyA+4
+	n+y2+WEk6xZQpOuU9sY79K+OiKCezIBDVkS/uDkjNiDrUYAw6EryB8148MXwCXyazHZa/mcmiv1
+	hyjilKESxAFxKxo0PRejfPiqYJ8crHkyQv+pXTVwAoxRw2kRndqFrEYytizJgdW019eheY=
+X-Received: by 2002:a17:90b:2804:b0:39e:3728:3b11 with SMTP id 98e67ed59e1d1-3a6ce6dc25dmr7643738a91.3.1791017204760;
+        Sat, 03 Oct 2026 01:46:44 -0700 (PDT)
 Received: from chenyou.ncku.edu.tw ([140.116.19.16])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a78e4664ebsm2208033a91.7.2026.10.03.01.46.34
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a78e4664ebsm2208033a91.7.2026.10.03.01.46.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 03 Oct 2026 01:46:38 -0700 (PDT)
+        Sat, 03 Oct 2026 01:46:44 -0700 (PDT)
 From: Chen-Yu Yeh <chenyou910331@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -88,14 +89,16 @@ Cc: Hiago De Franco <hfranco@baylibre.com>,
 	sophgo@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Chen-Yu Yeh <chenyou910331@gmail.com>
-Subject: [PATCH v2 0/2] riscv: dts: sophgo: Milk-V Duo 256M ethernet support
-Date: Sat,  3 Oct 2026 16:46:24 +0800
-Message-ID: <20261003084627.353899-1-chenyou910331@gmail.com>
+Subject: [PATCH v2 1/2] riscv: dts: sophgo: add Milk-V Duo 256M ethernet support overlay
+Date: Sat,  3 Oct 2026 16:46:25 +0800
+Message-ID: <20261003084627.353899-2-chenyou910331@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261003084627.353899-1-chenyou910331@gmail.com>
+References: <20261003084627.353899-1-chenyou910331@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_014640_842539_3D0904D8 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20261003_014646_490479_67FA2CD9 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,68 +115,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Milk-V Duo 256M has no Ethernet connector of its own; the SG2002's
-internal PHY is only usable through the optional USB & Ethernet IO
-board. This series adds an overlay for that board and fixes the name of
-the internal PHY node it exposes.
+The SG2002 has an internal 10/100 Ethernet PHY, but on the Milk-V Duo
+256M the Ethernet signals only reach the RJ45 connector on the optional
+USB & Ethernet IO board. The MAC (gmac0) and the MDIO multiplexer used
+to reach the internal PHY are already described in cv180x.dtsi but are
+disabled, and they cannot be enabled in the board devicetree because
+without the IO board the same pins may be used as GPIO.
 
-Changes in v2:
- - Enable Ethernet through an overlay instead of in the board
-   devicetree, since without the IO board the pins may be used as GPIO
-   (Inochi)
- - Send both patches in one thread (Inochi)
- - Test link-up and traffic on the IO board, which v1 could not
- - Collect Inochi's Reviewed-by on the PHY node name fix
+Add an overlay that enables them.
 
-The overlay has the same shape as Hiago's for the Milk-V Duo [1], so the
-two boards stay consistent. The PHY node name fix is in cv180x.dtsi and
-so covers that board as well.
+Tested on Milk-V Duo 256M with the USB & Ethernet IO board: the link
+comes up at 100Mbps/Full, the interface gets an address via DHCP and
+passes traffic in both directions. Without the overlay, eth0 does not
+appear.
 
-Testing, with a kernel built from this branch:
-
- - sg2002-milkv-duo256m-eth.dtb: eth0 comes up at 100Mbps/Full, gets an
-   address via DHCP and passes traffic
- - sg2002-milkv-duo256m.dtb: no eth0 is created, and the gmac node
-   reads back as disabled
-   
-Kernel log with sg2002-milkv-duo256m-eth.dtb:
-
-  [    1.426499] stmmaceth 4070000.ethernet: User ID: 0x10, Synopsys ID: 0x37
-  [    1.426536] stmmaceth 4070000.ethernet: 	DWMAC1000
-  [    6.052829] stmmaceth 4070000.ethernet eth0: PHY [mdio_mux-0.0:01] driver [Generic PHY] (irq=POLL)
-  [    8.138131] stmmaceth 4070000.ethernet eth0: Link is Up - 100Mbps/Full - flow control rx/tx
-
-  # ip addr show eth0
-  2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP qlen 1000
-      inet 192.168.0.47/24 brd 192.168.0.255 scope global dynamic noprefixroute eth0
-
-With the base sg2002-milkv-duo256m.dtb:
-
-  # ip addr show eth0
-  ip: can't find device 'eth0'
-  # cat /proc/device-tree/soc/ethernet@4070000/status
-  disabled
-
-iperf3 against a desktop on the same switch gives 94 Mbit/s with the
-board sending and 70-74 Mbit/s with it receiving, with no
-retransmissions either way. The receive side being slower is not a CPU
-limit on the board; I have not looked into it further yet.
-
-v1: https://lore.kernel.org/sophgo/20260803163323.74414-1-chenyou910331@gmail.com/
-    https://lore.kernel.org/sophgo/20260803163427.74445-1-chenyou910331@gmail.com/
-
-[1] https://lore.kernel.org/sophgo/20261001-milkv-duo-eth-overlay-v1-1-78bc1454f35b@baylibre.com/
-
-Chen-Yu Yeh (2):
-  riscv: dts: sophgo: add Milk-V Duo 256M ethernet support overlay
-  riscv: dts: sophgo: cv180x: Fix internal ephy node name
-
+Signed-off-by: Chen-Yu Yeh <chenyou910331@gmail.com>
+---
  arch/riscv/boot/dts/sophgo/Makefile             |  3 +++
- arch/riscv/boot/dts/sophgo/cv180x.dtsi          |  2 +-
  .../dts/sophgo/sg2002-milkv-duo256m-eth.dtso    | 17 +++++++++++++++++
- 3 files changed, 21 insertions(+), 1 deletion(-)
+ 2 files changed, 20 insertions(+)
  create mode 100644 arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m-eth.dtso
 
+diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
+index d5c80d4ff005..49639cb0888b 100644
+--- a/arch/riscv/boot/dts/sophgo/Makefile
++++ b/arch/riscv/boot/dts/sophgo/Makefile
+@@ -4,6 +4,9 @@ dtb-$(CONFIG_ARCH_SOPHGO) += cv1812h-huashan-pi.dtb
+ dtb-$(CONFIG_ARCH_SOPHGO) += sg2000-milkv-duo-s.dtb
+ dtb-$(CONFIG_ARCH_SOPHGO) += sg2002-licheerv-nano-b.dtb
+ dtb-$(CONFIG_ARCH_SOPHGO) += sg2002-milkv-duo256m.dtb
++sg2002-milkv-duo256m-eth-dtbs := sg2002-milkv-duo256m.dtb sg2002-milkv-duo256m-eth.dtbo
++dtb-$(CONFIG_ARCH_SOPHGO) += sg2002-milkv-duo256m-eth.dtb
++dtb-$(CONFIG_ARCH_SOPHGO) += sg2002-milkv-duo256m-eth.dtbo
+ dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-milkv-pioneer.dtb
+ dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-evb-v1.dtb
+ dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-evb-v2.dtb
+diff --git a/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m-eth.dtso b/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m-eth.dtso
+new file mode 100644
+index 000000000000..cc93746d932c
+--- /dev/null
++++ b/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m-eth.dtso
+@@ -0,0 +1,17 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Enable ethernet on Milk-V Duo 256M with the USB & Ethernet IO board.
++ *
++ * Copyright (c) 2026, Chen-Yu Yeh <chenyou910331@gmail.com>
++ */
++
++/dts-v1/;
++/plugin/;
++
++&gmac0 {
++	status = "okay";
++};
++
++&mdio {
++	status = "okay";
++};
 -- 
 2.43.0
 
