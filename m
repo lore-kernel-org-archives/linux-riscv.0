@@ -4,128 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C21DBCA5FC1
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2026 12:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A7B8CA5FDD
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2026 12:53:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mt6ZRa/l3t552MyQAV8NR2F3H0AMEDuUubspw08L/bk=; b=w1+yJ7vpD96WME
-	VjkiAeFMJHBshIQ0tHf+f29LpTSSQxXN1Lp8RMYwF4dvDlSvSEP2Tm3wMs1WChO1SY8ZHbhLGv3Hr
-	pqskHtJtYx0KJLqfyFVl3mGhNa1LjsvN9R8dolaC3aIm3S/SlW4mS60icYghbYgkXCVa5vKJgjAmy
-	pZuPKCa+9f2kKDRcAWY/PDTvpomogB27riDMkhA4xGQcYE2XubZvRDvttgcRzpS3tOqoZCMm25FaN
-	5FT400/b/d0pct9PcnfLWdKfLHsgm01h8AT+c/hORzNgZgOzsuHLljtG9YB2sLyShbQKV8A363YDs
-	8XEZ9+WIwerYG0nCNPqg==;
+	List-Owner; bh=NfpRBSAHuNey4kFyTL61Vgrj3coVuIFXCXhIm8Nju5w=; b=XOiCCdPJevoUg4
+	uMlDkW7FDtaGcxW4lmnJKGm7Z5rI9rtIVKUpFqBHM3E1Sfa/oiYu++0Ji8/8SPbdk1MBROEcjTsdA
+	dKDQSkeWnWz6hSJwPVuqaPDbEeQujaghoUt6wUtmqniI7MUKwwo8f19CnI3LBf2oXgRIJT4PbBqXu
+	hiyRztTlltty26BAOL3i0wbWU80BLfZrbnDy3ikq4+jKE0Qf3bE7OComfEtmt2vJpWuzptr+MZJpc
+	qsAJtxhm3A23DYvaxK54qoehn3+TG8SbWGIY5TjRonRjaZXyXqbKQqJR3Gy0Ap2hs5GNjXeZoWuWu
+	BSUT2UgZZX1hfjUq5PsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCyby-0000000DTi6-1hYg;
-	Sat, 03 Oct 2026 12:13:06 +0000
-Received: from mail-westusazon11010056.outbound.protection.outlook.com ([52.101.85.56] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1xCzEV-0000000DVfh-17vG;
+	Sat, 03 Oct 2026 12:52:55 +0000
+Received: from sender6-op-o15.zoho.com ([165.173.180.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCybu-0000000DThA-3kVh
-	for linux-riscv@lists.infradead.org;
-	Sat, 03 Oct 2026 12:13:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BYnDcw6QqZhifEgRm+6Nj7KvOiAOfN3+sO0uO2+TosuNKbBOZL/5fsxs9hqPQSLdOG/ibvvn+wAdsw9zL/+moMgvQOnspXy20aLsCiyDb3Zvw6IKza733Mj01tTlQyGZrZDajMuGAofxVOqNQ7ODgNMBGtbCQiMqsnhkjRVj/UQvku1NcWHEkpsamtI7rFr7G4NRioCfXbkhBhulLYEhXpN24DNIsASG5TDufsNnBOjbq4aYEAElZA/FqiwcNZKPKy1FzpXD+WeO6MT56hZrRIrf1L/DFzyw25sJgLU+LAY8cQCjm7vmk5kEt8/0e+W4N0AhFfc7Th9cv32o6i9qKw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KAy+rEbd3t9toj9RUI/d6qpRXZPbZhJ4XvyM6ZvdyRo=;
- b=W3vXwW4bUTw43wrF04MmZHxwSYa5Dl/6+FMEdnbNiHt83f4HMgp4Qrr8a5sRJdL39COsK6pQDNVDXXY36a2Ic8mio7fWymTyyVCrPm0+8OtyWLbInVY1TPYjpO+s/jRVnWYm6hV6Ue5MYwOLevbuXgO2cEXdc24oqkf8+yP1UsAsUhaNgalrUtaObgI7dql4r0jw2v8RZtMAaopacoi/iqYrHhV2nDE/CidhtsBPV4voQaA6KjaQa9MhVvMj5R7MGzWxRxuP1vq8ZzYwCFyo0OEVZKukTE/RmxfotCjIMK0qb3PT7y/zzHQWhXTxzr8hfSbQlNhSL5sArolNf/qTlA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KAy+rEbd3t9toj9RUI/d6qpRXZPbZhJ4XvyM6ZvdyRo=;
- b=RQx/KdPyf6XiD364pUAyqWER/E10rroPIMl1tFHyzehLTeCjb/PTGAdNWCsuSmHWRvrF5WyaLkcUQyoLDW8fztKsf6vFMNPe/mgcoydw4RYU7LQLwONa6/MGxabgcVFlCumkJfRibbLpanqHT4BJqlPG1LMEMdROaAqtLGTVHAEQjnY+ZLXKNVwjKYXmpAGNcj3HawTS2cnIqcv0gIsoL3oEwkj5wO0oNMtTCWvMJa5Yl5hhkNrTuuIJdLMxFME7629/LQ74Y+6c1zBxPPTt5u+PNmHAoS13sLLQKoa/DMRTc5LfpRLwmijt+BbtZJ7bS1kvqc9GBM3o6tcpEFZGjg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by LV2PR12MB683086.namprd12.prod.outlook.com
- (2603:10b6:408:414::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Sat, 3 Oct
- 2026 12:10:51 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0472.016; Sat, 3 Oct 2026
- 12:10:50 +0000
-Date: Sat, 3 Oct 2026 09:10:49 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Andrew Jones <andrew.jones@oss.qualcomm.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, linux-riscv@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	tomasz.jeznach@linux.dev, tjeznach@rivosinc.com, joro@8bytes.org,
-	will@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
-	anup@brainfault.org, tglx@kernel.org, kevin.tian@intel.com,
-	fangyu.yu@linux.alibaba.com
-Subject: Re: [PATCH v6 01/16] iommu/dma: Prepare MSI physical address lists
-Message-ID: <20261003121049.GX1616761@nvidia.com>
-References: <20260925151659.419512-1-andrew.jones@oss.qualcomm.com>
- <20260925151659.419512-2-andrew.jones@oss.qualcomm.com>
- <18c9b030-8dc6-4242-8e66-0448ee125d7d@arm.com>
- <pph73bajtpgp3u5vb7xjqmbrz35zs2lw7fpkhobg5jdzbjw2vq@usg3jbbneskp>
-Content-Disposition: inline
-In-Reply-To: <pph73bajtpgp3u5vb7xjqmbrz35zs2lw7fpkhobg5jdzbjw2vq@usg3jbbneskp>
-X-ClientProxiedBy: SA0PR11CA0106.namprd11.prod.outlook.com
- (2603:10b6:806:d1::21) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|LV2PR12MB683086:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9e9044a5-5fdb-4884-c362-08df21475da3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|23010399003|10067099003|56012099006|11063799006|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: zbDRNFYX+m/MOXMxkKnV3fcYc55Jt7Ud3K86fb2UWsoBOzNySMOM3WGyOGInM/IZB5u+UVnGpA8abWDGvGOpLwTEhmh5VfPhviw5zzXoG23YaqLPqB57EgjzMkFXJ+OZ3UZQC+4kIbix+Kr8KwRhiUEAle4CsF0n+4C9TxARGrVGUUq6eEIceGR47r1Oe5SDl+TnqsdS23G7WMrgE28L3MlkL2dsuEbBh3bl9CfY4JGR5Q4U/zIWGNNwfllWNkrJVfm/2kwMXWFXwCRysSMSgRzUvAG2iGPFinB+cieHjnIc5eqSkrnwNGYg+zCnPFtwepxP9KaVZ640S7VH6v7A3Pv3XvxmT9RprxwKUCGIDwMMAfB/eE1MsMFNx5IqJRoTmZ6s1LK2XEta6fMnLhjjhJc62/FKmokkXTuZqT3TytXCZuXRntiGVxyBYRGZXsF3VzLw4sb5TmpI6fC+uVkvSL7aY9TzPThDIKx5cbE9119uUs98QcAgaHvEBynTXZNVsIODbqnXe3nBYNbeZapWRy0BnlYAJUwxyOaBx26mxNt6X/jXvJc/tuHi/2iL+aq5EN8swnZSzaaj9ccs0ssqEg3BkzBpW6qsckJFOON8OfYp4w2n27Gnx3PnpJ5Baf99qzP/YJXT8OUHITg8TnZkdO9SfKPCWjCjeR33FgIoqqg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(23010399003)(10067099003)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/C+OrBE/L8YS5js7EiIBP3vpSdRyStb05c0FAVbM563So1bOhWiwakdeyqOd?=
- =?us-ascii?Q?hZerG6MJOBNZd+QHvC1+2TbsKHy3frHxnVMPIq2Hk8YMEI0awDe6j22XnTB2?=
- =?us-ascii?Q?hCBxRusD3A6oTdDW2FkDe8DlGR8AgRu+uGDo5asOApoLVLU1yMt1bFxeYUt+?=
- =?us-ascii?Q?t+3eB+YkrpyGmRTU6NNHStcYEe6r5riJb2XV6lRxIqvp1qs578jvS2xctx/D?=
- =?us-ascii?Q?8FEcaFfn2DaeWXiG+svDJxEyBHPGWU1Tq7x1iMqm4cxwb7poHEHGsGls7ThE?=
- =?us-ascii?Q?66KrfYtSJS0TLYR2bQaq2bk7ac5HLVEH+lyx/MSJHxF2SCV29ULX1jQoYVWJ?=
- =?us-ascii?Q?XdQQscADZmJOHI2v4SLW25f1RaC3cw0NL75ZITYwgcG7U7/TKbI11J7HmUhr?=
- =?us-ascii?Q?LQJA6k/rNl2i0noGykry/5ewUZoszRw97L/9C1h7/d2N6mleofO5NjJTyzlu?=
- =?us-ascii?Q?9igjITKFWSQ5ny5eVnZ7PQN4JHiQayzSk6TXCqXncXafm4GiidoHrT0tqPKW?=
- =?us-ascii?Q?uHZmOY7nw5Z82NvC74r+BFmyM92PdxUW3MR8MAe9v2ZFvGQImgVorvTnW4CV?=
- =?us-ascii?Q?L3hDQ3+3XDPjiu5qVND9vdFUePU2hOtgtJV8MDzCylRvT9cmZ4LPsjA8NAl0?=
- =?us-ascii?Q?9J/kOJRFf0jGECrObieUYkxFXdBwG88Ix2NPx+tc9vFESXIwa4OYHK7H2HMU?=
- =?us-ascii?Q?WMuWkvx2oyOSozFRCmOTmD631kcVVXbwaSF+GOkLif89oqNypP+auVlGDvdF?=
- =?us-ascii?Q?CQaig69T92Fu/bZdCOGgwNMg3D5ghVptgCQ0LvfRHOFf4uJArKgzwnveY44t?=
- =?us-ascii?Q?RNe9wockzoqrumiVDZ/p9XoZPA6Vk7UOZYZnp1JJqM1hDrTSaMP6qtjuyfVH?=
- =?us-ascii?Q?HVNIUV6gkaGIKuswys0xgWtBpFLsiOqTInlOtAGESYX44WVhEBLSjU6w+nq0?=
- =?us-ascii?Q?ZvaL/Viys5ImfqQ5kL7+vCqzTrVuoRGaJmjofjIh/X7g2EYR0RxY8ttBmgak?=
- =?us-ascii?Q?BVgPSBf9pvuiQ5DlY2cr/UpOaCIAmuU17WIBxWmOL7rBgUYHcB8egj7D+h/m?=
- =?us-ascii?Q?S5C73CvWk4x6MAYs5u5JxGASM50gaYBawFHwTxg73tAQIyV0OgzdDS0CEYeI?=
- =?us-ascii?Q?O5NGjWXKlx4h4miS+SKIjUPqeOYwN597Tu2F4BpvUvGJZydcaBrauar0+PPL?=
- =?us-ascii?Q?utt1B6voy9w/nGSp7KMC1PCLnjVa5Pi06QOY2IZvXa9x4Cb270kdzhYEGCDr?=
- =?us-ascii?Q?q3uo1RFKY9uCdrxDhNbAzx4voCRkav3GVL2CULMZAndATjJ/uu1k/vtLRzqJ?=
- =?us-ascii?Q?CotVn/c7t7v5bwbRJaBhQeBGu24aD5HuKCq7TNDiMIMXP2Zkx9BZXbCqQH36?=
- =?us-ascii?Q?zkJzRELGVyYxAVXTHh7/A/SlMoyg5L17qme/JP2QOifgbWp2xGD4Uayx5+Ti?=
- =?us-ascii?Q?oBrqHCntvpdIVPjhjz8Rtyh/pEa7kggX6x4m0vmszpdZ0nr9sGahUvvsmqng?=
- =?us-ascii?Q?XsqVPlJE8yUqvb+//hbG3JZzIi4QnoaLKYbLUmtg9HS2BmwcdyAFihfpbB/J?=
- =?us-ascii?Q?6ENdR8xjPeed2q/OkNQJMkguFzupxxfFnlFiyDArvWQpxFDSvyqvPCcfF75w?=
- =?us-ascii?Q?bVeCa4T1mtc1xXz69zu4s8DgKcTKdGV4Fhg2VUCATEe4fQvuRp7XLfS3rmYW?=
- =?us-ascii?Q?r/FVHhlYx+sWdIlEnFM/Sn5vKg8lzyLLBCtaYrbQDC69ecrX?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9e9044a5-5fdb-4884-c362-08df21475da3
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Oct 2026 12:10:50.8348
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: w/7k6Dke9Wc5YaZoMd15Vso57UY5U0a7CC/bDJlrEyMEzuwCeoAJUM1tv0/KyC+N
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB683086
+	id 1xCzEQ-0000000DVeW-1sTg;
+	Sat, 03 Oct 2026 12:52:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1791031939; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=N5vt+iiHQmegh8SyIvLQAUi/f2vSOUw9Z9mN4vteHwlOWTE4409DJodDQF5EkRZNNI0TPyqm/MGA8uJ1Ioo93Cy9VtqAL82OGHcE7dPOUVcDxWgG++iyd5Aatnp2CNrONz4v8lTl8odyrZ62C5QzKzNLyf9TGlucNq2QrxcLJno=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1791031939; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=w9AGJ2+NMj0TzmkVZNqdUpfodPO1cSXhGRHZ/sEBZS8=; 
+	b=lOLp+AnBm+oAYiJ6gKX/8SnHJ+Z7hqO0RnfS42v81HGtL1WRXtB4n/ASPZ28t8dTTjrsgg04dX1V0yVC9L5wbTNt16x8cGSbcF0LumQiW0mItpj/JuVFHU90kfeGQdLCw5HTAupV9FOgiAObpwDWtmEcw48zA60ShPVeVrKxsaQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791031939;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Subject:Subject:From:From:To:To:Cc:Cc:In-Reply-To:Reply-To;
+	bh=w9AGJ2+NMj0TzmkVZNqdUpfodPO1cSXhGRHZ/sEBZS8=;
+	b=NcNoKS1cOcBSYTvhxhBySCVO9GEvTQJ2o4AjxuwLzD3RQ2hda0qzJm1wX9BrRGCO
+	1gKy70NWKW4Avd7awRlod4hQIxxeDcqLXnF9/O4/fOXCMZ92QlEuH0WDRbs3WW4lCOI
+	Qqk53dxVOoXI8x61uIvSXgdFzt6FwD5p4CFHmy7A=
+Received: by smtp.zohomail.com with SMTPS id 1791031938348944.7508385072523;
+	Sat, 3 Oct 2026 05:52:18 -0700 (PDT)
+Mime-Version: 1.0
+Date: Sat, 03 Oct 2026 20:52:08 +0800
+Message-Id: <DLV7TXB5Q2PM.EYY9YISYPCR@pigmoral.tech>
+Subject: Re: [PATCH v5 0/8] clk: sunxi-ng: Add support for Allwinner A733
+ CCU and PRCM
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Junhui Liu" <junhui.liu@pigmoral.tech>, "Stephen Boyd"
+ <sboyd@kernel.org>, "Brian Masney" <bmasney+clk@redhat.com>, "Jerome
+ Brunet" <jbrunet+clk@baylibre.com>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
+ <conor+dt@kernel.org>, "Chen-Yu Tsai" <wens@kernel.org>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>,
+ "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
+ <richardcochran@gmail.com>
+Cc: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <netdev@vger.kernel.org>, "Jerome Brunet" <jbrunet@baylibre.com>, "Enzo
+ Adriano" <enzo.adriano.code@gmail.com>, "Andre Przywara"
+ <andre.przywara@arm.com>, "Krzysztof Kozlowski"
+ <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: aerc 0.22.0
+References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
+In-Reply-To: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_051302_939690_2BD61058 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20261003_055250_945246_931BF2B2 
+X-CRM114-Status: GOOD (  28.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,37 +92,146 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 03, 2026 at 02:03:35PM +0200, Andrew Jones wrote:
-> 
-> Hi Robin,
-> 
-> On Fri, Oct 02, 2026 at 05:21:18PM +0100, Robin Murphy wrote:
-> > You already end up adding what is effectively a RISC-V-specific
-> > entrypoint, so you may as well just carry that all the way through to
-> > its own effectively RISC-V-specific implementation
-> 
-> The list API came out of the v4[1] discussion with Jason. Preparing the
-> targets as one contiguous IOVA range lets the MSI descriptor cache the
-> base and IMSIC compose the address as base + CPU offset. That got
-> rid of the separate domain-local lookup table and its lifetime handling,
-> which I think was a worthwhile improvement.
+Hi folks,
 
-Yeah, I prefer this idea to what you had earlier, however it is
-accomodated.
+Gentle ping on this series.
 
-> > it should merely be a case of whether a) this is the first call for
-> > the given cookie so everything needs mapping, or b) it's not the
-> > first call, so everything must already be mapped and we can just
-> > return the IOVA.
-> 
-> For DMA-IOMMU, yes, remembering the base would let us drop the range
-> matching. We'd still need the contiguous IOVA allocation, mapping loop,
-> rollback on failure, and locking across the whole operation.
+It would be great if this could make it into v7.4, as other A733 drivers
+can then be developed on top of the clock/reset support provided by this
+series.
 
-I fell like dma-iommu should have a way to map a page list to iova and
-maybe that is all the shared code with arm there is.
+On Wed Sep 30, 2026 at 1:26 AM CST, Junhui Liu wrote:
+> Add support for the main CCU and the PRCM module (R-CCU) found in the
+> Allwinner A733 SoC. The clock architecture is derived from the previous
+> A523 design, with the MCU_CCU removed and the clock tree extended for
+> the additional functional blocks found on the A733.
+>
+> The A733 introduces a "pll-ref" clock that normalizes the physical
+> oscillator frequency, which can be 19.2MHz, 24MHz, or 26MHz, into a
+> consistent 24MHz reference for the PLL clock tree.
+>
+> The peripheral, video, and DE PLLs provide multiple independently gated
+> outputs with programmable dividers. Model these outputs as separate
+> divider-and-gate child clocks. Also follow the documented hierarchy for
+> the derived peripheral PLL outputs. The explicitly named PLL_AUDIO1 /2
+> and /5 outputs are modeled as fixed-factor clocks, with their divider
+> fields initialized accordingly.
+>
+> Also extend the sunxi-ng SDM (Sigma-Delta Modulation) support for the
+> dual-pattern register layout used by the A733 PLLs. PLL_AUDIO0 uses the
+> dual-pattern SDM support to synthesize its fractional output.
+> PLL_AUDIO1 does not expose fractional rates, but its SDM controls are
+> modeled so that stale settings left by firmware can be disabled when an
+> integer rate is programmed.
+>
+> The actual parents of a small number of bus gates are not documented in
+> the user manual. Follow the vendor BSP and keep these gates parented to
+> "hosc" until more complete hardware information is available.
+>
+> This series depends on the A523 single-divider clock fixes [1], which
+> add feature support to the M-only clock macro used by the MBUS and DRAM0
+> clocks. The prerequisite series has been applied to the
+> sunxi/clk-for-7.4 branch.
+>
+> Link: https://patch.msgid.link/20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pigmoral.tech [1]
+> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+> ---
+> Changes in v5:
+> - Add the CLK_GIC binding ID, inserted after CLK_TRACE
+> - Add the GIC clock and mark it critical
+> - Fix the continuation line alignment of the trace clock
+> - Mark ahb-cpus critical
+> - Link to v4: https://patch.msgid.link/20260921-a733-clk-v4-0-9c184ebe9ac1@pigmoral.tech
+>
+> Changes in v4:
+> - Model the MBUS and DRAM0 clocks as M-only clocks
+> - Base the series on the A523 single-divider clock fixes
+> - Link to v3: https://patch.msgid.link/20260905-a733-clk-v3-0-50f238f39c78@pigmoral.tech
+>
+> Changes in v3:
+> - Patch 1: Rename the clock/reset binding headers with the allwinner vendor
+>   prefix, use BSD-2-Clause for their dual license, and reorder the binding
+>   properties according to the preferred schema layout
+> - Patches 1 and 4: Drop the undocumented 12X suffix from the video and DE
+>   PLL core clock names and binding IDs
+> - Patch 2: Require all PAT1 enable bits to be set when checking whether SDM
+>   is enabled
+> - Patch 4: Model the independently gated peripheral, video, and DE PLL
+>   outputs as programmable-divider child clocks
+> - Patch 4: Follow the documented hierarchy for the derived peripheral PLL
+>   outputs
+> - Patch 4: Model the explicitly named PLL_AUDIO1 /2 and /5 outputs as
+>   fixed-factor clocks and initialize their divider fields accordingly
+> - Patch 4: Model the PLL_AUDIO1 SDM controls so stale firmware settings are
+>   disabled when an integer rate is programmed
+> - Patch 4: Add the missing module device table and remove an unused include
+> - Patch 6: Replace the MP helpers used by timer clocks, which have no M
+>   divider, with the corresponding P-only helpers
+> - Patch 7: Document the unresolved parents of bus gates kept on hosc and
+>   fix the APB/AHB IOMMU1 system clock names
+> - Patches 3 and 8: Make the reset maps const
+> - Link to v2: https://patch.msgid.link/20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech
+>
+> Changes in v2:
+> - Rework the clocks property in DT bindings to source hosc directly from
+>   the oscillator to adapt to the new RTC binding
+> - Clean up the SDM dual-pattern helper macro and add the missing enable
+>   parameter for pll-audio0
+> - Number single-instance clocks with 0, e.g. GPU0, VE_ENC0/VE_DEC0,
+>   DRAM0, NAND0, GPADC0, THS0, etc
+> - Correct 8x PLL post-divider names to 12x for video and DE PLLs
+>   (pll-videoX-12x, pll-de-12x)
+> - Drop gic, cpu-peri, nsi clocks
+> - Rename clocks: OWA -> SPDIF, USB_REF -> USB01_REF, HDMI_ESM -> HDCP_ESM,
+>   PWMCTRL -> PWM
+> - Mark bus-dram0, ahb-store and mbus-store critical to avoid DMA, MMC and
+>   SPI NOR failures when unused clocks are disabled
+> - Switch PRCM timer clocks to P-only helpers
+> - Fix bus gate bit positions for UARTs and correct the sysdap register
+>   address
+> - Interleave bus clocks into function clocks
+> - Link to v1: https://lore.kernel.org/r/20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech
+>
+> ---
+> Junhui Liu (8):
+>       dt-bindings: clk: sun60i-a733-ccu: Add Allwinner A733 support
+>       clk: sunxi-ng: sdm: Add dual patterns support
+>       clk: sunxi-ng: a733: Add PRCM CCU
+>       clk: sunxi-ng: a733: Add PLL clocks support
+>       clk: sunxi-ng: a733: Add bus clocks support
+>       clk: sunxi-ng: a733: Add mod clocks support
+>       clk: sunxi-ng: a733: Add bus clock gates
+>       clk: sunxi-ng: a733: Add reset lines
+>
+>  .../bindings/clock/allwinner,sun60i-a733-ccu.yaml  |  107 +
+>  drivers/clk/sunxi-ng/Kconfig                       |   10 +
+>  drivers/clk/sunxi-ng/Makefile                      |    4 +
+>  drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c           |  273 +++
+>  drivers/clk/sunxi-ng/ccu-sun60i-a733.c             | 2406 ++++++++++++++++++++
+>  drivers/clk/sunxi-ng/ccu_sdm.c                     |   52 +-
+>  drivers/clk/sunxi-ng/ccu_sdm.h                     |   29 +-
+>  .../dt-bindings/clock/allwinner,sun60i-a733-ccu.h  |  291 +++
+>  .../clock/allwinner,sun60i-a733-r-ccu.h            |   39 +
+>  .../dt-bindings/reset/allwinner,sun60i-a733-ccu.h  |  129 ++
+>  .../reset/allwinner,sun60i-a733-r-ccu.h            |   23 +
+>  11 files changed, 3337 insertions(+), 26 deletions(-)
+> ---
+> base-commit: e5e04726cdd043e309677071ab1b65a4b18f422b
+> change-id: 20260202-a733-clk-0d4fc00a9f9c
+> prerequisite-message-id: <20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pigmoral.tech>
+> prerequisite-patch-id: 0df2ae41836b86fd868dfa01ddfde57f888f761a
+> prerequisite-patch-id: 88f3a431e7c551a9fa732f062188f10fdd362eeb
+> prerequisite-patch-id: 3e88bc873c909059d1199f82cda4013765e7a5e5
+> prerequisite-patch-id: 0dbc27cd7417352319a0705a051dff35085e8922
+>
+> Best regards,
+> --  
+> Junhui Liu <junhui.liu@pigmoral.tech>
 
-Jason
+-- 
+Best regards,
+Junhui Liu
+
 
 _______________________________________________
 linux-riscv mailing list
