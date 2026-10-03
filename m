@@ -4,90 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D06CA5FDD
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2026 14:25:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 211DCCA5FDD
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2026 14:36:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:Subject:Cc:
+	To:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uz8e4lfj7HBYZ11sakTwAEPNsuf/OCiKkK7S/mZj95w=; b=zZGf+Bghnciq80
-	82PcuWmsyGHtTxqrT+KwlJA9Y/l/zF1pHt92mQX2TaO1Al4SWlnNRnZzDLEt5hpbrUiU3p+G5efs/
-	kvuraMHsjj5C32ogdIdFDJ5TSB6j4TFL+iFBIGCP300JkHdPoO8OtM1/Cfcqg4VRGJAGTMy68ztLb
-	AUhfjyMlr7kfa+wD46lY+hWF6CylNqtiZ18HNiTJ1J4Pak/e4RnghYc7Bpn0/hSmGmlb3D1RxkiJZ
-	1n7ClVGF7THZHkgHJdQ9sAv1LrNnKz1tWPHGtL+nhUS1v8UjrZ+CG0C4MKzIJ+qUud1tkmP5PYl0h
-	Id8N7nO+usUAryeEnMMg==;
+	List-Owner; bh=2Z7OuJNrT0h2f/TDeGl8KJ5C7jotXaneRk5AQ/j2BeI=; b=1ruXe1Kele4KWb
+	WELHXNzqk1eLfgSNJB/wkpcxbmlIVti5AxtWzWKPdEpgKdA+uKpMvaMF87BOHapwO1lkXWyKgnewU
+	TGifGVwqLcqaEFoAsGFGsy52KtPjSvcT02R539O735SVPL/hnSFx86sMgkIEwRyGT+GKbdQsUe2nB
+	9BpJifdcrSk2j4FFEYOBS+BGIyoVqNXDMrtzJ+KyOMBOO6FVThJkUs/t7oH40myyx0CthSeRCnvYQ
+	Ugr3tC2jzNpbcHnXSZwGQcdr9KWDKjv+IXF8ecXuNZ+/0Ja7+wD0+D6MlWAuMYE7wx7IZBRyeCHsh
+	fIKlNoztzl/QpioxytCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD0fj-0000000DbCZ-3nk8;
-	Sat, 03 Oct 2026 14:25:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xD0qr-0000000Dd5v-1XpE;
+	Sat, 03 Oct 2026 14:36:37 +0000
+Received: from sender5-op-o12.zoho.com ([165.173.182.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD0fh-0000000DbBu-3KIe;
-	Sat, 03 Oct 2026 14:25:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF2BF41357;
-	Sat,  3 Oct 2026 14:25:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAA811F0089C;
-	Sat,  3 Oct 2026 14:25:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791037504;
-	bh=OStxCh6fDcyrpKUJLDDLqh7HC7mBFGIT1dAR3GKdF4A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=U5MZxtj01Megkgki9VUtoR3nE6LqkCwnSZP+XxHAZUCJ715Cb+OmpmwLXpOaI/IR3
-	 F5OPyVar54h64ffr+Foyw0eU3K+eMntDcfoQjqNLDIzGvQcn2pahJBEvuOM/kY/yKN
-	 CPTLdcX7FzhFFrIUKcJBOV5EEsBx0lnbM9ouX15RWZOdvYo21sPP9bK5SXMRJGNgZ4
-	 xbr1p9ZLxHcWKICbUAkiUcA0nKsEAwVaP+wyjL/v51g9C+wf+holQn1aEiMRsW3rnl
-	 2/IIklB/6vYAJNs6AtkJi2AvsbBch8+csHi+40coRFeG2uomrGgDPTpw/mvh4SUT5b
-	 jOZGhdzze5clQ==
-Date: Sat, 3 Oct 2026 16:25:01 +0200
-From: Vinod Koul <vkoul@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Dominique Belhachemi <db@domibel.de>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Maud Spierings <maud_spierings@murena.io>,
-	Graham Markall <hello@big-grey.co.uk>,
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Joshua Peisach <jpeisach@ubuntu.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
-Subject: Re: [PATCH v5 19/21] phy: starfive: Add jh7110-inno-hdmi-phy driver
-Message-ID: <asEQPf-oKbt_DSp3@parshuram>
-References: <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
- <CGME20260929103245eucas1p1349d00810646fbf0149f1361534c23ac@eucas1p1.samsung.com>
- <20260929-jh7110-clean-send-v5-19-82b4d8e3c6c7@samsung.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260929-jh7110-clean-send-v5-19-82b4d8e3c6c7@samsung.com>
+	id 1xD0qn-0000000Dd5K-16Mn;
+	Sat, 03 Oct 2026 14:36:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1791038153; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=kLHYAhye2LfTlMwX0V6q6TTBkux+wUFvoV4mXNTnSVevlJCYF5FyMMRkdeFkH0XszsbgO+qYY2nuDmDtmuWaPe/Qry8FJt2ZBs79Ypjdi3fNNl4hpSYv+BiOAYPvjEGr930y6mI6YFb29oTMGzg8MfOcXrhEuaUKicppeQkNN0A=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1791038153; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=9Egv4q97ghG6oqT2h8uxYWEJx97iLxhYm/0+T/pO2i4=; 
+	b=kRHyPxPAhgGthdAaCK3cR3qk8LPjw/tJr7goGPLgT4hdbGXJLOiOJ1lqY0IdtuTXa9XDacMAmTO1f4RS03uNFPlHZxXQGT2pAIugaTweekvCg9hn+GKltqoM9snXW4m7nB8EGOvghDWut1qOUqMP68/t2wHIXMBOcPKR2QN3pmM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791038153;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:To:To:Cc:Cc:Subject:Subject:From:From:In-Reply-To:Reply-To;
+	bh=9Egv4q97ghG6oqT2h8uxYWEJx97iLxhYm/0+T/pO2i4=;
+	b=aVP6eu9QquEmV95y1DiK1BJcTJUnvthZ3+boRCVkxLohCUk8OTC/+kQtbqhGdwwC
+	V3gRD61LqmAqz0zOpqvCC3f+OHP72cIIbFN5+2qPbvitDeoBI/XjkIeRaTIsvgm5ev7
+	f6L/Rn7N7zv+L3ETm7cY0TEXFhKrt4FIczIQYM5w=
+Received: by smtp.zohomail.com with SMTPS id 1791038151074231.15688188388413;
+	Sat, 3 Oct 2026 07:35:51 -0700 (PDT)
+Mime-Version: 1.0
+Date: Sat, 03 Oct 2026 22:35:41 +0800
+Message-Id: <DLVA17A4RRG7.2ECQKV3SJDAGI@pigmoral.tech>
+To: <wens@kernel.org>, "Junhui Liu" <junhui.liu@pigmoral.tech>
+Cc: "Stephen Boyd" <sboyd@kernel.org>, "Brian Masney"
+ <bmasney+clk@redhat.com>, "Jerome Brunet" <jbrunet+clk@baylibre.com>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>,
+ "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
+ <richardcochran@gmail.com>, <linux-clk@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>, "Jerome
+ Brunet" <jbrunet@baylibre.com>, "Enzo Adriano"
+ <enzo.adriano.code@gmail.com>, "Andre Przywara" <andre.przywara@arm.com>,
+ "Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>, "Yixun Lan"
+ <dlan@gentoo.org>
+Subject: Re: [PATCH v5 0/8] clk: sunxi-ng: Add support for Allwinner A733
+ CCU and PRCM
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+X-Mailer: aerc 0.22.0
+References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
+ <CAGb2v66O7Ze=TiHO_5q=76QpU8ZXraFyV+HfO+_HpkTDr1U-nQ@mail.gmail.com>
+In-Reply-To: <CAGb2v66O7Ze=TiHO_5q=76QpU8ZXraFyV+HfO+_HpkTDr1U-nQ@mail.gmail.com>
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261003_073633_788384_77AC9C90 
+X-CRM114-Status: GOOD (  22.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,212 +88,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 29-09-26, 12:31, Michal Wilczynski wrote:
-> Add the HDMI PHY driver for the StarFive JH7110.
-> 
-> This driver binds to the starfive,jh7110-inno-hdmi-phy node and
-> gets its regmap from the parent. It has no dependencies on voutcrg, only
-> on its reference oscillator (xin24m), which breaks the probe-time
-> circular dependency.
-> 
-> This driver provides two main functions:
->  - Clock Provider: It registers clk_ops to provide the variable pixel
->    clock. The .set_rate operation configures the Pre-PLL registers
->    (0x1a0+) based on the requested rate.
-> 
->  - PHY Provider: It registers phy_ops for the controller. The .power_on
->    op configures and enables the Post-PLL and other analog blocks (BIAS,
->    LDO, Serializer, etc.).
-> 
-> The clock ops reach registers in the window shared with the HDMI
-> controller, and access to that window is gated by the controller's
-> system clock, which only the sibling controller driver holds. The clock
-> framework walks every registered clock regardless of which drivers have
-> bound, so deliberately do not implement .is_prepared, which lets the
-> framework fall back to the software prepare count, and return the cached
-> rate from .recalc_rate whenever the clock is not prepared. Without this,
-> clk_disable_unused() reads a PHY register with that clock gated and the
-> resulting stalled bus transaction wedges the CPU hard enough that it
-> stops responding to NMIs. It is reproducible by building the bridge
-> driver as a module so that the controller has not bound by then.
-> 
-> The JH7110 instantiates the same Innosilicon IP as the Rockchip RK3328,
-> with the PHY register block shifted by 0x100 because it sits behind the
-> HDMI controller in the shared register space. The pre-PLL programming
-> therefore comes from the common Innosilicon helpers; this driver adds
-> the JH7110 pixel clock table, the post-PLL and the analog configuration.
-> 
-> Co-developed-by: Dominique Belhachemi <db@domibel.de>
-> Signed-off-by: Dominique Belhachemi <db@domibel.de>
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  drivers/phy/starfive/Kconfig                |  20 +
->  drivers/phy/starfive/Makefile               |   1 +
->  drivers/phy/starfive/phy-jh7110-inno-hdmi.c | 582 ++++++++++++++++++++++++++++
->  3 files changed, 603 insertions(+)
-> 
-> diff --git a/drivers/phy/starfive/Kconfig b/drivers/phy/starfive/Kconfig
-> index d0cdd7cb4a13de22ff643c89a79d99cce57284d7..1da417ffbf224c13224e42a3ce322e3d0c272824 100644
-> --- a/drivers/phy/starfive/Kconfig
-> +++ b/drivers/phy/starfive/Kconfig
-> @@ -25,6 +25,26 @@ config PHY_STARFIVE_JH7110_DPHY_TX
->  	  system. If M is selected, the module will be called
->  	  phy-jh7110-dphy-tx.ko.
->  
-> +config PHY_STARFIVE_JH7110_INNO_HDMI
-> +	tristate "Starfive JH7110 INNO HDMI PHY"
-> +	select PHY_INNO_HDMI
-> +	depends on COMMON_CLK
-> +	select GENERIC_PHY
-> +	help
-> +	  This option enables the driver for the analog HDMI PHY (Physical
-> +	  Layer) on the StarFive JH7110 SoC.
-> +
-> +	  This driver binds to a child node of the 'starfive,jh7110-hdmi-subsystem'
-> +	  parent driver and gets its register map from that parent.
-> +
-> +	  It is responsible for two main functions:
-> +	  1. PHY Provider: It provides standard PHY operations (.power_on,
-> +	     .power_off) for the HDMI controller (bridge) driver. This
-> +	     involves configuring the Post-PLL and analog TMDS blocks.
-> +	  2. Clock Provider: It registers as a clock provider to supply the
-> +	     variable pixel clock (hdmi_pclk) to the HDMI controller and
-> +	     the VOUT subsystem, which it generates using the Pre-PLL.
-> +
->  config PHY_STARFIVE_JH7110_PCIE
->  	tristate "Starfive JH7110 PCIE 2.0/USB 3.0 PHY support"
->  	depends on HAS_IOMEM
-> diff --git a/drivers/phy/starfive/Makefile b/drivers/phy/starfive/Makefile
-> index eedc4a6fec156320c99ac0a0da609083b6a6a695..e7b13f00880b500f933f21b6037384d5c6884e3e 100644
-> --- a/drivers/phy/starfive/Makefile
-> +++ b/drivers/phy/starfive/Makefile
-> @@ -1,5 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  obj-$(CONFIG_PHY_STARFIVE_JH7110_DPHY_RX)	+= phy-jh7110-dphy-rx.o
->  obj-$(CONFIG_PHY_STARFIVE_JH7110_DPHY_TX)	+= phy-jh7110-dphy-tx.o
-> +obj-$(CONFIG_PHY_STARFIVE_JH7110_INNO_HDMI)	+= phy-jh7110-inno-hdmi.o
->  obj-$(CONFIG_PHY_STARFIVE_JH7110_PCIE)		+= phy-jh7110-pcie.o
->  obj-$(CONFIG_PHY_STARFIVE_JH7110_USB)		+= phy-jh7110-usb.o
-> diff --git a/drivers/phy/starfive/phy-jh7110-inno-hdmi.c b/drivers/phy/starfive/phy-jh7110-inno-hdmi.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..cba6f3c3dae40bd982c062c8504438f51f3b30be
-> --- /dev/null
-> +++ b/drivers/phy/starfive/phy-jh7110-inno-hdmi.c
-> @@ -0,0 +1,582 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) 2017 Rockchip Electronics Co. Ltd.
-> + * Copyright (c) 2025 Samsung Electronics Co., Ltd.
-> + *
-> + * Author: Zheng Yang <zhengyang@rock-chips.com>
-> + * Author: Michal Wilczynski <m.wilczynski@samsung.com>
-> + *
-> + * The register layout and programming sequence derive from
-> + * drivers/phy/rockchip/phy-rockchip-inno-hdmi.c; the JH7110 places the
-> + * same Innosilicon PHY block at a 0x100 register offset.
-> + *
-> + * This driver handles the PHY portion of the StarFive Innosilicon HDMI IP,
-> + * which is part of a monolithic HDMI block. It provides the variable pixel
-> + * clock (from the Pre-PLL) and the PHY operations (for the Post-PLL/analog).
-> + */
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/bits.h>
-> +#include <linux/clk.h>
-> +#include <linux/clk-provider.h>
-> +#include <linux/delay.h>
-> +#include <linux/io.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/math64.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/regmap.h>
-> +#include <linux/phy/inno-hdmi-phy.h>
-> +#include <linux/phy/phy.h>
-> +#include <linux/slab.h>
-> +
-> +/*
-> + * StarFive (JH7110) Innosilicon HDMI PHY Register Definitions
-> + */
-> +
-> +/* REG: 0x1aa */
-> +#define STF_INNO_POST_PLL_DIV_1		0x1aa
-> +#define STF_INNO_POST_PLL_POST_DIV_ENABLE	GENMASK(3, 2)
-> +#define STF_INNO_POST_PLL_REFCLK_SEL_TMDS	BIT(1)
-> +#define STF_INNO_POST_PLL_POWER_DOWN		BIT(0)
-> +
-> +/* REG: 0x1ab */
-> +#define STF_INNO_POST_PLL_DIV_2		0x1ab
-> +#define STF_INNO_POST_PLL_PRE_DIV(x)		FIELD_PREP(GENMASK(5, 0), x)
-> +#define STF_INNO_POST_PLL_FB_DIV_8(x)		FIELD_PREP(BIT(7), (x) >> 8)
-> +
-> +/* REG: 0x1ac */
-> +#define STF_INNO_POST_PLL_DIV_3		0x1ac
-> +#define STF_INNO_POST_PLL_FB_DIV_7_0(x)	FIELD_PREP(GENMASK(7, 0), x)
-> +
-> +/* REG: 0x1ad */
-> +#define STF_INNO_POST_PLL_DIV_4		0x1ad
-> +#define STF_INNO_POST_PLL_POST_DIV_MASK	GENMASK(1, 0)
-> +
-> +/* REG: 0x1af */
-> +#define STF_INNO_POST_PLL_LOCK_STATUS		0x1af
-> +#define STF_INNO_POST_PLL_LOCK		BIT(0)
-> +
-> +/* REG: 0x1b0 */
-> +#define STF_INNO_BIAS_CONTROL			0x1b0
-> +#define STF_INNO_BIAS_ENABLE			BIT(2)
-> +
-> +/* REG: 0x1b2 */
-> +#define STF_INNO_TMDS_CONTROL			0x1b2
-> +#define STF_INNO_TMDS_CLK_DRIVER_EN		BIT(3)
-> +#define STF_INNO_TMDS_D2_DRIVER_EN		BIT(2)
-> +#define STF_INNO_TMDS_D1_DRIVER_EN		BIT(1)
-> +#define STF_INNO_TMDS_D0_DRIVER_EN		BIT(0)
-> +#define STF_INNO_TMDS_DRIVER_ENABLE		(STF_INNO_TMDS_CLK_DRIVER_EN | \
-> +						 STF_INNO_TMDS_D2_DRIVER_EN | \
-> +						 STF_INNO_TMDS_D1_DRIVER_EN | \
-> +						 STF_INNO_TMDS_D0_DRIVER_EN)
-> +
-> +/* REG: 0x1b4 */
-> +#define STF_INNO_LDO_CONTROL			0x1b4
-> +#define STF_INNO_LDO_ENABLE			(BIT(2) | BIT(1) | BIT(0))
-> +
-> +/* REG: 0x1be */
-> +#define STF_INNO_SERIALIER_CONTROL		0x1be
-> +#define STF_INNO_SERIALIER_ENABLE		(BIT(6) | BIT(5) | BIT(4) | BIT(0))
-> +
-> +/* REG: 0x1cc */
-> +#define STF_INNO_RX_CONTROL			0x1cc
-> +#define STF_INNO_RX_ENABLE			(BIT(3) | BIT(2) | BIT(1) | BIT(0))
-> +
-> +/*
-> + * These tables are copied from the monolithic driver.
-> + * They match the Rockchip PHY driver tables.
-> + */
-> +
-> +struct post_pll_config {
-> +	unsigned long tmdsclock;
-> +	u8 prediv;
-> +	u16 fbdiv;
-> +	u8 postdiv;
-> +	u8 post_div_en;
-> +};
-> +
-> +static const struct inno_hdmi_phy_pre_pll_config pre_pll_cfg_table[] = {
-> +	{ 25175000, 25175000, 1, 100, 2, 3, 3, 12, 3, 3, 4, 0, 0xF55555 },
-
-lower case hex values, here and everywhere else please
-
--- 
-~Vinod
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ2hlbi1ZdSwKCk9uIFNhdCBPY3QgMywgMjAyNiBhdCA5OjM3IFBNIENTVCwgQ2hlbi1ZdSBU
+c2FpIHdyb3RlOgo+IE9uIFdlZCwgU2VwIDMwLCAyMDI2IGF0IDE6MjfigK9BTSBKdW5odWkgTGl1
+IDxqdW5odWkubGl1QHBpZ21vcmFsLnRlY2g+IHdyb3RlOgo+Pgo+PiBBZGQgc3VwcG9ydCBmb3Ig
+dGhlIG1haW4gQ0NVIGFuZCB0aGUgUFJDTSBtb2R1bGUgKFItQ0NVKSBmb3VuZCBpbiB0aGUKPj4g
+QWxsd2lubmVyIEE3MzMgU29DLiBUaGUgY2xvY2sgYXJjaGl0ZWN0dXJlIGlzIGRlcml2ZWQgZnJv
+bSB0aGUgcHJldmlvdXMKPj4gQTUyMyBkZXNpZ24sIHdpdGggdGhlIE1DVV9DQ1UgcmVtb3ZlZCBh
+bmQgdGhlIGNsb2NrIHRyZWUgZXh0ZW5kZWQgZm9yCj4+IHRoZSBhZGRpdGlvbmFsIGZ1bmN0aW9u
+YWwgYmxvY2tzIGZvdW5kIG9uIHRoZSBBNzMzLgo+Pgo+PiBUaGUgQTczMyBpbnRyb2R1Y2VzIGEg
+InBsbC1yZWYiIGNsb2NrIHRoYXQgbm9ybWFsaXplcyB0aGUgcGh5c2ljYWwKPj4gb3NjaWxsYXRv
+ciBmcmVxdWVuY3ksIHdoaWNoIGNhbiBiZSAxOS4yTUh6LCAyNE1Ieiwgb3IgMjZNSHosIGludG8g
+YQo+PiBjb25zaXN0ZW50IDI0TUh6IHJlZmVyZW5jZSBmb3IgdGhlIFBMTCBjbG9jayB0cmVlLgo+
+Pgo+PiBUaGUgcGVyaXBoZXJhbCwgdmlkZW8sIGFuZCBERSBQTExzIHByb3ZpZGUgbXVsdGlwbGUg
+aW5kZXBlbmRlbnRseSBnYXRlZAo+PiBvdXRwdXRzIHdpdGggcHJvZ3JhbW1hYmxlIGRpdmlkZXJz
+LiBNb2RlbCB0aGVzZSBvdXRwdXRzIGFzIHNlcGFyYXRlCj4+IGRpdmlkZXItYW5kLWdhdGUgY2hp
+bGQgY2xvY2tzLiBBbHNvIGZvbGxvdyB0aGUgZG9jdW1lbnRlZCBoaWVyYXJjaHkgZm9yCj4+IHRo
+ZSBkZXJpdmVkIHBlcmlwaGVyYWwgUExMIG91dHB1dHMuIFRoZSBleHBsaWNpdGx5IG5hbWVkIFBM
+TF9BVURJTzEgLzIKPj4gYW5kIC81IG91dHB1dHMgYXJlIG1vZGVsZWQgYXMgZml4ZWQtZmFjdG9y
+IGNsb2Nrcywgd2l0aCB0aGVpciBkaXZpZGVyCj4+IGZpZWxkcyBpbml0aWFsaXplZCBhY2NvcmRp
+bmdseS4KPj4KPj4gQWxzbyBleHRlbmQgdGhlIHN1bnhpLW5nIFNETSAoU2lnbWEtRGVsdGEgTW9k
+dWxhdGlvbikgc3VwcG9ydCBmb3IgdGhlCj4+IGR1YWwtcGF0dGVybiByZWdpc3RlciBsYXlvdXQg
+dXNlZCBieSB0aGUgQTczMyBQTExzLiBQTExfQVVESU8wIHVzZXMgdGhlCj4+IGR1YWwtcGF0dGVy
+biBTRE0gc3VwcG9ydCB0byBzeW50aGVzaXplIGl0cyBmcmFjdGlvbmFsIG91dHB1dC4KPj4gUExM
+X0FVRElPMSBkb2VzIG5vdCBleHBvc2UgZnJhY3Rpb25hbCByYXRlcywgYnV0IGl0cyBTRE0gY29u
+dHJvbHMgYXJlCj4+IG1vZGVsZWQgc28gdGhhdCBzdGFsZSBzZXR0aW5ncyBsZWZ0IGJ5IGZpcm13
+YXJlIGNhbiBiZSBkaXNhYmxlZCB3aGVuIGFuCj4+IGludGVnZXIgcmF0ZSBpcyBwcm9ncmFtbWVk
+Lgo+Cj4gU29tZSBvZiB0aGUgY2xvY2sgY29udHJvbHMsIGxpa2UgdGhlIFBMTCBhbmQgQUhCL0FQ
+QiBidXMgZGl2aWRlcnMsIGFyZQo+IHNlY3VyZSBieSBkZWZhdWx0IGFuZCBuZWVkIHRvIGJlIHNl
+dCB0byBub24tc2VjdXJlIGZvciBMaW51eCB0byBiZSBhYmxlCj4gdG8gdXNlIHRoZW0gcHJvcGVy
+bHkuIEFuZCB0aGVyZSBpcyBhbHNvIGEgVFdEIGNsb2NrIGluIHRoZSBQUkNNIHRoYXQgdGhlCj4g
+dXNlciBtYW51YWwgc2F5cyBpcyBzZWN1cmUgb25seS4KPgo+IEhhdmUgeW91IGdpdmVuIGFueSB0
+aG91Z2h0IHRvIHRoaXM/IElmIHdlIGVuZCB1cCBoYXZpbmcgdG8gY29udmVydCB0bwo+IFNDTUkg
+b3Igc29tZXRoaW5nIHRvIGhhbmRsZSB0aG9zZSBjbG9ja3MgaXQncyBnb2luZyB0byBiZSBhIGJp
+dCB1Z2x5Lgo+Cj4gQW5kIHByZXN1bWFibHkgdGhpbmdzIHdvcmsgbm93IGJlY2F1c2UgdGhlIHNl
+Y3VyZS9ub24tc2VjdXJlIGFjY2VzcyBiaXQKPiBpc24ndCBpbiBlZmZlY3QgcmlnaHQgbm93IGJl
+Y2F1c2UgeW91IGFyZW4ndCB1c2luZyBzZWN1cmUgYm9vdD8gQXQgbGVhc3QKPiB0aGlzIHdhcyBh
+IHRoaW5nIGluIHRoZSBwYXN0Li4uCj4KClRoYW5rcyBmb3IgcG9pbnRpbmcgdGhpcyBvdXQuIFRo
+aXMgaXMgaW5kZWVkIHNvbWV0aGluZyBJIGhhZCBub3QKY29uc2lkZXJlZCBiZWZvcmUuIEkgd2ls
+bCB0cnkgZW5hYmxpbmcgc2VjdXJlIGJvb3Qgb24gbXkgc3BhcmUgQ3ViaWUgQTdaCmJvYXJkIGFu
+ZCB0ZXN0IGl0IG9uIGFjdHVhbCBoYXJkd2FyZS4KCkZvciB0aGUgUExMIGFuZCBBSEIvQVBCIGJ1
+cyBjbG9jayBjb250cm9scywgdGhlIHVzZXIgbWFudWFsIGluZGljYXRlcwp0aGF0IHRoZSByZWxl
+dmFudCBzZWN1cml0eSBiaXRzIGNhbiBiZSBzZXQgYnkgVEYtQSB0byBhbGxvdyB0aGUga2VybmVs
+CnRvIGFjY2VzcyB0aGVzZSByZWdpc3RlcnMuIFRoaXMgYWxzbyBhcHBlYXJzIHRvIGJlIGhvdyB0
+aGlzIGhhcwp0cmFkaXRpb25hbGx5IGJlZW4gaGFuZGxlZCBvbiBzdW54aSBwbGF0Zm9ybXMuIFNv
+IEkgdGhpbmsgd2UgY2FuIGRvIHRoZQpzYW1lIGluIFRGLUEgZm9yIHRoZSBBNzMzLgoKRm9yIGJ1
+c19yX3R3ZF9jbGssIEkgd2lsbCB0ZXN0IHdoZXRoZXIgdGhlIHJlZ2lzdGVyIGlzIGluZGVlZCBh
+bHdheXMKc2VjdXJlLiBJZiBpdCBpcywgSSB0aGluayB0aGUgY2xvY2sgY2FuIGJlIHJlbW92ZWQg
+ZnJvbSB0aGUga2VybmVsIGFuZApsZWZ0IGVuYWJsZWQgYnkgaXRzIGhhcmR3YXJlIHJlc2V0IHZh
+bHVlIG9yIGJ5IHRoZSBib290IGZpcm13YXJlLgoKPgo+IFRoYW5rcwo+IENoZW5ZdQo+CgotLSAK
+QmVzdCByZWdhcmRzLApKdW5odWkgTGl1CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
