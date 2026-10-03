@@ -4,144 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B11CA5FE3
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2026 11:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6334CA5FDD
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2026 12:04:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KM0niWG+S/oDdN1TVbE921m1QWS3lk/3/M7mWLrnK94=; b=DF8AJI/dzCT8MA
-	yS0kVpn8KdCEDQSgqybMYipOdWlpOdjrdNbcVpTVktevUhG+JSFp4wZ4J9dEN8+A83VCm+d3iGJCF
-	gf6HUxOWZNTZCfZvTCyzQtQBqMAkGsq4duR7DivkgnH7Qk/cVkx+RJSPq2H82ASv0sh3cL4GWBJns
-	yy5fu5KEWsK1ROfVv8JCI72F5hU/OgTkgHvdjgEW2jz62VvFjXxmfD1YORrq89T84rH0p38ALWXbh
-	euwaNd+QcPf98Kpcl/qz+KSEzz65LXmqYXAVCmTSFzytscUKRp6yCF/6MpBTTUda8LvtVvlRszUDF
-	CCrWKRzJ0gGGwrFYIAcA==;
+	List-Owner; bh=Z+KxUm4OwxCIdqKBI8t4nIZzOsdpS7jLszpMC1z+0uA=; b=3Wqh7Yo1goRSWS
+	Y+P+231yC0a9YyRxMP50havTLlc16IzXMqcKOxCDxVZGyQda1DYJ6XHuH/rPXZGDXgomPGkyfeNty
+	DrVCwYNTnsX/OAups1tEIqW00zKNDYZkt6Q1H/qhX3naX/ltoIZgo8B+JUFNV4GIhk2aQCjbjQLvv
+	qKtYpUUwa/XceF7iLblQXdAZw5Jj74Sp7sduTLxhP0JrHUth7232Nw30hqZRa7XTDC+a6y/57akxS
+	nxCuoKD/HJR+ynAa0MvqvqSZBzpoB6xxWAYAclF0NTfipVjb5E7V2Ci+rXT0Qch0r0zjOGgGl63HQ
+	zopKeLKK7RWRfrlrzCtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCxwE-0000000DQgT-345A;
-	Sat, 03 Oct 2026 11:29:58 +0000
-Received: from mail-sh0chn02on2100.outbound.protection.partner.outlook.cn ([139.219.146.100] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1xCySt-0000000DSFt-3LU7;
+	Sat, 03 Oct 2026 12:03:43 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCxwB-0000000DQfu-26nY
+	id 1xCySq-0000000DSFV-3MaV
 	for linux-riscv@lists.infradead.org;
-	Sat, 03 Oct 2026 11:29:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=PZDG5SvQ2arpmj3aJdXsVlO0VZRRkGTex9Bown0NldHfgDDlXoE6ih9i5tZ4ujDWgL81lat7qfHmAkfCJ01+ysZJmFILxaoEX7qhxN9B34bPhGgo7pNtml6nnx0IuzGnz38OxreU4J0uXA//iIxvYYp7cNSAmojXqqCpbzkCgIIWkPYEIdtYmNVt27V/wTyjBz9agKF7UyR9c2NoMCXS1iO+ZdhfqHl+ZTe5H1fy9uxBFseo5A0qYGonaIO8VSUzYIUmirl7sfj2uLfLdlfP5+eke4I3BXRhZd5TILKyTXPTK7q1oeE3mJu20B0F4spNhh60piH1fFhlRL7cp2r3Kw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qwIx5wxUVuXHwCrqB7pqFJB1Xic5CGeEeq5hNxmtnTk=;
- b=i+knkiN2tYkRWMzFmfocX4k98DiCoIGyqhSdAe/uMQXSdI7/gPidwl13zlOqQLFNn8ElPjLId47fdZPFfrjvpHvA8BRqdtFLn26L3dhsaMou+x6V8OCKlX6T7/YoNnx2dvmvRnFwA57Wnu8DlQl+8wRoOsAZHn4uHRhZZoWxQYWc04+ARUCnSAqVmxOiAY33fIgc2iM8FZq2EsPPeaC4oLmv1aXqqEC5Wu+33qDrKxW0Y3AB0oEHmZoTI4G48pz2oYqAPaZZ+nc2V4qPNCHoqdPhOo/IIanPFMmreZSaoe73Ix3NR91GJi40vevpbFQ7ahd79FAqIG5Rpy6GIdmuUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1267.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:16::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Sat, 3 Oct
- 2026 11:29:18 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0472.016; Sat, 3 Oct 2026 11:29:18 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Jerome Brunet <jbrunet@baylibre.com>
-CC: Michael Turquette <mturquette@baylibre.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Brian Masney
-	<bmasney@redhat.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
-	<alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, Emil Renner Berthing
-	<kernel@esmil.dk>, Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
-	<inochiama@gmail.com>, Alexey Charkov <alchark@gmail.com>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Keguang Zhang
-	<keguang.zhang@gmail.com>, "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, Hal Feng <hal.feng@starfivetech.com>
-Subject: Re: [PATCH v5 3/8] clk: starfive: Add peripheral-0 domain PLL clock
- driver
-Thread-Topic: [PATCH v5 3/8] clk: starfive: Add peripheral-0 domain PLL clock
- driver
-Thread-Index: AQHdNtN8zEycFiTIF0WGda8EH9quprbnEy0AgATUBXA=
-Date: Sat, 3 Oct 2026 11:29:18 +0000
-Message-ID: <ZQ4PR01MB1202F5CB0172B43C162A3074F2882@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-References: <20260828095608.19955-1-changhuang.liang@starfivetech.com>
- <20260828095608.19955-4-changhuang.liang@starfivetech.com>
- <179076152492.1471718.9285719072832956935.b4-reply@b4>
-In-Reply-To: <179076152492.1471718.9285719072832956935.b4-reply@b4>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1267:EE_
-x-ms-office365-filtering-correlation-id: 22ed404a-b35e-4662-b1be-08df21419005
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|23010399003|1800799024|10067099003|56012099006|4143699003|18002099003|22082099003|38070700021;
-x-microsoft-antispam-message-info: HfKh0VUaX0SJpP8D1QCU1In4790o7vE1y0A9C6B2/F8nF5I6FSSTmSPnQ8igw6IUm5/aAI6hFG6mFkmbLYxvkSCFCfmY+ISh0SAqAjvdbYRDMM4tbgqy6jSDw+LqNELfeqWEvo4g8IBeAE6DlHCeAcpMztwCTdd0mPbkF2XeB10ZuEKuqL1KcS4YRWRqOsmxSMvwG5ZDpm0J3wq3q/Zk4eDBdLxFVTcu6GIUHmm0RU9AxQz5ZjKHPpDaNpHqaheq86/gR88pgjoTmp4FDU06VtQZaMzIqzgbCiH6urn/XR30GhSLdsGYpesPg3AQqw6s7SZNe/80MoB/Yxbn9OP0laQb1sybygQdrcviSEsU/JMJRw+Dc/vshFc7ZfVXk4I3sq1TEGEqdZ1hUsdAE40/ZYuNxAn+RUQXmR+GoZsmQm78vhsuA7Wa/vkZ15OeGp1GTo/Hj4IfakwBG+Klz11teFa98vYNTHpWJ+bgPzamEalUEG+RB2F5kDyBsPrM4AEIvrEmGBbu1SnaYXwiH800UnjQB4RP1PkfXmzZcTz/F18XOGTv+wI5Fg0lMVlLHT/3
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(1800799024)(10067099003)(56012099006)(4143699003)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?RU5kU2hGdjJpUjNaMkg2SUwxV1BnQ2tYRWR4M1JGWHZydDdzZ2c2L0lJa0hR?=
- =?utf-8?B?MXNVMHg3NzlaekpNWFAySXZPSVVWL2JLYTgrc1UweUUwby8wVSs1WFdPeWdN?=
- =?utf-8?B?WGtxYmVtWCtRYW52TEdZY1NkVDUraS9oSW5yY3I4ZGhMZ3FzbVJQcUdLVy81?=
- =?utf-8?B?UmJkSS83eG95d3JDQjBPeVNkSzRZNldjK0NHVlhLb2FrUk9XMUgycFdFR3Vv?=
- =?utf-8?B?a203MXZOWGc0Z294aFI1TGRNMm1wekVHZmk5TERiMVZvd3ZqSnhrYjRGN000?=
- =?utf-8?B?TDFLUE4zNk9NYmhvWmJsa0dCcVErdC9pTjBFa0RET2U3a3dXVG5BOEhyTWxX?=
- =?utf-8?B?QnFYeEYvVXhBVlNtbTdwOUVGNkNzSHF5SWtoakQ0SDcvVWpHZXNKa2ZyRWgx?=
- =?utf-8?B?WmV5UzhRZGV5dk5IZEFDOXlKTmNMZDgxZGkxS011dWVzV3ZqRTFzbTNIelE4?=
- =?utf-8?B?L2Y1VHp5T1hlRlZQWW02RHB3QTdKbnRSTjkwKzRHNlA1QjN6WFJjQkplTHgy?=
- =?utf-8?B?WG53UHBoeG96Z1R6K1pCVGRhanQ4TVZMQWN4R2IwdkhIcWM0YmJMOC90QzFM?=
- =?utf-8?B?VkNvcW54dENjQ3NmZk5taUZvRy9sTFhZOTJMVitKM013SW1Bb3NkSDdtZU8y?=
- =?utf-8?B?WFlxcVVrR1dtWStIRkZGM3k4YXk4c25uQUlnU2ZNTCtIejhhLzVlTFM3Qm1R?=
- =?utf-8?B?eFpqWTdWa1llNmRMdFBBTGVCL2pLT0txa1lwU00xOEFId0xiTHVacGJwZ3U0?=
- =?utf-8?B?UjByVGJTNVNKOWJOQjBhU3VKSm44QkF6ZlZ0YkxBNTlsR29lUTFraU55bHRq?=
- =?utf-8?B?T0Y2NjdmNTRoRnZuVHZqRmxQa3ZuSXlRYzBZbURwUXM3OTJIdFRKSk1EeEZz?=
- =?utf-8?B?anJjbW55WE5uSzFENEpDVzN2bkFCZXhqbXN4VllJamhkVDVmSnkvQTN6QnFF?=
- =?utf-8?B?ZzV1U2RQMzdDRVQ0TGd1L2xpb2U1VnIrUVJ3bWNUWEhsUGNtRmhkem0zTGFE?=
- =?utf-8?B?cVQ0SUp0WGRqMFlGRis1bEhXd2xRajE0ZDBxdUc5QjZvbloyS3ZMd2dQSWFj?=
- =?utf-8?B?eGlSNXI2enFpNlpxc3R1Tmp6aFYzdnhwVjdKb0JFdGM2ODFKdVdkY3QyMWln?=
- =?utf-8?B?UjVENFNLdTZkQ1J6MDNNSzBsRzhTQU1UME00NXRTYUNmLzJVWUl5K0lWRWsy?=
- =?utf-8?B?Mk1uTVFmWm1VaTJkQVlFVHdNYmNLNXFOMk13bnlQNmFJRUJ5QTZnZ1B4SkRN?=
- =?utf-8?B?dWNBYmlGQkxNVGlrS213SVZsVit4dG0vbzcrV2lsM0RDV05rSjd3d1BxY3R0?=
- =?utf-8?B?N2d1OVdub2p6UmpuQ3BTM2ZLVDRYNWVhYmZmcEt6YWYyMS9kdnREcWlBaVRw?=
- =?utf-8?B?U3NaVjhEK1hPNHVyM0REN1M4STJIekVXVVlCMDVXMjZaWFFUU2JDcmpYeGVr?=
- =?utf-8?B?dDZnOVB3R0RhNGhhZUNDbWFHU2hhNGRhN0ZDblluN2VqaFpVQ1hwUjV5RmFO?=
- =?utf-8?B?a2E4bTBURVBES0M1K2x4cFo0TDhSS1FMWVFyd3ZKSEljdjNSeUR1RHczMFYy?=
- =?utf-8?B?NHBoaTdVVWIrSFBhSXp0L1krd3V2ekxFb2FyS2t6T1V4dkJpejdKOXlnKzE5?=
- =?utf-8?B?S1lLT1BlZlhOTG9wT0dhbkxBSXhmVWExYllXa0lFK3lLNklJMlNtZGZXZ2gw?=
- =?utf-8?B?ZS84aDN4VFM5MFo2eHhzWGZ5bmJsOVhIcyt3WkIzU0phdElxSFN5VklhLzZz?=
- =?utf-8?B?OFliSDNRL1I1bmN1ZGlTR0QzUHJmYjJ4TkJtSUsvQnJtdFZ5VTVRMm9LNGlP?=
- =?utf-8?B?eS83YVdTN3NSY0lnMTNROHd4QUJoYzJEb0NqVmdCR1FXSGNSOVdHQXBrWHJJ?=
- =?utf-8?B?TVllVTRCL2NGY0NPZnRZeU42cmNoMnJjZEh0N1RQQTYvcitCYkw1SjJQMS9s?=
- =?utf-8?B?S3NTM3I2UHlPcnRjOXo5SklDNUNlSVY0L0JxT0I3K01VTjJlUUFHTHpBRlFI?=
- =?utf-8?B?THZiVnR6cU9mait5bHROWVFGMTU3NEU5TGRZcHIzc0Y1VTFMK2daUUJsSThy?=
- =?utf-8?B?NmgySjVTUFZObk5SZnF4bzdIL0lCRnhlSlc2K3FKVmtVSFQvMlpxWUZUYkhL?=
- =?utf-8?B?Nk9tYmJ6MmVHTU95NHluYTFnY1hTMTV5N1dWK1JNU0txMVJXZ0lwc3FkRWJo?=
- =?utf-8?B?UjVWY3p1L015V3F6bjFDUXNGMGx3Qkw2aFY0OElqb04rUUxLVFNqTnpVeVJ5?=
- =?utf-8?B?K1BnWXVwc1NOL3JHZ0V1aWFTeHZnT0hzZ2xlZ3ZENU03ODdaaXBwajNNK1Jl?=
- =?utf-8?B?WElqd09SRmNUVWZpTGZnWGNCSTRPUTFTdWVKaEJWTUJNajhYOUpMcllNR3FK?=
- =?utf-8?Q?Kd5+s3Mu9bLjV/xA=3D?=
+	Sat, 03 Oct 2026 12:03:42 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 693Attko365542
+	for <linux-riscv@lists.infradead.org>; Sat, 3 Oct 2026 12:03:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=ld0OrougPNfBp6Ry3148Z2Li
+	9neJoj1Ak158VsVyVmo=; b=iaPbbMLi2rtDwRfy/OT6hy7GqUujdf404T8d/T9O
+	sKhA14+aPKlNSOfIAqwoI9Gqe/qCTLjw6wpZxa4xs6HFlfDxQzBEX42km7tthw4Q
+	GIU/WQkR1xGKW1jPoz/QxCZEoDAca/pBbLT2F/9RA4ZZT8gI1+6SWavNpYhubaOF
+	KEvO4F+TPCjusBwwIroVCK1YeFKbVF5gKW0IfqNIUOQKCA+LnZXRAUNZswGfOxAo
+	MG2bnrEScHPcrhNycWBdjGhCjF48ZJoNeU1wXl8VODbMLgQS/HNwfKFAe6BWhmQQ
+	tS3EDMQk3WIr1adwX45D1p9BWFvjjHfz5KD21rtUI3WrNg==
+Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h2spa0sq9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Sat, 03 Oct 2026 12:03:38 +0000 (GMT)
+Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-5c7c0d2b0aaso168838e0c.1
+        for <linux-riscv@lists.infradead.org>; Sat, 03 Oct 2026 05:03:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1791029018; x=1791633818; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ld0OrougPNfBp6Ry3148Z2Li9neJoj1Ak158VsVyVmo=;
+        b=Ca2Mky9MiksGJzUX6tVMNbK1PQ9gWAkakYaK8KFriWejPyyKA0K/VXVOfjromf6v8t
+         IUqQ6bgl+FppfdgRzQjFljenapfp2xUbv4yrqI0ykIkS5H3viTtO+DMR8kfURiRn5krQ
+         m8Yb3IyfuipXE1/kzvj5TWBxtZHML7iZhiiXyqyi1wyjn6y49CIk1zHMjcwyvzCwCwvm
+         j2xSTJi+zEh5+hnM6ICEiGmP6HxJQjYneFfXGsjgxn/gAOex1D8rKp0ofUZalNmsv+qa
+         zGZX7kAJ4RH8d5E8JX0tGWpg3a5XFLlf85eq85JQjrtOxYMzVpzFXc/5U7A0hhowjJL1
+         aS6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791029018; x=1791633818;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ld0OrougPNfBp6Ry3148Z2Li9neJoj1Ak158VsVyVmo=;
+        b=fG5LewhVt3Z4dlZ5tNijH0KSnHj8p4E4ovUDU5zlrtKvyfQUy/S6zJD3NH0tqLk/dM
+         x62f/e18l6cBk3mAIVIPEpmnpk+gGUYQQD0ILZ95mdbppC46a7ucTYokp3qN3TueUE9o
+         qpqDq2uNZnxZgZZCmxbKXc3wncF4QplP+a7xaVrxjjrR1Di6hR39u0wssziYV4/rW9bo
+         AS8Ypd9q/ezblXTGYHosGQRTsFuYEuIIKIiEvQWPrR8AgJdGL672+IdWNLagZ6KN3b5B
+         nSfYokVYAX+jINnXPnaOr/9ix0BGPXpn8kZ2DHrRK2GfStGn+KV+FeyVw+MOHuJZ44l7
+         yjcQ==
+X-Gm-Message-State: AFq9FYLw2qMeQ6wDSoG8V9kOP/auR7anCi0zuKqPTillatgYk2Bs5NCQ
+	n65Bj/Flsn59jTr1LwE+EEhKU7JXiSwF0v5qIY+1i48M1+vl+F0sZhS/fsiyH+h28BzvIrIbYoU
+	uk6VTvu9VP6v45AooBSTyjh3vdsy145hBs+HBCgGwRQu6F+A85Fu3OUaQ0sMBS9vAlt0ozVQ=
+X-Gm-Gg: AYBFou2BYt7PYzESn1+mkiRLf+bIEPNHP/TcIRmjePsn15WuImSESLidJRuiWELt0PE
+	fRZaP2SMi7JDI4s72yfr9wRlloI9w8CRnmxIx4DSHAs7s5uY5igzha+Yuh0gs9uC27YE9TslOk1
+	AiFCsPkcaE499RX7qFU48CdPYDK1+eXAHIhH5dCeJGqvsaAVRfJkVC8+HLNTYo7Qbgc+dwsKh2p
+	tDYRYS9n3FKqdBiMRP0A3CU754Wk14KPOh24gpVSAm0BCbOFbrh8qYBqZ2nxvMS36164pjhQFgi
+	91nhQ4bek1CnpeHhyla+HUdIlC1TpMJ4ZvRj3czb840sW0uWdexZcQE6enyK/2K37wfG8+RP2ga
+	aqUtdGtPqi2Kfns6FiMcmxWbg+MLG
+X-Received: by 2002:a05:6102:6415:b0:7c1:75c5:c4c with SMTP id ada2fe7eead31-7c175c521afmr567406137.25.1791029017733;
+        Sat, 03 Oct 2026 05:03:37 -0700 (PDT)
+X-Received: by 2002:a05:6102:6415:b0:7c1:75c5:c4c with SMTP id ada2fe7eead31-7c175c521afmr567402137.25.1791029017224;
+        Sat, 03 Oct 2026 05:03:37 -0700 (PDT)
+Received: from localhost (109-81-9-204.rct.o2.cz. [109.81.9.204])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a0394c937csm97187345e9.1.2026.10.03.05.03.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 03 Oct 2026 05:03:36 -0700 (PDT)
+Date: Sat, 3 Oct 2026 14:03:35 +0200
+From: Andrew Jones <andrew.jones@oss.qualcomm.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: linux-riscv@lists.infradead.org, iommu@lists.linux.dev,
+        linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
+        tjeznach@rivosinc.com, jgg@ziepe.ca, jgg@nvidia.com, joro@8bytes.org,
+        will@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+        anup@brainfault.org, tglx@kernel.org, kevin.tian@intel.com,
+        fangyu.yu@linux.alibaba.com
+Subject: Re: [PATCH v6 01/16] iommu/dma: Prepare MSI physical address lists
+Message-ID: <pph73bajtpgp3u5vb7xjqmbrz35zs2lw7fpkhobg5jdzbjw2vq@usg3jbbneskp>
+References: <20260925151659.419512-1-andrew.jones@oss.qualcomm.com>
+ <20260925151659.419512-2-andrew.jones@oss.qualcomm.com>
+ <18c9b030-8dc6-4242-8e66-0448ee125d7d@arm.com>
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: 22ed404a-b35e-4662-b1be-08df21419005
-X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Oct 2026 11:29:18.1854
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: lVa/BwugjH5MhyfiEv5dOUJsix3v1D1c6Jcl+3iEHOEM2Oz23k/92YXT0yRTYWVAOBwvvcs/6PcmzZynkiaut9NfH/fu134Ur/zuiqRo3sUR6l8+E0op4XGvEfimzjVH
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1267
+Content-Disposition: inline
+In-Reply-To: <18c9b030-8dc6-4242-8e66-0448ee125d7d@arm.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAzMDA0NyBTYWx0ZWRfX1uxHOMni6A/v
+ Q6FGOOr70wu7wwGVUk1CPMX2RJVq1LCZzhZb8hh+0reCraFGNjyJUXaG1sIh6ka57YACR1VdYQC
+ QnZhcWK/DEqQdMDr0mM9O09w3K/jBauqlCHEfLQYn9YcCMkO+OT8KfSmXYV0J+8qU/UkPIuLX+C
+ sJkiOEs4dnMbMRog8MkErAAnis/lBkmaiyvuNTOrHhmGvq+09/cSypG2socM4hba5dz+E+/5uTG
+ ftUy/4qCX9vwU5BuE7Xv2zbPbjdoLIwM3H5HEVLLzoFIEe6y341PL4jbAaTidfcbe1y5K3aYif8
+ 8fGbi/fPGVQV3zP4b5GCw4T857H+tDRalx5pex/LCQB4TmCjj4r78upcfimFqm8cl4MND9vzJDg
+ i5zd6nOzpXvpwhY0ly8eCHCZvUqRxyS1ryWMttPha7jkTKBF5GzAoG9NPeXxsU+x47dbMJGeyux
+ jDo5QlhsCLJpm1mVz4A==
+X-Authority-Analysis: v=2.4 cv=b7MncdGx c=1 sm=1 tr=0 ts=6ac0ef1a cx=c_pps
+ a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=0bpig9kOJEczWR0iouTWkw==:17
+ a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=PG2Lv3-wYJ-N5-kAUs0A:9 a=CjuIK1q_8ugA:10
+ a=tNoRWFLymzeba-QzToBc:22
+X-Proofpoint-ORIG-GUID: Ds5RViq-i02jOwdEzmp9_R73FAJDcd07
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAzMDA0NyBTYWx0ZWRfX1NtcZcRvioIL
+ Im4JUgTUJotW9clHAPaigVCu1tD3ItjBDljxTWOfnl5zs0wNUTNkraW0IPDcSkZTA3iAEOSNZym
+ Y7xnOfL+lWtA9DlSrXAb/zHPIsmC4Uc=
+X-Proofpoint-GUID: Ds5RViq-i02jOwdEzmp9_R73FAJDcd07
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-03_01,2026-10-02_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 impostorscore=0 adultscore=0 clxscore=1015 phishscore=0
+ bulkscore=0 malwarescore=0 suspectscore=0 priorityscore=1501
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2610030047
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261003_042955_546759_D0F6164C 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20261003_050340_979122_F6879457 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,78 +151,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Jerome
 
-Thanks for the review.
+Hi Robin,
 
-> On 2026-08-28 02:56 -0700, Changhuang Liang wrote:
-> > Add peripheral-0 domain PLL clock driver support for StarFive JHB100
-> > SoC.
-> >
-> > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-> > Reviewed-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> > ---
-> >  .../clk/starfive/clk-starfive-jhb100-pll.c    | 60 +++++++++++++++----
-> >  1 file changed, 50 insertions(+), 10 deletions(-)
-> >
-> > diff --git a/drivers/clk/starfive/clk-starfive-jhb100-pll.c
-> > b/drivers/clk/starfive/clk-starfive-jhb100-pll.c
-> > index e23365164497..f6ebaaf5aa18 100644
-> > --- a/drivers/clk/starfive/clk-starfive-jhb100-pll.c
-> > +++ b/drivers/clk/starfive/clk-starfive-jhb100-pll.c
-> > @@ -30,6 +30,9 @@
-> >  #define JHB100_PLL4_OFFSET		0x18
-> >  #define JHB100_PLL5_OFFSET		0x24
-> >
-> > +/* Peripheral-0 domain PLL */
-> > +#define JHB100_PLL6_OFFSET		0x00
-> > +
-> >  #define JHB100_PLL_CFG0_OFFSET		0x0
-> >  #define JHB100_PLL_CFG1_OFFSET		0x4
-> >  #define JHB100_PLL_CFG2_OFFSET		0x8
-> > @@ -417,16 +420,21 @@ static int jhb100_pll_probe(struct
-> platform_device *pdev)
-> >  	unsigned int idx;
-> >  	int ret;
-> >
-> > -	id = platform_get_device_id(pdev);
-> > -	if (!id)
-> > -		return dev_err_probe(dev, -EINVAL, "no match data\n");
-> > -
-> > -	/*
-> > -	 * Instantiated as an MFD cell of the sys0 system controller,
-> > -	 * which owns the DT node describing the PLL registers.
-> > -	 */
-> > -	match_data = (const struct jhb100_pll_match_data *)id->driver_data;
-> > -	np = dev_of_node(dev->parent);
-> > +	match_data = device_get_match_data(dev);
-> > +	if (match_data) {
-> > +		np = dev_of_node(dev);
-> > +	} else {
-> > +		id = platform_get_device_id(pdev);
-> > +		if (!id)
-> > +			return dev_err_probe(dev, -EINVAL, "no match data\n");
-> > +
-> > +		/*
-> > +		 * Instantiated as an MFD cell of the sys0 system controller,
-> > +		 * which owns the DT node describing the PLL registers.
-> > +		 */
-> > +		match_data = (const struct jhb100_pll_match_data
-> *)id->driver_data;
-> > +		np = dev_of_node(dev->parent);
-> > +	}
-> 
-> This is quite ugly.
-> 
-> It looks like your PLL is a building block you'll be re-using.
-> Just make a module out it and re-use it is different platform drivers rather
-> than trying to fit all your devices in the same platform driver.
-> 
+On Fri, Oct 02, 2026 at 05:21:18PM +0100, Robin Murphy wrote:
+> You already end up adding what is effectively a RISC-V-specific
+> entrypoint, so you may as well just carry that all the way through to
+> its own effectively RISC-V-specific implementation
 
-Got it.
+The list API came out of the v4[1] discussion with Jason. Preparing the
+targets as one contiguous IOVA range lets the MSI descriptor cache the
+base and IMSIC compose the address as base + CPU offset. That got
+rid of the separate domain-local lookup table and its lifetime handling,
+which I think was a worthwhile improvement.
 
-Best Regards,
-Changhuang
+I'd like to keep that model. I'm open to splitting the implementation,
+but most of the added code seems necessary to prepare multiple targets
+together, regardless of whether the list is fixed.
+
+> it should merely be a case of whether a) this is the first call for
+> the given cookie so everything needs mapping, or b) it's not the
+> first call, so everything must already be mapped and we can just
+> return the IOVA.
+
+For DMA-IOMMU, yes, remembering the base would let us drop the range
+matching. We'd still need the contiguous IOVA allocation, mapping loop,
+rollback on failure, and locking across the whole operation.
+
+For iommufd, there are also separate things to track: whether the context
+has allocated IOVAs for the set, whether a particular HWPT has those
+mappings installed, and whether a group needs them installed when its
+domain is replaced. Having one fixed list doesn't by itself remove
+that bookkeeping.
+
+The current IMSIC caller does always supply the same list. We could make
+that a requirement, but we'd need to define its scope: per cookie for
+DMA-IOMMU, and how it applies across groups and HWPTs for iommufd. The
+current interface instead takes an ordered list and provides contiguous
+IOVAs for it; the range matching makes reuse honor that contract.
+
+> At very worst, a separate hook to just pre-populate msi_page_list
+> with a regular page for each IMSIC address [...] could probably
+> suffice without any other major structural changes
+
+Is the main concern the range matching, or the shared mapping path
+itself? Apart from lookup, both paths need much the same allocation,
+mapping, locking, cleanup, and descriptor handling. Keeping those
+separate seems likely to duplicate code, while factoring them into
+shared helpers seems likely to bring us back towards a list-based
+mapping helper.
+
+We could handle lookup of existing mappings separately for the single-page
+and list cases while sharing the allocation and mapping code. But I'm not
+yet seeing a substantial overall simplification from requiring a fixed
+list. Is there more bookkeeping you have in mind that could go away with
+that restriction?
+
+[1] https://lore.kernel.org/all/20260820214150.545737-3-andrew.jones@oss.qualcomm.com/
+
+Thanks,
+drew
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
