@@ -4,111 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 722AACA600B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 275F5CA600D
 	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 17:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0fHWG8bTW728tq5hWlXw3HYk3QX5TG+F2po0nPmbNoM=; b=zc+BCLrZRo462u
-	NlylnLEK2hEVwUKzQ/jrw6RcimiwU/9Gg4fdPIOx+L9N8pcWcwFlCKPccZ6DYOt5KOdGHz22jA/oD
-	d2KYjDZYptn8ed/r+fcMFzBn0oqNN+MurBqSrnE5c9l783Ap1Dm5jd32Zet5tLEHoTLqtt9PXu/cu
-	AbCJYAJ/AuCJeVlVzW8mS+zan9razfynhp44/SFkim4mFPhZ3U2PulLgtI1ZWTC7ZO3bbeH2jS2+q
-	MtJFFjeU5OPIfU+pIaTJS6QAxCgxvTW7pRJk+LmuR8SEsvRmVYmwocbc5sawW8Eia3RIeJuExw4u0
-	wQg4cq+i4r8WlYvO95Xw==;
+	List-Owner; bh=kV6MbavqWoXk4xAO4r9nJqYav52bHZjyAXt4PNGbvXc=; b=403FAbBzNjKJH2
+	vEHkrB7yf0WT0/CivM57fKOh8T6Xj95XR8T6IUmx/qs+VJMY29C50fBp8wO/ow5kasCSI6mqbUs4O
+	mPF3c75lxn1i9fCuSmrTlAcFnEaQfFxa7uBxi182v5fKEAPfkPYSzhspov8ZD0OPz9EFSZxO7TRq5
+	OlG4mVYHJlKecsVR0fhLOtwhujc0nZWQnszEOcaO+w0u8XE+cynYE3zLX/dFTJzGIDvUrY4132wgb
+	jsRBXc52LSDvANOEu1sNDQhzgep1R+Nesgw/KahqVfbk4whLIwi/aSun5IjsT8Zu4hL0u683ERrNB
+	TgrKv0l7CRrFuhEPqLrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEVon-00000002pH1-3jkV;
-	Wed, 07 Oct 2026 17:52:41 +0000
+	id 1xEVow-00000002pYg-0EIx;
+	Wed, 07 Oct 2026 17:52:50 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCXR7-0000000Amn5-1OBV;
-	Fri, 02 Oct 2026 07:12:05 +0000
+	id 1xD2hz-0000000DlSi-2qTs;
+	Sat, 03 Oct 2026 16:35:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DFE0643463;
-	Fri,  2 Oct 2026 07:12:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 950E91F000FF;
-	Fri,  2 Oct 2026 07:11:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5EDA043691;
+	Sat,  3 Oct 2026 16:35:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79BC91F0089C;
+	Sat,  3 Oct 2026 16:35:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790925124;
-	bh=cedB2m3RAchjlfQYkaoIE7J7vyn1KCp2q8/Q5Rls3zo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=L8MEP/YKI8YHXtEpt1bt3ZVJY+fYQqqHYKcsB+22zDD7/Lcwip51/6ddFK4DhwYbK
-	 lvEFm9zfBhouolD0zO+zdPPcTbK/08BQl+89us0SMmB91+bFfvUlccZ+9aa/m1Pwk6
-	 Xy9LVd72bQIhr4LEKfimoj1LvYPuWsqMtZGARImX5TI0Hdzl6B7soQhEdXvUmtVBJ+
-	 tfI3G5IjeM4zQ8ogf1+2dF1+ALtEBoYAaeu1p6kG08GOAuAtJKCY0LIqVcWZKxmVvc
-	 SOZ3zOet+EA+8fNEyHAZ/v1BIRxjrQU3ip4sRMQ/abdOUJmDWOexjMq7gKGLm19G61
-	 VzRRqqC5DEtkQ==
-Message-ID: <fda08732-f500-4bbd-bb1a-af096e33002f@kernel.org>
-Date: Fri, 2 Oct 2026 09:11:20 +0200
+	s=k20260515; t=1791045335;
+	bh=RtWJ7MLLqPj5SMfThVr/gbBPp+ziYLloZpdj8FNlsJY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=MXw8Q1r0Gc6aRzhsCbwa0DVi/CdOmmpK11fPM7GHG1+Ibrk6H5jmV1uYSSr2HbZRY
+	 wMHBz56e8uJeddzNwCvB3RFXtUIVX6Fme2ZGpMs8dxuMqd6eyps5NCu//CaZvVf/A+
+	 tmGeyr/8NRU2dK0VJqKqcr8Xt+8XAKX3CqqU4eq3dk0TO9VwfEIVwiZ8zUxMQfe1FF
+	 r0DLc0B/vuqXPPPgruJbiYmC5gmMXTJud3b55EYKUnG+ierawq8IwxoueP5VzK2C0I
+	 58jotqWzVaeGTETTmcSjJicc2js5BKrauSREyLq03fTnlIoTLTHPQed2A9FsD3gNr/
+	 k4tiZr8xnSHug==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Sat, 03 Oct 2026 17:32:38 +0100
+Subject: [PATCH v4 07/38] mm: add mmap action for discontiguous kernel page
+ mapping
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 39/40] mm/huge_memory: remove vma_is_special_huge()
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Jaya Kumar <jayalk@intworks.biz>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-rdma@vger.kernel.org, selinux@vger.kernel.org,
- linux-sound@vger.kernel.org, bpf@vger.kernel.org,
- linux-scsi@vger.kernel.org, linux-fbdev@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-trace-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
- fuse-devel@lists.linux.dev
-References: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-0-4583d8a23bca@kernel.org>
- <20260917-b4-mmap-prepare-vma-flag-sanify-v3-39-4583d8a23bca@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
- dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
- QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
- XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
- Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
- PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
- WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
- UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
- jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
- B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzS5EYXZpZCBIaWxk
- ZW5icmFuZCAoQ3VycmVudCkgPGRhdmlkQGtlcm5lbC5vcmc+wsGQBBMBCAA6AhsDBQkmWAik
- AgsJBBUKCQgCFgICHgUCF4AWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaYJt/AIZAQAKCRBN
- 3hD3AP+DWriiD/9BLGEKG+N8L2AXhikJg6YmXom9ytRwPqDgpHpVg2xdhopoWdMRXjzOrIKD
- g4LSnFaKneQD0hZhoArEeamG5tyo32xoRsPwkbpIzL0OKSZ8G6mVbFGpjmyDLQCAxteXCLXz
- ZI0VbsuJKelYnKcXWOIndOrNRvE5eoOfTt2XfBnAapxMYY2IsV+qaUXlO63GgfIOg8RBaj7x
- 3NxkI3rV0SHhI4GU9K6jCvGghxeS1QX6L/XI9mfAYaIwGy5B68kF26piAVYv/QZDEVIpo3t7
- /fjSpxKT8plJH6rhhR0epy8dWRHk3qT5tk2P85twasdloWtkMZ7FsCJRKWscm1BLpsDn6EQ4
- jeMHECiY9kGKKi8dQpv3FRyo2QApZ49NNDbwcR0ZndK0XFo15iH708H5Qja/8TuXCwnPWAcJ
- DQoNIDFyaxe26Rx3ZwUkRALa3iPcVjE0//TrQ4KnFf+lMBSrS33xDDBfevW9+Dk6IISmDH1R
- HFq2jpkN+FX/PE8eVhV68B2DsAPZ5rUwyCKUXPTJ/irrCCmAAb5Jpv11S7hUSpqtM/6oVESC
- 3z/7CzrVtRODzLtNgV4r5EI+wAv/3PgJLlMwgJM90Fb3CB2IgbxhjvmB1WNdvXACVydx55V7
- LPPKodSTF29rlnQAf9HLgCphuuSrrPn5VQDaYZl4N/7zc2wcWM7BTQRVy5+RARAA59fefSDR
- 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
- VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
- /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
- iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
- 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
- zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
- azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
- FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
- sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
- 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
- EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
- IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
- 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
- Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
- sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
- yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
- 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
- r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
- 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
- CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
- qIws/H2t
-In-Reply-To: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-39-4583d8a23bca@kernel.org>
-X-Mailman-Approved-At: Wed, 07 Oct 2026 10:52:37 -0700
+Message-Id: <20261003-b4-mmap-prepare-vma-flag-sanify-v4-7-a1f052500fd7@kernel.org>
+References: <20261003-b4-mmap-prepare-vma-flag-sanify-v4-0-a1f052500fd7@kernel.org>
+In-Reply-To: <20261003-b4-mmap-prepare-vma-flag-sanify-v4-0-a1f052500fd7@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-usb@vger.kernel.org, 
+ linux-rdma@vger.kernel.org, selinux@vger.kernel.org, 
+ linux-sound@vger.kernel.org, bpf@vger.kernel.org, 
+ linux-scsi@vger.kernel.org, linux-fbdev@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-trace-kernel@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, linux-arch@vger.kernel.org, 
+ linux-fsdevel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, 
+ fuse-devel@lists.linux.dev, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=14245; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=7LT6HbKZwAFKTYTHhkPflMyUauVOza0ipQouGgRYEaM=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLIO6qnPW+iSuKNLWUGs956FUI1ndKtopZvovcOqDtu/B
+ s/Qd7HsKGVhEONikBVTZHn+RXx/kEjYvM4L/m4wc1iZQIYwcHEKwETmPGX4zcq96S9HhNWKeUmT
+ G2fP2rjaNnhT2QnGU4/i5jq//Xv7cgPD/xKdOrdXO+5+nbJJrPtzYOHiA51mXbf9Hs/JjVs/2dJ
+ xGwMA
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+X-Mailman-Approved-At: Wed, 07 Oct 2026 10:52:38 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,94 +88,436 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/17/26 18:22, Lorenzo Stoakes (ARM) wrote:
-> vma_is_special_huge() tests whether either the VMA_PFNMAP_BIT or
-> VMA_MIXEDMAP_BIT is set (i.e. whether the VMA is a kernel-owned mapping),
-> but with a DAX carve-out.
-> 
-> DAX however no longer sets VMA_MIXEDMAP_BIT, so this carve-out is no longer
-> required.
-> 
-> Therefore test for vma_is_kernel_owned() instead and also drop the
-> VMA_IO_BIT check, as it is now redundant since it is enforced that only
-> kernel-owned mappings can set this flag.
-> 
-> This also eliminates another overloaded use of 'special' within mm.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> ---
->  mm/huge_memory.c | 18 ++++--------------
->  1 file changed, 4 insertions(+), 14 deletions(-)
-> 
-> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> index c3c98ea672c3..3cb8e2d4d65c 100644
-> --- a/mm/huge_memory.c
-> +++ b/mm/huge_memory.c
-> @@ -110,14 +110,6 @@ static inline bool file_thp_enabled(const struct vm_area_struct *vma)
->  	return S_ISREG(inode->i_mode);
->  }
->  
-> -/* If returns true, we are unable to access the VMA's folios. */
-> -static bool vma_is_special_huge(const struct vm_area_struct *vma)
-> -{
-> -	if (vma_is_dax(vma))
-> -		return false;
-> -	return vma_test_any(vma, VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT);
-> -}
-> -
->  static bool vma_file_bypass_thp_tuneables(const struct vm_area_struct *vma,
->  		enum tva_type type)
->  {
-> @@ -192,7 +184,7 @@ unsigned long __thp_vma_allowable_orders(struct vm_area_struct *vma,
->  	/* Check the intersection of requested and supported orders. */
->  	if (vma_is_anonymous(vma))
->  		supported_orders = THP_ORDERS_ALL_ANON;
-> -	else if (vma_is_dax(vma) || vma_is_special_huge(vma))
-> +	else if (vma_is_dax(vma) || vma_is_kernel_owned(vma))
->  		supported_orders = THP_ORDERS_ALL_SPECIAL_DAX;
->  	else
->  		supported_orders = THP_ORDERS_ALL_FILE_DEFAULT;
-> @@ -3066,7 +3058,7 @@ int zap_huge_pud(struct mmu_gather *tlb, struct vm_area_struct *vma,
->  	orig_pud = pudp_huge_get_and_clear_full(vma, addr, pud, tlb->fullmm);
->  	arch_check_zapped_pud(vma, orig_pud);
->  	tlb_remove_pud_tlb_entry(tlb, pud, addr);
-> -	if (vma_is_special_huge(vma)) {
-> +	if (vma_is_kernel_owned(vma)) {
->  		spin_unlock(ptl);
->  		/* No zero page support yet */
->  	} else {
-> @@ -3222,7 +3214,7 @@ static void __split_huge_pmd_locked(struct vm_area_struct *vma, pmd_t *pmd,
->  		 */
->  		if (arch_needs_pgtable_deposit())
->  			zap_deposited_table(mm, pmd);
-> -		if (vma_is_special_huge(vma))
-> +		if (vma_is_kernel_owned(vma))
->  			return;
->  		if (unlikely(pmd_is_migration_entry(old_pmd))) {
->  			const softleaf_t old_entry = softleaf_from_pmd(old_pmd);
-> @@ -4765,9 +4757,7 @@ static inline bool vma_not_suitable_for_thp_split(struct vm_area_struct *vma)
->  {
->  	if (vma_is_dax(vma))
->  		return true;
-> -	if (vma_is_special_huge(vma))
-> -		return true;
-> -	if (vma_test(vma, VMA_IO_BIT))
-> +	if (vma_is_kernel_owned(vma))
->  		return true;
->  	if (vma_is_hugetlb(vma))
->  		return true;
-> 
+The existing kernel page mapping mmap actions allow for partial and full
+mapping of an array of struct page pointers.
 
-So good to see that horrible shit (sorry :) ) go away.
+However some drivers require the mapping of discontiguous ranges. Permit
+this by providing discontig_kernel_page_ops which allows a driver to
+specify how the operation should begin and how batches of pages should be
+retrieved.
 
-It was too hugely special.
+It uses the minimum exposed interface to do so, providing address, page
+offset and both vm_private_data state and a local private state object.
+
+ops->init can establish state for the operation, and ops->get outputs the
+pages to map and their count. Should an error arise the core unmaps the
+VMA, invoking vm_ops->close, which is therefore where any state established
+by ops->init is released.
+
+Also update the compatibility layer to do this too via
+compat_mmap_action_abort().
+
+Batches may not exceed the VMA, but may map less than its full range in
+case the driver wishes to allow the user to map an area larger than the
+available data.
+
+To use it, users invoke mmap_action_map_discontig_kernel_pages() with
+initial local private state and a set of operations.
+
+Users can then use one of the provided helper functions to perform an
+action:
+
+* discontig_kernel_map_abort() - Abort and leave the mapping as it has
+  been accumulated so far.
+* discontig_kernel_map_page() - Map a single page, or a compound page given
+  its head page.
+* discontig_kernel_map_page_range() - Maps a struct page ** array of a
+  specified count, mapping only those pages which fit in the VMA.
+
+The userland VMA tests are updated accordingly.
+
+Acked-by: Zi Yan <ziy@nvidia.com>
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+---
+ include/linux/mm.h              |  45 +++++++++++++++++
+ include/linux/mm_types.h        |  44 +++++++++++++++-
+ mm/internal.h                   |   3 ++
+ mm/memory.c                     | 108 ++++++++++++++++++++++++++++++++++++++--
+ mm/util.c                       |  27 ++++++++--
+ tools/testing/vma/include/dup.h |  11 +++-
+ 6 files changed, 224 insertions(+), 14 deletions(-)
+
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index a1f2d375cf7d..97e1eb4fe3a4 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -4647,10 +4647,55 @@ static inline void mmap_action_map_kernel_pages_full(struct vm_area_desc *desc,
+ 				     vma_desc_pages(desc));
+ }
+ 
++static inline
++void mmap_action_map_discontig_kernel_pages(struct vm_area_desc *desc,
++		void *init_private, const struct discontig_kernel_page_ops *ops)
++{
++	struct mmap_action *action = &desc->action;
++
++	action->type = MMAP_DISCONTIG_KERNEL_PAGES;
++	action->map_kernel_discontig.init_private = init_private;
++	action->map_kernel_discontig.ops = ops;
++}
++
+ int mmap_action_prepare(struct vm_area_desc *desc);
+ int mmap_action_complete(struct vm_area_struct *vma,
+ 			 struct mmap_action *action, bool is_compat);
+ 
++static inline void
++discontig_kernel_map_abort(struct discontig_kernel_page_state *state)
++{
++	state->action = DISCONTIG_KERNEL_PAGE_ABORT;
++}
++
++static inline void
++discontig_kernel_map_page(struct discontig_kernel_page_state *state,
++			  struct page *page)
++{
++	struct folio *folio = page_folio(page);
++
++	if (folio_test_large(folio)) {
++		VM_WARN_ON_ONCE(page != folio_page(folio, 0));
++		state->action = DISCONTIG_KERNEL_PAGE_MAP_COMPOUND_PAGE;
++		state->__folio = folio;
++		state->__nr_pages = min(state->nr_pages_remain,
++					folio_nr_pages(folio));
++	} else {
++		state->action = DISCONTIG_KERNEL_PAGE_MAP_PAGE;
++		state->__page = page;
++		state->__nr_pages = 1;
++	}
++}
++
++static inline void
++discontig_kernel_map_page_range(struct discontig_kernel_page_state *state,
++				struct page **page_arr, unsigned long nr_pages)
++{
++	state->action = DISCONTIG_KERNEL_PAGE_MAP_PAGE_RANGE;
++	state->__page_arr = page_arr;
++	state->__nr_pages = min(nr_pages, state->nr_pages_remain);
++}
++
+ /* Look up the first VMA which exactly match the interval vm_start ... vm_end */
+ static inline struct vm_area_struct *find_exact_vma(struct mm_struct *mm,
+ 				unsigned long vm_start, unsigned long vm_end)
+diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+index 9ca2ea3664bc..0cb4f9603956 100644
+--- a/include/linux/mm_types.h
++++ b/include/linux/mm_types.h
+@@ -818,8 +818,44 @@ enum mmap_action_type {
+ 	MMAP_NOTHING,
+ 	MMAP_REMAP_PFN,
+ 	MMAP_IO_REMAP_PFN,
+-	MMAP_SIMPLE_IO_REMAP,	/* I/O remap with guardrails. */
+-	MMAP_KERNEL_PAGES,	/* Map kernel page range from array. */
++	MMAP_SIMPLE_IO_REMAP,		/* I/O remap with guardrails. */
++	MMAP_KERNEL_PAGES,		/* Map kernel page range from array. */
++	MMAP_DISCONTIG_KERNEL_PAGES,	/* Map kernel discontig page range. */
++};
++
++enum discontig_kernel_page_action {
++	DISCONTIG_KERNEL_PAGE_ABORT,
++	DISCONTIG_KERNEL_PAGE_MAP_PAGE,
++	DISCONTIG_KERNEL_PAGE_MAP_COMPOUND_PAGE,
++	DISCONTIG_KERNEL_PAGE_MAP_PAGE_RANGE,
++};
++
++struct discontig_kernel_page_state {
++	/* Map state. */
++	const unsigned long start;	/* Start address of VMA. */
++	const unsigned long end;	/* End address of VMA. */
++	unsigned long addr;		/* The current address to be mapped. */
++	pgoff_t pgoff;			/* The current pgoff to be mapped. */
++	unsigned long nr_pages_mapped;	/* The number of pages mapped. */
++	unsigned long nr_pages_remain;	/* The number of pages remaining. */
++
++	/* User-defined state. */
++	void *vm_private_data;		/* VMA private data. */
++	void *private;			/* Mapping private data. */
++
++	/* Users should not touch these, use discontig_kernel_map_*() helpers. */
++	enum discontig_kernel_page_action action;
++	union {
++		struct page *__page;
++		struct folio *__folio;
++		struct page **__page_arr;
++	};
++	unsigned long __nr_pages;
++};
++
++struct discontig_kernel_page_ops {
++	int (*init)(void *vm_private_data, void **private);
++	int (*get)(struct discontig_kernel_page_state *state);
+ };
+ 
+ /*
+@@ -844,6 +880,10 @@ struct mmap_action {
+ 			unsigned long nr_pages;
+ 			pgoff_t pgoff;
+ 		} map_kernel;
++		struct {
++			void *init_private;
++			const struct discontig_kernel_page_ops *ops;
++		} map_kernel_discontig;
+ 	};
+ 	enum mmap_action_type type;
+ 
+diff --git a/mm/internal.h b/mm/internal.h
+index fc4e249e2343..557e629db8c5 100644
+--- a/mm/internal.h
++++ b/mm/internal.h
+@@ -1515,6 +1515,9 @@ int simple_ioremap_prepare(struct vm_area_desc *desc);
+ int map_kernel_pages_prepare(struct vm_area_desc *desc);
+ int map_kernel_pages_complete(struct vm_area_struct *vma,
+ 			      struct mmap_action *action);
++int map_discontig_kernel_pages_prepare(struct vm_area_desc *desc);
++int map_discontig_kernel_pages_complete(struct vm_area_struct *vma,
++					struct mmap_action *action);
+ 
+ static inline int io_remap_pfn_range_prepare(struct vm_area_desc *desc)
+ {
+diff --git a/mm/memory.c b/mm/memory.c
+index 448342883e9d..45b21bb04a18 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -2609,17 +2609,23 @@ int vm_insert_pages(struct vm_area_struct *vma, unsigned long addr,
+ }
+ EXPORT_SYMBOL(vm_insert_pages);
+ 
++static void __map_kernel_pages_prepare(struct vm_area_desc *desc)
++{
++	if (vma_desc_test(desc, VMA_MIXEDMAP_BIT))
++		return;
++
++	VM_WARN_ON_ONCE(mmap_read_trylock(desc->mm));
++	VM_WARN_ON_ONCE(vma_desc_test(desc, VMA_PFNMAP_BIT));
++	vma_desc_set_flags(desc, VMA_MIXEDMAP_BIT);
++}
++
+ int map_kernel_pages_prepare(struct vm_area_desc *desc)
+ {
+ 	const struct mmap_action *action = &desc->action;
+ 	const unsigned long addr = action->map_kernel.start;
+ 	unsigned long nr_pages, end;
+ 
+-	if (!vma_desc_test(desc, VMA_MIXEDMAP_BIT)) {
+-		VM_WARN_ON_ONCE(mmap_read_trylock(desc->mm));
+-		VM_WARN_ON_ONCE(vma_desc_test(desc, VMA_PFNMAP_BIT));
+-		vma_desc_set_flags(desc, VMA_MIXEDMAP_BIT);
+-	}
++	__map_kernel_pages_prepare(desc);
+ 
+ 	nr_pages = action->map_kernel.nr_pages;
+ 	end = addr + PAGE_SIZE * nr_pages;
+@@ -2640,6 +2646,98 @@ int map_kernel_pages_complete(struct vm_area_struct *vma,
+ 			    &nr_pages, vma->vm_page_prot);
+ }
+ 
++int map_discontig_kernel_pages_prepare(struct vm_area_desc *desc)
++{
++	const struct mmap_action *action = &desc->action;
++	const struct discontig_kernel_page_ops *ops =
++		action->map_kernel_discontig.ops;
++
++	/* At minimum need to be able to get pages. */
++	if (WARN_ON_ONCE(!ops || !ops->get))
++		return -EINVAL;
++
++	__map_kernel_pages_prepare(desc);
++	return 0;
++}
++
++static int apply_discontig_action(struct vm_area_struct *vma,
++				  struct discontig_kernel_page_state *state)
++{
++	unsigned long nr_pages = state->__nr_pages;
++	unsigned long addr = state->addr;
++	unsigned long i;
++
++	if (state->action == DISCONTIG_KERNEL_PAGE_MAP_PAGE)
++		return insert_page(vma, addr, state->__page,
++				   vma->vm_page_prot, /*mkwrite=*/false);
++	if (state->action == DISCONTIG_KERNEL_PAGE_MAP_PAGE_RANGE)
++		return insert_pages(vma, addr, state->__page_arr,
++				    &nr_pages, vma->vm_page_prot);
++
++	/* Compound folio - have to iterate through each page. */
++	for (i = 0; i < nr_pages; i++, addr += PAGE_SIZE) {
++		struct page *page = folio_page(state->__folio, i);
++		int err;
++
++		err = insert_page(vma, addr, page, vma->vm_page_prot,
++				  /*mkwrite=*/false);
++		if (err)
++			return err;
++	}
++	return 0;
++}
++
++int map_discontig_kernel_pages_complete(struct vm_area_struct *vma,
++					struct mmap_action *action)
++{
++	const struct discontig_kernel_page_ops *ops =
++		action->map_kernel_discontig.ops;
++	struct discontig_kernel_page_state state = {
++		.start = vma->vm_start,
++		.end = vma->vm_end,
++		.addr = vma->vm_start,
++		.pgoff = vma->vm_pgoff,
++		.nr_pages_mapped = 0,
++		.nr_pages_remain = vma_pages(vma),
++		.vm_private_data = vma->vm_private_data,
++		.private = action->map_kernel_discontig.init_private,
++	};
++	int err = 0;
++
++	if (ops->init)
++		err = ops->init(vma->vm_private_data, &state.private);
++	if (err)
++		return err;
++
++	do {
++		unsigned long end, pgoff_end;
++		unsigned long nr_pages;
++
++		/* Default to abort. */
++		state.action = DISCONTIG_KERNEL_PAGE_ABORT;
++		err = ops->get(&state);
++		if (err || state.action == DISCONTIG_KERNEL_PAGE_ABORT)
++			return err;
++		nr_pages = state.__nr_pages;
++
++		if (!nr_pages || nr_pages > state.nr_pages_remain)
++			return -EINVAL;
++		end = state.addr + PAGE_SIZE * nr_pages;
++		pgoff_end = state.pgoff + nr_pages;
++
++		err = apply_discontig_action(vma, &state);
++		if (err)
++			return err;
++
++		state.addr = end;
++		state.pgoff = pgoff_end;
++		state.nr_pages_mapped += nr_pages;
++		state.nr_pages_remain -= nr_pages;
++	} while (state.addr < vma->vm_end);
++
++	return 0;
++}
++
+ /**
+  * vm_insert_page - insert single page into user vma
+  * @vma: user vma to map to
+diff --git a/mm/util.c b/mm/util.c
+index 1660910e2a22..5b2e1ab4aeba 100644
+--- a/mm/util.c
++++ b/mm/util.c
+@@ -1401,6 +1401,15 @@ static int call_vma_mapped(struct vm_area_struct *vma)
+ 	return 0;
+ }
+ 
++/* An mmap action failed under the compatibility layer - unmap and close. */
++static void compat_mmap_action_abort(struct vm_area_struct *vma)
++{
++#ifdef CONFIG_MMU
++	zap_vma_range(vma, vma->vm_start, vma_pages(vma) << PAGE_SHIFT);
++#endif
++	vma_close(vma);
++}
++
+ static int mmap_action_finish(struct vm_area_struct *vma,
+ 			      struct mmap_action *action, int err,
+ 			      bool is_compat)
+@@ -1412,12 +1421,13 @@ static int mmap_action_finish(struct vm_area_struct *vma,
+ 
+ 	/* do_munmap() might take rmap lock, so release if held. */
+ 	maybe_rmap_unlock_action(vma, action);
+-	/*
+-	 * If this is invoked from the compatibility layer, post-mmap() hook
+-	 * logic will handle cleanup for us.
+-	 */
+-	if (!err || is_compat)
++	if (!err)
++		return 0;
++
++	if (is_compat) {
++		compat_mmap_action_abort(vma);
+ 		return err;
++	}
+ 
+ 	/*
+ 	 * If an error occurs, unmap the VMA altogether and return an error. We
+@@ -1469,6 +1479,8 @@ int mmap_action_prepare(struct vm_area_desc *desc)
+ 		return simple_ioremap_prepare(desc);
+ 	case MMAP_KERNEL_PAGES:
+ 		return map_kernel_pages_prepare(desc);
++	case MMAP_DISCONTIG_KERNEL_PAGES:
++		return map_discontig_kernel_pages_prepare(desc);
+ 	}
+ 
+ 	WARN_ON_ONCE(1);
+@@ -1501,6 +1513,9 @@ int mmap_action_complete(struct vm_area_struct *vma,
+ 	case MMAP_KERNEL_PAGES:
+ 		err = map_kernel_pages_complete(vma, action);
+ 		break;
++	case MMAP_DISCONTIG_KERNEL_PAGES:
++		err = map_discontig_kernel_pages_complete(vma, action);
++		break;
+ 	case MMAP_IO_REMAP_PFN:
+ 	case MMAP_SIMPLE_IO_REMAP:
+ 		/* Should have been delegated. */
+@@ -1522,6 +1537,7 @@ int mmap_action_prepare(struct vm_area_desc *desc)
+ 	case MMAP_IO_REMAP_PFN:
+ 	case MMAP_SIMPLE_IO_REMAP:
+ 	case MMAP_KERNEL_PAGES:
++	case MMAP_DISCONTIG_KERNEL_PAGES:
+ 		WARN_ON_ONCE(1); /* nommu cannot handle these. */
+ 		break;
+ 	}
+@@ -1543,6 +1559,7 @@ int mmap_action_complete(struct vm_area_struct *vma,
+ 	case MMAP_IO_REMAP_PFN:
+ 	case MMAP_SIMPLE_IO_REMAP:
+ 	case MMAP_KERNEL_PAGES:
++	case MMAP_DISCONTIG_KERNEL_PAGES:
+ 		WARN_ON_ONCE(1); /* nommu cannot handle this. */
+ 
+ 		err = -EINVAL;
+diff --git a/tools/testing/vma/include/dup.h b/tools/testing/vma/include/dup.h
+index 023ad6092e9c..a6a8e53c4b38 100644
+--- a/tools/testing/vma/include/dup.h
++++ b/tools/testing/vma/include/dup.h
+@@ -457,14 +457,17 @@ enum mmap_action_type {
+ 	MMAP_NOTHING,
+ 	MMAP_REMAP_PFN,
+ 	MMAP_IO_REMAP_PFN,
+-	MMAP_SIMPLE_IO_REMAP,	/* I/O remap with guardrails. */
+-	MMAP_KERNEL_PAGES,	/* Map kernel page range from array. */
++	MMAP_SIMPLE_IO_REMAP,		/* I/O remap with guardrails. */
++	MMAP_KERNEL_PAGES,		/* Map kernel page range from array. */
++	MMAP_DISCONTIG_KERNEL_PAGES,	/* Map kernel discontig page range. */
+ };
+ 
+ /*
+  * Describes an action an mmap_prepare hook can instruct to be taken to complete
+  * the mapping of a VMA. Specified in vm_area_desc.
+  */
++struct discontig_kernel_page_ops;
++
+ struct mmap_action {
+ 	union {
+ 		struct {
+@@ -483,6 +486,10 @@ struct mmap_action {
+ 			unsigned long nr_pages;
+ 			pgoff_t pgoff;
+ 		} map_kernel;
++		struct {
++			void *init_private;
++			const struct discontig_kernel_page_ops *ops;
++		} map_kernel_discontig;
+ 	};
+ 	enum mmap_action_type type;
+ 
 
 -- 
-Cheers,
+2.55.0
 
-David
 
 _______________________________________________
 linux-riscv mailing list
