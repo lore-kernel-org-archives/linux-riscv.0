@@ -4,57 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D039CA5FEC
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2026 15:25:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D5FCA5FEC
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2026 15:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k3OUs7R2zOnGMAOhK/2yiI5SvD6/JDmesFYE1xKO2EY=; b=yMLE1aUlE7sTi7
-	TA+v5b/tp4+P6V+YWjn6QmRAhoW8LTTGa0xiXw5oGr0kWlLB+SSUCQYDm6rCiswu0LP/AMEMgBM/1
-	+NOTfOxg4g/lT5OIUG1XkA5IJymR8w583V8MR9C1oKH4uKa0d6mD+V3VfKpCe3FGVhwllaPOBUru0
-	Hm6CDSSbXWz5W45HxHxfWtdaB9OoNqrDumW/WkSLXXTGEbh1gsce07Vf6/2M+1Fk7Im6AF/dmo+3o
-	iMowfm6rawAycQotJaqQkabB/oc58g0Zx5j/DcIQ9K3huVXN5aRmT2D4PRqqJKPvVkvMlJbDW6JPS
-	bZkOVbE7uofpgAxtlpTQ==;
+	List-Owner; bh=r+u1rgdhO3F+DeSPQowBIynuQ2rVC5Q9frf3bXnzoLg=; b=YcVDS+HHpGraUk
+	fOvawws/QSQbwHeNOBl3nvfMz3IfLkn5n4Ja6orfqVCMY7Cgvy3piSr7SqpCF9rLEx0oEHKyJM5gJ
+	ooakBTxO7SJDCUXIGUj0j8zaP2h4dr/tRv7Ncxr+imwGeIXADiQ8OEDw+TpPQn84VyVygSyf5pPcf
+	ZWDJcYF1y04h/WGEg9oVkSE9l77P61FITJ5Ab5DTOr5QT6Hsp2ohw0jtC5oQvhueVlMKligHbWD9E
+	xwqeMInzjMg7q3HHGaIDZqMN9Z59+fvM+YwsDLGmjcIOxQT4aDIq/BkEpY0YI70BoEGszqSxQl+iz
+	zctagVD/F6nVGfQqMWJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD1cK-0000000DgjW-49dJ;
-	Sat, 03 Oct 2026 15:25:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xD1n2-0000000Dhp9-0ICr;
+	Sat, 03 Oct 2026 15:36:44 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xD1cC-0000000DgfT-33vI;
-	Sat, 03 Oct 2026 15:25:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A3E0E44843;
-	Sat,  3 Oct 2026 15:25:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E8F71F0089C;
-	Sat,  3 Oct 2026 15:25:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791041130;
-	bh=q643Wt6fe0ntTTDTKOYlrl8Wj5XitvlnnZ6YOFvEOnc=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=cDCh1URWwts0elrdZ20jLCn18/umO4ONLw1oxNhmmHlvCzhYp0Pm/trdDFICN1PPD
-	 UcefMWA7kmVyHMwYWG+lFZdswmpHbkDmSdw4dXNEXosj7Lpbzf9Za1ajBgcLCRw/8v
-	 WSD5BoLsDVWB+qGTEXu2Bg44C1J4YQUfoVPVitITBx9VWCVVfPNHfbnzzCxex1rV+u
-	 MyzBF2kRhy9OgYo75V/sQyrKrG5DJmCNwCV17dPSbhYAHZGf63dbU0oC8rAiqMXtYa
-	 KW7eugMboXNw4X7gLeqK9pKigM1Tf+oEIqODYsLK4++kHMy/0x09+whxbqIzRXQYYk
-	 bR0+NNfswjUIw==
-From: Vinod Koul <vkoul@kernel.org>
-To: Bruno Banelli <bbanelli@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Yixun Lan <dlan@kernel.org>, 
- Ze Huang <huang.ze@linux.dev>, Alex Elder <elder@riscstar.com>, 
- linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-In-Reply-To: <20260825065007.69353-1-bbanelli@gmail.com>
-References: <20260825065007.69353-1-bbanelli@gmail.com>
-Subject: Re: [PATCH v2 0/2] phy: spacemit: fix and enable the K1 USB 2.0
- PHY
-Message-Id: <179104112791.223537.13672084423793291489.b4-ty@kernel.org>
-Date: Sat, 03 Oct 2026 17:25:27 +0200
+	id 1xD1mt-0000000Dho5-3bxV;
+	Sat, 03 Oct 2026 15:36:41 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261003153628euoutp012ff25533234c428be9ff26b1fae8bcaf~bDwR0T6ER1714317143euoutp01W;
+	Sat,  3 Oct 2026 15:36:28 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261003153628euoutp012ff25533234c428be9ff26b1fae8bcaf~bDwR0T6ER1714317143euoutp01W
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1791041788;
+	bh=cezTBuZnRU09BC5t/TXbbnr/2mOgRJXIrT1bA9nKYfk=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=iyRdI8uvT1VnyJT6tqgggenZI6nITXILkxQtf0XryX352UU+lQidWIGBUPATnmApl
+	 NqErh1NgfRSaacsdX3dVtsHcj+ObkGldlks/K3Pp/ACh4wuzlI3nw9I71uwYTuobcz
+	 MAqgn33qV3D/4uufZns8VtPAgjSZZJfnfsm8yK1Y=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261003153627eucas1p1f4cc5dc15e7a5dbebdfb26617afe1f56~bDwQpLxK00845508455eucas1p1j;
+	Sat,  3 Oct 2026 15:36:27 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261003153625eusmtip1ba5f07ce91f2ac9a6e0ffa2ce26ac1cb~bDwPATbZ22801128011eusmtip1E;
+	Sat,  3 Oct 2026 15:36:25 +0000 (GMT)
+Message-ID: <eaba2fa9-a1ce-4dac-9bd6-e0b3a3dd01ef@samsung.com>
+Date: Sat, 3 Oct 2026 17:36:25 +0200
 MIME-Version: 1.0
-X-Mailer: b4 0.14.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
+ starfive,jh7110-inno-hdmi-phy
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
+	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
+	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
+	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
+	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
+	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
+	Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
+	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
+	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
+	Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Joshua Peisach <jpeisach@ubuntu.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@baylibre.com>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <6cf9e611-bfc5-407b-8132-bd328f8b61fc@kernel.org>
+X-CMS-MailID: 20261003153627eucas1p1f4cc5dc15e7a5dbebdfb26617afe1f56
+X-Msg-Generator: CA
+X-RootMTR: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
+X-EPHeader: CA
+X-CMS-RootMailID: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
+References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+	<CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com>
+	<20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com>
+	<20260917-mutant-chamois-of-competence-46ca77@quoll>
+	<1a1a9b49-430b-4218-b27d-e133d488e8d9@samsung.com>
+	<6cf9e611-bfc5-407b-8132-bd328f8b61fc@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261003_083636_492016_546DE4F3 
+X-CRM114-Status: GOOD (  30.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,29 +112,104 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 25 Aug 2026 08:50:05 +0200, Bruno Banelli wrote:
-> v1 was a single patch adding "default ARCH_SPACEMIT" to
-> PHY_SPACEMIT_K1_USB2.  Automated review pointed out two pre-existing
-> Kconfig problems in the same entry, and that change makes them easier
-> to hit: enabling the symbol by default means configurations that would
-> previously have left it off will now build the driver.
-> 
-> So fix the dependencies first, then enable it by default.
-> 
-> [...]
 
-Applied, thanks!
+On 9/30/26 13:01, Krzysztof Kozlowski wrote:
+> On 25/09/2026 23:05, Michal Wilczynski wrote:
+>>>> +  clocks:
+>>>> +    maxItems: 1
+>>>> +    description: Reference oscillator.
+>>>
+>>> This barely counts as a resource, so usual question: no resources here?
+>>> no MMIO? Even the user of this phy is the block itself.
+>>>
+>>> This makes me wonder if this should be a device node in the first place
+>>> (instead folded into the parent).
+>>
+>> The PHY has no reg because the reg is shared with the controller and
+>> owned by the parent - patch 9 lets the bridge take its regmap from
+>> there.
+>>
+>> The user of the PHY is not only the block itself. It is the pixel clock
+>> provider for the whole display subsystem, voutcrg takes hdmitx0_pixelclk
+>> as the parent of its DC8200 pixel MUXes, and while HDMI output is active
+>> it is the only intended source for that clock. The parent has to be
+>> assigned explicitly so the general PLL does not end up driving the pixel
+>> clock, and so a DSI user does not reach the HDMI PHY clock generator.
+>>
+>> So it has to be its own node. The HDMI block has two independent
+> 
+> I do not see the logic which lead to this conclusion. Pixel clock
+> provider, so a clock controller, cannot be a user of a phy. Clock
+> controller does not have a physical layer.
 
-[1/2] phy: spacemit: fix K1 USB 2.0 PHY Kconfig dependencies
-      commit: 882af55e42a4cd5bd61db0244c0b78941884518a
-[2/2] phy: spacemit: enable K1 USB 2.0 PHY by default on ARCH_SPACEMIT
-      commit: 392101240b22256105da3b5af6348d1889c63112
+Sorry I think the wording was not perfect. I meant the PHY node is a
+pixel clock provider. voutcrg consumes a clock not a PHY.
+
+voutcrg: clock-controller@295c0000 {
+         clocks = <&syscrg ...>, <&hdmi_phy>;
+         clock-names = ...,"hdmitx0_pixelclk";
+};
+
+The consumer of the PHY is only the hdmi controller.
+
+What matters for the node layout is where that clock goes. voutcrg is the
+SoC display clock controller - it is not part of the HDMI block:
+
+hdmi_phy -- pixel clock -> voutcrg
+                              |
+                              - pclk/mclk/bclk -> hdmi_controller
+                              - pix0/pix1 -> dc8200
+
+hdmi_phy and hdmi_controller are the same register block with one reg
+owned by the parent. So if that block is described as a single node:
+
+hdmi_node - pixel clock -> voutcrg
+     ^                          |
+     --- pclk/mclk/bclk --------
+
+the node provides a clock to voutcrg and consumes three clocks from
+voutcrg. That is a cycle in the device tree description.
+
+Split in two there is no cycle: the PHY's only input is xin24m - the 24 MHz
+oscillator which gives a linear order - hdmi_phy, voutcrg, hdmi_controller.
+
+> 
+> And really, I have no clue what hdmitx0_pixelclk and voutcrg are. I
+> could probably study the patches a lot to figure that out, but my review
+> queue has still 200 more, so I'll skip.
+> 
+> But nevertheless assigning clock parent of HDMI clock to PHY is
+> standard, most of the platforms have it, thus it is not a justification
+> for odd design.
+
+Agreed and that is what this is - I followed RK3328, which uses the same
+Innosilicon IP and also describes it as two nodes:
+
+hdmi:    hdmi@ff3c0000   clocks = <&cru PCLK_HDMI>, ...
+hdmiphy: phy@ff430000    clocks = <&cru PCLK_HDMIPHY>, <&xin24m>,
+                                  <&cru DCLK_HDMIPHY>
+                         clock-output-names = "hdmi_phy";
+                         #clock-cells = <0>;
+                         #phy-cells = <0>;
+
+The only difference is reg: RK3328 has two register ranges, the JH7110 has
+one, so the parent owns it and the children have none.
+
+> 
+>> functions with different clock inputs and one of them feeds back into
+>> the SoC clock tree. The PHY generates hdmitx0_pixelclk which voutcrg
+>> consumes the controller consumes pclk/mclk/bclk from voutcrg. Folded
+>> into one node that node is both a provider to and a consumer of
+>> voutcrg which is a cycle in the hardware description, not just in Linux.
+> 
+> 
+> Best regards,
+> Krzysztof
+> 
 
 Best regards,
 -- 
-~Vinod
-
-
+Michal Wilczynski <m.wilczynski@samsung.com>
 
 _______________________________________________
 linux-riscv mailing list
