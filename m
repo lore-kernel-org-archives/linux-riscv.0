@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B75E9CA5FEC
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Oct 2026 22:21:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD91ECA5FCE
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Oct 2026 22:52:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N42WjI12+0j3XrvhcTgJDIq8br66RscTJyCk9kD4q6I=; b=LK1hbDH1OKBlGi
-	+COdtVus14z/N8qxusjDDVNy8LIOS0ztvQ6aGwkeA/wJ/t9xvIANaUL2O9Ha0mQPF5K575COnlGE4
-	7AjA9W9kZvMKvrLAYzAZmTgPgInp/iTa1A+xTVL0Ca8Wix5jDLiMJIrdwPlibnm46td4GJ5VIlqsH
-	8QyztzoyQv1y7kuoiAWN0VcaSWEZSn+grp4sMm00ymz3+9m15DnQAidHFJMfIIq9sMNCI7Rc1EBZ2
-	T3UY+L+CGsT5QAYNlv9tiTPE54KrDCELFlYPzYD9qYt2Y6iptL+VLO3kjKvNMtPctQ1sOBLLNKWAr
-	uqGg7TRCUjBtJRyRGuxw==;
+	List-Owner; bh=fDNTpxfiLuTg7vDXsLaGf9eX9Oo7sqZMeV2ep95JFRk=; b=Axqp034fBPaukt
+	XeIgc2xHg+gPyMljYC3Xho1slL+itS2bnrp7z4D150zrExinBJHNXGMCqiJ/j2UajH1o/tDqy89vp
+	Xj+YINeoXajWJY1EjmNV23t5AHrFDzbyaR9BmkkU8ySM4BBCUdXEJmTss2aIH/dOy6ouuLC3U1P23
+	DrmB9k4qEljx9y7439DJSaZlF9g3Qutp3xzmepQVvcMTvYwPTpWREOcmeINElzghYyKWp9S0SUy7i
+	Xu751JomumswsV6xGuQoQS73kF27pRaCjbFewaKuyNwc637zzWVWKU/rt/V0jEtVsIaDlfKCixmR0
+	qVTD3icEW//z0pyRTuYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUaP-0000000FQDF-1EAJ;
-	Sun, 04 Oct 2026 22:21:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xDV47-0000000FRq0-3S1o;
+	Sun, 04 Oct 2026 22:52:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDUaO-0000000FQD3-1ST5
+	id 1xDV45-0000000FRph-45WF
 	for linux-riscv@lists.infradead.org;
-	Sun, 04 Oct 2026 22:21:36 +0000
+	Sun, 04 Oct 2026 22:52:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B5A1743E59;
-	Sun,  4 Oct 2026 22:21:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77C5F1F00893;
-	Sun,  4 Oct 2026 22:21:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 48130414F1;
+	Sun,  4 Oct 2026 22:52:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B80A71F000FF;
+	Sun,  4 Oct 2026 22:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791152495;
-	bh=PwXClfBVN3IVDB6KiSTGz0B78VZtRvypodlscWOMyoo=;
+	s=k20260515; t=1791154336;
+	bh=0g2Vd/WGDWx11Z5eDEYlSIfjJcLTcCv15IHzPL8eEL8=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=GOKvSeV4+ez5C5LqQqZBBUXHnqUAIdUc0ks/jjIHoFYbSXbkYD6+Tkj0laM1b8xiA
-	 pjAIGP61HfV3JiV8NvaiWfmdoEgkGvduBWKzW8gRX1gqIh7JD9awF1gv825TDrfBEc
-	 5Am6iVG4aMqlHKC9oO/WrQPvyi9DewMNluLR7D0u0NM7YIGlzokzmlke0GcOp+8/n5
-	 lfBlA+qx/xEBKzfCuqxVac7wvlQOvgmk3PGxpE0qug5OsGzdxRLp2bKLrGEYGsrJCD
-	 rX57pSc+JaedkViuyNB4PAVwh+SClTd2bQjooV3pdQkgGZqEQOWHlNpel6PO4VRGvs
-	 QSypB1jZYeWbg==
-Date: Sun, 4 Oct 2026 16:21:29 -0600 (MDT)
+	b=lwgN3X7IEPZrn04fjF+jM8fK5uE4aKHBKxjxKoexZ17Zug641RRd8T0s+2+Hq0fxT
+	 nhSzRlir695dbO4XRQ2NXQsG9vPMLy3cbt6QEfbvmLzyunDdwwqamlky1L271Kdo9R
+	 HIz5cBFDWwX+0SssHEAaBeq9fmdMylzrV2GLogS3PVfDF2dCqdzTKg7JXEXuHW2fCJ
+	 teOx/VyZCfPmU6kExhAloJQ7GUfCL4u8NysKbnAjUZ0UWLOTQA5pqsoxwOvWyeSvFe
+	 A8WJSrC86sT6PkrH8yhbd1F8VpKEL4/uqYDTBHFtPVFFHiIUzTNdoyd22ncTCiyk4i
+	 JeouYLX8Hkjjw==
+Date: Sun, 4 Oct 2026 16:52:12 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Aurelien Jarno <aurelien@aurel32.net>
-cc: linux-kernel@vger.kernel.org, Paul Walmsley <pjw@kernel.org>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Alexandre Ghiti <alex@ghiti.fr>, Andy Chiu <andybnac@gmail.com>, 
-    Conor Dooley <conor.dooley@microchip.com>, 
-    "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH] riscv: fix RVG_SYSTEM_CSR_MASK width mask
-In-Reply-To: <20260911194233.3379532-1-aurelien@aurel32.net>
-Message-ID: <6ce0769c-4683-0e62-e3b2-56b3300a45a2@kernel.org>
-References: <20260911194233.3379532-1-aurelien@aurel32.net>
+To: Wei-Jie Hung <imbigking12@gmail.com>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Mike Rapoport <rppt@kernel.org>, Xiaofeng Yuan <xiaofengmian@163.com>, 
+    Klara Modin <klara@kasm.eu>, linux-riscv@lists.infradead.org, 
+    bpf@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: patch: fix handling of bpf-jit execmem
+ addresses
+In-Reply-To: <20260914115607.350097-1-imbigking12@gmail.com>
+Message-ID: <19ff2b67-55e9-92f2-5bee-57d36a9074c4@kernel.org>
+References: <20260914115607.350097-1-imbigking12@gmail.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,15 +72,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Sep 2026, Aurelien Jarno wrote:
+On Mon, 14 Sep 2026, Wei-Jie Hung wrote:
 
-> RVG_SYSTEM_CSR_MASK should be 12 bits [31:20], shifted down by 20 bits.
-> Replace GENMASK(12, 0) by GENMASK(11, 0).
+> Commit 8718e5a3090b ("riscv: patch: skip fixmap mapping when kernel text
+> is already writable") gated the core_kernel_text() branch of patch_map()
+> on CONFIG_STRICT_KERNEL_RWX, and explicitly left the vmalloc branch
+> unchanged. That branch has a separate problem.
 > 
-> Fixes: cd054837243b ("riscv: Allocate user's vector context in the first-use trap")
-> Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+> That branch only creates a temporary writable fixmap alias when
+> CONFIG_STRICT_MODULE_RWX is enabled, and otherwise assumes the target is
+> directly writable and returns the address unchanged. That assumption no
+> longer holds: bpf_prog_pack_alloc calls set_memory_rox() on every pack
+> unconditionally in alloc_new_pack(), independently of any
+> CONFIG_STRICT_*_RWX option, so BPF text in the vmalloc area is read-only
+> regardless of what CONFIG_STRICT_MODULE_RWX says.
+> 
+> With CONFIG_STRICT_MODULE_RWX=n, patch_map() returns the read-only
+> address directly, the subsequent copy_to_kernel_nofault() takes a
+> page fault and returns -EFAULT. bpf_arch_text_copy() turns that into
+> -EINVAL, which propagates through bpf_jit_binary_pack_finalize() to the
+> WARN_ON() in bpf_int_jit_compile() and leaves the program un-JITed.
+> 
+> Note that BPF cannot be fixed the way kprobes was in
+> commit bdc46e507b59 ("riscv: mm: make EXECMEM_KPROBES writable without
+> CONFIG_STRICT_MODULE_RWX"). EXECMEM_BPF is already PAGE_KERNEL, i.e.
+> writable at allocation time; the read-only mapping is established
+> afterwards by generic code in alloc_new_pack(), which arch code cannot
+> influence. The only place this can be handled is patch_map().
+> 
+> This is the same problem that was fixed on arm64 by commit b1480ed230ac
+> ("arm64: patching: fix handling of execmem addresses"), and the fix is
+> the same: CONFIG_EXECMEM is what actually tracks whether the vmalloc
+> area can hold executable memory that needs a temporary alias to be
+> written. CONFIG_BPF_JIT, CONFIG_KPROBES and CONFIG_MODULES all select
+> it.
+> 
+> Note that this is not limited to CONFIG_MODULES=n. Unlike arm64, riscv
+> selects CONFIG_ARCH_OPTIONAL_KERNEL_RWX, so CONFIG_STRICT_MODULE_RWX can
+> be disabled with CONFIG_MODULES=y as well, and the bug is reachable in
+> that configuration too.
+> 
+> The !CONFIG_MMU build is unaffected: it has its own __patch_insn_set()
+> and __patch_insn_write() implementations and never calls patch_map().
 
-Thanks, queued for v7.4.
+Thanks, queued for v7.3-rc.
 
 
 - Paul
