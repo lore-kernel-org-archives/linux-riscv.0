@@ -4,75 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC80CA5FEC
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Oct 2026 10:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE29ACA5FEC
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Oct 2026 11:03:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date
-	:From:In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Twl54c8vuFy4kLB8qJS7kbKsYPxGdJPxz6ZRV5xhG+I=; b=E7qzal1KpTXPHB
-	46zfSOnTO12zKx9R7TnQ3TtjgxflIT0IoHTYN5jDqqZ6qBNITJyEw/mu7ALQSbV6DT5AMTyFNmz9l
-	fk5GPahXp6Z/c/TXh7mIHgji/JQ69eTt8pTA17v2YQ+CmTD2wRtKSlZWWimYaleHHTDnSnaoMDbyQ
-	z2oF+GdLbeuG87ulWMX6ptDwzTZNJk5ARjPIB5cQJESYAwvsviqKLL3rT/uwKDtm/X60UfrPraqko
-	KcE6HMAdWwIwhVKZ4cOPPsUbPsBWYlDzpYY0tHgRkXTAnP/RR8b+We4SnbfH/hh7Y3Zu3hMRDTgdG
-	Ii49kOL4fUdPHmPIkWUw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xEY+IzTpAXl2YtKRiWy7k7O9LHz257/gbLrwHmbZ/Mw=; b=F8CaW3g+WZBWXqOm7RKByi9gWS
+	IIzXlDOOJxsGscB7XyR1Z/cktEqIxZaW6lhvBwjNbp48obx4fqbSLGO55pHGLSCv+DEm65Zyu8Vpt
+	pqxJXpPWZjRTMIF2ny/6Onl1kblU04joivVrCjzY6uE5kHf4Bmi1xWY62Q/RuE182K3x6MLwLvvcA
+	6RBBk/qvpjqH0XR4FIkPB+1e7IxTaFcFu88JyyOIKEg+m/pWtahAn/oojMss2FVaHpULa+s/3mn8X
+	Bft1LOWZDvzNc869q2Gk550mg8kgQl6vYfAWVSewsIWKzBJvxwboBkyUHGQB6caYajjsjIaUz9Bfe
+	Z+Ohu1kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDJKh-0000000Eeh9-1q89;
-	Sun, 04 Oct 2026 10:20:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xDK0H-0000000Eh6x-05mj;
+	Sun, 04 Oct 2026 11:03:37 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDJKe-0000000Eegb-43oM
+	id 1xDK0C-0000000Eh57-1bZg
 	for linux-riscv@lists.infradead.org;
-	Sun, 04 Oct 2026 10:20:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5F28F447B8
-	for <linux-riscv@lists.infradead.org>; Sun,  4 Oct 2026 10:20:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 351A21F008BC
-	for <linux-riscv@lists.infradead.org>; Sun,  4 Oct 2026 10:20:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791109236;
-	bh=Vl53g7rpe8c2NvDVMufClYtHeiVeKNLfh36+hYUKK2Y=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=gqt4DRaVUlq3TTRXsfIWM+ZzYYHZ6izGC94e7qbADl0A3FjKHf+5f1eVeRUpRQrZc
-	 5DY8JHzmgVqA6kEoot3HwdiD/d1WFwBb48n/s7/ChIUU74xfsCIdfNd36BBWVuQ4TW
-	 LQtAiG06km7HbsGvLOX5c5DVettgRpizHcRL1V7iV4RSyAEJc/iV2dS94XP6IzmQcP
-	 7R/2fRXXTipw20v9loYNPUVdUid+cxZeqqHzasSLqM0XNZOIdflqUZkikTG6RLt0Qd
-	 q+OC4Mrc/1g93NatVhYQYpmDjlxeaHlxONdl6f5dbmUGMgalzDZYohMJ+5F9jXNQLG
-	 aGKwPaUyOm5Dw==
-Received: by mail-lr2-f34.google.com with SMTP id 38308e7fff4ca-3a77141826cso9274021fa.0
-        for <linux-riscv@lists.infradead.org>; Sun, 04 Oct 2026 03:20:36 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBw8q2qabbs0VySgg9y31ePqIq/yE5c3HPLujsoL76HB3Ygsv7JMB+IJqOvshKmMDmW+RSXYCJT3QQttIQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYIN3eh3IJqMzD7fVI0zgpQ3y1Egl8GeeqhcbUwoQNSOUv59eU4W
-	rEbCjzgoQOzToiPkTN80RWAHekOfbWk9UCe2tJOYncd4GRBQtiECRhjMuyj4p8LtD9kw0zDQk+f
-	3uDcE27E+0LcOSUw4e4cjNhvyI6cbMcM=
-X-Received: by 2002:a05:651c:1505:b0:3a4:9e40:d7fb with SMTP id
- 38308e7fff4ca-3a8877ae1c5mr17889201fa.7.1791109234518; Sun, 04 Oct 2026
- 03:20:34 -0700 (PDT)
+	Sun, 04 Oct 2026 11:03:35 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4a16aaf2067so8238155e9.0
+        for <linux-riscv@lists.infradead.org>; Sun, 04 Oct 2026 04:03:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1791111810; x=1791716610; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=BRY4iUwoy0k7A4Q+WlcGtk6KJOn/v2ablV6+SEfz6BM=;
+        b=thoYrUzbHCPMz9fozHRA4NhSAkaXQO5ga5eB6Wyjy4Ow5hc3cl8eZg/o0C6ETW0scG
+         BCuVf6YmkkKWXFNQzl0iUum44G4tKqrPoAXLeDxfm6N89f2RkBwRsJw0qCXpa5tfoT3M
+         H3focm3aBPHL/CH5ke6U/UnIWSEFmij+U2OQw4m+aijOZKVIp7GaH7GGj7sPUZpHl8EP
+         OOqLkFxpIs/7PPi5tWWWCxKtHkzAfQ/m5IAcFFAOcLFWdV1T/2XU+HUw1C+8mkiGNTRF
+         UW0p8Am99STjy9kl/snM+7yfgGOeIeq866ztoA0FoHxKnl5BTtwZvRQEXSV/6xlQJ3Fr
+         hHGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791111810; x=1791716610;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BRY4iUwoy0k7A4Q+WlcGtk6KJOn/v2ablV6+SEfz6BM=;
+        b=QnldGe87cYBxZvFAMbfZBVt977291fTxtaJaDJECd5QkgFnkNKHGcAhQokZTPJxDgB
+         i3sB0MZS+IYIu1ojkyY/6goZVMHa2UAsOwRD9VtafIPts4Ggz1MLI6388+wTe+Xvpnkc
+         hMCp1neQmlnjjGiF/PNuNu19TqUGoyiNm0Z/7jp8q1AfVrFlbbYn+UI0VRUyNzysMlsF
+         sxD9por1/rCWcIdcjgYXh0qaqv1z7uZg+TWLxPQu8eG/nb5ShjqHiNJ5UwrhzkQztGv5
+         10WimEilLMe9IbG4Jh7sS/Xso6+Lr17chXJSPh8ma+Xv3ldOF/0mZPBhxvgjlQqg+i5/
+         QLmg==
+X-Gm-Message-State: AFuF++m9KpF30G5/1HHeqw9MKDH0waHHR8dYoBYSSurxBGy91FxuOa3G
+	BGrh1brmzoxOr9UvKBUWkN4uSPsQkTU1Cz0YFeS2HfiveyNb53FBonmQGSXgreN3KFs=
+X-Gm-Gg: AYBFou0ji89eAziJbmF6zOPJv95ULbtj30IgsFzREiIE/9ve2xLvnpWtZ147IwLEh66
+	/BLTzooSzi7hMtpFdtIKXqRtv+6y8TwB9nZf/1Lq45VFiUBu8472uy5XIPFZkMDy86Kk4YZaQtr
+	c5ONarDqty3h6N7oSRSxBsfiL7+KysNlxCkTVQLJxnXBB0FSBo0lV/4Oid6maetefdeQTWbpK5o
+	w8gkd2lKi7qXosukJLA7CmwWpERxxzWq5tmOybl6LsmyyOVea4HnKRTm9m3R3KEH8lUQLWoQeHl
+	IwDa/LpIKT59Qbc/qxWSeE+7tkX4A1DvoPzJ+uk+aCczg0YjbpYpjQpbB/CQWm3gTPKxFuStbz9
+	rYhdauR2yOphFf7WOwcMXqxZaVJgDCFDhbBXXPwF4o5GVYQ/L+X6PuOPLmtxTgigi8zhwBFzD3H
+	T9oIs+cpwXpglHbo8g6mE0XPX3f/3PmetQ3W62bAVr44xp91is8Vr0ujPo9L2GVKH/JQRAtqYHd
+	YuNe/tnVJztlVNOBcQMPPFht0iGzHHPDcIVilk8QmCbAR4si20bTxyd6o2A5RP7blb0jZNRbVlI
+	7QnPDhbf9tv9MXnqsTZW5+H92pTxgAje7JbY3pOS
+X-Received: by 2002:a05:600c:3509:b0:4a1:69c0:a1f7 with SMTP id 5b1f17b1804b1-4a169c0a338mr59304215e9.34.1791111809834;
+        Sun, 04 Oct 2026 04:03:29 -0700 (PDT)
+Received: from ?IPv6:2001:1aeb:400:6f00:73f4:bfe7:a3e6:c16f? (2001-1aeb-400-6f00-73f4-bfe7-a3e6-c16f.ip6.tmcz.cz. [2001:1aeb:400:6f00:73f4:bfe7:a3e6:c16f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a027740a2fsm283591575e9.13.2026.10.04.04.03.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 04 Oct 2026 04:03:29 -0700 (PDT)
+Message-ID: <5c6b215401bd705f2023102e9d8b779ee4ae8c4a.camel@ndufresne.ca>
+Subject: Re: [PATCH v2 6/6] media: mtk-vpu: rename IPI_MAX to IPI_VPU_MAX
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Radu Rendec <radu@rendec.net>, "GUO Ren (XuanTie)" <guoren@kernel.org>, 
+ Paul Walmsley	 <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou	 <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Daniel
+ Lezcano	 <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+ Anup Patel	 <anup@brainfault.org>, Tiffany Lin <tiffany.lin@mediatek.com>,
+ Andrew-CT Chen	 <andrew-ct.chen@mediatek.com>, Yunfei Dong
+ <yunfei.dong@mediatek.com>,  Minghsiu Tsai <minghsiu.tsai@mediatek.com>,
+ Houlong Wei <houlong.wei@mediatek.com>, Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Nathan Chancellor <nathan@kernel.org>
+Date: Sun, 04 Oct 2026 07:03:27 -0400
+In-Reply-To: <2b23ecf7ae8baf0266c3701060858abec901a71c.camel@rendec.net>
+References: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
+		 <20260911-ipi_max-v2-6-a77826ff189e@kernel.org>
+	 <2b23ecf7ae8baf0266c3701060858abec901a71c.camel@rendec.net>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
 MIME-Version: 1.0
-References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech> <20260930-a733-clk-v5-5-11175b41cd2d@pigmoral.tech>
-In-Reply-To: <20260930-a733-clk-v5-5-11175b41cd2d@pigmoral.tech>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Sun, 4 Oct 2026 12:20:22 +0200
-X-Gmail-Original-Message-ID: <CAGb2v66YZtRW=1igjZogmO7qkzOggBDZs6jsE7qnSygrFR8XUw@mail.gmail.com>
-X-Gm-Features: AclHuK8lO4-Xwk9IPWxNxJj8KXMJSBu0Tti5GLWoVOI0E89DZO986O0ZYPGFHF4
-Message-ID: <CAGb2v66YZtRW=1igjZogmO7qkzOggBDZs6jsE7qnSygrFR8XUw@mail.gmail.com>
-Subject: Re: [PATCH v5 5/8] clk: sunxi-ng: a733: Add bus clocks support
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
-	Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, netdev@vger.kernel.org, 
-	Jerome Brunet <jbrunet@baylibre.com>, Enzo Adriano <enzo.adriano.code@gmail.com>, 
-	Andre Przywara <andre.przywara@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261004_040333_308735_9B2D6F6A 
+X-CRM114-Status: GOOD (  24.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +121,159 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============1263863832327177490=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBTZXAgMjksIDIwMjYgYXQgNzoyOOKAr1BNIEp1bmh1aSBMaXUgPGp1bmh1aS5saXVA
-cGlnbW9yYWwudGVjaD4gd3JvdGU6Cj4KPiBBZGQgdGhlIGVzc2VudGlhbCBidXMgY2xvY2tzIGlu
-IHRoZSBBbGx3aW5uZXIgQTczMyBDQ1UsIGluY2x1ZGluZyBBSEIsCj4gQVBCMCwgQVBCMSwgQVBC
-X1VBUlQsIGFuZCBNQlVTLiBUaGVzZSBidXNlcyBhcmUgbmVjZXNzYXJ5IGZvciBtYW55IG90aGVy
-Cj4gZnVuY3Rpb25hbCBtb2R1bGVzLiBBZGRpdGlvbmFsIGNsb2NrcyBzdWNoIGFzIHRyYWNlIGFu
-ZCBnaWMgYXJlIGFsc28KPiBhZGRlZCBhcyB0aGV5IGZhbGwgd2l0aGluIHRoZSByZWdpc3RlciBh
-ZGRyZXNzIHJhbmdlIG9mIHRoZSBidXMgY2xvY2tzLAo+IGV2ZW4gdGhvdWdoIHRoZXkgYXJlIG5v
-dCBzdHJpY3RseSBidXMgY2xvY2tzLgo+Cj4gVGhlIE1CVVMgY2xvY2sgaXMgbWFya2VkIGFzIGNy
-aXRpY2FsIHRvIGVuc3VyZSB0aGUgbWVtb3J5IGJ1cyByZW1haW5zCj4gb3BlcmF0aW9uYWwgYXQg
-YWxsIHRpbWVzLiBBbmQgdGhlIGhhcmR3YXJlIHJlcXVpcmVzIGFuIHVwZGF0ZSBiaXQKPiAoYml0
-IDI3KSB0byBiZSBzZXQgc28gdGhhdCB0aGUgY29uZmlndXJhdGlvbiB0YWtlcyBlZmZlY3QgYW5k
-IHRoZQo+IHVwZGF0ZWQgcGFyYW1ldGVycyBjYW4gYmUgY29ycmVjdGx5IHJlYWQgYmFjayBmb3Ig
-dGhlIE1CVVMgY2xvY2suCj4KPiBUaGUgR0lDIGNsb2NrIGlzIGFsc28gbWFya2VkIGFzIGNyaXRp
-Y2FsLiBUaGUgYm9vdGxvYWRlciBtYXkgbGVhdmUgdGhlCj4gR0lDIHJ1bm5pbmcgb24gYSBQTEwg
-cGFyZW50LCBhbmQgZGlzYWJsaW5nIHRoYXQgUExMIGR1cmluZwo+IGNsa19kaXNhYmxlX3VudXNl
-ZCB3b3VsZCBoYW5nIHRoZSBpbnRlcnJ1cHQgY29udHJvbGxlciBhbmQgdGhlIHN5c3RlbS4KPgo+
-IFRlc3RlZC1ieTogSmVyb21lIEJydW5ldCA8amJydW5ldEBiYXlsaWJyZS5jb20+Cj4gU2lnbmVk
-LW9mZi1ieTogSnVuaHVpIExpdSA8anVuaHVpLmxpdUBwaWdtb3JhbC50ZWNoPgo+IC0tLQo+ICBk
-cml2ZXJzL2Nsay9zdW54aS1uZy9jY3Utc3VuNjBpLWE3MzMuYyB8IDEwNSArKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysKPiAgMSBmaWxlIGNoYW5nZWQsIDEwNSBpbnNlcnRpb25zKCsp
-Cj4KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9jbGsvc3VueGktbmcvY2N1LXN1bjYwaS1hNzMzLmMg
-Yi9kcml2ZXJzL2Nsay9zdW54aS1uZy9jY3Utc3VuNjBpLWE3MzMuYwo+IGluZGV4IDQzMGE1MzU5
-MTljNi4uZWRhNGIzNDdjNTQwIDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvY2xrL3N1bnhpLW5nL2Nj
-dS1zdW42MGktYTczMy5jCj4gKysrIGIvZHJpdmVycy9jbGsvc3VueGktbmcvY2N1LXN1bjYwaS1h
-NzMzLmMKCkkgd291bGQgcHJlZmVyIGNvbW1lbnRzIGhlcmUgZm9yIHRoZSBza2lwcGVkIG92ZXIg
-Q1BVX1BFUkkgYW5kIE5TSSBjbG9ja3MuCgpPbmNlIGFkZGVkLAoKUmV2aWV3ZWQtYnk6IENoZW4t
-WXUgVHNhaSA8d2Vuc0BrZXJuZWwub3JnPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+
+--===============1263863832327177490==
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-TPZS9VL83/bL5Rbeq0pg"
+
+
+--=-TPZS9VL83/bL5Rbeq0pg
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Le jeudi 17 septembre 2026 =C3=A0 21:21 -0400, Radu Rendec a =C3=A9crit=C2=
+=A0:
+> On Fri, 2026-09-11 at 03:27 +0000, GUO Ren (XuanTie) wrote:
+> > The last enumerator of this driver's firmware IPI id list is a bound
+> > for the VPU mailbox protocol, not a generic host IPI limit. Follow the
+> > existing naming in this header: IPI_VPU_INIT already carries a VPU
+> > prefix, so the terminator should match.
+> >=20
+> > The same convention is used by the SCP IPI enum, which ends with a
+> > prefixed SCP_IPI_MAX rather than a bare IPI_MAX.
+> >=20
+> > Rename IPI_MAX to IPI_VPU_MAX and update the descriptor table bounds
+> > and range checks. No functional change.
+> >=20
+> > Link: https://lore.kernel.org/linux-riscv/20260908222349.GA2324870@ax16=
+2
+> > Cc: Nathan Chancellor <nathan@kernel.org>
+> > Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
+
+Applied, ty.
+
+> > ---
+> > =C2=A0drivers/media/platform/mediatek/vpu/mtk_vpu.c | 12 ++++++------
+> > =C2=A0drivers/media/platform/mediatek/vpu/mtk_vpu.h |=C2=A0 4 ++--
+> > =C2=A02 files changed, 8 insertions(+), 8 deletions(-)
+> >=20
+> > diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.c b/drivers/me=
+dia/platform/mediatek/vpu/mtk_vpu.c
+> > index 8d8319f0cd22..b3e9f8c4ab7a 100644
+> > --- a/drivers/media/platform/mediatek/vpu/mtk_vpu.c
+> > +++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.c
+> > @@ -211,7 +211,7 @@ struct mtk_vpu {
+> > =C2=A0	struct vpu_regs reg;
+> > =C2=A0	struct vpu_run run;
+> > =C2=A0	struct vpu_wdt wdt;
+> > -	struct vpu_ipi_desc ipi_desc[IPI_MAX];
+> > +	struct vpu_ipi_desc ipi_desc[IPI_VPU_MAX];
+> > =C2=A0	struct share_obj __iomem *recv_buf;
+> > =C2=A0	struct share_obj __iomem *send_buf;
+> > =C2=A0	struct device *dev;
+> > @@ -221,7 +221,7 @@ struct mtk_vpu {
+> > =C2=A0	struct mutex vpu_mutex; /* for protecting vpu data data structur=
+e */
+> > =C2=A0	u32 wdt_refcnt;
+> > =C2=A0	wait_queue_head_t ack_wq;
+> > -	bool ipi_id_ack[IPI_MAX];
+> > +	bool ipi_id_ack[IPI_VPU_MAX];
+> > =C2=A0};
+> > =C2=A0
+> > =C2=A0static inline void vpu_cfg_writel(struct mtk_vpu *vpu, u32 val, u=
+32 offset)
+> > @@ -296,7 +296,7 @@ int vpu_ipi_register(struct platform_device *pdev,
+> > =C2=A0		return -EPROBE_DEFER;
+> > =C2=A0	}
+> > =C2=A0
+> > -	if (id < IPI_MAX && handler) {
+> > +	if (id < IPI_VPU_MAX && handler) {
+> > =C2=A0		ipi_desc =3D vpu->ipi_desc;
+> > =C2=A0		ipi_desc[id].name =3D name;
+> > =C2=A0		ipi_desc[id].handler =3D handler;
+> > @@ -319,7 +319,7 @@ int vpu_ipi_send(struct platform_device *pdev,
+> > =C2=A0	unsigned long timeout;
+> > =C2=A0	int ret =3D 0;
+> > =C2=A0
+> > -	if (id <=3D IPI_VPU_INIT || id >=3D IPI_MAX ||
+> > +	if (id <=3D IPI_VPU_INIT || id >=3D IPI_VPU_MAX ||
+> > =C2=A0	=C2=A0=C2=A0=C2=A0 len > sizeof(send_obj->share_buf) || !buf) {
+> > =C2=A0		dev_err(vpu->dev, "failed to send ipi message\n");
+> > =C2=A0		return -EINVAL;
+> > @@ -748,7 +748,7 @@ static void vpu_ipi_handler(struct mtk_vpu *vpu)
+> > =C2=A0	s32 id =3D readl(&rcv_obj->id);
+> > =C2=A0
+> > =C2=A0	memcpy_fromio(data, rcv_obj->share_buf, sizeof(data));
+> > -	if (id < IPI_MAX && ipi_desc[id].handler) {
+> > +	if (id < IPI_VPU_MAX && ipi_desc[id].handler) {
+> > =C2=A0		ipi_desc[id].handler(data, readl(&rcv_obj->len),
+> > =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0 ipi_desc[id].priv);
+> > =C2=A0		if (id > IPI_VPU_INIT) {
+> > @@ -934,7 +934,7 @@ static int mtk_vpu_probe(struct platform_device *pd=
+ev)
+> > =C2=A0#ifdef CONFIG_DEBUG_FS
+> > =C2=A0	debugfs_remove(vpu_debugfs);
+> > =C2=A0#endif
+> > -	memset(vpu->ipi_desc, 0, sizeof(struct vpu_ipi_desc) * IPI_MAX);
+> > +	memset(vpu->ipi_desc, 0, sizeof(struct vpu_ipi_desc) * IPI_VPU_MAX);
+> > =C2=A0vpu_mutex_destroy:
+> > =C2=A0	mutex_destroy(&vpu->vpu_mutex);
+> > =C2=A0disable_vpu_clk:
+> > diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.h b/drivers/me=
+dia/platform/mediatek/vpu/mtk_vpu.h
+> > index 3951547e9ec5..44ab631ec904 100644
+> > --- a/drivers/media/platform/mediatek/vpu/mtk_vpu.h
+> > +++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.h
+> > @@ -49,7 +49,7 @@ typedef void (*ipi_handler_t) (void *data,
+> > =C2=A0 *			 handle VP8 video encoder job,, and vice versa.
+> > =C2=A0 * @IPI_MDP:		 The interrupt from vpu is to notify kernel to
+> > =C2=A0 *			 handle MDP (Media Data Path) job, and vice versa.
+> > - * @IPI_MAX:		 The maximum IPI number
+> > + * @IPI_VPU_MAX:	 The maximum VPU IPI number
+> > =C2=A0 */
+> > =C2=A0
+> > =C2=A0enum ipi_id {
+> > @@ -60,7 +60,7 @@ enum ipi_id {
+> > =C2=A0	IPI_VENC_H264,
+> > =C2=A0	IPI_VENC_VP8,
+> > =C2=A0	IPI_MDP,
+> > -	IPI_MAX,
+> > +	IPI_VPU_MAX,
+> > =C2=A0};
+> > =C2=A0
+> > =C2=A0/**
+>=20
+> Reviewed-by: Radu Rendec <radu@rendec.net>
+
+--=-TPZS9VL83/bL5Rbeq0pg
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCasIyfwAKCRDZQZRRKWBy
+9FPtAQDkOJhhuAzPdjhptdi8Ylku8gIEE5VszzwnAapD1IuDBQEAglHv3kKr78aE
+qCuExFYbYHz3OhJLH8ntRzJdldPqtQk=
+=d6+8
+-----END PGP SIGNATURE-----
+
+--=-TPZS9VL83/bL5Rbeq0pg--
+
+
+--===============1263863832327177490==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1263863832327177490==--
+
