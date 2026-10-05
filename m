@@ -4,58 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75CF3CA5FFC
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2026 17:13:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 727EDCA5FFC
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2026 17:18:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/mvwvwi2XAlXetBxGojAuefHvgyPkadu3vie32+I7yE=; b=AnuMkjvj3wx3ZH
-	p4H6AhRA9jaTdRvUSSyMzCumhvfN3KYR2I5+PWEKowQm2CUqdscAlUlHRrb8tCcVdlc6C9Rmgv5SU
-	sbvhZvNZB+rp/6xWoqdgzBd/K4sRp3aZbaEhDYUSC0nj8fBEgVs7n8Da7Hpj5SVG7rIg/E0fVPnNj
-	PpwKZ/OVtApgQpjmuqNbOOcYUGVJ39LQ5z8R5t0uk+qHQer+4U//SzcGm1Ftc9+P/e7Jvbi2F6MJG
-	vvxxN4v9aVJr6OAKfctlr+id77383tuvZ1YU+6yyqZG+ECELoBhNDdJbgHPkY1uO1/3sy7CsNzv4E
-	8gZfwlEuHhd220EcsEiA==;
+	List-Owner; bh=iAdMPeHJJ2jVuNjARxNja5JjUy/Up+UHlAL4z7FxSIc=; b=WSeQO7GdVrn1Li
+	3jeIUql/wjgWrvT2951Ekk7i31ecc+8nycMClAq9cHo18T9DWFDdeiUG4MEF7lccNsDMZdCGPiwzm
+	VcqQAFpHt8kOfv1gmrZc0Iznbgbbh5TTQc3W6ZiHFNNdBQ5a81x/Pa479DVg8p8dLWpeecC+F6rh9
+	u4NAtRTM3A5zmIKJOBleDwpatI5HLArYc2T/xUQh8QxaXkVgXrrjkFrN8tpO+ZDIuTx8qhtTtSj4t
+	OWbJT4ldkCDCWwPinWnQhb8+cURFlTCrwe18NTZ0vnKyN8MR+GOLzGtnU+n20d4T7hy1aGWVfEbKJ
+	gpZG6PEBlQv73dhjDLDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDmFw-0000000Gtza-41iA;
-	Mon, 05 Oct 2026 17:13:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xDmK1-0000000GuGr-1t3m;
+	Mon, 05 Oct 2026 17:17:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDmFh-0000000Gtz9-3dAW
+	id 1xDmK0-0000000GuGj-0z5H
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Oct 2026 17:13:25 +0000
+	Mon, 05 Oct 2026 17:17:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AC31E60008;
-	Mon,  5 Oct 2026 17:13:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B64D41F000FF;
-	Mon,  5 Oct 2026 17:13:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id ABE0344057;
+	Mon,  5 Oct 2026 17:17:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DD7B1F00898;
+	Mon,  5 Oct 2026 17:17:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791220403;
-	bh=PJGQiGG2EhFdB2vRXI/iToPB7BKM0nrSllWgrPUANUU=;
+	s=k20260515; t=1791220671;
+	bh=Ymq6W5k88Rw+hVc9kKcw2Uav+weX0N5PgaqyYjKKNzI=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=WP1Grhdjr9mHHfqIVRUvx/mjm3ZRAsUhyQ3nUCRqi/Q+gXrYvCQopj+ntzVmhW6Qr
-	 itH/aPggqcw86qFpEqX/OeKScRUJz+TicfSpbj7jDGTg9i3CjKuD6L0fL6iCa+JeyM
-	 ng/eDkJGa4YM0KEeDZ+/x5JLhwADhdyusOQCXFKVOO3OrHK8qTPBIjIPmRP6Irqijs
-	 4/+oRhbLJY7lhCYNgXoUV2WZ64FG7lbX7bLKEtcCOuKZvo8Z5Y0w4byDw07HpSGD5I
-	 9vMrQV8eqn7BCrfM5mixvVmKUwU5iLqgxQKXRA9saa0TaF6F801CEEvy4bjG/niVfQ
-	 gDAFBd2Y84RKg==
-Date: Mon, 5 Oct 2026 11:13:16 -0600 (MDT)
+	b=kDIbKGuZoC1H8ltVNn4uWnWUp1ldMPvq/u8Zj2BBGCDSqORZyRdgOMO2TLyUGTSsJ
+	 Z9L6yEB1cWsuDPJH1YYIDKBYQtFPaFa68GKHWjI6i87C5lMW5gRHCT3HCNT55yqO98
+	 bhH/Rr8vk2s4kscDewWiXMPTWYuoc76rbS5Nxxnihhy0xNiDXKhXUika2+HIjD+5Uu
+	 lMP/EDxJCU/OiFKpkQtqf3Y7gNf/sEM3MTqNZOaZb+HK3jNwVPToUszWF3sKRhPSXt
+	 NfrGzJnBZL7vwdh8HUhadqBuwRJaszf+3VgyWoAQsqbfrLG0pJ3+GXw5VeIwLlVcyC
+	 ijkvN/gls3aVw==
+Date: Mon, 5 Oct 2026 11:17:46 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: shao.mingyin@zte.com.cn, gao.rui@zte.com.cn
-cc: pjw@kernel.org, mikey@neuling.org, jiangfeng@kylinos.cn, 
-    palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+To: gao.rui@zte.com.cn
+cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+    jiangfeng@kylinos.cn, david.laight.linux@gmail.com, 
     linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    zhang.yue5@zte.com.cn, david.laight.linux@gmail.com, 
-    qingfang.deng@linux.dev, aurelien@aurel32.net, troy.mitchell@linux.dev
-Subject: =?ISO-8859-15?Q?Re=3A_=5BPATCH_v4=5D_riscv=3A_lib=3A_Fix_ZBB?=
- =?ISO-8859-15?Q?_strnlen_wrap-around_regression_on=A0huge_count?=
- =?ISO-8859-15?Q?s?=
-In-Reply-To: <20260928113518331HR61sfVYm8Lrb44vgAEuk@zte.com.cn>
-Message-ID: <970c63ed-9fa8-9d1f-4521-0a7119b9d6e5@kernel.org>
-References: 20260915152656708z04s4oSYY2BGj34F36RZa@zte.com.cn <20260928113518331HR61sfVYm8Lrb44vgAEuk@zte.com.cn>
+    jmontleo@redhat.com
+Subject: Re: [PATCH v3] riscv: fix strnlen() overflow in Zbb implementation
+In-Reply-To: <202609300948576198tT3nfO5VwsTwUw23gA9v@zte.com.cn>
+Message-ID: <501e0def-c7ab-0f0c-cc19-7de5d253ca0d@kernel.org>
+References: <202609300948576198tT3nfO5VwsTwUw23gA9v@zte.com.cn>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,43 +70,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Shao Mingyin,
+Hi Gao Rui,
 
-On Mon, 28 Sep 2026, shao.mingyin@zte.com.cn wrote:
+On Wed, 30 Sep 2026, gao.rui@zte.com.cn wrote:
 
-> Hi Paul,
+> riscv: fix strnlen() overflow in Zbb implementation
 > 
-> Gentle ping on this one - it has picked up more tags since posting, and
-> should be ready to be picked up:
+> The RISC-V Zbb optimized strnlen() implementation can return incorrect
+> results when very large count values are supplied.
 > 
->   Acked-by:     Michael Neuling <mikey@neuling.org>
->   Reviewed-by:  Aurelien Jarno <aurelien@aurel32.net>
->   Tested-by:    Troy Mitchell <troy.mitchell@linux.dev>
->   Suggested-by: David Laight <david.laight.linux@gmail.com>
->   Suggested-by: Qingfang Deng <qingfang.deng@linux.dev>
+> The previous implementation calculates an end address based on the
+> input pointer and count. When count is close to SIZE_MAX, the address
+> calculation may overflow, resulting in incorrect termination checks and
+> wrong return values.
 > 
-> It stays a minimal fix: only the two boundary-computation instructions
-> in the ZBB path are replaced (18 insertions, 2 deletions, no new
-> registers), so the scanning loop itself is unchanged.
+> This issue was observed while running device-mapper tests:
 > 
-> This one matters for stable - the regression is in v7.1.10+ and v7.2:
-> strnlen(s, SIZE_MAX) returns 8 for any 8+-byte aligned string and
-> truncates names built through FORTIFY strcat/strlcat (device-mapper's
-> sysfs name "live-base" becomes "live-bas"), which broke blivet/anaconda
-> installs and LVM on RISC-V systems.  It has since been reproduced
-> independently on a Fedora 45 riscv64 image with ZBB enabled, where the
-> fix restores correct behaviour.
+> dmsetup create testname9 --table "0 8 zero"
+> cat /sys/block/dm-*/dm/name
+> dmsetup remove testname9
 > 
-> Cc: stable is set, and the minimal form should backport cleanly to
-> 7.1.y.  Happy to rebase onto riscv/fixes or adjust anything if needed.
+> Rework the Zbb implementation to use a word counter instead of an end
+> address. This removes the dependency on end-address calculations,
+> avoids overflow entirely, and simplifies the termination condition of
+> the word scanning loop. The final length is calculated using the saved
+> original pointer.
+> 
+> Performance was evaluated with string_bench_strnlen:
+> 
+> New Implementation Previous Implementation
+> 
+> len=0 : 71 ns/call 70 ns/call
+> len=1 : 82 ns/call 81 ns/call
+> len=7 : 83 ns/call 81 ns/call
+> len=8 : 83 ns/call 81 ns/call
+> len=16 : 94 ns/call 90 ns/call
+> len=31 : 117 ns/call 113 ns/call
+> len=64 : 175 ns/call 167 ns/call
+> len=127 : 259 ns/call 258 ns/call
+> len=512 : 802 ns/call 833 ns/call
+> len=1024 : 1512 ns/call 1536 ns/call
+> len=3173 : 4581 ns/call 4640 ns/call
+> len=4096 : 6256 ns/call 6068 ns/call
+> 
+> Results show comparable performance to the previous implementation
+> while fixing the overflow issue.
+> 
+> Fixes: 5ba15d419fab ("riscv: lib: add strnlen() implementation")
+> Suggested-by: DavidLaight <david.laight.linux@gmail.com>
+> Signed-off-by: Gao Rui <gao.rui@zte.com.cn>
 
-Thanks, queued for v7.3-rc.  Rather than posting a new patch, it would 
-have been better for you to comment on Gao Rui's patch:
+Thanks for your patch.  I took Shao Mingyin's patch for this instead, 
+although I would have preferred that he work with you to clean up your 
+patch instead, for the reasons described in
 
-https://lore.kernel.org/linux-riscv/20260819161821053fNUWuvdGIo4HUBmxlcNfG@zte.com.cn/
+https://lore.kernel.org/linux-riscv/970c63ed-9fa8-9d1f-4521-0a7119b9d6e5@kernel.org/
 
-However, since time is short to get something into v7.3-rc fixes, and the 
-approach you took in your patch seems better, I've queued yours instead.
+If you think that Shao Mingyin's approach can be improved upon, please 
+send a followup patch.
 
 
 - Paul
