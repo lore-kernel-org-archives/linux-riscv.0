@@ -4,144 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D60FCA5FF5
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2026 21:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA11ACA5FF0
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2026 22:32:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kPnBJxUqtL8+MIc0loy24sRYUZZiih+375hIT4ZpV0U=; b=o8bb5jpzpqNj3zHmLusM7rOYpq
-	loU+vNoMSCjtPqS+VqXPThECnGmWwJT0WloK6DDcUd+TErI1EpXrf5neHCFxFON9lEz8Lu5QGl6Hd
-	IH3VMdSAmSIWyU2/jjL/TJeh1VES8wxadgsj/INcV+o+gnLT1s3HLuzo3lNScNpkZ5DWik2hbBIzc
-	5fj79Zoj1Bbvp6baqdLvhVrmPtJc+5DNWGVxxcGZtSY2CGBHbVewGmkId/pU+HKLJlLx1gAnEpaV5
-	yGrFqrTNw5WtcjpR3pQKXABAu+iMDXidmYkc864IjgNgy7gh2MTI8A+inaGumVMM710MECJqOThLi
-	mBRkxpmQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=M2mh4xcQWrtT+hvm5U5sNMffOPEQIW7Y1XNJDC5CbOE=; b=Q+yS8LtvscQ3lu
+	zsYgIILIm4VNu0IVJzxVh9F+9qTJvJEFKEwta5OBEneCugnr689M59WNbw4uzrUNJYLGyL/wsZELa
+	Emga24//L+i7bu9O4W85S5XlNqIZUi3/Z/yjVvRgAqkLVF9d8RbBqhXV83edQjWTF2AkGosKaG59d
+	k/QI7YTkEcZzdex8l9Eq2tdRD5RY2nHmVEWZpK2L2xDOeSIxjDl+8qqlklVFd0o5cTO7RKp7ppSUU
+	p8KetJzvXSgSHDMAAk4c3eQIDH00azEFTPxUXQ8fr7k6beMYwWtKNklfSHkmozwB6vBWV0mvjUa23
+	23XGbc9Fmf9c+jSXaQMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDqcR-0000000HDW0-31Zi;
-	Mon, 05 Oct 2026 21:53:11 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xDrDw-0000000HGm6-0jd5;
+	Mon, 05 Oct 2026 22:31:56 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDqcP-0000000HDVD-1AgG
+	id 1xDrDt-0000000HGkY-44aV
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Oct 2026 21:53:10 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 695KMkb91971554
-	for <linux-riscv@lists.infradead.org>; Mon, 5 Oct 2026 21:53:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=BPwGOfHuRmccjFU/atXErY9t
-	YKZ5sXf3uOO2o/Gtvso=; b=BrkX9Aa1fletisXMHiJLw4Si9yfWjvX9yH6+MB+n
-	DonFfKslUhYTQ0+6+lBUcL+fxsmVfFTHbLlNhsUX3CvLwhxT1fhfNs6ucRA5f7xL
-	BsVSwIe7O3Pix2Xpq6sL+Q0umddYigJZYkU15LomuEls9g8P2X5ndeBzKDGsFj1c
-	a7HEuFSoUqGeRiJHzlpZG9IcTOqCbof1DZI7mDtZZps0+jeOfPq2N7WSp/uO2jSS
-	w2Ttyv6lBj8NRKIRKOj5HiXf+CsawhoAtTGdrm7b1XE4t9tGNtUJwnGyioY6DtX9
-	WSYYa79uA/W4ysMd3IqLrrvQZ5aYgisM15XbdKC7fOortQ==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h4fkuh2qp-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Mon, 05 Oct 2026 21:53:07 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-9179a2035a4so6716696d6.1
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Oct 2026 14:53:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791237187; x=1791841987; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=BPwGOfHuRmccjFU/atXErY9tYKZ5sXf3uOO2o/Gtvso=;
-        b=aXo8OY07bUczA2oOQlGUo+/zaexnjH2lhYYAMgyb9e6xgLJDrQ8N2DFOo4ZE2q1oK1
-         6OF8e+3ijIHaXGV9AAxxk5+OZk6n4JfjjyH2KHK7Xvl3wS7MLjMuXjGebnkqJXR6QUb0
-         VzkO+kgsrJFs3dy9A5kzVWESIxCOleALSiNEcq0WosktPnXetOd7QQmppVy5kVoTC99d
-         U0d9oON6fnUsQEF85B6XtEJ3DVhmY00MpSrwyQjr6S60ctQAzCpcJxtShJRmbDH1SzvW
-         7DkeFqLe6CIQze6lXVv5xKXBqp9dyjQ9PSH6t6qnYYAK2s2Qmm2I65eZhvOqdWj2ILBP
-         yzSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791237187; x=1791841987;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BPwGOfHuRmccjFU/atXErY9tYKZ5sXf3uOO2o/Gtvso=;
-        b=G2SP7e8Nad4vaLpm6OViMrug5gxAGqYJ3T/ZH7W2YUEF6KPQwMYg9kotEoG5Ed8eh4
-         dgC/zhLckIQUiq3GKuGLU38zMHStn21Ac5dPz0YjTOjLZa5ckhe6NJKKDfihSLWF7/CQ
-         TuXNfBVXpbc+q62mv0OvSR3y4vqVIz17idrJwCrP+UH3a2EvWxe8gmOavfOGIQ0fzv30
-         qwgsGG0UnNL979+49f93UNe6I38HbBq6juaKj6/8L1RvhOT0NaS7qr4QAYzYRurU+BSf
-         B/Oqfcu4ZbJuTho+ws6XVML4v6snbAe8p0DdPn/KKzznnTD4YBX+tdHofnyxrGtSQiKX
-         rHLQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxvOb/+Gwxf9g+QR2/RJhderEKKkrZMx8kQUyWEOMlUFhxt5rhqpBEW1JB1Ri81MusMNPdCoSGhiD2pjQ==@lists.infradead.org
-X-Gm-Message-State: AFuF++nNmv/gtgKFF5UMvV76U4vU4Uvk6jvc212qZud+pMtlQVZ8Iqbz
-	vZFJwmdNgp4An9RCGAXHSi+4rn+pSxmyf12ekeGqV7SX9VTfnFTVYUgNvkJQVy9o7i0KTvdHJcj
-	vbVWU38HazH6d+g83HmBFLxsfI3jQlN7ex01+FBlzEskVv20nlTi2HG7rU5Bb/ne+r2rowtvuBS
-	A28fQ=
-X-Gm-Gg: AYBFou28fTC9v1DHOaztWnCuYbr0vrULlWhC6WEgi/WGteiy/pjFHPSp2Q9Kkd0Si92
-	ISgDmogF/O99fkkTqTatxYdACI09MzqhJa/thSqN3dZnZ9ZTCs75B3BOQ0C5Ux5vktPhAkJNYdw
-	1/fK6m9iLfpXFDEzgFx/1UMI4Ak3E3xRglqkxQlK8kTB/gy3b6yFf4vHlPgKq36oWrDalnzmr0n
-	J7IU/YzBYHpadDL+jkMtXr+hvBbdqiaT3i7vEQx6Cx1hltFRi8ViwmzWUMje3KTQuitW9MeVzOG
-	POpkdxM5vA5U3NvEkaArZ/gunhEkf6MqbzKsiTkc3shG6WKGc92GUJFBJhrif7Pvw6dByGU5Z3P
-	GMMzHewt7tu1ugQ==
-X-Received: by 2002:a05:620a:711c:b0:93c:ab5e:2314 with SMTP id af79cd13be357-93e85ff6e47mr169816085a.7.1791237186652;
-        Mon, 05 Oct 2026 14:53:06 -0700 (PDT)
-X-Received: by 2002:a05:620a:711c:b0:93c:ab5e:2314 with SMTP id af79cd13be357-93e85ff6e47mr169811885a.7.1791237185973;
-        Mon, 05 Oct 2026 14:53:05 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a178db04edsm21801155e9.11.2026.10.05.14.53.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 14:53:04 -0700 (PDT)
-Date: Mon, 5 Oct 2026 23:53:04 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Jose Abreu <Jose.Abreu@synopsys.com>, netdev@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Drew Fustini <fustini@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
-        linux-riscv@lists.infradead.org
-Subject: Re: [PATCH net v3] net: stmmac: propagate PTP addend and system time
- programming errors
-Message-ID: <asQcQIh56MV1OJur@lore-desk>
-References: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
- <dy5xfj3754wnp3gh2kpoyf3vpx3vfsfhblgbwbwsgts27xqxga@dzb33gt3zgca>
+	Mon, 05 Oct 2026 22:31:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HxFPXHscYxmZ8R+rYOV+nIkwrOUQbpFIzCataMoFj6dmTLJHWa4KnXAO+B7noPVAS4SLLmJzIEA50p9ECHCZ5qaUZv1ZjZcCmuYu4Q/K4BFLm5r9v+VTmYz+ajLZxqz7YJTo6NmYAsUF/SokBA+5s01Kr9XcF2RKXkrBi1JM8lO1XAABkpLvxDE49Iv12vKiaQ6KMCQkKURMQtPGDiJe/v1ueyswvM2f/7LeCOSE0TtSPRH47WKrltQYBMh5Mm00zXubkttWI1Bv2UnTRKSd5hMNJFfaNHHDMKcjHVwwRdZVcTuuj4yC7pitH60V2fMBfunfqwTYxcXhSNvQmSh+Xg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zp372sNjXdidVU9eMo0mHBVsk7vgC9G0xeMWn4WauXk=;
+ b=IPCW+yiZb+11JLV0LUOkT1KOzz23SSfKvv9//ZVT5aC7/PzrPB1RrvZT/Y5cKOQz7sXEoZksgvgwAxP7CDmdAjpIWYjCHPjsjNMIBCBxBYIhRqahMXG+Bn6NkYF9g8EOmXe+v51CmFZbNNVa2RE/zPCwM7YpRpBGkwj2rWfWdud84WLJFlIf5thTTVntmDWKgofPqciYaqhSPlovx9yOVL5yKZdaG9fJfHrm2MfoOuBtjYdGtIAF7InKyYC1L0Oxd9Hga6qoPIaWorBE/vLXi+0AUOm8KR9C6+9fLoLeuzMBuse95DyCJXSvyzXRorJSW8prz24VAXAul20KOsT8Nw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=rambus.com; dmarc=pass action=none header.from=rambus.com;
+ dkim=pass header.d=rambus.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zp372sNjXdidVU9eMo0mHBVsk7vgC9G0xeMWn4WauXk=;
+ b=OX3TLdVvWRufn//0bBJfCFYduWz9OXzdDo5BD+v/OX/DOnBAZvJEFZ7JAfi9mwQgykDUMHfQaBVxToikqs8JhXRv54dDiQ3KngZms5Ts/Yhp0sbPZiG7lX8U7jmyaxNLK33r60B6wcfzH0QojulW4jMZX32aI4mHGC8/M+/MszasF0zBbuPd6IMVSep6vVHN1AYwKaDnw5jyKGhatvUttv4JU6OC3p/TnU26Ar0I/r7ejpb+3pXET0ttt60TvxjpAS90UHrPcIBwF0/E3SKARQn/1XL8liMuMGyAO+/gDoO3JtLUvJPhkgpZ0FQ/QCdqNHNQx7zEWSFi+PUhh/npbw==
+Received: from SJ0PR04MB8406.namprd04.prod.outlook.com (2603:10b6:a03:3d3::14)
+ by MN2PR04MB6720.namprd04.prod.outlook.com (2603:10b6:208:1e3::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Mon, 5 Oct
+ 2026 22:31:47 +0000
+Received: from SJ0PR04MB8406.namprd04.prod.outlook.com
+ ([fe80::cbad:dfcc:82:7dbf]) by SJ0PR04MB8406.namprd04.prod.outlook.com
+ ([fe80::cbad:dfcc:82:7dbf%6]) with mapi id 15.21.0472.016; Mon, 5 Oct 2026
+ 22:31:42 +0000
+From: "Ousherovitch, Alex" <aousherovitch@rambus.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+CC: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>, Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Rob Herring
+	<robh@kernel.org>, "Krishnamoorthy, Saravanakrishnan"
+	<skrishnamoorthy@rambus.com>, Shuah Khan <shuah@kernel.org>, Alexandre Ghiti
+	<alex@ghiti.fr>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"Wittenauer, Joel" <Joel.Wittenauer@cryptography.com>,
+	"linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Shuah
+ Khan <skhan@linuxfoundation.org>, "Nguyen, Thi" <thin@rambus.com>
+Subject: RE: [PATCH v5 04/19] crypto: cmh - add SHA-2/SHA-3/SHAKE ahash
+Thread-Topic: [PATCH v5 04/19] crypto: cmh - add SHA-2/SHA-3/SHAKE ahash
+Thread-Index: AQHdRvg30t1+45dAjEm+KmT5OENVbLbbsCeAgAD8JwCABtcDgIALxW1QgABRobA=
+Date: Mon, 5 Oct 2026 22:31:41 +0000
+Message-ID: <SJ0PR04MB8406E66A05FB81AB900D96DED7962@SJ0PR04MB8406.namprd04.prod.outlook.com>
+References: <20260917225929.2494111-1-aousherovitch@rambus.com>
+ <20260917225929.2494111-5-aousherovitch@rambus.com>
+ <arNn_fjy4jamSitO@gondor.apana.org.au>
+ <LV8PR04MB9006374FD8621EBF3C7E7F6CD7822@LV8PR04MB9006.namprd04.prod.outlook.com>
+ <arn4XYwPYt6i2k7d@gondor.apana.org.au>
+ <SJ0PR04MB8406AD1C92438FBCBA2EEED4D7962@SJ0PR04MB8406.namprd04.prod.outlook.com>
+In-Reply-To: <SJ0PR04MB8406AD1C92438FBCBA2EEED4D7962@SJ0PR04MB8406.namprd04.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+dlp-product: dlpe-windows
+dlp-version: 11.11.2.117
+dlp-reaction: no-action
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=rambus.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SJ0PR04MB8406:EE_|MN2PR04MB6720:EE_
+x-ms-office365-filtering-correlation-id: 588f49d5-232d-4c1c-dbed-08df23306df1
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|366016|10067099003|11063799006|56012099006|4143699003|38070700021|18002099003|22082099003;
+x-microsoft-antispam-message-info: DWnQTEH6V76rfTSyMJD++wvwzvzEroH/ucQvHaXdDkplnbI7/7gPtPJlITtQchKtxsufffgTV34SQnR+4yB5/ixgF0V9O45pf7IqjXuPs0MRxl73vndkVY45Jv2qEXy3M68xH3lcfX95E5VLnsFzhlDL9ax+lHaB/kN48DyEbrNy4uF0WXqhj8dHRR48DiZuArLBfA+m21sI5V/INYXv4PizvOW2bwigsRnAPwuSzCV05cjP0Yf+KuAbNhTelv8ZBh+zzo5HfKEqPZCxBfYPmQkz92JPihIHrbs6fgIKpjm5qf1sbM5fK0zVznI+7qRrVdEEzMR8WdFHOIJn3FuJq9QQkZn1rqab0flK5IdPEDJd2E6gzIAMSdi3THm4i3ZRR4GRnEnq3HHSpA7WJ7mr2xoOMu2qo6jSBeXR6EReNmvypRrOAs822rDi8gDcHGgu6cTUrLB4Susw+nOU21HXcjhFPFptom+BiR5u5kVSbG5Wtz9pM/f6kAoJaV18kiN6ZyBiGcHWg5ur8aiWjgs79FyG1Ia5Q7Xp5uiWnTVMPggorGYtjvMFwEKEc47MV/lAGbpvA+qgHNmnxQV2heP33uo2islXAD97SnFXcjC3MsClVcxP0yV0yLOqpL6H15LiF3oZ6I4LrJdhbUbRWVWAcTT4e0Xcles7bYFLJ473o9Xu0JHG2kfO7/CtWX/XdHs0K8wulsr3sWwCvliGWfT7uok+lbM5oNsfzSYoZ6zKFhE=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR04MB8406.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(366016)(10067099003)(11063799006)(56012099006)(4143699003)(38070700021)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?TerZ6HYXu8DFbOgcaQQewsTjLy5j9Lbf46JT5Utwgxce392k8Z4x+UHBUPwO?=
+ =?us-ascii?Q?BrRJLYGjojKwRRCSQlBlRNGo35auZzxplxUTPLGr1LyhXb8QTjBfmdfKR6jf?=
+ =?us-ascii?Q?7iA+w6zR3rC05xUMW6MTIDUuuLwdwByQ/xRjJBWpbrj0epRzOoU+A2lpCWtz?=
+ =?us-ascii?Q?uSunicLL/MVoaiwjj6LWgvVM8+j5/MCEtUqWcgHRXv7pb6pTW0HczRtszEnC?=
+ =?us-ascii?Q?xk2naj9U4NemRzWIm1C1y7IZnEOqumUc++iwTpkICMnicTi2xrLEKP7lssEF?=
+ =?us-ascii?Q?skX/Jzmlth1H3KsQdhGPZPfEbGAxDq/HgvddIimWt4+bx8J2jHcRdCKsohDX?=
+ =?us-ascii?Q?RW3wtWdW59SFMwQyPuJt5Q39R6OX4VHWo2vXc6AbgD5HiSdghzTCX002rY6u?=
+ =?us-ascii?Q?5lNcVdnHebSebhLbq4qAv69LmidMSnIp7t0X59AVgiONyVJGq0kPSScJSUmh?=
+ =?us-ascii?Q?EAzJdZHFGNoppuk5XD8oFgHdMzUFdy+FxDkZjcO5uiNDvlVW1cuD972OpER6?=
+ =?us-ascii?Q?qKJVIQvRCFEGUcLKUfqGgSsNK2tlAR7yaGVROACg8SZNW53WHmWvaNvXe/z6?=
+ =?us-ascii?Q?NUvC7GIr5VwHPbwaobMh3N0EWXiL+o0fU1cbkOd2qBuC+eWrWa9phgYtDHw3?=
+ =?us-ascii?Q?5fCYv15Rq/4AQg8f6I5z1QgsEiVLlqa/FMFAeHDPAPVGiKljLxZgp3/2Xeso?=
+ =?us-ascii?Q?lKT0P+tTnNeFTInObuic23vTKurEOcP3S5h83EEgEwaUDl74qLLNU02HHN8c?=
+ =?us-ascii?Q?zDWITZ/W04IUjLBys1DL3OcCe+x1tJJ8TmjPNnpSRSbe0S+rPor0DVDoMpKa?=
+ =?us-ascii?Q?H80uqx7AfoJNqPcHhDDBR7A3ithWNSyVkUNsYE+X+jRTMJ/nphuEHW0eKrVq?=
+ =?us-ascii?Q?1zGrGPU2T2K0EInu9u3XOKQChAiYiXAjqvrT7lSs7ASrxcibKOcKQDODsPGk?=
+ =?us-ascii?Q?g6TshPVJgStUi7u7u8W/bzhi/lYXTfn05oz+3kXHZtwPMoVV2ORjStcgWmAR?=
+ =?us-ascii?Q?BdlrdotfJ5t1sqRRhtliXZVEvpnfqnEH7czoCOFAZxjHJFBSJWgYvCgQL1BM?=
+ =?us-ascii?Q?dxksu75xpX7nTMmAKXzEPFNpczHE5jMWkI1xtoL/BGQ3SUMCs3z2immjGCiG?=
+ =?us-ascii?Q?qHLh7AhJ74xrFVGm19g1HKTa338G0UF9xLvV4wtbsmA75j6JSJE2M9aSbDWD?=
+ =?us-ascii?Q?8x/UOcgrd1B1FoKDsKM8uclh5su6KixYYc/59FqwAYAlmO0OqtH4uiUbU3u1?=
+ =?us-ascii?Q?avH5QlYjXHJV/p5EQDc7okyzGLqZ9J70UkgTSJ6aIyCxXFHninLDawB3XoYI?=
+ =?us-ascii?Q?w3G9EupUQQMM9szDW7zDse4gkdXJC5HOhvbAlY15O3Ck4aQJd/yy04Ls1SdC?=
+ =?us-ascii?Q?oFqpicRLdw2I6e8BPbXWLcO6V4rSkg0M69CWlH0yWfxfqhdtH3Ni3Fhz1XQX?=
+ =?us-ascii?Q?7Et6g88Avvo5PhhlMZ6K6socwPJJdlcfo20/9R78MK2c7Ed68cFNovvDlxMg?=
+ =?us-ascii?Q?3FWGVCgyfS4nTNNw4DUhTwswXX0wjs5DntGr3jWPfUfh+d2b+1CkoJgNAdCL?=
+ =?us-ascii?Q?8b+VRgtrKQn5XBjhZrwvcbiTjb7bhPmX8cZsAtqL4QPBodLy6bcQxfna0DAI?=
+ =?us-ascii?Q?jrwzDpFtZge+tT82S1Jz8M59SHhoASNLciEkeGTUGu8BjvGCUuKwuiZ1a4Yu?=
+ =?us-ascii?Q?aHzKFazVqgiS6FVSdkjEzNHOpWWpiGhh2+ORakTGxqPqBkw/JhQXrBkWsltd?=
+ =?us-ascii?Q?HhL2ZQBmRA=3D=3D?=
 MIME-Version: 1.0
-In-Reply-To: <dy5xfj3754wnp3gh2kpoyf3vpx3vfsfhblgbwbwsgts27xqxga@dzb33gt3zgca>
-X-Authority-Analysis: v=2.4 cv=HtPjiETS c=1 sm=1 tr=0 ts=6ac41c43 cx=c_pps
- a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=KWoxivdfoX57CmOC0t0A:9 a=CjuIK1q_8ugA:10
- a=HCU4Ot6V5InO-uz2qO0A:9 a=pJ04lnu7RYOZP9TFuWaZ:22
-X-Proofpoint-GUID: XUtNXURR6JG3-oJA3d22g18Ot39XrKn0
-X-Proofpoint-ORIG-GUID: XUtNXURR6JG3-oJA3d22g18Ot39XrKn0
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA1MDA4NiBTYWx0ZWRfX2uZQEZC9JS25
- h6AEk1iaeTuTNS/wFWTcl27zi6DhU9tKEBzp+re1D+n4aT+Y4pbV+B+p/dk0gStyvZchI66qGYZ
- KJbnMZr585wrkw8pNW2vS+NZX0N4Ahk=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA1MDA4NiBTYWx0ZWRfX0ieRrmOoUjSc
- OC+tnzLVK+6Cxni07xlaXooYu8k74VBvVScuD+6NVyPQ7nDVRZOwYQCFsVjU0uA1byPsw56aFqJ
- pFlO0kuG/wCK2Rio/lLLfuFKc51v6FOwdzpufggpCGSrs1+wMJJYINN5/afq+USLmoCc6tfFPbE
- lplvf0QMBOCS8r30OaxSnT7LER8rsFD2KR5PhDpbrIYbpKCgBm+hnw3YFrgzZQ41z6Z+77KvPRq
- w9/84VH99FFBvBruPEX7jyOtBTbEjvI9+hSCX8NHeOEl9nx6RXoRbxBHwgillPzWLUz8uU+p9Md
- fs9OZIViWAsQqchfdepcSBA5tpOsCeCCuZv8tm3veJnWUpZV9aI5fP3gt5HFfkrS0QB/XVlnQuC
- lHz1FJNhTFpfR7sMGycGZ+9iDsPTgAt+/tkJR5JDYp5DyzwQYy/1BRlU51lg88IyM16IRq/wUzV
- rKtPcfwTdqO0BSfx7dA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-05_05,2026-10-05_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 adultscore=0 malwarescore=0 clxscore=1011 phishscore=0
- spamscore=0 priorityscore=1501 bulkscore=0 suspectscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610050086
+X-OriginatorOrg: rambus.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR04MB8406.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 588f49d5-232d-4c1c-dbed-08df23306df1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Oct 2026 22:31:41.8873
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ejUr0IXvEFwEZJO9zKpJul9ZG7Frtzio1q0Jz2JzxFOthJIHeoLJG+5z00SVppPN0KzM5SweTSnywRV1REjSwb0o/dqcBBNnaagLHIvktfE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB6720
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_145309_435796_129ADDA4 
-X-CRM114-Status: GOOD (  30.67  )
+X-CRM114-CacheID: sfid-20261005_153154_093119_EC95FA5E 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,139 +154,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6217231642125649528=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6217231642125649528==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="p7q6TE+CPzeC67kd"
-Content-Disposition: inline
+On Mon, Oct 05, 2026 at 05:04:25PM +0000, Ousherovitch, Alex wrote:
+> For the algorithms that have a generic provider -- SHA-2,
+> SHA-3, SM3, HMAC(SHA-2/SHA-3), CMAC(AES), CMAC(SM4) and XCBC(SM4) --
+> v6 switches to the fallback/digest-only model:
+>
+>   - drop the NO_FALLBACK / BLOCK_ONLY / REQ_VIRT flags [...]
+>
+> That also answers your NO_FALLBACK question: the flag is gone.
 
---p7q6TE+CPzeC67kd
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+One correction to the above before I post v6, so it doesn't look like a
+quiet regression in the patches: that holds for SHA-2, SHA-3, SM3 and
+HMAC, but not for CMAC(AES), CMAC(SM4) and XCBC(SM4) -- those three keep
+NO_FALLBACK and REQ_VIRT.
 
-> On Tue, Sep 29, 2026 at 03:10:11PM +0200, Lorenzo Bianconi wrote:
-> > stmmac_update_subsecond_increment() ignores the error returned by
-> > stmmac_config_addend(), and stmmac_init_tstamp_counter() discards the
-> > addend and system time programming errors, always returning success. A
-> > failure to program the addend (PTP_TCR_TSADDREG) or to initialize the
-> > system time counter (PTP_TCR_TSINIT) is therefore silently swallowed,
-> > leaving the hardware timestamp counter in a non-running or partially
-> > configured state while the driver keeps operating as if timestamping
-> > were up. This matters for TAPRIO/EST offloading, which derives the gate
-> > base time from the hardware timestamp counter.
-> >=20
-> > The same hooks are also called from the PHC callbacks: settime64 and
-> > adjfine drop the error and report success to clock_settime() and
-> > clock_adjtime(), so a dead PTP reference clock goes unnoticed by
-> > ptp4l/phc2sys.
-> >=20
-> > Return error codes from stmmac_update_subsecond_increment(),
-> > stmmac_init_tstamp_counter(), stmmac_dl_ts_coarse_set() and the
-> > settime64/adjfine callbacks instead of silently returning success. On
-> > failure, roll back the partially applied configuration so the hardware
-> > and the driver bookkeeping stay consistent, and report the reason
-> > through the devlink extack. Also guard against a zero sub-second
-> > increment, which would otherwise divide by zero when computing the
-> > addend.
-> >=20
-> > Reset the persistent timestamping state (hwts_tx_en, hwts_rx_en,
-> > tstamp_config, systime_flags and tsfupdt_coarse) when (re)initializing
-> > timestamping, so a failed init does not leave TX/RX timestamping
-> > enabled on a counter that never started.
-> >=20
-> > Fixes: cc4c9001ce31 ("net: stmmac: Switch stmmac_hwtimestamp to generic=
- HW Interface Helpers")
-> > Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-> > ---
-> > Changes in v3:
-> > - Do not run stmmac_config_addend() in
-> >   stmmac_update_subsecond_increment() error path.
-> > - Return error from stmmac_adjust_freq() and stmmac_set_time().
-> > - Reset hw ts configuration in stmmac_init_timestamping().
-> > - Link to v2: https://lore.kernel.org/r/20260924-stmmac-ptp-added-systi=
-me-error-v2-1-beb2a6b5f866@oss.qualcomm.com
-> >=20
-> > Changes in v2:
-> > - Initialize sec_inc to 0 in stmmac_restore_subsecond_increment()
-> >   routine.
-> > - Link to v1: https://lore.kernel.org/r/20260920-stmmac-ptp-added-systi=
-me-error-v1-1-8ac9e7a3fce2@oss.qualcomm.com
-> > ---
-> >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 106 ++++++++++++++=
-++------
-> >  drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  |  10 +-
-> >  2 files changed, 84 insertions(+), 32 deletions(-)
->=20
-> Hello, I'm noticing that after this patch was merged into linux-next,
-> boot seems to hang when ip=3Ddhcp is used because ethernet isn't working
-> on the TH1520 Lichee Pi 4a. These lines get printed in a loop over and
-> over
->=20
-> IP-Config: end0 hardware address 72:ca:a8:eb:27:[   24.872982] thead-dwma=
-c ffe7070000.ethernet end0: Register MEM_TYPE_PAGE_POOL RxQ-0
-> f2 mtu 1500 DHCP
-> [   24.900412] thead-dwmac ffe7070000.ethernet end0: PHY [stmmac-0:01] dr=
-iver [RTL8211F Gigabit Ethernet] (irq=3DPOLL)
-> [   24.912780] dwmac1000: Master AXI performs any burst length
-> [   24.912801] thead-dwmac ffe7070000.ethernet end0: No Safety Features s=
-upport found
-> [   25.010229] thead-dwmac ffe7070000.ethernet end0: PTP init failed
-> SIOCSIFFLAGS: Connection timed out
+The reason is the generic fallback itself. crypto/cmac.c and
+crypto/xcbc.c implement only descsize, with no export_core/import_core,
+so the core marks them NO_EXPORT_CORE and crypto_ahash_init_tfm() cannot
+wrap them as crypto_ahash_fb() -- that allocation carries the bit in its
+mask and fails. For an async digest-only MAC that leaves no choice:
+ahash_prepare_alg() forces NEED_FALLBACK unless NO_FALLBACK is set, and
+the fallback it would otherwise build is unallocatable here. So these
+three set NO_FALLBACK, keep REQ_VIRT, and allocate the same generic
+cmac/xcbc transform themselves to service the non-digest paths.
 
-Hi Anirudh,
+Behaviorally they match the hashes -- hardware .digest() only, with
+.init/.update/.final/.export/.import forwarded to the generic transform
+(crypto_ahash_fb() where the core provides it, a driver-allocated one for
+these three) and the virtual-address path in software; only the flag
+differs. HMAC does not hit this because crypto/hmac.c provides
+export_core/import_core. BLOCK_ONLY is gone everywhere, as described, and
+the rest of that message stands.
 
-based on the reported error, stmmac_init_tstamp_counter() fails with
--ETIMEDOUT. In particular this can occurs if:
+If you'd rather these three didn't carry the flag, I can drop cmac(aes),
+cmac(sm4) and xcbc(sm4) from the driver instead.
 
-stmmac_init_tstamp_counter()
- -> stmmac_update_subsecond_increment() -> stmmac_config_addend() -> -ETIME=
-DOUT
- -> stmmac_init_systime() -> -ETIMEDOUT
-
-I guess we should understand which one is failing and why it is failing.
-
-Regards,
-Lorenzo
-
->=20
-> I suspect that this has something to do with the error codes being
-> discarded in your patch/some particular quirk of this hardware where it
-> doesn't support these PTP related bits.
->=20
-> I've CC'ed the linux-riscv list, in case anyone here is more familiar
-> with this particular board and knows why this is happening.
->=20
-> Regards
-> Anirudh Srinivasan
-
---p7q6TE+CPzeC67kd
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCasQcQAAKCRA6cBh0uS2t
-rFnAAQDcxY180c8JdzZhXUdZiy4mLTHzGsUdBEmqQNWb/IZ3RAD9EiDEtq7DZiW6
-fsK9fLcyL82F5PdP0FH5ODJSMtdl0QU=
-=KEwD
------END PGP SIGNATURE-----
-
---p7q6TE+CPzeC67kd--
-
-
---===============6217231642125649528==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Alex
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6217231642125649528==--
-
