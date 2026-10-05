@@ -4,113 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C987CA5FCE
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2026 10:37:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3596CA5FCE
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2026 13:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zwg3uWR/L9Gbly9xEy6Mgq/hCWPJT9mUpmJcc4NgwGo=; b=fKb5j5aOVbYBJk
-	7YRuXDp957oB0RUAOMUMnviuQjK/wRKP4nGCkx2ATwI0ZZ9nRUtCV3/ozz9uwQcoYX8tiIlNJE4EP
-	uv5J1/BlIymx1t4yOLNiJLN3kWKGZBQcphLQikaK2b33zMSBfcqSY9nG4xE1fTYiXdGBfjlZzGTVc
-	Ty4J2pULllyj5HHZIhrMQTc2IObWEDlWjr9bseaCI42HmlUmpuXdC2IdSRDYLw8GYAHjjgwhv/oTn
-	M+X8w5mlo4Pwk28FpxSwe0YfPuao0cJ/2txTjHaVMLF4kS5CjVY44oi6fDVPgo40EEq78/NNzHIPS
-	fU8uvEWC71WOemIll0XA==;
+	List-Owner; bh=dpDzBzElGoLVsbWZBu/01BDbk8DIoXEW7h5JoR0Wklk=; b=tAmGdSxNv1TPhl
+	lfbwfQ8iAhTD2R7A6lUP3YeG8MQ7K98YMI2QKXBarnEunomVc3TkZUS+RlRLQcjhHpbE2T+T7eF1I
+	z17PGVjGxBBrVReAxHf8mUmMzgws1XTK3PBXQyO22xY3e8t5aokxRZVrrIcRxFKt0JTwMkoGmSyIO
+	kB9FKd+qsQvyJm8NxDel3TJDZzz2HDEtqGeyRNaRzc8OV06jEotvg5dN3PU9cVlWEnt6jqclSncip
+	I4y5hNmtGhC5MDXi/3fOwoP2ZAFuYPcrCRSGaB+7vYr1JOmFAsQZOJuFSLOU3WJfpRdAU8QVQuVYe
+	mg5wuKNC6pgmBVxoBWAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDg4e-0000000GCUz-2vpx;
-	Mon, 05 Oct 2026 10:37:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xDihE-0000000GWlW-2kmr;
+	Mon, 05 Oct 2026 13:25:36 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDg4d-0000000GCUn-1GUF
+	id 1xDihB-0000000GWk2-37Gq
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Oct 2026 10:37:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B720F415B3;
-	Mon,  5 Oct 2026 10:37:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 394661F000FF;
-	Mon,  5 Oct 2026 10:37:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791196654;
-	bh=cByG7GqhBvWV2hjaYwUvk7XARELXPjKV24/eCyNbhZQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=UFzxhi2OKhI7lOTnQNuT5HIVGpaxAbS1fgEPpdjeuyurAwRR8AVghIocUlZW6JGwR
-	 mnGCuSA4j3JWEpMfC4xPkdvyQAKVzSd/Jkj5tOT+vRbqFF0BcqFAj4HDAiqRyeXpgK
-	 rVFOS1s6YKwWKEiM//Z2aU/vsloh6wNr8iUpImltVL/MxI0rmEfGjkQkyLO3tsVRvK
-	 npu3l3PXt8mv0PZPj+ZEqOibABFIOqYktx455TvhuC6zXUmzbvs0vEi+sj+Xp5wBKR
-	 9N8QlqbV6+nm2AsncAr4ROh3G1k2HdVRDF68iEod47EmNtXDGQTexWFteH0cOtkckq
-	 LQ4dPVDY4yBrQ==
-Message-ID: <fabd52b6-36a7-442e-9cfb-47a39e4ae3d6@kernel.org>
-Date: Mon, 5 Oct 2026 12:37:20 +0200
+	Mon, 05 Oct 2026 13:25:34 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 695CFU9g2849755
+	for <linux-riscv@lists.infradead.org>; Mon, 5 Oct 2026 13:25:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=JDSp49czoELykwuV0c41NKt0
+	WWebvsAlOsdvzWqmJjk=; b=ThrBDxLZbRBxo/UjtYhkuhkuLg0Uh4kM0MKwjJLf
+	xm/A9+6Gtj4iAmBrvNZ7C0nl/fpvVgXJqgwb8Tih9OAI9Unr3xok853TLmZvk1fC
+	RqC+UFkVNzFSL94sjL+hWvJ4/k0wvj0HnBa8wlqgfbGwwssvNzvT8q/swStZ5RGH
+	yU5ldsDeaiGZ0xBgVxrB9KqrbRUZkaXea2FKoDQOZCEMcV6Tem68A+3hX1uZBV0n
+	qwfdZPP76FWkVuzPoZri5/v2KatI3rplDHKULtnfzi9lwDiDWFBxi33+HcxezSju
+	A3ld06RpJWAiKHwYzVeq/6c0LYPp2l4rVSuQmCeKgqeZSw==
+Received: from mail-yx1-f69.google.com (mail-yx1-f69.google.com [74.125.224.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h49u40pgf-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Mon, 05 Oct 2026 13:25:31 +0000 (GMT)
+Received: by mail-yx1-f69.google.com with SMTP id 956f58d0204a3-66c70f5abc2so1833678d50.1
+        for <linux-riscv@lists.infradead.org>; Mon, 05 Oct 2026 06:25:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1791206731; x=1791811531; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=JDSp49czoELykwuV0c41NKt0WWebvsAlOsdvzWqmJjk=;
+        b=a0HjPXmkfIj6bBCir678FdEPU1KSMTlc56KbdnJHjwHY0ccRH1v4O/afjTrAksKI0F
+         Qx71lsxt1blkohVvFNkxaPQeIkCagueTIKdFfGiVhzcqCRggvG+Dw6LcfG7HibQSITul
+         Ktn6D1SKdx0oO7IrHJC5ZWynmGCW6Qy7Uhyx0IOEJrLvwq9sD+DQKXk9OS+HZ2YTdvng
+         TRLP8df4qnbYNzWiJEpbCpzFRli4JBuScjXQjz1OMcONDctvstEhcdtCN7qJ/1lgbeZv
+         tP94EhIgDCAwx0xA2+qsb2/DRCOMcPZ/TY/EFVRYre77syA7Ha9+fK3yes16A1xxhJJ6
+         C34A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791206731; x=1791811531;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JDSp49czoELykwuV0c41NKt0WWebvsAlOsdvzWqmJjk=;
+        b=rRkubGct17NN9C4qz5cvre8pro22cwIEpwPEv2/j1KdANTnWqnnDfQzwx4T9GuTX5O
+         vVqvHhwND2GwRkEYAaE7DUafxRhP6jkiDcciMvTxdUjA9rklnXxQhpOz/ArOY8ODTEVi
+         XreSVw0Gq05FrFgoHYVIpKm/0ZkiX2TJn6sf58LBkJUWdxuFYPwOGXP2JSAQsjcTqxuN
+         sgYR2QlW75mzGp6Z3NKSnCuFSNfh/fbblJ0M0UBAANwKK0b92fDMjYYUQMgqpIAii01F
+         6D0Er9wVZxJ0su9R0/Xwxvl7uYOZYmehMi+9rEIt3A7QHGquFQ3pcFTV+vYuF6DtwzLC
+         LnNQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzOE/lzzW1ucKSw4ciAuJytix7/TC/Mpfj6LlSsP54XyJ3bHmVjIuPG6MuECYw3B4x/51hUsZU4zMPO/A==@lists.infradead.org
+X-Gm-Message-State: AFq9FYLsiPo/XTlj/lr3uSiDUfwg7hKwrfVv169Aqe6Fmmymgw71joUd
+	d5bJt4OWjSB0zSI3rxVfB9rBsW+7FMNB9PlaHUVqOB4lJXSCIkULSGfXiriZhhzEm6jPT/O3sRi
+	TaADR2ngVgrdoMMC49YSdnk/+RhBy76ckuY96KqmyaEZzdfSX6crjxDCuGzi3QiToCiPkN44=
+X-Gm-Gg: AYBFou3P7W1qOx0yh7yFb+zBqsvlhrMKo3+WUsLQ5VlOax6ImTgYyROg9meaLJ2zMlU
+	J41NqCBS80oJ+hYlDIeoYXnJJK5ziVQ2b+TMuu3o1IoGIALkOITBILv5ovYI6srFx7whdH1Ffhf
+	BynWEzx0YYjuyWe7BDBT4H5r78CVWSAyOyVn5I9lHUP7O9yXxfCmJZ/zj2xT8hUpQvZfGgbtgjk
+	LbYY9gYrz8O1Ift2DlLKzL9hMGEEC3nrtrz7FVo9rso3zddIG1hdWbs3NvlTQXuZ8/T+LxaFlVV
+	L1tuHH3OsgNEzO4xD1dA7PiAHuXNK2Nq0RScPTbz+QGTEyms8W+/aOWqVmGLBXD/oNdEONivnwU
+	HVIcuSQZbnv+96680HHlhZTGT6Rs=
+X-Received: by 2002:a53:db4c:0:b0:675:68f4:67cc with SMTP id 956f58d0204a3-677ac165dddmr3375801d50.80.1791206730544;
+        Mon, 05 Oct 2026 06:25:30 -0700 (PDT)
+X-Received: by 2002:a53:db4c:0:b0:675:68f4:67cc with SMTP id 956f58d0204a3-677ac165dddmr3375750d50.80.1791206728277;
+        Mon, 05 Oct 2026 06:25:28 -0700 (PDT)
+Received: from localhost (90-182-211-1.rcp.o2.cz. [90.182.211.1])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-677c1b4a383sm3109497d50.7.2026.10.05.06.25.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Oct 2026 06:25:27 -0700 (PDT)
+Date: Mon, 5 Oct 2026 15:25:23 +0200
+From: Andrew Jones <andrew.jones@oss.qualcomm.com>
+To: iommu@lists.linux.dev, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: tomasz.jeznach@linux.dev, jgg@ziepe.ca, jgg@nvidia.com, joro@8bytes.org,
+        will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
+        palmer@dabbelt.com, tglx@kernel.org, anup@brainfault.org,
+        atish.patra@linux.dev, fangyu.yu@linux.alibaba.com,
+        zhangzhanpeng.jasper@bytedance.com, zong.li@sifive.com
+Subject: Re: [RFC PATCH v3 01/14] iommu/riscv: Allocate MSI tables for
+ second-stage domains
+Message-ID: <dqo5xn7bz2wffbgolx76wryc7p7xsaygz2wrxhxvgnwekfpenu@tnu5uw4hauat>
+References: <20260928143113.49838-1-andrew.jones@oss.qualcomm.com>
+ <20260928143113.49838-2-andrew.jones@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] riscv/mm: fix soft-dirty migration PMDs being treated
- as present
-To: Lance Yang <lance.yang@linux.dev>, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu
-Cc: alex@ghiti.fr, akpm@linux-foundation.org, zhangchunyan@iscas.ac.cn,
- rppt@kernel.org, kas@kernel.org, andrew+kernel@donnellan.id.au,
- rmclure@linux.ibm.com, debug@rivosinc.com, baolin.wang@linux.alibaba.com,
- usama.arif@linux.dev, wangruikang@iscas.ac.cn, namcao@linutronix.de,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- alexghiti@rivosinc.com, viro@zeniv.linux.org.uk, ajones@ventanamicro.com,
- arnd@arndb.de, axelrasmussen@google.com, brauner@kernel.org,
- conor.dooley@microchip.com, conor@kernel.org, jack@suse.cz,
- liam@infradead.org, ljs@kernel.org, mhocko@suse.com,
- paul.walmsley@sifive.com, peterx@redhat.com, robh@kernel.org,
- surenb@google.com, vbabka@kernel.org, yuanchu@google.com,
- stable@vger.kernel.org, pasha.tatashin@soleen.com, linux-mm@kvack.org,
- me@ziyao.cc
-References: <20261004030312.90163-1-lance.yang@linux.dev>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261004030312.90163-1-lance.yang@linux.dev>
+Content-Disposition: inline
+In-Reply-To: <20260928143113.49838-2-andrew.jones@oss.qualcomm.com>
+X-Proofpoint-ORIG-GUID: 6ky9G2RrhwIsosVYtZJ-cusVDXvYYUoc
+X-Proofpoint-GUID: 6ky9G2RrhwIsosVYtZJ-cusVDXvYYUoc
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA1MDA1MiBTYWx0ZWRfX7ToBUC4SqjY/
+ IoOuV7RuR5XvGT11t4nEECS+iYvy1JWryMzV7eFZhw7PKfwRJJyHVA2CGY76RnQbQy04O0H8rXr
+ WdK23/ZqnXCs8+wlylxSgN5VNvl9tBY=
+X-Authority-Analysis: v=2.4 cv=LuEHWXdc c=1 sm=1 tr=0 ts=6ac3a54b cx=c_pps
+ a=J+5FMm3BkXb42VdG8aMU9w==:117 a=zRh97aRZNhiOMYVz81Er1w==:17
+ a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=EUspDBNiAAAA:8 a=WSAePdX2diYu_KTn0zcA:9 a=CjuIK1q_8ugA:10
+ a=Epx66wHExT0cjJnnR-oj:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA1MDA1MiBTYWx0ZWRfXxdpnWaLua1dQ
+ 6TCpl8A0C2QFd1uPLt2kmAbS8igVC2mzCNW++kzASEQFtDMm7+RDFnXKAIwObPKI2Kg1vxy5I+0
+ 1MOpnV1SwgD+rUeiXMfrBxDi6A57WHf3WbiIRcsSMn+nvY3pAbYwpbOGKT54O26GmNe3J+2l0Eu
+ cfFOSqMwevQO80d5zxnihTsVSm5tCfDQG4isGXssPAKMC9SoztQoYNqZOnpOM+X88SH1OhT4IL4
+ QeN9RJta8DPlzSl5g3wmG5BDJCM6iAwZPtXetkS0PgrgeOCanRdG5BHbLHYFN/jLOpUq64dOgi1
+ ZrQV9A+A6//uDJ8tUrVadeeYwVViEXsO1pTpIyUU1n+9S7iroy4isEz/xis8FIeNyaCG5jZAGSe
+ ojs9iYbZQjWC4czQAscGe+bhLdvySoT32VT2BPdoST2OpSwL8NX98wr7KZ+IVZuSj+jaO8GzQAX
+ Z2/B7q8NA6/9WsttHnw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-05_03,2026-10-05_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 phishscore=0 malwarescore=0 clxscore=1015 spamscore=0
+ bulkscore=0 priorityscore=1501 suspectscore=0 adultscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610050052
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261005_062533_779603_E75C91B9 
+X-CRM114-Status: GOOD (  20.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,109 +151,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/4/26 05:03, Lance Yang wrote:
-> RISC-V uses _PAGE_EXEC for swap soft-dirty tracking when
-> CONFIG_MEM_SOFT_DIRTY is enabled and Svrsw60t59b is available. That's
-> a problem for PMD migration entries, since pmd_present() also checks
-> _PAGE_LEAF (R/W/X) to recognize THPs with _PAGE_PRESENT temporarily
-> cleared during splitting.
-
-I'm curious: why do we have to set leaf indications for non-present things? The
-HW sure will ignore it, right?
-
-Is this a sw problem? Who needs that?
-
+On Mon, Sep 28, 2026 at 04:31:00PM +0200, Andrew Jones wrote:
+> IRQ bypass maps guest IMSIC addresses through a flat-mode MSI page
+> table owned by the second-stage domain. Allocate the table lazily
+> during device attachment when the attaching IOMMU supports MSI_FLAT,
+> and free it when the domain is destroyed.
 > 
-> When a soft-dirty THP is migrated, set_pmd_migration_entry() preserves
-> soft-dirty with pmd_swp_mksoft_dirty(), setting the X bit in the
-> migration PMD. Even with _PAGE_PRESENT clear, we end up treating a
-> migration PMD as a present THP! The fault handler skips
-> pmd_migration_entry_wait(), and a write fault can end up in
-> do_huge_pmd_wp_page(), where pmd_page() decodes the migration entry
-> as a mapped PFN.
-
-That sounds bad.
-
+> The required capacity depends on hypervisor support and VMM policy.
+> Expose the runtime-writable riscv_iommu.nr_msi_ptes parameter to set the
+> MSI table capacity of new second-stage domains. It defaults to 512
+> entries (8 KiB), and zero disables MSI table allocation for new domains.
+> Existing domains retain the capacity selected when they were created.
 > 
-> Move the swap soft-dirty bit to bit 12 and start the swap offset at
-> bit 13 when CONFIG_MEM_SOFT_DIRTY is enabled. This keeps R/W/X clear
-> in migration PMDs and lets us keep the existing pmd_present() check
-> for invalidated THPs. Leave the offset at bit 12 when soft-dirty
-> tracking is disabled.
-
-That reduces the effective swap size (and PFN we can store). Could that be a
-problem?
-
-> 
-> Fixes: 2a3ebad4db63 ("riscv: mm: add soft-dirty page tracking support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lance Yang <lance.yang@linux.dev>
+> Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
 > ---
-> I found this while reviewing Usama's PMD-level swap entries series [1]
-> and comparing the swap flag bits with the PMD presence checks across
-> architectures.
+>  drivers/iommu/riscv/iommu.c | 61 +++++++++++++++++++++++++++++++++++++
+>  drivers/iommu/riscv/iommu.h |  7 +++++
+>  2 files changed, 68 insertions(+)
 > 
-> [1] https://lore.kernel.org/all/20261002095503.3585565-1-usama.arif@linux.dev/
-> 
->  arch/riscv/include/asm/pgtable-bits.h |  6 +++---
->  arch/riscv/include/asm/pgtable.h      | 10 ++++++----
->  2 files changed, 9 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
-> index d5a86b4df3ce6..d84b459e010c1 100644
-> --- a/arch/riscv/include/asm/pgtable-bits.h
-> +++ b/arch/riscv/include/asm/pgtable-bits.h
-> @@ -27,12 +27,12 @@
->  	((riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)) ?	\
->  	 (1UL << 59) : 0)
->  /*
-> - * Bit 3 is always zero for swap entry computation, so we
-> - * can borrow it for swap page soft-dirty tracking.
-> + * Bit 12 is reserved for swap soft-dirty tracking. The swap offset
-> + * starts at bit 13 when CONFIG_MEM_SOFT_DIRTY is enabled.
->   */
->  #define _PAGE_SWP_SOFT_DIRTY						\
->  	((riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)) ?	\
-> -	 _PAGE_EXEC : 0)
-> +	 (1UL << 12) : 0)
->  #else
->  #define _PAGE_SOFT_DIRTY	0
->  #define _PAGE_SWP_SOFT_DIRTY	0
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index b644db16bda94..acaf6d3b54d04 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -1178,18 +1178,20 @@ static inline pud_t pud_modify(pud_t pud, pgprot_t newprot)
->   *
->   * Format of swap PTE:
->   *	bit            0:	_PAGE_PRESENT (zero)
-> - *	bit       1 to 2:	(zero)
-> - *	bit            3:	_PAGE_SWP_SOFT_DIRTY
-> + *	bit       1 to 3:	_PAGE_LEAF (zero)
->   *	bit            4:	_PAGE_SWP_UFFD
->   *	bit            5:	_PAGE_PROT_NONE (zero)
->   *	bit            6:	exclusive marker
->   *	bits      7 to 11:	swap type
-> - *	bits 12 to XLEN-1:	swap offset
-> + *	bit           12:	_PAGE_SWP_SOFT_DIRTY (CONFIG_MEM_SOFT_DIRTY)
-> + *	bits 12/13 to XLEN-1:	swap offset (without/with CONFIG_MEM_SOFT_DIRTY)
->   */
->  #define __SWP_TYPE_SHIFT	7
->  #define __SWP_TYPE_BITS		5
->  #define __SWP_TYPE_MASK		((1UL << __SWP_TYPE_BITS) - 1)
-> -#define __SWP_OFFSET_SHIFT	(__SWP_TYPE_BITS + __SWP_TYPE_SHIFT)
-> +#define __SWP_OFFSET_SHIFT \
-> +	(__SWP_TYPE_BITS + __SWP_TYPE_SHIFT + \
-> +	 IS_ENABLED(CONFIG_MEM_SOFT_DIRTY))
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index 0953aaf594cb..3bbb4d0d0a85 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -22,6 +22,8 @@
+>  #include <linux/iopoll.h>
+>  #include <linux/irqchip/riscv-imsic.h>
+>  #include <linux/kernel.h>
+> +#include <linux/moduleparam.h>
+> +#include <linux/mutex.h>
+>  #include <linux/pci.h>
+>  #include <linux/generic_pt/iommu.h>
 >  
->  #define MAX_SWAPFILES_CHECK()	\
->  	BUILD_BUG_ON(MAX_SWAPFILES_SHIFT > __SWP_TYPE_BITS)
+> @@ -30,6 +32,16 @@
+>  #include "iommu-bits.h"
+>  #include "iommu.h"
+>  
+> +#undef MODULE_PARAM_PREFIX
+> +#define MODULE_PARAM_PREFIX "riscv_iommu."
+> +
+> +#define RISCV_IOMMU_DEFAULT_NR_MSI_PTES	512
+> +
+> +/* A zero value disables guest MSI table allocation. */
+> +static unsigned int riscv_iommu_nr_msi_ptes = RISCV_IOMMU_DEFAULT_NR_MSI_PTES;
+> +module_param_named(nr_msi_ptes, riscv_iommu_nr_msi_ptes, uint, 0644);
+> +MODULE_PARM_DESC(nr_msi_ptes, "Number of PTEs for new second-stage domains (default: 512)");
 
+I never liked the need for this parameter. I think I have a way to remove
+it, ensure table size supports (and no more than supports) the guest's
+IMSIC topology, and moves ownership of the MSI table to the hypervisor
+(which, since the MSI table is only needed for VM's, is likely the better
+owner). I'll experiment with that idea for the next version.
 
--- 
-Cheers,
-
-David
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
