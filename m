@@ -4,101 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B4B3CA5FFD
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2026 09:38:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C987CA5FCE
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2026 10:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qty1lM+Guww4DjWUKRgvHfAxzCIOeMAYcD0YIP8SOh0=; b=KBffBOiWqA5oKy
-	ajc5CbSE6CWkfUxuNNX24eKOlyY5TW+QlMVzsRjxvaYVw8OMOx+veIgUQ8mbNqSn8Y1ZfBo7Mj7fP
-	ntR46OUtTUlOS1lo4sByEM4OmFnJoedygE0Obj8oEN8QmnPh4S/KN3VRz20Z6UAPOEoDu46LvMg4H
-	Hz3dZVbr9sHgTVUe6v5/1xSQFbfvb7JmZuCTquaVjfHQK2pMgqqp9uY5lgp/YSLd/Pm7ZSUS0vRcW
-	8g75Olr7yRDt9PDmdE2c+VuCGAdMvARxvWkH1EtqbhI02k/ha5xTOfy30q0ke6l6zIxSVGBDuYssZ
-	/STXiuECqOzYH2M33SAQ==;
+	List-Owner; bh=zwg3uWR/L9Gbly9xEy6Mgq/hCWPJT9mUpmJcc4NgwGo=; b=fKb5j5aOVbYBJk
+	7YRuXDp957oB0RUAOMUMnviuQjK/wRKP4nGCkx2ATwI0ZZ9nRUtCV3/ozz9uwQcoYX8tiIlNJE4EP
+	uv5J1/BlIymx1t4yOLNiJLN3kWKGZBQcphLQikaK2b33zMSBfcqSY9nG4xE1fTYiXdGBfjlZzGTVc
+	Ty4J2pULllyj5HHZIhrMQTc2IObWEDlWjr9bseaCI42HmlUmpuXdC2IdSRDYLw8GYAHjjgwhv/oTn
+	M+X8w5mlo4Pwk28FpxSwe0YfPuao0cJ/2txTjHaVMLF4kS5CjVY44oi6fDVPgo40EEq78/NNzHIPS
+	fU8uvEWC71WOemIll0XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDf9F-0000000G1NU-2Zfw;
-	Mon, 05 Oct 2026 09:38:17 +0000
-Received: from mail-pj2-x2a.google.com ([2607:f8b0:4864:39::2a])
+	id 1xDg4e-0000000GCUz-2vpx;
+	Mon, 05 Oct 2026 10:37:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDf9C-0000000G1Lo-434t
+	id 1xDg4d-0000000GCUn-1GUF
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Oct 2026 09:38:16 +0000
-Received: by mail-pj2-x2a.google.com with SMTP id 98e67ed59e1d1-3a4bbc51755so102288a91.1
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Oct 2026 02:38:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791193094; x=1791797894; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ffwk9zd7Q1dFpAeiEuMaDR3BIsGTNaq+nzEVxlzFSrI=;
-        b=ex2JzAKrTCKasPjdB7RclNLjf3Ec20dX/tD51FOtOXYA5mpIvSRGQqGhDp2aMi/tu3
-         t8/ngdpQleNNM4qymUH5NjhE8KiKoZogLwjwvpFCwNBIBRxlkY4QZHwQh1gg4zTg21Lq
-         klqFfcgIxCPaR80bfYlZ48dBMvb/L2aCpeybim5cW6FGbKDWs4hpn8NOg6Bk+jgSBzSE
-         a8kOPjrqcuXfu15QDLSXoeDb78txMNKtA+w1jbgHqYbHI65fmLlKG+OsTLZDaqVEP2Pp
-         9kQRtr9n9L8XHFkp8r1PrMzNiINYMkdFuPn82FMjI+kGOEXLtuKctj+LurUUh04n5IGr
-         b/VA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791193094; x=1791797894;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ffwk9zd7Q1dFpAeiEuMaDR3BIsGTNaq+nzEVxlzFSrI=;
-        b=n2iQuJRbWBYykKq0gQKgyLDcyJCoWcIk/3PZt7Tn2jIFwBIv8M5D1XA0jCgz4tnUIo
-         uuMB6SCnNXunZwCrFk1D8Tcsx4+Rwd0VMbtTkoDG4rYoFBW7guNo3f771HuPiZycQp7S
-         5tNXSfdoqDU9zFRkRD37JR8mhI7SK0MwWwXz2ccj5LMpbs2L+uIvhBI21+h8fQHqEQku
-         2zxfugZDBqjWcsNQI7YhU2usdueHwRqllhAUuPXDm5X/P82Db/B0NOuK/XT+8aRt5eRQ
-         mAVITgE6bISdwXelUZkSWoNivEgf/UcU4nfySj2kbdY0FnGzI/IYWEUS0cGHLNndCxBm
-         mq+g==
-X-Forwarded-Encrypted: i=1; AKwUvBz8FMkXAqBi9duTg+BJMEy7lnsK8Gkl5FDGNfaPuONBCOFz4Ge9AdunbYxejGee7LSHhthahn8XCY7IXA==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJC7bjObUyKBoyz41JlLjtUQPgGZeV7SjpQlK35MTido2N8axlT
-	URncwvaMifySdqvya+z2VOuxyPZMQPfxTtrCe4SSx0BsztJMDNhsr8N3
-X-Gm-Gg: AYBFou34syyiI1EZQJQKRITJOC4uGLdE3EMxEQPd6rlm75aGQI3r8PYiememhOAWxwB
-	dZqSjUTOT9OhpQnh0K1QMFVn9YTqBZK6KmQxBQ7Z8Bw2wOxyNQ7Aq3xpf6cFMRAsT0rAquvh5pA
-	4s8E9d30J9LRbfIXxRfTrfz4ggAjExJ9NlRShLP0L85oIdHNtaibV1gJMvI1mXbgSXU6EV15hUy
-	yWrSgb8bbkWbvKBwWcZ+EoQsF7xpoq1/D9I7/GSLy64NCCtWblPTUuW/e6UBHOMSkXa39gBIkpx
-	2mQ5gLzAWXYkxDG3kqw3AR/o6s33UB2fx94pKtIAWHW0Ml4MqxhueDmWVbSb9mYQ1/LQvDB3LU0
-	+uYtlcps+oY4hpuIeFuNxy+ZA9h3XuuPtQMFvHGQDNP5EfgR9pSmLnyd/Xi43Kt8Aj3Eyhtp3kg
-	wS3x9dfCSGZcKQt47MPJ9U9aCvbv4gPURorzggIuje2TKcsUyOHMhKlcjmVt4/0G5vTr/P+ey7t
-	SucqEnSJw6B/W/BFcSy5WcAVA31nidssmjlfd4a9WJPZ/BGUTBcTgXlnZfAT3lRtTIPBg==
-X-Received: by 2002:a17:90b:4c81:b0:3a6:f1d2:57fa with SMTP id 98e67ed59e1d1-3a6f1d2701amr12943495a91.4.1791193094249;
-        Mon, 05 Oct 2026 02:38:14 -0700 (PDT)
-Received: from chenyou.. ([140.116.39.229])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a78e42026fsm10568067a91.3.2026.10.05.02.38.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 02:38:13 -0700 (PDT)
-From: Chen-Yu Yeh <chenyou910331@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <chen.wang@linux.dev>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Hiago De Franco <hfranco@baylibre.com>,
-	Longbin Li <looong.bin@gmail.com>,
-	"Anton D. Stavinskii" <stavinsky@gmail.com>,
-	Joshua Milas <josh.milas@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Chen-Yu Yeh <chenyou910331@gmail.com>
-Subject: [PATCH v3 2/2] riscv: dts: sophgo: cv180x: Fix internal ephy node name
-Date: Mon,  5 Oct 2026 17:37:49 +0800
-Message-ID: <20261005093749.645014-3-chenyou910331@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261005093749.645014-1-chenyou910331@gmail.com>
-References: <20261005093749.645014-1-chenyou910331@gmail.com>
+	Mon, 05 Oct 2026 10:37:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B720F415B3;
+	Mon,  5 Oct 2026 10:37:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 394661F000FF;
+	Mon,  5 Oct 2026 10:37:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791196654;
+	bh=cByG7GqhBvWV2hjaYwUvk7XARELXPjKV24/eCyNbhZQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=UFzxhi2OKhI7lOTnQNuT5HIVGpaxAbS1fgEPpdjeuyurAwRR8AVghIocUlZW6JGwR
+	 mnGCuSA4j3JWEpMfC4xPkdvyQAKVzSd/Jkj5tOT+vRbqFF0BcqFAj4HDAiqRyeXpgK
+	 rVFOS1s6YKwWKEiM//Z2aU/vsloh6wNr8iUpImltVL/MxI0rmEfGjkQkyLO3tsVRvK
+	 npu3l3PXt8mv0PZPj+ZEqOibABFIOqYktx455TvhuC6zXUmzbvs0vEi+sj+Xp5wBKR
+	 9N8QlqbV6+nm2AsncAr4ROh3G1k2HdVRDF68iEod47EmNtXDGQTexWFteH0cOtkckq
+	 LQ4dPVDY4yBrQ==
+Message-ID: <fabd52b6-36a7-442e-9cfb-47a39e4ae3d6@kernel.org>
+Date: Mon, 5 Oct 2026 12:37:20 +0200
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_023815_460042_0138A19C 
-X-CRM114-Status: GOOD (  11.22  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] riscv/mm: fix soft-dirty migration PMDs being treated
+ as present
+To: Lance Yang <lance.yang@linux.dev>, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu
+Cc: alex@ghiti.fr, akpm@linux-foundation.org, zhangchunyan@iscas.ac.cn,
+ rppt@kernel.org, kas@kernel.org, andrew+kernel@donnellan.id.au,
+ rmclure@linux.ibm.com, debug@rivosinc.com, baolin.wang@linux.alibaba.com,
+ usama.arif@linux.dev, wangruikang@iscas.ac.cn, namcao@linutronix.de,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ alexghiti@rivosinc.com, viro@zeniv.linux.org.uk, ajones@ventanamicro.com,
+ arnd@arndb.de, axelrasmussen@google.com, brauner@kernel.org,
+ conor.dooley@microchip.com, conor@kernel.org, jack@suse.cz,
+ liam@infradead.org, ljs@kernel.org, mhocko@suse.com,
+ paul.walmsley@sifive.com, peterx@redhat.com, robh@kernel.org,
+ surenb@google.com, vbabka@kernel.org, yuanchu@google.com,
+ stable@vger.kernel.org, pasha.tatashin@soleen.com, linux-mm@kvack.org,
+ me@ziyao.cc
+References: <20261004030312.90163-1-lance.yang@linux.dev>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261004030312.90163-1-lance.yang@linux.dev>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,40 +127,109 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The internal EPHY node is named "phy@0" while its reg property is <1>.
-The unit-address should match the first entry of the reg property, but
-this is not checked by dtc for MDIO buses. The kernel confirms the PHY
-is indeed at address 1:
+On 10/4/26 05:03, Lance Yang wrote:
+> RISC-V uses _PAGE_EXEC for swap soft-dirty tracking when
+> CONFIG_MEM_SOFT_DIRTY is enabled and Svrsw60t59b is available. That's
+> a problem for PMD migration entries, since pmd_present() also checks
+> _PAGE_LEAF (R/W/X) to recognize THPs with _PAGE_PRESENT temporarily
+> cleared during splitting.
 
-  eth0: PHY [mdio_mux-0.0:01] driver [Generic PHY]
+I'm curious: why do we have to set leaf indications for non-present things? The
+HW sure will ignore it, right?
 
-Rename the node to ethernet-phy@1, which also follows the common naming
-convention for ethernet PHY nodes.
+Is this a sw problem? Who needs that?
 
-Fixes: ba1abacc57cb ("riscv: dts: sophgo: Add mdio multiplexer device for cv18xx")
-Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
-Reviewed-by: Hiago De Franco <hfranco@baylibre.com>
-Signed-off-by: Chen-Yu Yeh <chenyou910331@gmail.com>
----
- arch/riscv/boot/dts/sophgo/cv180x.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> When a soft-dirty THP is migrated, set_pmd_migration_entry() preserves
+> soft-dirty with pmd_swp_mksoft_dirty(), setting the X bit in the
+> migration PMD. Even with _PAGE_PRESENT clear, we end up treating a
+> migration PMD as a present THP! The fault handler skips
+> pmd_migration_entry_wait(), and a write fault can end up in
+> do_huge_pmd_wp_page(), where pmd_page() decodes the migration entry
+> as a mapped PFN.
 
-diff --git a/arch/riscv/boot/dts/sophgo/cv180x.dtsi b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-index ec3bf305274a..d2ec70fd515e 100644
---- a/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-@@ -71,7 +71,7 @@ internal_mdio: mdio@0 {
- 				#size-cells = <0>;
- 				reg = <0>;
- 
--				internal_ephy: phy@0 {
-+				internal_ephy: ethernet-phy@1 {
- 					compatible = "ethernet-phy-ieee802.3-c22";
- 					reg = <1>;
- 				};
+That sounds bad.
+
+> 
+> Move the swap soft-dirty bit to bit 12 and start the swap offset at
+> bit 13 when CONFIG_MEM_SOFT_DIRTY is enabled. This keeps R/W/X clear
+> in migration PMDs and lets us keep the existing pmd_present() check
+> for invalidated THPs. Leave the offset at bit 12 when soft-dirty
+> tracking is disabled.
+
+That reduces the effective swap size (and PFN we can store). Could that be a
+problem?
+
+> 
+> Fixes: 2a3ebad4db63 ("riscv: mm: add soft-dirty page tracking support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lance Yang <lance.yang@linux.dev>
+> ---
+> I found this while reviewing Usama's PMD-level swap entries series [1]
+> and comparing the swap flag bits with the PMD presence checks across
+> architectures.
+> 
+> [1] https://lore.kernel.org/all/20261002095503.3585565-1-usama.arif@linux.dev/
+> 
+>  arch/riscv/include/asm/pgtable-bits.h |  6 +++---
+>  arch/riscv/include/asm/pgtable.h      | 10 ++++++----
+>  2 files changed, 9 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+> index d5a86b4df3ce6..d84b459e010c1 100644
+> --- a/arch/riscv/include/asm/pgtable-bits.h
+> +++ b/arch/riscv/include/asm/pgtable-bits.h
+> @@ -27,12 +27,12 @@
+>  	((riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)) ?	\
+>  	 (1UL << 59) : 0)
+>  /*
+> - * Bit 3 is always zero for swap entry computation, so we
+> - * can borrow it for swap page soft-dirty tracking.
+> + * Bit 12 is reserved for swap soft-dirty tracking. The swap offset
+> + * starts at bit 13 when CONFIG_MEM_SOFT_DIRTY is enabled.
+>   */
+>  #define _PAGE_SWP_SOFT_DIRTY						\
+>  	((riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)) ?	\
+> -	 _PAGE_EXEC : 0)
+> +	 (1UL << 12) : 0)
+>  #else
+>  #define _PAGE_SOFT_DIRTY	0
+>  #define _PAGE_SWP_SOFT_DIRTY	0
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index b644db16bda94..acaf6d3b54d04 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -1178,18 +1178,20 @@ static inline pud_t pud_modify(pud_t pud, pgprot_t newprot)
+>   *
+>   * Format of swap PTE:
+>   *	bit            0:	_PAGE_PRESENT (zero)
+> - *	bit       1 to 2:	(zero)
+> - *	bit            3:	_PAGE_SWP_SOFT_DIRTY
+> + *	bit       1 to 3:	_PAGE_LEAF (zero)
+>   *	bit            4:	_PAGE_SWP_UFFD
+>   *	bit            5:	_PAGE_PROT_NONE (zero)
+>   *	bit            6:	exclusive marker
+>   *	bits      7 to 11:	swap type
+> - *	bits 12 to XLEN-1:	swap offset
+> + *	bit           12:	_PAGE_SWP_SOFT_DIRTY (CONFIG_MEM_SOFT_DIRTY)
+> + *	bits 12/13 to XLEN-1:	swap offset (without/with CONFIG_MEM_SOFT_DIRTY)
+>   */
+>  #define __SWP_TYPE_SHIFT	7
+>  #define __SWP_TYPE_BITS		5
+>  #define __SWP_TYPE_MASK		((1UL << __SWP_TYPE_BITS) - 1)
+> -#define __SWP_OFFSET_SHIFT	(__SWP_TYPE_BITS + __SWP_TYPE_SHIFT)
+> +#define __SWP_OFFSET_SHIFT \
+> +	(__SWP_TYPE_BITS + __SWP_TYPE_SHIFT + \
+> +	 IS_ENABLED(CONFIG_MEM_SOFT_DIRTY))
+>  
+>  #define MAX_SWAPFILES_CHECK()	\
+>  	BUILD_BUG_ON(MAX_SWAPFILES_SHIFT > __SWP_TYPE_BITS)
+
+
 -- 
-2.43.0
+Cheers,
 
+David
 
 _______________________________________________
 linux-riscv mailing list
