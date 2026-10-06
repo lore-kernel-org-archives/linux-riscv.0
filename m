@@ -4,180 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D0F3CA5FF0
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 13:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F15CFCA5FED
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 14:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:CC:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=OO0fubkCOPYaF2rTUByUFT8H6TYJINBl2ci6hsiaYeU=; b=DaBgD9eYlDCPqzuv5z97NfW6Nq
-	mtLuNqAfN2CyRM13BVUqPBLl5zPGxVnf2voFQDu99g616CZLTOe9QYZEnC2+nmEXlu2iNf+Bc8qx2
-	cTjD51BkNYFsuSxWiVDFHOpIXemP9rF3iQlLVDBZSofxEs0SmI5KT8qto+yWZQS1OXtVbTfSfaFO9
-	KIHj5w+mBC5FizWp3iX1nwTZXdryMbeM16mu+3EOskVslqQpBlkDM3apT85y1pEbi/llvnHesTNNI
-	h6P5as34OG9lFq7RXwm+0hMTZFSRTO49F/Jhl+PS03UDXU8XVaG0E2q6LOepbnfyWapq65x2iRUfF
-	3qZd87Zw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jtFLhX28R6WnmMP9jzIEh/WYm104Go9aGZRqRrmu0qI=; b=2lTa+1RjUTK+ke
+	Tz1sMZcfpHJsnaOVfxXb4+Yfq9acx8X6VF3075MY/MqN2FVCmCNSdcZTbny/T/bvhPxTfBZfPnmac
+	tZDhSF+vDo40v1CpJM+cxfecjcsR6qqfJb1dC6RO4Qk6H8QciAOp7trrMNg1hlexKIZ94Y0ywBXCz
+	hzHq6Mbtr5U571AmtWFGtYABcckglGLf2nTtOugQ43TLEOvXYspM8KmtsW1SjVwn4EN39Pz0yS7wV
+	ZWnnlb8LCcF/bRXRpRy4kuvHbe96FIVfOABrXthR2jCGNCeQsUmf/Nv9casz9GxrNEsXzDbjqzr5w
+	ak3B7TCOoa+kYfFQVCbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE52m-00000000q6e-1E3d;
-	Tue, 06 Oct 2026 13:17:20 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1xE5kL-00000000vOB-3vno;
+	Tue, 06 Oct 2026 14:02:21 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE52h-00000000q5T-1pNf;
-	Tue, 06 Oct 2026 13:17:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1791292635; x=1822828635;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=LDE5Rs7zNYTnSMyn0FPQ95gFQFlFZmsIBCkkmUMQ4wU=;
-  b=aDfvIB6gPWpCv6kDRN9SoFp997OWGj62SQWG/TJhRuwmzv3t1AWjfEga
-   l9YcP2uDQ1jJlAth6+Xk2Ylj9xPK+S+3V4Gf9nn1cQzp1calmXITwkkr4
-   iMLgSjdjqzaelRr6wNwRR7Gth7CcGL+GXlUl0/kaJFjxWvtV6BH7kOF/J
-   7VSqRsfiCmsOBsK94ipJpvlidW0pFfmOiFTkMzWE8YETmWB0TZ9in34Vo
-   kOOlOOxyzWrBgZcmuekUuVEEITE0AVl9Ng6B1wIYQwpuNpDQsILSAeS5G
-   p00p2I9ODYKqZcON0fxIHsYYUvPZiAZhmBz2huApa1+3T6iQyXdXiHdUb
-   g==;
-X-CSE-ConnectionGUID: nIc6QewdTzWo3iJcnZtDUw==
-X-CSE-MsgGUID: statladXTZeT7l2cXD8Ccw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11926"; a="102651547"
-X-IronPort-AV: E=Sophos;i="6.27,143,1787036400"; 
-   d="scan'208";a="102651547"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Oct 2026 06:17:14 -0700
-X-CSE-ConnectionGUID: 21EVpoXgQWOCMiDWN2x75A==
-X-CSE-MsgGUID: onoZTT44QviSsyVnFvuHzg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,143,1787036400"; 
-   d="scan'208";a="285252430"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Oct 2026 06:17:13 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Tue, 6 Oct 2026 06:17:13 -0700
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49 via Frontend Transport; Tue, 6 Oct 2026 06:17:13 -0700
-Received: from SA9PR02CU001.outbound.protection.outlook.com (40.93.196.9) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Tue, 6 Oct 2026 06:17:12 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hE4+gRjBjHBUItjKHkjIHvbFrr8Ordl3Q/JgJXMTCXHaosQkTs4Cgca77DkUFv86ppggKW/vhI4OHl1exjqNL379iW8+m19ymNS3aU8f47XQkaL3WaKipswWQayYZqaQxH9XulM1v0YmoGl60ext0Zg4ii3zqjsANHNtdmkdLyjOAL7CGKcQ7oj19tc016wwsbNMizZxoJb0KVLmDhdvmOp90AjDMH9zaj4216yPwIJG8cKcaDWS7Yx2t2+MgPwhJmjTp+16d86gTEG9x+VpPjFwzNdE4f++406r26CNaXKqYyUz58kDpX6zNUG8qRch8q4si2aPIyUNReFaHgFHXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YVAYWNUWutWwmH5IQDloOCZsOnewrA5SLYuigOa6wZc=;
- b=o87QiyBnPdGBpcF6ve3+pylQ6ZjtPQmKyXQDFh+4r11E2kJr7gOVOt9UinAKs5MAZupaBkg8GWPLphvpGGN3eiU/TSOr7eQGJitKVzm1QIMV8W8HXRfnY4FxO1x5tjCJnx31T4mukmWRxM0j3uayjDHvGfrfzpxLtAKl9zHMKIYsyNBtp+900NRH6f0UaMF+hPpLd1JDxutH81H3IHVOzaaooI5uSqehkGcxOkfZu8EG/f7EQico82eFTetUgU0GX7o7sWPehv5fa35PZ5nTjhqKiwqr4KmUYSKr/CLO/TDfEWR0ILIgzOhLXQ+scZo1Z69DJ9w++jvHZCqh4gBEZQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
- by PH8PR11MB6999.namprd11.prod.outlook.com (2603:10b6:510:221::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Tue, 6 Oct
- 2026 13:17:00 +0000
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456%3]) with mapi id 15.21.0472.015; Tue, 6 Oct 2026
- 13:17:00 +0000
-Message-ID: <66136aa8-adbe-4fdf-9b7c-d44ea0e5cf1e@intel.com>
-Date: Tue, 6 Oct 2026 16:16:52 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] perf tsc: Declare TSC support from the build
- system
-To: Chen Pei <cp0613@linux.alibaba.com>, <acme@kernel.org>,
-	<peterz@infradead.org>, <mingo@redhat.com>, <namhyung@kernel.org>
-CC: <mark.rutland@arm.com>, <alexander.shishkin@linux.intel.com>,
-	<jolsa@kernel.org>, <irogers@google.com>, <james.clark@linaro.org>,
-	<leo.yan@linux.dev>, <john.g.garry@oracle.com>, <will@kernel.org>,
-	<mike.leach@arm.com>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-	<guoren@kernel.org>, <linux-perf-users@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260929034133.2153-1-cp0613@linux.alibaba.com>
- <20260929034133.2153-3-cp0613@linux.alibaba.com>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
- 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
- 4, Domiciled in Helsinki
-In-Reply-To: <20260929034133.2153-3-cp0613@linux.alibaba.com>
-X-ClientProxiedBy: DU7P190CA0018.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:10:550::21) To IA1PR11MB7198.namprd11.prod.outlook.com
- (2603:10b6:208:419::15)
+	id 1xE5kI-00000000vNP-3nFN
+	for linux-riscv@lists.infradead.org;
+	Tue, 06 Oct 2026 14:02:20 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-93e027da22eso38806385a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Oct 2026 07:02:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791295336; x=1791900136; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CPvl7PbyU/2kfsD+JpTBP33aFuEJTpqh+wQCTs8+mrY=;
+        b=kAzvDY3aNdVmHWDKqb7cAinGgGAfjmwyJlHp00vLlVtfmfhbhEtyQ8CBBzZ0VZ6SBV
+         oizC0tepJU90inzJovK2q2RefaU25lIe3+58XroTEx81TGit+1xQp+G1OgS36favaVA8
+         JcKI0Zv6xG7UmqCDPV+AfE/jmm42plNsvcQW+mmgD1rL0zmedtzyaKj4eToftwUPCZs5
+         OG87jucQavSADMNkSPzJf8FND8s49J29VWufe2J8XOTyrtRmcM8fXnE3NJ1APp62nAX7
+         3SNOYq8e9cbFPyeA4OUTu5/ZZnpBZKYSG/6caEd0ZDRERYyyFaZsCzjkUel2hRg4cbou
+         Zx+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791295336; x=1791900136;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CPvl7PbyU/2kfsD+JpTBP33aFuEJTpqh+wQCTs8+mrY=;
+        b=a+yZ1dD0d5v8UVkJfS+AWnii+jzelDAkMKnXvbyi9yCic4k8/6h3mGwLh6hTVY7BM/
+         QPP27oM2CfaCs/mqetpDu6/dCl3AuTGRD29ETUKCtpOK9xKcplCgSQnwWULKdDW/U99D
+         5cX6i3MLbiCt+rHhA6YekPiSyCyfcfbLJHFHgPnOCUcb52rtjyVj89RFlc9e5cYNPfXG
+         Z+G2ium9+DVY/AyOsDwRQnH+XN/lUekL3cBhk419C9SiMiUZsJPRSsrlcAjSwaIwzTFR
+         f5NzFbLxBqq8vcSP/V6HGMHwGiKr+rjuikzMEjP2j0LPQhtW87uxoloHCgS9HAWZZ0m1
+         NnMA==
+X-Forwarded-Encrypted: i=1; AKwUvBydNwHX8eEghEQe/yEtdlPC/XwMb3AtbcrStoVm7yLiI/sg0uEVqSHnhZsJr9+4ej9Hp9dcDxWNY7YGfQ==@lists.infradead.org
+X-Gm-Message-State: AFuF++kXQimcYQzCwC+H6cN31uqLfXlf7EgOvlP47A/1T4toZCm4aJwb
+	8jQzynvdTC2ScN8dnCs4UH1glCkRUXVYicC+4k/xJOrp/7q/JYx99Q5g
+X-Gm-Gg: AYBFou1jptHl+QaSoEwTnjmiKMN6vTx3NiNpfUiT1a6CRDrTP+SlmwJDi+89W8tmBGu
+	zY4tqKhsQUaB/8yA0Mox0wGDqYd7BEXuMT+/J8Bdfsv+QHw/sk+b79EVo5eHMVAhleRhB/b+X8e
+	0//pbnuBjjVOa2Wb0RnCMhDiKDD5W0Je5O6HHn7KcNr/Uer6yJzN32H0X//rRikfM/GTgoIKMHE
+	iuzqVVR04Gc6vc2c03rg97WG+wx/6xE+X3NQWsutOFADVl7MWx6N024H1ahzWrOcH5MTH2OLJEg
+	QqoP7VJLWOGJFgDbAeECU4tISwE1bFKfNyAHsyfWOTbMIWOXr/CtB56sOF92ZtLbcB4X6Qu6vpR
+	hVNEEJN9bupISNEGf7dsS1fmx2XLhAD59Eni7ktHv6ueySMB1qDU0ekyi9sey3keck1t+hcLDd8
+	LU6wCE11uSInV9rdKeSzdfgW6hsomDUdg9JW7g36YgrzvUylKFbTrxcwjM5j0Bj2ng07thSUZTk
+	ZhZD9NIPNXzLXXzPqRh8AH14tj6lADLqmEG9S0Gzdf4mlVuenBVw6K+fyhbV3T4Sz3jrNZCHKEg
+	m8W9V1Lj
+X-Received: by 2002:a05:620a:4101:b0:93e:4bbf:cc11 with SMTP id af79cd13be357-93e8f35972dmr280007185a.30.1791295335737;
+        Tue, 06 Oct 2026 07:02:15 -0700 (PDT)
+Received: from security.cs.northwestern.edu (security.cs.northwestern.edu. [165.124.184.136])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93cc9d80ae3sm1138742185a.0.2026.10.06.07.02.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Oct 2026 07:02:15 -0700 (PDT)
+From: Ziyi Guo <guoziyi114@gmail.com>
+To: palmer@dabbelt.com,
+	pjw@kernel.org,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: samuel.holland@sifive.com,
+	thecharlesjenkins@gmail.com,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Ziyi Guo <guoziyi114@gmail.com>
+Subject: [PATCH v2] riscv: futex: untag the user pointer before the atomic access
+Date: Tue,  6 Oct 2026 14:02:00 +0000
+Message-Id: <20261006140200.877263-1-guoziyi114@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261001184355.2395068-1-guoziyi114@gmail.com>
+References: <20261001184355.2395068-1-guoziyi114@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|PH8PR11MB6999:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4d7ac612-55d2-4498-e22c-08df23ac1abb
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|11063799006|56012099006|4143699003|10067099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: rSZboxfH1fnLgynfbZZk/lWbGKUhWfY6Y1NrAaS2LisW0QsZvuv2elumPA83z0xF7rqAh4YFI/Vb4+Zsfys9KaOXZHpKxwPXIPIT6jV8K1dBku+KIGp8T2vSuEEZbyjyrH/fxG3TkPVKPAdeZgUhQ8uRwhu0zBa0PQlCBqUvd09dntmpfvC7j0WC1GBGCmN/VGZjzoDlFRrp+O0Q1+ehJCm0TAThuhv3JicDP5y67HAEZJQk3nir3EJmJ4JKPF6qlZ64f/i80MHXG6A42xdUqxTYo16Da7V93jpTEwre6i5BX3PIrTr6Ff6l7GU5aE3wxbE5Hgc5TyGn4KT4vx5jW3RZziWRMs8JoJQ9r/CbtMQq8R3TzqtVyjlzVCHW5YA2+bIt7pNGr0itYF7L4wkMqQgAO6L9i5endR+hxbYms682pIVaiwV0mIscqNIX4x6cC6nVsY7ofmOTF3RxZlEP+s3NCjm+14QGbpRxY0OTFxe4+v6okV97muXrdh5uvQJmpMSgYx7ViYKQo4lZGLEL6s8dCDPbjbuqEWYyGBL4etUmYjVHM/WyaS/a9u4JrWZcVwTf3WEV/SYEHyfq4XsZ16J7NZ3Ih7eMz8bu32T2DpNlU+s3RRt9WjkTO0E1T08s2O6FuBbIHbXahABa8CRavMRRvEkQDekcfEoQfKVPnS0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(11063799006)(56012099006)(4143699003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U1REcWpHVkdBUzQrNWpZMmhGdXZFRWRpOEcxZlNZVElHajVzQzBqdy9PakVH?=
- =?utf-8?B?RThNREJzdUJTWkJxaFQ2RnBFWWRhZmdEOUpnVXlIV3paYTVhLytrRXRzN3Ja?=
- =?utf-8?B?MzlkVWgvQ2lvU05ETXl5NEpuUHRjQjF2Qm13ZkdQRERueWJkbC9aVzNlemU2?=
- =?utf-8?B?VGIyZEwvQzFnS0hrczlURDNzWWg4SERYRTFaNmdlMUY3ZnRoY2NUZ0NGeVV4?=
- =?utf-8?B?UnBLRUh4SDBaTzkwcGdpbmJYVGcwRi80ZzNSVVlGS0xQWWlhU2VLZVEvVVRw?=
- =?utf-8?B?QlIyZE1sS1lqQnZWbGVnM3NvMHdKY25mRWx4T0FqN3dHTzczbG9Kd3I4dTVh?=
- =?utf-8?B?Znd1bmpaNzEvci9NMHlXWlZpMEY0cmxvTlFFbktseU1GWDc4citvckVMRTdY?=
- =?utf-8?B?WTg1ekNpNjlkUW53VUo1ZUVjVXFlUDdiQXBLNzRLaUJ4UnBPQ0p6a1BzTDVO?=
- =?utf-8?B?Yyt5eUZiWjhuaUJTdkxPR3RoRGp3aVVkTHA3SXpsa3R3R09SS2ZIaXp5SStP?=
- =?utf-8?B?VHgrSnNjNTVKVmJKd2xXUWF6UHF1OUkxQU9TclFDemZ2RXluRFRNaWozWmpU?=
- =?utf-8?B?VHpqR2tCZWFhcmM4RTBTdWpmTFZMRW1zUVNyUmdMWFBuWHpCOVUvMktHOTVK?=
- =?utf-8?B?RUNPNGtxOHFZYjlQU3dNc2tKVy96cm4zb3BsM2pwbXFkb0JuYVRpaEUxRi9y?=
- =?utf-8?B?cUxNbFJsK0xRN0lkWmpyNTZrSXBvRVJRakM3Yk93enBUanptOVRwVEpacXZX?=
- =?utf-8?B?eWNQZ2loOWNjWStKcVM5L0srRnpBWHVnbGJBZnlYbTVzZk1ENzMxcXQrK1V0?=
- =?utf-8?B?UmtSVTVYWVk5R2xsYkxLb3RqNkxxN1kzQVN5L2Mwb25LellnejR6U21oWm1D?=
- =?utf-8?B?Z1REREc5VUorWTBuVmF1c0lpZGJpYWljNnVzUUdnUE4zZDlsVnplbGx4K0p1?=
- =?utf-8?B?Um5oN2s2MTZESTR5b2I2cUFHZHh6MHRYVmtXNy9VaTNmWGQ0OFVsWVpyU1Ux?=
- =?utf-8?B?M0hQRHJpSEJVWUZ0bGRpbTAybmlzREZmem9tUmNLK2ZLUU4xaEZhWXJvaXg3?=
- =?utf-8?B?Q3hGM2tXTERkbzROVTBpYnFZWVl2MzlzQUVKRUVXc3A2V1RJbVlhUC8xREpm?=
- =?utf-8?B?YmkyeDRXbSs2ZStVKyt2MUdrdk9UQ3hJREtUYzZBazhwYkg3V0Y3b3ZvQmZa?=
- =?utf-8?B?enZLRTlFeFZrc2dLckVOcmJFR0ZnR0pEN2tLcklNUG9Rd2l4UXZEcFM3Sml3?=
- =?utf-8?B?em56NDBNV1Z6aUI0UVVVb0JQV1k1SGw0V0lOSEJhMGNLK1N6eHJVRE44N0FM?=
- =?utf-8?B?N0FXbml3L1MxUFlUSGZJaXpjR0Y2WVN0NW9DMG9xOFk1UnBvc3RHbHhTcm1Y?=
- =?utf-8?B?L29iK1BNN2kxdndtOWkxcmU2aHNkdE1lekpEL1BySFhNWGoxNWVEUUFxelBU?=
- =?utf-8?B?Vkpxa0RxK21lVHU0bmU4K1kxTDl0d2VwVE04Ti9YRnVPY3FOenJKUXQxbFEy?=
- =?utf-8?B?dG1McDQrUG1XN1Z5dXBnZmc1THZhMmNzQkd5UGpWWFRJOEI0M0V5KzJUUVd4?=
- =?utf-8?B?Y1hlTE9VdW9OdXZSVEdUeENXS2poRkdiVFRua2lIRmY2SUNRUEFySWVOczZX?=
- =?utf-8?B?VmtDbTVDYjFkdUpHbjVXSHUzUzNNcHFSTnJlMnJGN2poNjUwelFvaXJZMGh1?=
- =?utf-8?B?NEVrZDBwMDFmSlV6YVY4VjFNcXN2dnQxWEtrSUVDOXZ5ektIYWhpWisrNHN1?=
- =?utf-8?B?ZzZ2ekNlNUlzbzBwalZ3dlQxSUoyL0pDZng2eXd5WnVrRWZTeUtHaEF0T3FS?=
- =?utf-8?B?VzBIOC94M1BuN3oyT1BDeVdnUWFJeDU4S2VQRTlDNEJ4N1ZnejN5K1EzaUlr?=
- =?utf-8?B?UEl1QW9qckRtRnBEUlhGODdvMjRqTjZEbHZtSjgvZ0FDNTI4K2hFeFluQ0R2?=
- =?utf-8?B?SG9KaTZSckFyMUxSZWJiWHo1MitJRDlQc3M5Nlc0UHJPTEJXMHphc2l0Mmt2?=
- =?utf-8?B?OFA3RE8wdFJzeTRXUTk5RWlZMmZCMHlxNzJjRmJDVjFNazRRakhGWEI5TlF1?=
- =?utf-8?B?bVQ2bnJRVWdLZW1MaHFheEtSTllZcmFwN0hhQWllbzhXOTFkc1FSQ0ZVOXpN?=
- =?utf-8?B?VXYvUG5Ocm5XVEs0TythUk9KMGdNdHEzNzVUY3U1VVAvNDVZRWNkTlpnUzF3?=
- =?utf-8?B?RkNiNnVGVzdXdWxyaU11UURPSHdHWis3a2srQmNNZGV1d1JFZ1cwR2tUcVlP?=
- =?utf-8?B?M0V6ZUNrRk0rdllvOFJXR2JrS0E3RU5XVGRIb2lnMlAxTXdpV0RNTHpML2Q1?=
- =?utf-8?B?VThOenVucDlUWkJBMmdhdmp4VGZDVlZnbE5YSTdMdlQvOHVtUlFCYWtteEVj?=
- =?utf-8?Q?LHgCKpLypiXmSVwA=3D?=
-X-Exchange-RoutingPolicyChecked: kMvvGKHRJLlcJaSQ256mW+/z7mkQHIJ51TOtOKIRlsUQZGjBZDemTE6TmTktIIGjdH1xeWISUN+/jsa0vI8D+u3KMmXQV5Gze7L5GToK1Wnqs7rNbWGspuca96K0eIRIqvCSkgVnt4CneQk+82YgxwMRm5AHA8V25iXcU5etlap/GjLuX7Iyrv14sNUvfy1MEJ1JjYUBHHETcD9dyDnS5mxMhsy9WncsUUu+Xj4WgvZ9AQugLwpjl2vj3CyvKl7hi3PfyYemONoNXlRVPHZsF321he4w5VlRpHS1jLGsKfpb2MnmLrD1wGMQS4MQqnuaauo7lVtfnrYObz7YVuHl+w==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4d7ac612-55d2-4498-e22c-08df23ac1abb
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 13:17:00.2304
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: p/W2ivshkBI2k1sfV6vbUikDLbbLwVNICgWriy2FzjbfLRnbysDhvZ7giCfTpDoMOH7oYXheOHT6Eu0VNQ2vLA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR11MB6999
-X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_061717_533268_B7F700C2 
-X-CRM114-Status: GOOD (  20.78  )
+X-CRM114-CacheID: sfid-20261006_070218_953975_1B704685 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,123 +108,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 29/09/2026 06:41, Chen Pei wrote:
-> The "TSC support" subtest of the "Convert perf time to TSC" test decides
-> whether the architecture is covered by matching compiler macros for
-> x86_64, i386 and arm64.  That list has to be edited for every new
-> architecture and can drift apart from the set of architectures that really
-> provide a counter.
-> 
-> Declare the capability where the implementation is, following the
-> PERF_HAVE_JITDUMP pattern: an architecture with a usable counter sets
-> PERF_HAVE_RDTSC in its arch Makefile, Makefile.config turns it into
-> -DHAVE_RDTSC, and the test keys off that.
-> 
-> x86 and arm64 keep the same behaviour, riscv starts running the subtest
-> where the previous patch defines rdtsc().
-> 
-> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+access_ok() checks untagged_addr(uaddr), but arch_futex_atomic_op_inuser()
+and futex_atomic_cmpxchg_inatomic() hand the raw uaddr to the inline asm
+amoswap/amoadd/.../lr.w+sc.w through the "+m" (*uaddr) operand.  When the
+tagged address ABI is enabled (CONFIG_RISCV_ISA_SUPM, prctl
+PR_SET_TAGGED_ADDR_CTRL with PMLEN != 0), those two addresses differ: a
+user pointer whose top PMLEN bits hold a tag passes access_ok() after
+untagging, but the atomic is then performed on the still-tagged raw
+address.
 
-One minor style comment below.  In any case:
+Supervisor-mode data accesses are not subject to the U-mode pointer
+masking (that is governed by menvcfg.PMM, which the kernel does not set),
+so hardware does not strip the tag for the kernel's own access.  With
+Sv57 and PMLEN=16 the tag bits overlap the canonical-address bits, so a
+tagged pointer can name a canonical kernel virtual address (e.g. in the
+linear map) whose untagged form is a valid user address.  An unprivileged
+process can thus make FUTEX_WAKE_OP perform an atomic read-modify-write on
+an arbitrary kernel address, with the matching FUTEX_OP_CMP_* result
+serving as a read oracle.
 
-Reviewed-by: Adrian Hunter <adrian.hunter@intel.com>
+get_user()/put_user()/raw_copy_{to,from}_user() already untag the pointer
+after the access_ok() check; do the same in the futex helpers so the
+atomic operates on the address that was actually validated.
 
-> ---
-> Changes in v2:
-> - Declare the capability through the build system instead of a weak
->   arch__rdtsc_supported() hook.
-> 
->  tools/perf/Makefile.config          |  4 ++++
->  tools/perf/arch/arm64/Makefile      |  1 +
->  tools/perf/arch/riscv/Makefile      |  1 +
->  tools/perf/arch/x86/Makefile        |  1 +
->  tools/perf/tests/perf-time-to-tsc.c | 19 ++++---------------
->  5 files changed, 11 insertions(+), 15 deletions(-)
-> 
-> diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-> index 4d5993da9f94..f1b3bf208231 100644
-> --- a/tools/perf/Makefile.config
-> +++ b/tools/perf/Makefile.config
-> @@ -618,6 +618,10 @@ ifdef PERF_HAVE_JITDUMP
->    endif
->  endif
->  
-> +ifeq ($(PERF_HAVE_RDTSC),1)
-> +  CFLAGS += -DHAVE_RDTSC
-> +endif
-> +
->  ifeq ($(SRCARCH),powerpc)
->    ifndef NO_LIBDW
->      CFLAGS += -DHAVE_SKIP_CALLCHAIN_IDX
-> diff --git a/tools/perf/arch/arm64/Makefile b/tools/perf/arch/arm64/Makefile
-> index 44cc3f023318..b9cd559065d6 100644
-> --- a/tools/perf/arch/arm64/Makefile
-> +++ b/tools/perf/arch/arm64/Makefile
-> @@ -1,2 +1,3 @@
->  # SPDX-License-Identifier: GPL-2.0
->  PERF_HAVE_JITDUMP := 1
-> +PERF_HAVE_RDTSC := 1
-> diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
-> index 44cc3f023318..8036bf55da8e 100644
-> --- a/tools/perf/arch/riscv/Makefile
-> +++ b/tools/perf/arch/riscv/Makefile
-> @@ -1,2 +1,3 @@
->  # SPDX-License-Identifier: GPL-2.0
->  PERF_HAVE_JITDUMP := 1
-> +PERF_HAVE_RDTSC := $(IS_64_BIT)
-> diff --git a/tools/perf/arch/x86/Makefile b/tools/perf/arch/x86/Makefile
-> index 44cc3f023318..b9cd559065d6 100644
-> --- a/tools/perf/arch/x86/Makefile
-> +++ b/tools/perf/arch/x86/Makefile
-> @@ -1,2 +1,3 @@
->  # SPDX-License-Identifier: GPL-2.0
->  PERF_HAVE_JITDUMP := 1
-> +PERF_HAVE_RDTSC := 1
-> diff --git a/tools/perf/tests/perf-time-to-tsc.c b/tools/perf/tests/perf-time-to-tsc.c
-> index f8f71fdd32b1..feb8063f8b59 100644
-> --- a/tools/perf/tests/perf-time-to-tsc.c
-> +++ b/tools/perf/tests/perf-time-to-tsc.c
-> @@ -22,16 +22,6 @@
->  #include "tests.h"
->  #include "util/sample.h"
->  
-> -/*
-> - * Except x86_64/i386 and Arm64, other archs don't support TSC in perf.  Just
-> - * enable the test for x86_64/i386 and Arm64 archs.
-> - */
-> -#if defined(__x86_64__) || defined(__i386__) || defined(__aarch64__)
-> -#define TSC_IS_SUPPORTED 1
-> -#else
-> -#define TSC_IS_SUPPORTED 0
-> -#endif
-> -
->  #define CHECK__(x) {				\
->  	while ((x) < 0) {			\
->  		pr_debug(#x " failed!\n");	\
-> @@ -49,11 +39,10 @@
->  static int test__tsc_is_supported(struct test_suite *test __maybe_unused,
->  				  int subtest __maybe_unused)
->  {
-> -	if (!TSC_IS_SUPPORTED) {
-> -		pr_debug("Test not supported on this architecture\n");
-> -		return TEST_SKIP;
-> -	}
-> -
-> +#ifndef HAVE_RDTSC
-> +	pr_debug("Test not supported on this architecture\n");
-> +	return TEST_SKIP;
-> +#endif
+Fixes: 2e1743085887 ("riscv: Add support for the tagged address ABI")
+Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+Signed-off-by: Ziyi Guo <guoziyi114@gmail.com>
+---
+Changes in v2:
+- Drop the inline comments (Samuel Holland)
+- Add Samuel's Reviewed-by
 
-Perhaps with #include <tools/config.h> the following is tidier:
+v1: https://lore.kernel.org/all/20261001184355.2395068-1-guoziyi114@gmail.com/
 
-	if (!IS_BUILTIN(HAVE_RDTSC)) {
-		pr_debug("Test not supported on this architecture\n");
-		return TEST_SKIP;
-	}
+ arch/riscv/include/asm/futex.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
->  	return TEST_OK;
->  }
->  
+diff --git a/arch/riscv/include/asm/futex.h b/arch/riscv/include/asm/futex.h
+index 90c86b115e00..6f3bc9bdb85e 100644
+--- a/arch/riscv/include/asm/futex.h
++++ b/arch/riscv/include/asm/futex.h
+@@ -40,6 +40,7 @@ arch_futex_atomic_op_inuser(int op, int oparg, int *oval, u32 __user *uaddr)
+ 
+ 	if (!access_ok(uaddr, sizeof(u32)))
+ 		return -EFAULT;
++	uaddr = untagged_addr(uaddr);
+ 
+ 	switch (op) {
+ 	case FUTEX_OP_SET:
+@@ -82,6 +83,7 @@ futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *uaddr,
+ 
+ 	if (!access_ok(uaddr, sizeof(u32)))
+ 		return -EFAULT;
++	uaddr = untagged_addr(uaddr);
+ 
+ 	__enable_user_access();
+ 	__asm__ __volatile__ (
+-- 
+2.34.1
 
 
 _______________________________________________
