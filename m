@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41BB9CA5FED
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 10:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB19CA5FED
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 10:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jgNNpIJlp2Jbp5QupvksLYU9DPT/vzLBujjNok06goI=; b=nTcr856ZEe2WiL
-	z4k/7PS0W01HXA2QNSrYwSMZzwAFsMQ0uhHp+AEwERXIKsEF5SjCZIbAD8vq23FUl68QHS+ApYwXu
-	K/7PL6zmg9GvKKtOSgTyW99VMEdRGHe0W/HlV1eZId302zrFvGaYhgco8vTXp67bOyGZ4cgwZKTQA
-	9EJuSTTl10pM5OkO5UOQ7ujlBqfnSV82fF6kdJrfG0HlXu05ZjOI7AdJ3staPCbvVrqRHEPEsr5fZ
-	p4bm/XheC0HjZdQkENpyDD4r+Hcwvke7eeBOtou7lShproG8PNhwl1ZreK9SpwsasP/KN8SRu25kh
-	FwOi+1maIcd6GMe5+Zog==;
+	List-Owner; bh=Q+ViyrjI8AFLxNKMHFALyum3HJXJZ/zRVbg2u4Bw/oY=; b=Fq9/c2zF9lB0pB
+	QS8e99Y0YITWpOgXNHDHKG+w+HzDqGROfJnodzIzpfCaFdwRUkNdNf0Ss7OFq3qsrxB7WM1UG7dmI
+	h3FriyFCFjZbqiq/L0scMec5IH1fSjD5SMPzX4oKoJ/hdVPVK4DDX35uztEkwnin8e8FFw0WCKvOl
+	iqXbEU62pjaJRLKB1TJo1AcaTeDmJYou1V1cJcp2UAkS65gh+tmmnNQ5HKtiqEHblPMGyM8WsKXqn
+	SriHRZY/ZMfvF7dYwunbPk1fYtuXBF8rr+P/tM9mKtEmQGy5F8YtJ03CyE2TuKNnSuUeRm8FAfnXr
+	+pbFEb2qn75gNwq2RoRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE1zh-00000000RT4-2axz;
-	Tue, 06 Oct 2026 10:01:57 +0000
+	id 1xE1zx-00000000RXX-32hq;
+	Tue, 06 Oct 2026 10:02:13 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE1zg-00000000RSZ-0fxk
+	id 1xE1zw-00000000RX6-2mFc
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Oct 2026 10:01:56 +0000
+	Tue, 06 Oct 2026 10:02:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B59A4436FB;
-	Tue,  6 Oct 2026 10:01:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F9831F000FF;
-	Tue,  6 Oct 2026 10:01:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5AD2B436FB;
+	Tue,  6 Oct 2026 10:02:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECEF31F000FF;
+	Tue,  6 Oct 2026 10:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791280915;
-	bh=HDImYCwRl8Ez0sZ1pVFhMIDQCYQ5T3B3YR69NLKy7bo=;
+	s=k20260515; t=1791280932;
+	bh=20r9y/3pqO+oU52vGaQ2rGrnfbyQCVghQBykrxxnv1A=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=Nnlq4bu3vLydEFiFKldarI1TSg/Q08EtbYZERRbnYipwq3tEieSLwpMa/oLuh96CO
-	 QjqNnynyJdBg6gqDWiX86yh3VZTIey6hBxiK4BdFyKm8PbNNy8zhvSvuDBHkbCi9Jq
-	 C2s5QtRXGG5WKDJxN/wbi5XhZOuxbvmGUJFmdYQ9U6xnVKQ/m/qQr9KileRRd1SHgX
-	 eDR2N4BH1W0exUuxC3yN1T+TEK1sNzYZrh4nKb/9RtDcELi8TFFaNbmMuV7V1pzWQ4
-	 Ydb+MK7/EPZfeaJLMtjnQsP8wCPd5VFtYtSzzD9XztKAES7b1xk1y4k36/vwaesXSr
-	 sEbF8UWZ5NcoQ==
-Date: Tue, 6 Oct 2026 04:01:51 -0600 (MDT)
+	b=kxtcNyol/Emt1DBEO8ThveH/imjIWTlQnEM96WkTVODvMyc2TRTSf82UfeWp+lAbA
+	 nTptIYK7vbROotCaTxmcxOXg/OqtG5t8BiyjQk84bD8rHdDs9kTGa6yCwh98XIYNvB
+	 R591gh6H/Tx7VgDrBdcyWX3eDXIINXC5lBz0zJXaija7UlXiMEWU1Z5ZMaI+qAuGyq
+	 PcENXvf1LuWBmQXSHIV/mJta6TrOB3N9Z/JetFjTvDj0bIy3DKITi3YA9FK5f67NUM
+	 Y9MwKZE4Rc0cUEtGMsOZoFVaoXMYlpqvFMEG+lbeSwPVKz1ARVWzgr4gFAPh3b9fC2
+	 u7VqdVcv854Vg==
+Date: Tue, 6 Oct 2026 04:02:08 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
 To: Andy Chiu <tchiu@tenstorrent.com>
 cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -51,10 +51,11 @@ cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
     dfustini@oss.tenstorrent.com, greentime.hu@sifive.com, 
     daichengrong <daichengrong@iscas.ac.cn>, 
     Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Subject: Re: [PATCH v6 1/8] riscv: do not read csr in vector context switch
-In-Reply-To: <20260918215154.2481482-2-tchiu@tenstorrent.com>
-Message-ID: <af9c0f66-d742-0b02-91db-8e542fb3a468@kernel.org>
-References: <20260918215154.2481482-1-tchiu@tenstorrent.com> <20260918215154.2481482-2-tchiu@tenstorrent.com>
+Subject: Re: [PATCH v6 2/8] riscv: vector: refactor context switch for
+ kernel-mode vector
+In-Reply-To: <20260918215154.2481482-3-tchiu@tenstorrent.com>
+Message-ID: <1d9e4bf4-e057-f671-3285-c5613869ca56@kernel.org>
+References: <20260918215154.2481482-1-tchiu@tenstorrent.com> <20260918215154.2481482-3-tchiu@tenstorrent.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,10 +75,11 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Fri, 18 Sep 2026, Andy Chiu wrote:
 
-> CSR operation can be costly as it may introduces serialization. Instead
-> of reading from sstatus.vs to the detect voluntary context switch in
-> kernel-mode vector, we can read the context depth from riscv_v_flags, as
-> it is always non-zero on a trap-introduced context switch.
+> When context switching out a thread in preemptible kernel-mode vector,
+> there are 2 distinct cases: One is voluntary switch and the other is
+> trap-introduced switch. We don't need to save vector context for
+> voluntary switch and the context is always !dirty as long as we clear
+> the dirty bit at riscv_v_context_nesting_end().
 > 
 > Signed-off-by: Andy Chiu <tchiu@tenstorrent.com>
 
