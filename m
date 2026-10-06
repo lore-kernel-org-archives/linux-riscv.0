@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EACBDCA5FED
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 15:10:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21340CA5FFC
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 15:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nca7sdC+4gfoldhsKJkvg7boR+jf4VLpru2GonXraE8=; b=f7c/pCfemGUIo1
-	UaNciVJSCCItkXONsQwsDWfcUvMQOT2MyufR7rC4O6NboSQcUXjouvZGiUGjEFa47meaLVbR3KYNZ
-	Hp1AiDneottYlQc9TW77bZFY3U0uK1aMIun5ick+OHMWaZ2kuJZo2wf1UUcoKXf8KELKsOcN65DU4
-	tV39/WNOu2DR5zOSaaqiJIX0jHlEkPw4tLf0gaERD4+RaMP9SFRAczQGhIsJj2EG5kJSIKGd7uHV+
-	79U4NqkoBWa6ZRYP3xBmOGwjsV7eAlSppUn4c1jIEj11vvyJmRK5CgIyDTTdHU9POAjjTBOU8MC31
-	unyH5RVbq/5w+QD329jA==;
+	List-Owner; bh=sPfkZpvixIMvfWXap2CeKvQ9apkxPV9pgoQSH/DcBzo=; b=HRRf/EYVgAyJtc
+	i0pdZfZltv0nsHikZX8UTGkXiLntni/zV4wtMAPBqZuv8ssAtga9reAN+i5dDxTgwxkKtxnhOWs3j
+	MYfemx5lgFsSWQCXBCN0GemkjdMYWODrY0/iH1dMiv3X9cC+aMUP/BCWAxyxyFfI9Jp23fzOLX+Pd
+	fug6Tbkj2dpfSkcQ9X1kNpKH06zqHOqUvYqyXSoVR2HAoGLY4CO/aGvZYFj7WM8yymAObJLMEvlQd
+	3F8+bdZUNZdbmvGqDmdJbZHE1MyGsrszxQnusOk1D0N74Z0kCBFklBXtFtiNPgLf0QnFbORIMEl2V
+	h2IP8RwhKvMOqKwpNu1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE6nf-000000010Oz-3He1;
-	Tue, 06 Oct 2026 15:09:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xE6o6-000000010TL-3rSf;
+	Tue, 06 Oct 2026 15:10:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE6nc-000000010OJ-2MKR
+	id 1xE6o4-000000010Sv-49ae
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Oct 2026 15:09:48 +0000
+	Tue, 06 Oct 2026 15:10:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A6AB6601E4;
-	Tue,  6 Oct 2026 15:09:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96C301F0089B;
-	Tue,  6 Oct 2026 15:09:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7082F601E4;
+	Tue,  6 Oct 2026 15:10:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D42561F0089B;
+	Tue,  6 Oct 2026 15:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791299387;
-	bh=ypugqTxIdQppYiqCNelnqHaVIK7Fz1xg2co6sYWbb7w=;
+	s=k20260515; t=1791299416;
+	bh=/8MwodWIc7pSXoyonykfDnVGjP6esjgcz4uVWq2ywBA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=JADQ/W32HacX4sHBEBThZnCEfM/5lu9F7NbWCE/8FAglGiPAS0gLhvZ3+CQJqNf+U
-	 s2v7NK5EJctlr+zNuHkYL2FNn6iQvVUi0Fn7oZ2KLZzz0Pk4bp8LvYS3Om0iBcxHDq
-	 FAYI1xKApZDMOz3M29HVlPCfdnm192FDqEOzFv5EFvy6Mzu6BCSvCIrJRjZiOJDTeu
-	 MF6xeJiDdCJRDQNv/FuNoAXv/zVGzu4fCLEc9C6exX4DIhYDVbwL/M43rVO44d1JT4
-	 AQNFo95gtklsbzcVDV/a4Sdj5+RW3mELePI+KANp9wBWp67rYoSc4YlJokSw3r/dzk
-	 dUaqydFSWXxcw==
-Message-ID: <bcd2df4f-9ff6-4d30-8735-573d661bf367@kernel.org>
-Date: Tue, 6 Oct 2026 17:09:40 +0200
+	b=T5eiZaIMlFsFmdSMBbX7eLmldhAkSuyF4MC4iWzTFxgZk2MLYdLtk8jzJeWuC7aTw
+	 BBPpyzAqQ6J5qcpNMnEvITLSxNYdH28iGtaRarLR45SATLCVDG8FXeoa/Ws3XqwXyy
+	 Wfqw6A4pDfI+lkqU0WaVj5KA5tTQSYJzHvkRPYW6+H9ftovC+fFIYwiZ8juvIiV1UK
+	 F+eHMerfYSWhy6I79RPArfp4r+o1srzi+myJaNa9bDSum0VdIgLDsGQ6di4f9pX+K3
+	 3Atnhpkqu6NkF2LpmM6Ku6Uc2/e6jDDdtfvCmEb7OiNA+K3pb+A3A5w3oEkiFnvjOC
+	 KRsCetlFLy6PA==
+Message-ID: <b6a552a8-7710-4472-aeaa-96d50856f896@kernel.org>
+Date: Tue, 6 Oct 2026 17:10:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/8] dt-bindings: usb: ci-hdrc-usb2: add
- spacemit,k1-usb2 compatible
-To: Junzhong Pan <panjunzhong@linux.spacemit.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+Subject: Re: [PATCH v3 0/8] Add SpacemiT K1 USB2.0 controllers support
+To: Yixun Lan <dlan@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Junzhong Pan <panjunzhong@linux.spacemit.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
- Xu Yang <xu.yang_2@nxp.com>, Peng Fan <peng.fan@nxp.com>,
- Peter Chen <peter.chen@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, Conor Dooley <conor.dooley@microchip.com>,
- Ze Huang <huang.ze@linux.dev>
+ Conor Dooley <conor+dt@kernel.org>, Xu Yang <xu.yang_2@nxp.com>,
+ Peng Fan <peng.fan@nxp.com>, Peter Chen <peter.chen@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ Conor Dooley <conor.dooley@microchip.com>, Ze Huang <huang.ze@linux.dev>,
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
 References: <20260927-b4-spacemit-k1-usb2-v3-0-ce7095896039@linux.spacemit.com>
- <20260927-b4-spacemit-k1-usb2-v3-1-ce7095896039@linux.spacemit.com>
+ <20260928230310-GKB2079@kernel.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,7 +107,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260927-b4-spacemit-k1-usb2-v3-1-ce7095896039@linux.spacemit.com>
+In-Reply-To: <20260928230310-GKB2079@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,22 +124,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 27/09/2026 13:40, Junzhong Pan wrote:
-> The USB2.0 controller on the SpacemiT K1 SoC is dual-role capable but
-> has no internal OTG registers, this requires flags which disable
-> related features set in platform data. Add a compatible string to match
-> the platform data.
+On 29/09/2026 01:03, Yixun Lan wrote:
+> Hi Greg,
 > 
-> Chipidea USB2 Controller on SpacemiT K1 requires 1 clock and 1 reset to
-> work, add constraints for it.
+> On 19:40 Sun 27 Sep     , Junzhong Pan wrote:
+>> The SpacemiT K1 SoC has two USB2.0 controllers, one has Dual-Role
+>> support, but the hardware has no internal OTG registers, the other is
+>> Host only. These controllers are compatible with Chipidea USB2 driver
+>> with some flags set and reset control support.
+>>
+>> This series is based on 7.3-rc1 and has been tested on Banana Pi F3
+>> development board.
+>>
+>> A self-powered USB device/hub is needed to test the host function of the
+>> dual-role controller on Banana Pi F3, a MINI-PCIe USB2.0 module (a
+>> cellular module e.g.) is needed to test the host only controller.
+>>
+>> ---
+>> Changes in v3:
+>> - collect tags
+>> - merge the two dt-binding commits
+>> - use local variables when acquiring devm managed clock/reset
+>> - drop manual clk_disable_unprepare() from the remove path
+>> - enable related drivers as modules in defconfig
+>> - Link to v2: https://lore.kernel.org/r/20260908-b4-spacemit-k1-usb2-v2-0-f07342ffa051@linux.spacemit.com
+>>
+>> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+>>
 > 
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Tested-by: Ze Huang <huang.ze@linux.dev>
+>> ---
+>> Junzhong Pan (8):
+>>       dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible
+>>       usb: chipidea: usb2: use devm_clk_get_optional_enabled()
+>>       usb: chipidea: usb2: add optional reset support
+>>       usb: chipidea: usb2: add SpacemiT K1 support
+>>       riscv: dts: spacemit: add USB2.0 controller nodes for K1
+>>       riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3
+>>       riscv: dts: spacemit: enable USB2.0 controllers on OrangePi RV2
+>>       riscv: defconfig: enable ChipIdea USB controller support
+>>
+> Any chance to queue these patches (1-4) for v7.4 cycle? Hope it not too late,
+> and then I will handle the rest part, thanks
 
-This is a fake test, you cannot test bindings how we understand Linux
-kernel testing. Please drop such blanket-fake test tags from all patches
-where this is not relevant.
-
+Can you drop the fake test tags while at it?
 
 Best regards,
 Krzysztof
