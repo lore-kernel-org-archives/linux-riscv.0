@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6F5DCA5FED
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 08:34:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60416CA5FFF
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 08:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XTBSGOUnsaSBcVMX+zM/nUp13Xwm6uiF9l+8P6TNcaU=; b=ur0g6EuxBTpxYB
-	4BsppmJXss891/HKiKi92j6MwE8wSa1n0BbcokxIk4DB00g+/MGVxPjNDVCHuw3qJvp5PKmOOso4z
-	6g5/cx6O4IpzWazRHyFfkM407Q+f+vhxRSzNtDmzBCYSSlDHrVGXF9YEinnE3esRrdkYuFWzjo9Do
-	TrpWzFHOJstpfOwhJZYrOtZ0qdbXWL3VHmpyzsoLibUkubp5EgWQYVPnBGN6kF2NvvINY6lXeu2Xv
-	QWV1Six8Ra4Up2FQzRWHrO4Plwn3zsmaex6jUkpptt/fHlzI3Zz7toM5YnCq9uEdBANxB1Wqz02Th
-	ZvxZrz1iWxfUTluEyjng==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KG/xBcxs/NFaqtzbzrpgJRXgO/WhAPsWyzHk7L7u0A8=; b=2W8Pnba1A5L0b2
+	xFuKN0ygi7tb8N0FVf7tJSGdsVbG2Wa6x4ypKOM/Qug3XwVB58nE/vPqZ9iQnXfC4OAhAAy9K/364
+	MHHi8k53XAmxAQNYw2xFry8We77o3W4Aqizqonl+Ff8x0lEpYD90DX+KYBwB7C9yOYbMtEX+jsDHp
+	3n8rcS9Haw8R0Ym5/lJ+A7ph0brulAFSqIQjFx4Hqiv8tIXKR8ArwFNW4BAJjC8OH5ITQmnpSvyHp
+	Qnm1eiHi50+PirCAuBRPuYTLnoiafpBBozqa2RmeawXe8cLbH3ufD+kygANhaTXM2Y9We/qL51y3P
+	a2PAwTtODE/IJzT1suLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE0dF-00000000I3O-3MDc;
-	Tue, 06 Oct 2026 08:34:41 +0000
+	id 1xE0dL-00000000I5a-073Q;
+	Tue, 06 Oct 2026 08:34:47 +0000
 Received: from mail-bjschn02on2139.outbound.protection.partner.outlook.cn ([139.219.17.139] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE0dD-00000000I1x-0aAS
+	id 1xE0dI-00000000I1x-3xi5
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Oct 2026 08:34:41 +0000
+	Tue, 06 Oct 2026 08:34:46 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=X/ozdqZGudldRlu+PYyhk62grTqcVkgZTh1zP+mNq9VoQQIDG6fUIFKlZlzyB1ThGBnE3fXcd3t9TvHOXfqx8OTu4moOi+6XzERzETIk6+P40lJwRTa9HCuf6Hl9H9o+nA0FCzWEoSNkd/aDXH4DnzeA80gG6IbREo0VWxGlo5zfrPdGgX+c+g1+g6cl5AgP5xK2H5QsbWtQRjx3yJWioZVpMpPdPeNeaxW3AIpYwk436i9djnI78e3EceOgEQ+hI4gNXEkLIBrAV9V/tF1OMMm5mmHUxok7zwVHaejg5JfYqTyRGev/f/9SrYhb6xOfScRVpXnVFurmDlhAx7U0AA==
+ b=GbYwprbQ4YcbAwU+5QSLOsTi5EHjY88b3cH3b7AZrp6D2CIMZeYTffyapqYLJK9wChZWa7IPL96Wcfa1KiBhZ+/Ne+5RBkffMDnX4BOB/IrL2BdBv1jYo+KNArxfD1V1iCad2w+Jo6Q2cgVWYITdrJlSJ4NAAQVwsJ2vh3zo/gUKs3sDIMceJOEa0bBkPEmjWir1hu+/DzvynrbZL6vsh/uCeNferEGfRjedJTAqoC0LJzia08A5KqfIKpW7VrcCngG5+ln6iuN5oxtQLZlle4NZnX5boT6SLoLwbsO77JUqMEHRXavKrDmPenJg8e8leh7q/cb6nO6/LM7huKrWtQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pMPcPSL6G5oku3VTrja91cfgfcO7GsXJnURK/TBCChI=;
- b=ZYAq/d+KBUlEsnaesASWBysjAvAHazdYyiMz16r0hrfIrVkcpkvP2i/GdIp/rVeJesZC+Yv58TkoCXqSQgW35GyNPnIJXa8t+x0q3rI5g/XJFUt6jTUHOCBcbPj7SmdN8B+7QLtVlsHDYIaEEToJ+FxGqOO91GL8Cbl3cKBZQ4VsfvWmMtUpXDkJwoqRWRg4osA7mw5qzuAwoFtkQCCavgyF/Ha7EcG9O5tKi4vuWPI1QdYVrwcyvN0QhnBJEkI/YMsIrGeDEqZZGKwf/dcWGXUWly2Jc1USDbU4QMDLLgzxYpIlfCIiIw+1mf6W5YyFYhqQzYN/XQ5ccTAqRzk7jQ==
+ bh=UNUJsLwUdWwBQo9CHUeRSd9wmc2H4fQt0rhhRfHIBg0=;
+ b=CK/N4w46c5UprwpH9EhTcKT0O+W3NROkwRxNsyH2q8kiF/XOVSTBIz3XbxUjQtOSGdeYhKRYo42hx2s8moFz6Z/716Cy0bjbX8QyRSDI27mF+lYqXv++Szun6OZ+SSaXYmdv+Wi3aRqD56PUUHjfMcbeqBQgS4ehSJvu15qEjI+l59/f6nyBbKXmiXeVikIVe6GAhvGK6lzi8zRfT6N7SKO51f9ehAqSXd74SyRbwbqcs6EM1bw8TBGHoxOxrwUxgCu51CWCMcSIkFHrztevtKwB8HARt7TSZl29BP/1vPnQhOoTE81rdwKL+6PFHEej7rheXc8WWa3uyyXLaXfxzQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c311:20::14) by SH0PR01MB0556.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c311:8::23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Tue, 6 Oct
- 2026 08:33:53 +0000
+ 2026 08:34:18 +0000
 Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
  ([fe80::435e:52b5:c524:459c]) by
  SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn ([fe80::435e:52b5:c524:459c%3])
- with mapi id 15.21.0472.016; Tue, 6 Oct 2026 08:33:53 +0000
+ with mapi id 15.21.0472.016; Tue, 6 Oct 2026 08:34:18 +0000
 From: Joshua Yeong <joshua.yeong@starfivetech.com>
 To: broonie@kernel.org,
 	lgirdwood@gmail.com,
@@ -65,66 +65,68 @@ Cc: alex@ghiti.fr,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/3] Add RISC-V RPMI voltage service support
-Date: Tue,  6 Oct 2026 16:32:56 +0800
-Message-ID: <20261006083259.2206001-1-joshua.yeong@starfivetech.com>
+Subject: [PATCH v3 3/3] MAINTAINERS: Add RISC-V RPMI voltage driver
+Date: Tue,  6 Oct 2026 16:32:59 +0800
+Message-ID: <20261006083259.2206001-4-joshua.yeong@starfivetech.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261006083259.2206001-1-joshua.yeong@starfivetech.com>
+References: <20261006083259.2206001-1-joshua.yeong@starfivetech.com>
 X-ClientProxiedBy: NT0PR01CA0008.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c510::13) To SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c311:20::14)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: SH0PR01MB0841:EE_|SH0PR01MB0556:EE_
-X-MS-Office365-Filtering-Correlation-Id: f73d298b-6802-4cf7-d501-08df23848d79
+X-MS-Office365-Filtering-Correlation-Id: 2d8e0980-d682-4eb2-24cb-08df23849cb0
 X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|1800799024|23010399003|366016|6133799003|18002099003|10067099003|3023799007|921020|56012099006|38350700014|5023799004;
-X-Microsoft-Antispam-Message-Info: hox3JxMLATtw0wPG7Z/yVOXOwnkc/AyhO/mO0qvP7Rh5AL4CGPJCijgcYEdiX1grQf1D7tMAvMmlAf0yMb56/Vn3c/IjGN+J42qbyWhXyeF8Jl2XR4zx9U1bO8e/8yeSDzkkr8MzJUit9Ig/zneHnrZHl6V3XmTq+TJnVYUm32pr2czn3L8aroboY/wuvsPkpAyFi6vHguuBNHHiLPZSbv5gIkc8+1v1KxrYeynsTcEHbEXMsBFWOWYjD7AjhhG8uLwY4m/Vi7FjeOX5G9NMcEYg2zAEJDHryTeNie/FNLbFv91Mu+78emHnk4NUyBylpGA1t55abilZOCmFXM8qATWM6x44A+NHWf6Erg2fclZLlnVHYWhcJp5q6X1Q65EvJOKycGtqdRn4bjzT+rpvE6w3GdFHX1/yGrRyXc12LzHt4bHqxF47rtuxDCgAW0EtN+bIEzjiCM5eAM8qgdJco7RfNlbSt5ACP6OX4sDlJHuK+7Xq6CIJ5b7T9YJeG1hMvJhTiyhdjsHnYLRGcEDQctu+2V6tAmJPSsX5ocTLTWLdMLkPZugxAjvZ8Ab1Bafu2rpmFIpv2/OBsvDUhB5npQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(1800799024)(23010399003)(366016)(6133799003)(18002099003)(10067099003)(3023799007)(921020)(56012099006)(38350700014)(5023799004);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|1800799024|23010399003|366016|6133799003|22082099003|18002099003|10067099003|921020|56012099006|38350700014;
+X-Microsoft-Antispam-Message-Info: 9V5ShwFYI7WIL+zFaECgi5IA9GQB9096ijKveeHkasZYSrIjAYs/B2ngZJok7lyUBU3kQH/cjSCpd1KsLJfYkaLLDnUvC5AzqtTduY5jwlpp4YpcZ1ay7iw4qE3XMGJWaxba5N1WcpsEKOwNlhfwBGSW0i9DbBgKJ8uxo6LG/L2vlwy4Qy4O8qhPkIggHXjTXYq/SX9d+i3Tc6rW5f5MpOKSsJmnSomp0+9JajjrD3tVUkFDPkyIzEtJHfxOE1h6+MWR5nD59dFXKSouwrcEZ9OuNPGy3VzR8aD8TijlOtXhk64YVVym6yd9BRTEDhfzzQRQbVQi1iUJRIkd5lqJQ/aT8AX5DrEXAx8VFvyOQXSsiK6BdnLdjQFWl3pcQVZo3orpky9SOes5aeZz91xU4T+wwtu7WoyvMYmb96lS+2SBfHWlGxM7l4jhYAtmijfp/kE2UU/KZWKxdpsKnDcUbUeX2fzKkQTZHX5kgGI/9ip+EbUJLF7kASvcbnqP/sD1sWbtLI1fN+bocM9GwAT/wWJE9IeMv7p7Z8regZbTtuhDNC3JCKsuozQRg2C7IBbyiD5BlfhtxVtakmMrrzlqnA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(1800799024)(23010399003)(366016)(6133799003)(22082099003)(18002099003)(10067099003)(921020)(56012099006)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mOsgKsYTF6DxwnUoUMneu+2tgMxKqaQe9liQJlSXL+5JyqfOubceBCtf2TyO?=
- =?us-ascii?Q?BiUi+L0g/UqIcYIrn2Z5eBOPMeF9SDGTyEBC7lyYjKFd5zYvLu+h5k+8M4ea?=
- =?us-ascii?Q?Y4BAS2mqZ0IRAdm3Fbr9SfBWHGC7by33M3nk+PFFud4GAGrqPjk//iLcvpU/?=
- =?us-ascii?Q?XxCBi8t96osfR2yW0qu8eN5R1BPvt1gqFuPh0HmzUREN+D16Bsb5OXV94fox?=
- =?us-ascii?Q?4Hv+6O7kL/fLAIIVpHCoGraudld9ZshNQhDkBEKaPkcPGkSSadSTYXgzOA7Z?=
- =?us-ascii?Q?AO2nZNdRtvWFTcGePcRAWpmes6rMaLccK2qvdBdVPeL6x+5IljwLTLDqUSW0?=
- =?us-ascii?Q?ZBt1hPjs2znv9RGFaiGxcVorlpLEIvB49h5ZoqleVpBZr7Vpn9hinXOds7yK?=
- =?us-ascii?Q?7lrVpdPIvHar+2wQ/Ddhd085+FWfU42vdeKRAhHlhTx1CU9BdYvVrF1wYh26?=
- =?us-ascii?Q?mWkcMAEWldaqjuc1C1lOuPXLSBCrCpGsJAR5sR00QXM9z0eu/e1QabKHV58b?=
- =?us-ascii?Q?RmiMNTLR/fNMjoy1rYf/Rc7uZudY6BcF7xrA38CrzHCYFBZCv4dliIIn+Moa?=
- =?us-ascii?Q?d2wWfKXkljJuteLamKPYzi/2p88kqb8P5CacP49IOsoStuTePzzRjO98Ny9Z?=
- =?us-ascii?Q?x8zv9RhiOVaWjIpTNKgO57lAmlSmSbwenOhDG2hjrsMoiuyh+/wrDgyu+DYx?=
- =?us-ascii?Q?DBiIL8UmitAMexfa2ppNTAu1SagheMzBwJtn7xiffcfzSrNAvxNtwPv6Flmf?=
- =?us-ascii?Q?aAL3RzFm9l6HqwurYpPaxY2Dscl7+4hLuf7c64FtWn5nzz34hJ2127qMP5jq?=
- =?us-ascii?Q?qUS3NOiqRzGoWrgkwsKhO79chjJF607DQuT0r9lVisO6wLSSuTPP/N12sevk?=
- =?us-ascii?Q?LxcvxUxLr02ukslaOiUt4voJtdrcIdshA5z8mCI2tpIS5voCZ3tYS12zB7L1?=
- =?us-ascii?Q?8bJKm0uBNiIPhkcDTaRpS6d/NqEBAYtuwqjzOJ2h9vaV6pYxqodXfBS9N9vS?=
- =?us-ascii?Q?0UaT4cfViNNbyw5wYDfiwxBOBfdu8zZyPVqfGa0t0kHTd0vz+Qf+RQjrOtir?=
- =?us-ascii?Q?nOQVmT0pJSN4hMn+A4UqF/1fa9ohJtEn12n/8uI9fqWAaWrtdkyysx1hAsR/?=
- =?us-ascii?Q?+sy8AtZu4Bt47eXoNMLIFFJLNC8zCnt3l8DKJWWWiVEphS6IgSgXB10/nvXO?=
- =?us-ascii?Q?q1OpklwfyXFb5KtxBC/UlpsZbgQ6h8sdM+mtVQ7JE5r4BpN/IolVTrHiLkY0?=
- =?us-ascii?Q?yQssgfdnXomUFwA1Np8eocMQqRnf7SxgAaVCl1H6/51ZjBnpCq0RDXsz0yAE?=
- =?us-ascii?Q?bwq64Q1IbQRfBRvIjEMPvu/BrjuMmFKNq2jzucDFMN63zm4JzHoI+5DBa7Xp?=
- =?us-ascii?Q?u+70NU3m2UMDqWf+opaVBOpP+qxkGouoj4LELBPmkL7YuSuvROlcEJvTc7zC?=
- =?us-ascii?Q?vET6dEr4BUG5/rRUIfUxjWt7iD+ontBy3ajSVDCls1pZIqW+MCMM5RL+Hamx?=
- =?us-ascii?Q?qwxegJmAvoOZPD/llrHDEj8Kh/g67X7ZuHulTyDFwewl6P0TrLmF7cP7q9Dq?=
- =?us-ascii?Q?qm0uNKlqIKNDLXQNxWg/JRvC3Hx2RWFPFuZhOVqMA3D/lqXia0oigfL5HI45?=
- =?us-ascii?Q?VwMaX0BRHzGs/TA/y777vVaTzffb1xLKqkJ6PlrnlNYlFWHbeV/Pwgtqf0Ib?=
- =?us-ascii?Q?8RRZql4d5vEOs3PjB73d3WozhPZlHOfojvyhmUW0doQZ/r/noueB6/WutldC?=
- =?us-ascii?Q?19mRo9KUDBCY5QUeMW+6yYVhMdXym0k=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lRk3IR5s8dy75NPdyCqW8kRQnIJawsDvB8W6EnjzbwuFJguzyK6N80XosBF3?=
+ =?us-ascii?Q?JCYo2x4ujJE0/rlS1VWY8tUffRlys1LYuyrDI6EwE41ccLQwqJcbfRnKaOG/?=
+ =?us-ascii?Q?XlLH7WkC2ONNYAiFNzMerCT2gB8u+t0yk0YE1CXhiRpbFY8g/ZkyKyr0iNIp?=
+ =?us-ascii?Q?87mhALoQfIq6RHUrJkNvgBVGSPp2RUba34Xyuquj0IVw70Y2+bSIhA9ldpAU?=
+ =?us-ascii?Q?4dRPjl9UEbxT8ueuAk3JA2/yoM5dEgA++6mfc7fFcT+gTogI/RTMBSl64JgM?=
+ =?us-ascii?Q?SpbHgcIgx5b+NKjEtSkJbZXVmzpJjKATEP4VLRGrZer97TCAUFdRcKr6otBe?=
+ =?us-ascii?Q?352b30ZadlNolgN+iUDJPGtqoJeKCcP8YLmcilScIMUllRJVqvHSqvzBCajS?=
+ =?us-ascii?Q?4D17H9lh4f6196cqG9t/IPPyfYLzI8GEWi4uqtXXSV9C0nch88k3n11XU7Jr?=
+ =?us-ascii?Q?6VQDZ/Rs3syKsxps5giIfzItNkN7E7U/HC7SMN5R7LCZz0nUOMaMt9etjYdS?=
+ =?us-ascii?Q?CNJJFBcouIaB8T7L1+ikdNkBL+dGDKVGHWlZam9YHcW7KlcQhvz5kQMx2hPP?=
+ =?us-ascii?Q?jKgk0JQZIVf1sMQr3sOd4exBvPvB1VnPxwktfnGLCtwcBAhftJHXbmLo1Yzs?=
+ =?us-ascii?Q?bSz5gHI05OqVDUrHJwDocMlD3wA9SDyacgD0iJav/yfqo4XYtTyzQWA06dyu?=
+ =?us-ascii?Q?1mUxkIsNJjgSz5iQi5GgzuvlKJLbyH8f0gVma3TE3RG/dbE6nh3Vak+KQ82j?=
+ =?us-ascii?Q?Oy/nsmZguV91pkZ8D58Bb/kUwvlCQK2WgcgrZCfnHxTaOuEkrGicQ5UAxlUk?=
+ =?us-ascii?Q?YkOrMVi3X8MeNTmyBtwx+av5U5r+gh4Ulu9NEU+LkzWdRlPwLXK17J+3/JvB?=
+ =?us-ascii?Q?ZbdZOoCJk2BO5ts28IYWJ3yKkTf/1dXlLCK/jYfX1FgrnvuVhDgh17PDSv+J?=
+ =?us-ascii?Q?LS4NDRO+xKYIEfd2XepruU7M8oWH2vCLafMYBT1sJRFhlNbNaZgEB+/M/uLJ?=
+ =?us-ascii?Q?mkqy8lQ6EHrD8sLrck+aCE09un2OwBmeO/dV5a27+m53Sln9COWqbrjTpP/3?=
+ =?us-ascii?Q?EeexKM6cc+Vwk9yJgAfC9W66nNxit/ueWORWPASF9ID3E03VzJIuXWtwnjyS?=
+ =?us-ascii?Q?tVhEFPiQQ8OWjxH5JZ2x+jQ7R0s7a+njvNSxCVopGoEsWR7bVyapEPWCvipA?=
+ =?us-ascii?Q?3AkXZmd5uDP4mCADpYi2pDkNaIMG25wGjaL1xz2igzGS1tHg5l/v4kFh7PMd?=
+ =?us-ascii?Q?BCV5i56Y3B26lpCvrAVPIjXIzgnWK94+NgSjq5hGorE+Ok6iHJHex7RHr5hI?=
+ =?us-ascii?Q?gWZ6ytgmTJsEbTZooHFYtf+O0prl7SPnvhlCfqgIWrxQuamMy8qgjVDq8BrO?=
+ =?us-ascii?Q?qv6cMXQsGXqnwJ/PJL/t3dGxRJQb+zVaWEU8yIT6Cuup2b/92SF131ptBlYq?=
+ =?us-ascii?Q?tLq7yoKBoJdSt3CakWZbH4hBsRzUk9IbFJSTnFWdW6lffUyrqUt46856Sxum?=
+ =?us-ascii?Q?tIfgR98rNkdcK0bFshRFYQxK77CuDFlCSqcIn+EEvvEFIGcRi4EIAISALj7j?=
+ =?us-ascii?Q?QbbnfNiByxYRSP2GPeoph/wKBXhjMtbGCZ25OQNMLLHn+BP/Pa4gBEItUzw4?=
+ =?us-ascii?Q?Fu4hBldZwQuV+gqmOt6bVi2w+S6WUbwuJASPiSM7HwsjGFdJiTpRWWnz+e3b?=
+ =?us-ascii?Q?Njxk1V2Sxi4QBHww03H76vjUSaScDCT7BuSRIjPh71SQn/5U9NtfsmlPyuIo?=
+ =?us-ascii?Q?W2/I0cIaRPGYYEtmepkou9c+jLYG1UY=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f73d298b-6802-4cf7-d501-08df23848d79
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2d8e0980-d682-4eb2-24cb-08df23849cb0
 X-MS-Exchange-CrossTenant-AuthSource: SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 08:33:53.1602
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 08:34:18.4263
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8GWEPuhaZhLURChWQV+8ZxdIwGiNAdq9PKKjjGFgaqepwKPoJoVjKhI99ZxlzkrZOeAUahs/V5mSNTqUY1Sl+4ULbTRylq3p9k5PpAg1duA=
+X-MS-Exchange-CrossTenant-UserPrincipalName: dAFJzYJ/s8gPMJOkCwbvYHDMRhrpieyw0LWuj08JatpHqM2CJT4b8nrbTLzzsTSnpjcCvHDzkrwB5GVgl2lPYOnRFTdhQtj6+ithOq5O+3U=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SH0PR01MB0556
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_013439_184852_5A80BF96 
-X-CRM114-Status: GOOD (  17.84  )
+X-CRM114-CacheID: sfid-20261006_013444_995739_756CA5B6 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,134 +143,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The RISC-V Platform Management Interface (RPMI) specification defines a
-modular and extensible messaging protocol between the supervisor software
-and a platform microcontroller (PuC). Among the service groups it defines
-is the voltage service group (service group ID 0x00007), which allows the
-supervisor to enumerate the voltage domains managed by the PuC, query
-their attributes and supported levels, switch them on and off, and
-get/set their voltage level.
+Add the RPMI voltage driver and its bindings to the RPMI device power
+entry, renamed to cover both, rather than extending the existing RISC-V
+RPMI and MPXY drivers entry, which covers drivers maintained by others.
 
-This series adds supervisor-side support for that service group:
+Signed-off-by: Joshua Yeong <joshua.yeong@starfivetech.com>
+---
+Based on the RPMI device power series ("Add RISC-V RPMI device power
+service support"), which has been applied for next. The cover letter
+links the mail saying so.
 
- - DT bindings for the regulator controller exposed to the supervisor
-   ("riscv,rpmi-voltage") and for the SBI MPXY channel that the SBI
-   implementation uses to expose the service group to the supervisor
-   ("riscv,rpmi-mpxy-voltage"). The name, level format, supported
-   levels and always-on capability of each domain are discovered at
-   runtime, so none of them is described in DT. A consumer names a
-   domain through a "<name>-supply" phandle to a child of the optional
-   "regulators" container, whose "reg" is the RPMI DOMAIN_ID. A child
-   may also give the board's regulator-min-microvolt and
-   regulator-max-microvolt, which the PuC has no way to express.
+ MAINTAINERS | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
- - A regulator driver, drivers/regulator/riscv-rpmi-regulator.c, which
-   talks to the PuC over an SBI MPXY mailbox channel. At probe it
-   checks the RPMI and service group versions, queries
-   VOLT_GET_NUM_DOMAINS, then for each domain VOLT_GET_ATTRIBUTES and
-   VOLT_GET_SUPPORTED_LEVELS and registers it as a regulator. Both
-   level formats the specification defines are supported: discrete
-   levels become a voltage table and linear (min, max, step) ranges
-   become linear ranges. The constraints are built from the discovered
-   levels and the always-on flag, with the transition latency as the
-   settling time, and a DT child can only narrow them. Enable and
-   disable go through VOLT_SET_CONFIG and voltage selection through
-   VOLT_SET_LEVEL and VOLT_GET_LEVEL.
-
- - A MAINTAINERS update adding the driver and its bindings to the RPMI
-   device power entry, renamed "RISC-V RPMI DEVICE POWER AND VOLTAGE
-   DRIVERS".
-
-The series has a prerequisite: the RPMI device power series ("Add
-RISC-V RPMI device power service support"), which has been applied for
-next:
-
-  https://lists.infradead.org/pipermail/linux-riscv/2026-September/099498.html
-
-Patch 2 needs it for include/linux/mailbox/riscv-rpmi-message.h, where
-the voltage service group definitions are added next to the device
-power ones that series introduces. Patch 3 also extends the MAINTAINERS
-entry it adds. The base-commit and prerequisite-patch-id lines below
-identify the tree the series applies to.
-
-Changes in v3:
- - Drop "#voltage-domain-cells" and naming a domain by DOMAIN_ID through
-   "voltage-domains". A consumer now names a domain only through a
-   "<name>-supply" phandle to its child in the "regulators" container.
-   The regulator core and fw_devlink already follow that phandle, so
-   such a consumer is also ordered after the provider without any help
-   from the driver. With it go devm_rpmi_voltage_supply_alias(), the
-   provider list it searched, the per-domain supply name it aliased to,
-   and include/linux/regulator/riscv-rpmi-regulator.h together with its
-   MAINTAINERS entry.
- - Make the driver depend on "RISCV || COMPILE_TEST" and on MAILBOX
-   separately, as the RPMI device power driver does, so a COMPILE_TEST
-   build no longer selects it without MAILBOX.
- - Rebase onto v7.3-rc6.
-
-v1: https://lore.kernel.org/r/20260922161156.1088153-1-joshua.yeong@starfivetech.com
-v2: https://lore.kernel.org/r/20260923070014.1340761-1-joshua.yeong@starfivetech.com
-
-Testing
-=======
-
-The series was tested under QEMU with the RPMI voltage service
-implemented in firmware.
-
-Components:
-
- - OpenSBI: v1.9
-   https://github.com/riscv-software-src/opensbi
-
- - QEMU: the RPMI-enabled tree at
-   https://github.com/yeongjoshua/qemu/tree/rpmi-v11.1.0
-
-Kernel config: enable CONFIG_REGULATOR_RISCV_RPMI (default y on RISC-V
-when MAILBOX is enabled) along with the SBI MPXY mailbox driver.
-
-Run with:
-
-  qemu-system-riscv64 \
-      -M virt -m 2G -smp 4 \
-      -bios fw_dynamic.bin \
-      -kernel Image \
-      -M rpmi=true \
-      -nographic \
-      -initrd rootfs-busybox.cpio \
-      -append "root=/dev/ram rw console=ttyS0,115200 no_console_suspend mem=2048M earlycon=uart8250,mmio,0x10000000"
-
-The emulated PuC advertises eight voltage domains, covering both level
-formats, always-on and switchable domains, and domains the board
-constrains in DT. They show up under /sys/class/regulator/ and in
-/sys/kernel/debug/regulator/regulator_summary. Consumer test drivers,
-kept out of this series, walked each domain to its highest and lowest
-level, switched the switchable ones off and back on, and checked board
-ranges and requests from several consumers sharing a rail, each naming
-it through "<name>-supply", including requests carried by an OPP table.
-All checks passed.
-
-Joshua Yeong (3):
-  dt-bindings: regulator: Add RPMI voltage service bindings
-  regulator: Add RPMI voltage service
-  MAINTAINERS: Add RISC-V RPMI voltage driver
-
- .../regulator/riscv,rpmi-mpxy-voltage.yaml    |  65 ++
- .../regulator/riscv,rpmi-voltage.yaml         | 130 +++
- MAINTAINERS                                   |   5 +-
- drivers/regulator/Kconfig                     |  14 +
- drivers/regulator/Makefile                    |   1 +
- drivers/regulator/riscv-rpmi-regulator.c      | 893 ++++++++++++++++++
- include/linux/mailbox/riscv-rpmi-message.h    |  14 +
- 7 files changed, 1121 insertions(+), 1 deletion(-)
- create mode 100644 Documentation/devicetree/bindings/regulator/riscv,rpmi-mpxy-voltage.yaml
- create mode 100644 Documentation/devicetree/bindings/regulator/riscv,rpmi-voltage.yaml
- create mode 100644 drivers/regulator/riscv-rpmi-regulator.c
-
-
-base-commit: a90ee4305c4a5df72c11b31dacfdc76e00fcf78a
-prerequisite-patch-id: 907ffadca74a65c93ad38f428e002d2b34341067
-prerequisite-patch-id: 5a4df94e66de2f63697891a0f1382fabd9df7b6f
-prerequisite-patch-id: 0827a7050d08fea7deaab8e82f2dd16acdca507d
+diff --git a/MAINTAINERS b/MAINTAINERS
+index bdee5c7ee83d..cb4072f7b309 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23600,13 +23600,16 @@ F:	drivers/irqchip/irq-riscv-rpmi-sysmsi.c
+ F:	drivers/mailbox/riscv-sbi-mpxy-mbox.c
+ F:	include/linux/mailbox/riscv-rpmi-message.h
+ 
+-RISC-V RPMI DEVICE POWER DRIVER
++RISC-V RPMI DEVICE POWER AND VOLTAGE DRIVERS
+ M:	Joshua Yeong <joshua.yeong@starfivetech.com>
+ L:	linux-riscv@lists.infradead.org
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/power/riscv,rpmi-device-power.yaml
+ F:	Documentation/devicetree/bindings/power/riscv,rpmi-mpxy-device-power.yaml
++F:	Documentation/devicetree/bindings/regulator/riscv,rpmi-mpxy-voltage.yaml
++F:	Documentation/devicetree/bindings/regulator/riscv,rpmi-voltage.yaml
+ F:	drivers/pmdomain/riscv/
++F:	drivers/regulator/riscv-rpmi-regulator.c
+ 
+ RISC-V SPACEMIT SoC Support
+ M:	Yixun Lan <dlan@kernel.org>
 -- 
 2.43.0
 
