@@ -4,96 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D95CBCA6005
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 00:40:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B51CFCA6006
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 00:40:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=plp7HXZVY9ZJ0T9kBRac8ThPyr05S0urPmXCK1tsSns=; b=wwUoA3uTJAIF5Q
-	yDzYIhM6hbB8GNHUBAWg7wAtwEisS7abMOEtrUauxLLZlsEAnFOJTz0mWpqfHCNuquICMYw2z+Rvu
-	uPmNRq5Am6hzbtiAGXUpoyuoZrkZVuVinAiYQWUJD1Hj2v7kCdCaFivWmYhN5bIGnuG0tQwrasVde
-	NrG091Mr8frzwgG6Bq73l1mayLR4konLxZFd5UFMN3dQ8oCC3Z110vPukDatI6cNn8SVDORniP/v1
-	HbAcqmDXbmWV9FMN+brtzByJaVYmitknHBvxilj/qrrK881AaLQ5j+cz1IQdb37nrXYtC2enHZPF1
-	Vv7LYtY0Hu5bd1NSivUQ==;
+	List-Owner; bh=UEOIvRM05kMn3/Y8Ib8ZhJXLQ7RWEmTPew6ZiXKYdTc=; b=Lk/e8nV7g45vTr
+	aUFxn50w8UmGTWHKXnYQTr9gCRRApg/VcmEYO6eayD5hyaydfAT1T5l8EQtjzrCQxo6AgZFJkl8uO
+	hJ/gvA3LuBDJ5MlIStUE2k/vAejZGGPrXIH1oV7BVLOWB6EDl/C3hVktN0HEbt6iFbUgERcQahSVI
+	eo/TioPaqFb8WvGfWPQhj8dbRuc36MuysLVb2cxFPhzKL74gDSdQvU82F7klETvqzKROIJKyjJTuT
+	OKBkmITbcLvRryNfTCKg/ycBukX0Jo/h9bXZU46JKXT0woKXIr/RCFX23D+Fe+D/OlwFJmmQn4qMZ
+	U96cejcn0PBCWTjx6Q+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDtDx-0000000HP77-329I;
-	Tue, 06 Oct 2026 00:40:05 +0000
+	id 1xDtDz-0000000HP91-3RaE;
+	Tue, 06 Oct 2026 00:40:07 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xDtDu-0000000HP42-42Zg
+	id 1xDtDw-0000000HP54-3dEK
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Oct 2026 00:40:04 +0000
+	Tue, 06 Oct 2026 00:40:06 +0000
 Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 695KN11a2596505
-	for <linux-riscv@lists.infradead.org>; Tue, 6 Oct 2026 00:40:02 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 695KN15o2596542
+	for <linux-riscv@lists.infradead.org>; Tue, 6 Oct 2026 00:40:04 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	aPry6s0/eZtpQh6W3xcXutov9SeCo8ZKZHlB3Z0ToE0=; b=I/t6oz47z/G8fqAC
-	8RNzbOdJNfGxeU3HWlRFL7iYn+FoSZ0qLqZzyxhL3nxL/xQckIYUPOqMBm8EBwaM
-	+DJK/O/rWzc31923V/F8rCDMOEQB2LuWu5PymJKNtzlY7QQytugyYtB/fQ9rnRN3
-	WH0OHaOV/8+kn/DhrDOhgLrSqtX6TgTcZdwyj359W21cNG1s3I/LKiWMVytxi5R7
-	7jzPPAwrpHFrzSeONhSYJexcx5lwVYkUDbamTseuakvdRRBSM4OR/YPlBlGbpZiT
-	AGADfHWbxutC9pcKX21B/OIqZ7Azm1yUxizXJhTJA0hRm3kzxCthXWD4tSjqKrL+
-	IWu2rg==
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h4a7dtxx8-1
+	nYO611i2VDr+kpZXQlZA+U1VxdGQ4Y6EM0WXQx58/xQ=; b=jJaM0I6iy22zHwru
+	6dYhQZ4xQaUGH9A5Zw+jbKcGw3GdCCA22DWXJWlidc8mh2F+Zpp4fME09bmGAgxI
+	S82e8ui9EwCteReQVTzS0CQgfR6Xn1f7mt7jFPK368CGeARTOB0BU4D4oUuOWa6C
+	9HY889csfukN3NhiZEsJ41A5Vmm4OtsQoXD8c2KQneRmbc1jMfxNg0FFxxCxGjoH
+	Wn32rm0ExKlF38eP6n8tNvsevP2w8K+DJxtGRHkvuaWvYod+iAXV6j1D0x2Ka/AF
+	3YPue0XCxmsjtoUbNn7vJKLeaQAqC6cW8yi45rHTEaaVsuORm+TR0RJ8WmVoquGb
+	GQawZA==
+Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h4a7dtxxj-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Tue, 06 Oct 2026 00:40:01 +0000 (GMT)
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-34ef5fd7934so6218297eec.0
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Oct 2026 17:40:01 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Tue, 06 Oct 2026 00:40:03 +0000 (GMT)
+Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-151dcfb1569so578946c88.0
+        for <linux-riscv@lists.infradead.org>; Mon, 05 Oct 2026 17:40:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791247201; x=1791852001; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1791247203; x=1791852003; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=aPry6s0/eZtpQh6W3xcXutov9SeCo8ZKZHlB3Z0ToE0=;
-        b=DBbdAXwoZyLm47Xj7yXMZzYJyaqvzKDyTLyUU70Sb8lN7XgtVjrHjdCpYK84ahcAT8
-         jaVA72sRy9oVt5KAtQ/ZbfJLY4oTDN/hxuyG1Ja3jAXj7TxA7xPHCF/oTyBNAZy0DNtl
-         eCEZ9HaQRGHtB5WbL8ehhIqj8rEXjVvUdL2188Ov57G+GwaHCI3wJ6xzuUIT0K2Pu69D
-         FC+JU+hzGZrr7nSmRw8ergknVrxLHweErDR2wXwkb+71T6rzOKFLR6BAtE/kf2TCIdXb
-         IjHbW8IIu3UQm/5PxOe8l2ZsC3o06GfXI3Z0+VMfeeMB+RUEDisTgOT8r/qfsux/aQVz
-         mXvg==
+        bh=nYO611i2VDr+kpZXQlZA+U1VxdGQ4Y6EM0WXQx58/xQ=;
+        b=WcmoX925ODQT4XVqQCQYaP29kMW+opGCsNQKmanL/Qnhgm46KxR3JNeFejQPhQShoh
+         yzL9vomwPPuof09ZMDBmEDbAMS3ws0qI5Qm1fq/p2dASLww2yb4sKBm7eqRBCjkt9ln/
+         oCQ1ZFyS90CVz41/M122V3cFftRsMSSJQVYHLWp692vJin3ijDeI13DAJK33Vz8rPkn9
+         M+YwmT2j4SmfAYLJ7f29d/0wgJqep73uZbQ4nwJZpuJZOoxJT0Pw2A0C2duV11n7QYwk
+         1u/kK8WvYv7cG8hd5PaLgHEJletR8W2Hk1/LcDd98cOk/3VNohkmLuDoXTvDaMkNvM+y
+         rA4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791247201; x=1791852001;
+        d=1e100.net; s=20260707; t=1791247203; x=1791852003;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=aPry6s0/eZtpQh6W3xcXutov9SeCo8ZKZHlB3Z0ToE0=;
-        b=G8C+Tic0anMCynhN0cf6ctTElVWQp61i4snVwhYKpVx2IOJ3YUHv+7B1wX4A2GLG/L
-         4nCmVGf7FDg/hEJBkAnCK7V2gK9xhkUEI5wamCkWWZh+HxjDR0il7KOh3tik6mZB+50e
-         mUVZc8+66vcnZskDE26xnKRkhIC8fYsWBc4T3XyqPtxCZ/EoWjV7MToekxNenDpxH2lf
-         4cX/Z7c4TG1FOiM/4NHsn06L/AikAmMZhMrRlg1XPe4awFsri86tSIuBB0E0wDgspxw0
-         w9GZt4tzeNme1zVVMSOYEqifOF7z5pzuTo3ZxYCdCqXZRPctm5AC2r8NTZdi319LFCmc
-         a7lw==
-X-Forwarded-Encrypted: i=1; AKwUvBz2Wyfvqevi5x+ZKmc0a+QvShPE/Zxa8rlyeavxwChJ/B4sErb8JHMPKTfmFmhL89zbST2cP/HPKbb/0Q==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJED8j3j6nvESgeECQ8lRZLXkIMFP7UwIMBR3XYuJBkubBYiHl0
-	07AMWEk6ZeX8647g9FDnUo//rkVC4Yzkn8g4+Uk5IJnFTaEaw6Pe5WYpQHpAXJYvpqXK3hwacny
-	acvjbv17XMWKx7BGItWxqRe+vxgvcqNwIsuEH7FIVv2EWbStjQq10VOCW1RrFbqvV1Za7/A==
-X-Gm-Gg: AYBFou0UOzNvSp29D6agQE8O6r2Vxykp0u0dLIP+5T8g57gl1W9Ek40S5+rxs+PzKw+
-	RZX0kLeuymJxU7rH6GcCTmZhSolzS/6nAkJ7qL2ehPJXeIsrNNJXrrgkxT4EToJSnfiHu3GQ9Oi
-	5CakB0BNSaZmC171ecXyQK/1C4m4auWXVUHBTMb0821drCgFWMSL9ljrIcPXZRHh5GAbejL6Zca
-	+zHdo1X/wwahPTKYRzanPfjMnPFFdBt5WHVcYUdGrokcJVec+afPmpxy0Hi/sjAMi831cBI8vDM
-	zo03bL6Dwx42bjxcL1cqaAyQBs/hTPbzCSJKBj8wVGXwpXy3MnfvFVMY/oAoT/S7faShsThB8zh
-	ritOc/8ac1mEDXbcPSeO+A1FbgN6CMQPUHLhjN4M7zjZvoXb47ZgsTCOq/Q==
-X-Received: by 2002:a05:693c:3881:b0:34c:bc38:e2ee with SMTP id 5a478bee46e88-34f15066431mr15179402eec.8.1791247200671;
-        Mon, 05 Oct 2026 17:40:00 -0700 (PDT)
-X-Received: by 2002:a05:693c:3881:b0:34c:bc38:e2ee with SMTP id 5a478bee46e88-34f15066431mr15179369eec.8.1791247199931;
-        Mon, 05 Oct 2026 17:39:59 -0700 (PDT)
+        bh=nYO611i2VDr+kpZXQlZA+U1VxdGQ4Y6EM0WXQx58/xQ=;
+        b=r51hAGkF2djEdQs9oC1gV2LCjzVWOha4C7+mc90n+6z0P8lzMKXhACNWzdwVPUpefP
+         3E/uoOzSO5wdhYEMZVT4C3DXrQwg3w8gpHmfzxwTj4yNJfbOBwAFTV+9lcaO1HfAgrnS
+         xMoK4giJTayWHfc4v3fb0GJo/ipdVHl/e86bGDchqm4o8Whgkz77fL8dk8Boak/1GVP0
+         2J0BrymjSHf/QuyhIRPwA+Y2KyZpxK/iicIfGMPdv7bVpcvRDC4gnllFFQ1+e90eJ8d5
+         lfAUuYbH+jiEr8i+uL3acedhOZ5KUTdoDGJMVwCDVaLUZIxGBdjcXJocYgtV61q03YUg
+         wtRQ==
+X-Forwarded-Encrypted: i=1; AKwUvByM/SXqypSmz2LZhsvZYoYJrpVJDThrMBhLCjYEwU9GYtaWolAIwwlyAh93hCCz8qBGr44Bwk0i0Q+Ybg==@lists.infradead.org
+X-Gm-Message-State: AFuF++nYlZAc1iSIAojwgiC24OqeN1yz7eDUEYqnP3gGzgdKA6nRyDS3
+	bgFtr4/3d1OHOsdclrtzCsbYbxopPxBAt+qf68ptNCWVKhM8Har7UjwkCCeUXbLasQ3Wd0mdU+w
+	sFPQSJo35/2R7FjGzj4h+7RbTLcyHml7KiAtlrBimDC84lIgfLHKWiUtocVZWCDINDXhz9g==
+X-Gm-Gg: AYBFou2BJZxAqL+mg1hNiaZfABSBEexrVCAXiVPGKffdBqOfgP+gVR2cw9f5iU4xCQS
+	DNi3ZPj5dvgakXPUK0j1pG7rRFmEWC1HMlkGONMtgCk6i1DzFsQwyaWPifhWUCoCtUto9o/S9PC
+	/hRC1k8y5NyAgNpPwK3cDGknalVnMm5r5Ucbtvg1REa1YyE46KoQ7i0pqyeqdVg2P4wXK5vWep7
+	mpdJBSCS+ANttr8XsrbLbpdeSXylSLO2ZFzvvWQYmPIH0tkYhiFgq+suKUFF7F0hfBjJOK3n+SP
+	3qZ4w5TOyY7+pcZb2cLL86CPbgjdfm4NBi6kU7bTZ/Rb1GI6RsqEQDv/+6Hhb5/ecxZDQOh/ZJr
+	GkHm8w3CxFOj5ocgiXKgpHjyh/CQegHfoCDier9oilMBvCAVp//+u/vJoXw==
+X-Received: by 2002:a05:7022:505:b0:145:5c7:7185 with SMTP id a92af1059eb24-15d2e03f9c0mr2108984c88.5.1791247202271;
+        Mon, 05 Oct 2026 17:40:02 -0700 (PDT)
+X-Received: by 2002:a05:7022:505:b0:145:5c7:7185 with SMTP id a92af1059eb24-15d2e03f9c0mr2108917c88.5.1791247201401;
+        Mon, 05 Oct 2026 17:40:01 -0700 (PDT)
 Received: from hu-azarrabi-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-35146ac078fsm2108874eec.22.2026.10.05.17.39.58
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-35146ac078fsm2108874eec.22.2026.10.05.17.40.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Oct 2026 17:39:59 -0700 (PDT)
+        Mon, 05 Oct 2026 17:40:00 -0700 (PDT)
 From: Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
-Date: Mon, 05 Oct 2026 17:39:50 -0700
-Subject: [PATCH RFC v2 6/8] tee: optee: execute yielding RPMI calls
+Date: Mon, 05 Oct 2026 17:39:51 -0700
+Subject: [PATCH RFC v2 7/8] tee: optee: bind RPMI services and negotiate
+ backend capabilities
 MIME-Version: 1.0
-Message-Id: <20261005-rpmi-tee-service-grp-dev-v2-6-72f222e23ec1@oss.qualcomm.com>
+Message-Id: <20261005-rpmi-tee-service-grp-dev-v2-7-72f222e23ec1@oss.qualcomm.com>
 References: <20261005-rpmi-tee-service-grp-dev-v2-0-72f222e23ec1@oss.qualcomm.com>
 In-Reply-To: <20261005-rpmi-tee-service-grp-dev-v2-0-72f222e23ec1@oss.qualcomm.com>
 To: Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
@@ -109,25 +110,25 @@ Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
         devicetree@vger.kernel.org,
         Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
 X-Mailer: b4 0.13.0
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA2MDAwMSBTYWx0ZWRfXwIs5BosiQrtx
- iklKLn8IEGB7KZf89uWZn17RJm5bL2CdXDiBTdhFfsHZFzq5XLvPrZjADbG/1snLW9OKO/1i65y
- PTc1L+Ou8J2upyxxdfki+Tay+a0W8tA=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA2MDAwMSBTYWx0ZWRfX6Ea5ltyed+vp
- PXCIpfaC9YrnnRtQtbZSV4mPVFAeQO1Q6Qg5gW/RYRidP7KhcF+Ca2G76Q2BxZmmcUg1QbI2DQi
- en3pOAkHdJiXM6+F0kDxTWwHbF2VcC0nkbYkPvlZWzhJHpBPPnRvbc5dfqS2QwoCSnVTA2+Hgbr
- uP5lepjnz5fK+wZyAj8G4planfoeFnlYR/r6yucIu2L1df5G7H30a/59WgNlGYj9o8J5MfaNeE8
- AGRhaPc7H2Rfpdjd3+rpf64c2eB0/MEu3FoWLkLh+qhj3/ndOsKI2y2Do4kt7icvRrTYiscilb1
- s370Rzs6L1fPEDr4dghxJyIGILZGFraPNEJQm8OlJ9gt8UaKGMG1BY20t1u4VQYzkjQL/bF+lYk
- u/dKOCLLH0Q1xZChAI1m4eu9bLhuLTOlPf2MWdMKn489tvyIVYIbdQQoFKn5TQ0Pteuvlsj/os1
- td10MpM0QCkFlWzFkWg==
-X-Proofpoint-GUID: IGexN0GKTY3Jwdd7JGgDhfy7bD2g3pGJ
-X-Authority-Analysis: v=2.4 cv=SvwFe/O0 c=1 sm=1 tr=0 ts=6ac44361 cx=c_pps
- a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA2MDAwMSBTYWx0ZWRfX07+C1mxFiyOy
+ 3wRuQSXE+IU7lg7lz1ZwPNt2lMGrZtymwfSmcVHKo6IWXPjqKiLsNZSxpQAgxPU5zsuUxRk6SRH
+ TSmP1BtWReyfIXuMpTmGKXkP2KeEHSg=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA2MDAwMSBTYWx0ZWRfX2LGg5cG4/Joo
+ uGUe1P+9aIwYeuB1z4ot0gz+NW8yp226JKAk/BLPQnyg6P7YXGsOTB/Hwed7OU/foB9buf3xJI4
+ +g5qAUGwIsFBAzXZ0RrU2DpAFohEYdCwJk1CLI60ntbIQSEF4sjJaKFRq+fVv/LlYnY4fiKCDA1
+ h5Ar31IHBDSMjy8tRwGOv0sqJPmdy6sRakPj5ADtrUGFbdO/JSv9UYdXc4Sdv6yTLvSV3XEbaXu
+ WTr1ITFDOPSqrKLZbydCybgPHbTQ6W6Ttoxck53EW7dlWecdoVOG/+VMTImHfXV/JYtOTQzb214
+ jnx3mfBIqAGsSRZ8CDKRkHu1t5vf7AL4aD3bc+T15GtFYCL81pbf51xIirjToNzsQUBijC6oeMI
+ JqAVX9hsjR53fsJZiy/wxurgykhBV0uqSjr+nYanwcJA2vb/xOHR3u/DJ/kwcHqWmdSm8g2H3vP
+ fOAJv8/iitePYbAivxw==
+X-Proofpoint-GUID: BI4VM7l_nz59y9gSgEwkbp-CCrdt3_id
+X-Authority-Analysis: v=2.4 cv=SvwFe/O0 c=1 sm=1 tr=0 ts=6ac44363 cx=c_pps
+ a=bS7HVuBVfinNPG3f6cIo3Q==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
  a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
  a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=EUspDBNiAAAA:8 a=aLZfyF7oQ8oiUT2OKIMA:9 a=QEXdDO2ut3YA:10
- a=bBxd6f-gb0O0v-kibOvt:22
-X-Proofpoint-ORIG-GUID: IGexN0GKTY3Jwdd7JGgDhfy7bD2g3pGJ
+ a=EUspDBNiAAAA:8 a=G3s93uPkn6CA8LbIO-UA:9 a=QEXdDO2ut3YA:10
+ a=vBUdepa8ALXHeOFLBtFW:22
+X-Proofpoint-ORIG-GUID: BI4VM7l_nz59y9gSgEwkbp-CCrdt3_id
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-05_05,2026-10-05_01,2025-10-01_01
@@ -137,8 +138,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610060001
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261005_174003_204545_47AD2D11 
-X-CRM114-Status: GOOD (  18.35  )
+X-CRM114-CacheID: sfid-20261005_174005_193225_09BF9D9A 
+X-CRM114-Status: GOOD (  22.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,165 +156,413 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-OP-TEE commands can span multiple exchanges with normal world. A call
-may yield to request an RPC service or allow interrupt processing
-before continuing execution in secure world.
+Register an RPMI service driver matching the OP-TEE service UUID and
+integrate it with OP-TEE module initialization and removal.
 
-Add the RPMI yielding-call path used by the common OP-TEE session
-operations. Submit the command and RPC argument buffers as ranges
-within a shared memory parcel.
+Check the service API version, query the trusted OS revision, and
+obtain the RPC parameter and logical notification counts. Initialize
+shared-memory tracking, the call queue, supplicant state and internal
+context before publishing the client and supplicant TEE devices.
 
-Handle RPC requests while the call is suspended and resume execution
-using the token returned by OP-TEE until the command completes.
+Connect the RPMI backend to the common OP-TEE operations and enumerate
+trusted application devices. Enable in-kernel RPMB routing when the
+RPMB subsystem is reachable.
 
-Use the common OP-TEE call queue to wait when an initial request is
-rejected with RPMI_ERR_BUSY, allowing another active call to complete
-before retrying.
+Add removal and probe failure cleanup for the backend resources.
 
 Signed-off-by: Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
 ---
- drivers/tee/optee/rpmi_abi.c | 124 +++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 124 insertions(+)
+ drivers/tee/optee/core.c          |  10 +-
+ drivers/tee/optee/optee_private.h |  21 ++-
+ drivers/tee/optee/rpmi_abi.c      | 286 ++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 312 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/tee/optee/rpmi_abi.c b/drivers/tee/optee/rpmi_abi.c
-index 58d82678be98..6e76316794c1 100644
---- a/drivers/tee/optee/rpmi_abi.c
-+++ b/drivers/tee/optee/rpmi_abi.c
-@@ -9,6 +9,7 @@
- #include <linux/mailbox/riscv-rpmi-message.h>
- #include <linux/overflow.h>
- #include <linux/rpmi_tee.h>
-+#include <linux/sched.h>
- #include <linux/slab.h>
- #include <linux/unaligned.h>
- #include "optee_private.h"
-@@ -560,3 +561,126 @@ static void optee_rpmi_handle_rpc_cmd(struct tee_context *ctx,
- 		optee_rpc_cmd(ctx, optee, arg);
+diff --git a/drivers/tee/optee/core.c b/drivers/tee/optee/core.c
+index a52c1f498b99..8a44a25ebc66 100644
+--- a/drivers/tee/optee/core.c
++++ b/drivers/tee/optee/core.c
+@@ -220,6 +220,7 @@ void optee_remove_common(struct optee *optee)
+ 
+ static int smc_abi_rc;
+ static int ffa_abi_rc;
++static int rpmi_abi_rc;
+ static bool intf_is_regged;
+ 
+ static int __init optee_core_init(void)
+@@ -245,14 +246,15 @@ static int __init optee_core_init(void)
+ 
+ 	smc_abi_rc = optee_smc_abi_register();
+ 	ffa_abi_rc = optee_ffa_abi_register();
++	rpmi_abi_rc = optee_rpmi_abi_register();
+ 
+-	/* If both failed there's no point with this module */
+-	if (smc_abi_rc && ffa_abi_rc) {
++	/* Keep the module if any supported transport registered successfully. */
++	if (smc_abi_rc && ffa_abi_rc && rpmi_abi_rc) {
+ 		if (IS_REACHABLE(CONFIG_RPMB)) {
+ 			rpmb_interface_unregister(&rpmb_class_intf);
+ 			intf_is_regged = false;
+ 		}
+-		return smc_abi_rc;
++		return -EOPNOTSUPP;
  	}
+ 
+ 	return 0;
+@@ -270,6 +272,8 @@ static void __exit optee_core_exit(void)
+ 		optee_smc_abi_unregister();
+ 	if (!ffa_abi_rc)
+ 		optee_ffa_abi_unregister();
++	if (!rpmi_abi_rc)
++		optee_rpmi_abi_unregister();
  }
-+
-+/* Handle RPC command or interrupt returns from a yielding call. */
-+static void optee_rpmi_handle_rpc(struct tee_context *ctx, struct optee *optee,
-+				  u32 result, struct optee_msg_arg *arg)
+ module_exit(optee_core_exit);
+ 
+diff --git a/drivers/tee/optee/optee_private.h b/drivers/tee/optee/optee_private.h
+index 2422caf3c883..07c27e322a71 100644
+--- a/drivers/tee/optee/optee_private.h
++++ b/drivers/tee/optee/optee_private.h
+@@ -188,6 +188,8 @@ struct rpmi_tee_device;
+  * @rdev: owning RPMI service device
+  * @shm_rht_lock: protects parcel lookup, insertion, removal and publication
+  * @shm_rht: lookup by the host-endian parcel ID and nonce pair
++ * @sec_caps: negotiated optional OPTEE_RPMI_CAP_* features
++ * @notification_count: negotiated nonzero number of logical notification keys
+  *
+  * Callers keep their tee_shm alive while using its registration. Lookup
+  * returns a raw pointer; the mutex does not protect its lifetime after
+@@ -199,6 +201,8 @@ struct optee_rpmi {
+ 	/* Protects parcel lookup, insertion, removal and publication. */
+ 	struct mutex shm_rht_lock;
+ 	struct rhashtable shm_rht;
++	u32 sec_caps;
++	u32 notification_count;
+ };
+ #endif
+ 
+@@ -211,8 +215,8 @@ struct optee;
+  * @os_build_id:	OP-TEE OS build identifier (0 if unspecified)
+  *
+  * Values come from OPTEE_SMC_CALL_GET_OS_REVISION (SMC ABI) or
+- * OPTEE_FFA_GET_OS_VERSION (FF-A ABI); this is the trusted OS revision, not an
+- * FF-A ABI version.
++ * OPTEE_FFA_GET_OS_VERSION (FF-A ABI) or OPTEE_RPMI_GET_OS_VERSION (RPMI ABI).
++ * This is the trusted OS revision, not a transport ABI version.
+  */
+ struct optee_revision {
+ 	u32 os_major;
+@@ -490,5 +494,18 @@ static inline void optee_ffa_abi_unregister(void)
+ }
+ #endif
+ 
++#if IS_REACHABLE(CONFIG_RISCV_RPMI_TEE_TRANSPORT)
++int optee_rpmi_abi_register(void);
++void optee_rpmi_abi_unregister(void);
++#else
++static inline int optee_rpmi_abi_register(void)
 +{
-+	switch (result) {
-+	case OPTEE_RPMI_YIELDING_CALL_RETURN_RPC_CMD:
-+		optee_rpmi_handle_rpc_cmd(ctx, optee, arg);
-+		break;
-+	case OPTEE_RPMI_YIELDING_CALL_RETURN_INTERRUPT:
-+		break;
-+	default:
-+		pr_warn("Unknown RPC func 0x%x\n", result);
-+		break;
-+	}
++	return -EOPNOTSUPP;
 +}
 +
-+/**
-+ * optee_rpmi_yielding_call() - submit and resume a yielding RPMI command
-+ * @ctx: calling context
-+ * @req: initial command request
-+ * @rpc_arg: shared RPC argument buffer
-+ * @system_thread: caller requests TEE system thread support
-+ *
-+ * Only RPMI_ERR_BUSY rejection of the initial command permits retry.
-+ *
-+ * Return: zero on completion, or a negative error.
-+ */
-+static int optee_rpmi_yielding_call(struct tee_context *ctx,
-+				    const struct optee_rpmi_call_req *req,
-+				    struct optee_msg_arg *rpc_arg,
-+				    bool system_thread)
++static inline void optee_rpmi_abi_unregister(void)
 +{
-+	struct optee *optee = tee_get_drvdata(ctx->teedev);
-+	struct optee_rpmi_resume_req resume = {
-+		.op = cpu_to_le32(OPTEE_RPMI_YIELDING_CALL_RESUME),
-+		/* resume_token is nonzero after OP-TEE suspends the call. */
-+		.resume_token = 0,
++}
++#endif
+ 
+ #endif /*OPTEE_PRIVATE_H*/
+diff --git a/drivers/tee/optee/rpmi_abi.c b/drivers/tee/optee/rpmi_abi.c
+index 6e76316794c1..db541f3de425 100644
+--- a/drivers/tee/optee/rpmi_abi.c
++++ b/drivers/tee/optee/rpmi_abi.c
+@@ -684,3 +684,289 @@ static int optee_rpmi_do_call_with_arg(struct tee_context *ctx,
+ 
+ 	return optee_rpmi_yielding_call(ctx, &req, rpc_arg, system_thread);
+ }
++
++/* Query and store the trusted OS revision. */
++static int optee_rpmi_get_os_version(struct optee *optee)
++{
++	struct optee_rpmi_probe_req req = {
++		.op = cpu_to_le32(OPTEE_RPMI_GET_OS_VERSION),
 +	};
-+	struct optee_rpmi_call_resp resp;
-+	struct optee_call_waiter waiter;
-+	u32 result;
-+	s32 status;
++	struct optee_rpmi_os_resp os;
 +	int ret;
 +
-+	optee_cq_wait_init(&optee->call_queue, &waiter, system_thread);
-+	while (true) {
-+		if (resume.resume_token)
-+			ret = optee_rpmi_call_with_status(optee, &resume,
-+							  sizeof(resume), &resp,
-+							  sizeof(resp), &status);
-+		else
-+			ret = optee_rpmi_call_with_status(optee, req, sizeof(*req),
-+							  &resp, sizeof(resp),
-+							  &status);
-+		if (ret)
-+			goto done;
++	ret = optee_rpmi_call(optee, &req, sizeof(req), &os, sizeof(os));
++	if (ret)
++		return ret;
 +
-+		switch (status) {
-+		case RPMI_SUCCESS:
-+			break;
-+		case RPMI_ERR_BUSY:
-+			if (!resume.resume_token) {
-+				optee_cq_wait_for_completion(&optee->call_queue,
-+							     &waiter);
-+				continue;
-+			}
++	optee->revision.os_major = get_unaligned_le32(&os.major);
++	optee->revision.os_minor = get_unaligned_le32(&os.minor);
++	optee->revision.os_build_id = get_unaligned_le64(&os.build_id);
 +
-+			fallthrough;
-+		default:
-+			ret = rpmi_to_linux_error(status);
-+			goto done;
-+		}
++	if (optee->revision.os_build_id)
++		pr_info("revision %u.%u (%016llx)\n",
++			optee->revision.os_major, optee->revision.os_minor,
++			optee->revision.os_build_id);
++	else
++		pr_info("revision %u.%u\n", optee->revision.os_major,
++			optee->revision.os_minor);
 +
-+		result = get_unaligned_le32(&resp.result);
-+		if (result == OPTEE_RPMI_YIELDING_CALL_RETURN_DONE)
-+			goto done;
++	return 0;
++}
 +
-+		cond_resched();
-+		optee_rpmi_handle_rpc(ctx, optee, result, rpc_arg);
++/* Query and store secure-world capabilities and buffer limits. */
++static int optee_rpmi_exchange_caps(struct optee *optee)
++{
++	struct optee_rpmi_probe_req req = {
++		.op = cpu_to_le32(OPTEE_RPMI_EXCHANGE_CAPABILITIES),
++	};
++	struct optee_rpmi_caps_resp caps;
++	u32 rpc_count, sec_caps, notif_count;
++	int ret;
 +
-+		resume.resume_token = resp.resume_token;
++	ret = optee_rpmi_call(optee, &req, sizeof(req), &caps, sizeof(caps));
++	if (ret)
++		return ret;
++
++	sec_caps = get_unaligned_le32(&caps.secure_caps);
++	rpc_count = get_unaligned_le32(&caps.rpc_param_count);
++	notif_count = get_unaligned_le32(&caps.notification_count);
++	if (!notif_count || !rpc_count)
++		return -EPROTO;
++
++	optee->rpc_param_count = rpc_count;
++	optee->rpmi.sec_caps = sec_caps;
++	optee->rpmi.notification_count = notif_count;
++	optee->in_kernel_rpmb_routing = IS_REACHABLE(CONFIG_RPMB);
++
++	return 0;
++}
++
++static int optee_rpmi_api_is_compatible(struct optee *optee)
++{
++	struct optee_rpmi_probe_req req = {
++		.op = cpu_to_le32(OPTEE_RPMI_GET_API_VERSION),
++	};
++	struct optee_rpmi_api_resp api;
++	int ret;
++
++	ret = optee_rpmi_call(optee, &req, sizeof(req), &api, sizeof(api));
++	if (ret)
++		return ret;
++
++	if (get_unaligned_le32(&api.major) != OPTEE_RPMI_VERSION_MAJOR)
++		return -EPROTONOSUPPORT;
++
++	/* Version 1.0 has no minimum minor revision beyond zero. */
++	return 0;
++}
++
++static void optee_rpmi_get_version(struct tee_device *teedev,
++				   struct tee_ioctl_version_data *vers)
++{
++	*vers = (struct tee_ioctl_version_data) {
++		.impl_id = TEE_IMPL_ID_OPTEE,
++		.gen_caps = TEE_GEN_CAP_GP | TEE_GEN_CAP_REG_MEM |
++			    TEE_GEN_CAP_MEMREF_NULL,
++	};
++}
++
++static int optee_rpmi_open(struct tee_context *ctx)
++{
++	return optee_open(ctx, true);
++}
++
++static const struct tee_driver_ops optee_rpmi_clnt_ops = {
++	.get_version = optee_rpmi_get_version,
++	.get_tee_revision = optee_get_revision,
++	.open = optee_rpmi_open,
++	.release = optee_release,
++	.open_session = optee_open_session,
++	.close_session = optee_close_session,
++	.invoke_func = optee_invoke_func,
++	.cancel_req = optee_cancel_req,
++	.shm_register = optee_rpmi_shm_register,
++	.shm_unregister = optee_rpmi_shm_unregister,
++};
++
++static const struct tee_driver_ops optee_rpmi_supp_ops = {
++	.get_version = optee_rpmi_get_version,
++	.get_tee_revision = optee_get_revision,
++	.open = optee_rpmi_open,
++	.release = optee_release_supp,
++	.supp_recv = optee_supp_recv,
++	.supp_send = optee_supp_send,
++	.shm_register = optee_rpmi_shm_register,
++	.shm_unregister = optee_rpmi_shm_unregister_supp,
++};
++
++static const struct tee_desc optee_rpmi_clnt_desc = {
++	.name = DRIVER_NAME "-rpmi-clnt",
++	.ops = &optee_rpmi_clnt_ops,
++	.owner = THIS_MODULE,
++};
++
++static const struct tee_desc optee_rpmi_supp_desc = {
++	.name = DRIVER_NAME "-rpmi-supp",
++	.ops = &optee_rpmi_supp_ops,
++	.owner = THIS_MODULE,
++	.flags = TEE_DESC_PRIVILEGED,
++};
++
++static const struct optee_ops optee_rpmi_ops = {
++	.do_call_with_arg = optee_rpmi_do_call_with_arg,
++	.to_msg_param = optee_rpmi_to_msg_param,
++	.from_msg_param = optee_rpmi_from_msg_param,
++};
++
++/* Keep callback state and memory tables alive until all TEE users release. */
++static void optee_rpmi_remove(struct rpmi_tee_device *rdev)
++{
++	struct optee *optee = dev_get_drvdata(&rdev->dev);
++
++	optee_remove_common(optee);
++	optee_rpmi_shm_rht_uninit(optee);
++	kfree(optee);
++}
++
++static int optee_rpmi_probe(struct rpmi_tee_device *rdev)
++{
++	struct tee_device *teedev;
++	struct tee_context *ctx;
++	int ret;
++
++	struct optee *optee __free(kfree) = kzalloc_obj(*optee);
++	if (!optee)
++		return -ENOMEM;
++
++	optee->rpmi.rdev = rdev;
++	optee->ops = &optee_rpmi_ops;
++
++	ret = optee_rpmi_api_is_compatible(optee);
++	if (ret)
++		return ret;
++
++	ret = optee_rpmi_get_os_version(optee);
++	if (ret)
++		return ret;
++
++	ret = optee_rpmi_exchange_caps(optee);
++	if (ret)
++		return ret;
++
++	optee->pool = optee_rpmi_shm_pool_alloc();
++	if (IS_ERR(optee->pool))
++		return PTR_ERR(optee->pool);
++
++	ret = optee_rpmi_shm_rht_init(optee);
++	if (ret)
++		goto err_pool;
++
++	optee_cq_init(&optee->call_queue, 0);
++	optee_supp_init(&optee->supp);
++	optee_shm_arg_cache_init(optee, OPTEE_SHM_ARG_SHARED);
++	mutex_init(&optee->rpmb_dev_mutex);
++	INIT_WORK(&optee->rpmb_scan_bus_work, optee_bus_scan_rpmb);
++	optee->rpmb_intf.notifier_call = optee_rpmb_intf_rdev;
++	ret = optee_notif_init(optee, optee->rpmi.notification_count);
++	if (ret)
++		goto err_common;
++
++	/* Allocate all keys, then restrict the inclusive bound to the last key. */
++	optee->notif.max_key = optee->rpmi.notification_count - 1;
++
++	teedev = tee_device_alloc(&optee_rpmi_clnt_desc, &rdev->dev,
++				  optee->pool, optee);
++	if (IS_ERR(teedev)) {
++		ret = PTR_ERR(teedev);
++		goto err_notif;
 +	}
-+done:
-+	optee_cq_wait_final(&optee->call_queue, &waiter);
++	optee->teedev = teedev;
++
++	teedev = tee_device_alloc(&optee_rpmi_supp_desc, &rdev->dev,
++				  optee->pool, optee);
++	if (IS_ERR(teedev)) {
++		ret = PTR_ERR(teedev);
++		goto err_devices;
++	}
++	optee->supp_teedev = teedev;
++
++	optee_set_dev_group(optee);
++
++	/* Internal RPC allocation must be ready before userspace can enter. */
++	ctx = teedev_open(optee->teedev);
++	if (IS_ERR(ctx)) {
++		ret = PTR_ERR(ctx);
++		goto err_devices;
++	}
++
++	optee->ctx = ctx;
++	dev_set_drvdata(&rdev->dev, optee);
++	if (optee->in_kernel_rpmb_routing)
++		blocking_notifier_chain_register(&optee_rpmb_intf_added,
++						 &optee->rpmb_intf);
++
++	ret = tee_device_register(optee->teedev);
++	if (ret)
++		goto err_initialized;
++
++	ret = tee_device_register(optee->supp_teedev);
++	if (ret)
++		goto err_initialized;
++
++	ret = optee_enumerate_devices(PTA_CMD_GET_DEVICES);
++	if (ret)
++		goto err_initialized;
++
++	dev_info(&rdev->dev, "OP-TEE RPMI %u.%u initialized\n",
++		 optee->revision.os_major, optee->revision.os_minor);
++	retain_and_null_ptr(optee);
++
++	return 0;
++
++err_initialized:
++	/* The remove path owns and frees the published backend state. */
++	retain_and_null_ptr(optee);
++	optee_rpmi_remove(rdev);
++
++	return ret;
++err_devices:
++	tee_device_unregister(optee->supp_teedev);
++	tee_device_unregister(optee->teedev);
++	optee_shm_arg_cache_uninit(optee);
++err_notif:
++	optee_notif_uninit(optee);
++err_common:
++	optee_supp_uninit(&optee->supp);
++	mutex_destroy(&optee->call_queue.mutex);
++	rpmb_dev_put(optee->rpmb_dev);
++	mutex_destroy(&optee->rpmb_dev_mutex);
++	optee_rpmi_shm_rht_uninit(optee);
++err_pool:
++	tee_shm_pool_free(optee->pool);
 +
 +	return ret;
 +}
 +
-+/* The caller supplies SHM with room for command and RPC args. */
-+static int optee_rpmi_do_call_with_arg(struct tee_context *ctx,
-+				       struct tee_shm *shm, u_int offs,
-+				       bool system_thread)
++static const struct rpmi_tee_device_id optee_rpmi_device_ids[] = {
++	{ OPTEE_RPMI_SERVICE_UUID },
++	{}
++};
++
++static struct rpmi_tee_driver optee_rpmi_driver = {
++	.name = DRIVER_NAME "-rpmi",
++	.probe = optee_rpmi_probe,
++	.remove = optee_rpmi_remove,
++	.id_table = optee_rpmi_device_ids,
++};
++
++int optee_rpmi_abi_register(void)
 +{
-+	struct optee *optee = tee_get_drvdata(ctx->teedev);
-+	struct optee_msg_arg *arg, *rpc_arg;
-+	struct optee_rpmi_call_req req;
-+	size_t arg_size, rpc_size, rpc_offset;
-+	u32 parcel_id, nonce;
-+
-+	arg = tee_shm_get_va(shm, offs);
-+	if (IS_ERR(arg))
-+		return PTR_ERR(arg);
-+
-+	arg_size = OPTEE_MSG_GET_ARG_SIZE(arg->num_params);
-+	rpc_size = OPTEE_MSG_GET_ARG_SIZE(optee->rpc_param_count);
-+	rpc_offset = offs + arg_size;
-+	rpc_arg = tee_shm_get_va(shm, rpc_offset);
-+	if (IS_ERR(rpc_arg))
-+		return PTR_ERR(rpc_arg);
-+
-+	optee_rpmi_shm_get_identity(shm, &parcel_id, &nonce);
-+
-+	req.op = cpu_to_le32(OPTEE_RPMI_YIELDING_CALL_WITH_ARG);
-+	req.parcel_id = cpu_to_le32(parcel_id);
-+	req.nonce = cpu_to_le32(nonce);
-+	req.arg_offset = cpu_to_le64((u64)shm->offset + offs);
-+	req.rpc_offset = cpu_to_le64((u64)shm->offset + rpc_offset);
-+	req.arg_size = cpu_to_le32(arg_size);
-+	req.rpc_size = cpu_to_le32(rpc_size);
-+
-+	return optee_rpmi_yielding_call(ctx, &req, rpc_arg, system_thread);
++	return rpmi_tee_register(&optee_rpmi_driver);
 +}
++
++void optee_rpmi_abi_unregister(void)
++{
++	rpmi_tee_unregister(&optee_rpmi_driver);
++}
++
++MODULE_ALIAS("rpmi_tee:486178e0-e7f8-11e3-bc5e-0002a5d5c51b");
 
 -- 
 2.34.1
