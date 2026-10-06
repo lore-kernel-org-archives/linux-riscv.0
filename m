@@ -4,61 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CE1CA5FFC
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 11:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D0F3CA5FF0
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 13:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s2YO2b2FRJSMZ5VieGHqY+YPoAeqf6gdhW9tIvaIvgU=; b=ki6yejVFc8owsA
-	xfMn/PFkUgL+Itnmg+u4L3WM11RwL3GETOjfTfAsu82Ef9EQMU48o4BZPtgGxNJPdGNfIop/7mOAJ
-	pfeJ3Vq0Me0jsEASTo3Sq2GmdcjWwRJG/nC1zaZ31lJZz7yn8bW2nsLMw+xx3QKEJBgIQ0TttTIs2
-	40+B6tHuqdW2Y4R73ouzV5DNptpUqrMSb4L1Ul4iomuOj2VgOGlOqSaKcuJkB5EECUsrx5MRw5ok7
-	t2DnZw6wBaU4TmVTQhPNuKFlD/jSnI0jBwjbyM/3O5E+E7QLuVXvNwQM7ijIJY6v59bsAf9Y9/EFp
-	9uMWFdDWCZ/+0xuywg3g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:CC:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=OO0fubkCOPYaF2rTUByUFT8H6TYJINBl2ci6hsiaYeU=; b=DaBgD9eYlDCPqzuv5z97NfW6Nq
+	mtLuNqAfN2CyRM13BVUqPBLl5zPGxVnf2voFQDu99g616CZLTOe9QYZEnC2+nmEXlu2iNf+Bc8qx2
+	cTjD51BkNYFsuSxWiVDFHOpIXemP9rF3iQlLVDBZSofxEs0SmI5KT8qto+yWZQS1OXtVbTfSfaFO9
+	KIHj5w+mBC5FizWp3iX1nwTZXdryMbeM16mu+3EOskVslqQpBlkDM3apT85y1pEbi/llvnHesTNNI
+	h6P5as34OG9lFq7RXwm+0hMTZFSRTO49F/Jhl+PS03UDXU8XVaG0E2q6LOepbnfyWapq65x2iRUfF
+	3qZd87Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE3cF-00000000emN-26XV;
-	Tue, 06 Oct 2026 11:45:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xE52m-00000000q6e-1E3d;
+	Tue, 06 Oct 2026 13:17:20 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE3cE-00000000em4-19Ks
-	for linux-riscv@lists.infradead.org;
-	Tue, 06 Oct 2026 11:45:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A1B944322D;
-	Tue,  6 Oct 2026 11:45:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07D0F1F000FF;
-	Tue,  6 Oct 2026 11:45:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791287149;
-	bh=AHb+aEEMDegJdLzwVyM5oFwWM9z38LtHJ12r7De4yxQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=h7kDSKvALCG2R70YxmgV1qFZe78g22cHn9sQQEur/eiWJmqB47/9RuoQ2iEmQNssL
-	 DkFOmEGC3zazj0rtHo9cvEGty0ZaXaU7VtmTDT13JKtqyBS//XYMcQMcNePuR/2j/j
-	 R/WPqE9g+zduWIWrsfAqFawskuYwXIJwkSKKInihix7UlbXE7O/lRDUNC6EZuo7FjR
-	 6U0sA2ed20WJFXBQJcrcU1v2jGh8G5FE40QZkUEQvMCsFCytOWKql62jqNcUjuCTUj
-	 ZdF5lAapzfUvssZqTzsKj/whaPo7AZVCDdzhgrfsDeyAFrq/PIRlcjbFBfdsGiyH4f
-	 ZSDSZ1D47fenA==
-Date: Tue, 6 Oct 2026 11:45:47 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Rob Herring <robh@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH v2 1/1] riscv: dts: spacemit: set ETH MAC from eeprom for
- OrangePi
-Message-ID: <20261006114547-GKC2079@kernel.org>
-References: <20261006100000.548264-1-amadeus@jmu.edu.cn>
+	id 1xE52h-00000000q5T-1pNf;
+	Tue, 06 Oct 2026 13:17:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1791292635; x=1822828635;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=LDE5Rs7zNYTnSMyn0FPQ95gFQFlFZmsIBCkkmUMQ4wU=;
+  b=aDfvIB6gPWpCv6kDRN9SoFp997OWGj62SQWG/TJhRuwmzv3t1AWjfEga
+   l9YcP2uDQ1jJlAth6+Xk2Ylj9xPK+S+3V4Gf9nn1cQzp1calmXITwkkr4
+   iMLgSjdjqzaelRr6wNwRR7Gth7CcGL+GXlUl0/kaJFjxWvtV6BH7kOF/J
+   7VSqRsfiCmsOBsK94ipJpvlidW0pFfmOiFTkMzWE8YETmWB0TZ9in34Vo
+   kOOlOOxyzWrBgZcmuekUuVEEITE0AVl9Ng6B1wIYQwpuNpDQsILSAeS5G
+   p00p2I9ODYKqZcON0fxIHsYYUvPZiAZhmBz2huApa1+3T6iQyXdXiHdUb
+   g==;
+X-CSE-ConnectionGUID: nIc6QewdTzWo3iJcnZtDUw==
+X-CSE-MsgGUID: statladXTZeT7l2cXD8Ccw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11926"; a="102651547"
+X-IronPort-AV: E=Sophos;i="6.27,143,1787036400"; 
+   d="scan'208";a="102651547"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Oct 2026 06:17:14 -0700
+X-CSE-ConnectionGUID: 21EVpoXgQWOCMiDWN2x75A==
+X-CSE-MsgGUID: onoZTT44QviSsyVnFvuHzg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,143,1787036400"; 
+   d="scan'208";a="285252430"
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Oct 2026 06:17:13 -0700
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Tue, 6 Oct 2026 06:17:13 -0700
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49 via Frontend Transport; Tue, 6 Oct 2026 06:17:13 -0700
+Received: from SA9PR02CU001.outbound.protection.outlook.com (40.93.196.9) by
+ edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Tue, 6 Oct 2026 06:17:12 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hE4+gRjBjHBUItjKHkjIHvbFrr8Ordl3Q/JgJXMTCXHaosQkTs4Cgca77DkUFv86ppggKW/vhI4OHl1exjqNL379iW8+m19ymNS3aU8f47XQkaL3WaKipswWQayYZqaQxH9XulM1v0YmoGl60ext0Zg4ii3zqjsANHNtdmkdLyjOAL7CGKcQ7oj19tc016wwsbNMizZxoJb0KVLmDhdvmOp90AjDMH9zaj4216yPwIJG8cKcaDWS7Yx2t2+MgPwhJmjTp+16d86gTEG9x+VpPjFwzNdE4f++406r26CNaXKqYyUz58kDpX6zNUG8qRch8q4si2aPIyUNReFaHgFHXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YVAYWNUWutWwmH5IQDloOCZsOnewrA5SLYuigOa6wZc=;
+ b=o87QiyBnPdGBpcF6ve3+pylQ6ZjtPQmKyXQDFh+4r11E2kJr7gOVOt9UinAKs5MAZupaBkg8GWPLphvpGGN3eiU/TSOr7eQGJitKVzm1QIMV8W8HXRfnY4FxO1x5tjCJnx31T4mukmWRxM0j3uayjDHvGfrfzpxLtAKl9zHMKIYsyNBtp+900NRH6f0UaMF+hPpLd1JDxutH81H3IHVOzaaooI5uSqehkGcxOkfZu8EG/f7EQico82eFTetUgU0GX7o7sWPehv5fa35PZ5nTjhqKiwqr4KmUYSKr/CLO/TDfEWR0ILIgzOhLXQ+scZo1Z69DJ9w++jvHZCqh4gBEZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
+ by PH8PR11MB6999.namprd11.prod.outlook.com (2603:10b6:510:221::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Tue, 6 Oct
+ 2026 13:17:00 +0000
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456%3]) with mapi id 15.21.0472.015; Tue, 6 Oct 2026
+ 13:17:00 +0000
+Message-ID: <66136aa8-adbe-4fdf-9b7c-d44ea0e5cf1e@intel.com>
+Date: Tue, 6 Oct 2026 16:16:52 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] perf tsc: Declare TSC support from the build
+ system
+To: Chen Pei <cp0613@linux.alibaba.com>, <acme@kernel.org>,
+	<peterz@infradead.org>, <mingo@redhat.com>, <namhyung@kernel.org>
+CC: <mark.rutland@arm.com>, <alexander.shishkin@linux.intel.com>,
+	<jolsa@kernel.org>, <irogers@google.com>, <james.clark@linaro.org>,
+	<leo.yan@linux.dev>, <john.g.garry@oracle.com>, <will@kernel.org>,
+	<mike.leach@arm.com>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<guoren@kernel.org>, <linux-perf-users@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260929034133.2153-1-cp0613@linux.alibaba.com>
+ <20260929034133.2153-3-cp0613@linux.alibaba.com>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
+ 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
+ 4, Domiciled in Helsinki
+In-Reply-To: <20260929034133.2153-3-cp0613@linux.alibaba.com>
+X-ClientProxiedBy: DU7P190CA0018.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:10:550::21) To IA1PR11MB7198.namprd11.prod.outlook.com
+ (2603:10b6:208:419::15)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261006100000.548264-1-amadeus@jmu.edu.cn>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|PH8PR11MB6999:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4d7ac612-55d2-4498-e22c-08df23ac1abb
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|11063799006|56012099006|4143699003|10067099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: rSZboxfH1fnLgynfbZZk/lWbGKUhWfY6Y1NrAaS2LisW0QsZvuv2elumPA83z0xF7rqAh4YFI/Vb4+Zsfys9KaOXZHpKxwPXIPIT6jV8K1dBku+KIGp8T2vSuEEZbyjyrH/fxG3TkPVKPAdeZgUhQ8uRwhu0zBa0PQlCBqUvd09dntmpfvC7j0WC1GBGCmN/VGZjzoDlFRrp+O0Q1+ehJCm0TAThuhv3JicDP5y67HAEZJQk3nir3EJmJ4JKPF6qlZ64f/i80MHXG6A42xdUqxTYo16Da7V93jpTEwre6i5BX3PIrTr6Ff6l7GU5aE3wxbE5Hgc5TyGn4KT4vx5jW3RZziWRMs8JoJQ9r/CbtMQq8R3TzqtVyjlzVCHW5YA2+bIt7pNGr0itYF7L4wkMqQgAO6L9i5endR+hxbYms682pIVaiwV0mIscqNIX4x6cC6nVsY7ofmOTF3RxZlEP+s3NCjm+14QGbpRxY0OTFxe4+v6okV97muXrdh5uvQJmpMSgYx7ViYKQo4lZGLEL6s8dCDPbjbuqEWYyGBL4etUmYjVHM/WyaS/a9u4JrWZcVwTf3WEV/SYEHyfq4XsZ16J7NZ3Ih7eMz8bu32T2DpNlU+s3RRt9WjkTO0E1T08s2O6FuBbIHbXahABa8CRavMRRvEkQDekcfEoQfKVPnS0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(11063799006)(56012099006)(4143699003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U1REcWpHVkdBUzQrNWpZMmhGdXZFRWRpOEcxZlNZVElHajVzQzBqdy9PakVH?=
+ =?utf-8?B?RThNREJzdUJTWkJxaFQ2RnBFWWRhZmdEOUpnVXlIV3paYTVhLytrRXRzN3Ja?=
+ =?utf-8?B?MzlkVWgvQ2lvU05ETXl5NEpuUHRjQjF2Qm13ZkdQRERueWJkbC9aVzNlemU2?=
+ =?utf-8?B?VGIyZEwvQzFnS0hrczlURDNzWWg4SERYRTFaNmdlMUY3ZnRoY2NUZ0NGeVV4?=
+ =?utf-8?B?UnBLRUh4SDBaTzkwcGdpbmJYVGcwRi80ZzNSVVlGS0xQWWlhU2VLZVEvVVRw?=
+ =?utf-8?B?QlIyZE1sS1lqQnZWbGVnM3NvMHdKY25mRWx4T0FqN3dHTzczbG9Kd3I4dTVh?=
+ =?utf-8?B?Znd1bmpaNzEvci9NMHlXWlZpMEY0cmxvTlFFbktseU1GWDc4citvckVMRTdY?=
+ =?utf-8?B?WTg1ekNpNjlkUW53VUo1ZUVjVXFlUDdiQXBLNzRLaUJ4UnBPQ0p6a1BzTDVO?=
+ =?utf-8?B?Yyt5eUZiWjhuaUJTdkxPR3RoRGp3aVVkTHA3SXpsa3R3R09SS2ZIaXp5SStP?=
+ =?utf-8?B?VHgrSnNjNTVKVmJKd2xXUWF6UHF1OUkxQU9TclFDemZ2RXluRFRNaWozWmpU?=
+ =?utf-8?B?VHpqR2tCZWFhcmM4RTBTdWpmTFZMRW1zUVNyUmdMWFBuWHpCOVUvMktHOTVK?=
+ =?utf-8?B?RUNPNGtxOHFZYjlQU3dNc2tKVy96cm4zb3BsM2pwbXFkb0JuYVRpaEUxRi9y?=
+ =?utf-8?B?cUxNbFJsK0xRN0lkWmpyNTZrSXBvRVJRakM3Yk93enBUanptOVRwVEpacXZX?=
+ =?utf-8?B?eWNQZ2loOWNjWStKcVM5L0srRnpBWHVnbGJBZnlYbTVzZk1ENzMxcXQrK1V0?=
+ =?utf-8?B?UmtSVTVYWVk5R2xsYkxLb3RqNkxxN1kzQVN5L2Mwb25LellnejR6U21oWm1D?=
+ =?utf-8?B?Z1REREc5VUorWTBuVmF1c0lpZGJpYWljNnVzUUdnUE4zZDlsVnplbGx4K0p1?=
+ =?utf-8?B?Um5oN2s2MTZESTR5b2I2cUFHZHh6MHRYVmtXNy9VaTNmWGQ0OFVsWVpyU1Ux?=
+ =?utf-8?B?M0hQRHJpSEJVWUZ0bGRpbTAybmlzREZmem9tUmNLK2ZLUU4xaEZhWXJvaXg3?=
+ =?utf-8?B?Q3hGM2tXTERkbzROVTBpYnFZWVl2MzlzQUVKRUVXc3A2V1RJbVlhUC8xREpm?=
+ =?utf-8?B?YmkyeDRXbSs2ZStVKyt2MUdrdk9UQ3hJREtUYzZBazhwYkg3V0Y3b3ZvQmZa?=
+ =?utf-8?B?enZLRTlFeFZrc2dLckVOcmJFR0ZnR0pEN2tLcklNUG9Rd2l4UXZEcFM3Sml3?=
+ =?utf-8?B?em56NDBNV1Z6aUI0UVVVb0JQV1k1SGw0V0lOSEJhMGNLK1N6eHJVRE44N0FM?=
+ =?utf-8?B?N0FXbml3L1MxUFlUSGZJaXpjR0Y2WVN0NW9DMG9xOFk1UnBvc3RHbHhTcm1Y?=
+ =?utf-8?B?L29iK1BNN2kxdndtOWkxcmU2aHNkdE1lekpEL1BySFhNWGoxNWVEUUFxelBU?=
+ =?utf-8?B?Vkpxa0RxK21lVHU0bmU4K1kxTDl0d2VwVE04Ti9YRnVPY3FOenJKUXQxbFEy?=
+ =?utf-8?B?dG1McDQrUG1XN1Z5dXBnZmc1THZhMmNzQkd5UGpWWFRJOEI0M0V5KzJUUVd4?=
+ =?utf-8?B?Y1hlTE9VdW9OdXZSVEdUeENXS2poRkdiVFRua2lIRmY2SUNRUEFySWVOczZX?=
+ =?utf-8?B?VmtDbTVDYjFkdUpHbjVXSHUzUzNNcHFSTnJlMnJGN2poNjUwelFvaXJZMGh1?=
+ =?utf-8?B?NEVrZDBwMDFmSlV6YVY4VjFNcXN2dnQxWEtrSUVDOXZ5ektIYWhpWisrNHN1?=
+ =?utf-8?B?ZzZ2ekNlNUlzbzBwalZ3dlQxSUoyL0pDZng2eXd5WnVrRWZTeUtHaEF0T3FS?=
+ =?utf-8?B?VzBIOC94M1BuN3oyT1BDeVdnUWFJeDU4S2VQRTlDNEJ4N1ZnejN5K1EzaUlr?=
+ =?utf-8?B?UEl1QW9qckRtRnBEUlhGODdvMjRqTjZEbHZtSjgvZ0FDNTI4K2hFeFluQ0R2?=
+ =?utf-8?B?SG9KaTZSckFyMUxSZWJiWHo1MitJRDlQc3M5Nlc0UHJPTEJXMHphc2l0Mmt2?=
+ =?utf-8?B?OFA3RE8wdFJzeTRXUTk5RWlZMmZCMHlxNzJjRmJDVjFNazRRakhGWEI5TlF1?=
+ =?utf-8?B?bVQ2bnJRVWdLZW1MaHFheEtSTllZcmFwN0hhQWllbzhXOTFkc1FSQ0ZVOXpN?=
+ =?utf-8?B?VXYvUG5Ocm5XVEs0TythUk9KMGdNdHEzNzVUY3U1VVAvNDVZRWNkTlpnUzF3?=
+ =?utf-8?B?RkNiNnVGVzdXdWxyaU11UURPSHdHWis3a2srQmNNZGV1d1JFZ1cwR2tUcVlP?=
+ =?utf-8?B?M0V6ZUNrRk0rdllvOFJXR2JrS0E3RU5XVGRIb2lnMlAxTXdpV0RNTHpML2Q1?=
+ =?utf-8?B?VThOenVucDlUWkJBMmdhdmp4VGZDVlZnbE5YSTdMdlQvOHVtUlFCYWtteEVj?=
+ =?utf-8?Q?LHgCKpLypiXmSVwA=3D?=
+X-Exchange-RoutingPolicyChecked: kMvvGKHRJLlcJaSQ256mW+/z7mkQHIJ51TOtOKIRlsUQZGjBZDemTE6TmTktIIGjdH1xeWISUN+/jsa0vI8D+u3KMmXQV5Gze7L5GToK1Wnqs7rNbWGspuca96K0eIRIqvCSkgVnt4CneQk+82YgxwMRm5AHA8V25iXcU5etlap/GjLuX7Iyrv14sNUvfy1MEJ1JjYUBHHETcD9dyDnS5mxMhsy9WncsUUu+Xj4WgvZ9AQugLwpjl2vj3CyvKl7hi3PfyYemONoNXlRVPHZsF321he4w5VlRpHS1jLGsKfpb2MnmLrD1wGMQS4MQqnuaauo7lVtfnrYObz7YVuHl+w==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4d7ac612-55d2-4498-e22c-08df23ac1abb
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2026 13:17:00.2304
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: p/W2ivshkBI2k1sfV6vbUikDLbbLwVNICgWriy2FzjbfLRnbysDhvZ7giCfTpDoMOH7oYXheOHT6Eu0VNQ2vLA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR11MB6999
+X-OriginatorOrg: intel.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261006_061717_533268_B7F700C2 
+X-CRM114-Status: GOOD (  20.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,26 +194,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun,
-
-On 18:00 Tue 06 Oct     , Chukun Pan wrote:
-> The EEPROM on the OrangePi R2S and RV2 stores the MAC address.
-> Assign it to Ethernet, with ethernet1 having a MAC offset of 1.
+On 29/09/2026 06:41, Chen Pei wrote:
+> The "TSC support" subtest of the "Convert perf time to TSC" test decides
+> whether the architecture is covered by matching compiler macros for
+> x86_64, i386 and arm64.  That list has to be edited for every new
+> architecture and can drift apart from the set of architectures that really
+> provide a counter.
 > 
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> Declare the capability where the implementation is, following the
+> PERF_HAVE_JITDUMP pattern: an architecture with a usable counter sets
+> PERF_HAVE_RDTSC in its arch Makefile, Makefile.config turns it into
+> -DHAVE_RDTSC, and the test keys off that.
+> 
+> x86 and arm64 keep the same behaviour, riscv starts running the subtest
+> where the previous patch defines rdtsc().
+> 
+> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+
+One minor style comment below.  In any case:
+
+Reviewed-by: Adrian Hunter <adrian.hunter@intel.com>
+
 > ---
 > Changes in v2:
->   Remove Ethernet alias changes.
-> ---
->  arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts | 6 +++++-
->  arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts | 6 +++++-
->  2 files changed, 10 insertions(+), 2 deletions(-)
+> - Declare the capability through the build system instead of a weak
+>   arch__rdtsc_supported() hook.
 > 
+>  tools/perf/Makefile.config          |  4 ++++
+>  tools/perf/arch/arm64/Makefile      |  1 +
+>  tools/perf/arch/riscv/Makefile      |  1 +
+>  tools/perf/arch/x86/Makefile        |  1 +
+>  tools/perf/tests/perf-time-to-tsc.c | 19 ++++---------------
+>  5 files changed, 11 insertions(+), 15 deletions(-)
+> 
+> diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
+> index 4d5993da9f94..f1b3bf208231 100644
+> --- a/tools/perf/Makefile.config
+> +++ b/tools/perf/Makefile.config
+> @@ -618,6 +618,10 @@ ifdef PERF_HAVE_JITDUMP
+>    endif
+>  endif
+>  
+> +ifeq ($(PERF_HAVE_RDTSC),1)
+> +  CFLAGS += -DHAVE_RDTSC
+> +endif
+> +
+>  ifeq ($(SRCARCH),powerpc)
+>    ifndef NO_LIBDW
+>      CFLAGS += -DHAVE_SKIP_CALLCHAIN_IDX
+> diff --git a/tools/perf/arch/arm64/Makefile b/tools/perf/arch/arm64/Makefile
+> index 44cc3f023318..b9cd559065d6 100644
+> --- a/tools/perf/arch/arm64/Makefile
+> +++ b/tools/perf/arch/arm64/Makefile
+> @@ -1,2 +1,3 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  PERF_HAVE_JITDUMP := 1
+> +PERF_HAVE_RDTSC := 1
+> diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
+> index 44cc3f023318..8036bf55da8e 100644
+> --- a/tools/perf/arch/riscv/Makefile
+> +++ b/tools/perf/arch/riscv/Makefile
+> @@ -1,2 +1,3 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  PERF_HAVE_JITDUMP := 1
+> +PERF_HAVE_RDTSC := $(IS_64_BIT)
+> diff --git a/tools/perf/arch/x86/Makefile b/tools/perf/arch/x86/Makefile
+> index 44cc3f023318..b9cd559065d6 100644
+> --- a/tools/perf/arch/x86/Makefile
+> +++ b/tools/perf/arch/x86/Makefile
+> @@ -1,2 +1,3 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  PERF_HAVE_JITDUMP := 1
+> +PERF_HAVE_RDTSC := 1
+> diff --git a/tools/perf/tests/perf-time-to-tsc.c b/tools/perf/tests/perf-time-to-tsc.c
+> index f8f71fdd32b1..feb8063f8b59 100644
+> --- a/tools/perf/tests/perf-time-to-tsc.c
+> +++ b/tools/perf/tests/perf-time-to-tsc.c
+> @@ -22,16 +22,6 @@
+>  #include "tests.h"
+>  #include "util/sample.h"
+>  
+> -/*
+> - * Except x86_64/i386 and Arm64, other archs don't support TSC in perf.  Just
+> - * enable the test for x86_64/i386 and Arm64 archs.
+> - */
+> -#if defined(__x86_64__) || defined(__i386__) || defined(__aarch64__)
+> -#define TSC_IS_SUPPORTED 1
+> -#else
+> -#define TSC_IS_SUPPORTED 0
+> -#endif
+> -
+>  #define CHECK__(x) {				\
+>  	while ((x) < 0) {			\
+>  		pr_debug(#x " failed!\n");	\
+> @@ -49,11 +39,10 @@
+>  static int test__tsc_is_supported(struct test_suite *test __maybe_unused,
+>  				  int subtest __maybe_unused)
+>  {
+> -	if (!TSC_IS_SUPPORTED) {
+> -		pr_debug("Test not supported on this architecture\n");
+> -		return TEST_SKIP;
+> -	}
+> -
+> +#ifndef HAVE_RDTSC
+> +	pr_debug("Test not supported on this architecture\n");
+> +	return TEST_SKIP;
+> +#endif
 
-Reviewed-by: Yixun Lan <dlan@kernel.org>
+Perhaps with #include <tools/config.h> the following is tidier:
 
--- 
-Yixun Lan (dlan)
+	if (!IS_BUILTIN(HAVE_RDTSC)) {
+		pr_debug("Test not supported on this architecture\n");
+		return TEST_SKIP;
+	}
+
+>  	return TEST_OK;
+>  }
+>  
+
 
 _______________________________________________
 linux-riscv mailing list
