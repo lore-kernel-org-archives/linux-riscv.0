@@ -4,72 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A07DFCA5FFC
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 17:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D71CA5FED
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 21:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nSB7qWqrolvG234OrF+Xeysh5Vjl+YDAPpBDVX7afNQ=; b=CBG3cDpQc/cy91
-	GXGCKXn2nGCD27f8Z8JIwA/vELIR/Yv7/4nSvgvnKwYmUWoipUiYu79nKPIaQOkL4EbhVYPReSx5T
-	2ZHmSQ9wqXzH8R3oViLBxwEBpqXOxtafzHiPzTY/lhrENCbzt9DyoiPe5sO/+BxhA/tSrU8ZixTRT
-	GrBI4oUNi53lWl7GEelLZU0J1IttvhEP5Izx70XQF5GwMvKLh9eCbm7FGuwi4tfYWXC9HtGr5vFf+
-	eG/WYWrQ/8gVSgqU4mN6LQtG1izOt9DyyaAGkYB5xhKXw/0ozvXewumRYqGs2QooeF5rMjOptzZkJ
-	0G1PFSkBgG3TEwgi5LVg==;
+	List-Owner; bh=CMQcExT8sWWflaQHc4FJ52LV9IIJyNgfQ6DPmq92cnw=; b=XsX1BG3EzGpnM+
+	cVRL82BweXnlOVmL+qrMn4BBdNQOS7D8a4dwZuD6fCayCf9c7OXcYQiC12n9krw2ukgFjE1G5d/AV
+	rWKJqjkEXtKn31s+te2wsPx5UIbjcN5VllEhlKc9NOVL7fEQ11iliHfiI3jGIIJhAnkFJDeh9sLuE
+	tyDWogqIMjvNVg5gKooM7Mz34KmZrxS0YRKPBLpm4W1dovPW+ze78caAL5BC5VB4e+HNA+Nad26kW
+	zI6id0VEB9S3xIlJdv3Lk0r3KCV4OaeZMcCeWeZ49B39JyJ+7CJni/hY4o+JmlMesX+ZSriRMa6Gi
+	5jsbjswkwUD/vYmixrKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE8fi-00000001BtE-13co;
-	Tue, 06 Oct 2026 17:09:46 +0000
-Received: from out-199.mta1.migadu.com ([2001:41d0:203:375::c7] helo=mta1.migadu.com)
+	id 1xECwL-00000001Q0d-3w3h;
+	Tue, 06 Oct 2026 21:43:14 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE8fc-00000001Brk-1wmZ
-	for linux-riscv@lists.infradead.org;
-	Tue, 06 Oct 2026 17:09:42 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=ip3lsF1/RW6hopKSPjIofrNyzgxwJm4Yts77+HupLAQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791306578; v=1; x=1791911378;
- b=WSwn+b/ve3DQFsJeY6fX95XEV2BPixpBsT0uwVCPwkfTkm2TBcZLyDrj4KjdGnxKCSuk2tR8
- B+W9kHY20jUF9+iTBffqpJpzbNTXVUag1vT/hY3lbPMbkHYk8DbRLqhJgV8R6UnezcQwXggAdo8
- 1CuETHch+HUj4uJyj3WxlcXQ=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id ff89a30a3c80fbc7;
-	Tue, 06 Oct 2026 17:09:38 +0000
-X-Mizu-Trace-ID: ff89a30a3c80fbc7
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <501b9da8-bc0c-4c02-866d-f50b20b60289@linux.dev>
-Date: Tue, 6 Oct 2026 10:09:32 -0700
+	id 1xECwE-00000001PzN-465c;
+	Tue, 06 Oct 2026 21:43:11 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261006214259euoutp01c5bc7ee57334b408af09a066c2d8412b~cDsI8Wk8f1988319883euoutp01S;
+	Tue,  6 Oct 2026 21:42:59 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261006214259euoutp01c5bc7ee57334b408af09a066c2d8412b~cDsI8Wk8f1988319883euoutp01S
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1791322979;
+	bh=ZioSMG43MEHFd9pfn3EIJe0Ig/c7Qq/kf97OHfOELpI=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=X7izBr5m8cmXF7INH1PfY//K2/ri63BnSaoZWWQn+J7F7DSyWLAOh8zyLCqoA49T1
+	 fLrFXwNe1fB08G783PVdG9eZQswPfnng02g4QBXO6NsFZq0Etq3vQI7hHj5Ixmn3ua
+	 C9iDLQSmItu72iRpHKjS66EAZ/bv/+aIrijM19SA=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20261006214258eucas1p21c51f2c73891f0ad8a848a058ab4e7b2~cDsH4gZff0914409144eucas1p2i;
+	Tue,  6 Oct 2026 21:42:58 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261006214255eusmtip2826fd9cdfb4c80046b451ff2238aee5d~cDsFarzwa1576315763eusmtip2a;
+	Tue,  6 Oct 2026 21:42:55 +0000 (GMT)
+Message-ID: <ff4f59ea-6c51-41d6-a92d-d1dd205b1e78@samsung.com>
+Date: Tue, 6 Oct 2026 23:42:54 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next 3/5] selftests/bpf: Use /tmp for temporary file
- in d_path
-From: Ihor Solodrai <ihor.solodrai@linux.dev>
-To: Pu Lehui <pulehui@huaweicloud.com>,
- Alexei Starovoitov <alexei.starovoitov@gmail.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>, Puranjay Mohan
- <puranjay@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Pu Lehui <pulehui@huawei.com>
-References: <20260929083924.1851840-1-pulehui@huaweicloud.com>
- <20260929083924.1851840-4-pulehui@huaweicloud.com>
- <DLRXY2AQRPYP.1YQ75SL3XHQHN@gmail.com>
- <52daee54-9127-445c-b924-64623ca2e125@huaweicloud.com>
- <b5f31057-e2e3-4c73-8edb-c8e70960a319@linux.dev>
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v6 0/8] dma: swiotlb: Centralize default pool policy and
+ sizing
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Robin Murphy <robin.murphy@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+	<rdunlap@infradead.org>, Will Deacon <will@kernel.org>, Mark Rutland
+	<mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Steven Price
+	<steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>, Catalin
+	Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>, Jason
+	Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Petr Tesarik
+	<ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>, Dan Williams
+	<dan.j.williams@intel.com>, Xu Yilun <yilun.xu@linux.intel.com>, Madhavan
+	Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)"
+	<chleroy@kernel.org>, "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>, Alexander Gordeev
+	<agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
+	<svens@linux.ibm.com>, Stefano Stabellini <sstabellini@kernel.org>, Russell
+	King <linux@armlinux.org.uk>, Huacai Chen <chenhuacai@kernel.org>, WANG
+	Xuerui <kernel@xen0n.name>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>, Andy Lutomirski <luto@kernel.org>, Peter
+	Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo
+	Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, x86@kernel.org
 Content-Language: en-US
-In-Reply-To: <b5f31057-e2e3-4c73-8edb-c8e70960a319@linux.dev>
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20260924060756.1325156-1-aneesh.kumar@kernel.org>
+X-CMS-MailID: 20261006214258eucas1p21c51f2c73891f0ad8a848a058ab4e7b2
+X-Msg-Generator: CA
+X-RootMTR: 20260924060823eucas1p1d27fbf57221c9b4c0e9831a9b0cdd7d3
+X-EPHeader: CA
+X-CMS-RootMailID: 20260924060823eucas1p1d27fbf57221c9b4c0e9831a9b0cdd7d3
+References: <CGME20260924060823eucas1p1d27fbf57221c9b4c0e9831a9b0cdd7d3@eucas1p1.samsung.com>
+	<20260924060756.1325156-1-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_100941_224277_99F4A805 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20261006_144308_429047_F7DAEEB6 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,47 +110,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/5/26 3:54 PM, Ihor Solodrai wrote:
-> On 9/29/26 11:24 PM, Pu Lehui wrote:
->>
->> On 2026/9/30 0:29, Alexei Starovoitov wrote:
->>> On Tue, Sep 29, 2026 at 08:39 AM Pu Lehui <pulehui@huaweicloud.com> wrote:
->>>> The failure occurs because the rootfs created by libbpf/ci [0] does not
->>>> mount /dev/shm, causing temporary file creation under /dev/shm to fail.
->>>>
->>>> Let's switch to using /tmp instead to fix this issue.
->>>
->>> This will break BPF CI.
->>> The test was using /tmp up to v4 and was moved to /dev/shm in v5,
->>> since /tmp is on 9p in BPF CI and 9p doesn't support fallocate. See
->>> https://lore.kernel.org/all/20251206141210.3148-1-electronlsr@gmail.com/
->>> vmtest's init mounts tmpfs at /dev/shm, /run and /mnt, but not at /tmp.
->>> So fallocate() will return EOPNOTSUPP and d_path/check_mem_access
->>> will fail on x86, arm64 and s390.
->>>
->>> Mount tmpfs at /dev/shm in mkrootfs_tweak.sh like you did for /tmp in [1]
->>> and drop this patch.
->>>
->>> pw-bot: cr
->>
->> Hi Alexei and Ihor,
->>
->> I have been make a pr for mount tmpfs at /dev/shm, pls take a look.
->>
->> https://github.com/libbpf/ci/pull/239
-> 
-> 
-> Merged, thanks.
+On 24.09.2026 08:07, Aneesh Kumar K.V (Arm) wrote:
+> This series centralizes swiotlb default-pool selection and sizing, and
+> simplifies the initialization flags used to describe pool placement.
+>
+> The first patch replaces the addressing-limit argument with initialization
+> flags and introduces explicit policies for the different reasons a default
+> pool may be needed. Architectures now report DMA addressing constraints with
+> SWIOTLB_INIT_ADDRESSING_LIMIT, while the core selects the corresponding pool
+> policy.
+>
+> The second patch moves the reduced sizing used when the pool is needed only
+> for unaligned kmalloc bouncing from arm64 and RISC-V into the swiotlb core.
+>
+> The third patch centralizes swiotlb sizing for memory-encrypted systems. It
+> moves the existing x86 guest-sizing policy into the core. Host memory
+> encryption retains the normal pool size, and a shared default pool is not
+> selected solely for guest memory encryption when a restricted DMA pool is
+> present.
+>
+> The fourth patch removes SWIOTLB_ANY. Pool placement is derived directly from
+> SWIOTLB_INIT_ADDRESSING_LIMIT: pools required for limited DMA addressing are
+> allocated below the architecture's low address limit, while other pools may
+> be allocated anywhere in directly mapped memory. Xen continues to request a
+> pool explicitly with SWIOTLB_INIT_REMAP without imposing a low-address
+> constraint.
 
-Pu Lehui,
 
-I just realized that this change may not be enough.
+I will give this patchset a chance in linux-next. If one feels that it still needs
+to be improved or sees any other reason why it shouldn't be merged, let me know
+asap.
 
-If you want to make sure the selftests will run properly in BPF CI,
-please try the vmtest tool (a qemu wrapper):
-https://github.com/danobi/vmtest
 
-You should be able to run riscv64 in emulation through it.
+Applied to dma-mapping-for-next.
+
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
 _______________________________________________
