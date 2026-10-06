@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E83CA5FF0
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 09:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BE60CA5FED
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2026 09:47:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vUudgOeXkoNPJqzpmaV8ApBo3ucW3M+m/0QpbQIvtI4=; b=C/uwOq+llPQ7go
-	oMpwXV58/CY+xzJv3cX9IPb2XbTKhc5/L1bW3L3J8qrJLWTCcHuirhBc6VxCH0zhQf94dB7rUo5A3
-	+02XfcYnFjRI8NRw6wnbla9VlBp1iftMNocj+C59hYAo04eANZUJ0ImmtidPX6bqiC3oaO0A0+H2b
-	lAU0Q83k5iBmZtzl+YcD6BYLZF2rYJGE7XpGPpKsNuONhb0gaLkhTCsxfl9PG8ME2SZ0pK0KLHljY
-	Ha8g/AiQOTLAAUoiZQq1x8YWHo31BSH1iLOqzeXdxq2cA62LcdEpKzpScM/Jsrwo1vJZ1B2aYCeZU
-	hANAFbs7nS53G13El1vw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=caOFuplTjXOS6EJHkSDme3sq2b8WghJjnZmjlzilXjA=; b=AqwU/ycMFRiEh2J0Sj+GKX8kFV
+	GP1j9OA3LZ6Dxm9cYywH4PDO7WQ3HjQYB5ZnwzQhC/IbOsnCBI6Mzq7a7q2IXuQDVquAy0Pt03Fg5
+	CZYW2ugBmz3sTne+Din0h2IRxHjRFMcgNLFt1CQxePp7mJDhEoRSAdY06Wj0utNusB82NV3eabWQ4
+	PxVhicAJBD1CYpv3BVWbfGvBcVV12D/whYH3BpMayTi/2JCL2lmE4KACOeEDCE2aJOwJpA280ayAy
+	aC93E+DxaF3LIHJufHNdt9Ke9W6RR/6Ed40gcC4rSJRtLw5tgGFt31AtGkl7MITcBOrMFQCVn9RlP
+	FYD1qrNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE1eg-00000000P3J-15or;
-	Tue, 06 Oct 2026 09:40:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xE1lL-00000000Q9t-3uH2;
+	Tue, 06 Oct 2026 09:47:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE1ee-00000000P38-3rjd
+	id 1xE1lK-00000000Q9j-3zpp
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Oct 2026 09:40:12 +0000
+	Tue, 06 Oct 2026 09:47:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 14B4560234;
-	Tue,  6 Oct 2026 09:40:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDDEE1F00893;
-	Tue,  6 Oct 2026 09:40:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6452343F96;
+	Tue,  6 Oct 2026 09:47:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 620EA1F000FF;
+	Tue,  6 Oct 2026 09:47:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791279611;
-	bh=bK7XBn5Ar4KTmrahMaJF7/5gSzcjPa7jKXochafzgvI=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=gy8xsc+Xbqko9lQlpPjponq4rMuHzWxT5aupBsoLG+veMtRMM7wLgrfWmFi4JryB2
-	 /yTCVy7jvuG1/eEWCFbKhDhsv09xIS3jAJqNhZCHQ84/kl6mzBFvcfdcApOh7xsqfI
-	 arh8eJ5q1mGS7jD4pdFScZMR1OB8xeoea9POg2J/rG0XntyECXcxjhMp9+71U1eZMQ
-	 B9yWnpbIG1lMyg8HNSPqP0FTdR1hv3AjpgVsC3nP3SBtIcFTwTl5KYeozJhiJ5sreJ
-	 tV90eD2hrvO+oivd5oO+Z/zk0FofkR2yw2tTnPKECfNexMZRBgglHiFo8n2cvYDKQ9
-	 +tV0mIDrui6GQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B43123927078;
-	Tue,  6 Oct 2026 09:40:11 +0000 (UTC)
+	s=k20260515; t=1791280026;
+	bh=0zAqroHmp3QqjC49Dk9GufE8ynDmNgEV29xm7mZvD1g=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=Lx31mzJ1L295+8YX902P+EoHasPWV38wUjMFpniEL+RVoKFNcH5BEkhSoRndMtb1D
+	 YoWji/5v+GF9uR6JEu3eGwDi9zVyt1gwoMTyc8md/ONsTEF0JTEom/uhQBJWwP3hUA
+	 vn0q8egogPSVO70eXbyugHujTkQD46PKrpBKMkbc4Y5Fi+AV4NyhOO2mhzTpc3z+Ko
+	 QKtfyyLrly8u05iGuAB7f6Z8LzjR5l+p3spnfWyr63MD5sSHM2K9ECuLn95oNytbMd
+	 C35ZLThulM5dinKgMVOK/VKpHrcaGeFPshHcM7E0+DoJvhUMc7Xlyjuox2QWS0UVvc
+	 p8HnxLtcehHKQ==
+Date: Tue, 6 Oct 2026 03:47:01 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: =?ISO-8859-2?Q?Radim_Kr=E8m=E1=F8?= <rkrcmar@ventanamicro.com>
+cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+    Paul Walmsley <paul.walmsley@sifive.com>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+    Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atishp@rivosinc.com>, 
+    Andrew Jones <ajones@ventanamicro.com>, 
+    =?ISO-8859-15?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, 
+    Anup Patel <apatel@ventanamicro.com>, 
+    =?ISO-8859-15?Q?Thomas_Wei=DFschuh?= <thomas.weissschuh@linutronix.de>, 
+    David Laight <david.laight.linux@gmail.com>
+Subject: Re: [PATCH v2 1/2] RISC-V: sbi: turn sbi_ecall into variadic macro
+In-Reply-To: <20250619190315.2603194-2-rkrcmar@ventanamicro.com>
+Message-ID: <d481749b-2c83-a7f8-9c25-dd6e78a77c9a@kernel.org>
+References: <20250619190315.2603194-1-rkrcmar@ventanamicro.com> <20250619190315.2603194-2-rkrcmar@ventanamicro.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v1 0/2] riscv: runtime enablement for native misaligned
- ucopy
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179127961027.2107992.5336345145060413081.git-patchwork-notify@kernel.org>
-Date: Tue, 06 Oct 2026 09:40:10 +0000
-References: <20260911182402.1434257-1-tchiu@tenstorrent.com>
-In-Reply-To: <20260911182402.1434257-1-tchiu@tenstorrent.com>
-To: Andy Chiu <tchiu@tenstorrent.com>
-Cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, andybnac@gmail.com,
- dfustini@oss.tenstorrent.com, greentime.hu@sifive.com,
- linux-kernel@vger.kernel.org, olof@lixom.net
+Content-Type: multipart/mixed; boundary="8323329-1922366945-1791280026=:2885293"
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,43 +71,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-This series was applied to riscv/linux.git (for-next)
-by Paul Walmsley <pjw@kernel.org>:
+--8323329-1922366945-1791280026=:2885293
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8BIT
 
-On Fri, 11 Sep 2026 13:23:58 -0500 you wrote:
-> This series is the continued series for commit b94cec5761d2 ("riscv:
-> skip software algning code for HAVE_EFFICIENT_UNALIGNED_ACCESS") that
-> makes the optimization available to distro kernels compiled without
-> NONPORTABLE config. Now, the kernel can skip the software aligning code
-> in ucopy after fast unaligned access is detected at runtime.
+On Thu, 19 Jun 2025, Radim Krčmář wrote:
+
+> The SBI ecall interface has 0~6 arguments in a0~a5, and undefined
+> arguments are not reserved, so we don't have to zero the registers.
 > 
-> Andy Chiu (2):
->   riscv: introduce assembly version of jump table
->   riscv: optmize ucopy for has_fast_unaligned_accesses
+> The current sbi_ecall forces programmers to pad the argument count,
+> which makes it hard to distinguish what is a value 0, and what is the
+> padding, because 0 was traditionally used for padding as well.
 > 
-> [...]
+> Turn sbi_ecall into a variadic macro that accepts 2~8 arguments, and
+> where only the specified arguments get passed to the ecall instruction.
+> 
+> The register a1 is zeroed if unused, to prevent unnecessary leaks of
+> kernel register state from the tracepoints.
+> 
+> Signed-off-by: Radim Krčmář <rkrcmar@ventanamicro.com>
 
-Here is the summary with links:
-  - [v1,1/2] riscv: introduce assembly version of jump table
-    https://git.kernel.org/riscv/c/57ae2ff9fcec
-  - [v1,2/2] riscv: optmize ucopy for has_fast_unaligned_accesses
-    https://git.kernel.org/riscv/c/e76892c7ad3e
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Thanks, queued for v7.4.
 
 
+- Paul
+--8323329-1922366945-1791280026=:2885293
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--8323329-1922366945-1791280026=:2885293--
+
