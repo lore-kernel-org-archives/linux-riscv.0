@@ -4,198 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA559CC6B19
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 17:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F225CC6B19
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 17:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:CC:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=xpVSLKJ17PNSZJd3r6h9lEe8QrNFz+qpqxA56J5rQXs=; b=FB7PmMBIOl28+Ao+wNhU/isL50
-	cM17rSXR7WmLS25NPxRL2Rx+E46+DGbTaiWUlB/Rg2zKqG2Nw6yf+2E/SOJJvnip4trHBzBLkWZzj
-	T8DopWnRDMc+C6M3uVVsT22f5QWj7oSR22R+GETuZkM8NdvSSjUzom2oxJW94ygTiA3KEYVh/AaL+
-	1LCOfEyLxCwsoIJkG6Toy9dpcQUfacRIQmjlAXDCvIUEPVFQDj1iAqthihl3HX64w4YKZsDVu+Xd8
-	WRzoUowJCBxkmNQVHvEWCA5XH2UrpRY5PLnEv7aAP61M1PPM2j94WGyhNsmSEWOlDj0kIYAqgnBgz
-	/HZgdVCw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SZ6agoxDMg6VodrNhCGW/dfCxjNWVm+9lai2JDXHGRk=; b=qqvulUMKsXaFZ3
+	jFbPeiOPncgua0kv8dYx0nOm6NSOVyVecQg4MzzRLaYEjr5W+6I9OVGhNygKRH/Crmb7ODMyXwy9y
+	Ff83hLPJFEApt9BSeBIdCxWd4fLK4Inn8czPh6h2nF+mu0W5Ml2dE92p3ZEfXdw7BFGvfz8dHZzgF
+	8Ny5thjkT9hTeJbHjsuMzLX/Ru0wV502Bi+Sk5ae1+51FgPDihmv7ag+r7+xEWE0ic6D05r1Ayfva
+	EwJ9xKiYxnaPCTGmBdlKh4qMgP2ZyJ2kBZQL2ctv4tRzWr8SktBBHVX5NAxUrOkSlQjywl0mlnYBi
+	MTuB5VPPegAVUFZr1EJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgW4-0000000DjIB-3bO3;
-	Tue, 13 Oct 2026 17:42:21 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1xGgeD-0000000Dl1q-1Kbc;
+	Tue, 13 Oct 2026 17:50:45 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgW1-0000000DjGY-031q
+	id 1xGgeB-0000000Dl0z-1Gcu
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Oct 2026 17:42:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1791913337; x=1823449337;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=6UqG7Og3ynfd3qLnMPF6H+PDyt4I0qSGAvLYacS2gSI=;
-  b=QXlNUbTjo183ohirXjXRIh9j0GFX/T9f8QsCb2lip8Z3BlDAkCYk6maD
-   VQAuoiwayCAOkdZb+MhxuJxh1vMpDKQIVoz53GzIJVF+IUiQnEaR2jLIw
-   P61eIVQ+d4lc9ZZ6PPLe5GfB7Qss/qpAwSx6aBaSjz2UjxjcuaOhkAvla
-   eFC642hLLp9m0AwhygF++QYNcwjg5tXJxrxtyEwGDAW66OU4ntPgRUKMo
-   hswITPP2TpNrOdkdzGn0Wsu9Nmz8RJ3fq8fJTtOcRnYC8xRa0V6wHhhSq
-   4wOkIrVSENr3nD+6S+dSit3khJD2pCOaJpmcnjrTugGCptFRrCtkzdDZG
-   g==;
-X-CSE-ConnectionGUID: IVweCmkERLOz2IyJ8o8h4w==
-X-CSE-MsgGUID: D+5uAeroTK60iBBGfaHcOQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11934"; a="535477"
-X-IronPort-AV: E=Sophos;i="6.27,156,1787036400"; 
-   d="scan'208";a="535477"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 10:42:16 -0700
-X-CSE-ConnectionGUID: +QcjdxcWTCKPcMoXfdszHg==
-X-CSE-MsgGUID: Ki7O3DNpShqo6Az6Lf81kQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,156,1787036400"; 
-   d="scan'208";a="1139799"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 10:42:15 -0700
-Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Tue, 13 Oct 2026 10:42:14 -0700
-Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
- FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49 via Frontend Transport; Tue, 13 Oct 2026 10:42:14 -0700
-Received: from BYAPR05CU005.outbound.protection.outlook.com (52.101.85.68) by
- edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Tue, 13 Oct 2026 10:42:14 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Oh7k57C6YeU9nOi9Cif0P6L1ZxJ+j+7rVFboARS9BpNxmejXtABKv4ibQP3j88D4eA0v7ye+Bzuxo+mA3djhX+Ah4PTayYVDpx9UigO1a2T3DhDGbGGeuUI1+LiDINLMt4kIa6LXxVQ2anbU3bXXxQL+an7zpbxfwb/2lIV4hADq4XQKe94OUA9Op78XILPuXFDAj/40qL/gCnh+aIE1CEcjMf9k0qbS3cczmi+8M7IK1XxOQQ6DEITSOR5crqM9t/f7PeRZQhjB8XvWNeN8rJQGuf3/0t6anKIJq1IpB6ogI2XbevnZfKLjv27Fg9qBEeVtsC+24m4PqjliEh0nEA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A7lbYvjwhL94Adh60zb1cFrdvktSC10ehs+rdF8L7tc=;
- b=NWkmJWqIL/cc2jNqM27ZrwdYGLs3/knmWmcc2hCG8XJMRQHUz/vrE6lsTVKGxDAHPjevuuHr0QgQ88oXSRvqHZo6/4UCdbiAV1OhveaZlyDvDfh2LSM5vpvcNjMXoaEVF1WRCIWs11qRcfSKgtWzCbQl4mmsOUhoZbfO6QgheY7R6K1wJlyqsc+IdS32Qhw0xqLSYSPzCng7GJvYsji8amLjNNo1B7HHig9txU92NT/rKPrXYaaI/LnB6raCv29gHN4mLoAHduvmVjC9thXSUveaRr3ttPVba9dD7OFgv0qSU/Q2fbum1kt1gsLdGPB/CLCEhvjoEcvw41Q/Any49g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
- by IA1PR11MB6291.namprd11.prod.outlook.com (2603:10b6:208:3e5::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.16; Tue, 13 Oct
- 2026 17:42:10 +0000
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc%6]) with mapi id 15.21.0496.021; Tue, 13 Oct 2026
- 17:42:10 +0000
-Message-ID: <a85a5aef-5468-47ba-afba-8bdd666dadd4@intel.com>
-Date: Tue, 13 Oct 2026 10:42:05 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/5] riscv_cbqri: resctrl: Add cache allocation via
- capacity block mask
-To: "Luck, Tony" <tony.luck@intel.com>
-CC: Drew Fustini <fustini@kernel.org>, Adrien Ricciardi
-	<aricciardi@baylibre.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Kumar Patra
-	<atishp@rivosinc.com>, Atish Patra <atish.patra@linux.dev>, Babu Moger
-	<babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>, Borislav Petkov
-	<bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>, Conor Dooley
-	<conor.dooley@microchip.com>, Conor Dooley <conor+dt@kernel.org>, Dave Hansen
-	<dave.hansen@linux.intel.com>, Dave Martin <Dave.Martin@arm.com>, Fenghua Yu
-	<fenghuay@nvidia.com>, Gong Shuai <gong.shuai@sanechips.com.cn>, Gong Shuai
-	<gsh517@gmail.com>, "guo.wenjia23@zte.com.cn" <guo.wenjia23@zte.com.cn>,
-	James Morse <james.morse@arm.com>, =?UTF-8?Q?Kornel_Dul=C4=99ba?=
-	<mindal@semihalf.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	"liu.qingtao2@zte.com.cn" <liu.qingtao2@zte.com.cn>, Liu Zhiwei
-	<zhiwei_liu@linux.alibaba.com>, Palmer Dabbelt <palmer@dabbelt.com>, "Paul
- Walmsley" <pjw@kernel.org>, Peter Newman <peternewman@google.com>,
-	=?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Rob Herring
-	<robh@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, "Sebastian
- Andrzej Siewior" <bigeasy@linutronix.de>, Vasudevan Srinivasan
-	<vasu@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li
-	<liwei1518@gmail.com>, yunhui cui <cuiyunhui@bytedance.com>, Zhanpeng Zhang
-	<zhangzhanpeng.jasper@bytedance.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-rt-devel@lists.linux.dev" <linux-rt-devel@lists.linux.dev>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
-References: <20260901-dfustini-atl-sc-cbqri-dt-v7-0-ca2935d85622@kernel.org>
- <20260901-dfustini-atl-sc-cbqri-dt-v7-2-ca2935d85622@kernel.org>
- <8230dae2-2cb0-4b46-8cec-dc4e281d4e4a@intel.com>
- <aqwN1szItGPg4Qjh@agluck-desk3> <as0Zeoyjiy5CW1DT@agluck-desk3>
- <eaeb4259-46d6-4656-8354-669ad32654b5@intel.com>
- <SJ1PR11MB6083F4281EDD036A4E73A532FC9E2@SJ1PR11MB6083.namprd11.prod.outlook.com>
-From: Reinette Chatre <reinette.chatre@intel.com>
-Content-Language: en-US
-In-Reply-To: <SJ1PR11MB6083F4281EDD036A4E73A532FC9E2@SJ1PR11MB6083.namprd11.prod.outlook.com>
-X-ClientProxiedBy: MW4P221CA0030.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:303:8b::35) To SJ2PR11MB8370.namprd11.prod.outlook.com
- (2603:10b6:a03:540::20)
+	Tue, 13 Oct 2026 17:50:44 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id BC0BA4E4120F
+	for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 17:50:41 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8FFA860362
+	for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 17:50:41 +0000 (UTC)
+Received: by mail.galae.net (Postcow, from userid 0)
+	id 17D6611D71892; Tue, 13 Oct 2026 19:49:22 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1791913837; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=8CoEQNCztNraFrNGn7F5Ha8TA2+gyHKw7FKAVKh/D9g=;
+	b=0gUHv9yfemApHra3J+hhjzzZ0u4HHS1MtWdJbHlCRcZ1KQtpT58BtTfRAH5SQYqQ37F5iP
+	krDdc8VmH8AbcTzWY02Vkt0dPuKSc1ZS0MBeHxcgvWe0xeXkNQLsqahGdzhUTqvGgo63mm
+	dwIcJ+OSk5pNSsfoMy9qJ9y7/vh72zHifjxNYogzZfghnOp0fjr/qxs56JkZXmfLXyLDid
+	YB9ESs+W6GJeL4Mx0ihRjht3w7ZHl+1s9KX0UOyZFNobEOAR5+vmZdgzaIkp0jOKm0Swz4
+	84B3bVrHTMTt5UCix1vbLmyQhxlBXxbf3UI8oO3lVsjCOZTNSHLHJl9t4Wdfvg==
+Authentication-Results: mail.galae.net;
+	none
+Message-ID: <72e19e46-3a14-4a07-9b50-01e5480bf1a3@bootlin.com>
+Date: Tue, 6 Oct 2026 17:28:05 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|IA1PR11MB6291:EE_
-X-MS-Office365-Filtering-Correlation-Id: f7ebee79-338b-4f40-71d9-08df29514e5e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|10067099003|56012099006|6133799003|3023799007|11063799006|261009223027099003|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: fctgLK7Mh7gudBbyg+sJ2Jkyj9NEDWh3+3eFnv5OAwpgrIHRxtFUVt9lgXR/OPU9o701X7VwPfTcF/6gSgtPd9cURk4P33KKvSFdCrPlsgti9wUN0UFZmYs/O9lXg8iHUMWaTkdcOF2vXwmdLjTgxfBsvueg1A0pqxFIonNuWAsmil3Ly4f6afnNi6ll61P9v95MMUaK0imBUV5su4xMe4wMtORjHGJDRlBExSPnCjF8tF0dJbhddb47SHqWsuTgMhYSTU1Nr7eClhbGLI+YZkVubD0/CSv7jmZhfQC7Oalnan0yOY8/+Ad8tNvxiZ00X9MBH3oTOdKHlR3a7yFz2J6FP5CPulPiJTBa407gJMXD8Bl8X6MaO1uiHdu9026cDNHI5v3X8Sm9eYDjgjgRhrnzMGyeFUbineJT68oqcRYPtO2Ng92q2OQknFdlPAkAaGFQ8/qYOlMI5pVea45D5VzN1TIzkte5Je1bi/CWn25ES8ffW612H7Xm8TzigOW66J+hZxnQDRyINUTIkSgaxIBAR2vOijcDkXsoLNW14i0K4Vc252x/pzNCbeFvqkz4bpQ43FUeF53CcFD7EUciitJCrB2rgW/GwJYJzP23su7ZsRI1utVJUj/wdJ5z2dn3
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(10067099003)(56012099006)(6133799003)(3023799007)(11063799006)(261009223027099003)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YjFuelBIU1N1L3Ryajc5NFpZT1FkM1lDT0ZkR2FEOTBCc0ZRTTlUc2J4dDZO?=
- =?utf-8?B?SkorZW5mOVNIL0w2SXpBWUR4WmlkWTJDZFdadlZiNncya2dibU1iRHFLbXNO?=
- =?utf-8?B?Z2UvUCtMbXhvZ1dTaytGZjhlVVZvRFZ4NGUxeHV0Vmk3QW8rVDF1UU1Xa1du?=
- =?utf-8?B?YU9JWHN1bnZqZnFEOHpVbVFWSEVMQVZjSjQ2UFRHc0VzVURIN2lCZUl6bytn?=
- =?utf-8?B?UXB4ZVBpSWVIb0k2QWlReG00SWhOTkgreWFtRG9WZjBIenJ1LzZRN2tQUjlU?=
- =?utf-8?B?akJoV2RXaW5vckpDSzZxSVpBZEsvVjZQdlhOQ29GTkFvTEZoTnlQaVFyVVUw?=
- =?utf-8?B?MVV1eVR4TkM2UVQyRy9KbXJUL2FvTnV5b285VS8zVDAzMzF6aE05Mk5Tell3?=
- =?utf-8?B?QittSTVQVTI5T3F6ZXJVbCsvZFFabENVeDlnZlNxVldhckhUVnA3QUlCQktC?=
- =?utf-8?B?MTUvc0k4R0tnZkNtSG1QS0tFRFBEbUJTcUNZZnRoT3VRUEd4amRjQkFObGxV?=
- =?utf-8?B?NjJBUHFrU09IOHJ3UzQwMGxTaXhKaXRFdzd1VmdldHB4R2tWN1RoUGR2V1cx?=
- =?utf-8?B?NUswZEJqRDB1MVJzMCtMb280SUovQzJmODkwQVZiY0U1UVYrTk9Td2JicmVM?=
- =?utf-8?B?TDhESVFadlMrRGdnY0M4QjYycGVpcmYzSGM1MzlHVlJqMVJqRWJUUjROanhr?=
- =?utf-8?B?UTVFS1d5aUpUZkNnclUzYTJ2RHFrbzdVNjZSS1hlUmR0d1ZYWmFoYXd3UGp3?=
- =?utf-8?B?aEw5NkI0a0ROQ3lLU3pCWVBtVXRyZ3hRWUd6MDEvanpKblFsVUozWmJ2OTZT?=
- =?utf-8?B?ZTRUc2JmSzk3a2t4MG95bnNqV0VRTENxOGVFUHZqTXBWbmdSeTJZak5kRi9s?=
- =?utf-8?B?bTlDaWxDZ2NncURoM0xpWnVmU01UWTVRdUFHd3FmcUtDeFRSY0tZWG1mUi9a?=
- =?utf-8?B?K0xqb1dZQzl2STB1ald3Zkx5OEdYVkxTNWZrU0ZBbGozbWRMdnh6T3ZXKzRj?=
- =?utf-8?B?ZWkvcWRDeHBXdkJMQjhUZlVaUlgvOTZ6N3F4M0lreS9MbkFkcUtjcjJ1TmE3?=
- =?utf-8?B?NU9weTVWakhzV1M1OEFwMDdxMDlHek1wbmJwTHkyOVM5SVJNNmpTalNZR2Z3?=
- =?utf-8?B?Z2crV1I1YkNuZnVGaklhSTVyWHNnR1ZpSVBQMDcrS2d6VTBJZ0VXdE9SS2hw?=
- =?utf-8?B?bDVqUUgyZ3E3dHVkblNKbS9LVmU0SU5keEZNSEgvaStmZENGZEh3SkFkbFcw?=
- =?utf-8?B?dXpUbXVJd3JnT0N1UkZBZWROSWVrT29oQU1DZFVKY0tCZDNVZElEQWJrZWdL?=
- =?utf-8?B?YjVZam1sNlU0VDI5ak5LSmNxa2Z5T3ZOK2NZTFl6MnlZQnJMdmQzcEFUN0lM?=
- =?utf-8?B?UkRNdkZoclg1Sm1zNVFHaEtneU5pWEhvQ3BZRWtRYnVEdnZpNDRjNmo0SVpy?=
- =?utf-8?B?TWZhenF5Qk5MNXpWakxwZks2N3hIWVVNYVArT1M4T1hGQmZuMmJyREhzUkUr?=
- =?utf-8?B?dWRzb3JnR0NFNEhoelJiaDhEckN6OXUxa2QrMGxEcWIyOG1ETkE0V0gvbEtl?=
- =?utf-8?B?RUt4cEYycXpxVFZHYmJ6M1JKNDFLaDFjZWJUSjY1VEpMZkR2QTc1OFFsazBs?=
- =?utf-8?B?SDhOaVVuWWVXSW1HSllYV1M0akQ0ZkxhWTFtdXJvZnhsTnRmVGd3Qy8yS3NE?=
- =?utf-8?B?Q2cxdnVXMGlWTTZEWDgxa0ZCamx5ZDB2ZGlDVWxSYWR0bjJJTTRzeTM5eDRI?=
- =?utf-8?B?L0cyeko0cG5JMWs2WXI4cTFIbDM3UXJreitROFZMUVlzWU1LbkVEWnFUTGFO?=
- =?utf-8?B?K0RSOGZoR3RVaXpreHYyeVo1V1RtQThBRDlUa2luVzFaVURWT3JpSk1hT0c4?=
- =?utf-8?B?b2F6bitVUkp5Nm53YURsMUFqSkU1ZjZ5U09Ka1dGOEYxZ0tQdmZLQjJ0Qi9y?=
- =?utf-8?B?Kytwc1Y5N00rZ3QxNWFYQy9RWXRKQ3AybGtxbWYrajZacllaQkhiRk5aa2xG?=
- =?utf-8?B?d0V2MHNkQklENTM5dW5ldVIweXE0WEFpdVRkUW9NZGZ4RGs1RzVuN3R0bldK?=
- =?utf-8?B?ZnJHSGZGVVd1aVRUOEtZRUwyblBCTU83VmRDV2hoVlMzWDg4aUZXVTh4RUhF?=
- =?utf-8?B?Z05UT3hlMjZBUHBjTVozT2VuM3cxb1o4dDRsUXlwNi9pUWhZWmd6M095V1pm?=
- =?utf-8?B?aXR6dkRsOFBkcm4ybHZ4WVJUeDZDVytEVnluNEtaQU1YVG5ld3JMblZlSXF5?=
- =?utf-8?B?VnI1N2o3R3dGR21xR25vQ2xBYit4M252TlVoK2J6dmp3OWlTVkJvRU5UeFdw?=
- =?utf-8?B?ZThzNTRENm1vYmRSSURjdWVENEZNUzlJSUpadDhiNldFL0dlZ0xsSHpJbEZm?=
- =?utf-8?Q?utO13LO5LNN5jrhI=3D?=
-X-Exchange-RoutingPolicyChecked: 24npp6v/zKwNvSlSe5XqnKGZuXT9cr30YgOawOfEqtZF7cudnI9UR9JrZiBPbWZq28itTxvIJGwgKi9wMVM/5aLJO6+dIOW79NqYGsS/Fo+CdI/xPXBnEecOroI2Uvl2uTdEpjGHV6XkLuCbn8VtPzpGjp1I8URBwAZcLHUGHeGll6lQ7EkqN1nVIrMUFjW1IuRDJM80PspYSGHlK0CMDQzAyWWoTwFed/W2hmoz0CBjONr0AbacWCwti1a5HrDizz1CklhWwhtZylg15gtzH2Cne10XmIv+aTN1TRZoZaemyaIXX/iob2+ctvv+3wVMsxLfwuWDh4ak4c+OgaIgLg==
-X-MS-Exchange-CrossTenant-Network-Message-Id: f7ebee79-338b-4f40-71d9-08df29514e5e
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 17:42:09.9834
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /lh610MZkaQ1/r++Jpn24MW/t2YEaUMwmXDpyJFsQhV7fcvO08SY/BMMTrewStYBCLAn1SGlqy73A5wuYWWHpEIPiIRIP76Z5Pcv6JTCvCM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB6291
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3] net: stmmac: propagate PTP addend and system time
+ programming errors
+To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+ Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Jose Abreu <Jose.Abreu@synopsys.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, Drew Fustini <fustini@kernel.org>,
+ Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org
+References: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
+ <dy5xfj3754wnp3gh2kpoyf3vpx3vfsfhblgbwbwsgts27xqxga@dzb33gt3zgca>
+ <asQcQIh56MV1OJur@lore-desk>
+ <CAEev2e8+fr1tJnSErD+2TtLDw5fGJbQOMcM5eefMnLyFUR+m7w@mail.gmail.com>
+ <asSb3RNcityVg6ia@lore-desk>
+ <CAEev2e8c6hZQQom6NV-URgdSoWiafCcRR3BtA6yxxqy7T-me8g@mail.gmail.com>
+ <asUGoxyJWVcsYBWG@lore-desk>
+ <CAEev2e_+Dcj60Rj2+_UD=3_kNQxLK4rmWTGK-dr-Ve9mGJBARg@mail.gmail.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <CAEev2e_+Dcj60Rj2+_UD=3_kNQxLK4rmWTGK-dr-Ve9mGJBARg@mail.gmail.com>
+X-Last-TLS-Session-Version: None
+X-Rspamd-Queue-Id: 17D6611D71892
+X-Spamd-Result: default: False [-3.10 / 30.00];
+	BAYES_HAM(-5.50)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	DATE_IN_PAST(1.00)[170];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_COUNT_ZERO(0.00)[0];
+	BCC(0.00)[];
+	TAGGED_RCPT(0.00)[netdev];
+	ARC_NA(0.00)[];
+	DKIM_SIGNED(0.00)[bootlin.com:s=dkim];
+	MIME_TRACE(0.00)[0:+];
+	MID_RHS_MATCH_FROM(0.00)[];
+	NEURAL_HAM(-0.00)[-1.000];
+	MAILCOW_DOMAIN_HEADER_FROM(0.00)[bootlin.com];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[17];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	URIBL_BLOCKED(0.00)[st.com:email,galae.net:url,infradead.org:email,localhost:rdns,localhost:helo,lunn.ch:email,bootlin.com:email,bootlin.com:mid,bootlin.com:url,stormreply.com:email,qualcomm.com:email,tenstorrent.com:email,synopsys.com:email,dzb33gt3zgca:email,davemloft.net:email,lore-desk:email];
+	FREEMAIL_CC(0.00)[lunn.ch,davemloft.net,kernel.org,redhat.com,gmail.com,foss.st.com,synopsys.com,vger.kernel.org,st-md-mailman.stormreply.com,lists.infradead.org];
+	TO_DN_SOME(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_104217_132381_A3610925 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20261013_105043_641027_EB4C4C55 
+X-CRM114-Status: UNSURE (   6.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -212,77 +118,199 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Tony,
+Hi,
 
-On 10/13/26 8:55 AM, Luck, Tony wrote:
->>> 3) What should happen to the legacy /sys/fs/resctrl/info/L2/cbm_mask?
->>> Just hide it? I also considered renaming the resource to "L2A" to
->>> avoid surprising legacy code.
->> The current direction is to have these top level files continue to return
->> the properties of the default/legacy control while in "legacy" control mode.
->> When user space switches the control mode then these files return empty.
->>
->> This is what is implemented in RFC v2 so you should be able to see it in action.
->>
->> It was noted as one of RFC v2's opens:
->>       - When switching control mode to native the top level control info files
->>         stop returning information. This could be considered "work as intended"?
->>
->> An example of this behavior in action as applied to "min_bandwidth" can be seen
->> on slide 4 of
->> https://lpc.events/event/20/contributions/2368/attachments/2066/4625/resctrl_2026_combined.pdf
->>
->> Hiding the files could also be an option. I have not heard strong opinions on how this
->> should be handled after the above mentions of current direction.
-> 
-> My PoC hasn't implemented anything for the control_mode file so I get this:
-> 
-> $ cat L2/control_mode
-> [legacy] native
-> $ sudo sh -c "echo native > L2/control_mode"
-> sh: 1: echo: echo: I/O error
-> $ cat last_cmd_status
-> Changing control mode not supported for this resource.
+On 10/6/26 17:12, Anirudh Srinivasan wrote:
 
-The current PoC supports multiple controls for cache resources but does not
-support switching to native control mode. Only MBA resource can switch to native
-control mode.
+> Maybe someone more familiar with this board/has used PTP on it before
+> can help out understanding why this is happening. Maybe this is some
+> issue to do with clocks.
 
-resctrl fs built a couple of features on top of cache allocation that are exposed
-to user space (CDP, IO allocation, and pseudo-locking). It still needs to be worked
-out how these behave when there is no legacy cache control so for now these features
-are hardcoded to be associated with the legacy cache control and switching to
-native mode is disabled.
+Good point, can you give us the full dmesg log of the board booting ?
 
-> 
-> But it isn't clear to me what legacy vs. native should mean for asymmetric L2.
+Maxime
 
-This would be up to the architecture. One possibility is to have the asymmetric
-L2 control emulate the legacy L2 cache control. I did not really consider this
-and just assumed the legacy control could be expanded to support different sized
-domains. 
-> Potentially: Legacy mode: L2 is disabled to avoid confusion with different bitmasks per domain?
-For "L2 is disabled", are you referring to the resource or the control?
+text:
+Return-Path: <netdev+bounces-341920-maxime.chevallier=bootlin.com@vger.kernel.org>
+Delivered-To: maxime.chevallier@bootlin.com
+Received: from mail.galae.net ([172.22.1.253])
+	by 9e7fea892943 with LMTP
+	id AP0BH74TxWp5BAQAtaWaaQ
+	(envelope-from <netdev+bounces-341920-maxime.chevallier=bootlin.com@vger.kernel.org>)
+	for <maxime.chevallier@bootlin.com>; Tue, 06 Oct 2026 17:29:02 +0200
+X-Original-To: maxime.chevallier@bootlin.com
+Received: from smtpin-01.galae.net (smtpin-01.galae.net [51.159.2.148])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.galae.net (Postcow) with ESMTPS id D8F12103308C0
+	for <maxime.chevallier@bootlin.com>; Tue,  6 Oct 2026 17:28:57 +0200 (CEST)
+Authentication-Results: mail.galae.net;
+	dkim=pass header.d=bootlin.com header.s=dkim header.b=Zge95CWJ;
+	arc=pass ("subspace.kernel.org:s=arc-20240116:i=1");
+	dmarc=pass (policy=reject) header.from=bootlin.com;
+	spf=pass (mail.galae.net: domain of "netdev+bounces-341920-maxime.chevallier=bootlin.com@vger.kernel.org" designates 172.234.253.10 as permitted sender) smtp.mailfrom="netdev+bounces-341920-maxime.chevallier=bootlin.com@vger.kernel.org"
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com;
+	s=dkim; t=1791300538;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:
+	 list-unsubscribe:list-subscribe:dkim-signature;
+	bh=BLd0ZSi6AYEzF6Z1S6jhxHqmJ/tVEdxhmTaij18Onuw=;
+	b=I4UsZyH18owvi7L5xvwNBy+o+6OMHI7t3ScRIYhQGgU/tzAk2KtVbJ5CEMEyoq3uWVDWJ7
+	WwbV2B6PnE+AM98S+vIUQFBQZFFgH0rm1haI1LPk/lEU/qm0YdjewdXafZTY7tR+RNF/HM
+	2hU+LJYIFMOx5zREP0bIEeWkekuCrvRPGs94IkvtNIxySDi0XPohQuPNpcv8tsy7HHshe7
+	7tJAP4lRdcUvMmi3TKXdfoWc3aLWRuf8HKXDr4O+jwasH1tVmh9Gcc9pTmgPULO32e8A33
+	Rl4cK/BelLVSpYTFJgiNAXNzXvGfirr9qQbfRk6txPoSUTCypDz0/ZEEIoDO3w==
+ARC-Authentication-Results: i=2;
+	mail.galae.net;
+	dkim=pass header.d=bootlin.com header.s=dkim header.b=Zge95CWJ;
+	arc=pass ("subspace.kernel.org:s=arc-20240116:i=1");
+	dmarc=pass (policy=reject) header.from=bootlin.com;
+	spf=pass (mail.galae.net: domain of "netdev+bounces-341920-maxime.chevallier=bootlin.com@vger.kernel.org" designates 172.234.253.10 as permitted sender) smtp.mailfrom="netdev+bounces-341920-maxime.chevallier=bootlin.com@vger.kernel.org"
+ARC-Seal: i=2; s=dkim; d=bootlin.com; t=1791300538; a=rsa-sha256; cv=pass;
+	b=qv/SISiv0tGqso7hppWQA31en0i4AR8GyHfCET6LQZmEcYrza2eXpu4/lfGZ8z0UBkz/dL
+	pK3bh7gK+ZhU4CEL8dd18/7/qTt/ESE0BrRlj8pstSDkZAzYSqtfrAIOQUxUJ12V48Spcq
+	Hngo6UqFG0QCKfX80GNqFAK/PQRTKq2SrUaZcuLszqxb4cAq3Xf5FLiO+cRlFiqeziQied
+	1hsS4JhV3BW5F7wdkyMJ1oq0Da9ZNSe26Jh533eqZOSt5+l78j1aDJvBdNHYcAjsHH9CXj
+	UwiyABcN6etN/yq0ot/HAD0sS1lyOGe+lCPn1/sGeBA2cb6hLAvyGtK0eK/eAQ==
+Received: from sea.lore.kernel.org (sea.lore.kernel.org [172.234.253.10])
+	by smtpin-01.galae.net (Postfix) with ESMTPS id 440793422A5
+	for <maxime.chevallier@bootlin.com>; Tue,  6 Oct 2026 15:28:57 +0000 (UTC)
+Received: from smtp.subspace.kernel.org (conduit.subspace.kernel.org [100.90.174.1])
+	by sea.lore.kernel.org (Postfix) with ESMTP id EEC7F3649B
+	for <maxime.chevallier@bootlin.com>; Tue,  6 Oct 2026 15:28:27 +0000 (UTC)
+Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7A78449C4BC;
+	Tue,  6 Oct 2026 15:28:27 +0000 (UTC)
+X-Original-To: netdev@vger.kernel.org
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37B4C37FF46
+	for <netdev@vger.kernel.org>; Tue,  6 Oct 2026 15:28:22 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.client-ip=185.246.84.56
+ARC-Seal:i=1; a=rsa-sha256; d=subspace.kernel.org; s=arc-20240116;
+	t=1791300506; cv=none; b=arMcdVOSW15zNQ3vkOmoyrUvKoXy0PO7xkYrYpDwKuZ4zWMwUN62UGRJX3nJ6yEHcJusfpMpY4KJKvtjplt1l2tSD1ViXPNQ0IvT2apBzPIlCd9UnIdYnrLFNiEgLKtx1IW6DGHLveBIVP8dDyrm9cxzPe0+hfckwvHlbdEtG1U=
+ARC-Message-Signature:i=1; a=rsa-sha256; d=subspace.kernel.org;
+	s=arc-20240116; t=1791300506; c=relaxed/simple;
+	bh=BLd0ZSi6AYEzF6Z1S6jhxHqmJ/tVEdxhmTaij18Onuw=;
+	h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type; b=kWCa6zpHVMy0iAqM+E1I05yfiARTt2E8xyA/3JZckud2PtBLESoHrGpkyD2U4PSAcq6WnFFkoc9z4nEK62VjfhLZqKWc9y+Q7ptfpR5k0CCtp+dnHjcUTbPrkM0bHKSmjHYu2TEM6fhlhgKuGDQ9aSqUsI2ndohrbyw2WDBGH0E=
+ARC-Authentication-Results:i=1; smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com; spf=pass smtp.mailfrom=bootlin.com; dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.b=Zge95CWJ; arc=none smtp.client-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 457331A114B;
+	Tue,  6 Oct 2026 15:28:21 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1708E60553;
+	Tue,  6 Oct 2026 15:28:21 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A148B103303AB;
+	Tue,  6 Oct 2026 17:28:06 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1791300495; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=BLd0ZSi6AYEzF6Z1S6jhxHqmJ/tVEdxhmTaij18Onuw=;
+	b=Zge95CWJorrmzM4yUowmuOkxRgpEyfxGYa2/sfKipV7dd+RjsKMy/oaGCJ/mVs5Pzo0eEF
+	QAvqalpkxByxwJKXE5vyKH5kFSUwYu2xwYqM4H22Gg37EqMoVQPaCoVQg1pwSTO1lx6V/3
+	Vlba435uh1H4ftEgJSuP+lH4zK400PqocG4hEyzBxYsnoXtQg5EHCs8c/6zB6t0Ce/IzsS
+	zc24HAe/gkebKe8qWRsgGTXAIxZzqeo6jh5cRaaxVEC8RvbhI9cXK0HSSF2/J6ZyylYtTw
+	sQGayXcUHQwmPGI2afJ4QcT9d7FjSH/TXieM2eordIciOwm0Sdwh2ldqsJ84dg==
+Message-ID: <72e19e46-3a14-4a07-9b50-01e5480bf1a3@bootlin.com>
+Date: Tue, 6 Oct 2026 17:28:05 +0200
+Precedence: bulk
+X-Mailing-List: netdev@vger.kernel.org
+List-Id: <netdev.vger.kernel.org>
+List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
+List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3] net: stmmac: propagate PTP addend and system time
+ programming errors
+To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+ Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Jose Abreu <Jose.Abreu@synopsys.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, Drew Fustini <fustini@kernel.org>,
+ Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org
+References: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
+ <dy5xfj3754wnp3gh2kpoyf3vpx3vfsfhblgbwbwsgts27xqxga@dzb33gt3zgca>
+ <asQcQIh56MV1OJur@lore-desk>
+ <CAEev2e8+fr1tJnSErD+2TtLDw5fGJbQOMcM5eefMnLyFUR+m7w@mail.gmail.com>
+ <asSb3RNcityVg6ia@lore-desk>
+ <CAEev2e8c6hZQQom6NV-URgdSoWiafCcRR3BtA6yxxqy7T-me8g@mail.gmail.com>
+ <asUGoxyJWVcsYBWG@lore-desk>
+ <CAEev2e_+Dcj60Rj2+_UD=3_kNQxLK4rmWTGK-dr-Ve9mGJBARg@mail.gmail.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <CAEev2e_+Dcj60Rj2+_UD=3_kNQxLK4rmWTGK-dr-Ve9mGJBARg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-Last-TLS-Session-Version: TLSv1.3
+X-Spamd-Result: default: False [-5.59 / 30.00];
+	BAYES_HAM(-3.51)[94.55%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	IP_REPUTATION_HAM(-1.41)[asn: 63949(-0.40), country: SG(-0.01), ip: 172.234.253.10(-1.00)];
+	ARC_ALLOW(-1.00)[subspace.kernel.org:s=arc-20240116:i=1];
+	DMARC_POLICY_ALLOW(-0.50)[bootlin.com,reject];
+	R_DKIM_ALLOW(-0.20)[bootlin.com:s=dkim];
+	R_SPF_ALLOW(-0.20)[+ip4:172.234.253.10:c];
+	MAILLIST(-0.15)[generic];
+	MIME_GOOD(-0.10)[text/plain];
+	HAS_LIST_UNSUB(-0.01)[];
+	MX_GOOD(-0.01)[];
+	RCVD_TLS_LAST(0.00)[];
+	TAGGED_FROM(0.00)[bounces-341920-maxime.chevallier=bootlin.com];
+	URIBL_BLOCKED(0.00)[bootlin.com:mid,bootlin.com:dkim,sea.lore.kernel.org:helo,sea.lore.kernel.org:rdns];
+	RECEIVED_HELO_LOCALHOST(0.00)[];
+	FORGED_SENDER_MAILLIST(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[17];
+	MAILCOW_DOMAIN_HEADER_FROM(0.00)[bootlin.com];
+	TO_DN_SOME(0.00)[];
+	BCC(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_MAILCOW_DOMAIN(0.00)[bootlin.com];
+	RBL_SENDERSCORE_REPUT_BLOCKED(0.00)[172.234.253.10:from];
+	ARC_SIGNED(0.00)[bootlin.com:s=dkim:i=2];
+	DNSWL_BLOCKED(0.00)[172.234.253.10:from,185.246.84.56:received,212.83.136.155:received,212.83.139.233:received,100.90.174.1:received];
+	NEURAL_HAM(-0.00)[-1.000];
+	MID_RHS_MATCH_FROM(0.00)[];
+	PRECEDENCE_BULK(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FROM_NEQ_ENVFROM(0.00)[maxime.chevallier@bootlin.com,netdev@vger.kernel.org];
+	FREEMAIL_CC(0.00)[lunn.ch,davemloft.net,kernel.org,redhat.com,gmail.com,foss.st.com,synopsys.com,vger.kernel.org,st-md-mailman.stormreply.com,lists.infradead.org];
+	DWL_DNSWL_BLOCKED(0.00)[bootlin.com:dkim];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DKIM_TRACE(0.00)[bootlin.com:+];
+	TAGGED_RCPT(0.00)[netdev];
+	FORGED_RECIPIENTS_MAILLIST(0.00)[];
+	EXTERNAL_RELAY_AUTHENTICATED(0.00)[];
+	ASN(0.00)[asn:63949, ipnet:172.234.224.0/19, country:SG];
+	RCVD_COUNT_SEVEN(0.00)[7]
+X-Rspamd-Queue-Id: D8F12103308C0
 
-If legacy L2 control can be emulated by the asymmetric L2 control then a user space
-can continue to interact with a L2 control that pretends to be symmetric on an
-asymmetric platform. An "enlightened" user space can then switch to native control mode
-on these systems and interact with the asymmetric control directly.
+Hi,
 
-I am not sure that this is what RISC-V has in mind here though.
+On 10/6/26 17:12, Anirudh Srinivasan wrote:
 
-Ideally user space would not need to be exposed to architecture differences when
-interacting with resctrl filesystem. This means that a solution like this would
-force all architectures to do something similar for asymmetrical/symmetrical
-cache allocation.
+> Maybe someone more familiar with this board/has used PTP on it before
+> can help out understanding why this is happening. Maybe this is some
+> issue to do with clocks.
 
-Another option is to just support L2 asymmetric systems with the legacy L2 control.
-You state it may cause confusion - I assume you refer here to the schemata file
-showing different CBM for different domains? The legacy info/L2/cbm_mask needs to
-pick one CBM to display, which could be limiting. This is what the new "max"
-aims to fix. 
+Good point, can you give us the full dmesg log of the board booting ?
 
-Reinette
+Maxime
+
+
 
 _______________________________________________
 linux-riscv mailing list
