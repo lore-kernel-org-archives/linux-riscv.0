@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7DA7CA6007
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 15:05:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C765CA5FFC
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 15:11:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6OLphHnp4rB+vD+n5qO5Pm35qLi1nXo4ecmb5JrWGLc=; b=SdqpuRfwL3H0XF
-	GZI51qzEVeiyiKXUO8s3axFN1p6U9h4YPWZiZ8sik72HKZDg0d6+RIBWA5cfdZvhZMA5Ofuff1tn4
-	SfPTncItMW9QGz8SfD/VPRbw0RdjMpMWkNoc6lqAnW9PEGHvD8aZCBJdhbKBqIyF65V4P1/7W/E0R
-	IenVYREnSn8xYDd2ynAr+cKqBlaL6C8cSSCjsTHhe36xCEBI9x8lKbzF7XJ+rAQLvqDSO8CO5LoaI
-	pEa2grXr2ZrmYC1jYJqcgjq6AbrkWVfiWcjqdwIEWncnScu+g1x2eTf1yDeKaPSOtDX6WE1TvZhTp
-	ZtnJQKeGH1xpA2coex2g==;
+	List-Owner; bh=0QYbFDYREowQ/IA53fKVJ47dpHz/n8JmccAqn1BueIM=; b=Sbx9YlY0S1oh58
+	DMD0f3Dos5ShKQpMlQaSbXWZFzd7IXmNkvV9nFzD04taXGjc9tKeFVE0ct+Jp+XfqQfK557se0G/j
+	2RcqTJSInEux6OrjXLRD9G/Wru/LPsp5J6JtCRNv7u53MpkYZ4sED+B68FwNVTA8ycgkU21sMdYl0
+	u0ABF03/DgJsaQUSwx9lE3sMFfF68ExtnRr0S9we+JXsIXRGG7P0K22rvJ+kyovBxYJRtzm5bRk7D
+	OH1gpu/xL0Rx0tBZjMeCEKwbriDV9a5C1Dip16t73dnzGz1bLXfXuVrWrf8otz3NV5ZLvCuo5PAsv
+	I42y6KgbzV46n9Xgr0Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xETCV-00000002gL5-356B;
-	Wed, 07 Oct 2026 15:04:59 +0000
+	id 1xETIm-00000002gdk-1dlj;
+	Wed, 07 Oct 2026 15:11:28 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xETCU-00000002gKz-0RqO
+	id 1xETIk-00000002gde-1jt1
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Oct 2026 15:04:58 +0000
+	Wed, 07 Oct 2026 15:11:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 976A4432B6;
-	Wed,  7 Oct 2026 15:04:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 321C31F000FF;
-	Wed,  7 Oct 2026 15:04:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C97DF4160B;
+	Wed,  7 Oct 2026 15:11:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D28B51F000FF;
+	Wed,  7 Oct 2026 15:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791385497;
-	bh=5KKgn2UqrLga3ru2hCfdwq01pxA7KWr598Qy7ODuIOw=;
+	s=k20260515; t=1791385885;
+	bh=JddtNEM6goEHGBJSj2WoyIxr3Xm40ZzTJFU/GODnDUg=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=Vg8QQXo/j1cJA+7lAIWl3ieC7bbAK8CmOakSBQEx1DU3vTOaZwvEsY7z9/9+Vfxpf
-	 9rJB1J52vIe8HZTeZlaifB+0Ge2/4ZOkTdXja7wheCuDq3l0g3d8Th1DVxE4fbvebX
-	 ZAZ9mp8+WExsm3VNq7yT3nbpxQ/I40GPb32od1xYcBwRh+lD1k5BeE9+iz+z4y0T8W
-	 +wS8EerxsldbR4lCHcHuSju760dQ9OJAaxRsrLetzKYp5VN5w4kBnOBKfbsaLpda5y
-	 k+C02Xq9gcpMvs9tSzWPgQq7JGAVPbaIVGj61dGFXV6fSksk3kpUg4MI2Rv5koWqxx
-	 /carN3dHoLQpw==
-Date: Wed, 7 Oct 2026 09:04:51 -0600 (MDT)
+	b=jKV3S2ngpMBgIicHLl5IIJQn7FDOFWATwz7suVFR80ZWriS1jjgad+CyKocwqAxm/
+	 /a9j+0WttA4AG4v7k8taVcsm1nXgN2TRvxWskm+aScG6D5BmgZn+qKSWfJSr8vQdmd
+	 1n47CHttreGS9qwySjCKYwgaJ5W3dRPGp7wBjJnj8VlL6MS6wPFVvSlWEPHtvP4Zk/
+	 Ca3WKxiwVBV/2/vsslBFu4Duxn9l7qZ9XRJOkb2/UNwKGBZLeo4wpagGrs6DN5Pem+
+	 skfxkEN1Muz5s39d2fY/rgWR/6ZGKo9KQCWIq7VyZ0wUg4QedmX5EUg5fOTO5YZ+wW
+	 kjhGXKHsxUpiw==
+Date: Wed, 7 Oct 2026 09:11:21 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Zongmin Zhou <min_halo@163.com>
-cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    Zongmin Zhou <zhouzongmin@kylinos.cn>
-Subject: Re: [PATCH] riscv: errata: select RISCV_ALTERNATIVE_EARLY for THEAD
- GHOSTWRITE
-In-Reply-To: <20260917074843.52716-1-min_halo@163.com>
-Message-ID: <1cfb2bbd-206b-4a5b-e136-7afbcde21e63@kernel.org>
-References: <20260917074843.52716-1-min_halo@163.com>
+To: Leo Yu-Chi Liang <leo.liang@sifive.com>
+cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com, 
+    aou@eecs.berkeley.edu, alex@ghiti.fr, wangruikang@iscas.ac.cn, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/1] riscv: fix NR_CPUS range leaking 64-bit default onto
+ 32-bit builds
+In-Reply-To: <20261007045229.36114-1-leo.liang@sifive.com>
+Message-ID: <3e8a895f-f5d3-bad6-0a34-d1d716ef3a26@kernel.org>
+References: <20261007045229.36114-1-leo.liang@sifive.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,29 +70,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Sep 2026, Zongmin Zhou wrote:
+On Tue, 6 Oct 2026, Leo Yu-Chi Liang wrote:
 
-> From: Zongmin Zhou <zhouzongmin@kylinos.cn>
+> rv32_defconfig is built in two stages:
 > 
-> errata_probe_ghostwrite() only marks the CPU as vulnerable when it is
-> called at the RISCV_ALTERNATIVES_EARLY_BOOT stage, and the mitigation
-> in ghostwrite_enable_mitigation() only takes effect if the vulnerable
-> state was recorded before the boot alternatives are patched.
+> - the generic (64-bit-oriented) "defconfig" target runs first
+>   and resolves a concrete NR_CPUS value using the 64BIT default.
+> - then 32-bit.config is merged on top via merge_config.sh,
+>   which does not touch NR_CPUS.
 > 
-> The early boot stage is only executed when CONFIG_RISCV_ALTERNATIVE_EARLY
-> is enabled, which currently is only selected by ERRATA_THEAD_MAE. In a
-> kernel built with ERRATA_THEAD_GHOSTWRITE=y but ERRATA_THEAD_MAE=n, the
-> early alternatives never run, so ghostwrite_state is never set to
-> VULNERABLE: ghostwrite_enable_mitigation() returns false, xtheadvector
-> remains enabled, and sysfs reports "Not affected" on a vulnerable
-> T-Head C9xx CPU.
+> The final "make olddefconfig" pass sees NR_CPUS=256 is still within
+> the "2 512" range therefore never recalculates it against the 32BIT
+> default of 32, silently keeping the leaked 64-bit-stage value.
 > 
-> Select RISCV_ALTERNATIVE_EARLY from ERRATA_THEAD_GHOSTWRITE so that the
-> vulnerability is detected in the early boot stage and the default
-> mitigation is applied.
+> The NR_CPUS-scaled regions (percpu areas, ...etc) of the resulting
+> CONFIG_NR_CPUS=256 on a 32-bit build bloats and does not fit in the
+> percpu/stack layout for rv32 and hangs early boot on QEMU's virt machine.
 > 
-> Fixes: 4bf97069239b ("riscv: Add ghostwrite vulnerability")
-> Signed-off-by: Zongmin Zhou <zhouzongmin@kylinos.cn>
+> Fix this by explicitly specify the range for 32/64 and SBI_V01/!SBI_V01.
+> 
+> Fixes: 0fa749771993 ("riscv: Raise default NR_CPUS for 64BIT to 256")
+> Signed-off-by: Leo Yu-Chi Liang <leo.liang@sifive.com>
 
 Thanks, queued for v7.3-rc.
 
