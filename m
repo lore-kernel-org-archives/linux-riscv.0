@@ -4,95 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE51CA5FF1
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 11:28:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D1A9CA5FF1
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 11:34:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wwg+vIduEekb32LCBr1GXlydnJpubjwZhtl9j+2aKBI=; b=F/d95/+yaHtzHY
-	K2L7hJuAG1y3+d4dRN1zW5kDq0na3Dy81K0uaNfUbRAQSs+iYlDQtNR5D+p88ZOg3GJivdHRm/pno
-	BGXlo8QbxuY9Y4aM29lxDQ4Q85BC6BBFLAugDOmvMDfmGPCNfygyfrbpQ4Z9iJrRfai1LgeIBdQBp
-	HSxHf6no3WoRGDY8DNeu61c9IPCR/45+P+GS2uT7foGnNIoaKjIy7gsDvPfA2adCgiiU23j7yNxVe
-	SNhtTC3wv2RAqsA4AMwtlRO85aL3+xafJwuRglkssc7dldYeIVxVHw1GOQeOMjCHQhLyc/1bfJRcr
-	1DToAopgeRZs/m4F7oMg==;
+	List-Owner; bh=xsfrAVYJ7qDkvK5YaNcY49vSDpP94D/r5U1vRQmde+w=; b=GCAWZ+DqkH5Osl
+	JLbAHju22g/7/ouSTyZeKgiTFHGIcq1gOAfc/j/MbpDUFeRgZ65BF4rYo3mJ6vgzrbJxwra9H8mhT
+	7PK5a9AiYb7FoCQeDtH3VrDTlFOdkx5aU0/5yWHIQFvQiwGW8v/buFYwWdUH2pVMzG1NngN/B9Tem
+	VQ/6m0qfIcXRRkgZQUb/HgrbBN+TFFhd7e/f9JVpYCdMMD0Y3nHkT2MJnFUZvWA9xIBO8tdsnGkRJ
+	Xni0ZrwQggSCLjnRDCIpaddXqJscpYw7a2dig5mGosKEtEWM8XJ0SxWVVMsGYHN7VC3lTjVp8jlv/
+	JN0cqAJiQrXgPIITyimA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEPoZ-00000002JGX-34xO;
-	Wed, 07 Oct 2026 11:28:03 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1xEPuK-00000002KXr-3SYS;
+	Wed, 07 Oct 2026 11:34:00 +0000
+Received: from out-127.mta1.migadu.com ([2001:41d0:203:375::7f] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEPoW-00000002JFO-3Xhu
+	id 1xEPuI-00000002KWh-1bEC
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Oct 2026 11:28:02 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-48c411d6615so1190031f8f.3
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Oct 2026 04:28:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791372479; x=1791977279; darn=lists.infradead.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=N25GKi4KKDEgKB7UY+JEtW1Q7H8cAQfRQt0G3e7XtJc=;
-        b=pw90M0HI/BNdeEPk4rOoeSvAB4skkgp+u+Ha8BcWAmnr43gJEnH3IawwCd9ku+djpT
-         w31krxO4601BqNIaNy7eQACnW1uDxS+5Nhkse/ZaPh9P4D6wwiRhniffsSqlGtC9NoP4
-         1WaqbjsMikqByhHI5BYaUWbhgh73/YaJwd6/TgeyDk4KPQ6i9ShN83L/aQQ7CIC9fIv+
-         8hk92l9hJEZkk07YLS9wxtyivYa8sh+5Vh3mDbhxzsE1oQNGgD+VFUf0850ESa1YbISl
-         apW2yCryxlVYfUb4gNSt4JrrUnh9nHI7LCAbtR7f/kgKK6OlvIeJzDmLvS2VmOukeSJZ
-         5XIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791372479; x=1791977279;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=N25GKi4KKDEgKB7UY+JEtW1Q7H8cAQfRQt0G3e7XtJc=;
-        b=GN44Q7/BRHfZNCJICUcyNQVzG9s6zHlZp28Dh3CvzmXYijiifegCi0CnvBqoSp/ur5
-         jm//31VHTu6lR/DN3aZZypnhn3cD05nVJvryPwLaVQuVpmrjNzcoxNdFlBhv/tCwOAwM
-         Q5zaTnL41Hvikegvhbvhi+uXvTbB8VP5la0KhRoypTgepfv0oZ2bumRQbH4XR5lAzFxx
-         s/2aJvJCTkKEAsVzcFjTiqRn1sgUJSt0eLzmxqmLvcu/Fu3BXm6TCdqZgVYGP7M7mSzI
-         BJprMpyR1zW5POXZxfdTIoorbw795ni0DTRYPY5suJmn2IX15DkPNGyi2L4ezOMdJos6
-         1zhA==
-X-Forwarded-Encrypted: i=1; AKwUvBzEu68g7iCfhZB/YjjhyXMwu/VPcOxdwUB5O6sBobLNUjGRDR9W0kRWR1xgYhjIk76UE/nAhTYWKkhbug==@lists.infradead.org
-X-Gm-Message-State: AFq9FYL9ueFDUYYbk1FJsnQX9c1ySa2zQGRU3VCh6iZMLw/pJUgOq1b+
-	wSFRTIPo7uvwgqHM+bcheF5zOkOhX1+yL97NWJcGCLxlSo/kTTeVloOc
-X-Gm-Gg: AYBFou2oAywwYJU/uJYKps6yKqqQ+wAdgex/DwX9IWxjgofzKJJuxPEfjfcZS7nQCLT
-	+jgqs1byROtO0M3NnMJitWuyUUjmBlk/0sY9FHwfThS6hcjs8U9dSWCMZ2rNqFFAm/7ytEZj90F
-	L7pIJq16fRYEcpD9WwkVHLguXDjuW6qeALqyw/PyT+JE6e33yRglPZnEQRHZp1L96nnNOCT8Rwr
-	TfwxLmIePJVlsDdpfw8CSnFy5X3Eg0o47K+41WLRhc/44c6fXSWy6UP4u0wm51Twp75R009UWC0
-	mzMSPv7UoEQehmBIbdKqwnOEFWqJUSKm/vYgblZ9qLspNhm97X/pYxfLb0D7kar2+8U9wMrtwrC
-	xnO5Y0gaKsqnS+JmcUMSn73McZVCRtT9PjxHY2Ow5dXBFdVil75XcfqpRVsZX69+BO2+bpTyVGJ
-	HftgYPNGNblfXGeZ3QcCxeLKtraw16U9QUH7gQub6SZsa9wj+9vnok73UqLrSCOlx9TogrfCFaZ
-	t5KaefpdisLIsSc9cqJ0J/ShztOsBbJOgurlQ4jzLwqNFysJE7r345hyliwaZrQEA==
-X-Received: by 2002:a05:6000:46db:b0:487:15a3:1cab with SMTP id ffacd0b85a97d-48c7275ad2fmr2408703f8f.18.1791372478783;
-        Wed, 07 Oct 2026 04:27:58 -0700 (PDT)
-Received: from [192.168.141.88] (90-182-211-1.rcp.o2.cz. [90.182.211.1])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c71d22ec8sm4631673f8f.39.2026.10.07.04.27.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Oct 2026 04:27:58 -0700 (PDT)
+	Wed, 07 Oct 2026 11:33:59 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=VQVhQZKIl4zNDQJKB9bVX5VumbsxMCs4+iJKLBdZmkg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1791372835; v=1; x=1791977635;
+ b=mzlRK2Wne3Jl3AjHi5WznBZZZa1mbNjXgzL6EkkByUXq92CM6SFCLthWfd4Fvc3d4z/BTpCP
+ WUOD0sX6IUiZTPAu3KFfvDLCfKSD562lRW0t4qbgFRAmak8IECLfDD4mr67y/B1s70m3UOchhLC
+ q50oM+2Uex1a/zpy8ZzRwImw=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id aa4fc3b16c8ec0d3;
+	Wed, 07 Oct 2026 11:33:54 +0000
+X-Mizu-Trace-ID: aa4fc3b16c8ec0d3
+X-Migadu-Flow: FLOW_OUT
+From: Lance Yang <lance.yang@linux.dev>
+To: david@kernel.org
+Cc: lance.yang@linux.dev,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	akpm@linux-foundation.org,
+	zhangchunyan@iscas.ac.cn,
+	rppt@kernel.org,
+	kas@kernel.org,
+	andrew+kernel@donnellan.id.au,
+	rmclure@linux.ibm.com,
+	debug@rivosinc.com,
+	baolin.wang@linux.alibaba.com,
+	usama.arif@linux.dev,
+	wangruikang@iscas.ac.cn,
+	namcao@linutronix.de,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	alexghiti@rivosinc.com,
+	viro@zeniv.linux.org.uk,
+	ajones@ventanamicro.com,
+	arnd@arndb.de,
+	axelrasmussen@google.com,
+	brauner@kernel.org,
+	conor.dooley@microchip.com,
+	conor@kernel.org,
+	jack@suse.cz,
+	liam@infradead.org,
+	ljs@kernel.org,
+	mhocko@suse.com,
+	paul.walmsley@sifive.com,
+	peterx@redhat.com,
+	robh@kernel.org,
+	surenb@google.com,
+	vbabka@kernel.org,
+	yuanchu@google.com,
+	stable@vger.kernel.org,
+	pasha.tatashin@soleen.com,
+	linux-mm@kvack.org,
+	me@ziyao.cc
+Subject: Re: [PATCH 1/1] riscv/mm: fix soft-dirty migration PMDs being treated as present
+Date: Wed,  7 Oct 2026 19:33:45 +0800
+Message-ID: <20261007113345.32755-1-lance.yang@linux.dev>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <69c33490-e5a3-4cf2-a5ed-d2bc8ed336d2@kernel.org>
+References: <69c33490-e5a3-4cf2-a5ed-d2bc8ed336d2@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH] RISC-V: KVM: Fix build with vector support disabled
-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
-To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
- Andy Chiu <tchiu@tenstorrent.com>, kvm@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
-In-Reply-To: <20260922021823.44251-2-zhangzhanpeng.jasper@bytedance.com>
-References: <20260922021823.44251-2-zhangzhanpeng.jasper@bytedance.com>
-Date: Wed, 07 Oct 2026 04:27:55 -0700
-Message-Id: <179137247589.137225.11125498978893340639.b4-review@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791372478; l=2180;
- i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
- bh=UdNnpY1s0JZcKFf12kXtXKzQHcVo0VQb9ksp6zlj8eE=;
- b=N4/1k9PAIKC/zlNc3SD1Pn/ya7soMKpi9nQoq3x35ys4TSjiRf8v2bkGSSm8YfelPHY4YVtCW
- JtOp7Fsds4lASn3a2Wb2XWeDh7BhMwE9O2EQTUj58BfxxJ+9qr0myJF
-X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
- pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_042800_908701_CD219A9B 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20261007_043358_561616_522320E9 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,64 +108,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> The kernel-mode vector context handling added unconditional calls to
-> get_cpu_vector_context(), put_cpu_vector_context() and
-> __kvm_riscv_vector_restore() in vcpu.c. With CONFIG_RISCV_ISA_V=n, these
-> calls fail to build due to missing declarations.
-> 
-> The get/put helpers already have no-op definitions in asm/vector.h, but
-> kvm_vcpu_vector.h only includes that header when CONFIG_RISCV_ISA_V is
-> enabled. Include it unconditionally and provide a no-op implementation
-> of __kvm_riscv_vector_restore() for the disabled configuration, matching
-> the other vector context helpers.
-> 
-> The paths that set RISCV_V_VCPU_NEED_RESTORE are compiled out when vector
-> support is disabled, so the restore stub does not discard any live
-> vector state. Keep it __always_inline for its noinstr caller. The vector
-> enabled implementation is unchanged.
-> 
-> Fixes: b5060a4aa33d ("RISC-V: KVM: fix vcpu vector context handling for kernel-mode vector")
-> Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
 
-I sent a patch before checking the lists, we can ignore my patch [1] since
-this fixes it!
-
-[1] https://lore.kernel.org/all/asWHSd31uyyNvt0a@blinky/
-
+On Wed, Oct 07, 2026 at 01:01:14PM +0200, David Hildenbrand (Arm) wrote:
+>On 10/5/26 15:46, Lance Yang wrote:
+>> 
+>> On Mon, Oct 05, 2026 at 12:37:20PM +0200, David Hildenbrand (Arm) wrote:
+>>> On 10/4/26 05:03, Lance Yang wrote:
+>>>> RISC-V uses _PAGE_EXEC for swap soft-dirty tracking when
+>>>> CONFIG_MEM_SOFT_DIRTY is enabled and Svrsw60t59b is available. That's
+>>>> a problem for PMD migration entries, since pmd_present() also checks
+>>>> _PAGE_LEAF (R/W/X) to recognize THPs with _PAGE_PRESENT temporarily
+>>>> cleared during splitting.
+>>>
+>>> I'm curious: why do we have to set leaf indications for non-present things? The
+>>> HW sure will ignore it, right?
+>> 
+>> Yeah, that surprised me too :) Still wrapping my head around the details
+>> ...
+>> 
+>>> Is this a sw problem? Who needs that?
+>> 
+>> IIUC, it's for software during a PMD split.
+>> 
+>> __split_huge_pmd_locked() invalidates the huge PMD and flushes the TLB
+>> before installing the PTE table. Software still needs pmd_present() and
+>> pmd_trans_huge() to recognize the THP in between.
+>> 
+>> RISC-V clears V but keeps the R/W/X bits for that, so the entry is invalid
+>> to hardware but still identifiable as a THP by software.
+>> 
+>> Hopefully I didn't miss something.
 >
-> diff --git a/arch/riscv/include/asm/kvm_vcpu_vector.h b/arch/riscv/include/asm/kvm_vcpu_vector.h
-> index 6371d5ea5392..50d4789b9cac 100644
-> --- a/arch/riscv/include/asm/kvm_vcpu_vector.h
-> +++ b/arch/riscv/include/asm/kvm_vcpu_vector.h
-> @@ -11,9 +11,9 @@
->  #define __KVM_VCPU_RISCV_VECTOR_H
->  
->  #include <linux/types.h>
-> +#include <asm/vector.h>
->  
->  #ifdef CONFIG_RISCV_ISA_V
-> -#include <asm/vector.h>
->  #include <asm/kvm_host.h>
->  
->  static __always_inline void __kvm_riscv_vector_save(struct kvm_cpu_context *context)
-> @@ -55,6 +55,10 @@ static inline void kvm_riscv_v_exit(void)
->  
->  struct kvm_cpu_context;
->  
-> +static __always_inline void __kvm_riscv_vector_restore(struct kvm_cpu_context *context)
-> +{
-> +}
-> +
->  static inline void kvm_riscv_vcpu_vector_reset(struct kvm_vcpu *vcpu)
->  {
->  }
+>I thought some change we performed to GUP-fast wouldn't require that anymore.
+>But my memory is a bit vague ... :)
 
-Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Yeah, I'll have another look at that :)
 
--- 
-- Charlie
+>> 
+>>>>
+>>>> When a soft-dirty THP is migrated, set_pmd_migration_entry() preserves
+>>>> soft-dirty with pmd_swp_mksoft_dirty(), setting the X bit in the
+>>>> migration PMD. Even with _PAGE_PRESENT clear, we end up treating a
+>>>> migration PMD as a present THP! The fault handler skips
+>>>> pmd_migration_entry_wait(), and a write fault can end up in
+>>>> do_huge_pmd_wp_page(), where pmd_page() decodes the migration entry
+>>>> as a mapped PFN.
+>>>
+>>> That sounds bad.
+>> 
+>
+>[...]
+>
+>> YES, looks a bit off ...
+>>> That reduces the effective swap size (and PFN we can store). Could that be a
+>>> problem?
+>> 
+>> We don't need all 52 bits of the swap offset.
+>> 
+>> RV64 PFNs only need 44 bits for migration entries, and actual swap is
+>> already limited to about 16 TiB per area with 4 KiB pages by
+>> last_page (__u32) and swap_info_struct.max (unsigned int).
+>> 
+>> So there's room to reserve a bit without reducing the supported swap
+>> size or PFN range.
+>> 
+>> CONFIG_MEM_SOFT_DIRTY is only available on RV64, so RV32 keeps its 20-bit
+>> offset.
+>
+>Good, can you spell that out in the patch description?
 
+Sure, will add that to the commit message in v2 once I've heard back
+from maintainers :)
+
+Cheers, Lance
 
 _______________________________________________
 linux-riscv mailing list
