@@ -4,90 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 524FDCA5FFC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FFE7CA6002
 	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 15:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fBuTm5WdoGtXs5smYUXNHKn36RNQXHO3bs6GSH36s8c=; b=c/7r0uweQxNrY/
-	a8H8pqwfIm9O9iDpIwk2h9zJsVZq2rq/We/LgGbJVgwTYHgrd3hYW/eNUO4s7U/w1J7u1ICAk0Chm
-	Uz2EACBruSoQxTZs1G6GdIWKH1bfgkouA8sopL/7QESuRtx3Vrp+wBV1Nednsj67V4QxKgDxu0dMK
-	xA3Ksz/pf6qKoGM+h0mrWGwU0xHrTJejvsM2lPyHyERzYrQDbpcVx2QJwM593LpYTQSrCcQu30HRV
-	JNaEZIZxl22eGfPC5F/R6bj0DJ5S7JQrX6IR5fikn+1ZVu9IuNJlvE86u1HRy4lEOC85ebggVHapx
-	blyvcS6u1N4fTiBiEWYw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jNuKL/rsX8bzcVg3LOphFIwqYU7yX8D6DK0nSjnatN4=; b=V137bDeO4FqFky
+	PydRuoTzRs+fFlPN4Hs8Lapc5tiyqT/k4FqT2uoGdtfdDJdarBdiaD914tA/PR7g/t9Zy5VSGVOll
+	Z5h0tnNf3RisU3/q+RzcTCi6HzTqR0zIc3+I0JMaN2pOQLBKUUzd3KUyItSb6QV3dlT9ETE/9BzA/
+	T/1Bf1QU4DwEOTfaoUxgug4kjmAMD1lrjrTN39AhGtDGz78M/Ax0zw93mP0MOEj5Yh6f3qkuZvU/m
+	G3JPcQwr28RVx6liYXHsB1xIQx+Y87/f+ThKmS3p6Phi9gAFarDg43OhWVQbtDbVGDRpa67g++BLk
+	0yKqiAS3VcXB1B6FjqvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEU1i-00000002jpu-1aHZ;
+	id 1xEU1i-00000002jpp-01QF;
 	Wed, 07 Oct 2026 15:57:54 +0000
-Received: from mail-dy1-x132b.google.com ([2607:f8b0:4864:20::132b])
+Received: from mail-dl1-x122a.google.com ([2607:f8b0:4864:20::122a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEU1g-00000002jpD-2M5U
+	id 1xEU1f-00000002jop-0JHk
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Oct 2026 15:57:53 +0000
-Received: by mail-dy1-x132b.google.com with SMTP id 5a478bee46e88-34ca2d54925so6582880eec.0
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Oct 2026 08:57:52 -0700 (PDT)
+	Wed, 07 Oct 2026 15:57:52 +0000
+Received: by mail-dl1-x122a.google.com with SMTP id a92af1059eb24-15756f82e8aso1298598c88.1
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Oct 2026 08:57:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1791388672; x=1791993472; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0RyG/X5i0vkChanPWXCAobrxzoJwwd2fGJPSSEJItfY=;
-        b=jf2PDEgLRwH2pPHNkpuf9xU3rLU9Of+34fVzngMQBq9Nu8saPcVVWbSNGzGGG4ydb8
-         JNcu7N97wGAy8XT6gtx0+1ZvBzmLNqT2bFU/Vp5QhZTkLtdWAShhpxMlg54ygkcneYA5
-         S0TtmmvWBFpOJ7L61KyvWhFU+OkX3rb9gk7UxaF06ffJsYgBXplkXMHuJ6rVf5YGp/CQ
-         s2x9683wyiuMHcuHroBdWbs6PaPGpNMOvJoVJM6c0wt0G+IskkNWYm/7bn1z7LSwumae
-         0JGR9MeoRYEPu3DF7TIzg7SYtwoXz012yij8g/p8SmPrfs6goW4lbPpSYduXBjfhve+e
-         gHrw==
+        d=sifive.com; s=google; t=1791388670; x=1791993470; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=zVUR0mPxOZ7cLe3tx3kr6IkZOSqHAPMm8wQmfjR1ZyE=;
+        b=XgOkr/7sOQrNJ6HoqH89CodoZMNwBfWtCEhWvsqx5OerwSCqAxxv68bA2f/OKQxTf+
+         QRMinbJz//fuyuz70s6udVIVwOHMvjd9JcS7jVhI0NvzLK+qWJhNAJ1Nzj/DgAah3Dmp
+         /kSRJoT3My413Ga880f17JKVRIRe4zuTFlFtpP6ub3GvHkyiLJx+zmxIa6IqMXTZ888t
+         YeMCKQA55Vxl9OOJbZ3NTEAv5FfxQSDQALGN/LcS5g4AtZ/DIVOukOaLLaxuho+DSFpV
+         GmRFnWuck/wB/VFu29WFGxa3y+KoHhuKacktxbWPnh1sxsSsR+QdU0BA+bAJpafFy/7C
+         dVOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791388672; x=1791993472;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0RyG/X5i0vkChanPWXCAobrxzoJwwd2fGJPSSEJItfY=;
-        b=gsTwGoo3CJTgglfPlutIkxjof9PtqAvo6Tm0BX+M8psha6AQsQGj1Y2JBzrBZ318A8
-         DwLCeHaR9x9vZsspIL90GMm5VCbtgZR4zO9rzATr5fK4uBOgK7jnlcWq34cZlW7A0rso
-         cbRqTpKLaOBOTWgIVe+64e9IC2zhxz8AFS7VjSBiAy/NDeyCQ9MJ7cGz7V6oCG3NUDpK
-         aZfsK4IGyTEWxc8qu9W37d1n68kxTGnaunMUCHVSzV7fAepnqfxHWuO4oxjZSxZzt21S
-         S5QXbnH+ume3QDFJz2gkuWiaJDvkazuoEGXQI4m0+NPsSQh1c0BaKCFguRehvUZT1iFi
-         gjRg==
-X-Forwarded-Encrypted: i=1; AKwUvBydtJa8UT8S+VIWsBvPqeSsUgvXKIF+NGsW1++TaxuYPHpElBFZDMJg0r4Ms+5HTwXSSCORXyv1agF/Fg==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKQnpdZaEfYl7x3A8z5oIufozmGFsN9ft+w8DQELP3b3DAyy24X
-	E0MjeTPjvLH9DQj/UtnuLTaOHc5oF28laPrg9zD9anO8bfG2okDuCI2Um6tY7zXbGC0=
-X-Gm-Gg: AYBFou2ufZ4QLw4x6o0Tbw36Cuou+vDsUqhD9DjOhwL7d5L9VgprhY9pLhqiXTsv4ng
-	HaL5kHRAJwoZHz+BamGbNqX5RL246KGzB35qt/AswVRIMJhLtPoC/vCV6Pnd4Uhj3Cfrr0JEgrW
-	yVnq4DlYqjMgyt6VBt/fDatOxQvIO3xrW4aoOSu86M5TAyNylO/WMKgx0RfO2Fbz+vKn7YMh1oW
-	xJ/jlCYqRoJ2tqPm180BGtr8jpVdJIgHEMI+x/I2b9mSYj/1ZJgLArsOcZXcyA7wJcLro+28Ghr
-	hLYsvYNmqEdkeXM7/oG0DbJkKCqg2p03klkV7Eb5aGAw+/g5B/F4seGGlorjKpu9ntkLaPlf+IC
-	EFcdehUdCGV5cXBs9P/hNNdq6GzVKpl9QAPar7e0ODmgTljj6+fUB70dLcXsO0sBwcII6w7fmAU
-	XimpvmaMqv5Y3B5/LmJaQIlAVJe3z7HkF0UkPcWkFh4eaQOSH85Rc+dbXavIedDh4mswaNBAyXW
-	p7KEdmnEM9nqJmKINl5
-X-Received: by 2002:a05:7300:e9c8:20b0:34d:3ad2:680e with SMTP id 5a478bee46e88-3515dd51cd5mr3194766eec.14.1791388671211;
-        Wed, 07 Oct 2026 08:57:51 -0700 (PDT)
-Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-16168f586f8sm9457788c88.13.2026.10.07.08.57.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        d=1e100.net; s=20260707; t=1791388670; x=1791993470;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zVUR0mPxOZ7cLe3tx3kr6IkZOSqHAPMm8wQmfjR1ZyE=;
+        b=eV+pFOGgwn8UStXcGmDIQ8QzgF5FKVw3eh1M5SluvvDfHHyDCpx54ZBVDNqP5yNbIJ
+         7WOJYW3e66QoSryE+IfiXHjNqIPvgXDl1Om26s84SjPOTbeSeihYxjh7M3tk6i6nRxpv
+         i25Fij6LYmv7ctYUp5JBep5+FoHahTvXXnaIgmRTQauKXsVZLOwHqMoOmzPHUEE+WvOl
+         s4bedgKsqLMmyGn9bLudiYswHxBzW8HTwhlk2+L4UAGQNb/kNQOUBV6KwDjqp/Q+pS7e
+         7FrX9QqDUrEAIyZktMBtHOLjqrHXO8x2sUSjAeWTOxcLmOinlrAN4zhBcSVcfGd/Qg6x
+         D87Q==
+X-Forwarded-Encrypted: i=1; AKwUvBweRlwukUxRzI1cg45NPX9QwOGHCAEzrcgUClCoSLEOP67jS0jTO9zBj5NwNOi52PhIEbWLWU51nwUr5w==@lists.infradead.org
+X-Gm-Message-State: AFuF++kIFHStd9L9umKEqoBA64Lmlju28Sln17SUHto5M/KYISjBshMv
+	0QO6zzIIa/kTgPHFAh8567bPf00VVgX7PCR+wKZN0vBcZt9lObwhxod0VpohNXih6N4=
+X-Gm-Gg: AYBFou1ThP8QFpBH4/cHul0m9nMUGeaR4qd+BcXG7VgTUlRoJlpj875fg0XlNa4SoM+
+	TcYq4IQ2QmZkThS2llJLeRS7+dMPo0LrAQaGQ0cD6p20FtjFktkol/YKavkWl6tv4FXmTj4GGvK
+	T7XBB1mzfKECcteDqkbB4WTUb2fmREUZOLvmBbx60kBYgkj+Jhd5M66HtljpQjDGp4FeCVEv2Jn
+	hyzUgXNkyQzayUkdnHdkpcfgRBaeKC9tBsO3DwRMTrcClSSe4mTTFRujLRDfImdmajLqv6K3imy
+	tA47IIvTBIdb3BC0qZsrwMlz543fq6kInHB9v2EmJOexNanPyzrDaN/DB1x2RiDoZTjpF5vacgQ
+	0Ud60ZNhI1CZSG3GE24Fz6w9SyW8roRR9xyIkVhYvmxxJsGnei2zW5v+CSaemtEd9rAKGSmoOx9
+	iw2RigOOX2aewExXGpGJ81AHK0o75vMgqXU+Gg1sQusCLH21lvL+zNeYgPWaCu018RDlwN4cH51
+	IGJmD4tbuXnSiGJ1a3P
+X-Received: by 2002:a05:7022:512:b0:146:84fd:7b58 with SMTP id a92af1059eb24-15d2e03cf39mr9053699c88.9.1791388670115;
         Wed, 07 Oct 2026 08:57:50 -0700 (PDT)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-16168f586f8sm9457788c88.13.2026.10.07.08.57.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 Oct 2026 08:57:49 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Paul Walmsley <pjw@kernel.org>
 Cc: Deepak Gupta <debug@rivosinc.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Zong Li <zong.li@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH 2/2] riscv: cfi: Only write envcfg CSR when task is current
-Date: Wed,  7 Oct 2026 08:57:41 -0700
-Message-ID: <20261007155748.291814-2-samuel.holland@sifive.com>
+	Samuel Holland <samuel.holland@sifive.com>,
+	stable@vger.kernel.org
+Subject: [PATCH 1/2] riscv: cfi: Bounds check restore token before swap
+Date: Wed,  7 Oct 2026 08:57:40 -0700
+Message-ID: <20261007155748.291814-1-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20261007155748.291814-1-samuel.holland@sifive.com>
-References: <20261007155748.291814-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_085752_603150_BB93DF8D 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261007_085751_164389_FFCA36E1 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,59 +101,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-set_shstk_status() and set_indir_lp_status() take a task argument, which
-lets them operate on tasks other than current, but they always write the
-envcfg CSR for the current task. Fix this with the envcfg_update_bits()
-helper, which only writes the envcfg CSR when operating on current.
+Currently the user-provided shadow stack restore token is not checked
+before being used as the address in ssamoswap.d. While an invalid
+restore token will be caught and raise SIGSEGV, this happens after
+writing 4 bytes of zeroes anywhere in the address space. Check that the
+restore token is at least a valid user address before the swap to ensure
+we do not scribble over kernel memory.
 
-Fixes: 61a0200211d31e ("riscv: Implement arch-agnostic shadow stack prctls")
-Fixes: 8a9e22d2ca5855 ("riscv: Implement indirect branch tracking prctls")
+Fixes: 66c9c713de59 ("riscv/signal: save and restore the shadow stack on a signal")
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
- arch/riscv/kernel/usercfi.c | 15 +++------------
- 1 file changed, 3 insertions(+), 12 deletions(-)
+ arch/riscv/kernel/usercfi.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
-index 23c4d6d9d8cbc..86141e5bab822 100644
+index dec0ba5eff5ea..23c4d6d9d8cbc 100644
 --- a/arch/riscv/kernel/usercfi.c
 +++ b/arch/riscv/kernel/usercfi.c
-@@ -15,6 +15,7 @@
- #include <linux/syscalls.h>
- #include <linux/prctl.h>
- #include <asm/csr.h>
-+#include <asm/switch_to.h>
- #include <asm/usercfi.h>
+@@ -206,10 +206,13 @@ int save_user_shstk(struct task_struct *tsk, unsigned long *saved_shstk_ptr)
+  */
+ int restore_user_shstk(struct task_struct *tsk, unsigned long shstk_ptr)
+ {
++	unsigned long __user *token_ptr = (unsigned long __user *)shstk_ptr;
+ 	unsigned long token = 0;
  
- unsigned long riscv_nousercfi __read_mostly;
-@@ -66,12 +67,7 @@ void set_shstk_status(struct task_struct *task, bool enable)
+-	token = amo_user_shstk((unsigned long __user *)shstk_ptr, 0);
++	if (!access_ok(token_ptr, sizeof(token)))
++		return -EFAULT;
  
- 	task->thread_info.user_cfi_state.ubcfi_en = enable ? 1 : 0;
++	token = amo_user_shstk(token_ptr, 0);
+ 	if (token == -1)
+ 		return -EFAULT;
  
--	if (enable)
--		task->thread.envcfg |= ENVCFG_SSE;
--	else
--		task->thread.envcfg &= ~ENVCFG_SSE;
--
--	csr_write(CSR_ENVCFG, task->thread.envcfg);
-+	envcfg_update_bits(task, ENVCFG_SSE, enable ? ENVCFG_SSE : 0);
- }
- 
- void set_shstk_lock(struct task_struct *task, bool lock)
-@@ -96,12 +92,7 @@ void set_indir_lp_status(struct task_struct *task, bool enable)
- 
- 	task->thread_info.user_cfi_state.ufcfi_en = enable ? 1 : 0;
- 
--	if (enable)
--		task->thread.envcfg |= ENVCFG_LPE;
--	else
--		task->thread.envcfg &= ~ENVCFG_LPE;
--
--	csr_write(CSR_ENVCFG, task->thread.envcfg);
-+	envcfg_update_bits(task, ENVCFG_LPE, enable ? ENVCFG_LPE : 0);
- }
- 
- void set_indir_lp_lock(struct task_struct *task, bool lock)
 -- 
 2.52.0
 
