@@ -4,59 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4C2DCA6002
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 15:32:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 908EDCA5FFC
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 15:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CgWfb91QtDiNMGNMy3MJTWqaTbsF2D4gFEzGv7SvJjc=; b=noqW5h2/isFQ83
-	PGeaGO8xr/i8LpeWfWYy5GyTaoeSymdjB1jesKr1qNRQXLWsZjH9qiikMCrACCSq/0cAxpWgdp5js
-	nSLxrkYjfoAQh2TBnKu/J0aGBSKGV/GRR2KHzDU1XyBcJNsphe1gCwR2csc2gnBoxqr3OVc6estP7
-	GxwMCommcJyoljG9daO/fiIcBF/3Y5ZUwEuLoAgCB9idNxdBL4aOE52E6s8YBn2fbjQ2XsxIuVPCA
-	5pzu7wyh3ggjUDh1WXRVIcxxtKat3aXg8Y66nCLQa9QufMIi+gk+RH93TXZG19vjDgRaXjyBgkdBB
-	+DD81hM/+Q1XyDmU1CBw==;
+	List-Owner; bh=PueWRpY4tb5brLBTY5Wcc71h8FqVvMvmkNM09R8c/sQ=; b=KWneDC92/g1Agt
+	UvRjTUZRLdo0ro0MCs/XuEbImj80gj+sbsUwOqQmlNRwjgHIFcHFzxM6cf6bceBn86t2Qs6oZRKOo
+	urFYMhK04DIF6eX0d8GYDv2bF8beOMDtsAWw+Wq9RULOClAIlQ4SCmMixKwSXWY4OfKdZIH031yS+
+	vN4Gr5JyCuqWV3+UVDC/KuGj3W973lN8NDUZsAYvNQ6ZNi3nqIcd8O4AARXg73MRtysIYw1MtpfX2
+	3+IejiIjbUSt6Tx9jrm3B+wBfdl5RZR5u4tpd9yAP5DFVnlDEeA4BbJNgWHafV1poNc0ZkO65cq63
+	K/a1BMiD+e3+v6TpZ2xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xETcQ-00000002i5u-0ILt;
-	Wed, 07 Oct 2026 15:31:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xETjZ-00000002ije-3FD7;
+	Wed, 07 Oct 2026 15:39:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xETcN-00000002i5c-0SoA;
-	Wed, 07 Oct 2026 15:31:43 +0000
+	id 1xETjY-00000002ijR-1Owa
+	for linux-riscv@lists.infradead.org;
+	Wed, 07 Oct 2026 15:39:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6D41543931;
-	Wed,  7 Oct 2026 15:31:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2FF21F000FF;
-	Wed,  7 Oct 2026 15:31:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 82DED60202;
+	Wed,  7 Oct 2026 15:39:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 625CF1F000FF;
+	Wed,  7 Oct 2026 15:39:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791387102;
-	bh=NeSUlDsVo1s6+AYYrQ/dOA7YcHXnvKye1ADL9d8nv6w=;
+	s=k20260515; t=1791387547;
+	bh=p346DBewhLxeZdx36JJxUf8JaJdqjbbB8zICG+z4Gag=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=RCz9UumVg7MCcfX/YLxNtqhItlWET/Z1k3RTfAdRoaVqQs3a3NbcouYkfoRa6pqRa
-	 jwfkKjqQFvJme9MJKzccjiWaBIYZnIQSr30tk3sN4Oj/ENR3fiTTmnTFWWwKGQFoeb
-	 x9MjmhgJ0kmmNmAq7/tqTt3LsMeN1sIUKC0DCxHLXLAtieAlsD1mwQnpdmG5vQOb9x
-	 gKl7THQ6pA6fWIQSfzbdAEF4m5wwnmOXtTZPUxHiS3kdutQ2LiJefIBqdvg40dMq37
-	 aGslvNm0CR4bws0xNVP1YK9frHlVIP5ANSZZpLjn1VMDryR0iTmV1KpEpZDZdQ/QN0
-	 RS+2rsBgM/2fw==
-Date: Wed, 7 Oct 2026 09:31:36 -0600 (MDT)
+	b=S171WsZruMhmWqVUT1wEsBGoQpcCiOreN97b5RnO44HrFGwuJt4tgcLEPCjvdWpyF
+	 P6w29UIbMaRvnLv71WcHBrQizbGaspuHyDyvGO0a6ysTKA1lU4SnaV5GdcA9u7lTyK
+	 c1VqW/jSGg5ZU7mUwMRs+dnJjTKlKZUzHs64+3/OLGDgkFB/RQSFozUX9nK+lAIe17
+	 +CRoj7/bGyw3DLnyiNx9xVKGOq2wGBrRiDlo6YPNSxz9KLqT7ekvQl1szSkeosregV
+	 6+ULo0OUxxvSbokkGjG2ww/ooA1gvFgAsfn06tUbThUEQIoAXyBeXH4/EzF5KLVogp
+	 PYylQg+sbjZFA==
+Date: Wed, 7 Oct 2026 09:39:03 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Adrian Hunter <adrian.hunter@intel.com>
-cc: Chen Pei <cp0613@linux.alibaba.com>, acme@kernel.org, peterz@infradead.org, 
-    mingo@redhat.com, namhyung@kernel.org, mark.rutland@arm.com, 
-    alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com, 
-    james.clark@linaro.org, leo.yan@linux.dev, john.g.garry@oracle.com, 
-    will@kernel.org, mike.leach@arm.com, pjw@kernel.org, palmer@dabbelt.com, 
-    guoren@kernel.org, linux-perf-users@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+To: Chen Pei <cp0613@linux.alibaba.com>
+cc: pjw@kernel.org, oleg@redhat.com, debug@rivosinc.com, alex@ghiti.fr, 
+    guoren@kernel.org, linux-riscv@lists.infradead.org, 
     linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] perf tsc: Declare TSC support from the build
- system
-In-Reply-To: <66136aa8-adbe-4fdf-9b7c-d44ea0e5cf1e@intel.com>
-Message-ID: <d58889fc-71a1-0144-dc5a-4eb354536748@kernel.org>
-References: <20260929034133.2153-1-cp0613@linux.alibaba.com> <20260929034133.2153-3-cp0613@linux.alibaba.com> <66136aa8-adbe-4fdf-9b7c-d44ea0e5cf1e@intel.com>
+Subject: Re: [PATCH] riscv: ptrace: reject CFI regset access when extensions
+ are absent
+In-Reply-To: <20260820063233.2567-1-cp0613@linux.alibaba.com>
+Message-ID: <8a340efc-d50f-40b1-698e-65bde2cc0660@kernel.org>
+References: <20260820063233.2567-1-cp0613@linux.alibaba.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,30 +70,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 6 Oct 2026, Adrian Hunter wrote:
+On Thu, 20 Aug 2026, Chen Pei wrote:
 
-> On 29/09/2026 06:41, Chen Pei wrote:
-> > The "TSC support" subtest of the "Convert perf time to TSC" test decides
-> > whether the architecture is covered by matching compiler macros for
-> > x86_64, i386 and arm64.  That list has to be edited for every new
-> > architecture and can drift apart from the set of architectures that really
-> > provide a counter.
-> > 
-> > Declare the capability where the implementation is, following the
-> > PERF_HAVE_JITDUMP pattern: an architecture with a usable counter sets
-> > PERF_HAVE_RDTSC in its arch Makefile, Makefile.config turns it into
-> > -DHAVE_RDTSC, and the test keys off that.
-> > 
-> > x86 and arm64 keep the same behaviour, riscv starts running the subtest
-> > where the previous patch defines rdtsc().
-> > 
-> > Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+> riscv_cfi_get() and riscv_cfi_set() do not check whether the Zicfilp
+> or Zicfiss extensions are present. On systems without them,
+> PTRACE_GETREGSET on REGSET_CFI still succeeds and returns a zeroed
+> user_cfi_state, misleading debuggers into believing the register set
+> is available, and PTRACE_SETREGSET silently accepts writes that have
+> no effect (e.g. clearing SR_ELP).
 > 
-> One minor style comment below.  In any case:
+> Reject the access with -EINVAL when neither branch landing pads nor
+> shadow stack is available to userspace, using the same availability
+> helpers as the prctl path.
 > 
-> Reviewed-by: Adrian Hunter <adrian.hunter@intel.com>
+> Fixes: 2af7c9cf021c ("riscv/ptrace: expose riscv CFI status and state via ptrace and in core files")
+> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 
-Reviewed-by: Paul Walmsley <pjw@kernel.org> 
+Thanks, queued for v7.3-rc.
 
 
 - Paul
