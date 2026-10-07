@@ -4,79 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32813CA5FF1
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 03:36:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6DB0CA5FFF
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 04:52:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:Subject:Cc:
-	To:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TO2Kolu+2u5l7svScxHwB06iD1IKx+1QKg4L8+QxNt0=; b=CQVPmV1Ey8UQVi
-	tpeVAmhAMZvEdxIQG5NM5yhQK+7wIQhw5VlB689sjUq98A4jASGOZasDikYU5V/HQosqjo971ZZ/f
-	zwwZgmaFXQm40rZvBDywXsJ/Qjq24Usy5fhotBWayHPBCx2tbfn1zbu+zQFRhJI3Xclpxg0N9UVKi
-	2uEfH3H5m1Da6sXN6lWU6NEWyuXAmm6Pc3oc++AVIVEdrzfT2a/5gcQH/keDsjacaZMHSTVGvHjfM
-	FOJ+O+DTQvkTpEmFxwrQ3RvIy0ycncYiiUVxpA1/hQ/+Sn7k1QP6h1qnNIzSS8EKpwcTV//WLQHrz
-	5HgLXwkdnQ/CvDRrEH2g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FE2kZmBU3G/0RBMn+PdxPBvOOZd9mh2B9/PaWa1/zXc=; b=sXgipbAOirg1xq
+	WyR1o8z1/0glX3l+JqA48tU20xIM5pah1lkbLZmYE/1EKQWPRHfb29trfv2KY+TuNTX1/LjOUe/Pz
+	xLkKojQAVJpKXRcmu7XaTmZX9W2MkK5NDHSzh6B7FMC3nDz/vPhhlgB5IOWr5+xh2j6rzEPWPJvaO
+	TuF9ycfEEAqubxEIe9vdNrBFT581L9RbR41ZuvIw9oCFaIm+8N0wogW4MpYHCPAiwhIv422OHwA7U
+	DQL3OOnysLVT/HgkVft3ilHCbqeOcshYTkyK5XtFXJEuPqMor1ChrZbhMCy3aN2loJRjUd4okesy9
+	kpiRAU5IdWnQlyJJkhfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEIRF-00000001fyH-3LD6;
-	Wed, 07 Oct 2026 03:35:29 +0000
-Received: from sender6-op-o12.zoho.com ([165.173.180.12])
+	id 1xEJdt-00000001hgr-1uHw;
+	Wed, 07 Oct 2026 04:52:37 +0000
+Received: from mail-dy1-x1335.google.com ([2607:f8b0:4864:20::1335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEIRC-00000001fxp-2TqK;
-	Wed, 07 Oct 2026 03:35:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1791344101; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=EMt2HxZjGxKqN3KMja356Ejlm4RJ3ba7GuoEX6EUHQ11KKvVi/AlTLXrVwZkxPQFoHXC2LwGWUjI5cwh53QZConfu700rGSNok0yINxejDfgC4WPDw5S0pJqMo6zSdJiN0CpO7ReMGrXY/KVAefrmvMEFgrCdz1MsMrReBIMc90=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1791344101; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=7EEv66TfkkqDC0vBD6k5R4XJT1WUveDu+xqFWjFMwS8=; 
-	b=l09IKvPiFoQMX2AX3F1fOIWVtTXZREcVQyzldMWz0+tZ8xOSQYyblRiDWkWmxg4EZ5zBLoXBv3b9B0s6Z0q2Fny0MWidmzBKZsDWz4s/sdjCyBYR5a6VNIQn40ecbW82JoQ9oCDbnNvyOF0d5ymxtqwYHoXTK3mqdQn+11WsUOo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791344101;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:To:To:Cc:Cc:Subject:Subject:From:From:In-Reply-To:Reply-To;
-	bh=7EEv66TfkkqDC0vBD6k5R4XJT1WUveDu+xqFWjFMwS8=;
-	b=ngjjKCMToI6FGmexYDJ/b1KiQmPlOSMsEgTrZ1Bj27Cu5QVcCjFprimUKNkf1sYU
-	A5Bksc5nvWbdRiJ5nUGNCEssIHzFQgZ9YVyrNw6nk+G1S4Q6xuauG+CvM6kkgkftsNq
-	RzjUMpRmbx+tDp0XBw4HCwVTxhtGOhNEnUh06Anw=
-Received: by smtp.zohomail.com with SMTPS id 1791344099855931.7368458013717;
-	Tue, 6 Oct 2026 20:34:59 -0700 (PDT)
-Mime-Version: 1.0
-Date: Wed, 07 Oct 2026 11:34:49 +0800
-Message-Id: <DLYAHDTH3129.3AYF0OSHL8RJ8@pigmoral.tech>
-To: "Vinicius Pedrosa" <vinicius.eduardo.pedrosa@gmail.com>, "Junhui Liu"
- <junhui.liu@pigmoral.tech>, "Stephen Boyd" <sboyd@kernel.org>, "Brian
- Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
- <jbrunet+clk@baylibre.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Chen-Yu Tsai" <wens@kernel.org>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>,
- "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
- <richardcochran@gmail.com>
-Cc: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <netdev@vger.kernel.org>, "Jerome Brunet" <jbrunet@baylibre.com>, "Enzo
- Adriano" <enzo.adriano.code@gmail.com>, "Andre Przywara"
- <andre.przywara@arm.com>, "Norman Herms" <dockseed@proton.me>
-Subject: Re: [PATCH v5 3/8] clk: sunxi-ng: a733: Add PRCM CCU
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-X-Mailer: aerc 0.22.0
-References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
- <20260930-a733-clk-v5-3-11175b41cd2d@pigmoral.tech>
- <20261005183038.417798-1-vinicius.eduardo.pedrosa@gmail.com>
-In-Reply-To: <20261005183038.417798-1-vinicius.eduardo.pedrosa@gmail.com>
-X-ZohoMailClient: External
+	id 1xEJdr-00000001hgL-2DM2
+	for linux-riscv@lists.infradead.org;
+	Wed, 07 Oct 2026 04:52:36 +0000
+Received: by mail-dy1-x1335.google.com with SMTP id 5a478bee46e88-34c89609923so776211eec.1
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Oct 2026 21:52:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1791348754; x=1791953554; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=VmgrLpFXhhaFsHuQHBPVlR2txu1HA+6BnxOMmWzDn74=;
+        b=QL0Xc5oLcGpgEJGwE3zKvrgeVq6wQ7/06TThBJHE0g8TgucVpLaTbgA8FK7TaFWX00
+         DIhLzBlE0aNhzQK3EU+CTwunSFEnjNHNbpZmI5bT8BRRlS3XZS9vONu1xzy5NtCWdunn
+         UBEVlnUdLJNbsLrk7xuDHmIWsq7aspO/Ywxl4eIEFoWFHcRZFuGT2r0vVsPJK38ZjPQ3
+         9TByslkfgeii0y7ftgFhFdCp6WtlmUlWLcitcTh4qUl4izyBBX80FxlAjRYbTrSGzDm2
+         OQa9QIw5E/PKHDf9unuhKvEGxy5+Tqys3/6aO0ZYY3YD7DloLLn7nqphkMYMHMZn+Ehd
+         deYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791348754; x=1791953554;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=VmgrLpFXhhaFsHuQHBPVlR2txu1HA+6BnxOMmWzDn74=;
+        b=RE6SzMm8UOCbqPF8ww1OD6WVqOQymgFRjQCsfrETeWF1aG7bifzSONME9FDrzZGIwp
+         CdM1BOWUKLYq6fCZarqkWdt6EFwZhL+TxRhPOaQbG+LF7zRAljds0FZhlWS5GH/Rc5hI
+         sjnQEPByxtn6N5mr0GwpwNADbxyHQrE93O5cMrjRT+NKX814sl1gcpmL/eaMk3tyQDpN
+         hry7iLtwGuvJhOCDNqHvz4JCAJTxrVD/IykoK+/fbr9m3tlM8HwbbHn6IHJGVBBPOIOg
+         SN10aWP7joMXhQHEj88arJs5as0HjSa81JWSPWSi25Bo98iuEJwHeT2J5P8/JczApABM
+         jZDQ==
+X-Gm-Message-State: AFq9FYL0tvx5BPj6zT+WaLbmZOrUyCkqkwIb/hlZe9aLORpYR/Orq/Ur
+	x6louaANcfMMCLevxE8JmyZ2idTUfaEOLcCHHeqh8EWJ3usHlCjMgpD+9lIwgSm77AaaiqXzHT5
+	l9Qn0T2tvm+30R9AH9QJZ+ouwD7BT6VWm5EzSLuo0pFX14jXEK8y/LL1yDKX91emciNIWtEL6sm
+	Tj5MmmYxEuCPfAU/jwT332jsduRbWA1WGSnjaeCOodU42mKayDwZx/hiWq
+X-Gm-Gg: AYBFou1aZ1m6H9MAIEeR1T2YdsffuJn4GSqmP5+J2zRI+ZeJcJ3FW78nJ5So8ucwwZY
+	+ZzcgpdbGRhn8Iu16dypzcehXIY0isQl1tfRtuSDNwWbmJp5/9R5/8/iQdNcCdCigd39Kz+vRaQ
+	EDo20Bwunfit3V/GNMKL0vomznbF3BWIWMtQJuU7aO66BWKdIJ3KMbrH0UZNizxOdR/wmBqqBED
+	nwrMUGpYZXq0zMkG2HBygrbX/sBAfiDQ7T602/wIfhrjpgbHSLAjT8Thy190DGdvKU3AQNgmP5O
+	Z3bHPkH0cWrlK4J3L38Cf7GBHHlGkGDsCIsmjSwQoveyEqltnbGEXOfL/p3OXZGTta70DikUTgZ
+	HVHD8kPhLZjKVJD76xE3suoEKyUWrYSLsYjW2Y5xmgG0HaK9mMHxaQ/kk+L5kxM4omT5dyyCOh6
+	IE6YG08Z2XouhmvsXpqf1IuaKNi/8ZZQADCX85ClGPKoFYVUc3Xy4D4hpdBuuOz7DYY/V1oZygX
+	cnnXBeD1x5sow==
+X-Received: by 2002:a05:7301:488e:b0:34b:529d:6263 with SMTP id 5a478bee46e88-3515de84167mr1045115eec.33.1791348753785;
+        Tue, 06 Oct 2026 21:52:33 -0700 (PDT)
+Received: from sw08.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3515aeb6076sm4187598eec.9.2026.10.06.21.52.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Oct 2026 21:52:33 -0700 (PDT)
+From: Leo Yu-Chi Liang <leo.liang@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	pjw@kernel.org
+Cc: palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	wangruikang@iscas.ac.cn,
+	linux-kernel@vger.kernel.org,
+	Leo Yu-Chi Liang <leo.liang@sifive.com>
+Subject: [PATCH 1/1] riscv: fix NR_CPUS range leaking 64-bit default onto 32-bit builds
+Date: Tue,  6 Oct 2026 21:52:29 -0700
+Message-ID: <20261007045229.36114-1-leo.liang@sifive.com>
+X-Mailer: git-send-email 2.56.0
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_203527_079458_891ED8F7 
-X-CRM114-Status: GOOD (  17.64  )
+X-CRM114-CacheID: sfid-20261006_215235_591318_08A4E311 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,67 +103,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Vinicius,
+rv32_defconfig is built in two stages:
 
-Thanks for testing.
+- the generic (64-bit-oriented) "defconfig" target runs first
+  and resolves a concrete NR_CPUS value using the 64BIT default.
+- then 32-bit.config is merged on top via merge_config.sh,
+  which does not touch NR_CPUS.
 
-On Tue Oct 6, 2026 at 2:30 AM CST, Vinicius Pedrosa wrote:
-> Hi Junhui,
->
-> On Wed Sep 30, 2026 at 1:26 AM CST, Junhui Liu wrote:
->> +static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox", &r_ahb_clk.common.hw, 0x17c, BIT(0), 0);
->
-> [...]
->
->> +static SUNXI_CCU_GATE_HW(bus_r_riscv_clk, "bus-r-riscv", &r_apb0_clk.common.hw,
->> +			 0x21c, BIT(0), 0);
->
-> I'm bringing up mainline on a Radxa Cubie A7Z (PCB V1.11, 1 GiB). With
-> 7.3-rc6, this series and a local common-DT integration, PSCI reboot and
-> power-off hang once unused clocks are disabled. The boot chain uses
-> vendor boot0/BL31 and source-built SCP/U-Boot.
->
-> Keeping both of these gates enabled fixes reboot; either alone still
-> hangs. With only these two marked CLK_IS_CRITICAL, reboot returns to
-> boot0 and power-off drops DCDC1 from 3.3 V to 0.7 V and turns off the
-> green LED with power still connected. I haven't checked whether each
-> gate is needed for power-off on its own.
->
-> My guess is that BL31 talks to the SCP for these, but I haven't traced
-> it, and it may be specific to the vendor firmware.
+The final "make olddefconfig" pass sees NR_CPUS=256 is still within
+the "2 512" range therefore never recalculates it against the 32BIT
+default of 32, silently keeping the leaked 64-bit-stage value.
 
-Yes, it appears that the vendor SCP firmware runs on the E902 core
-instead of the ARISC OR100 core on the A733. Disabling either
-bus-r-riscv or bus-r-msgbox breaks the SCPI communication path between
-TF-A and the SCP firmware.
+The NR_CPUS-scaled regions (percpu areas, ...etc) of the resulting
+CONFIG_NR_CPUS=256 on a 32-bit build bloats and does not fit in the
+percpu/stack layout for rv32 and hangs early boot on QEMU's virt machine.
 
->
-> Would it make sense to mark them CLK_IS_CRITICAL, like bus-r-cpucfg
-> already is? I can test the next revision on this board either way.
+Fix this by explicitly specify the range for 32/64 and SBI_V01/!SBI_V01.
 
-Mainline TF-A uses native PSCI for reboot and power-off on the NCAT2
-family. Even if Crust is ported to the A733 in the future, I would
-expect it to run on the ARISC OR100 core rather than the E902 core.
+Fixes: 0fa749771993 ("riscv: Raise default NR_CPUS for 64BIT to 256")
+Signed-off-by: Leo Yu-Chi Liang <leo.liang@sifive.com>
+---
+ arch/riscv/Kconfig | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-(Also see discussion in [1].)
-
-The E902 may also be supported by the Linux remoteproc and mailbox
-drivers in the future. In that case, bus-r-riscv and bus-r-msgbox
-should be managed by their respective drivers instead of being kept
-enabled globally.
-
-I don't know if marking these clocks as CLK_IS_CRITICAL just for the
-vendor SCP firmware is a good idea...
-
-[1] https://lore.kernel.org/linux-sunxi/556cd32394062960a3ea4af0011155cfa83ae91f.camel@d-silva.org/T/#u
-
->
-> Thanks,
-> Vinicius
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d6c2dbf8455..5874ca30f4f 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -453,9 +453,10 @@ config SMP
+ config NR_CPUS
+ 	int "Maximum number of CPUs (2-512)"
+ 	depends on SMP
+-	range 2 512 if !RISCV_SBI_V01
+-	range 2 32 if RISCV_SBI_V01 && 32BIT
++	range 2 512 if !RISCV_SBI_V01 && 64BIT
++	range 2 128 if !RISCV_SBI_V01 && 32BIT
+ 	range 2 64 if RISCV_SBI_V01 && 64BIT
++	range 2 32 if RISCV_SBI_V01 && 32BIT
+ 	default "32" if 32BIT
+ 	default "64" if RISCV_SBI_V01 && 64BIT
+ 	default "256" if !RISCV_SBI_V01 && 64BIT
 -- 
-Best regards,
-Junhui Liu
+2.43.7
+
 
 _______________________________________________
 linux-riscv mailing list
