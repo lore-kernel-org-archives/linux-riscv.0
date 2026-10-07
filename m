@@ -4,103 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D69CA5FF1
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 11:13:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE51CA5FF1
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 11:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AU1eKQiGl7gA1sBI3iY3LWJqXSK04Ffx5xbqGqLQtSA=; b=0zC1F+1BNOtrwF
-	UYhLHk7ToKSc6ImbsVlXFDfr+h8Q4K0f9WX9weFqxp/KdhCOb55wAE0D7tKBF4hHbiYL7LvckFk/t
-	Z0pC/QlNw0Axwro0XQgX7jv1jIbK55ZNDrOh9n2u2Fkzg1NYr38rMU+7yGaROkRN7namNb6KZKWDE
-	Ce0dG500aMan1SKvCAlRKs1u93PG31SN1XQ+9dtwuBWxnpm4LXHW1B4b7ygUSSHK1SFkJJpJKhweg
-	wiYvYoGz5QOhYDQVrbUcLKzKkVoUqduEnHoIj3oW1Nn7r2dyqQHxHyky6zQGCqbSwD5+WSVm4IZBc
-	AMpqz26/Gi7xvQZzSUnw==;
+	List-Owner; bh=wwg+vIduEekb32LCBr1GXlydnJpubjwZhtl9j+2aKBI=; b=F/d95/+yaHtzHY
+	K2L7hJuAG1y3+d4dRN1zW5kDq0na3Dy81K0uaNfUbRAQSs+iYlDQtNR5D+p88ZOg3GJivdHRm/pno
+	BGXlo8QbxuY9Y4aM29lxDQ4Q85BC6BBFLAugDOmvMDfmGPCNfygyfrbpQ4Z9iJrRfai1LgeIBdQBp
+	HSxHf6no3WoRGDY8DNeu61c9IPCR/45+P+GS2uT7foGnNIoaKjIy7gsDvPfA2adCgiiU23j7yNxVe
+	SNhtTC3wv2RAqsA4AMwtlRO85aL3+xafJwuRglkssc7dldYeIVxVHw1GOQeOMjCHQhLyc/1bfJRcr
+	1DToAopgeRZs/m4F7oMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEPaZ-00000002Hd8-1fmN;
-	Wed, 07 Oct 2026 11:13:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEPaW-00000002HbW-2TNl;
-	Wed, 07 Oct 2026 11:13:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 72249152B;
-	Wed,  7 Oct 2026 04:13:27 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 582333F66F;
-	Wed,  7 Oct 2026 04:13:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791371610; bh=XkPVGrUWVDU6Wer3sPwtuoNfUx3GZi0QoXy/izLzVhE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=igUveoCg91F1QZl6TCWGQXum8trlGIS+yJnnGXsR+anmFKmTZ1B9TBQsyFhsbvTr3
-	 8LWHLfx0Csp/j+Uam2n55lceRPr9TQ6wTKf+Lwm9q7pLVb3aBVKndMODvi3zPKvm0V
-	 t+PIIdBd0ff3Gzs8GCEjofEnDKdb1Cf+a6Zffw4w=
-Date: Wed, 7 Oct 2026 12:13:20 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH v6 6/8] dma: swiotlb: Centralize memory-encryption pool
- sizing
-Message-ID: <asYpUPVTw2W-cR3w@arm.com>
-References: <20260924060756.1325156-1-aneesh.kumar@kernel.org>
- <20260924060756.1325156-7-aneesh.kumar@kernel.org>
- <asVs3doaJ4WrT3M2@willie-the-truck>
- <asYZFXGyafRjjBS0@arm.com>
- <asYiOgskwi8JYLe_@willie-the-truck>
+	id 1xEPoZ-00000002JGX-34xO;
+	Wed, 07 Oct 2026 11:28:03 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xEPoW-00000002JFO-3Xhu
+	for linux-riscv@lists.infradead.org;
+	Wed, 07 Oct 2026 11:28:02 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-48c411d6615so1190031f8f.3
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Oct 2026 04:28:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791372479; x=1791977279; darn=lists.infradead.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=N25GKi4KKDEgKB7UY+JEtW1Q7H8cAQfRQt0G3e7XtJc=;
+        b=pw90M0HI/BNdeEPk4rOoeSvAB4skkgp+u+Ha8BcWAmnr43gJEnH3IawwCd9ku+djpT
+         w31krxO4601BqNIaNy7eQACnW1uDxS+5Nhkse/ZaPh9P4D6wwiRhniffsSqlGtC9NoP4
+         1WaqbjsMikqByhHI5BYaUWbhgh73/YaJwd6/TgeyDk4KPQ6i9ShN83L/aQQ7CIC9fIv+
+         8hk92l9hJEZkk07YLS9wxtyivYa8sh+5Vh3mDbhxzsE1oQNGgD+VFUf0850ESa1YbISl
+         apW2yCryxlVYfUb4gNSt4JrrUnh9nHI7LCAbtR7f/kgKK6OlvIeJzDmLvS2VmOukeSJZ
+         5XIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791372479; x=1791977279;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=N25GKi4KKDEgKB7UY+JEtW1Q7H8cAQfRQt0G3e7XtJc=;
+        b=GN44Q7/BRHfZNCJICUcyNQVzG9s6zHlZp28Dh3CvzmXYijiifegCi0CnvBqoSp/ur5
+         jm//31VHTu6lR/DN3aZZypnhn3cD05nVJvryPwLaVQuVpmrjNzcoxNdFlBhv/tCwOAwM
+         Q5zaTnL41Hvikegvhbvhi+uXvTbB8VP5la0KhRoypTgepfv0oZ2bumRQbH4XR5lAzFxx
+         s/2aJvJCTkKEAsVzcFjTiqRn1sgUJSt0eLzmxqmLvcu/Fu3BXm6TCdqZgVYGP7M7mSzI
+         BJprMpyR1zW5POXZxfdTIoorbw795ni0DTRYPY5suJmn2IX15DkPNGyi2L4ezOMdJos6
+         1zhA==
+X-Forwarded-Encrypted: i=1; AKwUvBzEu68g7iCfhZB/YjjhyXMwu/VPcOxdwUB5O6sBobLNUjGRDR9W0kRWR1xgYhjIk76UE/nAhTYWKkhbug==@lists.infradead.org
+X-Gm-Message-State: AFq9FYL9ueFDUYYbk1FJsnQX9c1ySa2zQGRU3VCh6iZMLw/pJUgOq1b+
+	wSFRTIPo7uvwgqHM+bcheF5zOkOhX1+yL97NWJcGCLxlSo/kTTeVloOc
+X-Gm-Gg: AYBFou2oAywwYJU/uJYKps6yKqqQ+wAdgex/DwX9IWxjgofzKJJuxPEfjfcZS7nQCLT
+	+jgqs1byROtO0M3NnMJitWuyUUjmBlk/0sY9FHwfThS6hcjs8U9dSWCMZ2rNqFFAm/7ytEZj90F
+	L7pIJq16fRYEcpD9WwkVHLguXDjuW6qeALqyw/PyT+JE6e33yRglPZnEQRHZp1L96nnNOCT8Rwr
+	TfwxLmIePJVlsDdpfw8CSnFy5X3Eg0o47K+41WLRhc/44c6fXSWy6UP4u0wm51Twp75R009UWC0
+	mzMSPv7UoEQehmBIbdKqwnOEFWqJUSKm/vYgblZ9qLspNhm97X/pYxfLb0D7kar2+8U9wMrtwrC
+	xnO5Y0gaKsqnS+JmcUMSn73McZVCRtT9PjxHY2Ow5dXBFdVil75XcfqpRVsZX69+BO2+bpTyVGJ
+	HftgYPNGNblfXGeZ3QcCxeLKtraw16U9QUH7gQub6SZsa9wj+9vnok73UqLrSCOlx9TogrfCFaZ
+	t5KaefpdisLIsSc9cqJ0J/ShztOsBbJOgurlQ4jzLwqNFysJE7r345hyliwaZrQEA==
+X-Received: by 2002:a05:6000:46db:b0:487:15a3:1cab with SMTP id ffacd0b85a97d-48c7275ad2fmr2408703f8f.18.1791372478783;
+        Wed, 07 Oct 2026 04:27:58 -0700 (PDT)
+Received: from [192.168.141.88] (90-182-211-1.rcp.o2.cz. [90.182.211.1])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48c71d22ec8sm4631673f8f.39.2026.10.07.04.27.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 Oct 2026 04:27:58 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <asYiOgskwi8JYLe_@willie-the-truck>
+Subject: Re: [PATCH] RISC-V: KVM: Fix build with vector support disabled
+From: Charlie Jenkins <thecharlesjenkins@gmail.com>
+To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+ Andy Chiu <tchiu@tenstorrent.com>, kvm@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
+In-Reply-To: <20260922021823.44251-2-zhangzhanpeng.jasper@bytedance.com>
+References: <20260922021823.44251-2-zhangzhanpeng.jasper@bytedance.com>
+Date: Wed, 07 Oct 2026 04:27:55 -0700
+Message-Id: <179137247589.137225.11125498978893340639.b4-review@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791372478; l=2180;
+ i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
+ bh=UdNnpY1s0JZcKFf12kXtXKzQHcVo0VQb9ksp6zlj8eE=;
+ b=N4/1k9PAIKC/zlNc3SD1Pn/ya7soMKpi9nQoq3x35ys4TSjiRf8v2bkGSSm8YfelPHY4YVtCW
+ JtOp7Fsds4lASn3a2Wb2XWeDh7BhMwE9O2EQTUj58BfxxJ+9qr0myJF
+X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
+ pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_041332_744024_83BE962C 
-X-CRM114-Status: GOOD (  25.73  )
+X-CRM114-CacheID: sfid-20261007_042800_908701_CD219A9B 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,43 +109,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 07, 2026 at 11:43:06AM +0100, Will Deacon wrote:
-> On Wed, Oct 07, 2026 at 11:04:05AM +0100, Catalin Marinas wrote:
-> > On Tue, Oct 06, 2026 at 10:49:17PM +0100, Will Deacon wrote:
-> > > On Thu, Sep 24, 2026 at 11:37:54AM +0530, Aneesh Kumar K.V (Arm) wrote:
-> > > > @@ -496,7 +516,8 @@ swiotlb_select_pool_policy(unsigned int flags)
-> > > >  	if (swiotlb_force_disable)
-> > > >  		return SWIOTLB_POOL_NONE;
-> > > >  
-> > > > -	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
-> > > > +	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
-> > > > +	    !restricted_dma_pool_present)
-> > > >  		return SWIOTLB_POOL_CC_GUEST;
-> > > 
-> > > I think this check on the restricted DMA pool is too general -- the pool
-> > > could be tied to a specific DMA-capable peripheral and so treating its
-> > > presence as a global property isn't right.
-[...]
-> > That said, such heuristics should have been a separate patch to make it
-> > easier to review/drop.
+> The kernel-mode vector context handling added unconditional calls to
+> get_cpu_vector_context(), put_cpu_vector_context() and
+> __kvm_riscv_vector_restore() in vcpu.c. With CONFIG_RISCV_ISA_V=n, these
+> calls fail to build due to missing declarations.
 > 
-> I think the only right way to get a semi-accurate heuristic is to take
-> into account the set of dma-capable devices that will use the swiotlb
-> pool, but that's fiddly and should probably be tackled as a separate
-> series. Maybe a simpler hack in that direction would be to take the
-> SWIOTLB_POOL_CC_GUEST if _any_ device is going to use swiotlb? You'll
-> run into the usual problem of not being able to tell if a device is
-> DMA-capable or not, but you could probably look for a global restricted
-> DMA pool and, if that doesn't exist, check for per-device restricted pools
-> on dma-coherent devices (since restricted DMA isn't supported by ACPI) as
-> a reasonable approximation.
+> The get/put helpers already have no-op definitions in asm/vector.h, but
+> kvm_vcpu_vector.h only includes that header when CONFIG_RISCV_ISA_V is
+> enabled. Include it unconditionally and provide a no-op implementation
+> of __kvm_riscv_vector_restore() for the disabled configuration, matching
+> the other vector context helpers.
+> 
+> The paths that set RISCV_V_VCPU_NEED_RESTORE are compiled out when vector
+> support is disabled, so the restore stub does not discard any live
+> vector state. Keep it __always_inline for its noinstr caller. The vector
+> enabled implementation is unchanged.
+> 
+> Fixes: b5060a4aa33d ("RISC-V: KVM: fix vcpu vector context handling for kernel-mode vector")
+> Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
 
-Yes, I think that's reasonable. We'd need to drive this from the arch
-code or, as you suggested, drivers/virt/coco rather than generic
-heuristics in the swiotlb code.
+I sent a patch before checking the lists, we can ignore my patch [1] since
+this fixes it!
+
+[1] https://lore.kernel.org/all/asWHSd31uyyNvt0a@blinky/
+
+>
+> diff --git a/arch/riscv/include/asm/kvm_vcpu_vector.h b/arch/riscv/include/asm/kvm_vcpu_vector.h
+> index 6371d5ea5392..50d4789b9cac 100644
+> --- a/arch/riscv/include/asm/kvm_vcpu_vector.h
+> +++ b/arch/riscv/include/asm/kvm_vcpu_vector.h
+> @@ -11,9 +11,9 @@
+>  #define __KVM_VCPU_RISCV_VECTOR_H
+>  
+>  #include <linux/types.h>
+> +#include <asm/vector.h>
+>  
+>  #ifdef CONFIG_RISCV_ISA_V
+> -#include <asm/vector.h>
+>  #include <asm/kvm_host.h>
+>  
+>  static __always_inline void __kvm_riscv_vector_save(struct kvm_cpu_context *context)
+> @@ -55,6 +55,10 @@ static inline void kvm_riscv_v_exit(void)
+>  
+>  struct kvm_cpu_context;
+>  
+> +static __always_inline void __kvm_riscv_vector_restore(struct kvm_cpu_context *context)
+> +{
+> +}
+> +
+>  static inline void kvm_riscv_vcpu_vector_reset(struct kvm_vcpu *vcpu)
+>  {
+>  }
+
+Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
 -- 
-Catalin
+- Charlie
+
 
 _______________________________________________
 linux-riscv mailing list
