@@ -4,85 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F7D3CA5FFC
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 12:20:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE0CCA5FFC
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 14:16:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LQuGSX87jiluRIugKarlx8Sx/ZxIeqqaCqmjTiwLwJA=; b=TPbA8ZAwo86vCd
-	fOq9MNwqiAiTkXRhlvjr5bDy1CZ6Uh7WwZoJNRNxi6qbhDQyCdhiTV7X0G+OB6dRVRTTQMO70xdXi
-	VGWy74vdzVPLM75sCmor0sTTp3RC+v1rC1cegZz+uj4656cCAJfHpVn0AIBTo+QMDlF6y7aR70eun
-	HT16C13Jt2eJkFhhYIIXan/RbJw5Rj9kP9aTrs3/qyR1WKhwMM2fnr12Tt3QppHn4UuhPIzc7ZuZL
-	3lDHdjNOAmAYJRTkdC8pG3O+EM7Oyx6s7JjYAGgJI7gb0C/UEO3zH+54MyGrkKGtxXCOIvPV481xK
-	8hPODT7vZ5bCjgNm3rDw==;
+	List-Owner; bh=lteJbOuuJYRGR6+4ZZAcYYNo/IS+diX4dvfnKkPXdmM=; b=VmTwXqQru6uAwJ
+	k4wzCFbhlAN3MnRW35QILdtJ+wQysd3tncpjMobFijwiTdsORkVhS5XGu8k/UFlyOYDXOIGNXRSPq
+	oARabMyzYpZwVxnHKPy8AGHlbcCepodQQMi32YHvy0LtFmbLeawzp78ami4QVsqSgy3r/EPeEg1Ua
+	QqZlOOC6DQMnvPiy+1Aq2FSEl1UKbH/DL9C+Y0K/4ShIEYUtp50y3E4Si1TSnde8KOK3+8LTO8+s+
+	GQVf5dZCtM/yBGcJyNXPrK5ZV8iIDRxwVvWudXwpLO1eJnDIwECT3mV93FQ25ant6cWsfPKhhpq3Y
+	1nQsmELRh46EiSetL/Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEQck-00000002QmG-0e0g;
-	Wed, 07 Oct 2026 12:19:54 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1xESRG-00000002b68-28lF;
+	Wed, 07 Oct 2026 14:16:12 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEQci-00000002Qls-1XGX
+	id 1xESRC-00000002b5V-2AU2
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Oct 2026 12:19:53 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-cc52c1b8286so1104536a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Oct 2026 05:19:52 -0700 (PDT)
+	Wed, 07 Oct 2026 14:16:09 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-93e6f83f0bbso145389585a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Oct 2026 07:16:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791375591; x=1791980391; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791382565; x=1791987365; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YJgd37GAAGOynCuOtDFQNEeNDITfTTm77Q1swyZehk0=;
-        b=YJbrEFanf9kvBiGj0m79i4BW4jadXxr8mAFKuPAZPiOs8tKMN40P29RH7Soz0vqsdw
-         ZEdiUjsxZVK//mdE02aI6W8B/ibbhIurM4lks5FND16HSmBGHzxCTBADe0oDiuMjUL1f
-         6CO2FXRfW320eb0vk6HYfwK+A7YX+LpyF+piczC+FIjXFgOi4QPDpjP242pKSEYgPgLi
-         3PEgJwKJd1WN8kgIOXezeKD976c9Vfbef+z2IXi89pgLWIbBJLL6V86NWJOEOz80ntaF
-         GlhrStZxlfr99P+8u35DkRf3HSakrRcFPFsHVY1yA9wrPxQwtIPQn11YtqNa4VWIfpjn
-         bRbQ==
+        bh=WRti667jeSRhARCPDfXNMpJ3JE2wRVrSoYMAVxfOv7Y=;
+        b=ImI5UBUG2oGmYWsId0rB6VeYxxy/8opLWwI4NmRr1YXw1wT6EOCcl8JenvRUMMreij
+         Y9yVkiBZQLBd4O2hCE31auXLFobXisKG3D4Da9ny8oQSPufO6JMAanhxOBs98LmmgGVA
+         C+8yQmiIFo1RGqyxvxegUTcb8A4UCBcksljwk5ygXgZSmAYLS805nqn7Y0gGWE9nad/V
+         weBFS102VW5w8w+tq2YLaPJTET75gNtb6e4Xo2DZfhGrTSU5GpxTXOLqgCVxOxQST3ef
+         /nNR1ZbJKPj/ll8SdPmHSroxD6njznsPrTO/hH1XzbNzEbcX0P8bN9Rr1XSKfbAW6Q5Z
+         q86A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791375591; x=1791980391;
+        d=1e100.net; s=20260707; t=1791382565; x=1791987365;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=YJgd37GAAGOynCuOtDFQNEeNDITfTTm77Q1swyZehk0=;
-        b=iXvmOTtY5F1MSluQc4fgGOTEupUrgc+im5LWYmH9vVAVucVIXrBIIz77SyQuqUY4V/
-         FOa4Lol2til1/bahRpJSJRPHQrFVpLhucgJE8rRY8iE+WDwfR7jebPFvRvoLFo8ua8Z/
-         3HWQ/9y+gbB8pV2WeevN1ZpUDJS6OlrTJOKEzqZJivf1DOQP8jWwZ2ULvshM/T/B7mBc
-         soD5gqMFAuBvRYi8oX4ZUYLM1g6nvez5RT747H8ewrkNmXn9jpDQ1OtMsr0tD/LGaRMR
-         Up6+i3nn262TAMkLsJdRHAtlQl1p0ijF8fiS2DXd4+Rbm+JomtiqlED6IS5XEDsEmfdN
-         qIWg==
-X-Forwarded-Encrypted: i=1; AKwUvBynnwQS5i9rYvkPdyiTRR/7h41U1EKgoPGW6gtVhMghfC2+M1JrEcBoGIy8MSo298tVCOkqtUbV7Xz3ug==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJOnzP/ZEpSJDde5TLT6ZekfyW6O4l7hsC6/QscXRQPx0pbiMa/
-	z2pBh5nDTLa6+aih2RHjzmmBmlBF8VqflO5IDtthmFZFqe4C9HfAM14n
-X-Gm-Gg: AYBFou1EC1vI0LLb+uOxI/s/DgbnjRzOA9Dl7KCI4e+e5WXaY/3Sua4ETnHsM8TcOCt
-	OMdt8/VmJMOAcPoO2U4FLbIphD+uGVcfgqVsMZPWWcoRzJKYiRH3jNUXvTiAOhJszjIf1gBmglk
-	+BxL79ad2ZU4GYFY9YY+6Rr1oR5+61iG0D6VGOWuiVjm1tFOTGruCSwtwn0+j8+5PkGl25pPj1g
-	dD4AZOr29F0TbfsL2JkeVqX0f5k8XcPjgjNUfh0QINwckUKDJfLG3iLZT74Yoxzif6iJYYRtdSx
-	3lu0Y3GxSZuTQL1l8gjnHl6wIGpRQ8aZngWI0XEiFAGoX8kWhxlEqmHQyf7KlINnI1JZig1dx5Q
-	KFGtjbTGLeTZtHMUXkEK3VQ4X7Io7RHm4BFSJfw63TF3q618VPLYJALWY/oFYOi78l5bIkgAiTa
-	O18HSfzYCbLWFrTCekF4Q6fYw5B6TCQfJGZl5yPq/xVH7JoCf6L9f5Jw==
-X-Received: by 2002:a17:90b:3c85:b0:3a0:f4ee:d2b2 with SMTP id 98e67ed59e1d1-3a8a13e6bd1mr1312260a91.32.1791375591372;
-        Wed, 07 Oct 2026 05:19:51 -0700 (PDT)
-Received: from lgs.. ([2001:250:5800:1000::8534])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a89d5e19c1sm1888589a91.0.2026.10.07.05.19.48
+        bh=WRti667jeSRhARCPDfXNMpJ3JE2wRVrSoYMAVxfOv7Y=;
+        b=Z3D5Wo4h4aKGVbcPsXgasE85GYxCbHbvewqeXMcki/5R1lvWUmgJJhByvlr1mPXovi
+         HiSrZzVn244fnZhB74cJiKbde4/7WLc857fqHZA+1DxIC8Bw09S7MH2VXA/86UPTqtS7
+         sUlUf/7Exbo1mWavL1N7JHGkdmjubPG2ZxNlZViCbxaueJN/9aWad/JavdVr211zmkxd
+         ReRGFpP3KW3bImcUvafrXR0FedQ1pvQOflYuTnF+QblrWq0TuNRchZVLBQ6sdJ+PwCLf
+         fC6lD/jY1t7SWiTKj1lHdBm7gCAralIyeEzQgeZaecC++8LacqJ89ZPmbZjf3P+g/IwX
+         9FtA==
+X-Forwarded-Encrypted: i=1; AKwUvBwO6PnKm4iz4rwUNw8D3A6kdGLDgQEi/CftmpkaC4SHEzmN25NVwHEaVPMrJ5Mslk7/xAgUILjGFCZMGg==@lists.infradead.org
+X-Gm-Message-State: AFuF++lYk8FoG4imW6xQ+0jEjcju2geUJP5ihL+etkDJd9OrenSeuv2k
+	wGbqqaxV839GFzPTh/pdVFNJy3Bf2jUqTwNJVEHoPUU/6QOHi3qkb7E4
+X-Gm-Gg: AYBFou16LiU5QtWsWe6/DK8xDA9/bRAVEk9bl9F4YoiWUCCiYFv5WrR6krpH22mxAYL
+	nY5iIP/b4YfVvrWTgdPcgKeFed/lX5U/xztFoyDzSirjVR9fidQib0XzMrBuJgu0woTDsiczTug
+	2r9nNi+4nOhCvVoRgRuPbczHJSI56seNWoxlgXqYTEA+vO9GPTZ7J5nDmrwzuTOpL2TjQ31RG5J
+	umuCJFqHuI8S+6ZlVpumxA47tB/ARytE6yWD+OIhttclBSOpS681qQw1FOBSdKU6TpETl2Oud36
+	BKf7Y4RmTxhfJoKR8yBKrrugeBX8D1g2V7/EhjFg+DJm+iX015klvuNcPHrmLvhHgw3AIdMQV3T
+	zhOzSw+AvtR9Cz6D3nfWUoG8A6Y5kjpdpy1wW0ERM0ID3Y5d/c/7zt+mOlB5oGWj3YZLqeYrD/F
+	3peL3T+jql3eugr8aLFzFCRfrWE0mgav2NnFB96CUB4MbJk0zpH30vSRy8y8S4/6BNyykpYPb+I
+	N7UfD/kXLqyNBf4j/qz4jQ6xwqmxbfmlyaRc8HUW4NEKDuvv1dPMLNLES9CHfyOy0ZEIsT9vS3N
+	Hz8lonPJ
+X-Received: by 2002:a05:620a:4629:b0:93e:96cb:3083 with SMTP id af79cd13be357-93e9b76d319mr419482085a.33.1791382564280;
+        Wed, 07 Oct 2026 07:16:04 -0700 (PDT)
+Received: from security.cs.northwestern.edu (security.cs.northwestern.edu. [165.124.184.136])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93e99104308sm229406385a.16.2026.10.07.07.16.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Oct 2026 05:19:50 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Felix Gu <ustc.gu@gmail.com>,
+        Wed, 07 Oct 2026 07:16:03 -0700 (PDT)
+From: Ziyi Guo <guoziyi114@gmail.com>
+To: palmer@dabbelt.com,
+	pjw@kernel.org,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	samuel.holland@sifive.com,
+	thecharlesjenkins@gmail.com
+Cc: debug@rivosinc.com,
+	zong.li@sifive.com,
+	vulab@iscas.ac.cn,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Guangshuo Li <lgs201920130244@gmail.com>
-Subject: [PATCH v2] soc: mpfs: use kref cleanup on probe failure
-Date: Wed,  7 Oct 2026 20:17:43 +0800
-Message-ID: <20261007121743.192486-1-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	linux-kernel@vger.kernel.org,
+	Ziyi Guo <guoziyi114@gmail.com>
+Subject: [PATCH] riscv: refuse PMLEN=16 when its tag bits overlap the canonical VA sign bit
+Date: Wed,  7 Oct 2026 14:15:58 +0000
+Message-Id: <20261007141558.2914604-1-guoziyi114@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_051952_620965_B8C92DB0 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20261007_071606_684250_26F949A9 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,56 +107,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-After kref_init(), the device_get_match_data() failure path frees the
-mailbox channel and sys_controller directly, bypassing the matching
-kref_put() for the initial reference.
+The tagged address ABI lets userspace enable pointer masking (Supm) and
+request a PMLEN of 7 or 16.  access_ok() validates untagged_addr(ptr),
+which strips the top PMLEN bits and sign-extends from bit 63 - PMLEN.
+Supervisor-mode accesses are not subject to the U-mode pointer masking,
+so any site that dereferences a user pointer without re-applying
+untagged_addr() -- e.g. the futex atomics and the unsafe_*() accessors,
+operates on the raw, still-tagged address.
 
-Use mpfs_sys_controller_put() on this path so that the initial
-reference established by kref_init() is released through the existing
-kref release callback.
+When the canonical VA sign bit (bit VA_BITS - 1) falls inside the masked
+tag field, i.e. VA_BITS > 64 - PMLEN, an unprivileged task can craft a
+pointer whose untagged form is a valid user address (so access_ok()
+passes) but whose raw form is a canonical *kernel* VA.  Among the
+supported configurations this is only Sv57 + PMLEN=16 (48 < 57): the tag
+field [63:48] covers the Sv57 sign bit (56), so the pointer can name any
+address in the linear map and a raw dereference becomes an arbitrary
+kernel read/write.  Sv39/Sv48 are not reachable (the raw address is
+non-canonical and faults) and Sv57 + PMLEN=7 is fine (the tag stays
+above the sign bit).
 
-Rename the error label to reflect that cleanup is now performed
-through the kref helper.
+It is triggerable and can be reproduced today under QEMU, which emulates
+Supm and Sv57 (tested with qemu-system-riscv64 11.1.0, -cpu
+rv64,sv57=on,supm=on): on an otherwise unmodified kernel an unprivileged
+prctl(PR_SET_TAGGED_ADDR_CTRL, PMLEN=16) succeeds, after which a futex on
+a tagged linear-map pointer, whose untagged form passes access_ok(), 
+performs the atomic on the kernel address.
 
-This issue was found by manual code inspection.
+Only advertise PMLEN=16 when its tag bits sit entirely above the
+canonical VA sign bit (PMLEN <= 64 - VA_BITS).  have_user_pmlen_16 is the
+single gate used by both the prctl() and ptrace() paths, so this closes
+the reachability for every such accessor at once.
 
-Fixes: 75ef23397558 ("soc: microchip: mpfs-sys-controller: fix resource leak on probe error")
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+This bounds reachability rather than fixing the individual raw
+dereferences; the futex / unsafe_*() paths should additionally untag the
+user pointer after access_ok() so that tagged pointers work there as the
+ABI intends.
+
+Link: https://lore.kernel.org/all/a25d01cd-e21d-4e51-9d24-6cc41589c041@sifive.com/
+Fixes: 09d6775f503b ("riscv: Add support for userspace pointer masking")
+Signed-off-by: Ziyi Guo <guoziyi114@gmail.com>
 ---
-v2:
-  - Add the missing Signed-off-by tag.
-  - Rename out_free_channel to out_put as suggested by Felix.
+ arch/riscv/kernel/process.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
- drivers/soc/microchip/mpfs-sys-controller.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/microchip/mpfs-sys-controller.c
-index 0400a01b2338..ef27e1083f0f 100644
---- a/drivers/soc/microchip/mpfs-sys-controller.c
-+++ b/drivers/soc/microchip/mpfs-sys-controller.c
-@@ -159,7 +159,7 @@ static int mpfs_sys_controller_probe(struct platform_device *pdev)
- 	of_data = (struct mpfs_syscon_config *) device_get_match_data(dev);
- 	if (!of_data) {
- 		ret = dev_err_probe(dev, -EINVAL, "Error getting match data\n");
--		goto out_free_channel;
-+		goto out_put;
- 	}
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index 7cc5a6a5c020..afaeaaa247c2 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -433,7 +433,16 @@ static int __init tagged_addr_init(void)
+ 	 */
+ 	csr_clear(CSR_ENVCFG, ENVCFG_PMM);
+ 	have_user_pmlen_7 = try_to_set_pmm(ENVCFG_PMM_PMLEN_7);
+-	have_user_pmlen_16 = try_to_set_pmm(ENVCFG_PMM_PMLEN_16);
++	/*
++	 * PMLEN=16 masks bits [63:48].  On Sv57 that overlaps the canonical VA
++	 * sign bit (bit 56), so a tagged user pointer whose untagged form
++	 * passes access_ok() can still name a canonical kernel VA when
++	 * dereferenced raw (the futex and unsafe_*() accessors do exactly
++	 * that).  Only offer a PMLEN whose tag bits stay above the sign bit,
++	 * i.e. PMLEN <= 64 - VA_BITS; this refuses only Sv57 + PMLEN=16.
++	 */
++	have_user_pmlen_16 = try_to_set_pmm(ENVCFG_PMM_PMLEN_16) &&
++			     VA_BITS <= 64 - PMLEN_16;
  
- 	for (i = 0; i < of_data->nb_subdevs; i++) {
-@@ -173,8 +173,9 @@ static int mpfs_sys_controller_probe(struct platform_device *pdev)
- 
- 	return 0;
- 
--out_free_channel:
--	mbox_free_channel(sys_controller->chan);
-+out_put:
-+	mpfs_sys_controller_put(sys_controller);
-+	return ret;
- out_free:
- 	kfree(sys_controller);
- 	return ret;
+ 	if (!register_sysctl("abi", tagged_addr_sysctl_table))
+ 		return -EINVAL;
 -- 
-2.43.0
+2.34.1
 
 
 _______________________________________________
