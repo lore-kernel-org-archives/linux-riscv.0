@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 903D6CA6009
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 08:51:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D344CCA5FFF
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 08:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1kZyFwLPQS7CddVbS+grPQWOC+gWGy8cYhFoGpFX8wc=; b=tNTL1y3XXt9if+
-	TYz2VqlcV4puj3Ti9X0uqqCQpW4r8X80ytXAu1i/jvPjBbVF1WeWsIbp/V4wNRQ6si53TV8JnW85x
-	xJlq9VFv8NhbwAvU01c4MinrkMuAEf0nthAVFvh80l3MJQhlM2n7F0Djp/rfAKGbTXtb1sK2ERFWp
-	jDWoSXHZQlzx1Ks1zgP6/9ne0X416aMT7V/qNiOatI41u+B2UbxrQX7LXDxJ9tFFClqEREGnmT1Tl
-	mu1y470cBrNj6phgqyjJm7RVeNa08k8ntvjyJplzJXVRSm1YyC3xbRZ1+1X8TqZQdPV0u4yfxulUx
-	cadd+TRpBAJVWoS+stzA==;
+	List-Owner; bh=Z5txeFhuX1sYJSjoyAzs2FI2KqrSOgA7XLi4eFwt0O8=; b=ySMOe86rqxml3z
+	qhxnxGbj/N+lowF/qkxTv6kqIjh/BKTeXP7VIOHeaT7LAKQrzZkVW4BeZFBXG6N1hbJEZiyY/yv12
+	ofc23GUX9k21n3BpntbhcVA3aLBSYj7s1J3HBgnDwzU/0q0fTYOlSWhP3oLqyP9fnLe7BZcEKqS67
+	8QIPBex8sVwT/+AqKXERkSbz9JDQtlywQSQ19q735HPo1yYxjTy31CB5LInyORu1vmerK8U48RNg8
+	4FOsuti/uYFZLZmTfOKqdS8gIrqESesP4mZPISr5jPC3vL+04eN4yP6FUpbtOgROhWZo/w1ulkYaY
+	3oXj4z7iXDLjiUaiRmfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xENN8-00000001zNg-1Pxi;
-	Wed, 07 Oct 2026 08:51:34 +0000
-Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
+	id 1xENN9-00000001zOx-40Mm;
+	Wed, 07 Oct 2026 08:51:35 +0000
+Received: from mail-dy1-x1335.google.com ([2607:f8b0:4864:20::1335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xENN4-00000001zKu-0gYr
+	id 1xENN6-00000001zMA-0cgJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Oct 2026 08:51:33 +0000
-Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-1419d3416ceso6846074c88.0
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Oct 2026 01:51:29 -0700 (PDT)
+	Wed, 07 Oct 2026 08:51:34 +0000
+Received: by mail-dy1-x1335.google.com with SMTP id 5a478bee46e88-35154cb9de2so1826222eec.1
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Oct 2026 01:51:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1791363089; x=1791967889; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1791363091; x=1791967891; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=UPRc8TVOWkVWbOW79DTb/n8a1v8Pn81m9sQQRmtvu9o=;
-        b=QDh8nqqI5HJOZLeW9ONKQIcMt3RFhraoSo+4UdNtqNXI79N9C+Jh07ZmSP8EhzEhtk
-         Wv2WZNP9e8N+ae/B/iAgzDDQlYuJD+CAoKGYQAeB82i9f4rLBuNaRtk9mq1+gjgXJoWc
-         BGi0rhuKt4Ugl3hWxPr5snuWmvPLKEjEkBmKfZgH/DwaImRv1A1rCtZ7LgRzMJ9h/W/S
-         /0ipA7trYTDvoJQ2ACgvlOw6aHtW4o6iXbn1IIl0DNpwLI1cSmhlGRQ1oMwNVCxjvsHB
-         wydqbtJdPujNkBDBsWb8xPXMceDfiHLfH0auHGrCtznq9CRxj32izoitwxrlTqxm85Bf
-         lrqQ==
+        bh=e/sQhRikHvQy+tFDRD+cXFmdlH5Y2NFpBNiPzBCd5xQ=;
+        b=PItIHbrK1Ig0eqjhwzNGPZjkQ13YfZuA9TsJKz213WBesNiE0iFM1YmToSUdNom7ev
+         1HdDJhsIrQUKbKFk9xnsIBvRS/z3khPteUb3oRjdAfDz9OEimQcd0z0R2Q2cLxBURiWV
+         uiZd4Dkq9KmLxtTUepD0Opq2UkFhN5dCXqb+Q2HM0FpxYup0oCeQFGl+QT4yDO43l1q/
+         eVuQWKKxpz6D5MuioZxP4pxo9FIg8dX1jS+z/H14JQH6PL0eBmcVD0ygq8FoqE09Wnzs
+         2RF7Lzrum8OlsvkU46tEFuINAH09SFKFUvQrpdHbeh4OUKTk/YlyUgCpMA9Y35Cx8HAU
+         ujLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791363089; x=1791967889;
+        d=1e100.net; s=20260707; t=1791363091; x=1791967891;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UPRc8TVOWkVWbOW79DTb/n8a1v8Pn81m9sQQRmtvu9o=;
-        b=JeWpPX6WlnzpNDWOyl9P247vbdTzR+c287+7nMu7EYb8P/cNkeLxxK2b0JSz7thaQb
-         xyy+LzmcX+a2a2P8GrynvPkt8/VDZQVS/9A5N+V7SdMZqDORGqhmcDtQAnz1s9mq6uWv
-         rttt5CZJPdBvO3v4IXeHeZHoUmXml09SNRZX4sbw8d+YCR+kDQNoQ7KNsLcySnR21tlS
-         FnrwQnkP2vmTX3smGs2nkaYRumA24kMIANxHlwhtfCHNsfO6yOsmo1Er8NGuwpucQhKQ
-         9BI3H7duWQ7SFslDsDLkVpEHlrnFQdRXOXTM8+zbahBv1Qdd0w9yv8LHvoFiJ22QJ9hY
-         Avbg==
-X-Forwarded-Encrypted: i=1; AKwUvByAA9k/ZrtXpjuI0wDuctgn5RJCD/2PeuByMGjpwyNOttmib7j92zxYaTqa8zQc9KQZb2poct92HSBa4w==@lists.infradead.org
-X-Gm-Message-State: AFuF++nUMHS3qBMUUQCE9cycapwbS5qF7x9qcLJCD4PS6EItYxNd586u
-	IHqNH57TNnRizhtzEgzFW5XqcU6gWbdJGXJ62fGaKpMKR+rT9s0nzYF6a8sohYQhTkU=
-X-Gm-Gg: AYBFou0ZtJ+9mUwor1t3x9mD3zShOwznAIt27hQM0ZrAlHwdfD/l74enBM5aAS8HYYY
-	syxzBnRPgHk8ANhpsw+9q1bPeUC/yzE0hgHmYz5zBhGsgrx15li5alti0PVvXYutl6QR+kXrYb2
-	0b90ct5BWGSnkPXmQCdSRaom5EOodU7wetSXfWHRo9QLqwIjmcPrs2CEugbtrGtSvvFcjmXVGjs
-	WzciIA37cZaAMuk9tAIUb1VW+MYoR+ETNgpsxfjjFRN6UVrgd2OXJrTtsX9Zu5qay3SKzOTQB+N
-	vDHSCVxk5Mz3XQKBX6X1VOBM+V2WVBVtm09XXYq2HKktmt1ZtTtdM6ee1B2NtmQJFnbmWAxY3ua
-	sgWvmpTk9yQzrRzhUAK5n74b4k7e54vL/3CD2AIdAXFs+tvH48PilDEoFgsIRD2CzvA5bE2zmaE
-	aFE/75PfwRcs04ISuYoHXdm8+refHjnryawJ5aLotVwYb2E5znMhFfhH5/R56uz6NVXaZusysJP
-	PdxDU0esKX2zXpCOrWe
-X-Received: by 2002:a05:701b:4518:10b0:14d:3930:647d with SMTP id a92af1059eb24-1620374de3dmr1490658c88.9.1791363089288;
-        Wed, 07 Oct 2026 01:51:29 -0700 (PDT)
+        bh=e/sQhRikHvQy+tFDRD+cXFmdlH5Y2NFpBNiPzBCd5xQ=;
+        b=Nb4nVZ3Lt5fUT2sYWcRo+oy/Tw336Vbc3RwZe9U+LuvOMpmkLlIN7Cr5N3BB2SodGG
+         t7N+V9aZRix3Ph9DYAQgV13WraGi37f1amRK8Frvjjmnr0A7P11f+8oDaFL8NcQHGU4v
+         7Dm3q2eGQCEh8fTMEyb1OB5/BpAJ+jClPuMO9txnLAhSnAfm3RypkLAvhnaRMOJ4earu
+         VzEOtCuTVK4m2Pcp61Y3tcch/4YLO7Q5evFcTL8KYie7lnKLxEd+V6OODTS4QeRCrd9i
+         mrpRworgV+oM1iKqC1RigAK9Zl1rzTX2o1H1hFWxPznBNTiefesQSXcVjVNC03QVgPXB
+         nNIA==
+X-Forwarded-Encrypted: i=1; AKwUvBwBYFhaspl3daXTTKuIMqxFjPL3qnqtePaJLpW6+GtGAbJBJX9j5vZJyR9hbHm4Mh8uDjWtQG6fCVAW1Q==@lists.infradead.org
+X-Gm-Message-State: AFuF++ljh8yLVGRzei7DqVaRQyayt9MWyMgCjhDXoh/L4V2xy3Pw5zn6
+	AkuN4iVkVmMKRalJxgSm9A7j42FWhvTQzTHijMlacc5YB6rnJIjhRqRHhxbiSOycuLc=
+X-Gm-Gg: AYBFou2Sd3UEXbbNQrtY0XaM1hA5w5TeNUQg0tffBipJPewkFGx1PnlQYCB1ojjeL0P
+	UG9jMPCcDWYveYz6pLswITV/24wQkOh88PvpD1dg88tTro0o8GKheaAc4OW5qNulRvzt9MjU6jD
+	jngy+sF76JSzM/1trZbYjCGwk4JTivhDBB6leZA54Th2+XBLOT47Ge3C2mVwFjsl664YBDc6+Yg
+	0FOkKQ56Kx2HmqWp2k6c5KLeoAN5fgBD4zB42p5YlFYLHaEQZ7fU2WtYqXYkTopKVZ9M1YuGWGx
+	eHauTSMpmsJ6V3x6CyZMQ7i5e0G2vE5t5KLv96p4I5xJ+ZRMlY96etEcvMV9ranDIPv8X37SH0q
+	R7vv64gn7UAZJOIjlfbzth/08kjRvyd/Bm0ToR4dZlEImNRfzKWi6rjiREHVKnsfeGEO3lJCH+4
+	eanlYfHAWE74nYrRFMRbH1zv5W0XWjL9Z/TMIy2bm8edW3BH30sUVCyMxefq/egKaIPLMtglYuu
+	2FZnWakYaPDVQjMuaB8
+X-Received: by 2002:a05:701b:2719:b0:14e:8ae9:87c8 with SMTP id a92af1059eb24-161fe497e3cmr1456351c88.1.1791363091401;
+        Wed, 07 Oct 2026 01:51:31 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-163e3c5bed6sm396251c88.7.2026.10.07.01.51.28
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-163e3c5bed6sm396251c88.7.2026.10.07.01.51.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Oct 2026 01:51:28 -0700 (PDT)
+        Wed, 07 Oct 2026 01:51:31 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Anup Patel <anup@brainfault.org>,
@@ -80,16 +80,17 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org,
 	Andy Chiu <tchiu@tenstorrent.com>,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH 1/3] riscv: Drop CONFIG_RISCV_ISA_V_DEFAULT_ENABLE
-Date: Wed,  7 Oct 2026 01:51:16 -0700
-Message-ID: <20261007085126.222688-2-samuel.holland@sifive.com>
+Subject: [PATCH 3/3] RISC-V: KVM: Decouple vector prctl state from VM ISA
+Date: Wed,  7 Oct 2026 01:51:18 -0700
+Message-ID: <20261007085126.222688-4-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20261007085126.222688-1-samuel.holland@sifive.com>
 References: <20261007085126.222688-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_015130_206966_B03EA6DE 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20261007_015132_187605_1D887F0F 
+X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,58 +109,41 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 The ability to prevent userspace from executing vector instructions was
 provided as a escape hatch for software that was broken by adding vector
-state to the signal context. This appears to be unused in practice, and
-creates confusion in the extension support returned by hwprobe(), as in
-this one special case an extension reported as present by hwprobe() is
-unusable.
+state to the signal context. This was hooked up to KVM so a process that
+could not use V in userspace also could not create a KVM VM with V in
+the ISA.
 
-Since we believe it is safe to always allow vector usage, start removing
-this functionality by dropping the Kconfig option. It is possible to get
-equivalent behavior by setting the sysctl at boot via the kernel command
-line, but that method will also soon be deprecated.
+Remove this connection as it does not really help with any compatibility
+concerns. A VMM that does not understand V will not include it in the
+virtual machine's ISA.
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
- arch/riscv/Kconfig         | 11 -----------
- arch/riscv/kernel/vector.c |  2 +-
- 2 files changed, 1 insertion(+), 12 deletions(-)
+ arch/riscv/kvm/isa.c | 3 ---
+ 1 file changed, 3 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index d6c2dbf8455ce..e26450f0d38fb 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -650,17 +650,6 @@ config RISCV_ISA_V
+diff --git a/arch/riscv/kvm/isa.c b/arch/riscv/kvm/isa.c
+index 971f44655100a..447c778bf850e 100644
+--- a/arch/riscv/kvm/isa.c
++++ b/arch/riscv/kvm/isa.c
+@@ -9,7 +9,6 @@
+ #include <linux/nospec.h>
+ #include <linux/pgtable.h>
+ #include <asm/kvm_isa.h>
+-#include <asm/vector.h>
  
- 	  If you don't know what to do here, say Y.
- 
--config RISCV_ISA_V_DEFAULT_ENABLE
--	bool "Enable userspace Vector by default"
--	depends on RISCV_ISA_V
--	default y
--	help
--	  Say Y here if you want to enable Vector in userspace by default.
--	  Otherwise, userspace has to make explicit prctl() call to enable
--	  Vector, or enable it via the sysctl interface.
--
--	  If you don't know what to do here, say Y.
--
- config RISCV_ISA_V_UCOPY_THRESHOLD
- 	int "Threshold size for vectorized user copies"
- 	depends on RISCV_ISA_V
-diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-index b112166d51e9f..9641343732782 100644
---- a/arch/riscv/kernel/vector.c
-+++ b/arch/riscv/kernel/vector.c
-@@ -20,7 +20,7 @@
- #include <asm/ptrace.h>
- #include <asm/bug.h>
- 
--static bool riscv_v_implicit_uacc = IS_ENABLED(CONFIG_RISCV_ISA_V_DEFAULT_ENABLE);
-+static bool riscv_v_implicit_uacc = true;
- static struct kmem_cache *riscv_v_user_cachep;
- #ifdef CONFIG_RISCV_ISA_V_PREEMPTIVE
- static struct kmem_cache *riscv_v_kernel_cachep;
+ #define KVM_ISA_EXT_ARR(ext)		\
+ [KVM_RISCV_ISA_EXT_##ext] = RISCV_ISA_EXT_##ext
+@@ -159,8 +158,6 @@ bool kvm_riscv_isa_enable_allowed(unsigned long ext)
+ 		 * Guest OS can use Svadu only when host OS enable Svadu.
+ 		 */
+ 		return arch_has_hw_pte_young();
+-	case KVM_RISCV_ISA_EXT_V:
+-		return riscv_v_vstate_ctrl_user_allowed();
+ 	default:
+ 		break;
+ 	}
 -- 
 2.52.0
 
