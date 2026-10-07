@@ -4,55 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C765CA5FFC
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 15:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03215CA6007
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 15:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0QYbFDYREowQ/IA53fKVJ47dpHz/n8JmccAqn1BueIM=; b=Sbx9YlY0S1oh58
-	DMD0f3Dos5ShKQpMlQaSbXWZFzd7IXmNkvV9nFzD04taXGjc9tKeFVE0ct+Jp+XfqQfK557se0G/j
-	2RcqTJSInEux6OrjXLRD9G/Wru/LPsp5J6JtCRNv7u53MpkYZ4sED+B68FwNVTA8ycgkU21sMdYl0
-	u0ABF03/DgJsaQUSwx9lE3sMFfF68ExtnRr0S9we+JXsIXRGG7P0K22rvJ+kyovBxYJRtzm5bRk7D
-	OH1gpu/xL0Rx0tBZjMeCEKwbriDV9a5C1Dip16t73dnzGz1bLXfXuVrWrf8otz3NV5ZLvCuo5PAsv
-	I42y6KgbzV46n9Xgr0Zw==;
+	List-Owner; bh=DCnfIiLF9Ns83sQQ1Ym9IFAFGyTNOy6ZEMB98sCgfeM=; b=PLVFYuHCNJilh8
+	5/SsGeZgS+UrNz/qEbP74he79TxWipzA2UHPGliuh2I9xkd+8Tgx58uDp1lreI0pilGH0sJBg0Bkh
+	VFZ0pgKoPwEGuCu0N4WogbEj9ILJ7dl1JVosq3aCv+jOiJWxixrahUhZFOyqWZF4OgAFcSTHzSxNF
+	yX45z9H/ZoztmFVIt0HvuS36lrhfNDO10n8bOCBsemmalrsHp1rQOrAKgb7jK2rljpvq/mathajVS
+	Kqp+ePjHSldrYXaxanzzjwTp4dIFdWdq6+OTwWuGnv+l6a4KuuMqBC2KKPh2quYaLNHlRUsu/k5X8
+	tnMH9lR8LwXYElD998lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xETIm-00000002gdk-1dlj;
-	Wed, 07 Oct 2026 15:11:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xETZx-00000002hm3-1UJe;
+	Wed, 07 Oct 2026 15:29:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xETIk-00000002gde-1jt1
-	for linux-riscv@lists.infradead.org;
-	Wed, 07 Oct 2026 15:11:26 +0000
+	id 1xETZv-00000002hlG-0eyy;
+	Wed, 07 Oct 2026 15:29:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C97DF4160B;
-	Wed,  7 Oct 2026 15:11:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D28B51F000FF;
-	Wed,  7 Oct 2026 15:11:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 47B8460219;
+	Wed,  7 Oct 2026 15:29:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDA991F000FF;
+	Wed,  7 Oct 2026 15:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791385885;
-	bh=JddtNEM6goEHGBJSj2WoyIxr3Xm40ZzTJFU/GODnDUg=;
+	s=k20260515; t=1791386950;
+	bh=LqN60BuPJ3IrOHfbBCAENpTxaEXAkkkwVCSec+5Hnw0=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=jKV3S2ngpMBgIicHLl5IIJQn7FDOFWATwz7suVFR80ZWriS1jjgad+CyKocwqAxm/
-	 /a9j+0WttA4AG4v7k8taVcsm1nXgN2TRvxWskm+aScG6D5BmgZn+qKSWfJSr8vQdmd
-	 1n47CHttreGS9qwySjCKYwgaJ5W3dRPGp7wBjJnj8VlL6MS6wPFVvSlWEPHtvP4Zk/
-	 Ca3WKxiwVBV/2/vsslBFu4Duxn9l7qZ9XRJOkb2/UNwKGBZLeo4wpagGrs6DN5Pem+
-	 skfxkEN1Muz5s39d2fY/rgWR/6ZGKo9KQCWIq7VyZ0wUg4QedmX5EUg5fOTO5YZ+wW
-	 kjhGXKHsxUpiw==
-Date: Wed, 7 Oct 2026 09:11:21 -0600 (MDT)
+	b=MTxUV4JO/OyZ8FpkpRpFW7BCTaGXKSVyT5L8zuhfruHSmwE6wVUOj3rC7bf4hG8wg
+	 eneBfutJBjkWkn23+L3F0bzueMh23Usv2pN4hzBKCE+wTmeoZzu7nqoV6UkScr5PpO
+	 A0rxq8Opa2Fe96e34C8NQtaIX+ssrKqnG5iirmoyfzbU+yu0S9qNbMLwvrNVY0K4q3
+	 oNELiSeEDkFCCqWZzDqgdYZ6MYxE0+vJI6Z7h/aTGMFdNMRGAlYJ3+WwUrKAM55Hx3
+	 pmn6swzsxt31nTyj0RpXJBt3HD/LEBtUutIYZ8/Z0Npyev6ol8jsNAAgxeeXLEy/mU
+	 oPXRBdIOycnwA==
+Date: Wed, 7 Oct 2026 09:28:59 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Leo Yu-Chi Liang <leo.liang@sifive.com>
-cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com, 
-    aou@eecs.berkeley.edu, alex@ghiti.fr, wangruikang@iscas.ac.cn, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] riscv: fix NR_CPUS range leaking 64-bit default onto
- 32-bit builds
-In-Reply-To: <20261007045229.36114-1-leo.liang@sifive.com>
-Message-ID: <3e8a895f-f5d3-bad6-0a34-d1d716ef3a26@kernel.org>
-References: <20261007045229.36114-1-leo.liang@sifive.com>
+To: Chen Pei <cp0613@linux.alibaba.com>
+cc: acme@kernel.org, peterz@infradead.org, mingo@redhat.com, 
+    namhyung@kernel.org, mark.rutland@arm.com, 
+    alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com, 
+    adrian.hunter@intel.com, james.clark@linaro.org, leo.yan@linux.dev, 
+    john.g.garry@oracle.com, will@kernel.org, mike.leach@arm.com, 
+    pjw@kernel.org, palmer@dabbelt.com, guoren@kernel.org, 
+    linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+    Anup Patel <anup@brainfault.org>
+Subject: Re: [PATCH v2 1/2] perf riscv: Implement rdtsc()
+In-Reply-To: <20260929034133.2153-2-cp0613@linux.alibaba.com>
+Message-ID: <7a32beb7-27e9-1805-d23a-590ad7fa05b3@kernel.org>
+References: <20260929034133.2153-1-cp0613@linux.alibaba.com> <20260929034133.2153-2-cp0613@linux.alibaba.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,29 +74,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 6 Oct 2026, Leo Yu-Chi Liang wrote:
+On Tue, 29 Sep 2026, Chen Pei wrote:
 
-> rv32_defconfig is built in two stages:
+> Perf has no riscv implementation of rdtsc(), so it links against the weak
+> stub in util/tsc.c and every caller reads a constant 0 that cannot be
+> told apart from a counter standing still.
 > 
-> - the generic (64-bit-oriented) "defconfig" target runs first
->   and resolves a concrete NR_CPUS value using the 64BIT default.
-> - then 32-bit.config is merged on top via merge_config.sh,
->   which does not touch NR_CPUS.
+> Implement rdtsc() over the time CSR with rdtime.  The time CSR is a TSC
+> equivalent on riscv: readable from user mode, constant frequency, and the
+> same counter riscv's arch_perf_update_userpage() builds the user page
+> conversion fields from, so the counter and perf time share a timebase.
 > 
-> The final "make olddefconfig" pass sees NR_CPUS=256 is still within
-> the "2 512" range therefore never recalculates it against the 32BIT
-> default of 32, silently keeping the leaked 64-bit-stage value.
+> Define it for RV64 only.  Reading the counter whole on RV32 takes time and
+> timeh in a loop, and no RV32 user in tools/perf needs it that much, so
+> RV32 keeps the weak stub.
 > 
-> The NR_CPUS-scaled regions (percpu areas, ...etc) of the resulting
-> CONFIG_NR_CPUS=256 on a 32-bit build bloats and does not fit in the
-> percpu/stack layout for rv32 and hangs early boot on QEMU's virt machine.
-> 
-> Fix this by explicitly specify the range for 32/64 and SBI_V01/!SBI_V01.
-> 
-> Fixes: 0fa749771993 ("riscv: Raise default NR_CPUS for 64BIT to 256")
-> Signed-off-by: Leo Yu-Chi Liang <leo.liang@sifive.com>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 
-Thanks, queued for v7.3-rc.
+Acked-by: Paul Walmsley <pjw@kernel.org> # arch/riscv
 
 
 - Paul
