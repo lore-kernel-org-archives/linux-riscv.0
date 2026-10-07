@@ -4,93 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE0CCA5FFC
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 14:16:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5204ECA5FFC
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 14:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lteJbOuuJYRGR6+4ZZAcYYNo/IS+diX4dvfnKkPXdmM=; b=VmTwXqQru6uAwJ
-	k4wzCFbhlAN3MnRW35QILdtJ+wQysd3tncpjMobFijwiTdsORkVhS5XGu8k/UFlyOYDXOIGNXRSPq
-	oARabMyzYpZwVxnHKPy8AGHlbcCepodQQMi32YHvy0LtFmbLeawzp78ami4QVsqSgy3r/EPeEg1Ua
-	QqZlOOC6DQMnvPiy+1Aq2FSEl1UKbH/DL9C+Y0K/4ShIEYUtp50y3E4Si1TSnde8KOK3+8LTO8+s+
-	GQVf5dZCtM/yBGcJyNXPrK5ZV8iIDRxwVvWudXwpLO1eJnDIwECT3mV93FQ25ant6cWsfPKhhpq3Y
-	1nQsmELRh46EiSetL/Aw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aDtNdX0KSGN2UdFa3Yc1X92TQ0nfdKu06xYRHZEFVNM=; b=m4dSwOTOSeiuGp
+	VKw6HeZhxRWaCUH0oDWkDW4maehKJ+Payus7nHWk3DPcZqKA6IH1GvPUCHjnAI3Y1N0L8uvTWwwtf
+	zFqgiEBtrsfkOLgsFqrpzM3Zm6pt+wcTvxZfG/qddwZaDe5eouQBsNg81oC/4blLnXo+h5ZFDyNkW
+	TZutaiFmGwaIm3GZ0XLtooOMyHnnT6XJCT2zabnaYOFGml25SYXNx0LqTXo2YdOmeThq5V+vat1wx
+	wL095iKMsroMkNTKL2eu80nGTdehw60H2OE1Lzrx0fwbG91pFnKWKbBsjcj//IJVdfOzT/bRZetnl
+	XIJqhcERB33epVW8KytQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xESRG-00000002b68-28lF;
-	Wed, 07 Oct 2026 14:16:12 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
+	id 1xESVO-00000002bSa-41iy;
+	Wed, 07 Oct 2026 14:20:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xESRC-00000002b5V-2AU2
+	id 1xESVN-00000002bS7-1wQk
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Oct 2026 14:16:09 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-93e6f83f0bbso145389585a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Oct 2026 07:16:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791382565; x=1791987365; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WRti667jeSRhARCPDfXNMpJ3JE2wRVrSoYMAVxfOv7Y=;
-        b=ImI5UBUG2oGmYWsId0rB6VeYxxy/8opLWwI4NmRr1YXw1wT6EOCcl8JenvRUMMreij
-         Y9yVkiBZQLBd4O2hCE31auXLFobXisKG3D4Da9ny8oQSPufO6JMAanhxOBs98LmmgGVA
-         C+8yQmiIFo1RGqyxvxegUTcb8A4UCBcksljwk5ygXgZSmAYLS805nqn7Y0gGWE9nad/V
-         weBFS102VW5w8w+tq2YLaPJTET75gNtb6e4Xo2DZfhGrTSU5GpxTXOLqgCVxOxQST3ef
-         /nNR1ZbJKPj/ll8SdPmHSroxD6njznsPrTO/hH1XzbNzEbcX0P8bN9Rr1XSKfbAW6Q5Z
-         q86A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791382565; x=1791987365;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=WRti667jeSRhARCPDfXNMpJ3JE2wRVrSoYMAVxfOv7Y=;
-        b=Z3D5Wo4h4aKGVbcPsXgasE85GYxCbHbvewqeXMcki/5R1lvWUmgJJhByvlr1mPXovi
-         HiSrZzVn244fnZhB74cJiKbde4/7WLc857fqHZA+1DxIC8Bw09S7MH2VXA/86UPTqtS7
-         sUlUf/7Exbo1mWavL1N7JHGkdmjubPG2ZxNlZViCbxaueJN/9aWad/JavdVr211zmkxd
-         ReRGFpP3KW3bImcUvafrXR0FedQ1pvQOflYuTnF+QblrWq0TuNRchZVLBQ6sdJ+PwCLf
-         fC6lD/jY1t7SWiTKj1lHdBm7gCAralIyeEzQgeZaecC++8LacqJ89ZPmbZjf3P+g/IwX
-         9FtA==
-X-Forwarded-Encrypted: i=1; AKwUvBwO6PnKm4iz4rwUNw8D3A6kdGLDgQEi/CftmpkaC4SHEzmN25NVwHEaVPMrJ5Mslk7/xAgUILjGFCZMGg==@lists.infradead.org
-X-Gm-Message-State: AFuF++lYk8FoG4imW6xQ+0jEjcju2geUJP5ihL+etkDJd9OrenSeuv2k
-	wGbqqaxV839GFzPTh/pdVFNJy3Bf2jUqTwNJVEHoPUU/6QOHi3qkb7E4
-X-Gm-Gg: AYBFou16LiU5QtWsWe6/DK8xDA9/bRAVEk9bl9F4YoiWUCCiYFv5WrR6krpH22mxAYL
-	nY5iIP/b4YfVvrWTgdPcgKeFed/lX5U/xztFoyDzSirjVR9fidQib0XzMrBuJgu0woTDsiczTug
-	2r9nNi+4nOhCvVoRgRuPbczHJSI56seNWoxlgXqYTEA+vO9GPTZ7J5nDmrwzuTOpL2TjQ31RG5J
-	umuCJFqHuI8S+6ZlVpumxA47tB/ARytE6yWD+OIhttclBSOpS681qQw1FOBSdKU6TpETl2Oud36
-	BKf7Y4RmTxhfJoKR8yBKrrugeBX8D1g2V7/EhjFg+DJm+iX015klvuNcPHrmLvhHgw3AIdMQV3T
-	zhOzSw+AvtR9Cz6D3nfWUoG8A6Y5kjpdpy1wW0ERM0ID3Y5d/c/7zt+mOlB5oGWj3YZLqeYrD/F
-	3peL3T+jql3eugr8aLFzFCRfrWE0mgav2NnFB96CUB4MbJk0zpH30vSRy8y8S4/6BNyykpYPb+I
-	N7UfD/kXLqyNBf4j/qz4jQ6xwqmxbfmlyaRc8HUW4NEKDuvv1dPMLNLES9CHfyOy0ZEIsT9vS3N
-	Hz8lonPJ
-X-Received: by 2002:a05:620a:4629:b0:93e:96cb:3083 with SMTP id af79cd13be357-93e9b76d319mr419482085a.33.1791382564280;
-        Wed, 07 Oct 2026 07:16:04 -0700 (PDT)
-Received: from security.cs.northwestern.edu (security.cs.northwestern.edu. [165.124.184.136])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93e99104308sm229406385a.16.2026.10.07.07.16.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Oct 2026 07:16:03 -0700 (PDT)
-From: Ziyi Guo <guoziyi114@gmail.com>
-To: palmer@dabbelt.com,
-	pjw@kernel.org,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	samuel.holland@sifive.com,
-	thecharlesjenkins@gmail.com
-Cc: debug@rivosinc.com,
-	zong.li@sifive.com,
-	vulab@iscas.ac.cn,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ziyi Guo <guoziyi114@gmail.com>
-Subject: [PATCH] riscv: refuse PMLEN=16 when its tag bits overlap the canonical VA sign bit
-Date: Wed,  7 Oct 2026 14:15:58 +0000
-Message-Id: <20261007141558.2914604-1-guoziyi114@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 07 Oct 2026 14:20:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E375760218;
+	Wed,  7 Oct 2026 14:20:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 059341F0089B;
+	Wed,  7 Oct 2026 14:20:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791382824;
+	bh=kavN39jozoxAFeQQgnZ+m2rZbsC8+K29xHzjh0azB4k=;
+	h=Date:From:List-Id:To:cc:Subject:In-Reply-To:References;
+	b=cLIeWLZQsv3p8WDNzkrqV/m1YxkI+zIAUZS3iwoCn3iY+5LntbJM9/NN4/5Iu+krl
+	 ociCq/R35FX9zNHv5P+7fy68abHzhPnl0f4MlipqJ9Es8XIDvh1D/2OefqO3wxSWL8
+	 ShoNydlm3pJX6ahZhZ4gi+YtlM7fbw3ovPIAXlzS3bE2SVWF5Y2MyYwkA8jIv2Lynf
+	 5+Ddv2fAoygxH3BBIYTqNBMU0a7gnolJc6KiBee/jPGh9CsWBsD5RRry8YXsiESM+s
+	 LcHs3oKbjAdl2Gx52nT9ABT7AWY4lNSyrBy+Uo+JT1g5azHgEX4ttQjQr1ryXe6cEK
+	 2e9lJNBUFdPSg==
+Date: Wed, 7 Oct 2026 08:20:18 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: patchwork-bot+linux-riscv@kernel.org
+cc: Andy Chiu <tchiu@tenstorrent.com>, linux-riscv@lists.infradead.org, 
+    pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+    andybnac@gmail.com, dfustini@oss.tenstorrent.com, greentime.hu@sifive.com, 
+    linux-kernel@vger.kernel.org, olof@lixom.net
+Subject: Re: [PATCH v6 0/8] riscv: optimize mode switch latency for Vector
+In-Reply-To: <179127960878.2107992.9155163918962890142.git-patchwork-notify@kernel.org>
+Message-ID: <cce463c9-3a77-d21c-56e7-5eaa0a290f14@kernel.org>
+References: <20260918215154.2481482-1-tchiu@tenstorrent.com> <179127960878.2107992.9155163918962890142.git-patchwork-notify@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_071606_684250_26F949A9 
-X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,74 +70,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The tagged address ABI lets userspace enable pointer masking (Supm) and
-request a PMLEN of 7 or 16.  access_ok() validates untagged_addr(ptr),
-which strips the top PMLEN bits and sign-extends from bit 63 - PMLEN.
-Supervisor-mode accesses are not subject to the U-mode pointer masking,
-so any site that dereferences a user pointer without re-applying
-untagged_addr() -- e.g. the futex atomics and the unsafe_*() accessors,
-operates on the raw, still-tagged address.
+On Tue, 6 Oct 2026, patchwork-bot+linux-riscv@kernel.org wrote:
 
-When the canonical VA sign bit (bit VA_BITS - 1) falls inside the masked
-tag field, i.e. VA_BITS > 64 - PMLEN, an unprivileged task can craft a
-pointer whose untagged form is a valid user address (so access_ok()
-passes) but whose raw form is a canonical *kernel* VA.  Among the
-supported configurations this is only Sv57 + PMLEN=16 (48 < 57): the tag
-field [63:48] covers the Sv57 sign bit (56), so the pointer can name any
-address in the linear map and a raw dereference becomes an arbitrary
-kernel read/write.  Sv39/Sv48 are not reachable (the raw address is
-non-canonical and faults) and Sv57 + PMLEN=7 is fine (the tag stays
-above the sign bit).
+> Hello:
+> 
+> This series was applied to riscv/linux.git (for-next)
+> by Paul Walmsley <pjw@kernel.org>:
+> 
 
-It is triggerable and can be reproduced today under QEMU, which emulates
-Supm and Sv57 (tested with qemu-system-riscv64 11.1.0, -cpu
-rv64,sv57=on,supm=on): on an otherwise unmodified kernel an unprivileged
-prctl(PR_SET_TAGGED_ADDR_CTRL, PMLEN=16) succeeds, after which a futex on
-a tagged linear-map pointer, whose untagged form passes access_ok(), 
-performs the atomic on the kernel address.
+[ ... ]
 
-Only advertise PMLEN=16 when its tag bits sit entirely above the
-canonical VA sign bit (PMLEN <= 64 - VA_BITS).  have_user_pmlen_16 is the
-single gate used by both the prctl() and ptrace() paths, so this closes
-the reachability for every such accessor at once.
+> Here is the summary with links:
+>   - [v6,1/8] riscv: do not read csr in vector context switch
+>     https://git.kernel.org/riscv/c/5fd018c630e2
+>   - [v6,2/8] riscv: vector: refactor context switch for kernel-mode vector
+>     https://git.kernel.org/riscv/c/4740b934ebe7
+>   - [v6,3/8] selftest: riscv: test vectorized user copy
+>     https://git.kernel.org/riscv/c/52318cf0fa6e
+>   - [v6,4/8] riscv: vector: refactor vector context operations
+>     https://git.kernel.org/riscv/c/1a5c75ee3d09
+>   - [v6,5/8] riscv: clarify vector state semantics on syscall and context switch
+>     https://git.kernel.org/riscv/c/cc12e55016ba
+>   - [v6,6/8] riscv: vector: adjust ptrace and signal behavior for INITIAL state
+>     https://git.kernel.org/riscv/c/0d4b43a7734d
+>   - [v6,7/8] selftests: riscv: Extend vector tests for sigreturn and ptrace
+>     https://git.kernel.org/riscv/c/6740ec489dd7
+>   - [v6,8/8] riscv: vector: optimize vstate operations
+>     (no matching commit)
 
-This bounds reachability rather than fixing the individual raw
-dereferences; the futex / unsafe_*() paths should additionally untag the
-user pointer after access_ok() so that tagged pointers work there as the
-ABI intends.
+Just to clarify, I only applied the first three patches, for the reason
+mentioned earlier.
 
-Link: https://lore.kernel.org/all/a25d01cd-e21d-4e51-9d24-6cc41589c041@sifive.com/
-Fixes: 09d6775f503b ("riscv: Add support for userspace pointer masking")
-Signed-off-by: Ziyi Guo <guoziyi114@gmail.com>
----
- arch/riscv/kernel/process.c | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 7cc5a6a5c020..afaeaaa247c2 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -433,7 +433,16 @@ static int __init tagged_addr_init(void)
- 	 */
- 	csr_clear(CSR_ENVCFG, ENVCFG_PMM);
- 	have_user_pmlen_7 = try_to_set_pmm(ENVCFG_PMM_PMLEN_7);
--	have_user_pmlen_16 = try_to_set_pmm(ENVCFG_PMM_PMLEN_16);
-+	/*
-+	 * PMLEN=16 masks bits [63:48].  On Sv57 that overlaps the canonical VA
-+	 * sign bit (bit 56), so a tagged user pointer whose untagged form
-+	 * passes access_ok() can still name a canonical kernel VA when
-+	 * dereferenced raw (the futex and unsafe_*() accessors do exactly
-+	 * that).  Only offer a PMLEN whose tag bits stay above the sign bit,
-+	 * i.e. PMLEN <= 64 - VA_BITS; this refuses only Sv57 + PMLEN=16.
-+	 */
-+	have_user_pmlen_16 = try_to_set_pmm(ENVCFG_PMM_PMLEN_16) &&
-+			     VA_BITS <= 64 - PMLEN_16;
- 
- 	if (!register_sysctl("abi", tagged_addr_sysctl_table))
- 		return -EINVAL;
--- 
-2.34.1
-
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
