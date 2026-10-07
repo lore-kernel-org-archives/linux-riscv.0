@@ -4,135 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01441CA6002
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 17:54:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC37BCA6009
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Oct 2026 22:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ClXxOx0gKIy7iQYMUhNmMirM0SdG5C03KooR00ZiiRc=; b=rCoowEXzgp8E9x
-	m+yiH3N9AZlHa0xQfWxqHOuxEz6KpokGtgrflwhj1M47IW2K2hZGcHPDUb3a5FJExzltaH6mKuXX9
-	bVDUB0z9xQLbLj00tZdoFOfrTlQ2kD3KtskeyJyTQOwVa2/dAPpn/akKpGuRbHTcF+SEFsagqCEWr
-	ve4Qma8ZLT4ZpnEXwqQS3gpvr51knm/s8ln3gjw1+8JBWaQS71M9IO/ShZoF+nXONTc3np3NeR4Dv
-	F0UM0eCuimDnI+mWE5aZ8Qpp6/t7tLfgElSMgybWnzgfpbi51MPhnuoScPwgDyTniSoS6gNS7BMcs
-	ubSAqaosPQb0f3FaDRaA==;
+	List-Owner; bh=u1VP/Wb+WZ3S8713CI0kBr1J05zSn4aX4EnL3YH4zMs=; b=JaY9ldyaLR76xV
+	3p233GuSgQhyigFnsutod+BU4UDKPyE66R4gec6I+44FpYinzLjJHeoRZgrX9kiL739ep3MHGtVuG
+	unZ+4462DDKdCY2b0nmWO4OJH8wQHG/igGFbad+jezAlnEEqauniYppioZl8nLrQQujciYQcuCWb7
+	R5mgmCjjzWa4lN78+8Oe3mrdlDcRzuZinF7wjqcK+//Cn87BF46gsu1Y8fGSw5ulF6BUOSkOj8wdV
+	/zdKJ2NiK2DMIqlrqKvAkOCdiSNc0cAQtcd2wCJqjR+rMtfsj7Q83MpL0k5FjwzVHZTnfrqNL13Wq
+	jOEuLCydGW6yMCm7egnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEVq6-00000002tOH-1kWK;
-	Wed, 07 Oct 2026 17:54:02 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1xEZk5-00000003EKE-44Cj;
+	Wed, 07 Oct 2026 22:04:06 +0000
+Received: from sender6-op-o15.zoho.com ([165.173.180.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xE7CJ-000000012ja-3PT3
+	id 1xEZk2-00000003EJn-1jGG
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Oct 2026 15:35:21 +0000
-Received: from kunlun.suse.cz (unknown [IPv6:2a07:de40:b306:2000::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id E9EA41F7AF;
-	Tue,  6 Oct 2026 15:35:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1791300912; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1lS2Oh85feGBABDtJnF9Irz1qcx8rcV4kKh2BKf2dTs=;
-	b=qcSwlb5D0ecD6Zsvc5tf3Ybz3+DqYnY9E863dhUfQmjDSQYnHorYa48jpHOR32JsEpC0OU
-	QjXZIveAk/Jywud1t8iQf/pXGi52+FBmYm7vayu8ardBIyFjP+4a0bPM8+qTb9EIGStb1x
-	gWOWy45Mbo8RSluEtd6jnyU9mr0U5d4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1791300912;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1lS2Oh85feGBABDtJnF9Irz1qcx8rcV4kKh2BKf2dTs=;
-	b=PnwecC3+PlUm3lPxzE7xLnNpRB3n8W/fC353cYH2NHMehlH6AQForVOQ/lpfFCDWslh85M
-	usxvxhNk8rol6oAQ==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=nIstQG35;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=T6ew+NHs
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1791300908; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1lS2Oh85feGBABDtJnF9Irz1qcx8rcV4kKh2BKf2dTs=;
-	b=nIstQG359rwssueMFo1sDLwolS3Zis/9mntEKGlWymsXGarNt6gToNA/+n6FzvLAk3esW1
-	2Sbyx0IxnI5y6gRJKCg0ThvfOhzKP+IOPED0LIiBdcUFm4gPreH6tHkZ2VHuAxo7Ebm1WN
-	DbZ68FVSeZIozqApNHkVDDjyrMi9jtE=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1791300908;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1lS2Oh85feGBABDtJnF9Irz1qcx8rcV4kKh2BKf2dTs=;
-	b=T6ew+NHs8PkfE0wvUI3EPvPT8kIkbbml70l/+IC1VtcjOwhSfCJvbEdToqI2KPih36XQqX
-	Ky3dJGxlaEoErcBA==
-Date: Tue, 6 Oct 2026 17:35:06 +0200
-From: Michal =?iso-8859-1?Q?Such=E1nek?= <msuchanek@suse.de>
-To: Kees Cook <kees@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Andy Lutomirski <luto@amacapital.net>,
-	Will Drewry <wad@chromium.org>, Paul Walmsley <pjw@kernel.org>,
+	Wed, 07 Oct 2026 22:04:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1791410635; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=gDvwZzsry72YvvN8k+UDURQWfAN1j2sErCYLGw/20kwhLuUsvkJ8D59LOj8udZ0iQZYt5dcSy8Zpm5DtposiDaQGt6Z5hw3Eyr8BA9wjAJ65Uf11pXCgsWh65b0whqZfJ7/WgJyFlzUKixJ6s9h6+KycnVrtfZ96iiZtGPvMk80=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1791410635; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=IS49IWXxuLYQK+6DYPPK3VQETMaAy08l2kK8RJEIHuU=; 
+	b=FR1uHSy8yV4hDCqVqupIIeEmc2WOTHspCTdxcUisBusAj7O6FJiUBIKsMv6PJNlFrrsNq/RcBhRRTfFEqIwr/QW1zSsIEKtoL7L3FB30yuxRC3dwqmgzsX35ZZm0AmQfSGFyBYCZyWveUcGjbTktPGqq45dzbZzKkVQ0nML9v70=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ziyao.cc;
+	spf=pass  smtp.mailfrom=me@ziyao.cc;
+	dmarc=pass header.from=<me@ziyao.cc>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791410635;
+	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=IS49IWXxuLYQK+6DYPPK3VQETMaAy08l2kK8RJEIHuU=;
+	b=Uj1rnfssxE581ioJvpYgmyzc9otF82Wcn1d14Wp7oOjnO6UumbDwYxxq2Y3kdchX
+	D6Cb8tSjsr8d1yGpQ8r9BGYVYAzq2fp98SwCtbYp+nPVLH5beuTEEFtn3Ta97JUCK9o
+	5HqvqvuCag1VTB0/a/R+h0lyaQ0SRJsb8aco6fCw=
+Received: by smtp.zohomail.com with SMTPS id 1791410633828889.4891558379051;
+	Wed, 7 Oct 2026 15:03:53 -0700 (PDT)
+Date: Wed, 7 Oct 2026 22:03:34 +0000
+From: Yao Zi <me@ziyao.cc>
+To: Han Gao <gaohan@iscas.ac.cn>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, Thomas Gleixner <tglx@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	linuxppc-dev@lists.ozlabs.org, Huacai Chen <chenhuacai@kernel.org>,
-	loongarch@lists.linux.dev, Sven Schnelle <svens@linux.ibm.com>,
-	linux-s390@vger.kernel.org, x86@kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	"Mukesh Kumar Chaurasiya (IBM)" <mkchauras@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>, Radu Rendec <radu@rendec.net>,
-	Renzo Davoli <renzo@cs.unibo.it>, Oleg Nesterov <oleg@redhat.com>
-Subject: Re: [PATCH] seccomp: Fix syscall skip logic on ptrace
-Message-ID: <asUVKrMQR_U2ySRp@kunlun.suse.cz>
-References: <20260707181957.433213175@kernel.org>
- <al9NlZi20xHMvla2@kunlun.suse.cz>
- <202609011132.F4A3EB7103@keescook>
+	Jisheng Zhang <jszhang@kernel.org>,
+	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>
+Cc: Han Gao <rabenda.cn@gmail.com>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Yao Zi <me@ziyao.cc>
+Subject: Re: [PATCH v2 2/4] riscv: dts: thead: add Milk-V Meles
+Message-ID: <asbBtj3fL0PUNGJ-@pie>
+References: <20261001-rv-meles-v2-0-c61052262f84@iscas.ac.cn>
+ <20261001-rv-meles-v2-2-c61052262f84@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <202609011132.F4A3EB7103@keescook>
-X-Rspamd-Action: add header
-X-Spamd-Result: default: False [15.05 / 50.00];
-	SPAM_FLAG(5.00)[];
-	NEURAL_SPAM_LONG(3.50)[1.000];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_SPAM_SHORT(2.86)[0.953];
-	HFILTER_HOSTNAME_UNKNOWN(2.50)[];
-	RDNS_NONE(2.00)[];
-	ONCE_RECEIVED(1.20)[];
-	HFILTER_HELO_IP_A(1.00)[kunlun.suse.cz];
-	HFILTER_HELO_NORES_A_OR_MX(0.30)[kunlun.suse.cz];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RCPT_COUNT_TWELVE(0.00)[26];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	FREEMAIL_CC(0.00)[vger.kernel.org,amacapital.net,chromium.org,kernel.org,dabbelt.com,eecs.berkeley.edu,ghiti.fr,lists.infradead.org,ellerman.id.au,linux.ibm.com,lists.ozlabs.org,lists.linux.dev,arm.com,huawei.com,gmail.com,lwn.net,rendec.net,cs.unibo.it,redhat.com];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b306:2000::2:from];
-	MISSING_XM_UA(0.00)[];
-	RCVD_COUNT_ZERO(0.00)[0];
-	DKIM_TRACE(0.00)[suse.de:+];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:email]
-X-Spamd-Bar: +++++++++++++++
-X-Rspamd-Queue-Id: E9EA41F7AF
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Spam: Yes
+In-Reply-To: <20261001-rv-meles-v2-2-c61052262f84@iscas.ac.cn>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/291.389.60
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261006_083520_165119_43CD3EC2 
-X-CRM114-Status: GOOD (  32.27  )
-X-Mailman-Approved-At: Wed, 07 Oct 2026 10:52:38 -0700
+X-CRM114-CacheID: sfid-20261007_150402_532688_72D45647 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,473 +89,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 11:34:31AM -0700, Kees Cook wrote:
-> On Tue, Jul 21, 2026 at 12:44:37PM +0200, Michal Suchanek wrote:
-> > seccomp takes a shortcut here. When the syscall number is re-read after
-> > ptrace and the sign bit is set in the syscall number the syscall is
-> > skipped right away.
-> > 
-> > This works fairly well on x86 where the return value of the syscall is
-> > preset before seccomp is processed.
-> > 
-> > However, on some architectures the syscall return value overlaps with
-> > the syscall number or syscall arguments, and as a result the return
-> > value cannot be preset in advance.
-> > 
-> > For these architectures seccomp needs to exit without flagging the
-> > syscall as skipped. Then processing of invalid syscall number in the
-> > architecture code should set the return value to -ENOSYS and skip the
-> > syscall.
-> > 
-> > This introduces a change: If the syscall number has the sign bit
-> > set, such as -1, previously the filter re-check would not be done, not
-> > applying the filter after trace. Now the re-check is done both for
-> > syscall nubers with and without sign bit set. This would only make a
-> > difference if the syscall number or the filter was changed by the
-> > tracer. Otherwise the filter would be resolved the first time around.
-> > 
-> > Signed-off-by: Michal Suchanek <msuchanek@suse.de>
-> > ---
-> >  kernel/seccomp.c | 5 +----
-> >  1 file changed, 1 insertion(+), 4 deletions(-)
-> > 
-> > diff --git a/kernel/seccomp.c b/kernel/seccomp.c
-> > index 066909393c38..9e40a38aaedf 100644
-> > --- a/kernel/seccomp.c
-> > +++ b/kernel/seccomp.c
-> > @@ -1318,11 +1318,8 @@ static int __seccomp_filter(int this_syscall, const bool recheck_after_trace)
-> >  		 */
-> >  		if (fatal_signal_pending(current))
-> >  			goto skip;
-> > -		/* Check if the tracer forced the syscall to be skipped. */
-> > -		this_syscall = syscall_get_nr(current, current_pt_regs());
-> > -		if (this_syscall < 0)
-> > -			goto skip;
-> >  
-> > +		this_syscall = syscall_get_nr(current, current_pt_regs());
-> >  		/*
-> >  		 * Recheck the syscall, since it may have changed. This
-> >  		 * intentionally uses a NULL struct seccomp_data to force
+On Thu, Oct 01, 2026 at 03:44:11PM +0800, Han Gao wrote:
+> Add the Milk-V Meles board with UART0, eMMC, SD, Ethernet and the PWM2
+> fan. Describe the board pin assignments and the PHY on the GMAC0 MDIO
+> bus. Give GPIO banks aliases and name the exposed 40-pin header lines.
 > 
-> Does the seccomp selftest still pass with this change? I _think_ it's
-> fine; this just induces more work on a tracer-induced skip path, which,
-> in theory, shouldn't be fast-path: kicking out to the tracer is going to
-> be the slowest part.
+> The eMMC I/O supply is fixed at 1.8 V. Enable DDR52 at that voltage and
+> retain the 52 MHz board limit. Describe 8 GiB as the default memory
+> size; firmware updates it to match the detected RAM capacity.
+> 
+> Reviewed-by: Drew Fustini <fustini@kernel.org>
+> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> ---
+>  arch/riscv/boot/dts/thead/Makefile               |   1 +
+>  arch/riscv/boot/dts/thead/th1520-milkv-meles.dts | 227 +++++++++++++++++++++++
+>  2 files changed, 228 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/thead/Makefile b/arch/riscv/boot/dts/thead/Makefile
+> index b55a17127c2bc06cbfb06d5f7c92dc7296e98437..25f7fe068368c97df2490bedc3eae70276a2e442 100644
+> --- a/arch/riscv/boot/dts/thead/Makefile
+> +++ b/arch/riscv/boot/dts/thead/Makefile
+> @@ -1,2 +1,3 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  dtb-$(CONFIG_ARCH_THEAD) += th1520-lichee-pi-4a.dtb th1520-beaglev-ahead.dtb
+> +dtb-$(CONFIG_ARCH_THEAD) += th1520-milkv-meles.dtb
+> diff --git a/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts b/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..3714047190789bfccd8ff6810342d7ff865e74e4
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts
+> @@ -0,0 +1,227 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2021-2022 Alibaba Group Holding Limited.
+> + * Copyright (C) 2026 Han Gao <gaohan@iscas.ac.cn>
+> + */
 
-It does not pass without this change, either.
+...
 
-On 7.3-rc6 I get:
+> +&emmc {
+> +	bus-width = <8>;
+> +	max-frequency = <52000000>;
+> +	cap-mmc-highspeed;
+> +	mmc-ddr-1_8v;
+> +	non-removable;
+> +	no-sdio;
+> +	no-sd;
+> +
+> +	status = "okay";
+> +};
 
-./seccomp_bpf 
-TAP version 13
-1..111
-# Starting 111 tests from 11 test cases.
-#  RUN           global.kcmp ...
-#            OK  global.kcmp
-ok 1 global.kcmp
-#  RUN           global.mode_strict_support ...
-#            OK  global.mode_strict_support
-ok 2 global.mode_strict_support
-#  RUN           global.mode_strict_cannot_call_prctl ...
-#            OK  global.mode_strict_cannot_call_prctl
-ok 3 global.mode_strict_cannot_call_prctl
-#  RUN           global.no_new_privs_support ...
-#            OK  global.no_new_privs_support
-ok 4 global.no_new_privs_support
-#  RUN           global.mode_filter_support ...
-#            OK  global.mode_filter_support
-ok 5 global.mode_filter_support
-#  RUN           global.mode_filter_without_nnp ...
-#            OK  global.mode_filter_without_nnp
-ok 6 global.mode_filter_without_nnp
-#  RUN           global.filter_size_limits ...
-#            OK  global.filter_size_limits
-ok 7 global.filter_size_limits
-#  RUN           global.filter_chain_limits ...
-#            OK  global.filter_chain_limits
-ok 8 global.filter_chain_limits
-#  RUN           global.mode_filter_cannot_move_to_strict ...
-#            OK  global.mode_filter_cannot_move_to_strict
-ok 9 global.mode_filter_cannot_move_to_strict
-#  RUN           global.mode_filter_get_seccomp ...
-#            OK  global.mode_filter_get_seccomp
-ok 10 global.mode_filter_get_seccomp
-#  RUN           global.ALLOW_all ...
-#            OK  global.ALLOW_all
-ok 11 global.ALLOW_all
-#  RUN           global.empty_prog ...
-#            OK  global.empty_prog
-ok 12 global.empty_prog
-#  RUN           global.log_all ...
-#            OK  global.log_all
-ok 13 global.log_all
-#  RUN           global.unknown_ret_is_kill_inside ...
-#            OK  global.unknown_ret_is_kill_inside
-ok 14 global.unknown_ret_is_kill_inside
-#  RUN           global.unknown_ret_is_kill_above_allow ...
-#            OK  global.unknown_ret_is_kill_above_allow
-ok 15 global.unknown_ret_is_kill_above_allow
-#  RUN           global.KILL_all ...
-#            OK  global.KILL_all
-ok 16 global.KILL_all
-#  RUN           global.KILL_one ...
-#            OK  global.KILL_one
-ok 17 global.KILL_one
-#  RUN           global.KILL_one_arg_one ...
-#            OK  global.KILL_one_arg_one
-ok 18 global.KILL_one_arg_one
-#  RUN           global.KILL_one_arg_six ...
-#            OK  global.KILL_one_arg_six
-ok 19 global.KILL_one_arg_six
-#  RUN           global.KILL_thread ...
-#            OK  global.KILL_thread
-ok 20 global.KILL_thread
-#  RUN           global.KILL_process ...
-#            OK  global.KILL_process
-ok 21 global.KILL_process
-#  RUN           global.KILL_unknown ...
-#            OK  global.KILL_unknown
-ok 22 global.KILL_unknown
-#  RUN           global.arg_out_of_range ...
-#            OK  global.arg_out_of_range
-ok 23 global.arg_out_of_range
-#  RUN           global.ERRNO_valid ...
-#            OK  global.ERRNO_valid
-ok 24 global.ERRNO_valid
-#  RUN           global.ERRNO_zero ...
-#            OK  global.ERRNO_zero
-ok 25 global.ERRNO_zero
-#  RUN           global.ERRNO_capped ...
-#            OK  global.ERRNO_capped
-ok 26 global.ERRNO_capped
-#  RUN           global.ERRNO_order ...
-#            OK  global.ERRNO_order
-ok 27 global.ERRNO_order
-#  RUN           global.negative_ENOSYS ...
-#            OK  global.negative_ENOSYS
-ok 28 global.negative_ENOSYS
-#  RUN           global.seccomp_syscall ...
-#            OK  global.seccomp_syscall
-ok 29 global.seccomp_syscall
-#  RUN           global.seccomp_syscall_mode_lock ...
-#            OK  global.seccomp_syscall_mode_lock
-ok 30 global.seccomp_syscall_mode_lock
-#  RUN           global.detect_seccomp_filter_flags ...
-#            OK  global.detect_seccomp_filter_flags
-ok 31 global.detect_seccomp_filter_flags
-#  RUN           global.TSYNC_first ...
-#            OK  global.TSYNC_first
-ok 32 global.TSYNC_first
-#  RUN           global.syscall_restart ...
-#            OK  global.syscall_restart
-ok 33 global.syscall_restart
-#  RUN           global.filter_flag_log ...
-#            OK  global.filter_flag_log
-ok 34 global.filter_flag_log
-#  RUN           global.get_action_avail ...
-#            OK  global.get_action_avail
-ok 35 global.get_action_avail
-#  RUN           global.get_metadata ...
-#            OK  global.get_metadata
-ok 36 global.get_metadata
-#  RUN           global.user_notification_basic ...
-# seccomp_bpf.c:3488:user_notification_basic:Expected 0 (0) == WEXITSTATUS(status) (1)
-# user_notification_basic: Test failed
-#          FAIL  global.user_notification_basic
-not ok 37 global.user_notification_basic
-#  RUN           global.user_notification_with_tsync ...
-#            OK  global.user_notification_with_tsync
-ok 38 global.user_notification_with_tsync
-#  RUN           global.user_notification_kill_in_middle ...
-#            OK  global.user_notification_kill_in_middle
-ok 39 global.user_notification_kill_in_middle
-#  RUN           global.user_notification_signal ...
-#            OK  global.user_notification_signal
-ok 40 global.user_notification_signal
-#  RUN           global.user_notification_closed_listener ...
-#            OK  global.user_notification_closed_listener
-ok 41 global.user_notification_closed_listener
-#  RUN           global.user_notification_child_pid_ns ...
-# seccomp_bpf.c:3713:user_notification_child_pid_ns:Expected 0 (0) == WEXITSTATUS(status) (1)
-# user_notification_child_pid_ns: Test failed
-#          FAIL  global.user_notification_child_pid_ns
-not ok 42 global.user_notification_child_pid_ns
-#  RUN           global.user_notification_sibling_pid_ns ...
-# seccomp_bpf.c:3755:user_notification_sibling_pid_ns:Expected 0 (0) == WEXITSTATUS(status) (1)
-# seccomp_bpf.c:3791:user_notification_sibling_pid_ns:Expected 0 (0) == WEXITSTATUS(status) (1)
-# user_notification_sibling_pid_ns: Test failed
-#          FAIL  global.user_notification_sibling_pid_ns
-not ok 43 global.user_notification_sibling_pid_ns
-#  RUN           global.user_notification_fault_recv ...
-# seccomp_bpf.c:3836:user_notification_fault_recv:Expected 0 (0) == WEXITSTATUS(status) (1)
-# user_notification_fault_recv: Test failed
-#          FAIL  global.user_notification_fault_recv
-not ok 44 global.user_notification_fault_recv
-#  RUN           global.seccomp_get_notif_sizes ...
-#            OK  global.seccomp_get_notif_sizes
-ok 45 global.seccomp_get_notif_sizes
-#  RUN           global.user_notification_continue ...
-#            OK  global.user_notification_continue
-ok 46 global.user_notification_continue
-#  RUN           global.user_notification_filter_empty ...
-#            OK  global.user_notification_filter_empty
-ok 47 global.user_notification_filter_empty
-#  RUN           global.user_ioctl_notification_filter_empty ...
-#            OK  global.user_ioctl_notification_filter_empty
-ok 48 global.user_ioctl_notification_filter_empty
-#  RUN           global.user_notification_filter_empty_threaded ...
-#            OK  global.user_notification_filter_empty_threaded
-ok 49 global.user_notification_filter_empty_threaded
-#  RUN           global.user_notification_addfd ...
-# user_notification_addfd: Test terminated by timeout
-#          FAIL  global.user_notification_addfd
-not ok 50 global.user_notification_addfd
-#  RUN           global.user_notification_addfd_rlimit ...
-# seccomp_bpf.c:4366:user_notification_addfd_rlimit:Expected 0 (0) == WEXITSTATUS(status) (1)
-# user_notification_addfd_rlimit: Test failed
-#          FAIL  global.user_notification_addfd_rlimit
-not ok 51 global.user_notification_addfd_rlimit
-#  RUN           global.user_notification_sync ...
-# seccomp_bpf.c:4404:user_notification_sync:Expected ret (0) == USER_NOTIF_MAGIC (2147483647)
-# seccomp_bpf.c:4422:user_notification_sync:Expected status (256) == 0 (0)
-# user_notification_sync: Test terminated by assertion
-#          FAIL  global.user_notification_sync
-not ok 52 global.user_notification_sync
-#  RUN           global.user_notification_fifo ...
-# seccomp_bpf.c:4581:user_notification_fifo:Expected 0 (0) == WEXITSTATUS(status) (1)
-# seccomp_bpf.c:4615:user_notification_fifo:Expected 0 (0) == WEXITSTATUS(status) (1)
-# seccomp_bpf.c:4615:user_notification_fifo:Expected 0 (0) == WEXITSTATUS(status) (1)
-# seccomp_bpf.c:4615:user_notification_fifo:Expected 0 (0) == WEXITSTATUS(status) (1)
-# user_notification_fifo: Test failed
-#          FAIL  global.user_notification_fifo
-not ok 53 global.user_notification_fifo
-#  RUN           global.user_notification_wait_killable_pre_notification ...
-#            OK  global.user_notification_wait_killable_pre_notification
-ok 54 global.user_notification_wait_killable_pre_notification
-#  RUN           global.user_notification_wait_killable ...
-# seccomp_bpf.c:4788:user_notification_wait_killable:Expected 0 (0) == WEXITSTATUS(status) (1)
-# user_notification_wait_killable: Test failed
-#          FAIL  global.user_notification_wait_killable
-not ok 55 global.user_notification_wait_killable
-#  RUN           global.user_notification_wait_killable_fatal ...
-#            OK  global.user_notification_wait_killable_fatal
-ok 56 global.user_notification_wait_killable_fatal
-#  RUN           global.user_notification_wait_killable_after_reply ...
-#            OK  global.user_notification_wait_killable_after_reply
-ok 57 global.user_notification_wait_killable_after_reply
-#  RUN           global.tsync_vs_dead_thread_leader ...
-#            OK  global.tsync_vs_dead_thread_leader
-ok 58 global.tsync_vs_dead_thread_leader
-#  RUN           TRAP.dfl ...
-#            OK  TRAP.dfl
-ok 59 TRAP.dfl
-#  RUN           TRAP.ign ...
-#            OK  TRAP.ign
-ok 60 TRAP.ign
-#  RUN           TRAP.handler ...
-#            OK  TRAP.handler
-ok 61 TRAP.handler
-#  RUN           precedence.allow_ok ...
-#            OK  precedence.allow_ok
-ok 62 precedence.allow_ok
-#  RUN           precedence.kill_is_highest ...
-#            OK  precedence.kill_is_highest
-ok 63 precedence.kill_is_highest
-#  RUN           precedence.kill_is_highest_in_any_order ...
-#            OK  precedence.kill_is_highest_in_any_order
-ok 64 precedence.kill_is_highest_in_any_order
-#  RUN           precedence.trap_is_second ...
-#            OK  precedence.trap_is_second
-ok 65 precedence.trap_is_second
-#  RUN           precedence.trap_is_second_in_any_order ...
-#            OK  precedence.trap_is_second_in_any_order
-ok 66 precedence.trap_is_second_in_any_order
-#  RUN           precedence.errno_is_third ...
-#            OK  precedence.errno_is_third
-ok 67 precedence.errno_is_third
-#  RUN           precedence.errno_is_third_in_any_order ...
-#            OK  precedence.errno_is_third_in_any_order
-ok 68 precedence.errno_is_third_in_any_order
-#  RUN           precedence.trace_is_fourth ...
-#            OK  precedence.trace_is_fourth
-ok 69 precedence.trace_is_fourth
-#  RUN           precedence.trace_is_fourth_in_any_order ...
-#            OK  precedence.trace_is_fourth_in_any_order
-ok 70 precedence.trace_is_fourth_in_any_order
-#  RUN           precedence.log_is_fifth ...
-#            OK  precedence.log_is_fifth
-ok 71 precedence.log_is_fifth
-#  RUN           precedence.log_is_fifth_in_any_order ...
-#            OK  precedence.log_is_fifth_in_any_order
-ok 72 precedence.log_is_fifth_in_any_order
-#  RUN           TRACE_poke.read_has_side_effects ...
-#            OK  TRACE_poke.read_has_side_effects
-ok 73 TRACE_poke.read_has_side_effects
-#  RUN           TRACE_poke.getpid_runs_normally ...
-#            OK  TRACE_poke.getpid_runs_normally
-ok 74 TRACE_poke.getpid_runs_normally
-#  RUN           TRACE_syscall.ptrace.negative_ENOSYS ...
-#            OK  TRACE_syscall.ptrace.negative_ENOSYS
-ok 75 TRACE_syscall.ptrace.negative_ENOSYS
-#  RUN           TRACE_syscall.ptrace.syscall_allowed ...
-#            OK  TRACE_syscall.ptrace.syscall_allowed
-ok 76 TRACE_syscall.ptrace.syscall_allowed
-#  RUN           TRACE_syscall.ptrace.syscall_redirected ...
-#            OK  TRACE_syscall.ptrace.syscall_redirected
-ok 77 TRACE_syscall.ptrace.syscall_redirected
-#  RUN           TRACE_syscall.ptrace.syscall_errno ...
-#            OK  TRACE_syscall.ptrace.syscall_errno
-ok 78 TRACE_syscall.ptrace.syscall_errno
-#  RUN           TRACE_syscall.ptrace.syscall_faked ...
-#            OK  TRACE_syscall.ptrace.syscall_faked
-ok 79 TRACE_syscall.ptrace.syscall_faked
-#  RUN           TRACE_syscall.ptrace.kill_immediate ...
-#            OK  TRACE_syscall.ptrace.kill_immediate
-ok 80 TRACE_syscall.ptrace.kill_immediate
-#  RUN           TRACE_syscall.ptrace.skip_after ...
-#            OK  TRACE_syscall.ptrace.skip_after
-ok 81 TRACE_syscall.ptrace.skip_after
-#  RUN           TRACE_syscall.ptrace.kill_after ...
-#            OK  TRACE_syscall.ptrace.kill_after
-ok 82 TRACE_syscall.ptrace.kill_after
-#  RUN           TRACE_syscall.seccomp.negative_ENOSYS ...
-#            OK  TRACE_syscall.seccomp.negative_ENOSYS
-ok 83 TRACE_syscall.seccomp.negative_ENOSYS
-#  RUN           TRACE_syscall.seccomp.syscall_allowed ...
-#            OK  TRACE_syscall.seccomp.syscall_allowed
-ok 84 TRACE_syscall.seccomp.syscall_allowed
-#  RUN           TRACE_syscall.seccomp.syscall_redirected ...
-#            OK  TRACE_syscall.seccomp.syscall_redirected
-ok 85 TRACE_syscall.seccomp.syscall_redirected
-#  RUN           TRACE_syscall.seccomp.syscall_errno ...
-#            OK  TRACE_syscall.seccomp.syscall_errno
-ok 86 TRACE_syscall.seccomp.syscall_errno
-#  RUN           TRACE_syscall.seccomp.syscall_faked ...
-# seccomp_bpf.c:2253:syscall_faked:Expected 45000 (45000) == syscall(207) (0)
-# syscall_faked: Test failed
-#          FAIL  TRACE_syscall.seccomp.syscall_faked
-not ok 87 TRACE_syscall.seccomp.syscall_faked
-#  RUN           TRACE_syscall.seccomp.kill_immediate ...
-#            OK  TRACE_syscall.seccomp.kill_immediate
-ok 88 TRACE_syscall.seccomp.kill_immediate
-#  RUN           TRACE_syscall.seccomp.skip_after ...
-#            OK  TRACE_syscall.seccomp.skip_after
-ok 89 TRACE_syscall.seccomp.skip_after
-#  RUN           TRACE_syscall.seccomp.kill_after ...
-#            OK  TRACE_syscall.seccomp.kill_after
-ok 90 TRACE_syscall.seccomp.kill_after
-#  RUN           TSYNC.siblings_fail_prctl ...
-#            OK  TSYNC.siblings_fail_prctl
-ok 91 TSYNC.siblings_fail_prctl
-#  RUN           TSYNC.two_siblings_with_ancestor ...
-#            OK  TSYNC.two_siblings_with_ancestor
-ok 92 TSYNC.two_siblings_with_ancestor
-#  RUN           TSYNC.two_sibling_want_nnp ...
-#            OK  TSYNC.two_sibling_want_nnp
-ok 93 TSYNC.two_sibling_want_nnp
-#  RUN           TSYNC.two_siblings_with_no_filter ...
-#            OK  TSYNC.two_siblings_with_no_filter
-ok 94 TSYNC.two_siblings_with_no_filter
-#  RUN           TSYNC.two_siblings_with_one_divergence ...
-#            OK  TSYNC.two_siblings_with_one_divergence
-ok 95 TSYNC.two_siblings_with_one_divergence
-#  RUN           TSYNC.two_siblings_with_one_divergence_no_tid_in_err ...
-#            OK  TSYNC.two_siblings_with_one_divergence_no_tid_in_err
-ok 96 TSYNC.two_siblings_with_one_divergence_no_tid_in_err
-#  RUN           TSYNC.two_siblings_not_under_filter ...
-#            OK  TSYNC.two_siblings_not_under_filter
-ok 97 TSYNC.two_siblings_not_under_filter
-#  RUN           O_SUSPEND_SECCOMP.setoptions ...
-#            OK  O_SUSPEND_SECCOMP.setoptions
-ok 98 O_SUSPEND_SECCOMP.setoptions
-#  RUN           O_SUSPEND_SECCOMP.seize ...
-#            OK  O_SUSPEND_SECCOMP.seize
-ok 99 O_SUSPEND_SECCOMP.seize
-#  RUN           UPROBE.not_attached.uprobe_default_allow ...
-#      SKIP      __NR_uprobe ot __NR_uretprobe syscalls not defined
-#            OK  UPROBE.not_attached.uprobe_default_allow
-ok 100 UPROBE.not_attached.uprobe_default_allow # SKIP __NR_uprobe ot __NR_uretprobe syscalls not defined
-#  RUN           UPROBE.not_attached.uprobe_default_block ...
-#      SKIP      __NR_uprobe ot __NR_uretprobe syscalls not defined
-#            OK  UPROBE.not_attached.uprobe_default_block
-ok 101 UPROBE.not_attached.uprobe_default_block # SKIP __NR_uprobe ot __NR_uretprobe syscalls not defined
-#  RUN           UPROBE.not_attached.uprobe_block_syscall ...
-#      SKIP      __NR_uprobe ot __NR_uretprobe syscalls not defined
-#            OK  UPROBE.not_attached.uprobe_block_syscall
-ok 102 UPROBE.not_attached.uprobe_block_syscall # SKIP __NR_uprobe ot __NR_uretprobe syscalls not defined
-#  RUN           UPROBE.not_attached.uprobe_default_block_with_syscall ...
-#      SKIP      __NR_uprobe ot __NR_uretprobe syscalls not defined
-#            OK  UPROBE.not_attached.uprobe_default_block_with_syscall
-ok 103 UPROBE.not_attached.uprobe_default_block_with_syscall # SKIP __NR_uprobe ot __NR_uretprobe syscalls not defined
-#  RUN           UPROBE.uprobe_attached.uprobe_default_allow ...
-#      SKIP      __NR_uprobe ot __NR_uretprobe syscalls not defined
-#            OK  UPROBE.uprobe_attached.uprobe_default_allow
-ok 104 UPROBE.uprobe_attached.uprobe_default_allow # SKIP __NR_uprobe ot __NR_uretprobe syscalls not defined
-#  RUN           UPROBE.uprobe_attached.uprobe_default_block ...
-#      SKIP      __NR_uprobe ot __NR_uretprobe syscalls not defined
-#            OK  UPROBE.uprobe_attached.uprobe_default_block
-ok 105 UPROBE.uprobe_attached.uprobe_default_block # SKIP __NR_uprobe ot __NR_uretprobe syscalls not defined
-#  RUN           UPROBE.uprobe_attached.uprobe_block_syscall ...
-#      SKIP      __NR_uprobe ot __NR_uretprobe syscalls not defined
-#            OK  UPROBE.uprobe_attached.uprobe_block_syscall
-ok 106 UPROBE.uprobe_attached.uprobe_block_syscall # SKIP __NR_uprobe ot __NR_uretprobe syscalls not defined
-#  RUN           UPROBE.uprobe_attached.uprobe_default_block_with_syscall ...
-#      SKIP      __NR_uprobe ot __NR_uretprobe syscalls not defined
-#            OK  UPROBE.uprobe_attached.uprobe_default_block_with_syscall
-ok 107 UPROBE.uprobe_attached.uprobe_default_block_with_syscall # SKIP __NR_uprobe ot __NR_uretprobe syscalls not defined
-#  RUN           UPROBE.uretprobe_attached.uprobe_default_allow ...
-#      SKIP      __NR_uprobe ot __NR_uretprobe syscalls not defined
-#            OK  UPROBE.uretprobe_attached.uprobe_default_allow
-ok 108 UPROBE.uretprobe_attached.uprobe_default_allow # SKIP __NR_uprobe ot __NR_uretprobe syscalls not defined
-#  RUN           UPROBE.uretprobe_attached.uprobe_default_block ...
-#      SKIP      __NR_uprobe ot __NR_uretprobe syscalls not defined
-#            OK  UPROBE.uretprobe_attached.uprobe_default_block
-ok 109 UPROBE.uretprobe_attached.uprobe_default_block # SKIP __NR_uprobe ot __NR_uretprobe syscalls not defined
-#  RUN           UPROBE.uretprobe_attached.uprobe_block_syscall ...
-#      SKIP      __NR_uprobe ot __NR_uretprobe syscalls not defined
-#            OK  UPROBE.uretprobe_attached.uprobe_block_syscall
-ok 110 UPROBE.uretprobe_attached.uprobe_block_syscall # SKIP __NR_uprobe ot __NR_uretprobe syscalls not defined
-#  RUN           UPROBE.uretprobe_attached.uprobe_default_block_with_syscall ...
-#      SKIP      __NR_uprobe ot __NR_uretprobe syscalls not defined
-#            OK  UPROBE.uretprobe_attached.uprobe_default_block_with_syscall
-ok 111 UPROBE.uretprobe_attached.uprobe_default_block_with_syscall # SKIP __NR_uprobe ot __NR_uretprobe syscalls not defined
-# FAILED: 101 / 111 tests passed.
-# 12 skipped test(s) detected. Consider enabling relevant config options to improve coverage.
-# Totals: pass:89 fail:10 xfail:0 xpass:0 skip:12 error:0
+Could you please explain the 52MHz limitation? This doesn't match what
+I saw at RevyOS' downstream kernel, which seems the only distribution
+supported by Milk-V officially.
 
-but it does have an additional failure:
+Regards,
+Yao Zi
 
---- test-base.log	2026-10-06 15:18:02.387213018 +0000
-+++ test-patched.log	2026-10-06 15:32:06.286523030 +0000
-@@ -279,10 +279,12 @@
- #            OK  TRACE_syscall.seccomp.syscall_redirected
- ok 85 TRACE_syscall.seccomp.syscall_redirected
- #  RUN           TRACE_syscall.seccomp.syscall_errno ...
--#            OK  TRACE_syscall.seccomp.syscall_errno
--ok 86 TRACE_syscall.seccomp.syscall_errno
-+# seccomp_bpf.c:2247:syscall_errno:Expected -(-3) (3) == errno (38)
-+# syscall_errno: Test failed
-+#          FAIL  TRACE_syscall.seccomp.syscall_errno
-+not ok 86 TRACE_syscall.seccomp.syscall_errno
- #  RUN           TRACE_syscall.seccomp.syscall_faked ...
--# seccomp_bpf.c:2253:syscall_faked:Expected 45000 (45000) == syscall(207) (0)
-+# seccomp_bpf.c:2253:syscall_faked:Expected 45000 (45000) == syscall(207) (-1)
- # syscall_faked: Test failed
- #          FAIL  TRACE_syscall.seccomp.syscall_faked
- not ok 87 TRACE_syscall.seccomp.syscall_faked
-@@ -370,6 +372,6 @@
- #      SKIP      __NR_uprobe ot __NR_uretprobe syscalls not defined
- #            OK  UPROBE.uretprobe_attached.uprobe_default_block_with_syscall
- ok 111 UPROBE.uretprobe_attached.uprobe_default_block_with_syscall # SKIP __NR_uprobe ot __NR_uretprobe syscalls not defined
--# FAILED: 101 / 111 tests passed.
-+# FAILED: 100 / 111 tests passed.
- # 12 skipped test(s) detected. Consider enabling relevant config options to improve coverage.
--# Totals: pass:89 fail:10 xfail:0 xpass:0 skip:12 error:0
-+# Totals: pass:88 fail:11 xfail:0 xpass:0 skip:12 error:0
-
-Thanks
-
-Michal
+[1]: https://github.com/revyos/th1520-linux-kernel/blob/a092d55649279e1c9bcda2769b8f6b4370fa2c94/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts#L1012-L1023
 
 _______________________________________________
 linux-riscv mailing list
