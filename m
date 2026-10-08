@@ -4,97 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A4CCA6007
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 03:29:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9ACBCA5FFD
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 03:29:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qGzc6ontqZGscpVlKOuAhwvEsERsJzu7IIUOONZfe8E=; b=leEeUHD4r4xu/F
-	RzdMVo8PWCi7jnehIkqlWkzGT61xvSwC5CcquIfb54cPRTc+JlWNu/HdU9119/t3D19+9NU+3fm96
-	WmIgOsynYuMBRzeuZsk6UtUObaJa33mpgd3AHyzKGfhNnI34xjrniTdpSVFuKHBbvkYH9E2dR6Alw
-	JwXtA/m+SToZ4bCiewtLgux3dGpR0yIayhJMDV7EVHsUgpa1rGIiaWXBQq2RqdPxJ0kMGtMrANtNp
-	Vw2qLLkbXwT1+Evp7+9vphFO5I6vDSiiiRJrSnuo261PW9CQgIq02JXs0Fk+1heKNcMrBwOkKJBnG
-	/YWLVkcGWEYt817om93A==;
+	List-Owner; bh=5bnbCXtLQO2ReiQHJyC/2F31u6PE/7wX6bFe/HcMmzA=; b=QV9LWbBMg2ncKy
+	aXUehi8yfo+DQdZpajcJHiEDOj8EqTjSFLNQLhe4onbNuGbNkKuYVolIIJVy2ieCrNSDgy+975uLP
+	PCE3X13LVID+bK94nMhPqT0vrHPR+Hc3K/16uU4IKflsrUHr/I36h+hEmk+cFfwtLn5R6bt5jEoE/
+	nnYA+9hSP49YiIAJ+FlGG7jpBR6hgz30bLc90gN2NRRwjArkFTcGHyY5nIjWNk3TMxGVXht+Su6SB
+	Oce7VCkqVrwN9I1ZwRoNu10KjhFvz6m5vng0boo5WQRXx03bu17/xLv2FEMxVHDSoxqlx2qhAizfI
+	5eaVCJCLs+dPMPuu1qpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEeoO-00000003RsI-49EC;
+	id 1xEeoP-00000003Rsb-1Dzq;
 	Thu, 08 Oct 2026 03:28:53 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEeoL-00000003RoS-1auo
+	id 1xEeoN-00000003Rr2-2GJ0
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Oct 2026 03:28:50 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6981hlB31114670
-	for <linux-riscv@lists.infradead.org>; Thu, 8 Oct 2026 03:28:48 GMT
+	Thu, 08 Oct 2026 03:28:52 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6981hXKR1454412
+	for <linux-riscv@lists.infradead.org>; Thu, 8 Oct 2026 03:28:51 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ZMbjzTGadlfykU/nTDUxL8dMYc8O8fFEzaAJY3fPRwI=; b=FZUPGItBETjdAzRL
-	B5pYQ0wdEFStWX658zzZwawaBvk8UQqPRLzn1gdXOjsQH+Y6RpJxIhfx+RXHVq1S
-	Q8ujP9tKCD29Y8tfRQ7XwoeDMimSkOxCFvbWDg+KXralawm13fxaeCxcNNHSw9k7
-	/Z6LCq8fKQ8j4lFpSIuWBiqS5YkX4KH1bgvPDfB/R46dF5oyICNfUwFv4LT9s00U
-	SWpcuQ4WJGRkkvp3Jsg/GXA+7qoYWD7sHuz1GCHfSvmoJQddbQ2XejRgc9d+cBQJ
-	HtCHi+RpC1dlf1QcSwoy0HvQQpIs4xnDcqfa2HiooqNTqSNY1JAe4CJ9rBBFrEeY
-	yTWnog==
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h5xe3h0xy-1
+	qDOSkfgSlv2R0xVBV8llQiuT2ZcGPG0hoUyDMx3hNXc=; b=HcPUCrxnFasKbs6Z
+	p0a29N47YufgXNd0bnGMNT593uVNWTUvHuyJ+79jrK6Xzm7cs4kPfPNz1P1k67/8
+	e0n6tjFV4mjsnbOqJ20RGu7fT8+3KufYGI7QK0fHsG1AKhlUV8djsL1bHVvYDcDl
+	3Hcud3hfeR+wlSgw3DL+vkUupCO/Xgsa9vjZ4NKnKYm8Cp8+r12YTjDx0fjhF2TT
+	re96VFDUcmZVm/5SHPu6zV9pAokC0nDCNPr+5Ts9Q18AWGLMs59dtZg+7QrDzKdf
+	daH7eU9EGzQLnwbaYva22/MufbzJHbrBktCIi9llTa/vc3ajVAryUZrnhOhQLsJm
+	TiTb7Q==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h5xe38vba-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 08 Oct 2026 03:28:48 +0000 (GMT)
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-30f1b904861so6338982eec.0
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Oct 2026 20:28:48 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Thu, 08 Oct 2026 03:28:50 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-351788121cfso1445181eec.0
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Oct 2026 20:28:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791430127; x=1792034927; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1791430130; x=1792034930; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ZMbjzTGadlfykU/nTDUxL8dMYc8O8fFEzaAJY3fPRwI=;
-        b=BdmYv6Cg2Wc/xVsY4d6yGBvBPsT3YsLywPbfVtiLXL6SEcHzIhcHF+S1AYqpw8LKLW
-         CljlweMWPVzD0JjS68Fv75baNwqPF378VifNWRZoGleiBh7aHAiP51Rja8tY9DlebHuh
-         UDqdIkWSEfAsdyhpK1h+D/ChtFBHDVTTb2hiae56W+v66MYRjQ/ca6Co+DPjjy70wefn
-         lS3I52zU2jeehkTtbw+Uj38WZs65gMaXHLFJmobk3dpDd6Z5BZj2hYvTUD349Zf/0jbG
-         +r7c1pvcDH0nyduSm7v9cUKa6a34wlhV1nzYnv7RjdjGT78ShILCEswT+TX5IlGhVJoN
-         k8CA==
+        bh=qDOSkfgSlv2R0xVBV8llQiuT2ZcGPG0hoUyDMx3hNXc=;
+        b=Bi3QGEE1uJqOgnxYJeYatsx2DYoquJIrlEc8lk7+7qIiIDh4SEQ3o4ofKW7Ew6DE5e
+         fpSYJhwWjN/BFGctdWxmpb9raO41BUUCY4U8uVzmxmu5yZorIJL66iJWCkPrujGAXp1/
+         j5hJOAuavon5q0CcJYF1FbnwyGfgZpp++0bQJpJI7iRSvUlG++uQlX6/memnUMHjeQzc
+         V3nbsia1ELRvxkmW1fUs0PCgVlsMx17V3hzDzd1ZYoGjtiHIVFyB+cVC++Q6lhYMlItB
+         HEbLFlsoCToDGU8gJixEA2GbxDL5j5VfpnPmYv8P5bGNYiOlAb4dzmqE3k5e7P46cI59
+         U9MQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791430127; x=1792034927;
+        d=1e100.net; s=20260707; t=1791430130; x=1792034930;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ZMbjzTGadlfykU/nTDUxL8dMYc8O8fFEzaAJY3fPRwI=;
-        b=TOFTLsUk2KD7qaEAfBtl3ulyLoQz3Q/0h8CJRpGy1fe5zG0fo0kVOzkAjKfkKxr80p
-         3uMzdK1caVBwblaGG09Cml6xQ87Bx64OOced+LR5AR9YngPXygRE4jw34aPbVzx9Xjyy
-         VlLfVCp+Tt1JECSUmpc31lDCEnnwWfpumLRYW8N7aB6pOfvDQHFGOO8P99DzCLX6ajnS
-         +ipOj8U3pYV1NOD0v8x8Tb+Ne4OWimRj6BGtWXN4OYtDYZFbyAIRnkAQK7pf1338X5pq
-         h2Q4OJhim8cIy2S4o8Ed6kblQnzLuJKf6p72ovWOb5Cc5s//EztyYo9fHL1CZTYSDJwq
-         qetA==
-X-Forwarded-Encrypted: i=1; AKwUvBxIwy2f5VrXmLo0XCQ1o2WPuM/5naMJxQ7zpVp9osMNCK8P0/Ad7+1BsZXEXUUg87OKXioqJay+/ILbnQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYLuvHAWoLaDIUWEd5pRW2bacRIwH7zatde/6cnGULSByrVzmV+h
-	8ZRRDbQyeRYucjnWZj+UZ4I9Qnzbhyrfk678VskXOIgLuBgNAPHRz6BoaVPNRLwZjDX16VCec0C
-	7udRNuHLgLfSlLtvT4cF75ff0kU43nIuyLQFutW+9M36yjfi+6YwRcu0DQfbw6HshkGSm/A==
-X-Gm-Gg: AYBFou0wFQ/dJiJx/3d9pO9zYbN2fdw2CQY4lTNEmp0VD9yPTAy3nSlJAe1ysmj+4L1
-	II9cYqcbb4OXRhD+6EqB8wTnbQrXc8a7Tm5ZmScYID0EAh7UdVE0YywcXFBRiHDBIi3WH9ywVo/
-	+H+n4+NDjdiiUs83X42QU5QevN+AkoUV7L/Tbc/vH0OujTudwRMhYtg04qOheE99F+AD4cpPR+Z
-	UqHZTKqUBDSNUkIuYoea84/CZbRFtL5zypD3QGQNxnzJnvqiItk/Ua89d1lqPEkqNGA9VM/h4lW
-	A0bSRJ45zGO4ZUetNKQwc3x0Mk+XNytLDQpklqV1+TafMxS6PpQV2qU8pIz1i4JSde4eTDXxl4V
-	HnY5jIIO8YnDQHl1CoJXEd0zFD6DVcev7p/Fc8uf0KG4WQRjOfxOAnnG8sw==
-X-Received: by 2002:a05:693c:894d:20b0:34c:3ae5:c280 with SMTP id 5a478bee46e88-3515dd030edmr4864982eec.10.1791430127164;
-        Wed, 07 Oct 2026 20:28:47 -0700 (PDT)
-X-Received: by 2002:a05:693c:894d:20b0:34c:3ae5:c280 with SMTP id 5a478bee46e88-3515dd030edmr4864931eec.10.1791430126393;
-        Wed, 07 Oct 2026 20:28:46 -0700 (PDT)
+        bh=qDOSkfgSlv2R0xVBV8llQiuT2ZcGPG0hoUyDMx3hNXc=;
+        b=rw5PlHHC3QIXf8eg3Cr6sKsA034SL7urfuZvvX1ief0o2tE5TqpEfB0ptl0h6NBOmR
+         tv5VE5rrbDmT7xrrgU9a708PdHgeADdU3megS1qn4sNOoo2U1fwZU0dIFcYI7xIoivww
+         t3oAjqxcmHz0nn5iKvCO1RqaWHYnJ5LZyFPsqfB8OUIxxfzxyBcxyLglmXxpFU+79mJT
+         vK5u1Q7RDmdjHjIVSuQGAOFyEHpky+vPKJvH1zLIeKlx/wEO98G7P0HSalXFntJio+hY
+         Kxe099w75DFF54EukNqnpdeZ/v28Y0bTT8KpMyF5ET5jBPSsTEAmTWg2/xvi0dwm/QdN
+         kB9A==
+X-Forwarded-Encrypted: i=1; AKwUvBx7NRRoFEcHcmXfSVL3x7HD6lMsOTURo4l4QI3AA6C/HFTe25DM1O5TNevCXNKBPDV8jUvdf5lkgr/NHg==@lists.infradead.org
+X-Gm-Message-State: AFuF++kfUJqXOTfvko8sm79Ug5KWIzoqE95aCb4P4vGhaUl5ZrmNXbuE
+	pw8GZiZcvbfIGSUv3qotorvMz9WkZwuKa8oT6Yf6W+ES5UlNqJ8xjwr70htQh46ENzxsvFP5PCV
+	0/WBN5d51J+av8qOS3n6Emm3A+qX+JoxYfBL2Qdyw5Yw1k7/AFsWusKzPntPQdVTinlX+aw==
+X-Gm-Gg: AYBFou3TsaaBS7jFtvLjhfiWgqIsWtER7ntzREXUGsGwoaw+728m+hKSosj7OD0Z24R
+	UMrj5EcTd5r6xkxgHZUhl7SkbmpB5VsRSnvFUTd/wW+xvzPRISl1y6mq56tFBTNB01sjxyMVzMr
+	jfen5mWgm1yqhSANfRTIDLdvtPG0BEVcnjjKa09j0GO5YMm5pFGbbsDIAJCqYPkLvhFomYVdO7h
+	ImqrAAjCmVcBMRN/LTT5jGQnAFnISedDZoNfk7yqqwuDfnWWHB3DXqyJ/GL+mxtLBNtYUcPqAiY
+	o4aV14X0vXhKucVWtQrpnWaupc9SRGWwUnLif/ShD7N3g8ZVJ6o7XibA8GhesfzO+giG0LjLkQV
+	M+MYaXU7T5Xap64tkX7hlBn5alAKWkUHYCynbWUWb3Mu36ypNYP22f53kCg==
+X-Received: by 2002:a05:7300:51e1:b0:351:55c3:6896 with SMTP id 5a478bee46e88-3515dde39acmr5313065eec.16.1791430129788;
+        Wed, 07 Oct 2026 20:28:49 -0700 (PDT)
+X-Received: by 2002:a05:7300:51e1:b0:351:55c3:6896 with SMTP id 5a478bee46e88-3515dde39acmr5313028eec.16.1791430129097;
+        Wed, 07 Oct 2026 20:28:49 -0700 (PDT)
 Received: from hu-azarrabi-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-35179d07566sm2168349eec.30.2026.10.07.20.28.45
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-35179d07566sm2168349eec.30.2026.10.07.20.28.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Oct 2026 20:28:45 -0700 (PDT)
+        Wed, 07 Oct 2026 20:28:48 -0700 (PDT)
 From: Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
-Date: Wed, 07 Oct 2026 20:27:10 -0700
-Subject: [PATCH RFC v2 04/10] dt-bindings: firmware: add RISC-V RPMI TEE
- transport
+Date: Wed, 07 Oct 2026 20:27:12 -0700
+Subject: [PATCH RFC v2 06/10] firmware: riscv: rpmi-tee: discover TEE
+ endpoints
 MIME-Version: 1.0
-Message-Id: <20261007-riscv-rpmi-tee-abi-v2-4-45939a13d223@oss.qualcomm.com>
+Message-Id: <20261007-riscv-rpmi-tee-abi-v2-6-45939a13d223@oss.qualcomm.com>
 References: <20261007-riscv-rpmi-tee-abi-v2-0-45939a13d223@oss.qualcomm.com>
 In-Reply-To: <20261007-riscv-rpmi-tee-abi-v2-0-45939a13d223@oss.qualcomm.com>
 To: Jassi Brar <jassisinghbrar@gmail.com>, Paul Walmsley <pjw@kernel.org>,
@@ -111,36 +111,36 @@ Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
         devicetree@vger.kernel.org,
         Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
 X-Mailer: b4 0.13.0
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA4MDAxMyBTYWx0ZWRfX1aAXu6t5ktC1
- Pl98GJAjfFfqcsN+pO8kqojM4Dvq267JEBZaUogd8jz560SJsC8nfLXZWSRLTDgm+J7ofjKcEQ1
- ogcAelDWG1eJYGkf+MMAwxuJEqNlfUk=
-X-Proofpoint-ORIG-GUID: BMGhww6Tpul8kr3HTYt3XdfrLSXssRGS
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA4MDAxMyBTYWx0ZWRfX7AqAJ+rn5UWW
- rB2MNbMxDELMlVRUpeoLPRhCT2KHHgZqFSZEUjSVep1ZFRqPWieT+LqkZaXVtWniwS/jXJY3mJ5
- cqRvvvUsmeOR7aur2XLXnWn2vg8m5LxQc/dzOmcX+FE91GFIBWJGc5AslCfx+Nlp8QvUAKeWg73
- EuyrUBOkXSBXCUmDhkb2P2z0AepUdBmgcG0jTVXR80hOUjpWdSfkyADH/Ag1l4m1onvtCGNe2RU
- E6VDdJ6O447T1RC6IRsjViwPqBkvvsOKR5NEiomxuZ+Wp0q/KcnzJlCbB6jPMQJ1FKdx4fqV1h+
- zZIgabvxxoZqDqUS1hJMpN4iECHWWF9aIdj6gcf8UWv+LK6Qg67P2UhzSeglznK1yAt7+uuxxAK
- d4yaBQM9Q/dXZEX9gD+7hWHOp6sK2R+ltro0xDnmPbL/2yBD4sXLv0nyRMb6mZX+OXVsEK333AT
- 62/jLGN6vvmk0wnjcww==
-X-Authority-Analysis: v=2.4 cv=IIuXmQvG c=1 sm=1 tr=0 ts=6ac70df0 cx=c_pps
- a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+X-Authority-Analysis: v=2.4 cv=J4s/fwnS c=1 sm=1 tr=0 ts=6ac70df2 cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
  a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=gEfo2CItAAAA:8 a=EUspDBNiAAAA:8 a=X9k_jdDNchH65YliorYA:9 a=QEXdDO2ut3YA:10
- a=bBxd6f-gb0O0v-kibOvt:22 a=sptkURWiP4Gy88Gu7hUp:22
-X-Proofpoint-GUID: BMGhww6Tpul8kr3HTYt3XdfrLSXssRGS
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=LGPBHASfCGe67HC_iDoA:9 a=QEXdDO2ut3YA:10
+ a=PxkB5W3o20Ba91AHUih5:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDA4MDAxMyBTYWx0ZWRfX3Mi0M/hN14Te
+ WqeVYy03KxyVQNy31MJLrbrXM7Dq51cj/+g8iNB36ow0YewcRrO46uCgzM9kx3SkvJb38tNjrLd
+ t+q5KrzA9lZIOznkDpXE9ru7iuCw5kw=
+X-Proofpoint-GUID: aWnnDEFl8vYgdt1f21kA0l1LBWdP7xBb
+X-Proofpoint-ORIG-GUID: aWnnDEFl8vYgdt1f21kA0l1LBWdP7xBb
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDA4MDAxMyBTYWx0ZWRfX2HoBhtFDC8hE
+ YscCfO07jA5bt6IiFJ1foDfItwBZ95pYWalreQRdxttHsxvR6FnYDnSxylMoETba1iAu1ILTis2
+ T1Go/1ygYN6ivPLcYVdx1OrwOpCQThUqy8duJFOggbBFpySaTVxL4flX9RXn3JBesDZluX5Q3E4
+ kjGAWY5bQs0ILpcZVUbAlQfdGV7Dyif0cCZskUlmtseglPrrlcDG+4SYOXrR5miRmQ3aabiREKJ
+ MYiLhQ6YuMj0Gz4AQf4MHvopqt/3/ia/yMpolE+Lo52K/DM6KbFgc7/2EFRM9Ugaubv/zKJsb80
+ IWn9OP6C5+gvfhP4e4X9xNJaV+UMvLsaZBZUIROEdIC9anHBoGc83mGBtT5VWDp55Iw/F47MKXi
+ 6jMEymIygzwlPcMermbgMrgbxZjcE439vBDCmKepzGIqDnqcGqE2pIEd+pL1QxDm2SNszBUaAhn
+ OFosfq3d7/55PO1v+JA==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-08_01,2026-10-06_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0 adultscore=0
- priorityscore=1501 malwarescore=0 suspectscore=0 clxscore=1015 phishscore=0
+ impostorscore=0 spamscore=0 phishscore=0 clxscore=1015 lowpriorityscore=0
+ adultscore=0 priorityscore=1501 suspectscore=0 bulkscore=0 malwarescore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2610020000 definitions=main-2610080013
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_202849_551798_271ADBA6 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20261007_202851_628842_7D0E77A8 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,60 +157,532 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a binding for the RPMI TEE service group carried over an SBI MPXY
-mailbox channel. The transport uses this channel to discover TEE
-endpoints and their services.
-
-Require a single mailbox reference. Notification interrupt information
-is obtained from firmware through TEE_PROBE_FEATURES rather than an
-interrupt property in the TEE transport node.
+Add discovery through the PROBE_SYSTEM, PROBE_DOMAIN and PROBE_ENDPOINT
+services. Obtain the caller's endpoint ID and enumerate reachable
+physical TEE endpoints and their service UUIDs.
 
 Signed-off-by: Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
 ---
- .../bindings/firmware/riscv,rpmi-tee.yaml          | 35 ++++++++++++++++++++++
- 1 file changed, 35 insertions(+)
+ drivers/firmware/riscv_rpmi_tee/Makefile           |   2 +-
+ drivers/firmware/riscv_rpmi_tee/discovery.c        | 383 +++++++++++++++++++++
+ drivers/firmware/riscv_rpmi_tee/driver.c           |  29 ++
+ drivers/firmware/riscv_rpmi_tee/rpmi_tee_private.h |  42 +++
+ 4 files changed, 455 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/firmware/riscv,rpmi-tee.yaml b/Documentation/devicetree/bindings/firmware/riscv,rpmi-tee.yaml
+diff --git a/drivers/firmware/riscv_rpmi_tee/Makefile b/drivers/firmware/riscv_rpmi_tee/Makefile
+index 8984127535ed..fc6edfb21dbc 100644
+--- a/drivers/firmware/riscv_rpmi_tee/Makefile
++++ b/drivers/firmware/riscv_rpmi_tee/Makefile
+@@ -3,6 +3,6 @@
+ rpmi-tee-bus-y = bus.o
+ rpmi-tee-core-objs := $(rpmi-tee-bus-y)
+ obj-$(CONFIG_RISCV_RPMI_TEE_TRANSPORT) = rpmi-tee-core.o
+-rpmi-tee-driver-y = driver.o
++rpmi-tee-driver-y = driver.o discovery.o
+ rpmi-tee-module-objs := $(rpmi-tee-driver-y)
+ obj-$(CONFIG_RISCV_RPMI_TEE_TRANSPORT) += rpmi-tee-module.o
+diff --git a/drivers/firmware/riscv_rpmi_tee/discovery.c b/drivers/firmware/riscv_rpmi_tee/discovery.c
 new file mode 100644
-index 000000000000..b7bbe8893e56
+index 000000000000..fedd68bba639
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/firmware/riscv,rpmi-tee.yaml
-@@ -0,0 +1,35 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/firmware/riscv,rpmi-tee.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/firmware/riscv_rpmi_tee/discovery.c
+@@ -0,0 +1,383 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
 +
-+title: RISC-V RPMI TEE service group transport
++#include <linux/bits.h>
++#include <linux/errno.h>
++#include <linux/cleanup.h>
++#include <linux/mailbox/riscv-rpmi-message.h>
++#include <linux/slab.h>
++#include <linux/unaligned.h>
 +
-+maintainers:
-+  - Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
++#include "rpmi_tee_private.h"
 +
-+description: |
-+  The RISC-V Platform Management Interface TEE service group is carried over
-+  an SBI MPXY RPMI mailbox channel. The transport discovers TEE services and
-+  creates child devices for their endpoint and UUID pairs.
++/* Role flags in PROBE_DOMAIN and PROBE_ENDPOINT responses. */
++#define RPMI_TEE_DOMAIN_TEE		BIT(31)
++#define RPMI_TEE_ENDPOINT_TEE		BIT(31)
++#define RPMI_TEE_ENDPOINT_PHYSICAL	BIT(30)
 +
-+properties:
-+  compatible:
-+    const: riscv,rpmi-tee
++/**
++ * struct rpmi_tee_probe_system_resp - PROBE_SYSTEM response prefix
++ * @status: RPMI completion status.
++ * @caller_domain: Calling endpoint's domain ID.
++ * @caller_endpoint: Calling physical endpoint ID.
++ * @domain_count: Number of entries in @domains.
++ * @domains: Reachable domain identifiers.
++ */
++struct rpmi_tee_probe_system_resp {
++	__le32 status;
++	__le32 caller_domain;
++	__le32 caller_endpoint;
++	__le32 domain_count;
++	__le32 domains[];
++} __packed;
 +
-+  mboxes:
-+    maxItems: 1
++/**
++ * struct rpmi_tee_probe_domain_req - PROBE_DOMAIN request
++ * @domain_id: Domain identifier from PROBE_SYSTEM.
++ */
++struct rpmi_tee_probe_domain_req {
++	__le32 domain_id;
++} __packed;
 +
-+required:
-+  - compatible
-+  - mboxes
++/**
++ * struct rpmi_tee_probe_domain_resp - PROBE_DOMAIN response prefix
++ * @status: RPMI completion status.
++ * @flags: Domain role flags.
++ * @endpoint_count: Number of entries in @endpoints.
++ * @endpoints: Physical and proxied endpoint IDs.
++ */
++struct rpmi_tee_probe_domain_resp {
++	__le32 status;
++	__le32 flags;
++	__le32 endpoint_count;
++	__le32 endpoints[];
++} __packed;
 +
-+additionalProperties: false
++/**
++ * struct rpmi_tee_probe_endpoint_req - PROBE_ENDPOINT request
++ * @endpoint_id: Endpoint identifier from PROBE_DOMAIN.
++ */
++struct rpmi_tee_probe_endpoint_req {
++	__le32 endpoint_id;
++} __packed;
 +
-+examples:
-+  - |
-+    rpmi-tee {
-+        compatible = "riscv,rpmi-tee";
-+        mboxes = <&mpxy_mbox 0x3000 0x0>;
-+    };
++/**
++ * struct rpmi_tee_probe_endpoint_resp - PROBE_ENDPOINT response prefix
++ * @status: RPMI completion status.
++ * @flags: Endpoint role and lifetime flags.
++ * @name: Debug name, not a matching identity.
++ * @proxied_count: Number of proxied endpoint IDs in @data.
++ * @parcel_count: Number of parcel IDs in @data.
++ * @service_count: Number of 16-byte service UUIDs in @data.
++ * @metadata_len: Metadata length in bytes.
++ * @data: Proxied endpoint IDs, parcel IDs, service UUIDs, then metadata.
++ */
++struct rpmi_tee_probe_endpoint_resp {
++	__le32 status;
++	__le32 flags;
++	u8 name[32];
++	__le32 proxied_count;
++	__le32 parcel_count;
++	__le32 service_count;
++	__le32 metadata_len;
++	u8 data[];
++} __packed;
++
++struct rpmi_tee_system_info {
++	u32 caller_domain;
++	u32 caller_endpoint;
++	u32 domain_count;
++	const u8 *domains;
++};
++
++/* Return the domain ID at a validated index in the system response. */
++static inline u32
++rpmi_tee_domain_id_at(const struct rpmi_tee_system_info *info, u32 index)
++{
++	return get_unaligned_le32(info->domains +
++				  (size_t)index * sizeof(__le32));
++}
++
++struct rpmi_tee_domain_info {
++	u32 flags;
++	u32 endpoint_count;
++	const u8 *endpoints;
++};
++
++/* Return the endpoint ID at a validated index in the domain response. */
++static inline u32
++rpmi_tee_endpoint_id_at(const struct rpmi_tee_domain_info *info, u32 index)
++{
++	return get_unaligned_le32(info->endpoints +
++				  (size_t)index * sizeof(__le32));
++}
++
++struct rpmi_tee_endpoint_info {
++	u32 flags;
++	u32 service_count;
++	const u8 *services;
++};
++
++/* Copy the service UUID at a validated index in the endpoint response. */
++static inline void
++rpmi_tee_service_uuid_at(const struct rpmi_tee_endpoint_info *info,
++			 u32 index, uuid_t *uuid)
++{
++	import_uuid(uuid, info->services + (size_t)index * UUID_SIZE);
++}
++
++/* rpmi_tee_parse_*_response parse and validate the response. */
++
++static int rpmi_tee_parse_system_response(const void *data, size_t len,
++					  struct rpmi_tee_system_info *info)
++{
++	const struct rpmi_tee_probe_system_resp *resp = data;
++	u32 count;
++
++	if (len < sizeof(*resp))
++		return -EPROTO;
++
++	count = get_unaligned_le32(&resp->domain_count);
++	if (len != sizeof(*resp) + (u64)count * sizeof(__le32))
++		return -EPROTO;
++
++	info->caller_domain = get_unaligned_le32(&resp->caller_domain);
++	info->caller_endpoint = get_unaligned_le32(&resp->caller_endpoint);
++	info->domain_count = count;
++	/* Borrowed pointer, use rpmi_tee_domain_id_at() to access. */
++	info->domains = (const u8 *)data + sizeof(*resp);
++
++	return 0;
++}
++
++static int rpmi_tee_parse_domain_response(const void *data, size_t len,
++					  struct rpmi_tee_domain_info *info)
++{
++	const struct rpmi_tee_probe_domain_resp *resp = data;
++	u32 count;
++
++	if (len < sizeof(*resp))
++		return -EPROTO;
++
++	count = get_unaligned_le32(&resp->endpoint_count);
++	if (len != sizeof(*resp) + (u64)count * sizeof(__le32))
++		return -EPROTO;
++
++	info->flags = get_unaligned_le32(&resp->flags);
++	info->endpoint_count = count;
++	/* Borrowed pointer, use rpmi_tee_endpoint_id_at() to access. */
++	info->endpoints = (const u8 *)data + sizeof(*resp);
++
++	return 0;
++}
++
++static int rpmi_tee_parse_endpoint_response(const void *data, size_t len,
++					    struct rpmi_tee_endpoint_info *info)
++{
++	const struct rpmi_tee_probe_endpoint_resp *resp = data;
++	size_t remaining, service_offset;
++	u32 proxied, parcels, services;
++
++	if (len < sizeof(*resp))
++		return -EPROTO;
++
++	remaining = len - sizeof(*resp);
++	proxied = get_unaligned_le32(&resp->proxied_count);
++	parcels = get_unaligned_le32(&resp->parcel_count);
++	services = get_unaligned_le32(&resp->service_count);
++
++	/* Check both ID arrays before adding their counts. */
++	if (proxied > remaining / sizeof(__le32) ||
++	    parcels > remaining / sizeof(__le32) - proxied)
++		return -EPROTO;
++
++	service_offset = ((size_t)proxied + parcels) * sizeof(__le32);
++	remaining -= service_offset;
++	if (services > remaining / UUID_SIZE)
++		return -EPROTO;
++
++	/* Ignore metadata following the service UUID array. */
++	info->flags = get_unaligned_le32(&resp->flags);
++	info->service_count = services;
++	/* Borrowed pointer, use rpmi_tee_service_uuid_at() to get UUID. */
++	info->services = resp->data + service_offset;
++
++	return 0;
++}
++
++/* Return an owned probe response; vanished domain/endpoint IDs yield -ENOENT. */
++static int rpmi_tee_probe_info(struct rpmi_tee_transport *priv, u32 service,
++			       const void *req, size_t req_len, void **data,
++			       size_t *data_len)
++{
++	size_t resp_len = priv->mbox.max_msg_data_size;
++	s32 status;
++	int ret;
++
++	void *resp __free(kfree) = kzalloc(resp_len, GFP_KERNEL);
++	if (!resp)
++		return -ENOMEM;
++
++	ret = rpmi_tee_send_with_status(priv, service, req, req_len, resp,
++					&resp_len, &status);
++	if (ret)
++		return ret;
++
++	if (status == RPMI_ERR_INVALID_PARAM &&
++	    (service == RPMI_TEE_SRV_PROBE_DOMAIN ||
++	     service == RPMI_TEE_SRV_PROBE_ENDPOINT))
++		return -ENOENT;
++
++	ret = rpmi_to_linux_error(status);
++	if (ret)
++		return ret;
++
++	*data_len = resp_len;
++	*data = no_free_ptr(resp);
++
++	return 0;
++}
++
++static int rpmi_tee_add_endpoint(struct rpmi_tee_discovery *system, u32 ep_id,
++				 const struct rpmi_tee_endpoint_info *info)
++{
++	struct rpmi_tee_discovered_endpoint *ep;
++	u32 i;
++
++	/* Skip endpoints already discovered. */
++	list_for_each_entry(ep, &system->eps, node)
++		if (ep->ep_id == ep_id)
++			return 0;
++
++	ep = kzalloc(struct_size(ep, services, info->service_count), GFP_KERNEL);
++	if (!ep)
++		return -ENOMEM;
++
++	ep->ep_id = ep_id;
++	ep->service_count = info->service_count;
++	for (i = 0; i < ep->service_count; i++)
++		rpmi_tee_service_uuid_at(info, i, &ep->services[i]);
++
++	list_add_tail(&ep->node, &system->eps);
++
++	return 0;
++}
++
++/* Discover physical TEE endpoints in one domain, skipping vanished IDs. */
++static int rpmi_tee_discover_domain(struct rpmi_tee_transport *priv, u32 id,
++				    struct rpmi_tee_discovery *system)
++{
++	struct rpmi_tee_domain_info domain;
++	struct rpmi_tee_probe_domain_req req = {
++		.domain_id = cpu_to_le32(id),
++	};
++	size_t len;
++	int ret;
++	u32 i;
++
++	void *data __free(kfree) = NULL;
++
++	ret = rpmi_tee_probe_info(priv, RPMI_TEE_SRV_PROBE_DOMAIN, &req,
++				  sizeof(req), &data, &len);
++	if (ret)
++		return ret == -ENOENT ? 0 : ret;
++
++	ret = rpmi_tee_parse_domain_response(data, len, &domain);
++	/* Only TEE domains are processed. */
++	if (ret || !(domain.flags & RPMI_TEE_DOMAIN_TEE))
++		return ret;
++
++	for (i = 0; i < domain.endpoint_count; i++) {
++		u32 ep_id = rpmi_tee_endpoint_id_at(&domain, i);
++		struct rpmi_tee_endpoint_info endpoint;
++		struct rpmi_tee_probe_endpoint_req ep_req = {
++			.endpoint_id = cpu_to_le32(ep_id),
++		};
++
++		void *ep_data __free(kfree) = NULL;
++
++		ret = rpmi_tee_probe_info(priv, RPMI_TEE_SRV_PROBE_ENDPOINT,
++					  &ep_req, sizeof(ep_req), &ep_data,
++					  &len);
++		if (ret == -ENOENT)
++			continue;
++
++		if (ret)
++			return ret;
++
++		ret = rpmi_tee_parse_endpoint_response(ep_data, len, &endpoint);
++		if (ret)
++			return ret;
++
++		/* Only physical TEE endpoints are processed. */
++		if (ep_id == priv->self_id ||
++		    !(endpoint.flags & RPMI_TEE_ENDPOINT_TEE) ||
++		    !(endpoint.flags & RPMI_TEE_ENDPOINT_PHYSICAL))
++			continue;
++
++		ret = rpmi_tee_add_endpoint(system, ep_id, &endpoint);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
++/* Free all discovered endpoints and their copied service UUIDs. */
++void rpmi_tee_free_discovery(struct rpmi_tee_discovery *system)
++{
++	struct rpmi_tee_discovered_endpoint *ep, *next;
++
++	list_for_each_entry_safe(ep, next, &system->eps, node) {
++		list_del(&ep->node);
++		kfree(ep);
++	}
++}
++
++/**
++ * rpmi_tee_discover_endpoints() - Discover physical TEE endpoints and services
++ * @priv: RPMI TEE transport
++ * @system: Returned list of endpoints and their service UUIDs
++ *
++ * Obtain caller identity and walk SYSTEM, DOMAIN and ENDPOINT probes. The
++ * caller releases the entries with rpmi_tee_free_discovery() on success.
++ *
++ * Return: 0 on success, or a negative error code.
++ */
++int rpmi_tee_discover_endpoints(struct rpmi_tee_transport *priv,
++				struct rpmi_tee_discovery *system)
++{
++	struct rpmi_tee_system_info info;
++	size_t len;
++	int ret;
++	u32 i;
++
++	void *data __free(kfree) = NULL;
++
++	INIT_LIST_HEAD(&system->eps);
++	/* PROBE_SYSTEM has no request data and returns the caller's identity. */
++	ret = rpmi_tee_probe_info(priv, RPMI_TEE_SRV_PROBE_SYSTEM, NULL, 0,
++				  &data, &len);
++	if (ret)
++		return ret;
++
++	ret = rpmi_tee_parse_system_response(data, len, &info);
++	if (ret)
++		return ret;
++
++	priv->self_id = info.caller_endpoint;
++	for (i = 0; i < info.domain_count; i++) {
++		u32 domain_id = rpmi_tee_domain_id_at(&info, i);
++
++		ret = rpmi_tee_discover_domain(priv, domain_id, system);
++		if (ret) {
++			rpmi_tee_free_discovery(system);
++
++			return ret;
++		}
++	}
++
++	return 0;
++}
+diff --git a/drivers/firmware/riscv_rpmi_tee/driver.c b/drivers/firmware/riscv_rpmi_tee/driver.c
+index d9ae161d241b..a70b8be41bed 100644
+--- a/drivers/firmware/riscv_rpmi_tee/driver.c
++++ b/drivers/firmware/riscv_rpmi_tee/driver.c
+@@ -5,6 +5,7 @@
+  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+  */
+ 
++#include <linux/unaligned.h>
+ #include <linux/mailbox_client.h>
+ #include <linux/mailbox/riscv-rpmi-message.h>
+ #include <linux/module.h>
+@@ -14,6 +15,34 @@
+ 
+ #include "rpmi_tee_private.h"
+ 
++/* rpmi_tee_send_with_status() - Send an RPMI TEE service request. */
++int rpmi_tee_send_with_status(struct rpmi_tee_transport *priv, u32 service_id,
++			      const void *req, size_t req_len, void *resp,
++			      size_t *resp_len, s32 *status)
++{
++	size_t max_resp_len = *resp_len;
++	struct rpmi_mbox_message msg;
++	int ret;
++
++	if (req_len > priv->mbox.max_msg_data_size ||
++	    max_resp_len > priv->mbox.max_msg_data_size)
++		return -EMSGSIZE;
++
++	rpmi_mbox_init_send_with_response(&msg, service_id, (void *)req,
++					  req_len, resp, max_resp_len);
++	ret = rpmi_mbox_send_message_sync(priv->mbox.chan, &msg);
++	if (ret)
++		return ret;
++	/* At least STATUS word should be present. */
++	if (msg.data.out_response_len < sizeof(__le32))
++		return -EPROTO;
++
++	*resp_len = msg.data.out_response_len;
++	*status = (s32)get_unaligned_le32(resp);
++
++	return 0;
++}
++
+ /**
+  * rpmi_tee_get_attr() - Get an RPMI mailbox attribute
+  * @priv: RPMI TEE transport
+diff --git a/drivers/firmware/riscv_rpmi_tee/rpmi_tee_private.h b/drivers/firmware/riscv_rpmi_tee/rpmi_tee_private.h
+index b25192c5df00..ba0e7cb59b6d 100644
+--- a/drivers/firmware/riscv_rpmi_tee/rpmi_tee_private.h
++++ b/drivers/firmware/riscv_rpmi_tee/rpmi_tee_private.h
+@@ -6,12 +6,18 @@
+ #ifndef _RPMI_TEE_PRIVATE_H
+ #define _RPMI_TEE_PRIVATE_H
+ 
++#include <linux/list.h>
+ #include <linux/mailbox_client.h>
+ #include <linux/types.h>
++#include <linux/uuid.h>
+ 
+ /* TEE service group and the services used by this module. */
+ #define RPMI_SRVGRP_TEE		0x10
+ 
++#define RPMI_TEE_SRV_PROBE_SYSTEM	0x03
++#define RPMI_TEE_SRV_PROBE_DOMAIN	0x04
++#define RPMI_TEE_SRV_PROBE_ENDPOINT	0x05
++
+ struct rpmi_tee_mbox {
+ 	struct mbox_client client;
+ 	struct mbox_chan *chan;
+@@ -21,6 +27,42 @@ struct rpmi_tee_mbox {
+ struct rpmi_tee_transport {
+ 	struct device *dev;
+ 	struct rpmi_tee_mbox mbox;
++	u32 self_id;
++};
++
++/* Report local transport errors separately from the returned RPMI status. */
++int rpmi_tee_send_with_status(struct rpmi_tee_transport *priv, u32 service_id,
++			      const void *req, size_t req_len, void *resp,
++			      size_t *resp_len, s32 *status);
++
++/**
++ * struct rpmi_tee_discovered_endpoint - Physical TEE endpoint and its services
++ * @node: Entry in &struct rpmi_tee_discovery.eps.
++ * @ep_id: Physical TEE endpoint ID.
++ * @service_count: Number of UUIDs in @services.
++ * @services: Service UUIDs for the endpoint.
++ */
++struct rpmi_tee_discovered_endpoint {
++	struct list_head node;
++	u32 ep_id;
++	u32 service_count;
++	uuid_t services[] __counted_by(service_count);
+ };
+ 
++/**
++ * struct rpmi_tee_discovery - Discovered physical TEE endpoints and services
++ * @eps: List of &struct rpmi_tee_discovered_endpoint entries, excluding the
++ *	 caller endpoint.
++ *
++ * On successful discovery, the caller owns the entries and releases them with
++ * rpmi_tee_free_discovery(). Endpoints without services are also included.
++ */
++struct rpmi_tee_discovery {
++	struct list_head eps;
++};
++
++void rpmi_tee_free_discovery(struct rpmi_tee_discovery *system);
++int rpmi_tee_discover_endpoints(struct rpmi_tee_transport *priv,
++				struct rpmi_tee_discovery *system);
++
+ #endif /* _RPMI_TEE_PRIVATE_H */
 
 -- 
 2.34.1
