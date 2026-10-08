@@ -4,64 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D2DCA6007
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 02:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7964CA6007
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 02:57:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KkZfXBRdo0ElRW26LPdB7q8V/J7Pi1wswgRqFVqxU+8=; b=4XbKk2rOdrMQm6nvHfhAgYVWuJ
-	pw3ermsb2dhdkgwOD0YB0WfKjrXY7oZnTofbRpNcE9Fl1OFY65bzUU651480/jicWRKavUIncpJTZ
-	c0cyaI5MSk24pz+q0aTld/wa+8k1nGMpd+84D7MC843T2UdgHUDnhrkHQD4NJgFQ/uGMupfY9ymff
-	Gy0QdqW0io2NLQuIDKtj7NlhNZRKEOh/67p7s02mXrGiaGFvDbyDzLT9dwY3Pm/7nJGvxGensN3AO
-	UZB5KJ+m9M7SdjuBWxMcD+QTJZlP2kLZXWMbQXuvMFEKpjWIi3z4emeMqIpBhDQaj946vKlH5kvep
-	XGr0ATwQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WgyR04qZWmWeKyU0ADtk2ZDKPqHAg847Dq6+thkYjpQ=; b=2FTZuOyn1eU8Ut
+	yPrlZ/YsapH418eBamxMw1acx9UKrKWi/UTmroAxrhf4NwkA5BqMjY12DziXSQuurV/XQnIKEFYeX
+	CTFa53iykM7WF6DuOn5T42lUTx24JGAWGim7nuDlA7dSuMAg0Z02yvAEABxK9cyHmIE+3ZGe5KbuH
+	4iZcDi1IZB39lm0TNLjP8Ny5BvkHyCU1SU561dgTSzRE7uyHpeaYtgxuL6HtB7iasjXZ13XMZvPw+
+	JxOHvJqRRF7+nrkwdgYzLSibzrLgQqoXGLLeQzOn6JxShBlpnRdm2/M+UxIZFSiRdgmmcF7PsgcoT
+	f2VZAZWSnQd37IbPSaaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEe9x-00000003PmE-3yzM;
-	Thu, 08 Oct 2026 02:47:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xEeK6-00000003QAU-3Dux;
+	Thu, 08 Oct 2026 02:57:34 +0000
+Received: from mail-bjschn02on20713.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::713] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEe9w-00000003Pm5-48D4;
-	Thu, 08 Oct 2026 02:47:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0756960136;
-	Thu,  8 Oct 2026 02:47:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADE9C1F00893;
-	Thu,  8 Oct 2026 02:47:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791427623;
-	bh=F0DK6+IHfMR+aBaJ6CuyYkB2ySvo8uPa6sPYs+zV3eM=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=W1wEbk8rfOAr2uT0E+PKOceknUXswVzLJ4yMNcjQ1jNl8yk9DfbaHqGx6syOOPcA/
-	 rWEDPNWLPDujXP4SDZ9DMTAzYwDK5E9TcoI2ajf+jC4rPZx1yqg85IdLkRjtk7c0yf
-	 Bq/z7K99qcH2j2RKpt7LeJk6lZFYO3LUBJprCBWE6pN6F3/67wi0boP+VDU+oJdDI7
-	 H5VzU9zwk0d3hVh5aW7nq5icgpZLxaXDXEsFJjE6FvQEqRRTfNvtQsoYe6FJb3v9K3
-	 c00Tfy8hLaoh2Wn5n52noeRVsTBb+1J4q6SVYVN/WVwQj0eBSVpcCk4KIl7fiwk/tp
-	 VdHDYzb6BZexw==
-Date: Wed, 7 Oct 2026 20:46:57 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Radim Krcmar <rkrcmar@qti.qualcomm.com>
-cc: Paul Walmsley <pjw@kernel.org>, 
-    "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
-    "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-    Paul Walmsley <paul.walmsley@sifive.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atishp@rivosinc.com>, 
-    "ajones@ventanamicro.com" <ajones@ventanamicro.com>, 
-    =?ISO-8859-15?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, 
-    "apatel@ventanamicro.com" <apatel@ventanamicro.com>, 
-    =?ISO-8859-15?Q?Thomas_Wei=DFschuh?= <thomas.weissschuh@linutronix.de>, 
-    David Laight <david.laight.linux@gmail.com>, 
-    linux-riscv <linux-riscv-bounces@lists.infradead.org>
-Subject: Re: [PATCH v2 2/2] RISC-V: make use of variadic sbi_ecall
-In-Reply-To: <DLYI0I8PT4LZ.ZSXV160QVO0H@qti.qualcomm.com>
-Message-ID: <d94ecb9c-def7-a9cb-456b-60b18489d0f3@kernel.org>
-References: <20250619190315.2603194-1-rkrcmar@ventanamicro.com> <20250619190315.2603194-3-rkrcmar@ventanamicro.com> <650d23e8-b51b-85da-f9f3-52a06fed81e5@kernel.org> <DLYI0I8PT4LZ.ZSXV160QVO0H@qti.qualcomm.com>
+	id 1xEeK3-00000003QA1-0Tsi
+	for linux-riscv@lists.infradead.org;
+	Thu, 08 Oct 2026 02:57:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=VdcH/9RO/vSp4qMZxTCuNTm7lf4HGd7EzcYMbJSuFFFL43g0LkVmyQFUtd2QrpB6lqkRGXHtjGNg5un5KCtn0TbB9WyULiJzBT608Jyh/TRifzdfQbLQ9ol+WDUb3ZGSvAdzRYQe4s4GnhTmkzARh2SC+ecigJUwibvMf6U/wPrIv345rLZ3HyxG7/4Rr6HHPtBb/lLjq9oGEoPQGGr+NcAeCBmIpQt0Te4PBXxnYKzC7iLBbjE8TmeGcyYD2Ykh5M6SBwbEx7KObSGJ+0bv+CZTZkCguFCdSwEuHksJjpL3itPei8kOY3o0WZNm1F/9IOfpKMLWbfvcbG5e/hNNBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=A2Y/Em41Atgv8hyRlVMFMU6Az/HfQv0Eftxoqga4lNk=;
+ b=JnSwBV2xSMMwk2+BSHzQDPUEso5TUI6cmmCNsXvoNpyd+xzyEfZSjXCJPxmhYrP6kl0VIJGokagVRSxMgyo7tmKcpj8VhQ8d+Y8UMjKzeCXU26Izn48Wu4YGuD1qOIhZ5XSDFD0qp7EzXIpcBiIOLNUR6V2ZuUzwuiOk2QUFM5bD3lOIO6vJQL77FzzQlsCO+VOBNI1Z8jU70F7FXeM58zN6UU8U5xTDYIgba4ZGSsefmXvjwq28OoKfw2BFaWwAm0auKHntHam4lBylyBibkLFylUCtlno77pSiP1xuh6l0Dd0xQKPjy5kns0E08kFeIMoJ9bXDMePI47LoUUbFsQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1313.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:13::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.16; Thu, 8 Oct
+ 2026 02:57:01 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
+ with mapi id 15.21.0496.015; Thu, 8 Oct 2026 02:57:00 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Jerome Brunet <jbrunet@baylibre.com>
+CC: Michael Turquette <mturquette@baylibre.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Brian Masney
+	<bmasney@redhat.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
+	<alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, Emil Renner Berthing
+	<kernel@esmil.dk>, Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
+	<inochiama@gmail.com>, Alexey Charkov <alchark@gmail.com>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, Keguang Zhang
+	<keguang.zhang@gmail.com>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Hal Feng <hal.feng@starfivetech.com>
+Subject: Re: [PATCH v5 2/8] clk: starfive: Add system-0 domain PLL clock
+ driver
+Thread-Topic: [PATCH v5 2/8] clk: starfive: Add system-0 domain PLL clock
+ driver
+Thread-Index: AQHdNtN7NA8V7U+etEm3PQ/xHlQDfLbnBYkAgATaQaCAAwgzAIAES7tg
+Date: Thu, 8 Oct 2026 02:57:00 +0000
+Message-ID: <ZQ4PR01MB1202E24B7DC2817AF0C691F3F2932@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+References: <20260828095608.19955-1-changhuang.liang@starfivetech.com>
+ <20260828095608.19955-3-changhuang.liang@starfivetech.com>
+ <179075859479.1471718.5492634704694937513.b4-reply@b4>
+ <ZQ4PR01MB120246C3208C10BDEFD32BCFF2882@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ <1jh5j07bbd.fsf@starbuckisacylon.baylibre.com>
+In-Reply-To: <1jh5j07bbd.fsf@starbuckisacylon.baylibre.com>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1313:EE_
+x-ms-office365-filtering-correlation-id: fe9205a4-635c-4966-4c0b-08df24e7d324
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|23010399003|376014|38070700021|56012099006|4143699003|10067099003|18002099003|22082099003;
+x-microsoft-antispam-message-info: t5tC0esNDD5euEu8oVx3jzOsQ+eZcpAfu4t5cXmECc1zO3Qf0Y1V4Ydjb9niWCyx8V0eu1QCxXBNG/qT7HXFG4+xxav26PEXm88ynH4MosSEqawZlIQTiuB+TmDB4bS+F8zKLdhqn/I6L49S87hYwVxl1OI8U1R/HtmC+DfpV+oLXw+/iVTv8ETZ5ZLkJ99NpjmiJy7mwDh3btvCyLced78YZXRkq5m90C25AQMOWP3wlGWzIhX3ZRKFNCypV4tJlZNz/rEe2meELhlprQ12bLk/5Lq/Ik+Ky1P13HRMsJ+/6DQnude0C914G05zshqYBgubydTw6+UDV/DBwPpx701y06eFNn76dtwJHIqq9GHh2E+8FTsI27Rheld8zZuvwiE0ARbl2DcMswb/zpID0/ta4u6F8XaEC13T+Oc16TZvF8jPDqOerkStOWEpSBBa65KJz1MEUaPqhtRb8nWyTX/GKDeHCZj8nHfDX7oXvWTqQ9Yj6jF58RPet0e9M65uKZ7JKrxiQ+AUYbKiomvvy20PyyV+PobyBabzCd1V+dUKIf6pcUqJCaT4fS2rCYZh
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(23010399003)(376014)(38070700021)(56012099006)(4143699003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?cuMRrnJpb2NlCF84FDKGqIj1Uao82DJ6b1HfOsgonznzwxQ0I9hwk9BKWArl?=
+ =?us-ascii?Q?zJBvrbrTqsBi1/EWtO7zygZoob38rzkQAGLhVsdYaBk5hTHsxJZaCE4PH6ty?=
+ =?us-ascii?Q?SgzwY2eJfYJHtICNb6dQf8PIOvUfeqjEHNLk323P6wggxdmUjWqrc+PRzhM3?=
+ =?us-ascii?Q?F0Xd/2bPisdpQJgbqsqnwNBifABz37WmxOscyvOARf2sNJtTWfmiGTA3VAqO?=
+ =?us-ascii?Q?rDTFM2AdN+UBeG/yXNuzFGEI6Ue/DbrfD5Mt/fTi6hS0U3ehNX2pzsZPyD1X?=
+ =?us-ascii?Q?ANRvfk2ThMm5k+yrxnadUpZvYDuAxIO2fyQ+jzNPzwas7UEzwkCxgbwuBgWf?=
+ =?us-ascii?Q?5LYjM8dBXVmMQ35Eut9lyc8MyelDYO5/jWyE6RzjGw/IPSK5971vDXbLOL5K?=
+ =?us-ascii?Q?B/Mh01fywPa/ps8R+qbprYrtR51qERhR67ElsGf7+AMc7Y4KevlCqnAzzG3P?=
+ =?us-ascii?Q?QEGrofly6S8CyiIpSPzSwNru6VSQWJltzReByO97Jio02qL/qYDfNL/QYy7d?=
+ =?us-ascii?Q?uAuAzczO1oX6kNAXBJgoZkga9eGTJTicTa+yl+cPwtsbVxz6ItvtRwQMKbB3?=
+ =?us-ascii?Q?YGYzxWP6EJQISxqJTbiquRJRYcjxNZ5Uhy20PVEH90nG8JHchsvrF2+RW8Sy?=
+ =?us-ascii?Q?1FVNIrvo1rcdmjUEJIST0+hQRiB2SAyi3tKwT0wcEo1bomtwBUYMxWJgXyRy?=
+ =?us-ascii?Q?qZWtrY8v2PiX1IT0TKyOGMXaSw7i3E8IbcJQ+h1aSCrWVkkA7tOEAA8tE+Ud?=
+ =?us-ascii?Q?fhjHauUcXefEkfK4wvt4+d+qaoUFIU/aJ6DGFbFQvT0DYriwsYy8yoY+hHgt?=
+ =?us-ascii?Q?P4DrODLeS+Xg4ZZWi6xfqDOUQg5caNEBwts0vM/jicPWZrUka585Jzc4lYwQ?=
+ =?us-ascii?Q?NT4f0GWFA7kioYaGggrQT5pidhsctlmIOb4X+BlsM3vG/lG02IP5DTlZ/2jy?=
+ =?us-ascii?Q?4esFM0C2mGcOpgHknASPqIUkGxSMKiRzMf+sHprxmQOojg+4Pbx9wslse1Mk?=
+ =?us-ascii?Q?18G2harmB0VRlw6S2mdCukZkGTb8ZtYVn8GYbbzph7SbvYbmsdgRoof9GHJi?=
+ =?us-ascii?Q?Hf5JIwJZ9k6EtACGU2XX76BQpl9bau+pnMw9lHLCC0EnoeZiN8w7POI5kRJr?=
+ =?us-ascii?Q?Br+XJupNR/zuBt6jhq0yNK/BFYnzl5ZDd5JHEfic0NNCNefRqsENVMW8i5pQ?=
+ =?us-ascii?Q?c9XjI8I30wj2alBrOFafI4e//3JwvaEs+5bUm4u29hSuZI8bslTuPyWikmoz?=
+ =?us-ascii?Q?cHaVKh+t8rfUTRYToiFwacywIkg3lhaZVWHOJ764yd/lxRetAW4OjDJEPNO9?=
+ =?us-ascii?Q?uLzBXCTWFZlKwj7rNIIG2FWPmFSjmm9Fv6HWVfjgDtuv3ZaoS2dfSCi79FAz?=
+ =?us-ascii?Q?gzHMNg7MN0RJ/+cWgKIuCJbVfrvpiCAfmWVIOs/leW+2yq/6EFnn1Zm8VCaT?=
+ =?us-ascii?Q?X7PkGSaLX+PBFSCR4/33bXhYuxegetbn8dcemsc/a7tXObAqZIdAcmxVP5W8?=
+ =?us-ascii?Q?Iy+B7RfODFveglprou0G2/QJ9gs3HmEVHk3AU1O7RUEoXTuQRTxdcRm3yvTd?=
+ =?us-ascii?Q?+//z4Mq0rXvRxV6TiajHrzhgvrgQUiN8pIt06I9ioU65kRNZ9pMlALgryWXG?=
+ =?us-ascii?Q?2l4UN9EYl/JS+YHIMCKEv0uiKJR+2nMODvHcOjtH2ooB6aoVU3+oi0C6PtZ3?=
+ =?us-ascii?Q?jELU6whogxMiAUhW2xHStuANZDK/vDxyYLt4iyp+yLBeowlNSvQnRVg0W8AF?=
+ =?us-ascii?Q?XoBLB/xuk/Kl7LuL8HQzGns5zKAxWBE=3D?=
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-837776277-1791427623=:3541018"
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: fe9205a4-635c-4966-4c0b-08df24e7d324
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Oct 2026 02:57:00.8017
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: R7wiSPDWBF3WPcRNIQkVMAESPtENKPHRscAzib+J4WBHT0PQ357gy2jjz7WjyYJAecdzcpYxl2apAgoJBPEy4lqQF/SD3tkcZbMx5gw3A3sUsEtmTs+cC3PVaWzL1k1p
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1313
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261007_195731_174461_D9F31C42 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,57 +145,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+Hi, Jerome
 
---8323329-837776277-1791427623=:3541018
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8BIT
-
-On Wed, 7 Oct 2026, Radim Krcmar wrote:
-
-> 2026-10-06T03:55:12-06:00, Paul Walmsley <pjw@kernel.org>:
-> > On Thu, 19 Jun 2025, Radim Krčmář wrote:
-> >
-> >> The new sbi_ecall doesn't have to list all 8 arguments anymore, so only
-> >> pass the actual numbers of arguments for each SBI function.
-> >> 
-> >> The remaining trailing 0 are intentional as they represent an argument.
-> >> 
-> >> SBI 0.1 shouldn't be using the sbi_ecall, because it's only for 0.2+,
-> >> but allow it by passing 0 is the reserved register.
-> >> 
-> >> Signed-off-by: Radim Krčmář <rkrcmar@ventanamicro.com>
-> >
-> > Thanks, queued for v7.4.  
-> >
-> > For everyone, not just Radim - probably it's worth looking through the 
-> > codebase to convert any SBI ecalls that were added over the past year that 
-> > weren't covered by this patch (e.g., the MPXY drivers) and to doublecheck 
-> > the overall argument counts.
+> On Sat 03 Oct 2026 at 11:02, Changhuang Liang
+> <changhuang.liang@starfivetech.com> wrote:
 > 
-> I started working on a followup and noticed a bug.
+> >> > +static const struct jhb100_pll_info jhb100_sys0_pll_info[] = {
+> >> > +	JHB100_PLL(JHB100_SYS0PLL_PLL2_OUT, "pll2_out",
+> >> jhb100_pll2_presets,
+> >> > +		   ARRAY_SIZE(jhb100_pll2_presets), JHB100_PLL2_OFFSET,
+> false),
+> >> > +	_JHB100_PLL(JHB100_SYS0PLL_PLL3_OUT, "pll3_out",
+> >> jhb100_pll3_presets,
+> >> > +		    ARRAY_SIZE(jhb100_pll3_presets), JHB100_PLL3_OFFSET,
+> >> > +		    CLK_IS_CRITICAL, false),
+> >> > +	_JHB100_PLL(JHB100_SYS0PLL_PLL4_OUT, "pll4_out", NULL, 0,
+> >> > +		    JHB100_PLL4_OFFSET, CLK_IGNORE_UNUSED, true),
+> >>
+> >> Please comment when adding CLK_IGNORE_UNUSED so people have an
+> idea
+> >> why it is needed and how it can be removed
+> >
+> > OK, I understand that there is an intention to remove this flag. On
+> > our SoC, some clocks are typically not referenced by any driver, but
+> > we don't want them to be turned off. We currently use
+> > CLK_IGNORE_UNUSED to preserve their hardware-default enabled state.
+> Perhaps in the next version we will replace it with CLK_IS_CRITICAL.
 > 
-> Please squash the following change or just drop the second patch, since
-> we may be touching the same lines again soon, sorry about that.
+> CLK_IGNORE_UNUSED and CLK_IS_CRITICAL do not express the same thing
+> both equally need to be commented so a few years from now, we are not left
+> wondering why this was added.
+> 
+> You do not have a driver for this clock today. The fact you still *need* that
+> clock show maybe you should have one and maybe someone, someday, will fix
+> this.
+> 
 
-Thanks, squashed in.
+OK, I will add comments according to the current flag.
 
-
-- Paul
---8323329-837776277-1791427623=:3541018
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Best Regards,
+Changhuang
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-837776277-1791427623=:3541018--
-
