@@ -4,56 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8462CA600A
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 09:15:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40781CA6007
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 09:20:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cpeyQnUKiBXJnlmzFdeZlJTi70ZUzFUcusCL0luC8BA=; b=lgH88Ojiszz38c
-	2HUaqKIYzBiObh+jx1AbSvnOU7Ef1ev7uunIXyhwAPAkPu3AFM6Oo9J5VB9aZJo9EAlqeKETGG7zZ
-	o4WfmcMkKIFZP79xQ/S9lX2vxPXaMQ1g171ckNC50Spxc6KcLtlnD/aEZjh6JkM20Uy2W/e5TgLZs
-	BGyOWHMGb5HKGaxCs4gl0RzV2TWEqOSww/A75b5DHG6scSFR7DrnoThnL3DlLy7jH/o97RvUt9zIY
-	H3m5GspUo1WlAAXEpm9ztufoTFa4Pu4lsJsOgiaStlmwMH9d+bTYKLTZcUbOrAEl63iCtSMqjJfIc
-	n1PNvynuu5iJxy3XIWeA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=c8farZD/ydDdqSNMfMJU2WjX1xs+3i2LfdwseOeCnCQ=; b=YVwsJHOFsS1lE1YM3/bI2MltAl
+	eRjWIUmefvLLGuHCJlhXt5paZs5fNSXGiPidK/EM/y6Yluj+sxRwP/zxpxJIc/+kFs3ovgUK1FRyz
+	sdEf38bGATPs4QxwxfgFCLo4GP/MtCONDX/jGm4SAGfbY22HnojDniIpHCpABVBogYTybGCspoVP+
+	UhPfyREXinft8AcQ3aIFn8LO7mzUmAGMwD8FORTTIRrBIuOHJr9JOApjbZH/jCTgKm4HwPuLyACaj
+	FZ1dgCH8XXOAZQOx0/TXfrYq1NMx/vh1gTUHTm8SBPgOGieak1G324ZyOHZFEMo4SJUoPxW5Wszhi
+	xqxJJhrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEkDW-00000003yz3-3cgT;
-	Thu, 08 Oct 2026 09:15:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xEkIi-00000003zgi-1OR3;
+	Thu, 08 Oct 2026 09:20:32 +0000
+Received: from mail-swedencentralazon11022100.outbound.protection.outlook.com ([52.101.82.100] helo=GVZP280CU018.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEkDV-00000003yyt-1gP1
-	for linux-riscv@lists.infradead.org;
-	Thu, 08 Oct 2026 09:15:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DF0A44006A;
-	Thu,  8 Oct 2026 09:15:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48B8E1F00898;
-	Thu,  8 Oct 2026 09:15:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791450908;
-	bh=N0iVQ+icpXXzIWEz3mV5Uf7KkvSTdwHOk+gN5yGHz3U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VsHLvdjS+390MDSEAalnQqsiwY25PV9OUQmvvuJ+Lfj66g62QZTeidCVDdQw75wU/
-	 oKXDd5/Q5mex5jfPtVj7K1FRf7FxupmQSzzPNbaATyZKG4k798DaMD8EtgE6QRTN1T
-	 ZmxURI1lyE6urspVilk5eR/HiW62t4fTZXaxr+cMxlDfyqpBRWYYaiG7RnfwtexKOZ
-	 H/Kco3Xqz71EqFrfevHmqLh5ak12nNrDeS9GZzFx/WN8FVNGC5S1T7t2bBSioq1mDJ
-	 xNAIcvV4Ez9/WvxCaUaEU5PuCiP8rl+VVJpCz3nSBO+aElABCAWZbSlP5TMigwWSUo
-	 BwhAiuRIiEO+Q==
-Date: Thu, 8 Oct 2026 09:15:06 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v2 1/2] dt-bindings: power: spacemit: Add power domain
- controller IDs
-Message-ID: <20261008091506-GKC2005@kernel.org>
-References: <20261008-04-k3-pm-support-v2-0-6f778a53dd2d@kernel.org>
- <20261008-04-k3-pm-support-v2-1-6f778a53dd2d@kernel.org>
- <20261008-df80c21d73b287d09b6baa78@squawk>
+	id 1xEkId-00000003zfs-23g6;
+	Thu, 08 Oct 2026 09:20:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wWYCaXyqJi4ZWPF6qGx6PPahhWGHET64lXKc47FBjG7p2ybmlaSw3rSqwcUE/w6495DBBi00Msx1Pad4CqMHlQlVM/qJIb43Q5vas6TnhUz2FdJfY3o6B2lwCryb05C+irQEX9CK9zOP4PCPwtgggpydvj9tiGz5gFS6IjMBwPI6bAh3/u5LsJOt+jF5jWza6nAnQNwx7cGLV5HlOz3lAZgm2cs+gOYRAbkzrFUX7971nLmSWo/Vtm1aZx2dKuksQVEeWsAvwcOHAAlC2BAH2vckuGtUVDeqtRen6KsZsXENvEjTjnymAkIWFVRdV6NxSVMk43cdlaX24bz4xvnycw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nChlZmlrvLWslmoho1/5aTc9r9JcLlsuI9ltEi1anog=;
+ b=EWlQpJR1KYsOvtPjPBUbxCi4oXSmjhItlg/0F5aiUdQvXqIqDoCkmDk8i9oy4P1UZrVAO50NbeQ2qOyuzNSviNYashd2A8Iio0MztmgBkxQtH8DrkGsak+6QUS5bTPwAObwhg6jYu7nAYFdphTRQNywuypUTYJT/jkCyrJ9wD715p9Nijg4YPW7QZCwJmjdD5lPzVTSrr5yeqR3JkVu02DcEbyuv9s+t7ECmIaAbzjrAq85WOSi50rlHBNq4tuWFkqH6xfbV3WD7KshbsfI9ufAaE4aHcWpvGYL5/aaP+AGRDHan8ZnF+AtHymELnX+JmRaqAwL9nnBZoN4FVLBWTA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gaisler.com; dmarc=pass action=none header.from=gaisler.com;
+ dkim=pass header.d=gaisler.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gaisler.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nChlZmlrvLWslmoho1/5aTc9r9JcLlsuI9ltEi1anog=;
+ b=INuFnRN8HZTZOmhztmeE+FWSg1C4ii9V9BgUPQhgDJ8RNd+LGyBWi29rZlGXHvH4Z0GZukAbrrEUd0nzmbqjHKg79DgHWjVgSQ0gc4YaqpMmpuSQB1UaoPfWU4gZjqGOATUuLN7KeBByoJkt4/4D6lM0ztbm/o5DPbwPmtuEgBaTMP0iptchQ/0h5NNjuKKvSwcf3Zc7zJKLoWCgKKhqaM0rYpC5qZi9c5buiMvfMK5GC5lkxReIkyvtUoaD2PFCY5fggNJ/0O0fl7QtbwSDi8zqAFCsedpUclVBHil2D/RLwqNrbjWzjN+WTGlLd8zLfiUjSYM5paTFCQs0O7ZJJA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=gaisler.com;
+Received: from MM0P280MB495062.SWEP280.PROD.OUTLOOK.COM (2603:10a6:190:2f::5)
+ by GVZP280MB1086.SWEP280.PROD.OUTLOOK.COM (2603:10a6:150:f5::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.17; Thu, 8 Oct
+ 2026 09:20:17 +0000
+Received: from MM0P280MB495062.SWEP280.PROD.OUTLOOK.COM
+ ([fe80::1f13:f10:e16b:7939]) by MM0P280MB495062.SWEP280.PROD.OUTLOOK.COM
+ ([fe80::1f13:f10:e16b:7939%4]) with mapi id 15.21.0472.016; Thu, 8 Oct 2026
+ 09:20:17 +0000
+Message-ID: <c24fc419-7bee-4fe4-be12-9aa378d49af1@gaisler.com>
+Date: Thu, 8 Oct 2026 11:20:14 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 8/8] mm: Drop pxd_ERROR()
+To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org
+Cc: samuel.holland@sifive.com, David Hildenbrand <david@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, Yoshinori Sato
+ <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Geert Uytterhoeven <geert@linux-m68k.org>
+References: <20260831054331.625505-1-anshuman.khandual@arm.com>
+ <20260831054331.625505-9-anshuman.khandual@arm.com>
+Content-Language: en-US
+From: Andreas Larsson <andreas@gaisler.com>
+In-Reply-To: <20260831054331.625505-9-anshuman.khandual@arm.com>
+X-ClientProxiedBy: BE1P281CA0084.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:b10:78::11) To MM0P280MB495062.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:190:2f::5)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261008-df80c21d73b287d09b6baa78@squawk>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MM0P280MB495062:EE_|GVZP280MB1086:EE_
+X-MS-Office365-Filtering-Correlation-Id: 83646bf6-eeda-498e-e234-08df251d5e2c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|56012099006|4143699003|11063799006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: NC/qpKPoxiyUAIaFboaEX4yQJbeZ+vmHWvsqeQ5kGT8l7X9fcYqp9eBx5WDlxiVvR0L+48Kj8haTuGmN+ee23fz3oSbjQL0jDYSXa+8gvblI86UZZh4H3rc1iI63OnAtUl/Bc29s8THJfx5bFeLN0emAE2uZAHoMFHy90APywhP9Z8AjykGKVGL0t0c2nvMe3PsGovHxRyjauii+CaAg7FIwI2CS/HOCQfII4YJSPtE4I0SRp+V6w4RmvmGuzeCsqZSrWw82tVXGVw0nRXYEEjprr2bBi/k2erOTWX+ty2uFPb9NPtUYLqYJ9PHu+KDHk4Q/vhMUK3yGm+xZ+4lHwTIkrPlcoR9I3RrI4QZlUmJ2jnb0OByBCKTN6WeW3SPL7RUqYcLSHKhK7REebKrFE0KT0iexUictJu2Fnotxo5BB3aWPdM5djXsume4Uu/+LrZgrVePGx8jVXrq7s0fx3tDDa8Its7qN4Q+p0W/zrq+NcYe8ULVC7XRuOjK0vRn8IJYPzelV1nlbTqr5dOdn1l7Ngd1FRLzsM1A/gAKUICvJl7+yqtc729F6ZYuOPgHw3w2EZKjndGEXmpox7kfKl6X1HCrim3tkhks2tAZ3SktjZtPITkfZDdVBJ/FfT8XA3Aw4kbnTbKOULc4nRgbN9ElLoKLj3Wvavjhkq2aZS/c=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MM0P280MB495062.SWEP280.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(56012099006)(4143699003)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Qnc4WTMwaVBFYzJqcExMa05CL2Z6N2lPTHJIWHJ6RkNtSjQ4YTA2YWhOWHNP?=
+ =?utf-8?B?c3h4MGNyVWpGRXAxYkV5a0VycHRMZmJ4cENISm5EeHF6NFR4U0grNHpzVFNw?=
+ =?utf-8?B?SitEcWRXSExhV2gvMW5hZUQweld3N2JSdVEyZGRDckVZMXZ5SlNzSklhcmk5?=
+ =?utf-8?B?VEt1RHBCbXFKb0lDcVBwRXdFOHRDUTNqemh4TFExRnJhM0ZzTTR2N0JVYlZ1?=
+ =?utf-8?B?VlA1YXo4RHIrbFRpa2QxeFM0VWJwVzQ1WGlaQmdBTFhnK1VLaHllLzdqSFNL?=
+ =?utf-8?B?WE9BWUlhaHJKZkNPd0kvZ2U5TEZTUWZHOHVtMTduYW1wdUlaTTIxeFFmU3Qw?=
+ =?utf-8?B?QWxmQ1NNSHgraGRsb1pkbmVORHF2eDF0bUFWTjBiNXFzZDczRDZ5R2xqdFRR?=
+ =?utf-8?B?Kzhmc3ArU25pcDQyUEpkekh5RmxrVnV0TFVCajVUN2czMGc4UGFqZEx2SEpl?=
+ =?utf-8?B?NVVVcjBRaFoxb24wVmZrTVBOR2FoYnRaUFpZSmxXcnVvV2w5TzEzaVgzODNh?=
+ =?utf-8?B?eWdPV0J4ekp4bkVpdGUxY2RLYTRSWGZqSUlwVHNRdlFyMVEwNTZLcVQ3dlh4?=
+ =?utf-8?B?UGdtOGNwb2g0d2MwQ0Y3ajRUVWRMc1dIbnRsVTFpSTJtclZzNFFPc255cnhQ?=
+ =?utf-8?B?TU5abWFjbjBrS25UU01WMzhjdU9VZTZuVUpaQ2xBSHBSOWlGejFWK3RLaldG?=
+ =?utf-8?B?RkJERVNnbHJnWFZTUkxTVjBlVTJ1d1JNdmkwUWhROHZtMUM2dlJJeHQyRmdl?=
+ =?utf-8?B?UW5MU0cySjFHWUpkZ1RQSTA3SE82Rlczb1hqakhiVi80U3cxT2swK0t5OVcw?=
+ =?utf-8?B?UjkyekRsR0JuZTk3QWZuR0RwYjV1SUNUbnNwaFBOQjA1TEdKWFRRRTNNNyt0?=
+ =?utf-8?B?Y2YrTmZralIvNllYNG1aKzRONTJrZWYvTFFBbjg1S0lEcmZ3amo4UVMwWTZ6?=
+ =?utf-8?B?Sm1VZXc4aStLMWx4dE9PWElQZlg4eXhaRGMwcHlVWFlJNE53NXh2ejl3NVZH?=
+ =?utf-8?B?Y0dyaVc0bm9xVXpDV00ySWtnT1AzSElIQTJieHlKTys2a1ZpRDdUVElIKzBw?=
+ =?utf-8?B?Yk9sRWlTQTlKeUZpQUYydnIvazY3ZjVBYXkzZXdZWjAxRlYrYXAxKy9PU2gr?=
+ =?utf-8?B?UFo1U0hFSGRzUUZwYmFmalNmVTBrNHVmTmVSVVEwUGFxL0VlWHVCL3dIMFhN?=
+ =?utf-8?B?ajNyNDJwblBVbjRDR1dvVHpuNEx6VUk5MldTY0ptMEgrNUZVUlRCd3kzMlB6?=
+ =?utf-8?B?bnNBb1lya3pVd2g1YzJwVFpHNzUrRlJEVHdyMGg0dDBQck9zL0w0SGRjcC9S?=
+ =?utf-8?B?NHM3L0RyU3hIaWl6QnFzbEcwZ3NwWG1uc0FsOGg4citQTTFRTWdKdEdORi9R?=
+ =?utf-8?B?WEwySCtxUDBxYkRmMzhmNHVSVWR5SjgzeEt1WFN3U3lVKzdZY2k2UzBURmda?=
+ =?utf-8?B?YXUvTFo3c0EvTVNnR0dieTh2VzRrWGJCY0prTWc0Z04vWXpJbFFVcjZLc3hF?=
+ =?utf-8?B?WDRBbUFkbzBTMzMzcnIxTGlJTW9QOW1zVU5HSkc4NFNkLzczV3hYTUtzcjRY?=
+ =?utf-8?B?WitCZ1g3SzNjbXFONGNDWEcxWlUyR0piM2p6dThwQlREaXFzWDhoYlc5Unlk?=
+ =?utf-8?B?dWpjRk00c25DQW9ITEVTU0ZITDRJSm50MWZoeGNFRjlVZzlqZXBxVmIwbnFL?=
+ =?utf-8?B?bnRRakpsRC82V3R4ZzBRbGl0aEtBM1A0UlduY2xCUUp5Q05VVXNpNFgxM0tS?=
+ =?utf-8?B?U0loRGpFckpUUElXTkRSV01VV3hXN3F0QXBOMjRxWUJYY0V6QTdEZThMZDEv?=
+ =?utf-8?B?SU04Y0VqU21ydmNCS3VMOXNQK2psemZXRHk4UDZPOFpvcmV6eFlndi9ocm9v?=
+ =?utf-8?B?eXRVampFMmZvNVBQSCsxVGxkbXVCcENac0RGOXhnMldaVmhaelhlcXB0dnB3?=
+ =?utf-8?B?RFdack1RQVdGVU94RWxQQXBsdlNrd0pTRkVneVFVRXZybnM0ZUVLMHYyRDVC?=
+ =?utf-8?B?UkVKb0h2Qk13VVNiOXNkUWs1RHpKd2UvU2lRVlgvRnU5VlJ3ell6czZPN1Bk?=
+ =?utf-8?B?d2VHdDZVUTdaYWIrYkdmYXFmNktSQjhyNWVlRHNOZ2c3RTJyL3puSm40V2lQ?=
+ =?utf-8?B?RnJwQjhzRnp0bUZVeWx0bUxVN0E3NlJadU9oOGFDOGNRbFVjdzRxNjl4ek8v?=
+ =?utf-8?B?UzFka04xY01xUEV4TmRoc29xUEcydDM1Z05kNWhmMjl3OVhHTnJDUVJ5WGth?=
+ =?utf-8?B?cFFId1A1RHJEbitNS012U2x6NTcwM0gvbk9rekpFYVZZbG4zYS84elM5b2lY?=
+ =?utf-8?B?d3N0d0dNS3h1RWRYR0NLUmFaeVVVWlByVURvc3JuTFh1SHp2SkxtSVpGZUE5?=
+ =?utf-8?Q?yjjhfEohdeTOoAqE=3D?=
+X-OriginatorOrg: gaisler.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 83646bf6-eeda-498e-e234-08df251d5e2c
+X-MS-Exchange-CrossTenant-AuthSource: MM0P280MB495062.SWEP280.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2026 09:20:17.5038
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 91fa4a59-2167-458a-8318-e45d80469d7e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5BZfB4EAaSFJ84qYftmRVMohK/eymk8QLHXJzzFm4elUHya77EOOlIY25xck2qu/+rvHfHMgpADg5257wP54q4lxf3y+8uFBxp0svqv6SU8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVZP280MB1086
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261008_022027_550504_527956DB 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,32 +158,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Ulf Hansson <ulfh@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, spacemit@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>, Iker Pedrosa <ikerpedrosam@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-On 08:27 Thu 08 Oct     , Conor Dooley wrote:
-> On Thu, Oct 08, 2026 at 03:44:29AM +0000, Yixun Lan wrote:
-> > Add initial power domain driver support for SpacemiT K1/K3 SoC, The Power
-> > Domain Controller is SoC internal module which is part of APMU (Advanced
-> > Power Management Unit), it is responsible for managing power across multi
-> > power domains, which includes power on/off, isolation, power-on sequence.
+On 2026-08-31 07:43, Anshuman Khandual wrote:
+> There are no more users left for any pxd_ERROR() either in generic MM or in
+> the platform MM. Hence all these platform macros along with their generic
+> fallback could be dropped across the tree.
 > 
-> You should prob mention that this APMU is already documented elsewhere.
-Right, the documentation already exists in
-   Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+> Cc: linux-alpha@vger.kernel.org
+> Cc: linux-snps-arc@lists.infradead.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-csky@vger.kernel.org
+> Cc: linux-hexagon@vger.kernel.org
+> Cc: loongarch@lists.linux.dev
+> Cc: linux-m68k@lists.linux-m68k.org
+> Cc: linux-mips@vger.kernel.org
+> Cc: linux-openrisc@vger.kernel.org
+> Cc: linux-parisc@vger.kernel.org
+> Cc: linuxppc-dev@lists.ozlabs.org
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-s390@vger.kernel.org
+> Cc: linux-sh@vger.kernel.org
+> Cc: sparclinux@vger.kernel.org
+> Cc: linux-um@lists.infradead.org
+> Cc: linux-arch@vger.kernel.org
+> Cc: linux-mm@kvack.org
+> Cc: linux-kernel@vger.kernel.org
+> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # m68k
+> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+> Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+...>  /*
+>   * Encode/decode swap entries and swap PTEs. Swap PTEs are all PTEs that
+>   * are !pte_none() && !pte_present().
+> diff --git a/arch/sparc/include/asm/pgtable_32.h b/arch/sparc/include/asm/pgtable_32.h
+> index f89b1250661d..5a5f54a090f5 100644
+> --- a/arch/sparc/include/asm/pgtable_32.h
+> +++ b/arch/sparc/include/asm/pgtable_32.h
+> @@ -40,9 +40,6 @@ void load_mmu(void);
+>  unsigned long calc_highpages(void);
+>  unsigned long __init bootmem_init(unsigned long *pages_avail);
+>  
+> -#define pte_ERROR(e)   __builtin_trap()
+> -#define pmd_ERROR(e)   __builtin_trap()
+> -#define pgd_ERROR(e)   __builtin_trap()
+>  
+>  #define PTRS_PER_PTE    	64
+>  #define PTRS_PER_PMD    	64
+> diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
+> index 0837ebbc5dce..44d1333065a6 100644
+> --- a/arch/sparc/include/asm/pgtable_64.h
+> +++ b/arch/sparc/include/asm/pgtable_64.h
+> @@ -96,16 +96,6 @@ bool kern_addr_valid(unsigned long addr);
+>  #define PTRS_PER_PUD	(1UL << PUD_BITS)
+>  #define PTRS_PER_PGD	(1UL << PGDIR_BITS)
+>  
+> -#define pmd_ERROR(e)							\
+> -	pr_err("%s:%d: bad pmd %p(%016lx) seen at (%pS)\n",		\
+> -	       __FILE__, __LINE__, &(e), pmd_val(e), __builtin_return_address(0))
+> -#define pud_ERROR(e)							\
+> -	pr_err("%s:%d: bad pud %p(%016lx) seen at (%pS)\n",		\
+> -	       __FILE__, __LINE__, &(e), pud_val(e), __builtin_return_address(0))
+> -#define pgd_ERROR(e)							\
+> -	pr_err("%s:%d: bad pgd %p(%016lx) seen at (%pS)\n",		\
+> -	       __FILE__, __LINE__, &(e), pgd_val(e), __builtin_return_address(0))
+> -
+>  #endif /* !(__ASSEMBLER__) */
 
-I can add a short note in next version
+Perhaps a bit of a pity to lose the printing of the address of the pxd
+that a number of architectures did before this series, but i have no
+strong opinion.
 
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Thanks
+Acked-by: Andreas Larsson <andreas@gaisler.com> # sparc
 
--- 
-Yixun Lan (dlan)
+Cheers,
+Andreas
+
 
 _______________________________________________
 linux-riscv mailing list
