@@ -4,104 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57C99CA6007
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 12:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F940CA600B
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 13:15:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BtDj1KDZXAhVl9/IqXom5Gg99lCqw5mY3HSFNnyK4GQ=; b=3VeqDw0Xci+gLk
-	JxhfDqe769uHH5B+WNolnC4a8wVjoCqlIE8dFqUWPuWpqqAe4DfE4J6opzKMUB09AP8rC2H9TZwKq
-	+G53VMs2XocGbXMePDULHD6Vnrai6ugGwY1u4uzOXAOtUBj6hWfDzwQ7ojyJmE2s7Dhb8SucZgzDo
-	X4gm0LPJIQ6OnPsE2U+e7g0BJ5jYBdPlg/18OWkBJzRrv+9J+CwCwNZZX7pFBzd6F5M/8J7i/XjZY
-	XglEVrXltfQ1E1PADIXU+wPby+w9FK25/IGtd+gj67jgU/VktqzUmTHmlMxzzXVS3HZPhq0GElQvc
-	MQpPqsS8+jhMisPmwULA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xj1BPvQ4Ao572jzxp3Y9U12OAAMLpvN6N+qNC3Oa78o=; b=mIoYX/sc6jkU6C6bFSp8ffzL1C
+	CzBSJlzZ5MjGYy5GeCZTHfSDHWdvWl4pMC0+/Rkz6JEoi+k2USvL81GzZqKzpXmcGgLlE6KWDaswf
+	Rso1YWm8p58un6K5vHWtURoPNFoZKTtmhQnLK9fS5JDjyxZ/9Fm/VPZeh7rRPH8/w4YY1HAAk4Rpj
+	/ktWtEn1QQknnO5DVqehmN54PbCvKmBiTi2w5HKpebO82oGIWJ/yxHRlY6e36QISjY8gMFMmr7Phb
+	avNAL6QU5pUqof6vp2sSQvwx3T1oBluE0D3Yj7UH8juAH6yQF4u9AOJ9EyePGIJnp+4Ng+Qp0qNu5
+	i5GhsfkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEnbH-00000004Ojx-01Jr;
-	Thu, 08 Oct 2026 12:51:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEnbD-00000004Oi6-2D3i;
-	Thu, 08 Oct 2026 12:51:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF9301477;
-	Thu,  8 Oct 2026 05:51:43 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 385483F66F;
-	Thu,  8 Oct 2026 05:51:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791463907; bh=yybsjxVTbzd8fZs72yNrXHsa7ZAel783Veu0/ZplOjs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jHcYeO7PQ4uywop/cdz4Sp+A+aFbl0MgQD1Ls+p5EdipEXi6WD0t37Ph73w/vv0DU
-	 zaE58iHLndSo+/C52KBqYxok8UD7CtjGoRjaBmsWgfa74P8A2xQIUgYTR13WaYMyPN
-	 MJYzbhW+p/gSjdnlF9y+DSqgMqvawjjqEWGiXB4w=
-Date: Thu, 8 Oct 2026 13:51:24 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: Will Deacon <will@kernel.org>, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH v6 6/8] dma: swiotlb: Centralize memory-encryption pool
- sizing
-Message-ID: <aseRzPshcoys7AJS@arm.com>
-References: <20260924060756.1325156-1-aneesh.kumar@kernel.org>
- <20260924060756.1325156-7-aneesh.kumar@kernel.org>
- <asVs3doaJ4WrT3M2@willie-the-truck>
- <asYZFXGyafRjjBS0@arm.com>
- <asYiOgskwi8JYLe_@willie-the-truck>
- <yq5awlrt3dwo.fsf@kernel.org>
- <yq5av77c92oo.fsf@kernel.org>
+	id 1xEnxQ-00000004QI7-1tyH;
+	Thu, 08 Oct 2026 13:14:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xEnxP-00000004QHo-0MYR
+	for linux-riscv@lists.infradead.org;
+	Thu, 08 Oct 2026 13:14:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E2A8601DB;
+	Thu,  8 Oct 2026 13:14:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A167D1F000FF;
+	Thu,  8 Oct 2026 13:14:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791465286;
+	bh=N2acWtY1ipUiffzzGDX0s1gIQ1N+3h0sjovbkkO1ybc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=G83LgMta8QKBoXDi2N2Qw1Zi4vSf9wF2eZmRkJ2KXgf5Dujm2M147rBcetHcNjKAI
+	 LFmnxvDAUHlx2lGQRpzYdf0XMD4/aBlkZIf/1QR3dq/hKyKWrz/8sSievLYusidGN3
+	 a88fUTV6TCtf6XHhv1d+dVkAJllQajhpvIr85X6W4hl+CkFJtRtfaEidDbGQ70ycUT
+	 zlEiz4ucI4FpNHtP6MoPbzIk9/0YHIy7IFbeHZIy+uD5WEgm+5lIN9DNEq6uGpto+F
+	 /qTUfEmMFaIDFzgLoIgwNz3ovYaiiYx8aCYE4pXBjwZlJeqEeNU0htXsrm5LIGPzdq
+	 tMVDbmDzu6iwQ==
+Date: Thu, 8 Oct 2026 14:14:42 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Felix Gu <ustc.gu@gmail.com>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] soc: mpfs: use kref cleanup on probe failure
+Message-ID: <20261008-590aec0ad34ba6c65b269ed3@squawk>
+References: <20261007121743.192486-1-lgs201920130244@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <yq5av77c92oo.fsf@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_055151_664355_400D2C6F 
-X-CRM114-Status: GOOD (  38.68  )
+In-Reply-To: <20261007121743.192486-1-lgs201920130244@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,98 +65,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4406161332401387198=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 08, 2026 at 11:03:27AM +0530, Aneesh Kumar K.V wrote:
-> Aneesh Kumar K.V <aneesh.kumar@kernel.org> writes:
-> > Will Deacon <will@kernel.org> writes:
-> >> On Wed, Oct 07, 2026 at 11:04:05AM +0100, Catalin Marinas wrote:
-> >>> On Tue, Oct 06, 2026 at 10:49:17PM +0100, Will Deacon wrote:
-> >>> > On Thu, Sep 24, 2026 at 11:37:54AM +0530, Aneesh Kumar K.V (Arm) wrote:
-> >>> > > @@ -496,7 +516,8 @@ swiotlb_select_pool_policy(unsigned int flags)
-> >>> > >  	if (swiotlb_force_disable)
-> >>> > >  		return SWIOTLB_POOL_NONE;
-> >>> > >  
-> >>> > > -	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
-> >>> > > +	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
-> >>> > > +	    !restricted_dma_pool_present)
-> >>> > >  		return SWIOTLB_POOL_CC_GUEST;
-> >>> > 
-> >>> > I think this check on the restricted DMA pool is too general -- the pool
-> >>> > could be tied to a specific DMA-capable peripheral and so treating its
-> >>> > presence as a global property isn't right.
-> >>> 
-> >>> I agree it's a hack but that was the simplest way to avoid the pVMs
-> >>> getting a bounce buffer after this patch. More than happy to leave it
-> >>> out and reduce the buffer on cmdline or we come up with some better
-> >>> heuristics.
-> >>
-> >> Hrm, that does mean that reverting just this part will regress pVMs
-> >> because they'll suddenly be allocating a tonne more memory for an
-> >> entirely unused swiotlb buffer. So I think I'd prefer to drop the entire
-> >> series until this has been worked out properly.
-> >>
-> >>> Another option could be the arch code passing another flag that it
-> >>> doesn't want an encrypted pool (e.g. when running in a pKVM guest) but I
-> >>> don't particularly this either. The arch code doesn't know whether
-> >>> there's an alternative pool.
-> >>
-> >> At that point, the default size may as well be driven by the
-> >> drivers/virt/coco driver.
-> >>
-> >>> That said, such heuristics should have been a separate patch to make it
-> >>> easier to review/drop.
-> >>
-> >> I think the only right way to get a semi-accurate heuristic is to take
-> >> into account the set of dma-capable devices that will use the swiotlb
-> >> pool, but that's fiddly and should probably be tackled as a separate
-> >> series. Maybe a simpler hack in that direction would be to take the
-> >> SWIOTLB_POOL_CC_GUEST if _any_ device is going to use swiotlb? You'll
-> >> run into the usual problem of not being able to tell if a device is
-> >> DMA-capable or not, but you could probably look for a global restricted
-> >> DMA pool and, if that doesn't exist, check for per-device restricted pools
-> >> on dma-coherent devices (since restricted DMA isn't supported by ACPI) as
-> >> a reasonable approximation.
-> >
-> > So, something like this?
-> >
-> > 	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
-> > 	    swiotlb_cc_guest_needs_default_pool())
-> > 		return SWIOTLB_POOL_CC_GUEST;
-> >
-> 
-> Detecting a DMA-capable device is not straightforward, and if we get it
-> wrong, we will enable SWIOTLB_POOL_CC_GUEST unnecessarily. Would the
-> code below be a reasonable approximation of what you suggested?
-> 
-> Another option would be to make swiotlb_cc_guest_needs_default_pool() a
-> weak function that architectures can override. arm64 pKVM could then use
-> a different scheme (for this patch series default to false). Would that
-> be preferable?
+--===============4406161332401387198==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="25uemib8zQO6l1ld"
+Content-Disposition: inline
 
-Even the rmem check for each device is still a hack that may bite us in
-the future (private devices for example would not need swiotlb). I'm
-thinking more and more of leaving the sizing an arch-specific decision,
-don't bother generalising it at all.
+--25uemib8zQO6l1ld
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On pKVM vs CCA guests, there's really nothing specific here to pKVM
-guests. The only difference is that confidential guests that so far have
-run without a swiotlb buffer will regress if their memory is tight. For
-confidential guests without dedicated rmem (either CCA or pKVM), I think
-our options are either command line swiotlb sizing or dynamic swiotlb.
+On Wed, Oct 07, 2026 at 08:17:43PM +0800, Guangshuo Li wrote:
+> After kref_init(), the device_get_match_data() failure path frees the
+> mailbox channel and sys_controller directly, bypassing the matching
+> kref_put() for the initial reference.
+>=20
+> Use mpfs_sys_controller_put() on this path so that the initial
+> reference established by kref_init() is released through the existing
+> kref release callback.
+>=20
+> Rename the error label to reflect that cleanup is now performed
+> through the kref helper.
+>=20
+> This issue was found by manual code inspection.
+>=20
+> Fixes: 75ef23397558 ("soc: microchip: mpfs-sys-controller: fix resource l=
+eak on probe error")
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> ---
+> v2:
+>   - Add the missing Signed-off-by tag.
+>   - Rename out_free_channel to out_put as suggested by Felix.
 
-Could you respin your series while leaving out the generic sizing? IOW,
-no x86 code generalisation. We can discuss the best strategy on sizing
-later (I haven't checked how much of this series still makes sense
-without the generic sizing).
+Applied, thanks.
 
--- 
-Catalin
+Cheers,
+Conor.
+
+>=20
+>  drivers/soc/microchip/mpfs-sys-controller.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/mi=
+crochip/mpfs-sys-controller.c
+> index 0400a01b2338..ef27e1083f0f 100644
+> --- a/drivers/soc/microchip/mpfs-sys-controller.c
+> +++ b/drivers/soc/microchip/mpfs-sys-controller.c
+> @@ -159,7 +159,7 @@ static int mpfs_sys_controller_probe(struct platform_=
+device *pdev)
+>  	of_data =3D (struct mpfs_syscon_config *) device_get_match_data(dev);
+>  	if (!of_data) {
+>  		ret =3D dev_err_probe(dev, -EINVAL, "Error getting match data\n");
+> -		goto out_free_channel;
+> +		goto out_put;
+>  	}
+> =20
+>  	for (i =3D 0; i < of_data->nb_subdevs; i++) {
+> @@ -173,8 +173,9 @@ static int mpfs_sys_controller_probe(struct platform_=
+device *pdev)
+> =20
+>  	return 0;
+> =20
+> -out_free_channel:
+> -	mbox_free_channel(sys_controller->chan);
+> +out_put:
+> +	mpfs_sys_controller_put(sys_controller);
+> +	return ret;
+>  out_free:
+>  	kfree(sys_controller);
+>  	return ret;
+> --=20
+> 2.43.0
+>=20
+
+--25uemib8zQO6l1ld
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaseXOAAKCRB4tDGHoIJi
+0mglAP9LFL+rx75JJZVcGF22GeaKs1JrUq0n7zmtswOTmVuBzQD/QJxwNqQuFgfU
+G5Sf9nL2WAzwJajDzPZdbPQJ6p0nSgE=
+=oelW
+-----END PGP SIGNATURE-----
+
+--25uemib8zQO6l1ld--
+
+
+--===============4406161332401387198==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4406161332401387198==--
+
