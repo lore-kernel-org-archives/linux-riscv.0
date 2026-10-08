@@ -4,101 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D004CA6007
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 15:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72ABACA6011
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 18:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=loi9f0obmD9NXhiu3VhfKlC1jGFZk6tlBtdm3r2rcX4=; b=phsHS1WKcU1vsq
-	yzbOROkoGxLMVx5VTcCkvEmR3QN+ud2zAPbrysfV7ROBd/OeNttv/0kB4AR+HHx1Yu8y7li9zbak7
-	y+3alJE7GpfJZXpt+SrXJZfjGnXyNHNWRkW+7Ia9G8ELdwMZcvwyCTfgO4w+tmYrT9CHHWevcBoce
-	vAjKDOC4xpYGbp7CLgJf9MlqflJC3YDst25SaT5z+Cxbj5doqAed7FIcbdUSkrtc8pARLqJP7iMCw
-	AQGm56+QXVZDKempDs92sBBHFmD/T2hOJ0NOL0CJrRrGOpADrGUB+grkkC5Ksj22LZZ1Y/yHReZxH
-	4eX7rwlDjsb+f0tnBsTQ==;
+	List-Owner; bh=ekYEyCYkOfhnISTVVooIMZh4jeBQeKDX4cctuXVOA2I=; b=Ozbraevojg09qI
+	glUixeH+sRSlpFJGnWVBCOMzYy2R00i4dCnl28MiDknGJSAnkuDn1C1jz+yrNfE98q1eksc6zH3c5
+	oxiT6VxbctGkKIWKYtXaZLMu+LVaA/BN/J/StGxhjkkPr8fm0KS7LAg+nFSIrEKz8swS1iO8hYhvQ
+	BMzhsv65U7613Adba4gL/jHl6/9H0atULjffVM6yMIFHatMs3+d2PuCki5hmGgaUEwITFDdNCT3jb
+	/unZtem9uIzcEnHn9FDZfn5Gwiqz7MxrPJMjJmHAizfpbTuWt7B52qzVl9en6zPFlzj0GDuUOgB6d
+	n9LtfXgR0lk1sLlfAGRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEq7B-00000004cB2-1k5J;
-	Thu, 08 Oct 2026 15:33:01 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1xEsiv-00000004r86-0E4S;
+	Thu, 08 Oct 2026 18:20:09 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEq76-00000004c97-3t3A;
-	Thu, 08 Oct 2026 15:32:59 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261008153249euoutp02b4a87ccc77d200f3890d561df189c3bd~cl7g7aAvm2788727887euoutp02g;
-	Thu,  8 Oct 2026 15:32:49 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261008153249euoutp02b4a87ccc77d200f3890d561df189c3bd~cl7g7aAvm2788727887euoutp02g
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1791473569;
-	bh=YmUv+dVinO4DGyPfi86Rp05KJ0iKog7r1zuWIsZpoNM=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=Z5UeDLE+dZcsY3l6oA16V8qttCBxPFEJpUpwd2p2jJDN2RWsNpoMi9Gug31sE6gmX
-	 xEpsLkgCQwKTVH4iIL1j1xtexJJNNydzs2KShaf9Uvr/sXk+MAVI8vVIQ+YZBs4a/f
-	 zFRkjDjJ/PUKBoz2RBPEiGBJ0pC1W9GZs22YyXtc=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261008153248eucas1p144bd3391fe1a79a1d6dfcd386c4a7e94~cl7fxbUbR2862828628eucas1p1P;
-	Thu,  8 Oct 2026 15:32:48 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261008153245eusmtip112c16c496ac689d363e975f151c082fb~cl7dN0sE_2339023390eusmtip1f;
-	Thu,  8 Oct 2026 15:32:45 +0000 (GMT)
-Message-ID: <c2e38455-cb31-4854-ab84-4a370fabc1f9@samsung.com>
-Date: Thu, 8 Oct 2026 17:32:44 +0200
-MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v6 6/8] dma: swiotlb: Centralize memory-encryption pool
- sizing
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Catalin Marinas
-	<catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Robin Murphy <robin.murphy@arm.com>, Jonathan
-	Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy
-	Dunlap <rdunlap@infradead.org>, Mark Rutland <mark.rutland@arm.com>, Marc
-	Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>, Suzuki K
-	Poulose <Suzuki.Poulose@arm.com>, Jiri Pirko <jiri@resnulli.us>, Jason
-	Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Petr Tesarik
-	<ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>, Dan Williams
-	<dan.j.williams@intel.com>, Xu Yilun <yilun.xu@linux.intel.com>, Madhavan
-	Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)"
-	<chleroy@kernel.org>, "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>, Alexander Gordeev
-	<agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
-	<svens@linux.ibm.com>, Stefano Stabellini <sstabellini@kernel.org>, Russell
-	King <linux@armlinux.org.uk>, Huacai Chen <chenhuacai@kernel.org>, WANG
-	Xuerui <kernel@xen0n.name>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>, Andy Lutomirski <luto@kernel.org>, Peter
-	Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo
-	Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, x86@kernel.org
+	id 1xEsis-00000004r7Y-0egJ
+	for linux-riscv@lists.infradead.org;
+	Thu, 08 Oct 2026 18:20:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EMUGRBIE4ozThttg/kgf5Cshkn/01B81vD5pcWl1fEh61nRLKj4jVgaPoUgtHLeOPuBtHgpD0bF0M11ALQe4gu/o39FlEr8a7TMyvFBAmMn46Vz0K0LMPZI9dylMEOyats46AaG+3VCZ+PpPs8W7oaeop8o91ENr+RnkDdjd/QvCfl18JTVrbcmPG26Wkj1L5X1+DVHi9/8VtNcyUDGTjcN0vaVjSqezFNVeFpFutxBAnvzOAdkIIXuZRvlIDMpf/2xwYea9DPaCHjeeQoVJIDLWN8J/oRnkD0ztPr4qTr0v5sYj8EYC1vr8xvBS4/WO1icVgmfAmDuNjWpmxHsD5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ssCbM4lze5TdRVBfa0tj1p3TCgY7ESwxHbfD+3f9jqg=;
+ b=qtKDOtimhOEvWt0cLxRN6otqqAzNquKunw8hdUb1nkRjisMr6IqQa4uDWQxarbVUbamBkZw0CCodin7II6fkQgPeO5K5lLD52kTFT3AkWG+Yi+UCIgkly73x+ChXZARkF0w8XOJSFNCNoQMBWA/DTcnmLfBTD3syIMWxgsJYWpugJKBYK0wc36BR8A5vqabt2Hyy+Oqb9K3ArMiTiF9/EkbnhR282HOQU75z1SUZzc+4TR89b20q/qlrqEODr8+dU6TRdq5ReAamra8xj1tgPkDjAyXqwtZCNOwUqIA94009xDCVFdzk2SqqvVlC9retlaiEOav2TT/8lUlbzjy83g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=rambus.com; dmarc=pass action=none header.from=rambus.com;
+ dkim=pass header.d=rambus.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ssCbM4lze5TdRVBfa0tj1p3TCgY7ESwxHbfD+3f9jqg=;
+ b=Q5xoA++NxQz6h80+WChnqQOdcGlsmxsrEqAOdJcf86Sx/lvwUqkcFsi76s3KmdjMhHQv32quCZpuFUP0UMTb/PAxZQTCNK0fm8xYWda3dqLo813/UjaH+qGFS9OlXKtuQ9SvGdAn7AG1RmpoAfScB35pVRXCLsGDKxaCbFtWr9aekPZi1sViAUlEv14Vsvv7jjjsAM5B7eE1XkDDZPc5tWniik1KrArpsBKz5utRLIPyINbTWW4DXOkop0Gv4oH3mzKXGicYGFTn4rClPcRVChloyIZVhxESGKbxcrxMzV63gxnNXaQx2JF1soj/8uGB3k3XPyADp+aa212sPgBwWQ==
+Received: from SJ0PR04MB8406.namprd04.prod.outlook.com (2603:10b6:a03:3d3::14)
+ by CH3PR04MB8902.namprd04.prod.outlook.com (2603:10b6:610:17a::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.15; Thu, 8 Oct
+ 2026 18:19:53 +0000
+Received: from SJ0PR04MB8406.namprd04.prod.outlook.com
+ ([fe80::cbad:dfcc:82:7dbf]) by SJ0PR04MB8406.namprd04.prod.outlook.com
+ ([fe80::cbad:dfcc:82:7dbf%6]) with mapi id 15.21.0496.015; Thu, 8 Oct 2026
+ 18:19:53 +0000
+From: "Ousherovitch, Alex" <aousherovitch@rambus.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+CC: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>, Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Rob Herring
+	<robh@kernel.org>, "Krishnamoorthy, Saravanakrishnan"
+	<skrishnamoorthy@rambus.com>, Shuah Khan <shuah@kernel.org>, Alexandre Ghiti
+	<alex@ghiti.fr>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"Wittenauer, Joel" <Joel.Wittenauer@cryptography.com>,
+	"linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Shuah
+ Khan <skhan@linuxfoundation.org>, "Nguyen, Thi" <thin@rambus.com>
+Subject: RE: [PATCH v5 04/19] crypto: cmh - add SHA-2/SHA-3/SHAKE ahash
+Thread-Topic: [PATCH v5 04/19] crypto: cmh - add SHA-2/SHA-3/SHAKE ahash
+Thread-Index: AQHdRvg30t1+45dAjEm+KmT5OENVbLbbsCeAgAD8JwCABtcDgIALxW1QgAQlDwCAAKYC4A==
+Date: Thu, 8 Oct 2026 18:19:53 +0000
+Message-ID: <SJ0PR04MB8406F204459FE399C89BC5DFD7932@SJ0PR04MB8406.namprd04.prod.outlook.com>
+References: <20260917225929.2494111-1-aousherovitch@rambus.com>
+ <20260917225929.2494111-5-aousherovitch@rambus.com>
+ <arNn_fjy4jamSitO@gondor.apana.org.au>
+ <LV8PR04MB9006374FD8621EBF3C7E7F6CD7822@LV8PR04MB9006.namprd04.prod.outlook.com>
+ <arn4XYwPYt6i2k7d@gondor.apana.org.au>
+ <SJ0PR04MB8406AD1C92438FBCBA2EEED4D7962@SJ0PR04MB8406.namprd04.prod.outlook.com>
+ <asdSSjBML72-YaGq@gondor.apana.org.au>
+In-Reply-To: <asdSSjBML72-YaGq@gondor.apana.org.au>
+Accept-Language: en-US
 Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <yq5ao6d48dqr.fsf@kernel.org>
-X-CMS-MailID: 20261008153248eucas1p144bd3391fe1a79a1d6dfcd386c4a7e94
-X-Msg-Generator: CA
-X-RootMTR: 20261008143238eucas1p1ee087352709f2a82d2aec95540ae2031
-X-EPHeader: CA
-X-CMS-RootMailID: 20261008143238eucas1p1ee087352709f2a82d2aec95540ae2031
-References: <20260924060756.1325156-1-aneesh.kumar@kernel.org>
-	<20260924060756.1325156-7-aneesh.kumar@kernel.org>
-	<asVs3doaJ4WrT3M2@willie-the-truck> <asYZFXGyafRjjBS0@arm.com>
-	<asYiOgskwi8JYLe_@willie-the-truck> <yq5awlrt3dwo.fsf@kernel.org>
-	<yq5av77c92oo.fsf@kernel.org> <aseRzPshcoys7AJS@arm.com>
-	<CGME20261008143238eucas1p1ee087352709f2a82d2aec95540ae2031@eucas1p1.samsung.com>
-	<yq5ao6d48dqr.fsf@kernel.org>
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+dlp-product: dlpe-windows
+dlp-version: 11.14.0.414
+dlp-reaction: no-action
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=rambus.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SJ0PR04MB8406:EE_|CH3PR04MB8902:EE_
+x-ms-office365-filtering-correlation-id: 5146bbbd-4f09-4a4f-14ed-08df2568bfb8
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|38070700021|5023799004|4143699003|11063799006|10067099003|56012099006|18002099003|22082099003;
+x-microsoft-antispam-message-info: eI4krPpkxanR297Kb7p+Qo+mA35CeL1baB9lJ+kdL7gxShPGs6PQrYSrK6gDCbsCl7LlflbYBCXadX10Us0GgZVxVneZHrJVYDwcsm+ysa6A1mKDpFTdmgZWkhfhZyZDSLvLlE8EcAcS7SHqAlHvRIr9PkV9xA3sBgnbCfw5AqsU7x0DnGX9zU6qjzZ7hvhsn2hfi7gGWZrOvIKKRLZQ3LaNP5WMua39PgMKLIhWHmf1DqF4KNW6GPwnYVh/WS4w/MICeRHk0D/nq3Apv9OurjiGyswT7mawGgYwzNu4igfbJoy6kz0AGMqxFO2rGfGUU4rl8EmvNNubKeX87DIuBcLIO2iotw4eTjqdfThm33cHMdovBJ2OjcBM1ZVKy+vBriIQbgee6oJYz3HAZeyD0Ode8ZB43SEqk2TWRS2RJd2pxzAIwkF/0aAgpbO84nUpkDMol850CwY8NKQB08nrlq7yWgDwk6JTanVvxaqmQFezM4WiI1GsJK5RTMVUG66naCQUhdY28+R0kIjRmfpREE8NyVyOHKdF+Xe3FPprIl8krQkSgV726WFYWMVGDjPKS/3QM/Suj+Q9BLEZOKDd5Ve7jqAQUuhnPi2rwOntGMSB95kWO1lnEx8I4oBlXeBUJnS3hhQ4czUBpS4+rDi8WOZ0ult2EchyRP5Jpm2rPUYNak+NW4vFSIwqmqypn+TT6Ax9aivohvRzbxDw8YRuMDRb5dnaZz9bQtKxy8DZbJE=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR04MB8406.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(38070700021)(5023799004)(4143699003)(11063799006)(10067099003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?18cAvaDIcOi9Tep2oa6nqTeeypMQiV5mkOTAL80thdJ5/wAueYUIirQ0RP/T?=
+ =?us-ascii?Q?itEihVsrz6dJhdIrIgL2lmtNrDZOxqYDh7Nt4EELaAafQZGTT2/hUY1s0n/t?=
+ =?us-ascii?Q?eTbWEcErjJzPnf62TFPmW/sYilv5BGTPkNZHIuvzsi8IZriCHT0ESbVHO4HJ?=
+ =?us-ascii?Q?cjuQm5Ra1cA74qCn/Y607h4eWUtl3r+LLtMz1BG45h5U4wcOpb92oA9wlVME?=
+ =?us-ascii?Q?easVRw00kBYJvIhWwKGEl6X3uCQh/3tK5Tx0efi2h+4bOVwpr1QLLirRoAHn?=
+ =?us-ascii?Q?sfOiFpD81Dkdk8eRMr7K7HcJGYcvTYtEAqhT+O2Ah0LdhAFTuuzLkUBtHivj?=
+ =?us-ascii?Q?UvyqD2qzwhrkQ4p/HsyyTW3Bz+RCqeyTTR9abUZ7X08E+sDFln+kBMEH9tZ9?=
+ =?us-ascii?Q?QEkdg9wEtlvc7LgIHouQ/D1ChsscnP6HkTaa5+IGwCHKuMky8mzq3cyvbATS?=
+ =?us-ascii?Q?nR7NMHOqBMDcUiqoOQY0k9hy3BjXurZ6+Za6r4wGfibV7Nxr/FI2M//GrtKE?=
+ =?us-ascii?Q?iDXmYQCXLWCw5H+SqF2mnVSW7tAPh2AWj/H++2MJsdJDKDncm/bkTOsG3WWV?=
+ =?us-ascii?Q?HqkuuYcmfYlpN0J37tGm3CzuwMPew8GhYI1iuboQQw52Ni9eILQ9i3ymfPw9?=
+ =?us-ascii?Q?pqZKO4botyEJk9DGXW9ga0UwnXPPYsn7C8jkMniM5rSA/Uut1F+GdweLiMDo?=
+ =?us-ascii?Q?d/CBkdt6362R8LjQ2HEm/go4suFA/WaxKKRTPcRcZmtCDFeZa6phNVWTx9wu?=
+ =?us-ascii?Q?EkiRvKLaXSk28t+8ezPgQVgUHqH5XYd3cZ/8fCuYLwczHiVBuKn3PBHA4RIT?=
+ =?us-ascii?Q?mlnO7X5rUbFwz56GMIB53hdgYsOo3A5hAxN9h0FfPCRyUTn3YZkWomQY+WtN?=
+ =?us-ascii?Q?4O3eGoH+P+r/GCkfGPtyOPCkpLHc9iHG1+GuiGlrjeLR79Wo/S4+HyNLJ5ML?=
+ =?us-ascii?Q?GKuBdrXVsxMb/Kwg2jZdK5IW8bplDG3CAWb+cg8dlwSDI/KdPQSoSt4RzRFW?=
+ =?us-ascii?Q?cT6l8aOVmdyJ9F08cjuiVgJeSdCqvW0ZhKI/Aq4E0oJSNYQ7IYwOYvgKyHlA?=
+ =?us-ascii?Q?4ikFSqFsD+BPNRF1Ye+yKhLnF5Rs3RJkGKH3KPjpXvE2PrmqZxwDO7ocsWb5?=
+ =?us-ascii?Q?AJGZwUEiGWhVZrnGL2RjRXG5se8rHCwny8/WFusi4Vmrds7pr0pC2CAtXUL6?=
+ =?us-ascii?Q?bUZmWz1xO+tW5Je2kaNAVuw4V/BmtCi4uK0yRxwDNAvJQMZCBqx1RNV8YGw4?=
+ =?us-ascii?Q?eW4x5RQ1Uet+WyDz9yGUjSL+7MZYjBmAtLNcW7FVg//IykhhXdSBihYIjN4w?=
+ =?us-ascii?Q?XY2vlJpybsAGYha7TJFqRcEU/WUPElbZYaCjlfSbsCYXJzrxtF9wsfS9qoJX?=
+ =?us-ascii?Q?MsfCJb4l2imE/kVWRY/9nfXpCQDINdVNVHYjFu9KW7eQiTp4sexqWzusWufx?=
+ =?us-ascii?Q?B8X93GzH+p9+2dfnpJxeXy7baZX7LAK9L8svL3FJqnvbdOqDGVMbgIKX7IRx?=
+ =?us-ascii?Q?2o57r4rLvIklMeQscWZSrxuUAKW3BtiTB2d5weBrRhwR7DF73lKWyIMozqwt?=
+ =?us-ascii?Q?4Dqe3McDzQ20DW+khVGdLYC09inLmkwFUvEMHFANUA8ETo9BV50X23+5/UK+?=
+ =?us-ascii?Q?d5b/+c/dQcvWZBoBxuEThnctSQlAlIbheDM+VLABWsPympiOVNMRSqBSfKDh?=
+ =?us-ascii?Q?YOCulmdf6fJiZbQ3wsizoWKx5dlXBxUmsxH2S4rHWVDV3blLVAtLraAEPp3q?=
+ =?us-ascii?Q?27ljfLsl+Q=3D=3D?=
+MIME-Version: 1.0
+X-OriginatorOrg: rambus.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR04MB8406.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5146bbbd-4f09-4a4f-14ed-08df2568bfb8
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Oct 2026 18:19:53.2616
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 1kA4Nv8EoPLAK8r5VuB8uuAOq6VjveHwhkkbLGpue5D31d2uiJ6Jmq6KFX10iUCyo9OlVOAZOG80J+MOTASgGH96NjWBOWqgfpzcXIvGNAk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR04MB8902
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_083257_236335_DD740EE7 
-X-CRM114-Status: GOOD (  36.58  )
+X-CRM114-CacheID: sfid-20261008_112007_168109_FB44872D 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,133 +160,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08.10.2026 16:32, Aneesh Kumar K.V wrote:
-> Catalin Marinas <catalin.marinas@arm.com> writes:
->> On Thu, Oct 08, 2026 at 11:03:27AM +0530, Aneesh Kumar K.V wrote:
->>> Aneesh Kumar K.V <aneesh.kumar@kernel.org> writes:
->>>> Will Deacon <will@kernel.org> writes:
->>>>> On Wed, Oct 07, 2026 at 11:04:05AM +0100, Catalin Marinas wrote:
->>>>>> On Tue, Oct 06, 2026 at 10:49:17PM +0100, Will Deacon wrote:
->>>>>>> On Thu, Sep 24, 2026 at 11:37:54AM +0530, Aneesh Kumar K.V (Arm) wrote:
->>>>>>>> @@ -496,7 +516,8 @@ swiotlb_select_pool_policy(unsigned int flags)
->>>>>>>>  	if (swiotlb_force_disable)
->>>>>>>>  		return SWIOTLB_POOL_NONE;
->>>>>>>>  
->>>>>>>> -	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
->>>>>>>> +	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
->>>>>>>> +	    !restricted_dma_pool_present)
->>>>>>>>  		return SWIOTLB_POOL_CC_GUEST;
->>>>>>> I think this check on the restricted DMA pool is too general -- the pool
->>>>>>> could be tied to a specific DMA-capable peripheral and so treating its
->>>>>>> presence as a global property isn't right.
->>>>>> I agree it's a hack but that was the simplest way to avoid the pVMs
->>>>>> getting a bounce buffer after this patch. More than happy to leave it
->>>>>> out and reduce the buffer on cmdline or we come up with some better
->>>>>> heuristics.
->>>>> Hrm, that does mean that reverting just this part will regress pVMs
->>>>> because they'll suddenly be allocating a tonne more memory for an
->>>>> entirely unused swiotlb buffer. So I think I'd prefer to drop the entire
->>>>> series until this has been worked out properly.
->>>>>
->>>>>> Another option could be the arch code passing another flag that it
->>>>>> doesn't want an encrypted pool (e.g. when running in a pKVM guest) but I
->>>>>> don't particularly this either. The arch code doesn't know whether
->>>>>> there's an alternative pool.
->>>>> At that point, the default size may as well be driven by the
->>>>> drivers/virt/coco driver.
->>>>>
->>>>>> That said, such heuristics should have been a separate patch to make it
->>>>>> easier to review/drop.
->>>>> I think the only right way to get a semi-accurate heuristic is to take
->>>>> into account the set of dma-capable devices that will use the swiotlb
->>>>> pool, but that's fiddly and should probably be tackled as a separate
->>>>> series. Maybe a simpler hack in that direction would be to take the
->>>>> SWIOTLB_POOL_CC_GUEST if _any_ device is going to use swiotlb? You'll
->>>>> run into the usual problem of not being able to tell if a device is
->>>>> DMA-capable or not, but you could probably look for a global restricted
->>>>> DMA pool and, if that doesn't exist, check for per-device restricted pools
->>>>> on dma-coherent devices (since restricted DMA isn't supported by ACPI) as
->>>>> a reasonable approximation.
->>>> So, something like this?
->>>>
->>>> 	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
->>>> 	    swiotlb_cc_guest_needs_default_pool())
->>>> 		return SWIOTLB_POOL_CC_GUEST;
->>>>
->>> Detecting a DMA-capable device is not straightforward, and if we get it
->>> wrong, we will enable SWIOTLB_POOL_CC_GUEST unnecessarily. Would the
->>> code below be a reasonable approximation of what you suggested?
->>>
->>> Another option would be to make swiotlb_cc_guest_needs_default_pool() a
->>> weak function that architectures can override. arm64 pKVM could then use
->>> a different scheme (for this patch series default to false). Would that
->>> be preferable?
->> Even the rmem check for each device is still a hack that may bite us in
->> the future (private devices for example would not need swiotlb). I'm
->> thinking more and more of leaving the sizing an arch-specific decision,
->> don't bother generalising it at all.
->>
->> On pKVM vs CCA guests, there's really nothing specific here to pKVM
->> guests. The only difference is that confidential guests that so far have
->> run without a swiotlb buffer will regress if their memory is tight. For
->> confidential guests without dedicated rmem (either CCA or pKVM), I think
->> our options are either command line swiotlb sizing or dynamic swiotlb.
->>
->> Could you respin your series while leaving out the generic sizing? IOW,
->> no x86 code generalisation. We can discuss the best strategy on sizing
->> later (I haven't checked how much of this series still makes sense
->> without the generic sizing).
->>
-> It would mostly consist of the first three cleanup patches, followed by
-> three patches that replace the addressing_limit argument with flags.
->
-> #define SWIOTLB_VERBOSE	(1 << 0) /* verbose initialization */
-> /* Initialize a pool for devices with limited DMA addressing. */
-> #define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 1)
-> /* Initialize a pool that requires architecture remapping. */
-> #define SWIOTLB_INIT_REMAP		(1 << 2)
-> /* Initialize a pool for DMA to memory-encrypted host or guest memory. */
-> #define SWIOTLB_INIT_MEM_ENCRYPT		(1 << 3)
-> /* Initialize a pool for unaligned kmalloc bouncing. */
-> #define SWIOTLB_INIT_KMALLOC		(1 << 4)
-> /* Do not initialize a pool unless SWIOTLB is explicitly required. */
-> #define SWIOTLB_INIT_DEFAULT_OFF		(1 << 5)
->
-> This results in the large change below. I'm not sure we want to do this
-> for no real benefit other than making swiotlb_should_init() slightly
-> easier to follow.
->
-> static bool __init swiotlb_should_init(unsigned int flags)
-> {
-> 	if (swiotlb_force_disable)
-> 		return false;
->
-> 	if (swiotlb_force_bounce)
-> 		return true;
->
-> 	if (flags & (SWIOTLB_INIT_REMAP | SWIOTLB_INIT_MEM_ENCRYPT)))
-> 		return true;
->
-> 	/* Explicit requirements override an architecture's default opt-out. */
-> 	if (flags & SWIOTLB_INIT_DEFAULT_OFF)
-> 		return false;
->
-> 	return flags & (SWIOTLB_INIT_ADDRESSING_LIMIT | SWIOTLB_INIT_KMALLOC);
-> }
->
-> Marek,
->
-> Patch 3 is a fix, so you may want to take it even if we drop the rest of
-> the series. Perhaps the first three patches could be taken together?
+On Thu, Oct 08, 2026 at 07:20:26PM +1100, Herbert Xu wrote:
+> So it sounds like the info is there.  Is it possible to transform
+> this to the format that we use?
 
-Okay, I will take only the first 3 patches to dma-mapping-for-next branch now
-and wait for the remaining patches until they gets sorted out.
+Not on this device -- there is no canonical state to transcribe.
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+The working state exists only inside the core, in SCA-masked (two-share)
+form; the mask entropy is generated and consumed entirely in hardware
+and never leaves it, so software cannot reconstruct the plain chaining
+state.  The only snapshot the device offers is a fixed-size opaque
+container (a flat word array with a CRC, no portable layout) -- not the
+canonical state and not convertible to it.  Keyed modes (HMAC) cannot be
+snapshotted at all.
 
+So export()/import() has nothing to transcribe.  v6 therefore does what
+you described: for the hashes (SHA-2/SHA-3, SM3) and HMAC the driver
+registers with the generic fallback and hardware-accelerates .digest()
+only; the incremental and export/import paths use the generic state.
+SHAKE/cSHAKE/KMAC and the standalone Poly1305 are dropped per your
+earlier note.
+
+> I would appreciate it if you can break the series into smaller
+> chunks.  Perhaps add the algorithms which are the least problematic
+> first.
+
+Will do -- a few self-contained, bisect-clean series, least problematic
+first, each sent once the previous is applied.  Tentatively:
+
+  1. Core: platform driver (probe, DMA, mailbox/VCQ, transaction
+     manager) + DT binding + MAINTAINERS; registers no algorithms.
+  2. Symmetric: AES, SM4, ChaCha20-Poly1305, and the DRBG hwrng.
+  3. Hashes: SHA-2/SHA-3, SM3, HMAC (fallback/digest-only as above).
+  4. Asymmetric and post-quantum algorithms and their key-management
+     interface.
+
+I'll start with (1); happy to adjust the granularity.
+
+Thanks,
+Alex
 
 _______________________________________________
 linux-riscv mailing list
