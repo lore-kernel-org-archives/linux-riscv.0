@@ -4,64 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD9FCA600B
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 11:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C75CA600C
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 11:43:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xG0jB/Mk5wjX+81sgF7ve6FrwHPsrA4srjbXeZWM66U=; b=gZ018OWAXItKWY
-	Y/IgpbI3rj51iFLQr9a0V4zdkM00AzoKhtr/gpFlEefHQ3Qvj+STQRwKnQtY7PZnzG37KN8TF3XTs
-	mVcepPp+IrsuULm/RCyqxIFKT2R+HMfUXsdZw10QB7HzeoEj8J3jhyO7TxyOxt51xZRLOJn0HbdPX
-	RycgnoyrnpZDpOQtxgeSOStp2kGIIydRQLOSN/tqAAdP1yMQYkZuGueoA7P8AC+cTvbxpBHYDIgFI
-	DwxRZu3aFZOaUt1j4pIW4DWESWT9ox+IhAJ28fS5Mj6uDbuz5x31Ek9wMXY1w+oMtbN6a0kiNSeVC
-	Hxs5SI+Ss+C9qcj+K5Ig==;
+	List-Owner; bh=GPyDSd2s0Oo4h2E/8WuUS0elgFfOs0hJhq7SK98/ORY=; b=vuZobuhCWC+Vyk
+	wLBTrDTW2Ei0yue94pQ7uoz9AgiSwLVVCEFV+IPrgPSysdXpgKnnRRGVsyMr58QhyXLNPmEDm7ovK
+	aeJqvbQ6IX4iBbd7WEqbAaPYx+XV2zLCpmhD65oSsZg40NgNWEuv9/hK22STLMB+/qJAbol0JwGmQ
+	kPSLu6/0d98r8X36sqh3kfRkKmc0UQfjeguz5cBYr/Wyms6D/CXbnEFlDtL2mrS7fpliCM1LelLDN
+	+qS9dkqhXhfqBJ5YdCa2GgiWyDhlmIafhk/Kg4KsvhclIQ3AA7f0wzm9uqWMYWQ9dhxUtN2VdO0kF
+	YLbjJrSx2YoXQqCELZpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEmVy-00000004GiX-0JvB;
-	Thu, 08 Oct 2026 11:42:22 +0000
-Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
+	id 1xEmWV-00000004Gpy-1Fcz;
+	Thu, 08 Oct 2026 11:42:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEmVu-00000004Ghb-0N3N
-	for linux-riscv@lists.infradead.org;
-	Thu, 08 Oct 2026 11:42:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1791459733; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=2uRUiMGM/3kM5oFgvWkstit41ISjJ8dKFkmnjBOgzTY=;
-	b=h1QJuWRo9xHZgtYEop9x1LdS/6+NS0tTYel+lY6foWvu4gbJAzTDpfhHt5z1lgNh1Y+qQTK6vJok8IcVfT7y4bJRAHdd1Y9OdEgZl4NfQwNVN7MqWbbD72IkY+OFwo5FIU8rrFFuTo8J0tbylkBZlQ+KgsGERjdY7uB4dJySsUo=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0XCP.Q2W_1791459729;
-Received: from 30.246.161.100(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0XCP.Q2W_1791459729 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 08 Oct 2026 19:42:10 +0800
-Message-ID: <fbdb7b4c-0f80-41b0-b6d8-a4501ff3e820@linux.alibaba.com>
-Date: Thu, 8 Oct 2026 19:42:08 +0800
+	id 1xEmWT-00000004Goa-1oPd;
+	Thu, 08 Oct 2026 11:42:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 54FCA601F9;
+	Thu,  8 Oct 2026 11:42:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 866B91F000FF;
+	Thu,  8 Oct 2026 11:42:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791459772;
+	bh=4xI6sjx5O7jgHs+vd9dc55iUHxFgkYDVUp/hXBLdiUU=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=YiFIMNPQLdCE2zbWLTULNFqt7kb5t3ajFyu/BuSQuH9LkL3xA+iVywarHowzdzA+7
+	 1sou/7jke+Vj+nbmlqBC7VTbQKzq6IDlT13spt+uePeZIZSDvImU4X8lzs7M9MWkgQ
+	 ufVjTQQcUB+9Uhuptv8x1rTJ2ng7aURxLQAwDcN+KUP9pnq+WBBmHpWri6CQgA1FJo
+	 gjdV83W7dro0R18RTq0UUSD0nA6cozVVgRHk/IvB8xAFneymfmMfAbHLzncbeqt7T5
+	 QuvxlpKgQFLXt52Ywqwn3oQGPELoMic1DSF4KHV61Y6N7B50K7oD5nmWN42IdAkaMz
+	 Pd2ocvIJj9mQw==
+X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Stefano Stabellini <sstabellini@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH v6 6/8] dma: swiotlb: Centralize memory-encryption pool
+ sizing
+In-Reply-To: <bc0fdf46-eaf6-49b9-a015-1742c66829a6@samsung.com>
+References: <20260924060756.1325156-1-aneesh.kumar@kernel.org>
+ <20260924060756.1325156-7-aneesh.kumar@kernel.org>
+ <asVs3doaJ4WrT3M2@willie-the-truck> <asYZFXGyafRjjBS0@arm.com>
+ <CGME20261007104325eucas1p2277d74db794e285f33038204d52dc843@eucas1p2.samsung.com>
+ <asYiOgskwi8JYLe_@willie-the-truck>
+ <bc0fdf46-eaf6-49b9-a015-1742c66829a6@samsung.com>
+Date: Thu, 08 Oct 2026 17:12:28 +0530
+Message-ID: <yq5ase2g8lln.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/7] riscv: Add reliable stack unwinding for livepatch
-To: Martin Kaiser <martin@kaiser.cx>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <pjw@kernel.org>
-Cc: pjw@kernel.org, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-riscv@lists.infradead.org, oleg@redhat.com, rostedt@goodmis.org,
- mhiramat@kernel.org, mark.rutland@arm.com, peterz@infradead.org,
- mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, james.clark@linaro.org, jpoimboe@kernel.org,
- jikos@kernel.org, mbenes@suse.cz, pmladek@suse.com, joe.lawrence@redhat.com,
- shuah@kernel.org, mpdesouza@suse.com, oliver.yang@linux.alibaba.com,
- zhuo.song@linux.alibaba.com, jkchen@linux.alibaba.com,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, live-patching@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20260914092648.51254-1-xueshuai@linux.alibaba.com>
- <artojcJftbMIgPrj@akranes.kaiser.cx>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <artojcJftbMIgPrj@akranes.kaiser.cx>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_044218_790930_EF9A79EE 
-X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,108 +118,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Marek Szyprowski <m.szyprowski@samsung.com> writes:
 
+> On 07.10.2026 12:43, Will Deacon wrote:
+>> On Wed, Oct 07, 2026 at 11:04:05AM +0100, Catalin Marinas wrote:
+>>> On Tue, Oct 06, 2026 at 10:49:17PM +0100, Will Deacon wrote:
+>>>> On Thu, Sep 24, 2026 at 11:37:54AM +0530, Aneesh Kumar K.V (Arm) wrote:
+>>>>> @@ -496,7 +516,8 @@ swiotlb_select_pool_policy(unsigned int flags)
+>>>>>  	if (swiotlb_force_disable)
+>>>>>  		return SWIOTLB_POOL_NONE;
+>>>>>  
+>>>>> -	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
+>>>>> +	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
+>>>>> +	    !restricted_dma_pool_present)
+>>>>>  		return SWIOTLB_POOL_CC_GUEST;
+>>>> I think this check on the restricted DMA pool is too general -- the pool
+>>>> could be tied to a specific DMA-capable peripheral and so treating its
+>>>> presence as a global property isn't right.
+>>> I agree it's a hack but that was the simplest way to avoid the pVMs
+>>> getting a bounce buffer after this patch. More than happy to leave it
+>>> out and reduce the buffer on cmdline or we come up with some better
+>>> heuristics.
+>> Hrm, that does mean that reverting just this part will regress pVMs
+>> because they'll suddenly be allocating a tonne more memory for an
+>> entirely unused swiotlb buffer. So I think I'd prefer to drop the entire
+>> series until this has been worked out properly.
+> I've dropped the entire series from dma-mapping-for-next. Aneesh, please respin
+> it again and move the pKVM/restricted_dma_pool related code into the separate
+> patch.
+>
 
-On 9/29/26 3:28 PM, Martin Kaiser wrote:
-> Thus wrote Shuai Xue (xueshuai@linux.alibaba.com):
-> 
->> Hi,
-> 
->> This is v6 of the RISC-V reliable stack unwinding series for livepatch.
->> Wang Han has left our team, so I am taking over this series from now on.
-> 
->> The series adds explicit frame-record metadata, preserves the frame
->> pointer through dynamic ftrace, and replaces the open-coded stack walker
->> with a conservative frame-pointer based unwinder. It then enables the
->> RISC-V livepatch capability and adds the syscall-wrapper selftest prefix.
-> 
->> Changes since v5:
->> * Rebase onto the current riscv/for-next; no functional changes.
->> * Fold in the tags collected from the v5 thread:
->>    - Reviewed-by: Shuai Xue on 2/7, 3/7, 4/7 and 6/7
->>    - Acked-by: Miroslav Benes on 7/7
->> * Add my sign-off as the new sender.
-> 
->> Since the patches are otherwise identical to v5, the v5 validation
->> results still apply. For reference, from the v5 cover letter:
->> * Built Linux 7.2.0-rc6 with riscv64-unknown-linux-gnu-gcc 15.2.0
->>    and binutils 2.46.
->> * Standard livepatch configuration built successfully, including
->>    Image, vmlinux, modules, compile_commands.json and GDB scripts.
->> * CONFIG_IRQ_STACKS=n variant linked successfully with GCC.
->> * QEMU 8.2.2, 1 CPU: livepatch selftests PASS: 7, SKIP: 1,
->>    FAIL: 0; ftrace function graph 3 passed, 0 failed, 3 unsupported.
->> * QEMU 8.2.2, 4 CPUs: livepatch selftests PASS: 7, SKIP: 1,
->>    FAIL: 0; ftrace function graph 3 passed, 0 failed, 3 unsupported.
->> * No BUG, WARNING, Oops, panic, unreliable stack or Call Trace found
->>    by the validation log scans. Expected negative livepatch errors are
->>    part of the selftests.
-> 
->> v5 was posted in early August and has been quiet since then. I would
->> appreciate it if the series could be considered for the upcoming merge
->> window. Happy to address any remaining feedback.
-> 
->> Base:
->> riscv/for-next 77ae27fd98f3 ("Merge tag 'printk-for-7.3' of git://git.kernel.org/pub/scm/linux/kernel/git/printk/linux")
-> 
->> Previous versions:
->> v5: https://lore.kernel.org/r/20260804103626.2803112-1-wanghan@linux.alibaba.com
->> v4 RESEND: https://lore.kernel.org/r/20260629072713.3273743-1-wanghan@linux.alibaba.com
->> v3: https://lore.kernel.org/r/cover.194d76e3a15b.v3.riscv-livepatch.wanghan@linux.alibaba.com
->> v2: https://lore.kernel.org/r/20260528082310.1994388-1-wanghan@linux.alibaba.com
->> v1: https://lore.kernel.org/r/20260527123530.2593918-1-wanghan@linux.alibaba.com
-> 
->> Assisted-by: Qoder:Qwen-3.8-MAX-Preview
-> 
-> Thanks for these patches.
-> 
-> I tried them on a standard rv64 qemu and on a rv64 cheri system
-> (cheri-linux.org). The latter needed some minor tweaks, but in
-> both cases, I could get livepatch to work.
-> 
-> Reviewed-by: Martin Kaiser <martin@kaiser.cx>
-> Tested-by: Martin Kaiser <martin@kaiser.cx>
+Once we agree on the correct way to detect the pKVM use case, I will
+resend the series.
 
-
-Hi Martin,
-
-Thank you very much for testing the series and for the tags!
-
-It is great to hear that livepatch works both on a standard rv64 QEMU
-and on the rv64 CHERI system. Could you share what the minor tweaks
-for CHERI were? If any of them are generic -- for example frame-record
-size/alignment or pointer-width assumptions in the unwinder -- it may
-be worth folding them into this series, so the cheri-linux tree has
-less to carry downstream. If they are purely CHERI-specific, a pointer
-to your tree would still be a useful reference.
-
-+Palmer, Paul, gentle ping on this series.
-
-It has been under review since late May (v1 on May 27, now in its sixth
-revision) and the tags collected so far are:
-
-   * Acked-by: Miroslav Benes <mbenes@suse.cz>             (7/7, livepatch)
-   * Reviewed-by: Marcos Paulo de Souza <mpdesouza@suse.com> (7/7)
-   * Reviewed-by: Martin Kaiser <martin@kaiser.cx>         (whole series)
-   * Tested-by: Martin Kaiser <martin@kaiser.cx>           (whole series,
-     rv64 QEMU and rv64 CHERI, livepatch working on both)
-   * Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>   (2/7, 3/7, 4/7, 6/7)
-
-v6 still applies cleanly onto the current riscv/for-next
-(52318cf0fa6e). If it helps, I can send a v7 that folds in Martin's
-Reviewed-by/Tested-by tags.
-
-Could the series be considered for the upcoming 7.4 merge window?
-
-Thanks,
-Shuai Xue
-
-
+-aneesh
 
 _______________________________________________
 linux-riscv mailing list
