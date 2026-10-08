@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47827CA600B
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 07:30:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D17CA600B
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 07:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xh5Shdd3a7zsRAkJgATtnt44gQcOg3Jpg20AxNztKRo=; b=shHAY4fDFWe35h
-	kJnElIbqYpG9muluRonMugSxCgwe+UH2EZ52aBCXXJl7Zc1Hi0Uxig0oEbIBc01Gnirg5eCi7jbY4
-	cF/ZYmZTpm0ch6G5TSvF8KUrysQ8pbkTwLJEtin0YzNMDQwDVfxZ8RhNMLrcbB3SPkEhEy6k4LYqd
-	5CQ3+uNBHpWVDKbcZpveBnQq+/fBUmV8eVBKFy+VheKKKSOtUjoIJXTDzThMMmAEE4znyUGhBBrVF
-	GuJxnZU+pM4fC2Xhi5ijlVHiCMklvRRsbVPmLoJbbUQPmBN9cC8zIW1K6cH6e9SM+HRcqaUZlo3/8
-	XOlb8uJlACwgy002Wxjw==;
+	List-Owner; bh=XQQfiC2GgpG/MLbJkp86Arg+Pg/2sm6Di31NBOg5ekA=; b=wiyl11es6ngK6F
+	LZyz/6DBIWp5zqh49c3dd09UoxgLnojlRfvl5hpdkQQ2ahM/ximFgETOC9YgG1Jv52dJku61+d4Hi
+	CPSGk9p148BO26MF7vwrZo18n7neTd92j8DOE7Fr/1GcTOB8fMnB+JKiKiUJbFhfml64l2hVUcu0/
+	7Vl3fMxhmspesV88I+BgUF03CyhFUZDhH/wlkso3ztPOOFXxGDuuO3wf1XS9EJfmyNkxd5J/nkZcF
+	jY9urbE0+wmJ3zK/lgzp+cNL+VtDs/t3FS2ffEzz3m0arqeqD+qazGYz7WZAA8Mn4F8j0O1H6oVRK
+	t3qv+VjDqNsX4IPkaRXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEiaR-00000003kX5-0ObA;
-	Thu, 08 Oct 2026 07:30:43 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1xEiaY-00000003kcx-2S8S;
+	Thu, 08 Oct 2026 07:30:50 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEiaP-00000003kVY-0K88
+	id 1xEiaW-00000003kaM-18hO
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Oct 2026 07:30:42 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-3a4d455ace3so2778835a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Oct 2026 00:30:40 -0700 (PDT)
+	Thu, 08 Oct 2026 07:30:49 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-ccce967aa8dso2113748a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Oct 2026 00:30:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1791444640; x=1792049440; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1791444647; x=1792049447; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=/T793OI/j+CqX3HPTudoj2H2H2daFaSvH0eU6CPZ2Mo=;
-        b=FPa1Tk6eYk7IEVM8JGTxcMq/s6rzFlarPbIqrcgKbufqHjkuN0Jk9Jo/W+QlIT2jJk
-         /VSPfLBXPLVoJBMi7aoIktj3XHt2fjch1BdwVsdUJXgmSxlTR6aRzL3udbJFSJaHc/n4
-         dmnn+Jn8l/pgfYoCm2EyuD+I/lAokuvSV43srQgmJtoBlBvxrq0YuPjAzS9yb21Dc3OQ
-         qeB/vnaxkkiwasDxbB8TCbOgD2dQldbpYIM9BaCbF6ueAoNRdE5eQ0lTEw5encwSNdxr
-         DY56EePmoWXJPuWWX+Zmtp5xCbj02W6sXKO1+FvRcyOIe+/TpevYz9HRarQ4qmEmMXZr
-         5+bA==
+        bh=7XwukL8/yd82nFdVG9qm4VBZNIyM/fBMMvZK+hA2jjo=;
+        b=BABKwXyqi8VMVWvSrxxrCTOzGbYXGyx04JDTZOoMm5jyY+WgviQc+U3Al3izW8lYIx
+         u7abdrSxiwJk848SiNlNoyDrRj88yliado4cimebresp5jzmuXh9YVGlv11eNb/ST+Q1
+         /sccXyXUfOU/dAN9IwfBVR24eIk4PziHVfBG2+sBzXxvmVNe/5M1aZdn6uYDKRYsI8lw
+         XUwx8DoySUF5A1OAgXt+JsuwDw/yoUgB6I8dDZjZIdDCt493nc4GiJ4dfH9YAgv7sFR0
+         +246exzALsV0eeI6dLWtKy4ig9WZ6K94Y9lwPFwt6t01xeTQEvL8435AQVYjvIhko0q8
+         5N7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791444640; x=1792049440;
+        d=1e100.net; s=20260707; t=1791444647; x=1792049447;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/T793OI/j+CqX3HPTudoj2H2H2daFaSvH0eU6CPZ2Mo=;
-        b=MjlS2zD+q7Ys76Zqn2/qeFJlIC89k+GyEyTiXVt29v/gCINBQD12tvI2zElNnKI/rN
-         nJvbHFg+bmGpm/NlaynVOZOjEgX/RJKPEsj8YYBzaahtJtjsWmwwXdi2e2QTpOFm+2u+
-         ZI2MMGwINmKiavV6fTzQ4RmY5RFEk0m0l5yUXrJ1WazauGItI355ZGm7H0YBneYgYr+7
-         Cf/1a1JmBTrdxN4/HBVZpZdWlOgJGmPKcwTvnEbzd3RKuk/QzEI7oaIkPOMF83ZlWPs0
-         CqaOYRCUyz4XfRK+eTbENc1FRGK3mWZAxI8Gbr0Nx+/jcAaglsVlQ7jO2lpr0SUx3gOO
-         ZaFA==
-X-Forwarded-Encrypted: i=1; AKwUvByQ98EehM6ERRJgPf3+FSRMEXD4xcMkGhP4ZhpHNLXu87ulS80/dueT/oEPWGTvirgKHi32/VeIkqMQhw==@lists.infradead.org
-X-Gm-Message-State: AFq9FYIdj74+fFWSkI7eCvBDwWTXOSitd2dl+LT7kv4louJnqrWXuHZW
-	bwbnV/aRrWkYBeXTq2M7tv5auJq1bAgR2tVSXtkzpVyF3tVxyPciOtrSrJf8S8ESgsU=
-X-Gm-Gg: AYBFou3fhW9P7KUn3uTJI2CneH7NaEIChrISQ92jh/UJkAnbn18Nd9HSveyCgFSJ32Z
-	VCCSexB7YfnjzjV05FaW6tfp/e+juOeW3YX1l9g7CUW7kuL20mirE0Gfr0a5NE51hGMte+WgUgf
-	BTnQ67bsPlyT+Hdt2JzqHn+OJrGa+hufAINT5NLVnFjcs/MC5F25B1JrsVWmjcg2iTDVT98a+AJ
-	C+V2rflvgrlxT2OmRFVE0R8tDGtk5Rdrh0YAMeRlIfzlhk0SYvN/dpPCKUNSIYrxDAzKCzSD8Q7
-	ieAIVEZ99HEIz3Say7IgiL/MTQym40AaNu4PfLDSXv6m1qg1sGavqG8hx1sc2OAaOha78oCd9DL
-	/vdKKR44B+T3E4FB6qrOjtAUoI9vqpWaK1NbstVO7i66/lggbrok2s7hLYdLFOln4w6x6uifAku
-	cQVV2DurFnbPiCnB65bVSl1kJaR1sJG1J5f4Q2kW9bAW8kTfbI6FMkwsHK7aQ+5vZkdGYkysuNe
-	euTX9zCzRWD7+eeWkQ=
-X-Received: by 2002:a17:90a:156:b0:3a8:a1e3:32a1 with SMTP id 98e67ed59e1d1-3a8a1e332e4mr2636515a91.45.1791444640094;
-        Thu, 08 Oct 2026 00:30:40 -0700 (PDT)
+        bh=7XwukL8/yd82nFdVG9qm4VBZNIyM/fBMMvZK+hA2jjo=;
+        b=XvBuxKD4NjqhAtsr4fVCmUaLwxPMFby5Sc1qhOjB5zIOmp6uY9usHVbJqkmAvJchQh
+         iVpFmGCpFE6yeIswVqFdPzpdG002hZnnyEAFfW1c4XXh9tY4ipR6/8A/s+P0JFlVY2HO
+         qWG91oQMIr4TNXa97InAt/VpDM4nUzzN9iKqoTroflJSk+1KIgGVo91/fw2dX5BuANen
+         G5hYyA1OOr1NrqsTJUeJZYAOYJo+acpb+K2znU+SHqGP5fvQGtLF9VQWX8h4QzPzBn5u
+         4tgX1Fs4N5Q9OnEqnlLbcUoAK+Cvs6H2XnxTuhAkV1DlxlPrLBNoC+6qUGtwZK99w8qA
+         9tpg==
+X-Forwarded-Encrypted: i=1; AKwUvBzL+47++l6KR6K6KMT9FW7EU68P5rdwpXx3/cfdqwaxiUXBfl8UnRBdiLn0GRbNqS8Kwz+5/f0HWCtY9A==@lists.infradead.org
+X-Gm-Message-State: AFq9FYINUYra4LoXavBWOO80a3WRR0hegT0ztyy7JPI4yOzbWo5Jq4IS
+	GCrbFCW+osjRRAIyqaiywSgeNEAYMho3T6ymKi/GEHXxjH03LlzdyiosZGojDmOebSg=
+X-Gm-Gg: AYBFou1kbyrEhC+ibQqBlN5kbewIQdy8MxxiLfe+hpTQ7jD3oRPVSpRdxDSKh/JU89n
+	ewn9IsBulT9G5jIkVHPpdkEKLZ6sniIUA4kfAbIytyBMAWWeUyA2owGk8uFR2xpvWVx8gexq8Cl
+	K4v2rUhsLGTC1Yfzy0QKwrc6knNbuoKtDcrWSE0rAwI6YlC4sqlQ2gzO5jj3MKZxXSmuXdQ+IU8
+	sWIbZzUsQy3eWQeh2Z4FDPif6/VzJr+CeL4aAIOofKNjqxZn3noTkDhg4dOxgUXCCLG/J4d9fin
+	3sEzHHourSdK2AiR5P0XR21yWLcPMS7v5JW76CCJ/xYYwCJ97qJZvf/uHjATgySQJfzhjHNqUf/
+	FqsPAln3NHnwjVj0g6z1xGzq8NUOTYVZ/ArPrKpiNZvNy4uzpJ639lhpgR/6QXZbFAxoNmXr0gz
+	M/T1D0ZwioaDhXSMamLoX9AU7sib0/cqVWFWyt3s7VKQ1wWgDv/DnKu1byeRxVuxIxQF98ESusn
+	NUccqtDkhmxOF5fhBU=
+X-Received: by 2002:a17:90b:2652:b0:3a7:b260:9cc6 with SMTP id 98e67ed59e1d1-3a8a1b91be4mr3069089a91.42.1791444647313;
+        Thu, 08 Oct 2026 00:30:47 -0700 (PDT)
 Received: from n232-176-004.byted.org ([36.110.163.99])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a8a438f25dsm3114715a91.2.2026.10.08.00.30.33
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a8a438f25dsm3114715a91.2.2026.10.08.00.30.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Oct 2026 00:30:39 -0700 (PDT)
+        Thu, 08 Oct 2026 00:30:46 -0700 (PDT)
 From: Muchun Song <songmuchun@bytedance.com>
 To: akpm@linux-foundation.org
 Cc: linux-mm@kvack.org,
@@ -99,17 +99,16 @@ Cc: linux-mm@kvack.org,
 	apopple@nvidia.com,
 	linux-kernel@vger.kernel.org,
 	muchun.song@linux.dev
-Subject: [PATCH 1/4] x86/mm: fix missing pgtable destructor for vmemmap tables
-Date: Thu,  8 Oct 2026 15:30:18 +0800
-Message-ID: <20261008073021.2512665-2-songmuchun@bytedance.com>
+Subject: [PATCH 2/4] riscv/mm: fix hotplug page-table destructor handling
+Date: Thu,  8 Oct 2026 15:30:19 +0800
+Message-ID: <20261008073021.2512665-3-songmuchun@bytedance.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261008073021.2512665-1-songmuchun@bytedance.com>
 References: <20261008073021.2512665-1-songmuchun@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_003041_130180_946013C4 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261008_003048_316199_60058C4D 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,43 +125,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since commit 49f599666420 ("mm: call ctor/dtor for kernel PTEs"),
-pte_alloc_one_kernel() runs the page-table constructor for kernel PTE
-tables.
+RISC-V uses the same memory-hotplug teardown code for the linear map and
+vmemmap, although their page-table pages are not always allocated in the
+same way. Late linear-map allocations run page-table constructors, while
+vmemmap and early allocations may provide constructor-free pages.
 
-HugeTLB vmemmap optimization uses pte_alloc_one_kernel() when splitting
-a PMD. Restoring the vmemmap backing pages does not collapse the PTE
-table, so a later memory hot-remove eventually frees that table through
-free_pagetable(). That path currently calls pagetable_free() directly
-without decrementing NR_PAGETABLE.
-
-Use PageTable() to identify constructor-backed tables and run the
-matching destructor before freeing them. Keep reserved and
-constructor-free tables on their existing paths. This also prepares
-vmemmap teardown for generic runtime allocations through the normal
+The PTE path unconditionally runs the destructor, which is wrong for
+constructor-free vmemmap tables. The PMD path avoids that problem by
+using is_vmemmap as a proxy for constructor state, but that assumption
+will no longer hold once runtime vmemmap allocations use the normal
 pgalloc helpers.
 
-Fixes: 49f599666420 ("mm: call ctor/dtor for kernel PTEs")
+Page-table constructors record their state in PG_table. Centralize
+page-table freeing and use PageTable() to decide whether the destructor
+is required. Keep reserved and constructor-free pages on their existing
+freeing paths.
+
+Fixes: c75a74f4ba19 ("riscv: mm: Add memory hotplugging support")
 Cc: stable@vger.kernel.org
 Assisted-by: LLM
 Signed-off-by: Muchun Song <songmuchun@bytedance.com>
 ---
- arch/x86/mm/init_64.c | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/riscv/mm/init.c | 29 ++++++++++++++---------------
+ 1 file changed, 14 insertions(+), 15 deletions(-)
 
-diff --git a/arch/x86/mm/init_64.c b/arch/x86/mm/init_64.c
-index 70e682180291..a3ea627157ab 100644
---- a/arch/x86/mm/init_64.c
-+++ b/arch/x86/mm/init_64.c
-@@ -1003,6 +1003,8 @@ static void __meminit free_pagetable(struct page *page)
- {
- 	if (PageReserved(page))
- 		free_reserved_page(page);
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 857f9a55039c..429a0b015ec1 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -1486,10 +1486,19 @@ struct execmem_info __init *execmem_arch_setup(void)
+ #endif /* CONFIG_EXECMEM */
+ 
+ #ifdef CONFIG_MEMORY_HOTPLUG
++static void __meminit free_pagetable(struct page *page)
++{
++	if (PageReserved(page))
++		free_reserved_page(page);
 +	else if (PageTable(page))
 +		pagetable_dtor_free(page_ptdesc(page));
- 	else
- 		pagetable_free(page_ptdesc(page));
++	else
++		pagetable_free(page_ptdesc(page));
++}
++
+ static void __meminit free_pte_table(pte_t *pte_start, pmd_t *pmd)
+ {
+ 	struct page *page = pmd_page(*pmd);
+-	struct ptdesc *ptdesc = page_ptdesc(page);
+ 	pte_t *pte;
+ 	int i;
+ 
+@@ -1499,18 +1508,13 @@ static void __meminit free_pte_table(pte_t *pte_start, pmd_t *pmd)
+ 			return;
+ 	}
+ 
+-	pagetable_dtor(ptdesc);
+-	if (PageReserved(page))
+-		free_reserved_page(page);
+-	else
+-		pagetable_free(ptdesc);
++	free_pagetable(page);
+ 	pmd_clear(pmd);
  }
+ 
+-static void __meminit free_pmd_table(pmd_t *pmd_start, pud_t *pud, bool is_vmemmap)
++static void __meminit free_pmd_table(pmd_t *pmd_start, pud_t *pud)
+ {
+ 	struct page *page = pud_page(*pud);
+-	struct ptdesc *ptdesc = page_ptdesc(page);
+ 	pmd_t *pmd;
+ 	int i;
+ 
+@@ -1520,12 +1524,7 @@ static void __meminit free_pmd_table(pmd_t *pmd_start, pud_t *pud, bool is_vmemm
+ 			return;
+ 	}
+ 
+-	if (!is_vmemmap)
+-		pagetable_dtor(ptdesc);
+-	if (PageReserved(page))
+-		free_reserved_page(page);
+-	else
+-		pagetable_free(ptdesc);
++	free_pagetable(page);
+ 	pud_clear(pud);
+ }
+ 
+@@ -1645,7 +1644,7 @@ static void __meminit remove_pud_mapping(pud_t *pud_base, unsigned long addr, un
+ 		remove_pmd_mapping(pmd_base, addr, next, is_vmemmap, altmap);
+ 
+ 		if (pgtable_l4_enabled)
+-			free_pmd_table(pmd_base, pudp, is_vmemmap);
++			free_pmd_table(pmd_base, pudp);
+ 	}
+ }
+ 
 -- 
 2.54.0
 
