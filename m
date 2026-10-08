@@ -4,136 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7964CA6007
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 02:57:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8005FCA6004
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Oct 2026 02:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WgyR04qZWmWeKyU0ADtk2ZDKPqHAg847Dq6+thkYjpQ=; b=2FTZuOyn1eU8Ut
-	yPrlZ/YsapH418eBamxMw1acx9UKrKWi/UTmroAxrhf4NwkA5BqMjY12DziXSQuurV/XQnIKEFYeX
-	CTFa53iykM7WF6DuOn5T42lUTx24JGAWGim7nuDlA7dSuMAg0Z02yvAEABxK9cyHmIE+3ZGe5KbuH
-	4iZcDi1IZB39lm0TNLjP8Ny5BvkHyCU1SU561dgTSzRE7uyHpeaYtgxuL6HtB7iasjXZ13XMZvPw+
-	JxOHvJqRRF7+nrkwdgYzLSibzrLgQqoXGLLeQzOn6JxShBlpnRdm2/M+UxIZFSiRdgmmcF7PsgcoT
-	f2VZAZWSnQd37IbPSaaA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:MIME-Version:Message-Id:Date:Subject
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uTJCdAyRZENHdvdxlIw2N8ZvYmVfyjqyT9IdScNGen0=; b=mi5MstAOOgDO4K
+	gQCIlOewsBxrLsF2t2f9z3xCQxgKhV/ZGOjFe26H8l7bd/ARzk5kYM/KjIuGr1YOlQTLotmKbOmm5
+	mx+0DkgefpVJEZpu8EvDOCRccAlc0fpERVvq+8FlvG9ypvsGvNYP/+WTJG/ryDrUVDAmzgDxJ9Ikb
+	o+XFi6Heah3Lt179WOPGTG6nGH/1cuunSjQisnAyNlvHUkuASF6d57xhUrIF0g+JBL8z86mScqQf5
+	VJ/F+raMQKhKAP/ONilkxKHsa9zAlEjBo3uCTv418mRBB5xOR1N3Kn3Jk9v8TnqFeXcD4jt9dJ+7W
+	wusMBbwmSltubFoPD/kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEeK6-00000003QAU-3Dux;
-	Thu, 08 Oct 2026 02:57:34 +0000
-Received: from mail-bjschn02on20713.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::713] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1xEeKl-00000003QED-4B4E;
+	Thu, 08 Oct 2026 02:58:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xEeK3-00000003QA1-0Tsi
+	id 1xEeKk-00000003QDy-0BvV
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Oct 2026 02:57:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=VdcH/9RO/vSp4qMZxTCuNTm7lf4HGd7EzcYMbJSuFFFL43g0LkVmyQFUtd2QrpB6lqkRGXHtjGNg5un5KCtn0TbB9WyULiJzBT608Jyh/TRifzdfQbLQ9ol+WDUb3ZGSvAdzRYQe4s4GnhTmkzARh2SC+ecigJUwibvMf6U/wPrIv345rLZ3HyxG7/4Rr6HHPtBb/lLjq9oGEoPQGGr+NcAeCBmIpQt0Te4PBXxnYKzC7iLBbjE8TmeGcyYD2Ykh5M6SBwbEx7KObSGJ+0bv+CZTZkCguFCdSwEuHksJjpL3itPei8kOY3o0WZNm1F/9IOfpKMLWbfvcbG5e/hNNBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A2Y/Em41Atgv8hyRlVMFMU6Az/HfQv0Eftxoqga4lNk=;
- b=JnSwBV2xSMMwk2+BSHzQDPUEso5TUI6cmmCNsXvoNpyd+xzyEfZSjXCJPxmhYrP6kl0VIJGokagVRSxMgyo7tmKcpj8VhQ8d+Y8UMjKzeCXU26Izn48Wu4YGuD1qOIhZ5XSDFD0qp7EzXIpcBiIOLNUR6V2ZuUzwuiOk2QUFM5bD3lOIO6vJQL77FzzQlsCO+VOBNI1Z8jU70F7FXeM58zN6UU8U5xTDYIgba4ZGSsefmXvjwq28OoKfw2BFaWwAm0auKHntHam4lBylyBibkLFylUCtlno77pSiP1xuh6l0Dd0xQKPjy5kns0E08kFeIMoJ9bXDMePI47LoUUbFsQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1313.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:13::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.16; Thu, 8 Oct
- 2026 02:57:01 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0496.015; Thu, 8 Oct 2026 02:57:00 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Jerome Brunet <jbrunet@baylibre.com>
-CC: Michael Turquette <mturquette@baylibre.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Brian Masney
-	<bmasney@redhat.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
-	<alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, Emil Renner Berthing
-	<kernel@esmil.dk>, Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
-	<inochiama@gmail.com>, Alexey Charkov <alchark@gmail.com>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Keguang Zhang
-	<keguang.zhang@gmail.com>, "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, Hal Feng <hal.feng@starfivetech.com>
-Subject: Re: [PATCH v5 2/8] clk: starfive: Add system-0 domain PLL clock
- driver
-Thread-Topic: [PATCH v5 2/8] clk: starfive: Add system-0 domain PLL clock
- driver
-Thread-Index: AQHdNtN7NA8V7U+etEm3PQ/xHlQDfLbnBYkAgATaQaCAAwgzAIAES7tg
-Date: Thu, 8 Oct 2026 02:57:00 +0000
-Message-ID: <ZQ4PR01MB1202E24B7DC2817AF0C691F3F2932@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-References: <20260828095608.19955-1-changhuang.liang@starfivetech.com>
- <20260828095608.19955-3-changhuang.liang@starfivetech.com>
- <179075859479.1471718.5492634704694937513.b4-reply@b4>
- <ZQ4PR01MB120246C3208C10BDEFD32BCFF2882@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <1jh5j07bbd.fsf@starbuckisacylon.baylibre.com>
-In-Reply-To: <1jh5j07bbd.fsf@starbuckisacylon.baylibre.com>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1313:EE_
-x-ms-office365-filtering-correlation-id: fe9205a4-635c-4966-4c0b-08df24e7d324
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|23010399003|376014|38070700021|56012099006|4143699003|10067099003|18002099003|22082099003;
-x-microsoft-antispam-message-info: t5tC0esNDD5euEu8oVx3jzOsQ+eZcpAfu4t5cXmECc1zO3Qf0Y1V4Ydjb9niWCyx8V0eu1QCxXBNG/qT7HXFG4+xxav26PEXm88ynH4MosSEqawZlIQTiuB+TmDB4bS+F8zKLdhqn/I6L49S87hYwVxl1OI8U1R/HtmC+DfpV+oLXw+/iVTv8ETZ5ZLkJ99NpjmiJy7mwDh3btvCyLced78YZXRkq5m90C25AQMOWP3wlGWzIhX3ZRKFNCypV4tJlZNz/rEe2meELhlprQ12bLk/5Lq/Ik+Ky1P13HRMsJ+/6DQnude0C914G05zshqYBgubydTw6+UDV/DBwPpx701y06eFNn76dtwJHIqq9GHh2E+8FTsI27Rheld8zZuvwiE0ARbl2DcMswb/zpID0/ta4u6F8XaEC13T+Oc16TZvF8jPDqOerkStOWEpSBBa65KJz1MEUaPqhtRb8nWyTX/GKDeHCZj8nHfDX7oXvWTqQ9Yj6jF58RPet0e9M65uKZ7JKrxiQ+AUYbKiomvvy20PyyV+PobyBabzCd1V+dUKIf6pcUqJCaT4fS2rCYZh
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(23010399003)(376014)(38070700021)(56012099006)(4143699003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?cuMRrnJpb2NlCF84FDKGqIj1Uao82DJ6b1HfOsgonznzwxQ0I9hwk9BKWArl?=
- =?us-ascii?Q?zJBvrbrTqsBi1/EWtO7zygZoob38rzkQAGLhVsdYaBk5hTHsxJZaCE4PH6ty?=
- =?us-ascii?Q?SgzwY2eJfYJHtICNb6dQf8PIOvUfeqjEHNLk323P6wggxdmUjWqrc+PRzhM3?=
- =?us-ascii?Q?F0Xd/2bPisdpQJgbqsqnwNBifABz37WmxOscyvOARf2sNJtTWfmiGTA3VAqO?=
- =?us-ascii?Q?rDTFM2AdN+UBeG/yXNuzFGEI6Ue/DbrfD5Mt/fTi6hS0U3ehNX2pzsZPyD1X?=
- =?us-ascii?Q?ANRvfk2ThMm5k+yrxnadUpZvYDuAxIO2fyQ+jzNPzwas7UEzwkCxgbwuBgWf?=
- =?us-ascii?Q?5LYjM8dBXVmMQ35Eut9lyc8MyelDYO5/jWyE6RzjGw/IPSK5971vDXbLOL5K?=
- =?us-ascii?Q?B/Mh01fywPa/ps8R+qbprYrtR51qERhR67ElsGf7+AMc7Y4KevlCqnAzzG3P?=
- =?us-ascii?Q?QEGrofly6S8CyiIpSPzSwNru6VSQWJltzReByO97Jio02qL/qYDfNL/QYy7d?=
- =?us-ascii?Q?uAuAzczO1oX6kNAXBJgoZkga9eGTJTicTa+yl+cPwtsbVxz6ItvtRwQMKbB3?=
- =?us-ascii?Q?YGYzxWP6EJQISxqJTbiquRJRYcjxNZ5Uhy20PVEH90nG8JHchsvrF2+RW8Sy?=
- =?us-ascii?Q?1FVNIrvo1rcdmjUEJIST0+hQRiB2SAyi3tKwT0wcEo1bomtwBUYMxWJgXyRy?=
- =?us-ascii?Q?qZWtrY8v2PiX1IT0TKyOGMXaSw7i3E8IbcJQ+h1aSCrWVkkA7tOEAA8tE+Ud?=
- =?us-ascii?Q?fhjHauUcXefEkfK4wvt4+d+qaoUFIU/aJ6DGFbFQvT0DYriwsYy8yoY+hHgt?=
- =?us-ascii?Q?P4DrODLeS+Xg4ZZWi6xfqDOUQg5caNEBwts0vM/jicPWZrUka585Jzc4lYwQ?=
- =?us-ascii?Q?NT4f0GWFA7kioYaGggrQT5pidhsctlmIOb4X+BlsM3vG/lG02IP5DTlZ/2jy?=
- =?us-ascii?Q?4esFM0C2mGcOpgHknASPqIUkGxSMKiRzMf+sHprxmQOojg+4Pbx9wslse1Mk?=
- =?us-ascii?Q?18G2harmB0VRlw6S2mdCukZkGTb8ZtYVn8GYbbzph7SbvYbmsdgRoof9GHJi?=
- =?us-ascii?Q?Hf5JIwJZ9k6EtACGU2XX76BQpl9bau+pnMw9lHLCC0EnoeZiN8w7POI5kRJr?=
- =?us-ascii?Q?Br+XJupNR/zuBt6jhq0yNK/BFYnzl5ZDd5JHEfic0NNCNefRqsENVMW8i5pQ?=
- =?us-ascii?Q?c9XjI8I30wj2alBrOFafI4e//3JwvaEs+5bUm4u29hSuZI8bslTuPyWikmoz?=
- =?us-ascii?Q?cHaVKh+t8rfUTRYToiFwacywIkg3lhaZVWHOJ764yd/lxRetAW4OjDJEPNO9?=
- =?us-ascii?Q?uLzBXCTWFZlKwj7rNIIG2FWPmFSjmm9Fv6HWVfjgDtuv3ZaoS2dfSCi79FAz?=
- =?us-ascii?Q?gzHMNg7MN0RJ/+cWgKIuCJbVfrvpiCAfmWVIOs/leW+2yq/6EFnn1Zm8VCaT?=
- =?us-ascii?Q?X7PkGSaLX+PBFSCR4/33bXhYuxegetbn8dcemsc/a7tXObAqZIdAcmxVP5W8?=
- =?us-ascii?Q?Iy+B7RfODFveglprou0G2/QJ9gs3HmEVHk3AU1O7RUEoXTuQRTxdcRm3yvTd?=
- =?us-ascii?Q?+//z4Mq0rXvRxV6TiajHrzhgvrgQUiN8pIt06I9ioU65kRNZ9pMlALgryWXG?=
- =?us-ascii?Q?2l4UN9EYl/JS+YHIMCKEv0uiKJR+2nMODvHcOjtH2ooB6aoVU3+oi0C6PtZ3?=
- =?us-ascii?Q?jELU6whogxMiAUhW2xHStuANZDK/vDxyYLt4iyp+yLBeowlNSvQnRVg0W8AF?=
- =?us-ascii?Q?XoBLB/xuk/Kl7LuL8HQzGns5zKAxWBE=3D?=
+	Thu, 08 Oct 2026 02:58:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8A05C432BD;
+	Thu,  8 Oct 2026 02:58:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD3141F000FF;
+	Thu,  8 Oct 2026 02:58:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791428293;
+	bh=kqQFBKuueEa6Y0WgZw0AeqBkSpOARrf4znZxbkxqu7c=;
+	h=From:Subject:Date:To:Cc;
+	b=A25DeaQhdfV9zQRboNNmj4SYXFFZ7xtbDE6aNJ1e83lub7wAuWaKF35VltWK2sayF
+	 W0I1Is5mB3mWdzthWIKnWh/nxSWm2JhF1Bl6Z/C2dziXw3hg6VrCnJcBbPDPTZ0zWZ
+	 AKoaaI0IzgWZw1PfzvE3ZfkvyGux8EC3HXMuwn4IHliKRJneygZAo0r4WfAbbkUupQ
+	 Aj2006Ms+vwYR2Z85Oapxv5St86MviIS3ZVPEc8pJveqOVOZdkRbc52AGPN9dDlNDH
+	 Gl143Xi/oYe9xjHYI3OcpNd884tpzKDb8CC7CGXc7K4CUCt0cRU6ZDkZnzJIt4lRtl
+	 Wm6taqbOVTlxw==
+From: Yixun Lan <dlan@kernel.org>
+Subject: [PATCH 0/2] clk: spacemit: extend to support pm domain driver
+Date: Thu, 08 Oct 2026 02:57:54 +0000
+Message-Id: <20261008-04-k3-clk-pm-aux-v1-0-8372d7307694@kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: fe9205a4-635c-4966-4c0b-08df24e7d324
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Oct 2026 02:57:00.8017
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: R7wiSPDWBF3WPcRNIQkVMAESPtENKPHRscAzib+J4WBHT0PQ357gy2jjz7WjyYJAecdzcpYxl2apAgoJBPEy4lqQF/SD3tkcZbMx5gw3A3sUsEtmTs+cC3PVaWzL1k1p
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1313
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261007_195731_174461_D9F31C42 
-X-CRM114-Status: GOOD (  18.81  )
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQqDMBBA4avIrDswakjEq5Qu0jjq+FdJqgji3
+ Y26/Bbv7RDYCwcokx08rxLkN0WkrwRca6eGUapoyCjTKVGBpLDP0Q09ziPaZUOTG63IKK2tg5j
+ NnmvZ7uX78zgs347d//rAcZy6z8zQdAAAAA==
+X-Change-ID: 20261008-04-k3-clk-pm-aux-7376407466ac
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=961; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=cHbILVKSdizFNPE4GEMMhNM1jFSHqMY5od3vYov6rSA=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqxwa3CVMliR1Pf+TzndmUndjvfjIsh/fxobPrd
+ uxGemsKcxKJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCascGtxsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+29CQ//RD/mM/4hWKkiJ4PA+22Q6lyJkZKFWszlUg6sxXmr+OjqfMOsV2Xyu
+ JtlaGQKKtcpArvZvWlp7V3y63FwfGh4DlFeyPu/w+lnstSvdfi78KlVfW+jEoLfbAJ9Tl9OII8B
+ +tJc5YBKyY1fdi6c3O4xEeUKZkdrLCUgTdsqySmX6XYWmnIFL33GTgL5wt/rh/t4AeTHOmmwwU5
+ EnkUqEfYfOFFA2m25tS60MWFXt4mtDUkxjBmNy+uGql5LFjrNYgc/dpOq23Bm9uWIeC2GYSXBVO
+ vF45wVYJZjG5LX2lwSpTlRnLVKUzy1dljhDP+LuaCP4mX92d4pfHO8djVkER7mhCrWz6Du4yqrM
+ yphrWO77pYYtoPFBtZ9eQbE6diFdWjz9pZPxrbVhuMONJVYPMBzc8AH5yHARxydC5TMdbbUd/mu
+ Z6mXj6mwKIVZJoakwFlPGQHBXTi+5FbogQizPQTFiFzOaS79/e6ms2virl/pk5d9U6bG9GOIqXE
+ szx28DIOx0v/2K+9x8AUACYF0d52Kzkjt1z/b9WVG9XRocMdFJM1KhTdJE4sa3FdjIklcLYpL2x
+ f2WL1HfHrqGfr99xaIRTGfQBBfvqfJhTJS3eahyRWVfIKVeo2xy4TiOWpuYNL1KX8Y9YWLw9RR4
+ PMIi1tCCv9Z4mcRmJQNq4TqiWolqBU=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,51 +83,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Alex Elder <elder@riscstar.com>, linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, linux-clk@vger.kernel.org, Iker Pedrosa <ikerpedrosam@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Jerome
+The APMU (Application Subsystem Power Management Unit) register region block
+not only provides clock and reset support, but also the pm domain management
+capabilities, so registering pm domain driver via auxilary bus is feasible
+way to go.
 
-> On Sat 03 Oct 2026 at 11:02, Changhuang Liang
-> <changhuang.liang@starfivetech.com> wrote:
-> 
-> >> > +static const struct jhb100_pll_info jhb100_sys0_pll_info[] = {
-> >> > +	JHB100_PLL(JHB100_SYS0PLL_PLL2_OUT, "pll2_out",
-> >> jhb100_pll2_presets,
-> >> > +		   ARRAY_SIZE(jhb100_pll2_presets), JHB100_PLL2_OFFSET,
-> false),
-> >> > +	_JHB100_PLL(JHB100_SYS0PLL_PLL3_OUT, "pll3_out",
-> >> jhb100_pll3_presets,
-> >> > +		    ARRAY_SIZE(jhb100_pll3_presets), JHB100_PLL3_OFFSET,
-> >> > +		    CLK_IS_CRITICAL, false),
-> >> > +	_JHB100_PLL(JHB100_SYS0PLL_PLL4_OUT, "pll4_out", NULL, 0,
-> >> > +		    JHB100_PLL4_OFFSET, CLK_IGNORE_UNUSED, true),
-> >>
-> >> Please comment when adding CLK_IGNORE_UNUSED so people have an
-> idea
-> >> why it is needed and how it can be removed
-> >
-> > OK, I understand that there is an intention to remove this flag. On
-> > our SoC, some clocks are typically not referenced by any driver, but
-> > we don't want them to be turned off. We currently use
-> > CLK_IGNORE_UNUSED to preserve their hardware-default enabled state.
-> Perhaps in the next version we will replace it with CLK_IS_CRITICAL.
-> 
-> CLK_IGNORE_UNUSED and CLK_IS_CRITICAL do not express the same thing
-> both equally need to be commented so a few years from now, we are not left
-> wondering why this was added.
-> 
-> You do not have a driver for this clock today. The fact you still *need* that
-> clock show maybe you should have one and maybe someone, someday, will fix
-> this.
-> 
+The series try to extend the CCU driver to do some preparation for addition
+of pm domain driver via the auxilary bus.
 
-OK, I will add comments according to the current flag.
+Signed-off-by: Yixun Lan <dlan@kernel.org>
+---
+Yixun Lan (2):
+      clk: spacemit: rename to generic ccu aux register function
+      clk: spacemit: register pm domain auxiliary driver
 
-Best Regards,
-Changhuang
+ drivers/clk/spacemit/ccu-k1.c     |  1 +
+ drivers/clk/spacemit/ccu-k3.c     |  1 +
+ drivers/clk/spacemit/ccu_common.c | 16 ++++++++++------
+ drivers/clk/spacemit/ccu_common.h |  1 +
+ 4 files changed, 13 insertions(+), 6 deletions(-)
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20261008-04-k3-clk-pm-aux-7376407466ac
+
+Best regards,
+--  
+Yixun Lan <dlan@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
