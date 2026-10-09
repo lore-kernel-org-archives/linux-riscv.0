@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E44B4CA9EBB
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 20:48:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D64ECCA9EBB
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 20:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KaAYspHJval9uyp/nRw5kmjqAeMF3Bvn+wTQ6lrPv38=; b=bl3KG3wyW2gHQi
-	XQUBkHAO4j/GJAG3lO48tYLpM/VlOWKAcg0yKZ6a2+9F9P5d1cgngZoE4RyCqbOHA4ZjX9ojkf1qt
-	ehs1J5McIt7LgLgKV7bRwjy52xwW4kObQVOpibrjhSwzpV8RbqvrDI23xIr1sl0AJOuFUq8aDUZ7S
-	JcK8KroD1NlmBVkvvEs9tmiTSaPWHTw8R9/PXwv4w/cy2/sCTFLkZcNOAXDp/JXAlU141XoyRuz+t
-	IgZtrNLikzBso8njdixi4J8pV0ZqR8goVPdpwNnHpQqYx+4oNKtV0oIDwhMs22OsqCrhqX4F1tR3p
-	GfVG95VeQ8KgoeTKTiMA==;
+	List-Owner; bh=PXCrI412nTBSRZ20/4BPZybUrkPYV9LejZSyIVxO53Y=; b=V0ulwpGE/gmF7u
+	crPr7bZpmsQH4SiFdlhb6E7YDPTmSfl3PKinxNoycCDD5OfY63YverqsiGf2hHVPtlOyTX8aI5cT6
+	reUaeq7+suO8NSe+HqgHlWUUNVlR5KYVqS2JfzIzBqJ4BIG1MjObVrHGGiebKP01V0XRP9s9lMGwT
+	PPlN0Wfk2k9tUVETPteIH9Qb8egZyfDhGcCLze4+zpq6XNoKLZYLGVA9brdhdPETcAsQiA0PFbHaz
+	oFY17k8syHVQgnjHpRVCmZupzpY9BYbajkXAOoNWiEasTlM9RLs7P6A4vFJrinHwVjX9Dmamgdu9j
+	af668w67GuBNn/NMLL1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFHVh-00000007Cng-1NWJ;
-	Fri, 09 Oct 2026 20:48:09 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1xFHbU-00000007DEr-0hwg;
+	Fri, 09 Oct 2026 20:54:08 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFHVe-00000007Cmw-3N3a;
-	Fri, 09 Oct 2026 20:48:07 +0000
+	id 1xFHbR-00000007DDy-1FnJ;
+	Fri, 09 Oct 2026 20:54:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1791578886; x=1823114886;
+  t=1791579246; x=1823115246;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=Yx2WnKvEdS11l9IWSE6fv38e21+5iBA2wfNbqaEuCjE=;
-  b=ZIyPwUO+XR4A2v4PCffFiYE4vFd+CWAhkxD8duLR5apdpC1+osLWZOiX
-   w2Tlq0YjDlwhT12pBSo8H3YYuEmuWenKy+upw8we5c2sjRS9459mTLUO7
-   1R+8gq7En4uyQNB6zS2ocN6855gUPVaa3C77aA4l1byAaOGkxntFdCC7l
-   4mW2kmOuaaVTiSyg2A/+EBbhV4mGq8yiKy5KAf6+WzoD6il+dATcpWBPt
-   x0C+CmdSrhNnTgRLjizIFryyRPlq92Cd/Rj2ewbRPA0fVj54s0u62T6oZ
-   jA7OZSXevJwBMNPtEgfHPE+Skch3eJ3UgZXniWHvjIAAof4mX3afF6GdK
-   Q==;
-X-CSE-ConnectionGUID: BgW/9DMXR6SQag4uaJE8PQ==
-X-CSE-MsgGUID: R6fRc3L1TlaGoeEPdPYF3g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11930"; a="277920"
+  bh=fgRH35rAuwoizyE2+gu+S5LdhmVsIiCJBTDh5HoaPno=;
+  b=GoVNalTsVyU9BJkgw6jIhK4hXutAjDWViodhKve4broFkqWOybpQU+iJ
+   CTaJSHjlMX+rDNKKXHFpE5T3SfqRcrq+bMnNMV4ojyE1dJXpCNe2JbRjb
+   W6XABt1kSwxe5py/iTUMsh4LjARxjHC4xtt5pkKZB7rQWqUMR129EE04v
+   yM9Q1qMYySIkREu6ZzerUtP3cYMlEkfIeX0IB4yDm49d709Tsd8fk12AE
+   009i5/rI4CqDm7SFhgeh8HVsLFeSVExSEocRh7rx4oGzoJ5q/wGx8709E
+   L+jzpza9UE1lR5aDdOwkSaOCXy2Sm4nbygvqC3U6TR4Uj/WwYw67YhcY/
+   A==;
+X-CSE-ConnectionGUID: aeDVIVzRS+KMhH9oORvEtA==
+X-CSE-MsgGUID: f9y2W7xtQQ2bMg0eIy2FqA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11930"; a="394189"
 X-IronPort-AV: E=Sophos;i="6.27,149,1787036400"; 
-   d="scan'208";a="277920"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2026 13:48:05 -0700
-X-CSE-ConnectionGUID: 2m33Y0liQmGGAODzyZB35A==
-X-CSE-MsgGUID: qiLxGGcPSTazmWfte8OiKQ==
+   d="scan'208";a="394189"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2026 13:54:05 -0700
+X-CSE-ConnectionGUID: ODAsJhCnT+6lgKOO/0TUvg==
+X-CSE-MsgGUID: Eg6tPTM3Qn6fnZyd6dbigw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,149,1787036400"; 
-   d="scan'208";a="722194"
+   d="scan'208";a="752675"
 Received: from ssimmeri-mobl2.amr.corp.intel.com (HELO [10.125.109.84]) ([10.125.109.84])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2026 13:48:05 -0700
-Message-ID: <b62aa96d-6c83-476c-bc28-7c2057702063@intel.com>
-Date: Fri, 9 Oct 2026 13:48:04 -0700
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2026 13:54:02 -0700
+Message-ID: <bd47fc12-f1cf-4994-8b42-45fc68944072@intel.com>
+Date: Fri, 9 Oct 2026 13:54:02 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] mm: Fix page-table teardown during memory hot-remove
+Subject: Re: [PATCH 1/4] x86/mm: fix missing pgtable destructor for vmemmap
+ tables
 To: Muchun Song <songmuchun@bytedance.com>, akpm@linux-foundation.org
 Cc: linux-mm@kvack.org, stable@vger.kernel.org, david@kernel.org,
  osalvador@suse.de, dave.hansen@linux.intel.com, luto@kernel.org,
@@ -69,6 +70,7 @@ Cc: linux-mm@kvack.org, stable@vger.kernel.org, david@kernel.org,
  kevin.brodsky@arm.com, bjorn@rivosinc.com, apopple@nvidia.com,
  linux-kernel@vger.kernel.org, muchun.song@linux.dev
 References: <20261008073021.2512665-1-songmuchun@bytedance.com>
+ <20261008073021.2512665-2-songmuchun@bytedance.com>
 From: Dave Hansen <dave.hansen@intel.com>
 Content-Language: en-US
 Autocrypt: addr=dave.hansen@intel.com; keydata=
@@ -114,11 +116,10 @@ Autocrypt: addr=dave.hansen@intel.com; keydata=
  MTsCeQDdjpgHsj+P2ZDeEKCbma4m6Ez/YWs4+zDm1X8uZDkZcfQlD9NldbKDJEXLIjYWo1PH
  hYepSffIWPyvBMBTW2W5FRjJ4vLRrJSUoEfJuPQ3vW9Y73foyo/qFoURHO48AinGPZ7PC7TF
  vUaNOTjKedrqHkaOcqB185ahG2had0xnFsDPlx5y
-In-Reply-To: <20261008073021.2512665-1-songmuchun@bytedance.com>
+In-Reply-To: <20261008073021.2512665-2-songmuchun@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_134806_864298_0C725E12 
-X-CRM114-Status: UNSURE (   6.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261009_135405_357796_81BA79D2 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,12 +137,45 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 10/8/26 00:30, Muchun Song wrote:
-> This series is limited to bug fixes for the existing teardown paths.
+> Since commit 49f599666420 ("mm: call ctor/dtor for kernel PTEs"),
+> pte_alloc_one_kernel() runs the page-table constructor for kernel PTE
+> tables.
+> 
+> HugeTLB vmemmap optimization uses pte_alloc_one_kernel() when splitting
+> a PMD. Restoring the vmemmap backing pages does not collapse the PTE
+> table, so a later memory hot-remove eventually frees that table through
+> free_pagetable(). That path currently calls pagetable_free() directly
+> without decrementing NR_PAGETABLE.
+> 
+> Use PageTable() to identify constructor-backed tables and run the
+> matching destructor before freeing them. Keep reserved and
+> constructor-free tables on their existing paths. This also prepares
+> vmemmap teardown for generic runtime allocations through the normal
+> pgalloc helpers.
 
-Why is this a series? Why not send the architectures independently? Is
-there some dependency where they all need to be applied at once? What do
-you want done with this series? Are you expecting it to be merged via
-the mm path or the individual arch maintainers?
+Could you please take some time and trim the bits out of this changelog
+that the LLM inserted but that are not super relevant? For instance, I'm
+not sure what the first paragraph is trying to say. It is apparently
+missing some context.
+
+FWIW, I really don't like the LLM changelogs on their own. They almost
+inevitably need human editing to make them usable. I really, really
+expect humans that are sending x86 patches to spend some human
+brainpower on them. In fact, I expect folks with:
+
+	Assisted-by: LLM
+
+to be sending _impeccable_ changelogs in v1 because their LLM saved them
+so much time that they can spend gobs on their changelogs. More than
+ever. ;)
+
+Oh, and it's an x86 crime that we have:
+
+	free_pagetable()
+and
+	pagetable_free()
+
+Any work that makes that coherent would be much appreciated.
 
 _______________________________________________
 linux-riscv mailing list
