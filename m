@@ -4,73 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A4CCA5FED
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 07:22:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0566BCA5FED
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 07:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8Rx2gpsm3Nf8E6X32tm1hqVMQteT/9BFMFxPaeV0Fb4=; b=eDCgdF/dWypf1J
-	YnD4msr4wFEYIDdYe4Em18mZm3BEb2K+MSsbYWfU1zgwl1fIYw278gWPQXknF/ufCRvmetmfjdoZ8
-	lTV/Mfznk4qZ3abDOR4djePpK0uh6HAqx1HCH9shzn7uJ+XnY3C3K/xI8nG3z5Y2WwngWKWDGcwuM
-	wNpN6SnSbKLyP3UBo4BM6xs3h2dM56raFAWg2U2nBLDa4spt3tot1/lgiu7/p0/WZBhGI6BZG26p7
-	86CezjYu4bhHyv8iawgMCNOlBgNtCmw6Vs1G89j+UlQSkWuxGLISbN0EcNtu1D5YT8yoJz9KjFwCg
-	/WYfp/QdHlSxsh3BhlHg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=l+zBueN0ByZnj1SgkNtnUFKU+soUDHCDR3ZfgYrSaUo=; b=Q7ularV08jYvIw
+	uKqr+P8FKhNJjK1PdmFfMpJCbnO1VdyR8G9UdwMjTdefGsUGokIQJqwFBAamnvS6CLWqJCq8NEPV0
+	cZB5eezIhkNrLhn3LvHbYGop4RqL/gcJIiup32LuArqEQi55Gzq4UbjzSQltaZdB0AaWFrUU+4vy0
+	VrDG/ccPKCZ1QzgsQ+89KwVovPXOElFKgBHGuOajr7JWwvliLwbmOKokXdwxFGuKQDNkmjWwtNMBw
+	Aowz4SPCVzE34KAttiyUkJNBCt/zVSOcHraRc7K3W5gxL4eLldZVU6xUYSVRpxJyqxfU0xHh/fMpv
+	QwUZS6T8QzTsSpLuYwUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF4vt-00000005iSQ-3FUs;
-	Fri, 09 Oct 2026 07:22:22 +0000
-Received: from azure-sdnproxy.icoremail.net ([52.187.6.220])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF4vq-00000005iQ3-2THc
+	id 1xF54I-00000005jBr-1TXj;
+	Fri, 09 Oct 2026 07:31:02 +0000
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xF54E-00000005j8i-0iif
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 Oct 2026 07:22:20 +0000
-Received: from luyulin$eswincomputing.com ( [10.12.96.77] ) by
- ajax-webmail-app2 (Coremail) ; Fri, 9 Oct 2026 15:22:00 +0800 (GMT+08:00)
-X-Originating-IP: [10.12.96.77]
-Date: Fri, 9 Oct 2026 15:22:00 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: "Yulin Lu" <luyulin@eswincomputing.com>
-To: "Samuel Holland" <samuel.holland@sifive.com>
-Cc: "Pinkesh Vaghela" <pinkesh.vaghela@einfochips.com>,
-	"Darshan Prajapati" <darshan.prajapati@einfochips.com>,
-	"Pritesh Patel" <pritesh.patel@einfochips.com>,
-	"Rob Herring" <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"Paul Walmsley" <pjw@kernel.org>,
-	"Palmer Dabbelt" <palmer@dabbelt.com>,
-	"Albert Ou" <aou@eecs.berkeley.edu>,
-	"Alexandre Ghiti" <alex@ghiti.fr>,
-	"Andi Shyti" <andi.shyti@kernel.org>,
-	"Mika Westerberg" <mika.westerberg@linux.intel.com>,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	"Min Lin" <linmin@eswincomputing.com>
-Subject: Re: Re: [PATCH v4 3/7] riscv: dts: eswin: eic7700: add pinctrl
- support
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
- 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
- mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
-In-Reply-To: <b7428a65-b303-4ed4-bdc0-caf5a89b4712@sifive.com>
-References: <20260814070007.1662455-1-pinkesh.vaghela@einfochips.com>
- <20260814070007.1662455-4-pinkesh.vaghela@einfochips.com>
- <b7428a65-b303-4ed4-bdc0-caf5a89b4712@sifive.com>
+	Fri, 09 Oct 2026 07:31:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1791531029;
+	bh=4HQPXe9IGKWY9C9j03f5HIPh0/Eu6f8vVKG/6YBzIeY=;
+	h=From:Subject:Date:Message-Id:MIME-Version:To;
+	b=r2FFGgv7dyT4APeRbiPdybevyalPXL2mC7A71YRelQ9z9zpu4Mq0KTxfYHSX5ukq5
+	 mBuwWkFTc4mXPqQkf7XMZBMUNDilUHkX4SPg9OtJnBD8yWn6Ne2aRfim7nOMTK+xst
+	 RnR1L8ukO5G9Cmk4pMQ/jeS1plRydI/RR8wo5CV8=
+X-QQ-mid: esmtpgz13t1791531027t120ad431
+X-QQ-Originating-IP: A9iDTD7SnyzPn9VV9x4LQxY5lUpdgHEm+4aV+1vG1EU=
+Received: from LT-PANJUNZHONG.dc.com ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 09 Oct 2026 15:30:24 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 17512283885974107760
+EX-QQ-RecipientCnt: 22
+From: Junzhong Pan <panjunzhong@linux.spacemit.com>
+Subject: [PATCH v4 0/8] Add SpacemiT K1 USB2.0 controllers support
+Date: Fri, 09 Oct 2026 15:30:23 +0800
+Message-Id: <20261009-b4-spacemit-k1-usb2-v4-0-2d98e5324d9a@linux.spacemit.com>
 MIME-Version: 1.0
-Message-ID: <2dd7292f.aba1.1a11f8a5115.Coremail.luyulin@eswincomputing.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: TQJkCgAnPqEYlshqYu6FAA--.13830W
-X-CM-SenderInfo: pox13z1lq6v25zlqu0xpsx3x1qjou0bp/1tbiAgEPA2rHxigjHQAB
-	sz
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+X-B4-Tracking: v=1; b=H4sIAA+YyGoC/33N0Q6CIBSA4VdxXIeDgwp01Xu0LhAhWaUO1Nmc7
+ x66tbqwLv+zc74zo2C8MwEdkxl5M7rg2iZGdkiQrlVzNdhVsREQKIiggMsMh05p83A9vlE8hBK
+ w5KqyGgSrcoHiZeeNddOmni+xaxf61j+3JyNdp/+9kWKCLQhtQZocoDzdXTNM6Xsx1e0DrfAIH
+ 0wSsY/BihHOMrBWkZz+xNgXBnwfYxHThhOZC1kQJnexZVle8rWyU1kBAAA=
+X-Change-ID: 20260812-b4-spacemit-k1-usb2-97adfc283d58
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Xu Yang <xu.yang_2@nxp.com>, Peng Fan <peng.fan@nxp.com>, 
+ Peter Chen <peter.chen@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, Junzhong Pan <panjunzhong@linux.spacemit.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, Ze Huang <huang.ze@linux.dev>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791531025; l=2392;
+ i=panjunzhong@linux.spacemit.com; s=20260306; h=from:subject:message-id;
+ bh=6Jfr91p36XEdudosY8V8RV6TeMPpMSLgpDV5nkQ7yKc=;
+ b=T96vuZbqaxkR/jBJqRD0Ps+F80k8+BiEYu7mT9tbyUDMUVQzO2K/s+nUj/3VeuCJ9TWcHL6M0
+ kXokql/4KHpApdVAjo93eV1Itsip0a9sH+WgIGkbg61T4czGBCgFZz6
+X-Developer-Key: i=panjunzhong@linux.spacemit.com; a=ed25519;
+ pk=bY08BOg2T9H93/jG8fEE/tVmdXoQQMp9M2rtzPFoyJg=
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-2
+X-QQ-XMAILINFO: ON8Om7ykNadU8oJ2XoaYZKYNvDRwmmbEwuAJuLn004ODG1cVPtu+L2vm
+	z9PuYm+nKgT+vme3aorrljE6Fwwv4kgyItUgaJLK414KJMnH3Q7rmBG9PX2EDjp7nPgTTWU
+	S8CW+viFARxDCrthtJAs9Fv0a51QaZP2sqg0Wpzv3IvgNO71RLk33y0GLxEu/W+H/jqiufg
+	oqcLT+rHdtYx1viTUeXNF78TVc7RgPCCXai66z93Hu9B7CXIoCc+fsTF3BWrcmswkjW1KZ0
+	0YfTGPok/bzbWHfPm1R8a8TPCr+yBxLgaZvcak/Pv63zWqkDUsFisMeJWtNO7MJsUQplsr4
+	axhaZvZd2OaH72mphYD048Vk4wSIs9rxdhmVd8pfL22enUpwYBREff7IaMv48B3tg3sIW36
+	RhUpqklXvVl+JWNea0HKjRi2vA18ncn3oDDFPaktaFYSzDKA/EajA6RTjMkl/CObdOJwNHd
+	AEUUVbDsgRkCsX6o0Nh/tkY/yVDA+9cKp+ch3iI7l0ekaVHH5Xg5CC7E5MwP0jRLBxBQSl6
+	ajkipAy0FUbnfI8rHTl3a7QgL2/ItGGXnQtMndtJBQn1iFcEvlqpEnPKQaXGv/QE+yciPz0
+	PeP/ifp/yixYuyUsZuuAMGyh3gkC4WQiQdQ3Y6J51hNvQ4E2fissy/uhGJp6PMVxF7es8jZ
+	RK/LpNfpNcdmMzM7Nyub6gzWJ+9TAXsfjVpV4F0Tpq32objDe3iAgNRSe2wEXzT2X07+Ys7
+	QjJsp/AQJCyYjQ5i5+ItJcXsgGQQaHxqtfMuv345+NEPWr5SH5oZTIKIxPfzA2uTeIGprLC
+	bEQel5zSef3qGxi0ufR41/Kp5hHUXN5PtSrVK0NtqCXvNaXtyg/gha6WtO8D1+z49bW2M4c
+	1qPj36FDgC42gEPhCnficdNbisrPF9IRHc63o3xo8Gdicv66hNTwKj4soUZ8PL2lh2BQqsE
+	hQwLQeipIf7aJrFp8S78TTYXzfUZ8b7haUhqLhfMp3zwldzbF6Zyt2KqHSWd9AWDa1GxMRv
+	BBBsZmm1cHUmSJBf6saRWf5J7Mg3Cm1XgixsoPopW0AYTZjaXht9egWM9+koKPNwT/VB74t
+	iwhHQiLB4cyp9eVUppQGbpbXRAjy7APz06ifImTQ3Z3RVjBBvmG8RcKnvsjd7s0LJ9njXMi
+	Pcb99RXM9MKU+WS4GRTvRRaSW5QwDTTQ0ddJ/lzyN8Cca/q3JYL7yhazOSvQ6LOvKRIGmuS
+	UMdBPgWqxnvnttMSrQA==
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_002218_961954_C5241613 
-X-CRM114-Status: UNSURE (   7.57  )
+X-CRM114-CacheID: sfid-20261009_003059_830558_EA241995 
+X-CRM114-Status: UNSURE (   9.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,47 +116,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samuel,
+The SpacemiT K1 SoC has two USB2.0 controllers, one has Dual-Role
+support, but the hardware has no internal OTG registers, the other is
+Host only. These controllers are compatible with Chipidea USB2 driver
+with some flags set and reset control support.
 
-...
-> 
-> > +	default-pins-grp {
-> 
-> My assumption is that there would be one group per peripheral (e.g. SPI bus,
-> eMMC, UART) that groups all of the pins used by that peripheral, with multiple
-> "-pins" nodes in the case that subsets of those pins need different pinconf
-> settings.
-> 
+This series is based on 7.3-rc1 and has been tested on Banana Pi F3
+development board.
 
-I think users can define groups based on their usage requirements (a group can
-contain definitions for gpio, uart, i2c, and other pins), and referencing a group
-will apply the configuration for all the pins in it. Alternatively, users can
-reference individual pins directly to configure just one item. Which design to
-choose is determined by the user's actual use case, so I have listed out the
-definitions for all the pins here.
+A self-powered USB device/hub is needed to test the host function of the
+dual-role controller on Banana Pi F3, a MINI-PCIe USB2.0 module (a
+cellular module e.g.) is needed to test the host only controller.
 
-...
-> > diff --git a/arch/riscv/boot/dts/eswin/eic7700.dtsi b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-> > index b3a230870315..b16e3e28632c 100644
-> > --- a/arch/riscv/boot/dts/eswin/eic7700.dtsi
-> > +++ b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-> > @@ -349,6 +349,11 @@ gpioD: gpio-port@3 {
-> >  			};
-> >  		};
-> >  
-> > +		pinctrl: pinctrl@51600080 {
-> > +			compatible = "eswin,eic7700-pinctrl";
-> > +			reg = <0x0 0x51600080 0x0 0x1fff80>;
-> > +		};
-> > +
-> >  		clk: clock-controller@51828000 {
-> >  			compatible = "eswin,eic7700-clock";
-> >  			reg = <0x0 0x51828000 0x0 0x300>;
+---
+Changes in v4:
+- drop irrelevant Tested-by tags collected by b4
+- collect Reviewd-by from Yixun
+- Link to v3: https://lore.kernel.org/r/20260927-b4-spacemit-k1-usb2-v3-0-ce7095896039@linux.spacemit.com
 
-We will change the other comments in next version.
+Changes in v3:
+- collect tags
+- merge the two dt-binding commits
+- use local variables when acquiring devm managed clock/reset
+- drop manual clk_disable_unprepare() from the remove path
+- enable related drivers as modules in defconfig
+- Link to v2: https://lore.kernel.org/r/20260908-b4-spacemit-k1-usb2-v2-0-f07342ffa051@linux.spacemit.com
 
-Regards,
-Yulin Lu
+Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+
+---
+Junzhong Pan (8):
+      dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible
+      usb: chipidea: usb2: use devm_clk_get_optional_enabled()
+      usb: chipidea: usb2: add optional reset support
+      usb: chipidea: usb2: add SpacemiT K1 support
+      riscv: dts: spacemit: add USB2.0 controller nodes for K1
+      riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3
+      riscv: dts: spacemit: enable USB2.0 controllers on OrangePi RV2
+      riscv: defconfig: enable ChipIdea USB controller support
+
+ .../devicetree/bindings/usb/ci-hdrc-usb2.yaml      | 15 ++++++++
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    | 16 +++++++++
+ arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts   | 28 +++++++++++++++
+ arch/riscv/boot/dts/spacemit/k1.dtsi               | 40 ++++++++++++++++++++++
+ arch/riscv/configs/defconfig                       |  4 +++
+ drivers/usb/chipidea/ci_hdrc_usb2.c                | 35 +++++++++++--------
+ 6 files changed, 123 insertions(+), 15 deletions(-)
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260812-b4-spacemit-k1-usb2-97adfc283d58
+
+Best regards,
+-- 
+Junzhong Pan <panjunzhong@linux.spacemit.com>
+
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
