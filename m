@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80437CA6018
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 03:27:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 145E2CA5FED
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 04:24:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k/nCF2Smse/azDHlvZGr2AMuR2XcUNveJMDDFfCus4I=; b=eC6+nsZZpsnhWk
-	wYXZq0WQFz/wlAKTxcigmH1jpqwVVBCElZDc/SmiZHf1+cnlkIjYMcQdQzrsoMD5bU+32FwJW/IMI
-	YgE208h7qbCfGqzMsvkP5H35DAJ+jk8QYSaRaLjcalB51akJl9jf/Wgqyf7v7fPVyX91qM/8l+0hA
-	204KFeEQwixfVShvoKYPoZqcSpC9HAGvcdIPzWssckZO8QVEnQybuAkuqqoQG/lcUe6XlnlppGAu4
-	h5ZR7213H4Ca+QGZ1i0R6afBD2trGMWCLVdjn4LgGRWZvDJQ93yFsLjBVF0/GJTUFCJrJrfwJd446
-	HAR/dOCxGq7jLZyFW+Mg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6oeJrke13fkDgFyrBopADwVNrfORDmQ+N0EKb9PTzK4=; b=m03hd4dzIDPU5N
+	JgZwiWjMyg4SV+KLuMcrl6I0KqmzlCX5LsPyprk42XLO5RMkgZqX8tharYJKNyG3UO9DdpfLb9FMM
+	Q2HQIbead6xS+iQJ/OBPaEVr1J/PzLmWGpYx47Bii9WFA4kgqCRIY+8CFN7M+iFTPD7Qj7WPD2OEy
+	ahjrkWlx2dqtN8XRBS6TbcKgEajdmPe2ynuwCZVuHCjGUNVyTqivbFGaVK72lOWgvBfEExs1Kzm+Z
+	C9LXAcMs+iQyvpdPp3LqrO/DD19XM3faIlMM0pthPa54RB7bLVpurXlw8Cb0Uv3OAvzYKOYmGsLgZ
+	UwnCDUIxajcjlzI5nzlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF1Gg-00000005Mhf-2kIT;
-	Fri, 09 Oct 2026 03:27:34 +0000
-Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
+	id 1xF29K-00000005TJo-1LN7;
+	Fri, 09 Oct 2026 04:24:02 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF1Gb-00000005MeD-1CzP;
-	Fri, 09 Oct 2026 03:27:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1791516446; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=5yHX7TM9fLxZS6eG0EC3z+89LNYfj0REHh1L/xbrn9U=;
-	b=NIrgbHCwkheJd3fZPEX2HTm2qwApWnx6A+AMHGo7zlsWd7TCPRwb5tPk8I+2lfIXgsoFs8UJopt2erS/8lKm2tA1FIgKCvr5un101DKB6CIZ66imIJmjJVoPiOgGB9SlrUi1BQb060Ip+Z1nMfIOt93C6Ihc7UJ6tiR/GbgSFjw=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0XCS-sL3_1791516442;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XCS-sL3_1791516442 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 09 Oct 2026 11:27:23 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: acme@kernel.org,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	namhyung@kernel.org
-Cc: mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	james.clark@linaro.org,
-	leo.yan@linux.dev,
-	john.g.garry@oracle.com,
-	will@kernel.org,
-	mike.leach@arm.com,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	guoren@kernel.org,
-	anup@brainfault.org,
-	david.laight.linux@gmail.com,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v3 2/2] perf tsc: Declare TSC support from the build system
-Date: Fri,  9 Oct 2026 11:27:15 +0800
-Message-ID: <20261009032715.2841-3-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261009032715.2841-1-cp0613@linux.alibaba.com>
-References: <20261009032715.2841-1-cp0613@linux.alibaba.com>
+	id 1xF29G-00000005TJG-2eqt
+	for linux-riscv@lists.infradead.org;
+	Fri, 09 Oct 2026 04:24:00 +0000
+Received: from fc87d0ffb700.home.arpa (unknown [36.110.52.2])
+	by APP-03 (Coremail) with SMTP id rQCowADXo0FbbMhqibUbCg--.10115S2;
+	Fri, 09 Oct 2026 12:23:56 +0800 (CST)
+From: Haotian Zhang <vulab@iscas.ac.cn>
+To: Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	Green Wan <green.wan@sifive.com>
+Cc: linux-riscv@lists.infradead.org,
+	dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dmaengine: sf-pdma: fix double-free of the in-flight descriptor
+Date: Fri,  9 Oct 2026 12:23:58 +0800
+Message-Id: <20261009042358.3102885-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
+X-CM-TRANSID: rQCowADXo0FbbMhqibUbCg--.10115S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZF4UJFyDJFW3Cw13Ww1rWFg_yoW8Cw4fp3
+	y3Ja13KFW3tr15XF98Gr4rt3Wjya1Sy3y29rWqkwnxCr43Jrs2k3WxA34YgFyDArs7AFn0
+	kws8J34fuFWrCrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWxJVW8Jr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JMxkF7I0En4kS14v26r126r1D
+	MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr
+	0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0E
+	wIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JV
+	WxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAI
+	cVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07b8nQbUUUUU=
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAQPA2rIJHz+tgACs0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_202729_653459_06D996C3 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20261008_212359_049334_A7086C18 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,123 +82,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The "TSC support" subtest of the "Convert perf time to TSC" test decides
-whether the architecture is covered by matching compiler macros for
-x86_64, i386 and arm64.  That list has to be edited for every new
-architecture and can drift apart from the set of architectures that really
-provide a counter.
+The descriptors handed to sf_pdma_issue_pending() and
+sf_pdma_donebh_tasklet() come from the virt-dma desc_issued list
+(sf_pdma_get_first_pending_desc() returns list_first_entry() of that
+list), so chan->desc always refers to a descriptor that is still linked
+on a virt-dma list while a transfer is in flight.
 
-Declare the capability where the implementation is, following the
-PERF_HAVE_JITDUMP pattern: an architecture with a usable counter sets
-PERF_HAVE_RDTSC in its arch Makefile, Makefile.config turns it into
--DHAVE_RDTSC, and the test keys off that.
+sf_pdma_free_chan_resources() and sf_pdma_terminate_all() free that
+descriptor with kfree(chan->desc) and then call
+vchan_get_all_descriptors(), which splices desc_issued into the local
+head list, so vchan_dma_desc_free_list() frees the very same object
+again through sf_pdma_free_desc(), causing a double-free (and a
+use-after-free for the pending tasklets).
 
-x86 and arm64 keep the same behaviour, riscv starts running the subtest
-where the previous patch defines rdtsc().
+Drop the direct kfree(chan->desc) calls so the in-flight descriptor is
+freed only once by vchan_dma_desc_free_list().
 
-Reviewed-by: Adrian Hunter <adrian.hunter@intel.com>
-Reviewed-by: Paul Walmsley <pjw@kernel.org>
-Tested-by: Leo Yan <leo.yan@arm.com>
-Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+Fixes: 6973886ad58e ("dmaengine: sf-pdma: add platform DMA support for HiFive Unleashed A00")
+Assisted-by: DeepSeek-V4.1-Flash
+Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
 ---
-Changes in v3:
-- Key off IS_BUILTIN(HAVE_RDTSC), with <tools/config.h> included, instead of
-  an #ifndef block.
+ drivers/dma/sf-pdma/sf-pdma.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-Changes in v2:
-- Declare the capability through the build system instead of a weak
-  arch__rdtsc_supported() hook.
-
- tools/perf/Makefile.config          |  4 ++++
- tools/perf/arch/arm64/Makefile      |  1 +
- tools/perf/arch/riscv/Makefile      |  1 +
- tools/perf/arch/x86/Makefile        |  1 +
- tools/perf/tests/perf-time-to-tsc.c | 14 ++------------
- 5 files changed, 9 insertions(+), 12 deletions(-)
-
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 4d5993da9f94..f1b3bf208231 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -618,6 +618,10 @@ ifdef PERF_HAVE_JITDUMP
-   endif
- endif
+diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
+index 6f79cc28703e..40f556e198b4 100644
+--- a/drivers/dma/sf-pdma/sf-pdma.c
++++ b/drivers/dma/sf-pdma/sf-pdma.c
+@@ -144,7 +144,6 @@ static void sf_pdma_free_chan_resources(struct dma_chan *dchan)
  
-+ifeq ($(PERF_HAVE_RDTSC),1)
-+  CFLAGS += -DHAVE_RDTSC
-+endif
-+
- ifeq ($(SRCARCH),powerpc)
-   ifndef NO_LIBDW
-     CFLAGS += -DHAVE_SKIP_CALLCHAIN_IDX
-diff --git a/tools/perf/arch/arm64/Makefile b/tools/perf/arch/arm64/Makefile
-index 44cc3f023318..b9cd559065d6 100644
---- a/tools/perf/arch/arm64/Makefile
-+++ b/tools/perf/arch/arm64/Makefile
-@@ -1,2 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0
- PERF_HAVE_JITDUMP := 1
-+PERF_HAVE_RDTSC := 1
-diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
-index 44cc3f023318..8036bf55da8e 100644
---- a/tools/perf/arch/riscv/Makefile
-+++ b/tools/perf/arch/riscv/Makefile
-@@ -1,2 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0
- PERF_HAVE_JITDUMP := 1
-+PERF_HAVE_RDTSC := $(IS_64_BIT)
-diff --git a/tools/perf/arch/x86/Makefile b/tools/perf/arch/x86/Makefile
-index 44cc3f023318..b9cd559065d6 100644
---- a/tools/perf/arch/x86/Makefile
-+++ b/tools/perf/arch/x86/Makefile
-@@ -1,2 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0
- PERF_HAVE_JITDUMP := 1
-+PERF_HAVE_RDTSC := 1
-diff --git a/tools/perf/tests/perf-time-to-tsc.c b/tools/perf/tests/perf-time-to-tsc.c
-index f8f71fdd32b1..fb1a3f0774ef 100644
---- a/tools/perf/tests/perf-time-to-tsc.c
-+++ b/tools/perf/tests/perf-time-to-tsc.c
-@@ -10,6 +10,7 @@
- #include <perf/cpumap.h>
- #include <perf/evlist.h>
- #include <perf/mmap.h>
-+#include <tools/config.h>
+ 	spin_lock_irqsave(&chan->vchan.lock, flags);
+ 	sf_pdma_disable_request(chan);
+-	kfree(chan->desc);
+ 	chan->desc = NULL;
+ 	vchan_get_all_descriptors(&chan->vchan, &head);
+ 	sf_pdma_disclaim_chan(chan);
+@@ -214,7 +213,6 @@ static int sf_pdma_terminate_all(struct dma_chan *dchan)
  
- #include "debug.h"
- #include "parse-events.h"
-@@ -22,16 +23,6 @@
- #include "tests.h"
- #include "util/sample.h"
- 
--/*
-- * Except x86_64/i386 and Arm64, other archs don't support TSC in perf.  Just
-- * enable the test for x86_64/i386 and Arm64 archs.
-- */
--#if defined(__x86_64__) || defined(__i386__) || defined(__aarch64__)
--#define TSC_IS_SUPPORTED 1
--#else
--#define TSC_IS_SUPPORTED 0
--#endif
--
- #define CHECK__(x) {				\
- 	while ((x) < 0) {			\
- 		pr_debug(#x " failed!\n");	\
-@@ -49,11 +40,10 @@
- static int test__tsc_is_supported(struct test_suite *test __maybe_unused,
- 				  int subtest __maybe_unused)
- {
--	if (!TSC_IS_SUPPORTED) {
-+	if (!IS_BUILTIN(HAVE_RDTSC)) {
- 		pr_debug("Test not supported on this architecture\n");
- 		return TEST_SKIP;
- 	}
--
- 	return TEST_OK;
- }
- 
+ 	spin_lock_irqsave(&chan->vchan.lock, flags);
+ 	sf_pdma_disable_request(chan);
+-	kfree(chan->desc);
+ 	chan->desc = NULL;
+ 	chan->xfer_err = false;
+ 	vchan_get_all_descriptors(&chan->vchan, &head);
 -- 
-2.50.1
+2.25.1
 
 
 _______________________________________________
