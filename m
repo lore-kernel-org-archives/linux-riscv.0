@@ -4,67 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD91CA601E
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 16:27:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F22EFCA601D
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 16:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UZR+MNhcQk9qOVNur4YMt2MXfxxyka+OINIriLzOCc4=; b=vEKOXQF1OkOOhF
-	a2dF4f+RJFkRaN+X04F/dpgYD0UX8Imy6y+nbSmnooZzLupCNLji/0xSt8kgrHBfrzG0NncdvP94H
-	SQ0xgm3cJ80ScHoEN4FOvhdLu+7I/jfjuPTmR5LWDgKBgOkV5INphO1IM6GHTPpsyq6Dhx77trfWL
-	dxFcLyV7tyekxsyrvU8gYx8uBNtAkigSQu0NpBsdRC0xtM5pvPUPx+dKjCWPO/G9+bFQPa2MrlauO
-	IlNBYBxrffYeP3ES5bFLYpqjpuU+p5uy+5X+d+g4/IXCjbIMUUdNmFuZKbKKgZ4YEk3Hm0QckwSNY
-	JKuE4XzzGeU5oDuxTMIQ==;
+	List-Owner; bh=MT44fIt8gtvpakXVdpMAN713IEYlteD7pn2SYVTCHb0=; b=HGoBmtWXIwmbQk
+	9N7G4bETKVzd+mScIM2sHABnI40j40VS4tKCMMchqwtBuzW7lWmY83EUPvN2byteRqBHwTBxgd+WL
+	oo1bnA+JHSeaA5z7cNXdouqHViM8ZQNEOU+imMhU1w+ngHSH39/dCohoJ4wCfTrF10bwSZMXFRMVU
+	rGRXAl1/butorAyaoFOpLXwlUFpxhSxB2G6k8UC0FguqrVqXQ2V8dn+P03SH+OLppi6qcti9g+LVg
+	nfBNuiugRdXI+iKJcQWAlyYe/szcvbe3vpAV185YH2KVE1TDjlJNdHpbv/dZCJymt608lszR3BKTv
+	oWebxiCu7WAnGG5mp/bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFDQo-00000006eP6-0IXs;
-	Fri, 09 Oct 2026 16:26:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xFDb7-00000006fdu-2rje;
+	Fri, 09 Oct 2026 16:37:29 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFDQm-00000006eOk-1htF;
-	Fri, 09 Oct 2026 16:26:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BDCD942E0B;
-	Fri,  9 Oct 2026 16:26:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A93D1F000FF;
-	Fri,  9 Oct 2026 16:26:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791563207;
-	bh=P1NQHWvgiocrQrohPdZ3lILWGC/DaP8S52W3+7hraoY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=exb8hAaeBUkFUrpnnUkhqLQ5zgFgMWnN/rYINMuBzDs1GNM4i9JO2MPVFhuXRhFo0
-	 bqz3igmYBv7ZBuRWS/kvuYQ5ffUaHTPuDsrkHE/UxTZ8gJOgIGsoInf5FsQ/UB7y3A
-	 g6CVRHuOO5bxRC/opNlTJ4l+8W+7F8avwelRbJO07mkTvjpRefiI3V10A1GVbXs3Go
-	 XiKBGRBT0rS5eYl1YAt1D6JtcC8KFP/8pAvYu+y+q/bNxjXRUhITPA1EQMMGGJt/eI
-	 lisapvQarlC5G9y4IP9ryxp+vI8vfLGLmBHwRi5eyGkWEwhSa/zfu2VmAVl2fAr/CB
-	 DWas7S1aHp1/A==
-Date: Fri, 9 Oct 2026 18:26:36 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Wandun <chenwandun1@gmail.com>
-Cc: robh@kernel.org, baoquan.he@linux.dev, m.szyprowski@samsung.com,
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
-	chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	saravanak@kernel.org, akpm@linux-foundation.org,
-	pasha.tatashin@soleen.com, pratyush@kernel.org,
-	ruirui.yang@linux.dev, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-mm@kvack.org, iommu@lists.linux.dev
-Subject: Re: [PATCH v7 0/9] kdump: reduce vmcore size and capture time
-Message-ID: <askVvEPHyrhpF8aw@kernel.org>
-References: <20260922084256.1515554-1-chenwandun1@gmail.com>
- <ar9ogXc12cLjziHS@kernel.org>
- <80af60db-8c39-461c-a488-3dfee990bce8@gmail.com>
+	id 1xFDb4-00000006fd5-2NtL
+	for linux-riscv@lists.infradead.org;
+	Fri, 09 Oct 2026 16:37:28 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-48c4207ac26so9497f8f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 09 Oct 2026 09:37:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791563845; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Zqk0kqlatK8NuSf/WB3mkQDFCBUJPwZNFGZhPGFvBTtZFzj7I6+3eSHXkiXMjMyyr2
+         /SCjE7Sbq+0rwCWOoDTcFDgrsIJZl7nYdEzz1+MtSmZk6sWZxv1LtPsojCeuhuAwc/Qp
+         pNtaydO7Ko690BCbA31aumiA072g0n1+xcN3a1SrqVFIp/G6eWFNrj/PcRjbCPW1LlcU
+         2N1IIczlW+UidFsGbY6R9gUzRiXLOVyUeH5AwakaG1pwM69MYZL+iH0YQD+u1fLke0So
+         XNwr2CyBPW6jthZfgDPGrCAWQ3AXu3xcR5l3FzeMvVZrgW1VEM1RF19s0kwv3w06Mt6I
+         +WTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ZcD3lWBEn/k5gS7QyncQIx9YliZr40hzwE5JijjRb3o=;
+        fh=VCjzrThqgRsT86wTtuES5KkgJhjfQaVuT7bRfkWhyr8=;
+        b=N2Ni6O42VghSRXAexM9KE3FVfOUd9cBf81kyHrgMVDVz0rMQXOq3bTs/WApu1WiWId
+         5zn2czhMcy1bSTMjvmoOPEuF13OriMlv31iIdaSTRnJcIz6Lf6TjAkzKu8OS375301Pg
+         9ch2ZIMBWxZw3HKnqrgqzZbjSSS16oXfNycvTFdNNedyGW6dI4yqrfUrXAavvNiJDhPO
+         sEaI4v8tHmwGMcKnIEytzgRXwUk65C6GH786Jnu2geRxkDcoc87AWuE0kpDqkpMMsaJp
+         4ZEY8qmTzQ8PwuPWheloxGJklJlYKNobezUxMOf2dAWSIJvjvUtKhdS5TFPRVSiB7zu7
+         oTgw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault.org; s=google; t=1791563845; x=1792168645; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ZcD3lWBEn/k5gS7QyncQIx9YliZr40hzwE5JijjRb3o=;
+        b=e/xEuQXlPUnL/zTzn0TFV35kKG2dtONXPeCRcloqGX7N70oK0EJLlk8znugnrP2cOC
+         K/7EPaukJLdrdPJtHucxksYAn9WJSxywi0NQpFUoDEcBKvA2Q9YiW/FU+wXJjLYKVB1g
+         v9VuGpqflcUmQRO9aI4SrH0paLKiOpDSHFx4xT4p8ixLrprDxZcUanDb/WX0XdYmFxxL
+         REbxNHbxc2onW9N1EPujdOtlxT2it/K7S0pqFLyiKswdWk8UGQkn1M+aN6WWWA96Sxc2
+         g0N+1s6AlBWzixRxEty410nrwk0KEcvbvinOtV5RzFBOf3EckrLyLoh/qkOPZOly0xC8
+         mWxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791563845; x=1792168645;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZcD3lWBEn/k5gS7QyncQIx9YliZr40hzwE5JijjRb3o=;
+        b=0mJ0eVh/kzUAYdZafDD6122S41Wrnk8F2Iu2OWNNzwL+zYB5BfUxgAKbM4Q6eODNc5
+         CcbKReXR7Yz4lpr7ergl8JfS563efx3tmIXi+s6QsAekKK5zwc9LW0eian4md9DLDk4Z
+         4geO1FNFEPrbbfoD1YGBcdGTMh623wH5F3JVDCRvXJcK66wQ2M8n+4Mh3rqqo7I31UYO
+         EtnFe8Yjl/W5K2azbeD3d/RuUUXdqAHw7Ho8W/+qyErFPlFxmtQvCr2q+zANliSByHNW
+         yDeeUQlLUOXV+hIVgeM80NUzdkbRRN+Tzwd9QVKCnXuyZgTOSLFfvD1Htzsa79b9krVg
+         2/Ow==
+X-Forwarded-Encrypted: i=1; AKwUvBxRuurk11ewFGMkXSDyov4+8KZpL1kSDAhjNbS9+yj5hUffLo/egD4RCZjgvvT9DPDobG7Ibzv6IW1WvA==@lists.infradead.org
+X-Gm-Message-State: AFq9FYJlJvMMHMGovgjWvKuxqR+7nryVPUQx84jAX96aEZXJcvuhaOxs
+	t+tneITd2E/Xkuw8v2IWWeBkUAl5N/RTzG7ZnHH+b9R2oE3unDvT7rkF4ZANqsyrHhBuJkl6Y58
+	qU/5hO1+BUzbhmCgOzErhzb7HBUFmjN1Ap/SwuIRMGQ==
+X-Gm-Gg: AYBFou2o+v4akLFWwIjlBU/UtYXTwkbMxO+N6Ddj7NqxOTcPsoQyTkJ4822ZzGZzgp8
+	foSuuHQ4Hrn/KXDVCSEAY65J15bCtZaDdkVUdOflUHKCqbiQ549euv7BjQZWfOKw2cWLbhUD7Qx
+	OmOLcoFjczcZnfwgx8caFijadTDk9Wiy58/dKxYhNahm/+MEjSgv/ThuAvcY1R753SlVC9ASX6D
+	0FmxAsuvGz0nw1VKILPGkex8Ex9BE+TBkb//5AJ2yi4CxAPSy34Fdc94FRy7unl3znt3XuXGqQ8
+	H2NEzvmwIWGCs/X/UcRwCH3YuC6JgVL82DfwRResrHExTsGKZ0AbNBUKA1TEV4NezZylOQ4HzVP
+	D0XXPn0LvfhMNNMF1LNyBH1bpXO8dZE36KdAxrzWGeXfxvna62sohWePJ0dRMIEwvKIMhXq1pag
+	==
+X-Received: by 2002:a05:6000:46db:b0:48c:652b:9694 with SMTP id
+ ffacd0b85a97d-48dbaadd069mr3527485f8f.14.1791563844566; Fri, 09 Oct 2026
+ 09:37:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <80af60db-8c39-461c-a488-3dfee990bce8@gmail.com>
+References: <20260925155116.465203-1-andrew.jones@oss.qualcomm.com>
+ <CAAhSdy0Y8kQ=gsiX0QX6Ntq=fL89METhA0s7G3niBBJrHpue7A@mail.gmail.com> <7zy352odf4hekcibmio3atunubffzxfcsqnn55q6sfkksnynfj@5bx263nnizdm>
+In-Reply-To: <7zy352odf4hekcibmio3atunubffzxfcsqnn55q6sfkksnynfj@5bx263nnizdm>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 9 Oct 2026 18:37:13 +0200
+X-Gm-Features: AclHuK8vtPQ4aaw6JsQ85iwGdZHaeULxx6XNPczP994xQTrZFbfymhhY5wrwX9c
+Message-ID: <CAAhSdy2mAs6UgTk-hbGd3DX_1242Jpy9WLnOp6kmPvVVtABWHw@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: KVM: Use a raw lock for IMSIC wakeup state
+To: Andrew Jones <andrew.jones@oss.qualcomm.com>
+Cc: kvm-riscv@lists.infradead.org, atish.patra@linux.dev, pjw@kernel.org, 
+	palmer@dabbelt.com, kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261009_093726_979262_F5BAA116 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,84 +116,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 09, 2026 at 11:04:47AM +0800, Wandun wrote:
-> On 10/2/26 16:17, Mike Rapoport wrote:
-> > Hi Wandun,
-> > 
-> > On Tue, Sep 22, 2026 at 04:42:47PM +0800, Wandun Chen wrote:
-> >> From: Wandun Chen <chenwandun@lixiang.com>
-> >>
-> >> On SoCs that carve out large firmware-owned reserved memory (GPU,
-> >> camera ISP, ...), kdump currently dumps those carveouts as part of
-> >> system RAM even though their contents are firmware state that is not
-> >> useful for kernel crash analysis.
-> >>
-> >> This series introduces a MEMBLOCK_NODUMP flag in memblock to filter
-> >> reserved memory on DT-based architectures (arm64, riscv, loongarch).
-> >> Reserved regions are marked MEMBLOCK_NODUMP by default so kdump omits
-> >> them; reusable CMA regions are different because their pages are handed
-> >> back to the buddy allocator and may carry crash-relevant data.
-> >>
-> >> ACPI systems already filter reserved memory out of the vmcore through
-> >> their existing path; only DT-based systems currently fail to filter these
-> >> regions, which is what this series addresses. The flag lives in memblock
-> >> itself rather than in a DT-only structure, so both ACPI and DT systems
-> >> can benefit from it (suggested by Rob, thanks).
-> > 
-> Hi Mike,
-> 
-> Thanks for the review.
-> 
-> > Can you elaborate how ACPI systems filter their reserved memory?
-> 
-> In the EFI memory map, firmware carveouts are reported with the type
-> EFI_RESERVED_TYPE. This type of memory gets the nomap flag set in
-> memblock.memory (is_usable_memory() returns false in reserve_regions()
-> and mark these regions with nomap flag), during prepare_elf_headers(),
-> for_each_mem_range() filters out these nomap regions. Therefore, the
-> memory reserved on ACPI based systems will not be dumped into the vmcore.
-> 
-> I will add these description in next version.
-> 
-> > With your patches, the memblock flag becomes a part of DT-only
-> > infrastructure, so that claim that both ACPI and DT benefit from it does
-> > not hold, doesn't it?
-> 
-> You are right, the wording was misleading. Let me clarify what I meant.
-> 
-> In this series only DT marks regions as MEMBLOCK_NODUMP:
-> /reserved-memory and /memreserve/ entries are tagged in the OF
-> paths (of_reserved_mem.c, fdt.c). ACPI does not set the flag and
-> keeps filtering its reserved memory through the existing path, as
-> described above.
-> 
-> 
-> What I intended to convey is that the flag itself lives in memblock
-> rather than on the DT-only struct reserved_mem, so it is available
-> for reuse. If an ACPI system ever needed to exclude a firmware-owned
-> region from the vmcore, it could mark that region with MEMBLOCK_NODUMP
-> the same way DT does, instead of having to invent a parallel mechanism.
-> That is a future option, not something this series enables for ACPI
-> today.
-
-So, EFI uses NOMAP for the same purpose, right?
-Why when we need a new memblock flag then?
- 
-> Also will update these description in next verison.
-> 
-> Best regards,
-> Wandun
-
--- 
-Sincerely yours,
-Mike.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBPY3QgOSwgMjAyNiBhdCAzOjQ04oCvUE0gQW5kcmV3IEpvbmVzCjxhbmRyZXcuam9u
+ZXNAb3NzLnF1YWxjb21tLmNvbT4gd3JvdGU6Cj4KPiBIaSBBbnVwLAo+Cj4gT24gRnJpLCBPY3Qg
+MDksIDIwMjYgYXQgMDE6NDU6MjBQTSArMDIwMCwgQW51cCBQYXRlbCB3cm90ZToKPiA+IE9uIEZy
+aSwgU2VwIDI1LCAyMDI2IGF0IDU6NTHigK9QTSBBbmRyZXcgSm9uZXMKPiA+IDxhbmRyZXcuam9u
+ZXNAb3NzLnF1YWxjb21tLmNvbT4gd3JvdGU6Cj4gPiA+Cj4gPiA+IGt2bV9yaXNjdl92Y3B1X2Fp
+YV9pbXNpY19wdXQoKSBjYW4gcnVuIGZyb20gdGhlIHNjaGVkdWxlciBwcmVlbXB0aW9uCj4gPiA+
+IG5vdGlmaWVyIHdoaWxlIHRoZSByYXcgcnVucXVldWUgbG9jayBpcyBoZWxkLiBUYWtpbmcgdnNm
+aWxlX2xvY2ssIGFuCj4gPiA+IHJ3bG9ja190LCB0aGVyZSB2aW9sYXRlcyB0aGUgbG9ja2RlcCB3
+YWl0LWNvbnRleHQgcnVsZXMuCj4gPiA+Cj4gPiA+IFByb3RlY3QgdGhlIENQVS9IR0VJIHBhaXIg
+d2l0aCBhIHNlcGFyYXRlIHJhdyBzcGlubG9jay4gQWxsIHVwZGF0ZXMgdG8KPiA+ID4gdGhhdCBw
+YWlyIHJldGFpbiB2c2ZpbGVfbG9jayBhbmQgdGFrZSB0aGUgbmV3IGxvY2ssIHdoaWxlIHNjaGVk
+dWxlci1vdXQKPiA+ID4gdXNlcyBvbmx5IHRoZSBuZXcgbG9jayBhcm91bmQgdGhlIEhHRUlFIHVw
+ZGF0ZS4gVGhpcyBrZWVwcyB0aGUgd2FrZXVwCj4gPiA+IHNldHVwIHNlcmlhbGl6ZWQgd2l0aCBW
+Uy1maWxlIHB1YmxpY2F0aW9uIGFuZCByZWxlYXNlIHdpdGhvdXQgYnJpbmdpbmcKPiA+ID4gd2lk
+ZXIgSU1TSUMgb3BlcmF0aW9ucyBpbnRvIGEgcmF3IGNyaXRpY2FsIHNlY3Rpb24uCj4gPgo+ID4g
+SW5zdGVhZCBvZiBpbnRyb2R1Y2luZyBhbm90aGVyIGxvY2ssIHdoeSBub3QgcmVwbGFjZQo+ID4g
+cmVhZF9sb2NrX2lycXNhdmUoJmltc2ljLT52c2ZpbGVfbG9jaywgZmxhZ3MpIHdpdGgKPiA+IHdy
+aXRlX2xvY2tfaXJxc2F2ZSgmaW1zaWMtPnZzZmlsZV9sb2NrLCBmbGFncykgaW4KPiA+IGt2bV9y
+aXNjdl92Y3B1X2FpYV9pbXNpY19wdXQoKSA/Pwo+Cj4gVW5mb3J0dW5hdGVseSwgd3JpdGVfbG9j
+a19pcnFzYXZlKCkgaGFzIHRoZSBzYW1lIFBSRUVNUFRfUlQgaXNzdWUsIHNpbmNlCj4gcndsb2Nr
+X3QgaXMgc2xlZXBhYmxlIG9uIFJUIGluIGJvdGggbW9kZXMuCj4KCkkgYW0gbm90IGZvbmQgb2Yg
+bmVzdGVkIGxvY2tpbmcsIHdoeSBub3QgY29udmVydCB2c2ZpbGVfbG9jayBpbnRvIHJhdwpzcGlu
+bG9jayA/PwoKUmVnYXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
