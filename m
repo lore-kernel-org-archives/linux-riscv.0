@@ -4,57 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E424DCA6012
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 08:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10344CA6012
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 08:54:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Subject:Cc:To:From:Message-Id:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6nLCsfnf4+LliywrrFdH0i4MSzjzHnLwwTYxOinlB2k=; b=fqov09wxGZG16Y
-	6GuwiTrJ84yN5KSkUf/lljQ9dsf1diA5gcbAn/gY78rU1FLTc3K1nOgoYG0wdZgKqZov6SXaUSLdB
-	PJTHIV2yOyTxCPZmtI6vbIO9xNrxozZqNNO0cuN/ffIGmuVmtNfLCpc3neikdR83oAM4k62pzgXJj
-	spC/bBcAobydGkpHZvjVVGZHZ4oTgMddRoAabISD1oqRcILSOVNC1xAbnXO1+Cz64VzNHEA3r7C9/
-	Yua1nLYwcBGPRzDDHHi3l77eZEB+jQBMtKK11aO6EgG2k3RQAkkxi4NKPwHliYZ52o8yeuDM/s9F9
-	WapgipyBfva75aC0yJGw==;
+	List-Owner; bh=6w9Srl7UZru7GaKZ5K6gyZx0vJzzzSXXaqD0LxsrzV0=; b=2O38ELdWkVlV4Y
+	3LCgQdn0wJwtY8+4sJV72ku5WNXXDcHTEJQyEixqn75uXJmbNT807GxsJ4WdcMu2EzdleDWzsBHwL
+	B8HoXbBkzCFZLG6O/+hSipi0kNOQM1BEtXHIvBImwDE5Pn2wcnFGl1tZMYEREWI6dp4fcuaMgMQZT
+	0JyZoCIsvCa/q0REgh2d+HafKlFYpZB5n9YzKWTi17edeLqz+Py7Ez/EqfRo45POLy2vSM0LPH+Yp
+	8jvTHJfcGXaCcMBRh1iZ34aNr7lQdh1UxcbfESS5EJ2O4ydVyG7lpo0Te/ecJSjlkrhAIXja/FSxF
+	qdkryVd1/2ej+A2qJJ2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF6IC-00000005r9G-3Prq;
-	Fri, 09 Oct 2026 08:49:28 +0000
-Received: from mail.8bytes.org ([85.214.250.239])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF6I9-00000005r8x-2Tjr
-	for linux-riscv@lists.infradead.org;
-	Fri, 09 Oct 2026 08:49:27 +0000
-Received: from 8bytes.org (p200300f6af404a00448550d0471e54ea.dip0.t-ipconnect.de [IPv6:2003:f6:af40:4a00:4485:50d0:471e:54ea])
+	id 1xF6Mh-00000005rT4-1BeY;
+	Fri, 09 Oct 2026 08:54:07 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.35])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xF6Me-00000005rRu-2Mu3;
+	Fri, 09 Oct 2026 08:54:06 +0000
+Received: from mse-db.zte.com.cn (unknown [10.5.228.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id 0F1B41C77A4;
-	Fri,  9 Oct 2026 10:49:20 +0200 (CEST)
-Date: Fri, 9 Oct 2026 10:49:18 +0200
-From: =?utf-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>
-To: Zong Li <zong.li@sifive.com>
-Cc: tomasz.jeznach@linux.dev, will@kernel.org, robin.murphy@arm.com, 
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	mark.rutland@arm.com, andrew.jones@oss.qualcomm.com, guoren@kernel.org, 
-	david.laight.linux@gmail.com, zhangzhanpeng.jasper@bytedance.com, yang.yicong@picoheart.com, 
-	nutty.liu@hotmail.com, iommu@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	Chen Pei <cp0613@linux.alibaba.com>, Fangyu Yu <fangyu.yu@linux.alibaba.com>, 
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: Re: [PATCH v15 2/2] iommu/riscv: create a auxiliary device for HPM
-Message-ID: <asiqePAyXAWkaeMq@8bytes.org>
-References: <20261002063315.1535817-1-zong.li@sifive.com>
- <20261002063315.1535817-3-zong.li@sifive.com>
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4j1LJ540MDz8Xrr9;
+	Fri, 09 Oct 2026 16:53:57 +0800 (CST)
+Received: (from root@localhost)
+	by mse-db.zte.com.cn id 6998rsRH081065;
+	Fri, 9 Oct 2026 16:53:54 +0800 (+08)
+	(envelope-from gong.shuai@sanechips.com.cn)
+Message-Id: <202610090853.6998rsRH081065@mse-db.zte.com.cn>
+Received: from szxlzmapp02.zte.com.cn ([10.5.231.79])
+	by mse-fl2.zte.com.cn with SMTP id 6998oxoV057114;
+	Fri, 9 Oct 2026 16:50:59 +0800 (+08)
+	(envelope-from gong.shuai@sanechips.com.cn)
+Received: from localhost.localdomain (unknown [10.230.214.35])
+	by smtp (Zmail) with SMTP;
+	Fri, 9 Oct 2026 16:51:02 +0800
+X-Zmail-TransId: 3e816ac8aacf022-c0e61
+X-Zmail-LocalSMTP: 1
+X-Zmail-RealSender: gong.shuai@sanechips.com.cn
+From: Gong Shuai <gong.shuai@sanechips.com.cn>
+To: fangyu.yu@linux.alibaba.com
+Cc: alex@ghiti.fr, andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu,
+        guoren@kernel.org, iommu@lists.linux.dev, jgg@nvidia.com, jgg@ziepe.ca,
+        joro@8bytes.org, jroedel@suse.de, kvm-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+        palmer@dabbelt.com, pjw@kernel.org, robin.murphy@arm.com,
+        tomasz.jeznach@linux.dev, will@kernel.org, zong.li@sifive.com,
+        gong.shuai@sanechips.com.cn, gsh517025@gmail.com
+Subject: Re: [RFC PATCH 1/3] iommu/riscv: Add guest IMSIC GPA mapping helpers
+Date: Fri,  9 Oct 2026 16:50:23 +0800
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261008140001.94508-2-fangyu.yu@linux.alibaba.com>
+References: <20261008140001.94508-2-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261002063315.1535817-3-zong.li@sifive.com>
+X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
+X-MAIL: mse-db.zte.com.cn 6998rsRH081065
+X-MSS: AUDITRELEASE@mse-db.zte.com.cn
+X-TLS: YES
+X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
+X-SOURCE-IP: 10.5.228.131 unknown Fri, 09 Oct 2026 16:53:57 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6AC8ABA5.000/4j1LJ540MDz8Xrr9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_014925_799703_DAB74E04 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261009_015404_913515_23F8367E 
+X-CRM114-Status: GOOD (  24.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,25 +90,221 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 11:33:12PM -0700, Zong Li wrote:
-> Create an auxiliary device for HPM when the IOMMU supports a
-> hardware performance monitor.
+Hi Fangyu,
+
+> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 > 
-> Tested-by: Chen Pei <cp0613@linux.alibaba.com>
-> Tested-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
-> Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
-> Reviewed-by: Guo Ren <guoren@kernel.org>
-> Reviewed-by: Yicong Yang <yang.yicong@picoheart.com>
-> Suggested-by: Samuel Holland <samuel.holland@sifive.com>
-> Signed-off-by: Zong Li <zong.li@sifive.com>
+> IOMMU implementations without the MSI_FLAT capability translate MSI
+> writes through the second-stage page table, so IRQ forwarding on them
+> will need guest IMSIC pages mapped into the second-stage domain.
+> 
+> Add an xarray to the MSI table that tracks the HPA installed for each
+> mapped guest IMSIC GPA, and two helpers for use with the MSI table lock
+> held: riscv_iommu_msi_table_map_gpa() installs the initial 4 KiB
+> mapping, and riscv_iommu_msi_table_replace_gpa_leaf() atomically swaps
+> the leaf PTE's PFN when a vCPU's VS-file host page moves, rejecting
+> leaves that do not map the expected old HPA.
+> 
+> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 > ---
->  drivers/iommu/riscv/Kconfig |  1 +
->  drivers/iommu/riscv/iommu.c | 58 +++++++++++++++++++++++++++++++++++++
->  drivers/iommu/riscv/iommu.h |  4 +++
->  3 files changed, 63 insertions(+)
+>  drivers/iommu/riscv/iommu.c | 94 +++++++++++++++++++++++++++++++++++++
+>  drivers/iommu/riscv/iommu.h | 12 +++++
+>  2 files changed, 106 insertions(+)
+> 
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index e2e77469ea3c..48fc57d6409c 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -24,6 +24,7 @@
+>  #include <linux/moduleparam.h>
+>  #include <linux/mutex.h>
+>  #include <linux/pci.h>
+> +#include <linux/pgtable.h>
+>  #include <linux/generic_pt/iommu.h>
+>  
+>  #include "../dma-iommu.h"
+> @@ -1217,6 +1218,92 @@ void riscv_iommu_msi_table_inval_all(struct riscv_iommu_msi_table *msi_table)
+>  	riscv_iommu_iotlb_inval(domain, &gather);
+>  }
+>  
+> +int riscv_iommu_msi_table_map_gpa(struct riscv_iommu_msi_table *msi_table,
+> +				  dma_addr_t gpa, phys_addr_t hpa)
+> +{
+> +	struct riscv_iommu_domain *domain =
+> +		container_of(msi_table, struct riscv_iommu_domain, msi_table);
+> +	const int prot = IOMMU_WRITE | IOMMU_NOEXEC | IOMMU_MMIO;
+> +
+> +	/* Guest IMSIC GPA mapping only exists in second-stage translations. */
+> +	if (!domain->gscid)
+> +		return -EOPNOTSUPP;
+> +
+> +	return iommu_map(&domain->domain, gpa, hpa, IMSIC_MMIO_PAGE_SZ, prot,
+> +			 GFP_ATOMIC);
+> +}
+> +
+> +int riscv_iommu_msi_table_replace_gpa_leaf(struct riscv_iommu_msi_table *msi_table,
+> +					   dma_addr_t gpa, phys_addr_t old_hpa,
+> +					   phys_addr_t new_hpa)
 
-Acked-by: Joerg Roedel <joerg.roedel@amd.com>
 
+This might fit better inside generic_pt rather than in the driver,
+since it walks the page tables on its own and duplicates things
+the library already owns, like the per-level index widths, the
+x4 root size, and the PTE layout.
+
+I recently tried something very similar, and doing this inside
+generic_pt turned out to be quite feasible (only a quick experiment,
+not cleaned up for posting).
+
+Thanks,
+Shuai
+
+
+> +{
+> +	struct riscv_iommu_domain *domain =
+> +		container_of(msi_table, struct riscv_iommu_domain, msi_table);
+> +	struct pt_iommu_riscv_64_hw_info pt_info;
+> +	u64 *root, *table, *ptep;
+> +	u64 old, new;
+> +	int top_level, level;
+> +
+> +	if (!IS_ALIGNED(gpa | old_hpa | new_hpa, PAGE_SIZE))
+> +		return -EINVAL;
+> +	if (!domain->gscid)
+> +		return -EOPNOTSUPP;
+> +
+> +	pt_iommu_riscv_64_hw_info(&domain->riscvpt, &pt_info);
+> +	switch (pt_info.iohgatp_mode) {
+> +	case RISCV_IOMMU_DC_IOHGATP_MODE_SV39X4:
+> +		top_level = 2;
+> +		break;
+> +	case RISCV_IOMMU_DC_IOHGATP_MODE_SV48X4:
+> +		top_level = 3;
+> +		break;
+> +	case RISCV_IOMMU_DC_IOHGATP_MODE_SV57X4:
+> +		top_level = 4;
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +
+> +	root = phys_to_virt(pt_info.ppn << PAGE_SHIFT);
+> +	for (;;) {
+> +		table = root;
+> +		for (level = top_level; level >= 0; level--) {
+> +			unsigned int shift = PAGE_SHIFT + level * 9;
+> +			unsigned int index = gpa >> shift;
+> +
+> +			if (level == top_level)
+> +				index &= GENMASK(10, 0);
+> +			else
+> +				index &= GENMASK(8, 0);
+> +			ptep = &table[index];
+> +			old = READ_ONCE(*ptep);
+> +
+> +			if (level) {
+> +				/* A valid non-leaf PTE has R/W/X clear. */
+> +				if ((old & (_PAGE_PRESENT | _PAGE_LEAF)) !=
+> +				    _PAGE_PRESENT)
+> +					return -EADDRINUSE;
+> +				table = phys_to_virt(FIELD_GET(_PAGE_PFN_MASK,
+> +							       old) << PAGE_SHIFT);
+> +				continue;
+> +			}
+> +
+> +			/* Replace only the L0 leaf previously installed for this GPA. */
+> +			if (!(old & _PAGE_PRESENT) || !(old & _PAGE_LEAF) ||
+> +			    FIELD_GET(_PAGE_PFN_MASK, old) !=
+> +			    old_hpa >> PAGE_SHIFT)
+> +				return -EADDRINUSE;
+> +
+> +			new = (old & ~_PAGE_PFN_MASK) |
+> +			      FIELD_PREP(_PAGE_PFN_MASK,
+> +					 new_hpa >> PAGE_SHIFT);
+> +			if (cmpxchg64(ptep, old, new) == old)
+> +				return 0;
+> +			break;
+> +		}
+> +	}
+> +}
+> +
+>  #define RISCV_IOMMU_FSC_BARE 0
+>  /*
+>   * This function sends IOTINVAL commands as required by the RISC-V
+> @@ -1425,6 +1512,8 @@ static void riscv_iommu_iotlb_sync(struct iommu_domain *iommu_domain,
+>  static void riscv_iommu_free_paging_domain(struct iommu_domain *iommu_domain)
+>  {
+>  	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
+> +	struct riscv_iommu_noflat_imsic *imsic;
+> +	unsigned long index;
+>  
+>  	WARN_ON(!list_empty(&domain->bonds));
+>  
+> @@ -1435,6 +1524,10 @@ static void riscv_iommu_free_paging_domain(struct iommu_domain *iommu_domain)
+>  	if (domain->gscid > 0)
+>  		ida_free(&riscv_iommu_gscids, domain->gscid);
+>  
+> +	xa_for_each(&domain->msi_table.noflat_imsics, index, imsic)
+> +		kfree(imsic);
+> +	xa_destroy(&domain->msi_table.noflat_imsics);
+> +
+>  	pt_iommu_deinit(&domain->riscvpt.iommu);
+>  	iommu_free_pages(domain->msi_table.root);
+>  	kfree(domain);
+> @@ -1676,6 +1769,7 @@ riscv_iommu_domain_alloc_paging_flags(struct device *dev, u32 flags,
+>  	INIT_LIST_HEAD_RCU(&domain->bonds);
+>  	raw_spin_lock_init(&domain->lock);
+>  	raw_spin_lock_init(&domain->msi_table.lock);
+> +	xa_init(&domain->msi_table.noflat_imsics);
+>  	mutex_init(&domain->mutex);
+>  	iommu = dev_to_iommu(dev);
+>  	cfg.common.hw_max_oasz_lg2 = 56;
+> diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
+> index 9852962e245b..53a368fbbdf2 100644
+> --- a/drivers/iommu/riscv/iommu.h
+> +++ b/drivers/iommu/riscv/iommu.h
+> @@ -18,6 +18,7 @@
+>  #include <linux/irqdomain.h>
+>  #include <linux/rcupdate.h>
+>  #include <linux/sizes.h>
+> +#include <linux/xarray.h>
+>  
+>  #include "iommu-bits.h"
+>  
+> @@ -74,6 +75,11 @@ struct riscv_iommu_device {
+>  	struct irq_domain *irqdomain;
+>  };
+>  
+> +/* Tracks a guest IMSIC GPA mapped into an S2 domain on IOMMUs without MSI_FLAT. */
+> +struct riscv_iommu_noflat_imsic {
+> +	phys_addr_t hpa;
+> +};
+> +
+>  struct riscv_iommu_msi_table {
+>  	/* Protects attachment, interrupt forwarding state, and MSI PTE updates. */
+>  	raw_spinlock_t lock;
+> @@ -84,6 +90,7 @@ struct riscv_iommu_msi_table {
+>  	u64 msi_addr_pattern;
+>  	const void *owner;
+>  	u64 required_caps; /* RISCV_IOMMU_CAPABILITIES_* required by active MSI PTEs */
+> +	struct xarray noflat_imsics;
+>  };
+>  
+>  /* Private IOMMU data for managed devices, dev_iommu_priv_* */
+> @@ -109,6 +116,11 @@ bool riscv_iommu_msi_table_check_caps(struct riscv_iommu_msi_table *msi_table, u
+>  void riscv_iommu_msi_table_inval(struct riscv_iommu_msi_table *msi_table, unsigned long addr);
+>  void riscv_iommu_msi_table_inval_all(struct riscv_iommu_msi_table *msi_table);
+>  void riscv_iommu_msi_table_update(struct riscv_iommu_msi_table *msi_table, bool activate);
+> +int riscv_iommu_msi_table_map_gpa(struct riscv_iommu_msi_table *msi_table,
+> +				  dma_addr_t gpa, phys_addr_t hpa);
+> +int riscv_iommu_msi_table_replace_gpa_leaf(struct riscv_iommu_msi_table *msi_table,
+> +					   dma_addr_t gpa, phys_addr_t old_hpa,
+> +					   phys_addr_t new_hpa);
+>  
+>  #ifdef CONFIG_RISCV_IMSIC
+>  void riscv_iommu_ir_irq_domain_remove(struct riscv_iommu_device *iommu);
+> -- 
+> 2.50.1
 
 _______________________________________________
 linux-riscv mailing list
