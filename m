@@ -4,119 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95C6BCC6B39
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 15:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85BFFCC6B39
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 16:06:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zsyd+sxKFKLVt2G98CWuqZW8LU4cqk2dGVcM88JATQ4=; b=XMbHtS5q0n6ZZB
-	bjlr+HKtD4ipIy7ewLB8W5RLFO5GmUjG3On+BzhWXkz+kUHJCVemieqbu+cMwujbI4fQrFbPWpPBC
-	dug3B6+73VoQKrHibyKAwjj/sAG4e1+Cpp3vSrYuGNZIom1LLHSxrMSkg0MvOgixpz+QXby0HwMmA
-	P10HDKAP61E71L4xday4DIjg90rWqxfD6M/nvxvtJtYiYv+k2ezQD9DAgBuwBcJkk+jOJbjhav7Md
-	SgoB0ILGoy3D4j0Aw4LbzzHfZRGl3Rd+KrLij/QZftjFATPdIo8ewNzVUhboK7rymvdQWbT2wBQVQ
-	ojVGOuIxtdiE8gcYWfeA==;
+	List-Owner; bh=WV1WvIQsr9by6SsAFS1jwXnHkz5840O35BapBtfN0uM=; b=EvT096Ovu/ijRQ
+	WANuywnfPl4qLxjHkaZXYEzOxeSGQVGo05fNPNCU86GMA63Q6tumVGmN577yr5gvAZmk8mXBTi04l
+	2ClPi9ksUYXS44LCgcbR+4TRR2CRy9uPSoVhuNiJT7T1DtRloMHhLV8Lc5djXQvWuZH9ZrrF19sZZ
+	7hnt5pRrLJnVPtk/ey3jpyEHUSAhQ6U72MUChMrJfmkROhVOilb0J6X1rHxHDs4cM/D6gsUg7psgp
+	QXWqjVVimnvjnTgeWtDkM3O/pv6gmB0mw3b3Z79aHjgT/JusocS0ckg0ZTcqoG54wMQB+39b1O2x8
+	XLA9Vb3+hbzh+sbT1Q8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHNbc-00000000b9O-30UW;
-	Thu, 15 Oct 2026 15:42:57 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1xHNyR-00000000f1C-2sxK;
+	Thu, 15 Oct 2026 16:06:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHNbW-00000000b7l-11vz
-	for linux-riscv@lists.infradead.org;
-	Thu, 15 Oct 2026 15:42:51 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4a16af2a232so43164605e9.1
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Oct 2026 08:42:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1792078967; x=1792683767; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8EVUVXTF9B/pmjVEVo0zfJaBGiZoNVg7V5lse2RyO7M=;
-        b=cQMvStURwczQ4qNDDBqWh+tKfrY89kGtdx/TRjv7R3kNvC3QlzYY2lyQGxjlMlZwut
-         ZbWLIZ4DAf2JzJyActRsHtnj+M0E3CLQ15WWJlwTDNR3TQ6Fs9uGEkD/V2bwqQXGtX/H
-         nPG12wv3oFpBrrVlCnX35Qhk7tjRYEmY9SVzQLPJn3+8miI72KuJBfydSBPAye29WU7A
-         XYAVb69jaEXSErNI2yqHhAibq/kCN9wwPk52jY8QEt6aoeU+05m2RK6c51xszVbW959O
-         0dW8FU5ozFkGsFk1f3tYKoK4ByZjYAMeWXH6Jn/pERbTjGpy+F565rsq49DldxcUAQ0R
-         aYpA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792078967; x=1792683767;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8EVUVXTF9B/pmjVEVo0zfJaBGiZoNVg7V5lse2RyO7M=;
-        b=m20pHl1lOWbw0dvrknBqUOnnsv3/HKvYcTLTqYak1Hv+HugwI8rRJEPkXUblYXAioh
-         jcnVmBkI5TKUUs+buMNrkZl1u2v/j9PcLWZz0CyVrW4+q1pkWmTpZr2ttFqFl9HTTWSf
-         SP9WNuvRV5VTZDUmdGAqIMRr3ODCvzxSBsbmm5S38H789wZFax+vym5WQlYvVY0OpqoW
-         Klkm/4u4/lmT+WVKyHjoUcEfTQwL+MCu3a07muhd3/dm5D8tGGeAPPqoJSlIzpp3vDVt
-         Dk1EQQOqVTnJz4QC8zvD8Afx8BowTeJlcle2dUf9hJdLu0iM/gVmwlXqz9H3Pt4lji5q
-         RQDQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwlRzGTh7gizpp35/vfmrfi77CbTdjQXUasBD/NCpmYmRIIk33ePdAVX665V69X4V/jdo0ymFzqGVVH6g==@lists.infradead.org
-X-Gm-Message-State: AFq9FYK8vYtOum47Yp/0I7KfJ1eAk7Ktx/SRnSGBmgmfFt9XqGWMrCJg
-	oj9Ew0EoOVhVRavLQ7H4gD0dbqHQZsHk6zkkf9fQLN1+NhRJ27uwRGJZT4bsdxnp8Sw=
-X-Gm-Gg: AYBFou3N0sJdvKHYCr7vFlq3a28U18NpVDZLgW90Krbv8A4zAmqg0Zj6EBBFkUcprXx
-	sFTsGRoXSYtsPiFYDp03Q6VI5NGufCWrPUkFWUs0scaDPNip15jQoVqqodvglBIZBuJTaIyVapS
-	fLbqW7YwvBG8DlksMiOaRY69rOTtmZk88B9EsFXV984z3eWPctByuDrHbEnBeZ3ZqS6j5Lv7sXG
-	ySO4hqx+cD1dPH0yYssvY1Bvfdb96lygFPSTmbVzVCF490FROlA0QwfvoIzj+DA/4o9bYBmeKli
-	9PyWj/3ON7hvdKf4AoFxVfxngVPtChkLQXhqsUEfrYJ6UMGq7023XfXrqo6HT6UdNlxlKKu0Kg6
-	bMD5FPOtCrTFXp3U7EUBIATo/nRkND51t6ZtVdgCogWqCpzonIitwGKKQS2gtRIQ6o/SSqfcwwg
-	qNuSQFpK++g/JidhLmWPd2y5A2jNaTYjWW06nv/vLBTUjX4hw7xjOARemiawjQzi13xoleVhMgs
-	jwVOT5kuC/XV/L9kF/CPMuFm3BQsb/x1JB91pRihKmdMA==
-X-Received: by 2002:a05:600c:8b82:b0:49f:fd2d:23c7 with SMTP id 5b1f17b1804b1-4a18e4b887amr354993855e9.27.1792078967287;
-        Thu, 15 Oct 2026 08:42:47 -0700 (PDT)
-Received: from ?IPV6:2a07:de40:8100:0:89a9:fd0e:583d:4a53? ([2001:af0:8000:1409:193:86:92:181])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1bd66c5e6sm52172585e9.2.2026.10.15.08.42.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 15 Oct 2026 08:42:46 -0700 (PDT)
-Message-ID: <d17b00f9-2a6c-425f-9697-6bc8f31f7a7a@suse.com>
-Date: Thu, 15 Oct 2026 17:42:45 +0200
+	id 1xFEy8-00000006rBE-0Yzk;
+	Fri, 09 Oct 2026 18:05:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2DD416020C;
+	Fri,  9 Oct 2026 18:05:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31C551F00899;
+	Fri,  9 Oct 2026 18:04:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791569118;
+	bh=XQQXLmuz/mYy2m0DRCE2BDh2jZAsmGDyji4q3SA7eeo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=Oufl86fbt2wAMOG9DEe6vQCDdDu6UCXD/ZnvQm2HoFPixcMuVu2mgzOhW2AXaKo3Z
+	 W+Tz8tkgEWviZ36e6rwJ3g1a/QEsIfYKlFhsGkSDhjcZPAyFDkhBazezZ1QJmaebEi
+	 2CM5qZyGRLv6Mlm7RTjrmk34GEg+40aTZmy00x3a45OU93Xjb9EPoD9ccZ02su4J22
+	 1t6y1WkTpRnppUH/Foi5HDpc3eifDZFtEYGTi4pHIU/2rwzIg0tQfngRO+jQdS2Ov8
+	 9ae/7Av09LDM8kKNft9z7VKP6Hn3enauekx/NqwpAylOu1kDGBKgDSwkokTVvz8gFK
+	 WwJ/QZtcmbHPw==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Fri, 09 Oct 2026 19:03:56 +0100
+Subject: [PATCH v5 02/38] mm/vma: introduce and use vma_[flags_]can_merge()
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 13/22] modpost: cache section relocation mismatch state
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
- Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
- <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Masahiro Yamada <masahiroy@kernel.org>, Alexey Gladkov <legion@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Ard Biesheuvel <ardb@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Josh Poimboeuf <jpoimboe@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot
- <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>,
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
- linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
- linux-hardening@vger.kernel.org
-References: <20260923-build-speedup-v4-0-73128809a4a4@kernel.org>
- <20260923-build-speedup-v4-13-73128809a4a4@kernel.org>
-Content-Language: en-US
-From: Petr Pavlu <petr.pavlu@suse.com>
-In-Reply-To: <20260923-build-speedup-v4-13-73128809a4a4@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_084250_328959_5E3E8571 
-X-CRM114-Status: GOOD (  32.41  )
+Message-Id: <20261009-b4-mmap-prepare-vma-flag-sanify-v5-2-923b70125b1e@kernel.org>
+References: <20261009-b4-mmap-prepare-vma-flag-sanify-v5-0-923b70125b1e@kernel.org>
+In-Reply-To: <20261009-b4-mmap-prepare-vma-flag-sanify-v5-0-923b70125b1e@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-usb@vger.kernel.org, 
+ linux-rdma@vger.kernel.org, selinux@vger.kernel.org, 
+ linux-sound@vger.kernel.org, bpf@vger.kernel.org, 
+ linux-scsi@vger.kernel.org, linux-fbdev@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-trace-kernel@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, linux-arch@vger.kernel.org, 
+ linux-fsdevel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, 
+ fuse-devel@lists.linux.dev, Ihor Solodrai <ihor.solodrai@linux.dev>, 
+ Bert Karwatzki <spasswolf@web.de>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3865; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=EYqw+AtDKpEde3pCckMQkm9HGGlkplYL0cvv0S5EwV8=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJO6sxYqncsy6E/QYnnXbSNt/KVF3vV3OdnbD4W3awaF
+ md8Miqyo5SFQYyLQVZMkeX5F/H9QSJh8zov+LvBzGFlAhnCwMUpABNJX8Lwv1rMyX/X/pmLa3kq
+ fPdsfFrlN5Fpbln4sxLn8ydTXRjbShj+ZyS8Ob7Lbk22Ybn8+Ud7BR5nS8wtmDlh+a9T5zZrBqd
+ u4gQA
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+X-Mailman-Approved-At: Thu, 15 Oct 2026 09:06:19 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,141 +88,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/23/26 7:18 PM, Lorenzo Stoakes (ARM) wrote:
-> For every relocation modpost invokes check_section_mismatch() to determine
-> whether there is any kind of mismatch between the source and destination,
-> and if so which classification applies.
-> 
-> Each time it does this it invokes section_mismatch() which iterates
-> through the sectioncheck[] array every time it's called.
-> 
-> When walked a relocation section the source is fixed and there aren't many
-> targets, so the same names are looked up over and over again.
-> 
-> Therefore cache not only mismatch categorisation but also whether a
-> mismatch even exists for a given section and look up the sections in the
-> cache.
-> 
-> Special indices (undefined, absolute, common) take the uncached path as
-> before.
-> 
-> This results in very significant speed ups for allmodconfig incremental
-> builds.
-> 
-> modpost is on the serial tail of every build that links vmlinux.
-> 
-> Whole build, 128-thread Threadripper 9980X, best of N runs:
-> 
->                                          before   after     delta
->                                          -------------------------------
->   x86 defconfig, touch mm/vma.c, gcc        8.5s     8.3s    -0.14s (-2%)
->   x86 defconfig, touch mm/vma.c, clang      7.7s     7.6s    -0.13s (-2%)
->   x86 allmodconfig, touch mm/vma.c, gcc    33.9s    29.4s     -4.5s (-13%)
->   x86 allmodconfig, touch mm/vma.c, clang  31.9s    27.9s     -4.0s (-13%)
-> 
-> Assisted-by: LLM
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Replace the open-coded VMA_SPECIAL_FLAGS check in the VMA merge logic with
+two new functions vma_flags_can_merge() and vma_can_merge() and update the
+merge logic to use the former.
 
-This looks mostly ok to me. Below are some nits you might want to
-consider addressing.
+This abstracts the check and expresses it in terms of the desired behaviour
+rather than an arbitrary and confusing VMA flag.
 
-> ---
->  scripts/mod/modpost.c | 66 +++++++++++++++++++++++++++++++++++++++++++++++++--
->  1 file changed, 64 insertions(+), 2 deletions(-)
-> 
-> diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
-> index 75374c64b8cc..0fd43c8a89ea 100644
-> --- a/scripts/mod/modpost.c
-> +++ b/scripts/mod/modpost.c
-> @@ -1155,12 +1155,67 @@ static void check_export_symbol(struct module *mod, struct elf_info *elf,
->  			 name);
->  }
->  
-> +/*
-> + * mismatch_cache[section index] ->
-> + *   0 - uncached.
-> + *  -1 - no mismatch.
-> + *  >0 - mismatch index + 1.
-> + */
-> +static int *mismatch_cache;
+This also lays the groundwork for making further improvements in VMA flag
+usage.
 
-It might be cleaner to maintain this cache per elf_info, since it
-logically belongs to the processing of an individual ELF file. This
-would also be consistent with the existing symsearch cache, which uses
-elf::symsearch.
+Also update the userland VMA tests to reflect the change.
 
-The description could use 'to_secndx' instead of 'section index' to
-clarify whether it refers to the source or destination section of
-a relocation.
+No functional change intended.
 
-> +
-> +static void init_mismatch_cache(unsigned int num_sections)
-> +{
-> +	mismatch_cache = xcalloc(num_sections, sizeof(*mismatch_cache));
-> +}
-> +
-> +static void reset_mismatch_cache(unsigned int num_sections)
-> +{
-> +	memset(mismatch_cache, 0, num_sections * sizeof(*mismatch_cache));
-> +}
-> +
-> +static void free_mismatch_cache(void)
-> +{
-> +	free(mismatch_cache);
-> +	mismatch_cache = NULL;
-> +}
-> +
-> +static const struct sectioncheck
-> +*cache_mismatch(unsigned int secndx, const struct sectioncheck *mismatch)
+Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
+Reviewed-by: Zi Yan <ziy@nvidia.com>
+Reviewed-by: Suren Baghdasaryan <surenb@google.com>
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+---
+ include/linux/mm.h              | 21 +++++++++++++++++++++
+ mm/vma.c                        | 19 +++++++++++--------
+ tools/testing/vma/include/dup.h |  5 +++++
+ 3 files changed, 37 insertions(+), 8 deletions(-)
 
-Similarly here, s/secndx/to_secndx/.
-
-> +{
-> +	if (!mismatch) {
-> +		mismatch_cache[secndx] = -1;
-> +		return NULL;
-> +	}
-> +
-> +	mismatch_cache[secndx] = (mismatch - sectioncheck) + 1;
-> +	return mismatch;
-> +}
-> +
-> +static const struct sectioncheck *get_section_mismatch(const char *fromsec,
-> +		const struct elf_info *elf, unsigned int secndx)
-
-s/secndx/to_secndx/, and the fromsec and elf arguments could be swapped
-for consistency with the rest of the code.
-
-> +{
-> +	int cached;
-> +
-> +	if (secndx >= elf->num_sections)
-> +		return section_mismatch(fromsec, sec_name(elf, secndx));
-> +
-> +	cached = mismatch_cache[secndx];
-> +	if (cached < 0)
-> +		return NULL;
-> +	if (cached > 0)
-> +		return &sectioncheck[cached - 1];
-> +
-> +	return cache_mismatch(secndx,
-> +			      section_mismatch(fromsec, sec_name(elf, secndx)));
-> +}
-> +
->  static void check_section_mismatch(struct module *mod, struct elf_info *elf,
->  				   Elf_Sym *sym,
->  				   unsigned int fsecndx, const char *fromsec,
->  				   Elf_Addr faddr, Elf_Addr taddr)
->  {
-> -	const char *tosec = sec_name(elf, get_secindex(elf, sym));
-> +	const unsigned int to_secndx = get_secindex(elf, sym);
-
-The const qualifier can be dropped from the to_secndx definition to
-match the usual kernel style.
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 969594074fd2..68250ece4219 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -1612,6 +1612,27 @@ static inline bool vma_is_shared_maywrite(const struct vm_area_struct *vma)
+ 	return is_shared_maywrite(&vma->flags);
+ }
+ 
++/**
++ * vma_flags_can_merge() - Do the specified VMA flags permit the VMA to be
++ * merged with another?
++ * @flags: The VMA flags to test.
++ * Returns: true if the flags permit merging, false otherwise.
++ */
++static inline bool vma_flags_can_merge(const vma_flags_t *flags)
++{
++	return !vma_flags_test_any_mask(flags, VMA_SPECIAL_FLAGS);
++}
++
++/**
++ * vma_can_merge() - Do @vma's flags permit it to be merged with another VMA?
++ * @vma: The VMA to test.
++ * Returns: true if the flags permit merging, otherwise false.
++ */
++static inline bool vma_can_merge(const struct vm_area_struct *vma)
++{
++	return vma_flags_can_merge(&vma->flags);
++}
++
+ /**
+  * vma_kernel_pagesize - Default page size granularity for this VMA.
+  * @vma: The user mapping.
+diff --git a/mm/vma.c b/mm/vma.c
+index c27aea6d58d9..8f8c554d5c07 100644
+--- a/mm/vma.c
++++ b/mm/vma.c
+@@ -924,13 +924,14 @@ static __must_check struct vm_area_struct *vma_merge_existing_range(
+ 
+ 	vmg->state = VMA_MERGE_NOMERGE;
+ 
++	if (!vma_flags_can_merge(&vmg->vma_flags))
++		return NULL;
+ 	/*
+-	 * If a special mapping or if the range being modified is neither at the
+-	 * furthermost left or right side of the VMA, then we have no chance of
+-	 * merging and should abort.
++	 * If the range being modified is neither at the furthermost left or
++	 * right side of the VMA, then we have no chance of merging and should
++	 * abort.
+ 	 */
+-	if (vma_flags_test_any_mask(&vmg->vma_flags, VMA_SPECIAL_FLAGS) ||
+-	    (!left_side && !right_side))
++	if (!left_side && !right_side)
+ 		return NULL;
+ 
+ 	if (left_side)
+@@ -1152,9 +1153,11 @@ struct vm_area_struct *vma_merge_new_range(struct vma_merge_struct *vmg)
+ 
+ 	vmg->state = VMA_MERGE_NOMERGE;
+ 
+-	/* Special VMAs are unmergeable, also if no prev/next. */
+-	if (vma_flags_test_any_mask(&vmg->vma_flags, VMA_SPECIAL_FLAGS) ||
+-	    (!prev && !next))
++	if (!vma_flags_can_merge(&vmg->vma_flags))
++		return NULL;
++
++	/* VMAs with no prev/next are unmergeable. */
++	if (!prev && !next)
+ 		return NULL;
+ 
+ 	can_merge_left = can_vma_merge_left(vmg);
+diff --git a/tools/testing/vma/include/dup.h b/tools/testing/vma/include/dup.h
+index 16c09dac59d9..2fd422789717 100644
+--- a/tools/testing/vma/include/dup.h
++++ b/tools/testing/vma/include/dup.h
+@@ -1647,3 +1647,8 @@ static inline bool file_is_dev_zero(const struct file *file)
+ {
+ 	return file && file->f_op == &zero_fops;
+ }
++
++static inline bool vma_flags_can_merge(const vma_flags_t *flags)
++{
++	return !vma_flags_test_any_mask(flags, VMA_SPECIAL_FLAGS);
++}
 
 -- 
-Thanks,
-Petr
+2.55.0
+
 
 _______________________________________________
 linux-riscv mailing list
