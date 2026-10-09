@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F8DCA6015
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 03:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80437CA6018
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 03:27:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4zQBtxSydMxD0aYfwklNmYRMaEN/sazKago4Nve0/4Q=; b=HoYBmVMKTzBqJf
-	lXe0DXzlK1AvpF7i3R42SfvMEUDQHtNCHXbHdghYH92BqIjtgi5jGpLh1W20DWmDD8kJiA20+mZfl
-	yXT9Wa3yv1Jt5irJzbz7UhRge/wOP7swvu9X45npIjgIAiWOVKCBC5pnXUhWnxP85uTckWvI+pSPw
-	As9e954dU3t2aPhKpKc6CnZbVcfeuFBsT1FT0c0WUpuisQBjcJztY17GyZiK1Jy0Dr8Ku+w3FwgYY
-	rOpUtCfH+Oytqt75PtSA2uikzFLZWeeoRvxZw1NxA+70N+8n2LrCtCRdnZ2m3UZWIVCOFrUHjtMUn
-	trkLgM+aUqP4Ye3tDqcg==;
+	List-Owner; bh=k/nCF2Smse/azDHlvZGr2AMuR2XcUNveJMDDFfCus4I=; b=eC6+nsZZpsnhWk
+	wYXZq0WQFz/wlAKTxcigmH1jpqwVVBCElZDc/SmiZHf1+cnlkIjYMcQdQzrsoMD5bU+32FwJW/IMI
+	YgE208h7qbCfGqzMsvkP5H35DAJ+jk8QYSaRaLjcalB51akJl9jf/Wgqyf7v7fPVyX91qM/8l+0hA
+	204KFeEQwixfVShvoKYPoZqcSpC9HAGvcdIPzWssckZO8QVEnQybuAkuqqoQG/lcUe6XlnlppGAu4
+	h5ZR7213H4Ca+QGZ1i0R6afBD2trGMWCLVdjn4LgGRWZvDJQ93yFsLjBVF0/GJTUFCJrJrfwJd446
+	HAR/dOCxGq7jLZyFW+Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF1Gc-00000005Mfa-1QqZ;
-	Fri, 09 Oct 2026 03:27:30 +0000
-Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
+	id 1xF1Gg-00000005Mhf-2kIT;
+	Fri, 09 Oct 2026 03:27:34 +0000
+Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF1GY-00000005MdV-1qoS;
-	Fri, 09 Oct 2026 03:27:28 +0000
+	id 1xF1Gb-00000005MeD-1CzP;
+	Fri, 09 Oct 2026 03:27:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1791516443; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=dyCekRw9sufTyDzZAdbNFK7/Qt5VQKyaiRdhuHgwJrU=;
-	b=U+WbzG6jgZoMteiC/ffr8/lAYnEVYKsB8Ct7Yb4kUZzzf8keytj0VBGBU+GHIK1Sgdjnl5tzS5j2oOJLG3qzJ/rAbaarOfnGkTPgpfItLR9UR0APO8tfqVd6j1qAwMG9NrTPQZdr1ctcyw1USU0LEXzMGHJ9LVDHWFOOXtEPo38=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R581e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=23;SR=0;TI=SMTPD_---0XCS-sKT_1791516441;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XCS-sKT_1791516441 cluster:ay36)
+	t=1791516446; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=5yHX7TM9fLxZS6eG0EC3z+89LNYfj0REHh1L/xbrn9U=;
+	b=NIrgbHCwkheJd3fZPEX2HTm2qwApWnx6A+AMHGo7zlsWd7TCPRwb5tPk8I+2lfIXgsoFs8UJopt2erS/8lKm2tA1FIgKCvr5un101DKB6CIZ66imIJmjJVoPiOgGB9SlrUi1BQb060Ip+Z1nMfIOt93C6Ihc7UJ6tiR/GbgSFjw=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0XCS-sL3_1791516442;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XCS-sL3_1791516442 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Fri, 09 Oct 2026 11:27:22 +0800
+          Fri, 09 Oct 2026 11:27:23 +0800
 From: Chen Pei <cp0613@linux.alibaba.com>
 To: acme@kernel.org,
 	peterz@infradead.org,
@@ -58,17 +58,18 @@ Cc: mark.rutland@arm.com,
 	linux-perf-users@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 1/2] perf riscv: Implement rdtsc()
-Date: Fri,  9 Oct 2026 11:27:14 +0800
-Message-ID: <20261009032715.2841-2-cp0613@linux.alibaba.com>
+	linux-kernel@vger.kernel.org,
+	Leo Yan <leo.yan@arm.com>
+Subject: [PATCH v3 2/2] perf tsc: Declare TSC support from the build system
+Date: Fri,  9 Oct 2026 11:27:15 +0800
+Message-ID: <20261009032715.2841-3-cp0613@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261009032715.2841-1-cp0613@linux.alibaba.com>
 References: <20261009032715.2841-1-cp0613@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261008_202726_960240_C9661EE6 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20261008_202729_653459_06D996C3 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,68 +86,121 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Perf has no riscv implementation of rdtsc(), so it links against the weak
-stub in util/tsc.c and every caller reads a constant 0 that cannot be
-told apart from a counter standing still.
+The "TSC support" subtest of the "Convert perf time to TSC" test decides
+whether the architecture is covered by matching compiler macros for
+x86_64, i386 and arm64.  That list has to be edited for every new
+architecture and can drift apart from the set of architectures that really
+provide a counter.
 
-Implement rdtsc() over the time CSR with rdtime.  The time CSR is a TSC
-equivalent on riscv: readable from user mode, constant frequency, and the
-same counter riscv's arch_perf_update_userpage() builds the user page
-conversion fields from, so the counter and perf time share a timebase.
+Declare the capability where the implementation is, following the
+PERF_HAVE_JITDUMP pattern: an architecture with a usable counter sets
+PERF_HAVE_RDTSC in its arch Makefile, Makefile.config turns it into
+-DHAVE_RDTSC, and the test keys off that.
 
-Define it for RV64 only.  Reading the counter whole on RV32 takes time and
-timeh in a loop, and no RV32 user in tools/perf needs it that much, so
-RV32 keeps the weak stub.
+x86 and arm64 keep the same behaviour, riscv starts running the subtest
+where the previous patch defines rdtsc().
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Acked-by: Paul Walmsley <pjw@kernel.org> # arch/riscv
+Reviewed-by: Adrian Hunter <adrian.hunter@intel.com>
+Reviewed-by: Paul Walmsley <pjw@kernel.org>
+Tested-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 ---
- tools/perf/arch/riscv/util/Build |  1 +
- tools/perf/arch/riscv/util/tsc.c | 27 +++++++++++++++++++++++++++
- 2 files changed, 28 insertions(+)
- create mode 100644 tools/perf/arch/riscv/util/tsc.c
+Changes in v3:
+- Key off IS_BUILTIN(HAVE_RDTSC), with <tools/config.h> included, instead of
+  an #ifndef block.
 
-diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
-index 2328fb9a30a3..52cd6a481de8 100644
---- a/tools/perf/arch/riscv/util/Build
-+++ b/tools/perf/arch/riscv/util/Build
-@@ -1 +1,2 @@
- perf-util-y += header.o
-+perf-util-y += tsc.o
-diff --git a/tools/perf/arch/riscv/util/tsc.c b/tools/perf/arch/riscv/util/tsc.c
-new file mode 100644
-index 000000000000..3dd419ce9d2a
---- /dev/null
-+++ b/tools/perf/arch/riscv/util/tsc.c
-@@ -0,0 +1,27 @@
-+// SPDX-License-Identifier: GPL-2.0
+Changes in v2:
+- Declare the capability through the build system instead of a weak
+  arch__rdtsc_supported() hook.
+
+ tools/perf/Makefile.config          |  4 ++++
+ tools/perf/arch/arm64/Makefile      |  1 +
+ tools/perf/arch/riscv/Makefile      |  1 +
+ tools/perf/arch/x86/Makefile        |  1 +
+ tools/perf/tests/perf-time-to-tsc.c | 14 ++------------
+ 5 files changed, 9 insertions(+), 12 deletions(-)
+
+diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
+index 4d5993da9f94..f1b3bf208231 100644
+--- a/tools/perf/Makefile.config
++++ b/tools/perf/Makefile.config
+@@ -618,6 +618,10 @@ ifdef PERF_HAVE_JITDUMP
+   endif
+ endif
+ 
++ifeq ($(PERF_HAVE_RDTSC),1)
++  CFLAGS += -DHAVE_RDTSC
++endif
 +
-+#include <linux/types.h>
-+
-+#include "../../../util/tsc.h"
-+
-+/*
-+ * RV32 is left to the weak stub: reading the counter whole there takes time
-+ * and timeh in a loop, and no RV32 user in tools/perf needs it that much.
-+ */
-+#if defined(__riscv) && __riscv_xlen == 64
-+
-+u64 rdtsc(void)
-+{
-+	u64 val;
-+
-+	/*
-+	 * The time CSR ticks at a constant frequency and is the same counter
-+	 * the kernel feeds into the user page conversion fields through
-+	 * sched_clock(), so it is a TSC equivalent here.
-+	 */
-+	asm volatile("rdtime %0" : "=r" (val));
-+
-+	return val;
-+}
-+
-+#endif
+ ifeq ($(SRCARCH),powerpc)
+   ifndef NO_LIBDW
+     CFLAGS += -DHAVE_SKIP_CALLCHAIN_IDX
+diff --git a/tools/perf/arch/arm64/Makefile b/tools/perf/arch/arm64/Makefile
+index 44cc3f023318..b9cd559065d6 100644
+--- a/tools/perf/arch/arm64/Makefile
++++ b/tools/perf/arch/arm64/Makefile
+@@ -1,2 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0
+ PERF_HAVE_JITDUMP := 1
++PERF_HAVE_RDTSC := 1
+diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
+index 44cc3f023318..8036bf55da8e 100644
+--- a/tools/perf/arch/riscv/Makefile
++++ b/tools/perf/arch/riscv/Makefile
+@@ -1,2 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0
+ PERF_HAVE_JITDUMP := 1
++PERF_HAVE_RDTSC := $(IS_64_BIT)
+diff --git a/tools/perf/arch/x86/Makefile b/tools/perf/arch/x86/Makefile
+index 44cc3f023318..b9cd559065d6 100644
+--- a/tools/perf/arch/x86/Makefile
++++ b/tools/perf/arch/x86/Makefile
+@@ -1,2 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0
+ PERF_HAVE_JITDUMP := 1
++PERF_HAVE_RDTSC := 1
+diff --git a/tools/perf/tests/perf-time-to-tsc.c b/tools/perf/tests/perf-time-to-tsc.c
+index f8f71fdd32b1..fb1a3f0774ef 100644
+--- a/tools/perf/tests/perf-time-to-tsc.c
++++ b/tools/perf/tests/perf-time-to-tsc.c
+@@ -10,6 +10,7 @@
+ #include <perf/cpumap.h>
+ #include <perf/evlist.h>
+ #include <perf/mmap.h>
++#include <tools/config.h>
+ 
+ #include "debug.h"
+ #include "parse-events.h"
+@@ -22,16 +23,6 @@
+ #include "tests.h"
+ #include "util/sample.h"
+ 
+-/*
+- * Except x86_64/i386 and Arm64, other archs don't support TSC in perf.  Just
+- * enable the test for x86_64/i386 and Arm64 archs.
+- */
+-#if defined(__x86_64__) || defined(__i386__) || defined(__aarch64__)
+-#define TSC_IS_SUPPORTED 1
+-#else
+-#define TSC_IS_SUPPORTED 0
+-#endif
+-
+ #define CHECK__(x) {				\
+ 	while ((x) < 0) {			\
+ 		pr_debug(#x " failed!\n");	\
+@@ -49,11 +40,10 @@
+ static int test__tsc_is_supported(struct test_suite *test __maybe_unused,
+ 				  int subtest __maybe_unused)
+ {
+-	if (!TSC_IS_SUPPORTED) {
++	if (!IS_BUILTIN(HAVE_RDTSC)) {
+ 		pr_debug("Test not supported on this architecture\n");
+ 		return TEST_SKIP;
+ 	}
+-
+ 	return TEST_OK;
+ }
+ 
 -- 
 2.50.1
 
