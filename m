@@ -4,66 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2075CA601E
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 20:10:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48880CA9EBB
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 20:29:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Lhss/eDKqQL7tB1pRd4BPZofEkYCDQXWvRUY2CsV3/I=; b=BkCWB5He2Wo/fV
-	9FABbVfgm6rDrUkhes+0C6SVjA6xBKxcOHW4RtyaO4SomzW0sW0lad+k2m0EzQ3jFFhIZ5OPcdp0m
-	44PllCX4CBcQamwiB7sYvgKG2mUH/WNdORYX00XFE8XKZ1dyklG/uvsFNmkuqADPIx4jhkuRCkZvk
-	3oevtQiGoFzKa533dMPZMm7cesNfMAIf5aH5LJS/uyQ4V9bXKCtTod6yhF6tT50ECugnL01DsJQMC
-	6bMRHW3ffzxHmJ26c1gkVkZ6TlApe8FWBFWhVytL/6FzVqWG0ZdsAOY0QkZKJQN1++brqsunoVTD6
-	KQu1gJ1n0trGsXDwgb6A==;
+	List-Owner; bh=mqX+0k+u+FyEHcOCWV5AG2EeXGWc5hm4/LsRaOEZyWY=; b=t4+QeNKTk9qyG1
+	Yp153+GaqhQd9sYt5NM21whm91aBjNFNqZN/lfbrEmDqEpeCioCDOm8qOHNim4O9wunO1y4QthVnk
+	KzMknvZGtTj3li04pCpAVgdrOOzNZn0nqk8iVELlavXeq3Zyh013+VgNJQb61++UXU1CtVMaOD4im
+	Q+2UfCcZ2j49TI3pO0Ph8+QHXjr0IhVkn8N/sdO9Sr9gAI0a/E7CWwq1gorZLmERT8YQmeD2J9igU
+	eGOLomnblw8ML7HFJ28/39j7k5epsQs2igb4PGFGK055Pdm7mvniqd5O4DAjoOsx3d40vgeQQ4j5x
+	v+sAtvw3vlS9pkjqzZ3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFGux-000000078lt-0Z41;
-	Fri, 09 Oct 2026 20:10:11 +0000
+	id 1xFHDp-000000079zj-3vOA;
+	Fri, 09 Oct 2026 20:29:41 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFGuw-000000078ln-1AP4
-	for linux-riscv@lists.infradead.org;
-	Fri, 09 Oct 2026 20:10:10 +0000
+	id 1xFHDo-000000079zS-1sO2;
+	Fri, 09 Oct 2026 20:29:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ACB3343B6B;
-	Fri,  9 Oct 2026 20:10:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 823791F000FF;
-	Fri,  9 Oct 2026 20:10:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D0B8240F01;
+	Fri,  9 Oct 2026 20:29:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 774BD1F000FF;
+	Fri,  9 Oct 2026 20:29:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791576609;
-	bh=yAtT7Kz/cfBbECexhY2+7vMzFYjycFt1jV6uHWCe2qk=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=KuW/M6N/Jv+w8fSTI5MzC+c9uyJsMxvbGXsObHMBwAHcv9THa/zJNw6bKJbAShw+b
-	 vo4r+Bin+QhP33tm/lxugoPH+tlrxXLdYq2PXG7LEpA8Rm9PbrObKEo3J/22umLOmX
-	 J6pW9AV0n+1Rxc3sdTw6eUmSMMhezq88f+/bVbtCbHU/q8rg1HMrSuZtly5bTfvCrJ
-	 pzuTkS+Nrg7nULbEPCcKpx2psI1+uWR2olv7EEwBAOUR5dHGgbiJfCwi+Dye3uNTnl
-	 3VNLX/ZtnUsgaetwYGolyY055wcRD0nTv6z49gmPJl4Lm2lABU1cDz45QS71EshN6x
-	 G/tZjYSKsz6Tg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7742D392627A;
-	Fri,  9 Oct 2026 20:10:09 +0000 (UTC)
+	s=k20260515; t=1791577779;
+	bh=u1g0SvFtSgoEeipo5pslivKZoZ99W+lzQ5LbgYZ+mbE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=VWrw1TpLt7fsJsfUReaMK/xfbuUimAtU/wsqb4NmTXYGEMibdlTCMOjp4yLzx5bWw
+	 bYXFJ075+OS5qBU57lcr+O3mr1igWRZSgsgBqPR0EcyrFYU3BgDBfK+6B4paACiTWG
+	 9Mr37E76WBFvA4UFAftI4savVj105aeAQ+cet/DtVBRN1JnAoQ5gIpwcY5GXe3J+rf
+	 B7lzPr5P++51lX6doOqbwwqefTHSmzx6gKaQkWoo9RDxfZ9so/GkhNz5jBvwSOwHy4
+	 6ZRikiPr8fM30rFvSV+jwP9Edp1VDQIjbn4K2VW68pCpW/rNyaKpcSfveDIEQ56w51
+	 voBxssDX0NHOQ==
+Message-ID: <1a0f51d9-7931-45a3-ab36-e0642c199a37@kernel.org>
+Date: Fri, 9 Oct 2026 22:29:29 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH v8 00/11] riscv: hwprobe: Expose RVA23U64 base behavior
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179157660809.984023.2184718764665109991.git-patchwork-notify@kernel.org>
-Date: Fri, 09 Oct 2026 20:10:08 +0000
-References: <20260920-rva23u64-hwprobe-v2-v8-0-5f14bc5c23d3@oss.qualcomm.com>
-In-Reply-To: <20260920-rva23u64-hwprobe-v2-v8-0-5f14bc5c23d3@oss.qualcomm.com>
-To: Guodong Xu <guodong.xu@oss.qualcomm.com>
-Cc: linux-riscv@lists.infradead.org, corbet@lwn.net,
- skhan@linuxfoundation.org, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, dlan@kernel.org, chen.wang@linux.dev,
- inochiama@gmail.com, rdunlap@infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, paul.walmsley@sifive.com, conor@kernel.org,
- devicetree@vger.kernel.org, spacemit@lists.linux.dev, sophgo@lists.linux.dev,
- linux-kselftest@vger.kernel.org, tchiu@tenstorrent.com, fweimer@redhat.com,
- bergner@oss.tenstorrent.com, zihong.plct@isrc.iscas.ac.cn,
- mark.hsj@gmail.com, aurelien@aurel32.net, andrew.jones@oss.qualcomm.com,
- conor.dooley@microchip.com, qingwei.hu@bytedance.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] x86/mm: fix missing pgtable destructor for vmemmap
+ tables
+To: Muchun Song <muchun.song@linux.dev>,
+ Muchun Song <songmuchun@bytedance.com>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, stable@vger.kernel.org,
+ osalvador@suse.de, dave.hansen@linux.intel.com, luto@kernel.org,
+ peterz@infradead.org, tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+ x86@kernel.org, hpa@zytor.com, catalin.marinas@arm.com, will@kernel.org,
+ mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ linux-riscv@lists.infradead.org, agordeev@linux.ibm.com,
+ kevin.brodsky@arm.com, bjorn@rivosinc.com, apopple@nvidia.com,
+ linux-kernel@vger.kernel.org
+References: <20261008073021.2512665-1-songmuchun@bytedance.com>
+ <20261008073021.2512665-2-songmuchun@bytedance.com>
+ <ECC604FF-E74D-43B1-9105-A6683EEDE558@linux.dev>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <ECC604FF-E74D-43B1-9105-A6683EEDE558@linux.dev>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,54 +124,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to riscv/linux.git (for-next)
-by Paul Walmsley <pjw@kernel.org>:
-
-On Sun, 20 Sep 2026 03:18:20 -0400 you wrote:
-> This series builds on Andrew Jones's earlier RFC [1]. It lets userspace
-> check for RVA23U64 conformance in one call, instead of walking hwprobe +
-> prctl across every mandatory extension.
+On 10/8/26 10:32, Muchun Song wrote:
 > 
-> The series adds a small framework that resolves profile-class bases (IMA
-> and RVA23U64) from the kernel's ISA extension bitmap at init time, and
-> surfaces the result through both /proc/cpuinfo and hwprobe. Later patches
-> can add RVA23S64, and backward RVA22 / RVA20 detection, to
-> riscv_set_isa_bases() without changes to the surrounding code.
 > 
-> [...]
+>> On Oct 8, 2026, at 09:30, Muchun Song <songmuchun@bytedance.com> wrote:
+>>
+>> Since commit 49f599666420 ("mm: call ctor/dtor for kernel PTEs"),
+>> pte_alloc_one_kernel() runs the page-table constructor for kernel PTE
+>> tables.
+>>
+>> HugeTLB vmemmap optimization uses pte_alloc_one_kernel() when splitting
+>> a PMD. Restoring the vmemmap backing pages does not collapse the PTE
+>> table, so a later memory hot-remove eventually frees that table through
+>> free_pagetable(). That path currently calls pagetable_free() directly
+>> without decrementing NR_PAGETABLE.
+>>
+>> Use PageTable() to identify constructor-backed tables and run the
+>> matching destructor before freeing them. Keep reserved and
+>> constructor-free tables on their existing paths. This also prepares
+>> vmemmap teardown for generic runtime allocations through the normal
+>> pgalloc helpers.
+>>
+>> Fixes: 49f599666420 ("mm: call ctor/dtor for kernel PTEs")
+>> Cc: stable@vger.kernel.org
+>> Assisted-by: LLM
+>> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+>> ---
+>> arch/x86/mm/init_64.c | 2 ++
+>> 1 file changed, 2 insertions(+)
+>>
+>> diff --git a/arch/x86/mm/init_64.c b/arch/x86/mm/init_64.c
+>> index 70e682180291..a3ea627157ab 100644
+>> --- a/arch/x86/mm/init_64.c
+>> +++ b/arch/x86/mm/init_64.c
+>> @@ -1003,6 +1003,8 @@ static void __meminit free_pagetable(struct page *page)
+>> {
+>> 	if (PageReserved(page))
+>> 		free_reserved_page(page);
+>> + 	else if (PageTable(page))
+>> + 		pagetable_dtor_free(page_ptdesc(page));
+> 
+> Sashiko mentioned that kernel page table pages and vmemmap pages are
+> freed to the buddy allocator before their parent entries are cleared
+> and before the TLB is flushed, creating a dangling pointer window.
+> 
+> That's a a real but pre-existing issue, I will not fix that in this
+> series.
 
-Here is the summary with links:
-  - [v8,01/11] riscv: Add B to hwcap and hwprobe
-    https://git.kernel.org/riscv/c/fbab8abaac8f
-  - [v8,02/11] dt-bindings: riscv: Require block-size for Zicbom, Zicbop, and Zicboz
-    https://git.kernel.org/riscv/c/40623184c6f0
-  - [v8,03/11] dt-bindings: riscv: Add Zic64b extension description
-    https://git.kernel.org/riscv/c/3776fb1a1b6c
-  - [v8,04/11] riscv: Add Zic64b to cpufeature and hwprobe
-    https://git.kernel.org/riscv/c/7493567982b0
-  - [v8,05/11] riscv: dts: spacemit: k3: Add Zic64b ISA extension
-    https://git.kernel.org/riscv/c/7c4752c60f99
-  - [v8,06/11] riscv: dts: spacemit: k1: Add Zic64b ISA extension
-    https://git.kernel.org/riscv/c/1fc72ff0d3fc
-  - [v8,07/11] riscv: dts: sophgo: sg2044: Add Zic64b ISA extension
-    https://git.kernel.org/riscv/c/ca0c312bdf6a
-  - [v8,08/11] riscv: Add a getter for user PMLEN support
-    https://git.kernel.org/riscv/c/55458c7347a3
-  - [v8,09/11] riscv: cpufeature: Introduce ISA bases bitmap and rva23u64 detection
-    (no matching commit)
-  - [v8,10/11] riscv: cpu: Output isa bases lines in cpuinfo
-    (no matching commit)
-  - [v8,11/11] riscv: hwprobe: Introduce rva23u64 base behavior
-    (no matching commit)
+Memory is getting removed, concurrent access to directmap+vmemmap is not
+expected unless BUG I think. That should make this less critical I think ...
+(except speculation? not sure if that applies)
 
-You are awesome, thank you!
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Cheers,
 
-
+David
 
 _______________________________________________
 linux-riscv mailing list
