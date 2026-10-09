@@ -4,93 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B1BDCA6012
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 07:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2BDDCA6012
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 08:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bbGzXA3oXyMNbNdI2NIerYBaWeHL6nkZI3R224vYAw8=; b=v4fYywi7j11lAH
-	++/MbLpGcshbd1fPRfeGNBY4QUbHwOF/cMcmYfeS4VTeSO2fLufBxI/V87yhfxMPEORA5ks5nVf4Y
-	NxUP9zBrlU0RaXZaXxiC/vOTMRH3uedrqqJKXQBbNPLywB0YSlnQBK0hi5xDCUCv9RCzsQaaLPtgu
-	dkFCHNoiqNLdZBzTTyLTtB0vR1mUxx1sC5okLBvhvYq1tFvDniwe7yart5aFYUiGSabDvFbbZFT8N
-	et1WWd7L2tFHm/L/M1o7KgDUvcE5YkA6cmyGac7WQUoKqyksfWLEiGk6RIqC/ZERAjjmcBs1DXdqx
-	umYYWYFwO4H1f2Fqu3Lw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SWt3vVFNVjYqqp/dd8szh6V/w2I5UCAvRxz7eNbV2r4=; b=jylwD+frAdXp14
+	krPFI2KqlD9BgD7t2KMLav+lPIu7K9+72lRGNvxvIsZs8pfEjPAfVcPUu6Myg4ZAgWHojpyqe4qo9
+	aGuslCXNj41Kt0LJgnewaAg6rB/o4uwHvw09/MXQxHWbnjrpIKYj/oYTX4gWsCIL4R4HIRw/skBUW
+	EvwdfCJDn+SaWhxawA3EsQD1hRj++vwI/mE+E/IB2RhmXp1DBvNLhmSnZda51y6mMtOrjk4LfMYIf
+	FwD63gUx7nHVGmPLn3AjYY6FxSiG+1tc5CbXEm2O2X3AXF8QRO6sIxONWRtciDJejbxojRUVkhoe6
+	lCvaA+Rg078601NakrHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF5BP-00000005kcb-3vhB;
-	Fri, 09 Oct 2026 07:38:23 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1xF6Bo-00000005qLu-3d7L;
+	Fri, 09 Oct 2026 08:42:52 +0000
+Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF5BM-00000005kah-1Yqw
+	id 1xF6Bm-00000005qK8-0pgf
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 Oct 2026 07:38:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1791531462;
-	bh=8w94qaIyqvoZXJSMhlUqDunjyb69j/+6YnXQ3qEKAAM=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=CNxHG6Iy/ztfqEnjUP0Py6XVrNaqo41r2bLCWzNkV7Agv8cphAODL0RcHqdEtuGgH
-	 8aqArXhAo9eh153JrQGfK3SI7nEqGBC4X3AvqLuU9EW9jikc96puqlucEWyQXanztN
-	 yfiIXm+YUql6ZVkZv3dRWt28RqwZjF8EovW3/a4g=
-X-QQ-mid: esmtpgz15t1791531454t309d85ef
-X-QQ-Originating-IP: 9dFMJrss78zrC/tVy1Ltv1Qmy7e70zHXK1/kjK97Xt0=
-Received: from [192.168.1.100] ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 09 Oct 2026 15:37:31 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 4560660349085074679
-EX-QQ-RecipientCnt: 22
-Message-ID: <7686F065FEA15D6A+f2c02b39-f7e8-4456-b41e-7fe14df4ab92@linux.spacemit.com>
-Date: Fri, 9 Oct 2026 15:37:30 +0800
+	Fri, 09 Oct 2026 08:42:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1791535368; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=5AY+qxPktrH798J79id4Fdk8qu63plCfc1VdTFiH2aU=;
+	b=i3aRsb/yTYxexiBoRJpUcE1sfF/Jk+dzTH9XJ5AAWEwi01NnwFXFhBK9d7hqMAWKFcbpO0cZPzi8v9OkJnh+jtOWunCtc3N9M9QtjvwUVy3ZkVBa022ZZ3EgnUwLqU338WpfGTKM87TdoMC1RxkzqadB7O+yNkgEbGXHgO36nIg=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R661e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=8;SR=0;TI=SMTPD_---0XCSo3lo_1791535349;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XCSo3lo_1791535349 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 09 Oct 2026 16:42:47 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	alex@ghiti.fr,
+	daniel.lezcano@kernel.org,
+	tglx@kernel.org
+Cc: guoren@kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: Support inlined clocksource reads for the time counter
+Date: Fri,  9 Oct 2026 16:42:28 +0800
+Message-ID: <20261009084228.3240-1-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/8] Add SpacemiT K1 USB2.0 controllers support
-To: Krzysztof Kozlowski <krzk@kernel.org>, Yixun Lan <dlan@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Xu Yang <xu.yang_2@nxp.com>,
- Peng Fan <peng.fan@nxp.com>, Peter Chen <peter.chen@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, linux-usb@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- Conor Dooley <conor.dooley@microchip.com>, Ze Huang <huang.ze@linux.dev>,
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-References: <20260927-b4-spacemit-k1-usb2-v3-0-ce7095896039@linux.spacemit.com>
- <20260928230310-GKB2079@kernel.org>
- <b6a552a8-7710-4472-aeaa-96d50856f896@kernel.org>
-Content-Language: en-US
-From: Junzhong Pan <panjunzhong@linux.spacemit.com>
-In-Reply-To: <b6a552a8-7710-4472-aeaa-96d50856f896@kernel.org>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-2
-X-QQ-XMAILINFO: NKzbPdp5ylDyzol8P0ZIcB4liY4MlHSGJbAyJBuZiOuGiNltgNGG9PSE
-	Oa4PiLgIia+Kpdu+T/7VxAoWaTbtSmAnAPgJZTRlWMa5qKmK9fxUPge+fGqCEV5CZakvFla
-	qvXLRWDS+XIeKQ1I1kVylJRQDEThGUuF91rxbPF8hWEeJwkdKnZtxBtAvDBPHjObMKz+NlQ
-	RFO9qfijB6Jt98p1qBtiV7CUnBQDs+bQNNHdfvnaMzIxObgzkGC50xgCiFVynlQM/ePXh9J
-	w+l7Cfdbwkkgo4klxvIN8lyGsDwbw7mMddOtZqaR0/i4IfsWFjL1S2V2n1crZoPe6HXd8pQ
-	BX9Tu1yltjQiIkqrlA/YptFtlg5j2VatNrn92NwhjTJCOKbpYIDreGSL5dY4JM5VOf4ofFw
-	Hpy1UJHR1Vpms81GGZOiV0oUCFZqXBa07BjkjwZmxAjkAXsOuEkH6oIGuJNYW2vhCC9VaoN
-	698Hd8rOxzDSBYRJpZfRl2Zi5dNSs7xaoCEmJZmJeZSzk+DMdUNPCMdsStMvX1H30KMel41
-	s6ITmcLg+a08mSdn27spsfviRdcje430li0Jf9qhsltTxIqydJCF3kUQ03PLVzgXXYrhupq
-	wiY9Xqknk1pnw0eUBwqn01cj+KH8+MXRorxx5gepHKtI01OyJYuIlGrVX6ZuqZoX/dajsIh
-	2tlyJ2PP2fhrquRlxzpquL7o8k3cdatRi99wGf+LnbMVOZYfiX6l/qTTtH87R/vxPYyN0ni
-	95FgvmW4OaJHdz/5ONaUVGlqnZa42GMS7DFnNB/ArhOrdhnuPKHxrzYxLmGQ0MQ29SeIGD3
-	TtJvO+Nu6UjNbFnDIW+QRtNxAhKeh+aZ9hXJoEmT4WaZp+z7knCU3xm+SuAoqb0l4gMwKcq
-	yI/vLncBkUI+PpBfQn9Jv8l/Y+QybC+7BX1cHe1CpQvnSLPC02rSkmBAK/Q7qRvKeQAYvIO
-	giov2O/qpLes0Zl+AzEW3stC8vjiADmonzZ6Jg3Z4+IoEw8pjj2xoQkfzKfvovp2gfPQc6x
-	UaGotuxifMeRhNMV1kpestT5UX3ghnpdhk8O8jhji6JodshgxpTJQAytXKh1/OATH5N/H0Z
-	gpPq9uHsuHNZ6Sdong9GX6QJjCiMYN97+qBm/gc4JVlpB6fJfb7q7/QsxYXrvQ2m1tpdvXp
-	Ef5P9e5e+LCgo88cbz2cVAVqLazk3QYHe7DSbd6l0mzdDjF3AT0Lntnshg==
-X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
-X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_003820_945209_51A232CC 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20261009_014250_403005_16CE90F3 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,63 +69,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The commit 2e27beeb66e4 ("timekeeping: Allow inlining clocksource::read()")
+lets an architecture inline the clocksource read behind a static branch, so
+that a read which is a single instruction stops paying for the indirect
+call in front of it. The branch is only enabled for a clocksource
+advertising CLOCK_SOURCE_CAN_INLINE_READ. The commit b27801189f7f ("x86:
+Inline TSC reads in timekeeping") wired x86 up to it.
 
+The overhead matters for consumers that need accurate timestamps and take
+them very often: 1PPS edge timestamps, PTP stamping, and polling mode PPS
+drivers all end up in the timekeeping fast path.
 
-On 10/6/2026 11:10 PM, Krzysztof Kozlowski wrote:
-> On 29/09/2026 01:03, Yixun Lan wrote:
->> Hi Greg,
->>
->> On 19:40 Sun 27 Sep     , Junzhong Pan wrote:
->>> The SpacemiT K1 SoC has two USB2.0 controllers, one has Dual-Role
->>> support, but the hardware has no internal OTG registers, the other is
->>> Host only. These controllers are compatible with Chipidea USB2 driver
->>> with some flags set and reset control support.
->>>
->>> This series is based on 7.3-rc1 and has been tested on Banana Pi F3
->>> development board.
->>>
->>> A self-powered USB device/hub is needed to test the host function of the
->>> dual-role controller on Banana Pi F3, a MINI-PCIe USB2.0 module (a
->>> cellular module e.g.) is needed to test the host only controller.
->>>
->>> ---
->>> Changes in v3:
->>> - collect tags
->>> - merge the two dt-binding commits
->>> - use local variables when acquiring devm managed clock/reset
->>> - drop manual clk_disable_unprepare() from the remove path
->>> - enable related drivers as modules in defconfig
->>> - Link to v2: https://lore.kernel.org/r/20260908-b4-spacemit-k1-usb2-v2-0-f07342ffa051@linux.spacemit.com
->>>
->>> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
->>>
->>
->>> ---
->>> Junzhong Pan (8):
->>>       dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible
->>>       usb: chipidea: usb2: use devm_clk_get_optional_enabled()
->>>       usb: chipidea: usb2: add optional reset support
->>>       usb: chipidea: usb2: add SpacemiT K1 support
->>>       riscv: dts: spacemit: add USB2.0 controller nodes for K1
->>>       riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3
->>>       riscv: dts: spacemit: enable USB2.0 controllers on OrangePi RV2
->>>       riscv: defconfig: enable ChipIdea USB controller support
->>>
->> Any chance to queue these patches (1-4) for v7.4 cycle? Hope it not too late,
->> and then I will handle the rest part, thanks
-> 
-> Can you drop the fake test tags while at it?
-> 
+RISC-V has the same shape. In S-mode the counter is the time CSR, so on
+64-bit a read is a single csr_read(CSR_TIME), and
+riscv_clocksource.read() is a wrapper whose whole body is that one
+instruction. Every fast path timestamp therefore pays an indirect call
+and a return to reach a single CSR read. Letting timekeeping inline the
+read issues that instruction at the call site and drops the call, which
+is where the gain comes from.
 
-I have dropped those and sent v4.
-Thanks!
+Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+---
+A few notes:
 
-Link to v4: https://lore.kernel.org/linux-usb/20261009-b4-spacemit-k1-usb2-v4-0-2d98e5324d9a@linux.spacemit.com/
+- The gain is in instructions executed per read. Without inlining, a
+  read is a function pointer load, an indirect call, and a frame around
+  the rdtime - 11 instructions in all; inlined it is a jump-label branch
+  and the rdtime - 2. The read is no longer shared, so each fast path
+  function in timekeeping.o grows by 11 instructions (438 bytes).
 
-> Best regards,
-> Krzysztof
-> 
-> 
+- RV32 is left out on purpose. There the read is a retry sequence
+  (rdtimeh, rdtime, rdtimeh) rather than one instruction, so the saving
+  is much smaller while the sequence is duplicated at every read site,
+  which is the wrong trade on the small in-order cores with tight
+  I-caches that run 32-bit Linux. rv32 depends on NONPORTABLE and
+  nobody has asked for it; if hardware data says otherwise, enabling it
+  is a one-line Kconfig change.
+
+- M-mode is left out because RISCV_TIMER is not built there and the
+  CLINT clocksource reads MMIO, so there is no cheap counter read to
+  inline.
+
+ arch/riscv/Kconfig                     |  1 +
+ arch/riscv/include/asm/clock_inlined.h | 14 ++++++++++++++
+ drivers/clocksource/timer-riscv.c      |  3 ++-
+ 3 files changed, 17 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/clock_inlined.h
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d6c2dbf8455c..f5d314ef37b8 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -90,6 +90,7 @@ config RISCV
+ 	select ARCH_WANT_LD_ORPHAN_WARN
+ 	select ARCH_WANT_OPTIMIZE_DAX_VMEMMAP
+ 	select ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP
++	select ARCH_WANTS_CLOCKSOURCE_READ_INLINE if !RISCV_M_MODE && 64BIT
+ 	select ARCH_WANTS_NO_INSTR
+ 	select ARCH_WANTS_THP_SWAP if HAVE_ARCH_TRANSPARENT_HUGEPAGE
+ 	select ARCH_WEAK_RELEASE_ACQUIRE if ARCH_USE_QUEUED_SPINLOCKS
+diff --git a/arch/riscv/include/asm/clock_inlined.h b/arch/riscv/include/asm/clock_inlined.h
+new file mode 100644
+index 000000000000..450add2436e4
+--- /dev/null
++++ b/arch/riscv/include/asm/clock_inlined.h
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_RISCV_CLOCK_INLINED_H
++#define _ASM_RISCV_CLOCK_INLINED_H
++
++#include <asm/timex.h>
++
++struct clocksource;
++
++static __always_inline u64 arch_inlined_clocksource_read(struct clocksource *cs)
++{
++	return get_cycles64();
++}
++
++#endif
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index b310e6721fac..768e0d0eaeb0 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -96,7 +96,8 @@ static struct clocksource riscv_clocksource = {
+ 	.name		= "riscv_clocksource",
+ 	.rating		= 400,
+ 	.mask		= CLOCKSOURCE_MASK(64),
+-	.flags		= CLOCK_SOURCE_IS_CONTINUOUS,
++	.flags		= CLOCK_SOURCE_IS_CONTINUOUS |
++			  CLOCK_SOURCE_CAN_INLINE_READ,
+ 	.read		= riscv_clocksource_rdtime,
+ 	.vdso_clock_mode = VDSO_CLOCKMODE_ARCHTIMER,
+ };
+-- 
+2.50.1
 
 
 _______________________________________________
