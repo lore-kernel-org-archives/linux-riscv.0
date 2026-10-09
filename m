@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98687CCA463
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 16:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEA2BCCA465
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 16:07:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2zv5KO5sgiRK1Nv/WWqcypDSWMvKIi0kmj5vaFkTGDI=; b=b1cXaCkmnL2QHR
-	pBIV0kZaq08BfLDAiAqYWY7pSP1lo8f/XzpEcSA3huu8WXRUxTT8347LD6AXKyemiWHfHOCXaD0DB
-	bP1OBB3QTXA1QH0sw1Kj7ZurhSc+AX/TLGBAqbTTg+KmoQzRJQr6A1AGdIjOnRoD+xNj5b10PFzvJ
-	ySyFWMrdqr34WPdIUL6JFDrDzNPwfcMctk85H7GkkqCoNMeTsAjFlWdBziZtTiBV24jNgXfaA/Fja
-	otnPNeM3Nshu6Yq7VW80RnQv7zQn6v+HnoS3EPU82U16VSutWoqo9jPdQBylFkyJeSibww2LYBt3Y
-	n9xEXgS+ovaHUF9/xhIw==;
+	List-Owner; bh=6w3J6RoWSFeqevGjmDNzMN+REICUInOvoA7/KZQysxo=; b=vJdfj2SvXOaMpN
+	smQxS2kgYdB1pv6Awoqm2qsQsUSyTPwPp1BC5eezZMi06Y3yBHjWC22Miey5rzvR1W0LLkFuu83V4
+	X6UHWIj1JanrSvYPO139Ijxy30UoWZciXjmbSLybXB0DESEu6QDUMhhBzAnU+CT+e5e1Ff0LoWqWn
+	w/pSz3qEecg+QVIKZImvHWssyZ9GNDOVNWZ4mEFaIG6GqNqYW6NfhCS5oMg9RajxlcNaNi74WeT1k
+	r6ByfClQNFB2DMSBLCszVHolrpdCicjzqkebWimq9nS3BsI7N80c8lqtuB+0WzAoo7cXElLhWq9jD
+	WFlGwOcYyqFpOc1DQFfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHNyv-00000000fSr-0208;
-	Thu, 15 Oct 2026 16:07:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xHNyN-00000000f0s-2xN3;
+	Thu, 15 Oct 2026 16:06:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFF5D-00000006u3X-1eKx;
-	Fri, 09 Oct 2026 18:12:39 +0000
+	id 1xFExn-00000006r30-2a4N;
+	Fri, 09 Oct 2026 18:04:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BFF7660267;
-	Fri,  9 Oct 2026 18:12:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E866D1F000FF;
-	Fri,  9 Oct 2026 18:12:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1FE6B60AB9;
+	Fri,  9 Oct 2026 18:04:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4736A1F00893;
+	Fri,  9 Oct 2026 18:04:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791569558;
-	bh=D+i+DaAt9JzfHEIOjru3Rvly0KtZKnnSUfWMgzuFSoU=;
+	s=k20260515; t=1791569097;
+	bh=7Fqy5CealUldTwU/LGJC2dIT3AOdk0HYZp0RuL8SmXU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=COJSigfrmkGOVygi8rzPvz8GIJpy+aXVqzrmB838y4blfnkik4ML8EGNUielsnlxB
-	 WUhk8r2Q16yQv8hEGRO+9qtEGQglCP4j+ObQbJWB99wDWhgk3LXMCCz/SyfptV443w
-	 eYYWasRAXOS8c98QfoBURMhkkqr2qPRNczy86+L0pLgtJ4lFgfyk8zc/JL/Wl4LtlN
-	 J5qLpgF49X6F9iCSlwol4VTbGik/wc7+ShiflRa9bhhvjdmjGSS0yrGe1bndT4+9km
-	 AWiX6oXNqC+dMUP0Wa1JqEjYZRS7NGrHzYak/Ph8xZQxuyygfwYCfzQFtBzT+fhr7z
-	 mWkXTgwigKPWw==
+	b=G5GM/NLh4ZLZQwV2PPV9YyJLVlykIKDz8rv4nu5UX+jNSbDe0tlPnbsQJLkuXzbuK
+	 31uWfiV1o1L52xtGNIJiALqeA7Jy8pU8JmSp6bQTj3UxYwRC9vVaylQGiqAMC2Sqqo
+	 CJfcL0gyYH7yrAOXQTzS7RaOY+bIPY8qtBrd1zVoVcKIuAOqVhCJxvDo9fdjjnBtpS
+	 pGDbjg/RDtXK0FWrJPoQCVH20pWam31oLMKxNx/7OsMQPmLenO636tpwC/Vb45f999
+	 LrG5ELLAU7rUGq04UaF9sb2C+Tt1QHiO/b/KFT1Vp47x8ZnkFh+boHLaJonZtUcjPo
+	 2W7aehbdGbvKw==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Fri, 09 Oct 2026 19:04:17 +0100
-Subject: [PATCH v5 23/38] mm/mlock: eliminate weird VMA_IO_BIT abuse and
- simplify
+Date: Fri, 09 Oct 2026 19:03:55 +0100
+Subject: [PATCH v5 01/38] mm/vma: fix mmap_prepare file handling, remove
+ file_doesnt_need_get
 MIME-Version: 1.0
-Message-Id: <20261009-b4-mmap-prepare-vma-flag-sanify-v5-23-923b70125b1e@kernel.org>
+Message-Id: <20261009-b4-mmap-prepare-vma-flag-sanify-v5-1-923b70125b1e@kernel.org>
 References: <20261009-b4-mmap-prepare-vma-flag-sanify-v5-0-923b70125b1e@kernel.org>
 In-Reply-To: <20261009-b4-mmap-prepare-vma-flag-sanify-v5-0-923b70125b1e@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>
@@ -64,15 +64,15 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  fuse-devel@lists.linux.dev, Ihor Solodrai <ihor.solodrai@linux.dev>, 
  Bert Karwatzki <spasswolf@web.de>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8341; i=ljs@kernel.org;
- h=from:subject:message-id; bh=DEwsIsHyrU8dUc7I0Q85dMjaxlNnAODqsthg7xucj5U=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJO6szZ+M1/9qcA/kKT9qKFAudkliw6VWH3/czybdpWj
- 0xvywUad5SyMIhxMciKKbI8/yK+P0gkbF7nBX83mDmsTCBDGLg4BWAiq3QZGZ5pllj+9pklqLt+
- R4NblYDMhqQo3sv12RNr5yx74X9Ivp2R4dUVp/i1GlLXE6srZlVfqjXQLclJ2rf6pLqQYnHCjVc
- f+QA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11336; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=NCrL2U2bu3SYoKSTzL7YMvnG9Zxk7Z8SDtyXYUu7I1g=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJO6sx4K19v82Dtputt5e9+Osw88f7/l/9puvPv5bvci
+ DvV/tjiWkcpC4MYF4OsmCLL8y/i+4NEwuZ1XvB3g5nDygQyhIGLUwAm0v2X4X95Q4CwsNZN8UTT
+ Vbe5eed8MTeIn2W5bLrzza337lUr/e1h+B/huDyrpX2nysRMoXjLF9Hry1cbON5/WMIftol1TtC
+ +CVwA
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
-X-Mailman-Approved-At: Thu, 15 Oct 2026 09:06:21 -0700
+X-Mailman-Approved-At: Thu, 15 Oct 2026 09:06:19 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,232 +89,342 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When performing mlock() or munlock() otherwise normal VMAs have VMA_IO_BIT
-solely to fix a race with migration which might otherwise double-count
-mlock VMAs.
+The map->file_doesnt_need_get flag is confusing and the existing
+implementation has holes.
 
-This is unnecessary - at the point of applying folio mlock state, whether
-setting or clearing PG_mlocked, we know whether or not we are locking.
+Drivers are permitted to change the owning file of a mapping. If they do
+so, they are required to take a reference on that file.
 
-Solve this in two ways - thread a boolean through the page table walk
-indicating whether a lock or unlock is being performed, and run a locking
-walk with VMA_LOCKONFAULT_BIT set and VMA_LOCKED_BIT cleared.
+The mmap() operation which ultimately invokes __mmap_region() is guaranteed
+to drop the refcount for the original file the mapping was made under, but
+this is not true for the replaced file.
 
-This state never occurs otherwise, as VMA_LOCKONFAULT_BIT always implies
-VMA_LOCKED_BIT. These are also always cleared together.
+This has been addressed so far by tracking map->file_doesnt_need_get, which
+is rather poorly named and unfortunately fails to correctly track whether
+or not an additional put were needed in a number of cases.
 
-Then, update folio_add_lru_vma() and mlock_folio() to check only for
-VMA_LOCKED_BIT, and update try_to_unmap_one() to check for VMA_LOCKED_MASK
-instead.
+Make life easier by removing this flag, and instead drop the reference for
+both mmap_prepare and the deprecated mmap callback in a new function
+map_put_vm_file().
 
-Also remove the useless invocation of allow_mlock_munlock() which simply
-returns true if unlocking and instead rename it to allow_mlock() and only
-call it when locking.
+Track whether this needs to be done by aligning mmap_state with
+vm_area_desc and store the original file in the map->file field, keeping
+the updated file in map->vm_file.
 
-With the other mlock abuse of VMA_IO_BIT addressed, update
-mlock_vma_folio() and folio_add_lru_vma() to simply test for
-VMA_LOCKED_BIT.
+In order to have the same behaviour for both types of hooks, only drop the
+reference __mmap_new_file_vma() itself took in its error path, deferring
+the replaced file's reference to map_put_vm_file().
 
-The munlock_vma_folio() function tests VMA_LOCKED_MASK instead, as an
-unmap racing with the locking walk must still munlock folios the walk has
-already counted.
+To make this work correctly, map->vm_file has to be updated before any
+error handling, so update __mmap_new_file_vma() and call_mmap_prepare() to
+set this field first.
 
-Additionally, in order to ensure a racing unmap/migration releases the
-reference munlock_folio() took (whose put was batched), check
-VMA_LOCKED_MASK before calling mlock_drain_local() in try_to_unmap_one()
-and try_to_migrate_one().
+Also when mmap_prepare() changes the file and is then merged, the reference
+count also must be decremented, so update the logic to call
+map_put_vm_file() in this case too.
 
-While here, also replace some deprecated VMA flag predicates.
+Also update __compat_vma_mmap() to manually perform this step for stacked
+file systems using the compatibility layer, and update
+compat_set_vma_from_desc() to replace vma_set_file() with a correct
+refcount/file update.
 
-Reviewed-by: Zi Yan <ziy@nvidia.com>
+No in-tree driver is impacted by the incorrect implementation of this
+currently (no driver that does this is mergeable for one), so this does not
+need to be a fix.
+
+Reviewed-by: Suren Baghdasaryan <surenb@google.com>
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- mm/folio.c    |  2 +-
- mm/internal.h | 10 +++++++---
- mm/mlock.c    | 51 +++++++++++++++++++--------------------------------
- mm/rmap.c     |  8 +++++---
- 4 files changed, 32 insertions(+), 39 deletions(-)
+ mm/internal.h |  1 +
+ mm/util.c     |  5 +++-
+ mm/vma.c      | 83 +++++++++++++++++++++++++++++++++++------------------------
+ mm/vma.h      |  6 +++--
+ 4 files changed, 59 insertions(+), 36 deletions(-)
 
-diff --git a/mm/folio.c b/mm/folio.c
-index 47a437e0f7fd..35e242b48870 100644
---- a/mm/folio.c
-+++ b/mm/folio.c
-@@ -505,7 +505,7 @@ void folio_add_lru_vma(struct folio *folio, struct vm_area_struct *vma)
- {
- 	VM_BUG_ON_FOLIO(folio_test_lru(folio), folio);
- 
--	if (unlikely((vma->vm_flags & (VM_LOCKED | VM_SPECIAL)) == VM_LOCKED))
-+	if (vma_test(vma, VMA_LOCKED_BIT))
- 		mlock_new_folio(folio);
- 	else
- 		folio_add_lru(folio);
 diff --git a/mm/internal.h b/mm/internal.h
-index 4ae08fedffff..ea8fa94ebe1b 100644
+index 0dca33db068f..fe576d468af4 100644
 --- a/mm/internal.h
 +++ b/mm/internal.h
-@@ -970,8 +970,7 @@ void mlock_folio(struct folio *folio);
- static inline void mlock_vma_folio(struct folio *folio,
- 				struct vm_area_struct *vma)
- {
--	/* The VM_IO check prevents migration from double-counting during mlock. */
--	if (unlikely((vma->vm_flags & (VM_LOCKED|VM_SPECIAL)) == VM_LOCKED))
-+	if (vma_test(vma, VMA_LOCKED_BIT))
- 		mlock_folio(folio);
- }
+@@ -7,6 +7,7 @@
+ #ifndef __MM_INTERNAL_H
+ #define __MM_INTERNAL_H
  
-@@ -988,7 +987,12 @@ static inline void munlock_vma_folio(struct folio *folio,
- 	 * always munlock the folio and page reclaim will correct it
- 	 * if it's wrong.
- 	 */
--	if (unlikely(vma->vm_flags & VM_LOCKED))
-+	/*
-+	 * VMA_LOCKONFAULT_BIT alone marks an mlock walk in progress, see
-+	 * mlock_vma_pages_range(). An unmap racing with the walk must still
-+	 * munlock folios the walk has already counted.
-+	 */
-+	if (unlikely(vma_test_any_mask(vma, VMA_LOCKED_MASK)))
- 		munlock_folio(folio);
- }
++#include <linux/file.h>
+ #include <linux/fs.h>
+ #include <linux/khugepaged.h>
+ #include <linux/mm.h>
+diff --git a/mm/util.c b/mm/util.c
+index bf0513d1d3d0..016932780925 100644
+--- a/mm/util.c
++++ b/mm/util.c
+@@ -1228,8 +1228,11 @@ int __compat_vma_mmap(struct vm_area_desc *desc,
  
-diff --git a/mm/mlock.c b/mm/mlock.c
-index 39215a3eab1f..4235a1518fc9 100644
---- a/mm/mlock.c
-+++ b/mm/mlock.c
-@@ -316,22 +316,10 @@ static inline unsigned int folio_mlock_step(struct folio *folio,
- 	return folio_pte_batch(folio, pte, ptent, count);
- }
- 
--static inline bool allow_mlock_munlock(struct folio *folio,
-+static inline bool allow_mlock(struct folio *folio,
- 		struct vm_area_struct *vma, unsigned long start,
- 		unsigned long end, unsigned int step)
- {
--	/*
--	 * For unlock, allow munlock large folio which is partially
--	 * mapped to VMA. As it's possible that large folio is
--	 * mlocked and VMA is split later.
--	 *
--	 * During memory pressure, such kind of large folio can
--	 * be split. And the pages are not in VM_LOCKed VMA
--	 * can be reclaimed.
--	 */
--	if (!vma_test(vma, VMA_LOCKED_BIT))
--		return true;
--
- 	/* folio_within_range() cannot take KSM, but any small folio is OK */
- 	if (!folio_test_large(folio))
- 		return true;
-@@ -352,6 +340,7 @@ static int mlock_pte_range(pmd_t *pmd, unsigned long addr,
- 
- {
- 	struct vm_area_struct *vma = walk->vma;
-+	const bool lock = walk->private;
- 	spinlock_t *ptl;
- 	pte_t *start_pte, *pte;
- 	pte_t ptent;
-@@ -368,7 +357,7 @@ static int mlock_pte_range(pmd_t *pmd, unsigned long addr,
- 		folio = pmd_folio(*pmd);
- 		if (folio_is_zone_device(folio))
- 			goto out;
--		if (vma_test(vma, VMA_LOCKED_BIT))
-+		if (lock)
- 			mlock_folio(folio);
- 		else
- 			munlock_folio(folio);
-@@ -390,10 +379,10 @@ static int mlock_pte_range(pmd_t *pmd, unsigned long addr,
- 			continue;
- 
- 		step = folio_mlock_step(folio, pte, addr, end);
--		if (!allow_mlock_munlock(folio, vma, start, end, step))
-+		if (lock && !allow_mlock(folio, vma, start, end, step))
- 			goto next_entry;
- 
--		if (vma_test(vma, VMA_LOCKED_BIT))
-+		if (lock)
- 			mlock_folio(folio);
- 		else
- 			munlock_folio(folio);
-@@ -428,31 +417,29 @@ static void mlock_vma_pages_range(struct vm_area_struct *vma,
- 		.pmd_entry = mlock_pte_range,
- 		.walk_lock = PGWALK_WRLOCK_VERIFY,
+ 	/* Perform any preparatory tasks for mmap action. */
+ 	err = mmap_action_prepare(desc);
+-	if (err)
++	if (err) {
++		if (desc->vm_file != vma->vm_file)
++			fput(desc->vm_file);
+ 		return err;
++	}
+ 	/* Update the VMA from the descriptor. */
+ 	compat_set_vma_from_desc(vma, desc);
+ 	/* Complete any specified mmap actions. */
+diff --git a/mm/vma.c b/mm/vma.c
+index 55917d097933..c27aea6d58d9 100644
+--- a/mm/vma.c
++++ b/mm/vma.c
+@@ -24,7 +24,8 @@ struct mmap_state {
+ 		vm_flags_t vm_flags;
+ 		vma_flags_t vma_flags;
  	};
-+	const bool lock = vma_flags_test(new_vma_flags, VMA_LOCKED_BIT);
-+	vma_flags_t walk_flags = *new_vma_flags;
+-	struct file *file;
++	struct file *file;	/* mmap()-specified file. */
++	struct file *vm_file;	/* May be updated by mmap_prepare. */
+ 	pgprot_t page_prot;
+ 
+ 	/* User-defined fields, perhaps updated by .mmap_prepare(). */
+@@ -43,8 +44,6 @@ struct mmap_state {
+ 
+ 	/* Determine if we can check KSM flags early in mmap() logic. */
+ 	bool check_ksm_early :1;
+-	/* If .mmap_prepare changed the file, we don't need to pin. */
+-	bool file_doesnt_need_get :1;
+ };
+ 
+ #define MMAP_STATE(name, mm_, vmi_, addr_, len_, pgoff_, anon_pgoff_, vma_flags_, file_) \
+@@ -58,6 +57,7 @@ struct mmap_state {
+ 		.pglen = PHYS_PFN(len_),				\
+ 		.vma_flags = vma_flags_,				\
+ 		.file = file_,						\
++		.vm_file = file_,					\
+ 		.page_prot = vma_flags_to_page_prot(vma_flags_),	\
+ 	}
+ 
+@@ -70,7 +70,7 @@ struct mmap_state {
+ 		.vma_flags = (map_)->vma_flags,				\
+ 		.pgoff = (map_)->pgoff,					\
+ 		.anon_pgoff = (map_)->anon_pgoff,			\
+-		.file = (map_)->file,					\
++		.file = (map_)->vm_file,				\
+ 		.prev = (map_)->prev,					\
+ 		.middle = vma_,						\
+ 		.next = (vma_) ? NULL : (map_)->next,			\
+@@ -2447,7 +2447,7 @@ void mm_drop_all_locks(struct mm_struct *mm)
+  */
+ static bool accountable_mapping(struct mmap_state *map)
+ {
+-	const struct file *file = map->file;
++	const struct file *file = map->vm_file;
  
  	/*
--	 * There is a slight chance that concurrent page migration,
--	 * or page reclaim finding a page of this now-VMA_LOCKED_BIT vma,
--	 * will call mlock_vma_folio() and raise page's mlock_count:
--	 * double counting, leaving the page unevictable indefinitely.
--	 * Communicate this danger to mlock_vma_folio() with VMA_IO_BIT,
--	 * which is a VMA_SPECIAL_FLAGS flag not allowed on VMA_LOCKED_BIT vmas.
--	 * mmap_lock is held in write mode here, so this weird
--	 * combination should not be visible to other mmap_lock users;
--	 * but WRITE_ONCE so rmap walkers must see VMA_IO_BIT if VMA_LOCKED_BIT.
-+	 * LOCKONFAULT without LOCKED never otherwise occurs: it marks a walk in
-+	 * progress so that rmap-side callers, which test VMA_LOCKED_BIT, do not
-+	 * count folios, while try_to_unmap_one(), which tests VMA_LOCKED_MASK,
-+	 * still refuses to unmap them.
- 	 */
--	if (vma_flags_test(new_vma_flags, VMA_LOCKED_BIT))
--		vma_flags_set(new_vma_flags, VMA_IO_BIT);
-+	if (lock) {
-+		vma_flags_clear(&walk_flags, VMA_LOCKED_BIT);
-+		vma_flags_set(&walk_flags, VMA_LOCKONFAULT_BIT);
-+	}
+ 	 * hugetlb has its own accounting separate from the core VM
+@@ -2496,7 +2496,7 @@ static void vms_abort_munmap_vmas(struct vma_munmap_struct *vms,
+ 
+ static void update_ksm_flags(struct mmap_state *map)
+ {
+-	map->vma_flags = ksm_vma_flags(map->mm, map->file, map->vma_flags);
++	map->vma_flags = ksm_vma_flags(map->mm, map->vm_file, map->vma_flags);
+ }
+ 
+ static void set_desc_from_map(struct vm_area_desc *desc,
+@@ -2506,7 +2506,7 @@ static void set_desc_from_map(struct vm_area_desc *desc,
+ 	desc->end = map->end;
+ 
+ 	desc->pgoff = map->pgoff;
+-	desc->vm_file = map->file;
++	desc->vm_file = map->vm_file;
+ 	desc->vma_flags = map->vma_flags;
+ 	desc->page_prot = map->page_prot;
+ }
+@@ -2586,6 +2586,10 @@ static int __mmap_setup(struct mmap_state *map, struct vm_area_desc *desc,
+ 	return 0;
+ }
+ 
++static bool map_same_file(struct mmap_state *map)
++{
++	return map->vm_file == map->file;
++}
+ 
+ static int __mmap_new_file_vma(struct mmap_state *map,
+ 			       struct vm_area_struct *vma)
+@@ -2593,20 +2597,23 @@ static int __mmap_new_file_vma(struct mmap_state *map,
+ 	struct vma_iterator *vmi = map->vmi;
+ 	int error;
+ 
+-	vma->vm_file = map->file;
+-	if (!map->file_doesnt_need_get)
+-		get_file(map->file);
++	vma->vm_file = map->vm_file;
++	if (map_same_file(map))
++		get_file(map->vm_file);
+ 
+-	if (!map->file->f_op->mmap)
++	if (!map->vm_file->f_op->mmap)
+ 		return 0;
+ 
+ 	error = mmap_file(vma->vm_file, vma);
++	map->vm_file = vma->vm_file;
 +
- 	vma_start_write(vma);
--	vma_flags_reset_once(vma, new_vma_flags);
-+	vma_flags_reset_once(vma, &walk_flags);
+ 	if (error) {
+ 		UNMAP_STATE(unmap, vmi, vma, vma->vm_start, vma->vm_end,
+ 			    map->prev, map->next);
+-		fput(vma->vm_file);
+-		vma->vm_file = NULL;
++		if (map_same_file(map))
++			fput(map->vm_file);
  
- 	lru_add_drain();
--	walk_page_range_vma(vma, start, end, &mlock_walk_ops, NULL);
-+	walk_page_range_vma(vma, start, end, &mlock_walk_ops, (void *)lock);
- 	lru_add_drain();
++		vma->vm_file = NULL;
+ 		vma_iter_set(vmi, vma->vm_end);
+ 		/* Undo any partial mapping done by a device driver. */
+ 		unmap_region(&unmap);
+@@ -2623,7 +2630,6 @@ static int __mmap_new_file_vma(struct mmap_state *map,
+ 			!vma_flags_test(&map->vma_flags, VMA_MAYWRITE_BIT) &&
+ 			vma_test(vma, VMA_MAYWRITE_BIT));
  
--	if (vma_flags_test(new_vma_flags, VMA_IO_BIT)) {
--		vma_flags_clear(new_vma_flags, VMA_IO_BIT);
-+	if (lock)
- 		vma_flags_reset_once(vma, new_vma_flags);
--	}
+-	map->file = vma->vm_file;
+ 	map->vma_flags = vma->flags;
+ 
+ 	return 0;
+@@ -2631,7 +2637,7 @@ static int __mmap_new_file_vma(struct mmap_state *map,
+ 
+ static void map_set_anon(struct mmap_state *map)
+ {
+-	map->file = NULL;
++	map->vm_file = NULL;
+ 	map->vm_ops = NULL;
+ 	map->pgoff = map->addr >> PAGE_SHIFT;
+ }
+@@ -2643,7 +2649,7 @@ static bool map_is_private(const struct mmap_state *map)
+ 
+ static bool map_is_anon(const struct mmap_state *map)
+ {
+-	return map_is_private(map) && !map->file;
++	return map_is_private(map) && !map->vm_file;
  }
  
  /*
-diff --git a/mm/rmap.c b/mm/rmap.c
-index 5332c52909be..b4a4b3929044 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -2239,9 +2239,11 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 
- 		/*
- 		 * If the folio is in an mlock()d vma, we must not swap it out.
-+		 * VMA_LOCKONFAULT_BIT alone marks an mlock walk in progress, see
-+		 * mlock_vma_pages_range().
- 		 */
- 		if (!(flags & TTU_IGNORE_MLOCK) &&
--		    (vma->vm_flags & VM_LOCKED)) {
-+		    vma_test_any_mask(vma, VMA_LOCKED_MASK)) {
- 			ptes++;
- 
- 			/*
-@@ -2395,7 +2397,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 		}
- finish_unmap:
- 		folio_remove_rmap_ptes(folio, page, nr_pages, vma);
--		if (vma->vm_flags & VM_LOCKED)
-+		if (vma_test_any_mask(vma, VMA_LOCKED_MASK))
- 			mlock_drain_local();
- 		folio_put_refs(folio, nr_pages);
- 
-@@ -2770,7 +2772,7 @@ static bool try_to_migrate_one(struct folio *folio, struct vm_area_struct *vma,
- 			hugetlb_remove_rmap(folio);
- 		else
- 			folio_remove_rmap_pte(folio, subpage, vma);
--		if (vma->vm_flags & VM_LOCKED)
-+		if (vma_test_any_mask(vma, VMA_LOCKED_MASK))
- 			mlock_drain_local();
- 		folio_put(folio);
+@@ -2688,7 +2694,7 @@ static int __mmap_new_vma(struct mmap_state *map, struct vm_area_struct **vmap,
  	}
+ 
+ 	/* Invoke callbacks. */
+-	if (map->file)
++	if (map->vm_file)
+ 		error = __mmap_new_file_vma(map, vma);
+ 	else if (!is_anon)
+ 		error = shmem_zero_setup(vma);
+@@ -2797,11 +2803,15 @@ static int call_mmap_prepare(struct mmap_state *map,
+ 	int err;
+ 
+ 	/* Invoke the hook. */
+-	err = vfs_mmap_prepare(map->file, desc);
++	err = vfs_mmap_prepare(map->vm_file, desc);
+ 	if (err)
+ 		return err;
+ 
+-	/* It's invalid for mmap_preprare hooks to clear vm_ops. */
++	/* Update first so file refcount tracked correctly. */
++	if (desc->vm_file != map->vm_file)
++		map->vm_file = desc->vm_file;
++
++	/* It's invalid for mmap_prepare hooks to clear vm_ops. */
+ 	if (!desc->vm_ops)
+ 		return -EINVAL;
+ 
+@@ -2811,10 +2821,6 @@ static int call_mmap_prepare(struct mmap_state *map,
+ 
+ 	/* Update fields permitted to be changed. */
+ 	map->pgoff = desc->pgoff;
+-	if (desc->vm_file != map->file) {
+-		map->file_doesnt_need_get = true;
+-		map->file = desc->vm_file;
+-	}
+ 	map->vma_flags = desc->vma_flags;
+ 	map->page_prot = desc->page_prot;
+ 	/* User-defined fields. */
+@@ -2826,7 +2832,7 @@ static int call_mmap_prepare(struct mmap_state *map,
+ 	 * anonymous mappings. Rather than allowing these mappings to be odd
+ 	 * outliers, simply make them truly anonymous.
+ 	 */
+-	if (map_is_private(map) && file_is_dev_zero(map->file))
++	if (map_is_private(map) && file_is_dev_zero(map->vm_file))
+ 		map_set_anon(map);
+ 
+ 	return 0;
+@@ -2845,7 +2851,7 @@ static void set_vma_user_defined_fields(struct vm_area_struct *vma,
+  */
+ static bool can_set_ksm_flags_early(struct mmap_state *map)
+ {
+-	struct file *file = map->file;
++	struct file *file = map->vm_file;
+ 
+ 	/* Anonymous mappings have no driver which can change them. */
+ 	if (!file)
+@@ -2868,6 +2874,20 @@ static bool can_set_ksm_flags_early(struct mmap_state *map)
+ 	return false;
+ }
+ 
++static void map_put_vm_file(struct mmap_state *map)
++{
++	/*
++	 * An error occurred or the VMA was merged.
++	 *
++	 * If the file was changed by the driver (which is required to increment
++	 * the replacement file's reference count), drop its reference count.
++	 *
++	 * On error, the caller always drops the original file regardless.
++	 */
++	if (map->vm_file && !map_same_file(map))
++		fput(map->vm_file);
++}
++
+ static unsigned long __mmap_region(struct file *file, unsigned long addr,
+ 		unsigned long len, vma_flags_t vma_flags,
+ 		unsigned long pgoff, struct list_head *uf)
+@@ -2922,7 +2942,10 @@ static unsigned long __mmap_region(struct file *file, unsigned long addr,
+ 
+ 	__mmap_complete(&map, vma);
+ 
+-	if (have_mmap_prepare && allocated_new) {
++	if (!allocated_new) {
++		/* Merged, so need to drop refcount. */
++		map_put_vm_file(&map);
++	} else if (have_mmap_prepare) {
+ 		error = mmap_action_complete(vma, &desc.action,
+ 					     /*is_compat=*/false);
+ 		if (error)
+@@ -2936,13 +2959,7 @@ static unsigned long __mmap_region(struct file *file, unsigned long addr,
+ 	if (map.charged)
+ 		vm_unacct_memory(map.charged);
+ abort_munmap:
+-	/*
+-	 * This indicates that .mmap_prepare has set a new file, differing from
+-	 * desc->vm_file. But since we're aborting the operation, only the
+-	 * original file will be cleaned up. Ensure we clean up both.
+-	 */
+-	if (map.file_doesnt_need_get)
+-		fput(map.file);
++	map_put_vm_file(&map);
+ 	vms_abort_munmap_vmas(&map.vms, &map.mas_detach);
+ 	return error;
+ }
+diff --git a/mm/vma.h b/mm/vma.h
+index e97bd2dfa786..f15faa83f3d6 100644
+--- a/mm/vma.h
++++ b/mm/vma.h
+@@ -394,8 +394,10 @@ static inline void compat_set_vma_from_desc(struct vm_area_struct *vma,
+ 
+ 	/* Mutable fields. Populated with initial state. */
+ 	vma_set_pgoff(vma, desc->pgoff);
+-	if (desc->vm_file != vma->vm_file)
+-		vma_set_file(vma, desc->vm_file);
++	if (desc->vm_file != vma->vm_file) {
++		fput(vma->vm_file);
++		vma->vm_file = desc->vm_file;
++	}
+ 	vma->flags = desc->vma_flags;
+ 	vma->vm_page_prot = desc->page_prot;
+ 
 
 -- 
 2.55.0
