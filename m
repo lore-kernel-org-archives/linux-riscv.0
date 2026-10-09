@@ -4,71 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB25CA6019
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 09:05:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AB02CA5FED
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2026 09:15:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Date:Subject:Cc:To:From:Message-Id:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f+f3I3feZY3A4aw9UxSCuylezajUAEteyEU2cb5N0/8=; b=OeYobFwBAqitJg
-	/Yf14cMPV0i7kc1ULObllPK1YYyuAxKvo4c++lADN6/2dPT59UzkkqIGYQbIuVN7Dy/Qd/enizWXG
-	hARTdo3bxNXMq0YVBgDyhcJtPzHzKxEtboag3aoGdFkW1G76oOM8iUeIHmLddSA7sWiqlWYamiUG3
-	l1wvY2UJwpL+8G4tKbVKsCAc+Jg7v5062JNvdqNwCzsW6eNkDM1SnOFOyrp5rZeRk9vuxotZFrFBk
-	FzD7ZAK7/HErS01Hxl17nxV5JOfDattAdg6o35m477vXJqj3kHriSYC3dBt8isWyyNaDDlBxttmoC
-	zMZT+2rmwtrYZTLJVV5w==;
+	List-Owner; bh=Grxn4jCbFBjI9TpLol8mODAUOXW+Ce3eBX6VofI86yA=; b=O9kKBEZNJogAER
+	n3oH05o6Y/w9F+dt0+R0iBBCxh7M/KSTUu7uYIYF4I0TuoHZZu7SXx7MSoMFLfaenL2aXmDeCrAKT
+	h/EwH5qYlSp+J1Cxjdkuf3XRsfIKdXYHq8GhQnPjNc9ySqv/+j54+twy1dqOttpjku97JzPC8i5p/
+	3phfDgnSiLdJlPfJXQEK1YGG2zVUcM2PCXMRis0BsMjLdol8Tx8EtvvQ6a9NEo/hJhVA8W+0yTuzC
+	0wqSIgwmkuZuOB/q58I6EaPQxVKfHYlkKW7VsLLfxSFwY4/uNgjais0qijx2DcCYZqUPlA+9scVod
+	QUOipM5rIx0VhD/eswRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF6XL-00000005sWL-11JD;
-	Fri, 09 Oct 2026 09:05:07 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1xF6gj-00000005tZD-2cvu;
+	Fri, 09 Oct 2026 09:14:49 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xF6XH-00000005sTU-2L2D;
-	Fri, 09 Oct 2026 09:05:05 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.127])
-	by APP-03 (Coremail) with SMTP id rQCowADn5zUyrshqvgohCg--.407S4;
-	Fri, 09 Oct 2026 17:04:57 +0800 (CST)
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Wei Fu <wefu@redhat.com>,
-	Drew Fustini <dfustini@tenstorrent.com>
-Subject: [PATCH v3 2/2] phy: add a driver for T-Head TH1520 USB PHY
-Date: Fri,  9 Oct 2026 17:04:44 +0800
-Message-ID: <20261009090444.3319517-3-zhengxingda@iscas.ac.cn>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261009090444.3319517-1-zhengxingda@iscas.ac.cn>
-References: <20261009090444.3319517-1-zhengxingda@iscas.ac.cn>
+	id 1xF6gh-00000005tYi-1C6v;
+	Fri, 09 Oct 2026 09:14:48 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4j1Lm45T4rz4yjjH;
+	Fri, 09 Oct 2026 17:14:44 +0800 (CST)
+Received: (from root@localhost)
+	by mse-fl1.zte.com.cn id 6999EfSj006317;
+	Fri, 9 Oct 2026 17:14:41 +0800 (+08)
+	(envelope-from gong.shuai@sanechips.com.cn)
+Message-Id: <202610090914.6999EfSj006317@mse-fl1.zte.com.cn>
+Received: from szxlzmapp04.zte.com.cn ([10.5.231.166])
+	by mse-fl2.zte.com.cn with SMTP id 69995Y26078728;
+	Fri, 9 Oct 2026 17:05:34 +0800 (+08)
+	(envelope-from gong.shuai@sanechips.com.cn)
+Received: from localhost.localdomain (unknown [10.230.214.35])
+	by smtp (Zmail) with SMTP;
+	Fri, 9 Oct 2026 17:05:36 +0800
+X-Zmail-TransId: 3e816ac8ae5a022-c22f1
+X-Zmail-LocalSMTP: 1
+X-Zmail-RealSender: gong.shuai@sanechips.com.cn
+From: Gong Shuai <gong.shuai@sanechips.com.cn>
+To: andrew.jones@oss.qualcomm.com
+Cc: anup@brainfault.org, atish.patra@linux.dev, fangyu.yu@linux.alibaba.com,
+        iommu@lists.linux.dev, jgg@nvidia.com, jgg@ziepe.ca, joro@8bytes.org,
+        kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+        palmer@dabbelt.com, pjw@kernel.org, robin.murphy@arm.com,
+        tglx@kernel.org, tomasz.jeznach@linux.dev, will@kernel.org,
+        zhangzhanpeng.jasper@bytedance.com, zong.li@sifive.com,
+        gong.shuai@sanechips.com.cn, gsh517025@gmail.com
+Subject: Re: [RFC PATCH v3 04/14] iommu/riscv: Reject live S2 replacement with forwarded IRQs
+Date: Fri,  9 Oct 2026 17:05:30 +0800
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260928143113.49838-5-andrew.jones@oss.qualcomm.com>
+References: <20260928143113.49838-5-andrew.jones@oss.qualcomm.com>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowADn5zUyrshqvgohCg--.407S4
-X-Coremail-Antispam: 1UD129KBjvJXoW3GrykAry8trWkAF1DKw1xZrb_yoW3urW3pa
-	9xCFWrtr4ktFsIgw4xJr1UCF4Sqay7ta4aqry7G3WrZa43Gryrua98WFW5Zryvvrs7ZrWf
-	tr98GFW2kF1UK37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUm014x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
-	xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
-	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
-	kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY
-	6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0x
-	vEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVj
-	vjDU0xZFpf9x0JUQXo7UUUUU=
-X-Originating-IP: [112.94.100.127]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
+X-MAIL: mse-fl1.zte.com.cn 6999EfSj006317
+X-MSS: AUDITRELEASE@mse-fl1.zte.com.cn
+X-TLS: YES
+X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
+X-SOURCE-IP: 10.5.228.132 unknown Fri, 09 Oct 2026 17:14:44 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6AC8B084.001/4j1Lm45T4rz4yjjH
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_020503_993966_B061BE63 
-X-CRM114-Status: GOOD (  24.71  )
+X-CRM114-CacheID: sfid-20261009_021447_648727_DA8BF565 
+X-CRM114-Status: GOOD (  24.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,284 +86,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The USB PHY on T-Head TH1520 SoC is a Synopsys USB 3.0 FemtoPHY, with
-some PHY parameters exported as another system controller along with it.
+Hi Drew,
 
-A few PHY parameters have unusable defaults. Add a driver that programs
-them before releasing the PHY from reset in addition to
-clock/reset/regulator management.
+> MSI forwarding state is tied to the S2 domain MSI table. Replacing a
+> device's S2 domain while one of its IRQs is forwarded would leave the
+> IRQ state referring to the detached table.
+> 
+> Reject direct S2-to-S2 replacement when the moving device has forwarded
+> IRQs. Introduce a per-device nr_forwarded_irqs counter, rather than
+> domain-wide accounting, so other devices in the same IOMMU group can
+> still move and can be rolled back if a later device fails.
+> 
+> Later patches which introduce interrupt remapping support will manage
+> the newly introduced nr_forwarded_irqs counter.
+> 
+> Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+> ---
+>  drivers/iommu/riscv/iommu.c | 36 ++++++++++++++++++++++++++++++++++++
+>  1 file changed, 36 insertions(+)
+> 
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index 57f2884dec42..d48667112cd9 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -872,6 +872,7 @@ PT_IOMMU_CHECK_DOMAIN(struct riscv_iommu_domain, riscvpt.iommu, domain);
+>  /* Private IOMMU data for managed devices, dev_iommu_priv_* */
+>  struct riscv_iommu_info {
+>  	struct riscv_iommu_domain *domain;
+> +	unsigned int nr_forwarded_irqs;
+>  };
+>  
+>  static struct riscv_iommu_msi_table *riscv_iommu_domain_msi_table(struct iommu_domain *iommu_domain)
+> @@ -1432,6 +1433,36 @@ static int riscv_iommu_msi_table_alloc(struct riscv_iommu_domain *domain,
+>  	return 0;
+>  }
+>  
+> +static bool riscv_iommu_can_attach_paging_domain(struct iommu_domain *iommu_domain,
+> +						 struct device *dev,
+> +						 struct iommu_domain *old)
+> +{
+> +	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
+> +	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
+> +	bool new_is_s2 = domain->gscid;
+> +	struct riscv_iommu_msi_table *new_msi_table, *old_msi_table;
+> +
+> +	if (iommu_domain == old)
+> +		return true;
+> +
+> +	new_msi_table = riscv_iommu_domain_msi_table(iommu_domain);
+> +	old_msi_table = riscv_iommu_domain_msi_table(old);
+> +
+> +	if (new_msi_table)
+> +		lockdep_assert_held(&new_msi_table->lock);
+> +	if (old_msi_table)
+> +		lockdep_assert_held(&old_msi_table->lock);
+> +
+> +	/*
+> +	 * Per-device accounting allows other devices in the same IOMMU group
+> +	 * to move or roll back while this device has forwarded interrupts.
+> +	 */
+> +	if (new_is_s2 && old_msi_table && info->nr_forwarded_irqs)
 
-Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
----
-Changes in v3:
-- Use fsleep() to replace udelay(), and add proper inclusion of
-  linux/delay.h for this function. (fsleep() suggested by Drew and
-  inclusion suggested by Sashiko)
-- Adapt Drew's suggestion on the wording of the commit message's 2nd
-  paragraph.
-Changes in v2:
-- Removed unreferenced register names.
-- Changed the behavior to leaving bus clock on instead of binding it to
-  the regmap.
-- Removed early return for reset deassert failure in phy exit callback.
-- Tweaked the Kconfig item (removed default value and added "select
-  REGMAP_MMIO).
+This check might miss one case. old_msi_table comes from this
+attach's old domain, so only a direct S2 to S2 swap is caught.
+A device with live forwarded IRQs can still be moved to blocking
+and then to a different S2 domain, and on that second attach old
+is the blocking domain, so old_msi_table is NULL and the check
+passes. This is only from reading the code, I have no test program
+that triggers it.
 
- drivers/phy/Kconfig                |   1 +
- drivers/phy/Makefile               |   1 +
- drivers/phy/thead/Kconfig          |  12 ++
- drivers/phy/thead/Makefile         |   2 +
- drivers/phy/thead/phy-th1520-usb.c | 181 +++++++++++++++++++++++++++++
- 5 files changed, 197 insertions(+)
- create mode 100644 drivers/phy/thead/Kconfig
- create mode 100644 drivers/phy/thead/Makefile
- create mode 100644 drivers/phy/thead/phy-th1520-usb.c
+If you think this is a real gap, one idea would be to record the
+table the forwarding was set up on in riscv_iommu_info(a pointer to
+riscv_iommu_msi_table), set when the first IRQ of the device is
+forwarded and cleared when the last one is unforwarded. The pointer
+survives the blocking hop, since attaching to blocking domain only
+clears info->domain. Then can_attach here will reject when the new
+domain's table differs from it. That covers both the direct and the
+blocking case, and the PCI reset path still works because the device
+returns to the same S2 domain. The unforward path can use the pointer
+instead of info->domain. Note that the S2 domain owning the table
+must not be freed while a device still points at that table.
 
-diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-index 19f3b7d12b7d4..a05019020ee09 100644
---- a/drivers/phy/Kconfig
-+++ b/drivers/phy/Kconfig
-@@ -200,6 +200,7 @@ source "drivers/phy/st/Kconfig"
- source "drivers/phy/starfive/Kconfig"
- source "drivers/phy/sunplus/Kconfig"
- source "drivers/phy/tegra/Kconfig"
-+source "drivers/phy/thead/Kconfig"
- source "drivers/phy/ti/Kconfig"
- source "drivers/phy/xilinx/Kconfig"
- 
-diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
-index d7aa516bcc49e..0ac5b21477619 100644
---- a/drivers/phy/Makefile
-+++ b/drivers/phy/Makefile
-@@ -52,5 +52,6 @@ obj-$(CONFIG_GENERIC_PHY)		+= allwinner/	\
- 					   starfive/	\
- 					   sunplus/	\
- 					   tegra/	\
-+					   thead/	\
- 					   ti/		\
- 					   xilinx/
-diff --git a/drivers/phy/thead/Kconfig b/drivers/phy/thead/Kconfig
-new file mode 100644
-index 0000000000000..ba0ceac54c1b0
---- /dev/null
-+++ b/drivers/phy/thead/Kconfig
-@@ -0,0 +1,12 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+config PHY_TH1520_USB
-+	tristate "USB PHY driver for T-Head TH1520 SoC"
-+	depends on ARCH_THEAD || COMPILE_TEST
-+	depends on COMMON_CLK
-+	depends on HAS_IOMEM
-+	depends on OF
-+	depends on RESET_CONTROLLER
-+	select GENERIC_PHY
-+	select REGMAP_MMIO
-+	help
-+	  Enable support for the USB PHY on the T-Head TH1520 SoC.
-diff --git a/drivers/phy/thead/Makefile b/drivers/phy/thead/Makefile
-new file mode 100644
-index 0000000000000..5b459bc7004bd
---- /dev/null
-+++ b/drivers/phy/thead/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+obj-$(CONFIG_PHY_TH1520_USB) += phy-th1520-usb.o
-diff --git a/drivers/phy/thead/phy-th1520-usb.c b/drivers/phy/thead/phy-th1520-usb.c
-new file mode 100644
-index 0000000000000..6cb0e51401374
---- /dev/null
-+++ b/drivers/phy/thead/phy-th1520-usb.c
-@@ -0,0 +1,181 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 Institute of Software, Chinese Academy of Sciences (ISCAS)
-+ *
-+ * Authors:
-+ * Icenowy Zheng <zhengxingda@iscas.ac.cn>
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/regulator/consumer.h>
-+#include <linux/reset.h>
-+
-+#define USB_SYSCON_OFFSET		0xf000
-+
-+/* All the below registers are in the USB syscon region */
-+#define USB_SSP_EN			0x34
-+#define USB_SSP_EN_REF_SSP_EN		BIT(0)
-+
-+#define USB_SYS				0x3c
-+#define USB_SYS_COMMONONN		BIT(0)
-+
-+/* The last register according to the manual */
-+#define USB_TEST_REG3			0x5c
-+
-+struct th1520_usb_phy {
-+	struct platform_device *pdev;
-+	struct phy *phy;
-+	struct regmap *regmap;
-+	struct clk *ref_clk;
-+	struct reset_control *phy_reset;
-+};
-+
-+static int th1520_usb_phy_init(struct phy *phy)
-+{
-+	struct th1520_usb_phy *th1520_phy = phy_get_drvdata(phy);
-+	int ret;
-+
-+	ret = clk_prepare_enable(th1520_phy->ref_clk);
-+	if (ret)
-+		return ret;
-+
-+	ret = reset_control_assert(th1520_phy->phy_reset);
-+	if (ret)
-+		goto err_disable_clk;
-+
-+	/*
-+	 * Do some initial PHY setup:
-+	 * - Set COMMONONN to allow the PHY to automatically power down.
-+	 * - Set REF_SSP_EN to enable feeding reference clock to SuperSpeed
-+	 *   PHY clock PLL.
-+	 */
-+	regmap_set_bits(th1520_phy->regmap, USB_SYS, USB_SYS_COMMONONN);
-+	regmap_set_bits(th1520_phy->regmap, USB_SSP_EN, USB_SSP_EN_REF_SSP_EN);
-+
-+	ret = reset_control_deassert(th1520_phy->phy_reset);
-+	if (ret)
-+		goto err_disable_clk;
-+
-+	fsleep(10);
-+
-+	return 0;
-+
-+err_disable_clk:
-+	clk_disable_unprepare(th1520_phy->ref_clk);
-+	return ret;
-+}
-+
-+static int th1520_usb_phy_exit(struct phy *phy)
-+{
-+	struct th1520_usb_phy *th1520_phy = phy_get_drvdata(phy);
-+	int ret;
-+
-+	ret = reset_control_assert(th1520_phy->phy_reset);
-+	clk_disable_unprepare(th1520_phy->ref_clk);
-+
-+	return ret;
-+}
-+
-+static const struct phy_ops th1520_usb_phy_ops = {
-+	.init		= th1520_usb_phy_init,
-+	.exit		= th1520_usb_phy_exit,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static const struct regmap_config phy_regmap_config = {
-+	.reg_bits = 32,
-+	.val_bits = 32,
-+	.reg_stride = 4,
-+	.max_register = USB_TEST_REG3,
-+};
-+
-+static int th1520_usb_phy_probe(struct platform_device *pdev)
-+{
-+	struct phy_provider *phy_provider;
-+	struct device *dev = &pdev->dev;
-+	struct th1520_usb_phy *th1520_phy;
-+	struct reset_control *bus_reset;
-+	struct clk *bus_clk;
-+	void __iomem *base;
-+	int ret;
-+
-+	th1520_phy = devm_kzalloc(dev, sizeof(*th1520_phy), GFP_KERNEL);
-+	if (!th1520_phy)
-+		return -ENOMEM;
-+
-+	th1520_phy->pdev = pdev;
-+
-+	base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	th1520_phy->ref_clk = devm_clk_get(dev, "ref");
-+	if (IS_ERR(th1520_phy->ref_clk))
-+		return PTR_ERR(th1520_phy->ref_clk);
-+
-+	/* Enable the bus clock and leave it that way */
-+	bus_clk = devm_clk_get_enabled(dev, "bus");
-+	if (IS_ERR(bus_clk))
-+		return PTR_ERR(bus_clk);
-+
-+	/* De-assert the bus reset and leave it that way */
-+	bus_reset = devm_reset_control_get_exclusive_deasserted(dev, "bus");
-+	if (IS_ERR(bus_reset))
-+		return PTR_ERR(bus_reset);
-+
-+	th1520_phy->phy_reset = devm_reset_control_get_exclusive(dev, "phy");
-+	if (IS_ERR(th1520_phy->phy_reset))
-+		return PTR_ERR(th1520_phy->phy_reset);
-+
-+	/*
-+	 * Schematics of several boards (Lichee Module 4A/Milk-V Meles)
-+	 * describe this power rail as always-on.
-+	 */
-+	ret = devm_regulator_get_enable(dev, "avdd33-usb3");
-+	if (ret)
-+		return ret;
-+
-+	th1520_phy->regmap = devm_regmap_init_mmio(dev,
-+						   base + USB_SYSCON_OFFSET,
-+						   &phy_regmap_config);
-+	if (IS_ERR(th1520_phy->regmap))
-+		return dev_err_probe(dev, PTR_ERR(th1520_phy->regmap),
-+				     "Failed to init regmap\n");
-+
-+	th1520_phy->phy = devm_phy_create(dev, dev->of_node, &th1520_usb_phy_ops);
-+	if (IS_ERR(th1520_phy->phy)) {
-+		dev_err(dev, "failed to create PHY\n");
-+		return PTR_ERR(th1520_phy->phy);
-+	}
-+
-+	phy_set_drvdata(th1520_phy->phy, th1520_phy);
-+
-+	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-+
-+	return PTR_ERR_OR_ZERO(phy_provider);
-+}
-+
-+static const struct of_device_id th1520_usb_phy_of_table[] = {
-+	{ .compatible = "thead,th1520-usb-phy" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, th1520_usb_phy_of_table);
-+
-+static struct platform_driver th1520_usb_phy_driver = {
-+	.driver = {
-+		.name = "th1520-usb-phy",
-+		.of_match_table = th1520_usb_phy_of_table,
-+	},
-+	.probe = th1520_usb_phy_probe,
-+};
-+
-+module_platform_driver(th1520_usb_phy_driver);
-+
-+MODULE_DESCRIPTION("T-Head TH1520 USB PHY driver");
-+MODULE_LICENSE("GPL");
--- 
-2.55.0
+Thanks,
+Shuai
 
+> +		return false;
+> +
+> +	return true;
+> +}
+> +
+>  static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+>  					    struct device *dev,
+>  					    struct iommu_domain *old)
+> @@ -1477,6 +1508,11 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+>  	bond->dev = dev;
+>  
+>  	flags = riscv_iommu_msi_tables_lock(old, iommu_domain);
+> +	if (!riscv_iommu_can_attach_paging_domain(iommu_domain, dev, old)) {
+> +		riscv_iommu_msi_tables_unlock(old, iommu_domain, flags);
+> +		kfree(bond);
+> +		return -EBUSY;
+> +	}
+>  	riscv_iommu_bond_link(domain, bond);
+>  	riscv_iommu_iodir_update(iommu, dev, &dc);
+>  	riscv_iommu_bond_unlink(info->domain, dev);
+> -- 
+> 2.43.0
 
 _______________________________________________
 linux-riscv mailing list
