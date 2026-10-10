@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24B1DCA9EBE
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Oct 2026 11:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C9FCA9EBE
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Oct 2026 11:26:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jP8EL/c9pPuknzKvjbMdLTd2rCtDq2BH4N2MstKIPeY=; b=rE8lJycqjHKJHK
-	FQdkWdaFlf8XSVMz5GllRx6HFtLye7V1Fw7QNFkCasWoidLig+ujjHWGSs1xl2RGSEoVVig/hcXOm
-	DUp7HRb0YXUPCYl2wV245Lalao89unk+uzV00YGlHzj8cQI2hDDY7D3g1YH/D6fzuFwtCG99W1ZdC
-	/7AmOT8bTlLWiI29GI0D/JVSrZ4YWdV3ar5Lt3kHguOpw4nnrHP42jgoJjx4o7cWukPk6a0yCtUHh
-	H3+04yRX9KzriTp7eVyxXpNydZyAw8QEE0H6HXZDMZBbKI2dlN/SUFyX1+3t8kNrdJB/pwI+cE2Lc
-	UsDXa/CqKV01k2jFeASQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/+uZnqt29oC1qzNvfgd/Ipmu0T29yiuc7K0aYH5dePI=; b=2LrpPIsQXVaP5V
+	7Nn0nJBbgOwBR69RaisipqJmUb1UPQ76tW6m1+mTM8KtCIoec04X4j/g4aVeCBy96SVCC+HmnaDM/
+	d+nd0/yBdOo7a1TmH6BPxe51fh0+idOGdwP8/CBV8V0IAlAJUkRs2U/m62K9Bl4CeTcgBDKoYTRtq
+	KuSoMVHZ0Sz3R2M676vByQ766mTagMVSslqRgGVLX4SHxKoa3p6AwqXLLPJObdfpp2RXJelIqZK81
+	pQKtdfn11Jbu0OkGyL/ohD5ug5T3YXdCAxhsR+BmB631HprASfK9J/c9xAgjqIxb91g5utrlAfGOu
+	p78YZw77NqTH209+Q2OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVD8-00000007ub0-3xdy;
-	Sat, 10 Oct 2026 11:25:54 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1xFVDJ-00000007ued-2ENR;
+	Sat, 10 Oct 2026 11:26:06 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVD5-00000007uZw-35BE
+	id 1xFVDC-00000007ubx-0Ubf
 	for linux-riscv@lists.infradead.org;
-	Sat, 10 Oct 2026 11:25:53 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-3a8adb68d8bso323966a91.1
-        for <linux-riscv@lists.infradead.org>; Sat, 10 Oct 2026 04:25:48 -0700 (PDT)
+	Sat, 10 Oct 2026 11:26:03 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-3ab2bf5e75bso230493a91.3
+        for <linux-riscv@lists.infradead.org>; Sat, 10 Oct 2026 04:25:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1791631548; x=1792236348; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=P0oeUsShMWj3bJ1nudJ9ra0uDTnpz7SXDogBWHR7tfw=;
-        b=Spb+kjCFHhGg1SsjHIQfK6c1hpHPDKTWMW2wAsFaOSY2xOiQLwcm+lTvkOO0pZs+GJ
-         AtOGpF0DaknXgQvLwwV9J3HcQcldrXskuh1ZrdJ31V50v9oMUuHG71AF60kt2WCtFkXl
-         3iwUhkIHM+M02EVlb8kBWbxGNSN/hoSNjeK24zBWvewblBFC7gUuih1fOw1rWYmbOJgi
-         H1usf59iCeu8w471ckg3J0DL8YfAoKuU4uZ1NTXtZK4RMd+K7lGcd3ohgY4n4AAvLaZB
-         IzWGMFEDT1UU1M336gn/r6rT3//sl/ihPgZN+Ybm2HjbHyzNDv7dmTel6K7rpXL1Mlck
-         rbfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791631548; x=1792236348;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=bytedance.com; s=google; t=1791631557; x=1792236357; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=P0oeUsShMWj3bJ1nudJ9ra0uDTnpz7SXDogBWHR7tfw=;
-        b=wkl3oFm9XdntHERpAq9nd7GwbgxT0A0wRs/uvLLeZ2aAMs0ToOcYOHIBwjc/1qLew9
-         XVhIMT10dzrb9oIn+uzSvC8wubElcoYo5oanVoZK1ENPTsIpB8Ym3g9COu7Wh4yvx0PM
-         XxAv/Y62K9wXGDncHkYhBXAYdv42IwHCvt+41juTxh7GeVWlqtBaWr+8AV4Im/c/aenj
-         yP1aGPDBF7hGr8lw4QDjnN9k6dBcjg1SMgFi3sA4ZxK8g4u+VK+qSB0M0c8u/DNqIFPi
-         DBp5xjNNjZ46z3Ge0W/KS7svnBrUbdvN5wWO0J8DBPp8rFaMRd1h0bob0iF/Hke2OCHJ
-         OIRg==
-X-Forwarded-Encrypted: i=1; AKwUvByW8JaYSOAlfwVg0QAOw5Q9jXjOPiyo4Qs0F1QzvQ5V4/Y9bTQpM2tpiIwPjblNquL6ye/6pf+6gI6UOw==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJp240QiLONl8JdJVArZ5k+EM4m3HIx9LSAL5H4FFA8tdLqtCxZ
-	70AGPBquky9EGZlloCo3zBe1NC6kkwI/hphBNP3F8XUcoUHuAHYhzopvpiUBdSZVoRc=
-X-Gm-Gg: AYBFou3gHdJrelAjJZlCm9hUfUZ1l1J6JCOcbeBdKe4fF3SfDcEOEfgoFnJmSr1GUIA
-	7zg1x9pFSqDfGHQvg8lKho3QS1aXPyqJhN0AfIcYQLLtCjriE4pyPUTJ/wcMtyDC3PVvQt5E61D
-	EjMPkJg6Jmz8d0d0rx90zuTdB46zV5RLJZBh2gbPixzOt7MACQEZEErNQeB/IfWFlOFvNXbDutp
-	yJUmvfLEsCiuHRmwZl/wIPzCtzy/S+szgMfA8eRbL9Uz5z49XPLE18vfH2V+BKMmLW7eeTR1lgx
-	g13Y9x+8w6ub2H1d1xGK9fX6XE3n//UqbZHrkSXLR5WUbtPWWoD1UG86MX2tJjnYQQzzwagnJnC
-	aDoNmO12VzOm7Jo7rdbfMKQYSd6nB2Wx6GKMposMJqmeQqoKi3yKzCN1atPXLPQ2calH0ikiR00
-	3mizOSi9XmEng8POjmsf5CkVHQy7SpPTLyX6JYjRD3JE0P/fHs8kqEVWhroZN6OBs9wixEUsOf9
-	vl7fH8Ogu+ccDrsRyuBkXDe9DzUp5rPBidt0A==
-X-Received: by 2002:a17:90b:3a48:b0:39d:f6a6:60d8 with SMTP id 98e67ed59e1d1-3ab3a33db57mr4120069a91.3.1791631547298;
-        Sat, 10 Oct 2026 04:25:47 -0700 (PDT)
+        bh=iE2QEQrwTXqpoYPa2dWn+Ity3YDDboIZyxHqWaOWsQs=;
+        b=VxDDxB8pM651IOE8XM2qxNstJYHUP0rytYEm+MAIBv5fWHvNBofp60pV9fndvA/8Rr
+         jDFYeVe/nIsK/nuIDIplG+AvVjjDuYBaLaUglgRebGZan+rlOhacoLp6pE6mmXDmNLt+
+         9pgzIEYZlZmieEo3roHejW9bDR4eAmYIJeksNB75DA+MJ4iI1JQP9QR9zui6s1et+RXQ
+         VjoGy4qjii18jSTjMyveNdoGZyLJGRjV7CGCTlp2kRIaqVuoyZrrKAFQuT4y5t01nJ31
+         nLhH6uxVb1a50Qcp6/Cs/VD5EoznchRLRF4tdGaUyG79MZjpKevbTznlfb0j4kmQaIbs
+         kyJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791631557; x=1792236357;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=iE2QEQrwTXqpoYPa2dWn+Ity3YDDboIZyxHqWaOWsQs=;
+        b=sOXimVoxfMdhyXcD9lH9oW7FL2PtsQM0J2BG3TZ1msIKUa97dSmPYku9mypZw2IAHW
+         graJ4dG97QBhE0OKxoAiWxMhMQjw9oQBRgd8R6rK7DrbJoRd8U+SmlFAZrs4nv9XS3/a
+         IA/e2ave+rvkz8h4liydFX1FBCG7Lsb7ox+TKlkvW9EWf3VuoInyuINJVc4daIEPommt
+         4M3lCd4ok9OGrtLBnL3wZi7t6O8oHyAbX5HXz/czf3hRDZFjXht54kA2T8Xy1Sd2LeKp
+         wbJmGEfu9N9IEG+yR5IvsiS8EQ/QOMsOr9fX5GQIK6A3G0rodn0dkHUR9fFAnDip6lWZ
+         3alw==
+X-Forwarded-Encrypted: i=1; AKwUvBzOaUXquuisKmqwGSMRWYsAuDT57tFc15fg5ZnTp6pBb5eThONK1jk2oKSnF1GJRLcGVjskaV96KbAa1Q==@lists.infradead.org
+X-Gm-Message-State: AFq9FYJUyT2ng0Go1i1gLS1uqxfaMcC/WMkTPGI00j+7dEL2CImKMdHa
+	43zUyu3fRUfF3UpaihTb+lpoYVJ+JJocv8o8PVffa3GjV+lFwftP2B7tCjKSpx4xiWQ=
+X-Gm-Gg: AYBFou0OvnOHsa5/wGpLQHHoy5p3YrIohMrVuht7dODf/fCxTOQI+S1VDDnN8TWG/o4
+	ke+WYoi+d6TJDRajopqUzeVAx/QP4P2I1GFcwGV03u9kkKDgebgkQNi1NDU50lxut/0Uw37I3SH
+	p+VJjwkNxmQPbf3FltaA6z5CKT56Xmf1VlX3tmd04pvnEXEDgisvqW3XFg8scqAaaMndEdEFbgp
+	Tsww89Jv6QmPDzz9xWSHjwzEuhp3ZawXpP7X19BuDYp2pjpvi1CU6wBY3XH+HOoHN4ZzFhMd/cV
+	1zUleQZydqR5HMSn8JpokLKYREl5+1/g+DhUkkwqOE4OZSKhm54Ix660NaL4Te7Xw1okmV2m3X+
+	mMXPft4BJkYbSplZJvmFNWspZBUBo2lsheweOH/obq0wm9idtLOgn+xqS2RfNG7ONZ9Z6fDAtCA
+	Bf+3clojo9fjlkqdk1SLYm7NSQ0I2zLw+MKRONG9KsnEFI20J4BG7j93vtxTosnEhBOQ5t9zx8A
+	z1oGF9y24n2DVWEaIcOpcleNSMyvy17jA4rUvdFwvFOUsSw
+X-Received: by 2002:a17:90b:2d06:b0:3a4:b30b:b501 with SMTP id 98e67ed59e1d1-3ab3a32d491mr3593827a91.9.1791631557025;
+        Sat, 10 Oct 2026 04:25:57 -0700 (PDT)
 Received: from G6L4RL2QG9.bytedance.net ([139.177.225.249])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ab3690474esm7900233a91.0.2026.10.10.04.25.37
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ab3690474esm7900233a91.0.2026.10.10.04.25.48
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 10 Oct 2026 04:25:45 -0700 (PDT)
+        Sat, 10 Oct 2026 04:25:56 -0700 (PDT)
 From: Muchun Song <songmuchun@bytedance.com>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: David Hildenbrand <david@kernel.org>,
@@ -92,14 +93,16 @@ Cc: David Hildenbrand <david@kernel.org>,
 	stable@vger.kernel.org,
 	Muchun Song <muchun.song@linux.dev>,
 	Muchun Song <songmuchun@bytedance.com>
-Subject: [PATCH v2 0/4] mm: Fix page-table teardown during memory hot-remove
-Date: Sat, 10 Oct 2026 19:24:53 +0800
-Message-ID: <20261010112457.49485-1-songmuchun@bytedance.com>
+Subject: [PATCH v2 1/4] mm: fix missing page-table destructor in pagetable_free()
+Date: Sat, 10 Oct 2026 19:24:54 +0800
+Message-ID: <20261010112457.49485-2-songmuchun@bytedance.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261010112457.49485-1-songmuchun@bytedance.com>
+References: <20261010112457.49485-1-songmuchun@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_042551_783205_B22A1756 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20261010_042602_381720_F2F22249 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,43 +119,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Memory hot-remove can free page-table pages allocated through paths with
-different constructor state. Some paths run the page-table constructor,
-while generic sparse-vmemmap population may not. The x86, RISC-V, and
-arm64 teardown paths did not handle that distinction consistently,
-leaving constructor/destructor accounting unbalanced.
+Since commit 49f599666420 ("mm: call ctor/dtor for kernel PTEs"),
+pte_alloc_one_kernel() runs the page-table constructor for kernel PTE
+tables.
 
-Make pagetable_free() test PageTable() and run the destructor only when
-the constructor initialized the page. The RISC-V and arm64 fixes then
-use this common helper for their memory-hot-remove paths.
+HVO (HugeTLB Vmemmap Optimization) uses pte_alloc_one_kernel() when
+splitting a PMD. Restoring the vmemmap backing pages does not collapse
+the PTE table, so a later memory hot-remove eventually frees it through
+pagetable_free() on x86-64. That releases the page without running the
+matching destructor and leaves NR_PAGETABLE elevated.
 
-The architecture fixes depend on the common MM change in patch 1, so
-this remains a single series. I expect it to go through the MM tree,
-with review or acks from the relevant architecture maintainers.
+Make pagetable_free() detect constructor-backed pages and run the
+destructor before releasing their memory to fix the problem.
 
-Changes since v1:
-- Move the destructor decision from x86 into pagetable_free(), as
-  suggested by David Hildenbrand.
-- Use pagetable_free() for non-reserved RISC-V page-table pages and
-  simplify reserved-page handling.
-- Collect David Hildenbrand's Acked-by on the RISC-V PUD fix.
-- Use pagetable_free() for arm64 intermediate page-table pages, as
-  suggested by David Hildenbrand.
-- Trim and update the commit messages, as requested by Dave Hansen.
+Fixes: 49f599666420 ("mm: call ctor/dtor for kernel PTEs")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+---
+v2:
+- Move destructor handling from x86 into pagetable_free() (suggested by
+  David Hildenbrand)
+- Trim and update the commit message (requested by Dave Hansen)
+---
+ include/linux/mm.h | 37 ++++++++++++++++++++-----------------
+ 1 file changed, 20 insertions(+), 17 deletions(-)
 
-Muchun Song (4):
-  mm: fix missing page-table destructor in pagetable_free()
-  riscv/mm: fix hotplug page-table destructor handling
-  riscv/mm: fix missing destructor for hotplug PUD tables
-  arm64/mm: fix destructor for unconstructed hotplug page tables
-
- arch/arm64/mm/mmu.c  |  3 +--
- arch/riscv/mm/init.c | 32 +++++++++++++-------------------
- include/linux/mm.h   | 37 ++++++++++++++++++++-----------------
- 3 files changed, 34 insertions(+), 38 deletions(-)
-
-
-base-commit: 8b38ed9ab5b09c8ba168cbcc49524e9b380ee5c4
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 5cca90fc1df6..771a7d60b0a5 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -3969,23 +3969,6 @@ static inline void pagetable_free_kernel(struct ptdesc *pt)
+ 	__pagetable_free(pt);
+ }
+ #endif
+-/**
+- * pagetable_free - Free pagetables
+- * @pt:	The page table descriptor
+- *
+- * pagetable_free frees the memory of all page tables described by a page
+- * table descriptor and the memory for the descriptor itself.
+- */
+-static inline void pagetable_free(struct ptdesc *pt)
+-{
+-	if (ptdesc_test_kernel(pt)) {
+-		ptdesc_clear_kernel(pt);
+-		pagetable_free_kernel(pt);
+-	} else {
+-		__pagetable_free(pt);
+-	}
+-}
+-
+ #if defined(CONFIG_SPLIT_PTE_PTLOCKS)
+ #if ALLOC_SPLIT_PTLOCKS
+ void __init ptlock_cache_init(void);
+@@ -4078,6 +4061,26 @@ static inline void pagetable_dtor(struct ptdesc *ptdesc)
+ 	lruvec_stat_sub_folio(folio, NR_PAGETABLE);
+ }
+ 
++/**
++ * pagetable_free - Free pagetables
++ * @pt:	The page table descriptor
++ *
++ * pagetable_free frees the memory of all page tables described by a page
++ * table descriptor and the memory for the descriptor itself.
++ */
++static inline void pagetable_free(struct ptdesc *pt)
++{
++	if (PageTable(ptdesc_page(pt)))
++		pagetable_dtor(pt);
++
++	if (ptdesc_test_kernel(pt)) {
++		ptdesc_clear_kernel(pt);
++		pagetable_free_kernel(pt);
++	} else {
++		__pagetable_free(pt);
++	}
++}
++
+ static inline void pagetable_dtor_free(struct ptdesc *ptdesc)
+ {
+ 	pagetable_dtor(ptdesc);
 -- 
 2.54.0
 
