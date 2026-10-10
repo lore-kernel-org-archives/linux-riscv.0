@@ -4,101 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E20BCA6004
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Oct 2026 12:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17892CA6017
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Oct 2026 13:23:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IAtQc29jNc20JnbXIVXO6H8+wgKT5J0tGa3QHmR0F3g=; b=SVY/C2GWqSS4bx
-	mLkrNaGpEi2WlPAjQJoRjfUqnNmlPO5HYZy9PGQJzKCfTFNyTkU8rCTifvCLp0wyEDtMUW1OjfsZz
-	Kbo6Wnc3LOda/Lm4e2L28Dd24ln0wv8oFtVQLCWHZWSsLcSrg5acC6EKFqQyUgz5njmTQbfhYw4gx
-	W43pNxtu0Za2Xq9BbvzTXBtV5yOH8XsnX888+023z42GB42R0OlDWCINieKUhT7XFesotsxq/xYd6
-	i0v0uv1pJzm6mNfYXn2xo8RJy+3dI2vYJkff8wIdpFk4v8WIpj82ZsFMTcjhS5QR6E7OnbBiRlNXD
-	zjlokxRGqcyzLEJZlGMQ==;
+	List-Owner; bh=siGmwrNgOzR7cjpJUhHS12sSZY4TZMcSF4FSBzmsq5o=; b=tCwBsD7cjPDwtT
+	nMOskJ/dBH2yN/U0E4NTZ8J54fmDnZB9wTx4E9pRLHJT1A1vrXpKhRUaqNviyGMOjOwDedc0vRPeP
+	a8m+CsAfWe/eGMIFqh4FS5uPV5ctGEGRNyP/IMxYCmeDQbqUtGd6vqkbuwTZQ1X5VnCdj7VUiuc0E
+	MLgg+HATrNHmnLjCMcrtHGIBozQwRr1OsANBqV16f851HKwdVS+l2ghXn80E5OH21UmGZ/IrOn4Q6
+	URBVQJ+SkPqDc1f4LMusxXGb2LugIMp2d247EJnpvEmTmz9XeCYDzNEL6vLz6Ys+Io/42ptiF6QOI
+	x0G+2ewmGehd4VCaQXPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFW7V-000000080x2-3mux;
-	Sat, 10 Oct 2026 12:24:09 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1xFX36-000000086RQ-3qKu;
+	Sat, 10 Oct 2026 13:23:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFW7Q-000000080vf-3AJO;
-	Sat, 10 Oct 2026 12:24:08 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261010122357euoutp02bf04a99341e5bbc43473ffce11d38391~dKpMJ5mLK1277212772euoutp02E;
-	Sat, 10 Oct 2026 12:23:57 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261010122357euoutp02bf04a99341e5bbc43473ffce11d38391~dKpMJ5mLK1277212772euoutp02E
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1791635037;
-	bh=W/evXz/fk2nDwkRg/LgD/8BHntxXciqgyux6ksl533s=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=WBqwhh+vwDnb1ddbWTUFdAtvh6PQvDDQRRNk1HdcMIi3YL0IpQaH9EngEeVFTNiS2
-	 zAYBnlByApQHLgVml8kj8M6k9C1EeX0he4lF7JmuWaeUwc9WRCYjLFDgXMMFHKWIh+
-	 8uGWecAQfgqPR4OXwT5HvF14YaSXEiRzHLkPV2iY=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261010122357eucas1p1892ef8aa961af3208f81f5356316372e~dKpL1ApHV2372723727eucas1p1W;
-	Sat, 10 Oct 2026 12:23:57 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261010122355eusmtip2ad5884c70b787c8d696f7ac9805aa691~dKpKCi3Gt0696206962eusmtip2U;
-	Sat, 10 Oct 2026 12:23:55 +0000 (GMT)
-Message-ID: <e0c42946-ed2a-41cc-9f2a-1bb089e02085@samsung.com>
-Date: Sat, 10 Oct 2026 14:23:55 +0200
+	id 1xFX33-000000086Qn-3r89;
+	Sat, 10 Oct 2026 13:23:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 39128402B6;
+	Sat, 10 Oct 2026 13:23:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6622A1F000FF;
+	Sat, 10 Oct 2026 13:23:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791638617;
+	bh=jSn1IK04TkZcZee9zhz9sEIPssSjp24H+zQ/sP34SBE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=P0fW5fFjAF5qEShD2FDUvhRLrpwuYauXz7mH0/BSGcs1DeAv1GtmOVVG/2URH7Nil
+	 Wp7IYW+Wv03cB9LfWZcRjNFYz0kCgtVvJncN3ac2E9G0ZIkIOdvjPHjh3vg52WlgNo
+	 5Wlw/ejL90a14q4Vviu2IAatKuQrY5GO0AR9xa2hVWWg5/UwMnYgO3AgB+jB+lW+Vc
+	 CzV6C9D/37DcbFx8Guens1jLZhndt+gROqpJ0cPyfu1x5sKaz92g9XWah1cqwpx6Wx
+	 F5ZvDMs8i/Le+rGQB1xi9V8X65teOuzLFUWnMdc/8rWz+9kJ58E5S9pgQZHGzWWwFC
+	 EZyVOU+A0eHzg==
+Message-ID: <5d20f9b8-9085-49df-87df-05f29f1496a1@kernel.org>
+Date: Sat, 10 Oct 2026 14:27:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
- starfive,jh7110-inno-hdmi-phy
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
-	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
-	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
-	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
-	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
-	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
-	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
-	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
-	Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
-	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
-	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
-	Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Joshua Peisach <jpeisach@ubuntu.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
-	<u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH 2/4] riscv/mm: fix hotplug page-table destructor handling
+To: Muchun Song <muchun.song@linux.dev>
+Cc: Muchun Song <songmuchun@bytedance.com>, akpm@linux-foundation.org,
+ linux-mm@kvack.org, stable@vger.kernel.org, osalvador@suse.de,
+ dave.hansen@linux.intel.com, luto@kernel.org, peterz@infradead.org,
+ tglx@kernel.org, mingo@redhat.com, bp@alien8.de, x86@kernel.org,
+ hpa@zytor.com, catalin.marinas@arm.com, will@kernel.org,
+ mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ linux-riscv@lists.infradead.org, agordeev@linux.ibm.com,
+ kevin.brodsky@arm.com, bjorn@rivosinc.com, apopple@nvidia.com,
+ linux-kernel@vger.kernel.org
+References: <20261008073021.2512665-1-songmuchun@bytedance.com>
+ <20261008073021.2512665-3-songmuchun@bytedance.com>
+ <664510b2-3510-499f-aab5-ceddfcc82581@kernel.org>
+ <F7FC1A28-A34E-4FE3-A6E8-92D842FFA0A8@linux.dev>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <ac7b82e6-22ea-465c-8477-bbe0bd9c8c27@kernel.org>
-X-CMS-MailID: 20261010122357eucas1p1892ef8aa961af3208f81f5356316372e
-X-Msg-Generator: CA
-X-RootMTR: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
-X-EPHeader: CA
-X-CMS-RootMailID: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
-References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-	<CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com>
-	<20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com>
-	<20260917-mutant-chamois-of-competence-46ca77@quoll>
-	<1a1a9b49-430b-4218-b27d-e133d488e8d9@samsung.com>
-	<6cf9e611-bfc5-407b-8132-bd328f8b61fc@kernel.org>
-	<eaba2fa9-a1ce-4dac-9bd6-e0b3a3dd01ef@samsung.com>
-	<3ee91c92-4e3a-4bac-85cf-923f5d77ceff@kernel.org>
-	<3c5c15d9-ea7e-49a2-adae-ec3e3c72594b@samsung.com>
-	<ac7b82e6-22ea-465c-8477-bbe0bd9c8c27@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_052405_396423_8D215D84 
-X-CRM114-Status: GOOD (  31.48  )
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <F7FC1A28-A34E-4FE3-A6E8-92D842FFA0A8@linux.dev>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,161 +124,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 10/4/26 09:15, Krzysztof Kozlowski wrote:
-> On 04/10/2026 00:35, Michal Wilczynski wrote:
+On 10/10/26 04:58, Muchun Song wrote:
+> 
+> 
+>> On Oct 10, 2026, at 04:37, David Hildenbrand (Arm) <david@kernel.org> wrote:
 >>
->>
->> On 10/3/26 22:45, Krzysztof Kozlowski wrote:
->>> On 03/10/2026 17:36, Michal Wilczynski wrote:
->>>>
->>>>
->>>> On 9/30/26 13:01, Krzysztof Kozlowski wrote:
->>>>> On 25/09/2026 23:05, Michal Wilczynski wrote:
->>>>>>>> +  clocks:
->>>>>>>> +    maxItems: 1
->>>>>>>> +    description: Reference oscillator.
->>>>>>>
->>>>>>> This barely counts as a resource, so usual question: no resources here?
->>>>>>> no MMIO? Even the user of this phy is the block itself.
->>>>>>>
->>>>>>> This makes me wonder if this should be a device node in the first place
->>>>>>> (instead folded into the parent).
->>>>>>
->>>>>> The PHY has no reg because the reg is shared with the controller and
->>>>>> owned by the parent - patch 9 lets the bridge take its regmap from
->>>>>> there.
->>>>>>
->>>>>> The user of the PHY is not only the block itself. It is the pixel clock
->>>>>> provider for the whole display subsystem, voutcrg takes hdmitx0_pixelclk
->>>>>> as the parent of its DC8200 pixel MUXes, and while HDMI output is active
->>>>>> it is the only intended source for that clock. The parent has to be
->>>>>> assigned explicitly so the general PLL does not end up driving the pixel
->>>>>> clock, and so a DSI user does not reach the HDMI PHY clock generator.
->>>>>>
->>>>>> So it has to be its own node. The HDMI block has two independent
->>>>>
->>>>> I do not see the logic which lead to this conclusion. Pixel clock
->>>>> provider, so a clock controller, cannot be a user of a phy. Clock
->>>>> controller does not have a physical layer.
->>>>
->>>> Sorry I think the wording was not perfect. I meant the PHY node is a
->>>> pixel clock provider. voutcrg consumes a clock not a PHY.
->>>>
->>>> voutcrg: clock-controller@295c0000 {
->>>>          clocks = <&syscrg ...>, <&hdmi_phy>;
->>>>          clock-names = ...,"hdmitx0_pixelclk";
->>>> };
->>>>
->>>> The consumer of the PHY is only the hdmi controller.
->>>>
->>>> What matters for the node layout is where that clock goes. voutcrg is the
->>>> SoC display clock controller - it is not part of the HDMI block:
->>>>
->>>> hdmi_phy -- pixel clock -> voutcrg
->>>>                               |
->>>>                               - pclk/mclk/bclk -> hdmi_controller
->>>>                               - pix0/pix1 -> dc8200
->>>>
->>>> hdmi_phy and hdmi_controller are the same register block with one reg
->>>> owned by the parent. So if that block is described as a single node:
->>>>
->>>> hdmi_node - pixel clock -> voutcrg
->>>>      ^                          |
->>>>      --- pclk/mclk/bclk --------
->>>>
->>>> the node provides a clock to voutcrg and consumes three clocks from
->>>> voutcrg. That is a cycle in the device tree description.
+>> On 10/8/26 09:30, Muchun Song wrote:
+>>> RISC-V uses the same memory-hotplug teardown code for the linear map and
+>>> vmemmap, although their page-table pages are not always allocated in the
+>>> same way. Late linear-map allocations run page-table constructors, while
+>>> vmemmap and early allocations may provide constructor-free pages.
 >>>
->>> There is no cycle. Internal signals to the block are not represented in DT.
+>>> The PTE path unconditionally runs the destructor, which is wrong for
+>>> constructor-free vmemmap tables. The PMD path avoids that problem by
+>>> using is_vmemmap as a proxy for constructor state, but that assumption
+>>> will no longer hold once runtime vmemmap allocations use the normal
+>>> pgalloc helpers.
 >>>
->>> What you have is a driver problem and you create some sort of DT
->>> structure to solve that. DT purpose is NOT to solve your driver
->>> dependencies or circular connections.
+>>> Page-table constructors record their state in PG_table. Centralize
+>>> page-table freeing and use PageTable() to decide whether the destructor
+>>> is required. Keep reserved and constructor-free pages on their existing
+>>> freeing paths.
+>>>
+>>> Fixes: c75a74f4ba19 ("riscv: mm: Add memory hotplugging support")
+>>> Cc: stable@vger.kernel.org
+>>> Assisted-by: LLM
+>>> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+>>> ---
+>>> arch/riscv/mm/init.c | 29 ++++++++++++++---------------
+>>> 1 file changed, 14 insertions(+), 15 deletions(-)
+>>>
+>>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+>>> index 857f9a55039c..429a0b015ec1 100644
+>>> --- a/arch/riscv/mm/init.c
+>>> +++ b/arch/riscv/mm/init.c
+>>> @@ -1486,10 +1486,19 @@ struct execmem_info __init *execmem_arch_setup(void)
+>>> #endif /* CONFIG_EXECMEM */
+>>>
+>>> #ifdef CONFIG_MEMORY_HOTPLUG
+>>> +static void __meminit free_pagetable(struct page *page)
+>>> +{
+>>> + 	if (PageReserved(page))
+>>> + 		free_reserved_page(page);
+>>> + 	else if (PageTable(page))
+>>> + 		pagetable_dtor_free(page_ptdesc(page));
+>>> + 	else
+>>> + 		pagetable_free(page_ptdesc(page));
 >>
->> The structure is not something I added. The voutcrg binding has required
->> an input clock named hdmitx0_pixelclk since it was merged in 2023
->> a097a5ec14df ("dt-bindings: clock: Add StarFive JH7110 Video-Output
->> clock and reset generator") and this series does not touch that file:
->>
->> Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
->>        - const: hdmitx0_pixelclk
->>
->> Mainline satisfies it with a placeholder, because so far nothing provided the
->> real clock:
->>
->> hdmitx0_pixelclk: hdmitx0-pixel-clock {
->>             compatible = "fixed-clock";                                                                          
->>             clock-output-names = "hdmitx0_pixelclk";
->>             #clock-cells = <0>;
->> };
->>
->> All this series does is point that existing input at the device that actually
->> generates it.
->>
->> TRM [1] table 5-3  on page 529 lists the display CRG's input clocks. Most come from
->> dom_vout_top, but three come from IP blocks inside the subsystem:
->>
->> clk_hdmitx0_pixelclk        297 MHz   u0_hdmi_tx.clk_pix
->> clk_mipitx_dphy_rxesc        10 MHz   u0_mipitx_dphy.clk_rxesc
->> clk_mipitx_dphy_txbytehs    297 MHz   u0_mipitx_dphy.clk_txbytehs
->>
->> and on page 530 the CRG offers clk_hdmitx0_pixelclk as Source1 for:
->>
->> u0_dc8200.clk_pix0      Source0 clk_dc8200_pix0  Source1 clk_hdmitx0_pixelclk
->> u0_dc8200.clk_pix1      Source0 clk_dc8200_pix0  Source1 clk_hdmitx0_pixelclk
->> u0_cdns_dsiTx.clk_dpi   Source0 clk_dc8200_pix0  Source1 clk_hdmitx0_pixelclk
->>
->> The DC8200 and the DSI TX are separate devices, so the pixel clock
->> crosses two block boundaries to reach them.
->>
->> That is also why the DT has to be able to name it. Those MUXes have two
->> parents and the selection is made in DT:
->>
->> &dc8200 {
->>           assigned-clocks = <&voutcrg JH7110_VOUTCLK_DC8200_PIX0>, ...;
->>           assigned-clock-parents = <&hdmi_phy>, <&hdmi_phy>;
->> };
->>
->> and voutcrg takes it as an input clock because that is what the hardware
->> does. If the PHY is folded into the HDMI node, that input phandle points at
->> a node which also consumes pclk/mclk/bclk from voutcrg. That is where the
->> cycle comes from - the hardware topology not the driver.
+>> Similar thought, can't we detect that in pagetable_free() somehow and avoid
+>> requiring callers to handle that?
 > 
-> Which is perfectly "fine" - present in many other SoCs as well. This is
-> not different and your arguments are insufficient to give here
-> exceptions. Why? Because again you use as an argument a Linux driver
-> problem (cyclic dependency). Basically to solve Linux problem you
-> introduce new empty nodes.
-> 
-> Best regards,
-> Krzysztof
-> 
+> I think we can, then pagetable_dtor_free() can be removed because pagetable_free
+> can handle the case of pagetable_dtor_free.
 
-OK probe ordering is a Linux concern and can't be used it to justify the
-binding.
+That sounds much cleaner :)
 
-We spoke briefly about this on Monday and I came away thinking the node
-is acceptable as long as it is justified by what it describes rather
-than by probe order. Is that the right reading of what you meant?
-
-On that basis the PHY node:
-- is a clock provider, and voutcrg consumes that clock and
-  routes it on to the DC8200 pixel MUXes and the DSI TX
-- is a phy provider for the controller
-- takes a different input clock than the controller - xin24m, against
-  pclk/mclk/bclk from voutcrg
-- is separate IP - the same Innosilicon PHY that RK3328 instantiates at its
-  own address (phy@ff430000), which here shares a register window with the
-  controller
-
-The reg is the only thing it does not have of its own, and that is shared
-with the controller and owned by the parent.
-
-Best regards,
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+Cheers,
+
+David
 
 _______________________________________________
 linux-riscv mailing list
