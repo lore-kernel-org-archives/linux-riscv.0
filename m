@@ -4,110 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17892CA6017
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Oct 2026 13:23:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02CD1CA6017
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Oct 2026 13:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=siGmwrNgOzR7cjpJUhHS12sSZY4TZMcSF4FSBzmsq5o=; b=tCwBsD7cjPDwtT
-	nMOskJ/dBH2yN/U0E4NTZ8J54fmDnZB9wTx4E9pRLHJT1A1vrXpKhRUaqNviyGMOjOwDedc0vRPeP
-	a8m+CsAfWe/eGMIFqh4FS5uPV5ctGEGRNyP/IMxYCmeDQbqUtGd6vqkbuwTZQ1X5VnCdj7VUiuc0E
-	MLgg+HATrNHmnLjCMcrtHGIBozQwRr1OsANBqV16f851HKwdVS+l2ghXn80E5OH21UmGZ/IrOn4Q6
-	URBVQJ+SkPqDc1f4LMusxXGb2LugIMp2d247EJnpvEmTmz9XeCYDzNEL6vLz6Ys+Io/42ptiF6QOI
-	x0G+2ewmGehd4VCaQXPw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=L2hno3mjfj1vWbKIZDEyDa1Gnyf0g+l8eGe1BW01gRA=; b=pdZrVdW+zjxr8j
+	bGtcPVFHjKHYqj474fZ9KyQ3IbswStNAMKyQwplGPWGWGSUoWRcT+gvYqH57jnJ6gNu5Wsiz6rWaF
+	DbaqJ+UOqxKQwz4CBotzHjMp3UhVHqZpBWk2qXuPZQxCmtj01O1qJSC9z+RBrSL9CDhzhOaBSNUIO
+	MLY2OU/0d3pUzsqR21h/m/3491DaPAQmCioJIp+QYRoiVwTOUHmOPY77Ae0k1xm0CyPtKHUNtYx4k
+	0z5Rh4B4x+1c4r3XBcjrN4AVgS2nKFTkr+dCq2oVHhCg4PLZ7l/QuUmIQ37Fy7ugjTyZb4Hdi5UdO
+	O9IBb4haA/CVAq/IFxvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFX36-000000086RQ-3qKu;
-	Sat, 10 Oct 2026 13:23:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xFX6k-000000086jy-2Q0e;
+	Sat, 10 Oct 2026 13:27:26 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFX33-000000086Qn-3r89;
-	Sat, 10 Oct 2026 13:23:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 39128402B6;
-	Sat, 10 Oct 2026 13:23:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6622A1F000FF;
-	Sat, 10 Oct 2026 13:23:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791638617;
-	bh=jSn1IK04TkZcZee9zhz9sEIPssSjp24H+zQ/sP34SBE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=P0fW5fFjAF5qEShD2FDUvhRLrpwuYauXz7mH0/BSGcs1DeAv1GtmOVVG/2URH7Nil
-	 Wp7IYW+Wv03cB9LfWZcRjNFYz0kCgtVvJncN3ac2E9G0ZIkIOdvjPHjh3vg52WlgNo
-	 5Wlw/ejL90a14q4Vviu2IAatKuQrY5GO0AR9xa2hVWWg5/UwMnYgO3AgB+jB+lW+Vc
-	 CzV6C9D/37DcbFx8Guens1jLZhndt+gROqpJ0cPyfu1x5sKaz92g9XWah1cqwpx6Wx
-	 F5ZvDMs8i/Le+rGQB1xi9V8X65teOuzLFUWnMdc/8rWz+9kJ58E5S9pgQZHGzWWwFC
-	 EZyVOU+A0eHzg==
-Message-ID: <5d20f9b8-9085-49df-87df-05f29f1496a1@kernel.org>
-Date: Sat, 10 Oct 2026 14:27:34 +0200
+	id 1xFX6h-000000086j8-3yE5
+	for linux-riscv@lists.infradead.org;
+	Sat, 10 Oct 2026 13:27:25 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a02718da81so4525875e9.1
+        for <linux-riscv@lists.infradead.org>; Sat, 10 Oct 2026 06:27:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791638842; x=1792243642; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=howgOP9h5nUKpogRLZsugGiXSDW33UsJon93r8D0E18=;
+        b=LdY/84yB5f0RyhPziw2z1hxzKo+6WQiNSal6mKM+1Q+S4SHDcBYscT3oMcKHgC6EP5
+         6IDMTbWMbONEioZvvo5q2BsiMMELnydvc1guSZeFHEVTRY7t0SvcZj+03YW0WdSWwH8P
+         WAOq7+C+v7U4Qh9WiD1txarmuD2TJG4nYg8FISDfezPUfBGbiQuemLf7rUzUDAf4DDHK
+         htHuWTpaK60TTk0FN8Avgazm4Udw+WV0nsNaqeVmBau3pLnQ2AM9tiIpHtNdxCWIe1XJ
+         7hKnSw9l9Y4yNFTPohjxf5Hkbgr0Q+E08PrEUZtcsTSYoqELqrs3OAq2zp9CJOgXb4RV
+         /ndg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791638842; x=1792243642;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=howgOP9h5nUKpogRLZsugGiXSDW33UsJon93r8D0E18=;
+        b=l1+ts/vIPoiuMZrB7vAyS7cUl76xWfPxgbQgB/5dqxCSM/blPppb4boBZNDF9lmZgo
+         TXZ4Uns333EoPtmC/yLzH8AzMRw6pYRnUW98mQC/q/wpe6P92PzNqHkTwjYnjXoIv283
+         YRfxjd/XLsFPMpY2mJOVNf+7A3tVisdOUZilDn2pbVBt75d3umndMcrwjJwwszq+5MLa
+         o6X9DbPxOiM1+Vbx19M/eLie8kDG3ZRjE0/LHl4AEkv0Rh84C0CudatwFn1t5vAZwpk1
+         D/CdedKWUXKunvT56sWJUhLErD6iw7PvvjCmUYZL3f62aBSgMx6OwR0Dy9tNBFbWsQWx
+         hSng==
+X-Forwarded-Encrypted: i=1; AKwUvBxdY4wnaCDxrWX5882LD1hzDDpnLgRDvp/yZFnXl5NgglLcRuIjbcgnXhnv2zqnxMqJNcVwKdL7UQdcjw==@lists.infradead.org
+X-Gm-Message-State: AFq9FYJksc0deGlAWw7PDYkWWizm1+rKGzyFYsweyD8+GfPduTfTZHpx
+	Cw2TUGCDs7BlEs6s25ECdj7knC7sLeq1J+LfXXJ99vnrbM44NuIM4/dP
+X-Gm-Gg: AYBFou2X/pQhNA8bLh+P8NTqxoRepgaUyHMUTBSWlws0j9bYP0sKA+fKYkkKZ4zP8Sx
+	4OHqEhq+G2snsC7KwBQU9I727wJ3R90x4tRfJd4ei4SeIUVAZi911HpAhznpD2oKIm0FCTFSUC1
+	jb98n5woARM4eofbG/Y+t1uVA5zXPbz1xiFvdh/wpdwLNBaPSEBTYkbjHBXZiDSMawykvaZWM7C
+	fSHtTjTq5sbU/Q801l1IdyxOBdFy349RljyatQwoaYBFonxM1272VjToAyb1KFYAZdefcVQ2LWo
+	e2mTIwSLKGh6mQrN1tEMH+9CtOfn9Mwl8HeKvSMzNWp3HcDoqcQppk9GIIJ7X56SALUmZNRtGdo
+	i9Mi4sPVbowtqTCHE7iA511Jr/u8C3kRL+g+P0r9lQRIKr0BIviBCLx+hFWzKrdHdHka8Qbjny1
+	ByNW6194jqO2ZDElWemBH8SeObxbLQ/uUf2vsjrYHgnXVpMspOQNctqsxw8yHiTa/l5F2ihhD7r
+	VxI0uIfM4/kACB8bHM1b8u7KR/k+9yyAk3zRQeASa1YGiADvEUE8GC62e5SHDT/JDn14SJIYjLs
+	hrajJtg0ri8TxVn/2ffBgrlGbnOoHJGIpFrA8xuUYHzUsnzC0mL8+zYjxkluz1QMjMSDvhuZahA
+	=
+X-Received: by 2002:a05:600c:c172:b0:4a0:1c0e:b2a8 with SMTP id 5b1f17b1804b1-4a18e4cc2a2mr86751495e9.28.1791638841556;
+        Sat, 10 Oct 2026 06:27:21 -0700 (PDT)
+Received: from imx93-evk.localdomain (dynamic-2a02-3100-9d3f-0d01-48c7-5d76-0ec6-9dac.310.pool.telefonica.de. [2a02:3100:9d3f:d01:48c7:5d76:ec6:9dac])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18bf21276sm215410405e9.8.2026.10.10.06.27.20
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 10 Oct 2026 06:27:21 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Changbin Du <changbin.du@intel.com>,
+	Shuai Xue <xueshuai@linux.alibaba.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Brendan Higgins <brendan.higgins@linux.dev>,
+	David Gow <david@davidgow.net>,
+	Rae Moar <raemoar63@gmail.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	kunit-dev@googlegroups.com
+Subject: [PATCH 1/2] riscv: stacktrace: do not report the walker's own frame from arch_stack_walk()
+Date: Sat, 10 Oct 2026 15:27:11 +0200
+Message-Id: <20261010132712.46931-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] riscv/mm: fix hotplug page-table destructor handling
-To: Muchun Song <muchun.song@linux.dev>
-Cc: Muchun Song <songmuchun@bytedance.com>, akpm@linux-foundation.org,
- linux-mm@kvack.org, stable@vger.kernel.org, osalvador@suse.de,
- dave.hansen@linux.intel.com, luto@kernel.org, peterz@infradead.org,
- tglx@kernel.org, mingo@redhat.com, bp@alien8.de, x86@kernel.org,
- hpa@zytor.com, catalin.marinas@arm.com, will@kernel.org,
- mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-riscv@lists.infradead.org, agordeev@linux.ibm.com,
- kevin.brodsky@arm.com, bjorn@rivosinc.com, apopple@nvidia.com,
- linux-kernel@vger.kernel.org
-References: <20261008073021.2512665-1-songmuchun@bytedance.com>
- <20261008073021.2512665-3-songmuchun@bytedance.com>
- <664510b2-3510-499f-aab5-ceddfcc82581@kernel.org>
- <F7FC1A28-A34E-4FE3-A6E8-92D842FFA0A8@linux.dev>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <F7FC1A28-A34E-4FE3-A6E8-92D842FFA0A8@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261010_062724_101303_387369B9 
+X-CRM114-Status: GOOD (  20.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,65 +116,150 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/10/26 04:58, Muchun Song wrote:
-> 
-> 
->> On Oct 10, 2026, at 04:37, David Hildenbrand (Arm) <david@kernel.org> wrote:
->>
->> On 10/8/26 09:30, Muchun Song wrote:
->>> RISC-V uses the same memory-hotplug teardown code for the linear map and
->>> vmemmap, although their page-table pages are not always allocated in the
->>> same way. Late linear-map allocations run page-table constructors, while
->>> vmemmap and early allocations may provide constructor-free pages.
->>>
->>> The PTE path unconditionally runs the destructor, which is wrong for
->>> constructor-free vmemmap tables. The PMD path avoids that problem by
->>> using is_vmemmap as a proxy for constructor state, but that assumption
->>> will no longer hold once runtime vmemmap allocations use the normal
->>> pgalloc helpers.
->>>
->>> Page-table constructors record their state in PG_table. Centralize
->>> page-table freeing and use PageTable() to decide whether the destructor
->>> is required. Keep reserved and constructor-free pages on their existing
->>> freeing paths.
->>>
->>> Fixes: c75a74f4ba19 ("riscv: mm: Add memory hotplugging support")
->>> Cc: stable@vger.kernel.org
->>> Assisted-by: LLM
->>> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
->>> ---
->>> arch/riscv/mm/init.c | 29 ++++++++++++++---------------
->>> 1 file changed, 14 insertions(+), 15 deletions(-)
->>>
->>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->>> index 857f9a55039c..429a0b015ec1 100644
->>> --- a/arch/riscv/mm/init.c
->>> +++ b/arch/riscv/mm/init.c
->>> @@ -1486,10 +1486,19 @@ struct execmem_info __init *execmem_arch_setup(void)
->>> #endif /* CONFIG_EXECMEM */
->>>
->>> #ifdef CONFIG_MEMORY_HOTPLUG
->>> +static void __meminit free_pagetable(struct page *page)
->>> +{
->>> + 	if (PageReserved(page))
->>> + 		free_reserved_page(page);
->>> + 	else if (PageTable(page))
->>> + 		pagetable_dtor_free(page_ptdesc(page));
->>> + 	else
->>> + 		pagetable_free(page_ptdesc(page));
->>
->> Similar thought, can't we detect that in pagetable_free() somehow and avoid
->> requiring callers to handle that?
-> 
-> I think we can, then pagetable_dtor_free() can be removed because pagetable_free
-> can handle the case of pagetable_dtor_free.
+stack_trace_save() uses skipnr + 1 because arch_stack_walk() is expected
+to first report the return into stack_trace_save(). With FRAME_POINTER,
+the RISC-V arch_stack_walk() calls walk_stackframe(), which starts from
+its own frame and first reports the return into arch_stack_walk().
+stack_trace_save() therefore starts one frame too early. For example,
+page_owner records begin at __set_page_owner() instead of the allocation
+site.
 
-That sounds much cleaner :)
+Move the walker into an always-inlined helper and call it directly from
+arch_stack_walk(). Keep walk_stackframe() as a wrapper for its existing
+callers.
 
--- 
-Cheers,
+return_address() skips level + 3 entries, while the arm64 implementation
+skips level + 2. After removing the extra frame, use level + 2 so
+ftrace_return_address() and CALLER_ADDR results do not shift by one caller.
 
-David
+Fixes: 6a00ef449370 ("riscv: eliminate unreliable __builtin_frame_address(1)")
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+Tested with the KUnit suite from patch 2 on QEMU's virt machine, clang 22
+(LLVM=1), on af32da41b032:
+
+  mainline                        stack_trace_save 0/3, return_address 2/2
+  stacktrace.c change alone       stack_trace_save 3/3, return_address 0/2
+  this patch                      stack_trace_save 3/3, return_address 2/2
+
+A BeagleV Ahead (TH1520) booted with this patch passes all five cases.
+The stack_trace_save() result on mainline (0/3) was also reproduced with
+GCC 15.2 and QEMU 10.2.1.
+
+Without CONFIG_FRAME_POINTER the walker scans the stack for anything that
+looks like a text address and its start frame is not exact before or
+after this patch. What return_address() returns there is unchanged: the
+walk loses one leading entry and the skip count goes down by one.
+
+The reliable unwinder series [1] rewrites this walker and has the correct
+start frame for stack_trace_save() as a side effect, but leaves
+return_address() at level + 3. This patch conflicts with 5/7 of that
+series; if that goes in first, only the return_address.c hunk is needed.
+
+[1] https://lore.kernel.org/r/20260914092648.51254-1-xueshuai@linux.alibaba.com
+
+ arch/riscv/kernel/return_address.c |  2 +-
+ arch/riscv/kernel/stacktrace.c     | 40 +++++++++++++++++++++++++++++-----
+ 2 files changed, 36 insertions(+), 6 deletions(-)
+
+diff --git a/arch/riscv/kernel/return_address.c b/arch/riscv/kernel/return_address.c
+index c8115ec8fb30..4da1cfd249d3 100644
+--- a/arch/riscv/kernel/return_address.c
++++ b/arch/riscv/kernel/return_address.c
+@@ -33,7 +33,7 @@ noinline void *return_address(unsigned int level)
+ {
+ 	struct return_address_data data;
+ 
+-	data.level = level + 3;
++	data.level = level + 2;
+ 	data.addr = NULL;
+ 
+ 	arch_stack_walk(save_return_addr, &data, current, NULL);
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index c7555447149b..28c5744889ba 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -45,8 +45,16 @@ static inline int fp_is_valid(unsigned long fp, unsigned long sp)
+ 	return !(fp < low || fp > high || fp & 0x07);
+ }
+ 
+-void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+-			     bool (*fn)(void *, unsigned long), void *arg)
++/*
++ * Always inlined so that the frame the walk starts from is the caller's own,
++ * and the first entry reported for the current task is the caller's return
++ * address.  arch_stack_walk() relies on that to report the same frames as
++ * the other architectures, see the comment there.
++ */
++static __always_inline void __walk_stackframe(struct task_struct *task,
++					      struct pt_regs *regs,
++					      bool (*fn)(void *, unsigned long),
++					      void *arg)
+ {
+ 	unsigned long fp, sp, pc;
+ 	int graph_idx = 0;
+@@ -59,6 +67,7 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 	} else if (task == NULL || task == current) {
+ 		fp = (unsigned long)__builtin_frame_address(0);
+ 		sp = current_stack_pointer;
++		/* Placeholder for the frame the walk starts from, never reported. */
+ 		pc = (unsigned long)walk_stackframe;
+ 		level = -1;
+ 	} else {
+@@ -102,10 +111,18 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 	}
+ }
+ 
++void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
++			     bool (*fn)(void *, unsigned long), void *arg)
++{
++	__walk_stackframe(task, regs, fn, arg);
++}
++
+ #else /* !CONFIG_FRAME_POINTER */
+ 
+-void notrace walk_stackframe(struct task_struct *task,
+-	struct pt_regs *regs, bool (*fn)(void *, unsigned long), void *arg)
++static __always_inline void __walk_stackframe(struct task_struct *task,
++					      struct pt_regs *regs,
++					      bool (*fn)(void *, unsigned long),
++					      void *arg)
+ {
+ 	unsigned long sp, pc;
+ 	unsigned long *ksp;
+@@ -133,6 +150,12 @@ void notrace walk_stackframe(struct task_struct *task,
+ 	}
+ }
+ 
++void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
++			     bool (*fn)(void *, unsigned long), void *arg)
++{
++	__walk_stackframe(task, regs, fn, arg);
++}
++
+ #endif /* CONFIG_FRAME_POINTER */
+ 
+ static bool print_trace_address(void *arg, unsigned long pc)
+@@ -176,10 +199,17 @@ unsigned long __get_wchan(struct task_struct *task)
+ 	return pc;
+ }
+ 
++/*
++ * The generic code expects the first entry for the current task to be the
++ * return address of arch_stack_walk() itself, the way x86 and arm64 report
++ * it, and stack_trace_save() sizes its skip count accordingly.  Walking from
++ * inside a called walk_stackframe() adds that function's own frame on top,
++ * so inline the walker here and start from this frame instead.
++ */
+ noinline noinstr void arch_stack_walk(stack_trace_consume_fn consume_entry, void *cookie,
+ 		     struct task_struct *task, struct pt_regs *regs)
+ {
+-	walk_stackframe(task, regs, consume_entry, cookie);
++	__walk_stackframe(task, regs, consume_entry, cookie);
+ }
+ 
+ /*
 
 _______________________________________________
 linux-riscv mailing list
