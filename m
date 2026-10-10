@@ -4,105 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F258ECA6004
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Oct 2026 11:26:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E2F9CA9EBE
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Oct 2026 11:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=720FwdNmI3fh1nx2s8O+qLRReW7OUAe9ReBcrQKCRAc=; b=BiiFNpUleO2feE
-	FhseTcPsDdWXOyfab93fEv0FQ/9k7d0VaZ8kFBV9LUtc1tNU3Aop6c8VQRNZq2AfQKllHudSRcUmD
-	G7wIMggy6dBmpg9pBOElASn6tQyFSCvx6HPZrTuUUb5hjlojc9MNoFTZiK7Dd7cOGWT2/hZB19Srf
-	AzUleRCVaJTEDoIqVIA1HwdGzqZU0MjiFB8b9wZvtiujhdUVpDH92DOIxJDfJy2LkCiTUOi7iu7fe
-	WqeSw2E3Uemg3PC04PJMVd7vQHMOj6dGG+zi6j1wuTD47NOCd5HgLG8DrSQ8fvYdY5Eva3sM6QnEl
-	9Cx/w9rXNPq5NXg4Zb5Q==;
+	List-Owner; bh=vcL0G2DPmyKPJc1m9duaZs9eIEg5NUsrpUnkBonoGGg=; b=0x+NXCyS78Mpey
+	09tktmuEcl+GE9sIXud0ZCTfDe6NUjLWpOkFZPpkAWjYU/DWwxhkkp9y33xwkLqmMfyn1R0m6Q44y
+	Yf/LH/pKO/cWVRt21u4/fV0ALsFP82q2AbJO1G0zfuavx1eG9fTwuPr6zAuid6VhLgd0oIHAhu80G
+	1uGT29pWUNlJHEWOHOdw1FYuiTfnJoUPf/Ol2SG+GAjy8napQWkknQ5qFiz9iRzPDBhvbdSpsLVID
+	lZXIjPkyOygW4/j94ngGV3jg4TKTBRFrFfEjK2PhPMY+HgTXonUgTxmYPPkr8L77ovoc7Ev9RACcz
+	/co0E9R+mEAZ31S9x0eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVDf-00000007uv4-2RaL;
-	Sat, 10 Oct 2026 11:26:27 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1xFVMc-00000007vtF-2lWr;
+	Sat, 10 Oct 2026 11:35:42 +0000
+Received: from outgoing2021.csail.mit.edu ([128.30.2.78])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVDd-00000007ut6-2qPV
+	id 1xFVMZ-00000007vsk-3JG8
 	for linux-riscv@lists.infradead.org;
-	Sat, 10 Oct 2026 11:26:26 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-38759bcd877so274490a91.2
-        for <linux-riscv@lists.infradead.org>; Sat, 10 Oct 2026 04:26:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1791631585; x=1792236385; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=nwX2V/6o0Kptw/VlXJ/4Jp9bBaiXMijAHR2YrE2LL1c=;
-        b=cohJkVwvNdZG1N7z3IJlT3eGBlqqAAki52Y4/1p+ylmWxNxyprkM4LrZxytOM6n1mG
-         63WVFhxSgSEo/CBATTGei2BYe7VB31sR5aSbr16YF5RRaHcx0+ZUlQU7r/U0TjoZg1+h
-         nzwr6mDbf1NOCCa2Y4zO4SOQVIQ871wcocCMmr2gHJA1YgoHKBYSjZLml74j4zwzKVFy
-         hC/LHhIrrsHX0ZUicZuLoBQsyp2EDT2nqMh9goeRgW0a8BprLsFusuzB/LAOOcbXrBTV
-         jhse5xctu4+OsqQHl2748GGWbK8WD1yzORkR/PvHhTDebXdalHWx8IMYqfj6YmkQ3llC
-         HfWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791631585; x=1792236385;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nwX2V/6o0Kptw/VlXJ/4Jp9bBaiXMijAHR2YrE2LL1c=;
-        b=x7oM3B3D/JG8jlTqz1easkpSOQAMOj1lLi9VJC2FxjyyUzqdfcfGlGpvlSZMj3x3Zj
-         9w1oFmvQ9HkDRpSpcDBezqnqCTtMWJfy7pQ5OHM2wErQx0l9O38m4Kj0iiAv9g7Cgnbb
-         tHfOjbpD8kCHPqbGGb97tL1WuZ4I9ebRHaoEQruERyIcnNlQV6WHymLDDUA7f6VERzJD
-         F7YERl7i7z5FG8q7xb/QSZR3i7E+pmx2Q562snAnCmmTb6eHeSayJTbY0YMl2IDv4c62
-         h1Bphzo32UORMdZO8/w/qRel0583jUMK6WWRpytEYNdNcx/L46Ibp29W/+/IKevCh0rF
-         M+9A==
-X-Forwarded-Encrypted: i=1; AKwUvBx4Rjpvbq+KmJWV47QG2f9yTfuNZcIMr1IXTfBkB0YfIyr+ebffFkT8VOaCr3TIZwwM2HcXNBh8uxFnkQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYLIPZrty5O1lF/FEN/hloEs69F9mCUVIZPqI4igt8A5ghI4uNCO
-	uKbo1SlGajglL6X+bftL9SlmKT9pu0YKzKNIKIUHFHxfKlDArntA8LeX8Qld8sCERDg=
-X-Gm-Gg: AYBFou1JRtMcjVv9SGpf0MePif5gRpKqKGWfyBFZYZh5jyA9iNv5HpeftuZucCnIj0R
-	C2atisX8IY6KPzfHhQ/pQnfh0fMHuN91GIQnUEpq5Baqd5P93fX1Vxf4bu9JOKE+aDrxHwApsJt
-	s1uvmu8mcmHZ7zfPCCWYiI0zglx/pB5qP6bYDuJIu1bB+r4xQe1j0IqUU399Gum9nYiVLC/B8xr
-	Xq1zmNNnZaiJA/0TSgsDst0Cd7QJtgB84mzQQliCp95W/ay74nAl7FmaM0ZWf46J5vU5OIi7wom
-	seLWo0n9nV/h3Lu2b31IID9EB3iT5dclgoQ66dpM4e/KkfybdOLBNrjocusW5XPJVPxIzxACY2c
-	ucdXGzJsT8rc6N7DxsMPTDyUhy1aQusbF5ZxdQU0dm814Sxv1hO+zx6epOQ0vRavUH4hS7vS+AN
-	4T8SIs1FQDBcEWmtOIpgA5/N+hQ6RufYpMZhaDjHqd4tpaeWOyljXhXVOgIZCTBKcXH1dTA+DLi
-	UuFJjjj/Dd7O640a4eoWF6ElUOwlLF0V75cVA==
-X-Received: by 2002:a17:90a:e7ce:b0:3a4:ef4a:4f12 with SMTP id 98e67ed59e1d1-3ab3b01ccf0mr3608742a91.61.1791631584895;
-        Sat, 10 Oct 2026 04:26:24 -0700 (PDT)
-Received: from G6L4RL2QG9.bytedance.net ([139.177.225.249])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ab3690474esm7900233a91.0.2026.10.10.04.26.16
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 10 Oct 2026 04:26:24 -0700 (PDT)
-From: Muchun Song <songmuchun@bytedance.com>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@kernel.org>,
-	Oscar Salvador <osalvador@suse.de>,
-	Dave Hansen <dave.hansen@intel.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
+	Sat, 10 Oct 2026 11:35:41 +0000
+Received: from escalante.csail.mit.edu ([128.52.128.198])
+	by outgoing2021.csail.mit.edu with esmtp (Exim 4.95)
+	(envelope-from <nickolai@csail.mit.edu>)
+	id 1xFVMV-005f7g-FD;
+	Sat, 10 Oct 2026 07:35:35 -0400
+From: Nickolai Zeldovich <nickolai@csail.mit.edu>
+To: linux-riscv@lists.infradead.org
+Cc: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org,
-	Muchun Song <muchun.song@linux.dev>,
-	Muchun Song <songmuchun@bytedance.com>
-Subject: [PATCH v2 4/4] arm64/mm: fix destructor for unconstructed hotplug page tables
-Date: Sat, 10 Oct 2026 19:24:57 +0800
-Message-ID: <20261010112457.49485-5-songmuchun@bytedance.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261010112457.49485-1-songmuchun@bytedance.com>
-References: <20261010112457.49485-1-songmuchun@bytedance.com>
+	Nickolai Zeldovich <nickolai@csail.mit.edu>
+Subject: [PATCH v2] riscv: Fix icache flush being skipped for a second mm mapping an exec folio
+Date: Sat, 10 Oct 2026 07:35:35 -0400
+Message-ID: <20261010113535.763451-1-nickolai@csail.mit.edu>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261009221957.760606-1-nickolai@csail.mit.edu>
+References: <20261009221957.760606-1-nickolai@csail.mit.edu>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261010_042625_723181_7E7BB47A 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20261010_043539_832826_D380C962 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,51 +67,133 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit c594b83457cc ("arm64: mm: call pagetable dtor when freeing
-hot-removed page tables") made free_hotplug_pgtable_page()
-unconditionally run the page-table destructor. This matches page tables
-allocated by the arm64 mapping code, which runs the corresponding
-constructors.
+Since commit 01261e24cfab ("riscv: Only flush the mm icache when
+setting an exec pte"), flush_icache_pte() flushes only the icache of
+the harts that run the faulting mm (with a deferred fence.i for the
+harts it migrates to later), but it still sets the folio-wide
+PG_dcache_clean bit. The bit is then read as "no hart holds stale
+instructions for this folio", which a per-mm flush does not establish.
 
-However, arm64 also uses the generic sparse-vmemmap population code.
-Runtime intermediate page tables allocated by that code do not run a
-page-table constructor. Freeing one during memory hot-remove therefore
-runs a destructor without a matching constructor and corrupts
-NR_PAGETABLE accounting.
+So when a folio that was written through the page cache is mapped
+executable first by mm A on hart X and then by a different mm B on a
+hart Y outside A's cpumask, B gets no flush on Y and executes whatever
+Y's icache still holds for those physical lines, e.g. the page's
+previous contents. Before that commit, flush_icache_all() covered this
+case.
 
-Free intermediate page-table pages through pagetable_free(). It runs the
-destructor only for constructor-backed pages and then releases the page
-through the page-table freeing path.
+Reproducer: a parent pinned to hart 0 and a child pinned to hart 3
+share a file. The parent writes text "T1" with write(2), the child
+mmap()s it PROT_EXEC and runs it (priming hart 3's icache with T1),
+then unmaps it. The parent writes text "T2", maps it executable and
+runs it (per-mm flush of hart 0 only, bit set). The child maps the
+file executable again and runs it: no flush on hart 3, and the child
+executes T1. On a StarFive JH7110 (VisionFive 2, non-coherent icache)
+running v7.3-rc6, 149 of 150 iterations over three hart pairs execute
+stale instructions. A control run that executes fence.i in the child
+before the last mapping gets 0 of 50.
 
-Fixes: c594b83457cc ("arm64: mm: call pagetable dtor when freeing hot-removed page tables")
+Keep the per-mm flush and make the skip decision per mm instead:
+count the flushes that set the bit in a global generation, and let
+every mm remember the generation of its own last flush taken in
+flush_icache_pte(). An mm whose generation lags cannot trust any bit
+set since, so it flushes its own harts once (local fence.i, IPIs only
+to the harts currently running it, deferred fence.i for the rest) and
+catches up. No global flush is issued, nothing happens while no new
+executable folio is written, and the cost is bounded by one
+flush_icache_mm() per mm per generation bump.
+
+With the fix the reproducer executes 0 of 150 stale iterations on the
+same board. The function-call IPI counters stay at a few hundred per
+hart for the whole boot plus 200 iterations, i.e. the IPI savings of
+the per-mm flush are kept.
+
+Tested on the JH7110 with v7.3-rc6 and this patch; not tested on
+32-bit. The bug does not reproduce under QEMU TCG, which invalidates
+translated code on page writes.
+
+Fixes: 01261e24cfab ("riscv: Only flush the mm icache when setting an exec pte")
 Cc: stable@vger.kernel.org
 Assisted-by: LLM
-Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+Signed-off-by: Nickolai Zeldovich <nickolai@csail.mit.edu>
 ---
-v2:
-- Free intermediate tables through pagetable_free() (suggested by David
-  Hildenbrand)
-- Update the commit message for the page-table freeing path
----
- arch/arm64/mm/mmu.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 7343ac9294f8..26a8c665ae52 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1495,8 +1495,7 @@ static void free_hotplug_page_range(struct page *page, size_t size,
- 
- static void free_hotplug_pgtable_page(struct page *page)
+Notes:
+    v2: move icache_gen out of the CONFIG_SMP block of mm_context_t; v1 did
+        not build with CONFIG_SMP=n (riscv allnoconfig and a randconfig),
+        as reported by the kernel test robot <lkp@intel.com>.
+
+ arch/riscv/include/asm/mmu.h         |  2 ++
+ arch/riscv/include/asm/mmu_context.h |  1 +
+ arch/riscv/mm/cacheflush.c           | 20 ++++++++++++++++++++
+ 3 files changed, 23 insertions(+)
+
+diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
+index cf8e6eac77d5..03348e36ea29 100644
+--- a/arch/riscv/include/asm/mmu.h
++++ b/arch/riscv/include/asm/mmu.h
+@@ -14,6 +14,8 @@ typedef struct {
+ 	unsigned long	end_brk;
+ #else
+ 	atomic_long_t id;
++	/* icache_folio_gen at this mm's last flush in flush_icache_pte(). */
++	u64 icache_gen;
+ #endif
+ 	void *vdso;
+ #ifdef CONFIG_SMP
+diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
+index dbf27a78df6c..cc0f7f65ec8b 100644
+--- a/arch/riscv/include/asm/mmu_context.h
++++ b/arch/riscv/include/asm/mmu_context.h
+@@ -32,6 +32,7 @@ static inline int init_new_context(struct task_struct *tsk,
  {
--	pagetable_dtor(page_ptdesc(page));
--	free_hotplug_page_range(page, PAGE_SIZE, NULL);
-+	pagetable_free(page_ptdesc(page));
- }
+ #ifdef CONFIG_MMU
+ 	atomic_long_set(&mm->context.id, 0);
++	mm->context.icache_gen = 0;
+ #endif
+ 	if (IS_ENABLED(CONFIG_RISCV_ISA_SUPM))
+ 		clear_bit(MM_CONTEXT_LOCK_PMLEN, &mm->context.flags);
+diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+index f8ead7cb7c7d..880c210dbfec 100644
+--- a/arch/riscv/mm/cacheflush.c
++++ b/arch/riscv/mm/cacheflush.c
+@@ -97,13 +97,33 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
+ #endif /* CONFIG_SMP */
  
- static bool pgtable_range_aligned(unsigned long start, unsigned long end,
+ #ifdef CONFIG_MMU
++/*
++ * PG_dcache_clean is folio-wide, but flush_icache_mm() only reaches the
++ * harts of one mm.  Count the flushes that set the bit; an mm whose
++ * generation lags cannot trust a bit set since its own last flush, so it
++ * flushes its harts once before relying on it.
++ */
++static atomic64_t icache_folio_gen = ATOMIC64_INIT(0);
++
+ void flush_icache_pte(struct mm_struct *mm, pte_t pte)
+ {
+ 	struct folio *folio = page_folio(pte_page(pte));
++	u64 gen;
+ 
+ 	if (!test_bit(PG_dcache_clean, &folio->flags.f)) {
++		gen = atomic64_inc_return(&icache_folio_gen);
+ 		flush_icache_mm(mm, false);
++		WRITE_ONCE(mm->context.icache_gen, gen);
+ 		set_bit(PG_dcache_clean, &folio->flags.f);
++		return;
++	}
++
++	/* Pairs with the fully ordered atomic64_inc_return() above. */
++	smp_rmb();
++	gen = atomic64_read(&icache_folio_gen);
++	if (unlikely(READ_ONCE(mm->context.icache_gen) != gen)) {
++		flush_icache_mm(mm, false);
++		WRITE_ONCE(mm->context.icache_gen, gen);
+ 	}
+ }
+ #endif /* CONFIG_MMU */
+
+base-commit: af32da41b0327b9c6a37856ba82b6760d6c8d10e
 -- 
-2.54.0
+2.56.0
 
 
 _______________________________________________
