@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE29CA6004
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Oct 2026 03:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2872CCA6004
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Oct 2026 03:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PR+72p6amX7a4RGiorDXT04fwyDyFlquvXuIs9HbMwI=; b=aXCnu+f1PF5Kj+
-	NUEscfaVduE6K/fUGN1U7Pv/noib7E0KSjoS1RSeuVFKu9VbJ7UkCHHYzE0E+EW3jKZ4nD19ZoykX
-	2J9lGG087vj8GGOxe6mW1ApGTfQSzvULeSRsobVTzlEYHkZywA2FQbSJBiWd9RvXKc7eZs0Mv3d0/
-	cwAlsn4cwlvQqXCNUv6A/EBJ/Vwj4434kOg2mW/uTk19ouHpm3KW9YryB0GcJmrESvffajsh5keFq
-	6W8hGbebgczDwNtxiFJAp09dFCurKnD3d8hkDkeFr1mwV3wTOB+WprSUP06YKcpT85N+NHx8bHobA
-	h3ewgOYt+y/XzlgBvLow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KswpLTXGmkAC0KP6updA6tr9HYJ2pKuVtmDFR1EAnjI=; b=byFiSETdd3FuCO
+	7ZSMzQEXqGMCkok9UQ89xk7hoBC0SWK5TH6kaeagsDXyjSnuz246uf6EwczLqeSDrXZJfiXfrVl1t
+	ethCdch9OBNBbEmK22h3Ce0pVmzlChDU/CQ4wQz38YiBAmF1mit5KUlaWkyZbyJFgIlSk3ruym0la
+	mrbspFHGCvzX6pc0HsjpgqqYwJNMjAuKPb+KXHvPMgHUS3Q3j3KS8QRLr1sJIH5XAlDd1Rl4CNMf0
+	bD8I0udoDD3j+84I7tplnlYn625uEbDT8Q52JWFEMei5w2j3pbUsik6UgCF+uznCc06XMNPPUu0X1
+	A5K9XQdq5MUzCuSn8TkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFNvH-00000007TUw-3Z1T;
-	Sat, 10 Oct 2026 03:38:59 +0000
-Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
+	id 1xFNzw-00000007TmZ-1SGU;
+	Sat, 10 Oct 2026 03:43:48 +0000
+Received: from out-228.mta0.migadu.com ([2001:41d0:1004:224b::e4] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFNvE-00000007TU3-1k6C
+	id 1xFNzt-00000007Tll-2QVc
 	for linux-riscv@lists.infradead.org;
-	Sat, 10 Oct 2026 03:38:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1791603530; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=SBB6AWvERMNQNcnv8IpcOyFkUIlmwIKsnK5k1h4Id5s=;
-	b=A7q/o2AvOzEhw+XVOO+FKT/EhKev/5wGvR/VpaRI9XdOIHZBcd1UW+dbdK0h45sB7wCUdNjd3SXx/jaB6FwkBHmtKKkp6k1TZG4AnvnuTJJwNPdAnAUOyeJ09kfc++FAYP5CM51jh3dlCAMgIHK6CpzBoaulHpYCWiupwm3Y4Yc=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R161e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=35;SR=0;TI=SMTPD_---0XCUukT6_1791603526;
-Received: from 30.246.161.155(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0XCUukT6_1791603526 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Sat, 10 Oct 2026 11:38:47 +0800
-Message-ID: <2650577a-a359-495c-a6bf-47a825e9282a@linux.alibaba.com>
-Date: Sat, 10 Oct 2026 11:38:45 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 5/7] riscv: stacktrace: switch to frame-pointer based
- unwinder
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-riscv@lists.infradead.org, oleg@redhat.com, rostedt@goodmis.org,
- mhiramat@kernel.org, mark.rutland@arm.com, peterz@infradead.org,
- mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, james.clark@linaro.org, jpoimboe@kernel.org,
- jikos@kernel.org, mbenes@suse.cz, pmladek@suse.com, joe.lawrence@redhat.com,
- shuah@kernel.org, mpdesouza@suse.com, oliver.yang@linux.alibaba.com,
- zhuo.song@linux.alibaba.com, jkchen@linux.alibaba.com, martin@kaiser.cx,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, live-patching@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20260914092648.51254-1-xueshuai@linux.alibaba.com>
- <20260914092648.51254-6-xueshuai@linux.alibaba.com>
- <20261009185904.82385-1-kmehltretter@gmail.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20261009185904.82385-1-kmehltretter@gmail.com>
+	Sat, 10 Oct 2026 03:43:47 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=e2Gg2A0pOiUOVFvGVHWV6wr7kkqR+muGcjituStXuzA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1791603823; v=1; x=1792208623;
+ b=knhHF/JDy9lkKxtZQnxgn3u7UyjAyvUOTckxSbLlK7a1iULv3C7sntUsb9k9jijBoEqjPsVM
+ glo48k56/pu9rwM90gWWg3q6OH00dLjyEQldwtk9MV10cDWKYN/Fz1G82iksnDzUo8iWdJ3p3Nw
+ lAciycb8CyOb7GiowS9UrO94=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 14bbb4f2a2970250;
+	Sat, 10 Oct 2026 03:43:43 +0000
+X-Mizu-Trace-ID: 14bbb4f2a2970250
+X-Migadu-Flow: FLOW_OUT
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.100.1.1.12\))
+Subject: Re: [PATCH 4/4] arm64/mm: fix destructor for unconstructed hotplug
+ page tables
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <d47bdf83-1db4-4601-a516-7e23488ea9cf@kernel.org>
+Date: Sat, 10 Oct 2026 11:43:23 +0800
+Cc: Muchun Song <songmuchun@bytedance.com>,
+ akpm@linux-foundation.org,
+ linux-mm@kvack.org,
+ stable@vger.kernel.org,
+ osalvador@suse.de,
+ dave.hansen@linux.intel.com,
+ luto@kernel.org,
+ peterz@infradead.org,
+ tglx@kernel.org,
+ mingo@redhat.com,
+ bp@alien8.de,
+ x86@kernel.org,
+ hpa@zytor.com,
+ catalin.marinas@arm.com,
+ will@kernel.org,
+ mark.rutland@arm.com,
+ linux-arm-kernel@lists.infradead.org,
+ pjw@kernel.org,
+ palmer@dabbelt.com,
+ aou@eecs.berkeley.edu,
+ alex@ghiti.fr,
+ linux-riscv@lists.infradead.org,
+ agordeev@linux.ibm.com,
+ kevin.brodsky@arm.com,
+ bjorn@rivosinc.com,
+ apopple@nvidia.com,
+ linux-kernel@vger.kernel.org
+Message-Id: <DDFF90A3-86D7-42D6-844A-5D29A44BAB4D@linux.dev>
+References: <20261008073021.2512665-1-songmuchun@bytedance.com>
+ <20261008073021.2512665-5-songmuchun@bytedance.com>
+ <d47bdf83-1db4-4601-a516-7e23488ea9cf@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+X-Mailer: Apple Mail (2.3901.100.1.1.12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261009_203857_173398_C8BB96F2 
-X-CRM114-Status: GOOD (  21.27  )
+X-CRM114-CacheID: sfid-20261009_204346_123920_7A9679B3 
+X-CRM114-Status: GOOD (  18.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,91 +93,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 10/10/26 2:59 AM, Karl Mehltretter wrote:
-> On Mon, Sep 14, 2026 at 05:26:46PM +0800, Shuai Xue wrote:
->> +noinline noinstr void arch_stack_walk(stack_trace_consume_fn consume_entry,
->> +				      void *cookie, struct task_struct *task,
->> +				      struct pt_regs *regs)
->> +{
->> +	struct kunwind_consume_entry_data data = {
->> +		.consume_entry = consume_entry,
->> +		.cookie = cookie,
->> +	};
->> +
->> +	kunwind_stack_walk(arch_kunwind_consume_entry, &data, task, regs);
->> +}
-> 
-> Hi Shuai Xue,
-> 
-> With this patch and FRAME_POINTER enabled, return_address() returns the
-> caller one level further up than asked for.
-> 
-> return_address() in arch/riscv/kernel/return_address.c skips level + 3
-> entries from arch_stack_walk(). The arm64 original skips level + 2. The
-> third entry exists on mainline because the walk starts inside
-> walk_stackframe() and first reports the return into arch_stack_walk().
-> With 5/7 the walk starts at the caller of arch_stack_walk(), so
-> level + 3 now skips a real caller. CALLER_ADDR1 and up are built on
-> return_address(). The irqsoff tracer and the preemptirq tracepoints use
-> them.
-> 
-> A KUnit test that calls ftrace_return_address() from
-> leaf() <- middle() <- outer() <- check() returns:
-> 
->               af32da41b032   with series   with series, level + 2
->    level 0    middle         outer         middle
->    level 1    outer          check         outer
-> 
-> The change to level + 2 has to depend on FRAME_POINTER. Without it the
-> series keeps walk_stackframe() and the result is the same as on
-> mainline. There, level + 2 makes return_address(0) return an address
-> inside return_address().
-
-Hi, Karl,
-
-Nice point. Thank you for the thorough review and the KUnit test.
-The analysis is spot on, and your table matches my reading of the code
-exactly.
-
-> 
-> The same extra entry makes stack_trace_save() start one frame too early
-> on mainline. 5/7 fixes that. I have a small fix for it on mainline,
-> meant for stable kernels, which conflicts with 5/7. I would post it with
-> you in Cc. Tell me if you would rather take the return_address.c change
-> into 5/7 first.
-
-Please go ahead with your mainline/stable fix for the
-stack_trace_save() off-by-one as an independent patch. You are right
-that this is a separate mainline bug: stack_trace_save() hardcodes
-.skip = skipnr + 1, i.e. it expects the first entry reported by
-arch_stack_walk() to be the return into stack_trace_save() itself, and
-mainline's walk_stackframe() breaks that contract by reporting the
-return into arch_stack_walk() first. A 7-patch series is not a vehicle
-for stable, so the minimal fix is the right approach there.
-
-Please keep me in Cc when you post it, I will review and test it.
-
-> 
-> Tested with clang 22 and the series applied on 52318cf0fa6e. The
-> "with series" column is the same on QEMU's virt machine and on a
-> BeagleV Ahead (TH1520). Everything else ran on QEMU only.
-
-Thanks again for testing on real hardware (BeagleV Ahead) in addition
-to QEMU, that is much appreciated.
-
-Best regards,
-Shuai Xue
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Cgo+IE9uIE9jdCAxMCwgMjAyNiwgYXQgMDQ6NDMsIERhdmlkIEhpbGRlbmJyYW5kIChBcm0pIDxk
+YXZpZEBrZXJuZWwub3JnPiB3cm90ZToKPiAKPiBPbiAxMC84LzI2IDA5OjMwLCBNdWNodW4gU29u
+ZyB3cm90ZToKPj4gQ29tbWl0IGM1OTRiODM0NTdjYyAoImFybTY0OiBtbTogY2FsbCBwYWdldGFi
+bGUgZHRvciB3aGVuIGZyZWVpbmcKPj4gaG90LXJlbW92ZWQgcGFnZSB0YWJsZXMiKSBtYWRlIGZy
+ZWVfaG90cGx1Z19wZ3RhYmxlX3BhZ2UoKQo+PiB1bmNvbmRpdGlvbmFsbHkgcnVuIHRoZSBwYWdl
+LXRhYmxlIGRlc3RydWN0b3IuIFRoaXMgbWF0Y2hlcyBwYWdlIHRhYmxlcwo+PiBhbGxvY2F0ZWQg
+YnkgdGhlIGFybTY0IG1hcHBpbmcgY29kZSwgd2hpY2ggcnVucyB0aGUgY29ycmVzcG9uZGluZwo+
+PiBjb25zdHJ1Y3RvcnMuCj4+IAo+PiBIb3dldmVyLCBhcm02NCBhbHNvIHVzZXMgdGhlIGdlbmVy
+aWMgc3BhcnNlLXZtZW1tYXAgcG9wdWxhdGlvbiBjb2RlLgo+PiBSdW50aW1lIGludGVybWVkaWF0
+ZSBwYWdlIHRhYmxlcyBhbGxvY2F0ZWQgYnkgdGhhdCBjb2RlIGRvIG5vdCBydW4gYQo+PiBwYWdl
+LXRhYmxlIGNvbnN0cnVjdG9yLgo+IAo+IFdoeSBkbyB3ZSBoYXZlIHRoYXQgaW5jb25zaXN0ZW5j
+eT8gSXQgc2VlbXMgdG8gY2F1c2UgcGFpbiA6KQoKSGEsIHllYWgsIGl0J3MgYSBiaXQgcGFpbmZ1
+bCA6KQoKSSB0aGluayBpdCdzIGJlY2F1c2UgdGhlIGFyY2ggZm9sa3MgZGlkbid0IHJlYWxpemUg
+dGhhdCB2bWVtbWFwIHBvcHVsYXRpb24KZG9lcyBub3QgcnVuIGEgcGFnZS10YWJsZSBjb25zdHJ1
+Y3Rvci4KCkJ1dCB0aGUgaW5jb25zaXN0ZW5jeSBpcyB0ZW1wb3Jhcnkg4oCUIEkgZGVsaWJlcmF0
+ZWx5IGtlcHQgaXQgc28gdGhlIGJ1ZyBmaXhlcwphcmUgZWFzaWVyIHRvIGJhY2twb3J0LiBBZnRl
+ciB0aG9zZSBmaXhlcyBsYW5kLCBJJ2xsIGZvbGxvdyB1cCB3aXRoIHRoZQp1bmlmaWVkIHNlcmll
+cywgd2hpY2ggd2lsbCBtYWtlIHZtZW1tYXAgcG9wdWxhdGlvbiBydW4gYSBwYWdlLXRhYmxlCmNv
+bnN0cnVjdG9yLgoKPiAKPj4gRnJlZWluZyBvbmUgZHVyaW5nIG1lbW9yeSBob3QtcmVtb3ZlIHRo
+ZXJlZm9yZQo+PiBydW5zIGEgZGVzdHJ1Y3RvciB3aXRob3V0IGEgbWF0Y2hpbmcgY29uc3RydWN0
+b3IgYW5kIGNvcnJ1cHRzCj4+IE5SX1BBR0VUQUJMRSBhY2NvdW50aW5nLgo+PiAKPj4gVXNlIFBh
+Z2VUYWJsZSgpIHRvIHJ1biB0aGUgZGVzdHJ1Y3RvciBvbmx5IGZvciBwYWdlLXRhYmxlIHBhZ2Vz
+IHdob3NlCj4+IGNvbnN0cnVjdG9yIGluaXRpYWxpemVkIHRoZW0uIFRoaXMga2VlcHMgdGhlIGFy
+bTY0LWNyZWF0ZWQgcGFnZS10YWJsZQo+PiBsaWZlY3ljbGUgYmFsYW5jZWQgd2hpbGUgc2FmZWx5
+IGZyZWVpbmcgY29uc3RydWN0b3ItZnJlZSB2bWVtbWFwIHRhYmxlcy4KPj4gCj4+IEZpeGVzOiBj
+NTk0YjgzNDU3Y2MgKCJhcm02NDogbW06IGNhbGwgcGFnZXRhYmxlIGR0b3Igd2hlbiBmcmVlaW5n
+IGhvdC1yZW1vdmVkIHBhZ2UgdGFibGVzIikKPj4gQ2M6IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcK
+Pj4gQXNzaXN0ZWQtYnk6IExMTQo+PiBTaWduZWQtb2ZmLWJ5OiBNdWNodW4gU29uZyA8c29uZ211
+Y2h1bkBieXRlZGFuY2UuY29tPgo+PiAtLS0KPj4gYXJjaC9hcm02NC9tbS9tbXUuYyB8IDMgKyst
+Cj4+IDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPj4gCj4+
+IGRpZmYgLS1naXQgYS9hcmNoL2FybTY0L21tL21tdS5jIGIvYXJjaC9hcm02NC9tbS9tbXUuYwo+
+PiBpbmRleCA3MzQzYWM5Mjk0ZjguLjY4OGIzMzA5NTY1MSAxMDA2NDQKPj4gLS0tIGEvYXJjaC9h
+cm02NC9tbS9tbXUuYwo+PiArKysgYi9hcmNoL2FybTY0L21tL21tdS5jCj4+IEBAIC0xNDk1LDcg
+KzE0OTUsOCBAQCBzdGF0aWMgdm9pZCBmcmVlX2hvdHBsdWdfcGFnZV9yYW5nZShzdHJ1Y3QgcGFn
+ZSAqcGFnZSwgc2l6ZV90IHNpemUsCj4+IAo+PiBzdGF0aWMgdm9pZCBmcmVlX2hvdHBsdWdfcGd0
+YWJsZV9wYWdlKHN0cnVjdCBwYWdlICpwYWdlKQo+PiB7Cj4+IC0gCXBhZ2V0YWJsZV9kdG9yKHBh
+Z2VfcHRkZXNjKHBhZ2UpKTsKPj4gKyAJaWYgKFBhZ2VUYWJsZShwYWdlKSkKPj4gKyAJCXBhZ2V0
+YWJsZV9kdG9yKHBhZ2VfcHRkZXNjKHBhZ2UpKTsKPj4gCWZyZWVfaG90cGx1Z19wYWdlX3Jhbmdl
+KHBhZ2UsIFBBR0VfU0laRSwgTlVMTCk7Cj4gCj4gVGhhdCByZXN1bHRzIGluIGEgX19mcmVlX3Bh
+Z2VzKCkgZm9yICBvbmVzIGFsbG9jYXRlZCBieSBzcGFyc2Utdm1lbW1hcAo+IHBvcHVsYXRpb24g
+Y29kZS4gQXJlIHdlIHN1cmUgdGhhdCdzIHRoZSByaWdodCB0aGluZyB0byBkbz8KCkdvb2QgcG9p
+bnQuIGZyZWVfaG90cGx1Z19wZ3RhYmxlX3BhZ2UoKSBpcyB1c2VkIHRvIGZyZWUgaW50ZXJtZWRp
+YXRlCnBhZ2UtdGFibGUgcGFnZXMsIHNvIHBhZ2V0YWJsZV9mcmVlKCkgaXMgdGhlIG1vcmUgYXBw
+cm9wcmlhdGUgaW50ZXJmYWNlCmhlcmUuCgo+IAo+IFRoaXMgaXMgYWxsIHNvIGluY29uc2lzdGVu
+dCBhbmQgY29uZnVzaW5nIDooCgpZZWFoLCBzbyBJJ20gd29ya2luZyBvbiByZW1vdmluZyB0aGVz
+ZSBpbmNvbnNpc3RlbmNpZXMuCgpUaGFua3MsCk11Y2h1bgoKPiAKPiAtLSAKPiBDaGVlcnMsCj4g
+Cj4gRGF2aWQKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
