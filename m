@@ -4,57 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B492CA9EBE
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Oct 2026 12:05:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E20BCA6004
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Oct 2026 12:24:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=liickCSEMjJkcG4vHVUueNqu0S97zS8lDauVWIp+9pg=; b=aO2oZ1lu1ID3sn
-	ypK4okYeO5k0NpU0J+sRfx3XKYh7XF4daj8ofiIhM9qQgZumhzHKuWLC8j9kcX0FDUWT+1hfcDlfW
-	gdLJ+hxwCYZ5/108Y9D7xCV6xPzlo7LQ2Klf5h6UUxfmg/S2GkPCxgGJbc2si4v0tjMbKEbTc4iYT
-	Artf+I/iA6WbjQt6xaVRpB23h8IwBBhI4e53y4C4n22WLuuoHSNnS6+j2ZRI5N3l3glhoMXg+aeyy
-	volv/TqsgfSgPvD5g0U2t6GYdz1PmguU9ojbfz1KkSqCYiLQL0LRAIvK2IBpLHU4ewZzLYYDbTM+U
-	HkVi9itgXkyI8+k+nAPA==;
+	List-Owner; bh=IAtQc29jNc20JnbXIVXO6H8+wgKT5J0tGa3QHmR0F3g=; b=SVY/C2GWqSS4bx
+	mLkrNaGpEi2WlPAjQJoRjfUqnNmlPO5HYZy9PGQJzKCfTFNyTkU8rCTifvCLp0wyEDtMUW1OjfsZz
+	Kbo6Wnc3LOda/Lm4e2L28Dd24ln0wv8oFtVQLCWHZWSsLcSrg5acC6EKFqQyUgz5njmTQbfhYw4gx
+	W43pNxtu0Za2Xq9BbvzTXBtV5yOH8XsnX888+023z42GB42R0OlDWCINieKUhT7XFesotsxq/xYd6
+	i0v0uv1pJzm6mNfYXn2xo8RJy+3dI2vYJkff8wIdpFk4v8WIpj82ZsFMTcjhS5QR6E7OnbBiRlNXD
+	zjlokxRGqcyzLEJZlGMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVpB-00000007zot-3Jzk;
-	Sat, 10 Oct 2026 12:05:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xFW7V-000000080x2-3mux;
+	Sat, 10 Oct 2026 12:24:09 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFVp9-00000007zoj-37wt
-	for linux-riscv@lists.infradead.org;
-	Sat, 10 Oct 2026 12:05:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C7E3560204;
-	Sat, 10 Oct 2026 12:05:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CF411F000FF;
-	Sat, 10 Oct 2026 12:05:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791633910;
-	bh=kS+nMjnSb1CQO1si9eIk4JdEe+ZVXEFm+JCmyhtB+vU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LgAjdzX5yDgTPYrZXpYehZ3TNSyHlYeedIsxOoDbwuARrAYeiP1ZCEn24G3iQ1TP8
-	 m7wqiCKboxiyWSCP/4rW0VhB1JJOYzSDie/PrCe/nS8R2Z/hGw9svQhntXYlR/Ml4n
-	 Wa112y/p3HT8YQoPeqzuB8HQrqYGKA8SzfnYRTvti/XIBoWzY2ME9Pi+nMETMi8Fso
-	 6dLHP/7SJlePSVnenIE+kKRVIfuO+GQJnsfcjdZeixI7UXidM8xe09b/8kRb9/F1MM
-	 oPpskZZ7Tzyy8tErMqpYbMsKj3bJuuGhf9nXq5m61SuPCJsTF5C/fWc8059bLprRph
-	 Cp3aHlD6498Cw==
-Date: Sat, 10 Oct 2026 19:45:08 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Nickolai Zeldovich <nickolai@csail.mit.edu>
-Cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] riscv: Fix icache flush being skipped for a second mm
- mapping an exec folio
-Message-ID: <asolRA3vLbKEZ1Wm@xhacker>
-References: <20261009221957.760606-1-nickolai@csail.mit.edu>
+	id 1xFW7Q-000000080vf-3AJO;
+	Sat, 10 Oct 2026 12:24:08 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261010122357euoutp02bf04a99341e5bbc43473ffce11d38391~dKpMJ5mLK1277212772euoutp02E;
+	Sat, 10 Oct 2026 12:23:57 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261010122357euoutp02bf04a99341e5bbc43473ffce11d38391~dKpMJ5mLK1277212772euoutp02E
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1791635037;
+	bh=W/evXz/fk2nDwkRg/LgD/8BHntxXciqgyux6ksl533s=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=WBqwhh+vwDnb1ddbWTUFdAtvh6PQvDDQRRNk1HdcMIi3YL0IpQaH9EngEeVFTNiS2
+	 zAYBnlByApQHLgVml8kj8M6k9C1EeX0he4lF7JmuWaeUwc9WRCYjLFDgXMMFHKWIh+
+	 8uGWecAQfgqPR4OXwT5HvF14YaSXEiRzHLkPV2iY=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261010122357eucas1p1892ef8aa961af3208f81f5356316372e~dKpL1ApHV2372723727eucas1p1W;
+	Sat, 10 Oct 2026 12:23:57 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261010122355eusmtip2ad5884c70b787c8d696f7ac9805aa691~dKpKCi3Gt0696206962eusmtip2U;
+	Sat, 10 Oct 2026 12:23:55 +0000 (GMT)
+Message-ID: <e0c42946-ed2a-41cc-9f2a-1bb089e02085@samsung.com>
+Date: Sat, 10 Oct 2026 14:23:55 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261009221957.760606-1-nickolai@csail.mit.edu>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
+ starfive,jh7110-inno-hdmi-phy
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
+	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
+	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
+	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
+	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
+	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
+	Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
+	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
+	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
+	Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Joshua Peisach <jpeisach@ubuntu.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@baylibre.com>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <ac7b82e6-22ea-465c-8477-bbe0bd9c8c27@kernel.org>
+X-CMS-MailID: 20261010122357eucas1p1892ef8aa961af3208f81f5356316372e
+X-Msg-Generator: CA
+X-RootMTR: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
+X-EPHeader: CA
+X-CMS-RootMailID: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
+References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+	<CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com>
+	<20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com>
+	<20260917-mutant-chamois-of-competence-46ca77@quoll>
+	<1a1a9b49-430b-4218-b27d-e133d488e8d9@samsung.com>
+	<6cf9e611-bfc5-407b-8132-bd328f8b61fc@kernel.org>
+	<eaba2fa9-a1ce-4dac-9bd6-e0b3a3dd01ef@samsung.com>
+	<3ee91c92-4e3a-4bac-85cf-923f5d77ceff@kernel.org>
+	<3c5c15d9-ea7e-49a2-adae-ec3e3c72594b@samsung.com>
+	<ac7b82e6-22ea-465c-8477-bbe0bd9c8c27@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261010_052405_396423_8D215D84 
+X-CRM114-Status: GOOD (  31.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,151 +115,161 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 09, 2026 at 06:19:57PM -0400, Nickolai Zeldovich wrote:
-> Since commit 01261e24cfab ("riscv: Only flush the mm icache when
-> setting an exec pte"), flush_icache_pte() flushes only the icache of
-> the harts that run the faulting mm (with a deferred fence.i for the
-> harts it migrates to later), but it still sets the folio-wide
-> PG_dcache_clean bit. The bit is then read as "no hart holds stale
-> instructions for this folio", which a per-mm flush does not establish.
-> 
-> So when a folio that was written through the page cache is mapped
-> executable first by mm A on hart X and then by a different mm B on a
-> hart Y outside A's cpumask, B gets no flush on Y and executes whatever
-> Y's icache still holds for those physical lines, e.g. the page's
-> previous contents. Before that commit, flush_icache_all() covered this
-> case.
 
-Good catch!
 
+On 10/4/26 09:15, Krzysztof Kozlowski wrote:
+> On 04/10/2026 00:35, Michal Wilczynski wrote:
+>>
+>>
+>> On 10/3/26 22:45, Krzysztof Kozlowski wrote:
+>>> On 03/10/2026 17:36, Michal Wilczynski wrote:
+>>>>
+>>>>
+>>>> On 9/30/26 13:01, Krzysztof Kozlowski wrote:
+>>>>> On 25/09/2026 23:05, Michal Wilczynski wrote:
+>>>>>>>> +  clocks:
+>>>>>>>> +    maxItems: 1
+>>>>>>>> +    description: Reference oscillator.
+>>>>>>>
+>>>>>>> This barely counts as a resource, so usual question: no resources here?
+>>>>>>> no MMIO? Even the user of this phy is the block itself.
+>>>>>>>
+>>>>>>> This makes me wonder if this should be a device node in the first place
+>>>>>>> (instead folded into the parent).
+>>>>>>
+>>>>>> The PHY has no reg because the reg is shared with the controller and
+>>>>>> owned by the parent - patch 9 lets the bridge take its regmap from
+>>>>>> there.
+>>>>>>
+>>>>>> The user of the PHY is not only the block itself. It is the pixel clock
+>>>>>> provider for the whole display subsystem, voutcrg takes hdmitx0_pixelclk
+>>>>>> as the parent of its DC8200 pixel MUXes, and while HDMI output is active
+>>>>>> it is the only intended source for that clock. The parent has to be
+>>>>>> assigned explicitly so the general PLL does not end up driving the pixel
+>>>>>> clock, and so a DSI user does not reach the HDMI PHY clock generator.
+>>>>>>
+>>>>>> So it has to be its own node. The HDMI block has two independent
+>>>>>
+>>>>> I do not see the logic which lead to this conclusion. Pixel clock
+>>>>> provider, so a clock controller, cannot be a user of a phy. Clock
+>>>>> controller does not have a physical layer.
+>>>>
+>>>> Sorry I think the wording was not perfect. I meant the PHY node is a
+>>>> pixel clock provider. voutcrg consumes a clock not a PHY.
+>>>>
+>>>> voutcrg: clock-controller@295c0000 {
+>>>>          clocks = <&syscrg ...>, <&hdmi_phy>;
+>>>>          clock-names = ...,"hdmitx0_pixelclk";
+>>>> };
+>>>>
+>>>> The consumer of the PHY is only the hdmi controller.
+>>>>
+>>>> What matters for the node layout is where that clock goes. voutcrg is the
+>>>> SoC display clock controller - it is not part of the HDMI block:
+>>>>
+>>>> hdmi_phy -- pixel clock -> voutcrg
+>>>>                               |
+>>>>                               - pclk/mclk/bclk -> hdmi_controller
+>>>>                               - pix0/pix1 -> dc8200
+>>>>
+>>>> hdmi_phy and hdmi_controller are the same register block with one reg
+>>>> owned by the parent. So if that block is described as a single node:
+>>>>
+>>>> hdmi_node - pixel clock -> voutcrg
+>>>>      ^                          |
+>>>>      --- pclk/mclk/bclk --------
+>>>>
+>>>> the node provides a clock to voutcrg and consumes three clocks from
+>>>> voutcrg. That is a cycle in the device tree description.
+>>>
+>>> There is no cycle. Internal signals to the block are not represented in DT.
+>>>
+>>> What you have is a driver problem and you create some sort of DT
+>>> structure to solve that. DT purpose is NOT to solve your driver
+>>> dependencies or circular connections.
+>>
+>> The structure is not something I added. The voutcrg binding has required
+>> an input clock named hdmitx0_pixelclk since it was merged in 2023
+>> a097a5ec14df ("dt-bindings: clock: Add StarFive JH7110 Video-Output
+>> clock and reset generator") and this series does not touch that file:
+>>
+>> Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
+>>        - const: hdmitx0_pixelclk
+>>
+>> Mainline satisfies it with a placeholder, because so far nothing provided the
+>> real clock:
+>>
+>> hdmitx0_pixelclk: hdmitx0-pixel-clock {
+>>             compatible = "fixed-clock";                                                                          
+>>             clock-output-names = "hdmitx0_pixelclk";
+>>             #clock-cells = <0>;
+>> };
+>>
+>> All this series does is point that existing input at the device that actually
+>> generates it.
+>>
+>> TRM [1] table 5-3  on page 529 lists the display CRG's input clocks. Most come from
+>> dom_vout_top, but three come from IP blocks inside the subsystem:
+>>
+>> clk_hdmitx0_pixelclk        297 MHz   u0_hdmi_tx.clk_pix
+>> clk_mipitx_dphy_rxesc        10 MHz   u0_mipitx_dphy.clk_rxesc
+>> clk_mipitx_dphy_txbytehs    297 MHz   u0_mipitx_dphy.clk_txbytehs
+>>
+>> and on page 530 the CRG offers clk_hdmitx0_pixelclk as Source1 for:
+>>
+>> u0_dc8200.clk_pix0      Source0 clk_dc8200_pix0  Source1 clk_hdmitx0_pixelclk
+>> u0_dc8200.clk_pix1      Source0 clk_dc8200_pix0  Source1 clk_hdmitx0_pixelclk
+>> u0_cdns_dsiTx.clk_dpi   Source0 clk_dc8200_pix0  Source1 clk_hdmitx0_pixelclk
+>>
+>> The DC8200 and the DSI TX are separate devices, so the pixel clock
+>> crosses two block boundaries to reach them.
+>>
+>> That is also why the DT has to be able to name it. Those MUXes have two
+>> parents and the selection is made in DT:
+>>
+>> &dc8200 {
+>>           assigned-clocks = <&voutcrg JH7110_VOUTCLK_DC8200_PIX0>, ...;
+>>           assigned-clock-parents = <&hdmi_phy>, <&hdmi_phy>;
+>> };
+>>
+>> and voutcrg takes it as an input clock because that is what the hardware
+>> does. If the PHY is folded into the HDMI node, that input phandle points at
+>> a node which also consumes pclk/mclk/bclk from voutcrg. That is where the
+>> cycle comes from - the hardware topology not the driver.
 > 
-> Reproducer: a parent pinned to hart 0 and a child pinned to hart 3
-> share a file. The parent writes text "T1" with write(2), the child
-> mmap()s it PROT_EXEC and runs it (priming hart 3's icache with T1),
-> then unmaps it. The parent writes text "T2", maps it executable and
-> runs it (per-mm flush of hart 0 only, bit set). The child maps the
-> file executable again and runs it: no flush on hart 3, and the child
-> executes T1. On a StarFive JH7110 (VisionFive 2, non-coherent icache)
-> running v7.3-rc6, 149 of 150 iterations over three hart pairs execute
-> stale instructions. A control run that executes fence.i in the child
-> before the last mapping gets 0 of 50.
+> Which is perfectly "fine" - present in many other SoCs as well. This is
+> not different and your arguments are insufficient to give here
+> exceptions. Why? Because again you use as an argument a Linux driver
+> problem (cyclic dependency). Basically to solve Linux problem you
+> introduce new empty nodes.
+> 
+> Best regards,
+> Krzysztof
+> 
 
-I guess the reproducer is just a simple c program.
-It would be helpful if you can paste the reproducer code into the commit
-msg as well.
-> 
-> Keep the per-mm flush and make the skip decision per mm instead:
-> count the flushes that set the bit in a global generation, and let
-> every mm remember the generation of its own last flush taken in
-> flush_icache_pte(). An mm whose generation lags cannot trust any bit
-> set since, so it flushes its own harts once (local fence.i, IPIs only
-> to the harts currently running it, deferred fence.i for the rest) and
-> catches up. No global flush is issued, nothing happens while no new
-> executable folio is written, and the cost is bounded by one
-> flush_icache_mm() per mm per generation bump.
-> 
-> With the fix the reproducer executes 0 of 150 stale iterations on the
-> same board. The function-call IPI counters stay at a few hundred per
-> hart for the whole boot plus 200 iterations, i.e. the IPI savings of
-> the per-mm flush are kept.
-> 
-> Tested on the JH7110 with v7.3-rc6 and this patch; not tested on
-> 32-bit. The bug does not reproduce under QEMU TCG, which invalidates
-> translated code on page writes.
-> 
-> Fixes: 01261e24cfab ("riscv: Only flush the mm icache when setting an exec pte")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Nickolai Zeldovich <nickolai@csail.mit.edu>
-> ---
->  arch/riscv/include/asm/mmu.h         |  2 ++
->  arch/riscv/include/asm/mmu_context.h |  1 +
->  arch/riscv/mm/cacheflush.c           | 20 ++++++++++++++++++++
->  3 files changed, 23 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-> index cf8e6eac77d5..e0e7a310151c 100644
-> --- a/arch/riscv/include/asm/mmu.h
-> +++ b/arch/riscv/include/asm/mmu.h
-> @@ -21,6 +21,8 @@ typedef struct {
->  	cpumask_t icache_stale_mask;
->  	/* Force local icache flush on all migrations. */
->  	bool force_icache_flush;
-> +	/* icache_folio_gen at this mm's last flush in flush_icache_pte(). */
-> +	u64 icache_gen;
->  #endif
->  #ifdef CONFIG_BINFMT_ELF_FDPIC
->  	unsigned long exec_fdpic_loadmap;
-> diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
-> index dbf27a78df6c..cc0f7f65ec8b 100644
-> --- a/arch/riscv/include/asm/mmu_context.h
-> +++ b/arch/riscv/include/asm/mmu_context.h
-> @@ -32,6 +32,7 @@ static inline int init_new_context(struct task_struct *tsk,
->  {
->  #ifdef CONFIG_MMU
->  	atomic_long_set(&mm->context.id, 0);
-> +	mm->context.icache_gen = 0;
->  #endif
->  	if (IS_ENABLED(CONFIG_RISCV_ISA_SUPM))
->  		clear_bit(MM_CONTEXT_LOCK_PMLEN, &mm->context.flags);
-> diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-> index f8ead7cb7c7d..880c210dbfec 100644
-> --- a/arch/riscv/mm/cacheflush.c
-> +++ b/arch/riscv/mm/cacheflush.c
-> @@ -97,13 +97,33 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
->  #endif /* CONFIG_SMP */
->  
->  #ifdef CONFIG_MMU
-> +/*
-> + * PG_dcache_clean is folio-wide, but flush_icache_mm() only reaches the
-> + * harts of one mm.  Count the flushes that set the bit; an mm whose
-> + * generation lags cannot trust a bit set since its own last flush, so it
-> + * flushes its harts once before relying on it.
-> + */
-> +static atomic64_t icache_folio_gen = ATOMIC64_INIT(0);
-> +
->  void flush_icache_pte(struct mm_struct *mm, pte_t pte)
->  {
->  	struct folio *folio = page_folio(pte_page(pte));
-> +	u64 gen;
->  
->  	if (!test_bit(PG_dcache_clean, &folio->flags.f)) {
-> +		gen = atomic64_inc_return(&icache_folio_gen);
+OK probe ordering is a Linux concern and can't be used it to justify the
+binding.
 
-Per the commit msg, the bug can only be reproduced on SMP
-platforms, so this fix unconditionally brings non-necessary
-overhead to UP.
+We spoke briefly about this on Monday and I came away thinking the node
+is acceptable as long as it is justified by what it describes rather
+than by probe order. Is that the right reading of what you meant?
 
->  		flush_icache_mm(mm, false);
-> +		WRITE_ONCE(mm->context.icache_gen, gen);
+On that basis the PHY node:
+- is a clock provider, and voutcrg consumes that clock and
+  routes it on to the DC8200 pixel MUXes and the DSI TX
+- is a phy provider for the controller
+- takes a different input clock than the controller - xin24m, against
+  pclk/mclk/bclk from voutcrg
+- is separate IP - the same Innosilicon PHY that RK3328 instantiates at its
+  own address (phy@ff430000), which here shares a register window with the
+  controller
 
-Since icache_gen is u64, this is not atomic I guess. I'm
-not sure whether this is safe on RV32.
+The reg is the only thing it does not have of its own, and that is shared
+with the controller and owned by the parent.
 
->  		set_bit(PG_dcache_clean, &folio->flags.f);
-> +		return;
-> +	}
-> +
-> +	/* Pairs with the fully ordered atomic64_inc_return() above. */
-> +	smp_rmb();
-> +	gen = atomic64_read(&icache_folio_gen);
-> +	if (unlikely(READ_ONCE(mm->context.icache_gen) != gen)) {
-
-see above, READ_ONCE a u64 on RV32 isn't atomic operation, is
-there any possiblity there's a race between WRITE_ONCE and READ_ONCE?
-> +		flush_icache_mm(mm, false);
-> +		WRITE_ONCE(mm->context.icache_gen, gen);
->  	}
->  }
->  #endif /* CONFIG_MMU */
-> -- 
-> 2.56.0
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Best regards,
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
 
 _______________________________________________
 linux-riscv mailing list
