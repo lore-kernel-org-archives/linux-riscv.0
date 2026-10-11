@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 340A0CA9EC7
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 Oct 2026 13:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 864D3CA9EBD
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Oct 2026 13:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VUGG+/mYU+T9fDDdVQCM6fZdqioTVWAfnf/13R7HBfg=; b=NbkJfZ2dcxT1t9
-	SDkO4RCWaw7Xsp/lR/vxUBOSydVEfjWKTd8Fh10VvQQbskqdYq3D9JZIG1rClMbNCQr4A6RhQ4sX6
-	0H1O2HumIJaKNBDHmRcmJha2YaTbFVwt1ukLUTfQMTOyu7SkSAnyoPEMykAAw4kRlD/FflJwt7ouU
-	osrweZ+4uqKyFq1M7mCOdhLc07A659zIE820zuJidAH9mWWlbym6NSEWCjWMm7Z5ONbq1yupyXR+q
-	iQoJoNsGCokltTYNaI6fNblS5jPZCEsAamnPKpiZPhck+eOHWShGzpXNJbwNPLZm3ohDzbCh59/lE
-	mTilaBYvvtPKggeIXXpg==;
+	List-Owner; bh=sjHFIxqtbwizl6ZFGAJUfzyMxJYK2ePZ/4msRzaByeM=; b=ATn1JitXWq/imh
+	Gy4o53HsfXZDgeu4AiF5c9vBtNu6byd751Pl5yUvRCn7ZS5vvdljLRNKKCeYMdI4ks9Dz3mrxWs7Z
+	C3UQw3k6WqcNpnVnTfgJh5G4qhoJ4huzTlxb43n7HGXbDQ+LqExZM0GufMs0gaNsgaJHQsG/jDmSx
+	9oYOR+GLjodYZCC2FnFizSxzpl+Sv1tgTk5tTmdvnZUvHr2JsMwLqALuXZpVAM5wScBb4XRaAKgMu
+	IkSCH6KiItk7aKS5KwjjyVnA1OtP8c1rylJ8HcNldRQOYxevbh3iwWuwCZzvugBUpY9FpIZLgx/o0
+	MSeSvo+RiuFXVOIDSZpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFtlm-000000094JW-3KNI;
-	Sun, 11 Oct 2026 13:39:18 +0000
-Received: from mail-out.m-online.net ([212.18.0.10])
+	id 1xFtln-000000094Jh-3lOL;
+	Sun, 11 Oct 2026 13:39:19 +0000
+Received: from mail-out.m-online.net ([2001:a60:0:28:0:1:25:1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFtlg-000000094HV-3yRS
+	id 1xFtli-000000094HW-2OBn
 	for linux-riscv@lists.infradead.org;
-	Sun, 11 Oct 2026 13:39:16 +0000
+	Sun, 11 Oct 2026 13:39:17 +0000
 Received: from mail-out.m-online.net (mail-out.m-online.net [212.18.0.10])
-	by mail-out.m-online.net (Postfix) with ESMTP id 4j2hX94YV1z1sRL5;
+	by mail-out.m-online.net (Postfix) with ESMTP id 4j2hX94YNZz1sR8g;
 	Sun, 11 Oct 2026 15:39:05 +0200 (CEST)
-DKIM-Signature: a=rsa-sha256; bh=gctCJrJ7Kds3CcZcJwy4+R3P44nlumx62CuaYhKhBXA=;
+DKIM-Signature: a=rsa-sha256; bh=AAYA6v5MnUMcI9QcPmOweeiWGFke9spuzNUKiC+8dQk=;
         c=relaxed/relaxed; d=muenchen-mail.de;
         h=Date:From:To:Message-ID:Subject;
         s=r1; t=1791725945; v=1;
-        b=hxJA5Ia/WCT0qT3mkgZX6yahUx1R0mBqLPfnDK7n0/SqTnX6/p4Cj4rqutOkXURC
-         c+7GbvhjmrBTa/I3XXltN42CNR1rV22LBUFn/PJ5nWLzM2n/myM79DumIS86Wtmh
-         cE6Z9AYIsiVEl3p7FT/vMg/2+tAPfMs9aMOXL2/9TyHTWj668u2Ab7iuQ3FMBEf2
-         kCvxDXHxwxCxyZFzVb8kvf0Fz2C+mLDJ8fj0VxoVrZixcOaSG0Ag31d9stLkH9Y8
-         Qu4sVStqg1Wt7sY/qjBed3H0fLmLouFweUVCxswqW7GP+Lkby1GFvsLsTJ+o4ole
-         EGguTPG5gV2AYXA3vjBAyg==
+        b=lqimsr+d3XBAIbP1dAkFm4PQDrYYKkjwksqiZwg9mxvSopH2HO0pAreftwjg4mqe
+         CIfep0WRE3Gbqpm2rjtYaHxdXXF0f+0kyewlbG82BdxxNlu8H3AjgCAmim8rXPVb
+         gHEklZrga8IXWbfRl3+UkmkfqI7QnqqXt+OjzuQhDdilAhpkhfgHwS2aOourDqk1
+         tDdbF29b62VeyfxrbBBl+FEYr29quFfIbt1XqVBmNDWzBlXDAszD2+Hj3OodUYIQ
+         LrDylKQQHoVRBE2KJRUFu9Wvl9epV6U3NrApWrr884p7/Z+u8Sv+qTiWsnaGo6ex
+         1Vqq9MwWQ06LWRN077VQYw==
 Received: from frontend03.mail.m-online.net (unknown [192.168.6.182])
-	by mail-out.m-online.net (Postfix) with ESMTP id 4j2hX80GpLz1sR8M;
+	by mail-out.m-online.net (Postfix) with ESMTP id 4j2hX80GS8z1sR8H;
 	Sun, 11 Oct 2026 15:39:03 +0200 (CEST)
 Received: from localhost (dynscan3.mnet-online.de [192.168.6.87])
-	by mail.m-online.net (Postfix) with ESMTP id 4j2hX74SX8z1qqlR;
+	by mail.m-online.net (Postfix) with ESMTP id 4j2hX74jXDz1qqlS;
 	Sun, 11 Oct 2026 15:39:03 +0200 (CEST)
 X-Virus-Scanned: amavis at mnet-online.de
 Received: from mail.mnet-online.de ([192.168.6.182])
  by localhost (dynscan3.mail.m-online.net [192.168.6.87]) (amavis, port 10024)
- with ESMTP id aaz3n9_3Nu0C; Sun, 11 Oct 2026 15:39:01 +0200 (CEST)
+ with ESMTP id ATq7ikQRj-9X; Sun, 11 Oct 2026 15:39:01 +0200 (CEST)
 X-Auth-Info: RWtFOPa2WPAAcoNvORZRjrjvz3yyE/RdyuxRfNfJkBn6yqWRhEJ0wED3jO+mdFff
 Received: from wiesel.intern (aftr-62-216-206-149.dynamic.mnet-online.de [62.216.206.149])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
@@ -58,7 +58,7 @@ Received: from wiesel.intern (aftr-62-216-206-149.dynamic.mnet-online.de [62.216
 	by mail.mnet-online.de (Postfix) with ESMTPSA;
 	Sun, 11 Oct 2026 15:39:01 +0200 (CEST)
 Received: from murmel.intern (unknown [IPv6:fdea:9b79:8984:1:c2df:628d:efc1:8817])
-	by wiesel.intern (Postfix) with ESMTP id BE9AB79A081C;
+	by wiesel.intern (Postfix) with ESMTP id D62AC79A086A;
 	Sun, 11 Oct 2026 15:39:00 +0200 (CEST)
 From: Thomas Gerner <thomas.gerner@muenchen-mail.de>
 To: Marcel Holtmann <marcel@holtmann.org>,
@@ -78,16 +78,16 @@ Cc: Conor Dooley <conor+dt@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	Thomas Gerner <thomas.gerner@muenchen-mail.de>
-Subject: [PATCH 2/2] Bluetooth: btbcm: disable read tx power for BeagleV-Ahead
-Date: Sun, 11 Oct 2026 15:37:58 +0200
-Message-ID: <578087018e274b0dcf25a523adc0d5cc590cceee.1791720467.git.thomas.gerner@muenchen-mail.de>
+Subject: [PATCH 1/2] riscv: dts: thead: Enable bluetooth on BeagleV-Ahead
+Date: Sun, 11 Oct 2026 15:37:59 +0200
+Message-ID: <22787b9b20b62ac010a0fd8de0aa1f564fa577ce.1791720467.git.thomas.gerner@muenchen-mail.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1791720467.git.thomas.gerner@muenchen-mail.de>
 References: <cover.1791720467.git.thomas.gerner@muenchen-mail.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_063915_388115_F8477A70 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20261011_063915_388413_9784E264 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,78 +104,134 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The bluetooth module of the Ampak AP6203BM is identified by the btbcm
-driver as BCM4362A2.
-
-The firmware of the bluetooth module on the BeagleV-Ahead reports a
-capability of reading LE tx power. However reading fails. To get
-bluetooth working it is necessary to disable reading of LE tx power on
-the BeagleV-Ahead board. The disable is implemented in a similar way as
-for several Apple boards but uses the board compatible identification
-from the DTB as there is no DMI.
+On the BeagleV-Ahead the bluetooth module of the Ampak AP6203BM is
+identified by the btbcm driver as BCM4362A2. The module is connected by
+UART4, several gpio pins and an I2S interface. The I2S is currently not
+used as there is no driver. 
 
 Signed-off-by: Thomas Gerner <thomas.gerner@muenchen-mail.de>
 ---
- drivers/bluetooth/btbcm.c | 19 ++++++++++++++++---
- 1 file changed, 16 insertions(+), 3 deletions(-)
+ .../boot/dts/thead/th1520-beaglev-ahead.dts   | 89 +++++++++++++++++++
+ 1 file changed, 89 insertions(+)
 
-diff --git a/drivers/bluetooth/btbcm.c b/drivers/bluetooth/btbcm.c
-index 463d59890bef..2d02cc1863d0 100644
---- a/drivers/bluetooth/btbcm.c
-+++ b/drivers/bluetooth/btbcm.c
-@@ -436,6 +436,11 @@ static const struct dmi_system_id disable_broken_read_transmit_power[] = {
- 	{ }
+diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+index e16484a47653..bf64eb667745 100644
+--- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
++++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+@@ -76,6 +76,23 @@ led-5 {
+ 		};
+ 	};
+ 
++	reg_vbat_1v8: regulator-vbat-1v8 {
++		compatible = "regulator-fixed";
++		regulator-boot-on;
++		regulator-max-microvolt = <1800000>;
++		regulator-min-microvolt = <1800000>;
++		regulator-name = "vbat-1v8";
++	};
++
++	reg_vbat_3v3: regulator-vbat-3v3 {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		regulator-boot-on;
++		regulator-max-microvolt = <3300000>;
++		regulator-min-microvolt = <3300000>;
++		regulator-name = "vbat-3v3";
++	};
++
+ 	hdmi-connector {
+ 		compatible = "hdmi-connector";
+ 		type = "d";
+@@ -152,6 +169,31 @@ led-pins {
  };
  
-+static const char *board_broken_read_transmit_power[] __maybe_unused = {
-+	"beagle,beaglev-ahead",
-+	NULL
+ &padctrl0_apsys {
++	bluetooth_in_pins: bluetooth-0 {
++		in-pins {
++			bias-disable;
++			drive-strength = <1>;
++			function = "gpio";
++			input-enable;
++			input-schmitt-enable;
++			pins = "GPIO2_30";
++			slew-rate = <0>;
++		};
++	};
++
++	bluetooth_out_pins: bluetooth-1 {
++		out-pins {
++			bias-disable;
++			drive-strength = <3>;
++			function = "gpio";
++			input-disable;
++			input-schmitt-disable;
++			pins = "SDIO1_DETN",	/* GPIO2_29 */
++			       "SDIO1_WPRTN";	/* GPIO2_28 */
++			slew-rate = <0>;
++		};
++	};
++
+ 	gmac0_pins: gmac0-0 {
+ 		tx-pins {
+ 			pins = "GMAC0_TX_CLK",
+@@ -268,6 +310,30 @@ reg-on-pins {
+ 	};
+ };
+ 
++&padctrl1_apsys {
++	uart4_pins: uart4-0 {
++		rx-pins {
++			bias-disable;
++			drive-strength = <1>;
++			function = "uart";
++			input-enable;
++			pins = "UART4_RXD", "UART4_CTSN";
++			input-schmitt-enable;
++			slew-rate = <0>;
++		};
++
++		tx-pins {
++			bias-disable;
++			drive-strength = <3>;
++			function = "uart";
++			input-disable;
++			pins = "UART4_TXD", "UART4_RTSN";
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
 +};
 +
- static int btbcm_read_info(struct hci_dev *hdev)
- {
- 	struct sk_buff *skb;
-@@ -537,12 +542,13 @@ static const struct bcm_subver_table bcm_usb_subver_table[] = {
-  * This currently only looks up the device tree board appendix,
-  * but can be expanded to other mechanisms.
-  */
--static const char *btbcm_get_board_name(struct device *dev)
-+static const char *btbcm_get_board_name(struct hci_dev *hdev)
- {
- #ifdef CONFIG_OF
- 	struct device_node *root __free(device_node) = of_find_node_by_path("/");
- 	char *board_type;
- 	const char *tmp;
-+	const char **s;
- 
- 	if (!root)
- 		return NULL;
-@@ -550,8 +556,15 @@ static const char *btbcm_get_board_name(struct device *dev)
- 	if (of_property_read_string_index(root, "compatible", 0, &tmp))
- 		return NULL;
- 
-+	/* disable broken Read LE Min/Max Tx Power on first board found in list */
-+	for (s = board_broken_read_transmit_power; *s; s++)
-+		if (!strcmp(tmp, *s)) {
-+			hci_set_quirk(hdev, HCI_QUIRK_BROKEN_READ_TRANSMIT_POWER);
-+			break;
-+		}
+ &sdio0 {
+ 	bus-width = <4>;
+ 	max-frequency = <198000000>;
+@@ -314,3 +380,26 @@ &uart0 {
+ 	pinctrl-0 = <&uart0_pins>;
+ 	status = "okay";
+ };
 +
- 	/* get rid of any '/' in the compatible string */
--	board_type = devm_kstrdup(dev, tmp, GFP_KERNEL);
-+	board_type = devm_kstrdup(&hdev->dev, tmp, GFP_KERNEL);
- 	if (!board_type)
- 		return NULL;
- 
-@@ -577,7 +590,7 @@ int btbcm_initialize(struct hci_dev *hdev, bool *fw_load_done, bool use_autobaud
- 	const struct firmware *fw;
- 	int i, err;
- 
--	board_name = btbcm_get_board_name(&hdev->dev);
-+	board_name = btbcm_get_board_name(hdev);
- 
- 	/* Reset */
- 	err = btbcm_reset(hdev);
++&uart4 {
++	pinctrl-0 = <&uart4_pins>;
++	pinctrl-names = "default";
++	uart-has-rtscts;
++
++	status = "okay";
++
++	bluetooth {
++		compatible = "brcm,bcm4329-bt";
++		device-wakeup-gpios = <&gpio2 29 GPIO_ACTIVE_HIGH>;
++		interrupt-parent = <&gpio2>;
++		interrupts = <30 IRQ_TYPE_EDGE_RISING>;
++		interrupt-names = "host-wakeup";
++		max-speed = <921600>;
++		pinctrl-0 = <&bluetooth_in_pins>;
++		pinctrl-1 = <&bluetooth_out_pins>;
++		pinctrl-names = "default";
++		shutdown-gpios = <&gpio2 28 GPIO_ACTIVE_HIGH>; 	/* BT-REG-ON */
++		vbat-supply = <&reg_vbat_3v3>;
++		vddio-supply = <&reg_vbat_1v8>;
++	};
++};
 -- 
 2.53.0
 
