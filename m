@@ -4,89 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D00F8CA9EC7
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 Oct 2026 13:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4595CA9EC7
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Oct 2026 13:40:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lTq9+o352B4JS5M0U4Wu3eeaWZCOFDvgFcUG7zqGD5U=; b=K6JThttsCRGqm1
-	PWpI3kubMzO9yYsDChsQ0h3aHws6VjrRJNWg3FR4GDWgcUB8H3ksVM/eH5UedeXpJmQmqUyxF7L+H
-	Cdui4hv5zzcSME6/giqE01PsLhkwQLCnO2FHXozrfm5iGlokpNOFVFzcIXqR7UiFSEEtz2RmDvByY
-	SFlGq9fTX6/OYHPt2GUSApzdASY/swaAv0N1zowSrjY14cDOY3NgLDtfKHmGPpmW+jlnxhtXjo6k8
-	Lo2PDwt+/ZGkMRnfFEDMB3YByP/9XvdCVAFmsxMeEHhiyqfz2RBdBzycJLSujFhCfIChN1T4c9MnR
-	i8LmaHR8o1U6BYXoezvQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ig/A7N76so2EtIINlOWK+bdHe7x9sdy+tl9R7/ntXaU=; b=ZIv4TxP8BILgva
+	4vq3aMFw2Rge+zO7RvC9XYqhnM6abomp6tkPZVsJfiaKORMzHeScth0yiMRGmMKCJYty1aqUvckMG
+	Jbp5m/b7nSkKMcxIlvBhstYdyRdCgnbgdk160JJtiFMS1yIH+5fpsJWiDDriac+nIAmVWo/j4jFoH
+	0n3Tno6pan2ZJTZrhW4V6O06iVoqJPYfa1fZwtBrgOPAUt0RXlwqA8BwtSCrTEBGAYGEOysx2u1KU
+	X6fSzTp2oBrAMbYOGOfhjLBhmB0+q0jLTRl2AKNHiZo9yWqEhdyBcKECuA1o7dnz3C5WtIJUTKC/T
+	JmwMa+7i3nTN4PnBYqmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFtln-000000094Jn-4Be6;
-	Sun, 11 Oct 2026 13:39:20 +0000
-Received: from mail-out.m-online.net ([212.18.0.10])
+	id 1xFtme-000000094Y9-0ikJ;
+	Sun, 11 Oct 2026 13:40:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xFtlm-000000094J8-2Hhl
+	id 1xFtmd-000000094Xt-0dgG
 	for linux-riscv@lists.infradead.org;
-	Sun, 11 Oct 2026 13:39:19 +0000
-Received: from mail-out.m-online.net (mail-out.m-online.net [212.18.0.10])
-	by mail-out.m-online.net (Postfix) with ESMTP id 4j2hXB2Yxtz1sRLM;
-	Sun, 11 Oct 2026 15:39:06 +0200 (CEST)
-DKIM-Signature: a=rsa-sha256; bh=XHaRzrcWnGBBJEk/8UCbSfHdRQxOX7rp7HismjlBhG8=;
-        c=relaxed/relaxed; d=muenchen-mail.de;
-        h=Date:From:To:Message-ID:Subject;
-        s=r1; t=1791725946; v=1;
-        b=0qV+POqPPmchVPibyAQ0QllyUA6rfYlJQuHF+sVvTjeFa3E3EQq6Qfypw+RP9zsp
-         4WQYNAx6aRFoQMKi0QT8YaO9S9Zus+nzs6PJzyGQotkOjvAcibP5YCeO4UViZbGK
-         qYNL37sZiaLJcZHBVPBXAS8/uxUwrrDCAVfcLmmy7aL81GadHgtqu7v+RfcF+QJi
-         qYpUkMIzP+kDP3Y6fnmSE3e9orBY06zB0JX285/XsrHL67lJ1OzBPheOj5FkP9KL
-         1Zi6guX34V/OuzzKgwPb6rmCIEx9R6aUPI2dLURNAhoc/1+yJjK2kb8vvGB7F5Uo
-         mBOmPENc+CshHCHqHjDahQ==
-Received: from frontend03.mail.m-online.net (unknown [192.168.6.182])
-	by mail-out.m-online.net (Postfix) with ESMTP id 4j2hX80cp0z1sR8b;
-	Sun, 11 Oct 2026 15:39:04 +0200 (CEST)
-Received: from localhost (dynscan3.mnet-online.de [192.168.6.87])
-	by mail.m-online.net (Postfix) with ESMTP id 4j2hX80376z1qqlW;
-	Sun, 11 Oct 2026 15:39:04 +0200 (CEST)
-X-Virus-Scanned: amavis at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.6.182])
- by localhost (dynscan3.mail.m-online.net [192.168.6.87]) (amavis, port 10024)
- with ESMTP id E9OEDt-NYzGT; Sun, 11 Oct 2026 15:39:01 +0200 (CEST)
-X-Auth-Info: RWtFOPa2WPAAcoNvORZRjrjvz3yyE/RdyuxRfNfJkBn6yqWRhEJ0wED3jO+mdFff
-Received: from wiesel.intern (aftr-62-216-206-149.dynamic.mnet-online.de [62.216.206.149])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by mail.mnet-online.de (Postfix) with ESMTPSA;
-	Sun, 11 Oct 2026 15:39:01 +0200 (CEST)
-Received: from murmel.intern (unknown [IPv6:fdea:9b79:8984:1:c2df:628d:efc1:8817])
-	by wiesel.intern (Postfix) with ESMTP id 1665179A036C;
-	Sun, 11 Oct 2026 15:39:00 +0200 (CEST)
-From: Thomas Gerner <thomas.gerner@muenchen-mail.de>
-To: Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Thomas Gerner <thomas.gerner@muenchen-mail.de>
-Subject: [PATCH 0/2] Enable bluetooth on BeagleV-Ahead
-Date: Sun, 11 Oct 2026 15:37:57 +0200
-Message-ID: <cover.1791720467.git.thomas.gerner@muenchen-mail.de>
-X-Mailer: git-send-email 2.53.0
+	Sun, 11 Oct 2026 13:40:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 52D8A600E2;
+	Sun, 11 Oct 2026 13:40:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0576A1F0089B;
+	Sun, 11 Oct 2026 13:40:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791726010;
+	bh=FHIQ2/ttZvMYlRT/6D0OsTdIGEr5QcIRPG0J3e/7ydw=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=TVNxiJVFxiZu10UZZKt5BVzgzA1RCMwG+ei5e/IPlQ/Mhonxn7em2yJQLZ+gaJ1LI
+	 BLmCYoZjgzug7QV6NcN0c5KKhxgj8LaDrI5dgu/cMhzdi6i1Xg0KV6fO9fTOIxXmDD
+	 h2iy+Vv+XnNrgNH7gcBk+PHXaQhCsY/+5/RV3oe2VNrPw4LxSwaNDNZTICDZ747/r5
+	 Pazr/GETGutrTqzZtyMUSMpPSqpreKTfZFnR3WMzj+q6yIVffdZA+gJCWJ3JbZ16AW
+	 S2Gr7KMI+KjGGaA6sS11Vm1TI1rS9HFENgqX5Tpt9teyuIAxmSSMRMpleE3LxyIDnV
+	 PrTJQL6QMqqkw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F14F33811966;
+	Sun, 11 Oct 2026 13:40:09 +0000 (UTC)
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_063918_732869_C94207E6 
-X-CRM114-Status: UNSURE (   8.39  )
-X-CRM114-Notice: Please train this message.
+Subject: Re: [RESEND PATCH bpf-next 0/2] riscv,
+ bpf: Support indirect calls to bpf subprogs (callx)
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <179172600877.2055679.12548960666463019147.git-patchwork-notify@kernel.org>
+Date: Sun, 11 Oct 2026 13:40:08 +0000
+References: <20260930064928.1909085-1-pulehui@huaweicloud.com>
+In-Reply-To: <20260930064928.1909085-1-pulehui@huaweicloud.com>
+To: Pu Lehui <pulehui@huaweicloud.com>
+Cc: bjorn@kernel.org, bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, ast@kernel.org, daniel@iogearbox.net,
+ andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com, martin.lau@linux.dev,
+ song@kernel.org, yonghong.song@linux.dev, jolsa@kernel.org,
+ emil@etsalapatis.com, ihor.solodrai@linux.dev, puranjay@kernel.org,
+ pjw@kernel.org, palmer@dabbelt.com, alex@ghiti.fr, pulehui@huawei.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,24 +76,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The single board system BeagleV-Ahead uses a Ampak AP6203BM chip for wifi
-and bluetooth. Wifi is already enabled for this board. The bluetooth
-module of the chip connects by UART and PCM to the TH1520 SOC. The PCM
-interface is currently not used because of missing I2S drivers for the
-SOC.
+Hello:
 
-This patch set enables bluetooth.
+This series was applied to bpf/bpf-next.git (master)
+by Alexei Starovoitov <ast@kernel.org>:
 
-Thomas Gerner (2):
-  riscv: dts: thead: Enable bluetooth on BeagleV-Ahead
-  Bluetooth: btbcm: disable read tx power for BeagleV-Ahead
+On Wed, 30 Sep 2026 06:49:26 +0000 you wrote:
+> From: Pu Lehui <pulehui@huawei.com>
+> 
+> This series implements support for indirect calls to bpf subprogs on
+> riscv64 and enables the corresponding selftests.
+> 
+> Meanwhile, this series also resolves the test_verifier failures
+> previously captured by riscv-bpf-daily due to missing callx support [0].
+> 
+> [...]
 
- drivers/bluetooth/btbcm.c                     | 19 +++-
- .../boot/dts/thead/th1520-beaglev-ahead.dts   | 89 +++++++++++++++++++
- 2 files changed, 105 insertions(+), 3 deletions(-)
+Here is the summary with links:
+  - [RESEND,bpf-next,1/2] riscv, bpf: Support indirect calls to bpf subprogs (callx)
+    https://git.kernel.org/bpf/bpf-next/c/1cec0b70fdc6
+  - [RESEND,bpf-next,2/2] selftests/bpf: Enable callx related testcases for RV64
+    https://git.kernel.org/bpf/bpf-next/c/530dfafc6107
 
+You are awesome, thank you!
 -- 
-2.53.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
 _______________________________________________
