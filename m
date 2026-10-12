@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69202CA9ED0
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 09:13:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA223CA9ED1
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 09:39:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=t1td+VfOMzIi82rBX+c4x/pQpli765oICZ591f2mlZU=; b=nOWxqCa/AhY0Ja
-	lGu31Q0eiBuWB4mczHzf8QykKPnKdrWD61nAgESzahBAin0TXwol+QRotXLQz9YiJ8ml03ot+1uFg
-	NEzG0zprPj4rVwMTTJ2af613wYLFHEaaPVq4zVI7XSjAhWcFtivw744oXq+rTD1RZ8wRjjezOXKvc
-	q5oklFB89N7azYZ4ZDRTLOs1jLyUnM52DXfa7geD5szVe1mNXoRtPnrCSuBcDbjGA88jIawf5ickU
-	BYTirelW21ZfNQ2PWVNqOLZ4Lir7VMXwCKWLWDMiI/vo3EBl/hfCis4tfAfhxIWs07gcVUPWBABY3
-	1jU5Fwv2qm5WjUVyYp9g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Cmp9yfoAOiAU+c1Fl6Ndc9HVvOBeUcTTzNKpameYWog=; b=F1Guzen2PGrOfF
+	AitE372dJcncKTDPkEBwHXxZ6p9KpKEnHBfrEQfLgvQdNgZCjERZ1yywhVQMpBe+QNCzCFe2u4b7I
+	r2rWcSzkFXIqw1Hqn/nReX9Z7uRX5a3T+qeDp3UtNWJKPHnDGq4e7MsKmegAhOI+vFrhJP1KB/t7h
+	KPpHmvQe7LSnmgWvIuvQyKZw5FXEtuSr3q6wWJnhJvIMdqOSeY2hfhdI7rowlQvyFk3b82+QS2nk5
+	tkYXGyAlpH3mjS9QSGWhTmp7JrVbWuG1Fv50oqnXT2lMMLf85lTligiN412wVCxd3rF7ztaLx9giL
+	c0LL60sUrQOy7PGNJ9sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGC5n-0000000A1w7-1HFX;
-	Mon, 12 Oct 2026 09:13:11 +0000
-Received: from esa4.hc555-34.eu.iphmx.com ([207.54.77.171])
+	id 1xGCUg-0000000A50S-3GcR;
+	Mon, 12 Oct 2026 09:38:54 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGC5i-0000000A1vU-487U
+	id 1xGCUc-0000000A4ye-0A4m
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Oct 2026 09:13:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1791796387; x=1823332387;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=RUboTfQiUPP76+VWIJzfRXec6oAYPgqZ2bmu4E3lnGs=;
-  b=r4EMsh7xs//6qOej/uAbpp13MD0OoOIisLNnVLb8Pb8IGREh9uX8R6U3
-   O7xsjD6MxwxeGrII5m5ffFEg2Xfp6aEQ9pLG9cJA9BHPt52ndT2E9egeP
-   FRoH1yjv9KT3uceE19VQqfvd3cmmsNyp3Z4mwRNJfEuFtRzAy0DdS24ke
-   rJhtHgKVYE+tise8wX8jh2RhN0tpdyL+9rQ638Li7Z8uueQhWrZ+rfcF/
-   Otz94B7jAH0V+F2ssaedOIdBBCRpP4vS27thrR0oR+U9+exRxuiZP6ud1
-   7+P43KPLjXmOfrR5fa9h1UxClWg54trX5Vr1E3W8NHF2p0c0wjOEZVgAd
-   w==;
-X-CSE-ConnectionGUID: cUV25c9ySQGqFhYJBlg7lg==
-X-CSE-MsgGUID: krNWobBPSGuDdlZD/6wGcw==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces01_data.me-corp.lan) ([146.255.191.134])
-  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 12:13:04 +0300
-X-CSE-ConnectionGUID: rEWvfetiQ1iP5W/OjNINWg==
-X-CSE-MsgGUID: BJlt/lpRT8WsWVNxy4Kuvg==
-Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.3])
-  by ces01_data.me-corp.lan with SMTP; 12 Oct 2026 12:20:35 +0300
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Mon, 12 Oct 2026 12:13:01 +0300
-From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Date: Mon, 12 Oct 2026 12:12:59 +0300
-Subject: [PATCH v3] irqchip/riscv-aplic: fix asynchronous probing
+	Mon, 12 Oct 2026 09:38:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1791797926; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=Pa5vpAlcxeupL5DUUG37a0rrinaOhdw9S6NlqCfn1cY=;
+	b=ab/jrdljgqh2OPhH/NXG929XvUixfFKl3PUw82+57xBLaLR3VFDyw1EcH5BvokA2jlrK0M4FNpXoFWYz74T4ceubeLMRe4adSNX8cb7HE4rguKdqMiN0P0AxsIWaLe/QRSa3g+6QJ6Qi/DQuj7PquZ27+Jdeqa+gjIKZFT/41h0=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R981e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=19;SR=0;TI=SMTPD_---0XCeALDl_1791797921;
+Received: from 30.246.160.148(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0XCeALDl_1791797921 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 12 Oct 2026 17:38:42 +0800
+Message-ID: <dd5c9bd0-df80-4524-aedf-49c5b94fdd12@linux.alibaba.com>
+Date: Mon, 12 Oct 2026 17:38:41 +0800
 MIME-Version: 1.0
-Message-Id: <20261012-aplic-async-probe-v3-1-5cf52dc28690@mobileye.com>
-X-B4-Tracking: v=1; b=H4sIAJqkzGoC/4XNQQ6DIBCF4asY1qUBRERXvUfThY5jnUTFQENqj
- HcvuuyiXf4vmW82FtATBlZnG/MYKZCbU+SXjMHQzE/k1KVmSigjhVS8WUYC3oR1Br541yK30ii
- NIi+MKFm6Wzz29D7N+yP1QOHl/Hq+iPJYf2lRcsk1KNB90YpKmtvkWhpxxSu4iR1gVH8RlRBrb
- Fcaq6HqvpF93z+5t1n0+gAAAA==
-X-Change-ID: 20261012-aplic-async-probe-81624e035607
-To: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@kernel.org>, 
- Radu Rendec <radu@rendec.net>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
- Jessica Liu <liu.xuemei1@zte.com.cn>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-rt-devel@lists.linux.dev, 
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-X-Mailer: b4 0.14.2
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] riscv: Add KUnit test for stack trace start frames
+To: Karl Mehltretter <kmehltretter@gmail.com>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Changbin Du <changbin.du@intel.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
+ <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Mark Rutland <mark.rutland@arm.com>, Josh Poimboeuf <jpoimboe@kernel.org>,
+ Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>,
+ Rae Moar <raemoar63@gmail.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com
+References: <20261010132712.46931-1-kmehltretter@gmail.com>
+ <20261010132712.46931-2-kmehltretter@gmail.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <20261010132712.46931-2-kmehltretter@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_021307_469612_363A4B54 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20261012_023851_615951_67BC8356 
+X-CRM114-Status: GOOD (  14.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,138 +70,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-boolean flag don't protect from race when probing several instances
-asynchronously. On system with multiple APLICs, if probed asynchronously,
-warning triggered as below.
 
-[    0.227210] riscv-aplic 67560000.interrupt-controller: 257 interrupts directly connected to 8 CPUs
-[    0.227210] riscv-aplic 674e0000.interrupt-controller: 257 interrupts directly connected to 8 CPUs
-[    0.227224] ------------[ cut here ]------------
-[    0.227227] list_add double add: new=ffffffff8130ced0, prev=ffffffff8130ced0, next=ffffffff81316d40.
-[    0.227302] WARNING: lib/list_debug.c:35 at __list_add_valid_or_report+0xe0/0xe6, CPU#4: kworker/u97:0/211
-[    0.227322] Modules linked in:
-[    0.227333] CPU: 4 UID: 0 PID: 211 Comm: kworker/u97:0 Not tainted 7.3.0-rc6 #1 PREEMPT_RT
-[    0.227341] Hardware name: EyeQ7H evaluation board (DT)
-[    0.227346] Workqueue: async async_run_entry_fn
-[    0.227358] epc : __list_add_valid_or_report+0xe0/0xe6
-[    0.227366]  ra : __list_add_valid_or_report+0xe0/0xe6
-[    0.227375] epc : ffffffff804a08a0 ra : ffffffff804a08a0 sp : ffffffc600823b90
-[    0.227379]  gp : ffffffff81389e70 tp : ffffffd60135ee00 t0 : 0000000000000000
-[    0.227383]  t1 : 3fffffffffffffff t2 : 0000000000000000 s0 : ffffffc600823bb0
-[    0.227387]  s1 : ffffffff8130ced0 a0 : 0000000000000058 a1 : ffffffd9efc9e5c0
-[    0.227391]  a2 : ffffffd9efd5c510 a3 : 0000000000000000 a4 : 0000000000000000
-[    0.227395]  a5 : 0000000000000000 a6 : ffffffd9efc6e5c0 a7 : bfffffffffffe000
-[    0.227399]  s2 : 0000000000000000 s3 : ffffffff8130ce28 s4 : 0000000000000000
-[    0.227402]  s5 : ffffffd6018b65c8 s6 : 0000000000000000 s7 : ffffffd6012fd605
-[    0.227406]  s8 : ffffffd6010c3400 s9 : 0000000000000000 s10: 0000000000000000
-[    0.227409]  s11: 0000000000000000 t3 : 3fffffffffffe000 t4 : 0000000000000020
-[    0.227413]  t5 : 0000000000000000 t6 : ffffffc6008238f8 ssp : 0000000000000000
-[    0.227417] status: 0000000200000120 badaddr: ffffffff804a08a0 cause: 0000000000000003
-[    0.227422] [<ffffffff804a08a0>] __list_add_valid_or_report+0xe0/0xe6
-[    0.227432] [<ffffffff80558226>] register_syscore+0x30/0x60
-[    0.227444] [<ffffffff804ca0fe>] aplic_probe+0xd2/0xfa
-[    0.227453] [<ffffffff80559b2e>] platform_probe+0x3e/0x7a
-[    0.227461] [<ffffffff8055731a>] really_probe+0x88/0x35c
-[    0.227469] [<ffffffff805576ae>] __driver_probe_device+0xc0/0x13a
-[    0.227478] [<ffffffff805577f4>] driver_probe_device+0x38/0xb2
-[    0.227486] [<ffffffff80557ba6>] __driver_attach_async_helper+0x3c/0xc4
-[    0.227493] [<ffffffff80054a0e>] async_run_entry_fn+0x28/0x154
-[    0.227500] [<ffffffff8004482a>] process_one_work+0x14e/0x3d2
-[    0.227509] [<ffffffff800452fe>] worker_thread+0x144/0x286
-[    0.227516] [<ffffffff8004ca3e>] kthread+0xee/0x10e
-[    0.227524] [<ffffffff8001050a>] ret_from_fork_kernel+0x18/0x14e
-[    0.227532] [<ffffffff807bef36>] ret_from_fork_kernel_asm+0x16/0x18
-[    0.227542] ---[ end trace 0000000000000000 ]---
-[    0.228475] pinctrl-single 48508000.pinctrl: 512 pins, size 2048
-[    0.228500] pinctrl-single 53838000.pinctrl: 512 pins, size 2048
-[    0.228723] pinctrl-single 67107000.pinctrl: 512 pins, size 2048
-[    0.227210] riscv-aplic 674e0000.interrupt-controller: 257 interrupts directly connected to 8 CPUs
-[    0.227224] ------------[ cut here ]------------
-[    0.227227] list_add double add: new=ffffffff8130ced0, prev=ffffffff8130ced0, next=ffffffff81316d40.
-[    0.227302] WARNING: lib/list_debug.c:35 at __list_add_valid_or_report+0xe0/0xe6, CPU#4: kworker/u97:0/211
-[    0.227322] Modules linked in:
-[    0.227333] CPU: 4 UID: 0 PID: 211 Comm: kworker/u97:0 Not tainted 7.3.0-rc6 #1 PREEMPT_RT
-[    0.227341] Hardware name: EyeQ7H evaluation board (DT)
-[    0.227346] Workqueue: async async_run_entry_fn
-[    0.227358] epc : __list_add_valid_or_report+0xe0/0xe6
-[    0.227366]  ra : __list_add_valid_or_report+0xe0/0xe6
-[    0.227375] epc : ffffffff804a08a0 ra : ffffffff804a08a0 sp : ffffffc600823b90
-[    0.227379]  gp : ffffffff81389e70 tp : ffffffd60135ee00 t0 : 0000000000000000
-[    0.227383]  t1 : 3fffffffffffffff t2 : 0000000000000000 s0 : ffffffc600823bb0
-[    0.227387]  s1 : ffffffff8130ced0 a0 : 0000000000000058 a1 : ffffffd9efc9e5c0
-[    0.227391]  a2 : ffffffd9efd5c510 a3 : 0000000000000000 a4 : 0000000000000000
-[    0.227395]  a5 : 0000000000000000 a6 : ffffffd9efc6e5c0 a7 : bfffffffffffe000
-[    0.227399]  s2 : 0000000000000000 s3 : ffffffff8130ce28 s4 : 0000000000000000
-[    0.227402]  s5 : ffffffd6018b65c8 s6 : 0000000000000000 s7 : ffffffd6012fd605
-[    0.227406]  s8 : ffffffd6010c3400 s9 : 0000000000000000 s10: 0000000000000000
-[    0.227409]  s11: 0000000000000000 t3 : 3fffffffffffe000 t4 : 0000000000000020
-[    0.227413]  t5 : 0000000000000000 t6 : ffffffc6008238f8 ssp : 0000000000000000
-[    0.227417] status: 0000000200000120 badaddr: ffffffff804a08a0 cause: 0000000000000003
-[    0.227422] [<ffffffff804a08a0>] __list_add_valid_or_report+0xe0/0xe6
-[    0.227432] [<ffffffff80558226>] register_syscore+0x30/0x60
-[    0.227444] [<ffffffff804ca0fe>] aplic_probe+0xd2/0xfa
-[    0.227453] [<ffffffff80559b2e>] platform_probe+0x3e/0x7a
-[    0.227461] [<ffffffff8055731a>] really_probe+0x88/0x35c
-[    0.227469] [<ffffffff805576ae>] __driver_probe_device+0xc0/0x13a
-[    0.227478] [<ffffffff805577f4>] driver_probe_device+0x38/0xb2
-[    0.227486] [<ffffffff80557ba6>] __driver_attach_async_helper+0x3c/0xc4
-[    0.227493] [<ffffffff80054a0e>] async_run_entry_fn+0x28/0x154
-[    0.227500] [<ffffffff8004482a>] process_one_work+0x14e/0x3d2
-[    0.227509] [<ffffffff800452fe>] worker_thread+0x144/0x286
-[    0.227516] [<ffffffff8004ca3e>] kthread+0xee/0x10e
-[    0.227524] [<ffffffff8001050a>] ret_from_fork_kernel+0x18/0x14e
-[    0.227532] [<ffffffff807bef36>] ret_from_fork_kernel_asm+0x16/0x18
-[    0.227542] ---[ end trace 0000000000000000 ]---
 
-Fixes: b330fbfd34d7 ("irqchip/riscv-aplic: Register syscore operations only once")
-Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
----
-Changes in v3:
-- drop __ro_after_init attribute due to write to read-only page concern
-- Link to v2: https://lore.kernel.org/r/20261012-aplic-async-probe-v2-1-868d7684c9d6@mobileye.com
+On 10/10/26 9:27 PM, Karl Mehltretter wrote:
+> stack_trace_save() and return_address() depend on the first frame reported
+> by arch_stack_walk(), but no test checks their frame numbering.
+> 
+> Add a test that calls both through a chain of three noinline functions
+> and compares the symbol of the result with the function expected for
+> each skip count or level.
+> 
+> Require FRAME_POINTER because the stack-scanning walker cannot provide an
+> exact start frame.
+> 
+> Assisted-by: LLM
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> ---
+>   arch/riscv/kernel/tests/Kconfig.debug     |  12 ++
+>   arch/riscv/kernel/tests/Makefile          |   1 +
+>   arch/riscv/kernel/tests/stacktrace_test.c | 142 ++++++++++++++++++++++
+>   3 files changed, 155 insertions(+)
+> 
+> diff --git a/arch/riscv/kernel/tests/Kconfig.debug b/arch/riscv/kernel/tests/Kconfig.debug
+> index 40f8dafffa0a..eb79df5b2c5a 100644
+> --- a/arch/riscv/kernel/tests/Kconfig.debug
+> +++ b/arch/riscv/kernel/tests/Kconfig.debug
+> @@ -42,6 +42,18 @@ config RISCV_KPROBES_KUNIT
+>   
+>            If unsure, say N.
+>   
+> +config RISCV_STACKTRACE_KUNIT_TEST
+> +	bool "KUnit tests for RISC-V stack trace start frames"
+> +	depends on KUNIT && STACKTRACE && FRAME_POINTER && KALLSYMS
 
-Changes in v2:
-- fixed potential access to read-only page
-- Link to v1: https://lore.kernel.org/r/20261012-aplic-async-probe-v1-1-4c2c4f5b0916@mobileye.com
----
- drivers/irqchip/irq-riscv-aplic-main.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+Hi, Karl
 
-diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
-index d9afb6ae98cf56d6fd9f858c31a3d23546c3b450..54e1d5602f15a04127e900c0a4983022d49da553 100644
---- a/drivers/irqchip/irq-riscv-aplic-main.c
-+++ b/drivers/irqchip/irq-riscv-aplic-main.c
-@@ -116,14 +116,12 @@ static struct syscore aplic_syscore = {
- 	.ops = &aplic_syscore_ops,
- };
- 
--static bool aplic_syscore_registered __ro_after_init;
-+static atomic_t aplic_syscore_registered = ATOMIC_INIT(0);
- 
- static void aplic_syscore_init(void)
- {
--	if (!aplic_syscore_registered) {
-+	if (!atomic_cmpxchg(&aplic_syscore_registered, 0, 1))
- 		register_syscore(&aplic_syscore);
--		aplic_syscore_registered = true;
--	}
- }
- 
- static int aplic_pm_notifier(struct notifier_block *nb, unsigned long action, void *data)
+One small nit: the new RISCV_STACKTRACE_KUNIT_TEST entry does
+not follow the KUNIT_ALL_TESTS pattern of the two existing entries
+right next to it (RISCV_KPROBES_KUNIT, RISCV_MODULE_LINKING_KUNIT):
 
----
-base-commit: 24a19b953e2a3d0ea5a8c4951a0ab8f32720c907
-change-id: 20261012-aplic-async-probe-81624e035607
+     config RISCV_STACKTRACE_KUNIT_TEST
+             bool "KUnit tests for RISC-V stack trace start frames" if !KUNIT_ALL_TESTS
+             default KUNIT_ALL_TESTS
 
-Best regards,
--- 
-Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Without "default KUNIT_ALL_TESTS" the suite is never enabled by
+kunit.all_tests, and without the "if !KUNIT_ALL_TESTS" prompt guard
+it shows up as a redundant prompt when KUNIT_ALL_TESTS is already
+set.  This is not a blocker in any way, just a nice tweak for a
+potential v2.
 
+Please feel free to add
+
+     Tested-by: Shuai Xue <xueshuai@linux.alibaba.com>
+
+to both patches, and additionally on 1/2
+
+     Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+
+Thanks!
+Shuai
 
 _______________________________________________
 linux-riscv mailing list
