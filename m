@@ -4,181 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AF73CA9EDD
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 17:32:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A0CCCA9EDE
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 18:00:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DHRGJ4lYeKFNfJcnhniWnEH+P/SQ5XnFY6CbXQtXbzg=; b=Dxr3+2tj+7Ax+B
-	kLSPgplYRkaBIaxnp1COTwmRfrRoNkd8pdNIzlyn9Vmbj5j2O8lJX2D8rXG5pNnuXzt87bzLZnx0Q
-	0Lph55iuQdoqvOqmFrsO0kgkxo1RVhwfzvK/exvmNr/qNOttaKWNhGc9elGrCEJXN+MKPOJHTNDPP
-	iysRvL9u69u+oWyPr7qk5X0X0kJzq55l033QDXbWuQ1j87WGL0TLsa6wlEf20SHmN3siXe/dKVXZZ
-	es3A/ivB0P16WYeZ/9qbCKv7RRsm8conrE2Qhp5BZEYg6O2fF7jz/T8Xzv3lfcjkRXIhmlKNeufrm
-	qZDapjp0rbXOUvlWfWWg==;
+	List-Owner; bh=PYT9pStClWnpYk3+0a4HCbegBQIrSBdSUZA3VILLXEo=; b=DIp+4ouEs+4bCC
+	ulzCrqkW3EcnYYLCuA8NAoKpzDXtefXf1it9TYs0hHTWnKYaeEZANFY/Ww9luxvS+/dJ38mcIyuyP
+	BBxkexzlnRPV5uNGYro5JzLAkCnVrLEKyV/Eij+bKCSgF49yn84H4Vxgu4jYIlGFC9M0AlhIP7aJl
+	xTXQte8hL2TJ4+ea9uhVmFNXy4CpTFHZL+MZ/iPX6clSfHNZQ42K64m7rHwi29kUerqB8PkMAT7kR
+	oBew8gdLfdHFHruYBYImBxmKzsl4z2QjGFfihaGoroRQDPdyh9eujoxbOFk5pm5jClk6CerRKzjms
+	jMPAtrINKp5jwUa0ksyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJsU-0000000B6D7-210A;
-	Mon, 12 Oct 2026 17:31:59 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1xGKJi-0000000BAFp-2154;
+	Mon, 12 Oct 2026 18:00:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJsR-0000000B69w-25qJ
+	id 1xGKJh-0000000BAEm-1qKJ
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 12 Oct 2026 18:00:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=7efvOtPkVQs2r0jJvys2pZpGeATiCwhTrDVdy86Rwg8=; b=Sbqn6illfWvAq+uqTaMwr2sxfD
+	cPVkXEbllZDm/iKNfAZS7OE53jHuo0t5ZybFrvSpkjgtHSQpT7cbj4QlPtg+BF/GlI/9WmKJNLS4+
+	h/oDMxKR+gNAevc+uP1lXvzqAIuyPi/m/EGFKCy0hfA8U4eCsHcDhF0g+YQDyu1if23+KITTlVBQa
+	ZOFyx1zKXXdJ2tfKgSSRqW86O9ImOtudr4kvWhf0icJh3psCMQZ331CQtlPRf663Hed06+AL41fIn
+	xeuaYyuRgk+rUEcZM1Ptoc5n31YAsuOKYsimgxNAFTJuPq/3gex3fDAunAWX7062zad32+/+HzEor
+	wH2yLydA==;
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xGKJe-0000000Ej6M-27Ui
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Oct 2026 17:31:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1791826316; x=1823362316;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=a6BoidNJXDNax5sz7N6Eh8M7Q95ZeGQDdkCEkNL1/j4=;
-  b=Ejrulpno3mJw8agnx/eWKw1C59+F84v6qIMlcMxwuPb/ecVS7kNwVIj+
-   hTt/F7sgcu70ohwQllKu3aXddLZkZ8FB5r6FYnoA2YjqKFq6hwvKG8Lvf
-   FY152k6QDu8mrC7vHVxFsM1x/pzmUIF18qCMhA6zbIEjTg/UV8gVoNjPs
-   cAV7fm9HviSgEns4vlRuj4ZtdleVo+ZLyZtqaOC9zusw2EQJk4pkiu5PJ
-   oFbl5LAkbM/RBdQQCgKYTi4xdwlhCuPad9gb9aSeKtg+EAbPbRLCvjQQv
-   v0dkKoFEGuERNN5LKdTLtKsnXys1jvmOjw4dhufH0g8aX4SMJ6I9QBIaL
-   Q==;
-X-CSE-ConnectionGUID: FKUdZ6KkS7mvcYUlSiQvNQ==
-X-CSE-MsgGUID: SznG5tQrR06q8wyr+m5smg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11933"; a="566729"
-X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
-   d="scan'208";a="566729"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 10:31:54 -0700
-X-CSE-ConnectionGUID: gKWIKN4PThqtQQzwORd74Q==
-X-CSE-MsgGUID: 10H8mcF7Q3SWXF8ye+4D5g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
-   d="scan'208";a="859341"
-Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 10:31:50 -0700
-Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
- fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Mon, 12 Oct 2026 10:31:48 -0700
-Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
- FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49 via Frontend Transport; Mon, 12 Oct 2026 10:31:48 -0700
-Received: from CH1PR05CU001.outbound.protection.outlook.com (52.101.193.18) by
- edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Mon, 12 Oct 2026 10:31:48 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DNQtLbCecsUoDnVChkPdXK7GiBANsxnl0fGRkTh5vQChcVGrdyajpPkwsCaU6+j5XkY37UYwhvZsCftUBE4/qPaFWFApuC9hbOtA4L0JbEbq5xBo5Z0YGXrYUi73VVlmyOw50xu1EE5oRpQfRe5RggAgvhepeA3f0TYZnpeRUWD1cJ92VaY7i18E/z4IJA4F/NB2ev0twx73YleUETox6yqTC2x3S2DfywPxC8b7VgMf0zlYco6YHbpNlKOqHg5Cs7TmQhmiv9eNZ1CykYJ5qQUI37SZeg8WgjEbR2CJ3vFrbBdGhRv/P2rZLQ/sFM86dkiXc+ZQaGatYf4kQAEqJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hd++Y4gVYeYpdrZGNd5YNVfWi6hI2lZvYBJyuES0mzk=;
- b=BAo5SJGbNkMjmxhMjvw5LhJjY9kGU9AeuBpL8Jd5AClCsCU8aKLykt6PscpSRLrwgYG3L9Dp6hDDGtzt6ONikfEnGJxj4HvnRuTJE6rLnM0bsUq5FN2KdiXcoI197RMkR5GKX7MkXbGcpIz0DFg6PHU5M5HUyVDXiG4DAh8cLQ9AxjkNbHU9hqqUtZJc/BhuCNJ5xHpTG+6q38orCmRs+ZO52lbdZSVBULMk4mQojPBHiuB4rZkKv2dsFCyiveLJCzOmOLDZpjEta9fTTDk5ZZPf2NX7yvRntMNeaqZiX1uEtQC4CU4xxxDqwjuSWMJZ/53fL1tuHUfWoh+MdZl48A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ1PR11MB6083.namprd11.prod.outlook.com (2603:10b6:a03:48a::9)
- by SA3PR11MB537784.namprd11.prod.outlook.com (2603:10b6:806:52d::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Mon, 12 Oct
- 2026 17:31:40 +0000
-Received: from SJ1PR11MB6083.namprd11.prod.outlook.com
- ([fe80::3454:2577:75f2:60a6]) by SJ1PR11MB6083.namprd11.prod.outlook.com
- ([fe80::3454:2577:75f2:60a6%4]) with mapi id 15.21.0496.010; Mon, 12 Oct 2026
- 17:31:40 +0000
-Date: Mon, 12 Oct 2026 10:31:38 -0700
-From: "Luck, Tony" <tony.luck@intel.com>
-To: Reinette Chatre <reinette.chatre@intel.com>
-CC: Drew Fustini <fustini@kernel.org>, Adrien Ricciardi
-	<aricciardi@baylibre.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Kumar Patra
-	<atishp@rivosinc.com>, Atish Patra <atish.patra@linux.dev>, Babu Moger
-	<babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>, Borislav Petkov
-	<bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>, Conor Dooley
-	<conor.dooley@microchip.com>, Conor Dooley <conor+dt@kernel.org>, Dave Hansen
-	<dave.hansen@linux.intel.com>, Dave Martin <Dave.Martin@arm.com>, Fenghua Yu
-	<fenghuay@nvidia.com>, Gong Shuai <gong.shuai@sanechips.com.cn>, Gong Shuai
-	<gsh517@gmail.com>, <guo.wenjia23@zte.com.cn>, James Morse
-	<james.morse@arm.com>, Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, <liu.qingtao2@zte.com.cn>, "Liu
- Zhiwei" <zhiwei_liu@linux.alibaba.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>, Peter Newman <peternewman@google.com>, Radim
- =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Rob Herring
-	<robh@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, "Sebastian
- Andrzej Siewior" <bigeasy@linutronix.de>, Vasudevan Srinivasan
-	<vasu@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li
-	<liwei1518@gmail.com>, yunhui cui <cuiyunhui@bytedance.com>, Zhanpeng Zhang
-	<zhangzhanpeng.jasper@bytedance.com>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <x86@kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-rt-devel@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>
-Subject: Re: [PATCH v7 2/5] riscv_cbqri: resctrl: Add cache allocation via
- capacity block mask
-Message-ID: <as0Zeoyjiy5CW1DT@agluck-desk3>
-References: <20260901-dfustini-atl-sc-cbqri-dt-v7-0-ca2935d85622@kernel.org>
- <20260901-dfustini-atl-sc-cbqri-dt-v7-2-ca2935d85622@kernel.org>
- <8230dae2-2cb0-4b46-8cec-dc4e281d4e4a@intel.com>
- <aqwN1szItGPg4Qjh@agluck-desk3>
-Content-Disposition: inline
-In-Reply-To: <aqwN1szItGPg4Qjh@agluck-desk3>
-X-ClientProxiedBy: SJ2PR07CA0023.namprd07.prod.outlook.com
- (2603:10b6:a03:505::9) To SJ1PR11MB6083.namprd11.prod.outlook.com
- (2603:10b6:a03:48a::9)
+	Mon, 12 Oct 2026 18:00:04 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4a02667ccebso15005615e9.0
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2026 11:00:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791828000; x=1792432800; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7efvOtPkVQs2r0jJvys2pZpGeATiCwhTrDVdy86Rwg8=;
+        b=p46KUBmH1voUDn7tk/zYNTUmCJCLtlM+TA1drOwfvyJBZu/sDAGZxQyWuCNIwIA6TW
+         77bx17NPHLaf32FEmqkG0AJOIXUBqJ5JV+Z6YVL5DA5DE1X3Z8TfknDX9CSUFd9mgu6U
+         73u4vSNX8nQ3T7OwTOHFU1SuqkocobX92oYOWjl6c4oTgUwGMc8zAsBnRY1n3mv7NJat
+         /Xh8IlaUKL7BOtjPtMHVhGGJJRdNIdvLA860E5CcKWJHQ0V+TH89yqCyMTRi1vTI5Ebx
+         mc1igQEkI3fhfMykuOFCdJDLxi//5tnYwYwVarDsXyAES8aQmrL+vaXuhy2atiIyTbQY
+         eZ8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791828000; x=1792432800;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=7efvOtPkVQs2r0jJvys2pZpGeATiCwhTrDVdy86Rwg8=;
+        b=VOhlnBjsMf+tFtVb+dyFebVPowfKwMQhowacmlw/qa8G2PpTWgpq2yDq+BTD1QJwrr
+         StbR8bzSXA11k8R3acG0dygjWlYwlqDf8X9EwAGa7x7tgk/x2dRk896V/VzVKUfnLDTZ
+         Z0J+FEq7Xs1smompfKK1pIE8htpG8ZPZMP2ct68ntAMSQgl70QWZzmwFUbCLEJTT1ysj
+         ahBv0CxhH286xJ6lBZE7Hey6r5Oc43sluSlgEqYiXGZmYH7Idz8tMTXEGWcZ/MwDa2yc
+         6ot8VzDPJohxiFN2FCdwsyLlnNyMHCmKKOR1ZXORZ+a3YOL0WMOZdyB8XNhiA8wpprQs
+         sb8w==
+X-Forwarded-Encrypted: i=1; AKwUvBzOB6MeM48PKmvXM3ca38VebUGJTyTFEMcuSFpK0YbxnSNLuRKWBy6fHYlUvN+5ua7+nnwergQkb1i2VQ==@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ0HAO3JElntDNpn+yBTaZ8Guwii20tfBf/4VGfgy7e6Yy5VqXE
+	r+jALGPjbduN0PuJxiXd6luBEoCm0wcg1D4ZxrT47Gl6j/bb+tNPgimJ
+X-Gm-Gg: AYBFou2j3Miwya4tznnmO+hJHRFQ8K8zNieYgeuMbn+yWwstqMJkTZWPKxiE/Wm8w/Z
+	go6ZQykLriMJPweAQVMEjfHNooHVLmUI4VbFaqsnGmFIRAqfmM4JzZWxbZuWf2QXfrToJvQ2X/d
+	2vowliDbJG7ntAoJPD1yeRO9H0C8wYURbH2moNTbFSJMuS41EqPTORrGkH8X4T4CNDViOPd+owf
+	eFNQdOx4c+YKx8i5NP8Ths+JDp65XXl2z0Z8boPFz+BeLiDasR9GCx3HU0on8SNsGBZ3zHU9k0Q
+	XW4YOyDVff3nDARoz4gCmYxP1iK7SDgNETfTH1owcaURi/q875MeM2lifGO/VrBMnG/waONCwSn
+	CI4tRcqqRkO5SgNmVg+wIYu9NM8u2/IEXKiAfsAmSbIc4H5F+uJ6282MthoNp8dgQ6gx6lxYpuZ
+	FBUswKbZbmr1PpxNpQjYUPvsLlfg7ACIN/dicmrhN0fGUqQgMVa45VfweSPxT4uT9DfCdrrVC4v
+	/MbPWsof4FUz7Of
+X-Received: by 2002:a05:600c:83c9:b0:4a1:70f0:ac2 with SMTP id 5b1f17b1804b1-4a18e4ce9cfmr193832545e9.24.1791827999830;
+        Mon, 12 Oct 2026 10:59:59 -0700 (PDT)
+Received: from hp-z640.fritz.box ([109.76.80.100])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18bf2343asm561705395e9.9.2026.10.12.10.59.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Oct 2026 10:59:59 -0700 (PDT)
+From: OOHehir <oo.hehir@gmail.com>
+X-Google-Original-From: OOHehir <electronicconsult1@gmail.com>
+To: m.wilczynski@samsung.com
+Cc: Laurent.pinchart@ideasonboard.com,
+	alex@ghiti.fr,
+	andrzej.hajda@intel.com,
+	andy.yan@rock-chips.com,
+	aou@eecs.berkeley.edu,
+	bmasney+clk@redhat.com,
+	chaoyi.chen@rock-chips.com,
+	conor+dt@kernel.org,
+	db@domibel.de,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	gandalf@winds.org,
+	hal.feng@starfivetech.com,
+	heiko@sntech.de,
+	hello@big-grey.co.uk,
+	jbrunet+clk@baylibre.com,
+	jernej.skrabec@gmail.com,
+	jonas@kwiboo.se,
+	jpeisach@ubuntu.com,
+	kernel@esmil.dk,
+	krzk+dt@kernel.org,
+	krzysztof.kozlowski@oss.qualcomm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	luca.ceresoli@bootlin.com,
+	m.szyprowski@samsung.com,
+	maarten.lankhorst@linux.intel.com,
+	mani@kernel.org,
+	maud_spierings@murena.io,
+	mripard@kernel.org,
+	mturquette@baylibre.com,
+	neil.armstrong@linaro.org,
+	p.zabel@pengutronix.de,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	rfoss@kernel.org,
+	robh@kernel.org,
+	sboyd@kernel.org,
+	tzimmermann@suse.de,
+	u.kleine-koenig@baylibre.com,
+	vkoul@kernel.org,
+	zhengxingda@iscas.ac.cn
+Subject: Re: [PATCH v5 00/21] drm: starfive: jh7110: Enable display subsystem
+Date: Mon, 12 Oct 2026 18:59:41 +0100
+Message-ID: <20261012175941.258219-1-electronicconsult1@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
+References: <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PR11MB6083:EE_|SA3PR11MB537784:EE_
-X-MS-Office365-Filtering-Correlation-Id: d1fc6934-4d62-4fe4-5e5d-08df2886acd4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|23010399003|4143699003|11063799006|56012099006|22082099003|18002099003|6133799003|261009223027099003|3023799007|10067099003;
-X-Microsoft-Antispam-Message-Info: RqaEqjQqGYSZ8JZ0LzOXpRXrmlZgX3EKCU3tYYmRgyoPAmPDrdXJZKFDOvF3QQC5BQsngLu0jmXKMbYzuMp4HBC495X/T7GWvOi5NIQYFlnms935dOAebdYCpEuGG2uNmdcj6Xy44sXqHcjYnc26tDDEa02pXa51S1KyahLLbIOQfQN//VsAdN921xNC3oEGHDuPkBQv5wOn9+RKJsqlJRhLnesvN9FWA2GbGCMaQdIa2QLzfrcOfKOCZ7LBwee5KRVwEajtykoEMK2FCKob226P+Muu7/TX61BHqumIH6IcNsgGJwYz8JFQWYRp9n71fwqh0jYdrfBhO6jLcLkK92h6bI2SkLZ8QotCdYkQ1BUyNaP+4SvYO48TLYsK2QBmlRiQo+53Xgcq8ULXkRSy5r0T8NVfhFyVNERsRVkxKNc9AS1+ijqLYa1bX3IHy4XsuKzlOxLVKX+G0RDm4Bc104abO6JUFkEdt5MqkNZ9tOiFzmmved9Felqz/TYVO1mEMP6UjtIihYYSgTcZrLsrEjdGocuNJsPoSBX5OtvOB+sTFydoRcHEpbIIaVPxXNhfM8ahcdnN65YVLLXWkclg3gcT7NFfKZNsKf6XuD2qJQNjrq+zVNjnaRfiDd0Vp8Ou0AhqT6e8qkdM3qVTya0JiQFVKvY3vdh0dXnJiTbEt1c=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ1PR11MB6083.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(23010399003)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003)(6133799003)(261009223027099003)(3023799007)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XcC9WohqzPWr1bOV+2JjSWHpKkPi0JVMN6lPfP5bfEbkGbeatMNmo4z5E3+N?=
- =?us-ascii?Q?ByL4JGp4RJm4iH0movHoMj0pz9TGYe3OpM1z08LOLDHy4+ZcJVmVKFdSEHDq?=
- =?us-ascii?Q?hciHaBnLT3Drrs+zH3FB/fvXnQnaPyUtbLguDUfEAkhc/5fXmDBErFELlVk6?=
- =?us-ascii?Q?8g2zQVSjv+ijfpZOmdrmj/IdamNPq+rh536+Bd0/eH4KNRquKxsFcPN+gbWf?=
- =?us-ascii?Q?bx3o985v0WF9JqVzk9C5HRwvp27nv1u29MXg7sVwU3eyD4C3uVxS9X8fRUPu?=
- =?us-ascii?Q?ggc/u4ww8oPq+3RsvUC7adLrzAqiTA84S2fjKtF+BSKaPduBC1MqAusYNHg7?=
- =?us-ascii?Q?Ronhb65bkmVAa8q0+K2FIvUPiwx8Mvs3cU/ZeFJWe+pkWDiCUCVHAeMKc/4o?=
- =?us-ascii?Q?adv9rty6IrfEbZULHhNo3+WLjSDGyo+3F/nrhXNRFeDABwdK3ro5dBpWnVWC?=
- =?us-ascii?Q?++jolTO7+lSGR2b+rIVdVIkm8KA6V8noZDndPafX2LVzZE19QZjIS+B5DupI?=
- =?us-ascii?Q?UJKppJWbwnd9m0papcLIuTWawtJwBF04IpI8mziD1tYcf1X5Z15Yr1yuDEXK?=
- =?us-ascii?Q?r5gUvXDGBte0af5bsjvZ6QldO+xmefg9HHeBdi07RbPdwL3v792ICZLDvxR7?=
- =?us-ascii?Q?SP/1+Uu8end5wzlzCA+YUB4sSOnozgZxMDQ/JoWahXsIcKbGrlRUe82kRP2Z?=
- =?us-ascii?Q?uxz1VRTL3EJb4GTAMReuCEAoIhBaGIDZhsg5ney0bquNFXUSzjedNvhv1rln?=
- =?us-ascii?Q?TEf89Uj0tmgs4uW7yY5VsG96pTxwZS7X7uRTpdJfRdsa0Pb0tXly4p1sIUf3?=
- =?us-ascii?Q?Nrqu8yhVH7jItcQHBsPBsaQbSmR3PRMD+hRB+GP8CzyeTTDe+dNEgf05Igo2?=
- =?us-ascii?Q?o+HEUHLpHXXCp5KhNxvbeBnCVlUAxdtwVZCAqLIpd2HKr0oDyKScoDv1hSw5?=
- =?us-ascii?Q?43chXmxM/WU0uuoyhB0KwbhAYMsSF6etqtwfPkI9tZIfGW82SB7ZHmQ5LBa4?=
- =?us-ascii?Q?ypyvyvEjyylSfZN7T05/h+N/h0XcmNKOFRHpsyps2rSagsYYsYtOrdanj1jH?=
- =?us-ascii?Q?Hhdlg5kNMfr9E79BbzWgyR8Tjzbuh+vdBKUy5zlSAihMs6EKXsYhbItJRaa8?=
- =?us-ascii?Q?SrOjJk3kY/XeEVJOFelchLggSWboT8Totc3XSBGqV630wW/heWPHXZEvDsqq?=
- =?us-ascii?Q?8JrJSDs/acuAgFcCScdIddw2U1w8sJSWoNKTG6ArrpI6WoiZnfmw5P/62ZKn?=
- =?us-ascii?Q?8vWb4ld41bNzA8Yvf8hcRNSqjs02NiBzrWGdA/tRh8WZ7HI/+JxzRFhky4bV?=
- =?us-ascii?Q?8aX/RjQiCJ+sT2ojxa+nUCvdLrG63yRcJrsDHTWj4zbE3EH/KEfFTFIwB4D0?=
- =?us-ascii?Q?j/GVxYyDsWtrtxZafyP8MxCWiUzY54TPqp/z118J7d1kSb8q4NAfMAyPDXku?=
- =?us-ascii?Q?faLG5qVYlgvxDH8sOjtq2cpEQkuDr24EjTxJQX8ehzvtTwWXUKmo7XnlFDsK?=
- =?us-ascii?Q?noPom4Iv4FISw6gbu9m7PQkjM9qKCwpFsnc3UpRZHTrchTtOJGLBA0mVnfwZ?=
- =?us-ascii?Q?VCZimOIvvB9JQVN4OyG/Tw/Mgugwh1VNnGjvPzd2yIebxw7FORzri9wMzn6P?=
- =?us-ascii?Q?XeKtiTY7Xx2PQSZRmXKWKrY0k6mc74dgU2uDjPdabfmYEP7KOya7q27oqYN4?=
- =?us-ascii?Q?VDAhE34m5cSHd0WOtoE7GeZBq2BPt/W+w1sqUTgHVO5WW6gyhrTOTwucukVC?=
- =?us-ascii?Q?ppSUnz7Lsw=3D=3D?=
-X-Exchange-RoutingPolicyChecked: UQ4MktU3YEV89jnccXL2XnwrJqkaNNqru5ynfF2FqDEIhTh34iX1MeC2ND7tvtN60cDZ+dggvp50WTprW0bwZcW5wwJx44S9qqJFN9DFl3/VwBR62FNMgpdZjUvI42js/F6CkkWYn7wuT2Otr/XQnZrz8K74SBP74g2hki8MHycNPGpmTzNl+LFR0hcVqvOfkqJv/c7kGlqM3e5UnooLk7Ir2KoTG4HGOaaf3LmQ5fkqbTB5fdzTeUA3hXJA70pIaPnzzRC5RIIla44BhNKS18GqvACzNErZc8Me21Zx3k6BK7F9E47lq+MABD6Qmk6+aNd99JY8y06AFFG6TnrZ7A==
-X-MS-Exchange-CrossTenant-Network-Message-Id: d1fc6934-4d62-4fe4-5e5d-08df2886acd4
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PR11MB6083.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 17:31:40.2370
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FNZkfRnhsqnKN6dl5rTtpAsKyFZzzykVJMPVtceWmUOoWipCGxjpwMNA2Q2PCG9Lx81IpBC9WJJSwHYwApGJ9A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR11MB537784
-X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_103155_604549_09235781 
-X-CRM114-Status: GOOD (  32.10  )
+X-CRM114-CacheID: sfid-20261012_190002_630327_659DB0C6 
+X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,76 +161,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 08:57:10AM -0700, Luck, Tony wrote:
-> On Thu, Sep 17, 2026 at 08:37:43AM -0700, Reinette Chatre wrote:
-> > Hi Drew,
-> > 
-> > On 9/1/26 3:31 PM, Drew Fustini wrote:
-> > > resctrl exposes a single cap set per rid, so when more than one capacity
-> > > controller backs a cache level they must agree on those caps. A level
-> > > whose controllers disagree is left unexposed. Other levels are
-> > > unaffected.
-> > If I understand correctly, while attempting to translate to resctrl terms,
-> > this means that a cache resource with several domains may support different
-> > capacity masks in the domains?
-> > 
-> > I believe the "single cap set per rid" you refer to is
-> > /sys/fs/resctrl/info/L3/cbm_mask and /sys/fs/resctrl/info/L2/cbm_mask that
-> > exposes a single capacity bitmask representing the maximum allocation.
-> > 
-> > As you know, resctrl is in the process of changing the way in which schema
-> > formats are described. The most recent PoC [1] added new bitmap description
-> > files but it kept a single value "max" file to describe the highest allocation
-> > possible for a bitmap schema.
-> > 
-> > To support asymmetrical cache instances it looks like changing the interface
-> > to describe the maximum per domain (instead of one global value) could address
-> > the gap?
-> > 
-> > For example, if there is a hypothetical system with two L2 cache instances, one
-> > with a 0xFF max CBM and the other with a 0XF max CBM then resctrl could expose it
-> > as:
-> 
-> That sounds like the not-at-all-hypothetical Intel hybrid client parts
-> where P-core and E-core have different L2 masks.
-> 
-> > 
-> > 	# cat /sys/fs/resctrl/info/L2/schemata/L2/max
-> > 	0=ff;1=f
-> > 
-> > The schemata file currently and will continue to display the allocations per domain.
-> > 
-> > resctrl will need more changes to support different CBM per domain internally and
-> > until then all these CBMs will be the same, but adding this change to user interface now
-> > may set resctrl up to support these systems in the future?
-> 
-> I think Fenghua once worked on patches to support this. But I don't
-> think they were every posted to LKML. One of the open issues at the time
-> was how to handle the info/L2/cbm_mask file.
+Tested on a VisionFive 2 v1.3B with patches 1-17 & 19-21 of v5 on
+Linux 7.2.8, plus the clk patch that was 14/20 in v4. Patch 18 was not
+applied: it conflicts on 7.2 & there is no Rockchip hardware here. The
+same kernel also carries the out-of-tree PowerVR BXE-4-32 enablement &
+the SiFive XPbmtUC errata patches, so the GPU could render to the
+display.
 
-I took git://git.kernel.org/pub/scm/linux/kernel/git/reinette/linux.git
-branch resctrl/controls_rfc_v2.4 and added some patches to support L2
-per-domain cache allocation bitmasks. Seems to be working OK. I can
-share the patches if anyone is interested, but they aren't even up to
-RFC quality yet.
+- The dc8200, the HDMI controller & PHY & the vout clock controller
+  all probe, with nothing left in deferred probe; HDMI-A-1 reports
+  connected.
+- kmscube (GLES via zink on the PowerVR Vulkan driver) runs at the
+  monitor's preferred mode: 1683 frames in 28.1 s, 59.93 fps with
+  vsync, picture confirmed on the monitor, no GPU firmware resets.
 
-I do have some questions:
+Only that one mode was tested; the modetest sweep in the cover letter
+was not repeated.
 
-1) The repeated "L2" in the path seems awkward. The first is the
-resource name, the second the control name. Makes sense for MBA where
-there may be multiple control names. But for cache ... is there a better
-name for the control than repeating the resource name?
+One error at boot:
 
-2) Should the format of /sys/fs/resctrl/info/L2/schemata/L2/max depend
-on whether the platform is asymmetric? Or just enumerate the per-domain
-values even on symmetric systems? Likely easier for users to list all
-domains.
+  i2c i2c-7: of_i2c: modalias failure on /soc/display-subsystem@29400000/hdmi@29590000/controller/ports
+  i2c i2c-7: Failed to create I2C device for /soc/display-subsystem@29400000/hdmi@29590000/controller/ports
 
-3) What should happen to the legacy /sys/fs/resctrl/info/L2/cbm_mask?
-Just hide it? I also considered renaming the resource to "L2A" to
-avoid surprising legacy code.
+inno_hdmi_i2c_adapter() sets adap->dev.of_node to the controller's
+node, so the I2C core registers the controller's children as I2C
+clients, & on the JH7110 that node has a 'ports' child. The display
+still comes up. Should the adapter get no of_node, or a dedicated
+child node?
 
--Tony
+For patches 1-17 & 19-21:
+
+Tested-by: OOHehir <oo.hehir@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
