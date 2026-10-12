@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20A7FCA9ED2
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 10:22:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2029CA9ED1
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 10:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
 	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q1UaQ0KLpI+0oXy8xZwTC4N4W5qdru2Yf6hy/aayNcQ=; b=AxMAccCGnob8gk
-	1xCojFZ89wpQapHBRFP9g/Y0pdMMYQ8gesTvuaMQs/3lUizQ+dAQkAO56JovncYwnciVqKUkBCZ7X
-	0914n/caXDY8oYhZPHIhc3/3iWEHA8Qlzxm01ARolL7mEW0pog63ikXcBwD2RUE6al+HW/aKPtgRx
-	C9ZN4tAfU4XdchyH7IKfl/RV2LiHigWeT8m5gAGmBNqtL/IEkwfmGnHK+yhhz5CqlJkuUFcZzEQfx
-	NJzQZbOIwBxonzuGPhM009ZfYVhYp/GmHf9j3OK4m6cTPfCYj8zlVN6nabDLZmtoTGxIr6g6kOS3P
-	GyWMy+xsp+8CaGfIaPmA==;
+	List-Owner; bh=Xa3tdyhIIj3hIjpr/Sv+ZbbFWzi9PkM82R3xmxUK20Y=; b=tTCeM0S0Hz++q4
+	HUDF3De0IW/qswmy/JCczNCBtNV69B8p4d+nIyKEnUKeWjMW0LJntBLWF+uzvjIzo2rVtVjHjlHVD
+	tXF9jnjua3Nc0OCjQyJUOiM66Pb/sK8aAvwInLx8J3G+iPdqaSnYMv3aF5YWzRFhSsMMkPYIc/q8v
+	hBCy9ohPJqsecn8AdjGAMUZ+rkTd/e9UYUBOC9esd+QMP053gwR3TdGHYo/bm/amWayuXB9BECWp0
+	F1rkaCsUHh+ehRICp3hwTWlDV5Lfk2vsvChQm7yWO/XvtWHV3AEEeMCjsjSVbWl9Ipd+ZOzTXm3tl
+	FiRSw1GxNDJ+qAx+OQEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDAe-0000000ADDp-3Pjh;
-	Mon, 12 Oct 2026 10:22:16 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1xGDAf-0000000ADEE-0TUG;
+	Mon, 12 Oct 2026 10:22:17 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDAS-0000000ACxA-20Fl
+	id 1xGDAT-0000000ACyf-2s4e
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Oct 2026 10:22:08 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a020e65269so10213265e9.2
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2026 03:22:03 -0700 (PDT)
+	Mon, 12 Oct 2026 10:22:09 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4a018dc1f98so13472225e9.3
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2026 03:22:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1791800523; x=1792405323; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1791800524; x=1792405324; darn=lists.infradead.org;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=wSG3oCF74JWXW1bTfxbde+arlZoaBNLQIBfAv04jt2A=;
-        b=SzaJxdYeOZzYxY+4Q/6OM3/fFPLK6/TJUF4POSfi2DJ6K9Ggekj1qbgBdlcueYSWSG
-         KcdHuCWMkBEm7rUlKA1irKRsmvOzRIa4+aXpOBeoaCgcWh1IvFWjGmlpZVLfUY1mkb2f
-         7Njjiq727ew/fGgboQGkcFXK1Q2mGqRPO29J+/eW8Kk+FF3VNyzU3IsE69ze8Jle+mIe
-         LTwzb9zlaiIGdwBr9TOprS0ZJWnM13uI1lpRX6hL5KF7E9t6+oKea9WICsqFruA+PM70
-         g7PTvhegRvGet7Z57UYfNd6ApZ+aw4co5dF//AlCCfAEtzCO6evOruDVEVblMPFiRTQT
-         6zVQ==
+        bh=AJYyZEBiOUM7OvSMbISuEMhl5UT5CKz97qPqv6r5uKs=;
+        b=D2SYYz1IhPTsM+YvR6kqlZwSjnykb4y5Mv+PFh1ox21mL8sj7j1ykw3T5YheAbZNf8
+         X3+zd7ClVg3OQwhtiZHnDVrMb6tAB6quuI39bo3Q/FpF5Bv0kcQWSv1sDs08gXKnI6gy
+         HLSA89r4sq6qCEkXgA9mqBlbXgB8Oa8hF+1nrG9Zsh0uft6jC+NBYNn8Nwhog/tD7lFn
+         49u7HWmp/BrDwFxA7pFUuFgC6sUEj3dln3nyLSmd4t/JkJc8zldYIVzrVheRwSKV3/t9
+         XjG4urjBOdHWfPA/+OlbPzoJwFKCJhTH3C3rRZmIa4iPhWNi6gfl2jzPYBwlCURXX10P
+         HCxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791800523; x=1792405323;
+        d=1e100.net; s=20260707; t=1791800524; x=1792405324;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=wSG3oCF74JWXW1bTfxbde+arlZoaBNLQIBfAv04jt2A=;
-        b=rw17BhPUEWyuo63xDLCNbQX90Uckaa0z00cHiOeOiKbdKK6tWHMpbOV4I+6Cj/meAh
-         boOgzYQz2hPu5CI8JxQpc59DR9WBxj8AZdcbojzSv7jpnzN0ZKV+qBtX2mLmo72r9DOp
-         AzYH9F2aq2e/fj3teNZrQeoh6b1rKUERVhu5yy8QlrCSof/bLV1BD5VuwS9y9kXr3TR2
-         oUWsXCCxQyHB6DaePsuzq94YhpXxZlOLYwqf0Map4gUOUHRXjD74f/SpIe1XQLsdldO1
-         yHGd/m7KgQDWM/uzJSu6wP+kB8TlCuvORXgOLLzxemB3t8G6rRE5VmGLm5/SILGARrP4
-         sqwA==
-X-Forwarded-Encrypted: i=1; AKwUvBxYsQazIqKEHHWFjk6jkbqImb3faHm0mSffN3gQcY2c1X2nZ6Fze4WG1+hHxtl9b3gn56UvmAKP8B5azw==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKG1JBA2Z76Iz9m1/dKDcN1b/QdaziFoh5Dg6ktYblv9B9OdeOI
-	1jTIsb2ZLRHgbwkCY0FLyphEHnmf9bwypX3HpDKVhiheZ3JFO3eEce2R+NBvUVu68zk=
-X-Gm-Gg: AYBFou3l1LyN/4TP1xvY7R2GbTqdQ01PgqNf0kcP2rr8hH/QIKP9jZbHuJkEIe6FH+2
-	vHvcBNG50H4rcXr9PScskyDFXuhnW/p7smowgTItrjXVJKqRXY1lntGE9nls2VvgCySwbux+nCP
-	o7hbOS5S1Sh8OXaCsBqYooMtksYelmyUiLagi4gIXJ1CH7Tb44mw9SuL0OoRmmXOpTNOYolDAkU
-	VVC3hPLDuIEPFZBtaZO6Xr9FyPkxuF+OtuwrcPD+sWez2XK7fOnCftEU7gaIUaxedjcrleVUSq8
-	jNsvIqAq0zU0H10xTCaba7T9ZGaNnNHHnOaPPuefJXZQyOpnlpvgFcQlXTyXHiMU0pNNMX/AQK7
-	+oPElO4Bpp45AV7ETwwERvpSGmIj9unHOEUFC8Kle68gg+l1ZfPKx+N4oh+PqHtMrxA4+H4nVD2
-	fHPrT1HCcS7Wj4NK4H1CsGtJTGlvvFRLIROdrjwf73l/6IjULXFifcpwS9/Mt2Gjy2/lsj/RmUY
-	pcXOd+W+7fHY05wVqA=
-X-Received: by 2002:a05:600c:83c9:b0:4a1:70f0:ac2 with SMTP id 5b1f17b1804b1-4a18e4ce9cfmr166723875e9.24.1791800522611;
-        Mon, 12 Oct 2026 03:22:02 -0700 (PDT)
+        bh=AJYyZEBiOUM7OvSMbISuEMhl5UT5CKz97qPqv6r5uKs=;
+        b=WH9B7eFD4/Src9nvaWI8xJhjKRL81kgcv2+bL0pkMKuPZFj3r1yCbAdPHTgUor2fUH
+         SOWtjOIXb2VdKwnA29TDF8pgeQBMl+a8hIiOrDqdpoxOw//07HYJ21id/n+OHSaTwSkj
+         iCV/z01Hs8DQMgn1WcUBABWBzDR89UIqprjf6JoxRgTNIY8pJsFSV7hKcyrYtbE5XrHd
+         HJY5Yakum3+YVGM1rBfNv05OXUi5ga/JAfCuSXLQZcvxhnBvRqASiDO+PORf3qg1YxUf
+         3vWCxc2VwacCn7IGJbFKtuh+10VoBDhsFLvjH8lwRgzTaazZi1QvnjkWvIV9ajar8T7l
+         iYVQ==
+X-Forwarded-Encrypted: i=1; AKwUvByr8sn3bhwwRUbG8XxQgxBVRh1vX1fZktIwFOy5eULnXlDduVqjXtnJVPysi8m4ap0jT+H94nc3TDMLJg==@lists.infradead.org
+X-Gm-Message-State: AFq9FYLwWFaNOScz5CO56xJ2JSnCBqEmgmFGeB95QyctXC9xr30Tae22
+	Y3EQ+lp68myW+7jD+hb2SqS5BhPcb5jCVsRA270uOk0iW754vmh4NCRYl3+muv1CN7w=
+X-Gm-Gg: AYBFou1af8x39Vq5LGXvNwBNcjxJjxr4I4/xK3QOdnhn9LLnaqXsgXLlmo3pXwjCz7Q
+	lLbALPuk3Xv1TcfuoTl7a/9Rws/sIC9qYYMShmGM3Egjv0s/YHwfnkQ9Ka/9ZzPWXVJydAr5dvT
+	tm1mWtJlzhf0GdDCu/qBksTSEOWsEHqcRqxgfHAm/KjKo+bQMgyN5kOFfr3fyMH+oYdWCAsCl5T
+	CMQW47bhB83bqcAXbaVDfqsqOHq+orYUsX8FhxAG16mslCLcof8324hzgDGZUY6gZTm89DzR5Te
+	xz2NOx0r8Rnpk4roppcXc5atqfmZdvZweIi+zswT0Css73vprZ7A3Xzwt082MjtupZMS3KDqeMh
+	XxnB8dXj4c+LCuNc/NNUiJ/n4N1cp+19f5GAoRDQzSgbCXnSpdhPr1tIg3qJMvivOTJyqxrvDEq
+	xfceUb21UOOntQbq6rgvvUW6R8keXLXHM4ueEbV/dF/7NWEXlJ/d6bjABpAZ0V3T6LBeI62fH8B
+	6lhtvQipRpZm8B/yg==
+X-Received: by 2002:a05:600c:3e0a:b0:4a0:1c10:1419 with SMTP id 5b1f17b1804b1-4a18e4cd667mr165296415e9.26.1791800523761;
+        Mon, 12 Oct 2026 03:22:03 -0700 (PDT)
 Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18bf31b83sm287466995e9.12.2026.10.12.03.22.01
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a19f249692sm143801505e9.3.2026.10.12.03.22.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 03:22:02 -0700 (PDT)
+        Mon, 12 Oct 2026 03:22:03 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH v6 08/15] clk: starfive: Introduce idiv ops for
- inverted divider clocks
+Subject: Re: [PATCH v6 10/15] clk: starfive: Add StarFive JHB100
+ Peripheral-0 clock driver
 From: Jerome Brunet <jbrunet@baylibre.com>
 To: Changhuang Liang <changhuang.liang@starfivetech.com>
 Cc: Brian Masney <bmasney@redhat.com>, 
@@ -84,23 +84,23 @@ Cc: Brian Masney <bmasney@redhat.com>,
  Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <20261008123338.11081-9-changhuang.liang@starfivetech.com>
+In-Reply-To: <20261008123338.11081-11-changhuang.liang@starfivetech.com>
 References: <20261008123338.11081-1-changhuang.liang@starfivetech.com>
- <20261008123338.11081-9-changhuang.liang@starfivetech.com>
+ <20261008123338.11081-11-changhuang.liang@starfivetech.com>
 Date: Mon, 12 Oct 2026 12:21:47 +0200
-Message-Id: <179180050742.66744.154947682767663962.b4-review@b4>
+Message-Id: <179180050742.66744.4988353309640403131.b4-review@b4>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1977; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=pnNxWb9NIET8zGXgnh0fPk0259Mg14jdBHHSwczKVxY=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFlntuzfrGv/WEVPdLV5tHi+YeOfQ+VnD2SnVaRfezHz5
- Y/GG1IVHaUsDGJcDLJiiiw13NXi7yS1vsyarnMbZg4rE8gQBi5OAZjIlsMM/7PO393IYNV8xrem
- Xe/NxPVv8vr9OZQETj54s20bm9+6VS4M/4uY/t2dl8IocOm5ht2cHEdHrvlqeetVPLXDXq3RWh5
- fzgMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5017; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=tTAZF8a763gW6j5Lx6Y94iC7OKIfcaHRy+T2VFppwEc=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFlntuznFX6rbup/o6uqu9d9gqCAanb70c5Ja+t9j3U/n
+ 5LInFLXUcrCIMbFICumyFLDXS3+TlLry6zpOrdh5rAygQxh4OIUgIm4v2T4K+gjayPzakqr4lEd
+ aSMdb5GHD+Pm7Jh923+T2fu20m37tzP8d/K+9HX1+cdPlaMOSJvuLd6/eeXc7mu2LTKnzorHNUk
+ 85AMA
 X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
  fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_032204_593861_3A407733 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20261012_032207_779777_7ED83DBF 
+X-CRM114-Status: GOOD (  25.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,55 +117,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> Some StarFive clocks only advertise the divider and invert capabilities
-> (via JH71X0_CLK_INVERT, without ENABLE). Add the JH71X0_IDIV() macro
-> to declare such clocks, and jh71x0_clk_idiv_ops, which combines the
-> divider rate operations with get_phase/set_phase.
->
-
-Please rephrase, I don't understand what you mean
-
+> Add driver for the StarFive JHB100 Peripheral-0 clock controller.
+> 
 > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 > ---
->  drivers/clk/starfive/clk-starfive-jh71x0.c | 13 ++++++++++++-
->  drivers/clk/starfive/clk-starfive-jh71x0.h |  8 ++++++++
->  2 files changed, 20 insertions(+), 1 deletion(-)
+>  drivers/clk/starfive/Kconfig                  |  10 +
+>  drivers/clk/starfive/Makefile                 |   1 +
+>  .../clk/starfive/clk-starfive-jhb100-per0.c   | 617 ++++++++++++++++++
+>  3 files changed, 628 insertions(+)
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-per0.c
 >
-> diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.c b/drivers/clk/starfive/clk-starfive-jh71x0.c
-> index c5ee82db3c92..224fcc3d08db 100644
-> --- a/drivers/clk/starfive/clk-starfive-jh71x0.c
-> +++ b/drivers/clk/starfive/clk-starfive-jh71x0.c
-> @@ -303,6 +303,15 @@ static const struct clk_ops jh71x0_clk_inv_ops = {
->  	.debug_init = jh71x0_clk_debug_init,
->  };
+> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
+> index cfaac934a8e0..b2a05bbb450f 100644
+> --- a/drivers/clk/starfive/Kconfig
+> +++ b/drivers/clk/starfive/Kconfig
+> @@ -73,6 +73,16 @@ config CLK_STARFIVE_JH7110_VOUT
+>  	  Say yes here to support the Video-Output clock controller
+>  	  on the StarFive JH7110 SoC.
 >  
-> +static const struct clk_ops jh71x0_clk_idiv_ops = {
-> +	.get_phase = jh71x0_clk_get_phase,
-> +	.set_phase = jh71x0_clk_set_phase,
-> +	.recalc_rate = jh71x0_clk_recalc_rate,
-> +	.determine_rate = jh71x0_clk_determine_rate,
-> +	.set_rate = jh71x0_clk_set_rate,
-> +	.debug_init = jh71x0_clk_debug_init,
-
-Instead of trying to cover all the combination that could exist, can you just chain 2 elements ?
-a div then an inv ?
-
+> +config CLK_STARFIVE_JHB100_PER0
+> +	bool "StarFive JHB100 peripheral-0 clock support"
+> +	depends on ARCH_STARFIVE || COMPILE_TEST
+> +	select CLK_STARFIVE_JH71X0
+> +	select RESET_STARFIVE_JHB100 if RESET_CONTROLLER
+> +	default ARCH_STARFIVE
+> +	help
+> +	  Say yes here to support the peripheral-0 clock controller
+> +	  on the StarFive JHB100 SoC.
+> +
+>  config CLK_STARFIVE_JHB100_SYS0
+>  	bool "StarFive JHB100 system-0 clock support"
+>  	depends on ARCH_STARFIVE || COMPILE_TEST
+> diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
+> index 29cdef20575e..352717886295 100644
+> --- a/drivers/clk/starfive/Makefile
+> +++ b/drivers/clk/starfive/Makefile
+> @@ -11,6 +11,7 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)	+= clk-starfive-jh7110-stg.o
+>  obj-$(CONFIG_CLK_STARFIVE_JH7110_ISP)	+= clk-starfive-jh7110-isp.o
+>  obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+= clk-starfive-jh7110-vout.o
+>  
+> +obj-$(CONFIG_CLK_STARFIVE_JHB100_PER0)		+= clk-starfive-jhb100-per0.o
+>  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS0)		+= clk-starfive-jhb100-sys0.o
+>  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS1)		+= clk-starfive-jhb100-sys1.o
+>  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS2)		+= clk-starfive-jhb100-sys2.o
+> diff --git a/drivers/clk/starfive/clk-starfive-jhb100-per0.c b/drivers/clk/starfive/clk-starfive-jhb100-per0.c
+> new file mode 100644
+> index 000000000000..ef6e6906cd2f
+> --- /dev/null
+> +++ b/drivers/clk/starfive/clk-starfive-jhb100-per0.c
+> @@ -0,0 +1,617 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * StarFive JHB100 Peripheral-0 Clock Driver
+> + *
+> + * Copyright (C) 2024 StarFive Technology Co., Ltd.
+> + *
+> + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
+> + *
+> + */
+> +
+> +#include <dt-bindings/clock/starfive,jhb100-crg.h>
+> +#include <linux/platform_device.h>
+> +
+> +#include "clk-starfive-jh71x0.h"
+> +
+> +#define JHB100_PER0CLK_NUM_CLKS			(JHB100_PER0CLK_MAIN_ICG_EN_TRNG + 1)
+> +
+> +/* external clocks */
+> +#define JHB100_PER0CLK_OSC			(JHB100_PER0CLK_NUM_CLKS + 0)
+> +#define JHB100_PER0CLK_PLL6			(JHB100_PER0CLK_NUM_CLKS + 1)
+> +#define JHB100_PER0CLK_CFG_400			(JHB100_PER0CLK_NUM_CLKS + 2)
+> +#define JHB100_PER0CLK_CFG_800			(JHB100_PER0CLK_NUM_CLKS + 3)
+> +#define JHB100_PER0CLK_NCNOC_INIT		(JHB100_PER0CLK_NUM_CLKS + 4)
+> +#define JHB100_PER0CLK_NCNOC_TARG		(JHB100_PER0CLK_NUM_CLKS + 5)
+> +
+> +static const char * const jhb100_per0_ext_clk[] = {
+> +	"osc",
+> +	"pll6",
+> +	"cfg_400",
+> +	"cfg_800",
+> +	"ncnoc_init",
+> +	"ncnoc_targ",
 > +};
 > +
->  const struct clk_ops *starfive_jh71x0_clk_ops(u32 max)
->  {
->  	if (max & JH71X0_CLK_DIV_MASK) {
-> @@ -313,7 +322,9 @@ const struct clk_ops *starfive_jh71x0_clk_ops(u32 max)
->  		}
->  		if (max & JH71X0_CLK_ENABLE)
->  			return &jh71x0_clk_gdiv_ops;
-> -		if (max == JH71X0_CLK_FRAC_MAX)
-> +		else if (max & JH71X0_CLK_INVERT)
-> +			return &jh71x0_clk_idiv_ops;
-> +		else if (max == JH71X0_CLK_FRAC_MAX)
->  			return &jh71x0_clk_fdiv_ops;
+> +/*
+> + * Regarding the CLK_IS_CRITICAL flag:
+> + *   What is special here is the UART*-related clocks. On the JHB100, the secure
+> + *   core may consume one UART, while the AP core consumes another. Different
+> + *   core boards may select different UARTs, so we usually want to keep all UART*
+> + *   clocks always on to prevent the AP core from turning off the clock for the
+> + *   secure core's UART.
+> + *   UART0-3 are usually used by the HOST side, and there will be no driver on
+> + *   the BMC side to consume these clocks. Therefore, these clocks need to be
+> + *   enabled for the host to consume.
 
-Given the branches return, if was enough and you did not need to modify the existing path.
+So you are forcefully enabling 14 clocks for 1 to 4 clocks that may or may not be used.
+This is not how this should work. You just enable clock randomly hoping it will cover
+your use case. If you are managing the clock for these secure core, it clearly shows you
+need a driver for it.
+
+> + *
+> + * Regarding the CLK_IGNORE_UNUSED flag:
+> + *   Clocks flagged CLK_IGNORE_UNUSED are not consumed by any driver. The flag
+> + *   keeps them in their hardware default state (enabled) instead of letting
+> + *   the clock framework gate them once it disables unused clocks.  If this
+> + *   flag needs to be removed later, it must be ensured that these clocks will
+> + *   not be disabled even if they are not consumed.
+
+Why ? you are ignoring all sorts of thing in there like i3c. If the i3c bus is unused,
+the clock should be disabled. If it is actively used, why don't you have a driver for it ?
+
+Throwing CLK_IGNORE_UNUSED and CLK_IS_CRITICAL at the majority of your clocks is not OK.
 
 -- 
 Jerome
