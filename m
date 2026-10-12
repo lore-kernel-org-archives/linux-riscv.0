@@ -4,61 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFF33CA9EDD
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 08:08:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D238CA9ED2
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 08:11:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yS+A2xv9vy56sVRmrhpsya5RcUiWUT6OncCrbOYik+Y=; b=0jUBp234NArFDf
-	41V8G1imF1XwCj3crDqyW3mUn4mTg8qQW8cOhqxA7v5rwlrVOja36cl4GZ9LR5gPlJLJYrb+PtTMI
-	f7pe1g0XdFMIUL0k2p4PjholcasQ2OuvGcF0uy5s4qrRU8X41Ht6/79+ITrh9enVl8f0aB47+Xuag
-	JQ/tj0Zph0AO6a6VVsrmbNlAATeft6oFB+A00St8fBofeLShA/HJBdSN+vNXdn9iYRQWbpBqlM/JF
-	iZYLtXi8RqfP9DxDX8qTcpW7k5Zl0m1flifcwNJ+WZB7uxiIq8Lb4EQVZWLr5KV8IdkX83oJ1uwbw
-	myXyMYltEXBKVCjAo3Bw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=CTl7uSy6BJMiskSty7nOiUBy1G6iu9X8vxVm+0Q8GOA=; b=h7PHpTHi1v9NzP195jq6OqFNpj
+	E5/YT5nMnGZ22JcKkI42NBWoqxsIzsCM1PrBWZIXVfKiUDHp1vkCXeF+TnIQJ6ehQXzibWMVpOYoX
+	wL/sye2sg7C0r1714USyS0gjHr7O6dh36//SXvaclEc9AItWuJy82L8ON4HPATqstLYQlqN7N/Zqw
+	bEf1EpgorW34Z7ijWJovw2qa9cM1u03aA26CrZWsMckNNKy150qjXi5h3gJ5xXXY1bcL1XGV5/UQ2
+	+fpk8w2RkK+GWvCi8GXc3FEZaZlx2s4i11BZYF6zo5Fh62F3mle1wg5IKXuEesiU0y6qAYsflJjT6
+	3AViCyoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGB5H-00000009tzU-0vFs;
-	Mon, 12 Oct 2026 08:08:35 +0000
-Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
+	id 1xGB7l-00000009uET-2mgh;
+	Mon, 12 Oct 2026 08:11:11 +0000
+Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGB5D-00000009typ-2r3K
+	id 1xGB7g-00000009uDq-0wSM
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Oct 2026 08:08:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1791792501; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=D6ifv6a4KKoIiKYJezBRkAhE1P/vLkjB6GL3KBtF0js=;
-	b=mZ8EDH6ExRTQlj0doL310Y3O/P4xf/wSDKmU/zPgELMKsUqALWer7jOu5K/6bAgHa0Ro8qu+MiWpb7Gt8LtufiHg0q18nixbxhSoa90mk1u46Ro9Tcci58SyX+UYIegrbr/hk1vDkBNE7+7pMLU8/cmkK1Fg89k8v+CrDU3TZxs=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R561e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=19;SR=0;TI=SMTPD_---0XCd0ksa_1791792496;
-Received: from 30.246.160.148(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0XCd0ksa_1791792496 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 12 Oct 2026 16:08:17 +0800
-Message-ID: <882701c0-9016-4fe3-93d0-40853f34f19d@linux.alibaba.com>
-Date: Mon, 12 Oct 2026 16:08:16 +0800
+	Mon, 12 Oct 2026 08:11:08 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 65CAA1400065
+	for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2026 04:11:02 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Mon, 12 Oct 2026 04:11:02 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1791792660;
+	 x=1791879060; bh=5aq75OFK0387x6ZUPnC3HDU/yaLDvZPP7XIC7MCXsFo=; b=
+	Cpci7Am6aupOAC7KNHk/6U4mtd6jyTgB2RTTBKtBHVzj7t9tvaL3t3ntPPdoHR+d
+	RH5Tk5JDSdbbxbst7VT4wxpHbNoTbmq42IDe3FWYfaLUkpsA9k7lH0tGS/LBEcB8
+	6BqDZbs0Vq22WqB4065rzILJUEy54TDBHMh67LnVVLX+Zp09+vlPAVMZEI+mlKS2
+	LRgskzdyFb5u+O17QM5U7ZqOjuOyWOEAUcAdunEyFYT6UC/VZSXzpI1WzB7x+vIP
+	ld8nkdYycsDCTFckAKMLgp5XUFNrccD5cVBvqj0Pq/MJ/7lctJfkwyMJi1Q0Ui6d
+	bBXf9F3cyKOObHjOi/NABg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1791792660; x=
+	1791879060; bh=5aq75OFK0387x6ZUPnC3HDU/yaLDvZPP7XIC7MCXsFo=; b=T
+	qumM0GZ5CUgtsCAPDjZtmWdsyd4vGyJkXJPbaWcnmnqlknWEhFb7Le/hsexacHO5
+	ldsxcT2vXNvvUU6rztfWOWdPCRVGKJGDxJT/eaYwDdrw/ScqsGJIasNUJzukbr2e
+	V1ilT0eQUIntFP8IAapt27JJ81fcG6UOOJ3+q4WaqHhGt0EvqHxhpqKjkwsCc3/D
+	JmZRKkK1r/XhSflvHYNBrpwmWYpueDpoxOfKMEM50T44SisnFZGLkM8tQN01BwSq
+	XEWv3oGrXCuwfZqwV6G9ubwLdOOwzIaaJaHRhMnXslGUUKW4bAxRb1AnweJKuhjc
+	ljNWXqeQvAAJYRRqHQ6hg==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-10-04; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1791792660; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmc+;
+	s=fm1:rsa-sha256:j+slVIzTKQXLlZXsY/f2zhE1OJoaHJUVEFOy8rKGeu8lcbZ
+	tWJQCnCrkT89yVwhB+Abc4SDrS5if7QrbEhSPLE6Tlg5HqM6I70vGfSwknOwfJxv
+	1QH5rtCJKtBqRmJaZ6CZu15mLOqyV1VP+pzg7X6ZiWkTyN5jDloJ/to7mpRfaOzG
+	TCTDjRPs2/IZsmpLPkpEsf1ThlOzTaGTIz7IjydwX4oLmfeWJO0r5NGvwzPe+P61
+	EVT5i6Cl7TNV4UhSSOuRPz8OVDB4GWXLYUS8bP4dooTP+xAGst236tTl45Qk4RsR
+	mVU3y+RfVowqp3q8xDDCOdM6j1Z8jQk+0QFdD8A==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-10-04; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:NgztxYTDSFREAbLoozt7GOiDsimSw9ll82hcXQSz/kQ=:NbQINEYg4X2aBXVzQtuxuZ5+NbLkeCPA4jqxulrmCUA=;
+X-ME-Sender: <xms:EpbMatRxOgPbMhENZbzMxNObGYTIB3x5fL0JkJ_EGKZ5CkPIkyw3_w>
+    <xme:EpbMahnDJYWxghF8WYk46oPXY19aVBorWnL1d865AQ6KYjLbMyk1j3mf_hZFaSHZu
+    hdgMH1oY3anJQcR03FHTZ1CqFanwmOTEkG8abT5Y9PZnMWpyvccQOFx>
+X-ME-Proxy-Cause: dmFkZTFZk1jxtNGkhkS/W6SrTSVR+8obP8kQjIPqf8ee8n2yaDvYNhdQP0D49cV22oby7Q
+    +pzGSoVXH44kcGP/0qKwr04oVA7ITe5TuVcjBh9KDyz6go3nz11FwHSB+AVPJapyQzYTHv
+    U1xRQUiUSAfccCKivEYKfX0xcHg7g6lLjJQGYzVZR3HFVvsLbOv8sGgpgVQGBjshJQzECF
+    9hkAjO/IV6xqThb6lZLvWXzquFNbmMvVKKHd0Ir6K5KYtwfIashiLbOkvr0LgWXPkS1tI9
+    M4rUX7/B3+T9aZ/jdsRG/AgsrakNwF1mT/dLh21ePiEbSTycEqLAvjERpq25jo+VCunZA6
+    TVovKl6vUGh8dngR/Bhqs+Z/HgdGnd2Kt2rMMU6llP4zwzTTJrsCClVt5tPeqd36PIL/HK
+    fbxtkDK6Ku7lilFyHL5RLDmmXHkfXR0YBYD5lW2siU8GaFb/U73myJ3sMIe2EF/wn2gpd2
+    tiN+hkvH0v8mYU+zApitEDRDifMFbCuvrt7PRXMS80mxD1eM2WCukPSFo9Y5DpC+jq7aQr
+    Z0dpxUThMUvjwLUPcY2oY+xXTlUPQTyodE/Dtd33f4cT/tEOjY0vG7QrjsyZhCRcUz68pa
+    he/+qKiybI1tV+4kaBZde4uwXROPGugSvK/2egIlAfGE7CoAi2kyaRfxY2/Q
+X-ME-Proxy: <xmx:EpbMak59f1J7JXAZ-2LKGe1Xr14Qjb8JjQJVo_b8cl0nDxPnNqmz5A>
+    <xmx:EpbMahW8WiGqWIfKLtOXO6319pIiSqPUd3BlVm9Qu1MYa1E7nmlVAA>
+    <xmx:EpbMam8G5Nn5K9FfsbcR0dpDiDpdDGydbkEoraIfam1jPuDziUQOVA>
+    <xmx:EpbMatldX-9UeQgj3ITft2ErhgXflGyo_ZlxCr1Eon4-nZRA8iedvA>
+    <xmx:FJbMagCeAYABTVIFt3un4X0CZpAN8CJPChKgjTNLZ_GMEKPlEb-Y65ps>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id E5CEC32A008E; Mon, 12 Oct 2026 04:10:57 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] riscv: stacktrace: do not report the walker's own
- frame from arch_stack_walk()
-To: Karl Mehltretter <kmehltretter@gmail.com>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Changbin Du <changbin.du@intel.com>,
- Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
- <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Mark Rutland <mark.rutland@arm.com>, Josh Poimboeuf <jpoimboe@kernel.org>,
- Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>,
- Rae Moar <raemoar63@gmail.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com
-References: <20261010132712.46931-1-kmehltretter@gmail.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20261010132712.46931-1-kmehltretter@gmail.com>
+X-ThreadId: ArRnSDGvrQUJ
+Date: Mon, 12 Oct 2026 10:10:25 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Conor Dooley" <conor@kernel.org>, soc@kernel.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Message-Id: <ab03d380-f49d-4eaf-9e8a-e8b09d1d0195@app.fastmail.com>
+In-Reply-To: <20260925-parlor-snowfield-6ca46312a610@spud>
+References: <20260925-parlor-snowfield-6ca46312a610@spud>
+Subject: Re: [GIT PULL] RISC-V devicetrees fixes for v7.3-rc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_010832_577009_82B1DE72 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20261012_011107_223397_FC4D1A65 
+X-CRM114-Status: UNSURE (   6.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,108 +122,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Sep 25, 2026, at 18:56, Conor Dooley wrote:
+>
+> are available in the Git repository at:
+>
+>   git@gitolite.kernel.org:pub/scm/linux/kernel/git/conor/linux 
+> tags/riscv-dt-fixes-for-v7.3-rc
+>
 
+Hi Conor,
 
-On 10/10/26 9:27 PM, Karl Mehltretter wrote:
-> stack_trace_save() uses skipnr + 1 because arch_stack_walk() is expected
-> to first report the return into stack_trace_save(). With FRAME_POINTER,
-> the RISC-V arch_stack_walk() calls walk_stackframe(), which starts from
-> its own frame and first reports the return into arch_stack_walk().
-> stack_trace_save() therefore starts one frame too early. For example,
-> page_owner records begin at __set_page_owner() instead of the allocation
-> site.
-> 
-> Move the walker into an always-inlined helper and call it directly from
-> arch_stack_walk(). Keep walk_stackframe() as a wrapper for its existing
-> callers.
-> 
-> return_address() skips level + 3 entries, while the arm64 implementation
-> skips level + 2. After removing the extra frame, use level + 2 so
-> ftrace_return_address() and CALLER_ADDR results do not shift by one caller.
-> 
-> Fixes: 6a00ef449370 ("riscv: eliminate unreliable __builtin_frame_address(1)")
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
+I replaced this with the corresponding https://git.kernel.org/ URL
+in order to pull it, otherwise I get
 
-Hi, Karl,
+$ b4 pr 20260925-parlor-snowfield-6ca46312a610@spud
+Looking up 20260925-parlor-snowfield-6ca46312a610@spud
+Looking at: [GIT PULL] RISC-V devicetrees fixes for v7.3-rc
+git@gitolite.kernel.org:pub/scm/linux/kernel/git/conor/linux uses unsupported protocol
+ERROR: Could not find pull request info in 20260925-parlor-snowfield-6ca46312a610@spud
 
-> Tested with the KUnit suite from patch 2 on QEMU's virt machine, clang 22
-> (LLVM=1), on af32da41b032:
-> 
->    mainline                        stack_trace_save 0/3, return_address 2/2
->    stacktrace.c change alone       stack_trace_save 3/3, return_address 0/2
->    this patch                      stack_trace_save 3/3, return_address 2/2
-> 
-> A BeagleV Ahead (TH1520) booted with this patch passes all five cases.
-> The stack_trace_save() result on mainline (0/3) was also reproduced with
-> GCC 15.2 and QEMU 10.2.1.
-> 
-> Without CONFIG_FRAME_POINTER the walker scans the stack for anything that
-> looks like a text address and its start frame is not exact before or
-> after this patch. What return_address() returns there is unchanged: the
-> walk loses one leading entry and the skip count goes down by one.
+Can you change your 'insteadOf' setting to send this as a URL accepted
+by b4 in the future? I think an ssh://git@gitolite.kernel.org/ URL would
+work fine, but most people use https://git.kernel.org/
 
-
-Hi Karl,
-
-As promised in the other thread, here are test results for this series.
-
-Short version: the fix is correct, the KUnit suite reproduces the bug
-precisely, and the whole series passes here.
-
-Testing
--------
-
-Your numbers were collected with clang 22, plus the mainline
-reproduction with GCC 15.2 you noted in the commit message, so I
-re-ran the full matrix with gcc: riscv64 cross-gcc 16.2.0 for the
-first three configurations below and a native gcc 14.3 for the last
-one, all under QEMU (qemu-system-riscv64 11.1.1, -machine virt,
--cpu rv64) on top of your base af32da41b032.
-
-A. base + 2/2 only (tests, no fix): pass:2 fail:3, i.e. exactly the
-    "stack_trace_save 0/3, return_address 2/2" you reported for
-    mainline.  The failures show the off-by-one shift nicely; with
-    skip = 0 the first recorded symbol is the walker itself:
-
-        # riscv_stacktrace_skip_zero: skip=0 first=stack_trace_save count=11
-        #     symbol == "stack_trace_save"
-        #     expected[skip] == "riscv_stacktrace_leaf"
-
-    The two return_address() cases still pass on unpatched mainline,
-    which is consistent with the analysis: the current "level + 3" is
-    calibrated for the buggy frame layout, so ftrace_return_address()
-    keeps working while stack_trace_save() - and everything built on
-    top of it - records one bogus leading entry.
-
-B. base + 1/2 + 2/2: pass:5 fail:0.
-
-C. My v6 reliable stack unwinding series [1] + your 2/2, with the
-    level constant in return_address.c adjusted to the same
-    unconditional "level + 2" as in your 1/2: pass:5 fail:0, with
-    per-case results identical to B (skip=0/1/2 first =
-    leaf/middle/outer, count = 10/9/8).
-
-D. Cross-toolchain check: I rebuilt the C tree with a native riscv64
-    gcc 14.3 inside an Anolis OS 23.4 riscv64 guest - no cross
-    toolchain involved at any step - using the same Kconfig options,
-    and booted the resulting Image under the same QEMU: pass:5 fail:0
-    again, identical output.  The result does not depend on one
-    particular compiler's frame layout.
-
-Please feel free to add
-
-     Tested-by: Shuai Xue <xueshuai@linux.alibaba.com>
-     Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
-
-Thanks.
-Shuai
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
