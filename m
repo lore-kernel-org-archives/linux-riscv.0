@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2882BCC6B3A
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 16:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C32BCC6B39
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 16:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h09pNBRqi5EQ8q0McSnmJEZyFvc8JV6MSAB5BCq1vAo=; b=4uL7yrY+ZJItPo
-	ZfVC56/9FxbDijr5jNu1tUEE+K7uuu7ufdGIDA+smmsdD6uPAbm7BpiMLCP6XA8gYQSPQaA1FMe4U
-	pp4m6s7k8saja5v+HJpovmdjmo8h8wMbMbnU1vW6X9Wc4zOd+hucilm1AAFv89DPBtNXViNCRaBDP
-	ME11EF5PPqjkUPL+Gv+yy16+6X4c88XhLRJMoZ+dN5kKAnKZVmXpt2VjA2qGBGqCULnT/YGPdAF1Z
-	svZMbHZDCzqc8RayTd07k6KL+hb4ECDiyYXQFQrU9q/XP4EFZ5FfyhPTujlm5jJCnhXklBS/R78m+
-	ltOAxuhCfdveHuMxViGQ==;
+	List-Owner; bh=Hws8+3+xsWuVSAa4kYnkKfJ93ahsOixQSJ+7mlM7pfU=; b=Jg14x1PIUuGAQY
+	t9gJXjm51kZIy2+6sZLrjz23NAJ+cL1GuAbBLMLbyqd12N1HjxYCsZKLikIaFCIOBOXOJDe3k+0oz
+	kemMM6KZp8ePazg+O1LNbWjwEtyFh0tn8mYclgwveNi/bJQyscNcz9w/GUts4bdVnpZxqORKfm3Li
+	TkwKRgIFy+24IEGQlsm+Rf56XjYA0zMSVNXVDTARQLDAdr6Z87X+IVDfVExF+SXuVvV1wpoyNlq1b
+	CVCDpU9MCla6KGZfUhEMYEAO7WuHmm3Mm++iP/ts8B1cQZYzM0kouKzPDlVWHMRsO+bUKYJqT197C
+	If+Vl5YcLbbr4vt2p3Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHO0w-00000000iPY-2MCY;
-	Thu, 15 Oct 2026 16:09:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xHO11-00000000iVv-1XQh;
+	Thu, 15 Oct 2026 16:09:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGL3E-0000000BHec-1MkP;
-	Mon, 12 Oct 2026 18:47:11 +0000
+	id 1xGL5M-0000000BI1t-0Z24;
+	Mon, 12 Oct 2026 18:49:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C5917419DB;
-	Mon, 12 Oct 2026 18:47:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8956B1F008A1;
-	Mon, 12 Oct 2026 18:46:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8C832602BE;
+	Mon, 12 Oct 2026 18:49:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BB4E1F008A3;
+	Mon, 12 Oct 2026 18:48:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791830827;
-	bh=qSlbvrIHwU3Y3EaiCo+j8HqkUnlq3n6fYvrvq7B0imw=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To;
-	b=ifoy46DiXGWrvn9hHlC9sWpEOIJfnolR01lkmYmzMt8oZMHwULKUu405XHQyvJvcd
-	 specWDspHy4xMW8bFKyZ8rpWjPIMeUNqSVWgVGRDTn907gomOPrB4hpaV/MLQBUx2M
-	 8VIFQ806d0QftmuijbNPIH////VvTEwrO1SHh8+NpG+s7sRK1rsSEUt1INVLlwjZxt
-	 1QIZU7Bw3nRpNkkvYBJS0tGBVjoOR8H8l0vwpksiXTvLIzHxaRPkznNHaA4C38A3Zs
-	 mBuQbebXHvgoFrYLsANA2bsPxTBg5880xj3MQZLIL8NXEYnBg06LwVEG1x0EDcqIUu
-	 3KRtQ3mdnAWNg==
-Message-ID: <8819f458-894a-429a-8038-cd9bc0617bd2@kernel.org>
-Date: Mon, 12 Oct 2026 20:46:31 +0200
+	s=k20260515; t=1791830959;
+	bh=wjF42amL6Dxyn7QE+tOpdln0eb7clnjUQooAdiVZf+0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=S5Kydjjv9MS5+ikIdcZLMtuInYdV4t+V4R8UcdwFfxkBeySjLpbFVJq8LB6YxCqkr
+	 WeAECYnx1xgOH4BCK5UKPqhA6vX63IsVR+EXTybK7br7NLZ0u33YyIJ0w63zopC1kg
+	 GU+kcsTw0LbmCgEp5zsbb6LxKiUHFIKAoePc0l+qoejVs3yioGigw3j4rdpAoRlJ3I
+	 /cUbiiAInDyjl1r0HL5sbja+XefiWr/RVW0+MJ3r/tslGXWsYEcvK/wwGhtCVMUb4u
+	 wvTis4aZ/ONKs/Wu0zQSkB08hCtETluDlUNZP//epzAHhx9+9SCh4NVSRJMN9uvwGR
+	 v4bYjBEhcFCPw==
+Message-ID: <a8ec0313-544f-4c8f-a161-5200d1cffe13@kernel.org>
+Date: Mon, 12 Oct 2026 20:48:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 30/38] mm/vma: introduce vma[_flags]_is_mm_backed()
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH v5 32/38] mm/madvise: use predicates for madvise(...,
+ MADV_DOFORK)
 To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>
 Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-doc@vger.kernel.org, linux-usb@vger.kernel.org,
@@ -62,8 +62,8 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  fuse-devel@lists.linux.dev, Ihor Solodrai <ihor.solodrai@linux.dev>,
  Bert Karwatzki <spasswolf@web.de>
 References: <20261009-b4-mmap-prepare-vma-flag-sanify-v5-0-923b70125b1e@kernel.org>
- <20261009-b4-mmap-prepare-vma-flag-sanify-v5-30-923b70125b1e@kernel.org>
- <c79d2d40-0f1c-43ec-bc25-b75ce975f27e@kernel.org>
+ <20261009-b4-mmap-prepare-vma-flag-sanify-v5-32-923b70125b1e@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -109,7 +109,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <c79d2d40-0f1c-43ec-bc25-b75ce975f27e@kernel.org>
+In-Reply-To: <20261009-b4-mmap-prepare-vma-flag-sanify-v5-32-923b70125b1e@kernel.org>
 X-Mailman-Approved-At: Thu, 15 Oct 2026 09:06:22 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -127,87 +127,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/12/26 20:45, David Hildenbrand (Arm) wrote:
-> On 10/9/26 20:04, Lorenzo Stoakes (ARM) wrote:
->> Introduce vma[_flags]_is_mm_backed() for the purposes of identifying
->> mappings which are mm-managed and whose contents were placed there by core
->> mm's own fault path - rather than a custom ->fault handler - and which core
->> mm has not reserved the right to discard.
->>
->> Mappings not managed by core mm do not fall into this category, as they are
->> populated by their owner, and nor of course does memory-mapped I/O.
->>
->> We exclude fixed mappings as these have a layout core mm cannot assume
->> ordinary fault semantics over.
->>
->> hugetlb mappings are fixed mappings, but core mm owns them entirely, so
->> they are explicitly carved out as mm-backed, as the MADV_DODUMP check
->> already does.
->>
->> Droppable mappings are excluded as core mm has promised it may discard them
->> at any time.
->>
->> Use this functionality to update the madvise MADV_DODUMP check to test for
->> this rather than open-coding it.
->>
->> This replaces the VM_SPECIAL check which means it no longer checks for
->> VMA_IO_BIT, however this is safe as we have established the invariant that
->> mm-managed mappings may not set VMA_IO_BIT, so we implicitly include
->> these.
->>
->> No functional change intended.
->>
->> Acked-by: Zi Yan <ziy@nvidia.com>
->> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
->> ---
->>  include/linux/mm.h | 50 ++++++++++++++++++++++++++++++++++++++++++++++++++
->>  mm/madvise.c       |  4 ++--
->>  2 files changed, 52 insertions(+), 2 deletions(-)
->>
->> diff --git a/include/linux/mm.h b/include/linux/mm.h
->> index 2ce68713e4c3..55320cf2c525 100644
->> --- a/include/linux/mm.h
->> +++ b/include/linux/mm.h
->> @@ -1738,6 +1738,56 @@ static inline bool vma_can_merge(const struct vm_area_struct *vma)
->>  	return vma_flags_can_merge(&vma->flags);
->>  }
->>  
->> +/**
->> + * vma_flags_is_mm_backed() - Do the specified VMA flags imply the mapping is
->> + * backed by core mm?
->> + * @flags: The VMA flags to test.
->> + *
->> + * An mm-backed mapping is one managed by core mm (see
->> + * vma_flags_is_mm_managed()) for which two further things are true:
->> + *
->> + * 1. Everything mapped was placed there by core mm's fault path (no custom
->> + *    ->fault).
->> + * 2. What is mapped stays there until it is zapped or unmapped by the user.
+On 10/9/26 20:04, Lorenzo Stoakes (ARM) wrote:
+> Make it clear what we're blocking in MADV_DOFORK. Previously we simply
+> disallowed VM_SPECIAL i.e. mappings not managed by core mm, fixed mappings
+> and
+> VMA_IO_BIT.
 > 
-> I still dislike squeezing the VMA_DROPPABLE check in here.
+> Now the invariant is established that mm-managed mappings may not set
+> VMA_IO_BIT, the VMA_IO_BIT check is redundant.
 > 
-> It's just weird semantics to squeeze pages that are *managed* by core MM (#1)
-> but are simply always lazyfree into this check.
+> The rest is equivalent to testing for a fixed or non-mm-managed mapping,
+> i.e. exactly the same check as whether the VMA is permitted to be merged.
 > 
-> In fact, core-mm manages (zaps) these pages, they are really just just
-> permanently lazyfree.
+> This was established by commit 0b2758f48f22 ("Require (reasonably) normal
+> mappings for MADV_DOFORK") containing my hands-down favourite call out of
+> all time.
 > 
-> Open-coding "this (DUMP, UFFD, MLOCK) does not make sense for droppable
-> mappings" is IMHO the right decision, because there you could say
+> Express the same thing differently - if we wouldn't be allowed to merge it,
+> then we aren't allowed to manipulate CoW behaviour on fork.
 > 
-> "dumping something that can get zapped every second does not make any sense"
+> No functional change intended.
 > 
-> "placing pages through uffd does not make any sense if it can get zapped any second"
-> 
-> "mlock'ing (and thereby allocating!) droppable mapping does not make any sense
-> and could actually break droppable semantics"
-> 
-> Not a hill I will die on, but I much rather have the droppable mapping be
-> outside or  have it called something nasty like
-> 
-> vma[_flags]_is_mm_backed_or_droppable()
+> Acked-by: Zi Yan <ziy@nvidia.com>
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-Noting that that does not make sense, as we would have to reve
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
