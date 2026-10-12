@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98B71CA9ED0
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 21:31:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84D4FCC6B07
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 21:31:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9VI8143FWIUl/q7gOQ3r9244h7YuZ+cHVWsmF5rbh3w=; b=0DB4c5FHz/qsTn
-	P+ZdZTOI9Nech0Dw7gKNlPzt9VUpbZvZbv/cmckqJqmS8/W8hdmnI2qRsraB2psfwCX3Te0IhjkRe
-	UqtHi8bkkpXI8l2a0KwsSm/Fvxg3q7f1BGz3kGp1xtbEzWpA92L0eof9S8xvlBeYB+OGt4qRTdRvY
-	FYKkXx50DGLluwkM5R4i012JIzNaW4RK/yGLQN60EmHQXbd41nUOJV34+iAigZiHtZ89EJgQ/J+G5
-	mA30vuZk/yyrgKxNZgzpIiyf3xo6AGj25YgSS/kf50E7xt/8veTV3rrw73hB/+SSQw47wIakun7bI
-	ZOwR8fVBGlUA96KBG2Tw==;
+	List-Owner; bh=qWfPOf8YTj9aFdavVxWefWiZdTDAIsmGulDP7SOt+7M=; b=mx6nbBv1P2dd8x
+	DR5qX411u1paQIMy2zwMdLNAtDlpu087oCpV3LlxtuAnn88G/GqpHj2yDsDH5N1EoQ9kP1+W9mOjv
+	gsNKRPWScbdEttPxEYDBY9bLh6YOrFKu0kFXUOmV/CfDk7dpbYRIfqQl46Kl4le8FWlOmSN7wId6k
+	YCPnYdPAUAmfcVZWEuBuqkyhRbvC4dXInC6GmkVjYNSauILT5x3vqxJc29Yh+ThXn1Pxni8HW/ahY
+	k+Ni9NNLD+fYdeIOvfqWcPUT+juJyyiRPRRj2jyuBblAjnXCSIbfRL5eyAlbgWhA3GyVXuUxgeFl9
+	aEw1Pek9LL0bXxReYfoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGNcE-0000000BXj2-2vZ5;
-	Mon, 12 Oct 2026 21:31:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGNcF-0000000BXkO-1fRN;
+	Mon, 12 Oct 2026 21:31:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGNcD-0000000BXhx-2jHS;
-	Mon, 12 Oct 2026 21:31:25 +0000
+	id 1xGNcD-0000000BXi2-48Nd;
+	Mon, 12 Oct 2026 21:31:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 12C9343E9B;
+	by tor.source.kernel.org (Postfix) with ESMTP id 4E1DA602A8;
 	Mon, 12 Oct 2026 21:31:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D85E6C2BD00;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E3821C2BCFD;
 	Mon, 12 Oct 2026 21:31:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791840684;
-	bh=GcFzL4ELL+nj+IyYHX4ybTeXBADFAD0vifTNK3LDVpE=;
+	s=k20201202; t=1791840685;
+	bh=I7f6rDN7NdrQVCnnQyVijoCApsep/PLG4qtIDjWsGzA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=JUujQ7gZEryMLbfpU/+xwAy//VOL6BczdfDYLGKRwdHOSdNvpoLCoG8vt5Lmp5Q5w
-	 oLaLn6ZexYSve4umd/bGAvbhRayPc3yNmTyMOzrhQUL/mpTPy7lUgPBUBj1h+n/VP+
-	 UjzZ50WC/1a3cQFWJEO3J2eIfGDBiJs09wSQmXC2cyQ/TePeIxWctwdP6/HhnQyLcI
-	 xZP3jyoqCILgAARdAYjm1E6hWskNEbRt5RJYVBeqonGetbxQZ/8TUm0tt+WwEh81He
-	 IIc11sRBcFXoUo3RTg4s7fa1Rfg8pZApkGlZvEzr2QbpBsWgLhJpLeh+7o+o8YRC64
-	 S8j9HE3M4YMpA==
+	b=e0xPa4RltyZWgPt3j0VFEHM7b9mH4LFPFiwYdgxvt6G7asAdr23qDlubOHXCanRG2
+	 1Cnm+DVptXYgFxXzWNTtdQI6P181/NOCo14YX91XLYxuAg9JEj1ysI3K/DKi/1tEQc
+	 EV/LvmgnIOp9qxgSZFd/c+hzO9Q3egwldF/SZZ/MISqGwYdwbVMIfkKfoEt+MyaURv
+	 VZCJZAZyOcAi0skYMD1b4g1aUPM8hbNyJMzz/nw43utU6AAg0OK//cq6D6n6tYOMo+
+	 UX8PnHdxxGZL5a75nr5XhyWyNw86k5/oslLmRFxo8qEIVP1yk6y3SBZJpy2oQCAdKp
+	 JWa6Hjeva6ZLQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BD458CA9EC5;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CDF65CC6B03;
 	Mon, 12 Oct 2026 21:31:24 +0000 (UTC)
 From: Vladimir Kukharenko via B4 Relay <devnull+vladimir.genproof.com@kernel.org>
-Date: Mon, 12 Oct 2026 21:31:19 +0000
-Subject: [PATCH 2/5] lib/crypto: mips/poly1305: Fix 32-bit length treated
+Date: Mon, 12 Oct 2026 21:31:20 +0000
+Subject: [PATCH 3/5] lib/crypto: arm64/poly1305: Fix 32-bit length treated
  as 64-bit
 MIME-Version: 1.0
-Message-Id: <20261012-libcrypto-4gib-lengths-v1-2-ea566c129a2e@genproof.com>
+Message-Id: <20261012-libcrypto-4gib-lengths-v1-3-ea566c129a2e@genproof.com>
 References: <20261012-libcrypto-4gib-lengths-v1-0-ea566c129a2e@genproof.com>
 In-Reply-To: <20261012-libcrypto-4gib-lengths-v1-0-ea566c129a2e@genproof.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>, 
@@ -62,11 +62,11 @@ Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
  Alexandre Ghiti <alex@ghiti.fr>, 
  Vladimir Kukharenko <vladimir@genproof.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791840683; l=2076;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791840683; l=1781;
  i=vladimir@genproof.com; s=20261012; h=from:subject:message-id;
- bh=fo5zvO7UGWzgKX7Y6Cw4E2/Klsa+sRLhgZA+i34R0sg=;
- b=qNZ/9YoLUTr8vXw0bDqkJZS43lC7EbywsG6X/i3+sSaB8XXjEggmfsTbfNvgZUWX0Tu6pxc7B
- To4AbqoJXZaAUjuzCKv2HtNnM2a74xvrwkGl+SRB1gqKqFv4A28EdkB
+ bh=3X4KjNZCvYTpASxJw7cTyOKaRln3LqL4XSBvokwu7TM=;
+ b=W2t+f5+yF8aKsOGkWzZBLm4nYHkonWwAO7SmhDYiVEI4JDEB/vmFQan2b6+ZguD/gEb1HKimy
+ TOTzMpjGThnCdpj01JXCsli5BOroYcTU+x+DnbWYgOBTXABEvFUFWeG
 X-Developer-Key: i=vladimir@genproof.com; a=ed25519;
  pk=EqOzBSKBgFn7ExzKj5f9T8u+1yTrGVlLBwf3fj/sdHM=
 X-Endpoint-Received: by B4 Relay for vladimir@genproof.com/20261012 with
@@ -91,46 +91,40 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Vladimir Kukharenko <vladimir@genproof.com>
 
-The C code declares the length argument of the assembly function
-poly1305_blocks() as u32.  The assembly comes from OpenSSL/CRYPTOGAMS,
-which declares the length as size_t, and its 64-bit flavour uses all
-64 bits of the register.  However, the MIPS n64 ABI keeps 32-bit values,
-including unsigned ones, sign-extended in 64-bit registers.  So for a
-length of 2 GiB or more, the assembly computes an end pointer 4 GiB
-lower than the correct one, below the start of the input, and the loop
-reads past the input until it faults.  poly1305_update() passes all
-complete blocks to poly1305_blocks() in one call, so a single
-poly1305_update() of 2 GiB to 4 GiB triggers this on 64-bit kernels.
+The C code declares the length argument of poly1305_blocks_arm64() and
+poly1305_blocks_neon() as u32, but the assembly, which comes from
+OpenSSL/CRYPTOGAMS where the length is a size_t, reads it from the
+64-bit register x2.  The arm64 ABI leaves the upper 32 bits of a 32-bit
+argument unspecified, and gcc and clang don't zero-extend it.  In
+practice the upper bits are zero in the current callers, so I don't
+know of a failure.
 
 Declare the length as size_t, as OpenSSL and the x86_64 code do, rather
-than changing the imported assembly.  32-bit kernels use the o32 flavour
-of the assembly, and size_t is 32 bits wide there, so nothing changes
-for them.
+than changing the imported assembly.  The assembly also reads hibit from
+x3, but the callers always pass the constant 0 or 1.
 
-This bug was introduced by commit a11d055e7a64 ("crypto: mips/poly1305 -
-incorporate OpenSSL/CRYPTOGAMS optimized implementation").  No in-tree
-caller passes 2 GiB or more in one call, so this is an ABI robustness
-improvement.
-
-I reproduced the fault on mips64 in QEMU with a single 2 GiB
-poly1305_update(), and this patch fixes it.
+This has been the case since commit f569ca164751 ("crypto:
+arm64/poly1305 - incorporate OpenSSL/CRYPTOGAMS NEON implementation").
 
 Assisted-by: LLM
 Signed-off-by: Vladimir Kukharenko <vladimir@genproof.com>
 ---
- lib/crypto/mips/poly1305.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ lib/crypto/arm64/poly1305.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/lib/crypto/mips/poly1305.h b/lib/crypto/mips/poly1305.h
-index 85de450f1a93..9e9147f40d17 100644
---- a/lib/crypto/mips/poly1305.h
-+++ b/lib/crypto/mips/poly1305.h
-@@ -8,7 +8,7 @@
+diff --git a/lib/crypto/arm64/poly1305.h b/lib/crypto/arm64/poly1305.h
+index 3d4bde857699..205a7b5fcf47 100644
+--- a/lib/crypto/arm64/poly1305.h
++++ b/lib/crypto/arm64/poly1305.h
+@@ -14,9 +14,9 @@
  asmlinkage void poly1305_block_init(struct poly1305_block_state *state,
  				    const u8 raw_key[POLY1305_BLOCK_SIZE]);
- asmlinkage void poly1305_blocks(struct poly1305_block_state *state,
--				const u8 *src, u32 len, u32 hibit);
-+				const u8 *src, size_t len, u32 hibit);
+ asmlinkage void poly1305_blocks_arm64(struct poly1305_block_state *state,
+-				      const u8 *src, u32 len, u32 hibit);
++				      const u8 *src, size_t len, u32 hibit);
+ asmlinkage void poly1305_blocks_neon(struct poly1305_block_state *state,
+-				     const u8 *src, u32 len, u32 hibit);
++				     const u8 *src, size_t len, u32 hibit);
  asmlinkage void poly1305_emit(const struct poly1305_state *state,
  			      u8 digest[POLY1305_DIGEST_SIZE],
  			      const u32 nonce[4]);
