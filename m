@@ -4,104 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFBC3CA9EDE
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 19:16:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5219CA9ED2
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 20:42:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AKwTVTCkVHDnchqqKJKp1gIBfVZ0Ca0hZUYEoWLRpRI=; b=ellBQ3xH8CBw4p
-	vQoh6ATul5fyQFLopD4qr4N+KcBPViy1mg3b1roWCEAqEo+AfFCkP5zAiWf8eLx/B9AZQNHeiWFaH
-	Esu9723EhHx9F3UDZ0rdfuSQ+5BtLLRwnskZ68uWj5DiHeqtAS9wsBz+nGPXvAS3O5n/7+I1vqUOl
-	9rTteeeWVplXq29Pl+PYOIdq6s1CeSaOzjQX8N7B3zVESp1Y6+/zTjIgTv9RH8lRyVpP5D79Ewy3W
-	Z8GTbWIuMHpp8QZBNAjbFXpABPciR5OBDPk527WxAp0QaeG5AGXvkQTfgLSz7u7QO3yUOyedgovxK
-	sI6UJpFpiuiUFAMuCh+w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WmG5pmOTq1wCzOHGZXnEi9U49ChLbba4o61qzHKBI/Y=; b=qICKrh5OTuFihR
+	NqUohmXzMjDjUxqTbwOjKtbHM3Zz+ttwMZtKeTxYLbhv8kGzmmuxbipwRBrkucoJiE3dff4bpLAqf
+	hpfR8sGf6wtODkM2QIzIVu1mOmLpYuuhim3IEHZB9d/D9P7Ob5YgbjBr803ah/iNPMqjSWgTsE9CP
+	2LZg5g4vl2ai3qdGRehmUrNablscvUTzKN/wXqPFbBiFZT2MNVS3dxjdfzfOAMYJvKAVglDoEKi1w
+	894U6Vtm/IN5eeddA+S3xblCMizXSeVdrWBez+g1bT7ANDsMDHQVtLS1L769CpYuIJF9fNmathRfy
+	EkUc9a1f65k2LbtMRnzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLVZ-0000000BMmw-437z;
-	Mon, 12 Oct 2026 19:16:25 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1xGMqp-0000000BUZe-26lF;
+	Mon, 12 Oct 2026 20:42:27 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLVX-0000000BMlY-2Gkf
+	id 1xGMqn-0000000BUZ0-0NdJ
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Oct 2026 19:16:25 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a168355946so19428845e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2026 12:16:22 -0700 (PDT)
+	Mon, 12 Oct 2026 20:42:26 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-48c4be28b82so2197000f8f.2
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2026 13:42:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1791832581; x=1792437381; darn=lists.infradead.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=CRfRncq4FuUqEgsh+Q7MKNhu4iIEz6/gs4z1N6qwQUY=;
-        b=cACcqHq9th6piy+xff7q+uk6VjAHMXpw8FJ7FZn0hGzcWs8fGScHCfaJllabFHBTpO
-         i3F95w72EqW8ufx8nuU5RzXI1U1YFQyJEugijEskgozI6BpaYv1k+7VQwKmkq46YaIys
-         tF3+rA1Q9hXmgiEV6fT0wBgBOZtN3687renzzN+kdHyIta6JW8389WZ5to8nadHJzNYc
-         0RYlMS0D+McZGfnDKZiOtGjPFWt7wonXW7kwHW6VOXjdRpGoC2uL4zgfLHANsbZeR5rF
-         bY9ACzCLjIImG4L3l6Z8TaRbP+PK05I+BhG+862eOX20kiEalC6jhUSVRJVvkqzw0L/o
-         d0CA==
+        d=gmail.com; s=20251104; t=1791837743; x=1792442543; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fqf3rGQ/R9PQCmxqvsD5ZLcC98lXYPCxdFatXGsliLY=;
+        b=iADP/fhQ6EBbuf9uRWwh/ltZDFlYajGN0ouXWj/KkU8HndxeEJxOHp22v+Pgra2dAN
+         Lmv+lK7/OG8B/NyPH4iK65xmdqoG8W2zmzdksQCMPTDwNTYVgeTF7+ykiDlZZVDvMPbP
+         eGq1+k0Vnp9T/gcZEH0arnIPhFYdQAWRSdRV4ZiZ338ttzitWwk83TzFEiLhnxs+V1mh
+         cuFnLvRtkHqdNJ5gM/3yn1pDZBCs/2rPSRjK/unsGjGRUAJLdK6WdG+CRJnzwEdLn0kl
+         tWTYorFlKCyBFlJJSFMZjzAm5qoQVc474nX7QXup93N5YLC4xQgcduHq/8mkGHgSDVSF
+         A2ww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791832581; x=1792437381;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CRfRncq4FuUqEgsh+Q7MKNhu4iIEz6/gs4z1N6qwQUY=;
-        b=sO3Dd5oxo4TdtmpId/Oz4ICLIcg2JR9BNAOGtubQMt5KgXKFpvenmrSApdNWIbEtGb
-         cHtI3dOG95kEtdNFENl6foHlTrOwDAhvamXrh6adwwKtS+lacbPruNEIItTVzbEJCs5n
-         EjNwy9QaC+IcWWuXkegZFmJrFEcVSvI5KlNJ2xPTfSScUe3dRGe5S94869//BabvSPM4
-         OdLR7gG1/kof19+yBf5z8pbdnnVRtOPFqc0lQDzZfjmtd6NFW0ogU2x6LkOei67azDKA
-         QNsDXBkJbcOV2hdg+D7Ac3ND9W52rJ1qouZ9QFnlqYaexq1/yQgRI1CbOQAB9HAyNb+z
-         eEOA==
-X-Forwarded-Encrypted: i=1; AKwUvBw2sx7NT174cBifhDIzm1QLWaPSfYqp318xo6ahTncS0LENFxeHO7U7bJ1nNntMyt3Fo3uzvZb1bMRvbQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKxa6taFnDjqQrJslyQ6lGc9Dnfg4CnCIec3JXSSfKfCr5JN6Hh
-	Ea/vZ4rUEV8IcD9gnM7Ss3+TS/j7pq4qi4R+xC/FgwRyxxVN0acDtBaaa1iUju3Vads=
-X-Gm-Gg: AYBFou3DVMS0sDw/US5R/pwxUqBL/174+h4aAXN40gsOoYlkKQCa7T5VTQ1gJNtm+sD
-	ktqTgEhFQczYNi7enT25DBY9HIeHgbX8jb1g1FgUm7IF2if9eFCjOeGlTn9lxOeTEWtEEiWe0Nf
-	gtVbTB9k8x+USZiKr0eeKnnJ4PPPknbLjdQjhhJ294Opfu2DVFXYwk+um550rqwejpqN103N07p
-	oDRBi7KjI9q/WwAJHNxg1l0qd3yGDN+BXiiJAWaxSAs+QhQNUyU4YwWDQQZTKNqoK0VTc8+bBho
-	mwrAE2LJl0c2LNMAWas0juoIhT5V1Mc/z00wXvGOooysQrPe5q9MXzxAUrjbSYl+beZ+248eKgR
-	io15NR9lGsyruhbjY4Hbta4x+d6LjGA21bBl5iBO/6A0j80W9o6pves75h11gTmOza32w5aoIfB
-	3bBNnRqy59P/IIuZI9CdnVXo2nBFRBOR5EmEO/TZbJFVMyeEJAObC9ecjrIIsdIqkSyP8ufbd7b
-	GOKJ5b27pSgUUASxxUVHhn5T5kz
-X-Received: by 2002:a05:600c:8b70:b0:4a0:108:3b48 with SMTP id 5b1f17b1804b1-4a18e4a174amr194169405e9.7.1791832580955;
-        Mon, 12 Oct 2026 12:16:20 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18bf21276sm478285355e9.8.2026.10.12.12.16.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 12:16:20 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1791837743; x=1792442543;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fqf3rGQ/R9PQCmxqvsD5ZLcC98lXYPCxdFatXGsliLY=;
+        b=PK9KFz61a6CC2hyapodHaJYLpHZkYIX5RfzKKjSSWu9MQ7vu75cnBbR2sKsG+5dqsp
+         xTZorpgGz9fJVmKHsACHQLi5HhhxNdFdr6zZgOZ7OFdcYb1ZbqrN8dAgWm40d1wdFmWN
+         FcBklMgvlytX04qJ/j5989mF84dY9PF4tfwyTRIQ0AAZzuvabGuE0O6DqCDuHTRXMksT
+         jaeswLsllptvy7elJr03l0BlJA/tdsuITHyonW2RyZF1faPftxLXLoGd45kbaYHJ9uYD
+         awoBoOy7mSIyWUNcaXfP7fAqaUYkc1QbGCottN4M82DZvKZOb7dLIOrgmqBzilIkjTDA
+         XCmw==
+X-Forwarded-Encrypted: i=1; AKwUvByq0pyRCD1JRuJsNSZNYtSMufXhooNvLpAikGW7LN2/k2Wx57kxbdeFe+oeXoNz6NmLvFGhmnYyIT02EQ==@lists.infradead.org
+X-Gm-Message-State: AFq9FYK8DEEmHKKl1/clIgg5O5vDH50bq2LOmLdJoTDe7kN3nzagbsDN
+	eEto67JzF7N3ydcc/h7UTilkYk8RZt1dcQj6a8KK1PmR3++7B7cvszEp
+X-Gm-Gg: AYBFou3oI9h8O05LCRumzTwb3UW31HlcJSOBKOdpbnkj4kTiG9TUZlGkRZ3BE+tLFTJ
+	P0MJvyuccBs5iLEEDTb48TpJNOIpQTLnDwObopEXGbCh+Qs0WWB76EpQWQtX8zoS/pUSyy4NaM1
+	9msOSdscbYj1RXwXGFOKVcEqhvbFO2MS/IAm0J0u8BGjmxf6exRfXm2IPHhsCnvDikaF8C+2gD0
+	0n9AIYGqxiroV3JNkdgINFHVo6hfr9JGwXDxVM8OIOUfh895YPeU5k7PXQf5g21/qBQW/LrL0UW
+	K0jLgmIXxQk5rMTTBD3Y+TdqLykYy5SqaOxzmd/rlrxHWJFTXxAIvBrw80Wvzuw+HCzoIDEfYtJ
+	8klCf342jeS9uHcd5lEXAZWIVIiTKu/4PEqUv7iVBOvvDDA7QTbpqSo5QV4K7lXXC9qaJWz6iZJ
+	1MajP3w7i+atwgJ8qPmK7G0PtX8R5xhwtoiXrwg0yRrqFWll5NQxgqAp5JnoupCqpPBQs3mZLWX
+	FbdzBCnLF8m2hmiG9VCqVGZOWItlZIoCR15bzjiGIgLywD490llJjJ+EWYMejFgvO4/0bgM5ykX
+	sqfZzNZrN8mfytrKjp7BbCrmO/VRBXmH6Z+6FGehpLS6uzSZYbV+rI+UrzwGSua675kNRJ34iVA
+	=
+X-Received: by 2002:adf:efc6:0:b0:486:e9ab:2b88 with SMTP id ffacd0b85a97d-48dbaadb11amr14086227f8f.24.1791837742943;
+        Mon, 12 Oct 2026 13:42:22 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-a8ab-0f01-016a-c770-797f-eaee.310.pool.telefonica.de. [2a02:3100:a8ab:f01:16a:c770:797f:eaee])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0ac3970sm1186179f8f.37.2026.10.12.13.42.21
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 12 Oct 2026 13:42:22 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Guo Ren <guoren@kernel.org>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	kasan-dev@googlegroups.com,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: Always inline on_thread_stack()
+Date: Mon, 12 Oct 2026 22:42:11 +0200
+Message-Id: <20261012204211.3351-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-Subject: Re: [PATCH v6 00/15] Add basic clocks and resets for JHB100 SoC
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, 
- Changhuang Liang <changhuang.liang@starfivetech.com>, 
- Brian Masney <bmasney@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <20261012-grass-guru-1ba876eda895@spud>
-References: <20261008123338.11081-1-changhuang.liang@starfivetech.com>
- <179180050741.66744.3459927533880490879.b4-review@b4>
- <20261012-grass-guru-1ba876eda895@spud>
-Date: Mon, 12 Oct 2026 21:16:19 +0200
-Message-Id: <179183257960.266355.15581316876923702717.b4-reply@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1422; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=F1N9sc0phttKEroqTY7fq4cUBOZftvRnSXLYqSUrN14=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFlnjZhzV537/L/M+KX8bkkb84JgjbmKcnd7zSVXvGQ/5
- +/C/0awo5SFQYyLQVZMkaWGu1r8naTWl1nTdW7DzGFlAhnCwMUpABPx2sbIcMUr0nD6Uoazbr/u
- /xA7XB+v681zct+D7QsW+fbozLtpuZPhnxWT2QFppxW/hcrua0zme85ue+FEzqEHjZ7nmtNjjC9
- E8wMA
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_121623_610916_378F841A 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20261012_134225_169475_003E623B 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,39 +108,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-10-12 20:03 +0100, Conor Dooley wrote:
-> On Mon, Oct 12, 2026 at 12:21:47PM +0200, Jerome Brunet wrote:
-> > > The JHB100 SoC includes CRG (Clock and Reset Generator) for multiple
-> > > subsystems:
-> > 
-> > Nothing really forces you to send them all together.
-> > 
-> > In the future, could you try to send one CRG driver at a time ?
-> > 
-> > It is fine to send big RFC to give context but after that, if you
-> > can make you series smaller, it is generally a good idea to do so.
-> > 
-> > This helps us iterate on the series faster and then you can fold our
-> > feedback in following series (instead of repeating the same comments
-> > on multiple instances of the same thing) Thanks.
-> > 
-> 
-> > Also your series does not apply on clk-next or -rc1 and no pre-requisite
-> > are mentioned in this cover letter. Consider using b4 to point out
-> > your pre-requisite if any
-> 
-> The dep should be the PR I sent to Brian, but I suspect what's happened
-> here is that the MAINTAINERS parts of those patches (which I had dropped
-> because they were all conflicting with my tree) didn't get reabsorbed
-> into this series. Very annoying for review of course, even if it's a
-> non-functional conflict. Of course rebase on top of clk-next would've
-> highlighted that to the submitter!
+With CONFIG_IRQ_STACKS=y, GCC may outline on_thread_stack().
+CONFIG_KCOV_INSTRUMENT_ALL instruments it, and do_irq() calls it before
+irq_enter_rcu() increments the hardirq count.
 
-Yes it was only the MAINTAINERS file which I did rebase to check if the rest
-applied correctly.
+Normal KCOV records this interrupt coverage in the task's buffer, making
+results timing-dependent.
 
+With CONFIG_KCOV_SELFTEST=y, current->kcov_area remains NULL. In QEMU, a
+timer interrupt called the helper before hardirq accounting. KCOV treated
+it as task coverage and dereferenced NULL. Fault handling recursed to stack
+overflow and stopped boot.
+
+On a BeagleV Ahead, the unpatched kernel did not finish the selftest within
+120 seconds. Three patched boots completed it and reached init.
+
+Mark the helper __always_inline to keep it in noinstr do_irq(), following
+commit 1894a4030582 ("x86: Always inline on_thread_stack() and
+current_top_of_stack()"), which fixed the same out-of-line call from x86
+noinstr code.
+
+Fixes: 163e76cc6ef4 ("riscv: stack: Support HAVE_IRQ_EXIT_ON_IRQ_STACK")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+Tested with GCC 15.2.0 and QEMU 10.2.1 on v7.3-rc7. Both images
+used byte-identical configs and v7.3-rc7 rebases of these seven pending
+patches (canonical commit IDs shown):
+
+  3a25097bf845 kcov: use unsigned int for kcov_start() mode parameter
+  e39a9c820c37 kcov: add kcov_pause()/kcov_resume() helpers
+  ae2662563c3e hrtimer: pause KCOV during deferred rearm
+  554af946139e sched: pause KCOV in __schedule()
+  7f608b777204 sched: pause KCOV in try_to_wake_up()
+  2ba73ec2a246 sched: pause KCOV in wake_up_new_task()
+  5ee777070fac context_tracking: exclude from KCOV instrumentation
+
+                              plain inline  __always_inline
+KCOV selftest started                  yes              yes
+KCOV selftest finished                  no              yes
+Reached /init                           no              yes
+
+The plain-inline image stopped after printing "kcov: running self test"
+and reached the 45-second limit. The patched image reached /init in two
+60-second runs. Those runs timed out after the marker because the test
+/init deliberately loops.
+
+The first common patch is a type prerequisite. The remaining pause and
+exclusion changes suppress separate KCOV callbacks that otherwise obscure
+this test. CONFIG_RISCV_ISA_V_PREEMPTIVE was disabled to avoid a separate
+vector-entry callback. The only A/B source difference was this patch.
+
+The same images were tested on a BeagleV Ahead (TH1520, four C910 CPUs).
+The plain-inline image did not finish the selftest or reach /init during
+120 seconds after the start message. It reported RCU stalls, and CPU 1
+did not answer NMI requests. No panic or stack-overflow message was
+printed. All three patched runs completed the selftest in about 0.301
+seconds and reached /init.
+
+ arch/riscv/include/asm/stacktrace.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
+index b1495a7e06ce..c7c991452e11 100644
+--- a/arch/riscv/include/asm/stacktrace.h
++++ b/arch/riscv/include/asm/stacktrace.h
+@@ -16,7 +16,7 @@ extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *re
+ extern void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+ 			   const char *loglvl);
+ 
+-static inline bool on_thread_stack(void)
++static __always_inline bool on_thread_stack(void)
+ {
+ 	return !(((unsigned long)(current->stack) ^ current_stack_pointer) & ~(THREAD_SIZE - 1));
+ }
+
+base-commit: 24a19b953e2a3d0ea5a8c4951a0ab8f32720c907
 -- 
-Jerome
+2.53.0
 
 
 _______________________________________________
