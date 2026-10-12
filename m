@@ -4,77 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB55CA9ED0
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 08:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D78CA9ED1
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 08:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YcZxSDb01RLiFKWsXmu7T0/8WbIszWfjlPRKBDs3ZKw=; b=1uOMH6hPV7XkOZ
-	7eDBmZFguujkInkjSQfC8IBDEOFeby6NOHr9ozNJDTGCRw56IGkEWYKlpEbKIkL4xPWoiCCEAXA3t
-	oE3WVUXJeCcmI8BKvRUoEH6+UEvTF+FJTNy9oVf5Ts8EaXg81r6h9e38WE8YDZzy9NetmuvY8YXDj
-	neGvRkGn+DTivqnUFAuF+kLSCcq1/0e2An9DzYeSaEMFga6/lr6RE88KcHMYckPErtHAI7EYT039g
-	cPqjObeOVcnrQ3D+vWNOeAeSSyFfCekQKLGwFvYGhnMyzXqv/uVQi7wTaD3mKWbUjaHqr9p05aiEH
-	SXdA9X5GxcHAjnxBxqpw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8V0HfwrGq53wgIi7apmZnVnP2GwvEMtaINr0K7uHn2k=; b=rr/+7rFB1k3ruR
+	iWu8ydXILnhCeW+JniCkjPHHuVA9voOJGh9ejylosdXHIk5i++mXC9/8Cdtil4UHKkdCGqsU39NbT
+	fO+Ixbyk1W/MzOrUTgTTrVcBcguNHEs2mjm4EnsK6QhdYBUHsAHx/H3Celor4HcgtJDqzWSkAddrt
+	WctnzYE0vuLWrFLWkABLzgwpnHBhDUME+A04ofF6+zMnzVUu4knRquEL2p6+i/UFabk+TuZ1NstVp
+	aQUy3geJ7G4h1pCD15kBc/0SCrOD98SwMg92gpIni2saPlq9pW2X+fCZv0TmkYLt3eAs2slHZvMXW
+	saFtD+8/WGS+JzipJvFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGBTe-00000009wi4-32pt;
-	Mon, 12 Oct 2026 08:33:46 +0000
-Received: from esa2.hc555-34.eu.iphmx.com ([23.90.104.147])
+	id 1xGBdK-00000009yTd-03Ds;
+	Mon, 12 Oct 2026 08:43:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGBTY-00000009wgW-2Usi
-	for linux-riscv@lists.infradead.org;
-	Mon, 12 Oct 2026 08:33:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1791794020; x=1823330020;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=yk5YgdwDFIhuj5pDr51VySvnm39q0kEC5UqKQPSxas0=;
-  b=UGTm4DB6fIfQnxVn6isqp1KyrElmCPpFHLVKlBZqTEI+5ijDgceWsj4n
-   GdHYZQEiMp3WJuGZrObC3lGlUHsXnn/qst+EBv1Mnxp5WOR24m5yeEDIe
-   3NRZehkUyL2QViAHHoWGZ8BuDU3X9KOhwPSTOWvIchBi7wSWsY9xNITft
-   2YgWqEiUV5xSIjKcZYwqpFy9yS5jTl7X4DEehknwlksdI2tMkQHzE4Hkv
-   8uL2ZOo1HZVXxn3WHzDRNBB2mPtL12xtevjC0sJ8GCkynnTZUB0bX5Lcb
-   LgO4KnB/MMNaISaeA9N/pnJ8ltpysilNPKxXbsnNAyJYw4Cz5rONPwp9N
-   Q==;
-X-CSE-ConnectionGUID: 85EiJLsRRYCAp3DoasNOmA==
-X-CSE-MsgGUID: VC5oS3fPSiC5ZOE4g3IV0Q==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
-  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 11:33:37 +0300
-X-CSE-ConnectionGUID: XiyqeNnYQziIV4rRQ/vKzA==
-X-CSE-MsgGUID: 6Kn7LuKPSWSm64iHmOB5dw==
-Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.2])
-  by ces04_data.me-crop.lan with SMTP; 12 Oct 2026 11:41:02 +0300
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Mon, 12 Oct 2026 11:33:36 +0300
-From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Date: Mon, 12 Oct 2026 11:33:26 +0300
-Subject: [PATCH v2] irqchip/riscv-aplic: fix asynchronous probing
+	id 1xGBdI-00000009yTE-3Dt9;
+	Mon, 12 Oct 2026 08:43:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D730C60DB7;
+	Mon, 12 Oct 2026 08:43:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5C021F0089B;
+	Mon, 12 Oct 2026 08:43:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791794623;
+	bh=guyaaiXCI/rOcpPuJT7JKgOohKhp9or0AqS1UexNjOU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=YP+8rVByzmm+woAzbMGm2wcdkoZFXDhKzdV2KQZ7ILx9YfpQnAeAwIE8e4SAYxxmt
+	 5fOYwXZpsGafpMF2VTiqjUcYnkWbO+CKSKCAwQdvJ+I6NJjmmAWRfoCvWiNlg3sK5g
+	 vZY68JIjTkTibsf2VqUIR7u3dlBv3QjtZDvbfkaJ1tSjP8Oj75Hkh6DJNz+gnZfgkS
+	 +Sx6XFG4ZmbkAy5hhyDFq4pVRcJeO1bPnb22/Iw4UoZpF9Jgj3FPIOsapgUM4i4VMm
+	 T3evCNJkxY8TYM0XrkCqJpzAcBD87emk9TJgyAB7Mtdomf6nV8xjePKV0A0VyYdxXD
+	 gku/DdoCfja+w==
+Message-ID: <d0f00c80-7ba7-4701-97bc-4f1d3a91d48c@kernel.org>
+Date: Mon, 12 Oct 2026 10:43:34 +0200
 MIME-Version: 1.0
-Message-Id: <20261012-aplic-async-probe-v2-1-868d7684c9d6@mobileye.com>
-X-B4-Tracking: v=1; b=H4sIAFWbzGoC/32NTQ6CMBBGr0Jm7ZhOLfVn5T0Mi1IHmQQoaU0jI
- dzdygFcvpd871shcRROcKtWiJwlSZgK6EMFvnfTi1GehUErbUmRRjcP4tGlZfI4x9AyXshqw+p
- UW3WGspsjd/LZm4+mcC/pHeKyX2T62X+1TEhovPamq1t1JXsfQysDL3z0YYRm27YvpxHvOLUAA
- AA=
-X-Change-ID: 20261012-aplic-async-probe-81624e035607
-To: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@kernel.org>, 
- Radu Rendec <radu@rendec.net>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
- Jessica Liu <liu.xuemei1@zte.com.cn>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-rt-devel@lists.linux.dev, 
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_013341_523361_5FC8A4D7 
-X-CRM114-Status: GOOD (  13.45  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: dts: allwinner: Keep MQ Pro Wi-Fi powered during
+ suspend
+To: khaliforce <kforce@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <179172282222.4040500.483739720170904755.mq-pro-sdio-suspend@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <179172282222.4040500.483739720170904755.mq-pro-sdio-suspend@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,129 +119,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-boolean flag don't protect from race when probing several instances
-asynchronously. On system with multiple APLICs, if probed asynchronously,
-warning triggered as below.
+On 11/10/2026 14:47, khaliforce wrote:
+> The RTL8723DS driver requests MMC_PM_KEEP_POWER during suspend.
+> The MQ Pro SDIO host lacks this capability.
+> The request returns -EINVAL and aborts suspend.
+> 
+> Add keep-power-in-suspend to the board's SDIO controller.
+> 
+> Tested on MangoPi MQ Pro.
+> RTC-triggered s2idle wake and Wi-Fi reconnection pass.
+> 
+> Signed-off-by: khaliforce <kforce@gmail.com>
 
-[    0.227210] riscv-aplic 67560000.interrupt-controller: 257 interrupts directly connected to 8 CPUs
-[    0.227210] riscv-aplic 674e0000.interrupt-controller: 257 interrupts directly connected to 8 CPUs
-[    0.227224] ------------[ cut here ]------------
-[    0.227227] list_add double add: new=ffffffff8130ced0, prev=ffffffff8130ced0, next=ffffffff81316d40.
-[    0.227302] WARNING: lib/list_debug.c:35 at __list_add_valid_or_report+0xe0/0xe6, CPU#4: kworker/u97:0/211
-[    0.227322] Modules linked in:
-[    0.227333] CPU: 4 UID: 0 PID: 211 Comm: kworker/u97:0 Not tainted 7.3.0-rc6 #1 PREEMPT_RT
-[    0.227341] Hardware name: EyeQ7H evaluation board (DT)
-[    0.227346] Workqueue: async async_run_entry_fn
-[    0.227358] epc : __list_add_valid_or_report+0xe0/0xe6
-[    0.227366]  ra : __list_add_valid_or_report+0xe0/0xe6
-[    0.227375] epc : ffffffff804a08a0 ra : ffffffff804a08a0 sp : ffffffc600823b90
-[    0.227379]  gp : ffffffff81389e70 tp : ffffffd60135ee00 t0 : 0000000000000000
-[    0.227383]  t1 : 3fffffffffffffff t2 : 0000000000000000 s0 : ffffffc600823bb0
-[    0.227387]  s1 : ffffffff8130ced0 a0 : 0000000000000058 a1 : ffffffd9efc9e5c0
-[    0.227391]  a2 : ffffffd9efd5c510 a3 : 0000000000000000 a4 : 0000000000000000
-[    0.227395]  a5 : 0000000000000000 a6 : ffffffd9efc6e5c0 a7 : bfffffffffffe000
-[    0.227399]  s2 : 0000000000000000 s3 : ffffffff8130ce28 s4 : 0000000000000000
-[    0.227402]  s5 : ffffffd6018b65c8 s6 : 0000000000000000 s7 : ffffffd6012fd605
-[    0.227406]  s8 : ffffffd6010c3400 s9 : 0000000000000000 s10: 0000000000000000
-[    0.227409]  s11: 0000000000000000 t3 : 3fffffffffffe000 t4 : 0000000000000020
-[    0.227413]  t5 : 0000000000000000 t6 : ffffffc6008238f8 ssp : 0000000000000000
-[    0.227417] status: 0000000200000120 badaddr: ffffffff804a08a0 cause: 0000000000000003
-[    0.227422] [<ffffffff804a08a0>] __list_add_valid_or_report+0xe0/0xe6
-[    0.227432] [<ffffffff80558226>] register_syscore+0x30/0x60
-[    0.227444] [<ffffffff804ca0fe>] aplic_probe+0xd2/0xfa
-[    0.227453] [<ffffffff80559b2e>] platform_probe+0x3e/0x7a
-[    0.227461] [<ffffffff8055731a>] really_probe+0x88/0x35c
-[    0.227469] [<ffffffff805576ae>] __driver_probe_device+0xc0/0x13a
-[    0.227478] [<ffffffff805577f4>] driver_probe_device+0x38/0xb2
-[    0.227486] [<ffffffff80557ba6>] __driver_attach_async_helper+0x3c/0xc4
-[    0.227493] [<ffffffff80054a0e>] async_run_entry_fn+0x28/0x154
-[    0.227500] [<ffffffff8004482a>] process_one_work+0x14e/0x3d2
-[    0.227509] [<ffffffff800452fe>] worker_thread+0x144/0x286
-[    0.227516] [<ffffffff8004ca3e>] kthread+0xee/0x10e
-[    0.227524] [<ffffffff8001050a>] ret_from_fork_kernel+0x18/0x14e
-[    0.227532] [<ffffffff807bef36>] ret_from_fork_kernel_asm+0x16/0x18
-[    0.227542] ---[ end trace 0000000000000000 ]---
-[    0.228475] pinctrl-single 48508000.pinctrl: 512 pins, size 2048
-[    0.228500] pinctrl-single 53838000.pinctrl: 512 pins, size 2048
-[    0.228723] pinctrl-single 67107000.pinctrl: 512 pins, size 2048
-[    0.227210] riscv-aplic 674e0000.interrupt-controller: 257 interrupts directly connected to 8 CPUs
-[    0.227224] ------------[ cut here ]------------
-[    0.227227] list_add double add: new=ffffffff8130ced0, prev=ffffffff8130ced0, next=ffffffff81316d40.
-[    0.227302] WARNING: lib/list_debug.c:35 at __list_add_valid_or_report+0xe0/0xe6, CPU#4: kworker/u97:0/211
-[    0.227322] Modules linked in:
-[    0.227333] CPU: 4 UID: 0 PID: 211 Comm: kworker/u97:0 Not tainted 7.3.0-rc6 #1 PREEMPT_RT
-[    0.227341] Hardware name: EyeQ7H evaluation board (DT)
-[    0.227346] Workqueue: async async_run_entry_fn
-[    0.227358] epc : __list_add_valid_or_report+0xe0/0xe6
-[    0.227366]  ra : __list_add_valid_or_report+0xe0/0xe6
-[    0.227375] epc : ffffffff804a08a0 ra : ffffffff804a08a0 sp : ffffffc600823b90
-[    0.227379]  gp : ffffffff81389e70 tp : ffffffd60135ee00 t0 : 0000000000000000
-[    0.227383]  t1 : 3fffffffffffffff t2 : 0000000000000000 s0 : ffffffc600823bb0
-[    0.227387]  s1 : ffffffff8130ced0 a0 : 0000000000000058 a1 : ffffffd9efc9e5c0
-[    0.227391]  a2 : ffffffd9efd5c510 a3 : 0000000000000000 a4 : 0000000000000000
-[    0.227395]  a5 : 0000000000000000 a6 : ffffffd9efc6e5c0 a7 : bfffffffffffe000
-[    0.227399]  s2 : 0000000000000000 s3 : ffffffff8130ce28 s4 : 0000000000000000
-[    0.227402]  s5 : ffffffd6018b65c8 s6 : 0000000000000000 s7 : ffffffd6012fd605
-[    0.227406]  s8 : ffffffd6010c3400 s9 : 0000000000000000 s10: 0000000000000000
-[    0.227409]  s11: 0000000000000000 t3 : 3fffffffffffe000 t4 : 0000000000000020
-[    0.227413]  t5 : 0000000000000000 t6 : ffffffc6008238f8 ssp : 0000000000000000
-[    0.227417] status: 0000000200000120 badaddr: ffffffff804a08a0 cause: 0000000000000003
-[    0.227422] [<ffffffff804a08a0>] __list_add_valid_or_report+0xe0/0xe6
-[    0.227432] [<ffffffff80558226>] register_syscore+0x30/0x60
-[    0.227444] [<ffffffff804ca0fe>] aplic_probe+0xd2/0xfa
-[    0.227453] [<ffffffff80559b2e>] platform_probe+0x3e/0x7a
-[    0.227461] [<ffffffff8055731a>] really_probe+0x88/0x35c
-[    0.227469] [<ffffffff805576ae>] __driver_probe_device+0xc0/0x13a
-[    0.227478] [<ffffffff805577f4>] driver_probe_device+0x38/0xb2
-[    0.227486] [<ffffffff80557ba6>] __driver_attach_async_helper+0x3c/0xc4
-[    0.227493] [<ffffffff80054a0e>] async_run_entry_fn+0x28/0x154
-[    0.227500] [<ffffffff8004482a>] process_one_work+0x14e/0x3d2
-[    0.227509] [<ffffffff800452fe>] worker_thread+0x144/0x286
-[    0.227516] [<ffffffff8004ca3e>] kthread+0xee/0x10e
-[    0.227524] [<ffffffff8001050a>] ret_from_fork_kernel+0x18/0x14e
-[    0.227532] [<ffffffff807bef36>] ret_from_fork_kernel_asm+0x16/0x18
-[    0.227542] ---[ end trace 0000000000000000 ]---
-
-Fixes: b330fbfd34d7 ("irqchip/riscv-aplic: Register syscore operations only once")
-Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
----
-Changes in v2:
-- fixed potential access to read-only page
-- Link to v1: https://lore.kernel.org/r/20261012-aplic-async-probe-v1-1-4c2c4f5b0916@mobileye.com
----
- drivers/irqchip/irq-riscv-aplic-main.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
-index d9afb6ae98cf56d6fd9f858c31a3d23546c3b450..788b9f855cb7e5340a28e5b6acb5e9185a587717 100644
---- a/drivers/irqchip/irq-riscv-aplic-main.c
-+++ b/drivers/irqchip/irq-riscv-aplic-main.c
-@@ -116,14 +116,12 @@ static struct syscore aplic_syscore = {
- 	.ops = &aplic_syscore_ops,
- };
- 
--static bool aplic_syscore_registered __ro_after_init;
-+static atomic_t aplic_syscore_registered __ro_after_init = ATOMIC_INIT(0);
- 
- static void aplic_syscore_init(void)
- {
--	if (!aplic_syscore_registered) {
-+	if (!atomic_cmpxchg(&aplic_syscore_registered, 0, 1))
- 		register_syscore(&aplic_syscore);
--		aplic_syscore_registered = true;
--	}
- }
- 
- static int aplic_pm_notifier(struct notifier_block *nb, unsigned long action, void *data)
-
----
-base-commit: 24a19b953e2a3d0ea5a8c4951a0ab8f32720c907
-change-id: 20261012-aplic-async-probe-81624e035607
+Please read submitting patches document about properly attributing patches.
 
 Best regards,
--- 
-Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
