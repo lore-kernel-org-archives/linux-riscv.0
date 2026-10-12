@@ -4,103 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2029CA9ED1
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 10:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13149CA9ED1
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 11:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xa3tdyhIIj3hIjpr/Sv+ZbbFWzi9PkM82R3xmxUK20Y=; b=tTCeM0S0Hz++q4
-	HUDF3De0IW/qswmy/JCczNCBtNV69B8p4d+nIyKEnUKeWjMW0LJntBLWF+uzvjIzo2rVtVjHjlHVD
-	tXF9jnjua3Nc0OCjQyJUOiM66Pb/sK8aAvwInLx8J3G+iPdqaSnYMv3aF5YWzRFhSsMMkPYIc/q8v
-	hBCy9ohPJqsecn8AdjGAMUZ+rkTd/e9UYUBOC9esd+QMP053gwR3TdGHYo/bm/amWayuXB9BECWp0
-	F1rkaCsUHh+ehRICp3hwTWlDV5Lfk2vsvChQm7yWO/XvtWHV3AEEeMCjsjSVbWl9Ipd+ZOzTXm3tl
-	FiRSw1GxNDJ+qAx+OQEQ==;
+	List-Owner; bh=4PQufQozOPDtFp1vUlAIuzPENg2EgX6hTTZk5V634Es=; b=x/+FumXrOwikw2
+	plKdJBW8ZAR/7P3u5BE40FyubyP6IQmRDv8tq9He4jYS+DeM3EYqqF3UsiYwLYyTkD1Q5xiQq0D/8
+	fa/ft8zUml/OIHpZDM3E+LCCdg4ExLJzkMeCPp/Z3mkTs9tFKwBGGPT9d3KS5irUBlBfd6HlkSlw+
+	v8keyMOAlvfqibnzUX8eps7GZLomlNtOCl2Vp8XQwqwnkpnma494DsvdvDU0Uw/je1VOSjh1314e7
+	x5UNn5FjIlYvX3tCoUc7UMnrIFNMvc7X8tDXRbkOEGfrFu3QLKenr5Frd7OI+rkGjIhgYdcunsivk
+	Gcn9JPBkhFUbTnOoBYEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDAf-0000000ADEE-0TUG;
-	Mon, 12 Oct 2026 10:22:17 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1xGE04-0000000AKRa-4A4p;
+	Mon, 12 Oct 2026 11:15:24 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDAT-0000000ACyf-2s4e
+	id 1xGE00-0000000AKQk-22HP
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Oct 2026 10:22:09 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4a018dc1f98so13472225e9.3
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2026 03:22:05 -0700 (PDT)
+	Mon, 12 Oct 2026 11:15:21 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-48441a2ba1bso1003944f8f.1
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2026 04:15:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1791800524; x=1792405324; darn=lists.infradead.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=AJYyZEBiOUM7OvSMbISuEMhl5UT5CKz97qPqv6r5uKs=;
-        b=D2SYYz1IhPTsM+YvR6kqlZwSjnykb4y5Mv+PFh1ox21mL8sj7j1ykw3T5YheAbZNf8
-         X3+zd7ClVg3OQwhtiZHnDVrMb6tAB6quuI39bo3Q/FpF5Bv0kcQWSv1sDs08gXKnI6gy
-         HLSA89r4sq6qCEkXgA9mqBlbXgB8Oa8hF+1nrG9Zsh0uft6jC+NBYNn8Nwhog/tD7lFn
-         49u7HWmp/BrDwFxA7pFUuFgC6sUEj3dln3nyLSmd4t/JkJc8zldYIVzrVheRwSKV3/t9
-         XjG4urjBOdHWfPA/+OlbPzoJwFKCJhTH3C3rRZmIa4iPhWNi6gfl2jzPYBwlCURXX10P
-         HCxQ==
+        d=gmail.com; s=20251104; t=1791803718; x=1792408518; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=dOcvEm9msY+cl7KKbAZfMaogQnVH3/RbIaSfojxkTRo=;
+        b=ZXkIfO0fQOTTXBdXlFXyj5wcCcxJLHmbf+oBHtZQB06I+RYWbB/HVl8bPBRDzkzs8d
+         bF1ftHACenCDRt5Tf+eHIRpNQ5oYx3drI4wzjIcbkOvFX7KZcWYhI4rCrzvYZjTgrKIf
+         p4FTdLdOjii6X7cWH0m27YgdNrV6AiGKUrTXFbhLeq8KEfSWY1Wg9e6QetVn2svYgPwb
+         bX7gtJpMBvAboUQq7f+KHHevA4wkfCWQ9nUmfqibrLGIrA+0xdIZa9jpDnI0ZCPXaLp5
+         xIkm1KQg9zDMuDNnmZPiUVDo5TSs1ONTD3tLA5MUc0Wl/NRSFJM9nt1EtBy49nZch/4q
+         2jIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791800524; x=1792405324;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1791803718; x=1792408518;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=AJYyZEBiOUM7OvSMbISuEMhl5UT5CKz97qPqv6r5uKs=;
-        b=WH9B7eFD4/Src9nvaWI8xJhjKRL81kgcv2+bL0pkMKuPZFj3r1yCbAdPHTgUor2fUH
-         SOWtjOIXb2VdKwnA29TDF8pgeQBMl+a8hIiOrDqdpoxOw//07HYJ21id/n+OHSaTwSkj
-         iCV/z01Hs8DQMgn1WcUBABWBzDR89UIqprjf6JoxRgTNIY8pJsFSV7hKcyrYtbE5XrHd
-         HJY5Yakum3+YVGM1rBfNv05OXUi5ga/JAfCuSXLQZcvxhnBvRqASiDO+PORf3qg1YxUf
-         3vWCxc2VwacCn7IGJbFKtuh+10VoBDhsFLvjH8lwRgzTaazZi1QvnjkWvIV9ajar8T7l
-         iYVQ==
-X-Forwarded-Encrypted: i=1; AKwUvByr8sn3bhwwRUbG8XxQgxBVRh1vX1fZktIwFOy5eULnXlDduVqjXtnJVPysi8m4ap0jT+H94nc3TDMLJg==@lists.infradead.org
-X-Gm-Message-State: AFq9FYLwWFaNOScz5CO56xJ2JSnCBqEmgmFGeB95QyctXC9xr30Tae22
-	Y3EQ+lp68myW+7jD+hb2SqS5BhPcb5jCVsRA270uOk0iW754vmh4NCRYl3+muv1CN7w=
-X-Gm-Gg: AYBFou1af8x39Vq5LGXvNwBNcjxJjxr4I4/xK3QOdnhn9LLnaqXsgXLlmo3pXwjCz7Q
-	lLbALPuk3Xv1TcfuoTl7a/9Rws/sIC9qYYMShmGM3Egjv0s/YHwfnkQ9Ka/9ZzPWXVJydAr5dvT
-	tm1mWtJlzhf0GdDCu/qBksTSEOWsEHqcRqxgfHAm/KjKo+bQMgyN5kOFfr3fyMH+oYdWCAsCl5T
-	CMQW47bhB83bqcAXbaVDfqsqOHq+orYUsX8FhxAG16mslCLcof8324hzgDGZUY6gZTm89DzR5Te
-	xz2NOx0r8Rnpk4roppcXc5atqfmZdvZweIi+zswT0Css73vprZ7A3Xzwt082MjtupZMS3KDqeMh
-	XxnB8dXj4c+LCuNc/NNUiJ/n4N1cp+19f5GAoRDQzSgbCXnSpdhPr1tIg3qJMvivOTJyqxrvDEq
-	xfceUb21UOOntQbq6rgvvUW6R8keXLXHM4ueEbV/dF/7NWEXlJ/d6bjABpAZ0V3T6LBeI62fH8B
-	6lhtvQipRpZm8B/yg==
-X-Received: by 2002:a05:600c:3e0a:b0:4a0:1c10:1419 with SMTP id 5b1f17b1804b1-4a18e4cd667mr165296415e9.26.1791800523761;
-        Mon, 12 Oct 2026 03:22:03 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a19f249692sm143801505e9.3.2026.10.12.03.22.03
+        bh=dOcvEm9msY+cl7KKbAZfMaogQnVH3/RbIaSfojxkTRo=;
+        b=Vm5RMLg8AZDUQoG4c6ngpoRhPWMdfs8h+j9K4CnCRwnonWbVCJXRQDkhwCEHb2AgmK
+         GngGCv0UnF9t2b+yBDeLCtEC+LS78sbix6gUM3BMufh3nkDYTPmS0vpcOts2oU3CjfkV
+         e4GOVy1Rk69CZt8vEDcMxWAEqtB2sOi/qXl6TUu6ruJTMkesAdz7wUluQuvCc1AHEJ11
+         k1fKtvP8dyFEL4nhqcyuK5YjWITRMBZg0XHVXIKOMxHsCYmhwxClN2LAZMIRd7kA0ynT
+         bCJZz/3N9izo42oqMjkwWTWEVs95MlzjEuSKiUqIeAQ5kljAIHTnPPXzyc5koKrxsO2s
+         0G9Q==
+X-Forwarded-Encrypted: i=1; AKwUvBxsReMxk6UZmEEl5ENveDcrB4QHFTKZX4yQeZefkpSW62765rGixsh1XXzXKx0igMTnYurJTob8elwhyg==@lists.infradead.org
+X-Gm-Message-State: AFq9FYL3FJqEC1MRnBrJiQBjoInQG9g/LGkKwKHsSKcxrOwFDF+MF0p5
+	dG+dnpLInRxeIaisYydocBt5NVQ0rF3eXIduzDYtr1kC+vWqqOtu6Ivh
+X-Gm-Gg: AYBFou3VNay7KYaUjkfRQrYEDRafP1WYGyGw0yj0i5AVdVHPcBn/eZyX3/crsDsQeIe
+	HV2Otn7T0U8apClocfuUDKKk7iJWITFmH/4bLMurFpV7QcPKmsMDule4ibeX+vuyt8WPuHo1SnR
+	MuKOBwwpLA43JIuqbWaRbVD1VC37+x9O6NlZdnjqxorjZAMtHqvMu2YtjiKipsTdTSTt4wTPFuq
+	wI+mwpdx58C0EkvMOJjt6BXvbJzjMCkBWpBzJYUk0/OjqTCZE6YbqDrWY+qkrNjPiKE7MuAZi6A
+	xh2i0ypBrwXQGpVbpDyqh+ELIUq21gggMzR/dcrVXH+ACr/6O5PStAzxzOnIcj9mpFRvdpAEvWg
+	5Qt8ZN8LPGHQtHGqYJp4GmwgA0gdoaJ7MNFvK9kmzg8qBhAw9Skd60SCoXwrmS6Lh3HYYjcG16t
+	uQokOWijJRxo4g2UOBcZYAM+DVY/wvxzOHtOhroDkNfYJu/D3E4QUoWN+L+L4RyWAo46Nhqw==
+X-Received: by 2002:adf:e005:0:10b0:48d:dec7:974c with SMTP id ffacd0b85a97d-48ddec797bfmr346783f8f.7.1791803718021;
+        Mon, 12 Oct 2026 04:15:18 -0700 (PDT)
+Received: from gmail.com ([83.231.69.9])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db94e33d2sm20034954f8f.9.2026.10.12.04.15.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 03:22:03 -0700 (PDT)
+        Mon, 12 Oct 2026 04:15:17 -0700 (PDT)
+Date: Mon, 12 Oct 2026 13:15:14 +0200
+From: "Jose A. Perez de Azpillaga" <azpijr@gmail.com>
+To: Muchun Song <songmuchun@bytedance.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	David Hildenbrand <david@kernel.org>, Oscar Salvador <osalvador@suse.de>, 
+	Dave Hansen <dave.hansen@intel.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org, 
+	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, Muchun Song <muchun.song@linux.dev>
+Subject: Re: [PATCH v2 1/4] mm: fix missing page-table destructor in
+ pagetable_free()
+Message-ID: <asy-b7_C3SjnmSaS@gmail.com>
+References: <20261010112457.49485-1-songmuchun@bytedance.com>
+ <20261010112457.49485-2-songmuchun@bytedance.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v6 10/15] clk: starfive: Add StarFive JHB100
- Peripheral-0 clock driver
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Brian Masney <bmasney@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <20261008123338.11081-11-changhuang.liang@starfivetech.com>
-References: <20261008123338.11081-1-changhuang.liang@starfivetech.com>
- <20261008123338.11081-11-changhuang.liang@starfivetech.com>
-Date: Mon, 12 Oct 2026 12:21:47 +0200
-Message-Id: <179180050742.66744.4988353309640403131.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5017; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=tTAZF8a763gW6j5Lx6Y94iC7OKIfcaHRy+T2VFppwEc=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFlntuznFX6rbup/o6uqu9d9gqCAanb70c5Ja+t9j3U/n
- 5LInFLXUcrCIMbFICumyFLDXS3+TlLry6zpOrdh5rAygQxh4OIUgIm4v2T4K+gjayPzakqr4lEd
- aSMdb5GHD+Pm7Jh923+T2fu20m37tzP8d/K+9HX1+cdPlaMOSJvuLd6/eeXc7mu2LTKnzorHNUk
- 85AMA
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+Content-Disposition: inline
+In-Reply-To: <20261010112457.49485-2-songmuchun@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_032207_779777_7ED83DBF 
-X-CRM114-Status: GOOD (  25.83  )
+X-CRM114-CacheID: sfid-20261012_041520_578771_12D50D42 
+X-CRM114-Status: GOOD (  25.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,121 +110,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> Add driver for the StarFive JHB100 Peripheral-0 clock controller.
+On Sat, Oct 10, 2026 at 07:24:54PM +0800, Muchun Song wrote:
+> Since commit 49f599666420 ("mm: call ctor/dtor for kernel PTEs"),
+> pte_alloc_one_kernel() runs the page-table constructor for kernel PTE
+> tables.
 > 
-> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> HVO (HugeTLB Vmemmap Optimization) uses pte_alloc_one_kernel() when
+> splitting a PMD. Restoring the vmemmap backing pages does not collapse
+> the PTE table, so a later memory hot-remove eventually frees it through
+> pagetable_free() on x86-64. That releases the page without running the
+> matching destructor and leaves NR_PAGETABLE elevated.
+> 
+> Make pagetable_free() detect constructor-backed pages and run the
+> destructor before releasing their memory to fix the problem.
+> 
+> Fixes: 49f599666420 ("mm: call ctor/dtor for kernel PTEs")
+> Cc: stable@vger.kernel.org
+
+is the x86 case covered for 6.16-6.18? as far as I can see, x86
+free_pagetable() only uses pagetable_free() since bf9e4e30f353
+("x86/mm: use pagetable_free()") in v6.19, so the backport wouldn't
+change anything there. or am I missing something?
+
+> Assisted-by: LLM
+> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
 > ---
->  drivers/clk/starfive/Kconfig                  |  10 +
->  drivers/clk/starfive/Makefile                 |   1 +
->  .../clk/starfive/clk-starfive-jhb100-per0.c   | 617 ++++++++++++++++++
->  3 files changed, 628 insertions(+)
->  create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-per0.c
->
-> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-> index cfaac934a8e0..b2a05bbb450f 100644
-> --- a/drivers/clk/starfive/Kconfig
-> +++ b/drivers/clk/starfive/Kconfig
-> @@ -73,6 +73,16 @@ config CLK_STARFIVE_JH7110_VOUT
->  	  Say yes here to support the Video-Output clock controller
->  	  on the StarFive JH7110 SoC.
+> v2:
+> - Move destructor handling from x86 into pagetable_free() (suggested by
+>   David Hildenbrand)
+> - Trim and update the commit message (requested by Dave Hansen)
+> ---
+>  include/linux/mm.h | 37 ++++++++++++++++++++-----------------
+>  1 file changed, 20 insertions(+), 17 deletions(-)
+> 
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index 5cca90fc1df6..771a7d60b0a5 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -3969,23 +3969,6 @@ static inline void pagetable_free_kernel(struct ptdesc *pt)
+>  	__pagetable_free(pt);
+>  }
+>  #endif
+> -/**
+> - * pagetable_free - Free pagetables
+> - * @pt:	The page table descriptor
+> - *
+> - * pagetable_free frees the memory of all page tables described by a page
+> - * table descriptor and the memory for the descriptor itself.
+> - */
+> -static inline void pagetable_free(struct ptdesc *pt)
+> -{
+> -	if (ptdesc_test_kernel(pt)) {
+> -		ptdesc_clear_kernel(pt);
+> -		pagetable_free_kernel(pt);
+> -	} else {
+> -		__pagetable_free(pt);
+> -	}
+> -}
+> -
+>  #if defined(CONFIG_SPLIT_PTE_PTLOCKS)
+>  #if ALLOC_SPLIT_PTLOCKS
+>  void __init ptlock_cache_init(void);
+> @@ -4078,6 +4061,26 @@ static inline void pagetable_dtor(struct ptdesc *ptdesc)
+>  	lruvec_stat_sub_folio(folio, NR_PAGETABLE);
+>  }
 >  
-> +config CLK_STARFIVE_JHB100_PER0
-> +	bool "StarFive JHB100 peripheral-0 clock support"
-> +	depends on ARCH_STARFIVE || COMPILE_TEST
-> +	select CLK_STARFIVE_JH71X0
-> +	select RESET_STARFIVE_JHB100 if RESET_CONTROLLER
-> +	default ARCH_STARFIVE
-> +	help
-> +	  Say yes here to support the peripheral-0 clock controller
-> +	  on the StarFive JHB100 SoC.
-> +
->  config CLK_STARFIVE_JHB100_SYS0
->  	bool "StarFive JHB100 system-0 clock support"
->  	depends on ARCH_STARFIVE || COMPILE_TEST
-> diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
-> index 29cdef20575e..352717886295 100644
-> --- a/drivers/clk/starfive/Makefile
-> +++ b/drivers/clk/starfive/Makefile
-> @@ -11,6 +11,7 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)	+= clk-starfive-jh7110-stg.o
->  obj-$(CONFIG_CLK_STARFIVE_JH7110_ISP)	+= clk-starfive-jh7110-isp.o
->  obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+= clk-starfive-jh7110-vout.o
->  
-> +obj-$(CONFIG_CLK_STARFIVE_JHB100_PER0)		+= clk-starfive-jhb100-per0.o
->  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS0)		+= clk-starfive-jhb100-sys0.o
->  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS1)		+= clk-starfive-jhb100-sys1.o
->  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS2)		+= clk-starfive-jhb100-sys2.o
-> diff --git a/drivers/clk/starfive/clk-starfive-jhb100-per0.c b/drivers/clk/starfive/clk-starfive-jhb100-per0.c
-> new file mode 100644
-> index 000000000000..ef6e6906cd2f
-> --- /dev/null
-> +++ b/drivers/clk/starfive/clk-starfive-jhb100-per0.c
-> @@ -0,0 +1,617 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * StarFive JHB100 Peripheral-0 Clock Driver
+> +/**
+> + * pagetable_free - Free pagetables
+> + * @pt:	The page table descriptor
 > + *
-> + * Copyright (C) 2024 StarFive Technology Co., Ltd.
-> + *
-> + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
-> + *
+> + * pagetable_free frees the memory of all page tables described by a page
+> + * table descriptor and the memory for the descriptor itself.
 > + */
+> +static inline void pagetable_free(struct ptdesc *pt)
+> +{
+> +	if (PageTable(ptdesc_page(pt)))
+> +		pagetable_dtor(pt);
 > +
-> +#include <dt-bindings/clock/starfive,jhb100-crg.h>
-> +#include <linux/platform_device.h>
+> +	if (ptdesc_test_kernel(pt)) {
+> +		ptdesc_clear_kernel(pt);
+> +		pagetable_free_kernel(pt);
+> +	} else {
+> +		__pagetable_free(pt);
+> +	}
+> +}
 > +
-> +#include "clk-starfive-jh71x0.h"
-> +
-> +#define JHB100_PER0CLK_NUM_CLKS			(JHB100_PER0CLK_MAIN_ICG_EN_TRNG + 1)
-> +
-> +/* external clocks */
-> +#define JHB100_PER0CLK_OSC			(JHB100_PER0CLK_NUM_CLKS + 0)
-> +#define JHB100_PER0CLK_PLL6			(JHB100_PER0CLK_NUM_CLKS + 1)
-> +#define JHB100_PER0CLK_CFG_400			(JHB100_PER0CLK_NUM_CLKS + 2)
-> +#define JHB100_PER0CLK_CFG_800			(JHB100_PER0CLK_NUM_CLKS + 3)
-> +#define JHB100_PER0CLK_NCNOC_INIT		(JHB100_PER0CLK_NUM_CLKS + 4)
-> +#define JHB100_PER0CLK_NCNOC_TARG		(JHB100_PER0CLK_NUM_CLKS + 5)
-> +
-> +static const char * const jhb100_per0_ext_clk[] = {
-> +	"osc",
-> +	"pll6",
-> +	"cfg_400",
-> +	"cfg_800",
-> +	"ncnoc_init",
-> +	"ncnoc_targ",
-> +};
-> +
-> +/*
-> + * Regarding the CLK_IS_CRITICAL flag:
-> + *   What is special here is the UART*-related clocks. On the JHB100, the secure
-> + *   core may consume one UART, while the AP core consumes another. Different
-> + *   core boards may select different UARTs, so we usually want to keep all UART*
-> + *   clocks always on to prevent the AP core from turning off the clock for the
-> + *   secure core's UART.
-> + *   UART0-3 are usually used by the HOST side, and there will be no driver on
-> + *   the BMC side to consume these clocks. Therefore, these clocks need to be
-> + *   enabled for the host to consume.
-
-So you are forcefully enabling 14 clocks for 1 to 4 clocks that may or may not be used.
-This is not how this should work. You just enable clock randomly hoping it will cover
-your use case. If you are managing the clock for these secure core, it clearly shows you
-need a driver for it.
-
-> + *
-> + * Regarding the CLK_IGNORE_UNUSED flag:
-> + *   Clocks flagged CLK_IGNORE_UNUSED are not consumed by any driver. The flag
-> + *   keeps them in their hardware default state (enabled) instead of letting
-> + *   the clock framework gate them once it disables unused clocks.  If this
-> + *   flag needs to be removed later, it must be ensured that these clocks will
-> + *   not be disabled even if they are not consumed.
-
-Why ? you are ignoring all sorts of thing in there like i3c. If the i3c bus is unused,
-the clock should be disabled. If it is actively used, why don't you have a driver for it ?
-
-Throwing CLK_IGNORE_UNUSED and CLK_IS_CRITICAL at the majority of your clocks is not OK.
+>  static inline void pagetable_dtor_free(struct ptdesc *ptdesc)
+>  {
+>  	pagetable_dtor(ptdesc);
+> -- 
+> 2.54.0
+> 
+> 
 
 -- 
-Jerome
-
+cheers,
+jose a. p-a
 
 _______________________________________________
 linux-riscv mailing list
