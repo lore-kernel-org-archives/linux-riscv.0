@@ -4,78 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78C2DCA9ED1
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 12:56:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20988CA9ED0
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 13:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TJcOnVFw0zBIKZUr+sR+Py2exSZFSnxgLxZ+NMRN7fw=; b=yqVbJyl/lgp3wl
-	lsvg3NjuZzPCZFxeBAfbgoLzoRTJLRMy+X2YOki6caCOKMEuookirTN/IrAZnRlG587rgoU1ogLhq
-	cbuDSOA+nWqkPpSxaYUEiqUbpaWLv9Ega9ItSGjcfxLuAm2Q10m0C4QFfSQdRB7UM5n4Y50wDp0Xu
-	cDhsfWUNwPLKh5TkHYn/H3EGdxH0HwA1uGRzGtnPxx2s1jIGY8izY4drjfY7BXeAJlrFkbZGlqOgq
-	wO5ySJblJcqnO/1zmhsCTaYOPj4gDitennv30IRD946ylh7hPGEzzu59MbUvT6S1aGdQnShiQqbXD
-	dv3pYOsZ01w+mwgPnvTA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rh30xZ7gyGE9lVzqJs3gQ+d0bNikZi9QJlqds9/b0GE=; b=F9YDlx2YNFznCW
+	X1QI55ZZwnIGHLnvNi08+qniFuELK13wkAKWQ2T1Ueib/4pbb6Yd9nqLMdVXyg6tCVOLAfE+4wMvZ
+	iuWLfGpB2HVQqy1RdSnWx29gvilpZtdIJBBurYAsPDV1IGqB5AHEW9OFHqCGdt2RzI5AILIk9B+//
+	bKhVi6YTkTwyQTBFuDwOg0d+fpOXzHxGyiKcrHKhgk8XEx1Q1igtuQHbXFcoktaXMvrfK/yIpgDjF
+	/ODYDL9EM1PfQCoTfSzVrOvLdKSp/CJTjNnRjK3x5K90K2Dhi/5UqpdwMfWz6lShvkyT7KGWyjCBF
+	Y+K+BoRmyBVHARHfPYog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGFZP-0000000AVZP-2YEI;
-	Mon, 12 Oct 2026 12:55:59 +0000
-Received: from out-72.mta1.migadu.com ([2001:41d0:203:375::48] helo=mta1.migadu.com)
+	id 1xGFoC-0000000AXJe-3zBK;
+	Mon, 12 Oct 2026 13:11:16 +0000
+Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGFZM-0000000AVYW-1HHQ
+	id 1xGFo8-0000000AXIO-001m
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Oct 2026 12:55:58 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=zVdDm9vWio9URlOBbk5H1FhupUhm6ZtZOBzYo8Bfqf8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791809752; v=1; x=1792414552;
- b=XAu/7C3rb/MZ5dpABy25laQ+yvYFKm3jheT5YLO5dLGM8GxZNKSkbbWwuhJ9SEenvzOqbKe+
- 0YxDDs/UTQYCjF5V5k4VSp8AhWwcF4nVcYAW6TY0rLP0PqMN9sj3YrGtoc3RhOdNrYZ7YO3XjJi
- GbkgpeK1G0tNxMZ7rEWHlVR4=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by mta11.migadu.com with ESMTPS id 018eb001ca5c019a;
-	Mon, 12 Oct 2026 12:55:25 +0000
-X-Mizu-Trace-ID: 018eb001ca5c019a
-X-Migadu-Flow: FLOW_OUT
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.100.1.1.12\))
-Subject: Re: [PATCH v2 1/4] mm: fix missing page-table destructor in
- pagetable_free()
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <asy-b7_C3SjnmSaS@gmail.com>
-Date: Mon, 12 Oct 2026 20:55:06 +0800
-Cc: Muchun Song <songmuchun@bytedance.com>,
- David Hildenbrand <david@kernel.org>,
- Oscar Salvador <osalvador@suse.de>,
- Dave Hansen <dave.hansen@intel.com>,
- Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>,
- =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Alistair Popple <apopple@nvidia.com>,
- linux-mm@kvack.org,
- linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Message-Id: <145CD5DC-6457-4E1E-8B9D-AE7D1EDB0AB8@linux.dev>
-References: <20261010112457.49485-1-songmuchun@bytedance.com>
- <20261010112457.49485-2-songmuchun@bytedance.com>
- <asy-b7_C3SjnmSaS@gmail.com>
-To: "Jose A. Perez de Azpillaga" <azpijr@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>
-X-Mailer: Apple Mail (2.3901.100.1.1.12)
+	Mon, 12 Oct 2026 13:11:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1791810660; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=6RfKdx5FdAu3miw0erxA7X0WAeA1bc5udK2v4s0HIwo=;
+	b=iNbxD+KAN68ckN3DP35oerndAdxkPkwTWVdFjCcpBlVzvQr+5eqTqvsMll1f3qTE5EMc10gq9yrlXSDUcrSTTS+wahQ/DcnZlgd61dJEFEyvEHRc8fqQE4C1qRi7Z5G/uEylKWqlB4U+RijlzLEc7rTqMZZgnkR9p097HaPb00Y=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=10;SR=0;TI=SMTPD_---0XCgVPlj_1791810634;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XCgVPlj_1791810634 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 12 Oct 2026 21:10:59 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: sudeep.holla@kernel.org,
+	conor.dooley@microchip.com,
+	atishp@rivosinc.com,
+	guoren@kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: Populate boot CPU topology on UP kernels
+Date: Mon, 12 Oct 2026 21:10:33 +0800
+Message-ID: <20261012131034.1026-1-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_055557_200906_3276771E 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20261012_061113_981589_1FF5253D 
+X-CRM114-Status: UNSURE (   8.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,43 +67,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cgo+IE9uIE9jdCAxMiwgMjAyNiwgYXQgMTk6MTUsIEpvc2UgQS4gUGVyZXogZGUgQXpwaWxsYWdh
-IDxhenBpanJAZ21haWwuY29tPiB3cm90ZToKPiAKPiBPbiBTYXQsIE9jdCAxMCwgMjAyNiBhdCAw
-NzoyNDo1NFBNICswODAwLCBNdWNodW4gU29uZyB3cm90ZToKPj4gU2luY2UgY29tbWl0IDQ5ZjU5
-OTY2NjQyMCAoIm1tOiBjYWxsIGN0b3IvZHRvciBmb3Iga2VybmVsIFBURXMiKSwKPj4gcHRlX2Fs
-bG9jX29uZV9rZXJuZWwoKSBydW5zIHRoZSBwYWdlLXRhYmxlIGNvbnN0cnVjdG9yIGZvciBrZXJu
-ZWwgUFRFCj4+IHRhYmxlcy4KPj4gCj4+IEhWTyAoSHVnZVRMQiBWbWVtbWFwIE9wdGltaXphdGlv
-bikgdXNlcyBwdGVfYWxsb2Nfb25lX2tlcm5lbCgpIHdoZW4KPj4gc3BsaXR0aW5nIGEgUE1ELiBS
-ZXN0b3JpbmcgdGhlIHZtZW1tYXAgYmFja2luZyBwYWdlcyBkb2VzIG5vdCBjb2xsYXBzZQo+PiB0
-aGUgUFRFIHRhYmxlLCBzbyBhIGxhdGVyIG1lbW9yeSBob3QtcmVtb3ZlIGV2ZW50dWFsbHkgZnJl
-ZXMgaXQgdGhyb3VnaAo+PiBwYWdldGFibGVfZnJlZSgpIG9uIHg4Ni02NC4gVGhhdCByZWxlYXNl
-cyB0aGUgcGFnZSB3aXRob3V0IHJ1bm5pbmcgdGhlCj4+IG1hdGNoaW5nIGRlc3RydWN0b3IgYW5k
-IGxlYXZlcyBOUl9QQUdFVEFCTEUgZWxldmF0ZWQuCj4+IAo+PiBNYWtlIHBhZ2V0YWJsZV9mcmVl
-KCkgZGV0ZWN0IGNvbnN0cnVjdG9yLWJhY2tlZCBwYWdlcyBhbmQgcnVuIHRoZQo+PiBkZXN0cnVj
-dG9yIGJlZm9yZSByZWxlYXNpbmcgdGhlaXIgbWVtb3J5IHRvIGZpeCB0aGUgcHJvYmxlbS4KPj4g
-Cj4+IEZpeGVzOiA0OWY1OTk2NjY0MjAgKCJtbTogY2FsbCBjdG9yL2R0b3IgZm9yIGtlcm5lbCBQ
-VEVzIikKPj4gQ2M6IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcKPiAKPiBpcyB0aGUgeDg2IGNhc2Ug
-Y292ZXJlZCBmb3IgNi4xNi02LjE4PyBhcyBmYXIgYXMgSSBjYW4gc2VlLCB4ODYKPiBmcmVlX3Bh
-Z2V0YWJsZSgpIG9ubHkgdXNlcyBwYWdldGFibGVfZnJlZSgpIHNpbmNlIGJmOWU0ZTMwZjM1Mwo+
-ICgieDg2L21tOiB1c2UgcGFnZXRhYmxlX2ZyZWUoKSIpIGluIHY2LjE5LCBzbyB0aGUgYmFja3Bv
-cnQgd291bGRuJ3QKPiBjaGFuZ2UgYW55dGhpbmcgdGhlcmUuIG9yIGFtIEkgbWlzc2luZyBzb21l
-dGhpbmc/CgpZZXMsIHlvdSBhcmUgYWJzb2x1dGVseSByaWdodCDigJQgdGhhbmtzIGZvciBjYXRj
-aGluZyB0aGlzLgoKSSBkb3VibGUtY2hlY2tlZCBhbmQgaW5kZWVkIHg4NidzIGZyZWVfcGFnZXRh
-YmxlKCkgb25seSBzdGFydHMgdXNpbmcKcGFnZXRhYmxlX2ZyZWUoKSBzaW5jZSBiZjllNGUzMGYz
-NTMgKCJ4ODYvbW06IHVzZSBwYWdldGFibGVfZnJlZSgpIiksCndoaWNoIGxhbmRlZCBpbiB2Ni4x
-OS4gU28gZm9yIDYuMTYtNi4xOCB0aGUgcHJlcmVxdWlzaXRlIGlzIG5vdCBwcmVzZW50CmFuZCB0
-aGUgYmFja3BvcnQgd291bGQgYmUgYSBuby1vcCB0aGVyZS4KClRoZSBjb3JyZWN0IHRyYWlsZXIg
-aXM6CgpDYzogPHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmc+ICMgNi4xNi02LjE4OiBiZjllNGUzMGYz
-NTM6IHg4Ni9tbTogdXNlIHBhZ2V0YWJsZV9mcmVlKCkKCkFuZHJldywgd291bGQgeW91IGJlIGFi
-bGUgdG8gdXBkYXRlIHRoZSB0cmFpbGVyIGluIHRoZSBwYXRjaCB3aGVuIHlvdQpwaWNrIGl0IHVw
-PyBJZiB0aGVyZSBhcmUgZnVydGhlciByZXZpZXcgY29tbWVudHMgdGhhdCByZXF1aXJlIGNvZGUK
-Y2hhbmdlcywgSSdsbCBmaXggdGhpcyB0cmFpbGVyIGFzIHBhcnQgb2YgdGhlIHYzIHJlc3Bpbi4g
-VGhhbmtzIGEgbG90IQoKVGhhbmtzLApNdWNodW4KCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+RISC-V selects GENERIC_ARCH_TOPOLOGY unconditionally, so the topology
+cpumask accessors resolve into cpu_topology[]. The RISC-V calls to
+init_cpu_topology() and store_cpu_topology() are in smpboot.c, which is
+only built with CONFIG_SMP. On UP kernels, cpu_topology[] remains
+zero-initialized and its sibling masks are empty.
+
+The sysfs topology interface is available on UP kernels too. As a
+result, cpu0 exports empty thread_siblings_list and core_siblings_list
+attributes rather than masks containing itself, violating the expected
+topology semantics of this stable ABI.
+
+Initialize and store the boot CPU topology in a UP-only early initcall.
+This runs after DT and ACPI CPU discovery and after the memory allocator
+is available, before the topology is exposed through sysfs.
+
+SMP kernels continue to initialize topology in smp_prepare_cpus(). NUMA
+needs no additional handling because it depends on SMP.
+
+Fixes: fbd92809997a ("riscv: topology: fix default topology reporting")
+Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+---
+Tested on QEMU virt (RV64):
+- UP, default DT: cpu0 thread_siblings_list, core_cpus_list,
+  core_siblings_list and package_cpus_list all contain CPU0.
+- UP, DT with 32 KiB L1 instruction/data caches: the same topology
+  checks pass, and both caches appear in sysfs with shared_cpu_list=0.
+- SMP, 8 CPUs: each CPU's thread_siblings_list and core_cpus_list
+  contain itself; core_siblings_list and package_cpus_list are 0-7.
+
+ arch/riscv/kernel/setup.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index d79f99b86033..234d9af414b7 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -9,6 +9,7 @@
+  */
+ 
+ #include <linux/acpi.h>
++#include <linux/arch_topology.h>
+ #include <linux/cpu.h>
+ #include <linux/init.h>
+ #include <linux/mm.h>
+@@ -370,6 +371,17 @@ void __init setup_arch(char **cmdline_p)
+ 	riscv_clear_hypervisor_csr();
+ }
+ 
++#ifndef CONFIG_SMP
++static int __init riscv_init_cpu_topology(void)
++{
++	init_cpu_topology();
++	store_cpu_topology(0);
++
++	return 0;
++}
++early_initcall(riscv_init_cpu_topology);
++#endif
++
+ bool arch_cpu_is_hotpluggable(int cpu)
+ {
+ 	return cpu_has_hotplug(cpu);
+
+-- 
+2.50.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
