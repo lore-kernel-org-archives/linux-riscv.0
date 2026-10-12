@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C7E4CA9ED0
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 10:22:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBD0CA9ED1
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 10:22:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
 	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XC4nsDggEKCtgLxOM/rPnTP4pFL/2aNGOnhWqP0l1wc=; b=i/8WpbRdNZ4OYB
-	qZSjAYlOvMfpmZtvneEgQApwlvkGzFYIgDbLxyXmJ0h6BNyakmWNUWuVU5aQ/JcTaqU/wSSC2lPRs
-	5/eNkrOs0+GUvP+PboBq9whZple/7ho56QVhThjP9vBCk4XqzE3uQeenj1/IwQ30jD2HoB/8dq4p3
-	hii74o2KPEsUTYsGdOJ9XgmKb64nuO1L8FadCMxYBwUOiihlLRxztIs4eMKQ/zdblK6rTPo1ssuEP
-	NmPOic+YFiQgJRWbOmfiQ9prj1C+fMONn67qLqD1j3Jq8hPGuI927FPLRhtZrVNFa66xvER+9H11r
-	JTjfkiHA0frtZgkEMoqw==;
+	List-Owner; bh=lDHZ8oHkYM7jRBP4VaT8yU5WHKIzC99b7KGA/1g3EdU=; b=jcG0fifSdu0cLF
+	NlGKFx6RgW7n/rj0wPpuT8eYvOrzfi2NjJ9YSqYhvwjZH4AMzKMe73rJvgmhWW/WorHn5HBVDSOE9
+	VoH4Jj3bI1s0rUgVOBNou12/jJDKWKKsPGyKSmA/0X2xJWNUkV+UMKLOoIPm8ExB0/6npcTG/Gs58
+	8+G8bMghZtXRBn5bl23o0Y1Pqevj9ZrMe/zNXsnpl8YeNQgEj7iXhUv9aGg0mGFcsKXt5hLhzxZrF
+	h4J3tLjAV+8QjsVyD/4NuJTBlfiD8bCRXroOypdQYsZ+SRuZ+Qa6AjSCrLPc77USAy5W86k/WvvN8
+	ilT6vBEb4JXP9BgtpVVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDAL-0000000ACqU-2A0C;
-	Mon, 12 Oct 2026 10:21:57 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1xGDAN-0000000ACu9-3jVJ;
+	Mon, 12 Oct 2026 10:22:01 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDAI-0000000ACmg-3fMS
+	id 1xGDAK-0000000ACoq-2hyL
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Oct 2026 10:21:56 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4a161d9b8c7so11205075e9.3
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2026 03:21:54 -0700 (PDT)
+	Mon, 12 Oct 2026 10:21:57 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-487049569b6so1184098f8f.1
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2026 03:21:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1791800513; x=1792405313; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1791800515; x=1792405315; darn=lists.infradead.org;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=J/fGl7AngFu8xJcaPBlF37wwBTAGepjU2CFhZRheH0Y=;
-        b=NZMQSrjKpxt8axLmACAyHgwRovKSaYD2tp008pb/4r7/btNKUrj7zVY0OZm5sMhzkO
-         kyMuIuUrBpg+NZzD3RSQXzogBndbbXvIm6RSL6a9I7Enp6jwpXKAt0Cm+LcSNPgoofbq
-         uUGb4XmiqEAK7M8cfF/k8wNNWanGjfIMQQ/HTMw+Mxs7lX4+81iCPI6Hes+8VdyZQ8rr
-         wei1ivpXza12jh/lYA4wIWJ3wnOCQzyoCSm/Z076w0i/4BXj4dO8q0AvZbt1ZRSRI1On
-         QS0EoNrtYMVaoXFJVw3XHGkzWsMw28SVSdlMTsFx19zR98iLfazjPGtLY6cXjsLBs0xx
-         jaaQ==
+        bh=IDRpy4zSY6i+1qqmwnCcDGBbpmjqBT66Voxyn6YTRCo=;
+        b=e2J2hSiYMWoQTzBvdaiHDKp/pneA+HhxDiFvg6hms1zlvtYpGwI3FU8lxPCZAawpn5
+         txBlmwvjO+f2nhMgRB7BwCyGcINRsaxjuBy4gDeS7iftbppqRFcw0xQxOQup+AHbDD2E
+         0NXke8Voq5epqkb09pPtaLRyxG9c8qqIDsau4HA5qVT1QN5Dlchws9TLjtKZk42o2Ew3
+         nodv2gyiWUoJqLA07Zkhfwqx8Q5wsrG6ZPoOAunCHhARUXlOVzIW1ErdeZIkFC6YP/Ci
+         m8qRtXAP3BI/yXTYvUU63cnZ4r6QSl2LLVKlT0299KIzgZXwl+oyCwsjbLPmg1fvv6hG
+         4Cnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791800513; x=1792405313;
+        d=1e100.net; s=20260707; t=1791800515; x=1792405315;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=J/fGl7AngFu8xJcaPBlF37wwBTAGepjU2CFhZRheH0Y=;
-        b=cKtHQPOJp7Gz3zF/A7O5qf25p1nX3PhCLq1ylQUeeahmSl2oj5fUHcuqDV/ikdQ4hm
-         HUaqZRN7k+hFX5i/y8G9L3cuSX6uAiWOBFN/hf9/TraftDw3bjzaF1LOnwr5yqW0Eylm
-         m+24vDs4UJ1GiNtEQ29143Ynjk+3XjxHgkCD20BH4c5+YDI7Hvukw2fLsM8qRsfSe5bl
-         qGlfwauYFf9XI0dJhVAdEdPATDP+6+eivioFxQ3vhzeUJO2MJB7/Qfm5+aLMepo5PQyG
-         1NjWa2mkdP0yTH86ZzG8djSIsoyS1Jc9eKIGS8S2zNsuNZ1MH87gSa3GN636VeDBel6i
-         wtEA==
-X-Forwarded-Encrypted: i=1; AKwUvBxSiLLImZE2hacRjg+8OWvE+nHs4YuhmAeIav+cnfqRcfi9I9J2oIrmk+vD4oVjEdITDwrR6Q7HsFK/zA==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJjUtaeocHH60jVJMQkJ6ZjTZPSFSLY1ajbTeWSreD8E2ufyhb5
-	igzwFT7UB7lMnRKLtFQHzgkfNzj85K7Q4cFyT6qXsCIrwBcwMg3JvCEfAE186uWxHbk=
-X-Gm-Gg: AYBFou0EJA//MP1JnZoFJ+lMkESX+YmfEDhJfdnvleXT+j1T7SzkorMbK7yM2MSJo4m
-	QQ3sc1FrToVhepZHVY8lf+G+2K/FfW1xEuXYP8njpu/tyho/9Lhjp1QiIlu8WKB3VTAHgQdAJyW
-	1VMv2QuwT+8Tr8BI7WF0lh4HEAllC0t3PiUdpCS8b5cCUVJa0tehAMorSVNgowk1tYYDiOfVTDb
-	XlU9utwCIOKeV+Q7zyV5gboRBZ3ySv5PRhAM/ZUe+SxYuMf1Z62R1XAhkL92mjXGoepayHrCbJ4
-	VLVW3XHlt0iz12u0VNwnsKfqK5dxIXVAxUt52iJGJc4WKwslAdzinPKPzK9uck6wXcq0liItmeF
-	3S5TYYJOY1dvv7w9fBLMo4H98gsSQZcGxJaCVKIgO3aUG50SCn81U0gWn+FIA2Gl7svZJkrZQ5A
-	R61MaKbiCfpmuivfKpBW39Ue7kb82ybl1Vudw1QMfZEkyYWZfE4ZduWnEUmPxzzI2x4hHaWauEB
-	THWDJaQb+s6DRjIrw==
-X-Received: by 2002:a05:600c:3b08:b0:4a0:da23:e06d with SMTP id 5b1f17b1804b1-4a18e4a380bmr173177745e9.10.1791800512977;
-        Mon, 12 Oct 2026 03:21:52 -0700 (PDT)
+        bh=IDRpy4zSY6i+1qqmwnCcDGBbpmjqBT66Voxyn6YTRCo=;
+        b=ryKUHAcy5N3CGcPtydS4BPHKuf6l8lMIL0/Usm5HNgFo88A1NIQpV5I4YVAMQkqIn1
+         UE9O4DUAtJPz/c0y49FXL8leRW1UihjXOPSCOASWOehGG1X0Nn4K9wIXsjuZ7YdPqf+J
+         9IJ7IwQOYEBq7WXQtTxptUAWsanYjC4BCRgTwAeLhghMksor8ZyxXQ9232wO3LkViUoJ
+         a0eiha0h5yxwm8FRY0PmsjopaMiqcAUWrOfDeEAU8IXtfJDCGOUcflGsNINKCHedpBFA
+         196wbAbouUh2WKu2xeTA59TD08aPoZbBEQhBBDC5je/do6sBIo7BORI0vy9Cw9x4tDbh
+         9Nqw==
+X-Forwarded-Encrypted: i=1; AKwUvBzq2Wp/pbR7UGq+p7zdR3aQBPExrh5uR1fkZgKI37DZcIVhWvdOON8rpJlN4T61z24MfOinYlSRAJIrRg==@lists.infradead.org
+X-Gm-Message-State: AFq9FYLy4s27VT8w2K/G6UDbhoJ/DjsHE2eTx0ttFMNKDdDnvjeNMyxK
+	WSXA0PkMmULfoasu4+u0yBQpo2F5JoMGD02vKklGWOez9GswJxm2N2drqPMIXUmbGis=
+X-Gm-Gg: AYBFou1K1aNPvnMUCpgK324J3f04sLqLfpU8T16DLvOwg24x3pXIuW201s9jqXbRkzV
+	Su42bZT2tfew6Lz+sPraHifOaDA/8clMJyNFg4OoOkdJjp2wL6YCz43oS9x7j7Nnn+Z0EecAzYG
+	ek1nyUJvAlv1TAOaEzu0s8vOufjelxQoWmBzzTKqniNHz8lp7fhNGM3kX0KKPxDRzDOXl8fqCWR
+	rcBfY3nFkws5GqQJfeeYYXNL+fTrTaeJqIchEvGt5pa+e2HDkOd5bR8jC0A9TXPfCCtkUf4wn88
+	I1U0/y5D/nulimPCMEm4pd+wn553rOFp/9+5WmCAIuz4gTsCialPQRyLX8GP1jelbhIHs0mz4Dn
+	XIaSPH2gD9cmIp/TYuQF9nodaEqvDZh5PPdblIkyXREuMzgtPsugUUt2D6/zNwR5EqzuAREC/p4
+	/rHaaoSeiK0XnBw2wy/GxItOWWQIFQqJomSfT+CQbL6otb/pg/LKroRk1r4UnkZUOYMIK9JDp4s
+	l4+qUpoKnaPznGyDA==
+X-Received: by 2002:a05:600d:82e4:b0:4a1:a45a:88f with SMTP id 5b1f17b1804b1-4a1a45a08f7mr10336415e9.20.1791800514835;
+        Mon, 12 Oct 2026 03:21:54 -0700 (PDT)
 Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18dd15659sm184807835e9.4.2026.10.12.03.21.52
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18bbbdd75sm217256615e9.1.2026.10.12.03.21.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 03:21:52 -0700 (PDT)
+        Mon, 12 Oct 2026 03:21:53 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH v6 00/15] Add basic clocks and resets for JHB100 SoC
+Subject: Re: [PATCH v6 02/15] clk: starfive: jh71x0: Move reset controller
+ registration to jh71x0 common code
 From: Jerome Brunet <jbrunet@baylibre.com>
 To: Changhuang Liang <changhuang.liang@starfivetech.com>
 Cc: Brian Masney <bmasney@redhat.com>, 
@@ -83,22 +84,24 @@ Cc: Brian Masney <bmasney@redhat.com>,
  Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <20261008123338.11081-1-changhuang.liang@starfivetech.com>
+In-Reply-To: <20261008123338.11081-3-changhuang.liang@starfivetech.com>
 References: <20261008123338.11081-1-changhuang.liang@starfivetech.com>
+ <20261008123338.11081-3-changhuang.liang@starfivetech.com>
 Date: Mon, 12 Oct 2026 12:21:47 +0200
-Message-Id: <179180050741.66744.3459927533880490879.b4-review@b4>
+Message-Id: <179180050741.66744.12503537219212348990.b4-review@b4>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=725; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=nbmzk645K2Au1Vo+vbmjqut/AfbSCiLc8qQw/5saqHM=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFlntuwvSIosDtrlc1xK6mV2g+n6gmepGRNYf61rumds7
- tB3utKuo5SFQYyLQVZMkaWGu1r8naTWl1nTdW7DzGFlAhnCwMUpABPRymH4Z/RhEnNj7FvtSQbP
- mZs2dG3k5Q4K5X7qHdzINI+9vMr1LCPDW97JkxguTwtoivefJlDweaXjmrAbkR7PGc2V/qdefHC
- GAwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1143; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=KTzcEEIV8+14IdfGz+5QCVuiMenTgSz2gLNd0nToSAs=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFlntuzPP8dXy6Hr7ZO152eGBWOgUS/bpau8T2csOdxxT
+ Sj8zfWojlIWBjEuBlkxRZYa7mrxd5JaX2ZN17kNM4eVCWQIAxenAEzkbTDD/7pj0c87FNevWHG1
+ a452YO0SH3a59MS5FbdNrxdybVry8ykjw6bjd1TtJc8WC+b4f46K0zzHpCwlInF3m4bNw+ir6Vl
+ irAA=
 X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
  fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_032154_958059_F05A7C95 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20261012_032156_765778_0F130E73 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,23 +118,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> The JHB100 SoC includes CRG (Clock and Reset Generator) for multiple
-> subsystems:
+> [ ... 238 lines skipped ... ]
 
-Nothing really forces you to send them all together.
+> +
+> +int jh71x0_reset_controller_register(struct jh71x0_clk_priv *priv,
+> +				     const char *adev_name)
+> +{
+> +	struct jh71x0_reset_adev *rdev;
+> +	struct auxiliary_device *adev;
+> +	int ret;
+> +
+> +	rdev = kzalloc_obj(*rdev);
+> +	if (!rdev)
+> +		return -ENOMEM;
+> +
+> +	rdev->base = priv->base;
+> +
+> +	adev = &rdev->adev;
+> +	adev->name = adev_name;
+> +	adev->dev.parent = priv->dev;
+> +	adev->dev.release = jh71x0_reset_adev_release;
+> +
+> +	ret = auxiliary_device_init(adev);
+> +	if (ret) {
+> +		kfree(rdev);
+> +		return ret;
+> +	}
+> +
+> +	ret = auxiliary_device_add(adev);
+> +	if (ret) {
+> +		auxiliary_device_uninit(adev);
+> +		return ret;
+> +	}
+> +
+> +	return devm_add_action_or_reset(priv->dev,
+> +					jh71x0_reset_unregister_adev, adev);
+> +}
+> +EXPORT_SYMBOL_GPL(jh71x0_reset_controller_register);
 
-In the future, could you try to send one CRG driver at a time ?
+Could you use the helpers provided by the auxiliary bus instead ?
+such as auxiliary_device_create() or its devm_ variant ?
 
-It is fine to send big RFC to give context but after that, if you
-can make you series smaller, it is generally a good idea to do so.
-
-This helps us iterate on the series faster and then you can fold our
-feedback in following series (instead of repeating the same comments
-on multiple instances of the same thing) Thanks.
-
-Also your series does not apply on clk-next or -rc1 and no pre-requisite
-are mentioned in this cover letter. Consider using b4 to point out
-your pre-requisite if any
+A lot (if not everything) of the auxiliary related code here seems to
+implement what auxiliary already provides
 
 -- 
 Jerome
