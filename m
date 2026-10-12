@@ -4,61 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B72CA9ED0
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 08:45:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A814ACA9ED0
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 08:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=12G7EEw/bnT+VzJZOC1dQVHoCCmnUd6wWdqgdfKLuI8=; b=WUQ2Cos0HK4ptG
-	hmWCBPc0xH1zNa+FRQ0CrQx71nkvn8+r9VnoshTpG05GkROyVTD31WMZPJZg7y/ASWTtId9lRuLEn
-	Y0VDpsNZSAY1KUKKQcCLl9BqC4qd/MG0VL48RGOWO/H9HGU5b7WH7OqP4OF11nLwrxdtTtJocjmBR
-	jGltpL5QyILp2Nuh7wiEsHa+/kEfTWPug0mnBgtY7WjfXggtYpemg4qAa/vU0vlClncCaEKgB1M2c
-	XrSEJvVhKa6XZcEkaM5RmWizO7JjErb6PcnXCpRJ5IDg+McFuh4PZSXGfVKMCKsmYeBQxlN3FQqoB
-	VW3c6DMsAizgcqZW96Cg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dhWSD5LfN1wrD1+X/zeJqEaoYhePwdO6eeZdtxclOcE=; b=F3j3QQhKZ+nCHMfZrgD2fyiIBy
+	Cv0rjnpceSTZH1I9XUQ3RItO7U1b3f/oC83j08Et6zBY9XGhzKF0NVR6cWEUmHpMh+2gr6FVCQAkN
+	LXOLSaZZiad2jYOyaDnu6eZF/hVifvOlyDJcl4rryL+Fhd5FKGEdjr76RRwp8I7v0yb8/oVVcedNn
+	aN9JWErLlo1Gsl1eddRTMwtsJ6fRmvL+LBslf4MQAeopSCEVVQkDAe/xGQ3HBbmBp3n0i9MPlqfhj
+	uykYKTxfZJIdP9P2acy5WbiHeuK247BfmagkqUgyd9BDWwukKw4NaD7e1aqPYVwBau8rO0XhDfWkS
+	4Eipr1RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGBej-00000009yi3-0mrT;
-	Mon, 12 Oct 2026 08:45:13 +0000
-Received: from akranes.kaiser.cx ([2a0a:4cc0:1:11ef:4484:ccff:febf:ddfa])
+	id 1xGBrM-0000000A0Xu-0EtP;
+	Mon, 12 Oct 2026 08:58:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGBef-00000009ygW-3woC
+	id 1xGBrJ-0000000A0Wn-2W4b
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Oct 2026 08:45:11 +0000
-Received: from martin by akranes.kaiser.cx with local (Exim 4.98.2)
-	(envelope-from <martin@akranes.kaiser.cx>)
-	id 1xGBeS-00000001fgc-3r88;
-	Mon, 12 Oct 2026 10:44:56 +0200
-Date: Mon, 12 Oct 2026 10:44:56 +0200
-From: Martin Kaiser <martin@kaiser.cx>
-To: Shuai Xue <xueshuai@linux.alibaba.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org, oleg@redhat.com,
-	rostedt@goodmis.org, mhiramat@kernel.org, mark.rutland@arm.com,
-	peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
-	namhyung@kernel.org, alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
-	james.clark@linaro.org, jpoimboe@kernel.org, jikos@kernel.org,
-	mbenes@suse.cz, pmladek@suse.com, joe.lawrence@redhat.com,
-	shuah@kernel.org, mpdesouza@suse.com, oliver.yang@linux.alibaba.com,
-	zhuo.song@linux.alibaba.com, jkchen@linux.alibaba.com,
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, live-patching@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v6 0/7] riscv: Add reliable stack unwinding for livepatch
-Message-ID: <asyeCD1xaIuKv3nl@akranes.kaiser.cx>
-References: <20260914092648.51254-1-xueshuai@linux.alibaba.com>
- <artojcJftbMIgPrj@akranes.kaiser.cx>
- <fbdb7b4c-0f80-41b0-b6d8-a4501ff3e820@linux.alibaba.com>
+	Mon, 12 Oct 2026 08:58:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3096F434AA;
+	Mon, 12 Oct 2026 08:58:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FEB91F0089B;
+	Mon, 12 Oct 2026 08:58:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791795493;
+	bh=rJXSlO+yX93SzHGI7B7MKyOSt4BAzDowsGIwtbd2HDE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=oSC8psi7mxIeBu1are30Nv2uSvsFld/1chhJeilVUqb+fmpbnq9qpGQ558aUkvoFa
+	 CAjY6hl580UpGF4sACOCSm6Qs3bilWMk+4IPJM/LZxxh0Xz4Ffv3rX5HXMyfn9bXkB
+	 4zJ4BooYdMsSfGwhNJYgWYcdTbYRB7ajGPSkUeAeFgQVvyG9b8qxphPHfwzoItyFGU
+	 bmnVVGMDZwkQUzpEfjlvEWM+MU2GCGr3uMPqJdPHbzR4FfJ2l6B6QrZzv7uMx0xYdq
+	 6RzswfXZtr5KUGgcAepZcJHU7wVNCsncBScGf2ggdA8jcJXIKWdgvI9ehV8tfvxiZy
+	 3KXIF151M5CuA==
+Date: Mon, 12 Oct 2026 09:58:09 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: soc@kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [GIT PULL] RISC-V devicetrees fixes for v7.3-rc
+Message-ID: <20261012-ridden-paralysis-c095f7e937d7@spud>
+References: <20260925-parlor-snowfield-6ca46312a610@spud>
+ <ab03d380-f49d-4eaf-9e8a-e8b09d1d0195@app.fastmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <fbdb7b4c-0f80-41b0-b6d8-a4501ff3e820@linux.alibaba.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_014509_987524_E13EE8BD 
-X-CRM114-Status: GOOD (  15.85  )
+In-Reply-To: <ab03d380-f49d-4eaf-9e8a-e8b09d1d0195@app.fastmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,59 +64,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8909605166659860194=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Shuai,
+--===============8909605166659860194==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2cQo3iO6rfjhHBrc"
+Content-Disposition: inline
 
-Thus wrote Shuai Xue (xueshuai@linux.alibaba.com):
+--2cQo3iO6rfjhHBrc
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> It is great to hear that livepatch works both on a standard rv64 QEMU
-> and on the rv64 CHERI system. Could you share what the minor tweaks
-> for CHERI were? If any of them are generic -- for example frame-record
-> size/alignment or pointer-width assumptions in the unwinder -- it may
-> be worth folding them into this series, so the cheri-linux tree has
-> less to carry downstream. If they are purely CHERI-specific, a pointer
-> to your tree would still be a useful reference.
+On Mon, Oct 12, 2026 at 10:10:25AM +0200, Arnd Bergmann wrote:
+> On Fri, Sep 25, 2026, at 18:56, Conor Dooley wrote:
+> >
+> > are available in the Git repository at:
+> >
+> >   git@gitolite.kernel.org:pub/scm/linux/kernel/git/conor/linux=20
+> > tags/riscv-dt-fixes-for-v7.3-rc
+> >
+>=20
+> Hi Conor,
+>=20
+> I replaced this with the corresponding https://git.kernel.org/ URL
+> in order to pull it, otherwise I get
+>=20
+> $ b4 pr 20260925-parlor-snowfield-6ca46312a610@spud
+> Looking up 20260925-parlor-snowfield-6ca46312a610@spud
+> Looking at: [GIT PULL] RISC-V devicetrees fixes for v7.3-rc
+> git@gitolite.kernel.org:pub/scm/linux/kernel/git/conor/linux uses unsuppo=
+rted protocol
+> ERROR: Could not find pull request info in 20260925-parlor-snowfield-6ca4=
+6312a610@spud
+>=20
+> Can you change your 'insteadOf' setting to send this as a URL accepted
+> by b4 in the future? I think an ssh://git@gitolite.kernel.org/ URL would
+> work fine, but most people use https://git.kernel.org/
 
-the cheri changes are simple fixups of data types and assembly instructions.
-This isn't something that can be upstreamed at this point.
+Ah shite, I know what's happened here.. I accidentally did "rm -rf linux"
+instead of "rm -rf linux-temp" a few weeks ago and forgot that I used to
+have things set up with different pull and push URLs. Things should be
+fixed now:
 
-Eventually, it'll end up in the cheri linux tree at
-https://github.com/CHERI-Alliance/linux
-but there's more cleanup to do first.
+The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 
-I just wanted to show my interest in getting your patches merged.
+  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
 
-Thanks,
-Martin
+are available in the Git repository at:
 
-> +Palmer, Paul, gentle ping on this series.
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/ris=
+cv-dt-fixes-for-v7.3-rc
 
-> It has been under review since late May (v1 on May 27, now in its sixth
-> revision) and the tags collected so far are:
+for you to fetch changes up to 0f70fd6f4c1d6c1f2ea298d8dd07c4a4d5dff9af:
 
->   * Acked-by: Miroslav Benes <mbenes@suse.cz>             (7/7, livepatch)
->   * Reviewed-by: Marcos Paulo de Souza <mpdesouza@suse.com> (7/7)
->   * Reviewed-by: Martin Kaiser <martin@kaiser.cx>         (whole series)
->   * Tested-by: Martin Kaiser <martin@kaiser.cx>           (whole series,
->     rv64 QEMU and rv64 CHERI, livepatch working on both)
->   * Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>   (2/7, 3/7, 4/7, 6/7)
+  riscv: dts: microchip: beaglev-fire: remove double definition of gpio int=
+errupts (2026-09-08 19:18:19 +0100)
 
-> v6 still applies cleanly onto the current riscv/for-next
-> (52318cf0fa6e). If it helps, I can send a v7 that folds in Martin's
-> Reviewed-by/Tested-by tags.
+----------------------------------------------------------------
+RISC-V devicetrees fixes for v7.3-rc
 
-> Could the series be considered for the upcoming 7.4 merge window?
+Microchip:
+Remove double definition of interrupts on the BeagleV-Fire, which cause
+the sensor to be associated the wrong plic interrupt.
 
-> Thanks,
-> Shuai Xue
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+Conor Dooley (1):
+      riscv: dts: microchip: beaglev-fire: remove double definition of gpio=
+ interrupts
+
+ arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts | 18 ------------------
+ 1 file changed, 18 deletions(-)
+
+ Thanks for telling me, I keep running into stuff that I forgot I had
+ configured. At least deleting my main repo instead of a worktree only
+ lost me one branch with work that was easily recoverable...
+
+ Thanks,
+ Conor.
+
+--2cQo3iO6rfjhHBrc
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCasyhIQAKCRB4tDGHoIJi
+0u+yAP9/iXthQoxbEtV05QtXv22VQDmrXYDcNUyyZY7uWo8hUgEAoujyUjBSys2X
+Gk7F1KKNCPkpESXBTTob+FMF4gWAHQE=
+=cy1F
+-----END PGP SIGNATURE-----
+
+--2cQo3iO6rfjhHBrc--
 
 
+--===============8909605166659860194==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8909605166659860194==--
+
