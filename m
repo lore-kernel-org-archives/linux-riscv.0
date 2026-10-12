@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4870CC6B33
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 912C4CC6B3A
 	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 16:08:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,41 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/K6MFofV1czApJPkVlCewzPk6S0B/VGeqLyVKWsUT9Y=; b=SCyAWiGLDC8j5H
-	zDZSLHE5SzppYlQh0VZzXmscBL/mo7Cc82eBOBcrhfFLa7Cg4CYnzloQc2ZJrOLR51WVilJYBAizv
-	1Cqa6CsQbdPqemMqjWWzmbqu8VazGNJQUPxLL7Fi+w4uVzKguVUfB0eFqIiIyMxWD4EChcinbR1lt
-	D7wmgGb4r90FpZ1WbpcLgnJTFveFJkjvUsAFV/BIh8QpnMPzlDawyMMa3JRuS1MCOLkSJ7R7bAbKe
-	JTm27x6snIFl9Ep4nbSxyeD+YxipNL9p1te1oMgR13mJ5T4+b5M1fmuZKLvOqXw2QcgEPHlJwki15
-	uZSUCUp+T7eu3i9loBAA==;
+	List-Owner; bh=KNe1aBd3jDgUxp8P1yZe2flMvXqTl7dlXuAk+LA32vY=; b=4Ji5weuYJYKujM
+	ZVPFhvSVT4nS8ybuJ58m2Rc6bDRCvlBhKz9AQ5XJaaea1gJP02AnE1viL1e5/mtkH4U4B+HWG/0v/
+	jyj0IrxJ8T9knJ4r9oAh6tiQl2Fexgn6OP4AJPtUEZX86jBEm/0FbZ5fiocLBTjt0AugQipcILj13
+	grB2vq7/51tfNHSqXz+X3FxMkIVNfw3gkhj+2mnO3VXQv3ju+AvRW4MVi+yF4OWhbR8z116+Xj/TR
+	idDc6gS/QU2rdY+Lk67z1D40civK36ivmjMDHY00wYqBsPU3vfbCkCd86gMuwKlRdiMNVU1bnMRk7
+	jWWLzGpZ/il4+a+jbX6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHO0F-00000000hSB-1jhJ;
-	Thu, 15 Oct 2026 16:08:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xHO0I-00000000hVy-0Ljj;
+	Thu, 15 Oct 2026 16:08:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGKRG-0000000BBJh-1sAF;
-	Mon, 12 Oct 2026 18:07:54 +0000
+	id 1xGKUy-0000000BBf0-3mE1;
+	Mon, 12 Oct 2026 18:11:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 20DC8411EE;
-	Mon, 12 Oct 2026 18:07:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58BFE1F0089B;
-	Mon, 12 Oct 2026 18:07:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DA6C560142;
+	Mon, 12 Oct 2026 18:11:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62C6D1F0089B;
+	Mon, 12 Oct 2026 18:11:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791828474;
-	bh=5a6IsUlcXJHOADvAwqphif4IshvHpUsfPxJJpTYlkEY=;
+	s=k20260515; t=1791828703;
+	bh=Nru7h3Sv5JaI6aGGCMmFY9EP6czcY0tZ0pY72oIj5bk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=jwx+5rDYQjOIUBj08GLlEX9Web1Y8AehnEyD+NKJ+6JGLiDzQ2ykGnZMGinpwVxEm
-	 t43H8LUI4C36o21aCrvggHyN9RyNzw2SGdD/OyPLFBA80sFmKNnm84NtWUvo2kYU8N
-	 cYNbAPpDSSO2uHexKXokGU+9jMdh9g5QSHt0uWmtCrNqLoFovjiA4CtdU2HJfp322U
-	 9aldNEnM+7h1H81AjZw6XqSBXIUYwZUU/Fk7ap4BPata9FLOdT63qFOxwbma7qOQ8U
-	 Nq/+WfROCztx3KWcWvYYP+Ey80vw0kj1tlhrwaXghvM9DOVKk2/vrEDswVQZvybKaC
-	 EY265kFEoC1fg==
-Message-ID: <5a7597e2-e4f6-46ef-a4b4-2f0746b5009a@kernel.org>
-Date: Mon, 12 Oct 2026 20:07:14 +0200
+	b=TwUIwf9tGNYwZIY3Fm1yPDU4MTzPQZvX2/h7JIxyzkfk5eXfDQbWbnfsSbPbHnFqb
+	 LjicSJy47COiVBFbpVCy6JFGXzEIJ0f/ZGnStnTNZvszexgrUMK9qHee5aJU9lSzek
+	 im/JebuesdGjd2pwP3NH3XGqwXAxyF2dk/mjybeu0HMAgajsmthZ0IAFYR/8XRbSax
+	 QYu4sPX7wYS1mmZJb0tI/WOLy9v5saXmqjpO8eIrfobNXWobyWDhWNgGpkmtg7xlXP
+	 +NmTupCHc6jCf3Ulym34CpsgHe//G15vZKq3Lq9hDEImDN8W4h/n/dFUGMg+zaM9J4
+	 XJEflFnpFAW0Q==
+Message-ID: <1fd21055-a301-4aad-ae7f-8aa633804048@kernel.org>
+Date: Mon, 12 Oct 2026 20:11:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 15/38] mm/vma: only allow mmap to clear
- VMA_MAYWRITE_BIT if not mm-managed
+Subject: Re: [PATCH v5 16/38] mm/vma: add and use vma_[flags]_is_fixed_mapping
 To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>
 Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-doc@vger.kernel.org, linux-usb@vger.kernel.org,
@@ -62,7 +61,7 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  fuse-devel@lists.linux.dev, Ihor Solodrai <ihor.solodrai@linux.dev>,
  Bert Karwatzki <spasswolf@web.de>
 References: <20261009-b4-mmap-prepare-vma-flag-sanify-v5-0-923b70125b1e@kernel.org>
- <20261009-b4-mmap-prepare-vma-flag-sanify-v5-15-923b70125b1e@kernel.org>
+ <20261009-b4-mmap-prepare-vma-flag-sanify-v5-16-923b70125b1e@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -109,7 +108,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20261009-b4-mmap-prepare-vma-flag-sanify-v5-15-923b70125b1e@kernel.org>
+In-Reply-To: <20261009-b4-mmap-prepare-vma-flag-sanify-v5-16-923b70125b1e@kernel.org>
 X-Mailman-Approved-At: Thu, 15 Oct 2026 09:06:22 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,50 +127,27 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 10/9/26 20:04, Lorenzo Stoakes (ARM) wrote:
-> For ordinary files the only way the VMA_MAYWRITE_BIT flag is cleared is if
-> the underlying file is itself read-only.
+> This determines whether a VMA cannot be expanded or merged because what
+> they mapped was determined to be a set size at mmap time.
 > 
-> This means that mprotect() cannot mark a shared mapping of a read-only file
-> as read/write, as doing so would violate the read only attribute, and
-> permit writes.
+> This typically refers to mappings not managed by core mm, however
+> VMA_DONTEXPAND_BIT
+> is not reliably set alongside VMA_PFNMAP_BIT or VMA_MIXEDMAP_BIT, so we
+> must explicitly test for this for now.
 > 
-> In general, we do not want file systems to be able to do this for
-> read/write files.
+> We also explicitly test for VMA_PFNMAP_BIT as VMA_DONTEXPAND_BIT may not be
+> set for VMA_PFNMAP_BIT's despite the one implying the other.
 > 
-> Doing so would violate fundamental user expectation of file attributes and
-> likely break userspace.
+> Use this predicate in vma_flags_can_merge() and in check_prep_vma() in the
+> mremap logic testing to see if mremap() can expand the VMA. The criteria
+> for khugepaged and MADV_COLLAPSE eligibility in
+> __thp_vma_allowable_orders() are precisely those for mergeability, so use
+> vma_can_merge() there (with an expanded comment).
 > 
-> However, drivers pose a tricky problem here - the /dev/xxx file may be
-> read/write but provide access to a resource which is fundamentally
-> read-only.
+> This obviates the need for the VM_NO_KHUGEPAGED mask, so remove it.
 > 
-> Therefore we must allow drivers to be able to clear VMA_MAYWRITE_BIT.
-> 
-> To achieve both of these things, forbid this for mm-managed mappings as
-> identified by vma_flags_is_mm_managed().
-> 
-> This constrains this ability to drivers which own the mapping's contents,
-> whether memory-mapped I/O, kernel-allocated pages, or ordinary pages they
-> map themselves, and so define its semantics.
-> 
-> Every in-tree mmap hook which clears VMA_MAYWRITE_BIT, some twenty sites
-> across drivers, filesystems and bpf, establishes a mapping which is not
-> mm-managed,
-> with usbmon and the ALSA PCM status page converted earlier in this series
-> to do so.
-> 
-> Note that drivers may, if they do not gate on VMA_SHARED_BIT, be able to
-> disable MAP_PRIVATE-file-backed mapping CoW semantics.
-> 
-> This is perhaps not always intended, but we retain this capacity to
-> maintain existing behaviour.
-> 
-> As no driver which clears VMA_MAYWRITE_BIT establishes an mm-managed
-> mapping, no functional change is intended.
-> 
-> Acked-by: Zi Yan <ziy@nvidia.com>
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> ---
+> Hugetlb VMAs remain excluded from khugepaged as hugetlbfs always sets
+> VMA_DONTEXPAND_BIT.
 
 Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
