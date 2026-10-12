@@ -4,64 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACF7BCA9EDE
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 19:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFBC3CA9EDE
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 19:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7nuGiOLWRtxtX9NmKF5qvDbHp1SzIq5HvJ82jY6C5KE=; b=1M0P9nHzM9upGDkFhNby084l+6
-	9Dbo7sM1F9XpgXzjyUu6ECjSpmYz2PE9PPb3EGQsh5vvdOA77A43QxB7s18pyn69lFv4MVsYiABVR
-	IpOHwo9giU/+E0Ee980LZrh8F0ZVvdoiE1rV4kRCc6rVoQZhAUJH8IXn5s7dj38HgrDyvo97Bf7ys
-	+cpm6amOsK1HuV8ShZtO5S1Osq+HJWaXZjjUTnB/tiOZl6r8tKuu/FI8fVAcLcw7t3L/6tUxnCEhZ
-	2+Tu6nsiKMwQN1UJsRxkyIsoGo6ZQ3iHDhyndU36tX++has8vUKFjGkq6G6PgpyHk9zoSMYjpaLK5
-	+zhIW6eQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AKwTVTCkVHDnchqqKJKp1gIBfVZ0Ca0hZUYEoWLRpRI=; b=ellBQ3xH8CBw4p
+	vQoh6ATul5fyQFLopD4qr4N+KcBPViy1mg3b1roWCEAqEo+AfFCkP5zAiWf8eLx/B9AZQNHeiWFaH
+	Esu9723EhHx9F3UDZ0rdfuSQ+5BtLLRwnskZ68uWj5DiHeqtAS9wsBz+nGPXvAS3O5n/7+I1vqUOl
+	9rTteeeWVplXq29Pl+PYOIdq6s1CeSaOzjQX8N7B3zVESp1Y6+/zTjIgTv9RH8lRyVpP5D79Ewy3W
+	Z8GTbWIuMHpp8QZBNAjbFXpABPciR5OBDPk527WxAp0QaeG5AGXvkQTfgLSz7u7QO3yUOyedgovxK
+	sI6UJpFpiuiUFAMuCh+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLJc-0000000BLOl-49LX;
-	Mon, 12 Oct 2026 19:04:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGLVZ-0000000BMmw-437z;
+	Mon, 12 Oct 2026 19:16:25 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLJb-0000000BLOD-1bIh
+	id 1xGLVX-0000000BMlY-2Gkf
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Oct 2026 19:04:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BCB6A6025A;
-	Mon, 12 Oct 2026 19:04:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B20BF1F0089B;
-	Mon, 12 Oct 2026 19:03:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791831842;
-	bh=1OMZvB79RqI+kzQxp/CVoXY+jNcNnaUcK+X647D0SSM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lHkPhq8MYEERkEq61elsdCcJ00F8yBEv+2n0x3NF8LgWBeBWKlKNTs0hsVVf3QO7m
-	 6SynsFOO7uH3D2RLbB/7j8QQlob5Wpccl00XMbwo2aXB2fJvevukvTGeKTjOGn1J1Q
-	 Gllz52hPXWC5xqJEx2/6dBXha6gHk1W809B4Fej2BWII5I75efTtlHjaxvaSj4v9iQ
-	 tgelNi1PS7xPVjNfFS7KNmGoGKxqFrjuDpJhLOes7MkGG9K4jsaBhWuLcJvae9J1L/
-	 j1bZ1h5WtwmHBMKPkY9hE73MrpDspCp5/X2Dqh7/W+VYcC7HB5oRF5kZTtlyA6ml7+
-	 hXuGZJ1U/IW1A==
-Date: Mon, 12 Oct 2026 20:03:57 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Changhuang Liang <changhuang.liang@starfivetech.com>,
-	Brian Masney <bmasney@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Hal Feng <hal.feng@starfivetech.com>
+	Mon, 12 Oct 2026 19:16:25 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a168355946so19428845e9.0
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2026 12:16:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1791832581; x=1792437381; darn=lists.infradead.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=CRfRncq4FuUqEgsh+Q7MKNhu4iIEz6/gs4z1N6qwQUY=;
+        b=cACcqHq9th6piy+xff7q+uk6VjAHMXpw8FJ7FZn0hGzcWs8fGScHCfaJllabFHBTpO
+         i3F95w72EqW8ufx8nuU5RzXI1U1YFQyJEugijEskgozI6BpaYv1k+7VQwKmkq46YaIys
+         tF3+rA1Q9hXmgiEV6fT0wBgBOZtN3687renzzN+kdHyIta6JW8389WZ5to8nadHJzNYc
+         0RYlMS0D+McZGfnDKZiOtGjPFWt7wonXW7kwHW6VOXjdRpGoC2uL4zgfLHANsbZeR5rF
+         bY9ACzCLjIImG4L3l6Z8TaRbP+PK05I+BhG+862eOX20kiEalC6jhUSVRJVvkqzw0L/o
+         d0CA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791832581; x=1792437381;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CRfRncq4FuUqEgsh+Q7MKNhu4iIEz6/gs4z1N6qwQUY=;
+        b=sO3Dd5oxo4TdtmpId/Oz4ICLIcg2JR9BNAOGtubQMt5KgXKFpvenmrSApdNWIbEtGb
+         cHtI3dOG95kEtdNFENl6foHlTrOwDAhvamXrh6adwwKtS+lacbPruNEIItTVzbEJCs5n
+         EjNwy9QaC+IcWWuXkegZFmJrFEcVSvI5KlNJ2xPTfSScUe3dRGe5S94869//BabvSPM4
+         OdLR7gG1/kof19+yBf5z8pbdnnVRtOPFqc0lQDzZfjmtd6NFW0ogU2x6LkOei67azDKA
+         QNsDXBkJbcOV2hdg+D7Ac3ND9W52rJ1qouZ9QFnlqYaexq1/yQgRI1CbOQAB9HAyNb+z
+         eEOA==
+X-Forwarded-Encrypted: i=1; AKwUvBw2sx7NT174cBifhDIzm1QLWaPSfYqp318xo6ahTncS0LENFxeHO7U7bJ1nNntMyt3Fo3uzvZb1bMRvbQ==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKxa6taFnDjqQrJslyQ6lGc9Dnfg4CnCIec3JXSSfKfCr5JN6Hh
+	Ea/vZ4rUEV8IcD9gnM7Ss3+TS/j7pq4qi4R+xC/FgwRyxxVN0acDtBaaa1iUju3Vads=
+X-Gm-Gg: AYBFou3DVMS0sDw/US5R/pwxUqBL/174+h4aAXN40gsOoYlkKQCa7T5VTQ1gJNtm+sD
+	ktqTgEhFQczYNi7enT25DBY9HIeHgbX8jb1g1FgUm7IF2if9eFCjOeGlTn9lxOeTEWtEEiWe0Nf
+	gtVbTB9k8x+USZiKr0eeKnnJ4PPPknbLjdQjhhJ294Opfu2DVFXYwk+um550rqwejpqN103N07p
+	oDRBi7KjI9q/WwAJHNxg1l0qd3yGDN+BXiiJAWaxSAs+QhQNUyU4YwWDQQZTKNqoK0VTc8+bBho
+	mwrAE2LJl0c2LNMAWas0juoIhT5V1Mc/z00wXvGOooysQrPe5q9MXzxAUrjbSYl+beZ+248eKgR
+	io15NR9lGsyruhbjY4Hbta4x+d6LjGA21bBl5iBO/6A0j80W9o6pves75h11gTmOza32w5aoIfB
+	3bBNnRqy59P/IIuZI9CdnVXo2nBFRBOR5EmEO/TZbJFVMyeEJAObC9ecjrIIsdIqkSyP8ufbd7b
+	GOKJ5b27pSgUUASxxUVHhn5T5kz
+X-Received: by 2002:a05:600c:8b70:b0:4a0:108:3b48 with SMTP id 5b1f17b1804b1-4a18e4a174amr194169405e9.7.1791832580955;
+        Mon, 12 Oct 2026 12:16:20 -0700 (PDT)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18bf21276sm478285355e9.8.2026.10.12.12.16.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Oct 2026 12:16:20 -0700 (PDT)
+MIME-Version: 1.0
 Subject: Re: [PATCH v6 00/15] Add basic clocks and resets for JHB100 SoC
-Message-ID: <20261012-grass-guru-1ba876eda895@spud>
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Jerome Brunet <jbrunet@baylibre.com>, 
+ Changhuang Liang <changhuang.liang@starfivetech.com>, 
+ Brian Masney <bmasney@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <20261012-grass-guru-1ba876eda895@spud>
 References: <20261008123338.11081-1-changhuang.liang@starfivetech.com>
  <179180050741.66744.3459927533880490879.b4-review@b4>
-MIME-Version: 1.0
-In-Reply-To: <179180050741.66744.3459927533880490879.b4-review@b4>
+ <20261012-grass-guru-1ba876eda895@spud>
+Date: Mon, 12 Oct 2026 21:16:19 +0200
+Message-Id: <179183257960.266355.15581316876923702717.b4-reply@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1422; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=F1N9sc0phttKEroqTY7fq4cUBOZftvRnSXLYqSUrN14=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFlnjZhzV537/L/M+KX8bkkb84JgjbmKcnd7zSVXvGQ/5
+ +/C/0awo5SFQYyLQVZMkaWGu1r8naTWl1nTdW7DzGFlAhnCwMUpABPx2sbIcMUr0nD6Uoazbr/u
+ /xA7XB+v681zct+D7QsW+fbozLtpuZPhnxWT2QFppxW/hcrua0zme85ue+FEzqEHjZ7nmtNjjC9
+ E8wMA
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261012_121623_610916_378F841A 
+X-CRM114-Status: GOOD (  22.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,71 +113,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4369260597905432567=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4369260597905432567==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="FFX0NmdIYzkgk4y3"
-Content-Disposition: inline
+On 2026-10-12 20:03 +0100, Conor Dooley wrote:
+> On Mon, Oct 12, 2026 at 12:21:47PM +0200, Jerome Brunet wrote:
+> > > The JHB100 SoC includes CRG (Clock and Reset Generator) for multiple
+> > > subsystems:
+> > 
+> > Nothing really forces you to send them all together.
+> > 
+> > In the future, could you try to send one CRG driver at a time ?
+> > 
+> > It is fine to send big RFC to give context but after that, if you
+> > can make you series smaller, it is generally a good idea to do so.
+> > 
+> > This helps us iterate on the series faster and then you can fold our
+> > feedback in following series (instead of repeating the same comments
+> > on multiple instances of the same thing) Thanks.
+> > 
+> 
+> > Also your series does not apply on clk-next or -rc1 and no pre-requisite
+> > are mentioned in this cover letter. Consider using b4 to point out
+> > your pre-requisite if any
+> 
+> The dep should be the PR I sent to Brian, but I suspect what's happened
+> here is that the MAINTAINERS parts of those patches (which I had dropped
+> because they were all conflicting with my tree) didn't get reabsorbed
+> into this series. Very annoying for review of course, even if it's a
+> non-functional conflict. Of course rebase on top of clk-next would've
+> highlighted that to the submitter!
 
---FFX0NmdIYzkgk4y3
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Yes it was only the MAINTAINERS file which I did rebase to check if the rest
+applied correctly.
 
-On Mon, Oct 12, 2026 at 12:21:47PM +0200, Jerome Brunet wrote:
-> > The JHB100 SoC includes CRG (Clock and Reset Generator) for multiple
-> > subsystems:
->=20
-> Nothing really forces you to send them all together.
->=20
-> In the future, could you try to send one CRG driver at a time ?
->=20
-> It is fine to send big RFC to give context but after that, if you
-> can make you series smaller, it is generally a good idea to do so.
->=20
-> This helps us iterate on the series faster and then you can fold our
-> feedback in following series (instead of repeating the same comments
-> on multiple instances of the same thing) Thanks.
->=20
+-- 
+Jerome
 
-> Also your series does not apply on clk-next or -rc1 and no pre-requisite
-> are mentioned in this cover letter. Consider using b4 to point out
-> your pre-requisite if any
-
-The dep should be the PR I sent to Brian, but I suspect what's happened
-here is that the MAINTAINERS parts of those patches (which I had dropped
-because they were all conflicting with my tree) didn't get reabsorbed
-into this series. Very annoying for review of course, even if it's a
-non-functional conflict. Of course rebase on top of clk-next would've
-highlighted that to the submitter!
-
---FFX0NmdIYzkgk4y3
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas0vHQAKCRB4tDGHoIJi
-0p4KAQC1kQ1+cKFzcpOgn95+wlYJze0mqmVjCR0pb2B6IOdvqQD9HAk4N9AhWxVZ
-V/yO2UvmUb9rqNSOqVsZ1VhZkGmMAAA=
-=v6ol
------END PGP SIGNATURE-----
-
---FFX0NmdIYzkgk4y3--
-
-
---===============4369260597905432567==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4369260597905432567==--
-
