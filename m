@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61487CC6B33
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 16:09:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 571C0CC6B39
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 16:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5ULPQQy6aZpMxk7O07IOlghN27/BDb3DouJsLTVCoYw=; b=WW9dY0NxKj6wAu
-	pUxDxP9wIQvGHLYyuv8dmf719TnmmuE1Ohe5ANgZgBs3hNQ624FxzycUaqPCMGFvyXWMECsacbr18
-	r9rnw9HvRBRzM5l826kHgi0tldwxgAKnpiTxB6IzrqyHUx9mbEhBJlLpYSpJVV+wPhQLiRDUkhYXo
-	9EOWof83AqAmM3SoL6QG3YUSC00Wm4WncySMTdqbtyEZbgcZ3fZzaTJNgWgjNUzkiHZhLCfhtq66Q
-	1OcN2ujPYgVutgmiCkSVc5H0umFWrpLQvJdTeEhKQmCCmX7nwGY7GR3O+YhcwOwfZOwr/l3f0qFS+
-	LuZnN2SrFFYpANGekmJA==;
+	List-Owner; bh=fcb3vboJln4ZIGWsXFl8rqn9rbuCSxXEeikSHmZFEII=; b=vK5PW0d3bT61qy
+	h2jdG6HfzR1Z4R+raIojqunYCPOdJqqBmjhJfwHMWY7oUxg177Z+FJSwOUn43tZa6w5gam50nXOMB
+	LDMxO1qLINkOIOOrhN8vUABdL9jtajNBrKtB8MyyHrEu05k+X73CGQO8OY6j/ecqoMiKKNwac1wz/
+	QTH8rIzUuTPz+7nyxvdTbrPGewrLs5x7zODdDJ3qycjA8hJhaHFPJS3hOsZCaQTLf/qVeETNy+wF/
+	9bFamabPsIm3KKjhUd2G7xJvfkq/5dKmehXQA8jkjgTy/vCBZ/U937HrfzvImTbSLRDDJiDW5ZAxr
+	epXajH8jiY6n6Sf9v66A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHO0U-00000000hlM-0D6L;
-	Thu, 15 Oct 2026 16:08:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xHO0l-00000000i7U-43Fe;
+	Thu, 15 Oct 2026 16:08:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGKcc-0000000BCzq-1glq;
-	Mon, 12 Oct 2026 18:19:38 +0000
+	id 1xGKjG-0000000BEH0-38Ff;
+	Mon, 12 Oct 2026 18:26:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 074A940533;
-	Mon, 12 Oct 2026 18:19:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 776121F008A1;
-	Mon, 12 Oct 2026 18:19:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 012B0601E4;
+	Mon, 12 Oct 2026 18:26:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 201381F008A1;
+	Mon, 12 Oct 2026 18:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791829177;
-	bh=S5YZV5/Gzxz8OvyMdBctaB65GhjRf5UZXPrX96RovJk=;
+	s=k20260515; t=1791829589;
+	bh=rRzk+a0cD7nR4Ew+1fSPNdzcKqVkC4K+w54CTbZN/Ik=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=K0zgfFEo0DCNyJ7wXXNAtUB46Se1h+SZXZQPeJemBtFpTzbbQfSp5G5oZ8GTdldLM
-	 MXbquvQSvxIUkvzRI5GlEMD5x67ODCTifaRqV80gcXl3C4LnqeTjgHUYBaXToHruFk
-	 RfjY3g/6IP7W015WE+bNESTYURuWY9jUJ8i7PjCWw3HZh6XeHu6oh/3E3uAUsENyAr
-	 BDoFWSQQYfGPKVZaJYTOiQnAkya+mpNubID9cF4KOyTbKX/c5kud5UdMBR+XDc2osY
-	 BCONemdMlwywRdie1WLtCEhwDC+gz89qp0qxbu4FjCd0DKp41FMXYOaWqa7vpfT03h
-	 20A437rctccRw==
-Message-ID: <5027aec2-84c1-461e-9f74-0736e2cc6171@kernel.org>
-Date: Mon, 12 Oct 2026 20:19:03 +0200
+	b=Adqk8751wa9UQtQQt/iIJK7EtFXxEt2A0HNLnPnGczCoRpgyLCvq8fvnyBveAryL6
+	 j9ReEDeytDnObYN9Bt97kB0walwqAuIcEaD53BEvjwML86lDcrAXY2K+Z7xwQKkxGp
+	 wzpG9o9NsyoU/fxmF6ca+gbe4z1bnBBeghUipJNrtV5POLFFuvnnXCOrF7c+Du2a4D
+	 QZRefuO2RXpJLPaHfiac1ocAqOpRROoWnzK8HvgBobS6YtQ+J2yF9x5lONhJX9vwQU
+	 HZ2bzzd59OsE5eXCwtIvflqno6gdE1Xb7aC/mVKgTuCnIy+va2tnX0h8oyCEjUi61I
+	 johOZsrvf6F0Q==
+Message-ID: <5d51b6b3-ad58-4827-bedf-f1a79ebd5c86@kernel.org>
+Date: Mon, 12 Oct 2026 20:25:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 22/38] mm/mlock: clear VMA_LOCKED_MASK over mmap
- callback
+Subject: Re: [PATCH v5 24/38] mm/vma: enforce that mm-managed mappings may not
+ set VMA_IO_BIT
 To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>
 Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-doc@vger.kernel.org, linux-usb@vger.kernel.org,
@@ -62,7 +62,7 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  fuse-devel@lists.linux.dev, Ihor Solodrai <ihor.solodrai@linux.dev>,
  Bert Karwatzki <spasswolf@web.de>
 References: <20261009-b4-mmap-prepare-vma-flag-sanify-v5-0-923b70125b1e@kernel.org>
- <20261009-b4-mmap-prepare-vma-flag-sanify-v5-22-923b70125b1e@kernel.org>
+ <20261009-b4-mmap-prepare-vma-flag-sanify-v5-24-923b70125b1e@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -109,7 +109,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20261009-b4-mmap-prepare-vma-flag-sanify-v5-22-923b70125b1e@kernel.org>
+In-Reply-To: <20261009-b4-mmap-prepare-vma-flag-sanify-v5-24-923b70125b1e@kernel.org>
 X-Mailman-Approved-At: Thu, 15 Oct 2026 09:06:22 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,86 +128,45 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 10/9/26 20:04, Lorenzo Stoakes (ARM) wrote:
-> Currently there's a confusing mess around VMA_LOCKED_BIT and
-> VMA_LOCKONFAULT_BIT.
+> It makes no sense for a mapping whose contents the kernel does not own to
+> specify that the range is MMIO.
 > 
-> It is permitted for drivers to set any flags they like, with the VMA
-> already possessing lock flags.
+> Prior to this patch, all in-tree drivers which did so have been updated
+> such that they are marked as not being mm-managed. The check WARNs and
+> fails the mmap for any out-of-tree driver that still sets VMA_IO_BIT
+> without a kernel mapping.
 > 
-> This results in the absurd situation of a VMA possessing both
-> VMA_SPECIAL_FLAGS and VMA_LOCKED_MASK flags, which is not permitted.
-> 
-> This has resulted in mlock_vma_folio() having a very silly check for this
-> scenario to work around it.
-> 
-> There is no need for this - just clear the flags before invoking the hook
-> and reinstate them afterwards if they are required.
-> 
-> Nothing relies upon this being set during the mmap operation.
-> 
-> mmap_prepare is unaffected by this so requires no fix.
+> No functional change intended for in-tree code.
 > 
 > Reviewed-by: Zi Yan <ziy@nvidia.com>
 > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 > ---
->  mm/internal.h |  9 +--------
->  mm/vma.c      | 17 +++++++++++++++++
->  2 files changed, 18 insertions(+), 8 deletions(-)
+>  mm/vma.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
-> diff --git a/mm/internal.h b/mm/internal.h
-> index 557e629db8c5..4ae08fedffff 100644
-> --- a/mm/internal.h
-> +++ b/mm/internal.h
-> @@ -970,14 +970,7 @@ void mlock_folio(struct folio *folio);
->  static inline void mlock_vma_folio(struct folio *folio,
->  				struct vm_area_struct *vma)
->  {
-> -	/*
-> -	 * The VM_SPECIAL check here serves two purposes.
-> -	 * 1) VM_IO check prevents migration from double-counting during mlock.
-> -	 * 2) Although mmap_region() and mlock_fixup() take care that VM_LOCKED
-> -	 *    is never left set on a VM_SPECIAL vma, there is an interval while
-> -	 *    file->f_op->mmap() is using vm_insert_page(s), when VM_LOCKED may
-> -	 *    still be set while VM_SPECIAL bits are added: so ignore it then.
-> -	 */
-> +	/* The VM_IO check prevents migration from double-counting during mlock. */
->  	if (unlikely((vma->vm_flags & (VM_LOCKED|VM_SPECIAL)) == VM_LOCKED))
->  		mlock_folio(folio);
->  }
 > diff --git a/mm/vma.c b/mm/vma.c
-> index 39ceb03023e2..4f09fb98a2fd 100644
+> index 4f09fb98a2fd..51bdbe08bb02 100644
 > --- a/mm/vma.c
 > +++ b/mm/vma.c
-> @@ -2607,6 +2607,11 @@ static int __mmap_new_file_vma(struct mmap_state *map,
->  	if (!map->vm_file->f_op->mmap)
->  		return 0;
+> @@ -2796,6 +2796,12 @@ static int mmap_validate_vma_flags(const vma_flags_t *flags)
+>  		return -EINVAL;
+>  #endif
 >  
-> +	/*
-> +	 * Driver-specified flags may make the lock flags invalid, so clear
-> +	 * VMA_LOCKED_MASK and reinstate it afterwards if appropriate.
-> +	 */
-> +	vma_clear_flags_mask(vma, VMA_LOCKED_MASK);
->  	error = mmap_file(vma->vm_file, vma);
->  	map->vm_file = vma->vm_file;
->  
-> @@ -2629,6 +2634,18 @@ static int __mmap_new_file_vma(struct mmap_state *map,
->  		return error;
->  	}
->  
-> +	/*
-> +	 * If the VMA is still eligible for mlock(), reinstate any original
-> +	 * VMA_LOCKED_BIT and/or VMA_LOCKONFAULT_BIT flags.
-> +	 */
-> +	if (vma_supports_mlock(vma)) {
-> +		const vma_flags_t mask =
-> +			vma_flags_and_mask(&map->vma_flags,
-> +					   VMA_LOCKED_MASK);
+> +	if (!vma_flags_test_any(flags, VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT)) {
+> +		/* mm-managed mappings may not set VMA_IO_BIT. */
+> +		if (WARN_ON_ONCE(vma_flags_test(flags, VMA_IO_BIT)))
+> +			return -EINVAL;
 
-I'd just have at least the = vma_flags_and_mask on the same line. It's ok to
-exceed 80 chars.
+We do have a helper (vma_flags_is_mm_managed()) but we're not using it because
+of the VM_IO situation ...
 
+That's confusing ...
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+Could we do something like testing vma_flags_is_mm_managed(), but removing the
+VM_IO flag from the checked flags?
+
+Then we can add a comment about VM_IO in the future getting remove from
+vma_flags_is_mm_managed() ...
 
 -- 
 Cheers,
