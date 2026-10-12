@@ -4,74 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C27CA9ED0
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 21:31:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C692CA9ED0
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 23:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4hLXVnd/fZ9tYBOA+sOae0rDnyOp+4ZkyorOi4IAAcQ=; b=ZJVSOQrDyETw8Y
-	CrZ6Y5Y5Ad5g2g1P99Wxjqgm6xCsQKWsOPjYhb17WXicNzfOJSmaS3xbYI02E+CZTBNDFrUpyd9kA
-	0IYfpRq9axcWXuGyL+7abrTAcFGnCHr28AyjmG0KrF8DcmqpK6qm5o1TmrLCvx9QTJJkYNIRsmzwb
-	U4RuPpDW84z2kTu3dsLCSa4XMXKVQwqleDvi+W8kRm/uD8FbGTqb/HnD6nhGRopdZmRN03WMRX7gp
-	3ERJRSsmnNE4hturwQCknjKN54kEzBqjL43vEx+fhHH6L1Yjd8RDaV11S/m1o4y8kBSscFP+8hpwM
-	xQV36j1AjqFPwoYClY/g==;
+	List-Owner; bh=+JYntAoZcPkozPwlUjq7IpShrR8HQMEEqlixhucGSjE=; b=nJbiaUUkTgRxUf
+	PJh0xxKbH3KYtCcf+tCgvA14MJbQrkOWOJ+d6IRHTKXsmsU9inJeC+myeQoOsrmXLT8+d1/b1Le2I
+	aocw5EDPip2aiX06GxzIY/dTaPVI21MJrazUXMQ3TuWLKijw7hqX9e7j0Dhr6WUrE0/IyWbjjgBNr
+	WAlxU68sn59MsbDL83AgkZ2kXO1Vuo+SG8zOH2fDSo8T6W4V0+PjjabCDNWld0p17tULxEhj6ob74
+	aKCVi9XMVqxLxXrNrS0wp5BZqxsQ6nAH8OR8KQwPvIkiJAAiUwFFYGqYvkQjmzY2IJNU3DOwlWE3E
+	6xxvBtYvg2FnF4qk/5Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGNcF-0000000BXkK-19E3;
-	Mon, 12 Oct 2026 21:31:27 +0000
+	id 1xGPUy-0000000BfKh-2O91;
+	Mon, 12 Oct 2026 23:32:04 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGNcD-0000000BXhz-3n6S;
-	Mon, 12 Oct 2026 21:31:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2AAF660267;
-	Mon, 12 Oct 2026 21:31:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CACA9C2BCFC;
-	Mon, 12 Oct 2026 21:31:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791840684;
-	bh=OmbX5DkcDbQMDiXeEHY8HnEaIOdVNKFBqOECIGPHiyk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=p/Xiertwj6st63/cEcMxhxQ22yG45SM7+PoUE9hhmUE6IygIQyAwAmVHfezJCtCta
-	 mu+wzYuH0gU+e+WDR8ht2H+uWlvSJIPIdwfwtNO3wa3uYmLP1R1Dht9bgYOzXr/v0D
-	 rRn20A43PSVLk5NAxsPYhibZYguSA3vEZxxYxpKD03z1fFl7ls4lG6LeRY7wjXEl2w
-	 pIQTrOQDfKwLBO+WXnYzrHvh4P/C/a/A/MjsUAO0+n2XAl9jm71WB8266ODus0I6sc
-	 oOyk8op3/9H7u2ozQKXFTEfiG2CvgWPZTuDL40LFm1RdDl5iZgtx9DDqcsjSmGj0zE
-	 D220W9IAWXNWA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AB205CA9ED2;
-	Mon, 12 Oct 2026 21:31:24 +0000 (UTC)
-From: Vladimir Kukharenko via B4 Relay <devnull+vladimir.genproof.com@kernel.org>
-Date: Mon, 12 Oct 2026 21:31:18 +0000
-Subject: [PATCH 1/5] lib/crypto: riscv/poly1305: Fix 32-bit length treated
- as 64-bit
+	id 1xGPUx-0000000BfKb-01uF
+	for linux-riscv@lists.infradead.org;
+	Mon, 12 Oct 2026 23:32:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 26BEB600D4;
+	Mon, 12 Oct 2026 23:32:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 955531F0089B;
+	Mon, 12 Oct 2026 23:32:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791847921;
+	bh=et+fSNpAgASLBKfNUi/A2UyBeZSgDNV1kqK5yCpP8hg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=EeSBCjv75gbokJ2stAxf5eiUhk30zOW3R4JE+07vST5nJjF8txuMIxjam3c5Dh6TK
+	 TZIn2byMOf8JGCcqB0q+jI5YmEQ6xjPntEmApdR3C1VklhKd5M3DPD4GGSZkpK3BV+
+	 vhPulGmkDJKuZBk8jhuk6OcEmwcaAPrNIdMkWKDh9knd8kTq94VGgS1cclH2Zcp88T
+	 DM/m10rQRJ+1CHfGNKdmdSkpAL8qIpyEuuIKTjgMC8m18qNOstncoGGmUtSoEW6RsW
+	 /DGDetbXVrMJm2zJ27EDaBjAyHuujIoDEBj6VPdLpqCj2iPMtCwEmcLYzu3ksVLAIj
+	 34JXPGbeKcpgA==
+Date: Mon, 12 Oct 2026 16:32:00 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Han Gao <gaohan@iscas.ac.cn>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Han Gao <rabenda.cn@gmail.com>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] riscv: dts: thead: Add Milk-V Meles support
+Message-ID: <as1t8Ln4isRWfgO9@thelio>
+References: <20261001-rv-meles-v2-0-c61052262f84@iscas.ac.cn>
 MIME-Version: 1.0
-Message-Id: <20261012-libcrypto-4gib-lengths-v1-1-ea566c129a2e@genproof.com>
-References: <20261012-libcrypto-4gib-lengths-v1-0-ea566c129a2e@genproof.com>
-In-Reply-To: <20261012-libcrypto-4gib-lengths-v1-0-ea566c129a2e@genproof.com>
-To: Herbert Xu <herbert@gondor.apana.org.au>, 
- "David S. Miller" <davem@davemloft.net>, Eric Biggers <ebiggers@kernel.org>, 
- "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, 
- Vladimir Kukharenko <vladimir@genproof.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791840683; l=1981;
- i=vladimir@genproof.com; s=20261012; h=from:subject:message-id;
- bh=FUk3igHcdyvJr77P9LhCKrgECrkRv7kXrMD3TWIWkCM=;
- b=dyyyhEM/gItvT7Fo5HXi8C3uel40Qr+fe+goqtFZzKvMbMv5Ls7+Z/8XLcKwxhlxwqC5KvITd
- CADJ0jH+RMoCfR/VzHLC0DoHk09yrD44sOW0otUWBXCwpqIsybInjJu
-X-Developer-Key: i=vladimir@genproof.com; a=ed25519;
- pk=EqOzBSKBgFn7ExzKj5f9T8u+1yTrGVlLBwf3fj/sdHM=
-X-Endpoint-Received: by B4 Relay for vladimir@genproof.com/20261012 with
- auth_id=1169
-X-Original-From: Vladimir Kukharenko <vladimir@genproof.com>
+Content-Disposition: inline
+In-Reply-To: <20261001-rv-meles-v2-0-c61052262f84@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,61 +70,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: vladimir@genproof.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Vladimir Kukharenko <vladimir@genproof.com>
+On Thu, Oct 01, 2026 at 03:44:09PM +0800, Han Gao wrote:
+> Milk-V Meles is a single-board computer powered by T-HEAD's TH1520
+> SoC with four C910 RISC-V cores. Add the board compatible and device
+> tree for the Milk-V Meles.
+> 
+> Enable UART0, eMMC, microSD, Gigabit Ethernet and the PWM fan, and
+> name the GPIO lines exposed on the 40-pin header. Add AP6256 Wi-Fi
+> support over SDIO and enable HDMI output through the DC8200 display
+> controller and DW-HDMI transmitter.
+> 
+> Board details:
+> https://milkv.io/docs/meles/overview
+> 
+> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> ---
+> Changes in v2:
+> - Group BeagleV Ahead and Milk-V Meles compatibles in a common TH1520
+>   enum, as requested by Krzysztof Kozlowski.
+> - Explicitly select the GPIO function for the Wi-Fi host-wake pin,
+>   as reported by Sashiko and confirmed by Drew Fustini.
+> - Add Drew Fustini's Reviewed-by tags to patches 2-4.
+> - Link to v1: https://lore.kernel.org/r/20260929-rv-meles-v1-0-effdd14a76e8@iscas.ac.cn
+> 
+> ---
+> Han Gao (4):
+>       dt-bindings: riscv: thead: add Milk-V Meles
+>       riscv: dts: thead: add Milk-V Meles
+>       riscv: dts: thead: enable AP6256 Wi-Fi on Milk-V Meles
+>       riscv: dts: thead: enable HDMI on Milk-V Meles
+> 
+>  Documentation/devicetree/bindings/riscv/thead.yaml |   6 +-
+>  arch/riscv/boot/dts/thead/Makefile                 |   1 +
+>  arch/riscv/boot/dts/thead/th1520-milkv-meles.dts   | 346 +++++++++++++++++++++
+>  3 files changed, 351 insertions(+), 2 deletions(-)
+> ---
+> base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+> change-id: 20260929-rv-meles-25d10148dc0c
+> 
+> Best regards,
+> -- 
+> Han Gao <gaohan@iscas.ac.cn>
 
-The C code declares the length argument of the assembly function
-poly1305_blocks() as u32.  The assembly comes from OpenSSL/CRYPTOGAMS,
-which declares the length as size_t, and on riscv64 it uses all 64 bits
-of the register.  However, the RISC-V psABI sign-extends 32-bit
-arguments, including unsigned ones, to 64 bits.  So for a length of
-2 GiB or more, the assembly computes an end pointer 4 GiB lower than the
-correct one, below the start of the input, and the loop reads past the
-input until it faults.  poly1305_update() passes all complete blocks to
-poly1305_blocks() in one call, so a single poly1305_update() of 2 GiB to
-4 GiB triggers this.
+Sorry, I forgot to reply to this thread that I did apply all 4 patches
+to thead-dt-for-next.
 
-Declare the length as size_t, as OpenSSL and the x86_64 code do, rather
-than changing the imported assembly.  On riscv32, size_t is 32 bits
-wide, so nothing changes there.
+  [1/4] dt-bindings: riscv: thead: add Milk-V Meles
+        https://git.kernel.org/fustini/c/2c8613ec65f4
+  [2/4] riscv: dts: thead: add Milk-V Meles
+        https://git.kernel.org/fustini/c/8360e1bcc246
+  [3/4] riscv: dts: thead: enable AP6256 Wi-Fi on Milk-V Meles
+        https://git.kernel.org/fustini/c/a7f2539005c4
+  [4/4] riscv: dts: thead: enable HDMI on Milk-V Meles
+        https://git.kernel.org/fustini/c/d43b33e0253c
 
-This bug was introduced by commit bef9c7559869 ("lib/crypto:
-riscv/poly1305: Import OpenSSL/CRYPTOGAMS implementation").  No in-tree
-caller passes 2 GiB or more in one call, so this is an ABI robustness
-improvement.
-
-I reproduced the fault on riscv64 in QEMU with a single 2 GiB
-poly1305_update(), and this patch fixes it.
-
-Assisted-by: LLM
-Signed-off-by: Vladimir Kukharenko <vladimir@genproof.com>
----
- lib/crypto/riscv/poly1305.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/lib/crypto/riscv/poly1305.h b/lib/crypto/riscv/poly1305.h
-index 88f3df44e355..aaf24d0f6674 100644
---- a/lib/crypto/riscv/poly1305.h
-+++ b/lib/crypto/riscv/poly1305.h
-@@ -8,7 +8,7 @@
- asmlinkage void poly1305_block_init(struct poly1305_block_state *state,
- 				    const u8 raw_key[POLY1305_BLOCK_SIZE]);
- asmlinkage void poly1305_blocks(struct poly1305_block_state *state,
--				const u8 *src, u32 len, u32 hibit);
-+				const u8 *src, size_t len, u32 hibit);
- asmlinkage void poly1305_emit(const struct poly1305_state *state,
- 			      u8 digest[POLY1305_DIGEST_SIZE],
- 			      const u32 nonce[4]);
-
--- 
-2.43.0
-
-
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
