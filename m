@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46EFFCC6B0E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E175CC6B0A
 	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 05:42:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,90 +12,89 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CUDEkXujT76tfSIEEFn2b0BJD+RsqqNT7XaMX7+R+9o=; b=2vClF+6TZ6l6ZA
-	qcvkZ/EP7tQNJuz9Q2FSQIwPbCRmwtiZE221txpmOSbZhNgofFlMWlLuNXEWK3KWOnzsjRMBM34MQ
-	AiF3drhdbsZcfZp5v4KMwxkbws1kvr52dMzv74U0Q5mpcWxiuBfpJwKAGskMRmzEIOkbRbJMFSaYR
-	CSD5E2cBn1DMNHheV7cySW8i5ryrh3+1pHoM2mNot8aTicRkflBr2V59mjh6e5J59Y/kUmOhL56Yl
-	PK9tSoUj/h0VlgGh+6o2X+F82rw9oun+mvdndZIha7ntPdwcvhlnuipHWK5sMrSTczEz8ZXfQWp/0
-	kcqBpS+6a40cxsV9P9Og==;
+	List-Owner; bh=pKKcWXy7wfJuZEQSn40peR2yxHAPSgii4h6AJThfevc=; b=VdmIFJiGoyqbGY
+	olkj+VVpsu5UTZ15idFws3VJMYnTkf9bPWCys0XbMXjEsISZj7c8xTt0d0mZkPXEPTOqv09PLi1dK
+	3u6Q/yj09OmQBM+5vGibQiwo4Z3JUerS7zMI8PHEEFulnLKG1Jc4/REZDHkzkhSy2ZDY9XY2p6TMk
+	eEeRsbWZxPqT11UmfEl08ZYJwGRzS2s/gpBt1zCDF/dMHIhJ4uq94b33tkJssEtrXlrS/fMAd5yRl
+	eNV8VArlWvoC0qHzDExS+Ag73n/HyGWXJepgQzU4Etsc6TYR33LdAH9ZLeFIIfC5URC+mY8ekOUK/
+	pr8evCoJ2tB5SsS/NPpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGVGu-0000000C1zY-1qge;
-	Tue, 13 Oct 2026 05:41:56 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGVGr-0000000C1xf-1z80
-	for linux-riscv@lists.infradead.org;
+	id 1xGVGs-0000000C1yL-1KJM;
 	Tue, 13 Oct 2026 05:41:54 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69D211JO4071765
-	for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 05:41:52 GMT
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGVGn-0000000C1wj-3u4C
+	for linux-riscv@lists.infradead.org;
+	Tue, 13 Oct 2026 05:41:51 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69D21MP63509538
+	for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 05:41:49 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	TyCY3djL8PN+a1DxJAYuBVVySj7YPULq6/PcA5HDv1k=; b=ZukXKvucprqa55nG
-	6Ol3JABAIrNuktgDdaGS81x8aQCwhCsqsacUEPXAYQ2SQodmfxUcDvkSWFEOxUyz
-	f8f/Lad1MWn4GWQ1p8i6YP9BXhR651v2HYhKXoqgk1vYqEnAE3IiLNSPc/UiRRYc
-	IUSKpq/HuRxt5+Pl6CW1fNRR2lxrD3pPYzPv3b4X+Om0T9BHALkjZmCPDON+HPil
-	QG47bFVQUKeB4m/XDb2sHPXoTdbUkw7Y+/8Dgax+OZWPjHpQpBSsxpqIpjelGJQE
-	YaGFGdRcEpf5lmJ0YdHiYUbFwHqx6GnBJ5eSgDIzQ0P35ZBfWGC59IUZrSOZ9Sqh
-	BuPnDw==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h92jjtvb3-1
+	QhAsvG4R/uLP8ngKuMfxJ7kEdHB3Lqf98dmrr1z6uUI=; b=Kgs1HNgatN5NAoOd
+	+fcEa8Wo/UkPFSI64uG/I0ZGiYU6b735Q4Q4jqDYYNnXV8MVdkZkDpNl5jjvOEDx
+	PzZQfE8mGiSTO/0CewjQCc+HRB8SgLOG9uxqr6y/LLUBCXILUMw0D6tEF/utug34
+	x5yvaAwQl5NNx50OjpJ48o484CiCKI5/MLPciPDjrWJCRViYSiQeFu49onlNU9Yl
+	ES2GwjLDMVrJmP+2k6GhXPlJtMxv7ZkdhoDs91l9Od+lNxg+5jYuAjrxb4ZrsjK0
+	e96Vytjb+12fFHtCS1WFw76WTfu5TWbPO5puSBI7Xpyw6qPSjIBYSCQg8y2d8WfL
+	UNWtYA==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h8wbc4fck-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 05:41:52 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-39512608fb1so4285033a91.1
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2026 22:41:52 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 05:41:49 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-38e54b6556aso1997559a91.2
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2026 22:41:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791870111; x=1792474911; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1791870109; x=1792474909; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TyCY3djL8PN+a1DxJAYuBVVySj7YPULq6/PcA5HDv1k=;
-        b=kB5PiDodt/1nAziaOFOD7jDIUxfe3Ws0Y87/TaOvsFoqfJsbnrkvZFw1Ick0vbVps5
-         BVWkkj4ecrXRUb3LdZPLWFXrMib0QK+vFG5as9PxG9mZ6iFaRZpcnp2Ndam/TRoD6j9E
-         s+46g6POc+sLIAEKclJKhevto7sDdACTRVwgyt0bodUpjgaAs9v9vekAu1xsmADasqgL
-         7HrF4/sweBfNO6ZlBDw2nndkBkf3B4lluJtxogQo/30NSFw7OaoaNDvUmdl5/ClYWGmm
-         +g+zb1LlWM9bmjs9adVkEB38OGB5o62TISOK9KiI/GfwUgbNFzcFR9kTKr7TBiKQdXD8
-         C1YQ==
+        bh=QhAsvG4R/uLP8ngKuMfxJ7kEdHB3Lqf98dmrr1z6uUI=;
+        b=VjdgKVmsLW2OqFAK6ODhVtc+ItXmALYpb0TDOm49kP0WuAd4pz4hRkZVdPxr6e2viF
+         PFDLTzuLjM/7nisVz8YHfO/4UB24WzFUkdytKdZwu0jk+E3A/pKWy+5EIswm8+xIigbp
+         GnNrs3MRFRJtKderKhxxV0O6KAaPXv8RMg9JkvOfpx3fh04Iy57drENCPu/wtmDuzvX5
+         +l0bxQgbCnHBuRbs05HhPn2FKLfdM756rbS3DI3TzwZkRfSmrR/fI4W+UlK/DiRSIUL/
+         tIneEUoUsBi5MxKxzgdtIIo3mJncY1jL5Mg3qlnCazM6demVs6b9Ry1alZHpQrfiVFmE
+         Dxkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791870111; x=1792474911;
+        d=1e100.net; s=20260707; t=1791870109; x=1792474909;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=TyCY3djL8PN+a1DxJAYuBVVySj7YPULq6/PcA5HDv1k=;
-        b=s0cE6woIVPlpRW3wgW4MosWx3JiXHeVzHmcUYNBImhjqOFGWrz3RqrivSJ/XhUuXQW
-         iEkkp2M3Vua1G509T/vlhWlk8VgU8RBCgUB/VKKb+TOCjksAOXu9/WwFS21i8OwAA9oU
-         yrL7vpV3qVOJBv2W+5H6rUiryxUZsv+72KD2uRb/w7nqIK0bBQmzmWKGWhaeySyYuk6C
-         L3FqgURCRSJdfEZmX4YxLXa2MyaeRdeCVh2I8EuXtRdqNmxvNhZLcf0NCJaJfU/cx89O
-         10hJE0dIg12nxgSwC1x1qym+s99SUNdjvgUw3WMNUHuIX8UYZewgAEw6qRiCgWXqoUHU
-         ihZA==
-X-Forwarded-Encrypted: i=1; AKwUvBwoa3cfi63nHHz/21JFUt6JJ1bZ9UxZd0xQFHY8EhpGkExk1rfCq+T1ClObBDEv7mL6XeX60r3pQgHpbw==@lists.infradead.org
-X-Gm-Message-State: AFq9FYIFmKEwtURI4X8XmdPP5X1v1XeFL0bH6iiWXKdka8wMMcpk0Z6g
-	EN2hhrpvjf2iqbaWLWjqxmK5o7j/Cd3uNFbd4e9aYYVq6mgRbd3d+U/P8PxA2gV9N8fbW8FVEEh
-	lrSZOZWDOcECy/VHFEd5kFMrrNMo8rHDIT1CF+14+yQ1bs+fKwm0gEamT7PyiCkyjlggnEkgKHB
-	UI6A==
-X-Gm-Gg: AYBFou0YVH4MpHuy95NAYkH1yO0983PcybHcsDgOYgBoI/aap81jqL/06ea98fAy6hW
-	/IEzJw5aik+Q6oB7qSJHw/0COUj4xRtEN6n9tdQQ5Le3FhoBlgkhc6PGXntI3A8dMnQnBOCJ3Hl
-	QJHfk1fpNqHkPeforbFaoQP8a6kl08xPnsnkZcydFGUOtw2HHQjhV/Txtf8F1VtTSpy/3tV5SQN
-	bG3hH6FE1j9KpWqDjaEj6C4lMhULzs1RUpDPU3Syt57Ec8LOf4kU9UQkmZFt0DUasy9nrUyiD2S
-	Wv7sahOeEi6sJ0CiysaLx4rw6jakN6sODp3T25eRYtvHv1t6qDq9oPy9sTLWTE279CNa71TQyHa
-	5yYGQps63eYY1VrJ78c+ys+cBnxHXYDc6kyAS/4lToG+5qVlRqcW4Vn6IFg==
-X-Received: by 2002:a17:90b:2f0c:b0:3a8:5d1f:59ad with SMTP id 98e67ed59e1d1-3ab3ac9b91fmr10370196a91.43.1791870111232;
-        Mon, 12 Oct 2026 22:41:51 -0700 (PDT)
-X-Received: by 2002:a17:90b:2f0c:b0:3a8:5d1f:59ad with SMTP id 98e67ed59e1d1-3ab3ac9b91fmr10370183a91.43.1791870110729;
-        Mon, 12 Oct 2026 22:41:50 -0700 (PDT)
+        bh=QhAsvG4R/uLP8ngKuMfxJ7kEdHB3Lqf98dmrr1z6uUI=;
+        b=EaOOt46xmU7tMSQ7s3kP4tubk7ng/RjyUIZ5NX0AoRaNhSZOqxgfAepRbQNmzhKvZ7
+         P2xzEoIXUTd9jVHCEn1LJl2ar9DR9iMkkTsTz55+5ZiofsuM1qb7WQU9kR74zAAK3Ags
+         2lJmtCCL7T4GEopa/oAjbsP6piHU5+TFcKeOJ4zk1c0NunhQBlzWcq6HtxR5fnMrM420
+         n44CdWwXzqnm98SEoqn++uGZjvimQ8tiEWrmbgBr0gtoh4NHBI28n4HmGvOYBCIMZWZu
+         GyQCImE4pPYOIDL+nW/OhqrSEUBleiSbt3LcjMexbUhAfecUpctHQ3VKgIpjJFh2x3DO
+         BH9A==
+X-Forwarded-Encrypted: i=1; AKwUvBwgKC7ZlgZXzAh875lSPS3rG7EBF+Ni+9kZCPGdL5+ZpCnBaUyIimDvRBzVis9L2UcamSgpEeqOSNnQYg==@lists.infradead.org
+X-Gm-Message-State: AFq9FYJelBG0U/La9O3S1fgRxLzHT8YcoFlT/9LMDiG7zhatHg/2wTA3
+	xAH9k3gSQD4+/nuXvKwl0vFdltILFJaW/9kwdbZ4EK1i6dXYWludDaN5K3d4Pvx7ZiVZbWncE3M
+	6YgkAkPlB/C50saoRhDMRgRlayKyKvKU2ocbVfytp3tFTqHbG0UDnANfR503+jezF/aLChA==
+X-Gm-Gg: AYBFou2K0RRRUL7m3BvqHMyq0k9gOZvOniYEkDMYlbiIO43SO+4n+94aGWk404lURLj
+	MtDBv22nJlC2svJu7rDZOXGnc8K7PGm1wkbHgLQnmhxCCC4JPCp7HlkC5MzohPE2H/Gbh5dn8A7
+	Ceto+ewP9shFpnYmA1dtb+ISln2hIpgF+YNw9gFX3zuQGP31QBA0d4Jokn4iNAoWcDbgzY9MAG1
+	yiIU9eH3N+eEdh+e/xpEkZ8JdtDbtI5TvxHmH8w2qVrOETbTRlLCZBgxP0erQYWxKBFPRVQyEtT
+	Rk/R5+tTamkO/eaCXgW9iL3hxsgxC1W9AhbAIl78SCrAOlWdopdBjfYej92zue67p6hvJzfKwiC
+	VLnTdOPJW+mTFeTSBVobZRHc1YpXAqMW2D3ndwBMY4wPXbozA4Z2JSY4dNA==
+X-Received: by 2002:a17:90b:5346:b0:3ab:1a24:56e3 with SMTP id 98e67ed59e1d1-3ab3ac9dea0mr8535599a91.25.1791870108401;
+        Mon, 12 Oct 2026 22:41:48 -0700 (PDT)
+X-Received: by 2002:a17:90b:5346:b0:3ab:1a24:56e3 with SMTP id 98e67ed59e1d1-3ab3ac9dea0mr8535570a91.25.1791870107775;
+        Mon, 12 Oct 2026 22:41:47 -0700 (PDT)
 Received: from hu-azarrabi-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ab38f4863esm22926361a91.11.2026.10.12.22.41.47
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ab38f4863esm22926361a91.11.2026.10.12.22.41.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 22:41:50 -0700 (PDT)
+        Mon, 12 Oct 2026 22:41:47 -0700 (PDT)
 From: Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
-Date: Mon, 12 Oct 2026 22:41:29 -0700
-Subject: [PATCH RFC v3 2/9] tee: optee: allow RPMI transport builds on
- RISC-V
+Date: Mon, 12 Oct 2026 22:41:28 -0700
+Subject: [PATCH RFC v3 1/9] tee: optee: share the global shared-memory ID
+ mapping
 MIME-Version: 1.0
-Message-Id: <20261012-rpmi-tee-service-grp-dev-v3-2-975b574667e2@oss.qualcomm.com>
+Message-Id: <20261012-rpmi-tee-service-grp-dev-v3-1-975b574667e2@oss.qualcomm.com>
 References: <20261012-rpmi-tee-service-grp-dev-v3-0-975b574667e2@oss.qualcomm.com>
 In-Reply-To: <20261012-rpmi-tee-service-grp-dev-v3-0-975b574667e2@oss.qualcomm.com>
 To: Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
@@ -111,36 +110,36 @@ Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
         devicetree@vger.kernel.org,
         Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
 X-Mailer: b4 0.13.0
-X-Proofpoint-GUID: tgi99VvcujkqNlJPdhaCABIghVWbuU3u
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEzMDAyMiBTYWx0ZWRfX9gnqV8LhJLTZ
- +DcfUbdC1C/8xAd7vateryZo3SxaNPTq9U5hm8oXl2qD7wpLDyPqWjYkkdXWoqnP9Uhv1yG/KyO
- nnsZsYaGNZZl6WCrwhI6zxfc2bJknh8=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEzMDAyMiBTYWx0ZWRfX9lqGUWVVHque
- ZlCK3j8A4hH4gpzUQPpzzuMqvp26bANFhM18DaM1DZ0fLvDdiqgXFUzs36XcPE1EyxdFvqW6Irs
- 8HjEolLmRXlXPpWzUxZZknD0GqeCgNvK3PnYX1LcBLZPg+AJ/ymCzD37R+Zn8SFof5k5BLP+jAB
- wYpYdb6W4GWCox7fjNFKTDGPzjQ176pNrwcPbRvQIjWdn9B6WWobVf1XjhwFcr+Xnd/mTTr3T6u
- Zpsc7el9trnWn56oLcp+Z/mB9bzfeBoyxN2qu0wwp46ibY3b/4kFTpZ8HkZmshdje+z7XTqmntB
- e+4eUcq0JAncm2dRr3Mo4ejIgj9iakPrLR1ukXOP338Yg4l0wd7Rz+ScdFr6CRFbOK0MQzSkxi4
- XHyEoy/NcFRtwM8DJzXyMl8wOyZRtldkOsJUtXlZYC1+oeAyfXS5w05rvSzbcdQti/l+9YuICr5
- tVUYtrQTfqOmOiVCTcQ==
-X-Authority-Analysis: v=2.4 cv=GfKCDgXL c=1 sm=1 tr=0 ts=6acdc4a0 cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEzMDAyMiBTYWx0ZWRfX31okqY6FOH/E
+ dj0TWkQIcRZEgAwVFVfN7KmEduekBaOnYHu3KTPAt4NeQF6cOUmJPl0MLgxEYi/MoFTRwDkS3Rb
+ X5HtzYdgv0/yZXLfL/nkLAxHzy81hH8=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEzMDAyMiBTYWx0ZWRfX8TplHe+oZWL0
+ pxr+xl0ndBHlEtWI/Ms1bsimCDtgm1rZCkCRvGbHMFmltmDBMN2qwI4h4Jh3rcZSE7kajeC0LnI
+ sTn17By4ZW2EcRDOHyWEJzp2SBOZUNVmgVr52ch5HmgUMyaq8hgnEnx9o4MTE8ldo1rnyt1l4+n
+ NtfyZDdzb5K8c3/ehI8hxFSLFxhgM+Rb19Tnvoe6jPMLqaL0pzPhWIyA8t+oxSTl9OirmVm4kVx
+ vsxC8m3J4wGddguskLZ09pPz2GDTPUkzY0By323zvvmpA0C/1nHHa7y7DmPQ0B65kQ7iIYlvP+3
+ 6xQSIK0DAZ7K8YiYOo4ntAAPiJ5/p9UIKuL3h9I5jtErqM0o/eWx2cmLXwWv/U6DKgiqfWWgzh6
+ jXPui6qTLBpQG7Xbg3wxwozH1PpaHTdeSxNwgb1nU8fvhBMmsRjYye3cipK+ci2gV3N2sduch9h
+ kmwkfARVJKSVYv6t1pA==
+X-Authority-Analysis: v=2.4 cv=C4p8WgP+ c=1 sm=1 tr=0 ts=6acdc49d cx=c_pps
+ a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
  a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=FVoukCuPRgDGiLv7d_oA:9 a=QEXdDO2ut3YA:10
- a=iS9zxrgQBfv6-_F4QbHw:22
-X-Proofpoint-ORIG-GUID: tgi99VvcujkqNlJPdhaCABIghVWbuU3u
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=Hmcm6iJ0OgSZlEai1VoA:9 a=QEXdDO2ut3YA:10
+ a=uKXjsCUrEbL0IQVhDsJ9:22
+X-Proofpoint-ORIG-GUID: YE9Q2ER-cxycTFMNyxrYysV35G-gVuJz
+X-Proofpoint-GUID: YE9Q2ER-cxycTFMNyxrYysV35G-gVuJz
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-13_01,2026-10-09_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 lowpriorityscore=0 malwarescore=0 bulkscore=0 impostorscore=0
- spamscore=0 adultscore=0 suspectscore=0 priorityscore=1501 phishscore=0
+ impostorscore=0 priorityscore=1501 spamscore=0 bulkscore=0 adultscore=0
+ malwarescore=0 suspectscore=0 lowpriorityscore=0 clxscore=1015 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610130022
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_224153_639286_882C8A5F 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20261012_224150_014831_084E1DCF 
+X-CRM114-Status: GOOD (  22.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,66 +156,485 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Allow the TEE subsystem and OP-TEE driver to be selected on RISC-V
-systems with the RPMI TEE transport enabled. Prevent OP-TEE from being
-built in when the transport is modular.
+The FF-A backend maintains a hash table translating secure-world memory
+handles to TEE shared-memory objects. This bookkeeping does not depend
+on FF-A and is also needed by the RPMI backend.
 
-Common OP-TEE code checks the memory type when registering shared
-memory. Add the RISC-V implementation so that code builds without
-reaching the unsupported-architecture error. Reject mappings with
-explicit non-cacheable or I/O memory types.
+Move the mapping and its locking into common helpers and convert the
+FF-A backend to use them.
+
+This prepares the OP-TEE driver for RPMI transport support on RISC-V.
 
 Signed-off-by: Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
 ---
- drivers/tee/Kconfig       | 3 ++-
- drivers/tee/optee/Kconfig | 3 ++-
- drivers/tee/optee/call.c  | 2 ++
- 3 files changed, 6 insertions(+), 2 deletions(-)
+ drivers/tee/optee/Makefile         |   1 +
+ drivers/tee/optee/ffa_abi.c        | 133 +++++++----------------------------
+ drivers/tee/optee/optee_private.h  |  30 ++++++--
+ drivers/tee/optee/shm_handle_map.c | 138 +++++++++++++++++++++++++++++++++++++
+ 4 files changed, 188 insertions(+), 114 deletions(-)
 
-diff --git a/drivers/tee/Kconfig b/drivers/tee/Kconfig
-index 98c3ad083940..ad754b647a3c 100644
---- a/drivers/tee/Kconfig
-+++ b/drivers/tee/Kconfig
-@@ -2,7 +2,8 @@
- # Generic Trusted Execution Environment Configuration
- menuconfig TEE
- 	tristate "Trusted Execution Environment support"
--	depends on HAVE_ARM_SMCCC || COMPILE_TEST || CPU_SUP_AMD
-+	depends on HAVE_ARM_SMCCC || COMPILE_TEST || CPU_SUP_AMD || \
-+		   RISCV_RPMI_TEE_TRANSPORT
- 	select CRYPTO_LIB_SHA1
- 	select DMA_SHARED_BUFFER
- 	select GENERIC_ALLOCATOR
-diff --git a/drivers/tee/optee/Kconfig b/drivers/tee/optee/Kconfig
-index 891dac63cab8..cc057c76de62 100644
---- a/drivers/tee/optee/Kconfig
-+++ b/drivers/tee/optee/Kconfig
-@@ -2,10 +2,11 @@
- # OP-TEE Trusted Execution Environment Configuration
- config OPTEE
- 	tristate "OP-TEE"
--	depends on HAVE_ARM_SMCCC
-+	depends on HAVE_ARM_SMCCC || RISCV_RPMI_TEE_TRANSPORT
- 	depends on MMU
- 	depends on RPMB || !RPMB
- 	depends on ARM_FFA_TRANSPORT || !ARM_FFA_TRANSPORT
-+	depends on RISCV_RPMI_TEE_TRANSPORT || !RISCV_RPMI_TEE_TRANSPORT
- 	help
- 	  This implements the OP-TEE Trusted Execution Environment (TEE)
- 	  driver.
-diff --git a/drivers/tee/optee/call.c b/drivers/tee/optee/call.c
-index e046aff61828..267513cf4ec0 100644
---- a/drivers/tee/optee/call.c
-+++ b/drivers/tee/optee/call.c
-@@ -604,6 +604,8 @@ static bool is_normal_memory(pgprot_t p)
- #elif defined(CONFIG_ARM64)
- 	return ((pgprot_val(p) & PTE_ATTRINDX_MASK) == PTE_ATTRINDX(MT_NORMAL)) ||
- 	       ((pgprot_val(p) & PTE_ATTRINDX_MASK) == PTE_ATTRINDX(MT_NORMAL_TAGGED));
-+#elif defined(CONFIG_RISCV)
-+	return !(pgprot_val(p) & _PAGE_MTMASK);
- #else
- #error "Unsupported architecture"
+diff --git a/drivers/tee/optee/Makefile b/drivers/tee/optee/Makefile
+index 183cdde1ac04..ec2efc27ef05 100644
+--- a/drivers/tee/optee/Makefile
++++ b/drivers/tee/optee/Makefile
+@@ -7,6 +7,7 @@ optee-objs += rpc.o
+ optee-objs += protmem.o
+ optee-objs += supp.o
+ optee-objs += device.o
++optee-objs += shm_handle_map.o
+ optee-$(CONFIG_HAVE_ARM_SMCCC) += smc_abi.o
+ optee-$(CONFIG_ARM_FFA_TRANSPORT) += ffa_abi.o
+ 
+diff --git a/drivers/tee/optee/ffa_abi.c b/drivers/tee/optee/ffa_abi.c
+index 702da7d98fbc..5a926353c653 100644
+--- a/drivers/tee/optee/ffa_abi.c
++++ b/drivers/tee/optee/ffa_abi.c
+@@ -22,100 +22,15 @@
+  * This file implement the FF-A ABI used when communicating with secure world
+  * OP-TEE OS via FF-A.
+  * This file is divided into the following sections:
+- * 1. Maintain a hash table for lookup of a global FF-A memory handle
+- * 2. Convert between struct tee_param and struct optee_msg_param
+- * 3. Low level support functions to register shared memory in secure world
+- * 4. Dynamic shared memory pool based on alloc_pages()
+- * 5. Do a normal scheduled call into secure world
+- * 6. Driver initialization.
++ * 1. Convert between struct tee_param and struct optee_msg_param
++ * 2. Low level support functions to register shared memory in secure world
++ * 3. Dynamic shared memory pool based on alloc_pages()
++ * 4. Do a normal scheduled call into secure world
++ * 5. Driver initialization.
+  */
+ 
+ /*
+- * 1. Maintain a hash table for lookup of a global FF-A memory handle
+- *
+- * FF-A assigns a global memory handle for each piece shared memory.
+- * This handle is then used when communicating with secure world.
+- *
+- * Main functions are optee_shm_add_ffa_handle() and optee_shm_rem_ffa_handle()
+- */
+-struct shm_rhash {
+-	struct tee_shm *shm;
+-	u64 global_id;
+-	struct rhash_head linkage;
+-};
+-
+-static void rh_free_fn(void *ptr, void *arg)
+-{
+-	kfree(ptr);
+-}
+-
+-static const struct rhashtable_params shm_rhash_params = {
+-	.head_offset = offsetof(struct shm_rhash, linkage),
+-	.key_len     = sizeof(u64),
+-	.key_offset  = offsetof(struct shm_rhash, global_id),
+-	.automatic_shrinking = true,
+-};
+-
+-static struct tee_shm *optee_shm_from_ffa_handle(struct optee *optee,
+-						 u64 global_id)
+-{
+-	struct tee_shm *shm = NULL;
+-	struct shm_rhash *r;
+-
+-	mutex_lock(&optee->ffa.mutex);
+-	r = rhashtable_lookup_fast(&optee->ffa.global_ids, &global_id,
+-				   shm_rhash_params);
+-	if (r)
+-		shm = r->shm;
+-	mutex_unlock(&optee->ffa.mutex);
+-
+-	return shm;
+-}
+-
+-static int optee_shm_add_ffa_handle(struct optee *optee, struct tee_shm *shm,
+-				    u64 global_id)
+-{
+-	struct shm_rhash *r;
+-	int rc;
+-
+-	r = kmalloc_obj(*r);
+-	if (!r)
+-		return -ENOMEM;
+-	r->shm = shm;
+-	r->global_id = global_id;
+-
+-	mutex_lock(&optee->ffa.mutex);
+-	rc = rhashtable_lookup_insert_fast(&optee->ffa.global_ids, &r->linkage,
+-					   shm_rhash_params);
+-	mutex_unlock(&optee->ffa.mutex);
+-
+-	if (rc)
+-		kfree(r);
+-
+-	return rc;
+-}
+-
+-static int optee_shm_rem_ffa_handle(struct optee *optee, u64 global_id)
+-{
+-	struct shm_rhash *r;
+-	int rc = -ENOENT;
+-
+-	mutex_lock(&optee->ffa.mutex);
+-	r = rhashtable_lookup_fast(&optee->ffa.global_ids, &global_id,
+-				   shm_rhash_params);
+-	if (r)
+-		rc = rhashtable_remove_fast(&optee->ffa.global_ids,
+-					    &r->linkage, shm_rhash_params);
+-	mutex_unlock(&optee->ffa.mutex);
+-
+-	if (!rc)
+-		kfree(r);
+-
+-	return rc;
+-}
+-
+-/*
+- * 2. Convert between struct tee_param and struct optee_msg_param
++ * 1. Convert between struct tee_param and struct optee_msg_param
+  *
+  * optee_ffa_from_msg_param() and optee_ffa_to_msg_param() are the main
+  * functions.
+@@ -133,7 +48,8 @@ static void from_msg_param_ffa_mem(struct optee *optee, struct tee_param *p,
+ 	p->u.memref.size = mp->u.fmem.size;
+ 
+ 	if (mp->u.fmem.global_id != OPTEE_MSG_FMEM_INVALID_GLOBAL_ID)
+-		shm = optee_shm_from_ffa_handle(optee, mp->u.fmem.global_id);
++		shm = optee_shm_handle_map_lookup(&optee->ffa.shm_map,
++						  mp->u.fmem.global_id);
+ 	p->u.memref.shm = shm;
+ 
+ 	if (shm) {
+@@ -262,7 +178,7 @@ static int optee_ffa_to_msg_param(struct optee *optee,
+ }
+ 
+ /*
+- * 3. Low level support functions to register shared memory in secure world
++ * 2. Low level support functions to register shared memory in secure world
+  *
+  * Functions to register and unregister shared memory both for normal
+  * clients and for tee-supplicant.
+@@ -313,7 +229,7 @@ static int optee_ffa_shm_register(struct tee_context *ctx, struct tee_shm *shm,
+ 	if (rc)
+ 		return rc;
+ 
+-	rc = optee_shm_add_ffa_handle(optee, shm, args.g_handle);
++	rc = optee_shm_handle_map_add(&optee->ffa.shm_map, shm, args.g_handle);
+ 	if (rc) {
+ 		mem_ops->memory_reclaim(args.g_handle, 0);
+ 		return rc;
+@@ -339,7 +255,7 @@ static int optee_ffa_shm_unregister(struct tee_context *ctx,
+ 	};
+ 	int rc;
+ 
+-	optee_shm_rem_ffa_handle(optee, global_handle);
++	optee_shm_handle_map_remove(&optee->ffa.shm_map, global_handle);
+ 	shm->sec_world_id = 0;
+ 
+ 	rc = msg_ops->sync_send_receive(ffa_dev, &data);
+@@ -367,7 +283,7 @@ static int optee_ffa_shm_unregister_supp(struct tee_context *ctx,
+ 	 * this ID.
+ 	 */
+ 
+-	optee_shm_rem_ffa_handle(optee, global_handle);
++	optee_shm_handle_map_remove(&optee->ffa.shm_map, global_handle);
+ 	mem_ops = optee->ffa.ffa_dev->ops->mem_ops;
+ 	rc = mem_ops->memory_reclaim(global_handle, 0);
+ 	if (rc)
+@@ -379,7 +295,7 @@ static int optee_ffa_shm_unregister_supp(struct tee_context *ctx,
+ }
+ 
+ /*
+- * 4. Dynamic shared memory pool based on alloc_pages()
++ * 3. Dynamic shared memory pool based on alloc_pages()
+  *
+  * Implements an OP-TEE specific shared memory pool.
+  * The main function is optee_ffa_shm_pool_alloc_pages().
+@@ -428,7 +344,7 @@ static struct tee_shm_pool *optee_ffa_shm_pool_alloc_pages(void)
+ }
+ 
+ /*
+- * 5. Do a normal scheduled call into secure world
++ * 4. Do a normal scheduled call into secure world
+  *
+  * The function optee_ffa_do_call_with_arg() performs a normal scheduled
+  * call into secure world. During this call may normal world request help
+@@ -488,7 +404,8 @@ static void handle_ffa_rpc_func_cmd_shm_free(struct tee_context *ctx,
+ 	    arg->params[0].attr != OPTEE_MSG_ATTR_TYPE_VALUE_INPUT)
+ 		goto err_bad_param;
+ 
+-	shm = optee_shm_from_ffa_handle(optee, arg->params[0].u.value.b);
++	shm = optee_shm_handle_map_lookup(&optee->ffa.shm_map,
++					  arg->params[0].u.value.b);
+ 	if (!shm)
+ 		goto err_bad_param;
+ 	switch (arg->params[0].u.value.a) {
+@@ -736,7 +653,8 @@ static int optee_ffa_lend_protmem(struct optee *optee, struct tee_shm *protmem,
+ 	if (rc)
+ 		goto err_reclaim;
+ 
+-	rc = optee_shm_add_ffa_handle(optee, protmem, args.g_handle);
++	rc = optee_shm_handle_map_add(&optee->ffa.shm_map, protmem,
++				      args.g_handle);
+ 	if (rc)
+ 		goto err_unreg;
+ 
+@@ -770,7 +688,7 @@ static int optee_ffa_reclaim_protmem(struct optee *optee,
+ 	};
+ 	int rc;
+ 
+-	optee_shm_rem_ffa_handle(optee, global_handle);
++	optee_shm_handle_map_remove(&optee->ffa.shm_map, global_handle);
+ 	protmem->sec_world_id = 0;
+ 
+ 	rc = msg_ops->sync_send_receive(ffa_dev, &data);
+@@ -785,9 +703,9 @@ static int optee_ffa_reclaim_protmem(struct optee *optee,
+ }
+ 
+ /*
+- * 6. Driver initialization
++ * 5. Driver initialization
+  *
+- * During driver inititialization is the OP-TEE Secure Partition is probed
++ * During driver initialization is the OP-TEE Secure Partition is probed
+  * to find out which features it supports so the driver can be initialized
+  * with a matching configuration.
+  */
+@@ -991,8 +909,7 @@ static void optee_ffa_remove(struct ffa_device *ffa_dev)
+ 	}
+ 	optee_remove_common(optee);
+ 
+-	mutex_destroy(&optee->ffa.mutex);
+-	rhashtable_free_and_destroy(&optee->ffa.global_ids, rh_free_fn, NULL);
++	optee_shm_handle_map_uninit(&optee->ffa.shm_map);
+ 
+ 	kfree(optee);
+ }
+@@ -1137,10 +1054,9 @@ static int optee_ffa_probe(struct ffa_device *ffa_dev)
+ 
+ 	optee_set_dev_group(optee);
+ 
+-	rc = rhashtable_init(&optee->ffa.global_ids, &shm_rhash_params);
++	rc = optee_shm_handle_map_init(&optee->ffa.shm_map);
+ 	if (rc)
+ 		goto err_unreg_supp_teedev;
+-	mutex_init(&optee->ffa.mutex);
+ 	optee_cq_init(&optee->call_queue, 0);
+ 	optee_supp_init(&optee->supp);
+ 	optee_shm_arg_cache_init(optee, arg_cache_flags);
+@@ -1193,12 +1109,11 @@ static int optee_ffa_probe(struct ffa_device *ffa_dev)
+ err_close_ctx:
+ 	teedev_close_context(ctx);
+ err_rhashtable_free:
+-	rhashtable_free_and_destroy(&optee->ffa.global_ids, rh_free_fn, NULL);
++	optee_shm_handle_map_uninit(&optee->ffa.shm_map);
+ 	rpmb_dev_put(optee->rpmb_dev);
+ 	mutex_destroy(&optee->rpmb_dev_mutex);
+ 	optee_supp_uninit(&optee->supp);
+ 	mutex_destroy(&optee->call_queue.mutex);
+-	mutex_destroy(&optee->ffa.mutex);
+ err_unreg_supp_teedev:
+ 	tee_device_unregister(optee->supp_teedev);
+ err_unreg_teedev:
+diff --git a/drivers/tee/optee/optee_private.h b/drivers/tee/optee/optee_private.h
+index 02d6f79df407..92428945ee33 100644
+--- a/drivers/tee/optee/optee_private.h
++++ b/drivers/tee/optee/optee_private.h
+@@ -157,6 +157,29 @@ struct optee_smc {
+ };
  #endif
+ 
++/**
++ * struct optee_shm_handle_map - Shared-memory lookup by secure-world identity
++ * @mutex: Serializes lookup, insertion and removal
++ * @rht: Maps opaque 64-bit identities to shared-memory objects
++ *
++ * Owners keep SHM objects alive while their registrations are in use.
++ * Never hold @mutex across transport calls, RPC or thread-availability waits.
++ */
++struct optee_shm_handle_map {
++	/* Protects lookup, insertion and removal. */
++	struct mutex mutex;
++	struct rhashtable rht;
++};
++
++int optee_shm_handle_map_init(struct optee_shm_handle_map *map);
++void optee_shm_handle_map_uninit(struct optee_shm_handle_map *map);
++int optee_shm_handle_map_add(struct optee_shm_handle_map *map,
++			     struct tee_shm *shm, u64 global_id);
++int optee_shm_handle_map_remove(struct optee_shm_handle_map *map,
++				u64 global_id);
++struct tee_shm *
++optee_shm_handle_map_lookup(struct optee_shm_handle_map *map, u64 global_id);
++
+ #if IS_REACHABLE(CONFIG_ARM_FFA_TRANSPORT)
+ /**
+  * struct optee_ffa -  FFA communication struct
+@@ -164,17 +187,14 @@ struct optee_smc {
+  *			OP-TEE in secure world
+  * @bottom_half_value:	notification ID used for bottom half signalling or
+  *			U32_MAX if unused
+- * @mutex:		serializes access to @global_ids
+- * @global_ids:		FF-A shared memory global handle translation
++ * @shm_map:		FF-A shared memory global handle translation
+  * @notif_wq:		workqueue for FF-A asynchronous notification
+  * @notif_work:		work for FF-A asynchronous notification
+  */
+ struct optee_ffa {
+ 	struct ffa_device *ffa_dev;
+ 	u32 bottom_half_value;
+-	/* Serializes access to @global_ids */
+-	struct mutex mutex;
+-	struct rhashtable global_ids;
++	struct optee_shm_handle_map shm_map;
+ 	struct workqueue_struct *notif_wq;
+ 	struct work_struct notif_work;
+ };
+diff --git a/drivers/tee/optee/shm_handle_map.c b/drivers/tee/optee/shm_handle_map.c
+new file mode 100644
+index 000000000000..54324c9c3644
+--- /dev/null
++++ b/drivers/tee/optee/shm_handle_map.c
+@@ -0,0 +1,138 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2021, 2023 Linaro Limited
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#include <linux/errno.h>
++#include <linux/slab.h>
++#include "optee_private.h"
++
++struct optee_shm_handle_map_entry {
++	struct tee_shm *shm;
++	u64 global_id;
++	struct rhash_head node;
++};
++
++static const struct rhashtable_params shm_handle_map_params = {
++	.head_offset = offsetof(struct optee_shm_handle_map_entry, node),
++	.key_offset = offsetof(struct optee_shm_handle_map_entry, global_id),
++	.key_len = sizeof(u64),
++	.automatic_shrinking = true,
++};
++
++static void shm_handle_map_free(void *ptr, void *arg)
++{
++	kfree(ptr);
++}
++
++/**
++ * optee_shm_handle_map_init() - Initialize a shared-memory identity map
++ * @map: Map to initialize
++ *
++ * Return: 0 on success or a negative error.
++ */
++int optee_shm_handle_map_init(struct optee_shm_handle_map *map)
++{
++	int rc;
++
++	mutex_init(&map->mutex);
++	rc = rhashtable_init(&map->rht, &shm_handle_map_params);
++	if (rc)
++		mutex_destroy(&map->mutex);
++
++	return rc;
++}
++
++/**
++ * optee_shm_handle_map_uninit() - Free a shared-memory identity map
++ * @map: Initialized map with no concurrent users
++ *
++ * Free tracking entries, not SHM objects or their secure-world registrations.
++ */
++void optee_shm_handle_map_uninit(struct optee_shm_handle_map *map)
++{
++	rhashtable_free_and_destroy(&map->rht, shm_handle_map_free, NULL);
++	mutex_destroy(&map->mutex);
++}
++
++/**
++ * optee_shm_handle_map_add() - Track a registered shared-memory object
++ * @map: Initialized map
++ * @shm: Shared-memory object kept alive by its owner
++ * @global_id: Opaque secure-world identity
++ *
++ * Return: 0 on success or a negative error.
++ */
++int optee_shm_handle_map_add(struct optee_shm_handle_map *map,
++			     struct tee_shm *shm, u64 global_id)
++{
++	struct optee_shm_handle_map_entry *entry;
++	int rc;
++
++	entry = kmalloc_obj(*entry);
++	if (!entry)
++		return -ENOMEM;
++
++	entry->shm = shm;
++	entry->global_id = global_id;
++
++	mutex_lock(&map->mutex);
++	rc = rhashtable_lookup_insert_fast(&map->rht, &entry->node,
++					   shm_handle_map_params);
++	mutex_unlock(&map->mutex);
++	if (rc)
++		kfree(entry);
++
++	return rc;
++}
++
++/**
++ * optee_shm_handle_map_remove() - Remove a shared-memory tracking entry
++ * @map: Initialized map
++ * @global_id: Opaque secure-world identity
++ *
++ * Return: 0 on success, -ENOENT if absent, or a negative removal error.
++ */
++int optee_shm_handle_map_remove(struct optee_shm_handle_map *map, u64 global_id)
++{
++	struct optee_shm_handle_map_entry *entry;
++	int rc = -ENOENT;
++
++	mutex_lock(&map->mutex);
++	entry = rhashtable_lookup_fast(&map->rht, &global_id,
++				       shm_handle_map_params);
++	if (entry)
++		rc = rhashtable_remove_fast(&map->rht, &entry->node,
++					    shm_handle_map_params);
++	mutex_unlock(&map->mutex);
++	if (!rc)
++		kfree(entry);
++
++	return rc;
++}
++
++/**
++ * optee_shm_handle_map_lookup() - Look up a registered shared-memory object
++ * @map: Initialized map
++ * @global_id: Opaque secure-world identity
++ *
++ * The caller must keep the SHM object alive; no reference is acquired here.
++ *
++ * Return: The shared-memory object or NULL if the identity is absent.
++ */
++struct tee_shm *
++optee_shm_handle_map_lookup(struct optee_shm_handle_map *map, u64 global_id)
++{
++	struct optee_shm_handle_map_entry *entry;
++	struct tee_shm *shm = NULL;
++
++	mutex_lock(&map->mutex);
++	entry = rhashtable_lookup_fast(&map->rht, &global_id,
++				       shm_handle_map_params);
++	if (entry)
++		shm = entry->shm;
++	mutex_unlock(&map->mutex);
++
++	return shm;
++}
 
 -- 
 2.34.1
