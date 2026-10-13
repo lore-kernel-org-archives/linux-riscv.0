@@ -4,52 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1399CC6B19
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 17:13:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76626CC6B0E
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 17:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=F8pM9VtLcxcPYepMtT25BItn6lBa2VazmqtqJV5dAGQ=; b=DxFOsvA87bkthV
-	AbAJ5xLykDqfINz0mRWM6O8/gkAkUOGAgYudDwsc76x72Zz9pCIWieOKHWBh0x92kwRwwwLSb5nkU
-	kIjFlnSAPBQd9n0Nuo42daJScbo1T/7Hb+fwePbxxZW26xYl02XcwNyJTmqUnesWtLmz9xyJu2nhu
-	HlX7bU6Fbn7Z6LY2kEJsPsJi4crvtG4UlGq7KRZ3ROEIqJ5rq/LvL/G6RWx/J2i+qz14KeTF41NkF
-	B2y4N9qBGVs0Q9NSssCHpO6qOljJU0VCHMbNycqNCtnkZRxBjcS2o2tPjOUU8c0cDVw/Wm01cCRN6
-	bVXS72zFOwI04j0lpLEA==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FsxnYwkSkZI6Zwp5oqpdvj44NqvnzHAwyqTDtH3NqaQ=; b=MYdM4wQ0RGpnRv
+	5zB6UteaqqoV39cnuQJZsSGL7lsmpkdaCXCR1Gpme/JbZPrToELGcL6CvbeiNz2P4/BEh4D9usg5A
+	9tbVwWAcUEefK5EKoofrRVzuMYqY75RgAWUqQfBReh7tX2/zqFfD//GJCQXc1wb5SHeuVaJZ/9ZDZ
+	v6Qh0gBYFcsvzFywpVXoKSf/CS+gwkzMHnBnwR4PbRlsQpSxWbk1JWpkc4Iwv8qR/J3NjJFzDAlwB
+	SiE9GQSW0woiRKKsgaWxREmK6aioGz5wRjiaZwurHi+1ok/x1vxVQONlODvPa36FdmJ2JRJoLbzri
+	MvkY8kHqg+FHgNUdBBHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGg3a-0000000DeN1-01lF;
-	Tue, 13 Oct 2026 17:12:54 +0000
-Received: from outgoing2021.csail.mit.edu ([128.30.2.78])
+	id 1xGg67-0000000Dexe-20Bz;
+	Tue, 13 Oct 2026 17:15:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGg3U-0000000DeMP-0igh
+	id 1xGg65-0000000Dex7-2PCW
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 13 Oct 2026 17:15:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Sender:Reply-To:Content-ID:Content-Description;
+	bh=ooJLDxSCJEcVNbGZxg1axPiit16FO3fuMRpP0KRlDPk=; b=Bn/H+u+US59rYoJfyrbqP0w0Kq
+	AcwYoj1WAHpvnPXxpV+QbjzKR9NbTbW4qbQn/dtFHVd7+Od143sdzQW5rivb3fuSgW06TD2AaoGbo
+	8aZ9BK7lNs5CGHqjpknIbRJxPDfIoBotS2yzzv3rAIyaYkXm16TCocH8SixSyUpfJTa7j1MQzq1iq
+	70jqoTG2rZ6hUoYYUNhEt/T/YsX/p0PkWV29YdwHt4n9fZLCLyskYlmvyelHVZ7/Rkl2skl33ALNa
+	UCd0ua4fLHgS9FD1GM8nrC69EIqbmG541W1W4zy/X3RQyexgDh/7NUblgb1mVX/f55G229jUso2RD
+	0/JXBn0w==;
+Received: from sender5-op-o11.zoho.com ([165.173.182.11])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xGg62-0000000FqN8-37l2
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Oct 2026 17:12:52 +0000
-Received: from escalante.csail.mit.edu ([128.52.128.198])
-	by outgoing2021.csail.mit.edu with esmtp (Exim 4.95)
-	(envelope-from <nickolai@csail.mit.edu>)
-	id 1xGg3K-002Afn-7F;
-	Tue, 13 Oct 2026 13:12:38 -0400
-From: Nickolai Zeldovich <nickolai@csail.mit.edu>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Yury Norov <yury.norov@gmail.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Nickolai Zeldovich <nickolai@csail.mit.edu>
-Subject: [PATCH v1] riscv: Fix lost icache flush requests in set_icache_stale_mask()
-Date: Tue, 13 Oct 2026 13:12:37 -0400
-Message-ID: <20261013171238.777119-1-nickolai@csail.mit.edu>
-X-Mailer: git-send-email 2.53.0
-MIME-Version: 1.0
+	Tue, 13 Oct 2026 17:15:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1791911689; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=LEUbPmrFFXDtibm9yP4sUR8lKhChibHMPgsjkBJaZp0Bn8BJ0VM7qHrepUd0ZGcJ+4tGxVHTZGfiiJa9X7Hu+rAxX6sHhQxaUb0EhQ1o86YZT6dkqMM274ROs6NkUO5LuujbH9EtLpdsEmOnltkU/Lb8k6zQ62GMaBQ3FTnGLdU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1791911689; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ooJLDxSCJEcVNbGZxg1axPiit16FO3fuMRpP0KRlDPk=; 
+	b=SkHzPEO07ayq12RR3CekkEHgsVq5BMU3Nk5xwKaDeJipRDEhMnmPLGmY6yzbm928ZOSGqy7xMJu8Mt3Gh2YqMqlSaYdclNSVOk+a8by9VqEc2CvqXKlniNzbKyL79ilXu6DwTf3zdyLA+SwLZIwOlJUYzA9hxVW4yfaryFuQ7ck=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
+	dmarc=pass header.from=<daniel.almeida@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791911689;
+	s=zohomail; d=collabora.com; i=daniel.almeida@collabora.com;
+	h=Content-Type:Mime-Version:Subject:Subject:From:From:In-Reply-To:Date:Date:Cc:Cc:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Reply-To;
+	bh=ooJLDxSCJEcVNbGZxg1axPiit16FO3fuMRpP0KRlDPk=;
+	b=L2snzBiwFRm2Un298G96nKH8dJJlCKmxondKGHWWovfCxW19Q9t75c2+DNbUymRi
+	lUFE/oGR6g17iOLdARIo4IlhGOeotfdA9y380MiIEFtE8t4DcC931MmVyL/ZOE9XHkq
+	FraynjClPudlBUeIfmeY8/sv9c3Lp08dzOuyZgPU=
+Received: by smtp.zohomail.com with SMTPS id 17919116876531023.9332615568634;
+	Tue, 13 Oct 2026 10:14:47 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.100.1.1.11\))
+Subject: Re: [PATCH v6 6/7] rust: clk: add `ExclusiveClk`
+From: Daniel Almeida <daniel.almeida@collabora.com>
+In-Reply-To: <20261013-clk-type-state-v6-6-a5e9977b3509@collabora.com>
+Date: Tue, 13 Oct 2026 14:14:28 -0300
+Cc: linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org,
+ linux-riscv@lists.infradead.org,
+ linux-pwm@vger.kernel.org,
+ linux-clk@vger.kernel.org,
+ rust-for-linux@vger.kernel.org,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ =?utf-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
+ Maurice Hieronymus <mhi@mailbox.org>
+Message-Id: <FCA1D99F-AB7A-414E-AF99-BCCDF2B54FF3@collabora.com>
+References: <20261013-clk-type-state-v6-0-a5e9977b3509@collabora.com>
+ <20261013-clk-type-state-v6-6-a5e9977b3509@collabora.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>,
+ Danilo Krummrich <dakr@kernel.org>,
+ Alice Ryhl <aliceryhl@google.com>,
+ Daniel Almeida <daniel.almeida@collabora.com>,
+ David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Michal Wilczynski <m.wilczynski@samsung.com>,
+ Drew Fustini <fustini@kernel.org>,
+ Guo Ren <guoren@kernel.org>,
+ Fu Wei <wefu@redhat.com>,
+ =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>,
+ Miguel Ojeda <ojeda@kernel.org>,
+ Boqun Feng <boqun@kernel.org>,
+ Gary Guo <gary@garyguo.net>,
+ =?utf-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
+ Benno Lossin <lossin@kernel.org>,
+ Andreas Hindborg <a.hindborg@kernel.org>,
+ Trevor Gross <tmgross@umich.edu>,
+ Tamir Duberstein <tamird@kernel.org>,
+ Alexandre Courbot <acourbot@nvidia.com>
+X-Mailer: Apple Mail (2.3901.100.1.1.11)
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_101249_967127_B148E1D4 
-X-CRM114-Status: GOOD (  34.99  )
+X-CRM114-CacheID: sfid-20261013_181527_102350_B70FFE74 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,349 +120,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-set_icache_stale_mask() marks every other hart's icache as stale for the
-current mm by reading the current hart's bit, storing an all-ones mask and
-then writing the current hart's bit back as it was read:
-
-	stale_cpu = cpumask_test_cpu(cpu, mask);
-	cpumask_setall(mask);
-	__assign_cpu(cpu, mask, stale_cpu);
-
-mm->context.icache_stale_mask is shared by all harts running the mm and
-is updated concurrently without a lock: flush_icache_mm() sets every bit
-with cpumask_setall() (a plain store) whenever a thread flushes the
-icache, prepare_sync_core_cmd() does the same for
-membarrier(MEMBARRIER_CMD_PRIVATE_EXPEDITED_SYNC_CORE), and
-flush_icache_deferred() clears the current hart's bit with an atomic
-test-and-clear from switch_mm(). Those are safe with each other because
-each of them either only sets bits or atomically clears its own hart's
-bit, and a bit set one time too many only costs a redundant fence.i.
-set_icache_stale_mask() is the one writer that stores a value it read
-earlier: the current hart's bit as returned by cpumask_test_cpu(). If
-another hart sets that bit between the read and the write-back, the
-write-back erases it. The erased bit is a pending deferred icache flush
-for the current hart.
-
-Consider a process with two threads on different harts:
-
-  - Thread T1, on hart C, writes new instructions and calls
-    riscv_flush_icache(start, end, SYS_RISCV_FLUSH_ICACHE_LOCAL).
-    flush_icache_mm(mm, true) flushes hart C and only sets the other
-    harts' stale bits, without IPIs: hart A is to flush its icache the
-    next time it switches to this mm.
-
-  - Thread T2, on hart A, calls prctl(PR_RISCV_SET_ICACHE_FLUSH_CTX,
-    PR_RISCV_CTX_SW_FENCEI_OFF, PR_RISCV_SCOPE_PER_THREAD) at the same
-    time. set_icache_stale_mask() reads hart A's bit as clear, T1's
-    cpumask_setall() sets it, and __assign_cpu() clears it again.
-
-Hart A then runs another process, and T1 migrates to hart A. switch_mm()
-finds hart A's bit clear and does not flush, so T1 executes the old
-instructions still in hart A's icache. For a JIT this is a wrong result
-or a crash on a mix of old and new code. The guarantee of
-membarrier(SYNC_CORE), which relies on the same bits, is lost the same
-way. The window is the handful of instructions between the load and the
-store, but a thread that calls the prctl while another thread of the
-process flushes its icache hits it often, see the numbers below.
-
-Set the other harts' bits one at a time with cpumask_set_cpu(), which
-only ever sets a bit, and leave the current hart's bit alone: it already
-holds the value the old code tried to preserve. Commit 6b9391b581fd
-("riscv: Include riscv_set_icache_flush_ctx prctl") kept the current
-hart's bit to cope with concurrent callers of this function; that is
-preserved. Commit e5bf9a4b68fa ("riscv: switch set_icache_stale_mask()
-to using non-atomic assign_cpu()") noted that the sequence is not atomic
-as a whole; it does not need to be, it only must never clear a bit.
-
-Reproduced on a StarFive JH7110 (VisionFive 2, non-coherent icache) with
-a test program that runs the sequence above in a loop: T1 executes the
-code on hart A to fill its icache, moves to hart C, rewrites the code and
-flushes with SYS_RISCV_FLUSH_ICACHE_LOCAL while T2 hammers the prctl on
-hart A, lets another process run on hart A, moves back to hart A and
-executes the code again. A result computed from the old code is a stale
-fetch. Each line is 50000 iterations on a pair of harts (A, C):
-
-  v7.3-rc7 unpatched:               13177 and 14362 stale
-  v7.3-rc7 + 100 us delay in the
-    read-modify-write window:       49993 and 47675 stale
-  v7.3-rc7 + this patch:                0 and     0 stale
-  v7.3-rc7 + this patch + delay:        0 and     0 stale
-
-Control runs with T2 idle never read stale code on any kernel, so the
-deferred flush itself works; only its request gets lost.
-
-Found while formally verifying set_icache_stale_mask() against the
-kernel binary.
-
-Fixes: 6b9391b581fd ("riscv: Include riscv_set_icache_flush_ctx prctl")
-Assisted-by: LLM
-Signed-off-by: Nickolai Zeldovich <nickolai@csail.mit.edu>
----
-
-Notes:
-    The reproducer used for the numbers in the commit message is below (nolibc,
-    build with "make headers_install" done:
-    clang --target=riscv64-linux-gnu -Os -static -nostdlib -nostdinc
-      -I tools/include/nolibc -I usr/include -include nolibc.h
-      -o icache_stale_mask icache_stale_mask.c
-    and run as "icache_stale_mask <hartA> <hartC> 50000" for the race and with a
-    fifth argument for the control run). It needs hardware with a non-coherent
-    icache; QEMU TCG keeps translated code coherent and never shows the symptom.
-    
-    Build checks: riscv defconfig Image with clang, W=1 on cacheflush.o, and
-    allnoconfig (CONFIG_SMP=n, the function is not compiled), all clean.
-    checkpatch --strict reports only the missing Signed-off-by.
-    
-    /*
-     * icache_stale_mask.c: a thread's deferred icache flush is lost when
-     * prctl(PR_RISCV_SET_ICACHE_FLUSH_CTX, PR_RISCV_CTX_SW_FENCEI_OFF, ...) on
-     * one hart races with riscv_flush_icache(SYS_RISCV_FLUSH_ICACHE_LOCAL) on
-     * another hart of the same process.
-     *
-     * Build with the kernel's nolibc (after "make headers_install"):
-     *   clang --target=riscv64-linux-gnu -Os -static -nostdlib -nostdinc \
-     *     -I tools/include/nolibc -I usr/include -include nolibc.h \
-     *     -o icache_stale_mask icache_stale_mask.c
-     * Usage: icache_stale_mask <hartA> <hartC> [iterations] [control]
-     *
-     * Three actors:
-     *   T1 (the main thread): writes new code at P from hart C and calls
-     *      riscv_flush_icache(P, P + 4096, SYS_RISCV_FLUSH_ICACHE_LOCAL), which
-     *      flushes hart C and marks every other hart's icache stale for this mm.
-     *   T2 (a thread of the same process, pinned to hart A): calls the prctl in
-     *      a loop while T1 flushes.  Its set_icache_stale_mask() reads hart A's
-     *      stale bit (clear), then stores the whole mask back with the bit as
-     *      read, erasing the bit T1 set in between.
-     *   Q  (another process, pinned to hart A): runs on hart A after T2 blocks,
-     *      so that T1's arrival on hart A is a switch_mm() into the process,
-     *      the point where the kernel performs the deferred flush iff the bit
-     *      is set.
-     * Each iteration: T1 runs the old code on hart A (hart A's icache now holds
-     * it), moves to hart C, writes new code, flushes LOCAL while T2 hammers the
-     * prctl, lets Q run on hart A, moves back to hart A and runs the code.  A
-     * result computed from the old code is a stale fetch.  With "control" T2
-     * never runs: every iteration must then read the new code.
-     */
-    #define N 1000	/* li a0,0; N x addi a0,a0,v; ret: returns N*v */
-    #define PAGE 4096
-    
-    #ifndef SYS_RISCV_FLUSH_ICACHE_LOCAL
-    #define SYS_RISCV_FLUSH_ICACHE_LOCAL 1
-    #endif
-    #ifndef __NR_riscv_flush_icache
-    #define __NR_riscv_flush_icache 259
-    #endif
-    #ifndef PR_RISCV_SET_ICACHE_FLUSH_CTX
-    #define PR_RISCV_SET_ICACHE_FLUSH_CTX 71
-    #define PR_RISCV_CTX_SW_FENCEI_ON 0
-    #define PR_RISCV_CTX_SW_FENCEI_OFF 1
-    #define PR_RISCV_SCOPE_PER_PROCESS 0
-    #define PR_RISCV_SCOPE_PER_THREAD 1
-    #endif
-    
-    static unsigned int *rw;	/* the code page, writable mapping */
-    static unsigned int *rx;	/* the same page, executable mapping */
-    static volatile int go;		/* T2 hammers the prctl while set */
-    static int t1_to_t2[2], t2_to_t1[2], t1_to_q[2], q_to_t1[2];
-    static int hart_a, hart_c;
-    static char t2_stack[65536] __attribute__((aligned(16)));
-    
-    /* clone a thread (shared mm) running fn(arg) on the given stack */
-    long __clone_thread(long flags, void *stack_top, int (*fn)(void *), void *arg);
-    asm(".text\n"
-        ".globl __clone_thread\n"
-        "__clone_thread:\n"
-        "	addi	a1, a1, -16\n"
-        "	sd	a2, 0(a1)\n"		/* fn  */
-        "	sd	a3, 8(a1)\n"		/* arg */
-        "	li	a2, 0\n"
-        "	li	a3, 0\n"
-        "	li	a4, 0\n"
-        "	li	a7, 220\n"		/* __NR_clone */
-        "	ecall\n"
-        "	bnez	a0, 1f\n"
-        "	ld	a2, 0(sp)\n"
-        "	ld	a0, 8(sp)\n"
-        "	jalr	a2\n"
-        "	li	a7, 93\n"		/* __NR_exit */
-        "	ecall\n"
-        "1:	ret\n");
-    
-    static void pin(int cpu)
-    {
-    	unsigned long mask = 1UL << cpu;
-    
-    	if (syscall(__NR_sched_setaffinity, 0, sizeof(mask), &mask))
-    		printf("sched_setaffinity(%d) failed\n", cpu);
-    }
-    
-    static void write_text(unsigned int v)
-    {
-    	int i;
-    
-    	rw[0] = 0x00000513;
-    	for (i = 1; i <= N; i++)
-    		rw[i] = 0x00050513 | (v << 20);
-    	rw[N + 1] = 0x00008067;
-    }
-    
-    static long run_text(void)
-    {
-    	return ((long (*)(void))rx)();
-    }
-    
-    static int t2_main(void *arg)
-    {
-    	char c;
-    	long r;
-    
-    	pin(hart_a);
-    	while (read(t1_to_t2[0], &c, 1) == 1) {
-    		write(t2_to_t1[1], "", 1);	/* about to hammer the prctl */
-    		while (go) {
-    			r = syscall(__NR_prctl, PR_RISCV_SET_ICACHE_FLUSH_CTX,
-    				    PR_RISCV_CTX_SW_FENCEI_OFF,
-    				    PR_RISCV_SCOPE_PER_THREAD, 0, 0);
-    			if (r) {
-    				printf("prctl failed: %ld\n", r);
-    				break;
-    			}
-    		}
-    		write(t2_to_t1[1], "", 1);
-    	}
-    	return 0;
-    }
-    
-    int main(int argc, char **argv)
-    {
-    	int iters = argc > 3 ? atoi(argv[3]) : 1000;
-    	int control = argc > 4;
-    	int i, fd, stale = 0, old_only = 0, bad = 0;
-    	long got;
-    	char c;
-    
-    	if (argc < 3) {
-    		printf("usage: %s <hartA> <hartC> [iterations] [control]\n", argv[0]);
-    		return 2;
-    	}
-    	hart_a = atoi(argv[1]);
-    	hart_c = atoi(argv[2]);
-    
-    	fd = memfd_create("text", 0);
-    	ftruncate(fd, PAGE);
-    	rw = mmap(NULL, PAGE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
-    	rx = mmap(NULL, PAGE, PROT_READ | PROT_EXEC, MAP_SHARED, fd, 0);
-    	pipe(t1_to_t2);
-    	pipe(t2_to_t1);
-    	pipe(t1_to_q);
-    	pipe(q_to_t1);
-    
-    	if (!fork()) {			/* Q: another mm, pinned to hart A */
-    		close(t1_to_q[1]);
-    		close(t1_to_t2[1]);
-    		pin(hart_a);
-    		while (read(t1_to_q[0], &c, 1) == 1)
-    			write(q_to_t1[1], "", 1);
-    		_exit(0);
-    	}
-    	__clone_thread(CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND |
-    		       CLONE_THREAD | CLONE_SYSVSEM,
-    		       t2_stack + sizeof(t2_stack), t2_main, NULL);
-    
-    	for (i = 0; i < iters; i++) {
-    		unsigned int old = 1 + (i & 1), new = 2 - (i & 1);
-    
-    		pin(hart_a);
-    		write_text(old);
-    		syscall(__NR_riscv_flush_icache, 0, 0, 0);	/* all harts */
-    		got = run_text();		/* hart A caches the old code */
-    		if (got != (long)N * old) {
-    			bad++;
-    			continue;
-    		}
-    
-    		pin(hart_c);
-    		if (!control) {
-    			go = 1;
-    			write(t1_to_t2[1], "", 1);	/* T2 hammers the prctl on A */
-    			read(t2_to_t1[0], &c, 1);	/* ... from now on */
-    		}
-    		write_text(new);
-    		/* flush hart C now, mark hart A's icache stale for this mm */
-    		syscall(__NR_riscv_flush_icache, rx, (char *)rx + PAGE,
-    			SYS_RISCV_FLUSH_ICACHE_LOCAL);
-    		if (!control) {
-    			go = 0;
-    			read(t2_to_t1[0], &c, 1);	/* T2 stops and blocks */
-    		}
-    		write(t1_to_q[1], "", 1);	/* Q runs on hart A: A leaves our mm */
-    		read(q_to_t1[0], &c, 1);
-    
-    		pin(hart_a);			/* switch_mm into our mm on hart A */
-    		got = run_text();
-    		if (got != (long)N * new) {
-    			stale++;
-    			if (got == (long)N * old)
-    				old_only++;
-    		}
-    	}
-    	close(t1_to_t2[1]);
-    	close(t1_to_q[1]);
-    	wait(NULL);
-    	printf("harts A=%d C=%d %s: %d of %d iterations ran stale code (%d entirely old, %d warm-up failures)\n",
-    	       hart_a, hart_c, control ? "control" : "race", stale, iters,
-    	       old_only, bad);
-    	return !!stale;
-    }
-
- arch/riscv/mm/cacheflush.c | 17 ++++++++---------
- 1 file changed, 8 insertions(+), 9 deletions(-)
-
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index f8ead7cb7c7d6..22d6520a05417 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -180,20 +180,19 @@ void __init riscv_init_cbo_blocksizes(void)
- static void set_icache_stale_mask(void)
- {
- 	int cpu = get_cpu();
-+	unsigned int other;
- 	cpumask_t *mask;
--	bool stale_cpu;
- 
- 	/*
--	 * Mark every other hart's icache as needing a flush for
--	 * this MM. Maintain the previous value of the current
--	 * cpu to handle the case when this function is called
--	 * concurrently on different harts.
-+	 * Mark every other hart's icache as needing a flush for this MM.
-+	 * Set the bits one at a time: flush_icache_mm() and
-+	 * flush_icache_deferred() update this mask concurrently, and a
-+	 * read-modify-write of the whole mask would discard their updates.
- 	 */
- 	mask = &current->mm->context.icache_stale_mask;
--	stale_cpu = cpumask_test_cpu(cpu, mask);
--
--	cpumask_setall(mask);
--	__assign_cpu(cpu, mask, stale_cpu);
-+	for_each_possible_cpu(other)
-+		if (other != cpu)
-+			cpumask_set_cpu(other, mask);
- 	put_cpu();
- }
- #endif
-
-base-commit: 24a19b953e2a3d0ea5a8c4951a0ab8f32720c907
--- 
-2.56.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Cgo+IE9uIDEzIE9jdCAyMDI2LCBhdCAxNDowNywgRGFuaWVsIEFsbWVpZGEgPGRhbmllbC5hbG1l
+aWRhQGNvbGxhYm9yYS5jb20+IHdyb3RlOgo+IAo+IFNvbWUgZHJpdmVycyBkZXJpdmUgdGhlaXIg
+Y29uZmlndXJhdGlvbiBmcm9tIGEgY2xvY2sgcmF0ZSBhbmQgY2Fubm90Cj4gdG9sZXJhdGUgdGhl
+IHJhdGUgY2hhbmdpbmcgdW5kZXJuZWF0aCB0aGVtLiBJbiBDLCB0aGV5IGNsYWltIHJhdGUKPiBl
+eGNsdXNpdml0eSB3aXRoIGNsa19yYXRlX2V4Y2x1c2l2ZV9nZXQoKSwgYWZ0ZXIgd2hpY2ggdGhl
+IGNsb2NrCj4gZnJhbWV3b3JrIHJlZnVzZXMgcmF0ZSBjaGFuZ2VzIGZyb20gb3RoZXIgY29uc3Vt
+ZXJzIHVudGlsCj4gY2xrX3JhdGVfZXhjbHVzaXZlX3B1dCgpIGlzIGNhbGxlZC4KPiAKPiBBZGQg
+RXhjbHVzaXZlQ2xrPFQ+LCB3aGljaCB0YWtlcyBhIENsazxUPiBpbiBhbnkgc3RhdGUgYW5kIGhv
+bGRzIHJhdGUKPiBleGNsdXNpdml0eSB1bnRpbCBpdCBpcyBkcm9wcGVkLiBFeGNsdXNpdmVDbGs6
+Om5ldygpIGNhbGxzCj4gY2xrX3JhdGVfZXhjbHVzaXZlX2dldCgpLCBhbmQgZHJvcHBpbmcgdGhl
+IEV4Y2x1c2l2ZUNsayBvciBjYWxsaW5nCj4gRXhjbHVzaXZlQ2xrOjppbnRvX2lubmVyKCkgY2Fs
+bHMgY2xrX3JhdGVfZXhjbHVzaXZlX3B1dCgpLgo+IEV4Y2x1c2l2ZUNsayBkZXJlZmVyZW5jZXMg
+dG8gdGhlIENsazxUPiwgc28gdGhlIHJhdGUgY2FuIHN0aWxsIGJlIHJlYWQKPiBhbmQgY2hhbmdl
+ZCB0aHJvdWdoIGl0LiBTaW5jZSBhIENsayBjYW5ub3QgYmUgY2xvbmVkLCB0aGUgRXhjbHVzaXZl
+Q2xrCj4gaXMgdGhlIG9ubHkgaGFuZGxlIHRvIHRoZSBjb25zdW1lciB0aGF0IGhvbGRzIHRoZSBl
+eGNsdXNpdml0eS4KPiAKPiBwd20tdGgxNTIwIGlzIHRoZSBmaXJzdCB1c2VyLCBpbiB0aGUgbmV4
+dCBwYXRjaC4KPiAKPiBDby1kZXZlbG9wZWQtYnk6IE1hdXJpY2UgSGllcm9ueW11cyA8bWhpQG1h
+aWxib3gub3JnPgo+IFNpZ25lZC1vZmYtYnk6IE1hdXJpY2UgSGllcm9ueW11cyA8bWhpQG1haWxi
+b3gub3JnPgoKTWF1cmljZSwgSSBjaGFuZ2VkIGEgZmV3IHRoaW5ncyBpbiB0aGUgZGVzaWduLCBz
+byBJIHRvb2sgb3duZXJzaGlwIHdpdGgKeW91ciBjby1kZXZlbG9wZWQtYnkgdGFnLgoKTGV0IG1l
+IGtub3cgaWYgdGhhdCB3b3JrcyBmb3IgeW91LCBvciB3aGF0IHlvdSB3b3VsZCByYXRoZXIgc2Vl
+IGluc3RlYWQuCgrigJQgRGFuaWVsCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
