@@ -4,61 +4,198 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84CC2CC6B19
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 17:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA559CC6B19
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 17:42:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=47sUtB+b6TRBCfNhzvUb5ywUta+D82dY63aQSQthQWc=; b=zfp2ieOBs/lj7Q
-	ybKofUnLZeIogfP5du/5Nb5B3Sk8N4ML5/qZJ4lCKBtsqBUG7Hu3GcFHXgTSlx09PvhZoTPAQQJkT
-	RBQ39q/fkxTDr1KndmZPgLCgcD5fJiT69U/6q5MN/GTaUTQLhNq6HE5XaZ6MliOCmHaSy8OXzh0wL
-	JbIkJxaWO+oLEFb/3KQ7h3wtpuXnWEs1OU84JYUo7tDIqcYovxSBSpwoouIxXspjfOmxTfu2xGDvB
-	zSF1KBPwnBgFyf+ZheLRimVI6lz0ievtUROE28B6MJh2slkxGQhy2EuA1z/KOIZYobR8IPKKO123A
-	tv2ydW87ZFUrtPlHohgA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:CC:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=xpVSLKJ17PNSZJd3r6h9lEe8QrNFz+qpqxA56J5rQXs=; b=FB7PmMBIOl28+Ao+wNhU/isL50
+	cM17rSXR7WmLS25NPxRL2Rx+E46+DGbTaiWUlB/Rg2zKqG2Nw6yf+2E/SOJJvnip4trHBzBLkWZzj
+	T8DopWnRDMc+C6M3uVVsT22f5QWj7oSR22R+GETuZkM8NdvSSjUzom2oxJW94ygTiA3KEYVh/AaL+
+	1LCOfEyLxCwsoIJkG6Toy9dpcQUfacRIQmjlAXDCvIUEPVFQDj1iAqthihl3HX64w4YKZsDVu+Xd8
+	WRzoUowJCBxkmNQVHvEWCA5XH2UrpRY5PLnEv7aAP61M1PPM2j94WGyhNsmSEWOlDj0kIYAqgnBgz
+	/HZgdVCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgPK-0000000Di6B-1Ij6;
-	Tue, 13 Oct 2026 17:35:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGgW4-0000000DjIB-3bO3;
+	Tue, 13 Oct 2026 17:42:21 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgPI-0000000Di5b-2i11;
-	Tue, 13 Oct 2026 17:35:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0601F60A56;
-	Tue, 13 Oct 2026 17:35:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81A9A1F000FF;
-	Tue, 13 Oct 2026 17:35:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791912919;
-	bh=khTJvLKv/+vOyw+yWXKAIK2ePXBBTi6nmBmOdNZF1bE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oMqQOCXCThSpiERo+J2ssNIxZSBPR/i04TI56b3HPg93nuwHeSySq6TcZ+W9B1BfO
-	 9JQNaL3PM0yzxFAH99mc2X7kX0kSJpIO5Y3okHhq1lczj08fcEv+p2vf4JZLI1T1YO
-	 lAmDVAze1RHqnVkLHe6WMw/h0GfYZSWLrzxk6DFWGF1Hg3CPMSvnzL99N9X+0H04Td
-	 4oVhwjTzTiV/Qr649AhK3Km50FccntIee9ZJyRCBHtfZJv12rnAS+YujVVmsDf3Sbd
-	 V210kbDPOhUDUexFzYUrkL75BsdSI7pTnaTPXm++NPfvhlhWKMZTwBjqAKJhVNEH8s
-	 WRObtjnrJ5j8A==
-Date: Tue, 13 Oct 2026 19:35:08 +0200
-From: Eric Biggers <ebiggers@kernel.org>
-To: vladimir@genproof.com
-Cc: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>, linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH 0/5] lib/crypto: Handle large lengths in poly1305 and
- chacha20poly1305
-Message-ID: <20261013173508.GB3830@quark>
-References: <20261012-libcrypto-4gib-lengths-v1-0-ea566c129a2e@genproof.com>
+	id 1xGgW1-0000000DjGY-031q
+	for linux-riscv@lists.infradead.org;
+	Tue, 13 Oct 2026 17:42:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1791913337; x=1823449337;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=6UqG7Og3ynfd3qLnMPF6H+PDyt4I0qSGAvLYacS2gSI=;
+  b=QXlNUbTjo183ohirXjXRIh9j0GFX/T9f8QsCb2lip8Z3BlDAkCYk6maD
+   VQAuoiwayCAOkdZb+MhxuJxh1vMpDKQIVoz53GzIJVF+IUiQnEaR2jLIw
+   P61eIVQ+d4lc9ZZ6PPLe5GfB7Qss/qpAwSx6aBaSjz2UjxjcuaOhkAvla
+   eFC642hLLp9m0AwhygF++QYNcwjg5tXJxrxtyEwGDAW66OU4ntPgRUKMo
+   hswITPP2TpNrOdkdzGn0Wsu9Nmz8RJ3fq8fJTtOcRnYC8xRa0V6wHhhSq
+   4wOkIrVSENr3nD+6S+dSit3khJD2pCOaJpmcnjrTugGCptFRrCtkzdDZG
+   g==;
+X-CSE-ConnectionGUID: IVweCmkERLOz2IyJ8o8h4w==
+X-CSE-MsgGUID: D+5uAeroTK60iBBGfaHcOQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11934"; a="535477"
+X-IronPort-AV: E=Sophos;i="6.27,156,1787036400"; 
+   d="scan'208";a="535477"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 10:42:16 -0700
+X-CSE-ConnectionGUID: +QcjdxcWTCKPcMoXfdszHg==
+X-CSE-MsgGUID: Ki7O3DNpShqo6Az6Lf81kQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,156,1787036400"; 
+   d="scan'208";a="1139799"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 10:42:15 -0700
+Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Tue, 13 Oct 2026 10:42:14 -0700
+Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
+ FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49 via Frontend Transport; Tue, 13 Oct 2026 10:42:14 -0700
+Received: from BYAPR05CU005.outbound.protection.outlook.com (52.101.85.68) by
+ edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Tue, 13 Oct 2026 10:42:14 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Oh7k57C6YeU9nOi9Cif0P6L1ZxJ+j+7rVFboARS9BpNxmejXtABKv4ibQP3j88D4eA0v7ye+Bzuxo+mA3djhX+Ah4PTayYVDpx9UigO1a2T3DhDGbGGeuUI1+LiDINLMt4kIa6LXxVQ2anbU3bXXxQL+an7zpbxfwb/2lIV4hADq4XQKe94OUA9Op78XILPuXFDAj/40qL/gCnh+aIE1CEcjMf9k0qbS3cczmi+8M7IK1XxOQQ6DEITSOR5crqM9t/f7PeRZQhjB8XvWNeN8rJQGuf3/0t6anKIJq1IpB6ogI2XbevnZfKLjv27Fg9qBEeVtsC+24m4PqjliEh0nEA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=A7lbYvjwhL94Adh60zb1cFrdvktSC10ehs+rdF8L7tc=;
+ b=NWkmJWqIL/cc2jNqM27ZrwdYGLs3/knmWmcc2hCG8XJMRQHUz/vrE6lsTVKGxDAHPjevuuHr0QgQ88oXSRvqHZo6/4UCdbiAV1OhveaZlyDvDfh2LSM5vpvcNjMXoaEVF1WRCIWs11qRcfSKgtWzCbQl4mmsOUhoZbfO6QgheY7R6K1wJlyqsc+IdS32Qhw0xqLSYSPzCng7GJvYsji8amLjNNo1B7HHig9txU92NT/rKPrXYaaI/LnB6raCv29gHN4mLoAHduvmVjC9thXSUveaRr3ttPVba9dD7OFgv0qSU/Q2fbum1kt1gsLdGPB/CLCEhvjoEcvw41Q/Any49g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
+ by IA1PR11MB6291.namprd11.prod.outlook.com (2603:10b6:208:3e5::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.16; Tue, 13 Oct
+ 2026 17:42:10 +0000
+Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
+ ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
+ ([fe80::b6cf:ce77:3cdf:7cc%6]) with mapi id 15.21.0496.021; Tue, 13 Oct 2026
+ 17:42:10 +0000
+Message-ID: <a85a5aef-5468-47ba-afba-8bdd666dadd4@intel.com>
+Date: Tue, 13 Oct 2026 10:42:05 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 2/5] riscv_cbqri: resctrl: Add cache allocation via
+ capacity block mask
+To: "Luck, Tony" <tony.luck@intel.com>
+CC: Drew Fustini <fustini@kernel.org>, Adrien Ricciardi
+	<aricciardi@baylibre.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Kumar Patra
+	<atishp@rivosinc.com>, Atish Patra <atish.patra@linux.dev>, Babu Moger
+	<babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>, Borislav Petkov
+	<bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>, Conor Dooley
+	<conor.dooley@microchip.com>, Conor Dooley <conor+dt@kernel.org>, Dave Hansen
+	<dave.hansen@linux.intel.com>, Dave Martin <Dave.Martin@arm.com>, Fenghua Yu
+	<fenghuay@nvidia.com>, Gong Shuai <gong.shuai@sanechips.com.cn>, Gong Shuai
+	<gsh517@gmail.com>, "guo.wenjia23@zte.com.cn" <guo.wenjia23@zte.com.cn>,
+	James Morse <james.morse@arm.com>, =?UTF-8?Q?Kornel_Dul=C4=99ba?=
+	<mindal@semihalf.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	"liu.qingtao2@zte.com.cn" <liu.qingtao2@zte.com.cn>, Liu Zhiwei
+	<zhiwei_liu@linux.alibaba.com>, Palmer Dabbelt <palmer@dabbelt.com>, "Paul
+ Walmsley" <pjw@kernel.org>, Peter Newman <peternewman@google.com>,
+	=?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Rob Herring
+	<robh@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, "Sebastian
+ Andrzej Siewior" <bigeasy@linutronix.de>, Vasudevan Srinivasan
+	<vasu@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li
+	<liwei1518@gmail.com>, yunhui cui <cuiyunhui@bytedance.com>, Zhanpeng Zhang
+	<zhangzhanpeng.jasper@bytedance.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-rt-devel@lists.linux.dev" <linux-rt-devel@lists.linux.dev>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
+References: <20260901-dfustini-atl-sc-cbqri-dt-v7-0-ca2935d85622@kernel.org>
+ <20260901-dfustini-atl-sc-cbqri-dt-v7-2-ca2935d85622@kernel.org>
+ <8230dae2-2cb0-4b46-8cec-dc4e281d4e4a@intel.com>
+ <aqwN1szItGPg4Qjh@agluck-desk3> <as0Zeoyjiy5CW1DT@agluck-desk3>
+ <eaeb4259-46d6-4656-8354-669ad32654b5@intel.com>
+ <SJ1PR11MB6083F4281EDD036A4E73A532FC9E2@SJ1PR11MB6083.namprd11.prod.outlook.com>
+From: Reinette Chatre <reinette.chatre@intel.com>
+Content-Language: en-US
+In-Reply-To: <SJ1PR11MB6083F4281EDD036A4E73A532FC9E2@SJ1PR11MB6083.namprd11.prod.outlook.com>
+X-ClientProxiedBy: MW4P221CA0030.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:303:8b::35) To SJ2PR11MB8370.namprd11.prod.outlook.com
+ (2603:10b6:a03:540::20)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261012-libcrypto-4gib-lengths-v1-0-ea566c129a2e@genproof.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|IA1PR11MB6291:EE_
+X-MS-Office365-Filtering-Correlation-Id: f7ebee79-338b-4f40-71d9-08df29514e5e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|10067099003|56012099006|6133799003|3023799007|11063799006|261009223027099003|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: fctgLK7Mh7gudBbyg+sJ2Jkyj9NEDWh3+3eFnv5OAwpgrIHRxtFUVt9lgXR/OPU9o701X7VwPfTcF/6gSgtPd9cURk4P33KKvSFdCrPlsgti9wUN0UFZmYs/O9lXg8iHUMWaTkdcOF2vXwmdLjTgxfBsvueg1A0pqxFIonNuWAsmil3Ly4f6afnNi6ll61P9v95MMUaK0imBUV5su4xMe4wMtORjHGJDRlBExSPnCjF8tF0dJbhddb47SHqWsuTgMhYSTU1Nr7eClhbGLI+YZkVubD0/CSv7jmZhfQC7Oalnan0yOY8/+Ad8tNvxiZ00X9MBH3oTOdKHlR3a7yFz2J6FP5CPulPiJTBa407gJMXD8Bl8X6MaO1uiHdu9026cDNHI5v3X8Sm9eYDjgjgRhrnzMGyeFUbineJT68oqcRYPtO2Ng92q2OQknFdlPAkAaGFQ8/qYOlMI5pVea45D5VzN1TIzkte5Je1bi/CWn25ES8ffW612H7Xm8TzigOW66J+hZxnQDRyINUTIkSgaxIBAR2vOijcDkXsoLNW14i0K4Vc252x/pzNCbeFvqkz4bpQ43FUeF53CcFD7EUciitJCrB2rgW/GwJYJzP23su7ZsRI1utVJUj/wdJ5z2dn3
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(10067099003)(56012099006)(6133799003)(3023799007)(11063799006)(261009223027099003)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YjFuelBIU1N1L3Ryajc5NFpZT1FkM1lDT0ZkR2FEOTBCc0ZRTTlUc2J4dDZO?=
+ =?utf-8?B?SkorZW5mOVNIL0w2SXpBWUR4WmlkWTJDZFdadlZiNncya2dibU1iRHFLbXNO?=
+ =?utf-8?B?Z2UvUCtMbXhvZ1dTaytGZjhlVVZvRFZ4NGUxeHV0Vmk3QW8rVDF1UU1Xa1du?=
+ =?utf-8?B?YU9JWHN1bnZqZnFEOHpVbVFWSEVMQVZjSjQ2UFRHc0VzVURIN2lCZUl6bytn?=
+ =?utf-8?B?UXB4ZVBpSWVIb0k2QWlReG00SWhOTkgreWFtRG9WZjBIenJ1LzZRN2tQUjlU?=
+ =?utf-8?B?akJoV2RXaW5vckpDSzZxSVpBZEsvVjZQdlhOQ29GTkFvTEZoTnlQaVFyVVUw?=
+ =?utf-8?B?MVV1eVR4TkM2UVQyRy9KbXJUL2FvTnV5b285VS8zVDAzMzF6aE05Mk5Tell3?=
+ =?utf-8?B?QittSTVQVTI5T3F6ZXJVbCsvZFFabENVeDlnZlNxVldhckhUVnA3QUlCQktC?=
+ =?utf-8?B?MTUvc0k4R0tnZkNtSG1QS0tFRFBEbUJTcUNZZnRoT3VRUEd4amRjQkFObGxV?=
+ =?utf-8?B?NjJBUHFrU09IOHJ3UzQwMGxTaXhKaXRFdzd1VmdldHB4R2tWN1RoUGR2V1cx?=
+ =?utf-8?B?NUswZEJqRDB1MVJzMCtMb280SUovQzJmODkwQVZiY0U1UVYrTk9Td2JicmVM?=
+ =?utf-8?B?TDhESVFadlMrRGdnY0M4QjYycGVpcmYzSGM1MzlHVlJqMVJqRWJUUjROanhr?=
+ =?utf-8?B?UTVFS1d5aUpUZkNnclUzYTJ2RHFrbzdVNjZSS1hlUmR0d1ZYWmFoYXd3UGp3?=
+ =?utf-8?B?aEw5NkI0a0ROQ3lLU3pCWVBtVXRyZ3hRWUd6MDEvanpKblFsVUozWmJ2OTZT?=
+ =?utf-8?B?ZTRUc2JmSzk3a2t4MG95bnNqV0VRTENxOGVFUHZqTXBWbmdSeTJZak5kRi9s?=
+ =?utf-8?B?bTlDaWxDZ2NncURoM0xpWnVmU01UWTVRdUFHd3FmcUtDeFRSY0tZWG1mUi9a?=
+ =?utf-8?B?K0xqb1dZQzl2STB1ald3Zkx5OEdYVkxTNWZrU0ZBbGozbWRMdnh6T3ZXKzRj?=
+ =?utf-8?B?ZWkvcWRDeHBXdkJMQjhUZlVaUlgvOTZ6N3F4M0lreS9MbkFkcUtjcjJ1TmE3?=
+ =?utf-8?B?NU9weTVWakhzV1M1OEFwMDdxMDlHek1wbmJwTHkyOVM5SVJNNmpTalNZR2Z3?=
+ =?utf-8?B?Z2crV1I1YkNuZnVGaklhSTVyWHNnR1ZpSVBQMDcrS2d6VTBJZ0VXdE9SS2hw?=
+ =?utf-8?B?bDVqUUgyZ3E3dHVkblNKbS9LVmU0SU5keEZNSEgvaStmZENGZEh3SkFkbFcw?=
+ =?utf-8?B?dXpUbXVJd3JnT0N1UkZBZWROSWVrT29oQU1DZFVKY0tCZDNVZElEQWJrZWdL?=
+ =?utf-8?B?YjVZam1sNlU0VDI5ak5LSmNxa2Z5T3ZOK2NZTFl6MnlZQnJMdmQzcEFUN0lM?=
+ =?utf-8?B?UkRNdkZoclg1Sm1zNVFHaEtneU5pWEhvQ3BZRWtRYnVEdnZpNDRjNmo0SVpy?=
+ =?utf-8?B?TWZhenF5Qk5MNXpWakxwZks2N3hIWVVNYVArT1M4T1hGQmZuMmJyREhzUkUr?=
+ =?utf-8?B?dWRzb3JnR0NFNEhoelJiaDhEckN6OXUxa2QrMGxEcWIyOG1ETkE0V0gvbEtl?=
+ =?utf-8?B?RUt4cEYycXpxVFZHYmJ6M1JKNDFLaDFjZWJUSjY1VEpMZkR2QTc1OFFsazBs?=
+ =?utf-8?B?SDhOaVVuWWVXSW1HSllYV1M0akQ0ZkxhWTFtdXJvZnhsTnRmVGd3Qy8yS3NE?=
+ =?utf-8?B?Q2cxdnVXMGlWTTZEWDgxa0ZCamx5ZDB2ZGlDVWxSYWR0bjJJTTRzeTM5eDRI?=
+ =?utf-8?B?L0cyeko0cG5JMWs2WXI4cTFIbDM3UXJreitROFZMUVlzWU1LbkVEWnFUTGFO?=
+ =?utf-8?B?K0RSOGZoR3RVaXpreHYyeVo1V1RtQThBRDlUa2luVzFaVURWT3JpSk1hT0c4?=
+ =?utf-8?B?b2F6bitVUkp5Nm53YURsMUFqSkU1ZjZ5U09Ka1dGOEYxZ0tQdmZLQjJ0Qi9y?=
+ =?utf-8?B?Kytwc1Y5N00rZ3QxNWFYQy9RWXRKQ3AybGtxbWYrajZacllaQkhiRk5aa2xG?=
+ =?utf-8?B?d0V2MHNkQklENTM5dW5ldVIweXE0WEFpdVRkUW9NZGZ4RGs1RzVuN3R0bldK?=
+ =?utf-8?B?ZnJHSGZGVVd1aVRUOEtZRUwyblBCTU83VmRDV2hoVlMzWDg4aUZXVTh4RUhF?=
+ =?utf-8?B?Z05UT3hlMjZBUHBjTVozT2VuM3cxb1o4dDRsUXlwNi9pUWhZWmd6M095V1pm?=
+ =?utf-8?B?aXR6dkRsOFBkcm4ybHZ4WVJUeDZDVytEVnluNEtaQU1YVG5ld3JMblZlSXF5?=
+ =?utf-8?B?VnI1N2o3R3dGR21xR25vQ2xBYit4M252TlVoK2J6dmp3OWlTVkJvRU5UeFdw?=
+ =?utf-8?B?ZThzNTRENm1vYmRSSURjdWVENEZNUzlJSUpadDhiNldFL0dlZ0xsSHpJbEZm?=
+ =?utf-8?Q?utO13LO5LNN5jrhI=3D?=
+X-Exchange-RoutingPolicyChecked: 24npp6v/zKwNvSlSe5XqnKGZuXT9cr30YgOawOfEqtZF7cudnI9UR9JrZiBPbWZq28itTxvIJGwgKi9wMVM/5aLJO6+dIOW79NqYGsS/Fo+CdI/xPXBnEecOroI2Uvl2uTdEpjGHV6XkLuCbn8VtPzpGjp1I8URBwAZcLHUGHeGll6lQ7EkqN1nVIrMUFjW1IuRDJM80PspYSGHlK0CMDQzAyWWoTwFed/W2hmoz0CBjONr0AbacWCwti1a5HrDizz1CklhWwhtZylg15gtzH2Cne10XmIv+aTN1TRZoZaemyaIXX/iob2+ctvv+3wVMsxLfwuWDh4ak4c+OgaIgLg==
+X-MS-Exchange-CrossTenant-Network-Message-Id: f7ebee79-338b-4f40-71d9-08df29514e5e
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 17:42:09.9834
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /lh610MZkaQ1/r++Jpn24MW/t2YEaUMwmXDpyJFsQhV7fcvO08SY/BMMTrewStYBCLAn1SGlqy73A5wuYWWHpEIPiIRIP76Z5Pcv6JTCvCM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB6291
+X-OriginatorOrg: intel.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_104217_132381_A3610925 
+X-CRM114-Status: GOOD (  20.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,47 +212,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 12, 2026 at 09:31:17PM +0000, Vladimir Kukharenko via B4 Relay wrote:
-> This series makes the Poly1305 and ChaCha20-Poly1305 library code handle
-> large lengths:
-> 
-> - poly1305_update() can write past its 16-byte buffer if it holds a
->   partial block and nbytes >= 2^32 - desc->buflen.
-> - The chacha20poly1305 functions use only the low 32 bits of their
->   size_t message and associated data lengths.
-> - On 64-bit MIPS and RISC-V, the poly1305 assembly reads past its input
->   for lengths of 2 GiB or more: these ABIs sign-extend its u32 length
->   argument, and the assembly uses all 64 bits.  arm64 has the same
->   prototype mismatch, with no known failure.
-> 
-> Patches 1-3 fix the assembly prototypes, one architecture per patch.
-> The assembly already treats the length as 64-bit, so they declare it as
-> size_t, as commit f3d6cb3dc039 ("lib/crypto: x86/sha1: Migrate
-> optimized code into library") did for the x86 SHA-1 assembly.
-> Patches 4 and 5 make poly1305_update() and chacha_crypt() take size_t
-> lengths.  The patches apply independently, except that on 64-bit MIPS
-> and RISC-V patch 4 relies on patches 1 and 2 for inputs of 2 GiB or more.
-> 
-> No in-tree caller passes inputs this large (WireGuard passes at most one
-> packet, big_key at most 1 MiB), so I consider these ABI robustness
-> improvements rather than fixes and have not added Fixes or Cc stable tags.
-> 
-> I tested with the lib/crypto KUnit suite on UML, x86_64, i386, arm64,
-> riscv64 and mips64, with a temporary 2 GiB KUnit test on arm64, riscv64
-> and mips64 (it oopses on riscv64 and mips64 without patches 1 and 2), and
-> in userspace against OpenSSL for inputs above 4 GiB.
-> 
-> I found the bugs fixed by patches 4 and 5 while writing Coq/VST proofs of
-> this code with LLM agents, and an LLM review of patch 4 found the one
-> fixed by patches 1-3.  I used an LLM-based assistant to write the patches
-> and descriptions, and reviewed its work.
+Hi Tony,
 
-Thanks!  Patches 1-3 look good.  I'm less sure about patches 4-5, since
-they go through some trouble to work around (some implementations of)
-poly1305_blocks() and chacha_crypt_arch() not taking size_t.  Wouldn't
-it make sense to convert those to size_t at the same time?
+On 10/13/26 8:55 AM, Luck, Tony wrote:
+>>> 3) What should happen to the legacy /sys/fs/resctrl/info/L2/cbm_mask?
+>>> Just hide it? I also considered renaming the resource to "L2A" to
+>>> avoid surprising legacy code.
+>> The current direction is to have these top level files continue to return
+>> the properties of the default/legacy control while in "legacy" control mode.
+>> When user space switches the control mode then these files return empty.
+>>
+>> This is what is implemented in RFC v2 so you should be able to see it in action.
+>>
+>> It was noted as one of RFC v2's opens:
+>>       - When switching control mode to native the top level control info files
+>>         stop returning information. This could be considered "work as intended"?
+>>
+>> An example of this behavior in action as applied to "min_bandwidth" can be seen
+>> on slide 4 of
+>> https://lpc.events/event/20/contributions/2368/attachments/2066/4625/resctrl_2026_combined.pdf
+>>
+>> Hiding the files could also be an option. I have not heard strong opinions on how this
+>> should be handled after the above mentions of current direction.
+> 
+> My PoC hasn't implemented anything for the control_mode file so I get this:
+> 
+> $ cat L2/control_mode
+> [legacy] native
+> $ sudo sh -c "echo native > L2/control_mode"
+> sh: 1: echo: echo: I/O error
+> $ cat last_cmd_status
+> Changing control mode not supported for this resource.
 
-- Eric
+The current PoC supports multiple controls for cache resources but does not
+support switching to native control mode. Only MBA resource can switch to native
+control mode.
+
+resctrl fs built a couple of features on top of cache allocation that are exposed
+to user space (CDP, IO allocation, and pseudo-locking). It still needs to be worked
+out how these behave when there is no legacy cache control so for now these features
+are hardcoded to be associated with the legacy cache control and switching to
+native mode is disabled.
+
+> 
+> But it isn't clear to me what legacy vs. native should mean for asymmetric L2.
+
+This would be up to the architecture. One possibility is to have the asymmetric
+L2 control emulate the legacy L2 cache control. I did not really consider this
+and just assumed the legacy control could be expanded to support different sized
+domains. 
+> Potentially: Legacy mode: L2 is disabled to avoid confusion with different bitmasks per domain?
+For "L2 is disabled", are you referring to the resource or the control?
+
+If legacy L2 control can be emulated by the asymmetric L2 control then a user space
+can continue to interact with a L2 control that pretends to be symmetric on an
+asymmetric platform. An "enlightened" user space can then switch to native control mode
+on these systems and interact with the asymmetric control directly.
+
+I am not sure that this is what RISC-V has in mind here though.
+
+Ideally user space would not need to be exposed to architecture differences when
+interacting with resctrl filesystem. This means that a solution like this would
+force all architectures to do something similar for asymmetrical/symmetrical
+cache allocation.
+
+Another option is to just support L2 asymmetric systems with the legacy L2 control.
+You state it may cause confusion - I assume you refer here to the schemata file
+showing different CBM for different domains? The legacy info/L2/cbm_mask needs to
+pick one CBM to display, which could be limiting. This is what the new "max"
+aims to fix. 
+
+Reinette
 
 _______________________________________________
 linux-riscv mailing list
