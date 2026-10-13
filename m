@@ -4,111 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76626CC6B0E
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 17:15:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84CC2CC6B19
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 17:35:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FsxnYwkSkZI6Zwp5oqpdvj44NqvnzHAwyqTDtH3NqaQ=; b=MYdM4wQ0RGpnRv
-	5zB6UteaqqoV39cnuQJZsSGL7lsmpkdaCXCR1Gpme/JbZPrToELGcL6CvbeiNz2P4/BEh4D9usg5A
-	9tbVwWAcUEefK5EKoofrRVzuMYqY75RgAWUqQfBReh7tX2/zqFfD//GJCQXc1wb5SHeuVaJZ/9ZDZ
-	v6Qh0gBYFcsvzFywpVXoKSf/CS+gwkzMHnBnwR4PbRlsQpSxWbk1JWpkc4Iwv8qR/J3NjJFzDAlwB
-	SiE9GQSW0woiRKKsgaWxREmK6aioGz5wRjiaZwurHi+1ok/x1vxVQONlODvPa36FdmJ2JRJoLbzri
-	MvkY8kHqg+FHgNUdBBHw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=47sUtB+b6TRBCfNhzvUb5ywUta+D82dY63aQSQthQWc=; b=zfp2ieOBs/lj7Q
+	ybKofUnLZeIogfP5du/5Nb5B3Sk8N4ML5/qZJ4lCKBtsqBUG7Hu3GcFHXgTSlx09PvhZoTPAQQJkT
+	RBQ39q/fkxTDr1KndmZPgLCgcD5fJiT69U/6q5MN/GTaUTQLhNq6HE5XaZ6MliOCmHaSy8OXzh0wL
+	JbIkJxaWO+oLEFb/3KQ7h3wtpuXnWEs1OU84JYUo7tDIqcYovxSBSpwoouIxXspjfOmxTfu2xGDvB
+	zSF1KBPwnBgFyf+ZheLRimVI6lz0ievtUROE28B6MJh2slkxGQhy2EuA1z/KOIZYobR8IPKKO123A
+	tv2ydW87ZFUrtPlHohgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGg67-0000000Dexe-20Bz;
-	Tue, 13 Oct 2026 17:15:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xGgPK-0000000Di6B-1Ij6;
+	Tue, 13 Oct 2026 17:35:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGg65-0000000Dex7-2PCW
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 13 Oct 2026 17:15:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Sender:Reply-To:Content-ID:Content-Description;
-	bh=ooJLDxSCJEcVNbGZxg1axPiit16FO3fuMRpP0KRlDPk=; b=Bn/H+u+US59rYoJfyrbqP0w0Kq
-	AcwYoj1WAHpvnPXxpV+QbjzKR9NbTbW4qbQn/dtFHVd7+Od143sdzQW5rivb3fuSgW06TD2AaoGbo
-	8aZ9BK7lNs5CGHqjpknIbRJxPDfIoBotS2yzzv3rAIyaYkXm16TCocH8SixSyUpfJTa7j1MQzq1iq
-	70jqoTG2rZ6hUoYYUNhEt/T/YsX/p0PkWV29YdwHt4n9fZLCLyskYlmvyelHVZ7/Rkl2skl33ALNa
-	UCd0ua4fLHgS9FD1GM8nrC69EIqbmG541W1W4zy/X3RQyexgDh/7NUblgb1mVX/f55G229jUso2RD
-	0/JXBn0w==;
-Received: from sender5-op-o11.zoho.com ([165.173.182.11])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGg62-0000000FqN8-37l2
-	for linux-riscv@lists.infradead.org;
-	Tue, 13 Oct 2026 17:15:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1791911689; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=LEUbPmrFFXDtibm9yP4sUR8lKhChibHMPgsjkBJaZp0Bn8BJ0VM7qHrepUd0ZGcJ+4tGxVHTZGfiiJa9X7Hu+rAxX6sHhQxaUb0EhQ1o86YZT6dkqMM274ROs6NkUO5LuujbH9EtLpdsEmOnltkU/Lb8k6zQ62GMaBQ3FTnGLdU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1791911689; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=ooJLDxSCJEcVNbGZxg1axPiit16FO3fuMRpP0KRlDPk=; 
-	b=SkHzPEO07ayq12RR3CekkEHgsVq5BMU3Nk5xwKaDeJipRDEhMnmPLGmY6yzbm928ZOSGqy7xMJu8Mt3Gh2YqMqlSaYdclNSVOk+a8by9VqEc2CvqXKlniNzbKyL79ilXu6DwTf3zdyLA+SwLZIwOlJUYzA9hxVW4yfaryFuQ7ck=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
-	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791911689;
-	s=zohomail; d=collabora.com; i=daniel.almeida@collabora.com;
-	h=Content-Type:Mime-Version:Subject:Subject:From:From:In-Reply-To:Date:Date:Cc:Cc:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Reply-To;
-	bh=ooJLDxSCJEcVNbGZxg1axPiit16FO3fuMRpP0KRlDPk=;
-	b=L2snzBiwFRm2Un298G96nKH8dJJlCKmxondKGHWWovfCxW19Q9t75c2+DNbUymRi
-	lUFE/oGR6g17iOLdARIo4IlhGOeotfdA9y380MiIEFtE8t4DcC931MmVyL/ZOE9XHkq
-	FraynjClPudlBUeIfmeY8/sv9c3Lp08dzOuyZgPU=
-Received: by smtp.zohomail.com with SMTPS id 17919116876531023.9332615568634;
-	Tue, 13 Oct 2026 10:14:47 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.100.1.1.11\))
-Subject: Re: [PATCH v6 6/7] rust: clk: add `ExclusiveClk`
-From: Daniel Almeida <daniel.almeida@collabora.com>
-In-Reply-To: <20261013-clk-type-state-v6-6-a5e9977b3509@collabora.com>
-Date: Tue, 13 Oct 2026 14:14:28 -0300
-Cc: linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org,
- linux-riscv@lists.infradead.org,
- linux-pwm@vger.kernel.org,
- linux-clk@vger.kernel.org,
- rust-for-linux@vger.kernel.org,
- Boris Brezillon <boris.brezillon@collabora.com>,
- =?utf-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- Maurice Hieronymus <mhi@mailbox.org>
-Message-Id: <FCA1D99F-AB7A-414E-AF99-BCCDF2B54FF3@collabora.com>
-References: <20261013-clk-type-state-v6-0-a5e9977b3509@collabora.com>
- <20261013-clk-type-state-v6-6-a5e9977b3509@collabora.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>,
- Danilo Krummrich <dakr@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Michal Wilczynski <m.wilczynski@samsung.com>,
- Drew Fustini <fustini@kernel.org>,
- Guo Ren <guoren@kernel.org>,
- Fu Wei <wefu@redhat.com>,
- =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- Miguel Ojeda <ojeda@kernel.org>,
- Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>,
- =?utf-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>,
- Trevor Gross <tmgross@umich.edu>,
- Tamir Duberstein <tamird@kernel.org>,
- Alexandre Courbot <acourbot@nvidia.com>
-X-Mailer: Apple Mail (2.3901.100.1.1.11)
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_181527_102350_B70FFE74 
-X-CRM114-Status: GOOD (  11.29  )
+	id 1xGgPI-0000000Di5b-2i11;
+	Tue, 13 Oct 2026 17:35:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0601F60A56;
+	Tue, 13 Oct 2026 17:35:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81A9A1F000FF;
+	Tue, 13 Oct 2026 17:35:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791912919;
+	bh=khTJvLKv/+vOyw+yWXKAIK2ePXBBTi6nmBmOdNZF1bE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=oMqQOCXCThSpiERo+J2ssNIxZSBPR/i04TI56b3HPg93nuwHeSySq6TcZ+W9B1BfO
+	 9JQNaL3PM0yzxFAH99mc2X7kX0kSJpIO5Y3okHhq1lczj08fcEv+p2vf4JZLI1T1YO
+	 lAmDVAze1RHqnVkLHe6WMw/h0GfYZSWLrzxk6DFWGF1Hg3CPMSvnzL99N9X+0H04Td
+	 4oVhwjTzTiV/Qr649AhK3Km50FccntIee9ZJyRCBHtfZJv12rnAS+YujVVmsDf3Sbd
+	 V210kbDPOhUDUexFzYUrkL75BsdSI7pTnaTPXm++NPfvhlhWKMZTwBjqAKJhVNEH8s
+	 WRObtjnrJ5j8A==
+Date: Tue, 13 Oct 2026 19:35:08 +0200
+From: Eric Biggers <ebiggers@kernel.org>
+To: vladimir@genproof.com
+Cc: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>, linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Subject: Re: [PATCH 0/5] lib/crypto: Handle large lengths in poly1305 and
+ chacha20poly1305
+Message-ID: <20261013173508.GB3830@quark>
+References: <20261012-libcrypto-4gib-lengths-v1-0-ea566c129a2e@genproof.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20261012-libcrypto-4gib-lengths-v1-0-ea566c129a2e@genproof.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,33 +70,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cgo+IE9uIDEzIE9jdCAyMDI2LCBhdCAxNDowNywgRGFuaWVsIEFsbWVpZGEgPGRhbmllbC5hbG1l
-aWRhQGNvbGxhYm9yYS5jb20+IHdyb3RlOgo+IAo+IFNvbWUgZHJpdmVycyBkZXJpdmUgdGhlaXIg
-Y29uZmlndXJhdGlvbiBmcm9tIGEgY2xvY2sgcmF0ZSBhbmQgY2Fubm90Cj4gdG9sZXJhdGUgdGhl
-IHJhdGUgY2hhbmdpbmcgdW5kZXJuZWF0aCB0aGVtLiBJbiBDLCB0aGV5IGNsYWltIHJhdGUKPiBl
-eGNsdXNpdml0eSB3aXRoIGNsa19yYXRlX2V4Y2x1c2l2ZV9nZXQoKSwgYWZ0ZXIgd2hpY2ggdGhl
-IGNsb2NrCj4gZnJhbWV3b3JrIHJlZnVzZXMgcmF0ZSBjaGFuZ2VzIGZyb20gb3RoZXIgY29uc3Vt
-ZXJzIHVudGlsCj4gY2xrX3JhdGVfZXhjbHVzaXZlX3B1dCgpIGlzIGNhbGxlZC4KPiAKPiBBZGQg
-RXhjbHVzaXZlQ2xrPFQ+LCB3aGljaCB0YWtlcyBhIENsazxUPiBpbiBhbnkgc3RhdGUgYW5kIGhv
-bGRzIHJhdGUKPiBleGNsdXNpdml0eSB1bnRpbCBpdCBpcyBkcm9wcGVkLiBFeGNsdXNpdmVDbGs6
-Om5ldygpIGNhbGxzCj4gY2xrX3JhdGVfZXhjbHVzaXZlX2dldCgpLCBhbmQgZHJvcHBpbmcgdGhl
-IEV4Y2x1c2l2ZUNsayBvciBjYWxsaW5nCj4gRXhjbHVzaXZlQ2xrOjppbnRvX2lubmVyKCkgY2Fs
-bHMgY2xrX3JhdGVfZXhjbHVzaXZlX3B1dCgpLgo+IEV4Y2x1c2l2ZUNsayBkZXJlZmVyZW5jZXMg
-dG8gdGhlIENsazxUPiwgc28gdGhlIHJhdGUgY2FuIHN0aWxsIGJlIHJlYWQKPiBhbmQgY2hhbmdl
-ZCB0aHJvdWdoIGl0LiBTaW5jZSBhIENsayBjYW5ub3QgYmUgY2xvbmVkLCB0aGUgRXhjbHVzaXZl
-Q2xrCj4gaXMgdGhlIG9ubHkgaGFuZGxlIHRvIHRoZSBjb25zdW1lciB0aGF0IGhvbGRzIHRoZSBl
-eGNsdXNpdml0eS4KPiAKPiBwd20tdGgxNTIwIGlzIHRoZSBmaXJzdCB1c2VyLCBpbiB0aGUgbmV4
-dCBwYXRjaC4KPiAKPiBDby1kZXZlbG9wZWQtYnk6IE1hdXJpY2UgSGllcm9ueW11cyA8bWhpQG1h
-aWxib3gub3JnPgo+IFNpZ25lZC1vZmYtYnk6IE1hdXJpY2UgSGllcm9ueW11cyA8bWhpQG1haWxi
-b3gub3JnPgoKTWF1cmljZSwgSSBjaGFuZ2VkIGEgZmV3IHRoaW5ncyBpbiB0aGUgZGVzaWduLCBz
-byBJIHRvb2sgb3duZXJzaGlwIHdpdGgKeW91ciBjby1kZXZlbG9wZWQtYnkgdGFnLgoKTGV0IG1l
-IGtub3cgaWYgdGhhdCB3b3JrcyBmb3IgeW91LCBvciB3aGF0IHlvdSB3b3VsZCByYXRoZXIgc2Vl
-IGluc3RlYWQuCgrigJQgRGFuaWVsCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+On Mon, Oct 12, 2026 at 09:31:17PM +0000, Vladimir Kukharenko via B4 Relay wrote:
+> This series makes the Poly1305 and ChaCha20-Poly1305 library code handle
+> large lengths:
+> 
+> - poly1305_update() can write past its 16-byte buffer if it holds a
+>   partial block and nbytes >= 2^32 - desc->buflen.
+> - The chacha20poly1305 functions use only the low 32 bits of their
+>   size_t message and associated data lengths.
+> - On 64-bit MIPS and RISC-V, the poly1305 assembly reads past its input
+>   for lengths of 2 GiB or more: these ABIs sign-extend its u32 length
+>   argument, and the assembly uses all 64 bits.  arm64 has the same
+>   prototype mismatch, with no known failure.
+> 
+> Patches 1-3 fix the assembly prototypes, one architecture per patch.
+> The assembly already treats the length as 64-bit, so they declare it as
+> size_t, as commit f3d6cb3dc039 ("lib/crypto: x86/sha1: Migrate
+> optimized code into library") did for the x86 SHA-1 assembly.
+> Patches 4 and 5 make poly1305_update() and chacha_crypt() take size_t
+> lengths.  The patches apply independently, except that on 64-bit MIPS
+> and RISC-V patch 4 relies on patches 1 and 2 for inputs of 2 GiB or more.
+> 
+> No in-tree caller passes inputs this large (WireGuard passes at most one
+> packet, big_key at most 1 MiB), so I consider these ABI robustness
+> improvements rather than fixes and have not added Fixes or Cc stable tags.
+> 
+> I tested with the lib/crypto KUnit suite on UML, x86_64, i386, arm64,
+> riscv64 and mips64, with a temporary 2 GiB KUnit test on arm64, riscv64
+> and mips64 (it oopses on riscv64 and mips64 without patches 1 and 2), and
+> in userspace against OpenSSL for inputs above 4 GiB.
+> 
+> I found the bugs fixed by patches 4 and 5 while writing Coq/VST proofs of
+> this code with LLM agents, and an LLM review of patch 4 found the one
+> fixed by patches 1-3.  I used an LLM-based assistant to write the patches
+> and descriptions, and reviewed its work.
+
+Thanks!  Patches 1-3 look good.  I'm less sure about patches 4-5, since
+they go through some trouble to work around (some implementations of)
+poly1305_blocks() and chacha_crypt_arch() not taking size_t.  Wouldn't
+it make sense to convert those to size_t at the same time?
+
+- Eric
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
