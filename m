@@ -4,90 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37650CC6B19
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 16:59:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 402F0CC6B19
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 17:08:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mFYHyg6DPaXhpdOn5v4dn34VS6j82TA+TpTm86kyegU=; b=wY83M95lHcxjB6
-	pV0YwZd9kWxGGJuJCWXJhB1BpIowCe3FTrNOwzgqqxZUNKQcZOW9ie9FTNSuwHCrMOx1/wiw6Y8Wi
-	eiKM9b5ZHcC9hpLH51/rKv47cw9+/hGXh/o80iNf+cXon8cjJoyTuByWJYB4WEA4mrmsY7401L8A/
-	oMM4v23fJ87lup0ll/mPldeLpXMGyd0r8j2a+yb2JjV7k48q5TH+P89MKB6paXIW4o9wI7fbkYFc/
-	2VnFT3FA2M9z4NuiCCIY34pZK0v2SHXUQM1Z9D/VEtDp3qSJoj9D9dUBTOdr2PBUwl1U0DPJtMxP5
-	JU7u5RiJv/TfaK7PcRnw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ft8Imav8yk7DT0DDGVLaHVB2NvqFkLJFrPZYAlRzDVI=; b=nI/kntf6iAro7j
+	f/ZQi3olXS425bRmnWHWhB1fiYc+cPnlOctgJP30dOzYIT8ESC48j/yo78EutHPFdmS6Qq1NuO5DZ
+	N5q9UcfBoE4eOczizOD+aIKE6TTFIUQmChqr1tRZFi37pkpO3F2Fl0C29kQyjtD5isBftH/x61yng
+	KtuleeU5pjGDXrSsz8wWm3IsVYwgoEtZjkrINy0sgGhlq26U27aeR3UzfUHd+9pm6ERU8OvqE+Vig
+	hQ7sIrMXxOZv/JsIzyfSGNjF+H8lDC1Y+DcSc+II5fV70AHmWpCfsctYqPAZDkQN38JLlzqwgPLEv
+	E318UGzAh9E0zY+iS79w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGfqP-0000000DcDm-0pMt;
-	Tue, 13 Oct 2026 16:59:17 +0000
-Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
+	id 1xGfzb-0000000DdLv-2vt6;
+	Tue, 13 Oct 2026 17:08:47 +0000
+Received: from sender5-op-o11.zoho.com ([165.173.182.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGfqM-0000000DcCr-3PMn
+	id 1xGfzX-0000000DdK2-3cEJ
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Oct 2026 16:59:15 +0000
-Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-8acda240937so23901517b3.3
-        for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 09:59:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1791910754; x=1792515554; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mjPFoJ0mDKhZbg4j/RMY3/uLWUv+CViZqO8+0A6BckY=;
-        b=d4a2cy8QXZCOpJK929kQfFErB/FQct5zrNHMQVaVfJjGTxU8Ft7ymqFdaY/vQ/rDai
-         NxR0PT/ZIpz2g15Bg85pLbgjkCo9o4iW/UETge1xaTpHKagCwn7pLFJGAMg/B7uox8lE
-         dz7RTxZyV2mBGUdpWpKEWhWIwkUcmZl/eTEGUUvOJKv5x2QLdjde3z9DiFvK5DnvGT+2
-         FqGAtTnVVA8idDV+ZIMxICKxX0QSxmCekhhwNqXeqBDxXmm9zL8IlfO5+33ZfZsDPlQA
-         D+CUnF52kyYR7SkG7wY5QHQfKYfoU2x1ziFGASy0gQTNYGdL1ef1AfQpIKlEZT8k7AUM
-         8GSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791910754; x=1792515554;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mjPFoJ0mDKhZbg4j/RMY3/uLWUv+CViZqO8+0A6BckY=;
-        b=yNJFXEzkHEjhapEXiD1ho7vZzZKo4zLKMal95pdgNhUqw6Wd4dzek1tpmtPd6yD9mv
-         p13WRd2gQXsPO9sQwAoAiDfQYz5sQdumwbmPNyg5QT4LuPwmwkRm6f2tAL8O8gHn4lv8
-         +fNMYRJ61oAELoH5YH2j4xaRJ2hhdGF5efxmPitPeNF6Wp7/kFtkRyvNjqk0oJVqI8rR
-         TbrIkxaYEuCVbCXejxPWxhOGP1cC9SPj3UBgQ7p9dsFVLQrn0wOsFOlDM9k+gm4ezlmF
-         bswiLK/ZTrTYWHOIGBdfliO9DBbAXpjM3BRoQWjZmeql3LniDK7sUVS5pA5ljQDRZJmm
-         v3sg==
-X-Forwarded-Encrypted: i=1; AKwUvBzINViPndZueae3INp/JvHeqZii0PM/Z4l01R9ESl9FQzYnN5MTxM4BZFIxGxoOWEK7Kja3DTpaarmZFg==@lists.infradead.org
-X-Gm-Message-State: AFq9FYLigW57kBSa5vIC4qrAysX1rws9vEYrpEort2cHZXZ2th/fWjqt
-	n1SXWOPLdCDiSzQnYionv4KePS671hcq0goVQenLp6mXQ5OSp4auZeZQo0nQ1QsXkIY=
-X-Gm-Gg: AYBFou1z9XzJMIIYuam1Vn3r698DVdo9JNG9m24fzqNcNgzgdQa4kEGyA4/WcBYxdRg
-	akNVefKfv53/MzkTRGW2C56YZvrhTo1Of8n/YLuomRBV2Jv8ogv2svCAUFRiKhWi09OJif3/3Fp
-	IdBTveGQQqgzmWLAq81TWk1k3CEzGrvkbBvclPDfAr+HIMwUSIpc47Ohoy/ojcPYs5L0F8kcSe6
-	7W84yj+XhXupCnkjRdohDlcWgmmx6Fh/GcvkcqihaUr3xBGIbAMx+zkLIosPpZG2rOj+0U6HoqM
-	uhMezcPPj89kpxowbo1AQWiBmGZS/88RjcV4wWIK6JrdvD4tVeCNVNfc0QSwMQq1xozo0XEW4s4
-	m3jRSP1Vf73Xwu3G23uYzQ8X5je7dvdempqoxI4kRCB+e8z15LcToy+9a9J9FMHjfhD5SmZvWnf
-	0t1IH3QkRjjrvEGMlBdGz4RSQozxXDZpuhh6jNh2HPQhRu5gM0CJIWOONchxyfjUg25oFWvM1lX
-	Y30u6x7RiPl8eI7KS2G
-X-Received: by 2002:a05:690c:5310:b0:8ae:1acc:ad33 with SMTP id 00721157ae682-8b07ee0118fmr31810657b3.58.1791910753585;
-        Tue, 13 Oct 2026 09:59:13 -0700 (PDT)
-Received: from localhost ([2600:1700:220:5c80:d01e:ebe9:3ad:261f])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b07ee8a075sm49030607b3.5.2026.10.13.09.59.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 09:59:13 -0700 (PDT)
-Date: Tue, 13 Oct 2026 11:59:12 -0500
-From: Andy Chiu <tchiu@tenstorrent.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/3] riscv: Drop CONFIG_RISCV_ISA_V_DEFAULT_ENABLE
-Message-ID: <as5jYIDw-VVi_tuT@Tao-Chiu's-Mac>
-References: <20261007085126.222688-1-samuel.holland@sifive.com>
- <20261007085126.222688-2-samuel.holland@sifive.com>
+	Tue, 13 Oct 2026 17:08:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1791911289; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=mfIrgCehaFLWkqQlKS3VGS/pVkr8f/IJcq+kyeJFupdLA1r+8xcHckG/fObYTQ8XyHlM64BmsjHJgCfbyq4yxP2Ydgjdb1Movyux++039RQqCJlW2ueM5uzWFHv8Eb8D1VPaut857b7B7brqUCN2Cg4Ao3zI82XPexP75WRQNk4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1791911289; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=CPCHlzrectKcVe5zKVmVCz7i/1K/BPfs+kZWr+grD+A=; 
+	b=HVqKbb/RCQM8ErQ8SuUyStdNgAQ9Tez0WDXfTA9MV8jqN14HgG7kXGe94U4bsR/kZXgHfIFFnjTy0GtBC9/FKz1Y1ZCOtnMt4YaADnM3M/nyKFvu3XC6PKGpiS5gM4YcRdKpqGgtdAJIKpnyhA1/VCk/tdSWm+ezAzxXKdzrHWM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
+	dmarc=pass header.from=<daniel.almeida@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791911289;
+	s=zohomail; d=collabora.com; i=daniel.almeida@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=CPCHlzrectKcVe5zKVmVCz7i/1K/BPfs+kZWr+grD+A=;
+	b=crV1fo8YbkJbpb35sFsOE8gBHoQlUgv538AH1dZ2xwJ0KF1074KXwAM42FxwOV7E
+	XDZkD681c73S0ZTkE4fBSpttwlB4yLpcmE04VmTNgqsFGcU2HoxjzVWzG40dyHriE8X
+	4/xXjyHD5nMYBQeLOAGtPnp9sOXidkuMCasolZeE=
+Received: by smtp.zohomail.com with SMTPS id 1791911287188743.1518436996159;
+	Tue, 13 Oct 2026 10:08:07 -0700 (PDT)
+From: Daniel Almeida <daniel.almeida@collabora.com>
+Subject: [PATCH v6 0/7] Clk improvements
+Date: Tue, 13 Oct 2026 14:07:39 -0300
+Message-Id: <20261013-clk-type-state-v6-0-a5e9977b3509@collabora.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261007085126.222688-2-samuel.holland@sifive.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6XRTW7DIBAF4KtErEs1A+HHWfUeVReAxzVqElJMr
+ UaR716ctLIUZ9flW7wPRu/CBsqRBrbbXFimMQ4xHWvQTxsWend8Jx7bmpkAoaCBhof9By/nE/G
+ huEI8ADpn2lYpbFktnTJ18fsKvr7V3OV04KXP5BbGiBUzIkduG+2VtKg7419C2u+dT9k9h3SY5
+ T4OJeXz9aejmP3/aLd7EFZVwYGjb0xA9F5LvKvON43y73UNCGZFyEoY00qSRKoJ4hGxXQiNdkV
+ sK2E9gRXGarDwiFALYUCvCFUJbYLqpNAOdbgnpttamT6/6urld7Jp+gEsdWizEwIAAA==
+X-Change-ID: 20250909-clk-type-state-c01aa7dd551d
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Michal Wilczynski <m.wilczynski@samsung.com>, 
+ Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ Fu Wei <wefu@redhat.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Miguel Ojeda <ojeda@kernel.org>, 
+ Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Trevor Gross <tmgross@umich.edu>, Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org, 
+ linux-pwm@vger.kernel.org, linux-clk@vger.kernel.org, 
+ rust-for-linux@vger.kernel.org, 
+ Boris Brezillon <boris.brezillon@collabora.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Maurice Hieronymus <mhi@mailbox.org>
+X-Mailer: b4 0.15.2
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_095914_861554_616214C8 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20261013_100843_973463_563EB53B 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,69 +102,163 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 07, 2026 at 01:51:16AM -0700, Samuel Holland wrote:
-> The ability to prevent userspace from executing vector instructions was
-> provided as a escape hatch for software that was broken by adding vector
-> state to the signal context. This appears to be unused in practice, and
-> creates confusion in the extension support returned by hwprobe(), as in
-> this one special case an extension reported as present by hwprobe() is
-> unusable.
-> 
-> Since we believe it is safe to always allow vector usage, start removing
-> this functionality by dropping the Kconfig option. It is possible to get
-> equivalent behavior by setting the sysctl at boot via the kernel command
-> line, but that method will also soon be deprecated.
-> 
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+This series contains a few improvements that simplify clock handling for
+drivers.
 
-Reviewed-by: Andy Chiu <tchiu@tenstorrent.com>
+Patch 1 converts clk.rs to the kernel-vertical style for imports.
 
-Thanks!
+Patch 2 replaces OptionalClk with Clk::get_optional(). There is no struct
+optional_clk in C, and Clk already allows a NULL pointer.
 
-> ---
-> 
->  arch/riscv/Kconfig         | 11 -----------
->  arch/riscv/kernel/vector.c |  2 +-
->  2 files changed, 1 insertion(+), 12 deletions(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index d6c2dbf8455ce..e26450f0d38fb 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -650,17 +650,6 @@ config RISCV_ISA_V
->  
->  	  If you don't know what to do here, say Y.
->  
-> -config RISCV_ISA_V_DEFAULT_ENABLE
-> -	bool "Enable userspace Vector by default"
-> -	depends on RISCV_ISA_V
-> -	default y
-> -	help
-> -	  Say Y here if you want to enable Vector in userspace by default.
-> -	  Otherwise, userspace has to make explicit prctl() call to enable
-> -	  Vector, or enable it via the sysctl interface.
-> -
-> -	  If you don't know what to do here, say Y.
-> -
->  config RISCV_ISA_V_UCOPY_THRESHOLD
->  	int "Threshold size for vectorized user copies"
->  	depends on RISCV_ISA_V
-> diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-> index b112166d51e9f..9641343732782 100644
-> --- a/arch/riscv/kernel/vector.c
-> +++ b/arch/riscv/kernel/vector.c
-> @@ -20,7 +20,7 @@
->  #include <asm/ptrace.h>
->  #include <asm/bug.h>
->  
-> -static bool riscv_v_implicit_uacc = IS_ENABLED(CONFIG_RISCV_ISA_V_DEFAULT_ENABLE);
-> +static bool riscv_v_implicit_uacc = true;
->  static struct kmem_cache *riscv_v_user_cachep;
->  #ifdef CONFIG_RISCV_ISA_V_PREEMPTIVE
->  static struct kmem_cache *riscv_v_kernel_cachep;
-> -- 
-> 2.52.0
-> 
+Patch 3 implements the same typestate pattern that has been used
+successfully for Regulators. This is needed because otherwise drivers
+will be responsible for unpreparing and disabling clocks themselves and
+ultimately handling the reference counts on their own. This is
+undesirable. The patch automatically encodes this information using the
+type system so that no misuse can occur.
+
+Patch 4 adds guards that prepare and/or enable a clock for the lifetime
+of the guard without consuming the Clk, so that a driver can keep a
+long-lived Clk<Prepared> and enable it for scoped sections.
+
+Patch 5 makes things more convenient by offering devres-managed APIs. This
+lets drivers set clock parameters once and forget about lifetime
+management.
+
+Patch 6 adds ExclusiveClk<T>, which holds rate exclusivity over a Clk<T>
+in any state until it is dropped.
+
+Patch 7 uses it in pwm-th1520 to lock the clock rate for the lifetime of
+the driver data.
+
+---
+Changes in v6:
+- Rebased onto the latest clk-next.
+- Moved the import style conversion to the front (Alexandre, Onur).
+- Kept Alexandre's and Onur's Reviewed-by on the imports patch, and
+  Alexandre's on the devres patch. Dropped Alexandre's Reviewed-by on the
+  type-state patch, which changed too much since v5.
+- Split the OptionalClk removal into its own patch (Gary).
+- Replaced "rust: clk: implement Clone for Clk<T>" with EnabledGuard,
+  PreparedGuard and PrepareEnabledGuard (Alexandre, Gary). Clones shared
+  a single struct clk, so per-consumer state such as the rate
+  exclusivity taken by clk_rate_exclusive_get() was shared between them.
+- Dropped Clk::<Prepared>::with_enabled(), superseded by EnabledGuard.
+- Named the ClkState constants ENABLED and PREPARED from the start
+  (Alexandre).
+- Implemented Debug for Error<State> (Alexandre).
+- Documented that dropping a prepared or enabled Clk may sleep
+  (Alexandre).
+- Used a different connection id for the second clock in the example
+  (Alexandre).
+- Used `?` in the per-state get() and get_optional() shortcuts.
+- Dropped the trailing `//` from doctest imports (Alexandre).
+- Removed the intra-doc links from SAFETY comments (Onur) and reworded
+  the devm_enable_optional() documentation (Alexandre).
+- Expanded the devres commit message (Gary).
+- Added ExclusiveClk and its pwm-th1520 user, based on Maurice
+  Hieronymus's series [1], with ExclusiveClk made generic over the clock
+  state, ExclusiveClk::new() in place of Clk::rate_exclusive_get(), and
+  a new ExclusiveClk::into_inner().
+- Link to v5: https://patch.msgid.link/20260706-clk-type-state-v5-0-67c5f326a16c@collabora.com
+
+[1] https://lore.kernel.org/rust-for-linux/20260711-rate-exclusive-get-th1520-v4-0-8244a0666a71@mailbox.org/
+
+Changes in v5:
+- Rebased onto the latest clk-next.
+- New patch: "rust: clk: implement Clone for Clk<T>". Each clone is an
+  independent view of the same underlying clock, owning its own
+  prepare/enable counts; the raw pointer is shared through an Arc so
+  clk_get()/clk_put() stay balanced. Follows the v3 discussion with
+  Boris Brezillon and Gary Guo.
+- Moved rate() and set_rate() from Clk<Enabled> to all states; the C API
+  does not restrict these to enabled clocks, and some clocks can only
+  change rate before being prepared.
+- Made Clk::<Enabled>::disable() infallible, matching unprepare() and
+  the void C API (Onur).
+- Fixed a typo in the "# Invariants" section, fixed SAFETY comments
+  that referred to the non-existent `self.0` field, and added missing
+  INVARIANT comments on the state transitions.
+- Added the missing rustdoc link definitions for clk_unprepare and
+  clk_put (Maurice).
+- Dropped the redundant `Result` import and the `use
+  kernel::error::Result;` lines from the doctests; the prelude already
+  provides it (Miguel).
+- Added #[inline] to the devm_* helpers.
+- Link to v4: https://patch.msgid.link/20260618-clk-type-state-v4-0-8be082786080@collabora.com
+
+Changes in v4:
+- Rebased onto clk-next. Alice Ryhl's "rust: clk: implement Send and Sync"
+  series is now merged upstream, so it is no longer carried as a dependency.
+- Fixed the build with CONFIG_CPUFREQ_DT_RUST=y. The generic DT cpufreq
+  driver only has the (unbound) per-CPU device, so it cannot hand a
+  &Device<Bound> to Policy::set_clk(). Added a pub(crate) Clk::get_unbound()
+  for the few in-tree abstractions that operate on a device outside a bind
+  scope; set_clk() now takes &Device and uses it. Clk::get()/get_optional()
+  and the devm_* helpers still require &Device<Bound>.
+- Added impl From<Error<State>> for kernel::error::Error, so the fallible
+  state transitions can be used with `?` (and chained) instead of
+  .map_err(|e| e.error).
+- Added Clk::<Prepared>::with_enabled(), which runs a closure with the clock
+  temporarily enabled, scoping the Enabled state without giving up the
+  prepared clock.
+- Documented how to change a clock's state at runtime via an enum, for
+  drivers that enable/disable across resume/suspend.
+- Link to v3: https://lore.kernel.org/r/20260107-clk-type-state-v3-0-77d3e3ee59c2@collabora.com
+
+Changes in v3:
+- Rebased on top of 6.19-rc4
+- Dropped patch 1 (from Alice), added her series as a dependency instead
+- Fixed Tyr, PWM_TH1520 drivers
+- Changed clk.rs imports to kernel-vertical style
+- Added support get_optional shortcut for Prepared and Enabled (i.e.:
+  Clk::<Enabled>::get_optional())
+- Fixed misplaced #[inline] tag
+
+Thanks, Danilo {
+  - Moved the devres changes into its own patch
+  - Require &Device<Bound> for all functions where a &Device is used
+  - Account for con_in in SAFETY comments where applicable
+  - Added backticks
+}
+
+- Link to v2: https://lore.kernel.org/r/20250910-clk-type-state-v2-0-1b97c11bb631@collabora.com
+
+Changes in v2:
+- Added Alice's patch as patch 1, since it is a dependency.
+- Added devm helpers (like we did for Regulator<T>)
+- Fixed missing clk_put() call in Drop (Danilo)
+- Fixed missing parenthesis and wrong docs (Viresh)
+- Removed extra "dev" parameter from "shutdown" example (Danilo)
+- Removed useless type annotation from example (Danilo)
+- Link to v1: https://lore.kernel.org/rust-for-linux/20250729-clk-type-state-v1-1-896b53816f7b@collabora.com/#r
+
+---
+Daniel Almeida (6):
+      rust: clk: use 'kernel vertical style' for imports
+      rust: clk: replace `OptionalClk` with `Clk::get_optional()`
+      rust: clk: use the type-state pattern
+      rust: clk: add guards for scoped prepare and enable
+      rust: clk: add devres-managed clks
+      rust: clk: add `ExclusiveClk`
+
+Maurice Hieronymus (1):
+      pwm: th1520: Lock clock rate with clk_rate_exclusive_get
+
+ drivers/cpufreq/rcpufreq_dt.rs |   7 +-
+ drivers/gpu/drm/tyr/driver.rs  |  32 +-
+ drivers/pwm/pwm_th1520.rs      |  25 +-
+ rust/kernel/clk.rs             | 834 +++++++++++++++++++++++++++++++++++------
+ rust/kernel/cpufreq.rs         |   8 +-
+ 5 files changed, 748 insertions(+), 158 deletions(-)
+---
+base-commit: d3645b43ad60fe1ab3b4a869f6908414d5831a65
+change-id: 20250909-clk-type-state-c01aa7dd551d
+
+Best regards,
+--  
+Daniel Almeida <daniel.almeida@collabora.com>
+
 
 _______________________________________________
 linux-riscv mailing list
