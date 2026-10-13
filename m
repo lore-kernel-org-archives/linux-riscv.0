@@ -4,79 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0026ACC6B03
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 06:34:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5604DCC6B03
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 08:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NL2w5f2XKvgVKs7yYgByOaMtuld88AN3/CJC5RZOqhw=; b=VOzMNdYTe1Sebl
-	UMmhWBB1sy1G96oLvXqanakZ30eaROybkmNW1MtJLWpbhA1Zq/9bz0R8Pm4GQsptl2udj+f5eAPqW
-	xSxk4x8gS9/RtS1BIlrqRIne3yBSmFyzS30prBTROLJO5MVgOUOIQboEnKq3WExuDxtWMzeW32euq
-	mFeq4BtmfgGgpupnbXCuNfYrScTSICMUA8LSYjSsykAipcweWw9JwJ2mNGHCN43q+wKOGzLyL4H6L
-	kiSJZmzURpZaiSbv4vu2RhQLpKtf0MNR7fiJbOXM1JkNnP3sEG0YMaEzseV4ILNE+tDs6M23swM+0
-	jpMuC5jNtE6WuEIQWPXw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WhiuZw2ATbaChr1nOF8VspUvusJOxnl/90a49ZW5em4=; b=zIS9M8Do6B2vAV
+	q40wB3gbTBwSrSIG7otZKI5KjpypVWYDZD8F7EZ1dorGC95jx0eIS18eOXZ9BNeyDgDIZUO3a2u3W
+	BrW4FZ83acWNFf7ul9rUGbLxZDYC0BIx+k2HPpx/BxIETSp35iWTWEotV3+O7sr41mItrNA0vaB3j
+	2qCA7XkRKAzxSXwBtiTQTqkOs/eqQwmvgVmhZd2+h2nAr+EHoOD7vpAz7mi/RhMx621c9YAebagWr
+	m68P3IdGiNjtoqDvCpjNUiD6o3XPYjGk8EQjwS5K0d49J95MttPs1HBWxGWlTkmIRjeNJc0X+ug87
+	RLlMmL8vvUV7XFFlViGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGW5Y-0000000C9Zd-0kof;
-	Tue, 13 Oct 2026 06:34:16 +0000
-Received: from out-209.mta1.migadu.com ([2001:41d0:203:375::d1] helo=mta1.migadu.com)
+	id 1xGY2G-0000000CLYi-0gFl;
+	Tue, 13 Oct 2026 08:39:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGW5U-0000000C9Yd-0KYi
-	for linux-riscv@lists.infradead.org;
-	Tue, 13 Oct 2026 06:34:14 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=x3TJ+nLYXw+aqTgNhbnY0u+0hp8FGUc5AIcm44+MuiU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791873249; v=1; x=1792478049;
- b=jPEz53G9zFtMf7S7MMA3ep20v99EcICky/EP9W6meqhELt5OpbuudGf6WopZUAQNGX9cbUKp
- oL5ue2WlC4wtiqVIRa6KGdXuVmtzRp5adDL+7FzQKnKieXPXu4d223bjJvrQA680vlem2AgFhI7
- Sdrm3rr1ohq7fHe9xPgdcgq0=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 4af039548b386c01;
-	Tue, 13 Oct 2026 06:34:09 +0000
-X-Mizu-Trace-ID: 4af039548b386c01
-X-Migadu-Flow: FLOW_OUT
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.100.1.1.12\))
-Subject: Re: [PATCH v2 1/4] mm: fix missing page-table destructor in
- pagetable_free()
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <3ab63358-8bbe-4457-b21c-bb81bca804cc@gmail.com>
-Date: Tue, 13 Oct 2026 14:33:49 +0800
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Muchun Song <songmuchun@bytedance.com>,
- David Hildenbrand <david@kernel.org>,
- Oscar Salvador <osalvador@suse.de>,
- Dave Hansen <dave.hansen@intel.com>,
- Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>,
- =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Alistair Popple <apopple@nvidia.com>,
- linux-mm@kvack.org,
- linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Message-Id: <2B2F2818-9309-450B-A2A4-9F53D802F1C6@linux.dev>
-References: <20261010112457.49485-1-songmuchun@bytedance.com>
- <20261010112457.49485-2-songmuchun@bytedance.com>
- <asy-b7_C3SjnmSaS@gmail.com> <145CD5DC-6457-4E1E-8B9D-AE7D1EDB0AB8@linux.dev>
- <3ab63358-8bbe-4457-b21c-bb81bca804cc@gmail.com>
-To: "Jose A. Perez de Azpillaga" <azpijr@gmail.com>
-X-Mailer: Apple Mail (2.3901.100.1.1.12)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_233412_264217_40166CAA 
-X-CRM114-Status: GOOD (  12.08  )
+	id 1xGY2D-0000000CLXq-3l8v;
+	Tue, 13 Oct 2026 08:38:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CD645600D1;
+	Tue, 13 Oct 2026 08:38:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD5E51F00898;
+	Tue, 13 Oct 2026 08:38:53 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Magnus Damm <magnus.damm@gmail.com>
+Cc: linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH] perf/renesas: Remove remaining RISCV_ALTERNATIVE references
+Date: Tue, 13 Oct 2026 10:38:39 +0200
+Message-ID: <fe117dd44728fe7c96f3e4b3ec88c6ca83c5da9b.1791880574.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,48 +62,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cgo+IE9uIE9jdCAxMywgMjAyNiwgYXQgMDE6MjEsIEpvc2UgQS4gUGVyZXogZGUgQXpwaWxsYWdh
-IDxhenBpanJAZ21haWwuY29tPiB3cm90ZToKPiAKPiBPbiAxMC8xMi8yNiAyOjU1IFBNLCBNdWNo
-dW4gU29uZyB3cm90ZToKPj4gCj4+IAo+Pj4gT24gT2N0IDEyLCAyMDI2LCBhdCAxOToxNSwgSm9z
-ZSBBLiBQZXJleiBkZSBBenBpbGxhZ2EgPGF6cGlqckBnbWFpbC5jb20+IHdyb3RlOgo+Pj4gCj4+
-PiBPbiBTYXQsIE9jdCAxMCwgMjAyNiBhdCAwNzoyNDo1NFBNICswODAwLCBNdWNodW4gU29uZyB3
-cm90ZToKPj4+PiBTaW5jZSBjb21taXQgNDlmNTk5NjY2NDIwICgibW06IGNhbGwgY3Rvci9kdG9y
-IGZvciBrZXJuZWwgUFRFcyIpLAo+Pj4+IHB0ZV9hbGxvY19vbmVfa2VybmVsKCkgcnVucyB0aGUg
-cGFnZS10YWJsZSBjb25zdHJ1Y3RvciBmb3Iga2VybmVsIFBURQo+Pj4+IHRhYmxlcy4KPj4+PiAK
-Pj4+PiBIVk8gKEh1Z2VUTEIgVm1lbW1hcCBPcHRpbWl6YXRpb24pIHVzZXMgcHRlX2FsbG9jX29u
-ZV9rZXJuZWwoKSB3aGVuCj4+Pj4gc3BsaXR0aW5nIGEgUE1ELiBSZXN0b3JpbmcgdGhlIHZtZW1t
-YXAgYmFja2luZyBwYWdlcyBkb2VzIG5vdCBjb2xsYXBzZQo+Pj4+IHRoZSBQVEUgdGFibGUsIHNv
-IGEgbGF0ZXIgbWVtb3J5IGhvdC1yZW1vdmUgZXZlbnR1YWxseSBmcmVlcyBpdCB0aHJvdWdoCj4+
-Pj4gcGFnZXRhYmxlX2ZyZWUoKSBvbiB4ODYtNjQuIFRoYXQgcmVsZWFzZXMgdGhlIHBhZ2Ugd2l0
-aG91dCBydW5uaW5nIHRoZQo+Pj4+IG1hdGNoaW5nIGRlc3RydWN0b3IgYW5kIGxlYXZlcyBOUl9Q
-QUdFVEFCTEUgZWxldmF0ZWQuCj4+Pj4gCj4+Pj4gTWFrZSBwYWdldGFibGVfZnJlZSgpIGRldGVj
-dCBjb25zdHJ1Y3Rvci1iYWNrZWQgcGFnZXMgYW5kIHJ1biB0aGUKPj4+PiBkZXN0cnVjdG9yIGJl
-Zm9yZSByZWxlYXNpbmcgdGhlaXIgbWVtb3J5IHRvIGZpeCB0aGUgcHJvYmxlbS4KPj4+PiAKPj4+
-PiBGaXhlczogNDlmNTk5NjY2NDIwICgibW06IGNhbGwgY3Rvci9kdG9yIGZvciBrZXJuZWwgUFRF
-cyIpCj4+Pj4gQ2M6IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcKPj4+IAo+Pj4gaXMgdGhlIHg4NiBj
-YXNlIGNvdmVyZWQgZm9yIDYuMTYtNi4xOD8gYXMgZmFyIGFzIEkgY2FuIHNlZSwgeDg2Cj4+PiBm
-cmVlX3BhZ2V0YWJsZSgpIG9ubHkgdXNlcyBwYWdldGFibGVfZnJlZSgpIHNpbmNlIGJmOWU0ZTMw
-ZjM1Mwo+Pj4gKCJ4ODYvbW06IHVzZSBwYWdldGFibGVfZnJlZSgpIikgaW4gdjYuMTksIHNvIHRo
-ZSBiYWNrcG9ydCB3b3VsZG4ndAo+Pj4gY2hhbmdlIGFueXRoaW5nIHRoZXJlLiBvciBhbSBJIG1p
-c3Npbmcgc29tZXRoaW5nPwo+PiAKPj4gWWVzLCB5b3UgYXJlIGFic29sdXRlbHkgcmlnaHQg4oCU
-IHRoYW5rcyBmb3IgY2F0Y2hpbmcgdGhpcy4KPj4gCj4+IEkgZG91YmxlLWNoZWNrZWQgYW5kIGlu
-ZGVlZCB4ODYncyBmcmVlX3BhZ2V0YWJsZSgpIG9ubHkgc3RhcnRzIHVzaW5nCj4+IHBhZ2V0YWJs
-ZV9mcmVlKCkgc2luY2UgYmY5ZTRlMzBmMzUzICgieDg2L21tOiB1c2UgcGFnZXRhYmxlX2ZyZWUo
-KSIpLAo+PiB3aGljaCBsYW5kZWQgaW4gdjYuMTkuIFNvIGZvciA2LjE2LTYuMTggdGhlIHByZXJl
-cXVpc2l0ZSBpcyBub3QgcHJlc2VudAo+PiBhbmQgdGhlIGJhY2twb3J0IHdvdWxkIGJlIGEgbm8t
-b3AgdGhlcmUuCj4+IAo+PiBUaGUgY29ycmVjdCB0cmFpbGVyIGlzOgo+PiAKPj4gQ2M6IDxzdGFi
-bGVAdmdlci5rZXJuZWwub3JnPiAjIDYuMTYtNi4xODogYmY5ZTRlMzBmMzUzOiB4ODYvbW06IHVz
-ZSBwYWdldGFibGVfZnJlZSgpCj4gCj4gYWxzbywgYmY5ZTRlMzBmMzUzIGFsb25lIGxlYWtzIFBN
-RC1zaXplZCB2bWVtbWFwIHBhZ2VzIG9uIHRob3NlIHRyZWVzLAo+IGl0IG5lZWRzIDM5NDA2YzA1
-ZjhmMSAoIng4Ni9tbTogRml4IGZyZWVpbmcgb2YgUE1ELXNpemVkIHZtZW1tYXAgcGFnZXMiKQo+
-IGFzIHdlbGwgOikKClllYWgsIHlvdSBhcmUgc28gbWV0aWN1bG91cy4KCj4gCj4gUmV2aWV3ZWQt
-Ynk6IEpvc2UgQS4gUGVyZXogZGUgQXpwaWxsYWdhIDxhenBpanJAZ21haWwuY29tPgo+IAoKVGhh
-bmtzLgoKPiAtLSAKPiBjaGVlcnMsCj4gam9zZSBhLiBwLWEKCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+As riscv always selects RISCV_ALTERNATIVE, the option was removed.
+However, a few references were left, making it impossible to enable
+RZ/Five support (ARCH_R9A07G043).
+
+Fix this by removing all remaining references.
+
+Fixes: b924210f542e13c7 ("riscv: remove RISCV_ALTERNATIVE Kconfig option")
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+To be applied to riscv/for-next, or folded into the original commit.
+---
+ drivers/perf/Kconfig        | 2 +-
+ drivers/soc/renesas/Kconfig | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+index 245e7bb763b9947a..8cef4bdef76aecab 100644
+--- a/drivers/perf/Kconfig
++++ b/drivers/perf/Kconfig
+@@ -117,7 +117,7 @@ config STARFIVE_STARLINK_PMU
+ 
+ config ANDES_CUSTOM_PMU
+ 	bool "Andes custom PMU support"
+-	depends on ARCH_RENESAS && RISCV_ALTERNATIVE && RISCV_PMU_SBI
++	depends on ARCH_RENESAS && RISCV_PMU_SBI
+ 	default y
+ 	help
+ 	  The Andes cores implement the PMU overflow extension very
+diff --git a/drivers/soc/renesas/Kconfig b/drivers/soc/renesas/Kconfig
+index a63df28df3b5e7c7..0b6876ef6dca228b 100644
+--- a/drivers/soc/renesas/Kconfig
++++ b/drivers/soc/renesas/Kconfig
+@@ -461,7 +461,6 @@ config ARCH_R9A07G043
+ 	bool "RISC-V Platform support for R9A07G043F (RZ/Five)"
+ 	depends on NONPORTABLE
+ 	depends on !DMA_DIRECT_REMAP
+-	depends on RISCV_ALTERNATIVE
+ 	depends on !RISCV_ISA_ZICBOM
+ 	depends on RISCV_SBI
+ 	select ARCH_RZG2L
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
