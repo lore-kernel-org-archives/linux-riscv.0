@@ -4,97 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3EE5CA9ED0
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2026 23:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 423B7CA9ED0
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 00:08:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZkgYtlnWwYPzZEubWF+sa3X7udnUcvpeKhgSp2yFJZQ=; b=WKDfoeG71bHxoN
-	GLBwSaxBRC82hacjF3mI3/k/TLNaPoGUUIOGYUNjS276EwHEAG4zSz3GT1ODatUIYiFbD8WzO7h+x
-	8/tVJayaZst9gWDAo8ii+qM1LwjtXZe2ybw8GKN1YhWfrMuxSiAkwX/SAp4LvsvPkdvPFxsZF/dPE
-	cm4XNob3Su7d2SFV9aeF3qYv6DyLhqV5kC8JUud7lAQwyUGHT2tTBI8/gWmSgQ5h6o61myHxOMyV4
-	6pGVWdDY6pO97sHOahdoutXMYByZUMA3hwUbLAi6K1YpwmRGoBAoScOMjaFeSenmZ3T4qX3MyL8AU
-	QR2mNRUS0rEDjFmkrFyQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:CC:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=irdG1ttmaT2G5k3rs/Pck0Pge9DFl4FBUzxC72cbYwQ=; b=20cicOMXD4T8lW7Rbpft6IU2fz
+	HLVr+RHByB3aqtv5Ab6Bwi9PJ7gFeyXH77dLe/YPjy7+PNxnTLGxY2/D1acqfpaM2H2SOauI25K5a
+	z9ygW4aPcW1gjZ7GhC+Gqf+p5Lj9ZBZBhs0YGAiFe53sTB8wD29gTKFYnhXyTEd7xKOvAW0btw7lF
+	dPvtCCEyYtkY69YwPeCb+t3dNWIfpQy039xi6OnhPqGFK2bRH8tvPtSMKhwkZImLXed7lPTlIOwhL
+	Z/kEjbs618XbdjhwX1FrrNjb0qdST4c5bJDYiXfovdLB/opHIx2iEhrNIG4R00uv7l3FHzmqFFJDk
+	yrtsz+Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGPss-0000000Bgep-2utT;
-	Mon, 12 Oct 2026 23:56:46 +0000
-Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
+	id 1xGQ3k-0000000BhMa-1mub;
+	Tue, 13 Oct 2026 00:08:00 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGPsi-0000000Bgcr-1kjL
+	id 1xGQ3h-0000000BhM1-2Ep6
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Oct 2026 23:56:45 +0000
-Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-3514e7cbbbaso6007221eec.1
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2026 16:56:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791849396; x=1792454196; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=GIe3e2jypmCgxdV2fa+T8K7iVPWqEf6EkwCnIkIhFj0=;
-        b=PbfRu3Cm5wHLHJ3zcMnXC+uskz85Pov6z+Z58oTLDyQ3ULfVnq2LNj6aBpMFa8Kx04
-         lpn038B+ASN5NLkTMR1q+21/bGcnyQNruYDNc8mFtbqLyScSB7OqmjF/XHDv8BJGYW0W
-         5c7ddvJeedk1Q7ZgkuqXe6j8wEhAnNP/L+Aje6MKsNw6uzMyeD1jEBidr9QygT8+7uca
-         soeeFPbV8Fpe/gBj2C5F+K4c9QZULknPDVbocaUPQMbdK5ahmQJEvInWRuJGMDBcwGtU
-         wCalfctwCF3UQuRrMpP8pJ3d1flIQ8GZq/sg7vCePhjO6AA6aA4rniwouYu1IbkQRDLZ
-         f0RQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791849396; x=1792454196;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=GIe3e2jypmCgxdV2fa+T8K7iVPWqEf6EkwCnIkIhFj0=;
-        b=kFQy/TH4murroF1WyKbcSib7N7gF9Nvmx41Hs77ffxJkWlG3J0+lgTao1TThdacDZG
-         by25I58zNYUY/24Td1a8ESu5EiiSqA0O2TS6DKejqqToBUR6FGjRzHTHGpNoIdWfmOL9
-         qF9XbXVgi+w3SZLTywJXRE747LlJ837WxJhgMAPBaT1su3rU4NlJLBBNp4yAJtFoZx0d
-         9fMUqOS6v+qqD3GpGT06/MyMjjIWxqjcpdOQqDZpiiYSF03maAJ3eKyr76Zm2onqwH8O
-         0aEC5bBRObKYM4qdzccVzJ9hsWa5IPKof9WrWdPHq5lD8cPQ4L5BusYnlX6FX7otDmPE
-         q/IQ==
-X-Forwarded-Encrypted: i=1; AKwUvByEjAdB92Knf5IlebQowr1Gv2ITn9LDqwJjO+XEt97/jnfQHs2uKEUFciIyCSB69IjolPgDxkjM3Sk9vg==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKZOL71V3IXyGzuGRZ4Okx9i3xD9CdXze3Gr4B+lNz0AW6PErgd
-	rzfKMBRufbfnbCUL4W3SOlHz+1qDVdn0vKvW5AMHRn925Y1M4vHTHoz2
-X-Gm-Gg: AYBFou0CDvGOiMGSgEiz6rCdGw1UzgYE+4KlKekRd6Vy/9k+dKyJNh3/Fmi1aaw+IgX
-	lHn4c7puWqKaD5Cr1d0e8ZAmOhfbAsgG/9LV9H6mK2nRSn2pIlho0qbvdE4oYrOBH2OG7PXy6+S
-	7qjdv44g39pe7Zgz2aZddRs9psvAxxlwAaTnAQrdCTrtH14C5cO1O5sdxi69HeZMTk0sc+KWVgR
-	da3S9X81PB3lNCFzp4xRAPdkrDQAxYjJ+6oj5HXjyvmkR1JgSVaPs2e2hC+GHosSZH5sBTQNAph
-	4ElJKg3UszkwIVqAGZIaWbAybjK1qFNU/7C0xDD8GTPL6xqCarEG+edy0u7V+gvvJ0UZ7rsOg3x
-	+IbZg7HBjUdD9pDlGuAgPH7W1RWS6F0pxPmxlnviCDlVlc9u4EsN0oc9vnKqcFHfGQEJEohP0fI
-	u99T4hSvRXSM42pqeSLqj8OuVyetNuIE8eKHIVhnSYvN++LHBAbSRNyVweo3DPldpFhVXfkPkXL
-	Bq1nwv1zvOv+1NmeCQfFx01MaYU+vPht8Zx9qPy67c1Fe5p2hCUH8JCm1O8AjagtgYkNmE75Mjq
-	WuyXmCUITiIE96ZREtr+l0eT9AF72Uj14jo2AXQwdXoiOm8QITvc4Q==
-X-Received: by 2002:a05:693c:26c1:b0:351:7e5d:2de9 with SMTP id 5a478bee46e88-3537ddd6142mr13773283eec.1.1791849395693;
-        Mon, 12 Oct 2026 16:56:35 -0700 (PDT)
-Received: from alanhc-14700.tailb22ec2.ts.net (180-177-138-120.dynamic.kbronet.com.tw. [180.177.138.120])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-35b690af3easm8686145eec.1.2026.10.12.16.56.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 16:56:35 -0700 (PDT)
-From: Hung-Chun Tseng <alan.tseng.cs@gmail.com>
-To: Yixun Lan <dlan@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	E Shattow <e@freeshell.de>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] riscv: dts: spacemit: mark K1 board boot devices bootph-pre-ram
-Date: Tue, 13 Oct 2026 07:56:24 +0800
-Message-ID: <20261012235624.77993-3-alan.tseng.cs@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261012235624.77993-1-alan.tseng.cs@gmail.com>
-References: <20261012235624.77993-1-alan.tseng.cs@gmail.com>
+	Tue, 13 Oct 2026 00:07:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1791850078; x=1823386078;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=UdockhbMlGNWeL5bYALFbxeBgG/uid9c6UxBI890meg=;
+  b=fYCe20s7m6hZD0gsqBF7HvAhbGcmQ1WL/yfL0JyyZ42yN30kA6rIubv6
+   HpiGn/9WcALJ2r1iHo4ugIrn8Ldhur68tsMNP0t+38jlz83QFH8aDXN0h
+   1cUdIPNJEzhl0VM+xR4A2CchEYZ1AaJw/KmcvCgBIIY5JVCWa2TxIN0lV
+   kwU0C3928TCFHy8kERjEgC5PClq+JkAAA/W/92+rVS0DtJYJv9hACM1lY
+   gZlKJ/uAT7s/hJjU+mojlDLpQWXp2LXY7Mf8VqwPX8AF2dGqE9t0FEFQk
+   1DBNMF5VmTYDkUh2Ax4pYHFV1gBUvUZ8XwWzE/yetcPQd09/5udcFhjoH
+   w==;
+X-CSE-ConnectionGUID: CrVLXfE0RuWymFBOPvR1wQ==
+X-CSE-MsgGUID: R/cgksFYRIiF73q64y6+yA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11933"; a="576818"
+X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
+   d="scan'208";a="576818"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 17:07:57 -0700
+X-CSE-ConnectionGUID: G113pLdDTZKf0hAsEpyVJg==
+X-CSE-MsgGUID: JnTufjM9RoKbJc9VUD11sw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
+   d="scan'208";a="1392979"
+Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
+  by fmviesa006.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 17:07:56 -0700
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Mon, 12 Oct 2026 17:07:55 -0700
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49 via Frontend Transport; Mon, 12 Oct 2026 17:07:55 -0700
+Received: from BL0PR03CU003.outbound.protection.outlook.com (52.101.53.14) by
+ edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Mon, 12 Oct 2026 17:07:55 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Gr9AaN5tBWsmKGwZot+KBwhSBto4hzlAic+dplWjmlutLVVa1e2kSfzfMmZGCTTyE91kmbuJNC/7M97dbQIdW6DwnWJ0k7eLHFspl54b3fWJ9avcql89iqjLBMKJUodbr2S7c8wgIFTiX1O7Ndj9YkV8G/514am5eOV5OaX5J1NHwB24+tRhIspK+ogXa9VXN3vUjTuDi078Z1dopTdMPcAU0CvsuPJ+cbPx+8gIJ4CDQyXJ48GF0t9anudE6ESB1m45hzR0O8zuB29nKJtBwuAUoml7kG5Fqrp37vbYSS72Q3MMTu9AAW9P7D8KNtbVNEQf2V59JQNYHqMMUTo81A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ONsr4wXkPIv2r/MI+XFXiXlS20B0Bn7QHbbzwYIaDPw=;
+ b=FmyOPplZS0ZJyJ9SBeqxHrgEZNI0kYr9hpv6I7pn7fUzWirbl0+ArK9VoZTjIIVkzZ5OcqjxXEtzPUBS9wMyadWSgYCIX+pUpTjftk70doJsuzzMQ81a/xbSBU3cHJTs/mgogpSp/6o1fLMQDyODqYC5lxbx7TFvUJabJbm5LxMx0IWMvUaYe5X5kQgpE/jKaNx519LiDBf9psp3kZJDO6Z/Mw6q4s4+BST4IXsOlQTxLfFqDsCPvHcV2XWxszKJmWqmfJ98sW1RUTy1qG5frZDym6hkyp6mlPKlDcrDc3DLdp4tfew1SWY8ILWAxyXcTmu6ObJtrt6Ln7/ys4e1dg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
+ by SAWPR11MB9711.namprd11.prod.outlook.com (2603:10b6:806:4cb::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.21; Tue, 13 Oct
+ 2026 00:07:41 +0000
+Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
+ ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
+ ([fe80::b6cf:ce77:3cdf:7cc%6]) with mapi id 15.21.0496.018; Tue, 13 Oct 2026
+ 00:07:41 +0000
+Message-ID: <eaeb4259-46d6-4656-8354-669ad32654b5@intel.com>
+Date: Mon, 12 Oct 2026 17:07:38 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 2/5] riscv_cbqri: resctrl: Add cache allocation via
+ capacity block mask
+To: "Luck, Tony" <tony.luck@intel.com>
+CC: Drew Fustini <fustini@kernel.org>, Adrien Ricciardi
+	<aricciardi@baylibre.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Kumar Patra
+	<atishp@rivosinc.com>, Atish Patra <atish.patra@linux.dev>, Babu Moger
+	<babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>, Borislav Petkov
+	<bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>, Conor Dooley
+	<conor.dooley@microchip.com>, Conor Dooley <conor+dt@kernel.org>, Dave Hansen
+	<dave.hansen@linux.intel.com>, Dave Martin <Dave.Martin@arm.com>, Fenghua Yu
+	<fenghuay@nvidia.com>, Gong Shuai <gong.shuai@sanechips.com.cn>, Gong Shuai
+	<gsh517@gmail.com>, <guo.wenjia23@zte.com.cn>, James Morse
+	<james.morse@arm.com>, =?UTF-8?Q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, <liu.qingtao2@zte.com.cn>, "Liu
+ Zhiwei" <zhiwei_liu@linux.alibaba.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>, Peter Newman <peternewman@google.com>,
+	=?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Rob Herring
+	<robh@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, "Sebastian
+ Andrzej Siewior" <bigeasy@linutronix.de>, Vasudevan Srinivasan
+	<vasu@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li
+	<liwei1518@gmail.com>, yunhui cui <cuiyunhui@bytedance.com>, Zhanpeng Zhang
+	<zhangzhanpeng.jasper@bytedance.com>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <x86@kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-rt-devel@lists.linux.dev>,
+	<linux-doc@vger.kernel.org>
+References: <20260901-dfustini-atl-sc-cbqri-dt-v7-0-ca2935d85622@kernel.org>
+ <20260901-dfustini-atl-sc-cbqri-dt-v7-2-ca2935d85622@kernel.org>
+ <8230dae2-2cb0-4b46-8cec-dc4e281d4e4a@intel.com>
+ <aqwN1szItGPg4Qjh@agluck-desk3> <as0Zeoyjiy5CW1DT@agluck-desk3>
+From: Reinette Chatre <reinette.chatre@intel.com>
+Content-Language: en-US
+In-Reply-To: <as0Zeoyjiy5CW1DT@agluck-desk3>
+X-ClientProxiedBy: MW4PR03CA0152.namprd03.prod.outlook.com
+ (2603:10b6:303:8d::7) To SJ2PR11MB8370.namprd11.prod.outlook.com
+ (2603:10b6:a03:540::20)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|SAWPR11MB9711:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5fd8c6f3-53d2-4622-7e48-08df28bdffd4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|23010399003|4143699003|11063799006|56012099006|18002099003|22082099003|6133799003|3023799007|10067099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info: isgdq8Gg0gk8dxwa5SrJ2wYjMwtZ+Gu88Eamjnxqa1W+s2txijMiotZ5POnZIRM1VQvP1FuF4BdTn77QXuAtl20qMCaJn6GFdCQa+BRisnF90US8n2dJCiMa6YtLD3sgHVwfuQz/ZvVx+/aTEtKeEP4L+Lwu31W48KbUMKmWxWnxB+D++xP/O6T46AdwmMl8bArVKiDcJL+vIPx6Qu0Ynl+7FYZxtPoxis6mdRQeavqiW9STwJdtzY5YKplNHuwRcwSDsFmNqxMSIW7ACqYsQWsreZjswnfu55CfGN4ED/5g1HFnqdX8/u9Ni3c+/mfaLJLfH8pevdpXzEJf0I8WmMJXz0gcYStHZUtbrkCDIJIHtjPVGHvJ/zHg404jns0gE9SATs6dhXZL/Ql0njO+FgC+Qw5luisZMaxZgPCYIhHuvY+ypUiSR2d4rq37POlDEsXfIMkCi4RVydVvrbYD2MO/osweigAS5HsN+xZnxKuWmWoZ2awl6RikuvWkzg2/Bqxd92TMimWLJDKnUl0FQHHj28l9URC2WXXhhlNppXAuWzaTemZrOFheR6INoErPLCoMXQkDMu7gnAILxWX6uzwwDo4OubKt+36mBD5sdblfzIvMfDcnytNk3+Em7kxA
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(23010399003)(4143699003)(11063799006)(56012099006)(18002099003)(22082099003)(6133799003)(3023799007)(10067099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WXF5V2RLL2hVMDVNdDJnWUQraitMaTlXdmlsL3Vvdms5T2FVQXRMcExEUkI1?=
+ =?utf-8?B?dmEzdTV1SHcrSnVZTUMxdDRiamFmK3pFaE50WlI5SUFMRmVTb3VtT1p3MkxE?=
+ =?utf-8?B?RDJZNzZsMmp6dWpwYVZORUErNGRxdUI5b2ZaNnJDdlNHdTRKMXM3RURXSWFz?=
+ =?utf-8?B?ck45NjBqUWlnRU1BNDc1S1VsbU1zTU5TS3VnNXhka0JBdzFHRi8yNFJCR0xZ?=
+ =?utf-8?B?YnMwODR6b2ZrQ25zZ2FZM3hUc0ZxVVJGZGhtTjJjNUlwUGRiT0VFRGF6WXFv?=
+ =?utf-8?B?ZWRkL3NZTmRSZExLcmp3MitlaDg5N1lHdXI2c0YzeWg3bWUreXBwVzVCUjZC?=
+ =?utf-8?B?ZlJPbnpHMFFTZ3JiSWlHLy9rajVvR2Y1RjJMRlhOWSsxeXRPMXZTd0pvZ04x?=
+ =?utf-8?B?QTB5djY3K0d2RHdCSi9Jb2EwOWozM2ZKV2VMc3BVVFE4b1dMQUFPNEEwMnVv?=
+ =?utf-8?B?V0dUWHExaXk4eHBOdGtXTVJyMldsMitjYkFlOU9KR1BlWGhYVTlKdVlOR00y?=
+ =?utf-8?B?VURjOWVJclpidmlCNFpvK1FpLzM5QXREbk5tMllRMkRLb2U3SWpaR0lUL3ZU?=
+ =?utf-8?B?ckVFU0sycFM1N1oyckgxTUVoUXVSYUxCdUpmSGJEcEkybnJJUzIzSE1kcHc1?=
+ =?utf-8?B?enlINVY2SURwcUM3NTNSRS9LdXpZL25HZHlVSzZETFBkVllDL0ttTlNaMHlW?=
+ =?utf-8?B?bkc5R2FBMmpmOVhJUENJMmpvU3o1NUNHMHZySExEVHlNckJaOEJOYnBWdFVw?=
+ =?utf-8?B?Q3NaV2QzYkpYR251aDNSVU4vRUFwUFBBRkhLT3VWSUFGdkhoQWZ6ZTYzYTNE?=
+ =?utf-8?B?b3VUUC96SVAza1l5cVY1eU1Za3Q1UkZwd1pxOFVhUFE0OTR2MVY1Y1FobGdW?=
+ =?utf-8?B?N0F0WkwxYk1Ba1hZTFQ3b0xuTHlteERKbHQzSk5wY2xoUzZwbHo3aTZveEpN?=
+ =?utf-8?B?MG5MK2RFZGMvbGdXNXF4OGIwcVYvUjAvekZzUkx2ckRYSHJQMVozVWhrVHVa?=
+ =?utf-8?B?MTM5L2VqT3RBbGVjdmxMMGZMY0J0U3dWTUhEdmQvSGphVklSMXhaZFNCMCsx?=
+ =?utf-8?B?MnZQR2NZckJTK004akc1MTFWSDZzcGFHbnltTHY5SHdmQmF4V3hXOVhlZHpC?=
+ =?utf-8?B?Y3ZDUldlVWgrbDI0NlVFTzdaa0kvelkvdGpJaDlGeHNkaVB2Vnh2MW9RdFB3?=
+ =?utf-8?B?K2tTVWlqVTZkOWhvUTdzbXlxZWhJVnhhdjgrVWI5dnlINzkxTEJKZzJQR0E0?=
+ =?utf-8?B?cmQvYjYzTks4b1JLdEE4RjhGaEFjYVAxbmRBMTM4TWpSaGFPbGhCd294VWJm?=
+ =?utf-8?B?cHBnamNLMnpqWkNkV2ZDeHcxRnZvVWErc2ZobkgyWUJ6L3ozbWs5bGY4L2dC?=
+ =?utf-8?B?eFhEcmlTYm9TemlYN25tN0VaR1N4cGRKNUVkMnlXSDE2Ti9NRFJ0a1pXVFlU?=
+ =?utf-8?B?ajRIbmZ3REppdnNRdllIWGNsT0s5WGNLY0RHYnBwNVdHVWNLcEU4bE5oU0di?=
+ =?utf-8?B?Nk9MLytkNk4zZkVOQnNGTEFSU1p2SGdSRC9sZURUNGY4SlpFalpsb2JRT0pk?=
+ =?utf-8?B?VWhqdlpBWW8wZmZ3a2w0d2x2aGtieWtPTEFqa0Z6SEVXYTl5dk50UEVCbUlk?=
+ =?utf-8?B?cjRoSkFoR1NFZHJVa1RHSkFFeVcyVlV0VmZjU1ZlWUs1cDNnN28xWlBHMG9N?=
+ =?utf-8?B?aitnVmVwWEdGUnlDUzFFei8zd2dCeThYcHZ3TzE2YWFFMW5rVlE5ZXBSSmd1?=
+ =?utf-8?B?YVhxMG15aWZHa0ovdkdFMU1OU00rUE1vYXZJN0krVlFZYXhPekRLaEU3eWZs?=
+ =?utf-8?B?eDAwRE8rU3FnYm9BdjN3Z0Q5eDdLVEU3QWhuQWpEdk9aSW16MjNNbWNFdVIx?=
+ =?utf-8?B?aHBxRnUzamlueEQ0K1NtUXphbDNadXR2eEs5dndzNzVuMVZXQkZjaVFtZkpR?=
+ =?utf-8?B?NUNWWUY4eHdLTkpPU0VMTEZSSE1ObEFxU3Z3UXlkNzZ5cE9GOUE2M1IrK3Fv?=
+ =?utf-8?B?VlEzSis3V1JIQzBHVXhFNjJESUl0UVZ5OEJvaUlGK1kvbUdiZU9MdWEzUW8z?=
+ =?utf-8?B?dEVnd2RvTjc1QVN3U2wycmtPUmI0Q1FiaVU3VUd2VzdJb1lCdzNJWmlPSisv?=
+ =?utf-8?B?NTMrVkp1SnZTY0l4Z1ZFb2dIL0JjUVcvTHh0QzdPRmRXQzVPUXhwakowWW9a?=
+ =?utf-8?B?VXBjTXJQaGV3NWZjL2Y1VVZpYmVveVNEMFJYbEU5dWVXc04rc2RCaVFtQXYx?=
+ =?utf-8?B?Yk91WmJ1NWRzTDU3TEpqL3FPckI1TTZUZjRWcVBtWHlZZTZxak1iY2JxS1Z0?=
+ =?utf-8?B?SDFacHJvNVNadkZ6M2hONHpRRzVwRDFCM0p4aU85d2ZaMnE4NUJFVEFSNFdy?=
+ =?utf-8?Q?LEyCXhIdDvMcK130=3D?=
+X-Exchange-RoutingPolicyChecked: yrr6a+WfsYTPy89FNnQYcsM8ksK6DpFkLQmx55hrRoROY7M5EG36OZsA6OJLH8FuPWjVxNqvctE1Z/Plep0X8YKRFGTRV6Xr/9h7fZ+CKSidg4SSrCFnU/0DQ1mGUKnQzXBd02Q534YwkJSDAcAUOb1RFW/y7UUBOiSJkBrnmnsTIreFuEKF2lC5/BSdlnx1qyYPMZHdCe9Rj948a+QVaOIqecdtOVRsa6L6n/MXAwmrJ8zkIOaMKiWpg0uBI/qQYH6hvbS6Z4DhgeZH7aQPeqxxjJdYzAPbg1f0vukSQNdKQYCvMg1mDm9/1BtK+XkVC9/T6QJhhJfO51wzq8VviA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5fd8c6f3-53d2-4622-7e48-08df28bdffd4
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 00:07:41.7411
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: r75Zn7wPoQmFUrW88l0zKM4ymXFjfUdR8eCDoTNW8vTfQ0S/bkn0148cNH6CHyDQhPahouZBAh9udgdaYD02PZ4VBLSyD49riwHvplZlQIY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAWPR11MB9711
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_165638_321277_2188D0B0 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20261012_170757_605294_5B9FE885 
+X-CRM114-Status: GOOD (  23.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,380 +207,114 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On K1 boards an SPL reads the board EEPROM (0x50 on i2c2) to identify
-the board, and before DRAM training it programs the P1 PMIC (0x41 on
-i2c8) rails buck1, buck3 and aldo1. Boards that boot from SPI NOR also
-need the flash on QSPI.
+Hi Tony,
 
-Mark these board peripherals, and the I2C buses they sit on,
-bootph-pre-ram on the boards that have them.
+On 10/12/26 10:31 AM, Luck, Tony wrote:
+> On Thu, Sep 17, 2026 at 08:57:10AM -0700, Luck, Tony wrote:
+>> On Thu, Sep 17, 2026 at 08:37:43AM -0700, Reinette Chatre wrote:
+>>> On 9/1/26 3:31 PM, Drew Fustini wrote:
+>>>> resctrl exposes a single cap set per rid, so when more than one capacity
+>>>> controller backs a cache level they must agree on those caps. A level
+>>>> whose controllers disagree is left unexposed. Other levels are
+>>>> unaffected.
+>>> If I understand correctly, while attempting to translate to resctrl terms,
+>>> this means that a cache resource with several domains may support different
+>>> capacity masks in the domains?
+>>>
+>>> I believe the "single cap set per rid" you refer to is
+>>> /sys/fs/resctrl/info/L3/cbm_mask and /sys/fs/resctrl/info/L2/cbm_mask that
+>>> exposes a single capacity bitmask representing the maximum allocation.
+>>>
+>>> As you know, resctrl is in the process of changing the way in which schema
+>>> formats are described. The most recent PoC [1] added new bitmap description
+>>> files but it kept a single value "max" file to describe the highest allocation
+>>> possible for a bitmap schema.
+>>>
+>>> To support asymmetrical cache instances it looks like changing the interface
+>>> to describe the maximum per domain (instead of one global value) could address
+>>> the gap?
+>>>
+>>> For example, if there is a hypothetical system with two L2 cache instances, one
+>>> with a 0xFF max CBM and the other with a 0XF max CBM then resctrl could expose it
+>>> as:
+>>
+>> That sounds like the not-at-all-hypothetical Intel hybrid client parts
+>> where P-core and E-core have different L2 masks.
+>>
+>>>
+>>> 	# cat /sys/fs/resctrl/info/L2/schemata/L2/max
+>>> 	0=ff;1=f
+>>>
+>>> The schemata file currently and will continue to display the allocations per domain.
+>>>
+>>> resctrl will need more changes to support different CBM per domain internally and
+>>> until then all these CBMs will be the same, but adding this change to user interface now
+>>> may set resctrl up to support these systems in the future?
+>>
+>> I think Fenghua once worked on patches to support this. But I don't
+>> think they were every posted to LKML. One of the open issues at the time
+>> was how to handle the info/L2/cbm_mask file.
+> 
+> I took git://git.kernel.org/pub/scm/linux/kernel/git/reinette/linux.git
+> branch resctrl/controls_rfc_v2.4 and added some patches to support L2
+> per-domain cache allocation bitmasks. Seems to be working OK. I can
+> share the patches if anyone is interested, but they aren't even up to
+> RFC quality yet.
+> 
+> I do have some questions:
+> 
+> 1) The repeated "L2" in the path seems awkward. The first is the
+> resource name, the second the control name. Makes sense for MBA where
+> there may be multiple control names. But for cache ... is there a better
+> name for the control than repeating the resource name?
 
-Assisted-by: claude-opus-5-5 dtbs_check
-Signed-off-by: Hung-Chun Tseng <alan.tseng.cs@gmail.com>
----
- arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi | 7 +++++++
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   | 7 +++++++
- arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts | 8 ++++++++
- arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts    | 8 ++++++++
- arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts  | 5 +++++
- arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts  | 6 ++++++
- 6 files changed, 41 insertions(+)
+If we are using the same definitions of what a control and resource represents: no.
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi b/arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi
-index 81c40df2a..6269d2ba7 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi
-@@ -64,6 +64,7 @@ &pdma {
- };
- 
- &i2c2 {
-+	bootph-pre-ram;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&i2c2_0_cfg>;
- 	status = "okay";
-@@ -71,6 +72,7 @@ &i2c2 {
- 	eeprom@50 {
- 		compatible = "atmel,24c02";
- 		reg = <0x50>;
-+		bootph-pre-ram;
- 		vcc-supply = <&buck3_1v8>;
- 		pagesize = <16>;
- 		read-only;
-@@ -93,6 +95,7 @@ serial-number {
- };
- 
- &i2c8 {
-+	bootph-pre-ram;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&i2c8_cfg>;
- 	status = "okay";
-@@ -100,6 +103,7 @@ &i2c8 {
- 	pmic@41 {
- 		compatible = "spacemit,p1";
- 		reg = <0x41>;
-+		bootph-pre-ram;
- 		interrupts = <64>;
- 		vin1-supply = <&reg_vcc_4v>;
- 		vin2-supply = <&reg_vcc_4v>;
-@@ -113,6 +117,7 @@ pmic@41 {
- 
- 		regulators {
- 			buck1 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <1050000>;
- 				regulator-ramp-delay = <5000>;
-@@ -127,6 +132,7 @@ buck2 {
- 			};
- 
- 			buck3_1v8: buck3 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <1800000>;
- 				regulator-ramp-delay = <5000>;
-@@ -155,6 +161,7 @@ buck6 {
- 			};
- 
- 			aldo1: aldo1 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3400000>;
- 				regulator-boot-on;
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index 58035d886..e74505984 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -187,6 +187,7 @@ &qspi {
- };
- 
- &i2c2 {
-+	bootph-pre-ram;
- 	pinctrl-0 = <&i2c2_0_cfg>;
- 	pinctrl-names = "default";
- 	status = "okay";
-@@ -194,6 +195,7 @@ &i2c2 {
- 	eeprom@50 {
- 		compatible = "atmel,24c02";
- 		reg = <0x50>;
-+		bootph-pre-ram;
- 		vcc-supply = <&buck3_1v8>; /* EEPROM_VCC1V8 */
- 		pagesize = <16>;
- 		read-only;
-@@ -216,6 +218,7 @@ serial-number {
- };
- 
- &i2c8 {
-+	bootph-pre-ram;
- 	pinctrl-0 = <&i2c8_cfg>;
- 	pinctrl-names = "default";
- 	status = "okay";
-@@ -223,6 +226,7 @@ &i2c8 {
- 	pmic@41 {
- 		compatible = "spacemit,p1";
- 		reg = <0x41>;
-+		bootph-pre-ram;
- 		interrupts = <64>;
- 		vin1-supply = <&reg_vcc_4v>;
- 		vin2-supply = <&reg_vcc_4v>;
-@@ -236,6 +240,7 @@ pmic@41 {
- 
- 		regulators {
- 			buck1_0v9: buck1 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <1050000>;
- 				regulator-ramp-delay = <5000>;
-@@ -250,6 +255,7 @@ buck2 {
- 			};
- 
- 			buck3_1v8: buck3 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <1800000>;
- 				regulator-ramp-delay = <5000>;
-@@ -278,6 +284,7 @@ buck6 {
- 			};
- 
- 			aldo1: aldo1 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3400000>;
- 				regulator-boot-on;
-diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-index 635e95aad..406b7ca16 100644
---- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-@@ -201,6 +201,7 @@ &pdma {
- };
- 
- &i2c2 {
-+	bootph-pre-ram;
- 	pinctrl-0 = <&i2c2_0_cfg>;
- 	pinctrl-names = "default";
- 	status = "okay";
-@@ -208,6 +209,7 @@ &i2c2 {
- 	eeprom@50 {
- 		compatible = "atmel,24c04";
- 		reg = <0x50>;
-+		bootph-pre-ram;
- 		vcc-supply = <&buck3_1v8>; /* EEPROM_VCC18 */
- 		pagesize = <16>;
- 		read-only;
-@@ -223,6 +225,7 @@ product-name {
- };
- 
- &i2c8 {
-+	bootph-pre-ram;
- 	pinctrl-0 = <&i2c8_cfg>;
- 	pinctrl-names = "default";
- 	status = "okay";
-@@ -230,6 +233,7 @@ &i2c8 {
- 	pmic@41 {
- 		compatible = "spacemit,p1";
- 		reg = <0x41>;
-+		bootph-pre-ram;
- 		interrupts = <64>;
- 		vin1-supply = <&reg_vcc_4v>;
- 		vin2-supply = <&reg_vcc_4v>;
-@@ -243,6 +247,7 @@ pmic@41 {
- 
- 		regulators {
- 			buck1_0v9: buck1 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <1050000>;
- 				regulator-ramp-delay = <5000>;
-@@ -257,6 +262,7 @@ buck2 {
- 			};
- 
- 			buck3_1v8: buck3 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <1800000>;
- 				regulator-ramp-delay = <5000>;
-@@ -285,6 +291,7 @@ buck6 {
- 			};
- 
- 			aldo1: aldo1 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3400000>;
- 				regulator-boot-on;
-@@ -386,6 +393,7 @@ &qspi {
- 	flash@0 {
- 		compatible = "jedec,spi-nor";
- 		reg = <0>;
-+		bootph-pre-ram;
- 		spi-max-frequency = <26500000>;
- 		spi-rx-bus-width = <4>;
- 		spi-tx-bus-width = <4>;
-diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-index 246f8f2ab..0531bd003 100644
---- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-@@ -127,6 +127,7 @@ &pdma {
- };
- 
- &i2c2 {
-+	bootph-pre-ram;
- 	pinctrl-0 = <&i2c2_0_cfg>;
- 	pinctrl-names = "default";
- 	status = "okay";
-@@ -134,6 +135,7 @@ &i2c2 {
- 	eeprom@50 {
- 		compatible = "atmel,24c02";
- 		reg = <0x50>;
-+		bootph-pre-ram;
- 		vcc-supply = <&buck3_1v8>; /* EEPROM_VCC1V8 */
- 		pagesize = <8>;
- 		read-only;
-@@ -159,6 +161,7 @@ num-macs {
- };
- 
- &i2c8 {
-+	bootph-pre-ram;
- 	pinctrl-0 = <&i2c8_cfg>;
- 	pinctrl-names = "default";
- 	status = "okay";
-@@ -166,6 +169,7 @@ &i2c8 {
- 	pmic@41 {
- 		compatible = "spacemit,p1";
- 		reg = <0x41>;
-+		bootph-pre-ram;
- 		interrupts = <64>;
- 		vin1-supply = <&reg_vcc_4v>;
- 		vin2-supply = <&reg_vcc_4v>;
-@@ -179,6 +183,7 @@ pmic@41 {
- 
- 		regulators {
- 			buck1 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <1050000>;
- 				regulator-ramp-delay = <5000>;
-@@ -193,6 +198,7 @@ buck2 {
- 			};
- 
- 			buck3_1v8: buck3 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <1800000>;
- 				regulator-ramp-delay = <5000>;
-@@ -221,6 +227,7 @@ buck6 {
- 			};
- 
- 			aldo1: aldo1 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3400000>;
- 				regulator-boot-on;
-@@ -320,6 +327,7 @@ &qspi {
- 	flash@0 {
- 		compatible = "jedec,spi-nor";
- 		reg = <0>;
-+		bootph-pre-ram;
- 		spi-max-frequency = <26500000>;
- 		spi-rx-bus-width = <4>;
- 		spi-tx-bus-width = <4>;
-diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-index 2d1ba34cb..8e9bbbeb1 100644
---- a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-@@ -113,6 +113,7 @@ rgmii1: phy@1 {
- };
- 
- &i2c8 {
-+	bootph-pre-ram;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&i2c8_cfg>;
- 	status = "okay";
-@@ -120,6 +121,7 @@ &i2c8 {
- 	pmic@41 {
- 		compatible = "spacemit,p1";
- 		reg = <0x41>;
-+		bootph-pre-ram;
- 		interrupts = <64>;
- 		vin1-supply = <&vcc4v0>;
- 		vin2-supply = <&vcc4v0>;
-@@ -133,6 +135,7 @@ pmic@41 {
- 
- 		regulators {
- 			buck1 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <1050000>;
- 				regulator-ramp-delay = <5000>;
-@@ -147,6 +150,7 @@ buck2 {
- 			};
- 
- 			buck3_1v8: buck3 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <1800000>;
- 				regulator-ramp-delay = <5000>;
-@@ -175,6 +179,7 @@ buck6 {
- 			};
- 
- 			aldo1_3v3: aldo1 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3400000>;
- 				regulator-boot-on;
-diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-index b907a1396..857b4ebe3 100644
---- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-@@ -143,6 +143,7 @@ &pdma {
- };
- 
- &i2c8 {
-+	bootph-pre-ram;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&i2c8_cfg>;
- 	status = "okay";
-@@ -150,6 +151,7 @@ &i2c8 {
- 	pmic@41 {
- 		compatible = "spacemit,p1";
- 		reg = <0x41>;
-+		bootph-pre-ram;
- 		interrupts = <64>;
- 		vin1-supply = <&vcc4v0>;
- 		vin2-supply = <&vcc4v0>;
-@@ -163,6 +165,7 @@ pmic@41 {
- 
- 		regulators {
- 			buck1 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <1050000>;
- 				regulator-ramp-delay = <5000>;
-@@ -177,6 +180,7 @@ buck2 {
- 			};
- 
- 			buck3_1v8: buck3 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <1800000>;
- 				regulator-ramp-delay = <5000>;
-@@ -205,6 +209,7 @@ buck6 {
- 			};
- 
- 			aldo1: aldo1 {
-+				bootph-pre-ram;
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3400000>;
- 				regulator-boot-on;
-@@ -298,6 +303,7 @@ &qspi {
- 	flash@0 {
- 		compatible = "jedec,spi-nor";
- 		reg = <0>;
-+		bootph-pre-ram;
- 		spi-max-frequency = <26500000>;
- 		spi-rx-bus-width = <4>;
- 		spi-tx-bus-width = <4>;
--- 
-2.43.0
+A control is represented by an entry in the schemata file and is what the
+user interacts with to configure resource allocation. Today there is a 1:1
+relationship between a resource and its only control and today this control
+has the same name as the resource. This is not something we can change at
+this point for a legacy resource like "L2" since it is already represented
+in the schemata file by a control named "L2".
 
+Multiple controls is not just for MBA. There will also be multiple cache controls.
+For reference:
+https://lore.kernel.org/lkml/20260921135702.2874931-1-ben.horgan@arm.com/
+
+All "legacy" resource have a control with the same name as the resource. At this
+point this is not required for new resources with first resource like this planned
+to be MB_NODE.
+> 2) Should the format of /sys/fs/resctrl/info/L2/schemata/L2/max depend
+> on whether the platform is asymmetric? Or just enumerate the per-domain
+> values even on symmetric systems? Likely easier for users to list all
+> domains.
+
+If it depends on the platform then resctrl would need to separately let user
+space know whether the platform is asymmetric or not. This additional information
+seems unnecessary if the only motivation is to let user know if the max values
+are per-domain or not. Always listing all domains seems to be the simplest and
+straightforward option.
+> 3) What should happen to the legacy /sys/fs/resctrl/info/L2/cbm_mask?
+> Just hide it? I also considered renaming the resource to "L2A" to
+> avoid surprising legacy code.
+The current direction is to have these top level files continue to return
+the properties of the default/legacy control while in "legacy" control mode.
+When user space switches the control mode then these files return empty. 
+
+This is what is implemented in RFC v2 so you should be able to see it in action.
+
+It was noted as one of RFC v2's opens:
+	- When switching control mode to native the top level control info files
+	  stop returning information. This could be considered "work as intended"?
+
+An example of this behavior in action as applied to "min_bandwidth" can be seen 
+on slide 4 of
+https://lpc.events/event/20/contributions/2368/attachments/2066/4625/resctrl_2026_combined.pdf
+
+Hiding the files could also be an option. I have not heard strong opinions on how this
+should be handled after the above mentions of current direction.
+
+Reinette
 
 _______________________________________________
 linux-riscv mailing list
