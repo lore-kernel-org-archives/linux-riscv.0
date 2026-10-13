@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 524B9CC6B0E
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 16:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2171ECC6B19
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 16:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vaTcdVbbs/DXkLOQru2uG/ZsIdHaMLbqb4FWGQGZdGo=; b=W/6useCr3E2rnx
-	/d55mTkrmtMXEZTIrQsYICM7dL3+/gUSGTgPBFfL9WShlT71Ijn9+IzPupBdaBQoi2TqA4N8hG8V8
-	9Zc8pZdj5KAQmL9qsdJLXsCYIIAK4O24+NqNmXdFZS1h2gFzdNNzzAw9S/f+zZl6mEVF4VOam/at6
-	qEJT5R8OLuJLeQyzXOurbo2QIDg4I66HnEnpx7VG7gCjBJhDhcmumsxM26YuH3Um1auz7bgDvwWWS
-	YOlUKkS4Pzj2Zj3Sj2hVgOUW7m9wWr7v6SOAaJ1rFVFtDoMViFImLy7F5uXfkEufnqfOrVyK9s3Ue
-	q5FK1KXIGjI+AAVYZZUQ==;
+	List-Owner; bh=F+/ZDEDq2v4UapW/sVoql+iVMeoDKlqbiZcgWZocZIc=; b=fGaxVIGm/mJXY5
+	/cJkQqH+VQuk8UZQH9jKoMTXkWn8T/icBoGJj6TdQwZEzDkhfcnrSnPWXCAjYuSoIC7Uz+YppNk56
+	iMy+pPOPDAPWqJHt0wKN/rU01Lu1YHU0MNhhFJ00h+NkjdmwwymdX92L0SR7Ej4y/+tpiNN0iWOal
+	B/gsN3P4n/iE46S6K3TLERZK08tSZi0yrCzp7zUZY2DlvpgauKoyqdGDJcMcqY7VyEx25qTkMnMaS
+	tpGmKedsy///5nDEEWCx8p0QR8iwQpntEMkA6pdlyXvfG23AXMoRz45KZSQqjU3q/L+e+BoCe7Cf7
+	T9kBOvn2UOXhEQmUozLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGfom-0000000Dbsg-2uvT;
-	Tue, 13 Oct 2026 16:57:36 +0000
-Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
+	id 1xGfpS-0000000Dc23-077I;
+	Tue, 13 Oct 2026 16:58:18 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGfoh-0000000Dbqu-3pez
+	id 1xGfpP-0000000Dc0R-13rg
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Oct 2026 16:57:33 +0000
-Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-8b0a921ee46so1314927b3.2
-        for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 09:57:31 -0700 (PDT)
+	Tue, 13 Oct 2026 16:58:17 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-8b05bf699easo23896627b3.2
+        for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 09:58:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1791910650; x=1792515450; darn=lists.infradead.org;
+        d=tenstorrent.com; s=google; t=1791910694; x=1792515494; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=xs8kx4XmYGQ3LYVznuwYx1llCxD9uoGbHIj5ZitGfaE=;
-        b=X7fDdrHMPANv5Jhk9QShxp2X9+PKvjw71/eERPd4pzKiNbaDkDGzvrjdKhiZUOmdqf
-         qaXZZkThKDRueBdTif7DUNcJ4XEcEN65BlyZkcFBmojdineojToB/5BT8zTIMFYPc9Y6
-         l5qoG71kLB7WkQltDM6tlkml5ELstxNyiKGEch4BdIA/LlFSJf6jsQi8fj3XnEF47VDD
-         DTWenDZc8mMILK4xwhUvtFBOTKGDwGL+UBxUx9QjjDO6sm0jPLU/cuNhuECWnxyMnR56
-         m5s+8MoWtXEZLt2z6r7lQodpoX1uJ7+UV9c2vql01QTq7DFUGtiwotx03PAwOzQ+d5Cn
-         8+RQ==
+        bh=laIYJl8lTaP86mKuKV52j9MpiQPLusAyIN1HdFdU1iY=;
+        b=CGq85Tv7lsqV0kB6rowTaQb0QDg/3C58+Xf6GPQ8oqbDHDruHYiWSOP+ucCNweJouU
+         7nx4FJLFRhEt6VQTSMnHUyeWAPTfRZvYYeeRaY0FfW1BIurxhDyiUTTUr2WP8sjfX2Ie
+         KoT46sjsOk4M8JfOGQFCfYkZcj4lJiu2PgjZQMRReZHgfUoukTw7aQ4YsNOLGm9mYKnH
+         4HucxuP5ezlONvR7TwR5BlwXrhH4dUCO7OmkrI/5vTk5WlRLuVPDOm2/Y6FHEDQ0kYb9
+         mn2Byf8u/mOMlpI9f5D3ar9iINW4/SpOJU85dujPtD2gBaZgvPizCsBRpPbjbePBg3GM
+         lT5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791910650; x=1792515450;
+        d=1e100.net; s=20260707; t=1791910694; x=1792515494;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=xs8kx4XmYGQ3LYVznuwYx1llCxD9uoGbHIj5ZitGfaE=;
-        b=WrnKo2e5kL6DKkyKr903m/jRUTC0yItF2xWW1y4E+hXB/FwVA+6U4hqYh+/UR1QbJM
-         DdNPJFNCleRAnQsI929WbnKG14sDoDWssxjl6yN5JbGVCssqmHzLyji5/nfcF0wtgYLB
-         jsKx6lnMwV8RBa50AELKhpIs9pkNTzonnc+UQ3PEPuWGSQQ87mh2ZFxFmc8hS5nf2M5N
-         vGFLa6hBh09eemSttsnZ0p3hfeEYldfL0f0y7vxXwS4ze+EthE+mfWnzGrBVR/xtzfvc
-         /MHGEoNSW7+tNFN4zvas4DPel2fbP1xt5sYtvMNrkrVMfJeR2bwGKu/TDxOMr4GXK8RA
-         kECA==
-X-Forwarded-Encrypted: i=1; AKwUvBw3Ubo3/SJdJzCpcFcdOTUhTV2vFX25YWiRIjci9WzzWxcRMfqdQ8ElpCFkspqYNrT6VNmywX/EAwTD1g==@lists.infradead.org
-X-Gm-Message-State: AFq9FYK0QJxujH82t7ofLMj22V5SMDH1XLMQZxsrmFcyLSbDpMfV/o72
-	LF31gms1b9MUx19bAE9tFrlOpgN9g+uMSTvzKbMSigoyFZZhJICfkFcjO72lJzZ3cGE=
-X-Gm-Gg: AYBFou38NNwQ3Hs4u0S4YHxcffTXtgSvC2f/mgnglefMnTXORh5T40LpXF8qlSH1H2o
-	lIGPTE8YiiXDsBQXuWpGzrmCer4gV7VnDcwSHb82kigcafCL9tr9esqeCvfKRt64yBO2zzfqUbz
-	Jxxx/ERlY1lT1ZDzyxXF+wLfxClT4b8DqnDEsdLMrU7rxW0/8ST/D2S1zCKwHwuta9dOzRy3Euu
-	SH0MmfU4L7Fu8MqAkHMFw1DDIBcfCF+FpEjH2jwIjMv5SOiFXcOBdN0KsbvTsCE/q2UZB9YwyRN
-	EV4LvD1oWqByxH+zjkea3XUuN0V19da6Lt8fPpKAJ7cqmib+CbXDC3Gk6cRF+MoS1IJgC7/CLgx
-	794UFvC8IYcn9crPAWaUMOrqGBeJFqvutWnxNiBalUKO1TrO0w0Y7JzB5L/0d9xoWBl8pnhq9wa
-	CuziVG1CqAyUuaLPkq54dhWdpycMFpOcc8+9FkeIrLsSKMxafbpzpAxxTkZGWzU9IqVGmL2+rbq
-	eEbWRzf8buUo7LHO6/W
-X-Received: by 2002:a05:690c:e3ef:b0:8b0:ad16:71f8 with SMTP id 00721157ae682-8b0ad167c9dmr17620697b3.11.1791910650173;
-        Tue, 13 Oct 2026 09:57:30 -0700 (PDT)
+        bh=laIYJl8lTaP86mKuKV52j9MpiQPLusAyIN1HdFdU1iY=;
+        b=pvesFPPlqUZsiAk8pbOqbpyRSdQhrxY+G6jtImXKfEoboqDG911fms2a9T5DZpQa7Q
+         2IeCrIsNxGqGHgeYBtcWULytiIWZAHEZyWAXHeAl/ES1pBXthQUngc4RYiw3n9B1/shE
+         3BzJQQABp6MAmQqTFbvV/cfUsYwO3RKxy4xywcVs1A8TXYKM55I0GbrNzpEtirhkrash
+         XzxaAesyA0nLBcI5NeGTGprrzDLhEMV6o5AinXGvKy1UuH7n2L7kPOFSg4isQH3sUiDB
+         vMB9mt+pCCuc10kLl57vys7jAH1czivSNZ1+bhzTraM3IrhOTdXXhdj6eFnjFScep6OM
+         xqTQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzJ2QaO2Z007HAuhJA2AKdkKlbUF/i7MWK7xkUFnzBhPU5VtGENvLzxJwEtBF18i07OcvkgttKmgsqMdw==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKOLjEIyK4UW2qd9hX2i/ZIebDHYo9shiJ9K/mHodEM1fuu7yeV
+	t1VxbRcHwsjzwn29nloh8R+2pmx8L7w8K4XAdc57V8T8fxmOrDC3nvzSigpyhltcUZ4=
+X-Gm-Gg: AYBFou3VaOHZSCkJ6Wr+YxYnwX6huGV6NcYu+KymgUWnqkhWyFPpljuXFsfh+CCerAi
+	VeWIDPXEgLSwmy2WNht2aUZZESgwfY9pvO3z02BtS4fTBP8cbOhGuWdeud9esbKWXRp8OODx/gU
+	hB2lYYzPxnLLlexHxjQM40nE2UBvQf7COgmTb+9/WUg5+JMPRgj2rNJjKbn3TSdmuQUrsJCjpcM
+	TaLyODKGadOfjQOzwqwcAG5GCYj1R91RGvsHsT//4qK6kHvXS8vlm02KCiVUM2h90znrXamHTzh
+	htYkZjB4wNMSH+imqk7M3KgoqjoyQ+WbQIALvzZfJiiTRRuqXxOsVpeC6DHFZpzl2sV7JFPC5UT
+	OESaXwLZgL+VXB1fQ8z8WaxPOmVf7Spfd+s8woJVeqM5rreFcoehxHNbGj9vDLfO/KrFtn7S4Cf
+	Un+FMvFuFaGttZ8E1eIFENSDthDx8blmE/HQxnnRyWlFMB55qIU2dhJp2uMxhPrD5WXEBG6nLlv
+	t7TDE80vKqtCg2bSZ8JjUeKPQ3ifVE=
+X-Received: by 2002:a05:690c:a707:b0:8a8:8d90:a6c8 with SMTP id 00721157ae682-8b07ebf63demr28292507b3.6.1791910693578;
+        Tue, 13 Oct 2026 09:58:13 -0700 (PDT)
 Received: from localhost ([2600:1700:220:5c80:d01e:ebe9:3ad:261f])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b07f21eccdsm47207617b3.30.2026.10.13.09.57.29
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b0c1d50766sm2626537b3.49.2026.10.13.09.58.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 09:57:29 -0700 (PDT)
-Date: Tue, 13 Oct 2026 11:57:28 -0500
+        Tue, 13 Oct 2026 09:58:13 -0700 (PDT)
+Date: Tue, 13 Oct 2026 11:58:12 -0500
 From: Andy Chiu <tchiu@tenstorrent.com>
 To: Samuel Holland <samuel.holland@sifive.com>
 Cc: Paul Walmsley <pjw@kernel.org>, Anup Patel <anup@brainfault.org>,
 	Atish Patra <atish.patra@linux.dev>,
 	Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org,
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/3] riscv: Deprecate vector state prctl/sysctl
-Message-ID: <as5i-FZoL79anjkV@Tao-Chiu's-Mac>
+Subject: Re: [PATCH 3/3] RISC-V: KVM: Decouple vector prctl state from VM ISA
+Message-ID: <as5jJCqsRf6kNOAS@Tao-Chiu's-Mac>
 References: <20261007085126.222688-1-samuel.holland@sifive.com>
- <20261007085126.222688-3-samuel.holland@sifive.com>
+ <20261007085126.222688-4-samuel.holland@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261007085126.222688-3-samuel.holland@sifive.com>
+In-Reply-To: <20261007085126.222688-4-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_095731_980881_2B66F01B 
-X-CRM114-Status: GOOD (  28.52  )
+X-CRM114-CacheID: sfid-20261013_095815_291919_6DBE74A6 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,18 +104,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 07, 2026 at 01:51:17AM -0700, Samuel Holland wrote:
+On Wed, Oct 07, 2026 at 01:51:18AM -0700, Samuel Holland wrote:
 > The ability to prevent userspace from executing vector instructions was
 > provided as a escape hatch for software that was broken by adding vector
-> state to the signal context. This appears to be unused in practice, and
-> creates confusion in the extension support returned by hwprobe(), as in
-> this one special case an extension reported as present by hwprobe() is
-> unusable.
+> state to the signal context. This was hooked up to KVM so a process that
+> could not use V in userspace also could not create a KVM VM with V in
+> the ISA.
 > 
-> Since we believe it is safe to always allow vector usage, hide the prctl
-> and sysctl behind a Kconfig option and mark them as deprecated, so they
-> can be removed in the future. Note that significant userspace software
-> like glibc already considers these controls explicitly unsupported.
+> Remove this connection as it does not really help with any compatibility
+> concerns. A VMM that does not understand V will not include it in the
+> virtual machine's ISA.
 > 
 > Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 
@@ -123,148 +121,30 @@ Reviewed-by: Andy Chiu <tchiu@tenstorrent.com>
 
 > ---
 > 
->  arch/riscv/Kconfig                 | 10 ++++++++++
->  arch/riscv/include/asm/processor.h |  4 +++-
->  arch/riscv/include/asm/vector.h    | 16 ++++++++++++----
->  arch/riscv/kernel/vector.c         | 10 ++++++++++
->  4 files changed, 35 insertions(+), 5 deletions(-)
+>  arch/riscv/kvm/isa.c | 3 ---
+>  1 file changed, 3 deletions(-)
 > 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index e26450f0d38fb..83e52a0a85ba7 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -650,6 +650,16 @@ config RISCV_ISA_V
+> diff --git a/arch/riscv/kvm/isa.c b/arch/riscv/kvm/isa.c
+> index 971f44655100a..447c778bf850e 100644
+> --- a/arch/riscv/kvm/isa.c
+> +++ b/arch/riscv/kvm/isa.c
+> @@ -9,7 +9,6 @@
+>  #include <linux/nospec.h>
+>  #include <linux/pgtable.h>
+>  #include <asm/kvm_isa.h>
+> -#include <asm/vector.h>
 >  
->  	  If you don't know what to do here, say Y.
->  
-> +config RISCV_ISA_V_VSTATE_CTRL
-> +	bool "Deprecated prctl/sysctl for disallowing userspace vector access"
-> +	depends on RISCV_ISA_V
-> +	help
-> +	  Add prctl and sysctl interfaces to disallow userspace to execute
-> +	  vector instructions. These controls are deprecated because they create
-> +	  ambiguity in the ISA extension availability reported by hwprobe.
-> +
-> +	  If you don't know what to do here, say N.
-> +
->  config RISCV_ISA_V_UCOPY_THRESHOLD
->  	int "Threshold size for vectorized user copies"
->  	depends on RISCV_ISA_V
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> index 815715c67f940..ad64df01417a2 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -121,7 +121,9 @@ struct thread_struct {
->  	unsigned long envcfg;
->  	unsigned long sum;
->  	u32 riscv_v_flags;
-> +#ifdef CONFIG_RISCV_ISA_V_VSTATE_CTRL
->  	u32 vstate_ctrl;
-> +#endif
->  	struct __riscv_v_ext_state vstate;
->  	unsigned long align_ctl;
->  	struct __riscv_v_ext_state kernel_vstate;
-> @@ -202,7 +204,7 @@ extern int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src
->  
->  extern unsigned long signal_minsigstksz __ro_after_init;
->  
-> -#ifdef CONFIG_RISCV_ISA_V
-> +#ifdef CONFIG_RISCV_ISA_V_VSTATE_CTRL
->  /* Userspace interface for PR_RISCV_V_{SET,GET}_VS prctl()s: */
->  #define RISCV_V_SET_CONTROL(arg)	riscv_v_vstate_ctrl_set_current(arg)
->  #define RISCV_V_GET_CONTROL()		riscv_v_vstate_ctrl_get_current()
-
-nit: consider changing the enclosing CONFIG_RISCV_ISA_V at the comment to
-CONFIG_RISCV_ISA_V_VSTATE_CTRL if this needs respin.
-
-> diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-> index fffe72a772080..5425a25f8a196 100644
-> --- a/arch/riscv/include/asm/vector.h
-> +++ b/arch/riscv/include/asm/vector.h
-> @@ -404,9 +404,6 @@ static inline void __switch_to_vector(struct task_struct *prev,
+>  #define KVM_ISA_EXT_ARR(ext)		\
+>  [KVM_RISCV_ISA_EXT_##ext] = RISCV_ISA_EXT_##ext
+> @@ -159,8 +158,6 @@ bool kvm_riscv_isa_enable_allowed(unsigned long ext)
+>  		 * Guest OS can use Svadu only when host OS enable Svadu.
+>  		 */
+>  		return arch_has_hw_pte_young();
+> -	case KVM_RISCV_ISA_EXT_V:
+> -		return riscv_v_vstate_ctrl_user_allowed();
+>  	default:
+>  		break;
 >  	}
->  }
->  
-> -void riscv_v_vstate_ctrl_init(struct task_struct *tsk);
-> -bool riscv_v_vstate_ctrl_user_allowed(void);
-> -
->  #else /* ! CONFIG_RISCV_ISA_V  */
->  
->  struct pt_regs;
-> @@ -418,7 +415,6 @@ static __always_inline bool has_xtheadvector_no_alternatives(void) { return fals
->  static __always_inline bool has_xtheadvector(void) { return false; }
->  static inline bool riscv_v_first_use_handler(struct pt_regs *regs) { return false; }
->  static inline bool riscv_v_vstate_query(struct pt_regs *regs) { return false; }
-> -static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return false; }
->  #define riscv_v_vsize (0)
->  #define riscv_v_vstate_discard(regs)		do {} while (0)
->  #define riscv_v_vstate_save(vstate, regs)	do {} while (0)
-> @@ -435,6 +431,18 @@ static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return false; }
->  
->  #endif /* CONFIG_RISCV_ISA_V */
->  
-> +#ifdef CONFIG_RISCV_ISA_V_VSTATE_CTRL
-> +
-> +void riscv_v_vstate_ctrl_init(struct task_struct *tsk);
-> +bool riscv_v_vstate_ctrl_user_allowed(void);
-> +
-> +#else
-> +
-> +static inline void riscv_v_vstate_ctrl_init(struct task_struct *tsk) {}
-> +static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return true; }
-> +
-> +#endif /* CONFIG_RISCV_ISA_V_VSTATE_CTRL */
-> +
->  /*
->   * Return the implementation's vlen value.
->   *
-> diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-> index 9641343732782..b35d11ff3cc89 100644
-> --- a/arch/riscv/kernel/vector.c
-> +++ b/arch/riscv/kernel/vector.c
-> @@ -20,7 +20,9 @@
->  #include <asm/ptrace.h>
->  #include <asm/bug.h>
->  
-> +#ifdef CONFIG_RISCV_ISA_V_VSTATE_CTRL
->  static bool riscv_v_implicit_uacc = true;
-> +#endif
->  static struct kmem_cache *riscv_v_user_cachep;
->  #ifdef CONFIG_RISCV_ISA_V_PREEMPTIVE
->  static struct kmem_cache *riscv_v_kernel_cachep;
-> @@ -144,6 +146,8 @@ void riscv_v_thread_free(struct task_struct *tsk)
->  #endif
->  }
->  
-> +#ifdef CONFIG_RISCV_ISA_V_VSTATE_CTRL
-> +
->  #define VSTATE_CTRL_GET_CUR(x) ((x) & PR_RISCV_V_VSTATE_CTRL_CUR_MASK)
->  #define VSTATE_CTRL_GET_NEXT(x) (((x) & PR_RISCV_V_VSTATE_CTRL_NEXT_MASK) >> 2)
->  #define VSTATE_CTRL_MAKE_NEXT(x) (((x) << 2) & PR_RISCV_V_VSTATE_CTRL_NEXT_MASK)
-> @@ -182,6 +186,8 @@ bool riscv_v_vstate_ctrl_user_allowed(void)
->  }
->  EXPORT_SYMBOL_GPL(riscv_v_vstate_ctrl_user_allowed);
->  
-> +#endif
-> +
->  bool riscv_v_first_use_handler(struct pt_regs *regs)
->  {
->  	u32 __user *epc = (u32 __user *)regs->epc;
-> @@ -227,6 +233,8 @@ bool riscv_v_first_use_handler(struct pt_regs *regs)
->  	return true;
->  }
->  
-> +#ifdef CONFIG_RISCV_ISA_V_VSTATE_CTRL
-> +
->  void riscv_v_vstate_ctrl_init(struct task_struct *tsk)
->  {
->  	bool inherit;
-> @@ -330,3 +338,5 @@ static int __init riscv_v_init(void)
->  	return riscv_v_sysctl_init();
->  }
->  core_initcall(riscv_v_init);
-> +
-> +#endif
 > -- 
 > 2.52.0
 > 
