@@ -4,52 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D97ECC6B0E
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 15:14:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AF1DCC6B12
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 15:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=cllt5qRTFrY7+SxmrhcCGU2ZcdlnSbXGx/kPw6Hd1wI=; b=r9X
-	GSOErJKF5HvsVCcnZFWzZgbzK6gUaOVVoyf42mYn0HKFYkp0Xi1rU1428F9BIQxfrWCsjrzQ89d3Y
-	VjdUYJ292RgIbNZ1M5MnmuZmoqhklmcHvBBoXiHn2kmUfROj1D1MCqwdBEoSFWuvCNNWoxVsnJPwV
-	pctjvGASYMDh7TyrNHroN8XPvvYQvs5mK7z0K297duVMAN0rhdkABad9KOjr6hBdwR3fZCNqzSruH
-	1kIBaks1dCzHLSXrnYGYpCOj00wJc4rvDbqLPx2++cKzpQ+uX2h9QFXZpfvAfYZzos81fzyg6KWSc
-	LWASCmNpxrVnqb+Ag8rG8wVDVkSf0aw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=s7hzL0EVGVBssmYpPDT2+0y6oscYA94w4eq+hbFokjw=; b=uNtzOyPVCkVvHF
+	2QyVwJTtoGR3hdZbBiMrEnSPGoA6Y00cvVSLwqcdLm4hERN7xryc6UN2gcejpsZGA8MHDmFMXv1oV
+	5UNgTwTR/aYLYNKsjUszSkAyElktW8Serky/eJX70EIQ5UWQF+uxL0poKyC0vcp/ZDO2XEdEMbo2C
+	2Jh7woYjAdnFWEDeriSqApVPJLVZAbVmAXPtWsWMMLATigAnsbSv7KCeezHJFuftXQ67JS5RcIhhn
+	mQpkzj2WF4UsjWheyUvtkvVfAmUDzwPZsGfSJuiA9OhRFguxFhhiTFjvz0da6tmTJOYU9ftUX2rfa
+	vV6wYEsHF8uOnc8cectg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGeCu-0000000DErc-1gXh;
-	Tue, 13 Oct 2026 15:14:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGePg-0000000DL3i-11ZD;
+	Tue, 13 Oct 2026 15:27:36 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGeCt-0000000DErP-0IiZ
+	id 1xGePd-0000000DL22-2zwq
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Oct 2026 15:14:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 548B460A5E
-	for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 15:14:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19C031F00893;
-	Tue, 13 Oct 2026 15:14:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791904462;
-	bh=D0utRe0E62LZUgbcNlAyaZfvr0Rzwu57gIO+FlQ0APE=;
-	h=Date:From:To:Cc:Subject;
-	b=dbZvV5w+FUVkh/Huf85LYfrrPlgLJyVq/lba1pWxPhJEAE47KeXzmAL0riF1p4gVk
-	 yPOkJ3sSCaAxcH+SiHbvFZHw+59cC83QhL+8WA8kPpDRGSbcjNFFzv46E42H7ZUprs
-	 MtXUgoMBE+WhOWD43V7bESvX0BuIjKcXXnSUdnGEjudLBWrrP3g9lrbAICONbOUO6G
-	 n7GGbBjMKUuRoXo8GMBFXN+D7EsDIr1k/tF682YweXWRYYCqe9ku8u6+U+/c8twRZ/
-	 1WuDFEmzws5mKpvpg1NOuVzE6dxRZeCVoignc18watgAZ+aI0R5nQIQ+YEj3xan3eV
-	 IM8wL1m7PupTg==
-Date: Tue, 13 Oct 2026 16:14:18 +0100
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: conor@kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL][1/4] RISC-V firmware drivers for v7.4
-Message-ID: <20261013-defame-busload-7eeb111f35ce@spud>
+	Tue, 13 Oct 2026 15:27:35 +0000
+Date: Tue, 13 Oct 2026 17:27:27 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1791905249;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=D1pv0RVRHmHu/hDts6dqOaef0+EBxYVfiItqfGjUP/E=;
+	b=rjP+eEw5xzMXUoKe72pct8cJYzABjcWR1XOTt+bEW9lwwcDE3YhbOvbknN05DKYuLYOZda
+	pN7lpGW2drS7ZX+4iGs2kSj6E514jse+j5JQTSpn44iMHriSS3IeuJ0txKN3VvNd6SveAg
+	RkYzbB+BCmy53qij79Jh5f78sHgUpdSiH1pxkTm+D9IIaTVbvMgLFMPT0b0Ag+3Sq4FQfn
+	bEvUa+R6GsgMk+yBZhE2pnemngXr7h7mXCLXRXi0VBYwWzRcFcFrKgAYxklP6PZZfb5Y9w
+	5GFNVtgO+OKYl3fxqSS6HVYS00+sj9cS5PWLbCgjPFfCXSWOwOMiS+nLukM/TA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1791905249;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=D1pv0RVRHmHu/hDts6dqOaef0+EBxYVfiItqfGjUP/E=;
+	b=4h5xrAH0/oA1nJYYIDfnssa+lx+mfABWGiGV8n02C3TaipbcVhCbDgYERpHhQ21xxsH2dG
+	Iheiof5VleNJEyAQ==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Cc: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Jessica Liu <liu.xuemei1@zte.com.cn>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH v3] irqchip/riscv-aplic: fix asynchronous probing
+Message-ID: <20261013152727.2cUDX3l0@linutronix.de>
+References: <20261012-aplic-async-probe-v3-1-5cf52dc28690@mobileye.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20261012-aplic-async-probe-v3-1-5cf52dc28690@mobileye.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_082734_768069_A001333E 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,81 +78,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8096146646426862031=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8096146646426862031==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jNpu6dllGuEb8pJn"
-Content-Disposition: inline
+On 2026-10-12 12:12:59 [+0300], Vladimir Kondratiev wrote:
+> boolean flag don't protect from race when probing several instances
+> asynchronously. On system with multiple APLICs, if probed asynchronously,
+> warning triggered as below.
 
---jNpu6dllGuEb8pJn
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Why is this async? Doesn't __platform_driver_probe() set it to sync?
 
-Hey folks,
+> [    0.227210] riscv-aplic 67560000.interrupt-controller: 257 interrupts directly connected to 8 CPUs
+> [    0.227210] riscv-aplic 674e0000.interrupt-controller: 257 interrupts directly connected to 8 CPUs
+> [    0.227224] ------------[ cut here ]------------
+> [    0.227227] list_add double add: new=ffffffff8130ced0, prev=ffffffff8130ced0, next=ffffffff81316d40.
+> [    0.227302] WARNING: lib/list_debug.c:35 at __list_add_valid_or_report+0xe0/0xe6, CPU#4: kworker/u97:0/211
+> [    0.227322] Modules linked in:
+> [    0.227333] CPU: 4 UID: 0 PID: 211 Comm: kworker/u97:0 Not tainted 7.3.0-rc6 #1 PREEMPT_RT
+> [    0.227341] Hardware name: EyeQ7H evaluation board (DT)
+> [    0.227346] Workqueue: async async_run_entry_fn
+> [    0.227358] epc : __list_add_valid_or_report+0xe0/0xe6
+> [    0.227366]  ra : __list_add_valid_or_report+0xe0/0xe6
+> [    0.227375] epc : ffffffff804a08a0 ra : ffffffff804a08a0 sp : ffffffc600823b90
+> [    0.227379]  gp : ffffffff81389e70 tp : ffffffd60135ee00 t0 : 0000000000000000
+> [    0.227383]  t1 : 3fffffffffffffff t2 : 0000000000000000 s0 : ffffffc600823bb0
+> [    0.227387]  s1 : ffffffff8130ced0 a0 : 0000000000000058 a1 : ffffffd9efc9e5c0
+> [    0.227391]  a2 : ffffffd9efd5c510 a3 : 0000000000000000 a4 : 0000000000000000
+> [    0.227395]  a5 : 0000000000000000 a6 : ffffffd9efc6e5c0 a7 : bfffffffffffe000
+> [    0.227399]  s2 : 0000000000000000 s3 : ffffffff8130ce28 s4 : 0000000000000000
+> [    0.227402]  s5 : ffffffd6018b65c8 s6 : 0000000000000000 s7 : ffffffd6012fd605
+> [    0.227406]  s8 : ffffffd6010c3400 s9 : 0000000000000000 s10: 0000000000000000
+> [    0.227409]  s11: 0000000000000000 t3 : 3fffffffffffe000 t4 : 0000000000000020
+> [    0.227413]  t5 : 0000000000000000 t6 : ffffffc6008238f8 ssp : 0000000000000000
+> [    0.227417] status: 0000000200000120 badaddr: ffffffff804a08a0 cause: 0000000000000003
+> [    0.227422] [<ffffffff804a08a0>] __list_add_valid_or_report+0xe0/0xe6
+> [    0.227432] [<ffffffff80558226>] register_syscore+0x30/0x60
+> [    0.227444] [<ffffffff804ca0fe>] aplic_probe+0xd2/0xfa
+> [    0.227453] [<ffffffff80559b2e>] platform_probe+0x3e/0x7a
+> [    0.227461] [<ffffffff8055731a>] really_probe+0x88/0x35c
+> [    0.227469] [<ffffffff805576ae>] __driver_probe_device+0xc0/0x13a
+> [    0.227478] [<ffffffff805577f4>] driver_probe_device+0x38/0xb2
+> [    0.227486] [<ffffffff80557ba6>] __driver_attach_async_helper+0x3c/0xc4
+> [    0.227493] [<ffffffff80054a0e>] async_run_entry_fn+0x28/0x154
+> [    0.227500] [<ffffffff8004482a>] process_one_work+0x14e/0x3d2
+> [    0.227509] [<ffffffff800452fe>] worker_thread+0x144/0x286
+> [    0.227516] [<ffffffff8004ca3e>] kthread+0xee/0x10e
+> [    0.227524] [<ffffffff8001050a>] ret_from_fork_kernel+0x18/0x14e
+> [    0.227532] [<ffffffff807bef36>] ret_from_fork_kernel_asm+0x16/0x18
+> [    0.227542] ---[ end trace 0000000000000000 ]---
+> [    0.228475] pinctrl-single 48508000.pinctrl: 512 pins, size 2048
+> [    0.228500] pinctrl-single 53838000.pinctrl: 512 pins, size 2048
+> [    0.228723] pinctrl-single 67107000.pinctrl: 512 pins, size 2048
+> [    0.227210] riscv-aplic 674e0000.interrupt-controller: 257 interrupts directly connected to 8 CPUs
+> [    0.227224] ------------[ cut here ]------------
+> [    0.227227] list_add double add: new=ffffffff8130ced0, prev=ffffffff8130ced0, next=ffffffff81316d40.
+> [    0.227302] WARNING: lib/list_debug.c:35 at __list_add_valid_or_report+0xe0/0xe6, CPU#4: kworker/u97:0/211
+> [    0.227322] Modules linked in:
+> [    0.227333] CPU: 4 UID: 0 PID: 211 Comm: kworker/u97:0 Not tainted 7.3.0-rc6 #1 PREEMPT_RT
+> [    0.227341] Hardware name: EyeQ7H evaluation board (DT)
+> [    0.227346] Workqueue: async async_run_entry_fn
+> [    0.227358] epc : __list_add_valid_or_report+0xe0/0xe6
+> [    0.227366]  ra : __list_add_valid_or_report+0xe0/0xe6
+> [    0.227375] epc : ffffffff804a08a0 ra : ffffffff804a08a0 sp : ffffffc600823b90
+> [    0.227379]  gp : ffffffff81389e70 tp : ffffffd60135ee00 t0 : 0000000000000000
+> [    0.227383]  t1 : 3fffffffffffffff t2 : 0000000000000000 s0 : ffffffc600823bb0
+> [    0.227387]  s1 : ffffffff8130ced0 a0 : 0000000000000058 a1 : ffffffd9efc9e5c0
+> [    0.227391]  a2 : ffffffd9efd5c510 a3 : 0000000000000000 a4 : 0000000000000000
+> [    0.227395]  a5 : 0000000000000000 a6 : ffffffd9efc6e5c0 a7 : bfffffffffffe000
+> [    0.227399]  s2 : 0000000000000000 s3 : ffffffff8130ce28 s4 : 0000000000000000
+> [    0.227402]  s5 : ffffffd6018b65c8 s6 : 0000000000000000 s7 : ffffffd6012fd605
+> [    0.227406]  s8 : ffffffd6010c3400 s9 : 0000000000000000 s10: 0000000000000000
+> [    0.227409]  s11: 0000000000000000 t3 : 3fffffffffffe000 t4 : 0000000000000020
+> [    0.227413]  t5 : 0000000000000000 t6 : ffffffc6008238f8 ssp : 0000000000000000
+> [    0.227417] status: 0000000200000120 badaddr: ffffffff804a08a0 cause: 0000000000000003
+> [    0.227422] [<ffffffff804a08a0>] __list_add_valid_or_report+0xe0/0xe6
+> [    0.227432] [<ffffffff80558226>] register_syscore+0x30/0x60
+> [    0.227444] [<ffffffff804ca0fe>] aplic_probe+0xd2/0xfa
+> [    0.227453] [<ffffffff80559b2e>] platform_probe+0x3e/0x7a
+> [    0.227461] [<ffffffff8055731a>] really_probe+0x88/0x35c
+> [    0.227469] [<ffffffff805576ae>] __driver_probe_device+0xc0/0x13a
+> [    0.227478] [<ffffffff805577f4>] driver_probe_device+0x38/0xb2
+> [    0.227486] [<ffffffff80557ba6>] __driver_attach_async_helper+0x3c/0xc4
+> [    0.227493] [<ffffffff80054a0e>] async_run_entry_fn+0x28/0x154
+> [    0.227500] [<ffffffff8004482a>] process_one_work+0x14e/0x3d2
+> [    0.227509] [<ffffffff800452fe>] worker_thread+0x144/0x286
+> [    0.227516] [<ffffffff8004ca3e>] kthread+0xee/0x10e
+> [    0.227524] [<ffffffff8001050a>] ret_from_fork_kernel+0x18/0x14e
+> [    0.227532] [<ffffffff807bef36>] ret_from_fork_kernel_asm+0x16/0x18
+> [    0.227542] ---[ end trace 0000000000000000 ]---
 
-Might be my last mini PR here, since the RISC-V SSE driver is coming via
-the actual RISC-V tree, so there'll almost certainly be a much increased
-activity here going forwards.
+Would you mind providing a coherent description of the problem and
+implemented solution instead of slapping console output?
 
-I'm a bit late PR wise (sorry) but I blame conferences and a busy week
-beforehand for that...
+> Fixes: b330fbfd34d7 ("irqchip/riscv-aplic: Register syscore operations only once")
+> Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+> ---
+> Changes in v3:
+> - drop __ro_after_init attribute due to write to read-only page concern
 
-Thanks,
-Conor.
+What concern? That __ro_after_init can stay. It is built-in only.
 
-The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
+> diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
+> index d9afb6ae98cf56d6fd9f858c31a3d23546c3b450..54e1d5602f15a04127e900c0a4983022d49da553 100644
+> --- a/drivers/irqchip/irq-riscv-aplic-main.c
+> +++ b/drivers/irqchip/irq-riscv-aplic-main.c
+> @@ -116,14 +116,12 @@ static struct syscore aplic_syscore = {
+>  	.ops = &aplic_syscore_ops,
+>  };
+>  
+> -static bool aplic_syscore_registered __ro_after_init;
+> +static atomic_t aplic_syscore_registered = ATOMIC_INIT(0);
+>  
+>  static void aplic_syscore_init(void)
+>  {
+> -	if (!aplic_syscore_registered) {
+> +	if (!atomic_cmpxchg(&aplic_syscore_registered, 0, 1))
+>  		register_syscore(&aplic_syscore);
+> -		aplic_syscore_registered = true;
+> -	}
+>  }
+>  
+>  static int aplic_pm_notifier(struct notifier_block *nb, unsigned long action, void *data)
+> 
 
-  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-firmware-for-v7.4
-
-for you to fetch changes up to 525e00a1bbced112f5431448842b27fa7621725f:
-
-  firmware: microchip: use kzalloc_objs() instead of kzalloc() with multiply (2026-09-08 20:36:04 +0100)
-
-----------------------------------------------------------------
-RISC-V firmware drivers for v7.4
-
-A single fix/cleanup for the auto update driver.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Hrushiraj Gandhi (1):
-      firmware: microchip: use kzalloc_objs() instead of kzalloc() with multiply
-
- drivers/firmware/microchip/mpfs-auto-update.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
---jNpu6dllGuEb8pJn
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas5KygAKCRB4tDGHoIJi
-0qSOAP49wPHAf2y8sSffTwYr4llUvrZHFI+39OFIeBEQRrhdJAD/QenHTS3mxVus
-wzxg9AR4DsaKzhXIwf+qrGDJd4kdOA4=
-=3OOu
------END PGP SIGNATURE-----
-
---jNpu6dllGuEb8pJn--
-
-
---===============8096146646426862031==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Sebastian
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8096146646426862031==--
-
