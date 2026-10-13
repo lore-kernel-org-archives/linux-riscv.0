@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FFBCCA463
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 16:11:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66588CC6B3A
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 16:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G6kg2QQrAaqAdMa+if1N8o8g+3tw1lYmVjCZxCXiqrM=; b=R9NE+zDGeVABz5
-	TV/eW8QSvqSrBkvLezHapmXUOoVXyZZikJTVZUnFmRlgOPVVTodxkJvNF+8vpnBsG79o38H0MpO9K
-	kunxMyMUxtEkhq/v4MLeVbGVxYAWWqi0F/C2kJGxDjfTOxS1Geg3ckXf0vWDxXCbXc622JVGr6WP1
-	Tq8ihaq2vETtsugGEVKMFpatYGpeEdL4ruBw+Uq/hWnUqsmQEH/LgYIf2pmdFZbRespqPvhkJDKKb
-	kizcE9xb2bYxMnNfYjvEX8kapDFTrP7+nIB5+dEn57qEsDwK6/TvXYsxjPe8m6HcCNr44Vuf++e+J
-	GXhGIkhR0ionqay2rySg==;
+	List-Owner; bh=9hZrYb6zNdlf44MTDEvzO3Nyam/5ukGdqO3lvxDbwFI=; b=xIJpeobVA8n69w
+	Xy3o23Tuh3oDtPWwneJr07we53CTotdQmYd2PXjZ3IK2bt4TVbTfONYXzBKotsj96Fuy35zb/6tGY
+	hSoVWJUDsKbuknoZfT2BbxqHQFEJSVZdxrFSNY8lkaQC4GjyGeWVliorPnAeV0X8Fuud/3A/SJldC
+	yNN2MbKhafEudDhCiXzjuWfMF+k49VAHJ4+8LQUxSW4P1VUo+/shDCXqTM4dRKTkmCLcw1X0CQlmT
+	2YW9H0occg+Z1joYhBNy8Qu0rWCf0iVKxWk59jrzCW25WMga/xkknssm2+cX+TkH08DEmULY/y3La
+	TqQ8y5XF4NzFuraDfgAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHO3C-00000000kvC-1ECs;
-	Thu, 15 Oct 2026 16:11:26 +0000
+	id 1xHO3E-00000000kyW-1ou9;
+	Thu, 15 Oct 2026 16:11:28 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGeE2-0000000DFDY-3W3N;
-	Tue, 13 Oct 2026 15:15:34 +0000
+	id 1xGeF0-0000000DFYS-1rhO;
+	Tue, 13 Oct 2026 15:16:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8552F43847;
-	Tue, 13 Oct 2026 15:15:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19B181F00899;
-	Tue, 13 Oct 2026 15:15:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 258DC417D3;
+	Tue, 13 Oct 2026 15:16:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3CEB1F000FF;
+	Tue, 13 Oct 2026 15:16:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791904534;
-	bh=ytmLoC3zHdwZxCxWy26b8X7pqcm/Lj2djuN1AI4Dw0A=;
+	s=k20260515; t=1791904594;
+	bh=i4y1sz7ZVghomqASsiy9XjZk1iqHWnAgN1nUm45xiCg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=V+M+VzVDLZ1Jub6DUULYq0X8vyNEJ/40+QVZzwG5sB5opM/2SBJ/MdHOT5WQB/2kp
-	 p39uWASPOa9lQm6xOvaavnvS0ruhHZjzxG22YZ0yjxsHdiTq681eJEc4AtKJiIwrnx
-	 rZgU2/o5LoCWpxJW4K84NTBzTj2cIERPK+0GsZXSdzMQNLPY3YYfQSNwiotiVRB/OG
-	 oSblzECuZI6Vyr80HKcjcSKu2Y2p5wnxQUqxROqaubzZPtjqmmSFMHJlSjtppdX3zo
-	 uBRBo0TNdmf24e5ddyGEBz+7lGi4STJa08iscwFt+2BnHbkU8ASGuqMwubUUc4h4q7
-	 NoM01Kfp/8hVA==
+	b=PV5aBdvadH0SfHvKhSrJFwpI31/6TLnUPl2tF4inkGRjH2ijS95fbUwXttmLzcpNF
+	 5YVTNWNyE258rCi9csqPX0Vj3cl9jaUDTYbMJFqgtmVLV19Z7aozriIyOun6cOX4CA
+	 Uqu8rE7sCZr4z3nz4Kzn2wrrCdQCFfiLVbmodNsFAGB1+jJbDNaURDMI061vbNIp7A
+	 9SZegYRQAPKdv3I+JM3iXh765idzGneUCjN998P+vvPrKb4ofuLC3QTcRU0UWm0cTM
+	 2Aj3jBmQzN+qkgGPCcVlhU/BclKU4af39C0cIrIexLOcaqP3dxowDtNAZxqEI9H8iS
+	 yN5UVLyQAcdhA==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 13 Oct 2026 16:04:58 +0100
-Subject: [PATCH v6 18/39] scsi: sg: convert mmap hook to mmap_prepare and
- rework
+Date: Tue, 13 Oct 2026 16:05:00 +0100
+Subject: [PATCH v6 20/39] HSI: cmt_speech: convert mmap hook to
+ mmap_prepare, refactor
 MIME-Version: 1.0
-Message-Id: <20261013-b4-mmap-prepare-vma-flag-sanify-v6-18-1aa3c9b139f9@kernel.org>
+Message-Id: <20261013-b4-mmap-prepare-vma-flag-sanify-v6-20-1aa3c9b139f9@kernel.org>
 References: <20261013-b4-mmap-prepare-vma-flag-sanify-v6-0-1aa3c9b139f9@kernel.org>
 In-Reply-To: <20261013-b4-mmap-prepare-vma-flag-sanify-v6-0-1aa3c9b139f9@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>
@@ -64,12 +64,12 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  fuse-devel@lists.linux.dev, Ihor Solodrai <ihor.solodrai@linux.dev>, 
  Bert Karwatzki <spasswolf@web.de>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5990; i=ljs@kernel.org;
- h=from:subject:message-id; bh=a3PfLNgLx1GbuXFw7DoxzYfKOvfjucxXwlN8dVffozI=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLLOeZxcp5exhNMlebKqtbT6WeZtsumst9nVIsr4k95bW
- qstW2nbUcrCIMbFICumyPL8i/j+IJGweZ0X/N1g5rAygQxh4OIUgIko/GH4H2Z7/H+MaUwra29J
- fHaaxJ2P63R3bbRXSTugH+O/bFogC8M/K7cnf3gr5ykX/Li/ccsPvZWPCswOLzmjUhM2l/NKxBE
- lZgA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2685; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=MY9UuAl0nfMrM4GSY6SwItqCUTxM/pJjBHtqUqIj4oQ=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLLOeZy6kXSgTuanGnvKJJENNyOu/UwUsd+bw7y5x6TbY
+ u5UgX2fO0pZGMS4GGTFFFmefxHfHyQSNq/zgr8bzBxWJpAhDFycAjCR+zUM/zQvH7vAej3kqe3+
+ bfVvFVQDI1RbnR7ofOBZnLM9W+V/pB8jw0Nhvv3x24xm9HZqz/rgs192a1lrRdjTt8lfVzDsibP
+ dwwAA
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-Mailman-Approved-At: Thu, 15 Oct 2026 09:06:22 -0700
@@ -89,189 +89,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move from the deprecated mmap hook to the new mmap_prepare hook.
+Use the mmap_prepare in favour of the deprecated mmap hook as part of the
+work to convert one to another.
 
-We are mapping kernel pages here, so use the discontiguous kernel mapping
-mmap action to do so.
+Since this is simply a refcounted kernel page that has been allocated, it
+should not be marked VM_IO and should be inserted using the kernel page
+insertion mechanism, so convert it to do this instead.
 
-Unwind the rather confusing loop and instead map as many pages as we can at
-one time.
-
-Note that we do not need to pay attention to rsv_schp->k_use_sg here, as
-the pages are populated for the length of the buffer at
-rsv_schp->page_order granularity as compound pages.
-
-The discontiguous kernel page mapping logic handles the compound pages for
-us.
-
-sfp->mmap_called keeps the buffer stable for us. As before it is never
-cleared, so a failed mmap also leaves it set.
-
-We also remove some useless vma, vma->vm_file NULL checks - these will
-always be non-NULL if you reached the mmap hook logic.
-
-We retain log output for consistency, but change what's output on page
-mapping to indicate that sg_discontig_get() does the work now.
-
-Note that we drop the VMA_IO_BIT flag for the VMA here. It was never
-necessary as we invoke alloc_pages() which gives us refcounted folios that
-are fine for GUP to access (VMA_IO_BIT would prevent that).
+Use the VMA descriptor's private data field as a scratch buffer to store
+the page in - this stays valid throughout the kernel page mapping
+operation.
 
 Reviewed-by: Suren Baghdasaryan <surenb@google.com>
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- drivers/scsi/sg.c | 115 ++++++++++++++++++++++++------------------------------
- 1 file changed, 51 insertions(+), 64 deletions(-)
+ drivers/hsi/clients/cmt_speech.c | 33 +++++++++------------------------
+ 1 file changed, 9 insertions(+), 24 deletions(-)
 
-diff --git a/drivers/scsi/sg.c b/drivers/scsi/sg.c
-index 5408f002e6c0..3f9e08725602 100644
---- a/drivers/scsi/sg.c
-+++ b/drivers/scsi/sg.c
-@@ -1212,85 +1212,72 @@ sg_fasync(int fd, struct file *filp, int mode)
- 	return fasync_helper(fd, filp, mode, &sfp->async_qp);
+diff --git a/drivers/hsi/clients/cmt_speech.c b/drivers/hsi/clients/cmt_speech.c
+index 7226677ebde7..801697b74d4f 100644
+--- a/drivers/hsi/clients/cmt_speech.c
++++ b/drivers/hsi/clients/cmt_speech.c
+@@ -1084,22 +1084,6 @@ static void cs_hsi_stop(struct cs_hsi_iface *hi)
+ 	kfree(hi);
  }
  
--static vm_fault_t
--sg_vma_fault(struct vm_fault *vmf)
-+static int sg_discontig_init(void *vm_private_data, void **private)
- {
--	struct vm_area_struct *vma = vmf->vma;
--	Sg_fd *sfp;
--	unsigned long offset, len, sa;
--	Sg_scatter_hold *rsv_schp;
--	int k, length;
+-static vm_fault_t cs_char_vma_fault(struct vm_fault *vmf)
+-{
+-	struct cs_char *csdata = vmf->vma->vm_private_data;
+-	struct page *page;
 -
--	if ((NULL == vma) || (!(sfp = (Sg_fd *) vma->vm_private_data)))
--		return VM_FAULT_SIGBUS;
--	rsv_schp = &sfp->reserve;
--	offset = vmf->pgoff << PAGE_SHIFT;
--	if (offset >= rsv_schp->bufflen)
--		return VM_FAULT_SIGBUS;
--	SCSI_LOG_TIMEOUT(3, sg_printk(KERN_INFO, sfp->parentdp,
--				      "sg_vma_fault: offset=%lu, scatg=%d\n",
--				      offset, rsv_schp->k_use_sg));
--	sa = vma->vm_start;
--	length = 1 << (PAGE_SHIFT + rsv_schp->page_order);
--	for (k = 0; k < rsv_schp->k_use_sg && sa < vma->vm_end; k++) {
--		len = vma->vm_end - sa;
--		len = (len < length) ? len : length;
--		if (offset < len) {
--			struct page *page = rsv_schp->pages[k] + (offset >> PAGE_SHIFT);
--			get_page(page);	/* increment page count */
--			vmf->page = page;
--			return 0; /* success */
--		}
--		sa += len;
--		offset -= len;
-+	const unsigned long req_sz = (unsigned long)*private;
-+	Sg_fd *sfp = vm_private_data;
-+	Sg_scatter_hold *rsv_schp = &sfp->reserve;
-+	int err = 0;
-+
-+	mutex_lock(&sfp->f_mutex);
-+	if (req_sz > rsv_schp->bufflen) {
-+		err = -ENOMEM;	/* cannot map more than reserved buffer */
-+		goto out;
-+	}
-+	sfp->mmap_called = 1; /* Prevents changes to buffer size. */
-+out:
-+	mutex_unlock(&sfp->f_mutex);
-+	return err;
-+}
-+
-+static int
-+sg_discontig_get(struct discontig_kernel_page_state *state)
-+{
-+	Sg_fd *sfp = state->vm_private_data;
-+	Sg_scatter_hold *rsv_schp = &sfp->reserve;
-+	const unsigned int order = rsv_schp->page_order;
-+	const pgoff_t nr_pages = state->nr_pages_mapped;
-+
-+	if (nr_pages >= (rsv_schp->bufflen >> PAGE_SHIFT)) {
-+		discontig_kernel_map_abort(state);
-+		return 0;
- 	}
- 
--	return VM_FAULT_SIGBUS;
-+	SCSI_LOG_TIMEOUT(3, sg_printk(KERN_INFO, sfp->parentdp,
-+				      "%s: offset=%lu, scatg=%d\n", __func__,
-+				      nr_pages << PAGE_SHIFT, rsv_schp->k_use_sg));
-+
-+	discontig_kernel_map_page(state, rsv_schp->pages[nr_pages >> order]);
-+	return 0;
- }
- 
--static const struct vm_operations_struct sg_mmap_vm_ops = {
--	.fault = sg_vma_fault,
-+static const struct discontig_kernel_page_ops sg_discontig_ops = {
-+	.init = sg_discontig_init,
-+	.get = sg_discontig_get,
- };
- 
- static int
--sg_mmap(struct file *filp, struct vm_area_struct *vma)
-+sg_mmap_prepare(struct vm_area_desc *desc)
+-	page = virt_to_page((void *)csdata->mmap_base);
+-	get_page(page);
+-	vmf->page = page;
+-
+-	return 0;
+-}
+-
+-static const struct vm_operations_struct cs_char_vm_ops = {
+-	.fault	= cs_char_vma_fault,
+-};
+-
+ static int cs_char_fasync(int fd, struct file *file, int on)
  {
--	Sg_fd *sfp;
--	unsigned long req_sz, len, sa;
--	Sg_scatter_hold *rsv_schp;
--	int k, length;
--	int ret = 0;
-+	Sg_fd *sfp = desc->file->private_data;
-+	const unsigned long req_sz = vma_desc_size(desc);
- 
--	if ((!filp) || (!vma) || (!(sfp = (Sg_fd *) filp->private_data)))
-+	if (!sfp)
- 		return -ENXIO;
--	req_sz = vma->vm_end - vma->vm_start;
-+
- 	SCSI_LOG_TIMEOUT(3, sg_printk(KERN_INFO, sfp->parentdp,
- 				      "sg_mmap starting, vm_start=%p, len=%d\n",
--				      (void *) vma->vm_start, (int) req_sz));
--	if (vma->vm_pgoff)
-+				      (void *) desc->start, (int) req_sz));
-+
-+	if (desc->pgoff)
- 		return -EINVAL;	/* want no offset */
--	rsv_schp = &sfp->reserve;
--	mutex_lock(&sfp->f_mutex);
--	if (req_sz > rsv_schp->bufflen) {
--		ret = -ENOMEM;	/* cannot map more than reserved buffer */
--		goto out;
--	}
- 
--	sa = vma->vm_start;
--	length = 1 << (PAGE_SHIFT + rsv_schp->page_order);
--	for (k = 0; k < rsv_schp->k_use_sg && sa < vma->vm_end; k++) {
--		len = vma->vm_end - sa;
--		len = (len < length) ? len : length;
--		sa += len;
--	}
-+	vma_desc_set_flags(desc, VMA_DONTEXPAND_BIT, VMA_DONTDUMP_BIT);
-+	desc->private_data = sfp;
- 
--	sfp->mmap_called = 1;
--	vm_flags_set(vma, VM_IO | VM_DONTEXPAND | VM_DONTDUMP);
--	vma->vm_private_data = sfp;
--	vma->vm_ops = &sg_mmap_vm_ops;
--out:
--	mutex_unlock(&sfp->f_mutex);
--	return ret;
-+	mmap_action_map_discontig_kernel_pages(desc, (void *)req_sz,
-+					       &sg_discontig_ops);
-+	return 0;
+ 	struct cs_char *csdata = file->private_data;
+@@ -1256,18 +1240,19 @@ static long cs_char_ioctl(struct file *file, unsigned int cmd,
+ 	return r;
  }
  
- static void
-@@ -1415,7 +1402,7 @@ static const struct file_operations sg_fops = {
- 	.unlocked_ioctl = sg_ioctl,
- 	.compat_ioctl = compat_ptr_ioctl,
- 	.open = sg_open,
--	.mmap = sg_mmap,
-+	.mmap_prepare = sg_mmap_prepare,
- 	.release = sg_release,
- 	.fasync = sg_fasync,
- };
+-static int cs_char_mmap(struct file *file, struct vm_area_struct *vma)
++static int cs_char_mmap_prepare(struct vm_area_desc *desc)
+ {
+-	if (vma->vm_end < vma->vm_start)
+-		return -EINVAL;
++	struct file *file = desc->file;
++	struct cs_char *csdata = file->private_data;
++	struct page **pages = (struct page **)&desc->private_data;
+ 
+-	if (vma_pages(vma) != 1)
++	if (vma_desc_pages(desc) != 1)
+ 		return -EINVAL;
+ 
+-	vm_flags_set(vma, VM_IO | VM_DONTDUMP | VM_DONTEXPAND);
+-	vma->vm_ops = &cs_char_vm_ops;
+-	vma->vm_private_data = file->private_data;
++	vma_desc_set_flags(desc, VMA_DONTDUMP_BIT, VMA_DONTEXPAND_BIT);
+ 
++	*pages = virt_to_page((void *)csdata->mmap_base);
++	mmap_action_map_kernel_pages_full(desc, pages);
+ 	return 0;
+ }
+ 
+@@ -1353,7 +1338,7 @@ static const struct file_operations cs_char_fops = {
+ 	.write		= cs_char_write,
+ 	.poll		= cs_char_poll,
+ 	.unlocked_ioctl	= cs_char_ioctl,
+-	.mmap		= cs_char_mmap,
++	.mmap_prepare	= cs_char_mmap_prepare,
+ 	.open		= cs_char_open,
+ 	.release	= cs_char_release,
+ 	.fasync		= cs_char_fasync,
 
 -- 
 2.55.0
