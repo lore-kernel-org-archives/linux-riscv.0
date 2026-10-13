@@ -4,65 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F31FCC6B08
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 14:43:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D97ECC6B0E
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 15:14:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B65o4PdLOFXNv4ZhqWFxdry/0zXKIQLfhzUFfG4Okg0=; b=op8Bt9aEQEqAl5
-	/sP+mF03Q//CDqVj3tYgBnNgI3ORzWFJHFYnygsyd5EyHFKav68gkbyunl8bQIfEaR803PK+mhQ24
-	UQONwkgCEg+FJqXBnhmIr38Wlwdvyu/e5ya7vxGAXDKblOIcrmK406alGQQmLmwDtsuo1zi08SS69
-	1AYx8oEj3Lnt2i7j/GF12sVXKa1DyrLm8YRD4JhmFrhOqNQLN3QguvY3n6+jg7PO4q4qM38udjP5z
-	nqAcIexgPezjK6F8lzn5s5teQs9eBbCp32UrgLe4JoZQZedCHzNLAQEFDW2yF5Qm0KUQiQAIqoRzb
-	WgsUETLJNuQVn556us8Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=cllt5qRTFrY7+SxmrhcCGU2ZcdlnSbXGx/kPw6Hd1wI=; b=r9X
+	GSOErJKF5HvsVCcnZFWzZgbzK6gUaOVVoyf42mYn0HKFYkp0Xi1rU1428F9BIQxfrWCsjrzQ89d3Y
+	VjdUYJ292RgIbNZ1M5MnmuZmoqhklmcHvBBoXiHn2kmUfROj1D1MCqwdBEoSFWuvCNNWoxVsnJPwV
+	pctjvGASYMDh7TyrNHroN8XPvvYQvs5mK7z0K297duVMAN0rhdkABad9KOjr6hBdwR3fZCNqzSruH
+	1kIBaks1dCzHLSXrnYGYpCOj00wJc4rvDbqLPx2++cKzpQ+uX2h9QFXZpfvAfYZzos81fzyg6KWSc
+	LWASCmNpxrVnqb+Ag8rG8wVDVkSf0aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGdiS-0000000D9tD-2G9v;
-	Tue, 13 Oct 2026 14:42:56 +0000
-Received: from smtprelay0010.hostedemail.com ([216.40.44.10] helo=relay.hostedemail.com)
+	id 1xGeCu-0000000DErc-1gXh;
+	Tue, 13 Oct 2026 15:14:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGdiP-0000000D9rl-1fY1
+	id 1xGeCt-0000000DErP-0IiZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Oct 2026 14:42:55 +0000
-Received: from omf15.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay05.hostedemail.com (Postfix) with ESMTP id 4DECF40D31;
-	Tue, 13 Oct 2026 14:42:45 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf15.hostedemail.com (Postfix) with ESMTPA id 06F0918;
-	Tue, 13 Oct 2026 14:42:41 +0000 (UTC)
-Date: Tue, 13 Oct 2026 10:42:41 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: "Rui Qi" <qirui.001@bytedance.com>
-Cc: "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, "Chunyan Zhang"
- <zhangchunyan@iscas.ac.cn>, "Guo Ren" <guoren@kernel.org>, "Jiakai Xu"
- <xujiakai2025@iscas.ac.cn>, <linux-kernel@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-trace-kernel@vger.kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>, "Masami Hiramatsu"
- <mhiramat@kernel.org>, "Mathieu Desnoyers"
- <mathieu.desnoyers@efficios.com>, "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Paul Walmsley" <pjw@kernel.org>, "Song Shuai" <suagrfillet@gmail.com>
-Subject: Re: [PATCH 1/2] ftrace: Clarify function graph retp identity
-Message-ID: <20261013104241.5b0aa99c@gandalf.local.home>
-In-Reply-To: <20260919033726.1361382-2-qirui.001@bytedance.com>
-References: <20260919033726.1361382-1-qirui.001@bytedance.com>
-	<20260919033726.1361382-2-qirui.001@bytedance.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Tue, 13 Oct 2026 15:14:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 548B460A5E
+	for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 15:14:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19C031F00893;
+	Tue, 13 Oct 2026 15:14:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791904462;
+	bh=D0utRe0E62LZUgbcNlAyaZfvr0Rzwu57gIO+FlQ0APE=;
+	h=Date:From:To:Cc:Subject;
+	b=dbZvV5w+FUVkh/Huf85LYfrrPlgLJyVq/lba1pWxPhJEAE47KeXzmAL0riF1p4gVk
+	 yPOkJ3sSCaAxcH+SiHbvFZHw+59cC83QhL+8WA8kPpDRGSbcjNFFzv46E42H7ZUprs
+	 MtXUgoMBE+WhOWD43V7bESvX0BuIjKcXXnSUdnGEjudLBWrrP3g9lrbAICONbOUO6G
+	 n7GGbBjMKUuRoXo8GMBFXN+D7EsDIr1k/tF682YweXWRYYCqe9ku8u6+U+/c8twRZ/
+	 1WuDFEmzws5mKpvpg1NOuVzE6dxRZeCVoignc18watgAZ+aI0R5nQIQ+YEj3xan3eV
+	 IM8wL1m7PupTg==
+Date: Tue, 13 Oct 2026 16:14:18 +0100
+From: Conor Dooley <conor@kernel.org>
+To: soc@kernel.org
+Cc: conor@kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL][1/4] RISC-V firmware drivers for v7.4
+Message-ID: <20261013-defame-busload-7eeb111f35ce@spud>
 MIME-Version: 1.0
-X-Stat-Signature: p5xit8ukshspj59ek51dtfti7jox1g5x
-X-Rspamd-Server: rspamout04
-X-Rspamd-Queue-Id: 06F0918
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1/QeSNBNV/6H5dKjjhMIcdNqu8bChqKUg8=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=mltuhNxTOsPaUjOxKrzrfLEp+rt2GoNa49+Mp4vfRhI=; b=0q/7tzPcSlSbmrx8OyuWlHFfevPxc0X+DStGm+x4p/yCV422QRLw/JEnPpvMFYgH01dB1bThSeWn9Zjm6bjvlAa1TkdWCcLzS9IXkhlJB3wEVs0wsUqAc80KPD/MS2TcTCDJFf4/BfgW2yVaQM9hEIhPpt4/fcPDkGduGUv9P4k=
-X-HE-Tag: 1791902561-405228
-X-HE-Meta: U2FsdGVkX18eIcc7Z73jyVQ2i3HW7Dg6gCWGyoMpLeogyQEUGJCQT4chYT1g+HGdfnyjHjPv4nDJBAu1Ovm6wFsx+jaKGxjkiOEM5qdemCx8/9hZAsvmLTxU2IhnsDtXQG/W3VU28Rlk26WeZaItFsOefY13cXOtUq9SPgRqsbZKUVhFxMfReoh1Lcw1ov9qqvet94KGjZNPeip9B1W7XsvsONfHFFWBiNt3G/cBmz+5JH8gz9mz0BEfuFSUYN7+0FxB8xjx6NrFsAZY2JAETx36rvoUVG1GGl2wLci0b+z0kXSLeAvMgRUE2WH1MtH9P4j9MouWjHlWrx2tuoCvrOvUhdrpISQuQi0tjw1Nm415tTtGHT4tXNl8JdG0DOCfwOFXKm4GtWQz2+QuLJHT9Q==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_074253_622978_0C18C6ED 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,36 +61,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8096146646426862031=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+--===============8096146646426862031==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jNpu6dllGuEb8pJn"
+Content-Disposition: inline
 
-Sorry for the way late reply. I stopped being an upstream maintainer while
-traveling. I'm just catching up now.
+--jNpu6dllGuEb8pJn
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On Sat, 19 Sep 2026 11:37:25 +0800
-"Rui Qi" <qirui.001@bytedance.com> wrote:
+Hey folks,
 
-> ftrace_graph_ret_addr() does not dereference retp. It compares the value
-> against the retp saved by function_graph_enter*() to find the matching
-> graph return entry.
-> 
-> Update the documentation to describe retp as a return location identity.
-> Most architectures use the stack return address slot, but an architecture
-> may use another stable frame identity as long as its graph entry path and
-> unwinder use the same value.
-> 
-> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
+Might be my last mini PR here, since the RISC-V SSE driver is coming via
+the actual RISC-V tree, so there'll almost certainly be a much increased
+activity here going forwards.
 
-LGTM, This can go through the RISCV tree.
+I'm a bit late PR wise (sorry) but I blame conferences and a busy week
+beforehand for that...
 
-Acked-by: Steven Rostedt <rostedt@goodmis.org>
+Thanks,
+Conor.
 
--- Steve
+The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
+
+  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-firmware-for-v7.4
+
+for you to fetch changes up to 525e00a1bbced112f5431448842b27fa7621725f:
+
+  firmware: microchip: use kzalloc_objs() instead of kzalloc() with multiply (2026-09-08 20:36:04 +0100)
+
+----------------------------------------------------------------
+RISC-V firmware drivers for v7.4
+
+A single fix/cleanup for the auto update driver.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+Hrushiraj Gandhi (1):
+      firmware: microchip: use kzalloc_objs() instead of kzalloc() with multiply
+
+ drivers/firmware/microchip/mpfs-auto-update.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+--jNpu6dllGuEb8pJn
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas5KygAKCRB4tDGHoIJi
+0qSOAP49wPHAf2y8sSffTwYr4llUvrZHFI+39OFIeBEQRrhdJAD/QenHTS3mxVus
+wzxg9AR4DsaKzhXIwf+qrGDJd4kdOA4=
+=3OOu
+-----END PGP SIGNATURE-----
+
+--jNpu6dllGuEb8pJn--
+
+
+--===============8096146646426862031==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8096146646426862031==--
+
