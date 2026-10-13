@@ -4,155 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22E8ECA9ED0
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 04:23:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84092CA9ED0
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 05:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G/M+ahLXm0IWPrVjd7DwSFbrjE5kC0Ldtx9/YiK1xDc=; b=CgShxzWxOmjUFm
-	jLIkrw1piczZ70NqefcbWXNDoR5DcfPPY0+/J5ObnZOfpBmBxPBjIdMIBKHH5cw+K1dxZ/RWCAs1Y
-	C2IsMD5zVDs9bwsY/twfFzYU6+ZPjIKBTARD/H4yZ1CohS36bqbSHfGclVM1jYOn6AkS9+IFtNZlx
-	BkrF3Qnr6DmJ8lIVRpABwTV6Jtv6t2AcvVjriliqPR11AF0KADePqbsaxHOW5wsZ+EpOlwrXxhVah
-	2wLE9P0EG1cJrVuSYLn75/g4Y50iAD+MlG5Tp7YJJdtE3EEqy+Si/rCXrxrVFxSlEjf6lAeS6ATQR
-	JTV6DrCYPj+OBb59RM0w==;
+	List-Owner; bh=WA210+PnlfRwnBgmNwKgX54QQN3kIci9ldGPm1B5Tbo=; b=v8XT1x777cMSmK
+	wM5uLOicbSGqzbJgoAYA8WckscuhVuDz5QhtrA3z6Lqy/lqFbw7tYInOk3kniJ/TiEeDk8KxkoTCx
+	Gd3I98Tvvz+jkCnBR9ZgQH/8Wu82MsL+8go9KLOPrlWlsZiP4b1I2rvzccgN9BIhUWf4jCcMGpAfV
+	38NwIBcZMyt6Jfjr9N3ZYThe1o5kOrsE8f+qwLNPCffiSxrWho4n333DmHLQ/N3WhZn1P1WHlBzQ0
+	dsWCCuTbRfPC6ZnKY06l9UyaWYuErBWPd30qe+43rbTzlESK73lry1BG+sy1y+8xuv1RCeguDDHoM
+	KD8jZz0Ls/q0kaAvZuJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGU2r-0000000BxhO-1w4H;
-	Tue, 13 Oct 2026 04:23:21 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xGV5Y-0000000C19b-1iMZ;
+	Tue, 13 Oct 2026 05:30:12 +0000
+Received: from mail-sh0chn02on2126.outbound.protection.partner.outlook.cn ([139.219.146.126] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGU2o-0000000BxgT-3lW9
+	id 1xGV5U-0000000C18j-1gFx
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Oct 2026 04:23:20 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69D20rRa302932
-	for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 04:23:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=tIWfgspxx4yLynby3ZQs1PnM
-	reRTHqVlMg0z9Olk6BY=; b=YHpQvQCPqfZF1nBZx8vPKI+1i3dzN09Aillf0/C2
-	aXW/AkCeJBshshO3wyeKJZx/WnpZNxOP88LUoGfPopp0/1IDO/NaKADVq6HC3msQ
-	m0b/T3DpxLTE83HIloKjnaUgj16ORMSyT/P6omuoqnbv/14nUGtCbtCsrB4VIISE
-	yLmerKoUcLvsnSEDlmoehOB6+xIdQecm7VkRQYSWP3nUyVVUVZOPDpr/5DyVem5C
-	4HycyzpFEvjOWLwlzl4HHifH7WUl/SRQrXHIkUgsCdBwwp06csA0eqpyi31xD6WL
-	Bj1FVDMIqdCgZnju841EMUSxRsO9yUUdouAKumM4Umesqg==
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h98sq8xk3-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 04:23:16 +0000 (GMT)
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-30bcb065bfdso5199785eec.0
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2026 21:23:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791865391; x=1792470191; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=tIWfgspxx4yLynby3ZQs1PnMreRTHqVlMg0z9Olk6BY=;
-        b=Pqw2wG7N8w1vNg3SHWrm3ZCvLoHYSNT73cvT8Id9O3v9kwn2H5MyKgOskzO7QcglZF
-         ZGP+LZgC9KmtQjxhcHh63lGrqqqMfJdEOwSxYIiqdRoGzPhTvkeuamlXRY/sGfCP3D/V
-         A7/BcwmRL4jsiJ6BFz+U/voncJaYFddqCCx7n8ErydpIBfkYb8aTMpCJiQl5ektMt1ss
-         fIyaYs8LjyVxm+GQQS2SKlvqQfhaOR6IAJ0a+bu53rJiVRBsP5G9YTtQDj2NvJ9nzHNL
-         w8th5gBURcqUCEs3T8MW7WdU7zYZPObSVb028v3apjpHaocoFupdgxpSBdoySkJIgKBB
-         lEwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791865391; x=1792470191;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tIWfgspxx4yLynby3ZQs1PnMreRTHqVlMg0z9Olk6BY=;
-        b=cgQKlpPJE77OM75Fpf6q+dEoovWT44O51bZupQ2afgvYYILccLt+p43ATbP4tsDPMx
-         +jEFbU8KKWUsKqxuk3eV26K8giSfX84yliozacqyB3uq7y0+F9a2twF6rtgIV23fPgG3
-         9U2Ssrh2wbi3+VcqNrUV1vu7XA2S/8Tjx6jPyycY5VRcoEuJlVLx+/o+kH9XJAm7r2vg
-         H+E5aA8JGd8rXDLH4fWvZXPTeZpbCSkKaMYAC1g6W1BtybGFzv5M/5xCDN/cScC4qQ7E
-         +m96i/IR27kmU/qL7SiNbnztxboFcm+RvjCZmgVAUzHGUmLwtJyujIjUXCWaOlcxV2p0
-         H4rw==
-X-Forwarded-Encrypted: i=1; AKwUvBxKjb5nI7LcIZbCHKpKGZOS2Il75TCCvWmoN3LLSQLJRTNMYQvF7clXrGBhJwaIYGZLA9gzMPd69FmvgA==@lists.infradead.org
-X-Gm-Message-State: AFq9FYLk2MbpatYiv6T9Il3ga0oD9bhKxxBNLWTvazX/FJnhIV/1q85L
-	j/iibb7rjxSHBIZfbydcq62yrmDmIgzI+5m7A1ntoHPZOdIPbBjn1Bz+qRc42OKXfIhcS5kuJMj
-	OxL64DcR+wpUjrHfUNPOl2al2EJ6+PLomDAh2zY2TV7zlOerBk3hQqQWMQJ4Gj1mmiASOGgM=
-X-Gm-Gg: AYBFou0Cqz+qASAVUuthUvEN0wqII6auZRaqfcFlLRWXojZ7xFRLO8tnFQwa/Irg+Yw
-	8QOxqZ5LmAbj/WCKjMe60vAZSKtTAvghTFd7qJa9e493ZDxdPR9UV+MKia7H4h307jB/oc0Llol
-	u4Xjochluk8ti7uCQu4S+VHgn0CC6J+uDj+gV4frEvfg+RnYfwzQPnSK7pKZgf9/OonEYXTNkj+
-	3S8PQ0CdHuIGRGmxBSxRqn2vyvgZMPyRSfBYj3J+6R/wfgKqSArwU8AfYh3tkbczT0Ojs6arCb5
-	Bd87NZsFoBJRD41Jvmnss+heMSXDV65d+eTphBhtDChPqIOs2wY6agqqhWBCu6kcP6lvMMbfj9F
-	T1CpFYU6ActqfWPlfe+2oIdTasSXhaPTRM12d+MD1UE5HiV9rd7oTH3iIkciyrVwkqsiP0Lrn2j
-	WQHFnbjbcN9AiFhOgG2l8z6WA=
-X-Received: by 2002:a05:7301:a27:b0:35b:e6a7:f925 with SMTP id 5a478bee46e88-35be6a7fd77mr2695272eec.11.1791865390834;
-        Mon, 12 Oct 2026 21:23:10 -0700 (PDT)
-X-Received: by 2002:a05:7301:a27:b0:35b:e6a7:f925 with SMTP id 5a478bee46e88-35be6a7fd77mr2695237eec.11.1791865390214;
-        Mon, 12 Oct 2026 21:23:10 -0700 (PDT)
-Received: from hu-himchau-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-35c89429484sm1999530eec.23.2026.10.12.21.23.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 21:23:09 -0700 (PDT)
-Date: Tue, 13 Oct 2026 09:52:57 +0530
-From: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Conor Dooley <conor@kernel.org>, Anup Patel <anup@brainfault.org>,
-        =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-        Yunhui Cui <cuiyunhui@bytedance.com>,
-        Atish Patra <atish.patra@linux.dev>,
-        Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-        Arnaldo Carvalho de Melo <acme@kernel.org>,
-        Namhyung Kim <namhyung@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-        Adrian Hunter <adrian.hunter@intel.com>,
-        James Clark <james.clark@linaro.org>, Will Deacon <will@kernel.org>,
-        Thomas Gleixner <tglx@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-        Randy Dunlap <rdunlap@infradead.org>,
-        Shuah Khan <skhan@linuxfoundation.org>, Shuah Khan <shuah@kernel.org>,
-        Yuanzhu <yuanzhu@bytedance.com>,
-        Yicong Yang <yang.yicong@picoheart.com>,
-        Susheng Yang <yang.susheng@zte.com.cn>,
-        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v10 RESEND 3/9] riscv: sse: mask events during shutdown
- and kexec
-Message-ID: <as2yIcM4YJlbvMPu@hu-himchau-blr.qualcomm.com>
-References: <cover.1789974241.git.zhangzhanpeng.jasper@bytedance.com>
- <03472b45125793a768f3e5bbc168f167e673d4cc.1789974241.git.zhangzhanpeng.jasper@bytedance.com>
+	Tue, 13 Oct 2026 05:30:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=OavkdwEQ8O2iSG+SO9XrCB+QHNoT3MmLfbyTXYV2Xjbzi8UWSUJRSwbYgp8QVz0lzo4IxuB7scgaTY8LNfZBSzCpQ3UMsDqpl8mo4/eFpIU1SfOhyrVLl2UATVrgwvj66Pabh8GENY8xw+42+ZOZCAOzObaHbzuYsCUk42fYclQck9gs1XCt4+S3c5e02DbYdjb1golLC692LITApZE9ePd03UuoGVkriRNsSAjCNdtu4UIf2f9dYdvuSrsoih8RN4VGhv3phQgBT1CQ0dbKdPImnx9+Mr4rA8QZ2ZAvoJy8C0FLdFNkzURJe05VC0ZQr9gddpA9inbJss39OzfnTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=j/Tcqq+Q1dy5TsFndErGVwLS8DLLHx1/q0GNJt/upgw=;
+ b=VWyogXUiWYwOiIYwYCjdOSQNGBaoqYiqdXpQpjlgUVRH2TNkKs00xbkXR4CygS2rORGw3vUzvOYsgIkdNtkshjKxNITGL60Oo8f/TvUATwkj8wWH1iiTUjuAMG6Wr+uCX7+Ausl0DWl+4+kUZsWxkbRXBMtjB+tLBAd+xozApu9GGyIKu9l/5ZL/A5H3OWGl+i5sOq1a1s2RXDmoLbUKeC4V17Q3ixUtvp9dFtTGVFYlaQMbyTi+KXwvjozUQqUiUC0tjbEpXnbOJt7zIXSXxYbyQzMzvKpiWDkhbRKVlpbSug2DYpsxrNfE3hi3J0V4RNivkc8Jli7rQuUIClxQkA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1300.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:14::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
+ 2026 05:29:44 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
+ with mapi id 15.21.0496.021; Tue, 13 Oct 2026 05:29:44 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Jerome Brunet <jbrunet@baylibre.com>
+CC: Brian Masney <bmasney@redhat.com>, Jerome Brunet
+	<jbrunet+clk@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Hal Feng <hal.feng@starfivetech.com>
+Subject: Re: [PATCH v6 05/15] clk: starfive: Add JHB100 System-0 clock
+ generator driver
+Thread-Topic: [PATCH v6 05/15] clk: starfive: Add JHB100 System-0 clock
+ generator driver
+Thread-Index: AQHdVyFHfUH4Tl4BA0S8azUC8I19Q7b5uLaAgAFAu0A=
+Date: Tue, 13 Oct 2026 05:29:44 +0000
+Message-ID: <ZQ4PR01MB1202DE124DED06ECEC948B89F29E2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+References: <20261008123338.11081-1-changhuang.liang@starfivetech.com>
+ <20261008123338.11081-6-changhuang.liang@starfivetech.com>
+ <179180050742.66744.1321848308971146208.b4-review@b4>
+In-Reply-To: <179180050742.66744.1321848308971146208.b4-review@b4>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1300:EE_
+x-ms-office365-filtering-correlation-id: 16767fb2-fe0a-4877-9b27-08df28eafcfd
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|366016|10067099003|3023799007|261009223027099003|38070700021|4143699003|18002099003|22082099003|56012099006;
+x-microsoft-antispam-message-info: rYD2K2GumGRYBghKpMLxxavlwuk5cHwtYna/3aMgFwd/uBMEi84oqOa3PqVbAvyDym8stRXYbGEdm/IrA96rrqmsCdjrZNpVdRyjsWXi4hQGDYEMi51vlqL28syBINPEF4OcRg/m2GR6aLa2ansomPEFft+FPwSSc9IKIxf3EAHveddZ7jgyUBnEutQszkffR8HWPqsMdpUUMfNd7GYQ/qpLZ07sQuUk25Vfc5TwWjWHqcJSiekDDgWWfskZqXRKqvhHwjtejF2fBsXKr9k7SIFKeC8w+tv5gMPEb2XJlUOkqCeOxHcaA2NFJch7Xbrm4l3kEPHSpsHx0PjbtYHx6s6L424YLy4ELV+Hrdrb7vkudD8+ePVtXNp7gyib8ipZmglcTJdLbdoxJee3ke8IohSQ/VLC8K8f4+gdz+DeIVdLH9eMp9WU5ubm/ArjKONNFbFbcl9AJtL5QbIajvTU4PdEh0/+QeRDvw1CfyOrygbcVYKGm+BxgopTMC6keEMejPEg74K0nzU3TBOovWdkKyjkgx/i4WmB0y/v5tafrW0C+fNUzh4bqCrL2Dntutps
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(366016)(10067099003)(3023799007)(261009223027099003)(38070700021)(4143699003)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QVhMbVEyQWNjL2VETUcrMVloU1UvQ0ozejYvek1EK3JwUWVGNFJRQnNoMVVF?=
+ =?utf-8?B?aDByRSt3VVl2b3VUS1pwU1pVaXZKUmMxOHl3UXZma0hiYVZ5a09PL0RqOTAx?=
+ =?utf-8?B?SWIzeFdaTFJ2cEhIS0NoV2pOUkhnM1Y0OUNialRjM0wvZGEyWU50R3NaRnd1?=
+ =?utf-8?B?K0V0clRKRUVMOGlVYXRNdnBPUzJPUDAyc2drTXZwNjZyeFljNFhBeFpUaE1S?=
+ =?utf-8?B?eExObUlLbHZlWTJnY0tXdnFWT3J5SjFydy9TS2o1aFB3eXZ1YXhDNW5IcmRW?=
+ =?utf-8?B?b00wOXBwQzhmQVBveWF5dlBWcndVanRMUzdEdVVrZjh5eEZOMVdGU1crWGFv?=
+ =?utf-8?B?T3NqWUJaZk1TTmcyeW5jeTJ2dm10dFM2QWgzbEJ3eGhUL1c5ZkhJUFJ1WlN0?=
+ =?utf-8?B?ajZqUDhOQU45Y203a1Rpb3RjYzFBWmt0OWZPYlMrdWZ4V2ZVZmZUNmUvQk5B?=
+ =?utf-8?B?RlB1Tzk4M2Mvd1BxMjJzUVpxL1NkNVF3TFhsYzlHQm5HK2ErZlF4R2FBNHVs?=
+ =?utf-8?B?NHRETmM3TERCdXcvMVQ4d3BGUTZFVCtwSnZVTmJpeTkvR29sN1dZc2lMQ3RE?=
+ =?utf-8?B?WUJ0bklkRWZDS1UxZ1dqc3ZjRWRUZzBsdEVETzcvSFRmMHBGaWdVa2pvRlR5?=
+ =?utf-8?B?QmFzZ1dkZ05ZWEtBTG5mcEpaTVdndjYwcStoZDBIU25XVUt4bDRsa1QwOUpF?=
+ =?utf-8?B?VWJ0SkRNeTZzM0Ftb2xFaDZTUEYwY3ZoSWlQRFpOL2NYOHlibURsdnlSM3pN?=
+ =?utf-8?B?K0l6Z3Q0Zjc1TmdhS25HM1lUQ1g1NVo1VHRVNVdSVVBEemNiNGVNRnN0eVJU?=
+ =?utf-8?B?a01LTk9BQnNQekVwUDMyU0FtUitSa3pINCtXSm9tOXBKM05ub2VBSzhBZEpw?=
+ =?utf-8?B?dUNhSFBNbEx3bVRrcTdVVDNqVTZqUHBuQUVZa0pMdU4wRW1uQXlmcEtUU2Js?=
+ =?utf-8?B?aEdldXdmS3pleDhrZkplMWtiNTRuTXZmamFqQ2RuUG5lKy9zQTFPMXl1UUt4?=
+ =?utf-8?B?bnZEcG8xOVduWWxkdGR3aXJBKytnbmhwTzNtU1FZYlN6VWN3bm9RYngwVlc5?=
+ =?utf-8?B?bzlITjExQTVrSzRiMFRhcUZEck9VcXFuem9OV2dUKzVmRXNRclR3cmRiTVFx?=
+ =?utf-8?B?MmtQazdmWVI4MFIwSHQwaU1CaXZxbUFRalBvSE5EOENFNllpUmlFb1N3SVVn?=
+ =?utf-8?B?UDIxcVZqT2FucndLRHFzTTRWYmFzbktaV083eWpvWUZtRG9MRnVSbCs2ekpv?=
+ =?utf-8?B?SjYyQkZQU3luMEhRZlFPYWNTM05WbENrU3FPVE5TT1hJN2lOUitDL0FiVlFj?=
+ =?utf-8?B?cGJKTEwrS0VqcUZWd3cvUk5FQmU0MnVTeGNBb0Y4ZW1uaWcveVhYSndlQk51?=
+ =?utf-8?B?UWJ1Mk5JdGtvTFpKamdxWHFubXFWUEM3TkRzenJ4MUYyS2cyMnU4a29JZFhp?=
+ =?utf-8?B?OGYrRXFULzJVbldlQ0VSRGZYQVlTTWdxMHdRYmVtT05KK2YyVW9Edmk1Z01B?=
+ =?utf-8?B?RU5EL1cwMDFyK25qcnlGdEtOY2RjYVNkbFhSV0dodW5GK3FHVVloaytDTmI0?=
+ =?utf-8?B?RHlJRHU2RHAvTnZvS3k1aUJ0bHl0ZEkxc05hUTVBQzFDRkF6QjBUcTR4V1JY?=
+ =?utf-8?B?cHlIdjMyNzlIUDFQbkpyT1dwQ3hCa1RnOFcyeGJKaFlFeXRBdjdBdythMkNM?=
+ =?utf-8?B?OXVnZVZSSFVzOUhIT2U4TWNZNi9HVDNnK2luUUpOOG10T3Y1Q0pRNjBnWTk4?=
+ =?utf-8?B?N3czZjBUK3F2MlVuNXdWYmw2L0JPQWRlT2ZrSHBMUlUwN2RPYW52NGpscHl2?=
+ =?utf-8?B?WDFFTHcyai95K1RYVVZ0OERCUEZsZmNicDZTczZlZnNBMzEyK0dZYk8rbjZO?=
+ =?utf-8?B?UW51WHg0S1J1cnFmTjRXTDV6d1MweFhGaGdvZGExWDBHdGNJejZFczdMaG1P?=
+ =?utf-8?B?dFNZMmN6NkxZYTZwNUtxQ2lhUVloMXdNQk5LUGZFcWsvdFpXZ2dPdS8yMldw?=
+ =?utf-8?B?M1MzcEZOYm13WUljUHQ5MXJqbWZxbm5mallLTXRITXBGMHBaWWhRdVhJUkFH?=
+ =?utf-8?B?YTQreXBMZzhGbXFoSmNhYlVFdHVhOC9xZHU1cC9aekljbXlJN3BSWkhpNm85?=
+ =?utf-8?B?ZUMvY3JOQXNOZGZPVDVrOUJaam8xNlBXaGlsbGx0L3YxM29CMVRpelVBbkJD?=
+ =?utf-8?B?Q0FnYjNxdm1FbzZMdnFxYm91Qmo2WjNzclIzcndtZXlPMS9TMEczUUFYN2dv?=
+ =?utf-8?B?Q3FuMGlEUS9LVTdXTTg5ZDNoODA0UEtYUXowcElVc0JubzRMSWpkQ3ZRejJp?=
+ =?utf-8?B?c1ovdVJwOFJYbnpzRnUxZWxGbTIzOTVqVkhZTlNwUUVMaTY3VGRwa0dIODN3?=
+ =?utf-8?Q?d+R1tTZYIQ7JNGh4=3D?=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <03472b45125793a768f3e5bbc168f167e673d4cc.1789974241.git.zhangzhanpeng.jasper@bytedance.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEzMDAxNyBTYWx0ZWRfX5/0gjtX51W2W
- amq1UXDHfrGrLd/WBBPOIhHk0oYgN/hW42utDihrq0sPAdN4eUt0JzZbvK0LzufMz94HLuiRgc9
- wh1yRt6NnWEO1YXyM1E/b22LMzsRWPAl/6ORkA5N484MN6N6Jau1Rqig4EA2OOoVXgUg06dg8oo
- iJ5z5qnE7qZZTJd5UZ0QCUmZ2cxOvyii3ErlisrUCvu4gShKyvXB/Q2q4mHxf33ml+CpORyXIHo
- +OiB2+wLjaWmASkswp/7QQUDhJCHPw0OisPA/Z4QQf/zBX9+mrxbwEx918ULb2Y2EBRBqN2XeDW
- g9A/OCUhbNyaSOiqByndrU1+zSd3KlXRsaFvUZsMhlkSQcA8kNQggE3xR+KREMyeu1hAI/G6M6p
- z6XPKFDofliQmsDsOxQ0P2jnQn7/06n4cYksjTtSGzcZRet8NJvslI3D/wAs5veH1R3FhV2E7t3
- EhOkGmyz7okLyXB92cg==
-X-Authority-Analysis: v=2.4 cv=JN+uIMKb c=1 sm=1 tr=0 ts=6acdb234 cx=c_pps
- a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=968KyxNXAAAA:8 a=EUspDBNiAAAA:8 a=a_nq2awA8k5mFBtTUooA:9 a=CjuIK1q_8ugA:10
- a=6Ab_bkdmUrQuMsNx7PHu:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEzMDAxNyBTYWx0ZWRfX+VLYEAKm71VS
- 8EFZ5YpqiCd7vKkaKZliOCOYAemBfngKIJxni70j7my5hhaOboDv4yGWWY5Pf1wpvhR7BPJX4ZV
- gT2Ou8WYmr0fE8Cv5WvDes0VBMhBDrw=
-X-Proofpoint-ORIG-GUID: -eWhAyzvnkb9mEAIXfYtmQEboaZOjN2i
-X-Proofpoint-GUID: -eWhAyzvnkb9mEAIXfYtmQEboaZOjN2i
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-13_01,2026-10-09_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 bulkscore=0 priorityscore=1501 adultscore=0 suspectscore=0
- phishscore=0 impostorscore=0 lowpriorityscore=0 clxscore=1015 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610130017
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 16767fb2-fe0a-4877-9b27-08df28eafcfd
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Oct 2026 05:29:44.1250
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: eTfJjRMcai2ooMc7yOLxhXtHfzeAZuYZkR1nq925WSct2nT2tJgTgIxS2k0Qn2NrgM3WpcaDlX3L/aYpuAl06J18MDZL3OuvGkIKAX0QTkkW9JZeUI8sOF+02wENuK7Z
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1300
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_212319_060075_84A9BB6F 
-X-CRM114-Status: GOOD (  29.82  )
+X-CRM114-CacheID: sfid-20261012_223008_600462_56317BA0 
+X-CRM114-Status: GOOD (  28.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,186 +152,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 07:15:00PM +0800, Zhanpeng Zhang wrote:
-> SSE delivery is independent of normal S-mode interrupts. Firmware may also
-> retain an event registration until Linux explicitly unregisters it. A hart
-> must therefore stop accepting SSE events before Linux stops servicing the
-> registered handler.
-> 
-> Mask SSE on the local hart before panic stop, CPU stop, restart, poweroff,
-> and crash shutdown paths. This prevents firmware from entering Linux-owned
-> handler state after the corresponding CPU or kernel context is no longer
-> valid.
-> 
-> A crash kernel cannot identify or take ownership of registrations
-> inherited from the crashed kernel. Reject a later normal kexec while such
-> SSE state may still exist, rather than transferring unknown firmware state
-> to another kernel.
-> 
-> Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-> ---
->  arch/riscv/kernel/machine_kexec.c | 11 +++++++++++
->  arch/riscv/kernel/reset.c         | 18 ++++++++++++++++++
->  arch/riscv/kernel/smp.c           | 17 +++++++++++++++++
->  3 files changed, 46 insertions(+)
-> 
-> diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-> index 738df176ff6f..24e7affae70b 100644
-> --- a/arch/riscv/kernel/machine_kexec.c
-> +++ b/arch/riscv/kernel/machine_kexec.c
-> @@ -14,10 +14,13 @@
->  #include <asm/set_memory.h>	/* For set_memory_x() */
->  #include <linux/compiler.h>	/* For unreachable() */
->  #include <linux/cpu.h>		/* For cpu_down() */
-> +#include <linux/crash_dump.h>
->  #include <linux/reboot.h>
->  #include <linux/interrupt.h>
->  #include <linux/irq.h>
->  
-> +#include <asm/sse.h>
-> +
->  /*
->   * machine_kexec_prepare - Initialize kexec
->   *
-> @@ -36,6 +39,13 @@ machine_kexec_prepare(struct kimage *image)
->  	unsigned int control_code_buffer_sz = 0;
->  	int i = 0;
->  
-> +	/* A crash kernel cannot tear down registrations inherited from firmware. */
-> +	if (is_kdump_kernel() && image->type != KEXEC_TYPE_CRASH &&
-> +	    riscv_sse_available()) {
-> +		pr_err("Normal kexec from a crash kernel is unsupported with SSE\n");
-> +		return -EOPNOTSUPP;
-> +	}
-> +
->  	/* Find the Flattened Device Tree and save its physical address */
->  	for (i = 0; i < image->nr_segments; i++) {
->  		if (image->segment[i].memsz <= sizeof(fdt))
-> @@ -127,6 +137,7 @@ void
->  machine_crash_shutdown(struct pt_regs *regs)
->  {
->  	local_irq_disable();
-> +	riscv_sse_mask_current_hart();
->  
->  	/* shutdown non-crashing cpus */
->  	crash_smp_send_stop();
-> diff --git a/arch/riscv/kernel/reset.c b/arch/riscv/kernel/reset.c
-> index 14eb08a6db85..fdab37e7ae52 100644
-> --- a/arch/riscv/kernel/reset.c
-> +++ b/arch/riscv/kernel/reset.c
-> @@ -6,6 +6,20 @@
->  #include <linux/efi.h>
->  #include <linux/reboot.h>
->  #include <linux/pm.h>
-> +#include <linux/smp.h>
-> +
-> +#include <asm/sse.h>
-> +
-> +#ifndef CONFIG_SMP
-> +void __noreturn panic_smp_self_stop(void)
-> +{
-> +	riscv_sse_mask_current_hart();
-> +	local_irq_disable();
-> +
-> +	for (;;)
-> +		cpu_relax();
-> +}
-> +#endif
->  
->  static void __noreturn default_power_off(void)
->  {
-> @@ -18,6 +32,8 @@ EXPORT_SYMBOL(pm_power_off);
->  
->  void machine_restart(char *cmd)
->  {
-> +	riscv_sse_mask_current_hart();
-> +
->  	/*
->  	 * UpdateCapsule() depends on the system being reset via ResetSystem().
->  	 */
-> @@ -30,12 +46,14 @@ void machine_restart(char *cmd)
->  
->  void machine_halt(void)
->  {
-> +	riscv_sse_mask_current_hart();
->  	do_kernel_power_off();
->  	default_power_off();
->  }
->  
->  void machine_power_off(void)
->  {
-> +	riscv_sse_mask_current_hart();
->  	do_kernel_power_off();
->  	default_power_off();
->  }
-> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-> index fa66f9c97d74..7f0d4e7332f1 100644
-> --- a/arch/riscv/kernel/smp.c
-> +++ b/arch/riscv/kernel/smp.c
-> @@ -23,10 +23,13 @@
->  #include <linux/irq.h>
->  #include <linux/irq_work.h>
->  #include <linux/nmi.h>
-> +#include <linux/panic.h>
->  
->  #include <asm/tlbflush.h>
->  #include <asm/cacheflush.h>
->  #include <asm/cpu_ops.h>
-> +#include <asm/sbi.h>
-> +#include <asm/sse.h>
->  
->  enum ipi_message_type {
->  	IPI_RESCHEDULE,
-> @@ -79,8 +82,18 @@ int riscv_hartid_to_cpuid(unsigned long hartid)
->  	return -ENOENT;
->  }
->  
-> +void __noreturn panic_smp_self_stop(void)
-> +{
-> +	riscv_sse_mask_current_hart();
-> +	local_irq_disable();
-> +
-> +	for (;;)
-> +		cpu_relax();
-> +}
-> +
->  static void ipi_stop(void)
->  {
-> +	riscv_sse_mask_current_hart();
->  	set_cpu_online(smp_processor_id(), false);
->  	while (1)
->  		wait_for_interrupt();
-> @@ -91,6 +104,7 @@ static atomic_t waiting_for_crash_ipi = ATOMIC_INIT(0);
->  
->  static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
->  {
-> +	riscv_sse_mask_current_hart();
->  	crash_save_cpu(regs, cpu);
->  
->  	atomic_dec(&waiting_for_crash_ipi);
-> @@ -254,6 +268,8 @@ void smp_send_stop(void)
->  {
->  	unsigned long timeout;
->  
-> +	riscv_sse_mask_current_hart();
-> +
->  	if (num_online_cpus() > 1) {
->  		cpumask_t mask;
->  
-> @@ -301,6 +317,7 @@ void crash_smp_send_stop(void)
->  		return;
->  
->  	cpus_stopped = 1;
-> +	riscv_sse_mask_current_hart();
->  
->  	/*
->  	 * If this cpu is the only one alive at this point in time, online or
+Hi, Jerome
 
-Reviewed-by: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-
-> -- 
-> 2.50.1 (Apple Git-155)
+> > Add support for JHB100 System-0 clock generator (SYS0CRG).
+> >
+> > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> > ---
+> >  MAINTAINERS                                   |   7 +
+> >  drivers/clk/starfive/Kconfig                  |  10 ++
+> >  drivers/clk/starfive/Makefile                 |   2 +
+> >  .../clk/starfive/clk-starfive-jhb100-sys0.c   | 156 ++++++++++++++++++
+> >  4 files changed, 175 insertions(+)
+> >  create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-sys0.c
+> >
+> > diff --git a/MAINTAINERS b/MAINTAINERS index
+> > 66d6c15f1dd2..dff8b819f83e 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -26217,6 +26217,13 @@ F:
+> 	Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+> >  F:	drivers/phy/starfive/phy-jh7110-pcie.c
+> >  F:	drivers/phy/starfive/phy-jh7110-usb.c
+> >
+> > +STARFIVE JHB100 CLOCK DRIVERS
+> > +M:	Changhuang Liang <changhuang.liang@starfivetech.com>
+> > +S:	Supported
+> > +F:	Documentation/devicetree/bindings/clock/starfive,jhb1*.yaml
+> > +F:	drivers/clk/starfive/clk-starfive-jhb1*
+> > +F:	include/dt-bindings/clock/starfive,jhb1*.h
+> > +
+> >  STARFIVE JHB100 EXTERNAL INTERRUPT CONTROLLER DRIVER
+> >  M:	Changhuang Liang <changhuang.liang@starfivetech.com>
+> >  S:	Supported
+> > diff --git a/drivers/clk/starfive/Kconfig
+> > b/drivers/clk/starfive/Kconfig index 51716655554f..cd5b7754403e 100644
+> > --- a/drivers/clk/starfive/Kconfig
+> > +++ b/drivers/clk/starfive/Kconfig
+> > @@ -72,3 +72,13 @@ config CLK_STARFIVE_JH7110_VOUT
+> >  	help
+> >  	  Say yes here to support the Video-Output clock controller
+> >  	  on the StarFive JH7110 SoC.
+> > +
+> > +config CLK_STARFIVE_JHB100_SYS0
+> > +	bool "StarFive JHB100 system-0 clock support"
+> > +	depends on ARCH_STARFIVE || COMPILE_TEST
+> > +	select CLK_STARFIVE_JH71X0
+> > +	select RESET_STARFIVE_JHB100 if RESET_CONTROLLER
 > 
+> just imply RESET_STARFIVE_JHB100 ?
+> 
+> It can be disabled if RESET_CONTROLLER is not set, so it is kind of weak
+> already.
+> 
+> > +	default ARCH_STARFIVE
+> > +	help
+> > +	  Say yes here to support the system-0 clock controller on the
+> > +	  StarFive JHB100 SoC.
+> > diff --git a/drivers/clk/starfive/Makefile
+> > b/drivers/clk/starfive/Makefile index 199ac0f37a2f..d2ba83d7d02c
+> > 100644
+> > --- a/drivers/clk/starfive/Makefile
+> > +++ b/drivers/clk/starfive/Makefile
+> > @@ -10,3 +10,5 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)	+=
+> clk-starfive-jh7110-aon.o
+> >  obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)	+= clk-starfive-jh7110-stg.o
+> >  obj-$(CONFIG_CLK_STARFIVE_JH7110_ISP)	+= clk-starfive-jh7110-isp.o
+> >  obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+=
+> clk-starfive-jh7110-vout.o
+> > +
+> > +obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS0)		+=
+> clk-starfive-jhb100-sys0.o
+> > diff --git a/drivers/clk/starfive/clk-starfive-jhb100-sys0.c
+> > b/drivers/clk/starfive/clk-starfive-jhb100-sys0.c
+> > new file mode 100644
+> > index 000000000000..edab54f228ad
+> > --- /dev/null
+> > +++ b/drivers/clk/starfive/clk-starfive-jhb100-sys0.c
+> > @@ -0,0 +1,156 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * StarFive JHB100 System-0 Clock Driver
+> > + *
+> > + * Copyright (C) 2024 StarFive Technology Co., Ltd.
+> > + *
+> > + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
+> > + *
+> > + */
+> > +
+> > +#include <dt-bindings/clock/starfive,jhb100-crg.h>
+> > +#include <linux/init.h>
+> > +#include <linux/platform_device.h>
+> > +
+> > +#include "clk-starfive-jh71x0.h"
+> > +
+> > +#define JHB100_SYS0CLK_NUM_CLKS
+> 	(JHB100_SYS0CLK_GPU1_NCNOC_INIT + 1)
+> > +
+> > +/* external clocks */
+> > +#define JHB100_SYS0CLK_OSC
+> 	(JHB100_SYS0CLK_NUM_CLKS + 0)
+> > +#define JHB100_SYS0CLK_PLL0
+> 	(JHB100_SYS0CLK_NUM_CLKS + 1)
+> > +#define JHB100_SYS0CLK_PLL1
+> 	(JHB100_SYS0CLK_NUM_CLKS + 2)
+> > +#define JHB100_SYS0CLK_PLL2
+> 	(JHB100_SYS0CLK_NUM_CLKS + 3)
+> 
+> Does this mean that if the you ever find out you've forgot an internal clock
+> (which does happen fairly often) the whole external block will shift ?
+> 
+
+Later, I will introduce the following macros to define the external clock, which can avoid this problem.
+
+#define JH71X0_EXT_CLK_FLAG	BIT(15)
+#define JH71X0_EXT_CLK(_n) 	(JH71X0_EXT_CLK_FLAG | (_n))
+
+> > +
+> > +static const char * const jhb100_sys0_ext_clk[] = {
+> > +	"osc",
+> > +	"pll0",
+> > +	"pll1",
+> > +	"pll2",
+> > +};
+> > +
+> > +/*
+> > + * Regarding the CLK_IS_CRITICAL flag:
+> > + *   Clocks flagged CLK_IS_CRITICAL feed logic that has to keep running
+> whether
+> > + *   or not a consumer holds them, such as the bus interconnect and
+> always-on
+> > + *   blocks. Gating them hangs the system, so they must never be
+> disabled.
+> 
+> PCIE and USB are critical below and do not appear to meant this criteria, yet
+> they are critical too.
+
+Best Regards,
+Changhuang
 
 _______________________________________________
 linux-riscv mailing list
