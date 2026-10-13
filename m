@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17BA5CC6B03
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 13:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F31FCC6B08
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 14:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r83F7VI/CwNXbxZkhTBrE7tZX0FpSR/+iOgRqghSeOk=; b=cGHgfsucKZ9rMo
-	aJ/pInl/6t0OIwpNA06ochg9muVn29H89mgyPwvcgMI5GxCrzc4ezeqqx1F4LZ5D3MLbvkWDl8Ltj
-	OCdkRu+cnlrhJOjRar3cO36Klkr6RXQD+/9xVEmcMV9bptE7iGQZeQGcUqAPbt0YLXbENvmcQ0+AN
-	BN/TRvcj/Ki/1TH05j0q2z7+T6ttTFWm1cRWUaR0tKQ64bfLHDH+y+UBCJKwVLRkykzEHgQcSLMzS
-	FycC6Tsm9mTDQ5mVwH/68dzcE5Z5XIz2vjgMwcKivtfK4keBfXxxn0dSlfAnSxE35/OlPEVEcblnO
-	VrEhP1DcWz4Udiu6iYiw==;
+	List-Owner; bh=B65o4PdLOFXNv4ZhqWFxdry/0zXKIQLfhzUFfG4Okg0=; b=op8Bt9aEQEqAl5
+	/sP+mF03Q//CDqVj3tYgBnNgI3ORzWFJHFYnygsyd5EyHFKav68gkbyunl8bQIfEaR803PK+mhQ24
+	UQONwkgCEg+FJqXBnhmIr38Wlwdvyu/e5ya7vxGAXDKblOIcrmK406alGQQmLmwDtsuo1zi08SS69
+	1AYx8oEj3Lnt2i7j/GF12sVXKa1DyrLm8YRD4JhmFrhOqNQLN3QguvY3n6+jg7PO4q4qM38udjP5z
+	nqAcIexgPezjK6F8lzn5s5teQs9eBbCp32UrgLe4JoZQZedCHzNLAQEFDW2yF5Qm0KUQiQAIqoRzb
+	WgsUETLJNuQVn556us8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcCj-0000000CuYJ-2tOX;
-	Tue, 13 Oct 2026 13:06:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGdiS-0000000D9tD-2G9v;
+	Tue, 13 Oct 2026 14:42:56 +0000
+Received: from smtprelay0010.hostedemail.com ([216.40.44.10] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcCh-0000000CuXs-35vZ
+	id 1xGdiP-0000000D9rl-1fY1
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Oct 2026 13:06:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0941743BCF;
-	Tue, 13 Oct 2026 13:06:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1F8E1F00898;
-	Tue, 13 Oct 2026 13:06:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791896762;
-	bh=PBDIE7GzvCgmpzvw/ZsA/sK1+J/NGCAntQXTexS8NNk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HtVuTxt5ErtMpkbGfGL1xLIGCDowIsKArOzts/S2GWDBpLTkyRokZua5XIMXtIyN8
-	 joW/wMnxEDjwJ9Ql8CjM5dQ1hmqJCVRZdPrXeXIw8UAGd4Q/Ac5VnzFG0KRbzT6K0j
-	 wBimQdDybAaZET/8ngiJ2W8MPVOlk4tL2F/GP6h3BY0+8KcwLLB9+2DPmnXtcNnf+0
-	 wCEebhHPs6C/E6DwycpWYFa+I43PekwuhQadbpbXjHQS2GRO51zrwf3eJ7ikY7sEDc
-	 gewbugUHTN2eT1YpuzoMfNMkytyFiUezZY4cS3IOWATp7/5XPTK7Pv2ZjnH6L5bQlQ
-	 s0FnovQZYsipA==
-From: Miguel Ojeda <ojeda@kernel.org>
-To: gregkh@linuxfoundation.org
-Cc: patches@lists.linux.dev,
-	pjw@kernel.org,
-	samuel.holland@sifive.com,
-	stable@vger.kernel.org,
-	yongxuan.wang@sifive.com,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 7.2 046/281] RISC-V: Clear HSTATUS.HU on CPU initialization
-Date: Tue, 13 Oct 2026 15:05:51 +0200
-Message-ID: <20261013130551.12527-1-ojeda@kernel.org>
-In-Reply-To: <20261013112856.169944981@linuxfoundation.org>
-References: <20261013112856.169944981@linuxfoundation.org>
+	Tue, 13 Oct 2026 14:42:55 +0000
+Received: from omf15.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay05.hostedemail.com (Postfix) with ESMTP id 4DECF40D31;
+	Tue, 13 Oct 2026 14:42:45 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf15.hostedemail.com (Postfix) with ESMTPA id 06F0918;
+	Tue, 13 Oct 2026 14:42:41 +0000 (UTC)
+Date: Tue, 13 Oct 2026 10:42:41 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: "Rui Qi" <qirui.001@bytedance.com>
+Cc: "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, "Chunyan Zhang"
+ <zhangchunyan@iscas.ac.cn>, "Guo Ren" <guoren@kernel.org>, "Jiakai Xu"
+ <xujiakai2025@iscas.ac.cn>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <linux-trace-kernel@vger.kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>, "Masami Hiramatsu"
+ <mhiramat@kernel.org>, "Mathieu Desnoyers"
+ <mathieu.desnoyers@efficios.com>, "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Paul Walmsley" <pjw@kernel.org>, "Song Shuai" <suagrfillet@gmail.com>
+Subject: Re: [PATCH 1/2] ftrace: Clarify function graph retp identity
+Message-ID: <20261013104241.5b0aa99c@gandalf.local.home>
+In-Reply-To: <20260919033726.1361382-2-qirui.001@bytedance.com>
+References: <20260919033726.1361382-1-qirui.001@bytedance.com>
+	<20260919033726.1361382-2-qirui.001@bytedance.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
+X-Stat-Signature: p5xit8ukshspj59ek51dtfti7jox1g5x
+X-Rspamd-Server: rspamout04
+X-Rspamd-Queue-Id: 06F0918
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1/QeSNBNV/6H5dKjjhMIcdNqu8bChqKUg8=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=mltuhNxTOsPaUjOxKrzrfLEp+rt2GoNa49+Mp4vfRhI=; b=0q/7tzPcSlSbmrx8OyuWlHFfevPxc0X+DStGm+x4p/yCV422QRLw/JEnPpvMFYgH01dB1bThSeWn9Zjm6bjvlAa1TkdWCcLzS9IXkhlJB3wEVs0wsUqAc80KPD/MS2TcTCDJFf4/BfgW2yVaQM9hEIhPpt4/fcPDkGduGUv9P4k=
+X-HE-Tag: 1791902561-405228
+X-HE-Meta: U2FsdGVkX18eIcc7Z73jyVQ2i3HW7Dg6gCWGyoMpLeogyQEUGJCQT4chYT1g+HGdfnyjHjPv4nDJBAu1Ovm6wFsx+jaKGxjkiOEM5qdemCx8/9hZAsvmLTxU2IhnsDtXQG/W3VU28Rlk26WeZaItFsOefY13cXOtUq9SPgRqsbZKUVhFxMfReoh1Lcw1ov9qqvet94KGjZNPeip9B1W7XsvsONfHFFWBiNt3G/cBmz+5JH8gz9mz0BEfuFSUYN7+0FxB8xjx6NrFsAZY2JAETx36rvoUVG1GGl2wLci0b+z0kXSLeAvMgRUE2WH1MtH9P4j9MouWjHlWrx2tuoCvrOvUhdrpISQuQi0tjw1Nm415tTtGHT4tXNl8JdG0DOCfwOFXKm4GtWQz2+QuLJHT9Q==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_074253_622978_0C18C6ED 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,58 +79,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 Oct 2026 13:36:02 +0200 Greg Kroah-Hartman <gregkh@linuxfoundation.org> wrote:
->
-> 7.2-stable review patch.  If anyone has any objections, please let me know.
->
-> ------------------
->
-> From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
->
-> commit 6694612317e5225086e39ca1ba97ada2b1942e48 upstream.
->
-> The RISC-V privileged specification does not mandate HSTATUS reset
-> values, leaving the HU bit potentially set after hardware reset.
-> When HU=1, hypervisor instructions (HLV/HLVX/HSV) can execute in
-> U-mode to access guest memory, which may cause unintended behavior
-> if not explicitly controlled.
->
-> Clear HSTATUS.HU during CPU initialization to ensure hypervisor
-> instructions are only available in HS-mode, preventing unexpected
-> guest memory access from U-mode code.
->
-> Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-> Link: https://patch.msgid.link/20260924-hstatus_hu-v2-1-7e970f5f1d8d@sifive.com
-> Cc: stable@vger.kernel.org
-> [pjw@kernel.org: capitalized RISCV_ISA_EXT_h to fix build; added stable cc]
-> Signed-off-by: Paul Walmsley <pjw@kernel.org>
-> Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
-For riscv64, I am seeing:
+Sorry for the way late reply. I stopped being an upstream maintainer while
+traveling. I'm just catching up now.
 
-    arch/riscv/kernel/cpufeature.c:1189:36: error: use of undeclared identifier 'RISCV_ISA_EXT_H'
-    1189 |         if (!riscv_has_extension_unlikely(RISCV_ISA_EXT_H))
-         |                                           ^
+On Sat, 19 Sep 2026 11:37:25 +0800
+"Rui Qi" <qirui.001@bytedance.com> wrote:
 
-It seems it is missing commit
+> ftrace_graph_ret_addr() does not dereference retp. It compares the value
+> against the retp saved by function_graph_enter*() to find the matching
+> graph return entry.
+> 
+> Update the documentation to describe retp as a return location identity.
+> Most architectures use the stack return address slot, but an architecture
+> may use another stable frame identity as long as its graph entry path and
+> unwinder use the same value.
+> 
+> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
 
-  0c5a9ab5192b ("riscv: Standardize extension capitalization")
+LGTM, This can go through the RISCV tree.
 
-Either that or manually tweak the identifier to match 7.2.y.
+Acked-by: Steven Rostedt <rostedt@goodmis.org>
 
-6.18.y also breaks for the same reason.
-
-I hope this helps!
-
-Cc: Paul Walmsley <pjw@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org
-
-Cheers,
-Miguel
+-- Steve
 
 _______________________________________________
 linux-riscv mailing list
