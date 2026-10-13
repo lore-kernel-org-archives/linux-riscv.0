@@ -4,104 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F225CC6B19
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 17:51:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3EB6CC6B1A
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 20:19:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SZ6agoxDMg6VodrNhCGW/dfCxjNWVm+9lai2JDXHGRk=; b=qqvulUMKsXaFZ3
-	jFbPeiOPncgua0kv8dYx0nOm6NSOVyVecQg4MzzRLaYEjr5W+6I9OVGhNygKRH/Crmb7ODMyXwy9y
-	Ff83hLPJFEApt9BSeBIdCxWd4fLK4Inn8czPh6h2nF+mu0W5Ml2dE92p3ZEfXdw7BFGvfz8dHZzgF
-	8Ny5thjkT9hTeJbHjsuMzLX/Ru0wV502Bi+Sk5ae1+51FgPDihmv7ag+r7+xEWE0ic6D05r1Ayfva
-	EwJ9xKiYxnaPCTGmBdlKh4qMgP2ZyJ2kBZQL2ctv4tRzWr8SktBBHVX5NAxUrOkSlQjywl0mlnYBi
-	MTuB5VPPegAVUFZr1EJg==;
+	List-Owner; bh=kVemFh1GLML+AVg3ttgUCaAa5YBbYjLElLgQHSAYoqc=; b=aXda/lTwKwatdZ
+	oUFAtlEm/2ds/eLNK4x4TocdzlevCrcOAA+KAUn7HBGEPNypOFEtHeKjwNxTuQVjWaR7+x6FiNyXg
+	6vYR/CH+c9R3jXjQbi+VFU5LyJtER7/ES9VdVuZ/mxJlk8l0n//CGv308HrDCUJ8t6ktBznOhOcsN
+	3WwUb0JOcfoVWbRLNkOrl3iNKC2+P2VmVL/tTcy34gL01LLIWckZjWZuDlxB+TL+fatL8f4Om1xjo
+	U1L8x293w+OkIQLBPEcNENFPWjn4iBEZVJOI/cmHz/Wt6EXztLni6VtNq6OuEo7wHjHT1GQIfXzBY
+	7j+oDUwqy0eGP5r3pEeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgeD-0000000Dl1q-1Kbc;
-	Tue, 13 Oct 2026 17:50:45 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xGixQ-0000000DzZS-2cMT;
+	Tue, 13 Oct 2026 20:18:44 +0000
+Received: from akranes.kaiser.cx ([2a0a:4cc0:1:11ef:4484:ccff:febf:ddfa])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgeB-0000000Dl0z-1Gcu
+	id 1xGixM-0000000DzYo-3doZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Oct 2026 17:50:44 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id BC0BA4E4120F
-	for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 17:50:41 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8FFA860362
-	for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 17:50:41 +0000 (UTC)
-Received: by mail.galae.net (Postcow, from userid 0)
-	id 17D6611D71892; Tue, 13 Oct 2026 19:49:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1791913837; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=8CoEQNCztNraFrNGn7F5Ha8TA2+gyHKw7FKAVKh/D9g=;
-	b=0gUHv9yfemApHra3J+hhjzzZ0u4HHS1MtWdJbHlCRcZ1KQtpT58BtTfRAH5SQYqQ37F5iP
-	krDdc8VmH8AbcTzWY02Vkt0dPuKSc1ZS0MBeHxcgvWe0xeXkNQLsqahGdzhUTqvGgo63mm
-	dwIcJ+OSk5pNSsfoMy9qJ9y7/vh72zHifjxNYogzZfghnOp0fjr/qxs56JkZXmfLXyLDid
-	YB9ESs+W6GJeL4Mx0ihRjht3w7ZHl+1s9KX0UOyZFNobEOAR5+vmZdgzaIkp0jOKm0Swz4
-	84B3bVrHTMTt5UCix1vbLmyQhxlBXxbf3UI8oO3lVsjCOZTNSHLHJl9t4Wdfvg==
-Authentication-Results: mail.galae.net;
-	none
-Message-ID: <72e19e46-3a14-4a07-9b50-01e5480bf1a3@bootlin.com>
-Date: Tue, 6 Oct 2026 17:28:05 +0200
+	Tue, 13 Oct 2026 20:18:42 +0000
+Received: from ipservice-092-209-185-035.092.209.pools.vodafone-ip.de ([92.209.185.35] helo=nb282.user.codasip.com)
+	by akranes.kaiser.cx with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <martin@kaiser.cx>)
+	id 1xGix5-00000001spd-3hdy;
+	Tue, 13 Oct 2026 22:18:23 +0200
+Date: Tue, 13 Oct 2026 22:18:24 +0200
+From: Martin Kaiser <martin@kaiser.cx>
+To: Shuai Xue <xueshuai@linux.alibaba.com>
+Cc: palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux-riscv@lists.infradead.org, oleg@redhat.com,
+	rostedt@goodmis.org, mhiramat@kernel.org, mark.rutland@arm.com,
+	peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
+	namhyung@kernel.org, alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
+	james.clark@linaro.org, jpoimboe@kernel.org, jikos@kernel.org,
+	mbenes@suse.cz, pmladek@suse.com, joe.lawrence@redhat.com,
+	shuah@kernel.org, mpdesouza@suse.com, oliver.yang@linux.alibaba.com,
+	zhuo.song@linux.alibaba.com, jkchen@linux.alibaba.com,
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, live-patching@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v6 5/7] riscv: stacktrace: switch to frame-pointer based
+ unwinder
+Message-ID: <as6SEF4v6wt5GmVD@nb282.user.codasip.com>
+References: <20260914092648.51254-1-xueshuai@linux.alibaba.com>
+ <20260914092648.51254-6-xueshuai@linux.alibaba.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3] net: stmmac: propagate PTP addend and system time
- programming errors
-To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
- Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Jose Abreu <Jose.Abreu@synopsys.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Drew Fustini <fustini@kernel.org>,
- Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org
-References: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
- <dy5xfj3754wnp3gh2kpoyf3vpx3vfsfhblgbwbwsgts27xqxga@dzb33gt3zgca>
- <asQcQIh56MV1OJur@lore-desk>
- <CAEev2e8+fr1tJnSErD+2TtLDw5fGJbQOMcM5eefMnLyFUR+m7w@mail.gmail.com>
- <asSb3RNcityVg6ia@lore-desk>
- <CAEev2e8c6hZQQom6NV-URgdSoWiafCcRR3BtA6yxxqy7T-me8g@mail.gmail.com>
- <asUGoxyJWVcsYBWG@lore-desk>
- <CAEev2e_+Dcj60Rj2+_UD=3_kNQxLK4rmWTGK-dr-Ve9mGJBARg@mail.gmail.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <CAEev2e_+Dcj60Rj2+_UD=3_kNQxLK4rmWTGK-dr-Ve9mGJBARg@mail.gmail.com>
-X-Last-TLS-Session-Version: None
-X-Rspamd-Queue-Id: 17D6611D71892
-X-Spamd-Result: default: False [-3.10 / 30.00];
-	BAYES_HAM(-5.50)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	DATE_IN_PAST(1.00)[170];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_COUNT_ZERO(0.00)[0];
-	BCC(0.00)[];
-	TAGGED_RCPT(0.00)[netdev];
-	ARC_NA(0.00)[];
-	DKIM_SIGNED(0.00)[bootlin.com:s=dkim];
-	MIME_TRACE(0.00)[0:+];
-	MID_RHS_MATCH_FROM(0.00)[];
-	NEURAL_HAM(-0.00)[-1.000];
-	MAILCOW_DOMAIN_HEADER_FROM(0.00)[bootlin.com];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[17];
-	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	URIBL_BLOCKED(0.00)[st.com:email,galae.net:url,infradead.org:email,localhost:rdns,localhost:helo,lunn.ch:email,bootlin.com:email,bootlin.com:mid,bootlin.com:url,stormreply.com:email,qualcomm.com:email,tenstorrent.com:email,synopsys.com:email,dzb33gt3zgca:email,davemloft.net:email,lore-desk:email];
-	FREEMAIL_CC(0.00)[lunn.ch,davemloft.net,kernel.org,redhat.com,gmail.com,foss.st.com,synopsys.com,vger.kernel.org,st-md-mailman.stormreply.com,lists.infradead.org];
-	TO_DN_SOME(0.00)[]
+Content-Disposition: inline
+In-Reply-To: <20260914092648.51254-6-xueshuai@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_105043_641027_EB4C4C55 
-X-CRM114-Status: UNSURE (   6.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261013_131841_260175_680BC295 
+X-CRM114-Status: GOOD (  40.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,199 +76,732 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Thus wrote Shuai Xue (xueshuai@linux.alibaba.com):
 
-On 10/6/26 17:12, Anirudh Srinivasan wrote:
+> From: Wang Han <wanghan@linux.alibaba.com>
 
-> Maybe someone more familiar with this board/has used PTP on it before
-> can help out understanding why this is happening. Maybe this is some
-> issue to do with clocks.
+> Replace the open-coded frame-pointer walker in arch_stack_walk() with a
+> robust kunwind state machine, modelled on arch/arm64/kernel/stacktrace.c
+> and retargeted to the RISC-V {fp, ra} frame record convention. The new
+> walker tracks stack bounds, consumes frame records monotonically,
+> understands the metadata pt_regs records added in the previous frame
+> record metadata patch, and recovers return addresses replaced by
+> function graph tracing and kretprobes.
 
-Good point, can you give us the full dmesg log of the board booting ?
+> This commit introduces arch_stack_walk_reliable() but does not yet
+> select HAVE_RELIABLE_STACKTRACE; that is done in a follow-up Kconfig
+> patch so this commit can be reviewed and bisected as a pure unwinder
+> replacement. Until that Kconfig change lands, livepatch is not yet
+> enabled and arch_stack_walk_reliable() has no in-tree caller.
 
-Maxime
+> Three related callers are updated to keep the same frame-record
+> assumptions everywhere:
 
-text:
-Return-Path: <netdev+bounces-341920-maxime.chevallier=bootlin.com@vger.kernel.org>
-Delivered-To: maxime.chevallier@bootlin.com
-Received: from mail.galae.net ([172.22.1.253])
-	by 9e7fea892943 with LMTP
-	id AP0BH74TxWp5BAQAtaWaaQ
-	(envelope-from <netdev+bounces-341920-maxime.chevallier=bootlin.com@vger.kernel.org>)
-	for <maxime.chevallier@bootlin.com>; Tue, 06 Oct 2026 17:29:02 +0200
-X-Original-To: maxime.chevallier@bootlin.com
-Received: from smtpin-01.galae.net (smtpin-01.galae.net [51.159.2.148])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.galae.net (Postcow) with ESMTPS id D8F12103308C0
-	for <maxime.chevallier@bootlin.com>; Tue,  6 Oct 2026 17:28:57 +0200 (CEST)
-Authentication-Results: mail.galae.net;
-	dkim=pass header.d=bootlin.com header.s=dkim header.b=Zge95CWJ;
-	arc=pass ("subspace.kernel.org:s=arc-20240116:i=1");
-	dmarc=pass (policy=reject) header.from=bootlin.com;
-	spf=pass (mail.galae.net: domain of "netdev+bounces-341920-maxime.chevallier=bootlin.com@vger.kernel.org" designates 172.234.253.10 as permitted sender) smtp.mailfrom="netdev+bounces-341920-maxime.chevallier=bootlin.com@vger.kernel.org"
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com;
-	s=dkim; t=1791300538;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:
-	 list-unsubscribe:list-subscribe:dkim-signature;
-	bh=BLd0ZSi6AYEzF6Z1S6jhxHqmJ/tVEdxhmTaij18Onuw=;
-	b=I4UsZyH18owvi7L5xvwNBy+o+6OMHI7t3ScRIYhQGgU/tzAk2KtVbJ5CEMEyoq3uWVDWJ7
-	WwbV2B6PnE+AM98S+vIUQFBQZFFgH0rm1haI1LPk/lEU/qm0YdjewdXafZTY7tR+RNF/HM
-	2hU+LJYIFMOx5zREP0bIEeWkekuCrvRPGs94IkvtNIxySDi0XPohQuPNpcv8tsy7HHshe7
-	7tJAP4lRdcUvMmi3TKXdfoWc3aLWRuf8HKXDr4O+jwasH1tVmh9Gcc9pTmgPULO32e8A33
-	Rl4cK/BelLVSpYTFJgiNAXNzXvGfirr9qQbfRk6txPoSUTCypDz0/ZEEIoDO3w==
-ARC-Authentication-Results: i=2;
-	mail.galae.net;
-	dkim=pass header.d=bootlin.com header.s=dkim header.b=Zge95CWJ;
-	arc=pass ("subspace.kernel.org:s=arc-20240116:i=1");
-	dmarc=pass (policy=reject) header.from=bootlin.com;
-	spf=pass (mail.galae.net: domain of "netdev+bounces-341920-maxime.chevallier=bootlin.com@vger.kernel.org" designates 172.234.253.10 as permitted sender) smtp.mailfrom="netdev+bounces-341920-maxime.chevallier=bootlin.com@vger.kernel.org"
-ARC-Seal: i=2; s=dkim; d=bootlin.com; t=1791300538; a=rsa-sha256; cv=pass;
-	b=qv/SISiv0tGqso7hppWQA31en0i4AR8GyHfCET6LQZmEcYrza2eXpu4/lfGZ8z0UBkz/dL
-	pK3bh7gK+ZhU4CEL8dd18/7/qTt/ESE0BrRlj8pstSDkZAzYSqtfrAIOQUxUJ12V48Spcq
-	Hngo6UqFG0QCKfX80GNqFAK/PQRTKq2SrUaZcuLszqxb4cAq3Xf5FLiO+cRlFiqeziQied
-	1hsS4JhV3BW5F7wdkyMJ1oq0Da9ZNSe26Jh533eqZOSt5+l78j1aDJvBdNHYcAjsHH9CXj
-	UwiyABcN6etN/yq0ot/HAD0sS1lyOGe+lCPn1/sGeBA2cb6hLAvyGtK0eK/eAQ==
-Received: from sea.lore.kernel.org (sea.lore.kernel.org [172.234.253.10])
-	by smtpin-01.galae.net (Postfix) with ESMTPS id 440793422A5
-	for <maxime.chevallier@bootlin.com>; Tue,  6 Oct 2026 15:28:57 +0000 (UTC)
-Received: from smtp.subspace.kernel.org (conduit.subspace.kernel.org [100.90.174.1])
-	by sea.lore.kernel.org (Postfix) with ESMTP id EEC7F3649B
-	for <maxime.chevallier@bootlin.com>; Tue,  6 Oct 2026 15:28:27 +0000 (UTC)
-Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7A78449C4BC;
-	Tue,  6 Oct 2026 15:28:27 +0000 (UTC)
-X-Original-To: netdev@vger.kernel.org
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37B4C37FF46
-	for <netdev@vger.kernel.org>; Tue,  6 Oct 2026 15:28:22 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.client-ip=185.246.84.56
-ARC-Seal:i=1; a=rsa-sha256; d=subspace.kernel.org; s=arc-20240116;
-	t=1791300506; cv=none; b=arMcdVOSW15zNQ3vkOmoyrUvKoXy0PO7xkYrYpDwKuZ4zWMwUN62UGRJX3nJ6yEHcJusfpMpY4KJKvtjplt1l2tSD1ViXPNQ0IvT2apBzPIlCd9UnIdYnrLFNiEgLKtx1IW6DGHLveBIVP8dDyrm9cxzPe0+hfckwvHlbdEtG1U=
-ARC-Message-Signature:i=1; a=rsa-sha256; d=subspace.kernel.org;
-	s=arc-20240116; t=1791300506; c=relaxed/simple;
-	bh=BLd0ZSi6AYEzF6Z1S6jhxHqmJ/tVEdxhmTaij18Onuw=;
-	h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type; b=kWCa6zpHVMy0iAqM+E1I05yfiARTt2E8xyA/3JZckud2PtBLESoHrGpkyD2U4PSAcq6WnFFkoc9z4nEK62VjfhLZqKWc9y+Q7ptfpR5k0CCtp+dnHjcUTbPrkM0bHKSmjHYu2TEM6fhlhgKuGDQ9aSqUsI2ndohrbyw2WDBGH0E=
-ARC-Authentication-Results:i=1; smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com; spf=pass smtp.mailfrom=bootlin.com; dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.b=Zge95CWJ; arc=none smtp.client-ip=185.246.84.56
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 457331A114B;
-	Tue,  6 Oct 2026 15:28:21 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1708E60553;
-	Tue,  6 Oct 2026 15:28:21 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A148B103303AB;
-	Tue,  6 Oct 2026 17:28:06 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1791300495; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=BLd0ZSi6AYEzF6Z1S6jhxHqmJ/tVEdxhmTaij18Onuw=;
-	b=Zge95CWJorrmzM4yUowmuOkxRgpEyfxGYa2/sfKipV7dd+RjsKMy/oaGCJ/mVs5Pzo0eEF
-	QAvqalpkxByxwJKXE5vyKH5kFSUwYu2xwYqM4H22Gg37EqMoVQPaCoVQg1pwSTO1lx6V/3
-	Vlba435uh1H4ftEgJSuP+lH4zK400PqocG4hEyzBxYsnoXtQg5EHCs8c/6zB6t0Ce/IzsS
-	zc24HAe/gkebKe8qWRsgGTXAIxZzqeo6jh5cRaaxVEC8RvbhI9cXK0HSSF2/J6ZyylYtTw
-	sQGayXcUHQwmPGI2afJ4QcT9d7FjSH/TXieM2eordIciOwm0Sdwh2ldqsJ84dg==
-Message-ID: <72e19e46-3a14-4a07-9b50-01e5480bf1a3@bootlin.com>
-Date: Tue, 6 Oct 2026 17:28:05 +0200
-Precedence: bulk
-X-Mailing-List: netdev@vger.kernel.org
-List-Id: <netdev.vger.kernel.org>
-List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
-List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3] net: stmmac: propagate PTP addend and system time
- programming errors
-To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
- Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Jose Abreu <Jose.Abreu@synopsys.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Drew Fustini <fustini@kernel.org>,
- Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org
-References: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
- <dy5xfj3754wnp3gh2kpoyf3vpx3vfsfhblgbwbwsgts27xqxga@dzb33gt3zgca>
- <asQcQIh56MV1OJur@lore-desk>
- <CAEev2e8+fr1tJnSErD+2TtLDw5fGJbQOMcM5eefMnLyFUR+m7w@mail.gmail.com>
- <asSb3RNcityVg6ia@lore-desk>
- <CAEev2e8c6hZQQom6NV-URgdSoWiafCcRR3BtA6yxxqy7T-me8g@mail.gmail.com>
- <asUGoxyJWVcsYBWG@lore-desk>
- <CAEev2e_+Dcj60Rj2+_UD=3_kNQxLK4rmWTGK-dr-Ve9mGJBARg@mail.gmail.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <CAEev2e_+Dcj60Rj2+_UD=3_kNQxLK4rmWTGK-dr-Ve9mGJBARg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-Last-TLS-Session-Version: TLSv1.3
-X-Spamd-Result: default: False [-5.59 / 30.00];
-	BAYES_HAM(-3.51)[94.55%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	IP_REPUTATION_HAM(-1.41)[asn: 63949(-0.40), country: SG(-0.01), ip: 172.234.253.10(-1.00)];
-	ARC_ALLOW(-1.00)[subspace.kernel.org:s=arc-20240116:i=1];
-	DMARC_POLICY_ALLOW(-0.50)[bootlin.com,reject];
-	R_DKIM_ALLOW(-0.20)[bootlin.com:s=dkim];
-	R_SPF_ALLOW(-0.20)[+ip4:172.234.253.10:c];
-	MAILLIST(-0.15)[generic];
-	MIME_GOOD(-0.10)[text/plain];
-	HAS_LIST_UNSUB(-0.01)[];
-	MX_GOOD(-0.01)[];
-	RCVD_TLS_LAST(0.00)[];
-	TAGGED_FROM(0.00)[bounces-341920-maxime.chevallier=bootlin.com];
-	URIBL_BLOCKED(0.00)[bootlin.com:mid,bootlin.com:dkim,sea.lore.kernel.org:helo,sea.lore.kernel.org:rdns];
-	RECEIVED_HELO_LOCALHOST(0.00)[];
-	FORGED_SENDER_MAILLIST(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[17];
-	MAILCOW_DOMAIN_HEADER_FROM(0.00)[bootlin.com];
-	TO_DN_SOME(0.00)[];
-	BCC(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_MAILCOW_DOMAIN(0.00)[bootlin.com];
-	RBL_SENDERSCORE_REPUT_BLOCKED(0.00)[172.234.253.10:from];
-	ARC_SIGNED(0.00)[bootlin.com:s=dkim:i=2];
-	DNSWL_BLOCKED(0.00)[172.234.253.10:from,185.246.84.56:received,212.83.136.155:received,212.83.139.233:received,100.90.174.1:received];
-	NEURAL_HAM(-0.00)[-1.000];
-	MID_RHS_MATCH_FROM(0.00)[];
-	PRECEDENCE_BULK(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FROM_NEQ_ENVFROM(0.00)[maxime.chevallier@bootlin.com,netdev@vger.kernel.org];
-	FREEMAIL_CC(0.00)[lunn.ch,davemloft.net,kernel.org,redhat.com,gmail.com,foss.st.com,synopsys.com,vger.kernel.org,st-md-mailman.stormreply.com,lists.infradead.org];
-	DWL_DNSWL_BLOCKED(0.00)[bootlin.com:dkim];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DKIM_TRACE(0.00)[bootlin.com:+];
-	TAGGED_RCPT(0.00)[netdev];
-	FORGED_RECIPIENTS_MAILLIST(0.00)[];
-	EXTERNAL_RELAY_AUTHENTICATED(0.00)[];
-	ASN(0.00)[asn:63949, ipnet:172.234.224.0/19, country:SG];
-	RCVD_COUNT_SEVEN(0.00)[7]
-X-Rspamd-Queue-Id: D8F12103308C0
+>   * Function graph tracing: the old RISC-V unwinder matched function
+>     graph return-stack entries by the saved return-address slot. That
+>     was consistent with the static mcount path, but not with the dynamic
+>     ftrace path where the parent slot is ftrace_regs::ra. Use the
+>     architectural frame pointer as the function graph return-address
+>     cookie, matching the kunwind walker.
 
-Hi,
+>   * Perf callchains: route kernel callchain collection through
+>     arch_stack_walk() so perf sees the same frame-pointer unwind
+>     behaviour as dump_stack() and the upcoming livepatch path.
 
-On 10/6/26 17:12, Anirudh Srinivasan wrote:
+>   * dump_backtrace() / __get_wchan() / show_stack(): these now go
+>     through arch_stack_walk(); the explicit "Call Trace:" header is
+>     moved into dump_backtrace() to preserve the original output.
 
-> Maybe someone more familiar with this board/has used PTP on it before
-> can help out understanding why this is happening. Maybe this is some
-> issue to do with clocks.
+> The non-frame-pointer fallback walker is kept untouched for
+> !CONFIG_FRAME_POINTER builds.
 
-Good point, can you give us the full dmesg log of the board booting ?
+> Assisted-by: Qoder:Qwen-3.8-MAX-Preview
+> Signed-off-by: Wang Han <wanghan@linux.alibaba.com>
+> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
+> ---
+>  arch/riscv/kernel/ftrace.c         |   6 +-
+>  arch/riscv/kernel/perf_callchain.c |   2 +-
+>  arch/riscv/kernel/stacktrace.c     | 561 ++++++++++++++++++++++++-----
+>  3 files changed, 473 insertions(+), 96 deletions(-)
 
-Maxime
+> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+> index be8b685144174..0facd824c911d 100644
+> --- a/arch/riscv/kernel/ftrace.c
+> +++ b/arch/riscv/kernel/ftrace.c
+> @@ -245,7 +245,8 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr,
+>  	 */
+>  	old = *parent;
+
+> -	if (!function_graph_enter(old, self_addr, frame_pointer, parent))
+> +	if (!function_graph_enter(old, self_addr, frame_pointer,
+> +				  (void *)frame_pointer))
+>  		*parent = return_hooker;
+>  }
+
+> @@ -267,7 +268,8 @@ void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
+>  	 */
+>  	old = *parent;
+
+> -	if (!function_graph_enter_regs(old, ip, frame_pointer, parent, fregs))
+> +	if (!function_graph_enter_regs(old, ip, frame_pointer,
+> +				       (void *)frame_pointer, fregs))
+>  		*parent = return_hooker;
+>  }
 
 
+Are these two changes fixing a bug in the current code (that is independent
+from the rest of this patch)?
+
+Without your changes, function_graph_enter_regs writes a struct ftrace_ret_stack
+with retp == the saved ra.
+
+And the only place where retp is fetched and checked is 
+
+function_get_true_parent_ip
+   ftrace_graph_ret_addr(..., (uintptr_t *)ftrace_regs_get_stack_pointer(fregs));
+
+The stored retp is checked against the stack pointer.
+
+Your changes store fp instead of ra, this seems the right thing to do. (And
+it's in line with other archs.)
+
+Should those two changes be in a separate patch (that can be backported to
+stable kernels)?
+
+Thanks,
+Martin
+
+
+>  #endif /* CONFIG_DYNAMIC_FTRACE */
+> diff --git a/arch/riscv/kernel/perf_callchain.c b/arch/riscv/kernel/perf_callchain.c
+> index b465bc9eb870e..436af96ea59ca 100644
+> --- a/arch/riscv/kernel/perf_callchain.c
+> +++ b/arch/riscv/kernel/perf_callchain.c
+> @@ -44,5 +44,5 @@ void perf_callchain_kernel(struct perf_callchain_entry_ctx *entry,
+>  		return;
+>  	}
+
+> -	walk_stackframe(NULL, regs, fill_callchain, entry);
+> +	arch_stack_walk(fill_callchain, entry, NULL, regs);
+>  }
+> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+> index c7555447149bf..0ce0cf0da6060 100644
+> --- a/arch/riscv/kernel/stacktrace.c
+> +++ b/arch/riscv/kernel/stacktrace.c
+> @@ -11,98 +11,16 @@
+>  #include <linux/sched/task_stack.h>
+>  #include <linux/stacktrace.h>
+>  #include <linux/ftrace.h>
+> +#include <linux/kprobes.h>
+> +#include <linux/llist.h>
+
+>  #include <asm/stacktrace.h>
+
+> -#ifdef CONFIG_FRAME_POINTER
+> -
+>  /*
+> - * This disables KASAN checking when reading a value from another task's stack,
+> - * since the other task could be running on another CPU and could have poisoned
+> - * the stack in the meantime.
+> + * Non-frame-pointer fallback unwinder.
+> + * Only compiled when CONFIG_FRAME_POINTER is not enabled.
+>   */
+> -#define READ_ONCE_TASK_STACK(task, x)			\
+> -({							\
+> -	unsigned long val;				\
+> -	unsigned long addr = x;				\
+> -	if ((task) == current)				\
+> -		val = READ_ONCE(addr);			\
+> -	else						\
+> -		val = READ_ONCE_NOCHECK(addr);		\
+> -	val;						\
+> -})
+> -
+> -extern asmlinkage void handle_exception(void);
+> -extern unsigned long ret_from_exception_end;
+> -
+> -static inline int fp_is_valid(unsigned long fp, unsigned long sp)
+> -{
+> -	unsigned long low, high;
+> -
+> -	low = sp + sizeof(struct stackframe);
+> -	high = ALIGN(sp, THREAD_SIZE);
+> -
+> -	return !(fp < low || fp > high || fp & 0x07);
+> -}
+> -
+> -void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+> -			     bool (*fn)(void *, unsigned long), void *arg)
+> -{
+> -	unsigned long fp, sp, pc;
+> -	int graph_idx = 0;
+> -	int level = 0;
+> -
+> -	if (regs) {
+> -		fp = frame_pointer(regs);
+> -		sp = user_stack_pointer(regs);
+> -		pc = instruction_pointer(regs);
+> -	} else if (task == NULL || task == current) {
+> -		fp = (unsigned long)__builtin_frame_address(0);
+> -		sp = current_stack_pointer;
+> -		pc = (unsigned long)walk_stackframe;
+> -		level = -1;
+> -	} else {
+> -		/* task blocked in __switch_to */
+> -		fp = task->thread.s[0];
+> -		sp = task->thread.sp;
+> -		pc = task->thread.ra;
+> -	}
+> -
+> -	for (;;) {
+> -		struct stackframe *frame;
+> -
+> -		if (unlikely(!__kernel_text_address(pc) || (level++ >= 0 && !fn(arg, pc))))
+> -			break;
+> -
+> -		if (unlikely(!fp_is_valid(fp, sp)))
+> -			break;
+> -
+> -		/* Unwind stack frame */
+> -		frame = (struct stackframe *)fp - 1;
+> -		sp = fp;
+> -		if (regs && (regs->epc == pc) && fp_is_valid(frame->ra, sp)) {
+> -			/* We hit function where ra is not saved on the stack */
+> -			fp = frame->ra;
+> -			pc = regs->ra;
+> -		} else {
+> -			fp = READ_ONCE_TASK_STACK(task, frame->fp);
+> -			pc = READ_ONCE_TASK_STACK(task, frame->ra);
+> -			pc = ftrace_graph_ret_addr(task, &graph_idx, pc,
+> -						   &frame->ra);
+> -			if (pc >= (unsigned long)handle_exception &&
+> -			    pc < (unsigned long)&ret_from_exception_end) {
+> -				if (unlikely(!fn(arg, pc)))
+> -					break;
+> -
+> -				pc = ((struct pt_regs *)sp)->epc;
+> -				fp = ((struct pt_regs *)sp)->s0;
+> -			}
+> -		}
+> -
+> -	}
+> -}
+> -
+> -#else /* !CONFIG_FRAME_POINTER */
+> +#ifndef CONFIG_FRAME_POINTER
+
+>  void notrace walk_stackframe(struct task_struct *task,
+>  	struct pt_regs *regs, bool (*fn)(void *, unsigned long), void *arg)
+> @@ -133,7 +51,12 @@ void notrace walk_stackframe(struct task_struct *task,
+>  	}
+>  }
+
+> -#endif /* CONFIG_FRAME_POINTER */
+> +#endif /* !CONFIG_FRAME_POINTER */
+> +
+> +/*
+> + * Common trace helpers.
+> + * These are used by both the FP (kunwind) and non-FP (walk_stackframe) paths.
+> + */
+
+>  static bool print_trace_address(void *arg, unsigned long pc)
+>  {
+> @@ -146,12 +69,12 @@ static bool print_trace_address(void *arg, unsigned long pc)
+>  noinline void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+>  		    const char *loglvl)
+>  {
+> -	walk_stackframe(task, regs, print_trace_address, (void *)loglvl);
+> +	printk("%sCall Trace:\n", loglvl);
+> +	arch_stack_walk(print_trace_address, (void *)loglvl, task, regs);
+>  }
+
+>  void show_stack(struct task_struct *task, unsigned long *sp, const char *loglvl)
+>  {
+> -	pr_cont("%sCall Trace:\n", loglvl);
+>  	dump_backtrace(NULL, task, loglvl);
+>  }
+
+> @@ -171,17 +94,469 @@ unsigned long __get_wchan(struct task_struct *task)
+
+>  	if (!try_get_task_stack(task))
+>  		return 0;
+> -	walk_stackframe(task, NULL, save_wchan, &pc);
+> +	arch_stack_walk(save_wchan, &pc, task, NULL);
+>  	put_task_stack(task);
+>  	return pc;
+>  }
+
+> -noinline noinstr void arch_stack_walk(stack_trace_consume_fn consume_entry, void *cookie,
+> -		     struct task_struct *task, struct pt_regs *regs)
+> +/*
+> + * Frame-pointer-based kernel unwind infrastructure.
+> + * Only compiled when CONFIG_FRAME_POINTER is enabled.
+> + *
+> + * See: arch/arm64/kernel/stacktrace.c for the reference implementation.
+> + */
+> +#ifdef CONFIG_FRAME_POINTER
+> +
+> +/*
+> + * Per-cpu stacks are only accessible when unwinding the current task in a
+> + * non-preemptible context.
+> + */
+> +#define STACKINFO_CPU(task, name)				\
+> +	({							\
+> +		(((task) == current) && !preemptible())		\
+> +			? stackinfo_get_##name()		\
+> +			: stackinfo_get_unknown();		\
+> +	})
+> +
+> +enum kunwind_source {
+> +	KUNWIND_SOURCE_UNKNOWN,
+> +	KUNWIND_SOURCE_FRAME,
+> +	KUNWIND_SOURCE_CALLER,
+> +	KUNWIND_SOURCE_TASK,
+> +	KUNWIND_SOURCE_REGS_PC,
+> +};
+> +
+> +union unwind_flags {
+> +	unsigned long	all;
+> +	struct {
+> +		unsigned long	fgraph : 1,
+> +				kretprobe : 1;
+> +	};
+> +};
+> +
+> +/*
+> + * Kernel unwind state
+> + *
+> + * @common:    Common unwind state.
+> + * @task:      The task being unwound.
+> + * @graph_idx: Used by ftrace_graph_ret_addr() for optimized stack unwinding.
+> + * @kr_cur:    When KRETPROBES is selected, holds the kretprobe instance
+> + *             associated with the most recently encountered replacement ra
+> + *             value.
+> + */
+> +struct kunwind_state {
+> +	struct unwind_state common;
+> +	struct task_struct *task;
+> +	int graph_idx;
+> +#ifdef CONFIG_KRETPROBES
+> +	struct llist_node *kr_cur;
+> +#endif
+> +	enum kunwind_source source;
+> +	union unwind_flags flags;
+> +	struct pt_regs *regs;
+> +};
+> +
+> +static __always_inline void
+> +kunwind_init(struct kunwind_state *state,
+> +	     struct task_struct *task)
+> +{
+> +	unwind_init_common(&state->common);
+> +	state->task = task;
+> +	state->source = KUNWIND_SOURCE_UNKNOWN;
+> +	state->flags.all = 0;
+> +	state->regs = NULL;
+> +}
+> +
+> +/*
+> + * Start an unwind from a pt_regs.
+> + *
+> + * The unwind will begin at the PC within the regs.
+> + *
+> + * The regs must be on a stack currently owned by the calling task.
+> + */
+> +static __always_inline void
+> +kunwind_init_from_regs(struct kunwind_state *state,
+> +		       struct pt_regs *regs)
+> +{
+> +	kunwind_init(state, current);
+> +
+> +	state->regs = regs;
+> +	state->common.fp = frame_pointer(regs);
+> +	state->common.pc = instruction_pointer(regs);
+> +	state->source = KUNWIND_SOURCE_REGS_PC;
+> +}
+> +
+> +/*
+> + * Start an unwind from a caller.
+> + *
+> + * The unwind will begin at the caller of whichever function this is inlined
+> + * into.
+> + *
+> + * The function which invokes this must be noinline.
+> + */
+> +static __always_inline void
+> +kunwind_init_from_caller(struct kunwind_state *state)
+> +{
+> +	unsigned long fp = (unsigned long)__builtin_frame_address(0);
+> +	struct frame_record *record = (struct frame_record *)fp - 1;
+> +
+> +	kunwind_init(state, current);
+> +
+> +	state->common.fp = READ_ONCE(record->fp);
+> +	state->common.pc = READ_ONCE(record->ra);
+> +	state->source = KUNWIND_SOURCE_CALLER;
+> +}
+> +
+> +/*
+> + * Start an unwind from a blocked task.
+> + *
+> + * The unwind will begin at the blocked task's saved PC (i.e. the caller of
+> + * __switch_to).
+> + *
+> + * The caller should ensure the task is blocked in __switch_to for the
+> + * duration of the unwind, or the unwind will be bogus. It is never valid to
+> + * call this for the current task.
+> + */
+> +static __always_inline void
+> +kunwind_init_from_task(struct kunwind_state *state,
+> +		       struct task_struct *task)
+> +{
+> +	kunwind_init(state, task);
+> +
+> +	state->common.fp = task->thread.s[0];
+> +	state->common.pc = task->thread.ra;
+> +	state->source = KUNWIND_SOURCE_TASK;
+> +}
+> +
+> +static __always_inline int
+> +kunwind_recover_return_address(struct kunwind_state *state)
+> +{
+> +#ifdef CONFIG_FUNCTION_GRAPH_TRACER
+> +	if (state->task->ret_stack &&
+> +	    state->common.pc == (unsigned long)return_to_handler) {
+> +		unsigned long orig_pc;
+> +
+> +		orig_pc = ftrace_graph_ret_addr(state->task, &state->graph_idx,
+> +						state->common.pc,
+> +						(void *)state->common.fp);
+> +		if (state->common.pc == orig_pc) {
+> +			WARN_ON_ONCE(state->task == current);
+> +			return -EINVAL;
+> +		}
+> +		state->common.pc = orig_pc;
+> +		state->flags.fgraph = 1;
+> +	}
+> +#endif /* CONFIG_FUNCTION_GRAPH_TRACER */
+> +
+> +#ifdef CONFIG_KRETPROBES
+> +	if (is_kretprobe_trampoline(state->common.pc)) {
+> +		unsigned long orig_pc;
+> +
+> +		orig_pc = kretprobe_find_ret_addr(state->task,
+> +						  (void *)state->common.fp,
+> +						  &state->kr_cur);
+> +		if (!orig_pc)
+> +			return -EINVAL;
+> +		state->common.pc = orig_pc;
+> +		state->flags.kretprobe = 1;
+> +	}
+> +#endif /* CONFIG_KRETPROBES */
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * When we reach an exception boundary marked by a metadata frame record,
+> + * extract pt_regs from the stack and continue unwinding from the saved
+> + * context (epc and s0/fp).
+> + *
+> + * On RISC-V, fp points above the metadata record, so the record's
+> + * frame_record portion is at fp - sizeof(struct frame_record).
+> + */
+> +static __always_inline int
+> +kunwind_next_regs_pc(struct kunwind_state *state)
+> +{
+> +	struct stack_info *info;
+> +	unsigned long fp = state->common.fp;
+> +	struct pt_regs *regs;
+> +
+> +	regs = container_of((unsigned long *)(fp - sizeof(struct frame_record)),
+> +			    struct pt_regs, stackframe.record.fp);
+> +
+> +	info = unwind_find_stack(&state->common, (unsigned long)regs,
+> +				 sizeof(*regs));
+> +	if (!info)
+> +		return -EINVAL;
+> +
+> +	unwind_consume_stack(&state->common, info, (unsigned long)regs,
+> +			     sizeof(*regs));
+> +
+> +	state->regs = regs;
+> +	state->common.pc = regs->epc;
+> +	state->common.fp = frame_pointer(regs);
+> +	state->source = KUNWIND_SOURCE_REGS_PC;
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Handle a metadata frame record embedded in pt_regs.
+> + *
+> + * On RISC-V, fp points above the record (fp = metadata + 16), so the
+> + * frame_record_meta starts at fp - sizeof(struct frame_record).
+> + *
+> + * FRAME_META_TYPE_FINAL: This is the outermost exception entry
+> + *   (user -> kernel). Unwinding terminates successfully.
+> + * FRAME_META_TYPE_PT_REGS: This is a nested exception entry
+> + *   (kernel -> kernel). Continue unwinding from the saved context.
+> + */
+> +static __always_inline int
+> +kunwind_next_frame_record_meta(struct kunwind_state *state)
+> +{
+> +	struct task_struct *tsk = state->task;
+> +	unsigned long fp = state->common.fp;
+> +	unsigned long meta_base = fp - sizeof(struct frame_record);
+> +	struct frame_record_meta *meta;
+> +	struct stack_info *info;
+> +
+> +	info = unwind_find_stack(&state->common, meta_base, sizeof(*meta));
+> +	if (!info)
+> +		return -EINVAL;
+> +
+> +	meta = (struct frame_record_meta *)meta_base;
+> +	switch (READ_ONCE(meta->type)) {
+> +	case FRAME_META_TYPE_FINAL:
+> +		if (meta == &task_pt_regs(tsk)->stackframe)
+> +			return -ENOENT;
+> +		WARN_ON_ONCE(tsk == current);
+> +		return -EINVAL;
+> +	case FRAME_META_TYPE_PT_REGS:
+> +		return kunwind_next_regs_pc(state);
+> +	default:
+> +		WARN_ON_ONCE(tsk == current);
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+> +/*
+> + * Unwind from one frame record to the next.
+> + *
+> + * On RISC-V, the frame record sits at fp - sizeof(struct frame_record),
+> + * immediately below the address pointed to by fp/s0. This applies to both
+> + * normal frame records and metadata frame records (embedded in pt_regs).
+> + *
+> + * A metadata record is identified by both fp and ra being zero in the
+> + * frame_record portion, with a type value following at fp + 16.
+> + */
+> +static __always_inline int
+> +kunwind_next_frame_record(struct kunwind_state *state)
+> +{
+> +	unsigned long fp = state->common.fp;
+> +	struct frame_record *record;
+> +	struct stack_info *info;
+> +	unsigned long new_fp, new_pc;
+> +	unsigned long record_base;
+> +
+> +	if (fp & 0x7)
+> +		return -EINVAL;
+> +
+> +	record_base = fp - sizeof(*record);
+> +
+> +	info = unwind_find_stack(&state->common, record_base, sizeof(*record));
+> +	if (!info)
+> +		return -EINVAL;
+> +
+> +	record = (struct frame_record *)record_base;
+> +	new_fp = READ_ONCE(record->fp);
+> +	new_pc = READ_ONCE(record->ra);
+> +
+> +	if (!new_fp && !new_pc)
+> +		return kunwind_next_frame_record_meta(state);
+> +
+> +	unwind_consume_stack(&state->common, info, record_base,
+> +			     sizeof(*record));
+> +
+> +	state->common.fp = new_fp;
+> +	state->common.pc = new_pc;
+> +	state->source = KUNWIND_SOURCE_FRAME;
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Unwind from one frame record (A) to the next frame record (B).
+> + *
+> + * We terminate early if the location of B indicates a malformed chain of frame
+> + * records (e.g. a cycle), determined based on the location and fp value of A
+> + * and the location (but not the fp value) of B.
+> + */
+> +static __always_inline int
+> +kunwind_next(struct kunwind_state *state)
+> +{
+> +	int err;
+> +
+> +	state->flags.all = 0;
+> +
+> +	switch (state->source) {
+> +	case KUNWIND_SOURCE_FRAME:
+> +	case KUNWIND_SOURCE_CALLER:
+> +	case KUNWIND_SOURCE_TASK:
+> +	case KUNWIND_SOURCE_REGS_PC:
+> +		err = kunwind_next_frame_record(state);
+> +		break;
+> +	default:
+> +		err = -EINVAL;
+> +	}
+> +
+> +	if (err)
+> +		return err;
+> +
+> +	return kunwind_recover_return_address(state);
+> +}
+> +
+> +typedef bool (*kunwind_consume_fn)(const struct kunwind_state *state, void *cookie);
+> +
+> +static __always_inline int
+> +do_kunwind(struct kunwind_state *state, kunwind_consume_fn consume_state,
+> +	   void *cookie)
+> +{
+> +	int ret;
+> +
+> +	ret = kunwind_recover_return_address(state);
+> +	if (ret)
+> +		return ret;
+> +
+> +	while (1) {
+> +		if (!consume_state(state, cookie))
+> +			return -EINVAL;
+> +		ret = kunwind_next(state);
+> +		if (ret == -ENOENT)
+> +			return 0;
+> +		if (ret < 0)
+> +			return ret;
+> +	}
+> +}
+> +
+> +static __always_inline int
+> +kunwind_stack_walk(kunwind_consume_fn consume_state,
+> +		   void *cookie, struct task_struct *task,
+> +		   struct pt_regs *regs)
+> +{
+> +	struct task_struct *tsk = task ?: current;
+> +	struct stack_info stacks[] = {
+> +		stackinfo_get_task(tsk),
+> +#ifdef CONFIG_IRQ_STACKS
+> +		STACKINFO_CPU(tsk, irq),
+> +#endif
+> +#ifdef CONFIG_VMAP_STACK
+> +		STACKINFO_CPU(tsk, overflow),
+> +#endif
+> +	};
+> +	struct kunwind_state state = {
+> +		.common = {
+> +			.stacks = stacks,
+> +			.nr_stacks = ARRAY_SIZE(stacks),
+> +		},
+> +	};
+> +
+> +	if (regs) {
+> +		if (tsk != current)
+> +			return -EINVAL;
+> +		kunwind_init_from_regs(&state, regs);
+> +	} else if (tsk == current) {
+> +		kunwind_init_from_caller(&state);
+> +	} else {
+> +		kunwind_init_from_task(&state, tsk);
+> +	}
+> +
+> +	return do_kunwind(&state, consume_state, cookie);
+> +}
+> +
+> +struct kunwind_consume_entry_data {
+> +	stack_trace_consume_fn consume_entry;
+> +	void *cookie;
+> +};
+> +
+> +static __always_inline bool
+> +arch_kunwind_consume_entry(const struct kunwind_state *state, void *cookie)
+> +{
+> +	struct kunwind_consume_entry_data *data = cookie;
+> +
+> +	return data->consume_entry(data->cookie, state->common.pc);
+> +}
+> +
+> +static __always_inline bool
+> +arch_reliable_kunwind_consume_entry(const struct kunwind_state *state, void *cookie)
+> +{
+> +	/*
+> +	 * At an exception boundary we can reliably consume the saved PC. We do
+> +	 * not know whether ra was live when the exception was taken, and
+> +	 * so we cannot perform the next unwind step reliably.
+> +	 *
+> +	 * All that matters is whether the *entire* unwind is reliable, so give
+> +	 * up as soon as we hit an exception boundary.
+> +	 */
+> +	if (state->source == KUNWIND_SOURCE_REGS_PC)
+> +		return false;
+> +
+> +	return arch_kunwind_consume_entry(state, cookie);
+> +}
+> +
+> +#endif /* CONFIG_FRAME_POINTER */
+> +
+> +/*
+> + * arch_stack_walk - dual implementation.
+> + *
+> + * When CONFIG_FRAME_POINTER is enabled, uses the kunwind infrastructure for
+> + * robust frame-pointer-based unwinding, consistent with arch_stack_walk_reliable.
+> + *
+> + * When CONFIG_FRAME_POINTER is disabled, falls back to the simple stack scan
+> + * in walk_stackframe().
+> + */
+> +#ifdef CONFIG_FRAME_POINTER
+> +
+> +noinline noinstr void arch_stack_walk(stack_trace_consume_fn consume_entry,
+> +				      void *cookie, struct task_struct *task,
+> +				      struct pt_regs *regs)
+> +{
+> +	struct kunwind_consume_entry_data data = {
+> +		.consume_entry = consume_entry,
+> +		.cookie = cookie,
+> +	};
+> +
+> +	kunwind_stack_walk(arch_kunwind_consume_entry, &data, task, regs);
+> +}
+> +
+> +#else
+> +
+> +noinline noinstr void arch_stack_walk(stack_trace_consume_fn consume_entry,
+> +				      void *cookie, struct task_struct *task,
+> +				      struct pt_regs *regs)
+>  {
+>  	walk_stackframe(task, regs, consume_entry, cookie);
+>  }
+
+> +#endif /* CONFIG_FRAME_POINTER */
+> +
+> +/*
+> + * Reliable stack walk for livepatch (CONFIG_FRAME_POINTER only).
+> + */
+> +#ifdef CONFIG_FRAME_POINTER
+> +
+> +noinline noinstr int arch_stack_walk_reliable(stack_trace_consume_fn consume_entry,
+> +					      void *cookie,
+> +					      struct task_struct *task)
+> +{
+> +	struct kunwind_consume_entry_data data = {
+> +		.consume_entry = consume_entry,
+> +		.cookie = cookie,
+> +	};
+> +
+> +	return kunwind_stack_walk(arch_reliable_kunwind_consume_entry, &data,
+> +				  task, NULL);
+> +}
+> +
+> +#endif /* CONFIG_FRAME_POINTER */
+> +
+>  /*
+>   * Get the return address for a single stackframe and return a pointer to the
+>   * next frame tail.
+> -- 
+> 2.39.3
+
+
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
