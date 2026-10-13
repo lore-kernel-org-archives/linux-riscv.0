@@ -4,110 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 780D5CC6B08
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 09:06:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C8FCC6B08
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 09:32:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J6B1PxXwwrLDVnf4ytLjmjRQVQH1sAaHN4fbdyiWRiU=; b=qVZZ4YF+GwexJR
-	hNP//UOjkZMHLy7foG+TCY0Z3j59505ALTuom5r9nRtErJLibuj273sSQE9/HcjYX5DtocTVrhVly
-	HjcWa7ZuHhl+I8hzqisGCn9tDSVAu6bkrff5aqmVuSH6kBxyNBykzcd/DZZQYJCdlOEbr198crTDy
-	xJn/KeU6Z5mD3yRxWNrruFxRi1hJvF7Q8E2Tv/NMyfbKl39qhi7Ja6KRHMGW9vmY0E0R7AxYgbmjM
-	TVwHL2f7GMSrM383cz5YZB2+0qxxsw1BF8+LX8KJ+2QDjMDFTCaY4h6zMo7pWv2aZz5SoQQvPDI53
-	NUx16Qbe5TeV8NCKDArg==;
+	List-Owner; bh=ENur2I8ZB6donc+XQ+onAKg5rXRhdllwLFMJ72aA8mI=; b=bgdYNtF6l62KdD
+	9W271jdoUkmaRKYjy6Kz/iFdM9AaFnwJMGhZubrJrZLvlvPesnkCaRfsEcy0QgBSZWs9pNTvSivw+
+	npI9CHoHry+l6tqiF/2KdQg84ptfvHZclLHluw4rpNwGnW2DtutUK0sUup8psnMqjXPBRsMLaIH+9
+	YpmAa3iv7+goNl3ymIpqFVIGzrVibT9iMOdtUILLhIGeL3oPjg5x6s7MlXS3KNCIfocSwDvo1C0Yb
+	5OfThRMNcHiMDholNS64zMxdeQV5Oz4QLTu5rHxZIV5ZeJAmz+GiDFUfrerEnzi/bLcT98NwYzCBv
+	DCGoSqH2dStAeKC0+vOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGYS1-0000000COn7-3SEb;
-	Tue, 13 Oct 2026 09:05:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGYRz-0000000COmJ-49XF
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 13 Oct 2026 09:05:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=iZjRkbq5W/7t5bYSMSsHGWHFlPOzNbExBo1Z2x1DxZ0=; b=gOmtbQARZlf1Eqw7xA6deao/BM
-	V6U5xSpLKcXT/+kwlaVOIaRAztHGrGk1yG1snnxMk2lrAUOA66fBDJ0P8E5ha79KcuQhMWVcJ1RtZ
-	ybyXOT5lpIdCsqPCyJxlFHc6575ozwrOem2mtDpjDFBBaeDRxeyrLoGjMxUKscj7jsHQ/UNlgm9qD
-	fV5dHK9Yr9d0VytEi7nfiwHcWd4FIPGC02mL+RsWqTf8JrebGb8CO5QQobsKJ6sNjEuBOwGe7cupA
-	HkVwhWRkrSYtmwHB8JJWYdAxARlun8dgWnAZOGThTadicU+kzNY1uH34xH9zhPaqpWBjX+EP6qs9N
-	jSkbRgsA==;
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGYRu-0000000FJor-00oV
-	for linux-riscv@lists.infradead.org;
-	Tue, 13 Oct 2026 09:05:34 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-48af4d4e61fso1882921f8f.2
-        for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 02:05:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1791882328; x=1792487128; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iZjRkbq5W/7t5bYSMSsHGWHFlPOzNbExBo1Z2x1DxZ0=;
-        b=nCKaYiFb0ABMawkdI+exBYee88v/m0C7vEp5Mmpo3M12qvqUVi2WFh+v5OQ6A9poMd
-         oIG/FjbGLepihP3sDcgBP8bdZQJWhwvr9n3oyubgL7V+fwbp7B7FCelYNNwYFs7s75SH
-         0wC4uSBUB5rIniIfzRKhL5p6x3Mv0/o45o1XsRm+RbS7fyy26++njdvJBqyMoSn15Vwb
-         D1EIOI7TjtN+jocEBQmP+CuPBJelBh80bLQeaPUWVK0qoNHRiYKGWkKrdm6aYnFmCLsU
-         djewvV1XMly/z4th3ZvHKPpOxfdF/+WYuTBWY3JhzKyIr3+2amVUx4KHrf0wYJI/UnWk
-         h3jA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791882328; x=1792487128;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=iZjRkbq5W/7t5bYSMSsHGWHFlPOzNbExBo1Z2x1DxZ0=;
-        b=MLgP0DsKuOKo9omJMJao/+zvA4HzKgxwUy5TDkkzh8eQfcvrkEERKmEGVduLhB5nuJ
-         m2HWuFc+/G2etoOa8LTRdsxBeY4MAiFftWncELTml1tZ9MXIFjTUED9Qs6ng2okxkdWu
-         4YgwR98UBcUPXFOD18Po+WxsrPkk48b7yFM122etHPaYIT6JrEfiu9ktPbNLI3VSWTCD
-         kBy8NDTjTydVNUFccQ9lPSVfMcp6JuLq888hvlCu5j+1qd3tFkkRfoN62AXk0rE6iK4P
-         itiqbZyfJ6ED6KuP5MSHwtjoQ4vGimEA15dpYALH2EqvrcpZe4YwPO4NNHxxKPzryR43
-         jB3A==
-X-Forwarded-Encrypted: i=1; AKwUvBzvagTLsz9UjiF5zTA1qHBEFPDFeKElWd3NVGCUMx5utj6mDBubt/LTzhScIK8+ULb1zROJnos9OUxP0A==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJCDb3FcIxa9pmNqt1pdNG8YGSAD3+PU91GPy7HgyOg05y7g/cp
-	9IXhAR7dKlNk1JpoDjh818QmaZVGKu+ft9Qa8rOTjGSQ5gpV/YmLv/IVYHYSx/hxcig=
-X-Gm-Gg: AYBFou39xOd9q+xu9LKqN7m2DDwm8db4ZATT/dAhT7ZTjd5/yqAkrKgJlj/CFQPQCvH
-	MkEw8OAR8fb4MKDsJZbziY8fumElNmuTa/9K8WNM2840/J8ralBjs6zG/wikfAyVUV+XFcv5pk1
-	9pnB1c9jr5GK0hWyFQwSWDtLk7oxMDv5nsFXKUt/NUYPdHfJD5toTkB+UeWcPjGK98fpfwVVu+7
-	DW+zeLxJjAFZNcKip3fJ2xx+i9wxqS3gaHw8/w2TrseKw0xTWXKLxQWhtsDhZqmYWEGeexnPndx
-	F7vsBGmDLyiELij16zlyXE8je9Gk8bnrZTqPp3q5fHOdhR/SDOTYJj/jlFKR9RSuoyszxG2ohO3
-	76+rveXPM5pcE4O/6J/Ali48Y54ypxXckKfknYzhILUPo1iypkRH1fSaGCd9GCyQhZuHJHDz/m6
-	uZeao47p8iEFWSSu9RYZQndc4JiiUpMyI3cgG4Pe/YnD/2iH7bIyLDUgCab6O8i5xBOmtfODw/9
-	rOjDpa6FyJvHmU0zw==
-X-Received: by 2002:a05:6000:40e0:b0:48c:6a4d:3b67 with SMTP id ffacd0b85a97d-48dbaceb433mr22277898f8f.19.1791882328049;
-        Tue, 13 Oct 2026 02:05:28 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0ab6361sm3495503f8f.32.2026.10.13.02.05.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 02:05:27 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Brian Masney <bmasney@redhat.com>, Jerome Brunet
- <jbrunet+clk@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, "linux-clk@vger.kernel.org"
- <linux-clk@vger.kernel.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>, Hal Feng <hal.feng@starfivetech.com>
-Subject: Re: [PATCH v6 05/15] clk: starfive: Add JHB100 System-0 clock
- generator driver
-In-Reply-To: <ZQ4PR01MB1202DE124DED06ECEC948B89F29E2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-References: <20261008123338.11081-1-changhuang.liang@starfivetech.com>
- <20261008123338.11081-6-changhuang.liang@starfivetech.com>
- <179180050742.66744.1321848308971146208.b4-review@b4>
- <ZQ4PR01MB1202DE124DED06ECEC948B89F29E2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-Date: Tue, 13 Oct 2026 11:05:26 +0200
-Message-ID: <1jzewiezs9.fsf@starbuckisacylon.baylibre.com>
+	id 1xGYrG-0000000CQsG-2Hwi;
+	Tue, 13 Oct 2026 09:31:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGYrB-0000000CQr4-0WwK;
+	Tue, 13 Oct 2026 09:31:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2FC98169C;
+	Tue, 13 Oct 2026 02:31:32 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0B4C3F7B4;
+	Tue, 13 Oct 2026 02:31:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791883895; bh=OqA21yJGURWr+fHR8OGWuJePl6Or9B4i9mUbbo2HePw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KFN/JucfaG6tVijFPqugjqklOhToK3tk/lGovkOGhrU5S8A/hBH3mHfEusBBzJPzJ
+	 UyD1cF2qpgw4gHADM2nbeK6S2v6bJ9y95xpv4BpMzEMhH6fCnxZBlMCDLZgKWgQOFe
+	 V1OvHKS+j9QazwgOeLl4Usk+vA/oFiPbdqVmRQz4=
+Date: Tue, 13 Oct 2026 10:31:25 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Russell King <linux@armlinux.org.uk>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	David Hildenbrand <david@kernel.org>,
+	Michal Hocko <mhocko@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-openrisc@vger.kernel.org,
+	Muhammad Usama Anjum <usama.anjum@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Sohil Mehta <sohil.mehta@intel.com>
+Subject: Re: [PATCH 00/21] mm: change behavior of pXdp_get()/pXd_page() in
+ compile-time folded pgtable
+Message-ID: <as36bbrMVHOESsLd@e129823.arm.com>
+References: <20260921-dummy_ptxp3-v1-0-cd40cf68242e@arm.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260921-dummy_ptxp3-v1-0-cd40cf68242e@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_100532_513612_0FCB1D74 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20261013_023137_262066_106BD039 
+X-CRM114-Status: GOOD (  42.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,130 +107,223 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On mar. 13 oct. 2026 at 05:29, Changhuang Liang <changhuang.liang@starfivetech.com> wrote:
+Hi all,
 
-> Hi, Jerome
->
->> > Add support for JHB100 System-0 clock generator (SYS0CRG).
->> >
->> > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
->> > ---
->> >  MAINTAINERS                                   |   7 +
->> >  drivers/clk/starfive/Kconfig                  |  10 ++
->> >  drivers/clk/starfive/Makefile                 |   2 +
->> >  .../clk/starfive/clk-starfive-jhb100-sys0.c   | 156 ++++++++++++++++++
->> >  4 files changed, 175 insertions(+)
->> >  create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-sys0.c
->> >
->> > diff --git a/MAINTAINERS b/MAINTAINERS index
->> > 66d6c15f1dd2..dff8b819f83e 100644
->> > --- a/MAINTAINERS
->> > +++ b/MAINTAINERS
->> > @@ -26217,6 +26217,13 @@ F:
->> 	Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
->> >  F:	drivers/phy/starfive/phy-jh7110-pcie.c
->> >  F:	drivers/phy/starfive/phy-jh7110-usb.c
->> >
->> > +STARFIVE JHB100 CLOCK DRIVERS
->> > +M:	Changhuang Liang <changhuang.liang@starfivetech.com>
->> > +S:	Supported
->> > +F:	Documentation/devicetree/bindings/clock/starfive,jhb1*.yaml
->> > +F:	drivers/clk/starfive/clk-starfive-jhb1*
->> > +F:	include/dt-bindings/clock/starfive,jhb1*.h
->> > +
->> >  STARFIVE JHB100 EXTERNAL INTERRUPT CONTROLLER DRIVER
->> >  M:	Changhuang Liang <changhuang.liang@starfivetech.com>
->> >  S:	Supported
->> > diff --git a/drivers/clk/starfive/Kconfig
->> > b/drivers/clk/starfive/Kconfig index 51716655554f..cd5b7754403e 100644
->> > --- a/drivers/clk/starfive/Kconfig
->> > +++ b/drivers/clk/starfive/Kconfig
->> > @@ -72,3 +72,13 @@ config CLK_STARFIVE_JH7110_VOUT
->> >  	help
->> >  	  Say yes here to support the Video-Output clock controller
->> >  	  on the StarFive JH7110 SoC.
->> > +
->> > +config CLK_STARFIVE_JHB100_SYS0
->> > +	bool "StarFive JHB100 system-0 clock support"
->> > +	depends on ARCH_STARFIVE || COMPILE_TEST
->> > +	select CLK_STARFIVE_JH71X0
->> > +	select RESET_STARFIVE_JHB100 if RESET_CONTROLLER
->> 
->> just imply RESET_STARFIVE_JHB100 ?
->> 
->> It can be disabled if RESET_CONTROLLER is not set, so it is kind of weak
->> already.
->> 
->> > +	default ARCH_STARFIVE
->> > +	help
->> > +	  Say yes here to support the system-0 clock controller on the
->> > +	  StarFive JHB100 SoC.
->> > diff --git a/drivers/clk/starfive/Makefile
->> > b/drivers/clk/starfive/Makefile index 199ac0f37a2f..d2ba83d7d02c
->> > 100644
->> > --- a/drivers/clk/starfive/Makefile
->> > +++ b/drivers/clk/starfive/Makefile
->> > @@ -10,3 +10,5 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)	+=
->> clk-starfive-jh7110-aon.o
->> >  obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)	+= clk-starfive-jh7110-stg.o
->> >  obj-$(CONFIG_CLK_STARFIVE_JH7110_ISP)	+= clk-starfive-jh7110-isp.o
->> >  obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+=
->> clk-starfive-jh7110-vout.o
->> > +
->> > +obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS0)		+=
->> clk-starfive-jhb100-sys0.o
->> > diff --git a/drivers/clk/starfive/clk-starfive-jhb100-sys0.c
->> > b/drivers/clk/starfive/clk-starfive-jhb100-sys0.c
->> > new file mode 100644
->> > index 000000000000..edab54f228ad
->> > --- /dev/null
->> > +++ b/drivers/clk/starfive/clk-starfive-jhb100-sys0.c
->> > @@ -0,0 +1,156 @@
->> > +// SPDX-License-Identifier: GPL-2.0
->> > +/*
->> > + * StarFive JHB100 System-0 Clock Driver
->> > + *
->> > + * Copyright (C) 2024 StarFive Technology Co., Ltd.
->> > + *
->> > + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
->> > + *
->> > + */
->> > +
->> > +#include <dt-bindings/clock/starfive,jhb100-crg.h>
->> > +#include <linux/init.h>
->> > +#include <linux/platform_device.h>
->> > +
->> > +#include "clk-starfive-jh71x0.h"
->> > +
->> > +#define JHB100_SYS0CLK_NUM_CLKS
->> 	(JHB100_SYS0CLK_GPU1_NCNOC_INIT + 1)
->> > +
->> > +/* external clocks */
->> > +#define JHB100_SYS0CLK_OSC
->> 	(JHB100_SYS0CLK_NUM_CLKS + 0)
->> > +#define JHB100_SYS0CLK_PLL0
->> 	(JHB100_SYS0CLK_NUM_CLKS + 1)
->> > +#define JHB100_SYS0CLK_PLL1
->> 	(JHB100_SYS0CLK_NUM_CLKS + 2)
->> > +#define JHB100_SYS0CLK_PLL2
->> 	(JHB100_SYS0CLK_NUM_CLKS + 3)
->> 
->> Does this mean that if the you ever find out you've forgot an internal clock
->> (which does happen fairly often) the whole external block will shift ?
->> 
->
-> Later, I will introduce the following macros to define the external clock, which can avoid this problem.
->
-> #define JH71X0_EXT_CLK_FLAG	BIT(15)
-> #define JH71X0_EXT_CLK(_n) 	(JH71X0_EXT_CLK_FLAG | (_n))
->
+May I ask there are any further comments on this series?
 
-hummm okay ... still seems hackish to me.
+Thanks!
 
->
+> Using ptep_get() and its counterparts in common code is suboptimal on
+> kernel configurations with generic compile-time folded page tables.
+> By default, ptep_get() and its friends expands to READ_ONCE(),
+> forcing the compiler to emit a load even when the value is not used afterwards.
+> 
+> This issue was recently reported by Christophe Leroy [1] for ppc32
+> preventing futher code conversion to ptep_get()/pmdp_get()/... helper
+> and the same behavior can also be observed on arm64 when built with
+> 2- or 3-level page tables
+> 
+> e.g) perf_get_page_size() in arm64 with CONFIG_PGTABLE_LEVEL=3:
+> 
+> 00000000000052a0 <perf_get_page_size>:
+>     ...
+>     52dc: d53b4234     	mrs	x20, DAIF
+>     52e0: d50343df     	msr	DAIFSet, #0x3
+>     ...
+>     52fc: d35e9a69     	ubfx	x9, x19, #30, #9        /* pud_offset_lockless() */
+>     5300: f9403508     	ldr	x8, [x8, #0x68]
+>     5304: f869790a     	ldr	x10, [x8, x9, lsl #3]   /* pudp_get() */
+>     5308: f90007ea     	str	x10, [sp, #0x8]
+>     530c: f8697908     	ldr	x8, [x8, x9, lsl #3]    /* pudp_get() */
+>     ...
+>     5360: 90000009     	adrp	x9, 0x5000 <perf_prepare_sample+0x548>
+>     5364: 92746908     	and	x8, x8, #0x7ffffff000
+>     5368: d3557675     	ubfx	x21, x19, #21, #9       /* pmd_offset_lockless() */
+>     ...
+>     5394: f8757ac8     	ldr	x8, [x22, x21, lsl #3]  /* pmdp_get() */
+> 
+> Though PGTABLE_LEVEL=3, since the pudp_get() still remain with
+> READ_ONCE(), there's redundant load for the pud which is folded.
+> 
+> To prevent generating suboptimal code, make pXdp_get() return a dummy
+> entry for compile-time folded page tables, make the helpers such as
+> pXd_offset()/pXd_offset_lockless(), set_pXd() validate dummy entries
+> at compile time to catch the wrong usage and prohibit calls to
+> pXd_page() in pgtable-nopXd.h.
+> 
+> This series does not change the behaviour of existing code that directly
+> manipulates folded page-table levels using set_pgd(), pgd_page_vaddr(), and
+> related helpers. Those helpers continue to behave as before.
+> 
+> The new restrictions only apply to code that adopts the pXdp_get()-based
+> access model for compile-time folded page tables.
+> 
+> As the pXdp_get() can return *dummy* entry, some of code using
+> the stack value where saves the pXdp_get() could be a problematic:
+> 
+>   1. Passing address of stack value where saves the pXdp_get() result
+>      to pXd_offset() for example:
+> 
+>        pud_t *pudp, pud;
+>        pmd_t *pmdp;
+> 
+>        pud = pudp_get(pudp, address);
+>        pmdp = pmd_offset(&pud, pud, address);
+> 
+>      (e.g. host_pfn_mapping_level() in loongarch).
+> 
+>   2. Using the pXdp_get() result to use as argument of pXd_val() and
+>      to check prot without checking pgtable is folded.
+>      for example, x86's effective_prot().
+> 
+>   3. Using set_pXd() with pXdp_get() will set problematic dummy entry
+>      in folded page table like:
+> 
+>        set_pXd(pxdp, pXdp_get(pxdp_k));
+> 
+>   4. Using pgd_page_vaddr() to get the first-level pgtable.
+>      passing dummy pxdp_get() for pgd_page_vaddr() will return wrong
+>      address. Therefore, make pgd_page_vaddr() and pXd_pgtable() to
+>      trigger the error for improper usage with folded dummy entry in the
+>      generic compile-time folded pgtable.
+> 
+> Thanksfully, above cases are rare since (1) most of usage using
+> pXd_offset() with result of upper pXd_offset(), (2) it's extreamely
+> rare to use pXd_val() for non-leaf entry in the kernel,
+> (3) is to handle the vmalloc_fault or set the first level of page table
+> and (4) to setup early page table and etc.
+> 
+> Therefore, properly handle this uncommon and problematic pattern, and
+> document the current design of compile-time folded page tables.
+> 
+> This patch is based on mm-unstable.
+> 
+> Future work
+> ===========
+>  - print_bad_page_map() and show_pte() still prints dummy values
+>    instead of printing the same content for all generic compile-time
+>    folded page tables. We might want to skip printing dummy values later.
+> 
+>  - We currently catch abuse of dummy values on the stack at compile-time by
+>    relying on constant propagation by the compiler. Usama's work [3] on using
+>    distinct types for sw vs. hw PTEs could help here as well."
+> 
+>  - Clean up vmalloc fault handling by synchronizing the vmalloc entry on
+>    32-bit architectures. This code is almost identical across architectures.
+> 
+>  - Unfortunately, the current design of compile-time folded page tables appears
+>    to be internally consistent but confusing. For example,
+>    when CONFIG_PGTABLE_LEVELS is 2, p4d, pud, and pmd are expected to
+>    be folded into pgd. However, the architecture code uses set_pmd()
+>    to update the top-level page-table entry, even though it includes pgtable-nopmd.h.
+> 
+>    In the future, it would be good to eliminate this source of confusion,
+>    possibly by treating all folded upper levels consistently as dummy wrappers
+>    around the highest real page-table level:
+> 
+>          NOPGD
+>    --> +------+           P4D
+>        | ptr0 |-------> +------+           PUD
+>        +------+         | ptr0 |-------> +-----+
+>                         | ptr1 |-        | ptr | -------> ...
+>                         | ptr2 | \       | ptr |
+>                         | ptr3 |  \        ...
+>                           ...      \
+>                                     \        PUD
+>                                      +----> +-----+
+>                                             | ptr | -------> ...
+>                                             | ptr |
+>                                               ...
+> 
+> Link: [1] https://lore.kernel.org/all/0019d675-ce3d-4a5c-89ed-f126c45145c9@kernel.org/
+> Link: [2] https://lore.kernel.org/all/20251113014656.2605447-1-samuel.holland@sifive.com/
+> Link: [3] https://lore.kernel.org/r/74182e50-b54f-4d2d-a27f-3a59a538d6bc@arm.com
+> 
+> Patch History
+> =============
+> from RFC v3 to v1:
+>   - Drop and rebase for CONFIG_X86_DIRECT_GBPAGES and use the Dave's
+>     patch (https://lore.kernel.org/all/20260902194718.E1FF3041@davehans-spike.ostc.intel.com/)
+>   - Link to RFC v3: https://lore.kernel.org/r/20260902-dummy_ptxp3-v3-0-5d8f5b17c25c@arm.com
+> 
+> from RFC v2 to RFC v3:
+>   - repasre commit message
+>   - move ptdump_pgtable_first_level() into pgalloc.h
+>   - skip the huge pud operation when CONFIG_X86_DIRECT_GBPAGES is disabled
+>   - docuemtns compile-time folded page table
+>   - drop the applied patch.
+>   - Link to RFC v2: https://lore.kernel.org/all/20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com/
+> 
+> from RFC v1 to RFC v2:
+>   - Restore slient fallback to next pXd in set_pXd() and pXd_pgtable()
+>     and add check whether they're called with dummy entry.
+>   - Add some comment for returning first entry of pgd in arm with
+>     2 pgtable-level
+>   - Link to RFC v1: https://lore.kernel.org/all/20260713135614.1618183-1-yeoreum.yun@arm.com/
+> 
+> ---
+> Dave Hansen (1):
+>       x86/mm: Introduce helper for checking direct map 1G page support
+> 
+> David Hildenbrand (Arm) (13):
+>       ARM: mm: make nommu pgd_t a scalar
+>       ARM: mm: make 2-level pgd_t a scalar
+>       ARM: mm: remove custom pgdp_get()
+>       LoongArch: mm: define pud_leaf() only when PUD exists
+>       MIPS: mm: define pud_leaf() only when PUD exists
+>       mm/pgtable: define (pgd|p4d|pud)_leaf() for folded page tables
+>       mm/pgtable: define (pgd|p4d|pud)_offset_lockless() for folded page tables
+>       openrisc/pgtable: drop __pmd_offset()
+>       mm/pgtable: optimize pmdp_get() and friends for folded pagetable levels
+>       mm/pgtable: catch abuse of folded dummy pgd_t/p4d_t/pud_t
+>       mm/pgtable: disallow calling (pgd|p4d|pud)_page, pgd_page_vaddr() and (p4d|pud)_pgtable with dummy
+>       mm/pgtable: disallow calling folded set_pgd/set_p4d/set_pud with dummy
+>       Documentation: mm: clarify behaviour of compile-time folded page tables
+> 
+> Yeoreum Yun (7):
+>       mm: vmscan: remove stack copy address of pud/pmd pass in walk_pud/pmd_range()
+>       loongarch: kvm: remove stack copy address of pXd in pXd_offset()
+>       riscv: kvm: remove stack copy address of pXd in pXd_offset()
+>       riscv: mm: use proper set_pXd() for generic compile-time folded patable in vmalloc_fault()
+>       mm/pgtable: redefine PGTABLE_LEVEL enum with ascend order from PGD
+>       x86: mm: use pgtable_level enum in effective_prot_pXd()
+>       x86: mm: carve out the generic compile-time folded pgtable case in effective_prot()
+> 
+>  Documentation/mm/page_tables.rst            | 84 +++++++++++++++++++++++++----
+>  arch/arm/include/asm/page-nommu.h           |  4 +-
+>  arch/arm/include/asm/pgtable-2level-types.h | 20 +++++--
+>  arch/arm/include/asm/pgtable.h              |  2 -
+>  arch/arm64/include/asm/pgtable.h            | 23 --------
+>  arch/loongarch/include/asm/pgtable.h        |  2 +
+>  arch/loongarch/kvm/mmu.c                    | 20 ++++---
+>  arch/mips/include/asm/pgtable.h             |  2 +
+>  arch/openrisc/include/asm/pgtable.h         |  3 --
+>  arch/riscv/kvm/mmu.c                        | 20 ++++---
+>  arch/riscv/mm/fault.c                       | 52 +++++++++++-------
+>  arch/x86/include/asm/pgtable.h              | 14 +++++
+>  arch/x86/kernel/cpu/common.c                |  2 +-
+>  arch/x86/kernel/machine_kexec_64.c          |  2 +-
+>  arch/x86/mm/dump_pagetables.c               | 18 ++++---
+>  arch/x86/mm/init.c                          |  2 +-
+>  arch/x86/mm/pat/set_memory.c                |  6 +--
+>  include/asm-generic/pgtable-nop4d.h         | 54 +++++++++++++++----
+>  include/asm-generic/pgtable-nopmd.h         | 54 +++++++++++++++----
+>  include/asm-generic/pgtable-nopud.h         | 56 +++++++++++++++----
+>  include/linux/pgtable.h                     | 69 +++++++++++++++++-------
+>  mm/vmscan.c                                 |  4 +-
+>  22 files changed, 371 insertions(+), 142 deletions(-)
+> ---
+> base-commit: 8d61431ed2607386b427752505379536eb634ce8
+> change-id: 20260722-dummy_ptxp3-3741d78cc70f
+> 
+> Best regards,
+> -- 
+> Sincerely,
+> Yeoreum Yun
 
 -- 
-Jerome
+Sincerely,
+Yeoreum Yun
 
 _______________________________________________
 linux-riscv mailing list
