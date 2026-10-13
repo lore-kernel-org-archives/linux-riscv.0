@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ACDDCC6B10
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 09:58:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F19CC6B08
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 10:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=SHY2V3glbnypgA4bzfx9kFBp4DZyJsNxGRNH5FSAgOY=; b=CnzUsMawidv8wm
-	60Dyg5wIVb+WJuag8DznnWZqtQNbtV7ZTsrXw60HlFQNB94F8chHEbDgdGXxM05f0gUaVSZC2Mjyv
-	rwvbAVWc35KwLVAgY3ySTB7wyeK90K5BfjyfP3tXlhWKGbI6ZIWwpRtLld6VCftKCkbNdldXRj+EP
-	1oDqIP7etU2pK0zLgSuRlYvuiBvGWfqUyqLV7yqdLuhBebr0W4e6pf/VYNLhpKO9rjMnutISJMHWl
-	dMWpYnE4QxCmuftf7xfwZRYAVrZ4UZIruj/V+gmCnovL2TRvUYUudaqWEgYwlgwemlwLCYQOX+JTw
-	JtDU7CdtbRH6dT3i8Fuw==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QE9HK68rxauZp1MrlkVHet2rSy49lJrOrg97fO43+mI=; b=eF5BrBHSbLj5gq
+	iSw5Zg4WcBchnscBDpIt9gDSm6Q0kUmhZ7URyPxBJ1/WHB5REhy0EMo6ThX3zOytZBmt7v35sZuGU
+	deWbzQii5UC0LIiAyFLYAiuLKGZtgWE9pRo2yga1WseJZwkhvs9O1qfdPsXBt9BKXGYs/8QfAkaUU
+	5TMqqi/2Zas8+1eNPDWLvheS327UoGmusVuSoe0mQ/M5kYAIKoibid1nS3C1ZYHswK2vCkRocmo4E
+	gJpSqLxLFR72hCDwrLdmLSJ8ACB6ORIiCowGy1CrGlcU7EKpYLFCVxKulHwnzrRnQW6FnmF4KDhwc
+	qeLKlo60k0lofq44fPLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZGn-0000000CUNO-0sBg;
-	Tue, 13 Oct 2026 09:58:05 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1xGZdX-0000000CXp6-0ZN5;
+	Tue, 13 Oct 2026 10:21:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZGl-0000000CUMy-1yrQ
+	id 1xGZdS-0000000CXo8-0XEF
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Oct 2026 09:58:04 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-48b0ef9c76eso2212486f8f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 02:58:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791885481; x=1792490281; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=uQEWFhbYK6EZsDbloJ25pzWntz9wwdcvgIHcKgGIKMA=;
-        b=W9TwQT7mS/nIY4vBa3K/rK315U2PhCGkkpPs4Ik8o6YQVUcwWI8bJ611lzHSfNNouA
-         O2E5BhnSpjDfufSVTqL+nv2He8BbBXHuXKfo5wVXPdg+tjEJOoLuyWQT4h9BL+vuhTGe
-         575t6D3fVlq3mir5l0cquEITvI3uNWewSQvh6xB2RnsozCAPk5rML2lGl+2C8yhUOZKL
-         a3iDJlPZ7ZL1TJZSz5bNEyVDYs6oHZCsPDA3Oz3ZbxpPbH3Wbx4vwiLn542QwXCGtGaP
-         whsnIkhW8P1h3MyxUUlQ+/CR0uXPKXP+TNhy9fwGcS/JAiybJOEaQJRjZYNunye6VZFv
-         ObWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791885481; x=1792490281;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=uQEWFhbYK6EZsDbloJ25pzWntz9wwdcvgIHcKgGIKMA=;
-        b=HdAZ4SN0zL17eoTKuw8kMhADkN9cvll0eO55etMe2X4b710KQcpDJNA4F7cuBw8IKf
-         nUUOEOTC1hXVLonoJ2+dhohq6SpSUADwVMFQAhxoBpoZ/QpyMMWiprz1OfghSwPCdBBT
-         soByHC2DmdE6ehqyphG8kRin7jIebkftkhDZ0AIIvgk4Pg4W4Lr9s8gyN4Je+fBB0sl3
-         jpe0t2mbPZKhoJ0435NLZKxKNATaXJlRxQ5RZVSQPzy4I9+ZqoCp3lxqHg4Y2bjLL26B
-         SVhbaotvDGJA3YrJ1yiaeanVInBbhyy0cH/bm690089B6/u4GjqHcgJUsOZcV8b8it8r
-         3rpA==
-X-Forwarded-Encrypted: i=1; AKwUvBxAaVC7u/e/91x/jJLt5rPoh3kS77X6pvZeuH7y36nCxZhnW2lI1gsW0HTIotl+W4uqX4emtCoUBKW5ZQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKqO9jCwKrJ9kkGzlZeuDWTMALWDCfdtCo5AA/oJLRRMSmyLT79
-	6oyqNzfatipwOwxEAhrSwIwBOdcTUMIbIZELGVQEddJVrjYOg3UANLH9
-X-Gm-Gg: AYBFou3qVz8nAMSlMGBNcI1dCF828ui9ntWqJqv5dTRRAvhD3zHAd4Utp8Rya1X0CU3
-	PGgPnV6UDPbdx8jeuX+PEqbjesyFwep2CD/8BchtbNIsLZokCTo3I5YZuPAOYqQ39uyboGJcQXG
-	QuClTpvUFMiRokPjgFhrby/pUQXZXq/pJC8SJyL3nqKozNDXMEYd7LHv1Uvq+Dd805eU3upmKT1
-	x+N/kD81DLEre9VeJeWXVqeuWe60GU+hLRyKmSaqhiTdBQ913ZaEA0jkk4qkUCKHETb74hUsin3
-	k6nl9JGBF7xiGjEsH6iVKBjnZPkacU+tQrsMXFvtCCxSXXi+M+vdro7H61/nRoj98v+qFLQzgFc
-	dNG8OzjGbBrVUeIOBNjdxr2+xnLE9yYRDv6QIyXqfkGvxwZtQEXALO/CvoODGGEbGE0ernPMNVB
-	5oxtGbXWNEVlHdhXu2HSbHWvrrHJ4FJHFL5gYONIrvNcOemmZlNe0mbgEjl5kQwU8RzNYpUQP6T
-	RhBZU2Azm9v9tShwSvf7G4hjg==
-X-Received: by 2002:adf:e014:0:20b0:48b:116d:56fb with SMTP id ffacd0b85a97d-48dba77ce45mr15979271f8f.1.1791885481321;
-        Tue, 13 Oct 2026 02:58:01 -0700 (PDT)
-Received: from localhost.localdomain ([2a06:c701:4778:c500:c7f5:a913:e714:a9c3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0ab5991sm4466267f8f.29.2026.10.13.02.57.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 02:58:00 -0700 (PDT)
-From: Avi Weiss <thnkslprpt@gmail.com>
-To: Conor Dooley <conor@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Avi Weiss <thnkslprpt@gmail.com>
-Subject: [PATCH] cache: sifive_ccache: propagate IRQ count errors
-Date: Tue, 13 Oct 2026 12:57:56 +0300
-Message-ID: <20261013095756.1084568-1-thnkslprpt@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 13 Oct 2026 10:21:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CF66543EA3;
+	Tue, 13 Oct 2026 10:21:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9C54DC32781;
+	Tue, 13 Oct 2026 10:21:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1791886889;
+	bh=DUyXyu4G2jsiKLQyoNsvOPwF5oH4LHm6RUKTLUmURZ8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=BpqzE4wWBfnl7WDnbL3rbrD8tHH5haWM0NsGJXnrbr9M85mNqWKMFKrY7OBGaXeE5
+	 uL2huxvwH2SWckigRFlM0oaztqaUpCOEhaanFq1HL5Xhvr2LTPDWrABbqMXFvWeXoY
+	 SFKVzCbm/1FsGpQ4cBcFkRPImwazLtTEnhg1qGFXD1o0Ve/nc8lAgieXgIqHwfphxz
+	 1brkcQ0Jo22TAXlpAbqRYekUXZJuH4Yge573yQHVWisArPu+dlWjOdZLjc1GxgC5tR
+	 TcWVaXgTCn7/1o1m58pruWI7wlwIhO4wqxY3VCakQNWxnkaa+jqCuUkz6p0Y7WwLb8
+	 /Oj1EgozUHbUw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 85B9CCA9ED2;
+	Tue, 13 Oct 2026 10:21:29 +0000 (UTC)
+From: Xincheng Ji via B4 Relay <devnull+jixincheng.ultrarisc.com@kernel.org>
+Date: Tue, 13 Oct 2026 18:21:27 +0800
+Subject: [PATCH v3 3/7] dt-bindings: riscv: Add UltraRISC DP1000 board
+ compatibles
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_025803_542222_E839EFC3 
-X-CRM114-Status: GOOD (  11.07  )
+Message-Id: <20261013-ultrarisc-dts-v3-3-5ff3ebb2a90d@ultrarisc.com>
+References: <20261013-ultrarisc-dts-v3-0-5ff3ebb2a90d@ultrarisc.com>
+In-Reply-To: <20261013-ultrarisc-dts-v3-0-5ff3ebb2a90d@ultrarisc.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Jia Wang <wangjia@ultrarisc.com>, 
+ Xincheng Ji <jixincheng@ultrarisc.com>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Anup Patel <anup@brainfault.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
+ linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791886887; l=1942;
+ i=jixincheng@ultrarisc.com; s=20260922; h=from:subject:message-id;
+ bh=F931PJB7CYQDP8Qv71XY2lbmZu4qGdN+Fjh5HxV88EU=;
+ b=gvfLUBKUnsHa4kOaazLGWVpCMiDxQBYbO+XvOt+Eak1zTHUgePjIl0+UVQWhEVT6wshWfjEDT
+ Sl4SqK7jn2LAXX3PnLGQ0dhFPlPOsKNby80kt/neNpQMF2SgJBtvWvp
+X-Developer-Key: i=jixincheng@ultrarisc.com; a=ed25519;
+ pk=n848dcS5D6g0vLad/rjp4Gf/1eedTe1a3pYUrkt2260=
+X-Endpoint-Received: by B4 Relay for jixincheng@ultrarisc.com/20260922 with
+ auth_id=1046
+X-Original-From: Xincheng Ji <jixincheng@ultrarisc.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,49 +88,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: jixincheng@ultrarisc.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-platform_irq_count() returns -EPROBE_DEFER when the
-interrupt provider is not ready, but
-sifive_ccache_probe() only checks for a zero count.
+From: Jia Wang <wangjia@ultrarisc.com>
 
--EPROBE_DEFER seems to be the only negative return
-code possible here (currently).
+Document the compatibles for the Shenzhen Rongda M0 and Milk-V Titan
+boards, both based on the UltraRISC DP1000 SoC.
 
-A negative count skips the IRQ registration loop and
-allows the probe to return success without requesting
-a deferred retry.
-
-Return negative IRQ counts so the driver is reprobed
-when the interrupt provider becomes available.
-
-Fixes: c90847bcbfb6 ("cache: sifive_ccache: Partially convert to a platform driver")
-Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
+Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/cache/sifive_ccache.c | 3 +++
- 1 file changed, 3 insertions(+)
+ .../devicetree/bindings/riscv/ultrarisc.yaml       | 27 ++++++++++++++++++++++
+ MAINTAINERS                                        |  7 ++++++
+ 2 files changed, 34 insertions(+)
 
-diff --git a/drivers/cache/sifive_ccache.c b/drivers/cache/sifive_ccache.c
-index 2acb8bdf06d52..b4033110f34e5 100644
---- a/drivers/cache/sifive_ccache.c
-+++ b/drivers/cache/sifive_ccache.c
-@@ -262,6 +262,9 @@ static int sifive_ccache_probe(struct platform_device *pdev)
- 	quirks = (unsigned long)device_get_match_data(dev);
+diff --git a/Documentation/devicetree/bindings/riscv/ultrarisc.yaml b/Documentation/devicetree/bindings/riscv/ultrarisc.yaml
+new file mode 100644
+index 000000000000..a51e63dbeca3
+--- /dev/null
++++ b/Documentation/devicetree/bindings/riscv/ultrarisc.yaml
+@@ -0,0 +1,27 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/riscv/ultrarisc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: UltraRISC SoC-based boards
++
++maintainers:
++  - Jia Wang <wangjia@ultrarisc.com>
++
++description:
++  UltraRISC DP1000 SoC-based boards
++
++properties:
++  $nodename:
++    const: '/'
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - shenrongda,m0
++              - milkv,titan
++          - const: ultrarisc,dp1000
++
++additionalProperties: true
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index ff1c1aea9a98..7eb1b2971bea 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23639,6 +23639,13 @@ F:	include/dt-bindings/power/thead,th1520-power.h
+ F:	include/dt-bindings/reset/thead,th1520-reset.h
+ F:	include/linux/firmware/thead/thead,th1520-aon.h
  
- 	intr_num = platform_irq_count(pdev);
-+	if (intr_num < 0)
-+		return dev_err_probe(dev, intr_num,
-+				     "Failed to count interrupts\n");
- 	if (!intr_num)
- 		return dev_err_probe(dev, -ENODEV, "No interrupts property\n");
- 
++RISC-V ULTRARISC SoC SUPPORT
++M:	Jia Wang <wangjia@ultrarisc.com>
++L:	linux-riscv@lists.infradead.org
++S:	Supported
++T:	git https://github.com/ultrarisc/linux.git
++F:	Documentation/devicetree/bindings/riscv/ultrarisc.yaml
++
+ RNBD BLOCK DRIVERS
+ M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
+ M:	Jack Wang <jinpu.wang@ionos.com>
 
-base-commit: 24a19b953e2a3d0ea5a8c4951a0ab8f32720c907
 -- 
-2.43.0
+2.34.1
+
 
 
 _______________________________________________
