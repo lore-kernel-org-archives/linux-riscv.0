@@ -4,127 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDDA8CA9ED2
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 10:28:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17BA5CC6B03
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 13:06:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g2uduN/MjsJTsvhxeXbUS0YW+Mhbfp0uiCPdMbo/EAM=; b=jDtq07cEaZjPg3
-	RFGkbLgYCIYOPqN9fjSS5v1WrCly2lTpKlfuY5iXb9Mej5TbDfF03pMnox79yiegzSKqSiynK3/GC
-	ry0xJnenZ1rpXiLGl7nEMuF24QtCoG0E2CDKQDAIpXrQdBjFyHsdsmr0YuKb03qWB7JJvpYhLZCKk
-	V9D51zTMBzZH4YNxwRCDG1Tl+7ZC1tsknRCaJlcE8aAsMJw+FhmNB+4OHG7p027rWt9xRygT7VKMD
-	o9xmBFINaQFY6Di4jGgoOx0Fqz5q0FaCp7LkZKqkp5itXmIqRckMYpatPizUZgbzGOiBp58j0dtxI
-	2tkwTHrXqI+v9nh6Z1CQ==;
+	List-Owner; bh=r83F7VI/CwNXbxZkhTBrE7tZX0FpSR/+iOgRqghSeOk=; b=cGHgfsucKZ9rMo
+	aJ/pInl/6t0OIwpNA06ochg9muVn29H89mgyPwvcgMI5GxCrzc4ezeqqx1F4LZ5D3MLbvkWDl8Ltj
+	OCdkRu+cnlrhJOjRar3cO36Klkr6RXQD+/9xVEmcMV9bptE7iGQZeQGcUqAPbt0YLXbENvmcQ0+AN
+	BN/TRvcj/Ki/1TH05j0q2z7+T6ttTFWm1cRWUaR0tKQ64bfLHDH+y+UBCJKwVLRkykzEHgQcSLMzS
+	FycC6Tsm9mTDQ5mVwH/68dzcE5Z5XIz2vjgMwcKivtfK4keBfXxxn0dSlfAnSxE35/OlPEVEcblnO
+	VrEhP1DcWz4Udiu6iYiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZkC-0000000CZKw-3dNU;
-	Tue, 13 Oct 2026 10:28:28 +0000
-Received: from mail-bjschn02on2112.outbound.protection.partner.outlook.cn ([139.219.17.112] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1xGcCj-0000000CuYJ-2tOX;
+	Tue, 13 Oct 2026 13:06:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZk9-0000000CZGa-3T7u
+	id 1xGcCh-0000000CuXs-35vZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Oct 2026 10:28:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=AvU8xJ3xQt92I+ialhJhWNmK0Cx6Ua0a214iJ9uethlkehO+FC9b+QHHk1Q+vnCrP+EbJSapfFr8WcVOi+VUOvE2wBjSbvOdv0UHKtrGkS66CsC9srKgrrwPA8pOw4jav4YHvGCrzq1QKul6KsNHheWsY6Y/e21ZqI4d1sNZcnz4tgzbbJnZllgRh6l0DDcvxyCwFEyZEzuWQ9pJvqkOBOxhGKx+ZvM1RWqs/rtsY7Qq2rKnQRhS+T0EdigjydrF8HORJG7t7p8VYh1AwHJ9og3GjBSB0p8xj12kmycoWpSXso3TISuqd1F6BuFkABKs5bixYgC0kxh3OLM0r3zATQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZFQBehvpGkg6Ibwftzvq/hAGZuFGKCLctIg4/y1brHg=;
- b=SHVa+ShiNFEYUwQ7SPC7188MXihtb/zasjulHkxV7zvWKSgHnscxDgw2akpG1MRk+t7B4OCoU4xEuQgmln9GybfbnWWMHFQrn96WMMmWDZPt4LQEELGIoJYxrEfXz2i/kSRdWIIfdFhRHdiKyHaQNQ7XhZUWUoqENvT5vD9l2uafe/eryha68lbZM4gtqGU4nAOcNrgi4SXn9EiRl8dE0zkwgCIlVBT2hUMHwV3uyhO4BgAx67RdEfuv6oWoJ0vbBKjvVMqCvThq7GUSuHJ/dFHT/NFkwyGzbIVw0PQ+8PLsSau/lG1IhsZUQYUrU+CCTqv4xwI/ifAXQyvDFf1szg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1234.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
- 2026 10:27:20 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0496.021; Tue, 13 Oct 2026 10:27:20 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Brian Masney <bmasney@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Emil Renner Berthing <kernel@esmil.dk>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: [PATCH v1 1/6] clk: starfive: jh7110-sys: Fix memory leak in reset controller register
-Date: Tue, 13 Oct 2026 03:27:02 -0700
-Message-Id: <20261013102707.9207-2-changhuang.liang@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261013102707.9207-1-changhuang.liang@starfivetech.com>
-References: <20261013102707.9207-1-changhuang.liang@starfivetech.com>
-X-ClientProxiedBy: NT0PR01CA0027.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510:c::20) To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6)
+	Tue, 13 Oct 2026 13:06:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0941743BCF;
+	Tue, 13 Oct 2026 13:06:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1F8E1F00898;
+	Tue, 13 Oct 2026 13:06:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791896762;
+	bh=PBDIE7GzvCgmpzvw/ZsA/sK1+J/NGCAntQXTexS8NNk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=HtVuTxt5ErtMpkbGfGL1xLIGCDowIsKArOzts/S2GWDBpLTkyRokZua5XIMXtIyN8
+	 joW/wMnxEDjwJ9Ql8CjM5dQ1hmqJCVRZdPrXeXIw8UAGd4Q/Ac5VnzFG0KRbzT6K0j
+	 wBimQdDybAaZET/8ngiJ2W8MPVOlk4tL2F/GP6h3BY0+8KcwLLB9+2DPmnXtcNnf+0
+	 wCEebhHPs6C/E6DwycpWYFa+I43PekwuhQadbpbXjHQS2GRO51zrwf3eJ7ikY7sEDc
+	 gewbugUHTN2eT1YpuzoMfNMkytyFiUezZY4cS3IOWATp7/5XPTK7Pv2ZjnH6L5bQlQ
+	 s0FnovQZYsipA==
+From: Miguel Ojeda <ojeda@kernel.org>
+To: gregkh@linuxfoundation.org
+Cc: patches@lists.linux.dev,
+	pjw@kernel.org,
+	samuel.holland@sifive.com,
+	stable@vger.kernel.org,
+	yongxuan.wang@sifive.com,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 7.2 046/281] RISC-V: Clear HSTATUS.HU on CPU initialization
+Date: Tue, 13 Oct 2026 15:05:51 +0200
+Message-ID: <20261013130551.12527-1-ojeda@kernel.org>
+In-Reply-To: <20261013112856.169944981@linuxfoundation.org>
+References: <20261013112856.169944981@linuxfoundation.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1234:EE_
-X-MS-Office365-Filtering-Correlation-Id: 304e2b07-7a6f-420b-809e-08df2914902b
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|1800799024|376014|366016|23010399003|38350700014|56012099006|261009223027099003|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 3d0kQIF/1LQhr0y8aSwH6btzOptRBUa3HQu583P92OX6NHQ93Y2ViAUZJsql3QY+TQLCZ/YsA+XQ7o2NLYi+cKhWLYqxkci1cCG6pLk+/4F+Ug6fPVM/wNH9vjOsgWmMzuTaxsS+8/68HU/AXaBFbooQN3oqbSt3A79cNrWEGLyMuQAS9npmuXjMrEkJy3tR0yLidx1kisBIEXGQpls2uvoSe8W6tBv6HjfOPQAsobeU0UzdJ0ATCeJ8kf0DF4GpLtlJ2evhzAnGi0wmgeE4MbjuR+SVKk0RpD8lUp0IhWqZPVC4Nxot+PgNGz0X2ov02VhEvOCLXyqrezJ0BISMi9aidYAPj8b29vuRQ2FxWvM9lX9455z6vzZSEIjdKKyV1yHrtDG3Rwh7GY+ShYPLYy9TKZi09YfgHVQYGkrMml1iZ8lTXNMrzFmCga+gducvJKKUTjcWVHzv8tMgACRyxqTMYfNSORmP1rFUSIdewh4/ocztduYBAi/PYBpO49BxWU8WM9p7G+U5F+BPtxsfvzQAtebtHOUUFZtl04+Mgj+KKfMc822Gxa+ncPtYOdA1
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(1800799024)(376014)(366016)(23010399003)(38350700014)(56012099006)(261009223027099003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UOrodhmr4rqCT10KrCRlOAYHHIY2PcAF35c7SxJf8UpCg8WeZ/FafRzFHoMY?=
- =?us-ascii?Q?ve/t00gj4RCQy4Y1NE8LRr/DEvIzAzxYOnFZQNNZLLNqe932uaCJc+mBH37q?=
- =?us-ascii?Q?5Gyz63F2BGK8nXZeL7PFtmXK7d8rPZbePIAjm6jsdCrzZ0CBlhrHCWklIQY9?=
- =?us-ascii?Q?yxqN0n1vzPE50p7cQU/DrZvsnqprZ2S2UxxKnm+/JLYTNT0JFEPH4ldo+x/F?=
- =?us-ascii?Q?XXn2T+yFNiBJwTDAUzePiH3aM+XzPJff9m3CZaOnefLdyjoi6Awd88RRGrKZ?=
- =?us-ascii?Q?KxlIoRnE+ZqHZuLid+sUaSbJKVflRWLSmGKwBJA4JieOFDOcowm+dhGqZ9/J?=
- =?us-ascii?Q?JtvKK8vgUrjT+8ZRojjNAcNZio7O1zET2M04mbWP5oP1e+yVEWbS3GCM0vcq?=
- =?us-ascii?Q?3oAroPKdyO4oLagoBJvg9eKPgD7dJ74/eBi0mm2TKQLySZGgkXCHwKC6lziY?=
- =?us-ascii?Q?CizScCIwzLb+cA3XsjEbs5CNS9QnXt8GPnnXf5b5pFxDJ3NiNtle7oxlbUj1?=
- =?us-ascii?Q?Hiq1w3IQr9jhE9yFNdON9fu7pflIznf9Ih4rPR9B0YaPdPbYjhx7irvy5Zuk?=
- =?us-ascii?Q?l2ap8whioFdpD2jFCiwcCJ2S2xXIE1wqYdQbc0jhYmByT3JiC2n8YjJqvymT?=
- =?us-ascii?Q?NlrhtySj+PEZEvvD7rCM2+aA8Eoph6GGhSb56Mq5g1iwFP9G/CMb2f9OtwsO?=
- =?us-ascii?Q?fG/eF5Bb9M6nGw/2lCmc5Ul+qOBU/Tt4Cen+GtS39fl23qPge+hmh3zstkWW?=
- =?us-ascii?Q?uW469604J5O7LSt6ggA98FF33k4RxpJywPv6eAKoZFM61wtMEgt22mdc/3WA?=
- =?us-ascii?Q?eq6vMsu1SBbHzLEADV9PT7U0q7UjpaDz4Lde8LTjaRk0GYyM8rVh9lXTy3tq?=
- =?us-ascii?Q?JG8AzgbBo0XqSWl1rXlaaSiVOwhVgoPL62mdhRIrVtNLkWAT8fsch3mFYyMh?=
- =?us-ascii?Q?J4XBM2sPG4V0P9vzFQkE4dbPNw5bIBws8RHVHruLfjYalc4RU7gfdw6i0fw3?=
- =?us-ascii?Q?f0hJ87pfpQh2/pxzf3uoqdpf19OO64It2Yyat39d9HnxNXpjOOuCIdElhS4y?=
- =?us-ascii?Q?LgK8g4qkHOtEbAdPq1OsSRv66UWB2LyeeIS7RSaSo3LOuNQISNtjJu074sg3?=
- =?us-ascii?Q?M83QvdwC4D2tQ2HMowV5l/f7OjrsxAJnx6zmMkvOe9Akbho4PdqbGFnKNhG8?=
- =?us-ascii?Q?4gAnoeG5i4p36aBna0/WjZ/BXO6JiO+Z+0jxQZD+dL6GJFLARYEITciNOEyQ?=
- =?us-ascii?Q?yNmDlqMZgF/Htl2zOyfIYjGbah+30HFK1RTjtnT7Ft8SrOpU/fFQefxNW+/+?=
- =?us-ascii?Q?3XyTgy3yRI/UNL480U1ziMhzlfTi887s61sJpKmuxjKwEOJ2/1qq/gXB745+?=
- =?us-ascii?Q?KuKeReFRUg3COYfL8Q18biKoQMDiaBuAyJ8PfcGtjjNXtBhwCpcEWdWjY/3c?=
- =?us-ascii?Q?qpZT7wBfB8JtTXPJGF8Og965DrwnvZrOHqvUelY2bm5xb/WZXpZUqGO0bGY2?=
- =?us-ascii?Q?p5ihcNY1yMWy91LG5RndUOazaXvzIlkYmrOhOyIrq9t9WGv12ecXRQcaU7Wq?=
- =?us-ascii?Q?q9/GOGj9RlgFskf/WPqvfzdOU4JydufICDF/exXZp8yvqg2H7e0LnJ+nExDS?=
- =?us-ascii?Q?K1BjKl4MsK1Wsmk5ObpulN5zR0cnu2+O2J13pUtq4QJWC0LLU+Jua8Jk4rVA?=
- =?us-ascii?Q?Dyhwk+KYr6Vqh0v2fmy5PZpDk/AyqmDn7C1MvDiE9oWjQA/IwEeelL0whW4g?=
- =?us-ascii?Q?ZKrHQUxuTj3YKjNXR6Ybe9uslN3MyUsoohRpPTSXDQcI2V49OjmA?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 304e2b07-7a6f-420b-809e-08df2914902b
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 10:27:20.6464
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: g/zUxC+aTyFFfBqyxwJ9dUqMnysSHkHY2xWyRvTvBnsszVaYqmnZtvFi6va5nKwU2gKkyygtIdj5U6s0BLFdvvgNiYtnPdRAOik7fFJeobP0xCDRzsiMrDy42KO4GJvZ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1234
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_032825_865029_D1B64B25 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,37 +75,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-auxiliary_device_init() returns an error before device_initialize() is
-called, so the release callback never runs on this path and the rdev
-allocated in jh7110_reset_controller_register() is leaked.
+On Tue, 13 Oct 2026 13:36:02 +0200 Greg Kroah-Hartman <gregkh@linuxfoundation.org> wrote:
+>
+> 7.2-stable review patch.  If anyone has any objections, please let me know.
+>
+> ------------------
+>
+> From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+>
+> commit 6694612317e5225086e39ca1ba97ada2b1942e48 upstream.
+>
+> The RISC-V privileged specification does not mandate HSTATUS reset
+> values, leaving the HU bit potentially set after hardware reset.
+> When HU=1, hypervisor instructions (HLV/HLVX/HSV) can execute in
+> U-mode to access guest memory, which may cause unintended behavior
+> if not explicitly controlled.
+>
+> Clear HSTATUS.HU during CPU initialization to ensure hypervisor
+> instructions are only available in HS-mode, preventing unexpected
+> guest memory access from U-mode code.
+>
+> Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+> Link: https://patch.msgid.link/20260924-hstatus_hu-v2-1-7e970f5f1d8d@sifive.com
+> Cc: stable@vger.kernel.org
+> [pjw@kernel.org: capitalized RISCV_ISA_EXT_h to fix build; added stable cc]
+> Signed-off-by: Paul Walmsley <pjw@kernel.org>
+> Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
-Free rdev when auxiliary_device_init() fails.
+For riscv64, I am seeing:
 
-Fixes: edab7204afe5 ("clk: starfive: Add StarFive JH7110 system clock driver")
-Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
----
- drivers/clk/starfive/clk-starfive-jh7110-sys.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+    arch/riscv/kernel/cpufeature.c:1189:36: error: use of undeclared identifier 'RISCV_ISA_EXT_H'
+    1189 |         if (!riscv_has_extension_unlikely(RISCV_ISA_EXT_H))
+         |                                           ^
 
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-index 847c0a39e5ab..1d460a03f936 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-@@ -360,8 +360,10 @@ int jh7110_reset_controller_register(struct jh71x0_clk_priv *priv,
- 	adev->id = adev_id;
- 
- 	ret = auxiliary_device_init(adev);
--	if (ret)
-+	if (ret) {
-+		kfree(rdev);
- 		return ret;
-+	}
- 
- 	ret = auxiliary_device_add(adev);
- 	if (ret) {
--- 
-2.25.1
+It seems it is missing commit
 
+  0c5a9ab5192b ("riscv: Standardize extension capitalization")
+
+Either that or manually tweak the identifier to match 7.2.y.
+
+6.18.y also breaks for the same reason.
+
+I hope this helps!
+
+Cc: Paul Walmsley <pjw@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org
+
+Cheers,
+Miguel
 
 _______________________________________________
 linux-riscv mailing list
