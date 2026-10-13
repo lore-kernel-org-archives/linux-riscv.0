@@ -4,92 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03926CC6B15
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 20:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E832CC6B0F
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Oct 2026 21:30:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9Dc435hvpVRWaJAWQ/tDsNxOrzionZlB5jTSQnHfm/c=; b=BjTC/AhG7EIBle
-	/17cCTGcuXxeaR4lZdZ85IKyrh2l2BiglkSY+NsyjESCdYh+TlN0HDBS8nzHutDAXYYs3Jl69OSMn
-	GEGDbTAAJnl62GKqg8SfuqL4P1sISGyZ2A2saDLzUNcfSduCTGWIMHYG2Wc2M0tUgXTK2Fbzql+Mg
-	GTJJXRwSwF54DNVxMwQN/BOW+NYsLasGq+xnpHHHnmwZ+2bMyAiHn5CGhpxhwmULQJIZEg/v/V0b8
-	u4NC3SfLwyxbOLR5JjOI4VhPKZGGy1YOkT98u/oI8T9Rl2aASJC3jXVl7hPF9sPGs5LpTP0CNUT1N
-	adx7v7G5KGRxIrWSMN1g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:CC:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=OI56hUAafsVo7a6mBhiFkP79nSH2koirPDsHdKP4SiQ=; b=NVsWCmpiDmAdTm4iRDfehrUhgg
+	uCGMbYjJ1q//FYZthkVao9DAwtP2aaiIbGcy5dg0LkJHds/RGGQ3L7yMJ6WhcKrl1L+WgFJI6zbmy
+	iF6EpH7jeD4Y0K1hLYvIYdCRj34qdq9soWzW3i9EM/NdTPDuFJxteZKZa5lIVcYcJ+gdwPIIqi1BT
+	ZbQuFB4SWZUU0BeAKb9pbjxVWpOF7ONcj8N/X/9/EiyBEIfK0+D/p7vKUED46X1owDYdKHEnOOW+6
+	IJCHt5B60JvaLd3/Rv3JnuPFjTD0HDVU0IDAqAkIuSFFN8HmlhCH3zwhzcs+wjQ2m5OxOR5hOFTPF
+	nRlyI+0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGjPj-0000000E2Vh-2Pml;
-	Tue, 13 Oct 2026 20:47:59 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1xGk4I-0000000E5Hx-1vZG;
+	Tue, 13 Oct 2026 21:29:54 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGjPf-0000000E2Un-3IVT
+	id 1xGk4F-0000000E5HK-1uFX
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Oct 2026 20:47:58 +0000
+	Tue, 13 Oct 2026 21:29:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1791924476; x=1823460476;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=rDn0bdIY0p43QAz9/4wt/wZLUN5iHmEL1/nfTUBBM40=;
-  b=OzLKHrSWyLNF9fSCMHH/ECKSiz64oGOi4iXQwhaivccEw1+USCvZkm+A
-   +dxceBIfoXWMwCtAyHB9t8AzSeg21xhjfdxZgTnxhRdlx1L1B2W56YaT4
-   DNbNJuopHPE95s839s2PA2Po0hEkCtWBGX2LPzNRVBHaIi2c65wBnMlA4
-   fRuLOU+BBlHn7Ftkt2WpNGSjx34jYDUXQXQrMpyrR/3NO9PV4xL9zMmFB
-   7Pdl3PQT1+1+7ISKMUcFxLmgVQMhvE0phagnpJ30E51uCk+WmP9PLBVRB
-   1WDHv6VVKGE/G9PDeqhS8nBEWlR1585eyYzVaT7NZQtxLX3NI9FA76Ja9
-   Q==;
-X-CSE-ConnectionGUID: 9u74lcmdSf+yJxjttLy/RQ==
-X-CSE-MsgGUID: IUyKikQWQLqGnxWdzdl4tg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11934"; a="539352"
+  t=1791926991; x=1823462991;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=91UtN3mmfUf1Z+cDWFMSX7fNvPP8qSebrG5ycJn0gfE=;
+  b=eBjAgmNEwuAsmeISbnvWZFunjiqEjRCLQcvb4gg+cztOWbN5v8vYArDy
+   aBgdVgofTAmTvzcOIyBug0evqRgeZUtBlWcwMiryFTfBbbuLz+IpOdurQ
+   RvTvKc29UwcDqV0e6GvlxsIN88pTdXijF/uVRH8W+L0+DAgnFuzb21zFi
+   Y917v9HIazTkV9HfL7n6+NhMtELvyag1VASUgL8eRnWko+K4CJbm8JPdP
+   x8LPa/ETuV8+Oh8h8QW7hvtzXR3ixdKQ40pVt4zLS7dFHmCkSfElFr/qG
+   +NeIVyYvqWhb9Dtvbw4PwGRzUzRyU9j8232QcuIxt1bV26atsK9jYrI8M
+   w==;
+X-CSE-ConnectionGUID: YsIJ8rFcRf+dizX6nVEFUA==
+X-CSE-MsgGUID: 07iarUPrS5elD2gnIn4ogg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11934"; a="659279"
 X-IronPort-AV: E=Sophos;i="6.27,156,1787036400"; 
-   d="scan'208";a="539352"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 13:47:54 -0700
-X-CSE-ConnectionGUID: SzNfySdJSjCmDHbBazRkjQ==
-X-CSE-MsgGUID: gz6QnOMlRHqWt3p7iaqPfQ==
+   d="scan'208";a="659279"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 14:29:50 -0700
+X-CSE-ConnectionGUID: 64WupohkQcW4aiV9TFHD6Q==
+X-CSE-MsgGUID: k35L152fQhm6i7hbv7F9HQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,156,1787036400"; 
-   d="scan'208";a="1143996"
-Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 13:47:53 -0700
-Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
- fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+   d="scan'208";a="1290075"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 14:29:49 -0700
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Tue, 13 Oct 2026 13:47:52 -0700
-Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
- FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ 15.2.2562.49; Tue, 13 Oct 2026 14:29:48 -0700
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49 via Frontend Transport; Tue, 13 Oct 2026 13:47:52 -0700
-Received: from PH8PR06CU001.outbound.protection.outlook.com (40.107.209.71) by
- edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
+ 15.2.2562.49 via Frontend Transport; Tue, 13 Oct 2026 14:29:48 -0700
+Received: from SA9PR02CU001.outbound.protection.outlook.com (40.93.196.16) by
+ edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Tue, 13 Oct 2026 13:47:52 -0700
+ 15.2.2562.49; Tue, 13 Oct 2026 14:29:48 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F1LjkTpmwPEKiiA9m1scdO1QVP1b5Y8QO0kXNxHDh2rs5jHfkKDPUZoXFci5ruO+RwHVKHdSWGvbti3WyYMPaEmhRsGviqUEw1PVKLy0FuqNbG8pzpoet69WlumrHg8CT3tBXzLzH+Z1fc4gPpJ7vzL7czvxXnrqAH4GX4spR6f7XnAKmggqSKk2KrkN7ahq3iYox9d+tCOnZVAfyPrN8y3g6uCSpr1oM2O8zNvzzNTvD+3stJ92rMnWiksytUL999C17zkPFdSENz5ER2IJsyDXPfNIUnGiVtR/xI7CfhnII519Ov3iuOf1RLx7uW1W0mxrNreezY76SCB0wSXbhw==
+ b=PpSuclO7Ql5Uly9V1VtRTdwUuVfjub0S9GfmtLNHUHPy/0FnVuiyOd9Hm6jm0PG58JQ/fJ351kpjz5ft371SRyFkfQDPEE07EWitN7vnId+nRGWoevfOM6OT/PcOBip2mOn1pExip0lYWm2Os+T9wzKe35pHTS+9Eqx3ZGhZbZyAnn9JlpFE8jJdZDdHgTCO/ESI/TjyCJXsplvTFavnUuKnjfSB4JZRgfJZKifu/sDsIxVpXzUMKabmpUN+i7ZJdVrds6XhipZpcGbDOyZsRIc0M+KeUxHlv33fPsHxH2J2SiQY/NMxc8ukUvjSrCaYM++d9MSHu+O0u/IYv0YmIg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9mMQc9a6nC/RwV3fsSQvZEd1rIdYwuVaoJiJJrHYTbw=;
- b=v6wmtIXx4BtbpCHl7bUwMDJj2lvt54H1/eB7jekL8S6EMOge7fMYsA/ljVT1dkh/x9lALISzCqiceNJVP5ZS3vgsU4h1ja5x2kbTC3jGN0BOz3aGVGj+8Ktr4UU/Ea4Vi4FItORYqABiNH+quAGXDqQ0CteRtgf/bpiQvseCBWPSoXbchBu1IWk/IJacGcEG0/q5fG1ECSoPpgOThtbSDUBxGTtV1uX2fx5ULFaaZrkPRCoLy4KhFUddYsKmsVPy/7zBbQnYUpKzlxvrPF41L9MTWiVlTLQSDiO2DLVVuLy43o+6LMOClbDEnZeMRoSrnvyKmydwll+dedtYXdix6w==
+ bh=yr+TjrJGPoPGOobPJx89jpmVpGsbzHRsfnQLqtiCuTU=;
+ b=wbOlae561dQsLHwp4YaxgorPf3mwV3+7cJFIT/yZS43AxAK+NPuR0/Alep7znSRnwYCKZDUcB2AkwWOw2wxRMot/uc0TTk3GVAReDFgkQ4UcL0IaEsFHExEuM+zJvx+mg1TBijBDp2cFXsLXPU5i8tpNTdGjqY4DxWfvKMemtXy6DKn/RMI5d4W1xkWvSHD3bi0izYEUIhtqkGwM/srcoNslQmmxOnt4OmHjPtBc+OBVCt+RW0A7zDm56Pyde3OUFNcGbM7RGpDVKo8tVWHNlPWxI/lttpvXGCv2Z6j0o2BczU5/TBeXj7ioKuhQSYqT3iURjGhkDcbu8mcjS9gE+Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
  dkim=pass header.d=intel.com; arc=none
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ1PR11MB6083.namprd11.prod.outlook.com (2603:10b6:a03:48a::9)
- by LV3PR11MB8505.namprd11.prod.outlook.com (2603:10b6:408:1b7::21) with
+Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
+ by PH7PR11MB6353.namprd11.prod.outlook.com (2603:10b6:510:1ff::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.12; Tue, 13 Oct
- 2026 20:47:46 +0000
-Received: from SJ1PR11MB6083.namprd11.prod.outlook.com
- ([fe80::3454:2577:75f2:60a6]) by SJ1PR11MB6083.namprd11.prod.outlook.com
- ([fe80::3454:2577:75f2:60a6%4]) with mapi id 15.21.0496.021; Tue, 13 Oct 2026
- 20:47:45 +0000
-Date: Tue, 13 Oct 2026 13:47:43 -0700
-From: "Luck, Tony" <tony.luck@intel.com>
-To: Reinette Chatre <reinette.chatre@intel.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
+ 2026 21:29:45 +0000
+Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
+ ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
+ ([fe80::b6cf:ce77:3cdf:7cc%6]) with mapi id 15.21.0496.021; Tue, 13 Oct 2026
+ 21:29:45 +0000
+Message-ID: <22ecec13-a703-414e-9f5e-75c89173e845@intel.com>
+Date: Tue, 13 Oct 2026 14:29:41 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 2/5] riscv_cbqri: resctrl: Add cache allocation via
+ capacity block mask
+To: "Luck, Tony" <tony.luck@intel.com>
 CC: Drew Fustini <fustini@kernel.org>, Adrien Ricciardi
 	<aricciardi@baylibre.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Kumar Patra
 	<atishp@rivosinc.com>, Atish Patra <atish.patra@linux.dev>, Babu Moger
@@ -99,12 +103,12 @@ CC: Drew Fustini <fustini@kernel.org>, Adrien Ricciardi
 	<dave.hansen@linux.intel.com>, Dave Martin <Dave.Martin@arm.com>, Fenghua Yu
 	<fenghuay@nvidia.com>, Gong Shuai <gong.shuai@sanechips.com.cn>, Gong Shuai
 	<gsh517@gmail.com>, "guo.wenjia23@zte.com.cn" <guo.wenjia23@zte.com.cn>,
-	James Morse <james.morse@arm.com>, Kornel =?utf-8?Q?Dul=C4=99ba?=
+	James Morse <james.morse@arm.com>, =?UTF-8?Q?Kornel_Dul=C4=99ba?=
 	<mindal@semihalf.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	"liu.qingtao2@zte.com.cn" <liu.qingtao2@zte.com.cn>, Liu Zhiwei
 	<zhiwei_liu@linux.alibaba.com>, Palmer Dabbelt <palmer@dabbelt.com>, "Paul
- Walmsley" <pjw@kernel.org>, Peter Newman <peternewman@google.com>, Radim
- =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Rob Herring
+ Walmsley" <pjw@kernel.org>, Peter Newman <peternewman@google.com>,
+	=?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Rob Herring
 	<robh@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, "Sebastian
  Andrzej Siewior" <bigeasy@linutronix.de>, Vasudevan Srinivasan
 	<vasu@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li
@@ -115,77 +119,85 @@ CC: Drew Fustini <fustini@kernel.org>, Adrien Ricciardi
 	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
 	"linux-rt-devel@lists.linux.dev" <linux-rt-devel@lists.linux.dev>,
 	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
-Subject: Re: [PATCH v7 2/5] riscv_cbqri: resctrl: Add cache allocation via
- capacity block mask
-Message-ID: <as6Y72SbiXcJh6Ei@agluck-desk3>
 References: <20260901-dfustini-atl-sc-cbqri-dt-v7-0-ca2935d85622@kernel.org>
  <20260901-dfustini-atl-sc-cbqri-dt-v7-2-ca2935d85622@kernel.org>
  <8230dae2-2cb0-4b46-8cec-dc4e281d4e4a@intel.com>
- <aqwN1szItGPg4Qjh@agluck-desk3>
- <as0Zeoyjiy5CW1DT@agluck-desk3>
+ <aqwN1szItGPg4Qjh@agluck-desk3> <as0Zeoyjiy5CW1DT@agluck-desk3>
  <eaeb4259-46d6-4656-8354-669ad32654b5@intel.com>
  <SJ1PR11MB6083F4281EDD036A4E73A532FC9E2@SJ1PR11MB6083.namprd11.prod.outlook.com>
  <a85a5aef-5468-47ba-afba-8bdd666dadd4@intel.com>
-Content-Disposition: inline
-In-Reply-To: <a85a5aef-5468-47ba-afba-8bdd666dadd4@intel.com>
-X-ClientProxiedBy: SJ0PR03CA0123.namprd03.prod.outlook.com
- (2603:10b6:a03:33c::8) To SJ1PR11MB6083.namprd11.prod.outlook.com
- (2603:10b6:a03:48a::9)
+ <as6Y72SbiXcJh6Ei@agluck-desk3>
+From: Reinette Chatre <reinette.chatre@intel.com>
+Content-Language: en-US
+In-Reply-To: <as6Y72SbiXcJh6Ei@agluck-desk3>
+X-ClientProxiedBy: MW4PR04CA0269.namprd04.prod.outlook.com
+ (2603:10b6:303:88::34) To SJ2PR11MB8370.namprd11.prod.outlook.com
+ (2603:10b6:a03:540::20)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PR11MB6083:EE_|LV3PR11MB8505:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7c974ffd-e0e2-447a-a437-08df296b3c07
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|PH7PR11MB6353:EE_
+X-MS-Office365-Filtering-Correlation-Id: fb2b3b1f-877e-4af2-e18c-08df29711a00
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|7416014|366016|1800799024|56012099006|5023799004|4143699003|261009223027099003|11063799006|10067099003|22082099003|18002099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: iOnccxk89STI7Is5u2V2Y2ZZnOYkoZZp0Kbe36WgsAuGcqw14dR+CGvCGWIYycLt9Tl7arenFPpNhf3MlPwyb7ni1yDlqDOa+a+umYqEvDeSUizmuuUzz/klin1bbczo78udEy0yvCbxK6+nAAUbLXiddOrx1D97YBNEUPgAyKUThYVRKkIp+QOJTD9j8p3qMZRBppdUliEbURK9WDAho9JhGAe2CgyO9A0dfb3NW/tRLl/hRm09M9K+7mtdx6ur5QafhJ/ceAVgRO826jSNRhCQXYYfBZYQu/+hWl6NFQSWtIggn3E9DXxntn4zIPbcXUVGPplxztGkcKdQJ6rNHTiFeTHYN/ZEBK/GRp/W7Il3hOcfQX99sElyeJ9VpnmQJfmsNiZ9GXmZkRHdbcghlFbqxhZB5m5I84TpJ6kfPi/IzAIFuIGH1Dhvr0to27nmjQmd6Ik6rlp4P3oo8eICAAuuwZmanEa0/vv8T+9TjSA5S9MkAh9f2EYrMarb4fPRB1w1rd8kTEvr8rwLX9D3r4MP/kmScpOJOvCH7qn7CrtTsuhB3IQApgnFgvso2i7mTy69B+YMjRTFsgp/Wr6yLRKUR7TxutbIN4raI7ARX5cjizlplvLhGz5LBA2VMNJ5
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ1PR11MB6083.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(7416014)(366016)(1800799024)(56012099006)(5023799004)(4143699003)(261009223027099003)(11063799006)(10067099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|6133799003|18002099003|22082099003|10067099003|3023799007|5023799004|11063799006|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: 5LCxcmKbLQxEXZkH8HVpJ9n6++zEt4eJmSEXpsljqyIZNGacwt2R3tN8I4mYgzcD4QGh7VjV485tsnd8AsatE6VWTJXhRT1ACLR92cvhbtKSnxGSksj5mtkmAR05XM4wPh/ZbaATLfO4nQh8KMKJv5LF0Bljfe4cS2Q8qMJCCoTUu9DPclH/StLpV7UaIZAYGu6ADUhtMyTaPH/RVb8OQ9ZzutznFK2Uhk/An1BsCKOJ3lUTAVb9umFeoZ5/vVlaLSnccXuTtY8KrLfjQHJ64ylRRMcUYAFF/qZxa+cVV8WP730Vb49CBYe/UwuL+BUZ3WNyNFI+pdaAKKKnsTjuE9FvHO2QzesT+GO8pWlJxzSynRgafHO4Zw5/kdC93KhkrtkbqQ4JDajTbnfntF1J10vofHNdtikpI4DmKk6pO+mTBEEoKOIMhmtltRpFJE0hzN4BKam3IF1TtbnPl4IBbEpkhin8StJnW4sKkkEBLsiV2limNM0Ofmt/0OucF7RGcOuhFExGGjI6sh29H5nq33+gGEY+Kbu5QXX+lBpElJ066hLnr4GBsqj2HS/3TVqyj/q4fTfXNjzoELZ/w05LT2c9/O/e3rozpr+qobnigr/YU5Ay6nY9hymsmpMpYr0P8pe4lYIE7CXXrzssX1oqYrLkJMSC0t4c/Cuf9BtTeOo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(6133799003)(18002099003)(22082099003)(10067099003)(3023799007)(5023799004)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xX4pCOkVBlTGhgXycV9o+MHPgUvXXM6LeGDcJqCe9ReSnVmuKFbHoOaJakfZ?=
- =?us-ascii?Q?X5kuTRe7ZzdumemDeW9DTdPgEZdbxkY5qMGQeYkHXqyiTXgzhYa8tTnXUvkt?=
- =?us-ascii?Q?riNM9Lj8fXRg0rZc6ureWeQXPIkqiTwrVCQ95ZL8fdCYXNK/OytcvGZF0Dy3?=
- =?us-ascii?Q?ut05ajLmFnBH6UpLBXGmePAFXZ/QfvYOh+kGFP1XgS8KFcLNv1LJk/hHBhm5?=
- =?us-ascii?Q?6UfClKat0CE7I5iQLjKyfmOEWOo351wx6L6OBfV9RuHyHOfqg1X14+bpnbYx?=
- =?us-ascii?Q?8fHPar2+v1MONxL4s7qgkyqZWEzgwJUdTccp2loTqbK1CqGrZq12tayw252V?=
- =?us-ascii?Q?/u/fyUL4zyc7T1BojcXmr0R/X79WxkmO0+h6FUnWGMXvfVhBylzyfLKlM1Ag?=
- =?us-ascii?Q?4vjRzPv5TcPgFItOBPeLUwm7mlikQKFqbaz9JBc0Xcpa5r6aYfhVTl649IFw?=
- =?us-ascii?Q?wSApilyplcDO9mWRn+KcbufR+fz7+jU5eDsjiEtfEWNQBGWJikNT/xNvySOP?=
- =?us-ascii?Q?K2MUmxSJKm9qDaV01nHHBK5Gh/OslZA2jidwy2g3BiFQdCksplPZ4HNxL48m?=
- =?us-ascii?Q?0G2aSRojf66UK88MQH4HpdmfZMJuMSvqTY4ffWlC5Pa81QwgFVPQsvvj29mf?=
- =?us-ascii?Q?qy6QGzDs8VWb00fGL3WHyjezCbidK/02ZHLshpfoydHdcr1MDB2QWszVe0be?=
- =?us-ascii?Q?g0YZbxzKxmmpQwSifzXPYjQOCODTiE+ZOk6bPK8YoQRGQEgA4l5GdIqEiFCu?=
- =?us-ascii?Q?2ltkPse8aJGK/A2Fga/yxI3ZHYBD9aUnJYGUNNvuYhC0/HIzXddALE/Z1YJp?=
- =?us-ascii?Q?rR3QccZPk12Ldjkd3ls5yjp417UUWzYcR8p1rQfNDQkAfj4SW1e1nwVVC9PH?=
- =?us-ascii?Q?p5+m72mnG9YdVp7BnACka+6zDnUfDxos1Y7nKadh8CwWDtiT6nxTI68yMblL?=
- =?us-ascii?Q?VZUEJYORg54H9M6XqzwgVYXMYtvXLpAv8C0PPaLjsaozqZisd+nUKk86bpda?=
- =?us-ascii?Q?gp32v4i6OgvCwIFFTIrRPzJvwwoEgdB9DDKHAG3EvfiDqfsSD7MHhkjS1HKD?=
- =?us-ascii?Q?1Axoldz6MyCw4SgTiHVDfBYPELrLw1g0FKo4No++Tq658+gBy4kx80gALiTR?=
- =?us-ascii?Q?Dm3KfgvRo9XSY1Ox/Tr8cZ7rZjVLdh38nwfQQxX3PDQZeww0/Ah4qsLYRqN8?=
- =?us-ascii?Q?dfuouBMR3OoO3YEI4Av7fisbhTH8UnnkEaadP9crNvssQygCrdKqvsYVZ2UQ?=
- =?us-ascii?Q?bIWhSsRMDU1Fp3pIuGTiS1qBfc2ytu5yqBHrh0YL49cqrIejiQ/kop77Iu2P?=
- =?us-ascii?Q?eZxCIx49h8oun3FosPZtyNtjjtfH+X+YW3PSKmZ6+d+abAsky+6eJDYdVjsY?=
- =?us-ascii?Q?ENz0WZGE+AQMgGoI2WHHIbHU/dPX5gkwbzQJ18AHHdQH6pWs0HRJ1rAV8ecr?=
- =?us-ascii?Q?nqwFUq3Wv6nCLfrF8jeB8Rft74Ktg5iX3uPa5H+zj7qh7fobsyc2LCvGpCiM?=
- =?us-ascii?Q?YLug01W71iyDJaDpmEQQDc3sLRaZ/5RYkz6fWLY73+O4pU3gg/6eTEBsqduP?=
- =?us-ascii?Q?ub4968Krrw6k1jw2FCbtrpKdm8il8rQ6oTXA6cwY8NtiEEMqz2mXDUBofCbw?=
- =?us-ascii?Q?rdnih1htVX9EHiO9VfveMYWGM816U9T06wsKgVJCy0DzYdNXphOliLg5kaQO?=
- =?us-ascii?Q?gYCicxi4JeQamLC280kJhqnidA1FwYy9Z3E2U36m2V5FLkHjuUAIRqH8xRxD?=
- =?us-ascii?Q?wWFDKbfvug=3D=3D?=
-X-Exchange-RoutingPolicyChecked: xdw3M3WPG43JqDD/IvApmJG4OfXLSq+E9zKSVL8COx7Ct/kPJMCculbwJmLdxwI1XkwmQZbk+jxsPanBk25RRUkH/Rwp03gy2ukxMT9Px0laso2oYOC89x3rPSZ6plegdc2gpWrzoy/tkZSW50+WNPsqWuVOUwkmor+xy+Ot8bHYJOC01At0JgI6+zs6V5NWMaUhG8O5LoOnP7QynQtd9PgZ/aSQgk6N+PIYVFcRjTJM3y2qtjln1ZScncdwyX/2fXZ8qoMCzwFfImvY46AzEU7UdW3V3Qumcsye6Zgezx3bCzLsmJeXZ58Da84euG4pBog4UPMfOdh8FcTlO/1Nmw==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7c974ffd-e0e2-447a-a437-08df296b3c07
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PR11MB6083.namprd11.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R1ZpbVpQSy9yQitwUUViUXU1SG5scnprSTZnYUVJSUpzKzdNMndvRDdDM1pS?=
+ =?utf-8?B?d0NEaUxkYXRCVjZQMnVNTFovSVhheGdPYW5wbEdUNGtzUVR2N0x0UXpYSVE5?=
+ =?utf-8?B?bDlBVytmNVhXaGsvTlV0SnowL2FkUm5NL3BlNmg2N2hmNjBxU1FZQ0Y0WmJs?=
+ =?utf-8?B?WVhobG9UWXVWbXU5S3p0UFo4dWtocXVQMmNoNlRPZ3dVSFdHVjFMR2Z0a0ky?=
+ =?utf-8?B?VVJmeGg1YmMwQ0NlUUVRQVV4Ty9DZithRkkvOHhvcHR6Mld2bjRKaHVkTm1k?=
+ =?utf-8?B?d0pBSDY3R1BtQnZnZnVCcGIyektQeWZJWHBGQ3dWSjg4SnUzYVJJZTlZQWFK?=
+ =?utf-8?B?VE5ZTVdwMm1aWWNZaGJuSVU4cXRNb2p1bnI1V3VTbGpxZ1hYSDZUT3dFZ3Nm?=
+ =?utf-8?B?RmdIZTVZMVVCNDFJeXFLWUtOaE1XR0FOT2Ivc3ZYMFVwVlUxa0tjUzNEZUh0?=
+ =?utf-8?B?bmVyNkpMMW8ybE5qVCtrR3d6TkM5c1pSdEpiWFYzNG1ETzhPWDNZR25keDh3?=
+ =?utf-8?B?RjVDNWpzZ3c0RWlRREhGMEVaazJKUkZlSW5UdnFWNnVFMllFNzd4VXBvSHIw?=
+ =?utf-8?B?K1RxaGI1U1hHTEFIaEhkU3dWV3VxMTVYeDdBZ3dZdUduZHNRY0Z1RkV5dmJS?=
+ =?utf-8?B?c2piZnViNWhieTQySGo0NllFZGJuN2J5dnliOVo0dkZvWWtYVmVGOExzUFMw?=
+ =?utf-8?B?Rkt3cnVMYkJ0TUxUS3J1KzYybkZLdkt0Nm9sdlhXOEZDaWsxMmRjSXVTMVY5?=
+ =?utf-8?B?Uk0rdzJ4djRzWnRRa1UyRU9yVVVQbFVTaHlkOWJpVFhmVlRtckNIYVd0eGcw?=
+ =?utf-8?B?WGNJNlBkOHFmRC8xbitOclBMNFhubmU1TXFmT3RKOWtFQ3hsRUZLcmVUUDU4?=
+ =?utf-8?B?dDdWNTl6bnF3S2V4cnNnMjBaQmRITW1RbU90YmdydFFqNUtjbncvSnNlQkR2?=
+ =?utf-8?B?SjNCSzRyRi9sbXRleXJkS2dxbkk5U1FFdkFDK0lKRWtrMU94M3pGK29Rb3E1?=
+ =?utf-8?B?ZUxNVkRVV2l6Y0thSGFhcEwweTFybzR1R0ZOQTEybU9ac2txNkhwb25LMTh4?=
+ =?utf-8?B?TFd3Z3pzZnBWc05oYUxiZjRYZTlNYkxlM1pWMlZ2c05Cc0NSeVlIWkcyT0JZ?=
+ =?utf-8?B?Q1F5bk5acFZEeERoM1B4SFcwK2oyeFdYTlFLaGFKV29aWlVrWER0c1JYamdm?=
+ =?utf-8?B?REZjSit0MUdXd09LdzRsVXp5OEhtUkdOemFLR3RaQ1VaOXJva2xNSTdhMU5w?=
+ =?utf-8?B?dHNkd1Q2M2c4L0NqTlNmWlA0ejArM0t4eHlBZ3VSN0g0NURxL1VyVWEydEJB?=
+ =?utf-8?B?T3VUd1hyODVIbnFPMkFjMTZRZHQvMmJwOVYyaUxWWHFKeFJjU0s2c2czVm9u?=
+ =?utf-8?B?UlozRkhKeFJZbUVySEloZ3phUVViV1VveG1mU2U1Y0lYR1FlcXdObis0WWpu?=
+ =?utf-8?B?ZFh0bzhZVkhyNUExaW96M0VyZEdyWG4ra05IUDVtdk1PZTBPR09Gem50TkY0?=
+ =?utf-8?B?U0gvb1dHNTFHWnRKT2VFTWp1bWE5b1VXRkY2L0t3eVlDK1lvamVYeUxTT3Bw?=
+ =?utf-8?B?OVQraXBsVS9nUVYzNms1cDlRK2JlSTZiQlZoREl3a1Z5ZCtIWCtVa2NDZzdN?=
+ =?utf-8?B?Y0w2ZlI1K2FJUzFKYk05S2M4Z1F4STZsRHpvK08zd1Nna0ZaVy8zTmcyUEEx?=
+ =?utf-8?B?ME1DR0JaankycUZQcS9oekVIcmgwMU16dE1HTlNxZVY1NGVZMG1xdzRDS29O?=
+ =?utf-8?B?MlU1N0IwV29yVHBPMnBMNU5HemZnQlZ1TFVJbTJ4Mi91TDVXN2lGT25PREY1?=
+ =?utf-8?B?SVFsYlU0TUthZzRkNlVydWlHM1lCcThvRFJUVnZuaU5EU0RNRHpaS2dpUVp1?=
+ =?utf-8?B?cjgvZ3VRcG1TZGk4eThXRmloNDY0M08wYjZZV0cvWE8zd1lVRkJrQk0zYnpG?=
+ =?utf-8?B?Y3ZyS2wwbHVBVXpKUW0vaVBpT3FiMVFGWDBjd1NqVzZ4Qjg5YmNOWTRvV0Ex?=
+ =?utf-8?B?NEJqOTJFVFRtQzhRT09qYWc2TlhQNEhJVDV3YkcvSkF6OWRISnVtYWpWUGxa?=
+ =?utf-8?B?dTRrUUtDUk9iR1RiWlNacUJKeVpMSHhCczhleitqbVBZWHFRZzBzODJJVmk2?=
+ =?utf-8?B?azVVVkNHdm5zelNYTXFmcGpmckY3ZmoyMjBjQitSdXBCcUExY1VzZ0E5YVAx?=
+ =?utf-8?B?ZUt4akJ4TXpiRjV4Y2k2TmFHakNkeXJNbEdNWFVoaHpZS2lzK2NrV08vcUNH?=
+ =?utf-8?B?SDFSOThhdWNQRDBSWFhqRXlFK3VMME5BenJ0MUZ1UEdHQ3ZuQnMzaUQ2QmNL?=
+ =?utf-8?B?NWxPeGtxR3Q1MjFjTEU5SExwOEJRd0pHNWpaTXA5WmtjWkhLNE1xbTRBYWho?=
+ =?utf-8?Q?dJ2BR6ZowkaYBS5E=3D?=
+X-Exchange-RoutingPolicyChecked: UiztQpdRNQgNSWfPe5W/l2qz1tqHxg2E4VpCMH+HgTOV0xjeF6MKG8ywOBxmj3EPMvLp+5vC4dphKXTUgi6+FfJi+c573TLffiLbkp3MA9NGgInl6sfrmJZ6fi1ATq/Fp+8glvD7y9mQ5ncLb2eTG6cdSgKcaudCcUAfYjqZ22ynjz4XbeaXHno/Hy0uFmmpV0967Iud2s5XTFfyWAFKllngEOuNEj/3pMnrBQp+9Rt+txl9tWEA5i9KJCt4b54ZzJIE0nSukpz1+01cSCATW3wRUILXarSqmssdlczRyR/hWLXjFy+ojM1OZNRb+wy9YZIrnQNwfxqLokwOO/7y9A==
+X-MS-Exchange-CrossTenant-Network-Message-Id: fb2b3b1f-877e-4af2-e18c-08df29711a00
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 20:47:45.6487
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 21:29:45.5655
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HFoqwKNqSCE9iE2swJLK8iUW8Z/ASBGTXSxMECR2seR+y8lddgN/CoaSliW9HoUw5uJLqKHeKCX8DppQIkvE3Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR11MB8505
+X-MS-Exchange-CrossTenant-UserPrincipalName: MeO0j0ZCH5otn3ubFlIMfwc3On88IHE61Jx6fhvqbqAF7BRiUZUNcmmvwjcgHcxE98g7sPY3lTZO+wS3CiUKhuHILH1DGL3aNKokzSRU5tc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB6353
 X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_134755_922050_2A7A3175 
-X-CRM114-Status: GOOD (  33.94  )
+X-CRM114-CacheID: sfid-20261013_142951_522587_BB4FFA44 
+X-CRM114-Status: GOOD (  24.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,117 +214,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2026 at 10:42:05AM -0700, Reinette Chatre wrote:
-> Hi Tony,
+Hi Tony,
+
+On 10/13/26 1:47 PM, Luck, Tony wrote:
+> Reinette,
 > 
-> On 10/13/26 8:55 AM, Luck, Tony wrote:
-> >>> 3) What should happen to the legacy /sys/fs/resctrl/info/L2/cbm_mask?
-> >>> Just hide it? I also considered renaming the resource to "L2A" to
-> >>> avoid surprising legacy code.
-> >> The current direction is to have these top level files continue to return
-> >> the properties of the default/legacy control while in "legacy" control mode.
-> >> When user space switches the control mode then these files return empty.
-> >>
-> >> This is what is implemented in RFC v2 so you should be able to see it in action.
-> >>
-> >> It was noted as one of RFC v2's opens:
-> >>       - When switching control mode to native the top level control info files
-> >>         stop returning information. This could be considered "work as intended"?
-> >>
-> >> An example of this behavior in action as applied to "min_bandwidth" can be seen
-> >> on slide 4 of
-> >> https://lpc.events/event/20/contributions/2368/attachments/2066/4625/resctrl_2026_combined.pdf
-> >>
-> >> Hiding the files could also be an option. I have not heard strong opinions on how this
-> >> should be handled after the above mentions of current direction.
-> > 
-> > My PoC hasn't implemented anything for the control_mode file so I get this:
-> > 
-> > $ cat L2/control_mode
-> > [legacy] native
-> > $ sudo sh -c "echo native > L2/control_mode"
-> > sh: 1: echo: echo: I/O error
-> > $ cat last_cmd_status
-> > Changing control mode not supported for this resource.
+> The system I'm working on has L2 caches that appear like this:
 > 
-> The current PoC supports multiple controls for cache resources but does not
-> support switching to native control mode. Only MBA resource can switch to native
-> control mode.
+> 	    L2:0=fff;1=fff;2=fff;3=fff;4=ffff;5=ffff;8=ffff
 > 
-> resctrl fs built a couple of features on top of cache allocation that are exposed
-> to user space (CDP, IO allocation, and pseudo-locking). It still needs to be worked
-> out how these behave when there is no legacy cache control so for now these features
-> are hardcoded to be associated with the legacy cache control and switching to
-> native mode is disabled.
+> The P-cores support 12 ways in their L2 caches, the E-cores support 16 ways
+> in each of the per-module L2 caches.
 > 
-> > 
-> > But it isn't clear to me what legacy vs. native should mean for asymmetric L2.
+> A legacy implementation would have to present just 12 ways across all
+> domains to the user. The implementation of that has a couple of choices:
 > 
-> This would be up to the architecture. One possibility is to have the asymmetric
-> L2 control emulate the legacy L2 cache control. I did not really consider this
-> and just assumed the legacy control could be expanded to support different sized
-> domains. 
-> > Potentially: Legacy mode: L2 is disabled to avoid confusion with different bitmasks per domain?
-> For "L2 is disabled", are you referring to the resource or the control?
+> 1) Ignore 25% of the caches on the E-cores.
+> 	Unlikely to please anyone.
 
-The control (though with only one control in the L2 resource its effectively the resource too).
+Just like the percentage based memory bandwidth control is not able to
+please everybody but it is something that can be exposed to not break userspace
+while it can be emulated with the underlying hardware controls. Users needing
+finer grained capability will have the option to switch to the native
+controls.
 
-> If legacy L2 control can be emulated by the asymmetric L2 control then a user space
-> can continue to interact with a L2 control that pretends to be symmetric on an
-> asymmetric platform. An "enlightened" user space can then switch to native control mode
-> on these systems and interact with the asymmetric control directly.
+> 2) Silently allow access to the "f000" ways of the E-core caches.
+> 	Doesn't waste the hardware, but if the user tries to divide
+> 	available cache exclusively between groups, the "free" extra
+> 	cache would result in surprise sharing.
+
+(2) requires the system to support sparse bitmasks.
+
 > 
-> I am not sure that this is what RISC-V has in mind here though.
+> The drive for L2 controls on hybrid systems comes from embedded systems
+> where expectations would be for the controls to operate precisely as
+> written without any fuzziness.
 > 
-> Ideally user space would not need to be exposed to architecture differences when
-> interacting with resctrl filesystem. This means that a solution like this would
-> force all architectures to do something similar for asymmetrical/symmetrical
-> cache allocation.
+> I'm not seeing a market for the legacy behavior, so implementing it
+> would just add complexity to resctrl without any benefit to users.
 > 
-> Another option is to just support L2 asymmetric systems with the legacy L2 control.
-> You state it may cause confusion - I assume you refer here to the schemata file
-> showing different CBM for different domains? The legacy info/L2/cbm_mask needs to
-> pick one CBM to display, which could be limiting. This is what the new "max"
-> aims to fix. 
+> Perhaps keep the "L2" resource name. Use "L2" for a control name for
+> symmetric systems. Use "L2A" as the control name for asymmetric systems.
+> Legacy software won't be confused because there won't be an "L2:"
+> line in the schemata file.
 
-Reinette,
+This cannot simultaneously be a market that does not require legacy behavior
+and require legacy software to not be confused. Unfortunately I believe
+legacy software (which is the latest software today) will get confused.
 
-The system I'm working on has L2 caches that appear like this:
+I understand that there are many different utilities used to interact with
+resctrl so behavior can vary. Based on my understanding of the pqos/intel-cmt-cat
+utility the system's capabilities are determined by parsing /sys/fs/resctrl/info.
+Based on this parsing the utility expects particular entries to exist in
+schemata file and interacts with schemata file with this expectation without
+checking whether a matching entry is actually in schemata file or not.
 
-	    L2:0=fff;1=fff;2=fff;3=fff;4=ffff;5=ffff;8=ffff
+The utility will thus inform user space that L2 CAT is fully available but
+when user space attempts any read/write the behavior will be unexpected.
 
-The P-cores support 12 ways in their L2 caches, the E-cores support 16 ways
-in each of the per-module L2 caches.
+> 
+> Don't bother with a control_mode to switch between legacy and native.
+> Just auto-select the "L2A" control on asymmetric systems.
+> 
+> But since this thread started from a RISC-V thread, it would be good to
+> hear what is needed for RISC-V.
+ack.
 
-A legacy implementation would have to present just 12 ways across all
-domains to the user. The implementation of that has a couple of choices:
+Reinette
 
-1) Ignore 25% of the caches on the E-cores.
-	Unlikely to please anyone.
-2) Silently allow access to the "f000" ways of the E-core caches.
-	Doesn't waste the hardware, but if the user tries to divide
-	available cache exclusively between groups, the "free" extra
-	cache would result in surprise sharing.
-
-The drive for L2 controls on hybrid systems comes from embedded systems
-where expectations would be for the controls to operate precisely as
-written without any fuzziness.
-
-I'm not seeing a market for the legacy behavior, so implementing it
-would just add complexity to resctrl without any benefit to users.
-
-Perhaps keep the "L2" resource name. Use "L2" for a control name for
-symmetric systems. Use "L2A" as the control name for asymmetric systems.
-Legacy software won't be confused because there won't be an "L2:"
-line in the schemata file.
-
-Don't bother with a control_mode to switch between legacy and native.
-Just auto-select the "L2A" control on asymmetric systems.
-
-But since this thread started from a RISC-V thread, it would be good to
-hear what is needed for RISC-V.
-
--Tony
 
 _______________________________________________
 linux-riscv mailing list
