@@ -4,77 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D8ACC6B1D
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 02:37:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D16CC6B19
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 03:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tkAoQUTsjlRdGeT7PvRRzuQTvOPPn476TUzjheKhexw=; b=W8HyZEHWwIU7pw
-	Op8sHnX50tJadT5MBbp/5hLvGVdV/mhCg2rNqqqFkcvXXfBIbIRDKcq7TIOqI+tFkqo2jJzWkIvUT
-	dgmsgy7yH3OaPd9b40ccmwaNy/TvJPuFSb30vvq6tE0UwnxWRapBe5IiyhSe9ujXChAPHpQ076zTg
-	IgJkIEdu5adPswquxjqCoh2albvYVic8Vrgj6NAEdTcHbqbF7fsokjtkspBULopGLJ6iqUG5Ttaxr
-	Yo3m1f86hJ5UJigWfKPuOdk2Qiq4wmxcXflcvWJO+sXB5zjnqR2jEkPq05aiLVfQLMqZQ96FM6HsU
-	Kr8S0fZveP2cev9skjwg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CRE3Ayz8KKkRS+3xHdHreuAlX9MyECCP/Ph8G6gAuds=; b=zyoJ7KLzI460aV
+	2W99Wc3JmC+thNojAl2GjiB8veeBRb3cTMIdLiooPbLYP+8cvVhTUXqPLEekGSIp3nai5GauRhzdg
+	huRviXaiaLW/UOwPIjzZMUx87c8De571/AfEHSd/y3uJdxwKo5m1tC/WimXxjz567MDLwzK5qymAv
+	5EB+EKvthE00e/zM//BtlkKTI9scUiNUnMsvHz5wsOzgao7aqfaPpKiq7YX2AIV4Sx0ydlMAOVbd1
+	ZkALae0jrt2PwjZz4yzZCvSDgHya439EBBLHG1F3h6Y5m9CRC9nDHf8fA3Z3qQbZh7eyijBJVOggV
+	248UmvNrDiQjh4U5iQSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGos9-0000000EN6D-0Xhi;
-	Wed, 14 Oct 2026 02:37:41 +0000
-Received: from out-137.mta0.migadu.com ([2001:41d0:1004:224b::89] helo=mta0.migadu.com)
+	id 1xGpTp-0000000EQ8L-0JCk;
+	Wed, 14 Oct 2026 03:16:37 +0000
+Received: from mail-sh0chn02on2095.outbound.protection.partner.outlook.cn ([139.219.146.95] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGos1-0000000EN4c-0s3t
+	id 1xGpTj-0000000EQ7p-0rFI
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Oct 2026 02:37:38 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=7UUTt82RGwkEsPz4m1IMAXE3gzzct3/wWyS9tYPd83k=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791945448; v=1; x=1792550248;
- b=SuKgG0h1oLdHqaaJ9RHrwR/s04x1jK5Mwqs5ZzfmH0XRLckS0tHu2iba+7mwMZGIMKTwlbiO
- huUqRETO+zV2D+xoIvimg0dmf4nPISBkwfV51fkak4Bxb2YH7ZLI6YFPMxEPo+2+jE1iQOwEt0x
- 1gqWhvXrcPj0282aAU5le8mQ=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 48e5c038101e18a7;
-	Wed, 14 Oct 2026 02:37:27 +0000
-X-Mizu-Trace-ID: 48e5c038101e18a7
-X-Migadu-Flow: FLOW_OUT
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.100.1.1.12\))
-Subject: Re: [PATCH v2 1/4] mm: fix missing page-table destructor in
- pagetable_free()
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <2552e0bd-0e50-4dd5-a3d9-00e9204eb2c2@arm.com>
-Date: Wed, 14 Oct 2026 10:37:04 +0800
-Cc: Muchun Song <songmuchun@bytedance.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>,
- Oscar Salvador <osalvador@suse.de>,
- Dave Hansen <dave.hansen@intel.com>,
- Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>,
- =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Alistair Popple <apopple@nvidia.com>,
- linux-mm@kvack.org,
- linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Message-Id: <6DB87EB4-93BB-4861-AC17-159DCD1E442B@linux.dev>
-References: <20261010112457.49485-1-songmuchun@bytedance.com>
- <20261010112457.49485-2-songmuchun@bytedance.com>
- <2552e0bd-0e50-4dd5-a3d9-00e9204eb2c2@arm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-X-Mailer: Apple Mail (2.3901.100.1.1.12)
+	Wed, 14 Oct 2026 03:16:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=MBHKbxoZ8MKyx8t2IIPPrzZ5viCKyh2H+jtDFDY5hV7ub6JFJuKszeLtowYP3sI8buzjk9UoRpROaTtVgc86uTAP8voe7px33ugbgyZxzHcYDFE6C+eRvBZFrDZij9eB7BVVLHFz4U4Qz6Hr1nqNpKbnxjuyhQqMCksmBPxeSzVV/fyad7Bh+QjC4/Yn8tOTWtRzY0GdMUAD2V+bSARh+QKWaBQbv+vB6XE1lIOHBqprNanAcBOr85MekDtF+CQEcH7aJRlZMp7M/bdKZdxG/v9Ocrmwgfw6IZYjEpLxm7DXUnbe2vZMSnX7EDY+7Rw5q42aKAe7pWgZLx5bEtReaQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L9BKYRgytyLAI6aAh4ayEyLeVwIuzKAlK9CQXkjyomo=;
+ b=B77XTFBSwecAnWORYxTaTJ6eglbg5qFdyLrLrPQ+FHYnAfzf/aR/q7yyRWjFv+c9rAoC/48Xc6E4Og7XuyB3oJkTPzYfRRQMWISfXMZIpj+ErD2U6kdluhzUl0rQAUQ7QDlkcrnzOjFEU1sBX9EymZuMqswG6Nuv7nD0tGv+LapRa2RmhNG9fBYDBH0S/1nExOW/1WWuFVcWm2i0c2ca92TWnCTVyKqbT+tuOP8xGQq0J1SQDRLZwX80j7p+fovj3tj6v+rzBGJ5aB3WbP5uMCSU/kDp3Yd7dzj4TckCgyNU+C39vbe1/q5yGxDfCMIKNEUV24x7KPjWP3PLhze4VQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1217.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:13::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Wed, 14 Oct
+ 2026 03:16:13 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
+ with mapi id 15.21.0522.012; Wed, 14 Oct 2026 03:16:13 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Jerome Brunet <jbrunet@baylibre.com>
+CC: Brian Masney <bmasney@redhat.com>, Jerome Brunet
+	<jbrunet+clk@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Hal Feng <hal.feng@starfivetech.com>
+Subject: Re: [PATCH v6 08/15] clk: starfive: Introduce idiv ops for inverted
+ divider clocks
+Thread-Topic: [PATCH v6 08/15] clk: starfive: Introduce idiv ops for inverted
+ divider clocks
+Thread-Index: AQHdVyFJ8jAQ4VCruUSgZzTm7XVqG7b5uLaAgAKtwRA=
+Date: Wed, 14 Oct 2026 03:16:13 +0000
+Message-ID: <ZQ4PR01MB12029910538E78B60432F9B8F29D2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+References: <20261008123338.11081-1-changhuang.liang@starfivetech.com>
+ <20261008123338.11081-9-changhuang.liang@starfivetech.com>
+ <179180050742.66744.154947682767663962.b4-review@b4>
+In-Reply-To: <179180050742.66744.154947682767663962.b4-review@b4>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1217:EE_
+x-ms-office365-filtering-correlation-id: 3dfebde8-80ec-4f78-5d85-08df29a1807c
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|366016|1800799024|38070700021|56012099006|4143699003|261009223027099003|18002099003|10067099003|22082099003|6133799003;
+x-microsoft-antispam-message-info: ylp6664lxTbyt8PbZyWW+/5Q9OdV/R2DViGDJ+cQHWfluNSOq/qG5NKF7yiINjVnsOD4B3rq1P0+2+E+b2hhKKJ29UkOEKi0MzF6umb6Z27WhpOjWJRi/uSyoSs/PNBYlZ+7uuXjPz4rqyVlyPosVaeeJBBId89K+nLY41afR/c//H4TpkdcOQTXbC3jBSyO1LKKZQzqhShVCmuwXRT/obCtKbDZcdGJ0kkcPw64JIgkyRzywcdSxFDIiuDm0F3iM6JD/SSds6lwy9Nwd9/V4/dgTITzEjR0aGZsEp+NCRWPK5yetRyQIqgWowdF/E3eRMLNPRgSHSDbDYuOwMBgpMFpKEFAkFQYGrp1KlL5yFr8lhtZV7HGBymL7DveC4RVQgKtKy9Bkilvel/0q8r0hZPseN0mQE67AptUtX0G2BIuPucgzR67b2sNJs66VhadqYc0C2NgKDlJK8aOaVS21Iz0fSweyy1hURnW2HjLG+29B2e6F6HAAVxok541n4SBrFxc8rX9rgrCPmdaKsz2jQyPQx1JuXj4rSlWXYehlDJz2WoXH2mOZ428ob4MBZ3l
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(366016)(1800799024)(38070700021)(56012099006)(4143699003)(261009223027099003)(18002099003)(10067099003)(22082099003)(6133799003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?dngzc2d5TVMyTVhtSlhybmJPNW5FVHRwTVoyOTEyTlc1VUNCbnd4NGlTSVVF?=
+ =?utf-8?B?ekpWRWR6ZlRBTk8yOUpGVUdGS2laeEhnODY2RVRUbXVMTXZCSXBPNTZVY3E5?=
+ =?utf-8?B?YnF0UVMySWxCeExaS0VFZWYzUExUOUpRS1JWZEtWOXE2N3VLcUZFcGk3K3hK?=
+ =?utf-8?B?UVJVOExBb2c0ZmtaMCt2QlY4UzAzczk4Rlk0cDF2d3RmVHhBVGFLSmFBQktM?=
+ =?utf-8?B?Q2U1b2srcjVveDcwbFM5NU14NjBhQ3VxRTVSMHErUUJza0hFdk02MytVZ1ha?=
+ =?utf-8?B?aFF4cVhVQVp6WmthMWcxcEc2NGhnRFJlamxzVGRyc3RzZDVwYitMODZzZHBz?=
+ =?utf-8?B?TEs1VFl3M1BCa0VublRvVnFibjRza0NDZU9VYTdSNTZuY1NCMHQ4UkZTS3FY?=
+ =?utf-8?B?NVZKaEVqSXpkektiOEp1eW9JbVB3SHlUWW5YbERTZHZmbDYxVmxaT0UzL01Z?=
+ =?utf-8?B?QTZaZFR4U0xVaWxwRWhCYjVPK1JLQytJa1hHZUZjdFcraTYwZjYwUkQ2Wnpt?=
+ =?utf-8?B?RVE1M1pMK2NYTC9vT2loRVhBbHY1MDFjRzhycG1Dc1ZCbzdvdjhpQVBIYkEv?=
+ =?utf-8?B?dWtHUHdJdUpTRzY4RVNpTk9nSnliQzN5bjBmeFlDWnJuYTUzdXNVMWc0OEls?=
+ =?utf-8?B?aGNYMkkvVVZkRG1ub2dobit4ZjdLSDFoakNSb3JmQm9oRVpaclFWeXUzZm1v?=
+ =?utf-8?B?OXVCdzFsWFU2R1Evd2l3eFRDVUZxL1BJaHZHUGUvREhQRmhvTGpHUFk1czh0?=
+ =?utf-8?B?RFVYdCttbEhRNlZtM2Vtc0VxSUFxb01kWUNxWjU3MjB0Q2tHL0RaNzJuL2JU?=
+ =?utf-8?B?SktUd3ZDbUVPY01kbW8rOVVmWWEyL0psOWFoMmY2WTRzWHA2TXhTTUVPNWRO?=
+ =?utf-8?B?ZzV4cjh4L09tcUVRdWNZWVc5OW14TzYreDdSNXh1bG1TY21mRlIzd2QveG5E?=
+ =?utf-8?B?ajJOZW9CSEFmYVJVNVdVVUFwbEZXdTd3dGVISjFVeEZXS09neTJoTkhNTGVx?=
+ =?utf-8?B?dkFORGJTM1dEV3A5Ui9RdXRCeG1qS0NZSG1EVnJHTWRKY3JaUzlNNXlIbENk?=
+ =?utf-8?B?MjBsdlR6T1AyOXhuMVV4d3AzaGpzRlN0YWphcXp6OWx4ZEFTeUdOV3BKakZT?=
+ =?utf-8?B?VHZaWjNzVy9CSDJXVkVXcmtwT1RvTXB4aExwV0RGSWV5WVZhN0VjNnFqYXdr?=
+ =?utf-8?B?ejZWZURXYm9Ra2pWcWtQbjlod3hOZ2xlUWRIUTZ4QW5GODhTc0VqbTBkUDFv?=
+ =?utf-8?B?UkFrV1VqYjdLT1VQTEs4b1FTQnJEdEMxWlM0S1BaUlNoeXpIam9MaE0yOG1X?=
+ =?utf-8?B?NHFIQnlMbDZKQU5waDRHbGNXUVZwRVJMVjFuWHVKTGxHMWdWclc5VzRZSitl?=
+ =?utf-8?B?aHRKSUJMMjhpV2lpRFNkSDhLME96Yzh3TDNiMmx2OUdBT0ltbmxOT1FDdXI3?=
+ =?utf-8?B?eFFZTG5zeDUzRW1kT1psUTZwd3Nva1pPWFZnQ1puR3RxQnkwN29KZ01ZSlVY?=
+ =?utf-8?B?R08wQWk2V21XLzJwTWdBT2NwMnpEVUx4UnFTOUE1TkFCUkVGcGViYmsxbFlC?=
+ =?utf-8?B?UEs0aU1ZY0ZGbTF5ZEMwL25ub2dwVVlTaG5BUG9EMmxabmJCZUF5cW1Yb2pB?=
+ =?utf-8?B?QWI4SzVPREFMR2RyUkZiVkNpT2FHSnhkUnhaaTJ2cVRxeENhYkZ3M2JaSjFP?=
+ =?utf-8?B?RGpGT3RTWU5HanJRU1VzckRsRzZsdGJUSkZMb0NYci9aL2RHejRIR1ovcEJI?=
+ =?utf-8?B?TlZNMDNXeFVwc2k2Y1orMUxIRDNWR2UxTjFnRk5TRUJZNVJmbTRIYTkwQVpI?=
+ =?utf-8?B?anRGUGxzeFI5ZDhRclhuMTVrNTNia2hFY2VaVmxENGJVL3FvSWtoVERiUXY3?=
+ =?utf-8?B?Nm1wVFVFcEN1VEs5TUpnM3UyWnd3bXJpMnFVWGd4NTA4NFpaMUFSbFZsaWlU?=
+ =?utf-8?B?UzBtM1NqOXl3ZHlyNVNZMkNNYVc4aHJ1QUZ2NFZyS3pZa1lvWkpUQmdiOHNi?=
+ =?utf-8?B?Zy9lZ0hsTEEvUU5abGt1Y0R5OU5hMU5wZE1jK3JLWUlGcWFxVnhUQTgzNkxP?=
+ =?utf-8?B?MkNGZy9jQWdWdUN5QkpXQ1VIeTdxQjZsQ3JXVjNsU000QkcwR3dReWxMaDE5?=
+ =?utf-8?B?Z0ZkNkkwUElDZDQrKy9ySWtZNFZRTTZPd3kveU8zbXVXaGxOWkpSSUpXSVRo?=
+ =?utf-8?B?OVZOd0RBVnp5SlF0MUo5RFZ5VVdtM0dUbTd2UnFKMEFmYjZyakp3VTd0QVFO?=
+ =?utf-8?B?M05EY3NGMDlOeE1ic0RaalY1QUwycjJYeThWSVR2NEw0eDM1VEpZZnlDTXRL?=
+ =?utf-8?B?dEhHbFNwbVRtcVc1MlVocTlKSmV0dWoyZGYrYUVtSHk5a3pXTzBtNlBlRnRM?=
+ =?utf-8?Q?IKP80DJrcYibO/qw=3D?=
+MIME-Version: 1.0
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3dfebde8-80ec-4f78-5d85-08df29a1807c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Oct 2026 03:16:13.1926
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: p9k/d1Yba+RVMT04WU4X/rw4GtAnftpxtaj2kfnrmb0PT8ZSC4tMy+m7E3k5NGdIKN84AjJEYVHI88ilktKloNelSDDzrd6wh1S0DQZMGK6u++kBWuwFPv7G65REubeK
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1217
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_193734_154588_BF641604 
-X-CRM114-Status: GOOD (  29.82  )
+X-CRM114-CacheID: sfid-20261013_201631_384460_DD4F800C 
+X-CRM114-Status: GOOD (  24.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,150 +152,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi, Jerome
 
+> > Some StarFive clocks only advertise the divider and invert
+> > capabilities (via JH71X0_CLK_INVERT, without ENABLE). Add the
+> > JH71X0_IDIV() macro to declare such clocks, and jh71x0_clk_idiv_ops,
+> > which combines the divider rate operations with get_phase/set_phase.
+> >
+> 
+> Please rephrase, I don't understand what you mean
+> 
+> > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> > ---
+> >  drivers/clk/starfive/clk-starfive-jh71x0.c | 13 ++++++++++++-
+> > drivers/clk/starfive/clk-starfive-jh71x0.h |  8 ++++++++
+> >  2 files changed, 20 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.c
+> > b/drivers/clk/starfive/clk-starfive-jh71x0.c
+> > index c5ee82db3c92..224fcc3d08db 100644
+> > --- a/drivers/clk/starfive/clk-starfive-jh71x0.c
+> > +++ b/drivers/clk/starfive/clk-starfive-jh71x0.c
+> > @@ -303,6 +303,15 @@ static const struct clk_ops jh71x0_clk_inv_ops = {
+> >  	.debug_init = jh71x0_clk_debug_init,  };
+> >
+> > +static const struct clk_ops jh71x0_clk_idiv_ops = {
+> > +	.get_phase = jh71x0_clk_get_phase,
+> > +	.set_phase = jh71x0_clk_set_phase,
+> > +	.recalc_rate = jh71x0_clk_recalc_rate,
+> > +	.determine_rate = jh71x0_clk_determine_rate,
+> > +	.set_rate = jh71x0_clk_set_rate,
+> > +	.debug_init = jh71x0_clk_debug_init,
+> 
+> Instead of trying to cover all the combination that could exist, can you just
+> chain 2 elements ?
+> a div then an inv ?
 
-> On Oct 13, 2026, at 23:46, Kevin Brodsky <kevin.brodsky@arm.com> wrote:
-> 
-> On 10/10/2026 13:24, Muchun Song wrote:
->> Since commit 49f599666420 ("mm: call ctor/dtor for kernel PTEs"),
->> pte_alloc_one_kernel() runs the page-table constructor for kernel PTE
->> tables.
->> 
->> HVO (HugeTLB Vmemmap Optimization) uses pte_alloc_one_kernel() when
->> splitting a PMD. Restoring the vmemmap backing pages does not collapse
->> the PTE table, so a later memory hot-remove eventually frees it through
->> pagetable_free() on x86-64. That releases the page without running the
->> matching destructor and leaves NR_PAGETABLE elevated.
->> 
->> Make pagetable_free() detect constructor-backed pages and run the
->> destructor before releasing their memory to fix the problem.
->> 
->> Fixes: 49f599666420 ("mm: call ctor/dtor for kernel PTEs")
->> Cc: stable@vger.kernel.org
->> Assisted-by: LLM
->> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
->> ---
->> v2:
->> - Move destructor handling from x86 into pagetable_free() (suggested by
->>  David Hildenbrand)
->> - Trim and update the commit message (requested by Dave Hansen)
->> ---
->> include/linux/mm.h | 37 ++++++++++++++++++++-----------------
->> 1 file changed, 20 insertions(+), 17 deletions(-)
->> 
->> diff --git a/include/linux/mm.h b/include/linux/mm.h
->> index 5cca90fc1df6..771a7d60b0a5 100644
->> --- a/include/linux/mm.h
->> +++ b/include/linux/mm.h
->> @@ -3969,23 +3969,6 @@ static inline void pagetable_free_kernel(struct ptdesc *pt)
->> __pagetable_free(pt);
->> }
->> #endif
->> -/**
->> - * pagetable_free - Free pagetables
->> - * @pt: The page table descriptor
->> - *
->> - * pagetable_free frees the memory of all page tables described by a page
->> - * table descriptor and the memory for the descriptor itself.
->> - */
->> -static inline void pagetable_free(struct ptdesc *pt)
->> -{
->> - 	if (ptdesc_test_kernel(pt)) {
->> - 		ptdesc_clear_kernel(pt);
->> - 		pagetable_free_kernel(pt);
->> - 	} else {
->> - 		__pagetable_free(pt);
->> - 	}
->> -}
->> -
->> #if defined(CONFIG_SPLIT_PTE_PTLOCKS)
->> #if ALLOC_SPLIT_PTLOCKS
->> void __init ptlock_cache_init(void);
->> @@ -4078,6 +4061,26 @@ static inline void pagetable_dtor(struct ptdesc *ptdesc)
->> 	lruvec_stat_sub_folio(folio, NR_PAGETABLE);
->> }
->> 
->> +/**
->> + * pagetable_free - Free pagetables
->> + * @pt: The page table descriptor
->> + *
->> + * pagetable_free frees the memory of all page tables described by a page
->> + * table descriptor and the memory for the descriptor itself.
->> + */
->> +static inline void pagetable_free(struct ptdesc *pt)
->> +{
->> + 	if (PageTable(ptdesc_page(pt)))
->> + 		pagetable_dtor(pt);
-> 
-> Took me a while to understand why this is fine. Currently we have:
-> 
->     ptdesc = pagetable_alloc();
->     pagetable_*_ctor(mm, ptdesc);
->     [...]
->     pagetable_dtor(ptdesc);
->     pagetable_free(ptdesc);
-> 
-> All good, nice and balanced.
-> 
-> Now we're saying that pagetable_free() should call the dtor. But of
-> course, in most cases, the dtor has already been called. Yes, this is
-> fine because in that case PageTable(page) returns false. Still, the
-> casual reader is likely to be confused (like I was).
-> 
-> The commit message should really explain this. I'm not a big fan of the
+This may require introducing quite a few new changes.
 
-Maybe I should mention that pagetable_free() is supposed to free page
-table page from now on.
+In the current code, struct clk_hw *hw is used to obtain struct jh71x0_clk *clk through hw, and then the register offset is obtained through clk->idx.
 
-> asymmetry we're creating between explicit alloc+ctor and free implicitly
-> calling dtor, but I suppose it's safer this way. (And looking at the
-> rest of the series, it does bring some nice cleanups.)
+static void jh71x0_clk_reg_rmw(struct jh71x0_clk *clk, u32 mask, u32 value)
+{
+	struct jh71x0_clk_priv *priv = jh71x0_priv_from(clk);
+	void __iomem *reg = priv->base + 4 * clk->idx;
+	unsigned long flags;
 
-Make sense. That's my plan.
+	spin_lock_irqsave(&priv->rmw_lock, flags);
+	value |= readl_relaxed(reg) & ~mask;
+	writel_relaxed(value, reg);
+	spin_unlock_irqrestore(&priv->rmw_lock, flags);
+}
 
+static int jh71x0_clk_enable(struct clk_hw *hw)
+{
+	struct jh71x0_clk *clk = jh71x0_clk_from(hw);
+
+	jh71x0_clk_reg_rmw(clk, JH71X0_CLK_ENABLE, JH71X0_CLK_ENABLE);
+	return 0;
+}
+
+Therefore, the existing code has one struct clk_hw corresponding to one register offset.
+
+If it is split into a div and an inv, two struct clk_hw descriptions will be needed.
+The jh71x0_crg_probe() will need to implement different branches for different clocks:
+
+if (a div and an inv) {
+    devm_clk_hw_register (div)
+    devm_clk_hw_register (inv)
+} else {
+    devm_clk_hw_register (other)
+}
+
+Do you need me to make this part of the adjustment?
+
+> > +};
+> > +
+> >  const struct clk_ops *starfive_jh71x0_clk_ops(u32 max)  {
+> >  	if (max & JH71X0_CLK_DIV_MASK) {
+> > @@ -313,7 +322,9 @@ const struct clk_ops *starfive_jh71x0_clk_ops(u32
+> max)
+> >  		}
+> >  		if (max & JH71X0_CLK_ENABLE)
+> >  			return &jh71x0_clk_gdiv_ops;
+> > -		if (max == JH71X0_CLK_FRAC_MAX)
+> > +		else if (max & JH71X0_CLK_INVERT)
+> > +			return &jh71x0_clk_idiv_ops;
+> > +		else if (max == JH71X0_CLK_FRAC_MAX)
+> >  			return &jh71x0_clk_fdiv_ops;
 > 
-> I understand this is a bugfix series so its scope is limited, but if
-> time allows please post a follow-up series removing all those explicit
-> dtor calls that are no longer required.
+> Given the branches return, if was enough and you did not need to modify the
+> existing path.
 > 
-> Now don't get me wrong, I am absolutely in favour of moving as much
-> handling as possible out of the ctor/dtor and into
-> pagetable_{alloc,free}; a series I posted earlier [1] was a step in that
 
-Excellent work.
-
-> direction. It unfortunately had many issues, including the unmatched
-> alloc/free calls [2]. The work you're doing in this series, and your
-> plan to use pagetable_alloc() for vmemmap, are exactly what I was
-> planning to do next, so thank you for taking care of that :)
-> With the commit message improved:
-> 
-> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-
-Thanks.
-
-> 
-> - Kevin
-> 
-> [1]
-> https://lore.kernel.org/linux-mm/20260714-remove_pgtable_cdtor-v1-0-44be8a7685d7@arm.com/
-> [2]
-> https://lore.kernel.org/linux-mm/6d167aaa-e9b0-4687-970c-1c67d0df6344@arm.com/
-> 
->> +
->> + if (ptdesc_test_kernel(pt)) {
->> + 	ptdesc_clear_kernel(pt);
->> + 	pagetable_free_kernel(pt);
->> + } else {
->> + 	__pagetable_free(pt);
->> + }
->> +}
->> +
->> static inline void pagetable_dtor_free(struct ptdesc *ptdesc)
->> {
->> 	pagetable_dtor(ptdesc);
-
-
+Best Regards,
+Changhuang
 
 _______________________________________________
 linux-riscv mailing list
