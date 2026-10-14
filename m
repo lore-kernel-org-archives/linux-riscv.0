@@ -4,70 +4,186 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C9BEC3DA7A
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 16:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71082C3DA7A
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 16:36:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ngPa/JzleYQ5VUFMnYlXqvSrUvbUTTXtowcX2xZLyVE=; b=KaOONlkGXPpu8wZxfK5ZnVrx9G
-	2L+z2+KTE0+DihimuTZn/bcGmev3+pknkgoZweVPAu1IQb8UsoCcCWrEmYGxUrtk/tYGkqDic6ya8
-	LXQB+NQa6VFhbcJrIEUKi2Mgf2XlyVvxG3jmcABcl9YEaER6paaBUvj5MCcKlk0YNX3TgYHalqX9a
-	eRinb4R9IDvpLFo1OWm3H0p6nKpw3Yqxsa/yy87dWp4Adctr0IMerjOCuZZxCIf5al2kv6CQbR87F
-	k1paKujOaYsGcA8Tu/bgc9Cf+adpi2ehoVanwSy6Xh6bu4Q0uKBMCKsLLh1L05aGRCyHgb7YwaM+N
-	UTEPq2mQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VGxwKY1E0/EbQaZ1zpgwyPfKCkDw6njzpfPllU89wMw=; b=GnulqeK2zQ+uOy
+	VHYawOmqJYQ+uWovHy2XFK2l+oi36o23Vw5NwlR3DjrgAaA+qIdk3jD8Nhsi04wy5sKxL+uS+HjKy
+	uOc6MDvGLAoXuwo5gmHiwSpwPQj+855/nvBMt8Wwemx6r9AxTIgZf0JZtFk+yZXCtj7riCbEw2da7
+	EbhDlFf/syF6Tn2oiJomBv2OOzJ3tiDGiVjSFF6JJBO6BC1iEefrbUmAMELh00foSjf4pN+pY988s
+	d2ONTFAsEPco3KaH33TLLljMZvdD6FaAQIHamilrkL/S903GQ2gZsp23ve6M99azr8AdDAexXuNv7
+	FxsH+/vQyhr4qRB4GFMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH1vA-0000000Fyxr-0IBa;
-	Wed, 14 Oct 2026 16:33:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xH1xp-0000000G0Ir-24qE;
+	Wed, 14 Oct 2026 16:36:25 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH1v9-0000000Fyxd-1kZL
+	id 1xH1xh-0000000G0Gk-43Fr
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Oct 2026 16:33:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 58EDA6022E;
-	Wed, 14 Oct 2026 16:33:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE07A1F000C4;
-	Wed, 14 Oct 2026 16:33:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791995618;
-	bh=hcW6ngQGbiEdWjLMA3uMxUFQ5wn2/yx80RMHMPv3Cnc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VBSFI+GSQ9vOqX42H30ft0vMSsO9216xBijfKCOUh0Am5s3XO5xnR3QJ6wDxfEf8y
-	 etdgxNnJuvWLKLblPr+M0JCQJKv1EYG18yr1qo+zy/xDRxQt1HROiiKrJCHwRKrEwd
-	 leKsk2um9QgK+nLr3gCIqRJ05FRt5gDHRQXIQoYI6TjcRgZd0jxrfjXimNx5Fricx0
-	 BnFGT7oQ1W9SA2z5uYIzxpWXZc91ca4KVCdPFYNmEzh07LZ94cv+tuNujRk3/IrOGa
-	 23Xd+PsmsKg/X4wRKceJfb+x+4xh2qOBUQjINV89MkXC4B9FkukexkiDaRjtpN0Xjp
-	 rM6mLWEQciXwA==
-Date: Wed, 14 Oct 2026 17:33:32 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-Cc: "alex@ghiti.fr" <alex@ghiti.fr>,
-	"anup@brainfault.org" <anup@brainfault.org>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"daniel.lezcano@kernel.org" <daniel.lezcano@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	Djordje Todorovic <Djordje.Todorovic@htecgroup.com>,
-	"inochiama@outlook.com" <inochiama@outlook.com>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"pjw@kernel.org" <pjw@kernel.org>,
-	"radu@rendec.net" <radu@rendec.net>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"tglx@kernel.org" <tglx@kernel.org>,
-	"vladimir.kondratiev@mobileye.com" <vladimir.kondratiev@mobileye.com>
-Subject: Re: [PATCH 3/9] dt-bindings: riscv: Add MIPS Boston board compatible
-Message-ID: <20261014-defection-tiny-3e653ce56e60@spud>
-References: <20260915-woof-ducktail-5e2f52bc5762@spud>
- <3d13e372-80da-44bb-845c-14f5022e326a@htecgroup.com>
+	Wed, 14 Oct 2026 16:36:24 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69EEafxr500302
+	for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 16:36:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	qZE4atZVuUnxe4gh8yTrME7HVReQ6qljuMq3IYiqA/Q=; b=NTMjNEvYqdTCrKll
+	f6XgOd60FLUu0XdMAj4D7IwL++ZnvVk0xw3E9JzHsXJ5cLwEOOQq3ip4lcEj3Qsz
+	FQjLfPpM9zxfgv3zGMEYeSPgpIfndEwxOrtxSneycTU/s2FeHk06HmPPMYTlx3Ma
+	VorPWR5d7vtllaxOSeBTeEsBifuxva5XOLjtdg/zpLiQ7g7soCORo+i8zsJMNwgG
+	YxXHxU7XBSeSJsREwCIvF6zEhvS6aRW9IHeaoxldVxCCf5PaiaNXBVxwvpYdbwWi
+	wKzzxsCyVjL0f6aT2QyitUg1BKR992QBb+EQK4OC9L9HmcVsqp7eFdoRNUTkUea2
+	QRN/qA==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4haagf0tay-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 16:36:17 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-92eebb130dcso77877985a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 09:36:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1791995776; x=1792600576; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qZE4atZVuUnxe4gh8yTrME7HVReQ6qljuMq3IYiqA/Q=;
+        b=Ya93WMY4wWP5wL4V9e8ARNub73R4beCMGmrW0OM2V2z+1RXwbYJ3Olp/sCk/5lTb95
+         /+MkU3CPnwYYKujixhUrn/ad05wq+kr+1QnVfoedewVMeIxdc1UXEPed9j3eEizIAACz
+         fOeqEZ+b6wtAjSmOuLvVqlr+hl9Py2Tn6rWlbFpuv6B56oB9nFDqhnvY7zu+XRwWb6pM
+         pBIhGSSZ62eonTx7Qrb9UG7swcLEe5uQ+Z4bpvERIFN2CMPFu6pvvgItC086TfEoPyPC
+         0sE8Zat9vgiyl3sePw+6g13S2Noi/3VimWhuDA6MsJ2RXzMtBDmftlh9Ui3QC4fcsnhY
+         I4HQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791995776; x=1792600576;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qZE4atZVuUnxe4gh8yTrME7HVReQ6qljuMq3IYiqA/Q=;
+        b=lI5Ie8O7jXa3edQzWcFcWrEkVYLOaWMmHs4Gg/+AcaNElhNNQeD7pL3AKH6lw7wGBn
+         kwftLKU9wWdNHmf7E8ORvRWLsYrQZ89lTlK2Or5p7g2YARBVn4T60FXZ4146rAsJIfhr
+         EbVafQICtmWnBf47r/AP5tIaKVxRhleKV0CR5TuVULe/O2eFS/xb8fHBp/MLfFLQesO7
+         SclA2Rhkdv/mLVxS4jSaIUStKngeyHNIL9tZAkMpuadFdAfn3TF7Ypd47UzD14dNXJiV
+         r2HLGUmgxxYOGRJV78/KqGYvN+zoYMCljo30vvEHPIekikayVhWd9YXvd/xpBZE84O6D
+         3mfw==
+X-Forwarded-Encrypted: i=1; AKwUvBywzH57XbL1pJjZfotHzzHIC/ut/YvVfG1yNuSTndKaTU/TNSEpFpiMOaA6EZYLoMgMLKlecxyMTHZQxA==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKSFmPUu25qIVdnFuXItLwrAd7K8EjtZQZZAsRTW9drF8bfD0o+
+	5iiN0CuB/2xBKoJyjOlKSDJq9qClJabxk8UIek4zT4Eo+7TYig6qrLoslQ2Kro9SZkJfjlt8YyT
+	21TzlzQWNJ3/KM5sDR7GK4yNdo1J9a3YHbaPoF84z4xr/QqLYKYWQ1rOVi3HLVK6JooAKN6g=
+X-Gm-Gg: AYBFou031z7Qeg07r3Wp36dt3LMJa1zqlWwviHjP1nyRM3cxBt83uZgNaAji1VJ4kb1
+	Vog772EGoJ4TK0ETWK4o2khh39dLJWoR6sXmtIPK16CGj6lYDQd54NIw8V2dR8Ji8sy39onGR0z
+	dGdpg/oDOgub3nRgDCJHVUFiloXaqAivQWVYXt5AI9MxviH/wXoagMyCFdB8AXyoPUI61ZIqzS4
+	nDdtXZonM68Lu0/99Q+MhkiQGg002haRaf9zJmbc9oqksQdcVOh3iRBHemou0gXQqFfXckedd8+
+	kEgvBd/Qa5WJ/jn0RANM9YQUb8Y+pNO1jTSVXEZ+5lH32ZKZNS2UBgegOmJpOFoJLQJaV9Vq692
+	GUQx28/bTDdLdwW63kNIx5g==
+X-Received: by 2002:a05:620a:3186:b0:939:8bc:8826 with SMTP id af79cd13be357-93ebd10c0e2mr3128574885a.2.1791995776331;
+        Wed, 14 Oct 2026 09:36:16 -0700 (PDT)
+X-Received: by 2002:a05:620a:3186:b0:939:8bc:8826 with SMTP id af79cd13be357-93ebd10c0e2mr3128568885a.2.1791995775873;
+        Wed, 14 Oct 2026 09:36:15 -0700 (PDT)
+Received: from [192.168.226.26] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b20386327csm1289977a12.18.2026.10.14.09.36.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 14 Oct 2026 09:36:14 -0700 (PDT)
+Message-ID: <b4c0761b-34f2-42ad-97e7-ab34ae776281@oss.qualcomm.com>
+Date: Wed, 14 Oct 2026 18:36:06 +0200
 MIME-Version: 1.0
-In-Reply-To: <3d13e372-80da-44bb-845c-14f5022e326a@htecgroup.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] dt-bindings: usb: snps,dwc3: Fix downstream port
+ numbering
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+        Chen-Yu Tsai <wenst@chromium.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Felipe Balbi <balbi@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, linux-usb@vger.kernel.org,
+        devicetree@vger.kernel.org, Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+        Neal Gompa <neal@gompa.dev>, Joel Stanley <joel@jms.id.au>,
+        Andrew Jeffery <andrew@codeconstruct.com.au>,
+        Ryan Chen <ryan_chen@aspeedtech.com>,
+        Billy Tsai
+ <billy_tsai@aspeedtech.com>,
+        Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>,
+        Peter Griffin
+ <peter.griffin@linaro.org>,
+        =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>,
+        Tudor Ambarus <tudor.ambarus@linaro.org>,
+        Heiko Stuebner <heiko@sntech.de>,
+        Alim Akhtar <alim.akhtar@samsung.com>,
+        Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+        Masami Hiramatsu <mhiramat@kernel.org>, Yixun Lan <dlan@kernel.org>,
+        Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+        Minda Chen <minda.chen@starfivetech.com>,
+        Shyam Pandey <radhey.shyam.pandey@amd.com>,
+        Wei Yang <yangwei1@eswincomputing.com>,
+        Senchuan Zhang <zhangsenchuan@eswincomputing.com>,
+        Hang Cao <caohang@eswincomputing.com>, Li Jun <jun.li@nxp.com>,
+        Peng Fan <peng.fan@nxp.com>, Roy Luo <royluo@google.com>,
+        Yang Xiwen <forbidden405@foxmail.com>,
+        Ahmad Zainie <wan.ahmad.zainie.wan.mohamad@intel.com>,
+        Robert Marko <robert.marko@sartura.hr>, Xu Yang <xu.yang_2@nxp.com>,
+        Wesley Cheng <quic_wcheng@quicinc.com>,
+        Stanley Chang <stanley_chang@realtek.com>,
+        Ze Huang <huang.ze@linux.dev>, Aswath Govindraju <a-govindraju@ti.com>,
+        Roger Quadros <rogerq@kernel.org>,
+        linux-arm-kernel@lists.infradead.org,
+        linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+        asahi@lists.linux.dev, linux-aspeed@lists.ozlabs.org,
+        imx@lists.linux.dev, linux-samsung-soc@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org,
+        linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+References: <20261014082037.1774672-1-wenst@chromium.org>
+ <20261014082037.1774672-3-wenst@chromium.org>
+ <7020a7a6-332e-4fd0-a659-d82eb768614c@linaro.org>
+ <CAGXv+5G1kgyumbj7wGf6rPFbg3spSO0zYmEkn-hZT4qUdJbytA@mail.gmail.com>
+ <03375a31-0ac6-47a4-b0dc-6327080e1622@linaro.org>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <03375a31-0ac6-47a4-b0dc-6327080e1622@linaro.org>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE0MDA2NiBTYWx0ZWRfX8Yt8PfL2fysl
+ caCVt/lC+Ga61MFfSEOMCskcR0KoZFxf8nCYS2W4JUg5nJdLPiBgQMdgsxB4ch60cyO9Ifg0CPf
+ mN2EgL38nbE7Fqwxo6UZXvU2MBg6Z1TtGqds4vok8gA0dEzUJWi62MlNGW46RgK/FgUB1Y8PjlC
+ 3YP8pHAXMwi1k2a2BLNHLCWNLyoPKvk+9wNQKD4q/O6OoScvt/OtnpMBQxT2JWhWmLVTbYw8HVt
+ 4fkoGeBacIC4Vqv7yTRd7CbKHvAQ6ciXn+V/h5s2MwGM53nCvhFjWl5ob0iTuP/iwainHqOVuZy
+ ya6gra/hl7B7xbSOZBjt0KiZCa6i3LGgSi3nKPM6aTOStWDz18sa5F24TxJw+4MAQay2ynUjcns
+ 5OECnthfBrxJ23+yxM/cU+ZNNLB1VMLbmSwfYTK6klC96xcFMLxuTxB1D44aLxAoDs4EiBUphOC
+ lZm6qoaq0DK/sMVDd9A==
+X-Proofpoint-GUID: AdIDQlfZ8wzoqRBgeit2a6baeRc_26gE
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE0MDA2NiBTYWx0ZWRfX1u6xr80wSM3z
+ vt2xSTYMWZhxDIJxwFGeSW59C2pYGBvER4QGsNyaHE8f09pfEMDXNkdtRTGc3Rnz6HcqbrzyJ4l
+ wXZFdhpwhbTFQZw3cQ6ncYzLJNcYnLc=
+X-Proofpoint-ORIG-GUID: AdIDQlfZ8wzoqRBgeit2a6baeRc_26gE
+X-Authority-Analysis: v=2.4 cv=V/noQuni c=1 sm=1 tr=0 ts=6acfaf81 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=KKAkSRfTAAAA:8 a=auHUQpDKApYGa_LtnhgA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=IoWCM6iH3mJn3m4BftBB:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-13_01,2026-10-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 malwarescore=0 lowpriorityscore=0 impostorscore=0
+ bulkscore=0 adultscore=0 clxscore=1011 phishscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
+ definitions=main-2610140066
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261014_093618_441086_02A1FED3 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,136 +195,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4738057547623271265=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4738057547623271265==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ZuVNUU8McGEtDGb7"
-Content-Disposition: inline
-
---ZuVNUU8McGEtDGb7
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Oct 14, 2026 at 01:16:16PM +0000, Aleksa Paunovic wrote:
-> Hi Conor,
-> On 9/15/26 19:58, Conor Dooley wrote:
-> > On Mon, Sep 14, 2026 at 03:55:51PM +0200, Aleksa Paunovic via B4 Relay =
-wrote:
-> >> From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-> >>
-> >> Document the MIPS Boston board compatible with a P8700 bitfile.
-> >>
-> >> Co-developed-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
-> >> Signed-off-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
-> >> Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-> >> ---
-> >>  Documentation/devicetree/bindings/riscv/gf.yaml | 27 ++++++++++++++++=
-+++++++++
-> >>  1 file changed, 27 insertions(+)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/riscv/gf.yaml b/Documen=
-tation/devicetree/bindings/riscv/gf.yaml
-> >> new file mode 100644
-> >> index 0000000000000000000000000000000000000000..060910c9b04f482aee6f08=
-f8f72232acbad118bb
-> >> --- /dev/null
-> >> +++ b/Documentation/devicetree/bindings/riscv/gf.yaml
-> >> @@ -0,0 +1,27 @@
-> >> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> >> +%YAML 1.2
-> >> +---
-> >> +$id: http://devicetree.org/schemas/riscv/gf.yaml#
-> >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> >> +
-> >> +title: GlobalFoundries MIPS SoC-based boards
-> >> +
-> >> +maintainers:
-> >> +  - Djordje Todorovic <djordje.todorovic@htecgroup.com>
-> >> +  - Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-> >> +
-> >> +description:
-> >> +  GlobalFoundries MIPS SoC-based boards
-> >> +
-> >> +properties:
-> >> +  $nodename:
-> >> +    const: '/'
-> >> +  compatible:
-> >> +    oneOf:
-> >> +      - description: Boston FPGA development board with a MIPS P8700 =
-bitfile
-> > I'm not convinced that this is specific enough at all.
-> > I have absolutely no idea from this description if there's even a
-> > specific FPGA involved here - this could mean a bitstream used on an Al=
-tera
-> > platform or a Xilinx one, with totally different contents.
-> I'll document this in v2. FWIW it's the identical board as [1], just with=
- a=A0
-> different bitstream.=A0
-> > I'm only happy with FPGA bitstream content being supported if it is
-> > versioned strictly and matches with some clear and obvious releases from
-> > the vendor.
-> I'll see if I can find one for v2. A version identifier would also work
-> as a SoC-specific fallback, since it's the SoC that's bitstream content i=
-n our case.
-> I'm not sure anything's public though. If not, I'd keep the board compati=
-ble=A0
-> without a fallback (if possible).=A0
-
-It's worth mentioning that this is the standard that we've discussed for
-platforms on riscv, because of the nature of riscv and the ability of
-anyone to create bitstreams for custom "SoCs" running on FPGAs.
-It doesn't have to be public what a version actually means, but it must
-be there.
-
-Thanks,
-Conor.
-
-> >  I cannot even find this board by googling it, let alone find
-> > clear information about what this could correspond to.
-> >
-> >> +        items:
-> >> +          - const: gf,mips-p8700-boston
-> > "items: - const" is the same as just having "const".
-> Will fix in v2.
-> >  SoC-specific
-> > fallback is also missing, although in this case it'll be tricky to have
-> > a meaningful one.
->=20
-> Links:
-> [1] https://github.com/torvalds/linux/blob/master/arch/mips/boot/dts/img/=
-boston.dts
->=20
-> Best regards,
-> Aleksa
-
---ZuVNUU8McGEtDGb7
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas+u3AAKCRB4tDGHoIJi
-0pLpAP9N1JZ12C4zPZ9JHCuy9rcliYJRD7OR/fTGBhZGCPVYzQD/eewiEPg8Uct/
-aJiVbVje9Air05SwkTur0ax9CQzOeg0=
-=Qud7
------END PGP SIGNATURE-----
-
---ZuVNUU8McGEtDGb7--
-
-
---===============4738057547623271265==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4738057547623271265==--
-
+T24gMTAvMTQvMjYgMTE6NDQgQU0sIE5laWwgQXJtc3Ryb25nIHdyb3RlOgo+IE9uIDEwLzE0LzI2
+IDExOjI5LCBDaGVuLVl1IFRzYWkgd3JvdGU6Cj4+IE9uIFdlZCwgT2N0IDE0LCAyMDI2IGF0IDU6
+MjjigK9QTSBOZWlsIEFybXN0cm9uZwo+PiA8bmVpbC5hcm1zdHJvbmdAbGluYXJvLm9yZz4gd3Jv
+dGU6Cj4+Pgo+Pj4gT24gMTAvMTQvMjYgMTA6MjAsIENoZW4tWXUgVHNhaSB3cm90ZToKPj4+PiBU
+aGUgRFdDMyBjb250cm9sbGVyIGNhbiBvcGVyYXRlIGluIGhvc3QgbW9kZS4gSXQgZG9lcyBzbyB3
+aXRoIGEgWEhDSQo+Pj4+IGNvbXBsaWFudCBob3N0IGNvbnRyb2xsZXIuIFRoZSBYSENJIGhhcyB0
+d28gZG93bnN0cmVhbSBwb3J0cywgb25lIGZvcgo+Pj4+IEhTIGFuZCBvbmUgZm9yIFNTLiBVU0Ig
+ZG93bnN0cmVhbSBwb3J0cyBzdGFydCBmcm9tIDEsIG5vdCAwLgoKWy4uLl0KCgo+PiBJTUhPIGhh
+dmluZyBjb25zaXN0ZW50IG51bWJlcmluZyBhY3Jvc3MgY29udHJvbGxlciB0eXBlcyB3b3VsZCBi
+ZQo+PiBiZXR0ZXIuIFRoaXMgYXZvaWRzIG1ha2luZyB0aGUgVVNCIGNvcmUgYW5kIGh1YiBjb2Rl
+IGRlYWwgd2l0aCBtb3JlCj4+IGV4Y2VwdGlvbnMsIGFuZCBhbHNvIGVhc2llciB0byB1bmRlcnN0
+YW5kIGFuZCB3cml0ZSBkZXZpY2UgdHJlZXMuCj4gCj4gSSB3YXMgaW4gdGhlIGltcHJlc3Npb24g
+dGhlIHBvcnQgbnVtYmVyIG5vdCBuZWNlc3NhcmlseSByZWZsZWN0cwo+IGFuIGFjdHVhbCBwaHlz
+aWNhbCBudW1iZXJpbmcsIGFuZCBjYW4gYmUgYSBsb2dpY2FsIG51bWJlciB3ZSB3b3VsZAo+IHRo
+ZW4gbWFwIGluIHRoZSBrZXJuZWwuCj4gCj4gSSBkb24ndCBzZWUgYW55IGlzc3VlIGhlcmUgaGF2
+aW5nIGJhc2UgMCBmb3IgdGhlIGJpbmRpbmdzIGFuZCB0aGVuCj4gY29udmVydGluZyBpdCB0byBi
+YXNlIDEgZm9yIHRoZSBYSENJIHBvcnQgbnVtYmVyaW5nLgoKSSB0aG91Z2h0IGJhc2UxIGNvbWVz
+IGZyb20gdGhlIFVTQiBzcGVjIGFuZCBub3QganVzdCBYSENJPwoKS29ucmFkCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
