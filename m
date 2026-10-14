@@ -4,98 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46796CC6B2D
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 12:37:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AC05CC6B1A
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 12:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8gfjrlLWU1sntX/GGmrA/CmITkm8aoAzNxJ2OKxdymU=; b=VPRaoK9QK0TAIx
-	bbES/PHiOBREfVhuJ8vU9dWHtMR0/yT3x3jc+X+IBwz+1h6VQHleiXmLB0K1+QIfmSkWvmDAR3QsT
-	NHICgzo+gCSXtz9hDqRHgz9OlswudgdMo2uOMHvm7cXq9ax1upQbTw/uS9px5RXIPnbIRkp7NHino
-	77/Wv5LzJeSsfwYkQRRbozynKhVJ7ml+QkELqZnIQSyAac20Ew5Qepyw0LDalB2/xviBfvXc0w7VZ
-	IDl4V1QMANghV5cxfkPtZ71N864H4EwznhMZUxmUdb8CNC9mIC4kyHXi6g5UGAr5LqsBrdgetaLsB
-	MDjyh9P/PTNq9l8Z+Erg==;
+	List-Owner; bh=PUl8E1ihruTMQ8J52nvtGWkxtezsw7J5eO8ZEtoGUfE=; b=Fb6w2dSUKnoa8V
+	G5C6qhpf75Uowf2H3jh7juyd7tHnooqlvHJDezSxBqL2iOpJ3WEs+6vgD63a18PldUeFh7iZmEFmi
+	x5x3IZ0NE2JyY0la1hpfDkfq0hu9RGPbTjo/Uh70GssmarQbewUQocR4WTnNRBYyoA1K7GwOkrwNB
+	nVuNCASgbufVNOytfzqQ1t190qbTN9ILWwLJwiB66I7rK+cueVBI1WMaVNgMNKBrTTGbj8Vck/5w1
+	q1Zh7o1QCyQzC5E4J2a1B5DQpH+HExSSmGocw5ddL9ZMUTY1B23B9D1OZQ+LepobqRgLL+Ebtd4uq
+	numyLP6vj8DVkW9l4LlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGyEP-0000000FRiI-3VN7;
-	Wed, 14 Oct 2026 12:37:17 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xGyEW-0000000FRto-3Fbx;
+	Wed, 14 Oct 2026 12:37:31 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGyEL-0000000FRbp-0IyA
+	id 1xGyET-0000000FRnG-1MMJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Oct 2026 12:37:16 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69EAQBu5806699
-	for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 12:37:12 GMT
+	Wed, 14 Oct 2026 12:37:23 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69EAR2VP466227
+	for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 12:37:20 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	mmYa6cMargQ49NrWtKjuBs8PKCjTr6RjWSOzcuEDh7g=; b=Zam26ANkUGavlY2z
-	iZqyyTqVMaO8AsmWXo11Sk1mjDR4xmIdWbcIDtmVj27Mi/t5EJsBONS4gIgLi+Zg
-	JCGXdjg4rVbfwHyb05047HJQ3MPKGVW9dRudClYs+r5zfgWuMCQJbsXsl5T/rCby
-	cvUT+w4Lx5sPKJojzbdWHtEMHIFSNcY+eAvcNwFmAWu+lBnylIZpiXRYTbPbNx9I
-	/pDPKIgNrsRYMxY50dq+Df52uoWc5cUY8leFiwHTRwj2bSZzw7b3XSSM3BD0a6sX
-	3yDtKqzn1/L/QFeGL+NLP51QcsKb6adbDWGwKOG3Z7XAxJzS3oZcPVr1z5wCR8Kc
-	C85mfA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h9ud6bf6g-1
+	HUUFLBAcLxOP3+OVTyoEpsSPqEGr/1sOU62oPMkNAZQ=; b=MmkUAop9sci6+WWj
+	wN5lcHy+iw/DsXVUsVl1mSBuoCvqhQh7otgrOJOZz9BJdNQ/cx9xZRI8j1Mg9rvz
+	HuSi1IWFMc4/jayAjhHBo/yhRMUixl6klMgnnRBRi4HrAD+mtUTHdME/vdACf06N
+	9hRquTMLNrL9EAutxwLnMRgIzwWPTo6jpiLrNt5fqiWscuTwKpQ1b0Y0EfaMzcqg
+	bIJGwLAHZTx9hPeM2p0hId8FU8PcAxI0lG+1HNQvZ15wSJ0sVZAdHytC3wuc/qLy
+	bPyHT0/QhdO6L0d3ttef+xgFjWePTUlw6JzYZ7G+jvo8zEJeAhfLFq9m0I250fn4
+	KRZ+0g==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ha80crf0s-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 12:37:12 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93caf7856ffso834478385a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 05:37:12 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 12:37:20 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-51c26012cd0so83888831cf.0
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 05:37:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791981431; x=1792586231; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1791981440; x=1792586240; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=mmYa6cMargQ49NrWtKjuBs8PKCjTr6RjWSOzcuEDh7g=;
-        b=chowW4Uk6UvG46EETUnWFpuE2NfgqE+nWEMfv8fbf1vIt7sF1Qd08rvinyqHn3tnvI
-         OlOIrbNj9Urr5A+bfGmWZ9B3YAr3vKcut2rMPiEW7n8af6AuFwgxXULzA8JrmDCw/v/1
-         SnY46cpmBHc/8zd35vd9vjJXYA3waQrIJvaLq+pCvK4p6N2SvZvlebDnVENqI21r4Lk7
-         SNJnpomtFKJz3f+/TjfYO+Xq//O3VP0xmXgRVqtoSo2ygI+CMbkeMkLC+P/ZlDNuar8M
-         qNqccs/RaStnBaqLIIK/U8hM/0wELS5XBZzTCqkO659Ld2BCUWk2WUpCQSFIkx8bkjLN
-         uDQg==
+        bh=HUUFLBAcLxOP3+OVTyoEpsSPqEGr/1sOU62oPMkNAZQ=;
+        b=QwhA0Ybd0ejnTm+uK/LvHANIxg9PtHKqrs1XC211fT+jDfDba41fhEpju1fZlJ7lan
+         iUFffvh2WrJ356MKqkOjPXiL0iwRkO/mZk6ksZ+BDBG2he+pc+5qMRyNtApFYin2XPGl
+         1d7ygGfAVbrzRfikwHxeR46V7NKZN7+7kVj2eX+O9egmndfnOdPz+Aa20Opfsp3Q6icb
+         PUXjA/HFufUPl5lASoa1RlJAbXiwi4FOWtQiTJY24Epa3+JbUhjtaW1sX6J5jjbEXisi
+         8eDCQdv/SSV3ZBqpmqImXX56+yCD8A4QFCI2K8kOXaiHKKfKCjTaYH1JVYJ4kZXmf/9y
+         fkmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791981431; x=1792586231;
+        d=1e100.net; s=20260707; t=1791981440; x=1792586240;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=mmYa6cMargQ49NrWtKjuBs8PKCjTr6RjWSOzcuEDh7g=;
-        b=Wa6s9MR7tffh5Rb8fnLbSU/M1FMs+w6Hk8iK/M3gXCO9duv8xVvPtGT2dYY2y71MKa
-         QbjA2DAvNbGzO29qHSPLI2zzf/e6hR4FMzLLTtZg6hBu+5ZlZZqzeHszoRn0ZMhwmr2T
-         HAEKiED97TSKIKhwX/E2qN9qIc8w7NhkFCf8olQpOP2insxqWKcVOsf/5AN+OOC2wq+S
-         4VIvuyrVA5nW9A24N+6lxOwyUmPoZr5PinnKDqfICrNfJzvxYE54BwVl4bOq4LvGymk2
-         KtfEi0nUA6TPU8uFv4ojZHLcFzqSBUlSbUhwLw/7Ie+3dsBuR0KThsdsINXmaEnJYv9g
-         GN/w==
-X-Forwarded-Encrypted: i=1; AKwUvByRBii4DT4/cleFAkccrCQHpcML/tmGUAszponSfNmCwXwopGmSxfwPK8Fv6+fPi+cbT1lWzg9bnSM3VQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJKdY87LqUXbPfSyxGfBkjTiuq8Apt+mc4gihBhH5YzUsPXzGwz
-	eCtZwv//UoZGNi3C0Gk1KQAK80Zmm87jcbFSPNU49CxGRJPAPW9XZ1vRYLfjQlU9QRn0JTTOAPl
-	yKr+5+4Jyb/qWqKyKCIhgY7Kmjo8I0Fk8SEFjHi5qA5SgUYhaQs2DLTB8nVDwq8PcVVFCqrLdXw
-	NJsdE=
-X-Gm-Gg: AYBFou2Z6jRblqWCIHV4A9EYqKtfO7+Zjmo8quzJjFy19bH5B6cvIwWyS6Mhu2yaHVG
-	xas2sJ8f/hVAId3tYMBFqyIJmaD4kC5hokAhpidZpJ59dHtRdtks6l4+4qOq3b3mlw9jSZOXd/P
-	koYlRSkYIHmQCEkdiVLfw11jhVL1jqkiPQsR/+a3jNfrm6Oq0jNk5ici5UpzaJmuW2COzaVJp+R
-	1PJ6u0IBhpIKowY4QXTodqZPrUITXff8uykpPzL/2ASs1n+9ojc9Fia0GWi7ik5866jrgZVn2H1
-	y8n+MFMfRaFpPy/1s+nCeZpnmT9RIXMpWibkpCSMVwLhyvQiq9tCKvxJvY/fUblxYoOrdLKj2Tx
-	E51HOor3kj/WksfdYQq2601mVx3/I
-X-Received: by 2002:a05:620a:4141:b0:93e:d364:ca10 with SMTP id af79cd13be357-93ed364eb7cmr2041728185a.12.1791981430900;
-        Wed, 14 Oct 2026 05:37:10 -0700 (PDT)
-X-Received: by 2002:a05:620a:4141:b0:93e:d364:ca10 with SMTP id af79cd13be357-93ed364eb7cmr2041720185a.12.1791981430196;
-        Wed, 14 Oct 2026 05:37:10 -0700 (PDT)
+        bh=HUUFLBAcLxOP3+OVTyoEpsSPqEGr/1sOU62oPMkNAZQ=;
+        b=HFqdwUKqReZ6ZrHyEoS23rppDIBucl/5yeHX44PSmN0EPeRFkUmvBX0rJoHAvcNLFL
+         RPswThxebAadglu5+rIq7uzjNPRAoSvnVL6o20Z1tnfPjaiZzDlAOOGRY6RWdW4xG6fG
+         mqc1wXqLS8TbNth8j9oyeKg9T+aG/2wf41aBsstMfOQS692blNlE42DU14BHNhWLvfWF
+         JX4HjeeTfOHVYzASumNmgg0srZe7YYYVxatc2SfnUZhmDJFF1ht6o4MJHhdQyB37LMww
+         KbojdTpewaypueUkI4C+vitdVI0BLaB7u5d11B+jOTwupHdQNCaDBgGxThqVOTdZU4Au
+         u2yQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxm8NhPq0VouinJU2xSIAtGzKmeU+VhvkTQCWSeopo1ziZE4yiAmfgDJmWpNv0Fi3PXW6oB3SOHkDYKFg==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKZTWeTyHKu4aoI1De+YwcXl59sobfJkOchS/AiUHX9Td49ZE95
+	ERkjzL3iXLSj5i7SmoNwCNfocSkwenQHXa439+6zr8J9P9CA7A7otYhmhxdDEqHyzpk4fs7qonf
+	pKVT83rDSUu7OSXOk5yCGXtCeMRacjxvMAVr7x5fXffj1aqRRD2fVWZIyW2mgOQoN+Y27Gzg=
+X-Gm-Gg: AYBFou0fXkpazuzK1MkTteLhR9wTwUur0p3DZi0adUh1ITec636Kw9OnSVJZKc+Cfgk
+	kDDTe6+7wrnprPgdBqBze0tlWVM6anBZJQrF8A1KMenYa6gw/WwwNoo2kpwynl5h1xkxct7fgq/
+	LdJKxLaKRtsWOCXhRhD3v213fjLpxhjHEJLsv3WRuZyWBReTDIvHt7ph3SVChdGULF28YyZVYDw
+	Ky/VajSZFY2G1klJzIGf5pxZjYTFpMyb0j8oTHWAqUzFWUFyzi7W4Q1lhsUjuy/Q0+09ZPrbzK1
+	GURPcPMDws/B5Ws/mFhRPfy4zzeI6OibPqH36xhn6G9qQitGiO9dnIsgiASrVxMeLdjRaC9rJIs
+	yP0yYzV7Sl9M//Fu86Qys7uRanDhM
+X-Received: by 2002:a05:620a:4709:b0:93b:d7a0:d9e3 with SMTP id af79cd13be357-93ebd259161mr2675130085a.61.1791981439669;
+        Wed, 14 Oct 2026 05:37:19 -0700 (PDT)
+X-Received: by 2002:a05:620a:4709:b0:93b:d7a0:d9e3 with SMTP id af79cd13be357-93ebd259161mr2675126185a.61.1791981439129;
+        Wed, 14 Oct 2026 05:37:19 -0700 (PDT)
 Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:8916:7b9b:97a2:6c96])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a19f318c31sm206122615e9.3.2026.10.14.05.37.07
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a19f318c31sm206122615e9.3.2026.10.14.05.37.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 05:37:09 -0700 (PDT)
+        Wed, 14 Oct 2026 05:37:18 -0700 (PDT)
 From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Wed, 14 Oct 2026 14:36:41 +0200
-Subject: [PATCH net-next v16 2/7] dt-bindings: net: qcom: document the
- ethqos device for SCMI-based systems
+Date: Wed, 14 Oct 2026 14:36:43 +0200
+Subject: [PATCH net-next v16 4/7] net: stmmac: qcom-ethqos: update phy_mode
+ to the resolved interface in mac_finish()
 MIME-Version: 1.0
-Message-Id: <20261014-qcom-sa8255p-emac-v16-2-0266c2ead980@oss.qualcomm.com>
+Message-Id: <20261014-qcom-sa8255p-emac-v16-4-0266c2ead980@oss.qualcomm.com>
 References: <20261014-qcom-sa8255p-emac-v16-0-0266c2ead980@oss.qualcomm.com>
 In-Reply-To: <20261014-qcom-sa8255p-emac-v16-0-0266c2ead980@oss.qualcomm.com>
 To: Bjorn Andersson <andersson@kernel.org>,
@@ -134,61 +133,54 @@ Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
         linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
         linux-riscv@lists.infradead.org, brgl@kernel.org,
         Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=19567;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2526;
  i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=fK+1ruQE/7idRGfrylCr2oJrrwEq5tBfLa5OFImQXDU=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBqz3dmiNx6nkI3wCUGX3W3tBkGllW0iWM3MzU7I
- f3iwCH+BtWJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCas93ZgAKCRAFnS7L/zaE
- w0edD/4mktypM6M89UEbPH+GqQlGY/nr0xzx10DvAyVhh3YSrdxbYUJUX7OA/3oV93plb63Lyb7
- iAxl5F6nQRaww46AYw7lr97Al4GUpIS55i6X5yylUFwoFVRokBhhh2bx9CCNWPTnTKNpe+jQ+g2
- iqGnjP/YNYsWCczSWS48/W1tKxu3VrnPBjCaAdlw49ZT/6cc97QOiGzKP1a0qk37Y0AXwdEk3ob
- tjnCjFNWvs6KlA2Tl69Ftj6yhx8/b4g/gFZWLebgcBnn1oYLd0Fr4Ftathn6URXD8gtZmtwr418
- 6jeF8q3J2V25YNBBMJ4TKUlEC2ex0VmvqT5fkVWOTxVUnrjFm/WdAiDy2sAzb3VlxKSWNxma8gZ
- 9mwEH+0Ue8Bd7SmwkjODhyMQm9UGl7NA6XJ+/agG/IYtOzKIR1CfN8136MeyVifgwhKzHOjolBN
- Hd2WUGwaZaFpAi4Z8+hSQJASYKMG19GqjkzztDAr+fhVzEYqEaHqQxwtWuWQ9uZ0jQE5ho9qHHf
- UVd0Xn5rPAJUtkebHcf7gu2fDG8HfsPU4pLNda8tQL8qjHLb8YfLBwxjg6r07XEpdRxnLpQaTwC
- Wi+1WZYZOXkjiXZXYQHHZDiRVPnrAmPz0GrIqbPVEq3AtB1GHrNHw2Nlg5XxXcG+NELf9vSybun
- e377KYB/ttFCpxQ==
+ bh=kqw4gb8apOiVp3CcayV1NpfyLAXLAzYoPSPv7h0hX18=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBqz3dpe3YUAPOTSmHWHwKyO4Gn0NPJB7SEy59Cl
+ is1k9W4sI+JAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCas93aQAKCRAFnS7L/zaE
+ wywlD/9xJCp9lL+ZiMDkuKH7qK8YrUboTI36b+vI3x9ZgCGsyNs7Zu2oaYFKMGti/G1ilAPuR1L
+ bmWs6jWD0sIinELld63odrSoCeoYY3SAWY/XZm1U3dCCKvsecfhS2xOYYpR+U0crYDrDg0YmFhw
+ VgIZ1TZnO/ddLJ4duxjFjEHcgtJ1WniYm1mfxQKljV5xhOhvTfKVcUhvzH61qfLuhiOxhqov6C+
+ GQxz7sMayjtyPJxQvhjqMVvLCUAJHQvd38hOsXjngHAdSRwejgsY/3BOnJFzlsUbm0A99THLHmP
+ 1GsX0tIYaAH3J1AD7jGg4/HLC+itt97RLPdtmJOF1Viby0GUJRtAVQRuiwMWmG89clvousBBhbj
+ SbguvN8nnpnhY9S8RGdkQwTIt7+v37de4B4jWXrYaDaxOlAetyLSkqW2ERHMRu2Yq+JD56Xmi94
+ U+DiOjn1TNjN5mpKYqPJdXbXaUrrZWxHMlURaX6ElZQzpz1cd4E4hNKaqoGCvVjCQa0h8n/BfuZ
+ +WA+GJEmWxOuugQ8WvHz2stN5YnA8k0Ib1irjQeU4kYxC6BQHhLH7XjmjIXwbPoKfnskJh57Gq5
+ 7sL9rGWQsWoyF/vfr+MLW4JBM33XUIfxAjBfWKVJ2cMlf86Nq+au14uzK9m5YAgBZvn3lBaReAn
+ W45KXwiaON/5o/g==
 X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Proofpoint-ORIG-GUID: yYvOp6AOtKSa_yXzmQaZe6Mzb0mUspC1
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE0MDA1MCBTYWx0ZWRfX4pbhv6Ezq4Lr
- MMYPe4yJWzFp9uKdeQZbefLF3K+kN6NrHJ6Bv/J1aVpJsSV/M72TPClb4Af8xJNIPycaNwetLpZ
- f3qUErlQ9SM5HqZfQaESC77c+A3NjNY=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE0MDA1MCBTYWx0ZWRfXyP8AGB5riFoU
- 2CttNeqv1IhBM+h3GDeBVVtgIRsFkIdZsBcS7dmRcg+vDt1GvOAipKVHF9WniFkvo4W9rNcIo4r
- OykhE8fvIJ6y0HdwmrnvjWUDAX+bqpPfE9m58bQ9Vhu8hZRFAU1xqU8iZfRgfGjiS+Y7VOd8DIq
- VGqckYKWdwnT7KrqVlpiDFcF8UCU/thodKA7QH5WnsuvKhk2WaI1rOqSiRBugFgI2x4cr7WULr2
- s5IPdM8u+qSVNCXh7x7tfbJ/iK5oZwyVhTgSM+YpLDFNmlFihIsSDzWAbBXZz6A+DGvAV7NqVVP
- 1o+IwZcKFagXGHiUmkTVV7j/7Fkn7bI83YgrG4bUS/iBaCRM1zgK2Dw5iv5T5Xp9UL6bZrwICK7
- urYivynT5PAQ6fXSoFHGTYeWGqC7OwDzcCnR+nyjUdkRI2opbVOqg5I6gIjgWPgWXPlctNnKhYS
- epLtOGleiYiB7QyYqPw==
-X-Authority-Analysis: v=2.4 cv=fJ6sTpae c=1 sm=1 tr=0 ts=6acf7778 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE0MDA1MCBTYWx0ZWRfX5oXfxRSPrsK/
+ VnXrifoo45R5n012B31Q8+IW6wpf3s7h0eIOHbtI9J7iBPmFMOns4pOecFrk2m75fosxg7hQs7Q
+ 64+msWbpe7o4TyrSYsoTBevE3Tmm3hg=
+X-Proofpoint-GUID: Wir6rishliEXDHIf0rIc17Xs7spqY9HZ
+X-Proofpoint-ORIG-GUID: Wir6rishliEXDHIf0rIc17Xs7spqY9HZ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE0MDA1MCBTYWx0ZWRfX4P8ODoAopG0B
+ SdSf8Xfxmn5RnJ1ANBSZFeYElMGMUNL4rKHHKPZbvJye1gi+IQ7h1CKympSjpUIDCgW2hDW7hOp
+ BJNfjnfyD1nKAP7V/cJpAqM6ot0R5wfrY2D2rsAwoKOQOvFeoNciJKFhjhcxUQQ3S4yMAAU48Qu
+ R5jpvpTWXjzjbEcXEkP7qzI55anxdTf5D9GmcB2cTfVBUFijrrpQ40PwziB75FeW4W/cDWR+c4i
+ br1myemG3jaGmVK/KSZMiv+PiCLuuA573VeH2Kt/S1JNaRx3xJhfoCl1iy8P/AdWEyfBB/dvq/X
+ 0zjaRhfatvCq1bboYPJAghGM9f4irlLt7uyp18ICo8PNC0dUykX9u4LS1NYitzHWZyBEU6rT3oH
+ hm+rvL6cPJxk2YmoxMuzxUkGJ9a5pozmOH+ts/r748uTtbwnmKjRnRIMSIsfMSuFDtWHs93xDU6
+ RKXAAhOvRvASyxSUstA==
+X-Authority-Analysis: v=2.4 cv=JegpPkKV c=1 sm=1 tr=0 ts=6acf7780 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
  a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=gEfo2CItAAAA:8
- a=KKAkSRfTAAAA:8 a=mK_AVkanAAAA:8 a=EUspDBNiAAAA:8 a=yC-0_ovQAAAA:8
- a=P-IC7800AAAA:8 a=VwQbUJbxAAAA:8 a=GKXZHVDtzPw5QJjWUvEA:9 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22 a=sptkURWiP4Gy88Gu7hUp:22 a=cvBusfyB2V15izCimMoJ:22
- a=3gWm3jAn84ENXaBijsEo:22 a=d3PnA9EDa4IxuAV0gXij:22
-X-Proofpoint-GUID: yYvOp6AOtKSa_yXzmQaZe6Mzb0mUspC1
+ a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
+ a=FCP7PvUSyU9qYmcNpmEA:9 a=QEXdDO2ut3YA:10 a=uxP6HrT_eTzRwkO_Te1X:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-13_01,2026-10-09_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 lowpriorityscore=0 malwarescore=0
- suspectscore=0 adultscore=0 impostorscore=0 phishscore=0 bulkscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
- definitions=main-2610140050
+ adultscore=0 clxscore=1015 phishscore=0 suspectscore=0 priorityscore=1501
+ bulkscore=0 lowpriorityscore=0 impostorscore=0 spamscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610140050
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_053713_422052_5BDA5502 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20261014_053721_572116_E495B233 
+X-CRM114-Status: GOOD (  18.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -205,526 +197,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+ethqos->phy_mode is read by serdes_powerup() and
+qcom_ethqos_set_sgmii_loopback() to configure the SerDes and its
+wrapper for the correct interface. It is set once at probe from the DT
+phy-mode property and never updated.
 
-Describe the firmware-managed variant of the QCom DesignWare MAC. As the
-properties here differ a lot from the HLOS-managed variant, lets put it
-in a separate file. Since we need to update the maximum number of power
-domains, let's update existing bindings referencing the top-level
-snps,dwmac.yaml and limit their maxItems for power-domains to 1.
+phylink resolves the actual runtime interface and passes it to the
+mac_finish() callback. On platforms that only ever operate at one speed
+these two values are always the same, but when the interface changes
+at runtime - for example switching between SGMII and 2500BASE-X - the
+stored value becomes stale. The next serdes_powerup() call, on
+a subsequent link cycle, then reinitializes the SerDes to the wrong mode.
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Reviewed-by: Romain Gantois <romain.gantois@bootlin.com> # For RZ/N1
+Update ethqos->phy_mode from the interface argument in
+ethqos_mac_finish_serdes() so that it always reflects the last
+resolved interface.
+
+With that, we now update the phy_mode to the runtime-resolved interface,
+so any subsequent resume with a 1G SGMII link skips the loopback setup
+and the DMA reset hangs. To remedy this, extend the guard to include
+PHY_INTERFACE_MODE_SGMII.
+
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 ---
- .../bindings/net/allwinner,sun7i-a20-gmac.yaml     |   3 +
- .../bindings/net/altr,socfpga-stmmac.yaml          |   3 +
- .../bindings/net/amlogic,meson-dwmac.yaml          |   3 +
- .../devicetree/bindings/net/eswin,eic7700-eth.yaml |   3 +
- .../devicetree/bindings/net/intel,dwmac-plat.yaml  |   3 +
- .../bindings/net/loongson,ls1b-gmac.yaml           |   3 +
- .../bindings/net/loongson,ls1c-emac.yaml           |   3 +
- .../bindings/net/nuvoton,ma35d1-dwmac.yaml         |   3 +
- .../devicetree/bindings/net/nxp,dwmac-imx.yaml     |   3 +
- .../devicetree/bindings/net/nxp,lpc1850-dwmac.yaml |   3 +
- .../devicetree/bindings/net/nxp,s32-dwmac.yaml     |   3 +
- .../devicetree/bindings/net/qcom,ethqos.yaml       |   3 +
- .../bindings/net/qcom,sa8255p-ethqos.yaml          | 107 +++++++++++++++++++++
- .../devicetree/bindings/net/renesas,rzn1-gmac.yaml |   3 +
- .../bindings/net/renesas,rzv2h-gbeth.yaml          |   3 +
- .../devicetree/bindings/net/rockchip-dwmac.yaml    |   3 +
- .../devicetree/bindings/net/snps,dwmac.yaml        |   5 +-
- .../bindings/net/sophgo,cv1800b-dwmac.yaml         |   3 +
- .../bindings/net/sophgo,sg2044-dwmac.yaml          |   3 +
- .../devicetree/bindings/net/spacemit,k3-dwmac.yaml |   3 +
- .../bindings/net/starfive,jh7110-dwmac.yaml        |   3 +
- .../devicetree/bindings/net/stm32-dwmac.yaml       |   3 +
- .../devicetree/bindings/net/tesla,fsd-ethqos.yaml  |   3 +
- .../devicetree/bindings/net/thead,th1520-gmac.yaml |   3 +
- .../bindings/net/toshiba,visconti-dwmac.yaml       |   3 +
- MAINTAINERS                                        |   1 +
- 26 files changed, 181 insertions(+), 1 deletion(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/net/allwinner,sun7i-a20-gmac.yaml b/Documentation/devicetree/bindings/net/allwinner,sun7i-a20-gmac.yaml
-index 23e92be33ac8609a16db530782989caed22a5730..b12632545673b2ad0148a677f45a7447309a43cd 100644
---- a/Documentation/devicetree/bindings/net/allwinner,sun7i-a20-gmac.yaml
-+++ b/Documentation/devicetree/bindings/net/allwinner,sun7i-a20-gmac.yaml
-@@ -40,6 +40,9 @@ properties:
-     description:
-       PHY regulator
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+index e2e611a4d2c06bd567e9d5e353b3a4893623de6c..f7cc46d86591a220a183529a8f89456f9153385d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+@@ -190,7 +190,8 @@ static void
+ qcom_ethqos_set_sgmii_loopback(struct qcom_ethqos *ethqos, bool enable)
+ {
+ 	if (!ethqos->needs_sgmii_loopback ||
+-	    ethqos->phy_mode != PHY_INTERFACE_MODE_2500BASEX)
++	    (ethqos->phy_mode != PHY_INTERFACE_MODE_2500BASEX &&
++	     ethqos->phy_mode != PHY_INTERFACE_MODE_SGMII))
+ 		return;
  
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
-diff --git a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
-index d8f90d36d24698e38e4dc7a7c0ce83db7179b876..ce1bd5f2c4702d5ce4c4b669b84406d98a33838a 100644
---- a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
-+++ b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
-@@ -156,6 +156,9 @@ properties:
-           - description: offset of the control register
-           - description: shift within the control register
+ 	rgmii_updatel(ethqos,
+@@ -637,6 +638,12 @@ static int ethqos_mac_finish_serdes(struct net_device *ndev, void *priv,
  
-+  power-domains:
-+    maxItems: 1
-+
- patternProperties:
-   "^mdio[0-9]$":
-     type: object
-diff --git a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
-index 5c91716d1f21e617543b03c5a90b993f8aee053c..9c9cc3ef384da0270489c21b3426572ea46d9499 100644
---- a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
-@@ -158,6 +158,9 @@ properties:
-   interrupt-names:
-     const: macirq
+ 	qcom_ethqos_set_sgmii_loopback(ethqos, false);
  
-+  power-domains:
-+    maxItems: 1
++	/* The interface mode is only known once phylink has resolved it and
++	 * may change at runtime, so keep it in sync for later
++	 * serdes_powerup() and qcom_ethqos_set_sgmii_loopback() calls.
++	 */
++	ethqos->phy_mode = interface;
 +
- required:
-   - compatible
-   - reg
-diff --git a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
-index ba49fd6a086cb92777310bc9e38efe1b3ccd2f7e..b79058b36d704fabb14f2df3c01fe9bfaefdf8a9 100644
---- a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
-+++ b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
-@@ -120,6 +120,9 @@ properties:
-           - description: Optional offset of register controlling TXD delay
-           - description: Optional offset of register controlling RXD delay
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
-diff --git a/Documentation/devicetree/bindings/net/intel,dwmac-plat.yaml b/Documentation/devicetree/bindings/net/intel,dwmac-plat.yaml
-index d1522216d32b943993489f2c47dcf97e822b2316..81c123fe6bb9474f537f988814b414e451f88c16 100644
---- a/Documentation/devicetree/bindings/net/intel,dwmac-plat.yaml
-+++ b/Documentation/devicetree/bindings/net/intel,dwmac-plat.yaml
-@@ -47,6 +47,9 @@ properties:
-   interrupt-names:
-     const: macirq
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - clocks
-diff --git a/Documentation/devicetree/bindings/net/loongson,ls1b-gmac.yaml b/Documentation/devicetree/bindings/net/loongson,ls1b-gmac.yaml
-index c4f3224bad387b87a5b4a3049dabd75f2c4bd42f..c9a131b8d8304c41559a416b324df749c0a87d14 100644
---- a/Documentation/devicetree/bindings/net/loongson,ls1b-gmac.yaml
-+++ b/Documentation/devicetree/bindings/net/loongson,ls1b-gmac.yaml
-@@ -66,6 +66,9 @@ properties:
-       - mii
-       - rgmii-id
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
-diff --git a/Documentation/devicetree/bindings/net/loongson,ls1c-emac.yaml b/Documentation/devicetree/bindings/net/loongson,ls1c-emac.yaml
-index 99001b940b8361f69bb917617f857ee99f4b3fa5..49db18423dd807683b9bb297978f5da8ea6cee3d 100644
---- a/Documentation/devicetree/bindings/net/loongson,ls1c-emac.yaml
-+++ b/Documentation/devicetree/bindings/net/loongson,ls1c-emac.yaml
-@@ -65,6 +65,9 @@ properties:
-       - mii
-       - rmii
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
-diff --git a/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml b/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
-index ab18702e53f9b4800a366febba1a6cf3eba173a4..5301fe64e98b8da843c1c14c7e4b28653b1095fd 100644
---- a/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
-@@ -69,6 +69,9 @@ properties:
-     items:
-       - const: stmmaceth
- 
-+  power-domains:
-+    maxItems: 1
-+
-   phy-mode:
-     enum:
-       - rmii
-diff --git a/Documentation/devicetree/bindings/net/nxp,dwmac-imx.yaml b/Documentation/devicetree/bindings/net/nxp,dwmac-imx.yaml
-index e5db346beca9649be4f97727b78fda8973095912..b240c76e7dd5254d0c3752610c4aa848a3c3d65b 100644
---- a/Documentation/devicetree/bindings/net/nxp,dwmac-imx.yaml
-+++ b/Documentation/devicetree/bindings/net/nxp,dwmac-imx.yaml
-@@ -83,6 +83,9 @@ properties:
-     description:
-       To select RMII reference clock from external.
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - clocks
-diff --git a/Documentation/devicetree/bindings/net/nxp,lpc1850-dwmac.yaml b/Documentation/devicetree/bindings/net/nxp,lpc1850-dwmac.yaml
-index 05acd9bc7616356e68090ebdd4df20e42f70dd7e..f61188ab0dbe3c0cec5b10f7a65dfaff4dc3898f 100644
---- a/Documentation/devicetree/bindings/net/nxp,lpc1850-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/nxp,lpc1850-dwmac.yaml
-@@ -51,6 +51,9 @@ properties:
-     items:
-       - const: stmmaceth
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
-diff --git a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
-index 753a04941659b82b655dad1439ff66f8b37fa18b..fcad2274302d9cff36760184b74918a9835906f7 100644
---- a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
-@@ -81,6 +81,9 @@ properties:
-       - const: rx
-       - const: ptp_ref
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - clocks
-   - clock-names
-diff --git a/Documentation/devicetree/bindings/net/qcom,ethqos.yaml b/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
-index 423959cb928d945aa3e758a3c803d12bd61ec42b..ef520f8105773e22c0536ff419dad55fe316e1bd 100644
---- a/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
-+++ b/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
-@@ -86,6 +86,9 @@ properties:
-   phy-names:
-     const: serdes
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - clocks
-diff --git a/Documentation/devicetree/bindings/net/qcom,sa8255p-ethqos.yaml b/Documentation/devicetree/bindings/net/qcom,sa8255p-ethqos.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..5158481e5e5b0feed5b3dcd2cda2f593b7ff62e4
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/qcom,sa8255p-ethqos.yaml
-@@ -0,0 +1,107 @@
-+# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/qcom,sa8255p-ethqos.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Qualcomm Ethernet ETHQOS device (firmware managed)
-+
-+maintainers:
-+  - Bjorn Andersson <andersson@kernel.org>
-+  - Konrad Dybcio <konradybcio@kernel.org>
-+  - Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-+
-+description:
-+  dwmac based Qualcomm ethernet devices which support Gigabit
-+  ethernet (version v2.3.0 and onwards) with clocks, interconnects, etc.
-+  managed by firmware
-+
-+allOf:
-+  - $ref: snps,dwmac.yaml#
-+
-+properties:
-+  compatible:
-+    const: qcom,sa8255p-ethqos
-+
-+  reg:
-+    maxItems: 2
-+
-+  reg-names:
-+    items:
-+      - const: stmmaceth
-+      - const: rgmii
-+
-+  interrupts:
-+    items:
-+      - description: Combined signal for various interrupt events
-+      - description: The interrupt that occurs when HW safety error triggered
-+
-+  interrupt-names:
-+    items:
-+      - const: macirq
-+      - const: sfty
-+
-+  power-domains:
-+    minItems: 2
-+    maxItems: 2
-+
-+  power-domain-names:
-+    items:
-+      - const: core
-+      - const: mdio
-+
-+  phys:
-+    maxItems: 1
-+
-+  phy-names:
-+    items:
-+      - const: serdes
-+
-+  iommus:
-+    maxItems: 1
-+
-+  dma-coherent: true
-+
-+required:
-+  - compatible
-+  - reg-names
-+  - power-domains
-+  - power-domain-names
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    ethernet: ethernet@23040000 {
-+        compatible = "qcom,sa8255p-ethqos";
-+        reg = <0x23040000 0x10000>,
-+              <0x23056000 0x100>;
-+        reg-names = "stmmaceth", "rgmii";
-+
-+        iommus = <&apps_smmu 0x120 0x7>;
-+
-+        interrupts = <GIC_SPI 946 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 782 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "macirq", "sfty";
-+
-+        dma-coherent;
-+
-+        snps,tso;
-+        snps,pbl = <32>;
-+        rx-fifo-depth = <16384>;
-+        tx-fifo-depth = <16384>;
-+
-+        phy-handle = <&ethernet_phy>;
-+        phy-mode = "2500base-x";
-+
-+        snps,mtl-rx-config = <&mtl_rx_setup1>;
-+        snps,mtl-tx-config = <&mtl_tx_setup1>;
-+
-+        power-domains = <&scmi8_pd 0>, <&scmi8_pd 1>;
-+        power-domain-names = "core", "mdio";
-+
-+        phys = <&serdes1>;
-+        phy-names = "serdes";
-+    };
-diff --git a/Documentation/devicetree/bindings/net/renesas,rzn1-gmac.yaml b/Documentation/devicetree/bindings/net/renesas,rzn1-gmac.yaml
-index 16dd7a2631abf6fb7dc8e0c90755ab1e81915b38..ed0d10a19ca4c47c05f6873c64b0537b90acd15a 100644
---- a/Documentation/devicetree/bindings/net/renesas,rzn1-gmac.yaml
-+++ b/Documentation/devicetree/bindings/net/renesas,rzn1-gmac.yaml
-@@ -44,6 +44,9 @@ properties:
-       phandle pointing to a PCS sub-node compatible with
-       renesas,rzn1-miic.yaml#
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
- 
-diff --git a/Documentation/devicetree/bindings/net/renesas,rzv2h-gbeth.yaml b/Documentation/devicetree/bindings/net/renesas,rzv2h-gbeth.yaml
-index c8f76c8e75843e8375ce968d33e125feeb78f999..1c084aafa8f78f4640262ee88c64697a7259c089 100644
---- a/Documentation/devicetree/bindings/net/renesas,rzv2h-gbeth.yaml
-+++ b/Documentation/devicetree/bindings/net/renesas,rzv2h-gbeth.yaml
-@@ -154,6 +154,9 @@ properties:
-       Documentation/devicetree/bindings/net/pcs/renesas,rzn1-miic.yaml#
-       (Refer RZ/T2H portion in the DT-binding file)
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
-diff --git a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
-index 80c252845349c4533deff85b052157984d0e2f23..3ec3f6dc2a125908ba98f20b1120311de8967954 100644
---- a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
-@@ -123,6 +123,9 @@ properties:
-   phy-supply:
-     description: PHY regulator
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - clocks
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 2218a492817fd3d864e0bc529b83fdcbb4ed023b..2c4842404bf675573c7e7200ed674a151af74c4d 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -73,6 +73,7 @@ properties:
-         - nuvoton,ma35d1-dwmac
-         - nxp,s32g2-dwmac
-         - qcom,qcs404-ethqos
-+        - qcom,sa8255p-ethqos
-         - qcom,sa8775p-ethqos
-         - qcom,sc8280xp-ethqos
-         - qcom,sm8150-ethqos
-@@ -187,7 +188,8 @@ properties:
-           - enum: [ahb, stmmaceth-ocp]
- 
-   power-domains:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 2
- 
-   mac-mode:
-     $ref: ethernet-controller.yaml#/properties/phy-connection-type
-@@ -583,6 +585,7 @@ allOf:
-                 - ingenic,x1830-mac
-                 - ingenic,x2000-mac
-                 - qcom,qcs404-ethqos
-+                - qcom,sa8255p-ethqos
-                 - qcom,sa8775p-ethqos
-                 - qcom,sc8280xp-ethqos
-                 - qcom,sm8150-ethqos
-diff --git a/Documentation/devicetree/bindings/net/sophgo,cv1800b-dwmac.yaml b/Documentation/devicetree/bindings/net/sophgo,cv1800b-dwmac.yaml
-index b89456f0ef830991135bd17626da98661429596c..e78cbf594c695204040a53ab1e367daa9e12246b 100644
---- a/Documentation/devicetree/bindings/net/sophgo,cv1800b-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/sophgo,cv1800b-dwmac.yaml
-@@ -49,6 +49,9 @@ properties:
-   reset-names:
-     const: stmmaceth
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
-diff --git a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-index e8d3814db0e94fdcd0f3ab2a9fa8bab972a97ab5..845e2c67d20037496bb1eec6eb73c99cde74e944 100644
---- a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-@@ -52,6 +52,9 @@ properties:
-   interrupt-names:
-     maxItems: 1
- 
-+  power-domains:
-+    maxItems: 1
-+
-   resets:
-     maxItems: 1
- 
-diff --git a/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
-index 678eccf044f975eb0bed16e7052532e5f19502db..9e0fb995327a925f7c488e5d990563b4f92cd644 100644
---- a/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
-@@ -56,6 +56,9 @@ properties:
-   reset-names:
-     const: stmmaceth
- 
-+  power-domains:
-+    maxItems: 1
-+
-   spacemit,apmu:
-     $ref: /schemas/types.yaml#/definitions/phandle-array
-     items:
-diff --git a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-index fdcc61c65f87d1dc15a17b9486cde032ffa7798b..c424e77973921e1f9f18135c3106f1c270c9ac87 100644
---- a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-@@ -75,6 +75,9 @@ properties:
-       The argument one is the offset of phy mode selection, the
-       argument two is the shift of phy mode selection.
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
-diff --git a/Documentation/devicetree/bindings/net/stm32-dwmac.yaml b/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
-index 987254900d0da7aab81237f20b1540ad8a17bd21..29b878079ff0c1a0ef95fc63f2035f478ee039b2 100644
---- a/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
-@@ -121,6 +121,9 @@ properties:
-     minItems: 1
-     maxItems: 2
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - clocks
-diff --git a/Documentation/devicetree/bindings/net/tesla,fsd-ethqos.yaml b/Documentation/devicetree/bindings/net/tesla,fsd-ethqos.yaml
-index dd7481bb16e59982c26c1a54ae82b8cff85fdfe0..ad635529d676ed6b752ab3bde5152d5cbddcb519 100644
---- a/Documentation/devicetree/bindings/net/tesla,fsd-ethqos.yaml
-+++ b/Documentation/devicetree/bindings/net/tesla,fsd-ethqos.yaml
-@@ -67,6 +67,9 @@ properties:
-       - rgmii-rxid
-       - rgmii-txid
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
-diff --git a/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
-index b3492a9aa4effa73fadf92a63a76ba8bb65a8769..c859f8bb5d582af8b8782f2f89ab5e6ee3d7a46c 100644
---- a/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
-+++ b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
-@@ -78,6 +78,9 @@ properties:
-     items:
-       - const: macirq
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - clocks
-   - clock-names
-diff --git a/Documentation/devicetree/bindings/net/toshiba,visconti-dwmac.yaml b/Documentation/devicetree/bindings/net/toshiba,visconti-dwmac.yaml
-index f0f32e18fc8550e6f63b87b60a095972453836c9..efa39eab0256a1102b01872bd848749788c9b4e8 100644
---- a/Documentation/devicetree/bindings/net/toshiba,visconti-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/toshiba,visconti-dwmac.yaml
-@@ -48,6 +48,9 @@ properties:
-   interrupt-names:
-     const: macirq
- 
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 1da3623e77ce1df067a6a5fa6a04c927ee30eb1b..0314b23f003dcf18d60e12eb2b63d34c639862cc 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22888,6 +22888,7 @@ L:	netdev@vger.kernel.org
- L:	linux-arm-msm@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/net/qcom,ethqos.yaml
-+F:	Documentation/devicetree/bindings/net/qcom,sa8255p-ethqos.yaml
- F:	drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
- 
- QUALCOMM FASTRPC DRIVER
+ 	if (interface == PHY_INTERFACE_MODE_SGMII ||
+ 	    interface == PHY_INTERFACE_MODE_2500BASEX)
+ 		ret = phy_set_mode_ext(ethqos->serdes_phy, PHY_MODE_ETHERNET,
 
 -- 
 2.47.3
