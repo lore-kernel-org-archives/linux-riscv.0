@@ -4,155 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6DC8CC6B20
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 04:03:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9069ACC6B20
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 04:12:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date
+	:From:In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JDC+ZvqoJOVYKa0hp3hPjIZ1npxhmvgXZewFnCUs4Zg=; b=MkMB+gQH3NM7Vy
-	+pKjyxk/T2nYs0rQ8TVBdGWlcqOaD188juSYtYZ6Qo9/TOpwYMw7CkH1tk3PZsJ+Sk3GNrBpfbzi8
-	xq8ntZC/oCMd8bWJeNm7ZrXGMPrjgAMXFPKjAyDBeIS77WiiwoogqqRaRsTnuwc5C3f8rr2FcmKkH
-	JuWtihnJk0jvCi86qx0LmklFw+vVkjJG1QU7gJNWKsWxBGi3HQxc3be++Jo/r9S0KS/4/9zWjOUb1
-	8KdbRgZSaSbpcuZek1D1rjSo+8AnHPIsfbZrNhfkAxcSDNfQBAv+2qpoXRGM9Fat+o1qDFXvD6kCV
-	SsepUJzMeQG8WOUiaQ/g==;
+	List-Owner; bh=7pE4cExIIlUmt6eWSLcAFEqr+SV28RHeszCLyykozoo=; b=HZaywyiCeqPjef
+	L3Ocb2hfNMFdG/PuNl8b7h/X9LbCZ/9o5o94/luoCHjlu68kNM/EMeyXghafNszpvmkYCnkYHK2+n
+	hhvWKT3FgmfIeB+8/9qNA/ndSo6BlPLNntd2BKYHNmCgw2fx2EiddhjB2fy0MpKpm8NENdCQKAzEU
+	0kqcPmmrMU90fV3uZXL5p3bMvK3jRLBcZlbHWlsJEXFaps8IWT+l8jlOdDvwrPasS+lvOHg8jkMhy
+	U7pbMmtRwS4OqM7/KsUkAXoG04f4pg1rBPm7EAei27EH+ef8Nk7Bml+/99bH9ikG9imIehCKuVKdz
+	DcwFb2TQcA4ZmshW+0eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGqCd-0000000ETK8-3X80;
-	Wed, 14 Oct 2026 04:02:55 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xGqM5-0000000EUHx-3cgQ;
+	Wed, 14 Oct 2026 04:12:41 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGqCb-0000000ETJP-0wwj
+	id 1xGqM3-0000000EUHa-3scw
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Oct 2026 04:02:54 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69E1LBNY2332963
-	for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 04:02:52 GMT
+	Wed, 14 Oct 2026 04:12:41 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69E2X59T3000880
+	for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 04:12:38 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=VWdbP2YpPS6VQfeV27iDbD/q
-	vWCuu42ZlVxsIM4yMqU=; b=p52aLg4oqtWTVq+OGhn1mbuFCCdAblvqzUacGfB0
-	U6X48RQ5MqlULeAjZr6+vISYvjeYJszESwFiSAp9TAIlVwKQvVJzUIML7zfIZ7yp
-	8f7J7WLfwEgM9ojdBzkMMC6ZpO0mKO3M5v5lNRCEFFA0EXmeNwOG1M3O/1TeBtGD
-	du4HXJ3eAwg/aIY+xMLOznrb8aluZFhodl+laqpIGjNsfydnfsKMcg00yI9HUICL
-	QXHmP/apS4j/N26cP7DpOnPDY+dUcYtd6LGIhrrKr/ThtFdRiMJsewoZa0YMHr3T
-	wRvWhxyZIOgEHBISEXEodQcOo3krDbHteXU0A/KH9M3PyQ==
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h9s0hj71e-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:to; s=
+	qcppdkim1; bh=0IToitMTYp/Rl/u3v1Im6m2B2/IkDFAQrOa2qxOYerA=; b=SQ
+	pxAFcS+1SQ+AskTGAEMjYX4fMsFRgqxpslh90yM7fF594sep6OqAVAwInsXHsgow
+	BL4dDj70qgx0yW/FdzUvYhHMO8SUBiok8zHTz6DSJBKyC0S4es+UWv/sZjUvtB1Q
+	TxV5RCv2MGp+BxeFreqNTpTU7fXT2tpYrpmdEw6b7ZTBhWvN23zZqH0oOurCfQvy
+	G3APDC2Bjgke2qis/y9PITSOfzrkrgKQsfmbESyB0b/xsLDCdGh6NNcuY6CZemZl
+	CrTd8bOlb+4yZjuzD+VH5KQ6O+MpmOgd1goEeBssdRzvh3c8oFP+RtOb4dtVAjRx
+	RRaASqepXNhztxsusPNw==
+Received: from mail-yw1-f198.google.com (mail-yw1-f198.google.com [209.85.128.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h9sbet3nr-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 04:02:52 +0000 (GMT)
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-341eff9e381so10060984eec.1
-        for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 21:02:51 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 04:12:38 +0000 (GMT)
+Received: by mail-yw1-f198.google.com with SMTP id 00721157ae682-8b0ab72a6e8so30273517b3.0
+        for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2026 21:12:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791951157; cv=none;
+        d=google.com; s=arc-20260327;
+        b=NA3S6JAF5gtNHlXGUMk3jEA3Gvn+GHBrusBY2IX6+e2F3kuuhv17Brx8ds4OwztUn9
+         dv9J3vMDkYgc2aqfjpXJMcDygXqPjsH3IGIt/ysfjAUpP1DfupbyuowOrzr5Z/gKTMb8
+         2lMZXH1hq0I9a7W2N/pLU8771jNnvQZB0OQdweVxPE+XU+3Kdd6C1UGs+6vz3MahaSXz
+         Yn5gaGp4Hvza+m3qPxe8cv6vuZFk9OcMYezrBtUHS0XMhFVDEJPNekWQ/LcyQdm4ZkpH
+         SZ9RP7bXCa2sY5GJuHTR64nhNJ8X+T4twvYB9M2z+t4mU6Y3vrrJjDMy/zKFAUnCi+Zw
+         Mcqw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:dkim-signature;
+        bh=0IToitMTYp/Rl/u3v1Im6m2B2/IkDFAQrOa2qxOYerA=;
+        fh=Dju6qO6VKApVKwJuCAVQMrq2LyjxjEi0ZYjcR8aIZr4=;
+        b=DOozhmIxTmEWR+KWQlHtXpAxCO3xERhSTF4kaCa5EtIS85kJroUG4AstOEpgN3NIYl
+         DpG199UpfvGlJ9M8Kjg6MZq11XrMGJ7KmGCljyxgci5/z/I/gkd2/t72NTrVMKilUsI8
+         XopzlXoc1CrH2ldmP5tvjKcf4sV77DK7yCNIC4eqs+jhNJRd+JBqLkK5/PU1luCvBhPR
+         IBbOnzo96/38xJmDcouQxvI1Dy/1GzHyPGHOEsksznVjfjvA21OWhWFTk6Di/uXpQ8mk
+         BD0UiEVoYF+M1T4wuzMP4UjTqd9Z9tTaK4lnGjSIEsSjIsiaO432c/5j6wEn3U/G/ZSc
+         fBmw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791950571; x=1792555371; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=VWdbP2YpPS6VQfeV27iDbD/qvWCuu42ZlVxsIM4yMqU=;
-        b=Yp5QpLzheyLEuORlAbhb/X934MJyPahFWDIPe2/LVIkFqv81U0Z0VGiYs1r9uINTkN
-         mcg1cb2IJYmqJzUDY04vpGbLH0UVZyvMiUBJhGVMLNeS4Oze2qJQ41V7xMfQKQ9qSWmB
-         K0YKaHE0dH2xNjE5oOuYVo9YWyRgVneVoPzNoUTEOCZqpKDoKIAGpqXxzqwYCU5b04W8
-         U+g1huXdd3rBl2GRQa5MoDmQX0T/1XcxG81abP5UwVTC4bicWZ8bj1hj52tmUH4wWoab
-         z1540YwvIGYHej310M+usS+8VL9qRqensnBQl8MhaQlJyfY2R6gsmt8luGah1Wqij6/P
-         CoDA==
+        d=oss.qualcomm.com; s=google; t=1791951157; x=1792555957; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:reply-to:in-reply-to:references:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=0IToitMTYp/Rl/u3v1Im6m2B2/IkDFAQrOa2qxOYerA=;
+        b=UeUKK+qfEnmtrskptIjrh5PZ7xDsv7/tsCvhraBWm6GQo6Wsd4nqV1R5P1BW4juQ7j
+         mwUeo03k8eHZD8Z62OYKKtbNWxbA+/U4QVca1TzOk7/MyxMhLJsLCpFhl3nLFl+6eiqv
+         +sHVfmW1lAYjxVNMoUuxWFIOF0I9q22ix5O/w60eRhUzLt/ZPlKiocUNQTqXcs7ZBNES
+         blEJn+kHIHHurREW/H/6lbUPlw/15PPAi5Fo5ChzKu+L+PoaYI4MfUGhEZ3/oOGPJjTd
+         tmk1Kkce9gX3QqHG2fWi0wdpES5MlDpxRG9WF0+FwqhKoxYDpgMptQyDrLpYDPPzUeH5
+         l3RQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791950571; x=1792555371;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1791951157; x=1792555957;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=VWdbP2YpPS6VQfeV27iDbD/qvWCuu42ZlVxsIM4yMqU=;
-        b=Q0a1SvyXPU0DqxFtei7LYDS6ljZPOVzu40sY+og16nMgn8SKvCw/5EEaw7dU7OPTtH
-         jwjevxz0oPC4StGCuRkuMJuDPk8KpAgajTjBlI/3e5udL+gNMqxvzZprEudaEKx4Mh7w
-         b2q6wfGQLvLnn7tXUAomw4qdEECgtqTEs5a6NrReAbhKl63r/QVjJYxC5W/UdUPPhXsq
-         LqcBplvKsBGFyWyJ/s1OP4NDaKbh3PZBIhNTO0O3pUpGmxC7RZmgunGVwZa4pA72vzRW
-         Km09gnc8IWiweNoriymSNRx9DKoC7gtztsN8laYXVMKv7dO4PJ5jrq1rolqpwHL3/iQt
-         eqyg==
-X-Forwarded-Encrypted: i=1; AKwUvBx2fY7MJKm8CVMsvCXE/ejJEFeV2VRhv2m1RaeeB2pwnSKaKD0wAWj0AOC+YEXU0nP8/60am756ULjTlw==@lists.infradead.org
-X-Gm-Message-State: AFq9FYK45tdeunvTa6xudal4MZsSYBgXyXyFzthCDi3I108qcDgangH7
-	hGNBqDog1rDmxJljCXcOvsEtCzdRFXTEst96JsJXm6MTaS724+toPYiDvUCeUcQe0djx9q6Gek5
-	E44hZAaxXKsUv5UmBHYlLKpmEUYcRnQw6MUgCOlyueOP3uZVKtXwrV9WWloX0cLaTpvRdCT4=
-X-Gm-Gg: AYBFou16omC4BUGnI4TtGJLeTIgYw75YaE4PkxnW/YaUkDPqBO+Eg31OhJJlJADF/8y
-	lP5StAb1f1/Z+x5iFw5p/mJE57GnmGg1KK5sr7vW1OMqsseCNSqOu17hVTN0pmqq9JveQkyrGlI
-	aT7fQ69CIYg+RCpWD0Y8+TxF5Ilm65+4klBc0GPAj55AzuEYrUyTkQlSYVG0oR22iGeHNfihL4Z
-	Zu8pOjIVz/UxAnxA3uZtH202bZDoUh4SSKpMpxh+kJTK7DVQvFyx7LcmsHjC+qFwHFLX/hvlhG7
-	U4oNmBwt6nfTvADkW4toMPdgMcDFKv25qGXf+qQaK7vbCfpEWZrttHySQJC5Cn6PFNBagPtXkp+
-	0+aZGXkE0NT7WX3Pqv6fy2DhUyExbxEAEDvkvEdyWWdD6VW3cECYUpMbqheAbFE9k4JF6P7mSUG
-	hLUbTYjQThNersDGmT8pFttVpc
-X-Received: by 2002:a05:7300:f0ce:b0:34b:b410:9352 with SMTP id 5a478bee46e88-3537de1ce96mr19572239eec.1.1791950570641;
-        Tue, 13 Oct 2026 21:02:50 -0700 (PDT)
-X-Received: by 2002:a05:7300:f0ce:b0:34b:b410:9352 with SMTP id 5a478bee46e88-3537de1ce96mr19572147eec.1.1791950569770;
-        Tue, 13 Oct 2026 21:02:49 -0700 (PDT)
-Received: from hu-himchau-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3537cacb61asm50995980eec.21.2026.10.13.21.02.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 21:02:48 -0700 (PDT)
-Date: Wed, 14 Oct 2026 09:32:36 +0530
-From: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Conor Dooley <conor@kernel.org>, Anup Patel <anup@brainfault.org>,
-        =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-        Yunhui Cui <cuiyunhui@bytedance.com>,
-        Atish Patra <atish.patra@linux.dev>,
-        Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-        Arnaldo Carvalho de Melo <acme@kernel.org>,
-        Namhyung Kim <namhyung@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-        Adrian Hunter <adrian.hunter@intel.com>,
-        James Clark <james.clark@linaro.org>, Will Deacon <will@kernel.org>,
-        Thomas Gleixner <tglx@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-        Randy Dunlap <rdunlap@infradead.org>,
-        Shuah Khan <skhan@linuxfoundation.org>, Shuah Khan <shuah@kernel.org>,
-        Yuanzhu <yuanzhu@bytedance.com>,
-        Yicong Yang <yang.yicong@picoheart.com>,
-        Susheng Yang <yang.susheng@zte.com.cn>,
-        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v10 RESEND 3/9] riscv: sse: mask events during shutdown
- and kexec
-Message-ID: <as7-3PbWDxygadnJ@hu-himchau-blr.qualcomm.com>
-References: <cover.1789974241.git.zhangzhanpeng.jasper@bytedance.com>
- <03472b45125793a768f3e5bbc168f167e673d4cc.1789974241.git.zhangzhanpeng.jasper@bytedance.com>
+        bh=0IToitMTYp/Rl/u3v1Im6m2B2/IkDFAQrOa2qxOYerA=;
+        b=ZKsDVTDUESUqFI7kyWzOn+D12cQi4NqY39i1iMYn8oeliyhVGhMoKMKVqKKmN1ldcK
+         hHC3r67O2lQpYIiHMVHcXzKTqb55N4Da1bG2gG5PZExWZpN6w/k2u7tLaFZbqkne6H4c
+         0/UcGH0u8M0LzqrocTtaoCAnzIgL+PQs2R1RXAnOBKbv/rRVQ7xSgf7LtinuF8NoWORQ
+         yXYPNPq+BAShko+pJodVyC7KGrlUSFTzt5bAB1BgCjkHeFuvkxMbKI7B6nqsnt23tBCJ
+         Pu6URbFLtQllQS6r9Ztm5atf/u09kWQcUZJXEbfESMTE/j2aDT0HjL8+8lQF16L/3Q6K
+         6KQg==
+X-Forwarded-Encrypted: i=1; AKwUvBzexJ689H2INkvYmvrX4y9bfMtQ+CB9mBQ6Ybt4jOV5dAHusjrOavZ6on35geq14zpNkeqzTuVDlZXiyw==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKEpSWipnMQb9HcDluT+9l90rpdglHoQrEa1YNnc70i26WVgWrF
+	KOhSAv8ItVfgc4xoo2By4eZ1AqI0DMaL/5rhHaCnNKgJ9UH6fcsc58RmEqDxNp9w7tK4B2xdw4c
+	xboc/XRi51moF1MlpFc5aePumhUtLR6sOqSOAUtX7Y25siVp81/ihwTY31mDety8uxgvIxPWgCl
+	Qeb0SZ1noUUYImHoeMyYTNxjhK4agv9h3Pb+v4R/AobX0HrQ==
+X-Gm-Gg: AYBFou2+ibsc3Iw24sWjI9eA8sM9eHf7uRPcLFA8hSo1bRLd24hdc5ouQGhqIsdFX5d
+	sqpqc3x3hSdsVnt3nonhGnC0aeuE4fC+Wh0Af0RXeSiSNLlaG9yaur2kpEYZ/WM3qWMHGBbOKeP
+	22erG3mojI7BECOLRo2tdarGBuqL95hy/Fc6Y3CKr+iZo5g8kYX9oXYyvjNts=
+X-Received: by 2002:a05:690e:128c:b0:679:8835:a554 with SMTP id 956f58d0204a3-6798835b6f3mr595929d50.94.1791951157322;
+        Tue, 13 Oct 2026 21:12:37 -0700 (PDT)
+X-Received: by 2002:a05:690e:128c:b0:679:8835:a554 with SMTP id
+ 956f58d0204a3-6798835b6f3mr595910d50.94.1791951156684; Tue, 13 Oct 2026
+ 21:12:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <03472b45125793a768f3e5bbc168f167e673d4cc.1789974241.git.zhangzhanpeng.jasper@bytedance.com>
-X-Authority-Analysis: v=2.4 cv=GL+dgeNK c=1 sm=1 tr=0 ts=6acefeec cx=c_pps
- a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=968KyxNXAAAA:8 a=a_nq2awA8k5mFBtTUooA:9 a=CjuIK1q_8ugA:10 a=O8hF6Hzn-FEA:10
- a=bBxd6f-gb0O0v-kibOvt:22
-X-Proofpoint-ORIG-GUID: okkgiT_tvC1Tk-Ltdi9l6LnYZLdWTF7G
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE0MDAxNSBTYWx0ZWRfX8K8aJmozJGR6
- ltJydUieBiy4oaeiaoYvydwDqnj4OcDy4LWXEt/JEtlExTiojOWhXUesORNaLbJX/ipu1P7CXkD
- LIgSjeQhhH4KnUEOdzWyGCCCyAbQG9U=
-X-Proofpoint-GUID: okkgiT_tvC1Tk-Ltdi9l6LnYZLdWTF7G
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE0MDAxNSBTYWx0ZWRfX8hQ/Pze97iac
- FUFbrz6oEIspvqTEHZY6AQDDmxiRF+kWTqE4vVPhwLH63FtyVab5jSBoAminu1Ii9K1vjZV4bGv
- 4JCRLjJ8li6UewxUv4XioqQC0JiBg5iwEm1YCQx4/HEYsgDGA/4Vqm8NUf8LbskkJVnEstJCalY
- luS7UrrVVSM24a7r6OYF2SqtJ+/kPpKYlj376ho1tYHtWMC3auiHnWr7PppmJ/3zFVPK8N8Vj4s
- NSQaWQpWgG5kFeRZ1ar0Em+Jjq5LoEtqtTDqm+fMbZe93sH4uJ9W5D3n6NCLO+fnsCJyp/KrYlh
- VMW/lHqh7H8x5/2pz8NQz5cNKiiepRdk3HY7c4S4MvFyc32nptvIyzDnYA95T3E6D5bTbWePzTh
- csEol+JsfPPIXIPEWce8k9FR9h1dWLBzbdylWzfwRSR8XAKcC4ci16vKzBc/ftjiRgom9TH7Kec
- 5X8lpOywZFMpKKfex1g==
+References: <20260903140031.3684-1-fangyu.yu@linux.alibaba.com>
+In-Reply-To: <20260903140031.3684-1-fangyu.yu@linux.alibaba.com>
+From: Sunil V L <sunilvl@oss.qualcomm.com>
+Date: Wed, 14 Oct 2026 09:42:25 +0530
+X-Gm-Features: AclHuK86voQc4FUtiCdkEZEAZb2HJ7wq0GZX-kU_HOfP197uYVxA3KPb_kIuB4o
+Message-ID: <CAB19ukELrF5wf3vKaPhoCLWmzGDExv1mZQAyEs8K6uq-zxqsKQ@mail.gmail.com>
+Subject: Re: [PATCH v2] ACPI: RIMT: Enable PCI ACS for root complexes mapped
+ to an IOMMU
+To: fangyu.yu@linux.alibaba.com
+Cc: rafael@kernel.org, lenb@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+        aou@eecs.berkeley.edu, alex@ghiti.fr, guoren@kernel.org,
+        linux-acpi@vger.kernel.org, iommu@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+X-Proofpoint-ORIG-GUID: IEr9Ux1wTxWOXUYwK8eg0PkIRXw3qOCX
+X-Proofpoint-GUID: IEr9Ux1wTxWOXUYwK8eg0PkIRXw3qOCX
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE0MDAxNiBTYWx0ZWRfXwmR/NQXCGcfF
+ Gs5kd55k82GLGzCk0LVGa6n62ZkyCMx2vSi/MSsqaV616Bju2rliN+z/DMM8rDqq/TAb3hC0l/v
+ EXUvwdoLdvmwSljBvz+B8pcXQlw5P5roawr7jsgHoiLF42X8SAy0LJN6GmTJ0q/DGPjpjPFjp7q
+ SZw01TZhyi3Fng4Y32lmMRIsg07l32UjAdnhwifNbB2nPpCOhHFheZYZA01AX56oGrlRZ2wM3w8
+ YR2lEcocbHabCEWDMq3BvPGLgPHws7T1izBINF8mzNwwRGMNs7LIlsZHXpbylwglW9BtmUgf1qp
+ WpNrkI+BBup8puWcNan1tWSpnoJREymgS0aeSN3TnQkg+JnMYGlxRI2k/RVO1kSRRFPePsVosoG
+ lqdVm6L2gkHgX51kc6V44ncWKn0b3M4bSzUuUblafQP9HqdkjsRiIojnAPW3PqB6rF+ODPMacnI
+ Fn2W4g0EF34abWZWORg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE0MDAxNiBTYWx0ZWRfX4supAlLiM2ba
+ Q25S0vHzUgOGv1LvGbPF6QZuKVIRm1byAAzALoF6r4KO4j27Nyjq0HTTJXvEaWoS/qj69q4gkpb
+ u7Dc6VjdQhI5SqbCeikyud2R6QnTCU8=
+X-Authority-Analysis: v=2.4 cv=U7AHnuru c=1 sm=1 tr=0 ts=6acf0136 cx=c_pps
+ a=g1v0Z557R90hA0UpD/5Yag==:117 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=Um2Pa8k9VHT-vaBCBUpS:22 a=SRrdq9N9AAAA:8 a=EUspDBNiAAAA:8
+ a=N72Xn8VYRMkAawgvMsQA:9 a=QEXdDO2ut3YA:10 a=MFSWADHSvvjO3QEy5MdX:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-13_01,2026-10-09_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 suspectscore=0 spamscore=0 phishscore=0 adultscore=0
- bulkscore=0 malwarescore=0 clxscore=1015 priorityscore=1501 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610140015
+ clxscore=1015 priorityscore=1501 malwarescore=0 lowpriorityscore=0
+ adultscore=0 impostorscore=0 bulkscore=0 phishscore=0 suspectscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
+ definitions=main-2610140016
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_210253_384728_DE6652B7 
-X-CRM114-Status: GOOD (  32.44  )
+X-CRM114-CacheID: sfid-20261013_211239_967570_3B13D358 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,202 +160,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Reply-To: sunilvl@oss.qualcomm.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 07:15:00PM +0800, Zhanpeng Zhang wrote:
-> SSE delivery is independent of normal S-mode interrupts. Firmware may also
-> retain an event registration until Linux explicitly unregisters it. A hart
-> must therefore stop accepting SSE events before Linux stops servicing the
-> registered handler.
-> 
-> Mask SSE on the local hart before panic stop, CPU stop, restart, poweroff,
-> and crash shutdown paths. This prevents firmware from entering Linux-owned
-> handler state after the corresponding CPU or kernel context is no longer
-> valid.
-> 
-> A crash kernel cannot identify or take ownership of registrations
-> inherited from the crashed kernel. Reject a later normal kexec while such
-> SSE state may still exist, rather than transferring unknown firmware state
-> to another kernel.
-> 
-> Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-> ---
->  arch/riscv/kernel/machine_kexec.c | 11 +++++++++++
->  arch/riscv/kernel/reset.c         | 18 ++++++++++++++++++
->  arch/riscv/kernel/smp.c           | 17 +++++++++++++++++
->  3 files changed, 46 insertions(+)
-> 
-> diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-> index 738df176ff6f..24e7affae70b 100644
-> --- a/arch/riscv/kernel/machine_kexec.c
-> +++ b/arch/riscv/kernel/machine_kexec.c
-> @@ -14,10 +14,13 @@
->  #include <asm/set_memory.h>	/* For set_memory_x() */
->  #include <linux/compiler.h>	/* For unreachable() */
->  #include <linux/cpu.h>		/* For cpu_down() */
-> +#include <linux/crash_dump.h>
->  #include <linux/reboot.h>
->  #include <linux/interrupt.h>
->  #include <linux/irq.h>
->  
-> +#include <asm/sse.h>
-> +
->  /*
->   * machine_kexec_prepare - Initialize kexec
->   *
-> @@ -36,6 +39,13 @@ machine_kexec_prepare(struct kimage *image)
->  	unsigned int control_code_buffer_sz = 0;
->  	int i = 0;
->  
-> +	/* A crash kernel cannot tear down registrations inherited from firmware. */
-> +	if (is_kdump_kernel() && image->type != KEXEC_TYPE_CRASH &&
-> +	    riscv_sse_available()) {
-
-I just realized. This rejects a normal kexec from any kdump kernel whenever firmware
-merely advertises SSE, regardless of CONFIG_RISCV_SBI_SSE or whether anything is registered.
-Can you check if its breaking kexec() with SSE just being advertised?
-
-Also, there are some shasiko's comments worth addressing.
-
-> +		pr_err("Normal kexec from a crash kernel is unsupported with SSE\n");
-> +		return -EOPNOTSUPP;
-> +	}
-> +
->  	/* Find the Flattened Device Tree and save its physical address */
->  	for (i = 0; i < image->nr_segments; i++) {
->  		if (image->segment[i].memsz <= sizeof(fdt))
-> @@ -127,6 +137,7 @@ void
->  machine_crash_shutdown(struct pt_regs *regs)
->  {
->  	local_irq_disable();
-> +	riscv_sse_mask_current_hart();
->  
->  	/* shutdown non-crashing cpus */
->  	crash_smp_send_stop();
-> diff --git a/arch/riscv/kernel/reset.c b/arch/riscv/kernel/reset.c
-> index 14eb08a6db85..fdab37e7ae52 100644
-> --- a/arch/riscv/kernel/reset.c
-> +++ b/arch/riscv/kernel/reset.c
-> @@ -6,6 +6,20 @@
->  #include <linux/efi.h>
->  #include <linux/reboot.h>
->  #include <linux/pm.h>
-> +#include <linux/smp.h>
-> +
-> +#include <asm/sse.h>
-> +
-> +#ifndef CONFIG_SMP
-> +void __noreturn panic_smp_self_stop(void)
-> +{
-> +	riscv_sse_mask_current_hart();
-This function call does SSE probe on every call. Wouldn't it be cheaper to do once?
-
-Regards
-Himanshu
-
-> +	local_irq_disable();
-> +
-> +	for (;;)
-> +		cpu_relax();
-> +}
-> +#endif
->  
->  static void __noreturn default_power_off(void)
->  {
-> @@ -18,6 +32,8 @@ EXPORT_SYMBOL(pm_power_off);
->  
->  void machine_restart(char *cmd)
->  {
-> +	riscv_sse_mask_current_hart();
-> +
->  	/*
->  	 * UpdateCapsule() depends on the system being reset via ResetSystem().
->  	 */
-> @@ -30,12 +46,14 @@ void machine_restart(char *cmd)
->  
->  void machine_halt(void)
->  {
-> +	riscv_sse_mask_current_hart();
->  	do_kernel_power_off();
->  	default_power_off();
->  }
->  
->  void machine_power_off(void)
->  {
-> +	riscv_sse_mask_current_hart();
->  	do_kernel_power_off();
->  	default_power_off();
->  }
-> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-> index fa66f9c97d74..7f0d4e7332f1 100644
-> --- a/arch/riscv/kernel/smp.c
-> +++ b/arch/riscv/kernel/smp.c
-> @@ -23,10 +23,13 @@
->  #include <linux/irq.h>
->  #include <linux/irq_work.h>
->  #include <linux/nmi.h>
-> +#include <linux/panic.h>
->  
->  #include <asm/tlbflush.h>
->  #include <asm/cacheflush.h>
->  #include <asm/cpu_ops.h>
-> +#include <asm/sbi.h>
-> +#include <asm/sse.h>
->  
->  enum ipi_message_type {
->  	IPI_RESCHEDULE,
-> @@ -79,8 +82,18 @@ int riscv_hartid_to_cpuid(unsigned long hartid)
->  	return -ENOENT;
->  }
->  
-> +void __noreturn panic_smp_self_stop(void)
-> +{
-> +	riscv_sse_mask_current_hart();
-> +	local_irq_disable();
-> +
-> +	for (;;)
-> +		cpu_relax();
-> +}
-> +
->  static void ipi_stop(void)
->  {
-> +	riscv_sse_mask_current_hart();
->  	set_cpu_online(smp_processor_id(), false);
->  	while (1)
->  		wait_for_interrupt();
-> @@ -91,6 +104,7 @@ static atomic_t waiting_for_crash_ipi = ATOMIC_INIT(0);
->  
->  static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
->  {
-> +	riscv_sse_mask_current_hart();
->  	crash_save_cpu(regs, cpu);
->  
->  	atomic_dec(&waiting_for_crash_ipi);
-> @@ -254,6 +268,8 @@ void smp_send_stop(void)
->  {
->  	unsigned long timeout;
->  
-> +	riscv_sse_mask_current_hart();
-> +
->  	if (num_online_cpus() > 1) {
->  		cpumask_t mask;
->  
-> @@ -301,6 +317,7 @@ void crash_smp_send_stop(void)
->  		return;
->  
->  	cpus_stopped = 1;
-> +	riscv_sse_mask_current_hart();
->  
->  	/*
->  	 * If this cpu is the only one alive at this point in time, online or
-> -- 
-> 2.50.1 (Apple Git-155)
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgUmFmYWVsLAoKT24gVGh1LCBTZXAgMywgMjAyNiBhdCA3OjMw4oCvUE0gPGZhbmd5dS55dUBs
+aW51eC5hbGliYWJhLmNvbT4gd3JvdGU6Cj4KPiBGcm9tOiBGYW5neXUgWXUgPGZhbmd5dS55dUBs
+aW51eC5hbGliYWJhLmNvbT4KPgo+IE1pcnJvciB0aGUgQUNQSSBJT1JUIHNvbHV0aW9uIHVzZWQg
+b24gYXJtNjQgKHNlZSBpb3J0X2VuYWJsZV9hY3MoKSkKPiBieSBzY2FubmluZyB0aGUgUklNVCB0
+YWJsZSBmb3IgUENJZSByb290IGNvbXBsZXggbm9kZXMgZHVyaW5nCj4gcmlzY3ZfYWNwaV9yaW10
+X2luaXQoKSwgd2hpY2ggcnVucyBiZWZvcmUgQUNQSSBQQ0kgZW51bWVyYXRpb24uIElmIGEKPiBy
+b290IGNvbXBsZXggbm9kZSdzIElEIG1hcHBpbmcgcG9pbnRzIGF0IGFuIElPTU1VIG5vZGUsIGNh
+bGwKPiBwY2lfcmVxdWVzdF9hY3MoKSBpbW1lZGlhdGVseSwgc28gcGNpX2Fjc19lbmFibGUgaXMg
+YWxyZWFkeSBzZXQgYnkKPiB0aGUgdGltZSBhbnkgUENJIGRldmljZSBpcyBzY2FubmVkIGFuZCBw
+Y2lfZW5hYmxlX2FjcygpIHJ1bnMuCj4KPiBPbmx5IG9uZSBjYWxsIHRvIHBjaV9yZXF1ZXN0X2Fj
+cygpIGlzIG5lZWRlZCByZWdhcmRsZXNzIG9mIGhvdyBtYW55Cj4gcm9vdCBjb21wbGV4ZXMgYXJl
+IGZvdW5kLCBzbyB0cmFjayB0aGF0IHdpdGggYSBzdGF0aWMgYWNzX2VuYWJsZWQKPiBmbGFnLCBz
+YW1lIGFzIGlvcnRfZW5hYmxlX2FjcygpIGRvZXMuCj4KPiBTaWduZWQtb2ZmLWJ5OiBGYW5neXUg
+WXUgPGZhbmd5dS55dUBsaW51eC5hbGliYWJhLmNvbT4KPiBSZXZpZXdlZC1ieTogU3VuaWwgViBM
+IDxzdW5pbHZsQG9zcy5xdWFsY29tbS5jb20+Cj4KPiAtLS0KPiBDaGFuZ2VzIGluIHYyIChTdWdn
+ZXN0ZWQgYnkgU3VuaWwpOgo+ICAgICAtIENoZWNrIHRoZSBSSU1UIG5vZGUgdHlwZSBpbiByaXNj
+dl9hY3BpX3JpbXRfaW5pdCgpIGFuZCBpbnZva2UKPiAgICAgICByaW10X2VuYWJsZV9hY3MoKSBv
+bmx5IGZvciBQQ0llIHJvb3QtY29tcGxleCBub2Rlcy4KPiAtLS0KPiAgZHJpdmVycy9hY3BpL3Jp
+c2N2L3JpbXQuYyB8IDU4ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+
+ICAxIGZpbGUgY2hhbmdlZCwgNTggaW5zZXJ0aW9ucygrKQo+CkNvdWxkIHlvdSBwbGVhc2UgdGFr
+ZSB0aGlzIHBhdGNoIHZpYSBBQ1BJIHRyZWU/CgpUaGFua3MsClN1bmlsCgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
