@@ -4,93 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F618CC6B27
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 07:56:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 432CECC6B1A
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 08:14:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References:Message-ID
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=puNpiSxJFpus8VmshFKHNpL/C+i9dqiT0+vxGV1omgo=; b=tQp0D8pMhhjV3q
-	RiugfK2LmV9aUf/sC0B/JsfiaOAJx8Hs5VutDzlskpx/YQaPAPZi0CakPzHKn7YAdKQyFHvgpP/Pr
-	DRRLGzFEA4JD8c5ZMxp4kLSZ6FokVniLP3GcZVKDEx+8vqXgueLrIQr+8e4tJUfxBppECGU6GhMPV
-	yx0p/mSJldQ5EVHWUIxv1OqE9kzzxUsQAuqPeIcNIBrG5ZX851je2+hE+esZzheBOCdlQl4VvnUV/
-	fSyGSvrEJuaK3wrRXbsJvUHwMDHdJwJrTylT3Br1ythdpFVmqXJvOoeYgGUP1anx357opkuVeUor8
-	JrIjoBODBZOYfQwvBHFw==;
+	List-Owner; bh=YLhglVWqsggz2idn5jgg76j6oKnLGO4/O8yqRHuiTDE=; b=F2JV0jYOV9TKgz
+	w9cTLPaRqZ8s/76WaHJbzOl0FT1J+4WDfP0FfOteaeqvPmgjnwztzSzQDpGAzaqGu3u1Ic9wpnKS9
+	QyH7269BL9hEtGwwzSfjkeqr40MRIkxTzlGeDeeCzF8F9rh6/JoVMvGUctVpEySPm1uJjDAl2VPS1
+	96C+Luy+NJjriyDMqe50FRxBGn/rPG/U4VHNJ8xLNTobGiNMQMDB9gL1onyo6CtsdADxCE937HLZp
+	3HTOu5LmwNuzGIsYEQa1bMpN48Gx29e6iHy7VlOSnphBxuwzkx6FCBkrHbieYYkhpwTlyjgUG51/z
+	xxnk+TNmdM5HQTYeWI3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtqf-0000000EpXY-1Gu7;
-	Wed, 14 Oct 2026 07:56:29 +0000
-Received: from out-137.mta0.migadu.com ([2001:41d0:1004:224b::89] helo=mta0.migadu.com)
+	id 1xGu7y-0000000Er4t-2aDz;
+	Wed, 14 Oct 2026 08:14:22 +0000
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtqb-0000000EpWp-0iGb
+	id 1xGu7v-0000000Er3B-3mqq
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Oct 2026 07:56:28 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=3NakkYm+exfqHeo87l+Jy3RJZBZS8mbhTiQS6F5ENvk=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791964582; v=1; x=1792569382;
- b=KgfDKtGlnya+w0y+13eDfqGYwadeUvStcnSjdRAXRZPy/w4ajj0Yu1rBDQ1hqaulwiQkV10G
- TBiORH9tEtm52K4jwFva0QEuVVFkuvUSmTzHiLNz9qiE/zk15Gsg+ZFlKVkSI9pJdKeHfueUC/x
- 68XbzPnENWRiOxSmlLisNpgE=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 38737ea13a66a289;
-	Wed, 14 Oct 2026 07:56:22 +0000
-X-Mizu-Trace-ID: 38737ea13a66a289
-X-Migadu-Flow: FLOW_OUT
-From: Lance Yang <lance.yang@linux.dev>
-To: david@kernel.org
-Cc: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	akpm@linux-foundation.org,
-	zhangchunyan@iscas.ac.cn,
-	rppt@kernel.org,
-	kas@kernel.org,
-	andrew+kernel@donnellan.id.au,
-	rmclure@linux.ibm.com,
-	debug@rivosinc.com,
-	baolin.wang@linux.alibaba.com,
-	usama.arif@linux.dev,
-	wangruikang@iscas.ac.cn,
-	namcao@linutronix.de,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	alexghiti@rivosinc.com,
-	viro@zeniv.linux.org.uk,
-	ajones@ventanamicro.com,
-	arnd@arndb.de,
-	axelrasmussen@google.com,
-	brauner@kernel.org,
-	conor.dooley@microchip.com,
-	conor@kernel.org,
-	jack@suse.cz,
-	liam@infradead.org,
-	ljs@kernel.org,
-	mhocko@suse.com,
-	paul.walmsley@sifive.com,
-	peterx@redhat.com,
-	robh@kernel.org,
-	surenb@google.com,
-	vbabka@kernel.org,
-	yuanchu@google.com,
-	stable@vger.kernel.org,
-	pasha.tatashin@soleen.com,
-	linux-mm@kvack.org,
-	me@ziyao.cc
-Subject: Re: [PATCH 1/1] riscv/mm: fix soft-dirty migration PMDs being treated as present
-Date: Wed, 14 Oct 2026 15:56:16 +0800
-Message-ID: <20261014075616.76429-1-lance.yang@linux.dev>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20261007113345.32755-1-lance.yang@linux.dev>
-References: <20261007113345.32755-1-lance.yang@linux.dev>
+	Wed, 14 Oct 2026 08:14:21 +0000
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69E646GY2182309;
+	Wed, 14 Oct 2026 09:13:54 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=e
+	ZcYzkpyQWEaCYtn0Acvdo4iHyYDOe8CPaTxuGDlPBc=; b=W71szxSxbKZB4ZTqt
+	geGYgQI58coaEIozHo3MFBGPaBlPAOxQC1RoooS14smv+3PzQIFKbhV5Fk8oRjAm
+	UWvbTB+2p7IsB4yJUpuMc6dFmNN1iuveuXAWSY7YxLyrUDFZjMJKx3t7QCiMmUm7
+	eqO9aWxHEJ8668FeltL+gCafcNdR20ArXPPhO5x/kyxlqfFET/w5Jul4oZD5jTJd
+	NbKjpOucbHFpC28LS0l7XchGbExF8S5qI3KHcUbMJOAeKpZ00mgwltf6ihkxB7Pk
+	PuK0LXOfJjh+kqMYNml5mWF9sDmP3acx+kOb37oVLSJ5dOqr5907XEqlUIaHK0Ny
+	h4i6Q==
+Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 4h7bmpapbd-5
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 14 Oct 2026 09:13:52 +0100 (BST)
+Received: from [127.0.1.1] (172.25.5.23) by HHMAIL01.hh.imgtec.org
+ (10.100.10.19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 14 Oct
+ 2026 09:13:49 +0100
+From: Alexandru Dadu <alexandru.dadu@imgtec.com>
+Date: Wed, 14 Oct 2026 11:13:09 +0300
+Subject: [PATCH 3/4] drm/imagination: Improve some logging in error paths
 MIME-Version: 1.0
+Message-ID: <20261014-b4-simplify-mips-pte-defs-v1-3-b4ad7bb68e22@imgtec.com>
+References: <20261014-b4-simplify-mips-pte-defs-v1-0-b4ad7bb68e22@imgtec.com>
+In-Reply-To: <20261014-b4-simplify-mips-pte-defs-v1-0-b4ad7bb68e22@imgtec.com>
+To: Alessio Belle <alessio.belle@imgtec.com>,
+        Luigi Santivetti
+	<luigi.santivetti@imgtec.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Paul Walmsley <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>
+CC: <linux-kernel@vger.kernel.org>, <imagination@lists.freedesktop.org>,
+        <dri-devel@lists.freedesktop.org>, <linux-riscv@lists.infradead.org>,
+        Alexandru Dadu <alexandru.dadu@imgtec.com>,
+        Matt Coster
+	<opensource@mtcoster.net>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791965625; l=2502;
+ i=alexandru.dadu@imgtec.com; s=20260304; h=from:subject:message-id;
+ bh=e1cRmT+yMrC8uWEwbhuCZhCzCKOigZi3J3Ef7bHnPiQ=;
+ b=Lj6oO2kJxqCWsYkYXwE0jbuaXK8KnCSQWcXyhgUIHPeqCpKO1VqnQHQxmh+7oEbrvhM9EysB3
+ Cco5CNaZZwoDjzxfLwbAWICfHeYMpZ03pNu5sz82jAiyTRt16XRxDpt
+X-Developer-Key: i=alexandru.dadu@imgtec.com; a=ed25519;
+ pk=FU07SyNrYGwhahqSxbWEuzyXlUh47xBXvLvOR7UA6+U=
+X-Originating-IP: [172.25.5.23]
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE0MDAzMiBTYWx0ZWRfX63mpXnd6phWB
+ sDQQngvMWf5S75pyrLj0vkNm4UOX49fggLOKH4YTvpy/xGfBQ2UKPLfq80c8BPsUktWBIzLD5Mk
+ +I6CZmHcnnfi/+WS13oe4Nmt3YEc5XwBgbLkBfniJ8bt0xI6Ka6nfX5SwJL4KEA7qaiCBD+p6bK
+ qL1CYpILN8Hdb0rByApFMIJ2FggOu9V93NqSijPaScljoSDZfhyiM77QhJhOWeC5UpzktWWscwq
+ ynuq1mN1qpj7oj3I2TnHG7intBorRKuWUUYspbyS5wraNLExdOE4x1F0gVsoCBS4+L9giXxVKzh
+ PTOsRuJ3iYyBaOhDjWpT9kVopmrsHyTxVXMeOQD9LQp/TUHCzfDqJtbXpfxut/eRo7m+lwzYO0n
+ 9WIhqYDRVeMgOMeuYMZDFOjdEQQAMcqTgsJi5z6VOVzCpmLn+4jVxDSTpgZ8qqPKSvvyzYfwrq5
+ ayhPWAQp2mHAtsj8rCQ==
+X-Proofpoint-GUID: Y_IDOohcotRbmiV9dYOn_sqy8xTklZhs
+X-Authority-Analysis: v=2.4 cv=QpDLTlyd c=1 sm=1 tr=0 ts=6acf39c0 cx=c_pps
+ a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
+ a=Vfs-8JXWiL0A:10 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=qZQ2PDNLMSdLoqI-hfl9:22
+ a=r_1tXGB3AAAA:8 a=CNbiELROydHnTOGMemMA:9 a=QEXdDO2ut3YA:10
+ a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-ORIG-GUID: Y_IDOohcotRbmiV9dYOn_sqy8xTklZhs
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE0MDAzMiBTYWx0ZWRfXziMDGCPs6Qen
+ Rn7gG6eyc2RKKZzHP37bsy6Kr93UGCG3+ajS0nCh7FS1I/ctZuVXLvP9w2Hj4CbfCsZbvSFgTjt
+ g43HwYHycplfpABfapaH47AkVN3tM+I=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_005625_951403_FD0B222F 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20261014_011420_247367_5EC2C990 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,98 +119,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Matt Coster <matt.coster@imgtec.com>
 
-On Wed, Oct 07, 2026 at 07:33:45PM +0800, Lance Yang wrote:
->
->On Wed, Oct 07, 2026 at 01:01:14PM +0200, David Hildenbrand (Arm) wrote:
->>On 10/5/26 15:46, Lance Yang wrote:
->>> 
->>> On Mon, Oct 05, 2026 at 12:37:20PM +0200, David Hildenbrand (Arm) wrote:
->>>> On 10/4/26 05:03, Lance Yang wrote:
->>>>> RISC-V uses _PAGE_EXEC for swap soft-dirty tracking when
->>>>> CONFIG_MEM_SOFT_DIRTY is enabled and Svrsw60t59b is available. That's
->>>>> a problem for PMD migration entries, since pmd_present() also checks
->>>>> _PAGE_LEAF (R/W/X) to recognize THPs with _PAGE_PRESENT temporarily
->>>>> cleared during splitting.
->>>>
->>>> I'm curious: why do we have to set leaf indications for non-present things? The
->>>> HW sure will ignore it, right?
->>> 
->>> Yeah, that surprised me too :) Still wrapping my head around the details
->>> ...
->>> 
->>>> Is this a sw problem? Who needs that?
->>> 
->>> IIUC, it's for software during a PMD split.
->>> 
->>> __split_huge_pmd_locked() invalidates the huge PMD and flushes the TLB
->>> before installing the PTE table. Software still needs pmd_present() and
->>> pmd_trans_huge() to recognize the THP in between.
->>> 
->>> RISC-V clears V but keeps the R/W/X bits for that, so the entry is invalid
->>> to hardware but still identifiable as a THP by software.
->>> 
->>> Hopefully I didn't miss something.
->>
->>I thought some change we performed to GUP-fast wouldn't require that anymore.
->>But my memory is a bit vague ... :)
->
->Yeah, I'll have another look at that :)
+Add error messages for attempts to map an already mapped firmware
+object, unmap an already unmapped firmware object, and provide too few
+DMA address slots for the firmware page table.
 
-Emm ... I'm back. Do you mean 4b471e8898c3, which removed the GUP-fast
-pmd_trans_splitting() check after the THP refcounting rework? That check
-made GUP-fast bail out during the old THP split. The refcounting rework
-made extra GUP references prevent the physical split :)
+Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
+---
+ drivers/gpu/drm/imagination/pvr_fw.c      | 6 ++++--
+ drivers/gpu/drm/imagination/pvr_vm_mips.c | 7 ++++++-
+ 2 files changed, 10 insertions(+), 3 deletions(-)
 
-RISC-V gained THP support in 2021 (e88b333142e4), after
-pmd_trans_splitting() had been removed. It never implemented that helper.
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.c b/drivers/gpu/drm/imagination/pvr_fw.c
+index c6c77b152342..4f2b5c4df600 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.c
++++ b/drivers/gpu/drm/imagination/pvr_fw.c
+@@ -1165,8 +1165,9 @@ pvr_fw_object_fw_map(struct pvr_device *pvr_dev, struct pvr_fw_object *fw_obj, u
+ 	spin_lock(&fw_dev->fw_mm_lock);
+ 
+ 	if (drm_mm_node_allocated(&fw_obj->fw_mm_node)) {
+-		err = -EINVAL;
+-		goto err_unlock;
++		spin_unlock(&fw_dev->fw_mm_lock);
++		drm_err(from_pvr_device(pvr_dev), "FW object is already mapped!\n");
++		return -EINVAL;
+ 	}
+ 
+ 	if (!dev_addr) {
+@@ -1232,6 +1233,7 @@ pvr_fw_object_fw_unmap(struct pvr_fw_object *fw_obj)
+ 
+ 	if (!drm_mm_node_allocated(&fw_obj->fw_mm_node)) {
+ 		spin_unlock(&fw_dev->fw_mm_lock);
++		drm_err(from_pvr_device(pvr_dev), "FW object is already unmapped!\n");
+ 		return -EINVAL;
+ 	}
+ 
+diff --git a/drivers/gpu/drm/imagination/pvr_vm_mips.c b/drivers/gpu/drm/imagination/pvr_vm_mips.c
+index 84e023fffe5a..40495b1486a2 100644
+--- a/drivers/gpu/drm/imagination/pvr_vm_mips.c
++++ b/drivers/gpu/drm/imagination/pvr_vm_mips.c
+@@ -11,6 +11,7 @@
+ #include "pvr_vm_mips.h"
+ 
+ #include <drm/drm_managed.h>
++#include <drm/drm_print.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/err.h>
+ #include <linux/slab.h>
+@@ -278,8 +279,12 @@ pvr_vm_get_pt_phys_addrs(struct pvr_device *pvr_dev, u64 *phys_addrs, int max_nu
+ 	struct pvr_fw_device *fw_dev = &pvr_dev->fw_dev;
+ 	struct pvr_vm_mips_data *vm_data = fw_dev->processor_data.mips_data.vm_data;
+ 
+-	if (ARRAY_SIZE(vm_data->pt_pages) > max_num_addrs)
++	if (ARRAY_SIZE(vm_data->pt_pages) > max_num_addrs) {
++		drm_err(from_pvr_device(pvr_dev),
++			"Minimum %zu pages required for FW PT, but only %d DMA address slots were provided\n",
++			ARRAY_SIZE(vm_data->pt_pages), max_num_addrs);
+ 		return -EINVAL;
++	}
+ 
+ 	for (u32 page_nr = 0; page_nr < max_num_addrs; page_nr++) {
+ 		/* Firmware expects 4k pages, but host page size might be different. */
 
-Keeping R/W/X in an invalidated RISC-V PMD preserves its leaf identity for
-software page-table walks. That requirement is separate from the old
-GUP-fast splitting check.
+-- 
+2.43.0
 
-For RISC-V, pmd_mkinvalid() clears V and PROT_NONE but keeps R/W/X, so
-pmd_present() and pmd_trans_huge() still return true:
-
-#define _PAGE_LEAF (_PAGE_READ | _PAGE_WRITE | _PAGE_EXEC)
-
-static inline pmd_t pmd_mkinvalid(pmd_t pmd)
-{
-	return __pmd(pmd_val(pmd) & ~(_PAGE_PRESENT|_PAGE_PROT_NONE));
-}
-
-static inline int pmd_present(pmd_t pmd)
-{
-	/*
-	 * Checking for _PAGE_LEAF is needed too because:
-	 * When splitting a THP, split_huge_page() will temporarily clear
-	 * the present bit, in this situation, pmd_present() and
-	 * pmd_trans_huge() still needs to return true.
-	 */
-	return (pmd_val(pmd) & (_PAGE_PRESENT | _PAGE_PROT_NONE | _PAGE_LEAF));
-}
-
-static inline bool pmd_leaf(pmd_t pmd)
-{
-	return pmd_present(pmd) && (pmd_val(pmd) & _PAGE_LEAF);
-}
-
-static inline int pmd_trans_huge(pmd_t pmd)
-{
-	return pmd_leaf(pmd);
-}
-
-And the rmap walk also needs that leaf indication. page_vma_mapped_walk()
-checks pmd_trans_huge() before taking the PMD lock, then rereads the entry
-under the lock. Keeping R/W/X lets it recognize the invalidated THP and
-wait for the split to finish :)
-
-Anyway, R/W/X still have a job there (RISC-V doesn't have a separate leaf
-bit), and I don't think we can just drop them yet :D
-
-Cheers, Lance
-
-[...]
 
 _______________________________________________
 linux-riscv mailing list
