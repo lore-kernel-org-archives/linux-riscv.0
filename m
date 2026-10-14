@@ -4,65 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F46BCC6B1D
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 13:10:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B63CC6B1A
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 13:16:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZOPJKZbxf4JefZ/1OaEm7Q0uipPfxSWhGeOdfHSnq9s=; b=PiwklgSfgYfmMk
-	nCtNPPu/ddXT1AxHxhmR4kcl8w32g1W8k6TQYuOaK9qb4VOy65QzuaqLIgC+tw3JGq3SrkHTPYJhl
-	QKRlCYFu5tKRfZG88xNbSd7euSFoLiLfjwKCx3lIEoDfcQmFUtJjCS68KlS14hWEUnmMxxBxL6UCh
-	GxeHJAwc3FWrwjLY/hPU/kG+Oc1a7hiPEIz9HtWDeCmP/fmfNGKPsYOqfbNbiv4VSxURx/8401aen
-	8yON4aKrFlAMS7yYCXKIW8YEetLvFFL7vUWuAnSrczoaj9atd+NwKZ11VDxUROMtWi2+OCDU7Nnjw
-	WKdveRwELbwydbaddP9w==;
+	List-Owner; bh=xhikZ5nkeq0fHTkIiJbqgFhZr2Wp3TpAJzP6GflrIB0=; b=lGVv7eul0lhimL
+	1/4/j8cwxB2xuKG/DVYuk8tqlZmqcuRYfHrdm5E83Dtzmm8Q4L2AC8xMCU4x4owutgqRMQGn3kfRN
+	4+DdAevBDJXMDLdx7Pwe1+b5qaL3y79kWqERKb0AptzAp02phD0/rlkrBMNdFBE02lhdzVQnfXfgj
+	0RNXv5Yl3DNZLN9AucdfzPFkJyTc3pBIOKxfV38QHqVNZA/2BByJmTrOIEIHutgK4m2sVFeDZWsgH
+	mYep5fdQq0/vdrPbMT1rxi81vcYpkH+syxB11J15MKtXgOF+U/O4W+4bKPMTw4UVQ0agzFS837ziN
+	kp2R19vLz/Zu1glBD89Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGykK-0000000FXdO-0ajT;
-	Wed, 14 Oct 2026 13:10:16 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+	id 1xGyqI-0000000FYcr-0ykz;
+	Wed, 14 Oct 2026 13:16:26 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGyk8-0000000FXUf-07Gi
+	id 1xGyqF-0000000FYaW-3E2m
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Oct 2026 13:10:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1791983397; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=NfvwyHiH13gScZyLRyJ1bRdwmOqWUvSNVK5u+We9JrM=;
-	b=nVApR24lNUio3MO1VMJAVTLF6/Q3A9A6w6r57Y3L+hEiV25hAVqsdha6zDl5Ex5Mh3h+l40e5wjIiROewB+fioyrryQyomoxvIQIr9enpxouJK9W2CyCLImrbFAGCiORrNF4saX3JvFTmMm8wfUGCBxS6tnyvVO/8msTZaa02yc=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0XCp3Qsf_1791983391;
-Received: from 30.246.161.148(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0XCp3Qsf_1791983391 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 14 Oct 2026 21:09:54 +0800
-Message-ID: <3bd83dc6-1206-4af2-bfcf-5894b1029907@linux.alibaba.com>
-Date: Wed, 14 Oct 2026 21:09:51 +0800
+	Wed, 14 Oct 2026 13:16:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zWX4r2FKZzQUIZ6pbF0xSIUcyVl5md+7wGWiBAeEkh8nUUDA2o8buIlrsMMldqDHsKm4rMBozMV6oTbC94uA5us9l/FuZgH/NA9/0dVAGk+hdLuL9QXk59RQz/VWLS5JPuqSBIGIXDSxsDI3EO9FRAKkSWDBbIq8lfm0P/2vg5ycAHA7AL1vu0yggAPho8eScHbdodl0RJMYgKR7cIB18esNZVZuwA5U/gkcnzEqpT0ggLzH8AptRkde438sxm3+VTnsrgmg/cxGZs6SFiC7wuUX8LvOmuDCF4jixIinqYj1RYwO5uKMiUl7d2UQ2mCSIOC7UGZdbXGboa4IcMtlHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eU4wrSoFBrztoShwg362dCNXaYhmnAwlrLh3JglhLGo=;
+ b=xkHOpX9QavK8GuUBWD/Twt1RBBlZjJ74N6x73DommPcauOq2IB7YNqXFMS8zEG4NlMU3ODqdjnmrCoKh4MqqewHvBDBHeyaX0RhzSkOC193qaBtg+gDGptJZ4uB53UIBS70V2MAdQpC5gzF8if8zMmaLPSM+y9VFOCQEXVRJEBR0FDdq7uZWB+XVT0Ef8Zd0Tpm9iTD83XimCKoEgjJBU2jAPc02LvWy7LUy2SUZKEWhraFdONyAHxYtAW6tX7QsBTY1vYgJb/6HgPWrolEzsQVdHWJfnAv3yRY6Fy6CKYyjCIGMwHGkDm1Qj+w5l4Ad+Ya6C/FgwCYbc6ngYNC7vw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=htecgroup.com; dmarc=pass action=none
+ header.from=htecgroup.com; dkim=pass header.d=htecgroup.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=htecgroup.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eU4wrSoFBrztoShwg362dCNXaYhmnAwlrLh3JglhLGo=;
+ b=dJNArlr+GKObkRB+lYOI2/EIli/crU1v5jobAsfcO1h38V+odjlb1xcx/6uDHe4tojg4RSzcC2fpl/BzgnyujZqQ2cWWcMbWlQ9M5EYqptpnVp//FN0agHTrX9JeyWoRWKo1e4QOYEFULEB7+DITTjzKCpkcOMaQUIe5nmOZ8Ik/t+S11mveq/Tmo9MWQDyUTVqvj5epx5+L6UBcjbzTE0mWQ4sKAOwsQufWYnhTVRAed+AeSkjlVSRsUKL+GwAHcpIWnQo8E/VoCTpsA3ryQ0n29XcPU7WvJqtcVwBI6Ae1j2UPuyXtjZEP5DkYxf+Qo71H5n4ETD/H/nOYbVRLHw==
+Received: from MMZPR09MB547520.eurprd09.prod.outlook.com
+ (2603:10a6:190:56::10) by MI9PR09MB364267.eurprd09.prod.outlook.com
+ (2603:10a6:290:c1::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Wed, 14 Oct
+ 2026 13:16:16 +0000
+Received: from MMZPR09MB547520.eurprd09.prod.outlook.com
+ ([fe80::5b5:f191:1ccc:f9ee]) by MMZPR09MB547520.eurprd09.prod.outlook.com
+ ([fe80::5b5:f191:1ccc:f9ee%3]) with mapi id 15.21.0522.012; Wed, 14 Oct 2026
+ 13:16:16 +0000
+From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+To: "conor@kernel.org" <conor@kernel.org>
+CC: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, "alex@ghiti.fr"
+	<alex@ghiti.fr>, "anup@brainfault.org" <anup@brainfault.org>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "daniel.lezcano@kernel.org"
+	<daniel.lezcano@kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, Djordje Todorovic
+	<Djordje.Todorovic@htecgroup.com>, "inochiama@outlook.com"
+	<inochiama@outlook.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>,
+	"radu@rendec.net" <radu@rendec.net>, "robh@kernel.org" <robh@kernel.org>,
+	"tglx@kernel.org" <tglx@kernel.org>, "vladimir.kondratiev@mobileye.com"
+	<vladimir.kondratiev@mobileye.com>
+Subject: Re: [PATCH 3/9] dt-bindings: riscv: Add MIPS Boston board compatible
+Thread-Topic: [PATCH 3/9] dt-bindings: riscv: Add MIPS Boston board compatible
+Thread-Index: AQHdRFDNcAlfINcodEeR7s5jjfhkNrbP7wkAgC1EtoA=
+Date: Wed, 14 Oct 2026 13:16:16 +0000
+Message-ID: <3d13e372-80da-44bb-845c-14f5022e326a@htecgroup.com>
+References: <20260915-woof-ducktail-5e2f52bc5762@spud>
+In-Reply-To: <20260915-woof-ducktail-5e2f52bc5762@spud>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=htecgroup.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MMZPR09MB547520:EE_|MI9PR09MB364267:EE_
+x-ms-office365-filtering-correlation-id: 637c3288-4372-4aac-ff37-08df29f553fb
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|23010399003|38070700021|56012099006|11063799006|261009221727099003|261009221227099003|261009220027099003|261009223027099003|261009223327099003|10067099003|22082099003|18002099003|6133799003|3023799007;
+x-microsoft-antispam-message-info: uzVGnTfOA5NOOudCEqJL9+FzRbJCbDnZjwMmQm5buFQSEPNchQi8OStuBOjZMdrl50/82XD02NBbBkK/WTxFjA+hSETif4Hh8QwtXc7lWmbMpDNMVKQAVi5blpPcXmRyfLuBfBkIdoWLVxQ5EgOmf73syrDPAPJFSltnUor0nhD72dVVUr99b89kJFHjTYpoKShxnX8jeSSFUqTisiEm3DqmAR6NppQN+tr4+YLzPBogsR5K1jYtVkt5E3yAygZs74lp3uLRspIkNvmJnG/AOaayGNXq/YUpooeSpG3Xv02KWs45Pvp/rDIHMMG55oI2KxW0yTXdoWqyfKQ9TBec34tW9/hZI1KQ705YklP7NI2wE9hlqlGHGs5sa3AeQ8fEmwa7t8iq0WKQIMbFRoTrEsdPRdBEKzLs7Qq7gEQOY8hJ9Y3gqb7Q1zGtKwx+EX38GjpArktYNt4jBJ/+0wz0dXpIlU2s4x1lP2yB04rp1ZyrQ/C9cEdOh2uDe3G2vqg8hyelEbBPunIA3GYT32PgZ7C7Vl16KHrKH/48I7KJpBCRVNrc61IV9dk9/+D8Q4WMyq8fzfgBycggytqsUFq7B//cMZuMM4lf359o+k+/K2dxHCwyOR36X9p8I5JfdrpvEFyDO9QF0EWGAyTa09nHcqQmnt0KRz2GJs6ZP5XPU9Q=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MMZPR09MB547520.eurprd09.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(23010399003)(38070700021)(56012099006)(11063799006)(261009221727099003)(261009221227099003)(261009220027099003)(261009223027099003)(261009223327099003)(10067099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Vko2aVBpYm0yUVlSU3VVUWV5OFcwQTFnekYyVEVqSS9Na0lnOUYzZURJaDMw?=
+ =?utf-8?B?WDR3alZDZ2ZpRUsrR1lVeHNxbFkzaXBlWTFsa3lOZWZrRkY1eEVZcE5Ca0NK?=
+ =?utf-8?B?K0oxRmN1QWM5a3p6UmxoL3JrS3FCS0U1WlNSWnBxQ2pNc0ZkQVJVUVFHNUE4?=
+ =?utf-8?B?b2s5c2NYSjFIY2tvbGxxZFpiVzNUN3RMYTZTZ3VqOVlmUmtJUzFvTFllUWtp?=
+ =?utf-8?B?NEFKZXhYNG80SlFhSWJ2LzJlZmZmdUMzM3R3UDhTM1N2ZFpocU8ybkN4dHNJ?=
+ =?utf-8?B?UE0zOUNkcDZsK0Nzc3ZvaDVycGZRbXpmbTQxbVNSUU1sTEgwTWV4UEhBZ2ha?=
+ =?utf-8?B?VDRad2tqeUJxTVBlZFVtaGJFNmtza0FVMzJhSURRU0c2UkQzY0g5RkhuZVJM?=
+ =?utf-8?B?R3p1NnkyZkhkK29aNXNqU0lxaHkvNXdYUEphZmFNRkMrOElNZHdjTW5MVS9a?=
+ =?utf-8?B?ZUZ5dEV1K05oQmQ2QmRWL2JxTlpoU2kzMXJud0Q0VDJZWVN5Q0s3dWZHaE9p?=
+ =?utf-8?B?Nmx0UFZGSnNabWgwUVRiM2FBenFCN1ZCaWl4RkU5d1hpdXBYYWN3WGpNSm9p?=
+ =?utf-8?B?VUhNU1ZDenZQaWl5MGhTWHZuclJYRDlpeEVYY0tHWEpYUjRuVzNxbmlwQ0Va?=
+ =?utf-8?B?b1AyZ0JxZzQxSnNkcmY2TjdYWENGS0krNmx2UXRvU0dLNFdzTkpsbzZxSE1z?=
+ =?utf-8?B?ZWxTeUhVS2dPcXpETEhyYzcwSWdsakNEalpJa20yUU5zR3BWck9WMFV1WHN5?=
+ =?utf-8?B?ZDlMMGpaUmMxWjVITFdZQ09BWmltV3R4MHRQeUVwdmFWV2RjaGpmQUsyUktW?=
+ =?utf-8?B?SkNrQ25td290TFpSdS9ZeStjdnBJMFJmdWo1OGNSWnR4L01LZzQrczdMbEJT?=
+ =?utf-8?B?dm9XZWtIM1lDb0Q0TzhGMHZkZXMzYVRNVWY2cUFsdzkwSEVWSHM5VTI1R3pF?=
+ =?utf-8?B?SWJRNnhvdW9MVlNQd3hmK2o4aHQ0b0xZQWs2dUhiOTB1aE5jN3JJeTBnNFoz?=
+ =?utf-8?B?QlhMTGs3ZUlBeEN6WjJPUHZTY0Vsc3c3OEl1OWs5VnBLc2xpWGpsQzZyeEdE?=
+ =?utf-8?B?cVpnbkZsaXRKK0p2YmZKbXRjTDdIREVYV29TaG1hRGRVN2pyV3BIWEtYTytr?=
+ =?utf-8?B?MTZtdjBscUFmb1ZTN3hjZGFPL2pEb1pJSWUyWjBxV292NG0wdWZuMVc0ZVNK?=
+ =?utf-8?B?K1F5VG1TdE1uaUhabnJVT1dqU090U05mZkFkaGFLWE1xNm45QTZmc1ZGMzU0?=
+ =?utf-8?B?R3dpR08xcFNhL3NacW1jSGNxdFBadHRMeVlBWldZZ3VQY0V2RnJjbU96M3By?=
+ =?utf-8?B?TEVhZ0x0Y3FPRFJsTzNaYWt2Sk1FYkhyajFwc1RMUUxmTWh1RjJwbzBwenpo?=
+ =?utf-8?B?VHJIeS9PdUJkU2s2MURsUGhZTHIrekpYNXcxSXJGYUw2YmUwYURoT1hSaStR?=
+ =?utf-8?B?U1B4TENkUURLOUZxTHR6SlI1TkRzUnVkcm0zWUhiRHhWMlppVHhpVWY4VU9v?=
+ =?utf-8?B?Tm1KNEZDeU1JSlJNeXRxNys4LyttK2R5WXVUR1F3dlp6KzgrRVNQQW55MzY2?=
+ =?utf-8?B?bVgrWGtETHZpdExqSWJBeXBUM3hXbFNzYkxMVklXWVhHUVkvSUg5RVB3d3Zz?=
+ =?utf-8?B?R05RTEFIZVEzWktocm0zNDNRNnBjZVJ6NFhNTkNJalFPelI4TmFUS0I5ZmxF?=
+ =?utf-8?B?Ui9nMXVHeVg5ZElKdlRtdldtVlAwZ1laSkU1NWt1Z2JzREtYeU0vNEMyUXRC?=
+ =?utf-8?B?TTZlVXBBOWVFUU04aVc1QmI4eUNBeUpnN05yR3Nrb24wUzc2Rjk3c3RDb0ZS?=
+ =?utf-8?B?akNHV0E1ZkowZkl3NzBOcU9DL0hFd0VTOGlGZ0lmb1MzK0c4aitiM0xqTUp6?=
+ =?utf-8?B?NFV1WGNERXFUbGQzWXBRWUNkVWhaVmJxeWZhV3J4OUNvM0oyNzVvN0FySlUx?=
+ =?utf-8?B?VExQMGVidThrZUF0d0paMnYxTTJSeGI2clVUSWNDL0NBQnNWZForT3pXdHRw?=
+ =?utf-8?B?NzFZdTdSUFpGQW4vS0o3cnVxRUVBQWdWS3VQbStHOEhhU0tidVV0eG1EVmt3?=
+ =?utf-8?B?UkxnbFNodGxJaFFrZXFzc0dpVWF4R1Y0QkU5VjdyWCt6SXE4RTB4bTdhS25T?=
+ =?utf-8?B?Rlc5d0s4eDYrRFIxZW9tcjZrZjh3djgyT3o1R1dzTmFLU0Z6SFYrNDNNM25v?=
+ =?utf-8?B?OTVXZ3RNQTRndEd1WG1mUmZoeHFoZEIwdzhSY09oZGMwU2dadElvZ2FKUlFn?=
+ =?utf-8?B?RnFHdnQyNG1qdWhwb1docmhQbUU0djlBamJRVzg4RWsrcGorSEorc1ppc3NT?=
+ =?utf-8?B?aFBWV3dKTHo0b0ZSRUJDdEhjRVJ0MStZcTlIQ0dybHpGQ0pQdHFrNUcyd2dv?=
+ =?utf-8?Q?kXiFCoPShsLg3BjU=3D?=
+Content-ID: <194C0462539EF6449A5735D60CA002A9@eurprd09.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 5/7] riscv: stacktrace: switch to frame-pointer based
- unwinder
-To: Martin Kaiser <martin@kaiser.cx>
-Cc: palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-riscv@lists.infradead.org, oleg@redhat.com, rostedt@goodmis.org,
- mhiramat@kernel.org, mark.rutland@arm.com, peterz@infradead.org,
- mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, james.clark@linaro.org, jpoimboe@kernel.org,
- jikos@kernel.org, mbenes@suse.cz, pmladek@suse.com, joe.lawrence@redhat.com,
- shuah@kernel.org, mpdesouza@suse.com, oliver.yang@linux.alibaba.com,
- zhuo.song@linux.alibaba.com, jkchen@linux.alibaba.com,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, live-patching@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20260914092648.51254-1-xueshuai@linux.alibaba.com>
- <20260914092648.51254-6-xueshuai@linux.alibaba.com>
- <as6SEF4v6wt5GmVD@nb282.user.codasip.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <as6SEF4v6wt5GmVD@nb282.user.codasip.com>
+X-OriginatorOrg: htecgroup.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MMZPR09MB547520.eurprd09.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 637c3288-4372-4aac-ff37-08df29f553fb
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Oct 2026 13:16:16.2038
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 9f85665b-7efd-4776-9dfe-b6bfda2565ee
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: /PLJRN8v0ZgAhsXQqJRDnmB9GNR0Lxtw5vphcxpwos2snI06yfDTmWIfXcr1Yc7vhevFRELqUNpxmZ7+/RL5Q15p0K0WfFROsaEU5KQOn4E=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI9PR09MB364267
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_061005_611388_9A61130D 
-X-CRM114-Status: GOOD (  22.95  )
+X-CRM114-CacheID: sfid-20261014_061623_812894_56354BA4 
+X-CRM114-Status: GOOD (  22.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,132 +156,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 10/14/26 4:18 AM, Martin Kaiser wrote:
-> Thus wrote Shuai Xue (xueshuai@linux.alibaba.com):
-> 
->> From: Wang Han <wanghan@linux.alibaba.com>
-> 
->> Replace the open-coded frame-pointer walker in arch_stack_walk() with a
->> robust kunwind state machine, modelled on arch/arm64/kernel/stacktrace.c
->> and retargeted to the RISC-V {fp, ra} frame record convention. The new
->> walker tracks stack bounds, consumes frame records monotonically,
->> understands the metadata pt_regs records added in the previous frame
->> record metadata patch, and recovers return addresses replaced by
->> function graph tracing and kretprobes.
-> 
->> This commit introduces arch_stack_walk_reliable() but does not yet
->> select HAVE_RELIABLE_STACKTRACE; that is done in a follow-up Kconfig
->> patch so this commit can be reviewed and bisected as a pure unwinder
->> replacement. Until that Kconfig change lands, livepatch is not yet
->> enabled and arch_stack_walk_reliable() has no in-tree caller.
-> 
->> Three related callers are updated to keep the same frame-record
->> assumptions everywhere:
-> 
->>    * Function graph tracing: the old RISC-V unwinder matched function
->>      graph return-stack entries by the saved return-address slot. That
->>      was consistent with the static mcount path, but not with the dynamic
->>      ftrace path where the parent slot is ftrace_regs::ra. Use the
->>      architectural frame pointer as the function graph return-address
->>      cookie, matching the kunwind walker.
-> 
->>    * Perf callchains: route kernel callchain collection through
->>      arch_stack_walk() so perf sees the same frame-pointer unwind
->>      behaviour as dump_stack() and the upcoming livepatch path.
-> 
->>    * dump_backtrace() / __get_wchan() / show_stack(): these now go
->>      through arch_stack_walk(); the explicit "Call Trace:" header is
->>      moved into dump_backtrace() to preserve the original output.
-> 
->> The non-frame-pointer fallback walker is kept untouched for
->> !CONFIG_FRAME_POINTER builds.
-> 
->> Assisted-by: Qoder:Qwen-3.8-MAX-Preview
->> Signed-off-by: Wang Han <wanghan@linux.alibaba.com>
->> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
->> ---
->>   arch/riscv/kernel/ftrace.c         |   6 +-
->>   arch/riscv/kernel/perf_callchain.c |   2 +-
->>   arch/riscv/kernel/stacktrace.c     | 561 ++++++++++++++++++++++++-----
->>   3 files changed, 473 insertions(+), 96 deletions(-)
-> 
->> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
->> index be8b685144174..0facd824c911d 100644
->> --- a/arch/riscv/kernel/ftrace.c
->> +++ b/arch/riscv/kernel/ftrace.c
->> @@ -245,7 +245,8 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr,
->>   	 */
->>   	old = *parent;
-> 
->> -	if (!function_graph_enter(old, self_addr, frame_pointer, parent))
->> +	if (!function_graph_enter(old, self_addr, frame_pointer,
->> +				  (void *)frame_pointer))
->>   		*parent = return_hooker;
->>   }
-> 
->> @@ -267,7 +268,8 @@ void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
->>   	 */
->>   	old = *parent;
-> 
->> -	if (!function_graph_enter_regs(old, ip, frame_pointer, parent, fregs))
->> +	if (!function_graph_enter_regs(old, ip, frame_pointer,
->> +				       (void *)frame_pointer, fregs))
->>   		*parent = return_hooker;
->>   }
-> 
-> 
-> Are these two changes fixing a bug in the current code (that is independent
-> from the rest of this patch)?
-> 
-> Without your changes, function_graph_enter_regs writes a struct ftrace_ret_stack
-> with retp == the saved ra.
-> 
-> And the only place where retp is fetched and checked is
-> 
-> function_get_true_parent_ip
->     ftrace_graph_ret_addr(..., (uintptr_t *)ftrace_regs_get_stack_pointer(fregs));
-> 
-> The stored retp is checked against the stack pointer.
-> 
-> Your changes store fp instead of ra, this seems the right thing to do. (And
-> it's in line with other archs.)
-> 
-> Should those two changes be in a separate patch (that can be backported to
-> stable kernels)?
-
-Hi, Martin,
-
-Thanks for the sharp question.
-
-You are right that the stored cookie is broken. What
-ftrace_graph_func() passes as retp is &arch_ftrace_regs(fregs)->ra,
-i.e. the slot inside the transient ftrace trampoline frame, which is
-popped as soon as the callback returns. That has been the case since
-35e61e8827ee8 ("riscv: ftrace: Make function graph use ftrace
-directly") introduced ftrace_graph_func() in v6.8. (The code was
-copied from arm64's ftrace_graph_func(), but arm64 passes
-(void *)frame_pointer there - see 41705c4262aac for the current
-shape.)
-
-Since distro kernels only ever use the dynamic path, the net effect
-is that the shadow stack is never consulted during unwinding:
-whenever the function graph tracer is running, dump_stack(), perf
-callchains and __get_wchan() report return_to_handler instead of the
-real caller.
-
-I will split these two changes into a separate patch and cc stable.
-
-Thanks.
-Shuai
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ29ub3IsDQpPbiA5LzE1LzI2IDE5OjU4LCBDb25vciBEb29sZXkgd3JvdGU6DQo+IE9uIE1v
+biwgU2VwIDE0LCAyMDI2IGF0IDAzOjU1OjUxUE0gKzAyMDAsIEFsZWtzYSBQYXVub3ZpYyB2aWEg
+QjQgUmVsYXkgd3JvdGU6DQo+PiBGcm9tOiBBbGVrc2EgUGF1bm92aWMgPGFsZWtzYS5wYXVub3Zp
+Y0BodGVjZ3JvdXAuY29tPg0KPj4NCj4+IERvY3VtZW50IHRoZSBNSVBTIEJvc3RvbiBib2FyZCBj
+b21wYXRpYmxlIHdpdGggYSBQODcwMCBiaXRmaWxlLg0KPj4NCj4+IENvLWRldmVsb3BlZC1ieTog
+RGpvcmRqZSBUb2Rvcm92aWMgPGRqb3JkamUudG9kb3JvdmljQGh0ZWNncm91cC5jb20+DQo+PiBT
+aWduZWQtb2ZmLWJ5OiBEam9yZGplIFRvZG9yb3ZpYyA8ZGpvcmRqZS50b2Rvcm92aWNAaHRlY2dy
+b3VwLmNvbT4NCj4+IFNpZ25lZC1vZmYtYnk6IEFsZWtzYSBQYXVub3ZpYyA8YWxla3NhLnBhdW5v
+dmljQGh0ZWNncm91cC5jb20+DQo+PiAtLS0NCj4+ICBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUv
+YmluZGluZ3MvcmlzY3YvZ2YueWFtbCB8IDI3ICsrKysrKysrKysrKysrKysrKysrKysrKysNCj4+
+ICAxIGZpbGUgY2hhbmdlZCwgMjcgaW5zZXJ0aW9ucygrKQ0KPj4NCj4+IGRpZmYgLS1naXQgYS9E
+b2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3YvZ2YueWFtbCBiL0RvY3VtZW50
+YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9nZi55YW1sDQo+PiBuZXcgZmlsZSBtb2Rl
+IDEwMDY0NA0KPj4gaW5kZXggMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAw
+MC4uMDYwOTEwYzliMDRmNDgyYWVlNmYwOGY4ZjcyMjMyYWNiYWQxMThiYg0KPj4gLS0tIC9kZXYv
+bnVsbA0KPj4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2dm
+LnlhbWwNCj4+IEBAIC0wLDAgKzEsMjcgQEANCj4+ICsjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVy
+OiAoR1BMLTIuMC1vbmx5IE9SIEJTRC0yLUNsYXVzZSkNCj4+ICslWUFNTCAxLjINCj4+ICstLS0N
+Cj4+ICskaWQ6IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9zY2hlbWFzL3Jpc2N2L2dmLnlhbWwjDQo+
+PiArJHNjaGVtYTogaHR0cDovL2RldmljZXRyZWUub3JnL21ldGEtc2NoZW1hcy9jb3JlLnlhbWwj
+DQo+PiArDQo+PiArdGl0bGU6IEdsb2JhbEZvdW5kcmllcyBNSVBTIFNvQy1iYXNlZCBib2FyZHMN
+Cj4+ICsNCj4+ICttYWludGFpbmVyczoNCj4+ICsgIC0gRGpvcmRqZSBUb2Rvcm92aWMgPGRqb3Jk
+amUudG9kb3JvdmljQGh0ZWNncm91cC5jb20+DQo+PiArICAtIEFsZWtzYSBQYXVub3ZpYyA8YWxl
+a3NhLnBhdW5vdmljQGh0ZWNncm91cC5jb20+DQo+PiArDQo+PiArZGVzY3JpcHRpb246DQo+PiAr
+ICBHbG9iYWxGb3VuZHJpZXMgTUlQUyBTb0MtYmFzZWQgYm9hcmRzDQo+PiArDQo+PiArcHJvcGVy
+dGllczoNCj4+ICsgICRub2RlbmFtZToNCj4+ICsgICAgY29uc3Q6ICcvJw0KPj4gKyAgY29tcGF0
+aWJsZToNCj4+ICsgICAgb25lT2Y6DQo+PiArICAgICAgLSBkZXNjcmlwdGlvbjogQm9zdG9uIEZQ
+R0EgZGV2ZWxvcG1lbnQgYm9hcmQgd2l0aCBhIE1JUFMgUDg3MDAgYml0ZmlsZQ0KPiBJJ20gbm90
+IGNvbnZpbmNlZCB0aGF0IHRoaXMgaXMgc3BlY2lmaWMgZW5vdWdoIGF0IGFsbC4NCj4gSSBoYXZl
+IGFic29sdXRlbHkgbm8gaWRlYSBmcm9tIHRoaXMgZGVzY3JpcHRpb24gaWYgdGhlcmUncyBldmVu
+IGENCj4gc3BlY2lmaWMgRlBHQSBpbnZvbHZlZCBoZXJlIC0gdGhpcyBjb3VsZCBtZWFuIGEgYml0
+c3RyZWFtIHVzZWQgb24gYW4gQWx0ZXJhDQo+IHBsYXRmb3JtIG9yIGEgWGlsaW54IG9uZSwgd2l0
+aCB0b3RhbGx5IGRpZmZlcmVudCBjb250ZW50cy4NCkknbGwgZG9jdW1lbnQgdGhpcyBpbiB2Mi4g
+RldJVyBpdCdzIHRoZSBpZGVudGljYWwgYm9hcmQgYXMgWzFdLCBqdXN0IHdpdGggYcKgDQpkaWZm
+ZXJlbnQgYml0c3RyZWFtLsKgDQo+IEknbSBvbmx5IGhhcHB5IHdpdGggRlBHQSBiaXRzdHJlYW0g
+Y29udGVudCBiZWluZyBzdXBwb3J0ZWQgaWYgaXQgaXMNCj4gdmVyc2lvbmVkIHN0cmljdGx5IGFu
+ZCBtYXRjaGVzIHdpdGggc29tZSBjbGVhciBhbmQgb2J2aW91cyByZWxlYXNlcyBmcm9tDQo+IHRo
+ZSB2ZW5kb3IuDQpJJ2xsIHNlZSBpZiBJIGNhbiBmaW5kIG9uZSBmb3IgdjIuIEEgdmVyc2lvbiBp
+ZGVudGlmaWVyIHdvdWxkIGFsc28gd29yaw0KYXMgYSBTb0Mtc3BlY2lmaWMgZmFsbGJhY2ssIHNp
+bmNlIGl0J3MgdGhlIFNvQyB0aGF0J3MgYml0c3RyZWFtIGNvbnRlbnQgaW4gb3VyIGNhc2UuDQpJ
+J20gbm90IHN1cmUgYW55dGhpbmcncyBwdWJsaWMgdGhvdWdoLiBJZiBub3QsIEknZCBrZWVwIHRo
+ZSBib2FyZCBjb21wYXRpYmxlwqANCndpdGhvdXQgYSBmYWxsYmFjayAoaWYgcG9zc2libGUpLsKg
+DQo+ICBJIGNhbm5vdCBldmVuIGZpbmQgdGhpcyBib2FyZCBieSBnb29nbGluZyBpdCwgbGV0IGFs
+b25lIGZpbmQNCj4gY2xlYXIgaW5mb3JtYXRpb24gYWJvdXQgd2hhdCB0aGlzIGNvdWxkIGNvcnJl
+c3BvbmQgdG8uDQo+DQo+PiArICAgICAgICBpdGVtczoNCj4+ICsgICAgICAgICAgLSBjb25zdDog
+Z2YsbWlwcy1wODcwMC1ib3N0b24NCj4gIml0ZW1zOiAtIGNvbnN0IiBpcyB0aGUgc2FtZSBhcyBq
+dXN0IGhhdmluZyAiY29uc3QiLg0KV2lsbCBmaXggaW4gdjIuDQo+ICBTb0Mtc3BlY2lmaWMNCj4g
+ZmFsbGJhY2sgaXMgYWxzbyBtaXNzaW5nLCBhbHRob3VnaCBpbiB0aGlzIGNhc2UgaXQnbGwgYmUg
+dHJpY2t5IHRvIGhhdmUNCj4gYSBtZWFuaW5nZnVsIG9uZS4NCg0KTGlua3M6DQpbMV0gaHR0cHM6
+Ly9naXRodWIuY29tL3RvcnZhbGRzL2xpbnV4L2Jsb2IvbWFzdGVyL2FyY2gvbWlwcy9ib290L2R0
+cy9pbWcvYm9zdG9uLmR0cw0KDQpCZXN0IHJlZ2FyZHMsDQpBbGVrc2EKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
