@@ -4,84 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78E3DCC6B29
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 08:21:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F6DCC6B27
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 08:22:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0aD1YT+v3IZ6qIG3RSwkchp6JTE+yIsFW/0DJ2mjbM0=; b=TD2OznmLD5Ok2X
-	dtTYMsYFM++dZ4ifzZrg7FIcIjlKN5bjmsQYnw7Y4DoRMg3IboBAcTx5or3FxbZbVne5MqmJs/2XE
-	X3nELUm3yh0ISeCe8ZXpFXOlSIwxn4FHD3qqv5lIGEZxo898grz8BlGWtcKZETI1AF8ghFArLTDOa
-	M3OZIWgM63DiKmQtOQSDCNQ0QvgVuGE9Nkq5cP4JTd5acjSSEdTK9+rGSA9eZ6ev1UFGAwA4RdRQS
-	KuphkuNyABPl3VxTjcx5rDzOxR9RVLntq5w8aK97U6/YF/vIarVm+lnT70JALTlImFrtdLRmgjxRG
-	7eaR3x72ap/TejexX3VA==;
+	List-Owner; bh=hmIE+bQRnzTjJQoO3tWsySye0ogMdPWt+0XUsxnRZjM=; b=44SCbXMQnt9JlL
+	P+DufOCbYkH6GonX3MVi0b++MXitte518SoVaD08kT6n8tyndwVG7dfwrNbzfVafcgVTEKriRGuq0
+	1qLm1PwZo0CR1yxgDfKw9qs8o+VTqWWMR9Qez+F99OpfRIRphjieIEqwQGj1jDomwoP8q4TbSC0Nt
+	pCKPq8cFq7gfOu2mh9RiVz1d942Xbrp/lOK2AxaCcq+OyrrfxKfPIgfmEU0spzzhrZYDKMJSKWYX0
+	tlfK5weZhUMakXN6LXjrBsw2pDMwk48X3X4cmuyf0p2Gcw939U5OP0BgaDIIjnoBw/umyIu3DlRg3
+	iRlJ0JEnijNmPf0iTRSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGuEx-0000000Es1w-30NC;
-	Wed, 14 Oct 2026 08:21:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xGuF7-0000000Es70-09iC;
+	Wed, 14 Oct 2026 08:21:45 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGuEw-0000000Es0S-1gBv
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 14 Oct 2026 08:21:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=yVCZM5zURPRE62cvJS0zNIsVrphYetwj1gaMWhP5efk=; b=nO7oo667DCNt8J1FSGQGyq/tBS
-	AhZaSDVg87S7ei+TyLhZnz8znzRDrqiQzc60ecxBw0KpJq33rhVHbp+vagJIHXoCzQSLi7jQ8BLJ0
-	LYMzykqFy/+FVrzsQ3bi7ZYYEw4IRlO/cH/dnkwbV0Q6cr/4dSWvQbGQE18wymanN0ugg49+8OG66
-	tqTOYpuC2TjyHgg6a9PG30yfF7yOG2HWjyjdoNQpatZkgDPaXT7SgWLdXuyE0fR+qopDkRS3BwFKU
-	GRwC9Ao8tnDN8E4h6v/cEGRWkbbCc/e/mGGBuyp9/l6ShrnH+HEOVOLuAC6IYp+okr1qiIRwupcFz
-	7nfrA9Lw==;
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGuEt-0000000GUiq-0bWk
+	id 1xGuF3-0000000Es54-2kZI
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Oct 2026 08:21:33 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-38759bcd877so2362400a91.2
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 01:21:30 -0700 (PDT)
+	Wed, 14 Oct 2026 08:21:43 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-cc147d86bebso2050486a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 01:21:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1791966089; x=1792570889; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1791966101; x=1792570901; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=yVCZM5zURPRE62cvJS0zNIsVrphYetwj1gaMWhP5efk=;
-        b=VJPWNbk/pi14CtSWdduvaEexCh6yqwUM5eGhJVf/veCCoxXu2KysLZFu6lW0ddE38c
-         7DNNwpKMWsYSuloeACoyt7hIeQFV5T8JCY3+xpzEnQrEKi6aSDPhgyZZjoYOwZ20EJSu
-         pH8qi9hhoilPHQdePUn93LyKenn8dnR1k093o=
+        bh=Z6y7j+G0zmzgPrQrrwJmak2jWutCzC5yma4ucK0cyh8=;
+        b=WN+r1Tubsl82RFvCuqJ5GT+oPpq8kAAM7Fin4TIkwHDGeYol/TKE6kTBP/AVMxWBJG
+         QwAZan38rim9Eef968xqCZufdh4G3ErYh9x2fnascMzhjeg4IMQUGJF+ebo7Uew9mxeO
+         EeSXLOTCVXUXws9F9BOCakJMsv1W1KfQ8D0fk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791966089; x=1792570889;
+        d=1e100.net; s=20260707; t=1791966101; x=1792570901;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yVCZM5zURPRE62cvJS0zNIsVrphYetwj1gaMWhP5efk=;
-        b=BfhUxBIKTMV4eOCe+zXdFg6zHOGn9/WWDApgYB+TSKff31QxWQcOHI0WATHzs6yPKb
-         zjDoNjuAm0lI8NqBU/lbAEPkwJlm2HCYifhAo8sxOK8nu+ghsdEefSMZpny/2dyqLTbP
-         CN8ORH2zN9fbI0iPzR+trCJvi0SDfRCpKy+WNOsORL6JqP1szvcRpzy3/rdT/+8A55Xd
-         8+lwFnAI5pVDh5ouA6HBNBBOQbgFyYCyCjWVXdVCqIpyRAdCiAy3UbecBDZ4LO0rngOU
-         apkabUVlR2h8v8JP8fdztYZ8Qdw1t/vaCDQMDzweBjDQJXrMG8jGFg+OHhnQ5pZoM9gQ
-         4Z+Q==
-X-Forwarded-Encrypted: i=1; AKwUvByMwN2dx9p4zK6co0+bsGnMm2i7Sg8KtyybbhPFuR8FnCd9/m8C022k2NknA6LgSWXq5+E5yazLdBcRNA==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJW9Nnqz0Z3QHGwN9IDaMNoVUfoYtKLy0OEi4p9i85JlnJ8w6oE
-	eBWDpPV7G/I49ufLaai0kNoKY4rxONpvD89Ep9Mz5Ievum+j+Hz+bL+NgqIdblgyXw==
-X-Gm-Gg: AYBFou24rgOnW9wc3oNYINAk38TNvtGqE5t5LRrdJy99Yj69OF/n0dLq2bhxTslMdN1
-	l2cdZAchJ/4BjnwhAS5JYewE3LHPSbmQI9i0YD3d3/8+CX8EQtZOjISlQ9evh1kGIwsr+MNVIW6
-	tFUM9QGnbqNKCPkr8boayQQijn3Fina+/hg5BXdCfgh/YWtHW3sV1svTMaR8wmR3aXtPV+z7q9F
-	i1FWgNE8nMiak8HCE0zdOy1xU+QZo2aq580zU0J/koL32Z5Sa0tKYe9Nye0ilHS28dBlXxHwNtE
-	g0bW6pdNaVD+7Jz7yG6aM4y01q69yeOqsWixAd6vq47AmLRgY5QgCLNPOAeQ3zWKOKtIHX2d+VY
-	dcrLHRoInbKPfSTeVHGZBUaeXJzxhUiD9nQv33z3v/Iwo9yCmTW0V41w+n8WAuQg5+S3oEuxZkE
-	F7ckw/QpkiBfAO1E6m6idrDv9t1pkJsy8JtVhib6dUzmlla5b+bD4ugZkZwlWd13+dSFVQWPHEq
-	QFydluCUIYtYoJn7hI/UKeF/Rg/SiWzlDf2DyyuN8qvw52t1P9upXK2qQ==
-X-Received: by 2002:a17:90b:2b44:b0:3ac:7842:bd50 with SMTP id 98e67ed59e1d1-3ac7842c19bmr520798a91.15.1791966089278;
-        Wed, 14 Oct 2026 01:21:29 -0700 (PDT)
+        bh=Z6y7j+G0zmzgPrQrrwJmak2jWutCzC5yma4ucK0cyh8=;
+        b=g9u5aFybGp7e1zxWDafHkJQQ6YNLRx17VqDwF+JB0hxbE8VY2+84tr50OWKNCEOaps
+         0RBLhsYhQQj8wsyBhy7jUvgBubOWDNSXJDYfPuOME3iJh2QTFKju4+0WAXfIAMzUdBFi
+         RDMAV6t4fn3GS7PeDg1zpCUZY2wvhDKHNsoRjheyIV90gynfJd/q+GA7SnJ+LahA82dX
+         2bFODOJO7fexsIQxvEQ94+E7EDKW0e6nFBgkDD0smsGm/z+ZPm5ji2xCOSFi7SdP9RI2
+         9xgPXr6f+hrDVdx35GS/nLpB/tMeF9UB+S9vSQhHYeiQp0RlYng4O1ArwS/8Vi480Vto
+         u+3g==
+X-Forwarded-Encrypted: i=1; AKwUvBxCcudbIfgZRC3OSnB/CS2Zxc0swnIXJShQCRwZWPNmmpfUTA7M3yjaxqCrhY9uEspjTIHQmtNpnosJ/w==@lists.infradead.org
+X-Gm-Message-State: AFq9FYIIRN7U4SL2wG1PXrCLAB4122iV4UnyxzpFr/R/OEUkY2FNhx+h
+	uYH0TXxWN2+ovbRXhBZ9HzDbYmEJ8rEtPhEeylwvTQfB4nVYFZ6EKaS2ZSBJ+oyOSQ==
+X-Gm-Gg: AYBFou3TI9aZsApYMsnLXCf4dR21oYOAggWIRWONkvNnWP5wi16KVNAu4eVhi+s+q00
+	ylkWQeckxB+zvElaEYebdo0z7ODzI5a0Jtdh5vXnQUyBAeHbjxxFVBUmGKYlfsz3TxykLVWOHoH
+	jDo+PwtKtehGYzHVilR1NGafNQi6Vprx1iJVjriXFvs6C9oTZzCfq6n795c8pxXTGblAGkIjgN9
+	LzhXL/vmOIuOeP0DwISQNPrbQkpuutLmiXefQw7slLFKGTpEpq/Mit+PDHqCF1UD3kW31eHLELx
+	Gq/byGGePBWXXM+4zGzyEIK3FRwglIALY4mHaq1QXXdqjFodRgDM3ZMjR1UrsNQrOKsftrc/bmH
+	2/QXZPa+nLyFsdIcs2BpF9qPUgfnxz5UQVQQLi+whmF20cJgUZgT81r1s9ikQM0SXiF8ITxHebU
+	yNiSvipKWh4/LdJqyyv4kCe/0ek5IoVKXwd0QKfkngKIMDDMcIhdeDUqzxroGFql/v6LFYVL4uC
+	wTzUv4rADT019JYPyhDHTZJ6FgOivnnCwVY2AKVHmqoyFHZyCpCUEjCFg==
+X-Received: by 2002:a17:90b:1a82:b0:3a0:d82b:237b with SMTP id 98e67ed59e1d1-3ab3ab209f3mr7706681a91.25.1791966100501;
+        Wed, 14 Oct 2026 01:21:40 -0700 (PDT)
 Received: from wenst-7875.tpe.corp.google.com ([2a00:79e0:203d:7:373a:9eb7:c5ba:7b5c])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ac5f04e324sm3682141a91.2.2026.10.14.01.21.18
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ac5f04e324sm3682141a91.2.2026.10.14.01.21.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 01:21:28 -0700 (PDT)
+        Wed, 14 Oct 2026 01:21:39 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Felipe Balbi <balbi@kernel.org>,
@@ -144,16 +129,16 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-rockchip@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev
-Subject: [PATCH 1/2] dt-bindings: usb: hcd: Add downstream USB ports
-Date: Wed, 14 Oct 2026 16:20:35 +0800
-Message-ID: <20261014082037.1774672-2-wenst@chromium.org>
+Subject: [PATCH 2/2] dt-bindings: usb: snps,dwc3: Fix downstream port numbering
+Date: Wed, 14 Oct 2026 16:20:36 +0800
+Message-ID: <20261014082037.1774672-3-wenst@chromium.org>
 X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
 In-Reply-To: <20261014082037.1774672-1-wenst@chromium.org>
 References: <20261014082037.1774672-1-wenst@chromium.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_092131_659044_E297B965 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20261014_012141_724364_04200A6C 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,43 +155,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Besides hard-wired downstream USB devices, a USB HCD's downstream ports
-can also connect to USB connector nodes via OF graph, just like with a
-USB hub.
+The DWC3 controller can operate in host mode. It does so with a XHCI
+compliant host controller. The XHCI has two downstream ports, one for
+HS and one for SS. USB downstream ports start from 1, not 0.
 
-Allow a "ports" child node and describe the possible downstream port
-nodes. USB downstream port numbers start at 1.
+Reconcile the downstream port numbering with the common USB host
+binding, renumbering the downstream port numbers from 0 and 1 to
+1 and 2.
 
-Also fix up the address portion of hard-wired downstream USB devices to
-match.
+This is non-backwards compatible, however it won't break current
+major implementations:
 
+- dwc3 "gadget mode" in Linux kernel only requires a connection to be
+  present; it doesn't matter which port it is
+  - dwc3 "host mode" OF graph connections aren't supported yet [1]
+- FreeBSD doesn't use the OF graph for anything
+- U-boot doesn't use the OF graph for USB
+- OpenBSD doesn't support dwc3, only the XHCI in dwc3, and doesn't use
+  the OF graph for USB
+- coreboot doesn't use the OF graph for anything
+- Zephyr doesn't support dwc3
+- TF-A doesn't use the OF graph for anything
+- EDK2 doesn't support dwc3 and doesn't support OF graph
+- OP-TEE doesn't support dwc3 and doesn't support OF graph
+
+[1] WIP to tie OF graph port node to USB port device
+
+Fixes: a33113f73693 ("dt-bindings: usb: snps,dwc3: document HS & SS OF graph ports")
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- Documentation/devicetree/bindings/usb/usb-hcd.yaml | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+It is unclear to me whether the HS/SS numbering is fixed for all dwc3
+variants. I checked Allwinner H616 and Rockchip RK3588 and they both
+have HS as port 1 and SS as port 2.
 
-diff --git a/Documentation/devicetree/bindings/usb/usb-hcd.yaml b/Documentation/devicetree/bindings/usb/usb-hcd.yaml
-index 45a19d4928af..24df99dfb243 100644
---- a/Documentation/devicetree/bindings/usb/usb-hcd.yaml
-+++ b/Documentation/devicetree/bindings/usb/usb-hcd.yaml
-@@ -29,8 +29,16 @@ properties:
-   "#size-cells":
-     const: 0
+This also doesn't cover a potential "multi-port" DWC3 implementation,
+which Qualcomm seems to have.
+---
+ Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml b/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
+index 6c0b8b653824..4b6304bd2ec1 100644
+--- a/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
++++ b/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
+@@ -410,11 +410,11 @@ properties:
+       property is used.
  
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+    description: The downstream facing USB ports
-+
-+    patternProperties:
-+      "^port@[1-9a-f][0-9a-f]?$":
-+        $ref: /schemas/graph.yaml#/properties/port
-+
- patternProperties:
--  "^.*@[0-9a-f]{1,2}$":
-+  "^.*@[1-9a-f][0-9a-f]?$":
-     description: The hard wired USB devices
-     type: object
-     $ref: /schemas/usb/usb-device.yaml
+     properties:
+-      port@0:
++      port@1:
+         $ref: /schemas/graph.yaml#/properties/port
+         description: High Speed (HS) data bus.
+ 
+-      port@1:
++      port@2:
+         $ref: /schemas/graph.yaml#/properties/port
+         description: Super Speed (SS) data bus.
+ 
 -- 
 2.56.0.212.g129ede20d9-goog
 
