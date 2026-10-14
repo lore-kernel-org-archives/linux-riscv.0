@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAEFBCC6B1D
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 11:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EC52CC6B1D
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 11:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eHoNnIQwB/3NfpzXNoBdh4qBQ6TROWeJlgvfR1MRFZ8=; b=DIE7fEwufr/OPF
-	ietkHqX1cgiiD4qdbsNiP/8Zn9p4sfcTWnSLLwfhE9a7yVRmLFY8odoDrbBV5u2VbDpjlynDuXKd/
-	OoS2wfG1gh6rr4ptyTAmh4fTU25ESRtMLeDuob/m1nFaqtaXkQvxQiHWCTLo9ip/7ZptzuF+RPLBk
-	RW3Vz1Fl3BbkfXOQILdLHx+wKR8WCM5PSIPxYVGwwkOXXLFoErbQGbTZqFup9S8s1Xrz/F4T8gkUR
-	JZ3Aftw7cyb07/V4sjVZrHkp/7Q3mm4b8BoTNz/MOiwL4pkPEcEY6vai//IQKzqnSplFf9IMMF3ko
-	Wb991uBukyo0Vt5PGChw==;
+	List-Owner; bh=i8SUEXAqN15Jff9VnEmPdbARRIm1Tv0t/Juru2B3oZM=; b=JOUl/82F/H9rVw
+	3fnqoR0irV75v641Ddr7aJs8rY1sVoUc0slaD1tyMUXfZ5WDTzwWfQ4s0m9k85wDCKqh9t8U07qjf
+	CoU6dTj5hH7nm3zSUYsarmTBElD+0oit/8Qb7M4inLgsBEvvj6BOIOCl7uEqRwUKFylzkMswLdcbG
+	mFk2W+q7+710HTcaeHBgiCuy9NpbZq7Rp3EIh8BEkdGtC1pGjP5A1jpTzgxlKX3zO8yd1bKt48GnF
+	BrKNXxpN1Cmg5geaq7owj9cG+4QTNDmAUs0cW27er7FHQByel1ChypL45o+0sDc7loF+lw77YUpSv
+	H3RmyLURoCKAIC8vUYwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGxOR-0000000FN3K-04Yd;
-	Wed, 14 Oct 2026 11:43:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGxOo-0000000FN7N-0r6O;
+	Wed, 14 Oct 2026 11:43:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGxOP-0000000FN2x-2Gz3
+	id 1xGxOl-0000000FN6h-3rBV
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Oct 2026 11:43:34 +0000
+	Wed, 14 Oct 2026 11:43:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 295634095B;
-	Wed, 14 Oct 2026 11:43:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 107FF1F000FF;
-	Wed, 14 Oct 2026 11:43:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0D3FC601F9;
+	Wed, 14 Oct 2026 11:43:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 571DB1F000FF;
+	Wed, 14 Oct 2026 11:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791978213;
-	bh=7oE0XxvFFkBqtgQsaiPOqdldOyCWgA2hMmJ36+85B9A=;
+	s=k20260515; t=1791978234;
+	bh=itoEIUzc+0gwQE1IVkzj+EpxNx5ikxz/5opU+c1Eqd4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aiIDMyuu2uTFb+/QG9m1mRRuoZMFfp8wK/yD0aWrXZtz/m8gUdxid1LCT45bGtgcC
-	 kcHil6ABQRer3XoYwDdDF587yQWKO8Xh6w7NKDHwGq5GCFrECU0rY26LMCbPrVnbmK
-	 VGg+l47UfD0ugPbwF4is1B73xBK3P7cmfTG9GidqI9k3oM0MAXso2dONNHrZiRFch0
-	 xUbHIGQH+7Y6fG5xsa40IYxMEPXCc0fmW85boXwYAvR19Py5WPNLb3Za42fAV/6uV1
-	 oY/ysmAdu8vHUmn67M46Xh7MQAZsXo/TYozkssVQlyDZ+MbzC5HdM86WmzFUC2hqF3
-	 mV4Z3U3Jd07Xw==
-Date: Wed, 14 Oct 2026 13:43:29 +0200
+	b=CIHQfiFS6qYBspuylV7hnQ/Bq12saMGU+GQrG0/F0i8PTAzskbD7hytTlJWHk5/XA
+	 FVd3SitReLOCivkFGMnmCNOI4QosuXbnwvm1RfRUGQmwymiUyUTTYI5BuqkjFY5atg
+	 vzeWrR1H+/0LnSuNlVcKkymHP4KxEOwaNQ7Kij8JHBXNt80wwVnpbBCunFbaoIXuDz
+	 uebSJu5q9B5lOmSBkpx6Sn2CYbm1QW/0mdjD5TABjUeN1dorFDWkd6na4o/zZZU8u3
+	 u2a9vlWQ0j2tfsJbL61Uamq727I23RjZ0jq0CJ859VQTMrFwv1E+Y+aGRmAIolz6xv
+	 hUj+unDk5zBDQ==
+Date: Wed, 14 Oct 2026 13:43:50 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Inochi Amaoto <inochiama@gmail.com>
 Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -52,13 +52,13 @@ Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
 	Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, 
 	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 1/3] dt-bindings: nvmem: Add SG2044 eFuse controller
-Message-ID: <20261014-humorous-cryptic-llama-cf6a6c@quoll>
+Subject: Re: [PATCH 3/3] riscv: dts: sophgo: sg2044: Add eFUSE device
+Message-ID: <20261014-romantic-pretty-petrel-36c7ec@quoll>
 References: <20261014074516.240247-1-inochiama@gmail.com>
- <20261014074516.240247-2-inochiama@gmail.com>
+ <20261014074516.240247-4-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261014074516.240247-2-inochiama@gmail.com>
+In-Reply-To: <20261014074516.240247-4-inochiama@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +75,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 14, 2026 at 03:45:13PM +0800, Inochi Amaoto wrote:
-> Sophgo SG2044 uses eFuses used to store factory-programmed data
-> such as ROM patch, public keys and other factory information.
+On Wed, Oct 14, 2026 at 03:45:15PM +0800, Inochi Amaoto wrote:
+> Add eFUSE controller node for SG2044.
 > 
 > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 > ---
->  .../bindings/nvmem/sophgo,efuse.yaml          | 61 +++++++++++++++++++
->  1 file changed, 61 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml
+>  arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts |  4 ++++
+>  arch/riscv/boot/dts/sophgo/sg2044.dtsi               | 12 ++++++++++++
+>  drivers/nvmem/sophgo-efuse.c                         |  1 +
 
-Filename should match compatible.
-
-> 
-> diff --git a/Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml b/Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml
-> new file mode 100644
-> index 000000000000..d4bffe2724ac
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml
-> @@ -0,0 +1,61 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/nvmem/sophgo,efuse.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Sophgo SoC eFuse-based NVMEM
-> +
-> +description:
-> +  Sophgo SoCs contain factory-programmed eFuses used to store ROM patch,
-> +  public key and other factory information.
-> +
-> +maintainers:
-> +  - Inochi Amaoto <inochiama@gmail.com>
-> +
-> +allOf:
-> +  - $ref: nvmem.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - sophgo,sg2044-efuse
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    minItems: 1
-
-Why is this flexible?
+Review code before sending.
 
 Best regards,
 Krzysztof
