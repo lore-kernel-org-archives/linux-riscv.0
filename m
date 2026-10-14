@@ -4,82 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B02E2CC6B2A
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 14:12:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79A22CC6B2A
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2026 15:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M6fBX6hj137d8Hom5fB+RHTMt/kYT4Q8YkXtwVQtsKc=; b=rGc9ObQxmacMXj
-	aI4EdtRyZ3yOpC1bpBFulvGVSyDHv2KtJa6EOE50tEEC+NOLlG8CqzrjkFYVtf1KFiAC0kfiI0bjX
-	XCtIptLj/EpgES4WNre2N54fhlCSLWNq7EceKdBQ6zOCfT0Brs4euMrYw3+4UEB4lz0w8dhLWws2W
-	Z3Spci6r1KTJywnvQN+aNjafa5IUnzypnwiY5m6llfIK/Gzj3MxeIjwjP2VY/Otf+k6eijOBqNwAa
-	MsC9C3GJZFQCdQWBO87ZfvN5FcF55FO/6oK6GcPXAQp5aING48QNut785jlAL/y3wF7FEnOufk1fw
-	IsihpQp8XGkvNC/kLJdg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Qopd0E8uQwK4ayUhr8Zu5k4upRnQBnSVLQH+YtTf0H4=; b=fLrNvTL0xeIaJh
+	3+HFiSOxDWNH4TPubaN8e5WRCyqJ1aplez+e22epPUokueat7OGUdoBvclbse28SQhIQxMVK6av9M
+	efdQizJUL2IoqmDbVgi8Avw+JKj8Vj8+X1aFObuP4i1nfHqvyNOtKDZ7T8lX91MndkcMejuq5iDUd
+	NuPa2zeNvGnmbHF9vEU19ZOViPnNoH/l1HVSNp1so24dhZAPLZeAsUIg7TjoJoywUsUattUR2L/y5
+	udpdYVBjlUg0vFyrmYuPrfqZeYpsxJZlYsQEDrugIFp9SsGmLyiiBLC24jR5eDxLObUJgiDOTbNCG
+	bI9OgSBBQ+v3Q4+he3Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGzi6-0000000Fgix-0CFo;
-	Wed, 14 Oct 2026 14:12:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xH0Th-0000000Fn9f-00wo;
+	Wed, 14 Oct 2026 15:01:15 +0000
+Received: from frasgout12.his.huawei.com ([14.137.139.154])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGzi5-0000000Fghf-0Exg;
-	Wed, 14 Oct 2026 14:12:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=UMeQJiIhi3N1WM7pDeMhvff+GLRFDhHq1z1NCwRI5vo=; b=hPNa/5N/Rk6m0xKER1GIzDVg1Q
-	4jF9PNK/zpQh8D7sfuOqyRn2MOHV9LSG7wBe6jCGfjLDFHTPM5BPr0Ay1IZlvOcTEBKMV58K8/LcE
-	Xj5ndr/eImTKo3eP5xNeE1aRqT79L1lECyAG+3DdcyNS3fIfcGqhvgGg2G/Mj7DA3K7axpsTQFzjC
-	7Oqr8HTB844iVnxnHD84zlNzZ9BRNZcG4I1kuMmcN2M8oswv3+JlrpUyUQE3hewJU2nzrXURHHJPw
-	EKGBQUQshCM6JKQC4wuu6q14r8nrU3/O6Tb0qBTRp4w7+zO8VjjPoNgDbHOAIOGCjEKlXi7z89e9t
-	eGwixAsg==;
-Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGzhz-0000000GriG-1hpk;
-	Wed, 14 Oct 2026 14:11:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1791987097; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=UMeQJiIhi3N1WM7pDeMhvff+GLRFDhHq1z1NCwRI5vo=;
-	b=TXeQnv/4n2YDOQLPpiajRMDw9YV5TVDK2SCxQK9UXk3efXDvsft51RAb69GQ0/N5dDBv5w6IzhQw5ShL58WVXRNpllxFAJtD66DTDYDSQUL2niiU6tyhr/Z6Mrj0dikqpUYevXSujjjWzpU+HB5oZeqw5Afe/V8m2nk1hvLKTpM=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R841e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=20;SR=0;TI=SMTPD_---0XCp41.4_1791987095;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XCp41.4_1791987095 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 14 Oct 2026 22:11:36 +0800
-From: fangyu.yu@linux.alibaba.com
-To: tomasz.jeznach@linux.dev,
-	joro@8bytes.org,
+	id 1xH0Tc-0000000Fn7W-1lSI
+	for linux-riscv@lists.infradead.org;
+	Wed, 14 Oct 2026 15:01:11 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.235])
+	by frasgout12.his.huawei.com (SkyGuard) with ESMTPS id 4j4Z2Y2rp0ztBnr
+	for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 22:53:25 +0800 (CST)
+Received: from mail02.huawei.com (unknown [7.182.16.47])
+	by mail.maildlp.com (Postfix) with ESMTP id 028F840558
+	for <linux-riscv@lists.infradead.org>; Wed, 14 Oct 2026 23:01:00 +0800 (CST)
+Received: from huaweicloud.com (unknown [10.204.63.22])
+	by APP1 (Coremail) with UTF8SMTPA id LxC2BwAX6Rgbmc9qaZI3AA--.19900S2;
+	Wed, 14 Oct 2026 16:00:59 +0100 (CET)
+From: Roberto Sassu <roberto.sassu@huaweicloud.com>
+To: catalin.marinas@arm.com,
 	will@kernel.org,
-	robin.murphy@arm.com,
+	mark.rutland@arm.com,
+	chenhuacai@kernel.org,
+	kernel@xen0n.name,
+	maddy@linux.ibm.com,
+	mpe@ellerman.id.au,
+	npiggin@gmail.com,
+	chleroy@kernel.org,
 	pjw@kernel.org,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	alex@ghiti.fr,
-	jroedel@suse.de,
-	zong.li@sifive.com,
-	andrew.jones@oss.qualcomm.com,
-	jgg@nvidia.com,
-	jgg@ziepe.ca,
-	gsh517025@gmail.com
-Cc: fangyu.yu@linux.alibaba.com,
-	guoren@kernel.org,
-	iommu@lists.linux.dev,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	hpa@zytor.com,
+	robh@kernel.org,
+	saravanak@kernel.org
+Cc: x86@kernel.org,
 	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org
-Subject: [RFC PATCH v2 1/4] iommupt: Add replace_leaf to atomically swap a leaf OA
-Date: Wed, 14 Oct 2026 22:11:21 +0800
-Message-Id: <20261014141124.48569-2-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20261014141124.48569-1-fangyu.yu@linux.alibaba.com>
-References: <20261014141124.48569-1-fangyu.yu@linux.alibaba.com>
+	devicetree@vger.kernel.org,
+	zohar@linux.ibm.com,
+	noodles@fb.com,
+	linux-integrity@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	Roberto Sassu <roberto.sassu@huawei.com>
+Subject: [PATCH] kexec: Select ima_get/free_kexec_buffer() with CONFIG_HAVE_IMA_KEXEC(_OF)
+Date: Wed, 14 Oct 2026 17:00:05 +0200
+Message-ID: <20261014150005.138309-1-roberto.sassu@huaweicloud.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+X-CM-TRANSID: LxC2BwAX6Rgbmc9qaZI3AA--.19900S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxtw1DWry8XFyfZFWkWw4Uurg_yoW7XFWfpw
+	sIyr1UJrZrXFs8t3yqg348Wry5Z3Z7JrW3ur1rC34kZFy3A3yDur1vq3W7ZFyj9rWkKFyx
+	uFyFgFy0gr4UKw7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxV
+	AFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAa
+	w2AFwI0_Wrv_ZF1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxV
+	Aqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a
+	6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6x
+	kF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AK
+	xVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvj
+	xUsPfHUUUUU
+X-CM-SenderInfo: purev21wro2thvvxqx5xdzvxpfor3voofrz/1tbiAgAGBGrPKR9GdAADsi
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_151157_562116_14661265 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20261014_080108_765674_988330BF 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,280 +110,150 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+From: Roberto Sassu <roberto.sassu@huawei.com>
 
-Some users need to repoint a leaf entry to a different physical page
-without ever making the IOVA non-present. RISC-V IRQ forwarding without
-an MSI page table maps the guest IMSIC page in the second-stage domain
-and must follow the page when a vCPU's VS-file host page moves; an
-unmap/map sequence would leave a window where device MSI writes fault.
+The ima_get/free_kexec_buffer() device tree implementation relies on the
+arch code calling of_kexec_alloc_and_setup_fdt() to pass the information
+about where the IMA kexec buffer is located. Only the arm64, powerpc and
+riscv architectures support that. LoongArch implicitly assumes that the
+device tree implementation is used, but it does not call that function.
 
-Add a pt_entry_replace_oa() format op that atomically swaps the OA
-stored in a leaf entry that fits in a single PTE word via cmpxchg,
-validating that the entry still holds the expected old OA, and a
-pt_iommu_riscv_64_replace_leaf() export that walks to the leaf. Formats
-that cannot do this atomically do not provide the op, following the
-pt_iommu_fmt_hw_info() pattern. Covered by a kunit case checking the
-granule and superpage swaps, stale OA rejection, and missing
-translation.
+The ima_get/free_kexec_buffer() x86 implementation instead still relies on
+the setup data to pass the kexec buffer information, and is built only if
+CONFIG_OF_FLATTREE is not defined.
 
-Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+However, if CONFIG_OF_FLATTREE is selected in x86, x86 attempts to use the
+device tree implementations of ima_get/free_kexec_buffer(), which are never
+going to succeed because of_kexec_alloc_and_setup_fdt() is not called for
+that architecture.
+
+Instead, define CONFIG_HAVE_IMA_KEXEC_OF (automatically selects
+HAVE_IMA_KEXEC), select it for the architectures that should use the
+ima_get/free_kexec_buffer() device tree implementation, and enable these
+functions if the new config option is enabled. Set it also on LoongArch, to
+preserve the current behavior and avoid a link failure. LoongArch does not
+pass the buffer location to the next kernel yet; this will be addressed
+separately.
+
+Finally, don't select it for x86, and use x86's own setup_data-based
+implementation regardless of CONFIG_OF_FLATTREE.
+
+Fixes: b69a2afd5afc ("x86/kexec: Carry forward IMA measurement log on kexec")
+Signed-off-by: Roberto Sassu <roberto.sassu@huawei.com>
 ---
- drivers/iommu/generic_pt/fmt/riscv.h      | 47 ++++++++++++++++
- drivers/iommu/generic_pt/iommu_pt.h       | 65 +++++++++++++++++++++++
- drivers/iommu/generic_pt/kunit_iommu.h    |  7 +++
- drivers/iommu/generic_pt/kunit_iommu_pt.h | 54 +++++++++++++++++++
- include/linux/generic_pt/iommu.h          |  4 ++
- 5 files changed, 177 insertions(+)
+ arch/arm64/Kconfig      | 2 +-
+ arch/loongarch/Kconfig  | 2 +-
+ arch/powerpc/Kconfig    | 2 +-
+ arch/riscv/Kconfig      | 2 +-
+ arch/x86/kernel/setup.c | 2 +-
+ drivers/of/kexec.c      | 4 ++--
+ kernel/Kconfig.kexec    | 4 ++++
+ 7 files changed, 11 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/iommu/generic_pt/fmt/riscv.h b/drivers/iommu/generic_pt/fmt/riscv.h
-index 2f4838eb44af..38c837805df0 100644
---- a/drivers/iommu/generic_pt/fmt/riscv.h
-+++ b/drivers/iommu/generic_pt/fmt/riscv.h
-@@ -27,6 +27,7 @@
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b5a51b0ef944..4b7e248b6c91 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1697,7 +1697,7 @@ config ARCH_SUPPORTS_KEXEC_FILE
+ config ARCH_SELECTS_KEXEC_FILE
+ 	def_bool y
+ 	depends on KEXEC_FILE
+-	select HAVE_IMA_KEXEC if IMA
++	select HAVE_IMA_KEXEC_OF if IMA
  
- #include <linux/bitfield.h>
- #include <linux/container_of.h>
-+#include <linux/errno.h>
- #include <linux/log2.h>
- #include <linux/sizes.h>
+ config ARCH_SUPPORTS_KEXEC_SIG
+ 	def_bool y
+diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
+index 2067d1f2ad7a..b5420d482da4 100644
+--- a/arch/loongarch/Kconfig
++++ b/arch/loongarch/Kconfig
+@@ -690,7 +690,7 @@ config ARCH_SELECTS_KEXEC_FILE
+ 	depends on KEXEC_FILE
+ 	select KEXEC_ELF
+ 	select RELOCATABLE
+-	select HAVE_IMA_KEXEC if IMA
++	select HAVE_IMA_KEXEC_OF if IMA
  
-@@ -272,6 +273,52 @@ static inline bool riscvpt_dirty_supported(struct pt_common *common)
- }
- #define pt_dirty_supported riscvpt_dirty_supported
+ config ARCH_SUPPORTS_CRASH_DUMP
+ 	def_bool 64BIT
+diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+index 2580e27e4328..096c6061893b 100644
+--- a/arch/powerpc/Kconfig
++++ b/arch/powerpc/Kconfig
+@@ -643,7 +643,7 @@ config ARCH_SELECTS_KEXEC_FILE
+ 	def_bool y
+ 	depends on KEXEC_FILE
+ 	select KEXEC_ELF
+-	select HAVE_IMA_KEXEC if IMA
++	select HAVE_IMA_KEXEC_OF if IMA
  
-+/**
-+ * pt_entry_replace_oa() - Atomically replace the OA stored in a leaf
-+ * @pts: Table entry to change
-+ * @old_oa: OA the entry must currently translate to
-+ * @new_oa: OA to store in the entry
-+ *
-+ * Atomically swap the OA stored in a single PTE word leaf entry, keeping
-+ * every other bit of the entry unchanged. The entry must currently translate
-+ * to @old_oa so a stale view of the table is detectable. Both @old_oa and
-+ * @new_oa must be aligned to the size the entry translates. Entries that do
-+ * not fit in a single PTE word, such as contiguous entries, are rejected.
-+ *
-+ * Return: 0 on success, -EAGAIN if the entry changed concurrently, -EADDRINUSE
-+ * if the entry does not translate to @old_oa, -EOPNOTSUPP if the entry spans
-+ * multiple PTE words, -EINVAL if an argument is malformed.
-+ */
-+static inline int riscvpt_entry_replace_oa(struct pt_state *pts,
-+					   pt_oaddr_t old_oa,
-+					   pt_oaddr_t new_oa)
-+{
-+	pt_riscv_entry_t *tablep =
-+		pt_cur_table(pts, pt_riscv_entry_t) + pts->index;
-+	pt_riscv_entry_t old = pts->entry, new;
-+	unsigned int oasz_lg2 = pt_table_item_lg2sz(pts);
-+	u64 ppn = (u64)new_oa >> PT_GRANULE_LG2SZ;
-+
-+	/* Only a leaf entry that fits in a single PTE word can be replaced. */
-+	if (pt_entry_num_contig_lg2(pts))
-+		return -EOPNOTSUPP;
-+
-+	if (oalog2_mod(old_oa, oasz_lg2) || oalog2_mod(new_oa, oasz_lg2) ||
-+	    ppn > FIELD_MAX(RISCVPT_PPN))
-+		return -EINVAL;
-+
-+	/* The leaf must still hold the OA the caller expects to replace. */
-+	if (pt_entry_oa(pts) != old_oa)
-+		return -EADDRINUSE;
-+
-+	new = (old & ~(pt_riscv_entry_t)RISCVPT_PPN) |
-+	      FIELD_PREP(RISCVPT_PPN, ppn);
-+	if (!try_cmpxchg64(tablep, &old, new))
-+		return -EAGAIN;
-+	return 0;
-+}
-+#define pt_entry_replace_oa riscvpt_entry_replace_oa
-+
- /* --- iommu */
- #include <linux/generic_pt/iommu.h>
- #include <linux/iommu.h>
-diff --git a/drivers/iommu/generic_pt/iommu_pt.h b/drivers/iommu/generic_pt/iommu_pt.h
-index 3d1fdf1e81d8..5e296992c4df 100644
---- a/drivers/iommu/generic_pt/iommu_pt.h
-+++ b/drivers/iommu/generic_pt/iommu_pt.h
-@@ -375,6 +375,71 @@ static int __maybe_unused NS(set_dirty)(struct pt_iommu *iommu_table,
- 	return pt_walk_range(&range, __set_dirty, NULL);
+ config PPC64_BIG_ENDIAN_ELF_ABI_V2
+ 	# Option is available to BFD, but LLD does not support ELFv1 so this is
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index f8e26c4bed2b..161bf8a65beb 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -1118,7 +1118,7 @@ config ARCH_SUPPORTS_KEXEC_FILE
+ config ARCH_SELECTS_KEXEC_FILE
+ 	def_bool y
+ 	depends on KEXEC_FILE
+-	select HAVE_IMA_KEXEC if IMA
++	select HAVE_IMA_KEXEC_OF if IMA
+ 	select KEXEC_ELF
+ 
+ config ARCH_SUPPORTS_KEXEC_PURGATORY
+diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
+index cda6adb9f69c..bc17e353c099 100644
+--- a/arch/x86/kernel/setup.c
++++ b/arch/x86/kernel/setup.c
+@@ -421,7 +421,7 @@ static void __init add_early_ima_buffer(u64 phys_addr)
+ #endif
  }
  
-+#ifdef pt_entry_replace_oa
-+struct pt_replace_leaf_args {
-+	pt_oaddr_t old_oa;
-+	pt_oaddr_t new_oa;
-+};
-+
-+static int __replace_leaf(struct pt_range *range, void *arg,
-+			  unsigned int level, struct pt_table_p *table)
-+{
-+	struct pt_state pts = pt_init(range, level, table);
-+	struct pt_replace_leaf_args *args = arg;
-+
-+	switch (pt_load_single_entry(&pts)) {
-+	case PT_ENTRY_EMPTY:
-+		return -ENOENT;
-+	case PT_ENTRY_TABLE:
-+		return pt_descend(&pts, arg, __replace_leaf);
-+	case PT_ENTRY_OA:
-+		return pt_entry_replace_oa(&pts, args->old_oa, args->new_oa);
-+	}
-+	return -ENOENT;
-+}
-+
-+/**
-+ * replace_leaf() - Atomically replace the OA stored in a leaf entry
-+ * @domain: Table to manipulate
-+ * @iova: IO virtual address to locate the leaf
-+ * @old_oa: OA the leaf must currently translate to
-+ * @new_oa: OA to store in the leaf
-+ *
-+ * Locate the leaf entry translating @iova and atomically swap its stored OA
-+ * from @old_oa to @new_oa, leaving the entry attributes unchanged. HW
-+ * walking the table concurrently observes either the old or the new OA. The
-+ * caller must invalidate any translation caches before assuming HW no longer
-+ * observes the old OA.
-+ *
-+ * Context: There is no internal locking. The caller must serialize this with
-+ * any concurrent map/unmap touching @iova, as with map_range().
-+ *
-+ * Returns: 0 on success. -EAGAIN indicates the entry changed concurrently,
-+ * retry. -ENOENT if @iova has no translation. -EADDRINUSE if the leaf does
-+ * not translate to @old_oa. -EOPNOTSUPP if the leaf does not fit in a single
-+ * PTE word, such as a contiguous entry.
-+ */
-+int DOMAIN_NS(replace_leaf)(struct iommu_domain *domain, dma_addr_t iova,
-+			    phys_addr_t old_oa, phys_addr_t new_oa)
-+{
-+	struct pt_iommu *iommu_table =
-+		container_of(domain, struct pt_iommu, domain);
-+	struct pt_replace_leaf_args args = {
-+		.old_oa = old_oa,
-+		.new_oa = new_oa,
-+	};
-+	struct pt_range range;
-+	int ret;
-+
-+	ret = make_range(common_from_iommu(iommu_table), &range, iova, 1);
-+	if (ret)
-+		return ret;
-+
-+	return pt_walk_range(&range, __replace_leaf, &args);
-+}
-+EXPORT_SYMBOL_NS_GPL(DOMAIN_NS(replace_leaf), "GENERIC_PT_IOMMU");
-+#endif
-+
- struct pt_iommu_collect_args {
- 	struct iommupt_pending_gather pending;
- 	/* Fail if any OAs are within the range */
-diff --git a/drivers/iommu/generic_pt/kunit_iommu.h b/drivers/iommu/generic_pt/kunit_iommu.h
-index 22c9e4c4dd97..d52b82c9942c 100644
---- a/drivers/iommu/generic_pt/kunit_iommu.h
-+++ b/drivers/iommu/generic_pt/kunit_iommu.h
-@@ -16,6 +16,13 @@
- int pt_iommu_init(struct pt_iommu_table *fmt_table,
- 		  const struct pt_iommu_table_cfg *cfg, gfp_t gfp);
- 
-+#ifdef pt_entry_replace_oa
-+#define pt_iommu_replace_leaf \
-+	CONCATENATE(CONCATENATE(pt_iommu_, PTPFX), replace_leaf)
-+int pt_iommu_replace_leaf(struct iommu_domain *domain, dma_addr_t iova,
-+			  phys_addr_t old_oa, phys_addr_t new_oa);
-+#endif
-+
- /* The format can provide a list of configurations it would like to test */
- #ifdef kunit_fmt_cfgs
- static const void *kunit_pt_gen_params_cfg(struct kunit *test, const void *prev,
-diff --git a/drivers/iommu/generic_pt/kunit_iommu_pt.h b/drivers/iommu/generic_pt/kunit_iommu_pt.h
-index ece1c9b8c55d..8707d55418d3 100644
---- a/drivers/iommu/generic_pt/kunit_iommu_pt.h
-+++ b/drivers/iommu/generic_pt/kunit_iommu_pt.h
-@@ -427,6 +427,57 @@ static void test_mixed(struct kunit *test)
- 	check_iova(test, start, oa, len);
+-#if defined(CONFIG_HAVE_IMA_KEXEC) && !defined(CONFIG_OF_FLATTREE)
++#ifdef CONFIG_HAVE_IMA_KEXEC
+ int __init ima_free_kexec_buffer(void)
+ {
+ 	if (!ima_kexec_buffer_size)
+diff --git a/drivers/of/kexec.c b/drivers/of/kexec.c
+index 029903b986cb..724f29fef0c0 100644
+--- a/drivers/of/kexec.c
++++ b/drivers/of/kexec.c
+@@ -116,7 +116,7 @@ static int do_get_kexec_buffer(const void *prop, int len, unsigned long *addr,
+ 	return 0;
  }
  
-+#ifdef pt_entry_replace_oa
-+static void test_replace_leaf(struct kunit *test)
-+{
-+	struct kunit_iommu_priv *priv = test->priv;
-+	struct pt_range range = pt_top_range(priv->common);
-+	pt_vaddr_t va = range.va + priv->smallest_pgsz * 256;
-+	phys_addr_t pa = log2_set_mod(priv->test_oa, 0,
-+				      priv->smallest_pgsz_lg2);
-+	phys_addr_t new_pa = log2_set_mod(priv->test_oa + priv->smallest_pgsz,
-+					  0, priv->smallest_pgsz_lg2);
-+	int ret;
-+
-+	do_map(test, va, pa, priv->smallest_pgsz);
-+
-+	/* The leaf OA can be swapped in place */
-+	ret = pt_iommu_replace_leaf(&priv->domain, va, pa, new_pa);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+	check_iova(test, va, new_pa, priv->smallest_pgsz);
-+
-+	/* A stale old OA is detected */
-+	ret = pt_iommu_replace_leaf(&priv->domain, va, pa, pa);
-+	KUNIT_ASSERT_EQ(test, ret, -EADDRINUSE);
-+
-+	/* A not-present IOVA reports -ENOENT */
-+	ret = pt_iommu_replace_leaf(&priv->domain, va + priv->smallest_pgsz,
-+				    pa, new_pa);
-+	KUNIT_ASSERT_EQ(test, ret, -ENOENT);
-+
-+	do_unmap(test, va, priv->smallest_pgsz);
-+
-+	if (!(priv->safe_pgsize_bitmap & SZ_2M))
-+		return;
-+
-+	/* A leaf at a higher level can be swapped in place too */
-+	va = ALIGN(va, SZ_2M);
-+	pa = log2_set_mod(priv->test_oa, 0, ilog2(SZ_2M));
-+	new_pa = log2_set_mod(priv->test_oa + SZ_2M, 0, ilog2(SZ_2M));
-+	do_map(test, va, pa, SZ_2M);
-+
-+	ret = pt_iommu_replace_leaf(&priv->domain, va, pa, new_pa);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+	check_iova(test, va, new_pa, SZ_2M);
-+
-+	/* A stale old OA is detected */
-+	ret = pt_iommu_replace_leaf(&priv->domain, va, pa, pa);
-+	KUNIT_ASSERT_EQ(test, ret, -EADDRINUSE);
-+
-+	do_unmap(test, va, SZ_2M);
-+}
-+#endif
-+
- static struct kunit_case iommu_test_cases[] = {
- 	KUNIT_CASE_FMT(test_increase_level),
- 	KUNIT_CASE_FMT(test_map_simple),
-@@ -435,6 +486,9 @@ static struct kunit_case iommu_test_cases[] = {
- 	KUNIT_CASE_FMT(test_random_map),
- 	KUNIT_CASE_FMT(test_pgsize_boundary),
- 	KUNIT_CASE_FMT(test_mixed),
-+#ifdef pt_entry_replace_oa
-+	KUNIT_CASE_FMT(test_replace_leaf),
-+#endif
- 	{},
- };
+-#ifdef CONFIG_HAVE_IMA_KEXEC
++#ifdef CONFIG_HAVE_IMA_KEXEC_OF
+ /**
+  * ima_get_kexec_buffer - get IMA buffer from the previous kernel
+  * @addr:	On successful return, set to point to the buffer contents.
+@@ -196,7 +196,7 @@ static void remove_ima_buffer(void *fdt, int chosen_node)
+ 	size_t size;
+ 	const void *prop;
  
-diff --git a/include/linux/generic_pt/iommu.h b/include/linux/generic_pt/iommu.h
-index 2eed9b78f56c..e9042b509013 100644
---- a/include/linux/generic_pt/iommu.h
-+++ b/include/linux/generic_pt/iommu.h
-@@ -254,6 +254,10 @@ struct pt_iommu_cfg {
- 	int pt_iommu_##fmt##_read_and_clear_dirty(                             \
- 		struct iommu_domain *domain, unsigned long iova, size_t size,  \
- 		unsigned long flags, struct iommu_dirty_bitmap *dirty);        \
-+	/* Only defined by formats whose fmt header has pt_entry_replace_oa */ \
-+	int pt_iommu_##fmt##_replace_leaf(struct iommu_domain *domain,         \
-+					  dma_addr_t iova, phys_addr_t old_oa, \
-+					  phys_addr_t new_oa);                 \
- 	int pt_iommu_##fmt##_init(struct pt_iommu_##fmt *table,                \
- 				  const struct pt_iommu_##fmt##_cfg *cfg,      \
- 				  gfp_t gfp);                                  \
+-	if (!IS_ENABLED(CONFIG_HAVE_IMA_KEXEC))
++	if (!IS_ENABLED(CONFIG_HAVE_IMA_KEXEC_OF))
+ 		return;
+ 
+ 	prop = fdt_getprop(fdt, chosen_node, "linux,ima-kexec-buffer", &len);
+diff --git a/kernel/Kconfig.kexec b/kernel/Kconfig.kexec
+index 15632358bcf7..c6ed60f04ea4 100644
+--- a/kernel/Kconfig.kexec
++++ b/kernel/Kconfig.kexec
+@@ -17,6 +17,10 @@ config KEXEC_ELF
+ config HAVE_IMA_KEXEC
+ 	bool
+ 
++config HAVE_IMA_KEXEC_OF
++	bool
++	select HAVE_IMA_KEXEC
++
+ config KEXEC
+ 	bool "Enable kexec system call"
+ 	depends on ARCH_SUPPORTS_KEXEC
 -- 
-2.50.1
+2.43.0
 
 
 _______________________________________________
