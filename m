@@ -4,56 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3BAFCC6B3B
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 06:53:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD6E7CC6B39
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 06:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sM6DfHDra89gkq1DUsBukIlLFgz5nUWfv0/U7By8sWU=; b=vpkR7Fb3t3pS+G
-	T6oPtSguQDZBTBiNYbGe/jzgAfv3JCAiwa+JSjxUTqeMZU5Gs1+Y2TsTM7BzbVpRJ3urHbpGZgR10
-	KKsJGzpFHDLvKV1wKWuEwvfrBw/XJasW/B68C5puJer/0AHP48Ofdc8/LFzw1Lx+Tpe2ct7WCNKBR
-	yf9TWdBivenkhDPSk1rlRq8LwpvjTeUyZDtdEKnj7PEOTMhyY6nTKc3DR0AqE7nIJc3JNQHNg7UDA
-	Muu+/gCLrwQgDacJGZfT+Puz27jsB7ajDbYBjt3vJqQD5IuYFqZMBvRNAeLizmT1dVmTbwhUwr2yu
-	J7s+xH0yXNUGtVQVoONA==;
+	List-Owner; bh=TKytf1fYiYOuSaNFyzB+fYTc1EOwEJ+7o0TRHlEncPY=; b=Ewyel3j7s42Ema
+	ctd5JoCRbWlWGfdDIsYtxqlSu39373ofDxwcxfAWs774mSirji0soDbyn+H1RoKr0flujS1qLz2Wg
+	/QZH0IjC2/i+yxy61K8SMpfKwRhxaCPPMg7aTrIGRj3VO0DgIATvuyfuagmulsYQvXUdFVnTsEnWl
+	BxTw9GvkSjjdQxSMYENXMrKgoPDHIwI+zEczVHeqQZRY86MiC+WLfyvL+Y2HpD0LQq+ugEdSbUFoR
+	K6OhrzCWAW0kTnHYQm+MrqPthQWcXxWJoB0JZjGpWnU4TuAd0uc+VaZcjrQ05fmdIQwHo2gX8WB3q
+	jTOt0NyOKJm6zyfj5dZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHFKw-0000000GyIa-2Vhe;
-	Thu, 15 Oct 2026 06:53:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xHFKp-0000000Gy7z-1z6F;
+	Thu, 15 Oct 2026 06:53:03 +0000
+Received: from mxct.zte.com.cn ([183.62.165.209])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHFKk-0000000Gy47-0k5r;
-	Thu, 15 Oct 2026 06:53:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=at+uGcIjuslyrgdpaYaPHKlhLN33dICPhzjraIu66H8=; b=DYrBY7m3y4U2zLsbCGdpSoUM0a
-	BoDFfqQ0+XvbjyC6/SQlhDACZRuFveJ/QdQI1b7aNpAno9DFPqdraEjxsxIsQTwe/9p1LOAVL7WZ5
-	nQUVTD1F2CuZvJl2e+eCCtTNb/QoRj1/3wjXoTFB+lVSvsUK6DOiOAFUU7Au8CZUAP2cRo3/bRYoH
-	ietV9YTgxlhe7tvWJusShRTDOrb1xLp2FDNYeB9xxadE5jbpHAQNQyUoXtpdR8xHagbrPky0griSB
-	QQsD4bamV92k99eozykdSoaUwI0dn/tT7t6BuJMBd8f65zJYtmssKbK5HG6dYxJySMF+C/5yPUR0/
-	hmY1IiLQ==;
-Received: from mxhk.zte.com.cn ([160.30.148.35])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHFKg-0000000HXxO-2h0o;
-	Thu, 15 Oct 2026 06:52:56 +0000
+	id 1xHFKh-0000000Gy1f-2BDC;
+	Thu, 15 Oct 2026 06:52:57 +0000
 Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4j4zKX3rJdz8Xrrd;
-	Thu, 15 Oct 2026 14:52:48 +0800 (CST)
-Received: from szxlzmapp03.zte.com.cn ([10.5.231.207])
-	by mse-fl1.zte.com.cn with SMTP id 69F6qfBb013906;
-	Thu, 15 Oct 2026 14:52:41 +0800 (+08)
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4j4zKW6xnbz5B150;
+	Thu, 15 Oct 2026 14:52:47 +0800 (CST)
+Received: from szxlzmapp01.zte.com.cn ([10.5.231.85])
+	by mse-fl1.zte.com.cn with SMTP id 69F6qhI5013949;
+	Thu, 15 Oct 2026 14:52:43 +0800 (+08)
 	(envelope-from gong.shuai@sanechips.com.cn)
 Received: from ubuntu-35-gs (unknown [10.230.214.35])
 	by smtp (Zmail) with SMTP;
-	Thu, 15 Oct 2026 14:52:43 +0800
-X-Zmail-TransId: 3e816ad0783a024-55537
+	Thu, 15 Oct 2026 14:52:46 +0800
+X-Zmail-TransId: 3e816ad0783d024-5558a
 X-Zmail-LocalSMTP: 1
 X-Zmail-RealSender: gong.shuai@sanechips.com.cn
 From: Gong Shuai <gong.shuai@sanechips.com.cn>
@@ -75,24 +61,24 @@ Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
         Zhao Qingye <zhao.qingye@sanechips.com.cn>,
         Gong Shuai <gong.shuai@sanechips.com.cn>,
         Gong Shuai <gsh517025@gmail.com>
-Subject: [RFC PATCH 06/12] iommu/riscv: Add vIOMMU cache invalidation
-Date: Thu, 15 Oct 2026 14:52:26 +0800
-Message-ID: <20261015065232.604503-7-gong.shuai@sanechips.com.cn>
+Subject: [RFC PATCH 09/12] iommu/riscv: Add riscv_iommu_attach_dev_nested
+Date: Thu, 15 Oct 2026 14:52:29 +0800
+Message-ID: <20261015065232.604503-10-gong.shuai@sanechips.com.cn>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261015065232.604503-1-gong.shuai@sanechips.com.cn>
 References: <20261015065232.604503-1-gong.shuai@sanechips.com.cn>
 MIME-Version: 1.0
 X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
-X-MAIL: mse-fl1.zte.com.cn 69F6qfBb013906
+X-MAIL: mse-fl1.zte.com.cn 69F6qhI5013949
 X-TLS: YES
 X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
 X-SOURCE-IP: 10.5.228.132 unknown Thu, 15 Oct 2026 14:52:48 +0800
 X-CLEAN: YES
 X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6AD07840.001/4j4zKX3rJdz8Xrrd
+X-Fangmail-MID-QID: 6AD0783F.000/4j4zKW6xnbz5B150
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_075255_275124_68ED829E 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20261014_235255_888611_4E118918 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,154 +95,161 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implement cache_invalidate for the vIOMMU, which takes IOTINVAL commands
-from user space in the struct iommu_viommu_riscv_invalidate format and
-forwards them to the physical IOMMU command queue.
+From: Wu Fei <wu.fei9@sanechips.com.cn>
 
-The uAPI payload is little-endian, so convert it to the native command
-words the hardware queue expects. Only IOTINVAL.VMA is accepted;
-reserved bits are rejected. The guest-owned GV, GSCID and PSCV/PSCID
-operands are replaced with the ones the host actually programs, so a
-guest cannot invalidate caches that belong to another guest.
+Attach a device to a nested domain by combining the guest-provided
+stage-1 context (tc, iosatp) with the host-owned second-stage context
+in the device directory entry.
 
-Co-developed-by: Wu Fei <wu.fei9@sanechips.com.cn>
+The device is bonded to the stage-2 parent domain so that it shares the
+parent's invalidation and interrupt-remapping state: the guest MSI page
+table is allocated when missing, and an active table's MSI configuration
+is preserved across the device context update. Since the iommu core
+passes the nested domain object as the old domain while the bond lives
+on the parent, resolve the bond-holding domain before unlinking.
+
 Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
+Co-developed-by: Gong Shuai <gong.shuai@sanechips.com.cn>
 Signed-off-by: Gong Shuai <gong.shuai@sanechips.com.cn>
 ---
- drivers/iommu/riscv/iommu-bits.h | 13 +++++
- drivers/iommu/riscv/iommu.c      | 93 ++++++++++++++++++++++++++++++++
- 2 files changed, 106 insertions(+)
+ drivers/iommu/riscv/iommu.c | 89 ++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 87 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/iommu/riscv/iommu-bits.h b/drivers/iommu/riscv/iommu-bits.h
-index 2a8230a0c1bb..68190d6cc060 100644
---- a/drivers/iommu/riscv/iommu-bits.h
-+++ b/drivers/iommu/riscv/iommu-bits.h
-@@ -486,6 +486,19 @@ struct riscv_iommu_command {
- /* dword1[61:10] is the 4K-aligned page address */
- #define RISCV_IOMMU_CMD1_IOTINVAL_ADDR		GENMASK_ULL(61, 10)
- 
-+/*
-+ * All standard bits of the IOTINVAL command. The remaining bits are
-+ * reserved for future standard use, forwarding them to the physical IOMMU
-+ * may make it treat the command as illegal.
-+ */
-+#define RISCV_IOMMU_CMD0_IOTINVAL_STANDARD \
-+	(RISCV_IOMMU_CMD0_OPCODE | RISCV_IOMMU_CMD0_FUNC | \
-+	 RISCV_IOMMU_CMD0_IOTINVAL_AV | RISCV_IOMMU_CMD0_IOTINVAL_PSCID | \
-+	 RISCV_IOMMU_CMD0_IOTINVAL_PSCV | RISCV_IOMMU_CMD0_IOTINVAL_GV | \
-+	 RISCV_IOMMU_CMD0_IOTINVAL_NL | RISCV_IOMMU_CMD0_IOTINVAL_GSCID)
-+#define RISCV_IOMMU_CMD1_IOTINVAL_STANDARD \
-+	(RISCV_IOMMU_CMD1_IOTINVAL_S | RISCV_IOMMU_CMD1_IOTINVAL_ADDR)
-+
- /* 3.1.2 IOMMU Command Queue Fences */
- /* Fields on dword0 */
- #define RISCV_IOMMU_CMD_IOFENCE_OPCODE		2
 diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 8046cadefbd8..c34331bcd661 100644
+index e59a6a97589e..a484bf97c2f5 100644
 --- a/drivers/iommu/riscv/iommu.c
 +++ b/drivers/iommu/riscv/iommu.c
-@@ -2075,8 +2075,101 @@ riscv_viommu_alloc_domain_nested(struct iommufd_viommu *viommu, u32 flags,
- 	return &nested_domain->domain;
- }
+@@ -871,6 +871,13 @@ PT_IOMMU_CHECK_DOMAIN(struct riscv_iommu_domain, riscvpt.iommu, domain);
+ #define iommu_domain_to_riscv(iommu_domain) \
+ 	container_of(iommu_domain, struct riscv_iommu_domain, domain)
  
 +/*
-+ * One invalidation command, viewed as either the little-endian uAPI
-+ * payload or the native command words.
++ * Resolve the domain holding the device bond: when the previously attached
++ * domain is a nested domain, the device is bonded to its stage-2 parent,
++ * which also owns the MSI table.
 + */
-+struct riscv_viommu_invalidation_cmd {
-+	union {
-+		struct riscv_iommu_command cmd;
-+		struct iommu_viommu_riscv_invalidate ucmd;
-+	};
-+};
++static struct iommu_domain *riscv_iommu_old_bond_domain(struct iommu_domain *old);
 +
-+static int riscv_viommu_cache_invalidate(struct iommufd_viommu *viommu,
-+					 struct iommu_user_data_array *array)
-+{
-+	struct riscv_viommu *rv_viommu = container_of(viommu, struct riscv_viommu, core);
-+	struct riscv_iommu_device *iommu = rv_viommu->iommu;
-+	struct riscv_viommu_invalidation_cmd *cmds;
-+	unsigned int i = 0;
-+	int ret;
+ struct riscv_iommu_msi_table *riscv_iommu_msi_table_rcu(struct riscv_iommu_info *info)
+ {
+ 	struct riscv_iommu_domain *domain;
+@@ -1593,6 +1600,8 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+ 	unsigned long flags;
+ 	int ret;
+ 
++	old = riscv_iommu_old_bond_domain(old);
 +
-+	if (array->type != IOMMU_VIOMMU_INVALIDATE_DATA_RISCV)
-+		return -EINVAL;
+ 	pt_iommu_riscv_64_hw_info(&domain->riscvpt, &pt_info);
+ 
+ 	if (domain->gscid) {
+@@ -1787,6 +1796,8 @@ static int riscv_iommu_attach_blocking_domain(struct iommu_domain *iommu_domain,
+ 	struct riscv_iommu_dc dc = {0};
+ 	unsigned long flags;
+ 
++	old = riscv_iommu_old_bond_domain(old);
 +
-+	/* entry_num==0 is the data_type support probe */
-+	if (!array->entry_num)
-+		return 0;
+ 	dc.fsc = RISCV_IOMMU_DC_FSC_MODE_BARE;
+ 	dc.tc = 0;
+ 
+@@ -1816,6 +1827,8 @@ static int riscv_iommu_attach_identity_domain(struct iommu_domain *iommu_domain,
+ 	struct riscv_iommu_dc dc = {0};
+ 	unsigned long flags;
+ 
++	old = riscv_iommu_old_bond_domain(old);
 +
-+	static_assert(sizeof(*cmds) == 2 * sizeof(u64));
-+
-+	cmds = kcalloc(array->entry_num, sizeof(*cmds), GFP_KERNEL);
-+	if (!cmds)
-+		return -ENOMEM;
-+
-+	ret = iommu_copy_struct_from_full_user_array(cmds, sizeof(*cmds), array,
-+						     IOMMU_VIOMMU_INVALIDATE_DATA_RISCV);
-+	if (ret)
-+		goto out_free;
-+
-+	for (i = 0; i < array->entry_num; i++) {
-+		struct riscv_iommu_command *cmd = &cmds[i].cmd;
-+		u64 opcode, func;
-+
-+		/* The uAPI payload is little-endian */
-+		cmd->dword0 = le64_to_cpu(cmds[i].ucmd.cmd[0]);
-+		cmd->dword1 = le64_to_cpu(cmds[i].ucmd.cmd[1]);
-+
-+		opcode = FIELD_GET(RISCV_IOMMU_CMD0_OPCODE, cmd->dword0);
-+		if (opcode != RISCV_IOMMU_CMD_IOTINVAL_OPCODE) {
-+			/* Only page-table cache invalidation is forwarded */
-+			ret = -EIO;
-+			goto out_free;
-+		}
-+
-+		/* Reject reserved bits instead of forwarding them to the physical IOMMU */
-+		if (cmd->dword0 & ~RISCV_IOMMU_CMD0_IOTINVAL_STANDARD ||
-+		    cmd->dword1 & ~RISCV_IOMMU_CMD1_IOTINVAL_STANDARD) {
-+			ret = -EINVAL;
-+			goto out_free;
-+		}
-+
-+		func = FIELD_GET(RISCV_IOMMU_CMD0_FUNC, cmd->dword0);
-+		if (func != RISCV_IOMMU_CMD_IOTINVAL_FUNC_VMA) {
-+			ret = -EIO;
-+			goto out_free;
-+		}
-+
-+		/*
-+		 * The guest operates in its own GSCID/PSCID namespace.
-+		 * The physical IOMMU uses the host-assigned GSCID and
-+		 * PSCID=0. Enforce both for correct cache invalidation.
-+		 */
-+		cmd->dword0 &= ~(RISCV_IOMMU_CMD0_IOTINVAL_GV |
-+				 RISCV_IOMMU_CMD0_IOTINVAL_GSCID |
-+				 RISCV_IOMMU_CMD0_IOTINVAL_PSCV |
-+				 RISCV_IOMMU_CMD0_IOTINVAL_PSCID);
-+		cmd->dword0 |= FIELD_PREP(RISCV_IOMMU_CMD0_IOTINVAL_GSCID,
-+					  rv_viommu->gscid) |
-+			       RISCV_IOMMU_CMD0_IOTINVAL_GV |
-+			       FIELD_PREP(RISCV_IOMMU_CMD0_IOTINVAL_PSCID, 0) |
-+			       RISCV_IOMMU_CMD0_IOTINVAL_PSCV;
-+
-+		riscv_iommu_cmd_send(iommu, cmd);
-+	}
-+
-+	riscv_iommu_cmd_sync(iommu, RISCV_IOMMU_IOTINVAL_TIMEOUT);
-+
-+out_free:
-+	array->entry_num = i;
-+	kfree(cmds);
-+	return ret;
-+}
-+
- static const struct iommufd_viommu_ops riscv_viommu_ops = {
- 	.alloc_domain_nested = riscv_viommu_alloc_domain_nested,
-+	.cache_invalidate = riscv_viommu_cache_invalidate,
+ 	dc.fsc = RISCV_IOMMU_DC_FSC_MODE_BARE;
+ 	dc.tc = RISCV_IOMMU_DC_TC_V;
+ 
+@@ -1938,8 +1951,79 @@ struct riscv_iommu_nested_domain {
+ 	u64 iosatp;
  };
  
- static size_t riscv_iommu_get_viommu_size(struct device *dev,
+-#define to_riscv_iommu_nested_domain(domain) \
+-	container_of(domain, struct riscv_iommu_nested_domain, domain)
++#define to_riscv_iommu_nested_domain(domain_ptr) \
++	container_of(domain_ptr, struct riscv_iommu_nested_domain, domain)
++
++static struct iommu_domain *riscv_iommu_old_bond_domain(struct iommu_domain *old)
++{
++	if (old && old->type == IOMMU_DOMAIN_NESTED)
++		return &to_riscv_iommu_nested_domain(old)->viommu->s2_parent->domain;
++	return old;
++}
++
++static int riscv_iommu_attach_dev_nested(struct iommu_domain *domain,
++					 struct device *dev,
++					 struct iommu_domain *old_domain)
++{
++	struct riscv_iommu_nested_domain *nested_domain =
++		to_riscv_iommu_nested_domain(domain);
++	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
++	struct riscv_iommu_domain *s2_parent = nested_domain->viommu->s2_parent;
++	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
++	struct pt_iommu_riscv_64_hw_info pt_info;
++	struct iommu_domain *old = riscv_iommu_old_bond_domain(old_domain);
++	struct riscv_iommu_bond *bond;
++	struct riscv_iommu_dc dc = {0};
++	unsigned long flags;
++	int ret;
++
++	if (nested_domain->viommu->iommu != iommu)
++		return -EINVAL;
++
++	if (!s2_parent->nest_parent)
++		return -EINVAL;
++
++	pt_iommu_riscv_64_hw_info(&s2_parent->riscvpt, &pt_info);
++
++	dc.tc = nested_domain->tc;
++	dc.fsc = nested_domain->iosatp;
++
++	dc.iohgatp = FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_MODE, pt_info.iohgatp_mode) |
++		     FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_PPN, pt_info.ppn) |
++		     FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_GSCID, s2_parent->gscid);
++
++	/* SVA/PASID are not supported now, keep PSCID at 0. */
++	dc.ta = FIELD_PREP(RISCV_IOMMU_DC_TA_PSCID, 0);
++
++	ret = riscv_iommu_msi_table_alloc(s2_parent, iommu, info);
++	if (ret)
++		return ret;
++
++	bond = kzalloc_obj(*bond);
++	if (!bond)
++		return -ENOMEM;
++	bond->dev = dev;
++
++	flags = riscv_iommu_msi_tables_lock(old, &s2_parent->domain);
++	if (!riscv_iommu_can_attach_paging_domain(&s2_parent->domain, dev, old)) {
++		riscv_iommu_msi_tables_unlock(old, &s2_parent->domain, flags);
++		kfree(bond);
++		return -EBUSY;
++	}
++
++	/* Keep an active guest MSI table published across the DC update. */
++	if (s2_parent->msi_table.nr_forwarded_irqs)
++		riscv_iommu_msi_table_set_dc(&s2_parent->msi_table, &dc, true);
++
++	info->dc = dc;
++	riscv_iommu_bond_link(s2_parent, bond);
++	riscv_iommu_iodir_update(dev, &info->dc);
++	riscv_iommu_bond_unlink(old, dev);
++	rcu_assign_pointer(info->domain, s2_parent);
++	riscv_iommu_msi_tables_unlock(old, &s2_parent->domain, flags);
++
++	return 0;
++}
+ 
+ static void riscv_iommu_domain_nested_free(struct iommu_domain *domain)
+ {
+@@ -1947,6 +2031,7 @@ static void riscv_iommu_domain_nested_free(struct iommu_domain *domain)
+ }
+ 
+ static const struct iommu_domain_ops riscv_iommu_nested_ops = {
++	.attach_dev = riscv_iommu_attach_dev_nested,
+ 	.free = riscv_iommu_domain_nested_free,
+ };
+ 
 -- 
 2.53.0
 
