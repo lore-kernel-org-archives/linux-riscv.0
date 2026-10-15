@@ -4,78 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B115CC6B2F
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 06:47:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D5ECC6B2F
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 06:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gcSmh5Yx8tkrC+Ifsdj2kcC4tDiK4G9pSG5JsPt6Qgo=; b=KHvK6n2PxAIKNM
-	fgQouXXaAju5iLNCg5c8ZJaeYzp+mD9P6d3W02cl5s9Zn2WIi2n3KWwlnpXzRJ013wsC7If06F0W3
-	gjXjGpFaBF+cVdwArRlDxU5XI2Jbd5vhY0KZ3HIzxXmxO3CGmcXHWGNj7t4FdRt3cbRO9W0D2H5di
-	jvjm+e457DWy23hXXNJ6vGnkDqtq3/a0IsEtA2iRUGNQIPIP6020cQYx1i1TRxk8y0vtXvJgerkSt
-	UL08/kG0qXR+CjVh5skWxQJ8XEEdmfoy5o+ELETgTvLoRYZe7I45S28GrkGxwPx3MWQlIpo+DYGTE
-	K8mmX4mDBoDqipyVUIJw==;
+	List-Owner; bh=KoP0cWgfNUMZVcVTg2eMP0a7xDmFryWhw8DuxN6qa5E=; b=gWhZyvy9pW2sPo
+	O3yx/w+9oJhUKmOc7NxOGZiOA6xDOmvszPm5B/cRxN0oraFG12wf8KfvU6WwNlVFdBDfLrXm5DtYP
+	iUP4eEbAE8o5zUvMrKeJcdzJiLs5ZPzFD5MQB2fA3mJ7n6SKFsez3QxL8g+/pmrxfoz/3IRzA4tox
+	2i3ytH2B6gjp0J0bGLB7DsHbTArMh5d7JridWEI7WfE8iWP0BVfDlQqKlh7epZ8ZMd1cZCK4r9AtD
+	9jjEpOCumGyu8Zx037N+JLFKZVNRSslqpJGoHDmP4KgQLJEOxw4xrd1LiyvAWT7UjTDUjMzajgPSu
+	q8JmHidK9ai9Dkl+vnBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHFFH-0000000GxY2-2Ewi;
-	Thu, 15 Oct 2026 06:47:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xHFKh-0000000Gy2F-0MtS;
+	Thu, 15 Oct 2026 06:52:55 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHFFG-0000000GxXv-2QK3
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 15 Oct 2026 06:47:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=1tUCNd46xtK8g0oxdd9jdvTFkJwGXuPMhPtXJdlM1vo=; b=iFXpml4LfNVp4vBXZyvkvWrwlm
-	iHdHuzKSRu4WIngKvszR1ifL3c/p81FUZeEzOxPrEgQ7Y5FwUcPNGJSrhH5ZOrVSNPPSsetFldASg
-	/U+J8p/QQWh8B+PyFmlFgeF2IKzp9QkHLtt8xo19KHx9YPxXckETChBN9g1njc1ycBDjx7dFZEUVQ
-	dK3oqEWaxRiQtUIl4LGXWO1WPV8BumGTnUe9dV5um1D4bHMSB7lgUQ8SoqOM7XMdetIv6/WAimR0r
-	q7D1TkYsvyilqyxawTXTnYwHZY9TksqjTl/DeACv5Z7Y56cALcMiuJ5aCiFUnB1pILeuJOSBDTLA+
-	megDApAg==;
-Received: from out-223.mta0.migadu.com ([2001:41d0:1004:224b::df] helo=mta0.migadu.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHFFB-0000000HXYQ-3stR
-	for linux-riscv@lists.infradead.org;
-	Thu, 15 Oct 2026 06:47:17 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=t0IiZB/Ux47ttYhnh6RR0lffF1iWD71iJlXsK4k5DOc=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1792046825; v=1; x=1792651625;
- b=qCbV7nopck15dDBycDk8WGV4ktU/jaZd36GDqHO+ZwfXjPbZ3Ws7QazO26FZEgXvBXqhSJ3s
- e/lc4nDhj2vLGL4ExHRL1PwvsuXMdOX7pRY20P+CcZExjFkmr39GvofBf7YvHRKQooHdSyW9VKu
- /zTuwCbx2hP6r3QKcLH57CjE=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id c8ba14fd1bd62bdb;
-	Thu, 15 Oct 2026 06:47:05 +0000
-X-Mizu-Trace-ID: c8ba14fd1bd62bdb
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <861d25f6-7bcb-4b04-841e-89ed4cf55843@linux.dev>
-Date: Thu, 15 Oct 2026 14:46:58 +0800
+	id 1xHFKe-0000000Gy0i-16aO;
+	Thu, 15 Oct 2026 06:52:54 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4j4zKV6lSgz58fcZ;
+	Thu, 15 Oct 2026 14:52:46 +0800 (CST)
+Received: from szxl2zmapp06.zte.com.cn ([10.1.32.108])
+	by mse-fl2.zte.com.cn with SMTP id 69F6qbw1019070;
+	Thu, 15 Oct 2026 14:52:37 +0800 (+08)
+	(envelope-from gong.shuai@sanechips.com.cn)
+Received: from ubuntu-35-gs (unknown [10.230.214.35])
+	by smtp (Zmail) with SMTP;
+	Thu, 15 Oct 2026 14:52:39 +0800
+X-Zmail-TransId: 3e816ad07836024-554d4
+X-Zmail-LocalSMTP: 1
+X-Zmail-RealSender: gong.shuai@sanechips.com.cn
+From: Gong Shuai <gong.shuai@sanechips.com.cn>
+To: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+        iommu@lists.linux.dev
+Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+        Tomasz Jeznach <tomasz.jeznach@linux.dev>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>,
+        Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>,
+        Andrew Jones <andrew.jones@oss.qualcomm.com>,
+        Fangyu Yu <fangyu.yu@linux.alibaba.com>,
+        Wu Fei <wu.fei9@sanechips.com.cn>,
+        Zhao Qingye <zhao.qingye@sanechips.com.cn>,
+        Gong Shuai <gong.shuai@sanechips.com.cn>,
+        Gong Shuai <gsh517025@gmail.com>
+Subject: [RFC PATCH 02/12] iommufd: Add RISC-V IOMMU hwpt and vIOMMU types
+Date: Thu, 15 Oct 2026 14:52:22 +0800
+Message-ID: <20261015065232.604503-3-gong.shuai@sanechips.com.cn>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261015065232.604503-1-gong.shuai@sanechips.com.cn>
+References: <20261015065232.604503-1-gong.shuai@sanechips.com.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] riscv: dts: sophgo: sg2044: Add eFUSE device
-To: Inochi Amaoto <inochiama@gmail.com>,
- Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: devicetree@vger.kernel.org, sophgo@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-References: <20261014074516.240247-1-inochiama@gmail.com>
- <20261014074516.240247-4-inochiama@gmail.com>
-From: Chen Wang <chen.wang@linux.dev>
-In-Reply-To: <20261014074516.240247-4-inochiama@gmail.com>
+X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
+X-MAIL: mse-fl2.zte.com.cn 69F6qbw1019070
+X-TLS: YES
+X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
+X-SOURCE-IP: 10.5.228.133 unknown Thu, 15 Oct 2026 14:52:46 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6AD0783E.002/4j4zKV6lSgz58fcZ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_074714_400947_5ABCD8E0 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20261014_235252_496627_AFF5F0F3 
+X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,74 +91,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Wu Fei <wu.fei9@sanechips.com.cn>
 
-On 10/14/2026 3:45 PM, Inochi Amaoto wrote:
-> Add eFUSE controller node for SG2044.
->
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> ---
->   arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts |  4 ++++
->   arch/riscv/boot/dts/sophgo/sg2044.dtsi               | 12 ++++++++++++
->   drivers/nvmem/sophgo-efuse.c                         |  1 +
->   3 files changed, 17 insertions(+)
->
-> diff --git a/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
-> index fed3d9a384a0..1b506972d465 100644
-> --- a/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
-> +++ b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
-> @@ -36,6 +36,10 @@ &emmc {
->   	status = "okay";
->   };
->   
-> +&efuse0 {
-> +	status = "okay";
-> +};
-> +
->   &gmac0 {
->   	phy-handle = <&phy0>;
->   	phy-mode = "rgmii-id";
-> diff --git a/arch/riscv/boot/dts/sophgo/sg2044.dtsi b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
-> index 320c4d1d08e6..9577aae08f7f 100644
-> --- a/arch/riscv/boot/dts/sophgo/sg2044.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
-> @@ -408,6 +408,18 @@ sd: mmc@703000b000 {
->   			status = "disabled";
->   		};
->   
-> +		efuse0: efuse@7040000000 {
-> +			compatible = "sophgo,sg2044-efuse";
-> +			reg = <0x70 0x40000000 0x0 0x1000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +			clocks = <&clk CLK_GATE_EFUSE>,
-> +				 <&clk CLK_GATE_APB_EFUSE>;
-> +			clock-names = "core", "apb";
-> +			resets = <&rst RST_EFUSE0>;
-> +			status = "disabled";
-> +		};
-> +
->   		i2c0: i2c@7040005000 {
->   			compatible = "sophgo,sg2044-i2c", "snps,designware-i2c";
->   			reg = <0x70 0x40005000 0x0 0x1000>;
-> diff --git a/drivers/nvmem/sophgo-efuse.c b/drivers/nvmem/sophgo-efuse.c
-> index 5f90adaf8e4f..568d17b88ff6 100644
-> --- a/drivers/nvmem/sophgo-efuse.c
-> +++ b/drivers/nvmem/sophgo-efuse.c
-> @@ -14,6 +14,7 @@
->   #include <linux/mutex.h>
->   #include <linux/nvmem-provider.h>
->   #include <linux/platform_device.h>
-> +#include <linux/slab.h>
->   
->   #define SG2044_EFUSE_CONTENT_SIZE		0x400
+Introduce the user-space API data for RISC-V IOMMU nested domains:
 
-This change is not related to DTS, should it be in patch [2/3]?
+- IOMMU_HWPT_DATA_RISCV_S1 together with struct iommu_hwpt_riscv, which
+  carries the first-stage(guest) device-context fields (tc and iosatp)
+  for allocating a nested hwpt;
+- IOMMU_VIOMMU_TYPE_RISCV so user space can request a RISC-V IOMMU
+  vIOMMU object.
 
+Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
+Co-developed-by: Gong Shuai <gong.shuai@sanechips.com.cn>
+Signed-off-by: Gong Shuai <gong.shuai@sanechips.com.cn>
+---
+ include/uapi/linux/iommufd.h | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
+index 206fa667c782..7458878386c5 100644
+--- a/include/uapi/linux/iommufd.h
++++ b/include/uapi/linux/iommufd.h
+@@ -506,18 +506,31 @@ struct iommu_hwpt_amd_guest {
+ 	__aligned_u64 dte[4];
+ };
+ 
++/**
++ * struct iommu_hwpt_riscv - RISC-V IOMMU stage-1 page table data
++ *			     (IOMMU_HWPT_DATA_RISCV_S1)
++ * @tc: Guest device context translation control
++ * @iosatp: Guest device context stage-1 root page table pointer
++ */
++struct iommu_hwpt_riscv {
++	__aligned_u64 tc;
++	__aligned_u64 iosatp;
++};
++
+ /**
+  * enum iommu_hwpt_data_type - IOMMU HWPT Data Type
+  * @IOMMU_HWPT_DATA_NONE: no data
+  * @IOMMU_HWPT_DATA_VTD_S1: Intel VT-d stage-1 page table
+  * @IOMMU_HWPT_DATA_ARM_SMMUV3: ARM SMMUv3 Context Descriptor Table
+  * @IOMMU_HWPT_DATA_AMD_GUEST: AMD IOMMU guest page table
++ * @IOMMU_HWPT_DATA_RISCV_S1: RISC-V IOMMU stage-1 page table
+  */
+ enum iommu_hwpt_data_type {
+ 	IOMMU_HWPT_DATA_NONE = 0,
+ 	IOMMU_HWPT_DATA_VTD_S1 = 1,
+ 	IOMMU_HWPT_DATA_ARM_SMMUV3 = 2,
+ 	IOMMU_HWPT_DATA_AMD_GUEST = 3,
++	IOMMU_HWPT_DATA_RISCV_S1 = 4,
+ };
+ 
+ /**
+@@ -1095,6 +1108,7 @@ struct iommu_fault_alloc {
+  * @IOMMU_VIOMMU_TYPE_ARM_SMMUV3: ARM SMMUv3 driver specific type
+  * @IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV: NVIDIA Tegra241 CMDQV (extension for ARM
+  *                                    SMMUv3) enabled ARM SMMUv3 type
++ * @IOMMU_VIOMMU_TYPE_RISCV: RISC-V IOMMU driver specific type
+  */
+ enum iommu_viommu_type {
+ 	IOMMU_VIOMMU_TYPE_DEFAULT = 0,
+@@ -1105,6 +1119,7 @@ enum iommu_viommu_type {
+ 	 *   VMM must wire the HYP_OWN bit to 0 in guest VINTF_CONFIG register
+ 	 */
+ 	IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV = 2,
++	IOMMU_VIOMMU_TYPE_RISCV = 3,
+ };
+ 
+ /**
+-- 
+2.53.0
 
 
 _______________________________________________
