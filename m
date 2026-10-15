@@ -4,97 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26F01CC6B33
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 12:55:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D740CC6B34
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 12:59:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=49HoexpC4GNbVvzyJFG8xSo/521yi81mLlrlHtafeRs=; b=rfPLTKsDkwLDj5
-	7CKFJRYrxb0IDHqx3k2sWD71MimFtwZvfAcRyLpVqcjxsnTH0wzRl0xm+RyvWzIcbJpWWYebNyVFQ
-	9uVqCx8D/cHn1lQAOA30VbEYlWoe3jGPKgQ6IKH468fRISq4kn2SIy3ubtkvTdGmy6PzCBwI+JNXK
-	h8W9gifG88BvSMMpvoNCZ/Fs0zh2gCT2mdOOw9L5LIckaByhm1aoh88Nd3cu/E6ng+nmvdyQH3oRc
-	VkbGzdrHLhs4NQsD6FVGo5spJnNxm8DnliBMBQ4rK0LOAn3Ce5p++7S3vW9OyHv39jZrvAWZKKs5U
-	UzxYfoqUKTujwqEekrXA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=D0bSAKWz1oWecbU1yBUx8Uy0hZEXEN4SB9IjHJmVpvc=; b=Tob63sZ2ibnOnc
+	h2Hn1GJxUDDgISgCM/3ebeqHccMbisPyRhIOR+DDuHKVOyPodSzyZj9s32SZKsdOs2vIwN8bHawqt
+	nU26LM93a0U1FkG+LgHZhiLakH2HPJwszosXCZtWyMWXGhrEB68RbMQ5MdyVX/6dXB/GnsVA43uxL
+	s4E3qhpg3qn+69PZGbx3/ZqSbAL2lNHdblmh+/CaQ6c1+nMYLEDlZ4sr8NtptSs9bk3KX6uQZxGIs
+	juwX5PcTbKZ6SpbAfLnePE91PpPccMWt+O4gIvA8XCMvXyeNMFn0B7xf4DtQAq9ae9Hv0F6KBexxg
+	4PM9za+kJ8bw/+V1cZeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKzN-00000000ApY-3pLB;
-	Thu, 15 Oct 2026 12:55:17 +0000
+	id 1xHL2z-00000000Bxw-14qN;
+	Thu, 15 Oct 2026 12:59:01 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKzG-00000000Ajy-0Pw6
+	id 1xHL2w-00000000BvU-32Ji
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 15 Oct 2026 12:55:10 +0000
+	Thu, 15 Oct 2026 12:58:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=0gn0ipHnBnEnnuWNB3XyCR/eq/dBn2N7SSrrBn41Q04=; b=mkmsWTnzoqn7bdtbP6VG7+rJJ6
-	NVFcbg2oAI8YCxzb/4y68on4wiT5mUnlqldVyK+zZhm7ebUWjW+oBUaV5L2Q2n0aCzIbarjQ4MYmr
-	maQSEyDxm4edGW6H8TsfK0eg9elYEPlWqhLDuqx0CH2sFuc7pC/dG9F9V3OlBgzL1z+5+JqFR3HWs
-	psex1uiR+8UoVteih2RWQRugqmGQarZjawmTHEgH7EKAnMwo8FUziJdIc+uCph69U/5+ePLH9rpoD
-	Kcb19xLOQSXu88hYs1KZcjmjZeD2+NBxMhzJLEALU55UpwOHQGqzNsAlv7bsrnC47Vqar9ZEViOf2
-	t/aY661Q==;
-Received: from naesa04.arrow.com ([216.150.161.24])
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=gzDS3xnAfb++0NZ2mM9jNCMhIa/Xs/tZlWtnxCVCMlY=; b=ESHoksPOuW0Ujzk31p0M6bYKH2
+	ZP//N2cqCPZJuiZpOFEOiF67maEFv12mZ7AaTwvNdnqRTpWa2YWyhLZxx4wLAoIFMY5MaV0M0Xh/P
+	DV81bAcnqqZLOOOw7sF0Pp0eUXQZvAnDJCjFyllpq9KZ/BKzwH8Q1upyoFHVfrHfPHQDnWBEVrqTJ
+	QkvoF8YLEUQeCpuEI94cGCaGjgHi5bIx31qilEl6soZsS0rWDDbFDWkM/ab7xeCpF/94wMesKYRxp
+	2SeT1BDkMHqAXPm4pcNVC6fykDHIt1oTtOfilFfk+6nBneDZ+IAhgESHzlF28LdgA9uWJURsDL3Zt
+	OQXeAYeg==;
+Received: from mail-dy1-x1333.google.com ([2607:f8b0:4864:20::1333])
 	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHKzD-00000000NfG-0QDx
+	id 1xHL2t-00000000O5A-1tY4
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Oct 2026 12:55:09 +0000
+	Thu, 15 Oct 2026 12:58:57 +0000
+Received: by mail-dy1-x1333.google.com with SMTP id 5a478bee46e88-35943f55c06so2017088eec.0
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Oct 2026 05:58:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=einfochips.com; i=@einfochips.com; l=2112; q=dns/txt;
-  s=NAESA-Selector1; t=1792068907; x=1823604907;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=0gn0ipHnBnEnnuWNB3XyCR/eq/dBn2N7SSrrBn41Q04=;
-  b=iiXe7ZRdnp3X7PCAA6dto9wKlMmRgTpFCvNd7ecEBywaFMKyhLZhDTGo
-   P9Szr1G8iI7EXi3FcKt8a4EYDM3T8fh/o7a23vOyIlLTwxJrZwDSyMqDD
-   bXaH7qq7zCnBSi2/Vn7+Os5ddCeec8bpFc76pMdiS4eLvEbbF9YOM2Kv5
-   sZDgEqJFwKWcP6qArtDPzHhl4CHioDdDGhzFcBqKLCNGQCkQ+qjeNw9MU
-   8SwcH2sVPA9YWQzNi4mQbvvpb8aFZz3fjHSU9PgG6qbvkK7pU6RpOjzjo
-   p76aXOnpW70AwXWd/VlXAbLa0NiVVecY+/KkmGtSqTPZMZR7urSgrLPd0
-   g==;
-X-CSE-ConnectionGUID: argpiFZDRjew2GEbVOkeTg==
-X-CSE-MsgGUID: DaObyZLSRPODZY5ODLoDlw==
-X-IronPort-AV: E=Sophos;i="6.27,159,1787032800"; 
-   d="scan'208";a="125039186"
-Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
-  by naesa04out.arrow.com with ESMTP; 15 Oct 2026 06:55:04 -0600
-Received: from AHMCPU1888.localdomain ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.20348.1);
-	 Thu, 15 Oct 2026 18:24:55 +0530
-From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Min Lin <linmin@eswincomputing.com>
-Cc: Yulin Lu <luyulin@eswincomputing.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Darshan Prajapati <darshan.prajapati@einfochips.com>,
-	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
-	Pritesh Patel <pritesh.patel@einfochips.com>
-Subject: [PATCH v5 7/7] riscv: dts: eswin: add watchdog support
-Date: Thu, 15 Oct 2026 18:24:54 +0530
-Message-Id: <20261015125454.1381941-8-pinkesh.vaghela@einfochips.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261015125454.1381941-1-pinkesh.vaghela@einfochips.com>
-References: <20261015125454.1381941-1-pinkesh.vaghela@einfochips.com>
+        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1792069132; x=1792673932; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=gzDS3xnAfb++0NZ2mM9jNCMhIa/Xs/tZlWtnxCVCMlY=;
+        b=Q5kgNPQLKyIbgAlfqr78FzEdKtFgQ/Gzl8B5BZm4tTBe4GfmZP3SWKPZwgtYnjUO1m
+         t5/PjU5j2H9lDi8qJPcmXpMMesgTXFLBEfKIyicPIPt23MCrNX1SE2lYGhN9twAtfocg
+         td4jUSDD4R+3Qnw6zDKdt462BoefgqSz9FRSV6z+UErrXIkCx5q2ezmS0Wc6nA9DR57y
+         aazzuAktWNznh+kOujvWF7oPLmxPCUlBUbVPko3zFcebOt8XvEd4oWG+8fb32+DIX66h
+         5BKroTqSB+tggwD/wvtfzP8SkDFYbq9g1/d+cYyksyHZA2U1GALKAhADnaf4yi/ejAZA
+         /hpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792069132; x=1792673932;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=gzDS3xnAfb++0NZ2mM9jNCMhIa/Xs/tZlWtnxCVCMlY=;
+        b=Ip4G9TyNxZUJttVqxbeKsOw6mDsA2KKc+52R9OAYraM4DTgAK09QVGoz9JTubFfpaq
+         4+IM2MKV7KZrL35nmPBDuvKtm2b3hdcR6k4LfNGfVuVIuysEmfsi3gHpq8y/8A3jWkRi
+         qqH5/F8XYOgZNYawcB+xWTEZzQFzaMvwPlJchVCZBuyhpz7iyPAcU5sljMTGvxFJ2hyk
+         9VOYRgMTV1oIuPs8aaEQ6XGmtHA7R0tUrtAvSnI27StnCXkcMUnGkH4i2c1rCaA5KZeM
+         Q7Lqoe07o+WkJs3DtkEuDOoFM24jA+tdcdPWOqAxYzJ4WZ6iQBcVpM5nYA/7WR4R46Su
+         FMyQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxILT4iK2PzFKsDJpKDpwUwByn40hhonBQqQAQeR2a/AIUqKKFUUVWeWqwWZfp1kHn2g94Hg3/Lno78RQ==@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ5J+6VZ3mKALE51JXrrJXi2N0nf/Lqg7cw0uO5Cz4g0iw9/K45
+	rrCioKldWoY2j4QXhHvp+ztzy0tkPPsl6rRt+JHgW5qfdvEwJhn3AafoFdjMtNuzIME=
+X-Gm-Gg: AYBFou0Qdl+jRNSVtWKtZg6CPQWTvLsAgHIpo5m/aDH1G7j9rYoWK/24no2fWIs595r
+	2q1IirgRhkWq4DPxIx+C4eljDHJ1zlafqUV5Dbt4Wgrkcpdxuwpfapk5vdGC15XKV/+Yj8UC9pH
+	c2rhyze97XaGMeIkG7Ojdyver7AcRKJFpVHAs2muO9Rnu6Co4znMnU3pNAyHdBUNffUxccypd/3
+	sDczJZejZ2NkvFOsTB/zgLyKfvYfzBz2Dm57lrIuESboIYGsSGJVB7WsgpjyQGWfCAaYNxF33fQ
+	vkhi4EFNiU+uvNTMna1JQFMGCwsokgcROEQfL1Pg9swx4PRAC01HaVIrnNZmvAHNafjkog3yFPZ
+	8U706WgKKUp+S2utOOuvhAXoPfF0JWgvxsimIeynvsbIpLUiZiGTHXhA1+swY02KoLV7wGw7ifk
+	iEgpSSit/MzqgnJRxjIKT2k7OW8IgftAgqe0mjCnffRmYlaTz4lEEG9rcnTn/Q2Q5LxYIYJ1aDW
+	h5KZofulnwNPPOi
+X-Received: by 2002:a05:693c:83da:10b0:353:804a:5e83 with SMTP id 5a478bee46e88-353804a5fe8mr24930671eec.8.1792069132269;
+        Thu, 15 Oct 2026 05:58:52 -0700 (PDT)
+Received: from [10.42.0.1] ([2a00:23c7:1d1a:9c01:efe0:7af6:c627:5f7f])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-35c89429484sm27325895eec.23.2026.10.15.05.58.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Oct 2026 05:58:51 -0700 (PDT)
+From: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+Date: Thu, 15 Oct 2026 13:58:28 +0100
+Subject: [PATCH] mailbox: Use named initializers for acpi_device_id
 MIME-Version: 1.0
-X-OriginalArrivalTime: 15 Oct 2026 12:54:55.0359 (UTC) FILETIME=[607400F0:01DD5CA4]
+Message-Id: <20261015-acpi-mailbox-v1-1-152ba71454ff@thegoodpenguin.co.uk>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrA1kAgrpVcRFMh11SmtCUktAv
+ LuxLt/i/x0yJ+EMj2aHxD/JEtYKbBugxa0zK3lWg9GmR42dchRFfZy8fSiqI209WoNoCWoSE09
+ S/rthvJ03/2L6Xg84jhPqij2KcAAAAA==
+X-Change-ID: 20261015-acpi-mailbox-5c09b192119c
+To: Jassi Brar <jassisinghbrar@gmail.com>, 
+ Rahul Pathak <rahul@summations.net>, Anup Patel <anup@brainfault.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792069129; l=3235;
+ i=pzalewski@thegoodpenguin.co.uk; s=20260430; h=from:subject:message-id;
+ bh=Ti3ORTRFIbhTaKVJ+zyV+gulbIXNDTcXQZ/fH+BdAvQ=;
+ b=KHPuP7rvUi2hhNNtdgguZt1cgOx1RwPRIeyrjwuRcU0S3vubL3X027eNdmKk4+WyLv6WFbnR0
+ XcJpEBEyzOtDVNPC97aqsT5fzrS4Ovo3AXER+h01Sh/6tZbj9P6QLep
+X-Developer-Key: i=pzalewski@thegoodpenguin.co.uk; a=ed25519;
+ pk=vHq4n9IonORH2GTzLv8r6CWAFHzgfBuNkQPXA8NSly0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_135507_584235_C38E58BC 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261015_135855_717217_BB791E73 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,74 +127,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pritesh Patel <pritesh.patel@einfochips.com>
+Use a designated initializer for the acpi_device_id fields which makes the
+code more readable and consistent with how lists are initialized in the
+rest of the kernel code base. Also drop explicitly setting fields to 0
+where it is redundant.
 
-EIC7700 have four DesignWare watchdog controllers that are
-integrated to SoC.
+Unify the list terminator to have a single space between the brackets and
+no trailing comma.
 
-The controllers use only SoC-internal register, interrupt, clock and
-reset resources and have no board-level dependencies, so describe them
-as available in the SoC DTSI.
-
-Each watchdog counter is driven by its corresponding LSP APB clock.
-The NOC_WDREF clock belongs to the separate NoC watchdog and is not
-used by these controller instances.
-
-Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
-Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+Signed-off-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
 ---
- arch/riscv/boot/dts/eswin/eic7700.dtsi | 36 ++++++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
+This series is converting lists that contain the acpi_device_id struct,
+which is defined in the include/linux/device-id/acpi.h to make use of named
+initializers (which they do not use currently). This work is part of the on
+going effort in the kernel associated with device-ids [1]
 
-diff --git a/arch/riscv/boot/dts/eswin/eic7700.dtsi b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-index c0aa91b357ff..ec58a3aaf582 100644
---- a/arch/riscv/boot/dts/eswin/eic7700.dtsi
-+++ b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-@@ -265,6 +265,42 @@ syscon: syscon@50440000 {
- 			};
- 		};
+The plan is to convert acpi_device_id::driver_data to have an anonymous
+union, similarly to what was introduced for PCI and I2C device ID tables.
+The goal is to increase type-safety (most of the existing casts are gone),
+to improve readability and to make use intent a bit more clear:
+
+```
+union {
+	kernel_ulong_t driver_data;
+	const void *driver_data_ptr;
+}
+```
+
+But for that to work all lists containing the structs need to use named
+initializers first to avoid triggering -Wmissing-braces. I already have
+patches that implement this and touching a lot of kernel subsystmes that
+use the acpi_device_id struct and that list keeps on growing. Therefore,
+I have decided to split the series per every subsystem into:
+- pre-clean-ups that convert the lists to use named initializers
+  (which is this series)
+- actual implementations that make some of the modules use the new
+  driver_data_ptr member (does not apply to this tree)
+
+That way the task can be fragmented into manageable and independent chunks
+of work and makes this effort easier to review.
+
+[1] https://lore.kernel.org/all/cover.1780048925.git.u.kleine-koenig@baylibre.com/
+---
+ drivers/mailbox/mailbox-xgene-slimpro.c | 4 ++--
+ drivers/mailbox/riscv-sbi-mpxy-mbox.c   | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/mailbox/mailbox-xgene-slimpro.c b/drivers/mailbox/mailbox-xgene-slimpro.c
+index 946ea773ec33..1f87a84e5995 100644
+--- a/drivers/mailbox/mailbox-xgene-slimpro.c
++++ b/drivers/mailbox/mailbox-xgene-slimpro.c
+@@ -228,8 +228,8 @@ MODULE_DEVICE_TABLE(of, slimpro_of_match);
  
-+		wdt0: watchdog@50800000 {
-+			compatible = "snps,dw-wdt";
-+			reg = <0x0 0x50800000 0x0 0x4000>;
-+			interrupts = <87>;
-+			clocks = <&clk EIC7700_CLK_GATE_LSP_WDT0_PCLK>;
-+			clock-names = "tclk";
-+			resets = <&reset EIC7700_RESET_WDT0>;
-+		};
-+
-+		wdt1: watchdog@50804000 {
-+			compatible = "snps,dw-wdt";
-+			reg = <0x0 0x50804000 0x0 0x4000>;
-+			interrupts = <88>;
-+			clocks = <&clk EIC7700_CLK_GATE_LSP_WDT1_PCLK>;
-+			clock-names = "tclk";
-+			resets = <&reset EIC7700_RESET_WDT1>;
-+		};
-+
-+		wdt2: watchdog@50808000 {
-+			compatible = "snps,dw-wdt";
-+			reg = <0x0 0x50808000 0x0 0x4000>;
-+			interrupts = <89>;
-+			clocks = <&clk EIC7700_CLK_GATE_LSP_WDT2_PCLK>;
-+			clock-names = "tclk";
-+			resets = <&reset EIC7700_RESET_WDT2>;
-+		};
-+
-+		wdt3: watchdog@5080c000 {
-+			compatible = "snps,dw-wdt";
-+			reg = <0x0 0x5080c000 0x0 0x4000>;
-+			interrupts = <90>;
-+			clocks = <&clk EIC7700_CLK_GATE_LSP_WDT3_PCLK>;
-+			clock-names = "tclk";
-+			resets = <&reset EIC7700_RESET_WDT3>;
-+		};
-+
- 		uart0: serial@50900000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x50900000 0x0 0x10000>;
--- 
-2.34.1
+ #ifdef CONFIG_ACPI
+ static const struct acpi_device_id slimpro_acpi_ids[] = {
+-	{"APMC0D01", 0},
+-	{}
++	{ .id = "APMC0D01" },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(acpi, slimpro_acpi_ids);
+ #endif
+diff --git a/drivers/mailbox/riscv-sbi-mpxy-mbox.c b/drivers/mailbox/riscv-sbi-mpxy-mbox.c
+index ea69c6b6b4f9..4ebce35a8b6c 100644
+--- a/drivers/mailbox/riscv-sbi-mpxy-mbox.c
++++ b/drivers/mailbox/riscv-sbi-mpxy-mbox.c
+@@ -1006,8 +1006,8 @@ static const struct of_device_id mpxy_mbox_of_match[] = {
+ MODULE_DEVICE_TABLE(of, mpxy_mbox_of_match);
+ 
+ static const struct acpi_device_id mpxy_mbox_acpi_match[] = {
+-	{ "RSCV0005" },
+-	{}
++	{ .id = "RSCV0005" },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(acpi, mpxy_mbox_acpi_match);
+ 
+
+---
+base-commit: 0fcb05b72344f40806cbe810de8872f1698bf053
+change-id: 20261015-acpi-mailbox-5c09b192119c
+
+Best regards,
+--  
+Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
 
 
 _______________________________________________
