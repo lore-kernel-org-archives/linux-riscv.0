@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1529CCC6B2F
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 09:03:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7F97CC6B2F
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 09:04:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kq3URl2eJRYvo3LWoTyl8OHSA7c8nshTYjpqxFj9agI=; b=4VeSgVmpC5MGHM
-	iAvPILMp17pxjQ/qAE5u0nzlDG+zgPKzFF77sYC9IfdqrklY5cxSUL1lmUWtpGwqZcC47fdNBjqkw
-	RU0QkWENZTOZKWhj6ke+tcRKSTdkwvALzVjJ6KXIPypweMZvF7qRdMSJ8k/HdJj5AEllCwClDa69S
-	eHRi8BWShwpT668MW+h7RkRvfRkjiE/izi7lWk/nSmjyBqU7BzFKm40YZdp53pn4HHIJAzbgdAIPw
-	ePOVuU8TItbUigoPE3zNXYwg0YOsCdtUZ4f3GszO5hzGVygohMBSCE0Nax7W04u3e+ww5RoYba+Lv
-	8t44Gid6w6nNTOabN4qA==;
+	List-Owner; bh=69i+05L5YcR08ZGhSjbeVbaQwR7ztooi/t56zvMlC5c=; b=tsl942SW+htHxY
+	J7EPP+WMndvyNVsjVokp5ykof9cyv3ufUyqbHEL8sX+XHcULjyxkRzCxUuguNbGpRw35Cc5W+M+WG
+	XGOF1Z7IItAURUvlSCP6BohpeEhPcuGONyq9ALMxCEwBa3uyE7UcmmlxED6otX2mFHK6byON99dCg
+	8g9vuJD0EHEgX7zIJ4Uqx1Uv8cvSvZxeKOLES+hKXABOQSrtkyqzFt6VTBUb5YGfuTXnJfzSz7CWP
+	eEXSKps1JM8x8PwA/TW4pi2gib4EFYRhb9q1YFii1rar1ngRegYEtqx7c5g1XDwv/r18rcWSQih1Y
+	+m4wKAQbni61qtm1eJaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHNA-0000000HDEp-1FR6;
-	Thu, 15 Oct 2026 09:03:36 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1xHHNo-0000000HDKp-2Oxi;
+	Thu, 15 Oct 2026 09:04:16 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHN8-0000000HDEJ-238C
+	id 1xHHNm-0000000HDKG-3IOz
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Oct 2026 09:03:35 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-cd5d2dafeccso2028508a12.2
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Oct 2026 02:03:34 -0700 (PDT)
+	Thu, 15 Oct 2026 09:04:15 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-3ab60ff4273so4166493a91.0
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Oct 2026 02:04:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792055013; x=1792659813; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792055054; x=1792659854; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=KUIkGkj6B9Tv+hZUqi/sJY1ZKDxkj40BHrOHpN+3Sz0=;
-        b=dZgMs6HCC74B06kbl7CrAAA0/78iaCIpbKXNZlhfDtArsJO75lguFcL1VxAnkAb4U2
-         j+UEZGzBT9N3kONzcAyn6MnB+tZUonAMDMyJ2y2V6/tbu0+D67G4+mpn6QT9c4aN1J4w
-         mHXAf63RfKTEkrDgMpvooMUpOti8P7+LRdljYBZojybxOEgX+SO0AGsCLoN4AH0Hd48R
-         YB3oZUtchoTHELEZ9rKBb3/5pgLJNVdYiSWPgR5XLx/HYR/7G9iudJh7Zb1AgwtXtjd/
-         Dc7rEydlT18+u84oZIMajKt7OWTIF2rm1hw+k6lYPJIwz2uWij7odij27n9CdR92vGRR
-         RlKA==
+        bh=aAp8nRUf9PkjRjYtrHFE+R8uyBzEHqKOUymE8wD/INs=;
+        b=Awjt6MA9ApPXRLKxJXDynjQ0NindkhJubFgOzB2jSs/vLY5mGHZ5ZEMF0K8IUV6KYa
+         pa4Q8hJMkizDayrRVAcxmd9ktjSN5bf/MbuNZt93ZcQFFNI/VyORN+FG0cmyZ/hG8ujw
+         IIEkiJUNXASesrFMv4mOvPIhKdeZPfWzJ4YpDmQZbRnn891XZByxqxySmc0WJdSiuoi4
+         6Lb9Qat/nJi1dRCzSqJmOzdbn7RHHHN0YTSDb951H3mXfMWMzh/EYnLmqfs1OBFsmYpN
+         ngzn6Sj240N6bU6ZhmbQhmxNkMKuSwY7nKHpNrFej27tdmGQzoYHMz/yRU6l33SorFJI
+         nmPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792055013; x=1792659813;
+        d=1e100.net; s=20260707; t=1792055054; x=1792659854;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=KUIkGkj6B9Tv+hZUqi/sJY1ZKDxkj40BHrOHpN+3Sz0=;
-        b=lTwESUEtd/7OMrYzPMEF7lX7l/AOLtgEUkG5vSccEGktmoPniYVfGf/n5OLvO/AfUM
-         fVeJpuU8rr5Ri2X4npbwDya2jgISWYYucfgmNh+qRw+4c/JOaDnZjHAziyUFDlXo1JCU
-         ydTZCj4P0vcccO1vsfQ+8bnb2f58SVM18qodfU394ahachGyze2YANaRvZPtoXuCoTh4
-         SCl8tZl0KncKKVF33hUEpKX46lC2t1OT2B7SrLlFfJaE43Mep4d3FimSd73EaDccbJwu
-         8B2QjGfCMAGOx3a39B4wfukjE+u9cxPrg7r4UBTKNzVUKi5ce2sghXSYacq+18spwRIk
-         sMfQ==
-X-Forwarded-Encrypted: i=1; AKwUvBz59wAVg5fmoQh7bzNGE3qQHO8XPmxHF6n/n/lh2jOGX6FxNqcD3ahRQNl28YyuaTCM8NHF+RL7TdSyKA==@lists.infradead.org
-X-Gm-Message-State: AFq9FYL+Bz/jnauoRnJaIaEtXher5xHKxYoSoqBPNYzNm2PJjMxRr96O
-	cp6gzaKxIKErG0Aotppgwk0cXnH5qrMp4auGYU1kZw4bXco52E8UDuYT
-X-Gm-Gg: AYBFou1s/nvhuNdyTDFfCFEFzvbDowOPDuNqR1EpQjwO+3R7E+jEuv6l7uBoD+9+S2O
-	9rj1mFVWPsOpRouNKq1/dAcXIsQMWoOCNbCcgUgU3X8v9qobGv0HhJbFF8msPFFyNXh+nw5EVEp
-	j4MgNdlt3CeKJILaRuZG8Y1d1kUFSrrz2TNf9wzFJ0rGPvU3PwZS2BuR3ox5dilbf2io2GgnM3/
-	a8zlrHgHVC8J6HIDCgnlUDzD4qMQ3J1UiOnAKLACGMUsxhUaoq3W+tpXFaYivOh2c6HGdoy0rpc
-	eci5O97zgGyq2hmYlmVwSY9bDHyocUlMSGT3l9IsOqlFrwhn+KSiIusq/18yZn6nRKiQB8ddZVo
-	xWQ/Uqpxe5uOhVf/cRBM18y9kKjJi/eKJtSU4C+LDv1DMJbYhSe1Xt532y5XP7wR81ZW9XKKdFm
-	7o8W7Vzzl0lQ2yrkTCMvfh1BV22YSLKJM5zWqRXALBQ7eE4JhErf2mLIr0TCeJnOoY+EG/
-X-Received: by 2002:a05:6a21:3944:b0:3dd:a196:3091 with SMTP id adf61e73a8af0-3e16bef498emr14329973637.65.1792055013262;
-        Thu, 15 Oct 2026 02:03:33 -0700 (PDT)
+        bh=aAp8nRUf9PkjRjYtrHFE+R8uyBzEHqKOUymE8wD/INs=;
+        b=CPEga5HKl+v3UJYvkfcAwTZoid0F+e51NfCA4LzL1wjaJSuYV/JDpEybcxjqfLP+J9
+         mif+6yLT16aMWg4G5ljrPAiJhBIOxaJQbz+76hME9vJhrJPC4gR+smR0MH90vUHp0Jod
+         5cxB4jJiOHbt3Je+NHVHeFLIekXd7NDIcR11A4ZouaDIw2BbIye/OSre1o6BZIve5/Lz
+         QcUCroM6NoblRqKTtx13lLE4DvhtXhmfwzA1AGz3p0DyMU+/0Sd7ohajeqEre1/H3BYo
+         3xOFk9AvND3wX/V4gw3ZaZhUnE9FpszAhNc9u2EgYvC4N7Ojc6M1/ZpjdiOuv6Es2zdz
+         nD3g==
+X-Forwarded-Encrypted: i=1; AKwUvBzr0HaSFAlE+wvXQjbBniSmDx+HFnmUsxActt+LfaHCyAojCWknekIuYNI4GwEhWWozx4zHIHqG0/X4gA==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKCfxHo7CZx99q15PgoPSiJ8cx70iQ7cG3sS9BLH/rSh5726D/M
+	luOYx3WiQIWmydoGymPe4c2uM6ow6LGFE6cgKzAdmMjI2LAl40k23xHg
+X-Gm-Gg: AYBFou2rqITP2ERFY1ehDMTwlcVqFzYMKI8/KWPeLyLXY0C1c9edSWXFnadV8ieCvYK
+	ZRhDLQ5v6Fe2o+vEaghzMTQpbU8Hu2rKdCOohctcMhpDPOg2xStC3sKBXtjPyM+WoOTdVjJH0jl
+	WAA5EmxdxY/HwRCJiOeM9woXtlaYl2HFbo9Pq1qYhykt8/zWtJXIJeKihu8JiTvT5bpFDznXTEG
+	wld0Yfb5cvSuehDC7CwsdO2i9iNSq8EyBAWNme+JfuFPA/OWNJ+lT+bHZau85q/bEf4CUIY7M97
+	5YqCRvOrr7SD2YHPpohIKe42EsrRrH9nxlvwE+gI6eB9jsJfLq7tpT2bzP+65mhYr/kfq6ypJs9
+	i0uHnx2wP9MCqd9qvdoTH0e0P8zYXD1ExLD8unbmT4yUWJkdseiSKplsKV8L8ici3KaBwQZFET7
+	uCYcm8hSHDTZ5MumO3stalJmeQVaGpkPwdH+cFVIfLVsHDU+PSaLzfOgRxxEb85SDxEYpu
+X-Received: by 2002:a17:90a:e7d2:b0:3ac:a521:959 with SMTP id 98e67ed59e1d1-3aca52109eemr559134a91.29.1792055053807;
+        Thu, 15 Oct 2026 02:04:13 -0700 (PDT)
 Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cd635cd3b34sm962553a12.28.2026.10.15.02.03.32
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ac9474b52fsm3869119a91.9.2026.10.15.02.04.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Oct 2026 02:03:32 -0700 (PDT)
-Date: Thu, 15 Oct 2026 17:03:00 +0800
+        Thu, 15 Oct 2026 02:04:13 -0700 (PDT)
+Date: Thu, 15 Oct 2026 17:03:41 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Chen Wang <chen.wang@linux.dev>, Inochi Amaoto <inochiama@gmail.com>, 
-	Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
+	Chen Wang <chen.wang@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, 
 	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 2/3] nvmem: Add Sophgo SG2044 eFuse driver
-Message-ID: <atCV8NsJc5Oatoo0@inochi.infowork>
+Subject: Re: [PATCH 3/3] riscv: dts: sophgo: sg2044: Add eFUSE device
+Message-ID: <atCWzDzmknrsMNNQ@inochi.infowork>
 References: <20261014074516.240247-1-inochiama@gmail.com>
- <20261014074516.240247-3-inochiama@gmail.com>
- <fa4253c7-3b17-4b20-97b9-eb37f218a4c8@linux.dev>
+ <20261014074516.240247-4-inochiama@gmail.com>
+ <20261014-romantic-pretty-petrel-36c7ec@quoll>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <fa4253c7-3b17-4b20-97b9-eb37f218a4c8@linux.dev>
+In-Reply-To: <20261014-romantic-pretty-petrel-36c7ec@quoll>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_020334_563622_525BE680 
-X-CRM114-Status: GOOD (  23.65  )
+X-CRM114-CacheID: sfid-20261015_020414_825394_BBB360FE 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,51 +108,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 15, 2026 at 02:43:40PM +0800, Chen Wang wrote:
-> Hello,
-> 
-> On 10/14/2026 3:45 PM, Inochi Amaoto wrote:
-> > Sophgo SoCs such as SG2044 contain eFuses used to store
-> > factory-programmed data.
-> > 
-> > As for SG2044, HW automatically loads the eFuse content
-> > into shadow registers which are organized as 32bit values
-> > exposed as MMIO.
+On Wed, Oct 14, 2026 at 01:43:50PM +0200, Krzysztof Kozlowski wrote:
+> On Wed, Oct 14, 2026 at 03:45:15PM +0800, Inochi Amaoto wrote:
+> > Add eFUSE controller node for SG2044.
 > > 
 > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 > > ---
-> >   drivers/nvmem/Kconfig        |  12 +++
-> >   drivers/nvmem/Makefile       |   2 +
-> >   drivers/nvmem/sophgo-efuse.c | 176 +++++++++++++++++++++++++++++++++++
-> >   3 files changed, 190 insertions(+)
-> >   create mode 100644 drivers/nvmem/sophgo-efuse.c
-> > 
-> > diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
-> > index c36c2a4c2a0b..a7936dd65bdd 100644
-> > --- a/drivers/nvmem/Kconfig
-> > +++ b/drivers/nvmem/Kconfig
-> > @@ -465,6 +465,18 @@ config NVMEM_SNVS_LPGPR
-> >   	  This driver can also be built as a module. If so, the module
-> >   	  will be called nvmem-snvs-lpgpr.
-> > +config NVMEM_SOPHGO_EFUSE
-> > +	tristate "Sophgo eFuse support"
-> > +	depends on ARCH_SOPHGO || COMPILE_TEST
-> > +	default ARCH_SOPHGO
-> > +	help
-> > +	  Say y here to enable support for reading eFuses on Sophgo SoCs
-> > +	  such as the CV1800B. These are e.g. used to store factory programmed
+> >  arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts |  4 ++++
+> >  arch/riscv/boot/dts/sophgo/sg2044.dtsi               | 12 ++++++++++++
+> >  drivers/nvmem/sophgo-efuse.c                         |  1 +
 > 
-> Why is "CV1800B"?
+> Review code before sending.
+> 
+> Best regards,
+> Krzysztof
 > 
 
-This is an old mistake, this patch follows Jishengs's patch in the first
-design. But then almost everything changed and only thing for SG2044 left.
-This is the thing that is left to change.
-
-I am not sure whether it should keep this generic name as I see it should
-be compatible for most sophgo SoCs (at least it should be for CV1800X, 
-by just change offset). Feel free to give if you have some suggestion for
-a better name
+Yeah, I forgot this, I merge it in the wrong patch. Thanks.
 
 Regards,
 Inochi
