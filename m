@@ -4,56 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91B37CC6B3D
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 06:53:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ED4FCC6B3A
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 06:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7f1lz+fD4h9eu+yi4o0sdSC+BVdCT6qoNMa7l1j3Z40=; b=q5xY6RKd+pGBIE
-	A8iB7QTkRBiyl7Ad7tv/dLR6BdGXfGGmeL5va+zlbILToC4m/nl06N86f6dMH/WJAJ2ZDnyq08N6c
-	4+Wa78BmwqW9P2LQf4xt3RAH8Mtv12YhV33xu6yvCQk3rw0lGHlpavLFcqipaVrjIT2XjriQFxHdu
-	y5s7Gnigi5oMOSzWtfnf0Cdnf0n9HSX+9GFgfRF7kyyjTHbSdXiIaBNvxlDS1z3PX2X2bOgRJL+I2
-	L1R0yQSg7l4G7EyJSpr1s71bHIOpRzcmObbvPCXC8vUh6XisBHD4Vh9/sRknESlPSWROD8cAZTnaJ
-	VcBOw6n0wL7W+7RYUD5A==;
+	List-Owner; bh=8BWRtkz4D8b5Fft2guDXULrTaZzl4+GR7S13Q2f4APQ=; b=OjsF33zBA5S5g7
+	42ohOxnlRxcUrd9ur1jNjxXmSb4ddHy0wN2nGaVEzIyWpyfnn1Ir8kIVdatunwiB49R4kQ5t5hrxI
+	ArBvk6Tr+UGWQ1bH7FFNfhxGiZQKdUqrRodPDl6FF/9P7w7ikYwCu943Re6RvnL8aN4bmyKNX5jfv
+	e43tIjnHUenGYYauVGff4CN5eU59G7u908JUepuGpQUkLOuvTi9X26PKxua8YqGL8L7eSvdFmincg
+	giuRrsTSkGgiLZqwn+/4xuuHARfI1zuEYYlAeJtO/2ky2vnC38IrVBYCQhnVAy54mZTu22BeQsvcb
+	hadAXaIX7Mg3TLFQYC9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHFKx-0000000GyKb-37C9;
-	Thu, 15 Oct 2026 06:53:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xHFKy-0000000GyN4-2ioF;
+	Thu, 15 Oct 2026 06:53:12 +0000
+Received: from mxct.zte.com.cn ([183.62.165.209])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHFKl-0000000Gy53-39o5;
-	Thu, 15 Oct 2026 06:53:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=6Xd8ZIO9QDtNkMai+4anBbzMaQdrqXR4fP8WB/kPRmE=; b=GAulY1OdZoWmOWOmyObroHqNhq
-	GSldAsJSgWtmYNaDJrWbUFk7qQNa7smKuE2FlxI2CuwgI0VxHUQ9TPKKvtNJzG1m/xJTmJZxveNN3
-	44ZKoxIgBaLK2lqJxEXtLC4NqFH9OOGEQnW4E+K9rTwKWNC0mRbdSgm/lgjFaX4VqLfDbA9Pw9U87
-	Z9TyNw6IPu44cMixKXpPlQMMQvnq2z2w2FQz6ji+W78oikub9NN4Y9QYyaBH2/XOVYiYlwt33AQH5
-	M0Wj5twqig4c7xl6M3oWA52ytV359mq+OH2a8UIkTO/FBOV9R1/6YGpCwKqD70wZFDQGRH9K/SGXQ
-	LJkxq4CA==;
-Received: from mxhk.zte.com.cn ([160.30.148.35])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHFKi-0000000HXy0-1qBx;
-	Thu, 15 Oct 2026 06:52:58 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	id 1xHFKp-0000000Gy7i-35tA;
+	Thu, 15 Oct 2026 06:53:05 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4j4zKb5VzQz8XrrX;
-	Thu, 15 Oct 2026 14:52:51 +0800 (CST)
-Received: from szxl2zmapp06.zte.com.cn ([10.1.32.108])
-	by mse-fl2.zte.com.cn with SMTP id 69F6qgc6019110;
-	Thu, 15 Oct 2026 14:52:42 +0800 (+08)
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4j4zKl2GgNz5B15S;
+	Thu, 15 Oct 2026 14:52:59 +0800 (CST)
+Received: from szxlzmapp04.zte.com.cn ([10.5.231.166])
+	by mse-fl1.zte.com.cn with SMTP id 69F6qkRW013978;
+	Thu, 15 Oct 2026 14:52:46 +0800 (+08)
 	(envelope-from gong.shuai@sanechips.com.cn)
 Received: from ubuntu-35-gs (unknown [10.230.214.35])
 	by smtp (Zmail) with SMTP;
-	Thu, 15 Oct 2026 14:52:44 +0800
-X-Zmail-TransId: 3e816ad0783b024-55553
+	Thu, 15 Oct 2026 14:52:48 +0800
+X-Zmail-TransId: 3e816ad0783f024-555d7
 X-Zmail-LocalSMTP: 1
 X-Zmail-RealSender: gong.shuai@sanechips.com.cn
 From: Gong Shuai <gong.shuai@sanechips.com.cn>
@@ -75,25 +61,24 @@ Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
         Zhao Qingye <zhao.qingye@sanechips.com.cn>,
         Gong Shuai <gong.shuai@sanechips.com.cn>,
         Gong Shuai <gsh517025@gmail.com>
-Subject: [RFC PATCH 07/12] iommufd: Add RISC-V IOMMU hardware info type
-Date: Thu, 15 Oct 2026 14:52:27 +0800
-Message-ID: <20261015065232.604503-8-gong.shuai@sanechips.com.cn>
+Subject: [RFC PATCH 12/12] RISC-V: KVM: Forward MSIs for guests with a vIOMMU
+Date: Thu, 15 Oct 2026 14:52:32 +0800
+Message-ID: <20261015065232.604503-13-gong.shuai@sanechips.com.cn>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261015065232.604503-1-gong.shuai@sanechips.com.cn>
 References: <20261015065232.604503-1-gong.shuai@sanechips.com.cn>
 MIME-Version: 1.0
 X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
-X-MAIL: mse-fl2.zte.com.cn 69F6qgc6019110
+X-MAIL: mse-fl1.zte.com.cn 69F6qkRW013978
 X-TLS: YES
 X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
-X-SOURCE-IP: 10.5.228.133 unknown Thu, 15 Oct 2026 14:52:51 +0800
+X-SOURCE-IP: 10.5.228.132 unknown Thu, 15 Oct 2026 14:52:59 +0800
 X-CLEAN: YES
 X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6AD07843.000/4j4zKb5VzQz8XrrX
+X-Fangmail-MID-QID: 6AD0784B.001/4j4zKl2GgNz5B15S
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_075256_968033_E446C735 
-X-CRM114-Status: UNSURE (   8.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261014_235304_488745_2EDE04A4 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,53 +95,179 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Wu Fei <wu.fei9@sanechips.com.cn>
+The IRQ bypass names the target vCPU by matching the device MSI address
+against the guest IMSIC addresses of the vCPUs, so it only works when the
+guest programs the device with those addresses directly. A guest with a
+vIOMMU programs an address from its own IOVA space instead, which the
+IOMMU resolves through the guest stage-1 page tables before it looks the
+address up in the MSI table, so no vCPU can be named at that point.
 
-Add IOMMU_HW_INFO_TYPE_RISCV and struct iommu_hw_info_riscv, which
-reports the RISC-V IOMMU Capabilities register through
-IOMMU_GET_HW_INFO.
+Falling back to host delivery is not an option either. The device would
+keep the host IMSIC address composed at vector activation, and the
+guest's own stage-1 page tables do not map it, so its MSIs fault instead
+of reaching an interrupt file.
 
+The MSI table already holds the VM-wide IMSIC topology, so the hardware
+finds the target vCPU by itself once the address is translated. Forward
+such IRQs for the whole VM and program the device with the MSI message
+composed by the guest.
+
+Such a producer can reach any vCPU of the VM, so unforward it whenever a
+VS-file is released and retarget it whenever a vCPU migrates.
+
+Co-developed-by: Wu Fei <wu.fei9@sanechips.com.cn>
 Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
 Signed-off-by: Gong Shuai <gong.shuai@sanechips.com.cn>
 ---
- include/uapi/linux/iommufd.h | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ arch/riscv/kvm/aia_imsic.c | 67 +++++++++++++++++++++++++++-----------
+ include/linux/kvm_irqfd.h  |  2 ++
+ 2 files changed, 50 insertions(+), 19 deletions(-)
 
-diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
-index 36e6187bb34b..acfef0338cd1 100644
---- a/include/uapi/linux/iommufd.h
-+++ b/include/uapi/linux/iommufd.h
-@@ -716,6 +716,14 @@ struct iommu_hw_info_amd {
- 	__aligned_u64 efr2;
- };
+diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
+index 010f9a90f107..862db53c66a5 100644
+--- a/arch/riscv/kvm/aia_imsic.c
++++ b/arch/riscv/kvm/aia_imsic.c
+@@ -758,7 +758,7 @@ int kvm_riscv_irqfd_unforward(struct kvm_kernel_irqfd *irqfd)
  
-+/**
-+ * struct iommu_hw_info_riscv - RISC-V IOMMU device info
-+ * @capabilities: Value of RISC-V IOMMU Capabilities register
-+ */
-+struct iommu_hw_info_riscv {
-+	__u64 capabilities;
-+};
-+
- /**
-  * enum iommu_hw_info_type - IOMMU Hardware Info Types
-  * @IOMMU_HW_INFO_TYPE_NONE: Output by the drivers that do not report hardware
-@@ -726,6 +734,7 @@ struct iommu_hw_info_amd {
-  * @IOMMU_HW_INFO_TYPE_TEGRA241_CMDQV: NVIDIA Tegra241 CMDQV (extension for ARM
-  *                                     SMMUv3) info type
-  * @IOMMU_HW_INFO_TYPE_AMD: AMD IOMMU info type
-+ * @IOMMU_HW_INFO_TYPE_RISCV: RISC-V IOMMU info type
-  */
- enum iommu_hw_info_type {
- 	IOMMU_HW_INFO_TYPE_NONE = 0,
-@@ -734,6 +743,7 @@ enum iommu_hw_info_type {
- 	IOMMU_HW_INFO_TYPE_ARM_SMMUV3 = 2,
- 	IOMMU_HW_INFO_TYPE_TEGRA241_CMDQV = 3,
- 	IOMMU_HW_INFO_TYPE_AMD = 4,
-+	IOMMU_HW_INFO_TYPE_RISCV = 5,
- };
+ 	lockdep_assert_held(&kvm->irqfds.lock);
  
- /**
+-	if (!irqfd->irq_bypass_vcpu)
++	if (!irqfd->irq_bypass_vcpu && !irqfd->irq_bypass_nested)
+ 		return 0;
+ 
+ 	irq_data = irq_get_irq_data(irqfd->producer->irq);
+@@ -775,6 +775,7 @@ int kvm_riscv_irqfd_unforward(struct kvm_kernel_irqfd *irqfd)
+ 		return ret;
+ 
+ 	irqfd->irq_bypass_vcpu = NULL;
++	irqfd->irq_bypass_nested = false;
+ 	return 0;
+ }
+ 
+@@ -788,7 +789,11 @@ static int imsic_vcpu_unforward(struct kvm_vcpu *vcpu)
+ 	guard(spinlock_irqsave)(&kvm->irqfds.lock);
+ 
+ 	list_for_each_entry(irqfd, &kvm->irqfds.items, list) {
+-		if (irqfd->irq_bypass_vcpu != vcpu)
++		/*
++		 * Nested-forwarded producers can target any vCPU of the VM,
++		 * unforward them on any VS-file release.
++		 */
++		if (!irqfd->irq_bypass_nested && irqfd->irq_bypass_vcpu != vcpu)
+ 			continue;
+ 
+ 		ret = kvm_riscv_irqfd_unforward(irqfd);
+@@ -902,7 +907,7 @@ static int imsic_vsfile_target_replace(struct kvm_vcpu *vcpu, phys_addr_t vsfile
+ 	vcpu_info.target.type = RISCV_IOMMU_IR_TARGET_IMSIC;
+ 	vcpu_info.target.hpa = vsfile_pa;
+ 	list_for_each_entry(irqfd, &kvm->irqfds.items, list) {
+-		if (!irqfd->irq_bypass_vcpu)
++		if (!irqfd->irq_bypass_vcpu && !irqfd->irq_bypass_nested)
+ 			continue;
+ 
+ 		ret = irq_set_vcpu_affinity(irqfd->producer->irq, &vcpu_info);
+@@ -931,16 +936,10 @@ static bool imsic_targets_valid(struct kvm_aia *aia)
+ 	return true;
+ }
+ 
+-static struct kvm_vcpu *imsic_irqfd_route_vcpu(struct kvm *kvm,
+-					       struct kvm_kernel_irq_routing_entry *irq_entry)
++static struct kvm_vcpu *imsic_irqfd_route_vcpu(struct kvm *kvm, gpa_t target)
+ {
+ 	struct kvm_vcpu *vcpu;
+ 	unsigned long index;
+-	gpa_t target;
+-
+-	target = ((gpa_t)irq_entry->msi.address_hi << 32) | irq_entry->msi.address_lo;
+-	if (target & (IMSIC_MMIO_PAGE_SZ - 1))
+-		return NULL;
+ 
+ 	kvm_for_each_vcpu(index, vcpu, kvm) {
+ 		if (target == vcpu->arch.aia_context.imsic_addr)
+@@ -968,6 +967,9 @@ static int imsic_irqfd_forward(struct kvm_kernel_irqfd *irqfd,
+ 		.data = irq_entry->msi.data,
+ 	};
+ 	struct kvm_vcpu *vcpu;
++	gpa_t target, gpa;
++	unsigned int i;
++	bool nested = false;
+ 	int ret;
+ 
+ 	lockdep_assert_held(&kvm->irqfds.lock);
+@@ -988,24 +990,51 @@ static int imsic_irqfd_forward(struct kvm_kernel_irqfd *irqfd,
+ 	 * The IOMMU writes MSIs straight into the VS-file, so bypass is
+ 	 * gated by the hardware backing checks below, not the AIA mode.
+ 	 */
+-	if (!imsic_targets_valid(&kvm->arch.aia)) {
+-		pr_debug("KVM: IMSIC IRQ bypass requires all VS-files\n");
++	target = ((gpa_t)irq_entry->msi.address_hi << 32) | irq_entry->msi.address_lo;
++	if (target & (IMSIC_MMIO_PAGE_SZ - 1))
+ 		return -EOPNOTSUPP;
+-	}
+ 
+-	/* Leave guest messages that name no vIMSIC to software injection. */
+-	vcpu = imsic_irqfd_route_vcpu(kvm, irq_entry);
+-	if (!vcpu)
+-		return -EOPNOTSUPP;
++	vcpu = imsic_irqfd_route_vcpu(kvm, target);
++	if (vcpu) {
++		/*
++		 * The guest programmed a guest interrupt file address, so every
++		 * vCPU of the VM must be hardware backed for the complete
++		 * topology to be installable.
++		 */
++		if (!imsic_targets_valid(aia)) {
++			pr_debug("KVM: IMSIC IRQ bypass requires all VS-files\n");
++			return -EOPNOTSUPP;
++		}
++		gpa = vcpu->arch.aia_context.imsic_addr;
++	} else {
++		/*
++		 * A vIOMMU guest programs the device with an IOVA-space MSI
++		 * address, which names no vCPU until the IOMMU translates it
++		 * and resolves the target through its MSI table of published
++		 * VS-files. Forward such IRQs for the whole VM. The address
++		 * pattern comes from any published target, as only the
++		 * mask-covered index bits differ between them.
++		 */
++		for (i = 0; i < aia->nr_targets; i++)
++			if (aia->targets[i].type == RISCV_IOMMU_IR_TARGET_IMSIC)
++				break;
++		if (i == aia->nr_targets)
++			return -EOPNOTSUPP;
++		gpa = aia->targets[i].gpa;
++		nested = true;
++	}
+ 
+-	vcpu_info.msi_addr_pattern = (vcpu->arch.aia_context.imsic_addr >> IMSIC_MMIO_PAGE_SHIFT) &
++	vcpu_info.msi_addr_pattern = (gpa >> IMSIC_MMIO_PAGE_SHIFT) &
+ 				     ~vcpu_info.msi_addr_mask;
+ 	ret = irq_set_vcpu_affinity(irqfd->producer->irq, &vcpu_info);
+ 	if (ret)
+ 		return ret;
+ 
+ 	pci_write_msi_msg(irqfd->producer->irq, &msg);
+-	irqfd->irq_bypass_vcpu = vcpu;
++	if (nested)
++		irqfd->irq_bypass_nested = true;
++	else
++		irqfd->irq_bypass_vcpu = vcpu;
+ 
+ 	return 0;
+ }
+diff --git a/include/linux/kvm_irqfd.h b/include/linux/kvm_irqfd.h
+index ef8c134ded8a..39c73157e086 100644
+--- a/include/linux/kvm_irqfd.h
++++ b/include/linux/kvm_irqfd.h
+@@ -60,6 +60,8 @@ struct kvm_kernel_irqfd {
+ 	struct irq_bypass_producer *producer;
+ 
+ 	struct kvm_vcpu *irq_bypass_vcpu;
++	/* Forwarded to any vCPU of the VM (guest-controlled MSI target) */
++	bool irq_bypass_nested;
+ 	struct list_head vcpu_list;
+ 	void *irq_bypass_data;
+ };
 -- 
 2.53.0
 
