@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B20E3CC6B2D
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 02:59:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F148CC6B30
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 02:59:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
 	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fvLKvfBUhwj9GO9Gprjr/P0JFOz2UjrLybMmmw5nuj8=; b=DAYKxtMWufz0zNfb1TPSKy8EAp
-	e93dMk4B733z6Gx7/Uw/E7uTllOfHx3Pd+zz6DqJovbyrScL5+GKHzzeJBLeGU4/BCa4Irm6sXQ2F
-	d2tLpF/GWoXmxEBKue3pVYeGd+KtbrNXBgg7oT0kWLABsh1GvV0O2m+ZT7yl3hvd2o0MhvVER7Vdm
-	kFxZ59Fub0AZ9eclYVezVDVOFaGa+BqMSXrIbAiHpexd1hRtZHOWiJUfT953KLzNq31kh9wr9F7Nd
-	ZsmLtayTIwVeen12di7woF4KgUutRAazoKjSp5aeUHmzCNNtt1e1ndJk1JbJlCeEkuJKme/AC/lQ3
-	mPH9CB2Q==;
+	bh=uN5e7O7H0bN5Z41IcanbD+4Q7UO1hERZt5C0bfXZc+g=; b=N7UpqYHylDh9LJDjsEAhRElvK/
+	JpASvjZnM1b0zQuRTYjQgoN08lOKsVY/TIQMWTHnbt6K4P0qpXsxc6VqWmCtD9Arx5L7kX1ZLXsUP
+	uDjX/MSjxn/Vo2F5PqpyyFxQeFCVCNlKs9I4xT+Px/P3F4l0hOy35GM1QeF1dQr48/fe/hc0FidII
+	jYMgxiv9Nl6RUJE8sv4f8ecKsJGUyIUc9BwD55xph5XTEjN8RVDWzrVutRTx2Ucehap8jg5vVVcOW
+	1xkpfPoDA5H9DvyZdyxKnksqIp3FPzPoBTjZimlqdtIwLNyX3laHNVICnZ7Ht64OgVIjgn4NPdRQf
+	8r5EHkGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHBgQ-0000000GhoS-2Isk;
+	id 1xHBgQ-0000000GhoW-2fNY;
 	Thu, 15 Oct 2026 02:59:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHBgJ-0000000Ghnw-1NPp
+	id 1xHBgO-0000000Gho0-3HqX
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Oct 2026 02:59:04 +0000
+	Thu, 15 Oct 2026 02:59:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B1C58437AE;
-	Thu, 15 Oct 2026 02:58:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1EF51F000C4;
-	Thu, 15 Oct 2026 02:58:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D98816020C;
+	Thu, 15 Oct 2026 02:59:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A38BF1F000C5;
+	Thu, 15 Oct 2026 02:59:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792033138;
-	bh=bpYRRTqwLo2HWeFqcCqbpPVh6DLjUFtMcKybkXV94SI=;
+	s=k20260515; t=1792033143;
+	bh=gfDjOBLmxrlrBy8q3VjBAy3QGHQDlpDU+Qz9C9H7BZI=;
 	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=IlA+k60Oq0HnoXlVurZ79XrtX0WclPoBWWRgWMU4d0FzDe3KQGy7nbCPpm09Rp0f1
-	 NBJX7JJBz+pzLr9/QP/4iL+D7KGD9iyhkRP3iPngXQ+7PpmIOkhJbOOYxfjIb/377s
-	 NUQQ2PAj99rde/FOcELCmo7ATdG4wTiSAEXNhV6pAu4B77k8HiVx7sjttOCLrfyq5x
-	 nT39Fx19ZGoGxZFCbF/Of2YGLivBRvB5OkhWqGrnq77hZs2Yqn/8qYyvrS8GjxzPyc
-	 wcrlpOnT9tkRQD2qk7swi0F2XZ9V8/YjCq740BPh2nVA8qo9OjbLo2vXS7WdmdM1cP
-	 qDL7AHVXCN6Ow==
-Content-Type: multipart/mixed; boundary="===============4514555578709208116=="
+	b=CS3EaB/tIK1WQyuloanL69f8rx3TfAB+dijR+TAdHTMGW6GYcQMQWfvBqM2+pOR9t
+	 OQClVC/NMH9TdUncLsifO8KJT+bdNWCrjWPVTOhXBRlvzF6BrGMRiZ9RL50V1Z0mb+
+	 Rpv+FlzkshFfKdX0ZkLkEP6Eok8Um+axZENoVC9dXl+ZGrDJgAPlMi0nuo+6N30cHW
+	 T2SK3VUBTShncU6DyaaEYAdWh7SiPPoSO1ZQyYChTTyLlx6+ZDy1DagGeHqOjjEaxN
+	 szTZA42C5OZ6R5D00Tg8wPbY3AKkURFNOknlWjhwhS7hm/XV6cMZM1siPfjy+VMx0N
+	 NwvCNx6cGCPTg==
+Content-Type: multipart/mixed; boundary="===============8938492152272236540=="
 MIME-Version: 1.0
-Message-Id: <b96ee2ab6347e86e3da161bcdea1d17fde1acb1c619d3519b7c980daf03b20d5@mail.kernel.org>
-In-Reply-To: <20261015021238.5657-2-cp0613@linux.alibaba.com>
-References: <20261015021238.5657-2-cp0613@linux.alibaba.com>
-Subject: Re: [PATCH bpf-next 1/3] riscv: bpf: Add BPF private stack support
+Message-Id: <721cefcbf3b4af0f1201432225ebcf6fe25a35948a581b9da360a43b6a102810@mail.kernel.org>
+In-Reply-To: <20261015021238.5657-4-cp0613@linux.alibaba.com>
+References: <20261015021238.5657-4-cp0613@linux.alibaba.com>
+Subject: Re: [PATCH bpf-next 3/3] selftests/bpf: Add a runtime test for private stack and stack arguments
 From: bot+bpf-ci@kernel.org
 To: cp0613@linux.alibaba.com,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,memxor@gmail.com,bjorn@kernel.org,puranjay@kernel.org
 Cc: eddyz87@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,pulehui@huawei.com,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,luke.r.nels@gmail.com,xi.wang@gmail.com,shuah@kernel.org,rgbi3307@gmail.com,guoren@kernel.org,bpf@vger.kernel.org,linux-riscv@lists.infradead.org,linux-kselftest@vger.kernel.org,linux-kernel@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Thu, 15 Oct 2026 02:58:55 +0000 (UTC)
+Date: Thu, 15 Oct 2026 02:59:00 +0000 (UTC)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,62 +66,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4514555578709208116==
+--===============8938492152272236540==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
 
-> riscv: bpf: Add BPF private stack support
+> selftests/bpf: Add a runtime test for private stack and stack arguments
 
-TL;DR: Commit message only: it says the guard layout follows x86-64, but
-x86-64 uses an 8 byte single-copy guard, and it may overstate why
-__per_cpu_offset needs absolute moves.
+TL;DR: Test issue only: the new private stack selftest calls test__skip()
+without printing a reason, so a SKIP doesn't show why. The review says this
+may be acceptable, since other tests do the same.
 
-> riscv: bpf: Add BPF private stack support
+> diff --git a/tools/testing/selftests/bpf/prog_tests/private_stack_runtime.c b/tools/testing/selftests/bpf/prog_tests/private_stack_runtime.c
+> new file mode 100644
+> index 000000000000..3af24ca8009f
+> --- /dev/null
+> +++ b/tools/testing/selftests/bpf/prog_tests/private_stack_runtime.c
+> @@ -0,0 +1,83 @@
 
 [ ... ]
 
-> The base is materialized with absolute moves, as on arm64, x86-64 and
-> powerpc64: the dynamic per-CPU area is vmalloc'd, beyond a PC-relative
-> auipc pair from the JIT region, and riscv64 has no segment or register
-> holding the per-CPU offset, so __per_cpu_offset needs materializing the
-> same way. Both constants are fixed before the offset convergence loop,
-> so the prologue length is stable across passes.
->
-> The guard layout and value follow arm64, x86-64 and powerpc64: a 16
-> byte region at each end holding two copies of the pattern. A jited
-> program has them checked when it is freed, reporting the first
-> corrupted CPU only; failure paths release the area unchecked since the
-> image never ran, which also clears priv_stack_ptr for the later
-> bpf_jit_free().
+> +	if (!skel->rodata->has_stack_args) {
+> +		test__skip();
+> +		goto out;
+> +	}
 
-Is the statement that the guard layout follows x86-64 accurate?
+A subsystem pattern flags this as potentially concerning: a selftest that
+skips without printing a reason.  Both skip paths call test__skip() bare,
+this one when the compiler lacks __BPF_FEATURE_STACK_ARGUMENT
+(has_stack_args is false), and the other in the non-riscv64 branch:
 
-arm64 and powerpc64 use a 16 byte guard with two copies of the pattern at
-each end, but x86-64 differs:
+    #else
+        test__skip();
+    #endif
 
-arch/x86/net/bpf_jit_comp.c:
-    #define PRIV_STACK_GUARD_SZ    8
-    ...
-    stack_ptr[0] = PRIV_STACK_GUARD_VAL;
-    stack_ptr[underflow_idx] = PRIV_STACK_GUARD_VAL;
+Without a message, the test shows up as SKIP with no hint whether clang
+needs to be upgraded or the test is only built for riscv64.  Would a
+printf() before test__skip(), like the "%s:SKIP: ..." message that
+test_loader's run_subtest() prints, make the cause visible?
 
-It uses an 8 byte guard with a single copy at each end, and it rounds the
-stack depth to 8 rather than 16.  Only the guard value (0xEB9F12345678eb9f)
-is shared by all three.  Could the changelog say that the 16 byte, two-copy
-layout follows arm64 and powerpc64, and that only the guard value follows
-x86-64?
-
-Separately, the changelog says __per_cpu_offset "needs materializing the
-same way", meaning with absolute moves.  The existing BPF_MOV64_PERCPU_REG
-handler in bpf_jit_emit_insn() already loads the same symbol PC-relatively:
-
-    /* Load address of __per_cpu_offset array in T2 */
-    emit_addr(RV_REG_T2, (u64)&__per_cpu_offset, extra_pass, ctx);
-
-Is emit_imm() for __per_cpu_offset in emit_priv_stack_frame() required, or a
-choice made so that the prologue length stays fixed across passes?  The
-changelog could say which.
+This may be acceptable as is: test_progs does report the test as SKIP, and
+prog_tests/stack_arg.c and prog_tests/struct_ops_private_stack.c also call
+test__skip() without a message.
 
 
 ---
@@ -129,7 +115,7 @@ AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
 See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
 CI run summary: https://github.com/kernel-patches/bpf/actions/runs/38671177164
---===============4514555578709208116==
+--===============8938492152272236540==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -140,5 +126,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4514555578709208116==--
+--===============8938492152272236540==--
 
