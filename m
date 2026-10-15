@@ -4,42 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67DB7CC6B39
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 06:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C4AECC6B34
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 06:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xfw+FgpSiUEvToR7VN64yEypr+sYDOZPdRSvD4OPxu4=; b=AJG/HXObYUYS5M
-	ueE/wYbx5H9Xn8bMLrmnIS+q3SABqf3yLLX0pzzxPhDIAtwDK5aObMAoXy/pCZLC52P/xAkR0JkjP
-	aIBUvkwWs5etFyxX6n75EK/JU+qt4scYlqAc2TpK9cdFaIGoc+EMfFWLNshXkU168RkIUo7Qeabzu
-	Nuzs2vf6hu7VEQfksDPT73Yf+C1vjYm66hKR4eaa2+wjG7XLC6o1Ik/BfwKlhbupbKVIWAbKU5/UU
-	OKpzdsZOjV3rUTojha+6We2WzGytbl+AkZorbMkpO7kmKA4vCT45La3Pt07GXQ13bQ04+qrW1w7sy
-	Dq2ts2rwsVcPYcaJp5+Q==;
+	List-Owner; bh=qRVAeNc4VDvdMNyEw3wWdylWNW2oWbBPqLUCPB4m154=; b=Tjb8nDLLqCKdbv
+	JSi6GhCAqcLay0mFMyLPpxvGEru2/hKnLAEy2aUiqHZEgjNBK2BZryZywDA6surhghRotKyYLKv9k
+	paY/4twQ3xcI7Y7+Lsg+8iN+J2jsVzbvnrUsgtn3GDEmsDrIK6ibJwip2M73j0DZCZGLItUyo/sHE
+	NVtPsPrMiVQQ6lRYxVC5G1PprGPsiWC+/fvaLgKf9O5nb4Vldp/+/Eh4g82QazL/u5jv92G7VfmIV
+	3oYNtT7UchMqqCrJOyu+AXniainiG6+s+3TQ+SJjAmEPzTnGzSVFSMcTPVYEoOcN7u7JXPrhv4eKT
+	Xlvdhi5HQDIU9fhp74ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHFKj-0000000Gy3m-12jT;
-	Thu, 15 Oct 2026 06:52:57 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.35])
+	id 1xHFKs-0000000GyD0-1obc;
+	Thu, 15 Oct 2026 06:53:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHFKe-0000000Gy0b-1MJR;
-	Thu, 15 Oct 2026 06:52:55 +0000
+	id 1xHFKk-0000000Gy44-0mQw;
+	Thu, 15 Oct 2026 06:52:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=i+nGxBDeNHrURt50cav2JElIhE/s6s+8QIh+LVnoHjU=; b=WG5muOzr625HtGJ7eO4uY5Axum
+	5CNK2+hA8Dcj5I/AWQMWw4n/1h7lHYyRhX7loG5meWAHSc/dHqLKBOQCikon+Ufrxprwo6uCFYDCI
+	O2G0S7dOvGgZq/evjwIRidWWMKQR2GVgYXWW3ReWTGzG8x1L++rjKwSsl+xS4yNnLbtG6Xd3a8Mfg
+	sKBrCnyWaBMXG1goOE2rSGcXqlTjlUvMOaYvhOQ4vFT1oyelskVq9rtBf6k7iX0p5nQKHJ/uyOoaZ
+	9g3xg9HuQQF0CwxeE+5LQhBENCKLJ8W0MUPsk5hQvph+YRQIxi5MbSkrdz3BVlu9HHuXcL7Tvm7Y/
+	unNOLGqw==;
+Received: from mxhk.zte.com.cn ([160.30.148.34])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xHFKg-0000000HXxd-2co9;
+	Thu, 15 Oct 2026 06:52:56 +0000
 Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4j4zKS3B08z8XrrZ;
-	Thu, 15 Oct 2026 14:52:44 +0800 (CST)
-Received: from szxlzmapp03.zte.com.cn ([10.5.231.207])
-	by mse-fl1.zte.com.cn with SMTP id 69F6qaqI013845;
-	Thu, 15 Oct 2026 14:52:36 +0800 (+08)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4j4zKY6WWxz4y4ZF;
+	Thu, 15 Oct 2026 14:52:49 +0800 (CST)
+Received: from szxl2zmapp05.zte.com.cn ([10.1.32.37])
+	by mse-fl1.zte.com.cn with SMTP id 69F6qhc5013948;
+	Thu, 15 Oct 2026 14:52:43 +0800 (+08)
 	(envelope-from gong.shuai@sanechips.com.cn)
 Received: from ubuntu-35-gs (unknown [10.230.214.35])
 	by smtp (Zmail) with SMTP;
-	Thu, 15 Oct 2026 14:52:38 +0800
-X-Zmail-TransId: 3e816ad07836024-554b9
+	Thu, 15 Oct 2026 14:52:45 +0800
+X-Zmail-TransId: 3e816ad0783c024-5556e
 X-Zmail-LocalSMTP: 1
 X-Zmail-RealSender: gong.shuai@sanechips.com.cn
 From: Gong Shuai <gong.shuai@sanechips.com.cn>
@@ -61,24 +75,25 @@ Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
         Zhao Qingye <zhao.qingye@sanechips.com.cn>,
         Gong Shuai <gong.shuai@sanechips.com.cn>,
         Gong Shuai <gsh517025@gmail.com>
-Subject: [RFC PATCH 01/12] iommu/riscv: Use DC.tc.V as the device context valid bit
-Date: Thu, 15 Oct 2026 14:52:21 +0800
-Message-ID: <20261015065232.604503-2-gong.shuai@sanechips.com.cn>
+Subject: [RFC PATCH 08/12] iommu/riscv: Add riscv_iommu_hw_info
+Date: Thu, 15 Oct 2026 14:52:28 +0800
+Message-ID: <20261015065232.604503-9-gong.shuai@sanechips.com.cn>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261015065232.604503-1-gong.shuai@sanechips.com.cn>
 References: <20261015065232.604503-1-gong.shuai@sanechips.com.cn>
 MIME-Version: 1.0
 X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
-X-MAIL: mse-fl1.zte.com.cn 69F6qaqI013845
+X-MAIL: mse-fl1.zte.com.cn 69F6qhc5013948
 X-TLS: YES
 X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
-X-SOURCE-IP: 10.5.228.132 unknown Thu, 15 Oct 2026 14:52:44 +0800
+X-SOURCE-IP: 10.5.228.132 unknown Thu, 15 Oct 2026 14:52:49 +0800
 X-CLEAN: YES
 X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6AD0783C.000/4j4zKS3B08z8XrrZ
+X-Fangmail-MID-QID: 6AD07841.001/4j4zKY6WWxz4y4ZF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_235252_675361_248BED13 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20261015_075255_185121_F89FC770 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,113 +110,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-riscv_iommu_iodir_update() used bit 0 of the translation attributes
-argument as the "device context valid" flag. Now that it takes a full
-device context, take the validity bit from DC.tc.V.
+From: Wu Fei <wu.fei9@sanechips.com.cn>
 
-The defined bits of the caller's DC.tc are no longer dropped. This is
-not a functional change for the existing callers: the paging and identity
-domains set V, and the blocking domain leaves the context invalid. Nested
-translation needs those bits to reach the hardware.
+Implement the hw_info op, report the IOMMU Capabilities register value
+to user space as IOMMU_HW_INFO_TYPE_RISCV so VMMs can discover the
+hardware capabilities of the physical IOMMU.
 
-Use the DC prefixed field macros for device context fields while here,
-instead of the PC (process context) ones.
-
+Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
 Signed-off-by: Gong Shuai <gong.shuai@sanechips.com.cn>
 ---
- drivers/iommu/riscv/iommu-bits.h |  6 ++++++
- drivers/iommu/riscv/iommu.c      | 26 ++++++++++++--------------
- 2 files changed, 18 insertions(+), 14 deletions(-)
+ drivers/iommu/riscv/iommu.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/drivers/iommu/riscv/iommu-bits.h b/drivers/iommu/riscv/iommu-bits.h
-index 51a2e660b06a..2a8230a0c1bb 100644
---- a/drivers/iommu/riscv/iommu-bits.h
-+++ b/drivers/iommu/riscv/iommu-bits.h
-@@ -348,6 +348,12 @@ struct riscv_iommu_dc {
- #define RISCV_IOMMU_DC_TC_SBE		BIT_ULL(10)
- #define RISCV_IOMMU_DC_TC_SXL		BIT_ULL(11)
- 
-+/*
-+ * All bits of dc.tc as defined by the spec. Bits 12-23 and 32-63
-+ * are reserved for future standard use, bits 24-31 are for custom use.
-+ */
-+#define RISCV_IOMMU_DC_TC_DEFINED	GENMASK_ULL(11, 0)
-+
- /* Second-stage (aka G-stage) context fields */
- #define RISCV_IOMMU_DC_IOHGATP_PPN	RISCV_IOMMU_ATP_PPN_FIELD
- #define RISCV_IOMMU_DC_IOHGATP_GSCID	GENMASK_ULL(59, 44)
 diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 55c167df2c2e..dd97c2731d95 100644
+index c34331bcd661..e59a6a97589e 100644
 --- a/drivers/iommu/riscv/iommu.c
 +++ b/drivers/iommu/riscv/iommu.c
-@@ -1218,7 +1218,6 @@ void riscv_iommu_msi_table_inval_all(struct riscv_iommu_msi_table *msi_table)
- 	riscv_iommu_iotlb_inval(domain, &gather);
+@@ -2220,9 +2220,27 @@ static void riscv_iommu_get_resv_regions(struct device *dev, struct list_head *h
+ 	iommu_dma_get_resv_regions(dev, head);
  }
  
--#define RISCV_IOMMU_FSC_BARE 0
- /*
-  * This function sends IOTINVAL commands as required by the RISC-V
-  * IOMMU specification (Section 6.3.1 and 6.3.2 in 1.0 spec version)
-@@ -1329,16 +1328,14 @@ static void riscv_iommu_iodir_update(struct device *dev, struct riscv_iommu_dc *
- 		riscv_iommu_cmd_sync(iommu, RISCV_IOMMU_IOTINVAL_TIMEOUT);
- 
- 	/*
--	 * For device context with DC_TC_PDTV = 0, translation attributes valid bit
--	 * is stored as DC_TC_V bit (both sharing the same location at BIT(0)).
-+	 * Only defined bits are writable by the driver.
- 	 */
- 	for (i = 0; i < fwspec->num_ids; i++) {
- 		dc = riscv_iommu_get_dc(iommu, fwspec->ids[i]);
--		tc = READ_ONCE(dc->tc);
--		tc |= new_dc->ta & RISCV_IOMMU_DC_TC_V;
-+		tc = new_dc->tc & RISCV_IOMMU_DC_TC_DEFINED;
- 
- 		WRITE_ONCE(dc->fsc, new_dc->fsc);
--		WRITE_ONCE(dc->ta, new_dc->ta & RISCV_IOMMU_PC_TA_PSCID);
-+		WRITE_ONCE(dc->ta, new_dc->ta & RISCV_IOMMU_DC_TA_PSCID);
- 		WRITE_ONCE(dc->iohgatp, new_dc->iohgatp);
- 		if (iommu->caps & RISCV_IOMMU_CAPABILITIES_MSI_FLAT) {
- 			WRITE_ONCE(dc->msiptp, new_dc->msiptp);
-@@ -1600,11 +1597,11 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
- 		if (!riscv_iommu_fsc_supported(iommu, pt_info.fsc_iosatp_mode))
- 			return -ENODEV;
- 
--		dc.fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, pt_info.fsc_iosatp_mode) |
--			 FIELD_PREP(RISCV_IOMMU_PC_FSC_PPN, pt_info.ppn);
-+		dc.fsc = FIELD_PREP(RISCV_IOMMU_DC_FSC_MODE, pt_info.fsc_iosatp_mode) |
-+			 FIELD_PREP(RISCV_IOMMU_DC_FSC_PPN, pt_info.ppn);
- 	}
--	dc.ta = FIELD_PREP(RISCV_IOMMU_PC_TA_PSCID, domain->pscid) |
--	     RISCV_IOMMU_PC_TA_V;
-+	dc.ta = FIELD_PREP(RISCV_IOMMU_DC_TA_PSCID, domain->pscid);
-+	dc.tc |= RISCV_IOMMU_DC_TC_V;
- 
- 	bond = kzalloc_obj(*bond);
- 	if (!bond)
-@@ -1773,9 +1770,10 @@ static int riscv_iommu_attach_blocking_domain(struct iommu_domain *iommu_domain,
- 	struct riscv_iommu_dc dc = {0};
- 	unsigned long flags;
- 
--	dc.fsc = RISCV_IOMMU_FSC_BARE;
-+	dc.fsc = RISCV_IOMMU_DC_FSC_MODE_BARE;
-+	dc.tc = 0;
- 
--	/* Make device context invalid, translation requests will fault w/ #258 */
-+	/* Make device context invalid (DC.tc.V = 0), translation requests will fault w/ #258 */
- 	flags = riscv_iommu_msi_tables_lock(old, NULL);
- 	info->dc = dc;
- 	riscv_iommu_iodir_update(dev, &info->dc);
-@@ -1801,8 +1799,8 @@ static int riscv_iommu_attach_identity_domain(struct iommu_domain *iommu_domain,
- 	struct riscv_iommu_dc dc = {0};
- 	unsigned long flags;
- 
--	dc.fsc = RISCV_IOMMU_FSC_BARE;
--	dc.ta = RISCV_IOMMU_PC_TA_V;
-+	dc.fsc = RISCV_IOMMU_DC_FSC_MODE_BARE;
-+	dc.tc = RISCV_IOMMU_DC_TC_V;
- 
- 	flags = riscv_iommu_msi_tables_lock(old, NULL);
- 	info->dc = dc;
++static void *riscv_iommu_hw_info(struct device *dev, u32 *length,
++				 enum iommu_hw_info_type *type)
++{
++	struct iommu_hw_info_riscv *info;
++	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
++
++	info = kzalloc_obj(*info);
++	if (!info)
++		return ERR_PTR(-ENOMEM);
++
++	info->capabilities = iommu->caps;
++	*length = sizeof(*info);
++	*type = IOMMU_HW_INFO_TYPE_RISCV;
++
++	return info;
++}
++
+ static const struct iommu_ops riscv_iommu_ops = {
+ 	.of_xlate = riscv_iommu_of_xlate,
+ 	.capable = riscv_iommu_capable,
++	.hw_info = riscv_iommu_hw_info,
+ 	.identity_domain = &riscv_iommu_identity_domain,
+ 	.blocked_domain = &riscv_iommu_blocking_domain,
+ 	.release_domain = &riscv_iommu_blocking_domain,
 -- 
 2.53.0
 
