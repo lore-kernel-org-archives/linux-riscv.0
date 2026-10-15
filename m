@@ -4,144 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB97CC6B34
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 08:11:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF2CCC6B34
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 08:16:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=E3LBqnq6w/jfLVtxngBCZyt+ZvwrRgp+oxF8wnIWG+4=; b=IUC7wm4X/nUH4HfZ9BqjUnV5Dx
-	JsxfazQumbVYFZwtryXdAEk1V65KvDJSNDfp+46HxxKh/lEP92uG0ociQEs71YpGuOPHXVIXUtnVl
-	7hPg3rssZneV2bj6oZM2NEsPWCy0WWm0r3WwTJ+Evj2ZbqInwqu1QxFsIUV/CrWsAMcnrh9VBOI7x
-	OQKErNJANDG2Q3sF1HgIBhi76LQ+UrAMTwkrQgqxZpXcJqrdSY3b7uvWKXWG6EaLqG4GgqYHDX0N1
-	6xktspaBP8qnC+aQoFQUp9qI4FkfnlVq0+f7QTOfYNHqm6QdvsD/ipoPb+ru/aQwHBSWZ3Ow3p7Y2
-	XbqE2k0Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oSpu6Ne/Y3EG7PNZXhba2hytxZ148eYj39NUd4bOA7c=; b=OjKtn8LX0O8SLF
+	P+VnGsHQLR8jYciGkAFE6LVfwqN5R70tVOn+b/TgPKY0r7OCj2W+mlgevpr/FcxjXRB9NG01yMGQu
+	jCuCovMvOAuz63+SKdtDpwvtrp+IEyn5J8whBCm/JFwgkIuu+QLEmczRynN29TP1N5oKifDhkKFc6
+	iyP6DsoY/ludKLJfHj55mXvdGBMKNur3qt0xFZf7vIvHoHO4HYuwjecedXczOxdGsdxq54IwJZk/g
+	B+/uRT0CSwIjefQ6dw4ViiWxFTtrEhIdS/qLsAj5PhvYIJ/0MmcSN3Ck9Ju7lw3VLoEKSOwXBClEY
+	a4TF3SMhGJiNaABuec8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHGYq-0000000H78F-0zXw;
-	Thu, 15 Oct 2026 08:11:36 +0000
-Received: from mail-westeuropeazon11011013.outbound.protection.outlook.com ([52.101.70.13] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1xHGdQ-0000000H7zs-2DXB;
+	Thu, 15 Oct 2026 08:16:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHGYn-0000000H77b-3VzO
+	id 1xHGdO-0000000H7zR-3e5o
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Oct 2026 08:11:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xfCSQojybMVALvA27Gm16vTRe17IRNgzgn8GYPDykIU3UXlJA7gv9Jv1agDECv4Rwjwj6EmfgoEHzRfGeqN/XJRiGhMmAF3v0zxCMnnjjmsAEVaDEiOdN5lxQAypY40NA5ZqHIce2wpc2BmJN1k862DlQtTlJFv+qlSh680sAX9ELzEBdeyH2NYV5gQFcV/1etkT/xAHEwvj9bM8lz3iyv7nAV4dC/+2ncrpmSxi3l1jSW77et1JoloVix9sV+pQM1FPrZ4ZixXHQwHqwmpo6tH+SB3TadHOnmX/UHQP+wLjzJ5OzXPh/tGJ/YsuTdnNZD98/1R5O6J+vmvHqx4+5g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CuqmN+hEV1X2+dF6XQ8Oe3cQ/ddGVX4cIjnEuIhMWaM=;
- b=JacR/ea1ntIWeJHoRjagOqk5ZKMd+TvnoZ5EoYhx40R82mHekzo7XPVRsGeINEs1uFtzrF1RPoY1acPgFVzrXeCN6Wfr+K4QZrvEMKoPURmrsP19s5wQ2v+BFKm4YP4f/qTXXLR7whgyjLHcuG9VDQc/sioDVQNB3LQTCLmSjYU4y1wTUxjyzPmM5JxkF2HgcmdYLytvLOwu3tbzQn3LVdcnFZ3wBim8oLDMRF1h416RFq6CySbeDzrSt71Ethm2ypMAL9W9vz21t8U8T4vIPRKpE6HmLSUVFk/9yms0Vedi+l/laA5C5sAx7wkRVAagX73kDqBvN8dRzAjOgPKm/Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mobileye.com; dmarc=pass action=none header.from=mobileye.com;
- dkim=pass header.d=mobileye.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mobileye.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CuqmN+hEV1X2+dF6XQ8Oe3cQ/ddGVX4cIjnEuIhMWaM=;
- b=Lr9OrUZjXlVicBRX+AQ8h6m4MiATCSZVzx7SpX6YNAcush/puWI0q8GYezyPOaeIYTX0ljoGDf4ducO6166BFo3X3pKDicjnl1a8bbmTx5euf9vO6xJi+MMrUSAzA+X0uUkhMxqBncZAvE907/IDV8MNK0l9fee2atwYQL9Xpi8=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mobileye.com;
-Received: from ZR6PR09MB889505.eurprd09.prod.outlook.com
- (2603:10a6:910:e0::22) by VI0PR09MB7045.eurprd09.prod.outlook.com
- (2603:10a6:800:242::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Thu, 15 Oct
- 2026 08:11:27 +0000
-Received: from ZR6PR09MB889505.eurprd09.prod.outlook.com
- ([fe80::9006:1164:b51f:23a2]) by ZR6PR09MB889505.eurprd09.prod.outlook.com
- ([fe80::9006:1164:b51f:23a2%4]) with mapi id 15.21.0522.011; Thu, 15 Oct 2026
- 08:11:27 +0000
-Message-ID: <9bb6f315-c668-4f90-9fee-920f115a3dcd@mobileye.com>
-Date: Thu, 15 Oct 2026 11:11:24 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] irqchip/riscv-aplic: fix asynchronous probing
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@kernel.org>,
- Radu Rendec <radu@rendec.net>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Clark Williams <clrkwllms@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, Jessica Liu <liu.xuemei1@zte.com.cn>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rt-devel@lists.linux.dev
-References: <20261012-aplic-async-probe-v3-1-5cf52dc28690@mobileye.com>
- <20261013152727.2cUDX3l0@linutronix.de>
- <5a8048ef-a241-4486-adc1-440721d3606a@mobileye.com>
- <20261014105312.xNkvgkGg@linutronix.de>
- <46eaa0f0-ff72-4a72-91c8-b610be2d893a@mobileye.com>
- <20261015063227.GBjyN6LZ@linutronix.de>
-Content-Language: en-US
-From: Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>
-In-Reply-To: <20261015063227.GBjyN6LZ@linutronix.de>
-X-ClientProxiedBy: TL2P290CA0028.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:3::10) To ZR6PR09MB889505.eurprd09.prod.outlook.com
- (2603:10a6:910:e0::22)
+	Thu, 15 Oct 2026 08:16:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5710B417E5;
+	Thu, 15 Oct 2026 08:16:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D37BB1F000C4;
+	Thu, 15 Oct 2026 08:16:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792052178;
+	bh=5o7xsZFTTFM2WuI57OlieYgdarxkwcy1AXb2N5U0PlI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=D+2ATOFoltP2nF981paY8m+3M3kd+Tjj49sknPJQJTqIexCCDVBowBAaT4iXrPvkQ
+	 FWqyVyOm+GtBh+CyAbIWI4Vmz7NZHkeBIA+V58wTv/YUKIbdNmh0CRUOSsDKMkGZlp
+	 2Pvze3OMXHOreuqUXKrhGYXUqBQ7PtMqWnrgPqJNrdjehCZJWUGpJq5bEi2xCJYdcf
+	 kT3/GHacDQ4CrZrxoFB6qKOPwGvAEqgT4DT5MqKLoqFAMxMEJNf1QG5H/Aq+Guw0bg
+	 4Gv3++dwqzxwhVP4ErsCfK+W6NL8G/MuKPWW3LcOd2pu91diTykdvJZAvyCyTSF3VU
+	 RLbvsO4Ql8T7g==
+Date: Thu, 15 Oct 2026 11:16:11 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	linux-riscv@lists.infradead.org, bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: mm: Pre-allocate module page tables for execmem
+Message-ID: <atCLy-3RZbf3fGRp@kernel.org>
+References: <20261015033643.84972-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZR6PR09MB889505:EE_|VI0PR09MB7045:EE_
-X-MS-Office365-Filtering-Correlation-Id: c5dd39b6-7b60-43fb-ae80-08df2a93e986
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|6133799003|22082099003|10067099003|18002099003|11063799006|4143699003|261009223027099003|56012099006;
-X-Microsoft-Antispam-Message-Info: Cd1Gmuo4UlJzOPNoADBfVI7IBtVejVT2DR2LmMX2WInTt315D/DlPxlniMIYw0AlswBZhYvZRC1EDqXESviMomuCSTRI6NrWamP6ACpkLLJrClkjK/tg8EgZKJcTLozwHbCqu8sP2W2PHDs2SqnbjpPgfPXvHRfSnzOmEcNEWxBCaR6Jevz4xdb1kT9N9gnTCHNVSXhKxSiEIvP8Y8Dkfd1ON2cq88sG+87wLaMxyJBFOsmUi5SOjjcUakJi4Fms48D8OBgCb9HY3EkrsLHKbIJQAOkGpWMZaAiktfyoe+VU3dCjjr7RUkfuJct4elaCsf1un7TbeZv4NX0j29pPCckRNg8ube32eWJLcw+xzADQH9Atvj1MNhMvHQ0WDnfkLdWtbahzcfllVsSHfsjy9fxUNATXqBcf/5ZSsA1EbXriDYcLCgXcYoFnJFXxg3/TPeQvJgW9VZDVeU67zL6obLDdnsO+QAO5wD5lFJpiI+mCIvuBDkEcZVBAcJC+nud4eFmmF28IoewPaco8YS6aek2aClxnSMR7A0dq8PrgLiV9Gt8zAb69NPA9Z9bzFo/nE6mo+Za97oLXiMybc16KA7jMxH/hqXHSzRxC+KGp9uneIPfHQlkSJI36d2zZ3rfFyf55XTivPyvX5zVJaZoVspVoxxwE1iEwJkyh4QBDK0c=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZR6PR09MB889505.eurprd09.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(6133799003)(22082099003)(10067099003)(18002099003)(11063799006)(4143699003)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cmkwUlpITXpTUW40akpaeWxiVThwSk85NHRyUm9jOUxucmpaVDBtK0pWKy92?=
- =?utf-8?B?ZHYrREFueG5qblVDN2g5M1lSd2RPWCtyVUtXaXNqUitkZE0zaVk0aW9ib2Vn?=
- =?utf-8?B?Z2V0cVA3WnhTSjBVYUJUZ0tQRWNkT2toZWp1bHhTeFdZMWo5VVo3Yy9jZlNI?=
- =?utf-8?B?Y0hkMEpRWnhCSkJ1Ykl3NmdzaVNTdXJpZlk5RU5uMGgzVUVmdGNya0ZwMGFT?=
- =?utf-8?B?aENTa1JsbU52aFJmRXZGV24wUDIwR2VUcWoraEpsb0w0RDNoV3JBT3pQVCtP?=
- =?utf-8?B?VWpYRS9XWHNnckJnUnYraSt5L1ZvTC9qaU8zSS8ybS9seWxTMW1KVzFXVzM2?=
- =?utf-8?B?QTJ4d3RFN2x1VTF5QWxHSFBnM25aUXVINU5FbndDczdqVUZPbTBlUW5janNw?=
- =?utf-8?B?eC9adEZhai8yZDJZQUJaaFZxZzErVE9NZmF6d1NQUXc4S2xwOFFnNmxzUWFL?=
- =?utf-8?B?YTNDc3hIa0RvTlhmeVRndHFIT1g1QUlBVUQvWEtmV1ZoTmFyZ2NDNXVkOW1M?=
- =?utf-8?B?cmtYWE0yaGo2M0ozdGRMT0pibDRZTnBNbWVFYjRlalVlV3hjUzFqY1N5ZXlC?=
- =?utf-8?B?eXZtSVlhdjlPWmxXZkluYVdOenBiaXFLSVZzOGc0T2kzeXM4bTZKbjNvU2VN?=
- =?utf-8?B?UlBXWklUaUR2a1d2WDlrTmJjRFA2WjNxYkdmQ3N2TU1wNXhvNXZKejdsYmZ3?=
- =?utf-8?B?Z2pDSUg4cUJUV2tpL2cwSi90aUlxTDllcGQwdHlzallJNEZRQ21NRkJjUitm?=
- =?utf-8?B?dVk0M3lhT1lkMVp5UVh6UFNmNDlHbVJpN0VlSzNXTVB2WEM0WWI1WW5XVWRR?=
- =?utf-8?B?dlBSQkVnNW9yOG1RSllWdTdhYzYyK0RhVDNnQmFTOVdYYzFsMkJlUzZNMGNi?=
- =?utf-8?B?YkRpR1VZdmtzd1N0Z3BuaFM3MnBaTjZIdXcvancyYVZQTHR6MjEzVTRacnBX?=
- =?utf-8?B?UjNpUVhyWG1ZM0NKajc4bnpmQUlpU1V0SjRreHRBRUMrN3pVNWFWUTRhcDlZ?=
- =?utf-8?B?OUZXbDIwcUliNVFwQ2ZZODhyT3R4WVZPOXgzamlzSTlVeWtWdWszWjFwbEo4?=
- =?utf-8?B?a0YxQkc0a2pMbXMxdXB2UTVmemxDR2FnNEFzby9YTFZkR3ZGd0ZnVHhnZXBT?=
- =?utf-8?B?SE4zYmowRmpnVDNNMDEwcm96azZpb2lUdEZqWWdYY3ZRMFJEMCt4VmJheUNM?=
- =?utf-8?B?ZUNOVFV4M1F6c3o2K3Z2MUZLUjJhZElhRjVHQVVzY1Y5Tmx5c09TblJqSzFu?=
- =?utf-8?B?UkdWcExDa3hGblQyVkpxeU1BQnFJMkpXc3h3V0xZT0R5NnpkRlNVQlZhU0tr?=
- =?utf-8?B?SWVMY0laZVVMdllLSWY5MWl5dGd2bVVQZnFuY2FaZ081WnNEMEhYOGk0amIx?=
- =?utf-8?B?aU5ROFJMV0RVNlJSNkorRTFTSkdtR3FvK0V5T1hETnlBR3lNa1haSTEzMFAr?=
- =?utf-8?B?OFlsdEVvREI0YzAzbVhSWTB3Skl2aktIMGNIRWt6Y1dVZzBjYllOcWpIQ1Z2?=
- =?utf-8?B?cXVRNXRadmx4dWVQbFlES09oWWo4UTducE9GMjBxMXJXREtzZTlCNDJwY0hV?=
- =?utf-8?B?eWlPZEZ5Z0NjUlBnUnk0bG1sdE1BN29zekxPanJzYlF3Qm5Kbkt0c09vSWVX?=
- =?utf-8?B?QW43S0dYVXprM1ZqN3ovSW5hck1TNUN1cWJ6UG00NEZ0cHpXUVhJNm16MnJl?=
- =?utf-8?B?eHdJZGRqMXVDY2JFdWhFVmZ6cHNQTUhjMmdSeTl0SUNkY0gwekJjQ1c1V0U3?=
- =?utf-8?B?Wm1JeFA3bThndlVGdXpWcEVYeHQvL3pUSXV2bERsaGFSbmFTQ0g3MmtISzVH?=
- =?utf-8?B?bUlaem9RL2JRY3FBODJQK2RLWTgrazVrVjI0b0tFcERQVm5vTWhMUmppL2dQ?=
- =?utf-8?B?dzRMOTFkMStsamE5akZ3ZmNVWnFDVExJT2U4UnhlYTROZWwxdmhDMzZKbnJI?=
- =?utf-8?B?cTVEZTgyMlYwWEVpa09WcEQ2TXFtZ0E3amhEWHF2U3RaVEYyTXgxL2tURUcv?=
- =?utf-8?B?RGR5N08yTWw1eUpPWmR1bUpMY3JEOGNuUE8wbHpPSFFvSE90aE04QmhQK1Nh?=
- =?utf-8?B?Njg2TkpUQVFsRlR1OU9OY1VqcVN6Y0dEcDc3elBUQjhVNkhWNm1IdHJ0cTlT?=
- =?utf-8?B?K3pWc09rZHM5TFQ0b0hmalVYQjhLY0RmUEpMN2YvSUV5WGlIUUxTSHpubjZl?=
- =?utf-8?B?bGNFa1p0U1NmQjBZQjdPR3pJVGNyeWlJd2E3enkvYW1nK1JZeWx0SnlQVUJs?=
- =?utf-8?B?dmpzbHkwS0dQckxuU25sVWZlaVVEbFE1ZjY0NjRxRk9SalV3Y2xmRmZrMUR0?=
- =?utf-8?B?TEtJMGVLeHlESEpscU50bTQwNnBoWUIyalVSMFJDTWkyM1MwbmRnQT09?=
-X-OriginatorOrg: mobileye.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c5dd39b6-7b60-43fb-ae80-08df2a93e986
-X-MS-Exchange-CrossTenant-AuthSource: ZR6PR09MB889505.eurprd09.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 08:11:27.7315
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f85ba13-6953-46a6-9c5b-7599fd80e9aa
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LqagKNtVBnk/nopBK+R3C3rnmbW1jM3616GrLzz6PGcs3tZOxOe2Y/j67d3eet5MXbd8RLRynBc7hw4uwcJ57w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR09MB7045
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_011134_059704_38F56662 
-X-CRM114-Status: UNSURE (   5.50  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20261015033643.84972-1-kmehltretter@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,16 +73,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/15/26 09:32, Sebastian Andrzej Siewior wrote:
-> The driver providing MSI capabilities (the MSI domain for this device)
-> must a module. This is the requirement so that _this_ driver returns
-> EPROBE_DEFER and *then* once the MSI domain driver is loaded as a module
-> (after boot) this driver is probed again and succeeds.
-Why module? for "riscv-aplic", "msi-parent" shall be "riscv-imsic" and
-it is "builtin_platform_driver", see
-drivers/irqchip/irq-riscv-imsic-platform.c
+On Thu, Oct 15, 2026 at 05:36:43AM +0200, Karl Mehltretter wrote:
+> RV64 pre-allocates page-table levels for late kernel mappings. The module
+> range is guarded by CONFIG_MODULES, although execmem can use it without
+> modules.
+> 
+> With CONFIG_BPF_JIT=y and CONFIG_MODULES=n, execmem adds a mapping to
+> init_mm while the current process retains an empty PGD entry. Initializing
+> a BPF program pack then faults:
+> 
+>   Unable to handle kernel paging request ...
+>   [ffffffff78000000] pgd=0000000000000000
+>   ...
+>   bpf_jit_fill_hole_with_zero
+>   bpf_prog_pack_alloc
+> 
+> Use CONFIG_EXECMEM for the module-range pre-allocation, as powerpc does
+> for its execmem page-table setup. Both CONFIG_MODULES and CONFIG_BPF_JIT
+> select it.
 
-Thanks, Vladimir
+I think the commit message should mention that BPF_JIT_REGION is inside
+MODULES region.
+ 
+> Fixes: 2c9e5d4a0082 ("bpf: remove CONFIG_BPF_JIT dependency on CONFIG_MODULES of")
+> Cc: stable@vger.kernel.org
+> Assisted-by: LLM
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+
+Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+
+> ---
+> 
+> Notes:
+>     Tested on a BeagleV Ahead with matched LLVM 18.1.3 builds based on
+>     v7.3-rc7:
+>     
+>     - unpatched: a native XDP attach triggered the Oops above
+>     - patched: native XDP attach and detach completed without an Oops
+>
+>  arch/riscv/mm/init.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index fb37b0b67efe..d92342c162e2 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -1437,7 +1437,7 @@ static void __init preallocate_pgd_pages_range(unsigned long start, unsigned lon
+>  void __init pgtable_cache_init(void)
+>  {
+>  	preallocate_pgd_pages_range(VMALLOC_START, VMALLOC_END, "vmalloc");
+> -	if (IS_ENABLED(CONFIG_MODULES))
+> +	if (IS_ENABLED(CONFIG_EXECMEM))
+>  		preallocate_pgd_pages_range(MODULES_VADDR, MODULES_END, "bpf/modules");
+>  	if (IS_ENABLED(CONFIG_MEMORY_HOTPLUG)) {
+>  		preallocate_pgd_pages_range(VMEMMAP_START, VMEMMAP_END, "vmemmap");
+> -- 
+> 2.43.0
+> 
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
