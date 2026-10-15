@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6BB1CCA462
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 23:54:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC25CCA462
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 23:55:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SOWMf+TWiICJKCRdfxsxVSJZjiRf3+e4+O6HaEHsW0c=; b=AGFINCyDxmha6E
-	SzUYE9I0j3JdQdGh55mvmowD1zB6bDu/ntvbDcj9Ci2krLC42dx0dXlZTJ6jZiv+8VWJ+H18zaMZG
-	1bhRDhGxW9nzqfisO9pwrf3S9Fsh4YBRSQAF6YGpF3KyRZXmMCIuCs9CGWku+X/ntAtpFCD5I++D5
-	+LHnz0r3vSbQUpoADIRLvE6mkwj2HTiC3SQzjXhfU7tsd9AFIpc6CIEnp5EfJod7ryVrnCyugSS9q
-	WliItQYjI5KAPnanTvkpE1vYYPnfM59HUFNw6KWXPDu/X7Pt8brIz7qOib24yzJ23PKWGPIJLVYPi
-	YA9liYVYtfDhWipLQR2w==;
+	List-Owner; bh=dTUjgUZ5+tcD/mjhFov7B1SWvO8UlmcxStK4WzOLm0A=; b=SygrpmHnXy8dM7
+	Z6Yn5vsRD9QoE4pNlVCTR9PUeJMiZ/Oo3aHitWLCtv7cJZIuwf/0RNqqdVJ3JgWsBBd0ASqYl5UAI
+	YqszKt0EEc1QMLuguvan75IZWI/uZ0fOTzZlMh8u6mC27hjayBKtUTFd6Dk08c49c25VrodgTSVCg
+	yznAYVdSCCSTRR6X7uTky7CBUHeANUtou+wKKNT18gnIHOrpa3ENlERlLYSITDBsum09RgetodpPj
+	tvGoWmgyIUqsef1+Qv6hxjLNgm4F0PwudDfb85iXhPLawNnLLoRZnlEAQlyTyJCFUA9pEHONwLwiK
+	6OLu5RoFdUzM2OTNfByA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHVGw-00000001a6a-2oQK;
-	Thu, 15 Oct 2026 23:54:06 +0000
-Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
+	id 1xHVIR-00000001aJw-3xJu;
+	Thu, 15 Oct 2026 23:55:39 +0000
+Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHVGt-00000001a5V-2oGk
+	id 1xHVIP-00000001aIw-0ijs
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Oct 2026 23:54:05 +0000
-Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-91b89c6caffso17898466d6.2
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Oct 2026 16:54:03 -0700 (PDT)
+	Thu, 15 Oct 2026 23:55:38 +0000
+Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-533972e0cccso66149201cf.0
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Oct 2026 16:55:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1792108442; x=1792713242; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1792108536; x=1792713336; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=WmHIZZgl56SndGmE7ZHoozI3Bjh3H3Lm9ikaXzIGcaI=;
-        b=NUltgBMbsXwX6Gk8bBUD9e+U2pYnpBTqAzaIZOzFV5n6poHrCqfLJx7feDZU95btqD
-         XiSmMsMnc16aZTDWIbfroMMm+zkqdpjytMTupx75T70ZbFI9/4V8t0rNGBQO00qB/OWa
-         R8seOjEQsx53IBycoDEQOklRBsv/1DWi81Om0VqS0/ZbLuTFhMknmsH6NR28ezb/WvPt
-         Xt4olc43FkJevGmbddW/xN/7eXIp3TW22AgkIk9Jl2vDHd/XdoK6fpyYtg4Iw0Up2VkY
-         7kGd4ZVn5TPSF5fp4IIlzkHJontpVh555iCQQRsV/CXqCn8M4l7SvBmIeh0549lqRB/u
-         DNPQ==
+        bh=Q9upklymhAO5QkQciFGrhvMFEHYA5CmaaRGixe6VBms=;
+        b=GVedO2+kVvGVxz9rokzYgbowi+WZ7rv+JxXFw8cc8AXb8IwqsUjL7ISEEMqNfYIfNq
+         WVU47ggnBZ44df+q4AstlVnd2et+S+guir+e1/e0GW+pOVtfXplF0cZ7QRhzdIrfAvkX
+         9xa0wu0I/wm1Q2xsCF7GWdtHgcM2xmvr2sZ1FHDQ816+SHHPc9/v6RgK4w/p0eyxXGEk
+         Hkvnasc/RAeGdLE1Ca8LBN+qOzofyEUb6d9hNyqUEZlB/CJqHQMD8HEhu/B4MGJ3jEDL
+         w8R1BoCR3N7CysIEjj3niozFngTmTewlzrS7Xb3da1/zZVoUq8GDjbhxUACHwJFxno36
+         mKuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792108442; x=1792713242;
+        d=1e100.net; s=20260707; t=1792108536; x=1792713336;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=WmHIZZgl56SndGmE7ZHoozI3Bjh3H3Lm9ikaXzIGcaI=;
-        b=tNF8qGdwXKksWbDzNKjEOQulkdX98bnVuGYxYdEzMgbZV6wAFs+/Mlmj5GX/rPXNac
-         731OzHMGUovQmEBB3vLJs053opxCQU7PIgW7dSt6wQrqJnKdixIqg2BU3OiOziWkeneg
-         Wg8H8SNSVQkoKQMRaprz8iE5kup8jmlyv4fKYp8tjgSGjwn2Tpn4WU4WmWn93htzTC0l
-         EGCcrYBvDsvvZGhaWVAPOL45++gJYlQ+vR+p1dV+mn2TIjAQ3laHNr0qmQfdDtzouTjK
-         QC0fhgt8+rUs9VYGsn92B+ZpHSiLT9vUFWyRepuM3oBUsDDKF3agBg6/KKVqKcBVgE7u
-         rCZQ==
-X-Forwarded-Encrypted: i=1; AKwUvByiQsHWECqQM3Ans3boURjCqXVuQyFuzFpCosso0/yI8vs9LFu2iHllPiCC3tcxwfIy0qOb14AJwe/ilQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ7FWBKGee7KqKXO3z71Qn0AWyJT/QH0XlcOCzOtAJn4HjKKBDi
-	WiVAcWZ0EmI3AtBc3XfhhfybhKaiQP7oeKYc0D/00GP6Lsour05m3nxJnrbQh2WHEeY=
-X-Gm-Gg: AYBFou2dq7hO5G+JpENGGhTnCPW/TIc1GGFMInhGi5BOgv/pXh6GdBUn7+oSzV4HOJ6
-	Ct1Ik3ijpU2wanzSlhiiklIQaPG/H0MFsuSq+jFIeMoTcb6BRseiFCg/n0SYvxtCbUWg+N3the5
-	fBlppkln/1PD2tFdpoHHyafEGiGLyq/bcjHp6VE44WTAq/hQcPOXzLbi6EENDGOH9GyR99Brf+X
-	BRjcmeIm1URSUVnTf5FD3GTOwYMgx8wTs0+bGA7/d0RkHmnmX2u5NDczjburS6XWLO0NO6CC4wi
-	Kk0hGmlhz1/Q2mCVtcyApGxNodoIIwVkRR487faqhkeU1lU0YGPDSXadYz3FpwyFJ/XBUd3eE6a
-	XcFi4L3Xq/2G/r5Olp/SCExGgPS2CyvOK5Rgu80xfhKp7CwUMO4rsgZexhsTfUwFgNNgmQOVZJ+
-	PH+eUVptFM+ItfL6FhPNua5KAyuwFD5j5X+2OkNhN7p3bxgHqLeLQrb29S0xdpMUuL5J4T81Qqk
-	XaROgroDFUHxP5hVm9BRaz6npe/YJ1lkZoaJd7DscRPSZQRk9Dsh7YkDaMedNoAP00=
-X-Received: by 2002:a05:620a:6086:b0:93c:b7f3:9f5b with SMTP id af79cd13be357-93ebd24cda0mr3455302785a.45.1792108442214;
-        Thu, 15 Oct 2026 16:54:02 -0700 (PDT)
+        bh=Q9upklymhAO5QkQciFGrhvMFEHYA5CmaaRGixe6VBms=;
+        b=oxjlktg3gjsUezTDoCh/+F/SXAB3b8E/pyyLRZdYWQlLR1DCBnPuOBUkCv73xkz5vd
+         rzM7Tri/gqx4oUEdmtJx1sJi8rOMJM9tSKkWimDOx+q+1oGz95pwAz2SfjIUxTrTCa2s
+         2gfUqPM8pL3vM5BxvYeUFkwVHsSp2F3JNWzF7580ow9o6HfNXwfbpjgq3leQ1QTKStn8
+         odnqyOabpCnk/stciPKUkyvhT4piw/rfyJNKNJISEbIRFd4e7CDBN3rRBG78POPjtZ7o
+         KJntXtbsFm3qEdqg1jID2L2HnZMWpCPxC/NhKtUaOYXPe8fYkMKJmO8FsO3HkURV8ykk
+         2P2w==
+X-Forwarded-Encrypted: i=1; AKwUvBxAU3SH+TseoyuHr0cHvUrq8SQpyFcBWZbw4koXlVPVGJ7f2vYzaPS04JMdQ2b1PhS+pvTLnDsVLow5EA==@lists.infradead.org
+X-Gm-Message-State: AFq9FYJQBEvugLLeB2beuob7bd5Zyw5lQLTgd2kkMVrjVfsy3ZhqrE/4
+	ln5l+3b07AdBU7sucMMyi1V+xDGaJsj2M0vSMHeKFZVHTnd2tKGoEssY1cmugIhEaeQ=
+X-Gm-Gg: AYBFou3SbVlJIt8xysvG2v1uHUZhS4OQ4sCG50AhHESSLPGrFuOyGNTtl66GD4LvZeL
+	3y71sq4JfpZBRBRvhPDb0k+tMguw5DGHqCr7BMzJapfBMsIO/69PTy8XtXME9FjquVlu80l7JoB
+	VHxn4ETKi+/DuntdjqXFZltn7F6zthQ+3yhkaqTSe0QnjWhyinX/vVztz+S+MrBHyUHuBf34VVc
+	9WrBr+64U7hTA0GD/wxmMQwfmjoZdstvZnBS9tJaDhdnF56P9jQGIQpQvKsUi8c/6f4ubEOeiHY
+	rZsr3uUn8mPtdCBPPJ2fKEUXsAZPdVEEGdDqY4H7vmH6Cg8rJtjAQxlBAYr6RVBM6/fFLtkts8s
+	V/GvxmqOb1pl0EKJolZ7ugPGwQiXHWjZoz3Folq7DvtyEWu80SJyhwKIlTvg5X7CqhfusGj07lb
+	ZBevJ0png8pfrtbNlXJ/DVkrQt/vAnG47Deyl7bi/BBTjaw68bOf4vXvNPF4e40xQr50qKLoQJi
+	3A6KOL1Ig8IIKqQZZjrkSt9/pRl/G4uhMOg2f0VSiRGPKCBXqYVz1by
+X-Received: by 2002:a05:622a:251a:b0:532:f124:18dd with SMTP id d75a77b69052e-5359f49891emr329059071cf.11.1792108535894;
+        Thu, 15 Oct 2026 16:55:35 -0700 (PDT)
 Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93f1a19bb32sm62233685a.33.2026.10.15.16.54.00
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91bcba4db4csm8430526d6.16.2026.10.15.16.55.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Oct 2026 16:54:01 -0700 (PDT)
+        Thu, 15 Oct 2026 16:55:35 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1xHVGq-00000000GRr-1dQk;
-	Thu, 15 Oct 2026 20:54:00 -0300
-Date: Thu, 15 Oct 2026 20:54:00 -0300
+	id 1xHVIM-00000000Gew-3ViJ;
+	Thu, 15 Oct 2026 20:55:34 -0300
+Date: Thu, 15 Oct 2026 20:55:34 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Gong Shuai <gong.shuai@sanechips.com.cn>
 Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
@@ -95,17 +95,16 @@ Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
 	Wu Fei <wu.fei9@sanechips.com.cn>,
 	Zhao Qingye <zhao.qingye@sanechips.com.cn>,
 	Gong Shuai <gsh517025@gmail.com>
-Subject: Re: [RFC PATCH 02/12] iommufd: Add RISC-V IOMMU hwpt and vIOMMU types
-Message-ID: <20261015235400.GZ14213@ziepe.ca>
+Subject: Re: [RFC PATCH 07/12] iommufd: Add RISC-V IOMMU hardware info type
+Message-ID: <20261015235534.GA14213@ziepe.ca>
 References: <20261015065232.604503-1-gong.shuai@sanechips.com.cn>
- <20261015065232.604503-3-gong.shuai@sanechips.com.cn>
+ <20261015065232.604503-8-gong.shuai@sanechips.com.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261015065232.604503-3-gong.shuai@sanechips.com.cn>
+In-Reply-To: <20261015065232.604503-8-gong.shuai@sanechips.com.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_165403_954462_3369CC0B 
-X-CRM114-Status: UNSURE (   7.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261015_165537_219874_16D8D206 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,27 +121,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 15, 2026 at 02:52:22PM +0800, Gong Shuai wrote:
-
+On Thu, Oct 15, 2026 at 02:52:27PM +0800, Gong Shuai wrote:
+> From: Wu Fei <wu.fei9@sanechips.com.cn>
+> 
+> Add IOMMU_HW_INFO_TYPE_RISCV and struct iommu_hw_info_riscv, which
+> reports the RISC-V IOMMU Capabilities register through
+> IOMMU_GET_HW_INFO.
+> 
+> Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
+> Signed-off-by: Gong Shuai <gong.shuai@sanechips.com.cn>
+> ---
+>  include/uapi/linux/iommufd.h | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
+> diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
+> index 36e6187bb34b..acfef0338cd1 100644
+> --- a/include/uapi/linux/iommufd.h
+> +++ b/include/uapi/linux/iommufd.h
+> @@ -716,6 +716,14 @@ struct iommu_hw_info_amd {
+>  	__aligned_u64 efr2;
+>  };
+>  
 > +/**
-> + * struct iommu_hwpt_riscv - RISC-V IOMMU stage-1 page table data
-> + *			     (IOMMU_HWPT_DATA_RISCV_S1)
-> + * @tc: Guest device context translation control
-> + * @iosatp: Guest device context stage-1 root page table pointer
+> + * struct iommu_hw_info_riscv - RISC-V IOMMU device info
+> + * @capabilities: Value of RISC-V IOMMU Capabilities register
 > + */
-> +struct iommu_hwpt_riscv {
-> +	__aligned_u64 tc;
-> +	__aligned_u64 iosatp;
+> +struct iommu_hw_info_riscv {
+> +	__u64 capabilities;
 > +};
+> +
 
-Like the others you need a spec reference explaining exactly what
-these fields are.
+Same here, spec reference.
 
-Usually it should be the entire guest structure, is it only 16 bytes?
+Also be careful to always use __aligned_u64, check all the patches.
 
-But this looks broadly right otherwise
-
-Jason
+JAson
 
 _______________________________________________
 linux-riscv mailing list
