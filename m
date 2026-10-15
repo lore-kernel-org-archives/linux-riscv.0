@@ -4,97 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F82CC6B34
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 12:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA4CCCC6B3C
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 12:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hryDG2Jz+NCpmnG5wsM3ec1kk+JXAizGA4XB+7kau7Q=; b=o/XWFHASgfQIT+
-	CWBuuqmAM3qVaNCPxmJkK2ToeGb36roHOi/2O0LZ8TEgEFD6AEfd/Ut+1TTKRJlm0pUISxR3N+Cz3
-	NJOEyBhGR63FkBeHsMRb/9EhwEcx5cAqV0w7JJwcqL9hhsAnMnUDiZ4BnnCmEuwxrbPnexy4WUUlu
-	pkt6GOyRAFwfjTpwsu67LhcJ35iU62iq3YEWUMAd4/3KI1RtJ9PT6LOapjXMFYleVW8YVrEqY8nlW
-	1kTgADRTSJ6ONjKPgQYo6xN88rwx0eb7qcp1Wrp2L+1Nl81UkpURHar88CNO8rymS750r90KAEgUi
-	2cRksY6n2M8ZNjOjfVUQ==;
+	List-Owner; bh=XLqu14zT2tzReGeZmSwYQvqRVWhS57rodkf6kE/1Sto=; b=HTfmNj53D0ionw
+	kA59cMySjBku6YubUWYXDDnLag+Zfa5f64eU9K8klbSskb8z7lUGcZdPZf/GK4gLyJZhzuEQXxR06
+	MWJCpf9doK+0cJQD3ffHHsJJMpp7rgaacMX++z8YuywVNG77tOc4652azBEs+qYYaF3VR70X6qST3
+	aRsIaxUgX7E29dlLfIsjPg8JDKFX7YRN8fonTG1uZqgSxVqkkYjzMu7+It+mnA5pRYxQSgbQbPENj
+	gzCUEvUAxUSWH/35hj+qDzBFDN8iB3/TDLtU8ZeEUx9nDYhDNyZG1/AujWS/M1kTj1eYS+lygKGix
+	/bCrIgxwaamPE5uzcJsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKNN-000000004Rh-3RGD;
-	Thu, 15 Oct 2026 12:16:01 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1xHKW4-000000006Tj-1k2E;
+	Thu, 15 Oct 2026 12:25:00 +0000
+Received: from mail-ua1-f52.google.com ([209.85.222.52])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKNK-000000004R2-2gQp
+	id 1xHKW1-000000006T9-1Aow
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Oct 2026 12:15:59 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-3ac5b090d16so1376767a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Oct 2026 05:15:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792066556; x=1792671356; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SN6vSgMsnnJYN+HFBZesKCHrB6GOW3IUndONKHtHc6k=;
-        b=nZy7XDpO1OJW1mqbOQnA1CYM31CXYnt6I9TttvA4q2fkIL4KXYb1gnzV2zuF+XxOOa
-         7lFxvkZQ8ikC6+LwPD72X6Ul2xvT98nhz+1XBIil43Vl5PhQjC/bdTRM6OIpaohGVfzj
-         LLFhhSo4lvQlyGouDlSv4dCYuEAYo0HimDhcrnTri0yRrrSwzq7KgJ2MJiPdFsFvewns
-         hVkk3/IsxfHUhLXWCOawNhlSSkVjhMEbpHDo66W+s4t4eIhPaJYuIBfs6fCDsDo+Rb7C
-         852tsIcKzlIrtgNtYCDwz4o4BSW2R82wR4VliU9vl+dpAh1nIOkezJtkvqGpDXU7xQjM
-         qsAw==
+	Thu, 15 Oct 2026 12:24:58 +0000
+Received: by mail-ua1-f52.google.com with SMTP id a1e0cc1a2514c-980c4f5c921so1501644241.2
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Oct 2026 05:24:56 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792066556; x=1792671356;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SN6vSgMsnnJYN+HFBZesKCHrB6GOW3IUndONKHtHc6k=;
-        b=Ei97JGmI6X0GbI9HY4HQvq6hQaZw/j389WG7wZLfG+rGR16HdibLUG95QrD+qtgVay
-         U51LridYFlq17SLM03TuIdlSGUmizEKV9luNoT4rxK+O/4yV9HifDqmCkgOcJMJMYC8t
-         g71TYON9Dm2KJqirmcM4MdUd3B9OEJK2hTiddthNS+ejQFoNF9gJAm7P/m6hYSgVTtmy
-         ZqnsAeSHTQa9a1qC/KV7kidNQhsgc8YJzQGoKvslQdNbrJpitJ/IxRbEA493Z8DtwkDD
-         hCQeYSCckQc6A2C5xq7DELhEqz/osXgPy9Aeyi710uFzmLBQ5jvlyjto3JDhPnsKlIkP
-         iNEA==
-X-Forwarded-Encrypted: i=1; AKwUvBx8eSNXmO4gVuNrAZoxNjj8wAAPXQR2X5tmDYTvAFDbBMIUDZs2UiNSLP7Ho3jSEk6NpSn+FCAPm1IfDw==@lists.infradead.org
-X-Gm-Message-State: AFq9FYI01lZG5DJk5ak6mzZ96DM4ooRzUcysPPwFKYEFd48IctI/PUHQ
-	PrsvUFnq7EyITFV+1URpeJK0krpc+G79AF1VDCStHlhNmuRrG8z7uM2Y
-X-Gm-Gg: AYBFou18XMg98vippiMvZsJd7rXY1UBBfzvFoiHI6oErOCdZqxAvT0A3EbIScKbirLR
-	HjKrg+9nNBA+yzZ7Mx6mNC5/67ctAYqSxYRqimY6z7cZZONEVeH5Dry5ZwDnqu+AzqKAYNO1E/+
-	7HVrGRGomITbf6faZAmf0t9s8fJYtkzyD3IvjE+/MYMCl1n0itv9tx1gJ+TytCf+EBX7N4GgFb7
-	GfJ4p7++UnvxmFQ6UjtlZX/PG+jakcUmTHVM1cVGbe2P5cAA4zCxFRI6JxZxSVCyDpExFwIO1YJ
-	xocSIP7j2bXqTOX+F2C8v0yYhzimxeZ564ZTivr0fHzpw2Q2gKql+cihMRWVVkRRfmyVrqs0bCO
-	7B2QSeu3pVHgIjqtD3QShKgdc5WUw2vGKWOIzn1M9uXWT1+CNNWf7FtRrGCEz+Gj3d7Z0mKamqi
-	qWDOScaWauMaa3kvDkW4tVq0fBW69rwZVLZDYIsox8vnjeyjjWdw2WemUvw9xlImtdewshnUrLD
-	OVD/wz782GSt10gIOxPcEgkNuQcmPYJNxs/IxF0HSapXNpVpIlbRasVyIDisOW2sXXvhYrl4qcE
-	HPSvwyOz56okgEh0iCgklA0YWFfjcfMHXDwfaAwWAYmJqKb0iLVhrA==
-X-Received: by 2002:a17:90b:5825:b0:3ac:9ed8:f301 with SMTP id 98e67ed59e1d1-3ac9ed8f5eemr1065524a91.30.1792066555611;
-        Thu, 15 Oct 2026 05:15:55 -0700 (PDT)
-Received: from alanhc-14700.tailb22ec2.ts.net (180-177-138-120.dynamic.kbronet.com.tw. [180.177.138.120])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ac9437aa5fsm4273307a91.3.2026.10.15.05.15.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Oct 2026 05:15:54 -0700 (PDT)
-From: Hung-Chun Tseng <alan.tseng.cs@gmail.com>
-To: Yixun Lan <dlan@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	E Shattow <e@freeshell.de>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] riscv: dts: spacemit: mark K1 board boot devices bootph-pre-ram
-Date: Thu, 15 Oct 2026 20:15:49 +0800
-Message-ID: <20261015121549.3809199-1-alan.tseng.cs@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261015074621-GKN26088@kernel.org>
-References: <20261012235624.77993-1-alan.tseng.cs@gmail.com> <20261012235624.77993-3-alan.tseng.cs@gmail.com> <20261015074621-GKN26088@kernel.org>
+        d=1e100.net; s=20260707; t=1792067095; x=1792671895;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=gQc0B6ddBetoMPj6D5PkGmJUAko65vy6l7KddjggnuQ=;
+        b=xnWmiRt0wW48CAVNhEIL7uRlOoGaNjXLUIoPDbf8vXc8w/Or2Gb2M3UrBeZPVnDoVd
+         sQVLpxErJsngZme3FS+oi2TfiCSrc9Ei5Gs/9NBg+oFwNGE/Bj1Rb8JgSOE/2sLL10Lv
+         TzvKgLp64DaaLu3YKIIrIQuBBg67M59F+OUq/42F/AfidJS8FbLW1RquSUZGKbqWOviq
+         NDk2xgcg5MbfYii2uvfM1z5H4QoRXBZqTpfJcyJY6WpARyKna8rO+jQdCKrOSg/wSh8k
+         Iq8ylSNFhsNz/gqWeAZT4bTKk6TY52VP4vDaVr/qQPuGmHNul5QhFCAbPa8OBzsYJ0uc
+         tUhw==
+X-Forwarded-Encrypted: i=1; AKwUvByxpZzEB/xZIiJ/eYBCJe7hpW7smE6pl5BdEB1870hYR/2vXdqtGeYcSGWkaduESxbXbAyr9/W0xTke0Q==@lists.infradead.org
+X-Gm-Message-State: AFq9FYJaq4VmdXQrLsqDQ3grDJRCMCJXY+yY40hYuuZ+LVPqx5DeS4rZ
+	ne6nIsXT2DJth/CBtS7NLkVudzwSTJlaRl1ny8nU86kk68iUhLf+EGUa1XpM7kAAaU8=
+X-Gm-Gg: AYBFou2yNdspm7NZSU+zKK9CYX8IOsje6iMuh50eHMVVfMNdduYbyQx5H8zSCoGYhJI
+	ZfeOhGqTiexQE8QBHEIWn9TzVgE6oqKoWzUJyK0kDGGx11wYFUbb1SvZLnOE8NAVAyLUCxF/FOQ
+	aVqnY4tCvbt5pGGogTL00e9nHKbTYsgYk/SDh7tgWYm+q1ENu69wIkIQ+q9NRbl+56tm8PyH5ru
+	k+gmJYzEyHQS4XBqk5pRuee+fIXNSDUKOnTUuYg+tfhFO64dlrs4LTBuoSG5AriopVk93kPfPk5
+	OXamq0CkQmDzfss/LD35woALLGwbwwZu6DGIGFGFfBiesaUxD7KXXXguisrtbJTF7Le7KDCXm0t
+	Sfo61ShwSA/VpUWPtlA5tnXddHekcuatImB8d8WPegA/jalJmNCvD0YJHxk1QBZHokQbIRjfFfA
+	7h8yG2OQmnp5qjPY1aZruUk33QHmng52fYGPiWxQoyThVcAd+IVKRAvklBos2J7Uim7/OGr3dG6
+	PnGVlfLPN18HBJvKYMgTK7NoQ5QI9ah6GckBVTnpf8s5y8=
+X-Received: by 2002:a05:6102:f8b:b0:7a7:5355:7fb6 with SMTP id ada2fe7eead31-7cb3737be51mr3908581137.24.1792067095322;
+        Thu, 15 Oct 2026 05:24:55 -0700 (PDT)
+Received: from mail-ua1-f41.google.com (mail-ua1-f41.google.com. [209.85.222.41])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-990138f4fe2sm10567914241.6.2026.10.15.05.24.54
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 Oct 2026 05:24:54 -0700 (PDT)
+Received: by mail-ua1-f41.google.com with SMTP id a1e0cc1a2514c-98c7353395fso1464777241.3
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Oct 2026 05:24:54 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBz6Pk4XJncdVCHBtxJNLecFy/yl1MWZ1VXKrVRJuW142QYF+05colNUzZRxrpExWYcCNyJBk8U4eZX0tQ==@lists.infradead.org
+X-Received: by 2002:a05:6102:5792:b0:7cb:288a:b68b with SMTP id
+ ada2fe7eead31-7cb373ecaa6mr4423446137.37.1792067094049; Thu, 15 Oct 2026
+ 05:24:54 -0700 (PDT)
 MIME-Version: 1.0
+References: <1b1ca4208d725ae0bb834a61636e48728d79cf80.1791973171.git.geert+renesas@glider.be>
+ <atAQAI0WWtwh8kvf@xhacker> <CAMuHMdWB+Aj7HK3YaHgo8VcypBamN9Yqi-M8WYtKpRu+ZG7yFA@mail.gmail.com>
+ <atC9jZIF1T1x0w1X@xhacker>
+In-Reply-To: <atC9jZIF1T1x0w1X@xhacker>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 15 Oct 2026 14:24:42 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXkzgE7=n7MJ1-QS10y=f75vO7OribUgM3wb134LN+5kQ@mail.gmail.com>
+X-Gm-Features: AclHuK8AEmS4BjewOhDIhzzUqFg00oT4fEiD3JuX6PdEzowUpGV1zfOobCzXRp4
+Message-ID: <CAMuHMdXkzgE7=n7MJ1-QS10y=f75vO7OribUgM3wb134LN+5kQ@mail.gmail.com>
+Subject: Re: [PATCH] riscv: RISCV_ISA_SV48 and RISCV_ISA_SV57 should depend on MMU
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_051558_678711_CC72AF63 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20261015_052457_333175_971A1EFA 
+X-CRM114-Status: GOOD (  29.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,37 +100,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yixun,
+Hi Jisheng,
 
-Thanks for the review.
+On Thu, 15 Oct 2026 at 14:08, Jisheng Zhang <jszhang@kernel.org> wrote:
+> On Thu, Oct 15, 2026 at 09:43:40AM +0200, Geert Uytterhoeven wrote:
+> > On Thu, 15 Oct 2026 at 01:48, Jisheng Zhang <jszhang@kernel.org> wrote:
+> > > On Wed, Oct 14, 2026 at 12:20:39PM +0200, Geert Uytterhoeven wrote:
+> > > > These options are irreleant for nommu systems.
+> > > >
+> > > > Fixes: 36de74049ec8cb1a ("riscv: introduce RISCV_ISA_SV48 and RISCV_ISA_SV57")
+> > > > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> >
+> > > > --- a/arch/riscv/Kconfig
+> > > > +++ b/arch/riscv/Kconfig
+> > > > @@ -605,7 +605,7 @@ config RISCV_ISA_SSQOSID
+> > > >
+> > > >  config RISCV_ISA_SV48
+> > > >       bool "Page-Based 48-bit Virtual-Memory System"
+> > > > -     depends on 64BIT
+> > > > +     depends on 64BIT && MMU
+> > > >       default y
+> > > >       help
+> > > >         Add support for the Page-Based 48-bit Virtual-Memory System.
+> > > > @@ -617,7 +617,7 @@ config RISCV_ISA_SV48
+> > > >
+> > > >  config RISCV_ISA_SV57
+> > > >       bool "Page-Based 57-bit Virtual-Memory System"
+> > > > -     depends on 64BIT
+> > > > +     depends on 64BIT && MMU
+> > >
+> > > hmm, I think we also need to make RISCV_ISA_SV57 depend on
+> > > RISCV_ISA_SV48. Otherwise, there's a case: RISCV_ISA_SV57 &&
+> > > !RISCV_ISA_SV48. Human won't make this wrong combination, but
+> > > the random config can.
+> >
+> > Is that really an issue?
+> > If I build a kernel for an SV57-system, do I really need to enable
+> > support for SV48, too? It builds fine without...
+>
+> This is to align with the spec:
+> "implementations that support Sv57 must also support Sv48"
 
-On Thu, Oct 15, 2026 at 07:46:21AM +0000, Yixun Lan wrote:
-> > &i2c8 {
-> > +	bootph-pre-ram;
-> We could move this to dtsi file, since all board share
-> same design which use i2c8 for connecting to pmic, the
-> reward would be that we no longer need to carry this
-> property all over board dts file.. similar we could do
-> for "i2c2", but I noticed k1-orangepi-rv2/r2s have no
-> eeprom enabled..
+IMO that is something different.
 
-Agreed, v2 will tag i2c8 in k1.dtsi. I'll keep i2c2 in the board
-files, as the OrangePi RV2 and R2S have no EEPROM.
+Gr{oetje,eeting}s,
 
-> > 			buck1 {
-> > +				bootph-pre-ram;
-> U-Boot also carry "regulator-name" for this node, we
-> probably could also merge it here, but could do it in
-> another patch if want to limit this patch to "pre-ram"
-> change only
+                        Geert
 
-I'd prefer a separate patch for that, to keep this one about the
-bootph tags. The U-Boot K1 SPL looks the rails up by name ("vdd_core",
-"vdd_1v8", "vdd_1v8_mmc"), so once the names are upstream, U-Boot can
-drop the overrides in its -u-boot.dtsi files.
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-Thanks,
-Hung-Chun
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
