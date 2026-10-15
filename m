@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C4AECC6B34
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC977CC6B3A
 	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 06:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,48 +12,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qRVAeNc4VDvdMNyEw3wWdylWNW2oWbBPqLUCPB4m154=; b=Tjb8nDLLqCKdbv
-	JSi6GhCAqcLay0mFMyLPpxvGEru2/hKnLAEy2aUiqHZEgjNBK2BZryZywDA6surhghRotKyYLKv9k
-	paY/4twQ3xcI7Y7+Lsg+8iN+J2jsVzbvnrUsgtn3GDEmsDrIK6ibJwip2M73j0DZCZGLItUyo/sHE
-	NVtPsPrMiVQQ6lRYxVC5G1PprGPsiWC+/fvaLgKf9O5nb4Vldp/+/Eh4g82QazL/u5jv92G7VfmIV
-	3oYNtT7UchMqqCrJOyu+AXniainiG6+s+3TQ+SJjAmEPzTnGzSVFSMcTPVYEoOcN7u7JXPrhv4eKT
-	Xlvdhi5HQDIU9fhp74ow==;
+	List-Owner; bh=AXYOxjCE8C0GpZgBbDFI0qI/PQKYtukJTM7wAzzhmdE=; b=InMHNkTuDcD1Ni
+	u7My6GTWWmHs4uYUA2ONn4axqljbSHz++LPz/lgE4OZv9qdjNMdMQiKb5ZJZahSZ+VdVc8hsHCb5a
+	96EvFN+YH6xcnyj86WvfhgzOsV8lTY1yaXYZEyf3LXDYBpKwcCGvdiOLxeCDexlN5fk0O9VgZiZkQ
+	TT6m7ocUo88IO5f65bqBcssYoPnpq/lYEh6U+ZFXAlrzGE+qIMtfxjdUYWcsfwsjqGcutDx84oR0I
+	tEY+QUZeVdH5a9P1Aezpp4HY+tc15XDvxH2JlZkDl4AW7h+ZFtWUjq6Kr4uXjpptZDJnMDZLpJwuI
+	k7D2SXnvSGkW6E+wRc/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHFKs-0000000GyD0-1obc;
-	Thu, 15 Oct 2026 06:53:06 +0000
+	id 1xHFKv-0000000GyHe-47cH;
+	Thu, 15 Oct 2026 06:53:10 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHFKk-0000000Gy44-0mQw;
-	Thu, 15 Oct 2026 06:52:58 +0000
+	id 1xHFKl-0000000Gy54-3CPX;
+	Thu, 15 Oct 2026 06:53:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=i+nGxBDeNHrURt50cav2JElIhE/s6s+8QIh+LVnoHjU=; b=WG5muOzr625HtGJ7eO4uY5Axum
-	5CNK2+hA8Dcj5I/AWQMWw4n/1h7lHYyRhX7loG5meWAHSc/dHqLKBOQCikon+Ufrxprwo6uCFYDCI
-	O2G0S7dOvGgZq/evjwIRidWWMKQR2GVgYXWW3ReWTGzG8x1L++rjKwSsl+xS4yNnLbtG6Xd3a8Mfg
-	sKBrCnyWaBMXG1goOE2rSGcXqlTjlUvMOaYvhOQ4vFT1oyelskVq9rtBf6k7iX0p5nQKHJ/uyOoaZ
-	9g3xg9HuQQF0CwxeE+5LQhBENCKLJ8W0MUPsk5hQvph+YRQIxi5MbSkrdz3BVlu9HHuXcL7Tvm7Y/
-	unNOLGqw==;
-Received: from mxhk.zte.com.cn ([160.30.148.34])
+	bh=kmZyoG4EH/4f7Z8UxCBISAjq0efxYPUIeqF+lfWJDQk=; b=Gps5AXjQJ7OnpLa3ien2S7Pflr
+	K7UbnX08IiOt/fU+UpsjVZNBETCYGGdb64FXrGlfLSS4Nx5CmcrLO8Nl7KCp9oT6XI1Zju2mvAIkq
+	KncgKslXpLzPQjEFuEnuiUcpZWJ1yDiXDGPsjvd40IC1BeUPb/1Nzl7rUVzrVoLVVAD5f9PlbBPYf
+	BMbh9mq4zdA1KUBkMf/LaIK4R/XrPYnnyU1ASzTC63rX98gywuNlMpm8p0QzIiuuMDLCZIZNGqTRm
+	j0LiDVN46Uxa8qiSHFMcMSpXs51elO+niPw7CucX3OoJ0mCJDes4DuzhDknOxCla40Cj18XVkwRyC
+	fublxuIw==;
+Received: from mxct.zte.com.cn ([183.62.165.209])
 	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHFKg-0000000HXxd-2co9;
-	Thu, 15 Oct 2026 06:52:56 +0000
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	id 1xHFKg-0000000HXxc-34HP;
+	Thu, 15 Oct 2026 06:52:58 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4j4zKY6WWxz4y4ZF;
-	Thu, 15 Oct 2026 14:52:49 +0800 (CST)
-Received: from szxl2zmapp05.zte.com.cn ([10.1.32.37])
-	by mse-fl1.zte.com.cn with SMTP id 69F6qhc5013948;
-	Thu, 15 Oct 2026 14:52:43 +0800 (+08)
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4j4zKV156Wz5B14q;
+	Thu, 15 Oct 2026 14:52:46 +0800 (CST)
+Received: from szxlzmapp03.zte.com.cn ([10.5.231.207])
+	by mse-fl2.zte.com.cn with SMTP id 69F6qduG019086;
+	Thu, 15 Oct 2026 14:52:39 +0800 (+08)
 	(envelope-from gong.shuai@sanechips.com.cn)
 Received: from ubuntu-35-gs (unknown [10.230.214.35])
 	by smtp (Zmail) with SMTP;
-	Thu, 15 Oct 2026 14:52:45 +0800
-X-Zmail-TransId: 3e816ad0783c024-5556e
+	Thu, 15 Oct 2026 14:52:41 +0800
+X-Zmail-TransId: 3e816ad07838024-55505
 X-Zmail-LocalSMTP: 1
 X-Zmail-RealSender: gong.shuai@sanechips.com.cn
 From: Gong Shuai <gong.shuai@sanechips.com.cn>
@@ -75,25 +75,24 @@ Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
         Zhao Qingye <zhao.qingye@sanechips.com.cn>,
         Gong Shuai <gong.shuai@sanechips.com.cn>,
         Gong Shuai <gsh517025@gmail.com>
-Subject: [RFC PATCH 08/12] iommu/riscv: Add riscv_iommu_hw_info
-Date: Thu, 15 Oct 2026 14:52:28 +0800
-Message-ID: <20261015065232.604503-9-gong.shuai@sanechips.com.cn>
+Subject: [RFC PATCH 04/12] iommu/riscv: Add vIOMMU object support
+Date: Thu, 15 Oct 2026 14:52:24 +0800
+Message-ID: <20261015065232.604503-5-gong.shuai@sanechips.com.cn>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261015065232.604503-1-gong.shuai@sanechips.com.cn>
 References: <20261015065232.604503-1-gong.shuai@sanechips.com.cn>
 MIME-Version: 1.0
 X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
-X-MAIL: mse-fl1.zte.com.cn 69F6qhc5013948
+X-MAIL: mse-fl2.zte.com.cn 69F6qduG019086
 X-TLS: YES
 X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
-X-SOURCE-IP: 10.5.228.132 unknown Thu, 15 Oct 2026 14:52:49 +0800
+X-SOURCE-IP: 10.5.228.133 unknown Thu, 15 Oct 2026 14:52:46 +0800
 X-CLEAN: YES
 X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6AD07841.001/4j4zKY6WWxz4y4ZF
+X-Fangmail-MID-QID: 6AD0783E.000/4j4zKV156Wz5B14q
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_075255_185121_F89FC770 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261015_075255_505379_57B904B0 
+X-CRM114-Status: GOOD (  14.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,48 +111,124 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Wu Fei <wu.fei9@sanechips.com.cn>
 
-Implement the hw_info op, report the IOMMU Capabilities register value
-to user space as IOMMU_HW_INFO_TYPE_RISCV so VMMs can discover the
-hardware capabilities of the physical IOMMU.
+Implement the vIOMMU ops so user space can allocate a RISC-V IOMMU
+vIOMMU on a stage-2 parent domain and query the size to allocate for
+it. The object keeps the parent domain and the GSCID the parent was
+allocated, which the nested domain and cache invalidation support added
+on top of it will need.
 
 Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
 Signed-off-by: Gong Shuai <gong.shuai@sanechips.com.cn>
 ---
- drivers/iommu/riscv/iommu.c | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ drivers/iommu/riscv/iommu.c | 60 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 60 insertions(+)
 
 diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index c34331bcd661..e59a6a97589e 100644
+index dd97c2731d95..bf02cd984d86 100644
 --- a/drivers/iommu/riscv/iommu.c
 +++ b/drivers/iommu/riscv/iommu.c
-@@ -2220,9 +2220,27 @@ static void riscv_iommu_get_resv_regions(struct device *dev, struct list_head *h
- 	iommu_dma_get_resv_regions(dev, head);
+@@ -19,6 +19,7 @@
+ #include <linux/dma-map-ops.h>
+ #include <linux/init.h>
+ #include <linux/iommu.h>
++#include <linux/iommufd.h>
+ #include <linux/iopoll.h>
+ #include <linux/irqchip/riscv-imsic.h>
+ #include <linux/kernel.h>
+@@ -862,6 +863,7 @@ struct riscv_iommu_domain {
+ 	struct mutex mutex;		/* serialize domain state updates */
+ 	int pscid;
+ 	int gscid;
++	bool nest_parent;
+ 	struct riscv_iommu_msi_table msi_table;
+ };
+ PT_IOMMU_CHECK_DOMAIN(struct riscv_iommu_domain, riscvpt.iommu, domain);
+@@ -1497,6 +1499,20 @@ static bool riscv_iommu_iohgatp_supported(struct riscv_iommu_device *iommu,
+ 	return false;
  }
  
-+static void *riscv_iommu_hw_info(struct device *dev, u32 *length,
-+				 enum iommu_hw_info_type *type)
++static bool riscv_iommu_supports_s1(struct riscv_iommu_device *iommu)
 +{
-+	struct iommu_hw_info_riscv *info;
-+	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
-+
-+	info = kzalloc_obj(*info);
-+	if (!info)
-+		return ERR_PTR(-ENOMEM);
-+
-+	info->capabilities = iommu->caps;
-+	*length = sizeof(*info);
-+	*type = IOMMU_HW_INFO_TYPE_RISCV;
-+
-+	return info;
++	return (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV57) ||
++		(iommu->caps & RISCV_IOMMU_CAPABILITIES_SV48) ||
++		(iommu->caps & RISCV_IOMMU_CAPABILITIES_SV39);
 +}
 +
- static const struct iommu_ops riscv_iommu_ops = {
- 	.of_xlate = riscv_iommu_of_xlate,
- 	.capable = riscv_iommu_capable,
-+	.hw_info = riscv_iommu_hw_info,
- 	.identity_domain = &riscv_iommu_identity_domain,
++static bool riscv_iommu_supports_s2(struct riscv_iommu_device *iommu)
++{
++	return (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV57X4) ||
++		(iommu->caps & RISCV_IOMMU_CAPABILITIES_SV48X4) ||
++		(iommu->caps & RISCV_IOMMU_CAPABILITIES_SV39X4);
++}
++
+ static int riscv_iommu_msi_table_alloc(struct riscv_iommu_domain *domain,
+ 				       struct riscv_iommu_device *iommu,
+ 				       struct riscv_iommu_info *info)
+@@ -1734,6 +1750,7 @@ riscv_iommu_domain_alloc_paging_flags(struct device *dev, u32 flags,
+ 			ret = -ENOMEM;
+ 			goto err_free;
+ 		}
++		domain->nest_parent = !!(flags & IOMMU_HWPT_ALLOC_NEST_PARENT);
+ 
+ 		/*
+ 		 * Capture the current number of MSI PTEs now since it must remain
+@@ -1906,6 +1923,47 @@ static void riscv_iommu_release_device(struct device *dev)
+ 	kfree_rcu_mightsleep(info);
+ }
+ 
++struct riscv_viommu {
++	struct iommufd_viommu core;
++	struct riscv_iommu_device *iommu;
++	struct riscv_iommu_domain *s2_parent;
++	int gscid;
++};
++
++static const struct iommufd_viommu_ops riscv_viommu_ops = {
++};
++
++static size_t riscv_iommu_get_viommu_size(struct device *dev,
++					  enum iommu_viommu_type viommu_type)
++{
++	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
++
++	if (viommu_type != IOMMU_VIOMMU_TYPE_RISCV)
++		return 0;
++
++	if (!riscv_iommu_supports_s1(iommu) || !riscv_iommu_supports_s2(iommu))
++		return 0;
++
++	return VIOMMU_STRUCT_SIZE(struct riscv_viommu, core);
++}
++
++static int riscv_viommu_init(struct iommufd_viommu *viommu,
++			     struct iommu_domain *parent_domain,
++			     const struct iommu_user_data *user_data)
++{
++	struct riscv_viommu *rv_viommu = container_of(viommu, struct riscv_viommu, core);
++	struct riscv_iommu_device *iommu =
++		container_of(viommu->iommu_dev, struct riscv_iommu_device, iommu);
++	struct riscv_iommu_domain *s2_parent = iommu_domain_to_riscv(parent_domain);
++
++	rv_viommu->iommu = iommu;
++	rv_viommu->s2_parent = s2_parent;
++	rv_viommu->gscid = s2_parent->gscid;
++	viommu->ops = &riscv_viommu_ops;
++
++	return 0;
++}
++
+ static void riscv_iommu_get_resv_regions(struct device *dev, struct list_head *head)
+ {
+ 	struct iommu_resv_region *region;
+@@ -1930,6 +1988,8 @@ static const struct iommu_ops riscv_iommu_ops = {
  	.blocked_domain = &riscv_iommu_blocking_domain,
  	.release_domain = &riscv_iommu_blocking_domain,
+ 	.domain_alloc_paging_flags = riscv_iommu_domain_alloc_paging_flags,
++	.get_viommu_size = riscv_iommu_get_viommu_size,
++	.viommu_init = riscv_viommu_init,
+ 	.device_group = riscv_iommu_device_group,
+ 	.probe_device = riscv_iommu_probe_device,
+ 	.release_device	= riscv_iommu_release_device,
 -- 
 2.53.0
 
