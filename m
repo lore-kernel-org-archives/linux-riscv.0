@@ -4,77 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1EDACC6B34
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 02:13:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26673CC6B33
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 02:13:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/w0wR4dIye85H48ermpYHwZ9GJxhFP6l52+YM/2CPpQ=; b=pbmgjuVKBvDf7L
-	Iz4dxuiLLUBcna78odIV3fv8W2Dt0vtn7XVEh8f3dgQ1mlv8AIVS2jiQodjj6IZ1LeVq1bhqH+tkf
-	IMRkjjna8oJK289iQ2Rv1eOoFIc0aW8NIN40vghebAmpXZw4+W4ub2o3DoD9nj2XAzeAjnzhR8Iz0
-	u0FlCIB8u5RseSYxkGAbDOdouSemsf3BSh4ASGX9YjJ4b8U+Jkc9AgAGvhWfj4yHONUYI3rhOTBGn
-	rZnoZabQ+bKJ5auER27LQYPmqBGmwZ7g4BWZIxoyDtTxXuE2JVZaxlKxswqszExN9iyHbZn9bw+l8
-	f/a5Y7UQFbn8sn2k918A==;
+	List-Owner; bh=rZAFQRrbnHDKqZazlUDKUHrO8vq0Tws7uJbjbwg4tgE=; b=cJafRuVVlkuDVq
+	ENdI+0/i0DZq3GBsz3vsFSXZXA0kDd1szQ6la3cb85oxQ3sKksh4gvjH6vbX0Vu+IdFuTXjuMXWou
+	NdCgYetBsbtf6+1PeNl316mMsIksTeqFIsM+MDS6KumzUqHveLMEPBojakIGFDecALfL0jnBrBmA/
+	lhdT4/B6P6CZbgfR4D8lBqtle85UOmRy3Ja0EdJwlHD7dq87hN9O6S46XqPbw144dLLtit1pFm/u/
+	3U7kxBktWO7qnGANx2PIxmz6fuk8udVXqedkyL6NkViO/+YpVNPb2L/bETlBdpAOuWyyEdoVU2DC9
+	y9oTWhSEPolDcCXapRmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHAyA-0000000Ge9T-2G6w;
-	Thu, 15 Oct 2026 02:13:23 +0000
-Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
+	id 1xHAyP-0000000GeEm-0BXJ;
+	Thu, 15 Oct 2026 02:13:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHAy1-0000000Ge7I-1YSv
+	id 1xHAyN-0000000GeDk-2koh
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Oct 2026 02:13:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1792030388; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=fmE+Ta62ZCw4xFw2n1IQJCmp7u5EmXNXXoXF3v2gT1Q=;
-	b=vD0/0J66FDnfVABLLXRqe7I4corEEyoHcHMp60VVbyftKDSsJ3lzQs9UUjvh7WsV4J0f4XwaQlembW1HsISYQyHcnATO/ttWrNSfF/AzjpoNAOLl+TAhtClvLcWuy6v3+taJxtoJbeRd6PEclJY+n4dc9XFdhqzLjJ/ofYzS3Bg=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=27;SR=0;TI=SMTPD_---0XCqJ087_1792030385;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XCqJ087_1792030385 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 15 Oct 2026 10:13:06 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: ast@kernel.org,
-	daniel@iogearbox.net,
-	andrii@kernel.org,
-	memxor@gmail.com,
-	bjorn@kernel.org,
-	puranjay@kernel.org
-Cc: eddyz87@gmail.com,
-	martin.lau@linux.dev,
-	song@kernel.org,
-	yonghong.song@linux.dev,
-	jolsa@kernel.org,
-	emil@etsalapatis.com,
-	ihor.solodrai@linux.dev,
-	pulehui@huawei.com,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	luke.r.nels@gmail.com,
-	xi.wang@gmail.com,
-	shuah@kernel.org,
-	rgbi3307@gmail.com,
-	guoren@kernel.org,
-	bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf-next 2/3] selftests/bpf: Enable private stack tests for riscv64
-Date: Thu, 15 Oct 2026 10:12:37 +0800
-Message-ID: <20261015021238.5657-3-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261015021238.5657-1-cp0613@linux.alibaba.com>
-References: <20261015021238.5657-1-cp0613@linux.alibaba.com>
+	Thu, 15 Oct 2026 02:13:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A23C640278;
+	Thu, 15 Oct 2026 02:13:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E02E1F000C4;
+	Thu, 15 Oct 2026 02:13:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792030414;
+	bh=lYGm7luE63xYSigJ7AvIGcEshWOQl1LBRF7q+2lkSJg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ca+x6RHdf1/mOon8Y2zQUYOCRw/Fl1NLIrNEgYE1wUH6yScU7TVNUFvRV0y36s5GO
+	 cS0dQG1JM7IpURZnNkmSU9ii1fyQWLn7OVGtV5s2qjtW4frOkY8tWn79tt1Domvrgj
+	 FUs5EIChA1q/+P+Od5MssV9At101XB7ZJIG0wpC6jTtwEkib6ch43XtDT9oplLpN+4
+	 3ZUMyxNKvvN1SCP7SqK836RfujFwX8hLtt5iYpkjhocZiHpPCoiO/ISXW9SXfgxbbp
+	 qvT5S5CbDmF/DcOnbUhCe/RVGsa5HpTe9sMJwQpf+y6VWpfE5CqAk+X4HZxjPWHoID
+	 07Q7vEfYUOS3w==
+Date: Wed, 14 Oct 2026 19:13:32 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Reinette Chatre <reinette.chatre@intel.com>
+Cc: "Luck, Tony" <tony.luck@intel.com>,
+	Adrien Ricciardi <aricciardi@baylibre.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
+	Borislav Petkov <bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dave Martin <Dave.Martin@arm.com>, Fenghua Yu <fenghuay@nvidia.com>,
+	Gong Shuai <gong.shuai@sanechips.com.cn>,
+	Gong Shuai <gsh517@gmail.com>,
+	"guo.wenjia23@zte.com.cn" <guo.wenjia23@zte.com.cn>,
+	James Morse <james.morse@arm.com>,
+	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	"liu.qingtao2@zte.com.cn" <liu.qingtao2@zte.com.cn>,
+	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Peter Newman <peternewman@google.com>,
+	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
+	Rob Herring <robh@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Vasudevan Srinivasan <vasu@rivosinc.com>,
+	Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>,
+	yunhui cui <cuiyunhui@bytedance.com>,
+	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"x86@kernel.org" <x86@kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-rt-devel@lists.linux.dev" <linux-rt-devel@lists.linux.dev>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH v7 2/5] riscv_cbqri: resctrl: Add cache allocation via
+ capacity block mask
+Message-ID: <atA2zA3S9Z8qpik5@thelio>
+References: <20260901-dfustini-atl-sc-cbqri-dt-v7-0-ca2935d85622@kernel.org>
+ <20260901-dfustini-atl-sc-cbqri-dt-v7-2-ca2935d85622@kernel.org>
+ <8230dae2-2cb0-4b46-8cec-dc4e281d4e4a@intel.com>
+ <aqwN1szItGPg4Qjh@agluck-desk3>
+ <as0Zeoyjiy5CW1DT@agluck-desk3>
+ <eaeb4259-46d6-4656-8354-669ad32654b5@intel.com>
+ <SJ1PR11MB6083F4281EDD036A4E73A532FC9E2@SJ1PR11MB6083.namprd11.prod.outlook.com>
+ <a85a5aef-5468-47ba-afba-8bdd666dadd4@intel.com>
+ <as6Y72SbiXcJh6Ei@agluck-desk3>
+ <22ecec13-a703-414e-9f5e-75c89173e845@intel.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_191313_911609_BA07DAA0 
-X-CRM114-Status: UNSURE (   7.67  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <22ecec13-a703-414e-9f5e-75c89173e845@intel.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,127 +112,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The RV64 JIT now supports the private stack. Allow the existing
-verifier and struct_ops private-stack tests to run on riscv64 and add
-the expected RV64 JITed instruction patterns.
+On Tue, Oct 13, 2026 at 02:29:41PM -0700, Reinette Chatre wrote:
+> Hi Tony,
+> 
+> On 10/13/26 1:47 PM, Luck, Tony wrote:
+[..]
+> > Don't bother with a control_mode to switch between legacy and native.
+> > Just auto-select the "L2A" control on asymmetric systems.
+> > 
+> > But since this thread started from a RISC-V thread, it would be good to
+> > hear what is needed for RISC-V.
+> ack.
 
-Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
----
- .../bpf/prog_tests/struct_ops_private_stack.c |  3 +-
- .../bpf/progs/verifier_private_stack.c        | 41 ++++++++++++++++++-
- 2 files changed, 42 insertions(+), 2 deletions(-)
+For RISC-V CBQRI, the number of capacity blocks (NCBLKS) is a field of
+each controller's cc_capabilities register, so two controllers at one
+cache level can report different values. This series will leave a level
+unexposed if NCBLKS differs. The per-domain max would allow such
+controllers to be fully represented in resctrl.
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/struct_ops_private_stack.c b/tools/testing/selftests/bpf/prog_tests/struct_ops_private_stack.c
-index 2b3ec2b79091..103179ff8733 100644
---- a/tools/testing/selftests/bpf/prog_tests/struct_ops_private_stack.c
-+++ b/tools/testing/selftests/bpf/prog_tests/struct_ops_private_stack.c
-@@ -6,7 +6,8 @@
- #include "struct_ops_private_stack_recur.skel.h"
- #include "struct_ops_private_stack_large.skel.h"
- 
--#if defined(__x86_64__) || defined(__aarch64__) || defined(__powerpc64__)
-+#if defined(__x86_64__) || defined(__aarch64__) || defined(__powerpc64__) || \
-+	(defined(__riscv) && __riscv_xlen == 64)
- static void test_private_stack(void)
- {
- 	struct struct_ops_private_stack *skel;
-diff --git a/tools/testing/selftests/bpf/progs/verifier_private_stack.c b/tools/testing/selftests/bpf/progs/verifier_private_stack.c
-index 3d9994a52464..d9cebbc7355d 100644
---- a/tools/testing/selftests/bpf/progs/verifier_private_stack.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_private_stack.c
-@@ -8,7 +8,8 @@
- /* From include/linux/filter.h */
- #define MAX_BPF_STACK    512
- 
--#if defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)
-+#if defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)
- 
- struct elem {
- 	struct bpf_timer t;
-@@ -42,6 +43,14 @@ __jited("	mov	x0, #0x2a")
- __jited("	str	x0, [x27]")
- __jited("...")
- __jited("	ldp	x25, x27, [sp], {{.*}}")
-+__arch_riscv64
-+__jited("	addi	sp, sp, -0x20")
-+__jited("...")
-+__jited("	sd	s5, 0x10(sp)")
-+__jited("...")
-+__jited("	sd	a0, -0x100(s5)")
-+__jited("...")
-+__jited("	ld	s5, 0x10(sp)")
- __naked void private_stack_single_prog(void)
- {
- 	asm volatile ("			\
-@@ -60,6 +69,10 @@ __jited("	subq	$0x8, %rsp")
- __arch_arm64
- __jited("	mov	x25, sp")
- __jited("	sub	sp, sp, #0x10")
-+__arch_riscv64
-+__jited("	addi	sp, sp, -0x30")
-+__jited("...")
-+__jited("	addi	s5, sp, 0x10")
- __naked void no_private_stack_nested(void)
- {
- 	asm volatile ("			\
-@@ -113,6 +126,14 @@ __jited("	str	x0, [x27]")
- __jited("	bl	{{.*}}")
- __jited("...")
- __jited("	ldp	x25, x27, [sp], {{.*}}")
-+__arch_riscv64
-+__jited("	addi	sp, sp, -0x20")
-+__jited("...")
-+__jited("	sd	s5, 0x8(sp)")
-+__jited("...")
-+__jited("	sd	a0, -0x200(s5)")
-+__jited("...")
-+__jited("	ld	s5, 0x8(sp)")
- __naked void private_stack_nested_1(void)
- {
- 	asm volatile ("				\
-@@ -183,6 +204,16 @@ __jited("	bl	0x{{.*}}")
- __jited("	mov	x8, x0")
- __jited("	mov	x8, #0x0")
- __jited("	ldp	x25, x27, [sp], {{.*}}")
-+__arch_riscv64
-+__jited("func #1")
-+__jited("...")
-+__jited("	addi	sp, sp, -0x20")
-+__jited("...")
-+__jited("	sd	s5, 0x8(sp)")
-+__jited("...")
-+__jited("	sd	a0, -0x200(s5)")
-+__jited("...")
-+__jited("	ld	s5, 0x8(sp)")
- __naked void private_stack_callback(void)
- {
- 	asm volatile ("			\
-@@ -313,6 +344,10 @@ __arch_arm64
- __jited("	mrs	x10, TPIDR_EL{{[0-1]}}")
- __jited("	add	x27, x27, x10")
- __jited("	add	x25, x27, {{.*}}")
-+__arch_riscv64
-+__jited("	addi	sp, sp, -0x20")
-+__jited("...")
-+__jited("	sd	s5, 0x8(sp)")
- int private_stack_async_callback_1(void)
- {
- 	struct bpf_timer *arr_timer;
-@@ -342,6 +377,10 @@ __arch_x86_64
- __jited("	subq	$0x100, %rsp")
- __arch_arm64
- __jited("	sub	sp, sp, #0x100")
-+__arch_riscv64
-+__jited("	addi	sp, sp, -0x120")
-+__jited("...")
-+__jited("	addi	s5, sp, 0x100")
- int private_stack_async_callback_2(void)
- {
- 	struct bpf_timer *arr_timer;
--- 
-2.50.1
+The hardware I am working with (Ascalon shared cache) has only a single
+NCBLKS value, and I am not aware of any RISC-V hardware with different
+NCBLKS at the same cache level. Therefore, I don't think it is an
+immediate concern, but the spec does make it possible for asymmetric
+systems to emerge in the future. It would probably be reasonable to
+require native controls to be used for such systems.
 
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
