@@ -4,42 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA48DCC6B2F
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 06:53:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3BAFCC6B3B
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 06:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d8q3m142JycSoL3kLkaXKAtFCirk2XWR8G1tSFhxXA4=; b=mzGiOf+eZIxZx4
-	mqo4bR9vzUsBhU5xrtuUDiOkiFyGzNK4VG7VvJABdfizYrUIO9vtYGq5QpAd475oioQHfTQlY+yk0
-	19AoGVePaexXQ/i8jUy5nHchRJqvZNUqzhcDxRdj3tLMo1Lkhenxzv5hvZN41jcGsgCT59Xs3Ub5b
-	SX4kweapRpPYcBDsVYEDSxNwZ3xxAHGZ0jHS2ur2qfmqN3CbkY6pwPXKvvoy52Rke9VGtvp3SS85O
-	9DZosDe4wWkDZnJwGjoiyB/JZl64OS7DWp9YitfUEerUfqmUsgTswmocUDjuM+Re8VSBASj5/ouuZ
-	ngO3JJwTBwhzLq5zqQmA==;
+	List-Owner; bh=sM6DfHDra89gkq1DUsBukIlLFgz5nUWfv0/U7By8sWU=; b=vpkR7Fb3t3pS+G
+	T6oPtSguQDZBTBiNYbGe/jzgAfv3JCAiwa+JSjxUTqeMZU5Gs1+Y2TsTM7BzbVpRJ3urHbpGZgR10
+	KKsJGzpFHDLvKV1wKWuEwvfrBw/XJasW/B68C5puJer/0AHP48Ofdc8/LFzw1Lx+Tpe2ct7WCNKBR
+	yf9TWdBivenkhDPSk1rlRq8LwpvjTeUyZDtdEKnj7PEOTMhyY6nTKc3DR0AqE7nIJc3JNQHNg7UDA
+	Muu+/gCLrwQgDacJGZfT+Puz27jsB7ajDbYBjt3vJqQD5IuYFqZMBvRNAeLizmT1dVmTbwhUwr2yu
+	J7s+xH0yXNUGtVQVoONA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHFKp-0000000Gy8A-2lb5;
-	Thu, 15 Oct 2026 06:53:03 +0000
-Received: from mxct.zte.com.cn ([183.62.165.209])
+	id 1xHFKw-0000000GyIa-2Vhe;
+	Thu, 15 Oct 2026 06:53:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHFKh-0000000Gy1v-23nx;
-	Thu, 15 Oct 2026 06:52:57 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	id 1xHFKk-0000000Gy47-0k5r;
+	Thu, 15 Oct 2026 06:53:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=at+uGcIjuslyrgdpaYaPHKlhLN33dICPhzjraIu66H8=; b=DYrBY7m3y4U2zLsbCGdpSoUM0a
+	BoDFfqQ0+XvbjyC6/SQlhDACZRuFveJ/QdQI1b7aNpAno9DFPqdraEjxsxIsQTwe/9p1LOAVL7WZ5
+	nQUVTD1F2CuZvJl2e+eCCtTNb/QoRj1/3wjXoTFB+lVSvsUK6DOiOAFUU7Au8CZUAP2cRo3/bRYoH
+	ietV9YTgxlhe7tvWJusShRTDOrb1xLp2FDNYeB9xxadE5jbpHAQNQyUoXtpdR8xHagbrPky0griSB
+	QQsD4bamV92k99eozykdSoaUwI0dn/tT7t6BuJMBd8f65zJYtmssKbK5HG6dYxJySMF+C/5yPUR0/
+	hmY1IiLQ==;
+Received: from mxhk.zte.com.cn ([160.30.148.35])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xHFKg-0000000HXxO-2h0o;
+	Thu, 15 Oct 2026 06:52:56 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4j4zKZ6Nw9z5B15M;
-	Thu, 15 Oct 2026 14:52:50 +0800 (CST)
-Received: from szxl2zmapp07.zte.com.cn ([10.1.32.52])
-	by mse-fl2.zte.com.cn with SMTP id 69F6qjj2019179;
-	Thu, 15 Oct 2026 14:52:45 +0800 (+08)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4j4zKX3rJdz8Xrrd;
+	Thu, 15 Oct 2026 14:52:48 +0800 (CST)
+Received: from szxlzmapp03.zte.com.cn ([10.5.231.207])
+	by mse-fl1.zte.com.cn with SMTP id 69F6qfBb013906;
+	Thu, 15 Oct 2026 14:52:41 +0800 (+08)
 	(envelope-from gong.shuai@sanechips.com.cn)
 Received: from ubuntu-35-gs (unknown [10.230.214.35])
 	by smtp (Zmail) with SMTP;
-	Thu, 15 Oct 2026 14:52:47 +0800
-X-Zmail-TransId: 3e816ad0783e024-555bd
+	Thu, 15 Oct 2026 14:52:43 +0800
+X-Zmail-TransId: 3e816ad0783a024-55537
 X-Zmail-LocalSMTP: 1
 X-Zmail-RealSender: gong.shuai@sanechips.com.cn
 From: Gong Shuai <gong.shuai@sanechips.com.cn>
@@ -61,24 +75,24 @@ Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
         Zhao Qingye <zhao.qingye@sanechips.com.cn>,
         Gong Shuai <gong.shuai@sanechips.com.cn>,
         Gong Shuai <gsh517025@gmail.com>
-Subject: [RFC PATCH 11/12] iommu/riscv: Accept unpublished interrupt files in IRQ forwarding
-Date: Thu, 15 Oct 2026 14:52:31 +0800
-Message-ID: <20261015065232.604503-12-gong.shuai@sanechips.com.cn>
+Subject: [RFC PATCH 06/12] iommu/riscv: Add vIOMMU cache invalidation
+Date: Thu, 15 Oct 2026 14:52:26 +0800
+Message-ID: <20261015065232.604503-7-gong.shuai@sanechips.com.cn>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261015065232.604503-1-gong.shuai@sanechips.com.cn>
 References: <20261015065232.604503-1-gong.shuai@sanechips.com.cn>
 MIME-Version: 1.0
 X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
-X-MAIL: mse-fl2.zte.com.cn 69F6qjj2019179
+X-MAIL: mse-fl1.zte.com.cn 69F6qfBb013906
 X-TLS: YES
 X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
-X-SOURCE-IP: 10.5.228.133 unknown Thu, 15 Oct 2026 14:52:50 +0800
+X-SOURCE-IP: 10.5.228.132 unknown Thu, 15 Oct 2026 14:52:48 +0800
 X-CLEAN: YES
 X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6AD07842.000/4j4zKZ6Nw9z5B15M
+X-Fangmail-MID-QID: 6AD07840.001/4j4zKX3rJdz8Xrrd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_235256_376216_87F003DB 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20261015_075255_275124_68ED829E 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,104 +109,154 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A guest with a vIOMMU needs the complete IMSIC topology of the VM in the
-MSI table, since the hardware resolves the target vCPU from the MSI
-address on its own. That table is installed when the first device MSI is
-forwarded, which can happen before every vCPU has its interrupt file
-published, so a request for the whole VM cannot require all of them.
+Implement cache_invalidate for the vIOMMU, which takes IOTINVAL commands
+from user space in the struct iommu_viommu_riscv_invalidate format and
+forwards them to the physical IOMMU command queue.
 
-Skip the unpublished ones instead of rejecting the whole request. An MSI
-that resolves to one of them faults only for that vCPU and is reported
-in the fault queue, whereas a failed request would take IRQ bypass away
-from the entire virtual machine.
+The uAPI payload is little-endian, so convert it to the native command
+words the hardware queue expects. Only IOTINVAL.VMA is accepted;
+reserved bits are rejected. The guest-owned GV, GSCID and PSCV/PSCID
+operands are replaced with the ones the host actually programs, so a
+guest cannot invalidate caches that belong to another guest.
 
 Co-developed-by: Wu Fei <wu.fei9@sanechips.com.cn>
 Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
 Signed-off-by: Gong Shuai <gong.shuai@sanechips.com.cn>
 ---
- drivers/iommu/riscv/iommu-ir.c      | 25 +++++++++++++++++++++----
- include/linux/irqchip/riscv-imsic.h | 14 ++++++++------
- 2 files changed, 29 insertions(+), 10 deletions(-)
+ drivers/iommu/riscv/iommu-bits.h | 13 +++++
+ drivers/iommu/riscv/iommu.c      | 93 ++++++++++++++++++++++++++++++++
+ 2 files changed, 106 insertions(+)
 
-diff --git a/drivers/iommu/riscv/iommu-ir.c b/drivers/iommu/riscv/iommu-ir.c
-index b3f0a56475ed..94971959a581 100644
---- a/drivers/iommu/riscv/iommu-ir.c
-+++ b/drivers/iommu/riscv/iommu-ir.c
-@@ -78,18 +78,28 @@ static int riscv_iommu_ir_validate_target(const struct riscv_iommu_ir_vcpu_info
- static int riscv_iommu_ir_validate_targets(const struct riscv_iommu_ir_vcpu_info *vcpu_info,
- 					   size_t nr_ptes, u64 *required_caps)
- {
-+	unsigned int nr_valid = 0;
- 	int ret;
+diff --git a/drivers/iommu/riscv/iommu-bits.h b/drivers/iommu/riscv/iommu-bits.h
+index 2a8230a0c1bb..68190d6cc060 100644
+--- a/drivers/iommu/riscv/iommu-bits.h
++++ b/drivers/iommu/riscv/iommu-bits.h
+@@ -486,6 +486,19 @@ struct riscv_iommu_command {
+ /* dword1[61:10] is the 4K-aligned page address */
+ #define RISCV_IOMMU_CMD1_IOTINVAL_ADDR		GENMASK_ULL(61, 10)
  
--	if (!vcpu_info->targets || !vcpu_info->nr_targets || vcpu_info->nr_targets > nr_ptes)
-+	if (!vcpu_info->targets || !vcpu_info->nr_targets)
- 		return -EINVAL;
- 
- 	for (unsigned int i = 0; i < vcpu_info->nr_targets; i++) {
-+		/* Interrupt files the host has not published yet are skipped. */
-+		if (vcpu_info->targets[i].type == RISCV_IOMMU_IR_TARGET_INVALID)
-+			continue;
++/*
++ * All standard bits of the IOTINVAL command. The remaining bits are
++ * reserved for future standard use, forwarding them to the physical IOMMU
++ * may make it treat the command as illegal.
++ */
++#define RISCV_IOMMU_CMD0_IOTINVAL_STANDARD \
++	(RISCV_IOMMU_CMD0_OPCODE | RISCV_IOMMU_CMD0_FUNC | \
++	 RISCV_IOMMU_CMD0_IOTINVAL_AV | RISCV_IOMMU_CMD0_IOTINVAL_PSCID | \
++	 RISCV_IOMMU_CMD0_IOTINVAL_PSCV | RISCV_IOMMU_CMD0_IOTINVAL_GV | \
++	 RISCV_IOMMU_CMD0_IOTINVAL_NL | RISCV_IOMMU_CMD0_IOTINVAL_GSCID)
++#define RISCV_IOMMU_CMD1_IOTINVAL_STANDARD \
++	(RISCV_IOMMU_CMD1_IOTINVAL_S | RISCV_IOMMU_CMD1_IOTINVAL_ADDR)
 +
- 		ret = riscv_iommu_ir_validate_target(vcpu_info, &vcpu_info->targets[i],
- 						     required_caps);
- 		if (ret)
- 			return ret;
-+		nr_valid++;
- 	}
- 
-+	/* The table only has to be able to deliver some interrupt file. */
-+	if (!nr_valid || nr_valid > nr_ptes)
-+		return -EINVAL;
-+
- 	return 0;
+ /* 3.1.2 IOMMU Command Queue Fences */
+ /* Fields on dword0 */
+ #define RISCV_IOMMU_CMD_IOFENCE_OPCODE		2
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index 8046cadefbd8..c34331bcd661 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -2075,8 +2075,101 @@ riscv_viommu_alloc_domain_nested(struct iommufd_viommu *viommu, u32 flags,
+ 	return &nested_domain->domain;
  }
  
-@@ -147,9 +157,16 @@ static int riscv_iommu_ir_activate(struct riscv_iommu_msi_table *msi_table,
- 
- 	for (unsigned int i = 0; i < vcpu_info->nr_targets; i++) {
- 		const struct riscv_iommu_ir_target *target = &vcpu_info->targets[i];
--		size_t idx = riscv_iommu_ir_extract(target->gpa >> IMSIC_MMIO_PAGE_SHIFT,
--						    vcpu_info->msi_addr_mask);
--		struct riscv_iommu_msipte *msipte = &msi_table->root[idx];
-+		size_t idx;
-+		struct riscv_iommu_msipte *msipte;
++/*
++ * One invalidation command, viewed as either the little-endian uAPI
++ * payload or the native command words.
++ */
++struct riscv_viommu_invalidation_cmd {
++	union {
++		struct riscv_iommu_command cmd;
++		struct iommu_viommu_riscv_invalidate ucmd;
++	};
++};
 +
-+		/* Interrupt files the host has not published yet are skipped. */
-+		if (target->type == RISCV_IOMMU_IR_TARGET_INVALID)
-+			continue;
++static int riscv_viommu_cache_invalidate(struct iommufd_viommu *viommu,
++					 struct iommu_user_data_array *array)
++{
++	struct riscv_viommu *rv_viommu = container_of(viommu, struct riscv_viommu, core);
++	struct riscv_iommu_device *iommu = rv_viommu->iommu;
++	struct riscv_viommu_invalidation_cmd *cmds;
++	unsigned int i = 0;
++	int ret;
 +
-+		idx = riscv_iommu_ir_extract(target->gpa >> IMSIC_MMIO_PAGE_SHIFT,
-+					     vcpu_info->msi_addr_mask);
-+		msipte = &msi_table->root[idx];
- 
- 		/* A populated entry in the initially clear table indicates duplicate targets. */
- 		if (msipte->pte || msipte->mrif_info) {
-diff --git a/include/linux/irqchip/riscv-imsic.h b/include/linux/irqchip/riscv-imsic.h
-index 02a836ce03b4..947c406d512b 100644
---- a/include/linux/irqchip/riscv-imsic.h
-+++ b/include/linux/irqchip/riscv-imsic.h
-@@ -138,12 +138,14 @@ struct riscv_iommu_ir_target {
++	if (array->type != IOMMU_VIOMMU_INVALIDATE_DATA_RISCV)
++		return -EINVAL;
++
++	/* entry_num==0 is the data_type support probe */
++	if (!array->entry_num)
++		return 0;
++
++	static_assert(sizeof(*cmds) == 2 * sizeof(u64));
++
++	cmds = kcalloc(array->entry_num, sizeof(*cmds), GFP_KERNEL);
++	if (!cmds)
++		return -ENOMEM;
++
++	ret = iommu_copy_struct_from_full_user_array(cmds, sizeof(*cmds), array,
++						     IOMMU_VIOMMU_INVALIDATE_DATA_RISCV);
++	if (ret)
++		goto out_free;
++
++	for (i = 0; i < array->entry_num; i++) {
++		struct riscv_iommu_command *cmd = &cmds[i].cmd;
++		u64 opcode, func;
++
++		/* The uAPI payload is little-endian */
++		cmd->dword0 = le64_to_cpu(cmds[i].ucmd.cmd[0]);
++		cmd->dword1 = le64_to_cpu(cmds[i].ucmd.cmd[1]);
++
++		opcode = FIELD_GET(RISCV_IOMMU_CMD0_OPCODE, cmd->dword0);
++		if (opcode != RISCV_IOMMU_CMD_IOTINVAL_OPCODE) {
++			/* Only page-table cache invalidation is forwarded */
++			ret = -EIO;
++			goto out_free;
++		}
++
++		/* Reject reserved bits instead of forwarding them to the physical IOMMU */
++		if (cmd->dword0 & ~RISCV_IOMMU_CMD0_IOTINVAL_STANDARD ||
++		    cmd->dword1 & ~RISCV_IOMMU_CMD1_IOTINVAL_STANDARD) {
++			ret = -EINVAL;
++			goto out_free;
++		}
++
++		func = FIELD_GET(RISCV_IOMMU_CMD0_FUNC, cmd->dword0);
++		if (func != RISCV_IOMMU_CMD_IOTINVAL_FUNC_VMA) {
++			ret = -EIO;
++			goto out_free;
++		}
++
++		/*
++		 * The guest operates in its own GSCID/PSCID namespace.
++		 * The physical IOMMU uses the host-assigned GSCID and
++		 * PSCID=0. Enforce both for correct cache invalidation.
++		 */
++		cmd->dword0 &= ~(RISCV_IOMMU_CMD0_IOTINVAL_GV |
++				 RISCV_IOMMU_CMD0_IOTINVAL_GSCID |
++				 RISCV_IOMMU_CMD0_IOTINVAL_PSCV |
++				 RISCV_IOMMU_CMD0_IOTINVAL_PSCID);
++		cmd->dword0 |= FIELD_PREP(RISCV_IOMMU_CMD0_IOTINVAL_GSCID,
++					  rv_viommu->gscid) |
++			       RISCV_IOMMU_CMD0_IOTINVAL_GV |
++			       FIELD_PREP(RISCV_IOMMU_CMD0_IOTINVAL_PSCID, 0) |
++			       RISCV_IOMMU_CMD0_IOTINVAL_PSCV;
++
++		riscv_iommu_cmd_send(iommu, cmd);
++	}
++
++	riscv_iommu_cmd_sync(iommu, RISCV_IOMMU_IOTINVAL_TIMEOUT);
++
++out_free:
++	array->entry_num = i;
++	kfree(cmds);
++	return ret;
++}
++
+ static const struct iommufd_viommu_ops riscv_viommu_ops = {
+ 	.alloc_domain_nested = riscv_viommu_alloc_domain_nested,
++	.cache_invalidate = riscv_viommu_cache_invalidate,
  };
  
- /*
-- * FORWARD enables forwarding for one IRQ and provides the complete target array
-- * so the first forwarded IRQ can initialize the domain MSI table. UPDATE_TARGET
-- * replaces one target without changing per-IRQ forwarding state. The caller
-- * must quiesce all MSI producers using the table when changing both words of a
-- * live MRIF PTE because the update temporarily invalidates the entry. A NULL
-- * vcpu_info disables forwarding for the IRQ.
-+ * FORWARD enables forwarding for one IRQ and provides the target array so the
-+ * first forwarded IRQ can initialize the domain MSI table. Entries of type
-+ * RISCV_IOMMU_IR_TARGET_INVALID are skipped, so a caller may forward the whole
-+ * virtual machine topology while only some of its interrupt files are hardware
-+ * backed. UPDATE_TARGET replaces one target without changing per-IRQ forwarding
-+ * state. The caller must quiesce all MSI producers using the table when
-+ * changing both words of a live MRIF PTE because the update temporarily
-+ * invalidates the entry. A NULL vcpu_info disables forwarding for the IRQ.
-  *
-  * A well-formed request which is incompatible with the producer or current
-  * domain configuration returns -EOPNOTSUPP, allowing the caller to fall back
+ static size_t riscv_iommu_get_viommu_size(struct device *dev,
 -- 
 2.53.0
 
