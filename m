@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ED09CC6B2F
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 06:32:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6BCDCC6B2F
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 06:44:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r/ckVknheL9EK9PwSahpu5nd1aaPgCHMROGbHofSWEo=; b=naxbqqf64P/1W/
-	1hskfPHkZXJRwAf/lwVzExYG9ehnC+cumtTFcvOsbfFFKrqztUy9+eA3LZm5tlsmX3LPZ7ZI8Hxvo
-	Wz37JKG1HiqrLtsL7qdFrtUEo8mo3MblP8KXsei3iqjg6xzxjK7+/8nO9D1UPnA+esWjWCY2SIEhg
-	ciSnuhzuoVHazoGm2dP+ZZWRbxGuFIe7ffDTf3BXnVkH+pcKLAJGHLF69S4jiYYzbuDHAqCSnZSxR
-	MpzJ76m7opABZWXDgfEF+V/I16o4eZCrsbEpQs9sPz3Omu02AkAWLWcIAYbxjvVGerTOEx1JqGa0N
-	FdJEfkb/rKCYY+5w10wg==;
+	List-Owner; bh=H0/y6R7ngUQJwacsJLUQrxR3s2r5FVFEMzS9OyaJFlo=; b=PUx23NGuDAALMH
+	6OE6BfMYm0QKjaneW9nEw892Ya61f+GDyeraVxIqihWJdV1ivcWjgBi4yNapxrgjPbjvlZkqUkYxq
+	GOBn9N2Te6PxX8xo1pCayNTp61+AsNDKp7KbYQmb+k9EV/JztmKZWd8tQSAiLwVUPwERRz5ei72lQ
+	b0bBLb/abM8woGkkbQW9awy9t4+CMILmZb6/XKHvWSDFJLz1jrEAv+A5sLK48fDQk0RhX831fwy5J
+	6lkDhFycSuzOG5y3QQKH2WBSpusytRC3K0j3ePWin6j6l3f7OKCmk+0Iy+BOpZjDlvF2UqoPnpLZ7
+	1UHnm8MHakiPQc90l5Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHF13-0000000GwCv-0gV9;
-	Thu, 15 Oct 2026 06:32:37 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1xHFC3-0000000GxKY-0XlA;
+	Thu, 15 Oct 2026 06:43:59 +0000
+Received: from out-118.mta0.migadu.com ([2001:41d0:1004:224b::76] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHF10-0000000GwBn-1JDT
+	id 1xHFBy-0000000GxK4-28cp
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Oct 2026 06:32:35 +0000
-Date: Thu, 15 Oct 2026 08:32:27 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1792045950;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Rlb5hQ3oMGtjIZB0mG1VIBGlNWQ+sMhpm0CKuyKp/8=;
-	b=avscnrmr0x0jBlODANIotKUcpY8WwO+T1SFbC7RG4QbS/jgsRiAsaHYT1o4oYIoDp3HvaM
-	BQCHkuKaQM4iCSMO281pgmUhbPCbftgJrLpWXlgrYp3tkvBkMB2MxGPWh7oFbR1SwTgi6L
-	K1SrGTiUVAIMBl1MmNDwCHlgBu6AVld+oQO+aUtOUK32juXQ/QMlQzgeU8i0r5Zl3ox4EC
-	/BhObAkMh0uxO5r4SKmdXIIzMDfok2j+zkvSMz3xoM9ltxjcdiTKnu33m+XeQrW5uo7+iS
-	7UY4Y9McC0xsN+vszWDgeNWZWl1b8wyL9iJbWLBD58E5O7WiMJ6Cu/bTvgsY7g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1792045950;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Rlb5hQ3oMGtjIZB0mG1VIBGlNWQ+sMhpm0CKuyKp/8=;
-	b=pOQpfsAcK+CdgMDJgnsXbnvyLXTHb6qpjLg+lmR04PhVu61Q4dLM51aPBNbWYSBYWR8bGl
-	BRi5V8el3x5KZ+Bg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>
-Cc: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Jessica Liu <liu.xuemei1@zte.com.cn>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH v3] irqchip/riscv-aplic: fix asynchronous probing
-Message-ID: <20261015063227.GBjyN6LZ@linutronix.de>
-References: <20261012-aplic-async-probe-v3-1-5cf52dc28690@mobileye.com>
- <20261013152727.2cUDX3l0@linutronix.de>
- <5a8048ef-a241-4486-adc1-440721d3606a@mobileye.com>
- <20261014105312.xNkvgkGg@linutronix.de>
- <46eaa0f0-ff72-4a72-91c8-b610be2d893a@mobileye.com>
+	Thu, 15 Oct 2026 06:43:57 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=/FYj6q7Xy2ng34DBUXkiLlonCACAzlEqokQQ19iqyR8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1792046630; v=1; x=1792651430;
+ b=f3LwMJFHcqTWRCRYFVnAsv20Hi0p7HijH6YmxUbKDctE167ucasVmuKgtC5oQYc3l5Ypms14
+ lZtNq5mx6tT2oLXLDrddUUpBmJaBpXgfP2JkwnWld0zJBZ2BCRpqgx/JHFjDOPblzMpyk1ittCT
+ qfVvSBrP/ZAHhgoK1YPyXlC4=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 862023fca479452c;
+	Thu, 15 Oct 2026 06:43:50 +0000
+X-Mizu-Trace-ID: 862023fca479452c
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <fa4253c7-3b17-4b20-97b9-eb37f218a4c8@linux.dev>
+Date: Thu, 15 Oct 2026 14:43:40 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <46eaa0f0-ff72-4a72-91c8-b610be2d893a@mobileye.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] nvmem: Add Sophgo SG2044 eFuse driver
+To: Inochi Amaoto <inochiama@gmail.com>,
+ Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, sophgo@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+References: <20261014074516.240247-1-inochiama@gmail.com>
+ <20261014074516.240247-3-inochiama@gmail.com>
+From: Chen Wang <chen.wang@linux.dev>
+In-Reply-To: <20261014074516.240247-3-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_233234_513032_6BD3000C 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20261014_234354_936091_C3D12F8F 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,36 +71,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-10-15 09:19:26 [+0300], Vladimir Kondratiev wrote:
-> Not exactly, "driver_async_probe=*" in bootargs request only drivers that has
-> PROBE_DEFAULT_STRATEGY to be probed asynchronously.
+Hello,
 
-okay.
+On 10/14/2026 3:45 PM, Inochi Amaoto wrote:
+> Sophgo SoCs such as SG2044 contain eFuses used to store
+> factory-programmed data.
+>
+> As for SG2044, HW automatically loads the eFuse content
+> into shadow registers which are organized as 32bit values
+> exposed as MMIO.
+>
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>   drivers/nvmem/Kconfig        |  12 +++
+>   drivers/nvmem/Makefile       |   2 +
+>   drivers/nvmem/sophgo-efuse.c | 176 +++++++++++++++++++++++++++++++++++
+>   3 files changed, 190 insertions(+)
+>   create mode 100644 drivers/nvmem/sophgo-efuse.c
+>
+> diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
+> index c36c2a4c2a0b..a7936dd65bdd 100644
+> --- a/drivers/nvmem/Kconfig
+> +++ b/drivers/nvmem/Kconfig
+> @@ -465,6 +465,18 @@ config NVMEM_SNVS_LPGPR
+>   	  This driver can also be built as a module. If so, the module
+>   	  will be called nvmem-snvs-lpgpr.
+>   
+> +config NVMEM_SOPHGO_EFUSE
+> +	tristate "Sophgo eFuse support"
+> +	depends on ARCH_SOPHGO || COMPILE_TEST
+> +	default ARCH_SOPHGO
+> +	help
+> +	  Say y here to enable support for reading eFuses on Sophgo SoCs
+> +	  such as the CV1800B. These are e.g. used to store factory programmed
 
-> > I would not expect the MSI domain to be probed after kernel booting via
-> > a module. This is the scenario where this would explode.
-> > And if you consider this a problem you should address it and denote it
-> > in the commit description as such and not silently changing it as part
-> > of another change without any explanation.
-> 
-> OK, will add explanation for this.
-> This driver can't be a module, it is "builtin_platform_driver(aplic_driver);"
-> but still probe may be deferred if of node has "msi-parent", see
-> aplic_msi_setup() - it can return -EPROBE_DEFER;
+Why is "CV1800B"?
 
-The driver providing MSI capabilities (the MSI domain for this device)
-must a module. This is the requirement so that _this_ driver returns
-EPROBE_DEFER and *then* once the MSI domain driver is loaded as a module
-(after boot) this driver is probed again and succeeds.
+[...]
 
-> Thanks, Vladimir
 
-Sebastian
 
 _______________________________________________
 linux-riscv mailing list
