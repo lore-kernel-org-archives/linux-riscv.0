@@ -4,94 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7F97CC6B2F
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 09:04:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA32CC6B34
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 09:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=69i+05L5YcR08ZGhSjbeVbaQwR7ztooi/t56zvMlC5c=; b=tsl942SW+htHxY
-	J7EPP+WMndvyNVsjVokp5ykof9cyv3ufUyqbHEL8sX+XHcULjyxkRzCxUuguNbGpRw35Cc5W+M+WG
-	XGOF1Z7IItAURUvlSCP6BohpeEhPcuGONyq9ALMxCEwBa3uyE7UcmmlxED6otX2mFHK6byON99dCg
-	8g9vuJD0EHEgX7zIJ4Uqx1Uv8cvSvZxeKOLES+hKXABOQSrtkyqzFt6VTBUb5YGfuTXnJfzSz7CWP
-	eEXSKps1JM8x8PwA/TW4pi2gib4EFYRhb9q1YFii1rar1ngRegYEtqx7c5g1XDwv/r18rcWSQih1Y
-	+m4wKAQbni61qtm1eJaw==;
+	List-Owner; bh=e/hMOfdrShla4e2+EMlZLrOO2ZrLLhBPUfDOTdgOdfA=; b=BxmDhzyxJDPIxz
+	mFl6/938hhh9xNa/IlzmAoHIJmzKFtXUttBpWSNhochkM/j56I8JiOYgRx//AgyvVGYNNxdRxPv78
+	AT84jjy35EKg9FEgrZiLRaR66Y3bAgjR8iGP7uVMAU6XJnhIlbHqg6NDCKFVzCaWqGNjSapuEllvt
+	wS/j7bNwU04p5OthQQPHnsUz7+C233BCZ7EFNMRivA9vh4x0JxXFvMRW/t1F1W1UnlEmyfiz59IN2
+	2JSrYr58SW6nbbn/EnujoeqHGL5Wv+zB6IDUhAvlhIb2Gr6d/HpjLv1l7smLRARb3Ok9096GU8oph
+	HkOe0ThiPqzvFzqAvF+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHNo-0000000HDKp-2Oxi;
-	Thu, 15 Oct 2026 09:04:16 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1xHIC9-0000000HMQw-3aeo;
+	Thu, 15 Oct 2026 09:56:17 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHNm-0000000HDKG-3IOz
+	id 1xHIC2-0000000HMLR-0jQi
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Oct 2026 09:04:15 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-3ab60ff4273so4166493a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Oct 2026 02:04:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792055054; x=1792659854; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=aAp8nRUf9PkjRjYtrHFE+R8uyBzEHqKOUymE8wD/INs=;
-        b=Awjt6MA9ApPXRLKxJXDynjQ0NindkhJubFgOzB2jSs/vLY5mGHZ5ZEMF0K8IUV6KYa
-         pa4Q8hJMkizDayrRVAcxmd9ktjSN5bf/MbuNZt93ZcQFFNI/VyORN+FG0cmyZ/hG8ujw
-         IIEkiJUNXASesrFMv4mOvPIhKdeZPfWzJ4YpDmQZbRnn891XZByxqxySmc0WJdSiuoi4
-         6Lb9Qat/nJi1dRCzSqJmOzdbn7RHHHN0YTSDb951H3mXfMWMzh/EYnLmqfs1OBFsmYpN
-         ngzn6Sj240N6bU6ZhmbQhmxNkMKuSwY7nKHpNrFej27tdmGQzoYHMz/yRU6l33SorFJI
-         nmPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792055054; x=1792659854;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aAp8nRUf9PkjRjYtrHFE+R8uyBzEHqKOUymE8wD/INs=;
-        b=CPEga5HKl+v3UJYvkfcAwTZoid0F+e51NfCA4LzL1wjaJSuYV/JDpEybcxjqfLP+J9
-         mif+6yLT16aMWg4G5ljrPAiJhBIOxaJQbz+76hME9vJhrJPC4gR+smR0MH90vUHp0Jod
-         5cxB4jJiOHbt3Je+NHVHeFLIekXd7NDIcR11A4ZouaDIw2BbIye/OSre1o6BZIve5/Lz
-         QcUCroM6NoblRqKTtx13lLE4DvhtXhmfwzA1AGz3p0DyMU+/0Sd7ohajeqEre1/H3BYo
-         3xOFk9AvND3wX/V4gw3ZaZhUnE9FpszAhNc9u2EgYvC4N7Ojc6M1/ZpjdiOuv6Es2zdz
-         nD3g==
-X-Forwarded-Encrypted: i=1; AKwUvBzr0HaSFAlE+wvXQjbBniSmDx+HFnmUsxActt+LfaHCyAojCWknekIuYNI4GwEhWWozx4zHIHqG0/X4gA==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKCfxHo7CZx99q15PgoPSiJ8cx70iQ7cG3sS9BLH/rSh5726D/M
-	luOYx3WiQIWmydoGymPe4c2uM6ow6LGFE6cgKzAdmMjI2LAl40k23xHg
-X-Gm-Gg: AYBFou2rqITP2ERFY1ehDMTwlcVqFzYMKI8/KWPeLyLXY0C1c9edSWXFnadV8ieCvYK
-	ZRhDLQ5v6Fe2o+vEaghzMTQpbU8Hu2rKdCOohctcMhpDPOg2xStC3sKBXtjPyM+WoOTdVjJH0jl
-	WAA5EmxdxY/HwRCJiOeM9woXtlaYl2HFbo9Pq1qYhykt8/zWtJXIJeKihu8JiTvT5bpFDznXTEG
-	wld0Yfb5cvSuehDC7CwsdO2i9iNSq8EyBAWNme+JfuFPA/OWNJ+lT+bHZau85q/bEf4CUIY7M97
-	5YqCRvOrr7SD2YHPpohIKe42EsrRrH9nxlvwE+gI6eB9jsJfLq7tpT2bzP+65mhYr/kfq6ypJs9
-	i0uHnx2wP9MCqd9qvdoTH0e0P8zYXD1ExLD8unbmT4yUWJkdseiSKplsKV8L8ici3KaBwQZFET7
-	uCYcm8hSHDTZ5MumO3stalJmeQVaGpkPwdH+cFVIfLVsHDU+PSaLzfOgRxxEb85SDxEYpu
-X-Received: by 2002:a17:90a:e7d2:b0:3ac:a521:959 with SMTP id 98e67ed59e1d1-3aca52109eemr559134a91.29.1792055053807;
-        Thu, 15 Oct 2026 02:04:13 -0700 (PDT)
-Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ac9474b52fsm3869119a91.9.2026.10.15.02.04.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Oct 2026 02:04:13 -0700 (PDT)
-Date: Thu, 15 Oct 2026 17:03:41 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <chen.wang@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, 
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 3/3] riscv: dts: sophgo: sg2044: Add eFUSE device
-Message-ID: <atCWzDzmknrsMNNQ@inochi.infowork>
-References: <20261014074516.240247-1-inochiama@gmail.com>
- <20261014074516.240247-4-inochiama@gmail.com>
- <20261014-romantic-pretty-petrel-36c7ec@quoll>
+	Thu, 15 Oct 2026 09:56:13 +0000
+Date: Thu, 15 Oct 2026 11:56:05 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1792058167;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WFEg5rBy11tyNBNdIuvVomtgQF/QuAip/Xj+WCkUSmo=;
+	b=XRmqjzV18wuoqXRgtigU+fhfMIjgiNIQ3iewlkI98Nlj9+p8+YerN+bdrrAeHLOqfbFEND
+	8YHpTWE/exAN3kDfGBz5QEtqz2nODKSTbiQZemTeosnT8klcPbks9EYSWIqhnrhrAQ7nAu
+	5qzEqp6bCMpI2cZqIQ5xv8oGruE+k+UXX//e515ZF9FwP2EYcoG6Qky/8VITSM217MnsrQ
+	kzJhriC77K7N4i2AmMwCEwWe4yfmU3od4i7TKfgr35cSMT3CuC/tdn90S3wEXPuSz4vedM
+	rs83CRLJKT/E9KBCXdIHasLJvgmacIY/D22A7dmU0ZnvCry9Gpt2peQugKpcZQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1792058167;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WFEg5rBy11tyNBNdIuvVomtgQF/QuAip/Xj+WCkUSmo=;
+	b=Wqc1csHQ5AUTcgoWYY++Pje58rEo92XZN0S5XXlUOsYd/XU1uIyY80XLzsWr2q1jwJ1p6J
+	b6d+2IxgF8PJAzBg==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>
+Cc: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Jessica Liu <liu.xuemei1@zte.com.cn>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH v3] irqchip/riscv-aplic: fix asynchronous probing
+Message-ID: <20261015095605.pIRkhzUR@linutronix.de>
+References: <20261012-aplic-async-probe-v3-1-5cf52dc28690@mobileye.com>
+ <20261013152727.2cUDX3l0@linutronix.de>
+ <5a8048ef-a241-4486-adc1-440721d3606a@mobileye.com>
+ <20261014105312.xNkvgkGg@linutronix.de>
+ <46eaa0f0-ff72-4a72-91c8-b610be2d893a@mobileye.com>
+ <20261015063227.GBjyN6LZ@linutronix.de>
+ <9bb6f315-c668-4f90-9fee-920f115a3dcd@mobileye.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261014-romantic-pretty-petrel-36c7ec@quoll>
+In-Reply-To: <9bb6f315-c668-4f90-9fee-920f115a3dcd@mobileye.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_020414_825394_BBB360FE 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20261015_025611_433094_623BE715 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,26 +90,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 14, 2026 at 01:43:50PM +0200, Krzysztof Kozlowski wrote:
-> On Wed, Oct 14, 2026 at 03:45:15PM +0800, Inochi Amaoto wrote:
-> > Add eFUSE controller node for SG2044.
-> > 
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > ---
-> >  arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts |  4 ++++
-> >  arch/riscv/boot/dts/sophgo/sg2044.dtsi               | 12 ++++++++++++
-> >  drivers/nvmem/sophgo-efuse.c                         |  1 +
-> 
-> Review code before sending.
-> 
-> Best regards,
-> Krzysztof
-> 
+On 2026-10-15 11:11:24 [+0300], Vladimir Kondratiev wrote:
+> On 10/15/26 09:32, Sebastian Andrzej Siewior wrote:
+> > The driver providing MSI capabilities (the MSI domain for this device)
+> > must a module. This is the requirement so that _this_ driver returns
+> > EPROBE_DEFER and *then* once the MSI domain driver is loaded as a module
+> > (after boot) this driver is probed again and succeeds.
+> Why module? for "riscv-aplic", "msi-parent" shall be "riscv-imsic" and
+> it is "builtin_platform_driver", see
+> drivers/irqchip/irq-riscv-imsic-platform.c
 
-Yeah, I forgot this, I merge it in the wrong patch. Thanks.
+But _how_ do you want to make deferred probing happen that will change
+aplic_syscore_registered after init without using modules?
 
-Regards,
-Inochi
+> Thanks, Vladimir
+
+Sebastian
 
 _______________________________________________
 linux-riscv mailing list
