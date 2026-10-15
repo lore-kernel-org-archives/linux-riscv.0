@@ -4,101 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37628CC6B39
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 17:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEDCBC2D0A6
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2026 18:07:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mny881RXF8eLKCCNGgULGt1lJZX9VZM/CLQOF4TOUqI=; b=Dk1q6i5imISSAl
-	jLds1c8c8JBLgm3EZTLTbU4WJR/ydUYqUSijmyB7ItfwpiS1RDCmq4XbX+Lcx5HykUa34ehHC7ykV
-	KJjUm+MwzaL7HhBRs5VEkjOAFh5n2GASJy+expC/76zDGXLuvC6QYqJkmWADOsN4qIORTgR/UCzvJ
-	iHCCeACG+0JgZfiQQicBBBMhkeovGceIcdD5i7Og6+ZA94x7tBca8HZsJ6nQVrkydtsiIOYAI1Ydk
-	+FaX/rF9ukWO1EycrTdv4RTWxmBZeib08uu4x8uSQUsimhoNi6eZtvrCxjNuEnugWaIBppl3XLWKk
-	+rZWN2Lpdm6y1XCbYk3Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mg8YgBGdz6ZbmM/X8h7ka8R3I+nEqX5RwkoJAUupYKQ=; b=ZSb77rcEFbgpAQDLSxnmmY3hB6
+	pDPpiuRfd9CZjSjzlz7yHEqkPV0Fvrgxn3KoPHCFDb7xtWCWP6Rr3QhduJF+cYamGuoMx2p29z0zU
+	/+xgL7I8CaxFDxG0PSnwfF/jlziQpDGwuwWCnxC7ZTf4v7hJl3SPsPoPExuCGdER0JF38lSEZ0CW4
+	hpz0XuTJ2jkOfMkSJEH6cZoapSVuyONL6pfTIl58QUy3ERdoX6gLZLih4KxmiZSHFukpfqTjA5nmp
+	4UjclLFlyKLqgALpuoyDbLkIPepZXAdL7y0nfT1aVNvJFd0ud+YaOEYAebtfwMd1vWfUhkyvpdWr2
+	7j+BibSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHPPJ-000000011Qc-0TPK;
-	Thu, 15 Oct 2026 17:38:21 +0000
-Received: from mail-yx1-xb133.google.com ([2607:f8b0:4864:20::b133])
+	id 1xHPrA-000000015r8-0N9Z;
+	Thu, 15 Oct 2026 18:07:08 +0000
+Received: from common.ash.relay.mailchannels.net ([23.83.222.38])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHPPG-000000011Pr-2Jwv
-	for linux-riscv@lists.infradead.org;
-	Thu, 15 Oct 2026 17:38:20 +0000
-Received: by mail-yx1-xb133.google.com with SMTP id 956f58d0204a3-676858d42f8so4959197d50.2
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Oct 2026 10:38:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792085897; cv=none;
-        d=google.com; s=arc-20260327;
-        b=nR67ntdwEKI2Hh/FLx2mWZ2nDyLWC53nFAf7Spp7IoV27v/638z7PmbY6j1HQVLS85
-         z5IlSmIk/OOufKCHZJ+FU4jhusTV5NSnBV4g6tR2FU5zkCYmPxYB3pPekH1qxOrBY4i8
-         1gOMleOgr2JZk1Wtl+XOBm7baKZsHGyA4UlScjnt99G5ZmF3nVE2QKJXMcz+2UoLiaFe
-         TirH3eMWXZ5z7HSDhsiMystUsts+6j/l6BOeyVgavKOLVsjTXRkBnNL9TixTwD9LWUSc
-         9do42Mdl1JHmHiNnzvRzkPRKZHLCxRxeOXwuDDo+6UEcVo5hf7u5qW3VSS7vcMwzWLdf
-         v1PA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=RNR7hf8UYLE+m8+IlSqf9D9Kn/JvEzNZNospuZY38uA=;
-        fh=WQUxl1DKo3b6yTQ/EoNfmsC01PqUmLtvkeyMfZAS2EM=;
-        b=ALW5bKL1+Y0aTetFv7qZk9Stz+OjFBHdYko968+4ITEXB0IUDZsx4E7GnW9XMdSC08
-         iqIS5d0rQVz9vk5T8p6kQcHJRlQNGJ3q1F5B6FcqbYnjzgWhxN3ix6yHz7m7f2bDCUZI
-         Q39Y9DkxWVyrbyyUVAxcYmvDtV3pGZVMWM9PJQoIDaMzXvx5VzDIbOK7TiCiyy4LOnaO
-         z0BsDQkXggys6Qp1Zb4VYLUGPyrid/cgxzTK4GOxxQhnBz5GVtwER5kd8P2Vsi3jY1rF
-         jWvkIbdP5YgzcvOZhhZCylQ+6hJMnxpRSRhM2YaAPe4Wcj5Ae6s97sTu8hrgXbf9HG9q
-         yB3g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792085897; x=1792690697; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=RNR7hf8UYLE+m8+IlSqf9D9Kn/JvEzNZNospuZY38uA=;
-        b=BApgCZ0xm076zWfNvXi3N4iFvHENVPXl4oZaxBjnqhJVlJtyyuyAhZgJowAdlzB3MS
-         0WIz36nwkR+bD2IYHgSEnSTnw0aUVRXmk8WI2YUzbztXKw7i4L7STl8MpazYn4tzZRXz
-         PENUZX4YGCsl2pXMGsHjKANALEX4GLuQQGFzGWCeo9licHh8b5eXfISAXEU5TXrNTkR/
-         MC3MsOj3nFVV6xT26+4N/qEbH/0hNg031xVF3DlUwJjQOXV1TvRoUmd5MxmzXPyvVxV7
-         uJZIStSR3PgQK4kILdogaCJ0N2BR7EOoMP1vyJHv+iSzn3aw2wIsjO75QwQCCV2xfIjI
-         FwxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792085897; x=1792690697;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RNR7hf8UYLE+m8+IlSqf9D9Kn/JvEzNZNospuZY38uA=;
-        b=0w+kPLXfYhaMGqUuIEMoq7i6Hx3HKhi2FJuRibOYCqwv3FSsoNiXroSrmNE5ZCqzed
-         YzBiC7sLhjYNsyr3Wi1BqvmnvBHkjIRpp2nsJIRRMW/i6BnmbIr/goRdGmpbCrPwjMA9
-         vFWCDMtcGlenga1l5OGy3e+Of3GCEShIX/E7+Bk3uTEPJwgffFtOr0e1wVfvpzCSOk6M
-         UFBQDwHW42q+Ad5C8/ReCy4vwwJ55NrIkGmIXAiMtNnnbI6y2o/jHeIYsxGzopg505mV
-         bcmEK4sghB4XjA1JbsSfb4s6rQhimcYwuHYn7I75ZS8SRCo3N4vJ2M4w1voLuiwbTAEN
-         K8bA==
-X-Forwarded-Encrypted: i=1; AKwUvBxbOAQhrLHlqmzg9poM3lOxnZ/Bsoh/HPv5Nv4cRSVF+l9SN/re/XAikBkRgsHo8XQoiY7uavZzvP/7lQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJUILFyCZpj9LmyhZ7VA+gEeoRjRKKYfXsVvgNUIubJJYrzx595
-	B69VMBIg10isLJzzDVnphFOdMClxLXvwFrHIeWkEG8Jlc/Vb3I0TtH6koBqxAAo9G9shMLz36dt
-	1lQCRr6zl3o4X5wbb/lnTmtQJLzD6NPg=
-X-Gm-Gg: AYBFou3gpntdv4VXbYHhIhWh4UlhuWHxEq+cC2yzPfMhFqrTWsymtDUKCJ9+PNeShYW
-	rrk3yAA5VX6Leqdv618l65hzm2QbAUDugxMLFlZPBJPgDTjdodBQ7KneDKY2hB2JpRfeWJ45Stt
-	hglxE9xVcUmaVCUXHwIyY7CwqkWrOplDikm9pKZXP5FmuJqg8rS81kyG5x1UCJ3HNMkS7f6SfJ4
-	96OorGsYZgIPteAZxugdcYxW11SAskJy3XartMCCI1xnmg71pORAaHFPCxaELUn4bVxPkVBJSkS
-	SCs+TFdue0aPs+FIjXzlSj//HP1Cs7lVo58bxVJ2zxun8fdbwaEvd+UTUaIlD6/msOg=
-X-Received: by 2002:a05:690e:1c07:b0:679:aa90:d272 with SMTP id
- 956f58d0204a3-679aa90dd58mr432536d50.108.1792085897078; Thu, 15 Oct 2026
- 10:38:17 -0700 (PDT)
+	id 1xHPr7-000000015qS-2VtE;
+	Thu, 15 Oct 2026 18:07:06 +0000
+X-Sender-Id: dreamhost|x-authsender|dave@stgolabs.net
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 80DA48C281B;
+	Thu, 15 Oct 2026 18:07:01 +0000 (UTC)
+Received: from pdx1-sub0-mail-a210.dreamhost.com (100-96-9-235.trex-nlb.outbound.svc.cluster.local [100.96.9.235])
+	(Authenticated sender: dreamhost)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 12A3F8C2791;
+	Thu, 15 Oct 2026 18:07:00 +0000 (UTC)
+X-Sender-Id: dreamhost|x-authsender|dave@stgolabs.net
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: dreamhost|x-authsender|dave@stgolabs.net
+X-MailChannels-Auth-Id: dreamhost
+X-Absorbed-Keen: 58b0220204814797_1792087620161_2651772354
+X-MC-Loop-Signature: 1792087620161:1735060741
+X-MC-Ingress-Time: 1792087620161
+Received: from pdx1-sub0-mail-a210.dreamhost.com (pop.dreamhost.com
+ [64.90.62.162])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.96.9.235 (trex/8.0.2);
+	Thu, 15 Oct 2026 18:07:00 +0000
+Received: from offworld (unknown [76.167.199.67])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dave@stgolabs.net)
+	by pdx1-sub0-mail-a210.dreamhost.com (Postfix) with ESMTPSA id 4j5GHR27JSzTC;
+	Thu, 15 Oct 2026 11:06:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=stgolabs.net;
+	s=dreamhost; t=1792087619;
+	bh=8tldLKnUT8eWgDZDHewHeV0RDcE5tNlCO2ool4gNf+Q=;
+	h=Date:From:To:Cc:Subject:Content-Type;
+	b=SipN6RKaHcv9Vuk1r0q6iChDRmmEKbNhtWrbDYZESXOc4p21lT9VLyLpuq9G6HhRO
+	 9I9ad4hpJVS6tdOO62E1fHENQErd1D0a6hSzJLBCjW7pJPCyAHjbSZwzVza6VnlkTi
+	 8VxQYsJ7AYb3dbk3viNunS6N2B1czAUjLkrWEZaVR+MIBaO1QGLd4euLWLk4XmO3yI
+	 /C4n42W/cF1LiiFiRp868p2k11Es8y8jo5DhP/qIpgBQGJLjDPiMa7tPczVig1euLH
+	 Wex2no/qZEjxxGdBW3Z8q4InXMeW7RNyu9NML+ObXSar2VYajXiY9uvVVb6j5L0uP2
+	 YviZA/TM4F7Eg==
+Date: Thu, 15 Oct 2026 11:06:56 -0700
+From: Davidlohr Bueso <dave@stgolabs.net>
+To: Anup Patel <anup@brainfault.org>
+Cc: Samuel Holland <samuel.holland@sifive.com>, atish.patra@linux.dev,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH] riscv/kvm: Only context-switch senvcfg where it exists
+Message-ID: <20261015180656.dt53d3dtyvlssl5a@offworld>
+References: <20260827211209.2871124-1-dave@stgolabs.net>
+ <CAAhSdy1OUpQUFtQ0Cp0BgSqnxHYUnnCZ0wVsDKz4S57YUa+1cA@mail.gmail.com>
+ <7d4d21b8-9993-4b76-be0e-2a3b76c0d0f5@sifive.com>
+ <CAAhSdy371da4PnzHLsqS0WFso6PSUvgsVC+fg_wWFymqZPNREQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20261008-04-k3-pm-support-v2-0-6f778a53dd2d@kernel.org> <20261008-04-k3-pm-support-v2-2-6f778a53dd2d@kernel.org>
-In-Reply-To: <20261008-04-k3-pm-support-v2-2-6f778a53dd2d@kernel.org>
-From: Iker Pedrosa <ikerpedrosam@gmail.com>
-Date: Thu, 15 Oct 2026 19:38:00 +0200
-X-Gm-Features: AclHuK-mkmvLNzpAloyGNWEU1xEwlRugYfUHBOpsjJVuzj_o9PRbUr7KYWotes8
-Message-ID: <CABdCQ=PAHxwH1+1OkLiW2ad+PTxNY6OmmPwOwAR3EoDe6Mt7Zg@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] pmdomain: spacemit: Add power domain driver
-To: Yixun Lan <dlan@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <CAAhSdy371da4PnzHLsqS0WFso6PSUvgsVC+fg_wWFymqZPNREQ@mail.gmail.com>
+User-Agent: NeoMutt/20220429
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_103818_612550_1A31B228 
-X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-CacheID: sfid-20261015_110705_845070_0FE56D63 
+X-CRM114-Status: UNSURE (   9.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,41 +94,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Ulf Hansson <ulfh@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, spacemit@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RWwganVlLCA4IG9jdCAyMDI2IGEgbGFzIDU6NDUsIFlpeHVuIExhbiAoPGRsYW5Aa2VybmVsLm9y
-Zz4pIGVzY3JpYmnDszoKPgo+ICAgU3BhY2VtaVQncyBQTVUgKFBvd2VyIE1hbmFnZW1lbnQgVW5p
-dCkgY29uc2lzdCBvZiBzZXZlcmFsIHBvd2VyIGRvbWFpbnMKPiB3aGljaCBjYW4gYmUgbWFuYWdl
-ZCBpbmRlcGVuZGVudGx5LCBkZXBlbmRpbmcgb24gZGlmZmVyZW50IGFwcGxpY2F0aW9uCj4gc2Nl
-bmFyaW8sIGVhY2ggZG9tYWluIGNhbiBiZSBwb3dlcmVkIG9uL29mZiBmb3Igc2F2aW5nIHBvd2Vy
-LgoKVGVzdGVkIG9uIGFuIE9yYW5nZVBpIFJWMiB3aXRoIHRoZSBQb3dlclZSIEdQVSBwb3dlciBk
-b21haW4uIEEgZmV3CmNvbW1lbnRzIGJlbG93LgoKPiArc3RydWN0IHNwYWNlbWl0X3BtX2RvbWFp
-bl9wYXJhbSB7Cj4gKyAgICAgICBpbnQgcmVnX3B3cl9jdHJsOwo+ICsgICAgICAgaW50IGJpdF9o
-d19tb2RlOwo+ICsgICAgICAgaW50IGJpdF9zbGVlcDI7Cj4gKyAgICAgICBpbnQgYml0X3NsZWVw
-MTsKPiArICAgICAgIGludCBiaXRfaXNvbGF0aW9uOwo+ICsgICAgICAgaW50IGJpdF9hdXRvX3B3
-cl9vbjsKPiArICAgICAgIGludCBiaXRfaHdfcHdyX3N0YXQ7Cj4gKyAgICAgICBpbnQgYml0X3B3
-cl9zdGF0Owo+ICsgICAgICAgaW50IHVzZV9odzsKCmJpdF8qIGZpZWxkcyBob2xkIHZhbHVlcyAw
-LTE1LCB1OCB3b3VsZCBiZSBtb3JlIHByZWNpc2UgdGhhbiBhbiBpbnQuClNpbWlsYXJseSwgcmVn
-X3B3cl9jdHJsIGZpdHMgaW4gdTE2IGFuZCB1c2VfaHcgY291bGQgYmUgYm9vbC4KCj4gK3N0YXRp
-YyBpbnQgc3BhY2VtaXRfcGRfcG93ZXJfb24oc3RydWN0IGdlbmVyaWNfcG1fZG9tYWluICpkb21h
-aW4pCj4gLi4uCj4gKyAgICAgICAgICAgICAgIGRldl9lcnIoJmRvbWFpbi0+ZGV2LCAicG93ZXIt
-b24gZG9tYWluOiAlZCwgZXJyb3JcbiIsIHNwZC0+cG1faW5kZXgpOwoKWW91IGNvdWxkIGluY2x1
-ZGUgdGhlIGRvbWFpbiBuYW1lIGZhaWxpbmcsIHRoYXQgd291bGQgaGVscCBpZGVudGlmeQp3aGF0
-J3MgY2F1c2luZyB0aGUgcHJvYmxlbS4gWW91IGFyZSBhbHJlYWR5IGluY2x1ZGluZyB0aGUgbmFt
-ZSBpbiB0aGUKInBvd2VyLW9mZiIgZXJyb3IgbWVzc2FnZS4KCj4gK3N0YXRpYyBpbnQgc3BhY2Vt
-aXRfcG1fZG9tYWluX3Byb2JlKHN0cnVjdCBhdXhpbGlhcnlfZGV2aWNlICphZGV2LAo+ICsgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnN0IHN0cnVjdCBhdXhpbGlhcnlfZGV2
-aWNlX2lkICppZCkKPiAuLi4KPiArICAgICAgIHBtdS0+Z2VucGRfZGF0YS5kb21haW5zICAgICA9
-IChzdHJ1Y3QgZ2VuZXJpY19wbV9kb21haW4gKiopcG11LT5kb21haW5zOwoKVGhpcyBjYXN0IHJl
-bGllcyBvbiBnZW5wZCBiZWluZyB0aGUgZmlyc3QgbWVtYmVyIG9mIHN0cnVjdApzcGFjZW1pdF9w
-bV9kb21haW4uIFJlb3JkZXJpbmcgdGhlIHN0cnVjdCBzaWxlbnRseSBicmVha3MgaXQuIENvbnNp
-ZGVyCmFsbG9jYXRpbmcgYSBzZXBhcmF0ZSBzdHJ1Y3QgZ2VuZXJpY19wbV9kb21haW4gKiogYXJy
-YXkgYW5kIHN0b3JpbmcKJnBkLT5nZW5wZCBleHBsaWNpdGx5CgpUZXN0ZWQtYnk6IElrZXIgUGVk
-cm9zYSA8aWtlcnBlZHJvc2FtQGdtYWlsLmNvbT4KCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+On Sat, 10 Oct 2026, Anup Patel wrote:
+
+>I think having static-key kvm_riscv_no_xenvcfg is much cleaner
+>because we already have kvm_riscv_vsstage_tlb_no_gpa which
+>is another work-around. The kvm_riscv_no_xenvcfg will be diabled
+>by default and will be enabled only for P500 (ESWIN EIC7700X).
+
+Thanks for the suggestion, I agree it looks cleaner.
+How about the below (fixes things for me)?
+
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index a30600579231..51b6d1f76626 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -331,5 +331,6 @@ void kvm_riscv_vcpu_record_steal_time(struct kvm_vcpu *vcpu);
+  
+  /* Flags representing implementation specific details */
+  DECLARE_STATIC_KEY_FALSE(kvm_riscv_vsstage_tlb_no_gpa);
++DECLARE_STATIC_KEY_FALSE(kvm_riscv_no_xenvcfg);
+  
+  #endif /* __RISCV_KVM_HOST_H__ */
+diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
+index 89568ccce01d..dec338319cb7 100644
+--- a/arch/riscv/kvm/main.c
++++ b/arch/riscv/kvm/main.c
+@@ -15,11 +15,13 @@
+  #include <asm/kvm_mmu.h>
+  #include <asm/kvm_nacl.h>
+  #include <asm/sbi.h>
++#include <asm/vendorid_list.h>
+  #include <asm/kvm_vcpu_vector.h>
+  
+  static DEFINE_PER_CPU(bool, kvm_riscv_virtualization_enabled);
+  
+  DEFINE_STATIC_KEY_FALSE(kvm_riscv_vsstage_tlb_no_gpa);
++DEFINE_STATIC_KEY_FALSE(kvm_riscv_no_xenvcfg);
+  
+  static void kvm_riscv_setup_vendor_features(void)
+  {
+@@ -29,6 +31,13 @@ static void kvm_riscv_setup_vendor_features(void)
+  		static_branch_enable(&kvm_riscv_vsstage_tlb_no_gpa);
+  		kvm_info("VS-stage TLB does not cache guest physical address and VMID\n");
+  	}
++
++	/* SiFive P550 (ESWIN EIC7700X): H on a 1.11 base, no henvcfg/senvcfg */
++	if (riscv_cached_mvendorid(0) == SIFIVE_VENDOR_ID &&
++	    (riscv_cached_marchid(0) & 0xFFFF) == 0x8) {
++		static_branch_enable(&kvm_riscv_no_xenvcfg);
++		kvm_info("henvcfg and senvcfg CSRs not implemented\n");
++	}
+  }
+  
+  long kvm_arch_dev_ioctl(struct file *filp,
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 7f1636c44d41..e5f877284026 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -772,7 +772,8 @@ static __always_inline void kvm_riscv_vcpu_swap_in_guest_state(struct kvm_vcpu *
+  	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+  
+  	vcpu->arch.host_scounteren = csr_swap(CSR_SCOUNTEREN, csr->scounteren);
+-	vcpu->arch.host_senvcfg = csr_swap(CSR_SENVCFG, csr->senvcfg);
++	if (!static_branch_unlikely(&kvm_riscv_no_xenvcfg))
++		vcpu->arch.host_senvcfg = csr_swap(CSR_SENVCFG, csr->senvcfg);
+  	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN))
+  		vcpu->arch.host_sstateen0 = csr_swap(CSR_SSTATEEN0, smcsr->sstateen0);
+  	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICFISS))
+@@ -786,7 +787,8 @@ static __always_inline void kvm_riscv_vcpu_swap_in_host_state(struct kvm_vcpu *v
+  	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+  
+  	csr->scounteren = csr_swap(CSR_SCOUNTEREN, vcpu->arch.host_scounteren);
+-	csr->senvcfg = csr_swap(CSR_SENVCFG, vcpu->arch.host_senvcfg);
++	if (!static_branch_unlikely(&kvm_riscv_no_xenvcfg))
++		csr->senvcfg = csr_swap(CSR_SENVCFG, vcpu->arch.host_senvcfg);
+  	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN))
+  		smcsr->sstateen0 = csr_swap(CSR_SSTATEEN0, vcpu->arch.host_sstateen0);
+  	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICFISS))
+diff --git a/arch/riscv/kvm/vcpu_config.c b/arch/riscv/kvm/vcpu_config.c
+index b68aa830aaf5..9b8e4f1f12f4 100644
+--- a/arch/riscv/kvm/vcpu_config.c
++++ b/arch/riscv/kvm/vcpu_config.c
+@@ -82,9 +82,11 @@ void kvm_riscv_vcpu_config_load(struct kvm_vcpu *vcpu)
+  		nsh = nacl_shmem();
+  		nacl_csr_write(nsh, CSR_HEDELEG, cfg->hedeleg);
+  		nacl_csr_write(nsh, CSR_HIDELEG, cfg->hideleg);
+-		nacl_csr_write(nsh, CSR_HENVCFG, cfg->henvcfg);
+-		if (IS_ENABLED(CONFIG_32BIT))
+-			nacl_csr_write(nsh, CSR_HENVCFGH, cfg->henvcfg >> 32);
++		if (!static_branch_unlikely(&kvm_riscv_no_xenvcfg)) {
++			nacl_csr_write(nsh, CSR_HENVCFG, cfg->henvcfg);
++			if (IS_ENABLED(CONFIG_32BIT))
++				nacl_csr_write(nsh, CSR_HENVCFGH, cfg->henvcfg >> 32);
++		}
+  		if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN)) {
+  			nacl_csr_write(nsh, CSR_HSTATEEN0, cfg->hstateen0);
+  			if (IS_ENABLED(CONFIG_32BIT))
+@@ -93,9 +95,11 @@ void kvm_riscv_vcpu_config_load(struct kvm_vcpu *vcpu)
+  	} else {
+  		csr_write(CSR_HEDELEG, cfg->hedeleg);
+  		csr_write(CSR_HIDELEG, cfg->hideleg);
+-		csr_write(CSR_HENVCFG, cfg->henvcfg);
+-		if (IS_ENABLED(CONFIG_32BIT))
+-			csr_write(CSR_HENVCFGH, cfg->henvcfg >> 32);
++		if (!static_branch_unlikely(&kvm_riscv_no_xenvcfg)) {
++			csr_write(CSR_HENVCFG, cfg->henvcfg);
++			if (IS_ENABLED(CONFIG_32BIT))
++				csr_write(CSR_HENVCFGH, cfg->henvcfg >> 32);
++		}
+  		if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN)) {
+  			csr_write(CSR_HSTATEEN0, cfg->hstateen0);
+  			if (IS_ENABLED(CONFIG_32BIT))
+-- 
+2.39.5
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
