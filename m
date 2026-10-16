@@ -4,101 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D16BECC6B38
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2026 14:26:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 894A6CC6B38
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2026 14:36:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=clwMLyEgIaYv3NcrQiH2ciJKAbUzaJXlaZdbOI7l41Q=; b=A5DVlMHJZKAH1Q
-	3PShvEEislTAjNBd2LZoYWPd6PI6Lknynuc+Gp9FcAhUeR2cAHtSdnB3BesZmCUDc5tyFJIZ5UPQg
-	uubANaz7hntiz30M7CkLiGLH5CIKyOSdAmawLukYRvIXbGMa2xhgPNSQJCgRlwYAwBzqwhmbsEUic
-	0QM7YY3LwgkTKoylNg2Kt0xIcnyuw0B/xO4wFY4XSvaPeoqOavgFNfjpqnwb18Ayjnzha5Y2qYlzs
-	mEmINQgWlHKIlJ2MsbrZpJCgC5qltPbkRhJEhIbc6M9Geqjwo0966Q6QmmDEvAvFMhZiQcAs77i5t
-	/WfHuJ8R4IwOsBf8b/vg==;
+	List-Owner; bh=cPpHZLBjRak3rwudDNWHGf1qcA7ixbjvWTNVfRb4TBA=; b=IUCEnHW0vxGZ1f
+	wcbIz7T4k30+zvToMirSXl9a3wLoERCGEDsgu+84oGOai0p9ODCqmDm/fLD/UXpGO3QgpyN2T/4eb
+	Ti5hSGbc8OsokNoOJtOhpDHKSAqkSqSlU6YsIBj/cadxzd47pPATNntTvHWhY0zySZ5CEwC78Q/xj
+	cQurDpYK5KE8SMGzWgyPO/DfjiLQfX+H5M9YSizN3at4ey9D1Y6O+EatxaqCcf9K0BPCqCzvokPMw
+	W7VVVBTdycR11E7T0l3EZVv2UWxN3S0rECF66woms4hVoTkzvXynYymRuS9OfZ8AhLi+4J9jcRftd
+	XY6kNJvZY7hhi84khN4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHisP-000000038a9-24VW;
-	Fri, 16 Oct 2026 14:25:41 +0000
-Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
+	id 1xHj34-000000039o2-1QEo;
+	Fri, 16 Oct 2026 14:36:42 +0000
+Received: from smtprelay0012.hostedemail.com ([216.40.44.12] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHisN-000000038Z1-1eXq
+	id 1xHj32-000000039nV-0tfz
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Oct 2026 14:25:40 +0000
-Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-91b89c6caffso309096d6.2
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Oct 2026 07:25:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1792160738; x=1792765538; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=J9B4QGdToSnYzAqwiubGkyqZ40Y9TYft35PK0Z/WSHI=;
-        b=agKKXr7IWbEmGGhbfTyM6AeNiZ9FuHeKT+YF9Na/T+rbPZVTz+qibXDgBhPYPams+j
-         ov597pH7U1eZz4pcwyaS0MofzGb9PcJXevxHn4HMFbjSf2o0kZfxhB11jN8ySbegc1KW
-         2fx+izUcN0L1mNPZQMLLdXM84NjctvyHzR5qqYT1uOWUnJLNGbdziz1cVxqO6BrOW/4U
-         ppHttzFX0RHTwXkv9l+sXdOnIl+YzWrJWRCGDx5IyS52G0jUc3pTwBsTAgTqXxDbfLAG
-         Yh6XAOBWtmVHfEA161/0A+sdn8iXKCX4LkSunch/rDvsJlLD90J/I3mg/8gRYLEWLFVX
-         3mEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792160738; x=1792765538;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=J9B4QGdToSnYzAqwiubGkyqZ40Y9TYft35PK0Z/WSHI=;
-        b=RC10xElYK2JopwRJ5iifv9AUSw3G+ReGY3iFumy2n7GiwbbQyNhFFazTfuuXo38t0q
-         ZCz/ySJIWDxSNSGWgyOEpMUTXhvEtryB7odSX8ucCcfpuovtxQh4nhyDM5E1pjgXE05D
-         QZa1FHgKv3gPRh3D08CtPZUYcy69rK/yVCm3MSQu9hJyfgzzRxRTngRD0J9TUrzOPZkV
-         Os8nqQVVWWX0DmV86/H+JidAyplXuS+nPIa28MCzTcY2cdBTnxQnDFSWhLRk7w3+Y3gC
-         ak1jKMfFDJz0TQf/ALQwG6JJLsE56t3crggUdzu3SMr7JGjK/mS75h966o2PhbSVc8CE
-         ot2w==
-X-Forwarded-Encrypted: i=1; AKwUvBzTV7Z4SksmnQmtyTTXv+VGSDaNPZ4fZrmJ7UDNpU3REnpWcWn6+yGvNek51znzGQ4WgWvsv/eVQGdOWg==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJoK93JWJZg0Qv7WQAPsRQC4xKo9VmMBc5f0PkouQ2/4CLT3Z5Q
-	kxP4J3zPMlKVoGEx5kHAOca0KSjaU5AGvMSIJ8Qm2tLvTVc4Gd+hSY1VuttCGZmsEgg=
-X-Gm-Gg: AYBFou0ph3teljRMCcX+zmrjasshRYsTFsPdPAT8wFVgfHinUtgv8dkmKK8w6kMAg7U
-	aF/1zVTGHGc2SIgFHlWosaqgUD68gLI3jVxyjESXISd2nMYuuh7buVRaGqpDsXLQFgG9uH4H+fF
-	ayaCLv5+WK2oWCMlyJaGnNW2LMxF7VU97swW6abGR1qraQZfn24IbdWe+Z1Cojral9u6GMTdNiK
-	+jb0NEdu4TSly3YjkHbkCjNp9CE7pw6NdRfxt7niGbMYQP6vqrf/D1GKD71X+QYi2DIY09N+QNM
-	fUfCtwjIsQpZ24IBGzK3iU+qFFvS1a473Yxad3vcpup2fN+QhuPw9hNicOpTu0ZRFweOMWZygzn
-	i1Kf1ZCNNY8C/icTr+XoeGSSDtGKU8FD/194DaLS4yiFQNOjodLl7t6NVLG2z9+ErXhP590wEnW
-	cVnf05sr/oLnGKGeSYEAiLZLkVShHXVrwafXmkfcZnELkw3k6c7ZQofNBZVM6co5m9uSE6HxkGm
-	s2XdXJcKgrkIUNxvZdlxIiDVEAgp0zVnN9/mIeTsn1mU5rXk1BIu4/Y
-X-Received: by 2002:a05:620a:3947:b0:93e:78b7:fa4e with SMTP id af79cd13be357-93ebd24b2fcmr3934753985a.37.1792160737536;
-        Fri, 16 Oct 2026 07:25:37 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91bcba3e3a0sm23953506d6.9.2026.10.16.07.25.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Oct 2026 07:25:36 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xHisJ-00000001pql-49O3;
-	Fri, 16 Oct 2026 11:25:35 -0300
-Date: Fri, 16 Oct 2026 11:25:35 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Gong Shuai <gong.shuai@sanechips.com.cn>
-Cc: alex@ghiti.fr, andrew.jones@oss.qualcomm.com, anup@brainfault.org,
-	aou@eecs.berkeley.edu, atish.patra@linux.dev,
-	fangyu.yu@linux.alibaba.com, gsh517025@gmail.com,
-	iommu@lists.linux.dev, joro@8bytes.org, kevin.tian@intel.com,
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com, pbonzini@redhat.com, pjw@kernel.org,
-	robin.murphy@arm.com, seanjc@google.com, tomasz.jeznach@linux.dev,
-	will@kernel.org, wu.fei9@sanechips.com.cn,
-	zhao.qingye@sanechips.com.cn
-Subject: Re: [RFC PATCH 0/12] iommu/riscv: Add nested translation (vIOMMU)
- support
-Message-ID: <20261016142535.GD14213@ziepe.ca>
-References: <20261016000004.GB14213@ziepe.ca>
- <20261016091610.13912-1-gong.shuai@sanechips.com.cn>
+	Fri, 16 Oct 2026 14:36:41 +0000
+Received: from omf08.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay06.hostedemail.com (Postfix) with ESMTP id 07FE3A804F;
+	Fri, 16 Oct 2026 14:36:33 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf08.hostedemail.com (Postfix) with ESMTPA id 81ACC20025;
+	Fri, 16 Oct 2026 14:36:31 +0000 (UTC)
+Date: Fri, 16 Oct 2026 10:36:30 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Masami
+ Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] riscv: mm: Trace TLB flush path selection
+Message-ID: <20261016103630.6e8fbaa5@gandalf.local.home>
+In-Reply-To: <20260830-tlb_tracepoint-v2-1-e3c88c24df5b@gmail.com>
+References: <20260830-tlb_tracepoint-v2-1-e3c88c24df5b@gmail.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261016091610.13912-1-gong.shuai@sanechips.com.cn>
+X-Rspamd-Server: rspamout05
+X-Rspamd-Queue-Id: 81ACC20025
+X-Stat-Signature: 5kd7xpmj94wom6f13a3nzhpwer9ppc4n
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX18DQ2Sg28rgCm3NMcM3cSj9JxZ4shAURIU=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=XayFsB0UYYNiwlWPoYy9LvsYKkpCk01XOKeKnrFSCsM=; b=CP9AL7U7qQNiWCIKUFoEI2HdBsLLItr3LxKsiyw+u6pPPsmUZjL0T2QK0yHC46relvDFFOVAjxnRJxu9B1qZHCKUhSkTyyR1aHWDtEvWjeczBgPZDxAYaK0FczWnEbIZlDPsnuupqs6IqvYK+WdvlPVGPhMZ0ee3cALRSbWS2Oo=
+X-HE-Tag: 1792161391-659312
+X-HE-Meta: U2FsdGVkX19RkqBnA8Qs0BgcO6/2vYluHNQ46qK5m5KbevaiMSVLZ2UOeBHO/zjU6+pF8Bm7OVYUXAcwW7jQ9lv1TKaNRWV82rWAIFKevurwPGTNbz+75GjslXU4d/MY3zm5bVHnrLe/m7q0Kr8oVdlxSgSoJGzvH7/Aq7/wrpjz/40UX/t385X6QsgPrJK5/OVyACPqLqdCl/ejDMyIDsV8hjAkRh7a2GhbKshAIUMUsZ9ZiL9+iD6DOM+FaWVAb9etsFd7lnP77gS9Hu5IVPn5Ggvjm0kd6WRYvnU9QX41H0dOzo62ArdL6P3Bk0LGnx2E0dS2RkKVek+CLqaJ9D9+NcMTu7EN
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_072539_543595_D89DF4DD 
-X-CRM114-Status: GOOD (  24.22  )
+X-CRM114-CacheID: sfid-20261016_073640_333594_9FC6BD77 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,42 +73,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 16, 2026 at 05:16:10PM +0800, Gong Shuai wrote:
-> Hi Jason,
-> 
-> Thanks for the review again.
-> 
-> > > Add nested translation support to the RISC-V IOMMU driver, so a KVM guest
-> > > with its own vIOMMU can own the first stage of a device context while the
-> > > host keeps the second stage, and add the interrupt support. This is an RFC
-> > > and comments on the design are welcome.
-> >
-> > The iommufd parts looked reasonable to me
-> >
-> > I feel some mild skepticism about all the MSI parts, it would be good
-> > to get more of the interrupt stuff actually landed before posting this
-> > again.
-> 
-> Agreed on the MSI parts. They are a working proof to exercise the
-> nested flow end to end, not a finished design. The reason they are
-> in this series at all is that the NVMe device we use for testing
-> depends on MSI interrupts. Without this support, DMA succeeds but
-> the MSIs fault, so the driver ends up polling for completions after
-> timeouts.
-> 
-> We will keep following the irqbypass groundwork as it evolves, and
-> continue this work once it has landed.
+On Sun, 30 Aug 2026 16:36:37 +0200
+Roman 'Hedin' Storozhenko <romeusmeister@gmail.com> wrote:
 
-It seems to me the riscv interrupt architecture is a terrible fit for
-Linux, so I would prefer you keep that out of a viommu series and try
-to address interrupt support in VFIO through the other series.
+> diff --git a/include/trace/events/riscv_tlb.h b/include/trace/events/riscv_tlb.h
 
-viommu shouldn't change anything about how interrupts work..
+Please do not put architecture specific events in include/trace.
 
-Without the msi stuff I think you could get this merged without a big
-trouble.
+They belong in the architecture.
 
-Jason
+See the example code in samples/trace_events/trace-events-sample.[ch]
+as well as the Makefile there on how to put trace events in directories
+outside of include/trace/
+
+Thanks,
+
+-- Steve
+
+> new file mode 100644
+> index 000000000000..3eff171ec54f
+> --- /dev/null
+> +++ b/include/trace/events/riscv_tlb.h
+> @@ -0,0 +1,113 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#undef TRACE_SYSTEM
+> +#define TRACE_SYSTEM riscv_tlb
+> +
+> +#if !defined(_TRACE_RISCV_TLB_H) || defined(TRACE_HEADER_MULTI_READ)
+> +#define _TRACE_RISCV_TLB_H
+> +
+> +#include <linux/cpumask.h>
+> +#include <linux/tracepoint.h>
+> +
+> +#ifndef _TRACE_RISCV_TLB_ENUMS
+> +#define _TRACE_RISCV_TLB_ENUMS
+> +
+> +enum riscv_tlb_flush_scope {
+> +	RISCV_TLB_FLUSH_SCOPE_SINGLE,
+> +	RISCV_TLB_FLUSH_SCOPE_RANGE,
+> +	RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE,
+> +	RISCV_TLB_FLUSH_SCOPE_ALL,
+> +};
+> +
+> +enum riscv_tlb_flush_path {
+> +	RISCV_TLB_FLUSH_PATH_LOCAL,
+> +	RISCV_TLB_FLUSH_PATH_SBI_RFENCE,
+> +	RISCV_TLB_FLUSH_PATH_CROSS_CPU_CALL,
+> +};
+> +
+> +#endif /* _TRACE_RISCV_TLB_ENUMS */
+> +
+> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_SINGLE);
+> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_RANGE);
+> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE);
+> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_ALL);
+> +
+> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_PATH_LOCAL);
+> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_PATH_SBI_RFENCE);
+> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_PATH_CROSS_CPU_CALL);
+> +
+> +#define show_riscv_tlb_flush_scope(scope) \
+> +	__print_symbolic(scope, \
+> +		{ RISCV_TLB_FLUSH_SCOPE_SINGLE,        "single" }, \
+> +		{ RISCV_TLB_FLUSH_SCOPE_RANGE,         "range" }, \
+> +		{ RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE, "address-space" }, \
+> +		{ RISCV_TLB_FLUSH_SCOPE_ALL,           "all" })
+> +
+> +#define show_riscv_tlb_flush_path(path) \
+> +	__print_symbolic(path, \
+> +		{ RISCV_TLB_FLUSH_PATH_LOCAL,          "local" }, \
+> +		{ RISCV_TLB_FLUSH_PATH_SBI_RFENCE,     "sbi-rfence" }, \
+> +		{ RISCV_TLB_FLUSH_PATH_CROSS_CPU_CALL, "cross-cpu-call" })
+> +
+> +/*
+> + * Record the invalidation request received by the RISC-V architecture code
+> + * and the path selected by Linux.
+> + *
+> + * The target CPU mask represents the CPUs Linux intends to cover for the
+> + * request. It can be correlated with per-CPU activity, but does not describe
+> + * which harts ultimately performed an invalidation.
+> + *
+> + * The ASID is hardware-visible and may be reused. It must not be treated as a
+> + * persistent identifier for an mm.
+> + *
+> + * The stride describes the invalidation granularity supplied to the RISC-V
+> + * implementation. SBI RFENCE receives start, size and ASID, but not stride.
+> + *
+> + * The event is emitted at path selection time. For SBI RFENCE, it records
+> + * delegation of the request to firmware; firmware processing after that
+> + * point is outside the event's scope.
+> + */
+> +TRACE_EVENT(riscv_tlb_flush_path,
+> +	TP_PROTO(unsigned long start, unsigned long size,
+> +		 unsigned long stride, unsigned long asid, bool has_mm,
+> +		 const struct cpumask *cmask,
+> +		 enum riscv_tlb_flush_scope scope,
+> +		 enum riscv_tlb_flush_path path),
+> +
+> +	TP_ARGS(start, size, stride, asid, has_mm, cmask, scope, path),
+> +
+> +	TP_STRUCT__entry(
+> +		__field(unsigned long, start)
+> +		__field(unsigned long, size)
+> +		__field(unsigned long, stride)
+> +		__field(unsigned long, asid)
+> +		__field(bool, has_mm)
+> +		__field(unsigned int, target_mask_weight)
+> +		__cpumask(target_cpus)
+> +		__field(u8, scope)
+> +		__field(u8, path)
+> +	),
+> +
+> +	TP_fast_assign(
+> +		__entry->start = start;
+> +		__entry->size = size;
+> +		__entry->stride = stride;
+> +		__entry->asid = asid;
+> +		__entry->has_mm = has_mm;
+> +		__entry->target_mask_weight = cpumask_weight(cmask);
+> +		__assign_cpumask(target_cpus, cpumask_bits(cmask));
+> +		__entry->scope = scope;
+> +		__entry->path = path;
+> +	),
+> +
+> +	TP_printk("start=%#lx size=%#lx stride=%#lx asid=%#lx has_mm=%d target_mask_weight=%u target_cpus=%s scope=%s path=%s",
+> +		  __entry->start, __entry->size, __entry->stride,
+> +		  __entry->asid, __entry->has_mm,
+> +		  __entry->target_mask_weight, __get_cpumask(target_cpus),
+> +		  show_riscv_tlb_flush_scope(__entry->scope),
+> +		  show_riscv_tlb_flush_path(__entry->path))
+> +);
+> +
+> +#endif /* _TRACE_RISCV_TLB_H */
+> +
+> +/* This part must be outside protection. */
+> +#include <trace/define_trace.h>
+
 
 _______________________________________________
 linux-riscv mailing list
