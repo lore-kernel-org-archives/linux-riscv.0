@@ -4,145 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B476CC6B38
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2026 02:42:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E59F6CCA463
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2026 03:02:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:To:
-	Cc:Subject:From:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u5aemw7WQMMbZoos4f3zLXW2PQ9ZpmC/dZJvB4xuO48=; b=neRTFU04BTuv1+
-	a8qiZdu0MYh//GuahIzbw3vKnIdAhXDjIqeM7NSFf8o8xmHR+Ye/3vSIbgUS5Ctd4DLBoHDZk79fh
-	GthDxg1D5/CQl70qWX0OpTQ+jAWpvTw1A3dPOy1vZnR5DcLxUYC0k2kM16tAUQf6K4cok9dl16oaV
-	Jab2dv3IXmQXNs0PUE7GHyIyB4VyBpkPSpGO5xombQc4VZo3ySrkGM7+MxKB7l+POzbTcCuoytosu
-	zxR4HUf7Vfu+GKxOeho8+bamnoEWD1kxzV3A1S6x9QDbAhMvLgkKnq+sXZPbSUXkhqBgSNhpEFEuU
-	rAOmzQR7fAuCxCAPZLDg==;
+	List-Owner; bh=j0yFB2Jwfvoz86q/VzoCXhdDuI9GmUWChbYv6oY3UDw=; b=yU735YdG+Ai6O+
+	UEjz3vVLDYziCLcQTSTg/B2Z9UEI7qzRszdbHyN/pahxNEwIKh865TfGJufO+GS0qbFfa1EmMXcdm
+	gMgMxLaiIJ/2XpQUBAnP1K/X97TN9zLty6N1Ag/yywmntB82wuA2deY39VkDFXymwDhPBO+cKXcAr
+	gHasGM5JNRYADzQ1pIBNAx5K0jquNV+QWsMX8ckMebaXJrzSwWQ4KBUy/qeL9nc+hG4+Ubkiy4Obs
+	1UCPSY/614c1DI+ZJRWj51NyExi8weZyqi8y/HlJfrySVjbOWso35P23BE0fJJbziknYLn31aC6Hc
+	sE3yYOJepe0B6ZPvlViA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHXtJ-00000001lMj-3mMT;
-	Fri, 16 Oct 2026 02:41:53 +0000
-Received: from mail-westus3azon11012049.outbound.protection.outlook.com ([40.107.209.49] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1xHYCf-00000001mPr-23RO;
+	Fri, 16 Oct 2026 03:01:53 +0000
+Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHXtG-00000001lMJ-30Dd
-	for linux-riscv@lists.infradead.org;
-	Fri, 16 Oct 2026 02:41:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=os/v/geUsNzeDD/1XqAHi7lhNPvKTj/+FMCF6w4YtDeCGj3FfoPq0dnDlYyNllwOXw4tlkrl9Xar+AoligZFwYcH9mlDSqDWgF3mxHEV8xSE10yOhMosYZGGslD+ByCWmnOoZBNXnfZklaKigAA+fsAn3k6zpJeM7EGtWMoeHrUU668hbdE0HZb3TndjQ6lsgREsYphja3e83s7xA/f3580xH59CXI+pjcZ6hEY9JR4IlRgqcEnAFt0D/c+bLb2q6NlvbulhpYUP0Z1Jj867r5JWUYpLWEIopgHpnz4Til1yeXlGqzP7L2WakyVz8NhwoUolywmMtqvYMQnV+4SjTw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OtMmLhBeLqirt0Q7kXqfUO5ffFx3ulqdNIKghKUnZj8=;
- b=KAkXh9gHuG2cHE9O+q0g4Y+8s0zAOqe0t3ilrtk8rjOgr2oxlv7rmuv9e8RXt5t7PQpk2hFZeYITw/0sokkzymupzbIVtV8rnF4d62IkWdqguipXSdvZPBxwLo78BUweIrEaTCJOVD6yKohvSQwLW0dJGldhUqy+p8aVJwynQMR2CBoKoKtYkZp1qjs5JBwiKtzUVPe7wFBPr/iSsXTNL0TNkr/C8cVSmyC4+LtstNBALrIZnAtqfj4Nqaat8kPZydNRB9WvNXG2PJXNTF9F5Xw2QLOWjt+tQ528Zfj7iHi+Ujljluq5uh1ZIAQ9ArfQwfVGD9FWY+fHl/UxdOsZYA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OtMmLhBeLqirt0Q7kXqfUO5ffFx3ulqdNIKghKUnZj8=;
- b=V1OB2prGU2FVQ2nMa1QLiq5NqsLupjuVSea+75Ku2p/TmpqE99HeX3Hbd+14YVeENi5XxRDiV6PFG8+6l4xUS6g6evApHWCEBjTjJA2xfN3TdYdOB2bT7mZX1Zr7Byt3sySgmDyVrYlpFpFLSyM8rG4d2pfpIE9awPiCU44Zl/Tx5hLOqmB/Q89vNXBresGO7rCxjxvKkKBTMSwO5NuHFi4rHsRCG7+rHp94ZjMLYiXl0eAN5SvuAUrzcfsBi/gLKhD9IB2qKpNRW3JSY5GRPd4qDd13nvFpVXKGoqDmK4iwcvAjIRukwzgqWMpx99Hvb4YyPXtrsv8FY8wurOXRNg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from IA0PR12MB8374.namprd12.prod.outlook.com (2603:10b6:208:40e::7)
- by SA1PR12MB8141.namprd12.prod.outlook.com (2603:10b6:806:339::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.12; Fri, 16 Oct
- 2026 02:41:44 +0000
-Received: from IA0PR12MB8374.namprd12.prod.outlook.com
- ([fe80::d85f:4c87:ae84:3f16]) by IA0PR12MB8374.namprd12.prod.outlook.com
- ([fe80::d85f:4c87:ae84:3f16%6]) with mapi id 15.21.0472.016; Fri, 16 Oct 2026
- 02:41:43 +0000
-Date: Thu, 15 Oct 2026 22:41:41 -0400
-Message-Id: <DM5WZM70OU86.3K6UFWD42G217@nvidia.com>
-From: "Zi Yan" <ziy@nvidia.com>
-Subject: Re: [PATCH for 7.4-rc2+ 2/7] riscv: mm: don't let GUP-fast follow
- invalidated THP PMDs
-Cc: <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>, "Zi Yan"
- <ziy@nvidia.com>, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt"
- <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>, "John Hubbard" <jhubbard@nvidia.com>, "Peter Xu"
- <peterx@redhat.com>, <linux-riscv@lists.infradead.org>, "Jason Gunthorpe"
- <jgg@ziepe.ca>
-To: "David Hildenbrand" <david@kernel.org>, "Baolin Wang"
- <baolin.wang@linux.alibaba.com>, "Liam R. Howlett" <liam@infradead.org>,
- "Nico Pache" <nico.pache@linux.dev>, "Ryan Roberts" <ryan.roberts@arm.com>,
- "Dev Jain" <dev.jain@arm.com>, "Barry Song" <baohua@kernel.org>, "Lance
- Yang" <lance.yang@linux.dev>, "Usama Arif" <usama.arif@linux.dev>, "Kiryl
- Shutsemau" <kas@kernel.org>, "Lorenzo Stoakes" <ljs@kernel.org>, "Rik van
- Riel" <riel@surriel.com>, "Vlastimil Babka" <vbabka@kernel.org>, "Harry
- Yoo" <harry@kernel.org>, "Jann Horn" <jannh@google.com>, "Kyle Zeng"
- <kylebot@openai.com>, "Andrew Morton" <akpm@linux-foundation.org>
-X-Mailer: aerc 0.22.0
-References: <20261015-anon_vma_uaf_fix-v1-0-7b977303b42b@nvidia.com>
- <20261015-anon_vma_uaf_fix-v1-2-7b977303b42b@nvidia.com>
-In-Reply-To: <20261015-anon_vma_uaf_fix-v1-2-7b977303b42b@nvidia.com>
-X-ClientProxiedBy: BL1PR13CA0322.namprd13.prod.outlook.com
- (2603:10b6:208:2c1::27) To IA0PR12MB8374.namprd12.prod.outlook.com
- (2603:10b6:208:40e::7)
+	id 1xHYCb-00000001mN9-1d23;
+	Fri, 16 Oct 2026 03:01:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1792119703; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=mrYD4Xmw9JmUEwP1jk5CPITT3K8gC8rF0fjahbJTkBU=;
+	b=f1LQ2GSwkkcoDs8AMQTuJmUVphd7My4b2l29ibY8YipeIOyMv1GUxFTXO0lntVyqvKvYuBbUDKoaSQb26GC+bgTBNOUPX+h3MwfAtcUbklKTglZ9m7RLrgWKF5HNYMaPJb2MLSOcCr3fvudQ1NPmAQrMCdDKBNh/Tp8C3BiQkGg=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R491e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=20;SR=0;TI=SMTPD_---0XCtC-XB_1792119699;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XCtC-XB_1792119699 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 16 Oct 2026 11:01:41 +0800
+From: fangyu.yu@linux.alibaba.com
+To: jgg@nvidia.com
+Cc: alex@ghiti.fr,
+	andrew.jones@oss.qualcomm.com,
+	aou@eecs.berkeley.edu,
+	fangyu.yu@linux.alibaba.com,
+	gsh517025@gmail.com,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
+	jgg@ziepe.ca,
+	joro@8bytes.org,
+	jroedel@suse.de,
+	kvm-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robin.murphy@arm.com,
+	tomasz.jeznach@linux.dev,
+	will@kernel.org,
+	zong.li@sifive.com
+Subject: Re: [RFC PATCH v2 3/4] iommu/riscv: Add guest IMSIC GPA mapping helpers
+Date: Fri, 16 Oct 2026 11:01:38 +0800
+Message-Id: <20261016030138.91675-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <179210803193.58760.10996339526486124321.b4-reply@b4>
+References: <179210803193.58760.10996339526486124321.b4-reply@b4>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PR12MB8374:EE_|SA1PR12MB8141:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5047d656-b5e6-4a9f-c87f-08df2b2f0398
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|23010399003|56012099006|261009223027099003|11063799006|921020|4143699003|18002099003|22082099003|6133799003|10067099003;
-X-Microsoft-Antispam-Message-Info: tAEXEF23cak4xMrmUmaeU5qrIcIVvLXxI3PKQkEd2kT4i8/HLCxOBc5THIYrak+83aOCatgPsmWGvQH9A4nHWqOuNftqXiiMp5+QYyv+Vqyhs5WcFCilB0W3EOlZ3czP9VeR2HyDk2h6JsLZoSmf6P1eQJ3ISQlQrnk6LU54Y3OUtJS+zSn+zQLP4m3k6U811UBUDXvmWlZw5M/t0t2zPc0CCt9S8SAWTSUHPj4zSEjKFzYHyIPBz9ZHWUAJUQA4XMoMS+whJXWHI7mZG49m9VLMtH2IIFqkMywHPugMg0BCQX/aawSTr30Ir4rptEAD2ozEK2JYwutuxxsd1VbA/q5o8zQ+kc20b1vgFd4WTY1GA4f8EXj+Zuf00+he7QJ5tqRKVN8IsG3sUJYgZ5v9tXrXz97P2AN4RXwvU+MxAzQfDu6goMwE6svwF434Du1VVuMDOhSgKq+P7IgogS8yrPqBg3poRdelxm+Ux+kQvfd5RLl4xy6Xsptr7u3k8lgCaKiIOtAqwxkQzAZQXpnWzAtdMrmt0K5OuWM+8SK1FXNyGI3O1jKLgt30z+0TDjL/pHsoPOWNVTMoSgx91Rnbf1aiVSH66AchyO0p3xIsog/0b7TMHXaHwXrg3XYJBZT746FuFOSmBmssVT6zSvOWF+QuTT/8miLg+o4noKYsa9YltFtOaNe9iEioz1hQcqHmiqjmTaDJ097I/I8i4eLMgA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB8374.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(23010399003)(56012099006)(261009223027099003)(11063799006)(921020)(4143699003)(18002099003)(22082099003)(6133799003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QW1QN3VBRUpJaFRvVklReGsrTDVZOFRRbVdCMkFndXNYMitibWNKSXVjTjVk?=
- =?utf-8?B?R00rZ2xOYXo3UGFsK0hZWVcrY0VITEg5VFNiMmpYeTVGZ2hobkxtMDhnL1Nx?=
- =?utf-8?B?OEU0Ung3S0hKYjFrdXFMMnBxSUloNmVSNGpjK0xKbzMrb2hzcnRjYnUrYnlm?=
- =?utf-8?B?OERic281SHBDZnh5citZRDVlTGJpQlBQeUlTQ3ZDb05hdWxiTTMwRWl1SjZ1?=
- =?utf-8?B?SXhjTm5LL3NySngvTUJPYVJWeEJJT0JZbTVML1ZRcU4veG4vNzZuQlRTWkp5?=
- =?utf-8?B?SmcxOWM0L2dVdmU2azRlektBQjhKdjdCSVBGeHFNcEJHdGY2RjM4Z1ZLTTFi?=
- =?utf-8?B?d3lhQm90SzlvM1NUaWZqazFlUGVRNzUyZS9DbVQ5YzNyL2h1b2psVjRqSnpD?=
- =?utf-8?B?ZTVidXZaN0ZPZGRjNXAyZWwzMXpPVUJzYTdPSUtZQUh4RWxhQ1AweHh5bmVB?=
- =?utf-8?B?OWZqejBuZ3o0UlFoUTBrcUlqcVdSQ28yUVYxQ2t6bjVTNEV3aHpjZy94QUo0?=
- =?utf-8?B?OHZYbm9QR2gvRytPVytTakxxZzRncHhCMGsrcjgvODJqSzNQTnMyMTZaQnBH?=
- =?utf-8?B?cDlKQXRFczFlSnpYR3B5a0FjZ0k0SDRGWlZDMGMxTW5sdThmUnM3YTgxK1Fj?=
- =?utf-8?B?Ny9JdjFFU2UzM0FvZXR2eUtWUGlDWVMwcDNOcUxFVWc5UjNYZHpoaVlYTnI1?=
- =?utf-8?B?dUZ4TlRTQUtBRUlVSWdBT1dINkF0dDk4L3NieDFGY05hQUJ6U2V6TEhrTVJO?=
- =?utf-8?B?QTg5NzFNSFJnRzdNaVZadzBxWTBod2Q4UXdjTkZzUFVxWlVnUDFWZXZjdVNz?=
- =?utf-8?B?RzV2ZmhtOXRka2xyUHVyNWVpNlduamFLaG9lZ1RpL1pWQUpXVVFzdFBOWC85?=
- =?utf-8?B?ZXdHOVZKMzNjSUZXTnZWY25pa2tQWEZsVUd5am5CNERWTTFIUXd5eDAxekJQ?=
- =?utf-8?B?WFF2bFJUUDQ2SFQxN3NoNUd1Z1dNaUVieWhXMTY3bTAxWjdXbzRSUE80YndC?=
- =?utf-8?B?Sm44NUNiRU9ybkU2emRMK0RqdHFSUlVzL3kwbGhwNlI4ZEpVTWZsYmo4cTYy?=
- =?utf-8?B?cEpBcXFUa0duN21qV3V3MlZtTi80QlB2UmMyUWtSeHN5OVRyckxucTdSbUlm?=
- =?utf-8?B?ZDM4dUJacXMzSWdaSlNUUkRUeU1WeDAydGpTbXJpUlNvM3dNYmxJMHE5K09w?=
- =?utf-8?B?RFo3R2NGaVo4eTlsMzBZR3FmS0NZeXhPV0VITDBONUNZQm54bXBSalZScG01?=
- =?utf-8?B?SlJxbUEyOXRvbit2Si9remtzY3NjUXM0TlcwblJEdkMrSDVnMzMxd0Z0bEZN?=
- =?utf-8?B?dEtKM2Y3SWlTQlZydEczb255M1pjSFNIRFlmRVdVNEQra01tdkU1eG9HdW14?=
- =?utf-8?B?MTBTWmJXTVV1MzYvbVRSN0F2QVJHU0d6MUh0cjhqWTFySVpyaDFnNG5EMEt6?=
- =?utf-8?B?VlBMckw3eFEzS0g0cjBnSXlMclFiZ0NwcDVlenhLZUhrWEUvTXZ6V2pQK1Nk?=
- =?utf-8?B?T3pIS1JhSXZ3VFZ3OTBuYkQzaUxHczVXR3hIRUhIRXRWL0Z1Z1E3a2tWUE5D?=
- =?utf-8?B?dFJGamNVVDVicVRUbGtyb1NtaWFqd1p3anpCalh0WGFLcjlRN3NPNEZSQVR1?=
- =?utf-8?B?QWpLOUtQZDIxaS9jbFVBVEtnYXFVQ3NXc2FrSFRkZXREemJteGF2ZlBGQ01a?=
- =?utf-8?B?T011eWxxT0ZWbDhlSEQ1T1lycTM3aldvK2Y5Z0FkTE9hWGEvL1lVWStPWEFn?=
- =?utf-8?B?T2VtNWc5NVhKeTU0RWorRlE4ZTZXZnBsOXJORUJOVjJhU3lXNTlLcGlWbnAr?=
- =?utf-8?B?ZkNaV215L0x5WEtacW0yMUZhWVd4WFU1ZnZMTzFISVBLOGpGc0hiNitWUjFh?=
- =?utf-8?B?eFRJczZXUHFsOWViWnI0T0NDSndPSnZ6M0hOQmg3RVE3ellLMFhuTzY5M0Fz?=
- =?utf-8?B?UUtFR29iYlhmdjl5RktocFBIMitYR2pPUmZTMnE1dGRXeFFKTnJBWk9XZW01?=
- =?utf-8?B?MUlBTVlUcEFkMXFUY3g1Z1A0WFNEdlB0Uk5TZWEzL0ljK3BwQVlGN09IUC96?=
- =?utf-8?B?YndGSEw4OWR5VjV1NTRpclZwRHZxcVBwTk9MVzBNWjRtd2o4ODVGSnoxVXY4?=
- =?utf-8?B?d214MmxZMjFpY01FeURyOE1wbGd0R1BmRkVvYXpEZExLOGszVGRBQWg1YytB?=
- =?utf-8?B?UXFXSDN6aW4rSGFwWkl6RFFqakN0ZVNUSlM4K1pQVnJHMmtWSkNkMlFISGNo?=
- =?utf-8?B?MFBqNWNmTVcyRkZTdnVSRWxqbEo3R3lEWHpYMUYraGt1VXR4ZjJuQWVCWmRT?=
- =?utf-8?Q?U4IAWwKcN8tXhakhiJ?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5047d656-b5e6-4a9f-c87f-08df2b2f0398
-X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB8374.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 02:41:43.6505
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Z5/jMt5QB+fJdLt49q4t+8or4h4mjQ3ni7fl/mg9JS2Je938HVbwvaI8/Mhmb0aX
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8141
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_194150_784898_47BF94EA 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20261015_200150_064810_33EACE32 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,64 +82,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu Oct 15, 2026 at 2:13 PM EDT, Zi Yan wrote:
-> pmdp_invalidate() leaves a PMD whose pmd_present() is still true, so the
-> generic pmd_access_permitted() returns true for an invalidated PMD. Then
-> GUP-fast can grab a reference on the folio and, as the PMD value doesn't
-> change until the caller finishes, the recheck after taking the reference
-> passes too.
+>> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>>
+>> IOMMU implementations without the MSI_FLAT capability translate MSI
+>> writes through the second-stage page table, so IRQ forwarding on them
+>> will need guest IMSIC pages mapped into the second-stage domain.
+>>
+>> Add an xarray to the MSI table that tracks the HPA installed for each
+>> mapped guest IMSIC GPA, and two helpers for use with the MSI table lock
+>> held: riscv_iommu_msi_table_map_gpa() installs the initial 4 KiB
+>> mapping, and riscv_iommu_msi_table_replace_gpa() repoints the leaf PTE
+>> when a vCPU's VS-file host page moves, using the generic page table
+>> replace_leaf op instead of walking the table in the driver.
+>>
+>> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>> ---
+>>  drivers/iommu/riscv/iommu.c | 43 +++++++++++++++++++++++++++++++++++++
+>>  drivers/iommu/riscv/iommu.h | 12 +++++++++++
+>>  2 files changed, 55 insertions(+)
+>>
+>> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+>> index e2e77469ea3c..88e131ce96c1 100644
+>> --- a/drivers/iommu/riscv/iommu.c
+>> +++ b/drivers/iommu/riscv/iommu.c
+>> @@ -1217,6 +1217,42 @@ void riscv_iommu_msi_table_inval_all(struct riscv_iommu_msi_table *msi_table)
+>>  	riscv_iommu_iotlb_inval(domain, &gather);
+>>  }
+>>
+>> +int riscv_iommu_msi_table_map_gpa(struct riscv_iommu_msi_table *msi_table,
+>> +				  dma_addr_t gpa, phys_addr_t hpa)
+>> +{
+>> +	struct riscv_iommu_domain *domain =
+>> +		container_of(msi_table, struct riscv_iommu_domain, msi_table);
+>> +	const int prot = IOMMU_WRITE | IOMMU_NOEXEC | IOMMU_MMIO;
+>> +
+>> +	/* Guest IMSIC GPA mapping only exists in second-stage translations. */
+>> +	if (!domain->gscid)
+>> +		return -EOPNOTSUPP;
+>> +
+>> +	return iommu_map(&domain->domain, gpa, hpa, IMSIC_MMIO_PAGE_SZ, prot,
+>> +			 GFP_ATOMIC);
+>> +}
 >
-> Code that invalidates a PMD and then decides, from the folio refcount,
-> whether it may drop the mapping relies on GUP-fast backing off from an
-> invalidated PMD, like it does from a cleared one. x86, arm64 and powerpc
-> already reject invalidated PMDs in pmd_access_permitted().
+>Andrew has moved well past a v3
 >
-> Provide a riscv pmd_access_permitted() that requires _PAGE_PRESENT, so
-> invalidated (and PROT_NONE) PMDs are not followed by GUP-fast.
+>I shouldn't be seeing code in iommu or irq drivers directly mapping into
+>domains. That doesn't work, Andrew's latest series don't do this.
 >
-> Assisted-by: LLM
-> Signed-off-by: Zi Yan <ziy@nvidia.com>
-> To: Paul Walmsley <pjw@kernel.org>
-> To: Palmer Dabbelt <palmer@dabbelt.com>
-> To: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: Alexandre Ghiti <alex@ghiti.fr>
-> Cc: Jason Gunthorpe <jgg@nvidia.com>
-> Cc: John Hubbard <jhubbard@nvidia.com>
-> Cc: Peter Xu <peterx@redhat.com>
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> ---
->  arch/riscv/include/asm/pgtable.h | 6 ++++++
->  1 file changed, 6 insertions(+)
+>It still needs to use the SW_MSI mechanism and related.
 >
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index d48f90140841e..66aac56631f0c 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -816,6 +816,12 @@ static inline int pmd_write(pmd_t pmd)
->  	return pte_write(pmd_pte(pmd));
->  }
->  
-> +#define pmd_access_permitted pmd_access_permitted
-> +static inline bool pmd_access_permitted(pmd_t pmd, bool write)
-> +{
-> +	return (pmd_val(pmd) & _PAGE_PRESENT) && (!write || pmd_write(pmd));
-> +}
-> +
 
-Sashiko asked if this function allows GUP-fast to follow execute-only
-pages so that the page can be read.
+Andrew has posted two patch series in the community: one is the
+MSI remap v6 series[1], and another is the IRQ bypass v3 series[2].
+I think you are referring to the MSI remap v6 series. My patch was
+based on the IRQ bypass v3 series, and I added this patch on top
+of it.
 
-Answer:
+[1] https://lore.kernel.org/linux-iommu/179209292714.4133959.5997128071302263244.b4-review@b4/T/#t
+[2] https://lore.kernel.org/linux-riscv/20260928143113.49838-1-andrew.jones@oss.qualcomm.com/
 
-yes, and the new patch is at[1] and fixes both issues.
+>Nothing in the commit messages clearly explained what this is actually for
+>without having to go dig up the riscv manuals again. Please explain how the
+>interrupt translation works and what actual user visible problem this is
+>trying to solve is.
+>
 
-[1] https://lore.kernel.org/all/20261015-riscv-gup-read-fix-v1-1-8cf7f2504029@nvidia.com/
+The interrupt translation is based on Andrew's irq bypass patch
+description.
 
--- 
-Best Regards,
-Yan, Zi
+RISC-V IOMMU defines an optional MSI page table feature, which can
+be used to implement irq bypass by translating the vIMSIC GPA to
+the pIMSIC HPA.
 
+My patch complements that design. If the RISC-V IOMMU hardware does
+not implement the MSI page table, then the second-stage page table
+can be used instead to map vIMSIC GPA to pIMSIC HPA.
+
+Thanks,
+Fangyu
+
+>--
+>Jason
 
 _______________________________________________
 linux-riscv mailing list
