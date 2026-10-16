@@ -4,78 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A6D8CCA46C
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2026 16:45:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD7BCCA490
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2026 16:52:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OWSA7AGdFDzyiAZ66k5rdEkpLjQ93OsmwF/Sw8bEV9Q=; b=FjxntOeBgjaEMI
-	o3JS/h9CsENK1RMBZ1twRW6OKcQC+sFAi429khbdRlkml+IPuAFHkNg3SPt9aMasCOpG6f3uQwvOc
-	uKE47j5dabmiUgnJQItLsyympg1q2vzb9PxUvll68wXl3Uzgf+tnbGMzZCCuT2NVgzgMbbn3oyhP6
-	CXpAQXs+v9lXra9uNaSKSTRZA3jrDAs2En7KM/NdLP0bb8aSA21+eQ7Zw0dXc0UDZ/PTyxH5nmLGO
-	cQS03dfWn1kl26lrXSf5Gp31ESJH5HxNbQ7s9RcUb5E12bYKqgIYS3Rkb/T92Ou1myVhNJlPpldwA
-	DSrOaA0/vCgmwWodnkSA==;
+	List-Owner; bh=26e0ecmA7la53AoKoxFUXsp/dHFjfga8Wd1oCeTFbTo=; b=zyBm+q9eBz1Yxh
+	4b2c90JrTusUKcSiPHZCVTyrWtLuFoTvfGZ9Ju3cv6cyJ6cj8TpC7FOO/7/ML89UzZfNNlT1UEQ3E
+	drjqF9RikNfEf62QK5ccAZNp7jw5ywZDsQnK5nl8NGWKy+FZ22Fxx7BcFjF/F6pNtsUNEBj5KU35k
+	0zHhgI6Zq2x4u/Ty07zIS+MJ3toJ/ZG191Z1vxkhbsWxWWuXCjiD7lnAdkrKoNhSMkDq5IbWdSUjy
+	mxXq5PGF+GpRkkGc4q1YTYjdJzAQ8ymm1MWR6cbGHtUUEecSxmjO57Vm9lhk4cKkEFtJQrBbF4Zp9
+	Mt4Um1gMUG4KRC+fTyyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHl3F-00000003RjM-0ASU;
-	Fri, 16 Oct 2026 16:45:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xHl9t-00000003SwP-3RGo;
+	Fri, 16 Oct 2026 16:51:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHl3C-00000003Rj1-2Jc6;
-	Fri, 16 Oct 2026 16:44:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E969740BD8;
-	Fri, 16 Oct 2026 16:44:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49C781F000C5;
-	Fri, 16 Oct 2026 16:44:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792169097;
-	bh=k2PPYvoZtUDSB0QpI8y8nVKIfHe5I595bZB7KIFYEN0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZHEARvLfZu4O/g6Nyh0bXYaTzR2KpzPxcMjSlF8WaiY/AYMp8ZUEmePIH0x36U+AV
-	 dkGwRrXAcFPcowGe92stgaKYD7QbEfeew/4welqoD2TdO8E3G7pWh4Akq9DgiIX+yY
-	 y7j2qTukGvCvUuXxqMnQU8W0m4veYSXueEI9aC/y0saah/MBrQvwOds90nNz56BGRz
-	 +QdA3dTRZZDcbLU9t9fTB+48//FTEt8/i35gzhvPAtyFMgY64PRofFRMPgv6Ez/dmW
-	 OX3dQA2Arl+QnBRQMKaCABNa+ahDxt+2Czw0mPgyVccH7WW3sgmmy1U8zy7PM0Rdoo
-	 WUGmNlCnL+E9g==
-Date: Fri, 16 Oct 2026 17:44:42 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Petr Pavlu <petr.pavlu@suse.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Gary Guo <gary@garyguo.net>, =?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, Jonathan Corbet <corbet@lwn.net>, 
-	Randy Dunlap <rdunlap@infradead.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v4 13/22] modpost: cache section relocation mismatch state
-Message-ID: <atJSEhfOu-LWWHr_@gremlin>
-References: <20260923-build-speedup-v4-0-73128809a4a4@kernel.org>
- <20260923-build-speedup-v4-13-73128809a4a4@kernel.org>
- <d17b00f9-2a6c-425f-9697-6bc8f31f7a7a@suse.com>
-MIME-Version: 1.0
+	id 1xHl9t-00000003Sw6-0F4X;
+	Fri, 16 Oct 2026 16:51:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=qJW8AKNKZvmeX2LjshLcL0LMhAvgplepmTkSU1c2zdk=; b=f0HnWYw6Ow95wv1K+gzWKcfxkb
+	gVTTsuYxKByPAs6v3Wkd6Jsze6/8ElOtLuGklivEog9moza7+vZ0F1wTDD/dhNBWiELw2De6xjH5U
+	d4GCWG7MC/g9ZO8GHJsHwETCsgY6V5k+8MXirIRAX1FbApNq6EXYRUBiuyyUUswZ36AY0vKxSVUMH
+	N+qMDxWk7W7jNVw8vtUzHlOMWoqf+/YwhqrRXFgOcxKr2nY/pKpTlD+uYVCDCuZuf7Ubyfvgz+nB2
+	OaCXgowTqfa3YLLfur35Uty7DEoS9oPn19APuqwZ9PiNBq+PStLGM/YWS5tA8S/+Vvn0DjT1ZXr8X
+	UNXjSatQ==;
+Received: from mail-westcentralusazon11010013.outbound.protection.outlook.com ([40.93.198.13] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xHl9p-00000001l5l-2OnU;
+	Fri, 16 Oct 2026 16:51:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QyLl1OMq3kHztAkshuhAQWYmh2RNqyaanrQywWyH5tvQzsqE9ozZ529173PSidDWRKK/Na4CnXbRdC1NiVUJBilruVm7ex1S4+P8QuSsFjU3O1Xb18Ce5ImIlcBWcxnKFgI0ZsWhDxY+5cSmsWh1W4RYVpoub52JZulfH3/TxjcfX9goxo92xDM0cTBP1OInufnN7KaMY9OZeFeEE6AjxzCpEvqN4HVietsgHwGpo5kb+cai6m8sf0UGuXN/HoSyQew1qvfG99QXmnAPKID02+UVUCtGtmiRQJWfDZL/v0ivhMa4kUc7Pp3YQJMZhEcbh7MiP2mY6hmVBqifnXHUqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qJW8AKNKZvmeX2LjshLcL0LMhAvgplepmTkSU1c2zdk=;
+ b=nUlYG0cwVQD4VgU12e4tCAT1JdqaR9mIM0LXqBKAbVIojxGc6DaynLpn/pem4EdVPDPiDXlHlqZ5PgOnfb1Vj7hLC4cDz99OK23Gj9Aczw9v/TNKZfdDnO5C176Exk6lwlzXNDV/KOPMSihN4PXHvc2hrs0lIihlCs1WVRAhkipDKc+jazTMLRsGkTQijFngepS9oaOQ8ZMgGHHccsFVLKaVlhcA0sm7dcbKx+SfGc4Zk2GZXpDENOgrRiqYl6uBRDyat7RGB7zeVgdtxwOEgPtD3kAMPMtZZLIGE761Wcj4Wmk5nyIKXRb14/H5V0CbPfSOZh7qePbWypnqycq/zQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qJW8AKNKZvmeX2LjshLcL0LMhAvgplepmTkSU1c2zdk=;
+ b=FkpaHwTuqyIQY9INp0xvPs9BEEM6s1xYguC+mrl4w2T7d7El9TB9fWQzgfktFkyxzz/45b1neXrOKYLEfCsip/CN7SzCvuWid2stS0sZ6tOVfjU7yEfshjtFk+HrVR67RpQLcvm+Yz84trLMXXq4dg0nBeWU8KG1QAMrkmu0XZzuaJjT3BDV4PFNQGQdqm2PrHUVisMAp1iM3cMZ4fHUpkSfha+9Sx8Slk3XRNWo3urX4YmjNHK6aVIrrsbLN+VoVtGuPH33i+1MvSXzek5XncU59kljqEpeB0w2CNG2FMtRq6Gsn0alfjLc84wvGitDWTnKBmTC0ThyfPjsIYn1NQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by CH2PR12MB4165.namprd12.prod.outlook.com
+ (2603:10b6:610:a4::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.14; Fri, 16 Oct
+ 2026 16:51:37 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0522.013; Fri, 16 Oct 2026
+ 16:51:36 +0000
+Date: Fri, 16 Oct 2026 13:51:35 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Simon Glass <sjg@chromium.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+	linux-integrity@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
+	Piotr =?utf-8?B?S3LDs2w=?= <piotr.krol@3mdeb.com>,
+	Ross Philipson <ross.philipson@gmail.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Song Shuai <songshuaishuai@tinylab.org>
+Subject: Re: [PATCH v2 00/15] arm64: DRTM, boot portion
+Message-ID: <20261016165135.GA494690@nvidia.com>
+References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
 Content-Disposition: inline
-In-Reply-To: <d17b00f9-2a6c-425f-9697-6bc8f31f7a7a@suse.com>
+In-Reply-To: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+X-ClientProxiedBy: CH0PR04CA0103.namprd04.prod.outlook.com
+ (2603:10b6:610:75::18) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|CH2PR12MB4165:EE_
+X-MS-Office365-Filtering-Correlation-Id: ea142555-71bd-458e-adb9-08df2ba5be0f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|366016|921020|56012099006|11063799006|261009223027099003|10067099003|22082099003|18002099003|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info: ZP0hwSp6bKc9SiyHxM11NKN9afTWQHyeu4RZGNwQ0InoHvIAzayReBkYG3DYcYQR121ujdQUJYAl9ZnA7MWrnJC6/LQhSAFu+AZFehdWWT+YmJwtggff6AfXfy1LhnxKg9JZpXzccAFURF3nm9+48mKvYc6+CFqBYugSZFeJf+tzRqW892Ps0r9VpLIiLlAUofv0sVvWZue4nAxkGGDuMuO5PckPpJtrpLFaVpf1PM4z8a7+WJvIHDYOPKMHk7HcNfbnkDXB1JPljaknVEXL184N+XcGidmLXYd4ihT40dgtYD1Y8f0PbDrTLWL9fOnjfmgukDi352cqTqh/xziNyS6Fvc3QwPnIQbbZF+yPQD1/CrCF9JNpkF/i1oq2wlEswM3ZNEpKhjUEbutnY/RMTSRNuEUeCNn1syIlipwl/5q1QcF1V6H1T3IFaZsdOaJtgSkcFwbnI90FE3xZF+0wxCZRNMo5Ij65yFsVT43E1E1Y8DxEwincP23lokWiQ3lMfc3i0bfdnwBjeqL8RhINLg3LnCNTHi/ro1xCwvitYP4gbnwN802htuBfL2rXmniL6BCTTwmHT1NxDNC7ohMzIylgLn9MfsisRXesMTseCg8GdQM0S9W4dQq8BnhU+zetNpugemeSYcRj/WYA78/mxPZqAlO+eXXeUM4ehLwnGIZiM5VJ110L8sB/ilQKHwcYtGgLDEko8baB4swzDrl+Bw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(366016)(921020)(56012099006)(11063799006)(261009223027099003)(10067099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CRr2urvtZQQW0el4TaKPlzpsM7qQ6zht3ROIPwFl4mJh0C5n0TcLwpNVtdr+?=
+ =?us-ascii?Q?EnVmCjyV/EXnXuysxRgoQFTeOdr0h9oEPUp+vrJK5WH/RR3HhQPBn+unVo3U?=
+ =?us-ascii?Q?JuFbjGzAlAj45tkUi5Nh2eaxToLVA7/LDIqVHESgrUFiYXkMFHfOlXEV6au3?=
+ =?us-ascii?Q?ZJdZkjGus9Fp2tJOcQuNu/MSIL5Rr+GWlK1xo71AUPKRp3mTt8m/Zsklm71i?=
+ =?us-ascii?Q?+Y9npcORITk3/Bc3l4dhPZ5EL1rsc6xlEToWwD6yhOh9m7NBM68IFm9Xxkn/?=
+ =?us-ascii?Q?hGlh3REa2nLuKeYW3Xt/AYwTYNAhszYeh3Tx062rWTyQ5pZgQys2awZQ/c2D?=
+ =?us-ascii?Q?YOs3z3T7pLX8HKDPPm3fQ4iYM6+58y8E5t61/3JsHGMN9xqyHZtfL31Wyq3a?=
+ =?us-ascii?Q?eRLDl1XO+LtJhF24D8yi34PKTZVu5EXlbkPvwKyStthR+1N3VaY0/rd/oCkD?=
+ =?us-ascii?Q?Zs+8nSnf7+mAwrDBjEv4zTtgbCtQG0pqXgxNONB1RsrR+1cv4LGzSlDPDkaX?=
+ =?us-ascii?Q?oYhZTkm9WkOP1/X0NmV3LrVs2DjoAEh220RoV7t3I9Jv/RIFJRTeu7z/WbGp?=
+ =?us-ascii?Q?VTFIyqV9IZ3CxOFAd8cTsyME7zipKG7FsNPLCa8njzMsIgg+Bz8yErajkOzj?=
+ =?us-ascii?Q?ZNIjgwMJgUtgOMSA25PO4AMjs2Ad8UstJrFI3ywOctkWz/H0T/EPQtooM4Po?=
+ =?us-ascii?Q?hOdvtbaLm0tCJPX7ECdczz98gIKBAKQ7Z1Vr0peBTryN42I1mnCN1G3uWPHr?=
+ =?us-ascii?Q?/q3xpMKSwcdAFplstmFbW0e3Z+73CPPhez+EihRof/c4ZlYpkp2QtOK6uI7T?=
+ =?us-ascii?Q?4jm3vFrreQUhBz9q6n/3x2ThKMTUqZbwvI/vdGT7Jc8AHo4++uG44R7qM8aa?=
+ =?us-ascii?Q?mlyn9Q6ADG28iICh8mOosWZrBeT0hN+7+wVJAvH9ty46ZhBMurmzQ7xz840W?=
+ =?us-ascii?Q?rqKNnPj1HA96fngywGxcpQoY5V9M20p2wg4URpA+mGMKUkFwYofzkjR44Axb?=
+ =?us-ascii?Q?sEk8szFsr1/up4L3UtY5AFwCDgUvkMyWb3nM6JyHz/Y11Xg8RaIcA1+K5NbE?=
+ =?us-ascii?Q?uxJSyD5tkAUxA/ap1Y0mCL52e9V4DHQem2Zdc9VMHe5Mvx9yopsmYmeSCqux?=
+ =?us-ascii?Q?npFmcaLV4bS46vbs7xssJhF38BTI5DChubBZx/x9wNGiM4tIlzBKB02Tqa+Z?=
+ =?us-ascii?Q?NHA5vVQjLJrHIUFOXNYuhgoL9fly+K3erzOiAIIGLOxCrhHJdCohbQQGK9E4?=
+ =?us-ascii?Q?xnQ9O03SbF5LzzSVNyZNsUF5fAoO2n27cBTSPtDuMW8mhXdFcQvVIVA/xlwy?=
+ =?us-ascii?Q?gkaWgMKI3xD2YiZYsVQWBmi+PwwYj4+W9xPnTT2t7z7hypnt2+G50BWJCedn?=
+ =?us-ascii?Q?Ce1Hahhx9/IK31N2VA0lCMdL6GDS8siGH97OL2BmSQE9j1HC51+Zqbttv/GL?=
+ =?us-ascii?Q?Pb8jgNFu7rpNZxYcz+c6ztDkth5P0u/ChIkC4fALc9F78J6Fo1/6N7qfiTUm?=
+ =?us-ascii?Q?ZJYD1wzaPJoboeZeoc7ldzPmCjBdiscDN0FkaIo1ZXKyzyZaDtJKYtlF//4u?=
+ =?us-ascii?Q?FfX07l1Fc9u7WJCkT5v0LQtfotZbo0YsdVv6DOrbc7l+KFBvoEr9nfTaVE7J?=
+ =?us-ascii?Q?anH9fzB8ViiZTax0rGdkba7bJwkBYmxbOPjhxQ8NAvjaTFjim/MS8J4zwlNo?=
+ =?us-ascii?Q?+ndhBrLcspafwjasUUCKeh+oYYul7A2e1piWak9FGc8scBm3?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ea142555-71bd-458e-adb9-08df2ba5be0f
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 16:51:36.9408
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Qn31JklQuX28XUrAIp3ZERIY76HXSg8dzOfIdeWr/9OTY8VoUk3Yil2/DoMcymP8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4165
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261016_175149_825076_71F6F00A 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,165 +168,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 15, 2026 at 05:42:45PM +0200, Petr Pavlu wrote:
-> On 9/23/26 7:18 PM, Lorenzo Stoakes (ARM) wrote:
-> > For every relocation modpost invokes check_section_mismatch() to determine
-> > whether there is any kind of mismatch between the source and destination,
-> > and if so which classification applies.
-> >
-> > Each time it does this it invokes section_mismatch() which iterates
-> > through the sectioncheck[] array every time it's called.
-> >
-> > When walked a relocation section the source is fixed and there aren't many
-> > targets, so the same names are looked up over and over again.
-> >
-> > Therefore cache not only mismatch categorisation but also whether a
-> > mismatch even exists for a given section and look up the sections in the
-> > cache.
-> >
-> > Special indices (undefined, absolute, common) take the uncached path as
-> > before.
-> >
-> > This results in very significant speed ups for allmodconfig incremental
-> > builds.
-> >
-> > modpost is on the serial tail of every build that links vmlinux.
-> >
-> > Whole build, 128-thread Threadripper 9980X, best of N runs:
-> >
-> >                                          before   after     delta
-> >                                          -------------------------------
-> >   x86 defconfig, touch mm/vma.c, gcc        8.5s     8.3s    -0.14s (-2%)
-> >   x86 defconfig, touch mm/vma.c, clang      7.7s     7.6s    -0.13s (-2%)
-> >   x86 allmodconfig, touch mm/vma.c, gcc    33.9s    29.4s     -4.5s (-13%)
-> >   x86 allmodconfig, touch mm/vma.c, clang  31.9s    27.9s     -4.0s (-13%)
-> >
-> > Assisted-by: LLM
-> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
->
-> This looks mostly ok to me. Below are some nits you might want to
-> consider addressing.
+On Fri, Oct 02, 2026 at 08:31:37PM -0300, Jason Gunthorpe wrote:
+>  - Non-EFI boot, particularly kexec
 
-Thanks! :)
+At least the kexec issue seems like it has a good solution, Ard
+created a way for kexec to use the EFI entry point, and we've shown
+now that this series plus Ard's work can kexec directly into a UKI and
+DRTM into the successor kernel. Pretty amazing.
 
->
-> > ---
-> >  scripts/mod/modpost.c | 66 +++++++++++++++++++++++++++++++++++++++++++++++++--
-> >  1 file changed, 64 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
-> > index 75374c64b8cc..0fd43c8a89ea 100644
-> > --- a/scripts/mod/modpost.c
-> > +++ b/scripts/mod/modpost.c
-> > @@ -1155,12 +1155,67 @@ static void check_export_symbol(struct module *mod, struct elf_info *elf,
-> >  			 name);
-> >  }
-> >
-> > +/*
-> > + * mismatch_cache[section index] ->
-> > + *   0 - uncached.
-> > + *  -1 - no mismatch.
-> > + *  >0 - mismatch index + 1.
-> > + */
-> > +static int *mismatch_cache;
->
-> It might be cleaner to maintain this cache per elf_info, since it
-> logically belongs to the processing of an individual ELF file. This
-> would also be consistent with the existing symsearch cache, which uses
-> elf::symsearch.
+There is a thread here:
 
-Ack, makes sense, moved the decl inside elf_info.
+ https://lore.kernel.org/r/5236ef55-28b4-4331-8c7d-a6d112aa185f@app.fastmail.com
 
->
-> The description could use 'to_secndx' instead of 'section index' to
-> clarify whether it refers to the source or destination section of
-> a relocation.
+Based on this, I think a clean picture for x86 is coming into focus
+now.
 
-Ack, updated for v5.
+I recommend that the x86 side create a "EFI helper", this would be a
+dedicated project and include something similar to the EFI package
+with GUID and the trampolines. As a dedicated github with as its own
+upstream it doesn't require any help from the grub community.
 
->
-> > +
-> > +static void init_mismatch_cache(unsigned int num_sections)
-> > +{
-> > +	mismatch_cache = xcalloc(num_sections, sizeof(*mismatch_cache));
-> > +}
-> > +
-> > +static void reset_mismatch_cache(unsigned int num_sections)
-> > +{
-> > +	memset(mismatch_cache, 0, num_sections * sizeof(*mismatch_cache));
-> > +}
-> > +
-> > +static void free_mismatch_cache(void)
-> > +{
-> > +	free(mismatch_cache);
-> > +	mismatch_cache = NULL;
-> > +}
-> > +
-> > +static const struct sectioncheck
-> > +*cache_mismatch(unsigned int secndx, const struct sectioncheck *mismatch)
->
-> Similarly here, s/secndx/to_secndx/.
+The general boot flow would have this helper provide functions to the
+Linux stub, like has already been sketched out with the EFI package
+guid scheme.
 
-Ack, done.
+The helper would implement something very similar to ARM's DRTM spec,
+with the same kind of DLME layout and so on. This will give us a very
+strong cross-arch alignment and help create a basis for any furture
+industry work on DRTM.
 
->
-> > +{
-> > +	if (!mismatch) {
-> > +		mismatch_cache[secndx] = -1;
-> > +		return NULL;
-> > +	}
-> > +
-> > +	mismatch_cache[secndx] = (mismatch - sectioncheck) + 1;
-> > +	return mismatch;
-> > +}
-> > +
-> > +static const struct sectioncheck *get_section_mismatch(const char *fromsec,
-> > +		const struct elf_info *elf, unsigned int secndx)
->
-> s/secndx/to_secndx/, and the fromsec and elf arguments could be swapped
-> for consistency with the rest of the code.
+I feel like this is not a hard job with some AI assistance. If this is
+still unlcear I may be able to help show it with more details.
 
-Ack, done.
+That doesn't change anything about this series. I think anyone who can
+implement a sane protocol natively should just do so in the built in
+EFI stub. The external helper is more because x86 has so many tricky
+platform details, needs more ACPI parsing, external binary blob
+firmware and so on.
 
->
-> > +{
-> > +	int cached;
-> > +
-> > +	if (secndx >= elf->num_sections)
-> > +		return section_mismatch(fromsec, sec_name(elf, secndx));
-> > +
-> > +	cached = mismatch_cache[secndx];
-> > +	if (cached < 0)
-> > +		return NULL;
-> > +	if (cached > 0)
-> > +		return &sectioncheck[cached - 1];
-> > +
-> > +	return cache_mismatch(secndx,
-> > +			      section_mismatch(fromsec, sec_name(elf, secndx)));
-> > +}
-> > +
-> >  static void check_section_mismatch(struct module *mod, struct elf_info *elf,
-> >  				   Elf_Sym *sym,
-> >  				   unsigned int fsecndx, const char *fromsec,
-> >  				   Elf_Addr faddr, Elf_Addr taddr)
-> >  {
-> > -	const char *tosec = sec_name(elf, get_secindex(elf, sym));
-> > +	const unsigned int to_secndx = get_secindex(elf, sym);
->
-> The const qualifier can be dropped from the to_secndx definition to
-> match the usual kernel style.
-
-Ack, done.
-
->
-> --
-> Thanks,
-> Petr
-
-Thanks for the review!
-
---
-Cheers, Lorenzo
+Regards,
+Jason
 
 _______________________________________________
 linux-riscv mailing list
