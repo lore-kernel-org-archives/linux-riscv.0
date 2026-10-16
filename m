@@ -4,68 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D042BCCA464
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2026 10:14:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC06CCCA462
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2026 10:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WRhzVTM/5kd9UeRFnMwLN4495bH4ncauII4Wahetomk=; b=xukqsPV4tVsu20
-	t67akqL0qDNf/H7leVu6DgHf1NsKp1dBG2lkVD5n5ubg4eymGyMEDFXDO+JdJLxRNCeL3jFkFbp7j
-	bsTjLUgb4Ygjnt684rkdohDIFnXj1p4OIBv2fT8F5+2CQs74Ocio0OLbyBpIZFZxZpDAdek/EVMT5
-	ouNLkJLlLovHBTOkl5Bh2hRdqlnBZOEzgsi3lXCgdk4ALWfjl6Mc/P4seD+lFz/c2H5HcXf0UkrRT
-	HYCtSz06zqOdAf10AaE3RK+7xuY/HVOzfT8fa0AhjDDOYPLqlMO+quZY9LnzN83a8ILGAf/3MaG/m
-	x644g4fubJYPKD2ibOkA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=BZ9nghuDDeg2RXai01bblVbzyu7ln7n5zanGkDeXgUE=; b=bmCpzv1MJcWJxP
+	Piflm6SeShZGzEfNOSOCxQSE+96ZDECyEULKWOFw1uaGGn/SM8RKGeOqk636TRsrS45g2Uq4v/u2l
+	2Kce3DlQ88PpYV7AhBvL8bdzBqoQsOiCpH/NnF9lX5PgaSkehjEoYCs2R5I3FjbGJF++a1GncZ29V
+	S35KEKoxbjd6pUcs26N5F+gb0KRiG3GHkJYoyQy+D+dYVutqasS/hhM7AQ8qifRabzL8GapYSnIdO
+	f/Q6AxDbqvxn+Gnwn4rT/X2G4u4uK1yZntgYaER99gKkfixO2gi4Gf//BuiazoKMEu/HlZhsy0/m3
+	211L6Ry8MNmqlx4B/cOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHewu-00000002a8Q-3cpR;
-	Fri, 16 Oct 2026 10:14:04 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1xHey6-00000002aKe-1HfZ;
+	Fri, 16 Oct 2026 10:15:18 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHews-00000002a7w-1FoG
+	id 1xHey4-00000002aJp-37Wd
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Oct 2026 10:14:03 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1792145640;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KvR7oQutL7jrEfWP/R+GUbT2UYY00800fNri/81jLPU=;
-	b=FPIhoC9f0f1LKG/er39KVSu3yahFfZdPBlbmS9+1ehXmWapObPU416wKuzRi+iHzH3arg9
-	HNz5Ys/TusyBKAGCllDKSei2QkhaddF8FAmswoZDUJrsPx+X/OvScRAJ1Im3xvY3lPKRW7
-	dhRfxdUx7NSx8T7MOts3jNBQO8zSGAhxqPm5J7e6KUUH+QJ/bRgPs+YAoP1hgBNh57sXoH
-	6d/ihnaA5j+nWfdaHNO3sOE6iXkBo+qgztWC1rG/PXh3Bato/GNVw03Nw+kjtGpCORj3D1
-	N9x1l9Y1G+nvlKWTpGPiFfnHxUCaoBUR4wBqQKwBMaE+O8vq9GGEhmJXSqmRBw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1792145640;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KvR7oQutL7jrEfWP/R+GUbT2UYY00800fNri/81jLPU=;
-	b=QK4XbgSfnoSubrvKF6JfO+oY1KD696knkPtcae5qxtQ3E47EwqyE0unPnbWiI4FDCDh/oM
-	Nmr71tfyPbGQSDDA==
-To: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Naveen N Rao <naveen@kernel.org>,
- "David S . Miller" <davem@davemloft.net>, Masami Hiramatsu
- <mhiramat@kernel.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Xiaofeng
- Yuan <yuanxiaofeng@eswincomputing.com>
-Subject: Re: [PATCH v6 1/2] riscv: kprobes: reject probes inside LR/SC
- sequences
-In-Reply-To: <20261016081706.1085-2-yuanxiaofeng@eswincomputing.com>
-References: <20261016081706.1085-1-yuanxiaofeng@eswincomputing.com>
- <20261016081706.1085-2-yuanxiaofeng@eswincomputing.com>
-Date: Fri, 16 Oct 2026 12:13:58 +0200
-Message-ID: <87se263qc9.fsf@yellow.woof>
+	Fri, 16 Oct 2026 10:15:17 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-cc147d86bebso568581a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Oct 2026 03:15:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792145715; x=1792750515; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vf6qHtCJHYPPUhzxjpIczur0NsiTKA4BX6nz592iMDQ=;
+        b=I4AnClJJpBsUjoomJCSr8Wmi2RKggkmlN1Y+jfWT18RFVCuotAXk3URdXsAGAD7doP
+         aSnqGJc/2qRdxzK1/f/1Pqawf1tbOhe5+lvA+xxAF9Zig9scg7FMAQqsJwwOef316oOq
+         3naSS7AxqCrSc0KAMjn/qhrID54/Ot8Dh4QnhEMGk2sR6oOROOB5Vkq4CCU6IOJunO2/
+         uPCHJb9SGncmvlumTuv1CQbZhR5RasElwiwoIP365GGO6Cng1ME/OjlCniJUaTMrBkGl
+         xpiHAPNuloBbeYkT7Xq8vPF+B4uOrTCEnvEurTMGbtx9G4vFKmawXbGSELtfI91s7Mdz
+         HZ1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792145715; x=1792750515;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vf6qHtCJHYPPUhzxjpIczur0NsiTKA4BX6nz592iMDQ=;
+        b=wo7EdxpD0ZOWJva/nhRbCizJZzDWjQj3p7ydd15vImFWO36AgCyY8jNTrugqEyRJed
+         SbdZCdx/FadTyagy2J2fPhQy29PXg3HGNnttI/fGF8vNg/pLNLwhyV1ETyz2ahBdF8Dj
+         2fGTNug0wF0tisNiqr5iOS0ePrIhbQChjM+yKzcPm8kKR18nnCxhyehAQvoeIl2iMrf+
+         lhvD1UgwY3XIcabnlBWcPFPjlgwSmuYzGUu6f9upmm9r775As1kNMF8AaqE7jzvW4nZ4
+         B5LNt5SPGseNzdOe3kGEQgBLDxrzR8AC5hvKKyXowzqIAorttx2DCGLFzhi52vLP0WAb
+         zO6A==
+X-Forwarded-Encrypted: i=1; AKwUvBw9XjFruJAY0Zlrr/1IpoQu+UKKVSKKS34l9s0ckhvBxUyxSLCBEVXd88c5ImuKI0FOiwzdL8CCKdsbRQ==@lists.infradead.org
+X-Gm-Message-State: AFq9FYLmqFGCqmttU+fy4iwPbtcLdVs/TZyYI8IbOJoP9npfYyCdkdYP
+	N/ciisL0YQjetQf8ddqX1xN/qoR5LzsiJ+o6XDZBtUqJsMiwMQHcWad5
+X-Gm-Gg: AYBFou2BWEwthU5IcEzj07c6ssR5OfQClzQDk0as+pZ6Ecd0wnqSBn9Zgi3BAFcoTjw
+	DfQuKL9yo0pFKrryw6U4ZFbB3HIGx1onXw9SpG1YdDwxvlcA8zYsEtcLte8RUXBJo5ZJ/SZo2mS
+	HIDNgPo8QYQBskx2YXy5VxIe0XkOKf5YLQ6azmJnd70lrweOkuxDIpc7+kntU7zvSgRvPXZ6qjS
+	FIGN4X7vaRtVaETDoH14Cs/6sGoL526My+XqhpQgtLpOV8fNaaKvk+b9aBvAXAto9Oex8gMvVZn
+	4RPggPbSHaQT5EOid3Q2Cna/UqMauX7gT9r8HZMTjKbYozyBKUB/5OgblGWjXWyxZ/8WGZoFAKX
+	NgNO9Me3tvZVEbJcMw8WHyBhf6Un4p180oK+5cNatRSPqfJ5BxDz59Lysu7mVPqE6eNUMJut6pP
+	xcZSpaqiodF8mT82mI1tG97QzsJRU0wnG9p3YtdJatoCMH+xRcjuohJt9l6zBr2hiQ8Mljl3XfK
+	QdmSmrstiKnjGoHpirmOw==
+X-Received: by 2002:a17:903:2f8b:b0:2df:b004:df28 with SMTP id d9443c01a7336-2e9772b0555mr20367255ad.35.1792145715452;
+        Fri, 16 Oct 2026 03:15:15 -0700 (PDT)
+Received: from fedora ([61.74.238.173])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e97e85fd1dsm7876465ad.49.2026.10.16.03.15.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Oct 2026 03:15:13 -0700 (PDT)
+From: SeungJu Cheon <suunj1331@gmail.com>
+To: anup@brainfault.org,
+	atish.patra@linux.dev
+Cc: tjytimi@163.com,
+	inochiama@gmail.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	andrew.jones@linux.dev,
+	pbonzini@redhat.com,
+	seanjc@google.com,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	SeungJu Cheon <suunj1331@gmail.com>
+Subject: [PATCH] KVM: riscv: Set Accessed bit in dirty-log write fault fast path
+Date: Fri, 16 Oct 2026 19:14:58 +0900
+Message-ID: <20261016101458.221648-1-suunj1331@gmail.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_031402_491229_95A89A67 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20261016_031516_790179_7DFFC725 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,82 +111,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com> writes:
-> +static __always_inline bool riscv_insn_is_lr(u32 code)
-> +{
-> +	u32 funct5 = (code >> 27) & 0x1f;
-> +	u32 funct3 = (code >> 12) & 0x7;
-> +
-> +	return (code & RV_INSN_OPCODE_MASK) == RVG_OPCODE_AMO &&
-> +	       funct5 == RVG_AMO_FUNCT5_LR &&
-> +	       (funct3 == RVG_FUNCT3_AMO_W || funct3 == RVG_FUNCT3_AMO_D) &&
-> +	       !(code & GENMASK(24, 20));
-> +}
-> +
-> +static __always_inline bool riscv_insn_is_sc(u32 code)
-> +{
-> +	u32 funct5 = (code >> 27) & 0x1f;
-> +	u32 funct3 = (code >> 12) & 0x7;
-> +
-> +	return (code & RV_INSN_OPCODE_MASK) == RVG_OPCODE_AMO &&
-> +	       funct5 == RVG_AMO_FUNCT5_SC &&
-> +	       (funct3 == RVG_FUNCT3_AMO_W || funct3 == RVG_FUNCT3_AMO_D);
-> +}
+kvm_riscv_mmu_dirty_log_write_fault_fast() considers a leaf with W
+and D set already handled, even if aging has cleared its A bit.
+On hardware that faults when A is clear, the fast path returns
+true without setting A and skips the slow path that would set it.
+The guest retries the same store, but A is still clear, so it
+faults again. This repeats indefinitely, preventing the guest
+from making progress.
 
-There are already RV_EXTRACT_FUNCT3() and RV_EXTRACT_RS2_REG(), we
-should use them to avoid code duplications.
+Host reclaim or page_idle can trigger this while dirty logging is
+enabled, potentially hanging vCPUs during live migration.
 
-And I think we should also have RV_EXTRACT_FUNCT5() to stay consistent.
+Require _PAGE_ACCESSED in addition to W and D before treating the
+fault as handled, and set A along with W and D. The existing
+cmpxchg loop retries if aging changes the PTE before the update.
 
-> +static int __kprobes arch_check_kprobe(unsigned long addr)
->  {
-> -	unsigned long tmp, offset;
-> +	unsigned long pc, offset;
-> +	int outstanding_lr = -1;
->  
-> -	/* start iterating at the closest preceding symbol */
->  	if (!kallsyms_lookup_size_offset(addr, NULL, &offset))
-> -		return false;
-> +		return -EILSEQ;
->  
-> -	tmp = addr - offset;
-> +	/* pc starts at the closest preceding symbol, a known instruction boundary */
-> +	pc = addr - offset;
->  
-> -	while (tmp <= addr) {
-> -		if (tmp == addr)
-> -			return true;
-> +	while (pc < addr) {
-> +		u32 insn = get_unaligned((u32 *)pc);
-> +		unsigned int len = GET_INSN_LENGTH(insn);
->  
-> -		tmp += GET_INSN_LENGTH(*(u16 *)tmp);
-> +		if (riscv_insn_is_lr(insn))
-> +			outstanding_lr = 0;
-> +		else if (riscv_insn_is_sc(insn))
-> +			outstanding_lr = -1;
-> +		else if (outstanding_lr >= 0 && ++outstanding_lr > MAX_LRSC_GAP)
-> +			outstanding_lr = -1;
-> +
-> +		pc += len;
->  	}
+Fixes: 7705be59eb2d ("KVM: riscv: Fast-path dirty logging write faults")
+Cc: stable@vger.kernel.org # 7.2+
+Signed-off-by: SeungJu Cheon <suunj1331@gmail.com>
+---
+Testing:
 
-The spec says "The loop comprises only an LR/SC sequence and code to
-retry the sequence in the case of failure, and must comprise at most 16
-instructions placed sequentially in memory". The 16 instructions limit
-includes LR. So I think this implementation is off by one:
+On a HiFive Premier P550 (EIC7700X, which traps on clear A/D bits),
+run:
 
-    lr     (outstanding_lr=0)
-    inst1  (outstanding_lr=1)
-    inst2  (outstanding_lr=2)
-    ...
-    inst16 (outstanding_lr=16)
-    inst17 (outstanding_lr=-1)
+dirty_log_perf_test -v 3 -b 256M -i 3
 
-As it is considering instruction from LR to inst16 to be a loop, so it
-allows 17 instructions.
+While the test runs, repeatedly mark all system RAM idle through
+/sys/kernel/mm/page_idle/bitmap.
 
-Nam
+Before the fix, the test did not complete its first iteration in
+over 11 minutes, with lock_stat showing about 16k read-side
+mmu_lock acquisitions per second from the fast path.
+
+After the fix, all three iterations complete, each taking about
+29 seconds under the same aging workload.
+
+ arch/riscv/kvm/mmu.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 78a1826c466d..042d1e3b3547 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -591,14 +591,15 @@ static bool kvm_riscv_mmu_dirty_log_write_fault_fast(struct kvm *kvm,
+ 			dirty_marked = true;
+ 		}
+ 
+-		if ((pte_val(old_pte) & (_PAGE_WRITE | _PAGE_DIRTY)) ==
+-		    (_PAGE_WRITE | _PAGE_DIRTY)) {
++		if ((pte_val(old_pte) &
++		     (_PAGE_WRITE | _PAGE_DIRTY | _PAGE_ACCESSED)) ==
++		    (_PAGE_WRITE | _PAGE_DIRTY | _PAGE_ACCESSED)) {
+ 			new_pte = old_pte;
+ 			ret = true;
+ 			break;
+ 		}
+ 
+-		new_pte = pte_mkdirty(pte_mkwrite_novma(old_pte));
++		new_pte = pte_mkyoung(pte_mkdirty(pte_mkwrite_novma(old_pte)));
+ 
+ 		if (kvm_riscv_gstage_try_update_pte(&gstage, ptep_level, gpa,
+ 						    ptep, old_pte, new_pte)) {
+-- 
+2.52.0
+
 
 _______________________________________________
 linux-riscv mailing list
