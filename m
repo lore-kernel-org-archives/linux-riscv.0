@@ -4,61 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1BB4CCA46C
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2026 14:39:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30595CCA46C
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2026 15:01:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4h6PiIOWs6Kcn2tsN6c/2y+/KG+9e8dQR3wqZOeEn9M=; b=1Y0V9Czv43GJAo
-	ITI1vEQsGrYN+GLElfU5F7vlH3PPNOv62d07cCyERSp+MTvywTReE+yQd2eUDZsWw7JQCRUwss/CP
-	2wKLWJZ/cFQdc6owpNGEQRufOn6LKqfcbHFECJkFpPsNWxxSuzEpakw2csy2s1mdR4cIJoYn/Qktq
-	E49xg+eEzFGgRLhoJBJNR/T8u76HPk4aj1slKKEasCSQVxKbkN6NZ1PAFDq+HAZs5nwAxfmsYhPnz
-	FH3yAK2cz82JZkCa71JTU/O9rvo6htTmDMZxCL5dg/4HM/S+Yxri+3UTOnopb9M1r8ARe1EdrhYbT
-	vIr3WcDhdUloHcy7lhIA==;
+	List-Owner; bh=mzZj926dnJA+rXXp4YqYd9I/RNJ/XPFWVs/wQQ6/3bQ=; b=x5J8TtG9WOo/PH
+	oUstnzcGCoPNVl/AWPnMUDp+kvNVG/NzE4n2t0lWfk7/AHxbuV44aooG/NcXuV8bvyenI3vO8rgzy
+	p+xB20eRP4r3GNlbfbGl1ArO32EtRT6puUgpG8PNC4peD/JnFuk4FklPTq4SZ8EXiOORkLTsnJW8+
+	4iUkn+jAzqMLgp0U5B9ZMNovX/r/rq3hfNUNAp/VPUjoRdgbdrENJjaRjG8EvYljsJ/3r7hsM4Lcz
+	B2G0Nz6cLHDgMatvr9yUo/XMHCx6HYZic/37MHlIWnXHkMV74gMMt32/aGbailVcvAyl/hkY2pH1N
+	ChPw9dDkX5McU66+0Qsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHj5E-00000003ABv-3Hfl;
-	Fri, 16 Oct 2026 14:38:56 +0000
-Received: from smtprelay0013.hostedemail.com ([216.40.44.13] helo=relay.hostedemail.com)
+	id 1xHjQV-00000003E8p-1Tby;
+	Fri, 16 Oct 2026 15:00:55 +0000
+Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHj5B-00000003ABW-2Zg3
+	id 1xHjQT-00000003E7u-1G0f
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Oct 2026 14:38:55 +0000
-Received: from omf10.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay01.hostedemail.com (Postfix) with ESMTP id CC06F1C397F;
-	Fri, 16 Oct 2026 14:38:49 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf10.hostedemail.com (Postfix) with ESMTPA id 37C7035;
-	Fri, 16 Oct 2026 14:38:47 +0000 (UTC)
-Date: Fri, 16 Oct 2026 10:38:46 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Masami
- Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Jisheng Zhang <jszhang@kernel.org>, Radim
- =?UTF-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org
-Subject: Re: [PATCH v4] riscv: mm: Trace TLB flush requests
-Message-ID: <20261016103846.73ff2980@gandalf.local.home>
-In-Reply-To: <20261015-tlb_tracepoint-v4-1-f238a2bd8f7e@gmail.com>
-References: <20261015-tlb_tracepoint-v4-1-f238a2bd8f7e@gmail.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Fri, 16 Oct 2026 15:00:54 +0000
+Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-917b78dfe30so1119346d6.0
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Oct 2026 08:00:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1792162852; x=1792767652; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qAdHy+XfZaVWAHH+k3kEYHLQsWiJDDa9Am4rmLNBNPw=;
+        b=iahrap8247jye3lY+WeYy/hvy1Wv8PDqjb6XI4vSw+QCXBhJPecVttjUf1W5/B+bzs
+         c5ZtsDTLIg5qdoYg8dpbVsP/INs7CP20mNagLABZLiqGF2CWI4Ln4RC7v8iFUDYKKW1O
+         ENgI/GbTwWfSd0iVTgvusYnvhLF661xU1uQ5fNkS+tc32hIQfjHdywjFeegX3xrOJioe
+         gUjqsiH7kOaPrcXyqk41MqzDbui/TUy7vynHD4ccJw7A52iryq9nF1VF9ZkT1+N2LSNE
+         cnvUDwpo2vOeqcEl8ikSDIDt2rM0qY/iJlnc6hqlH46vJuIZI/ArFJOxGyAFL9Gdy1ui
+         H8gw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792162852; x=1792767652;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qAdHy+XfZaVWAHH+k3kEYHLQsWiJDDa9Am4rmLNBNPw=;
+        b=W07pSAByK0zThK/XQcJuQnaDLls+gT2/oJPUrsK6LPrTJY5cDlhHDdcaj/8FGeV//V
+         xoH/Aqhfn/UxPX/fAkQqoiwJkE80OFlFWyhssgWI0qipHYfXvaKbEiInnAc8xvt3jIl2
+         hriubLy5AHqrO6vJJ9+Yy89KgFW/pkiv3l4MwuNc2b8fdCJLZ78KV2CfrrSTCxT3rUQH
+         dxJVdlRJwxZPudyvoIimAZcimVY3BVqMurAkS/MD6ifAX4KM1eti/+pNLwAG/nmC+aOM
+         rorQSn6A3KH0LlGbS7c5mn/C/hI+LPnI+vXZVRKLL9fawSB/Jqk4I3nCKJmompDQmEcc
+         WdKA==
+X-Forwarded-Encrypted: i=1; AKwUvBwV3FQAZ1j1GuDHoZ4whHdNMqaBfZGJsc5ialA8/qFRQAMJLNM/P/HWAAIw9NVfsQH4+etCzAR4JuvSXw==@lists.infradead.org
+X-Gm-Message-State: AFq9FYIYpGEjjpDcJr6TShqD6zO8qJOtUE1L2liq6GUnBw+fTryJ3MVC
+	xkpRF6etwjnpnPTrVLFcbjOVnwlsCGywRt4ni1wDy4keO7yApZy+fYRTb3joWwy6OoUKHBUpL4c
+	rMmS3
+X-Gm-Gg: AYBFou1ZYCttHqvAR+HifpXhMXVggVpkhetgB1ajb7MM2HGoRhawhVwzE+US7BZTA1C
+	O/Om67+RhqRCr3faiTuWTyC5A9YvWA4c5wG7jguUx8PH8bQsIzS32fOuPRX5cq/a4GUxhZHZl7k
+	918P1Ba2YIDSwzlKWKW38Bboj72h9Sq6ucn0aXOjcV0/k3L+9DNCvHrE1n6HmcMpOGsoqCKDscq
+	uNZC8oP9yivJuIFepAURBY9IFpaFcXsO8KdBJTVoxTOlSRgSLPVuwTiPOrZMq43wxzSUa3SrtEg
+	tqc3wWrSjHAKTv3NujTPS+lINjVV5sy6kOB9XYGK/62Mk+HbE+WCXk4DUOBQzcfXQTuXNTioxAc
+	hvIIlYJbE1ZIfmGXsAqLaOoZHTRX7sa/uyPzcihzozXm0biTvcxfn4EDdukTit9BggQu1JHvCMu
+	bpNmT2kQ4gLcUVeB/aANte1AOCbh+oQwdBb+W6APlf3vIj4yIvjFKWYlFexux0gL3YvYPPy2EWo
+	q43FgMRYjZ1SNy6VosNq0+Y5YjL+vsMxPvPFAfBCM5yxxXUoiVgoerT
+X-Received: by 2002:a05:620a:40c3:b0:93e:646c:9133 with SMTP id af79cd13be357-93f29da5d84mr10749685a.64.1792162851675;
+        Fri, 16 Oct 2026 08:00:51 -0700 (PDT)
+Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93f1a0d0718sm232558985a.5.2026.10.16.08.00.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Oct 2026 08:00:50 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xHjQP-00000001teG-31SO;
+	Fri, 16 Oct 2026 12:00:49 -0300
+Date: Fri, 16 Oct 2026 12:00:49 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Gong Shuai <gong.shuai@sanechips.com.cn>
+Cc: alex@ghiti.fr, andrew.jones@oss.qualcomm.com, anup@brainfault.org,
+	aou@eecs.berkeley.edu, atish.patra@linux.dev,
+	fangyu.yu@linux.alibaba.com, gsh517025@gmail.com,
+	iommu@lists.linux.dev, joro@8bytes.org, kevin.tian@intel.com,
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com, pbonzini@redhat.com, pjw@kernel.org,
+	robin.murphy@arm.com, seanjc@google.com, tomasz.jeznach@linux.dev,
+	will@kernel.org, wu.fei9@sanechips.com.cn,
+	zhao.qingye@sanechips.com.cn
+Subject: Re: [RFC PATCH 02/12] iommufd: Add RISC-V IOMMU hwpt and vIOMMU types
+Message-ID: <20261016150049.GG14213@ziepe.ca>
+References: <20261015235400.GZ14213@ziepe.ca>
+ <20261016073020.10119-1-gong.shuai@sanechips.com.cn>
 MIME-Version: 1.0
-X-Stat-Signature: 388ttyz9j18eu81uansk1ay3xiofhhfo
-X-Rspamd-Server: rspamout04
-X-Rspamd-Queue-Id: 37C7035
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1+wYhXqGOF54CpdWPBi823eLacg6whUIdM=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=qC/TeNUXTBfnuw2B/KG7fIdMtKSx1rKA9Cvtcg6sjII=; b=hlv+CWMcyj3OB8DEYWzmB/LiN+sSRkkzbZ6hpI9XBmWNB4m2RYIAK9NvNoM09L/zohVfnios5SWLrc56tnb3guo/iQWKh2tgGAvXZ1p0ft//GNFvOWJ0+rKPGYsfsUW73HNUlHDU93/m5uT4SVlWYQLImar5RlopPN2K/O122Pg=
-X-HE-Tag: 1792161527-868062
-X-HE-Meta: U2FsdGVkX19/FZ1mNatLjECUo1AHFo5/rBna+klv4FkoAJnZCQ3gVIakjDYSSuF2hKoWvgSzJIeD4L8/iqxXinNAxX5bhYAnLc9baMwt186RBZq1Dgvnl291AabGUTyqrBhBz1pUnSfBFS2gA/KKay0MtdW4vhAH/bb4lg/bsP4FGVoOXStCsySo/ACHXdYUhtPFTy+MfhMvNtXzFkMiKl62qjMOCKU8t16YwaDOEueLxuj6V61Fp3n+wD9Z8dZnNUrTZDXvFxdwz3hh37Pex2Ub2uTNy/JaqHeqLPF+Vfs/It6EVxYBe+h1Gee8FkvX2zeC0h6HLjIlppqCSUa8du2xxempQn4QBBfA/vsAJ9/tPojf+jkaMuArT9kicMHT
+Content-Disposition: inline
+In-Reply-To: <20261016073020.10119-1-gong.shuai@sanechips.com.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_073853_724953_BD1CBA81 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20261016_080053_351807_D8948618 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,124 +115,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Oct 16, 2026 at 03:30:20PM +0800, Gong Shuai wrote:
+> Hi Jason,
+> 
+> Thank you for your review.
+> 
+> > > +/**
+> > > + * struct iommu_hwpt_riscv - RISC-V IOMMU stage-1 page table data
+> > > + *			     (IOMMU_HWPT_DATA_RISCV_S1)
+> > > + * @tc: Guest device context translation control
+> > > + * @iosatp: Guest device context stage-1 root page table pointer
+> > > + */
+> > > +struct iommu_hwpt_riscv {
+> > > +	__aligned_u64 tc;
+> > > +	__aligned_u64 iosatp;
+> > > +};
+> >
+> > Like the others you need a spec reference explaining exactly what
+> > these fields are.
+> 
+> I'll add references to the device-context sections of the RISC-V IOMMU
+> specification ("Leaf DDT entry", "Device-context fields", "Translation
+> control (tc)", and "First-Stage context (fsc)"), and I'll also include
+> detailed field information, as ARM does.
+> 
+> Also, I'll rename the field from iosatp to fsc. It holds iosatp when
+> PDTV=0 and process-directory-table pointer (pdtp) when PDTV=1, and the
+> two share the same layout, so the name should cover both interpretations
+> and the uAPI won't need to change when Process-Directory-Table (PDT)
+> support is added.
 
-[
-  I realized I replied to v2 and not v4 as the thread of v2 pushed that to
-  the top. I'll repeat my statement here too.
-]
+You might be better off just to have a data[] array of the device
+context. I prefer the fields are not parsed out in userspace..
 
-On Thu, 15 Oct 2026 19:32:34 +0200
-Roman 'Hedin' Storozhenko <romeusmeister@gmail.com> wrote:
+Future specs may add more guest controlled bits and in other places?
 
-> diff --git a/include/trace/events/riscv_tlb.h b/include/trace/events/riscv_tlb.h
-
-Please do not put architecture specific events in include/trace.
-
-They belong in the architecture.
-
-See the example code in samples/trace_events/trace-events-sample.[ch]
-as well as the Makefile there on how to put trace events in directories
-outside of include/trace/
-
-Thanks,
-
--- Steve
-
-> new file mode 100644
-> index 000000000000..f289480a2c0e
-> --- /dev/null
-> +++ b/include/trace/events/riscv_tlb.h
-> @@ -0,0 +1,90 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#undef TRACE_SYSTEM
-> +#define TRACE_SYSTEM riscv_tlb
-> +
-> +#if !defined(_TRACE_RISCV_TLB_H) || defined(TRACE_HEADER_MULTI_READ)
-> +#define _TRACE_RISCV_TLB_H
-> +
-> +#include <linux/cpumask.h>
-> +#include <linux/tracepoint.h>
-> +
-> +#ifndef _TRACE_RISCV_TLB_ENUMS
-> +#define _TRACE_RISCV_TLB_ENUMS
-> +
-> +enum riscv_tlb_flush_scope {
-> +	RISCV_TLB_FLUSH_SCOPE_SINGLE,
-> +	RISCV_TLB_FLUSH_SCOPE_RANGE,
-> +	RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE,
-> +	RISCV_TLB_FLUSH_SCOPE_ALL,
-> +};
-> +
-> +#endif /* _TRACE_RISCV_TLB_ENUMS */
-> +
-> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_SINGLE);
-> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_RANGE);
-> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE);
-> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_ALL);
-> +
-> +#define show_riscv_tlb_flush_scope(scope) \
-> +	__print_symbolic(scope, \
-> +		{ RISCV_TLB_FLUSH_SCOPE_SINGLE,        "single" }, \
-> +		{ RISCV_TLB_FLUSH_SCOPE_RANGE,         "range" }, \
-> +		{ RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE, "address-space" }, \
-> +		{ RISCV_TLB_FLUSH_SCOPE_ALL,           "all" })
-> +
-> +/*
-> + * Record the invalidation request received by the RISC-V architecture code
-> + *
-> + * The target CPU mask represents the CPUs Linux intends to cover for the
-> + * request. It can be correlated with per-CPU activity, but does not describe
-> + * which harts ultimately performed an invalidation.
-> + *
-> + * The ASID is hardware-visible and may be reused. It must not be treated as a
-> + * persistent identifier for an mm.
-> + *
-> + * The stride describes the invalidation granularity supplied to the RISC-V
-> + * implementation.
-> + *
-> + * The event records the invalidation request before it is dispatched. It does
-> + * not describe the mechanism used to execute the request.
-> + *
-> + */
-> +TRACE_EVENT(riscv_tlb_flush_request,
-> +	    TP_PROTO(unsigned long start, unsigned long size,
-> +		     unsigned long stride, unsigned long asid, bool has_mm,
-> +		     const struct cpumask *cmask,
-> +		     enum riscv_tlb_flush_scope scope),
-> +
-> +	TP_ARGS(start, size, stride, asid, has_mm, cmask, scope),
-> +
-> +	TP_STRUCT__entry(__field(unsigned long, start)
-> +		__field(unsigned long, size)
-> +		__field(unsigned long, stride)
-> +		__field(unsigned long, asid)
-> +		__field(bool, has_mm)
-> +		__field(unsigned int, target_mask_weight)
-> +		__cpumask(target_cpus)
-> +		__field(u8, scope)
-> +	),
-> +
-> +	TP_fast_assign(__entry->start = start;
-> +		__entry->size = size;
-> +		__entry->stride = stride;
-> +		__entry->asid = asid;
-> +		__entry->has_mm = has_mm;
-> +		__entry->target_mask_weight = cpumask_weight(cmask);
-> +		__assign_cpumask(target_cpus, cpumask_bits(cmask));
-> +		__entry->scope = scope;
-> +	),
-> +
-> +	TP_printk("start=%#lx size=%#lx stride=%#lx asid=%#lx has_mm=%d target_mask_weight=%u target_cpus=%s scope=%s",
-> +		  __entry->start, __entry->size, __entry->stride,
-> +		  __entry->asid, __entry->has_mm,
-> +		  __entry->target_mask_weight, __get_cpumask(target_cpus),
-> +		  show_riscv_tlb_flush_scope(__entry->scope))
-> +);
-> +
-> +#endif /* _TRACE_RISCV_TLB_H */
-> +
-> +/* This part must be outside protection. */
-> +#include <trace/define_trace.h>
+Jason
 
 _______________________________________________
 linux-riscv mailing list
