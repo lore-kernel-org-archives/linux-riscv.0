@@ -4,94 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23215CCF2C4
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2026 20:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F4BCCF2C3
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2026 21:05:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=eX0B+IM6GxGC8aEHwy5Vkgw7oyT9ATDEzpsz374KiCg=; b=36aOUhmV5XVR6c
-	Vc/lZmB0OZmXUYdFMiaw/J+MlucZzIr2rCyZpAroaPxlujeYSwQApJliD1XSHZ5orpsIm/PTDFrqZ
-	NfxmAsVIBr/RcyWG0THf80Y8iTxkaN8GqcyLGv/Olu06EFnw56wz5/YJWDTV9+5FVZm31vtk4mWPI
-	oKgh1ttpFL01xvBF5G6lHg2Z+dB3ifH00s/UDZdyWFALKstOz/RgVWNMUy7JrQnq+8E09WvjugST/
-	TbKYyvnGL3XBn47EWOHwExPwjvXSf07D/bCvilKI5R/G1MHgcojSsySWIg5oqX2bfyTQYV7J3T/nX
-	KEo1eEN++czGytlwq68A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VKurpGKBeCQ/kOFwGPrQBkwFOQc61LXI6T3OvDakIg8=; b=3GQYw3PfDwbyzU
+	bkXeG0T6naeXyO+tFClw3Jw+Xry7AGr5UkajBtwfWF23QaiiEBTsQhyQFhE74SweG4mf8K/XDwckF
+	JC3/HF9awXN9RofA8VYPKP7pQkrat0fJEePgctjpC85BKbfFsMjqFPHNH+WBeGxlrcmZU8uPkbZSY
+	QPQssyv9Znar08y30wfoa/a0Zo8xfHHhEu3MFucz7FNOoXgd8CY0IINn82yGyCXe6x1BdCVX0tIM/
+	4Jixou+P6yMf30DdHX30CL66jUjf76RL3tPV7BJ2S9msGA0VGoBKL085cDcoPZdmznMOFgPVqLgJY
+	Kbh4CBjWoE522Js1LBLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHoa4-000000040HZ-3tP7;
-	Fri, 16 Oct 2026 20:31:10 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1xHp6m-0000000438M-1JJ5;
+	Fri, 16 Oct 2026 21:04:56 +0000
+Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHoa2-000000040GE-1sh9
+	id 1xHp6j-0000000437m-1dpV
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Oct 2026 20:31:07 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4a1880e1bf1so3291125e9.1
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Oct 2026 13:31:05 -0700 (PDT)
+	Fri, 16 Oct 2026 21:04:55 +0000
+Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-8b056d58f2aso3373207b3.2
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Oct 2026 14:04:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792182664; x=1792787464; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Iop2qi+eFNESEc9uZHVm2CGO5WQwDSDngrKC7a0NKTs=;
-        b=crwpUon9XHGt52pxWjeph/ZWW/HpsIWi4UhVV93DWVu29fh4Cqcab6JPcNn3ftBOwV
-         LZk5cm8/yY0Li/dHD22n37DS852lTdZpk4GLYqqrPN0kOW3GkglUGmEJS9yHBfT5St0a
-         6aZWEbF/vr07ZlBxQLuoymd0J2X7soksF+sK7c6xAa8U8oeeGw03CZmqpPNnZTAncAKd
-         tXde2JsydCauzDxSKcPh4ZGXFappAtvh1jn/wE0OQgjBOYNDst0QmkwVJ7L0D1k9ObiA
-         VFkNcelDIS3rZn8jlTa0O8zP0TeOHZ0y7ukDIABr4/BtyesavLlSNz1HfSSIhfjHK9AO
-         venQ==
+        d=tenstorrent.com; s=google; t=1792184691; x=1792789491; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=zPYtnw7XMhC+K825KZRyBEk7V8O/GHGxvexBoWflVF4=;
+        b=N7A+pW2+S3F0+pq94s3g9BxvdU1S8VfjCKJ0r1OavESOr12RTx3lBhv9H70KXMlXfI
+         xNyPB66DYMrRwjz6JaqfelkQpU+cwcAOKqSdNoMFiylo2hEcqeJVcS2eBYEisWg2mA1E
+         uq30F34PdpgnquU5TZlktE9SRlv9Cp2gR24MaHPTc3pLRHa/1khwovVxGEI8K5Vy0dBH
+         p4qxKKeFDqjP1UmLYQxo5qSAUKELJkolTAd8XAuJtnR90JZx6doJDT50VxuTFtNBt7YP
+         ypuH3U272GYct39H/9B/XBxxLpabLLmCLAu3PTLdPOdc+F6Oovx6opk5/lMH6Gk3YnoD
+         4bGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792182664; x=1792787464;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Iop2qi+eFNESEc9uZHVm2CGO5WQwDSDngrKC7a0NKTs=;
-        b=LFHpDI6BIMMd/Tb50LcSH8tRTa6Lcs0d0rgBvZ6aoAWA09NUcJS+CfHWWnkRuYA+33
-         8qbrPyuqcGceDUz7IkdkpiWqOweaAFBMAWHmtEwUePKNwVzdbgLG1crIj5aY0ChBGYfL
-         N7bpM4p3FFuyuBep6i/8hBAZmfBf8eaTpPV6wZLMmdfuGSh+A+E8r/wOU1v3B/Ij8AGk
-         BXhm0hslBUr3rLXdzkSxxRhn4vrPHVknL0DhK/kq49NlKDiCaV6czWHolOIsWr6NN49U
-         JW/vkOsRBQBcz8tW9XiQJ1BJni6t1oaW6M/J5Xh0yT724uXoI6zeSwTmgLcInj9YDyKj
-         MMpQ==
-X-Forwarded-Encrypted: i=1; AKwUvBw+m1Hobu+SU0uYDntfxL1rI4KG8+qalzj3RSjWLZOjRAhP6aGZw6E2PUWjULn209yqvn6msVZ2B1nclg==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJA37Dgw7vG9PbYLtk4pe6DYEeA7NMmNmJaRmUAlqQe8f7PWssx
-	gGvxrrVQAu3i3QBOLkvNwf/SWi9FPRoe79yjSCrQ62gk5uZlGq9cAHg8
-X-Gm-Gg: AYBFou2v8stCGe+H1rgZ8tME//nKnH6w9dSqqOLaIsqkyk0x8jLwvQrz4nuCADD5jBL
-	YiCpm2LBUfpl88HLuUJQjsFp8EvE3qReGA1jkXsiT3hXcp9xojaMpSH+3RLldNxf5x1Qwe7uD5o
-	70tsnTnh6oHMyUJWJc/49joRF9lb9fdpZSqYC4Wr5y5sj3s3KapWzCfJ4WGQh1FgBw8iYnPVrgu
-	5z7JVsZRcYK1aEnGnJwblXxG1V4nWfgAf3sAn8sBUUz7wdxJkA1UMgLp9/C5rE3Q2r1hLBg3fqZ
-	z1Z1mYke1oq/wPn3UzZ21x3dA7NYoYfGgrP7Iz8DfFLpj7u1IZQc8WPsg3jaDOhHQ1O/W5+LzoP
-	H0ajcd/d3v6E/Lp08rtnup2+E2u8Y91DpMlOfCNir60U3qfnx1rlKDn2icCak9W0Z0uzcwtjGmb
-	whng8iO6qtmo635Raca+nETh+Uc5jDtkABqWeevI2GYolU5UHzSL68Ejb/DdpvOtD9r9RoHoKtJ
-	rr1RLZ9q+6CPdVGbmIewogntSSxLt14kHWrYdI9SHjbE/8S/84Ewa5anZGla6ZCMUIpgqWQlLbj
-	vF2c6uMx/XFVshQjcSedCXPTLbGTIs9rcJ2nAU1NcJfx9gTVveNsQeJqb+HKRvoa8KRXxhWdq82
-	EAw==
-X-Received: by 2002:a05:600d:864c:20b0:4a1:cdd1:5144 with SMTP id 5b1f17b1804b1-4a1d7616470mr13719675e9.21.1792182664215;
-        Fri, 16 Oct 2026 13:31:04 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-a951-9501-1471-d90c-a21f-9dd7.310.pool.telefonica.de. [2a02:3100:a951:9501:1471:d90c:a21f:9dd7])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd540bc4sm7177387f8f.2.2026.10.16.13.31.02
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 16 Oct 2026 13:31:03 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+        d=1e100.net; s=20260707; t=1792184691; x=1792789491;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=zPYtnw7XMhC+K825KZRyBEk7V8O/GHGxvexBoWflVF4=;
+        b=2UJcWMKvNL5Wj6lZg1QfM48xPjQ3jLz3Hdm/21lueG6tKEVJuOmGpwYE5uNK7hmP7i
+         FtXcI2LhcPuaVnlgEolYnxLiPuQ1RSerxQ9NBDZVkAaaKnGKKXmnNZda4d8qfuRHJwjq
+         JSkhNpiMnY2HtyAtoKl1AY80PM53Dte/wLg+7ZqS8BQFFIU30NixzQdDWerZ/c3LLWUn
+         ZnbDjjP42f2jGJTqf+OYOH1tfN/JRWW2SQjEWO2UTCGiFQFYdpDWkWokIujV7/Uny2XC
+         jcP5ZS9u6Ew/mQpbZL5Qck9n/B0f0PiXpzlj93JUAlo+NbhMfxdBmu1gebnSxmoNk774
+         KuWg==
+X-Gm-Message-State: AFq9FYI4kDrBS8vENKjUyEPZBpC8Ig0Kyi+bTul5xTFiVhrG1F+rqrEn
+	xvQA7Pc0KF3SF+xNYYQYijgJStx2YT7kKE/zuM+JCnusMiivYms4zDyIp57ep3PxFps=
+X-Gm-Gg: AYBFou3XEDNGxXuIICYJI8OiJE/0m+7Pa5IKP2BtWzeLu3+m/f1cKbdHoSlKAOfGDQB
+	SICnNjAaSMh5JosNjDhBVz0kbEdWoJ+hBl/GICVFk/mtK4j9D9ZA5WMq6wGCSOcOiQEJlfQzs1t
+	gXpk5l5Nf8qNk4B7kkwBMwx8HfCEWlDpIyfh+nqyZsUSIhtiwhHIpHNtJDkoCAOoidCS5yusKKw
+	st7xclrtAHZRHH97D2Lf0506fWkCgMpIbIxGDAnmCReKBzxDePWx9NilGwkltXqxD4KQIs0Vw/v
+	//bm1oFaRYdvTBzpJH6e7kslu9Qf5yvuHHM9H+G0t29/9v05c98PAU8fzDftO0bzpsBt95b81by
+	nf0wahHp9l/vLEA8zWSRb6GIGPgpnqAM7khD6bhQYyJEvpAUh8BVAJDI0NpjrS3YFhPNBN4twY8
+	AkZRXqgRzalB265x1HThJv8C945lvQ9+J9Q7EEB2WYjnkVPyax53atIM68YWrqOlkdxxHHL6Y8/
+	imT66JS55UKT6mg0nwz
+X-Received: by 2002:a05:690c:39a:b0:8b0:a8ce:5794 with SMTP id 00721157ae682-8b0f216360emr4473887b3.26.1792184691414;
+        Fri, 16 Oct 2026 14:04:51 -0700 (PDT)
+Received: from localhost ([2600:1700:220:5c80:6dfb:85d9:d6b:fdcb])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b0e5889c39sm14125007b3.11.2026.10.16.14.04.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Oct 2026 14:04:50 -0700 (PDT)
+Date: Fri, 16 Oct 2026 16:04:50 -0500
+From: Andy Chiu <tchiu@tenstorrent.com>
+To: Radim =?iso-8859-1?Q?Krcm=E1r?= <radim.krcmar@oss.qualcomm.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Aleksa Paunovic <aleksa.paunovic@htecgroup.com>,
-	Djordje Todorovic <djordje.todorovic@htecgroup.com>,
-	Michael Neuling <mikey@neuling.org>,
-	Raj Vishwanathan4 <rvishwanathan@mips.com>,
-	Aleksandar Rikalo <arikalo@gmail.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFT PATCH] riscv: errata: mips: Skip vendor extension lookup during early alternatives
-Date: Fri, 16 Oct 2026 22:30:52 +0200
-Message-Id: <20261016203052.2026-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Samuel Holland <samuel.holland@sifive.com>,
+	Andy Chiu <andybnac@gmail.com>, Guodong Xu <guodong@riscstar.com>,
+	Zong Li <zong.li@sifive.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>
+Subject: Re: [PATCH 1/6] riscv: hwprobe: Report FP extensions only when
+ available
+Message-ID: <atKRcrG4CxqgFZix@Tao-Chiu's-Mac>
+References: <20261006075303.205216-1-radim.krcmar@oss.qualcomm.com>
+ <20261006075303.205216-2-radim.krcmar@oss.qualcomm.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20261006075303.205216-2-radim.krcmar@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_133106_846050_3B4F012B 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20261016_140453_871755_92EB399F 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,82 +102,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When an enabled erratum selects RISCV_ALTERNATIVE_EARLY,
-apply_early_boot_alternatives() calls the MIPS errata callback from
-setup_vm() with the MMU disabled. Each enabled P8700 probe calls
-riscv_isa_vendor_extension_available() before rejecting
-RISCV_ALTERNATIVES_EARLY_BOOT, although neither workaround is applied in
-that stage.
+On Tue, Oct 06, 2026 at 09:52:58AM +0200, Radim Krcm=E1r wrote:
+> User-mode use of Zcd, Zcf, Zfa, Zfbfmin, Zfh and Zfhmin requires
+> non-Off sstatus.FS, which we set only when has_fpu() (CONFIG_FPU and D
+> on all harts).  The vector floating-point extensions Zve32f, Zve64f,
+> Zve64d, Zvfbfmin, Zvfbfwma, Zvfh and Zvfhmin require it as well, but
+> hwprobe gates them only on has_vector().  hwprobe otherwise reports the
+> extensions from the per-hart ISA bitmaps alone, so it can advertise
+> extensions that are always disabled in user-mode.
+> =
 
-KASAN instrumentation in __riscv_isa_vendor_extension_available() reads
-shadow memory with satp=0. On QEMU's mips-p8700 model this raises a load
-access fault, and the temporary trap vector parks the boot hart. The guest
-prints nothing after the OpenSBI handoff.
+> Report correct environment to user-mode.
+> =
 
-Move the existing early-stage rejection before the extension lookup in both
-probes. All later stages retain their existing lookup and patch selection.
+> Fixes: 2e2cf5581fcc ("riscv: cpufeature: add validation for zfa, zfh and =
+zfhmin")
+> Fixes: de8f8282a969 ("riscv: hwprobe: add zve Vector subextensions into h=
+wprobe interface")
+> Fixes: 5dadda5e6a59 ("riscv: hwprobe: export Zvfh[min] ISA extensions")
+> Signed-off-by: Radim Krcm=E1r <radim.krcmar@oss.qualcomm.com>
 
-Fixes: 0b0ca959d206 ("riscv: errata: Fix the PAUSE Opcode for MIPS P8700")
-Fixes: 2cf0b2992203 ("riscv: Add ERRATA_MIPS_P8700_WFI to replace WFI with mips.pause")
-Assisted-by: LLM
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
----
-Based on RISC-V for-next commit a5ae1bf65cee.
+Reviewed-by: Andy Chiu <tchiu@tenstorrent.com>
 
-Tested with QEMU 11.0.2, virt/mips-p8700, four harts, and generic KASAN:
+> ---
+>  arch/riscv/kernel/sys_hwprobe.c | 31 ++++++++++++++++++-------------
+>  1 file changed, 18 insertions(+), 13 deletions(-)
+> =
 
-- The parent reached the OpenSBI handoff but produced no Linux output in
-  120 seconds.
-- The patched kernel initialized KASAN, brought all four harts online, and
-  powered off cleanly.
-- With a DTB advertising xmipsexectl, all 414 PAUSE and 6 WFI sites in live
-  kernel text contained mips.pause.
+> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwpr=
+obe.c
+> index 7818e1d32622..b57ccd116bb1 100644
+> --- a/arch/riscv/kernel/sys_hwprobe.c
+> +++ b/arch/riscv/kernel/sys_hwprobe.c
+> @@ -146,15 +146,8 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *p=
+air,
+>  		if (has_vector()) {
+>  			EXT_KEY(isainfo->isa, ZVBB, pair->value, missing);
+>  			EXT_KEY(isainfo->isa, ZVBC, pair->value, missing);
+> -			EXT_KEY(isainfo->isa, ZVE32F, pair->value, missing);
+>  			EXT_KEY(isainfo->isa, ZVE32X, pair->value, missing);
+> -			EXT_KEY(isainfo->isa, ZVE64D, pair->value, missing);
+> -			EXT_KEY(isainfo->isa, ZVE64F, pair->value, missing);
+>  			EXT_KEY(isainfo->isa, ZVE64X, pair->value, missing);
+> -			EXT_KEY(isainfo->isa, ZVFBFMIN, pair->value, missing);
+> -			EXT_KEY(isainfo->isa, ZVFBFWMA, pair->value, missing);
+> -			EXT_KEY(isainfo->isa, ZVFH, pair->value, missing);
+> -			EXT_KEY(isainfo->isa, ZVFHMIN, pair->value, missing);
+>  			EXT_KEY(isainfo->isa, ZVKB, pair->value, missing);
+>  			EXT_KEY(isainfo->isa, ZVKG, pair->value, missing);
+>  			EXT_KEY(isainfo->isa, ZVKNED, pair->value, missing);
+> @@ -163,14 +156,26 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *=
+pair,
+>  			EXT_KEY(isainfo->isa, ZVKSED, pair->value, missing);
+>  			EXT_KEY(isainfo->isa, ZVKSH, pair->value, missing);
+>  			EXT_KEY(isainfo->isa, ZVKT, pair->value, missing);
+> +
+> +			if (has_fpu()) {
+> +				EXT_KEY(isainfo->isa, ZVE32F, pair->value, missing);
+> +				EXT_KEY(isainfo->isa, ZVE64D, pair->value, missing);
+> +				EXT_KEY(isainfo->isa, ZVE64F, pair->value, missing);
+> +				EXT_KEY(isainfo->isa, ZVFBFMIN, pair->value, missing);
+> +				EXT_KEY(isainfo->isa, ZVFBFWMA, pair->value, missing);
+> +				EXT_KEY(isainfo->isa, ZVFH, pair->value, missing);
+> +				EXT_KEY(isainfo->isa, ZVFHMIN, pair->value, missing);
+> +			}
+>  		}
+>  =
 
-QEMU does not model the physical WFI translation erratum or P8700 PAUSE
-behavior. This was not tested on P8700 hardware. Please test with KASAN and
-both P8700 errata enabled.
+> -		EXT_KEY(isainfo->isa, ZCD, pair->value, missing);
+> -		EXT_KEY(isainfo->isa, ZCF, pair->value, missing);
+> -		EXT_KEY(isainfo->isa, ZFA, pair->value, missing);
+> -		EXT_KEY(isainfo->isa, ZFBFMIN, pair->value, missing);
+> -		EXT_KEY(isainfo->isa, ZFH, pair->value, missing);
+> -		EXT_KEY(isainfo->isa, ZFHMIN, pair->value, missing);
+> +		if (has_fpu()) {
+> +			EXT_KEY(isainfo->isa, ZCD, pair->value, missing);
+> +			EXT_KEY(isainfo->isa, ZCF, pair->value, missing);
+> +			EXT_KEY(isainfo->isa, ZFA, pair->value, missing);
+> +			EXT_KEY(isainfo->isa, ZFBFMIN, pair->value, missing);
+> +			EXT_KEY(isainfo->isa, ZFH, pair->value, missing);
+> +			EXT_KEY(isainfo->isa, ZFHMIN, pair->value, missing);
+> +		}
+>  =
 
- arch/riscv/errata/mips/errata.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+>  		if (IS_ENABLED(CONFIG_RISCV_ISA_SUPM))
+>  			EXT_KEY(isainfo->isa, SUPM, pair->value, missing);
+> -- =
 
-diff --git a/arch/riscv/errata/mips/errata.c b/arch/riscv/errata/mips/errata.c
-index 6e71555274501..9bb1c3de9504e 100644
---- a/arch/riscv/errata/mips/errata.c
-+++ b/arch/riscv/errata/mips/errata.c
-@@ -18,10 +18,10 @@ static inline bool errata_probe_pause(unsigned int stage)
- 	if (!IS_ENABLED(CONFIG_ERRATA_MIPS_P8700_PAUSE_OPCODE))
- 		return false;
- 
--	if (!riscv_isa_vendor_extension_available(MIPS_VENDOR_ID, XMIPSEXECTL))
-+	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
- 		return false;
- 
--	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
-+	if (!riscv_isa_vendor_extension_available(MIPS_VENDOR_ID, XMIPSEXECTL))
- 		return false;
- 
- 	return true;
-@@ -32,10 +32,10 @@ static inline bool errata_probe_wfi(unsigned int stage)
- 	if (!IS_ENABLED(CONFIG_ERRATA_MIPS_P8700_WFI))
- 		return false;
- 
--	if (!riscv_isa_vendor_extension_available(MIPS_VENDOR_ID, XMIPSEXECTL))
-+	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
- 		return false;
- 
--	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
-+	if (!riscv_isa_vendor_extension_available(MIPS_VENDOR_ID, XMIPSEXECTL))
- 		return false;
- 
- 	return true;
-base-commit: a5ae1bf65cee84bcc121d659e7e22a767853f5f5
--- 
-2.39.5 (Apple Git-154)
+> 2.55.0
+> =
 
 
 _______________________________________________
