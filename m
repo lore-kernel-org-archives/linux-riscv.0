@@ -4,90 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B5DCC6B2A
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2026 07:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB8ABCCA463
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2026 07:45:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3mPmyF2J4yopKvdWk9kHFoM9wpBgebxsL/2lubx99v8=; b=cL9+cgqyGLupWu
-	1SCMMP6+cs1So1aLK0jw/Alwg/wSBp3Aty6ALKBUrh+5tApaCnc/ZI/+hq9MOu4Uq8R++nwVU8RKv
-	rdqW1jjP9vDmH/55WKtfGgFSe7h4gmh101D8ydxooza5cark0AsRZaTyvChdQKm9ddaFPmq9pY8Km
-	MdEPEqMm/j5r8FwBo2lG0lGbZy3WrZGLnb0mRtuCglSx0iNwUN+St9S4XMecu4zARrC9HSzfg5Nnh
-	58k49C9gjEvuI6aYPRRtlRy3C7m4qrPFC7geU7GHFlzp2VeqH4Y4vljPTSFVGxnLhes/xGkDIm5rj
-	alTE99rNB/IaKFJWdW1w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EfD3Eshdssu0RgPUJw73Pc31oFUrzk12Mt3ob40345c=; b=wwzEt5Y0VdbjzX
+	9a8KDr23GDGMyUrZQgZL60fIRWNq+qcojuvEHNEdlYY+p8oIN00E5tnU7TO+MVNBs3ONMuS7uE0Pp
+	8sT4T77jpSj2gXGvskIpZyhiDcKCIeRWc6Co7klNN4cd0B/7dvg2UunDv9gZ8TA932pwy4s5o0GSr
+	+S4Xb3BXQeMpMloK7Mb8Zi7td+iVWC4CGsETmKXCUimbN9mEVr3pcDk5J3xdIDNBaYuk5BmkRI58Q
+	T+hv1bRVu4N9h7Dp15JBhWIFyAu9ZQox7g/YbLZt0ua1KAb2J5ESf3QgQHgTP3vbfXeaqh5vFU2Xp
+	OWUYCaKo0zN4uCHNHi/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHyzg-00000004X1U-1Dl0;
-	Sat, 17 Oct 2026 07:38:16 +0000
-Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	id 1xHz6h-00000004Xld-1wCW;
+	Sat, 17 Oct 2026 07:45:31 +0000
+Received: from mail-vk1-xa2b.google.com ([2607:f8b0:4864:20::a2b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHyza-00000004X0l-2hgr
+	id 1xHz6f-00000004XlG-0nFl
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Oct 2026 07:38:11 +0000
-Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-87ab6e5f91eso4611807b3.2
-        for <linux-riscv@lists.infradead.org>; Sat, 17 Oct 2026 00:38:10 -0700 (PDT)
+	Sat, 17 Oct 2026 07:45:30 +0000
+Received: by mail-vk1-xa2b.google.com with SMTP id 71dfb90a1353d-5e3e525cf4bso545533e0c.1
+        for <linux-riscv@lists.infradead.org>; Sat, 17 Oct 2026 00:45:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1792222689; x=1792827489; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=oCasw6zfd8tSyzVlQk06yRX68bH/qhEnUNxA1ny8p2U=;
-        b=HW45zuWfpZ9Q9oPg2JEYmlTbp0ymUb8MTHVCfLACHdpph6SAWh4WL9wWGQ4t2eZfnq
-         wj5eJcaVxt+gGHNd2PYcvsJwGyQkiaSpSFAArnmam9gg9j8CJLcq9BAOXiBX9E49SNxf
-         OC/ZPC3/Xk6ZfTP9E52hAMo+46nk+aCFJCWawgu0WOLiN2DlwCeqXPDic/tZRG7oPTI1
-         Ul3Y8limaeNy2YW6f2WwELTn6BWSuE2QHXfCmNWFxB/GRgM57bGLFSSynAC3hcpPFa9y
-         A40/icIVosKC2VoUT64hTgJ9JYo6wA91T3G9G5CRswsbK8zC2dMJ0wcfCEKHiOzB2Mcy
-         xcZA==
+        d=gmail.com; s=20251104; t=1792223127; x=1792827927; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=G9gHOokB2iUNg0rcd+4gK+6dCcLdNZHPpTlIwEx+WLg=;
+        b=UEMM6NN456pNgJRRylS2oSF08NThFfGHiwwAooeSLRypGaddQ/oncNYnjpKvecfLBT
+         1XVnXJBsJCYrHUVEolr6gcjzh0Ngu/vrQoL14gKDLkjYJSGnzB8O3fMhEfUSenjogxz4
+         UxfOUdR9TSi4JX4qZsgTVZdFYYDUEv/Tz+NmXAmMWgkPH7eCHxG19+pF4Rjk2SGvGW84
+         piY8aU42BlwrbaSkUYUGWErmrhW4RfZ7dRvs+8KWOl+GEcKblJzVSzA8U9j3Lmy6e9NJ
+         RpNhdV0DgCGUvd8zVMGmslNvehxY8vA2txvIgZ9lUs/pCqKKlwdOjWQPJkBji5JAVbTY
+         R/rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792222689; x=1792827489;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=oCasw6zfd8tSyzVlQk06yRX68bH/qhEnUNxA1ny8p2U=;
-        b=vXem3PxR33zIyjn6hLA3OnPs93wgAp49Af0Ah5OYFsk2b5hULpTGu9VrKyXvAcoiTk
-         nR4jrBJF1IFyCo16HpDVU1yrbH4uNydvaFBZCUseZXJBcWRdiNslOxsRXM4M/g9g7KBh
-         8mK13UXjeqBXKvB6vQFFXq4DNWJYBOagz4wH4Sv10HhVCKf2PuxPZTrD9zzp/QyOMPpm
-         cji/+HsAx/iSDLGr421U+AK+ZGFxh+ELJQlANVj+LlNP76NBXH2BDQCbxM9yq7A7PUxm
-         Gb49HPb9V2mxFrPVlfINd1BlaYr1he/4EFs+HHxHzr+jRSP4V2sP37yZrqv0cu9dP5g1
-         5oYg==
-X-Forwarded-Encrypted: i=1; AKwUvBwWlnZhDvVkWxVEPcRAYYCUdTg0fsvH/8Jlk2rCBbXAcmdFUoOnLPzCZWGYbXQ3k3VrsJ26PVchwK06bA==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJzvdtGKbrJ+Bne9Yl93eS5cqUzGvvDSvQufe9TCQ49fEZXciKo
-	9qpz/cVT+OF4SaMbwyPI9UZqQ0ZQDP3nMHT05fe4BkNBOEGXpNrLheQ9hanVDe/J5NE=
-X-Gm-Gg: AYBFou00Y0ZW+jxNkyYUVHxMPu1WOuWpl3FnQkJ+Lg3mgGk1rH0HdCjpU9WJBDuCaHS
-	AsdpIB/c3Qcuu4RoBbADFjuUBWFIzJD3dwZsUmmAKolfHPXIU6Q+AD7OZ4WNh5kqlXdRi2ovNYx
-	MoISNV+ht87UdnzgWoXxg0eLnSnRAUsiVW+p8aKOpWoKOwuU53pL+FDJUDpC8VAf0204RMzdoKM
-	lUzV0sD3SbKqRU2PK79UfoniJPYRR38wq+Mxl36Cm8/L+Fbw98R+FBBZTq5dnGf/itG3V1W/XWD
-	xnebzVgPmSWPbNtjYsVxDeBvGkZJjluSJgYqwiSqx4mya/PfSY/t+L2KZPam0RnWF6ZIDNRn0KT
-	HThIrcLwy2Iy9qydb+AKq4rihkauGYnyVRnfjtY82HgH+z35OqQk1Swhi8rN2Wowp4fLBAV5H5h
-	I+3AnPxGq+yb5wqt78W3KEtnuuTDK76Gjzu9q713tBG0pWZA3d9oe2bEf9WzMsPFj6uRIn4uuJM
-	PaKPzLfJK2BvHkHVYCG
-X-Received: by 2002:a05:690c:6507:b0:8b0:cd30:ce8f with SMTP id 00721157ae682-8b0f21b9faemr8264127b3.49.1792222688984;
-        Sat, 17 Oct 2026 00:38:08 -0700 (PDT)
-Received: from localhost ([2600:1700:220:5c80:6dfb:85d9:d6b:fdcb])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b0e5889c2esm18352487b3.15.2026.10.17.00.38.08
+        d=1e100.net; s=20260707; t=1792223127; x=1792827927;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=G9gHOokB2iUNg0rcd+4gK+6dCcLdNZHPpTlIwEx+WLg=;
+        b=xQovET2ZO6OxxlUdWaR++13oOLISYSXGt1MSOwfHkEvMPYI6ApcsYppRfC2feL5X7P
+         fFjYkLzHNItnk0M55+vX49BNxgcwsmt+nXdza0MqGk9XCFq6lGEaVfYgibYy8TGrGXQL
+         vlTISfGUCnWYvh4NSYf+W4uLhdDMV3+WZu2DqVxasVFCp7t0eOcXJ2rZLri5mw77Shzt
+         gbBay7pZdqRWOxFhsDEfa3BLX/9uG3hIdjwB7ETT4BsoS5D1DTibrzDEZZfFkZ9nSUaX
+         kOCL45VdQatlh9kGjTj+p7ga7c/HLd/ksi4Bop8a7SQUA2I95K9QbDnmAhcSn1wyv7Ga
+         207Q==
+X-Forwarded-Encrypted: i=1; AKwUvBylNaVCu9VmUOa+n1im4t2VqtMjEVMW9Wip44tHkzqdCW2sAAaVFc3DA/btaT/mxEwViUv422lBy0IUhw==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKHnZjEYkAmB6EqUOV29X/U7QvDw62V0CN4MQTS7EbHL6Ls7GxA
+	AN2DIG/5i24bmNaCMhO+SORPs/NJzZNvOm3cLvtkdkI9E7YIu95SQQJ4
+X-Gm-Gg: AYBFou0lAv00UvZDlKzM4hr8YuTwsP8L+UpnZEhlf4HGVbPNqC2afHwzfVMExYGP50V
+	5kSKo3+rcvm4j/Z7TpfO5XkQY9LKwBsqS1W0tlwNPPI/6WSuOQxcEmj/b+lHz8uS8yND7ZtkWWt
+	4DIydHwI5QvcwQaj4+8IDfi5D0kGYbmGjM8m4BtHg415Hyh8RGK4/rlqQEyzvY8dLAH+3/87+XW
+	6avCuWJzzTz+J02BJeJ7GCqtetZFoPVLQ9qllRGnbkiFsyBob8xVFkeBWZXhEVYI1mqExHPjM1J
+	cGuRIUEktiqWWbDiwIipxsUyJMcTzXsVEHT96qcJXPzEDPsQ+q4gGI8azil6VMxyLWaM58+PP3V
+	q9/F8GzhbvVT+BJE5iWtu0eK3IZisOBtPWuo8zmZuCKYwlJF+jAN9QJcaH0J4+D7DSVDzOdzsx+
+	N3p7Kny4m16Odz8bcRyxAuyCmjPfy0yFi8gxChbwPEPFyWa0nF/k6gBCtQbQs6i8ri1EXleZWHh
+	8TJiBl6xV1ikajZWTUE8IIL3atKQ9gHz4FsIXhPL8aKa95yUu2EJ5XMf03q3Lo=
+X-Received: by 2002:a05:6122:3b8b:b0:5c9:a60b:e5a5 with SMTP id 71dfb90a1353d-5eaaa8c75e7mr970007e0c.16.1792223127505;
+        Sat, 17 Oct 2026 00:45:27 -0700 (PDT)
+Received: from localhost.localdomain ([186.151.100.62])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ea9b53cfdfsm3701836e0c.15.2026.10.17.00.45.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2026 00:38:08 -0700 (PDT)
-Date: Sat, 17 Oct 2026 02:38:07 -0500
-From: Andy Chiu <tchiu@tenstorrent.com>
-To: Guobin Zhang <guobin.zhang@intel.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re:  riscv: signal: protect regs->status RMW from concurrent
- preemption
-Message-ID: <atMl3yQ0seD_N0g4@Tao-Chiu's-Mac>
-References: <20260807-vector_fpu_regs_status_rmw_fix-v1-1-0c16848b60db@intel.com>
- <arX5rpNRRk8r2Nve@aurel32.net>
+        Sat, 17 Oct 2026 00:45:25 -0700 (PDT)
+From: Sebastian Alba Vives <sebasjosue84@gmail.com>
+To: gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	pjw@kernel.org,
+	samuel.holland@sifive.com
+Cc: linux-serial@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sebastian Alba <sebasjosue84@estudiantec.cr>
+Subject: [PATCH 0/2] serial: sifive: fix two init ordering bugs in probe
+Date: Sat, 17 Oct 2026 01:44:51 -0600
+Message-ID: <20261017074453.62645-1-sebasjosue84@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <arX5rpNRRk8r2Nve@aurel32.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_003810_702583_2D45089A 
-X-CRM114-Status: GOOD (  34.39  )
+X-CRM114-CacheID: sfid-20261017_004529_270006_904746D2 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,108 +102,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aurelien,
+From: Sebastian Alba <sebasjosue84@estudiantec.cr>
 
-On Fri, Sep 25, 2026 at 06:33:50AM +0200, Aurelien Jarno wrote:
-> Hi Guobin,
-> 
-> On 2026-08-07 11:00, Guobin Zhang wrote:
-> > __fstate_clean() performs a non-atomic read-modify-write (RMW) on
-> > task_pt_regs(current)->status to clear the FS bits. This RMW is
-> > unprotected - it runs with preemption enabled and IRQs on during
-> > signal delivery (setup_rt_frame -> fstate_save) and sigreturn
-> > (restore_fp_state -> fstate_restore).
-> > 
-> > If a reschedule IPI or timer interrupt triggers preemption between
-> > the load and store of this RMW, __switch_to_vector() calls
-> > riscv_v_vstate_set_restore() which modifies the VS bits of the
-> > same regs->status. When the preempted task resumes, it stores back
-> > the stale value captured before preemption, overwriting the VS
-> > update and restoring VS=DIRTY while TIF_RISCV_V_DEFER_RESTORE
-> > remains set - a combination that should never occur and leads to
-> > vector state corruption.
-> > 
-> > The race window:
-> > 
-> >   __fstate_clean (signal path)      set_restore (schedule path)
-> >   -----------------------------     -----------------------------
-> >   ld  a0, regs->status  // VS=DIRTY, FS=DIRTY
-> >                                      <- preempted (reschedule IPI)
-> >                                      regs->status VS = INITIAL
-> >                                      set TIF_RISCV_V_DEFER_RESTORE
-> >                                      <- resumed
-> >   andi a0, ~FS
-> >   ori  a0, FS_CLEAN     // stale a0 still has VS=DIRTY
-> >   sd   a0, regs->status // overwrites VS=INITIAL with VS=DIRTY
-> >   -> result: VS=DIRTY + DEFER -> ANOMALY
-> > 
-> > Fix by adding preempt_disable/enable around the RMW in
-> > __fstate_clean() and fstate_off(). riscv_v_vstate_set_restore()
-> > has the identical hazard: it is called from __restore_v_state()
-> > (sigreturn path) with preemption enabled, and it can race the same
-> > way against the scheduler's own call to riscv_v_vstate_set_restore()
-> > for the same task in __switch_to_vector(). Wrap that call site with
-> > preempt_disable/enable as well.
-> > 
-> > Add WARN_ON_ONCE(preemptible()) to riscv_v_vstate_restore()
-> > to catch any future unprotected callers at development time.
-> > 
-> > Signed-off-by: Guobin Zhang <guobin.zhang@intel.com>
-> > ---
-> > Race: regs->status is shared between the FPU (SR_FS) and vector
-> > (SR_VS) state machines. Three call sites do a non-atomic RMW on it
-> > while preemptible: __fstate_clean()/fstate_off() in switch_to.h, and
-> > riscv_v_vstate_set_restore() as called from signal.c's
-> > __restore_v_state() (sigreturn path).
-> > 
-> > Cause: if the task is preempted between the load and the store, the
-> > scheduler's own switch_to() writes the other half of the same
-> > register word when switching this task back in. The task then
-> > resumes and stores its stale value, clobbering that write.
-> > 
-> > Fix: wrap each RMW with preempt_disable()/preempt_enable(). This is
-> > sufficient because the conflicting writer only runs via an actual
-> > context switch of this task, which preempt_disable() prevents.
-> > local_irq_disable() is not needed: no IRQ handler touches
-> > regs->status, so masking IRQs would add latency without closing any
-> > extra race.
-> > 
-> > Reproduced on Spacemit K1 hardware; not reproducible under QEMU/TCG
-> > (see commit message for the full race-window trace).
-> > ---
-> >  arch/riscv/include/asm/switch_to.h | 4 ++++
-> >  arch/riscv/include/asm/vector.h    | 2 ++
-> >  arch/riscv/kernel/signal.c         | 2 ++
-> >  3 files changed, 8 insertions(+)
-> 
-> Han Gao pointed me to this patch as a possible fix to the issue I 
-> encountered on the SpacemiT K1 [1]. So far, my first tests show
-> that it either fixes the issue or at the bare minimum hides it.
-> 
-> As you also mention that you reproduced the issue on the Spacemit K1 
-> hardware, can you please tell me if the bug appeared with similar 
-> symptoms?
-> 
+Hi all,
 
-I have a reproducer on this bug and can reliablely catch it on K3. The
-code runs in a loop that does the following things:
+I found two ordering bugs in the SiFive UART probe path while working on my
+undergrad thesis project. The project uses a HiFive Unmatched board with an
+FU740-C000, and I spent a lot of time reading this driver to understand how
+the console comes up, which is how I ran into both of these.
 
-1. dirtify FS by executing a fp instruction
-2. configure vstate as e8 m1
-3. load bytes into v5
-4. trigger a signal handler by executing ebreak
-5. vector save using the loaded v5
+Both have the same shape. A resource gets turned on before the state it
+depends on is set up, so there is a window during probe where a callback can
+run against a half initialized port.
 
-The signal handler verifies if it comes from the ebreak, otherwise it is
-the vstate corruption. Run multiple threads per core to increase the
-context switch rate.
+Patch 1 is the one I think matters. request_irq() runs before
+uart_add_one_port(), so the handler is live while ssp->port.state is still
+NULL from devm_kzalloc(). If a byte arrives in that window, the handler walks
+into uart_insert_char() and dereferences the NULL state pointer. The patch
+moves request_irq() after uart_add_one_port(), masks the interrupt enable
+register before adding the port in case the bootloader left something on, and
+adds the missing error label so a failing request_irq() unwinds
+uart_add_one_port().
 
-This should hit the problem pretty soon, as corrupting lmul to m8 would
-cause the vector save from v5 trap immediately. With the fix the problem
-no longer occurs.
+Patch 2 registers the clock notifier before ssp->baud_rate and
+ssp->port.uartclk are initialized, so a rate change in that window divides by
+zero. This is worse on RISC-V than on most other arches, because the ISA does
+not trap on integer division by zero. divu by zero returns all bits set, so
+DIV_ROUND_UP(12000000, 0) comes back as 0xFFFFFFFFFFFFFFFF and the udelay()
+in the notifier becomes a busy wait that never ends. Instead of a clean oops
+you get a hung core. The patch sets up the divider before registering the
+notifier and adds a cheap guard inside the notifier.
 
-Cheers,
-Andy
+I reproduced patch 1 under QEMU. The machine is qemu-system-riscv64 -M
+sifive_u, which reports itself as HiFive Unleashed A00 and models the FU540,
+not the FU740 I have on my desk, but it is the same UART IP block and the
+same driver. I added six lines of instrumentation right after the
+request_irq() block to print port.state, unmask RXWM and hold the window open
+with mdelay(), then fed bytes into the UART while it was open. With panic=-1
+the kernel reboots and retries on its own.
+
+Without the fix I got 318 windows and 318 NULL dereferences, so every single
+attempt crashed, and port.state printed as 0000000000000000 every time. The
+trace is always the same.
+
+  Unable to handle kernel NULL pointer dereference at virtual address 0000000000000080
+  epc : uart_insert_char+0x66/0x154
+   ra : sifive_serial_irq+0x94/0x1f0
+
+With the fix, same instrumentation at the same point and same input, I got 18
+windows and 0 NULL dereferences, and port.state printed as (____ptrval____)
+every time. That is what vsprintf prints for a real pointer before the RNG is
+ready, since ptr_to_id() special cases NULL and prints the literal value
+instead.
+
+One honest note on those numbers. The window counts are not equal, because
+without the fix the kernel crashes early and panic=-1 restarts it right away,
+so many short cycles fit into the same 180 seconds, while with the fix nothing
+crashes and every window burns its full mdelay. The count is not the argument.
+With a 100 percent baseline failure rate, 0 out of 18 is not luck, and the non
+NULL pointer is the cause while the crash is only the symptom.
+
+I did not reproduce patch 2 the same way. It needs a clock rate change inside
+a very narrow window and I could not drive one reliably under QEMU, so that
+one comes from reading the code. Happy to be corrected on it.
+
+Both were pointed at during review of the off by one fix back in August, but
+as far as I can tell nobody sent patches, and both are still in master today.
+
+This is my first series to this subsystem, so please tell me if I got the
+format or the split wrong.
+
+Thanks,
+Sebastian
+
+
+Sebastian Alba (2):
+  serial: sifive: fix NULL pointer dereference in probe IRQ window
+  serial: sifive: avoid division by zero in the clock notifier
+
+ drivers/tty/serial/sifive.c | 32 +++++++++++++++++++-------------
+ 1 file changed, 19 insertions(+), 13 deletions(-)
+
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
