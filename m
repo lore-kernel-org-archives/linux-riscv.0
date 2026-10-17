@@ -4,89 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C978CCF2C7
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2026 14:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBE3BCCF2C7
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2026 14:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zrAVjJrzsgmFw5n8Ev/2hAcFzt/husmR0OiKtL/ueYs=; b=Aa70VwS6v1OPlL
-	eSxrXK7Hw/96nT9WkEWMxtaxofZEUj9e+A+HCv2IPC2u3iz9K711PeArQ7nSnGbjYF7l6QXSgHS6Y
-	q7SZF08hktnqTo70+zc+J+sd5QBUK/IaD8Pzmc3cExNPaPcMCv2QduBwWvBsXJexC/UunSZ/BSMpT
-	5335fPwv4tQGy9eQYawg8+T22CJKjzuNEOdRUURfHGDnTiicTxaJwY5Ui5ckMlFjByedjU7nhYskW
-	4kf/qDm/JtJLDY+a1T3MBxMLgi8luLkMrAFzzTzKBMnj9g53J99326PUuUQREX0uxfxcxuTM7EGW+
-	w6XxEvAsPGJBCjz/05qA==;
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xyLDsT1iPmJpvweU1dKtOsONQQfhzpx8FtBMA5jrlCE=; b=0m9xAu47/caoDB
+	kbN9O8N/beFyrvxlDHZXjeWvCPUEI9YMAEAcntlN1yBIu4s01BdWK6xRzYKz9IhaadIMJB6ZZOtwV
+	XsU4k+Y1q4yfNMgNH+8bOabSZvgi/MPKRIrxyTqKAV2tx4seRm1sE8wD0CYdAVJ2YtjjlwjnxwMS3
+	Akb7nibOZqHGOSGh/pYV0L6MjXacvTVYpobacr2iOiUPv1ST+Qo8K8ritK4/lvLILZAKWE1i+9cnw
+	gQG2c6CutoGf+HA98GJwKiNWlXJIYf0TB30qRZh067PURTVYF4TAEqTDsCGEt2uuP2ryVCemF8v+c
+	LosHnVQ8p5B6KSgLLvxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI554-00000004oXN-2uok;
-	Sat, 17 Oct 2026 14:08:14 +0000
-Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
+	id 1xI5FE-00000004oqx-2cti;
+	Sat, 17 Oct 2026 14:18:44 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI552-00000004oX2-2mg8
+	id 1xI5FA-00000004oqH-2j0w
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Oct 2026 14:08:13 +0000
-Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-35ef6b49813so1562109eec.0
-        for <linux-riscv@lists.infradead.org>; Sat, 17 Oct 2026 07:08:11 -0700 (PDT)
+	Sat, 17 Oct 2026 14:18:42 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-48e00eee27dso383732f8f.0
+        for <linux-riscv@lists.infradead.org>; Sat, 17 Oct 2026 07:18:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792246091; x=1792850891; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6GqqVEdUv42zaBEqCnBmiwK+siq8auSXn02n9bIP0WE=;
-        b=VEVS1YnfJV+r0FH38xUD7kwSkdWZbGQDWZK5QUxvq2XQDYju0YdKGssq+ySz7DRzHM
-         qMq6NKF4eOFsOojXUvqMMeN4F9Cf3PhrSM8RELjl7W9laeojVg+0ALwFjyFAfcvMONi9
-         IM2ev8jKd3Ah6QaJnJzgRU1xvkfCmWhbOmKmM6klwmaq9VRozUIC1VHV2THr1XErlB/8
-         P+gkdunUEVmetU2R94M26qm1+tyiDm+pMNtem+ZekOA7hdshUS/UsLHXyXvSpxGx9rl8
-         DqM0QjNqfWDixvLPA9CKRXxxGEob2UXltQKq3tvSqVEulJNILwQYRgCJFX2oxgVdm5BI
-         aOVQ==
+        d=baylibre.com; s=google; t=1792246718; x=1792851518; darn=lists.infradead.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=LhpcYsG6cATtQf6GDnXL2jByxJZRscDKQUvf/bDDW4s=;
+        b=iUfuffA51xr6qQLmCcVxwKgqeBgF6WnOtN04otStXJo0TjHJMilaECAkLB8ntFEDkj
+         Q0BhX/TWhY2J2TOLHsxTFqJmO0PBrIuPcRJMV8UG/fkMcpPE8o1i72g8pz9hYCSjlmqQ
+         fkHVPmRmID2Xs7eV98XvHgDGxC5ezXGFxMKcnpeBDL+6dHMOUPxvjJkTw1iHx1Z0EDaL
+         K8HpBgc9C/XABoBm67TS/BTzu34JYABNtWiiAvDMhI1FdxC9VXYg8p9SdMQ7DZ4CavIh
+         /Y5b2GVRKhOtC3x7KcwbmLAe1dQBQAsI0SZsjM84Glp2yem1QEqoBg2bxDdyELxLGEtu
+         TNTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792246091; x=1792850891;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6GqqVEdUv42zaBEqCnBmiwK+siq8auSXn02n9bIP0WE=;
-        b=tQQmn5OV9Yx/L9LmeDhmoh820QCXyKcmB0f/o5I0/T3aFhC1wbVhwZm7fHhx3+/lN8
-         AttVc4+bDxnMzOwJzNnpy8RPlIPdURvE2LbhVS3w2/WGirUg28UxrVmUBAereTCXAGLJ
-         by/mNp2Sb/T6ee1RcmHdD0c+jKHWKTw0yQmvb3qFqXNpgQW6WF5jGoTBecBliGVg1ECr
-         YtJqN4koaLB4MfZMKXygBR33K9uee7TWu1uNe5RAd9ujiAX4R2ijyWS1EUpyth2mxTZ6
-         cB241mQVAqKkDx/JwN+EVWw/pg7mKCFgmTme4W2uMT7TK7rIIb3jr28rz8QYuqauMVYZ
-         mrBA==
-X-Forwarded-Encrypted: i=1; AKwUvBxmMIyTRLTvfiTL2hWxjUZDKhGt/3siWBrLd+jSRntITCx8+qoe53IddX0+jFB3nI+OLYv6G3VafFnJKQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ53WbnjD8Gil+ieiNUUPeeTMFnwLjvt4ZAMWuFYQHrTNLaNXg1
-	T3ay7Ch16Bp5cXNgRuPpaqnjnVDpfi1orsn1qP8Z8utkrZAEImVwRSZo
-X-Gm-Gg: AYBFou0ZcwVBKPJ+KpQhUOBzsOpBSoLEijiPIQk4oUkAa7lYBpU8sP9KLPjcB1M8iad
-	NgwtGekD7JsZ32mO6K8S0DrqlArLXfYH/oBUPX7kEaw7KscI6FzVy0HYX73i8rN6+OPJq8upKid
-	mo8Ds/UrnC6pEtjonf9ojBDlc0D3kmQOZszs48GxuGfu0VyYjN53McimsuSSK3m7BWSpdcEtNWg
-	rEFzw85XEYPeSnkfzDLcq7AkYQDmVe7iMh5jUDLPHwJCJfnUJ6xG2JrPTiafPAz1qkkMdeC9SUv
-	z7pQ/6G3kWBv9nMJ8d+qgyRwjrq8O5oKn0eqzxzx1AyiXtWTXPDtM5DT8PPxaYirDw5OFu2IjJz
-	bDtxXNPuxkgTcyZpt2qeOGBVtfQpBYgsQ+F27eRiXszh1zPnEj8w8Q/4FEZscdaVj7wR4L/upC3
-	pb9SNm4fCc7ERUCkfwKgWVxQaE7nzJGUa9l67hwqPWya8+kw9VdyNmxX0urzjkdHk50l68wQ8gs
-	eJuO8Mj51Gnb2xJvrV8b3thwm6tjICkB2d6Uiw1Q4+A0qP9NXO8ms8ibxtghH/YCg0CU5U9dqg8
-	DQZo95HmHOOvWEpLaeDGibQPbf5ZWiFaiisK6H2n1mk0cLSadM8Q6w==
-X-Received: by 2002:a05:693c:8943:10b0:351:4a80:d94c with SMTP id 5a478bee46e88-361a2054e07mr4084483eec.21.1792246090528;
-        Sat, 17 Oct 2026 07:08:10 -0700 (PDT)
-Received: from alanhc-14700.tailb22ec2.ts.net (180-177-138-120.dynamic.kbronet.com.tw. [180.177.138.120])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-360820a02b8sm17766277eec.17.2026.10.17.07.08.07
+        d=1e100.net; s=20260707; t=1792246718; x=1792851518;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LhpcYsG6cATtQf6GDnXL2jByxJZRscDKQUvf/bDDW4s=;
+        b=c/WAevTbTH2Lb/7luXO8hTW4U4O5Bqjdv+D1iiAo41Gp7zFL9HkJn+Yv4UE5NZOXE3
+         lEaVHSwhUI3J71Mef0fyqtP3/47Em78MBBV8p0Pc/nsxywAn/jap2m92A9ksaaGr4kfP
+         n8TRx/xlTXbl0L1w7CLhUXv97ybmp/dkDMOUKZJVF5sBP/7IAiMqIOOHgAC7qJyhovVJ
+         ZHommwmRmXwaXEqqeC+Go6tWjr6YMQLtQxIEuy6AJ/GeIQGEJKBtViWj6qS/sbHasmjH
+         fe/XnXMygPx5sZiY7xakBETO9FQ3cxSyiagPIAByWGgU8QVExmiyxq7q62g20PJ8BiH+
+         j8gA==
+X-Forwarded-Encrypted: i=1; AKwUvByAFjJ2suXSUNJqRd3p1C4aL4QB/zowJvalKS9iDWSKEf1iPDuFeOX7Qb4a62Sz0bHB15WrARN1DW8+2Q==@lists.infradead.org
+X-Gm-Message-State: AFq9FYLfBD8lY4abYGlSasniuXFeO+qxSXm2FaCGjhkUXtZ7mMOr2NOM
+	Hn513xwa0+7inuUwjOzkDcuixmopbHZRwCxsYiiLuclatb8FS1rE9ymKS9/z6BRDMok=
+X-Gm-Gg: AYBFou1iZj7ICCHepN59WE7E096aDZBr75NpsixiGGCPUKMkOrWgj1YfUB+NkoxQQwP
+	NDpyuFuVO+V4xtaTFrFv+ihGz91Dq7XQk6Ky+CTrY9C6LqhjHkLHgJl7320ag94kU7V+elo6QnN
+	okabe4HBn2AY6ct6nLTmP3r4P1IA3/uqh/UPYOn8Xjw9RpgeUXSPL1gk43zrGBS2LfATYbSNbCr
+	NPahSGqHCOMuEqlP0d5t2wqaw4iCYBpPMqjGIuUGZaOrpx9rKN/T7sjQ0z204j3YQYHDkVbj/A1
+	6phLXrewCXd2T8+KwZ0/W1Z/M7y1Zb2DpdNaWw7zHS873xmacM+nupIBxOy1Gybn3osvqAWHiA6
+	0evbYwT7PceyBPIrPyFTCVeYHNBje+7huZReVmVz3g2sb5b/Bzv6W8tQMpLfH+LXrAFwLmGxdZo
+	yAM6pf1h0m84YeB2JKTlRpS9mD1p8dKkSsAVN7/K1xlPONg4+NzyuZoLqk/tScQWYmtD35S7Nn2
+	TrcHp4CdeOyDDw1Vw==
+X-Received: by 2002:a05:6000:60b:b0:487:1662:cf4c with SMTP id ffacd0b85a97d-48e0797ffddmr5343647f8f.7.1792246716907;
+        Sat, 17 Oct 2026 07:18:36 -0700 (PDT)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd5038b8sm11600796f8f.48.2026.10.17.07.18.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2026 07:08:09 -0700 (PDT)
-From: Hung-Chun Tseng <alan.tseng.cs@gmail.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>,
-	Guodong Xu <docular.xu@gmail.com>,
-	Yixun Lan <dlan@kernel.org>
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Alex Elder <elder@riscstar.com>,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] reset: spacemit: Fix the RCPU2 PWM reset registers
-Date: Sat, 17 Oct 2026 22:08:05 +0800
-Message-ID: <20261017140805.3278709-1-alan.tseng.cs@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Sat, 17 Oct 2026 07:18:34 -0700 (PDT)
 MIME-Version: 1.0
+Subject: Re: [PATCH v6 10/15] clk: starfive: Add StarFive JHB100
+ Peripheral-0 clock driver
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>, Brian Masney <bmasney@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <ZQ4PR01MB120299579A8998CC303F04ADF29D2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+References: <20261008123338.11081-1-changhuang.liang@starfivetech.com>
+ <20261008123338.11081-11-changhuang.liang@starfivetech.com>
+ <179180050742.66744.4988353309640403131.b4-review@b4>
+ <ZQ4PR01MB120299579A8998CC303F04ADF29D2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+Date: Sat, 17 Oct 2026 16:18:25 +0200
+Message-Id: <179224670585.859276.2044951818293223404.b4-reply@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5393; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=3v+6YlSml8t8QtsLAKGyYODzduZT9ur8kesXOOK6Hpw=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFmXmzft1jj56PKKzB/J3oYa8ksvHXOM+vNAufA3iw3HE
+ baV2i90OkpZGMS4GGTFFFlquKvF30lqfZk1Xec2zBxWJpAhDFycAjARmaUM/xTeLU5sqzgZ1Zj1
+ yr5Df0b9kTZzx4yvTqsrMj2/dfWo/2dkuMRsMMvZ7NG1X+36OsuPhorxmS4yW3bd0lbxVbXua+Z
+ 8RgA=
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_070812_750645_2CB0A866 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20261017_071841_030086_0840AF8F 
+X-CRM114-Status: GOOD (  29.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,64 +119,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Every entry in k1_rcpu2_resets[] uses RCPU2_PWM9_CLK_RST, so asserting
-or deasserting the reset of any RCPU2 PWM from 0 to 8 acts on PWM9
-instead. Each PWM has its own register, RCPU2_PWMn_CLK_RST at offset
-4 * n, as k1-syscon.h already defines.
+On 2026-10-14 02:13 +0000, Changhuang Liang wrote:
+> Hi, Jerome
+> 
+> > > Add driver for the StarFive JHB100 Peripheral-0 clock controller.
+> > >
+> > > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> > > ---
+> > >  drivers/clk/starfive/Kconfig                  |  10 +
+> > >  drivers/clk/starfive/Makefile                 |   1 +
+> > >  .../clk/starfive/clk-starfive-jhb100-per0.c   | 617 ++++++++++++++++++
+> > >  3 files changed, 628 insertions(+)
+> > >  create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-per0.c
+> > >
+> > > diff --git a/drivers/clk/starfive/Kconfig
+> > > b/drivers/clk/starfive/Kconfig index cfaac934a8e0..b2a05bbb450f 100644
+> > > --- a/drivers/clk/starfive/Kconfig
+> > > +++ b/drivers/clk/starfive/Kconfig
+> > > @@ -73,6 +73,16 @@ config CLK_STARFIVE_JH7110_VOUT
+> > >  	  Say yes here to support the Video-Output clock controller
+> > >  	  on the StarFive JH7110 SoC.
+> > >
+> > > +config CLK_STARFIVE_JHB100_PER0
+> > > +	bool "StarFive JHB100 peripheral-0 clock support"
+> > > +	depends on ARCH_STARFIVE || COMPILE_TEST
+> > > +	select CLK_STARFIVE_JH71X0
+> > > +	select RESET_STARFIVE_JHB100 if RESET_CONTROLLER
+> > > +	default ARCH_STARFIVE
+> > > +	help
+> > > +	  Say yes here to support the peripheral-0 clock controller
+> > > +	  on the StarFive JHB100 SoC.
+> > > +
+> > >  config CLK_STARFIVE_JHB100_SYS0
+> > >  	bool "StarFive JHB100 system-0 clock support"
+> > >  	depends on ARCH_STARFIVE || COMPILE_TEST diff --git
+> > > a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile index
+> > > 29cdef20575e..352717886295 100644
+> > > --- a/drivers/clk/starfive/Makefile
+> > > +++ b/drivers/clk/starfive/Makefile
+> > > @@ -11,6 +11,7 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)	+=
+> > clk-starfive-jh7110-stg.o
+> > >  obj-$(CONFIG_CLK_STARFIVE_JH7110_ISP)	+= clk-starfive-jh7110-isp.o
+> > >  obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+=
+> > clk-starfive-jh7110-vout.o
+> > >
+> > > +obj-$(CONFIG_CLK_STARFIVE_JHB100_PER0)		+=
+> > clk-starfive-jhb100-per0.o
+> > >  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS0)		+=
+> > clk-starfive-jhb100-sys0.o
+> > >  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS1)		+=
+> > clk-starfive-jhb100-sys1.o
+> > >  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS2)		+=
+> > clk-starfive-jhb100-sys2.o
+> > > diff --git a/drivers/clk/starfive/clk-starfive-jhb100-per0.c
+> > > b/drivers/clk/starfive/clk-starfive-jhb100-per0.c
+> > > new file mode 100644
+> > > index 000000000000..ef6e6906cd2f
+> > > --- /dev/null
+> > > +++ b/drivers/clk/starfive/clk-starfive-jhb100-per0.c
+> > > @@ -0,0 +1,617 @@
+> > > +// SPDX-License-Identifier: GPL-2.0
+> > > +/*
+> > > + * StarFive JHB100 Peripheral-0 Clock Driver
+> > > + *
+> > > + * Copyright (C) 2024 StarFive Technology Co., Ltd.
+> > > + *
+> > > + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
+> > > + *
+> > > + */
+> > > +
+> > > +#include <dt-bindings/clock/starfive,jhb100-crg.h>
+> > > +#include <linux/platform_device.h>
+> > > +
+> > > +#include "clk-starfive-jh71x0.h"
+> > > +
+> > > +#define JHB100_PER0CLK_NUM_CLKS
+> > 	(JHB100_PER0CLK_MAIN_ICG_EN_TRNG + 1)
+> > > +
+> > > +/* external clocks */
+> > > +#define JHB100_PER0CLK_OSC
+> > 	(JHB100_PER0CLK_NUM_CLKS + 0)
+> > > +#define JHB100_PER0CLK_PLL6
+> > 	(JHB100_PER0CLK_NUM_CLKS + 1)
+> > > +#define JHB100_PER0CLK_CFG_400
+> > 	(JHB100_PER0CLK_NUM_CLKS + 2)
+> > > +#define JHB100_PER0CLK_CFG_800
+> > 	(JHB100_PER0CLK_NUM_CLKS + 3)
+> > > +#define JHB100_PER0CLK_NCNOC_INIT
+> > 	(JHB100_PER0CLK_NUM_CLKS + 4)
+> > > +#define JHB100_PER0CLK_NCNOC_TARG
+> > 	(JHB100_PER0CLK_NUM_CLKS + 5)
+> > > +
+> > > +static const char * const jhb100_per0_ext_clk[] = {
+> > > +	"osc",
+> > > +	"pll6",
+> > > +	"cfg_400",
+> > > +	"cfg_800",
+> > > +	"ncnoc_init",
+> > > +	"ncnoc_targ",
+> > > +};
+> > > +
+> > > +/*
+> > > + * Regarding the CLK_IS_CRITICAL flag:
+> > > + *   What is special here is the UART*-related clocks. On the JHB100, the
+> > secure
+> > > + *   core may consume one UART, while the AP core consumes another.
+> > Different
+> > > + *   core boards may select different UARTs, so we usually want to keep
+> > all UART*
+> > > + *   clocks always on to prevent the AP core from turning off the clock for
+> > the
+> > > + *   secure core's UART.
+> > > + *   UART0-3 are usually used by the HOST side, and there will be no
+> > driver on
+> > > + *   the BMC side to consume these clocks. Therefore, these clocks need
+> > to be
+> > > + *   enabled for the host to consume.
+> > 
+> > So you are forcefully enabling 14 clocks for 1 to 4 clocks that may or may not
+> > be used.
+> > This is not how this should work. You just enable clock randomly hoping it will
+> > cover your use case. If you are managing the clock for these secure core, it
+> > clearly shows you need a driver for it.
+> 
+> Can I keep the clocks for uart0-3 as CLK_IS_CRITICAL here? On the JHB100 BMC SoC, 
+> uart0-3 are provided for the host to read and write registers via eSPI. On our BMC 
+> side, we need to ensure the clocks are always on to provide host access.
+>
 
-On a Milk-V Jupiter running the vendor kernel, which uses RCPU2 PWM2
-for the fan, the RCPU2 registers read:
+It would be less problematic, but still I do not understand why a uart end up being
+critical.
 
-  0x00: 0x4  0x04: 0x4  0x08: 0x1  0x0c: 0x4  ...  0x24: 0x4
+If you are letting the host map the uart memory region and implement some
+'userspace' driver, you already know what you are doing is bad. So it is
+hardly a good reason.
 
-Only PWM2's register has its reset deasserted, which matches one
-register per PWM.
-
-Use the matching register for each reset. No in-tree device tree uses
-the RCPU2 PWMs yet, so this has no effect on current boards, but it
-would break the first one that does.
-
-Build-tested only (riscv defconfig, W=1); the fix could not be tested
-at runtime, as mainline has no RCPU2 PWM node to exercise it.
-
-Fixes: c479d7cf06c3 ("reset: spacemit: add support for SpacemiT CCU resets")
-Assisted-by: claude-opus-5-5
-Signed-off-by: Hung-Chun Tseng <alan.tseng.cs@gmail.com>
----
- drivers/reset/spacemit/reset-spacemit-k1.c | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/reset/spacemit/reset-spacemit-k1.c b/drivers/reset/spacemit/reset-spacemit-k1.c
-index 8f3b5329e..dbd783c13 100644
---- a/drivers/reset/spacemit/reset-spacemit-k1.c
-+++ b/drivers/reset/spacemit/reset-spacemit-k1.c
-@@ -154,15 +154,15 @@ static const struct ccu_reset_controller_data k1_rcpu_reset_data = {
- };
- 
- static const struct ccu_reset_data k1_rcpu2_resets[] = {
--	[RESET_RCPU2_PWM0]	= RESET_DATA(RCPU2_PWM9_CLK_RST, BIT(2), BIT(0)),
--	[RESET_RCPU2_PWM1]	= RESET_DATA(RCPU2_PWM9_CLK_RST, BIT(2), BIT(0)),
--	[RESET_RCPU2_PWM2]	= RESET_DATA(RCPU2_PWM9_CLK_RST, BIT(2), BIT(0)),
--	[RESET_RCPU2_PWM3]	= RESET_DATA(RCPU2_PWM9_CLK_RST, BIT(2), BIT(0)),
--	[RESET_RCPU2_PWM4]	= RESET_DATA(RCPU2_PWM9_CLK_RST, BIT(2), BIT(0)),
--	[RESET_RCPU2_PWM5]	= RESET_DATA(RCPU2_PWM9_CLK_RST, BIT(2), BIT(0)),
--	[RESET_RCPU2_PWM6]	= RESET_DATA(RCPU2_PWM9_CLK_RST, BIT(2), BIT(0)),
--	[RESET_RCPU2_PWM7]	= RESET_DATA(RCPU2_PWM9_CLK_RST, BIT(2), BIT(0)),
--	[RESET_RCPU2_PWM8]	= RESET_DATA(RCPU2_PWM9_CLK_RST, BIT(2), BIT(0)),
-+	[RESET_RCPU2_PWM0]	= RESET_DATA(RCPU2_PWM0_CLK_RST, BIT(2), BIT(0)),
-+	[RESET_RCPU2_PWM1]	= RESET_DATA(RCPU2_PWM1_CLK_RST, BIT(2), BIT(0)),
-+	[RESET_RCPU2_PWM2]	= RESET_DATA(RCPU2_PWM2_CLK_RST, BIT(2), BIT(0)),
-+	[RESET_RCPU2_PWM3]	= RESET_DATA(RCPU2_PWM3_CLK_RST, BIT(2), BIT(0)),
-+	[RESET_RCPU2_PWM4]	= RESET_DATA(RCPU2_PWM4_CLK_RST, BIT(2), BIT(0)),
-+	[RESET_RCPU2_PWM5]	= RESET_DATA(RCPU2_PWM5_CLK_RST, BIT(2), BIT(0)),
-+	[RESET_RCPU2_PWM6]	= RESET_DATA(RCPU2_PWM6_CLK_RST, BIT(2), BIT(0)),
-+	[RESET_RCPU2_PWM7]	= RESET_DATA(RCPU2_PWM7_CLK_RST, BIT(2), BIT(0)),
-+	[RESET_RCPU2_PWM8]	= RESET_DATA(RCPU2_PWM8_CLK_RST, BIT(2), BIT(0)),
- 	[RESET_RCPU2_PWM9]	= RESET_DATA(RCPU2_PWM9_CLK_RST, BIT(2), BIT(0)),
- };
- 
 -- 
-2.43.0
+Jerome
 
 
 _______________________________________________
