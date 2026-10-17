@@ -4,68 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC2F6CCF2C1
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2026 10:14:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77446CCF2CE
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2026 11:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:To:References:Subject:Cc:
-	In-Reply-To:Mime-Version:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8aLpMzXoF6Ufp1ibHtQzbBvXQArZRc78PWJ8dU3jOJ0=; b=DAJEuvr9dGB+pP
-	Bohre/XFdb5B0Pj8rvKoVNdhXsI9/DbC4xqrfcaG4WYGZkCh0OQ3RGxG05NU+920ETJ7YBuxwEjXT
-	iSRXtm9H4txg86faOzphf2XZs/2CL358w2Z0OCUyLeJX2K48/c3Zl8MJZ2THO+POyuhywvZ8WBsTG
-	c4o9J6YHg465pjdK2W16eRyAc47XGaWy7pzXhhDzrbzB86rZj+w3aMWb6hky1fU6Uho+B6T25MxTN
-	0Irv3xf8lhNzFS0FN/I1bEoyyXExs7te5CGoFByMC6sA9JL5XK6RP/2ZW4Q9vtx6yB26MJnrjAWB2
-	Bq64WS3vsmyZu5n2S6HA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xnHQADIevU88dWHbcqyh7TyaVgQ4Kg3GH9zaOlC/ZDA=; b=Yu+rMLLSweR1yG
+	HkF5mcfnIqiSTu/ASaB3ySKofe+6mbEKl45zyaA2luAlWKsIOpD+6/SWKL/w5FNB+cPnrGKsTnLIr
+	FEujgxam3y82MPTpmENeJecPPwA1Oj/sz5nfmZytIActTWzCB2j8M7Lhwn2FKZ4K1/ZzIbgzmQXTn
+	63lu/xRa2sQxCRFfW104Tov2PDViS8WfKN3ZyWx/FYVbmdm7OigEzBwQTdhgxIVML+ijaJixHpgCK
+	9q5Vlmj/W0LyOR5rR4RUlleHgs8xyVwIeGQ9j37djIOg+P+ZPs06WXBw2fCZfIO83VTRqPIURI526
+	iWvvTnth1gvFcDhEx3yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI1Qb-00000004f2o-1jZg;
-	Sat, 17 Oct 2026 10:14:13 +0000
-Received: from sg-3-27.ptr.tlmpb.com ([101.45.255.27])
+	id 1xI2BO-00000004h25-1jyz;
+	Sat, 17 Oct 2026 11:02:34 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI1QX-00000004f2P-3Oa5
+	id 1xI2BK-00000004h0c-3A45
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Oct 2026 10:14:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1792232006; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=OOYEfpEwMLQO0bPlTQu721mtf/5q4uehv1PDBQLDVZ8=;
- b=sLAc8YXKYd4YMon94mD82aqzPrkwixXpb9is/QaBRC0ytna+zwFEe10FjrhbhIwEvOuoQa
- S3vNwa8MtaUikrhJRTgPLG0ANnOto7WLqg7Wmr7SPZqSGmw8dh2lce/x7+pbMssl7DReds
- etgZH6EppJ62TMDRHqmPsnbC8ioi7B2fV0W0R7WBklHIkhy5MTyOtXWxJiZHwTmljY1hUX
- snfxLMMsux/gujiPg5JGFYzH7w5bx7i5lycN7PWWncKmGfSg3mErYpn6D4Tptjh6ksMdGS
- Flvu7p9N90Ctf2iRiYzLqjtBfTf5crmmEzrxfpyPyws61w2W2K+HNAOQ8bRR7w==
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-Date: Sat, 17 Oct 2026 18:13:22 +0800
-Mime-Version: 1.0
-In-Reply-To: <DLLOVHIKRXPY.3AGBAPAM8F9WV@linux.dev>
-Cc: "Sudeep Holla" <sudeep.holla@kernel.org>, 
-	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, 
-	"Danilo Krummrich" <dakr@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, 
-	"Palmer Dabbelt" <palmer@dabbelt.com>, 
-	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
-	<yang.yicong@picoheart.com>, "Catalin Marinas" <catalin.marinas@arm.com>, 
-	"Will Deacon" <will@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>, 
-	"Rob Herring" <robh@kernel.org>, 
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
-	"Conor Dooley" <conor+dt@kernel.org>, <linux-kernel@vger.kernel.org>, 
-	<driver-core@lists.linux.dev>, <linux-riscv@lists.infradead.org>, 
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
-Subject: Re: [PATCH RFC 2/3] arch_topology: Parse die nodes in /cpu-map
-Content-Language: en-US
-Received: from [100.86.216.62] ([61.141.241.117]) by smtp.feishu.cn with ESMTPS; Sat, 17 Oct 2026 18:13:24 +0800
-References: <20260920-riscv-die-topology-rfc-v1-0-071c0bf61d5f@linux.dev> <20260920-riscv-die-topology-rfc-v1-2-071c0bf61d5f@linux.dev> <20260921-rational-frisky-jerboa-0f2ff0@sudeepholla> <DLLOVHIKRXPY.3AGBAPAM8F9WV@linux.dev>
-User-Agent: Mozilla Thunderbird
-To: "Troy Mitchell" <troy.mitchell@linux.dev>
-Message-Id: <f77689e0-91e9-4e5c-9185-fc6fb9394cc6@picoheart.com>
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-X-Lms-Return-Path: <lba+26ad34a44+032136+lists.infradead.org+yang.yicong@picoheart.com>
+	Sat, 17 Oct 2026 11:02:32 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2e9ae391a05so3781905ad.1
+        for <linux-riscv@lists.infradead.org>; Sat, 17 Oct 2026 04:02:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792234949; x=1792839749; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=EooerGosbt9uNoLNk2R3r8CmWtmPXhr2JTyWgkAeP44=;
+        b=eyPN9INruwfMbeQ860L/JWHxU9aABGGNzDVeuvxwwZlYvlT6m/o7wr2xFrB+xAr8AM
+         SPiW+ynVKiPaI+L32T3hT3N+lFV6tpM3ImhfkOJPcJIj5S9/oIS8CHB4hkhxmhaSf1Jo
+         HJtmzQ1t+OZdtSaS2Q/YLesvNrdaji7PzdtERSanzaIcasSz5LxTnJAYzCEWOv7A+K5D
+         0LkFZNPiXDuUqCu+krWaF8I50r2zjyTmvoL4xmZRdFIgLm8NqbvHUJBySXoqUm88bxKe
+         36gXriPTZfm2Q1uQUD5xZ2JxrWtX0inpzpcXV1qd7AxbSxN6sP5J0tue3tuDiEhNTWMp
+         SKmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792234949; x=1792839749;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=EooerGosbt9uNoLNk2R3r8CmWtmPXhr2JTyWgkAeP44=;
+        b=n9MJb/wkbakCNWCtcDJryy+jkXIYCZb4O/yYtblYx44l4cAG7zA80nhsz0UfEmQ1+p
+         OPRof2NdwuSQf/33Mg4Ba4YL6pIjBf5pn3NQzUBGjp+DkIt/ZUqcM0sT6ILNNCH9sxx6
+         afZNQKA//gOUUcGg09q7xD7JbS0r6GiGtv+sttnJZ+OAMUtFlVwgfY0Fxhme8EmafWiq
+         jj+Lk/gbGiipJiE/cNUwab5Gz9wjfrrdJJBTzDb9wtuUL3OvPk9722jAVO43Yeir9otB
+         D9El1d5zZ3mFkq1oEWiWViYOd+CSmcNDP1uN/IatH8zaYUyqlulL7mHwIdbFSi1sf7/1
+         +q/g==
+X-Forwarded-Encrypted: i=1; AKwUvBxSN7TH5N1no/Fr6O+84i2QhvfIc2Nv6khY1t7G23rQyLcDZO3vv9E0iNgFOnqTaStp3W3T8gDPEDIEiw==@lists.infradead.org
+X-Gm-Message-State: AFq9FYIZpkFT7cImPTst25eKiCz2y+3iDIip1B6pu4sY7gPW+dElJUxo
+	QeGLOd0b3Z2aBdKAKbaKSw+TF4Y33S6khEb7vJdMmqK8Xhz5zxOvgjwL
+X-Gm-Gg: AYBFou1J/l5WzYMxD/P/SP6Z102ucXcXeVxhsh/wZkNPdGm8ct4g/P7focAia8rnScj
+	vtOQi1L31zA6qjl7Z9xDi0w68w3ZXgqWgvFFU3n6cgWSkHRhbHMtBhiN46WfxxCiJD3auhdVtkl
+	kx1LIRmPU688yWbWEOdQfi6TlUSpl36ASFzuoo6DM8M4Zd1Y56lUGwDKUaF/ILmMiOm6Hk1bGwe
+	ZKgmTGd2Lj6ss5ckVN0agAyJAswo+F5xRlJt+sd10hBAddl39Hz0+CnI0xL83U4pQp5qiQJcHFN
+	lAlUBXTeu5Wume1oPul+vQZsTYIT6loxaOp8vLwvBHCUGB0ock2Xifc9EcSs+9woHzBh6bmW4xl
+	1hLO1TsgqiRkfHqvuMrQqFymfK/X/X8JgHwpKopRY2cHiOndanY3zX4+Amo2Tdl180bk+dd+kXG
+	icVyAPrFU/76Aq6KuIseCvUOummHsbllo+tsPa8wwMn8M61KQUWqlU7qJAVgEZ35mWiMaXeMBqZ
+	GQvWA0n3gxxl0+R6ex3Ig==
+X-Received: by 2002:a17:903:1a10:b0:2df:a0d4:71de with SMTP id d9443c01a7336-2e9a66ebc71mr15900275ad.0.1792234948529;
+        Sat, 17 Oct 2026 04:02:28 -0700 (PDT)
+Received: from x1c ([2405:9800:b670:b64b:7c65:ff3e:80ba:b06])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e97e804dd9sm20559955ad.16.2026.10.17.04.02.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 17 Oct 2026 04:02:28 -0700 (PDT)
+From: Tharit Tangkijwanichakul <tharitt97@gmail.com>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>
+Cc: Shuah Khan <shuah@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel-mentees@lists.linux.dev,
+	skhan@linuxfoundation.org,
+	me@brighamcampbell.com,
+	jkoolstra@xs4all.nl,
+	Tharit Tangkijwanichakul <tharitt97@gmail.com>
+Subject: [PATCH 0/5] KVM: selftests: Reserve memslot 1 for ucall MMIO
+Date: Sat, 17 Oct 2026 18:02:08 +0700
+Message-ID: <20261017110213.46199-1-tharitt97@gmail.com>
+X-Mailer: git-send-email 2.53.0
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_031410_086127_97CB59F8 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20261017_040230_788087_D2272186 
+X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,47 +123,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/22/26 4:06 PM, Troy Mitchell wrote:
->> Where is the associated bindings ? Am I missing to check it in the series
->> or it is really missing ? It is essential to add any code using the binding.
-> 
-> I left the binding out to get initial feedback on the topology model,
-> but I agree it should be available for review alongside the code.
-> 
-> The cpu-map binding lives in dt-schema. I have now opened a draft PR [1]
-> with the proposed dieN hierarchy. The PR also links back to this kernel
-> series.
-> 
->> Also how does it align with ACPI implementation ? It is preferred to be
->> in parity here, so we need some binding there as well IMHO.
-> 
-> This series does not implement ACPI die discovery and leaves die_id at
-> -1 on that path. I agree that DT and ACPI should describe the same
-> topology model.
-> 
-> RISC-V does not define topology fields in hart IDs. PPTT can describe
-> intermediate processor hierarchy nodes, but I could not find an explicit
-> die indicator in the ACPI 6.6 processor-node flags. Is there an existing
-> PPTT convention for identifying die boundaries that we should follow?
-> 
+This series addresses the TODO in __vm_create() to reserve memslot 1
+for the ucall MMIO region. It introduces a shared base for test
+memslots, migrates existing test users, and adds a read-only region to
+prevent overlapping allocations.
 
-PPTT describes the hierarchical processor information but except physical
-package and SMT, there's no flags to bind the nodes to a real topology
-structure. so maybe it's hard to choose one unless a new flag is added by
-the spec to indicate the DIE topology.
+A regression test verifies overlap rejection and continued ucall
+operation.
 
-may I know the target use case for this die information (as I see the same
-question raised on the thread of the device tree PR)? IIUC the NUMA and
-cluster information should be enough for the software to aware the
-performance differences and the scheduler has already make use them.
+Testing:
+- Intel Core i5-10210U and Rockchip RK3588 (arm64).
 
-thanks.
+These tests are changed but not tested: 
+- arm64/sea_to_user.c: not enough memory allocation.
+- x86/nested_vmsave_vmload_test.c: requires X86_FEATURE_SVM.
+- riscv/sbi_pmu_test.c: riscv hardware unavailability.
 
-> Would it be acceptable to add DT support first, keeping ACPI die IDs
-> unknown until that mapping is agreed, or should the ACPI mapping be
-> defined as part of this RFC?
-> 
-> Link: https://github.com/devicetree-org/dt-schema/pull/208 [1].
+The following test failures reproduce on both the unmodified base
+<8edffbc1f6272db167037e1a8c49b99e9cd04803> with host kernel 
+7.3.0-rc1-gd4b7fb647204 on RK3588 and with this series applied:
+- arm64/vgic_its_save.c
+- arm64/hypercalls.c
+
+These failures are unchanged by this series.
+
+Tharit Tangkijwanichakul (5):
+  KVM: selftests: Introduce a shared base for test memslots
+  KVM: selftests: Use the shared memslot base in memslot_perf_test
+  KVM: selftests: Use the shared memslot base in memstress
+  KVM: selftests: Reserve memslot 1 for the ucall MMIO address
+  KVM: selftests: Test protection of the ucall MMIO region
+
+ tools/testing/selftests/kvm/Makefile.kvm      |  1 +
+ .../testing/selftests/kvm/arm64/hypercalls.c  |  3 +-
+ .../testing/selftests/kvm/arm64/sea_to_user.c |  2 +-
+ .../kvm/arm64/stage2_block_transitions.c      |  2 +-
+ .../selftests/kvm/arm64/vgic_its_save.c       |  2 +-
+ .../selftests/kvm/arm64/vgic_lpi_stress.c     |  2 +-
+ tools/testing/selftests/kvm/dirty_log_test.c  |  2 +-
+ .../testing/selftests/kvm/guest_memfd_test.c  |  2 +-
+ .../testing/selftests/kvm/include/kvm_util.h  |  1 +
+ .../testing/selftests/kvm/include/memstress.h |  2 +-
+ .../selftests/kvm/kvm_page_table_test.c       |  2 +-
+ tools/testing/selftests/kvm/lib/kvm_util.c    | 19 ++++--
+ .../testing/selftests/kvm/memslot_perf_test.c | 62 +++++++++++--------
+ tools/testing/selftests/kvm/mmu_stress_test.c |  2 +-
+ .../selftests/kvm/reserved_slot_test.c        | 61 ++++++++++++++++++
+ .../selftests/kvm/riscv/sbi_pmu_test.c        |  3 +-
+ tools/testing/selftests/kvm/steal_time.c      |  3 +-
+ .../selftests/kvm/x86/nested_dirty_log_test.c |  2 +-
+ .../kvm/x86/nested_vmsave_vmload_test.c       |  2 +-
+ 19 files changed, 128 insertions(+), 47 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/reserved_slot_test.c
+
+-- 
+2.53.0
+
 
 _______________________________________________
 linux-riscv mailing list
