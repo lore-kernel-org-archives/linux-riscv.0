@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB8ABCCA463
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2026 07:45:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 712DECC6B2A
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2026 07:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=EfD3Eshdssu0RgPUJw73Pc31oFUrzk12Mt3ob40345c=; b=wwzEt5Y0VdbjzX
-	9a8KDr23GDGMyUrZQgZL60fIRWNq+qcojuvEHNEdlYY+p8oIN00E5tnU7TO+MVNBs3ONMuS7uE0Pp
-	8sT4T77jpSj2gXGvskIpZyhiDcKCIeRWc6Co7klNN4cd0B/7dvg2UunDv9gZ8TA932pwy4s5o0GSr
-	+S4Xb3BXQeMpMloK7Mb8Zi7td+iVWC4CGsETmKXCUimbN9mEVr3pcDk5J3xdIDNBaYuk5BmkRI58Q
-	T+hv1bRVu4N9h7Dp15JBhWIFyAu9ZQox7g/YbLZt0ua1KAb2J5ESf3QgQHgTP3vbfXeaqh5vFU2Xp
-	OWUYCaKo0zN4uCHNHi/Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=d24StZ/3ryHci7tSoaWSS3K66TGmLE/FXb7yIa5bVF8=; b=sfW0pAFriTqga4
+	NionODGy7eJtHFVmjdoECpWS6Q/2lYV44jUQvzOuBW8FvERQy2aMjAkcF8yEThlH9dXHoBx8eOBnH
+	OH3ymUaUbouKCvwdV6Z+20N4BH1yRa0jkuizw0DzrIdGAfyqZ/Rod4Vr8DvDkTDrytMh5Azaz43kD
+	RKH1aqJy3V36HL0mqGHRllWXJWQpbZIJzlW29eG85C3NAnOiZ/Y83h8qOIF1YyvVzedJlZlPLAyYJ
+	oMF1BVxv76SPSztb5Q3HahmPvcD+KUwXrKg4QgG7BH7t2/iZNyAgkBhbQp2rqbdOg1lcnn2AW3p4j
+	bM4Gsa5KsVDjXxVSvbjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHz6h-00000004Xld-1wCW;
-	Sat, 17 Oct 2026 07:45:31 +0000
-Received: from mail-vk1-xa2b.google.com ([2607:f8b0:4864:20::a2b])
+	id 1xHz6j-00000004XmJ-2KaV;
+	Sat, 17 Oct 2026 07:45:43 +0000
+Received: from mail-ua1-x92f.google.com ([2607:f8b0:4864:20::92f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHz6f-00000004XlG-0nFl
+	id 1xHz6h-00000004Xlc-2OmU
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Oct 2026 07:45:30 +0000
-Received: by mail-vk1-xa2b.google.com with SMTP id 71dfb90a1353d-5e3e525cf4bso545533e0c.1
-        for <linux-riscv@lists.infradead.org>; Sat, 17 Oct 2026 00:45:28 -0700 (PDT)
+	Sat, 17 Oct 2026 07:45:32 +0000
+Received: by mail-ua1-x92f.google.com with SMTP id a1e0cc1a2514c-988bb309c2bso331706241.1
+        for <linux-riscv@lists.infradead.org>; Sat, 17 Oct 2026 00:45:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792223127; x=1792827927; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=G9gHOokB2iUNg0rcd+4gK+6dCcLdNZHPpTlIwEx+WLg=;
-        b=UEMM6NN456pNgJRRylS2oSF08NThFfGHiwwAooeSLRypGaddQ/oncNYnjpKvecfLBT
-         1XVnXJBsJCYrHUVEolr6gcjzh0Ngu/vrQoL14gKDLkjYJSGnzB8O3fMhEfUSenjogxz4
-         UxfOUdR9TSi4JX4qZsgTVZdFYYDUEv/Tz+NmXAmMWgkPH7eCHxG19+pF4Rjk2SGvGW84
-         piY8aU42BlwrbaSkUYUGWErmrhW4RfZ7dRvs+8KWOl+GEcKblJzVSzA8U9j3Lmy6e9NJ
-         RpNhdV0DgCGUvd8zVMGmslNvehxY8vA2txvIgZ9lUs/pCqKKlwdOjWQPJkBji5JAVbTY
-         R/rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792223127; x=1792827927;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1792223130; x=1792827930; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=G9gHOokB2iUNg0rcd+4gK+6dCcLdNZHPpTlIwEx+WLg=;
-        b=xQovET2ZO6OxxlUdWaR++13oOLISYSXGt1MSOwfHkEvMPYI6ApcsYppRfC2feL5X7P
-         fFjYkLzHNItnk0M55+vX49BNxgcwsmt+nXdza0MqGk9XCFq6lGEaVfYgibYy8TGrGXQL
-         vlTISfGUCnWYvh4NSYf+W4uLhdDMV3+WZu2DqVxasVFCp7t0eOcXJ2rZLri5mw77Shzt
-         gbBay7pZdqRWOxFhsDEfa3BLX/9uG3hIdjwB7ETT4BsoS5D1DTibrzDEZZfFkZ9nSUaX
-         kOCL45VdQatlh9kGjTj+p7ga7c/HLd/ksi4Bop8a7SQUA2I95K9QbDnmAhcSn1wyv7Ga
-         207Q==
-X-Forwarded-Encrypted: i=1; AKwUvBylNaVCu9VmUOa+n1im4t2VqtMjEVMW9Wip44tHkzqdCW2sAAaVFc3DA/btaT/mxEwViUv422lBy0IUhw==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKHnZjEYkAmB6EqUOV29X/U7QvDw62V0CN4MQTS7EbHL6Ls7GxA
-	AN2DIG/5i24bmNaCMhO+SORPs/NJzZNvOm3cLvtkdkI9E7YIu95SQQJ4
-X-Gm-Gg: AYBFou0lAv00UvZDlKzM4hr8YuTwsP8L+UpnZEhlf4HGVbPNqC2afHwzfVMExYGP50V
-	5kSKo3+rcvm4j/Z7TpfO5XkQY9LKwBsqS1W0tlwNPPI/6WSuOQxcEmj/b+lHz8uS8yND7ZtkWWt
-	4DIydHwI5QvcwQaj4+8IDfi5D0kGYbmGjM8m4BtHg415Hyh8RGK4/rlqQEyzvY8dLAH+3/87+XW
-	6avCuWJzzTz+J02BJeJ7GCqtetZFoPVLQ9qllRGnbkiFsyBob8xVFkeBWZXhEVYI1mqExHPjM1J
-	cGuRIUEktiqWWbDiwIipxsUyJMcTzXsVEHT96qcJXPzEDPsQ+q4gGI8azil6VMxyLWaM58+PP3V
-	q9/F8GzhbvVT+BJE5iWtu0eK3IZisOBtPWuo8zmZuCKYwlJF+jAN9QJcaH0J4+D7DSVDzOdzsx+
-	N3p7Kny4m16Odz8bcRyxAuyCmjPfy0yFi8gxChbwPEPFyWa0nF/k6gBCtQbQs6i8ri1EXleZWHh
-	8TJiBl6xV1ikajZWTUE8IIL3atKQ9gHz4FsIXhPL8aKa95yUu2EJ5XMf03q3Lo=
-X-Received: by 2002:a05:6122:3b8b:b0:5c9:a60b:e5a5 with SMTP id 71dfb90a1353d-5eaaa8c75e7mr970007e0c.16.1792223127505;
-        Sat, 17 Oct 2026 00:45:27 -0700 (PDT)
+        bh=7+MRhp20Qv6qzPEtCEOr1Z9CVtBjcSUa4+hS0qMlh6k=;
+        b=fw28wls91Me/fc6MFggCh3JsbNiLYq1FsyKwALxgjpzGT6QHWqsexSNRjb1POBx9uV
+         mRqeaczLJt3qE38+B7zMxJmDn38pl+e9yyy/2V8Vz7hF2Yk8etmlanKKay0mgLNivdTy
+         qiHPDZKSmR6VTpp5Q8YsyVMxvXKx+vG/YEZE5049+JJvrNQIRYM6WEygWkzHsuz8ZiZI
+         yqoGjlDq08yLwi3bselxW2RW13+9yumw0sTqob8YW1yBh5Kw84t0Ec0xF/W1hZCbo139
+         eZ6VXPXivAn+Vs4lFEOC2hLJpxOogE+lTlxDbn9pLa4BJfH6Yegy8yaC3r4nBmAV9UPx
+         DgCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792223130; x=1792827930;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=7+MRhp20Qv6qzPEtCEOr1Z9CVtBjcSUa4+hS0qMlh6k=;
+        b=T7eo6TCT+9FTJr5NFWoR9iLSVQJmsQsagZ/4oXNPt7tHfiL0JooxAm0PLRd5rBWEnu
+         gkTqud1k5aDad0h0S6RI4a4uOy4896vSK64WozSamqqL8sM/5kCFnKAkaUkUR/n4IJVz
+         FaMavqKy3konkY2+dN3SzGe+2UwLVase3XxnaekfREZurcor2vtY2cbqTyMMsSN8TZk0
+         ILJeOXWIKWyJ6F2ajhwEmIwnJnBOp8M8Ox13Q52K2MnyFoSSlsV7Tf2McOKboKDnGrSP
+         Zkghm1zK1XDYpAFd/J4yyqg84Y855lyJd2TRDJkSUCx7brGPgm6o3tjcoR6J/m9DusJI
+         cDhQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxk20lvYaVqPa2tV/ui+gjVB39FykFj73PkxEKkYSzGdi3TCuzj7Bb1UBQtG9e6VXT2+Uho6aVkz6Vu7g==@lists.infradead.org
+X-Gm-Message-State: AFq9FYIhy/w76xwfOtjQBFWhziUwCdn1l8dRvD66q//Qe1kpXvJ+jXOs
+	Ycq0+G9vR475Wu/FPkgW0l4UrEBhhd5WIsFS8ZCVO4EZQOjVCIf+OSNHs/niVkBt
+X-Gm-Gg: AYBFou2/LZjYdkr6nhMn+ZSWZz9ekusrlGJ76Tm/ukL3oTNE2oikYVSu03hFvwuDHmo
+	xHnqvXu+Z2WWnkyllZAHyfe9PaJ5EAyaXX15sQkt/WjLOHeEpW5tTmkocVaNQoLfMAcFjZ4kaJl
+	bOW4sZj/8FbHG1Vd4hfOe2RdhPLX/Lk5NPkMprjYq2rk2TC4KEbFa/2LYpFS4kOLrnB/ycphRhh
+	t9K7W6wVy4V+sU4P7Nc03jVXMe17wOqT6Qhpv1W6BL7FJKOR+iuhM+nHpnW91n/mC+vVLDk89ll
+	JVf/EM/73YsK+cjF59AiNGTt22nU7axRLt+GPWf77jeUZCqw+gs0VWnyqLroRUwk3VJ77WiKQ8k
+	UZUKS8qAQI4iFuoG9uTmZybJQ7EUlE8PV6vhI2tpdWx8GeFl5j3a8ExBm0wY6JvVTeuXcc3kFC6
+	B8H9IR8n4bVsNAWyPPotBkV7KGmQd2er4OgzF0PYBhJB53ulfpZl6KL9S4JBVIXyHBhhwRsmHYP
+	xUnedFBP+P3o+b3BGRFUOaGzK5enmIznhrRlKSJqLeqjVRBOxHA3Sv6C9M11Wk=
+X-Received: by 2002:a05:6102:41a2:b0:7c0:4d52:8cc9 with SMTP id ada2fe7eead31-7cc36997787mr569456137.14.1792223130340;
+        Sat, 17 Oct 2026 00:45:30 -0700 (PDT)
 Received: from localhost.localdomain ([186.151.100.62])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ea9b53cfdfsm3701836e0c.15.2026.10.17.00.45.24
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ea9b53cfdfsm3701836e0c.15.2026.10.17.00.45.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2026 00:45:25 -0700 (PDT)
+        Sat, 17 Oct 2026 00:45:29 -0700 (PDT)
 From: Sebastian Alba Vives <sebasjosue84@gmail.com>
 To: gregkh@linuxfoundation.org,
 	jirislaby@kernel.org,
@@ -78,14 +79,16 @@ Cc: linux-serial@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Sebastian Alba <sebasjosue84@estudiantec.cr>
-Subject: [PATCH 0/2] serial: sifive: fix two init ordering bugs in probe
-Date: Sat, 17 Oct 2026 01:44:51 -0600
-Message-ID: <20261017074453.62645-1-sebasjosue84@gmail.com>
+Subject: [PATCH 1/2] serial: sifive: fix NULL pointer dereference in probe IRQ window
+Date: Sat, 17 Oct 2026 01:44:52 -0600
+Message-ID: <20261017074453.62645-2-sebasjosue84@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261017074453.62645-1-sebasjosue84@gmail.com>
+References: <20261017074453.62645-1-sebasjosue84@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_004529_270006_904746D2 
-X-CRM114-Status: GOOD (  23.15  )
+X-CRM114-CacheID: sfid-20261017_004531_625202_0EFCC325 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,85 +107,87 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Sebastian Alba <sebasjosue84@estudiantec.cr>
 
-Hi all,
+sifive_serial_probe() installs the interrupt handler with request_irq()
+before uart_add_one_port() has run.  uart_add_one_port() is what assigns
+ssp->port.state, and ssp is allocated with devm_kzalloc(), so
+ssp->port.state is NULL for the whole window between the two calls.
 
-I found two ordering bugs in the SiFive UART probe path while working on my
-undergrad thesis project. The project uses a HiFive Unmatched board with an
-FU740-C000, and I spent a lot of time reading this driver to understand how
-the console comes up, which is how I ran into both of these.
+The handler dereferences that pointer unconditionally:
 
-Both have the same shape. A resource gets turned on before the state it
-depends on is set up, so there is a window during probe where a callback can
-run against a half initialized port.
+  sifive_serial_irq()
+    __ssp_receive_chars()
+      uart_insert_char(&ssp->port, ...)        /* port->state->port */
+      tty_flip_buffer_push(&ssp->port.state->port);
 
-Patch 1 is the one I think matters. request_irq() runs before
-uart_add_one_port(), so the handler is live while ssp->port.state is still
-NULL from devm_kzalloc(). If a byte arrives in that window, the handler walks
-into uart_insert_char() and dereferences the NULL state pointer. The patch
-moves request_irq() after uart_add_one_port(), masks the interrupt enable
-register before adding the port in case the bootloader left something on, and
-adds the missing error label so a failing request_irq() unwinds
-uart_add_one_port().
+so an RX interrupt taken inside the window oopses the kernel.
 
-Patch 2 registers the clock notifier before ssp->baud_rate and
-ssp->port.uartclk are initialized, so a rate change in that window divides by
-zero. This is worse on RISC-V than on most other arches, because the ISA does
-not trap on integer division by zero. divu by zero returns all bits set, so
-DIV_ROUND_UP(12000000, 0) comes back as 0xFFFFFFFFFFFFFFFF and the udelay()
-in the notifier becomes a busy wait that never ends. Instead of a clean oops
-you get a hung core. The patch sets up the divider before registering the
-notifier and adds a cheap guard inside the notifier.
+The window is not purely theoretical.  probe() programs TXCTRL and
+RXCTRL but never writes the interrupt enable register, so IE keeps
+whatever value the previous stage left in it.  If RX watermark
+interrupts are still enabled there, or an interrupt is already pending
+at the PLIC, the handler runs as soon as request_irq() unmasks the
+line, with no timing requirement at all.
 
-I reproduced patch 1 under QEMU. The machine is qemu-system-riscv64 -M
-sifive_u, which reports itself as HiFive Unleashed A00 and models the FU540,
-not the FU740 I have on my desk, but it is the same UART IP block and the
-same driver. I added six lines of instrumentation right after the
-request_irq() block to print port.state, unmask RXWM and hold the window open
-with mdelay(), then fed bytes into the UART while it was open. With panic=-1
-the kernel reboots and retries on its own.
+On a HiFive Unmatched (FU740-C000) the vendor firmware leaves IE
+masked, so a cold boot on that board does not hit this.  The realistic
+trigger is a handover where the previous stage leaves IE enabled, such
+as kexec into a new kernel while the UART is in use.
 
-Without the fix I got 318 windows and 318 NULL dereferences, so every single
-attempt crashed, and port.state printed as 0000000000000000 every time. The
-trace is always the same.
+Move request_irq() after uart_add_one_port() so the handler can never
+observe a half-initialised port, and explicitly mask the interrupt
+enable register during probe instead of inheriting whatever value was
+left there.  Unwinding is adjusted accordingly: uart_remove_one_port()
+now balances the added port on the request_irq() failure path.
 
-  Unable to handle kernel NULL pointer dereference at virtual address 0000000000000080
-  epc : uart_insert_char+0x66/0x154
-   ra : sifive_serial_irq+0x94/0x1f0
+Fixes: 45c054d0815b ("tty: serial: add driver for the SiFive UART")
+Signed-off-by: Sebastian Alba <sebasjosue84@estudiantec.cr>
+---
+ drivers/tty/serial/sifive.c | 19 +++++++++++--------
+ 1 file changed, 11 insertions(+), 8 deletions(-)
 
-With the fix, same instrumentation at the same point and same input, I got 18
-windows and 0 NULL dereferences, and port.state printed as (____ptrval____)
-every time. That is what vsprintf prints for a real pointer before the RNG is
-ready, since ptr_to_id() special cases NULL and prints the literal value
-instead.
-
-One honest note on those numbers. The window counts are not equal, because
-without the fix the kernel crashes early and panic=-1 restarts it right away,
-so many short cycles fit into the same 180 seconds, while with the fix nothing
-crashes and every window burns its full mdelay. The count is not the argument.
-With a 100 percent baseline failure rate, 0 out of 18 is not luck, and the non
-NULL pointer is the cause while the crash is only the symptom.
-
-I did not reproduce patch 2 the same way. It needs a clock rate change inside
-a very narrow window and I could not drive one reliably under QEMU, so that
-one comes from reading the code. Happy to be corrected on it.
-
-Both were pointed at during review of the off by one fix back in August, but
-as far as I can tell nobody sent patches, and both are still in master today.
-
-This is my first series to this subsystem, so please tell me if I got the
-format or the split wrong.
-
-Thanks,
-Sebastian
-
-
-Sebastian Alba (2):
-  serial: sifive: fix NULL pointer dereference in probe IRQ window
-  serial: sifive: avoid division by zero in the clock notifier
-
- drivers/tty/serial/sifive.c | 32 +++++++++++++++++++-------------
- 1 file changed, 19 insertions(+), 13 deletions(-)
-
+diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
+index f615701fc..4a445d285 100644
+--- a/drivers/tty/serial/sifive.c
++++ b/drivers/tty/serial/sifive.c
+@@ -1046,27 +1046,30 @@ static int sifive_serial_probe(struct platform_device *pdev)
+ 		     SIFIVE_SERIAL_RXCTRL_RXEN_MASK,
+ 		     SIFIVE_SERIAL_RXCTRL_OFFS, ssp);
+ 
+-	r = request_irq(ssp->port.irq, sifive_serial_irq, ssp->port.irqflags,
+-			dev_name(&pdev->dev), ssp);
+-	if (r) {
+-		dev_err(&pdev->dev, "could not attach interrupt: %d\n", r);
+-		goto probe_out2;
+-	}
++	/* Mask all interrupts; the bootloader may have left some enabled */
++	__ssp_writel(0, SIFIVE_SERIAL_IE_OFFS, ssp);
+ 
+ 	__ssp_add_console_port(ssp);
+ 
+ 	r = uart_add_one_port(&sifive_serial_uart_driver, &ssp->port);
+ 	if (r != 0) {
+ 		dev_err(&pdev->dev, "could not add uart: %d\n", r);
++		goto probe_out2;
++	}
++
++	r = request_irq(ssp->port.irq, sifive_serial_irq, ssp->port.irqflags,
++			dev_name(&pdev->dev), ssp);
++	if (r) {
++		dev_err(&pdev->dev, "could not attach interrupt: %d\n", r);
+ 		goto probe_out3;
+ 	}
+ 
+ 	return 0;
+ 
+ probe_out3:
+-	__ssp_remove_console_port(ssp);
+-	free_irq(ssp->port.irq, ssp);
++	uart_remove_one_port(&sifive_serial_uart_driver, &ssp->port);
+ probe_out2:
++	__ssp_remove_console_port(ssp);
+ 	clk_notifier_unregister(ssp->clk, &ssp->clk_notifier);
+ probe_out1:
+ 	return r;
 -- 
 2.43.0
 
