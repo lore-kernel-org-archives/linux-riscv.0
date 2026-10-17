@@ -4,94 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A59CCF2C1
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2026 18:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00CCACCF2C9
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2026 20:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Vubl4UD7B1dJLolAuyGndCiO5JtRTppnf0Rg1dQirqQ=; b=vgRp5q8I7vfT/D
-	gu+2hIB3G24qLxKMCKRrSCdANinbVW5FBYCPLHrcUH+gJ8ECIyVQXY2kwAwRaqcrW5nKGr2Wz8LRP
-	9B473ZQial5bRE9zb7dCqLnwqYou4GCQ+Xtx+pSnchwssCJ7ZLudvu0YHQqoOnQoPv2no2cvXv50Y
-	pamhvdXIr6dp57uH4J2ZF5sPtKJsh7O26bsWH/kAg0GNBqjlRgThLFCJGqa0SnOmIaNW4oqHOi3ZL
-	J4f1Yc02JyxVbkT69QuVXSQF2mwlJ3BzFL3PCv3rnBZim9sd3YYJEDlv7ujQ2ZoaqndNVw9FE4cWJ
-	yrn6ZQuzysTWpyiy9tbA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yQsbs+EAUwsb3EyAoNCeee+4TJU07nwhP7GDRuqTuUk=; b=X9nRyTEmYqQ7Mh
+	852bfEZi/R4tArPi2/OpmejQv3FnwMwSomn6DsjtWUmcR/mA2cmBWqw1/QA4K7hQz5ydCUsUHVx37
+	xumj/hRfRZ4M0qWNe/q+wKBmpWQkRQ2SyQ+op3kA9Xum9JIS3pKNHlFIYLqUFM4/WE4njW6fsblvf
+	YthFRw1NFoUBL7zCwG/hcc4/uSvR/7eNKUHlcizcQt5CfVU4RBemfI+EjKafTFSWX941X3RzZJ5US
+	60joASCEyl8HhyoL38+E4hzhzIKJiLAT2xWeHjhtsmO/tnVopiYmVI6NJFIAw7WbEyTxkqBOQGHwE
+	OtvdotvSRA4ZwVm7E86w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI8j8-000000052lz-3as6;
-	Sat, 17 Oct 2026 18:01:50 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1xIBSa-00000005EXM-2yvA;
+	Sat, 17 Oct 2026 20:56:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI8j5-000000052lb-42Ve
+	id 1xIBSY-00000005EXD-3vqN
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Oct 2026 18:01:49 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2e812e2b31bso4453675ad.3
-        for <linux-riscv@lists.infradead.org>; Sat, 17 Oct 2026 11:01:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792260107; x=1792864907; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Tpd5O0R9+duoKDmKNVdsMKIxn7WvXRY/NssiY4nj4tc=;
-        b=NqDrApbwyPH2M57wCcKQn+OwRQO9OxC5oTAva+X/BS4DY7EtT9b2uhDRbpiPv+yX/i
-         mWWSEEIqsytJ0n+oEXgqVFisJ8lGwlwpof9ERtX86F5GlxlgWbWlaM/AyPOBri2wyl6+
-         HPX6ezCJmcEsboCFx74y/sMTOF0P4VYr0MqW3AZopvRnU/wr26GxMz7Zpx3VkxWP0NR9
-         +ewyHwvdgbu5oYLYyOTaQNriKj3C/5mYQiUCD5knUPpleJ7GdIdsc+sg/cO3SxRe9QfD
-         OHhXo/RjT75lj7yaW2HrlT0JTLyeOLNNkwUBSI38FsMTFYiKHP+GmP97wXd63q96UslW
-         Ms/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792260107; x=1792864907;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Tpd5O0R9+duoKDmKNVdsMKIxn7WvXRY/NssiY4nj4tc=;
-        b=UcStBJNOtM9WtwpP1dCciHsP+g9esFedqwz7ueqRrSIDVWL++PXuzSXLlOiR3D4Dot
-         DtIqmpkgJA36DQqu6rsnnmh1aXPu7IeizbdPusCSULXdAmddnv1mOKzSyUyAcl1N5sem
-         KYg/lBqivU6bg40+q/suIXVR33kju94LaO9rMyBMQqtNXFGtNFuYLaNTzobx010JWo7n
-         /p3MIyS5S15/1HuAhnuKPxwXbxXWNdIZHUQ5AvvQ8FA4NBzvOxbPmWA6FPJdl40DQ2Uy
-         jKYbs7n+vLAS3c3VCt28AEIG3eACK6iU9/9ZtbSVGmymSbBCpBti9b0AlQjRNBU88lYt
-         a3xw==
-X-Forwarded-Encrypted: i=1; AKwUvBzpS0mNb22kV9KYpSAg8Uf4SWBoJPhRgTmUGqG9trJsHiIvBPQ+NslMR+QauD5y/cjf/EuqpoMzGmDO5w==@lists.infradead.org
-X-Gm-Message-State: AFq9FYIk5hnrUpYTPb3B+bkG9HE/r2P5+uHz9JzCNGA/UdB45G5DDAvA
-	G9z2dzcNKLXvkuWGgx7wJ9F4JwGWIuF9vY0ZaY5eEKdrVJbIGyIw0U9V4m+xGfyd
-X-Gm-Gg: AYBFou2XNsTHEiGGl9qFTPKSZPfSUovxy0o4TyldBf31bZAIrLxII4NSrTheXOXyLaN
-	oiBahcd23KvcHJzb6syAKRF3UKuzwKi7Bne++rOIujoYXGdQXKPJtjnQm9a2PqreZKw5OREv0WW
-	13CJrI8Exml9/x7baHCmJrz9FW1X8+4HSGW/9+jmt5JoVnhtRkj0r8LpVVwUmU2Ragm7vdDpaqw
-	YSdzyAYiEnOUDCZ/n1+W4i0w0RYIfHFT02fEr/9rEnoIUdh8HtDn7w15Gp67pK5+WIQRWtRQshR
-	m5VzUeKEy6dVELbd9NDXAmVuGPC+9h2tM+0jESot3he22CRV7/yitDlANQsy4E3iW+kV43DZlTQ
-	pId5f97sRJG0DG4dMmTwtIO7YVnOBzKb4p9o/8Vfx+1MR3+XVXvkygQUgdXf/pfNB+ChTu+QNyl
-	TWHSgxvQozjeyFjNMSijtY1OVyktRNlXuarW9LjJLQfsY/b1NZ0NY0EJzosCGz11O5OqEHhjeeS
-	vTvr/RUdgXGp871uMLw/4KOlM2000aVudl/xWcuR/ScUXO+xGR5HXGrQrAM30BxHTpaGqKjCuwx
-	TXDmDPOb5bEqOuj78x43JMeaI4D9SwghtL81nVqz552bdOLv6gFk/g==
-X-Received: by 2002:a17:903:a90:b0:2e9:40ef:e44a with SMTP id d9443c01a7336-2e9a6833906mr30171515ad.3.1792260106924;
-        Sat, 17 Oct 2026 11:01:46 -0700 (PDT)
-Received: from alanhc-14700.tailb22ec2.ts.net (180-177-138-120.dynamic.kbronet.com.tw. [180.177.138.120])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e97e5d98d9sm23030035ad.2.2026.10.17.11.01.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2026 11:01:46 -0700 (PDT)
-From: Hung-Chun Tseng <alan.tseng.cs@gmail.com>
-To: Yixun Lan <dlan@kernel.org>,
+	Sat, 17 Oct 2026 20:56:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D8EA260AB6;
+	Sat, 17 Oct 2026 20:56:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BE3C1F000C4;
+	Sat, 17 Oct 2026 20:56:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792270613;
+	bh=ICaHlESv3/ZEgb0CL6c9OpvIzwqhaxILgNv0hKoeWb4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ocoofUb5j8zOL9hJxSUpD9COIXYE+Qb98ZjzeRsCrYCd2mgQCqyg5Y9Kfmp48uxj/
+	 C6vcahxYvFOvszO4UHHTNQvghBy6IQZqB+J16ZtYEKbEDEFWPuJH0xXNniJJ8K0m0u
+	 x62noQj5k+QgnRLu1jJJ+8p4WTl2aOM8fNd+Fv8Xqoth1mW47YurD51peFurGGYUMb
+	 jDRCCbXsBvqJ0ZOA1xJEuZvq3RwsSRvvitD0ppxwT8yzEuCyosnk0hxjmTEgXBYqPY
+	 wFMNSwaLXbD9nzQRvYPgdwwxkUXWWO/bO0cCFODqPnNZNgi/bY1ENy6Fs5KedcMjoU
+	 bWwQlAV/qYIUg==
+Date: Sat, 17 Oct 2026 13:56:51 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Sunil V L <sunilvl@oss.qualcomm.com>
+Cc: Adrien Ricciardi <aricciardi@baylibre.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+	Atish Patra <atish.patra@linux.dev>,
+	Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
+	Borislav Petkov <bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dave Martin <Dave.Martin@arm.com>, Fenghua Yu <fenghuay@nvidia.com>,
+	Gong Shuai <gong.shuai@sanechips.com.cn>,
+	Gong Shuai <gsh517@gmail.com>, guo.wenjia23@zte.com.cn,
+	James Morse <james.morse@arm.com>,
+	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn,
+	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Peter Newman <peternewman@google.com>,
+	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
 	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	E Shattow <e@freeshell.de>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/2] riscv: dts: spacemit: mark K1 boot nodes bootph-pre-ram
-Date: Sun, 18 Oct 2026 02:01:39 +0800
-Message-ID: <20261017180141.3477743-1-alan.tseng.cs@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Samuel Holland <samuel.holland@sifive.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Tony Luck <tony.luck@intel.com>,
+	Vasudevan Srinivasan <vasu@rivosinc.com>,
+	Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>,
+	yunhui cui <cuiyunhui@bytedance.com>,
+	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	x86@kernel.org, devicetree@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v9 2/5] riscv_cbqri: resctrl: Add cache allocation via
+ capacity block mask
+Message-ID: <atPhE6rF0Uz93qF2@thelio>
+References: <20261003-dfustini-atl-sc-cbqri-dt-v9-0-52fd8be98dcf@kernel.org>
+ <20261003-dfustini-atl-sc-cbqri-dt-v9-2-52fd8be98dcf@kernel.org>
+ <CAB19ukEkAOMnPpi2jVFz68GZ_7cwYmNtrBkxnfEJtFcPb7PJ5Q@mail.gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_110148_568301_35D67BD5 
-X-CRM114-Status: GOOD (  13.43  )
+Content-Disposition: inline
+In-Reply-To: <CAB19ukEkAOMnPpi2jVFz68GZ_7cwYmNtrBkxnfEJtFcPb7PJ5Q@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,64 +97,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A bootloader SPL on the SpacemiT K1 runs from SRAM and needs a handful
-of nodes before DRAM is up: the root clocks and clock controllers, the
-console UART, the boot media (SD, eMMC, QSPI NOR), the board EEPROM
-used to identify the board, and the PMIC rails it programs before DRAM
-training. Today mainline U-Boot carries the bootph-pre-ram tags for
-these in per-board -u-boot.dtsi files.
-
-When I sent a U-Boot patch adding another such file for the Milk-V
-Jupiter, E Shattow asked for the tags to go upstream first, so every
-K1 board gets them and the U-Boot overlays can shrink [1]. Earlier
-there was no working mainline SPL for K1 to justify them; there is now.
-
-Patch 1 tags the SoC nodes in k1.dtsi, including i2c8, which every K1
-board uses for the PMIC. Patch 2 tags the board-specific EEPROM and its
-bus, the PMIC rails and the SPI NOR on the boards that have them. The
-set of nodes matches what the mainline U-Boot SPL tags for the BPI-F3
-and MusePi Pro. Pin control and regulator supplies are left untagged:
-the K1 SPL does not enable SPL_PINCTRL, and neither the P1 PMIC driver
-nor the SPI NOR and EEPROM drivers look up supplies there.
-
-Testing: all K1 DTBs build, and dtbs_check is clean for them with and
-without this series. I have not run an SPL built from these trees on
-hardware. On a Milk-V Jupiter running Linux I checked that the EEPROM,
-PMIC and SPI NOR answer at the addresses described.
-
-Changes in v2:
-- Tag i2c8 in k1.dtsi instead of in every board file (Yixun)
-- Rebase onto the spacemit dt-for-next branch, where buck1 now carries
-  the buck1_0v9 label on musepi-pro and the OrangePi boards
-- Link to v1: https://lore.kernel.org/all/20261012235624.77993-1-alan.tseng.cs@gmail.com/
-
-[1] https://lore.kernel.org/u-boot/5d323a11-da4e-4071-bdeb-ab5c03e8f85e@freeshell.de/
-
-Hung-Chun Tseng (2):
-  riscv: dts: spacemit: k1: mark boot-critical SoC nodes bootph-pre-ram
-  riscv: dts: spacemit: mark K1 board boot devices bootph-pre-ram
-
- arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi |  6 ++++++
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   |  6 ++++++
- arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts |  7 +++++++
- arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts    |  7 +++++++
- arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts  |  4 ++++
- arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts  |  5 +++++
- arch/riscv/boot/dts/spacemit/k1.dtsi              | 13 +++++++++++++
- 7 files changed, 48 insertions(+)
-
-
-base-commit: d05c6236496071916e19012cda7149465f15e66e
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBPY3QgMTIsIDIwMjYgYXQgMTA6MjM6NTdQTSArMDUzMCwgU3VuaWwgViBMIHdyb3Rl
+Ogo+IE9uIFNhdCwgT2N0IDMsIDIwMjYgYXQgMTI6NDXigK9QTSBEcmV3IEZ1c3RpbmkgPGZ1c3Rp
+bmlAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPgo+ID4gV2lyZSBDQlFSSSBjYXBhY2l0eSBjb250cm9s
+bGVycyBpbnRvIHJlc2N0cmwgYXMgUkRUX1JFU09VUkNFX0wyIGFuZAo+ID4gUkRUX1JFU09VUkNF
+X0wzIHNjaGVtYXRhLgo+ID4KPiA+IHJlc2N0cmwgZXhwb3NlcyBhIHNpbmdsZSBjYXBhY2l0eSBt
+YXNrIHBlciByZXNvdXJjZSwgc28gd2hlbiBtb3JlIHRoYW4KPiA+IG9uZSBjYXBhY2l0eSBjb250
+cm9sbGVyIGJhY2tzIGEgY2FjaGUgbGV2ZWwgdGhleSBtdXN0IHJlcG9ydCB0aGUgc2FtZQo+ID4g
+bnVtYmVyIG9mIGNhcGFjaXR5IGJsb2Nrcy4gVGhlIHNhbWUgaG9sZHMgZm9yIHRoZSBvdGhlciBj
+YXBhYmlsaXRpZXMKPiA+IHJlc2N0cmwgZXhwb3NlcyBvbmNlIHBlciByZXNvdXJjZS4gQSBsZXZl
+bCB3aG9zZSBjb250cm9sbGVycyBkaXNhZ3JlZQo+ID4gaXMgbGVmdCB1bmV4cG9zZWQuIE90aGVy
+IGxldmVscyBhcmUgdW5hZmZlY3RlZC4KPiA+Cj4gPiBUaGUgc2V0IG9mIGNvbnRyb2xsZXJzIGJh
+Y2tpbmcgZWFjaCBsZXZlbCBpcyBmaXhlZCB3aGVuIHJlc2N0cmwgaXMgc2V0Cj4gPiB1cCBhdCBs
+YXRlX2luaXRjYWxsLiBDb250cm9sIGRvbWFpbnMgYXJlIGNyZWF0ZWQgaW4gdGhlIGNwdWhwIG9u
+bGluZQo+ID4gY2FsbGJhY2sgYW5kIGtleWVkIG9uIHRoZSBvbmxpbmluZyBDUFUncyBjYWNoZSBp
+ZCBmcm9tIGNhY2hlaW5mbywgc28gYQo+ID4gQ1BVIHRoYXQgaXMgb2ZmbGluZSBhdCBwcm9iZSB0
+aW1lIHN0aWxsIGpvaW5zIGl0cyBkb21haW4gb25jZSBpdCBjb21lcwo+ID4gb25saW5lLCBwcm92
+aWRlZCBhIGNvbnRyb2xsZXIgZm9yIGl0cyBjYWNoZSBpcyBpbiB0aGF0IHNldC4gQSBDUFUgd2hv
+c2UKPiA+IGNhY2hlIGhhcyBubyBjb250cm9sbGVyIGlzIGxlZnQgb3V0IG9mIHRoYXQgbGV2ZWwg
+YW5kIGEgd2FybmluZyBpcwo+ID4gbG9nZ2VkIG9uY2UuIEEgZG9tYWluIGlzIHB1Ymxpc2hlZCBv
+biB0aGUgY3RybF9kb21haW5zIFJDVSBsaXN0IG9ubHkKPiA+IGFmdGVyIGl0IGlzIGZ1bGx5IGlu
+aXRpYWxpemVkIGFuZCBicm91Z2h0IG9ubGluZSwgYW5kIHJlbW92ZWQgZnJvbSB0aGUKPiA+IGxp
+c3QgYmVmb3JlIGl0IGlzIHRha2VuIG9mZmxpbmUsIGZvbGxvd2luZyB0aGUgZG9jdW1lbnRlZCBz
+YWZlCj4gPiB0cmF2ZXJzYWwgcnVsZXMuCj4gPgo+ID4gQXNzaXN0ZWQtYnk6IExMTQo+ID4gVGVz
+dGVkLWJ5OiBDaGVuIFBlaSA8Y3AwNjEzQGxpbnV4LmFsaWJhYmEuY29tPgo+ID4gQ28tZGV2ZWxv
+cGVkLWJ5OiBBZHJpZW4gUmljY2lhcmRpIDxhcmljY2lhcmRpQGJheWxpYnJlLmNvbT4KPiA+IFNp
+Z25lZC1vZmYtYnk6IEFkcmllbiBSaWNjaWFyZGkgPGFyaWNjaWFyZGlAYmF5bGlicmUuY29tPgo+
+ID4gU2lnbmVkLW9mZi1ieTogRHJldyBGdXN0aW5pIDxmdXN0aW5pQGtlcm5lbC5vcmc+Cj4gPiAt
+LS0KPiA+ICBNQUlOVEFJTkVSUyAgICAgICAgICAgICAgICAgICAgICB8ICAgMiArCj4gPiAgYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS9yZXNjdHJsLmggfCAxNDcgKysrKysrKwo+ID4gIGRyaXZlcnMv
+cmVzY3RybC9LY29uZmlnICAgICAgICAgIHwgICA0ICsKPiA+ICBkcml2ZXJzL3Jlc2N0cmwvTWFr
+ZWZpbGUgICAgICAgICB8ICAgMSArCj4gPiAgZHJpdmVycy9yZXNjdHJsL2NicXJpX3Jlc2N0cmwu
+YyAgfCA4MzEgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gPiAgNSBm
+aWxlcyBjaGFuZ2VkLCA5ODUgaW5zZXJ0aW9ucygrKQpbLi5dCj4gPiBkaWZmIC0tZ2l0IGEvZHJp
+dmVycy9yZXNjdHJsL2NicXJpX3Jlc2N0cmwuYyBiL2RyaXZlcnMvcmVzY3RybC9jYnFyaV9yZXNj
+dHJsLmMKPiA+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gPiBpbmRleCAwMDAwMDAwMDAwMDAuLmYx
+MGEyNDc2MWIyNQo+ID4gLS0tIC9kZXYvbnVsbAo+ID4gKysrIGIvZHJpdmVycy9yZXNjdHJsL2Ni
+cXJpX3Jlc2N0cmwuYwpbLi5dCj4gPiArc3RhdGljIGludCBjYnFyaV9yZXNjdHJsX3NldHVwKHZv
+aWQpCj4gPiArewo+ID4gKyAgICAgICBpbnQgcmlkOwo+ID4gKyAgICAgICBpbnQgZXJyOwo+ID4g
+Kwo+ID4gKyAgICAgICBmb3IgKHJpZCA9IDA7IHJpZCA8IFJEVF9OVU1fUkVTT1VSQ0VTOyByaWQr
+KykKPiA+ICsgICAgICAgICAgICAgICBjYnFyaV9yZXNjdHJsX3Jlc291cmNlc1tyaWRdLnJlc2N0
+cmxfcmVzLnJpZCA9IHJpZDsKPiA+ICsKPiBXaHkgY2FuJ3QgY2JxcmlfcmVzY3RybF9jb250cm9s
+X2luaXQgZGlyZWN0bHkgdXNlCj4gY2JxcmlfcmVzY3RybF9yZXNvdXJjZXM/IEkgZmVlbCB0aGlz
+IGluaXRpYWxpemF0aW9uIGlzIHJlZHVuZGFudC4KClRoaXMgaXMgc2ltaWxhciB0byB3aGF0IHg4
+NiBhbmQgYXJtIG1wYW0gYWxzbyBkbyBzaW5jZSBpdCBpcyBpbXBvcnRhbnQKYmVmb3JlIGFueSBy
+ZXNjdHJsIGNvZGUgaXMgY2FsbGVkLiBmb3JfZWFjaF9yZHRfcmVzb3VyY2UoKSB3aWxsIGdldApz
+dHVjayBpbiBhIGxvb3AgaWYgdGhlIHJpZCB2YWx1ZXMgYXJlIG5vdCBpbml0aWFsaXplZC4gSW4g
+Y29udHJhc3QsCmNicXJpX3Jlc2N0cmxfY29udHJvbF9pbml0KCkgb25seSBoYW5kbGVzIHRoZSBy
+ZXNvdXJjZXMgZm9yIHdoaWNoCmNicXJpX3Jlc2N0cmxfcGlja19jYWNoZXMoKSBmb3VuZCBhIGNv
+bnRyb2xsZXIuCgpUaGUgaW5pdGlhbGl6YXRpb24gY291bGQgYmUgbW92ZWQgaW50byBjYnFyaV9y
+ZXNjdHJsX2NvbnRyb2xfaW5pdCgpCmJlZm9yZSBhbnkgZWFybHkgcmV0dXJuIHBhdGhzIGJ1dCBp
+dCBkb2VzIGludHJvZHVjZSB0aGUgcG9zc2liaWxpdHkgdGhhdApyaWQgaW5pdGlhbGl6YXRpb24g
+Y291bGQgYmUgbWlzc2VkIGlmIGNicXJpX3Jlc2N0cmxfY29udHJvbF9pbml0KCkgaXMKZXZlciBy
+ZWZhY3RvcmVkLiBHaXZlbiB0aGF0LCBJJ20gaW5jbGluZWQgdG8ga2VlcCB0aGUgY3VycmVudCBz
+dHJ1Y3R1cmUuCgpUaGFua3MsCkRyZXcKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
