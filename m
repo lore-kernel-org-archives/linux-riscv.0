@@ -4,94 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D70E2CCF2C3
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2026 21:55:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8855CCA490
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2026 01:37:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+TUvv6OPoaqD+wJZVTstTQ9FRQFoD8tJCeolXW9yGuo=; b=ma0ffCyDc84izp
-	XBV6EfxoWTN3UxtyBp0EA6sLedf1BP59MnE2hF7okIwfbptZ/6bpo+/eMl0bOhSVE5xDZtuza7EJc
-	CKKKTGo42OJO+O2xUTBgrlvsUmCEnp4sD/GrplgZ9Unmha1UgGBuBoAsDoaWDMASAx/Ql2+7R6pE7
-	bqpEI/cPfwwUzXqvm364sI/N6Z5ynSZQpT13RYGSMOKF3H1REd3+r/9B6r18+1hKsPSuPgdZQIE3B
-	PODKzsNoWlN1bTp2Y16Wp2eLXCvhrH9PbO3goEH18jtwy++ro6dSKuW2Ah+0fPsgHq+U0KM7EARHC
-	za3+dMV7ZniLwHT4iHFg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dpPbYQZaKROW0YEl3Ikv56cFhugII4yAJkY0KfnEUsI=; b=yje3aq23XBt2tA
+	NcOIUZmCQGWP1tBY0UleMGPvC8ndva2NxN/pk44zTZyqcdNUgrHD+pIhLnSaKH/Xx07vPhSjVm0iI
+	pAIQYdjIuKJ+GRfukULviak6WxHuBD5+7Y2MKZGrt2zO+VTqQKZvt1Olo2RcIW6XjXDTIPY5RNopM
+	EsZdeldFqa/lESamf3SUrpYtC/fBtTz8MB6vspiT0L6toeq0W9rl0Q2p3AotAkBJ0Bf6RpYW7sMI2
+	s9XHyWzt5XP16bcezGYRH+56xospU0XWQc6kHFkel75PKR7ZL17PiEQx/Ktjc/qzgso8CTCVP1gvO
+	3SBWX2/707eNLCvVsHHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHptS-000000048Ky-2iYY;
-	Fri, 16 Oct 2026 21:55:14 +0000
-Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
+	id 1xHtLp-00000004JeE-0WAU;
+	Sat, 17 Oct 2026 01:36:45 +0000
+Received: from outgoing2021.csail.mit.edu ([128.30.2.78])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHptQ-000000048KL-1iaN
+	id 1xHtLn-00000004JdS-0ssS
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Oct 2026 21:55:13 +0000
-Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-6756a01fa01so492029d50.0
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Oct 2026 14:55:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1792187711; x=1792792511; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=kRdKsMnoUYDjl4OXqzoURv6V5579I0uPGZbnGd93awc=;
-        b=HsGC2KB+OwbPRW5iHJJSPMvZqZfNaOCjTkjCYwPESio74ZXgtDA2orQ08lkyXjgrck
-         Sx6d9MRG5vPps/PmOoWbM+bPtzV1NVKqAW4ZFNuGRQJNnU2ivwn/cf38OiNvwCzQ4mJr
-         ZE8acFIq8VkupSZe2iZIC4HMer5HRsHsVJ2dJAQwohMy0CFgMsQWCDQZGCNNEv7tceKP
-         SWBpVQlPGO57C/hz4Hg1VnE6RCWkZ3OWVh2AAzlNm/J2fQCA0MZXpI/dku4VqvfmQtMc
-         N3/X5BddjNJjAnaN6XCGJsvk/eyR+uWw0zsV9NXfypp3hTho64rrqqeRj7tyjXwEibME
-         inew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792187711; x=1792792511;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=kRdKsMnoUYDjl4OXqzoURv6V5579I0uPGZbnGd93awc=;
-        b=xKSbEITO9xpjNKvD8/FN6d6MClHzFu/bBSfUQhSHSd24sz6vGHV46CDZPziN3O28ea
-         v4GBBTSD/GxTRWvr1KxZgF7CaYnW1dctkrUXQhjazvqfWUN5aYEDpIMPNuMCA9g6dkNV
-         NVP46obZ/6Ts16+XrFVe7SdJCfzG4TSnHuv3innzNWzcC2RFzPvYRE4wYMXRtQDoVMh2
-         23Lsc1uPRoL0xWAPQSy3Me4dpC5uUyoh1YFM4Z72Suy1Vbh9kaqbsnKPkyS86bGlSmad
-         KgSVlfkry6xEvHIgLXD9deYNRjjTNLt3fCKJpqLlifTY9cbkguXjnOcaDdmt6T/ZTOmq
-         BVjA==
-X-Gm-Message-State: AFq9FYJXoz8f+qh7Jv4brYwonabXZZmL2tg4heu8xUdDbP8IiZ3kC9ft
-	amwaTAjG5mJXHXbidcO/QXs1MmN11A6eieneczOcJTKZBfTfA8c0ZeYLqm60yhe9bpU=
-X-Gm-Gg: AYBFou2PeegslqbLxc8kGP34NOvHgxKaZSv7MxVwXJRRlI2mljmrNxUSuA+XUGjiBsL
-	S7z1mNWYcZ9zs1DiuqjE90NFUSNsZzSbOs7Nmi4bnnU8M5ejKRsuqDh22aU922HlpiQSXI8UVnX
-	j5rlfkoJ3Vjgf6ez65r9Nn7ozJlr7Z30PhL3nXxV4pmckFhIdLP6pFeBsCn7fNF9IjtAI2quCrd
-	r1x93ffPars1d7thCB/xkUX9GX7asR3qj8sE3DZoPHVoGlmtoT4+ap9LpS7a09SkCi8AVMlR5yo
-	Wp8WPvYdVbQSiyoxHbPJxfbfvXmkVhuOcQvQHES2QWfwPpK11tw3arwNq4xVD6QVF8GRXlcdSf/
-	64xQtIBhJ+2IZp0x6+++x5W6LTBGiwNzTz5YVrSD5VPKfz/nhUJFywkZK3b9RlaAC0ig6hpJOdl
-	/sHW+k4RpMrgqE1EEq8e4Nbg3GwuZCC+ae+qt2/89XfRbwjeCZMf1YViFeg02Uvj19L2tsDPyT3
-	yRvirj/3UHkAw/+uQ4W
-X-Received: by 2002:a05:690e:bc6:b0:679:980d:9968 with SMTP id 956f58d0204a3-679ca7f7235mr217435d50.60.1792187711142;
-        Fri, 16 Oct 2026 14:55:11 -0700 (PDT)
-Received: from localhost ([2600:1700:220:5c80:6dfb:85d9:d6b:fdcb])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-679b1f29ddfsm1626136d50.23.2026.10.16.14.55.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Oct 2026 14:55:10 -0700 (PDT)
-Date: Fri, 16 Oct 2026 16:55:09 -0500
-From: Andy Chiu <tchiu@tenstorrent.com>
-To: Radim =?iso-8859-1?Q?Krcm=E1r?= <radim.krcmar@oss.qualcomm.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Andy Chiu <andybnac@gmail.com>, Guodong Xu <guodong@riscstar.com>,
-	Zong Li <zong.li@sifive.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>
-Subject: Re: [PATCH 6/6] riscv: hwprobe: Report SiFive vector extensions only
- when available
-Message-ID: <atKdPZFu0j86WtTS@Tao-Chiu's-Mac>
-References: <20261006075303.205216-1-radim.krcmar@oss.qualcomm.com>
- <20261006075303.205216-7-radim.krcmar@oss.qualcomm.com>
+	Sat, 17 Oct 2026 01:36:44 +0000
+Received: from escalante.csail.mit.edu ([128.52.128.198])
+	by outgoing2021.csail.mit.edu with esmtp (Exim 4.95)
+	(envelope-from <nickolai@csail.mit.edu>)
+	id 1xHtLe-00HJES-F9;
+	Fri, 16 Oct 2026 21:36:34 -0400
+From: Nickolai Zeldovich <nickolai@csail.mit.edu>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Waterman <andrew@sifive.com>,
+	linux-riscv@lists.infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Nickolai Zeldovich <nickolai@csail.mit.edu>
+Subject: [PATCH v1] riscv: mm: Skip the icache flush for special PTEs
+Date: Fri, 16 Oct 2026 21:36:34 -0400
+Message-ID: <20261017013634.792220-1-nickolai@csail.mit.edu>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261006075303.205216-7-radim.krcmar@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_145512_451576_3F7BD373 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261016_183643_251572_C437B6BC 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,33 +61,139 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 06, 2026 at 09:53:03AM +0200, Radim Krcm=E1r wrote:
-> User-mode use of the SiFive vector extensions requires non-Off
-> sstatus.VS, which we set only when has_vector() (CONFIG_RISCV_ISA_V and
-> Zve32x on all harts).  Xsfvfnrclipxfqf and Xsfvfwmaccqqq also execute
-> floating-point instructions, which additionally require non-Off
-> sstatus.FS and hence has_fpu().  hwprobe reports the extensions from the
-> per-hart vendor ISA bitmaps alone, so it can advertise extensions that
-> are always disabled in user-mode.
-> =
+Mapping device memory executable crashes the kernel: an mmap() with
+PROT_EXEC of a physical range outside RAM, from /dev/mem, from a PCI
+BAR's sysfs resource file, from a frame buffer or from any driver whose
+mmap() uses remap_pfn_range(), io_remap_pfn_range() or vmf_insert_pfn(),
+oopses in flush_icache_pte() with the page table lock held; the task
+never completes its exit and its parent's wait() hangs. On QEMU virt
+with the riscv64 defconfig of v7.3-rc7, mapping the PCIe ECAM window
+from /dev/mem:
 
-> Report correct environment to user-mode.
-> =
+mmap(/dev/mem, phys 0x30000000, PROT_READ|PROT_EXEC, MAP_SHARED)
+Unable to handle kernel paging request at virtual address ff1c000000c00008
+Oops [#1]
+epc : flush_icache_pte+0x74/0xa0
+ ra : do_remap_pfn_range+0x2b2/0x3ee
+...
+note: test[52] exited with preempt_count 2
 
-> Fixes: 1a6274f03534 ("riscv: hwprobe: Add SiFive vendor extension support=
- and probe for xsfqmaccdod and xsfqmaccqoq")
-> Fixes: 1d91224394c9 ("riscv: hwprobe: Add SiFive xsfvfnrclipxfqf vendor e=
-xtension")
-> Fixes: d9669e33c8fa ("riscv: hwprobe: Add SiFive xsfvfwmaccqqq vendor ext=
-ension")
-> Signed-off-by: Radim Krcm=E1r <radim.krcmar@oss.qualcomm.com>
+With CONFIG_FLATMEM (32-bit, or a 64-bit configuration without
+SPARSEMEM) nothing faults: pte_page() of a pfn outside RAM is a pointer
+outside mem_map, and flush_icache_pte() tests and sets a bit of whatever
+memory it lands on. The privilege needed is that of the device file
+(root for /dev/mem and the PCI resource files). Present since the port
+was merged (v4.15).
 
-Reviewed-by: Andy Chiu <tchiu@tenstorrent.com>
+__set_pte_at() calls flush_icache_pte() for every present executable
+PTE. flush_icache_pte() does the flush once per folio: it takes
+page_folio(pte_page(pte)) and tests and sets PG_dcache_clean. A special
+PTE (pte_mkspecial(), what remap_pfn_range() and vmf_insert_pfn() write
+into a VM_PFNMAP mapping) maps a frame the kernel does not manage as a
+page: there is no struct page behind it, so pte_page() returns a vmemmap
+address with no memory section, or with FLATMEM a pointer outside the
+array.
+
+Skip the flush for special PTEs, as arm64 does since
+commit 71fdb6bf61bf ("arm64: Do not synchronise I and D caches for
+special ptes"). These mappings are device memory or buffers the kernel
+never wrote code into on the user's behalf; a user that writes code
+into one and executes it has to flush with the cache flush system
+call, as for any memory it writes itself.
+
+Found while formally verifying remap_pte_range() against the kernel
+binary.
+
+Fixes: 08f051eda33b ("RISC-V: Flush I$ when making a dirty page executable")
+Assisted-by: LLM
+Signed-off-by: Nickolai Zeldovich <nickolai@csail.mit.edu>
+---
+
+Notes:
+    Every pte_special() PTE goes through this path: remap_pfn_range() and
+    io_remap_pfn_range() (remap_pte_range() writes pte_mkspecial(pfn_pte())),
+    vmf_insert_pfn() (insert_pfn()), and the huge variants through
+    set_pmd_at()/set_pud_at(), which also land in __set_pte_at(). The
+    pte_special() bit is _PAGE_SPECIAL (RSW bit 8) on every riscv
+    configuration; ARCH_HAS_PTE_SPECIAL is selected unconditionally.
+    
+    Non-special PTEs are unchanged: anonymous, page cache and
+    vm_insert_page() mappings keep the per-folio flush. A RAM-backed
+    VM_PFNMAP mapping (dma_mmap_coherent() of an allocated buffer, /dev/mem
+    over RAM) loses the flush it used to get; nothing in the kernel writes
+    instructions into such a buffer for userspace to execute, and the
+    PG_dcache_clean state of those pages was never maintained for that use.
+    
+    Reproducer (QEMU virt, riscv64 defconfig, as /init with /dev/mem c 1 1
+    in the initramfs; the PCIe ECAM window is at 0x30000000, any non-RAM
+    range does):
+    
+      riscv64-linux-gnu-gcc -O2 -static -o test exec_mmio_mmap.c
+      qemu-system-riscv64 -M virt -cpu max -smp 2 -m 1G -nographic \
+          -bios /usr/share/qemu/opensbi-riscv64-generic-fw_dynamic.bin \
+          -kernel Image -initrd initramfs.cpio -append "console=ttyS0 rdinit=/init"
+    
+      unpatched: Unable to handle kernel paging request at virtual address
+                 ff1c000000c00008, epc : flush_icache_pte+0x74/0xa0,
+                 ra : do_remap_pfn_range+0x2b2/0x3ee; the task never exits
+      patched:   mapped at 0x7fffab55d000, first word 0x00081b36
+                 (the host bridge's vendor and device ID)
+    
+      #include <fcntl.h>
+      #include <stdint.h>
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <sys/mman.h>
+      #include <unistd.h>
+    
+      int main(int argc, char **argv)
+      {
+      	unsigned long phys = argc > 1 ? strtoul(argv[1], NULL, 0) : 0x30000000UL;
+      	volatile uint32_t *p;
+      	int fd;
+    
+      	fd = open("/dev/mem", O_RDONLY | O_SYNC);
+      	if (fd < 0) {
+      		perror("open /dev/mem");
+      		return 2;
+      	}
+      	printf("mmap(/dev/mem, phys 0x%lx, PROT_READ|PROT_EXEC, MAP_SHARED)\n", phys);
+      	fflush(stdout);
+      	p = mmap(NULL, 4096, PROT_READ | PROT_EXEC, MAP_SHARED, fd, phys);
+      	if (p == MAP_FAILED) {
+      		perror("mmap");
+      		return 2;
+      	}
+      	printf("mapped at %p, first word 0x%08x\n", p, p[0]);
+      	return 0;
+      }
+
+ arch/riscv/include/asm/pgtable.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 40b1ed4f3ea8..7a4d60ccabb0 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -628,7 +628,8 @@ void flush_icache_pte(struct mm_struct *mm, pte_t pte);
+ 
+ static inline void __set_pte_at(struct mm_struct *mm, pte_t *ptep, pte_t pteval)
+ {
+-	if (pte_present(pteval) && pte_exec(pteval))
++	/* A special PTE has no struct page for flush_icache_pte() to track. */
++	if (pte_present(pteval) && pte_exec(pteval) && !pte_special(pteval))
+ 		flush_icache_pte(mm, pteval);
+ 
+ 	set_pte(ptep, pteval);
+
+base-commit: 70dd4ee72eb2d5793c62e71c14e3aba78e5a4e56
+-- 
+2.53.0
 
 
 _______________________________________________
