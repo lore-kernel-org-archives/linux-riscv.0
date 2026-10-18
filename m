@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D4CFCCF2C9
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Oct 2026 12:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28064CCA490
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Oct 2026 12:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
 	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eNgOFCcpSfCUjgOufeK4vfKJ8ENZ/+SoZzY0ngVKDa4=; b=xfctXmPmqyvJ1F
-	4zmBa8kSP3Jq5HtqhQ9r5PKlt4YykPMPOBLL2M1kISFjJRQR6LZnFqoIpbU3pHa7ZG9ajX/idQiLw
-	pwkhewA7d2p1kkTEu/O/O/0punjkSHAiE8FN09jO3PsupzF6jNoYEdmAHQO8TDN+qSVONkXnvjIkx
-	l0kIxCYyC0wMaWgY1tdGcxyk2K75AsLKYNM/yJ3GwUpUG/AstHtIZTAfUHL0unMt5M0KW3PGw32n/
-	rSLwemwStmXMYmGrcWIq+RB34hwe1eXHrKoXnS+gO+kbafVBgQipnE56lTRTcQ2j+qBa0SDM8qexC
-	jD199118j/7iEPn+7IFg==;
+	List-Owner; bh=nHZXl/7RBd5ItAHOaNvaD8rsK4xvfXNcKBHCD2ZY09M=; b=BH/9DNGywUPQZN
+	vAcYVGfi8SDXmg+w/RgEGhvcS+UFmaJxVGtmjfcWQmPpmm52Oczp/s376L0D70SIftn8yUH46FiIQ
+	zyz05hqIM1nGra6cDbv7DKooTXybo/8iRQZ4vb28msFaTsItaxKqqcCtR/SWbQ+j6IZ6XKoPOY9be
+	fhaC7YWHjng8GQ5HRrqd1Q+VyTfryU6XqAxBTUHJHK345L/V0dpyK1ZVp7xjyRdM3e5izEIT2fVyw
+	vFVGIMDmKErISvO/8jseBQXTT//xuUHp3+v7kQMxKFsZSaYCgZJbMryhZlbB2qLcxSay2EfUM21DQ
+	ZXY97hdmmyybguyDeZYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIPoN-00000005pbg-1gab;
-	Sun, 18 Oct 2026 12:16:23 +0000
+	id 1xIQ7e-00000005rLk-0c74;
+	Sun, 18 Oct 2026 12:36:18 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIPoL-00000005pba-2KK0
+	id 1xIQ7b-00000005rLd-0w2E
 	for linux-riscv@lists.infradead.org;
-	Sun, 18 Oct 2026 12:16:21 +0000
+	Sun, 18 Oct 2026 12:36:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E66DA40A99;
-	Sun, 18 Oct 2026 12:16:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 389FC1F000C4;
-	Sun, 18 Oct 2026 12:16:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 87E9342D7A;
+	Sun, 18 Oct 2026 12:36:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4178D1F000C4;
+	Sun, 18 Oct 2026 12:35:57 +0000 (UTC)
 MIME-Version: 1.0
 Subject: Re: [PATCH v7 6/6] PCI: spacemit-k1: Add Spacemit K3 PCIe host
  controller support
 From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Jingoo Han <jingoohan1@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>, 
+Cc: Jingoo Han <jingoohan1@gmail.com>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>, 
  =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
  Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
@@ -54,6 +54,7 @@ Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
  Randolph Lin <randolph@andestech.com>, 
  Xincheng Zhang <zhangxincheng@ultrarisc.com>, 
  Alex Elder <elder@riscstar.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
  Marek Vasut <marek.vasut+renesas@mailbox.org>, 
  Vidya Sagar <vidyas@nvidia.com>, Pengpeng Hou <pengpeng@iscas.ac.cn>, 
  Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, 
@@ -62,23 +63,22 @@ Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
  Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-In-Reply-To: <arzYt1svE0HtZPSB@inochi.infowork>
+In-Reply-To: <20260929083755.458238-7-inochiama@gmail.com>
 References: <20260929083755.458238-1-inochiama@gmail.com>
  <20260929083755.458238-7-inochiama@gmail.com>
- <arzAGOKLOustEW7F@ashevche-desk.local> <arzYt1svE0HtZPSB@inochi.infowork>
-Date: Sun, 18 Oct 2026 17:45:53 +0530
-Message-Id: <179232575369.2114.17486970950843580484.b4-reply@b4>
+Date: Sun, 18 Oct 2026 18:05:39 +0530
+Message-Id: <179232693939.2114.10956498814503201256.b4-reply@b4>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3918;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4010;
  i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=1+bzX4D83wRXdVGWnDM81hIqRB9iDL/i6XQrXMg469g=;
- b=owGbwMvMwMUYOl/w2b+J574ynlZLYsi6sqOp5HR6+/6Zi9TeXRfUO5ulZG6QrBXsetxa7mLa2
- u26NSZCnYzGLAyMXAyyYoos6UudtRo9Tt9YEqE+HWYQKxPIFAYuTgGYSAsj+z991nLpwsUV2+rf
- zdi2JrNLyc6e5c/J+/72/8zFE3/VRU9PXRcVf9ajXmZ3YvKasOKeyZlnNwgofTH8+TdWWnTH636
- OmUt4Ii6zVSR08SiLc5zjlAhq/v3m/6Owl1ve3+XMTWw38G86l/ZF6myfk92k6HIf+30cFwK3nW
- v4kFAm2XzKLSR95S0JOYbHt8pvfJ/GIWth7L795AHmHV3b1NyVapN/Pvko0Fc5TzFz44HyvfI7f
- d0Vv3TPdEox7fpkzOi2h1Fz/w57v6VXfvNx1yUUVleGeVpVlTV4fWR6yrX7QFioQsAKwTgrxc88
- nVWG79+xh4X4bhdqbfJ6sJrtnfceo97QfweOb2SPZPoIAA==
+ bh=ljDHyDaZBANeeICNvzSN7DVpxrl3r0R0WMwfV/PkUXM=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBq1L0pE5kbgUbKenMgAMe+ZzJeUUKq5H6vAkioO
+ RiDLJWutYKJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCatS9KQAKCRBVnxHm/pHO
+ 9RvzB/9/ZK7KgWgk4XijvjJCRJao8cXcma0BG7oXAw0FSZAUcT47dcuRodLf4Qn6okWf9kCDbmn
+ aHD17eIigO8b6uPuGn8P+zndjKVE3yXIxPQU/Am9k+/T/6TFhZD5VxhtCChzFi8jxIpa6S9S14L
+ pHksTseuSy8+l7eMZcw1Orq9GNHitN5lMRkRYhb/qSumrZIgL4IKCdqho64yZ2dEJRaYquGhvEz
+ ltoCD/PkJA4QvgRc5yrIYMw4nuQXDrGviRUL9iZdRaIFi2HsjNCzrcdXgL7pLjsjDPiQSM5FLLG
+ sFcUeCrrqDAHwMlPFVuNK4Zcxhy913CMi8nNUH7jQFaYHJNy
 X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
  fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -97,125 +97,114 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-09-30 17:44 +0800, Inochi Amaoto wrote:
-> On Wed, Sep 30, 2026 at 10:54:00AM +0300, Andy Shevchenko wrote:
-> > On Tue, Sep 29, 2026 at 04:37:52PM +0800, Inochi Amaoto wrote:
-> > > The PCIe controller on Spacemit K3 is almost a standard Synopsys
-> > > DesignWare PCIe IP with extra link and reset control. Unlike
-> > > the PCIe controller on K1, this controller supports external MSI
-> > > interrupt controller and can use multiple PHYs at the same time.
-> > > 
-> > > Add driver to support PCIe controller on Spacemit K3 PCIe.
-> > 
-> > ...
-> > 
-> > > +static int k3_pcie_init(struct dw_pcie_rp *pp)
-> > > +{
-> > > +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> > > +	struct k1_pcie *k1 = to_k1_pcie(pci);
-> > > +	u32 reset_ctrl = k1->pmu_off + PCIE_CLK_RESET_CONTROL;
-> > > +	u32 val;
-> > > +	int ret;
-> > > +
-> > > +	regmap_clear_bits(k1->pmu, reset_ctrl, LTSSM_EN);
-> > > +
-> > > +	k1_pcie_toggle_soft_reset(k1);
-> > > +
-> > > +	/* K3: Set IGNORE_PERSTN and drive PERSTN_OE high (assert reset) */
-> > > +	regmap_update_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
-> > > +			   PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE | PCIE_PERSTN_OUT,
-> > > +			   PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE);
-> > 
-> > Would it make sense to define permutations
-> > 
-> >   PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE
-> > 
-> > for here...
-> > 
+On 2026-09-29 16:37 +0800, Inochi Amaoto wrote:
+> The PCIe controller on Spacemit K3 is almost a standard Synopsys
+> DesignWare PCIe IP with extra link and reset control. Unlike
+> the PCIe controller on K1, this controller supports external MSI
+> interrupt controller and can use multiple PHYs at the same time.
 > 
-> I think it does not make sense, they are two separate fields.
-> A combine does not make the thing easier.
+> Add driver to support PCIe controller on Spacemit K3 PCIe.
 > 
-> > > +	ret = k1_pcie_enable_resources(k1);
-> > > +	if (ret)
-> > > +		goto failed_resources;
-> > > +
-> > > +	regmap_set_bits(k1->pmu, reset_ctrl, PCIE_AUX_PWR_DET);
-> > > +	regmap_clear_bits(k1->pmu, reset_ctrl, APP_HOLD_PHY_RST);
-> > > +
-> > > +	ret = phy_bulk_init(k1->phy_count, k1->phys);
-> > > +	if (ret)
-> > > +		goto failed_phy_init;
-> > > +
-> > > +	ret = phy_bulk_power_on(k1->phy_count, k1->phys);
-> > > +	if (ret)
-> > > +		goto failed_phy_power_on;
-> > > +
-> > > +	msleep(PCIE_T_PVPERL_MS);
-> > > +
-> > > +	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
-> > > +			PCIE_PERSTN_OUT | PCIE_PERSTN_OE);
-> > 
-> > ...and
-> > 
-> >   PCIE_PERSTN_OUT | PCIE_PERSTN_OE
-> > 
-> > for here and elsewhere?
-> > 
-> > > +	val = dw_pcie_readl_dbi(pci, GEN3_EQ_CONTROL_OFF);
-> > 
-> > > +	val = u32_replace_bits(val, BIT(7),
-> > > +			       GEN3_EQ_CONTROL_OFF_PSET_REQ_VEC);
-> > 
-> > It's perfectly a single line. Check your editor settings (I believe I have
-> > commented on a such in one of the previous rounds).
-> > 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>  drivers/pci/controller/dwc/Kconfig            |   4 +-
+>  drivers/pci/controller/dwc/pcie-spacemit-k1.c | 139 ++++++++++++++++++
+>  2 files changed, 141 insertions(+), 2 deletions(-)
 > 
-> Yes, but it is too hard for me as the intellisense plugin will show
-> the argument name so I am toot hard to keep that for a line that near
-> 80 chars....
-> 
+> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+> index dcfbe7e229fd..f9c27165260e 100644
+> --- a/drivers/pci/controller/dwc/Kconfig
+> +++ b/drivers/pci/controller/dwc/Kconfig
+> @@ -443,7 +443,7 @@ config PCIE_SOPHGO_DW
+>  	  Sophgo SoCs.
+>  
+>  config PCIE_SPACEMIT_K1
+> -	tristate "SpacemiT K1 PCIe controller (host mode)"
+> +	tristate "SpacemiT PCIe controller (host mode)"
+>  	depends on ARCH_SPACEMIT || COMPILE_TEST
+>  	depends on HAS_IOMEM
+>  	select PCIE_DW_HOST
+> @@ -451,7 +451,7 @@ config PCIE_SPACEMIT_K1
+>  	default ARCH_SPACEMIT
+>  	help
+>  	  Enables support for the DesignWare based PCIe controller in
+> -	  the SpacemiT K1 SoC operating in host mode.  Three controllers
+> +	  the SpacemiT SoC operating in host mode. Three controllers
+>  	  are available on the K1 SoC; the first of these shares a PHY
+>  	  with a USB 3.0 host controller (one or the other can be used).
+>  
+> diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> index ec59ccb710ec..61b430f2294a 100644
+> --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> @@ -28,8 +28,18 @@
+>  #define SMLH_LINK_UP			BIT(1)
+>  #define RDLH_LINK_UP			BIT(12)
+>  
+> +#define INTR_STATUS				0x0010
+> +
+>  #define INTR_ENABLE				0x0014
+>  #define MSI_CTRL_INT			BIT(11)
+> +#define RDLH_LINK_UP_INT		BIT(20)
+> +
+> +#define K3_PHY_AHB_IRQSTATUS_INTX		0x0008
+> +
+> +#define K3_ADDR_INTR_STATUS1			0x0018
+> +
+> +#define K3_CACHE_MSTR_AWCACHE_MODE	GENMASK(14, 11)
+> +#define K3_CACHE_MSTR_AWCACHE_BEHAVIOR	0xf
+>  
+>  /* Some controls require APMU regmap access */
+>  #define SYSCON_APMU			"spacemit,apmu"
+> @@ -44,6 +54,9 @@
+>  
+>  #define PCIE_CONTROL_LOGIC			0x0004
+>  #define PCIE_SOFT_RESET			BIT(0)
+> +#define PCIE_PERSTN_OE			BIT(24)
+> +#define PCIE_PERSTN_OUT			BIT(25)
+> +#define PCIE_IGNORE_PERSTN		BIT(31)
+>  
+>  struct k1_pcie;
+>  
+> @@ -315,6 +328,123 @@ static int k1_pcie_parse_port(struct k1_pcie *k1)
+>  	return ret;
+>  }
+>  
+> +static int k3_pcie_init(struct dw_pcie_rp *pp)
+> +{
+> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> +	struct k1_pcie *k1 = to_k1_pcie(pci);
+> +	u32 reset_ctrl = k1->pmu_off + PCIE_CLK_RESET_CONTROL;
+> +	u32 val;
+> +	int ret;
+> +
+> +	regmap_clear_bits(k1->pmu, reset_ctrl, LTSSM_EN);
+> +
+> +	k1_pcie_toggle_soft_reset(k1);
+> +
+> +	/* K3: Set IGNORE_PERSTN and drive PERSTN_OE high (assert reset) */
+> +	regmap_update_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
+> +			   PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE | PCIE_PERSTN_OUT,
+> +			   PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE);
+> +
+> +	ret = k1_pcie_enable_resources(k1);
+> +	if (ret)
+> +		goto failed_resources;
+> +
+> +	regmap_set_bits(k1->pmu, reset_ctrl, PCIE_AUX_PWR_DET);
+> +	regmap_clear_bits(k1->pmu, reset_ctrl, APP_HOLD_PHY_RST);
+> +
+> +	ret = phy_bulk_init(k1->phy_count, k1->phys);
+> +	if (ret)
+> +		goto failed_phy_init;
 
-If the line is within 80 chars, then there is no need to break. If your plugin
-is the issue, then fix it please.
-
-> > > +	dw_pcie_writel_dbi(pci, GEN3_EQ_CONTROL_OFF, val);
-> > > +
-> > > +	k1_pcie_set_device_id(k1);
-> > > +
-> > > +	/* Finally, as a workaround, disable ASPM L1 */
-> > > +	k1_pcie_disable_aspm_l1(k1);
-> > > +
-> > > +	return 0;
-> > > +
-> > > +failed_phy_power_on:
-> > > +	phy_bulk_exit(k1->phy_count, k1->phys);
-> > > +failed_phy_init:
-> > > +	k1_pcie_disable_resources(k1);
-> > > +failed_resources:
-> > > +	regmap_update_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
-> > > +			   PCIE_PERSTN_OUT | PCIE_PERSTN_OE,
-> > > +			   PCIE_PERSTN_OE);
-> > > +
-> > > +	return ret;
-> > > +}
-> > 
-> > ...
-> > 
-> > You checked everything but regmap IO. Why? Do you except it won't ever fail?
-> > Perhaps to add a note about this (if not yet) to the cover letter?
-> > 
-> 
-> It should not fail. IIRC the regmap will not fail for an
-> exclusive usage. The regmap here is just as handle for
-> the common device, but the device driver only use its
-> exclusive area so it should be safe.
-> 
-
-Here, regmap on MMIO is just readl+writel, so there is no way it can fail.
+You got me confused with this PHY bulk API for a moment. I think you are trying
+to control all the PHYs of the multi-port RC setup at once. But I believe
+that's not what we want mostly. Each port is an independent entity with its own
+PHY, PERST# etc... So the RC driver controlling all the PHYs at once, doesn't
+seem logical.
 
 - Mani
-
 
 
 _______________________________________________
