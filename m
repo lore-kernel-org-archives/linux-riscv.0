@@ -4,51 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF27CCCF2C7
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Oct 2026 02:42:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A26DCCF2C4
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Oct 2026 02:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5oBFR88nKBnpfYQsxYD2fpE5lVRJU/KFWpD5pDslj9c=; b=TBJUj184mkQK0J
-	7LT0Uy9Lg1NZP9yYcpmoqunvlRkUr3Wyq8/A4E+kl7DMajImnu2W0d4iSIQF7ZdLy0oFlwA5H1Non
-	GlsG2VAXspVO3aOX2ufOju9Kt0GEbZo0JCwlZHk7945q9q++htuQoaVOAj7oAYvP6Zm6tXALhJP2c
-	WnzLMB0JAGS/sGW1uhOxo6vgoPZ79w2uyLmp3uLa/gK2r4x9xvrS5f3f+wcSdfM1Wgs+qc0bYMqnY
-	aGyk8nOsSO/LJv752CknkANdZxUuGnwzP5gtvZJOMciXTU6Y7ki/vjGqFhqGrMYTiE2lKLvi4iAoH
-	i3lvtHCNkRAhikqUTDDQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lHKOQpt/LJmSS5IAvJlnrAk6fC2TJg5TiPzWpIhxSWo=; b=hJ4QgaWI/YOw4k
+	0a4X+JAgZSlk8LVDihW/aEErYY4HSeZLU2dmyLWUyOPX9Rm97nY8wQYrcfSVsWlGuJyL4Xg7DKhed
+	7BkW1LkeqB4mNwNbQQNa6qTxdmO9dH+ZKIgdfYmFYOvcstWFY9Rs6WF8pyvXin0g4eL1XROdI/P3H
+	Wpiu685kZBySijXyYv1iGnj2vUI01jEIHI5NS592t4uBlM4fVUaSIsm2TZu55XaYAJTotjYie64AI
+	h9dF8MHeZbzdPuTVdnT/NDooA7XyvA2ESnPLvJZhjR8iN5ud9C6GB5cSmNwk5hF4fCnB7UvZEEUph
+	mahBp6ywYk2SqjOVpnrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIGqq-00000005Slz-3VXS;
-	Sun, 18 Oct 2026 02:42:20 +0000
-Received: from outgoing2021.csail.mit.edu ([128.30.2.78])
+	id 1xIGw8-00000005SzD-1dmA;
+	Sun, 18 Oct 2026 02:47:48 +0000
+Received: from out-243.mta1.migadu.com ([95.215.58.243] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIGqo-00000005Slb-2Qqz
+	id 1xIGw4-00000005Syl-2ik8
 	for linux-riscv@lists.infradead.org;
-	Sun, 18 Oct 2026 02:42:19 +0000
-Received: from escalante.csail.mit.edu ([128.52.128.198])
-	by outgoing2021.csail.mit.edu with esmtp (Exim 4.95)
-	(envelope-from <nickolai@csail.mit.edu>)
-	id 1xIGql-004P3N-AL;
-	Sat, 17 Oct 2026 22:42:15 -0400
-From: Nickolai Zeldovich <nickolai@csail.mit.edu>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Haorong Lu <ancientmodern4@gmail.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Nickolai Zeldovich <nickolai@csail.mit.edu>
-Subject: [PATCH v1] riscv: signal: check the full syscall return value for a restart
-Date: Sat, 17 Oct 2026 22:42:15 -0400
-Message-ID: <20261018024215.798849-1-nickolai@csail.mit.edu>
-X-Mailer: git-send-email 2.53.0
-MIME-Version: 1.0
+	Sun, 18 Oct 2026 02:47:46 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=WxS+3TCBeYHG9YmEk6LXKBqRk8R44++B6wq4kI6AY2Q=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1792291658; v=1; x=1792896458;
+ b=Pdqa4RLFOnbuxY+Xb+MSWhrOPMcH7DHresjNYuviQOXB2S1RnSNPd5mKO2+GEq1g89KBAXF7
+ laMS8BEg3HQYIbQ0boLUECaLfYcgGJFw+PJvEnQIOORWoWT8m+Kx2+l/MP3cHK9k/2YjX9B9U/g
+ 1UlvmiCZahYuGI4k0LbnHikw=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by mta10.migadu.com with ESMTPS id 84e66a0eb75a294c;
+	Sun, 18 Oct 2026 02:47:38 +0000
+X-Mizu-Trace-ID: 84e66a0eb75a294c
+X-Migadu-Flow: FLOW_OUT
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.100.1.1.12\))
+Subject: Re: [PATCH v1] riscv: mm: Define PAGE_KERNEL_RO
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20261018023649.798595-1-nickolai@csail.mit.edu>
+Date: Sun, 18 Oct 2026 10:47:24 +0800
+Cc: Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>,
+ linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Message-Id: <A6833B23-4C60-4201-942C-5B68733866DD@linux.dev>
+References: <20261018023649.798595-1-nickolai@csail.mit.edu>
+To: Nickolai Zeldovich <nickolai@csail.mit.edu>
+X-Mailer: Apple Mail (2.3901.100.1.1.12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_194218_623391_07DACBC3 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20261017_194745_308505_33E310E2 
+X-CRM114-Status: GOOD (  20.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,139 +74,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A system call that returns a 64-bit value whose low 32 bits happen to
-equal one of the -ERESTART* codes is restarted or turned into -EINTR
-when a signal is pending on the way back to user space. lseek() returns
-the new file offset, so lseek(fd, 0x1fffffe00, SEEK_CUR) followed by a
-signal with an SA_RESTART handler runs the lseek() a second time and
-leaves the offset at 0x3fffffc00; without SA_RESTART the call fails with
-EINTR after it has moved the offset. With a SIGALRM interval timer of
-20 us, 2337 out of 2000000 such lseek() calls moved the offset twice and
-2695 out of 2000000 returned EINTR. brk() can return an arbitrary
-address the same way, and a value ending in 0xfffffdfc goes through
-restart_syscall() with whatever restart_block.fn the task last set.
 
-arch_do_signal_or_restart() reads regs->a0 into an int, which drops the
-upper half of the return value before it is compared with -ERESTARTSYS
-and friends. The code before the restart handling was moved out of
-handle_signal() switched on the unsigned long a0 and was not affected.
 
-Keep the return value in a long. Compat tasks see only the low 32 bits
-of a0, and a 32-bit tracer writes it zero-extended, so sign-extend it
-from 32 bits for them as before.
+> On Oct 18, 2026, at 10:36, Nickolai Zeldovich <nickolai@csail.mit.edu> wrote:
+> 
+> Kernel mappings that generic code creates read-only are writable on
+> riscv. With HugeTLB vmemmap optimization (selected by riscv and on by
+> default with CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP_DEFAULT_ON), the tail
+> vmemmap pages of every optimized huge page are remapped to one shared
+> page with PAGE_KERNEL_RO so that a stray write to a tail struct page
+> faults. On riscv that remap keeps _PAGE_WRITE, so such a write silently
+> changes the struct pages of every optimized huge page instead.
 
-Tested with the program in the notes on QEMU virt (riscv64 defconfig):
-the offset is moved exactly once and no EINTR is returned with the patch.
+Yeah, I knew, I also have a similar fix locally to resolve this issue.
 
-Fixes: ce4f78f1b53d ("riscv: signal: handle syscall restart before get_signal")
-Assisted-by: LLM
-Signed-off-by: Nickolai Zeldovich <nickolai@csail.mit.edu>
----
+> early_memremap_ro() (EFI system and configuration tables), the
+> firmware loader's vmap() of the loaded image, and acpi_os_ioremap() for
+> EFI runtime code and NOMAP regions, which asks for a read-only mapping
+> precisely to avoid a writable mapping of executable code, are affected
+> the same way.
 
-Notes:
-    Reproducer (static riscv64 binary run as /init's child on QEMU virt, -smp 2;
-    riscv64-linux-gnu-gcc -O2 -static -o lseek_restart lseek_restart.c):
-    
-    #define _GNU_SOURCE
-    #include <errno.h>
-    #include <fcntl.h>
-    #include <signal.h>
-    #include <stdio.h>
-    #include <string.h>
-    #include <sys/time.h>
-    #include <unistd.h>
-    
-    #define OFF 0x1fffffe00LL	/* low 32 bits read as -ERESTARTSYS */
-    
-    static volatile long nsig;
-    
-    static void handler(int sig)
-    {
-    	nsig++;
-    }
-    
-    static void run(int fd, int flags, const char *name)
-    {
-    	struct sigaction sa;
-    	struct itimerval it = { { 0, 20 }, { 0, 20 } };
-    	long i, moved = 0, eintr = 0;
-    
-    	memset(&sa, 0, sizeof(sa));
-    	sa.sa_handler = handler;
-    	sa.sa_flags = flags;
-    	nsig = 0;
-    	sigaction(SIGALRM, &sa, NULL);
-    	setitimer(ITIMER_REAL, &it, NULL);
-    
-    	for (i = 0; i < 2000000; i++) {
-    		off_t r;
-    
-    		lseek(fd, 0, SEEK_SET);
-    		r = lseek(fd, OFF, SEEK_CUR);
-    		if (r == OFF)
-    			continue;
-    		if (r == -1 && errno == EINTR)
-    			eintr++;
-    		else if (r == 2 * OFF)
-    			moved++;
-    		else
-    			printf("%s: unexpected %#llx\n", name, (long long)r);
-    	}
-    	memset(&it, 0, sizeof(it));
-    	setitimer(ITIMER_REAL, &it, NULL);
-    	printf("%s: %ld signals, %ld calls moved the offset twice, %ld returned EINTR\n",
-    	       name, nsig, moved, eintr);
-    }
-    
-    int main(void)
-    {
-    	int fd = open("/lseek-test", O_RDWR | O_CREAT, 0600);
-    
-    	if (fd < 0) {
-    		perror("open");
-    		return 2;
-    	}
-    	run(fd, SA_RESTART, "SA_RESTART");
-    	run(fd, 0, "no SA_RESTART");
-    	return 0;
-    }
-    
-    Before:
-    SA_RESTART: 283700 signals, 2337 calls moved the offset twice, 0 returned EINTR
-    no SA_RESTART: 246693 signals, 0 calls moved the offset twice, 2695 returned EINTR
-    After:
-    SA_RESTART: 306854 signals, 0 calls moved the offset twice, 0 returned EINTR
-    no SA_RESTART: 278090 signals, 0 calls moved the offset twice, 0 returned EINTR
+So it also does affect other components other than HVO, right?
 
- arch/riscv/kernel/signal.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> riscv defines PAGE_KERNEL_READ but not PAGE_KERNEL_RO, so
+> include/linux/pgtable.h falls back to "#define PAGE_KERNEL_RO
+> PAGE_KERNEL". Define PAGE_KERNEL_RO as PAGE_KERNEL_READ. FIXMAP_PAGE_RO
+> then follows from asm-generic/fixmap.h: early_memremap_ro() now passes
+> 0xe3 instead of 0xe7 to __early_ioremap().
+> 
+> Tested on QEMU virt (riscv64, defconfig with
+> CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP_DEFAULT_ON and CONFIG_PTDUMP_DEBUGFS,
+> booted with hugepages=8): before, every vmemmap entry in
+> /sys/kernel/debug/kernel_page_tables has W set; after, the 28K of tail
+> vmemmap of each huge page is mapped R without W.
+> 
+> Fixes: a3c7d6b642e4 ("riscv: mm: hugetlb: Enable ARCH_WANT_HUGETLB_PAGE_OPTIMIZE_VMEMMAP")
 
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index 59784dc117e4..b1e92b969d96 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -499,7 +499,7 @@ static void handle_signal(struct ksignal *ksig, struct pt_regs *regs)
- void arch_do_signal_or_restart(struct pt_regs *regs)
- {
- 	unsigned long continue_addr = 0, restart_addr = 0;
--	int retval = 0;
-+	long retval = 0;
- 	struct ksignal ksig;
- 	bool syscall = (regs->cause == EXC_SYSCALL);
- 
-@@ -508,6 +508,8 @@ void arch_do_signal_or_restart(struct pt_regs *regs)
- 		continue_addr = regs->epc;
- 		restart_addr = continue_addr - 4;
- 		retval = regs->a0;
-+		if (is_compat_task())
-+			retval = (int)retval;
- 
- 		/* Avoid additional syscall restarting via ret_from_exception */
- 		regs->cause = -1UL;
+If yes, so there may be earlier, more suitable Fixes commits?
 
-base-commit: 58161ead29e50d70a317ea26b472e0c7508e69da
--- 
-2.53.0
+> Assisted-by: LLM
+> Signed-off-by: Nickolai Zeldovich <nickolai@csail.mit.edu>
+> ---
+> 
+> Notes:
+>    Reproducer (riscv64 defconfig + CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP_DEFAULT_ON=y
+>    CONFIG_PTDUMP_DEBUGFS=y, QEMU virt): a static /init that prints the vmemmap
+>    part of the kernel page table dump.
+> 
+>      #include <stdio.h>
+>      #include <string.h>
+>      #include <sys/mount.h>
+>      #include <sys/reboot.h>
+> 
+>      int main(void)
+>      {
+>       	char line[256];
+>       	int in = 0;
+>       	FILE *f;
+> 
+>       	mount("sysfs", "/sys", "sysfs", 0, NULL);
+>       	mount("debugfs", "/sys/kernel/debug", "debugfs", 0, NULL);
+>       	f = fopen("/sys/kernel/debug/kernel_page_tables", "r");
+>       	while (f && fgets(line, sizeof(line), f)) {
+>       		if (strstr(line, "---[ "))
+>       			in = strstr(line, "vmemmap start") != NULL;
+>       		if (in)
+>       			fputs(line, stdout);
+>       	}
+>       	fflush(stdout);
+>       	reboot(RB_POWER_OFF);
+>       	return 0;
+>      }
+> 
+>      riscv64-linux-gnu-gcc -static -O2 -o init init.c
+>      qemu-system-riscv64 -M virt -cpu max -smp 2 -m 1G -nographic -kernel Image \
+>        -initrd initramfs.cpio -append "console=ttyS0 hugepages=8"
+> 
+>    Before (all vmemmap entries writable):
+>      0xff1c000002000000-0xff1c000002200000  0xbec00000  2M PTE  D A G . . W R V
+>      0xff1c000002200000-0xff1c000002800000  0xbea00000  6M PMD  D A G . . W R V
+> 
+>    After (each huge page: 4K head W, 28K tail read-only, shared page 0x81fd0000):
+>      0xff1c0000020a1000-0xff1c0000020a8000  0x81fd0000  28K PTE D A G . . . R V
+>      0xff1c0000020a8000-0xff1c0000020a9000  0x81fd6000   4K PTE D A G . . W R V
+>      0xff1c0000020a9000-0xff1c0000020b0000  0x81fd0000  28K PTE D A G . . . R V
+> 
+> arch/riscv/include/asm/pgtable.h | 1 +
+> 1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 40b1ed4f3ea8..13447181ceb7 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -189,6 +189,7 @@ extern struct pt_alloc_ops pt_ops __meminitdata;
+> 
+> #define PAGE_KERNEL __pgprot(_PAGE_KERNEL)
+> #define PAGE_KERNEL_READ __pgprot(_PAGE_KERNEL & ~_PAGE_WRITE)
+> +#define PAGE_KERNEL_RO PAGE_KERNEL_READ
+> #define PAGE_KERNEL_EXEC __pgprot(_PAGE_KERNEL | _PAGE_EXEC)
+> #define PAGE_KERNEL_READ_EXEC __pgprot((_PAGE_KERNEL & ~_PAGE_WRITE) \
+> 					| _PAGE_EXEC)
+
+Acked-by: Muchun Song <muchun.song@linux.dev>
+
+Thanks.
+
+> 
+> base-commit: 58161ead29e50d70a317ea26b472e0c7508e69da
+> -- 
+> 2.53.0
+> 
 
 
 _______________________________________________
