@@ -4,83 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28064CCA490
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Oct 2026 12:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1F31CCF2C9
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Oct 2026 14:09:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nHZXl/7RBd5ItAHOaNvaD8rsK4xvfXNcKBHCD2ZY09M=; b=BH/9DNGywUPQZN
-	vAcYVGfi8SDXmg+w/RgEGhvcS+UFmaJxVGtmjfcWQmPpmm52Oczp/s376L0D70SIftn8yUH46FiIQ
-	zyz05hqIM1nGra6cDbv7DKooTXybo/8iRQZ4vb28msFaTsItaxKqqcCtR/SWbQ+j6IZ6XKoPOY9be
-	fhaC7YWHjng8GQ5HRrqd1Q+VyTfryU6XqAxBTUHJHK345L/V0dpyK1ZVp7xjyRdM3e5izEIT2fVyw
-	vFVGIMDmKErISvO/8jseBQXTT//xuUHp3+v7kQMxKFsZSaYCgZJbMryhZlbB2qLcxSay2EfUM21DQ
-	ZXY97hdmmyybguyDeZYQ==;
+	List-Owner; bh=R0v2enHOLKEl2OYOS4Cijf8P37IEAiIXncGHIoZH+WI=; b=W0vdBbhBANS8Dx
+	+riqW/rVwARC5NYEGtJUlMaFPzoteO3SNSRY7+f4rzxpqSqP7p2MMuCC6BLI2/eB4qBgwWf3ffEzD
+	D56WztCpJw1pzMi/TJT4g4RsOCRmjBf/qDDsCISwXyEyZxhpE9uPyxpaIcaTY8PYP4ou7V4LEYgYC
+	PviJMTgvZRLaG4GRcxCVDBOms+EvqUSEHeLac8EpfcFLXsTMwvf5olnWjvSVsA4agURr46dEbdr7i
+	01bg6gby4TQc8IT69w5647DlGfWaD6ExW/3DLPC8UwE+QcGQbCrbHUqqggoZOjGFaQNkuznHLe/5V
+	jyi4+kxnPzWSwHqo3JAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIQ7e-00000005rLk-0c74;
-	Sun, 18 Oct 2026 12:36:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xIRZN-00000005vC3-3B9A;
+	Sun, 18 Oct 2026 14:09:01 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIQ7b-00000005rLd-0w2E
+	id 1xIRZJ-00000005vBf-1gVH
 	for linux-riscv@lists.infradead.org;
-	Sun, 18 Oct 2026 12:36:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 87E9342D7A;
-	Sun, 18 Oct 2026 12:36:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4178D1F000C4;
-	Sun, 18 Oct 2026 12:35:57 +0000 (UTC)
+	Sun, 18 Oct 2026 14:09:00 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-3ac6794fe45so1137292a91.0
+        for <linux-riscv@lists.infradead.org>; Sun, 18 Oct 2026 07:08:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792332536; x=1792937336; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=a9xujErffccRWJmb2kmaLMfqp7WKEG50k3ZOPDrgYt4=;
+        b=sIPbL1BPHrOLAO1tKhJW3pMVY95lubkClpQny+37Y4urC4ynyw3ufB7vyhbT6tQJqY
+         HgTwvnlmAlXTk/EYd1uxGeI0UPvWlpcj6EoTUbG0nW5Rc+x3plIB6I3PRtL7e3IW2Ucg
+         YEqa6ljhpxLwZ3J0BaeKBXs1V55O+PmWFninuO75Py77t6h2XOYetgD08iK8PTnZRCgq
+         wxvqQ6qn7+/BdhKrsU1OafXKRLOAdO+dB+gk+SvEQsBb2UXJFcDVXQtob4nrH2J0vwAa
+         p6MgWLlEwv5Cq+Nr/6ey0DJCgBjg+tLYB1HXtErXfvrv6OVLSGH/iZrenka03LGgwMXS
+         TyzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792332536; x=1792937336;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=a9xujErffccRWJmb2kmaLMfqp7WKEG50k3ZOPDrgYt4=;
+        b=ZNY7geXRXhmse0zHIIu/fS6k82KObH4AhA/pvYCYnptbD6FzVf8XOOm/FwMRVSP8cS
+         LsJ/HPdK+aPgI/Afzw+qrT8QQbp7nBtVlyzeIzFK3Lium7+6UNzbZWULdcl8GomFucz4
+         dG5O5E8xNxHIWyNiDIAneh8o4Uq5cNzCC5M8MyCIs0okn/rnrq+RKrxXuGmxJqTnSHuH
+         pIAR8YJtxbzGf6YT/u5piigiuMXSli6PGUKTc9ygBLPF1EjmbyJgsvB+SKXmp2H3iZ7N
+         vBCWD8fwW5cAOD3ERHoWkrNhocvhGxC2NR3hJqMBbTI8RvrTrJlrzpVAluH5bzvS0AEo
+         JhIw==
+X-Forwarded-Encrypted: i=1; AKwUvByaZvvaE94XXaP9ZKUe9AspXoos72Z9bPsYsGK3hOLvgAz/Q/kpAWpUwpv2alFewhig243kZc2NBAw/QA==@lists.infradead.org
+X-Gm-Message-State: AFq9FYLXChi2QoZRnJr4VHHDrVJ6RjPnVfs/U/7c9QyA3KPtacvU3+p1
+	r7D4qOoqvw5qpqZVOAPr7KGk4KDAQF7MkoFwR5MqvxlZqU3WlcUATGqK
+X-Gm-Gg: AYBFou1RpImkN/QKI7WqwE2Gu2Y4N0C6HKmSqJAifsVFwK99FmXwx1j2UJ3mlLLJHbg
+	/M8gq/KvRAroAWVuv9AZ/ydEf6Ll1iCzU4h+6LLYDUG9m+z1mtMGTglkgI4RyrxWKle+8ZKSFWJ
+	4nUC7Clav8EKoVtSjpXzbIFP3eGdlXdBRSWiq1uSkEFdlIuDAAp9HjPwO8tTLJFuO00009adM3Q
+	xbOtn9P7dZT+u6E3AX5wXxlx7r0PTliswPFd5+Zg0Us8XPS+lMEokePLWWghs58yNI0tRsJU+EC
+	UQRWb6L2I0QLOhhLzaAUFK9bKfzSsJTQ6hN5+M/zSqVv8qiVn1VgxSPYP6BeirrK9TmYDX1byZN
+	jOZpxeTuVq4/s2Be4lCDBkaG/SDDRO1aqV+N7i0qTDaJiPFm1ocacZjVYpr0SeQqRlXlOINM7bc
+	2hcf84hnzSkz9WHWZ4i3GpwThfVsQaeIL9HnlbhuTwPbrIIfttIgQdnv3VH8TlC/UM/H+IvYJJT
+	mfuAYzH8jAbBt2/Qh/aZkOd5cl9/bnzdFriysbTnfNTxtZQYAcW1tuz0bt0PCg3LyZ8KUKX7x6c
+	a0I8ee6xumlVp1srKc1o7V7HGeNoi4ZteuAz27xTjyAlLhR/ksSIxQ==
+X-Received: by 2002:a17:90b:4a4b:b0:3ab:188b:c5be with SMTP id 98e67ed59e1d1-3acef15462cmr4793176a91.45.1792332536192;
+        Sun, 18 Oct 2026 07:08:56 -0700 (PDT)
+Received: from alanhc-14700.tailb22ec2.ts.net (180-177-138-120.dynamic.kbronet.com.tw. [180.177.138.120])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ac947cf9a5sm16970791a91.15.2026.10.18.07.08.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 18 Oct 2026 07:08:55 -0700 (PDT)
+From: Hung-Chun Tseng <alan.tseng.cs@gmail.com>
+To: E Shattow <e@freeshell.de>
+Cc: Yixun Lan <dlan@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] riscv: dts: spacemit: k1: mark boot-critical SoC nodes bootph-pre-ram
+Date: Sun, 18 Oct 2026 22:08:42 +0800
+Message-ID: <20261018140850.1630481-1-alan.tseng.cs@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <05e0c9e4-4e27-4114-866a-ec55c33ba349@freeshell.de>
+References: <20261017180141.3477743-2-alan.tseng.cs@gmail.com> <05e0c9e4-4e27-4114-866a-ec55c33ba349@freeshell.de>
 MIME-Version: 1.0
-Subject: Re: [PATCH v7 6/6] PCI: spacemit-k1: Add Spacemit K3 PCIe host
- controller support
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Frank Li <Frank.Li@nxp.com>, Arnd Bergmann <arnd@arndb.de>, 
- Niklas Cassel <cassel@kernel.org>, 
- Christian Bruel <christian.bruel@foss.st.com>, 
- Senchuan Zhang <zhangsenchuan@eswincomputing.com>, 
- Vincent Guittot <vincent.guittot@linaro.org>, 
- Randolph Lin <randolph@andestech.com>, 
- Xincheng Zhang <zhangxincheng@ultrarisc.com>, 
- Alex Elder <elder@riscstar.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Marek Vasut <marek.vasut+renesas@mailbox.org>, 
- Vidya Sagar <vidyas@nvidia.com>, Pengpeng Hou <pengpeng@iscas.ac.cn>, 
- Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>, 
- Gustavo Pimentel <gustavo.pimentel@synopsys.com>, linux-pci@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-In-Reply-To: <20260929083755.458238-7-inochiama@gmail.com>
-References: <20260929083755.458238-1-inochiama@gmail.com>
- <20260929083755.458238-7-inochiama@gmail.com>
-Date: Sun, 18 Oct 2026 18:05:39 +0530
-Message-Id: <179232693939.2114.10956498814503201256.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4010;
- i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=ljDHyDaZBANeeICNvzSN7DVpxrl3r0R0WMwfV/PkUXM=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBq1L0pE5kbgUbKenMgAMe+ZzJeUUKq5H6vAkioO
- RiDLJWutYKJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCatS9KQAKCRBVnxHm/pHO
- 9RvzB/9/ZK7KgWgk4XijvjJCRJao8cXcma0BG7oXAw0FSZAUcT47dcuRodLf4Qn6okWf9kCDbmn
- aHD17eIigO8b6uPuGn8P+zndjKVE3yXIxPQU/Am9k+/T/6TFhZD5VxhtCChzFi8jxIpa6S9S14L
- pHksTseuSy8+l7eMZcw1Orq9GNHitN5lMRkRYhb/qSumrZIgL4IKCdqho64yZ2dEJRaYquGhvEz
- ltoCD/PkJA4QvgRc5yrIYMw4nuQXDrGviRUL9iZdRaIFi2HsjNCzrcdXgL7pLjsjDPiQSM5FLLG
- sFcUeCrrqDAHwMlPFVuNK4Zcxhy913CMi8nNUH7jQFaYHJNy
-X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261018_070857_451274_65FD49C3 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,115 +111,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-09-29 16:37 +0800, Inochi Amaoto wrote:
-> The PCIe controller on Spacemit K3 is almost a standard Synopsys
-> DesignWare PCIe IP with extra link and reset control. Unlike
-> the PCIe controller on K1, this controller supports external MSI
-> interrupt controller and can use multiple PHYs at the same time.
-> 
-> Add driver to support PCIe controller on Spacemit K3 PCIe.
-> 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> ---
->  drivers/pci/controller/dwc/Kconfig            |   4 +-
->  drivers/pci/controller/dwc/pcie-spacemit-k1.c | 139 ++++++++++++++++++
->  2 files changed, 141 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> index dcfbe7e229fd..f9c27165260e 100644
-> --- a/drivers/pci/controller/dwc/Kconfig
-> +++ b/drivers/pci/controller/dwc/Kconfig
-> @@ -443,7 +443,7 @@ config PCIE_SOPHGO_DW
->  	  Sophgo SoCs.
->  
->  config PCIE_SPACEMIT_K1
-> -	tristate "SpacemiT K1 PCIe controller (host mode)"
-> +	tristate "SpacemiT PCIe controller (host mode)"
->  	depends on ARCH_SPACEMIT || COMPILE_TEST
->  	depends on HAS_IOMEM
->  	select PCIE_DW_HOST
-> @@ -451,7 +451,7 @@ config PCIE_SPACEMIT_K1
->  	default ARCH_SPACEMIT
->  	help
->  	  Enables support for the DesignWare based PCIe controller in
-> -	  the SpacemiT K1 SoC operating in host mode.  Three controllers
-> +	  the SpacemiT SoC operating in host mode. Three controllers
->  	  are available on the K1 SoC; the first of these shares a PHY
->  	  with a USB 3.0 host controller (one or the other can be used).
->  
-> diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> index ec59ccb710ec..61b430f2294a 100644
-> --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> @@ -28,8 +28,18 @@
->  #define SMLH_LINK_UP			BIT(1)
->  #define RDLH_LINK_UP			BIT(12)
->  
-> +#define INTR_STATUS				0x0010
-> +
->  #define INTR_ENABLE				0x0014
->  #define MSI_CTRL_INT			BIT(11)
-> +#define RDLH_LINK_UP_INT		BIT(20)
-> +
-> +#define K3_PHY_AHB_IRQSTATUS_INTX		0x0008
-> +
-> +#define K3_ADDR_INTR_STATUS1			0x0018
-> +
-> +#define K3_CACHE_MSTR_AWCACHE_MODE	GENMASK(14, 11)
-> +#define K3_CACHE_MSTR_AWCACHE_BEHAVIOR	0xf
->  
->  /* Some controls require APMU regmap access */
->  #define SYSCON_APMU			"spacemit,apmu"
-> @@ -44,6 +54,9 @@
->  
->  #define PCIE_CONTROL_LOGIC			0x0004
->  #define PCIE_SOFT_RESET			BIT(0)
-> +#define PCIE_PERSTN_OE			BIT(24)
-> +#define PCIE_PERSTN_OUT			BIT(25)
-> +#define PCIE_IGNORE_PERSTN		BIT(31)
->  
->  struct k1_pcie;
->  
-> @@ -315,6 +328,123 @@ static int k1_pcie_parse_port(struct k1_pcie *k1)
->  	return ret;
->  }
->  
-> +static int k3_pcie_init(struct dw_pcie_rp *pp)
-> +{
-> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> +	struct k1_pcie *k1 = to_k1_pcie(pci);
-> +	u32 reset_ctrl = k1->pmu_off + PCIE_CLK_RESET_CONTROL;
-> +	u32 val;
-> +	int ret;
-> +
-> +	regmap_clear_bits(k1->pmu, reset_ctrl, LTSSM_EN);
-> +
-> +	k1_pcie_toggle_soft_reset(k1);
-> +
-> +	/* K3: Set IGNORE_PERSTN and drive PERSTN_OE high (assert reset) */
-> +	regmap_update_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
-> +			   PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE | PCIE_PERSTN_OUT,
-> +			   PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE);
-> +
-> +	ret = k1_pcie_enable_resources(k1);
-> +	if (ret)
-> +		goto failed_resources;
-> +
-> +	regmap_set_bits(k1->pmu, reset_ctrl, PCIE_AUX_PWR_DET);
-> +	regmap_clear_bits(k1->pmu, reset_ctrl, APP_HOLD_PHY_RST);
-> +
-> +	ret = phy_bulk_init(k1->phy_count, k1->phys);
-> +	if (ret)
-> +		goto failed_phy_init;
+Hi E,
 
-You got me confused with this PHY bulk API for a moment. I think you are trying
-to control all the PHYs of the multi-port RC setup at once. But I believe
-that's not what we want mostly. Each port is an independent entity with its own
-PHY, PERST# etc... So the RC driver controlling all the PHYs at once, doesn't
-seem logical.
+E Shattow wrote:
+> Drop this last paragraph/sentence or place after scissors line, not for
+> the commit message itself.
 
-- Mani
+Thanks, I will drop it in v3.
 
+> Presumably the BootROM does configure all of the above?
+
+Mostly. The boot straps select SD, eMMC, SPI NOR or NAND, and the
+BootROM loads the SPL from there, so the SPL needs the same
+controllers and the clock and reset controllers behind them. The
+BootROM also prints to the console UART.
+
+i2c8 is different. The BootROM does not touch the PMIC, but the SPL
+has to set the PMIC regulators over i2c8 before it can bring up DRAM.
+I will give that as the reason in v3 instead of the U-Boot sentence.
+
+The BootROM can also load the SPL over USB fastboot. I left USB out
+of this series and can add it in a follow-up.
+
+Thanks for the review.
+
+Hung-Chun
 
 _______________________________________________
 linux-riscv mailing list
