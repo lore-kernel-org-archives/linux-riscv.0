@@ -2,85 +2,63 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABB19606A31D
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2026 16:41:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE666606A320
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2026 17:16:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Sy7bg9Fz;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iJoCE9DB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3KzXmtOH;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=A1oEpCFf
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=CFzyGy65JTiSGwEmxoRsg8WkZ6PQ0A0r4FR7zyuS8Jg=; b=Sy7bg9FzxCLNE3
-	U4pgoNWYDo9cqwQiErPrELT4Hw5F7sC6ZiqpIF+wa5d4teRotnAXXUdokaStwuVeWSSRO6JrFmjgi
-	XDLb8DLk14W+phSk6r8A13fsc7eyOPf+jWYMR92beUESJ1sKShz7iR0fIAgb/PkjM1jCwq6SkU/I2
-	siesTZF2fYy6imeWd7ZnOMnQs/6hdnH9MnuZU7mjdrWl9RlxyYd3H1oOjXNM+IQffTFXkw3BrvWGY
-	I2LyECnEksZE8ojFnADsoVuEDMjvlwRGgqmqi+xLK10d4uk+jiI6U5gQX9hK4TV91fY7ITXeIQwgi
-	+HVGDKbCCq5/Lp95x8Lw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sd6G92he5rAcV97VmGjXJ+12AyuUrDCTN7frBzyJxGw=; b=3KzXmtOHIB+/Ba
+	L5uFe2wDqRr92PjIXQUbefl/5lMzz4nKjEE4QvvW0ljsGE9DFDHes4OVUs/cw7E1SiavEcscCNmq+
+	bhKZ84qVI9babg5xlChayle5EyU8ynQTYm8/NZ5Tt0qrcRVlZxjvIdj5tRvOe/yf+cSinosNaVdyz
+	nltDGZv84uYDAB3xkSnlSxqKP7M6CqJyZHDHdCR7FABIOtfwFbGl8C5s3Syi7/RpgjBO4GoPhzDjx
+	vAHirAyx9vXKsPITO38lrpQkihMVJIHLZbZwu9RYUZjtIqSJVRijUk9PbgNexhxBbjdKkfuTZgHOR
+	pE7DSltdVmNVBvrve6ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIqQB-00000007zxj-2M6M;
-	Mon, 19 Oct 2026 16:41:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xIqyD-000000084J1-2n8Q;
+	Mon, 19 Oct 2026 17:16:21 +0000
+Received: from out-215.mta0.migadu.com ([2001:41d0:1004:224b::d7] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIqQA-00000007zxZ-22Jj
+	id 1xIqyA-000000084Hz-1suQ
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Oct 2026 16:41:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C743429C6;
-	Mon, 19 Oct 2026 16:41:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 360D71F000C4;
-	Mon, 19 Oct 2026 16:41:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792428069;
-	bh=rbdfVHO0AKwNo2sneKiVEbPJk3OuiQ8lKgq/D/YXIj4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=iJoCE9DB2Dexn5w31cqx1Is7Akz7QHS7QDtEZIpsTaGyksewCOPOZTkDqQFoFXl+3
-	 jBRd8C4q7edopIozvLloPBDNK3De5o3NttHYOvP8Eo008bFd8/DnmmMrUrm4nB41BG
-	 MIvMGQ4PSLNxua+sGZCv85rrFQ1T7HEmNPZ9g/qrAyRvDH8TiGgsTMuFEvWG04rQq+
-	 jk4MA9aJ9cBcS3saD9IRKX4TpRZX/gP0WD5D8ngtDXmn4E8uMaDvVWOm+MM4eIyPBy
-	 ykoktRYSXdG5lGcbVm3YRyoxpty48Z9EQLQI68IEg4ZBND6XSDDirexkSRygLMrqLR
-	 U1juSrQeIUKsA==
-Date: Mon, 19 Oct 2026 11:41:08 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Frank Li <Frank.Li@nxp.com>, Arnd Bergmann <arnd@arndb.de>,
-	Niklas Cassel <cassel@kernel.org>,
-	Christian Bruel <christian.bruel@foss.st.com>,
-	Senchuan Zhang <zhangsenchuan@eswincomputing.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Randolph Lin <randolph@andestech.com>,
-	Xincheng Zhang <zhangxincheng@ultrarisc.com>,
-	Alex Elder <elder@riscstar.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Vidya Sagar <vidyas@nvidia.com>,
-	Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>,
-	Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v7 1/6] PCI: spacemit-k1: Add device data support
-Message-ID: <20261019164108.GA2177470@bhelgaas>
+	Mon, 19 Oct 2026 17:16:20 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=Ht0YeVNr87GBjD/XD3J4ka9N9ZFBQ94E02FEAUKrXMQ=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1792430171; v=1; x=1793034971;
+ b=A1oEpCFfgn7hY8SlFJYdcXt93AMGLNPWFV8GWG+ZlKxM7ik9DPXqhPKqZVZcHyy62OPoWRJS
+ 3Bzu7/+WNZSXmcOG1e0/5m+jZ6/1/FbsFujaduXfb0RTbYmXaDsBDmoMRLMuiWJ7va3EPg8IDdx
+ 3kbwcTeZC2SYBAaqOkRofq4k=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 6fce2d4bfa616019;
+	Mon, 19 Oct 2026 17:16:10 +0000
+X-Mizu-Trace-ID: 6fce2d4bfa616019
+X-Migadu-Flow: FLOW_OUT
+Date: Mon, 19 Oct 2026 19:16:06 +0200
+From: Andrew Jones <andrew.jones@linux.dev>
+To: kvm-riscv@lists.infradead.org
+Cc: anup@brainfault.org, atish.patra@linux.dev, pjw@kernel.org, 
+	palmer@dabbelt.com, kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] RISC-V: KVM: Convert IMSIC vsfile_lock to a raw
+ spinlock
+Message-ID: <atZPqGKEip_sW3fr@orel>
+References: <20261019134709.2610129-1-andrew.jones@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260929083755.458238-2-inochiama@gmail.com>
+In-Reply-To: <20261019134709.2610129-1-andrew.jones@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261019_101618_634594_8A68E4B0 
+X-CRM114-Status: GOOD (  10.73  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,116 +71,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	RCVD_IN_DNSWL_BLOCKED,RCVD_IN_ZEN_BLOCKED_OPENDNS,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Sep 29, 2026 at 04:37:47PM +0800, Inochi Amaoto wrote:
-> To reuse the K1 PCIe driver logic for K3 PCIe controller, add device
-> data to handle the K1 specific logic and make room for the incoming
-> logic for K3.
+On Mon, Oct 19, 2026 at 03:47:09PM +0200, Andrew Jones wrote:
+> kvm_riscv_vcpu_aia_imsic_put() runs from the scheduler preemption
+> notifier with the raw runqueue lock held, so it must not take
+> vsfile_lock, an rwlock_t, which sleeps on PREEMPT_RT. All vsfile_lock
+> critical sections are short, so a raw spinlock is fine.
 > 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> Fixes: 4cec89db80ba ("RISC-V: KVM: Move HGEI[E|P] CSR access to IMSIC virtualization")
+> Signed-off-by: Andrew Jones <andrew.jones@linux.dev>
 > ---
->  drivers/pci/controller/dwc/pcie-spacemit-k1.c | 30 ++++++++++++++++---
->  1 file changed, 26 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> index 0564c46e2f48..ab2953ad8f56 100644
-> --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> @@ -45,8 +45,17 @@
->  #define PCIE_CONTROL_LOGIC			0x0004
->  #define PCIE_SOFT_RESET			BIT(0)
->  
-> +struct k1_pcie;
-> +
-> +struct k1_pcie_device_data {
-> +	const struct dw_pcie_host_ops *host_ops;
-> +	const struct dw_pcie_ops *ops;
-> +	int (*parse_port)(struct k1_pcie *k1);
-> +};
+> v2:
+>  - Convert vsfile_lock to raw_spinlock_t instead of adding a separate
+>    hgei_lock [Anup]
 
-Does the "const" here add anything useful?  This patch suggests maybe
-not:
+Hi Anup,
 
-  https://lore.kernel.org/all/20260911233541.1650895-2-james.quinlan@broadcom.com/
+Sashiko found an ABBA deadlock with this v2[1]. Making vsfile_lock
+exclusive serializes kvm_riscv_vcpu_aia_imsic_put(), which runs under
+rq->__lock, against the SW-file inject paths, which kick the vCPU
+(pi_lock/rq->__lock) while holding vsfile_lock. Lockdep confirms it with
+an EMUL mode guest, and the host then hangs (I should have tested with
+EMUL before...). v1 doesn't have the problem, since its hgei_lock never
+has anything that wakes tasks nested under it. I tested v1 in both EMUL
+mode and hwaccel mode [again] with lockdep and it's good.
 
-> +
->  struct k1_pcie {
->  	struct dw_pcie pci;
-> +	const struct k1_pcie_device_data *data;
->  	struct phy *phy;
->  	void __iomem *link;
->  	struct regmap *pmu;	/* Errors ignored; MMIO-backed regmap */
-> @@ -274,14 +283,21 @@ static int k1_pcie_parse_port(struct k1_pcie *k1)
->  
->  static int k1_pcie_probe(struct platform_device *pdev)
->  {
-> +	const struct k1_pcie_device_data *data;
->  	struct device *dev = &pdev->dev;
->  	struct k1_pcie *k1;
->  	int ret;
->  
-> +	data = device_get_match_data(dev);
-> +	if (!data)
-> +		return -ENODATA;
-> +
->  	k1 = devm_kzalloc(dev, sizeof(*k1), GFP_KERNEL);
->  	if (!k1)
->  		return -ENOMEM;
->  
-> +	k1->data = data;
-> +
->  	k1->pmu = syscon_regmap_lookup_by_phandle_args(dev_of_node(dev),
->  						       SYSCON_APMU, 1,
->  						       &k1->pmu_off);
-> @@ -295,11 +311,11 @@ static int k1_pcie_probe(struct platform_device *pdev)
->  				     "failed to map \"link\" registers\n");
->  
->  	k1->pci.dev = dev;
-> -	k1->pci.ops = &k1_pcie_ops;
-> +	k1->pci.ops = data->ops;
->  	k1->pci.pp.num_vectors = MAX_MSI_IRQS;
->  	dw_pcie_cap_set(&k1->pci, REQ_RES);
->  
-> -	k1->pci.pp.ops = &k1_pcie_host_ops;
-> +	k1->pci.pp.ops = data->host_ops;
->  
->  	/* Hold the PHY in reset until we start the link */
->  	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CLK_RESET_CONTROL,
-> @@ -316,7 +332,7 @@ static int k1_pcie_probe(struct platform_device *pdev)
->  
->  	platform_set_drvdata(pdev, k1);
->  
-> -	ret = k1_pcie_parse_port(k1);
-> +	ret = data->parse_port(k1);
->  	if (ret)
->  		return dev_err_probe(dev, ret, "failed to parse root port\n");
->  
-> @@ -334,8 +350,14 @@ static void k1_pcie_remove(struct platform_device *pdev)
->  	dw_pcie_host_deinit(&k1->pci.pp);
->  }
->  
-> +static const struct k1_pcie_device_data k1_pcie_device_data = {
-> +	.host_ops	= &k1_pcie_host_ops,
-> +	.ops		= &k1_pcie_ops,
-> +	.parse_port	= k1_pcie_parse_port,
-> +};
-> +
->  static const struct of_device_id k1_pcie_of_match_table[] = {
-> -	{ .compatible = "spacemit,k1-pcie", },
-> +	{ .compatible = "spacemit,k1-pcie", .data = &k1_pcie_device_data },
->  	{ }
->  };
->  MODULE_DEVICE_TABLE(of, k1_pcie_of_match_table);
-> -- 
-> 2.55.0
-> 
+Should we take v1 instead?
+
+[1] https://sashiko.dev/#/patchset/20261019134709.2610129-1-andrew.jones@linux.dev?part=1
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
