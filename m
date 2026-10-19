@@ -4,72 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B2E7CCF2E6
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2026 13:41:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6B62CCF2E3
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2026 13:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YqfPTGfWThqTFcBmGgAUWmlyMs/oq+mv2yJBg3gBpnU=; b=F1idKi5Xhm/riK
-	I69wpWscOks+DXrs9BMtFB7nT2QJaGdDa58YtNWowjaFwXTpFtScILy0fDScHJkRCaMW2WmNuxKSo
-	Cllpu3ONTt0UoYLI9qtUqplaPQ5zed8IRjh/Q0q03SZTQPlciZ8pHivp6Ea3UE5AU6pP1EedHVvRO
-	+iTHFBmaK6OFERIV+tfKBNTGxeq9izomVJfsZPNoATxdLJv8kWhKhocedoHf/qUC0I2w7VGKgklKA
-	+b9+1jTYmrAoIv8nQY/6hSJYNtIqrm+cD7ghwqrqTaS6HkW0A7WWzCd3+uSgwjXD1vRvozFiotegM
-	IakbVlwxl8vyAN19WrvQ==;
+	List-Owner; bh=OvTLvMGV12Z/y764t3zSHgHBAjwHj7WpEQYboO7fLmk=; b=REwTmlxWdjunce
+	lflaP4XxlwSvuV3IWv8WpVxqqH4y/DNfIgPoU2fhymVlJq8SpWhP4skUIzsX8SrHMZFshiGKo1/b8
+	2Jx9s/GNE65qHjc5CEIpLwssPbLFzYk5nd04XTyqjh05mg6klK4KYZ5xe9l12mzc7hIryx57k+AJk
+	+ZK9W62avB6mgCdqhlz/DeXGcwjroy/eXuZ2Q3Jh1COM8BBfb0nPwgOaGCQbWKIHNO2pRiVhr+rje
+	VVzF0oS5cJalQajCiJoqMpWdiX6lYgR1ydPZm1NGgYj2x42xR8uh/sA8uDzcsR96ekypJZ/4H5vQ2
+	0YLlHyoZpIO/VsOgwBKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIncT-00000007XVt-2pY3;
-	Mon, 19 Oct 2026 13:41:41 +0000
-Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net ([162.243.161.220])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIncP-00000007XU1-0hGK
+	id 1xInhw-00000007Yei-0mr2;
+	Mon, 19 Oct 2026 13:47:20 +0000
+Received: from out-52.mta1.migadu.com ([2001:41d0:203:375::34] helo=mta1.migadu.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xInhs-00000007YdO-4AX5
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Oct 2026 13:41:39 +0000
-Received: from E0002472LT.eswin.cn (unknown [10.100.71.120])
-	by app2 (Coremail) with SMTP id TQJkCgAHDpwBHtZqOjWHAA--.44594S2;
-	Mon, 19 Oct 2026 21:41:23 +0800 (CST)
-From: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Nam Cao <namcao@linutronix.de>,
-	Naveen N Rao <naveen@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mon, 19 Oct 2026 13:47:18 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=/qaWoZI/YGAqceCwDucx/imq3smJTVtLSwTEScGWq70=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1792417633; v=1; x=1793022433;
+ b=lNb6ba9bmT8idF2PNhbo07YN+szjH79RwQTeTMMaqL3Aj2Ll3UKNHunejiX4C4brXaTZBeki
+ Gvnv47F6yXX7bZIEueY4UWUlJ8qtnK+lgH2MhKfSJLis6GxYnWi0hRcHttl8l8K8nDSqMNFXpKE
+ rKiD1cj8s7F+KK9A1EJtDfP4=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 5640194636ea6c18;
+	Mon, 19 Oct 2026 13:47:13 +0000
+X-Mizu-Trace-ID: 5640194636ea6c18
+X-Migadu-Flow: FLOW_OUT
+From: Andrew Jones <andrew.jones@linux.dev>
+To: kvm-riscv@lists.infradead.org
+Cc: anup@brainfault.org,
+	atish.patra@linux.dev,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	kvm@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
-Subject: [PATCH v7 0/2] riscv: kprobes: reject probes inside LR/SC sequences
-Date: Mon, 19 Oct 2026 21:41:19 +0800
-Message-Id: <20261019134121.1763-1-yuanxiaofeng@eswincomputing.com>
-X-Mailer: git-send-email 2.31.1.windows.1
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] RISC-V: KVM: Convert IMSIC vsfile_lock to a raw spinlock
+Date: Mon, 19 Oct 2026 15:47:09 +0200
+Message-ID: <20261019134709.2610129-1-andrew.jones@linux.dev>
+X-Mailer: git-send-email 2.56.0
 MIME-Version: 1.0
-X-CM-TRANSID: TQJkCgAHDpwBHtZqOjWHAA--.44594S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Kr4ktF4fCF48JF1rWFyDKFg_yoW8ZrWfpF
-	s5Cw15JrWkX39xGry3Xw4kZrWSya1rCr43GF1xJw10y3yUtr13tFnIg3yUAr1DG39Yvw1f
-	Zr40qr98WFy7ArDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9m14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVCm-wCF04k20xvY0x0EwIxGrwCFx2
-	IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v2
-	6r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67
-	AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IY
-	s7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr
-	0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
-X-CM-SenderInfo: h1xd05xldrwv1qj6v25zlqu0xpsx3x1qjou0bp/1tbiAgEFE2rU9SooKQABs0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_064137_340933_1A44943C 
-X-CRM114-Status: UNSURE (   7.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261019_064717_177967_DEFF607E 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,46 +73,172 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A breakpoint trap taken in the middle of an LR/SC sequence clears the
-load reservation, so an SC following the probed instruction always fails
-and the enclosing retry loop re-enters the breakpoint, livelocking the
-CPU.  This series makes the RISC-V kprobes implementation reject probes
-placed on an LR/SC instruction or between them, following arm64's
-approach for its equivalent exclusive load/store instructions.
+kvm_riscv_vcpu_aia_imsic_put() runs from the scheduler preemption
+notifier with the raw runqueue lock held, so it must not take
+vsfile_lock, an rwlock_t, which sleeps on PREEMPT_RT. All vsfile_lock
+critical sections are short, so a raw spinlock is fine.
 
-Changes since v6:
-- Fix an off-by-one in the LR/SC tracking window: a constrained loop
-  holds at most 16 instructions (the LR, the SC, and up to 14 between
-  them), and the walk now stops tracking after 14 intermediate
-  instructions, as the spec requires.
-- Use the existing RV_EXTRACT_FUNCT3()/RV_EXTRACT_RS2_REG() helpers and
-  add RV_EXTRACT_FUNCT5() in riscv_insn_is_lr()/riscv_insn_is_sc() to
-  avoid code duplication.
-- Rename test_kprobes_lrsc_offsets[] and split it into separate
-  test_kprobes_lrsc_allowed_addresses[]/test_kprobes_lrsc_rejected_
-  addresses[] so that adding an entry does not force a change in a
-  parallel reject[] table.
-- Add a KUnit boundary case pinning the 16-instruction tracking window:
-  the 15th instruction after an LR must be rejected and the 16th must be
-  accepted (this fails without the off-by-one fix).
+Fixes: 4cec89db80ba ("RISC-V: KVM: Move HGEI[E|P] CSR access to IMSIC virtualization")
+Signed-off-by: Andrew Jones <andrew.jones@linux.dev>
+---
+v2:
+ - Convert vsfile_lock to raw_spinlock_t instead of adding a separate
+   hgei_lock [Anup]
+---
+ arch/riscv/kvm/aia_imsic.c | 36 ++++++++++++++++++------------------
+ 1 file changed, 18 insertions(+), 18 deletions(-)
 
-Verified by cross-compiling for RISC-V and running the kprobes KUnit
-test in QEMU (ok 2 kprobes_riscv).
-
-Xiaofeng Yuan (2):
-  riscv: kprobes: reject probes inside LR/SC sequences
-  riscv: kprobes: add KUnit test for LR/SC sequence rejection
-
- arch/riscv/include/asm/insn.h                 | 63 ++++++++++++++----
- arch/riscv/kernel/probes/decode-insn.c        |  2 +
- arch/riscv/kernel/probes/kprobes.c            | 65 +++++++++++++++----
- .../kernel/tests/kprobes/test-kprobes-asm.S   | 60 +++++++++++++++++
- .../riscv/kernel/tests/kprobes/test-kprobes.c | 34 ++++++++++
- .../riscv/kernel/tests/kprobes/test-kprobes.h |  6 ++
- 6 files changed, 207 insertions(+), 23 deletions(-)
-
+diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
+index f17dc559a709..bad0ce20edc1 100644
+--- a/arch/riscv/kvm/aia_imsic.c
++++ b/arch/riscv/kvm/aia_imsic.c
+@@ -47,7 +47,7 @@ struct imsic {
+ 	 */
+ 
+ 	/* IMSIC VS-file */
+-	rwlock_t vsfile_lock;
++	raw_spinlock_t vsfile_lock;
+ 	int vsfile_cpu;
+ 	int vsfile_hgei;
+ 	void __iomem *vsfile_va;
+@@ -593,13 +593,13 @@ static void imsic_vsfile_cleanup(struct imsic *imsic)
+ 	 * VCPU is being destroyed.
+ 	 */
+ 
+-	write_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 	old_vsfile_hgei = imsic->vsfile_hgei;
+ 	old_vsfile_cpu = imsic->vsfile_cpu;
+ 	imsic->vsfile_cpu = imsic->vsfile_hgei = -1;
+ 	imsic->vsfile_va = NULL;
+ 	imsic->vsfile_pa = 0;
+-	write_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ 
+ 	memset(imsic->swfile, 0, sizeof(*imsic->swfile));
+ 
+@@ -687,7 +687,7 @@ bool kvm_riscv_vcpu_aia_imsic_has_interrupt(struct kvm_vcpu *vcpu)
+ 	 * only check for interrupt when IMSIC VS-file is being used.
+ 	 */
+ 
+-	read_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 	if (imsic->vsfile_cpu > -1) {
+ 		/*
+ 		 * This function is typically called from kvm_vcpu_block() via
+@@ -702,7 +702,7 @@ bool kvm_riscv_vcpu_aia_imsic_has_interrupt(struct kvm_vcpu *vcpu)
+ 		else
+ 			ret = !!(csr_read(CSR_HGEIP) & BIT(imsic->vsfile_hgei));
+ 	}
+-	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ 
+ 	return ret;
+ }
+@@ -727,10 +727,10 @@ void kvm_riscv_vcpu_aia_imsic_put(struct kvm_vcpu *vcpu)
+ 	if (!kvm_vcpu_is_blocking(vcpu))
+ 		return;
+ 
+-	read_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 	if (imsic->vsfile_cpu > -1)
+ 		csr_set(CSR_HGEIE, BIT(imsic->vsfile_hgei));
+-	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ }
+ 
+ void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu)
+@@ -744,13 +744,13 @@ void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu)
+ 		return;
+ 
+ 	/* Read and clear IMSIC VS-file details */
+-	write_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 	old_vsfile_hgei = imsic->vsfile_hgei;
+ 	old_vsfile_cpu = imsic->vsfile_cpu;
+ 	imsic->vsfile_cpu = imsic->vsfile_hgei = -1;
+ 	imsic->vsfile_va = NULL;
+ 	imsic->vsfile_pa = 0;
+-	write_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ 
+ 	/* Do nothing, if no IMSIC VS-file to release */
+ 	if (old_vsfile_cpu < 0)
+@@ -807,10 +807,10 @@ int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu)
+ 		return 1;
+ 
+ 	/* Read old IMSIC VS-file details */
+-	read_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 	old_vsfile_hgei = imsic->vsfile_hgei;
+ 	old_vsfile_cpu = imsic->vsfile_cpu;
+-	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ 
+ 	/* Do nothing if we are continuing on same CPU */
+ 	if (old_vsfile_cpu == vcpu->cpu)
+@@ -860,12 +860,12 @@ int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu)
+ 	/* TODO: Update the IOMMU mapping ??? */
+ 
+ 	/* Update new IMSIC VS-file details in IMSIC context */
+-	write_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 	imsic->vsfile_hgei = new_vsfile_hgei;
+ 	imsic->vsfile_cpu = vcpu->cpu;
+ 	imsic->vsfile_va = new_vsfile_va;
+ 	imsic->vsfile_pa = new_vsfile_pa;
+-	write_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ 
+ 	/*
+ 	 * At this point, all interrupt producers have been moved
+@@ -975,7 +975,7 @@ int kvm_riscv_aia_imsic_rw_attr(struct kvm *kvm, unsigned long type,
+ 	}
+ 	isel = KVM_DEV_RISCV_AIA_IMSIC_GET_ISEL(type);
+ 
+-	read_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 
+ 	rc = 0;
+ 	vsfile_hgei = imsic->vsfile_hgei;
+@@ -990,7 +990,7 @@ int kvm_riscv_aia_imsic_rw_attr(struct kvm *kvm, unsigned long type,
+ 					    isel, val, 0, 0);
+ 	}
+ 
+-	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ 
+ 	if (!rc && vsfile_cpu >= 0)
+ 		rc = imsic_vsfile_rw(vsfile_hgei, vsfile_cpu, imsic->nr_eix,
+@@ -1052,7 +1052,7 @@ int kvm_riscv_vcpu_aia_imsic_inject(struct kvm_vcpu *vcpu,
+ 	if (imsic->nr_msis <= iid)
+ 		return -EINVAL;
+ 
+-	read_lock_irqsave(&imsic->vsfile_lock, flags);
++	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
+ 
+ 	if (imsic->vsfile_cpu >= 0) {
+ 		writel(iid, imsic->vsfile_va + IMSIC_MMIO_SETIPNUM_LE);
+@@ -1062,7 +1062,7 @@ int kvm_riscv_vcpu_aia_imsic_inject(struct kvm_vcpu *vcpu,
+ 		imsic_swfile_extirq_update(vcpu);
+ 	}
+ 
+-	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ 
+ 	return 0;
+ }
+@@ -1118,7 +1118,7 @@ int kvm_riscv_vcpu_aia_imsic_init(struct kvm_vcpu *vcpu)
+ 
+ 	/* Setup IMSIC context  */
+ 	imsic->nr_msis = kvm->arch.aia.nr_ids + 1;
+-	rwlock_init(&imsic->vsfile_lock);
++	raw_spin_lock_init(&imsic->vsfile_lock);
+ 	imsic->nr_eix = BITS_TO_U64(imsic->nr_msis);
+ 	imsic->nr_hw_eix = BITS_TO_U64(kvm_riscv_aia_max_ids);
+ 	imsic->vsfile_hgei = imsic->vsfile_cpu = -1;
 -- 
-2.34.1
+2.56.0
 
 
 _______________________________________________
