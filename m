@@ -4,79 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C13CCCF2D6
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2026 07:56:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3EFCCF2E4
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2026 12:44:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QE9HK68rxauZp1MrlkVHet2rSy49lJrOrg97fO43+mI=; b=Zl2zWam4yULnCX
-	Qf8kxmb30ZtUroj+IYnOlz34AEoa/CWAkgo366MmfIr8x6UtY/CU9GhIbEmZft0LaIspc2+FD9kzA
-	jsc/xLsf7E+9z32Im5pnCI1olSjWx5vU728OgzV+7uhEd+YERUFE710jG30TUBKur0FlCGmiMZAz7
-	ZXQAP1HjMYam5cZpaEBZBNEDMLQR1mmJycSwCo64Y5qsOKAFdMUxrcAh/C+2Pa66yEjkY5Ydintne
-	RQNMeSbETehekON95VaqxXToD/fuVzt+pAZ0CAiyb7aErkE3PHP/5vuGnqSVJFjQGQ5VQa+Sv/TSc
-	3EBdxfbEWGUkK7JGBnqg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Date:From:MIME-Version:Subject:Cc:To:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=p+LbHVxRlPn48Eu+VXWC/fSwdehYj+Gv+yG+2QnBhxY=; b=QWFWwDq9VeMm4l
+	vO57dXCW4RpM4BwkAw8w+qmNb96MRvtT1yt38bLn6Jf1+qAQenbRABNq1jw5vhXWUs40DuxYK8LU0
+	KlaEqhIvvRbnV0+VW4a5n0ODZuYCkxbjgFw5qIhs1H6RaI3UgrEGghASUt8AYl4MHyrLlSOtpUc7+
+	3bP9slWertNEYXPv5mE6Dpmnbk5K0P04oQKdUXB4F66qEJOKwlg9a4vBcRQMOeZIEvuCl/jtBk118
+	3dCe4QT30HdbhxJylv+z82osyYcCwtV4wlqXk1dbUBipeTNyk45BVnL8MyxwDsm57bl1Iy8FYQKKB
+	OKu2cr0KnmEskh8/Sijw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIiDV-00000006nOH-3AYr;
-	Mon, 19 Oct 2026 07:55:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xImiu-00000007QAL-3vXV;
+	Mon, 19 Oct 2026 12:44:16 +0000
+Received: from mail-m93187.xmail.ntesmail.com ([103.126.93.187])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIiDU-00000006nNF-1YPq
+	id 1xImir-00000007Q8H-3tz5
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Oct 2026 07:55:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5EBD24477F;
-	Mon, 19 Oct 2026 07:55:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 15C40C2BD05;
-	Mon, 19 Oct 2026 07:55:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1792396531;
-	bh=DUyXyu4G2jsiKLQyoNsvOPwF5oH4LHm6RUKTLUmURZ8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=YPMIbR0H1cKwXFB8Yg1BXWx+QsoGOIbdkS6JURK9wxUY7sVdORE5Oc7wj7XR2UujK
-	 7fLo7pFfDjpN+BMr13T5UvVtJyvDnXyuVN8aWbsM5IVC6Nr+q4hBMQ8bR27Lz7KJLZ
-	 7lBxDQSzydj0xLjR4YKAgnH43Fwnj7z2QGE53yjQhtGzUHDezN0sCvyTo7nlpYpy7Z
-	 1YFbn54GNLl8oP6btxmqXOxSuTLAZ669wuL78fAJT1zNQ/vSz86TSnYN8foU6W865e
-	 bd+/mylAAhtSuYEK1TKOFNVf6zk+OC7vsryp00E3zNWAB5/QzWKC4EOyEmpvvq1D2X
-	 RnsAKoBvn4JTA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F2FF5CCF2D3;
-	Mon, 19 Oct 2026 07:55:30 +0000 (UTC)
-From: Xincheng Ji via B4 Relay <devnull+jixincheng.ultrarisc.com@kernel.org>
-Date: Mon, 19 Oct 2026 15:55:27 +0800
-Subject: [PATCH v4 3/7] dt-bindings: riscv: Add UltraRISC DP1000 board
- compatibles
+	Mon, 19 Oct 2026 12:44:16 +0000
+Message-ID: <ACoATQBWLMQm6IW3xmgPIqp1.1.1792413844984.Hmail.252270051@hdu.edu.cn>
+To: pjw@kernel.org, samuel.holland@sifive.com, vkoul@kernel.org, 
+	Frank.Li@kernel.org
+Cc: linux-riscv@lists.infradead.org, dmaengine@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: =?UTF-8?B?ZG1hZW5naW5lOiBzZi1wZG1hOiBwb3NzaWJsZSBVQUYgYmV0d2VlbiBlcnJvciB0YXNrbGV0IGFuZCBjaGFubmVsIHJlc291cmNlIHJlbGVhc2U=?=
+X-Priority: 3
+X-Mailer: HMail Webmail Server V2.0 Copyright (c) 2016-163.com web
+X-Originating-IP: 183.157.177.89
 MIME-Version: 1.0
-Message-Id: <20261019-ultrarisc-dts-v4-3-3979747cda2e@ultrarisc.com>
-References: <20261019-ultrarisc-dts-v4-0-3979747cda2e@ultrarisc.com>
-In-Reply-To: <20261019-ultrarisc-dts-v4-0-3979747cda2e@ultrarisc.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Andrew Lunn <andrew@lunn.ch>, 
- Jia Wang <wangjia@ultrarisc.com>, Xincheng Ji <jixincheng@ultrarisc.com>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Anup Patel <anup@brainfault.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
- linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792396528; l=1942;
- i=jixincheng@ultrarisc.com; s=20260922; h=from:subject:message-id;
- bh=F931PJB7CYQDP8Qv71XY2lbmZu4qGdN+Fjh5HxV88EU=;
- b=4IRnyDP40vIQVBghwVSHNX18p8rWL1LHrTAsFiTqgisS5MqBG1QBEvnEzkYsl7VtDFDHrX+jb
- qf5phZ0ros0B4mPbyihLbCC+oy0CV/4LJR2WlW0LpH0Dw4JBgGXHfAS
-X-Developer-Key: i=jixincheng@ultrarisc.com; a=ed25519;
- pk=n848dcS5D6g0vLad/rjp4Gf/1eedTe1a3pYUrkt2260=
-X-Endpoint-Received: by B4 Relay for jixincheng@ultrarisc.com/20260922 with
- auth_id=1046
-X-Original-From: Xincheng Ji <jixincheng@ultrarisc.com>
+Received: from 252270051@hdu.edu.cn( [183.157.177.89] ) by ajax-webmail ( [127.0.0.1] ) ; Mon, 19 Oct 2026 20:44:04 +0800 (GMT+08:00)
+From: LI xiao <lixiao0@hdu.edu.cn>
+Date: Mon, 19 Oct 2026 20:44:04 +0800 (GMT+08:00)
+X-HM-Tid: 0aa1542b2cacd458kusya666c29ac170
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZHhgeVklKTRpOGEkYGUhNH1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlKQ0hVSk5MVUpMTFVDQllXWRYaDxIVHRRZQVlPS0hVSk
+	tISkxDSlVKS0tVSkJLS1kG
+DKIM-Signature: a=rsa-sha256;
+	b=iar6xD0MeefcJmhuJt+71CQnPls657Btt9FCJe3JsTuFY1Mz2xBGKz1xZSTBpfg7wy5Bqg511jA6IWKqkWIIQBtPUsLJWahaaA3Zlcb5Nctrm5y8qsUw80/zRcdBuQ1bT59ervkgKTgD15qrbYA14fTFuDVvDnGgMqn9EnH2+y0=; s=default; c=relaxed/relaxed; d=hdu.edu.cn; v=1;
+	bh=uid7unXvFpXIwc//7PPu9CZ/okIyOjRVbz31UgiFRGI=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261019_054414_237177_F987AB8A 
+X-CRM114-Status: UNSURE (   6.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,81 +65,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: jixincheng@ultrarisc.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jia Wang <wangjia@ultrarisc.com>
+Hello,
 
-Document the compatibles for the Shenzhen Rongda M0 and Milk-V Titan
-boards, both based on the UltraRISC DP1000 SoC.
+I noticed a possible UAF in the SiFive FU540 PDMA driver.
 
-Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
----
- .../devicetree/bindings/riscv/ultrarisc.yaml       | 27 ++++++++++++++++++++++
- MAINTAINERS                                        |  7 ++++++
- 2 files changed, 34 insertions(+)
+In sf_pdma_err_isr(), the error interrupt schedules chan->err_tasklet. In sf_pdma_errbh_tasklet(), chan->desc is copied to a local variable before chan->lock is acquired. The failure path may subsequently access desc->async_tx through this pointer.
 
-diff --git a/Documentation/devicetree/bindings/riscv/ultrarisc.yaml b/Documentation/devicetree/bindings/riscv/ultrarisc.yaml
-new file mode 100644
-index 000000000000..a51e63dbeca3
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/ultrarisc.yaml
-@@ -0,0 +1,27 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/ultrarisc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: UltraRISC SoC-based boards
-+
-+maintainers:
-+  - Jia Wang <wangjia@ultrarisc.com>
-+
-+description:
-+  UltraRISC DP1000 SoC-based boards
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - shenrongda,m0
-+              - milkv,titan
-+          - const: ultrarisc,dp1000
-+
-+additionalProperties: true
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ff1c1aea9a98..7eb1b2971bea 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23639,6 +23639,13 @@ F:	include/dt-bindings/power/thead,th1520-power.h
- F:	include/dt-bindings/reset/thead,th1520-reset.h
- F:	include/linux/firmware/thead/thead,th1520-aon.h
- 
-+RISC-V ULTRARISC SoC SUPPORT
-+M:	Jia Wang <wangjia@ultrarisc.com>
-+L:	linux-riscv@lists.infradead.org
-+S:	Supported
-+T:	git https://github.com/ultrarisc/linux.git
-+F:	Documentation/devicetree/bindings/riscv/ultrarisc.yaml
-+
- RNBD BLOCK DRIVERS
- M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
- M:	Jack Wang <jinpu.wang@ionos.com>
+Meanwhile, sf_pdma_free_chan_resources() frees chan->desc while holding chan->vchan.lock. These paths do not appear to use a common lock to protect the descriptor's lifetime.
 
--- 
-2.34.1
+The driver does not set device_synchronize. Since dmaengine_synchronize() only invokes the provider's device_synchronize callback when it is present, the synchronization performed before sf_pdma_free_chan_resources() does not appear to wait for this driver's error tasklet to finish.
+
+A possible interleaving is:
+
+sf_pdma_err_isr() schedules chan->err_tasklet.
+
+sf_pdma_errbh_tasklet() caches chan->desc in a local variable.
+
+Channel resource release frees chan->desc.
+
+The error tasklet accesses desc->async_tx through the cached pointer.
 
 
 
+I reviewed the Linux v7.3 source at commit c03c1a14507dfaf8b856c2608f9ac216021fc222.
+
+The relevant locations are:
+
+drivers/dma/sf-pdma/sf-pdma.c: sf_pdma_err_isr()
+
+drivers/dma/sf-pdma/sf-pdma.c: sf_pdma_errbh_tasklet()
+
+drivers/dma/sf-pdma/sf-pdma.c: sf_pdma_free_chan_resources()
+
+To check the consequence of this pointer-lifetime interleaving, I used a small out-of-tree synthetic reproducer on an x86_64 QEMU guest running a KASAN-enabled kernel built from the same mainline commit. The QEMU machine was q35 with 2 vCPUs and 4 GiB RAM.
+
+The reproducer forces the pointer-capture/free/access ordering and triggers a slab-use-after-free report. However, the QEMU guest did not provide a modeled SiFive PDMA device, so this is not yet a reproduction through the actual sf-pdma driver and hardware path.
+
+The relevant KASAN output was:
+
+[    5.921218] BUG: KASAN: slab-use-after-free in repro_err_tasklet+0xee/0xf0 [sf_pdma_race_repro]
+[    5.924452] Read of size 8 at addr ffff8881008edcc0 by task ksoftirqd/1/23
+[    5.929455] repro_err_tasklet+0xee/0xf0 [sf_pdma_race_repro]
+[    5.929566] tasklet_action_common+0x1fc/0x780
+[    5.931347] Allocated by task 77:
+[    5.932184] sf_pdma_race_repro_init+0xf7/0xff0 [sf_pdma_race_repro]
+[    5.932525] Freed by task 78:
+[    5.932619] kfree+0x127/0x3b0
+[    5.932637] repro_release_channel+0x2c/0x90 [sf_pdma_race_repro]
+
+Could you please confirm whether this is a valid race in the driver.
+
+Thank you,
+LI Xiao
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
