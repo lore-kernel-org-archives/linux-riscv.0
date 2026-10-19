@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 761C1CCF2DB
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2026 13:09:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B1ECCF2DE
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2026 13:09:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Igu8o+wFZLI5G+LHBl2xAevRelix3Os1mXmxMiThjxU=; b=wo69Yh9AW+IHEC
-	3D3MBsHZmiJ4BS5dT7nVF875yDnjf5l8XZSGoZKQ7va/vsQmz7lGSAMRZm/mHAX6LMKHI6h0w+yos
-	FjYmXxstssYTBgmdZ145T0UuPDRa7ll+cfDrFJLonR1kEb+T6isH/hCMJwI6HkO6wk9OPCv0SV+ch
-	90NsTubWuHAZWC55Mlu891SoHmpxUNH4rchU3ZwfVYODYOpldnZdi1gbw+J/FVmLYKpwbtyNRCG7H
-	Mk2LzxckGWs+uqD9vbb4FbZlTEISCE+NK/qojWtX6C4l2zfR1DmFFlhr4eDIELEHVjWtTP9m1pDm9
-	O7IplZfUK7IrbMjXmg2g==;
+	List-Owner; bh=voBie8TX+YrV1ZJDe4DaQOlWAGClJCcX6lGQmVVmtRY=; b=PD5jKuMc7rK3Yd
+	zte1uRLHkB2/J8wqdudlc0f2KCxgMl7lgEe/STgTxADNeqCCCq74zTX8XcWDQqJQD3gSZNt2i8wV1
+	LnT6qX/AUNSq0nrH+b/5jDQSox6lW1oziowVoUGZWgyvYULF7m/14VAXSAZgcgNHI1s/kuwY946dD
+	iFWTr7CpY5bcWOgLWKSwcZxlEUwdKpeNLrJSgK+I1VNDDK+hMEF5eqIqhBHd3KRYm0MeTuLhsI51e
+	tCOSCL4LB0ixsXet4Nimo9/hB3RkGB/TXn50HnoWZV3UrLfDD4HxZSJZ+Y3OOJmpsTnalIGU0zTLl
+	nYZjQbwCuh8ag0yk9ryw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIn7P-00000007SuN-3qRb;
-	Mon, 19 Oct 2026 13:09:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xIn7V-00000007SwZ-0EJU;
+	Mon, 19 Oct 2026 13:09:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIn7N-00000007StX-45XW
+	id 1xIn7T-00000007Svt-1n0x
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Oct 2026 13:09:34 +0000
+	Mon, 19 Oct 2026 13:09:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6C8586025A;
-	Mon, 19 Oct 2026 13:09:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C30841F000C4;
-	Mon, 19 Oct 2026 13:09:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D9D8C41FC9;
+	Mon, 19 Oct 2026 13:09:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA1A81F000C4;
+	Mon, 19 Oct 2026 13:09:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792415373;
-	bh=YgeuaqRtp5CK1SLmK81XKrsJHhQCxQdrEiseHucAYLg=;
+	s=k20260515; t=1792415378;
+	bh=2ltEc+eZxkTom69hLae+Xdkd8PkspZJkmoyFqTkrd20=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ezjbMz2uVDoG9WVlXEnf3OTSz5PFTTX/ucD/14duckHlDn5mtVv2Cxm5kQtDRDgue
-	 cofZxcfSR/CHqq8JZnhxgPnPhjqLcERiEVmvIFaaP0Ae2Y8uVyXCkv3qoLOTm6q+qO
-	 F1fvDCyjIrzo8Czkt1zjSy9k/V5HUI6MlLO6mEQYPqKxB0sbQpheRxzDC+zk1haqth
-	 N0zNvQiXBy+4YIEcCG1byKAu91XSJzE8Seo0aivOmDMbtuwrk1wI4Qhg+ATGP/7/dB
-	 m3z190i75KJ4iI3b+l1iwE+EFcb59NjH1eT5QvmE7IEbRbrKtja5brLARWSSouFjfJ
-	 EddHMIHT79m8w==
+	b=Q2v+7cGpgqUftBDwzL+ctAj9tyHalWz8s0rPAYsKAAmNIt9/0O6hqTIsGFlPGT8ne
+	 tuMRGBpoRkawpYukoe+pvwUrSR9cex9qVMwTW8+447169dalWHlKg2zMyiGof4c/pG
+	 17GdUEg5BoSLcNBE0NMfUpANAj2J2YyVDim1JAqYnBGbtLmtmSdltn5c2aO9xFg6HN
+	 IFta0P5b6vmaCzKSo9SGkgyxUqrfwrHOApDxbC7vKwHgsIbABVc04ENcrXyqraSQ/B
+	 MEONpo0ucfT44H8bLg+jRmb/BngOlxuRBa518Fya+SkIQ2AruYrM0ORSFgphlJcKJ5
+	 fOjfgO+V9n3XA==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Anup Patel <anup@brainfault.org>,
 	Marco Crivellari <marco.crivellari@suse.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <pjw@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Phil Auld <pauld@redhat.com>,
 	Radu Rendec <radu@rendec.net>,
-	Samuel Holland <samuel.holland@sifive.com>,
 	Thomas Gleixner <tglx@kernel.org>,
 	Waiman Long <longman@redhat.com>,
 	linux-riscv@lists.infradead.org
-Subject: [RFC PATCH 10/49] irqchip/sifive-plic: Move CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING post stop_machine()
-Date: Mon, 19 Oct 2026 15:08:17 +0200
-Message-ID: <20261019130856.49711-11-frederic@kernel.org>
+Subject: [RFC PATCH 12/49] irqchip/irq-riscv-imsic-early: Move CPUHP_AP_IRQ_RISCV_IMSIC_STARTING post stop_machine()
+Date: Mon, 19 Oct 2026 15:08:19 +0200
+Message-ID: <20261019130856.49711-13-frederic@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019130856.49711-1-frederic@kernel.org>
 References: <20261019130856.49711-1-frederic@kernel.org>
@@ -87,10 +90,14 @@ a new stop machine post function has been introduced to be executed
 after the main one with IRQs still disabled while other CPUs can exit
 stop_machine().
 
-The callback here simply disables a per-cpu IRQ, which internally locks
-the irq desc. Therefore it can run concurrently with other CPUs.
+The callback here disables the current CPU IPI, which nobody should
+touch concurrently since it is seen offline by other CPUs.
 
-Move it to post stop_machine() accordingly.
+The sync protects internal datas with &lpriv->lock and the IRQ matrix
+offline is protected by &imsic->matrix_lock. Therfore it can run
+concurrently with other CPUs.
+
+Move this teardown callback to post stop_machine() accordingly.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
@@ -98,15 +105,15 @@ Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index f32404821731..661648ada894 100644
+index 6acf07afbaf5..ce4e2ece371f 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
 @@ -1275,7 +1275,7 @@ void clear_tasks_mm_cpumask(int cpu)
  static int take_cpu_down(void *_param)
  {
  	struct cpuhp_cpu_state *st = this_cpu_ptr(&cpuhp_state);
--	enum cpuhp_state target = max((int)st->target, CPUHP_AP_IRQ_AVECINTC_STARTING);
-+	enum cpuhp_state target = max((int)st->target, CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING);
+-	enum cpuhp_state target = max((int)st->target, CPUHP_AP_IRQ_ACLINT_SSWI_STARTING);
++	enum cpuhp_state target = max((int)st->target, CPUHP_AP_IRQ_RISCV_IMSIC_STARTING);
  	int err, cpu = smp_processor_id();
  
  	/* Ensure this CPU doesn't handle any more interrupts. */
@@ -114,8 +121,8 @@ index f32404821731..661648ada894 100644
  	enum cpuhp_state target = max((int)st->target, CPUHP_AP_OFFLINE);
  	int cpu = smp_processor_id();
  
--	WARN_ON(st->state != CPUHP_AP_IRQ_AVECINTC_STARTING);
-+	WARN_ON(st->state != CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING);
+-	WARN_ON(st->state != CPUHP_AP_IRQ_ACLINT_SSWI_STARTING);
++	WARN_ON(st->state != CPUHP_AP_IRQ_RISCV_IMSIC_STARTING);
  	/*
  	 * Invoke the former CPU_DYING callbacks. DYING must not fail!
  	 */
