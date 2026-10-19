@@ -2,79 +2,127 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCD50606A32A
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2026 20:54:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D65CA606A319
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2026 22:31:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yOF6TMZ0;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=bQ0FX6HN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sAaViGps;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=v4o6EgLx
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ziZfiWx+BH8GUExsGRW7IvIBgSjjvZSV105UWzPk6tg=; b=yOF6TMZ048D56B
-	BAEsvVVA8hC9cATceW4M8OTxLzvjBd7k2iZN74K5Zm8B7vKosbWBka6YKMLxg86aFqLRoVvh8J/yD
-	wP9mFdO+OqeMCfL/RhJt7V+9nQWVGqtHYPxM0R1etnKMMVC+a/jVud15g1sE1VJ2Z036FmJJGWETk
-	aJl/FaOntpaQ7ZiuIDbtBdD0tfxUrgYt8VUfQ/Q8ErJPNn+b9faCFmfJkyH/VpAQIDRxyaeRyyi1O
-	VxGaDdPIiZgK9wMyGh7spuJSem0q3uC13rhSaHbQ9E/smUkL6xgfYNQp/CQTlxZ1oWvg3qxQxJXC+
-	buo3H2lqgCmdnA4rDp4w==;
+	List-Owner; bh=2n5IE1TRVB680mWVKSddlLV0Mi/htGWw3pmYgusnE+0=; b=sAaViGpsSCS979
+	YTYafziHVgrNBpkaUe7gnFQUIVmd1EEOQgweXG74LkKiz01tbaPhOG1LnWFWMzGBOhDa6T2HIZQ6M
+	knz6AFoosZw3Xg1Vf4b1SQQFIsHqjx0MB/spnvaH8S9H0E0+Rjrwioyd7/G4CWAFTTSc9taPLeQlJ
+	c2a1GUFjJO5RBXwqahAcxINT48S9WYuOVBWQFuCYnctLWn3eH1lIMmfQesk0v4vWLIxpo5XndLYWC
+	38UE3S8OLkU9eQ7Vk3ThTlh/+eS9XGNJH+TuyS/SQtLKKaiB4KvwOxBe0x0GwlYQpbZqHcQW5SO1z
+	EjN95zuWeWryay8ZOBzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIuMV-00000008LKw-0WOX;
-	Mon, 19 Oct 2026 20:53:39 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1xIvt1-00000008UET-1frA;
+	Mon, 19 Oct 2026 22:31:19 +0000
+Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIuMT-00000008LKd-4AX1;
-	Mon, 19 Oct 2026 20:53:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ccM+tB35AWZe4vsxbl8ZkFdtD87yJwwquhmHcKeVI9Q=; b=bQ0FX6HNdwX6jQVJyiY2V8qoHk
-	qEKvQn56Rz+5qUg+/xuZ5c5AHOqLGgFPgYRkABo2a8WSA0LF32w8pgJeEhf5P7Jz61DsECOxY/MxF
-	m+hCkw9dp8jp2awnLdTlDFXwypE4jU3MuOmm/9LNoFA0ob6txwVFmC8m3BsUKsLxwCHuIiapFDMp1
-	XcKLe/CDAX4zBGQYBBKUAOWM+r7fza84Fn3dcCYlngrtRLEQBAawai8+8qzMJ8ud799ZBU4krm5eN
-	Qn6T5a240aAOGNuJ9FgPwruEv5DudjjPVlz2LeJxFgBQGdB2w+e9u5+wep7Oyt4Xt1uzRao0DjETO
-	WtIyCGvA==;
-Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIuMO-0000000B396-13ug;
-	Mon, 19 Oct 2026 20:53:32 +0000
-Date: Mon, 19 Oct 2026 21:53:32 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Barry Song <baohua@kernel.org>, Hongru Zhang <zhanghongru06@gmail.com>,
-	akpm@linux-foundation.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, surenb@google.com, david@kernel.org,
-	liam@infradead.org, mhocko@suse.com, rppt@kernel.org,
-	shakeel.butt@linux.dev, vbabka@kernel.org, zhaonanzhe@xiaomi.com,
-	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
-	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
-	chenhuacai@kernel.org, kernel@xen0n.name, loongarch@lists.linux.dev,
-	maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
-	chleroy@kernel.org, linuxppc-dev@lists.ozlabs.org, pjw@kernel.org,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org, agordeev@linux.ibm.com,
-	gerald.schaefer@linux.ibm.com, hca@linux.ibm.com, gor@linux.ibm.com,
-	borntraeger@linux.ibm.com, svens@linux.ibm.com,
-	linux-s390@vger.kernel.org, dave.hansen@linux.intel.com,
-	luto@kernel.org, peterz@infradead.org, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, x86@kernel.org, hpa@zytor.com,
-	Hongru Zhang <zhanghongru@xiaomi.com>
-Subject: Re: [PATCH v6] mm: retry page faults once under the per-VMA lock
-Message-ID: <ataDTEZIKOYtwhUF@casper.infradead.org>
-References: <20260911025613.1220845-1-zhanghongru@xiaomi.com>
- <arFYRAa-i7CIwmHL@gremlin>
- <arF-E3Nsw9ZliH0t@casper.infradead.org>
- <arI_w2wTfA00Mgy9@gremlin>
- <armexcXDiG8ryZd6@casper.infradead.org>
- <CAGsJ_4xuFi7K+crAcFQ998SxXS0xPM6QeA34JV+6+Sy005rXLg@mail.gmail.com>
- <ar7MsOb6IJLt4eLo@casper.infradead.org>
- <ar-o1TrOMGrrcxLX@gremlin>
+	id 1xIvsy-00000008UDl-4287
+	for linux-riscv@lists.infradead.org;
+	Mon, 19 Oct 2026 22:31:18 +0000
+Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-354ba08cfd1so4765021eec.1
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Oct 2026 15:31:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792449075; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Upkr2+M1P2/F1KlZo/iCtV2AvoeZ0ko0Lh7RYcdWMim/6/37x0Jy78GEjC9gnu9yim
+         EoSd9mqWGg2OnSkzZp1zXPlLjPJ3nuL6BSMZ4EQFgJlvd5PKM9Lp+ybOPLsFqzslDlxN
+         HLeY4szcmqm8XCdrKBSFRIHzb+aqxABMmd+zUY9C9kGi+5/hSP285Lu2oR93kAdl3mCp
+         xTE+dJvtwcc5/doBzMhvGSH54jhcJYYOzTzNJgJg75IF3vWBDga13IoLrVCSdK5Grrjf
+         qdySjV+j8F9/kZlhHmxaSM+ze2OhJILwC1bhz3l4FICFWChsx1izoiDjxzm7K6B+t/5s
+         oPUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=7Y7YiwpHnHRTlx4OY6pg4GKzGSuy4/quEwIOKfF9VTA=;
+        fh=b856pFZrypwF6BHG6KVFjB6SSxmM6IKO2M/Itawvt+w=;
+        b=H5lYSmswt9t7OEgObQf1F+g+4r+LY+Af7krSnQk14q2Oq9jIOnHtlBPtAVGhRoibfQ
+         e0emuFZ6sWeOvKb1T3WZb/unfUcm0ZyygSGUpyVrokRYPJMmcl84uJTUxcq4LETkjIzK
+         JTNLbdCOZOVA97yI7j88mU9QxQkUfWkmoUQSyVctxpSRKcOwFVd8qNlfmXN9s8t0MVzn
+         858PTNO97cKc/5U0hdRUrZyFA2bH1CqhbnOcpdeVI7MNcETY8gjzbm++jr88O+2Mglv0
+         rwlfc7/xuOxqdQ5yukSkxROzi6qsn2gjLRcBe5M4JaPjUgDOuJw0QU6slZCTlo/CxVv+
+         X2qw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1792449075; x=1793053875; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7Y7YiwpHnHRTlx4OY6pg4GKzGSuy4/quEwIOKfF9VTA=;
+        b=v4o6EgLxcBMzYu3rwoRw/Tm4qS23X8mcTkC2sbHpouERfl8ZmRR+lhgWUhaEU6XSBq
+         AvVN8zFRAk2bIyyXelrmQlFxqkL82QgigR3ME3GCCjOQ8GT/Im0L5t5J08ClXxiHWRu7
+         mEE0LZXVrbnXbnMJJGfcQEoIZXtEse4AgDspMxZ1WHEqoIqEHNs8jwX8MimZC2cCGGAu
+         kDuevJO7OZSG0w5tpusCEz9DNxQRAYMpErT+p2PU6sMmcDsJQqv5jXSpa9G92jZFTLCy
+         j8LnesES8pfo+Vb05OZsxXs7UXU1GaTqv6DMPalXs1K4OKw5bd/BtSjjeoTDlaTNd7FT
+         zalA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792449075; x=1793053875;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=7Y7YiwpHnHRTlx4OY6pg4GKzGSuy4/quEwIOKfF9VTA=;
+        b=GBt8UJv+LoV/ESPoLhTUzQSrF7op61M/1EJvtb01Sq+m64se2jJ1j3GbMlYD1rhTRa
+         xWZ4dst2/TrFaJxqxYU1g+djIx5kgxjllFizjW/byJpIUpnrJDbEnSqFnp+JDZbXfap3
+         Sl1jJ2yWPjnByld6xqcfUPc1H0U9jwKXMnWDkX2fkJcirwFrkgG/lYgK780CTL10XLya
+         0QnJAVJFNpt+fC8aXT04Y1lrHWqSqWo1e+NPxrIs4Iq1joqhdvSItIB8hjFL1zKFdsct
+         cWR8NKaY91FYX0lEnpW3rwSG1ijN6kAgPtWHjgr6/oOptpnMkTrvVtlsSnFl7QiKd59X
+         Zuiw==
+X-Forwarded-Encrypted: i=1; AKwUvBzrEq7RyIxjmwiuAVq5KDpSlo2ft4VtGwiyeVDHWDz0QB0wlxDY59LoAYyRWm3nlExQiRGNYItc1JZTRA==@lists.infradead.org
+X-Gm-Message-State: AFq9FYJEA59h/cJYua53rtZXSXc/WZor38gibTgFswpGB/JLAQIgL5yG
+	cHecrOWKhxKKiOF6TNfVsocYGCNPbrgVFaute0zUPSsvEwYLmM3pnOknN9suIVOKyf6AXvrW8dy
+	Qdu/yOdU9auCx5icEGV/cj/DTuswRcyhXyqiZ8yCp
+X-Gm-Gg: AYBFou2y0nJueHeHnJ7MoJqex/lQJp6Yh7X3jjVs8bJoC3xzor67p45Zbx17aYi4uCl
+	df/RCCV2Pkpkx7Lwvu6Z7nNnhlulRbjvbGmlpdSvPXuY3ktv0p6nztkf46ZrmQTzE5wMFnYUr3o
+	sly7pHNrMFfkyQn9zPJds0QmgjAJmXUEURHCehXEWPZqGzx8+plZnecACuSo4SkWDbGl1lhHkHO
+	QDdLdAj+M0BQ0VxVgEFWDoomFSP4XYhB+aPwUv0Oie4KkFFWJVozqLFjNLe90/cA5mE4YSfE/db
+	fBimnzDeYLs0LLTsqOA6IdCc3bVl7quk7nyZHOV0RxkELiiwj1PdmE73LxlnO0VccBMuJhBOXD1
+	Vuilcl9UsIfvs6IwFblc5aRhB2t414jAI2N37oHGiAiPpppYwiIn/gWHhggdmQGxz7YC2
+X-Received: by 2002:a05:701b:42cb:10b0:169:b1b1:1445 with SMTP id
+ a92af1059eb24-18512e2515fmr12984330c88.31.1792449074316; Mon, 19 Oct 2026
+ 15:31:14 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ar-o1TrOMGrrcxLX@gremlin>
+References: <20261019-bug-word-at-a-time-zeropad-kasan-v1-0-f21a3ed6a477@gmail.com>
+ <20261019-bug-word-at-a-time-zeropad-kasan-v1-1-f21a3ed6a477@gmail.com>
+In-Reply-To: <20261019-bug-word-at-a-time-zeropad-kasan-v1-1-f21a3ed6a477@gmail.com>
+From: Marco Elver <elver@google.com>
+Date: Tue, 20 Oct 2026 00:30:37 +0200
+X-Gm-Features: AclHuK-9KfyXQ0m8f9CHsU2jTa1lgiXB2sNpwhyCmDMarQWZL2s0qBm4al6Ih6c
+Message-ID: <CANpmjNPPncfo41Hu=TKB8cd1aFm0Lm-9+AT6pXVsYyUgFVx8TQ@mail.gmail.com>
+Subject: Re: [PATCH 1/2] word-at-a-time: check the first byte in load_unaligned_zeropad()
+To: Qiliang Yuan <odys.yuan@gmail.com>
+Cc: Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Shuah Khan <shuah@kernel.org>, 
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, 
+	Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	linux-arm-kernel@lists.infradead.org, Kees Cook <kees@kernel.org>, 
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	kasan-dev@googlegroups.com, linux-mm@kvack.org, 
+	Peter Collingbourne <peter@pcc.me.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261019_153117_008597_5429F544 
+X-CRM114-Status: GOOD (  30.15  )
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,161 +135,230 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 02, 2026 at 02:12:35PM +0100, Lorenzo Stoakes (ARM) wrote:
-> On Thu, Oct 01, 2026 at 10:12:16PM +0100, Matthew Wilcox wrote:
-> > So what I didn't realise is that fork() waits for page faults to finish.
-> > I don't think that's necessary, so we can just stop doing that (whitespace
-> > damaged):
-> > I think this is safe.  I've booted a kernel with this change, and
-> 
-> I'm afraid it's not safe :)
-> 
-> We already actually did this (by mistake I think?) before. See commit
-> fb49c455323f ("fork: lock VMAs of the parent process when forking") - we shipped
-> that in 6.4.0 -> 6.4.2 and it corrupted memory all over the place.
-> 
-> Reports + a consistent reproducer:
-> 
-> https://bugzilla.kernel.org/show_bug.cgi?id=217624
-> https://lore.kernel.org/all/dbdef34c-3a07-5951-e1ae-e9c6e3cdf51b@kernel.org/
-> https://lore.kernel.org/all/b198d649-f4bf-b971-31d0-e8433ec2a34c@applied-asynchrony.com/
+On Mon, 19 Oct 2026 at 03:58, Qiliang Yuan <odys.yuan@gmail.com> wrote:
+>
+> load_unaligned_zeropad() reads a word that may run into an unmapped
+> page and recovers through an exception fixup. It does the word loads of
+> sized_strscpy() and of the name compare in dentry_string_cmp(), path
+> components in hash_name() and hashlen_string(), and the trailing bytes
+> in x86's csum_partial().
+>
+> It is inline assembly on every architecture that implements it, so
+> KASAN and KCSAN never see these loads, while read_word_at_a_time() at
+> least checks the first byte of each word. A use-after-free or
+> out-of-bounds read of a name handed to path lookup goes unreported, and
+> so does strscpy() reading from a bad source, which the kasan_strings
+> KUnit case expects to be reported. On x86_64 with generic KASAN:
+>
+>   KASAN and string KUnit suites      failures
+>                                   before    after
+>   CONFIG_FORTIFY_SOURCE=n              1        0
+>   CONFIG_FORTIFY_SOURCE=y              1        0
+>
+> Check the first byte at the start of load_unaligned_zeropad() on every
+> architecture, as read_word_at_a_time() does. All callers only load a
+> word whose first byte belongs to the string or buffer they read, so
+> the check does not flag their intended reads past the end. Add no-op
+> stubs for the powerpc selftest that builds the header in user space.
+>
+> Suggested-by: Peter Collingbourne <peter@pcc.me.uk>
+> Signed-off-by: Qiliang Yuan <odys.yuan@gmail.com>
 
-I wonder if we still need this.  The commit message says:
+Reviewed-by: Marco Elver <elver@google.com>
 
-    A concurrent page fault on a page newly marked read-only by the page
-    copy might trigger wp_page_copy() and a anon_vma_prepare(vma) on the
-    source vma, defeating the anon_vma_clone() that wasn't done because the
-    parent vma originally didn't have an anon_vma, but we now might end up
-    copying a pte entry for a page that has one.
+Thanks!
 
-But we're holding the mmap_lock for write here, and we need to hold the
-mmap_lock for read in order to change a vma->anon_vma (asserted in
-__anon_vma_prepare() with mmap_assert_locked()).
-
-At the time of this commit, lock_vma_under_rcu() contained:
-
-        /* find_mergeable_anon_vma uses adjacent vmas which are not locked */
-        if (!vma->anon_vma && !vma_is_tcp(vma))
-                goto inval;
-
-so we really did have to wait for read holders to finish the fault.
-But commit a373baed5a9d deferred the check for a NULL anon VMA until we
-actually needed it, so I think commit fb49c455323f's logic was invalidated
-by a373baed5a9d.
-
-Maybe I'm wrong.  This is all a bit out of my normal area.
-
-> Also we have asserts for this lock in copy_page_range() and
-> copy_hugetlb_page_range() which will now fail (and possibly more further down
-> the stack?)
-
-Possibly we have to adjust some assertions to check that either we have
-the VMA locked or we have the MM write locked.  That doesn't seem
-unreasonable.
-
-> > My argument for why it's safe is that a thread which takes a page
-> > fault during fork() might have taken the page fault either before or
-> > after fork().  The faults will definitely happen in the parent process.
-> > They may or may not have happened in the child process, which can't
-> > possibly care whether or not they've happened.
-> 
-> The problem isn't the child it's the parent - copy_page_range() _modifies_ the
-> _parent_'s page tables in-place, on assumption that nothing else can access
-> them (for CoW).
-
-I was perhaps unclear.  What I mean is that the child may or may not
-observe them as having happened.
-
-> And actually nowadays things are _even_ worse, you could also have concurrent
-> page faults, MADV_DONTNEED, MADV_FREE, MADV_GUARD_INSTALL/REMOVE, UFFDIO_COPY +
-> UFFDIO_MOVE (yikes) all of which might introduce new issues + would have to be
-> audited too.
-
-Yup.
-
-> So - it turns out a lot of stuff implicitly assumes VMA write lock now:
-> 
-> 1. CoW - deferred TLB flush race
-> 
-> (The issue above)
-> 
-> https://lore.kernel.org/all/20230705171213.2843068-2-surenb@google.com/
-> 
-> This happens because __copy_present_ptes() does wrprotect_ptes() on the parent
-> without a TLB flush (that's deferred until the end of the fork).
-> 
-> But unfortunately without a VMA write lock something can then replace the page
-> table entry in the meantime and you can end up with data loss as a result.
-
-Is it that fb49c455323f commit message is insufficient and we need to
-prevent simultaneous fork/page fault for other reasons, then?
-
-> Same issue exists with hugetlb wp too. And god only knows with uffd wp :)
-> 
-> 2. THP - can destroy parent THP mappings
-> 
-> copy_pmd_range() does:
-> 
-> 	if (pmd_is_huge(*src_pmd)) { copy_huge_pmd(); ... }
-> 	if (pmd_none_or_clear_bad(src_pmd))
-> 		continue;
-> 
-> Without the write lock, a concurrent fault can install a huge PMD via
-> do_huge_pmd_anonymous_page() or filemap_map_pmd()/do_set_pmd().
-> 
-> The issue is that pmd_bad() fires for leaf PMD (ugh) on at least x86 and arm64,
-> meaning that'll clear the page table entry.
-> 
-> I think Hugh left a comment alluding to this before:
-> 
-> 	 * copy_pmd_range()'s prior pmd_none_or_clear_bad(src_pmd), and the
-> 	 * error handling here, assume that exclusive mmap_lock on dst and src
-> 	 * protects anon from unexpected THP transitions; ...
-> 
-> It's like the mess around pmd_trans_unstable() :(
-
-... could we fix this by taking the ptlock during the copy operation?
-
-> 3. copy_pte_range() skips the required pmd_same() recheck assuming write lock
-> 
-> It uses pte_offset_map_rw_nolock() with a dummy pmdval and:
-> 
-> 	 * We already hold the exclusive mmap_lock, the copy_pte_range() and
-> 	 * retract_page_tables() are using vma->anon_vma to be exclusive, so
-> 	 * the PTE page is stable, and there is no need to get pmdval and do
-> 	 * pmd_same() check.
-> 
-> (Probably needs updating for VMA write lock...)
-> 
-> 4. The asserts
-> 
-> Mentioned above!
-> 
-> I suspect there's more as well.
-> 
-> Some of it could be changed, but it'd all be at the cost of behaving very
-> strangely (no VMA lock but mmap write lock) while manipulating things.
-> 
-> And I am not really happy with changing page table entries in the parent VMA
-> (for CoW) without a VMA write lock held.
-> 
-> I also wonder whether it would achieve all that much really - the issue is with
-> holding the VMA lock across I/O, anything else that tries to grab a write lock
-> is going to end up being the new thing that's blocked (mprotect, munmap, mremap,
-> mlock etc.)
-> 
-> I think doing something like this would need a very significant redesign and I'm
-> not convinced it's one that really achieves what we want given all the other
-> cases that'd get blocked by the VMA lock being held still.
-> 
+> ---
+>  arch/arm/include/asm/word-at-a-time.h                           | 7 +++++++
+>  arch/arm64/include/asm/word-at-a-time.h                         | 7 +++++++
+>  arch/powerpc/include/asm/word-at-a-time.h                       | 6 ++++++
+>  arch/riscv/include/asm/word-at-a-time.h                         | 6 ++++++
+>  arch/s390/include/asm/word-at-a-time.h                          | 6 ++++++
+>  arch/x86/include/asm/word-at-a-time.h                           | 6 ++++++
+>  tools/testing/selftests/powerpc/primitives/linux/kasan-checks.h | 3 +++
+>  tools/testing/selftests/powerpc/primitives/linux/kcsan-checks.h | 3 +++
+>  8 files changed, 44 insertions(+)
+>
+> diff --git a/arch/arm/include/asm/word-at-a-time.h b/arch/arm/include/asm/word-at-a-time.h
+> index 5023f98d8293d..f672aad2e30e6 100644
+> --- a/arch/arm/include/asm/word-at-a-time.h
+> +++ b/arch/arm/include/asm/word-at-a-time.h
+> @@ -56,6 +56,9 @@ static inline unsigned long find_zero(unsigned long mask)
+>  #include <asm-generic/word-at-a-time.h>
+>  #endif
+>
+> +#include <linux/kasan-checks.h>
+> +#include <linux/kcsan-checks.h>
+> +
+>  #ifdef CONFIG_DCACHE_WORD_ACCESS
+>
+>  /*
+> @@ -69,6 +72,10 @@ static inline unsigned long load_unaligned_zeropad(const void *addr)
+>  {
+>         unsigned long ret, tmp;
+>
+> +       /* open-coded instrument_read(addr, 1), as in read_word_at_a_time() */
+> +       kasan_check_read(addr, 1);
+> +       kcsan_check_read(addr, 1);
+> +
+>         /* Load word from unaligned pointer addr */
+>         asm(
+>         "1:     ldr     %0, [%2]\n"
+> diff --git a/arch/arm64/include/asm/word-at-a-time.h b/arch/arm64/include/asm/word-at-a-time.h
+> index 824ca6987a516..11ecca99057aa 100644
+> --- a/arch/arm64/include/asm/word-at-a-time.h
+> +++ b/arch/arm64/include/asm/word-at-a-time.h
+> @@ -40,6 +40,9 @@ static inline unsigned long zero_bytemask(unsigned long bits)
+>  #include <asm-generic/word-at-a-time.h>
+>  #endif
+>
+> +#include <linux/kasan-checks.h>
+> +#include <linux/kcsan-checks.h>
+> +
+>  /*
+>   * Load an unaligned word from kernel space.
+>   *
+> @@ -51,6 +54,10 @@ static inline unsigned long load_unaligned_zeropad(const void *addr)
+>  {
+>         unsigned long ret;
+>
+> +       /* open-coded instrument_read(addr, 1), as in read_word_at_a_time() */
+> +       kasan_check_read(addr, 1);
+> +       kcsan_check_read(addr, 1);
+> +
+>         __mte_enable_tco_async();
+>
+>         /* Load word from unaligned pointer addr */
+> diff --git a/arch/powerpc/include/asm/word-at-a-time.h b/arch/powerpc/include/asm/word-at-a-time.h
+> index 54653a8634149..49c6a1f65c493 100644
+> --- a/arch/powerpc/include/asm/word-at-a-time.h
+> +++ b/arch/powerpc/include/asm/word-at-a-time.h
+> @@ -5,6 +5,8 @@
+>   * Word-at-a-time interfaces for PowerPC.
+>   */
+>  #include <linux/bitops.h>
+> +#include <linux/kasan-checks.h>
+> +#include <linux/kcsan-checks.h>
+>  #include <linux/wordpart.h>
+>  #include <asm/asm-compat.h>
+>  #include <asm/extable.h>
+> @@ -168,6 +170,10 @@ static inline unsigned long load_unaligned_zeropad(const void *addr)
+>  {
+>         unsigned long ret, offset, tmp;
+>
+> +       /* open-coded instrument_read(addr, 1), as in read_word_at_a_time() */
+> +       kasan_check_read(addr, 1);
+> +       kcsan_check_read(addr, 1);
+> +
+>         asm(
+>         "1:     " PPC_LL "%[ret], 0(%[addr])\n"
+>         "2:\n"
+> diff --git a/arch/riscv/include/asm/word-at-a-time.h b/arch/riscv/include/asm/word-at-a-time.h
+> index 3802cda71ab7e..fb7e2904dd7fd 100644
+> --- a/arch/riscv/include/asm/word-at-a-time.h
+> +++ b/arch/riscv/include/asm/word-at-a-time.h
+> @@ -11,6 +11,8 @@
+>
+>  #include <asm/asm-extable.h>
+>  #include <linux/bitops.h>
+> +#include <linux/kasan-checks.h>
+> +#include <linux/kcsan-checks.h>
+>  #include <linux/wordpart.h>
+>
+>  struct word_at_a_time {
+> @@ -60,6 +62,10 @@ static inline unsigned long load_unaligned_zeropad(const void *addr)
+>  {
+>         unsigned long ret;
+>
+> +       /* open-coded instrument_read(addr, 1), as in read_word_at_a_time() */
+> +       kasan_check_read(addr, 1);
+> +       kcsan_check_read(addr, 1);
+> +
+>         /* Load word from unaligned pointer addr */
+>         asm(
+>         "1:     " REG_L " %0, %2\n"
+> diff --git a/arch/s390/include/asm/word-at-a-time.h b/arch/s390/include/asm/word-at-a-time.h
+> index eaa19dee76994..59393cf065964 100644
+> --- a/arch/s390/include/asm/word-at-a-time.h
+> +++ b/arch/s390/include/asm/word-at-a-time.h
+> @@ -3,6 +3,8 @@
+>  #define _ASM_WORD_AT_A_TIME_H
+>
+>  #include <linux/bitops.h>
+> +#include <linux/kasan-checks.h>
+> +#include <linux/kcsan-checks.h>
+>  #include <linux/wordpart.h>
+>  #include <asm/asm-extable.h>
+>  #include <asm/bitsperlong.h>
+> @@ -52,6 +54,10 @@ static inline unsigned long load_unaligned_zeropad(const void *addr)
+>  {
+>         unsigned long data;
+>
+> +       /* open-coded instrument_read(addr, 1), as in read_word_at_a_time() */
+> +       kasan_check_read(addr, 1);
+> +       kcsan_check_read(addr, 1);
+> +
+>         asm_inline volatile(
+>                 "0:     lg      %[data],0(%[addr])\n"
+>                 "1:     nopr    %%r7\n"
+> diff --git a/arch/x86/include/asm/word-at-a-time.h b/arch/x86/include/asm/word-at-a-time.h
+> index 422a47746657a..1319e1d87a9c4 100644
+> --- a/arch/x86/include/asm/word-at-a-time.h
+> +++ b/arch/x86/include/asm/word-at-a-time.h
+> @@ -3,6 +3,8 @@
+>  #define _ASM_WORD_AT_A_TIME_H
+>
+>  #include <linux/bitops.h>
+> +#include <linux/kasan-checks.h>
+> +#include <linux/kcsan-checks.h>
+>  #include <linux/wordpart.h>
+>
+>  struct word_at_a_time {
+> @@ -71,6 +73,10 @@ static inline unsigned long load_unaligned_zeropad(const void *addr)
+>  {
+>         unsigned long ret;
+>
+> +       /* open-coded instrument_read(addr, 1), as in read_word_at_a_time() */
+> +       kasan_check_read(addr, 1);
+> +       kcsan_check_read(addr, 1);
+> +
+>         asm volatile(
+>                 "1:     mov %[mem], %[ret]\n"
+>                 "2:\n"
+> diff --git a/tools/testing/selftests/powerpc/primitives/linux/kasan-checks.h b/tools/testing/selftests/powerpc/primitives/linux/kasan-checks.h
+> new file mode 100644
+> index 0000000000000..000c92de6baf2
+> --- /dev/null
+> +++ b/tools/testing/selftests/powerpc/primitives/linux/kasan-checks.h
+> @@ -0,0 +1,3 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/* There is nothing for KASAN to check in user space. */
+> +#define kasan_check_read(p, size)      ((void)(p), (void)(size))
+> diff --git a/tools/testing/selftests/powerpc/primitives/linux/kcsan-checks.h b/tools/testing/selftests/powerpc/primitives/linux/kcsan-checks.h
+> new file mode 100644
+> index 0000000000000..39c97bc15531e
+> --- /dev/null
+> +++ b/tools/testing/selftests/powerpc/primitives/linux/kcsan-checks.h
+> @@ -0,0 +1,3 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/* There is nothing for KCSAN to check in user space. */
+> +#define kcsan_check_read(p, size)      ((void)(p), (void)(size))
+>
 > --
-> Cheers, Lorenzo
+> 2.43.0
+>
+> --
+> You received this message because you are subscribed to the Google Groups "kasan-dev" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to kasan-dev+unsubscribe@googlegroups.com.
+> To view this discussion visit https://groups.google.com/d/msgid/kasan-dev/20261019-bug-word-at-a-time-zeropad-kasan-v1-1-f21a3ed6a477%40gmail.com.
 
 _______________________________________________
 linux-riscv mailing list
