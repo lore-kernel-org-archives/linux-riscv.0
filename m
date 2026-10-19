@@ -4,56 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3EFCCF2E4
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2026 12:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 761C1CCF2DB
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2026 13:09:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:From:MIME-Version:Subject:Cc:To:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=p+LbHVxRlPn48Eu+VXWC/fSwdehYj+Gv+yG+2QnBhxY=; b=QWFWwDq9VeMm4l
-	vO57dXCW4RpM4BwkAw8w+qmNb96MRvtT1yt38bLn6Jf1+qAQenbRABNq1jw5vhXWUs40DuxYK8LU0
-	KlaEqhIvvRbnV0+VW4a5n0ODZuYCkxbjgFw5qIhs1H6RaI3UgrEGghASUt8AYl4MHyrLlSOtpUc7+
-	3bP9slWertNEYXPv5mE6Dpmnbk5K0P04oQKdUXB4F66qEJOKwlg9a4vBcRQMOeZIEvuCl/jtBk118
-	3dCe4QT30HdbhxJylv+z82osyYcCwtV4wlqXk1dbUBipeTNyk45BVnL8MyxwDsm57bl1Iy8FYQKKB
-	OKu2cr0KnmEskh8/Sijw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Igu8o+wFZLI5G+LHBl2xAevRelix3Os1mXmxMiThjxU=; b=wo69Yh9AW+IHEC
+	3D3MBsHZmiJ4BS5dT7nVF875yDnjf5l8XZSGoZKQ7va/vsQmz7lGSAMRZm/mHAX6LMKHI6h0w+yos
+	FjYmXxstssYTBgmdZ145T0UuPDRa7ll+cfDrFJLonR1kEb+T6isH/hCMJwI6HkO6wk9OPCv0SV+ch
+	90NsTubWuHAZWC55Mlu891SoHmpxUNH4rchU3ZwfVYODYOpldnZdi1gbw+J/FVmLYKpwbtyNRCG7H
+	Mk2LzxckGWs+uqD9vbb4FbZlTEISCE+NK/qojWtX6C4l2zfR1DmFFlhr4eDIELEHVjWtTP9m1pDm9
+	O7IplZfUK7IrbMjXmg2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImiu-00000007QAL-3vXV;
-	Mon, 19 Oct 2026 12:44:16 +0000
-Received: from mail-m93187.xmail.ntesmail.com ([103.126.93.187])
+	id 1xIn7P-00000007SuN-3qRb;
+	Mon, 19 Oct 2026 13:09:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImir-00000007Q8H-3tz5
+	id 1xIn7N-00000007StX-45XW
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Oct 2026 12:44:16 +0000
-Message-ID: <ACoATQBWLMQm6IW3xmgPIqp1.1.1792413844984.Hmail.252270051@hdu.edu.cn>
-To: pjw@kernel.org, samuel.holland@sifive.com, vkoul@kernel.org, 
-	Frank.Li@kernel.org
-Cc: linux-riscv@lists.infradead.org, dmaengine@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: =?UTF-8?B?ZG1hZW5naW5lOiBzZi1wZG1hOiBwb3NzaWJsZSBVQUYgYmV0d2VlbiBlcnJvciB0YXNrbGV0IGFuZCBjaGFubmVsIHJlc291cmNlIHJlbGVhc2U=?=
-X-Priority: 3
-X-Mailer: HMail Webmail Server V2.0 Copyright (c) 2016-163.com web
-X-Originating-IP: 183.157.177.89
+	Mon, 19 Oct 2026 13:09:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6C8586025A;
+	Mon, 19 Oct 2026 13:09:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C30841F000C4;
+	Mon, 19 Oct 2026 13:09:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792415373;
+	bh=YgeuaqRtp5CK1SLmK81XKrsJHhQCxQdrEiseHucAYLg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=ezjbMz2uVDoG9WVlXEnf3OTSz5PFTTX/ucD/14duckHlDn5mtVv2Cxm5kQtDRDgue
+	 cofZxcfSR/CHqq8JZnhxgPnPhjqLcERiEVmvIFaaP0Ae2Y8uVyXCkv3qoLOTm6q+qO
+	 F1fvDCyjIrzo8Czkt1zjSy9k/V5HUI6MlLO6mEQYPqKxB0sbQpheRxzDC+zk1haqth
+	 N0zNvQiXBy+4YIEcCG1byKAu91XSJzE8Seo0aivOmDMbtuwrk1wI4Qhg+ATGP/7/dB
+	 m3z190i75KJ4iI3b+l1iwE+EFcb59NjH1eT5QvmE7IEbRbrKtja5brLARWSSouFjfJ
+	 EddHMIHT79m8w==
+From: Frederic Weisbecker <frederic@kernel.org>
+To: LKML <linux-kernel@vger.kernel.org>
+Cc: Frederic Weisbecker <frederic@kernel.org>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Phil Auld <pauld@redhat.com>,
+	Radu Rendec <radu@rendec.net>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Waiman Long <longman@redhat.com>,
+	linux-riscv@lists.infradead.org
+Subject: [RFC PATCH 10/49] irqchip/sifive-plic: Move CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING post stop_machine()
+Date: Mon, 19 Oct 2026 15:08:17 +0200
+Message-ID: <20261019130856.49711-11-frederic@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261019130856.49711-1-frederic@kernel.org>
+References: <20261019130856.49711-1-frederic@kernel.org>
 MIME-Version: 1.0
-Received: from 252270051@hdu.edu.cn( [183.157.177.89] ) by ajax-webmail ( [127.0.0.1] ) ; Mon, 19 Oct 2026 20:44:04 +0800 (GMT+08:00)
-From: LI xiao <lixiao0@hdu.edu.cn>
-Date: Mon, 19 Oct 2026 20:44:04 +0800 (GMT+08:00)
-X-HM-Tid: 0aa1542b2cacd458kusya666c29ac170
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZHhgeVklKTRpOGEkYGUhNH1YVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlKQ0hVSk5MVUpMTFVDQllXWRYaDxIVHRRZQVlPS0hVSk
-	tISkxDSlVKS0tVSkJLS1kG
-DKIM-Signature: a=rsa-sha256;
-	b=iar6xD0MeefcJmhuJt+71CQnPls657Btt9FCJe3JsTuFY1Mz2xBGKz1xZSTBpfg7wy5Bqg511jA6IWKqkWIIQBtPUsLJWahaaA3Zlcb5Nctrm5y8qsUw80/zRcdBuQ1bT59ervkgKTgD15qrbYA14fTFuDVvDnGgMqn9EnH2+y0=; s=default; c=relaxed/relaxed; d=hdu.edu.cn; v=1;
-	bh=uid7unXvFpXIwc//7PPu9CZ/okIyOjRVbz31UgiFRGI=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_054414_237177_F987AB8A 
-X-CRM114-Status: UNSURE (   6.07  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,58 +77,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Between CPUHP_TEARDOWN_CPU and CPUHP_AP_OFFLINE, stop_machine executes
+all the teardown callbacks while stopping all CPUs in the system. This
+doesn't mix-up well with running RT or isolated tasks.
 
-I noticed a possible UAF in the SiFive FU540 PDMA driver.
+In order to transition smoothly from global stop_machine to finer
+grained synchronization between teardown callbacks and the other CPUs,
+a new stop machine post function has been introduced to be executed
+after the main one with IRQs still disabled while other CPUs can exit
+stop_machine().
 
-In sf_pdma_err_isr(), the error interrupt schedules chan->err_tasklet. In sf_pdma_errbh_tasklet(), chan->desc is copied to a local variable before chan->lock is acquired. The failure path may subsequently access desc->async_tx through this pointer.
+The callback here simply disables a per-cpu IRQ, which internally locks
+the irq desc. Therefore it can run concurrently with other CPUs.
 
-Meanwhile, sf_pdma_free_chan_resources() frees chan->desc while holding chan->vchan.lock. These paths do not appear to use a common lock to protect the descriptor's lifetime.
+Move it to post stop_machine() accordingly.
 
-The driver does not set device_synchronize. Since dmaengine_synchronize() only invokes the provider's device_synchronize callback when it is present, the synchronization performed before sf_pdma_free_chan_resources() does not appear to wait for this driver's error tasklet to finish.
+Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+---
+ kernel/cpu.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-A possible interleaving is:
+diff --git a/kernel/cpu.c b/kernel/cpu.c
+index f32404821731..661648ada894 100644
+--- a/kernel/cpu.c
++++ b/kernel/cpu.c
+@@ -1275,7 +1275,7 @@ void clear_tasks_mm_cpumask(int cpu)
+ static int take_cpu_down(void *_param)
+ {
+ 	struct cpuhp_cpu_state *st = this_cpu_ptr(&cpuhp_state);
+-	enum cpuhp_state target = max((int)st->target, CPUHP_AP_IRQ_AVECINTC_STARTING);
++	enum cpuhp_state target = max((int)st->target, CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING);
+ 	int err, cpu = smp_processor_id();
+ 
+ 	/* Ensure this CPU doesn't handle any more interrupts. */
+@@ -1303,7 +1303,7 @@ static int take_cpu_down_post(void *_param)
+ 	enum cpuhp_state target = max((int)st->target, CPUHP_AP_OFFLINE);
+ 	int cpu = smp_processor_id();
+ 
+-	WARN_ON(st->state != CPUHP_AP_IRQ_AVECINTC_STARTING);
++	WARN_ON(st->state != CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING);
+ 	/*
+ 	 * Invoke the former CPU_DYING callbacks. DYING must not fail!
+ 	 */
+-- 
+2.53.0
 
-sf_pdma_err_isr() schedules chan->err_tasklet.
 
-sf_pdma_errbh_tasklet() caches chan->desc in a local variable.
-
-Channel resource release frees chan->desc.
-
-The error tasklet accesses desc->async_tx through the cached pointer.
-
-
-
-I reviewed the Linux v7.3 source at commit c03c1a14507dfaf8b856c2608f9ac216021fc222.
-
-The relevant locations are:
-
-drivers/dma/sf-pdma/sf-pdma.c: sf_pdma_err_isr()
-
-drivers/dma/sf-pdma/sf-pdma.c: sf_pdma_errbh_tasklet()
-
-drivers/dma/sf-pdma/sf-pdma.c: sf_pdma_free_chan_resources()
-
-To check the consequence of this pointer-lifetime interleaving, I used a small out-of-tree synthetic reproducer on an x86_64 QEMU guest running a KASAN-enabled kernel built from the same mainline commit. The QEMU machine was q35 with 2 vCPUs and 4 GiB RAM.
-
-The reproducer forces the pointer-capture/free/access ordering and triggers a slab-use-after-free report. However, the QEMU guest did not provide a modeled SiFive PDMA device, so this is not yet a reproduction through the actual sf-pdma driver and hardware path.
-
-The relevant KASAN output was:
-
-[    5.921218] BUG: KASAN: slab-use-after-free in repro_err_tasklet+0xee/0xf0 [sf_pdma_race_repro]
-[    5.924452] Read of size 8 at addr ffff8881008edcc0 by task ksoftirqd/1/23
-[    5.929455] repro_err_tasklet+0xee/0xf0 [sf_pdma_race_repro]
-[    5.929566] tasklet_action_common+0x1fc/0x780
-[    5.931347] Allocated by task 77:
-[    5.932184] sf_pdma_race_repro_init+0xf7/0xff0 [sf_pdma_race_repro]
-[    5.932525] Freed by task 78:
-[    5.932619] kfree+0x127/0x3b0
-[    5.932637] repro_release_channel+0x2c/0x90 [sf_pdma_race_repro]
-
-Could you please confirm whether this is a valid race in the driver.
-
-Thank you,
-LI Xiao
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
