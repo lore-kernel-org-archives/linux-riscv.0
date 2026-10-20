@@ -2,91 +2,94 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0412606A31A
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2026 13:04:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34858606A334
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2026 13:27:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uoRXXNNb;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=collabora.com header.i=daniel.almeida@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=hxzfNk2G
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NiXjIVob;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=muenchen-mail.de header.i=@muenchen-mail.de header.a=rsa-sha256 header.s=r1 header.b=w3IUetQH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=coW+AoD0hoYUqlin2NilvNItcn6uLU0jXLUp7Yzpcuw=; b=uoRXXNNb80B06R
-	wHdG4LpjLoOy5VaX4bjuIL1LXSgEpTGOY+DLbIPNmo6g7Gx5TsyP+OIFbByT0OHdLb+vj8+DBES7I
-	y84YCSGs6oDAjyQlu4lsRGGDthL1ws6rBZbjJXLOxPoZM4WgyOonDiiKKzYxEIiA+RdsFfK+OZUn2
-	xCw7G+5W1ap9UsWayNLtMpMK6+iPmZRmHNaXZ2buBQnyARkLCpIGA89Y4JyNvokzDNFquzOBcggQG
-	irlBhZvgVycu5qa3AJVhhCZOlADsiUN2itgh/4Tt+M0agQRNi/1yNqvaixt5UBDoAlxCvxPmzNbps
-	x+3x032ysADT2Dg59urw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CXlHEO61Um0y/HAcUU9dtdJx4L6ez00N8b+M7dFIWso=; b=NiXjIVobirzjL+
+	vhTg2sQHXD1yUGKIPyVSQOOaDGnuMOOkOUXBCZLURnZALfuY9R/0CDkYAoSuAbNg7QYfSwgSWcZEt
+	ojhQ2rlEsMZdiS8aV6Tc45FaZXsq9Gm8ZL6Se5Oo0ntjhOYKtyO4LBU3g11jyMawJ9vvABqdRM4et
+	Nf1VjDtGraAVQHN/gwobG2ObLhGrVB49cIiKB3u//Qo58Tsldu0lSDpbhWTL/u2puoZuLzdsrMZLH
+	02umLV6USg4Jh1diTyGWkj+RVV0VSmUdojI+DfOZkehMKn3+c7mh4s1dzBxUIyGRdp4lIxQJOjpts
+	Di8eIoMNC56udb93irQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ9W7-00000009jlI-1jiX;
-	Tue, 20 Oct 2026 13:04:35 +0000
-Received: from sender6-op-o11.zoho.com ([165.173.180.11])
+	id 1xJ9rb-00000009mwA-4Bj4;
+	Tue, 20 Oct 2026 13:26:47 +0000
+Received: from mail-out.m-online.net ([212.18.0.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ9W5-00000009jkw-134n
+	id 1xJ9rY-00000009muX-3s5x
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Oct 2026 13:04:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1792501449; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=fWnXbwa8JLtt61TkI+u2U22uYOVL1FMZfCRinthKZiu2rgwJQWQGmKuptFwrJRhzyRZbBvKOLTY+9I69wSWHPdTBgpwVGOM2uTWbzqInopmDYEg7s/lftjBdO2OYu5MY6BE4zcz9EcN+zMneKPIdzRBqh4edHHCObobh2aE8EjU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1792501449; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=60yzROzme+I8oXG1X8cG4tnHO5f5LLKhunxRbjPCyxw=; 
-	b=Wq+sEjzawdc3he6bhmx2rrIVcwB8VxkKMVkvSR1kzOAQE7ftGy5Vd1ccZq9eM3EY/BVUH+sTq8aIcwXXxTZCHO/Tx9cSEOJ0rjdDfzckDO7uMITAoUTpNjfi8FEfbkRNmzbwOUK7m3uatDdK3aSjU1WMPV6QS+V++OBDpdnntl8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
-	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1792501449;
-	s=zohomail; d=collabora.com; i=daniel.almeida@collabora.com;
-	h=Content-Type:Mime-Version:Subject:Subject:From:From:In-Reply-To:Date:Date:Cc:Cc:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Reply-To;
-	bh=60yzROzme+I8oXG1X8cG4tnHO5f5LLKhunxRbjPCyxw=;
-	b=hxzfNk2G0UJiaJbbgHSfz558NINKje8EcCOdws8+o/pUT1VqCZdd6K2Vnxc9Ei5V
-	yHEZk74LPD2TyLmwpJtK2iwzKLJwsORf92Jx3j9BQEyIJTBLWGobbNOC4lsOjNCBbrd
-	d7sCVu4RCZVFc+J2RWBMK6YAun8kDl1cnQKYwIZg=
-Received: by smtp.zohomail.com with SMTPS id 1792501446453909.1476462693812;
-	Tue, 20 Oct 2026 06:04:06 -0700 (PDT)
+	Tue, 20 Oct 2026 13:26:47 +0000
+Received: from mail-out.m-online.net (mail-out.m-online.net [212.18.0.10])
+	by mail-out.m-online.net (Postfix) with ESMTP id 4j8Cqd5l97z1sRL3;
+	Tue, 20 Oct 2026 15:26:37 +0200 (CEST)
+DKIM-Signature: a=rsa-sha256; bh=jpWt/pMvPnNcWCjB76mm5IEbF3SFOZp71fCEp2it8SQ=;
+        c=relaxed/relaxed; d=muenchen-mail.de;
+        h=Date:From:To:Message-ID:Subject;
+        s=r1; t=1792502797; v=1;
+        b=w3IUetQHi9u+C73lf0vi3QevYSXepVNE+l2vs6fk34wTz7FR8+ui+616jsdmCSSe
+         KUUHK2weVV3Tb/R7E5tw+JnwxOuT8SF6H88uCA68iSx8RMZkkSAYvmrays2XkTUd
+         qinvm0VtgZ+lRuw3IjKUQX7SNxdX5wqlNAxzhEjah7dGN+HNGKTbc/CTgrWcyOro
+         TAuv4HwGsZYDdJH5C/4n7WHnrqvLUUl9tH0zfVR6gntfpW3YVta8yzasSM2pgBwG
+         Ql5bnUViZ2vryPqJVvwDMqfvc+ydGQDizIHrE0IVh2pHY3CUezOafy/ZE9fVraRO
+         hrEhkKJqKjs4DYZNYzKCzA==
+Received: from frontend03.mail.m-online.net (unknown [192.168.6.182])
+	by mail-out.m-online.net (Postfix) with ESMTP id 4j8Cqb009bz1sRL4;
+	Tue, 20 Oct 2026 15:26:34 +0200 (CEST)
+Received: from localhost (dynscan3.mnet-online.de [192.168.6.87])
+	by mail.m-online.net (Postfix) with ESMTP id 4j8CqZ2tf9z1qqlS;
+	Tue, 20 Oct 2026 15:26:34 +0200 (CEST)
+X-Virus-Scanned: amavis at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.6.182])
+ by localhost (dynscan3.mail.m-online.net [192.168.6.87]) (amavis, port 10024)
+ with ESMTP id sbgV7B6_Tp6a; Tue, 20 Oct 2026 15:26:32 +0200 (CEST)
+X-Auth-Info: GSJntXyhLGrkHEzpWsj7VhWS4UOUak/bT46u6RSuBCo370N1q882lgF9DqVCziHl
+Received: from wiesel.intern (aftr-62-216-206-189.dynamic.mnet-online.de [62.216.206.189])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.mnet-online.de (Postfix) with ESMTPSA;
+	Tue, 20 Oct 2026 15:26:32 +0200 (CEST)
+Received: from murmel.intern (unknown [IPv6:fdea:9b79:8984:1:7b8d:a039:76a5:1596])
+	by wiesel.intern (Postfix) with ESMTP id 9EE5979A06C6;
+	Tue, 20 Oct 2026 15:26:30 +0200 (CEST)
+From: Thomas Gerner <thomas.gerner@muenchen-mail.de>
+To: Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Thomas Gerner <thomas.gerner@muenchen-mail.de>
+Subject: [PATCH v2 0/2] Enable bluetooth on BeagleV-Ahead
+Date: Tue, 20 Oct 2026 15:26:02 +0200
+Message-ID: <20261020132604.90708-1-thomas.gerner@muenchen-mail.de>
+X-Mailer: git-send-email 2.53.0
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.100.1.1.11\))
-Subject: Re: [PATCH v4 0/2] rust: clk: Add ExclusiveClk and use it in
- pwm-th1520
-From: Daniel Almeida <daniel.almeida@collabora.com>
-In-Reply-To: <atdlfNRiza3gA1iD@monoceros>
-Date: Tue, 20 Oct 2026 10:03:47 -0300
-Cc: Maurice Hieronymus <mhi@mailbox.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>,
- Miguel Ojeda <ojeda@kernel.org>,
- Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>,
- =?utf-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>,
- Danilo Krummrich <dakr@kernel.org>,
- Drew Fustini <fustini@kernel.org>,
- Guo Ren <guoren@kernel.org>,
- Fu Wei <wefu@redhat.com>,
- Michal Wilczynski <m.wilczynski@samsung.com>,
- Brian Masney <bmasney@redhat.com>,
- linux-clk@vger.kernel.org,
- rust-for-linux@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org,
- linux-pwm@vger.kernel.org
-Message-Id: <8625DA25-1F59-4175-81A6-BAA16C961557@collabora.com>
-References: <20260711-rate-exclusive-get-th1520-v4-0-8244a0666a71@mailbox.org>
- <atdlfNRiza3gA1iD@monoceros>
-To: =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-X-Mailer: Apple Mail (2.3901.100.1.1.11)
-X-ZohoMailClient: External
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_060433_345019_9583FD64 
-X-CRM114-Status: GOOD (  12.18  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261020_062645_868612_B50CAD6C 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,45 +99,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Cgo+IE9uIDIwIE9jdCAyMDI2LCBhdCAwOTo1OSwgVXdlIEtsZWluZS1Lw7ZuaWcgPHVrbGVpbmVr
-QGtlcm5lbC5vcmc+IHdyb3RlOgo+IAo+IEhlbGxvLAo+IAo+IE9uIFNhdCwgSnVsIDExLCAyMDI2
-IGF0IDEyOjE2OjI4UE0gKzAyMDAsIE1hdXJpY2UgSGllcm9ueW11cyB3cm90ZToKPj4gQWRkIGEg
-UnVzdCBiaW5kaW5nIGZvciBjbGtfcmF0ZV9leGNsdXNpdmVfZ2V0KCkgLyBjbGtfcmF0ZV9leGNs
-dXNpdmVfcHV0KCkKPj4gYW5kIHVzZSBpdCBpbiBwd20tdGgxNTIwLCB3aGljaCBwcmV2aW91c2x5
-IGNhcnJpZWQgYSBUT0RPIG5vdGluZyB0aGUKPj4gbWlzc2luZyBiaW5kaW5nLgo+PiAKPj4gU2ln
-bmVkLW9mZi1ieTogTWF1cmljZSBIaWVyb255bXVzIDxtaGlAbWFpbGJveC5vcmc+Cj4+IC0tLQo+
-PiBbLi4uXQo+PiAtLS0KPj4gTWF1cmljZSBIaWVyb255bXVzICgyKToKPj4gICAgICBydXN0OiBj
-bGs6IEFkZCBgRXhjbHVzaXZlQ2xrYCB3cmFwcGVyIGZvciBgY2xrX3JhdGVfZXhjbHVzaXZlX2dl
-dGAKPj4gICAgICBwd206IHRoMTUyMDogTG9jayBjbG9jayByYXRlIHdpdGggY2xrX3JhdGVfZXhj
-bHVzaXZlX2dldAo+PiAKPj4gZHJpdmVycy9wd20vcHdtX3RoMTUyMC5ycyB8IDE4ICsrKysrKysr
-LS0tLS0KPj4gcnVzdC9rZXJuZWwvY2xrLnJzICAgICAgICB8IDY3ICsrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4+IDIgZmlsZXMgY2hhbmdlZCwgNzkgaW5z
-ZXJ0aW9ucygrKSwgNiBkZWxldGlvbnMoLSkKPj4gLS0tCj4+IGJhc2UtY29tbWl0OiA5MjAxMDIy
-OWM0YjM4ODk3ZjEzMTlkMjYwMTYyZDJmOTY5MjVlZDE3Cj4+IGNoYW5nZS1pZDogMjAyNjA1MjYt
-cmF0ZS1leGNsdXNpdmUtZ2V0LXRoMTUyMC03NjRhOTQ5ZGUxOGUKPj4gcHJlcmVxdWlzaXRlLWNo
-YW5nZS1pZDogMjAyNTA5MDktY2xrLXR5cGUtc3RhdGUtYzAxYWE3ZGQ1NTFkOnY1Cj4+IHByZXJl
-cXVpc2l0ZS1wYXRjaC1pZDogMmQzZGM0NWMyNDFkOTA2MmEwZDI1NDZlYzY0OWVlYzc5NzBmYTUw
-YQo+PiBwcmVyZXF1aXNpdGUtcGF0Y2gtaWQ6IDY3YWQ1MzVmZTExMDIwN2ViYzc5MDQ1YmEwMjJl
-YmI3MTM3YjAzMDkKPj4gcHJlcmVxdWlzaXRlLXBhdGNoLWlkOiAzZDFkOGVlNWMyYTQ5NTdlZGQw
-ODA3YjdhNWNiNjVkYWJhYjM0NWI1Cj4+IHByZXJlcXVpc2l0ZS1wYXRjaC1pZDogZTI2NTkwMzdi
-OGFhZjUxODMxZGEwOTljYzU2OGFkNWIzYzI0YTRkZAo+IAo+IEkgZGlkbid0IHRyYWNrIHRoZXNl
-IGRlcGVuZGVuY2llcywgYnV0IHRoZSBjaGFuZ2UgbG9va3MgZmluZSBmb3IgbWUuIFdobwo+IGlz
-IHN1cHBvc2VkIHRvIG1lcmdlIGl0PyBJIGNhbiB0YWtlIGl0IHZpYSBwd20sIGJ1dCBJIGd1ZXNz
-IGEgcnVzdCB0cmVlCj4gaXMgbW9yZSBhcHByb3ByaWF0ZT8hCj4gCj4gQmVzdCByZWdhcmRzCj4g
-VXdlCgpQbGVhc2Ugbm8sCgpTZWUgWzBdIGluc3RlYWQsIHdoaWNoIGFsc28gaW5jbHVkZXMgYSBu
-ZXdlciB2ZXJzaW9uIG9mIHRoaXMgcGF0Y2guCgpbMF06IGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
-L3J1c3QtZm9yLWxpbnV4LzIwMjYxMDEzLWNsay10eXBlLXN0YXRlLXY2LTEtYTVlOTk3N2IzNTA5
-QGNvbGxhYm9yYS5jb20vCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+The single board system BeagleV-Ahead uses a Ampak AP6203BM chip for wifi
+and bluetooth. Wifi is already enabled for this board. The bluetooth
+module of the chip connects by UART and PCM to the TH1520 SOC. The PCM
+interface is currently not used because of missing I2S drivers for the
+SOC.
+
+This patch set enables bluetooth.
+
+Thomas Gerner (2):
+  riscv: dts: thead: Enable bluetooth on BeagleV-Ahead
+  Bluetooth: btbcm: disable read tx power for BeagleV-Ahead
+
+ .../boot/dts/thead/th1520-beaglev-ahead.dts   | 85 +++++++++++++++++++
+ drivers/bluetooth/btbcm.c                     | 19 ++++-
+ 2 files changed, 101 insertions(+), 3 deletions(-)
+
+-- 
+2.53.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
