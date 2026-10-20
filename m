@@ -2,103 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73271606A319
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2026 05:35:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C08E2606A329
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2026 06:42:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rUM5PsNW;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=o2KCEHLd
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FtcLr63W
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=az5gxPaeuMLTwXQgowIIuaAL4Z7epJRlNxM9+Bd9/cg=; b=rUM5PsNWtAjmwR
-	URgf/yWkyglPZUAuEPwaszIU6ByWwd0eVYjT9EOKGJZx01SGXftv/EM+BmJAXbEKr8QPv9WwEwIhP
-	saYR6e7LbLNkoHwUtBriFayMdz+yCKlC1x+loEHj4OTqS5n4r8Rn3Hmn3f2dynCFYsHJtEDMbYrE6
-	8jO8P/6ZvuOJEjnzv/UjYg+XOeg/tnwB778UgG+Qq88pBEcG6vU8/1P/bB/OqC33p3+1GBJJAKNqu
-	bZia+thkt+n8sAW+IVximUSRkT9drSt27VbazORN2wO3kUrZCoKXqvxuupf8aL/icO9dxDy17/sKP
-	msCw7ygvpFKDycMCOcGg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vvSfxHwGCByXjLk2B1rzd8V1FIeO+E+eleEvCXKrbzg=; b=FtcLr63WLq7o0L
+	a1/ks0T4zkVGmLTEn1pZf8y3z5UTXU81UOHcKIBCBi00U541zTH/WqgP0xFYai4ljWyMPwCLvGz5u
+	g2u1CIisj/mK6bvtqujrFyo8AHRgP/ZlUQOMsDnWCOEV6Wocg/uAFFr2RBB3EEzPHflzK5pigsWwj
+	ucV5jFI/w3sB2KcW1z+fnAB53pxifJInXpfYYylm+IVYpQv35q4qpY8alXArTBJV+k+BG6ZMaXvs6
+	Zd+a3wPxKLCd8fJw82MM0nKtVCbv/S3PKXixIzAP0IG1ASYtTXeOM9tCQiDHs9vC7ANCq69lZFWHE
+	xSqM24hLU8dGVdM7RjCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ2VZ-00000008sZT-1wYi;
-	Tue, 20 Oct 2026 05:35:33 +0000
-Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ2VV-00000008sYa-3K9l
+	id 1xJ3Xo-00000008wIl-3uVV;
+	Tue, 20 Oct 2026 06:41:56 +0000
+Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net ([162.243.161.220])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJ3Xh-00000008wGH-2Af4
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Oct 2026 05:35:32 +0000
-Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-93f2f2edb19so234470985a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Oct 2026 22:35:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792474529; x=1793079329; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=UjLNCgx3WekQetaZqMO5VDYLOeTCT6zYxxBPC2GY2rk=;
-        b=o2KCEHLdQPBm2Rdc8g7fY8/SIINkbphI69BtSeDVAeqf1ogtFN5HpFLGtGERHZo+Xr
-         XCPmwD5WOcmsxjJ3o2pCpDny2c/8CCSDa8Hx7sieMNfCV32WRitXpQWhkrf79xyFjx2r
-         m0crNEeU8OcFCguFp6YpSesE2n7bNqjIXQjE3cWuT5ToxJjhZoHgyFqjJtw3hBQdIAVO
-         AzlrLCbmM71InHtsflywkGlQ493alpnWKn6oizzXAUe2IymGQfxPXqH2jdOsNhYYvgHw
-         lWhoWW1foDu2FaGwAXhIODic//MVJbvKa0BeWuLcTLvEPc7IectB7JzAevNzKUy9E32S
-         RB0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792474529; x=1793079329;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UjLNCgx3WekQetaZqMO5VDYLOeTCT6zYxxBPC2GY2rk=;
-        b=TrJtyQGl51G7Xz6db4RMvXVPOb1cysEzl2i6BTPm7/GyJRVVev1Fv/bcP9iRtd3dIQ
-         +nFMHkdAuXz7bBerNabm66vuZ3xRcizGS1+QF+H6fzNYmg2bQLBNO2YVScv3YtkHzixc
-         9jFzT60ermYDXpgHvWnzXi74/e/VU9ksF1kXo29LzjR8okA23X42mksokFsGLGpEy0Qh
-         Xm4HqJw6xj3tJ3Z2Y/AoqGmHGJPyby2eK9xDNqPJeGoDvXVH9RCzlLYnPqJDE/4bt+qm
-         hwcxPxmyRNakYS4k8wWdw5FczX43i3HokVpLNCJNXtluJ7lr/lJo8auXMBI9q2MV9ILe
-         5gwQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwIVM9xPx33JXT/LDMbRDSj0ZnrV9yTa+aEhZC65YTHx59HhzJR7Rt9JBketqx5rQ5ZqFYqfCFoU53rqw==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJiWmLpDB642siE4yvA8Py4xgD5PaRDy81Dnvh0VM0+cHy0cJvb
-	+58WywNCUmiL3OlVTmpT7y5L79wzCHnhmcRTJc5STou5qZsCsrqESxxQ
-X-Gm-Gg: AYBFou2EUSKO6PzM7zWwOLW5auEM15VQyFffNrzgHfEpOcyMX38hSSi0e8vL7L/ptCZ
-	z0C6G50t4eHTJc95z2rmBIGC253fW6RTR7Pwz6boOjNnmUnBRfpQdBLuhGqPAIJYnh4vWvwJSgl
-	ZptkGvXDfRXLsRzZ3GXaHwKkV4h8KLIBQXvO1fxguq23eQ0hvUXxPHI1RtPrv7s5XJhdx++hvra
-	1Y2trbg3P3LFUeWq6mtGPhMzR//7d75jKbuQi+uUUrJ4R+ufPbuuqPZQbdGfc78FPbOZReiWAp1
-	9X0h6aNOk0uXuDSMjUUDWKovAvW8XGdGEq2gd6IC7yxQccjFSns/WmGArMZOc0I7BpvCsEA8Hyp
-	0yGZMriIMnkHHejTnh+De5i0zV2TdatMel9pRUZsHFFc5ONQENz0WMnYWYl1jQq+7Hx8yTOtygI
-	duceyz52uasBANr/ZCL6lcA0ILjapJoD0YDirSnw00yKOk35NwtJDOWi3H4rn5peG8+3pgkm3Za
-	3LpsOTCqszEVYVrDVHxmHkic7dhS5Ni
-X-Received: by 2002:a05:620a:2602:b0:93f:5ac:14a3 with SMTP id af79cd13be357-93f29df1d42mr1601610185a.73.1792474528522;
-        Mon, 19 Oct 2026 22:35:28 -0700 (PDT)
-Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93f4b082168sm139455685a.22.2026.10.19.22.35.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Oct 2026 22:35:27 -0700 (PDT)
-From: Yuho Choi <oss.patchbox@gmail.com>
-To: Tomasz Jeznach <tomasz.jeznach@linux.dev>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Fangyu Yu <fangyu.yu@linux.alibaba.com>,
-	Zong Li <zong.li@sifive.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
+	Tue, 20 Oct 2026 06:41:53 +0000
+Received: from E0002472LT.eswin.cn (unknown [10.12.96.78])
+	by app1 (Coremail) with SMTP id TAJkCgDniXMgDddqfWGHAA--.19571S2;
+	Tue, 20 Oct 2026 14:41:37 +0800 (CST)
+From: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+To: Nam Cao <namcao@linutronix.de>,
 	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	iommu@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Yuho Choi <oss.patchbox@gmail.com>
-Subject: [PATCH v1 2/2] iommu/riscv: Do not report a stalled command queue as completed
-Date: Tue, 20 Oct 2026 01:34:24 -0400
-Message-ID: <20261020053435.1179054-6-oss.patchbox@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261020053435.1179054-4-oss.patchbox@gmail.com>
-References: <20261020053435.1179054-4-oss.patchbox@gmail.com>
+	Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+Subject: [PATCH v4 0/2] riscv: kprobes: simulate nop and c.nop instructions
+Date: Tue, 20 Oct 2026 14:41:34 +0800
+Message-Id: <20261020064136.665-1-yuanxiaofeng@eswincomputing.com>
+X-Mailer: git-send-email 2.31.1.windows.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-CM-TRANSID: TAJkCgDniXMgDddqfWGHAA--.19571S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJFyfWr1DZr47Xr4xur4xtFb_yoW5WF43pF
+	sIkwn8Kr4kJwnxC3sxAw4xZFWrKws7Jw4fJF47t34rta1UKF13tFn2g3y5ZFnxWw4Fg34a
+	vF17Wryvkry7ArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUva14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
+	JF0_Jw1lc2xSY4AK6svPMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI
+	8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AK
+	xVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI
+	8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280
+	aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyT
+	uYvjfUYCJmUUUUU
+X-CM-SenderInfo: h1xd05xldrwv1qj6v25zlqu0xpsx3x1qjou0bp/1tbiAQEGE2rWRjQeDAAAsJ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_223529_835785_DE9724ED 
-X-CRM114-Status: GOOD (  16.84  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261019_234149_687613_B34A7248 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.6 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,77 +80,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-12.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Since commit b2e5684558ed ("iommu/riscv: Stop polling when CQCSR reports
-an error"), riscv_iommu_queue_wait() stops polling when CQCSR has cqmf,
-cmd_to or cmd_ill set, but then returns 0 as if the waited-for command
-had been executed. The hardware stops processing the queue at the
-faulting command, so an IOFENCE.C queued behind it has not completed,
-yet riscv_iommu_iotlb_sync() goes on to free the page table pages.
+Per-hit XOL out-of-line execution of a probed nop costs an extra
+exception round-trip (the slot's trailing breakpoint traps back into
+the kernel), and for uprobes that round-trip is a full
+kernel<->userspace one.  Since these instructions have no
+architectural effect, simply advance the program counter inside the
+breakpoint handler instead.  riscv_probe_decode_insn() is shared by
+kprobes and uprobes, so both benefit.  It primarily matters for
+uprobes on USDT sites: under the SystemTap SDT ABI, the recorded
+probe location is by construction a plain nop or c.nop.
 
-Return -EIO when the queue stopped before reaching the waited-for entry,
-and keep the "command execution timeout" message for real timeouts; the
-interrupt handler already reports the CQCSR error bits.
+patch 1: simulate nop and c.nop in the breakpoint handler.
+patch 2: extend the RISC-V kprobes KUnit test to cover both.
 
-Fixes: b2e5684558ed ("iommu/riscv: Stop polling when CQCSR reports an error")
-Assisted-by: LLM
-Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
----
-This was found with a static analysis tool from ongoing, not yet
-published research, and confirmed by code inspection. It has not been
-reproduced on hardware or in an emulator.
+Measured on QEMU (RISC-V virt, emulated): per-hit cost of a uprobe
+on a USDT-style nop site drops by roughly 80 percent; a kprobe on a
+nop by roughly 40 percent.  (arm64 commit ac4ad5c09b34 measured ~2x
+on real arm64 hardware for the same class of change.)
 
- drivers/iommu/riscv/iommu.c | 13 +++++++++++--
- 1 file changed, 11 insertions(+), 2 deletions(-)
+Changes since v3:
+- patch 1: drop the NOP/C.NOP encoding comment (per Nam Cao's review;
+  the other macros have none, and the encodings are in the spec).
+- collect Reviewed-by from Nam Cao on both patches.
+- re-ran the QEMU benchmark on a next-20261019 base: uprobe per-hit
+  cost drops by roughly 70 percent and kprobe by roughly 30 percent,
+  the same magnitude as v3.
 
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 816d50c0f508..2a95cb8c9e4c 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -371,15 +371,24 @@ static int riscv_iommu_queue_wait(struct riscv_iommu_queue *queue,
- 	unsigned int cons = atomic_read(&queue->head);
- 	unsigned int flags = RISCV_IOMMU_CQCSR_CQMF | RISCV_IOMMU_CQCSR_CMD_TO |
- 			     RISCV_IOMMU_CQCSR_CMD_ILL;
-+	int ret;
- 
- 	/* Already processed by the consumer */
- 	if ((int)(cons - index) > 0)
- 		return 0;
- 
- 	/* Monitor consumer index */
--	return readx_poll_timeout(riscv_iommu_queue_cons, queue, cons,
-+	ret = readx_poll_timeout(riscv_iommu_queue_cons, queue, cons,
- 				 (riscv_iommu_readl(queue->iommu, queue->qcr) & flags) ||
- 				 (int)(cons - index) > 0, 0, timeout_us);
-+	if (ret)
-+		return ret;
-+
-+	/* The queue stopped on an error before it reached the item. */
-+	if ((int)(cons - index) <= 0)
-+		return -EIO;
-+
-+	return 0;
- }
- 
- static int riscv_iommu_queue_wait_for_space(struct riscv_iommu_queue *queue,
-@@ -531,7 +540,7 @@ static int riscv_iommu_cmd_sync(struct riscv_iommu_device *iommu,
- 		return 0;
- 
- 	ret = riscv_iommu_queue_wait(&iommu->cmdq, prod, timeout_us);
--	if (ret)
-+	if (ret == -ETIMEDOUT)
- 		dev_err_once(iommu->dev,
- 			     "Hardware error: command execution timeout\n");
- 
+Changes since v2:
+- patch 1: no code change; commit message reworked per Nam Cao's
+  review:
+  - dropped the kernel-text nop motivation (jump_label text sites
+    cannot be kprobed; register_kprobe() rejects them via
+    jump_label_text_reserved()), and the mcount claim (the function
+    entry instruction is an auipc; the nop sits at +4 only).
+  - corrected the attribution of the arm64 prior: ac4ad5c09b34 was
+    motivated by uprobe/USDT benchmarks, not by a generic "single
+    step is slow" claim.
+  - described the per-hit saving precisely in XOL terms (one extra
+    exception round-trip; for uprobes a full kernel<->userspace one).
+  - added a USDT-form uprobe measurement (ftrace uprobe event,
+    emulated QEMU), in the style of the arm64 series numbers.
+- patch 2: unchanged.
+
+Changes since v1:
+- patch 1: add use-case justification and benchmark result to the
+  commit message.
+- patch 2: simplify test functions to load KPROBE_TEST_MAGIC
+  directly (per review).
+
+Verified by cross-compiling for RISC-V and running the kprobes KUnit
+test in QEMU (ok 1 kprobes_riscv).
+
+Xiaofeng Yuan (2):
+  riscv: kprobes: simulate nop and c.nop instructions
+  riscv: kprobes: add nop and c.nop to the KUnit test
+
+ arch/riscv/include/asm/insn.h                 |  7 ++++++
+ arch/riscv/kernel/probes/decode-insn.c        |  6 +++++
+ arch/riscv/kernel/probes/simulate-insn.c      | 14 +++++++++++
+ arch/riscv/kernel/probes/simulate-insn.h      |  2 ++
+ .../kernel/tests/kprobes/test-kprobes-asm.S   | 23 +++++++++++++++++++
+ 5 files changed, 52 insertions(+)
+
 -- 
-2.43.0
+2.34.1
 
 
 _______________________________________________
