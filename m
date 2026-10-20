@@ -2,67 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A528D606A31A
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2026 15:17:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AE7B606A31C
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2026 15:40:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JPGIkQ/l
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=j2VVGjox;
+	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=gyL32gXr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OqUu9/P1SdBMt6kzsEgloOd0TIXsXFExa3Iqe9JaVgs=; b=JPGIkQ/lmwfmcaQxYrqbTpBqFP
-	VKdkUsI5G4ZiQVPuidzDZwRPTRyD3gHr6+koi/qmR39Nf+2Tz2AVGlACp0CSd8nbcu+aqOQprRSdM
-	voEh35RSqUk5JA2KpUNk9G5pcQLTA4IYT0S4K6mniFULJRLfzBAIeWMamFjHwaf0XqqQMLWMmtpYE
-	Io7WBNcKzUk6RRSO6wcGKI7QSbIJVnsrCfPCwuj8eKnbM5NIZOU1FwcTU3OMC3BXdGM3v3WFoRZD5
-	J/ZrPOs95AokPsU+yElVwcNSzJ85MDCjhWDbI003/dho+5aZuIyXt9ptEVNyaYyxOP+mKhA4svyBt
-	Qx5GU2AA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aU/TU68ArduMW+Vqw2nAR7VLXPMoaAXcFox0q/wcs2c=; b=j2VVGjoxLmqB3Y
+	o4qb6cha5NCC5dZELXLj7A8a4esPvE8F/02XnQofGXO/rr/MsUWXFr9dm/u5LCtEakrirBPUlzrTv
+	olu55pcUA1qyZPwDZQdobjEfAx0k2pX5FqHTZBmgjKhJ4Y0UDPKMHoV6GoIUUaYerTPoPhVq/iWTH
+	uEfp6Nb0x5iUsWoh8pvz64ers8f0cJ2YC8ksSSyFNFvzwb3Sn/FkW977FODS/2ESdJONpNfptZb6L
+	3dPVro4wOBnmAlA5n/k/IovyBD0Z1ITWORtltTojc4zLQdvzsVFMcD/ZFyAaFs4C/1W693/6pLlUu
+	08P7wbUBL3k0YONHnPog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBaA-0000000A2fq-1lv0;
-	Tue, 20 Oct 2026 15:16:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xJBw1-0000000A4fi-06ew;
+	Tue, 20 Oct 2026 15:39:29 +0000
+Received: from esa4.hc555-34.eu.iphmx.com ([207.54.77.171])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBa9-0000000A2fa-1JEW;
-	Tue, 20 Oct 2026 15:16:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B319740AA8;
-	Tue, 20 Oct 2026 15:16:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 727BF1F000C4;
-	Tue, 20 Oct 2026 15:16:52 +0000 (UTC)
-Received: by traversing.sirena.org.uk (Postfix, from userid 1000)
-	id D00DE1CB0C67; Tue, 20 Oct 2026 16:16:26 +0100 (BST)
-Date: Tue, 20 Oct 2026 16:16:26 +0100
-From: Mark Brown <broonie@kernel.org>
-To: =?iso-8859-1?Q?Iv=E1n?= Ezequiel Rodriguez <ivanrwcm25@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Deepak Gupta <debug@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>,
-	Christian Brauner <brauner@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Yury Khrustalev <yury.khrustalev@arm.com>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Zong Li <zong.li@sifive.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Zishun Yi <vulab@iscas.ac.cn>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>
-Subject: Re: [PATCH 3/4] selftests/arm64: GCS must not leak on a failed clone3
-Message-ID: <ateFyuJkEgL94Rvc@sirena.org.uk>
-References: <cover.1792179433.git.ivanrwcm25@gmail.com>
- <ed22ebf64ed00a56d5e1eff31ac639fef00dcae6.1792179433.git.ivanrwcm25@gmail.com>
+	id 1xJBvt-0000000A4dF-2oCO
+	for linux-riscv@lists.infradead.org;
+	Tue, 20 Oct 2026 15:39:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
+  t=1792510768; x=1824046768;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=gYKX22JJXvjBQaFR9/tw6kVOEs7CPr0eQzlXEVHWhAM=;
+  b=gyL32gXrCYgmlehO6yjXef8l7vPvakLVQp0UeJsosSa6J9ND/gov9xNt
+   f9kBm/pR9bQoS/mvIOylLuXou+NXlEq/1t6TCi0ML7gG9b1laFUdRVTPr
+   sGQmZAk6Blbi1K6Sv3EQlAq7NISo2ioCnGjQ+YTl55KwVILUWGlsx+2JF
+   f3/a5TjQxV19bor8bgSjvVaKMGExTi9nW/qMjKYou4YvGmZqNjR0jgFcf
+   gr2N6RepRjZZ4OyZwl5XhMInxG61ERmd8fLAgD4LHAGr+xXiUPqlOkoiH
+   zzk2LbtimeyrbBb3/gcpia1ck9HjwwKTc4biLG/UCVZCJZCUJ0SBF6X9L
+   Q==;
+X-CSE-ConnectionGUID: a8G1fX0CR7KW1QSEKLpIuw==
+X-CSE-MsgGUID: hQ/dm0cDTsOJmg05KdkANQ==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
+  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Oct 2026 18:39:20 +0300
+X-CSE-ConnectionGUID: AoT8UrKGTraFis5HMcQdyQ==
+X-CSE-MsgGUID: wgiBKU4qQAuY5JlkNLQL6g==
+Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.3])
+  by ces04_data.me-crop.lan with SMTP; 20 Oct 2026 18:46:49 +0300
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Tue, 20 Oct 2026 18:39:12 +0300
+From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Date: Tue, 20 Oct 2026 18:38:49 +0300
+Subject: [PATCH v5 2/2] irqchip/riscv-aplic: force synchronous probing
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <ed22ebf64ed00a56d5e1eff31ac639fef00dcae6.1792179433.git.ivanrwcm25@gmail.com>
-X-Cookie: Whoever dies with the most toys wins.
+Message-Id: <20261020-aplic-async-probe-v5-2-c4861c2aafca@mobileye.com>
+References: <20261020-aplic-async-probe-v5-0-c4861c2aafca@mobileye.com>
+In-Reply-To: <20261020-aplic-async-probe-v5-0-c4861c2aafca@mobileye.com>
+To: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Radu Rendec <radu@rendec.net>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+ Jessica Liu <liu.xuemei1@zte.com.cn>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-rt-devel@lists.linux.dev, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+X-Mailer: b4 0.16.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261020_083921_980658_E6AA6574 
+X-CRM114-Status: GOOD (  15.75  )
+X-Spam-Score: -4.0 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,187 +84,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4369971619763617672=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+The APLIC driver leaves probe_type unset, so it follows
+PROBE_DEFAULT_STRATEGY and is probed asynchronously when the command line
+requests it (driver_async_probe=). The probe of an APLIC instance updates
+state shared by all instances without any locking:
 
---===============4369971619763617672==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fQdpgUNys5IVa7P7"
-Content-Disposition: inline
+- the check-then-set of aplic_syscore_registered; two instances can both
+  observe it as false and both call register_syscore(), inserting the same
+  list node twice and tripping CHECK_DATA_CORRUPTION ("list_add double
+  add") in __list_add_valid_or_report();
+- the global aplics list, modified by aplic_pm_add()/aplic_pm_remove();
+- aplic_direct_parent_irq, where more than one instance can pass the check
+  and register its own CPU hotplug state;
 
+Interrupt controllers are required early and have no benefit from
+parallel probing, so rather than adding locks around each of them mark the
+driver PROBE_FORCE_SYNCHRONOUS. Probes then run one after another from
+driver registration, and deferred probe retries are serialized by the
+single deferred probe work item, so the shared state is never accessed
+concurrently. Probing is also blocked across suspend, so it cannot overlap
+with the syscore callbacks either.
 
---fQdpgUNys5IVa7P7
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+---
+ drivers/irqchip/irq-riscv-aplic-main.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-On Fri, Oct 16, 2026 at 04:46:02PM -0300, Iv=E1n Ezequiel Rodriguez wrote:
+diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
+index 5369078f3d00..3c10dbf3b492 100644
+--- a/drivers/irqchip/irq-riscv-aplic-main.c
++++ b/drivers/irqchip/irq-riscv-aplic-main.c
+@@ -118,7 +118,8 @@ static struct syscore aplic_syscore = {
+ 
+ /*
+  * Not __ro_after_init: probe can be deferred (e.g. MSI mode waiting for the
+- * IMSIC) and complete after the init memory is made read-only.
++ * IMSIC) and complete after the init memory is made read-only. Probing is
++ * synchronous (see aplic_driver), so no further serialization is needed.
+  */
+ static bool aplic_syscore_registered;
+ 
+@@ -413,6 +414,12 @@ static struct platform_driver aplic_driver = {
+ 		.name		= "riscv-aplic",
+ 		.of_match_table	= aplic_match,
+ 		.acpi_match_table = ACPI_PTR(aplic_acpi_match),
++		/*
++		 * Probes of multiple APLIC instances share global state (the
++		 * syscore registration and the parent interrupt of the
++		 * direct mode) and must not run concurrently.
++		 */
++		.probe_type	= PROBE_FORCE_SYNCHRONOUS,
+ 	},
+ 	.probe = aplic_probe,
+ };
 
-> clone3(CLONE_VM|CLONE_PIDFD) with an unwritable pidfd pointer fails
-> in put_user() after copy_thread() has mapped a GCS. copy_process()
-> then calls exit_thread(). Without HAVE_EXIT_THREAD that free is a
-> no-op and the VMA stays in the parent's mm.
+-- 
+2.43.0
 
-> Assisted-by: LLM
-
-This is pretty hard to follow, there's a lot of open coding, duplication
-and strange structures or tests.  It makes it hard to follow what's
-actually being tested and why which is going to be a maintainability
-issue.
-
-> +/* Same value as KSFT_SKIP in kselftest.h. */
-> +#define KSFT_SKIP		4
-
-Why are we not just including kselftest.h?  It doesn't have the fun
-interactions with libc headers that some of the other things have.
-If we are going to cut'n'paste values why only KSFT_SKIP and not any of
-the other exit codes we use?
-
-> +/* Same wrapper as gcs-locking.c: extra prctl args must be zero. */
-> +#define my_syscall2(num, arg1, arg2)					\
-> +({									\
-> +	register long _num  __asm__ ("x8") =3D (num);			\
-> +	register long _arg1 __asm__ ("x0") =3D (long)(arg1);		\
-> +	register long _arg2 __asm__ ("x1") =3D (long)(arg2);		\
-> +	register long _arg3 __asm__ ("x2") =3D 0;				\
-> +	register long _arg4 __asm__ ("x3") =3D 0;				\
-> +	register long _arg5 __asm__ ("x4") =3D 0;				\
-> +									\
-> +	__asm__ volatile (						\
-> +		"svc #0\n"						\
-> +		: "=3Dr"(_arg1)						\
-> +		: "r"(_arg1), "r"(_arg2),				\
-> +		  "r"(_arg3), "r"(_arg4),				\
-> +		  "r"(_arg5), "r"(_num)					\
-> +		: "memory", "cc"					\
-> +	);								\
-> +	_arg1;								\
-> +})
-
-Factor this out.
-
-> +static void on_fault(int sig)
-> +{
-> +	static const char msg[] =3D "[FAIL]\tparent guarded control stack fault=
-ed\n";
-
-This isn't KTAP format.
-
-> +		/*
-> +		 * An empty GCS leaves GCSPR at the exclusive end. If
-> +		 * the next VMA is contiguous that address is also the
-> +		 * start of the next range; prefer the mapping that
-> +		 * ends here.
-> +		 */
-
-I'm not clear what you mean by exclusive end here?
-
-> +static int skip_enable(long rc)
-> +{
-> +	if (rc =3D=3D -EOPNOTSUPP) {
-> +		printf("[SKIP]\tkernel has no GCS\n");
-> +	} else if (rc =3D=3D -EINVAL) {
-> +		printf("[SKIP]\tkernel built without GCS\n");
-> +	} else if (rc =3D=3D -EBUSY) {
-> +		printf("[SKIP]\tGCS is locked\n");
-> +	} else {
-> +		printf("[FAIL]\tPR_SET_SHADOW_STACK_STATUS returned %ld\n", rc);
-> +		return 1;
-> +	}
-> +	return KSFT_SKIP;
-> +}
-
-This feels rather contorted, and ends up returning a raw 1 from main()
-rather than a KSFT_ exit code.
-
-> +int main(void)
-> +{
-> +	struct sigaction sa;
-> +	struct ss_span parent;
-> +	void *stack;
-> +	void *bad_pidfd;
-> +	unsigned long gcspr, gcspr_mid;
-> +	unsigned long gcs_mode;
-> +	long rc;
-> +	int pidfd;
-> +	int vmas0, kb0, vmas1, kb1;
-> +	int i, kept, d, cret;
-> +
-> +	setbuf(stdout, NULL);
-
-There's also setvbuf().  Using kselftest.h and it's helpers would
-probably be better, it takes care of disabling buffering.  I can't see
-any reason to avoid that.
-
-> +	gcspr =3D (unsigned long)get_gcspr();
-> +	if (!gcspr) {
-> +		printf("[FAIL]\tenable left GCSPR_EL0 at 0\n");
-> +		_exit(1);
-> +	}
-
-Why are we using _exit(), and more of these raw 1s?
-
-> +	gcspr =3D (unsigned long)get_gcspr();
-> +	ss_scan(&vmas0, &kb0, gcspr, &parent, NULL, NULL);
-> +	if (!parent.start) {
-> +		printf("[FAIL]\tGCSPR %lx matches no shadow-stack VMA\n", gcspr);
-> +		_exit(1);
-> +	}
-
-Why is this something we're validating, and how do we expect to be able
-to do function calls if it is the case?
-
-> +	if (vmas1 !=3D vmas0 || kb1 !=3D kb0) {
-> +		printf("[FAIL]\tleaked %d shadow-stack VMA(s), %d kB\n",
-> +		       vmas1 - vmas0, kb1 - kb0);
-> +		_exit(1);
-> +	}
-> +	if (!kept) {
-> +		printf("[FAIL]\tparent GCS %lx-%lx was unmapped\n",
-> +		       parent.start, parent.end);
-> +		_exit(2);
-> +	}
-
-Why are some failures exiting with a different exit code?
-
-> +	if (d !=3D 17) {
-> +		printf("[FAIL]\tparent call/return returned %d, want 17\n", d);
-> +		_exit(2);
-> +	}
-
-=2E..because?
-
---fQdpgUNys5IVa7P7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQReagvpf3TrrA7BoYYv73Ows9A4iQUCateFxwAKCRAv73Ows9A4
-iV7CAQCkMVFZ4IBfyU74fiWba6+YvlaiDdY46+hou1OQsUgQ0wD+OKvp47h6ILRv
-YrtzWYolE5nx/q9ILHnbj4r5mQW6eQk=
-=Buc7
------END PGP SIGNATURE-----
-
---fQdpgUNys5IVa7P7--
-
-
---===============4369971619763617672==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4369971619763617672==--
-
