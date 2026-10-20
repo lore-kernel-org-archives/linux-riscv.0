@@ -2,73 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85BDB606A31E
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2026 06:42:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5287B606A319
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2026 08:18:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kwQl9Bl5
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ok0b7IFg;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=Tr96SZMd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DuSn4+araXq5KD9hJgaplzPv1c6Dy9E8AjTz3j01glE=; b=kwQl9Bl5Y6OBWD
-	9fA22OWm9iiMorSgA++kYSuXIcFA6KCmIe+bubAeZOPYBarlhJUOusCW+RPO7103xs8BFSo/GEDVq
-	0cAJsJpI8oKjLLiWGUCcvsRvwcOlz69nvTBXY5eMbXoWC1iIj8T+ua1jgnun1iATkts06jOlVCX6N
-	3c8ZkD5nTH2u/IvYdLSc2IMNY3JnNPG2FwgETaVNHRWWPmbkIA+/kdlsth7U75zDfW9u7bor15rph
-	vHEjGWq+e8GkX/nwIyy82RxS0EFXwDF8pnXBVSU32elR2kKd4xpF8UPXPB5iFa6DhEHGT8A9KYzum
-	lUxi7yVdJN22vDnDdJmg==;
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:From:Mime-Version:Cc:To
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0kR1JZk/X9zpKXbUTMqn0LjS2HvVKYk7Avnr1XGM5Fg=; b=Ok0b7IFg9gkMrQ
+	k1LhzSkmPoGuHTrejWpC3hVlVhWzWXuP68V7Oc8zspXBsUOUn0KVKxcpU8hSvuzm15j0vBpZqcvWs
+	a5xXGIpPfPisomT1iHwHRh8l5bdKCD/bkl5MGzcw09Gv226mIN0NNXv2NCxIODakVovAJDqlGXCjM
+	VSs+wR5TZvs/lPq/kslk4K1+2/PW9PtOVyU+SZwUXfFL3zBCREgcUwbkCFiLOUhWkUS+Ff7hbS3Ym
+	yiYNX9IFNA7ftb/mxhB8oenVgV97dkxx0zDGARiBMmLqhfITl7dp0yu80XBvUnmFbS9/sSpxup9k/
+	4EXhi3dTDwpChiAK51Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ3Xl-00000008wHv-3VXW;
-	Tue, 20 Oct 2026 06:41:53 +0000
-Received: from azure-sdnproxy.icoremail.net ([13.76.78.106])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ3Xh-00000008wGW-1BdK
+	id 1xJ52c-000000098Oq-2xL9;
+	Tue, 20 Oct 2026 08:17:50 +0000
+Received: from va-2-38.ptr.blmpb.com ([209.127.231.38])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJ52Z-000000098Ng-3CYz
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Oct 2026 06:41:52 +0000
-Received: from E0002472LT.eswin.cn (unknown [10.12.96.78])
-	by app1 (Coremail) with SMTP id TAJkCgDniXMgDddqfWGHAA--.19571S3;
-	Tue, 20 Oct 2026 14:41:38 +0800 (CST)
-From: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
-To: Nam Cao <namcao@linutronix.de>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
-Subject: [PATCH v4 1/2] riscv: kprobes: simulate nop and c.nop instructions
-Date: Tue, 20 Oct 2026 14:41:35 +0800
-Message-Id: <20261020064136.665-2-yuanxiaofeng@eswincomputing.com>
-X-Mailer: git-send-email 2.31.1.windows.1
-In-Reply-To: <20261020064136.665-1-yuanxiaofeng@eswincomputing.com>
-References: <20261020064136.665-1-yuanxiaofeng@eswincomputing.com>
+	Tue, 20 Oct 2026 08:17:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1792484251;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=cDtDx7PTZzs4o4nilnbUUjmgVNV0A2BPpv//8jccmfM=;
+ b=Tr96SZMdubwgbWVeTK8NnptZz/qukjGIm+DwyfIjF+WgLk8C3QZqa8bu44BAV0cUkUKQLm
+ SHp4l1R08/SsyKZj9L32L1fss3X7wT6J6OwbPjN6fPp5o0kSqAsLlSdCs44E92DUVOmKUh
+ Cp5vThtJUZ+QMRoU12q2p9gTcfGb+o1CrPyC0hJshbKZoneV/0NCq2c4OMx4WI6CUsel1Z
+ 4E6Y0hjVsU7DfRcKi9jwvlUIHei1PfALr2KZYyhcU7ZGDxalSHeMts7Lc5gKhCgsvgaeV5
+ Yeq1aPfzZGErZMYMGSj/3HGrCPEJVPSvKgJY5hMySCfPXe+nS0rwY3SivBehMg==
+Received: from roma-Laptop-12th-Gen-Intel-Core.. ([14.155.180.235]) by smtp.feishu.cn with ESMTPS; Tue, 20 Oct 2026 16:17:28 +0800
+X-Lms-Return-Path: <lba+26ad72399+307905+lists.infradead.org+sandie.cao@deepcomputing.io>
+Subject: [PATCH v2 0/3] Enable USB and SD for Deepcomputing FML13V05 board
+X-Mailer: git-send-email 2.43.0
+X-Original-From: Sandie Cao <sandie.cao@deepcomputing.io>
+To: "Yixun Lan" <dlan@kernel.org>, 
+	"Troy Mitchell" <troy.mitchell@linux.spacemit.com>, 
+	"Conor Dooley" <conor+dt@kernel.org>, "Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>
+Cc: "Alexandre Ghiti" <alex@ghiti.fr>, <devicetree@vger.kernel.org>, 
+	<linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>, 
+	<linux-kernel@vger.kernel.org>, 
+	"Sandie Cao" <sandie.cao@deepcomputing.io>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-X-CM-TRANSID: TAJkCgDniXMgDddqfWGHAA--.19571S3
-X-Coremail-Antispam: 1UD129KBjvJXoW3Wr43AryxXF1kXF48Xw45GFg_yoW7Xw48pa
-	n0k3ZxKrWDWFs7Cr9xArs8ur4rtws5Kw43Ka1UJa15K3y7WryrZ3sagw43AF1DJFyFgry7
-	KFyYvrykC343A37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPa14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
-	x26xkF7I0E14v26r1I6r4UM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWUAVWUtw
-	CY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
-	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r
-	43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF
-	7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxV
-	WUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfU
-	e5r4UUUUU
-X-CM-SenderInfo: h1xd05xldrwv1qj6v25zlqu0xpsx3x1qjou0bp/1tbiAgEGE2rWRqodbgACs3
+Mime-Version: 1.0
+From: "Sandie Cao" <sandie.cao@deepcomputing.io>
+Date: Tue, 20 Oct 2026 16:16:33 +0800
+Message-Id: <20261020081633.3673704-1-sandie.cao@deepcomputing.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_234149_507772_48C99E47 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20261020_011747_883289_59997733 
+X-CRM114-Status: UNSURE (   4.25  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,129 +75,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A kprobe or uprobe placed on a nop currently replays the instruction
-out-of-line: the breakpoint trap runs the probe handler and redirects
-execution to a copy of the instruction sitting in an XOL slot, and a
-second breakpoint appended after the copy traps again to finish the
-hit.  That costs an extra exception round-trip per hit; for uprobes
-the slot runs in user mode, so the re-trap is a full
-kernel<->userspace round-trip.
+This series updates Deepcomputing FML13V05 Device Tree: Add P1 PMIC 
+regulator tree, add USB controller and USB phy, Enable SD card.
 
-nop and c.nop have no architectural effect, so the replay can be
-replaced by simply advancing the program counter when handling the
-initial breakpoint, completing every hit within a single trap.
-arm64 does the same in its probe-decode path, which is also shared
-between kprobes and uprobes; see commit ac4ad5c09b34 ("arm64: insn:
-Simulate nop instruction for better uprobe performance").
+This series is based on next-20261016.
 
-riscv_probe_decode_insn() is shared by kprobes and uprobes, so the
-simulation applies to both.  It primarily matters for uprobes on
-USDT probe sites: under the SystemTap SDT ABI (sys/sdt.h, parsed by
-libbpf), the recorded probe location is by construction a plain nop
-or c.nop, the same case that motivated the arm64 series.
-
-Measured on QEMU (RISC-V virt, emulated): for a uprobe on a USDT
-style nop site the per-hit cost drops by roughly 80 percent; for a
-kprobe on a nop by roughly 40 percent.  On real arm64 hardware the
-referenced commit measured ~2x.
-
-Compile tested on RISC-V, and verified with the RISC-V kprobes
-KUnit test which now covers nop and c.nop.
-
-Signed-off-by: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
-Reviewed-by: Nam Cao <namcao@linutronix.de>
 ---
- arch/riscv/include/asm/insn.h            |  7 +++++++
- arch/riscv/kernel/probes/decode-insn.c   |  6 ++++++
- arch/riscv/kernel/probes/simulate-insn.c | 14 ++++++++++++++
- arch/riscv/kernel/probes/simulate-insn.h |  2 ++
- 4 files changed, 29 insertions(+)
+Changes in v2:
+- Remove usb3b, usb3c node define in k3.dtsi, it's already uploaded by 
+other patch.
+- Add phys and phys-name define for usb3b, usb3c, usb3d in 
+k3-deepcomputing-fml13v05.
+- Remove cd-gpios, use non-removable for sdhci0. 
+- Remove vmmc-supply for sdhci0.
+- Link to v1: https://lore.kernel.org/all/20260922110231.3426011-1-
+sandie.cao@deepcomputing.io/
 
-diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-index ad348d8b8..29a8a121e 100644
---- a/arch/riscv/include/asm/insn.h
-+++ b/arch/riscv/include/asm/insn.h
-@@ -228,6 +228,11 @@
- #define RVG_MASK_EBREAK		0xffffffff
- #define RVG_MASK_SRET		0xffffffff
- 
-+#define RVG_MATCH_NOP		0x00000013
-+#define RVG_MASK_NOP		0xffffffff
-+#define RVC_MATCH_C_NOP		0x0001
-+#define RVC_MASK_C_NOP		0xffff
-+
- #define __INSN_LENGTH_MASK	_UL(0x3)
- #define __INSN_LENGTH_GE_32	_UL(0x3)
- #define __INSN_OPCODE_MASK	_UL(0x7F)
-@@ -262,6 +267,8 @@ __RISCV_INSN_FUNCS(c_ebreak, RVC_MASK_C_EBREAK, RVC_MATCH_C_EBREAK)
- __RISCV_INSN_FUNCS(ebreak, RVG_MASK_EBREAK, RVG_MATCH_EBREAK)
- __RISCV_INSN_FUNCS(sret, RVG_MASK_SRET, RVG_MATCH_SRET)
- __RISCV_INSN_FUNCS(fence, RVG_MASK_FENCE, RVG_MATCH_FENCE);
-+__RISCV_INSN_FUNCS(nop, RVG_MASK_NOP, RVG_MATCH_NOP)
-+__RISCV_INSN_FUNCS(c_nop, RVC_MASK_C_NOP, RVC_MATCH_C_NOP)
- 
- /* special case to catch _any_ system instruction */
- static __always_inline bool riscv_insn_is_system(u32 code)
-diff --git a/arch/riscv/kernel/probes/decode-insn.c b/arch/riscv/kernel/probes/decode-insn.c
-index 433d9035b..e8888d3a4 100644
---- a/arch/riscv/kernel/probes/decode-insn.c
-+++ b/arch/riscv/kernel/probes/decode-insn.c
-@@ -44,5 +44,11 @@ riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *api)
- 	RISCV_INSN_SET_SIMULATE(auipc,		insn);
- 	RISCV_INSN_SET_SIMULATE(branch,		insn);
- 
-+	/* Simulate NOP for better performance */
-+	RISCV_INSN_SET_SIMULATE(nop,		insn);
-+#ifdef CONFIG_RISCV_ISA_C
-+	RISCV_INSN_SET_SIMULATE(c_nop,		insn);
-+#endif
-+
- 	return INSN_GOOD;
- }
-diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
-index f8a2f6857..9a9b128d2 100644
---- a/arch/riscv/kernel/probes/simulate-insn.c
-+++ b/arch/riscv/kernel/probes/simulate-insn.c
-@@ -244,3 +244,17 @@ bool __kprobes simulate_c_beqz(u32 opcode, unsigned long addr, struct pt_regs *r
- {
- 	return simulate_c_bnez_beqz(opcode, addr, regs, false);
- }
-+
-+bool __kprobes simulate_nop(u32 opcode, unsigned long addr, struct pt_regs *regs)
-+{
-+	instruction_pointer_set(regs, addr + 4);
-+
-+	return true;
-+}
-+
-+bool __kprobes simulate_c_nop(u32 opcode, unsigned long addr, struct pt_regs *regs)
-+{
-+	instruction_pointer_set(regs, addr + 2);
-+
-+	return true;
-+}
-diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel/probes/simulate-insn.h
-index b89e1bb01..64e65e82a 100644
---- a/arch/riscv/kernel/probes/simulate-insn.h
-+++ b/arch/riscv/kernel/probes/simulate-insn.h
-@@ -30,5 +30,7 @@ bool simulate_c_jr(u32 opcode, unsigned long addr, struct pt_regs *regs);
- bool simulate_c_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs);
- bool simulate_c_bnez(u32 opcode, unsigned long addr, struct pt_regs *regs);
- bool simulate_c_beqz(u32 opcode, unsigned long addr, struct pt_regs *regs);
-+bool simulate_nop(u32 opcode, unsigned long addr, struct pt_regs *regs);
-+bool simulate_c_nop(u32 opcode, unsigned long addr, struct pt_regs *regs);
- 
- #endif /* _RISCV_KERNEL_PROBES_SIMULATE_INSN_H */
+---
+
+Sandie Cao (3):
+  riscv: dts: spacemit: k3-deepcomputing-fml13v05: add P1 PMIC regulator
+    tree
+  riscv: dts: spacemit: k3-deepcomputing-fml13v05: add USB controller
+    and USB phy support
+  riscv: dts: spacemit: k3-deepcomputing-fml13v05: Enable SD card
+    support
+
+ .../spacemit/k3-deepcomputing-fml13v05.dts    | 223 ++++++++++++++++++
+ 1 file changed, 223 insertions(+)
+
+
+base-commit: 2efb7a11f1aa4d2dc285fe2680cca22cb9f72f64
 -- 
-2.34.1
-
+2.43.0
 
 _______________________________________________
 linux-riscv mailing list
