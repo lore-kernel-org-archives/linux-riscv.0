@@ -2,66 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A094606A334
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2026 14:27:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A528D606A31A
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2026 15:17:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=c16GJqsE;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=OM13LXHE
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JPGIkQ/l
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=514LSaoZiRJxXE7eIidr2h8FEOwaaZhaibM5Hi77Ez8=; b=c16GJqsEyVUAb2
-	7zHCa5Rv5Ur26x4W/bfrwhj2ZPSKJo0P7Jvj5zG68YAyCp1ivxiholvimN+5gxky1v5QdOg6WbLRR
-	uRKMQvMfM3MXVk1TPhxyZe0CmbDv+MJyfn4lUbbe68xsgnEZmCJxHCFmEF+u4aDZ7p8l8uzkR/vvM
-	9XxQDgdmWgZo6d3AldIjQZQ8f9dQ2P/19GmcUZ9Mruzu9Z6ur+D/X+EyC8m/HcgYrD1MgNJEP62eo
-	blV4jhhUOInh8D7ETQaq5N7hm/YnEStN/+UgDEcZwXCw3bc8gCP+CgJYVzolbWUvrOPfCxTPL6RKO
-	n3L9Z0s8m0yIkQxiTTww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OqUu9/P1SdBMt6kzsEgloOd0TIXsXFExa3Iqe9JaVgs=; b=JPGIkQ/lmwfmcaQxYrqbTpBqFP
+	VKdkUsI5G4ZiQVPuidzDZwRPTRyD3gHr6+koi/qmR39Nf+2Tz2AVGlACp0CSd8nbcu+aqOQprRSdM
+	voEh35RSqUk5JA2KpUNk9G5pcQLTA4IYT0S4K6mniFULJRLfzBAIeWMamFjHwaf0XqqQMLWMmtpYE
+	Io7WBNcKzUk6RRSO6wcGKI7QSbIJVnsrCfPCwuj8eKnbM5NIZOU1FwcTU3OMC3BXdGM3v3WFoRZD5
+	J/ZrPOs95AokPsU+yElVwcNSzJ85MDCjhWDbI003/dho+5aZuIyXt9ptEVNyaYyxOP+mKhA4svyBt
+	Qx5GU2AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJAnh-00000009w8k-1hUA;
-	Tue, 20 Oct 2026 14:26:49 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+	id 1xJBaA-0000000A2fq-1lv0;
+	Tue, 20 Oct 2026 15:16:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJAna-00000009w3c-1K5l
-	for linux-riscv@lists.infradead.org;
-	Tue, 20 Oct 2026 14:26:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1792506395; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=9VZNqnxOEQTj++mPRtHjJD1jjjPwkguBzx/LIqemhIs=;
-	b=OM13LXHEmZi+hQxjbiqoXCPE8c9twId8TWdoFFS2dXJ4SGz7lDmTkFy4GxQAOlFURsRrX29O1/Ff9va0XVIFEQsCIIBlI6VL2fnN7dvUpG8cKRLvVRvLwIjhdvlyEhymMz6yA7+QjEkSvwedWjBw5QN04vNckSIvizGLNjYMQ98=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R331e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=11;SR=0;TI=SMTPD_---0XDDahPA_1792506390;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XDDahPA_1792506390 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 20 Oct 2026 22:26:34 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: sudeep.holla@kernel.org
-Cc: alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
-	atishp@rivosinc.com,
-	conor.dooley@microchip.com,
-	conor@kernel.org,
-	guoren@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org
-Subject: Re: [PATCH] riscv: Populate boot CPU topology on UP kernels
-Date: Tue, 20 Oct 2026 22:26:26 +0800
-Message-ID: <20261020142630.1680-1-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261020-frisky-jovial-echidna-2d003c@sudeepholla>
-References: <20261012131034.1026-1-cp0613@linux.alibaba.com> <20261020-unsent-commuting-91739a882031@spud> <20261020-frisky-jovial-echidna-2d003c@sudeepholla>
+	id 1xJBa9-0000000A2fa-1JEW;
+	Tue, 20 Oct 2026 15:16:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B319740AA8;
+	Tue, 20 Oct 2026 15:16:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 727BF1F000C4;
+	Tue, 20 Oct 2026 15:16:52 +0000 (UTC)
+Received: by traversing.sirena.org.uk (Postfix, from userid 1000)
+	id D00DE1CB0C67; Tue, 20 Oct 2026 16:16:26 +0100 (BST)
+Date: Tue, 20 Oct 2026 16:16:26 +0100
+From: Mark Brown <broonie@kernel.org>
+To: =?iso-8859-1?Q?Iv=E1n?= Ezequiel Rodriguez <ivanrwcm25@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Deepak Gupta <debug@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>,
+	Christian Brauner <brauner@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Yury Khrustalev <yury.khrustalev@arm.com>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Zong Li <zong.li@sifive.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+	Zishun Yi <vulab@iscas.ac.cn>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>
+Subject: Re: [PATCH 3/4] selftests/arm64: GCS must not leak on a failed clone3
+Message-ID: <ateFyuJkEgL94Rvc@sirena.org.uk>
+References: <cover.1792179433.git.ivanrwcm25@gmail.com>
+ <ed22ebf64ed00a56d5e1eff31ac639fef00dcae6.1792179433.git.ivanrwcm25@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_072644_032493_C60EB14E 
-X-CRM114-Status: UNSURE (   5.31  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -17.6 (-----------------)
+In-Reply-To: <ed22ebf64ed00a56d5e1eff31ac639fef00dcae6.1792179433.git.ivanrwcm25@gmail.com>
+X-Cookie: Whoever dies with the most toys wins.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,49 +72,187 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4369971619763617672=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
-	USER_AGENT_GIT autolearn=no autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 01:24:00PM +0100, Sudeep Holla wrote:
-> Commit 4b3dc9679cf7 ("arm64: force CONFIG_SMP=y and remove redundant #ifdefs")
-> removed UP support and made SMP default enabled.
 
-Thanks. RISC-V still allows UP: CONFIG_SMP is a plain bool with no
-default, yet arch/riscv/Kconfig selects GENERIC_ARCH_TOPOLOGY
-unconditionally while the only callers of init_cpu_topology() and
-store_cpu_topology() sit in smpboot.c, which is built only for
-CONFIG_SMP. That mismatch is what this patch closes.
+--===============4369971619763617672==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fQdpgUNys5IVa7P7"
+Content-Disposition: inline
 
-Gating that select on SMP instead does not work. UP would then fall back
-to the cpumask_of(cpu) defaults in include/linux/topology.h and report
-the same sysfs, but vmlinux no longer links: arch_freq_scale,
-capacity_freq_ref, topology_scale_freq_tick and topology_set_freq_scale
-all become undefined references.
 
-arch/riscv/include/asm/topology.h binds the arch_scale_freq_* and
-arch_set_freq_scale hooks to symbols that only drivers/base/arch_topology.c
-provides, and those defines suppress the generic fallbacks in
-kernel/sched/sched.h and include/linux/sched/topology.h. Making the
-gating work needs extra conditionals at several Kconfig and Makefile
-gates, and gives up freq and capacity invariance on UP, which is a much
-larger change than the twelve lines here.
+--fQdpgUNys5IVa7P7
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Conor, and RISC-V maintainers: would you rather force CONFIG_SMP=y on
-RISC-V as well and drop UP altogether, or keep UP buildable and take
-this fix? I would keep the current approach unless you prefer the
-former.
+On Fri, Oct 16, 2026 at 04:46:02PM -0300, Iv=E1n Ezequiel Rodriguez wrote:
 
-Best regards,
-Pei
+> clone3(CLONE_VM|CLONE_PIDFD) with an unwritable pidfd pointer fails
+> in put_user() after copy_thread() has mapped a GCS. copy_process()
+> then calls exit_thread(). Without HAVE_EXIT_THREAD that free is a
+> no-op and the VMA stays in the parent's mm.
+
+> Assisted-by: LLM
+
+This is pretty hard to follow, there's a lot of open coding, duplication
+and strange structures or tests.  It makes it hard to follow what's
+actually being tested and why which is going to be a maintainability
+issue.
+
+> +/* Same value as KSFT_SKIP in kselftest.h. */
+> +#define KSFT_SKIP		4
+
+Why are we not just including kselftest.h?  It doesn't have the fun
+interactions with libc headers that some of the other things have.
+If we are going to cut'n'paste values why only KSFT_SKIP and not any of
+the other exit codes we use?
+
+> +/* Same wrapper as gcs-locking.c: extra prctl args must be zero. */
+> +#define my_syscall2(num, arg1, arg2)					\
+> +({									\
+> +	register long _num  __asm__ ("x8") =3D (num);			\
+> +	register long _arg1 __asm__ ("x0") =3D (long)(arg1);		\
+> +	register long _arg2 __asm__ ("x1") =3D (long)(arg2);		\
+> +	register long _arg3 __asm__ ("x2") =3D 0;				\
+> +	register long _arg4 __asm__ ("x3") =3D 0;				\
+> +	register long _arg5 __asm__ ("x4") =3D 0;				\
+> +									\
+> +	__asm__ volatile (						\
+> +		"svc #0\n"						\
+> +		: "=3Dr"(_arg1)						\
+> +		: "r"(_arg1), "r"(_arg2),				\
+> +		  "r"(_arg3), "r"(_arg4),				\
+> +		  "r"(_arg5), "r"(_num)					\
+> +		: "memory", "cc"					\
+> +	);								\
+> +	_arg1;								\
+> +})
+
+Factor this out.
+
+> +static void on_fault(int sig)
+> +{
+> +	static const char msg[] =3D "[FAIL]\tparent guarded control stack fault=
+ed\n";
+
+This isn't KTAP format.
+
+> +		/*
+> +		 * An empty GCS leaves GCSPR at the exclusive end. If
+> +		 * the next VMA is contiguous that address is also the
+> +		 * start of the next range; prefer the mapping that
+> +		 * ends here.
+> +		 */
+
+I'm not clear what you mean by exclusive end here?
+
+> +static int skip_enable(long rc)
+> +{
+> +	if (rc =3D=3D -EOPNOTSUPP) {
+> +		printf("[SKIP]\tkernel has no GCS\n");
+> +	} else if (rc =3D=3D -EINVAL) {
+> +		printf("[SKIP]\tkernel built without GCS\n");
+> +	} else if (rc =3D=3D -EBUSY) {
+> +		printf("[SKIP]\tGCS is locked\n");
+> +	} else {
+> +		printf("[FAIL]\tPR_SET_SHADOW_STACK_STATUS returned %ld\n", rc);
+> +		return 1;
+> +	}
+> +	return KSFT_SKIP;
+> +}
+
+This feels rather contorted, and ends up returning a raw 1 from main()
+rather than a KSFT_ exit code.
+
+> +int main(void)
+> +{
+> +	struct sigaction sa;
+> +	struct ss_span parent;
+> +	void *stack;
+> +	void *bad_pidfd;
+> +	unsigned long gcspr, gcspr_mid;
+> +	unsigned long gcs_mode;
+> +	long rc;
+> +	int pidfd;
+> +	int vmas0, kb0, vmas1, kb1;
+> +	int i, kept, d, cret;
+> +
+> +	setbuf(stdout, NULL);
+
+There's also setvbuf().  Using kselftest.h and it's helpers would
+probably be better, it takes care of disabling buffering.  I can't see
+any reason to avoid that.
+
+> +	gcspr =3D (unsigned long)get_gcspr();
+> +	if (!gcspr) {
+> +		printf("[FAIL]\tenable left GCSPR_EL0 at 0\n");
+> +		_exit(1);
+> +	}
+
+Why are we using _exit(), and more of these raw 1s?
+
+> +	gcspr =3D (unsigned long)get_gcspr();
+> +	ss_scan(&vmas0, &kb0, gcspr, &parent, NULL, NULL);
+> +	if (!parent.start) {
+> +		printf("[FAIL]\tGCSPR %lx matches no shadow-stack VMA\n", gcspr);
+> +		_exit(1);
+> +	}
+
+Why is this something we're validating, and how do we expect to be able
+to do function calls if it is the case?
+
+> +	if (vmas1 !=3D vmas0 || kb1 !=3D kb0) {
+> +		printf("[FAIL]\tleaked %d shadow-stack VMA(s), %d kB\n",
+> +		       vmas1 - vmas0, kb1 - kb0);
+> +		_exit(1);
+> +	}
+> +	if (!kept) {
+> +		printf("[FAIL]\tparent GCS %lx-%lx was unmapped\n",
+> +		       parent.start, parent.end);
+> +		_exit(2);
+> +	}
+
+Why are some failures exiting with a different exit code?
+
+> +	if (d !=3D 17) {
+> +		printf("[FAIL]\tparent call/return returned %d, want 17\n", d);
+> +		_exit(2);
+> +	}
+
+=2E..because?
+
+--fQdpgUNys5IVa7P7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQReagvpf3TrrA7BoYYv73Ows9A4iQUCateFxwAKCRAv73Ows9A4
+iV7CAQCkMVFZ4IBfyU74fiWba6+YvlaiDdY46+hou1OQsUgQ0wD+OKvp47h6ILRv
+YrtzWYolE5nx/q9ILHnbj4r5mQW6eQk=
+=Buc7
+-----END PGP SIGNATURE-----
+
+--fQdpgUNys5IVa7P7--
+
+
+--===============4369971619763617672==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4369971619763617672==--
+
