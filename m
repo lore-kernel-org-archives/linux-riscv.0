@@ -2,100 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFF1A606A319
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2026 08:38:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E52E60A5BE2
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2026 09:41:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=u4yLQ/7t
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fKhWYQlb;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=xbbLont9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=oczKx/km5fHKAyr6ipNSkvev3I/X2N35+SSpNgljYm4=; b=u4yLQ/7tc2jOY9
-	2xcLH0oneN/gF4XlKZvIbZaUbiC+Ao6abtghmkqcGkkFC+MsXTJTYHvek2VgxHCKPzRBUhq+yhzCA
-	fLMHjnIu+13cObhj8xz0tY3KS1AdtgBO09Q/OvkWxLCxVq5o/U9UXIascPhFUYVxQ/XtHcyPqYVBA
-	W2/QGQCn4/2RIArN4CdTJgdIhAUHzpKoGKdHvARRUyhjfJ/7D6ihqntUFgtkRaSQP/UebGfsxn6K+
-	KmS3WYzaDfprMxiveRL836NuoPH6OOPK78HccqZMYKlgQJrkpKocUSYwls7VoGufSiw+xvEVdLSx+
-	wC2CTrJfXTwkiSCGnQUw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TkBdgs/lTd6aZjoZbHBitqfgoU1+5MCwZ17s4cvfMTQ=; b=fKhWYQlb7c1PH5
+	XQ099m/AN8MYj0KJA76+ZA+qWDPdAKPkvh0CcqBreDc+t5U+Y9HFL/UZA+dl7Zlt7SEWpOoAyf6Cy
+	w5vC5PdR81CSgkX6Cqc6gM3GDWfZnvoin77colAxfBFYd2StO+F9efVnQf7iTRcc+pURqSDjiY7Rk
+	UwF/BrFGu7nlfy2318BeWjHx74v6uACFlAS58wUIB9Ms5vCKm+X83PIRMPis/5g+aqg30uumOlmBt
+	IoXDH5mRIYWHmJU200pRf9aPFn+Y0S8HUhG8wO3WProy7HJlsMK8F9VlTA0OZGLVPSOFgkQoA9WAa
+	7orp8NloOhzNMJtOLmmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ5MS-00000009ChD-0CU7;
-	Tue, 20 Oct 2026 08:38:20 +0000
-Received: from frasgout12.his.huawei.com ([14.137.139.154])
+	id 1xJ6LU-00000009L6f-0ueQ;
+	Tue, 20 Oct 2026 09:41:24 +0000
+Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ5MP-00000009CdM-0uDY
-	for linux-riscv@lists.infradead.org;
-	Tue, 20 Oct 2026 08:38:19 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.235])
-	by frasgout12.his.huawei.com (SkyGuard) with ESMTPS id 4j85Fq1YDnztJtB
-	for <linux-riscv@lists.infradead.org>; Tue, 20 Oct 2026 16:30:23 +0800 (CST)
-Received: from mail02.huawei.com (unknown [7.182.16.157])
-	by mail.maildlp.com (Postfix) with ESMTP id AEFE74055E
-	for <linux-riscv@lists.infradead.org>; Tue, 20 Oct 2026 16:38:04 +0800 (CST)
-Received: from huaweicloud.com (unknown [10.204.63.22])
-	by dep2_app1 (Coremail) with UTF8SMTPA id nRC2B0Dmy2FaKNdqLzcBAA--.5746S2;
-	Tue, 20 Oct 2026 09:38:04 +0100 (CET)
-From: Roberto Sassu <roberto.sassu@huaweicloud.com>
-To: catalin.marinas@arm.com,
+	id 1xJ6LP-00000009L42-2nj8;
+	Tue, 20 Oct 2026 09:41:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1792489277; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=vV2Y5T1kVnTXHiV+qTqs8GbZEVnLFhK5H2hev57N6Io=;
+	b=xbbLont9+DZBpNUKgAdTyGhLTPZEGA7sbS4I/VIMw0IXKkx7md5Nx9NZw/d112bIYXNC9wyTGIaM5PX0HchCj3SMKsrT23tdyDBUcZJDsoG44yYtxeBEYsrP/Sj+ZxU/o/pRZgrNzwF7xMM//spgWsVl8BsAcr7C7R0Pdm7qR5I=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0XDCspQX_1792489273;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XDCspQX_1792489273 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 20 Oct 2026 17:41:15 +0800
+From: fangyu.yu@linux.alibaba.com
+To: tomasz.jeznach@linux.dev,
+	joro@8bytes.org,
 	will@kernel.org,
-	mark.rutland@arm.com,
-	chenhuacai@kernel.org,
-	kernel@xen0n.name,
-	maddy@linux.ibm.com,
-	mpe@ellerman.id.au,
-	npiggin@gmail.com,
-	chleroy@kernel.org,
+	robin.murphy@arm.com,
 	pjw@kernel.org,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	alex@ghiti.fr,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	hpa@zytor.com,
-	robh@kernel.org,
-	saravanak@kernel.org
-Cc: x86@kernel.org,
+	baolu.lu@linux.intel.com,
+	jroedel@suse.de,
+	zong.li@sifive.com,
+	andrew.jones@linux.dev,
+	anup@brainfault.org,
+	jgg@nvidia.com,
+	jgg@ziepe.ca,
+	kevin.tian@intel.com,
+	atish.patra@linux.dev,
+	skhawaja@google.com,
+	vasant.hegde@amd.com,
+	joerg.roedel@amd.com,
+	tanchi25@mails.ucas.ac.cn,
+	gong.shuai@sanechips.com.cn
+Cc: fangyu.yu@linux.alibaba.com,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	zohar@linux.ibm.com,
-	noodles@fb.com,
-	linux-integrity@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	Roberto Sassu <roberto.sassu@huawei.com>
-Subject: [PATCH v2] kexec: Select ima_get/free_kexec_buffer() with CONFIG_HAVE_IMA_KEXEC(_OF)
-Date: Tue, 20 Oct 2026 10:37:27 +0200
-Message-ID: <20261020083727.1906495-1-roberto.sassu@huaweicloud.com>
-X-Mailer: git-send-email 2.43.0
+	kvm-riscv@lists.infradead.org
+Subject: [RFC PATCH v5 01/10] iommupt: Add RISC-V Second-stage (iohgatp) page table support
+Date: Tue, 20 Oct 2026 17:40:57 +0800
+Message-Id: <20261020094106.92722-2-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20261020094106.92722-1-fangyu.yu@linux.alibaba.com>
+References: <20261020094106.92722-1-fangyu.yu@linux.alibaba.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: nRC2B0Dmy2FaKNdqLzcBAA--.5746S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxGFWxJw17urW3JF48GF48WFg_yoWrKw4xpw
-	n0yr18JFZrWFs8t3yjga48Wry5Zan7JrW3urs5C34kZFy3A3yDur1vq3W7ZFyj9rWkKFy8
-	uFyrWFy09w4UKaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4A2jsIEc7CjxV
-	AFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAa
-	w2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxV
-	Aqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a
-	6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6x
-	kF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AK
-	xVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvj
-	xUIF4iUUUUU
-X-CM-SenderInfo: purev21wro2thvvxqx5xdzvxpfor3voofrz/1tbiAgASDWrW3LUGaQAHsg
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_013817_804880_EE70C6CC 
-X-CRM114-Status: GOOD (  17.65  )
-X-Spam-Score: -4.2 (----)
+X-CRM114-CacheID: sfid-20261020_024119_875101_51653BB5 
+X-CRM114-Status: GOOD (  15.96  )
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,151 +92,236 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Roberto Sassu <roberto.sassu@huawei.com>
+From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-On x86, if CONFIG_OF_FLATTREE is enabled, the kernel uses the device tree
-implementation of ima_get/free_kexec_buffer(). However, x86 passes the IMA
-buffer location through setup_data, not through the device tree, so the
-buffer is never found and the IMA measurement list is not carried over
-across kexec.
+Add support for Sv39x4/Sv48x4/Sv57x4 Second-stage page tables used by
+the RISC-V IOMMU iohgatp register. The x4 root page table is 16 KiB
+instead of the usual 4 KiB, covering 2 extra GPA bits (hw_max_vasz_lg2
+= 41/50/59).
 
-Introduce CONFIG_HAVE_IMA_KEXEC_OF (which selects CONFIG_HAVE_IMA_KEXEC)
-and select it for the architectures that pass the IMA buffer location
-through the device tree, via of_kexec_alloc_and_setup_fdt() (arm64,
-powerpc and riscv). Build the device tree implementation of
-ima_get/free_kexec_buffer() only if the new option is enabled.
-
-Select the new option also on LoongArch, to preserve the current behavior
-and avoid a link failure. LoongArch does not pass the buffer location to
-the next kernel yet; this will be addressed separately.
-
-Finally, don't select it for x86, and use x86's own setup_data-based
-implementation regardless of CONFIG_OF_FLATTREE.
-
-Fixes: b69a2afd5afc ("x86/kexec: Carry forward IMA measurement log on kexec")
-Signed-off-by: Roberto Sassu <roberto.sassu@huawei.com>
+Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 ---
+ drivers/iommu/generic_pt/fmt/iommu_riscv64.c |   2 +-
+ drivers/iommu/generic_pt/fmt/riscv.h         | 109 +++++++++++++++----
+ include/linux/generic_pt/common.h            |   4 +
+ include/linux/generic_pt/iommu.h             |  11 ++
+ 4 files changed, 102 insertions(+), 24 deletions(-)
 
-v2:
-- Reworded the commit message (no code changes), suggested by Mimi
-
- arch/arm64/Kconfig      | 2 +-
- arch/loongarch/Kconfig  | 2 +-
- arch/powerpc/Kconfig    | 2 +-
- arch/riscv/Kconfig      | 2 +-
- arch/x86/kernel/setup.c | 2 +-
- drivers/of/kexec.c      | 4 ++--
- kernel/Kconfig.kexec    | 4 ++++
- 7 files changed, 11 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index b5a51b0ef944..4b7e248b6c91 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1697,7 +1697,7 @@ config ARCH_SUPPORTS_KEXEC_FILE
- config ARCH_SELECTS_KEXEC_FILE
- 	def_bool y
- 	depends on KEXEC_FILE
--	select HAVE_IMA_KEXEC if IMA
-+	select HAVE_IMA_KEXEC_OF if IMA
+diff --git a/drivers/iommu/generic_pt/fmt/iommu_riscv64.c b/drivers/iommu/generic_pt/fmt/iommu_riscv64.c
+index 1bb74114fb02..fa61839e5599 100644
+--- a/drivers/iommu/generic_pt/fmt/iommu_riscv64.c
++++ b/drivers/iommu/generic_pt/fmt/iommu_riscv64.c
+@@ -8,7 +8,7 @@
+ 	(BIT(PT_FEAT_SIGN_EXTEND) | BIT(PT_FEAT_FLUSH_RANGE) | \
+ 	 BIT(PT_FEAT_RISCV_SVNAPOT_64K) |                      \
+ 	 BIT(PT_FEAT_DETAILED_GATHER) |                        \
+-	 BIT(PT_FEAT_RISCV_SVPBMT))
++	 BIT(PT_FEAT_RISCV_SVPBMT) | BIT(PT_FEAT_RISCV_S2))
+ #define PT_FORCE_ENABLED_FEATURES BIT(PT_FEAT_DETAILED_GATHER)
  
- config ARCH_SUPPORTS_KEXEC_SIG
- 	def_bool y
-diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
-index 2067d1f2ad7a..b5420d482da4 100644
---- a/arch/loongarch/Kconfig
-+++ b/arch/loongarch/Kconfig
-@@ -690,7 +690,7 @@ config ARCH_SELECTS_KEXEC_FILE
- 	depends on KEXEC_FILE
- 	select KEXEC_ELF
- 	select RELOCATABLE
--	select HAVE_IMA_KEXEC if IMA
-+	select HAVE_IMA_KEXEC_OF if IMA
- 
- config ARCH_SUPPORTS_CRASH_DUMP
- 	def_bool 64BIT
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index 2580e27e4328..096c6061893b 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -643,7 +643,7 @@ config ARCH_SELECTS_KEXEC_FILE
- 	def_bool y
- 	depends on KEXEC_FILE
- 	select KEXEC_ELF
--	select HAVE_IMA_KEXEC if IMA
-+	select HAVE_IMA_KEXEC_OF if IMA
- 
- config PPC64_BIG_ENDIAN_ELF_ABI_V2
- 	# Option is available to BFD, but LLD does not support ELFv1 so this is
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index f8e26c4bed2b..161bf8a65beb 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -1118,7 +1118,7 @@ config ARCH_SUPPORTS_KEXEC_FILE
- config ARCH_SELECTS_KEXEC_FILE
- 	def_bool y
- 	depends on KEXEC_FILE
--	select HAVE_IMA_KEXEC if IMA
-+	select HAVE_IMA_KEXEC_OF if IMA
- 	select KEXEC_ELF
- 
- config ARCH_SUPPORTS_KEXEC_PURGATORY
-diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-index cda6adb9f69c..bc17e353c099 100644
---- a/arch/x86/kernel/setup.c
-+++ b/arch/x86/kernel/setup.c
-@@ -421,7 +421,7 @@ static void __init add_early_ima_buffer(u64 phys_addr)
+ #include "iommu_template.h"
+diff --git a/drivers/iommu/generic_pt/fmt/riscv.h b/drivers/iommu/generic_pt/fmt/riscv.h
+index ae9a76514416..d4445e463fa9 100644
+--- a/drivers/iommu/generic_pt/fmt/riscv.h
++++ b/drivers/iommu/generic_pt/fmt/riscv.h
+@@ -37,7 +37,16 @@ enum {
+ 	PT_MAX_OUTPUT_ADDRESS_LG2 = 34,
+ 	PT_MAX_TOP_LEVEL = 1,
+ #else
+-	PT_MAX_VA_ADDRESS_LG2 = 57,
++	/*
++	 * PT_MAX_VA_ADDRESS_LG2 is the upper bound accepted by the generic
++	 * pt_iommu_init() range check.  It must cover both first-stage and
++	 * second-stage (G-stage) modes:
++	 *
++	 *   First-stage  (fsc/iosatp): Sv39=39, Sv48=48, Sv57=57
++	 *   Second-stage (iohgatp):    Sv39x4=41, Sv48x4=50, Sv57x4=59
++	 *
++	 */
++	PT_MAX_VA_ADDRESS_LG2 = 59,
+ 	PT_MAX_OUTPUT_ADDRESS_LG2 = 56,
+ 	PT_MAX_TOP_LEVEL = 4,
  #endif
- }
+@@ -126,6 +135,12 @@ riscvpt_entry_num_contig_lg2(const struct pt_state *pts)
  
--#if defined(CONFIG_HAVE_IMA_KEXEC) && !defined(CONFIG_OF_FLATTREE)
-+#ifdef CONFIG_HAVE_IMA_KEXEC
- int __init ima_free_kexec_buffer(void)
+ static inline unsigned int riscvpt_num_items_lg2(const struct pt_state *pts)
  {
- 	if (!ima_kexec_buffer_size)
-diff --git a/drivers/of/kexec.c b/drivers/of/kexec.c
-index 029903b986cb..724f29fef0c0 100644
---- a/drivers/of/kexec.c
-+++ b/drivers/of/kexec.c
-@@ -116,7 +116,7 @@ static int do_get_kexec_buffer(const void *prop, int len, unsigned long *addr,
- 	return 0;
++	/*
++	 * It is not allowed to call pt_num_items_lg2() at the top level, this
++	 * API restriction is specifically an optimization avoid overheads
++	 * dealing with concatenated tables here.
++	 */
++	PT_WARN_ON(pts->level == pts->range->top_level);
+ 	return PT_TABLEMEM_LG2SZ - ilog2(sizeof(u64));
  }
- 
--#ifdef CONFIG_HAVE_IMA_KEXEC
-+#ifdef CONFIG_HAVE_IMA_KEXEC_OF
- /**
-  * ima_get_kexec_buffer - get IMA buffer from the previous kernel
-  * @addr:	On successful return, set to point to the buffer contents.
-@@ -196,7 +196,7 @@ static void remove_ima_buffer(void *fdt, int chosen_node)
- 	size_t size;
- 	const void *prop;
- 
--	if (!IS_ENABLED(CONFIG_HAVE_IMA_KEXEC))
-+	if (!IS_ENABLED(CONFIG_HAVE_IMA_KEXEC_OF))
- 		return;
- 
- 	prop = fdt_getprop(fdt, chosen_node, "linux,ima-kexec-buffer", &len);
-diff --git a/kernel/Kconfig.kexec b/kernel/Kconfig.kexec
-index 15632358bcf7..c6ed60f04ea4 100644
---- a/kernel/Kconfig.kexec
-+++ b/kernel/Kconfig.kexec
-@@ -17,6 +17,10 @@ config KEXEC_ELF
- config HAVE_IMA_KEXEC
- 	bool
- 
-+config HAVE_IMA_KEXEC_OF
-+	bool
-+	select HAVE_IMA_KEXEC
+ #define pt_num_items_lg2 riscvpt_num_items_lg2
+@@ -261,20 +276,41 @@ riscvpt_iommu_fmt_init(struct pt_iommu_riscv_64 *iommu_table,
+ 		       const struct pt_iommu_riscv_64_cfg *cfg)
+ {
+ 	struct pt_riscv *table = &iommu_table->riscv_64pt;
+-
+-	switch (cfg->common.hw_max_vasz_lg2) {
+-	case 39:
+-		pt_top_set_level(&table->common, 2);
+-		break;
+-	case 48:
+-		pt_top_set_level(&table->common, 3);
+-		break;
+-	case 57:
+-		pt_top_set_level(&table->common, 4);
+-		break;
+-	default:
+-		return -EINVAL;
++	unsigned int top_level;
 +
- config KEXEC
- 	bool "Enable kexec system call"
- 	depends on ARCH_SUPPORTS_KEXEC
++	if (pt_feature(&table->common, PT_FEAT_RISCV_S2)) {
++		/* Second-stage (iohgatp): Sv39x4 / Sv48x4 / Sv57x4. */
++		switch (cfg->common.hw_max_vasz_lg2) {
++		case 41:
++			top_level = 2;
++			break;
++		case 50:
++			top_level = 3;
++			break;
++		case 59:
++			top_level = 4;
++			break;
++		default:
++			return -EINVAL;
++		}
++	} else {
++		/* First-stage (fsc/iosatp): Sv39 / Sv48 / Sv57. */
++		switch (cfg->common.hw_max_vasz_lg2) {
++		case 39:
++			top_level = 2;
++			break;
++		case 48:
++			top_level = 3;
++			break;
++		case 57:
++			top_level = 4;
++			break;
++		default:
++			return -EINVAL;
++		}
+ 	}
++
++	pt_top_set_level(&table->common, top_level);
+ 	table->common.max_oasz_lg2 =
+ 		min(PT_MAX_OUTPUT_ADDRESS_LG2, cfg->common.hw_max_oasz_lg2);
+ 	return 0;
+@@ -292,30 +328,57 @@ riscvpt_iommu_fmt_hw_info(struct pt_iommu_riscv_64 *table,
+ 	PT_WARN_ON(top_phys & ~PT_TOP_PHYS_MASK);
+ 
+ 	/*
+-	 * See Table 3. Encodings of iosatp.MODE field" for DC.tx.SXL = 0:
+-	 *  8 = Sv39 = top level 2
+-	 *  9 = Sv38 = top level 3
+-	 *  10 = Sv57 = top level 4
++	 * Both first-stage (fsc/iosatp) and second-stage (iohgatp) share the
++	 * same MODE numeric values for a given top level:
++	 *   top_level 2 -> MODE 8  (Sv39 / Sv39x4)
++	 *   top_level 3 -> MODE 9  (Sv48 / Sv48x4)
++	 *   top_level 4 -> MODE 10 (Sv57 / Sv57x4)
++	 *
++	 * See "Table 3. Encodings of iosatp.MODE field" (DC.tc.SXL = 0) and
++	 * "Table 2. Encoding of iohgatp.MODE field" in the RISC-V IOMMU spec.
+ 	 */
+-	info->fsc_iosatp_mode = top_range->top_level + 6;
++	if (pt_feature(&table->riscv_64pt.common, PT_FEAT_RISCV_S2))
++		info->iohgatp_mode = top_range->top_level + 6;
++	else
++		info->fsc_iosatp_mode = top_range->top_level + 6;
+ }
+ #define pt_iommu_fmt_hw_info riscvpt_iommu_fmt_hw_info
+ 
+ #if defined(GENERIC_PT_KUNIT)
+ static const struct pt_iommu_riscv_64_cfg riscv_64_kunit_fmt_cfgs[] = {
+-	[0] = { .common.features = BIT(PT_FEAT_RISCV_SVNAPOT_64K),
++	/* First-stage (fsc/iosatp): Sv39 / Sv48 / Sv57 */
++	[0] = { .common.features = BIT(PT_FEAT_SIGN_EXTEND) |
++				      BIT(PT_FEAT_RISCV_SVNAPOT_64K),
+ 		.common.hw_max_oasz_lg2 = 56,
+ 		.common.hw_max_vasz_lg2 = 39 },
+-	[1] = { .common.features = 0,
++	[1] = { .common.features = BIT(PT_FEAT_SIGN_EXTEND),
+ 		.common.hw_max_oasz_lg2 = 56,
+ 		.common.hw_max_vasz_lg2 = 48 },
+-	[2] = { .common.features = BIT(PT_FEAT_RISCV_SVNAPOT_64K),
++	[2] = { .common.features = BIT(PT_FEAT_SIGN_EXTEND) |
++				      BIT(PT_FEAT_RISCV_SVNAPOT_64K),
+ 		.common.hw_max_oasz_lg2 = 56,
+ 		.common.hw_max_vasz_lg2 = 57 },
++	/*
++	 * Second-stage (iohgatp): Sv39x4 / Sv48x4 / Sv57x4.
++	 */
++	[3] = { .common.features = BIT(PT_FEAT_RISCV_S2) |
++				      BIT(PT_FEAT_RISCV_SVNAPOT_64K),
++		.common.hw_max_oasz_lg2 = 56,
++		.common.hw_max_vasz_lg2 = 41 },
++	[4] = { .common.features = BIT(PT_FEAT_RISCV_S2),
++		.common.hw_max_oasz_lg2 = 56,
++		.common.hw_max_vasz_lg2 = 50 },
++	[5] = { .common.features = BIT(PT_FEAT_RISCV_S2) |
++				      BIT(PT_FEAT_RISCV_SVNAPOT_64K),
++		.common.hw_max_oasz_lg2 = 56,
++		.common.hw_max_vasz_lg2 = 59 },
+ };
+ #define kunit_fmt_cfgs riscv_64_kunit_fmt_cfgs
++/* Sign extension is only valid for first-stage configs, not S2. */
+ enum {
+-	KUNIT_FMT_FEATURES = BIT(PT_FEAT_RISCV_SVNAPOT_64K),
++	KUNIT_FMT_FEATURES = BIT(PT_FEAT_SIGN_EXTEND) |
++			     BIT(PT_FEAT_RISCV_SVNAPOT_64K) |
++			     BIT(PT_FEAT_RISCV_S2),
+ };
+ #endif
+ 
+diff --git a/include/linux/generic_pt/common.h b/include/linux/generic_pt/common.h
+index 07ef1c8341a4..f2e130c2b804 100644
+--- a/include/linux/generic_pt/common.h
++++ b/include/linux/generic_pt/common.h
+@@ -197,6 +197,10 @@ enum {
+ 	 * Support Svpbmt extension: encode page-based memory type (PBMT) in PTEs.
+ 	 */
+ 	PT_FEAT_RISCV_SVPBMT,
++	/*
++	 * Using second-stage / iohgatp address translation.
++	 */
++	PT_FEAT_RISCV_S2,
+ 
+ };
+ 
+diff --git a/include/linux/generic_pt/iommu.h b/include/linux/generic_pt/iommu.h
+index dd0edd02a48a..2eed9b78f56c 100644
+--- a/include/linux/generic_pt/iommu.h
++++ b/include/linux/generic_pt/iommu.h
+@@ -328,7 +328,18 @@ struct pt_iommu_riscv_64_cfg {
+ 
+ struct pt_iommu_riscv_64_hw_info {
+ 	u64 ppn;
++	/*
++	 * First-stage (fsc/iosatp) MODE encoding:
++	 *   8 = Sv39, 9 = Sv48, 10 = Sv57
++	 * Used to program DC.fsc.iosatp.MODE.
++	 */
+ 	u8 fsc_iosatp_mode;
++	/*
++	 * Second-stage (iohgatp) MODE encoding:
++	 *   8 = Sv39x4, 9 = Sv48x4, 10 = Sv57x4
++	 * Used to program DC.iohgatp.MODE.
++	 */
++	u8 iohgatp_mode;
+ };
+ 
+ IOMMU_FORMAT(riscv_64, riscv_64pt);
 -- 
-2.43.0
+2.50.1
 
 
 _______________________________________________
