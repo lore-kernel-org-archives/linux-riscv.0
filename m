@@ -2,74 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDE6F606A319
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2026 05:35:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B487D606A319
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2026 05:35:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oVBIbKGn;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=GCSfpTpm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UDVv7Tr3;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=VcsIUYrI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Cy/fDT4gs/FUj8IsdkX5St9KXH9KL8Ec2k1W8fiitJU=; b=oVBIbKGnhlmgNV
-	Ye9ah4GlqW4T09vAEtoxHkQjiVcduS5FlwrqyiHhaZtu0XaEBJHMTeyLpshZKUUZ9UE/7b8ffnMfd
-	XHkXixk6hDB9czBcsW9aEEWUz2Reqq5YiB13dYYag9VJ0LIIiNC21xL0cZ4WQ8nju+vsx2ntiNhN0
-	wnhClbxZ70u50AoGUdN7+dqZGqeciCZqcnHmhT6X9veHCix+43tyhbWpv59zKosPiOV0SnYZ3H2ZI
-	Rsq8lF58VU3AN5pgenEjU2JnWx4cDsJ8Ff3GAuPgaWQtWUsYZOBNd2mU0V1jqRi+3riHoVwkAdiRC
-	YjmCKHSNIM5R7LqI3WKg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dT6yMhUVdsv2pJd6y5SJ6b9H+PijVA3ghUNjZf30KHY=; b=UDVv7Tr3Nk3ytZ
+	jRLp4QHickPhMrtKHXWGk8aoimPdBFHLEN3Sop4gfK1rxghCunmahdE65yMvekGnzDQiJSN+lTa81
+	EDXzXIei24ElGfbCZxH4E0c4p9dzjGQM4C9bzP+cqYRAP8/JfYb42wkxxLFptGMR+hBjOWjkYT6zI
+	NKdw6m9/n/DeZJUq7zb9s7ru+41TV0oANWy4IatQ5hKvxpWSmjqlBJQEwdCA4PHWcs4DGjZ4r4LYv
+	r+RC2F08cY1brSEpDNbwFubquguKfgPmuT/kArWmKpMQQRbn/TMJJEAmFsOiUfbcTpU4L0Sz7S8y7
+	oD1cwxt7FLbR+GPjcAGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ2Uo-00000008sSW-459J;
-	Tue, 20 Oct 2026 05:34:46 +0000
-Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
+	id 1xJ2VC-00000008sVC-0Ji7;
+	Tue, 20 Oct 2026 05:35:10 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ2Ul-00000008sS8-2ilv
+	id 1xJ2V9-00000008sUf-1klF
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Oct 2026 05:34:45 +0000
-Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-93f3c895a0eso152240885a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Oct 2026 22:34:42 -0700 (PDT)
+	Tue, 20 Oct 2026 05:35:08 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-91b89c6caffso22721816d6.2
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Oct 2026 22:35:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792474481; x=1793079281; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=flDdnbgpLbuu0srS7vDLug/Gj+E6AwZDNNV7bkNw8vE=;
-        b=GCSfpTpmzBI4vmHDsXstAtJRxQV5Phq1NiVOq6Kdrk/dZEzviJ9TcnSm3Hb4YQfZwa
-         x7I9BrC3DntpVvvFOkP0NQVGOPgoXxzpKyi8hEr1Rix1IWvVmdtTwsyJHVdLPLFJBha8
-         G+dq2Ho/bWcUfcV5zPyxeeUJUY7hWBovDB2161dRopg0NT3U5+t1qQ/DvFnjq3v4cdbN
-         e+FDLmdYbwnw9/B6LyrYwYlQw138itTogkfBi5re9kzGfOgOHBr5QoBYnxf5HUrexdTJ
-         rfn7hu9xw12u6Hos/VYk/b9Zwpnzi7B3GwZVpEJgwK+bdgnQrB3YEr16VdbtprE437aZ
-         Tn/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792474481; x=1793079281;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1792474506; x=1793079306; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=flDdnbgpLbuu0srS7vDLug/Gj+E6AwZDNNV7bkNw8vE=;
-        b=AMLx96s/YunfbMRdu1KlSsCnWOG+yqiJAJqifObkWG0Gpf6/kz3FHHccU4oQHCIlwa
-         uOtb0dZsGUzFYaewIk+mmFo5VpRwlrPJ3302JxekfbGHHTpg5rSgaybjT6oqRQoe7fbr
-         unj7xPXfDyBfDKXIegmdQLUW9t9yFNkGRa584jpHPN0WXaIdpwNZoWj8RC7Zp2mb0LYX
-         g4sJRXoqp+VTYgr0XTdPDbQCU/IN2h47eqHGIejhHsaNfHV4pGw2Px4qfhy+K808XFKf
-         NHhuIDT7vXgkPrDM2pDY2VSRSyjUJUz/UTmvuIijkvyqvO7u2vFv8/IP8tTKq9EueQ8D
-         gH6Q==
-X-Forwarded-Encrypted: i=1; AKwUvBx5rqzXTccRfaD/f3vtLaB6HotH6u+JhhLEqTq/iLOtNokqnoQhzIz1dbFzOcpEfvuJwaxw6D2Ti3AtDA==@lists.infradead.org
-X-Gm-Message-State: AFq9FYIHcAKcp8+PlcgXCu4l2qBdg0DZ52OY2KmujyaDZplb9iHKObjE
-	B/MzKUT4d9mhiSPHNS0dv3RSdPlMYfuYT9afFzQooMt1P8g8WnfSR3s8
-X-Gm-Gg: AYBFou0dVloGjdFuofaf1AKyp4ZCqzZ5secNKPNDHdJ5N2L4bs2IfRR5wLAkzBXSF/0
-	rVRD3VaJERAhuuRpUg0SD4U+e8Enydl7521enhy0l/DKUdB3ToL4UwTEvL+DLzdi2VjFbimysOB
-	FyA+LvZmhnaKydxMzMz17II0g2EDEvFFOuOBlnELP6g53G7S67zUyb4pPEXy7zVUg7UXSK2QhXh
-	xhwrrc4KIqC9clPbBhVZjKwSeH7RvXxRReD92DGoUZ094lmmDNlgEPiZPjIUNSh7OCx/9GWPr83
-	CjcNxkT7jkqemJzYOwI+nYxCtyHA8LjrUbetkGECuFWl4WfC7dYWAf+nL1rYc8TxkxnkDEUuk/x
-	RzRBY1IIHz4EXUloYxhD7jHPrQCqD9SpTu+7eKJrQ3PTDSDGKjMCqXkvfe6+M1MOE9S3AMagCpF
-	foxGf0o/hsiIMlVMbp710G/xjqfpXvbWwPBSBa8cAu7OpEKUR+BIdZ/V/tdSwBvAaw8H/FkKfVv
-	AUuh/wZvu5NHbh+Ern7ng==
-X-Received: by 2002:a05:620a:2416:20b0:93f:34c9:925f with SMTP id af79cd13be357-93f34c995bfmr845551685a.17.1792474481518;
-        Mon, 19 Oct 2026 22:34:41 -0700 (PDT)
+        bh=47QGolyVJG7rJ7+E1J8PPA+rcCQGmFElB+S6NGZ8+EY=;
+        b=VcsIUYrIf+lAV9rzIw/erFBaWXjpipc8DuRrwE1DuPwq1PW1uuJp0qwkMqBPde8GlC
+         SER7f+qlrMFrg+saA0XHwzJTfub5kA4SAN7uJCvYWA9ytSAqwRWw9v6Qh2vS/EdTLCb3
+         SfuCpwJedg1J4B0FBGBgy7yLha0GLSkaPMkIPtykpmI7BRbEwttmhMGhdQjwWYprS8WG
+         ysbD0VF4lsdReAvMJeiYV4ancfweJRpk4O1SFXzqZovuPx3hB0akHBJF3IWSugOB4Cw/
+         5ztAzbWqz3+KvLd9/N6H/pqn9JCL4PJjfm/wVSxPye9lYNDq/7EpiqPgH6dtzWvXg3jy
+         czqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792474506; x=1793079306;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=47QGolyVJG7rJ7+E1J8PPA+rcCQGmFElB+S6NGZ8+EY=;
+        b=zcM0FLBBCQEYDAgHt4uN5r0nFhD+N0YVFVHc8ERBiJyr4CdLM7QA8WMiqgEV8Ndzdb
+         Dn9P3MjFyIVvjtFjYYKOe8EARkVkGoNdARIQdEQ725Tqli9xPftOT5fVVpMMlazXcuj2
+         c98pyyTW5quucvBfZzVJTji/GJtub7MJKdynCx5sqFKSg/tXiSsvWmJwHyB8D2C1rhQC
+         Csn0PMTkSqNIR5TAyLxwkZrOytTcfPqLUCd0lbkfuG924tBFkyLgStG0UyOAd4Melbi5
+         7rwt+f0Vl4Cf7dd5GK7LUshaLWg9vUU4lsAgtfjR1Y9PyQQCjli3aRqtmTQUXqrjlxD7
+         8QoQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzpvq/zQWStsX12W5/vz4gUpl7UiLm8KfXnw3WM+D2ERTZqNXSr/r4E/ab7qWojovVxHqczvsruWHFZ4w==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKvT4d6cIcsU5LWE8IbilU79y+Euvd9AkFEc30xOoDUEwh8BVJI
+	0B4pggGOoBw3JZpfeceqFb5ODJwnE4cCW/lHWufXMgRh/P2O86AWnOKI
+X-Gm-Gg: AYBFou1o3XMANsWW3BnYpffsJCFxUgmNUyiHzuYPLGUPAMghgv3RVKeza2tFn6vTGbN
+	OEE62W4VZT5yVDXvjcPzR6tHcgaQ7ZwEUj5m0YvbeX2hSmLhiGls9UqX3IiKlEiABp9uNwyB9hy
+	3COHdc4GezR/srpM/P2GkzsHaRfvnL3FA9vMdE6fwhV60I7T8JypSKHFBLOO7zUaT0L06RtdnIm
+	kdDIBlxh0Wwjdf11QTt1X/v0Bulpi1hLKrMIKdo8DsXq4GO4Wj9WctczFeN5tLJcpi/Z15jB375
+	KopdjBQZgjIBHPtUBSrEA2+kY2YRNsClG5zy9FY//Rgpf2yDJ6fThN87t9nLD6ZJs78PwRgNuvI
+	RcR0cj7nNRoeVDT0jRspLZCPju/2YPmswdrtSfOB5ijz0jQRVES8rt0CaEnPwlvEWP0NamfviJL
+	kU/07gqyxJtpYAlh8yp+k/IbR2Zvq2YzQcv3TQgwUak2FjFC7K4Y7RlH07PvYR0Oxy+riFWXnsE
+	xrKjvJDM9Mi53Mc1vyjjA==
+X-Received: by 2002:a05:620a:2990:b0:93c:c08f:ecf with SMTP id af79cd13be357-93f29d69e08mr1677471085a.53.1792474506083;
+        Mon, 19 Oct 2026 22:35:06 -0700 (PDT)
 Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93f4b082168sm139455685a.22.2026.10.19.22.34.40
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93f4b082168sm139455685a.22.2026.10.19.22.35.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Oct 2026 22:34:40 -0700 (PDT)
+        Mon, 19 Oct 2026 22:35:04 -0700 (PDT)
 From: Yuho Choi <oss.patchbox@gmail.com>
 To: Tomasz Jeznach <tomasz.jeznach@linux.dev>,
 	Joerg Roedel <joro@8bytes.org>,
@@ -86,16 +87,17 @@ Cc: Robin Murphy <robin.murphy@arm.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Yuho Choi <oss.patchbox@gmail.com>
-Subject: [PATCH v1 0/2] iommu/riscv: Keep page table pages when IOTLB invalidation fails
-Date: Tue, 20 Oct 2026 01:34:22 -0400
-Message-ID: <20261020053435.1179054-4-oss.patchbox@gmail.com>
+Subject: [PATCH v1 1/2] iommu/riscv: Keep page table pages when IOTLB invalidation fails
+Date: Tue, 20 Oct 2026 01:34:23 -0400
+Message-ID: <20261020053435.1179054-5-oss.patchbox@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261020053435.1179054-4-oss.patchbox@gmail.com>
+References: <20261020053435.1179054-4-oss.patchbox@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_223443_695865_7799B5C9 
-X-CRM114-Status: UNSURE (   8.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261019_223507_477438_091D5E89 
+X-CRM114-Status: GOOD (  20.07  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,42 +111,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 riscv_iommu_iotlb_sync() frees the page table pages on gather->freelist
-without knowing whether the invalidation that should have removed the
-cached references to them was queued and completed. Patch 1 makes the
-command helpers report a failure and leaks the freelist in that case.
-Patch 2 fixes riscv_iommu_queue_wait() reporting success when the
-command queue stopped on an error before the IOFENCE.C ran, so that
-patch 1 also catches that case.
+right after riscv_iommu_iotlb_inval(), which does not report whether the
+invalidation commands could be queued or whether IOFENCE.C completed.
+If either fails, the pages go back to the page allocator while the IOMMU
+may still hold cached entries pointing to them, and whatever their next
+owner writes there can then be walked as page table entries.
 
-Neither failure is expected on working hardware, but when one happens,
-freeing the pages lets the IOMMU walk memory that has a new owner.
+The kernel-doc of struct iommu_iotlb_gather requires these pages to be
+freed only after the cached references are gone. Return an error from
+the command helpers and riscv_iommu_iotlb_inval(), and leak the freelist
+with a one-time warning when the invalidation was not confirmed. The
+other callers of these helpers keep ignoring the result.
 
-The pages that the dma-iommu flush queue frees after flush_iotlb_all()
-and the data pages released by iommu_unmap() callers are not covered,
+This does not cover the pages freed by the dma-iommu flush queue after
+flush_iotlb_all(), nor the data pages released by iommu_unmap() callers,
 as the IOMMU core does not let those callbacks report a failure.
 
-The issues were found with a static analysis tool from ongoing, not yet
-published research, and confirmed by code inspection. Compile-tested
-only (ARCH=riscv defconfig with RISCV_IOMMU=y, W=1, each patch).
+Fixes: 488ffbf18171 ("iommu/riscv: Paging domain support")
+Assisted-by: LLM
+Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
+---
+This was found with a static analysis tool from ongoing, not yet
+published research, and confirmed by code inspection. It has not been
+reproduced on hardware or in an emulator.
 
-Yuho Choi (2):
-  iommu/riscv: Keep page table pages when IOTLB invalidation fails
-  iommu/riscv: Do not report a stalled command queue as completed
+ drivers/iommu/riscv/iommu.c | 63 +++++++++++++++++++++++++------------
+ 1 file changed, 43 insertions(+), 20 deletions(-)
 
- drivers/iommu/riscv/iommu.c | 74 ++++++++++++++++++++++++++-----------
- 1 file changed, 53 insertions(+), 21 deletions(-)
-
-
-base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index fe8e6d0f8a23..816d50c0f508 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -508,15 +508,15 @@ static irqreturn_t riscv_iommu_cmdq_process(int irq, void *data)
+ }
+ 
+ /* Send command to the IOMMU command queue */
+-static void riscv_iommu_cmd_send(struct riscv_iommu_device *iommu,
+-				 struct riscv_iommu_command *cmd)
++static int riscv_iommu_cmd_send(struct riscv_iommu_device *iommu,
++				struct riscv_iommu_command *cmd)
+ {
+-	riscv_iommu_queue_send(&iommu->cmdq, cmd, sizeof(*cmd), NULL);
++	return riscv_iommu_queue_send(&iommu->cmdq, cmd, sizeof(*cmd), NULL);
+ }
+ 
+ /* Send IOFENCE.C command and wait for all scheduled commands to complete. */
+-static void riscv_iommu_cmd_sync(struct riscv_iommu_device *iommu,
+-				 unsigned int timeout_us)
++static int riscv_iommu_cmd_sync(struct riscv_iommu_device *iommu,
++				unsigned int timeout_us)
+ {
+ 	struct riscv_iommu_command cmd;
+ 	unsigned int prod;
+@@ -525,14 +525,17 @@ static void riscv_iommu_cmd_sync(struct riscv_iommu_device *iommu,
+ 	riscv_iommu_cmd_iofence(&cmd);
+ 	ret = riscv_iommu_queue_send(&iommu->cmdq, &cmd, sizeof(cmd), &prod);
+ 	if (ret)
+-		return;
++		return ret;
+ 
+ 	if (!timeout_us)
+-		return;
++		return 0;
+ 
+-	if (riscv_iommu_queue_wait(&iommu->cmdq, prod, timeout_us))
++	ret = riscv_iommu_queue_wait(&iommu->cmdq, prod, timeout_us);
++	if (ret)
+ 		dev_err_once(iommu->dev,
+ 			     "Hardware error: command execution timeout\n");
++
++	return ret;
+ }
+ 
+ /*
+@@ -1002,14 +1005,15 @@ static void riscv_iommu_tlbi_calc(struct riscv_iommu_tlbi *tlbi,
+ 	}
+ }
+ 
+-static void riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
+-					  int pscid,
+-					  struct riscv_iommu_tlbi *tlbi)
++static int riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
++					 int pscid,
++					 struct riscv_iommu_tlbi *tlbi)
+ {
+ 	bool use_nl = tlbi->non_leaf &&
+ 		      (iommu->caps & RISCV_IOMMU_CAPABILITIES_NL);
+ 	struct riscv_iommu_command cmd;
+ 	unsigned int i;
++	int err, ret = 0;
+ 
+ 	riscv_iommu_cmd_inval_vma(&cmd);
+ 	riscv_iommu_cmd_inval_set_pscid(&cmd, pscid);
+@@ -1027,7 +1031,7 @@ static void riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
+ 						tlbi->range.sz_lg2);
+ 		if (use_nl)
+ 			riscv_iommu_cmd_inval_set_nl(&cmd);
+-		riscv_iommu_cmd_send(iommu, &cmd);
++		ret = riscv_iommu_cmd_send(iommu, &cmd);
+ 	} else {
+ 		unsigned long iova;
+ 
+@@ -1039,21 +1043,24 @@ static void riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
+ 			riscv_iommu_cmd_inval_set_addr(&cmd, iova);
+ 			if (use_nl)
+ 				riscv_iommu_cmd_inval_set_nl(&cmd);
+-			riscv_iommu_cmd_send(iommu, &cmd);
++			err = riscv_iommu_cmd_send(iommu, &cmd);
++			if (err)
++				ret = err;
+ 			iova += 1ULL << tlbi->single.stride_lg2;
+ 		}
+ 	}
+-	return;
++	return ret;
+ global:
+-	riscv_iommu_cmd_send(iommu, &cmd);
++	return riscv_iommu_cmd_send(iommu, &cmd);
+ }
+ 
+-static void riscv_iommu_iotlb_inval(struct riscv_iommu_domain *domain,
+-				    struct iommu_iotlb_gather *gather)
++static int riscv_iommu_iotlb_inval(struct riscv_iommu_domain *domain,
++				   struct iommu_iotlb_gather *gather)
+ {
+ 	struct riscv_iommu_device *iommu, *prev;
+ 	struct riscv_iommu_bond *bond;
+ 	struct riscv_iommu_tlbi tlbi;
++	int err, ret = 0;
+ 
+ 	riscv_iommu_tlbi_calc(&tlbi, gather);
+ 
+@@ -1096,7 +1103,9 @@ static void riscv_iommu_iotlb_inval(struct riscv_iommu_domain *domain,
+ 		if (iommu == prev)
+ 			continue;
+ 
+-		riscv_iommu_iotlb_inval_iommu(iommu, domain->pscid, &tlbi);
++		err = riscv_iommu_iotlb_inval_iommu(iommu, domain->pscid, &tlbi);
++		if (err)
++			ret = err;
+ 		prev = iommu;
+ 	}
+ 
+@@ -1106,10 +1115,14 @@ static void riscv_iommu_iotlb_inval(struct riscv_iommu_domain *domain,
+ 		if (iommu == prev)
+ 			continue;
+ 
+-		riscv_iommu_cmd_sync(iommu, RISCV_IOMMU_IOTINVAL_TIMEOUT);
++		err = riscv_iommu_cmd_sync(iommu, RISCV_IOMMU_IOTINVAL_TIMEOUT);
++		if (err)
++			ret = err;
+ 		prev = iommu;
+ 	}
+ 	rcu_read_unlock();
++
++	return ret;
+ }
+ 
+ #define RISCV_IOMMU_FSC_BARE 0
+@@ -1270,7 +1283,17 @@ static void riscv_iommu_iotlb_sync(struct iommu_domain *iommu_domain,
+ {
+ 	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
+ 
+-	riscv_iommu_iotlb_inval(domain, gather);
++	/*
++	 * The IOMMU may keep walking the page table pages on the freelist
++	 * until the invalidation has completed. If that is not confirmed,
++	 * leak them instead of handing them back to the page allocator.
++	 */
++	if (riscv_iommu_iotlb_inval(domain, gather)) {
++		if (!iommu_pages_list_empty(&gather->freelist))
++			pr_warn_once("IOTLB invalidation failed, leaking page table pages\n");
++		return;
++	}
++
+ 	iommu_put_pages_list(&gather->freelist);
+ }
+ 
 -- 
 2.43.0
 
