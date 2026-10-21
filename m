@@ -2,161 +2,169 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CCF2606A31B
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 17:33:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB100606A31A
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 17:43:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=z7jr5VqP;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=oZTEvV0T
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DQ9r1P7o;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=eoyi9og8;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=aTfChh+a
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Cc:To:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=KZolb/WzhBVY1L3xD3kkXuU3KKHPbyU9XGrgmScjR28=; b=z7jr5VqPx4j8sX
-	1idCOuVHNOS18aZ2sx3cd0HxP5JFbob9vSlMthYbFj0WLyzyt6eK/w/QsbB/Xx8Hdu++/0nc0AoHy
-	FqXgbUGUBFXYHzMCX2XcjF/MkjnSQ6RKdOtl2xkueer0v9Q4JFte4seRmx5Xy5anN1b2Am5pBl4Z1
-	Wv1FrOBhQT9VEPtKSav+YquCQ+T7N73x9H7q4B762Bw5jaXTCBKvs28s2njc3qaOhfAdVbJ3TGnkq
-	ojdlyNAy9LLzgqbTUxcdVYlXX+9j7v7N6o9kRkd3ECNBWvWxPvlT61J26KLFWtn8xgHjDEC5J5UGl
-	hwm1YmefBNjkmbWiClBg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AWM4U+zIZm0xO7T+9ZXHwKVwit5LapETo4OtmyU0ojg=; b=DQ9r1P7oAjtWDR
+	O/CEPTSJsIQF6dNbkHvwroLDnWbON/B4FUDZhbv5WHb+cGPPNtRHnc9ILUiDDbiBU4ReDBUJ3GgXj
+	oenxxkx9bQCpXkw9rfctAYWONPfVhBbPOsZPFK5yzfOnD2MnhZBu6Y1nJRVoPQIg0q5jNSKs1+QcQ
+	SLc27U0NbRUObtr6wZFp3iaVB9ZdhKMbsU1pYHqWtA+RJIcHW9+zZ2kKBLvOXWTaKYERG1oAh3joc
+	+ymBwmDYrcKH3TsxBk7xQ+b/iHx6cc/inkVSJO0dHIzKlMfBoNxrUTwDLLY17Sa6EUCriE8rRKmUl
+	EiqwM1ABDXdsu34Ai7Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJaBH-0000000CZ44-1nD8;
-	Wed, 21 Oct 2026 17:32:51 +0000
-Received: from mail-japanwestazolkn19012051.outbound.protection.outlook.com ([52.103.66.51] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1xJaLq-0000000Ca0r-0UEK;
+	Wed, 21 Oct 2026 17:43:46 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJaBE-0000000CZ3a-3zk8;
-	Wed, 21 Oct 2026 17:32:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bmzja60sPGYKjjsA+mJ8s2jyI4MXygJgS6BEG8NDUK0C6ujNRNhgnZv9himMEPBl7XG/eJb1XBQjmfE3ArOmZhlwRuWiTW3Nj06L4fK3x/2ibY1FiH+yC4bQxwDz34LVgoXJ59jnARPXLiTxFTIA6uXENQRwMbbHDa44inWcOrjRfJhko1VDSs8DDvu2kHz/0I7qquRNlU7dYkRwX5WvIkImh+wim/j+X9YcV6YPhBtaVeE1U8Q5MLaYH2QRZkOi72+6i7wHKRD7FHMN3QaIMJLomXQTAIOQVwmAdlIQbQfWkWHyY5J0n3dOIdxRylQLoKdJs28rkFBwr1Y6iEFqyQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=D6aJJFuqTWQKGgObm4FvTeEbykVdX7s0yFz35AF9XaU=;
- b=qxo6Ji3eKTlgymjkMoA5KIn6XzO/T+f1WU5TTrV/KyH9fIzoTol3yNOVzcYP7KavQbSGH+SRK9Wy4Tufno50tqS5n2n5KY3IaMbiUPv3X9TF/8gZ7qPKLjBMP+3cAsxyeujB23xJENLUubF48TmlaZcGRdhBjfcnjdrkDoY5XL7S42orwWmQGpTvY+euibecfcGq2w0Ycyq4Hp8qt6tkz700yAQ/W/RyJnFim+XuGE54JoDlWp3Sch+NUCZu6eaKA22P0oKJT78cq3RDJ72mxL6U5ASFDVaCxn/YibmGa6fmlay/VvJMi80mQY0ccp7XDWpTfs6q1jwkg1bsq8R7Eg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=D6aJJFuqTWQKGgObm4FvTeEbykVdX7s0yFz35AF9XaU=;
- b=oZTEvV0Ta1W/PXHwaoVzfDSgwk2XY/W/hirE5Z4nIJxJF1c5WKZg5wga0B4bhc1k27sRP+nBJg8aBtSdPokA2J45DEbe8aa81V7yoKUWlsivujijPK0XtZsdS0lEQx3q96gWbjc94Hzf5llJMW3xmUg0UhRQAK2k5Pjuwpba2EMx/3U/X6n3SwmPF/a73rrC8voGcb83iyDD6NM2bFrg8tgKX2fLh5ohlI6YNZTZSD/7+e4LVGD5UDG4xUc6tCrKPJI246VWKokuymEqytTo3cBncmf7TXv4Ko8f/gGDjmhFZ73yxCcSD6lYOjPl0/hXMTsnJ7Gp2qaMsPRoGyr/NQ==
-Received: from OSQPR01MB6326.apcprd01.prod.exchangelabs.com
- (2603:1096:604:290::7) by SEYPR01MB4079.apcprd01.prod.exchangelabs.com
- (2603:1096:101:3f::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Wed, 21 Oct
- 2026 17:32:30 +0000
-Received: from OSQPR01MB6326.apcprd01.prod.exchangelabs.com
- ([fe80::708b:59ed:4ad6:b84c]) by OSQPR01MB6326.apcprd01.prod.exchangelabs.com
- ([fe80::708b:59ed:4ad6:b84c%6]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
- 17:32:30 +0000
-From: slack up <yxcnew@outlook.com>
-Date: Wed, 21 Oct 2026 17:31:44 +0000
-Subject: [PATCH] RISC-V: KVM: Fix builds without CONFIG_RISCV_ISA_V
-X-B4-Tracking: v=1; b=H4sIAAjR2GoC/x3MMQqAMAxA0atIZgNtUEGvIg61pppBLY2KIN7d4
- viG/x9QTsIKXfFA4ktU9i3DlgX4xW0zo0zZQIYaa8jirjGitzhWqOe4yoFMNHnTBhdqB7mLiYP
- c/7Mf3vcD17xZzWMAAAA=
-To: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Andy Chiu <tchiu@tenstorrent.com>, 
- Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Xiaochun Yu <yxcnew@outlook.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792603927; l=2409;
- i=yxcnew@outlook.com; s=20261021; h=from:subject;
- bh=hVb3aCborZrl3NS21KYEFbO+8l8p7jg2iMw4OyCzDS0=;
- b=uxp5lzj5RxCyfKEdanFALKEpU25vWt2Po7IVLe9d3cRDGPtnc4VeZ2GXTu9YQbVUcPNr0AzP2
- LQckUJpjPVRDUVtZcyhdbpGKl+V1aYTZcfwnLQolvHZ95YaChXd11lE
-X-Developer-Key: i=yxcnew@outlook.com; a=ed25519;
- pk=rTJiYAeqF/1qwCPx6wb42KO5VR4KlEV+4B6rz1p/n84=
-X-ClientProxiedBy: SI2PR06CA0004.apcprd06.prod.outlook.com
- (2603:1096:4:186::20) To OSQPR01MB6326.apcprd01.prod.exchangelabs.com
- (2603:1096:604:290::7)
-Message-ID: <OSQPR01MB6326DDE9C2F390EA3F0F444EC2662@OSQPR01MB6326.apcprd01.prod.exchangelabs.com>
+	id 1xJaLn-0000000Ca0U-22Ws
+	for linux-riscv@lists.infradead.org;
+	Wed, 21 Oct 2026 17:43:44 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69LFU3a52102378
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 17:43:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	vilmZRHHMNfnexi+YGDujqWXf83C8yeE3BqzopJL6bY=; b=eoyi9og8lE7X7gFs
+	6zN8p4jNwkyfCNTayV/KpLYTog8YiPf09MNrJZcVJnd8ebBGnM3y90AF6J6wPsgu
+	KIHm6p3JiNc6RZfwNDa4t1fGBEFrTEmAppjPtFmqqXsDcs6gCeSuRZZlb5bNDOS9
+	ImS1uhcDnN727Uzxw2NojUhBmpaItcPZUTIJpC/20W36NsqozA/ILY/A7RqOC8Fa
+	fp6nVz6bC6n4qpaiLw/MFEox+9rhuaWmCR3mtKA8Cekf76hFS10V2nlLwjUarK9d
+	b3wbMfLBTWZOussj3TRqDPdEihPsXKcxNsCG7ejdilg63VQy4NSwejKyn6ahUKZG
+	iSFgwA==
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4heuhuhv26-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 17:43:42 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3580c07911eso2719299eec.0
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 10:43:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1792604622; x=1793209422; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=vilmZRHHMNfnexi+YGDujqWXf83C8yeE3BqzopJL6bY=;
+        b=aTfChh+awzum+EBMj8suZ7z1R7HOP+CllnMWfvB8z21W8/DdPcONjobEHE6M13hYdA
+         /splTG7PsUe5lyeugu9ibHrEe/IreHM3mLnnHLiK5Wm2GY35Jmna6J1e2rqzbfhAJyJD
+         dRIFLuog+0E+2UbnpmEyDtt1AN0apY7vvJW3A4OcEPU8caYREdRKf25f9yj4RdTED+CA
+         n4AoRgTO9w6IpRYr0hQWkWZzqpCTY792HLfY4SeeytceJ0NdA5VnGino5pDNXNnNsD+2
+         nHI2HC1eaIGpTKiyNwiJZt17Jha6KJDNdCPKEx/FZqRJ/h78MUTwcPc2BEiTV9jQEDpD
+         e/LQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792604622; x=1793209422;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vilmZRHHMNfnexi+YGDujqWXf83C8yeE3BqzopJL6bY=;
+        b=nMKnLTIvhHut7Y2HK5JwdTAZ0XurVK08fjplQxPp+t0GGiZRBrzMewNGGcPHoKS0U1
+         M06IM+C2xWGwLjkiEcpbRgfrsTRrh9KBXE6Rm4DpKOuYwmaruW6M9W+/T41HLcHv1bk7
+         GVzU3gDCOo85kfH2WP9xBlOwmwf5+8DVyFrUyPo56gQZbvAywwSopJEseptiptsXfHmD
+         YZ3cg+4dfgj01iH5jXniqYiMFOHkiKQD8jts3gM4yPVnhT0P9pilPKlmbrcmwCrpgiqr
+         B6RGQZdew0fb57ZaYxPRVdrE/qLI1KgL+ljleKE1imwoC5ZqfFPUQ92gCAgCQ8KGeZj9
+         sAEg==
+X-Forwarded-Encrypted: i=1; AKwUvBxunA0tL4oMlF5q3j+A7/n54siEhae9NoaKc5o4gx6E+YyU1XKYS0P+yGJZS1VlggtJgrwEHhLcBrZOzw==@lists.infradead.org
+X-Gm-Message-State: AFq9FYIzrlWzAuwdS1hdkK2WsvbqHyfmAeBqhmyT6CaSu+p1ol3bIW5C
+	oUQH36hglNnRZbEE/VOehbZFXVZwmRGdBJYuokBRCsgwTpNPTpQsU7MlwHTYxU2v2zvz3Xxc+of
+	sn7JKUT+gL9j/tXfD0kgqteW64NrRUKSWJgay6Z19Ovbr7wZE7SyEsyr/+IJZjFtnygsMi0E=
+X-Gm-Gg: AYBFou2hi3VvHHmesGjgOxou/wfhds7C8xT93iAe84nM01d2RKwF1vdRPK4RfwTprxN
+	VjC4akOPYDNpTUVqiW2stCBYkYtCg8ocV4hsLNzcoPoKuNs7AhEV/RpVtv6JM2gva+qFiYFMGxB
+	XExMQP6cBMrUhl7toPhHMzmHycewyx/Bpbq2/BHn7DOk9iS5BXVxBT1w8YnQ8+vh/kbXsUPmPBz
+	xJDJhHiLkRYeQWOZBj5IgXCSTvtqYlcv6WBsyiO9o2Vc3RWtQ7U2CCjvHxETE3G9kMMsV2w/t6D
+	y2izu2mbRC9Kg3J6bBAFA9w9pcGy7rgmCUuPxucztRgrwzpcJGueQBbap7st29kWr5U+YsrIaVm
+	NcRCPKX3/raAcdHe5wdYJ+2jMR8h2C+FlXY9sBBEfuA==
+X-Received: by 2002:a05:693c:65db:b0:366:8efb:bab9 with SMTP id 5a478bee46e88-3674e450f24mr4349162eec.11.1792604622272;
+        Wed, 21 Oct 2026 10:43:42 -0700 (PDT)
+X-Received: by 2002:a05:693c:65db:b0:366:8efb:bab9 with SMTP id 5a478bee46e88-3674e450f24mr4349127eec.11.1792604621677;
+        Wed, 21 Oct 2026 10:43:41 -0700 (PDT)
+Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36741f753f7sm8840346eec.27.2026.10.21.10.43.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Oct 2026 10:43:41 -0700 (PDT)
+Date: Wed, 21 Oct 2026 10:43:36 -0700
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+        Ard
+ Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin
+ Marinas <catalin.marinas@arm.com>,
+        Jonathan Corbet <corbet@lwn.net>, David
+ Sterba <dsterba@suse.com>,
+        Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
+        linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+        Randy
+ Dunlap <rdunlap@infradead.org>, Simon Glass <sjg@chromium.org>,
+        Shuah Khan
+ <skhan@linuxfoundation.org>,
+        Nick Terrell <terrelln@fb.com>, Will Deacon
+ <will@kernel.org>,
+        Alexandre Ghiti <alexghiti@rivosinc.com>,
+        Conor Dooley
+ <conor.dooley@microchip.com>,
+        linux-integrity@vger.kernel.org, Palmer
+ Dabbelt <palmer@rivosinc.com>,
+        patches@lists.linux.dev,
+        Piotr
+ =?ISO-8859-1?Q?Kr=F3l?= <piotr.krol@3mdeb.com>,
+        Ross Philipson
+ <ross.philipson@gmail.com>,
+        Sami Tolvanen <samitolvanen@google.com>,
+        Song
+ Shuai <songshuaishuai@tinylab.org>
+Subject: Re: [PATCH v2 11/15] arm64: drtm: Add macro definitions for DEN0113
+Message-ID: <20261021104336.00000437@oss.qualcomm.com>
+In-Reply-To: <11-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+	<11-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+Organization: Qualcomm
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSQPR01MB6326:EE_|SEYPR01MB4079:EE_
-X-MS-Office365-Filtering-Correlation-Id: 992294b1-19a0-453b-e965-08df2f9948b8
-X-Microsoft-Antispam: BCL:0;ARA:14566002|24021099003|19110799012|8060799015|260925184616899003|15080799012|6090799003|4140399003|25010399006|39105399006|5072599009|5062599005|23021999003|12091999003|41105399003|40105399003|18071099003|3412199025|440099028|1710799026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NENiVXpvSXB5SnRrdkZyU1lmZDJsU0RMQ1F3QmtIbWwyaG1kOG1mRjFVN1Ns?=
- =?utf-8?B?M2lLMXlKUjJCZUpXU3NoMitMRCtSVXBXWEZJUmJseTBMOWxLQzVYOEdJSGNu?=
- =?utf-8?B?YW9hQXk4cjZPd3Q1WmMvRmZKOVAzQTk2WjgwVnhEYlUwMW1aNVYycVdaVnJE?=
- =?utf-8?B?NFA5cXl6cHNwNVVGY2xKdDY3SldLN1pGTnc4dnZHTFlLUGZuYndQRUJUUUlD?=
- =?utf-8?B?UTRBV0xIMnJEbjJ2blZ6elRDOThkMzduZ1VvRVRia3RtaGpvdkYrQnBLY0FU?=
- =?utf-8?B?clNocWJ5QVdlSjljK1FxSHNLamJuZklUUWgzc25aQlRxR0pWbHAzTXNReHlJ?=
- =?utf-8?B?TVdxUmFWVzEvUm5abXJxaHQrWCtpdjFRNmZxbTllVW55N3dnZXVabHowV3Iw?=
- =?utf-8?B?NFRoT0U5VUNFR0l1SXVWenhxckxhdGZKNjR6VkVDQTRKN3NNY0QwdHA4dGo2?=
- =?utf-8?B?dEFsSVZhU295clAwZHI2RHZ3WDcyQUZkbnpIKzRTWTA1dUZXM2h3bEdLejV0?=
- =?utf-8?B?TUpnbG1kb3RVZzhjd0VoSktWTnduam9rUldNdEFQa3k0MzZGVUxONGdjcnNk?=
- =?utf-8?B?bXpyS0pHbGtXWHVONmVvaDhJTWhQaDUwbUZwbkJrMkl2MndWTXJqYVNaWjJr?=
- =?utf-8?B?amFTQTBkdzQ5RjRRY2FlMnZpc09qSlhTWHRtZTZmYi9KZWhvSHZjVmY4cSt3?=
- =?utf-8?B?VEFyKzQva1hHdjFDNzhCN3NLL0ZrTVdyWmRNZVBnSnVVaEZHVllKTWl6bWtm?=
- =?utf-8?B?MVpXSDRGa0s3SDdzdnRtUTF5TDRHNGhWdDlUYjQ5RWxVazAwOXhCbE1hZkNl?=
- =?utf-8?B?Tnl6ZnR0aFBvam1RUUtsVzZIcGtQTnRnU3NFK1p0OWRCMFUzczhFMitpUVhy?=
- =?utf-8?B?OTAyZG5lSTF5SGZ4cTk2SkNBRzFMYmVVOGNreTlKZTBTaWwyQWZZOExCdUhB?=
- =?utf-8?B?VFFZanZxWFZDRC9ESEFaTS8yVzFFM014TmpZZURYdGNUNzNVTEEzTEx6T1BF?=
- =?utf-8?B?NlVRL3lDUnFuL3dXQnZCU3pDcFBENFp0VUhMOGdSRkVtMVludThERlFEVUdq?=
- =?utf-8?B?c0laT0RoMjhCWFF0ZEZuN0pMcFRrdXFuQUpFdlU4SHZhMk5uTEtQdjdqUldV?=
- =?utf-8?B?ck9rTm5lN3lzM0Q2TlR1NnR6U1Vaa3RZcDErcWNUWjZ0STlRVHVJTDhzTmF3?=
- =?utf-8?B?RXJVeklJS3pPME1SZzNSVkxaY1dad0g1WFJQZHJzSC9zU2c0RzBqbzBXY3gw?=
- =?utf-8?B?Y0ZERldaNng5NUQzOEJiaTlsY2dhVXZraFZUaFB0ZGxZREJUQ1VSTXh0N2tO?=
- =?utf-8?B?RHZ0QXlpcXk3RWlQVTVJR2tjWjByOEUyVUtjYlZvZnZkbXg0bVhaU1c0c05R?=
- =?utf-8?B?WS8rWDlFaTdJclUya0VqMXpCMytQd1JOYWlKTThvNk56S3N6RFdCUGlxckpl?=
- =?utf-8?B?VFQ4cHRiVnpkVjM2UGIvQzYxRUVmeWp5SVlrZWErbmhBc3d3TzAxRm9POVdX?=
- =?utf-8?Q?12yPoWtrjyOaj2USSJCWImR9htm?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WHhuem0yL0x5dGU5ODg1ODFSeHBwdGc2UnJNVjZIY2J0aXQ4Ym5NV3hGS0lh?=
- =?utf-8?B?QUo0SVg1eml6MCsxeTJSbm9TS01FNlNtMmlHQm4rQTk1Rk9ySEhMelpCYmZr?=
- =?utf-8?B?UHFIWjdoS1RwYVNiZDdkcmY0ejdIaXlyclpNVXc1T2swaTVOWVlRRm1WeVc1?=
- =?utf-8?B?d3B0WGYzdHFRbStrSGF6Yjhhazl3bC90c2N5L25HMGNwengrTHphZ08rZkFN?=
- =?utf-8?B?azJjclRuZS9oQWZ0ajlXRE8xcHQyQWI0citUSlJXc0xncUdRL3l5cnVPNFhr?=
- =?utf-8?B?SGovcGR1b3paMURSSXJ5MFhNclRDdjNic3pWQXdDaGtGRnBOaGFjL1FRMGdu?=
- =?utf-8?B?NFRjZlJ3MzQxcDVUdDJCa09zRTZiaXhxMWNkM1FWL003ZnlCZDl4N2hPN0s2?=
- =?utf-8?B?WE9lTG1SME9YWWVXbHE1WnRiaWJaYUJpVUg0T2xscXloclV4dDFiUkFhU2tK?=
- =?utf-8?B?aEw0T0EraTNtbmZ4T0VtOVkwSU9TNFhWcHhvRFBQUW8zaGpTdzJMOUZ2Tzlm?=
- =?utf-8?B?bFFvaHJTaSthZkNPazkzMWdkQkhJV3U4eVJWK0YxTGwyNUhmelRsSEZmOUVm?=
- =?utf-8?B?NW0yeWdOSEluOTNoR0tpVStPZFlPWEdnNGxUdWpFOWFnbVM5WHNHaFJ1a0JD?=
- =?utf-8?B?bXo5OHlHU1hjUGRva1VocGtBZk1ZZUd0K0pybDY1OGs1OGpqaVdVWncybEdC?=
- =?utf-8?B?dEpKUzVXVDhxdnlVbmE1NUsvS3d2bDRoMUdKZnUrai9sUVpzZVVINFlDZnI5?=
- =?utf-8?B?M2tQalBkZDIvN3o0TWRBNFlaeGNyYU5WdWNPSlBZSWRYbHFvK3BpU2ozT3RL?=
- =?utf-8?B?VTVkVzIxd1BqRlZlZndqK01xcEVQOGNGZ1hQNzhNaTZVTjZseG1rc3I3M0Vw?=
- =?utf-8?B?NGh4RHpXalpJMWhDNTVoclFSYXg1R08wM1p4K3c3VWxZOC9nZVUvT1JrOWdD?=
- =?utf-8?B?bk5sLzEzZzBuTFNyTUNyNUVjb2M1NlZHWTltN0crTXRqT0J6Kzg1Z1lPNnVM?=
- =?utf-8?B?YzBlQmRkVjdzd216WUNyYWJPVmZxd3dZdXU4bnRFemtUNURKQUQ2eDVWZ3J0?=
- =?utf-8?B?azJ6eFpPa0dFeTk0R1pFTVlWOE5VWUVQWWNMZ2VUOWNFQmJhR0tTVEhYZUdh?=
- =?utf-8?B?VmxwblA5K1FTTUQ4aEFtMlFHRVQzOWZ4VnhFWncvdDNCaWh0ZDhiQkQvNy9E?=
- =?utf-8?B?NkZid0czNkpoTlJud3FuRlIyYTlqbEJjbStoZDZtY0s3dEpGS01zeUQwZFN6?=
- =?utf-8?B?T0Y2eWFjSXJXQVh4YnUyWFF0d2pPc0RhVi95eWJHVHZNTkd0SEE1TDJFYTdk?=
- =?utf-8?B?bjVMZit2NmpYYmhJZGh2c2s3dnJLeUVPN0pXbm1sMzJ1STN4OE4vRmRWL1pl?=
- =?utf-8?B?U2VMVllrTS9CSWlLZjRadUxNeW9kdmtWNk1PRW81eE1qUG4zTmZmTFNzekZS?=
- =?utf-8?B?QzN4UklyVE9PZlpDTzBmNVhiVEZmYnJ0Rmc0ZEgzb1RCNnZmT3RqYXgyeWZY?=
- =?utf-8?B?UTRtSisxTGVDK0FwbWcvaXBTb2l6d050S0xiL1hMMG9tcjlvZnEvY0VpcXpP?=
- =?utf-8?B?SGhJSnQxU2tvbkNLdUJsdEJ0WDkyNVlYS3lnQjRYWHZqcWFFZTQreDVDaWR0?=
- =?utf-8?B?RUpPTSt6dHgrc0ZsVC9DRkZoMkloTWFDWjdLVGxCMXg3QUtOM2dkNlFhMXI1?=
- =?utf-8?B?RGZsWmY5c0JnRHRRNDFVU0paS3RKMDEzZWVXdndwQmkvNTYyT1pZYks2SWRt?=
- =?utf-8?B?MnVNZFE0ZGZsaEY3NkwrK3RHZFRqZ3JaaXZMN2VHT1BEc0dhaTNXa2owM0Fs?=
- =?utf-8?B?d29PbmVITHc2VGZ4ZzEvaTQxVmpReEMvb3YyQVhsV0NxOGNtRlErb3FjNlJG?=
- =?utf-8?Q?/ZVKp49S5UmxT?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 992294b1-19a0-453b-e965-08df2f9948b8
-X-MS-Exchange-CrossTenant-AuthSource: OSQPR01MB6326.apcprd01.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 17:32:30.7956
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR01MB4079
+X-Authority-Analysis: v=2.4 cv=d4JgWhjE c=1 sm=1 tr=0 ts=6ad8f9cf cx=c_pps
+ a=cFYjgdjTJScbgFmBucgdfQ==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=Ikd4Dj_1AAAA:8 a=EUspDBNiAAAA:8 a=cBdanpMcOxUnX1AP4g8A:9 a=CjuIK1q_8ugA:10
+ a=scEy_gLbYbu1JhEsrz4S:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIxMDA3MCBTYWx0ZWRfX/NAfzz3R38/j
+ wJez6IKBahHE696Ce6y0Jqia4pkFlOExXxoNMYRZPntJ2PmBMVcLSeOyCUmAgy3tp4XTSj9iKCX
+ N+fI4rph1rw19TtS41i5NiNwmns+LlM=
+X-Proofpoint-GUID: uQ6I7WQtsUgn0udVAkqIs_4gJxHcXyJM
+X-Proofpoint-ORIG-GUID: uQ6I7WQtsUgn0udVAkqIs_4gJxHcXyJM
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIxMDA3MCBTYWx0ZWRfX6SPVxwbGLdK3
+ OIZz4UDNdpEKqbWDO982++il/xg4kqlI9VVfdbKrWZsXMtVa8l11Ax7pZjnjFnR7L54u8pzGUcv
+ lzgJv6bjhpGMzJvE3ffVCa6oneGvZvuanNuIUbQwllTq0WU1y0xuiftmCufrC1npg0eY8xA5UKG
+ Ev8OvNmJLwV2vS4VZaylUB3NmbqNsf0x5xMaBAC/YoykW25qrFEYzJggwORh6JTtGXuulwaq29k
+ 0Kv2jW97Xd88UvzgEE4DHVIuvG++VUQg41RjRwuaMJEmP9cxDPfmgya60dtQJ2yBH1z06LG+Sm9
+ VsU24zDHE9blyJ+pIPDTfMDqMu3Oyq84kYQwq9lKwzdX23Inpb8UtINBEZk3CK160LslcZZNsnG
+ 154OfPn2OyFqdwkKBmIdwQi1C6xKo6zYOH5HhhAm2g9jh6A9Zydvunb7TUU36TTUSL6F/CO0Eb2
+ rXB63/gAl/zNTjS6IIA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-21_04,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 suspectscore=0 spamscore=0 malwarescore=0 priorityscore=1501
+ adultscore=0 impostorscore=0 bulkscore=0 lowpriorityscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610210070
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_103249_005752_15B8DF43 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261021_104343_534419_E448C19B 
+X-CRM114-Status: GOOD (  28.81  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,82 +177,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_2 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Xiaochun Yu <yxcnew@outlook.com>
+On Fri,  2 Oct 2026 20:31:48 -0300
+Jason Gunthorpe <jgg@nvidia.com> wrote:
 
-Commit b5060a4aa33d ("RISC-V: KVM: fix vcpu vector context
-handling for kernel-mode vector") made the KVM vCPU load and put paths
-call get_cpu_vector_context() and put_cpu_vector_context()
-unconditionally.  It also added an unconditional call to
-__kvm_riscv_vector_restore() on the guest entry path.
+> Taken from rev 1.4b of the spec, following the SMCC register layout and
+> constant names.
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 
-The no-op definitions of the first two helpers live in <asm/vector.h>,
-but <asm/kvm_vcpu_vector.h> includes that header only when
-CONFIG_RISCV_ISA_V is enabled.  The KVM header also does not provide a
-no-op __kvm_riscv_vector_restore() in its disabled branch.  As a result,
-a KVM build without CONFIG_RISCV_ISA_V fails with missing helper
-declarations.
+Nice - appreciated the spec references as saved a bunch of searching.
+A few really small comments inline. Either way 
 
-Include <asm/vector.h> unconditionally to reuse its existing no-op
-helpers, and provide the missing KVM restore stub when Vector support is
-disabled.  This does not change the Vector-enabled path.
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 
-Fixes: b5060a4aa33d ("RISC-V: KVM: fix vcpu vector context handling for kernel-mode vector")
-Cc: stable@vger.kernel.org
-Signed-off-by: Xiaochun Yu <yxcnew@outlook.com>
----
-This single patch fixes a build regression when KVM is enabled without the
-RISC-V Vector extension.
+> ---
+>  arch/arm64/include/asm/drtm.h | 304 ++++++++++++++++++++++++++++++++++
+>  1 file changed, 304 insertions(+)
+>  create mode 100644 arch/arm64/include/asm/drtm.h
+> 
+> diff --git a/arch/arm64/include/asm/drtm.h b/arch/arm64/include/asm/drtm.h
+> new file mode 100644
+> index 00000000000000..8188af1b582bb3
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/drtm.h
 
-Tested on base a804c5742bff (Torvalds master):
+> +/*
+> + * The spec uses 4KB pages for sizes and alignment throughout, see v1.4B
+> + * sections 3.3, 3.13, 3.14 and 3.15.
+> + */
+> +#define ARM_DRTM_PAGE_SIZE			4096
 
-- CONFIG_RISCV_ISA_V=n, CONFIG_KVM=m: full Image modules build passed.
-- CONFIG_RISCV_ISA_V=y, CONFIG_KVM=m: vcpu.o and vcpu_vector.o rebuilt.
----
- arch/riscv/include/asm/kvm_vcpu_vector.h | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Maybe use SZ_4K from linux/sizes.h
 
-diff --git a/arch/riscv/include/asm/kvm_vcpu_vector.h b/arch/riscv/include/asm/kvm_vcpu_vector.h
-index 6371d5ea5392..ebc619ed67dd 100644
---- a/arch/riscv/include/asm/kvm_vcpu_vector.h
-+++ b/arch/riscv/include/asm/kvm_vcpu_vector.h
-@@ -11,9 +11,9 @@
- #define __KVM_VCPU_RISCV_VECTOR_H
- 
- #include <linux/types.h>
-+#include <asm/vector.h>
- 
- #ifdef CONFIG_RISCV_ISA_V
--#include <asm/vector.h>
- #include <asm/kvm_host.h>
- 
- static __always_inline void __kvm_riscv_vector_save(struct kvm_cpu_context *context)
-@@ -55,6 +55,10 @@ static inline void kvm_riscv_v_exit(void)
- 
- struct kvm_cpu_context;
- 
-+static inline void __kvm_riscv_vector_restore(struct kvm_cpu_context *context)
-+{
-+}
-+
- static inline void kvm_riscv_vcpu_vector_reset(struct kvm_vcpu *vcpu)
- {
- }
 
----
-base-commit: a804c5742bff224d4cb4d25dd383554d598be32b
-change-id: 20261021-ospp-c1-b4-submit-e22dc09faf5a
 
-Best regards,
--- 
-slack up <yxcnew@outlook.com>
+> +/* v1.4B section 3.3 "DRTM_FEATURES" */
+> +#define ARM_DRTM_SMC_FEATURES			(ARM_DRTM_SMC_FN_BASE + 0x01)
+> +/* X1 input parameter */
+> +#define ARM_DRTM_FEATURE_SELECTOR		BIT_U64(63)
+
+Maybe define the alternate masking for function ID - for completeness if nothing else.
+
+> +#define ARM_DRTM_FEATURE_ID_MASK		GENMASK_U64(7, 0)
+
+> +/*
+> + * PCR schema numbers. ARM_DRTM_PCR_SCHEMA_MASK is a bitmap indexed by these,
+> + * and the Launch Features ARM_DRTM_LAUNCH_PCR_SCHEMA_MASK field holds one.
+> + */
+
+Similar to below. Maybe this dual use is a bit fragile.
+
+> +#define ARM_DRTM_PCR_SCHEMA_DEFAULT		0
+> +#define ARM_DRTM_PCR_SCHEMA_AUTHORITIES		1
+
+> +/* v1.4B Table 6 "DMA protection features" */
+> +#define ARM_DRTM_FEATURE_DMA_PROTECTION		0x03
+> +#define ARM_DRTM_DMA_PROTECTION_MASK		GENMASK_U64(7, 0)
+> +/* Only valid if ARM_DRTM_DMA_PROTECTION_REGION is supported */
+> +#define ARM_DRTM_MAX_REGIONS_MASK		GENMASK_U64(23, 8)
+> +
+> +/*
+> + * DMA protection types. ARM_DRTM_DMA_PROTECTION_MASK is a bitmap indexed by
+> + * these, and the Launch Features ARM_DRTM_LAUNCH_DMA_PROTECTION_MASK field
+> + * holds one.
+> + */
+> +#define ARM_DRTM_DMA_PROTECTION_COMPLETE	0
+> +#define ARM_DRTM_DMA_PROTECTION_REGION		1
+
+The dual use of these for bitmap indexes in one place and
+values in another seems fragile.  Maybe it is better to have
+different naming for the two even though the values match?
+
+
+> +/* v1.4B section 3.4 "DRTM_DYNAMIC_LAUNCH" */
+> +#define ARM_DRTM_SMC_DYNAMIC_LAUNCH		(ARM_DRTM_SMC_FN_BASE + 0x04)
+> +
+> +/* v1.4B section 3.5 "DRTM_UNPROTECT_MEMORY" */
+> +#define ARM_DRTM_SMC_UNPROTECT_MEMORY		(ARM_DRTM_SMC_FN_BASE + 0x03)
+> +
+> +/* v1.4B section 3.6 "DRTM_CLOSE_LOCALITY" */
+> +#define ARM_DRTM_SMC_CLOSE_LOCALITY		(ARM_DRTM_SMC_FN_BASE + 0x05)
+> +
+> +/* v1.4B section 3.7 "DRTM_GET_ERROR" */
+> +#define ARM_DRTM_SMC_GET_ERROR			(ARM_DRTM_SMC_FN_BASE + 0x06)
+> +
+> +/* v1.4B section 3.8 "DRTM_SET_ERROR" */
+
+I know I'm the one who asks for references, but maybe the SMC numbers are obvious
+enough without given the name matches the spec section?  The table references
+etc below are excellent!  The do no harm beyond a bit of bloat though so I don't
+mind if you want to keep them.
+
+> +#define ARM_DRTM_SMC_SET_ERROR			(ARM_DRTM_SMC_FN_BASE + 0x07)
+
+> +
+> +/* v1.4B Table 8 "Definition for error IDs (Bits[10:3])" */
+> +#define ARM_DRTM_ERROR_ID_NONE			0x0
+> +#define ARM_DRTM_ERROR_ID_PARAMETERS		0x2
+> +#define ARM_DRTM_ERROR_ID_SECURE_EXCEPTION	0x3
+> +#define ARM_DRTM_ERROR_ID_TCB_HASH_UNLOCKED	0x4
+
+I'd use NOT_LOCKED to align with spec.  Maybe it makes a subtle
+difference somewhere? UNLOCKED might imply a transition to that
+state, where as NOT_LOCKED doesn't.  Meh, doesn't really matter
+as I'm probably over thinking this.
+
+> +#define ARM_DRTM_ERROR_ID_TPM			0x5
+> +#define ARM_DRTM_ERROR_ID_SIGNATURE		0x6
+> +#define ARM_DRTM_ERROR_ID_IMAGE_FORMAT		0x7
+> +#define ARM_DRTM_ERROR_ID_VENDOR		0xFF
+
+> +/*
+> + * v1.4b Section 3.3.1 says:
+> + *   A return value of greater than 0 means the feature ID is
+> + *   implemented, and there are other feature-specific
+> + *   feature or capability bits available in other return value
+> + *   registers.
+
+I'd wrap to 80 chars.
+
+> + * And for FEATURE_SELECTOR all defined features return data in other
+> + * registers, so 0 is not an allowed return.
+> + */
+> +static inline s64 arm_drtm_query_feature(u64 feature, u64 *value)
+> +{
+> +	struct arm_smccc_res res;
+> +
+> +	arm_smccc_1_1_smc(ARM_DRTM_SMC_FEATURES,
+> +			  ARM_DRTM_FEATURE_SELECTOR |
+> +				  FIELD_PREP(ARM_DRTM_FEATURE_ID_MASK, feature),
+
+> +			  0, 0, 0, 0, 0, 0, &res);
+> +	*value = res.a1;
+> +	return res.a0;
+> +}
+
+
+> +
+> +#endif /* !__ASSEMBLY__ */
+> +#endif /* __ASM_DRTM_H */
 
 
 _______________________________________________
