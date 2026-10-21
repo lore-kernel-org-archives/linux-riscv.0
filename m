@@ -2,84 +2,58 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F536606A31F
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 06:15:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDA98606A319
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 06:16:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hWoXFUmn;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Dz1W2m1m
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Lhx7W9wB;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZlpfCuDz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cYMZSJ6yq81g/1CySXG3UIi6FBCXGdAQ471TWuVDY9g=; b=hWoXFUmn3xLYHC
-	oCGSRY0BJyYpFAlfc6GkoOp4dEwrqwQZp2W4LTU+wAjHjIAajNV8QbWyIV1yv/zXOiiJRVjnGMecB
-	A9qYkXgmjAATS6m7Yc46W0GsoieJDkaiUND8aqCNA6v4Gyb22PjxEB9RrvSdPsGTLF/cRLDASljtC
-	UO4To3yZEx3iekOCV19Ah3kGyLuL6czVi12za5BZ+RcrPUzI/NsUw0kZcWvE7xxjJ5d8EFp4+aGwk
-	vBXaPdSj1AoQKsRivjIyIEeKpC58/EpQmdFTiPLUxpHHa7uDbJbu5L0LY3HaU2KYJCD4fOr2Xkp6J
-	/fjEfXSkIiI0sAzd8QRw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ppQCCGHTnZ4HOHbPuwev5gO4Rf4TZQlKVQm9DktnZmI=; b=Lhx7W9wBmR+pNaLnl9Wt5LgkGP
+	EN7eVsmGLRwDaNxbvCrwdZMC/BEoD+tetIgm/1Tiz3nfWSi3goHSV2ZkwaqZeHCiT5lND8bXioo4I
+	CSLrJ5W2NHZsSu0a0gS3Qk4ooA09Zjc9AN8TyMA5Qn0gkbRjRLcQGTI2htzDwE1CRCrEgpaiZohy9
+	a6jmwk83Icp10/P6gWWYuvPocv0LK+7Uh9wtynRtz1h5wpC9TGwwkwq46TykBQcVtz5ft0CS1nt94
+	I3a2n4DHlVf/YFmz2xFgRjRF3KFTRjWmoiQuijg/xX+m8MNYufIYah9vCNha+sF4UoAK51TTqghOk
+	/5YRoYAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJPb6-0000000B9oX-0Dl3;
-	Wed, 21 Oct 2026 06:14:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJPb3-0000000B9nl-36My;
-	Wed, 21 Oct 2026 06:14:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DF9A815A1;
-	Tue, 20 Oct 2026 23:14:37 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D69D3F673;
-	Tue, 20 Oct 2026 23:14:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792563281; bh=bY7eaKmWXeEGJZPv0klJ3mm9fvB9sa6YQ58K0dGT+DQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Dz1W2m1mtqieAvvcHZ0PElJP5ck781BRAil8keCt0J0xDmnmsvOtE2z2M/5OD8bJT
-	 x0mY2JIMQy/68/SPz8OHAETC2GSRyy6i0mXuMcfrF0pwBi7AW/wwQj2YV7ClSyJ7P8
-	 z7NHuQtFqmTF4JQhakFU6b9pfZaA/t3mKW3YduKY=
-Date: Wed, 21 Oct 2026 07:14:33 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Simon Glass <sjg@chromium.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	linux-integrity@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
-	Piotr =?iso-8859-1?Q?Kr=F3l?= <piotr.krol@3mdeb.com>,
-	Ross Philipson <ross.philipson@gmail.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Song Shuai <songshuaishuai@tinylab.org>
-Subject: Re: [PATCH v2 15/15] efi/arm64: Implement ARM64 DRTM in the stub
-Message-ID: <athYSbJXA96DZK-X@e129823.arm.com>
-References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
- <15-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
- <atf4ONRM3xbs877y@e129823.arm.com>
- <20261020233435.GJ3008132@nvidia.com>
+	id 1xJPc6-0000000B9yB-1CT2;
+	Wed, 21 Oct 2026 06:15:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJPc4-0000000B9xx-0u7X;
+	Wed, 21 Oct 2026 06:15:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A024F4382B;
+	Wed, 21 Oct 2026 06:15:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A36271F000C9;
+	Wed, 21 Oct 2026 06:15:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792563347;
+	bh=NE6FODam8Y7torIkBq54ShtdSgWpLFBkxmVPgOM97Y0=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=ZlpfCuDz9DktGxquPoD47fDuegagqTC+8TMUopcdjmjJoKn/9B9qXwlflzzjqXoui
+	 TX+FEMbLmX7o1R4ezKKM8Eqj1Kq61xBv14gu3mA4o2KRLsYRQtgNvgh5QOkMq38dXp
+	 9crrqBTNujdEaOj3GR+yYJdV6jMHqEvngqY0Dtk6dcclBTM6FpkHqOuw5j48GNTsxq
+	 Roq4V5fFgCtxlBMqjogysyrThlB/dvisoCi6GDuGvH8S5mkGpjhXEekE5ICe6hpUBG
+	 KfnKFZ+GmCyRwhW+QcdzPKr4tsZIbLNunaSkQV88kvTAgSc9XkhnXudfodi5mQCc0H
+	 vphogldSkhgOQ==
+Content-Type: multipart/mixed; boundary="===============8716026043077091956=="
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261020233435.GJ3008132@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_231446_069675_C03705C8 
-X-CRM114-Status: GOOD (  20.94  )
-X-Spam-Score: -4.4 (----)
+Message-Id: <ade7e1bd9d4c7a3975fed8e1bea08fd66cf1b03c9c7df26f4f9fe07d36187dfa@mail.kernel.org>
+In-Reply-To: <20261021-bpf-hmul-v2-1-88e260099f7d@outlook.com>
+References: <20261021-bpf-hmul-v2-1-88e260099f7d@outlook.com>
+Subject: Re: [PATCH bpf-next v2 1/8] bpf: Add UHMUL and SHMUL instructions
+From: bot+bpf-ci@kernel.org
+To: tangyazhou@zju.edu.cn,bpf@vger.kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,void@manifault.com,bpf@ietf.org
+Cc: john.fastabend@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,qmo@kernel.org,puranjay@kernel.org,xukuohai@huaweicloud.com,bjorn@kernel.org,pulehui@huawei.com,catalin.marinas@arm.com,will@kernel.org,mark.rutland@arm.com,linux-arm-kernel@lists.infradead.org,linux-riscv@lists.infradead.org,list+bpf@vahedi.org,linux@armlinux.org.uk,yangtiezhu@loongson.cn,hengqi.chen@gmail.com,johan.almbladh@anyfinetworks.com,paulburton@kernel.org,James.Bottomley@HansenPartnership.com,deller@gmx.de,hbathini@linux.ibm.com,chleroy@kernel.org,naveen@kernel.org,luke.r.nels@gmail.com,xi.wang@gmail.com,iii@linux.ibm.com,hca@linux.ibm.com,gor@linux.ibm.com,davem@davemloft.net,udknight@gmail.com,kuba@kernel.org,corbet@lwn.net,linux-doc@vger.kernel.org,ziye@zju.edu.cn,tangyazhou518@outlook.com,shenghaoyuan0928@163.com,ast@kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,
+ yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Wed, 21 Oct 2026 06:15:46 +0000 (UTC)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,61 +63,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 08:34:35PM -0300, Jason Gunthorpe wrote:
-> On Wed, Oct 21, 2026 at 12:24:40AM +0100, Yeoreum Yun wrote:
-> > One small question...
-> > 
-> > [..snipped..]
-> > 
-> > > +void efi_drtm_launch(void)
-> > > +{
-> > > +	if (efi_drtm_policy == EFI_DRTM_OFF)
-> > > +		return;
-> > > +
-> > > +	/*
-> > > +	 * No cache maintenance is required before the launch. v1.4B R42130 in
-> > > +	 * Table 22 "DCE preamble requirements" requires the DRTM_PARAMETERS to
-> > > +	 * be accessible as Normal Write-Back Cacheable, Inner Shareable memory,
-> > > +	 * so the DCE reads them coherently with the writes made above.  R45220
-> > > +	 * in Table 30 "DCE requirements for the DLME" then has the DCE clean
-> > > +	 * and invalidate the whole DLME region to the Point of Coherency before
-> > > +	 * it measures the DLME image, which covers both the Image itself and
-> > > +	 * the handoff struct placed in the DLME region. Thus once we jump into
-> > > +	 * the kernel with MMU and caches off the CPU will see everything the
-> > > +	 * stub wrote.
-> > > +	 */
-> > > +	arm_drtm_dynamic_launch(drtm_cfg.params_addr);
-> > 
-> > After launching, How to get eventlogs for measurement of DLEM if
-> > tpm_read_log_efi() is used? Doesn't it need to concatenate those
-> > event logs from DRTM eventlog in returned DLEM data?
-> 
-> My plan is a future series will return them as a discrete log bundle
-> through attestation subsystem. All of the logs will be available
-> consistently that way, CCGL, the EFI and ACPI ones..
-> 
-> And it will be logically linked to the ROT the DRTM uses in some
-> future ROT agile DRTM flow. So we can tell the difference between a
-> TPM bare metal launch into PCRs and something like a realm launch into
-> REMs.
+--===============8716026043077091956==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-Make sense. Thanks!
+> bpf: Add UHMUL and SHMUL instructions
 
--- 
-Sincerely,
-Yeoreum Yun
+TL;DR: Verifier still rejects UHMUL/SHMUL (off 1/2), so the new interpreter
+code is unreachable; once enabled, JITs and range tracking would silently use
+low-half multiply. Should the UAPI wait for the full series?
+
+> diff --git a/include/uapi/linux/bpf.h b/include/uapi/linux/bpf.h
+> index f29b0aad440c..90c30e5d790b 100644
+> --- a/include/uapi/linux/bpf.h
+> +++ b/include/uapi/linux/bpf.h
+> @@ -34,6 +34,12 @@
+>  #define BPF_FROM_LE	BPF_TO_LE
+>  #define BPF_FROM_BE	BPF_TO_BE
+>
+> +/* BPF_MUL off values for high-half multiplication; BPF_ALU64 only. */
+> +enum bpf_mul_variant {
+> +	BPF_UHMUL = 1,
+> +	BPF_SHMUL = 2,
+> +};
+> +
+>  /* jmp encodings */
+
+Can a program that uses these new encodings be loaded at all with only this
+patch applied?
+
+check_alu_fields() in kernel/bpf/verifier.c is not touched, and it still
+rejects any BPF_MUL with a non-zero off:
+
+    case BPF_MUL:
+    case BPF_DIV:
+    case BPF_MOD:
+        if (BPF_SRC(insn->code) == BPF_X) {
+            if (insn->imm != 0 || (insn->off != 0 && insn->off != 1) ||
+                (insn->off == 1 && opcode != BPF_MOD && opcode != BPF_DIV)) {
+                verbose(env, "BPF_ALU uses reserved fields\n");
+                return -EINVAL;
+            }
+        } else if (insn->src_reg != BPF_REG_0 ||
+               (insn->off != 0 && insn->off != 1) ||
+               (insn->off == 1 && opcode != BPF_MOD && opcode != BPF_DIV)) {
+
+Both off == 1 (UHMUL) and off == 2 (SHMUL) fail with "BPF_ALU uses reserved
+fields".
+
+That means the UHMUL/SHMUL arms of ALU64_MUL_X and ALU64_MUL_K in
+___bpf_prog_run() cannot run, and BPF_UHMUL/BPF_SHMUL describe encodings the
+kernel refuses.  bpf_insn_is_hmul() in include/linux/filter.h has no callers
+anywhere in the tree, and bpf_is_hmul_variant() is only called by it, so both
+are currently dead code.
+
+The commit message mentions interpreter support, but does not say that the
+verifier change is left for later.
+
+When the verifier is relaxed, the JITs and the range tracking will also need
+attention.  The JITs ignore insn->off for BPF_MUL today; for example
+arch/x86/net/bpf_jit_comp.c emits a plain imul for
+"case BPF_ALU64 | BPF_MUL | BPF_K/X".  adjust_scalar_min_max_vals() models
+BPF_MUL as a low-half multiply.  Without changes there, JITed programs would
+silently compute the low half and the verifier's bounds would not match the
+real result.
+
+Should the UAPI constants and the divmul64v2 group wait until verifier, JIT
+and selftest support land in the same series, or should the unused
+bpf_insn_is_hmul() be dropped from this patch?
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/39552088777
+--===============8716026043077091956==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8716026043077091956==--
+
