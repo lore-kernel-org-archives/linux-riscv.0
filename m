@@ -2,81 +2,121 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AFDE606A319
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 08:09:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1980A606A31B
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 08:24:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HH+I78uJ;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=QWTE8VNC
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kacIbylf
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xR1YyGOeuzKjWZghmb9hN3OFM+eRJaL+0hlrtLsWa3U=; b=HH+I78uJ1X5VwM
-	JKAKMc0jeG7AUv0cXhTqgHreAqlnRf32xSuULqLiKBG/7qezi6uO2L96G6NPCEOiRqpTTkIyM3rIM
-	GMr0NHsd06sxjpMs7Ff9GECIiK60sTPWRLhdX/rJYnAfm/rbLNoSPFFr+JNE5afT1J3kpHdAOO66w
-	XkGio350RM/74rhrURtYNCV+Q/xjXDjBHosbnkZ9czYMA6JrkXuGXWotg25EhtH3UKJh1wUcKWJ2H
-	ei/Wn9n3duFmR6VhvxAqYDi8k/WYxCi2+KqV20+AMXefsd/XWZiapKiOmA43DnC8wFLumtHp1+ffF
-	sigWmDGXTHun4AYzcgGA==;
+	List-Owner; bh=mq9Me6DNuMpz/zzsEi6VRo2FNbmc4zcLFno8sgCbnIg=; b=kacIbylfhNypq+
+	7peuWVURBBdYVJr2/C71/ULZ5VHGxcfd9l0S4KGY1TtzVvffr3KqXykb4Stp4xFo27o5KpIwZwUOK
+	eZOW3XvAQg0YXu5QIrVDjmU4KzLGjixRF09ytU4nbPfwFrb4Nbh6FM0JMG8bUNIHJBm+D8hxByIOm
+	YKWSlcg/HXzaYo3BFfQ1Ehl6zmN1QXUwLWPcFZs/YHAZOcdPTuMuUqiOHbJaLbRMEo4mR342JYuT6
+	HClIqvEq3dEDWlx05EY0e5xlZAEp6xk394yn2CzK+9eFXoyYcBDZFNCAuQr3holmdzR1f2trPtu15
+	VyHrbR7pWhAW5HLAHNyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJRNR-0000000BIbM-2nxQ;
-	Wed, 21 Oct 2026 08:08:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1xJRcF-0000000BKOE-2qnF;
+	Wed, 21 Oct 2026 08:24:07 +0000
+Received: from azure-sdnproxy.icoremail.net ([207.46.229.174])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJRNO-0000000BIaP-15D7;
-	Wed, 21 Oct 2026 08:08:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 768F41595;
-	Wed, 21 Oct 2026 01:08:40 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2E2B63F7B4;
-	Wed, 21 Oct 2026 01:08:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792570123; bh=cnyaEnul7lwGJfjB43Qer2YuUdo+zKOTOANHUovpt8U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QWTE8VNC/AdoGW019vhpgeWWcJzn9DWgmoS9MuR8/DW6vM35uoQ3+eaqVROLKArdR
-	 xuDjU731EIsKkFLN1tAyXJbvHHNAbi7ZH9VUqzwmbZ9ErkGfm5ssYs3AUc8ZoRD3IS
-	 CW90xGvB3du+N8D+SSO9tKTZaobu8I69mNET1k5I=
-Date: Wed, 21 Oct 2026 09:08:36 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	id 1xJRcB-0000000BKNk-19nn;
+	Wed, 21 Oct 2026 08:24:06 +0000
+Received: from zju.edu.cn (unknown [10.162.163.215])
+	by mtasvr (Coremail) with SMTP id _____wDHIT2CdthqlU+tAQ--.827S3;
+	Wed, 21 Oct 2026 16:23:31 +0800 (CST)
+Received: from lutetium.tail477849.ts.net (unknown [10.162.163.215])
+	by mail-app3 (Coremail) with UTF8SMTPA id zS_KCgCnR6KAdthqbly1AA--.47192S2;
+	Wed, 21 Oct 2026 16:23:29 +0800 (CST)
+From: tangyazhou@zju.edu.cn
+To: bpf@vger.kernel.org,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	David Vernet <void@manifault.com>,
+	bpf@ietf.org
+Cc: John Fastabend <john.fastabend@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Quentin Monnet <qmo@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	=?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>,
+	Pu Lehui <pulehui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Simon Glass <sjg@chromium.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	linux-integrity@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
-	Piotr =?iso-8859-1?Q?Kr=F3l?= <piotr.krol@3mdeb.com>,
-	Ross Philipson <ross.philipson@gmail.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Song Shuai <songshuaishuai@tinylab.org>
-Subject: Re: [PATCH v2 15/15] efi/arm64: Implement ARM64 DRTM in the stub
-Message-ID: <athzBHFwyp0bFEu9@e129823.arm.com>
-References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
- <15-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	Shahab Vahedi <list+bpf@vahedi.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Hengqi Chen <hengqi.chen@gmail.com>,
+	Johan Almbladh <johan.almbladh@anyfinetworks.com>,
+	Paul Burton <paulburton@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Hari Bathini <hbathini@linux.ibm.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Naveen N Rao <naveen@kernel.org>,
+	Luke Nelson <luke.r.nels@gmail.com>,
+	Xi Wang <xi.wang@gmail.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Wang YanQing <udknight@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	linux-doc@vger.kernel.org,
+	Yazhou Tang <tangyazhou518@outlook.com>,
+	Tianci Cao <ziye@zju.edu.cn>,
+	Shenghao Yuan <shenghaoyuan0928@163.com>
+Subject: [PATCH bpf-next v2 3/8] bpf, arm64: JIT UHMUL and SHMUL
+Date: Wed, 21 Oct 2026 16:23:23 +0800
+Message-ID: <20261021-bpf-hmul-v2-3-88e260099f7d@outlook.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261021-bpf-hmul-v2-0-88e260099f7d@outlook.com>
+References: <20261021-bpf-hmul-v2-0-88e260099f7d@outlook.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <15-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+X-Mailer: b4 0.15.2
+X-CM-TRANSID: zS_KCgCnR6KAdthqbly1AA--.47192S2
+X-CM-SenderInfo: qssvjiasrsq6lmxovvfxof0/1tbiBhMLCmrXxB0gcQABsg
+X-CM-DELIVERINFO: =?B?Xo5KYQXKKxbFmtjJiESix3B1w3vD7IpoGYuur0o+r46DyAi5OfOO+T4vrW4FyUBIyu
+	9q9C3p0bkPmn0Y7fsOHCqvQSnLiEKTnblmL+U+pBVp0RIpwbVyc97K1UufZTOlSmiCpW3i
+	5mtPgHnUlpBEYv6mWIEaZaBLTnfE6zncm1Lm6vdzJ4dz/iU4djPgnHvF/UDoow==
+X-Coremail-Antispam: 1Uk129KBj93XoWxXr1fCFWxKr1xCr15tF48Zrc_yoW7JF4Dpw
+	n5urWSkrWkWF13GF97tFnrZw4Yka1Fgw4DK345u3yrKrs8Xa4UGFWSg3y2yFs8Gryjga9Y
+	qFyj9r1F9aykXwcCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUBKb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
+	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI0UMc
+	02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAF
+	wI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0Y48IcxkI7V
+	AKI48G6xCjnVAKz4kxM4IIrI8v6xkF7I0E8cxan2IY04v7M4kE6xkIj40Ew7xC0wCF04k2
+	0xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI
+	8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI48J
+	MIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMI
+	IF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E
+	87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7IU8ymh7UUUUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_010846_477951_5449DA73 
-X-CRM114-Status: GOOD (  50.68  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261021_012403_515483_CD1F1757 
+X-CRM114-Status: GOOD (  12.51  )
+X-Spam-Score: -2.6 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,460 +129,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Jason,
+From: Yazhou Tang <tangyazhou518@outlook.com>
 
-Overall patches are look good to me.
+arm64 provides UMULH and SMULH instructions that return the high 64 bits
+of an unsigned or signed 64-bit multiplication, respectively.
 
-But small one question more.
+Add encodings for these instructions and use them to lower the UHMUL and
+SHMUL BPF_MUL variants for both register and immediate sources. Keep the
+existing low-half and ALU32 multiplication lowering unchanged.
 
-> Provide an implementation of the CONFIG_EFI_STUB_DRTM protocol for ARM64
-> DEN0113 >= v1.1.
-> 
-> First, it queries the FW for support and collects all the
-> information. This is needed to compute the extra_size, which comes
-> from FW reporting how much memory it needs during the launch for the
-> DLME Data and DCE-owned data. The generic stub ensures there is
-> trailing memory after Image for this.
-> 
-> Then the DRTM_PARAMETERS launch structure is computed using the
-> offsets in the efi_info.
-> 
-> Finally, the stub does ExitBootServices and calls the actual launch.
-> 
-> The feature discovery process is deliberately fairly verbose to help
-> debug any FW weirdness in the field. Enable it with efi=debug
-> 
-> It looks something like:
-> 
->  EFI stub: DRTM: interface version 1.4
->  EFI stub: DEBUG: DRTM: TPM algorithm 0xc, TPM hashing unavailable, PCR schemas 0x1
->  EFI stub: DEBUG: DRTM: minimum DLME data 73728 bytes, Normal-world DCE 0 bytes
->  EFI stub: Decompressing Linux Kernel...
->  EFI stub: Generating empty DTB
->  EFI stub: Exiting boot services...
->  EFI stub: DEBUG: DRTM: will launch, selected launch features 0x0
->  [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x000f0510]
-> 
-> Eventually the launch'd kernel is going to require built in crypto
-> libraries that match what the FW is using so it can validate some of the
-> information left behind during early boot. Refuse to launch if these are
-> not built in and build in the most common ones from the ARM64_DRTM
-> kconfig.
-> 
-> One nit, if the platform does not support SMC then using drtm=auto may
-> crash on the SMC op. As far as I can tell there is no way to discover SMC
-> support through EFI. Learning it from the ACPI FADT is doable and costs
-> about 250 lines of code.
-> 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
->  arch/arm64/Kconfig                        |  16 +
->  drivers/firmware/efi/libstub/Makefile     |   1 +
->  drivers/firmware/efi/libstub/arm64-drtm.c | 426 ++++++++++++++++++++++
->  3 files changed, 443 insertions(+)
->  create mode 100644 drivers/firmware/efi/libstub/arm64-drtm.c
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 4a752835ce1116..30244bc2d57696 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2543,6 +2543,22 @@ config EFI
->  	  allow the kernel to be booted as an EFI application. This
->  	  is only useful on systems that have UEFI firmware.
->  
-> +config ARM64_DRTM
-> +	bool "Arm Dynamic Root of Trust for Measurement support"
-> +	depends on EFI
-> +	select CRYPTO
-> +	select CRYPTO_SHA256
-> +	select CRYPTO_SHA512
-> +	select EFI_STUB_DRTM
-> +	help
-> +	  Support launching Linux as a Dynamically Launched Measured
-> +	  Environment (DLME) using Arm's DEN0113 DRTM specification. Requires
-> +	  booting through the EFI stub. The drtm= kernel command line option
-> +	  enables or disables the launch at boot.
-> +
-> +	  If unsure, say N. This option is EXPERIMENTAL and does not yet provide
-> +	  security.
-> +
->  config COMPRESSED_INSTALL
->  	bool "Install compressed image by default"
->  	help
-> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-> index 3f1921e6c334d1..f0958b4df16592 100644
-> --- a/drivers/firmware/efi/libstub/Makefile
-> +++ b/drivers/firmware/efi/libstub/Makefile
-> @@ -83,6 +83,7 @@ lib-$(CONFIG_EFI_GENERIC_STUB)	+= efi-stub.o string.o intrinsics.o systable.o \
->  
->  lib-$(CONFIG_ARM)		+= arm32-stub.o
->  lib-$(CONFIG_ARM64)		+= kaslr.o arm64.o arm64-stub.o smbios.o
-> +lib-$(CONFIG_ARM64_DRTM)	+= arm64-drtm.o
->  lib-$(CONFIG_X86)		+= x86-stub.o smbios.o
->  lib-$(CONFIG_X86_64)		+= x86-5lvl.o
->  lib-$(CONFIG_RISCV)		+= kaslr.o riscv.o riscv-stub.o
-> diff --git a/drivers/firmware/efi/libstub/arm64-drtm.c b/drivers/firmware/efi/libstub/arm64-drtm.c
-> new file mode 100644
-> index 00000000000000..2fc58babc3e7cb
-> --- /dev/null
-> +++ b/drivers/firmware/efi/libstub/arm64-drtm.c
-> @@ -0,0 +1,426 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/* Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES
-> + *
-> + * EFI Stub implementation for ARM DEN 0113 "DRTM Architecture for Arm"
-> + *
-> + * This code runs on the untrusted side of the boot in the EFI stub. Nothing it
-> + * does should impact the integrity of the post-launch world and it does not
-> + * need to take special security precautions.
-> + */
-> +#include <linux/bitfield.h>
-> +#include <linux/efi.h>
-> +#include <linux/kconfig.h>
-> +#include <linux/overflow.h>
-> +#include <linux/sizes.h>
-> +#include <linux/tpm_command.h>
-> +#include <linux/unaligned.h>
-> +
-> +#include <uapi/linux/psci.h>
-> +
-> +#include <asm/cputype.h>
-> +#include <asm/drtm.h>
-> +#include <asm/image.h>
-> +
-> +#include "efistub.h"
-> +
-> +struct efi_drtm_config {
-> +	u32 launch_features;
-> +	unsigned long dlme_data_size;
-> +	unsigned long nw_dce_size;
-> +	struct arm_drtm_parameters *params_addr;
-> +};
-> +static struct efi_drtm_config drtm_cfg;
-> +
-> +/* True if SMCCC 1.0 or later is available. */
-> +static bool efi_arm64_psci_smccc_compatible(void)
-> +{
-> +	struct arm_smccc_res res;
-> +	s32 status;
-> +
-> +	arm_smccc_1_1_smc(PSCI_0_2_FN_PSCI_VERSION, &res);
-> +	if ((s32)res.a0 < 0)
-> +		return false;
-> +
-> +	if (PSCI_VERSION_MAJOR(res.a0) < 1)
-> +		return false;
-> +
-> +	arm_smccc_1_1_smc(PSCI_1_0_FN_PSCI_FEATURES, ARM_SMCCC_VERSION_FUNC_ID,
-> +			  &res);
-> +	status = (s32)res.a0;
-> +	if (status == PSCI_RET_NOT_SUPPORTED) {
-> +		/*
-> +		 * SMCCC_VERSION was introduced by SMCCC 1.1, so firmware that
-> +		 * does not advertise that function through PSCI_FEATURES is
-> +		 * using the valid SMCCC 1.0 baseline.
-> +		 */
-> +		return true;
-> +	} else if (status < 0) {
-> +		return false;
-> +	} else {
-> +		u32 version;
-> +
-> +		arm_smccc_1_1_smc(ARM_SMCCC_VERSION_FUNC_ID, &res);
-> +		version = res.a0;
-> +		if ((version >> 16) != 1 || version < ARM_SMCCC_VERSION_1_1)
-> +			return false;
-> +	}
-> +	return true;
-> +}
-> +
-> +static bool efi_drtm_query_feature(u64 feature, u64 *value)
-> +{
-> +	s64 status;
-> +
-> +	status = arm_drtm_query_feature(feature, value);
-> +	if (status < 1) {
-> +		efi_err("DRTM: feature %llx query failed (x0=%lld)\n", feature,
-> +			status);
-> +		return false;
-> +	}
-> +
-> +	return true;
-> +}
-> +
-> +/*
-> + * For the kernel to boot it must have the matching hash algorithm built in to
-> + * be able to validate the TCB hashes. Assume the TPM hash algorithm is the one
-> + * that TCB_HASH_TABLE will be using.
-> + */
-> +static bool efi_drtm_hash_algorithm_supported(u16 algorithm)
-> +{
-> +	switch (algorithm) {
-> +	case TPM_ALG_SHA256:
-> +		return IS_BUILTIN(CONFIG_CRYPTO_SHA256);
-> +	case TPM_ALG_SHA384:
-> +	case TPM_ALG_SHA512:
-> +		return IS_BUILTIN(CONFIG_CRYPTO_SHA512);
-> +	default:
-> +		return false;
-> +	}
-> +}
-> +
-> +static bool efi_drtm_probe_tpm(void)
-> +{
-> +	u16 algorithm;
-> +	u8 schemas;
-> +	u64 value;
-> +
-> +	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_TPM, &value))
-> +		return false;
-> +	algorithm = FIELD_GET(ARM_DRTM_TPM_ALG_MASK, value);
-> +	schemas = FIELD_GET(ARM_DRTM_PCR_SCHEMA_MASK, value);
-> +
-> +	if (!efi_drtm_hash_algorithm_supported(algorithm)) {
-> +		efi_err("DRTM: firmware hash algorithm 0x%x is unavailable (feature 0x%llx)\n",
-> +			algorithm, value);
-> +		return false;
-> +	}
-> +
-> +	if (!(schemas & BIT(ARM_DRTM_PCR_SCHEMA_DEFAULT))) {
-> +		efi_err("DRTM: default PCR schema is unavailable (feature 0x%llx)\n",
-> +			value);
-> +		return false;
-> +	}
-> +
-> +	efi_debug("DRTM: TPM algorithm 0x%x, TPM hashing %s, PCR schemas 0x%x\n",
-> +		  algorithm,
-> +		  value & ARM_DRTM_TPM_HASHING ? "available" : "unavailable",
-> +		  schemas);
-> +	return true;
-> +}
-> +
-> +static bool efi_drtm_probe_memory(void)
-> +{
-> +	u64 value;
-> +
-> +	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_MIN_MEMORY, &value))
-> +		return false;
-> +
-> +	drtm_cfg.dlme_data_size =
-> +		FIELD_GET(ARM_DRTM_DLME_DATA_PAGES_MASK, value) *
-> +		ARM_DRTM_PAGE_SIZE;
-> +	drtm_cfg.nw_dce_size = FIELD_GET(ARM_DRTM_NW_DCE_PAGES_MASK, value) *
-> +			       ARM_DRTM_PAGE_SIZE;
-> +
-> +	efi_debug("DRTM: minimum DLME data %lu bytes, Normal-world DCE %lu bytes\n",
-> +		  drtm_cfg.dlme_data_size, drtm_cfg.nw_dce_size);
-> +	return true;
-> +}
-> +
-> +static bool efi_drtm_probe_dma(void)
-> +{
-> +	u64 value;
-> +
-> +	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_DMA_PROTECTION, &value))
-> +		return false;
-> +
-> +	if (!(FIELD_GET(ARM_DRTM_DMA_PROTECTION_MASK, value) &
-> +	      BIT(ARM_DRTM_DMA_PROTECTION_COMPLETE))) {
-> +		efi_err("DRTM: complete DMA protection is unavailable (feature 0x%llx)\n",
-> +			value);
-> +		return false;
-> +	}
-> +	return true;
-> +}
-> +
-> +/* Sanity check nothing has gone wrong */
-> +static bool efi_drtm_probe_boot_pe(void)
-> +{
-> +	u64 current_pe = read_cpuid_mpidr() & MPIDR_HWID_BITMASK;
-> +	u64 boot_pe;
-> +
-> +	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_BOOT_PE, &boot_pe))
-> +		return false;
-> +
-> +	if ((boot_pe & MPIDR_HWID_BITMASK) != current_pe) {
-> +		efi_err("DRTM: boot PE 0x%llx does not match current PE 0x%llx\n",
-> +			boot_pe, current_pe);
-> +		return false;
-> +	}
-> +
-> +	return true;
-> +}
-> +
-> +static void efi_drtm_report_previous_error(void)
-> +{
-> +	s64 error_code;
-> +	s64 status;
-> +
-> +	status = arm_drtm_query_function(ARM_DRTM_SMC_GET_ERROR);
-> +	if (status != ARM_DRTM_SUCCESS) {
-> +		efi_debug("DRTM: GET_ERROR is unavailable (x0=%lld)\n", status);
-> +		return;
-> +	}
-> +
-> +	status = arm_drtm_get_error(&error_code);
-> +	if (status != ARM_DRTM_SUCCESS) {
-> +		efi_warn("DRTM: failed to read previous error (x0=%lld)\n",
-> +			 status);
-> +		return;
-> +	}
-> +
-> +	if (error_code) {
-> +		efi_warn("DRTM: firmware reports previous launch error 0x%llx\n",
-> +			 error_code);
-> +		if (efi_drtm_policy != EFI_DRTM_ENFORCE)
-> +			efi_drtm_policy = EFI_DRTM_OFF;
-> +	}
-> +}
-> +
-> +static efi_status_t efi_drtm_failure(void)
-> +{
-> +	if (efi_drtm_policy == EFI_DRTM_AUTO) {
-> +		efi_warn("DRTM: preparation failed, continuing without DRTM\n");
-> +		efi_drtm_policy = EFI_DRTM_OFF;
-> +		return EFI_SUCCESS;
-> +	}
-> +
-> +	efi_err("DRTM: enforced preparation failed\n");
-> +	return EFI_UNSUPPORTED;
-> +}
-> +
-> +efi_status_t efi_drtm_prepare(void)
-> +{
-> +	s64 feature_status;
-> +	u16 major, minor;
-> +	s32 status;
-> +
-> +	if (efi_drtm_policy == EFI_DRTM_OFF)
-> +		return EFI_SUCCESS;
-> +
-> +	if (!efi_arm64_psci_smccc_compatible())
-> +		return efi_drtm_failure();
-> +
-> +	/*
-> +	 * v1.4B section 3.2.1 "DRTM_VERSION usage" explains that a new major
-> +	 * ABI version may "Change behavior of existing functions". Verify the
-> +	 * major version before calling anything so we don't trigger unknown
-> +	 * behavior.
-> +	 */
-> +	status = arm_drtm_version(&major, &minor);
-> +	if (status != ARM_DRTM_SUCCESS) {
-> +		efi_err("DRTM: failed to read interface version (x0=%d)\n",
-> +			status);
-> +		return efi_drtm_failure();
-> +	}
-> +	if (major != ARM_DRTM_VERSION_MAJOR) {
-> +		efi_err("DRTM: unsupported interface version %u.%u\n", major,
-> +			minor);
-> +		return efi_drtm_failure();
-> +	}
-> +	efi_info("DRTM: interface version %u.%u\n", major, minor);
-> +
-> +	efi_drtm_report_previous_error();
-> +	if (efi_drtm_policy == EFI_DRTM_OFF)
-> +		return EFI_SUCCESS;
-> +
-> +	feature_status = arm_drtm_query_function(ARM_DRTM_SMC_DYNAMIC_LAUNCH);
-> +	if (feature_status != ARM_DRTM_SUCCESS) {
-> +		efi_err("DRTM: dynamic launch is unavailable (x0=%lld)\n",
-> +			feature_status);
-> +		return efi_drtm_failure();
-> +	}
-> +
-> +	if (!efi_drtm_probe_tpm() || !efi_drtm_probe_memory() ||
-> +	    !efi_drtm_probe_dma() || !efi_drtm_probe_boot_pe())
-> +		return efi_drtm_failure();
-> +
-> +	drtm_cfg.launch_features =
-> +		ARM_DRTM_LAUNCH_HASH_FIRMWARE |
-> +		FIELD_PREP(ARM_DRTM_LAUNCH_PCR_SCHEMA_MASK,
-> +			   ARM_DRTM_PCR_SCHEMA_DEFAULT) |
-> +		FIELD_PREP(ARM_DRTM_LAUNCH_DMA_PROTECTION_MASK,
-> +			   ARM_DRTM_DMA_PROTECTION_COMPLETE) |
-> +		ARM_DRTM_LAUNCH_NO_AUTH | ARM_DRTM_LAUNCH_KEEP_SECURE_IRQS;
-> +
-> +	return EFI_SUCCESS;
-> +}
-> +
-> +unsigned long efi_drtm_get_extra_size(void)
-> +{
-> +	/*
-> +	 * See arch/arm64/kernel/vmlinux.lds.S for the DRTM Memory layout.
-> +	 *
-> +	 * v1.4B Table 6 "Return values for DRTM features", feature 0x2 reports
-> +	 * both minimum sizes in 4 KiB pages.
-> +	 *
-> +	 * The linker places the DLME data at the 4 KiB-aligned end of the
-> +	 * static Image as required by R314030 in Table 13 "DLME region
-> +	 * requirements".
-> +	 *
-> +	 * The DLME region must include all of that data (R45200 in Table 30
-> +	 * "DCE requirements for the DLME"), and an optional Normal-world DCE
-> +	 * follows it at another 4 KiB-aligned address as required by R312080 in
-> +	 * Table 10 "DRTM_PARAMETERS requirements".
-> +	 *
-> +	 * A final page holds the 4 KiB-aligned DRTM_PARAMETERS required by
-> +	 * R312010 in the same table. Only the first area is part of the DLME
-> +	 * region.
-> +	 */
-> +	if (efi_drtm_policy == EFI_DRTM_OFF)
-> +		return 0;
-> +	return drtm_cfg.dlme_data_size + drtm_cfg.nw_dce_size +
-> +	       ARM_DRTM_PAGE_SIZE;
-> +}
-> +
-> +efi_status_t efi_drtm_prepare_launch(unsigned long image_base,
-> +				     unsigned long fdt_addr)
-> +{
-> +	const struct arm64_image_header *header = (const void *)image_base;
-> +	const struct efi_image_info *info = efi_get_image_info(image_base);
-> +	struct arm64_drtm_handoff *handoff =
-> +		efi_get_image_symbol(image_base, arm64_drtm_handoff);
-> +	struct arm_drtm_parameters *params;
-> +	unsigned long measured_offset;
-> +	unsigned long measured_size;
-> +	unsigned long image_size;
-> +	unsigned long dlme_start;
-> +	unsigned long dlme_end;
-> +	unsigned long dce_end;
-> +	unsigned long entry;
-> +
-> +	if (efi_drtm_policy == EFI_DRTM_OFF)
-> +		return EFI_SUCCESS;
-> +
-> +	image_size = le64_to_cpu(header->image_size);
-> +	measured_offset = info->drtm_measured_start;
-> +	measured_size = info->dlme_measured_size;
-> +	entry = info->drtm_entry;
-> +	dlme_start = image_base + image_size;
-> +	dlme_end = dlme_start + drtm_cfg.dlme_data_size;
-> +	dce_end = dlme_end + drtm_cfg.nw_dce_size;
+Suggested-by: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Signed-off-by: Yazhou Tang <tangyazhou518@outlook.com>
+Co-developed-by: Tianci Cao <ziye@zju.edu.cn>
+Signed-off-by: Tianci Cao <ziye@zju.edu.cn>
+Co-developed-by: Shenghao Yuan <shenghaoyuan0928@163.com>
+Signed-off-by: Shenghao Yuan <shenghaoyuan0928@163.com>
+---
+ arch/arm64/include/asm/insn.h |  4 ++++
+ arch/arm64/lib/insn.c         |  6 ++++++
+ arch/arm64/net/bpf_jit.h      |  6 ++++++
+ arch/arm64/net/bpf_jit_comp.c | 15 +++++++++++++--
+ 4 files changed, 29 insertions(+), 2 deletions(-)
 
-Suppose user boot the kernel via decompressed Image which is the
-part of artifact of compressed image and use the drtm option (e.g.
-booting via UEFI shell with decompressed Image).
-
-Since the drtm extra memory is allocated only in efi_zboot_entry(),
-I think the drtm extra memory wouldn't be allocated so it would corrupt
-memory while setting the laucn parameter or by DRTM...
-
-Is this simply an example of incorrect usage which is ignorable?
-
-Thanks.
-
-[...snip...]
+diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+index 1ce75a442638..f38738fa54a2 100644
+--- a/arch/arm64/include/asm/insn.h
++++ b/arch/arm64/include/asm/insn.h
+@@ -247,6 +247,8 @@ enum aarch64_insn_data2_type {
+ enum aarch64_insn_data3_type {
+ 	AARCH64_INSN_DATA3_MADD,
+ 	AARCH64_INSN_DATA3_MSUB,
++	AARCH64_INSN_DATA3_SMULH,
++	AARCH64_INSN_DATA3_UMULH,
+ };
+ 
+ enum aarch64_insn_logic_type {
+@@ -396,6 +398,8 @@ __AARCH64_INSN_FUNCS(sub_ext,	0x7FE00000, 0x4B200000)
+ __AARCH64_INSN_FUNCS(subs_ext,	0x7FE00000, 0x6B200000)
+ __AARCH64_INSN_FUNCS(madd,	0x7FE08000, 0x1B000000)
+ __AARCH64_INSN_FUNCS(msub,	0x7FE08000, 0x1B008000)
++__AARCH64_INSN_FUNCS(smulh,	0x7FE0FC00, 0x1B407C00)
++__AARCH64_INSN_FUNCS(umulh,	0x7FE0FC00, 0x1BC07C00)
+ __AARCH64_INSN_FUNCS(udiv,	0x7FE0FC00, 0x1AC00800)
+ __AARCH64_INSN_FUNCS(sdiv,	0x7FE0FC00, 0x1AC00C00)
+ __AARCH64_INSN_FUNCS(lslv,	0x7FE0FC00, 0x1AC02000)
+diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
+index e70ac0238515..dc483d1b8bd5 100644
+--- a/arch/arm64/lib/insn.c
++++ b/arch/arm64/lib/insn.c
+@@ -1155,6 +1155,12 @@ u32 aarch64_insn_gen_data3(enum aarch64_insn_register dst,
+ 	case AARCH64_INSN_DATA3_MSUB:
+ 		insn = aarch64_insn_get_msub_value();
+ 		break;
++	case AARCH64_INSN_DATA3_SMULH:
++		insn = aarch64_insn_get_smulh_value();
++		break;
++	case AARCH64_INSN_DATA3_UMULH:
++		insn = aarch64_insn_get_umulh_value();
++		break;
+ 	default:
+ 		pr_err("%s: unknown data3 encoding %d\n", __func__, type);
+ 		return AARCH64_BREAK_FAULT;
+diff --git a/arch/arm64/net/bpf_jit.h b/arch/arm64/net/bpf_jit.h
+index b2fe6e6dcf44..70fc329c661d 100644
+--- a/arch/arm64/net/bpf_jit.h
++++ b/arch/arm64/net/bpf_jit.h
+@@ -281,6 +281,12 @@
+ 	A64_VARIANT(sf), AARCH64_INSN_DATA3_MSUB)
+ /* Rd = Rn * Rm */
+ #define A64_MUL(sf, Rd, Rn, Rm) A64_MADD(sf, Rd, A64_ZR, Rn, Rm)
++/* Rd = high 64 bits of signed Rn * Rm */
++#define A64_SMULH(Rd, Rn, Rm) aarch64_insn_gen_data3(Rd, A64_ZR, Rn, Rm, \
++	AARCH64_INSN_VARIANT_64BIT, AARCH64_INSN_DATA3_SMULH)
++/* Rd = high 64 bits of unsigned Rn * Rm */
++#define A64_UMULH(Rd, Rn, Rm) aarch64_insn_gen_data3(Rd, A64_ZR, Rn, Rm, \
++	AARCH64_INSN_VARIANT_64BIT, AARCH64_INSN_DATA3_UMULH)
+ 
+ /* Logical (shifted register) */
+ #define A64_LOGIC_SREG(sf, Rd, Rn, Rm, type) \
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index 326e9e1dea0a..a9989cd5098c 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -144,6 +144,17 @@ static inline void emit_a64_mov_i(const int is64, const int reg,
+ 	}
+ }
+ 
++static inline void emit_a64_mul(const bool is64, const u8 dst, const u8 src,
++				const s16 off, struct jit_ctx *ctx)
++{
++	if (is64 && off == BPF_UHMUL)
++		emit(A64_UMULH(dst, dst, src), ctx);
++	else if (is64 && off == BPF_SHMUL)
++		emit(A64_SMULH(dst, dst, src), ctx);
++	else
++		emit(A64_MUL(is64, dst, dst, src), ctx);
++}
++
+ static int i64_i16_blocks(const u64 val, bool inverse)
+ {
+ 	return (((val >>  0) & 0xffff) != (inverse ? 0xffff : 0x0000)) +
+@@ -1531,7 +1542,7 @@ static int build_insn(const struct bpf_verifier_env *env, const struct bpf_insn
+ 		break;
+ 	case BPF_ALU | BPF_MUL | BPF_X:
+ 	case BPF_ALU64 | BPF_MUL | BPF_X:
+-		emit(A64_MUL(is64, dst, dst, src), ctx);
++		emit_a64_mul(is64, dst, src, off, ctx);
+ 		break;
+ 	case BPF_ALU | BPF_DIV | BPF_X:
+ 	case BPF_ALU64 | BPF_DIV | BPF_X:
+@@ -1660,7 +1671,7 @@ static int build_insn(const struct bpf_verifier_env *env, const struct bpf_insn
+ 	case BPF_ALU | BPF_MUL | BPF_K:
+ 	case BPF_ALU64 | BPF_MUL | BPF_K:
+ 		emit_a64_mov_i(is64, tmp, imm, ctx);
+-		emit(A64_MUL(is64, dst, dst, tmp), ctx);
++		emit_a64_mul(is64, dst, tmp, off, ctx);
+ 		break;
+ 	case BPF_ALU | BPF_DIV | BPF_K:
+ 	case BPF_ALU64 | BPF_DIV | BPF_K:
 
 -- 
-Sincerely,
-Yeoreum Yun
+2.56.0
+
 
 _______________________________________________
 linux-riscv mailing list
