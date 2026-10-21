@@ -2,96 +2,97 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82BCC606A31E
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 16:08:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49D19606BF0C
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 16:16:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gmbX9jY4;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ppsqazaf;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Zj+APSth
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=C/R7dBAS;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=i9+3PrHW;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=WZIfvINI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IZjAmD3sBtRdJpTTsCECjc3+532V4IiJWLuV3aMRex8=; b=gmbX9jY4TjEwxS
-	af1dfhyxx8Ff8CrNBI9tKb2x+tzdq7V8DiSJ1pkwRfaOQpFeXp1Q2s/PtzSyeVYuJWlmuvAb4M4eR
-	pIh9yh+6QLbajTMVhtjyAQ3NOY0Jf8yHew3NqnOabAA+7DE4997DaaGTvSmu1HDuKEiOXyay0WOes
-	zU9UvLJ4byfHdoj8Th30741xsUyD5taWZ72xxV1Rt9VvLe8WXVHCKsnoIrdPdewluytnUr63wob+W
-	suFCir1Aq5yKlXFL5aLkHnJqpbZl6AjzjxPib+azsEYJ5kL7UhzYBRi6evzzMqPohPG14SiG8mkRE
-	LLifGfaZZjQdD+3wjs3g==;
+	List-Owner; bh=0ROYo+Q6pLZd17TqB81I1uFuG02me096154TQUcYnSs=; b=C/R7dBASBssqPB
+	ZIEZvWIJ1F1mQ90xMh+v+ivI5fjrnrPzAWwG8sd6Lc0CsDkZKaksn/JuwAAgNnhOsM+TzdGRwopSh
+	vloKCB2pC3MVPhRAlHHmzPFGAsEl53Qwf91GK7tgt0C3cIgUdYx3EWOGXk8Gyo2uiSeQGpucXTLnD
+	QZ8AAl9V/O3sSciFtzqE8cJCfdCDrjOPCipeegAWvVLyZsteL6oAceUhq2CEoVOSMrKOlSdxMaUas
+	ISyiVCHcYDfPKoUURJMNEsfN326L6ZR0hjFKxluTxwol1/hlxntiumdFEMDgaoXIwatIgDBoptwdE
+	CQE7kLXUinN5EkGh8JNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJYrn-0000000CLax-3k2V;
-	Wed, 21 Oct 2026 16:08:40 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xJYzT-0000000CODR-3FZE;
+	Wed, 21 Oct 2026 16:16:35 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJYrl-0000000CLZz-0w3b
+	id 1xJYzS-0000000COCf-0S0c
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Oct 2026 16:08:38 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69LFU9Re682672
-	for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 16:08:36 GMT
+	Wed, 21 Oct 2026 16:16:35 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69LG4C9h2149280
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 16:16:33 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	xpcFx5Tgg5MtNBAEwITPf99dESr1dNj5mhlvVGEZ9HE=; b=ppsqazaf3z/Ovnn1
-	SzWOwFC6FBH4fWPIj1FFpw1+MfbxoKTpq3L+dL3Z+e3w7356YZ6RysSOxUSlT+jE
-	QJ63VeLe4fC9YoZU8/wWjZGfXODKSBwllcZGiYbUnENdNs5V4JoZtOO0xT0uHd/I
-	xWphiIy5SHHmhNox7zwzrK2Vqs+UWLy3gU0nXuyduCWSyhwAtJrrWHEuN+VRgTMm
-	hlzoca2KU2LPeFWWVXhGFOSPOe97rBtnG8yGmM71Gq6BNVbN2C1Iwmwrje5lGBva
-	VCVasiUkD3EzsCgdmldMxwRAjdIFHG23zVG5vKxeMRaRrlso7XF2npL2q3GBF2Sc
-	GdYlJQ==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hex7vrrku-1
+	9hWqXEuq9iUvICKJmtCYJXRTGUsjg4czRSsoSn+YADM=; b=i9+3PrHWHdY9KcEx
+	Rkizp5TA6LO3x6JHCBfisbZ0xVIII/InNbBxuEouoj5Gl5TOhuvbQWrw8eL06u4X
+	qiHRcvAhNmVYdbjfFVOwPWC3tQY0bR5kWrXLzQ6N++TpSf/0W4Z9TASh0cWZS0a4
+	Xr9AZ/sJJsXeg1+6ffdBlzPEUJbhqfq/9wHvJh7xsRqxJSeMNgDYFH12igwOZIPc
+	9Ae4kXTrb8SAFEmNoQRNByJbkPWjKBdcjRrRz6EVRgeBw92KcZMZBQC+kZVat+X1
+	ZWlx2gub9lucHtn0mdnHsO852q/e0aPYuMDdx068yiGnUphUu4BvJDEy1BXUn9xg
+	8ukbIQ==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hf0ke01wn-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 16:08:35 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8a0688a43d3so686698b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 09:08:35 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 16:16:33 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cd0e92d64a1so3243a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 09:16:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1792598915; x=1793203715; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1792599393; x=1793204193; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=xpcFx5Tgg5MtNBAEwITPf99dESr1dNj5mhlvVGEZ9HE=;
-        b=Zj+APSthLYvBEQq+FpUBl8LEe58GcixZ8SXmDtPsnSzBmuBbP0Gy+q9BT0M72btEW5
-         GmrrcU+5rISwa6p2LAp0F15gZRavh3cmkYEniyWkgpjqduXb4Pf4tmjEPaSCS1f+Vr3z
-         gs5u3GA03343425IYihj1p5Kfz+DJXXdOMh+g3qA73uZEZJFisGFhq8Kjfb+vJ5coeMz
-         piR1Bm9nFcg3IenQTFO1al28guwy3cvZpQqF+LzhEI4OZnwkeuAbz3fI7FWM1E0Wczw0
-         743i6Li4RZe2A8PMJbThLVzsicHEzL5MfJImmHSiOaKZEIFiowrs8NNgs2uCC2vayzAQ
-         SIUg==
+        bh=9hWqXEuq9iUvICKJmtCYJXRTGUsjg4czRSsoSn+YADM=;
+        b=WZIfvINISfWf6iXUcP0/+L3vNE6ncJQYU2EOPpyGvj6mFax3g/31Dd7/LtdxbGG6k6
+         doy7HxTYRbbSlyrf/9XL8G7w7t7ehXeC6Kp5CXn8yvSzJYb/Hw+nAL+8f2jFJxABGLHO
+         b8XtlQPZlAJXSHmbnVSgTedDpkyJcE2Jms2OVKmmrwFuoX6hCgXmFFS7fXOcdXZHoF6V
+         DRFQe6UzmWavULBFOZkMOcoRKQDt0NYvt/wBgfbfIhFOVruwsgCEQ/4f5A0YMt01H6Yt
+         i1VS6Tya9SWS4/nQqUsACOkOZMi4YOw8S+8GNh62g9OIcKc/8TrMd3KeMi8vFMXsMnao
+         djYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792598915; x=1793203715;
+        d=1e100.net; s=20260707; t=1792599393; x=1793204193;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=xpcFx5Tgg5MtNBAEwITPf99dESr1dNj5mhlvVGEZ9HE=;
-        b=X1+FM2tYIF2WC+TZ/V+bnjEQ69NHCBxB3s3E7gp2ATFbp1jdfPml/m/vcctDB0h26o
-         p19rusRGc9O84MttlLhuZAJdPZIwN/g6G8U6iFy1X4gHZnF8sfcner0sOn8jrecyqUCq
-         UxITxIvKkVuM1lII9eObqnmI34aTa6RfsqwRBvxSKZ7lm0Jj/MdwfaGBIzwoJbTV03Dl
-         8NcxmuuuNUYRR/LV075Og1/EeNX3UqitLePpCYNMgryGBiyq4wBU3rK78NF6ggnvo6vd
-         8EofqXFgDN+DmXWuzVcNqmZx5JxRJUM2cRvs59iUZ9MOUehQsnwDPMULyEKvtSCcQ478
-         jvew==
-X-Forwarded-Encrypted: i=1; AKwUvBzBMMmQaZUQI1cd5adqDCQ/JznaRAxzQlCkHvJ9i1ZU+K7YlG4ftLbQXXBPkBXYimw2fcz3vicf/mEoKw==@lists.infradead.org
-X-Gm-Message-State: AFq9FYI4RtJk7ku2C3wGH+4+LQgWzBYCbNSJTNTIXRtq0Io0cQ9dwQkw
-	84VcKxSbHeSbUM6MlY1rqfqw1AljGQHpxQEO2O01KK4ZpwYUrSzgtimb/Mws6wY8r1H7heUzSX2
-	zklvDO4oi2XL6fotXTKdhbiiygECoYs1c6PV97NqTWCqUOYmFa8ZGwVG90rz6mFyr3bwp32U=
-X-Gm-Gg: AYBFou3G/Zc55MvQ7funVMxs3bU5zqWoZlDiNsSLpxbdgtaUvMpYIyM4v9yILlf3/Ex
-	Gss6ICqhMe7CO403dWTd/uhll7Hiep6WCaREbETAQFzme1S8w0zCeXqLnQVHvMOjGBSAQlxpAN+
-	pj6Ju3baA/RhYFBbAEcAf1UG/Fi5efnob58piTBa3Wpqh5luhFSiBRDs2GbqL6CuTG/V8kMiDKk
-	CU57Q+9RJ+MUj4yx/KonC7IiZSbJXSjG7nsygHsKh8dkwJYQ/eqtz3N5nJ94+OEgfIsV8n5yZJx
-	zU/tSgv4dlsvQXj5fwrpY2wSaKktrbON9Mg8lGA6OEOAD1QLgp0FoLrPISNcLt8URsASlpRRMGV
-	EgXEpvo4C1EwHfoUWFmg3prF0fBVPnpPN5Y/VHv03oQ==
-X-Received: by 2002:a05:6a21:3288:b0:3e2:2b76:bf23 with SMTP id adf61e73a8af0-3e287eda189mr2084262637.68.1792598914769;
-        Wed, 21 Oct 2026 09:08:34 -0700 (PDT)
-X-Received: by 2002:a05:6a21:3288:b0:3e2:2b76:bf23 with SMTP id adf61e73a8af0-3e287eda189mr2084221637.68.1792598914240;
-        Wed, 21 Oct 2026 09:08:34 -0700 (PDT)
+        bh=9hWqXEuq9iUvICKJmtCYJXRTGUsjg4czRSsoSn+YADM=;
+        b=o3acfYl/tfp3N+2gq2UICGgVKziuxTW2GDKyvSP5Z6ezXcKklKGfFJVrAZDce1vPSH
+         R/nwXVrD4PaLXwaC9YAaVaxaAoQ/mDLSbbD3eKY3Nt19CcNz2jsk1Lm3wfv6auK12fS+
+         csg54SfYDbJ5wBBkRGJh6RMRgBpcduK7cfMKMn6PHfZbsQBU4Oih4veSXOkrjTB0xfrH
+         T8WNZ3zLfLC7H1tq38jd8H5vSZsPer1AtFyzfnyFBa/BvOUqRHM1nkXaVSh+G6qfxt7x
+         9MUfg058rmLo8mNywSVp96jc4Xs9Sdqn5+VHcbUyWkfcURBCb1QPlylaO+npfEnmfVVS
+         xEuA==
+X-Forwarded-Encrypted: i=1; AKwUvBxff84Apk+hL7amlxesUS7g92ZDpPw5OUVFq0Kj4w/R5d+HrwEgk8H9TA1wym9VN+0S74UMvx60EtdyJg==@lists.infradead.org
+X-Gm-Message-State: AFq9FYJFzJGJzztGkyckWO3hv2mBqGbuY68B7RaPlJRrx5GLN2afqpuD
+	6LawBoklEroQeTB0SXWjaNvR07RBOUwysHjGP6bl+JrijbRL5H86voPTk7s9x6dM5z4EjKZUUBO
+	fJdWpGpb6KZIH545PjIjp2YgcsrGrrCvKaX1dr8B6KEmPkAe4Mu91S0VzIgvhLT+T9RQL4XXGRt
+	cuHAc=
+X-Gm-Gg: AYBFou2Ap2NrrfNxd/rJA4DGzwkpL/HBu5saxDDsk2PbWGStZZTs4/RbuT/Pz8RVCM4
+	sABsyRUpUfdm2Y4UNP926TnNW3KehJJBwEbiWJRCEJhUoUM485ShH3Q9xQ67//jPP8XlP/kcAfH
+	RDZD4+gUYQTm/oLZ52bpEH40v+RB2O9vMQ4gTpDRTB2nSQappWH3JTaT5GHyD7R4Y/RXKT0ETVA
+	XSdwbIhNHgty5/Wo5bjVmfXKLOuVCOurzl3fphUwfQMFoeDRfUzgwBo70ltX4+H3+wBuW1aH4bw
+	KTjNJQLyKUooAlN+5rif00oHwHxDYIvm0NqqE9qxSwUAgnyrJvhYKnkIZQaSr0nC/km73iJGNXQ
+	/h+xldKjsEqX+u0LdT0htxFDVO5UfWZFLhut7EIf6Vw==
+X-Received: by 2002:a05:6a20:2f98:b0:3e2:6653:149c with SMTP id adf61e73a8af0-3e26fc04d39mr3512937637.10.1792599392787;
+        Wed, 21 Oct 2026 09:16:32 -0700 (PDT)
+X-Received: by 2002:a05:6a20:2f98:b0:3e2:6653:149c with SMTP id adf61e73a8af0-3e26fc04d39mr3512915637.10.1792599392315;
+        Wed, 21 Oct 2026 09:16:32 -0700 (PDT)
 Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cd6b861c7dfsm188964a12.25.2026.10.21.09.08.31
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cd6b84b6b17sm205866a12.13.2026.10.21.09.16.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Oct 2026 09:08:33 -0700 (PDT)
-Date: Wed, 21 Oct 2026 09:08:27 -0700
+        Wed, 21 Oct 2026 09:16:31 -0700 (PDT)
+Date: Wed, 21 Oct 2026 09:16:25 -0700
 From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 To: Jason Gunthorpe <jgg@nvidia.com>
 Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -125,45 +126,47 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
         Sami Tolvanen <samitolvanen@google.com>,
         Song
  Shuai <songshuaishuai@tinylab.org>
-Subject: Re: [PATCH v2 03/15] efi/libstub: Free cmdline_ptr in efi_pe_entry
-Message-ID: <20261021090827.000078b8@oss.qualcomm.com>
-In-Reply-To: <3-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+Subject: Re: [PATCH v2 04/15] efi/libstub: Add a general way to get symbols
+ from the vmlinux into zboot
+Message-ID: <20261021091625.0000515e@oss.qualcomm.com>
+In-Reply-To: <4-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
 References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
-	<3-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+	<4-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
 Organization: Qualcomm
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Proofpoint-ORIG-GUID: fd4g_hfcQfiv4_8VQ_LnEWhZw8JT8fku
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIxMDA2NCBTYWx0ZWRfXxpDcN3zDJG9g
- GJ+WSW2kPbyTyEnfvWs7RrlTKQw/3QSeJ826rlo+OCRqp0N1/mdBJ4dWKSpgCCs8iRE2/NsieZO
- 6gByU5dMYVz46tviE+nzwKtTmgT78Vs=
-X-Proofpoint-GUID: fd4g_hfcQfiv4_8VQ_LnEWhZw8JT8fku
-X-Authority-Analysis: v=2.4 cv=e4uT2qp/ c=1 sm=1 tr=0 ts=6ad8e384 cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=Ikd4Dj_1AAAA:8 a=EUspDBNiAAAA:8 a=gCM90IwNaqpJe8xd-nwA:9 a=CjuIK1q_8ugA:10
- a=zc0IvFSfCIW2DFIPzwfm:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIxMDA2NCBTYWx0ZWRfX0vh9BIQTGoSH
- 8o5+1/w/9I0sa1aR/os9vc7UJ0tcvZNaFZXlaOHMyOQInV61BRuwnJageFd0rqmhr5cyLxvZQiR
- eLpRFI4iHYFsvBmsK5/Id9M1YgbtsLY5x5eNW00NBdYv8HAGg4lW3jMmKYhiha1KeUuliyyfEYL
- 8xj9NcTs8G2AISZt8yEIdnkn0O41g4wDTsOKqhjVc2RjJrCqPHVy3zE6Ioewa6ms/ONqsWIok8s
- iLgAqPgex74Q7OZr5FPaq3bpaU0CCdB0ztGIb9DiZN5MCqmwnI2YduRbJiCiAC+IB0MOZv8kPwr
- b00WmL8V0MFMAJ1RoaXfZCnJDccsokqQlupJgUJ/KeRKyTs+Iz9gqmUTAYp/ujXd3PMpDCikBeb
- KDLuBBuCBz3/v7xrOS6s9bfPfBgB0DIXA0/zxbtbCzqcC8zq7iNmmiOryVg8hTR0B9f6kQVma9m
- r/xgQ+I8qtzX3Itpb6A==
+X-Proofpoint-GUID: OEknKiylM6lS_EhWQ5qrDgNsA0LVfUWe
+X-Proofpoint-ORIG-GUID: OEknKiylM6lS_EhWQ5qrDgNsA0LVfUWe
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIxMDA2MyBTYWx0ZWRfX0z3LVy4wl7x9
+ h9U8oFzN7X9FYUrRLSciMVbdB7RFmOwiQD/16lslA01jHCyKea4heZKmIcFj4dY6AfZO0IDsY7e
+ 3v0MCnykBG5YbA1qr9z22Ny51c2R6Ls=
+X-Authority-Analysis: v=2.4 cv=KOzPn1Fo c=1 sm=1 tr=0 ts=6ad8e561 cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=ah4THgOBrJhmsRMU:21 a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=Ikd4Dj_1AAAA:8 a=_GvItbcUg7J-DuPKX2oA:9 a=CjuIK1q_8ugA:10
+ a=3WC7DwWrALyhR5TkjVHa:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIxMDA2MyBTYWx0ZWRfXw2ilTAZKNPlL
+ 5alsUKhMeRrsoxBktVPYq6dPrRNBB3Et97JTNioEF1R+eUybIyFl6ZNXH9f5Btvg9TxEP3Up7No
+ 4mbFLyQt+l9RUl+Y2CwSTbfA34Obc5S/VbQ9daZDf4eudSqjUfB2GX0gLDZLeCORd4NtAINZ2T8
+ 4J7WtzHRLIzLcz/63SoWrQuh0s8DzRBU/SBDwG37nJ1u6Jn4HpZdq/MLsZQG6TPYf2JZy2JFNGP
+ sromjz8Z/oBhx0l22mTmKO+Da4rgsBmy3SyzZVuYaV0xgGGAtub+cXnd/StlVFqWK2pu9FZNl8u
+ Mj7BBLttVmIewK6GQbdyeTBOUvzTotYG16UAPesz9ADXlnTSS9Ffy4Xd66ejh1WchqTFCBCJWzN
+ 6YgQMyV774kcbwW3GJXiX0H4U/t0X5PS3Jp03wwyHt1kZQTpOC5TaKMsSbr1dWQN7hIiwIwAv2C
+ 1ip0TBHiJlYopHLb61g==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-10-21_04,2026-10-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 spamscore=0 adultscore=0 clxscore=1015
- priorityscore=1501 suspectscore=0 bulkscore=0 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610210064
+ clxscore=1015 spamscore=0 impostorscore=0 suspectscore=0 bulkscore=0
+ lowpriorityscore=0 adultscore=0 priorityscore=1501 malwarescore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
+ definitions=main-2610210063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_090837_419122_C294A7BB 
-X-CRM114-Status: GOOD (  20.16  )
+X-CRM114-CacheID: sfid-20261021_091634_156425_EB9768F5 
+X-CRM114-Status: GOOD (  39.35  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -185,47 +188,114 @@ X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri,  2 Oct 2026 20:31:40 -0300
+On Fri,  2 Oct 2026 20:31:41 -0300
 Jason Gunthorpe <jgg@nvidia.com> wrote:
 
-> Sashiko points out that efi_handle_cmdline() allocates this memory and
-> hands it over to the caller. If efi_pe_entry() ever returns it should be
-> freed. Add a __free annotation.
+> Currently the zboot stub has no access to symbols in the vmlinux. In
+> contrast x86 has a voffsets.h header that allows the stub to know whatever
+> symbols it wants for the decompressed image. ARM DRTM needs another 4
+> symbol locations to work, and it also wants to compile the DRTM libstub
+> code once and have it work in both zboot and embedded.
 > 
-> Fixes: 42c8ea3dca09 ("efi: libstub: Factor out EFI stub entrypoint into separate file")
+> The current solution in arm is "code_size" from commit 45dd403da851
+> ("efi/zboot: arm64: Inject kernel code size symbol into the zboot
+> payload"). This is neat, but it makes the zboot and embedded cases
+> work differently.
+
+Not a real review as linker fun is not my forte.  So just some
+trivial formatting comments.
+
+
+> 
+> The x86 voffsets.h approach is also nice, but it can only work in zboot
+> since it relies on 'nm vmlinux' to extract the locations. That's a
+> circular dependency for the embedded stub.
+> 
+> One idea that meets the requirements is to embed a struct of offsets
+> inside the vmlinux and then have both stubs know its offset from the start
+> of the image.
+> 
+> First, each arch defines what information it wants the stub to have in a
+> struct:
+> 
+>        struct efi_image_info {
+> 	       __le64 code_size;
+>        };
+> 
+> Second, it populates the struct with the linker:
+> 
+>        EFI_IMAGE_INFO(
+> 	       /* code_size */
+> 	       EFI_IMAGE_INFO_OFFSET(__inittext_end)
+>        )
+> 
+> This approach with the linker is guaranteed to emit a value and not a
+> relocation. I looked at writing the struct initializer in C, but that can
+> result in relocations inside the struct. That seemed sketchy so I stuck
+> with a linker script approach.
+> 
+> Finally, any stub code, either in zboot or embedded can access the struct
+> through:
+> 
+>   const struct efi_image_info *efi_get_image_info(unsigned long image_base);
+> 
+> The makefiles arrange that both links have a "u64 __efi_image_info_offset"
+> symbol that contains the value. For vmlinux this links to a symbol created
+> by the EFI_IMAGE_INFO() macro, for zboot it uses the same technique as
+> code_size through the zboot.lds.
+> 
+> Since this needs arch changes, protect it under
+> CONFIG_EFI_STUB_IMAGE_INFO. The arch should define the struct and use the
+
+Odd line wrap as moving the CONFIG up a line is still shorter than some of
+the lines above.
+
+> linker macro before enabling that config.
+> 
+> Since everything is linked together, and the actual location of the struct
+> is not fixed, this is all private within the kernel build and can't become
+> ABI to any bootloader.
+> 
+> As some follow-up work, it seems interesting to standardize on this
+> mechanism and remove the PROVIDE() and voffset.h alternatives. This would
+> also avoid needing to pass sysfb_primary_display through EFI from zboot,
+> for example.
+> 
 > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-Seems sensible. 
 
-If anyone has more time than either of us, I note the efi_handle_cmdline()
-use of __free() should move down to the point of allocation.
-It's only a couple of lines, but none the less...
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-
-> ---
->  drivers/firmware/efi/libstub/efi-stub-entry.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/firmware/efi/libstub/efi-stub-entry.c b/drivers/firmware/efi/libstub/efi-stub-entry.c
-> index aa85e910fe595e..fc1282fb442e71 100644
-> --- a/drivers/firmware/efi/libstub/efi-stub-entry.c
-> +++ b/drivers/firmware/efi/libstub/efi-stub-entry.c
-> @@ -40,7 +40,6 @@ efi_status_t __efiapi efi_pe_entry(efi_handle_t handle,
->  	unsigned long image_addr;
->  	unsigned long image_size = 0;
->  	/* addr/point and size pairs for memory management*/
-> -	char *cmdline_ptr = NULL;
->  	efi_guid_t loaded_image_proto = LOADED_IMAGE_PROTOCOL_GUID;
->  	unsigned long reserve_addr = 0;
->  	unsigned long reserve_size = 0;
-> @@ -63,6 +62,7 @@ efi_status_t __efiapi efi_pe_entry(efi_handle_t handle,
->  		return status;
->  	}
+> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+> index b2988aa12f6645..4dd52ddb148401 100644
+> --- a/include/asm-generic/vmlinux.lds.h
+> +++ b/include/asm-generic/vmlinux.lds.h
+> @@ -83,6 +83,44 @@
+>  #define RO_EXCEPTION_TABLE
+>  #endif
 >  
-> +	char *cmdline_ptr __free(efi_pool) = NULL;
->  	status = efi_handle_cmdline(image, &cmdline_ptr);
->  	if (status != EFI_SUCCESS)
->  		return status;
+> +/*
+> + * Architecture specific information made available to the EFI stub, see
+> + * CONFIG_EFI_STUB_IMAGE_INFO. The architecture describes the data with a
+> + * struct efi_image_info in its asm/image.h and emits the matching bytes here
+> + * through contents, using linker expressions the compiler cannot compute.
+> + *
+> + * Place in the same section as INIT_DATA.
+> + *
+> + * The architecture must also define EFI_IMAGE_INFO_SIZE to sizeof(struct
+> + * efi_image_info), and that definition has to be visible to the linker script
+
+I'd wrap this to have the whole sizeof() on one line line.
+
+> + * before this macro is used. Keeping the two in sync is checked by a
+> + * static_assert() next to the struct and by the ASSERT() below.
+> + *
+> + * The struct's offset from _text is emitted as a u64 at
+> + * __efi_image_info_offset. The architecture aliases this location to
+> + * __efistub_efi_image_info_offset for the embedded stub. The absolute
+> + * _efi_image_info_offset_value contains the offset itself; Makefile.zboot
+> + * extracts it with nm and zboot.lds emits it for the compressed image.
+> + */
+
+>  
 
 
 _______________________________________________
