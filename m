@@ -2,69 +2,148 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 173C0606A31D
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 13:23:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41179606A31F
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 14:07:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=23L4rNZH;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mt3hXrxe
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nPf3yIBl;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=qd+p8nHT
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B2AGElT+WfSmtFfR/J23JN4NHPTHTZr3bp+4WHpWi80=; b=23L4rNZHg0PPTA
-	u/DgR9C/xRabbley93lj5XX9vgbstGQdlN6J6Ldaarb/iLfunJL12svvKpWNhtH80ENFT05/4Ra9/
-	mBK8ByTLoKnAF925FebBaV+c1CzWpeUUFUUp9+UQpvE/byblOAhWaCIzboX46qf9T6tN7e7lNc8ZN
-	Ywh+oESHrFEYWgti1muJFTp2zHoGLd9+GbkpljHeYclforqtBL/wYSiHfsyYF/gvNvvg9S37P+Xvn
-	ARvBG3W/+dwHNHM4RogwJ5ZPWK4x4P9yE1PoPAWfI3p+HyqDIFHD1kIjSD+AkL+4KSqYAzYH3P9u7
-	13S5Y7YAOuCdtFBRSc3g==;
+	List-Owner; bh=lvlxMyWcJjlDD4c67gYie67HnchHgMXovUgRWFknr7E=; b=nPf3yIBlwqtPfa
+	4GDIAeStibeMrYDU5BsmTBv0CBKqgqhhkzhly0I8ZLsDLS+WJMdokhoEbXTNDfBt4Fe+nGn5JUnCn
+	8ZVi92zotFpDsIoia/zSA9tSBQhP1nZ75cA1IotDjRzNn9e0Aittwz31jqhHGNsf/Lc/P9LWaESDR
+	ak6vTwzRSZjTIkheGDR5vysLZ2JrEHERCqynjMfkUtBbUKV+2cjMTlOEcZg6ppj4DJsL+IS3NmwHv
+	FdFMNgcHjl3eB1oJd/J46xsiCSmbvx4mUbXIHwBahAUw8dRm5C8D96oxqxZUqVAu5qPaHIdwAytlj
+	tAsIyz5yA9BHwSl4oQUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJWHh-0000000BteH-03HP;
-	Wed, 21 Oct 2026 13:23:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xJWyF-0000000C36L-1Pst;
+	Wed, 21 Oct 2026 14:07:11 +0000
+Received: from mail-northcentralusazon11010003.outbound.protection.outlook.com ([52.101.193.3] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJWHf-0000000Btdb-2TOp;
-	Wed, 21 Oct 2026 13:23:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 89ACA601F1;
-	Wed, 21 Oct 2026 13:23:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 039AE1F000C4;
-	Wed, 21 Oct 2026 13:23:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792588990;
-	bh=pAAU30bwGvhgKc2fcWmaPUnM+q1nxRImGaxZJ4BonqU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Mt3hXrxeKJoJfLibADZIcsXR7rI+NO9d5jFB7CsWQi7wKkA7Ivi+NuujoLsu6N0Sj
-	 xeAk+R1NrRVYx1sYEncPNYK1tOB4gOmoV/soXvOeMmPj9evSIL4UZE8ME5ru4NQo5h
-	 rdmao/ez90tKUwo3/XUgCH2iLLiz95UkX5/e2YrP1miGaCfo8O/R8cfIYLVig3VVnr
-	 r1iNDVPFLS7bpM7kU7EAqqH+8hkxOiLRbqqi3tb+hZaOnZwWSQEHk7khqjrR4q7t3A
-	 S0lU2etMBYUN25UboD24fjrlEjMmDt+fIwEsaB4T+GmpTzCmxcQVMevggk/I2FaJ6K
-	 4dRr3m+UTBq7A==
-Date: Wed, 21 Oct 2026 08:23:08 -0500
-From: Rob Herring <robh@kernel.org>
-To: Wandun Chen <chenwandun1@gmail.com>
-Cc: baoquan.he@linux.dev, rppt@kernel.org, m.szyprowski@samsung.com,
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
-	chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	saravanak@kernel.org, akpm@linux-foundation.org,
-	pasha.tatashin@soleen.com, pratyush@kernel.org,
-	ruirui.yang@linux.dev, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-mm@kvack.org, iommu@lists.linux.dev
-Subject: Re: [PATCH v9 0/8] kdump: reduce vmcore size and capture time
-Message-ID: <20261021132308.GB3667411-robh@kernel.org>
-References: <20261021083011.2170525-1-chenwandun1@gmail.com>
+	id 1xJWyD-0000000C35l-0XxE;
+	Wed, 21 Oct 2026 14:07:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Iafvj9WSbw/h7QRYNFkcd+Tt7A0WWV7prquV7J5D1h3jyGw50Up2p/KwMe4f0h7eVHQOEH5oMz5Vp6GoU0WMdWjvRrgcid6qkNBrveHDuR6zPhpRAb7a35qSbBEmklQJKzgPwrd4R99bP1frJ/e1eVy9B4SSvKw6rhFTTCg5pPASS/gC1t2RQVtDi8Tk22LuU4xm35GTYUDPef6sbil/IyrQa+seG5Dg1WWcIZTRF5jx+7rTo9vWGJf1NAHjGXehHjbyiojDS/YbZgtWmx9a4LGNX4y7LX3kQ4Vz0229DMOgm8dDGYumwMwplf2whzQIohWDynd+EI0LUmA16Vs/ow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=39CJtJL5DfY4hoi+5T/wlFC1iH8JKF5ceBG68FSqb/k=;
+ b=rAyOTf+RmAb3hcpMvbfH4uoW0vTE7UfySO63xD4Iv2xLhlg54ipmIisd+/wxbzYi0bwhy96IfOag9ejSmBWPKBhQ8f3UagnKQ1Xq+PdDTQsg4cL+WZ7XO792WrUtl1DkJyDegSxI+aIk31Qy0dShnBNQySvGRxZJbovaPsDjXNl95+yji4OwoQviOtDLfoBx8aPJC7S6ijRMIdA/9AFMoc1he9tVCH6hT1ASzS4Ge9i4xuSGgJKENQQofRPUJ6cT7aGIUyZ6+WMV+rU1hFFbKl/tsgybaRv1rQfkC7yKBrdnumz+ROWCCBXOf0UK7ANx4BWlI4qLWnINlYvZCPB35w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=39CJtJL5DfY4hoi+5T/wlFC1iH8JKF5ceBG68FSqb/k=;
+ b=qd+p8nHTZJ5mckTouL/dcXKJ3NbP7HnMbrnglGRI7Yb66esNFh5hdAZqjAvmfWyiChkgHxg+kHdrEhjXY8tRFTuTCO1+u4lVpbZtIagAzTVzieGh5y2vx0/vy4uiuiJeWT63oyRcb3Pf3yHwO2n1LbDRbQ7pugZwEBB13YcaogCf3ee673ALW2g+sFQijZhO6LDqUe7q7NbZ1EkAOmeykiSDaIi1jziGUNeYrc4KrXf58kB7kHJZvus+rJZfbV902p+k5q8v3sFyVCwOtZ8+E+mdkInJ89vwIaEBokSSdnR9pZQ7IieYSoc7Oc4zoNMo4xZYpD2T7jidHzzETq/IFQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by DS0PR12MB9423.namprd12.prod.outlook.com
+ (2603:10b6:8:192::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Wed, 21 Oct
+ 2026 14:06:53 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
+ 14:06:53 +0000
+Date: Wed, 21 Oct 2026 11:06:49 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Simon Glass <sjg@chromium.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+	linux-integrity@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
+	Piotr =?utf-8?B?S3LDs2w=?= <piotr.krol@3mdeb.com>,
+	Ross Philipson <ross.philipson@gmail.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Song Shuai <songshuaishuai@tinylab.org>
+Subject: Re: [PATCH v2 15/15] efi/arm64: Implement ARM64 DRTM in the stub
+Message-ID: <20261021140649.GO3008132@nvidia.com>
+References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+ <15-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+ <athzBHFwyp0bFEu9@e129823.arm.com>
+Content-Disposition: inline
+In-Reply-To: <athzBHFwyp0bFEu9@e129823.arm.com>
+X-ClientProxiedBy: BN9PR03CA0784.namprd03.prod.outlook.com
+ (2603:10b6:408:13f::9) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261021083011.2170525-1-chenwandun1@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|DS0PR12MB9423:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1c806215-cc1c-4385-944e-08df2f7c8ed9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|366016|22082099003|18002099003|10067099003|3023799007|4143699003|11063799006|261009223027099003|56012099006;
+X-Microsoft-Antispam-Message-Info: nQdqlFq3wT9Rke74fGJ8+jEEMldgASC2kkokJnfhtrL+weCt71+WZbdkTMvcou3yodZvWa3nuTld5JPSd68NOCk8fmfmutZjXqEyHi2lcpU8fncLG5rK0o+RBZ4jF5ZvRUkpCsCQN8/DLIooKy8hWfVZhpNSyMEgElBJx0HKNAdO8hcxGKt1HW2SB+QQXNcDDjGv6PIghrQnRChZtUMzzIyjcLu8BtmIGuwK33Ur6726sSKimwXOScIgCs+uWG0Ne96q9OXVBnfppZ2lD+xvB+8SN6ZpAC9EqI86JEByIxTWxmR6AkBzZj/oBTV2o+Fp24kn3uwtgf3fNBRQInSPIHsiKH9/5YzeK+ioTba8PzvDNsKSoMZjgZ9FdGaJdJzZriVH6ux9P/jeLGYfE0kqb01T7fu7T85nolUv9EHVslUk/4/VCYfIfSbgwtYfLwTWJte4UWRFRkmrmMmImY5oBrpXeHwStCT8vjsJlc3cUXjDkwlQp6wlRCiql9xyCo3LkENaX2TAanGUtC3sHxakuyRkMQ+Dieauoh59dkncEHxorqoX3qDomEUNdPziB41QlnRwpn8op6aQqodyzHGkX7amgweiqMxPtRJTjTf0mwkdRt0nlKFIPaBJiQZPH6RG6qZZn6BhEE80MSOL5RYWVobIHH09SSdFhR6lP/zt6eI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(366016)(22082099003)(18002099003)(10067099003)(3023799007)(4143699003)(11063799006)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?S9b4dE682NgMTZDCFx2hxEWqFMWDSe1r6PjgcnDsLIN5i+SzEHSA08zRn7Q6?=
+ =?us-ascii?Q?DSW1A2pW7NGVkFM+knxN/VxENJOA9LAy30X/05Am5mf7ooRne257rXIHog4G?=
+ =?us-ascii?Q?mXOef2Nwr37KLMbaAlapXJeTf0e0VebO1MfYK6RnRVYsHmYIZhjDlmvsf8N3?=
+ =?us-ascii?Q?IT6WXsjWPqqspWqz9UbXx0wJYf6vHHJTAN75da7Q5iHYsqJfPgFsxcsBsJFq?=
+ =?us-ascii?Q?z/QQDsZ9ilhUzwJi9FA0vSxZXplgyXo4prbYLuoNBtWwXJz92f+fMcEqc8/p?=
+ =?us-ascii?Q?bgYLKwEHgmd49NyIrz8nc4BR22RW/VP1PX2yWKr+sVuBiqztjDNiV1fcIqlh?=
+ =?us-ascii?Q?QPT/obfSixhk5FfTMuLwBzzCSDOKACbPPsg97iJbWs+8CIZShaqIBK358NVX?=
+ =?us-ascii?Q?OvPliJGihWr1HY2VO12OERC5IFtTXGffjrtVPrqr2Jaj+a1UDfSvaAVLcv+5?=
+ =?us-ascii?Q?5Af6myg1Y7+fMmMKu/TnOj0JsiS8BpqI0OzsfYwzrJ2yoAyty4ypjB5JOgPn?=
+ =?us-ascii?Q?Y03hj4KeuUsmgtJzA+Ty9C07Aoq6Iuw5XHRUPMuhf5WHGRRb6JyPPPXU4MIm?=
+ =?us-ascii?Q?ejZcnxAdWrdDnhCrC14rK9ekyupXeCSXTnwUoTBzr4bNaIcLq2mAyCzm3HOr?=
+ =?us-ascii?Q?RXObP35C6aIMsnUx+493YV/yNrBCmNlmiqezZ4Hr5BCaeQfZK+hTqbGfgK4F?=
+ =?us-ascii?Q?LO/28mxQg6fsskKQ2owjyGFmazLqziu/rvSrjqOv1v1nCLTCo2TuKA/8OAgT?=
+ =?us-ascii?Q?2c1ZgTxJdYgj9saPnTjpn4CkJ2/qQHzXIuK4RZQ787wJhH4ETRv4w2DQBxpS?=
+ =?us-ascii?Q?aImsvo1yQDdsj/N/2yfP4W3uCkz7EXgLmPdB6F6H0/CCxQmAD7UDwFx0uUVd?=
+ =?us-ascii?Q?bxWmbKowAJuM+t4ZmcozyW4d9mXf983t9T1lLlUl7XVzahhrhKoA1/YWjA/W?=
+ =?us-ascii?Q?p+SHHxuUW5LWu1mbBTm+TdX7TOi9xvHr+BMmRsFNLazsFbk+/jpq7CN48xuB?=
+ =?us-ascii?Q?ShK98f+yVG4k8SbvLjiUMDDR6Ab1ELKIVDo61m93jaOwlnV5Sx5oI1AGiMT3?=
+ =?us-ascii?Q?eQSpNNOsAthnAdQq0K/gzCW95eeKYKSvTBqPEOV6nqnqWeo12yFV6iyJBlpd?=
+ =?us-ascii?Q?UwExKB5M6ruNj9NKnpo/scZ0+xMMKuBLjX760ziPyMMhFePXzUJu2/lKsNLe?=
+ =?us-ascii?Q?mhozuIGV6kUIAhKRFbZG7RSD5lYOFXpWwIJhFM3kxIBRfp8+ecV0LP1a6ixO?=
+ =?us-ascii?Q?u+nDyOv/rcm5JeGn5ny8fsfADSywrr07A8pI1UtfmOrE4AAZMbkcqFIUZeHl?=
+ =?us-ascii?Q?jHbVi2w0p64gQZEIp/WuayryhIiSjQQC1pC4SuB3oG0utv+XmmIyxWTIpKSY?=
+ =?us-ascii?Q?FoOnKdhwUPQzyeArd6cB4l2IW0uCLCwM85qs4jgN64X0i70iJeQ6sk7s4woe?=
+ =?us-ascii?Q?PK+nfzST5HCtbyunkbw8EybJQmQlStIr+LxCflAvMzrzf18e4udrnvmOPWUJ?=
+ =?us-ascii?Q?x6myfAgPWQIkNbEaOxU1knuyz9CRcRwmAGnhll8MHG4NPju+aTbRlE36Ofca?=
+ =?us-ascii?Q?pHddFoX72YchQZEBB84dPLW9Fr3DvBjjQy8YLZwCg9wh7sFSEBx6vBjXj0h/?=
+ =?us-ascii?Q?71baJw8Sr5yrNONQAxRF7TzJjd3gL2Mn3m3AgliFZDecDSxj7JIhv2IWrtSS?=
+ =?us-ascii?Q?mCL63uezjebYRT4VWfB6amd7IGGmTkf+P7XHfvrrrqaREmwN?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1c806215-cc1c-4385-944e-08df2f7c8ed9
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 14:06:53.0133
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: g1sH71SE+XgGoRDuuTBD5awM1dJmp9+bRBzmSy2mtQtQgaqLfLfs3yIvUIeEGe48
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB9423
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261021_070709_192369_660FBD17 
+X-CRM114-Status: GOOD (  11.62  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +163,40 @@ X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 04:30:03PM +0800, Wandun Chen wrote:
-> From: Wandun Chen <chenwandun@lixiang.com>
+On Wed, Oct 21, 2026 at 09:08:36AM +0100, Yeoreum Yun wrote:
+> > +	image_size = le64_to_cpu(header->image_size);
+> > +	measured_offset = info->drtm_measured_start;
+> > +	measured_size = info->dlme_measured_size;
+> > +	entry = info->drtm_entry;
+> > +	dlme_start = image_base + image_size;
+> > +	dlme_end = dlme_start + drtm_cfg.dlme_data_size;
+> > +	dce_end = dlme_end + drtm_cfg.nw_dce_size;
 > 
-> On SoCs that carve out large firmware-owned reserved memory (GPU,
-> camera ISP, ...), kdump currently dumps those carveouts as part of
-> system RAM even though their contents are firmware state that is not
-> useful for kernel crash analysis.
-> 
-> ACPI systems already filter reserved memory out of the vmcore through
-> their existing path: firmware reports those carveouts as unusable in
-> the EFI memory map, they get MEMBLOCK_NOMAP set in memblock.memory
-> (is_usable_memory(), efi-init.c), and the ELF header builder has
-> always skipped nomap regions; only DT-based systems currently fail
-> to filter these regions, which is what this series addresses.
-> 
-> This series introduces a MEMBLOCK_NODUMP flag (suggested by Rob) in
-> memblock to filter reserved memory on DT-based architectures. A new
-> flag is needed because MEMBLOCK_NOMAP can only express regions without
-> a linear mapping, while MEMBLOCK_NODUMP can filter regions that are
-> linearly mapped. Reserved regions are marked MEMBLOCK_NODUMP by default
-> so kdump omits them; reusable CMA regions are different because their
-> pages are handed back to the buddy allocator and may carry crash-relevant
-> data.
+> Suppose user boot the kernel via decompressed Image which is the
+> part of artifact of compressed image and use the drtm option (e.g.
+> booting via UEFI shell with decompressed Image).
 
-There is little point in continuing to send new versions until Mike 
-agrees with MEMBLOCK_NODUMP being added. You didn't answer him on v7.
+Yep, it works fine:
 
-Also, I intend to apply this[1] before any further reserved memory 
-changes which will greatly simplify the code.
+EFI stub: DRTM: interface version 1.4
+EFI stub: DEBUG: DRTM: TPM algorithm 0xc, TPM hashing unavailable, PCR schemas 0x1
+EFI stub: DEBUG: DRTM: minimum DLME data 73728 bytes, Normal-world DCE 0 bytes
+EFI stub: Booting Linux Kernel...
+EFI stub: Generating empty DTB
+EFI stub: Exiting boot services...
+EFI stub: DEBUG: DRTM: will launch, selected launch features 0x0
 
-Rob
+Notice there is no "Decompressing Linux Kernel"
 
-[1] https://lore.kernel.org/all/20261015082315.56876-1-m.szyprowski@samsung.com/
+> Since the drtm extra memory is allocated only in efi_zboot_entry(),
+> I think the drtm extra memory wouldn't be allocated so it would corrupt
+> memory while setting the laucn parameter or by DRTM...
+
+Patch "efi/libstub: Have efi_kaslr_relocate_kernel() handle
+extra_size" handles the Image case.
+
+Thanks,
+Jason
 
 _______________________________________________
 linux-riscv mailing list
