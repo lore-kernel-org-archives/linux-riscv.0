@@ -2,73 +2,110 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57819606A319
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 07:20:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80711606A31C
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 07:52:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nDllUVAF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MozxxMHp;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=R7E1fYqW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
-	Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wNopnZNrY2uVJzLUT8UrRiGU9H8ejKJbxQUAojROM6w=; b=nDllUVAF8GUpJd
-	tJpP6TKj+MzA85306TmmPvwEhA+Yq5iM4Ip+BJjOT+ZZQkOAk7to4bDxqktgbgUO59mAGtaX56ht2
-	xD78jQaakVA+ZeOu4rs73YkqP3+cle5qGEGf5oJOnXSlTPgRLuMPF6eetn27KU9SpFVGLSUhSWap8
-	QAzKPg/aFi7FXw4XJR3o4VQqyt96EmuWwhFo6aoDYFQQPKvBUriYAFuOJqMuZCIufsMeMZDuI1IKN
-	vlf+NUkNivtju3hzIJ0wBzzL6cQTW+ZyFC45t/wKT/gI5l09tMZHrvesLLx5gE6+K9TJtKxGh0BhE
-	I5u3IZY0Uefb95znGRHQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BKehDCjtAd6ENV3EgeKbzAAiOOM7BmzhzozLtlgmq5g=; b=MozxxMHpyPxS63
+	8TD7wslExVOZ9ZTAQtNYVBIWT3NwH+dnvHxLj67nSonZQqJh68XMRliJZyBzTqbsyMXKgH1alw8GA
+	ICAJkVl+gYfYwPFiVVT3RR48VQO3dW+pqdzcgX6/I3HAYSta8bupVquoxYjbvCCjBB0QkvQm/QCwe
+	+wNN/2aRJDiwAk0FeS7BkJonDcLfJqbkGf9d1ESzBr7KKdtLkohUCTSSLmF1bfN1gqQhl+DRZPiv/
+	AYQxOWhMukG7DlH2oufprRj66AB0BiVL6Ksk1zWTb0NJz+ed2icLOqy5wgtw60O+fZmrQPY/XJIyS
+	EJ31ge07CR4FQIqghxKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJQcn-0000000BFBf-3OQ6;
-	Wed, 21 Oct 2026 07:20:37 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.35])
+	id 1xJR7F-0000000BH78-05qG;
+	Wed, 21 Oct 2026 07:52:05 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJQck-0000000BFAs-1Yey;
-	Wed, 21 Oct 2026 07:20:36 +0000
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4j8gff3HJ5z8Xrrj;
-	Wed, 21 Oct 2026 15:20:26 +0800 (CST)
-Received: (from root@localhost)
-	by mse-fl1.zte.com.cn id 69L7KOCC052507;
-	Wed, 21 Oct 2026 15:20:24 +0800 (+08)
-	(envelope-from ye.zhihao1@zte.com.cn)
-Message-Id: <202610210720.69L7KOCC052507@mse-fl1.zte.com.cn>
-Received: from szxlzmapp03.zte.com.cn ([10.5.231.207])
-	by mse-fl2.zte.com.cn with SMTP id 69L6EsS0078942;
-	Wed, 21 Oct 2026 14:14:54 +0800 (+08)
-	(envelope-from ye.zhihao1@zte.com.cn)
-Received: from mapi (szxlzmapp01[null])
-	by mapi (Zmail) with MAPI id mid12;
-	Wed, 21 Oct 2026 14:14:56 +0800 (CST)
-X-Zmail-TransId: 2b036ad8586016c-6674b
-X-Mailer: Zmail v1.0
-Date: Wed, 21 Oct 2026 14:14:56 +0800 (CST)
+	id 1xJR7C-0000000BH6n-3YqF
+	for linux-riscv@lists.infradead.org;
+	Wed, 21 Oct 2026 07:52:04 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-8a070755c8cso199583b3a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 00:52:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792569122; x=1793173922; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=wqrxv5Q2RTtnjt7+05qzteet1T1PNZiaTDIMGMTA4x4=;
+        b=R7E1fYqWHIJSYZY2J7kSjQHc/j633X0iwC2x+yvBlxk7G0/rEA2iJX/0B9FM1GYd1p
+         jzXtjxmqhpbi0T6EYmcx67JmV6ZdNGrWfKyYuy1P4cfyigpwj5HVnaPVfBBYFLWIgoSR
+         VeZc6Sckd/dnImhNo3DaRZSV4NpiAnUAiJ0HsQfSI8+nPo8mAEZhShe3H7lfwB87KUc4
+         0uJ7pOB+h8lVRGeiuIYOqOhEsg5SY5X/smfPnsPlyPvoLER9NjKcbwG1UQEkDmbBFK20
+         Jc+XPfEeNtvC9biigL8x3ZSlMJjZw+SjbU2F7SQfYBvtVz3xK1JUVu8d9hs3lWRk2MuC
+         YsQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792569122; x=1793173922;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wqrxv5Q2RTtnjt7+05qzteet1T1PNZiaTDIMGMTA4x4=;
+        b=V9G4SEETnN89A/XIi0Rl2xfirFL2K5ZnHYCNTgFueEAcgzsyZEa6ckB70AnahSo16H
+         KVz3u36q1FH512A4ZxRL1VysTdzP4MT15DSSMfMfW3XGv0z7oAFYQPhkVqYAdDtZ4Do5
+         wsN8uHprcgp8o/BUIlQJwM0+2s2M7MaekEwAbPYMXlprQHNqq4bDpjepj7eg7/dyCd4z
+         Jqu0APta12Yy6TrcuRV19uw/SISXkVPvtzhXOXCp1lMfSNrgL6NZpE3NZM4tYgmyuTAk
+         pKqmSZQFRv4yF2xtSwE/smHam6CH2YhyARCJJjXhMv5cRoGt0zyALoL6S0kKZy907TRA
+         /wAA==
+X-Forwarded-Encrypted: i=1; AKwUvByxafqtmyMpf58eeV3YVETHHz5NLt/HGfeq1sGjMeInvXCDoedAwjLKklXDPcYn6wMiHmncOxXDX+f2vA==@lists.infradead.org
+X-Gm-Message-State: AFq9FYLriYodzsKUgE3fhd4SpeHcQBNyQ4aABdwZQkkqSs2T6I2k33bZ
+	5xAbmwxDbkb7euQDh7fEdZxVN+FaNWcAM7rjmI91ycqYkbNZ2UBfeHFy
+X-Gm-Gg: AYBFou2f7JmC0ah1GTfsm8TXTA1sFipsA7whpNHXac5jO4CejGbcAwB9ggm2yVtY2Tj
+	ecF62Eo5ttvYijxZtYDdAbYpNUP/NcBfj6W4tu6T06VbsL5BskN7aRm/WVqe4Z/WEgz4U/jraev
+	U9eH8YYjQo7A8EOmf3G6+uE6IlvehWyfvEYaQVV7OLUkn9y7CRj+yKZIi+OepT1YlUtfADpvdEa
+	QHqY544Be22iI96IRXotls/lBMEw/Rs7W3h5HT9Vf7Jmb5Ws92slINMYJr4Nm2bMh0wp1DoQlht
+	DXV+LKZHW+3WYBphEUOSD4VHXyk69B7Emr1r0b7Q/mPTiIOCfa8kmzQq6FSsfukS2TqWXCchFmt
+	KYedFiuiCdJDoptJa5VqgoJ/obv8HqIjmlR5RdteyyutceKS/CLKk/ozc9zc9Iyx0qZl88oaMJg
+	DTbzT26vzYMbsPEUpHrDifoUpCgBUlwpoWhLMflEu6qMzIuR0xl1MF+Q0wtOlbWTht0OeeqdDCD
+	8ZlMi82ulYK+8PMNfIvj5GY8Ol/TDRFa8pKe1t0sU78Obg4erjhMA==
+X-Received: by 2002:a05:6a00:a90b:b0:89e:a122:fa28 with SMTP id d2e1a72fcca58-8a089e1f48dmr1074589b3a.12.1792569121569;
+        Wed, 21 Oct 2026 00:52:01 -0700 (PDT)
+Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8a0895fb005sm548529b3a.49.2026.10.21.00.52.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Oct 2026 00:52:01 -0700 (PDT)
+Date: Wed, 21 Oct 2026 15:51:20 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Bjorn Helgaas <helgaas@kernel.org>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Jingoo Han <jingoohan1@gmail.com>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Frank Li <Frank.Li@nxp.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Niklas Cassel <cassel@kernel.org>, Christian Bruel <christian.bruel@foss.st.com>, 
+	Senchuan Zhang <zhangsenchuan@eswincomputing.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Randolph Lin <randolph@andestech.com>, Xincheng Zhang <zhangxincheng@ultrarisc.com>, 
+	Alex Elder <elder@riscstar.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Vidya Sagar <vidyas@nvidia.com>, Pengpeng Hou <pengpeng@iscas.ac.cn>, 
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, 
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>, Gustavo Pimentel <gustavo.pimentel@synopsys.com>, 
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>, 
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v7 1/6] PCI: spacemit-k1: Add device data support
+Message-ID: <athuYJjPMkrecGm3@inochi.infowork>
+References: <20260929083755.458238-2-inochiama@gmail.com>
+ <20261019164108.GA2177470@bhelgaas>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-From: <ye.zhihao1@zte.com.cn>
-To: <atishp04@gmail.com>
-Cc: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <kvm-riscv@lists.infradead.org>, <kvm@vger.kernel.org>,
-        <linux-doc@vger.kernel.org>, <linux-perf-users@vger.kernel.org>,
-        <linux-riscv@lists.infradead.org>
-Subject: =?UTF-8?B?UmU6IFtQQVRDSCB2MiAwOC8xMV0gUklTQy1WOiBLVk06IERpc2FibGUgYWxsIGhwbWNvdW50ZXIgYWNjZXNzIGZvciBWUy9WVSBtb2Rl?=
-X-MAIL: mse-fl1.zte.com.cn 69L7KOCC052507
-X-MSS: AUDITRELEASE@mse-fl1.zte.com.cn
-X-TLS: YES
-X-ENVELOPE-SENDER: ye.zhihao1@zte.com.cn
-X-SOURCE-IP: 10.5.228.132 unknown Wed, 21 Oct 2026 15:20:26 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6AD867BA.000/4j8gff3HJ5z8Xrrj
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20261019164108.GA2177470@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_002034_573722_B51D0702 
-X-CRM114-Status: UNSURE (   7.93  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.9 (/)
+X-CRM114-CacheID: sfid-20261021_005202_896206_4744D918 
+X-CRM114-Status: GOOD (  25.73  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,41 +115,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,
-	UNPARSEABLE_RELAY autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-UXVlc3Rpb25zIG9uIEtWTSBQTVUgQ291bnRlciBOdW1iZXJpbmcsIEhjb3VudGVyZW4gU2V0dGlu
-ZywgYW5kIE1pZ3JhdGlvbi9Db25mbGljdCBIYW5kbGluZwoKRGVhciBBdGlzaCBQYXRyYSwKCkhp
-77yMCgpJIG5vdGljZWQgeW91ciByZWxldmFudCBwYXRjaGVzIGFuZCBjb21tZW50cyByZWdhcmRp
-bmcgdGhlIEtWTSBtb2R1bGUgaW4geW91ciB2aXJ0dWFsaXphdGlvbiB3b3JrLiBEdXJpbmcgbXkg
-dmlydHVhbGl6YXRpb24gdmFsaWRhdGlvbiwgSSBoYXZlIHRoZSBmb2xsb3dpbmcgcXVlc3Rpb25z
-OgoKSSBmb3VuZCB0aGF0IHRoZSBoYXJkd2FyZSBjb3VudGVyIG51bWJlcnMgYWN0dWFsbHkgdXNl
-ZCBvbiB0aGUgaG9zdCBhcmUgaW5jb25zaXN0ZW50IHdpdGggdGhlIHZpcnR1YWxpemVkIG51bWJl
-cnMgcmV0dXJuZWQgYWZ0ZXIgS1ZNIGVtdWxhdGlvbi4gSXMgdGhpcyBiZWNhdXNlIHlvdSB3YW50
-IHRvIGVuc3VyZSB0aGF0IHRoZSBWTSBjYW4gd29yayBwcm9wZXJseSBpbiBtaWdyYXRpb24gc2Nl
-bmFyaW9zIGFuZCBhdm9pZCB0aGUgY29uZmxpY3Qgc2NlbmFyaW8gd2hlcmUgdGhlIGhvc3QgYW5k
-IGd1ZXN0IGNvdW50IHNpbXVsdGFuZW91c2x5IG9uIHRoZSBzYW1lIENQVSBhbmQgc2hhcmUgdGhl
-IHNhbWUgaGFyZHdhcmUgY291bnRlcj8gQWxzbywgd2h5IGFyZSBhbGwgdmlydHVhbGl6ZWQgZXZl
-bnRzIGRpc2d1aXNlZCBhcyBzYW1wbGluZyBldmVudHM/IElzIGl0IGJlY2F1c2UgU0JJIFBNVSBk
-b2VzIG5vdCBzdXBwb3J0IHRoZSBwYXNzaW5nIG9mIHRoaXMgZmxhZywgc28gS1ZNIGNhbm5vdCBk
-aXN0aW5ndWlzaCBiZXR3ZWVuIHN0YXQgYW5kIHJlY29yZCBldmVudHM/CgpJbiBhZGRpdGlvbiwg
-SSBub3RpY2VkIHRoYXQgaW4geW91ciBtYWluLmMsIEhjb3VudGVyZW4gaXMgc2V0IHRvIDB4MDIu
-IElzIHRoaXMgYWxzbyBiZWNhdXNlIHRoZXJlIGlzIG5vIGNvcnJlbGF0aW9uIGJldHdlZW4gdGhl
-IGxvZ2ljYWwgaGFyZHdhcmUgY291bnRlcnMgYW5kIHRoZSB2aXJ0dWFsIGNvdW50ZXJzPyBIYXZl
-IHlvdSBjb25zaWRlcmVkIGVuYWJsaW5nIEhjb3VudGVyZW4gdG8gcmVkdWNlIHRoZSBvdmVyaGVh
-ZCBjYXVzZWQgYnkgQ1NSIHRyYXBzPyBJbiBLVk0sIGlzIGl0IG1hbmRhdG9yeSB0byBtb2RpZnkg
-dGhlIGxvZ2ljYWwgaGFyZHdhcmUgY291bnRlciBudW1iZXJzIGFuZCB0aGUgdmlydHVhbCBjb3Vu
-dGVyIG51bWJlcnMgc28gdGhhdCB0aGV5IG1hdGNoIGFuZCBhcmUgY29uc2lzdGVudCwgYW5kIHdv
-dWxkIGl0IGJlIG5lY2Vzc2FyeSB0byByZWNvbnNpZGVyIGhvdyB0byBzb2x2ZSB0aGUgbWlncmF0
-aW9uIGFuZCBjb25mbGljdCBpc3N1ZXMgZW5jb3VudGVyZWQgaW4gdGhlIHByZXZpb3VzIHNjZW5h
-cmlvcz8KCkJlc3QgcmVnYXJkcywKWkhJSEFPIFlFCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Mon, Oct 19, 2026 at 11:41:08AM -0500, Bjorn Helgaas wrote:
+> On Tue, Sep 29, 2026 at 04:37:47PM +0800, Inochi Amaoto wrote:
+> > To reuse the K1 PCIe driver logic for K3 PCIe controller, add device
+> > data to handle the K1 specific logic and make room for the incoming
+> > logic for K3.
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > ---
+> >  drivers/pci/controller/dwc/pcie-spacemit-k1.c | 30 ++++++++++++++++---
+> >  1 file changed, 26 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> > index 0564c46e2f48..ab2953ad8f56 100644
+> > --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> > +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> > @@ -45,8 +45,17 @@
+> >  #define PCIE_CONTROL_LOGIC			0x0004
+> >  #define PCIE_SOFT_RESET			BIT(0)
+> >  
+> > +struct k1_pcie;
+> > +
+> > +struct k1_pcie_device_data {
+> > +	const struct dw_pcie_host_ops *host_ops;
+> > +	const struct dw_pcie_ops *ops;
+> > +	int (*parse_port)(struct k1_pcie *k1);
+> > +};
+> 
+> Does the "const" here add anything useful?  This patch suggests maybe
+> not:
+> 
+>   https://lore.kernel.org/all/20260911233541.1650895-2-james.quinlan@broadcom.com/
+> 
+
+I am not sure whether the compiler can make use it.
+And I have not seen any explaination for why no reason
+for that. It is good to have a clarification.
+
+Regards,
+Inochi
+
+
+> > +
+> >  struct k1_pcie {
+> >  	struct dw_pcie pci;
+> > +	const struct k1_pcie_device_data *data;
+> >  	struct phy *phy;
+> >  	void __iomem *link;
+> >  	struct regmap *pmu;	/* Errors ignored; MMIO-backed regmap */
+> > @@ -274,14 +283,21 @@ static int k1_pcie_parse_port(struct k1_pcie *k1)
+> >  
+> >  static int k1_pcie_probe(struct platform_device *pdev)
+> >  {
+> > +	const struct k1_pcie_device_data *data;
+> >  	struct device *dev = &pdev->dev;
+> >  	struct k1_pcie *k1;
+> >  	int ret;
+> >  
+> > +	data = device_get_match_data(dev);
+> > +	if (!data)
+> > +		return -ENODATA;
+> > +
+> >  	k1 = devm_kzalloc(dev, sizeof(*k1), GFP_KERNEL);
+> >  	if (!k1)
+> >  		return -ENOMEM;
+> >  
+> > +	k1->data = data;
+> > +
+> >  	k1->pmu = syscon_regmap_lookup_by_phandle_args(dev_of_node(dev),
+> >  						       SYSCON_APMU, 1,
+> >  						       &k1->pmu_off);
+> > @@ -295,11 +311,11 @@ static int k1_pcie_probe(struct platform_device *pdev)
+> >  				     "failed to map \"link\" registers\n");
+> >  
+> >  	k1->pci.dev = dev;
+> > -	k1->pci.ops = &k1_pcie_ops;
+> > +	k1->pci.ops = data->ops;
+> >  	k1->pci.pp.num_vectors = MAX_MSI_IRQS;
+> >  	dw_pcie_cap_set(&k1->pci, REQ_RES);
+> >  
+> > -	k1->pci.pp.ops = &k1_pcie_host_ops;
+> > +	k1->pci.pp.ops = data->host_ops;
+> >  
+> >  	/* Hold the PHY in reset until we start the link */
+> >  	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CLK_RESET_CONTROL,
+> > @@ -316,7 +332,7 @@ static int k1_pcie_probe(struct platform_device *pdev)
+> >  
+> >  	platform_set_drvdata(pdev, k1);
+> >  
+> > -	ret = k1_pcie_parse_port(k1);
+> > +	ret = data->parse_port(k1);
+> >  	if (ret)
+> >  		return dev_err_probe(dev, ret, "failed to parse root port\n");
+> >  
+> > @@ -334,8 +350,14 @@ static void k1_pcie_remove(struct platform_device *pdev)
+> >  	dw_pcie_host_deinit(&k1->pci.pp);
+> >  }
+> >  
+> > +static const struct k1_pcie_device_data k1_pcie_device_data = {
+> > +	.host_ops	= &k1_pcie_host_ops,
+> > +	.ops		= &k1_pcie_ops,
+> > +	.parse_port	= k1_pcie_parse_port,
+> > +};
+> > +
+> >  static const struct of_device_id k1_pcie_of_match_table[] = {
+> > -	{ .compatible = "spacemit,k1-pcie", },
+> > +	{ .compatible = "spacemit,k1-pcie", .data = &k1_pcie_device_data },
+> >  	{ }
+> >  };
+> >  MODULE_DEVICE_TABLE(of, k1_pcie_of_match_table);
+> > -- 
+> > 2.55.0
+> > 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
