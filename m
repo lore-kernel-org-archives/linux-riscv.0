@@ -2,84 +2,170 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DCFA606A31D
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 14:18:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48009606A31F
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 16:00:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=M1LUtYmS;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=GSL4SX2q
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZlYd0C7w;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fwgbev1Y;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Z6j/D7BT
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z+S1JjWJ09mD63xrglfF106weeLLSh+MaOq93skAmTE=; b=M1LUtYmSONBUc1
-	eTK3ldgq4BLwN+xOUWuVl+TEIj7v2ULDskDCay4hKizdZHC/nqWfkoYYnrmD7FJ4brm3cacF60Nw0
-	pqonzJQnGgMtH8ewkc5dzN4/T+PP6ZL0Uy7uUIjaR6pg8+U6CI6MJoDjrCqr/owAcuuEzV+5f+XoP
-	f1PmsMUo2dsPTTrTIBlXB3Pwww11LVgIxVyOO1q8xJ9XEp+/WsfLc2SWVt3PEN4SINQHWRAnAgCUQ
-	BWpCFh3snL6C0GcgcEwiEyp9lG1OO1lcLYzcjOUNKnEEGusb+5g4XGMMW4gnuOztW9RM+d9xQKtcB
-	DpJ1yrZzZfzywHXmaGlg==;
+	List-Owner; bh=H8iOy3sSLn6l3MuFgGbTfU6R2qj2gf6VqRJ+Y1NIn9U=; b=ZlYd0C7waOkx9D
+	gNEE8pKmSpiWm4x3MaOaduLybaveg3Ob9Do8Rbgv2guUTjAMDUR8uEd2ffOI05Jfa1ugMXITWiewK
+	S8U6JDpqAjKCKhvpgnguKARbyEiAGwarYhA7MYHgdw1IEi+97aBDC5w15qGmyJl+OQvTANBrHcDvb
+	bDpvVuY1cjPIa7kboqY6tTpwWf3c4w4yCsgEpkPtUexIvLW/G8H69rqh1x64BldWAE6vrQzzGRwBZ
+	3wKlJJ4Y37Vq/AAinUMRnytXQ5J+m7jLWeKEgwAyEfuzCehnKwv7RG1jw6xKc2Zladcmp8qFDBS5k
+	2cY2y3es1+Ozd1qFZK8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJX8o-0000000C4UF-3e5E;
-	Wed, 21 Oct 2026 14:18:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJX8m-0000000C4TV-2NIW;
-	Wed, 21 Oct 2026 14:18:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6D04116F8;
-	Wed, 21 Oct 2026 07:17:59 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A87AC3F7D8;
-	Wed, 21 Oct 2026 07:17:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792592282; bh=35GT5enIgjR3G0mGLGcskElDVX2rz4mcaIAbm4cF2TQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GSL4SX2qf4CN5QXvB+wvj8b0xDfdgXdSaWJenkWv2OXP6uHcg2mMSaUEenfCanmqw
-	 waL3JQZHkksN2EplpGp9cTP9K2BYk/qHOT/mNylNJEhugn51c9sqozipMSVMbXJNVU
-	 WD/XpwXx8b5tuTFXHOJje2t23dUHt2NZNquBmofc=
-Date: Wed, 21 Oct 2026 15:17:56 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
+	id 1xJYjx-0000000CKOF-0Hwr;
+	Wed, 21 Oct 2026 16:00:33 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJYjv-0000000CKN8-0nBR
+	for linux-riscv@lists.infradead.org;
+	Wed, 21 Oct 2026 16:00:32 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69LFUECQ1482651
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 16:00:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ZCSVqnmCg2tgiS2qJzUGfrVmwaXnekD3uvjwV9akWpI=; b=fwgbev1Y755yo0Wk
+	UtrQff0d+SDedqVBkyUwA25GdbsQr1gedtRARzdBI/EmAOe0XsQToYsDxG3dcNo7
+	WzxSgYac/ZGOsmY8agUmPRwldZjLtqwf49ThqvX1StCK7jmI7HXPKz+sOHF/9RsX
+	d2pytN0NJDGCo1MhMPxlfFPfca6UKvw74dPxLEl0uCzKdYPb+HZyLX3GECv4+38B
+	1RGJ0zWdQGHzDf3e0b63brnwjxFoTAwfwuugTBfdk1u7TM1ZeuovSwyIH11w2+ZW
+	SdnPxbpBiqOcHpBXKX9x9UDSHSBDxYFiyv72OFxlygXqyI/101YubsytU9S9Gndm
+	8d/hEg==
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hegs0426b-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 16:00:29 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3580c07911eso2444031eec.0
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 09:00:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1792598427; x=1793203227; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=ZCSVqnmCg2tgiS2qJzUGfrVmwaXnekD3uvjwV9akWpI=;
+        b=Z6j/D7BTEywM0gbXqyOcL1SW3ztE3dy1IXfAg4Z3ap531WSFqinjFH+LY4rnsPj/Eq
+         FIubBxy1GmdkUO0+Z5OI4nqpdp97J9oR/VITlSqyzACAzvdPGl4jEP0UqCP2PqychcdF
+         k3kwhZd2Yzv6m0mWbIBPLuMYqe94FBpX2rBs+Y8ltdEASJ2yLtAuynGGg4Y/o9ZOxC9b
+         pvzpjCpX4MsV8EiY68T2USlkviyEJ7RyVvG/qZt53MhxhAWyWFk9YME7g2esRr8qLL2t
+         iRc+LRpPTIunPpjKtEROlXCZfxG9wqxh/KCgDjMXy64P7cuYwFh+uCCw5TWGqoe9iUOa
+         nzFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792598427; x=1793203227;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZCSVqnmCg2tgiS2qJzUGfrVmwaXnekD3uvjwV9akWpI=;
+        b=JLVo0u7Q7QsZ8zeNOmx6cU5jddcLWVd8gJdiEtjd182cbj3De7+7KsDyKWo2iMoyxl
+         KgVTwZ9i8A/JNSQjiXz6b4WM0AeEYWvaI+BEBqS2G6xCjMPxv0lzv4z5EJ/J9XC4swCt
+         ORDoS6y5VpGm4AaFsEg1rmr+tYImG1QQK9YkiM2+ZG9pYEQmb/GjsWBI6amblnd0XFdo
+         ls2ItraRudxRQPn5A5rUiH5EVxiT7WfYXi4xsLWsRQvcVZAjsIH70LGGb8UPFMiahi9A
+         SWiMl/CvEQ8wVpyBf+VHXhEU8GBHhg/XQrKqte7JahDEjeRPj9SmapJ0C4Z3ufGPDHpo
+         47Jw==
+X-Forwarded-Encrypted: i=1; AKwUvBzJ1hrqyhrwD0ae2gIkUE1ba8ubUBCxk9b3dMOMD18NhgvP62tmFNEK5RnwuA33unq88KOUpHadlo0mZw==@lists.infradead.org
+X-Gm-Message-State: AFq9FYJMJSUibK0J888kcMvAEdVfeKLB2JxKItNVvGG1BrPSLZH6qCD3
+	5vimjw8lJSuFKhSJ2CCiNDiRaDR+NOPtyJRufMLmZhyrkEJ5s8PWdR1c6VaZqz86WxtPfj7FQA7
+	g8T8Z52fRxc7JZSwaABv5KWBkxegqIvHkmAPOuPTR3gl0HzLRdvuoUia/OeJYyXvX9OyPdMw=
+X-Gm-Gg: AYBFou0MBm8FTijm2Q6PQjG7ibTsVomeGbFLNXuHfDILEDF6rlgAS1Fc9GVJG2peNSy
+	MPwKNQgCNtEFpEzEqC/sRnuC/O19INZgU2XJPUpaZwNQ/d/J8GkVzQwCXc8Rr0TzB4i7emmFd0N
+	olLojgszwJDdpTvCNdhsTLQLYp0fTYMOmeL6/d7yTE+LnwEVbybsG+B9ug1CKN9JDJ6uFwJpMee
+	vj2vNbjxHVRgWVeF96WCsATbIJbHaO5GruqyMJ8JgU71XBX6sRVz2aid67rVKbr7Z7p6HFZ4+Wt
+	oZBmGt1RuGtD5atwtKJsEkLk05tOBdMry/cVUl4/ZYSCwC1PnIuhagbMohggkTM+64bKqbXpB5S
+	PRbLaNeITY7Ydc2oTAr21cgW2Pen0gaqTh9R/RV6bdQ==
+X-Received: by 2002:a05:7300:106:b0:35d:d9a9:e455 with SMTP id 5a478bee46e88-3674ef292b9mr4299669eec.21.1792598427205;
+        Wed, 21 Oct 2026 09:00:27 -0700 (PDT)
+X-Received: by 2002:a05:7300:106:b0:35d:d9a9:e455 with SMTP id 5a478bee46e88-3674ef292b9mr4299533eec.21.1792598425455;
+        Wed, 21 Oct 2026 09:00:25 -0700 (PDT)
+Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-367405ed2absm10188327eec.5.2026.10.21.09.00.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Oct 2026 09:00:24 -0700 (PDT)
+Date: Wed, 21 Oct 2026 09:00:19 -0700
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Simon Glass <sjg@chromium.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	linux-integrity@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
-	Piotr =?iso-8859-1?Q?Kr=F3l?= <piotr.krol@3mdeb.com>,
-	Ross Philipson <ross.philipson@gmail.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Song Shuai <songshuaishuai@tinylab.org>
-Subject: Re: [PATCH v2 15/15] efi/arm64: Implement ARM64 DRTM in the stub
-Message-ID: <atjJlBqysQmVVwI2@e129823.arm.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+        Ard
+ Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin
+ Marinas <catalin.marinas@arm.com>,
+        Jonathan Corbet <corbet@lwn.net>, David
+ Sterba <dsterba@suse.com>,
+        Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
+        linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+        Randy
+ Dunlap <rdunlap@infradead.org>, Simon Glass <sjg@chromium.org>,
+        Shuah Khan
+ <skhan@linuxfoundation.org>,
+        Nick Terrell <terrelln@fb.com>, Will Deacon
+ <will@kernel.org>,
+        Alexandre Ghiti <alexghiti@rivosinc.com>,
+        Conor Dooley
+ <conor.dooley@microchip.com>,
+        linux-integrity@vger.kernel.org, Palmer
+ Dabbelt <palmer@rivosinc.com>,
+        patches@lists.linux.dev,
+        Piotr
+ =?ISO-8859-1?Q?Kr=F3l?= <piotr.krol@3mdeb.com>,
+        Ross Philipson
+ <ross.philipson@gmail.com>,
+        Sami Tolvanen <samitolvanen@google.com>,
+        Song
+ Shuai <songshuaishuai@tinylab.org>
+Subject: Re: [PATCH v2 02/15] efi/riscv: libstub: Don't set image_size in
+ handle_kernel_image()
+Message-ID: <20261021090019.000060c4@oss.qualcomm.com>
+In-Reply-To: <2-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
 References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
- <15-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
- <athzBHFwyp0bFEu9@e129823.arm.com>
- <20261021140649.GO3008132@nvidia.com>
+	<2-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+Organization: Qualcomm
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261021140649.GO3008132@nvidia.com>
+X-Authority-Analysis: v=2.4 cv=S/NMU4sP c=1 sm=1 tr=0 ts=6ad8e19d cx=c_pps
+ a=cFYjgdjTJScbgFmBucgdfQ==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=Ikd4Dj_1AAAA:8 a=xbFV6RGmdEKkzbgyJ_QA:9 a=CjuIK1q_8ugA:10
+ a=scEy_gLbYbu1JhEsrz4S:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIxMDA2MyBTYWx0ZWRfX0XXKapBkmTse
+ kpoT7U1ukdq/8s6wpce64JAodqTU8GUE2OAVVWqbD3LpUIb13k3NqVY52QveNHGjtYkpurQLri9
+ sClj35uT1eydKIAVpNNn27Uf0SWVwog2q3Yz99mJio88cUhvdA6hDQxrAA5w3Xcqrel86Ibu8cj
+ s2J7xYchP5VxyJJeewZp7E4Oyg3jG0Uyefs0GbeR/bQcM82QmgysVjJHuSunbf1hg2akDPmKwaD
+ AGI3Ojwck28eBQcExaKxAosKiu6m/LddmEEuQBZPLlGanON8TcxoE9A0YNZ7zxF0UJ9uTQmeu2n
+ +OJ0mVEThLY4k+VCzSXFFCEEKRn326IbVjcFcNwz4pIOg36ybnTD71Q18o5xJroTt7oiTWx0zpy
+ LlQIrkCBoG6eQoMsHU8q1zofYyDbKFRseIVssrVOQuPoL7UxDunSoKx3FZ9GeOzY1gUkaAQYa4b
+ 7cw72WVbBQ28gMj9XHQ==
+X-Proofpoint-ORIG-GUID: 7wfLW7NON9vngSiX2T-PW8YFP6Hg_K3x
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIxMDA2MyBTYWx0ZWRfX4VKtmCQBQgSO
+ R4gZBNvO7F0l//OhLY7RFaE51+IfW8q2n7mbKZuZsYwAAypgYRKbGiIDqh8W/U3ZqjfKc8vxBax
+ OOtxccwRs1q//CLBNG5+zAwrr+SWZAk=
+X-Proofpoint-GUID: 7wfLW7NON9vngSiX2T-PW8YFP6Hg_K3x
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-21_04,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 clxscore=1015 priorityscore=1501 spamscore=0 bulkscore=0
+ lowpriorityscore=0 malwarescore=0 phishscore=0 impostorscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610210063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_071804_693398_9EF9967B 
-X-CRM114-Status: GOOD (  15.89  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261021_090031_346622_D9E6B226 
+X-CRM114-Status: GOOD (  22.73  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,51 +178,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_2 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 11:06:49AM -0300, Jason Gunthorpe wrote:
-> On Wed, Oct 21, 2026 at 09:08:36AM +0100, Yeoreum Yun wrote:
-> > > +	image_size = le64_to_cpu(header->image_size);
-> > > +	measured_offset = info->drtm_measured_start;
-> > > +	measured_size = info->dlme_measured_size;
-> > > +	entry = info->drtm_entry;
-> > > +	dlme_start = image_base + image_size;
-> > > +	dlme_end = dlme_start + drtm_cfg.dlme_data_size;
-> > > +	dce_end = dlme_end + drtm_cfg.nw_dce_size;
-> > 
-> > Suppose user boot the kernel via decompressed Image which is the
-> > part of artifact of compressed image and use the drtm option (e.g.
-> > booting via UEFI shell with decompressed Image).
-> 
-> Yep, it works fine:
-> 
-> EFI stub: DRTM: interface version 1.4
-> EFI stub: DEBUG: DRTM: TPM algorithm 0xc, TPM hashing unavailable, PCR schemas 0x1
-> EFI stub: DEBUG: DRTM: minimum DLME data 73728 bytes, Normal-world DCE 0 bytes
-> EFI stub: Booting Linux Kernel...
-> EFI stub: Generating empty DTB
-> EFI stub: Exiting boot services...
-> EFI stub: DEBUG: DRTM: will launch, selected launch features 0x0
-> 
-> Notice there is no "Decompressing Linux Kernel"
-> 
-> > Since the drtm extra memory is allocated only in efi_zboot_entry(),
-> > I think the drtm extra memory wouldn't be allocated so it would corrupt
-> > memory while setting the laucn parameter or by DRTM...
-> 
-> Patch "efi/libstub: Have efi_kaslr_relocate_kernel() handle
-> extra_size" handles the Image case.
+On Fri,  2 Oct 2026 20:31:39 -0300
+Jason Gunthorpe <jgg@nvidia.com> wrote:
 
-Thanks. I think i misread that patch. :)
+> Sashiko points out the image_size should only be set if image_addr was
+> reassigned to some allocated memory. If image_size is not zero then the
+> caller will free the image_addr pointer.
+> 
+> efi_kaslr_relocate_kernel() never works like that, if it changes
+> image_addr to allocated memory the free is done through reserve_size.
+> 
+> Fixes: b7ac4b8ee73d ("riscv: libstub: Implement KASLR by using generic functions")
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 
--- 
-Sincerely,
-Yeoreum Yun
+Hi Jason,
+
+This made me curious on the differences across architectures...
+Looks like there is perhaps some room to make them look more similar at least!
+One small step below.
+
+> ---
+>  drivers/firmware/efi/libstub/riscv-stub.c | 7 ++-----
+>  1 file changed, 2 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/firmware/efi/libstub/riscv-stub.c b/drivers/firmware/efi/libstub/riscv-stub.c
+> index e7d9204baee312..725b634c517919 100644
+> --- a/drivers/firmware/efi/libstub/riscv-stub.c
+> +++ b/drivers/firmware/efi/libstub/riscv-stub.c
+> @@ -37,17 +37,14 @@ efi_status_t handle_kernel_image(unsigned long *image_addr,
+>  	kernel_codesize = __init_text_end - _start;
+>  	kernel_memsize = kernel_size + (_end - _edata);
+>  	*image_addr = (unsigned long)_start;
+> -	*image_size = kernel_memsize;
+> -	*reserve_size = *image_size;
+> +	*reserve_size = kernel_memsize;
+>  
+>  	status = efi_kaslr_relocate_kernel(image_addr,
+>  					   reserve_addr, reserve_size,
+>  					   kernel_size, kernel_codesize, kernel_memsize,
+>  					   efi_kaslr_get_phys_seed(image_handle));
+> -	if (status != EFI_SUCCESS) {
+> +	if (status != EFI_SUCCESS)
+>  		efi_err("Failed to relocate kernel\n");
+
+This print is replicated at the caller, so can drop this as well I think.
+
+> -		*image_size = 0;
+> -	}
+>  
+>  	return status;
+>  }
+
 
 _______________________________________________
 linux-riscv mailing list
