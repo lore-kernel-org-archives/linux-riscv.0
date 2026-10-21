@@ -2,44 +2,47 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07C73606A319
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55B94606A31A
 	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 05:41:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tJyGnx83
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ta52wDj+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JghPCAHyL+uKYNwCB8XFKC7PKuohMjryt5Hu06RwICE=; b=tJyGnx833aip1z
-	IiwSZt8yzQ/7KUWox+K+rRR4Z/Q1zDvk0WwkDSSLJw9VXeYuCxRFk1v1b9Yyk2kY8OTkKlKn07cUz
-	5GEuUOZLcgOCL+R5gTpAHpZ8KJaNPtkC36l1rHTc9yusHuZC3qQPQKajr2v06lRY/pyWsXBlcwYox
-	KWcDl6arUYvFYMvaPkEgiadTkr3fPql+BKue2ue1mMOJdB5vsFuXfqvLnfg0ChTho2yAapmnnQ22H
-	8ONcP/HnVmUhfAXrGMr58y4/u3wp3gOm3SZMR2GXjneaop7n+j5BaL6bB1ndwjW4M/GSSE7Bxz8ZL
-	/+ghfFUJGyrYOToUq5cQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=70XsBHp0nzNHuqLVh+/gpMJlg1AxxLB9PFEXmf9SSGM=; b=Ta52wDj+TWI8oK
+	F7k8e/i+yVo9tz+bpuTqENZ1BVRDeh6apcPJEM9bRY9cSl3GmNvgW+fsXXHVebg+Cy10Ple5tbX1M
+	aKVYkISwKxw6YO/U/lTFkU5GKKFGWlr0uyP8HaWqm/2DCz/0BjegaSKPhRus+jltKUv7TyHZD6Xm4
+	JFfTgQQVQhb+oL+WUGby3++Pk/ys//aw9vFhCRJp+e3jLtvaQQpv2DCNwmKMVenuNxZpTpx/d0oEc
+	xaIXeK450pYRkYbvol7yWwQ9f4MYy1W/GsRHtM+ebAgeWCKrdmRhgOP07VrrOZpgPp5YusN9iCjH/
+	O0wJpaDKeWp0fhH3Gavw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJP4p-0000000B6p7-3kA6;
-	Wed, 21 Oct 2026 05:41:27 +0000
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net ([162.243.164.118])
+	id 1xJP4s-0000000B6pq-0TKU;
+	Wed, 21 Oct 2026 05:41:30 +0000
+Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net ([162.243.161.220])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJP4j-0000000B6o1-1nnm;
+	id 1xJP4j-0000000B6o2-39r9;
 	Wed, 21 Oct 2026 05:41:26 +0000
 Received: from zju.edu.cn (unknown [10.162.163.215])
-	by mtasvr (Coremail) with SMTP id _____wCncwhfUNhqA3msAQ--.12017S3;
-	Wed, 21 Oct 2026 13:40:47 +0800 (CST)
+	by mtasvr (Coremail) with SMTP id _____wC3UOReUNhqAXmsAQ--.16635S3;
+	Wed, 21 Oct 2026 13:40:46 +0800 (CST)
 Received: from lutetium.localdomain (unknown [10.162.163.215])
-	by mail-app4 (Coremail) with UTF8SMTPA id zi_KCgBXJ5xeUNhqcCJmAA--.33421S3;
+	by mail-app4 (Coremail) with UTF8SMTPA id zi_KCgBXJ5xeUNhqcCJmAA--.33421S2;
 	Wed, 21 Oct 2026 13:40:46 +0800 (CST)
 From: tangyazhou@zju.edu.cn
-Date: Wed, 21 Oct 2026 13:40:35 +0800
-Subject: [PATCH bpf-next v2 1/8] bpf: Add UHMUL and SHMUL instructions
+Subject: [PATCH bpf-next v2 0/8] bpf: Add UHMUL and SHMUL instructions
+Date: Wed, 21 Oct 2026 13:40:34 +0800
+Message-Id: <20261021-bpf-hmul-v2-0-88e260099f7d@outlook.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261021-bpf-hmul-v2-1-88e260099f7d@outlook.com>
-References: <20261021-bpf-hmul-v2-0-88e260099f7d@outlook.com>
-In-Reply-To: <20261021-bpf-hmul-v2-0-88e260099f7d@outlook.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWOyQ6CMBRFf4W8tSV9FQFd+R+GBcPDlmghHQhD+
+ HdbXN7cc4cdLBlFFh7JDoZmZdWogxCXBFpZ6zcx1QUNgoscuUDWTD2TX/9hGe+oyQW/3rISAj4
+ Z6tVyVr0gUpoWB9Xfsb4ZqHWxKbJSWTea9Vyd8UzEAX7HgmdYoEixzHkhBEPmwou13uTon9vgU
+ +p82mqojuP4AetZVp29AAAA
+X-Change-ID: 20261021-bpf-hmul-40deb6203548
 To: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
  Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
  Eduard Zingerman <eddyz87@gmail.com>, 
@@ -72,17 +75,17 @@ Cc: John Fastabend <john.fastabend@gmail.com>,
  Shenghao Yuan <shenghaoyuan0928@163.com>, 
  Alexei Starovoitov <ast@kernel.org>
 X-Mailer: b4 0.15.2
-X-CM-TRANSID: zi_KCgBXJ5xeUNhqcCJmAA--.33421S3
-X-CM-SenderInfo: qssvjiasrsq6lmxovvfxof0/1tbiBgALCmrXxB0b0QABso
-X-CM-DELIVERINFO: =?B?DvblwAXKKxbFmtjJiESix3B1w3vD7IpoGYuur0o+r46DyAi5OfOO+T4vrW4FyUBIyu
-	9q9Nte+2zWzrdkvaZkVwVQI+FIRDKY/0eZO65g+lHlVXAEMxseE/p1uqb2G0oDaGRkKRvj
-	en1rIj0bnrIH+DqfznhIXCWny1l/Jp05GaoLbDgTgOIH0duDS2HkSSDi5B6Ubw==
-X-Coremail-Antispam: 1Uk129KBj93XoW3ZrWUZw43Zr48uF4UtFWfXrc_yoWkGw43pF
-	4vy34rtFZ2qrW5u3s7J39FkF1rCa1rWr4UGry7W348AF9rtas5tF4vqr4YqF9xJrWkWayY
-	qr9I9ryUu3yUZ3gCm3ZEXasCq-sJn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7KY7ZEXa
+X-CM-TRANSID: zi_KCgBXJ5xeUNhqcCJmAA--.33421S2
+X-CM-SenderInfo: qssvjiasrsq6lmxovvfxof0/1tbiBgALCmrXxB0b0QAAsp
+X-CM-DELIVERINFO: =?B?PkyhEgXKKxbFmtjJiESix3B1w3vD7IpoGYuur0o+r46DyAi5OfOO+T4vrW4FyUBIyu
+	9q9Nte+2zWzrdkvaZkVwVQI+GRiybpQic3i2BEeUHGie+C93CiqEVoxiU6Y2X07Xr/HRvj
+	en1rIj0bnrIH+DqfznhIXCWny1l/Jp05GaoLbDgTu32AZZBC8J+1WBlzaiJF2g==
+X-Coremail-Antispam: 1Uk129KBj93XoW3AF1ktFyrJFykCFy5AFW3CFX_yoWxJrWDpF
+	4DGr9xGFZ2gFy0vws7Za9ruFy5Xa1rCr43GrykJ3yUJas0qrykXr4Sgw15Z3s8tF1jg3WF
+	vryj9rnY934kZagCm3ZEXasCq-sJn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7KY7ZEXa
 	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
 	0xBIdaVrnRJUUUBKb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r106r15M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
 	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
 	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
 	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI0UMc
@@ -93,10 +96,10 @@ X-Coremail-Antispam: 1Uk129KBj93XoW3ZrWUZw43Zr48uF4UtFWfXrc_yoWkGw43pF
 	8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI48J
 	MIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJw
 	CI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2
-	z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8_R67UUUUU==
+	z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8vksDUUUUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_224121_621511_2ED42263 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20261020_224121_926058_2D7B0526 
+X-CRM114-Status: GOOD (  12.92  )
 X-Spam-Score: -2.6 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,329 +110,130 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-22.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Tianci Cao <ziye@zju.edu.cn>
-
-Define UHMUL and SHMUL as BPF_ALU64 BPF_MUL variants selected by insn->off.
-UHMUL returns the high 64 bits of an unsigned 64-by-64-bit product, while
-SHMUL returns the high 64 bits of a signed product. Keep off == 0 as the
-existing low-half multiplication, and assign off == 1 and off == 2 to
-UHMUL and SHMUL, respectively.
-
-These operations are inspired by the UHMUL and SHMUL instructions introduced
-as part of the PQR instruction class in sBPF (Solana's BPF variant)[1].
-
-The encoding and immediate semantics differ from current sBPF.
-
-1. sBPF assigns these operations dedicated opcodes in the BPF_PQR class,
-   whereas this implementation selects them through the offset field of BPF_MUL.
-
-2. sBPF initially sign-extended the immediate operand of UHMUL, but later
-   changed unsigned PQR immediates, including UHMUL, to be zero-extended[2].
-   This was an ISA design choice to treat immediates of explicitly unsigned
-   operations as unsigned 32-bit values[3].
-
-   Linux instead follows the existing BPF_ALU64 immediate convention.
-   Both immediate forms first sign-extend the 32-bit immediate to 64 bits.
-   UHMUL then interprets the resulting bit pattern as unsigned, while
-   SHMUL interprets it as signed.
-
-Add portable helpers for both operations, using mul_u64_u64_shr() and a
-signed correction instead of relying on a compiler-provided 128-bit
-integer type. Add interpreter support and disassemble UHMUL and SHMUL
-as uh*= and sh*=, respectively. Keep BPF_ALU multiplication restricted
-to the existing low-half variant.
-
-Document the encoding and semantics in the BPF instruction set.
-Introduce a new divmul64v2 conformance group that includes divmul64 plus
-UHMUL and SHMUL. Keep divmul64 unchanged so existing implementations
-remain conformant without supporting the new instructions.
-
-[1] https://github.com/solana-labs/rbpf/pull/498
-[2] https://github.com/solana-labs/rbpf/pull/642
-[3] https://lore.kernel.org/bpf/59e754a2-6158-485c-93b9-6f60d9f57528@zju.edu.cn/
-
-Link: https://lore.kernel.org/bpf/CAADnVQ+2O2zgdy11+vxE6dOp+3Br4zZBysHF-Hne7cP+eeucnQ@mail.gmail.com/
-Suggested-by: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Signed-off-by: Tianci Cao <ziye@zju.edu.cn>
-Co-developed-by: Yazhou Tang <tangyazhou518@outlook.com>
-Signed-off-by: Yazhou Tang <tangyazhou518@outlook.com>
-Co-developed-by: Shenghao Yuan <shenghaoyuan0928@163.com>
-Signed-off-by: Shenghao Yuan <shenghaoyuan0928@163.com>
----
- .../bpf/standardization/instruction-set.rst        | 37 +++++++++++++++----
- include/linux/filter.h                             | 38 ++++++++++++++++++++
- include/uapi/linux/bpf.h                           |  6 ++++
- kernel/bpf/core.c                                  | 41 +++++++++++++++++++++-
- kernel/bpf/disasm.c                                | 18 ++++++++++
- tools/include/uapi/linux/bpf.h                     |  6 ++++
- 6 files changed, 138 insertions(+), 8 deletions(-)
-
-diff --git a/Documentation/bpf/standardization/instruction-set.rst b/Documentation/bpf/standardization/instruction-set.rst
-index 39c74611752b..6f3cb6bcaa1a 100644
---- a/Documentation/bpf/standardization/instruction-set.rst
-+++ b/Documentation/bpf/standardization/instruction-set.rst
-@@ -142,8 +142,9 @@ This document defines the following conformance groups:
- * atomic32: includes 32-bit atomic operation instructions (see `Atomic operations`_).
- * atomic64: includes atomic32, plus 64-bit atomic operation instructions.
- * divmul32: includes 32-bit division, multiplication, and modulo instructions.
--* divmul64: includes divmul32, plus 64-bit division, multiplication,
-+* divmul64: includes divmul32, plus 64-bit division, low-half multiplication,
-   and modulo instructions.
-+* divmul64v2: includes divmul64, plus high-half multiplication instructions.
- * packet: deprecated packet access instructions.
- 
- Instruction encoding
-@@ -330,6 +331,8 @@ register.
-   ADD    0x0    0        dst += src
-   SUB    0x1    0        dst -= src
-   MUL    0x2    0        dst \*= src
-+  UHMUL  0x2    1        ``dst uh*= src`` (unsigned high half, ``ALU64`` only)
-+  SHMUL  0x2    2        ``dst sh*= src`` (signed high half, ``ALU64`` only)
-   DIV    0x3    0        dst = (src != 0) ? (dst / src) : 0
-   SDIV   0x3    1        dst = (src == 0) ? 0 : ((src == -1 && dst == LLONG_MIN) ? LLONG_MIN : (dst s/ src))
-   OR     0x4    0        dst \|= src
-@@ -379,13 +382,33 @@ where '(u32)' indicates that the upper 32 bits are zeroed.
- 
-   dst = dst ^ imm
- 
--Note that most arithmetic instructions have 'offset' set to 0. Only three instructions
--(``SDIV``, ``SMOD``, ``MOVSX``) have a non-zero 'offset'.
-+Note that most arithmetic instructions have 'offset' set to 0. The following
-+instructions may have a non-zero 'offset':
-+
-+* ``SDIV`` and ``SMOD``: ``offset == 1`` selects the signed variant.
-+* ``MOVSX``: ``offset`` selects the source operand width.
-+* ``MUL``: ``offset`` selects the multiplication variant (see below).
-+
-+Division, low-half multiplication (``MUL`` with ``offset == 0``), and
-+modulo operations for ``ALU`` are part of the "divmul32" conformance
-+group, and their ``ALU64`` variants are part of the "divmul64"
-+conformance group.
-+
-+For ``ALU64`` multiplication, ``offset == 1`` selects unsigned
-+high-half multiplication (``UHMUL``), and ``offset == 2`` selects
-+signed high-half multiplication (``SHMUL``). Both instructions belong
-+to the "divmul64v2" conformance group.
-+
-+For ``X`` mode, ``src64`` is the 64-bit value in ``src_reg``. For
-+``K`` mode, ``src64`` is ``imm`` sign-extended from 32 to 64 bits.
-+The operations are::
-+
-+  UHMUL: dst = (u64)(((u128)dst * (u128)(u64)src64) >> 64)
-+  SHMUL: dst = (u64)(((s128)(s64)dst * (s128)(s64)src64) >> 64)
-+
-+For ``ALU`` multiplication, only ``offset == 0`` is valid. For ``ALU64``
-+multiplication, offset values other than 0, 1, and 2 are reserved.
- 
--Division, multiplication, and modulo operations for ``ALU`` are part
--of the "divmul32" conformance group, and division, multiplication, and
--modulo operations for ``ALU64`` are part of the "divmul64" conformance
--group.
- The division and modulo operations support both unsigned and signed flavors.
- 
- For unsigned operations (``DIV`` and ``MOD``), for ``ALU``,
-diff --git a/include/linux/filter.h b/include/linux/filter.h
-index e0218e677a1d..fa8a1d18691d 100644
---- a/include/linux/filter.h
-+++ b/include/linux/filter.h
-@@ -23,6 +23,7 @@
- #include <linux/sockptr.h>
- #include <linux/static_call.h>
- #include <linux/u64_stats_sync.h>
-+#include <linux/math64.h>
- 
- #include <net/sch_generic.h>
- 
-@@ -152,6 +153,43 @@ struct ctl_table_header;
- #define BPF_ALU32_IMM(OP, DST, IMM)				\
- 	BPF_ALU32_IMM_OFF(OP, DST, IMM, 0)
- 
-+static inline u64 bpf_uhmul64(u64 a, u64 b)
-+{
-+	return mul_u64_u64_shr(a, b, 64);
-+}
-+
-+static inline u64 bpf_shmul64(s64 a, s64 b)
-+{
-+	u64 ua = a, ub = b;
-+	u64 hi = bpf_uhmul64(ua, ub);
-+
-+	/*
-+	 * Let M = 2^64, sa = (a < 0), and sb = (b < 0). Then:
-+	 *
-+	 * a * b = (ua - sa * M) * (ub - sb * M)
-+	 *       = ua * ub - sa * M * ub - sb * M * ua + sa * sb * M^2
-+	 *
-+	 * Therefore, signed_hi = unsigned_hi - sa * ub - sb * ua (mod M).
-+	 */
-+	if (a < 0)
-+		hi -= ub;
-+	if (b < 0)
-+		hi -= ua;
-+	return hi;
-+}
-+
-+static inline bool bpf_is_hmul_variant(s16 off)
-+{
-+	return off == BPF_UHMUL || off == BPF_SHMUL;
-+}
-+
-+static inline bool bpf_insn_is_hmul(const struct bpf_insn *insn)
-+{
-+	return BPF_CLASS(insn->code) == BPF_ALU64 &&
-+	       BPF_OP(insn->code) == BPF_MUL &&
-+	       bpf_is_hmul_variant(insn->off);
-+}
-+
- /* Endianess conversion, cpu_to_{l,b}e(), {l,b}e_to_cpu() */
- 
- #define BPF_ENDIAN(TYPE, DST, LEN)				\
-diff --git a/include/uapi/linux/bpf.h b/include/uapi/linux/bpf.h
-index f29b0aad440c..90c30e5d790b 100644
---- a/include/uapi/linux/bpf.h
-+++ b/include/uapi/linux/bpf.h
-@@ -34,6 +34,12 @@
- #define BPF_FROM_LE	BPF_TO_LE
- #define BPF_FROM_BE	BPF_TO_BE
- 
-+/* BPF_MUL off values for high-half multiplication; BPF_ALU64 only. */
-+enum bpf_mul_variant {
-+	BPF_UHMUL = 1,
-+	BPF_SHMUL = 2,
-+};
-+
- /* jmp encodings */
- #define BPF_JNE		0x50	/* jump != */
- #define BPF_JLT		0xa0	/* LT is unsigned, '<' */
-diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-index 3030beb531d9..f4f8cfa80033 100644
---- a/kernel/bpf/core.c
-+++ b/kernel/bpf/core.c
-@@ -1943,7 +1943,46 @@ static u64 ___bpf_prog_run(u64 *regs, const struct bpf_insn *insn)
- 	ALU(AND,  &)
- 	ALU(OR,   |)
- 	ALU(XOR,  ^)
--	ALU(MUL,  *)
-+	/*
-+	 * MUL needs explicit handlers because ALU64 insn->off selects
-+	 * low-half, unsigned high-half, or signed high-half multiplication.
-+	 */
-+	ALU64_MUL_X:
-+		switch (OFF) {
-+		case 0:
-+			DST = DST * SRC;
-+			break;
-+		case BPF_UHMUL:
-+			DST = bpf_uhmul64(DST, SRC);
-+			break;
-+		case BPF_SHMUL:
-+			DST = bpf_shmul64((s64)DST, (s64)SRC);
-+			break;
-+		default:
-+			goto default_label;
-+		}
-+		CONT;
-+	ALU_MUL_X:
-+		DST = (u32) DST * (u32) SRC;
-+		CONT;
-+	ALU64_MUL_K:
-+		switch (OFF) {
-+		case 0:
-+			DST = DST * IMM;
-+			break;
-+		case BPF_UHMUL:
-+			DST = bpf_uhmul64(DST, (u64)IMM);
-+			break;
-+		case BPF_SHMUL:
-+			DST = bpf_shmul64((s64)DST, (s32)IMM);
-+			break;
-+		default:
-+			goto default_label;
-+		}
-+		CONT;
-+	ALU_MUL_K:
-+		DST = (u32) DST * (u32) IMM;
-+		CONT;
- 	SHT(LSH, <<)
- 	SHT(RSH, >>)
- #undef SHT
-diff --git a/kernel/bpf/disasm.c b/kernel/bpf/disasm.c
-index 889fc074496f..0b1bbb27e9e4 100644
---- a/kernel/bpf/disasm.c
-+++ b/kernel/bpf/disasm.c
-@@ -163,6 +163,22 @@ static bool is_sdiv_smod(const struct bpf_insn *insn)
- 	       insn->off == 1;
- }
- 
-+/* Return the UHMUL or SHMUL operator string, or NULL for all other encodings. */
-+static const char *hmul_op_string(const struct bpf_insn *insn)
-+{
-+	if (BPF_CLASS(insn->code) != BPF_ALU64 ||
-+	    BPF_OP(insn->code) != BPF_MUL)
-+		return NULL;
-+	switch (insn->off) {
-+	case BPF_UHMUL:
-+		return "uh*=";
-+	case BPF_SHMUL:
-+		return "sh*=";
-+	default:
-+		return NULL;
-+	}
-+}
-+
- static bool is_movsx(const struct bpf_insn *insn)
- {
- 	return BPF_OP(insn->code) == BPF_MOV &&
-@@ -215,6 +231,7 @@ void print_bpf_insn(const struct bpf_insn_cbs *cbs,
- 			verbose(cbs->private_data, "(%02x) %c%d %s %s%c%d",
- 				insn->code, class == BPF_ALU ? 'w' : 'r',
- 				insn->dst_reg,
-+				hmul_op_string(insn) ?:
- 				is_sdiv_smod(insn) ? bpf_alu_sign_string[BPF_OP(insn->code) >> 4]
- 						   : bpf_alu_string[BPF_OP(insn->code) >> 4],
- 				is_movsx(insn) ? bpf_movsx_string[(insn->off >> 3) - 1] : "",
-@@ -224,6 +241,7 @@ void print_bpf_insn(const struct bpf_insn_cbs *cbs,
- 			verbose(cbs->private_data, "(%02x) %c%d %s %d",
- 				insn->code, class == BPF_ALU ? 'w' : 'r',
- 				insn->dst_reg,
-+				hmul_op_string(insn) ?:
- 				is_sdiv_smod(insn) ? bpf_alu_sign_string[BPF_OP(insn->code) >> 4]
- 						   : bpf_alu_string[BPF_OP(insn->code) >> 4],
- 				insn->imm);
-diff --git a/tools/include/uapi/linux/bpf.h b/tools/include/uapi/linux/bpf.h
-index f29b0aad440c..90c30e5d790b 100644
---- a/tools/include/uapi/linux/bpf.h
-+++ b/tools/include/uapi/linux/bpf.h
-@@ -34,6 +34,12 @@
- #define BPF_FROM_LE	BPF_TO_LE
- #define BPF_FROM_BE	BPF_TO_BE
- 
-+/* BPF_MUL off values for high-half multiplication; BPF_ALU64 only. */
-+enum bpf_mul_variant {
-+	BPF_UHMUL = 1,
-+	BPF_SHMUL = 2,
-+};
-+
- /* jmp encodings */
- #define BPF_JNE		0x50	/* jump != */
- #define BPF_JLT		0xa0	/* LT is unsigned, '<' */
-
--- 
-2.56.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhpcyBwYXRjaHNldCBhZGRzIHVuc2lnbmVkIGFuZCBzaWduZWQgaGlnaC1oYWxmIG11bHRpcGxp
+Y2F0aW9uIHRvIHRoZSBCUEYKSVNBLiBVSE1VTCByZXR1cm5zIHRoZSBoaWdoIDY0IGJpdHMgb2Yg
+YW4gdW5zaWduZWQgNjQtYnktNjQtYml0IHByb2R1Y3QsCndoaWxlIFNITVVMIGRvZXMgdGhlIHNh
+bWUgZm9yIGEgc2lnbmVkIHByb2R1Y3QuCgpCb3RoIG9wZXJhdGlvbnMgYXJlIEJQRl9BTFU2NCBC
+UEZfTVVMIHZhcmlhbnRzIHNlbGVjdGVkIGJ5IGluc24tPm9mZi4Kb2ZmID09IDAgcmVtYWlucyB0
+aGUgZXhpc3RpbmcgbG93LWhhbGYgbXVsdGlwbGljYXRpb24sIHdoaWxlIG9mZiA9PSAxCmFuZCBv
+ZmYgPT0gMiBzZWxlY3QgVUhNVUwgYW5kIFNITVVMLCByZXNwZWN0aXZlbHkuIFRoZSBpbW1lZGlh
+dGUgZm9ybXMKdXNlIHRoZSB1c3VhbCBzaWduLWV4dGVuZGVkIDMyLWJpdCBCUEYgaW1tZWRpYXRl
+LgoKVGhlIHBhdGNoc2V0IGFkZHMgaW50ZXJwcmV0ZXIsIGRpc2Fzc2VtYmxlciwgdmVyaWZpZXIs
+IGFuZCBkb2N1bWVudGF0aW9uCnN1cHBvcnQsIGFsb25nIHdpdGggSklUIHN1cHBvcnQgZm9yIHg4
+Ni02NCwgYXJtNjQgYW5kIHJpc2N2NjQuIFVuc3VwcG9ydGVkCkpJVCBhbmQgaGFyZHdhcmUgb2Zm
+bG9hZCBiYWNrZW5kcyByZWplY3QgdGhlIHZhcmlhbnRzIHRvIGF2b2lkIGNvbXBpbGluZwp0aGVt
+IGFzIG9yZGluYXJ5IG11bHRpcGxpY2F0aW9uLiBGb3Igbm93LCB0aGUgdmVyaWZpZXIgY29tcHV0
+ZXMgZXhhY3QKcmVzdWx0cyBmb3IgY29uc3RhbnQgb3BlcmFuZHMgYW5kIG90aGVyd2lzZSBjb25z
+ZXJ2YXRpdmVseSBtYXJrcyB0aGUKZGVzdGluYXRpb24gdW5rbm93bi4KClBhdGNoIDgvOCB1c2Vz
+IHJhdyBieXRlY29kZSBmb3IgVUhNVUwgYW5kIFNITVVMIGJlY2F1c2UgTExWTSBzdXBwb3J0IGhh
+cwpub3QgYmVlbiBtZXJnZWQgeWV0LiBPbmNlIGl0IGlzIGF2YWlsYWJsZSwgdGhlIHJhdyBlbmNv
+ZGluZ3MgY2FuIGJlCnJlcGxhY2VkIHdpdGggdGhlIHVoKj0gYW5kIHNoKj0gbW5lbW9uaWNzLiBU
+aGUgY29ycmVzcG9uZGluZyBMTFZNIHBhdGNoCmlzIGF2YWlsYWJsZSBmb3IgcmV2aWV3IGF0OgoK
+ICBodHRwczovL2dpdGh1Yi5jb20vbGx2bS9sbHZtLXByb2plY3QvcHVsbC8yMzQwNzYKClRoZSBp
+bnN0cnVjdGlvbiBkZXNpZ24gaXMgaW5zcGlyZWQgYnkgdGhlIFVITVVMIGFuZCBTSE1VTCBvcGVy
+YXRpb25zIGluCnNCUEYgKFNvbGFuYSdzIEJQRiB2YXJpYW50KS4gUGF0Y2ggMS84IGRlc2NyaWJl
+cyB0aGUgZW5jb2RpbmcgYW5kCmltbWVkaWF0ZS1zZW1hbnRpY3MgZGlmZmVyZW5jZXMuCgpBcG9s
+b2dpZXMgZm9yIHRoZSBkZWxheSBpbiBzZW5kaW5nIHYyLiBJIHdhcyB0aWVkIHVwIHdpdGggb3Ro
+ZXIgY29tbWl0bWVudHMKb3ZlciB0aGUgcGFzdCBtb250aC4KCi0tLQpDaGFuZ2VzIGluIHYyOgot
+IEludHJvZHVjZSBhIG5ldyBjb25mb3JtYW5jZSBncm91cCAiZGl2bXVsNjR2MiIgZm9yIFVITVVM
+L1NITVVMLiAoYm90K2JwZi1jaSkKLSBTaG9ydGVuIHRoZSBuYW1lIG9mIGJwZl9tdWxfdmFyaWFu
+dC4gKEFsZXhlaSkKLSBSZW1vdmUgcmVkdW5kYW50IHZhbGlkYXRpb24gZm9yIG9mZiBmaWVsZCBp
+biBpbnRlcnByZXRlci4gKEFsZXhlaSkKLSBTcGxpdCBhcmVuYSB0ZXN0IHRvIHR3byBzZXBhcmF0
+ZSBmaWxlcy4KLSBMaW5rIHRvIHYxOiBodHRwczovL3BhdGNoLm1zZ2lkLmxpbmsvMjAyNjA5MTcw
+NDE3MTIuMTg2MDcyMi0xLXRhbmd5YXpob3VAemp1LmVkdS5jbgoKQ2hhbmdlcyBpbiB2MToKLSBB
+ZGQgSklUIHN1cHBvcnQgb24gYXJtNjQgYW5kIHJpc2N2NjQuIChBbGV4ZWkpCi0gRml4IHRoZSBI
+TVVMIGNoZWNrIG9uIFBvd2VyUEMgSklUIGJhY2tlbmQuIChTYXNoaWtvIEFJIHJldmlld2VyKQot
+IExpbmsgdG8gUkZDOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9icGYvMjAyNjA5MDIwNzA1MzQu
+MjE0MTgxMi0xLXRhbmd5YXpob3VAemp1LmVkdS5jbi8KClRvOiBicGZAdmdlci5rZXJuZWwub3Jn
+ClRvOiBBbGV4ZWkgU3Rhcm92b2l0b3YgPGFzdEBrZXJuZWwub3JnPgpUbzogRGFuaWVsIEJvcmtt
+YW5uIDxkYW5pZWxAaW9nZWFyYm94Lm5ldD4KVG86IEFuZHJpaSBOYWtyeWlrbyA8YW5kcmlpQGtl
+cm5lbC5vcmc+ClRvOiBFZHVhcmQgWmluZ2VybWFuIDxlZGR5ejg3QGdtYWlsLmNvbT4KVG86IEt1
+bWFyIEthcnRpa2V5YSBEd2l2ZWRpIDxtZW14b3JAZ21haWwuY29tPgpUbzogRGF2aWQgVmVybmV0
+IDx2b2lkQG1hbmlmYXVsdC5jb20+ClRvOiBicGZAaWV0Zi5vcmcKQ2M6IEpvaG4gRmFzdGFiZW5k
+IDxqb2huLmZhc3RhYmVuZEBnbWFpbC5jb20+CkNjOiBNYXJ0aW4gS2FGYWkgTGF1IDxtYXJ0aW4u
+bGF1QGxpbnV4LmRldj4KQ2M6IFNvbmcgTGl1IDxzb25nQGtlcm5lbC5vcmc+CkNjOiBZb25naG9u
+ZyBTb25nIDx5b25naG9uZy5zb25nQGxpbnV4LmRldj4KQ2M6IEppcmkgT2xzYSA8am9sc2FAa2Vy
+bmVsLm9yZz4KQ2M6IEVtaWwgVHNhbGFwYXRpcyA8ZW1pbEBldHNhbGFwYXRpcy5jb20+CkNjOiBJ
+aG9yIFNvbG9kcmFpIDxpaG9yLnNvbG9kcmFpQGxpbnV4LmRldj4KQ2M6IFF1ZW50aW4gTW9ubmV0
+IDxxbW9Aa2VybmVsLm9yZz4KQ2M6IFB1cmFuamF5IE1vaGFuIDxwdXJhbmpheUBrZXJuZWwub3Jn
+PgpDYzogWHUgS3VvaGFpIDx4dWt1b2hhaUBodWF3ZWljbG91ZC5jb20+CkNjOiBCasO2cm4gVMO2
+cGVsIDxiam9ybkBrZXJuZWwub3JnPgpDYzogUHUgTGVodWkgPHB1bGVodWlAaHVhd2VpLmNvbT4K
+Q2M6IENhdGFsaW4gTWFyaW5hcyA8Y2F0YWxpbi5tYXJpbmFzQGFybS5jb20+CkNjOiBXaWxsIERl
+YWNvbiA8d2lsbEBrZXJuZWwub3JnPgpDYzogTWFyayBSdXRsYW5kIDxtYXJrLnJ1dGxhbmRAYXJt
+LmNvbT4KQ2M6IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZwpDYzogbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpDYzogU2hhaGFiIFZhaGVkaSA8bGlzdCticGZAdmFo
+ZWRpLm9yZz4KQ2M6IFJ1c3NlbGwgS2luZyA8bGludXhAYXJtbGludXgub3JnLnVrPgpDYzogVGll
+emh1IFlhbmcgPHlhbmd0aWV6aHVAbG9vbmdzb24uY24+CkNjOiBIZW5ncWkgQ2hlbiA8aGVuZ3Fp
+LmNoZW5AZ21haWwuY29tPgpDYzogSm9oYW4gQWxtYmxhZGggPGpvaGFuLmFsbWJsYWRoQGFueWZp
+bmV0d29ya3MuY29tPgpDYzogUGF1bCBCdXJ0b24gPHBhdWxidXJ0b25Aa2VybmVsLm9yZz4KQ2M6
+ICJKYW1lcyBFLkouIEJvdHRvbWxleSIgPEphbWVzLkJvdHRvbWxleUBIYW5zZW5QYXJ0bmVyc2hp
+cC5jb20+CkNjOiBIZWxnZSBEZWxsZXIgPGRlbGxlckBnbXguZGU+CkNjOiBIYXJpIEJhdGhpbmkg
+PGhiYXRoaW5pQGxpbnV4LmlibS5jb20+CkNjOiBDaHJpc3RvcGhlIExlcm95IChDUyBHUk9VUCkg
+PGNobGVyb3lAa2VybmVsLm9yZz4KQ2M6IE5hdmVlbiBOIFJhbyA8bmF2ZWVuQGtlcm5lbC5vcmc+
+CkNjOiBMdWtlIE5lbHNvbiA8bHVrZS5yLm5lbHNAZ21haWwuY29tPgpDYzogWGkgV2FuZyA8eGku
+d2FuZ0BnbWFpbC5jb20+CkNjOiBJbHlhIExlb3Noa2V2aWNoIDxpaWlAbGludXguaWJtLmNvbT4K
+Q2M6IEhlaWtvIENhcnN0ZW5zIDxoY2FAbGludXguaWJtLmNvbT4KQ2M6IFZhc2lseSBHb3JiaWsg
+PGdvckBsaW51eC5pYm0uY29tPgpDYzogRGF2aWQgUy4gTWlsbGVyIDxkYXZlbUBkYXZlbWxvZnQu
+bmV0PgpDYzogV2FuZyBZYW5RaW5nIDx1ZGtuaWdodEBnbWFpbC5jb20+CkNjOiBKYWt1YiBLaWNp
+bnNraSA8a3ViYUBrZXJuZWwub3JnPgpDYzogSm9uYXRoYW4gQ29yYmV0IDxjb3JiZXRAbHduLm5l
+dD4KQ2M6IGxpbnV4LWRvY0B2Z2VyLmtlcm5lbC5vcmcKCi0tLQpUaWFuY2kgQ2FvICgzKToKICAg
+ICAgYnBmOiBBZGQgVUhNVUwgYW5kIFNITVVMIGluc3RydWN0aW9ucwogICAgICBicGYsIHg4Njog
+SklUIFVITVVMIGFuZCBTSE1VTCBvbiB4ODYtNjQKICAgICAgYnBmOiBBZGQgdmVyaWZpZXIgc3Vw
+cG9ydCBmb3IgVUhNVUwgYW5kIFNITVVMCgpZYXpob3UgVGFuZyAoNSk6CiAgICAgIGJwZiwgYXJt
+NjQ6IEpJVCBVSE1VTCBhbmQgU0hNVUwKICAgICAgYnBmLCByaXNjdjogSklUIFVITVVMIGFuZCBT
+SE1VTCBvbiBSVjY0CiAgICAgIGJwZjogUmVqZWN0IFVITVVML1NITVVMIGluIHVuc3VwcG9ydGVk
+IGJhY2tlbmRzCiAgICAgIGJwZjogUmVmYWN0b3IgQUxVIGluc3RydWN0aW9uIHZhcmlhbnQgdmFs
+aWRhdGlvbgogICAgICBzZWxmdGVzdHMvYnBmOiBBZGQgYnl0ZWNvZGUgdGVzdHMgZm9yIFVITVVM
+IGFuZCBTSE1VTAoKIC4uLi9icGYvc3RhbmRhcmRpemF0aW9uL2luc3RydWN0aW9uLXNldC5yc3Qg
+ICAgICAgIHwgIDM3ICsrKy0KIGFyY2gvYXJjL25ldC9icGZfaml0X2NvcmUuYyAgICAgICAgICAg
+ICAgICAgICAgICAgIHwgICAzICsKIGFyY2gvYXJtL25ldC9icGZfaml0XzMyLmMgICAgICAgICAg
+ICAgICAgICAgICAgICAgIHwgICAzICsKIGFyY2gvYXJtNjQvaW5jbHVkZS9hc20vaW5zbi5oICAg
+ICAgICAgICAgICAgICAgICAgIHwgICA0ICsKIGFyY2gvYXJtNjQvbGliL2luc24uYyAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIHwgICA2ICsKIGFyY2gvYXJtNjQvbmV0L2JwZl9qaXQuaCAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIHwgICA2ICsKIGFyY2gvYXJtNjQvbmV0L2JwZl9qaXRf
+Y29tcC5jICAgICAgICAgICAgICAgICAgICAgIHwgIDE1ICstCiBhcmNoL2xvb25nYXJjaC9uZXQv
+YnBmX2ppdC5jICAgICAgICAgICAgICAgICAgICAgICB8ICAgMyArCiBhcmNoL21pcHMvbmV0L2Jw
+Zl9qaXRfY29tcDMyLmMgICAgICAgICAgICAgICAgICAgICB8ICAgMyArCiBhcmNoL21pcHMvbmV0
+L2JwZl9qaXRfY29tcDY0LmMgICAgICAgICAgICAgICAgICAgICB8ICAgMyArCiBhcmNoL3Bhcmlz
+Yy9uZXQvYnBmX2ppdF9jb21wMzIuYyAgICAgICAgICAgICAgICAgICB8ICAgMyArCiBhcmNoL3Bh
+cmlzYy9uZXQvYnBmX2ppdF9jb21wNjQuYyAgICAgICAgICAgICAgICAgICB8ICAgMyArCiBhcmNo
+L3Bvd2VycGMvbmV0L2JwZl9qaXRfY29tcDMyLmMgICAgICAgICAgICAgICAgICB8ICAgMyArCiBh
+cmNoL3Bvd2VycGMvbmV0L2JwZl9qaXRfY29tcDY0LmMgICAgICAgICAgICAgICAgICB8ICAgMyAr
+CiBhcmNoL3Jpc2N2L25ldC9icGZfaml0LmggICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAg
+NSArCiBhcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXAzMi5jICAgICAgICAgICAgICAgICAgICB8
+ICAgMyArCiBhcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5jICAgICAgICAgICAgICAgICAg
+ICB8ICAxOCArLQogYXJjaC9zMzkwL25ldC9icGZfaml0X2NvbXAuYyAgICAgICAgICAgICAgICAg
+ICAgICAgfCAgIDMgKwogYXJjaC9zcGFyYy9uZXQvYnBmX2ppdF9jb21wXzY0LmMgICAgICAgICAg
+ICAgICAgICAgfCAgIDMgKwogYXJjaC94ODYvbmV0L2JwZl9qaXRfY29tcC5jICAgICAgICAgICAg
+ICAgICAgICAgICAgfCAgNDggKysrKysKIGFyY2gveDg2L25ldC9icGZfaml0X2NvbXAzMi5jICAg
+ICAgICAgICAgICAgICAgICAgIHwgICAzICsKIGRyaXZlcnMvbmV0L2V0aGVybmV0L25ldHJvbm9t
+ZS9uZnAvYnBmL3ZlcmlmaWVyLmMgIHwgICA2ICsKIGluY2x1ZGUvbGludXgvZmlsdGVyLmggICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDM4ICsrKysKIGluY2x1ZGUvdWFwaS9saW51eC9i
+cGYuaCAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICA2ICsKIGtlcm5lbC9icGYvY29yZS5j
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDQxICsrKy0KIGtlcm5lbC9icGYv
+ZGlzYXNtLmMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDE4ICsrCiBrZXJuZWwv
+YnBmL3ZlcmlmaWVyLmMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICA2OCArKysrKy0K
+IHRvb2xzL2luY2x1ZGUvdWFwaS9saW51eC9icGYuaCAgICAgICAgICAgICAgICAgICAgIHwgICA2
+ICsKIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9wcm9nX3Rlc3RzL3ZlcmlmaWVyLmMgIHwg
+ICAyICsKIC4uLi9zZWxmdGVzdHMvYnBmL3Byb2dfdGVzdHMvdmVyaWZpZXJfaG11bF9hcmVuYS5j
+IHwgIDE5ICsrCiB0b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9icGYvcHJvZ3MvdmVyaWZpZXJfaG11
+bC5jICB8IDIzNSArKysrKysrKysrKysrKysrKysrKysKIC4uLi9zZWxmdGVzdHMvYnBmL3Byb2dz
+L3ZlcmlmaWVyX2htdWxfYXJlbmEuYyAgICAgIHwgIDcwICsrKysrKwogLi4uL2JwZi9wcm9ncy92
+ZXJpZmllcl92YWx1ZV9pbGxlZ2FsX2FsdS5jICAgICAgICAgfCAgIDcgKy0KIDMzIGZpbGVzIGNo
+YW5nZWQsIDY3MSBpbnNlcnRpb25zKCspLCAyMyBkZWxldGlvbnMoLSkKLS0tCmJhc2UtY29tbWl0
+OiAzYTY1ZjM4ZDkyOGEyNjk5ZWJjZWM3MmEyZDYwYmRiOGZjZGU4Mjg0CmNoYW5nZS1pZDogMjAy
+NjEwMjEtYnBmLWhtdWwtNDBkZWI2MjAzNTQ4CgpCZXN0IHJlZ2FyZHMsCi0tICAKWWF6aG91IFRh
+bmcgPHRhbmd5YXpob3U1MThAb3V0bG9vay5jb20+CgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
