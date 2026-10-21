@@ -2,96 +2,96 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48009606A31F
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 16:00:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82BCC606A31E
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 16:08:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZlYd0C7w;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fwgbev1Y;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Z6j/D7BT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gmbX9jY4;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ppsqazaf;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Zj+APSth
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H8iOy3sSLn6l3MuFgGbTfU6R2qj2gf6VqRJ+Y1NIn9U=; b=ZlYd0C7waOkx9D
-	gNEE8pKmSpiWm4x3MaOaduLybaveg3Ob9Do8Rbgv2guUTjAMDUR8uEd2ffOI05Jfa1ugMXITWiewK
-	S8U6JDpqAjKCKhvpgnguKARbyEiAGwarYhA7MYHgdw1IEi+97aBDC5w15qGmyJl+OQvTANBrHcDvb
-	bDpvVuY1cjPIa7kboqY6tTpwWf3c4w4yCsgEpkPtUexIvLW/G8H69rqh1x64BldWAE6vrQzzGRwBZ
-	3wKlJJ4Y37Vq/AAinUMRnytXQ5J+m7jLWeKEgwAyEfuzCehnKwv7RG1jw6xKc2Zladcmp8qFDBS5k
-	2cY2y3es1+Ozd1qFZK8A==;
+	List-Owner; bh=IZjAmD3sBtRdJpTTsCECjc3+532V4IiJWLuV3aMRex8=; b=gmbX9jY4TjEwxS
+	af1dfhyxx8Ff8CrNBI9tKb2x+tzdq7V8DiSJ1pkwRfaOQpFeXp1Q2s/PtzSyeVYuJWlmuvAb4M4eR
+	pIh9yh+6QLbajTMVhtjyAQ3NOY0Jf8yHew3NqnOabAA+7DE4997DaaGTvSmu1HDuKEiOXyay0WOes
+	zU9UvLJ4byfHdoj8Th30741xsUyD5taWZ72xxV1Rt9VvLe8WXVHCKsnoIrdPdewluytnUr63wob+W
+	suFCir1Aq5yKlXFL5aLkHnJqpbZl6AjzjxPib+azsEYJ5kL7UhzYBRi6evzzMqPohPG14SiG8mkRE
+	LLifGfaZZjQdD+3wjs3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJYjx-0000000CKOF-0Hwr;
-	Wed, 21 Oct 2026 16:00:33 +0000
+	id 1xJYrn-0000000CLax-3k2V;
+	Wed, 21 Oct 2026 16:08:40 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJYjv-0000000CKN8-0nBR
+	id 1xJYrl-0000000CLZz-0w3b
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Oct 2026 16:00:32 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69LFUECQ1482651
-	for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 16:00:29 GMT
+	Wed, 21 Oct 2026 16:08:38 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69LFU9Re682672
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 16:08:36 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ZCSVqnmCg2tgiS2qJzUGfrVmwaXnekD3uvjwV9akWpI=; b=fwgbev1Y755yo0Wk
-	UtrQff0d+SDedqVBkyUwA25GdbsQr1gedtRARzdBI/EmAOe0XsQToYsDxG3dcNo7
-	WzxSgYac/ZGOsmY8agUmPRwldZjLtqwf49ThqvX1StCK7jmI7HXPKz+sOHF/9RsX
-	d2pytN0NJDGCo1MhMPxlfFPfca6UKvw74dPxLEl0uCzKdYPb+HZyLX3GECv4+38B
-	1RGJ0zWdQGHzDf3e0b63brnwjxFoTAwfwuugTBfdk1u7TM1ZeuovSwyIH11w2+ZW
-	SdnPxbpBiqOcHpBXKX9x9UDSHSBDxYFiyv72OFxlygXqyI/101YubsytU9S9Gndm
-	8d/hEg==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hegs0426b-1
+	xpcFx5Tgg5MtNBAEwITPf99dESr1dNj5mhlvVGEZ9HE=; b=ppsqazaf3z/Ovnn1
+	SzWOwFC6FBH4fWPIj1FFpw1+MfbxoKTpq3L+dL3Z+e3w7356YZ6RysSOxUSlT+jE
+	QJ63VeLe4fC9YoZU8/wWjZGfXODKSBwllcZGiYbUnENdNs5V4JoZtOO0xT0uHd/I
+	xWphiIy5SHHmhNox7zwzrK2Vqs+UWLy3gU0nXuyduCWSyhwAtJrrWHEuN+VRgTMm
+	hlzoca2KU2LPeFWWVXhGFOSPOe97rBtnG8yGmM71Gq6BNVbN2C1Iwmwrje5lGBva
+	VCVasiUkD3EzsCgdmldMxwRAjdIFHG23zVG5vKxeMRaRrlso7XF2npL2q3GBF2Sc
+	GdYlJQ==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hex7vrrku-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 16:00:29 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3580c07911eso2444031eec.0
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 09:00:29 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 16:08:35 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8a0688a43d3so686698b3a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 09:08:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1792598427; x=1793203227; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1792598915; x=1793203715; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=ZCSVqnmCg2tgiS2qJzUGfrVmwaXnekD3uvjwV9akWpI=;
-        b=Z6j/D7BTEywM0gbXqyOcL1SW3ztE3dy1IXfAg4Z3ap531WSFqinjFH+LY4rnsPj/Eq
-         FIubBxy1GmdkUO0+Z5OI4nqpdp97J9oR/VITlSqyzACAzvdPGl4jEP0UqCP2PqychcdF
-         k3kwhZd2Yzv6m0mWbIBPLuMYqe94FBpX2rBs+Y8ltdEASJ2yLtAuynGGg4Y/o9ZOxC9b
-         pvzpjCpX4MsV8EiY68T2USlkviyEJ7RyVvG/qZt53MhxhAWyWFk9YME7g2esRr8qLL2t
-         iRc+LRpPTIunPpjKtEROlXCZfxG9wqxh/KCgDjMXy64P7cuYwFh+uCCw5TWGqoe9iUOa
-         nzFQ==
+        bh=xpcFx5Tgg5MtNBAEwITPf99dESr1dNj5mhlvVGEZ9HE=;
+        b=Zj+APSthLYvBEQq+FpUBl8LEe58GcixZ8SXmDtPsnSzBmuBbP0Gy+q9BT0M72btEW5
+         GmrrcU+5rISwa6p2LAp0F15gZRavh3cmkYEniyWkgpjqduXb4Pf4tmjEPaSCS1f+Vr3z
+         gs5u3GA03343425IYihj1p5Kfz+DJXXdOMh+g3qA73uZEZJFisGFhq8Kjfb+vJ5coeMz
+         piR1Bm9nFcg3IenQTFO1al28guwy3cvZpQqF+LzhEI4OZnwkeuAbz3fI7FWM1E0Wczw0
+         743i6Li4RZe2A8PMJbThLVzsicHEzL5MfJImmHSiOaKZEIFiowrs8NNgs2uCC2vayzAQ
+         SIUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792598427; x=1793203227;
+        d=1e100.net; s=20260707; t=1792598915; x=1793203715;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ZCSVqnmCg2tgiS2qJzUGfrVmwaXnekD3uvjwV9akWpI=;
-        b=JLVo0u7Q7QsZ8zeNOmx6cU5jddcLWVd8gJdiEtjd182cbj3De7+7KsDyKWo2iMoyxl
-         KgVTwZ9i8A/JNSQjiXz6b4WM0AeEYWvaI+BEBqS2G6xCjMPxv0lzv4z5EJ/J9XC4swCt
-         ORDoS6y5VpGm4AaFsEg1rmr+tYImG1QQK9YkiM2+ZG9pYEQmb/GjsWBI6amblnd0XFdo
-         ls2ItraRudxRQPn5A5rUiH5EVxiT7WfYXi4xsLWsRQvcVZAjsIH70LGGb8UPFMiahi9A
-         SWiMl/CvEQ8wVpyBf+VHXhEU8GBHhg/XQrKqte7JahDEjeRPj9SmapJ0C4Z3ufGPDHpo
-         47Jw==
-X-Forwarded-Encrypted: i=1; AKwUvBzJ1hrqyhrwD0ae2gIkUE1ba8ubUBCxk9b3dMOMD18NhgvP62tmFNEK5RnwuA33unq88KOUpHadlo0mZw==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJMJSUibK0J888kcMvAEdVfeKLB2JxKItNVvGG1BrPSLZH6qCD3
-	5vimjw8lJSuFKhSJ2CCiNDiRaDR+NOPtyJRufMLmZhyrkEJ5s8PWdR1c6VaZqz86WxtPfj7FQA7
-	g8T8Z52fRxc7JZSwaABv5KWBkxegqIvHkmAPOuPTR3gl0HzLRdvuoUia/OeJYyXvX9OyPdMw=
-X-Gm-Gg: AYBFou0MBm8FTijm2Q6PQjG7ibTsVomeGbFLNXuHfDILEDF6rlgAS1Fc9GVJG2peNSy
-	MPwKNQgCNtEFpEzEqC/sRnuC/O19INZgU2XJPUpaZwNQ/d/J8GkVzQwCXc8Rr0TzB4i7emmFd0N
-	olLojgszwJDdpTvCNdhsTLQLYp0fTYMOmeL6/d7yTE+LnwEVbybsG+B9ug1CKN9JDJ6uFwJpMee
-	vj2vNbjxHVRgWVeF96WCsATbIJbHaO5GruqyMJ8JgU71XBX6sRVz2aid67rVKbr7Z7p6HFZ4+Wt
-	oZBmGt1RuGtD5atwtKJsEkLk05tOBdMry/cVUl4/ZYSCwC1PnIuhagbMohggkTM+64bKqbXpB5S
-	PRbLaNeITY7Ydc2oTAr21cgW2Pen0gaqTh9R/RV6bdQ==
-X-Received: by 2002:a05:7300:106:b0:35d:d9a9:e455 with SMTP id 5a478bee46e88-3674ef292b9mr4299669eec.21.1792598427205;
-        Wed, 21 Oct 2026 09:00:27 -0700 (PDT)
-X-Received: by 2002:a05:7300:106:b0:35d:d9a9:e455 with SMTP id 5a478bee46e88-3674ef292b9mr4299533eec.21.1792598425455;
-        Wed, 21 Oct 2026 09:00:25 -0700 (PDT)
+        bh=xpcFx5Tgg5MtNBAEwITPf99dESr1dNj5mhlvVGEZ9HE=;
+        b=X1+FM2tYIF2WC+TZ/V+bnjEQ69NHCBxB3s3E7gp2ATFbp1jdfPml/m/vcctDB0h26o
+         p19rusRGc9O84MttlLhuZAJdPZIwN/g6G8U6iFy1X4gHZnF8sfcner0sOn8jrecyqUCq
+         UxITxIvKkVuM1lII9eObqnmI34aTa6RfsqwRBvxSKZ7lm0Jj/MdwfaGBIzwoJbTV03Dl
+         8NcxmuuuNUYRR/LV075Og1/EeNX3UqitLePpCYNMgryGBiyq4wBU3rK78NF6ggnvo6vd
+         8EofqXFgDN+DmXWuzVcNqmZx5JxRJUM2cRvs59iUZ9MOUehQsnwDPMULyEKvtSCcQ478
+         jvew==
+X-Forwarded-Encrypted: i=1; AKwUvBzBMMmQaZUQI1cd5adqDCQ/JznaRAxzQlCkHvJ9i1ZU+K7YlG4ftLbQXXBPkBXYimw2fcz3vicf/mEoKw==@lists.infradead.org
+X-Gm-Message-State: AFq9FYI4RtJk7ku2C3wGH+4+LQgWzBYCbNSJTNTIXRtq0Io0cQ9dwQkw
+	84VcKxSbHeSbUM6MlY1rqfqw1AljGQHpxQEO2O01KK4ZpwYUrSzgtimb/Mws6wY8r1H7heUzSX2
+	zklvDO4oi2XL6fotXTKdhbiiygECoYs1c6PV97NqTWCqUOYmFa8ZGwVG90rz6mFyr3bwp32U=
+X-Gm-Gg: AYBFou3G/Zc55MvQ7funVMxs3bU5zqWoZlDiNsSLpxbdgtaUvMpYIyM4v9yILlf3/Ex
+	Gss6ICqhMe7CO403dWTd/uhll7Hiep6WCaREbETAQFzme1S8w0zCeXqLnQVHvMOjGBSAQlxpAN+
+	pj6Ju3baA/RhYFBbAEcAf1UG/Fi5efnob58piTBa3Wpqh5luhFSiBRDs2GbqL6CuTG/V8kMiDKk
+	CU57Q+9RJ+MUj4yx/KonC7IiZSbJXSjG7nsygHsKh8dkwJYQ/eqtz3N5nJ94+OEgfIsV8n5yZJx
+	zU/tSgv4dlsvQXj5fwrpY2wSaKktrbON9Mg8lGA6OEOAD1QLgp0FoLrPISNcLt8URsASlpRRMGV
+	EgXEpvo4C1EwHfoUWFmg3prF0fBVPnpPN5Y/VHv03oQ==
+X-Received: by 2002:a05:6a21:3288:b0:3e2:2b76:bf23 with SMTP id adf61e73a8af0-3e287eda189mr2084262637.68.1792598914769;
+        Wed, 21 Oct 2026 09:08:34 -0700 (PDT)
+X-Received: by 2002:a05:6a21:3288:b0:3e2:2b76:bf23 with SMTP id adf61e73a8af0-3e287eda189mr2084221637.68.1792598914240;
+        Wed, 21 Oct 2026 09:08:34 -0700 (PDT)
 Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-367405ed2absm10188327eec.5.2026.10.21.09.00.22
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cd6b861c7dfsm188964a12.25.2026.10.21.09.08.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Oct 2026 09:00:24 -0700 (PDT)
-Date: Wed, 21 Oct 2026 09:00:19 -0700
+        Wed, 21 Oct 2026 09:08:33 -0700 (PDT)
+Date: Wed, 21 Oct 2026 09:08:27 -0700
 From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 To: Jason Gunthorpe <jgg@nvidia.com>
 Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -125,46 +125,45 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
         Sami Tolvanen <samitolvanen@google.com>,
         Song
  Shuai <songshuaishuai@tinylab.org>
-Subject: Re: [PATCH v2 02/15] efi/riscv: libstub: Don't set image_size in
- handle_kernel_image()
-Message-ID: <20261021090019.000060c4@oss.qualcomm.com>
-In-Reply-To: <2-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+Subject: Re: [PATCH v2 03/15] efi/libstub: Free cmdline_ptr in efi_pe_entry
+Message-ID: <20261021090827.000078b8@oss.qualcomm.com>
+In-Reply-To: <3-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
 References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
-	<2-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+	<3-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
 Organization: Qualcomm
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Authority-Analysis: v=2.4 cv=S/NMU4sP c=1 sm=1 tr=0 ts=6ad8e19d cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+X-Proofpoint-ORIG-GUID: fd4g_hfcQfiv4_8VQ_LnEWhZw8JT8fku
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIxMDA2NCBTYWx0ZWRfXxpDcN3zDJG9g
+ GJ+WSW2kPbyTyEnfvWs7RrlTKQw/3QSeJ826rlo+OCRqp0N1/mdBJ4dWKSpgCCs8iRE2/NsieZO
+ 6gByU5dMYVz46tviE+nzwKtTmgT78Vs=
+X-Proofpoint-GUID: fd4g_hfcQfiv4_8VQ_LnEWhZw8JT8fku
+X-Authority-Analysis: v=2.4 cv=e4uT2qp/ c=1 sm=1 tr=0 ts=6ad8e384 cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
  a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=Ikd4Dj_1AAAA:8 a=xbFV6RGmdEKkzbgyJ_QA:9 a=CjuIK1q_8ugA:10
- a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIxMDA2MyBTYWx0ZWRfX0XXKapBkmTse
- kpoT7U1ukdq/8s6wpce64JAodqTU8GUE2OAVVWqbD3LpUIb13k3NqVY52QveNHGjtYkpurQLri9
- sClj35uT1eydKIAVpNNn27Uf0SWVwog2q3Yz99mJio88cUhvdA6hDQxrAA5w3Xcqrel86Ibu8cj
- s2J7xYchP5VxyJJeewZp7E4Oyg3jG0Uyefs0GbeR/bQcM82QmgysVjJHuSunbf1hg2akDPmKwaD
- AGI3Ojwck28eBQcExaKxAosKiu6m/LddmEEuQBZPLlGanON8TcxoE9A0YNZ7zxF0UJ9uTQmeu2n
- +OJ0mVEThLY4k+VCzSXFFCEEKRn326IbVjcFcNwz4pIOg36ybnTD71Q18o5xJroTt7oiTWx0zpy
- LlQIrkCBoG6eQoMsHU8q1zofYyDbKFRseIVssrVOQuPoL7UxDunSoKx3FZ9GeOzY1gUkaAQYa4b
- 7cw72WVbBQ28gMj9XHQ==
-X-Proofpoint-ORIG-GUID: 7wfLW7NON9vngSiX2T-PW8YFP6Hg_K3x
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIxMDA2MyBTYWx0ZWRfX4VKtmCQBQgSO
- R4gZBNvO7F0l//OhLY7RFaE51+IfW8q2n7mbKZuZsYwAAypgYRKbGiIDqh8W/U3ZqjfKc8vxBax
- OOtxccwRs1q//CLBNG5+zAwrr+SWZAk=
-X-Proofpoint-GUID: 7wfLW7NON9vngSiX2T-PW8YFP6Hg_K3x
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=Ikd4Dj_1AAAA:8 a=EUspDBNiAAAA:8 a=gCM90IwNaqpJe8xd-nwA:9 a=CjuIK1q_8ugA:10
+ a=zc0IvFSfCIW2DFIPzwfm:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIxMDA2NCBTYWx0ZWRfX0vh9BIQTGoSH
+ 8o5+1/w/9I0sa1aR/os9vc7UJ0tcvZNaFZXlaOHMyOQInV61BRuwnJageFd0rqmhr5cyLxvZQiR
+ eLpRFI4iHYFsvBmsK5/Id9M1YgbtsLY5x5eNW00NBdYv8HAGg4lW3jMmKYhiha1KeUuliyyfEYL
+ 8xj9NcTs8G2AISZt8yEIdnkn0O41g4wDTsOKqhjVc2RjJrCqPHVy3zE6Ioewa6ms/ONqsWIok8s
+ iLgAqPgex74Q7OZr5FPaq3bpaU0CCdB0ztGIb9DiZN5MCqmwnI2YduRbJiCiAC+IB0MOZv8kPwr
+ b00WmL8V0MFMAJ1RoaXfZCnJDccsokqQlupJgUJ/KeRKyTs+Iz9gqmUTAYp/ujXd3PMpDCikBeb
+ KDLuBBuCBz3/v7xrOS6s9bfPfBgB0DIXA0/zxbtbCzqcC8zq7iNmmiOryVg8hTR0B9f6kQVma9m
+ r/xgQ+I8qtzX3Itpb6A==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-10-21_04,2026-10-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 priorityscore=1501 spamscore=0 bulkscore=0
- lowpriorityscore=0 malwarescore=0 phishscore=0 impostorscore=0 suspectscore=0
+ phishscore=0 lowpriorityscore=0 spamscore=0 adultscore=0 clxscore=1015
+ priorityscore=1501 suspectscore=0 bulkscore=0 malwarescore=0 impostorscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610210063
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610210064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_090031_346622_D9E6B226 
-X-CRM114-Status: GOOD (  22.73  )
+X-CRM114-CacheID: sfid-20261021_090837_419122_C294A7BB 
+X-CRM114-Status: GOOD (  20.16  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -186,56 +185,47 @@ X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri,  2 Oct 2026 20:31:39 -0300
+On Fri,  2 Oct 2026 20:31:40 -0300
 Jason Gunthorpe <jgg@nvidia.com> wrote:
 
-> Sashiko points out the image_size should only be set if image_addr was
-> reassigned to some allocated memory. If image_size is not zero then the
-> caller will free the image_addr pointer.
+> Sashiko points out that efi_handle_cmdline() allocates this memory and
+> hands it over to the caller. If efi_pe_entry() ever returns it should be
+> freed. Add a __free annotation.
 > 
-> efi_kaslr_relocate_kernel() never works like that, if it changes
-> image_addr to allocated memory the free is done through reserve_size.
-> 
-> Fixes: b7ac4b8ee73d ("riscv: libstub: Implement KASLR by using generic functions")
+> Fixes: 42c8ea3dca09 ("efi: libstub: Factor out EFI stub entrypoint into separate file")
 > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+Seems sensible. 
 
-Hi Jason,
+If anyone has more time than either of us, I note the efi_handle_cmdline()
+use of __free() should move down to the point of allocation.
+It's only a couple of lines, but none the less...
 
-This made me curious on the differences across architectures...
-Looks like there is perhaps some room to make them look more similar at least!
-One small step below.
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 
 > ---
->  drivers/firmware/efi/libstub/riscv-stub.c | 7 ++-----
->  1 file changed, 2 insertions(+), 5 deletions(-)
+>  drivers/firmware/efi/libstub/efi-stub-entry.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/firmware/efi/libstub/riscv-stub.c b/drivers/firmware/efi/libstub/riscv-stub.c
-> index e7d9204baee312..725b634c517919 100644
-> --- a/drivers/firmware/efi/libstub/riscv-stub.c
-> +++ b/drivers/firmware/efi/libstub/riscv-stub.c
-> @@ -37,17 +37,14 @@ efi_status_t handle_kernel_image(unsigned long *image_addr,
->  	kernel_codesize = __init_text_end - _start;
->  	kernel_memsize = kernel_size + (_end - _edata);
->  	*image_addr = (unsigned long)_start;
-> -	*image_size = kernel_memsize;
-> -	*reserve_size = *image_size;
-> +	*reserve_size = kernel_memsize;
+> diff --git a/drivers/firmware/efi/libstub/efi-stub-entry.c b/drivers/firmware/efi/libstub/efi-stub-entry.c
+> index aa85e910fe595e..fc1282fb442e71 100644
+> --- a/drivers/firmware/efi/libstub/efi-stub-entry.c
+> +++ b/drivers/firmware/efi/libstub/efi-stub-entry.c
+> @@ -40,7 +40,6 @@ efi_status_t __efiapi efi_pe_entry(efi_handle_t handle,
+>  	unsigned long image_addr;
+>  	unsigned long image_size = 0;
+>  	/* addr/point and size pairs for memory management*/
+> -	char *cmdline_ptr = NULL;
+>  	efi_guid_t loaded_image_proto = LOADED_IMAGE_PROTOCOL_GUID;
+>  	unsigned long reserve_addr = 0;
+>  	unsigned long reserve_size = 0;
+> @@ -63,6 +62,7 @@ efi_status_t __efiapi efi_pe_entry(efi_handle_t handle,
+>  		return status;
+>  	}
 >  
->  	status = efi_kaslr_relocate_kernel(image_addr,
->  					   reserve_addr, reserve_size,
->  					   kernel_size, kernel_codesize, kernel_memsize,
->  					   efi_kaslr_get_phys_seed(image_handle));
-> -	if (status != EFI_SUCCESS) {
-> +	if (status != EFI_SUCCESS)
->  		efi_err("Failed to relocate kernel\n");
-
-This print is replicated at the caller, so can drop this as well I think.
-
-> -		*image_size = 0;
-> -	}
->  
->  	return status;
->  }
+> +	char *cmdline_ptr __free(efi_pool) = NULL;
+>  	status = efi_handle_cmdline(image, &cmdline_ptr);
+>  	if (status != EFI_SUCCESS)
+>  		return status;
 
 
 _______________________________________________
