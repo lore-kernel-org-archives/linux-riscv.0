@@ -2,136 +2,215 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24E34606A31A
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 08:25:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C70E606A31D
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 08:28:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=20AMN+Gx;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=Tf6zxBwt
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hCAJiqDS;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=OrXb1P9v;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=Kc1dvAH7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:CC:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RbwTcH4+k7n20wzidJnbLXj1fpkXaLiv7TTMbhUgVyo=; b=20AMN+GxEPJWlz
-	JjVDSudUITXeJVl8wO3MIqUsUhQvRUWDFTYXm0nKr6H1wCGoDjVraik+Sw35pJE2OIDlYFU4Quumg
-	ee3fvYFfHek93/qSNFRvO4GE1XZIabCvR7Y9DjNrhRhrXcPVIk6wUIMy8aULdZ3+k5tfkuSry3dK+
-	xAz89vBtn7w3hMvVE6K1s8tYfVTxoT1xECL+gLeiwH1+9I6StP1FnCQm+jtO0vKFlx/7JQVvCmqi9
-	/U2/adNAJRq8reKFm0gCJItwpNin1RY6bCqsunoc/NDkNavNXoh+2oyxkPW6P1iVB3/fVRWScz40o
-	/lBITQ3S+lcfLA3PfuTw==;
+	List-Owner; bh=BPHj/q+7py+Q86m/xaRHSW6kK8D5MuqFk/YFlqLxxNQ=; b=hCAJiqDShM3RZQ
+	8qCOveA1aBinoKRVaytGN4qL0TU7oUu2MGdYH26UFbtuSyFIoxaGleCQuvJ56w2GU2V5M6+boh7/R
+	j39mSJL9EwgT+b+5LPMDUHMjNEoB9rCnjwov3Nj1xVcnBDUOJ7m0J2lwkNAPztSvWGfl1MKJ/T6nR
+	vuiR4VQguWdC/+4TOCdR1b9q1a1NbqMH7b8BVFk5QTg5LknEFboJOSZz0IevxBjVF37NMcF+Mb7LY
+	FoIeeskubK3hK7AQs6DBWT+rt3/IvdMDQ3x2RuVL1SqGHmLv3tmhkrF6INv/bTJEM3XbZ2KsD2DvQ
+	lzdGX2ORufMY8b6XJUXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJRd8-0000000BL13-39Po;
-	Wed, 21 Oct 2026 08:25:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xJRgV-0000000BLir-2Cpc;
+	Wed, 21 Oct 2026 08:28:31 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJRd2-0000000BKvR-043s;
-	Wed, 21 Oct 2026 08:24:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=nLvx1FjKuvWgFgec40Cb4qh0IcvpzIEXyEqhpZDf7RE=; b=Tf6zxBwtSr1/Pk2F9sFyO6JNRl
-	kN29vta5oC/hLe/zMu8SXTs9WYiu1VnrknLRAa6fusnmJAYaEPn4HUs6+3SUeTYaapohursoGNLgt
-	0dTg/8XhHz3Dq5ezRDF23USXJh/Dwhcfy5gVX3kPJ/gdu/CjW4DuynoeuwwzGorXRBekg4MRHGe8k
-	1cdBmUQZf/WrbE+EX3WvNtPM7zPWlwRbq2iR6xz16KqDUxQrwrsC+bKanbK5RfrjrofORaNq0WPgR
-	/ye8ZAso75Tb5BOL1xijEEZexj+ZghO8Jd/GdTxfIWFCqYj4hXaK7BwzA3+xKFcaJIugeuwbJL7HO
-	itEVr70A==;
-Received: from gw.zju.edu.cn ([210.32.2.4] helo=zju.edu.cn)
-	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xJRcy-00000005afB-19b2;
-	Wed, 21 Oct 2026 08:24:54 +0000
-Received: from zju.edu.cn (unknown [10.162.163.215])
-	by mtasvr (Coremail) with SMTP id _____wD3sj3BdthqyVCtAQ--.82S3;
-	Wed, 21 Oct 2026 16:24:33 +0800 (CST)
-Received: from lutetium.tail477849.ts.net (unknown [10.162.163.215])
-	by mail-app3 (Coremail) with UTF8SMTPA id zS_KCgD3l6K7dthqfF21AA--.41149S2;
-	Wed, 21 Oct 2026 16:24:28 +0800 (CST)
-From: tangyazhou@zju.edu.cn
-To: bpf@vger.kernel.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	David Vernet <void@manifault.com>,
-	bpf@ietf.org
-Cc: John Fastabend <john.fastabend@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Quentin Monnet <qmo@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	=?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>,
-	Pu Lehui <pulehui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	Shahab Vahedi <list+bpf@vahedi.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>,
-	Hengqi Chen <hengqi.chen@gmail.com>,
-	Johan Almbladh <johan.almbladh@anyfinetworks.com>,
-	Paul Burton <paulburton@kernel.org>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Hari Bathini <hbathini@linux.ibm.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Naveen N Rao <naveen@kernel.org>,
-	Luke Nelson <luke.r.nels@gmail.com>,
-	Xi Wang <xi.wang@gmail.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Wang YanQing <udknight@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	linux-doc@vger.kernel.org,
-	Yazhou Tang <tangyazhou518@outlook.com>,
-	Tianci Cao <ziye@zju.edu.cn>,
-	Shenghao Yuan <shenghaoyuan0928@163.com>
-Subject: [PATCH bpf-next v2 8/8] selftests/bpf: Add bytecode tests for UHMUL and SHMUL
-Date: Wed, 21 Oct 2026 16:24:25 +0800
-Message-ID: <20261021-bpf-hmul-v2-8-88e260099f7d@outlook.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261021-bpf-hmul-v2-0-88e260099f7d@outlook.com>
-References: <20261021-bpf-hmul-v2-0-88e260099f7d@outlook.com>
+	id 1xJRgS-0000000BLhl-20qg
+	for linux-riscv@lists.infradead.org;
+	Wed, 21 Oct 2026 08:28:30 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69L5hRiO889463;
+	Wed, 21 Oct 2026 03:27:36 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=zLBMx0TJp9cjlNOs7bq0bsc/4MOLn38AYR2Ted3Pw
+	Ok=; b=OrXb1P9vD+r8AbHxmpezvR4SlYeU7aJ5Vo90yFTxVQb26FoWJt9Uc45rK
+	v7++vFVl9eoaP9Wj6yRJAjzqTS7s4iIcyVvyYh7tiQGX81DhLcIP/bD874m0BeBw
+	nWpbsjSACJPkyiOPr7J4rVXYvcZTAjrtK6I1ujAli+LJgkB30khVm2ss+dvpDM4J
+	/zjeqgUOydY5S3KKq89HBkjwSfokTTKG0ENq0LFBOxVHOhDl3BQNXioPLil/Vz8+
+	ccOmZm9htbS3WjyAiZE7zrQOtwuMF7Nt67d1Z3kStmtc6Owmpbc899jHkBklOxj9
+	GFH+2i8IQD45WLrj3cHZ9wFyUtgfA==
+Received: from ph7pr06cu001.outbound.protection.outlook.com (mail-westus3azon11010065.outbound.protection.outlook.com [52.101.201.65])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4henaahc9q-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 21 Oct 2026 03:27:35 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eMBzGmt0NOd2ewIvwYDwCalJsOZvutt9DDLQLZ6cRJdNTgSP8Ief8v1E27WctXTylMs0ETW8l+ul6ypN3LBEqZaBJa/pQ3QME9E37BwColx8rqfWwsfM/QnLKbIPFuXVudXaxyBzfHhshPf/rATlzOK8RAQRjoSKL6mKYjqgM1UpbZYFusCFsXx3BYqR7hAVEDEQLSSlp6TGrOIyqnJ4DQ8WuVpmPmJ2ggDjzPvmeEPSfeyQdnQvpUsL+SyfXMJ659/6EGQf+wSdd1CUyL+VMMMDUX/FPykz1A7CwtCP9xktmVtUZ/5NEr48+IRd240yyUZ5E82xSQkL5JhvhPCmJA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zLBMx0TJp9cjlNOs7bq0bsc/4MOLn38AYR2Ted3PwOk=;
+ b=vnTCgQghMSeHlzv0G82Ha2YzQdvwBkf4XlN0jProP2zZGiKxDq5YOsl7tAPOEEgUGjIl843TqZ7XHKTk5mhbQEocbhgTRGa9nSCTZQZVoYdhEF4QqaH4lCpZ0zsnF959R3G41qxrp1DtwXCEqfh+Bf8H3+/+wDvh+ffN8pkpZ9YdCZUqXnjcehlZvibiAuBU/YXVJsRGGwQFlMHMihO8RvuOEWp8AA8xMVEqcrgof1b9flP1Bxp9ukZOBu+ebuRQB5xkdQCwp4+9q40xxW+xD/oLyceQdQFV7pcRCpRl3dovklFMlZX1kQb+i5rCH07s1siDvKb6UDYZvqMQ5CKweQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=gmail.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zLBMx0TJp9cjlNOs7bq0bsc/4MOLn38AYR2Ted3PwOk=;
+ b=Kc1dvAH7iO5d5PZ1Xs2kTG8F9hYfz/i5zA4bEUsFVconn+xsmsoZIsSKCPzrLcaQvrhrBJnUTQl9eEbcdO5AS76fXvjWVyZunWJCwbALupUv3JJDTEMvEH56eqYlwkPuacRZHyfbHV552uERjSqYZykNoO4tjsHoOtH4PVFhHUI=
+Received: from BY3PR03CA0023.namprd03.prod.outlook.com (2603:10b6:a03:39a::28)
+ by IA4PR10MB128213.namprd10.prod.outlook.com (2603:10b6:207:141::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Wed, 21 Oct
+ 2026 08:27:32 +0000
+Received: from SJ1PEPF000026C7.namprd04.prod.outlook.com
+ (2603:10b6:a03:39a:cafe::2a) by BY3PR03CA0023.outlook.office365.com
+ (2603:10b6:a03:39a::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.20 via Frontend Transport; Wed,
+ 21 Oct 2026 08:27:31 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.21.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ SJ1PEPF000026C7.mail.protection.outlook.com (10.167.244.104) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.546.15 via Frontend Transport; Wed, 21 Oct 2026 08:27:30 +0000
+Received: from DFLE207.ent.ti.com (10.64.6.65) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 21 Oct
+ 2026 03:26:59 -0500
+Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 21 Oct
+ 2026 03:26:59 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Wed, 21 Oct 2026 03:26:59 -0500
+Received: from [10.24.68.238] (uhda0492258.dhcp.ti.com [10.24.68.238])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 69L8QnNV2227940;
+	Wed, 21 Oct 2026 03:26:50 -0500
+Message-ID: <bddc44d0-5446-40a9-b211-28d0b03f89ad@ti.com>
+Date: Wed, 21 Oct 2026 13:56:48 +0530
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Mailer: b4 0.15.2
-X-CM-TRANSID: zS_KCgD3l6K7dthqfF21AA--.41149S2
-X-CM-SenderInfo: qssvjiasrsq6lmxovvfxof0/1tbiBhILCmrXxB0qLQAAs2
-X-CM-DELIVERINFO: =?B?8oMkfQXKKxbFmtjJiESix3B1w3vD7IpoGYuur0o+r46DyAi5OfOO+T4vrW4FyUBIyu
-	9q9EVVP6kLhQ0h/Ob14g/5HMk/nLh2vxT8H3RwpnaL88vMle9LcpBe2xLm1l7FYGybVlWg
-	6mzcp2KQy1GcuN/vxzjiUz/HswzHBImQc+TfAusI35kw7NXfKhcELEUR/qsuQg==
-X-Coremail-Antispam: 1Uk129KBj9fXoW3tr1DJr45ur17AF1fZF1fuFX_yoW8GFW7Wo
-	Z2ka1ayr4fKFn09FWSkF1SyFW7ur4Ikay8JrWkG3WUWF97Ar1Yy348Cw4xtr4q9r1q9a4k
-	Xa47Za4Yva15GFykl-sFpf9Il3svdjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8wcxFpf
-	9Il3svdxBIdaVrn0xqx4xG64xvF2IEw4CE5I8CrVC2j2Jv73VFW2AGmfu7bjvjm3AaLaJ3
-	UjIYCTnIWjp_UUUYR7kC6x804xWl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI
-	8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xG
-	Y2AK021l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14
-	v26F4UJVW0owA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
-	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI0UMc
-	02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAF
-	wI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0Y48IcxkI7V
-	AKI48G6xCjnVAKz4kxM4IIrI8v6xkF7I0E8cxan2IY04v7M4kE6xkIj40Ew7xC0wCF04k2
-	0xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI
-	8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI48J
-	MIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr
-	1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvE
-	x4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjxUcj2MUUUUU
+User-Agent: Mozilla Thunderbird
+CC: Jingoo Han <jingoohan1@gmail.com>,
+        Manivannan Sadhasivam
+	<mani@kernel.org>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Rob Herring
+	<robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Yixun Lan
+	<dlan@kernel.org>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
+	<alex@ghiti.fr>,
+        Frank Li <Frank.Li@nxp.com>, Arnd Bergmann <arnd@arndb.de>,
+        Niklas Cassel <cassel@kernel.org>,
+        Christian Bruel
+	<christian.bruel@foss.st.com>,
+        Senchuan Zhang
+	<zhangsenchuan@eswincomputing.com>,
+        Vincent Guittot
+	<vincent.guittot@linaro.org>,
+        Randolph Lin <randolph@andestech.com>,
+        "Xincheng Zhang" <zhangxincheng@ultrarisc.com>,
+        Alex Elder
+	<elder@riscstar.com>,
+        "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
+        Marek Vasut <marek.vasut+renesas@mailbox.org>,
+        Vidya Sagar
+	<vidyas@nvidia.com>,
+        "Pengpeng Hou" <pengpeng@iscas.ac.cn>,
+        Anirudh
+ Srinivasan <asrinivasan@oss.tenstorrent.com>,
+        =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?=
+	<u.kleine-koenig@baylibre.com>,
+        Gustavo Pimentel
+	<gustavo.pimentel@synopsys.com>,
+        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <spacemit@lists.linux.dev>, Yixun Lan
+	<dlan@gentoo.org>,
+        Longbin Li <looong.bin@gmail.com>, <s-vadapalli@ti.com>
+Subject: Re: [PATCH v7 6/6] PCI: spacemit-k1: Add Spacemit K3 PCIe host
+ controller support
+To: Inochi Amaoto <inochiama@gmail.com>,
+        Manivannan Sadhasivam
+	<manivannan.sadhasivam@oss.qualcomm.com>
+References: <20260929083755.458238-1-inochiama@gmail.com>
+ <20260929083755.458238-7-inochiama@gmail.com>
+ <179232693939.2114.10956498814503201256.b4-reply@b4>
+ <athvDzJHs7WQmBnx@inochi.infowork>
+Content-Language: en-US
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+In-Reply-To: <athvDzJHs7WQmBnx@inochi.infowork>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000026C7:EE_|IA4PR10MB128213:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8dc71d1f-6722-49eb-1fcf-08df2f4d25f5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|36860700016|82310400026|13003099007|56012099006|261009223327099003|261009220027099003|4143699003|5023799004|261009221227099003|261009221727099003|261009223027099003|10067099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: 8HvmyNB2jPBqEtBYCltstgiXepm7YAQWKX1eMtPNgT0Y0KQms0mL+LXQkN60rpiPsVDKIdtNFHpoQOB6CHc8mDto6ZrY1AXnAUJmzzwU7OfPdmDrW8kYdVREY7XxLTWaWWQ8frntfbf6MY8dce6QCYZTCOFnBSFF1KKnC4qxrMgA13ESYyF246a4wxJ2xY+JoG9roq0XKhjTjxe9Q9cQyorcM1hlVFn2a88Z5VVnehFUEz0UvcBZAx6xQS80j0z4dfmlHXlOPDi5gnUxUo6HOX/veCCBAiSR2B+I5O6K+A4Pmo0NgL68mgoFQpZ6ybn0ZhnQa4T7L6RNtZyPqFDEmiWCv/K1gPfef14vTwe3Hkp+vJm1hzWAPkRun+/kZkJo2o1GoaY9NyEbeCPbabnByszIszAK9hbvm+wKqlYqvQzUKFDzHAFIB2kwftadE+IvdmK9G66tMC9XcCCCdcTXyUgY5ieXhIixf2Pg+jVLAwXaBPuaDgZ1nVPtt9zi5uezA+/tXK7mH0FZwdfxgMb4fDZF+ukuEUaoInWRm7WHfrjP0qjrLT1KVk6Sviip09xkbbEJSdjs/ZDgSIum8sItq9j2V2sPhx5xJjtzMY0WhBrS6jEv1xzIUvoMWwtDdj13P85sTKJxMBojWUIPhn/ihw==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(36860700016)(82310400026)(13003099007)(56012099006)(261009223327099003)(261009220027099003)(4143699003)(5023799004)(261009221227099003)(261009221727099003)(261009223027099003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: wEBOfTbcwwdECb1kYdPnpC8jYMbyMfs6yVr2jsxbcEXhuyWr1zvDtqI9JhezdqefBMbXJgPy6TzP+NBo/xoIPa8jWNEFlP7rcQSq5+4bsDUznsWglE6uXEuzuVXI5d5JSUSEBj3i64YdMY3bsrFQsE2GpGfmHrvDmZwSnOVQPu+JrCCMK4PCzq6CvpoUqK/lHmhagI1/wNStdJFVj6tM/pRqwAF9kiyQwT5mHdSTjFdK5fswwSBZqy+PCNTq8yqdi9MmmiWGJk+E8k1Tj7BR5U2eKrcJR5q5DrV8tz74t6UNaU3+z733UDoY4+SywEgIOLeaHi3UMEJt82740KCj1+j+SGQwKZqojD3+ho0oBTc+T5t02p25+/91BLub/jn9iM9191QwPHrAv/uWT1feJEBmeHoITEvN2BF8+AeYwgk6TTbiX+Sac6kryTQSmUwE
+X-Exchange-RoutingPolicyChecked: H8b4cTnxBXWUukApfcTcc7HwqbgGPQB3+idjwysUQQr2kWxAlHEJmGoobdK2jx+i8eJvZy/+gDeWQxIvTKfvegVegV4VXsNieMhyzhpDnFPp7DTrrVau9rZMARVS4M8xGakvTifJCEMpTKKmdCPusOv3T9fVw13iqeBULXhOgpVRyk6jKcgEsyk5mHeIi0pBg9KRf9/M7pnvLYxd8TAlBRML3xQ/2md77LrBnAZFmUFvEOS8XMTy2YNekh9CPX8geyEi3ueP9k4eiKT3mbUzk3L1b5YaNmKAM3fI18nq17T9+c01boOmVQsBtqblZzztubsQCBSmLB2TU1Q1ePfLgw==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 08:27:30.4743
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8dc71d1f-6722-49eb-1fcf-08df2f4d25f5
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000026C7.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR10MB128213
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIxMDAzMyBTYWx0ZWRfX6D6qSiPLorDx
+ W6UU1IavRVrGNbJ58MeFjCKGJCX+bQOy9D+tVkLjxM6ejRiRb0EIh3Sb2WD2Z4Fy9+ks4YWBcJ1
+ d97Km0paI4YI2T1GkkNUUZfZ6FUEmnA=
+X-Proofpoint-ORIG-GUID: eTStzLIAfoKKnan4hosZxZZVxYfjHi44
+X-Proofpoint-GUID: eTStzLIAfoKKnan4hosZxZZVxYfjHi44
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIxMDAzMyBTYWx0ZWRfX2gg4BXFCcPPe
+ 5fVzN6LpIPL4Sjy4T+Ct4YufJXKnLnR6wKRPWqsmpwwF1Zi/EQ8Xl64ltFA+EyBX3a0r6Dx5tz2
+ 6GVbIdw5C7r6uLGgfRoWJCVlb+PtsOtUrVA2SF5dskNeta3IYafsVzJ40jI3WmqPDbdl3Ckvm2Z
+ LXaZcl+TT4YdNVhZ+dYkuwemCmA7EOMuwvIfVv5tsnVu9IuxlZvZ2UrDPnbfnPVvHb46xFIygDg
+ m+2P52kPVVXe9jDS0wOpTXZkokbQbfVtxG9ryH4VKjbQWTZqH4MyxRBT3/ZDLRfv4XgJ7evzcTd
+ aBjD+6NXHDYODIPOaVC3eIj2lE9KiJlyBiZ6dpohbCWXTBpXQVLco608RGEb6NzJpQOZFAatDgd
+ 7vjg+PRtCBlHNmOgDVj2DZAsDCeNl6yDagZiOXA2Zl18/8AjRuNsC3YBnt3dHLh0dREMhle/Ksa
+ fFflxsvlBpkix/U/Qhg==
+X-Authority-Analysis: v=2.4 cv=cJB1IVeN c=1 sm=1 tr=0 ts=6ad87777 cx=c_pps
+ a=Lj9o+5Kg1g76LDS8oSCIAA==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
+ a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=fPAWb5peG099m5CrUpKH:22 a=lv0vYI88AAAA:8 a=pGLkceISAAAA:8
+ a=o5qoACeZ21ob3yI0s_sA:9 a=QEXdDO2ut3YA:10 a=9qqun4PRrEabIEPCFt1_:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-21_02,2026-10-19_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 phishscore=0 impostorscore=0 lowpriorityscore=0
+ priorityscore=1501 malwarescore=0 clxscore=1011 suspectscore=0 adultscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
+ definitions=main-2610210033
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_092453_196621_A0B5B34A 
-X-CRM114-Status: GOOD (  21.85  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20261021_012828_719872_456B8BAC 
+X-CRM114-Status: GOOD (  13.58  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,458 +220,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Yazhou Tang <tangyazhou518@outlook.com>
+On 10/21/26 1:26 PM, Inochi Amaoto wrote:
+> On Sun, Oct 18, 2026 at 06:05:39PM +0530, Manivannan Sadhasivam wrote:
+>> On 2026-09-29 16:37 +0800, Inochi Amaoto wrote:
+>>> The PCIe controller on Spacemit K3 is almost a standard Synopsys
+>>> DesignWare PCIe IP with extra link and reset control. Unlike
+>>> the PCIe controller on K1, this controller supports external MSI
+>>> interrupt controller and can use multiple PHYs at the same time.
+>>>
+>>> Add driver to support PCIe controller on Spacemit K3 PCIe.
+>>>
+>>> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+>>> ---
+>>>   drivers/pci/controller/dwc/Kconfig            |   4 +-
+>>>   drivers/pci/controller/dwc/pcie-spacemit-k1.c | 139 ++++++++++++++++++
+>>>   2 files changed, 141 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+>>> index dcfbe7e229fd..f9c27165260e 100644
+>>> --- a/drivers/pci/controller/dwc/Kconfig
+>>> +++ b/drivers/pci/controller/dwc/Kconfig
+>>> @@ -443,7 +443,7 @@ config PCIE_SOPHGO_DW
+>>>   	  Sophgo SoCs.
+>>>   
+>>>   config PCIE_SPACEMIT_K1
+>>> -	tristate "SpacemiT K1 PCIe controller (host mode)"
+>>> +	tristate "SpacemiT PCIe controller (host mode)"
+>>>   	depends on ARCH_SPACEMIT || COMPILE_TEST
+>>>   	depends on HAS_IOMEM
+>>>   	select PCIE_DW_HOST
+>>> @@ -451,7 +451,7 @@ config PCIE_SPACEMIT_K1
+>>>   	default ARCH_SPACEMIT
+>>>   	help
+>>>   	  Enables support for the DesignWare based PCIe controller in
+>>> -	  the SpacemiT K1 SoC operating in host mode.  Three controllers
+>>> +	  the SpacemiT SoC operating in host mode. Three controllers
+>>>   	  are available on the K1 SoC; the first of these shares a PHY
+>>>   	  with a USB 3.0 host controller (one or the other can be used).
+>>>   
+>>> diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+>>> index ec59ccb710ec..61b430f2294a 100644
+>>> --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+>>> +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+>>> @@ -28,8 +28,18 @@
+>>>   #define SMLH_LINK_UP			BIT(1)
+>>>   #define RDLH_LINK_UP			BIT(12)
+>>>   
+>>> +#define INTR_STATUS				0x0010
+>>> +
+>>>   #define INTR_ENABLE				0x0014
+>>>   #define MSI_CTRL_INT			BIT(11)
+>>> +#define RDLH_LINK_UP_INT		BIT(20)
+>>> +
+>>> +#define K3_PHY_AHB_IRQSTATUS_INTX		0x0008
+>>> +
+>>> +#define K3_ADDR_INTR_STATUS1			0x0018
+>>> +
+>>> +#define K3_CACHE_MSTR_AWCACHE_MODE	GENMASK(14, 11)
+>>> +#define K3_CACHE_MSTR_AWCACHE_BEHAVIOR	0xf
+>>>   
+>>>   /* Some controls require APMU regmap access */
+>>>   #define SYSCON_APMU			"spacemit,apmu"
+>>> @@ -44,6 +54,9 @@
+>>>   
+>>>   #define PCIE_CONTROL_LOGIC			0x0004
+>>>   #define PCIE_SOFT_RESET			BIT(0)
+>>> +#define PCIE_PERSTN_OE			BIT(24)
+>>> +#define PCIE_PERSTN_OUT			BIT(25)
+>>> +#define PCIE_IGNORE_PERSTN		BIT(31)
+>>>   
+>>>   struct k1_pcie;
+>>>   
+>>> @@ -315,6 +328,123 @@ static int k1_pcie_parse_port(struct k1_pcie *k1)
+>>>   	return ret;
+>>>   }
+>>>   
+>>> +static int k3_pcie_init(struct dw_pcie_rp *pp)
+>>> +{
+>>> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+>>> +	struct k1_pcie *k1 = to_k1_pcie(pci);
+>>> +	u32 reset_ctrl = k1->pmu_off + PCIE_CLK_RESET_CONTROL;
+>>> +	u32 val;
+>>> +	int ret;
+>>> +
+>>> +	regmap_clear_bits(k1->pmu, reset_ctrl, LTSSM_EN);
+>>> +
+>>> +	k1_pcie_toggle_soft_reset(k1);
+>>> +
+>>> +	/* K3: Set IGNORE_PERSTN and drive PERSTN_OE high (assert reset) */
+>>> +	regmap_update_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
+>>> +			   PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE | PCIE_PERSTN_OUT,
+>>> +			   PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE);
+>>> +
+>>> +	ret = k1_pcie_enable_resources(k1);
+>>> +	if (ret)
+>>> +		goto failed_resources;
+>>> +
+>>> +	regmap_set_bits(k1->pmu, reset_ctrl, PCIE_AUX_PWR_DET);
+>>> +	regmap_clear_bits(k1->pmu, reset_ctrl, APP_HOLD_PHY_RST);
+>>> +
+>>> +	ret = phy_bulk_init(k1->phy_count, k1->phys);
+>>> +	if (ret)
+>>> +		goto failed_phy_init;
+>>
+>> You got me confused with this PHY bulk API for a moment. I think you are trying
+>> to control all the PHYs of the multi-port RC setup at once. But I believe
+>> that's not what we want mostly. Each port is an independent entity with its own
+>> PHY, PERST# etc... So the RC driver controlling all the PHYs at once, doesn't
+>> seem logical.
+>>
+> 
+> In fact this thing is different. Accoring to statement from spacemit,
+> for software, it does not need to care about how the phy topology,
+> and which phy/phys is/are attached to the RC. It just needs to enable
+> all the phy and configure the APMU, which is the one that give some
+> control on PERST# and others. The phy itself does nothing on this.
+According to section "14.1.4 PHY Configuration Block Diagram" in the User 
+Manual for the Spacemit K3 SoC [0],the x8 Lane PCIe Controller namely 'PCIe 
+A' requires multiple PHYs (ranging from PHY0 to PHY5) to be 
+initialized/enabled simultaneously for a single Root-Port configuration. So 
+the phy_bulk_init() API here seems to be used in that sense. Mani's concern 
+is that the PHYs for all PCIe Controller instances are being configured in 
+a single invocation to phy_bulk_init() rather than the potentially multiple 
+PHY instances of a single PCIe Controller instance. Since k3_pcie_init is 
+invoked per Root-Port instance (i.e. per PCIe Controller instance), the 
+phy_bulk_init() API should configure 'all' PHY instances _strictly_ 
+associated with the corresponding PCIe instance. This might already be the 
+case.
 
-Add test_progs coverage for UHMUL and SHMUL with the following changes:
-
-1. Add arithmetic execution tests in verifier_hmul.c and register the new
-   test suite with the verifier test runner:
-   - Gate the execution cases on x86, arm64, and RV64, matching the JIT support
-     added in this series, and provide a dummy program for other targets.
-   - Inject only UHMUL and SHMUL as raw .8byte values built with
-     BPF_RAW_INSN(), while keeping the surrounding instructions in the
-     existing assembly syntax. This avoids requiring assembler support
-     for the new mnemonics.
-   - Exercise register and immediate sources, signed and unsigned boundary
-     values, negative immediate sign extension, and R0, R1, and R3
-     destinations. The R3 case covers the x86 JIT path where BPF R3 aliases
-     the implicit RDX result register. Run these cases in both privileged
-     and unprivileged modes.
-   - BPF_PROG_TEST_RUN exposes only the low 32 bits of R0 as its return
-     value, so a direct __retval() check cannot validate the upper 32 bits.
-     Build a 64-bit mismatch mask as actual ^ expected, then fold it to
-     32 bits as (u32)mismatch | (u32)(mismatch >> 32) and return the folded
-     value through R0. The return value is zero if and only if the complete
-     64-bit result matches the expected value.
-
-2. Add arena pointer rejection tests in verifier_hmul_arena.c. Use an
-   arena pointer as the destination of UHMUL and as the source of SHMUL,
-   and verify that the verifier rejects both programs.
-
-   Keep these cases in a separate BPF object with a dedicated userspace
-   runner. Probe BPF_MAP_TYPE_ARENA support before loading the object,
-   and skip this suite when arena maps are unavailable, while keeping
-   the arithmetic tests in verifier_hmul.c runnable. Retain
-   __BPF_FEATURE_ADDR_SPACE_CAST gating and a dummy skip program for
-   toolchains without addr_space_cast support.
-
-3. Extend the illegal instruction encoding tests in verifier_value_illegal_alu.c.
-   Check reserved MUL offsets and UHMUL and SHMUL encodings in the BPF_ALU
-   class, reusing the existing DEFINE_BAD_OFFSET_TEST() macro.
-
-Signed-off-by: Yazhou Tang <tangyazhou518@outlook.com>
-Co-developed-by: Tianci Cao <ziye@zju.edu.cn>
-Signed-off-by: Tianci Cao <ziye@zju.edu.cn>
-Co-developed-by: Shenghao Yuan <shenghaoyuan0928@163.com>
-Signed-off-by: Shenghao Yuan <shenghaoyuan0928@163.com>
----
- tools/testing/selftests/bpf/prog_tests/verifier.c  |   2 +
- .../selftests/bpf/prog_tests/verifier_hmul_arena.c |  19 ++
- tools/testing/selftests/bpf/progs/verifier_hmul.c  | 235 +++++++++++++++++++++
- .../selftests/bpf/progs/verifier_hmul_arena.c      |  70 ++++++
- .../bpf/progs/verifier_value_illegal_alu.c         |   7 +-
- 5 files changed, 332 insertions(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/bpf/prog_tests/verifier.c b/tools/testing/selftests/bpf/prog_tests/verifier.c
-index 04740ba37e91..795c3e56c23e 100644
---- a/tools/testing/selftests/bpf/prog_tests/verifier.c
-+++ b/tools/testing/selftests/bpf/prog_tests/verifier.c
-@@ -59,6 +59,7 @@
- #include "verifier_helper_packet_access.skel.h"
- #include "verifier_helper_restricted.skel.h"
- #include "verifier_helper_value_access.skel.h"
-+#include "verifier_hmul.skel.h"
- #include "verifier_idoms.skel.h"
- #include "verifier_int_ptr.skel.h"
- #include "verifier_iterating_callbacks.skel.h"
-@@ -251,6 +252,7 @@ void test_verifier_helper_access_var_len(void) { RUN(verifier_helper_access_var_
- void test_verifier_helper_packet_access(void) { RUN(verifier_helper_packet_access); }
- void test_verifier_helper_restricted(void)    { RUN(verifier_helper_restricted); }
- void test_verifier_helper_value_access(void)  { RUN(verifier_helper_value_access); }
-+void test_verifier_hmul(void)                 { RUN(verifier_hmul); }
- void test_verifier_idoms(void)                { RUN(verifier_idoms); }
- void test_verifier_int_ptr(void)              { RUN(verifier_int_ptr); }
- void test_verifier_iterating_callbacks(void)  { RUN(verifier_iterating_callbacks); }
-diff --git a/tools/testing/selftests/bpf/prog_tests/verifier_hmul_arena.c b/tools/testing/selftests/bpf/prog_tests/verifier_hmul_arena.c
-new file mode 100644
-index 000000000000..f9cd7b7b9781
---- /dev/null
-+++ b/tools/testing/selftests/bpf/prog_tests/verifier_hmul_arena.c
-@@ -0,0 +1,19 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <test_progs.h>
-+#include "verifier_hmul_arena.skel.h"
-+
-+void test_verifier_hmul_arena(void)
-+{
-+	int ret;
-+
-+	/* Arena support can depend on CPU features, such as Zacas on RV64. */
-+	ret = libbpf_probe_bpf_map_type(BPF_MAP_TYPE_ARENA, NULL);
-+	if (!ASSERT_GE(ret, 0, "probe_arena"))
-+		return;
-+	if (!ret) {
-+		test__skip();
-+		return;
-+	}
-+	RUN_TESTS(verifier_hmul_arena);
-+}
-diff --git a/tools/testing/selftests/bpf/progs/verifier_hmul.c b/tools/testing/selftests/bpf/progs/verifier_hmul.c
-new file mode 100644
-index 000000000000..acd92355c636
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/verifier_hmul.c
-@@ -0,0 +1,235 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <linux/bpf.h>
-+#include <limits.h>
-+#include <bpf/bpf_helpers.h>
-+#include "bpf_misc.h"
-+#include "../../../include/linux/filter.h"
-+
-+#define BPF_UHMUL64_REG(DST, SRC) \
-+	BPF_RAW_INSN(BPF_ALU64 | BPF_MUL | BPF_X, DST, SRC, BPF_UHMUL, 0)
-+
-+#define BPF_UHMUL64_IMM(DST, IMM) \
-+	BPF_RAW_INSN(BPF_ALU64 | BPF_MUL | BPF_K, DST, 0, BPF_UHMUL, IMM)
-+
-+#define BPF_SHMUL64_REG(DST, SRC) \
-+	BPF_RAW_INSN(BPF_ALU64 | BPF_MUL | BPF_X, DST, SRC, BPF_SHMUL, 0)
-+
-+#define BPF_SHMUL64_IMM(DST, IMM) \
-+	BPF_RAW_INSN(BPF_ALU64 | BPF_MUL | BPF_K, DST, 0, BPF_SHMUL, IMM)
-+
-+/*
-+ * Inject UHMUL/SHMUL as raw instructions so these tests do not require
-+ * assembler support for the new mnemonics. All surrounding instructions use
-+ * existing BPF assembly syntax supported by the baseline selftests toolchain.
-+ */
-+
-+#if defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)
-+
-+/*
-+ * BPF_PROG_TEST_RUN reports a 32-bit retval. Fold both halves of
-+ * (actual ^ expected) into w0 so retval == 0 checks the full 64-bit result.
-+ */
-+
-+SEC("socket")
-+__description("UHMUL64, U64_MAX * U64_MAX, register source")
-+__success __success_unpriv __retval(0)
-+__naked void uhmul64_max_reg(void)
-+{
-+	asm volatile (
-+	"r0 = -1;"
-+	"r1 = -1;"
-+	".8byte %[hmul];"
-+	"r2 = -2;"
-+	"r0 ^= r2;"
-+	"r2 = r0;"
-+	"r2 >>= 32;"
-+	"w0 |= w2;"
-+	"exit;"
-+	:
-+	: __imm_insn(hmul, BPF_UHMUL64_REG(BPF_REG_0, BPF_REG_1))
-+	: __clobber_all);
-+}
-+
-+SEC("socket")
-+__description("UHMUL64, (1ULL << 63) * 2, register source")
-+__success __success_unpriv __retval(0)
-+__naked void uhmul64_pow2_reg(void)
-+{
-+	asm volatile (
-+	"r0 = 2;"
-+	"r1 = %[llong_min] ll;"
-+	".8byte %[hmul];"
-+	"r0 = r1;"
-+	"r2 = 1;"
-+	"r0 ^= r2;"
-+	"r2 = r0;"
-+	"r2 >>= 32;"
-+	"w0 |= w2;"
-+	"exit;"
-+	:
-+	: __imm_const(llong_min, LLONG_MIN),
-+	  __imm_insn(hmul, BPF_UHMUL64_REG(BPF_REG_1, BPF_REG_0))
-+	: __clobber_all);
-+}
-+
-+SEC("socket")
-+__description("UHMUL64, (1ULL << 63) * 2, R3 destination")
-+__success __success_unpriv __retval(0)
-+__naked void uhmul64_r3_dst(void)
-+{
-+	asm volatile (
-+	"r3 = %[llong_min] ll;"
-+	"r0 = 2;"
-+	".8byte %[hmul];"
-+	"r2 = 1;"
-+	"r3 ^= r2;"
-+	"r2 = r3;"
-+	"r2 >>= 32;"
-+	"w3 |= w2;"
-+	"r0 = r3;"
-+	"exit;"
-+	:
-+	: __imm_const(llong_min, LLONG_MIN),
-+	  __imm_insn(hmul, BPF_UHMUL64_REG(BPF_REG_3, BPF_REG_0))
-+	: __clobber_all);
-+}
-+
-+SEC("socket")
-+__description("UHMUL64, (1ULL << 63) * 2, immediate source")
-+__success __success_unpriv __retval(0)
-+__naked void uhmul64_pow2_imm(void)
-+{
-+	asm volatile (
-+	"r0 = %[llong_min] ll;"
-+	".8byte %[hmul];"
-+	"r2 = 1;"
-+	"r0 ^= r2;"
-+	"r2 = r0;"
-+	"r2 >>= 32;"
-+	"w0 |= w2;"
-+	"exit;"
-+	:
-+	: __imm_const(llong_min, LLONG_MIN),
-+	  __imm_insn(hmul, BPF_UHMUL64_IMM(BPF_REG_0, 2))
-+	: __clobber_all);
-+}
-+
-+SEC("socket")
-+__description("UHMUL64, (1ULL << 63) * -2, immediate source")
-+__success __success_unpriv __retval(0)
-+__naked void uhmul64_neg_imm(void)
-+{
-+	asm volatile (
-+	"r0 = %[llong_min] ll;"
-+	".8byte %[hmul];"
-+	"r2 = %[llong_max] ll;"
-+	"r0 ^= r2;"
-+	"r2 = r0;"
-+	"r2 >>= 32;"
-+	"w0 |= w2;"
-+	"exit;"
-+	:
-+	: __imm_const(llong_min, LLONG_MIN),
-+	  __imm_const(llong_max, LLONG_MAX),
-+	  __imm_insn(hmul, BPF_UHMUL64_IMM(BPF_REG_0, -2))
-+	: __clobber_all);
-+}
-+
-+SEC("socket")
-+__description("SHMUL64, INT64_MAX * INT64_MAX, register source")
-+__success __success_unpriv __retval(0)
-+__naked void shmul64_max_reg(void)
-+{
-+	asm volatile (
-+	"r0 = %[llong_max] ll;"
-+	"r1 = %[llong_max] ll;"
-+	".8byte %[hmul];"
-+	"r2 = %[expected] ll;"
-+	"r0 ^= r2;"
-+	"r2 = r0;"
-+	"r2 >>= 32;"
-+	"w0 |= w2;"
-+	"exit;"
-+	:
-+	: __imm_const(expected, 0x3fffffffffffffffULL),
-+	  __imm_const(llong_max, LLONG_MAX),
-+	  __imm_insn(hmul, BPF_SHMUL64_REG(BPF_REG_0, BPF_REG_1))
-+	: __clobber_all);
-+}
-+
-+SEC("socket")
-+__description("SHMUL64, INT64_MIN * -2, register source")
-+__success __success_unpriv __retval(0)
-+__naked void shmul64_min_neg2_reg(void)
-+{
-+	asm volatile (
-+	"r0 = %[llong_min] ll;"
-+	"r1 = -2;"
-+	".8byte %[hmul];"
-+	"r2 = 1;"
-+	"r0 ^= r2;"
-+	"r2 = r0;"
-+	"r2 >>= 32;"
-+	"w0 |= w2;"
-+	"exit;"
-+	:
-+	: __imm_const(llong_min, LLONG_MIN),
-+	  __imm_insn(hmul, BPF_SHMUL64_REG(BPF_REG_0, BPF_REG_1))
-+	: __clobber_all);
-+}
-+
-+SEC("socket")
-+__description("SHMUL64, 1 * -2, immediate source")
-+__success __success_unpriv __retval(0)
-+__naked void shmul64_neg_imm(void)
-+{
-+	asm volatile (
-+	"r0 = 1;"
-+	".8byte %[hmul];"
-+	"r2 = -1;"
-+	"r0 ^= r2;"
-+	"r2 = r0;"
-+	"r2 >>= 32;"
-+	"w0 |= w2;"
-+	"exit;"
-+	:
-+	: __imm_insn(hmul, BPF_SHMUL64_IMM(BPF_REG_0, -2))
-+	: __clobber_all);
-+}
-+
-+SEC("socket")
-+__description("SHMUL64, INT64_MIN * 2, immediate source")
-+__success __success_unpriv __retval(0)
-+__naked void shmul64_min_imm(void)
-+{
-+	asm volatile (
-+	"r0 = %[llong_min] ll;"
-+	".8byte %[hmul];"
-+	"r2 = -1;"
-+	"r0 ^= r2;"
-+	"r2 = r0;"
-+	"r2 >>= 32;"
-+	"w0 |= w2;"
-+	"exit;"
-+	:
-+	: __imm_const(llong_min, LLONG_MIN),
-+	  __imm_insn(hmul, BPF_SHMUL64_IMM(BPF_REG_0, 2))
-+	: __clobber_all);
-+}
-+
-+#else
-+
-+SEC("socket")
-+__description("UHMUL/SHMUL are not supported by this JIT, use a dummy test")
-+__skip("UHMUL/SHMUL are not supported by this jit")
-+__success
-+int dummy_test(void)
-+{
-+	return 0;
-+}
-+
-+#endif
-+
-+char _license[] SEC("license") = "GPL";
-diff --git a/tools/testing/selftests/bpf/progs/verifier_hmul_arena.c b/tools/testing/selftests/bpf/progs/verifier_hmul_arena.c
-new file mode 100644
-index 000000000000..fc0ca88114d0
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/verifier_hmul_arena.c
-@@ -0,0 +1,70 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <linux/bpf.h>
-+#include <bpf/bpf_helpers.h>
-+#include "bpf_misc.h"
-+#include "../../../include/linux/filter.h"
-+
-+#if defined(__BPF_FEATURE_ADDR_SPACE_CAST)
-+
-+#define BPF_UHMUL64_IMM(DST, IMM) \
-+	BPF_RAW_INSN(BPF_ALU64 | BPF_MUL | BPF_K, DST, 0, BPF_UHMUL, IMM)
-+
-+#define BPF_SHMUL64_REG(DST, SRC) \
-+	BPF_RAW_INSN(BPF_ALU64 | BPF_MUL | BPF_X, DST, SRC, BPF_SHMUL, 0)
-+
-+struct {
-+	__uint(type, BPF_MAP_TYPE_ARENA);
-+	__uint(map_flags, BPF_F_MMAPABLE);
-+	__uint(max_entries, 1);
-+} arena SEC(".maps");
-+
-+SEC("syscall")
-+__description("UHMUL64 with arena pointer dst")
-+__failure __msg("UHMUL/SHMUL with arena pointers are not supported")
-+__naked void uhmul64_arena_ptr(void)
-+{
-+	asm volatile (
-+	"r1 = %[arena] ll;"
-+	"r0 = 1;"
-+	"r0 = addr_space_cast(r0, 0x0, 0x1);"
-+	".8byte %[hmul];"
-+	"exit;"
-+	:
-+	: __imm_addr(arena),
-+	  __imm_insn(hmul, BPF_UHMUL64_IMM(BPF_REG_0, 2))
-+	: __clobber_all);
-+}
-+
-+SEC("syscall")
-+__description("SHMUL64 with arena pointer src")
-+__failure __msg("UHMUL/SHMUL with arena pointers are not supported")
-+__naked void shmul64_arena_ptr(void)
-+{
-+	asm volatile (
-+	"r1 = %[arena] ll;"
-+	"r1 = 1;"
-+	"r1 = addr_space_cast(r1, 0x0, 0x1);"
-+	"r0 = 2;"
-+	".8byte %[hmul];"
-+	"exit;"
-+	:
-+	: __imm_addr(arena),
-+	  __imm_insn(hmul, BPF_SHMUL64_REG(BPF_REG_0, BPF_REG_1))
-+	: __clobber_all);
-+}
-+
-+#else
-+
-+SEC("socket")
-+__description("HMUL arena tests require compiler support for addr_space_cast")
-+__skip("compiler doesn't support addr_space_cast")
-+__success
-+int dummy_test(void)
-+{
-+	return 0;
-+}
-+
-+#endif
-+
-+char _license[] SEC("license") = "GPL";
-diff --git a/tools/testing/selftests/bpf/progs/verifier_value_illegal_alu.c b/tools/testing/selftests/bpf/progs/verifier_value_illegal_alu.c
-index 31663338866d..209d5be55155 100644
---- a/tools/testing/selftests/bpf/progs/verifier_value_illegal_alu.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_value_illegal_alu.c
-@@ -367,7 +367,8 @@ __naked void flow_keys_illegal_variable_offset_alu(void)
- 
- /*
-  * Offset fields of 0 and 1 are legal for BPF_{DIV,MOD} instructions.
-- * Offset fields of 0 are legal for the rest of ALU instructions.
-+ * Offset fields of 0, 1 and 2 are legal for BPF_ALU64 | BPF_MUL.
-+ * Only offset 0 is legal for BPF_ALU | BPF_MUL.
-  * Test that error is reported for illegal offsets, assuming that tests
-  * for legal offsets exist.
-  */
-@@ -377,5 +378,9 @@ DEFINE_BAD_OFFSET_TEST(bad_offset_addx, BPF_ALU64 | BPF_ADD | BPF_X, -1, 0)
- DEFINE_BAD_OFFSET_TEST(bad_offset_divx2, BPF_ALU64 | BPF_DIV | BPF_X, 2, 0)
- DEFINE_BAD_OFFSET_TEST(bad_offset_modk2, BPF_ALU64 | BPF_MOD | BPF_K, 2, 1)
- DEFINE_BAD_OFFSET_TEST(bad_offset_addx2, BPF_ALU64 | BPF_ADD | BPF_X, 1, 0)
-+DEFINE_BAD_OFFSET_TEST(bad_offset_mulx, BPF_ALU64 | BPF_MUL | BPF_X, -1, 0)
-+DEFINE_BAD_OFFSET_TEST(bad_offset_mulk, BPF_ALU64 | BPF_MUL | BPF_K, 3, 0)
-+DEFINE_BAD_OFFSET_TEST(bad_uhmul32_x, BPF_ALU | BPF_MUL | BPF_X, BPF_UHMUL, 0)
-+DEFINE_BAD_OFFSET_TEST(bad_shmul32_k, BPF_ALU | BPF_MUL | BPF_K, BPF_SHMUL, 0)
- 
- char _license[] SEC("license") = "GPL";
-
--- 
-2.56.0
-
+[0]: 
+https://spacemit.com/community/document/info?lang=en&nodepath=hardware/key_stone/k3/k3_docs/k3_usermanual/14_connectivity/pcie.md
 
 _______________________________________________
 linux-riscv mailing list
