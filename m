@@ -2,82 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E73E8606AEF1
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 19:54:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 483BD606A31D
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 19:54:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ad4u9E4z;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lIP6UT4b
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Odo1O0O2;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k4NBXaHB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OdTfcvY0YIHiUwlQ677vmNMQdXcAes1rROVa4Zs3vxQ=; b=Ad4u9E4zt7WdKE
-	3Ik8mlkI4SOvvF6BdHtNBhdN7zqxj0+ZzT8u2YBp1Eby/fDgGhCUVVqXeuAvepAaDqSodyoPhPoXB
-	vrrHH3eChzdgX3BmcJNUWlVITDq+IRYgSJb810yteljwnYGtZfD6VpmWg2tKskAhv2D+3rXq4FpR4
-	lNjV9T6A8Doz8IS8u0IfSJ+mV/DXnlOQ7UxBZOf7zd1p/o3vI8qcC9B6hXJahTjKIiN+4Bto0WU3b
-	3k771s002QvwRVJJItKFgcJGwnchROP4za504TZ94g55tIuKTecRQL23AX/BBjPwmMt0lpXi1ZJVR
-	f2rrRRk0OqsoT2sQnDfg==;
+	List-Owner; bh=41iYWeWCvzTFI8t3Jhn+5BZxUwE8+Rwz/7qpoIATByc=; b=Odo1O0O2979cjb
+	HrOkliLiQKK605hLVNP9GwYnkYQQTxAC2L90A0lYHDHYsepY3fpX2tEUWDs1LGU0kpPm5uCP0dRY1
+	/Lg0Ae1dZyylv8xy0hA1GFsY97xBw+b/LxnJvLQffFd7lZ27VwXJVygCxx7Iuyt4o9l1S5l+wLfPp
+	UtrxQhwSbJgoo7+O0sDa5uTc7GCabK+v12jed4uw1kx0mpjEvPMEXDgY+wlOUWmco4xXRDo1B8paY
+	XP1nW+Ue6X1VUzpNL+T1FfMWkRCT46BzaSYyFf1chRtgV+KVYofGGOeeGJK59wDQP7iQZER5Q3kXk
+	dPo+J/zur4nD7Ghlh+vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJcNf-0000000CmzI-3Umx;
+	id 1xJcNf-0000000CmzW-3yeQ;
 	Wed, 21 Oct 2026 19:53:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJcNU-0000000CmeW-3krY
+	id 1xJcNV-0000000Cmeq-0KJV
 	for linux-riscv@lists.infradead.org;
 	Wed, 21 Oct 2026 19:53:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 396D6605EF;
+	by sea.source.kernel.org (Postfix) with ESMTP id C9B0741257;
 	Wed, 21 Oct 2026 19:53:36 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1792612415;
-	b=f7J7/hdXFQE7/ls5eEeX1MYkOdlYxPxxQPJQEG9qETzBtvH0g8Kwh8q+iOtoI1hVnYsm
-	 7k6Pi5xI4loxcQQfzuzyirknB98qFJc98yshb58LS+bMKjqNj0QBj88QRolgCHUnxBag6
-	 RUvVxOknAHt0bfhK/s8OC1hHy4o6kPwl0OKBgQ9O4ybLcwoWP9J1KLPgpRwqw5aCevfer
-	 XS/T0ytOT+q+ePXehmrDg9geNgENjhk1xmkikdE6feWs63CvVgTP+W849EcptH/tORW0j
-	 3EnMjW1uY0bc4L6Q5spt9CwY0/wjgGxu1rFEK1s5ej4nyyvy+44fVlXpNbtc8vX7U9Q==
+	t=1792612416;
+	b=xA9T8vSLgjfakeCdFyZ4MUWYoG7/3HW6ezLEP8aavo0nl+6VeN/i+vn0EJBqCDFtkdF5
+	 9SeKJYs7yNMUdMrqHMVWg2FAc/P5cfUqYwBJ111pbc4roj8/3yxE4tqii2X2QNm1WNWED
+	 Lylg0o7RwFNRwDl75BQb6X0z3KBFLJfamqMapFwygargqp5VhozV70g4f3K0tJG8Uqfwc
+	 /mokdBKhPmcGVuzN38/9iaeOcET8Q3ZFytF5if6x2/2ZNkAF8Ne9cXhR+094h12lp0afL
+	 +PZJikpI21TIvWSEXvUZ7ZZ7BpyLyKOkcsoeqpgyyj0+ZztbpkdtuuTzIm9gcqUDt4g==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1792612415;
+	c=relaxed/relaxed; t=1792612416;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To;
-	bh=8UOnSeDpYM67ICiqR7FSIQw1QnjeFGP1JGC13SUouGk=;
-	b=UUZwBZz0Xohi49bAT0Bq4AR3RysTIY2DBXE59RParV2Jxzi06TAjfK8jeYbBABf/2w9C
-	 8WLIG7uLUrMPvg7uhhoSbY4VzJ8EVRvK0Mwclswp3b5zfmMjdKjaukAcW2Td3ZVTHfjS5
-	 n/VosHBBI6wPlkj3J85DJ6tD8Knen1HWkqVCptTaRgSjQWkfQoiK7+T1J73BjyiKxD8vZ
-	 stHFteLifI638qU5uXTh6MatdTeTPHweLENQp8KE1ANR8eJeoxVvxA9+mqnDtcUMRaAU0
-	 hArE4thXZo7FSgfGhbOljRD8W2TbVznX1PDZw7nUcYL8SjGLLRnoNP7fLgSUMCaZIdA==
+	bh=g+QWdPvbJ2vnh+J79ALyNOoekqiMPLjVqDtuUSnlZ5c=;
+	b=nBHBZg6P9WiEw240U75cwRO2u0VZEJlka4kj2PqHqRghQMusX8C+8ennoaypq9C8QcBY
+	 rul7JGUWDzSvkrW3Lt5K/6KIGZtnAIDiP0GI9vYRoUUjtVM0HKqSvCzpqkrvDv+tcqS9G
+	 3WtFuwXwrkH9jHK8RFYm1h3Y1AdxvfPwSht+1c80RcqlfLIFpL/u7OcaSvB/0t0qji3ZQ
+	 2VfEZ3UjkS3sdMLFIL/BgmNaBdbfOxkAkPaP7sWSO/Upr/rdHtyDK8Ci2PR+9io/YoGwq
+	 exRvQCU52a8gVyomk2HM901ypbAte0BjHBUHPr9xbWtJOAVJk7MLI/hmeUZ5JRpflJg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 270A11F000CC;
-	Wed, 21 Oct 2026 19:53:28 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 75A1E1F000C6;
+	Wed, 21 Oct 2026 19:53:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792612415;
-	bh=8UOnSeDpYM67ICiqR7FSIQw1QnjeFGP1JGC13SUouGk=;
+	s=k20260515; t=1792612416;
+	bh=g+QWdPvbJ2vnh+J79ALyNOoekqiMPLjVqDtuUSnlZ5c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=lIP6UT4bK9kiENxW8AK8Ba3BKBTWFFHf9mzkgxzti0buF9rjshGfebsVtzTzQsi3v
-	 FSTxQi779+YVRWa9WKD2iwc9ej6u7UZfC34v35mjTrK762OloFQpUrWc8s25tYQ9aE
-	 HQvrlF/RBK2tELxYv3QykbJ57m1U1rTrsQtup2t27kRf24s7/Mt4GLAAYHxDv5xt09
-	 aHGxHSxUDXo3sNGECbpUAxjuqBMckf5AZlRTipRT4PyzUwyLNlmTiCZAh1bUpOpPWd
-	 pOggcaOKPTFglII+Da8bLMHrVIzcI7BqWhzc4vYryO5B6IhvSfMgNK+Rn3U0a1irtA
-	 xzC9hV9tltVJA==
+	b=k4NBXaHB3o1zfRMWCQc4OyX7gYeRhGMoxKo6JKvTcDRy1A36AeWy26cfHZX04mFUI
+	 KUWAR+/rYnhsVymPUrIuW6wq51PSmLVtIuDYAqum2uY4Fyk1kafWTG3rp+CabcX2Zv
+	 ywtPef6B32rIKPPig6Dq1ay5zsRizxVBU5A1GmAmugRlrr/QQLVnM1yr31skXdfrrO
+	 xITJtH212rP8l2YfUYtN+cGWyqpaq+C1+f6KldmQtZ5mXvjIo/lGowoE9XKsQnzDVi
+	 bmqimSlaO/74gCBEic3j7/lYFBux57MnjQkcjMOQIOpCthTocOkVFONOoS3kdCsXol
+	 7QZIR3zVx9eAA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 2EEE04344C;
+	by lkml.kernel.org (Postfix) with ESMTP id 0B6A64343B;
 	Wed, 21 Oct 2026 19:53:26 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Thu, 22 Oct 2026 03:53:29 +0800
-Subject: [PATCH 09/18] pinctrl: zhihe: add A210 support
+Date: Thu, 22 Oct 2026 03:53:25 +0800
+Subject: [PATCH 05/18] clk: zhihe: add A210 support
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261022-a210-init-v1-9-5e438f972d24@iscas.ac.cn>
+Message-Id: <20261022-a210-init-v1-5-5e438f972d24@iscas.ac.cn>
 References: <20261022-a210-init-v1-0-5e438f972d24@iscas.ac.cn>
 In-Reply-To: <20261022-a210-init-v1-0-5e438f972d24@iscas.ac.cn>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -97,11 +97,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-gpio@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
  Han Gao <gaohan@iscas.ac.cn>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792612403; l=43596;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792612403; l=98700;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=t4eecurWya3t8CmkKJLG8N8YHje61Onky9uHdPBbOmw=;
- b=pL/URMkUysANleb5jYyJgdgBuZ2WTNXR0xckBSyh7adr/13sV4H4WpsvW+XmJqn5HUaAv0ESe
- hUs57u2daJiDkhK9EgrvEuEmh7DKoqG5Hj0m6jX86Moqc1gEXrzP4yG
+ bh=crAoZLyawyZe2gGpWFNiov6OfwwqCJo1NMBr3AFGcW8=;
+ b=3bJaInCHln7yhVqE395dx9u+4RRZ8ztlonFDuJ2OYq2DoEXm759gEnc0fbG1rbgsocyCx0ISF
+ J895Tq9YCF9DA+6ALeYJbWOSz89+f0h22ROQCJeXbcMAa07RtetMOeD
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -129,1266 +129,2458 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
 
-Add mux and pin configuration support for the four A210 pad controllers,
-including the shared PERI3 SDIO mux and suspend-state restoration.
+Add AP and AON clock providers for A210. Preserve the PLL settings at
+probe and keep the AON system clock read-only.
 
 Signed-off-by: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
 Co-developed-by: Han Gao <gaohan@iscas.ac.cn>
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- drivers/pinctrl/Kconfig        |   14 +
- drivers/pinctrl/Makefile       |    1 +
- drivers/pinctrl/pinctrl-a210.c | 1206 ++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 1221 insertions(+)
+ drivers/clk/Kconfig              |    1 +
+ drivers/clk/Makefile             |    1 +
+ drivers/clk/zhihe/Kconfig        |   12 +
+ drivers/clk/zhihe/Makefile       |    2 +
+ drivers/clk/zhihe/clk-a210-aon.c |   94 ++
+ drivers/clk/zhihe/clk-a210-ap.c  | 2283 ++++++++++++++++++++++++++++++++++++++
+ 6 files changed, 2393 insertions(+)
 
-diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
-index e1ab3a916086..50fd2732b9b8 100644
---- a/drivers/pinctrl/Kconfig
-+++ b/drivers/pinctrl/Kconfig
-@@ -37,6 +37,20 @@ config DEBUG_PINCTRL
- 	help
- 	  Say Y here to add some extra checks and diagnostics to PINCTRL calls.
+diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+index f9592fd9ec2b..6f4d7a829a89 100644
+--- a/drivers/clk/Kconfig
++++ b/drivers/clk/Kconfig
+@@ -547,6 +547,7 @@ source "drivers/clk/uniphier/Kconfig"
+ source "drivers/clk/visconti/Kconfig"
+ source "drivers/clk/x86/Kconfig"
+ source "drivers/clk/xilinx/Kconfig"
++source "drivers/clk/zhihe/Kconfig"
+ source "drivers/clk/zynqmp/Kconfig"
  
-+config PINCTRL_A210
-+	tristate "Pinctrl driver for the ZhiHe A210 SoC"
-+	depends on 64BIT
-+	depends on OF && (ARCH_ZHIHE || COMPILE_TEST)
-+	select GENERIC_PINMUX_FUNCTIONS
-+	select GENERIC_PINCONF
-+	select PINMUX
-+	help
-+	  This selects the pinctrl driver for the ZhiHe A210 RISC-V SoC.
-+
-+	  It provides pin multiplexing and configuration support for
-+	  the A210 pad controllers (AON, PADCTRL0-2). Say Y if you
-+	  are building a kernel for the ZhiHe A210 platform.
-+
- config PINCTRL_AMD
- 	bool "AMD GPIO pin control"
- 	depends on HAS_IOMEM
-diff --git a/drivers/pinctrl/Makefile b/drivers/pinctrl/Makefile
-index a35d71135abf..c79ec78229ae 100644
---- a/drivers/pinctrl/Makefile
-+++ b/drivers/pinctrl/Makefile
-@@ -10,6 +10,7 @@ obj-$(CONFIG_GENERIC_PINCONF)	+= pinconf-generic.o
- obj-$(CONFIG_GENERIC_PINCTRL)	+= pinctrl-generic.o
- obj-$(CONFIG_OF)		+= devicetree.o
- 
-+obj-$(CONFIG_PINCTRL_A210)	+= pinctrl-a210.o
- obj-$(CONFIG_PINCTRL_AMD)	+= pinctrl-amd.o
- obj-$(CONFIG_PINCTRL_AMDISP)	+= pinctrl-amdisp.o
- obj-$(CONFIG_PINCTRL_APPLE_GPIO) += pinctrl-apple-gpio.o
-diff --git a/drivers/pinctrl/pinctrl-a210.c b/drivers/pinctrl/pinctrl-a210.c
+ # Kunit test cases
+diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+index b18af485d7f0..63b9f69803fd 100644
+--- a/drivers/clk/Makefile
++++ b/drivers/clk/Makefile
+@@ -181,5 +181,6 @@ ifeq ($(CONFIG_COMMON_CLK), y)
+ obj-$(CONFIG_X86)			+= x86/
+ endif
+ obj-y					+= xilinx/
++obj-$(CONFIG_CLK_ZHIHE_A210)		+= zhihe/
+ obj-$(CONFIG_ARCH_ZYNQ)			+= zynq/
+ obj-$(CONFIG_COMMON_CLK_ZYNQMP)         += zynqmp/
+diff --git a/drivers/clk/zhihe/Kconfig b/drivers/clk/zhihe/Kconfig
 new file mode 100644
-index 000000000000..753253e35c05
+index 000000000000..3319817709e6
 --- /dev/null
-+++ b/drivers/pinctrl/pinctrl-a210.c
-@@ -0,0 +1,1206 @@
++++ b/drivers/clk/zhihe/Kconfig
+@@ -0,0 +1,12 @@
++# SPDX-License-Identifier: GPL-2.0
++
++config CLK_ZHIHE_A210
++	tristate "ZhiHe A210 clock driver"
++	depends on OF && (ARCH_ZHIHE || COMPILE_TEST)
++	default ARCH_ZHIHE
++	help
++	  Build the clock controller driver for the ZhiHe A210 SoC.
++
++	  This driver provides clock tree management including PLLs,
++	  dividers, gates, and muxes for the A210 platform. Say Y if
++	  you are building a kernel for the ZhiHe A210.
+diff --git a/drivers/clk/zhihe/Makefile b/drivers/clk/zhihe/Makefile
+new file mode 100644
+index 000000000000..90f7075f9eab
+--- /dev/null
++++ b/drivers/clk/zhihe/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++obj-$(CONFIG_CLK_ZHIHE_A210) += clk-a210-ap.o clk-a210-aon.o
+diff --git a/drivers/clk/zhihe/clk-a210-aon.c b/drivers/clk/zhihe/clk-a210-aon.c
+new file mode 100644
+index 000000000000..5e311b1008c8
+--- /dev/null
++++ b/drivers/clk/zhihe/clk-a210-aon.c
+@@ -0,0 +1,94 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/* Read the firmware-selected AON clock and gate the AP-owned I2C bus. */
++#include <linux/clk-provider.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/spinlock.h>
++
++#include <dt-bindings/clock/zhihe,a210-aon-clk.h>
++
++#define AON_CLOCK_CONFIG 0x00
++#define AON_CLOCK_GATE 0x04
++#define AON_SOURCE_SHIFT 4
++#define AON_SOURCE_WIDTH 2
++#define AON_DIVIDER_WIDTH 3
++#define AON_I2C1_IC_ENABLE 20
++#define AON_I2C1_APB_ENABLE 21
++
++struct a210_aon_clock {
++	/* Protects the AP-owned AON gate register bits. */
++	spinlock_t lock;
++	struct clk_hw_onecell_data data;
++};
++
++static int a210_aon_clock_probe(struct platform_device *pdev)
++{
++	static const struct clk_parent_data parents[] = {
++		{ .fw_name = "high" },
++		{ .fw_name = "osc" },
++		{ .fw_name = "rc" },
++		{ .fw_name = "rtc" },
++	};
++	struct device *dev = &pdev->dev;
++	struct a210_aon_clock *priv;
++	struct clk_hw *mux, *sys, *hw;
++	void __iomem *base;
++	int i;
++
++	priv = devm_kzalloc(dev, struct_size(priv, data.hws, 3), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++	spin_lock_init(&priv->lock);
++	priv->data.num = 3;
++	base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(base))
++		return PTR_ERR(base);
++
++	/* E902 firmware owns source selection and the synchronized divider. */
++	mux = devm_clk_hw_register_mux_parent_data_table(dev, "aon_mux", parents,
++							 ARRAY_SIZE(parents), CLK_GET_RATE_NOCACHE,
++							 base + AON_CLOCK_CONFIG, AON_SOURCE_SHIFT,
++							 AON_SOURCE_WIDTH, CLK_MUX_READ_ONLY, NULL,
++							 &priv->lock);
++	if (IS_ERR(mux))
++		return PTR_ERR(mux);
++	sys = devm_clk_hw_register_divider_parent_hw(dev, "aon_sys", mux,
++						     CLK_IS_CRITICAL | CLK_GET_RATE_NOCACHE,
++						     base + AON_CLOCK_CONFIG, 0, AON_DIVIDER_WIDTH,
++						     CLK_DIVIDER_READ_ONLY, &priv->lock);
++	if (IS_ERR(sys))
++		return PTR_ERR(sys);
++	priv->data.hws[A210_AON_SYS_CLK] = sys;
++
++	for (i = 0; i < 2; i++) {
++		const char *name = i ? "aon_i2c1_pclk" : "aon_i2c1_ic_clk";
++		unsigned int bit = i ? AON_I2C1_APB_ENABLE : AON_I2C1_IC_ENABLE;
++
++		hw = devm_clk_hw_register_gate_parent_hw(dev, name, sys, 0,
++							 base + AON_CLOCK_GATE, bit, 0,
++							 &priv->lock);
++		if (IS_ERR(hw))
++			return PTR_ERR(hw);
++		priv->data.hws[A210_AON_I2C1_IC_CLK + i] = hw;
++	}
++
++	return devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, &priv->data);
++}
++
++static const struct of_device_id a210_aon_clock_match[] = {
++	{ .compatible = "zhihe,a210-aon-clk" },
++	{}
++};
++MODULE_DEVICE_TABLE(of, a210_aon_clock_match);
++
++static struct platform_driver a210_aon_clock_driver = {
++	.probe = a210_aon_clock_probe,
++	.driver = {
++		.name = "a210-aon-clock",
++		.of_match_table = a210_aon_clock_match,
++	},
++};
++module_platform_driver(a210_aon_clock_driver);
++
++MODULE_DESCRIPTION("Zhihe A210 AON peripheral clocks");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/clk/zhihe/clk-a210-ap.c b/drivers/clk/zhihe/clk-a210-ap.c
+new file mode 100644
+index 000000000000..6f47388684bf
+--- /dev/null
++++ b/drivers/clk/zhihe/clk-a210-ap.c
+@@ -0,0 +1,2283 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (C) 2025 Zhihe Computing Limited.
 + */
 +
-+#include <linux/bitops.h>
-+#include <linux/cleanup.h>
 +#include <linux/clk.h>
++#include <linux/clk-provider.h>
++#include <linux/delay.h>
 +#include <linux/device.h>
++#include <linux/err.h>
 +#include <linux/io.h>
-+#include <linux/mod_devicetable.h>
++#include <linux/iopoll.h>
++#include <linux/math.h>
 +#include <linux/module.h>
-+#include <linux/of.h>
 +#include <linux/platform_device.h>
-+#include <linux/seq_file.h>
++#include <linux/pm_runtime.h>
++#include <linux/property.h>
++#include <linux/slab.h>
 +#include <linux/spinlock.h>
 +
-+#include <linux/pinctrl/pinconf.h>
-+#include <linux/pinctrl/pinconf-generic.h>
-+#include <linux/pinctrl/pinctrl.h>
-+#include <linux/pinctrl/pinmux.h>
++#include <dt-bindings/clock/zhihe,a210-clk.h>
 +
-+#include "core.h"
-+#include "pinmux.h"
-+#include "pinconf.h"
++/* Serializes updates to registers shared by clocks in each controller. */
++static DEFINE_SPINLOCK(a210_clk_lock);
 +
-+#define A210_PADCFG_IE BIT(9)
-+#define A210_PADCFG_SL BIT(8)
-+#define A210_PADCFG_ST BIT(7)
-+#define A210_PADCFG_SPU BIT(6)
-+#define A210_PADCFG_PS BIT(5)
-+#define A210_PADCFG_PE BIT(4)
-+#define A210_PADCFG_BIAS (A210_PADCFG_SPU | A210_PADCFG_PS | A210_PADCFG_PE)
-+#define A210_PADCFG_DS GENMASK(3, 0)
++#define div_mask(d) GENMASK((d)->width - 1, 0)
 +
-+/* PERI3 has one 32-bit configuration register per SDIO pad. */
-+#define A210_SDIO_PULL_UP BIT(1)
-+#define A210_SDIO_PULL_DOWN BIT(0)
-+#define A210_SDIO_BIAS (A210_SDIO_PULL_UP | A210_SDIO_PULL_DOWN)
++#define PLL_RATE(_vco, _rate, _r, _b, _f, _p, _k)				\
++	{									\
++		.vco_rate = (_vco),						\
++		.rate = (_rate),						\
++		.refdiv = (_r),							\
++		.fbdiv = (_b),							\
++		.frac = (_f),							\
++		.postdiv1 = (_p),						\
++		.postdiv2 = (_k),						\
++	}
 +
-+#define A210_PULL_DOWN_OHM 44000 /* typ. 44kOhm */
-+#define A210_PULL_UP_OHM 48000 /* typ. 48kOhm */
-+#define A210_PULL_STRONG_OHM 2100 /* typ. 2.1kOhm */
++#define REG_NAMED(n, _name)							\
++	[(n)] = { .name = (_name) }
 +
-+#define A210_PAD_NO_PADCFG BIT(63)
-+#define A210_PAD_MUXDATA GENMASK(55, 0)
++#define CLK(_type, _id, _name, _parent)						\
++	.type = (_type),							\
++	.id = (_id),								\
++	.name = (_name),							\
++	.parent = (_parent)
 +
-+#ifdef CONFIG_PM_SLEEP
-+#define A210_MAX_CFG_REGS 25
-+#define A210_MAX_MUX_REGS 7
++#define PLL(_id, _name, _parent, _reg, _shift, _pll) {				\
++	CLK(A210_CLK_PLL, (_id), (_name), (_parent)),				\
++	.reg = (_reg),								\
++	.shift = (_shift),							\
++	.pll = (_pll),								\
++}
 +
-+struct a210_register_state {
-+	u32 mask;
-+	u32 value;
++#define PLL_POSTDIV(_id, _name, _parent, _reg, _pll) { \
++	CLK(A210_CLK_PLL_POSTDIV, (_id), (_name), (_parent)), \
++	.reg = (_reg), \
++	.pll = (_pll), \
++}
++
++#define FIXED_FACTOR(_id, _name, _parent, _mult, _div) {			\
++	CLK(A210_CLK_FIXED_FACTOR, (_id), (_name), (_parent)),			\
++	.fixed_factor = { .mult = (_mult), .div = (_div) },			\
++}
++
++#define DIV(_id, _name, _parent, _reg, _shift, _bit_idx, _width, _sync,		\
++	    _div_type, _min, _max) {						\
++	CLK(A210_CLK_DIVIDER, (_id), (_name), (_parent)),			\
++	.reg = (_reg),								\
++	.shift = (_shift),							\
++	.bit_idx = (_bit_idx),							\
++	.width = (_width),							\
++	.divider = {								\
++		.sync = (_sync),						\
++		.div_type = (_div_type),					\
++		.min = (_min),							\
++		.max = (_max)							\
++	}									\
++}
++
++#define DIV_CLOSEST(_id, _name, _parent, _reg, _shift, _bit_idx,		\
++		    _width, _sync, _div_type, _min, _max) {			\
++	CLK(A210_CLK_DIVIDER_CLOSEST, (_id), (_name), (_parent)),		\
++	.reg = (_reg),								\
++	.shift = (_shift),							\
++	.bit_idx = (_bit_idx),							\
++	.width = (_width),							\
++	.divider = {								\
++		.sync = (_sync),						\
++		.div_type = (_div_type),					\
++		.min = (_min),							\
++		.max = (_max)							\
++	}									\
++}
++
++#define GATE(_id, _name, _parent, _reg, _shift, _bit_idx) {			\
++	CLK(A210_CLK_GATE, (_id), (_name), (_parent)),				\
++	.reg = (_reg),								\
++	.shift = (_shift),							\
++	.bit_idx = (_bit_idx),							\
++}
++
++#define GATE_FLAGS(_id, _name, _parent, _reg, _shift, _bit_idx, _flags) {	\
++	CLK(A210_CLK_GATE, (_id), (_name), (_parent)),				\
++	.reg = (_reg),								\
++	.shift = (_shift),							\
++	.bit_idx = (_bit_idx),							\
++	.flags = (_flags),							\
++}
++
++#define GATE_SHARED(_id, _name, _parent, _reg, _shift, _bit_idx,		\
++		    _count, _flags) {						\
++	CLK(A210_CLK_GATE_SHARED, (_id), (_name), (_parent)),			\
++	.flags = (_flags),							\
++	.reg = (_reg),								\
++	.shift = (_shift),							\
++	.bit_idx = (_bit_idx),							\
++	.gate_shared = {							\
++		.share_count = (_count)						\
++	},									\
++}
++
++#define MUX(_id, _name, _reg, _shift, _bit_idx, _width, _parents, _flags) {	\
++	CLK(A210_CLK_MUX, (_id), (_name), ""),					\
++	.reg = (_reg),								\
++	.shift = (_shift),							\
++	.bit_idx = (_bit_idx),							\
++	.width = (_width),							\
++	.mux = {								\
++		.parents = (_parents),						\
++		.num_parents = ARRAY_SIZE(_parents),				\
++		.flags = (_flags)						\
++	},									\
++}
++
++#define PLL_PARAM(_pll, _out, _table, _cfg0, _sts, _lock,			\
++		  _bypass, _rst, _mode, _name)					\
++	[(_pll)] = {								\
++		.out_type = (_out),						\
++		.rate_table = (_table),						\
++		.rate_count = ARRAY_SIZE(_table),				\
++		.cfg0_reg_off = (_cfg0),					\
++		.pll_sts_off = (_sts),						\
++		.pll_lock_bit = (_lock),					\
++		.pll_bypass_bit = (_bypass),					\
++		.pll_rst_bit = (_rst),						\
++		.pll_mode = (_mode),						\
++		.name = (_name),						\
++	}
++
++#define CLK_SUBSYS(_name, _regs, _info) {					\
++	.name = (_name),							\
++	.regs = (_regs),							\
++	.num_regs = ARRAY_SIZE(_regs),						\
++	.info = (_info),							\
++	.num_info = ARRAY_SIZE(_info),						\
++}
++
++enum a210_pll_outtype {
++	A210_PLL_VCO,
++	A210_PLL_DIV,
 +};
-+#endif
 +
-+struct a210_pinctrl;
-+
-+enum a210_pinctrl_type {
-+	A210_PADCTRL_AON,
-+	A210_PADCTRL_0,
-+	A210_PADCTRL_1,
-+	A210_PADCTRL_2,
++enum a210_div_type {
++	MUX_TYPE_DIV,
++	MUX_TYPE_CDE,
 +};
 +
-+struct a210_pad_group {
-+	const char *name;
-+	const struct pinctrl_pin_desc *pins;
-+	unsigned int npins;
-+	unsigned int offset_mux;
-+	unsigned int mask_mux;
-+	unsigned int offset_cfg;
-+	unsigned int mask_cfg;
-+	enum a210_pinctrl_type type;
++enum a210_div_sync_type {
++	NO_DIV_EN = 255,
 +};
 +
-+struct a210_pinctrl {
-+	struct pinctrl_desc desc;
-+	raw_spinlock_t lock; /* serialize register access */
++enum a210_clk_type {
++	A210_CLK_PLL,
++	A210_CLK_PLL_POSTDIV,
++	A210_CLK_FIXED_FACTOR,
++	A210_CLK_DIVIDER,
++	A210_CLK_DIVIDER_CLOSEST,
++	A210_CLK_GATE,
++	A210_CLK_GATE_SHARED,
++	A210_CLK_MUX,
++};
++
++enum a210_pll_mode {
++	PLL_MODE_FRAC,
++	PLL_MODE_INT,
++};
++
++struct a210_clk_reg {
 +	void __iomem *base;
-+	struct clk *clk;
-+	bool clk_enabled;
-+	unsigned int offset_mux;
-+	unsigned int mask_mux;
-+	unsigned int offset_cfg;
-+	unsigned int mask_cfg;
-+	enum a210_pinctrl_type type;
-+	struct pinctrl_dev *pctl;
-+#ifdef CONFIG_PM_SLEEP
-+	struct a210_register_state cfg_state[A210_MAX_CFG_REGS];
-+	struct a210_register_state mux_state[A210_MAX_MUX_REGS];
-+#endif
++	const char *name;
 +};
 +
-+static void __iomem *a210_padcfg(struct a210_pinctrl *pp, unsigned int pin)
-+{
-+	int width = hweight32(pp->mask_cfg);
-+
-+	return pp->base + pp->offset_cfg + 4 * (pin * width / 32);
-+}
-+
-+static unsigned int a210_padcfg_shift(struct a210_pinctrl *pp, unsigned int pin)
-+{
-+	int width = hweight32(pp->mask_cfg);
-+
-+	return width * (pin & (32 / width - 1));
-+}
-+
-+static void __iomem *a210_muxcfg(struct a210_pinctrl *pp, unsigned int pin)
-+{
-+	int width = hweight32(pp->mask_mux);
-+
-+	return pp->base + pp->offset_mux + 4 * (pin * width / 32);
-+}
-+
-+static unsigned int a210_muxcfg_shift(struct a210_pinctrl *pp, unsigned int pin)
-+{
-+	int width = hweight32(pp->mask_mux);
-+
-+	if (pp->type == A210_PADCTRL_2)
-+		return 0;
-+
-+	return width * (pin & (32 / width - 1));
-+}
-+
-+enum a210_muxtype {
-+	A210_MUX_____,
-+	A210_MUX_AOUART,
-+	A210_MUX_AOUART_IR,
-+	A210_MUX_AOGPIO0,
-+	A210_MUX_AOGPIO1,
-+	A210_MUX_AOI2C0,
-+	A210_MUX_AOI2C1,
-+	A210_MUX_AOSPI,
-+	A210_MUX_JTAG,
-+	A210_MUX_RST,
-+	A210_MUX_POR,
-+	A210_MUX_PMIC,
-+	A210_MUX_DVS,
-+	A210_MUX_UART0,
-+	A210_MUX_UART1,
-+	A210_MUX_UART2,
-+	A210_MUX_UART3,
-+	A210_MUX_UART4,
-+	A210_MUX_UART5,
-+	A210_MUX_UART6,
-+	A210_MUX_UART7,
-+	A210_MUX_UART8,
-+	A210_MUX_UART9,
-+	A210_MUX_UART0_IR,
-+	A210_MUX_UART1_IR,
-+	A210_MUX_UART2_IR,
-+	A210_MUX_UART3_IR,
-+	A210_MUX_UART4_IR,
-+	A210_MUX_UART5_IR,
-+	A210_MUX_UART6_IR,
-+	A210_MUX_UART7_IR,
-+	A210_MUX_UART8_IR,
-+	A210_MUX_UART9_IR,
-+	A210_MUX_GPIO0,
-+	A210_MUX_GPIO1,
-+	A210_MUX_GPIO2,
-+	A210_MUX_GPIO3,
-+	A210_MUX_GPIO4,
-+	A210_MUX_GMAC0,
-+	A210_MUX_GMAC1,
-+	A210_MUX_SPI0,
-+	A210_MUX_SPI1,
-+	A210_MUX_QSPI0,
-+	A210_MUX_QSPI1,
-+	A210_MUX_PWM0,
-+	A210_MUX_PWM1,
-+	A210_MUX_PWM2,
-+	A210_MUX_CAN0,
-+	A210_MUX_CAN1,
-+	A210_MUX_CAN2,
-+	A210_MUX_I2S0,
-+	A210_MUX_I2S1,
-+	A210_MUX_I2S2,
-+	A210_MUX_I2S3,
-+	A210_MUX_I2C0,
-+	A210_MUX_I2C1,
-+	A210_MUX_I2C2,
-+	A210_MUX_I2C3,
-+	A210_MUX_I2C4,
-+	A210_MUX_I2C5,
-+	A210_MUX_I2C6,
-+	A210_MUX_I2C7,
-+	A210_MUX_I2C7_SMB,
-+	A210_MUX_SDIO,
-+	A210_MUX_ISP0,
-+	A210_MUX_DPTX,
-+	A210_MUX_USB31,
-+	A210_MUX_SATA_P0,
-+	A210_MUX_SATA_P1,
-+	A210_MUX_HDMI,
-+	A210_MUX_ZMAC,
-+	A210_MUX_BSEL,
-+	A210_MUX_DBGM,
-+	A210_MUX_CDBG,
-+	A210_MUX_PDM,
-+	A210_MUX_TDM,
-+	A210_MUX_PCIE_X1,
-+	A210_MUX_PCIE_X4,
-+	A210_MUX_SEN_VCLK,
-+	A210_MUX_MAX = 127,
++/* clk summary info at subsys level */
++struct a210_ccu {
++	const char *name;
++	struct a210_clk_reg *regs;
++	u32 num_regs;
++	const struct a210_clk_desc *info;
++	u32 num_info;
++	struct clk_hw_onecell_data *clk_data;
++	struct clk_bulk_data *inputs;
++	int num_inputs;
 +};
 +
-+static const char *const a210_muxtype_string[] = {
-+	[A210_MUX_AOUART] = "aouart",
-+	[A210_MUX_AOUART_IR] = "aouart_ir",
-+	[A210_MUX_AOGPIO0] = "aogpio0",
-+	[A210_MUX_AOGPIO1] = "aogpio1",
-+	[A210_MUX_AOI2C0] = "aoi2c0",
-+	[A210_MUX_AOI2C1] = "aoi2c1",
-+	[A210_MUX_AOSPI] = "aospi",
-+	[A210_MUX_JTAG] = "jtag",
-+	[A210_MUX_RST] = "reset",
-+	[A210_MUX_POR] = "por",
-+	[A210_MUX_PMIC] = "pmic",
-+	[A210_MUX_DVS] = "dvs",
-+	[A210_MUX_UART0] = "uart0",
-+	[A210_MUX_UART1] = "uart1",
-+	[A210_MUX_UART2] = "uart2",
-+	[A210_MUX_UART3] = "uart3",
-+	[A210_MUX_UART4] = "uart4",
-+	[A210_MUX_UART5] = "uart5",
-+	[A210_MUX_UART6] = "uart6",
-+	[A210_MUX_UART7] = "uart7",
-+	[A210_MUX_UART8] = "uart8",
-+	[A210_MUX_UART9] = "uart9",
-+	[A210_MUX_UART0_IR] = "uart0_ir",
-+	[A210_MUX_UART1_IR] = "uart1_ir",
-+	[A210_MUX_UART2_IR] = "uart2_ir",
-+	[A210_MUX_UART3_IR] = "uart3_ir",
-+	[A210_MUX_UART4_IR] = "uart4_ir",
-+	[A210_MUX_UART5_IR] = "uart5_ir",
-+	[A210_MUX_UART6_IR] = "uart6_ir",
-+	[A210_MUX_UART7_IR] = "uart7_ir",
-+	[A210_MUX_UART8_IR] = "uart8_ir",
-+	[A210_MUX_UART9_IR] = "uart9_ir",
-+	[A210_MUX_GPIO0] = "gpio0",
-+	[A210_MUX_GPIO1] = "gpio1",
-+	[A210_MUX_GPIO2] = "gpio2",
-+	[A210_MUX_GPIO3] = "gpio3",
-+	[A210_MUX_GPIO4] = "gpio4",
-+	[A210_MUX_GMAC0] = "gmac0",
-+	[A210_MUX_GMAC1] = "gmac1",
-+	[A210_MUX_SPI0] = "spi0",
-+	[A210_MUX_SPI1] = "spi1",
-+	[A210_MUX_QSPI0] = "qspi0",
-+	[A210_MUX_QSPI1] = "qspi1",
-+	[A210_MUX_PWM0] = "pwm0",
-+	[A210_MUX_PWM1] = "pwm1",
-+	[A210_MUX_PWM2] = "pwm2",
-+	[A210_MUX_CAN0] = "can0",
-+	[A210_MUX_CAN1] = "can1",
-+	[A210_MUX_CAN2] = "can2",
-+	[A210_MUX_I2S0] = "i2s0",
-+	[A210_MUX_I2S1] = "i2s1",
-+	[A210_MUX_I2S2] = "i2s2",
-+	[A210_MUX_I2S3] = "i2s3",
-+	[A210_MUX_I2C0] = "i2c0",
-+	[A210_MUX_I2C1] = "i2c1",
-+	[A210_MUX_I2C2] = "i2c2",
-+	[A210_MUX_I2C3] = "i2c3",
-+	[A210_MUX_I2C4] = "i2c4",
-+	[A210_MUX_I2C5] = "i2c5",
-+	[A210_MUX_I2C6] = "i2c6",
-+	[A210_MUX_I2C7] = "i2c7",
-+	[A210_MUX_I2C7_SMB] = "i2c7_smb",
-+	[A210_MUX_SDIO] = "sdio",
-+	[A210_MUX_ISP0] = "isp0",
-+	[A210_MUX_DPTX] = "dptx",
-+	[A210_MUX_USB31] = "usb31",
-+	[A210_MUX_SATA_P0] = "sata_p0",
-+	[A210_MUX_SATA_P1] = "sata_p1",
-+	[A210_MUX_HDMI] = "hdmi",
-+	[A210_MUX_ZMAC] = "zmac",
-+	[A210_MUX_BSEL] = "bsel",
-+	[A210_MUX_DBGM] = "dbgm",
-+	[A210_MUX_CDBG] = "cdbg",
-+	[A210_MUX_PDM] = "pdm",
-+	[A210_MUX_TDM] = "tdm",
-+	[A210_MUX_PCIE_X1] = "pcie_x1",
-+	[A210_MUX_PCIE_X4] = "pcie_x4",
-+	[A210_MUX_SEN_VCLK] = "sen_vclk",
++struct a210_pll {
++	struct clk_hw hw;
++	void __iomem *base;
++	enum a210_pll_outtype out_type;
++	enum a210_pll_mode pll_mode;
++	const struct a210_pll_rate *rate_table;
++	int rate_count;
++
++	u32 cfg0_reg_off;
++	u32 pll_sts_off;
++	int pll_lock_bit;
++	int pll_rst_bit;
++	int pll_bypass_bit;
 +};
 +
-+#define A210_PAD(_nr, _name, m0, m1, m2, m3, m4, m5, m6, m7, _flags)                             \
-+	{ .number = _nr,                                                                         \
-+	  .name = #_name,                                                                        \
-+	  .drv_data =                                                                            \
-+		  (void *)((_flags) | (A210_MUX_##m0 << 0) | (A210_MUX_##m1 << 7) |              \
-+			   (A210_MUX_##m2 << 14) | (A210_MUX_##m3 << 21) |                       \
-+			   ((uintptr_t)A210_MUX_##m4 << 28) | ((uintptr_t)A210_MUX_##m5 << 35) | \
-+			   ((uintptr_t)A210_MUX_##m6 << 42) | ((uintptr_t)A210_MUX_##m7 << 49)) }
-+
-+static const struct pinctrl_pin_desc a210_group0_pins[] = {
-+	A210_PAD(0, OSC_CLK_IN, ____, ____, ____, ____, ____, ____, ____, ____, A210_PAD_NO_PADCFG),
-+	A210_PAD(1, OSC_CLK_OUT, ____, ____, ____, ____, ____, ____, ____, ____,
-+		 A210_PAD_NO_PADCFG),
-+	A210_PAD(2, RST_N_IN, ____, ____, ____, ____, ____, ____, ____, ____, A210_PAD_NO_PADCFG),
-+	A210_PAD(3, RTC_CLK_IN, ____, ____, ____, ____, ____, ____, ____, ____, A210_PAD_NO_PADCFG),
-+	A210_PAD(4, RTC_CLK_OUT, ____, ____, ____, ____, ____, ____, ____, ____,
-+		 A210_PAD_NO_PADCFG),
-+	A210_PAD(5, TEST_MODE, ____, ____, ____, ____, ____, ____, ____, ____, A210_PAD_NO_PADCFG),
-+	A210_PAD(6, POR_SEL, ____, ____, ____, ____, ____, ____, ____, ____, A210_PAD_NO_PADCFG),
-+	A210_PAD(7, RST_N_OUT, RST, ____, ____, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(8, BOOT_SEL0, BSEL, ____, ____, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(9, BOOT_SEL1, BSEL, AOUART, ____, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(10, DEBUG_MODE, DBGM, ____, ____, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(11, AOUART_TXD, AOUART, AOUART_IR, ____, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(12, AOUART_RXD, AOUART, AOUART_IR, ____, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(13, AOI2C0_SCL, AOI2C0, AOSPI, ____, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(14, AOI2C0_SDA, AOI2C0, AOSPI, ____, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(15, AOI2C1_SCL, AOI2C1, AOSPI, ____, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(16, AOI2C1_SDA, AOI2C1, AOSPI, ____, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(17, CPU_JTG_TCLK, JTAG, ____, ____, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(18, CPU_JTG_TMS, JTAG, ____, ____, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(19, CPU_JTG_TDI, JTAG, ____, ____, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(20, CPU_JTG_TDO, JTAG, POR, ____, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(21, CPU_JTG_TRST, JTAG, ____, ____, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(22, AOGPIO0_21, AOGPIO0, AOSPI, PMIC, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(23, AOGPIO0_22, AOGPIO0, AOSPI, PMIC, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(24, AOGPIO0_23, BSEL, AOSPI, PMIC, AOGPIO0, ____, ____, ____, ____, 0),
-+	A210_PAD(25, AOGPIO0_24, AOGPIO0, AOSPI, PMIC, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(26, AOGPIO0_25, AOGPIO0, AOSPI, PMIC, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(27, AOGPIO0_26, AOGPIO0, AOI2C1, PMIC, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(28, AOGPIO0_27, AOGPIO0, AOI2C1, PMIC, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(29, AOGPIO0_28, AOGPIO0, AOI2C1, PMIC, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(30, AOGPIO0_29, AOGPIO0, AOI2C1, PMIC, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(31, AOGPIO0_30, AOGPIO0, AOI2C1, PMIC, DVS, ____, ____, ____, ____, 0),
-+	A210_PAD(32, AOGPIO0_31, AOGPIO0, AOUART, PMIC, DVS, ____, ____, ____, ____, 0),
-+	A210_PAD(33, AOGPIO1_0, AOGPIO1, AOUART, PMIC, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(34, AOGPIO1_1, AOGPIO1, ____, PMIC, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(35, AOGPIO1_2, AOGPIO1, ____, PMIC, DVS, ____, ____, ____, ____, 0),
-+	A210_PAD(36, AOGPIO1_3, AOGPIO1, ____, PMIC, DVS, ____, ____, ____, ____, 0),
-+	A210_PAD(37, AOGPIO1_4, AOGPIO1, ____, PMIC, DVS, ____, ____, ____, ____, 0),
-+	A210_PAD(38, AOGPIO1_5, AOGPIO1, ____, PMIC, DVS, ____, ____, ____, ____, 0),
-+	A210_PAD(39, AOGPIO1_6, AOGPIO1, ____, PMIC, DVS, ____, ____, ____, ____, 0),
-+	A210_PAD(40, AOGPIO1_7, AOGPIO1, ____, PMIC, DVS, ____, ____, ____, ____, 0),
-+	A210_PAD(41, AOGPIO1_8, PCIE_X4, ____, PMIC, AOGPIO1, ____, ____, ____, ____, 0),
-+	A210_PAD(42, AOGPIO1_9, AOGPIO1, ____, PMIC, ____, ____, ____, ____, ____, 0),
++struct a210_div {
++	struct clk_divider divider;
++	enum a210_div_type div_type;
++	u8 sync_en;
++	struct clk_div_table table[];
 +};
 +
-+static const struct pinctrl_pin_desc a210_group1_pins[] = {
-+	A210_PAD(0, GPIO0_0, GPIO0, GMAC0, ____, ____, ____, ____, ZMAC, ____, 0),
-+	A210_PAD(1, GPIO0_1, GPIO0, GMAC0, ____, ____, ____, ____, ZMAC, ____, 0),
-+	A210_PAD(2, GPIO0_2, GPIO0, GMAC0, ____, ____, ____, ____, ZMAC, ____, 0),
-+	A210_PAD(3, GPIO0_3, GPIO0, GMAC0, UART3, UART3_IR, ____, SATA_P0, ZMAC, ____, 0),
-+	A210_PAD(4, GPIO0_4, GPIO0, GMAC0, UART3, UART3_IR, ____, SATA_P1, ZMAC, ____, 0),
-+	A210_PAD(5, GPIO0_5, GPIO0, GMAC0, UART3, ____, ____, SATA_P1, ZMAC, ____, 0),
-+	A210_PAD(6, GPIO0_6, GPIO0, GMAC0, UART3, ____, ____, SATA_P1, ZMAC, ____, 0),
-+	A210_PAD(7, GPIO0_7, GPIO0, GMAC0, ____, ____, ____, SATA_P1, ZMAC, ____, 0),
-+	A210_PAD(8, GPIO0_8, GPIO0, GMAC0, I2C0, ____, ____, SATA_P1, ZMAC, ____, 0),
-+	A210_PAD(9, GPIO0_9, GPIO0, GMAC0, I2C0, ____, ____, PCIE_X4, ZMAC, ____, 0),
-+	A210_PAD(10, GPIO0_10, GPIO0, GMAC0, I2C1, ____, ____, PCIE_X4, ZMAC, ____, 0),
-+	A210_PAD(11, GPIO0_11, GPIO0, GMAC0, I2C1, ____, ____, PCIE_X4, ZMAC, ____, 0),
-+	A210_PAD(12, GPIO0_12, GPIO0, GMAC0, ____, ____, ____, PCIE_X4, ZMAC, ____, 0),
-+	A210_PAD(13, GPIO0_13, GPIO0, GMAC0, ____, ____, ____, PWM0, ZMAC, ____, 0),
-+	A210_PAD(14, GPIO0_14, GPIO0, UART0, UART0_IR, ____, SATA_P1, I2S0, ____, ____, 0),
-+	A210_PAD(15, GPIO0_15, GPIO0, UART0, UART0_IR, QSPI0, SATA_P1, I2S0, ____, ____, 0),
-+	A210_PAD(16, GPIO0_16, GPIO0, UART0, UART1, UART1_IR, SATA_P1, I2S0, ZMAC, ____, 0),
-+	A210_PAD(17, GPIO0_17, GPIO0, UART0, UART1, UART1_IR, SATA_P1, I2S0, ZMAC, ____, 0),
-+	A210_PAD(18, GPIO0_18, GPIO0, QSPI0, GMAC0, SDIO, SATA_P1, I2S0, ____, PCIE_X1, 0),
-+	A210_PAD(19, GPIO0_19, GPIO0, QSPI0, GMAC1, ____, TDM, SATA_P0, ____, PCIE_X1, 0),
-+	A210_PAD(20, GPIO0_20, GPIO0, QSPI0, UART3, UART3_IR, TDM, SATA_P0, ZMAC, PCIE_X1, 0),
-+	A210_PAD(21, GPIO0_21, GPIO0, QSPI0, UART3, UART3_IR, TDM, SATA_P0, ZMAC, PCIE_X1, 0),
-+	A210_PAD(22, GPIO0_22, GPIO0, QSPI0, I2C2, ____, TDM, SATA_P0, ZMAC, PWM0, 0),
-+	A210_PAD(23, GPIO0_23, GPIO0, QSPI0, I2C2, ____, ____, SATA_P0, ZMAC, PWM0, 0),
-+	A210_PAD(24, GPIO0_24, GPIO0, QSPI0, I2C0, CAN0, CDBG, PCIE_X1, UART0, PWM0, 0),
-+	A210_PAD(25, GPIO0_25, GPIO0, QSPI0, I2C0, CAN0, CDBG, PCIE_X1, UART0, PWM0, 0),
-+	A210_PAD(26, GPIO0_26, GPIO0, QSPI0, I2C1, CAN1, CDBG, PCIE_X1, UART0, UART0_IR, 0),
-+	A210_PAD(27, GPIO0_27, GPIO0, QSPI0, I2C1, CAN1, CDBG, PCIE_X1, UART0, UART0_IR, 0),
-+	A210_PAD(28, GPIO0_28, GPIO0, PWM0, SPI0, UART1_IR, I2S0, PCIE_X4, UART1, ____, 0),
-+	A210_PAD(29, GPIO0_29, GPIO0, PWM0, SPI0, UART1_IR, I2S0, PCIE_X4, UART1, ____, 0),
-+	A210_PAD(30, GPIO0_30, GPIO0, PWM0, SPI0, ____, I2S0, PCIE_X4, UART1, ____, 0),
-+	A210_PAD(31, GPIO0_31, GPIO0, PWM0, SPI0, QSPI0, I2S0, PCIE_X4, UART1, ____, 0),
-+	A210_PAD(32, GPIO1_0, GPIO1, PWM0, UART2, UART2_IR, I2S0, SDIO, GMAC1, SATA_P0, 0),
-+	A210_PAD(33, GPIO1_1, GPIO1, PWM0, UART2, UART2_IR, I2C2, SATA_P1, SPI0, SDIO, 0),
-+	A210_PAD(34, GPIO1_2, GPIO1, GMAC1, TDM, PWM0, I2C2, SATA_P1, ____, ____, 0),
-+	A210_PAD(35, GPIO1_3, GPIO1, GMAC1, TDM, PWM0, ____, SATA_P1, ____, ____, 0),
-+	A210_PAD(36, GPIO1_4, GPIO1, GMAC1, TDM, UART2, ____, SATA_P1, ____, ____, 0),
-+	A210_PAD(37, GPIO1_5, GPIO1, GMAC1, ____, UART2, ____, SATA_P1, ____, ____, 0),
-+	A210_PAD(38, GPIO1_6, GPIO1, GMAC1, SPI0, PWM0, CDBG, SATA_P0, ____, ____, 0),
-+	A210_PAD(39, GPIO1_7, GPIO1, GMAC1, SPI0, PWM0, CDBG, SATA_P0, ____, ____, 0),
-+	A210_PAD(40, GPIO1_8, GPIO1, GMAC1, SPI0, PDM, CDBG, SATA_P0, ____, ____, 0),
-+	A210_PAD(41, GPIO1_9, GPIO1, GMAC1, SPI0, PWM0, ____, SATA_P0, GMAC0, ____, 0),
-+	A210_PAD(42, GPIO1_10, GPIO1, GMAC1, SPI0, PWM0, ____, SATA_P0, ____, ____, 0),
-+	A210_PAD(43, GPIO1_11, GPIO1, GMAC1, QSPI0, PDM, I2S0, ISP0, PWM0, ____, 0),
-+	A210_PAD(44, GPIO1_12, GPIO1, GMAC1, QSPI0, PDM, I2S0, ISP0, ____, ____, 0),
-+	A210_PAD(45, GPIO1_13, GPIO1, GMAC1, QSPI0, PDM, I2S0, ISP0, ____, ____, 0),
-+	A210_PAD(46, GPIO1_14, GPIO1, GMAC1, ____, PDM, I2S0, ISP0, ____, ____, 0),
-+	A210_PAD(47, GPIO1_15, GPIO1, GMAC1, SDIO, PDM, I2S0, ISP0, ____, ____, 0),
-+	A210_PAD(48, GPIO1_16, GPIO1, GMAC0, ____, ____, ____, SDIO, ____, ____, 0),
++struct a210_shared_gate {
++	struct clk_gate gate;
++	unsigned int *share_count;
++	const struct clk_ops *ops;
 +};
 +
-+static const struct pinctrl_pin_desc a210_group2_pins[] = {
-+	A210_PAD(0, GPIO2_0, GPIO2, UART4, UART4_IR, PWM2, ____, I2C3, ____, ____, 0),
-+	A210_PAD(1, GPIO2_1, GPIO2, UART4, UART4_IR, PWM2, ____, I2C3, ____, ____, 0),
-+	A210_PAD(2, GPIO2_2, GPIO2, UART5, UART5_IR, PWM2, ____, I2C5, I2S1, ____, 0),
-+	A210_PAD(3, GPIO2_3, GPIO2, UART5, UART5_IR, PWM2, ____, I2C5, I2S1, ____, 0),
-+	A210_PAD(4, GPIO2_4, GPIO2, UART6, UART6_IR, PWM2, ____, I2C6, I2S1, ____, 0),
-+	A210_PAD(5, GPIO2_5, GPIO2, UART6, UART6_IR, PWM2, ____, I2C6, I2S1, ____, 0),
-+	A210_PAD(6, GPIO2_6, GPIO2, UART7, UART7_IR, PWM2, SEN_VCLK, I2C4, I2S1, ____, 0),
-+	A210_PAD(7, GPIO2_7, GPIO2, UART7, UART7_IR, PWM2, SEN_VCLK, I2C4, ____, ____, 0),
-+	A210_PAD(8, GPIO2_8, GPIO2, I2S2, ____, SPI1, UART6, I2C6, PWM2, ____, 0),
-+	A210_PAD(9, GPIO2_9, GPIO2, I2S2, ____, SPI1, UART6, I2C6, PWM2, ____, 0),
-+	A210_PAD(10, GPIO2_10, GPIO2, I2S2, PWM1, SPI1, UART9, I2C7, ____, ____, 0),
-+	A210_PAD(11, GPIO2_11, GPIO2, I2S2, PWM1, SPI1, UART9, I2C7, ____, ____, 0),
-+	A210_PAD(12, GPIO2_12, GPIO2, I2S2, PWM1, SPI1, UART8, I2C7, ____, ____, 0),
-+	A210_PAD(13, GPIO2_13, GPIO2, I2S3, PWM1, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(14, GPIO2_14, GPIO2, I2S3, PWM1, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(15, GPIO2_15, GPIO2, I2S3, ____, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(16, GPIO2_16, GPIO2, I2S3, ____, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(17, GPIO2_17, GPIO2, I2S3, SPI1, I2C4, UART8, I2C7, ____, ____, 0),
-+	A210_PAD(18, GPIO2_18, GPIO2, I2S3, SPI1, I2C4, PWM2, UART5, UART5_IR, ____, 0),
-+	A210_PAD(19, GPIO2_19, GPIO2, I2S3, SPI1, ____, PWM1, UART5, UART5_IR, ____, 0),
-+	A210_PAD(20, GPIO2_20, GPIO2, I2S3, ____, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(21, GPIO2_21, GPIO2, I2S3, SPI1, I2C3, PWM1, UART8, ____, ____, 0),
-+	A210_PAD(22, GPIO2_22, GPIO2, I2S3, SPI1, I2C3, PWM1, UART8, ____, ____, 0),
-+	A210_PAD(23, GPIO2_23, GPIO2, I2S3, PWM1, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(24, GPIO2_24, GPIO2, I2C3, UART5, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(25, GPIO2_25, GPIO2, I2C3, UART5, ____, HDMI, QSPI1, PWM2, ____, 0),
-+	A210_PAD(26, GPIO2_26, GPIO2, I2C4, UART6, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(27, GPIO2_27, GPIO2, I2C4, UART6, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(28, GPIO2_28, GPIO2, I2C5, UART7, PWM1, ____, QSPI1, ____, ____, 0),
-+	A210_PAD(29, GPIO2_29, GPIO2, I2C5, UART7, PWM1, ____, QSPI1, ____, ____, 0),
-+	A210_PAD(30, GPIO2_30, GPIO2, I2C6, UART8, PWM1, HDMI, QSPI1, I2S3, ____, 0),
-+	A210_PAD(31, GPIO2_31, GPIO2, I2C6, UART8, PWM1, HDMI, QSPI1, I2S3, ____, 0),
-+	A210_PAD(32, GPIO3_0, GPIO3, I2C7, UART9, PWM1, CAN2, QSPI1, I2S3, SEN_VCLK, 0),
-+	A210_PAD(33, GPIO3_1, GPIO3, I2C7, UART9, PWM1, CAN2, QSPI1, I2S3, SEN_VCLK, 0),
-+	A210_PAD(34, GPIO3_2, GPIO3, QSPI1, UART8, UART8_IR, ____, ____, I2S3, PWM1, 0),
-+	A210_PAD(35, GPIO3_3, GPIO3, QSPI1, UART8, UART8_IR, ____, ____, I2S3, PWM1, 0),
-+	A210_PAD(36, GPIO3_4, GPIO3, QSPI1, UART9, UART9_IR, ____, ____, I2S3, PWM2, 0),
-+	A210_PAD(37, GPIO3_5, GPIO3, QSPI1, UART9, UART9_IR, ____, ____, I2S3, PWM2, 0),
-+	A210_PAD(38, GPIO3_6, GPIO3, QSPI1, I2S1, I2C7_SMB, ____, DPTX, I2S3, PWM2, 0),
-+	A210_PAD(39, GPIO3_7, GPIO3, QSPI1, I2S1, I2C7_SMB, UART7, I2C5, I2S3, PWM2, 0),
-+	A210_PAD(40, GPIO3_8, GPIO3, QSPI1, I2S1, I2C7_SMB, UART7, I2C5, I2S3, PWM2, 0),
-+	A210_PAD(41, GPIO3_9, GPIO3, UART4, I2S1, I2C7_SMB, UART5, DPTX, ____, PWM2, 0),
-+	A210_PAD(42, GPIO3_10, GPIO3, UART4, I2S1, I2C7_SMB, UART5, USB31, ____, ____, 0),
++struct a210_pll_rate {
++	unsigned long vco_rate;
++	unsigned long rate;
++	unsigned int refdiv;
++	unsigned int fbdiv;
++	unsigned int frac;
++	unsigned int postdiv1;
++	unsigned int postdiv2;
 +};
 +
-+static const struct pinctrl_pin_desc a210_group3_pins[] = {
-+	A210_PAD(0, SDIO_CLK, SDIO, GPIO4, ____, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(1, SDIO_CMD, SDIO, GPIO4, ____, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(2, SDIO_DAT0, SDIO, GPIO4, ____, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(3, SDIO_DAT1, SDIO, GPIO4, ____, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(4, SDIO_DAT2, SDIO, GPIO4, ____, ____, ____, ____, ____, ____, 0),
-+	A210_PAD(5, SDIO_DAT3, SDIO, GPIO4, ____, ____, ____, ____, ____, ____, 0),
++/* detailed clk info for each clk */
++
++struct a210_pll_desc {
++	enum a210_pll_outtype out_type;
++	const struct a210_pll_rate *rate_table;
++	int rate_count;
++	int flags;
++	const char *name;
++	u32 cfg0_reg_off;
++	u32 pll_sts_off;
++	int pll_lock_bit;
++	int pll_rst_bit;
++	int pll_bypass_bit;
++	enum a210_pll_mode pll_mode;
 +};
 +
-+static const struct a210_pad_group a210_group0 = {
-+	/* aon */
-+	.name = "a210-group0",
-+	.pins = a210_group0_pins,
-+	.npins = ARRAY_SIZE(a210_group0_pins),
-+	.offset_mux = 0x400,
-+	.mask_mux = 0xf,
-+	.offset_cfg = 0x0,
-+	.mask_cfg = 0xffff,
-+	.type = A210_PADCTRL_AON,
++struct a210_factor_desc {
++	unsigned int mult;
++	unsigned int div;
 +};
 +
-+static const struct a210_pad_group a210_group1 = {
-+	/* peri1 */
-+	.name = "a210-group1",
-+	.pins = a210_group1_pins,
-+	.npins = ARRAY_SIZE(a210_group1_pins),
-+	.offset_mux = 0x400,
-+	.mask_mux = 0xf,
-+	.offset_cfg = 0x0,
-+	.mask_cfg = 0xffff,
-+	.type = A210_PADCTRL_0,
++struct a210_div_desc {
++	u8 sync;
++	enum a210_div_type div_type;
++	u16 min;
++	u16 max;
 +};
 +
-+static const struct a210_pad_group a210_group2 = {
-+	/* peri2 */
-+	.name = "a210-group2",
-+	.pins = a210_group2_pins,
-+	.npins = ARRAY_SIZE(a210_group2_pins),
-+	.offset_mux = 0x400,
-+	.mask_mux = 0xf,
-+	.offset_cfg = 0x0,
-+	.mask_cfg = 0xffff,
-+	.type = A210_PADCTRL_1,
++struct a210_shared_gate_desc {
++	unsigned int *share_count;
 +};
 +
-+static const struct a210_pad_group a210_group3 = {
-+	/* PERI3 has one shared mux bit for all six SDIO pads. */
-+	.name = "a210-group3",
-+	.pins = a210_group3_pins,
-+	.npins = ARRAY_SIZE(a210_group3_pins),
-+	.offset_mux = 0x200,
-+	.mask_mux = 0x1,
-+	.offset_cfg = 0x0,
-+	.mask_cfg = U32_MAX,
-+	.type = A210_PADCTRL_2,
++struct a210_mux_desc {
++	const char *const *parents;
++	int num_parents;
++	unsigned long flags;
 +};
 +
-+static int a210_pinctrl_get_groups_count(struct pinctrl_dev *pctldev)
++struct a210_clk_desc {
++	enum a210_clk_type type;
++	u32 id;
++	const char *name;
++	const char *parent;
++	u8 reg;
++	u32 shift;
++	u8 width;
++	u8 bit_idx;
++	unsigned long flags;
++	union {
++		struct a210_factor_desc fixed_factor;
++		const struct a210_pll_desc *pll;
++		struct a210_div_desc divider;
++		struct a210_shared_gate_desc gate_shared;
++		struct a210_mux_desc mux;
++	};
++};
++
++#define A210_PLL_CFG0 0x0
++#define A210_PLL_CFG1 0x04
++#define A210_PLL_CFG2 0x8
++#define A210_POSTDIV2_SHIFT 24
++#define A210_POSTDIV2_MASK GENMASK(26, 24)
++#define A210_POSTDIV1_SHIFT 20
++#define A210_POSTDIV1_MASK GENMASK(22, 20)
++#define A210_FBDIV_SHIFT 8
++#define A210_FBDIV_MASK GENMASK(19, 8)
++#define A210_REFDIV_SHIFT 0
++#define A210_REFDIV_MASK GENMASK(5, 0)
++#define A210_BYPASS_MASK BIT(30)
++#define A210_RST_MASK BIT(29)
++#define A210_DSMPD_MASK BIT(24)
++#define A210_DACPD_MASK BIT(25)
++#define A210_FRAC_MASK GENMASK(23, 0)
++#define A210_FRAC_SHIFT 0
++#define A210_FRAC_DIV BIT(24)
++
++#define LOCK_TIMEOUT_US 10000
++
++#define to_a210_pll(_hw) container_of(_hw, struct a210_pll, hw)
++
++static int a210_pll_wait_lock(struct a210_pll *pll)
 +{
-+	struct a210_pinctrl *pp = pinctrl_dev_get_drvdata(pctldev);
++	u32 val;
 +
-+	return pp->type == A210_PADCTRL_2 ? 1 : pp->desc.npins;
++	return readl_poll_timeout(pll->base + pll->pll_sts_off, val, val & pll->pll_lock_bit, 0,
++				  LOCK_TIMEOUT_US);
 +}
 +
-+static const char *a210_pinctrl_get_group_name(struct pinctrl_dev *pctldev, unsigned int gsel)
++static int a210_pll_prepare(struct clk_hw *hw)
 +{
-+	struct a210_pinctrl *pp = pinctrl_dev_get_drvdata(pctldev);
-+
-+	return pp->type == A210_PADCTRL_2 ? "sdio" : pp->desc.pins[gsel].name;
-+}
-+
-+static const unsigned int a210_sdio_pins[] = { 0, 1, 2, 3, 4, 5 };
-+
-+static int a210_pinctrl_get_group_pins(struct pinctrl_dev *pctldev,
-+				       unsigned int gsel,
-+				       const unsigned int **pins,
-+				       unsigned int *npins)
-+{
-+	struct a210_pinctrl *pp = pinctrl_dev_get_drvdata(pctldev);
-+
-+	if (pp->type == A210_PADCTRL_2) {
-+		*pins = a210_sdio_pins;
-+		*npins = ARRAY_SIZE(a210_sdio_pins);
-+	} else {
-+		*pins = &pp->desc.pins[gsel].number;
-+		*npins = 1;
-+	}
-+	return 0;
-+}
-+
-+#ifdef CONFIG_DEBUG_FS
-+static void a210_pin_dbg_show(struct pinctrl_dev *pctldev, struct seq_file *s, unsigned int pin)
-+{
-+	struct a210_pinctrl *pp = pinctrl_dev_get_drvdata(pctldev);
-+	void __iomem *padcfg = a210_padcfg(pp, pin);
-+	void __iomem *muxcfg = a210_muxcfg(pp, pin);
-+	u32 pad;
-+	u32 mux;
-+
-+	if ((uintptr_t)pin_desc_get(pctldev, pin)->drv_data & A210_PAD_NO_PADCFG)
-+		return;
-+
-+	scoped_guard(raw_spinlock_irqsave, &pp->lock) {
-+		pad = readl_relaxed(padcfg);
-+		mux = readl_relaxed(muxcfg);
-+	}
-+
-+	seq_printf(s, "[padcfg=0x%08x muxcfg=0x%08x]", pad, mux);
-+}
-+#else
-+#define a210_pin_dbg_show NULL
-+#endif
-+
-+static const struct pinctrl_ops a210_pinctrl_ops = {
-+	.get_groups_count = a210_pinctrl_get_groups_count,
-+	.get_group_name = a210_pinctrl_get_group_name,
-+	.get_group_pins = a210_pinctrl_get_group_pins,
-+	.pin_dbg_show = a210_pin_dbg_show,
-+	.dt_node_to_map = pinconf_generic_dt_node_to_map_all,
-+	.dt_free_map = pinconf_generic_dt_free_map,
-+};
-+
-+static const u8 a210_drive_strength_in_ma[16] = {
-+	1, 2, 3, 5, 7, 8, 10, 12, 13, 15, 16, 18, 20, 21, 23, 25,
-+};
-+
-+static int a210_drive_strength_from_ma(u32 arg)
-+{
-+	unsigned int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(a210_drive_strength_in_ma); i++)
-+		if (arg == a210_drive_strength_in_ma[i])
-+			return i;
-+	return -EINVAL;
-+}
-+
-+static int a210_padcfg_rmw(struct a210_pinctrl *pp, unsigned int pin, u32 mask, u32 value)
-+{
-+	void __iomem *padcfg = a210_padcfg(pp, pin);
-+	unsigned int shift = a210_padcfg_shift(pp, pin);
-+	u32 tmp;
-+
-+	mask <<= shift;
-+	value <<= shift;
-+
-+	scoped_guard(raw_spinlock_irqsave, &pp->lock) {
-+		tmp = readl_relaxed(padcfg);
-+		tmp = (tmp & ~mask) | value;
-+		writel_relaxed(tmp, padcfg);
-+#ifdef CONFIG_PM_SLEEP
-+		pp->cfg_state[pin * hweight32(pp->mask_cfg) / 32].mask |= mask;
-+#endif
-+	}
-+	return 0;
-+}
-+
-+static int a210_sdio_pinconf_get(struct a210_pinctrl *pp, unsigned int pin,
-+				 unsigned long *config)
-+{
-+	enum pin_config_param param = pinconf_to_config_param(*config);
-+	u32 value = readl_relaxed(a210_padcfg(pp, pin)) & A210_SDIO_BIAS;
-+
-+	switch (param) {
-+	case PIN_CONFIG_BIAS_DISABLE:
-+		if (value)
-+			return -EINVAL;
-+		break;
-+	case PIN_CONFIG_BIAS_PULL_UP:
-+		if (value != A210_SDIO_PULL_UP)
-+			return -EINVAL;
-+		break;
-+	case PIN_CONFIG_BIAS_PULL_DOWN:
-+		if (value != A210_SDIO_PULL_DOWN)
-+			return -EINVAL;
-+		break;
-+	default:
-+		return -ENOTSUPP;
-+	}
-+
-+	*config = pinconf_to_config_packed(param, param != PIN_CONFIG_BIAS_DISABLE);
-+	return 0;
-+}
-+
-+static int a210_sdio_pinconf_set(struct a210_pinctrl *pp, unsigned int pin,
-+				 unsigned long *configs, unsigned int num_configs)
-+{
-+	u32 value = 0;
-+	unsigned int i;
-+
-+	for (i = 0; i < num_configs; i++) {
-+		enum pin_config_param param = pinconf_to_config_param(configs[i]);
-+		u32 arg = pinconf_to_config_argument(configs[i]);
-+
-+		switch (param) {
-+		case PIN_CONFIG_BIAS_DISABLE:
-+			value = 0;
-+			break;
-+		case PIN_CONFIG_BIAS_PULL_UP:
-+		case PIN_CONFIG_BIAS_PULL_DOWN:
-+			if (arg != 1)
-+				return -EINVAL;
-+			value = param == PIN_CONFIG_BIAS_PULL_UP ?
-+				A210_SDIO_PULL_UP : A210_SDIO_PULL_DOWN;
-+			break;
-+		default:
-+			return -ENOTSUPP;
-+		}
-+	}
-+
-+	if (!num_configs)
-+		return 0;
-+
-+	return a210_padcfg_rmw(pp, pin, A210_SDIO_BIAS, value);
-+}
-+
-+static int a210_pinconf_get(struct pinctrl_dev *pctldev, unsigned int pin, unsigned long *config)
-+{
-+	struct a210_pinctrl *pp = pinctrl_dev_get_drvdata(pctldev);
-+	const struct pin_desc *desc = pin_desc_get(pctldev, pin);
-+	bool enabled;
-+	int param;
-+	u32 value;
-+	u32 arg;
-+
-+	if ((uintptr_t)desc->drv_data & A210_PAD_NO_PADCFG)
-+		return -ENOTSUPP;
-+	if (pp->type == A210_PADCTRL_2)
-+		return a210_sdio_pinconf_get(pp, pin, config);
-+
-+	value = readl_relaxed(a210_padcfg(pp, pin));
-+	value = (value >> a210_padcfg_shift(pp, pin)) & GENMASK(9, 0);
-+
-+	param = pinconf_to_config_param(*config);
-+	switch (param) {
-+	case PIN_CONFIG_BIAS_DISABLE:
-+		enabled = !(value & (A210_PADCFG_SPU | A210_PADCFG_PE));
-+		arg = 0;
-+		break;
-+	case PIN_CONFIG_BIAS_PULL_DOWN:
-+		enabled = (value & A210_PADCFG_BIAS) == A210_PADCFG_PE;
-+		arg = enabled ? A210_PULL_DOWN_OHM : 0;
-+		break;
-+	case PIN_CONFIG_BIAS_PULL_UP:
-+		if (value & A210_PADCFG_SPU) {
-+			enabled = true;
-+			arg = A210_PULL_STRONG_OHM;
-+		} else if ((value & (A210_PADCFG_PE | A210_PADCFG_PS)) ==
-+			   (A210_PADCFG_PE | A210_PADCFG_PS)) {
-+			enabled = true;
-+			arg = A210_PULL_UP_OHM;
-+		} else {
-+			enabled = false;
-+			arg = 0;
-+		}
-+		break;
-+	case PIN_CONFIG_DRIVE_STRENGTH:
-+		enabled = true;
-+		arg = a210_drive_strength_in_ma[value & A210_PADCFG_DS];
-+		break;
-+	case PIN_CONFIG_INPUT_ENABLE:
-+		enabled = value & A210_PADCFG_IE;
-+		arg = enabled ? 1 : 0;
-+		break;
-+	case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
-+		enabled = value & A210_PADCFG_ST;
-+		arg = enabled ? 1 : 0;
-+		break;
-+	case PIN_CONFIG_SLEW_RATE:
-+		enabled = true;
-+		arg = !!(value & A210_PADCFG_SL);
-+		break;
-+	default:
-+		return -ENOTSUPP;
-+	}
-+
-+	*config = pinconf_to_config_packed(param, arg);
-+	return enabled ? 0 : -EINVAL;
-+}
-+
-+static int a210_pinconf_group_get(struct pinctrl_dev *pctldev, unsigned int gsel,
-+				  unsigned long *config)
-+{
-+	const unsigned int *pins;
-+	unsigned int npins, i;
-+	unsigned long first = *config;
++	struct a210_pll *pll = to_a210_pll(hw);
++	void __iomem *cfg1_off;
++	u32 val;
 +	int ret;
 +
-+	a210_pinctrl_get_group_pins(pctldev, gsel, &pins, &npins);
-+	for (i = 0; i < npins; i++) {
-+		unsigned long value = *config;
-+
-+		ret = a210_pinconf_get(pctldev, pins[i], &value);
-+		if (ret)
-+			return ret;
-+		if (i && value != first)
-+			return -ENOTSUPP;
-+		first = value;
-+	}
-+	*config = first;
-+	return 0;
-+}
-+
-+static int a210_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin, unsigned long *configs,
-+			    unsigned int num_configs)
-+{
-+	struct a210_pinctrl *pp = pinctrl_dev_get_drvdata(pctldev);
-+	const struct pin_desc *desc = pin_desc_get(pctldev, pin);
-+	unsigned int i;
-+	u16 mask, value;
-+
-+	if ((uintptr_t)desc->drv_data & A210_PAD_NO_PADCFG)
-+		return -ENOTSUPP;
-+	if (pp->type == A210_PADCTRL_2)
-+		return a210_sdio_pinconf_set(pp, pin, configs, num_configs);
-+
-+	mask = 0;
-+	value = 0;
-+	for (i = 0; i < num_configs; i++) {
-+		int param = pinconf_to_config_param(configs[i]);
-+		u32 arg = pinconf_to_config_argument(configs[i]);
-+
-+		switch (param) {
-+		case PIN_CONFIG_BIAS_DISABLE:
-+			mask |= A210_PADCFG_BIAS;
-+			value &= ~A210_PADCFG_BIAS;
-+			break;
-+		case PIN_CONFIG_BIAS_PULL_DOWN:
-+			if (arg != 1 && arg != A210_PULL_DOWN_OHM)
-+				return -EINVAL;
-+			mask |= A210_PADCFG_BIAS;
-+			value &= ~A210_PADCFG_BIAS;
-+			value |= A210_PADCFG_PE;
-+			break;
-+		case PIN_CONFIG_BIAS_PULL_UP:
-+			if (arg != 1 && arg != A210_PULL_UP_OHM && arg != A210_PULL_STRONG_OHM)
-+				return -EINVAL;
-+			mask |= A210_PADCFG_BIAS;
-+			value &= ~A210_PADCFG_BIAS;
-+			if (arg == A210_PULL_STRONG_OHM)
-+				value |= A210_PADCFG_SPU;
-+			else
-+				value |= A210_PADCFG_PE | A210_PADCFG_PS;
-+			break;
-+		case PIN_CONFIG_DRIVE_STRENGTH: {
-+			int strength = a210_drive_strength_from_ma(arg);
-+
-+			if (strength < 0)
-+				return strength;
-+			mask |= A210_PADCFG_DS;
-+			value &= ~A210_PADCFG_DS;
-+			value |= strength;
-+			break;
-+		}
-+		case PIN_CONFIG_INPUT_ENABLE:
-+			mask |= A210_PADCFG_IE;
-+			if (arg)
-+				value |= A210_PADCFG_IE;
-+			else
-+				value &= ~A210_PADCFG_IE;
-+			break;
-+		case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
-+			mask |= A210_PADCFG_ST;
-+			if (arg)
-+				value |= A210_PADCFG_ST;
-+			else
-+				value &= ~A210_PADCFG_ST;
-+			break;
-+		case PIN_CONFIG_SLEW_RATE:
-+			if (arg > 1)
-+				return -EINVAL;
-+			mask |= A210_PADCFG_SL;
-+			if (arg)
-+				value |= A210_PADCFG_SL;
-+			else
-+				value &= ~A210_PADCFG_SL;
-+			break;
-+		default:
-+			return -ENOTSUPP;
-+		}
-+	}
-+
-+	return a210_padcfg_rmw(pp, pin, mask, value);
-+}
-+
-+static int a210_pinconf_group_set(struct pinctrl_dev *pctldev, unsigned int gsel,
-+				  unsigned long *configs, unsigned int num_configs)
-+{
-+	const unsigned int *pins;
-+	unsigned int npins, i;
-+	int ret;
-+
-+	a210_pinctrl_get_group_pins(pctldev, gsel, &pins, &npins);
-+	for (i = 0; i < npins; i++) {
-+		ret = a210_pinconf_set(pctldev, pins[i], configs, num_configs);
-+		if (ret)
-+			return ret;
-+	}
-+	return 0;
-+}
-+
-+#ifdef CONFIG_DEBUG_FS
-+static void a210_pinconf_dbg_show(struct pinctrl_dev *pctldev, struct seq_file *s, unsigned int pin)
-+{
-+	struct a210_pinctrl *pp = pinctrl_dev_get_drvdata(pctldev);
-+	u32 value;
-+
-+	if ((uintptr_t)pin_desc_get(pctldev, pin)->drv_data & A210_PAD_NO_PADCFG)
-+		return;
-+
-+	value = readl_relaxed(a210_padcfg(pp, pin));
-+
-+	if (pp->type != A210_PADCTRL_2)
-+		value = (value >> a210_padcfg_shift(pp, pin)) & GENMASK(9, 0);
-+
-+	seq_printf(s, " [0x%03x]", value);
-+}
-+#else
-+#define a210_pinconf_dbg_show NULL
-+#endif
-+
-+static const struct pinconf_ops a210_pinconf_ops = {
-+	.pin_config_get = a210_pinconf_get,
-+	.pin_config_group_get = a210_pinconf_group_get,
-+	.pin_config_set = a210_pinconf_set,
-+	.pin_config_group_set = a210_pinconf_group_set,
-+	.pin_config_dbg_show = a210_pinconf_dbg_show,
-+	.is_generic = true,
-+};
-+
-+static int a210_pinmux_set(struct a210_pinctrl *pp, unsigned int pin, unsigned long muxdata,
-+			   enum a210_muxtype muxtype)
-+{
-+	void __iomem *muxcfg = a210_muxcfg(pp, pin);
-+	unsigned int shift = a210_muxcfg_shift(pp, pin);
-+	u32 mask, value, tmp;
-+
-+	for (value = 0; muxdata; muxdata >>= 7, value++) {
-+		if ((muxdata & GENMASK(6, 0)) == muxtype)
-+			break;
-+	}
-+	if (!muxdata) {
-+		dev_err(pp->pctl->dev, "invalid mux %s for pin %s\n", a210_muxtype_string[muxtype],
-+			pin_get_name(pp->pctl, pin));
-+		return -EINVAL;
-+	}
-+
-+	mask = pp->mask_mux << shift;
-+	value = value << shift;
-+
-+	scoped_guard(raw_spinlock_irqsave, &pp->lock) {
-+		tmp = readl_relaxed(muxcfg);
-+		tmp = (tmp & ~mask) | value;
-+		writel_relaxed(tmp, muxcfg);
-+#ifdef CONFIG_PM_SLEEP
-+		pp->mux_state[pin * hweight32(pp->mask_mux) / 32].mask |= mask;
-+#endif
-+	}
-+
-+	return 0;
-+}
-+
-+static int a210_pinmux_set_mux(struct pinctrl_dev *pctldev, unsigned int fsel, unsigned int gsel)
-+{
-+	struct a210_pinctrl *pp = pinctrl_dev_get_drvdata(pctldev);
-+	const struct function_desc *func = pinmux_generic_get_function(pctldev, fsel);
-+
-+	return a210_pinmux_set(pp, pp->desc.pins[gsel].number,
-+			       (uintptr_t)pp->desc.pins[gsel].drv_data & A210_PAD_MUXDATA,
-+			       *(enum a210_muxtype *)func->data);
-+}
-+
-+static bool a210_mux_is_gpio(enum a210_muxtype muxtype)
-+{
-+	switch (muxtype) {
-+	case A210_MUX_AOGPIO0:
-+	case A210_MUX_AOGPIO1:
-+	case A210_MUX_GPIO0:
-+	case A210_MUX_GPIO1:
-+	case A210_MUX_GPIO2:
-+	case A210_MUX_GPIO3:
-+	case A210_MUX_GPIO4:
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
-+
-+static int a210_gpio_request_enable(struct pinctrl_dev *pctldev, struct pinctrl_gpio_range *range,
-+				    unsigned int offset)
-+{
-+	struct a210_pinctrl *pp = pinctrl_dev_get_drvdata(pctldev);
-+	const struct pin_desc *desc = pin_desc_get(pctldev, offset);
-+	unsigned long muxdata = (uintptr_t)desc->drv_data & A210_PAD_MUXDATA;
-+
-+	if (pp->type == A210_PADCTRL_2)
-+		return -EOPNOTSUPP;
-+
-+	for (; muxdata; muxdata >>= 7) {
-+		enum a210_muxtype muxtype = muxdata & GENMASK(6, 0);
-+
-+		if (a210_mux_is_gpio(muxtype))
-+			return a210_pinmux_set(pp, offset,
-+					       (uintptr_t)desc->drv_data & A210_PAD_MUXDATA,
-+					       muxtype);
-+	}
-+
-+	dev_err(pp->pctl->dev, "no GPIO mux for pin %s\n", desc->name);
-+
-+	return -EINVAL;
-+}
-+
-+static int a210_gpio_set_direction(struct pinctrl_dev *pctldev, struct pinctrl_gpio_range *range,
-+				   unsigned int offset, bool input)
-+{
-+	struct a210_pinctrl *pp = pinctrl_dev_get_drvdata(pctldev);
-+
-+	if (pp->type == A210_PADCTRL_2)
-+		return -EOPNOTSUPP;
-+
-+	return a210_padcfg_rmw(pp, offset, A210_PADCFG_IE, input ? A210_PADCFG_IE : 0);
-+}
-+
-+static const struct pinmux_ops a210_pinmux_ops = {
-+	.get_functions_count = pinmux_generic_get_function_count,
-+	.get_function_name = pinmux_generic_get_function_name,
-+	.get_function_groups = pinmux_generic_get_function_groups,
-+	.function_is_gpio = pinmux_generic_function_is_gpio,
-+	.set_mux = a210_pinmux_set_mux,
-+	.gpio_request_enable = a210_gpio_request_enable,
-+	.gpio_set_direction = a210_gpio_set_direction,
-+	.strict = true,
-+};
-+
-+struct a210_function {
-+	struct pinfunction function;
-+	enum a210_muxtype type;
-+};
-+
-+static bool a210_pin_has_function(const struct pinctrl_pin_desc *pin,
-+				  enum a210_muxtype type)
-+{
-+	unsigned long muxdata = (uintptr_t)pin->drv_data & A210_PAD_MUXDATA;
-+
-+	for (; muxdata; muxdata >>= 7)
-+		if ((muxdata & GENMASK(6, 0)) == type)
-+			return true;
-+	return false;
-+}
-+
-+static int a210_register_functions(struct a210_pinctrl *pp)
-+{
-+	struct device *dev = pp->pctl->dev;
-+	unsigned int ngroups = a210_pinctrl_get_groups_count(pp->pctl);
-+	enum a210_muxtype type;
-+
-+	for (type = A210_MUX_AOUART; type < ARRAY_SIZE(a210_muxtype_string); type++) {
-+		struct a210_function *function;
-+		const char **groups;
-+		unsigned int i, count = 0;
-+		int ret;
-+
-+		for (i = 0; i < ngroups; i++)
-+			count += a210_pin_has_function(&pp->desc.pins[i], type);
-+		if (!count)
-+			continue;
-+
-+		function = devm_kzalloc(dev, sizeof(*function), GFP_KERNEL);
-+		if (!function)
-+			return -ENOMEM;
-+		groups = devm_kcalloc(dev, count, sizeof(*groups), GFP_KERNEL);
-+		if (!groups)
-+			return -ENOMEM;
-+		function->type = type;
-+		function->function.name = a210_muxtype_string[type];
-+		function->function.groups = groups;
-+		function->function.ngroups = count;
-+		if (a210_mux_is_gpio(type))
-+			function->function.flags = PINFUNCTION_FLAG_GPIO;
-+		count = 0;
-+		for (i = 0; i < ngroups; i++)
-+			if (a210_pin_has_function(&pp->desc.pins[i], type))
-+				groups[count++] = a210_pinctrl_get_group_name(pp->pctl, i);
-+		ret = pinmux_generic_add_pinfunction(pp->pctl, &function->function,
-+						     &function->type);
-+		if (ret < 0)
-+			return ret;
-+	}
-+	return 0;
-+}
-+
-+static int a210_pinctrl_enable_clock(struct a210_pinctrl *pp)
-+{
-+	int ret;
-+
-+	if (pp->clk_enabled)
++	cfg1_off = pll->base + pll->cfg0_reg_off + A210_PLL_CFG1;
++	val = readl_relaxed(cfg1_off);
++	if (!(val & pll->pll_rst_bit))
 +		return 0;
 +
-+	ret = clk_prepare_enable(pp->clk);
-+	if (!ret)
-+		pp->clk_enabled = true;
++	/* Enable RST */
++	val |= pll->pll_rst_bit;
++	writel_relaxed(val, cfg1_off);
++
++	udelay(3);
++
++	/* Disable RST */
++	val &= ~pll->pll_rst_bit;
++	writel_relaxed(val, cfg1_off);
++
++	ret = a210_pll_wait_lock(pll);
++	if (ret)
++		writel_relaxed(val | pll->pll_rst_bit, cfg1_off);
++
 +	return ret;
 +}
 +
-+static void a210_pinctrl_disable_clock(void *data)
++static int a210_pll_is_prepared(struct clk_hw *hw)
 +{
-+	struct a210_pinctrl *pp = data;
++	struct a210_pll *pll = to_a210_pll(hw);
++	u32 val;
 +
-+	if (pp->clk_enabled) {
-+		clk_disable_unprepare(pp->clk);
-+		pp->clk_enabled = false;
-+	}
++	val = readl_relaxed(pll->base + pll->cfg0_reg_off + A210_PLL_CFG1);
++
++	return (val & pll->pll_rst_bit) ? 0 : 1;
 +}
 +
-+static int a210_pinctrl_probe(struct platform_device *pdev)
++static void a210_pll_unprepare(struct clk_hw *hw)
 +{
-+	struct device *dev = &pdev->dev;
-+	const struct a210_pad_group *group;
-+	struct a210_pinctrl *pp;
-+	int ret;
++	struct a210_pll *pll = to_a210_pll(hw);
++	u32 val;
 +
-+	group = device_get_match_data(dev);
-+	if (!group)
-+		return dev_err_probe(dev, -EINVAL, "missing pad group data\n");
-+
-+	pp = devm_kzalloc(dev, sizeof(*pp), GFP_KERNEL);
-+	if (!pp)
-+		return -ENOMEM;
-+
-+	pp->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(pp->base))
-+		return PTR_ERR(pp->base);
-+
-+	pp->desc.name = group->name;
-+	pp->desc.pins = group->pins;
-+	pp->desc.npins = group->npins;
-+	pp->offset_mux = group->offset_mux;
-+	pp->mask_mux = group->mask_mux;
-+	pp->offset_cfg = group->offset_cfg;
-+	pp->mask_cfg = group->mask_cfg;
-+	pp->type = group->type;
-+	pp->desc.pctlops = &a210_pinctrl_ops;
-+	pp->desc.pmxops = &a210_pinmux_ops;
-+	pp->desc.confops = &a210_pinconf_ops;
-+	pp->desc.owner = THIS_MODULE;
-+	raw_spin_lock_init(&pp->lock);
-+
-+	pp->clk = devm_clk_get(dev, "pclk");
-+	if (IS_ERR(pp->clk))
-+		return dev_err_probe(dev, PTR_ERR(pp->clk), "error getting clock\n");
-+
-+	ret = a210_pinctrl_enable_clock(pp);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "could not enable padctrl clock\n");
-+	ret = devm_add_action_or_reset(dev, a210_pinctrl_disable_clock, pp);
-+	if (ret)
-+		return ret;
-+
-+	platform_set_drvdata(pdev, pp);
-+	ret = devm_pinctrl_register_and_init(dev, &pp->desc, pp, &pp->pctl);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "could not register pinctrl driver\n");
-+
-+	ret = a210_register_functions(pp);
-+	if (ret)
-+		return ret;
-+
-+	return pinctrl_enable(pp->pctl);
++	val = readl_relaxed(pll->base + pll->cfg0_reg_off + A210_PLL_CFG1);
++	val |= pll->pll_rst_bit;
++	writel_relaxed(val, pll->base + pll->cfg0_reg_off + A210_PLL_CFG1);
 +}
 +
-+#ifdef CONFIG_PM_SLEEP
-+static void a210_pinctrl_save_regs(struct a210_register_state *state,
-+				   unsigned int count, void __iomem *base)
++static unsigned long a210_pll_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
 +{
-+	unsigned int i;
++	struct a210_pll *pll = to_a210_pll(hw);
++	u32 refdiv, fbdiv, postdiv1, postdiv2, frac;
++	u32 pll_cfg0, pll_cfg1;
++	u64 fvco = 0;
 +
-+	for (i = 0; i < count; i++)
-+		if (state[i].mask)
-+			state[i].value = readl(base + i * sizeof(u32)) & state[i].mask;
-+}
++	pll_cfg0 = readl_relaxed(pll->base + pll->cfg0_reg_off);
++	pll_cfg1 = readl_relaxed(pll->base + pll->cfg0_reg_off + A210_PLL_CFG1);
++	if (pll->out_type == A210_PLL_DIV && (pll_cfg1 & pll->pll_bypass_bit))
++		return parent_rate;
 +
-+static void a210_pinctrl_restore_regs(const struct a210_register_state *state,
-+				      unsigned int count, void __iomem *base)
-+{
-+	unsigned int i;
++	refdiv = (pll_cfg0 & A210_REFDIV_MASK) >> A210_REFDIV_SHIFT;
++	fbdiv = (pll_cfg0 & A210_FBDIV_MASK) >> A210_FBDIV_SHIFT;
++	postdiv1 = (pll_cfg0 & A210_POSTDIV1_MASK) >> A210_POSTDIV1_SHIFT;
++	postdiv2 = (pll_cfg0 & A210_POSTDIV2_MASK) >> A210_POSTDIV2_SHIFT;
++	frac = (pll_cfg1 & A210_FRAC_MASK) >> A210_FRAC_SHIFT;
 +
-+	for (i = 0; i < count; i++) {
-+		u32 value;
-+
-+		if (!state[i].mask)
-+			continue;
-+		value = readl(base + i * sizeof(u32));
-+		value = (value & ~state[i].mask) | state[i].value;
-+		writel(value, base + i * sizeof(u32));
-+	}
-+}
-+
-+static int a210_pinctrl_suspend(struct device *dev)
-+{
-+	struct a210_pinctrl *pp = dev_get_drvdata(dev);
-+
-+	if (!pp->clk_enabled)
++	if (!refdiv || (pll->out_type == A210_PLL_DIV && (!postdiv1 || !postdiv2)))
 +		return 0;
 +
-+	scoped_guard(raw_spinlock_irqsave, &pp->lock) {
-+		a210_pinctrl_save_regs(pp->cfg_state, ARRAY_SIZE(pp->cfg_state),
-+				       pp->base + pp->offset_cfg);
-+		a210_pinctrl_save_regs(pp->mux_state, ARRAY_SIZE(pp->mux_state),
-+				       pp->base + pp->offset_mux);
-+	}
-+	if (pp->type != A210_PADCTRL_AON)
-+		a210_pinctrl_disable_clock(pp);
++	/* Read the mode selected by firmware until a rate change requests it. */
++	if (!(pll_cfg1 & A210_DSMPD_MASK))
++		fvco = ((u64)parent_rate * frac) / A210_FRAC_DIV;
 +
-+	return 0;
++	fvco += (u64)parent_rate * fbdiv;
++	do_div(fvco, refdiv);
++
++	if (pll->out_type == A210_PLL_DIV)
++		do_div(fvco, postdiv1 * postdiv2);
++
++	return fvco;
 +}
 +
-+static int a210_pinctrl_resume(struct device *dev)
++static const struct a210_pll_rate *a210_get_pll_div_settings(struct a210_pll *pll,
++							     unsigned long rate)
 +{
-+	struct a210_pinctrl *pp = dev_get_drvdata(dev);
++	const struct a210_pll_rate *rate_table = pll->rate_table;
++	int i;
++
++	for (i = 0; i < pll->rate_count; i++)
++		if (rate == rate_table[i].rate)
++			return &rate_table[i];
++
++	return NULL;
++}
++
++static const struct a210_pll_rate *a210_get_pll_vco_settings(struct a210_pll *pll,
++							     unsigned long rate)
++{
++	const struct a210_pll_rate *rate_table = pll->rate_table;
++	int i;
++
++	for (i = 0; i < pll->rate_count; i++)
++		if (rate == rate_table[i].vco_rate)
++			return &rate_table[i];
++
++	return NULL;
++}
++
++static inline bool a210_pll_change(struct a210_pll *pll, const struct a210_pll_rate *rate)
++{
++	u32 refdiv_old, fbdiv_old, postdiv1_old, postdiv2_old, frac_old;
++	u32 cfg0, cfg1;
++	bool pll_changed;
++
++	cfg0 = readl_relaxed(pll->base + pll->cfg0_reg_off);
++	cfg1 = readl_relaxed(pll->base + pll->cfg0_reg_off + A210_PLL_CFG1);
++
++	refdiv_old = (cfg0 & A210_REFDIV_MASK) >> A210_REFDIV_SHIFT;
++	fbdiv_old = (cfg0 & A210_FBDIV_MASK) >> A210_FBDIV_SHIFT;
++	postdiv1_old = (cfg0 & A210_POSTDIV1_MASK) >> A210_POSTDIV1_SHIFT;
++	postdiv2_old = (cfg0 & A210_POSTDIV2_MASK) >> A210_POSTDIV2_SHIFT;
++	frac_old = (cfg1 & A210_FRAC_MASK) >> A210_FRAC_SHIFT;
++
++	pll_changed = (pll->out_type == A210_PLL_DIV && (cfg1 & pll->pll_bypass_bit)) ||
++		      (!!(cfg1 & A210_DSMPD_MASK) != (pll->pll_mode == PLL_MODE_INT)) ||
++		      rate->refdiv != refdiv_old || rate->fbdiv != fbdiv_old ||
++		      rate->postdiv1 != postdiv1_old || rate->postdiv2 != postdiv2_old;
++	if (pll->pll_mode == PLL_MODE_FRAC)
++		pll_changed |= (rate->frac != frac_old);
++
++	return pll_changed;
++}
++
++static int a210_pll_set_rate(struct clk_hw *hw, unsigned long drate, unsigned long prate)
++{
++	struct a210_pll *pll = to_a210_pll(hw);
++	const struct a210_pll_rate *rate;
++	void __iomem *cfg1_off;
++	u32 tmp, div_val, old_cfg0, old_cfg1;
 +	int ret;
 +
-+	ret = a210_pinctrl_enable_clock(pp);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "could not enable padctrl clock\n");
-+
-+	/* Leave firmware-owned and reserved fields at their current values. */
-+	scoped_guard(raw_spinlock_irqsave, &pp->lock) {
-+		a210_pinctrl_restore_regs(pp->cfg_state, ARRAY_SIZE(pp->cfg_state),
-+					  pp->base + pp->offset_cfg);
-+		a210_pinctrl_restore_regs(pp->mux_state, ARRAY_SIZE(pp->mux_state),
-+					  pp->base + pp->offset_mux);
++	if (pll->out_type == A210_PLL_VCO) {
++		rate = a210_get_pll_vco_settings(pll, drate);
++		if (!rate) {
++			pr_err("%s: Invalid rate : %lu for pll clk %s\n", __func__, drate,
++			       clk_hw_get_name(hw));
++			return -EINVAL;
++		}
++	} else {
++		rate = a210_get_pll_div_settings(pll, drate);
++		if (!rate) {
++			pr_err("%s: Invalid rate : %lu for pll clk %s\n", __func__, drate,
++			       clk_hw_get_name(hw));
++			return -EINVAL;
++		}
 +	}
++
++	if (!a210_pll_change(pll, rate))
++		return 0;
++
++	/* Enable RST */
++	cfg1_off = pll->base + pll->cfg0_reg_off + A210_PLL_CFG1;
++	old_cfg0 = readl_relaxed(pll->base + pll->cfg0_reg_off);
++	old_cfg1 = readl_relaxed(cfg1_off);
++	tmp = old_cfg1 | pll->pll_rst_bit;
++	writel_relaxed(tmp, cfg1_off);
++
++	div_val = (rate->refdiv << A210_REFDIV_SHIFT) | (rate->fbdiv << A210_FBDIV_SHIFT) |
++		  (rate->postdiv1 << A210_POSTDIV1_SHIFT) | (rate->postdiv2 << A210_POSTDIV2_SHIFT);
++	div_val |= old_cfg0 &
++		   ~(A210_REFDIV_MASK | A210_FBDIV_MASK | A210_POSTDIV1_MASK | A210_POSTDIV2_MASK);
++	writel_relaxed(div_val, pll->base + pll->cfg0_reg_off);
++
++	tmp &= ~(A210_FRAC_MASK | A210_DSMPD_MASK | A210_DACPD_MASK);
++	if (pll->pll_mode == PLL_MODE_FRAC)
++		tmp |= rate->frac;
++	else
++		tmp |= A210_DSMPD_MASK | A210_DACPD_MASK;
++	writel_relaxed(tmp, cfg1_off);
++
++	udelay(3);
++
++	/* Disable RST */
++	tmp &= ~pll->pll_rst_bit;
++	writel_relaxed(tmp, cfg1_off);
++
++	ret = a210_pll_wait_lock(pll);
++	if (ret) {
++		/* Restore the previous configuration on a failed transition. */
++		writel_relaxed(tmp | pll->pll_rst_bit, cfg1_off);
++		writel_relaxed(old_cfg0, pll->base + pll->cfg0_reg_off);
++		writel_relaxed(old_cfg1, cfg1_off);
++		return ret;
++	}
++
++	/* Retain the reference settling time before selecting the PLL output. */
++	usleep_range(30, 40);
++	if (pll->out_type == A210_PLL_DIV)
++		tmp &= ~pll->pll_bypass_bit;
++	tmp |= old_cfg1 & pll->pll_rst_bit;
++	writel_relaxed(tmp, cfg1_off);
++
 +	return 0;
 +}
-+#endif /* CONFIG_PM_SLEEP */
 +
-+static const struct dev_pm_ops a210_pinctrl_dev_pm_ops = {
-+	SET_LATE_SYSTEM_SLEEP_PM_OPS(a210_pinctrl_suspend, a210_pinctrl_resume)
++static int a210_pllvco_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
++{
++	struct a210_pll *pll = to_a210_pll(hw);
++	const struct a210_pll_rate *rate_table = pll->rate_table;
++	unsigned long best_diff;
++	unsigned int best_i = 0;
++	unsigned int i;
++
++	if (!pll->rate_count)
++		return -EINVAL;
++
++	best_diff = abs_diff(rate_table[0].vco_rate, req->rate);
++
++	for (i = 1; i < pll->rate_count; i++) {
++		unsigned long diff = abs_diff(rate_table[i].vco_rate, req->rate);
++
++		if (diff < best_diff) {
++			best_diff = diff;
++			best_i = i;
++		}
++	}
++
++	req->rate = rate_table[best_i].vco_rate;
++
++	return 0;
++}
++
++static int a210_plldiv_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
++{
++	struct a210_pll *pll = to_a210_pll(hw);
++	const struct a210_pll_rate *rate_table = pll->rate_table;
++	unsigned long best_diff;
++	unsigned int best_i = 0;
++	unsigned int i;
++
++	if (!pll->rate_count)
++		return -EINVAL;
++
++	best_diff = abs_diff(rate_table[0].rate, req->rate);
++
++	for (i = 1; i < pll->rate_count; i++) {
++		unsigned long diff = abs_diff(rate_table[i].rate, req->rate);
++
++		if (diff < best_diff) {
++			best_diff = diff;
++			best_i = i;
++		}
++	}
++
++	req->rate = rate_table[best_i].rate;
++
++	return 0;
++}
++
++static const struct clk_ops a210_pll_def_ops = {
++	.recalc_rate = a210_pll_recalc_rate,
 +};
 +
-+static const struct of_device_id a210_pinctrl_of_match[] = {
-+	{ .compatible = "zhihe,a210-aon-pinctrl", .data = &a210_group0 },
-+	{ .compatible = "zhihe,a210-peri1-pinctrl", .data = &a210_group1 },
-+	{ .compatible = "zhihe,a210-peri2-pinctrl", .data = &a210_group2 },
-+	{ .compatible = "zhihe,a210-peri3-pinctrl", .data = &a210_group3 },
-+	{ /* sentinel */ }
++static const struct clk_ops a210_pllvco_ops = {
++	.prepare = a210_pll_prepare,
++	.unprepare = a210_pll_unprepare,
++	.is_prepared = a210_pll_is_prepared,
++	.recalc_rate = a210_pll_recalc_rate,
++	.determine_rate = a210_pllvco_determine_rate,
++	.set_rate = a210_pll_set_rate,
 +};
-+MODULE_DEVICE_TABLE(of, a210_pinctrl_of_match);
 +
-+static struct platform_driver a210_pinctrl_driver = {
-+	.probe = a210_pinctrl_probe,
++static const struct clk_ops a210_plldiv_ops = {
++	.prepare = a210_pll_prepare,
++	.unprepare = a210_pll_unprepare,
++	.is_prepared = a210_pll_is_prepared,
++	.recalc_rate = a210_pll_recalc_rate,
++	.determine_rate = a210_plldiv_determine_rate,
++	.set_rate = a210_pll_set_rate,
++};
++
++static struct clk_hw *a210_register_pll(struct device *dev, const char *name,
++					const char *parent_name, void __iomem *base,
++					const struct a210_pll_desc *pll_clk)
++{
++	struct a210_pll *pll;
++	int ret;
++	struct clk_init_data init = {};
++
++	pll = devm_kzalloc(dev, sizeof(*pll), GFP_KERNEL);
++	if (!pll)
++		return ERR_PTR(-ENOMEM);
++
++	init.name = name;
++	init.flags = pll_clk->flags | CLK_SET_RATE_GATE;
++	init.parent_names = &parent_name;
++	init.num_parents = 1;
++
++	switch (pll_clk->out_type) {
++	case A210_PLL_VCO:
++		if (pll_clk->rate_table)
++			init.ops = &a210_pllvco_ops;
++		break;
++	case A210_PLL_DIV:
++		if (pll_clk->rate_table)
++			init.ops = &a210_plldiv_ops;
++		break;
++	default:
++		return ERR_PTR(-EINVAL);
++	}
++
++	if (!pll_clk->rate_table)
++		init.ops = &a210_pll_def_ops;
++
++	pll->base = base;
++	pll->hw.init = &init;
++	pll->out_type = pll_clk->out_type;
++	pll->rate_table = pll_clk->rate_table;
++	pll->rate_count = pll_clk->rate_count;
++	pll->cfg0_reg_off = pll_clk->cfg0_reg_off;
++	pll->pll_sts_off = pll_clk->pll_sts_off;
++	pll->pll_lock_bit = pll_clk->pll_lock_bit;
++	pll->pll_bypass_bit = pll_clk->pll_bypass_bit;
++	pll->pll_rst_bit = pll_clk->pll_rst_bit;
++	pll->pll_mode = pll_clk->pll_mode;
++
++	/* Registration must preserve the firmware-selected PLL state. */
++	ret = devm_clk_hw_register(dev, &pll->hw);
++	if (ret)
++		return ERR_PTR(ret);
++
++	return &pll->hw;
++}
++
++static u8 a210_postdiv_get_parent(struct clk_hw *hw)
++{
++	struct a210_pll *pll = to_a210_pll(hw);
++	u32 value = readl_relaxed(pll->base + pll->cfg0_reg_off + A210_PLL_CFG1);
++
++	return !!(value & pll->pll_bypass_bit);
++}
++
++static unsigned long a210_postdiv_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
++{
++	struct a210_pll *pll = to_a210_pll(hw);
++	u32 value, div1, div2;
++
++	if (a210_postdiv_get_parent(hw))
++		return parent_rate;
++
++	value = readl_relaxed(pll->base + pll->cfg0_reg_off);
++	div1 = (value & A210_POSTDIV1_MASK) >> A210_POSTDIV1_SHIFT;
++	div2 = (value & A210_POSTDIV2_MASK) >> A210_POSTDIV2_SHIFT;
++	if (!div1 || !div2)
++		return 0;
++
++	return parent_rate / (div1 * div2);
++}
++
++static const struct clk_ops a210_postdiv_ops = {
++	.get_parent = a210_postdiv_get_parent,
++	.recalc_rate = a210_postdiv_recalc_rate,
++};
++
++static struct clk_hw *a210_register_postdiv(struct device *dev, const char *name,
++					    const char *parent_name, void __iomem *base,
++					    const struct a210_pll_desc *pll_clk)
++{
++	const char *const parents[] = { parent_name, "pll_osc_clk" };
++	struct clk_init_data init = {
++		.name = name,
++		.ops = &a210_postdiv_ops,
++		.parent_names = parents,
++		.num_parents = ARRAY_SIZE(parents),
++	};
++	struct a210_pll *pll;
++	int ret;
++
++	pll = devm_kzalloc(dev, sizeof(*pll), GFP_KERNEL);
++	if (!pll)
++		return ERR_PTR(-ENOMEM);
++
++	pll->base = base;
++	pll->cfg0_reg_off = pll_clk->cfg0_reg_off;
++	pll->pll_bypass_bit = pll_clk->pll_bypass_bit;
++	pll->hw.init = &init;
++	ret = devm_clk_hw_register(dev, &pll->hw);
++	if (ret)
++		return ERR_PTR(ret);
++
++	return &pll->hw;
++}
++
++static inline struct a210_div *to_a210_div(struct clk_hw *hw)
++{
++	struct clk_divider *divider = to_clk_divider(hw);
++
++	return container_of(divider, struct a210_div, divider);
++}
++
++static unsigned long a210_div_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
++{
++	struct a210_div *cd = to_a210_div(hw);
++	struct clk_divider *div = &cd->divider;
++	u32 value = (readl(div->reg) >> div->shift) & div_mask(div);
++	unsigned long flags = cd->div_type == MUX_TYPE_DIV ? CLK_DIVIDER_ONE_BASED : 0;
++
++	/* Report the actual firmware setting even outside the writable range. */
++	return divider_recalc_rate(hw, parent_rate, value, NULL, flags, div->width);
++}
++
++static int a210_div_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
++{
++	struct a210_div *cd = to_a210_div(hw);
++	struct clk_divider *div = &cd->divider;
++
++	return divider_determine_rate(hw, req, div->table, div->width, div->flags);
++}
++
++static int a210_div_set_rate(struct clk_hw *hw, unsigned long rate, unsigned long parent_rate)
++{
++	struct a210_div *cd = to_a210_div(hw);
++	struct clk_divider *div = to_clk_divider(hw);
++	int value;
++	unsigned long flags = 0;
++	u32 val;
++
++	if (!rate)
++		return -EINVAL;
++
++	value = divider_get_val(rate, parent_rate, div->table, div->width, div->flags);
++	if (value < 0)
++		return value;
++
++	spin_lock_irqsave(div->lock, flags);
++
++	val = readl(div->reg);
++
++	if (cd->sync_en != NO_DIV_EN) {
++		val &= ~BIT(cd->sync_en);
++		writel(val, div->reg);
++		udelay(1);
++	}
++
++	val &= ~(div_mask(div) << div->shift);
++	val |= value << div->shift;
++	writel(val, div->reg);
++
++	if (cd->sync_en != NO_DIV_EN) {
++		udelay(1);
++		val |= BIT(cd->sync_en);
++		writel(val, div->reg);
++	}
++
++	spin_unlock_irqrestore(div->lock, flags);
++
++	return 0;
++}
++
++static const struct clk_ops a210_div_ops = {
++	.recalc_rate = a210_div_recalc_rate,
++	.determine_rate = a210_div_determine_rate,
++	.set_rate = a210_div_set_rate,
++};
++
++static struct clk_hw *a210_register_divider(struct device *dev, const char *name,
++					    const char *parent, void __iomem *reg, u8 shift,
++					    u8 width, u8 sync, enum a210_div_type div_type, u16 min,
++					    u16 max, bool closest)
++{
++	struct a210_div *div;
++	struct clk_hw *hw;
++	struct clk_init_data init;
++	unsigned int i, count;
++	int ret;
++
++	if (!width || width > 16 || min > max || max >= BIT(width) ||
++	    (div_type == MUX_TYPE_DIV && !min))
++		return ERR_PTR(-EINVAL);
++
++	count = max - min + 1;
++	div = devm_kzalloc(dev, struct_size(div, table, count + 1), GFP_KERNEL);
++	if (!div)
++		return ERR_PTR(-ENOMEM);
++
++	init.name = name;
++	init.ops = &a210_div_ops;
++	init.flags = CLK_SET_RATE_PARENT;
++	init.parent_names = parent ? &parent : NULL;
++	init.num_parents = parent ? 1 : 0;
++
++	div->divider.reg = reg;
++	div->divider.shift = shift;
++	div->divider.width = width;
++	div->divider.lock = &a210_clk_lock;
++	div->divider.hw.init = &init;
++	div->sync_en = sync;
++	div->div_type = div_type;
++	if (closest)
++		div->divider.flags = CLK_DIVIDER_ROUND_CLOSEST;
++
++	for (i = 0; i < count; i++) {
++		div->table[i].val = min + i;
++		div->table[i].div = min + i + (div_type == MUX_TYPE_CDE);
++	}
++	div->divider.table = div->table;
++
++	hw = &div->divider.hw;
++
++	ret = devm_clk_hw_register(dev, hw);
++	if (ret)
++		return ERR_PTR(ret);
++
++	return hw;
++}
++
++static inline struct a210_shared_gate *to_a210_shared_gate(struct clk_hw *hw)
++{
++	struct clk_gate *gate = to_clk_gate(hw);
++
++	return container_of(gate, struct a210_shared_gate, gate);
++}
++
++static int a210_shared_gate_is_enabled(struct clk_hw *hw)
++{
++	struct a210_shared_gate *gate = to_a210_shared_gate(hw);
++
++	return gate->ops->is_enabled(hw);
++}
++
++static int a210_shared_gate_enable(struct clk_hw *hw)
++{
++	struct a210_shared_gate *gate = to_a210_shared_gate(hw);
++
++	if (gate->share_count && (*gate->share_count)++ > 0)
++		return 0;
++
++	return gate->ops->enable(hw);
++}
++
++static void a210_shared_gate_disable(struct clk_hw *hw)
++{
++	struct a210_shared_gate *gate = to_a210_shared_gate(hw);
++
++	if (gate->share_count) {
++		if (WARN_ON(*gate->share_count == 0))
++			return;
++		else if (--(*gate->share_count) > 0)
++			return;
++	}
++
++	gate->ops->disable(hw);
++}
++
++static void a210_shared_gate_disable_unused(struct clk_hw *hw)
++{
++	struct a210_shared_gate *gate = to_a210_shared_gate(hw);
++
++	if (!gate->share_count || *gate->share_count == 0)
++		return gate->ops->disable(hw);
++}
++
++static const struct clk_ops a210_shared_gate_ops = {
++	.enable = a210_shared_gate_enable,
++	.disable = a210_shared_gate_disable,
++	.disable_unused = a210_shared_gate_disable_unused,
++	.is_enabled = a210_shared_gate_is_enabled,
++};
++
++static struct clk_hw *a210_register_shared_gate(struct device *dev, const char *name,
++						const char *parent, unsigned long flags,
++						void __iomem *reg, u8 shift, spinlock_t *lock,
++						unsigned int *share_count)
++{
++	struct a210_shared_gate *gate;
++	struct clk_hw *hw;
++	struct clk_init_data init;
++	int ret;
++
++	gate = devm_kzalloc(dev, sizeof(*gate), GFP_KERNEL);
++	if (!gate)
++		return ERR_PTR(-ENOMEM);
++
++	gate->gate.reg = reg;
++	gate->gate.bit_idx = shift;
++	gate->gate.flags = 0;
++	gate->gate.lock = lock;
++	gate->gate.hw.init = &init;
++	gate->ops = &clk_gate_ops;
++	gate->share_count = share_count;
++
++	init.name = name;
++	init.ops = &a210_shared_gate_ops;
++	init.flags = flags;
++	init.parent_names = parent ? &parent : NULL;
++	init.num_parents = parent ? 1 : 0;
++
++	hw = &gate->gate.hw;
++
++	ret = devm_clk_hw_register(dev, hw);
++	if (ret)
++		return ERR_PTR(ret);
++
++	return hw;
++}
++
++static int a210_map_registers(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct a210_ccu *priv = dev_get_drvdata(dev);
++	int ret = 0;
++
++	for (int i = 0; i < priv->num_regs; i++) {
++		priv->regs[i].base =
++			devm_platform_ioremap_resource_byname(pdev, priv->regs[i].name);
++		if (IS_ERR(priv->regs[i].base)) {
++			ret = PTR_ERR(priv->regs[i].base);
++			return ret;
++		}
++	}
++
++	return ret;
++}
++
++static int a210_register_clocks(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct a210_ccu *priv = dev_get_drvdata(dev);
++	struct clk_hw **hws = priv->clk_data->hws;
++	int i;
++
++	for (i = 0; i < priv->num_info; i++) {
++		const struct a210_clk_desc *info = &priv->info[i];
++		const char *name = info->name;
++		const char *parent = info->parent;
++		struct clk_hw *hw;
++		void __iomem *base;
++		u32 id = info->id;
++		int j;
++
++		for (j = 0; j < priv->num_inputs; j++)
++			if (priv->inputs[j].id && !strcmp(parent, priv->inputs[j].id)) {
++				parent = __clk_get_name(priv->inputs[j].clk);
++				break;
++			}
++
++		if (id >= priv->clk_data->num)
++			return dev_err_probe(dev, -EINVAL, "invalid clock id %u for %s\n", id,
++					     info->name);
++		if (info->reg >= priv->num_regs)
++			return dev_err_probe(dev, -EINVAL, "invalid register index %u for %s\n",
++					     info->reg, info->name);
++
++		base = priv->regs[info->reg].base + info->shift;
++
++		switch (info->type) {
++		case A210_CLK_FIXED_FACTOR:
++			hw = devm_clk_hw_register_fixed_factor(dev, name, parent,
++							       CLK_SET_RATE_PARENT,
++							       info->fixed_factor.mult,
++							       info->fixed_factor.div);
++			break;
++		case A210_CLK_PLL:
++			hw = a210_register_pll(dev, name, parent, base, info->pll);
++			break;
++		case A210_CLK_PLL_POSTDIV:
++			hw = a210_register_postdiv(dev, name, parent, base, info->pll);
++			break;
++		case A210_CLK_DIVIDER:
++		case A210_CLK_DIVIDER_CLOSEST:
++			hw = a210_register_divider(dev, name, parent, base, info->bit_idx,
++						   info->width, info->divider.sync,
++						   info->divider.div_type, info->divider.min,
++						   info->divider.max,
++						   info->type == A210_CLK_DIVIDER_CLOSEST);
++			break;
++		case A210_CLK_GATE:
++			hw = devm_clk_hw_register_gate(dev, name, parent,
++						       CLK_SET_RATE_PARENT | info->flags, base,
++						       info->bit_idx, 0, &a210_clk_lock);
++			break;
++		case A210_CLK_GATE_SHARED:
++			hw = a210_register_shared_gate(dev, name, parent,
++						       CLK_SET_RATE_PARENT | info->flags, base,
++						       info->bit_idx, &a210_clk_lock,
++						       info->gate_shared.share_count);
++			break;
++		case A210_CLK_MUX:
++			hw = devm_clk_hw_register_mux(dev, name, info->mux.parents,
++						      info->mux.num_parents, info->mux.flags, base,
++						      info->bit_idx, info->width, 0,
++						      &a210_clk_lock);
++			break;
++		default:
++			return dev_err_probe(dev, -EINVAL, "invalid clock type %u for %s\n",
++					     info->type, name);
++		}
++
++		if (IS_ERR(hw))
++			return dev_err_probe(dev, PTR_ERR(hw), "failed to register clock %s\n",
++					     name);
++		hws[id] = hw;
++	}
++
++	return 0;
++}
++
++/* top reg idx */
++#define PLL_WRAP 0
++#define TOP_CRG 1
++#define CPU_SS_CLK_SYSREG 2
++#define CPU_SS_CPU_PLL 3
++#define DDR0_SYSREG 4
++#define DDR1_SYSREG 5
++#define SLC_DUAL_SYSREG 6
++#define TOP_CRG_T 7
++#define CPU_SS_CCU 8
++/* gpu reg idx */
++#define GPU_SS_PWRAP_CLK_EN 0
++#define GPU_SS_TOP_CLK_EN 1
++/* pcie reg idx */
++#define PCIE_CLK_EN 0
++/* usb reg idx */
++#define USB_CLK_EN 0
++/* vi reg idx */
++#define VI_CLK 0
++#define VI_MISC_CTRL 1
++/* vp reg idx */
++#define VP_CLK 0
++/* vo reg idx */
++#define VO_CLK 0
++#define VO_PATH_CTRL 1
++/* npu reg idx */
++#define NPU_CLK 0
++#define NPU_TOP_CLK 1
++/* peri reg idx */
++#define PERI0_SYSREG 0
++#define PERI1_SYSREG 1
++#define PERI2_SYSREG 2
++#define PERI3_SYSREG 3
++#define TEE_CRG 4
++
++static u32 share_cnt_ddr_pll_clk_en;
++
++enum a210_pll_clktype {
++	AUDIO0_PLL,
++	AUDIO1_PLL,
++	VIDEO_PLL,
++	GMAC_PLL,
++	DVFS_PLL,
++	DPU0_PLL,
++	DPU1_PLL,
++	DPU2_PLL,
++	TEE_PLL,
++	DDR_PLL,
++	C920_PLL,
++	C908_PLL,
++};
++
++static const char *const uart_sclk_parents[] = {
++	"uart_sclk_100m",
++	"aon_osc_clk_logic",
++};
++
++static const char *const noc_cclk_mux_parents[] = {
++	"dpu1_pll_foutvco",
++	"video_pll_foutvco",
++	"gmac_pll_foutvco",
++};
++
++static const char *const top_cpu_ddr1_aclk_parents[] = {
++	"cbus2ddr_aclk1",
++	"gmac_pll_foutpostdiv",
++};
++
++static const char *const top_cpu_ddr0_aclk_parents[] = {
++	"cbus2ddr_aclk0",
++	"gmac_pll_foutpostdiv",
++};
++
++static const char *const ddr_pll_clkout_parents[] = {
++	"ddr_pll_foutpostdiv",
++	"ddr_pll_fout1ph0",
++	"ddr_pll_fout2",
++};
++
++static const char *const top_cpu_bak_pll0_clk_mux0_parents[] = {
++	"audio0_pll_foutvco",
++	"dvfs_pll_foutvco",
++	"top_cpu_bak_pll0_clk_div0",
++	"top_cpu_bak_pll0_clk_div1",
++};
++
++static const char *const top_cpu_bak_pll0_clk_mux_parents[] = {
++	"dpu1_pll_foutvco",	     "top_cpu_bak_pll0_clk_mux0", "dvfs_pll_foutvco",
++	"audio0_pll_foutvco",	     "top_cpu_bak_pll0_clk_div0", "top_cpu_bak_pll0_clk_div4",
++	"top_cpu_bak_pll0_clk_div3", "top_cpu_bak_pll0_clk_div1",
++};
++
++static const char *const top_cpu_bak_pll1_clk_mux0_parents[] = {
++	"audio0_pll_foutvco",
++	"dvfs_pll_foutvco",
++	"top_cpu_bak_pll1_clk_div0",
++	"top_cpu_bak_pll1_clk_div1",
++};
++
++static const char *const top_cpu_bak_pll1_clk_mux_parents[] = {
++	"dpu1_pll_foutvco",	     "top_cpu_bak_pll1_clk_mux0", "dvfs_pll_foutvco",
++	"audio0_pll_foutvco",	     "top_cpu_bak_pll1_clk_div0", "top_cpu_bak_pll1_clk_div4",
++	"top_cpu_bak_pll1_clk_div3", "top_cpu_bak_pll1_clk_div1",
++};
++
++static const char *const top_cpusys_pic_clk_mux_parents[] = {
++	"gmac_pll_foutvco",
++	"video_pll_foutvco",
++};
++
++static const char *const top_cpusys_bus_clk_mux_parents[] = {
++	"video_pll_foutvco",
++	"gmac_pll_foutvco",
++	"audio0_pll_foutvco",
++	"dpu2_pll_foutvco",
++};
++
++static const char *const d2d_phy_ref_clk_parents[] = {
++	"d2d_phy_ref_clk_100M",
++	"aon_osc_clk_logic",
++};
++
++static const char *const top_d2d_aclk_mux_parents[] = {
++	"dpu1_pll_foutvco",
++	"gmac_pll_foutvco",
++	"audio1_pll_foutvco",
++	"audio0_pll_foutvco",
++};
++
++static const char *const top_gpu_core_clk_mux_parents[] = {
++	"dpu2_pll_foutvco",
++	"video_pll_foutvco",
++	"dvfs_pll_foutvco",
++	"audio0_pll_foutvco",
++};
++
++static const char *const pcie_ss_axi_m_aclk_mux_parents[] = {
++	"audio0_pll_foutvco",
++	"video_pll_foutvco",
++};
++
++static const char *const peri0_timer_clk_parents[] = {
++	"peri0_timer_clk_100M",
++	"aon_osc_clk_logic",
++};
++
++static const char *const peri2_i2s3_src_clk_parents[] = {
++	"audio1_pll_fout2",
++	"audio0_pll_fout2",
++};
++
++static const char *const peri1_i2s0_src_clk_parents[] = {
++	"audio1_pll_fout2",
++	"audio0_pll_fout2",
++};
++
++static const char *const peri2_i2s1_src_clk_parents[] = {
++	"audio1_pll_fout2",
++	"audio0_pll_fout2",
++};
++
++static const char *const peri2_i2s2_src_clk_parents[] = {
++	"audio1_pll_fout2",
++	"audio0_pll_fout2",
++};
++
++static const char *const peri1_qspi_ssi_clk_parents[] = {
++	"peri1_qspi_ssi_clk_div1",
++	"peri1_qspi_ssi_clk_div0",
++};
++
++static const char *const peri2_qspi_ssi_clk_parents[] = {
++	"peri2_qspi_ssi_clk_div1",
++	"peri2_qspi_ssi_clk_div0",
++};
++
++static const char *const peri1_tdm_src_clk_parents[] = {
++	"audio1_pll_fout2",
++	"audio0_pll_fout2",
++};
++
++static const char *const pdm_clk_mux_parents[] = {
++	"audio1_pll_fout2",
++	"audio0_pll_fout2",
++};
++
++static const char *const emmc_ref_clk_mux_parents[] = {
++	"audio0_pll_foutvco",
++	"video_pll_foutvco",
++};
++
++static const char *const pad_sensor_vclk0_mux_parents[] = {
++	"dpu0_pll_foutpostdiv",
++	"dpu1_pll_foutpostdiv",
++	"dpu2_pll_foutpostdiv",
++	"aon_osc_clk_logic",
++};
++
++static const char *const pad_sensor_vclk1_mux_parents[] = {
++	"dpu0_pll_foutpostdiv",
++	"dpu1_pll_foutpostdiv",
++	"dpu2_pll_foutpostdiv",
++	"aon_osc_clk_logic",
++};
++
++static const char *const vp_aclk_mux_parents[] = {
++	"video_pll_foutvco",
++	"audio0_pll_foutvco",
++};
++
++static const char *const g2d_cclk_mux_parents[] = {
++	"audio0_pll_foutvco",
++	"gmac_pll_foutvco",
++	"video_pll_foutvco",
++};
++
++static const char *const vdec_cclk_mux_parents[] = {
++	"audio0_pll_foutvco",
++	"video_pll_foutvco",
++	"gmac_pll_foutvco",
++	"audio1_pll_foutvco",
++};
++
++static const char *const venc_cclk_mux_parents[] = {
++	"gmac_pll_foutvco",
++	"video_pll_foutvco",
++	"audio0_pll_foutvco",
++	"audio1_pll_foutvco",
++};
++
++static const char *const npu_aclk_mux_parents[] = {
++	"gmac_pll_foutvco",
++	"video_pll_foutvco",
++	"audio0_pll_foutvco",
++	"audio1_pll_foutvco",
++};
++
++static const char *const npu_cclk_mux_parents[] = {
++	"gmac_pll_foutvco",
++	"video_pll_foutvco",
++	"audio0_pll_foutvco",
++	"audio1_pll_foutvco",
++};
++
++static const char *const c908_cpu_clk_parents[] = {
++	"c908_pll_foutvco",
++	"top_cpu_bak_pll0_clk",
++};
++
++static const char *const c920_cpu_clk_parents[] = {
++	"c920_pll_foutvco",
++	"top_cpu_bak_pll1_clk",
++};
++
++static const char *const tee_clk_mux_parents[] = {
++	"video_pll_foutvco",
++	"tee_pll_foutvco",
++};
++
++static const char *const isp_if_ref_mux_parents[] = {
++	"audio0_pll_foutvco",
++	"video_pll_foutvco",
++};
++
++static const char *const vi_preocc_mipi0_ifclk_mux_parents[] = {
++	"audio0_pll_foutvco",
++	"video_pll_foutvco",
++};
++
++static const char *const vi_preocc_mipi1_ifclk_mux_parents[] = {
++	"audio0_pll_foutvco",
++	"video_pll_foutvco",
++};
++
++static const char *const vo_mipi_pixclk_mux_parents[] = {
++	"dpu0_pixclk",
++	"dpu1_pixclk",
++	"dpu2_pixclk",
++};
++
++static const char *const vo_hdmi_pixclk_mux_parents[] = {
++	"dpu0_pixclk",
++	"dpu1_pixclk",
++	"dpu2_pixclk",
++};
++
++static const char *const vo_dptx_pixclk_mux_parents[] = {
++	"dpu0_pixclk",
++	"dpu1_pixclk",
++	"dpu2_pixclk",
++};
++
++static const struct a210_pll_rate a210_teepll_tbl[] = {
++	PLL_RATE(2400000000, 800000000U, 1, 100, 0, 3, 1),
++};
++
++static const struct a210_pll_rate a210_dpu2pll_tbl[] = {
++	PLL_RATE(2376000000, 1188000000U, 1, 99, 0, 2, 1),
++};
++
++static const struct a210_pll_rate a210_dpu1pll_tbl[] = {
++	PLL_RATE(2376000000, 1188000000U, 1, 99, 0, 2, 1),
++};
++
++static const struct a210_pll_rate a210_dpu0pll_tbl[] = {
++	PLL_RATE(2376000000, 1188000000U, 1, 99, 0, 2, 1),
++};
++
++static const struct a210_pll_rate a210_dvfspll_tbl[] = {
++	PLL_RATE(1920000000, 960000000U, 1, 80, 0, 2, 1),
++};
++
++static const struct a210_pll_rate a210_gmacpll_tbl[] = {
++	PLL_RATE(3000000000, 1000000000U, 1, 125, 0, 3, 1),
++};
++
++static const struct a210_pll_rate a210_videopll_tbl[] = {
++	PLL_RATE(2640000000U, 1320000000U, 1, 110, 0, 2, 1),
++};
++
++static const struct a210_pll_rate a210_audio0pll_tbl[] = {
++	PLL_RATE(2359296000U, 1179648000U, 1, 98, 5100274, 2, 1),
++};
++
++static const struct a210_pll_rate a210_audio1pll_tbl[] = {
++	PLL_RATE(2528870400U, 1264435200U, 1, 105, 6200859, 2, 1),
++};
++
++static const struct a210_pll_rate a210_c908pll_tbl[] = {
++	PLL_RATE(1200000000U, 1200000000U, 1, 50, 0, 1, 1),
++	PLL_RATE(1500000000U, 1500000000U, 2, 125, 0, 1, 1),
++	PLL_RATE(1698000000U, 1698000000U, 4, 283, 0, 1, 1),
++	PLL_RATE(1896000000U, 1896000000U, 1, 79, 0, 1, 1),
++};
++
++static const struct a210_pll_rate a210_c920pll_tbl[] = {
++	PLL_RATE(1500000000U, 1500000000U, 2, 125, 0, 1, 1),
++	PLL_RATE(1698000000U, 1698000000U, 4, 283, 0, 1, 1),
++	PLL_RATE(1896000000U, 1896000000U, 1, 79, 0, 1, 1),
++	PLL_RATE(2298000000U, 2298000000U, 4, 383, 0, 1, 1),
++};
++
++static const struct a210_pll_desc plls_top[] = {
++	PLL_PARAM(TEE_PLL, A210_PLL_VCO, a210_teepll_tbl, 0x160, 0x170, BIT(0), BIT(31), BIT(30),
++		  PLL_MODE_INT, "tee_pll_foutvco_frequency"),
++	PLL_PARAM(DPU2_PLL, A210_PLL_VCO, a210_dpu2pll_tbl, 0x120, 0x130, BIT(0), BIT(31), BIT(30),
++		  PLL_MODE_INT, "dpu2_pll_foutvco_frequency"),
++	PLL_PARAM(DPU1_PLL, A210_PLL_VCO, a210_dpu1pll_tbl, 0x100, 0x110, BIT(0), BIT(31), BIT(30),
++		  PLL_MODE_INT, "dpu1_pll_foutvco_frequency"),
++	PLL_PARAM(DPU0_PLL, A210_PLL_VCO, a210_dpu0pll_tbl, 0x80, 0x90, BIT(0), BIT(31), BIT(30),
++		  PLL_MODE_INT, "dpu0_pll_foutvco_frequency"),
++	PLL_PARAM(DVFS_PLL, A210_PLL_VCO, a210_dvfspll_tbl, 0x60, 0x70, BIT(0), BIT(31), BIT(30),
++		  PLL_MODE_INT, "dvfs_pll_foutvco_frequency"),
++	PLL_PARAM(AUDIO0_PLL, A210_PLL_VCO, a210_audio0pll_tbl, 0x0, 0x10, BIT(0), BIT(31),
++		  BIT(30), PLL_MODE_FRAC, "audio0_pll_foutvco_frequency"),
++	PLL_PARAM(AUDIO1_PLL, A210_PLL_VCO, a210_audio1pll_tbl, 0x20, 0x30, BIT(0), BIT(31),
++		  BIT(30), PLL_MODE_FRAC, "audio1_pll_foutvco_frequency"),
++	PLL_PARAM(GMAC_PLL, A210_PLL_VCO, a210_gmacpll_tbl, 0x40, 0x50, BIT(0), BIT(31), BIT(30),
++		  PLL_MODE_INT, "gmac_pll_foutvco_frequency"),
++	PLL_PARAM(VIDEO_PLL, A210_PLL_VCO, a210_videopll_tbl, 0x140, 0x150, BIT(0), BIT(31),
++		  BIT(30), PLL_MODE_INT, "video_pll_foutvco_frequency"),
++	PLL_PARAM(C908_PLL, A210_PLL_VCO, a210_c908pll_tbl, 0x0, 0x10, BIT(0), BIT(31), BIT(30),
++		  PLL_MODE_INT, ""),
++	PLL_PARAM(C920_PLL, A210_PLL_VCO, a210_c920pll_tbl, 0x40, 0x50, BIT(0), BIT(31), BIT(30),
++		  PLL_MODE_INT, ""),
++};
++
++/* DDR PLL programming belongs to the firmware that trains the memory. */
++static const struct a210_pll_desc ddr_pll = {
++	.out_type = A210_PLL_VCO,
++	.cfg0_reg_off = 0x8,
++	.pll_bypass_bit = BIT(31),
++};
++
++static struct a210_clk_reg regs_top[] = {
++	REG_NAMED(PLL_WRAP, "pll-wrap"),
++	REG_NAMED(TOP_CRG, "top-crg"),
++	REG_NAMED(CPU_SS_CLK_SYSREG, "cpu-ss-clk-sysreg"),
++	REG_NAMED(CPU_SS_CPU_PLL, "cpu-ss-cpu-pll"),
++	REG_NAMED(DDR0_SYSREG, "ddr0-sysreg"),
++	REG_NAMED(DDR1_SYSREG, "ddr1-sysreg"),
++	REG_NAMED(SLC_DUAL_SYSREG, "slc-dual-sysreg"),
++	REG_NAMED(TOP_CRG_T, "top-crg-t"),
++	REG_NAMED(CPU_SS_CCU, "cpu-ss-ccu"),
++};
++
++static struct a210_clk_reg regs_gpu[] = {
++	REG_NAMED(GPU_SS_PWRAP_CLK_EN, "gpu-ss-pwrap-clk-en"),
++	REG_NAMED(GPU_SS_TOP_CLK_EN, "gpu-ss-top-clk-en"),
++};
++
++static struct a210_clk_reg regs_pcie[] = {
++	REG_NAMED(PCIE_CLK_EN, "pcie-clk-en"),
++};
++
++static struct a210_clk_reg regs_usb[] = {
++	REG_NAMED(USB_CLK_EN, "usb-clk-en"),
++};
++
++static struct a210_clk_reg regs_vi[] = {
++	REG_NAMED(VI_CLK, "vi-clk"),
++	REG_NAMED(VI_MISC_CTRL, "vi-misc-ctrl"),
++};
++
++static struct a210_clk_reg regs_vp[] = {
++	REG_NAMED(VP_CLK, "vp-clk"),
++};
++
++static struct a210_clk_reg regs_vo[] = {
++	REG_NAMED(VO_CLK, "vo-clk"),
++	REG_NAMED(VO_PATH_CTRL, "vo-path-ctrl"),
++};
++
++static struct a210_clk_reg regs_npu[] = {
++	REG_NAMED(NPU_CLK, "npu-clk"),
++	REG_NAMED(NPU_TOP_CLK, "npu-top-clk"),
++};
++
++static struct a210_clk_reg regs_peri[] = {
++	REG_NAMED(PERI0_SYSREG, "peri0-sysreg"),
++	REG_NAMED(PERI1_SYSREG, "peri1-sysreg"),
++	REG_NAMED(PERI2_SYSREG, "peri2-sysreg"),
++	REG_NAMED(PERI3_SYSREG, "peri3-sysreg"),
++	REG_NAMED(TEE_CRG, "tee-crg"),
++};
++
++static const struct a210_clk_desc info_top[] = {
++	/* Reference oscillator aliases. */
++	FIXED_FACTOR(AON_OSC_CLK_PHY, "aon_osc_clk_phy", "osc-24m", 1, 1),
++	FIXED_FACTOR(AON_OSC_CLK_LOGIC, "aon_osc_clk_logic", "osc-24m", 1, 1),
++	FIXED_FACTOR(TOP_PLL_REF_CLK, "top_pll_ref_clk", "osc-24m", 1, 1),
++	FIXED_FACTOR(PLL_OSC_CLK, "pll_osc_clk", "osc-24m", 1, 1),
++	FIXED_FACTOR(AON_RTC_CLK, "aon_rtc_clk", "osc-32k", 1, 1),
++	/* PLL */
++	PLL(AUDIO0_PLL_FOUTVCO, "audio0_pll_foutvco", "osc-24m", PLL_WRAP, 0,
++	    &plls_top[AUDIO0_PLL]),
++	PLL_POSTDIV(AUDIO0_PLL_FOUTPOSTDIV, "audio0_pll_foutpostdiv",
++		    "audio0_pll_foutvco", PLL_WRAP, &plls_top[AUDIO0_PLL]),
++	FIXED_FACTOR(AUDIO0_PLL_FOUT2, "audio0_pll_fout2", "audio0_pll_foutpostdiv", 1, 4),
++	PLL(AUDIO1_PLL_FOUTVCO, "audio1_pll_foutvco", "osc-24m", PLL_WRAP, 0,
++	    &plls_top[AUDIO1_PLL]),
++	PLL_POSTDIV(AUDIO1_PLL_FOUTPOSTDIV, "audio1_pll_foutpostdiv",
++		    "audio1_pll_foutvco", PLL_WRAP, &plls_top[AUDIO1_PLL]),
++	FIXED_FACTOR(AUDIO1_PLL_FOUT2, "audio1_pll_fout2", "audio1_pll_foutpostdiv", 1, 4),
++	PLL(C908_PLL_FOUTVCO, "c908_pll_foutvco", "osc-24m", CPU_SS_CPU_PLL, 0,
++	    &plls_top[C908_PLL]),
++	PLL(C920_PLL_FOUTVCO, "c920_pll_foutvco", "osc-24m", CPU_SS_CPU_PLL, 0,
++	    &plls_top[C920_PLL]),
++	PLL(VIDEO_PLL_FOUTVCO, "video_pll_foutvco", "top_pll_ref_clk", PLL_WRAP, 0,
++	    &plls_top[VIDEO_PLL]),
++	PLL_POSTDIV(VIDEO_PLL_FOUTPOSTDIV, "video_pll_foutpostdiv",
++		    "video_pll_foutvco", PLL_WRAP, &plls_top[VIDEO_PLL]),
++	FIXED_FACTOR(VIDEO_PLL_FOUT1PH0, "video_pll_fout1ph0", "video_pll_foutpostdiv", 1, 2),
++	FIXED_FACTOR(VIDEO_PLL_FOUT3, "video_pll_fout3", "video_pll_foutpostdiv", 1, 6),
++	PLL(GMAC_PLL_FOUTVCO, "gmac_pll_foutvco", "top_pll_ref_clk", PLL_WRAP, 0,
++	    &plls_top[GMAC_PLL]),
++	PLL_POSTDIV(GMAC_PLL_FOUTPOSTDIV, "gmac_pll_foutpostdiv",
++		    "gmac_pll_foutvco", PLL_WRAP, &plls_top[GMAC_PLL]),
++	FIXED_FACTOR(GMAC_PLL_FOUT1PH0, "gmac_pll_fout1ph0", "gmac_pll_foutpostdiv", 1, 2),
++	PLL(DVFS_PLL_FOUTVCO, "dvfs_pll_foutvco", "top_pll_ref_clk", PLL_WRAP, 0,
++	    &plls_top[DVFS_PLL]),
++	PLL(DPU0_PLL_FOUTVCO, "dpu0_pll_foutvco", "top_pll_ref_clk", PLL_WRAP, 0,
++	    &plls_top[DPU0_PLL]),
++	PLL_POSTDIV(DPU0_PLL_FOUTPOSTDIV, "dpu0_pll_foutpostdiv",
++		    "dpu0_pll_foutvco", PLL_WRAP, &plls_top[DPU0_PLL]),
++	PLL(DPU1_PLL_FOUTVCO, "dpu1_pll_foutvco", "top_pll_ref_clk", PLL_WRAP, 0,
++	    &plls_top[DPU1_PLL]),
++	PLL_POSTDIV(DPU1_PLL_FOUTPOSTDIV, "dpu1_pll_foutpostdiv",
++		    "dpu1_pll_foutvco", PLL_WRAP, &plls_top[DPU1_PLL]),
++	PLL(DPU2_PLL_FOUTVCO, "dpu2_pll_foutvco", "top_pll_ref_clk", PLL_WRAP, 0,
++	    &plls_top[DPU2_PLL]),
++	PLL_POSTDIV(DPU2_PLL_FOUTPOSTDIV, "dpu2_pll_foutpostdiv",
++		    "dpu2_pll_foutvco", PLL_WRAP, &plls_top[DPU2_PLL]),
++	PLL(TEE_PLL_FOUTVCO, "tee_pll_foutvco", "top_pll_ref_clk", PLL_WRAP, 0, &plls_top[TEE_PLL]),
++	/* TOP SS */
++	DIV(TOP_CFG_ACLK_DIV, "top_cfg_aclk", "video_pll_fout1ph0", TOP_CRG, 0, 8, 8, NO_DIV_EN,
++	    MUX_TYPE_DIV, 2, 255),
++	DIV(TOP_PCLK_DIV, "top_pclk", "video_pll_fout1ph0", TOP_CRG, 0, 0, 8, NO_DIV_EN,
++	    MUX_TYPE_DIV, 4, 255),
++	DIV(AMUX_CLK_DIV, "top_amux_clk_div", "video_pll_foutvco", TOP_CRG, 0x18, 8, 4, NO_DIV_EN,
++	    MUX_TYPE_DIV, 4, 15),
++	GATE_FLAGS(SW_TOP_OSC_CLK_LOGIC_EN, "top_osc_clk_logic", "aon_osc_clk_logic", TOP_CRG,
++		   0x200, 2, CLK_IS_CRITICAL),
++	GATE_FLAGS(SW_AMUX_660_CLK_EN, "top_amux_clk", "top_amux_clk_div", TOP_CRG, 0x200, 0,
++		   CLK_IS_CRITICAL),
++	/* TOP SS - IOMMU_PTW_ACLK */
++	GATE(SW_IOMMU_PTW_330_ACLK_EN, "iommu_ptw_aclk", "iommu_ptw_aclk_div", TOP_CRG, 0x200, 1),
++	DIV(IOMMU_PTW_ACLK_DIV, "iommu_ptw_aclk_div", "video_pll_fout1ph0", TOP_CRG, 0, 24, 3,
++	    NO_DIV_EN, MUX_TYPE_DIV, 2, 7),
++	/* TOP SS - CPU SS */
++	DIV(TOP_CPUSYS_BUS_CLK_DIV, "top_cpusys_bus_clk", "top_cpusys_bus_clk_mux", TOP_CRG, 0x8,
++	    20, 4, NO_DIV_EN, MUX_TYPE_DIV, 2, 15),
++	MUX(TOP_CPUSYS_BUS_CLK_MUX, "top_cpusys_bus_clk_mux", TOP_CRG, 0x8, 16, 2,
++	    top_cpusys_bus_clk_mux_parents, CLK_SET_RATE_PARENT | CLK_IS_CRITICAL),
++	DIV(TOP_CPUSYS_PIC_CLK_DIV, "top_cpusys_pic_clk", "top_cpusys_pic_clk_mux", TOP_CRG, 0x4,
++	    20, 4, NO_DIV_EN, MUX_TYPE_DIV, 3, 15),
++	MUX(TOP_CPUSYS_PIC_CLK_MUX, "top_cpusys_pic_clk_mux", TOP_CRG, 0x4, 3, 1,
++	    top_cpusys_pic_clk_mux_parents, CLK_SET_RATE_PARENT | CLK_IS_CRITICAL),
++	MUX(TOP_CPU_BAK_PLL0_CLK_MUX, "top_cpu_bak_pll0_clk", TOP_CRG, 0x4, 0, 3,
++	    top_cpu_bak_pll0_clk_mux_parents, CLK_SET_RATE_PARENT),
++	MUX(TOP_CPU_BAK_PLL0_CLK_MUX0, "top_cpu_bak_pll0_clk_mux0", TOP_CRG, 0x4, 16, 2,
++	    top_cpu_bak_pll0_clk_mux0_parents, CLK_SET_RATE_PARENT),
++	DIV(TOP_CPU_BAK_PLL0_CLK_DIV0, "top_cpu_bak_pll0_clk_div0", "gmac_pll_foutvco", TOP_CRG,
++	    0x4, 12, 4, NO_DIV_EN, MUX_TYPE_DIV, 2, 15),
++	DIV(TOP_CPU_BAK_PLL0_CLK_DIV1, "top_cpu_bak_pll0_clk_div1", "gmac_pll_foutvco", TOP_CRG,
++	    0x4, 8, 4, NO_DIV_EN, MUX_TYPE_DIV, 3, 15),
++	DIV(TOP_CPU_BAK_PLL0_CLK_DIV3, "top_cpu_bak_pll0_clk_div3", "audio1_pll_foutvco", TOP_CRG,
++	    0x4, 4, 4, NO_DIV_EN, MUX_TYPE_DIV, 2, 15),
++	DIV(TOP_CPU_BAK_PLL0_CLK_DIV4, "top_cpu_bak_pll0_clk_div4", "video_pll_foutvco", TOP_CRG,
++	    0x4, 24, 8, NO_DIV_EN, MUX_TYPE_DIV, 2, 255),
++	MUX(TOP_CPU_BAK_PLL1_CLK_MUX, "top_cpu_bak_pll1_clk", TOP_CRG, 0x8, 0, 3,
++	    top_cpu_bak_pll1_clk_mux_parents, CLK_SET_RATE_PARENT),
++	MUX(TOP_CPU_BAK_PLL1_CLK_MUX0, "top_cpu_bak_pll1_clk_mux0", TOP_CRG, 0x8, 8, 2,
++	    top_cpu_bak_pll1_clk_mux0_parents, CLK_SET_RATE_PARENT),
++	DIV(TOP_CPU_BAK_PLL1_CLK_DIV0, "top_cpu_bak_pll1_clk_div0", "gmac_pll_foutvco", TOP_CRG,
++	    0x8, 12, 4, NO_DIV_EN, MUX_TYPE_DIV, 2, 15),
++	DIV(TOP_CPU_BAK_PLL1_CLK_DIV1, "top_cpu_bak_pll1_clk_div1", "gmac_pll_foutvco", TOP_CRG,
++	    0x8, 24, 4, NO_DIV_EN, MUX_TYPE_DIV, 3, 15),
++	DIV(TOP_CPU_BAK_PLL1_CLK_DIV3, "top_cpu_bak_pll1_clk_div3", "audio1_pll_foutvco", TOP_CRG,
++	    0x8, 4, 4, NO_DIV_EN, MUX_TYPE_DIV, 2, 15),
++	DIV(TOP_CPU_BAK_PLL1_CLK_DIV4, "top_cpu_bak_pll1_clk_div4", "video_pll_foutvco", TOP_CRG,
++	    0x44, 0, 8, NO_DIV_EN, MUX_TYPE_DIV, 2, 255),
++	DIV(TOP_CPUSYS_CFG_ACLK_DIV, "top_cpusys_sys_cfg_axi_clk", "video_pll_fout1ph0", CPU_SS_CCU,
++	    0x1c, 0, 16, NO_DIV_EN, MUX_TYPE_CDE, 1, 5),
++	DIV(TOP_CPUSYS_COM_APB_CLK_DIV, "top_cpusys_sys_com_apb_clk", "video_pll_fout1ph0",
++	    CPU_SS_CCU, 0x21c, 0, 16, NO_DIV_EN, MUX_TYPE_CDE, 3, 7),
++	DIV(TOP_CPUSYS_APB_CLK_DIV, "top_cpusys_cpu_apb_clk", "video_pll_fout1ph0", CPU_SS_CCU,
++	    0x41c, 0, 16, NO_DIV_EN, MUX_TYPE_CDE, 3, 7),
++	/* TOP SS - NOC_CCLK */
++	GATE_FLAGS(SW_NOC_CCLK_EN, "noc_cclk", "noc_cclk_div", TOP_CRG, 0x200, 3, CLK_IS_CRITICAL),
++	DIV(NOC_CCLK_DIV, "noc_cclk_div", "noc_cclk_mux", TOP_CRG, 0, 20, 4, NO_DIV_EN,
++	    MUX_TYPE_DIV, 3, 15),
++	MUX(NOC_CCLK_MUX, "noc_cclk_mux", TOP_CRG, 0, 16, 2, noc_cclk_mux_parents,
++	    CLK_SET_RATE_PARENT),
++	/* TOP SS - DDR SS */
++	MUX(TOP_CPU_DDR1_ACLK_MUX, "top_ddr1_aclk", TOP_CRG, 0x4, 19, 1, top_cpu_ddr1_aclk_parents,
++	    CLK_SET_RATE_PARENT | CLK_IS_CRITICAL),
++	MUX(TOP_CPU_DDR0_ACLK_MUX, "top_ddr0_aclk", TOP_CRG, 0x4, 18, 1, top_cpu_ddr0_aclk_parents,
++	    CLK_SET_RATE_PARENT | CLK_IS_CRITICAL),
++	FIXED_FACTOR(DDR_CBUS2DDR_ACLK0, "cbus2ddr_aclk0", "ddr_pll_clk_en", 1, 1),
++	FIXED_FACTOR(DDR_CBUS2DDR_ACLK1, "cbus2ddr_aclk1", "ddr_pll_clk_en", 1, 1),
++	PLL(DDR_PLL_FOUTVCO, "ddr_pll_foutvco", "pll_osc_clk", SLC_DUAL_SYSREG, 0, &ddr_pll),
++	PLL_POSTDIV(DDR_PLL_FOUTPOSTDIV, "ddr_pll_foutpostdiv",
++		    "ddr_pll_foutvco", SLC_DUAL_SYSREG, &ddr_pll),
++	FIXED_FACTOR(DDR_PLL_FOUT1PH0, "ddr_pll_fout1ph0", "ddr_pll_foutpostdiv", 1, 2),
++	FIXED_FACTOR(DDR_PLL_FOUT2, "ddr_pll_fout2", "ddr_pll_foutpostdiv", 1, 4),
++	FIXED_FACTOR(DDR_PLL_FOUT4, "ddr_pll_fout4", "ddr_pll_foutpostdiv", 1, 8),
++	/* TOP SS - D2D SS */
++	FIXED_FACTOR(D2D_PHY_REF_CLK_100M, "d2d_phy_ref_clk_100M", "gmac_pll_foutpostdiv", 1, 10),
++	MUX(TOP_D2D_REF_CLK_MUX, "d2d_phy_ref_clk", TOP_CRG, 0x14, 15, 1, d2d_phy_ref_clk_parents,
++	    CLK_SET_RATE_PARENT),
++	DIV(TOP_D2D_SCAN_CLK0_DIV, "d2d_phy_scan_clk0", "dpu1_pll_foutvco", TOP_CRG, 0x14, 12, 3,
++	    NO_DIV_EN, MUX_TYPE_DIV, 3, 7),
++	DIV(TOP_D2D_SCAN_CLK1_DIV, "d2d_phy_scan_clk1", "dpu1_pll_foutvco", TOP_CRG, 0x14, 8, 4,
++	    NO_DIV_EN, MUX_TYPE_DIV, 3, 15),
++	FIXED_FACTOR(D2D_PHY_SCAN_CLK2, "d2d_phy_scan_clk2", "dpu2_pll_foutpostdiv", 1, 1),
++	DIV(TOP_D2D_ACLK_DIV, "top_d2d_aclk", "top_d2d_aclk_mux", TOP_CRG, 0x14, 4, 4, NO_DIV_EN,
++	    MUX_TYPE_DIV, 3, 15),
++	MUX(TOP_D2D_ACLK_MUX, "top_d2d_aclk_mux", TOP_CRG, 0x14, 0, 2, top_d2d_aclk_mux_parents,
++	    CLK_SET_RATE_PARENT),
++	/* TOP SS - GPU SS */
++	DIV(TOP_GPU_CORE_CLK_DIV, "top_gpu_core_clk", "top_gpu_core_clk_mux", TOP_CRG, 0x18, 4, 4,
++	    NO_DIV_EN, MUX_TYPE_DIV, 3, 15),
++	MUX(TOP_GPU_CORE_CLK_MUX, "top_gpu_core_clk_mux", TOP_CRG, 0x18, 0, 2,
++	    top_gpu_core_clk_mux_parents, CLK_SET_RATE_PARENT),
++	/* TOP SS - PCIE SS */
++	DIV(TOP_PCIE_SCAN_REF_CLK0_DIV, "scan_ref_clk0", "dpu1_pll_foutvco", TOP_CRG, 0x1c, 8, 4,
++	    NO_DIV_EN, MUX_TYPE_DIV, 6, 15),
++	DIV(TOP_PCIE_SCAN_REF_CLK1_DIV, "scan_ref_clk1", "gmac_pll_foutvco", TOP_CRG, 0x1c, 12, 4,
++	    NO_DIV_EN, MUX_TYPE_DIV, 3, 15),
++	DIV(TOP_PCIE_AXI_M_ACLK_DIV, "pcie_ss_axi_m_aclk", "pcie_ss_axi_m_aclk_mux", TOP_CRG, 0x1c,
++	    4, 4, NO_DIV_EN, MUX_TYPE_DIV, 3, 15),
++	MUX(TOP_PCIE_AXI_M_ACLK_MUX, "pcie_ss_axi_m_aclk_mux", TOP_CRG, 0x1c, 0, 1,
++	    pcie_ss_axi_m_aclk_mux_parents, CLK_SET_RATE_PARENT),
++	/* TOP SS - PERI SS */
++	DIV(TOP_PERI_SPI_SSI_CLK0_DIV, "peri1_spi_ssi_clk", "audio1_pll_foutvco", TOP_CRG, 0x20, 20,
++	    8, NO_DIV_EN, MUX_TYPE_DIV, 6, 255),
++	DIV(TOP_PERI_MST_ACLK0_DIV, "peri1_mst_aclk", "video_pll_fout1ph0", TOP_CRG, 0x20, 16, 3,
++	    NO_DIV_EN, MUX_TYPE_DIV, 2, 7),
++	FIXED_FACTOR(TOP_PERI_TIMER_CLK_100M, "peri0_timer_clk_100M", "gmac_pll_foutpostdiv", 1,
++		     10),
++	MUX(TOP_PERI_TIMER_CLK_MUX, "peri0_timer_clk", TOP_CRG, 0x20, 15, 1,
++	    peri0_timer_clk_parents, CLK_SET_RATE_PARENT),
++	MUX(TOP_PERI_I2S_8CH0_SRC_CLK_MUX, "peri2_i2s3_src_clk", TOP_CRG, 0x28, 21, 1,
++	    peri2_i2s3_src_clk_parents, CLK_SET_RATE_PARENT),
++	MUX(TOP_PERI_I2S_2CH0_SRC_CLK_MUX, "peri1_i2s0_src_clk", TOP_CRG, 0x20, 13, 1,
++	    peri1_i2s0_src_clk_parents, CLK_SET_RATE_PARENT),
++	MUX(TOP_PERI_I2S_2CH1_SRC_CLK_MUX, "peri2_i2s1_src_clk", TOP_CRG, 0x20, 14, 1,
++	    peri2_i2s1_src_clk_parents, CLK_SET_RATE_PARENT),
++	MUX(TOP_PERI_I2S_2CH2_SRC_CLK_MUX, "peri2_i2s2_src_clk", TOP_CRG, 0x28, 23, 1,
++	    peri2_i2s2_src_clk_parents, CLK_SET_RATE_PARENT),
++	DIV(TOP_PERI_QSPI0_SSI_CLK_DIV0, "peri1_qspi_ssi_clk_div0", "video_pll_foutvco", TOP_CRG,
++	    0x20, 8, 4, NO_DIV_EN, MUX_TYPE_DIV, 2, 15),
++	DIV(TOP_PERI_QSPI0_SSI_CLK_DIV1, "peri1_qspi_ssi_clk_div1", "audio1_pll_foutvco", TOP_CRG,
++	    0x20, 0, 8, NO_DIV_EN, MUX_TYPE_DIV, 6, 255),
++	MUX(TOP_PERI_QSPI_SSI_CLK_MUX0, "peri1_qspi_ssi_clk", TOP_CRG, 0x20, 12, 1,
++	    peri1_qspi_ssi_clk_parents, CLK_SET_RATE_PARENT),
++	DIV(TOP_PERI_SPI_SSI_CLK1_DIV, "peri2_spi_ssi_clk", "audio1_pll_foutvco", TOP_CRG, 0x24, 24,
++	    8, NO_DIV_EN, MUX_TYPE_DIV, 6, 255),
++	DIV(TOP_PERI_HIRES_CLK0_DIV, "peri1_hires_clk", "video_pll_foutvco", TOP_CRG, 0x24, 16, 6,
++	    NO_DIV_EN, MUX_TYPE_DIV, 33, 63),
++	DIV(TOP_PERI_HIRES_CLK1_DIV, "peri2_hires_clk", "video_pll_foutvco", TOP_CRG, 0x24, 0, 6,
++	    NO_DIV_EN, MUX_TYPE_DIV, 33, 63),
++	MUX(TOP_PERI_TDM_SRC_CLK_MUX, "peri1_tdm_src_clk", TOP_CRG, 0x28, 25, 1,
++	    peri1_tdm_src_clk_parents, CLK_SET_RATE_PARENT),
++	FIXED_FACTOR(UART_SCLK_100M, "uart_sclk_100m", "gmac_pll_foutpostdiv", 1, 10),
++	MUX(TOP_UART_SCLK_MUX, "uart_sclk", TOP_CRG, 0x28, 24, 1, uart_sclk_parents, 0),
++	FIXED_FACTOR(PERI1_UART_SCLK, "peri1_uart_sclk", "uart_sclk", 1, 1),
++	FIXED_FACTOR(PERI2_UART_SCLK, "peri2_uart_sclk", "uart_sclk", 1, 1),
++	DIV(TOP_PERI_PDM_MCLK_DIV, "peri1_pdm_mclk", "pdm_clk_mux", TOP_CRG, 0x2c, 24, 8, NO_DIV_EN,
++	    MUX_TYPE_DIV, 10, 255),
++	MUX(TOP_PERI_PDM_MCLK_MUX, "pdm_clk_mux", TOP_CRG, 0x28, 22, 1, pdm_clk_mux_parents,
++	    CLK_SET_RATE_PARENT),
++	DIV(TOP_PERI_QSPI1_SSI_CLK_DIV0, "peri2_qspi_ssi_clk_div0", "video_pll_foutvco", TOP_CRG,
++	    0x28, 16, 4, NO_DIV_EN, MUX_TYPE_DIV, 2, 15),
++	DIV(TOP_PERI_QSPI1_SSI_CLK_DIV1, "peri2_qspi_ssi_clk_div1", "audio1_pll_foutvco", TOP_CRG,
++	    0x28, 8, 8, NO_DIV_EN, MUX_TYPE_DIV, 6, 255),
++	MUX(TOP_PERI_QSPI_SSI_CLK_MUX1, "peri2_qspi_ssi_clk", TOP_CRG, 0x28, 20, 1,
++	    peri2_qspi_ssi_clk_parents, CLK_SET_RATE_PARENT),
++	DIV(TOP_PERI_MST_CLK1_DIV, "peri3_mst_aclk", "video_pll_foutvco", TOP_CRG, 0x28, 4, 4,
++	    NO_DIV_EN, MUX_TYPE_DIV, 6, 15),
++	DIV(TOP_PERI_EMMC_REF_CLK_DIV, "emmc_ref_clk", "emmc_ref_clk_mux", TOP_CRG, 0x28, 0, 4,
++	    NO_DIV_EN, MUX_TYPE_DIV, 3, 15),
++	MUX(TOP_PERI_EMMC_REF_CLK_MUX, "emmc_ref_clk_mux", TOP_CRG, 0x2c, 20, 1,
++	    emmc_ref_clk_mux_parents, CLK_SET_RATE_PARENT),
++	FIXED_FACTOR(PERI1_PWM_CLK, "peri1_pwm_clk", "gmac_pll_fout1ph0", 1, 10),
++	FIXED_FACTOR(PERI2_PWM_CLK, "peri2_pwm_clk", "gmac_pll_fout1ph0", 1, 10),
++	FIXED_FACTOR(I2C_IC_CLK, "i2c_ic_clk", "gmac_pll_foutpostdiv", 1, 10),
++	MUX(TOP_PAD_SENSOR_VCLK_MUX0, "pad_sensor_vclk0_mux", TOP_CRG, 0x2c, 16, 2,
++	    pad_sensor_vclk0_mux_parents, CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT),
++	DIV(TOP_PAD_SENSOR_VCLK0_DIV, "top_pad_sensor_vclk0_div", "pad_sensor_vclk0_mux", TOP_CRG,
++	    0x2c, 0, 8, NO_DIV_EN, MUX_TYPE_DIV, 16, 255),
++	MUX(TOP_PAD_SENSOR_VCLK_MUX1, "pad_sensor_vclk1_mux", TOP_CRG, 0x2c, 18, 2,
++	    pad_sensor_vclk1_mux_parents, CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT),
++	DIV(TOP_PAD_SENSOR_VCLK1_DIV, "top_pad_sensor_vclk1_div", "pad_sensor_vclk1_mux", TOP_CRG,
++	    0x2c, 8, 8, NO_DIV_EN, MUX_TYPE_DIV, 16, 255),
++	MUX(TOP_TEE_CLK_MUX, "tee_clk_mux", TOP_CRG, 0x30, 0, 1, tee_clk_mux_parents,
++	    CLK_SET_RATE_PARENT),
++	DIV_CLOSEST(TOP_TEE_CLK_DIV, "tee_clk", "tee_clk_mux", TOP_CRG, 0x30, 4, 8, NO_DIV_EN,
++		    MUX_TYPE_DIV, 7, 255),
++	DIV(TOP_USB_BUS_ACLK_DIV, "clkgen_usb_ss_bus_clk", "video_pll_fout1ph0", TOP_CRG, 0x34, 8,
++	    3, NO_DIV_EN, MUX_TYPE_DIV, 2, 7),
++	DIV(TOP_USB_DP_AUX_CLK_DIV, "clkgen_usb_ss_aux_clk", "video_pll_foutvco", TOP_CRG, 0x34, 0,
++	    8, NO_DIV_EN, MUX_TYPE_DIV, 165, 255),
++	DIV(TOP_VP_ACLK_DIV, "vp_aclk", "vp_aclk_mux", TOP_CRG, 0x38, 24, 4, NO_DIV_EN,
++	    MUX_TYPE_DIV, 3, 15),
++	MUX(TOP_VP_ACLK_MUX, "vp_aclk_mux", TOP_CRG, 0x38, 28, 1, vp_aclk_mux_parents,
++	    CLK_SET_RATE_PARENT),
++	DIV(TOP_VP_G2D_CCLK_DIV, "g2d_cclk", "g2d_cclk_mux", TOP_CRG, 0x38, 20, 4, NO_DIV_EN,
++	    MUX_TYPE_DIV, 3, 15),
++	MUX(TOP_VP_G2D_CCLK_MUX, "g2d_cclk_mux", TOP_CRG, 0x38, 16, 2, g2d_cclk_mux_parents,
++	    CLK_SET_RATE_PARENT),
++	DIV(TOP_VP_VDEC_CCLK_DIV, "vdec_cclk", "vdec_cclk_mux", TOP_CRG, 0x38, 12, 4, NO_DIV_EN,
++	    MUX_TYPE_DIV, 3, 15),
++	MUX(TOP_VP_VDEC_CCLK_MUX, "vdec_cclk_mux", TOP_CRG, 0x38, 8, 2, vdec_cclk_mux_parents,
++	    CLK_SET_RATE_PARENT),
++	DIV(TOP_VP_VENC_CCLK_DIV, "venc_cclk", "venc_cclk_mux", TOP_CRG, 0x38, 4, 4, NO_DIV_EN,
++	    MUX_TYPE_DIV, 5, 15),
++	MUX(TOP_VP_VENC_CCLK_MUX, "venc_cclk_mux", TOP_CRG, 0x38, 0, 2, venc_cclk_mux_parents,
++	    CLK_SET_RATE_PARENT),
++	DIV(TOP_NPU_ACLK_DIV, "npu_aclk", "npu_aclk_mux", TOP_CRG, 0x3c, 12, 4, NO_DIV_EN,
++	    MUX_TYPE_DIV, 3, 15),
++	MUX(TOP_NPU_ACLK_MUX, "npu_aclk_mux", TOP_CRG, 0x3c, 8, 2, npu_aclk_mux_parents,
++	    CLK_SET_RATE_PARENT),
++	DIV(TOP_NPU_CCLK_DIV, "npu_cclk", "npu_cclk_mux", TOP_CRG, 0x3c, 4, 4, NO_DIV_EN,
++	    MUX_TYPE_DIV, 3, 15),
++	MUX(TOP_NPU_CCLK_MUX, "npu_cclk_mux", TOP_CRG, 0x3c, 0, 2, npu_cclk_mux_parents,
++	    CLK_SET_RATE_PARENT),
++	DIV(TOP_USB_USB20_SCAN_REF_CLK_DIV, "clkgen_usb20phy_scan_ref_clk", "dpu1_pll_foutvco",
++	    TOP_CRG, 0x40, 16, 4, NO_DIV_EN, MUX_TYPE_DIV, 5, 15),
++	DIV(TOP_USB_SCAN_REF_CLK3_DIV, "clkgen_c10phy_scan_ref_clk3", "dpu1_pll_foutvco", TOP_CRG,
++	    0x40, 12, 4, NO_DIV_EN, MUX_TYPE_DIV, 3, 15),
++	DIV(TOP_USB_SCAN_REF_CLK2_DIV, "clkgen_c10phy_scan_ref_clk2", "gmac_pll_foutvco", TOP_CRG,
++	    0x40, 8, 4, NO_DIV_EN, MUX_TYPE_DIV, 5, 15),
++	DIV(TOP_USB_SCAN_REF_CLK1_DIV, "clkgen_c10phy_scan_ref_clk1", "gmac_pll_foutvco", TOP_CRG,
++	    0x40, 4, 4, NO_DIV_EN, MUX_TYPE_DIV, 6, 15),
++	DIV(TOP_USB_SCAN_REF_CLK0_DIV, "clkgen_c10phy_scan_ref_clk0", "dpu1_pll_foutvco", TOP_CRG,
++	    0x40, 0, 4, NO_DIV_EN, MUX_TYPE_DIV, 6, 15),
++	GATE(SW_TOP_PAD_SENSOR_VCLK0_EN, "top_pad_sensor_vclk0", "top_pad_sensor_vclk0_div",
++	     TOP_CRG, 0x200, 4),
++	GATE(SW_TOP_PAD_SENSOR_VCLK1_EN, "top_pad_sensor_vclk1", "top_pad_sensor_vclk1_div",
++	     TOP_CRG, 0x200, 5),
++	/* CPU SS */
++	MUX(C908_CPU_TO_CDE_CLK_MUX, "c908_cpu_clk", CPU_SS_CLK_SYSREG, 0x0, 0, 1,
++	    c908_cpu_clk_parents, CLK_SET_RATE_PARENT | CLK_IS_CRITICAL),
++	MUX(C920_CPU_TO_CDE_CLK_MUX, "c920_cpu_clk", CPU_SS_CLK_SYSREG, 0x4, 0, 1,
++	    c920_cpu_clk_parents, CLK_SET_RATE_PARENT | CLK_IS_CRITICAL),
++	/* DDR SS */
++	GATE_FLAGS(DDR0_PHY_DFICLK_EN, "ddr0_phy_dficlk", "ddr_pll_foutpostdiv", DDR0_SYSREG, 0x8,
++		   3, CLK_IS_CRITICAL),
++	GATE_FLAGS(DDR0_DDRC_ACLK_EN, "ddr0_aclk", "ddr_pll_foutpostdiv", DDR0_SYSREG, 0x8, 2,
++		   CLK_IS_CRITICAL),
++	GATE_FLAGS(DDR0_DDRC_CCLK_EN, "ddr0_cclk", "ddr_pll_foutpostdiv", DDR0_SYSREG, 0x8, 1,
++		   CLK_IS_CRITICAL),
++	GATE(DDR0_SBR_CLK_EN, "ddr0_sbr_clk", "ddr_pll_foutpostdiv", DDR0_SYSREG, 0x8, 0),
++	GATE_FLAGS(DDR1_PHY_DFICLK_EN, "ddr1_phy_dficlk", "ddr_pll_foutpostdiv", DDR1_SYSREG, 0x8,
++		   3, CLK_IS_CRITICAL),
++	GATE_FLAGS(DDR1_DDRC_ACLK_EN, "ddr1_aclk", "ddr_pll_foutpostdiv", DDR1_SYSREG, 0x8, 2,
++		   CLK_IS_CRITICAL),
++	GATE_FLAGS(DDR1_DDRC_CCLK_EN, "ddr1_cclk", "ddr_pll_foutpostdiv", DDR1_SYSREG, 0x8, 1,
++		   CLK_IS_CRITICAL),
++	GATE(DDR1_SBR_CLK_EN, "ddr1_sbr_clk", "ddr_pll_foutpostdiv", DDR1_SYSREG, 0x8, 0),
++	GATE_SHARED(DDR_PLL_CLK_EN, "ddr_pll_clk_en", "ddr_pll_clkout", SLC_DUAL_SYSREG, 0x18, 16,
++		    &share_cnt_ddr_pll_clk_en, CLK_IS_CRITICAL),
++	MUX(DDR_PLL_CLK_SEL, "ddr_pll_clkout", SLC_DUAL_SYSREG, 0x18, 17, 2, ddr_pll_clkout_parents,
++	    CLK_SET_RATE_PARENT),
++};
++
++static const struct a210_clk_desc info_gpu[] = {
++	FIXED_FACTOR(GPU_TOP_SYS_CLK, "gpu_top_sys_clk", "top_cfg_aclk", 1, 1),
++	FIXED_FACTOR(GPU_PCLK_CDT, "gpu_pclk_cdt", "gpu_top_sys_clk", 1, 2),
++	GATE(SW_PWR_WRAP_DFMU_PCLK_EN, "gpu_top_pclk", "gpu_pclk_cdt", GPU_SS_PWRAP_CLK_EN, 0, 7),
++	GATE(SW_PWR_WRAP_GPU_SYS_CLK_EN, "gpu_top_aclk", "gpu_top_sys_clk", GPU_SS_PWRAP_CLK_EN, 0,
++	     3),
++	GATE(SW_PWR_WRAP_DFMU_CORE_CLK_EN, "gpu_dfmu_core_clk", "top_cfg_aclk", GPU_SS_PWRAP_CLK_EN,
++	     0, 1),
++	GATE(SW_PWR_WRAP_GPU_CORE_CLK_EN, "gpu_core_clk", "top_gpu_core_clk", GPU_SS_PWRAP_CLK_EN,
++	     0, 0),
++};
++
++static const struct a210_clk_desc info_pcie[] = {
++	FIXED_FACTOR(PCIE_SS_APB_CLK, "pcie_ss_apb_clk", "gmac_pll_foutpostdiv", 1, 10),
++	GATE(E16PHY_PCLK_EN, "e16phy_apbs_pclk", "pcie_ss_apb_clk", PCIE_CLK_EN, 0x8, 0),
++	GATE(SATA_MST_AFENCE_ACLK_EN, "sata_mst_afence_aclk", "pcie_ss_axi_m_aclk", PCIE_CLK_EN,
++	     0x10, 20),
++	GATE(SATA_SLV_AFENCE_ACLK_EN, "sata_slv_afence_aclk", "top_cfg_aclk", PCIE_CLK_EN, 0x10,
++	     16),
++	GATE(X2X_SATA_SLV_ACLK_EN, "x2x_sata_slv_aclk", "pcie_ss_axi_m_aclk", PCIE_CLK_EN, 0x10, 4),
++	GATE(X2X_SATA_MST_ACLK_EN, "x2x_sata_mst_aclk", "top_cfg_aclk", PCIE_CLK_EN, 0x10, 0),
++	GATE(SATA_PMALIVE_CLK_EN, "sata_pmalive_clk", "aon_osc_clk_logic", PCIE_CLK_EN, 0x14, 0),
++	GATE(SATA_RXOOB0_CLK_EN, "sata_rxoob0_clk", "pcie_ss_apb_clk", PCIE_CLK_EN, 0x14, 16),
++	GATE(SATA_RXOOB1_CLK_EN, "sata_rxoob1_clk", "pcie_ss_apb_clk", PCIE_CLK_EN, 0x14, 20),
++	GATE(SATA_GEN3X2_ACLK_EN, "sata_gen3x2_aclk", "pcie_ss_axi_m_aclk", PCIE_CLK_EN, 0x10, 8),
++	GATE(PCIE_DM_GEN3X4_AUX_CLK_EN, "pcie_dm_gen3x4_aux_clk", "aon_osc_clk_logic", PCIE_CLK_EN,
++	     0x20, 12),
++	GATE(PCIE_DM_GEN3X4_SLV_ACLK_EN, "pcie_dm_gen3x4_slv_aclk", "top_cfg_aclk", PCIE_CLK_EN,
++	     0x20, 0),
++	GATE(PCIE_DM_GEN3X4_MST_ACLK_EN, "pcie_dm_gen3x4_mst_aclk", "pcie_ss_axi_m_aclk",
++	     PCIE_CLK_EN, 0x20, 8),
++	GATE(PCIE_DM_GEN3X4_PCLK_EN, "pcie_dm_gen3x4_pclk", "pcie_ss_apb_clk", PCIE_CLK_EN, 0x20,
++	     4),
++	GATE(PCIE_RP_GEN3X1_AUX_CLK_EN, "pcie_rp_gen3x1_aux_clk", "aon_osc_clk_logic", PCIE_CLK_EN,
++	     0x24, 12),
++	GATE(PCIE_RP_GEN3X1_SLV_ACLK_EN, "pcie_rp_gen3x1_slv_aclk", "top_cfg_aclk", PCIE_CLK_EN,
++	     0x24, 0),
++	GATE(PCIE_RP_GEN3X1_MST_ACLK_EN, "pcie_rp_gen3x1_mst_aclk", "pcie_ss_axi_m_aclk",
++	     PCIE_CLK_EN, 0x24, 8),
++	GATE(PCIE_RP_GEN3X1_PCLK_EN, "pcie_rp_gen3x1_pclk", "pcie_ss_apb_clk", PCIE_CLK_EN, 0x24,
++	     4),
++};
++
++static const struct a210_clk_desc info_usb[] = {
++	GATE(USB_SS_AXI_MST_PCLK_EN, "usb_axi_mst_pclk", "usb_ss_gtc_clk", USB_CLK_EN, 0, 16),
++	GATE(USB_SS_AXI_MST_ACLK_EN, "usb_axi_mst_aclk", "clkgen_usb_ss_bus_clk", USB_CLK_EN, 0,
++	     12),
++	GATE(USB_SS_DFMU_IOMMU_PTW_ACLK_EN, "usb_dfmu_ptw_aclk", "clkgen_usb_ss_bus_clk",
++	     USB_CLK_EN, 0, 8),
++	GATE(USB_SS_DFMU_ACLK_EN, "usb_dfmu_aclk", "clkgen_usb_ss_bus_clk", USB_CLK_EN, 0, 4),
++	GATE(USB_SS_DFMU_PCLK_EN, "usb_dfmu_pclk", "usb_ss_gtc_clk", USB_CLK_EN, 0, 0),
++	GATE(DPTX_I2S_CLK_EN, "usb_dptx_i2s_clk", "audio0_pll_foutvco", USB_CLK_EN, 0x4, 16),
++	GATE(DPTX_IPI_CLK_EN, "usb_dptx_ipi_clk", "usb_ss_gtc_clk", USB_CLK_EN, 0x4, 12),
++	GATE(DPTX_AUX_CLK_EN, "usb_dptx_aux_clk", "clkgen_usb_ss_aux_clk", USB_CLK_EN, 0x4, 8),
++	FIXED_FACTOR(USB_SS_GTC_CLK, "usb_ss_gtc_clk", "gmac_pll_foutpostdiv", 1, 10),
++	GATE(DPTX_GTC_CLK_EN, "usb_dptx_gtc_clk", "usb_ss_gtc_clk", USB_CLK_EN, 0x4, 4),
++	GATE(DPTX_PCLK_EN, "usb_dptx_pclk", "usb_ss_gtc_clk", USB_CLK_EN, 0x4, 0),
++	GATE(USB31_REF_CLK_EN, "usb31_ref_clk", "aon_osc_clk_logic", USB_CLK_EN, 0x8, 16),
++	GATE(USB31_SLV_AFENCE_ACLK_EN, "usb31_slv_afence_aclk", "clkgen_usb_ss_bus_clk", USB_CLK_EN,
++	     0x8, 20),
++	FIXED_FACTOR(USB_SS_PAD_OSC_CLK_1M, "usb_ss_pad_osc_clk_1m", "aon_osc_clk_logic", 1, 24),
++	GATE(USB31_SUSPEND_CLK_EN, "usb31_suspend_clk", "usb_ss_pad_osc_clk_1m", USB_CLK_EN, 0x8,
++	     8),
++	GATE(USB31_BUS_CLK_EN, "usb31_bus_clk", "clkgen_usb_ss_bus_clk", USB_CLK_EN, 0x8, 4),
++	GATE(USB31_PCLK_EN, "usb31_pclk", "usb_ss_gtc_clk", USB_CLK_EN, 0x8, 0),
++	GATE(C10PHY_SUSPEND_CLK_EN, "usb_c10phy_suspend_clk", "usb_ss_pad_osc_clk_1m", USB_CLK_EN,
++	     0xc, 4),
++	GATE(C10PHY_PCLK_EN, "usb_c10phy_pclk", "usb_ss_gtc_clk", USB_CLK_EN, 0xc, 0),
++	FIXED_FACTOR(USB20_CORE_CLK, "usb20_core_clk", "aon_osc_clk_logic", 1, 1),
++	GATE(USB_SS_PERI2_CFG_ACLK_EN, "usb_peri2_cfg_aclk", "aon_osc_clk_logic", USB_CLK_EN, 0x20,
++	     4),
++	GATE(USB20_BUS_CLK, "usb20_bus_clk", "clkgen_usb_ss_bus_clk", USB_CLK_EN, 0x10, 24),
++	GATE(USB20_X2H_HCLK, "usb20_x2h_hclk", "clkgen_usb_ss_bus_clk", USB_CLK_EN, 0x10, 0),
++	GATE(USB20_X2H_ACLK, "usb20_x2h_aclk", "clkgen_usb_ss_bus_clk", USB_CLK_EN, 0x10, 4),
++	GATE(USB20_SLV_AFENCE_ACLK, "usb20_slv_afence_aclk", "clkgen_usb_ss_bus_clk", USB_CLK_EN,
++	     0x10, 8),
++	GATE(USB20_H2P_HCLK, "usb20_h2p_hclk", "clkgen_usb_ss_bus_clk", USB_CLK_EN, 0x10, 16),
++	GATE(USB20_AHB_SLV_HCLK, "usb20_ahb_slv_hclk", "clkgen_usb_ss_bus_clk", USB_CLK_EN, 0x10,
++	     20),
++	GATE(USB20_SYSREG_PCLK, "usb20_sysreg_pclk", "clkgen_usb_ss_bus_clk", USB_CLK_EN, 0x10, 28),
++	GATE(USB20_WRAP0_HCLK, "usb20_wrap0_hclk", "clkgen_usb_ss_bus_clk", USB_CLK_EN, 0x14, 0),
++	GATE(USB20_WRAP1_HCLK, "usb20_wrap1_hclk", "clkgen_usb_ss_bus_clk", USB_CLK_EN, 0x14, 4),
++	GATE(USB20_A2X0_HCLK, "usb20_a2x0_hclk", "clkgen_usb_ss_bus_clk", USB_CLK_EN, 0x14, 16),
++	GATE(USB20_A2X0_ACLK, "usb20_a2x0_aclk", "clkgen_usb_ss_bus_clk", USB_CLK_EN, 0x14, 20),
++	GATE(USB20_A2X1_HCLK, "usb20_a2x1_hclk", "clkgen_usb_ss_bus_clk", USB_CLK_EN, 0x14, 24),
++	GATE(USB20_A2X1_ACLK, "usb20_a2x1_aclk", "clkgen_usb_ss_bus_clk", USB_CLK_EN, 0x14, 28),
++
++};
++
++static const struct a210_clk_desc info_vi[] = {
++	GATE(VI_VSE_CLK_EN, "dw200_vseclk", "vi_pre_vse_clk_div", VI_CLK, 0, 29),
++	GATE(VI_VSEOUT_CLK_EN, "dw200_vseout_clk", "vi_pre_vse_clk_div", VI_CLK, 0, 22),
++	DIV(VI_PRE_VSE_CLK_DIV_NUM, "vi_pre_vse_clk_div", "gmac_pll_foutpostdiv", VI_CLK, 0xc, 4, 4,
++	    25, MUX_TYPE_DIV, 1, 15),
++	GATE(VI_DWE_CLK_EN, "dw200_dweclk", "vi_pre_dwe_clk_div", VI_CLK, 0, 28),
++	GATE(VI_DW_SCLK_EN, "dw_sclk", "vi_pre_dwe_clk_div", VI_CLK, 0, 30),
++	DIV(VI_PRE_DWE_CLK_DIV_NUM, "vi_pre_dwe_clk_div", "video_pll_foutvco", VI_CLK, 0xc, 8, 4,
++	    26, MUX_TYPE_DIV, 3, 15),
++	DIV(VI_PRE_AXI_CLK_DIV_NUM, "vi_preocc_aclk", "video_pll_foutvco", VI_CLK, 0xc, 0, 4, 24,
++	    MUX_TYPE_DIV, 3, 15),
++	GATE(VI_DW200_ACLK_EN, "dw200_aclk", "vi_preocc_aclk", VI_CLK, 0, 27),
++	GATE(VI_DW200_HCLK_EN, "dw200_hclk", "top_cfg_aclk", VI_CLK, 0, 26),
++	DIV(VI_PRE_DECOMP_CLK_DIV_NUM, "vi_pre_decomp_clk", "audio0_pll_foutvco", VI_CLK, 0xc, 20,
++	    4, 29, MUX_TYPE_DIV, 4, 15),
++	GATE(VI_DECOMP_CLK_EN, "decomp_clk", "vi_pre_decomp_clk", VI_CLK, 0, 25),
++	GATE(VI_DECOUT_CLK_EN, "decout_clk", "vi_pre_decomp_clk", VI_CLK, 0, 21),
++	DIV(VI_PRE_COMP_CLK_DIV_NUM, "vi_pre_comp_clk", "audio0_pll_foutvco", VI_CLK, 0xc, 16, 4,
++	    28, MUX_TYPE_DIV, 4, 15),
++	GATE(VI_COMP0_CLK_EN, "comp0_clk", "vi_pre_comp_clk", VI_CLK, 0, 23),
++	GATE(VI_COMP1_CLK_EN, "comp1_clk", "vi_pre_comp_clk", VI_CLK, 0, 24),
++	GATE(VI_COMP_ACLK_EN, "comp_aclk", "vi_preocc_aclk", VI_CLK, 0, 19),
++	GATE(VI_COMP_PCLK_EN, "comp_pclk", "vi_pclk", VI_CLK, 0, 18),
++	GATE(VI_MIPI0CSI0_PCLK_EN, "mipi0_csi0_pclk", "vi_pclk", VI_CLK, 0, 0),
++	GATE(VI_MIPI0CSI1_PCLK_EN, "mipi0_csi1_pclk", "vi_pclk", VI_CLK, 0, 1),
++	GATE(VI_MIPI1CSI0_PCLK_EN, "mipi1_csi0_pclk", "vi_pclk", VI_CLK, 0, 6),
++	GATE(VI_MIPI1CSI1_PCLK_EN, "mipi1_csi1_pclk", "vi_pclk", VI_CLK, 0, 7),
++	GATE(VI_VIPRE_PCLK_EN, "vipre_pclk", "vi_pclk", VI_CLK, 0, 12),
++	GATE(VI_MIPI0CSI0_FPCLK_EN, "mipi0_csi0_fpclk", "vi_pclk", VI_CLK, 0x4, 8),
++	GATE(VI_MIPI0CSI1_FPCLK_EN, "mipi0_csi1_fpclk", "vi_pclk", VI_CLK, 0x4, 9),
++	GATE(VI_MIPI1CSI0_FPCLK_EN, "mipi1_csi0_fpclk", "vi_pclk", VI_CLK, 0x4, 10),
++	GATE(VI_MIPI1CSI1_FPCLK_EN, "mipi1_csi1_fpclk", "vi_pclk", VI_CLK, 0x4, 11),
++	FIXED_FACTOR(VI_PCLK, "vi_pclk", "top_cfg_aclk", 1, 2),
++	MUX(VI_ISP_IF_REF_SWITCH_SEL, "isp_if_ref_mux", VI_CLK, 0x8, 22, 2, isp_if_ref_mux_parents,
++	    CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT),
++	GATE(VI_VIPRE_SCLK_EN, "vipre_sclk", "isp_if_ref_clk_div", VI_CLK, 0, 15),
++	DIV_CLOSEST(VI_PRE_ISP_IF_CLK_DIV_NUM, "isp_if_ref_clk_div", "isp_if_ref_mux", VI_CLK, 0x8,
++		    11, 4, 26, MUX_TYPE_DIV, 3, 15),
++	GATE(VI_ISP_CLK_EN, "isp_entire_clk", "video_pll_foutvco", VI_CLK, 0, 17),
++	DIV(VI_PRE_ISP_CORE_CLK_DIV_NUM, "isp_core_clk", "video_pll_foutvco", VI_CLK, 0x8, 16, 4,
++	    27, MUX_TYPE_DIV, 4, 15),
++	GATE(VI_ISPOUT_CLK_EN, "ispout_clk", "isp_core_clk", VI_CLK, 0, 20),
++	GATE(VI_VIPRE_ACLK_EN, "vipre_aclk", "vi_preocc_aclk", VI_CLK, 0, 16),
++	GATE(VI_VIPRE_I0_PIXCLK_EN, "vipre_m0if_clk", "vi_preocc_mipi0_ifclk", VI_CLK, 0, 13),
++	GATE(VI_MIPI0_CSI0_PIXCLK_EN, "mipi0_csi0if_clk", "vi_preocc_mipi0_ifclk", VI_CLK, 0, 4),
++	GATE(VI_MIPI0_CSI1_PIXCLK_EN, "mipi0_csi1if_clk", "vi_preocc_mipi0_ifclk", VI_CLK, 0, 5),
++	DIV_CLOSEST(VI_PRE_MIPI0_PIXCLK_DIV_NUM, "vi_preocc_mipi0_ifclk",
++		    "vi_preocc_mipi0_ifclk_mux", VI_CLK, 0x8, 0, 4, 24, MUX_TYPE_DIV, 3, 15),
++	MUX(VI_MIPI0_PIX_REF_SWITCH_SEL, "vi_preocc_mipi0_ifclk_mux", VI_CLK, 0x8, 20, 1,
++	    vi_preocc_mipi0_ifclk_mux_parents, CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT),
++	GATE(VI_VIPRE_I1_PIXCLK_EN, "vipre_m1if_clk", "vi_preocc_mipi1_ifclk", VI_CLK, 0, 14),
++	GATE(VI_MIPI1_CSI0_PIXCLK_EN, "mipi1_csi0if_clk", "vi_preocc_mipi1_ifclk", VI_CLK, 0, 10),
++	GATE(VI_MIPI1_CSI1_PIXCLK_EN, "mipi1_csi1if_clk", "vi_preocc_mipi1_ifclk", VI_CLK, 0, 11),
++	DIV_CLOSEST(VI_PRE_MIPI1_PIXCLK_DIV_NUM, "vi_preocc_mipi1_ifclk",
++		    "vi_preocc_mipi1_ifclk_mux", VI_CLK, 0x8, 4, 4, 25, MUX_TYPE_DIV, 3, 15),
++	MUX(VI_MIPI1_PIX_REF_SWITCH_SEL, "vi_preocc_mipi1_ifclk_mux", VI_CLK, 0x8, 21, 1,
++	    vi_preocc_mipi1_ifclk_mux_parents, CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT),
++	GATE(VI_MIPI1B_CFGCLK_EN, "mipi1_csi0_cfgclk", "aon_osc_clk_logic", VI_CLK, 0, 9),
++	GATE(VI_MIPI1A_CFGCLK_EN, "mipi1_csi1_cfgclk", "aon_osc_clk_logic", VI_CLK, 0, 8),
++	GATE(VI_MIPI0B_CFGCLK_EN, "mipi0_csi0_cfgclk", "aon_osc_clk_logic", VI_CLK, 0, 3),
++	GATE(VI_MIPI0A_CFGCLK_EN, "mipi0_csi1_cfgclk", "aon_osc_clk_logic", VI_CLK, 0, 2),
++	GATE(VI_X2H0_CLK_EN, "vi_x2h0_clk", "top_cfg_aclk", VI_CLK, 0x4, 5),
++	GATE(VI_X2H1_CLK_EN, "vi_x2h1_clk", "top_cfg_aclk", VI_CLK, 0x4, 6),
++	GATE(VI_X2H2_CLK_EN, "vi_x2h2_clk", "top_cfg_aclk", VI_CLK, 0x4, 7),
++	GATE(VI_REC_PCLK_EN, "vi_rec_pclk", "top_cfg_aclk", VI_CLK, 0x4, 13),
++	GATE(VI_REC_ACLK_EN, "vi_rec_aclk", "top_cfg_aclk", VI_CLK, 0x4, 14),
++	GATE(VI_MISC_CTRL_H0CLK_CLK_EN, "vi_misc_ctrl_h0clk", "top_cfg_aclk", VI_MISC_CTRL, 0x0, 1),
++	GATE(VI_MISC_CTRL_H1CLK_CLK_EN, "vi_misc_ctrl_h1clk", "top_cfg_aclk", VI_MISC_CTRL, 0x0, 2),
++	GATE(VI_MISC_CTRL_ISP_ACLK_CLK_EN, "vi_misc_ctrl_isp_aclk", "top_cfg_aclk", VI_MISC_CTRL,
++	     0x0, 3),
++	GATE(VI_MISC_CTRL_ISP_SCLK_CLK0_EN, "vi_misc_ctrl_isp_sclk0", "top_cfg_aclk", VI_MISC_CTRL,
++	     0x0, 4),
++	GATE(VI_MISC_CTRL_ISP_SCLK_CLK1_EN, "vi_misc_ctrl_isp_sclk1", "top_cfg_aclk", VI_MISC_CTRL,
++	     0x0, 5),
++	GATE(VI_MISC_CTRL_ISP_SCLK_CLK2_EN, "vi_misc_ctrl_isp_sclk2", "top_cfg_aclk", VI_MISC_CTRL,
++	     0x0, 6),
++	GATE(VI_MISC_CTRL_ISP_SCLK_CLK3_EN, "vi_misc_ctrl_isp_sclk3", "top_cfg_aclk", VI_MISC_CTRL,
++	     0x0, 7),
++	GATE(VI_MISC_CTRL_ISP_CORE_CLK_EN, "vi_misc_ctrl_isp_core_clk", "isp_core_clk",
++	     VI_MISC_CTRL, 0x0, 8),
++	GATE(VI_MISC_CTRL_ISP_FLEXA_CLK_EN, "vi_misc_ctrl_isp_flexa_clk", "isp_core_clk",
++	     VI_MISC_CTRL, 0x0, 9),
++	GATE(VI_MISC_CTRL_ISP_MCM_CLK_EN, "vi_misc_ctrl_isp_mcm_clk", "isp_core_clk", VI_MISC_CTRL,
++	     0x0, 10),
++	GATE(VI_MISC_CTRL_BUS_CLK_GT_DISABLE, "vi_misc_ctrl_bus_clk", "isp_core_clk", VI_MISC_CTRL,
++	     0x0, 11),
++};
++
++static const struct a210_clk_desc info_vp[] = {
++	GATE(VP_DECOMP_EXTPCLK_EN, "vp_decomp_extpclk", "top_cfg_aclk", VP_CLK, 0, 23),
++	GATE(VP_COMP_EXTPCLK_EN, "vp_comp_extpclk", "top_cfg_aclk", VP_CLK, 0, 22),
++	GATE(VP_DECOMP_ACLK_EN, "vp_decomp_aclk", "vp_aclk", VP_CLK, 0, 14),
++	GATE(VP_DECOMP_CCLK_EN, "vp_decomp_cclk", "vp_decomp_clk_div", VP_CLK, 0, 13),
++	GATE(VP_DECOMP_PCLK_EN, "vp_decomp_pclk", "top_cfg_aclk", VP_CLK, 0, 12),
++	GATE(VP_COMP_ACLK_EN, "vp_comp_aclk", "vp_aclk", VP_CLK, 0, 11),
++	GATE(VP_COMP_CCLK_EN, "vp_comp_cclk", "vp_comp_clk_div", VP_CLK, 0, 10),
++	GATE(VP_COMP_PCLK_EN, "vp_comp_pclk", "top_cfg_aclk", VP_CLK, 0, 9),
++	GATE(VP_G2D_ACLK_EN, "vp_g2d_aclk", "vp_aclk", VP_CLK, 0, 8),
++	GATE(VP_G2D_CCLK_EN, "vp_g2d_cclk", "g2d_cclk", VP_CLK, 0, 7),
++	GATE(VP_G2D_PCLK_EN, "vp_g2d_pclk", "top_cfg_aclk", VP_CLK, 0, 6),
++	GATE(VP_VENC_ACLK_EN, "vp_venc_aclk", "vp_aclk", VP_CLK, 0, 5),
++	GATE(VP_VENC_CCLK_EN, "vp_venc_cclk", "venc_cclk", VP_CLK, 0, 4),
++	GATE(VP_VENC_PCLK_EN, "vp_venc_pclk", "top_cfg_aclk", VP_CLK, 0, 3),
++	GATE(VP_VDEC_ACLK_EN, "vp_vdec_aclk", "vp_aclk", VP_CLK, 0, 2),
++	GATE(VP_VDEC_CCLK_EN, "vp_vdec_cclk", "vdec_cclk", VP_CLK, 0, 1),
++	GATE(VP_VDEC_PCLK_EN, "vp_vdec_pclk", "top_cfg_aclk", VP_CLK, 0, 0),
++	DIV(VP_DECOMP_DIV_NUM, "vp_decomp_clk_div", "vp_aclk", VP_CLK, 0x4, 16, 4, 20, MUX_TYPE_DIV,
++	    2, 15),
++	DIV(VP_COMP_DIV_NUM, "vp_comp_clk_div", "vp_aclk", VP_CLK, 0x4, 8, 4, 12, MUX_TYPE_DIV, 2,
++	    15),
++};
++
++#define VO_PIXCLK_MUX_FLAGS (CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT)
++
++static const struct a210_clk_desc info_vo[] = {
++	GATE(VO_DFMU_PCLK_EN, "vo_dfmu_pclk", "vo_pclk", VO_CLK, 0, 20),
++	GATE(VO_DFMU_ACLK_EN, "vo_dfmu_aclk", "vo_preocc_aclk", VO_CLK, 0, 21),
++	GATE(VO_PTW_ACLK_EN, "vo_ptw_aclk", "vo_preocc_aclk", VO_CLK, 0, 22),
++	GATE(VO_X2H1_CLK_EN, "vo_x2h1_clk", "top_cfg_aclk", VO_CLK, 0, 24),
++	GATE(VO_X2H0_CLK_EN, "vo_x2h0_clk", "top_cfg_aclk", VO_CLK, 0, 23),
++	GATE(VO_ARB_ACLK_EN, "vo_arb_aclk", "vo_preocc_aclk", VO_CLK, 0, 19),
++	GATE(VO_DPU_ACLK_EN, "vo_dpu_aclk", "vo_preocc_aclk", VO_CLK, 0, 4),
++	GATE(VO_AUXDISP_ACLK_EN, "vo_disp_aclk", "vo_preocc_aclk", VO_CLK, 0, 7),
++	GATE(VO_DECOMP_ACLK_EN, "vo_decomp_aclk", "vo_preocc_aclk", VO_CLK, 0, 17),
++	DIV(VO_ACLK_DIV_NUM, "vo_preocc_aclk", "video_pll_foutvco", VO_CLK, 0x8, 0, 4, 4,
++	    MUX_TYPE_DIV, 3, 15),
++	GATE(VO_DECOMP_PCLK_EN, "vo_decomp_pclk", "vo_pclk", VO_CLK, 0, 14),
++	GATE(VO_HDMI_PCLK_EN, "vo_hdmi_pclk", "vo_pclk", VO_CLK, 0, 8),
++	GATE(VO_MIPI_PCLK_EN, "vo_mipi_pclk", "vo_pclk", VO_CLK, 0, 12),
++	GATE(VO_AUXDISP_PCLK_EN, "vo_auxdisp_pclk", "vo_pclk", VO_CLK, 0, 6),
++	GATE(VO_ARB_PCLK_EN, "vo_arb_pclk", "vo_pclk", VO_CLK, 0, 18),
++	FIXED_FACTOR(VO_PCLK, "vo_pclk", "top_cfg_aclk", 1, 2),
++	GATE(VO_DECOMP0_CLK_EN, "vo_decomp0_clk", "vo_decomp_div", VO_CLK, 0, 15),
++	GATE(VO_DECOMP1_CLK_EN, "vo_decomp1_clk", "vo_decomp_div", VO_CLK, 0, 16),
++	DIV(VO_DECOMP_DIV_NUM, "vo_decomp_div", "video_pll_foutvco", VO_CLK, 0x8, 16, 4, 20,
++	    MUX_TYPE_DIV, 12, 15),
++	GATE(VO_MIPI_CFGCLK_EN, "vo_mipi_cfgclk", "aon_osc_clk_logic", VO_CLK, 0, 13),
++	GATE(VO_HDMI_SFRCLK_EN, "vo_hdmi_sfrclk", "aon_osc_clk_logic", VO_CLK, 0, 11),
++	GATE(VO_CEC_CLK_EN, "vo_hdmi_cecclk", "aon_rtc_clk", VO_CLK, 0, 10),
++	GATE(VO_I2S_CLK_EN, "vo_hdmi_i2sclk", "audio0_pll_foutvco", VO_CLK, 0, 9),
++	GATE(VO_CH0_PIXCLK_EN, "dpu0_pixclk", "vo_pll0_div", VO_CLK, 0, 0),
++	DIV(VO_PLL0_DIV_NUM, "vo_pll0_div", "dpu0_pll_foutpostdiv", VO_CLK, 0x4, 0, 8, 8,
++	    MUX_TYPE_DIV, 2, 255),
++	GATE(VO_CH1_PIXCLK_EN, "dpu1_pixclk", "vo_pll1_div", VO_CLK, 0, 1),
++	DIV(VO_PLL1_DIV_NUM, "vo_pll1_div", "dpu1_pll_foutpostdiv", VO_CLK, 0x4, 10, 8, 18,
++	    MUX_TYPE_DIV, 2, 255),
++	GATE(VO_CH2_PIXCLK_EN, "dpu2_pixclk", "vo_pll2_div", VO_CLK, 0, 5),
++	DIV(VO_PLL2_DIV_NUM, "vo_pll2_div", "dpu2_pll_foutpostdiv", VO_CLK, 0x4, 20, 8, 28,
++	    MUX_TYPE_DIV, 2, 255),
++	GATE(VO_DPU_HCLK_EN, "vo_dpuc_hclk", "top_cfg_aclk", VO_CLK, 0, 2),
++	GATE(VO_DPUC_CLK_EN, "vo_dpuc_clk", "vo_dpuc_div", VO_CLK, 0, 3),
++	DIV(VO_DPUC_DIV_NUM, "vo_dpuc_div", "video_pll_foutvco", VO_CLK, 0x8, 8, 4, 12,
++	    MUX_TYPE_DIV, 3, 15),
++	MUX(VO_MIPI_PIXCLK, "vo_mipi_pixclk", VO_PATH_CTRL, 0x0, 0, 2, vo_mipi_pixclk_mux_parents,
++	    VO_PIXCLK_MUX_FLAGS),
++	MUX(VO_HDMI_PIXCLK, "vo_hdmi_pixclk", VO_PATH_CTRL, 0x0, 2, 2, vo_hdmi_pixclk_mux_parents,
++	    VO_PIXCLK_MUX_FLAGS),
++	MUX(VO_DPTX_PIXCLK, "vo_dptx_pixclk", VO_PATH_CTRL, 0x0, 4, 2, vo_dptx_pixclk_mux_parents,
++	    VO_PIXCLK_MUX_FLAGS),
++};
++
++static const struct a210_clk_desc info_npu[] = {
++	GATE(SW_SEMA_PCLK_EN, "npu_clkgen_sema_pclk", "top_cfg_aclk", NPU_CLK, 0, 23),
++	GATE(SW_SEMA_ACLK_EN, "npu_clkgen_sema_aclk", "npu_aclk", NPU_CLK, 0, 22),
++	GATE(SW_NPU_X2P_ACLK_EN, "npu_x2p_aclk", "top_cfg_aclk", NPU_CLK, 0, 21),
++	GATE(SW_NPU_X2H_ACLK_EN, "npu_x2h_aclk", "top_cfg_aclk", NPU_CLK, 0, 20),
++	GATE(SW_NPU_IP_HCLK_EN, "npu_ip_hclk", "top_cfg_aclk", NPU_CLK, 0, 12),
++	GATE(SW_NPU_IP_CCLK_EN, "npu_ip_cclk", "npu_cclk", NPU_CLK, 0, 11),
++	GATE(SW_NPU_IP_ACLK_EN, "npu_ip_aclk", "npu_aclk", NPU_CLK, 0, 10),
++};
++
++static const struct a210_clk_desc info_peri[] = {
++	/* PERI0 SS */
++	GATE(PERI0_MBOX1_PCLK_EN, "peri0_mbox1_pclk", "top_cfg_aclk", PERI0_SYSREG, 0, 6),
++	GATE(PERI0_MBOX0_PCLK_EN, "peri0_mbox0_pclk", "top_cfg_aclk", PERI0_SYSREG, 0, 5),
++	GATE(PERI0_WDT0_PCLK_EN, "peri0_wdt0_pclk", "top_cfg_aclk", PERI0_SYSREG, 0, 4),
++	GATE(PERI0_TIMER1_PCLK_EN, "peri0_timer1_pclk", "top_cfg_aclk", PERI0_SYSREG, 0, 3),
++	GATE(PERI0_TIMER1_CCLK_EN, "peri0_timer1_cclk", "top_cfg_aclk", PERI0_SYSREG, 0, 2),
++	GATE(PERI0_TIMER0_PCLK_EN, "peri0_timer0_pclk", "top_cfg_aclk", PERI0_SYSREG, 0, 1),
++	GATE(PERI0_TIMER0_CCLK_EN, "peri0_timer0_cclk", "top_cfg_aclk", PERI0_SYSREG, 0, 0),
++	/* PERI1 SS */
++	GATE(PERI1_UART3_SCLK_EN, "peri1_clkgen_uart3_sclk", "uart_sclk", PERI1_SYSREG, 0, 31),
++	GATE(PERI1_UART3_PCLK_EN, "peri1_clkgen_uart3_pclk", "top_cfg_aclk", PERI1_SYSREG, 0, 30),
++	GATE(PERI1_UART2_SCLK_EN, "peri1_clkgen_uart2_sclk", "uart_sclk", PERI1_SYSREG, 0, 29),
++	GATE(PERI1_UART2_PCLK_EN, "peri1_clkgen_uart2_pclk", "top_cfg_aclk", PERI1_SYSREG, 0, 28),
++	GATE(PERI1_UART1_SCLK_EN, "peri1_clkgen_uart1_sclk", "uart_sclk", PERI1_SYSREG, 0, 27),
++	GATE(PERI1_UART1_PCLK_EN, "peri1_clkgen_uart1_pclk", "top_cfg_aclk", PERI1_SYSREG, 0, 26),
++	GATE(PERI1_UART0_SCLK_EN, "peri1_clkgen_uart0_sclk", "uart_sclk", PERI1_SYSREG, 0, 25),
++	GATE(PERI1_UART0_PCLK_EN, "peri1_clkgen_uart0_pclk", "top_cfg_aclk", PERI1_SYSREG, 0, 24),
++	GATE(PERI1_SPI0_SSI_CLK_EN, "peri1_clkgen_spi0_ssi_clk", "peri1_spi_ssi_clk", PERI1_SYSREG,
++	     0, 23),
++	GATE(PERI1_SPI0_PCLK_EN, "peri1_clkgen_spi0_pclk", "top_cfg_aclk", PERI1_SYSREG, 0, 22),
++	GATE(PERI1_QSPI0_SSI_CLK_EN, "peri1_clkgen_qspi0_ssi_clk", "peri1_qspi_ssi_clk",
++	     PERI1_SYSREG, 0, 21),
++	GATE(PERI1_QSPI0_PCLK_EN, "peri1_clkgen_qspi0_pclk", "top_cfg_aclk", PERI1_SYSREG, 0, 20),
++	GATE(PERI1_PWM0_PCLK_EN, "peri1_clkgen_pwm0_pclk", "peri1_pwm_clk", PERI1_SYSREG, 0, 19),
++	GATE(PERI1_PWM0_CCLK_EN, "peri1_clkgen_pwm0_cclk", "peri1_clkgen_pwm0_pclk", PERI1_SYSREG,
++	     0, 18),
++	/* E902 firmware accesses AP peripherals through this shared bus. */
++	GATE_FLAGS(PERI1_MST_BUS_PCLK_EN, "peri1_clkgen_mst_bus_pclk", "top_cfg_aclk", PERI1_SYSREG,
++		   0, 17, CLK_IS_CRITICAL),
++	GATE_FLAGS(PERI1_MST_BUS_ACLK_EN, "peri1_clkgen_mst_bus_aclk", "peri1_mst_aclk",
++		   PERI1_SYSREG, 0, 16, CLK_IS_CRITICAL),
++	GATE(PERI1_I2S0_SRC_CLK_EN, "peri1_clkgen_i2s0_src_clk", "peri1_i2s0_src_clk", PERI1_SYSREG,
++	     0, 15),
++	GATE(PERI1_I2S0_PCLK_EN, "peri1_clkgen_i2s0_pclk", "top_cfg_aclk", PERI1_SYSREG, 0, 14),
++	GATE(PERI1_I2C2_PCLK_EN, "peri1_clkgen_i2c2_pclk", "top_cfg_aclk", PERI1_SYSREG, 0, 13),
++	GATE(PERI1_I2C2_IC_CLK_EN, "peri1_clkgen_i2c2_ic_clk", "i2c_ic_clk", PERI1_SYSREG, 0, 12),
++	GATE(PERI1_I2C1_PCLK_EN, "peri1_clkgen_i2c1_pclk", "top_cfg_aclk", PERI1_SYSREG, 0, 11),
++	GATE(PERI1_I2C1_IC_CLK_EN, "peri1_clkgen_i2c1_ic_clk", "i2c_ic_clk", PERI1_SYSREG, 0, 10),
++	GATE(PERI1_I2C0_PCLK_EN, "peri1_clkgen_i2c0_pclk", "top_cfg_aclk", PERI1_SYSREG, 0, 9),
++	GATE(PERI1_I2C0_IC_CLK_EN, "peri1_clkgen_i2c0_ic_clk", "i2c_ic_clk", PERI1_SYSREG, 0, 8),
++	GATE(PERI1_GPIO1_PCLK_EN, "peri1_clkgen_gpio1_pclk", "top_cfg_aclk", PERI1_SYSREG, 0, 7),
++	GATE(PERI1_GPIO1_DBCLK_EN, "peri1_clkgen_gpio1_dbclk", "aon_rtc_clk", PERI1_SYSREG, 0, 6),
++	GATE(PERI1_GPIO0_PCLK_EN, "peri1_clkgen_gpio0_pclk", "top_cfg_aclk", PERI1_SYSREG, 0, 5),
++	GATE(PERI1_GPIO0_DBCLK_EN, "peri1_clkgen_gpio0_dbclk", "aon_rtc_clk", PERI1_SYSREG, 0, 4),
++	GATE(PERI1_GMAC1_HCLK_EN, "peri1_gmac1_hclk", "top_cfg_aclk", PERI1_SYSREG, 0, 3),
++	GATE(PERI1_GMAC1_ACLK_EN, "peri1_gmac1_aclk", "peri1_mst_aclk", PERI1_SYSREG, 0, 2),
++	GATE(PERI1_GMAC0_HCLK_EN, "peri1_gmac0_hclk", "top_cfg_aclk", PERI1_SYSREG, 0, 1),
++	GATE(PERI1_GMAC0_ACLK_EN, "peri1_gmac0_aclk", "peri1_mst_aclk", PERI1_SYSREG, 0, 0),
++	GATE(PERI1_ZGMAC_X2X_ACLK_EN, "peri1_zgmac0_x2x_aclk", "peri1_mst_aclk", PERI1_SYSREG, 0x4,
++	     25),
++	GATE(PERI1_GMAC2_HCLK_EN, "peri1_gmac2_hclk", "top_cfg_aclk", PERI1_SYSREG, 0x4, 24),
++	GATE(PERI1_GMAC2_ACLK_EN, "peri1_gmac2_aclk", "top_cfg_aclk", PERI1_SYSREG, 0x4, 23),
++	GATE(PERI1_X2H_GMAC2_HCLK_EN, "peri1_x2h_gmac2_hclk", "top_cfg_aclk", PERI1_SYSREG, 0x4,
++	     22),
++	GATE(PERI1_X2H_GMAC2_ACLK_EN, "peri1_x2h_gmac2_aclk", "top_cfg_aclk", PERI1_SYSREG, 0x4,
++	     21),
++	GATE(PERI1_CHIP_DBG_PCLK_EN, "peri1_chip_dbg_pclk", "top_cfg_aclk", PERI1_SYSREG, 0x4, 20),
++	GATE(PERI1_CHIP_DBG_CCLK_EN, "peri1_chip_dbg_cclk", "aon_osc_clk_logic", PERI1_SYSREG, 0x4,
++	     19),
++	GATE(PERI1_CHIP_DBG_ACLK_EN, "peri1_chip_dbg_aclk", "peri1_mst_aclk", PERI1_SYSREG, 0x4,
++	     18),
++	GATE(PERI1_TDM0_SCLK_EN, "peri1_tdm0_sclk", "peri1_tdm_src_clk", PERI1_SYSREG, 0x4, 17),
++	GATE(PERI1_TDM0_PCLK_EN, "peri1_tdm0_pclk", "top_cfg_aclk", PERI1_SYSREG, 0x4, 16),
++	GATE(PERI1_PDM0_PCLK_EN, "peri1_pdm0_pclk", "top_cfg_aclk", PERI1_SYSREG, 0x4, 15),
++	GATE(PERI1_PDM0_MCLK_EN, "peri1_pdm0_mclk", "peri1_pdm_mclk", PERI1_SYSREG, 0x4, 14),
++	GATE(PERI1_CAN1_PCLK_EN, "peri1_can1_pclk", "top_cfg_aclk", PERI1_SYSREG, 0x4, 13),
++	GATE(PERI1_CAN1_OSC_CLK_EN, "peri1_can1_osc_clk", "peri1_hires_clk", PERI1_SYSREG, 0x4, 12),
++	GATE(PERI1_CAN1_HIRES_CLK_EN, "peri1_can1_hires_clk", "peri1_can1_osc_clk", PERI1_SYSREG,
++	     0x4, 11),
++	GATE(PERI1_CAN0_PCLK_EN, "peri1_can0_pclk", "top_cfg_aclk", PERI1_SYSREG, 0x4, 10),
++	GATE(PERI1_CAN0_OSC_CLK_EN, "peri1_can0_osc_clk", "peri1_hires_clk", PERI1_SYSREG, 0x4, 9),
++	GATE(PERI1_CAN0_HIRES_CLK_EN, "peri1_can0_hires_clk", "peri1_can0_osc_clk", PERI1_SYSREG,
++	     0x4, 8),
++	GATE(PERI1_PAD_CTRL_PCLK_EN, "peri1_pad_ctrl_pclk", "top_cfg_aclk", PERI1_SYSREG, 0x4, 7),
++	GATE(PERI1_X2H_GMAC1_HCLK_EN, "peri1_x2h_gmac1_hclk", "top_cfg_aclk", PERI1_SYSREG, 0x4, 3),
++	GATE(PERI1_X2H_GMAC1_ACLK_EN, "peri1_x2h_gmac1_aclk", "top_cfg_aclk", PERI1_SYSREG, 0x4, 2),
++	GATE(PERI1_X2H_GMAC0_HCLK_EN, "peri1_x2h_gmac0_hclk", "top_cfg_aclk", PERI1_SYSREG, 0x4, 1),
++	GATE(PERI1_X2H_GMAC0_ACLK_EN, "peri1_x2h_gmac0_aclk", "top_cfg_aclk", PERI1_SYSREG, 0x4, 0),
++	/* PERI2 SS */
++	GATE(PERI2_I2S3_PCLK_EN, "peri2_clkgen_i2s3_pclk", "top_cfg_aclk", PERI2_SYSREG, 0, 31),
++	GATE(PERI2_I2S3_SRC_CLK_EN, "peri2_clkgen_i2s3_src_clk", "peri2_i2s3_src_clk", PERI2_SYSREG,
++	     0, 30),
++	GATE(PERI2_I2S2_PCLK_EN, "peri2_clkgen_i2s2_pclk", "top_cfg_aclk", PERI2_SYSREG, 0, 29),
++	GATE(PERI2_I2S2_SRC_CLK_EN, "peri2_clkgen_i2s2_src_clk", "peri2_i2s2_src_clk", PERI2_SYSREG,
++	     0, 28),
++	GATE(PERI2_I2S1_PCLK_EN, "peri2_clkgen_i2s1_pclk", "top_cfg_aclk", PERI2_SYSREG, 0, 27),
++	GATE_FLAGS(PERI2_I2S1_SRC_CLK_EN, "peri2_clkgen_i2s1_src_clk", "peri2_i2s1_src_clk",
++		   PERI2_SYSREG, 0, 26, CLK_SET_RATE_PARENT),
++	GATE(PERI2_I2C7_IC_CLK_EN, "peri2_clkgen_i2c7_ic_clk", "i2c_ic_clk", PERI2_SYSREG, 0, 25),
++	GATE(PERI2_I2C7_PCLK_EN, "peri2_clkgen_i2c7_pclk", "top_cfg_aclk", PERI2_SYSREG, 0, 24),
++	GATE(PERI2_I2C6_IC_CLK_EN, "peri2_clkgen_i2c6_ic_clk", "i2c_ic_clk", PERI2_SYSREG, 0, 23),
++	GATE(PERI2_I2C6_PCLK_EN, "peri2_clkgen_i2c6_pclk", "top_cfg_aclk", PERI2_SYSREG, 0, 22),
++	GATE(PERI2_I2C5_IC_CLK_EN, "peri2_clkgen_i2c5_ic_clk", "i2c_ic_clk", PERI2_SYSREG, 0, 21),
++	GATE(PERI2_I2C5_PCLK_EN, "peri2_clkgen_i2c5_pclk", "top_cfg_aclk", PERI2_SYSREG, 0, 20),
++	GATE(PERI2_I2C4_IC_CLK_EN, "peri2_clkgen_i2c4_ic_clk", "i2c_ic_clk", PERI2_SYSREG, 0, 19),
++	GATE(PERI2_I2C4_PCLK_EN, "peri2_clkgen_i2c4_pclk", "top_cfg_aclk", PERI2_SYSREG, 0, 18),
++	GATE(PERI2_I2C3_IC_CLK_EN, "peri2_clkgen_i2c3_ic_clk", "i2c_ic_clk", PERI2_SYSREG, 0, 17),
++	GATE(PERI2_I2C3_PCLK_EN, "peri2_clkgen_i2c3_pclk", "top_cfg_aclk", PERI2_SYSREG, 0, 16),
++	GATE(PERI2_GPIO3_DBCLK_EN, "peri2_clkgen_gpio3_dbclk", "aon_rtc_clk", PERI2_SYSREG, 0, 15),
++	GATE(PERI2_GPIO3_PCLK_EN, "peri2_clkgen_gpio3_pclk", "top_cfg_aclk", PERI2_SYSREG, 0, 14),
++	GATE(PERI2_PAD_CTRL_PCLK_EN, "peri2_clkgen_pad_ctrl_pclk", "top_cfg_aclk", PERI2_SYSREG, 0,
++	     13),
++	GATE(PERI2_UART6_PCLK_EN, "peri2_clkgen_uart6_pclk", "top_cfg_aclk", PERI2_SYSREG, 0, 12),
++	GATE(PERI2_UART5_PCLK_EN, "peri2_clkgen_uart5_pclk", "top_cfg_aclk", PERI2_SYSREG, 0, 11),
++	GATE_FLAGS(PERI2_UART4_PCLK_EN, "peri2_clkgen_uart4_pclk", "top_cfg_aclk", PERI2_SYSREG, 0,
++		   10, CLK_IS_CRITICAL),
++	GATE(PERI2_SPI1_PCLK_EN, "peri2_clkgen_spi1_pclk", "top_cfg_aclk", PERI2_SYSREG, 0, 9),
++	GATE(PERI2_GPIO2_PCLK_EN, "peri2_clkgen_gpio2_pclk", "top_cfg_aclk", PERI2_SYSREG, 0, 8),
++	GATE(PERI2_CAN2_PCLK_EN, "peri2_clkgen_can2_pclk", "top_cfg_aclk", PERI2_SYSREG, 0, 7),
++	GATE(PERI2_UART6_SCLK_EN, "peri2_clkgen_uart6_sclk", "uart_sclk", PERI2_SYSREG, 0, 6),
++	GATE(PERI2_UART5_SCLK_EN, "peri2_clkgen_uart5_sclk", "uart_sclk", PERI2_SYSREG, 0, 5),
++	GATE_FLAGS(PERI2_UART4_SCLK_EN, "peri2_clkgen_uart4_sclk", "uart_sclk", PERI2_SYSREG, 0, 4,
++		   CLK_IS_CRITICAL),
++	GATE(PERI2_SPI1_SSI_CLK_EN, "peri2_clkgen_spi1_ssi_clk", "peri2_spi_ssi_clk", PERI2_SYSREG,
++	     0, 3),
++	GATE(PERI2_GPIO2_DBCLK_EN, "peri2_clkgen_gpio2_dbclk", "aon_rtc_clk", PERI2_SYSREG, 0, 2),
++	GATE(PERI2_CAN2_OSC_CLK_EN, "peri2_clkgen_can2_osc_clk", "peri2_hires_clk", PERI2_SYSREG, 0,
++	     1),
++	GATE(PERI2_CAN2_HIRES_CLK_EN, "peri2_clkgen_can2_hires_clk", "peri2_clkgen_can2_osc_clk",
++	     PERI2_SYSREG, 0, 0),
++	GATE(PERI2_QSPI1_PCLK_EN, "peri2_clkgen_qspi1_pclk", "top_cfg_aclk", PERI2_SYSREG, 0x4, 11),
++	GATE(PERI2_QSPI1_SSI_CLK_EN, "peri2_clkgen_qspi1_ssi_clk", "peri2_qspi_ssi_clk",
++	     PERI2_SYSREG, 0x4, 10),
++	GATE(PERI2_UART9_PCLK_EN, "peri2_clkgen_uart9_pclk", "top_cfg_aclk", PERI2_SYSREG, 0x4, 9),
++	GATE(PERI2_UART9_SCLK_EN, "peri2_clkgen_uart9_sclk", "uart_sclk", PERI2_SYSREG, 0x4, 8),
++	GATE(PERI2_UART8_PCLK_EN, "peri2_clkgen_uart8_pclk", "top_cfg_aclk", PERI2_SYSREG, 0x4, 7),
++	GATE(PERI2_UART8_SCLK_EN, "peri2_clkgen_uart8_sclk", "uart_sclk", PERI2_SYSREG, 0x4, 6),
++	GATE(PERI2_UART7_PCLK_EN, "peri2_clkgen_uart7_pclk", "top_cfg_aclk", PERI2_SYSREG, 0x4, 5),
++	GATE(PERI2_UART7_SCLK_EN, "peri2_clkgen_uart7_sclk", "uart_sclk", PERI2_SYSREG, 0x4, 4),
++	GATE(PERI2_PWM2_PCLK_EN, "peri2_clkgen_pwm2_pclk", "peri2_pwm_clk", PERI2_SYSREG, 0x4, 3),
++	GATE(PERI2_PWM2_CCLK_EN, "peri2_clkgen_pwm2_cclk", "peri2_clkgen_pwm2_pclk", PERI2_SYSREG,
++	     0x4, 2),
++	GATE(PERI2_PWM1_PCLK_EN, "peri2_clkgen_pwm1_pclk", "peri2_pwm_clk", PERI2_SYSREG, 0x4, 1),
++	GATE(PERI2_PWM1_CCLK_EN, "peri2_clkgen_pwm1_cclk", "peri2_clkgen_pwm1_pclk", PERI2_SYSREG,
++	     0x4, 0),
++	/* PERI3 SS */
++	GATE(PERI3_PAD_CTRL_PCLK_EN, "peri3_clkgen_pad_ctrl_pclk", "top_cfg_aclk", PERI3_SYSREG, 0,
++	     21),
++	GATE(PERI3_GPIO4_PCLK_EN, "peri3_clkgen_gpio4_pclk", "top_cfg_aclk", PERI3_SYSREG, 0, 20),
++	GATE(PERI3_GPIO4_DBCLK_EN, "peri3_clkgen_gpio4_dbclk", "aon_rtc_clk", PERI3_SYSREG, 0, 19),
++	GATE(CLKCTRL_PERI3_TEE_H2H_SHCLKEN, "peri3_clkgen_tee_h2h_shclk", "top_cfg_aclk",
++	     PERI3_SYSREG, 0, 18),
++	GATE(CLKCTRL_PERI3_TEE_H2H_MHCLKEN, "peri3_clkgen_tee_h2h_mhclk", "top_cfg_aclk",
++	     PERI3_SYSREG, 0, 17),
++	GATE(PERI3_TEE_X2X_ACLK_S_EN, "peri3_clkgen_tee_x2x_aclk", "top_cfg_aclk", PERI3_SYSREG, 0,
++	     16),
++	GATE(PERI3_ADC_PCLK_EN, "peri3_clkgen_adc_pclk", "top_cfg_aclk", PERI3_SYSREG, 0, 15),
++	GATE(AXI_PERI3_MST_PCLK_EN, "peri3_clkgen_axi_mst_pclk", "top_cfg_aclk", PERI3_SYSREG, 0,
++	     14),
++	GATE(AXI_PERI3_MST_ACLK_EN, "peri3_clkgen_axi_mst_aclk", "peri3_mst_aclk", PERI3_SYSREG, 0,
++	     13),
++	GATE(PERI3_SDIO_X2X_ACLK_S_EN, "peri3_clkgen_sdio_x2x_aclk_s", "peri3_mst_aclk",
++	     PERI3_SYSREG, 0, 12),
++	GATE(PERI3_SDIO_X2X_ACLK_M_EN, "peri3_clkgen_sdio_x2x_aclk_m", "top_cfg_aclk", PERI3_SYSREG,
++	     0, 11),
++	GATE(PERI3_SDIO_OSC_CLK_EN, "peri3_clkgen_sdio_osc_clk", "aon_osc_clk_logic", PERI3_SYSREG,
++	     0, 10),
++	GATE(PERI3_SDIO_HCLK_EN, "peri3_clkgen_sdio_hclk", "top_cfg_aclk", PERI3_SYSREG, 0, 9),
++	GATE(PERI3_SDIO_ACLK_EN, "peri3_clkgen_sdio_aclk", "top_cfg_aclk", PERI3_SYSREG, 0, 8),
++	GATE(PERI3_EMMC_X2X_ACLK_S_EN, "peri3_clkgen_emmc_x2x_aclk_s", "peri3_mst_aclk",
++	     PERI3_SYSREG, 0, 7),
++	GATE(PERI3_EMMC_X2X_ACLK_M_EN, "peri3_clkgen_emmc_x2x_aclk_m", "top_cfg_aclk", PERI3_SYSREG,
++	     0, 6),
++	GATE(PERI3_EMMC_OSC_CLK_EN, "peri3_clkgen_emmc_osc_clk", "aon_osc_clk_logic", PERI3_SYSREG,
++	     0, 5),
++	GATE(PERI3_EMMC_HCLK_EN, "peri3_clkgen_emmc_hclk", "top_cfg_aclk", PERI3_SYSREG, 0, 4),
++	GATE(PERI3_EMMC_ACLK_EN, "peri3_clkgen_emmc_aclk", "top_cfg_aclk", PERI3_SYSREG, 0, 3),
++	FIXED_FACTOR(PERI3_EMMC_SDIO_REF_CLK, "peri3_emmc_sdio_ref_clk", "emmc_ref_clk", 1, 4),
++	GATE(PERI3_EMMC_SDIO_REF_CLK_CG_EN, "peri3_clkgen_sdio_ref_clk", "peri3_emmc_sdio_ref_clk",
++	     PERI3_SYSREG, 0, 2),
++	GATE(PERI3_DMAC_HCLK_EN, "peri3_clkgen_dmac_hclk", "top_cfg_aclk", PERI3_SYSREG, 0, 1),
++	GATE(PERI3_DMAC_ACLK_EN, "peri3_clkgen_dmac_aclk", "peri3_mst_aclk", PERI3_SYSREG, 0, 0),
++	/* TEE SS */
++	GATE(TEE_AHB2_TEESYS_CLKEN, "tee_ahb2_teesys_clk", "tee_clk", TEE_CRG, 0, 19),
++	GATE(TEE_APB3_TEESYS_CLKEN, "tee_apb3_teesys_clk", "tee_clk", TEE_CRG, 0, 18),
++	GATE(TEE_AXI4_TEESYS_CLKEN, "tee_axi4_teesys_clk", "tee_clk", TEE_CRG, 0, 17),
++	GATE(TEE_X2P_TEESYS_CLKEN, "tee_x2p_teesys_clk", "tee_clk", TEE_CRG, 0, 16),
++	GATE(TEE_EIP120SI_CLKEN, "tee_eip120si_clk", "tee_clk", TEE_CRG, 0, 12),
++	GATE(TEE_EIP120SII_CLKEN, "tee_eip120sii_clk", "tee_clk", TEE_CRG, 0, 11),
++	GATE(TEE_EIP120SIII_CLKEN, "tee_eip120siii_clk", "tee_clk", TEE_CRG, 0, 10),
++	GATE(TEE_EIP150B_CLKEN, "tee_eip150b_clk", "tee_clk", TEE_CRG, 0, 9),
++	GATE(TEE_DMAC_CLKEN, "tee_dmac_clk", "tee_clk", TEE_CRG, 0, 8),
++	FIXED_FACTOR(TEE_PCLK_CDE_RATIO, "tee_pclk", "tee_clk", 1, 4),
++	GATE(TEE_DS_CLKEN, "tee_ds_clk", "tee_pclk", TEE_CRG, 0, 3),
++	GATE(TEE_OCRAM_CLKEN, "tee_ocram_clk", "tee_clk", TEE_CRG, 0, 2),
++	GATE(TEE_EFUSE_CLKEN, "tee_efuse_clk", "tee_pclk", TEE_CRG, 0, 1),
++	GATE(TEE_KEYRAM_CLKEN, "tee_keyram_clk", "tee_pclk", TEE_CRG, 0, 0),
++};
++
++static const struct a210_ccu top_clk = CLK_SUBSYS("top clk", regs_top, info_top);
++static const struct a210_ccu gpu_clk = CLK_SUBSYS("gpu clk", regs_gpu, info_gpu);
++static const struct a210_ccu pcie_clk = CLK_SUBSYS("pcie clk", regs_pcie, info_pcie);
++static const struct a210_ccu usb_clk = CLK_SUBSYS("usb clk", regs_usb, info_usb);
++static const struct a210_ccu vi_clk = CLK_SUBSYS("vi clk", regs_vi, info_vi);
++static const struct a210_ccu vp_clk = CLK_SUBSYS("vp clk", regs_vp, info_vp);
++static const struct a210_ccu vo_clk = CLK_SUBSYS("vo clk", regs_vo, info_vo);
++static const struct a210_ccu npu_clk = CLK_SUBSYS("npu clk", regs_npu, info_npu);
++static const struct a210_ccu peri_clk = CLK_SUBSYS("peri clk", regs_peri, info_peri);
++
++static int a210_clocks_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct clk_hw_onecell_data *clk_data;
++	const struct a210_ccu *data;
++	struct a210_ccu *priv;
++	int i, ret;
++
++	ret = devm_pm_runtime_enable(dev);
++	if (ret)
++		return ret;
++
++	clk_data = devm_kzalloc(dev, struct_size(clk_data, hws, CLK_END), GFP_KERNEL);
++	if (!clk_data)
++		return -ENOMEM;
++
++	clk_data->num = CLK_END;
++	for (i = 0; i < CLK_END; i++)
++		clk_data->hws[i] = ERR_PTR(-ENOENT);
++
++	data = device_get_match_data(dev);
++	if (!data)
++		return -EINVAL;
++
++	priv = devm_kmemdup(dev, data, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++	priv->regs =
++		devm_kmemdup(dev, data->regs, sizeof(*data->regs) * data->num_regs, GFP_KERNEL);
++	if (!priv->regs)
++		return -ENOMEM;
++	priv->num_inputs = devm_clk_bulk_get_all(dev, &priv->inputs);
++	if (priv->num_inputs < 0)
++		return dev_err_probe(dev, priv->num_inputs, "failed to get input clocks\n");
++
++	priv->clk_data = clk_data;
++	dev_set_drvdata(dev, priv);
++
++	ret = a210_map_registers(pdev);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to parse register base\n");
++
++	ret = a210_register_clocks(pdev);
++	if (ret)
++		return ret;
++
++	return devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
++}
++
++static const struct of_device_id a210_clk_of_match[] = {
++	{ .compatible = "zhihe,a210-clk", .data = &top_clk },
++	{ .compatible = "zhihe,a210-gpu-clk", .data = &gpu_clk },
++	{ .compatible = "zhihe,a210-pcie-clk", .data = &pcie_clk },
++	{ .compatible = "zhihe,a210-usb-clk", .data = &usb_clk },
++	{ .compatible = "zhihe,a210-vi-clk", .data = &vi_clk },
++	{ .compatible = "zhihe,a210-vp-clk", .data = &vp_clk },
++	{ .compatible = "zhihe,a210-vo-clk", .data = &vo_clk },
++	{ .compatible = "zhihe,a210-npu-clk", .data = &npu_clk },
++	{ .compatible = "zhihe,a210-peri-clk", .data = &peri_clk },
++	{ /* Sentinel */ },
++};
++MODULE_DEVICE_TABLE(of, a210_clk_of_match);
++
++static struct platform_driver a210_clk_driver = {
++	.probe = a210_clocks_probe,
 +	.driver = {
-+		.name = "pinctrl-a210",
-+		.of_match_table = a210_pinctrl_of_match,
-+		.pm = &a210_pinctrl_dev_pm_ops,
++		.name = "a210-clk",
++		.of_match_table = a210_clk_of_match,
 +	},
 +};
-+module_platform_driver(a210_pinctrl_driver);
 +
-+MODULE_DESCRIPTION("Pinctrl driver for the ZhiHe A210 SoC");
-+MODULE_AUTHOR("Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>");
++module_platform_driver(a210_clk_driver);
++
++MODULE_AUTHOR("dong.yan <yand@zhihecomputing.com>");
++MODULE_DESCRIPTION("Zhihe A210 clock driver");
 +MODULE_LICENSE("GPL");
 
 -- 
