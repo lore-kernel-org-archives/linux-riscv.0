@@ -2,82 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D35360A262B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 607C460A262D
 	for <linux-riscv@archiver.kernel.org>; Wed, 21 Oct 2026 19:53:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zFRNDlb4;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cBS0u8Fm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FxmqLRDR;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ftcL7VxV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q69SJo6CugmOJe79Bn0rcFvLM0k+9ztj9n8V7WwI8Eg=; b=zFRNDlb47cU4xa
-	kHAonEHA6rdY1oImUHDtWVM/P5HhB5cbbVkDouK5cLAR9EL9cw7blkPzQ6WhFXFRI1VRNBcqX3t71
-	GPmm+1L5UHXQpD7uIXOKYO/dKW6g/1tzHokoZUwNOiNx9sbtzK0AjQSlFQVd/wuBtrZUs8R7Mow6j
-	RKrvKJeAveCS3XCYM0RUQgl9wHNCChJGyM3/KCwZ9oODXIOu0HegEjbfpNZ+4K/b2wdIxRqvE/b0o
-	gcjT+pbSyGp68KoJJcCCYyLYu+lq9Jyf4ro5Em5V5sQlfmTCO9SgOu0d6P84HkSDgvgW1dcfoa+Zp
-	fD4T3e4SFGPtEDrbP8/g==;
+	List-Owner; bh=HbCBFIjIwCtNHkBO/O6vMb23c3bgRENa60qEOh8TnDk=; b=FxmqLRDRaXoOEK
+	JMzzJJMxBNE+pQ4zrwsk4dLqCje51S30OPjWMtIIYcZwwRFqTc1NkHw9j80vWSGpEYQln8qJZls0D
+	aCKOu95beugiG2vqvtAN8HyfNuH41zEfYUQ/v/fpdjv8t29XG+pVvlV6gZOO2/B9CVizgPgSGoPJ5
+	fXjpfF+lSY7j8qjwrSpsBXj38CH7hTaFsXoAFZCXJoFFj3dqESbPfD0MS50KrSMC6Rq015abdj6Ao
+	QVGTju5MYItaevO4aIxQwEEJFThFuXaP5rbhRbKKvKXA/Yk9bm+pZSetYEk8rNVssoHsUXSm34Flb
+	DwSw5DwAOtjJO1Z4S6EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJcNW-0000000CmhZ-1vjK;
-	Wed, 21 Oct 2026 19:53:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xJcNV-0000000CmfE-1pYl;
+	Wed, 21 Oct 2026 19:53:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJcNS-0000000CmcZ-0Dm8
+	id 1xJcNQ-0000000CmbL-44DX
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Oct 2026 19:53:34 +0000
+	Wed, 21 Oct 2026 19:53:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C5CE8447E2;
-	Wed, 21 Oct 2026 19:53:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B2ABE42B32;
+	Wed, 21 Oct 2026 19:53:32 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1792612413;
-	b=W40mYi4j7fONoJyiBnMvtlBPxXK2Mdi/ZvIuukv0CmM34xLZ3GSScojgggfe8YKH1EnU
-	 c9k/F1kkyu9KorGRUl82NweXM3vNBVSqKyOaIfpj+e/K+a6ejBM6enoUE770kJLUUwgnY
-	 xkrMKsQcAbJ4kMmwnZnRBFTJg4lzLt5FrN6q9j+LbYbQuZqyb3T6H4465xx2/WoB6oE7I
-	 xRvAa/QNWZtnhx9qu6W2QbBNDi1y37+nuOTz9D38Ux46G9QE81oz4wG/ebxz0NDEKDpJe
-	 L79KnFakYfD5rlpi/XC1Ax+Ndo1bI9EgU0US3lkbKrIihu/aoPyiU5PRfMl6C4iC7wA==
+	t=1792612412;
+	b=SJfIOSQQahB7IytLcf86xdD49Nm467rgdzjpA2xHsLL8KAirVjpk0b/1G6wyYSO+ypau
+	 VU0LcYy+GwD/E1qWXoh6Fzf0p+VypZJI2J5a66hC1L/PEEKGDfsYz8J00S+0W0e1lesGW
+	 VKX2vL9C8HZpOuw9Z3Z98UKUiziTFH9QSVjmPHyGCvFuN4cqVo+rpsqf+M9PuIhO13nM8
+	 13dIVY4eYzW3XCVYH/kL7HXViAHA24jluZWwck7XmMGtzX68WF3bYaz3B5kHgpQCSUxgC
+	 UPM9QZaEf5WPsG9hejQ9YhrYVe+texqwyJmzC6P7hrUDO891CptR6YX9IC2+d+CWKpw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1792612413;
+	c=relaxed/relaxed; t=1792612412;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To;
-	bh=VfK2kjF05doSq8UEPiw9saeUU+lrQBQ+3p8ts6vDWP8=;
-	b=RW/aecln6zBmAV3ZRUW+RI6XqM6Cj6QFKNH2HSNWil1fLMn/NLEGLayqXU6wSXz5mpTy
-	 jBHvn6R6rPq16MFOXVCuUz5X/n+kfOSc87u5WfZBkZ4qxJI0+2niAnq3iOMuF5cd0O1fD
-	 QaUkDVlpLQgGqc5JFQ0ydO41+W+qNPRNTXREQOgx3BGtPXzIv8ZQk1S5x1Ur7BjKqrr4P
-	 ePvayzpFp7tfnKcX+vNWGL92gPql5w4i7wwz1MvHuRU+34F5L2SmKjjDUtvFXRtUJu0lr
-	 zh9vsz/jTgHLoHtzRK8d/OhtbcG48E+GZDnvOiK8ffP6uaetzgtihspQ1xviDqiXZPQ==
+	bh=55Zai5vUFJF6y42H3h7fFkdKOBlnA3DVBhVDRli/qYQ=;
+	b=y4YfmSsu5mXf4+3sea7BXS78G44VdKZHdldQ2XdG7cHWBLK3+nQikwzBzyr9GvDjM8bf
+	 3bIK+cE+0R/4dy8FDfATO/qSfmhMarZYyhFFkBJk/jdE3NLlerMrdfUHezkZNPaGkED+h
+	 ze9ZS/Mh37oFU/ABkMGHW0h1VQTraklbVRHxXKRZqGaCxR7BAaSEJ+Wk2Yj0flOS/vOMk
+	 n9KU3pqGbMFPKJibrHgCax4JyZXV08bga9LgppSc4rZdv8bm3VsR+fO+O1A619vOqflJN
+	 8QQX2xT61h1GlrpQzbHL/9gTFaoVufM8iaH3lKFMiMqJ5C6rkggp+iOcs+//jgVvFYg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id F1D3A1F000C1;
-	Wed, 21 Oct 2026 19:53:27 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 00C6E1F000C3;
+	Wed, 21 Oct 2026 19:53:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792612413;
-	bh=VfK2kjF05doSq8UEPiw9saeUU+lrQBQ+3p8ts6vDWP8=;
+	s=k20260515; t=1792612412;
+	bh=55Zai5vUFJF6y42H3h7fFkdKOBlnA3DVBhVDRli/qYQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=cBS0u8FmmTROEgnB9hcJBdUGF43GPMQjYrf19I1NztY1lnfNqZhaSnDlKFTrMQhBE
-	 cCG2mv0PnSYDfOmPcmitXbMfQ36gHzm73hiXVboZdzYRg2KPuQqohzybXuSzH4ttug
-	 UiG6Y+/hZO9X4+8EuQhdQVmDJ6ddxbJ2KrDseSReLx/uLLPT19fHwyllBKN4dICjdC
-	 b3ekUruqmicaUC/VRtvmq1gOeiUGZMOzVVFKpc/i2wBaYhsZgY91LHdRYr2hSB2W5R
-	 gID/xSYbR2B6xXz+7mQoSIQYKh8ZOkIY3xAYepI1fYXl6bnlo/QdRjdqZvLv81yeBW
-	 gaHI68lQTxXBQ==
+	b=ftcL7VxVWOj3v2EH8pRMOV0OqqQrHsONZvF8PBkrAxMg3jI9YSrP+oK3EhPGHWkQ3
+	 5t1X41qyWPjmmbX6ad7TlU2ixaaXtHQJGDdjVf7EQ4gIfmKj90kEnRK54cbhmHZSlR
+	 EmqT+q9+c2hsS8RDW1H9P0EcmUGIZGHEU6SWMPCRGZNIm7gnY4IJdi/4hY8/XUbdKM
+	 WbGWq85uH0PYrJyqCTHMpJHHhOMl+N94B6Nl5zQLFurb2+1At8vNCH6ykMuLg2CNSu
+	 ZWRUU0w0Y3d/OEE8lfVRz1D09St6kmiuJS/RE4H2krFC7J/zy3ncTKUzEPWbanZtKI
+	 i2z8aT16VaYbg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 1D3EE43443;
+	by lkml.kernel.org (Postfix) with ESMTP id 2615743448;
 	Wed, 21 Oct 2026 19:53:26 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Thu, 22 Oct 2026 03:53:27 +0800
-Subject: [PATCH 07/18] reset: zhihe: add A210 support
+Date: Thu, 22 Oct 2026 03:53:28 +0800
+Subject: [PATCH 08/18] dt-bindings: pinctrl: add Zhihe A210 pin controller
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261022-a210-init-v1-7-5e438f972d24@iscas.ac.cn>
+Message-Id: <20261022-a210-init-v1-8-5e438f972d24@iscas.ac.cn>
 References: <20261022-a210-init-v1-0-5e438f972d24@iscas.ac.cn>
 In-Reply-To: <20261022-a210-init-v1-0-5e438f972d24@iscas.ac.cn>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -97,11 +97,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-gpio@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
  Han Gao <gaohan@iscas.ac.cn>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792612403; l=24116;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792612403; l=6873;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=M1nVLx6Nsw2Cs5dyfLQeWzxX+ubtOQVpG14AavVp5zI=;
- b=Kl/cI+KcwPdHZt9cSWKoR2utTAfpSzBMFP3j0RVMiO2SZgndLulnwrz0bGIwr8Ptq1r87vUg3
- 7C4pUGxGRhAAZBBDJJIoWz1rAQ6qnNjDQK6+xMmIbj81jesMH95NpBm
+ bh=UjyMLJHv24b1f1K2PwMfqU3RXI4khSvr/rvgT5wb0RM=;
+ b=qH9Md8y4uPL6GMtnPMahiXVxkkXKZosnteylMj1yxR6VvnUb6Xb4zumNbJsvcC3hQIEPRBsTH
+ dho8VK7k+RpCcxJ+AQR7N9lz9cxEDGv2o0WGQodBLwQE/TMMpN0AMrD
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -120,656 +120,236 @@ Reply-To: gaohan@iscas.ac.cn
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,UNWANTED_LANGUAGE_BODY,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 From: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
 
-Add support for A210 reset banks and linked reset signals. Check
-register readback to detect rejected writes.
+Add bindings for the four A210 pad controllers. Describe the shared
+PERI3 SDIO mux and per-pad bias controls.
 
 Signed-off-by: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
-Co-developed-by: Han Gao <gaohan@iscas.ac.cn>
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- drivers/reset/Kconfig      |  11 +
- drivers/reset/Makefile     |   1 +
- drivers/reset/reset-a210.c | 589 +++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 601 insertions(+)
+ .../bindings/pinctrl/zhihe,a210-pinctrl.yaml       | 206 +++++++++++++++++++++
+ 1 file changed, 206 insertions(+)
 
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index 3168ab1eea88..039e8a4046dc 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -428,6 +428,17 @@ config RESET_UNIPHIER_GLUE
- 	  on UniPhier SoCs. Say Y if you want to control reset signals
- 	  provided by the glue layer.
- 
-+config RESET_ZHIHE_A210
-+	tristate "ZhiHe A210 reset controller"
-+	depends on OF && (ARCH_ZHIHE || COMPILE_TEST)
-+	default ARCH_ZHIHE
-+	help
-+	  Build the reset controller driver for the ZhiHe A210 SoC.
-+
-+	  This driver provides reset control for the various hardware
-+	  blocks in the A210 SoC. Say Y if you are building a kernel
-+	  for the ZhiHe A210 platform.
-+
- config RESET_ZYNQ
- 	bool "ZYNQ Reset Driver" if COMPILE_TEST
- 	default ARCH_ZYNQ
-diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-index 45ad17062462..3620e94e4539 100644
---- a/drivers/reset/Makefile
-+++ b/drivers/reset/Makefile
-@@ -52,5 +52,6 @@ obj-$(CONFIG_RESET_TI_TPS380X) += reset-tps380x.o
- obj-$(CONFIG_RESET_TN48M_CPLD) += reset-tn48m.o
- obj-$(CONFIG_RESET_UNIPHIER) += reset-uniphier.o
- obj-$(CONFIG_RESET_UNIPHIER_GLUE) += reset-uniphier-glue.o
-+obj-$(CONFIG_RESET_ZHIHE_A210) += reset-a210.o
- obj-$(CONFIG_RESET_ZYNQ) += reset-zynq.o
- obj-$(CONFIG_RESET_ZYNQMP) += reset-zynqmp.o
-diff --git a/drivers/reset/reset-a210.c b/drivers/reset/reset-a210.c
+diff --git a/Documentation/devicetree/bindings/pinctrl/zhihe,a210-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/zhihe,a210-pinctrl.yaml
 new file mode 100644
-index 000000000000..38bad400d6b8
+index 000000000000..51cbb0189f47
 --- /dev/null
-+++ b/drivers/reset/reset-a210.c
-@@ -0,0 +1,589 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2025 Zhihe Computing Limited.
-+ */
++++ b/Documentation/devicetree/bindings/pinctrl/zhihe,a210-pinctrl.yaml
+@@ -0,0 +1,206 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/zhihe,a210-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/reset-controller.h>
-+#include <linux/spinlock.h>
++title: ZhiHe A210 pin controller
 +
-+#include <dt-bindings/reset/zhihe,a210-resets.h>
++maintainers:
++  - Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
 +
-+struct a210_rst_signal {
-+	u16 offset;
-+	u32 mask;
-+	/* Zero terminates a chain of signals that share one reset ID. */
-+	u16 nextid;
-+};
++description: |
++  Pinmux and pinconf controller of the ZhiHe A210 RISC-V SoC.
 +
-+struct a210_reset_data {
-+	const struct a210_rst_signal *signals;
-+	unsigned int num_signals;
-+};
++  The pads of the A210 are split into four groups, each managed by its
++  own pad controller with a separate register range:
 +
-+struct a210_reset {
-+	struct reset_controller_dev rcdev;
-+	void __iomem *base;
-+	const struct a210_reset_data *data;
-+	/* Protects register updates and snapshots of linked reset signals. */
-+	spinlock_t lock;
-+};
++    AON pad controller     -> zhihe,a210-aon-pinctrl
++    PADCTRL0 (peripheral1) -> zhihe,a210-peri1-pinctrl
++    PADCTRL1 (peripheral2) -> zhihe,a210-peri2-pinctrl
++    PADCTRL2 (peripheral3) -> zhihe,a210-peri3-pinctrl
 +
-+static const struct a210_rst_signal vp_rst_signals[] = {
-+	[VP_VDEC_PRST] = { 0, BIT(0), 0 },
-+	[VP_VDEC_CRST] = { 0, BIT(1), 0 },
-+	[VP_VDEC_ARST] = { 0, BIT(2), 0 },
-+	[VP_VENC_PRST] = { 0, BIT(3), 0 },
-+	[VP_VENC_CRST] = { 0, BIT(4), 0 },
-+	[VP_VENC_ARST] = { 0, BIT(5), 0 },
-+	[VP_G2D_PRST] = { 0, BIT(6), 0 },
-+	[VP_G2D_CRST] = { 0, BIT(7), 0 },
-+	[VP_G2D_ARST] = { 0, BIT(8), 0 },
-+	[VP_COMP_PRST] = { 0, BIT(9), 0 },
-+	[VP_COMP_CRST] = { 0, BIT(10), 0 },
-+	[VP_COMP_ARST] = { 0, BIT(11), 0 },
-+	[VP_DECOMP_PRST] = { 0, BIT(12), 0 },
-+	[VP_DECOMP_CRST] = { 0, BIT(13), 0 },
-+	[VP_DECOMP_ARST] = { 0, BIT(14), 0 },
-+	[VP_DFMU_PRST] = { 0, BIT(15), 0 },
-+	[VP_DFMU_ARST] = { 0, BIT(16), 0 },
-+	[VP_ARB_PRST] = { 0, BIT(18), 0 },
-+	[VP_ARB_ARST] = { 0, BIT(19), 0 },
-+	[VP_VDEC_RS_ARST] = { 0, BIT(20), 0 },
-+	[VP_VENC_RS_ARST] = { 0, BIT(21), 0 },
-+	[VP_COMP_EXTPRST] = { 0, BIT(22), 0 },
-+	[VP_DECOMP_EXTPRST] = { 0, BIT(23), 0 },
-+};
++  Each pad can be muxed individually to up to 8 different functions,
++  though for most pads only a few of those configurations are valid.
++  A few pads in the AON group do not support muxing or configuration
++  at all.
 +
-+static const struct a210_rst_signal vi_rst_signals[] = {
-+	[VI_MIPI0_CSI0_PRST] = { 0, BIT(0), 0 },
-+	[VI_MIPI0_CSI1_PRST] = { 0, BIT(1), 0 },
-+	[VI_MIPI0_FIFO_RST] = { 0, BIT(2), 0 },
-+	[VI_MIPI1_CSI0_PRST] = { 0, BIT(3), 0 },
-+	[VI_MIPI1_CSI1_PRST] = { 0, BIT(4), 0 },
-+	[VI_MIPI1_FIFO_RST] = { 0, BIT(5), 0 },
-+	[VI_VIPRE_PRST] = { 0, BIT(6), 0 },
-+	[VI_VIPRE_I0_PIX_RST] = { 0, BIT(7), 0 },
-+	[VI_VIPRE_I1_PIX_RST] = { 0, BIT(8), 0 },
-+	[VI_VIPRE_ISPIF_RST] = { 0, BIT(9), 0 },
-+	[VI_VIPRE_ARST] = { 0, BIT(10), 0 },
-+	[VI_ISP_RST] = { 0, BIT(11), 0 },
-+	[VI_COMP_PRST] = { 0, BIT(12), 0 },
-+	[VI_COMP_ARST] = { 0, BIT(13), 0 },
-+	[VI_COMP_ISPOUT_RST] = { 0, BIT(14), 0 },
-+	[VI_COMP_DECOUT_RST] = { 0, BIT(15), 0 },
-+	[VI_COMP_VSEOUT_RST] = { 0, BIT(16), 0 },
-+	[VI_COMP0_RST] = { 0, BIT(17), 0 },
-+	[VI_COMP1_RST] = { 0, BIT(18), 0 },
-+	[VI_DECOMP_RST] = { 0, BIT(19), 0 },
-+	[VI_DW200_RST] = { 0, BIT(20), 0 },
-+	[VI_DFMU_PRST] = { 0, BIT(21), 0 },
-+	[VI_DFMU_ARST] = { 0, BIT(22), 0 },
-+	[VI_ARB_PRST] = { 0, BIT(23), 0 },
-+	[VI_ARB_ARST] = { 0, BIT(24), 0 },
-+	[VI_X2H0_HRST] = { 0, BIT(26), 0 },
-+	[VI_X2H1_HRST] = { 0, BIT(27), 0 },
-+	[VI_X2H2_HRST] = { 0, BIT(28), 0 },
-+	[VI_REC_PRST] = { 0, BIT(29), 0 },
-+	[VI_REC_ARST] = { 0, BIT(30), 0 },
-+};
++  AON, PERI1 and PERI2 pads support configurable drive strength, bias,
++  input enable, Schmitt trigger and slew rate. PERI3 has a separate pad
++  layout: its six SDIO pads share one mux bit. Select their function with
++  the "sdio" group. Per-pad bias can be configured independently.
 +
-+static const struct a210_rst_signal npu_rst_signals[] = {
-+	[NPU_AAB_MST_RST] = { 0, BIT(0), 0 },
-+	[NPU_AFENCE_RST] = { 0, BIT(1), 0 },
-+	[NPU_AXI_CCU_PRST] = { 0, BIT(2), 0 },
-+	[NPU_AXI_CCU_RST] = { 0, BIT(3), 0 },
-+	[NPU_AXI_M2S1_RST] = { 0, BIT(4), 0 },
-+	[NPU_AXI_RST] = { 0, BIT(5), 0 },
-+	[NPU_CLK_CALC_RST] = { 0, BIT(6), 0 },
-+	[NPU_DFMU_ARST] = { 0, BIT(7), 0 },
-+	[NPU_DFMU_PRST] = { 0, BIT(8), 0 },
-+	[NPU_LPC_C_RST] = { 0, BIT(9), 0 },
-+	[NPU_LPE_C_PRST] = { 0, BIT(10), 0 },
-+	[NPU_LPE_C_RST] = { 0, BIT(11), 0 },
-+	[NPU_ARST] = { 0, BIT(12), 0 },
-+	[NPU_CRST] = { 0, BIT(13), 0 },
-+	[NPU_HRST] = { 0, BIT(14), 0 },
-+	[NPU_PCTRL_PB_RST] = { 0, BIT(15), 0 },
-+	[NPU_PCTRL_PRST] = { 0, BIT(16), 0 },
-+	[NPU_PCTRL_RST] = { 0, BIT(17), 0 },
-+	[NPU_PTW_CCU_PRST] = { 0, BIT(18), 0 },
-+	[NPU_PTW_CCU_RST] = { 0, BIT(19), 0 },
-+	[NPU_SEMA_ARST] = { 0, BIT(20), 0 },
-+	[NPU_SEMA_PRST] = { 0, BIT(21), 0 },
-+	[NPU_DROOP_CCTRL_PRST] = { 0, BIT(22), 0 },
-+	[NPU_DROOP_CCTRL_RST] = { 0, BIT(23), 0 },
-+	[NPU_X2H_RST] = { 0, BIT(24), 0 },
-+	[NPU_X2P_RST] = { 0, BIT(25), 0 },
-+	[NPU_LDIP_RST] = { 0, BIT(26), 0 },
-+	[NPU_SRAM_RST] = { 0, BIT(27), 0 },
-+};
++properties:
++  compatible:
++    enum:
++      - zhihe,a210-aon-pinctrl
++      - zhihe,a210-peri1-pinctrl
++      - zhihe,a210-peri2-pinctrl
++      - zhihe,a210-peri3-pinctrl
 +
-+static const struct a210_rst_signal vo_rst_signals[] = {
-+	[VO_X2H0_RST] = { 0, BIT(0), 0 },
-+	[VO_X2H1_RST] = { 0, BIT(1), 0 },
-+	[VO_DPU_HRST] = { 0, BIT(2), 0 },
-+	[VO_DPU_CRST] = { 0, BIT(3), 0 },
-+	[VO_DPU_ARST] = { 0, BIT(4), 0 },
-+	[VO_AUXDISP_PRST] = { 0, BIT(5), 0 },
-+	[VO_AUXDISP_PIX_RST] = { 0, BIT(6), 0 },
-+	[VO_AUXDISP_ARST] = { 0, BIT(7), 0 },
-+	[VO_HDMI_PRST] = { 0, BIT(8), 0 },
-+	[VO_HDMI_MAIN_RST] = { 0, BIT(9), 0 },
-+	[VO_MIPI_PRST] = { 0, BIT(10), 0 },
-+	[VO_DECOMP_PRST] = { 0, BIT(11), 0 },
-+	[VO_DECOMP0_CRST] = { 0, BIT(12), 0 },
-+	[VO_DECOMP1_CRST] = { 0, BIT(13), 0 },
-+	[VO_DECOMP_ARST] = { 0, BIT(14), 0 },
-+	[VO_ARB_PRST] = { 0, BIT(15), 0 },
-+	[VO_ARB_ARST] = { 0, BIT(16), 0 },
-+	[VO_DFMU_PRST] = { 0, BIT(17), 0 },
-+	[VO_DFMU_ARST] = { 0, BIT(18), 0 },
-+};
++  reg:
++    maxItems: 1
 +
-+static const struct a210_rst_signal peri0_rst_signals[] = {
-+	[PERI0_TIMER0_CRST] = { 0, BIT(0), 0 },
-+	[PERI0_TIMER0_PRST] = { 0, BIT(1), 0 },
-+	[PERI0_TIMER1_CRST] = { 0, BIT(2), 0 },
-+	[PERI0_TIMER1_PRST] = { 0, BIT(3), 0 },
-+	[PERI0_WDT0_PRST] = { 0, BIT(4), 0 },
-+	[PERI0_MBOX0_PRST] = { 0, BIT(5), 0 },
-+	[PERI0_MBOX1_PRST] = { 0, BIT(6), 0 },
-+	[PERI0_TIMER0_RST] = { 0, BIT(0) | BIT(1), 0 },
-+	[PERI0_TIMER1_RST] = { 0, BIT(2) | BIT(3), 0 },
-+};
++  clocks:
++    maxItems: 1
 +
-+static const struct a210_rst_signal peri1_rst_signals[] = {
-+	[PERI1_GMAC0_ARST] = { 0, BIT(0), 0 },
-+	[PERI1_GMAC0_HRST] = { 0, BIT(1), 0 },
-+	[PERI1_GMAC1_ARST] = { 0, BIT(2), 0 },
-+	[PERI1_GMAC1_HRST] = { 0, BIT(3), 0 },
-+	[PERI1_GPIO0_DBRST] = { 0, BIT(4), 0 },
-+	[PERI1_GPIO0_PRST] = { 0, BIT(5), 0 },
-+	[PERI1_GPIO1_DBRST] = { 0, BIT(6), 0 },
-+	[PERI1_GPIO1_PRST] = { 0, BIT(7), 0 },
-+	[PERI1_I2C0_IC_RST] = { 0, BIT(8), 0 },
-+	[PERI1_I2C0_PRST] = { 0, BIT(9), 0 },
-+	[PERI1_I2C1_IC_RST] = { 0, BIT(10), 0 },
-+	[PERI1_I2C1_PRST] = { 0, BIT(11), 0 },
-+	[PERI1_I2C2_IC_RST] = { 0, BIT(12), 0 },
-+	[PERI1_I2C2_PRST] = { 0, BIT(13), 0 },
-+	[PERI1_I2S0_PRST] = { 0, BIT(14), 0 },
-+	[PERI1_MST_BUS_ARST] = { 0, BIT(15), 0 },
-+	[PERI1_MST_BUS_PRST] = { 0, BIT(16), 0 },
-+	[PERI1_PWM0_CRST] = { 0, BIT(17), 0 },
-+	[PERI1_PWM0_PRST] = { 0, BIT(18), 0 },
-+	[PERI1_QSPI0_PRST] = { 0, BIT(19), 0 },
-+	[PERI1_QSPI0_SSI_RST] = { 0, BIT(20), 0 },
-+	[PERI1_SPI0_PRST] = { 0, BIT(21), 0 },
-+	[PERI1_SPI0_SSI_RST] = { 0, BIT(22), 0 },
-+	[PERI1_UART0_PRST] = { 0, BIT(23), PERI1_UART0_S_RST },
-+	[PERI1_UART0_S_RST] = { 0, BIT(24), 0 },
-+	[PERI1_UART1_PRST] = { 0, BIT(25), PERI1_UART1_S_RST },
-+	[PERI1_UART1_S_RST] = { 0, BIT(26), 0 },
-+	[PERI1_UART2_PRST] = { 0, BIT(27), PERI1_UART2_S_RST },
-+	[PERI1_UART2_S_RST] = { 0, BIT(28), 0 },
-+	[PERI1_UART3_PRST] = { 0, BIT(29), PERI1_UART3_S_RST },
-+	[PERI1_UART3_S_RST] = { 0, BIT(30), 0 },
-+	[PERI1_X2H_GMAC0_ARST] = { 0, BIT(31), 0 },
-+	[PERI1_X2H_GMAC0_HRST] = { 0x4, BIT(0), 0 },
-+	[PERI1_X2H_GMAC1_ARST] = { 0x4, BIT(1), 0 },
-+	[PERI1_X2H_GMAC1_HRST] = { 0x4, BIT(2), 0 },
-+	[PERI1_DFMU_ARESET] = { 0x4, BIT(3), 0 },
-+	[PERI1_DFMU_PRESET] = { 0x4, BIT(4), 0 },
-+	[PERI1_PAD_CTRL_PRST] = { 0x4, BIT(5), 0 },
-+	[PERI1_PDM0_MRST] = { 0x4, BIT(6), 0 },
-+	[PERI1_PDM0_PRST] = { 0x4, BIT(7), 0 },
-+	[PERI1_TDM0_RST] = { 0x4, BIT(8), 0 },
-+	[PERI1_CAN0_IPG_PE_RST] = { 0x4, BIT(9), 0 },
-+	[PERI1_CAN0_IPG_RST] = { 0x4, BIT(10), 0 },
-+	[PERI1_CAN0_IPG_SOFT_RST] = { 0x4, BIT(11), 0 },
-+	[PERI1_CAN0_IPG_TS_RST] = { 0x4, BIT(12), 0 },
-+	[PERI1_CAN0_PRST] = { 0x4, BIT(13), 0 },
-+	[PERI1_CAN1_IPG_PE_RST] = { 0x4, BIT(14), 0 },
-+	[PERI1_CAN1_IPG_RST] = { 0x4, BIT(15), 0 },
-+	[PERI1_CAN1_IPG_SOFT_RST] = { 0x4, BIT(16), 0 },
-+	[PERI1_CAN1_IPG_TS_RST] = { 0x4, BIT(17), 0 },
-+	[PERI1_CAN1_PRST] = { 0x4, BIT(18), 0 },
-+	[PERI1_CHIP_DBG_ARST] = { 0x4, BIT(19), 0 },
-+	[PERI1_CHIP_DBG_CRST] = { 0x4, BIT(20), 0 },
-+	[PERI1_CHIP_DBG_PRST] = { 0x4, BIT(21), 0 },
-+	[PERI1_GMAC_CRST] = { 0x4, BIT(22), 0 },
-+	[PERI1_X2H_GMAC2_ARST] = { 0x4, BIT(23), 0 },
-+	[PERI1_X2H_GMAC2_HRST] = { 0x4, BIT(24), 0 },
-+	[PERI1_ZGMAC_X2X_ARST] = { 0x4, BIT(25), 0 },
-+	[PERI1_SPI0_RST] = { 0, BIT(21) | BIT(22), 0 },
-+	[PERI1_I2C0_RST] = { 0, BIT(8) | BIT(9), 0 },
-+	[PERI1_I2C1_RST] = { 0, BIT(10) | BIT(11), 0 },
-+	[PERI1_I2C2_RST] = { 0, BIT(12) | BIT(13), 0 },
-+	[PERI1_GMAC0_RST] = { 0, BIT(0) | BIT(1) | BIT(31), 0 },
-+	[PERI1_GMAC0_X2H_RST] = { 0x4, BIT(0), 0 },
-+	[PERI1_GMAC1_RST] = { 0, BIT(2) | BIT(3), 0 },
-+	[PERI1_GMAC1_X2H_RST] = { 0x4, BIT(1) | BIT(2), 0 },
-+};
++  clock-names:
++    const: pclk
 +
-+static const struct a210_rst_signal peri2_rst_signals[] = {
-+	[PERI2_CAN2_IPG_PE_RST] = { 0, BIT(0), 0 },
-+	[PERI2_CAN2_IPG_RST] = { 0, BIT(1), 0 },
-+	[PERI2_CAN2_IPG_SOFT_RST] = { 0, BIT(2), 0 },
-+	[PERI2_CAN2_IPG_TS_RST] = { 0, BIT(3), 0 },
-+	[PERI2_CAN2_PRST] = { 0, BIT(4), 0 },
-+	[PERI2_GPIO2_DBRST] = { 0, BIT(5), 0 },
-+	[PERI2_GPIO2_PRST] = { 0, BIT(6), 0 },
-+	[PERI2_I2C4_IC_RST] = { 0, BIT(7), 0 },
-+	[PERI2_I2C4_PRST] = { 0, BIT(8), 0 },
-+	[PERI2_I2S2_PRST] = { 0, BIT(9), 0 },
-+	[PERI2_SPI1_PRST] = { 0, BIT(10), 0 },
-+	[PERI2_SPI1_SSI_RST] = { 0, BIT(11), 0 },
-+	[PERI2_UART4_PRST] = { 0, BIT(12), PERI2_UART4_S_RST },
-+	[PERI2_UART4_S_RST] = { 0, BIT(13), 0 },
-+	[PERI2_UART5_PRST] = { 0, BIT(14), PERI2_UART5_S_RST },
-+	[PERI2_UART5_S_RST] = { 0, BIT(15), 0 },
-+	[PERI2_UART6_PRST] = { 0, BIT(16), PERI2_UART6_S_RST },
-+	[PERI2_UART6_S_RST] = { 0, BIT(17), 0 },
-+	[PERI2_PAD_CTRL_PRST] = { 0, BIT(18), 0 },
-+	[PERI2_GPIO3_DBRST] = { 0, BIT(19), 0 },
-+	[PERI2_GPIO3_PRST] = { 0, BIT(20), 0 },
-+	[PERI2_I2C3_IC_RST] = { 0, BIT(21), 0 },
-+	[PERI2_I2C3_PRST] = { 0, BIT(22), 0 },
-+	[PERI2_I2C5_IC_RST] = { 0, BIT(23), 0 },
-+	[PERI2_I2C5_PRST] = { 0, BIT(24), 0 },
-+	[PERI2_I2C6_IC_RST] = { 0, BIT(25), 0 },
-+	[PERI2_I2C6_PRST] = { 0, BIT(26), 0 },
-+	[PERI2_I2C7_IC_RST] = { 0, BIT(27), 0 },
-+	[PERI2_I2C7_PRST] = { 0, BIT(28), 0 },
-+	[PERI2_I2S1_PRST] = { 0, BIT(29), 0 },
-+	[PERI2_I2S3_PRST] = { 0, BIT(30), 0 },
-+	[PERI2_UART7_PRST] = { 0, BIT(31), PERI2_UART7_S_RST },
-+	[PERI2_UART7_S_RST] = { 0x4, BIT(0), 0 },
-+	[PERI2_UART8_PRST] = { 0x4, BIT(1), PERI2_UART8_S_RST },
-+	[PERI2_UART8_S_RST] = { 0x4, BIT(2), 0 },
-+	[PERI2_UART9_PRST] = { 0x4, BIT(3), PERI2_UART9_S_RST },
-+	[PERI2_UART9_S_RST] = { 0x4, BIT(4), 0 },
-+	[PERI2_QSPI1_PRST] = { 0x4, BIT(5), 0 },
-+	[PERI2_QSPI1_SSI_RST] = { 0x4, BIT(6), 0 },
-+	[PERI2_PWM1_CRST] = { 0x4, BIT(7), 0 },
-+	[PERI2_PWM1_PRST] = { 0x4, BIT(8), 0 },
-+	[PERI2_PWM2_CRST] = { 0x4, BIT(9), 0 },
-+	[PERI2_PWM2_PRST] = { 0x4, BIT(10), 0 },
-+	[PERI2_I2C3_RST] = { 0, BIT(21) | BIT(22), 0 },
-+	[PERI2_I2C4_RST] = { 0, BIT(7) | BIT(8), 0 },
-+	[PERI2_I2C5_RST] = { 0, BIT(23) | BIT(24), 0 },
-+	[PERI2_I2C6_RST] = { 0, BIT(25) | BIT(26), 0 },
-+	[PERI2_I2C7_RST] = { 0, BIT(27) | BIT(28), 0 },
-+	[PERI2_SPI1_RST] = { 0, BIT(10) | BIT(11), 0 },
-+};
++patternProperties:
++  '-[0-9]+$':
++    type: object
 +
-+static const struct a210_rst_signal peri3_rst_signals[] = {
-+	[PERI3_DMAC_ARST] = { 0, BIT(0), 0 },
-+	[PERI3_DMAC_HRST] = { 0, BIT(1), 0 },
-+	[PERI3_EMMC_SDIO_CLKGEN_RST] = { 0, BIT(2), 0 },
-+	[PERI3_EMMC_RST] = { 0, BIT(3), 0 },
-+	[PERI3_EMMC_X2X_ARST_M] = { 0, BIT(4), 0 },
-+	[PERI3_EMMC_X2X_ARST_S] = { 0, BIT(5), 0 },
-+	[PERI3_SDIO_RST] = { 0, BIT(6), 0 },
-+	[PERI3_SDIO_X2X_ARST_M] = { 0, BIT(7), 0 },
-+	[PERI3_SDIO_X2X_ARST_S] = { 0, BIT(8), 0 },
-+	[PERI3_AXI_MST_ARST] = { 0, BIT(9), 0 },
-+	[PERI3_AXI_MST_PRST] = { 0, BIT(10), 0 },
-+	[PERI3_ADC_PRST] = { 0, BIT(11), 0 },
-+	[PERI3_TEE_X2X_ARST_M] = { 0, BIT(12), 0 },
-+	[PERI3_TEE_X2X_ARST_S] = { 0, BIT(13), 0 },
-+	[PERI3_TEE_H2H_HRST] = { 0, BIT(14), 0 },
-+	[PERI3_GPIO4_DBRST] = { 0, BIT(15), 0 },
-+	[PERI3_GPIO4_PRST] = { 0, BIT(16), 0 },
-+	[PERI3_PAD_CTRL_PRST] = { 0, BIT(17), 0 },
-+};
++    description:
++      A pinmux group referenced by a consumer's pinctrl phandle. It
++      contains one subnode per set of pads sharing the same pinmux and
++      pinconf settings.
 +
-+static const struct a210_rst_signal pcie_rst_signals[] = {
-+	[PCIE_X2X_PERI_SLV_ARST] = { 0, BIT(0), 0 },
-+	[PCIE_X2X_PERI_MST_ARST] = { 0, BIT(4), 0 },
-+	[PCIE_AXI4_PCIE_MST_ARST] = { 0, BIT(8), 0 },
-+	[PCIE_AXI4_PCIE_MST_PRST] = { 0, BIT(12), 0 },
-+	[PCIE_DFMU_PRST] = { 0x4, BIT(0), 0 },
-+	[PCIE_DFMU_ARST] = { 0x4, BIT(4), 0 },
-+	[PCIE_E16PHY_PHY_RST] = { 0x8, BIT(0), 0 },
-+	[PCIE_E16PHY_APBS_PRST] = { 0x8, BIT(4), 0 },
-+	[PCIE_X2X_SATA_MST_ARST] = { 0x10, BIT(0), 0 },
-+	[PCIE_X2X_SATA_SLV_ARST] = { 0x10, BIT(4), 0 },
-+	[PCIE_SATA_ARESET] = { 0x10, BIT(8), 0 },
-+	[PCIE_SATA_RST_PMALIVE] = { 0x10, BIT(12), 0 },
-+	[PCIE_SATA_SLV_AFENCE_ARST] = { 0x10, BIT(16), 0 },
-+	[PCIE_SATA_MST_AFENCE_ARST] = { 0x10, BIT(20), 0 },
-+	[PCIE_SATA_RST_ASIC0] = { 0x14, BIT(0), 0 },
-+	[PCIE_SATA_RST_ASIC1] = { 0x14, BIT(4), 0 },
-+	[PCIE_SATA_RST_RXOOB0] = { 0x14, BIT(8), 0 },
-+	[PCIE_SATA_RST_RXOOB1] = { 0x14, BIT(12), 0 },
-+	[PCIE_DM_GEN3X4_APBS_PRST] = { 0x20, BIT(0), 0 },
-+	[PCIE_DM_GEN3X4_POWER_UP_RST] = { 0x20, BIT(4), 0 },
-+	[PCIE_DM_SLV_AFENCE_ARST] = { 0x20, BIT(16), 0 },
-+	[PCIE_DM_MST_AFENCE_ARST] = { 0x20, BIT(20), 0 },
-+	[PCIE_RP_GEN3X1_APBS_PRST] = { 0x24, BIT(0), 0 },
-+	[PCIE_RP_GEN3X1_POWER_UP_RST] = { 0x24, BIT(4), 0 },
-+	[PCIE_RP_SLV_AFENCE_ARST] = { 0x24, BIT(16), 0 },
-+	[PCIE_RP_MST_AFENCE_ARST] = { 0x24, BIT(20), 0 },
-+};
++    additionalProperties: false
 +
-+static const struct a210_rst_signal usb_rst_signals[] = {
-+	[USB_DFMU_PRST] = { 0, BIT(0), 0 },
-+	[USB_DFMU_ARST] = { 0, BIT(4), 0 },
-+	[USB_AXI4_MST_ARST] = { 0, BIT(8), 0 },
-+	[USB_AXI4_MST_PRST] = { 0, BIT(12), 0 },
-+	[USB_DPTX_APBS_PRST] = { 0x4, BIT(0), 0 },
-+	[USB_DPTX_VCC_RST] = { 0x4, BIT(4), 0 },
-+	[USB_USB31_APBS_PRST] = { 0x8, BIT(0), 0 },
-+	[USB_USB31_VCC_RST] = { 0x8, BIT(4), 0 },
-+	[USB_USB31_PHY_RST] = { 0x8, BIT(8), 0 },
-+	[USB_USB31_SLV_AFENCE_ARST] = { 0x8, BIT(12), 0 },
-+	[USB_C10PHY_PHY_RST] = { 0xc, BIT(0), 0 },
-+	[USB_C10PHY_APBS_PRST] = { 0xc, BIT(4), 0 },
-+	[USB_USB20_BLK_X2H_HRST] = { 0x10, BIT(0), 0 },
-+	[USB_USB20_BLK_X2H_ARST] = { 0x10, BIT(4), 0 },
-+	[USB_USB20_SLV_AFENCE_ARST] = { 0x10, BIT(8), 0 },
-+	[USB_USB20_BLK_H2P_HRST] = { 0x10, BIT(16), 0 },
-+	[USB_USB20_BLK_AHB_SLV_HRST] = { 0x10, BIT(20), 0 },
-+	[USB_USB20_BLK_AXI_MST_ARST] = { 0x10, BIT(24), 0 },
-+	[USB_USB20_BLK_USB2_SYSREG_PRST] = { 0x10, BIT(28), 0 },
-+	[USB_USB20_BLK_USB2_WRAP0_PRST] = { 0x14, BIT(0), 0 },
-+	[USB_USB20_BLK_USB2_WRAP0_HRST] = { 0x14, BIT(4), 0 },
-+	[USB_USB20_BLK_USB2_WRAP1_PRST] = { 0x14, BIT(8), 0 },
-+	[USB_USB20_BLK_USB2_WRAP1_HRST] = { 0x14, BIT(12), 0 },
-+	[USB_USB20_BLK_A2X0_HRST] = { 0x14, BIT(16), 0 },
-+	[USB_USB20_BLK_A2X0_ARST] = { 0x14, BIT(20), 0 },
-+	[USB_USB20_BLK_A2X1_HRST] = { 0x14, BIT(24), 0 },
-+	[USB_USB20_BLK_A2X1_ARST] = { 0x14, BIT(28), 0 },
-+	[USB_USB20_BLK_USB0_PHY_PON_RESET] = { 0x18, BIT(0), 0 },
-+	[USB_USB20_BLK_USB1_PHY_PON_RESET] = { 0x18, BIT(4), 0 },
-+	[USB_PERI2_SS_RST] = { 0x20, BIT(0), 0 },
-+	[USB_PERI2_SLV_AFENCE_ARST] = { 0x20, BIT(4), 0 },
-+};
++    patternProperties:
++      '-pins$':
++        type: object
++        $ref: /schemas/pinctrl/pincfg-node.yaml#
 +
-+static const struct a210_rst_signal tee_rst_signals[] = {
-+	[TEE_KEYRAM_PRST] = { 0, BIT(0), 0 },
-+	[TEE_DS_PRST] = { 0, BIT(1), 0 },
-+	[TEE_EFUSE_PRST] = { 0, BIT(2), 0 },
-+	[TEE_OCRAM_HRST] = { 0, BIT(3), 0 },
-+	[TEE_SYSREG_PRST] = { 0, BIT(4), 0 },
-+	[TEE_CCU_PRST] = { 0, BIT(5), 0 },
-+	[TEE_CCU_CRST] = { 0, BIT(6), 0 },
-+	[TEE_EIP150B_HRST] = { 0, BIT(8), 0 },
-+	[TEE_EIP120SIII_HRST] = { 0, BIT(9), 0 },
-+	[TEE_EIP120SIII_ARST] = { 0, BIT(10), 0 },
-+	[TEE_EIP120SII_HRST] = { 0, BIT(11), 0 },
-+	[TEE_EIP120SII_ARST] = { 0, BIT(12), 0 },
-+	[TEE_EIP120SI_HRST] = { 0, BIT(13), 0 },
-+	[TEE_EIP120SI_ARST] = { 0, BIT(14), 0 },
-+	[TEE_DMAC_HRST] = { 0, BIT(15), 0 },
-+	[TEE_DMAC_ARST] = { 0, BIT(16), 0 },
-+	[TEE_X2P_TEESYS_PRST] = { 0, BIT(24), 0 },
-+	[TEE_X2P_TEESYS_ARST] = { 0, BIT(25), 0 },
-+	[TEE_AXI4_TEESYS_ARST] = { 0, BIT(26), 0 },
-+	[TEE_APB3_TEESYS_PRST] = { 0, BIT(27), 0 },
-+	[TEE_APB3_TEESYS_HRST] = { 0, BIT(28), 0 },
-+	[TEE_AHB2_TEESYS_HRST] = { 0, BIT(29), 0 },
-+};
++        description:
++          A pinctrl node describing the pinmux and pinconf settings of
++          one or more pads.
 +
-+static const struct a210_rst_signal gpu_rst_signals[] = {
-+	[GPU_PWR_WRAP_RGX_HOOD_RST] = { 0, BIT(0), 0 },
-+	[GPU_PWR_WRAP_DFMU_RST] = { 0, BIT(1), 0 },
-+};
++        properties:
++          pins:
++            $ref: /schemas/pinctrl/pinmux-node.yaml#/properties/pins
++            description: List of pads that properties in the node apply to.
 +
-+static inline struct a210_reset *to_a210_reset(struct reset_controller_dev *rcdev)
-+{
-+	return container_of(rcdev, struct a210_reset, rcdev);
-+}
++          groups:
++            items:
++              - const: sdio
 +
-+static int a210_reset_update(struct reset_controller_dev *rcdev,
-+			     unsigned long id, bool assert)
-+{
-+	struct a210_reset *rst = to_a210_reset(rcdev);
-+	const struct a210_rst_signal *signal;
-+	unsigned long flags;
-+	u32 value;
-+	int ret = 0;
++          function:
++            $ref: /schemas/pinctrl/pinmux-node.yaml#/properties/function
++            enum: [ aouart, aouart_ir, aogpio0, aogpio1, aoi2c0, aoi2c1,
++                    aospi, jtag, reset, por, pmic, dvs, uart0, uart1,
++                    uart2, uart3, uart4, uart5, uart6, uart7, uart8,
++                    uart9, uart0_ir, uart1_ir, uart2_ir, uart3_ir,
++                    uart4_ir, uart5_ir, uart6_ir, uart7_ir, uart8_ir,
++                    uart9_ir, gpio0, gpio1, gpio2, gpio3, gpio4, gmac0,
++                    gmac1, spi0, spi1, qspi0, qspi1, pwm0, pwm1, pwm2,
++                    can0, can1, can2, i2s0, i2s1, i2s2, i2s3, i2c0, i2c1,
++                    i2c2, i2c3, i2c4, i2c5, i2c6, i2c7, i2c7_smb, sdio,
++                    isp0, dptx, usb31, sata_p0, sata_p1, hdmi, zmac,
++                    bsel, dbgm, cdbg, pdm, tdm, pcie_x1, pcie_x4,
++                    sen_vclk ]
++            description: The mux function to select for the given pins.
 +
-+	if (id >= rst->data->num_signals)
-+		return -EINVAL;
++          bias-disable: true
 +
-+	spin_lock_irqsave(&rst->lock, flags);
-+	do {
-+		signal = &rst->data->signals[id];
-+		value = readl(rst->base + signal->offset);
-+		if (assert)
-+			value &= ~signal->mask;
-+		else
-+			value |= signal->mask;
-+		writel(value, rst->base + signal->offset);
-+		/* Firmware can lock individual reset controls against AP writes. */
-+		if ((readl(rst->base + signal->offset) & signal->mask) !=
-+		    (value & signal->mask)) {
-+			ret = -EIO;
-+			break;
-+		}
-+		id = signal->nextid;
-+	} while (id);
-+	spin_unlock_irqrestore(&rst->lock, flags);
++          bias-pull-up: true
 +
-+	return ret;
-+}
++          bias-pull-down: true
 +
-+static int a210_reset_assert(struct reset_controller_dev *rcdev, unsigned long id)
-+{
-+	return a210_reset_update(rcdev, id, true);
-+}
++          drive-strength:
++            enum: [ 1, 2, 3, 5, 7, 8, 10, 12, 13, 15, 16, 18, 20, 21, 23,
++                    25 ]
++            description: Drive strength in mA.
 +
-+static int a210_reset_deassert(struct reset_controller_dev *rcdev, unsigned long id)
-+{
-+	return a210_reset_update(rcdev, id, false);
-+}
++          input-enable: true
 +
-+static int a210_reset_status(struct reset_controller_dev *rcdev, unsigned long id)
-+{
-+	struct a210_reset *rst = to_a210_reset(rcdev);
-+	const struct a210_rst_signal *signal;
-+	unsigned long flags;
-+	bool asserted;
++          input-disable: true
 +
-+	if (id >= rst->data->num_signals)
-+		return -EINVAL;
++          input-schmitt-enable: true
 +
-+	/* The logical reset is asserted if any linked signal is asserted. */
-+	spin_lock_irqsave(&rst->lock, flags);
-+	do {
-+		signal = &rst->data->signals[id];
-+		asserted = (readl(rst->base + signal->offset) & signal->mask) !=
-+			   signal->mask;
-+		if (asserted)
-+			break;
-+		id = signal->nextid;
-+	} while (id);
-+	spin_unlock_irqrestore(&rst->lock, flags);
++          input-schmitt-disable: true
 +
-+	return asserted;
-+}
++          slew-rate:
++            maximum: 1
 +
-+static const struct reset_control_ops a210_reset_ops = {
-+	.assert = a210_reset_assert,
-+	.deassert = a210_reset_deassert,
-+	.status = a210_reset_status,
-+};
++        oneOf:
++          - required: [pins]
++          - required: [groups]
 +
-+static int a210_reset_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct a210_reset *rst;
++        additionalProperties: false
 +
-+	rst = devm_kzalloc(dev, sizeof(*rst), GFP_KERNEL);
-+	if (!rst)
-+		return -ENOMEM;
++allOf:
++  - if:
++      properties:
++        compatible:
++          const: zhihe,a210-peri3-pinctrl
++    then:
++      patternProperties:
++        '-[0-9]+$':
++          patternProperties:
++            '-pins$':
++              properties:
++                pins:
++                  items:
++                    enum: [SDIO_CLK, SDIO_CMD, SDIO_DAT0, SDIO_DAT1,
++                           SDIO_DAT2, SDIO_DAT3]
++                function:
++                  enum: [sdio, gpio4]
++                drive-strength: false
++                input-enable: false
++                input-disable: false
++                input-schmitt-enable: false
++                input-schmitt-disable: false
++                slew-rate: false
++              if:
++                required: [function]
++              then:
++                required: [groups]
++    else:
++      patternProperties:
++        '-[0-9]+$':
++          patternProperties:
++            '-pins$':
++              properties:
++                groups: false
 +
-+	rst->data = device_get_match_data(dev);
-+	if (!rst->data)
-+		return -EINVAL;
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
 +
-+	rst->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(rst->base))
-+		return PTR_ERR(rst->base);
++additionalProperties: false
 +
-+	spin_lock_init(&rst->lock);
-+	rst->rcdev.ops = &a210_reset_ops;
-+	rst->rcdev.owner = THIS_MODULE;
-+	rst->rcdev.dev = dev;
-+	rst->rcdev.of_node = dev->of_node;
-+	rst->rcdev.nr_resets = rst->data->num_signals;
++examples:
++  - |
++    pinctrl@2026000 {
++        compatible = "zhihe,a210-peri1-pinctrl";
++        reg = <0x2026000 0x1000>;
++        clocks = <&clk 0>;
++        clock-names = "pclk";
 +
-+	return devm_reset_controller_register(dev, &rst->rcdev);
-+}
++        gmac0-0 {
++            gmac0-pins {
++                bias-disable;
++                drive-strength = <13>;
++                function = "gmac0";
++                input-disable;
++                input-schmitt-disable;
++                pins = "GPIO0_0", "GPIO0_12";
++                slew-rate = <0>;
++            };
++        };
++    };
 +
-+static const struct a210_reset_data vp_reset_data = {
-+	.signals = vp_rst_signals,
-+	.num_signals = ARRAY_SIZE(vp_rst_signals),
-+};
++  - |
++    pinctrl@542000 {
++        compatible = "zhihe,a210-peri3-pinctrl";
++        reg = <0x542000 0x1000>;
++        clocks = <&clk 0>;
++        clock-names = "pclk";
 +
-+static const struct a210_reset_data vi_reset_data = {
-+	.signals = vi_rst_signals,
-+	.num_signals = ARRAY_SIZE(vi_rst_signals),
-+};
++        sdio-0 {
++            cmd-data-pins {
++                bias-pull-up;
++                pins = "SDIO_CMD", "SDIO_DAT0", "SDIO_DAT1",
++                       "SDIO_DAT2", "SDIO_DAT3";
++            };
 +
-+static const struct a210_reset_data npu_reset_data = {
-+	.signals = npu_rst_signals,
-+	.num_signals = ARRAY_SIZE(npu_rst_signals),
-+};
-+
-+static const struct a210_reset_data vo_reset_data = {
-+	.signals = vo_rst_signals,
-+	.num_signals = ARRAY_SIZE(vo_rst_signals),
-+};
-+
-+static const struct a210_reset_data peri0_reset_data = {
-+	.signals = peri0_rst_signals,
-+	.num_signals = ARRAY_SIZE(peri0_rst_signals),
-+};
-+
-+static const struct a210_reset_data peri1_reset_data = {
-+	.signals = peri1_rst_signals,
-+	.num_signals = ARRAY_SIZE(peri1_rst_signals),
-+};
-+
-+static const struct a210_reset_data peri2_reset_data = {
-+	.signals = peri2_rst_signals,
-+	.num_signals = ARRAY_SIZE(peri2_rst_signals),
-+};
-+
-+static const struct a210_reset_data peri3_reset_data = {
-+	.signals = peri3_rst_signals,
-+	.num_signals = ARRAY_SIZE(peri3_rst_signals),
-+};
-+
-+static const struct a210_reset_data pcie_reset_data = {
-+	.signals = pcie_rst_signals,
-+	.num_signals = ARRAY_SIZE(pcie_rst_signals),
-+};
-+
-+static const struct a210_reset_data usb_reset_data = {
-+	.signals = usb_rst_signals,
-+	.num_signals = ARRAY_SIZE(usb_rst_signals),
-+};
-+
-+static const struct a210_reset_data tee_reset_data = {
-+	.signals = tee_rst_signals,
-+	.num_signals = ARRAY_SIZE(tee_rst_signals),
-+};
-+
-+static const struct a210_reset_data gpu_reset_data = {
-+	.signals = gpu_rst_signals,
-+	.num_signals = ARRAY_SIZE(gpu_rst_signals),
-+};
-+
-+static const struct of_device_id a210_reset_of_match[] = {
-+	{ .compatible = "zhihe,a210-vp-reset", .data = &vp_reset_data },
-+	{ .compatible = "zhihe,a210-vi-reset", .data = &vi_reset_data },
-+	{ .compatible = "zhihe,a210-npu-reset", .data = &npu_reset_data },
-+	{ .compatible = "zhihe,a210-vo-reset", .data = &vo_reset_data },
-+	{ .compatible = "zhihe,a210-peri0-reset", .data = &peri0_reset_data },
-+	{ .compatible = "zhihe,a210-peri1-reset", .data = &peri1_reset_data },
-+	{ .compatible = "zhihe,a210-peri2-reset", .data = &peri2_reset_data },
-+	{ .compatible = "zhihe,a210-peri3-reset", .data = &peri3_reset_data },
-+	{ .compatible = "zhihe,a210-pcie-reset", .data = &pcie_reset_data },
-+	{ .compatible = "zhihe,a210-usb-reset", .data = &usb_reset_data },
-+	{ .compatible = "zhihe,a210-tee-reset", .data = &tee_reset_data },
-+	{ .compatible = "zhihe,a210-gpu-reset", .data = &gpu_reset_data },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, a210_reset_of_match);
-+
-+static struct platform_driver a210_reset_driver = {
-+	.probe = a210_reset_probe,
-+	.driver = {
-+		.name = "a210-reset",
-+		.of_match_table = a210_reset_of_match,
-+	},
-+};
-+module_platform_driver(a210_reset_driver);
-+
-+MODULE_AUTHOR("Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>");
-+MODULE_DESCRIPTION("Zhihe A210 reset controller driver");
-+MODULE_LICENSE("GPL");
++            sdio-pins {
++                function = "sdio";
++                groups = "sdio";
++            };
++        };
++    };
 
 -- 
 2.55.0
