@@ -2,64 +2,93 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1468A606A31D
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 02:53:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A21C2606A323
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 03:20:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HUzk8pCE;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=K7HDombO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dXfBj0Kp;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=K3RTbP3D
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5QQUWfy7N6MXPsemMtCvXM5vF1dQFPhbA88oyu3F7gw=; b=HUzk8pCE5iHJFY
-	l9PlQeXbeLixB2qWt3tMmOSmAfjTN+K0UYyCt7jvXQQtoMgzaNIF7QEhhmozCBZQ3f6HzoI1ZbW5Q
-	AyqjaAjoEkT2nd3fIJxG9EsZFxAAO4zSNF2jWwdkZT3m4Dqk0fIren6FbQv5tNAlOqS1cAX2fHliS
-	RQeJeWZ+FAnSBPyQKC/UbpSnQAv6WTJMamci8iCEbYsX+moWBwy0MwgEyQanbezmUxiL0WutDvlJe
-	P2DggNIjrz4ismaUGnlG73qModVY77pdi3p543wbMKrwTVFFY6k1U0JtEIuJBIi+4zuWDCNfzAZjb
-	5QdcW6I+nN7Bs/aQC4hw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:References:Cc:To:From:Subject:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6DP9qfjeL+o3RPhONoOes2XE4o0w65IJqevyUO638xw=; b=dXfBj0KpbCLmTg/47URBu2IRAR
+	NLSuLNyi5FCOrI98BcS5Dg0U01pMNh9vuOk7Az4TxKli+a8NvUsFAHurGNhmiIXJXCKw6iw1q82w8
+	p60PpohpRGs3FnDgNi4pIZJ4dd9cn57BEQMBgA4nqa/vR8TvxoL+5nM24w4e1JYN9JKAuBeZWiyY5
+	lgZCy+E0Sw+AwkWM3HHw+SIECrAEc663dp5Az+q3XKL6+LXQvYwNT4KUZsJYD5+NA8e3NU4UEtzuJ
+	wjIa4nmm8b8gaigbL/WDCwFm5qeNrI53YULUz0SyaXAnKYJpbu5A94lV7AdOJguQ9eyDIKb/sVfjM
+	0hGgjUBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJivP-0000000DEoY-3DIF;
-	Thu, 22 Oct 2026 02:53:03 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1xJjLB-0000000DGiK-0qU9;
+	Thu, 22 Oct 2026 03:19:41 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJivL-0000000DEni-13Hd;
-	Thu, 22 Oct 2026 02:53:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1792637573; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=DejVP3KnOQCw446A7rW8sW1DdnpwryfI3tnU/3cckYc=;
-	b=K7HDombO92t7FztwmrYMJx2aLWg66iDabeqziplSln86brrtfQ31QcoYDr56JpdTfImgfewQi+xfgJb04ILwzSdk8xhTi8dE1y5DslISaxX3OTScitgyQpPvE8RJzRz/4zY1/Dixak+XaJ1qJeKNO+YDwXIgMfflr6/0kVYxkkI=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R181e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=jinyue.li@linux.alibaba.com;NM=1;PH=DS;RN=12;SR=0;TI=SMTPD_---0XDHoSgz_1792637568;
-Received: from aa8c952a0f58..(mailfrom:jinyue.li@linux.alibaba.com fp:SMTPD_---0XDHoSgz_1792637568 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 22 Oct 2026 10:52:53 +0800
-From: Li Jinyue <jinyue.li@linux.alibaba.com>
-To: kvm-riscv@lists.infradead.org
-Cc: kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	anup@brainfault.org,
-	atish.patra@linux.dev,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	wang.yechao255@zte.com.cn,
-	stable@vger.kernel.org
-Subject: [PATCH] RISC-V: KVM: Fix double free of the split page cache
-Date: Thu, 22 Oct 2026 02:52:48 +0000
-Message-Id: <20261022025248.477832-1-jinyue.li@linux.alibaba.com>
-X-Mailer: git-send-email 2.25.1
+	id 1xJjL7-0000000DGhY-3K94
+	for linux-riscv@lists.infradead.org;
+	Thu, 22 Oct 2026 03:19:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1792639125;
+	bh=/JUTPTDl3DvoEWfToW36E2HDw8Rwl5aay5g6qHBleZg=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=K3RTbP3Dm/Q3Rza4/lthR/aT2EctP713zqvnPliF61BdUkqDZ41G5jvFU8XGPNFOE
+	 celuf1OoYn4AdldWov5SzOtb2PpKE9qb85yyP6biAqZGstMPtLiC9Ycsi8yemFP6xk
+	 uC4/i5CftAO4pG6LW8jds7wZ3GlhuuT1pguIU6cA=
+X-QQ-mid: esmtpgz16t1792639123tafb198f4
+X-QQ-Originating-IP: ICPxySEftKnBISmNiBeiOIrTueBfjfFOrGVxa1s5a28=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 22 Oct 2026 11:18:41 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 6102986534664089495
+EX-QQ-RecipientCnt: 14
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
+Mime-Version: 1.0
+Date: Thu, 22 Oct 2026 11:18:38 +0800
+Message-Id: <DMB1J6C0UYAM.SN46HDB4HISY@linux.spacemit.com>
+Subject: Re: [PATCH v2 3/3] riscv: dts: spacemit: k3-deepcomputing-fml13v05:
+ Enable SD card support
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Sandie Cao" <sandie.cao@deepcomputing.io>, "Yixun Lan"
+ <dlan@kernel.org>, "Troy Mitchell" <troy.mitchell@linux.spacemit.com>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Paul Walmsley"
+ <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
+ <aou@eecs.berkeley.edu>
+Cc: "Alexandre Ghiti" <alex@ghiti.fr>, <devicetree@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>
+X-Mailer: aerc 0.21.0-reader-ipc4
+References: <20261020081633.3673704-1-sandie.cao@deepcomputing.io>
+ <20261020082015.3673761-1-sandie.cao@deepcomputing.io>
+In-Reply-To: <20261020082015.3673761-1-sandie.cao@deepcomputing.io>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MesT5uKpDagV05sbWBvphgIIaUqm9aAcHXKrfqA+ewpXGHniyYVPU/Jj
+	DVSj2DkPBFVbUBbo7bi1CAaREaMHOVe+WaPgrIU5Uj5NkyAnQ18jFd7tRU+/M1MQ3kN6zPl
+	+nHfbp9Sr7YwvG6vYWQGtKZ9OQzhG8l6OnySOPk319To75+wTVGhKHSgYTJDzy7Ur3TxpvO
+	qXXmAaZOIqVFu3NtdG7Bg/9vb0zkbGRsEUf7mA1KTUYYqFw3VjjxsiMi4mjKNYw7h3tK6mA
+	k/hnsXbyHrsoV8C3EQu7JF9JwQ3Qm0j4L2WfDfJViPZZC9I7NztQ7hElfRQM1T9VCcJwqwi
+	7erHQNHrQM2soOzq5YDF054IANw0/APucgMcZBuqeYKEz9rUnsn2wLbjBzCVizeU3GLscny
+	7oLy2CcoXw43kKLGDcVXBm3TqT0L3Ij8X6/RLYVHYOCGqmACmlqGb9AWG5e9EWmfOcwC5st
+	BKE9/+MLkBCsLBHM7iHl7f4AtsKHBSSwd1p/d4YTbNBsgIMLCYZcsiR2cPuvQh5aGHrqLGY
+	jbAvLahLhOrVEaNtNrfvCq1UF62aFy/F2/pGj6XWZrmAFp0mYOvYQU3JMVSW5axM4CevU9U
+	0DEWxwB8iagYD/Edd5d65PKLEHGTL2UgPoTGLDrun4sBzPPBG0DwXF2ogqKKqURWH1FCc22
+	0rmUjnONgreGHAqV5uRgmNH0YnUmG5iGfZoWy3TiLkOMOZw/5ZHrdF45DmYxNJTlXcJ2Vte
+	0kPR9nqJZh5iGWBMTqYFK4C2jomtKqkvJ4PcPeedztAbW3fLKgNRjw6t8ew0g2cGLEAFY94
+	pt9DKEPPVZp83tBD1oZG5Kj79NabqMfE7fL+kBhPHFzSPFGLSHEXOtqgMQrrsbhWt3cZblk
+	6sCoza4rjr6yVS6rIZ2koAdNIm8kz+Il6qcv23wW7fDz/mNKxCVIcTr9EkvL0dMaf2nPP2R
+	kxvKTB2vu9xFymHW/hOkaQzQZmoE/f0ENr+EWJJw4z/j9duIj/b2O0zpq6Gr/lfz1/3BfP3
+	nonQx1yXZdbqSqStx5UEkgfPs/pzxievFDzWMRc/i67WWDntChTCcdnsLVNURDur2WLtDVP
+	aiGtaKLO8lU5zrPITueprjZxsW/ajcVmOHrLrjG+ciS
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_195259_996007_91844AB1 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -17.6 (-----------------)
+X-CRM114-CacheID: sfid-20261021_201938_642283_FFB6B24E 
+X-CRM114-Status: GOOD (  12.52  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,100 +98,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2898030738291487236=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-kvm_riscv_mmu_free_pgd() frees pgd_split_page_cache after dropping
-mmu_lock. It is reached from kvm_arch_flush_shadow_all(), i.e. from the
-MMU notifier ->release() callback, which can run concurrently for the
-same VM from exit_mmap() and from mmu_notifier_unregister() in
-kvm_destroy_vm(). The stage-2 teardown is serialized by mmu_lock and the
-second caller finds kvm->arch.pgd already cleared, but both callers then
-go on to free the cache, and kvm_mmu_free_memory_cache() does not
-tolerate concurrent callers:
+--===============2898030738291487236==
+Content-Type: multipart/signed;
+ boundary=31cfa6b4a87c9db47b94322de7283a792c5e939a3d8a2a05e0f0c1fefef7;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Transfer-Encoding: 8bit
 
-  BUG: KASAN: double-free in kvfree+0x28/0x32
-  ...
-   kfree+0xc4/0x428
-   kvfree+0x28/0x32
-   kvm_mmu_free_memory_cache+0x178/0x246
-   kvm_riscv_mmu_free_pgd+0x20e/0x2b4
-   kvm_arch_flush_shadow_all+0x1a/0x24
-   kvm_mmu_notifier_release+0x36/0x7c
-   __mmu_notifier_release+0x182/0x66a
-   exit_mmap+0x7f8/0x8c4
-   mmput+0x7e/0x2fc
-   do_exit+0x57a/0x22b4
-  ...
-  Freed by task 15956 on cpu 3 at 8926.103524s:
-  ...
-   kvm_mmu_free_memory_cache+0x178/0x246
-   kvm_riscv_mmu_free_pgd+0x20e/0x2b4
-   kvm_arch_flush_shadow_all+0x1a/0x24
-   kvm_mmu_notifier_release+0x36/0x7c
-   mmu_notifier_unregister+0xf0/0x328
-   kvm_put_kvm+0x32a/0x7b8
-   kvm_vm_release+0x3a/0x50
-   __fput+0x330/0x974
+--31cfa6b4a87c9db47b94322de7283a792c5e939a3d8a2a05e0f0c1fefef7
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-The cache only feeds huge page splitting from VM ioctls, so it does not
-need to be released together with the page table. Free it from
-kvm_arch_destroy_vm() instead, which runs once after the MMU notifier
-has been unregistered, as arm64 and x86 already do. The error path in
-kvm_arch_init_vm() is not affected because the cache cannot have been
-filled at that point.
+On Tue Oct 20, 2026 at 4:20 PM +08, Sandie Cao wrote:
+> Add the device tree node SDHCI-0 controller for Micro SD card slot.
+>
+> Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
+> ---
+>  .../dts/spacemit/k3-deepcomputing-fml13v05.dts | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
+>
+> diff --git a/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts b=
+/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
+> index 84f66dd8f962..09e3d46a2ea3 100644
+> --- a/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
+> @@ -2,6 +2,7 @@
+>  /*
+>   * Copyright (C) 2026 DeepComputing (HK) Limited
+>   */
+> +#include <dt-bindings/gpio/gpio.h>
 
-Found by syzkaller.
+This header is no longer needed now that cd-gpios has been removed.
 
-Fixes: 6c7f75ef096a ("RISC-V: KVM: Add the split page cache for ioctl context")
-Cc: stable@vger.kernel.org
-Signed-off-by: Li Jinyue <jinyue.li@linux.alibaba.com>
----
- arch/riscv/kvm/mmu.c | 2 --
- arch/riscv/kvm/vm.c  | 2 ++
- 2 files changed, 2 insertions(+), 2 deletions(-)
+> =20
+>  #include "k3.dtsi"
+>  #include "k3-pinctrl.dtsi"
+> @@ -184,6 +185,23 @@ &combophy {
+>  	status =3D "okay";
+>  };
+> =20
+> +&sdhci0 {
+> +	pinctrl-names =3D "default","uhs";
+> +	pinctrl-0 =3D <&mmc1_cfg>;
+> +	pinctrl-1 =3D <&mmc1_uhs_cfg>;
+> +	bus-width =3D <4>;
+> +	non-removable;
 
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 3e955d808743..74dece22d172 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -798,8 +798,6 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
- 
- 	if (pgd)
- 		free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage_pgd_size));
--
--	kvm_mmu_free_memory_cache(&kvm->arch.pgd_split_page_cache);
- }
- 
- void kvm_riscv_mmu_update_hgatp(struct kvm_vcpu *vcpu)
-diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
-index a9f083feeb76..a7e1b518257a 100644
---- a/arch/riscv/kvm/vm.c
-+++ b/arch/riscv/kvm/vm.c
-@@ -54,6 +54,8 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
- 	kvm_destroy_vcpus(kvm);
- 
- 	kvm_riscv_aia_destroy_vm(kvm);
-+
-+	kvm_mmu_free_memory_cache(&kvm->arch.pgd_split_page_cache);
- }
- 
- int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irql,
+Could we add a comment explaining why the SD card is marked as
+non-removable?
 
-base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
--- 
-2.25.1
 
+--=20
+Troy Mitchell
+
+
+--31cfa6b4a87c9db47b94322de7283a792c5e939a3d8a2a05e0f0c1fefef7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCatmAjwAKCRCYCe+A+TM0
+L8C8AP9Irgawm5YpoIAUfeaOEmpkeMyleK+xG8EFI61rJSKlOAEA6/HVKU2fHd7+
+uPDtKcTGGCeydx5BiDR2GfdRfcLrGAk=
+=qRux
+-----END PGP SIGNATURE-----
+
+--31cfa6b4a87c9db47b94322de7283a792c5e939a3d8a2a05e0f0c1fefef7--
+
+
+--===============2898030738291487236==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2898030738291487236==--
+
