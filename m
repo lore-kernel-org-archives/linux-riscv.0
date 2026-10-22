@@ -2,102 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4217606A319
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 18:04:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16B82606A319
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 18:05:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=y4CQHhZ7;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=zytor.com header.i=@zytor.com header.a=rsa-sha256 header.s=2026092801 header.b=wS32jOje
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ClRcK8Bb;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZJfdPjF2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=+MNQaj6ns+G56cYenS3LDhaNWJ52zSypjmxJUZjVsUI=; b=y4CQHhZ7vGhYFkdJXinu/K3Dyy
-	KQMc5IUsr3m9LkdNaNOzOaMyILmCkou7R5K/T0a1okBAznjy3/qn1r5sqYplykhIKLCGrp2+yGoDg
-	Y+LwF4nQHHEvejegwfLkqfwArq9cHAE2i2ccjsGaEvBFsad0IyVsmDjuBDPIzSFvckGcXszkgOefm
-	jBxeoen3iTI1pWmMTajml7AIGU0GEfJlmhuOpfDu47IPbUHqOnWPJNBJUTLthZuBvbP5Lw8kZ5Xdg
-	rYQxfNRe0JMFBr7HMAg7QzYla488JUh1+n4t/GIxC3R8S/0fOpKZ5YtBsfG/WHFEPWpqNLvKYVxtl
-	gT2US1Zg==;
+	bh=2+wCt3Jvh2oZoVZoa9KSb3Vjf5Tj+XFxYjep9I6/uNg=; b=ClRcK8Bb1Pnj1J9lwUrW8Hx3TQ
+	1aSllDIppnJ6mDrQmKk2sIFr9UJcbkFqJwIEsQ4hsNE3D7pHNtTb7zJOfDXKgji7OxdBloSxYdEK+
+	zJyaAyflljYNbfp89EnY1PEwJIIVC/WJFZquwGfMFLk2HvTRyyhimXY6mERbRVKwG+YAimrshw5Th
+	7VwHJqLocSNtklOF8H2tFJWfXHyAjoH3ebmrxkM1L0ZBun5BoeVmGmp0MF0LSe5ZtjOBdPQC0/vK8
+	0SXAcydLxWpSSdjxTVPGwmRnMfY5CyaDyD4gDpmso2pswZ7mfrCN7IIKl/1vET71rI5f20e4iygUd
+	WF4Efzlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJx9N-0000000Eg0e-0axP;
-	Thu, 22 Oct 2026 18:04:25 +0000
-Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
+	id 1xJxAJ-0000000EgBl-356I;
+	Thu, 22 Oct 2026 18:05:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJx9I-0000000Efyr-3LQ2;
-	Thu, 22 Oct 2026 18:04:22 +0000
-Received: from [172.27.3.124] (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
-	(authenticated bits=0)
-	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 69MI2jre822700
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Thu, 22 Oct 2026 11:02:46 -0700
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 69MI2jre822700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2026092801; t=1792692174;
-	bh=RhnfvKmfoxy+HUbDsORpInOXf0Z9ck2xlJJLmjkZQrQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=wS32jOjeFWsFEs7/XC2lmhjx+vaso38Aa1yvVUAkT9A1W3myWjPjlKJ97J5iL0Ywq
-	 bPF69gGCe7jooHw6vT1puqfAAMWwIenPVsBB0BtjXDHBnYwO13DlDPhjiEozTqjEHM
-	 Tnne7bJIubMKnpcLaITiN/m+5GZf8SNZmR76JFs4RsiRgOXjXb7KnOu57Xbk4+jf0R
-	 res/2bYXDI5YQACu5N7auw0s2PeA2biV4pFQrygkfChnNdCyphEU5uiDFSgPKPiKVV
-	 mrz+yPrxO0ZpIXSlYj8frGR29U2PsHFm2Ceilf5VQYeo3Indd2RWAuBubWzuARjG4V
-	 DyvcySggronVQ==
-Message-ID: <9d875fab-fdad-413e-9737-6160fac2a406@zytor.com>
-Date: Thu, 22 Oct 2026 11:00:24 -0700
+	id 1xJxAJ-0000000EgBa-05L4
+	for linux-riscv@lists.infradead.org;
+	Thu, 22 Oct 2026 18:05:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9C97E407E7;
+	Thu, 22 Oct 2026 18:05:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E00321F01825;
+	Thu, 22 Oct 2026 18:05:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792692322;
+	bh=66xP79lt5Tjx1kcLiN+8GMbh1FpuhTHreHBKUBB8XQE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ZJfdPjF2alXuM40GMRoGu4hYOPz5NM3T0w3PpA4rALN1G+0hRFrXmN/qk3AIaAuL6
+	 z8Q26ZQNS/HkJ1knitkpc+NlkxL+hhPNz6+JejM2ufAJtp/V92Em4/QvBMsIxy3jmE
+	 U9VX2UvFEng+RGSS7ekzg5RC4+puHIc4jwnCmS4rXz1UY7VMKFTY6mswJA29cKkHrs
+	 kd8uQa1FaZUfQkEsVkxPA5WpeQRLoKY6dmAdavxdqv0DV8ERlS0Acw/8CvoFdTYD3m
+	 LkPwWQNHpakJTxqVMurGds5J1cc4AxJf85+BSLlUBWXvgNW56QRgaIsoZ4KDxtQy4O
+	 G+JzE7Fn48mfg==
+Date: Thu, 22 Oct 2026 19:05:18 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+Cc: Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	Darshan Prajapati <darshan.prajapati@einfochips.com>
+Subject: Re: [PATCH] cache: sifive_ccache: Enable all ways when no LIM is
+ reserved
+Message-ID: <20261022-chubby-quote-4d06564dc4ba@spud>
+References: <20261021130906.2501060-1-pinkesh.vaghela@einfochips.com>
+ <20261021-negation-carol-e42b4ecf3726@spud>
+ <BY5PR04MB70254A39FF5BC39716B23E5783652@BY5PR04MB7025.namprd04.prod.outlook.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [patch 16/18] x86/entry: Get rid of the sys_ni_syscall()
- indirection
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-        Thomas Gleixner <tglx@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-        Peter Zijlstra
- <peterz@infradead.org>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
-        Kees Cook <kees@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-        loongarch@lists.linux.dev, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
-        Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
-        x86@kernel.org, Mark Rutland <mark.rutland@arm.com>,
-        Jinjie Ruan <ruanjinjie@huawei.com>, Andy Lutomirski <luto@kernel.org>,
-        Oleg Nesterov <oleg@redhat.com>,
-        Richard Henderson <richard.henderson@linaro.org>,
-        Russell King <linux@armlinux.org.uk>,
-        Catalin Marinas <catalin.marinas@arm.com>, Guo Ren <guoren@kernel.org>,
-        Geert Uytterhoeven <geert@linux-m68k.org>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        Helge Deller
- <deller@gmx.de>,
-        Yoshinori Sato <ysato@users.sourceforge.jp>,
-        Richard Weinberger <richard@nod.at>, Chris Zankel <chris@zankel.net>,
-        linux-arm-kernel@lists.infradead.org, linux-alpha@vger.kernel.org,
-        linux-csky@vger.kernel.org, linux-m68k@vger.kernel.org,
-        linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
-        linux-sh@vger.kernel.org, linux-um@lists.infradead.org,
-        Arnd Bergmann <arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>,
-        Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>,
-        Michal Simek <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>,
-        "David S. Miller" <davem@davemloft.net>,
-        Andreas Larsson <andreas@gaisler.com>,
-        linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org,
-        linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org,
-        linux-arch@vger.kernel.org,
-        =?UTF-8?Q?Michal_Such=C3=A1nek?= <msuchanek@suse.de>,
-        Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
-References: <20260707181957.433213175@kernel.org>
- <20260707190254.493733289@kernel.org> <20261022142425.3Wx-RrU5@linutronix.de>
- <20261022150235.V2CSdtmu@linutronix.de>
-Content-Language: en-US, sv-SE
-From: "H. Peter Anvin" <hpa@zytor.com>
-In-Reply-To: <20261022150235.V2CSdtmu@linutronix.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_110420_942789_DEE0DD55 
-X-CRM114-Status: GOOD (  13.75  )
-X-Spam-Score: -2.1 (--)
+In-Reply-To: <BY5PR04MB70254A39FF5BC39716B23E5783652@BY5PR04MB7025.namprd04.prod.outlook.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,32 +71,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============3805855129026180850=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-T24gMjAyNi0xMC0yMiAwODowMiwgU2ViYXN0aWFuIEFuZHJ6ZWogU2lld2lvciB3cm90ZToKPiBP
-biAyMDI2LTEwLTIyIDE2OjI0OjMwIFsrMDIwMF0sIFRvIFRob21hcyBHbGVpeG5lciB3cm90ZToK
-Pj4gVGhlIHRlc3QgY291bGQgYmUgdXBkYXRlZCB2aWEgdGhlIGh1bmsgYmVsb3cgaW4gY2FzZSB0
-aGUgbmV3IGJlaGF2aW91cgo+PiBpcyB3aGF0IGlzIGV4cGVjdGVkLiBocGEgbWFkZSB0aGUgZXh0
-ZW5zaW9uIHRvIHRoZSB0ZXN0IGluIGNvbW1pdAo+PiA3OTVlMmEwMjNiODA4ICgic2VsZnRlc3Rz
-L3g4Ni9zeXNjYWxsOiBBZGQgdGVzdHMgdW5kZXIgcHRyYWNlIHRvCj4+IHN5c2NhbGxfbnVtYmVy
-aW5nXzY0IikuCj4+Cj4+IGRpZmYgLS1naXQgYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy94ODYv
-c3lzY2FsbF9udW1iZXJpbmcuYyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3g4Ni9zeXNjYWxs
-X251bWJlcmluZy5jCj4+IGluZGV4IGNhMGVjYTdiOWRjZWQuLjE0MzUzOTRmYmEwMjIgMTAwNjQ0
-Cj4+IC0tLSBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3g4Ni9zeXNjYWxsX251bWJlcmluZy5j
-Cj4+ICsrKyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3g4Ni9zeXNjYWxsX251bWJlcmluZy5j
-Cj4gCj4gTm93IEkgbm90aWNlIHRoZSBmaXggZGVwZW5kcyBvbiBDT05GSUdfWDg2X1gzMl9BQkk9
-eSAoZmFpbHMgZm9yID1uKS4KPiBCdXQgd2Ugd2FudCB0byBnZXQgcmlkIG9mIGl0IGFueXdheSBz
-b+KApgo+IENPTkZJR19JQTMyX0VNVUxBVElPTiBpcyBub3QgYWZmZWN0ZWQgKHdpdGggdGhlIGZp
-eCkuCj4gCkl0IHdvdWxkIGJlIHZlcnkgc2ltcGxlIHRvIHByb2JlIGZvciBieSBpc3N1aW5nIGEg
-c2ltcGxlIHN5c3RlbSBjYWxsIGxpa2UKZ2V0cHBpZCgpIHdpdGggdGhlIHgzMiBiaXQgc2V0LgoK
-CS1ocGEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+--===============3805855129026180850==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="4lkyleY9UN/A2RLt"
+Content-Disposition: inline
+
+--4lkyleY9UN/A2RLt
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Oct 22, 2026 at 10:20:47AM +0000, Pinkesh Vaghela wrote:
+>=20
+> Hi Conor,
+> =20
+> On Wed, Oct 21, 2026 at 10:43 PM +0530, Conor Dooley wrote:
+> > On Wed, Oct 21, 2026 at 06:39:06PM +0530, Pinkesh Vaghela wrote:
+> > > The composable cache resets with only way 0 enabled, while the
+> > > remaining ways are available as Loosely Integrated Memory (LIM).
+> > > Systems that do not reserve LIM therefore use only one cache way
+> > > unless software increases WayEnable.
+> >=20
+> > This is not true in the general case, firmware may intercede to set the=
+ ways as
+> > it pleases.
+> >=20
+> > > When no memory-region property is present, DT describes no LIM
+> > > reservation for the cache controller. Validate the reported way count,
+> > > then enable all cache ways so Linux can use the full cache capacity.
+> > >
+> > > When memory-region is present, leave WayEnable unchanged because
+> > > enabled ways cannot be returned to LIM until reset. This may leave
+> > > more ways assigned to LIM than required, but avoids consuming reserved
+> > LIM.
+> > >
+> > > Apply this policy to all compatibles handled by the driver. Firmware
+> > > or
+> >=20
+> > I know this is going to cause problems for all the microchip boards, wh=
+ich
+> > maybe should have reserved LIM but never did because the LIM was never
+> > put in the devicetree as memory in the first place.
+> > They also don't suffer from the problem you mention because firmware se=
+ts
+> > the ways up.
+> >=20
+> > > DT configurations that require LIM must provide memory-region;
+> > > otherwise, Linux will convert all disabled ways to cache.
+> >=20
+> > I don't like this behavioural change, it's never been mandatory to have=
+ a
+> > reserved memory region for the LIM. I'm only in favour of doing this on
+> > devices where we know it is actually required to be done. The eic7700 I
+> > assume is one such device.
+> >=20
+> > Cheers,
+> > Conor.
+>=20
+> Thanks for pointing this out.
+> =20
+> I agree that firmware may have already configured the cache/LIM
+> partition, so applying this behavior generally could overwrite that
+> configuration.
+> =20
+> EIC7700 firmware does not enable the additional cache ways, leaving
+> only way 0 enabled when no LIM is reserved.
+> =20
+> I will restrict the change to EIC7700 using a device-specific quirk
+> while retaining the memory-region check. Would this approach be
+> acceptable?
+
+Seems reasonable to me, yes.
+
+--4lkyleY9UN/A2RLt
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCatpQXgAKCRB4tDGHoIJi
+0ixCAP9/hAD9o5Vy6FG7ZT8n7KDT+Pe6cB1sfDmRyZHLpO6eWgEAzT+1nU4Q8eAG
+mZvo5zxTiyh7mPUMpumY9iHMXCJM7g0=
+=V8G9
+-----END PGP SIGNATURE-----
+
+--4lkyleY9UN/A2RLt--
+
+
+--===============3805855129026180850==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3805855129026180850==--
+
