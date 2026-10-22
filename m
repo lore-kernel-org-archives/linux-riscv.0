@@ -2,66 +2,58 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16B82606A319
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 18:05:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A4A0606A319
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 18:48:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ClRcK8Bb;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZJfdPjF2
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LXSjKGC9;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IrEUmnpo
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=2+wCt3Jvh2oZoVZoa9KSb3Vjf5Tj+XFxYjep9I6/uNg=; b=ClRcK8Bb1Pnj1J9lwUrW8Hx3TQ
-	1aSllDIppnJ6mDrQmKk2sIFr9UJcbkFqJwIEsQ4hsNE3D7pHNtTb7zJOfDXKgji7OxdBloSxYdEK+
-	zJyaAyflljYNbfp89EnY1PEwJIIVC/WJFZquwGfMFLk2HvTRyyhimXY6mERbRVKwG+YAimrshw5Th
-	7VwHJqLocSNtklOF8H2tFJWfXHyAjoH3ebmrxkM1L0ZBun5BoeVmGmp0MF0LSe5ZtjOBdPQC0/vK8
-	0SXAcydLxWpSSdjxTVPGwmRnMfY5CyaDyD4gDpmso2pswZ7mfrCN7IIKl/1vET71rI5f20e4iygUd
-	WF4Efzlw==;
+	bh=K6wWQLdFCZ0JPwB3JK0KsPGazTWzEOfjkq5IjK6N7wo=; b=LXSjKGC9g9loa9qQcLzTEFDRc9
+	6qWZtmv4Z6IVu14jUOKE+wqFAeHgsxfYWsVCWumNzctKD5IaQzRJ/cNtkWziKlgcFAAmIWbn6Hs65
+	WjyIBbHRuh7qgKw1Ni5Y+vlGoBj+h84f/S38JLNfB6dHRSdkN4tPQn8+uv5EtjDjcVCRHEVEfAsXi
+	GH3Gdkvqh0fBGgYz91AEagELSJwiGHBDg9NlwRmkQKN2v+F6oKoqL9RhSTSFHwpR84bqZB2FGU4Ul
+	nPYEeIAI4HPnRI89e87dsH/Ek2M0FnAYgEeECL4YZ6d+Rk3Gql6KPYs4xVXrME092oV8NkcHzftqU
+	/et3hrrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJxAJ-0000000EgBl-356I;
-	Thu, 22 Oct 2026 18:05:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xJxqH-0000000EjtR-1vhJ;
+	Thu, 22 Oct 2026 18:48:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJxAJ-0000000EgBa-05L4
+	id 1xJxqG-0000000EjtH-0jYC
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Oct 2026 18:05:23 +0000
+	Thu, 22 Oct 2026 18:48:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C97E407E7;
-	Thu, 22 Oct 2026 18:05:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E00321F01825;
-	Thu, 22 Oct 2026 18:05:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 50F94600E2;
+	Thu, 22 Oct 2026 18:48:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF0A11F01825;
+	Thu, 22 Oct 2026 18:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792692322;
-	bh=66xP79lt5Tjx1kcLiN+8GMbh1FpuhTHreHBKUBB8XQE=;
+	s=k20260515; t=1792694923;
+	bh=QHM09FpIf+RN7y0dUg3rZj1s/Cb49JyGNKlNyi4taMw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZJfdPjF2alXuM40GMRoGu4hYOPz5NM3T0w3PpA4rALN1G+0hRFrXmN/qk3AIaAuL6
-	 z8Q26ZQNS/HkJ1knitkpc+NlkxL+hhPNz6+JejM2ufAJtp/V92Em4/QvBMsIxy3jmE
-	 U9VX2UvFEng+RGSS7ekzg5RC4+puHIc4jwnCmS4rXz1UY7VMKFTY6mswJA29cKkHrs
-	 kd8uQa1FaZUfQkEsVkxPA5WpeQRLoKY6dmAdavxdqv0DV8ERlS0Acw/8CvoFdTYD3m
-	 LkPwWQNHpakJTxqVMurGds5J1cc4AxJf85+BSLlUBWXvgNW56QRgaIsoZ4KDxtQy4O
-	 G+JzE7Fn48mfg==
-Date: Thu, 22 Oct 2026 19:05:18 +0100
+	b=IrEUmnpoaQNjxXxAg6VFq50onYEUBeDn0Ogk/X3Hxyr8AcqL0CTzgkkkkUs++dMmW
+	 XqcUz3Aac9N+cZFX0XQmvuSimgJWfCfQzPGsH+DFrlRO7yf3ZTg0xdAV3+AE0MVAN9
+	 Ea/zOGMyBTSaK0Te0xBze87YlLtVPFN3KXGUqJx00Lw0MxDq7zj/g7svPmGqTgNlWe
+	 gICW9A5UP93YlXzCxg38FPVJGdflGCj8Y9tn8YwF0NZbXO/PHwz/kuah33/Q3IIY2F
+	 +tY2F2Z0nk7Z/TiapgN8MSgPflEzZkbGt0mg/bHgGQ/BEQHIZ6PzKbVs5xlHRDaO6q
+	 TGFnEmFIiA5Sw==
+Date: Thu, 22 Oct 2026 19:48:36 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-Cc: Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	Darshan Prajapati <darshan.prajapati@einfochips.com>
-Subject: Re: [PATCH] cache: sifive_ccache: Enable all ways when no LIM is
- reserved
-Message-ID: <20261022-chubby-quote-4d06564dc4ba@spud>
-References: <20261021130906.2501060-1-pinkesh.vaghela@einfochips.com>
- <20261021-negation-carol-e42b4ecf3726@spud>
- <BY5PR04MB70254A39FF5BC39716B23E5783652@BY5PR04MB7025.namprd04.prod.outlook.com>
+To: gaohan@iscas.ac.cn
+Subject: Re: [PATCH 13/18] riscv: dts: zhihe: add A210 core support
+Message-ID: <20261022-radiation-ivory-c8f9f9c66b7f@spud>
+References: <20261022-a210-init-v1-0-5e438f972d24@iscas.ac.cn>
+ <20261022-a210-init-v1-13-5e438f972d24@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <BY5PR04MB70254A39FF5BC39716B23E5783652@BY5PR04MB7025.namprd04.prod.outlook.com>
+In-Reply-To: <20261022-a210-init-v1-13-5e438f972d24@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,7 +63,8 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3805855129026180850=="
+Cc: Drew Fustini <fustini@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Jerome Brunet <jbrunet+clk@baylibre.com>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Radu Rendec <radu@rendec.net>, Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org, Daniel Lezcano <daniel.lezcano@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>
+Content-Type: multipart/mixed; boundary="===============6265729587605171117=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
@@ -80,93 +73,96 @@ X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============3805855129026180850==
+--===============6265729587605171117==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="4lkyleY9UN/A2RLt"
+	protocol="application/pgp-signature"; boundary="iUH8Uc8l7nyP4fCI"
 Content-Disposition: inline
 
---4lkyleY9UN/A2RLt
+--iUH8Uc8l7nyP4fCI
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Thu, Oct 22, 2026 at 10:20:47AM +0000, Pinkesh Vaghela wrote:
->=20
-> Hi Conor,
-> =20
-> On Wed, Oct 21, 2026 at 10:43 PM +0530, Conor Dooley wrote:
-> > On Wed, Oct 21, 2026 at 06:39:06PM +0530, Pinkesh Vaghela wrote:
-> > > The composable cache resets with only way 0 enabled, while the
-> > > remaining ways are available as Loosely Integrated Memory (LIM).
-> > > Systems that do not reserve LIM therefore use only one cache way
-> > > unless software increases WayEnable.
-> >=20
-> > This is not true in the general case, firmware may intercede to set the=
- ways as
-> > it pleases.
-> >=20
-> > > When no memory-region property is present, DT describes no LIM
-> > > reservation for the cache controller. Validate the reported way count,
-> > > then enable all cache ways so Linux can use the full cache capacity.
-> > >
-> > > When memory-region is present, leave WayEnable unchanged because
-> > > enabled ways cannot be returned to LIM until reset. This may leave
-> > > more ways assigned to LIM than required, but avoids consuming reserved
-> > LIM.
-> > >
-> > > Apply this policy to all compatibles handled by the driver. Firmware
-> > > or
-> >=20
-> > I know this is going to cause problems for all the microchip boards, wh=
-ich
-> > maybe should have reserved LIM but never did because the LIM was never
-> > put in the devicetree as memory in the first place.
-> > They also don't suffer from the problem you mention because firmware se=
-ts
-> > the ways up.
-> >=20
-> > > DT configurations that require LIM must provide memory-region;
-> > > otherwise, Linux will convert all disabled ways to cache.
-> >=20
-> > I don't like this behavioural change, it's never been mandatory to have=
- a
-> > reserved memory region for the LIM. I'm only in favour of doing this on
-> > devices where we know it is actually required to be done. The eic7700 I
-> > assume is one such device.
-> >=20
-> > Cheers,
-> > Conor.
->=20
-> Thanks for pointing this out.
-> =20
-> I agree that firmware may have already configured the cache/LIM
-> partition, so applying this behavior generally could overwrite that
-> configuration.
-> =20
-> EIC7700 firmware does not enable the additional cache ways, leaving
-> only way 0 enabled when no LIM is reserved.
-> =20
-> I will restrict the change to EIC7700 using a device-specific quirk
-> while retaining the memory-region check. Would this approach be
-> acceptable?
+On Thu, Oct 22, 2026 at 03:53:33AM +0800, Han Gao via B4 Relay wrote:
+> +	soc {
+> +		compatible = "simple-bus";
+> +		ranges;
+> +		#address-cells = <2>;
+> +		dma-noncoherent;
+> +		#size-cells = <2>;
+> +
+> +		clk: clock-controller@260000 {
+> +			compatible = "zhihe,a210-clk";
+> +			reg = <0x0 0x00260000 0x0 0x1000>,
+> +			      <0x0 0x00250000 0x0 0x1000>,
+> +			      <0x0 0x10141600 0x0 0x100>,
+> +			      <0x0 0x10141400 0x0 0x100>,
+> +			      <0x0 0x04810000 0x0 0x1000>,
+> +			      <0x0 0x05810000 0x0 0x1000>,
+> +			      <0x0 0x04900000 0x0 0x1000>,
+> +			      <0x0 0x20250000 0x0 0x1000>,
+> +			      <0x0 0x10140000 0x0 0xe00>;
 
-Seems reasonable to me, yes.
+This looks very much like an incorrect modelling of the device.
+Most of these should be individual devices, and those labeled "sysreg"
+probably should be syscons as they likely contain multiple functions,
+not just clocks?
 
---4lkyleY9UN/A2RLt
+> +			reg-names = "pll-wrap", "top-crg", "cpu-ss-clk-sysreg",
+> +				    "cpu-ss-cpu-pll", "ddr0-sysreg",
+> +				    "ddr1-sysreg", "slc-dual-sysreg",
+> +				    "top-crg-t", "cpu-ss-ccu";
+> +			#clock-cells = <1>;
+> +			clocks = <&osc_32k>, <&osc_24m>, <&rc_24m>;
+> +			clock-names = "osc-32k", "osc-24m", "rc-24m";
+> +		};
+> +
+> +		clk_peri: clock-controller@300200 {
+> +			compatible = "zhihe,a210-peri-clk";
+> +			reg = <0x0 0x00300200 0x0 0x4>,
+> +			      <0x0 0x02010200 0x0 0x8>,
+> +			      <0x0 0x08400200 0x0 0x8>,
+> +			      <0x0 0x00540200 0x0 0x4>,
+> +			      <0x0 0x27420200 0x0 0x200>;
+
+Same here, particularly things that are only a single word wide...
+
+> +			reg-names = "peri0-sysreg", "peri1-sysreg",
+> +				    "peri2-sysreg", "peri3-sysreg", "tee-crg";
+> +			#clock-cells = <1>;
+> +		};
+
+> +		clk_aon: clock-controller@30844000 {
+> +			compatible = "zhihe,a210-aon-clk";
+> +			reg = <0 0x30844000 0 0x1c>;
+
+0x1c is also suspiciously narrow, but believable. Is there a register
+map for this device available somewhere (ideally in english, but I
+suppose machine translation will do a sufficient job) so that I can try
+to understand how this device should be modelled?
+
+Thanks,
+Conor.
+
+> +			#clock-cells = <1>;
+> +			clocks = <&aon_110m>, <&osc_24m>, <&aon_rc>, <&osc_32k>;
+> +			clock-names = "high", "osc", "rc", "rtc";
+> +		};
+
+--iUH8Uc8l7nyP4fCI
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCatpQXgAKCRB4tDGHoIJi
-0ixCAP9/hAD9o5Vy6FG7ZT8n7KDT+Pe6cB1sfDmRyZHLpO6eWgEAzT+1nU4Q8eAG
-mZvo5zxTiyh7mPUMpumY9iHMXCJM7g0=
-=V8G9
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCatpagwAKCRB4tDGHoIJi
+0mLDAQCF3l7L6GJK8DqxaRSjc/+bPAJMUnncAIj8nbTRKYClrAD9EiuXFIV8GoDh
+0OKintNj/ZFsbWKsunyCnWkzx4duXwE=
+=PrTg
 -----END PGP SIGNATURE-----
 
---4lkyleY9UN/A2RLt--
+--iUH8Uc8l7nyP4fCI--
 
 
---===============3805855129026180850==
+--===============6265729587605171117==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -177,5 +173,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3805855129026180850==--
+--===============6265729587605171117==--
 
