@@ -2,171 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91292606A31D
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 00:32:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DB87606A31E
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 02:01:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XIFNG1CG;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=CKTmObd9;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=i32yvBGc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EbME6xT8;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Q+4ivRAN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I0E4w4SbEGzif04ZWd/9XnFVLfn7L01SXQGIX09ZupY=; b=XIFNG1CGold8OP
-	fxtJCE8NhTCrrkkdiZ/Ulx75p/wBI3iWEMjWGdIOwcfgWv9+KWAKjDgRApEK2IK3zxA/w37FQgW1n
-	gbG07NUIWJU4nnII6LSX2XBcVi2OCvH3FGDxURaUeZRMyvz1mIIg7Z3/CBlCLgLG+rOu70xwWY4c3
-	rir6v4lN+FARKlz9b4/ZNT+SSUpcWe3nwjQGVJOQikb+DlWPnpjDr8fL97ZGnzW8DkN5SNoL0pOC9
-	gE5GRm4It82qo79lvA1qQok3FG848oIdBgVsuhnMdWcO3wA14ICwf/Bj6vRMF/l/FSestM3Pb5lKC
-	F6ziF/Ps/L3DINYEfckQ==;
+	List-Owner; bh=sF2ziXgCm4YV8eGgnvOysgbkNXQGZyQu32sK75xWaGU=; b=EbME6xT8ICjpKT
+	XwCj5qmrDA4Ixeom5/FB5XShGEFJEQKhWSw2/RkjY4lcPqa912tF8FqMPX/7Nr5t/9XNNrY/JKQqI
+	tLCQuDDWQr3FMlRNlr2h8bsi44OepQMZKCoRljEefAmdv4KUHAz0KVysI5zbhXIY4gGCTPDG9Pvbq
+	cnZbsx6k3XD9JVn74ffdhObGebmtpEXmci067yQJtuLuK3mIzKJ94XtdiY6mgSgH2/DyXmnxVZRUs
+	ARrFe9kPm1nm+QsX0Qxvgnct9Qp3OWrEDrkvWmseA2rOrrEfqznbrIsIRisv6TQgeIAgP6Z6VgUNc
+	EkUzzlyguO6oL6k43tpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJgij-0000000D694-3zHO;
-	Thu, 22 Oct 2026 00:31:49 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xJi7M-0000000DAe5-49rT;
+	Thu, 22 Oct 2026 02:01:20 +0000
+Received: from [113.46.200.225] (helo=canpmsgout10.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJgig-0000000D687-3ezn
-	for linux-riscv@lists.infradead.org;
-	Thu, 22 Oct 2026 00:31:48 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69LKeNvL1154640
-	for <linux-riscv@lists.infradead.org>; Thu, 22 Oct 2026 00:31:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	H/opNow+kHytu3G/NcD0sUoEO+o11bnVvWNwj42+U14=; b=CKTmObd9EYBRD8Es
-	JW8RP6hHE2nV/jriTWLFK4Tj07MD2YQ/d+k3krx0ltsunPU1Cqkd265kNM9yKAU3
-	GEnCNnmIZVqdzmOaFvqwUFGMkR3jhOrDwVbvYrdhKxx40y/3PqS6OEdz4Y1mzA5r
-	nc8kaRtBDStzSfIldolLvF/dk667tyPSl7AI/LeWGSrXbgSZl2mpo3K30Ew21v2d
-	6hYLTLvPXuNcUx8Ous6bX1zJ4wVog4riLz0NNXpV98/XnWjGQDy4Iramm7tFASVm
-	hQQeeHZq2uT1zz50gd3ihZtkQZ1hZa24QON53S/ZDK8f4lAV6Lzg3Nt099ldullS
-	qho3Mw==
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hf0cv1u9u-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 22 Oct 2026 00:31:45 +0000 (GMT)
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-3425098ae4bso561610eec.0
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 17:31:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1792629105; x=1793233905; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=H/opNow+kHytu3G/NcD0sUoEO+o11bnVvWNwj42+U14=;
-        b=i32yvBGc+TQB5r7OAgq3QfbnrPs+/hRSJKrzqQSEREJjON47dAZNCjKM5jfqc+tffF
-         oxKkm4OcatFa21kuLq4K4MTAs6TImDEH/7q4leUWVpx0mc/yeHWsed1Gk/DeF9jtq/Ee
-         RhTijxHOSg7tDKXnoithYM6DNNK0oaIIWz3vI7zHCbWUpA9Iy8YDUXOoE1Sm9+piP7KG
-         wKBw/BPnwdewYwpuPLvVmL0hL6LUzW62Z5da5mGzFV1NQ3LnhRLzCCfhCIUABRw3w+Bm
-         qCD2fVwxrIckHgP7BZfw2m4CoD1J+BLdIkTlD+2WWpDMn1ZfJQTQ31FJu6UxOx9qD2nK
-         z26w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792629105; x=1793233905;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=H/opNow+kHytu3G/NcD0sUoEO+o11bnVvWNwj42+U14=;
-        b=UJvL5nOqDlJ311cjK9PPJk2LyPsC9rQ4ul0s77iHA4l0r7G4Eis58pkdgi/HyLEMU6
-         5AmcHAhzF9t68WmlFATeJnvu+Ghu+/HZpQUsCH1o4h/C103FzA1bBWvZVRVLW2A9LXpk
-         sHYt3WWk6rwSzSBPoTGQaENDALRhZfKGvyNQ+6Uy5sWmAd0cMbQl/PQ77b6DmGgBFRcg
-         iH2hQXPrhlLFOJ8lV4CLLDxbm4sVox2lm/R0H0cawBU2Ny5+qm7gt4L7Gufj0pqVR98Z
-         PYnaB9fhugLQHLnFtjTPEMaRLdXbqJATiW8Lb3OT3NgvnyJrlLT06FDbdoLFy52SQVT/
-         uL5A==
-X-Forwarded-Encrypted: i=1; AKwUvByDoWV1BgCH/OrITWV6xjgwIeUgM2rXbu6AChgkpv4kdQiEtnFPDXOhm2yzn+aHDxqZ0O0EUVFYMhVYmg==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKJvjGZU7tqSEmkJiZtrFmTmLIeaGF7XxtAdMjJINgL3lTJVZAe
-	t68MFrT31Wr/KfCOeN+uzq0gAlMlBIXrEsSYfu1T5edygS6qVi61dOlVSN0nmtcpbQ9BzGpkK+2
-	xnkQlexQWuYmUBvNp11TtalR/gGywsLKmcYSDemDTGEK08O+5pDdur4iECscA5eJ+d1UAubw=
-X-Gm-Gg: AYBFou0u5YlMx/CxXKMct3K+z4H+n6+9KCMOmU1QgdAwCz1iCRpFH9IE7pZXA+aPx7F
-	fct9V4cnIaaIYiCATTq597tZ38IMS1M8Hu7z0c22jR78Yz08riAR/axIioqaUIR0phrRDvFwp6T
-	NKd16y/zv+AwJf0GUEjde94ZDhv4LUirNVcwj9s9ZfAvenb+VGJ+SYcN9xxD5wL5cz68xxh0/fv
-	AMpjKclDE+hO0OvgYqHNeTwhKTCQ3LJ0yxZ2LmeU9pZatmcV8NlhcqXKhaL3EwiYPCkxBlxufrf
-	mJYdohGbvdhGmfl3vXkI8gpc6EFpeS7Zq3STRdWc5EGXTMZml4C0tzIgw6mR0ZMV8wXdpyeCGk6
-	Zm9MsGL6GlbwMGlr3U/BZTPUzl3VBLfNHVrwpqakyXZj6KWac7XTm+A==
-X-Received: by 2002:a05:701b:4192:10b0:143:808b:b178 with SMTP id a92af1059eb24-192f5c29bf4mr1174138c88.26.1792629104432;
-        Wed, 21 Oct 2026 17:31:44 -0700 (PDT)
-X-Received: by 2002:a05:701b:4192:10b0:143:808b:b178 with SMTP id a92af1059eb24-192f5c29bf4mr1174090c88.26.1792629103886;
-        Wed, 21 Oct 2026 17:31:43 -0700 (PDT)
-Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1903a180ca2sm8819002c88.6.2026.10.21.17.31.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Oct 2026 17:31:43 -0700 (PDT)
-Date: Wed, 21 Oct 2026 17:31:16 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-        Ard
- Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin
- Marinas <catalin.marinas@arm.com>,
-        Jonathan Corbet <corbet@lwn.net>, David
- Sterba <dsterba@suse.com>,
-        Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
-        linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-        Randy
- Dunlap <rdunlap@infradead.org>, Simon Glass <sjg@chromium.org>,
-        Shuah Khan
- <skhan@linuxfoundation.org>,
-        Nick Terrell <terrelln@fb.com>, Will Deacon
- <will@kernel.org>,
-        Alexandre Ghiti <alexghiti@rivosinc.com>,
-        Conor Dooley
- <conor.dooley@microchip.com>,
-        linux-integrity@vger.kernel.org, Palmer
- Dabbelt <palmer@rivosinc.com>,
-        patches@lists.linux.dev,
-        Piotr
- =?ISO-8859-1?Q?Kr=F3l?= <piotr.krol@3mdeb.com>,
-        Ross Philipson
- <ross.philipson@gmail.com>,
-        Sami Tolvanen <samitolvanen@google.com>,
-        Song
- Shuai <songshuaishuai@tinylab.org>
-Subject: Re: [PATCH v2 15/15] efi/arm64: Implement ARM64 DRTM in the stub
-Message-ID: <20261021173116.00000df9@oss.qualcomm.com>
-In-Reply-To: <20261021233909.GX3008132@nvidia.com>
-References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
-	<15-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
-	<20261021111115.00004c5c@oss.qualcomm.com>
-	<20261021233909.GX3008132@nvidia.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	id 1xJi7J-0000000DAdA-02YA;
+	Thu, 22 Oct 2026 02:01:19 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=loBgwUbLOnAAak0q9uGjIQKEwQ4a4j4TVh8P+20MXEg=;
+	b=Q+4ivRANcgbbFZT+RuqnOmzfQRgx/LVfmZmJnBznw3aijzTfLqiAXmQFPpHZ4wQr5N/a+UnSk
+	9QkwZygXGFsy6k2d0kw287r6cGCOPL2MK5xfPM3ACXVTWwq6O1+K0stbkZqxhIDb9q0MkhN+DRw
+	UTGHL86gM/CDOpMtrrbG38U=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4j98WL5Vhfz1K972;
+	Thu, 22 Oct 2026 10:00:46 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2FEAB40563;
+	Thu, 22 Oct 2026 10:00:51 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 22 Oct
+ 2026 10:00:49 +0800
+Message-ID: <31d63208-3ef2-420f-a0c2-d9d6d49c5e21@huawei.com>
+Date: Thu, 22 Oct 2026 10:00:49 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Authority-Analysis: v=2.4 cv=NrRE4MdJ c=1 sm=1 tr=0 ts=6ad95971 cx=c_pps
- a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=Ikd4Dj_1AAAA:8 a=j7B8HJC98GV4A_3RkYkA:9 a=CjuIK1q_8ugA:10
- a=bBxd6f-gb0O0v-kibOvt:22
-X-Proofpoint-ORIG-GUID: RSwW3v8J4En_PLGu36keFcKEfbvmlN_-
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIyMDAwMSBTYWx0ZWRfX+V2XlsYi3eje
- U/e6g0u2kDIw3aFRreZp3xDXu2gz+JyBPuIYjL0Yf9o+m6xK/Y62MRQMI5QzRvBYTpQ5uPIAaGL
- FY6LdYmBFQnFb++TgxnXUThANFzS3WI=
-X-Proofpoint-GUID: RSwW3v8J4En_PLGu36keFcKEfbvmlN_-
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIyMDAwMSBTYWx0ZWRfX+mEi46FBdlV1
- wpE/pT01/9Xy2gAXytr28agZHMwwlBRL9y6Xc6U7PCJ/enyQiXbsWdwv40pUWRVLUwIEmv97sXF
- Ko+Wn5Wq5EfboX6PB5j+jpfFGa4aMbZY/KP0PkcbwwZnqd96l4eC1h4Ve4eqNigrWHF+AWv7NfB
- Hf5YwqDWQtn3aP4epyE5a3nda8F3kjRIZFlXlPBy5L2IYSVkg1ngsbEcE5vPCdG2w6WrdMRS2Cy
- 6kv1HgjsO/0EDCi2FJa68NaGRJ1YWM5z0as0cQaOTB5H4DvWMlhwGvGyb6KN2+RlYpQx0g2TwU0
- fUZvbIIdKrLNzMANFVoNI23s/8SWtotK80lnJb29yMCXfNdOWXrSVJ4aBhyNkN2H1NyCtDvxgea
- AToz9AJLSvmUTrx0oQlsq3/B9UatCzkqJnIlTc3kD0aTUOLlx0VwMws2TC/RWvPgBFt3pJM7PF5
- ogHoxoV12haALyIf1pg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-21_06,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 priorityscore=1501 impostorscore=0 clxscore=1015
- spamscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610220001
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 3/8] crash_core: serialize crash header preparation
+ against hotplug
+To: Wandun <chenwandun1@gmail.com>, <robh@kernel.org>, <baoquan.he@linux.dev>,
+	<rppt@kernel.org>, <m.szyprowski@samsung.com>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <pjw@kernel.org>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <x86@kernel.org>, <hpa@zytor.com>,
+	<saravanak@kernel.org>, <akpm@linux-foundation.org>,
+	<pasha.tatashin@soleen.com>, <pratyush@kernel.org>, <ruirui.yang@linux.dev>,
+	<robin.murphy@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<kexec@lists.infradead.org>, <linux-mm@kvack.org>, <iommu@lists.linux.dev>
+References: <20261021083011.2170525-1-chenwandun1@gmail.com>
+ <20261021083011.2170525-4-chenwandun1@gmail.com>
+ <12e4e687-1ff0-41b2-bdf8-7f48b29e1f2f@huawei.com>
+ <a1665f9e-3116-47bc-974e-98dce408fa37@gmail.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <a1665f9e-3116-47bc-974e-98dce408fa37@gmail.com>
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_173146_961229_D4C82737 
-X-CRM114-Status: GOOD (  47.57  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261021_190117_372670_85AA50F8 
+X-CRM114-Status: GOOD (  21.58  )
+X-Spam-Score: -1.2 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,151 +85,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2
-	autolearn=no autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, 21 Oct 2026 20:39:09 -0300
-Jason Gunthorpe <jgg@nvidia.com> wrote:
-
-> On Wed, Oct 21, 2026 at 11:11:15AM -0700, Jonathan Cameron wrote:
-> > On Fri,  2 Oct 2026 20:31:52 -0300
-> > Jason Gunthorpe <jgg@nvidia.com> wrote:
-> >   
-> > > Provide an implementation of the CONFIG_EFI_STUB_DRTM protocol for ARM64
-> > > DEN0113 >= v1.1.
-> > > 
-> > > First, it queries the FW for support and collects all the
-> > > information. This is needed to compute the extra_size, which comes
-> > > from FW reporting how much memory it needs during the launch for the
-> > > DLME Data and DCE-owned data. The generic stub ensures there is
-> > > trailing memory after Image for this.
-> > > 
-> > > Then the DRTM_PARAMETERS launch structure is computed using the
-> > > offsets in the efi_info.
-> > > 
-> > > Finally, the stub does ExitBootServices and calls the actual launch.
-> > > 
-> > > The feature discovery process is deliberately fairly verbose to help
-> > > debug any FW weirdness in the field. Enable it with efi=debug
-> > > 
-> > > It looks something like:
-> > > 
-> > >  EFI stub: DRTM: interface version 1.4
-> > >  EFI stub: DEBUG: DRTM: TPM algorithm 0xc, TPM hashing unavailable, PCR schemas 0x1
-> > >  EFI stub: DEBUG: DRTM: minimum DLME data 73728 bytes, Normal-world DCE 0 bytes
-> > >  EFI stub: Decompressing Linux Kernel...
-> > >  EFI stub: Generating empty DTB
-> > >  EFI stub: Exiting boot services...
-> > >  EFI stub: DEBUG: DRTM: will launch, selected launch features 0x0
-> > >  [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x000f0510]
-> > > 
-> > > Eventually the launch'd kernel is going to require built in crypto
-> > > libraries that match what the FW is using so it can validate some of the
-> > > information left behind during early boot. Refuse to launch if these are
-> > > not built in and build in the most common ones from the ARM64_DRTM
-> > > kconfig.
-> > > 
-> > > One nit, if the platform does not support SMC then using drtm=auto may
-> > > crash on the SMC op. As far as I can tell there is no way to discover SMC
-> > > support through EFI. Learning it from the ACPI FADT is doable and costs
-> > > about 250 lines of code.  
-> > 
-> > Ouch. Sounds like a must have if there is no easier way.  
-> 
-> Yeah, maybe so. I will include the patch in the next version. Though
-> I'm not keen on it and I don't know very much about ACPI.
-> 
-> > > +/* True if SMCCC 1.0 or later is available. */
-> > > +static bool efi_arm64_psci_smccc_compatible(void)
-> > > +{
-> > > +	struct arm_smccc_res res;
-> > > +	s32 status;
-> > > +
-> > > +	arm_smccc_1_1_smc(PSCI_0_2_FN_PSCI_VERSION, &res);  
-> > 
-> > A function that is meant to check for smccc 1.0 is using the
-> > smccc_1_1 namespaced calls?  Maybe add a comment on why that
-> > is ok to do.  Is anyone actually using SMCCC 1.0 on systems like this?  
-> 
-> This is a good point, I didn't quite get all these details at the
-> time, but yeah, technically we have to use the 1.0 calling convention
-> due the register clobber differnces. The other reason is we can't use
-> the kernels 1.0 helper since it is an asm function not an assembly..
-> 
-> Fixing everything I came with this:
-> 
-> /*
->  * Discovery must tolerate SMCCC 1.0 clobbering x0-x17. The EFI stub cannot
->  * call the kernel's out-of-line SMCCC helper, so issue these calls inline.
->  */
-> static u32 efi_arm64_smc_1_0(u32 function, u32 arg)
-> {
-> 	register unsigned long x0 asm("x0") = function;
-> 	register unsigned long x1 asm("x1") = arg;
-> 
-> 	asm volatile("smc #0"
-> 		     : "+r" (x0), "+r" (x1)
-> 		     :
-> 		     : "x2", "x3", "x4", "x5", "x6", "x7", "x8", "x9",
-> 		       "x10", "x11", "x12", "x13", "x14", "x15", "x16",
-> 		       "x17", "cc", "memory");
-> 
-> 	return x0;
-> }
-> 
-> /* True if SMCCC 1.1 or later in the 1.x series is available. */
-> static bool efi_arm64_psci_smccc_compatible(void)
-> {
-> 	u32 version;
-> 	s32 status;
-> 
-> 	version = efi_arm64_smc_1_0(PSCI_0_2_FN_PSCI_VERSION, 0);
-> 	if ((s32)version < 0)
-> 		return false;
-> 
-> 	if (PSCI_VERSION_MAJOR(version) < 1)
-> 		return false;
-> 
-> 	status = efi_arm64_smc_1_0(PSCI_1_0_FN_PSCI_FEATURES,
-> 				   ARM_SMCCC_VERSION_FUNC_ID);
-> 	if (status < 0)
-> 		return false;
-> 
-> 	version = efi_arm64_smc_1_0(ARM_SMCCC_VERSION_FUNC_ID, 0);
-> 	return (version >> 16) == 1 && version >= ARM_SMCCC_VERSION_1_1;
-> }
-> 
-> efistub can get away with this inline asm since it isn't 32 bit and it
-> doesn't deal with quirks.
-
-Smells plausible to me.
-
-> 
-> > I a bit surprised we don't have a common helper for this -
-> > I guess the version checks are often explicit in a particular
-> > driver being bound.  
-> 
-> The PSCI stuff in the kernel is all very early when establishing what
-> the channel is and is done only once. Here is a bit different
-> since we only accept the smc instruction used by drtm..
-> 
-> And even if there was a helper we can't really call it from zboot..
-
-True enough. I was just hoping there was code to compare this with :)
-
-> 
-> Thanks,
-> Jason
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgrlnKggMjAyNi8xMC8yMSAxNzo0OCwgV2FuZHVuIOWGmemBkzoKPiAKPiAKPiBPbiAxMC8yMS8y
+NiAxNzoxMywgSmluamllIFJ1YW4gd3JvdGU6Cj4+Cj4+Cj4+IOWcqCAyMDI2LzEwLzIxIDE2OjMw
+LCBXYW5kdW4gQ2hlbiDlhpnpgZM6Cj4+PiBGcm9tOiBXYW5kdW4gQ2hlbiA8Y2hlbndhbmR1bkBs
+aXhpYW5nLmNvbT4KPj4+Cj4+PiBjcmFzaF9wcmVwYXJlX2hlYWRlcnMoKSBjb3VudHMgbWVtb3J5
+IHJhbmdlcyBiZWZvcmUgcG9wdWxhdGluZyB0aGUKPj4+IGFsbG9jYXRlZCBjcmFzaF9tZW0gYXJy
+YXkuIFRoZSB3ZWFrIGltcGxlbWVudGF0aW9uIHVzZWQgYnkgQVJNNjQsCj4+PiBSSVNDLVYgYW5k
+IExvb25nQXJjaCB3YWxrcyBtZW1ibG9jay5tZW1vcnksIHdoaWxlIHg4NiBwZXJmb3JtcyB0aGUg
+c2FtZQo+Pj4gdHdvLXBhc3Mgb3BlcmF0aW9uIG92ZXIgc3lzdGVtIFJBTSByZXNvdXJjZXMuIENv
+bmN1cnJlbnQgbWVtb3J5IGhvdHBsdWcKPj4+IGNhbiBjaGFuZ2UgcmFuZ2Ugc291cmNlIGJldHdl
+ZW4gdGhlIHR3byB3YWxrcyBhbmQgbWFrZSB0aGUgcG9wdWxhdGUKPj4+IHBhc3Mgb3ZlcmZsb3cg
+Y21lbS0+cmFuZ2VzLgo+Pj4KPj4+IFRha2UgZGV2aWNlX2hvdHBsdWdfbG9jayB3aGVuIHByZXBh
+cmluZyBjcmFzaCBoZWFkZXJzIGR1cmluZwo+Pj4ga2V4ZWNfZmlsZV9sb2FkKCkuIFRoZSB4ODYv
+cmlzY3YgbWVtb3J5IGhvdHBsdWcgcGF0aCBhbHJlYWR5IHRha2VzCj4+PiBkZXZpY2VfaG90cGx1
+Z19sb2NrLCBzbyBjYWxsIF9fY3Jhc2hfcHJlcGFyZV9oZWFkZXJzKCkgZGlyZWN0bHkKPj4+IHRv
+IGF2b2lkIHJlY3Vyc2l2ZSBsb2NraW5nLgo+Pj4KPj4+IFNhc2hpa28gcmVwb3J0ZWQgdGhpcyBp
+c3N1ZSBpbiBbMV0uCj4+Pgo+Pj4gRml4ZXM6IDM3NTFlNzI4Y2VmMiAoImFybTY0OiBrZXhlY19m
+aWxlOiBhZGQgY3Jhc2ggZHVtcCBzdXBwb3J0IikKPj4+IEZpeGVzOiAxYmNjYTg2MjBhOTEgKCJM
+b29uZ0FyY2g6IEFkZCBjcmFzaCBkdW1wIHN1cHBvcnQgZm9yIGtleGVjX2ZpbGUiKQo+Pj4gRml4
+ZXM6IDhhY2VhNDU1ZmFmYSAoIlJJU0MtVjogU3VwcG9ydCBmb3Iga2V4ZWNfZmlsZSBvbiBwYW5p
+YyIpCj4+PiBGaXhlczogZGQ1ZjcyNjA3NmNjICgia2V4ZWM6IHN1cHBvcnQgZm9yIGtleGVjIG9u
+IHBhbmljIHVzaW5nIG5ldyBzeXN0ZW0gY2FsbCIpCj4+PiBTaWduZWQtb2ZmLWJ5OiBXYW5kdW4g
+Q2hlbiA8Y2hlbndhbmR1bkBsaXhpYW5nLmNvbT4KPj4+IExpbms6IGh0dHBzOi8vc2FzaGlrby5k
+ZXYvIy9tZXNzYWdlLzIwMjYwODA2MTAxMDAyLjFGODRFMUYwMDBFOUBzbXRwLmtlcm5lbC5vcmcg
+WzFdCj4+PiBBY2tlZC1ieTogQmFvcXVhbiBIZSA8YmFvcXVhbi5oZUBsaW51eC5kZXY+Cj4+PiAt
+LS0KPj4+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jcmFzaC5jICB8ICAyICstCj4+PiAgYXJjaC94ODYv
+a2VybmVsL2NyYXNoLmMgICAgfCAgMiArLQo+Pj4gIGluY2x1ZGUvbGludXgvY3Jhc2hfY29yZS5o
+IHwgIDIgKysKPj4+ICBrZXJuZWwvY3Jhc2hfY29yZS5jICAgICAgICB8IDE3ICsrKysrKysrKysr
+KysrKy0tCj4+PiAgNCBmaWxlcyBjaGFuZ2VkLCAxOSBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9u
+cygtKQo+Pj4KPj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcmFzaC5jIGIvYXJj
+aC9yaXNjdi9rZXJuZWwvY3Jhc2guYwo+Pj4gaW5kZXggZmU1YTRiMzA2YWFlLi5hYzhkZjJlZGYy
+YTcgMTAwNjQ0Cj4+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcmFzaC5jCj4+PiArKysgYi9h
+cmNoL3Jpc2N2L2tlcm5lbC9jcmFzaC5jCj4+PiBAQCAtNzAsNyArNzAsNyBAQCB2b2lkIGFyY2hf
+Y3Jhc2hfaGFuZGxlX2hvdHBsdWdfZXZlbnQoc3RydWN0IGtpbWFnZSAqaW1hZ2UsIHZvaWQgKmFy
+ZykKPj4+ICAJICogQ3JlYXRlIHRoZSBuZXcgZWxmY29yZWhkciByZWZsZWN0aW5nIHRoZSBjaGFu
+Z2VzIHRvIENQVSBhbmQvb3IKPj4+ICAJICogbWVtb3J5IHJlc291cmNlcy4KPj4+ICAJICovCj4+
+PiAtCWlmIChjcmFzaF9wcmVwYXJlX2hlYWRlcnModHJ1ZSwgJmVsZmJ1ZiwgJmVsZnN6LCBOVUxM
+KSkgewo+Pj4gKwlpZiAoX19jcmFzaF9wcmVwYXJlX2hlYWRlcnModHJ1ZSwgJmVsZmJ1ZiwgJmVs
+ZnN6LCBOVUxMKSkgewo+Pj4gIAkJcHJfZXJyKCJ1bmFibGUgdG8gY3JlYXRlIG5ldyBlbGZjb3Jl
+aGRyIik7Cj4+PiAgCQlnb3RvIG91dDsKPj4+ICAJfQo+Pj4gZGlmZiAtLWdpdCBhL2FyY2gveDg2
+L2tlcm5lbC9jcmFzaC5jIGIvYXJjaC94ODYva2VybmVsL2NyYXNoLmMKPj4+IGluZGV4IGU2ZjIz
+OTMzYTZkZi4uYmVmMDA4YTBjYjIyIDEwMDY0NAo+Pj4gLS0tIGEvYXJjaC94ODYva2VybmVsL2Ny
+YXNoLmMKPj4+ICsrKyBiL2FyY2gveDg2L2tlcm5lbC9jcmFzaC5jCj4+PiBAQCAtNDY1LDcgKzQ2
+NSw3IEBAIHZvaWQgYXJjaF9jcmFzaF9oYW5kbGVfaG90cGx1Z19ldmVudChzdHJ1Y3Qga2ltYWdl
+ICppbWFnZSwgdm9pZCAqYXJnKQo+Pj4gIAkgKiBDcmVhdGUgdGhlIG5ldyBlbGZjb3JlaGRyIHJl
+ZmxlY3RpbmcgdGhlIGNoYW5nZXMgdG8gQ1BVIGFuZC9vcgo+Pj4gIAkgKiBtZW1vcnkgcmVzb3Vy
+Y2VzLgo+Pj4gIAkgKi8KPj4+IC0JaWYgKGNyYXNoX3ByZXBhcmVfaGVhZGVycyhJU19FTkFCTEVE
+KENPTkZJR19YODZfNjQpLCAmZWxmYnVmLCAmZWxmc3osIE5VTEwpKSB7Cj4+PiArCWlmIChfX2Ny
+YXNoX3ByZXBhcmVfaGVhZGVycyhJU19FTkFCTEVEKENPTkZJR19YODZfNjQpLCAmZWxmYnVmLCAm
+ZWxmc3osIE5VTEwpKSB7Cj4+PiAgCQlwcl9lcnIoInVuYWJsZSB0byBjcmVhdGUgbmV3IGVsZmNv
+cmVoZHIiKTsKPj4+ICAJCWdvdG8gb3V0Owo+Pj4gIAl9Cj4+PiBkaWZmIC0tZ2l0IGEvaW5jbHVk
+ZS9saW51eC9jcmFzaF9jb3JlLmggYi9pbmNsdWRlL2xpbnV4L2NyYXNoX2NvcmUuaAo+Pj4gaW5k
+ZXggYmMwODcxMjRjZDc4Li4yOGU3YTgxY2YyNjMgMTAwNjQ0Cj4+PiAtLS0gYS9pbmNsdWRlL2xp
+bnV4L2NyYXNoX2NvcmUuaAo+Pj4gKysrIGIvaW5jbHVkZS9saW51eC9jcmFzaF9jb3JlLmgKPj4+
+IEBAIC02MSw2ICs2MSw4IEBAIGV4dGVybiBpbnQgY3Jhc2hfcHJlcGFyZV9lbGY2NF9oZWFkZXJz
+KHN0cnVjdCBjcmFzaF9tZW0gKm1lbSwgaW50IG5lZWRfa2VybmVsX21hCj4+PiAgCQkJCSAgICAg
+ICB2b2lkICoqYWRkciwgdW5zaWduZWQgbG9uZyAqc3opOwo+Pj4gIGV4dGVybiBpbnQgY3Jhc2hf
+cHJlcGFyZV9oZWFkZXJzKGludCBuZWVkX2tlcm5lbF9tYXAsIHZvaWQgKiphZGRyLAo+Pj4gIAkJ
+CQkgdW5zaWduZWQgbG9uZyAqc3osIHVuc2lnbmVkIGxvbmcgKm5yX21lbV9yYW5nZXMpOwo+Pj4g
+K2ludCBfX2NyYXNoX3ByZXBhcmVfaGVhZGVycyhpbnQgbmVlZF9rZXJuZWxfbWFwLCB2b2lkICoq
+YWRkciwgdW5zaWduZWQgbG9uZyAqc3osCj4+PiArCQkJICAgIHVuc2lnbmVkIGxvbmcgKm5yX21l
+bV9yYW5nZXMpOwo+Pj4gIGV4dGVybiBpbnQgY3Jhc2hfZXhjbHVkZV9jb3JlX3JhbmdlcyhzdHJ1
+Y3QgY3Jhc2hfbWVtICoqY21lbSk7Cj4+PiAgCj4+PiAgc3RydWN0IGtpbWFnZTsKPj4+IGRpZmYg
+LS1naXQgYS9rZXJuZWwvY3Jhc2hfY29yZS5jIGIva2VybmVsL2NyYXNoX2NvcmUuYwo+Pj4gaW5k
+ZXggZmFhMGYyMmRiYjQxLi44YTg2MWE5NDZlMjYgMTAwNjQ0Cj4+PiAtLS0gYS9rZXJuZWwvY3Jh
+c2hfY29yZS5jCj4+PiArKysgYi9rZXJuZWwvY3Jhc2hfY29yZS5jCj4+PiBAQCAtMTYsNiArMTYs
+NyBAQAo+Pj4gICNpbmNsdWRlIDxsaW51eC9tbS5oPgo+Pj4gICNpbmNsdWRlIDxsaW51eC9jcHVo
+b3RwbHVnLmg+Cj4+PiAgI2luY2x1ZGUgPGxpbnV4L21lbWJsb2NrLmg+Cj4+PiArI2luY2x1ZGUg
+PGxpbnV4L2RldmljZS5oPgo+Pj4gICNpbmNsdWRlIDxsaW51eC9rbWVtbGVhay5oPgo+Pj4gICNp
+bmNsdWRlIDxsaW51eC9jcmFzaF9jb3JlLmg+Cj4+PiAgI2luY2x1ZGUgPGxpbnV4L3JlYm9vdC5o
+Pgo+Pj4gQEAgLTM0NCw4ICszNDUsOCBAQCBpbnQgY3Jhc2hfZXhjbHVkZV9jb3JlX3Jhbmdlcyhz
+dHJ1Y3QgY3Jhc2hfbWVtICoqY21lbSkKPj4+ICAJcmV0dXJuIDA7Cj4+PiAgfQo+Pj4gIAo+Pj4g
+LWludCBjcmFzaF9wcmVwYXJlX2hlYWRlcnMoaW50IG5lZWRfa2VybmVsX21hcCwgdm9pZCAqKmFk
+ZHIsIHVuc2lnbmVkIGxvbmcgKnN6LAo+Pj4gLQkJCSAgdW5zaWduZWQgbG9uZyAqbnJfbWVtX3Jh
+bmdlcykKPj4+ICtpbnQgX19jcmFzaF9wcmVwYXJlX2hlYWRlcnMoaW50IG5lZWRfa2VybmVsX21h
+cCwgdm9pZCAqKmFkZHIsIHVuc2lnbmVkIGxvbmcgKnN6LAo+Pj4gKwkJCSAgICB1bnNpZ25lZCBs
+b25nICpucl9tZW1fcmFuZ2VzKQo+Pj4gIHsKPj4+ICAJdW5zaWduZWQgaW50IG1heF9ucl9yYW5n
+ZXM7Cj4+PiAgCXN0cnVjdCBjcmFzaF9tZW0gKmNtZW07Cj4+PiBAQCAtMzgyLDYgKzM4MywxOCBA
+QCBpbnQgY3Jhc2hfcHJlcGFyZV9oZWFkZXJzKGludCBuZWVkX2tlcm5lbF9tYXAsIHZvaWQgKiph
+ZGRyLCB1bnNpZ25lZCBsb25nICpzeiwKPj4+ICAJcmV0dXJuIHJldDsKPj4+ICB9Cj4+PiAgCj4+
+PiAraW50IGNyYXNoX3ByZXBhcmVfaGVhZGVycyhpbnQgbmVlZF9rZXJuZWxfbWFwLCB2b2lkICoq
+YWRkciwgdW5zaWduZWQgbG9uZyAqc3osCj4+PiArCQkJICB1bnNpZ25lZCBsb25nICpucl9tZW1f
+cmFuZ2VzKQo+Pj4gK3sKPj4+ICsJaW50IHJldDsKPj4+ICsKPj4+ICsJbG9ja19kZXZpY2VfaG90
+cGx1ZygpOwo+Pj4gKwlyZXQgPSBfX2NyYXNoX3ByZXBhcmVfaGVhZGVycyhuZWVkX2tlcm5lbF9t
+YXAsIGFkZHIsIHN6LCBucl9tZW1fcmFuZ2VzKTsKPj4+ICsJdW5sb2NrX2RldmljZV9ob3RwbHVn
+KCk7Cj4+Cj4+IEkgdGhpbmsgdGhpcyBwYXRjaCBjb25mbGljdHMgd2l0aCBteSBjaGFuZ2VzIGFu
+ZCB3b3VsZCBhbHNvIGNvbmZsaWN0Cj4+IHdpdGggdGhlIGltcGxlbWVudGF0aW9uIG9mIGFybTY0
+IGNyYXNoIGhvdHBsdWcuCj4+Cj4+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDI2MDky
+MTA5MDQ1MC44MDc1NzUtMTUtcnVhbmppbmppZUBodWF3ZWkuY29tLwo+Pgo+IEhhdmUgdGhlc2Ug
+cGF0Y2hlcyBhbHJlYWR5IGJlZW4gbWVyZ2VkPyBNeSBjdXJyZW50IHdvcmsgaXMgYmFzZWQgb24g
+dGhlIGxhdGVzdAo+IGxpbnV4LW5leHQuIElmIHRoZXkgaGF2ZSBhbHJlYWR5IGJlZW4gbWVyZ2Vk
+IGludG8gdGhlIG1haW50YWluZXIncyBicmFuY2gsCj4gcGxlYXNlIGxldCBtZSBrbm93LCBJIHdp
+bGwgdXBkYXRlIG15IHRyZWUgYW5kIHJlYmFzZS9yZS1hZGFwdCBteSBjaGFuZ2VzIGFjY29yZGlu
+Z2x5Lgo+IAo+IAo+IEFsc28sIHJlZ2FyZGluZyB0aGUgY2hhbmdlcyBpbiBrZXJuZWwvY3Jhc2hf
+Y29yZS5jOiBpdCBsb29rcyBsaWtlIHdlIG1vZGlmaWVkCj4gdGhlIHNhbWUgc3BvdCwgdGhlIGNo
+YW5nZSBpcyBub3Qgd3JvbmcsIGlzIHRoYXQgcmlnaHQ/CgpIaSBXYW5kdW4sCgpIb3dldmVyLCBJ
+IHRoaW5rIHNvbWVvbmUgc2hvdWxkIGhhdmUgaW5mb3JtZWQgbWUgaW4gYWR2YW5jZTsgb3RoZXJ3
+aXNlLApkb2luZyBkdXBsaWNhdGUgZml4IHdvcmsgaXMgcG9pbnRsZXNzLgoKSSBzZWUgdGhhdCBw
+YXJ0IG9mIHlvdXIgcGF0Y2ggc2VyaWVzIG1vZGlmaWVzIGNvZGUgSSBwcmV2aW91c2x5IGNoYW5n
+ZWQsCmJ1dCBJIHdhcyBub3QgQ0MnZC4KCj4gCj4+IGFybTY0IGNyYXNoIGhvdHBsdWc6Cj4+IGh0
+dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDI2MDkxODEwMDQ0Mi4zODQxMTM1LTE4LXJ1YW5q
+aW5qaWVAaHVhd2VpLmNvbS8KPiAKPiBJbiBhZGRpdGlvbiwgaWYgYXJtNjQgZ2FpbnMgY3Jhc2gg
+aG90cGx1ZyBzdXBwb3J0LCB0aGUgY29kZSB0aGVyZSB3b3VsZCBpbmRlZWQKPiBuZWVkIHRvIGJl
+IG1vZGlmaWVkICh0byBhdm9pZCBhIGRlYWRsb2NrKS4gQXMgb2Ygbm93LCBhcm02NCBjcmFzaCBo
+b3RwbHVnCj4gc3VwcG9ydCBoYXMgbm90IGJlZW4gbWVyZ2VkIHlldCBlaXRoZXIsIGhhcyBpdD8g
+SSBqdXN0IHdhbnQgdG8gbWFrZSBzdXJlIEkKPiBoYXZlbid0IG1pc3NlZCBhbnl0aGluZy4KClll
+cywgeW91IGFyZSByaWdodC4gSWYgeW91ciBwYXRjaCBzZXJpZXMgd2lsbCBiZSBtZXJnZWQgc29v
+biwgSSB3aWxsCmRldmVsb3AgYmFzZWQgb24gaXQuCgo+IAo+Pgo+Pj4gKwo+Pj4gKwlyZXR1cm4g
+cmV0Owo+Pj4gK30KPj4+ICsKPj4+ICAvKioKPj4+ICAgKiBjcmFzaF9leGNsdWRlX21lbV9yYW5n
+ZSAtIGV4Y2x1ZGUgYSBtZW0gcmFuZ2UgZm9yIGV4aXN0aW5nIHJhbmdlcwo+Pj4gICAqIEBtZW06
+IG1lbS0+cmFuZ2UgY29udGFpbnMgYW4gYXJyYXkgb2YgcmFuZ2VzIHNvcnRlZCBpbiBhc2NlbmRp
+bmcgb3JkZXIKPj4KPiAKCi0tIApCZXN0IHJlZ2FyZHMsCkppbmppZQoKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
