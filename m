@@ -2,70 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E62B606A333
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 14:41:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7494D606A325
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 14:42:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GLn9qTKV;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=RSQJfjke
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XLOVoFrV;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QwWnv18G
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=zO3/ncgycO+UYeXyh6S9xZCLTjmFyHC1e3zuhjW/RDE=; b=GLn9qTKVMDIfi1WTQTrFrSDfzb
-	+K59G42LVs6nXqZ69xUaHBNVJHUqtQqwJXeLPwrkqs7CPHVuylTEooo3GixgEfxVZVPNQVHRedL9O
-	NrICLj9oNcHuaRa+J+Aqu9wFxGT6s0IaJaZpzjgIPmbWYEEcshxix01QxRWFaXIzJMPgmbK6895X2
-	KAbiKcasaaeyGrqzEejtTIUVrTVE6o8PKXI+l2GWqkxfBXg42nZKjoauQCcO718jB5KMPNEGi9P1i
-	Hdx62ydHa969viWmJVa1IZWDgZFMpey0mBBnwtt6DcyAMsIHE/pqC2bQIIFhoSl5bekBjYLKvwtV/
-	/92wn9jw==;
+	bh=QWcPpm2mRUAtvydfwfyFYbLfsEgzYSIwwHEsgMQkVJs=; b=XLOVoFrVkh/i9Je2Job1OsHkFy
+	5ujGmYPNoOqMMt+bg6l0BNtauy2pCs9AorWsf+B9GuaAhnglb/YC06WPCD1t99xwCArUyAYub9fBj
+	VRuzJjZPhJxfzjuBjcSd8NemC6kO5H12d7zlVlQXRQHz8NxbwfiDQG5z1MTELfAsoaIne1o/6Ntk7
+	Kp14jBTQ1tto/fXSLmk/oR49LIQ9TSKpWm9t2FkjBSj9PHn5T9h5HzQxzCMEwyzHwAdaAKvpZo2Lp
+	EdqOog1f5Y/mR5wJpBGewH1vhpTWkYv3z59Oc8KyXr7xJ6mR0aKzEpsPbqGIAHgulLcPp+B9oR7vX
+	QCf75wSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJtyU-0000000EJv9-078M;
-	Thu, 22 Oct 2026 14:40:58 +0000
-Received: from out-243.mta0.migadu.com ([2001:41d0:1004:224b::f3] helo=mta0.migadu.com)
+	id 1xJtzp-0000000EK6c-16Z3;
+	Thu, 22 Oct 2026 14:42:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJtyQ-0000000EJuh-3vP5
-	for linux-riscv@lists.infradead.org;
-	Thu, 22 Oct 2026 14:40:56 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=Q8GxvwGChN6/R7iREbia4Y5Fe+czvz/W6UuO4Z5BeAg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1792680051; v=1; x=1793284851;
- b=RSQJfjkeTeMv7d3HI9fYpewS/LEJnmAp+2VJu8Z/R+YVjzDjK3Rdiunj6L57DokGUwa26lhm
- z88Elv9JuEMAnpnsatW6mJNBmQ+/ElBOllDLlVh41xTV0Wk0mqDf4bRJo601405k2RRBLrGrM7w
- iItyavz0u0AnoTJFw1T6eZNg=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id eec811b34d849da2;
-	Thu, 22 Oct 2026 14:40:51 +0000
-X-Mizu-Trace-ID: eec811b34d849da2
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 22 Oct 2026 16:40:41 +0200
-From: Andrew Jones <andrew.jones@linux.dev>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Jason Gunthorpe <jgg@nvidia.com>, 
-	Andrew Jones <andrew.jones@oss.qualcomm.com>, linux-riscv@lists.infradead.org, iommu@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev, tjeznach@rivosinc.com, jgg@ziepe.ca, 
-	joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, pjw@kernel.org, 
-	palmer@dabbelt.com, anup@brainfault.org, tglx@kernel.org, kevin.tian@intel.com, 
-	fangyu.yu@linux.alibaba.com
-Subject: Re: [PATCH v6 09/16] iommu/riscv: Reserve an MSI IOVA window for
- iommufd
-Message-ID: <atoeGhJkcgy2G1tO@orel>
-References: <20260925151659.419512-1-andrew.jones@oss.qualcomm.com>
- <20260925151659.419512-10-andrew.jones@oss.qualcomm.com>
- <179209292716.4133959.2758345963634439485.b4-review@b4>
- <atEuxafCLCdZrdR7@nvidia.com>
+	id 1xJtzo-0000000EK5z-0yRV;
+	Thu, 22 Oct 2026 14:42:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9DA1543DDB;
+	Thu, 22 Oct 2026 14:42:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5D1F1F000C1;
+	Thu, 22 Oct 2026 14:42:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792680139;
+	bh=Y/LUBFBKFZ6pOnoBKgntXD5HdgzoU+tx/ippvDPRFz8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=QwWnv18GDdspYldAzA7jwq1orZiwP7kwD51CJLmUI/hA7JOIigj13YSsCGdmecAvc
+	 46Af8XgaSPB0/af488hSXMzWXBZVYhz8feqjz6tYcWXLwhnafFM9RDkg39VH8qCo88
+	 5tE9J8PdRTbOpIYqlb8uDjAZ2Qj03gqPOknl6+GfjnlxGEq5DXEWXRPg4qsEq/kJ1A
+	 ud1/u0zwCXeBpft9qDuksliQChVPjBmBY9KSWVHGjLckqW6imzLu9eXF3Kd3bwkWip
+	 9qq4z16OLDLz4mvuBRQYs+8RF3hME3KlSwqBioPcsuHFFkBOcWurQkDU9bXbu0ZLSs
+	 7REL9rmOdlKLQ==
+From: Sasha Levin <sashal@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Anup Patel <anup@brainfault.org>
+Cc: Mark Brown <broonie@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Jinyu Tang <jinyu.tang@linux.dev>,
+	Atish Patra <atish.patra@linux.dev>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-next@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] KVM: riscv: Implement kvm_arch_pre_fault_allowed()
+Date: Thu, 22 Oct 2026 10:42:16 -0400
+Message-ID: <36adc119db9b30984c0df4d1846c0f29e4e46c07.1792679974.git.sashal@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <CABgObfaH4-Ud4VR=GC8giDmWGJWS-tvYSmPOs4TtWg2hm4ocqw@mail.gmail.com>
+References: <CABgObfaH4-Ud4VR=GC8giDmWGJWS-tvYSmPOs4TtWg2hm4ocqw@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <atEuxafCLCdZrdR7@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_074055_133300_AC6DC293 
-X-CRM114-Status: GOOD (  18.33  )
-X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,49 +80,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 15, 2026 at 12:51:33PM -0700, Nicolin Chen wrote:
-> On Thu, Oct 15, 2026 at 04:35:27PM -0300, Jason Gunthorpe wrote:
-> > > Reserve one page per possible CPU, sufficient for each supervisor IMSIC
-> > > page. Use a 16 MiB base instead of the 128 MiB convention used by ARM
-> > > SMMU. kvmtool places its guest IMSIC at 128 MiB, so with IRQ bypass the
-> > > domain-wide guest MSI address match can also capture host-delivered
-> > > MSI writes to the SW MSI window and misdeliver them to the guest.
-> > > 
-> > > 16 MiB falls in a hole in the current kvmtool and QEMU virt memory maps,
-> > > away from their guest IMSIC windows and RAM. Keep the window below
-> > > 4 GiB so devices with 32-bit MSI address registers can use it.
-> > 
-> > And this is a good reason you should not follow ARM down this mad
-> > road. Nicolin had some patches to allow userspace to select the SW_MSI
-> > range instead of using a kernel hard coded value, which becomes a
-> > sneaky ABI. It would be much better if riscv starts off on the right
-> > foot instead of continuing this mistake.
-> 
-> It was paused due to lack of an immediate interest:
-> https://lore.kernel.org/linux-iommu/cover.1760487869.git.nicolinc@nvidia.com/
-> 
-> If riscv wants it, maybe we can give a push.
->
+Commit caa63620f9e3 ("KVM: Allow architectures to disallow pre-fault")
+requires every architecture that selects KVM_GENERIC_PRE_FAULT_MEMORY to
+implement kvm_arch_pre_fault_allowed(), and there is no generic default.
 
-I'll look into Nicolin's patches in a follow-on series and defer enabling
-VFIO_IOMMU_TYPE1 for now. I'll see if I can avoid introducing
-IOMMU_RESV_SW_MSI at all, which would rule out using the legacy Type1
-backend as it stands. Instead, I'll try to support existing Type1
-userspace through iommufd's compatibility interface, which will need to
-manage MSI IOVA allocation without SW_MSI, since existing Type1 userspace
-won't issue Nicolin's ioctls.
+Commit e8b32e377951 ("KVM: riscv: Implement KVM_PRE_FAULT_MEMORY") was
+written before that hook existed, so it selects the option without
+implementing the hook. With both commits in the same tree, riscv builds
+with KVM enabled fail to link:
 
-I'm posting a much simplified DMA-IOMMU-only v7 now.
+  ld.lld: error: undefined symbol: kvm_arch_pre_fault_allowed
+  >>> referenced by kvm_main.c
+  >>>               virt/kvm/kvm_main.o:(kvm_vcpu_pre_fault_memory) in archive vmlinux.a
 
-Thanks,
-drew
+The riscv implementation does not refuse pre-faulting in any state, so
+return 0 to keep its current behaviour.
+
+Fixes: e8b32e377951 ("KVM: riscv: Implement KVM_PRE_FAULT_MEMORY")
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+Paolo, this is needed when kvm-riscv-7.4-1 is merged into kvm/next.
+Feel free to squash it into the merge instead.
+
+Mark, next-20261022 already fails to link, so linux-next needs this on
+top of the kvm-riscv merge.
+
+Build-tested with a riscv tinyconfig plus KVM=y on next-20261022 and on
+kvm/next with kvm-riscv-7.4-1 merged. Not runtime tested.
+
+ arch/riscv/kvm/mmu.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index e8673cfa69668..738d9ee1eac9d 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -754,6 +754,11 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 	return ret;
+ }
+ 
++int kvm_arch_pre_fault_allowed(struct kvm_vcpu *vcpu)
++{
++	return 0;
++}
++
+ long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
+ 				    struct kvm_pre_fault_memory *range)
+ {
+-- 
+2.53.0
+
 
 _______________________________________________
 linux-riscv mailing list
