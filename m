@@ -2,117 +2,120 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2C89606A319
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 06:28:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33F3E606A319
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 07:04:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GAarPjUP;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=XYj1CN5K
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=m/OLe44W;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=gupQZ37J;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=GewONFtE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8xfggB09+53MHzgyLVP9ffX/+sLovqKBWwVNHzk9Oe8=; b=GAarPjUP+GUaRr
-	uizfvCN6G8vCLNQKP4yR9+LTznwVN+fNEMLPM/5wi0kXaVcoIEfxQjKnecNkD4ctfh43/tX0cSxbV
-	r6FZerjL+JpwFKhjmP/zKKbJpim27w893tPgwCWYYBak1jNYPXg/mlZi+8nCo+JTvqi7VK0SpodJW
-	E4P6wrnwL4ZS7eUkHdZxnZPp9r7Mr8jBR9GWEWXqyTzydmMudrJKM+ENTr9JYmimD7bJjEoyd+fhp
-	Co0Z6o4vzBOz5jysHoAx31+L8yqNSKy6vFJer6QtcHDacC2rf/Nm8ZU7524pfRd44pbA+QWmM1oeH
-	tM3vsdPkhlouHmkBI1MA==;
+	List-Owner; bh=y7gOTQBitfcsjyB7vghXd6alEYk7e4hqn+igIt7HbSM=; b=m/OLe44WIbth0m
+	NMi6S7bZtVZIah6uqr7V31GPvZFVKv8oCct3WiPqXxjPHgFxESpiqh/NVoZLjuVwQdU7RGrbmBzXI
+	W1v7E150BVJY2pIspaHW8hwldDE0JkpNEe3ueDibPxn+qHh1/PWwgnbt9jLeHcpxey5znBcRsrDHq
+	4qmQxePcXdJjCUlDycOVBSCdhoGbnGQVnybvH3ypJaKtqEzu6i1FWskecMNBK8rukrtBwJh6Fw0f0
+	NY4a1PLxGyPoUCKfbRetajm6LSlHXAtNiYgLn5ft/fenmcUtbcva19uEdBo/kPSxrX+w8GRYu1KDQ
+	raiauYgIq6Toxbl8NrAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJmHJ-0000000DSvB-1aed;
-	Thu, 22 Oct 2026 06:27:53 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1xJmqi-0000000DXAT-1kxD;
+	Thu, 22 Oct 2026 07:04:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJmHH-0000000DSu1-06SA
+	id 1xJmqg-0000000DX9H-3Ysy
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 22 Oct 2026 07:04:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=+ByBpVD7FPTufElpNoOF6mqXMOL+Kv6Ik0YaJGkEPtg=; b=gupQZ37Jklo5TUhWfrX0oHVpRh
+	OTy9Mija8Ds+8k2Iy6sA0mRjQDoEnzXYlVH0ENSJkhazZpoP5N9ErQvX/1IljeMHhedcZb9LnZ/3D
+	OwZmrNEZgWBPetTo8GABze2yfYyHG2AI/s2h0Tm/T5nsFTZtzMjBGYdRgXHY+hn469X4+xuo0oyjO
+	CbPtwDY0yxpan9Qmwk3/KM0/7aI2DisOI3tC+y62VV9UZcgFu1Y/06N0TDYU11Vorn8HdAEbQGA94
+	nOE+8U874XrL0S9AHjgJFZknZLB4SgK3ocqu9AoXIA3Em/MtRxgD0AY0G1bDqRUP/VT82EpX69rYK
+	H2j/lkig==;
+Received: from mail-pj2-x08.google.com ([2607:f8b0:4864:39::8])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xJmqZ-00000006XMp-2vka
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Oct 2026 06:27:52 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-3a772ec8389so11598061fa.3
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2026 23:27:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792650468; cv=none;
-        d=google.com; s=arc-20260327;
-        b=U1A/sQ3K50ze8wM9QbU/2ZtC4mfS94zksIWHEWq0obsSaS7GHwHIcXuprbqcXzZ1de
-         EQ8BEdgPNXT9N6HjLcHYvYCAT3NilouwmgbeEw069zATO0QQKZ+DqwZbstX9WDsulodG
-         WheKstpAbg9NjW4GeGi1x4x0AvugVKX+6MAqmKDkX6ybCmEkvDeQTpvL8KsFGd8uNae1
-         gJaAnnaZ/c/ctaqn29uia2Gw+KjF3rKD5ByIg2gIGIId3Pyty+SaW5LLQmtHQs4VJ/iv
-         +mcpZaIgYejAHzIubqKyC4GkRqJQ7taKwVwac6wR/tZOPwGuyoR93zSKpAGA8oSF45sR
-         w2Ig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=c8KWIoZNW6/QAD3FZ28O4CFbS3YPAHolywa/ZQAktrE=;
-        fh=VtUL/sSS/HZNRR+2XXionTlxx/Od10aeiOjl+Qc4q0Y=;
-        b=OB1i0oAennAKUTlbMgiowDVlbZqoBu45HluMqpTlcW6pqb2HN7fOq1Kfk9BE5gtBqf
-         QDC1BK9z8nZdSl4syagcJEZAWxid+Jlgw3febh34UAODQOuy24btkHUfDPB6idEMEV2e
-         mHacBw5SLZ1+x9/CYLOLaXwbQ28PgC7PmRJuU1Ft9TSXurtrfKaXRH5Y0PbnH2OwtTmU
-         AvqsKHXwGKOqlG5fsDmXLk971anYZ8le/agAKHzGGN1g1j7He78nWUkKY5K84yNlBQg2
-         kR3iD2LbrvI79heJJL7G4EUfmpYUR1yjytg4WkNk+fKvZZkAislL6Pd8HMMLuErrVRnq
-         eVuw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 22 Oct 2026 07:04:25 +0000
+Received: by mail-pj2-x08.google.com with SMTP id d9443c01a7336-2e4a61a2ff9so5392105ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Oct 2026 00:04:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault.org; s=google; t=1792650468; x=1793255268; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=c8KWIoZNW6/QAD3FZ28O4CFbS3YPAHolywa/ZQAktrE=;
-        b=XYj1CN5KXzj8KniwrQniokByk/OCVNkIWwhXHk/EpAcSu+prGerW5mK2aDXMtvMPst
-         SCKP4DVWDpi4q06K3Z5vgPRZ/rcxrI1kxQDSMkmXjlbWCpk+7p+XUJoxB8FC8J261nHW
-         x70i9IHJTVtAby0B37yMlA1M6AofPUPYgGc92Lsx5IGwmfrjExzmAeYydB22OejMmRLt
-         ndU/SAQVddXmXT9j7S+PSH/D9JIIj4IPFnN3MQdfcFsArgZuOOqphr2LnWRE4s74WkXC
-         DL00pEatmKuUR79IZ3VtZ5VHVYjI5iLchzUSxpD2t8mtRqjRh5uWwMjnlERWR1Of7tUs
-         83TQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792650468; x=1793255268;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20251104; t=1792652657; x=1793257457; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=c8KWIoZNW6/QAD3FZ28O4CFbS3YPAHolywa/ZQAktrE=;
-        b=UINb6v2AvR+i1I7YehF78CKKLivM1Fm4t8mFNktfpfjsFDZ3dEJmf7bhE2jTgMLlXe
-         AlaeHlBhPYG+QvWI4FRaSMBclUKlSanBGHE1jHnOj7E1SaiBaBJ5gIIrzbEOOiXxDYP9
-         BhamZOKQswM6HqgLpzkGx09rpCl3sZxPao3Xuu3kikj3g5P+bbbQICx6b+l5Ky2AcrQJ
-         nIAcKnDDeumxX40OnReW4rK21iRCINen0ExTKnkcVkVUaWYaS958fY5iIRMVA3ftyi81
-         d5OQuDEIKJmumo8CK01nX5U8MHGK67LbjbYIEbg8UDUJ5cPi4dJ1h9ge/BlUbVUp9YIt
-         8xGw==
-X-Forwarded-Encrypted: i=1; AKwUvBwAYRcb+XU+4rzQm4aSvFnZ3D6nogtKrhpJH8KDdRHQsVnKOcFyLSbfOTO+/80uc5Brwx1CHfibpUE6uA==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKMjxutfUSMd8LQhPJ3HLwUHHhxF3DqrEqh+uOQu0pE75j+Df0s
-	XHgVRtn23LSFZT3fyZsZ5Wsj97bb3PApSsV/rQMvglz41BdVk9xY2azsVKOPicb49qmv1NMMV9y
-	fQT2kwQZ2OG5eyA8Owt+SvLkhDUpD0/kNeTkxOVPAlA==
-X-Gm-Gg: AYBFou38wX/5RAgoOMSaX3+U7LsEkFXOOY6OrYnUK/V5SbUr+ySi74JfOqMYqqWxZHI
-	MtDZJeVNdhG1XgrGf+8p90olWNSNNzZ2VH5o5smKT6ayK9/xanRkHnwVb0Myzff5YSXgLAvEJmX
-	kXigBjUrkurBgHnqIZydOKDn5a26gWy9PN9W8C5ZpdgUk5JQzD+f7VLtX5eYbIR9w7aVfodth2X
-	BRJSr/WCidN9xKPJtsx6Dw+r64Y/GRNqyYEvZanLVSTd14sc/R9NHGEvdG/ytS8xlBBhtACz0PO
-	n5XqOoHNf+SbAKkMt0lKaiDHwMQefIPis0NsOSgC/QRKkaMwc7IIZuMiKaKrnQnCEgFJOpVMwvo
-	NeiRdIPM6LYheNPMNfBGLU6sWSx+1Kz9RtvfnMxJ7oc4+JYzPB4a86Ddjp739Ow1qlgADjmh60a
-	sDtZSCcCOLb2q7Hl1nXx5kTuZReLEAukmfdV1G7Z9hwfCbFoZAmgaQHddEVQ3QSuWoNBsoZhNWe
-	WjbWA==
-X-Received: by 2002:a05:651c:3134:b0:3a9:9a3b:6036 with SMTP id
- 38308e7fff4ca-3ac440b53c8mr12628651fa.2.1792650468375; Wed, 21 Oct 2026
- 23:27:48 -0700 (PDT)
+        bh=+ByBpVD7FPTufElpNoOF6mqXMOL+Kv6Ik0YaJGkEPtg=;
+        b=GewONFtEPkfPZnIRMeU5EnecWvrmzWCSKgScWzyiY80kPdpys4iWqSE22mRL5ReEK1
+         KDu6xkgFmjcJgwG5MqgbWov7/fCcZeZmI/Pna/fiXi5tAz4UZ7jjjmUUSibt86Fo/Ol9
+         Ewgh0hK50hP3RMVcURUAYWzmzMP4l7G3TY0Vd4L/YXgrrETOA0dPOr5Wnqa6ZcPM9ioL
+         h2fPoPsEQlIAmdY87Gi5l5WN6PyOL+Ttfsonbsv/nqMFdqY0UXf6IGj7zoolXsFWvhnK
+         fT4MZy6kDvFr3JboDEfMLVpiBjYRJ4DBN2ykjfuafURDhXjGzU3N4pxAAQzd1b+M2jGb
+         WWoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792652657; x=1793257457;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+ByBpVD7FPTufElpNoOF6mqXMOL+Kv6Ik0YaJGkEPtg=;
+        b=z7Jmai9mSlx9wOZg8k5/vNEoP9YEU7CX+5HOYxh1hBgiiQRzgDTVIR44HaF6SXwjui
+         2byxX39CQpF2lDrA5mMu0ImEcibeuUkJljg3EKhAV4vhrrXbLdMizS04GxbNcbF9pkkw
+         PQoSc53gyq7i3SQZwiRbwXHw/NI3sD169pmgbamlKxZwEIOgpyi3pvhuv/mDrks/qgsx
+         pYTHKAezetTBvkF26cNI/AcghW4KaVsaYULHZEhpIaEYaBSDQV/gq+cD8lSx3HOTMTZH
+         RNUVstrGgcepKnYPwNsrumNWTj77j72EvyV0rB0U8vAcpyjQCXA72qd20WiIZ9rqjZK6
+         6g7Q==
+X-Forwarded-Encrypted: i=1; AKwUvByH99ttGzBoX2sAuKgdHrB7KXZ1kRMD4Wq0cgAAsaLBD0CVVdjP8sCylTcj5h9MGNaiPQgm42KsC/BQOQ==@lists.infradead.org
+X-Gm-Message-State: AFq9FYJdnrWfC9P7WemLFB/CnllcABw5RzonP0djlKT0AT+VGO/e/+V5
+	8b4SgdG9AfZv4ErhzMEIVjRUPyhqKBX2EUs5S6SHu9xaW/R02KXimN1q
+X-Gm-Gg: AYBFou0w0b2NINYXCVTR07efgue8fZnqhU40DovHC0ui8E1/igdVpJrlTIfwIjUaVXU
+	cp+ZIOU95fKHuL9E/t6zzahLgyZ27PkJRL+MG7jqXBsu8L4LojugGQYGChSR1f9frDILfohZNX5
+	jhYjWkFVoVSCXUxieyQsT4uEF/qYLwNotNUbO2dzLMZaJ2EU91rAn5Vmx4xMW22zrfPoCFEkSf7
+	2vVf8WXjv6pR3TKzc1n4U1P+jyUQIVF3kWqI6AvnHV9QmnraUOotVzWT6fH3qwfa+zLewhV7sNJ
+	Rtboc38RIKm1KrUr/aP6SnrbfwXlm8ldpiFNibpBhR3CFGbR88K0UEe1Ebfr8QBuDYw2VqSqEih
+	y+cpr0Q/MxDs3xJnt/35JHc9Y5BJ3m+ixmgYxneoo8JpzlS27w2fT51h2ykW7f+27DPJmzvmGP0
+	RpkgkBA4aaSis/cnhYXqUmtQ4hB55yE0JqeXlO/8LeU6Q+BhIgEW0IDvgj/SadcepTBJDAwVOmX
+	uGx6HpRjlfeG5TLGjYm5Z7ypCCqeHyl5ceE6vTgeK9VfdMPU1RoxEeRXPAV5e0=
+X-Received: by 2002:a17:902:e947:b0:2e9:9bac:2e84 with SMTP id d9443c01a7336-2ea43d3a8e5mr34417885ad.66.1792652657298;
+        Thu, 22 Oct 2026 00:04:17 -0700 (PDT)
+Received: from [10.125.112.22] ([122.11.210.25])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ea3b43478csm19901295ad.28.2026.10.22.00.04.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 22 Oct 2026 00:04:16 -0700 (PDT)
+Message-ID: <95f18ef2-8fda-447e-bc64-1732febea363@gmail.com>
+Date: Thu, 22 Oct 2026 15:04:02 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261014224239.963635-1-heinrich.schuchardt@canonical.com>
-In-Reply-To: <20261014224239.963635-1-heinrich.schuchardt@canonical.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 22 Oct 2026 11:57:36 +0530
-X-Gm-Features: AclHuK-9TFsRegjYZcIPEHWDYDOWlB5NKzsnn-yH7Qq40hb2qm3j1NzJo9FfRwI
-Message-ID: <CAAhSdy39UtV0sUqL0=FX+HWa7oAH0fkei1cFKiF6OBSSFT=gdQ@mail.gmail.com>
-Subject: Re: [PATCH 0/2] RISC-V: KVM: Allow Zicclsm, Ziccamoa, Ziccif, Za64rs
- in guest
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Sean Christopherson <seanjc@google.com>, Shuah Khan <shuah@kernel.org>, 
-	Sarah Emery <sarah.emery@canonical.com>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 0/8] kdump: reduce vmcore size and capture time
+To: Rob Herring <robh@kernel.org>, "rppt@kernel.org" <rppt@kernel.org>
+Cc: baoquan.he@linux.dev, m.szyprowski@samsung.com, catalin.marinas@arm.com,
+ will@kernel.org, mark.rutland@arm.com, chenhuacai@kernel.org,
+ kernel@xen0n.name, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+ saravanak@kernel.org, akpm@linux-foundation.org, pasha.tatashin@soleen.com,
+ pratyush@kernel.org, ruirui.yang@linux.dev, robin.murphy@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, kexec@lists.infradead.org, linux-mm@kvack.org,
+ iommu@lists.linux.dev
+References: <20261021083011.2170525-1-chenwandun1@gmail.com>
+ <20261021132308.GB3667411-robh@kernel.org>
+Content-Language: en-US
+From: Wandun <chenwandun1@gmail.com>
+In-Reply-To: <20261021132308.GB3667411-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_232751_085996_50A9D553 
-X-CRM114-Status: GOOD (  11.84  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261022_080423_203492_32ED5B9C 
+X-CRM114-Status: GOOD (  15.71  )
+X-Spam-Score: 0.1 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,32 +125,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-2.3 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-T24gVGh1LCBPY3QgMTUsIDIwMjYgYXQgNDoxMuKAr0FNIEhlaW5yaWNoIFNjaHVjaGFyZHQKPGhl
-aW5yaWNoLnNjaHVjaGFyZHRAY2Fub25pY2FsLmNvbT4gd3JvdGU6Cj4KPiBFeHRlbmQgdGhlIEtW
-TSBJU0EgZXh0ZW5zaW9uIGFycmF5IHRvIGFsbG93IEtWTSB1c2Vyc3BhY2UgdG8KPiBkZXRlY3Qg
-WmljY2xzbSwgWmljY2Ftb2EsIFppY2NpZiwgWmE2NHJzLgo+Cj4gVGhpcyBpcyBqdXN0IG5vdGlm
-eWluZyBvZiBoYXJkd2FyZSBwcm92aWRlZCBjYXBhYmlsaXRpZXMuCj4gTm8gS1ZNIHNwZWNpZmlj
-IHN1cHBvcnQgaXMgbmVlZGVkLgo+Cj4gQWRkIHRoZSBleHRlbnNpb25zIHRvIHRoZSBnZXQtcmVn
-LWxpc3QgdGVzdC4KPgo+IEhlaW5yaWNoIFNjaHVjaGFyZHQgKDIpOgo+ICAgUklTQy1WOiBLVk06
-IEFsbG93IFppY2Nsc20sIFppY2NhbW9hLCBaaWNjaWYsIFphNjRycyBpbiBndWVzdAo+ICAgS1ZN
-OiByaXNjdjogc2VsZnRlc3Q6IGFkZCBaaWNjbHNtLCBaaWNjYW1vYSwgWmljY2lmLCBaYTY0cnMK
-CkxHVE0uCgpSZXZpZXdlZC1ieTogQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4KClF1
-ZXVlZCB0aGlzIHNlcmllcyBmb3IgTGludXgtNy40CgpUaGFua3MsCkFudXAKCj4KPiAgYXJjaC9y
-aXNjdi9pbmNsdWRlL3VhcGkvYXNtL2t2bS5oICAgICAgICAgICAgICAgIHwgIDQgKysrKwo+ICBh
-cmNoL3Jpc2N2L2t2bS9pc2EuYyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgOCArKysr
-KysrKwo+ICB0b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vcmlzY3YvZ2V0LXJlZy1saXN0LmMg
-fCAxNiArKysrKysrKysrKysrKysrCj4gIDMgZmlsZXMgY2hhbmdlZCwgMjggaW5zZXJ0aW9ucygr
-KQo+Cj4gLS0KPiAyLjU1LjAKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+
+
+On 10/21/26 21:23, Rob Herring wrote:
+> On Wed, Oct 21, 2026 at 04:30:03PM +0800, Wandun Chen wrote:
+>> From: Wandun Chen <chenwandun@lixiang.com>
+>>
+>> On SoCs that carve out large firmware-owned reserved memory (GPU,
+>> camera ISP, ...), kdump currently dumps those carveouts as part of
+>> system RAM even though their contents are firmware state that is not
+>> useful for kernel crash analysis.
+>>
+>> ACPI systems already filter reserved memory out of the vmcore through
+>> their existing path: firmware reports those carveouts as unusable in
+>> the EFI memory map, they get MEMBLOCK_NOMAP set in memblock.memory
+>> (is_usable_memory(), efi-init.c), and the ELF header builder has
+>> always skipped nomap regions; only DT-based systems currently fail
+>> to filter these regions, which is what this series addresses.
+>>
+>> This series introduces a MEMBLOCK_NODUMP flag (suggested by Rob) in
+>> memblock to filter reserved memory on DT-based architectures. A new
+>> flag is needed because MEMBLOCK_NOMAP can only express regions without
+>> a linear mapping, while MEMBLOCK_NODUMP can filter regions that are
+>> linearly mapped. Reserved regions are marked MEMBLOCK_NODUMP by default
+>> so kdump omits them; reusable CMA regions are different because their
+>> pages are handed back to the buddy allocator and may carry crash-relevant
+>> data.
+> 
+> There is little point in continuing to send new versions until Mike 
+> agrees with MEMBLOCK_NODUMP being added. You didn't answer him on v7.
+
+Hi Rob,
+
+Thanks for the reminder. On v7 your reply to Mike stated exactly what
+I wanted to say, after a week without further objections, so I assumed
+the question was settled and went ahead with next version. That was a
+mistake on my part: I should have gotten Mike's agreement on the flag
+before sending a new version. I'll hold off further versions until then.
+
+
+
+Hi Mike,
+
+Sorry for not following up on your v7 question. The reason a new flag
+is needed is described in the v9 cover letter:
+
+    A new flag is needed because MEMBLOCK_NOMAP can only express
+    regions without a linear mapping, while MEMBLOCK_NODUMP can
+    filter regions that are linearly mapped.
+
+Put differently: today, whether a region ends up in the vmcore is a
+side effect of how it is mapped, mapped regions are always dumped,
+nomap regions never are. Nothing can express "mapped, but not useful
+in a crash dump". MEMBLOCK_NODUMP decouples the two, and DT is simply
+the first user.
+
+
+
+> 
+> Also, I intend to apply this[1] before any further reserved memory 
+> changes which will greatly simplify the code.
+
+Understood, and it makes sense. It removes the two-pass reserved_mem
+initialization and indeed simplify the code, I'll rebase on top of
+it once it lands;
+
+
+Best regards,
+Wandun
+
+
+
+
+> 
+> Rob
+> 
+> [1] https://lore.kernel.org/all/20261015082315.56876-1-m.szyprowski@samsung.com/
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
