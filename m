@@ -2,84 +2,64 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3753F606A319
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 11:18:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E489606A319
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 11:28:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ARfRyNN8;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d4fJGOkx
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=abGq9jMt;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S38n80tY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=+DFjyAOtQ9SeqGcZ4AACTbLl8y+c6DqLI9wYiF6wuKo=; b=ARfRyNN8eoxuxnlZRg/lS4/q+4
-	dsTXcU8gAcJlTRwJ1xR9VQagjFBVSAtnshoB5WjaOYn5YewTw62fc9AekM3Zd9DxFHAxHTaevrjlj
-	hBbU7HnW7eFVornEEePNzaIN3CP4Bpf2IaDgouwargO9Rhw+wYg/a0UgsV3JTnzxnDPQxzpN/dJFx
-	g3yslWu0bPmMp9xwHBn8S8uUkC2pxrsOr7sQ/skovYduhCCfhVizPjV5iu5Yb4PD/F7dBVmIs4Mxl
-	qLeEbFiH9nZCFgTl1JVLfX7rNQc7ZGl6jNbTv5iot7n/etu3Ko5M2tQqn9xK/6Pg/mzPsVO2LVvD7
-	tdEIi72w==;
+	bh=GiZFf6KsNlVJKCCFcIlihQ6bh29Geogzq0mXM9qJC6s=; b=abGq9jMtP4eaY+U7GE+Z6LqtG7
+	DOfRF9rG4ttd112OaCzqFXwugt3K6AdEEfhXR/VTYj6biq/C8lXDLGo+h1QDLAs1DoX8aPguZzHGq
+	Z6qPcAJMBpt25pWVvGHUsqoWzd/XUWMMgx9sx2fJVVFZJ8+ClxQXpBvV8L6A/+1Ae+6fEpiT5SdgK
+	60J79+lCFxISYBaxjEgyJETF+RdBPs651VpPlJVua3Tf8rCZvRZZavkpPs7VpT+k05XwT+Itwt+Xy
+	dLiFUbgNl9hkYwJK5C+zBPT4nkzJXVO43PKDJlXrZlKPhQ4NMO5LSRW85oBOKuJYHwxHLWD8DWxtY
+	TNaRfnvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJqoB-0000000E09X-0JxW;
-	Thu, 22 Oct 2026 11:18:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xJqyX-0000000E0ht-0G2w;
+	Thu, 22 Oct 2026 11:28:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJqo8-0000000E096-3jM4;
-	Thu, 22 Oct 2026 11:18:05 +0000
+	id 1xJqyV-0000000E0hm-3ByG
+	for linux-riscv@lists.infradead.org;
+	Thu, 22 Oct 2026 11:28:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CCBC860018;
-	Thu, 22 Oct 2026 11:18:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C43D21F000C1;
-	Thu, 22 Oct 2026 11:18:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E265F60018;
+	Thu, 22 Oct 2026 11:28:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A47EC1F000C1;
+	Thu, 22 Oct 2026 11:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792667883;
-	bh=JclM6m6UJd9X/eOzEM/yHtyN8srcsiT4FYG2M3UATeQ=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=d4fJGOkxHdDVT8ZFMZ7Z04p+Ls2YAslbqzV3fpCgkx/tvjSu6/DEUeajUjK1NiKAC
-	 fd2XELg/Htc6LuXgCztTcSRwA23afViNqzg3m4zWXg9LHknn7UeeZ4UQUm+FNRIGlD
-	 cfFeuwaRaFWM4ksecwZpmCiF4oGxY5GKEgR5diRkTHQ4mDJz5CO0EHmQ1URUwj03BG
-	 O8Qpgd3e0o1cigcVjxBlqpCYc4qxKLVLv7KjwTqhAjibmLhujitUoJMNIMOjP37Yji
-	 ulhuU6fdxZBJPq80wItLkGsphSKy91we2VoD37Eyqqf0uHHHJRxUkyjYIcyxpDYT/m
-	 SOCfT9gy/6v0w==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: tangyazhou@zju.edu.cn, bpf@vger.kernel.org, Alexei Starovoitov
- <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
- <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya
- Dwivedi <memxor@gmail.com>, David Vernet <void@manifault.com>,
- bpf@ietf.org
-Cc: John Fastabend <john.fastabend@gmail.com>, Martin KaFai Lau
- <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
- <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis
- <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, Quentin
- Monnet <qmo@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, Xu Kuohai
- <xukuohai@huaweicloud.com>, Pu Lehui <pulehui@huawei.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, Shahab Vahedi <list+bpf@vahedi.org>,
- Russell King <linux@armlinux.org.uk>, Tiezhu Yang
- <yangtiezhu@loongson.cn>, Hengqi Chen <hengqi.chen@gmail.com>, Johan
- Almbladh <johan.almbladh@anyfinetworks.com>, Paul Burton
- <paulburton@kernel.org>, "James E.J. Bottomley"
- <James.Bottomley@HansenPartnership.com>, Helge Deller <deller@gmx.de>,
- Hari Bathini <hbathini@linux.ibm.com>, "Christophe Leroy (CS GROUP)"
- <chleroy@kernel.org>, Naveen N Rao <naveen@kernel.org>, Luke Nelson
- <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, Ilya Leoshkevich
- <iii@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
- <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Wang YanQing
- <udknight@gmail.com>, Jakub Kicinski <kuba@kernel.org>, Jonathan Corbet
- <corbet@lwn.net>, linux-doc@vger.kernel.org, Yazhou Tang
- <tangyazhou518@outlook.com>, Tianci Cao <ziye@zju.edu.cn>, Shenghao Yuan
- <shenghaoyuan0928@163.com>
-Subject: Re: [PATCH bpf-next v2 4/8] bpf, riscv: JIT UHMUL and SHMUL on RV64
-In-Reply-To: <20261021-bpf-hmul-v2-4-88e260099f7d@outlook.com>
-References: <20261021-bpf-hmul-v2-0-88e260099f7d@outlook.com>
- <20261021-bpf-hmul-v2-4-88e260099f7d@outlook.com>
-Date: Thu, 22 Oct 2026 13:18:00 +0200
-Message-ID: <874iee6l1z.fsf@all.your.base.are.belong.to.us>
+	s=k20260515; t=1792668526;
+	bh=X+uTy5UwL80tB9FDgwbsYL1qPK+BRoTAXASC5ApenoE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=S38n80tY6Zrqc+C9bHVJ6Ov279IARItkHIQj/Zk/GYPSvNq5C8kw4gabZ4bOZEdv7
+	 eKEHVedT5vIAGy8q6jBPXZDXjHu7D/pWSEP4sFSOTiLb0tXHnufGwiR2iFKsVe+7UE
+	 CaH9fdTd9FFx/rwsyxBB1vvVB11mUbka2K3KOapYFWycnBrmlKV4bNr4OA0zA1d7gU
+	 ohZgRH0M54Uf6pTWwtRZIMYxbZdzKWrUz71GQlPjTDGaRXM4LzhTk4aucyAtgbgDqM
+	 6kF0y9A3vdY8raLvFPKJ+aZ4thNMglMmo4yt94EkSSwwnJ/EVE1z66y1M9cbKgiM1c
+	 g6p8725Z/ZMmQ==
+Date: Thu, 22 Oct 2026 19:08:39 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, zong.li@sifive.com, wangruikang@iscas.ac.cn,
+	debug@rivosinc.com, qirui.001@bytedance.com, guoziyi114@gmail.com,
+	samuel.holland@sifive.com, ben.dooks@codethink.co.uk,
+	cyrilbur@tenstorrent.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] riscv: Fix SR_SUM leakage across context switches
+Message-ID: <atnut7gKRKzDoqBf@xhacker>
+References: <20261022083212.84721-1-cuiyunhui@bytedance.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20261022083212.84721-1-cuiyunhui@bytedance.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,31 +69,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-dGFuZ3lhemhvdUB6anUuZWR1LmNuIHdyaXRlczoKCj4gRnJvbTogWWF6aG91IFRhbmcgPHRhbmd5
-YXpob3U1MThAb3V0bG9vay5jb20+Cj4KPiBPbiBSVjY0LCB0aGUgUklTQy1WIE0gZXh0ZW5zaW9u
-IHByb3ZpZGVzIE1VTEhVIGFuZCBNVUxIIGluc3RydWN0aW9ucyB0aGF0Cj4gcmV0dXJuIHRoZSBo
-aWdoIDY0IGJpdHMgb2YgYW4gdW5zaWduZWQgb3Igc2lnbmVkIDY0LWJpdCBtdWx0aXBsaWNhdGlv
-biwKPiByZXNwZWN0aXZlbHkuCj4KPiBBZGQgdGhlIG1pc3NpbmcgTVVMSCBlbmNvZGVyIGFuZCB1
-c2UgTVVMSFUgYW5kIE1VTEggdG8gbG93ZXIgdGhlIFVITVVMIGFuZAo+IFNITVVMIEJQRl9NVUwg
-dmFyaWFudHMgZm9yIGJvdGggcmVnaXN0ZXIgYW5kIGltbWVkaWF0ZSBzb3VyY2VzLiBLZWVwIHRo
-ZQo+IGV4aXN0aW5nIGxvdy1oYWxmIGFuZCBBTFUzMiBtdWx0aXBsaWNhdGlvbiBsb3dlcmluZyB1
-bmNoYW5nZWQuCj4KPiBTdWdnZXN0ZWQtYnk6IEFsZXhlaSBTdGFyb3ZvaXRvdiA8YWxleGVpLnN0
-YXJvdm9pdG92QGdtYWlsLmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBZYXpob3UgVGFuZyA8dGFuZ3lh
-emhvdTUxOEBvdXRsb29rLmNvbT4KPiBDby1kZXZlbG9wZWQtYnk6IFRpYW5jaSBDYW8gPHppeWVA
-emp1LmVkdS5jbj4KPiBTaWduZWQtb2ZmLWJ5OiBUaWFuY2kgQ2FvIDx6aXllQHpqdS5lZHUuY24+
-Cj4gQ28tZGV2ZWxvcGVkLWJ5OiBTaGVuZ2hhbyBZdWFuIDxzaGVuZ2hhb3l1YW4wOTI4QDE2My5j
-b20+Cj4gU2lnbmVkLW9mZi1ieTogU2hlbmdoYW8gWXVhbiA8c2hlbmdoYW95dWFuMDkyOEAxNjMu
-Y29tPgoKQWNrZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtlcm5lbC5vcmc+CgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, Oct 22, 2026 at 04:32:12PM +0800, Yunhui Cui wrote:
+> __switch_to() saves the sstatus value of prev and restores the SR_SUM bit
+> of next with csrs. However, csrs only sets bits. If prev has SR_SUM set
+> and next has SR_SUM clear in its saved state, the old SR_SUM bit remains
+> set in sstatus.
+> 
+> This lets next run with user memory access enabled even though its saved
+> SR_SUM state is clear.
+> 
+> Use csrrc to save the sstatus value of prev and clear SR_SUM from the
+> live CSR before restoring the saved SR_SUM state of next. This keeps
+> prev's SR_SUM state intact, while preventing it from leaking to next.
+> 
+> Fixes: 788aa64c01f1 ("riscv: save the SR_SUM status over switches")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+
+Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  arch/riscv/kernel/entry.S | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index 61b7a77166971..628b85e3915a7 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -443,15 +443,15 @@ SYM_FUNC_START(__switch_to)
+>  	REG_S s10, TASK_THREAD_S10_RA(a3)
+>  	REG_S s11, TASK_THREAD_S11_RA(a3)
+>  
+> -	/* save the user space access flag */
+> -	csrr  s0, CSR_STATUS
+> +	/* Save and clear the user space access flag. */
+> +	li    s1, SR_SUM
+> +	csrrc s0, CSR_STATUS, s1
+>  	REG_S s0, TASK_THREAD_SUM_RA(a3)
+>  
+>  	/* Save the kernel shadow call stack pointer */
+>  	scs_save_current
+>  	/* Restore context from next->thread */
+>  	REG_L s0,  TASK_THREAD_SUM_RA(a4)
+> -	li    s1,  SR_SUM
+>  	and   s0,  s0, s1
+>  	csrs  CSR_STATUS, s0
+>  	REG_L ra,  TASK_THREAD_RA_RA(a4)
+> -- 
+> 2.39.5
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
