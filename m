@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3DAE60A260C
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 15:46:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6EF2606A31B
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 15:46:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=b4vHgsyf;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=nEILtDJc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Av8RVqKT;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dfiC4SjV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,33 +14,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=FuHlc6SvjpgLWq7eCmecGtjzq3VMT9L+tbktClUWcyM=; b=b4vHgsyft4oWjZN3S5aI8SAXVu
-	xmi6G4bLSzRH5Jd2cAP7o+vf4UvLW1XIUJfvE3oKAamYo0frPNOt/iJJwFxsB47ysqFEk8kkHB61B
-	jFQz4ONt06efmIRbfjxaxzyt5oie32+wBel6pMydIe+Uzf3+sC78mRXhfGhkCcbA5I7MM2xKdXKVT
-	a9JSS3mfTO0+9+J6rXIgh7NG5CSJ6uxet+m+sMfXGPMcawp9Jhjrg5dhSXthBXF7i1xpWqN2U7wNZ
-	EOPqIYyEwuj08Tw7yIKD19V6K/qAqH6NM6NF+rQ/gD8teqIJFLgzs08oBN+MEO80sZLC2+lvZ8Zne
-	3j9R6QrQ==;
+	bh=Ai0X7ji7KRvhwfCRdknFVzdxdKvFeMqeLdxGeUY+vYg=; b=Av8RVqKT4qsszeu6KNSWWa1rZW
+	nDn0eiAnFKKUrAg14lpjObRDgV5PqyhBknujpsfaQ42HylweNqHypTS2nkCy6FKRNsACFTFG+oSds
+	tDVYghZssPiOByGyD0w1YCjK1I5xnj44JEB+ps2ID1BUVlT3hsOm8jMInm74/OUD3HBOSR1pqDtUv
+	iZRVBt+jS4H6txE3yQR/sMfjKcjj8oln9WGeZq4W4tT4zscMQwdIovity0QTJ+33GBYM2/FdxSJo5
+	lrjIyT6BJB+/n6O9Fr/BFt3vFyUR9JxhR0uS8l7Gdw7MG+LyV+eOoaXSibM+RlrjXx3bjIUWJw/HD
+	RxJgdxdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJuzq-0000000EQoR-26n0;
-	Thu, 22 Oct 2026 15:46:26 +0000
-Received: from out-193.mta0.migadu.com ([2001:41d0:1004:224b::c1] helo=mta0.migadu.com)
+	id 1xJuzs-0000000EQq6-2YDc;
+	Thu, 22 Oct 2026 15:46:28 +0000
+Received: from out-196.mta0.migadu.com ([2001:41d0:1004:224b::c4] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJuzl-0000000EQky-2dPO
+	id 1xJuzp-0000000EQms-3Z1M
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Oct 2026 15:46:23 +0000
+	Thu, 22 Oct 2026 15:46:27 +0000
 X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=JMdDrJYGHoatl+CVcAcsdrIs5ssl7riEmzRfx4ikLh0=;
+DKIM-Signature: a=rsa-sha256; bh=IgnvtTm5S8xUMQvtkLK6nhnCRAcGmQUfy+GHyDb3GiI=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1792683979; v=1; x=1793288779;
- b=nEILtDJcz+736p/Eemboi36CcrizEp4oc+YAgxGbIm9a+CHFnbE+3YvPIN7m0xCNxjfgHl3p
- HAGSv0sfRG8LPlcw20+X4GWtQ3HVXNooGpFaMZrcf+LvlHksxw/XFMgMpNYfR9rkKTJvYx/kRMV
- PCF/F3YHQOj5zemaivk+BZ9Q=
+ t=1792683983; v=1; x=1793288783;
+ b=dfiC4SjVXaOPaXZGvRWmSNmfPSrnEWZQWj0PCP95FV5KqrHi3Z8tHHDwMwyBB2b7Pb2BVHiW
+ s7qSn1/ky0KnGCSHhNYIko4YpiSZfLU4a2W0Y24CQoeC/MoB+Epi+/QplecOvYzKbhBJlIrvHfj
+ c+ngY6lN1nf+VOo4GZkmkWZU=
 X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 96cd205962e0f05a;
-	Thu, 22 Oct 2026 15:46:19 +0000
-X-Mizu-Trace-ID: 96cd205962e0f05a
+Received: by smtp.migadu.com with ESMTPS id 6021e6b73b548721;
+	Thu, 22 Oct 2026 15:46:23 +0000
+X-Mizu-Trace-ID: 6021e6b73b548721
 X-Migadu-Flow: FLOW_OUT
 From: Andrew Jones <andrew.jones@linux.dev>
 To: linux-riscv@lists.infradead.org,
@@ -59,17 +59,17 @@ Cc: linux-kernel@vger.kernel.org,
 	kevin.tian@intel.com,
 	fangyu.yu@linux.alibaba.com,
 	nutty.liu@hotmail.com
-Subject: [PATCH v7 3/5] irqchip/riscv-imsic: Add MSI address list
-Date: Thu, 22 Oct 2026 17:46:01 +0200
-Message-ID: <20261022154603.1374754-4-andrew.jones@linux.dev>
+Subject: [PATCH v7 4/5] irqchip/riscv-imsic: Support IOMMU MSI address lists
+Date: Thu, 22 Oct 2026 17:46:02 +0200
+Message-ID: <20261022154603.1374754-5-andrew.jones@linux.dev>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261022154603.1374754-1-andrew.jones@linux.dev>
 References: <20261022154603.1374754-1-andrew.jones@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_084621_852001_34B5ECB5 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20261022_084626_027468_735536F4 
+X-CRM114-Status: GOOD (  15.90  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,17 +92,19 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Andrew Jones <andrew.jones@oss.qualcomm.com>
 
-Upcoming RISC-V IOMMU interrupt remapping needs to map every possible
-host IMSIC target into one contiguous MSI IOVA range. MSI message
-composition then uses the target CPU's position within that range.
+RISC-V IOMMU host interrupt remapping maps every possible host IMSIC
+target into one contiguous IOVA range. MSI message composition therefore
+needs each target's position within that range.
 
-Build an IMSIC physical address array indexed by logical CPU.
-Require every possible CPU to have an initialized IMSIC page before
-publishing the array. This preserves physical address zero as a valid
-target and guarantees the array has num_possible_cpus() entries.
+Prepare the complete IMSIC address list while allocating an IRQ. The
+list is guaranteed to exist after IMSIC state initialization. The IOMMU
+backend maps the pages and caches the contiguous base IOVA in the MSI
+descriptor when translation is needed.
 
-The array size and each target's index can therefore be derived
-directly, without storing duplicate count or per-CPU index metadata.
+When the descriptor has an IOMMU MSI mapping, use the selected logical
+CPU directly as the page index within the IOVA range. Use the same path
+for initial composition and affinity updates. A zero iommu_msi_shift
+means no MSI address translation is required, so keep physical messages.
 
 Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
 Signed-off-by: Andrew Jones <andrew.jones@linux.dev>
@@ -112,81 +114,101 @@ Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
 Reviewed-by: Anup Patel <anup@brainfault.org>
 Acked-by: Anup Patel <anup@brainfault.org>
 ---
- drivers/irqchip/irq-riscv-imsic-state.c | 32 +++++++++++++++++++++++++
- drivers/irqchip/irq-riscv-imsic-state.h |  3 +++
- 2 files changed, 35 insertions(+)
+ drivers/irqchip/Kconfig                    |  1 +
+ drivers/irqchip/irq-riscv-imsic-platform.c | 24 +++++++++++++++++++---
+ 2 files changed, 22 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
-index b8d1bbbf42f7..eb525c324982 100644
---- a/drivers/irqchip/irq-riscv-imsic-state.c
-+++ b/drivers/irqchip/irq-riscv-imsic-state.c
-@@ -687,6 +687,31 @@ static int __init imsic_get_mmio_resource(struct fwnode_handle *fwnode,
- 	return of_address_to_resource(to_of_node(fwnode), index, res);
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index 20b77fbc51ee..a038e1121be3 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -651,6 +651,7 @@ config RISCV_IMSIC
+ 	select IRQ_DOMAIN_HIERARCHY
+ 	select GENERIC_IRQ_MATRIX_ALLOCATOR
+ 	select GENERIC_MSI_IRQ
++	select IRQ_MSI_IOMMU
+ 	select IRQ_MSI_LIB
+ 
+ config RISCV_RPMI_SYSMSI
+diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
+index 643c8e459611..ddb2bb570cdc 100644
+--- a/drivers/irqchip/irq-riscv-imsic-platform.c
++++ b/drivers/irqchip/irq-riscv-imsic-platform.c
+@@ -10,6 +10,7 @@
+ #include <linux/cpu.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
++#include <linux/iommu.h>
+ #include <linux/irq.h>
+ #include <linux/irqchip.h>
+ #include <linux/irqdomain.h>
+@@ -69,8 +70,10 @@ static void imsic_irq_ack(struct irq_data *d)
+ 	irq_move_irq(d);
  }
  
-+static int __init imsic_init_msi_pa_list(void)
-+{
-+	struct imsic_global_config *global = &imsic->global;
-+	phys_addr_t *msi_pa_list;
-+	unsigned int cpu;
-+
-+	msi_pa_list = kcalloc(num_possible_cpus(), sizeof(*msi_pa_list), GFP_KERNEL);
-+	if (!msi_pa_list)
-+		return -ENOMEM;
-+
-+	for_each_possible_cpu(cpu) {
-+		struct imsic_local_config *local = per_cpu_ptr(global->local, cpu);
-+
-+		if (!local->msi_va) {
-+			kfree(msi_pa_list);
-+			return -ENODEV;
-+		}
-+
-+		msi_pa_list[cpu] = local->msi_pa;
+-static void imsic_irq_compose_vector_msg(struct imsic_vector *vec, struct msi_msg *msg)
++static void imsic_irq_compose_vector_msg(struct irq_data *d, struct imsic_vector *vec,
++					 struct msi_msg *msg)
+ {
++	struct msi_desc *desc = irq_data_get_msi_desc(d);
+ 	phys_addr_t msi_addr;
+ 
+ 	if (WARN_ON(!vec))
+@@ -79,6 +82,12 @@ static void imsic_irq_compose_vector_msg(struct imsic_vector *vec, struct msi_ms
+ 	if (WARN_ON(!imsic_cpu_page_phys(vec->cpu, 0, &msi_addr)))
+ 		return;
+ 
++	/* A zero shift means no IOMMU MSI mapping is needed. */
++	if (desc->iommu_msi_shift) {
++		msi_addr = (desc->iommu_msi_iova << desc->iommu_msi_shift) +
++			   vec->cpu * IMSIC_MMIO_PAGE_SZ;
 +	}
 +
-+	imsic->msi_pa_list = msi_pa_list;
-+	return 0;
-+}
-+
- static int __init imsic_parse_fwnode(struct fwnode_handle *fwnode,
- 				     struct imsic_global_config *global,
- 				     u32 *nr_parent_irqs,
-@@ -937,6 +962,12 @@ int __init imsic_setup_state(struct fwnode_handle *fwnode, void *opaque)
- 		goto out_local_cleanup;
- 	}
+ 	msg->address_hi = upper_32_bits(msi_addr);
+ 	msg->address_lo = lower_32_bits(msi_addr);
+ 	msg->data = vec->local_id;
+@@ -86,7 +95,7 @@ static void imsic_irq_compose_vector_msg(struct imsic_vector *vec, struct msi_ms
  
-+	rc = imsic_init_msi_pa_list();
-+	if (rc) {
-+		pr_err("%pfwP: failed to initialize MSI address list\n", fwnode);
-+		goto out_local_cleanup;
+ static void imsic_irq_compose_msg(struct irq_data *d, struct msi_msg *msg)
+ {
+-	imsic_irq_compose_vector_msg(irq_data_get_irq_chip_data(d), msg);
++	imsic_irq_compose_vector_msg(d, irq_data_get_irq_chip_data(d), msg);
+ }
+ 
+ #ifdef CONFIG_SMP
+@@ -94,7 +103,7 @@ static void imsic_msi_update_msg(struct irq_data *d, struct imsic_vector *vec)
+ {
+ 	struct msi_msg msg = { };
+ 
+-	imsic_irq_compose_vector_msg(vec, &msg);
++	imsic_irq_compose_vector_msg(d, vec, &msg);
+ 	irq_data_get_irq_chip(d)->irq_write_msi_msg(d, &msg);
+ }
+ 
+@@ -225,7 +234,9 @@ static struct irq_chip imsic_irq_base_chip = {
+ static int imsic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+ 				  unsigned int nr_irqs, void *args)
+ {
++	msi_alloc_info_t *info = args;
+ 	struct imsic_vector *vec;
++	int ret;
+ 
+ 	/* Multi-MSI is not supported yet. */
+ 	if (nr_irqs > 1)
+@@ -235,6 +246,13 @@ static int imsic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+ 	if (!vec)
+ 		return -ENOSPC;
+ 
++	ret = iommu_dma_prepare_msi_list(info->desc, imsic->msi_pa_list,
++					 num_possible_cpus(), IMSIC_MMIO_PAGE_SZ);
++	if (ret) {
++		imsic_vector_free(vec);
++		return ret;
 +	}
 +
- 	/* Initialize matrix allocator */
- 	rc = imsic_matrix_init();
- 	if (rc) {
-@@ -962,6 +993,7 @@ int __init imsic_setup_state(struct fwnode_handle *fwnode, void *opaque)
- out_free_local:
- 	free_percpu(imsic->global.local);
- out_free_priv:
-+	kfree(imsic->msi_pa_list);
- 	kfree(imsic);
- 	imsic = NULL;
- 	return rc;
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.h b/drivers/irqchip/irq-riscv-imsic-state.h
-index c42ee180b305..e51c61dcced3 100644
---- a/drivers/irqchip/irq-riscv-imsic-state.h
-+++ b/drivers/irqchip/irq-riscv-imsic-state.h
-@@ -50,6 +50,9 @@ struct imsic_priv {
- 	/* Global configuration common for all HARTs */
- 	struct imsic_global_config		global;
- 
-+	/* MSI target physical addresses indexed by logical CPU for IOMMU mapping */
-+	phys_addr_t				*msi_pa_list;
-+
- 	/* Per-CPU state */
- 	struct imsic_local_priv __percpu	*lpriv;
- 
+ 	irq_domain_set_info(domain, virq, virq, &imsic_irq_base_chip, vec,
+ 			    handle_edge_irq, NULL, NULL);
+ 	irq_set_noprobe(virq);
 -- 
 2.56.0
 
