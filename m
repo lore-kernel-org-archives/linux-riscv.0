@@ -2,88 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99545606A326
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 19:16:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFFF2606A31B
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 19:20:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Y3os2f3v;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N5BvSZtD
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mCpWMDLa;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=posteo.net header.i=@posteo.net header.a=rsa-sha256 header.s=1984.8680eb header.b=TQiBgo0u
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=5nthdG9FYj0oAc0NJgLDJmKH2Lggb6FTgdVaR6lC1cI=; b=Y3os2f3vNjRKMKChWDOvb5RqUY
-	TWRWplj3cFDKdjnHKykxjjDe6gsyWhACBxF2FfAvS0krvmG5kRFyEPD0w8krymgOzgWAsRK3dwosP
-	XHL2gv0An1nncU49aP5YdNZ5Be6+hen2snxiO/WkHJXjEVFDzkY7f+a3CyWJQMqCN/JrNT8Ti9NNS
-	GV7d0VaoO0zsHUnfeJ/WrMqEcfG3PRKsnyN+pfFtdAisARLZTNTprNP2KKcjXXUmVUWrQDR6vWLh1
-	zXTZHHpAuVSDpCMsUvbbl1uOqv/Uxrh0ceXvSrVNIcaqzhlb8aI0s2v6uILRvZK9yI83iXjiKesmZ
-	pzFln5BQ==;
+	bh=0JKvZQRwbwUeuVUY4HGk0UjT9M08/2nioKy8jPTwbMc=; b=mCpWMDLabyB/MDisxFMjXHnXNR
+	kwydcf3O/Ngwhn6wKqqx4O2gQkK3F1fciK09ww+vXtsi+pCwFKGmzaMlXuswOLHvGDvzwEQ2L6fkp
+	RsNQvuof1aunIfTeTtJVvD69BA3Z+JWvxara9XFMjRKoRdK+mneBMvUautj2tblQrwhywjhmxWgTk
+	oIZxyHbPqeQvqQRRe618FKUxNpZySDK0TRC4TW/BMII0/aX+RzlgWdksKKjPdK2k+OIx5iZcaV8RK
+	g+MrMHKbjDyPEW08PCdT991hkMPUFYQtvuPTyt/uRTKok1RjRptF0Cmf0YKTrQA6QXOPYKl5rE9rH
+	P9qBzTyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJyGk-0000000Enps-2o9p;
-	Thu, 22 Oct 2026 19:16:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xJyKb-0000000EoHS-1P1G;
+	Thu, 22 Oct 2026 19:20:05 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJyGi-0000000EnpX-2HY4;
-	Thu, 22 Oct 2026 19:16:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 68628601F8;
-	Thu, 22 Oct 2026 19:16:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CE1F1F01825;
-	Thu, 22 Oct 2026 19:16:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792696563;
-	bh=zfF/h5yN+JN0JXoERjM1UOmD6YL51qlegqbjQ5IjJaw=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=N5BvSZtDsOnevI6N7z+hpnuDFwgb+Za20bBfcyPl1zdZ/RUM/vhVGgooCl8EukmyB
-	 v951DfxEQIGKmPlqDa47vEV9oOJpjd3jTdFHzFJ8cGbv5Ec+77S428dvBazQLk752d
-	 8oijRTx04uvdE5t0WJ3hFRzAydPhPUU1uC5jEb9/jBb3UCG/5+2vXEPMQ0qv3aaJy/
-	 fDrmEd5ydsQk2Juig/QI4K6qM7Xm060UN2bTZPYYJFIjTdDkBvnz/aEeUGpDN6dDMG
-	 QYnQUY/lk7t3H2ZOK5q9Ex67PolYwOb50JpOTpWf5Zn6NIH8OuYBLaiHmJRlGX+jMg
-	 L4eC2BtuFHQ4g==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>, Peter Zijlstra
- <peterz@infradead.org>, Michael Ellerman <mpe@ellerman.id.au>, Shrikanth
- Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org, Kees Cook
- <kees@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- loongarch@lists.linux.dev, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Sven Schnelle
- <svens@linux.ibm.com>, linux-s390@vger.kernel.org, x86@kernel.org, Mark
- Rutland <mark.rutland@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, Andy
- Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Richard
- Henderson <richard.henderson@linaro.org>, Russell King
- <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Guo
- Ren <guoren@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Helge Deller <deller@gmx.de>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Richard Weinberger
- <richard@nod.at>, Chris Zankel <chris@zankel.net>,
- linux-arm-kernel@lists.infradead.org, linux-alpha@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-um@lists.infradead.org, Arnd Bergmann
- <arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>, Will Deacon
- <will@kernel.org>, Brian Cain <bcain@kernel.org>, Michal Simek
- <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, "David S. Miller"
- <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>,
- linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org,
- linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-arch@vger.kernel.org, Michal =?utf-8?Q?Such=C3=A1nek?=
- <msuchanek@suse.de>, Jonathan
- Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, "H. Peter Anvin"
- <hpa@zytor.com>
-Subject: Re: [patch 16/18] x86/entry: Get rid of the sys_ni_syscall()
- indirection
-In-Reply-To: <20261022142425.3Wx-RrU5@linutronix.de>
-References: <20260707181957.433213175@kernel.org>
- <20260707190254.493733289@kernel.org>
- <20261022142425.3Wx-RrU5@linutronix.de>
-Date: Thu, 22 Oct 2026 21:15:59 +0200
-Message-ID: <87fqxx1r80.ffs@fw13>
+	id 1xJyKY-0000000EoGV-1lRD
+	for linux-riscv@lists.infradead.org;
+	Thu, 22 Oct 2026 19:20:04 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id E2F7A240109
+	for <linux-riscv@lists.infradead.org>; Thu, 22 Oct 2026 21:19:54 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net;
+	s=1984.8680eb; t=1792696794;
+	bh=VnTlvi9w4vT9PX72wgTL9hevlcfdOn/hzgPWC/rBkk8=;
+	h=Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:From;
+	b=TQiBgo0uZVZLGp7Smlio7yGqhVc9wPVGGNjXQLmWN2auIzFyh/cKWSW2S0VeqYGDA
+	 ojjrjZggsoou5RcmdOB2dff5yh/5wwc/08md2TrAFJpC/RMFdhOFjbXAZ2MpuI7jAT
+	 LQd8GAGqILk5U8R+9Cclurf3ppcY+xayz/9Beh2FXpb0sXRrhZ5tDcB9WGlAhCYKiR
+	 waZbW/LRrHpID6ik4Got++k4aNe1JKwYf6S46jk6H83Kv+oNvG8YJkHfibAVbJ8VH9
+	 r2Nz88A3AgFBUfnHFVDkJbXu2KPWviLj9LQ73qnEJO1LtkrpYY/cl5WE735qjf6AbQ
+	 24MWorRQ0OO8Q==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4j9bZK2njSz9rxD;
+	Thu, 22 Oct 2026 21:19:53 +0200 (CEST)
+Date: Thu, 22 Oct 2026 19:19:54 +0000
+From: Wilken Gottwalt <wilken.gottwalt@posteo.net>
+To: Indrek Kruusa <indrek.kruusa@gmail.com>
+Cc: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>, Bjorn Andersson
+ <andersson@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ linux-remoteproc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/3] hwspinlock: sun6i: Allwinner D1 and T113 support
+Message-ID: <20261022211952.7293f8b6@posteo.net>
+In-Reply-To: <20261022190203.1998156-1-indrek.kruusa@gmail.com>
+References: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
+	<20261022190203.1998156-1-indrek.kruusa@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261022_122002_662532_5EE72106 
+X-CRM114-Status: GOOD (  17.48  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,64 +74,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-T24gVGh1LCBPY3QgMjIgMjAyNiBhdCAxNjoyNCwgU2ViYXN0aWFuIEFuZHJ6ZWogU2lld2lvciB3
-cm90ZToKPiBPbiAyMDI2LTA3LTA3IDIxOjA3OjAxIFsrMDIwMF0sIFRob21hcyBHbGVpeG5lciB3
-cm90ZToKPj4gSW52b2tpbmcgc3lzX25pX3N5c2NhbGwoKSBmcm9tIGEgY29kZSBwYXRoLCB3aGlj
-aCBhbHJlYWR5IGtub3dzIHRoYXQgdGhlCj4+IHN5c2NhbGwgbnVtYmVyIGlzIGludmFsaWQganVz
-dCB0byBhc3NpZ24gLUVOT1NZUyB0byByZWdzLT5heCBpcyBhIHBvaW50bGVzcwo+PiBleGVyY2lz
-ZS4gSXQncyBldmVuIHJlZHVuZGFudCBhcyB0aGUgbG93IGxldmVsIGVudHJ5IGNvZGUgYWxyZWFk
-eSBoYXMgc2V0Cj4+IHJlZ3MtPmF4IHRvIC1FTk9TWVMgb24gZW50cnkuCj4+IAo+PiBSZW1vdmUg
-dGhlIGV4dHJhIGNvbmRpdGlvbmFscyBhbmQgdGhlIGZ1bmN0aW9uIGNhbGxzLgo+Cj4gU2luY2Ug
-dGhpcyBwYXRjaCwgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMveDg2L3N5c2NhbGxfbnVtYmVyaW5n
-XzY0Cj4gdGhyb3dzIGluIHRoaXM6Cj4gfFtSVU5dICAgUnVubmluZyB0ZXN0cyB1bmRlciBwdHJh
-Y2U6IG1vZGlmeWluZyB0aGUgZGVmYXVsdCByZXR1cm4KPiB8W1JVTl0gICAgICAgQ2hlY2tpbmcg
-c3lzdGVtIGNhbGxzIHdpdGggbXNiID0gMCAoMHgwKQo+IHxbUlVOXSAgICAgICAgICAgQ2hlY2tp
-bmcgc29tZSBjb21tb24gc3lzY2FsbHMgYXMgNjQgYml0Cj4gfFtPS10gICAgICAgICAgICAgICAg
-eDY0IHN5c2NhbGwgMDowIHJldHVybmVkIDAgYXMgZXhwZWN0ZWQKPiB8W09LXSAgICAgICAgICAg
-ICAgICB4NjQgc3lzY2FsbCAwOjEgcmV0dXJuZWQgMCBhcyBleHBlY3RlZAo+IHxbUlVOXSAgICAg
-ICAgICAgQ2hlY2tpbmcgc29tZSA2NC1iaXQgb25seSBzeXNjYWxscyBhcyA2NCBiaXQKPiB8W09L
-XSAgICAgICAgICAgICAgICB4NjQgc3lzY2FsbCAwOjE5IHJldHVybmVkIDAgYXMgZXhwZWN0ZWQK
-PiB8W09LXSAgICAgICAgICAgICAgICB4NjQgc3lzY2FsbCAwOjIwIHJldHVybmVkIDAgYXMgZXhw
-ZWN0ZWQKPiB8W1JVTl0gICAgICAgICAgIENoZWNraW5nIG91dCBvZiByYW5nZSBzeXN0ZW0gY2Fs
-bHMKPiB8W0ZBSUxdICAgICAgICAgICAgICAgICAgeDMyIHN5c2NhbGwgMDotNjQgcmV0dXJuZWQg
-LTk5OTksIGJ1dCBpdCBzaG91bGQgaGF2ZSByZXR1cm5lZCAtRU5PU1lTCj4g4oCmCj4gfFtGQUlM
-XSAgICAgICAgICAgICAgICAgIHgzMiBzeXNjYWxsIDA6LTIgcmV0dXJuZWQgLTk5OTksIGJ1dCBp
-dCBzaG91bGQgaGF2ZSByZXR1cm5lZCAtRU5PU1lTCj4gfFtGQUlMXSAgICAgICAgICAgICAgeDMy
-IHN5c2NhbGxzIDA6LTY0Li4tMiBoYWQgNjMgZmFpbHVyZQo+IHxbT0tdICAgICAgICAgICAgICAg
-IHgzMiBzeXNjYWxsIDA6LTEgcmV0dXJuZWQgTU9ESUZJRURfQllfUFRSQUNFIGFzIGV4cGVjdGVk
-Cj4gfFtGQUlMXSAgICAgICAgICAgICAgICAgIHg2NCBzeXNjYWxsIDA6MTA3Mzc0MTc2MCByZXR1
-cm5lZCAtOTk5OSwgYnV0IGl0IHNob3VsZCBoYXZlIHJldHVybmVkIC1FTk9TWVMKPiDigKYKPiB8
-W0ZBSUxdICAgICAgICAgICAgICAgICAgeDY0IHN5c2NhbGwgMDoxMDczNzQxODIzIHJldHVybmVk
-IC05OTk5LCBidXQgaXQgc2hvdWxkIGhhdmUgcmV0dXJuZWQgLUVOT1NZUwo+IHxbRkFJTF0gICAg
-ICAgICAgICAgIHg2NCBzeXNjYWxscyAwOjEwNzM3NDE3NjAuLjEwNzM3NDE4MjMgaGFkIDY0IGZh
-aWx1cmUKPiB8W0ZBSUxdICAgICAgICAgICAgICAgICAgeDY0IHN5c2NhbGwgMDotNjQgcmV0dXJu
-ZWQgLTk5OTksIGJ1dCBpdCBzaG91bGQgaGF2ZSByZXR1cm5lZCAtRU5PU1lTCj4g4oCmCj4gfFtG
-QUlMXSAgICAgICAgICAgICAgICAgIHg2NCBzeXNjYWxsIDA6NTQ3IHJldHVybmVkIC05OTk5LCBi
-dXQgaXQgc2hvdWxkIGhhdmUgcmV0dXJuZWQgLUVOT1NZUwo+IHxbRkFJTF0gICAgICAgICAgICAg
-IHg2NCBzeXNjYWxscyAwOjUxMi4uNTQ3IGhhZCAzNiBmYWlsdXJlCj4gfFtSVU5dICAgICAgICAg
-ICBDaGVja2luZyBzb21lIGNvbW1vbiBzeXNjYWxscyBhcyB4MzIKPiB8W09LXSAgICAgICAgICAg
-ICAgICB4MzIgc3lzY2FsbCAwOjAgcmV0dXJuZWQgMCBhcyBleHBlY3RlZAo+IOKApgo+IHxbUlVO
-XSAgICAgICAgICAgQ2hlY2tpbmcgb3V0IG9mIHJhbmdlIHN5c3RlbSBjYWxscwo+IHxbRkFJTF0g
-ICAgICAgICAgICAgICAgICB4MzIgc3lzY2FsbCAxOi02NCByZXR1cm5lZCAtOTk5OSwgYnV0IGl0
-IHNob3VsZCBoYXZlIHJldHVybmVkIC1FTk9TWVMKPiB8W0ZBSUxdICAgICAgICAgICAgICB4MzIg
-c3lzY2FsbHMgMTotNjQuLi0yIGhhZCA2MyBmYWlsdXJlCj4gfFtPS10gICAgICAgICAgICAgICAg
-eDMyIHN5c2NhbGwgMTotMSByZXR1cm5lZCBNT0RJRklFRF9CWV9QVFJBQ0UgYXMgZXhwZWN0ZWQK
-PiB8W0ZBSUxdICAgICAgICAgICAgICAgICAgeDY0IHN5c2NhbGwgMToxMDczNzQxNzYwIHJldHVy
-bmVkIC05OTk5LCBidXQgaXQgc2hvdWxkIGhhdmUgcmV0dXJuZWQgLUVOT1NZUwo+IOKApgo+Cj4g
-YW5kIHNvIG9u4oCmIFRoZSB0ZXN0IGhhcwo+Cj4gfCAjZGVmaW5lIE1PRElGSUVEX0JZX1BUUkFD
-RSAgICAgIC05OTk5Cj4KPiBhbmQgdGhlIHB0cmFjZXIgbW9kaWZpZXMgdGhlIHJldHVybiBjb2Rl
-LiBIb3dldmVyIG5vdCBhbHdheXMuIE5vdCBzdXJlCj4gaWYgdGhpcyB3YXMgaW5kZWVkIGEgcG9p
-bnRsZXNzIGV4ZXJjaXNlIG9yIG5vdC4KCkhybW0uIFRoYXQncyB3ZWlyZC4gTGV0IG1lIGhhdmUg
-YSBsb29rLgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Thu, 22 Oct 2026 22:01:15 +0300
+Indrek Kruusa <indrek.kruusa@gmail.com> wrote:
+
+> Hi,
+> 
+> I managed to run this patch series on a Sipeed Lichee RV Dock (Allwinner D1),
+> in this setup:
+> 
+>   - FreeRTOS on the HiFi4 DSP, running a task that contends for the lock
+>   - a test kernel module touching the same shared memory, with and without
+>     taking the lock
+> 
+> The series is applied on top of v7.3-rc7.
+> 
+> What I ran:
+> 
+>   - probe: 3005000.hwlock binds and the driver reports 32 locks
+> 
+>   - mutual exclusion: lock 0, taken alternately by the C906 and the HiFi4.
+>     Each side added 1 to a shared counter under the lock, 1,000,000 times:
+> 
+>       counter=2000000 expected=2000000 -> EXACT
+>       tripwire linux=0 dsp=0 -> no overlap
+> 
+>     A tripwire field is set while inside the critical section and read by the
+>     other side, so overlap is caught independently of the counter.
+> 
+>   - negative control, identical loop with the lock not taken:
+> 
+>       counter=1885761 expected=2000000 -> LOST UPDATES   (5.7% lost)
+>       tripwire linux=100302 dsp=674915 -> OVERLAP DETECTED
+> 
+> The loss rate in the negative control varies between runs (5-19% observed);
+> the log linked below is one sample.
+> 
+> Tested-by: Indrek Kruusa <indrek.kruusa@gmail.com>
+> 
+> I put this test setup together with AI assistance. Sources, build
+> instructions, ready-to-use images (DSP firmware included) for the RV Dock
+> and for the Nezha (untested), and the captured console logs are here:
+> 
+>   https://github.com/ikruusa/d1-hwspinlock-test
+
+Just out of curiousity, did you also had the impression, that the spinlocks
+are quite slow? I did quite similar tests back then using a H5 SoC.
+
+https://lore.kernel.org/lkml/cover.1615713499.git.wilken.gottwalt@posteo.net/T/
+
+greetings,
+Wilken
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
