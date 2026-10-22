@@ -2,45 +2,45 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A48A5606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D46E6606A33A
 	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2026 15:46:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eluIY0Yt;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=lxBBVpbF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rBbHdSO9;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=B+kj81o2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=aV37LxGK31cy/ifekFz83G9KiynHGK/goAy6hh/Vnwk=; b=eluIY0YthO1SVhKB8fVfKYq0yv
-	umhSKYcX86hwoX6zvWJqT27nHLmFCGaMowBH/plCOBnck5FOjV0jBHOW6HmRwTHr3uyahJ1ksPqWg
-	9Z5ISetXU7Ks7xcuWnbUyJ0oyVLu0IYXqW8UvmsFFn78gtJh2ziH3HMWejAfFQ0xtIlDQvPdlv/Kb
-	rsbz0M0NWYvjF3t/7qNaeZydWrZhGe4iA4lJjHiD7dEDEFKW5ammlYOKE736hZQBEn2WF6pc5B+kI
-	DaETg0hBLD6XxtybzGiYCuhgZDqemRoZeRhvsmuR7gNH3PxtkVEdQkdTowAbmpbYGn6FWR4jwO7MB
-	tLNJ5kPA==;
+	bh=sBnQuIddhHFoJwakTiTNhM9UYxT/DqgHFPnx1YO6yOw=; b=rBbHdSO9F2PleeyapX+SGszAt9
+	lasQjHMkhd/GDjYADJD9Rx6o9ej9LSK1uK24YInB/IGii/dWNBoqp+Ob2RZhF166dDHGixonIEZGw
+	+LGi2+BYNOPHH92zsUI2JTBTHZu+2rHBUlSuFOEfOxLke6moOvh85WLaLf3M6W59xTF+M78NbP/df
+	Gp/WOpYrjVfSXACITJkt6hYj6MPllQFg4x4YP8/2y8zYrVxHqEUl6HplDc1RAbVmkLF/1cB3AmzdB
+	YtC4w/C33yVrFaqb2rGtycU7OKzLnTT3AUtwLfq6taN46U1gp7SJ5DRVj1jArKrI7hylsOwcYYSP+
+	DFCNpdQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJuzn-0000000EQmd-1DGT;
-	Thu, 22 Oct 2026 15:46:23 +0000
-Received: from out-94.mta1.migadu.com ([2001:41d0:203:375::5e] helo=mta1.migadu.com)
+	id 1xJuzi-0000000EQkw-3qAj;
+	Thu, 22 Oct 2026 15:46:21 +0000
+Received: from out-84.mta1.migadu.com ([2001:41d0:203:375::54] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJuzk-0000000EQkv-0pUN
+	id 1xJuze-0000000EQju-24BE
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Oct 2026 15:46:22 +0000
+	Thu, 22 Oct 2026 15:46:16 +0000
 X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=b9aN3UoXeOF4eAVozHhQBDfnYXVjdCGwCFhe2u2yLGQ=;
+DKIM-Signature: a=rsa-sha256; bh=K5gk0WLO40R0B55fjMwPkib7g20hUay4hoQc0CNZhRc=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1792683978; v=1; x=1793288778;
- b=lxBBVpbFUM6j/QvZQMW4notzewuwIabFr7/AIsutSlYHjabP5CYz0TWA6XIjUuQ3oysIgolr
- X2cZKFyYVLH38E7ORtYPCPFzQVvS6Cw/aLP4/Ii90PQmLyfLOhdJ2jFItjCZTPAedR1PQ3dkB9o
- 26ct4ypGSoIIyVPv/wv/QXe4=
+ t=1792683972; v=1; x=1793288772;
+ b=B+kj81o2//KNWFTqLM7RV16zmXrceknJUmtuPZVTnsrtWyQReLBYpG/GusMbUT+fAAflh0PC
+ f7yJhqwDa8KGBcbm74Hksm0nGr8fPCMHpVed/oPxjimJT390tdN3gtjm0Q++gxh2u5wWCYRJrZE
+ XFP27JgSwu4H+PG0vnJgJjMQ=
 X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id b707346131377bb7;
-	Thu, 22 Oct 2026 15:46:18 +0000
-X-Mizu-Trace-ID: b707346131377bb7
+Received: by smtp.migadu.com with ESMTPS id 131368cd1c1280cc;
+	Thu, 22 Oct 2026 15:46:12 +0000
+X-Mizu-Trace-ID: 131368cd1c1280cc
 X-Migadu-Flow: FLOW_OUT
 From: Andrew Jones <andrew.jones@linux.dev>
 To: linux-riscv@lists.infradead.org,
@@ -59,17 +59,15 @@ Cc: linux-kernel@vger.kernel.org,
 	kevin.tian@intel.com,
 	fangyu.yu@linux.alibaba.com,
 	nutty.liu@hotmail.com
-Subject: [PATCH v7 2/5] iommu/dma: Introduce iommu_dma_prepare_msi_list()
-Date: Thu, 22 Oct 2026 17:46:00 +0200
-Message-ID: <20261022154603.1374754-3-andrew.jones@linux.dev>
+Subject: [PATCH v7 0/5] iommu/riscv: Enable MSI remapping and IOMMU_DMA
+Date: Thu, 22 Oct 2026 17:45:58 +0200
+Message-ID: <20261022154603.1374754-1-andrew.jones@linux.dev>
 X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261022154603.1374754-1-andrew.jones@linux.dev>
-References: <20261022154603.1374754-1-andrew.jones@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_084620_941810_5A2342B5 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20261022_084614_674001_3C446AFA 
+X-CRM114-Status: GOOD (  12.46  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,101 +81,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-IMSIC needs an interface to prepare all MSI targets before an IRQ
-affinity change can select one in atomic context.
+This series adds MSI remapping for IMSIC so a device's MSI target gets
+translated the same way its DMA does, allowing RISC-V to enable IOMMU_DMA
+and paging domains by default.
 
-Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
-Signed-off-by: Andrew Jones <andrew.jones@linux.dev>
----
- drivers/iommu/iommu.c | 43 +++++++++++++++++++++++++++++++++++++++++++
- include/linux/iommu.h |  9 +++++++++
- 2 files changed, 52 insertions(+)
+The IMSIC MSI target address changes with interrupt affinity, so every
+possible target must be mapped before an affinity change can select it
+in atomic context. The IMSIC driver prepares an ordered list of targets
+with iommu_dma_prepare_msi_list() when allocating an IRQ. DMA-IOMMU maps
+the list into one contiguous IOVA range and caches the base in the domain.
+The MSI descriptor carries the base IOVA and mapping granule, allowing
+IMSIC to compose the target address without allocating memory or looking
+up IOMMU state during affinity changes.
 
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index b486b8bbd1fc..b8d4d601efd4 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -4266,4 +4266,47 @@ int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr)
- 	mutex_unlock(&group->mutex);
- 	return ret;
- }
-+
-+/**
-+ * iommu_dma_prepare_msi_list() - Map the complete list of MSI targets
-+ * @desc: MSI descriptor to receive the base IOVA and granule shift
-+ * @phys_addrs: Ordered array of target physical addresses
-+ * @nr_addrs: Number of targets in the array
-+ * @granule: Size and alignment of each target mapping
-+ *
-+ * Every call for a DMA domain must supply the same complete list, order and
-+ * granule. The first call maps the targets into one contiguous IOVA range;
-+ * subsequent calls use the cached base. The array is consumed synchronously
-+ * and is not retained.
-+ *
-+ * Each target must be aligned to @granule, which must match the DMA domain's
-+ * granule and be at least PAGE_SIZE.
-+ *
-+ * Without a translated domain, @desc is left unchanged. Only DMA-IOMMU
-+ * domains currently support translated MSI target lists.
-+ *
-+ * Return: 0 on success, or a negative error code on failure.
-+ */
-+int iommu_dma_prepare_msi_list(struct msi_desc *desc, const phys_addr_t *phys_addrs,
-+			       unsigned int nr_addrs, size_t granule)
-+{
-+	struct device *dev = msi_desc_to_dev(desc);
-+	struct iommu_group *group = dev->iommu_group;
-+	struct iommu_domain *domain;
-+	int ret;
-+
-+	if (!group)
-+		return 0;
-+
-+	ret = iommu_deferred_attach(dev, iommu_get_domain_for_dev(dev));
-+	if (ret)
-+		return ret;
-+
-+	guard(mutex)(&group->mutex);
-+	domain = group->domain;
-+	if (!domain || domain->type == IOMMU_DOMAIN_IDENTITY)
-+		return 0;
-+
-+	return iommu_dma_sw_msi_list(domain, desc, phys_addrs, nr_addrs, granule);
-+}
- #endif /* CONFIG_IRQ_MSI_IOMMU */
-diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-index 95e32c78dcb7..cf33169ec3e3 100644
---- a/include/linux/iommu.h
-+++ b/include/linux/iommu.h
-@@ -1560,12 +1560,21 @@ static inline void pci_dev_reset_iommu_done(struct pci_dev *pdev)
- #ifdef CONFIG_IRQ_MSI_IOMMU
- #ifdef CONFIG_IOMMU_API
- int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr);
-+int iommu_dma_prepare_msi_list(struct msi_desc *desc, const phys_addr_t *phys_addrs,
-+			       unsigned int nr_addrs, size_t granule);
- #else
- static inline int iommu_dma_prepare_msi(struct msi_desc *desc,
- 					phys_addr_t msi_addr)
- {
- 	return 0;
- }
-+
-+static inline int iommu_dma_prepare_msi_list(struct msi_desc *desc,
-+					     const phys_addr_t *phys_addrs,
-+					     unsigned int nr_addrs, size_t granule)
-+{
-+	return 0;
-+}
- #endif /* CONFIG_IOMMU_API */
- #endif /* CONFIG_IRQ_MSI_IOMMU */
- 
+Ordered-list mappings have their own cache, separate from the existing
+single-page MSI cache. IOVA allocation, mapping and rollback are shared
+between the two paths.
+
+VFIO and iommufd support from v6[1] is deferred. This series does not
+enable VFIO_IOMMU_TYPE1 or introduce an IOMMU_RESV_SW_MSI reservation.
+I'll look into Nicolin's MSI-window configuration patches[2] in a
+follow-on series and see if I can avoid introducing IOMMU_RESV_SW_MSI
+entirely. Without that reservation, the legacy Type1 backend cannot
+provide the MSI mappings it needs, so I'll try to support existing Type1
+userspace through iommufd's compatibility interface. That path will need
+automatic MSI IOVA allocation, since existing Type1 userspace won't issue
+Nicolin's new ioctls.
+
+LLM-based coding assistants were used during development for code
+exploration, patch review, test execution, and drafting and editing
+commit messages and this cover letter. I reviewed and finalized all
+resulting code and text. Per-patch Assisted-by tags are omitted in
+light of ongoing discussions about simplifying coding-assistant
+attribution.
+
+Thanks,
+drew
+
+[1] https://lore.kernel.org/all/20260925151659.419512-1-andrew.jones@oss.qualcomm.com/
+[2] https://lore.kernel.org/linux-iommu/cover.1760487869.git.nicolinc@nvidia.com/
+
+v7:
+- Rebased on linux-iommu/next at 20bfd2575765
+- Added deferred-attach handling to the list API
+- Simplified ordered-list mapping to a cached base IOVA per domain,
+  separate from the existing per-page cache [Robin]
+- Shared IOVA allocation, mapping and rollback between the list and
+  single-page paths [Jason]
+- Dropped the fixed MSI window in response to Jason's ABI concerns and
+  deferred supporting VFIO Type1
+
+
+Andrew Jones (4):
+  iommu/dma: Prepare MSI physical address lists
+  iommu/dma: Introduce iommu_dma_prepare_msi_list()
+  irqchip/riscv-imsic: Add MSI address list
+  irqchip/riscv-imsic: Support IOMMU MSI address lists
+
+Tomasz Jeznach (1):
+  iommu/dma: Enable IOMMU_DMA for 64-bit RISC-V
+
+ drivers/iommu/Kconfig                      |  2 +-
+ drivers/iommu/dma-iommu.c                  | 77 ++++++++++++++++++++--
+ drivers/iommu/dma-iommu.h                  | 10 +++
+ drivers/iommu/iommu.c                      | 43 ++++++++++++
+ drivers/irqchip/Kconfig                    |  1 +
+ drivers/irqchip/irq-riscv-imsic-platform.c | 24 ++++++-
+ drivers/irqchip/irq-riscv-imsic-state.c    | 32 +++++++++
+ drivers/irqchip/irq-riscv-imsic-state.h    |  3 +
+ include/linux/iommu.h                      |  9 +++
+ 9 files changed, 190 insertions(+), 11 deletions(-)
+
 -- 
 2.56.0
 
