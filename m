@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7524D606A31B
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 01:57:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A6FB606A327
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 01:57:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FHYiHnac;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LAb+6DEt
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ENvNflRx;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cIyTQO+b
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,72 +14,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=QE9HK68rxauZp1MrlkVHet2rSy49lJrOrg97fO43+mI=; b=FHYiHnacUwxeYH56Zp39nklNb9
-	4ZhHHXTsBwGqF4fzaArYYraRJ+86Gub1pBMoJCPSkihy1FZZkon1SW1DK2ZpbIlgtcrMTwEd1i6ot
-	qAN74hFd3vAkWg+oJsXa0nUbBTW6UGEEdUPRqiW54OoGBdfPLv3BVrOg4P6h6MhSv4buF8vt8cDbV
-	ZA6k3XBPzJua7UwpPiIy/QiDY0tOXaVn6Fqo/Y11rBxnVcKIZ+5DkmLR1HvvoM76/E4tWp/lwy70u
-	QxhwT2BeAJvYvYbP153j7NmIZngG7Wz8kf6Q0c79cB1yegVkXY19ZRhFPgddGe/JV48FYyEvijsGB
-	qsiF/TRg==;
+	bh=/zNx9zGixZ8+MPhecZ15uDRai2fas6M1Q1gjnBYg+Bc=; b=ENvNflRxO9cJr0KqZ6zDWhXlE4
+	imz+X0sXPBp67sEiH8A28SodXwOmxCMR79fAULuoui2V6s/NTZSDRY6x6xWz+ZlT1jqPGUd0GBEM4
+	WAf3V4oxgIjIT5OVAB+A3vBKjLMHgzNk6+4nI+R2lvWMP+0rOy3ScLXcJLHuC2GgoKrF6FTSMiAGN
+	MILAU4J5E9pCjfADCQbzGDQzOg/urLH2Z3mZ7eetQ8xSGmfZZXZZMwCgEKcH3A8aWj7YzRS2h1bWg
+	ZghIODRznCNI4urVqPqpCL5WK1Rx1gJEzNTtjF5SBc5nPNDbkk1vdDvDLeVcRTA9W5mLd5vrGDCQB
+	7+jsDJ8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK4Wh-0000000FIUf-0qrS;
+	id 1xK4Wh-0000000FIUy-2Qzi;
 	Fri, 23 Oct 2026 01:56:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK4Wf-0000000FITm-27pg
+	id 1xK4Wf-0000000FIU7-42TD
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Oct 2026 01:56:57 +0000
+	Fri, 23 Oct 2026 01:56:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4BDB2601E4;
-	Fri, 23 Oct 2026 01:56:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A8E02447D7;
+	Fri, 23 Oct 2026 01:56:57 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1792720616;
-	b=2FvUkGl4MaWBmUc6MN44xYtF7OAzCIvoxo8aoAq0p+4fQmOnPxNG0b+dV3903jg0xEsN
-	 hecrI6z4yH4TUcQ1fFU1/mffbMuvwc+YsfXQkhq48e2lhLcq4pQtth8nQpPtCjw8q/dJd
-	 upKIXDIMDrl3U5iDJjuwx8Qw8vUCWOKxa5k8icCi5hDxxXruknbKfaCZmNVym58ccVZpW
-	 M8PgzGwMu0x7ftS9boHwOqbQktIXXS0RpfDEl7M5O1+nsOVttrp8rf6/aNM32x9PgPLYR
-	 y2UKiHuTvRpcGpwQ3VVcFXDBfJLwitm/Xz7ez/RzguEXaW/px3NQpKbfGXsAua86WWg==
+	t=1792720617;
+	b=q7bz4EAYKQQ4pQ6trt4mozWvQ3JgE+a9mxthMn9ja/S97WiuvvcK6VKdymR3TKMzkOQW
+	 cfAtP/LkZOIFwZIhrE7CYVlXYD20Ta2DGKOVXVSlWmNhPIoXs8DM0WTQlnKB5UOzfmzNu
+	 Phl6nS+MgcScf7uUoaKdOmqXtjc3OIPqI8ridTurPhETLobA6rSJ65XhtMNDLNhq+mVNz
+	 xW/wVfSLpf0sbnSPoWalbrENpr3QtGZAs/szYJxG/XCiWuoeSEZ8CLsOigqynnaZcHeEL
+	 RLwUDgBHyWXqqqX2kjyhjbNhEx9asIt2UTyE+EMZV7rLnGwBgQkEBMqBhfmcQtyxDUQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1792720616;
+	c=relaxed/relaxed; t=1792720617;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To;
-	bh=ED5DRsIqnMgHvn/xcDYBb4fi+k93STwRusfKqXDCoZs=;
-	b=pL1sy+iGV4jM7aY8uileD0ZLivCJKUDrR/YEYntZX5Sqq0nevN/rM2OjXszoIJEHEmSM
-	 /Zhkq3nAUPM0sbo3qDXfmVxcApz1ilSvC8Jk1BB0tKBHpL5P2QhVOR4FFsBIs3J1uftaF
-	 WteaSdpm5K2zrL48wY/gP4LkhwDL7w4jQAJedF++S3rIUXym/V6O5RlicRpJitWVr4GpU
-	 WHIewwt1QmlxU+pFQEj8bO2KmMzmYBasrASJrAM/uI8/VbXhPhl8VpKN8z+/pmUxaRXAg
-	 nAkYmxh8PlfTvLVzvHlAahb+VzMbUTYKV/s6giEXKmE7GuwaT9g6srCuwqA0s5HSITg==
+	bh=Vw7ZEhGFs1BjehCmf3SdDN3rq9JuYZ50K+jNCEaZYok=;
+	b=dV8dNJKVS6H89yQ+Z7WYXOVNgAojzYzDiLlAn3e6crAFv66Yy9fmeHcv96mNlWdmii7P
+	 bResnDcgJi7ybvRrl2OoPTdUYXG9IAI+l8qKysHSPqfZBgsy2TUNSkNFSN/1GqPBbQeO1
+	 gv2mOVlcBqwsJoE5hNYtfyyMpohtkctUTZsS294FiDalBQAnjG5xff+qEOeVM8M0tjVnL
+	 K1kAJ6q8FRwBClsxC1TVtuR6UEP7rjDxPGLTeAoLruKxHo/crIb1ZI6B1QxjvK764GT1O
+	 pzjGoVs5Qab1GsuoM22OluHsB7FmUfYBG6I3yAy2jHUfhdU0k7W/fhx1N2JVuNffXpQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 6C0361F01829;
-	Fri, 23 Oct 2026 01:56:55 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 919B11F031E3;
+	Fri, 23 Oct 2026 01:56:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792720616;
-	bh=ED5DRsIqnMgHvn/xcDYBb4fi+k93STwRusfKqXDCoZs=;
+	s=k20260515; t=1792720617;
+	bh=Vw7ZEhGFs1BjehCmf3SdDN3rq9JuYZ50K+jNCEaZYok=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=LAb+6DEtj2jAXZDiXYPRv6a0q8hqssQpxxN/Arlhg0R/zGs2Ft42UuIvd1H7CDafy
-	 h+W9cDaYaOJ0xFlG2LUGZDoDUBKDtgj3VD52KVq71jqb786awNh9owgFpIu5OHN5Ug
-	 36bY/6kHCOlNmJOfScgAeiu7gdpSGYPbFVytzO467HBmJ73a8i6BUAphRHuXLakfKB
-	 koDdNR+dMhLt6pnNCPe6ADUNZwLqhAxnEYin10VDcxXYA9Pap3jwsxIsqqQYZAV9CG
-	 n9LPON4FvStziUyCHdk7Wsj2NHI4d6xg89iDpjHfquHGkPPuazTwNnI5hYrgveCSiG
-	 1VTBDZyG+TFDg==
+	b=cIyTQO+bsF45Eei2AhWhS2SLpsdslrym3p9Acc7yqL0tBsRKAQxHqhyT0p5maAPNr
+	 kuaFqH/y3iP03SqnAOt3Pi+vz0GWpR5j5g6P5ON1EGdiUoVk7lJhaF+0yIGJfHdzPJ
+	 wHfbFIIipP+vik4SiNHZeLRJpJ2Y12PJY4Nyo0fdsdQ170cwZQQODhFhnh1KFJ/Wcl
+	 YjSZTD/Ic8jgHU+3NiFq42J5hX8GH6qp2zmqwK6lER1E+US42eOHJRpwKsYWLc4NEn
+	 dIxBxpOCjdROdHOVGjEwpSc79/I2xnGgIjE4Hr4qIzOToXKtAlc1Gqil7HKjBj9+l5
+	 e0WSRG8w2feJA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id E152E42176;
-	Fri, 23 Oct 2026 01:56:54 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 0917E42188;
+	Fri, 23 Oct 2026 01:56:55 +0000 (UTC)
 From: Xincheng Ji via B4 Relay <devnull+jixincheng.ultrarisc.com@kernel.org>
-Date: Fri, 23 Oct 2026 09:56:43 +0800
-Subject: [PATCH v5 3/7] dt-bindings: riscv: Add UltraRISC DP1000 board
- compatibles
+Date: Fri, 23 Oct 2026 09:56:46 +0800
+Subject: [PATCH v5 6/7] riscv: dts: ultrarisc: Add Shenzhen Rongda M0 board
+ device tree
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261023-ultrarisc-dts-v5-3-af79dbd6ccec@ultrarisc.com>
+Message-Id: <20261023-ultrarisc-dts-v5-6-af79dbd6ccec@ultrarisc.com>
 References: <20261023-ultrarisc-dts-v5-0-af79dbd6ccec@ultrarisc.com>
 In-Reply-To: <20261023-ultrarisc-dts-v5-0-af79dbd6ccec@ultrarisc.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -94,13 +94,13 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
- linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
+ linux-riscv@lists.infradead.org
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792720613; l=1942;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792720613; l=6533;
  i=jixincheng@ultrarisc.com; s=20260922; h=from:subject:message-id;
- bh=F931PJB7CYQDP8Qv71XY2lbmZu4qGdN+Fjh5HxV88EU=;
- b=h/6RWoBjw0sjolkqIzjJpMDqbaw8pueMa9vGtbP70tf5uuz26C4ls10lJi15V6swv9Kk5oVvl
- 8ETEApXYpC4DJraNpM7E4t6wBWVZ7zWSah0YyrYPyZzWNZTDXHz07ll
+ bh=FLco8EKil9coXfOOohEgx8XQNQE43bTkwaWzTcrXeQk=;
+ b=ix6HlFtvT99tB+w/usnZ3cQqOMd6WAk5Cs3XemBTzJA3a3fihuqdmtXXy315AyrgNvEupMtVx
+ y4W70tA5RmoD5pz2a2iMgZx7kLRCwdchwKluZkiQkMHoDoevPlfKYmV
 X-Developer-Key: i=jixincheng@ultrarisc.com; a=ed25519;
  pk=n848dcS5D6g0vLad/rjp4Gf/1eedTe1a3pYUrkt2260=
 X-Endpoint-Received: by B4 Relay for jixincheng@ultrarisc.com/20260922 with
@@ -119,77 +119,317 @@ Reply-To: jixincheng@ultrarisc.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-22.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 From: Jia Wang <wangjia@ultrarisc.com>
 
-Document the compatibles for the Shenzhen Rongda M0 and Milk-V Titan
-boards, both based on the UltraRISC DP1000 SoC.
+Shenzhen Rongda M0 is an mATX motherboard based on the UltraRISC DP1000
+SoC.
 
 Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../devicetree/bindings/riscv/ultrarisc.yaml       | 27 ++++++++++++++++++++++
- MAINTAINERS                                        |  7 ++++++
- 2 files changed, 34 insertions(+)
+ arch/riscv/boot/dts/Makefile                       |   1 +
+ arch/riscv/boot/dts/ultrarisc/Makefile             |   2 +
+ arch/riscv/boot/dts/ultrarisc/dp1000-pinctrl.h     |  63 ++++++++++++
+ .../ultrarisc/dp1000-shenrongda-m0-pinctrl.dtsi    |  79 ++++++++++++++
+ .../boot/dts/ultrarisc/dp1000-shenrongda-m0.dts    | 113 +++++++++++++++++++++
+ 5 files changed, 258 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/ultrarisc.yaml b/Documentation/devicetree/bindings/riscv/ultrarisc.yaml
+diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+index 69d8751fb17c..702882974251 100644
+--- a/arch/riscv/boot/dts/Makefile
++++ b/arch/riscv/boot/dts/Makefile
+@@ -12,3 +12,4 @@ subdir-y += spacemit
+ subdir-y += starfive
+ subdir-y += tenstorrent
+ subdir-y += thead
++subdir-y += ultrarisc
+diff --git a/arch/riscv/boot/dts/ultrarisc/Makefile b/arch/riscv/boot/dts/ultrarisc/Makefile
 new file mode 100644
-index 000000000000..a51e63dbeca3
+index 000000000000..454d849a6ce4
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/ultrarisc.yaml
-@@ -0,0 +1,27 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/ultrarisc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/arch/riscv/boot/dts/ultrarisc/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_ARCH_ULTRARISC) += dp1000-shenrongda-m0.dtb
+diff --git a/arch/riscv/boot/dts/ultrarisc/dp1000-pinctrl.h b/arch/riscv/boot/dts/ultrarisc/dp1000-pinctrl.h
+new file mode 100644
+index 000000000000..4668e45d2335
+--- /dev/null
++++ b/arch/riscv/boot/dts/ultrarisc/dp1000-pinctrl.h
+@@ -0,0 +1,63 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
++ */
 +
-+title: UltraRISC SoC-based boards
++#ifndef _DP1000_PINCTRL_H
++#define _DP1000_PINCTRL_H
 +
-+maintainers:
-+  - Jia Wang <wangjia@ultrarisc.com>
++#define PA0		0
++#define PA1		1
++#define PA2		2
++#define PA3		3
++#define PA4		4
++#define PA5		5
++#define PA6		6
++#define PA7		7
++#define PA8		8
++#define PA9		9
++#define PA10		10
++#define PA11		11
++#define PA12		12
++#define PA13		13
++#define PA14		14
++#define PA15		15
++#define PB0		16
++#define PB1		17
++#define PB2		18
++#define PB3		19
++#define PB4		20
++#define PB5		21
++#define PB6		22
++#define PB7		23
++#define PC0		24
++#define PC1		25
++#define PC2		26
++#define PC3		27
++#define PC4		28
++#define PC5		29
++#define PC6		30
++#define PC7		31
++#define PD0		32
++#define PD1		33
++#define PD2		34
++#define PD3		35
++#define PD4		36
++#define PD5		37
++#define PD6		38
++#define PD7		39
++#define LPC0		40
++#define LPC1		41
++#define LPC2		42
++#define LPC3		43
++#define LPC4		44
++#define LPC5		45
++#define LPC6		46
++#define LPC7		47
++#define LPC8		48
++#define LPC9		49
++#define LPC10		50
++#define LPC11		51
++#define LPC12		52
 +
-+description:
-+  UltraRISC DP1000 SoC-based boards
++#endif /* _DP1000_PINCTRL_H */
+diff --git a/arch/riscv/boot/dts/ultrarisc/dp1000-shenrongda-m0-pinctrl.dtsi b/arch/riscv/boot/dts/ultrarisc/dp1000-shenrongda-m0-pinctrl.dtsi
+new file mode 100644
+index 000000000000..ab927c6cd614
+--- /dev/null
++++ b/arch/riscv/boot/dts/ultrarisc/dp1000-shenrongda-m0-pinctrl.dtsi
+@@ -0,0 +1,79 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright(C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
++ */
 +
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - shenrongda,m0
-+              - milkv,titan
-+          - const: ultrarisc,dp1000
++#include "dp1000.dtsi"
++#include "dp1000-pinctrl.h"
 +
-+additionalProperties: true
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ff1c1aea9a98..7eb1b2971bea 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23639,6 +23639,13 @@ F:	include/dt-bindings/power/thead,th1520-power.h
- F:	include/dt-bindings/reset/thead,th1520-reset.h
- F:	include/linux/firmware/thead/thead,th1520-aon.h
- 
-+RISC-V ULTRARISC SoC SUPPORT
-+M:	Jia Wang <wangjia@ultrarisc.com>
-+L:	linux-riscv@lists.infradead.org
-+S:	Supported
-+T:	git https://github.com/ultrarisc/linux.git
-+F:	Documentation/devicetree/bindings/riscv/ultrarisc.yaml
++&pinctrl {
++	i2c0_pins: i2c0-pins {
++		pins = <PA12 PA13>;
++		function = "i2c";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
 +
- RNBD BLOCK DRIVERS
- M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
- M:	Jack Wang <jinpu.wang@ionos.com>
++	i2c1_pins: i2c1-pins {
++		pins = <PB6 PB7>;
++		function = "i2c";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	i2c2_pins: i2c2-pins {
++		pins = <PC0 PC1>;
++		function = "i2c";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	i2c3_pins: i2c3-pins {
++		pins = <PC2 PC3>;
++		function = "i2c";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	spi0_pins: spi0-pins {
++		pins = <PD0 PD1 PD2 PD3 PD4 PD5 PD6 PD7>;
++		function = "spi";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	spi1_pins: spi1-pins {
++		pins = <PA0 PA1 PA2 PA3>;
++		function = "spi";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	uart0_pins: uart0-pins {
++		pins = <PA8 PA9>;
++		function = "uart";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	uart1_pins: uart1-pins {
++		pins = <PB4 PB5>;
++		function = "uart";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	uart2_pins: uart2-pins {
++		pins = <PC4 PC5>;
++		function = "uart";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	uart3_pins: uart3-pins {
++		pins = <PC6 PC7>;
++		function = "uart";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++};
+diff --git a/arch/riscv/boot/dts/ultrarisc/dp1000-shenrongda-m0.dts b/arch/riscv/boot/dts/ultrarisc/dp1000-shenrongda-m0.dts
+new file mode 100644
+index 000000000000..43f713bcea25
+--- /dev/null
++++ b/arch/riscv/boot/dts/ultrarisc/dp1000-shenrongda-m0.dts
+@@ -0,0 +1,113 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright(C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
++ */
++
++#include "dp1000-shenrongda-m0-pinctrl.dtsi"
++#include <dt-bindings/gpio/gpio.h>
++
++/ {
++	model = "Shenzhen Rongda M0 Board";
++	compatible = "shenrongda,m0", "ultrarisc,dp1000";
++
++	aliases {
++		serial0 = &uart0;
++		serial1 = &uart1;
++		serial2 = &uart2;
++		serial3 = &uart3;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++};
++
++&i2c0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c0_pins>;
++};
++
++&i2c1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c1_pins>;
++};
++
++&i2c2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c2_pins>;
++
++	rtc@32 {
++		compatible = "whwave,sd3078";
++		reg = <0x32>;
++	};
++};
++
++&i2c3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c3_pins>;
++};
++
++&spi0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&spi0_pins>;
++};
++
++&spi1 {
++	num-cs = <1>;
++
++	pinctrl-names = "default";
++	pinctrl-0 = <&spi1_pins>;
++};
++
++&uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0_pins>;
++};
++
++&uart1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart1_pins>;
++};
++
++&uart2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart2_pins>;
++};
++
++&uart3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart3_pins>;
++};
++
++&pcie_x16 {
++	status = "okay";
++};
++
++&pcie_x4a {
++	status = "okay";
++};
++
++&pcie_x4b {
++	status = "okay";
++};
++
++&ethernet {
++	phy-handle = <&phy0>;
++	/*
++	 * The PCB does not add RGMII TX or RX clock delays. The DP1000
++	 * integration adds fixed delays in both directions.
++	 */
++	phy-mode = "rgmii-id";
++
++	status = "okay";
++
++	mdio {
++		compatible = "snps,dwmac-mdio";
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		phy0: phy@0 {
++			reg = <0>;
++		};
++	};
++};
 
 -- 
 2.34.1
