@@ -2,11 +2,12 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACB0F606A323
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:18:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2ED66606A335
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:18:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mNQ2psi8;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=q7U2/shp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SRDrQvwI;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=USZU3hoc;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=VklU3FCZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,36 +15,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bQlvcZzHBB6el0M5MJuvSG18KhjDeH27XYtvWGELCbg=; b=mNQ2psi8jGwgXCxCqLpNgyduS8
-	oSIgH3DKAk2fh8+DEbEarvhkG6201Qa92j6Mdb87K1Qz135zlBHPTnG9dRgLBJk03NsYc2uA6APHa
-	1osPPalYuaEqiHGcipFzNd99kfeBJ0DKg+z7dWWVrYJR3m3oRvsosBaslG/4B+/TivNms7mqmPp8k
-	ePaAO7VrMH71FrTNirP1YvKvCfKEk044V8oF7hfZMk44aR+GXCuRCQa5mZvMuIiFud5sN1cXCaUM6
-	oDX5aaxTN1yvryI0rNnTIR224PWX/XoSv2z0Jrc7NbYfVI38d4BBfX+6jYwZDAt01+T7NxEPFxxrP
-	v2neIozg==;
+	bh=hQMDwLoaU9RuCoypL4AdXgodO62XXxLiU42Sfx7BJ1w=; b=SRDrQvwIJjwuYPyTIuzQm2AwqA
+	ZqBsym682a3nkg0NDPC9LTE+SZVo/pfZBOdsnzpO8xnDqIcuZ1wdXHFZL1/iCXe90xbG2PLnkCTYN
+	2v9ym1KFRpQrxHeAWPNgx+NWJ33XPKEjUnjQHFM6Zo28ucJQDJDnZ9DipAj7kBD74yhArytgwaotf
+	OQGTNd7ndsjMg0+jWFhUhTR0ApYLfg6KLLsfduZBxV4LRmHsOFgEby5MH3/Eg7PePOBCgC11+g2LM
+	Q72S1s+GAsPYVBohlXrrjfBpJvQTpta7v/ZBnbA8UT51Dur1XPchfw4DjHDvZcgqPG4VJbLuItoWn
+	kOiv67lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK5nM-0000000FPSx-0iEl;
-	Fri, 23 Oct 2026 03:18:16 +0000
-Received: from smtpbgjp3.qq.com ([54.92.39.34])
+	id 1xK5nP-0000000FPWu-1Wm5;
+	Fri, 23 Oct 2026 03:18:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK5nI-0000000FPHM-3qQs
+	id 1xK5nN-0000000FPTm-2FSi
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 23 Oct 2026 03:18:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=4i8JwP6oCKvaWFiCr0xBtQ3S5XL/T5PUUSds+1oSotw=; b=USZU3hocpbdZqmclvfAXkG6g5h
+	I2iK6zyHtBoMZ1h2MEH3FrP0dXwBG4P//Q12CPQMk2c9UTPvBszvlg/eYPuKWRsEZnNH4UJz787VM
+	4CKeTAZaVbBZ6J97uAcwfjmgwOeZfjjJFc/aCef4ZDMvSwKgJsiUeR62M3Uw8yM83FL9QRsG4H65S
+	tclT98ShoV/13J4oZ5eWlKd732Nx5ZYRO+Wre2mQJFxLYChrAVVPP2+cE9SrTyYhv7qBVMtLt0+Ri
+	Y416Ya7ilptR8GVdzKC6bxw/0WvXXE4AcsHa0awtM5dPQN5IG5UY2MCsWSl0KGkjpZKy4tO5eX1VM
+	b2pYwo5w==;
+Received: from smtpbgjp3.qq.com ([54.92.39.34])
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xK5n8-00000008cDy-3pqR
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Oct 2026 03:18:14 +0000
+	Fri, 23 Oct 2026 03:18:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1792725435;
-	bh=hrqZgpXEbRCXYwF/fMDlhxzbJHeEM8/U9JvY1dw+mwU=;
+	s=mxsw2412; t=1792725416;
+	bh=4i8JwP6oCKvaWFiCr0xBtQ3S5XL/T5PUUSds+1oSotw=;
 	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=q7U2/shpB8rGQW27OuGcKklxvj9080yTgjmwylDejO7cPDJH60Wi6R7TrMIsMmjmD
-	 w+pN+rMkjXLPS39NvvZdrXsvqaloXNT3QYEmpm+ozAww0zlYMNzfqQ1iNJAt09E7ow
-	 uoXnIbCKNgCMx/D1twmtberL/iNlIxpdQg0pjGBw=
-X-QQ-mid: esmtpsz11t1792725381t9933039b
-X-QQ-Originating-IP: zBnCj0Pl9x55BvX5w7GkJn8w3izRmCpCLEcc7pj1jOg=
+	b=VklU3FCZ9l+k3G839R7yD/NulkJswVc74YKE00LnWlFk/otLUeqXjM9AF7qRGwFXs
+	 pBxOGmbm9AgOrXnIiB/qNQguJva+4nW6xP5GqkBbNcbYRrkVBTtlUnwmIPATmZJthU
+	 NV5Xu8RIQd438+fryXhSo6cW+8eOdqwoa3dQuquA=
+X-QQ-mid: esmtpsz11t1792725355td00874e0
+X-QQ-Originating-IP: OUbCtLgyPlEsH2hTIB5YNITd6hW6VB/tUQYHlZsP6gU=
 Received: from snode5.. ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 23 Oct 2026 11:16:19 +0800 (CST)
+	id ; Fri, 23 Oct 2026 11:15:52 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8460341350556304876
+X-BIZMAIL-ID: 745812888069500600
 EX-QQ-RecipientCnt: 26
 From: Zane Leung <liangzhen@linux.spacemit.com>
 To: gregkh@linuxfoundation.org,
@@ -72,9 +88,9 @@ Cc: mike.leach@arm.com,
 	coresight@lists.linaro.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 19/24] gtrace: Add setup_sysfs_buf callback to setup sysfs sink buffer
-Date: Fri, 23 Oct 2026 11:15:00 +0800
-Message-Id: <20261023031505.2020925-20-liangzhen@linux.spacemit.com>
+Subject: [PATCH 12/24] gtrace: Add RISC-V trace ATB bridge driver
+Date: Fri, 23 Oct 2026 11:14:53 +0800
+Message-Id: <20261023031505.2020925-13-liangzhen@linux.spacemit.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
 References: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
@@ -82,29 +98,29 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: NDgMZBR9sMmatuPt4E/niLZWmzf9ctllFvLRuFuf9VDi0PMFIibxkBIg
-	ItQi/Chl6XUzLiPKEEmXtnM0hzB/R3poQsDYk093maYr1/RG720Wb1JdvFxn53dMJO/567v
-	LgqhM0BzlvZzwE5eNDwHNjx3DUgT6DoNFpKLU8ORwvIVUjiLHob4kJG0M0QUUFmyy1HNuns
-	XmlswuFD82CKjUjJnacv/scwI1jfbmMBJ/9d7sLscrRIoGrOkC6Fn80FItuB2GdoBfqmP8w
-	uy/kxheAPi/752GrcbjVM9KGZVLbh8sfxYRQBh8oAERITnBjJRjshSYOhdVAzhxL8x6D2wv
-	aemlD+QEPYPogq6t5cBivTj/LR/zJq9ujrRSKl7zW0ORmhHIYXFAlaVFq8u3ENglWpM6n1y
-	7eORglVodzHuqaJ/aKcisdAI8D5kXGWKq4ha201xOZsILfEf6mBSYM8pPKf30yGW6ykyCt7
-	JtC+FVdCNFCoR1P9x7oby4L9q5XZqIP7RrnCtcAnN6vWMmWw5sL99I9rweB5tD2NjP7Ki8k
-	SBvesNtizB21GHC2IJzkSL7pByXB1JMDXeW43nhivRywaRU923bjLCuf6PL7kfsuWHPR+pp
-	gbJTe1+vHZ71eWKObyHNotIAOihP2TbJxwOjA4UjPO+i7VaGijsVAu3hBbOC889TdtuO+Qa
-	5Wk4LbpEL2bBNRCQLosuv+wYA+hTCzfmhi03ejCfpV8wQ1goWjKpMQs08ezSQW/HEbcREDg
-	dAVDyuhRtEPiFl8CspkAzwM0jVGH6xkKP7V4owtejstbDrXv01FCFLX5HzmbjjYW5bT4qfd
-	7J4ycz11bF1VezUG++V68inN35axyyFkSCwYlZNiH6r2l8Tfi4s+sqSImDyhIUy9H9K/mhL
-	p1rHmxHx+PsGFlXo1pI7jeM/jol8/ZyR7NEoR6hROL1CwL12dCnbytWNPVWSPl+rIiC58I0
-	TtmONXWOlW+f0YHG8D3g4ZjFAQI6tMRWB4978LynQbHaMV+D9rYdhQqWxPbpKMzSjK/LKoE
-	9OZjj595sSRLiNfe+8r6thtDBUjMGoU15c/VxXYtUTQ1YIVzU6TSVT9SaunCwL+QuiSwrao
-	sJzeLnnomuC
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+X-QQ-XMAILINFO: ON42YI7R3macNPKX5ZyvX/bC41mVhhZ+Or3guCM/eKDDsxTRjo2+r0MY
+	KGbtssKK/ZBVekllhGDT0/KB07qUbm3xRJ1j/JGlQx+gQi5TDgDeE3GdrIKujJba/jcpFGy
+	pCCEUOhF9jjTMpg3c0Z5pbvNVXNyMVIcmeg1ERLhb+r346Fn1m6Zh4tf4ag80iOyuW8hfUT
+	Enj6yiJ7W+nWYzkwKfoJC2Ci68mq4KVDI7vKPYWdpY73kQhBk/4ZdhIBw+UChIvz49ecILK
+	E1nVpNwojjD44GrPj6ocOrPPSHlb5EmImLae1D5/T6ogv7+3FN0OMnrajIsjhU6Lk6DrKqR
+	iDiQ+DZCgQnbbWQBfrcqrb51HuzvzbxoI67alRDJahKhzgPvSYA6XFPIFjC1qnqjWShoFEP
+	me5O7nxzr1+3pGh5KKtAj2aXEZhsVvtsrTOVcQpEUipoeGkhoMNnDJVvIWQLBbH3AtKjUdX
+	JnXoEfXrBpLwa6yJmkyGAKqH0BQaWdVaF9sMqpYj3VLgI9vlEQd6M9eXR9jchEFgzTuyy+Z
+	KsOmz5HCu2Jk1YOBK9zhyK1GWwLS6tRoOLnmfWdaOm6C9vf0QLpr7nT77KZpRywJl3dXoAv
+	BV5nAUZpYNs3kjbbJN2MBvRAXORtT6LxMXnrJXQuESHi8sbppEGEnRuek+2Hob8yR+c4iih
+	4E2pwTgclXDYoHUKPkQa0GNZQ2fwC4Mk5J0tSN3yM5OwysD3ob3C2XzKH+nnXBDk7DNW6RR
+	xC+t4dLGfM11Ro3nWetZzkniOzbu7VcFiSrDIriP8jOndISXlSUK/OG4EPn5dr2Sx4UBOIw
+	rZi6koOJ4S81BOuI1nw6lQq1dsy1+lnwRtumGdod4oO3NI5GT5NDjxqIttJrYgGk7G4QM8z
+	ZhZ+meRHqb2AgHi9W1FounI3e5tRJodx7nmnSC1e6rdhx4ohnUMbo0MJRKTe311o/4OfrjR
+	go7VBN2lHliqT3c5eBkDSXxhH9wT4Lge8Nb9/J1uMGmVKGzHW2Eh2dmkEz2c28TSOAObgHM
+	JfStLkeqrihfe16LLKLlhH2GpkGzu/RQcKWO6OsoCgAEd2w1jhi0hXvrDrjaGEo2/VPItEK
+	OB2pKnSzcDu20F0vxr/13Y=
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_201813_241504_5B6FA859 
-X-CRM114-Status: GOOD (  11.61  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261023_041809_533331_96B3B9E8 
+X-CRM114-Status: GOOD (  21.73  )
+X-Spam-Score: -0.2 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,67 +140,235 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add a setup_sysfs_buf() callback to gtrace_driver and invoke it from
-gtrace_enable_sysfs() before the path is started, so the sink can
-allocate its sysfs trace buffer outside the spinlock held by the core
-start path.
+Add initial implementation of RISC-V Trace atbbridge driver. The
+atbbridge is defined in the RISC-V Trace Control Interface specification.
 
 Signed-off-by: Zane Leung <liangzhen@linux.spacemit.com>
 ---
- drivers/hwtracing/gtrace/gtrace-sysfs.c | 12 ++++++++++++
- include/linux/gtrace.h                  |  2 ++
- 2 files changed, 14 insertions(+)
+ drivers/hwtracing/gtrace/Kconfig             |  15 ++
+ drivers/hwtracing/gtrace/Makefile            |   1 +
+ drivers/hwtracing/gtrace/rvtrace-atbbridge.c | 153 +++++++++++++++++++
+ drivers/hwtracing/gtrace/rvtrace-platform.c  |   3 +
+ drivers/hwtracing/gtrace/rvtrace.h           |   1 +
+ 5 files changed, 173 insertions(+)
+ create mode 100644 drivers/hwtracing/gtrace/rvtrace-atbbridge.c
 
-diff --git a/drivers/hwtracing/gtrace/gtrace-sysfs.c b/drivers/hwtracing/gtrace/gtrace-sysfs.c
-index 5f4f3fcb56a4..23b0a21ef9c0 100644
---- a/drivers/hwtracing/gtrace/gtrace-sysfs.c
-+++ b/drivers/hwtracing/gtrace/gtrace-sysfs.c
-@@ -85,6 +85,7 @@ static int gtrace_validate_source_sysfs(struct gtrace_component *comp,
- int gtrace_enable_sysfs(struct gtrace_component *comp)
- {
- 	struct gtrace_component *sink;
-+	struct gtrace_driver *sinkdrv;
- 	struct gtrace_path *path;
- 	int ret;
+diff --git a/drivers/hwtracing/gtrace/Kconfig b/drivers/hwtracing/gtrace/Kconfig
+index f6026965c54d..3af47d7c3ce3 100644
+--- a/drivers/hwtracing/gtrace/Kconfig
++++ b/drivers/hwtracing/gtrace/Kconfig
+@@ -71,3 +71,18 @@ config RVTRACE_FUNNEL
  
-@@ -114,6 +115,17 @@ int gtrace_enable_sysfs(struct gtrace_component *comp)
- 
- 	mutex_lock(&gtrace_mutex);
- 
-+	if (!sink)
-+		sink = gtrace_path_sink(path);
-+	sinkdrv = to_gtrace_driver(sink->dev.driver);
-+	if (sinkdrv && sinkdrv->setup_sysfs_buf) {
-+		ret = sinkdrv->setup_sysfs_buf(sink);
-+		if (ret) {
-+			gtrace_destroy_path(path);
-+			goto out;
-+		}
+ 	  To compile this driver as a module, choose M here: the module
+ 	  will be called rvtrace-funnel.
++
++config RVTRACE_ATBBRIDGE
++	tristate "RISC-V Trace ATB Bridge driver"
++	depends on RVTRACE
++	default y
++	help
++	  This driver provides support for the RISC-V trace ATB bridge
++	  component which is defined by the RISC-V Trace Control Interface
++	  specification. The ATB bridge converts the RISC-V trace stream
++	  to the ARM Advanced Trace Bus (ATB) protocol, allowing RISC-V
++	  trace sources to feed into ARM CoreSight trace components. It is
++	  a link component in the trace path.
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called rvtrace-atbbridge.
+diff --git a/drivers/hwtracing/gtrace/Makefile b/drivers/hwtracing/gtrace/Makefile
+index b60d3cfe5248..3f1dcb5664a2 100644
+--- a/drivers/hwtracing/gtrace/Makefile
++++ b/drivers/hwtracing/gtrace/Makefile
+@@ -10,3 +10,4 @@ obj-$(CONFIG_RVTRACE_ENCODER) += rvtrace-encoder.o
+ rvtrace-encoder-y := rvtrace-encoder-core.o rvtrace-encoder-sysfs.o
+ obj-$(CONFIG_RVTRACE_RAMSINK) += rvtrace-ramsink.o
+ obj-$(CONFIG_RVTRACE_FUNNEL) += rvtrace-funnel.o
++obj-$(CONFIG_RVTRACE_ATBBRIDGE) += rvtrace-atbbridge.o
+diff --git a/drivers/hwtracing/gtrace/rvtrace-atbbridge.c b/drivers/hwtracing/gtrace/rvtrace-atbbridge.c
+new file mode 100644
+index 000000000000..92a59ed80a11
+--- /dev/null
++++ b/drivers/hwtracing/gtrace/rvtrace-atbbridge.c
+@@ -0,0 +1,153 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2026 Spacemit Technologies, Inc.
++ */
++
++#include <linux/device.h>
++#include <linux/gtrace.h>
++#include <linux/idr.h>
++#include <linux/types.h>
++#include <linux/bitfield.h>
++#include "rvtrace.h"
++
++#define RVTRACE_ATBBRIDGE_CTRL_ATID_MASK    GENMASK(14, 8)
++#define RVTRACE_ATBBRIDGE_ATID_MIN	    0x1
++#define RVTRACE_ATBBRIDGE_ATID_MAX	    0x6f
++
++static DEFINE_IDA(rvtrace_atbbridge_atid_ida);
++
++struct rvtrace_atbbridge_priv {
++	int atid;
++};
++
++static int rvtrace_atbbridge_start(struct gtrace_component *comp)
++{
++	int ret;
++
++	ret = gtrace_enable_component(comp);
++	if (ret)
++		dev_err(&comp->dev, "failed to start atbbridge.\n");
++
++	return ret;
++}
++
++static int rvtrace_atbbridge_stop(struct gtrace_component *comp)
++{
++	int ret;
++
++	ret = gtrace_disable_component(comp);
++	if (ret)
++		dev_err(&comp->dev, "failed to stop atbbridge.\n");
++
++	return ret;
++}
++
++static ssize_t cpu_show(struct device *dev,
++			struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++
++	return sysfs_emit(buf, "%d\n", comp->pdata->bound_cpu);
++}
++static DEVICE_ATTR_RO(cpu);
++
++static ssize_t atid_show(struct device *dev,
++			 struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_atbbridge_priv *priv = dev_get_drvdata(&comp->dev);
++
++	return sysfs_emit(buf, "%u\n", priv->atid);
++}
++static DEVICE_ATTR_RO(atid);
++
++static struct attribute *rvtrace_atbbridge_attrs[] = {
++	&dev_attr_cpu.attr,
++	&dev_attr_atid.attr,
++	NULL,
++};
++
++static const struct attribute_group rvtrace_atbbridge_group = {
++	.attrs = rvtrace_atbbridge_attrs,
++};
++
++const struct attribute_group *rvtrace_atbbridge_groups[] = {
++	&rvtrace_atbbridge_group,
++	NULL,
++};
++EXPORT_SYMBOL_GPL(rvtrace_atbbridge_groups);
++
++static void rvtrace_atbbridge_cleanup(struct gtrace_component *comp)
++{
++	struct rvtrace_atbbridge_priv *priv = dev_get_drvdata(&comp->dev);
++
++	ida_free(&rvtrace_atbbridge_atid_ida, priv->atid);
++}
++
++static int rvtrace_atbbridge_probe(struct gtrace_component *comp)
++{
++	struct rvtrace_atbbridge_priv *priv;
++	u32 val;
++
++	priv = devm_kzalloc(&comp->dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	priv->atid = ida_alloc_range(&rvtrace_atbbridge_atid_ida,
++				     RVTRACE_ATBBRIDGE_ATID_MIN,
++				     RVTRACE_ATBBRIDGE_ATID_MAX,
++				     GFP_KERNEL);
++	if (priv->atid < 0) {
++		dev_err(&comp->dev, "failed to allocate ATID.\n");
++		return priv->atid;
 +	}
 +
- 	ret = gtrace_path_start(path);
- 	if (ret)
- 		gtrace_destroy_path(path);
-diff --git a/include/linux/gtrace.h b/include/linux/gtrace.h
-index a3d125882ec9..0957d0490c57 100644
---- a/include/linux/gtrace.h
-+++ b/include/linux/gtrace.h
-@@ -377,6 +377,7 @@ int gtrace_path_copyto_auxbuf(struct gtrace_path *path,
- /**
-  * struct gtrace_driver - Representation of a trace driver.
-  * @id_table:      Table to match components handled by the driver.
-+ * @setup_sysfs_buf: Callback to setup sink-specific sysfs buffer.
-  * @alloc_buf:     Callback to alloc sink-specific buffer.
-  * @free_buf:      Callback to free sink-specific buffer.
-  * @copyto_auxbuf: Callback to copy data into perf AUX buffer. The driver
-@@ -394,6 +395,7 @@ int gtrace_path_copyto_auxbuf(struct gtrace_path *path,
-  */
- struct gtrace_driver {
- 	const struct gtrace_component_id *id_table;
-+	int			(*setup_sysfs_buf)(struct gtrace_component *comp);
- 	void			*(*alloc_buf)(struct gtrace_component *comp,
- 					     struct perf_event *event, void **pages,
- 					     int nr_pages, bool overwrite);
++	val = gtrace_read32(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
++	val &= ~RVTRACE_ATBBRIDGE_CTRL_ATID_MASK;
++	val |= FIELD_PREP(RVTRACE_ATBBRIDGE_CTRL_ATID_MASK, priv->atid);
++	gtrace_write32(comp->pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
++
++	dev_set_drvdata(&comp->dev, priv);
++
++	return 0;
++}
++
++static void rvtrace_atbbridge_remove(struct gtrace_component *comp)
++{
++	rvtrace_atbbridge_cleanup(comp);
++}
++
++static const struct gtrace_component_id rvtrace_atbbridge_ids[] = {
++	{ .type = GTRACE_RVTRACE_ATBBRIDGE,
++	  .version = rvtrace_component_mkversion(1, 0), },
++	{},
++};
++
++static struct gtrace_driver rvtrace_atbbridge_driver = {
++	.id_table = rvtrace_atbbridge_ids,
++	.probe = rvtrace_atbbridge_probe,
++	.remove = rvtrace_atbbridge_remove,
++	.start = rvtrace_atbbridge_start,
++	.stop = rvtrace_atbbridge_stop,
++	.driver = {
++		.name = "rvtrace-atbbridge",
++	},
++};
++
++static int __init rvtrace_atbbridge_init(void)
++{
++	return gtrace_register_driver(&rvtrace_atbbridge_driver);
++}
++
++static void __exit rvtrace_atbbridge_exit(void)
++{
++	gtrace_unregister_driver(&rvtrace_atbbridge_driver);
++	ida_destroy(&rvtrace_atbbridge_atid_ida);
++}
++
++module_init(rvtrace_atbbridge_init);
++module_exit(rvtrace_atbbridge_exit);
++
++MODULE_AUTHOR("Zane Leung");
++MODULE_DESCRIPTION("RISC-V Trace ATB Bridge Driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/hwtracing/gtrace/rvtrace-platform.c b/drivers/hwtracing/gtrace/rvtrace-platform.c
+index ad8daa06e13e..9bd315867082 100644
+--- a/drivers/hwtracing/gtrace/rvtrace-platform.c
++++ b/drivers/hwtracing/gtrace/rvtrace-platform.c
+@@ -136,6 +136,9 @@ static int rvtrace_platform_probe(struct platform_device *pdev)
+ 	case GTRACE_RVTRACE_FUNNEL:
+ 		pdata->groups = rvtrace_funnel_groups;
+ 		break;
++	case GTRACE_RVTRACE_ATBBRIDGE:
++		pdata->groups = rvtrace_atbbridge_groups;
++		break;
+ 	default:
+ 		pdata->groups = NULL;
+ 	}
+diff --git a/drivers/hwtracing/gtrace/rvtrace.h b/drivers/hwtracing/gtrace/rvtrace.h
+index a345ba110267..5cbe3405e274 100644
+--- a/drivers/hwtracing/gtrace/rvtrace.h
++++ b/drivers/hwtracing/gtrace/rvtrace.h
+@@ -121,5 +121,6 @@ extern const struct gtrace_hw_ops rvtrace_hw_ops;
+ /* Sysfs attribute groups for RISC-V trace components */
+ extern const struct attribute_group *rvtrace_encoder_groups[];
+ extern const struct attribute_group *rvtrace_funnel_groups[];
++extern const struct attribute_group *rvtrace_atbbridge_groups[];
+ 
+ #endif /* __LINUX_RVTRACE_H__ */
 -- 
 2.34.1
 
