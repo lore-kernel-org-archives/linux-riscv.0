@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3361606A31A
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:16:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B3F9606A31E
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:16:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=g9hDbg+2;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=BKZyfKJR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=361PrJ2g;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=Sdli9E5P
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,36 +14,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=gd1EbSSeOmit44IcwTXtlrMQ9Of8iS4+mRLbS2Yhou0=; b=g9hDbg+2gpKfma0k8OmnVgStts
-	B1BXhC8zn6D3/Hzs6mgvlZdLnSRYKtD1BSV90tz6nQTHxB07G79uOu6WrlP2qs0ePMyejEnZiA+nN
-	T/D62YGBB5dCGzrkomxJSmoD3pxcr/hpOQ8lK0suRU1GM+65JkjB2EeHeDywke/LZwjK2zOw8cq1r
-	z4UbGKrk2NRN3FcZYWihoC2L3usypzDMZxb/VFily5Z6j6a7bLS8loJmmH8J6mcDKq14r1S0NzPab
-	p8OQ3YL3E1YQ6z/k/EkBy+Tg7nHvIM7eSTSiPxtmzQ7dt7qidWEkLqToGuhHR6DM4+ibRnjXlpfGH
-	d5IagI3Q==;
+	bh=RIQ56p+vcYTbu/oYmY0OmLNCCr9r6XuDOukc8GUvBnw=; b=361PrJ2gWrWqt/0T1ZxstJd3xd
+	1KGjBcbFE7er11mJ4WCXJQbcul8iGsaDzI5KcmOVJDCChHmGnLcsFxVomoG5cUmrlWHR8M1M8GCjF
+	r0Y4fWweto9fGRn6Yef2/Ba7CaWWmxxrBYZsS27CFxRhKe5I7cbHs2+P4w/wT1vAPze5jVsegh2R6
+	lKoUSaFDOfEgtUdH9ftzCRpKJb1/Gevfrb93vgF8dgkn+qE0PZDR9yhOCoN0Gvrm8GCvYi/FftiDL
+	g1Dd9dEcNwJQAMuvpeVRCHAnN4vndbvHdMYR+GGYgEKwbkXNJ0LAWXvvxVIIqizGTt9L6K5NZD/rH
+	4kcwZe+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK5lx-0000000FOIP-1NGc;
-	Fri, 23 Oct 2026 03:16:49 +0000
-Received: from smtpbgbr2.qq.com ([54.207.22.56])
+	id 1xK5m0-0000000FOLa-1qFT;
+	Fri, 23 Oct 2026 03:16:52 +0000
+Received: from smtpbgbr1.qq.com ([54.207.19.206])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK5lr-0000000FO43-1yJJ
+	id 1xK5lv-0000000FO5W-0SII
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Oct 2026 03:16:47 +0000
+	Fri, 23 Oct 2026 03:16:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1792725352;
-	bh=oZ3dwcZhMUF8cd3C/+STHOota9SSEAdXyuE/D3PhF9Y=;
+	s=mxsw2412; t=1792725339;
+	bh=agQ+74FSxZS+AQ2bKZyg5UFSSbvxZz8jhUlTJIaIkkg=;
 	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=BKZyfKJRgUhpvevVTOwkoMRjM1R68rUO1T7lpAPe90YwEUeW71p4P49auReepm9Ut
-	 B6X9I6BGl4s49J0V9jFFfd1o951Q7NzPfpLINoZYZyDlbKYycPEIYxPghJfT1s26Qv
-	 pQVe66NXMcZIn+vic+yBI7tQcGiTjKGuMlKBtp6I=
-X-QQ-mid: esmtpsz11t1792725344tb88ffc15
-X-QQ-Originating-IP: /x+brBj2aJ9X8jERn5FG65pPzVut3TgkYs594RU+spo=
+	b=Sdli9E5Pa7xIu3HdcBVui3KUvQVVhv9Wu7OXOHqex2q+RGzhHMYwVXjDKeYn1nv/H
+	 8vR8Fs9xRzmZyrjSeDuO7L5bpdE5BhXaSVstq1FxhzHvwfLDyooD6fomPbTcOmCWpQ
+	 oO3+vpxbaXFyNHA790lhm2hvzsLCaGd9B8FzJ694=
+X-QQ-mid: esmtpsz11t1792725332t2413c7a2
+X-QQ-Originating-IP: z2kObITc/I9gIbeKVsCchJumtTr1zVVJZUDXOCA4ViM=
 Received: from snode5.. ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 23 Oct 2026 11:15:41 +0800 (CST)
+	id ; Fri, 23 Oct 2026 11:15:30 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5361625773672999170
+X-BIZMAIL-ID: 12303599440400516652
 EX-QQ-RecipientCnt: 26
 From: Zane Leung <liangzhen@linux.spacemit.com>
 To: gregkh@linuxfoundation.org,
@@ -72,9 +72,9 @@ Cc: mike.leach@arm.com,
 	coresight@lists.linaro.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 09/24] gtrace: Add port-level start/stop driver callbacks
-Date: Fri, 23 Oct 2026 11:14:50 +0800
-Message-Id: <20261023031505.2020925-10-liangzhen@linux.spacemit.com>
+Subject: [PATCH 06/24] gtrace: Replace owner PID with perf_event pointer in gtrace_path
+Date: Fri, 23 Oct 2026 11:14:47 +0800
+Message-Id: <20261023031505.2020925-7-liangzhen@linux.spacemit.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
 References: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
@@ -82,27 +82,28 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: NSahpW5IwUZOVlwgksr6u7viIqmOFqhxAUX/EqC0yqI4jYY7hZSUM8ut
-	yoT3srH+/IS3IWYYO0nQBfW1rEnKVtr7BEywbv4rl6EuqcM7AYtMbBr1AQwzhaAwTiz2rlT
-	Wm9MGWQayxbsXxcupV+fb87IrsDTKnTJAQh8B64C8xkiGNkXD/HVCEzjjn81wCGr1mGGMqC
-	CvYY9JQ9yVBoEtxHHcLHLrA7EfA6/opz1VhB1OQsjR/zspCkCZObw4Qa2sA8uRR0Y03dwPN
-	BUy16dX6OB30sv3t7UdHsZWkvNn6P2Vs9iOUkhyXNacqINAJE8rXKk71JqsKpXJ/cmwHB5u
-	KF2YTwQ0EKGZPa8cX2pMTM5b9lmVRUTBuJCsJXNT0EUcfNlWjIa/wLVxNP+GrWMDNT7XNUE
-	hGNUWCf/EQCDcSTzAyDDZ9wynx0FfUuekO8ZTl4u/Bnw8GBHDBUYaV1jCVBFWfS13hgAS0f
-	0ak1afcBay0LtU0WtsJgz2Bel6YaNUB/nWGfYIjtY7qA1oLCk1Y2e1kKxKdsgUeSgeUxSl9
-	fs2tLD4GvMxold0Mp3GIj0yyFgiLSZBeKeaiPMWR0cLoyJJdKvM6/6QUM2CKI5CEEFSBbFl
-	K46z2sMcwoO4Iw7Fm1bRUXUZpYypZErA+y2kcQZjTDXGDFqZiJrwY4+8e42XVlUKzdee+ri
-	ULnfYNW9Wgf5FKNrnw4cE+x6E0aE2bz5CcsV1vBlzFvTuWeoPwW2cLrM/dh2ANYOGpUaHh4
-	A9OAgflIW1jTPSku0v8FHUdQ5CjaXoeNf3Vb7I7H6D8Ud0FhA4sPdhJxuszmHEboLr39o+V
-	SYEm04ME5F/YpLTzhvrH2xFOIO34A+mwMsMrEt809VhjFESG7Tl0aTECQyIc4VRNRgKKIJ6
-	K8HHno1z0yQSvzqS129mIZnYmHV2k1hpR0I66bSskoG7f7XpO4QziDWBUlVwEruBMaTp2Kl
-	g8yAGYJW0NmRJCgM6WFC+YGMhR/6cR7mq2iTN6XpfcLzmAc7bqoPhxsgdmAtC/C9//cExhx
-	3p1uSKDmbiKtqNKNYiHMJNDVHDBXx9waNmVGIA6RIjLpyjk66C/yjl7IvzVQo=
-X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-XMAILINFO: NDgMZBR9sMmaBCRONdrM3P746ARtphw2NnsOCyjNE1VwQ3l0UDoptDZu
+	wR/b7mE1YKaq/9fdIUx6ukCey2WfctVxT+0B5I5SQdjKDr0kGPeeHhSwHG6Y0r/FlObUDEF
+	sOmY9Q+twkv/BiG7BxzQxtsEQlDtRl4FlomlXvwFsSKaFAe5AmY8I/FRTW8X2EFqRrdPgnU
+	T7m4tmHIw4vPonLJFFVB8BDgBCGdOe92NUFe1x8RIsf1UhMyW4wdAWHo2Dk7YGp+QvwDl8I
+	KDJXMRx3kUdROjPGTEX4A484ljG0TipVfxmNkx2ZBQ4TGmElmqGbBB1EfJOLv5iRQoqnQbS
+	fXabKCNi5nDwaVD6gOR1RSDNIf0r9F3z4MJAeeQB6ZmA60lLZT2mWF0u7nmSRVTo77yQq03
+	w6ExpAU52iEgn2aHB5CEQQ1ZVNPyior4OGNXFHAwCK/aO/RLU0g7Uj/s1VGLlZ+FAJpIWK2
+	wpyHt55WAwE0a8lgdIh+bQcmt87T/b4Mnelj3WZ7P+axrzaw9NHwG1ZO4SoXJfQjsmpKnkN
+	+yomScN9Kzj429Rqbde4kzQbMCw6aqcXkU4QMrhLQJUmwbBz8MbcDDZB5U0c0CTWnQ5LUSi
+	TUU0LTM1wjXcO/417PlzShYHqlKMf8a9cxqDKX0xdrvYv2p701PVTBNdvCFO/3YGzKNvMqD
+	SdGZvqkseSjJ4hzK9Tbal1451PJVgAm+BEOAoGEbX8qELwOl3TbxopYUggggnZ4TyAeNvi9
+	8Cq6MX8uXCM2k01BKp9ZvVfoZeJ3O0RoqbpGO20JC8LjuhRFvR8wA4dFFXtGN0+Rhv+Vmu8
+	bnGsw0GepSTwkHrdtIi7/KY2Hl251pTGGb3c37ZkC+LpoJV7xzEcKPl3CX5yQSerpMjAeHa
+	MnXzb3jsvA5I0N6Ww+hHDZohU4prFP7a/RgpZ+ynL6jvZJhLh9vUQN7EBwDf7v4LgfV9yZt
+	YxYEushH82Aqcz08WQnzBxI/Bs90ufHMvGQtSEaNTG2mXXfi6ntPfyA26Yz7GYDZqv6PMDH
+	MjFmIEIOa/9PUwEoDN7UfK6fqiA794+TLvZlPGwKmiRJ5wn1qp4MicinQA5TbbRZxlNbY1z
+	CSyve3yVs59
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_201644_389815_002D7486 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20261022_201648_011960_0DD2DE72 
+X-CRM114-Status: GOOD (  12.63  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -123,189 +124,84 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add start_port() and stop_port() callbacks to gtrace_driver so
-multi-port link components like funnel and replicator can enable a
-specific input/output port the first time a path uses it, tracked by
-the per-connection src_refcnt/dest_refcnt fields.
+Replace 'pid_t owner' with 'struct perf_event *event' in struct gtrace_path.
+This allows component drivers to directly access the perf_event for PMU
+configuration.
 
 Signed-off-by: Zane Leung <liangzhen@linux.spacemit.com>
 ---
- drivers/hwtracing/gtrace/gtrace-core.c | 66 ++++++++++++++++++++------
- include/linux/gtrace.h                 | 12 +++++
- 2 files changed, 64 insertions(+), 14 deletions(-)
+ drivers/hwtracing/gtrace/gtrace-core.c | 12 ++++++++++--
+ drivers/hwtracing/gtrace/gtrace-perf.c |  2 +-
+ include/linux/gtrace.h                 |  2 +-
+ 3 files changed, 12 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/hwtracing/gtrace/gtrace-core.c b/drivers/hwtracing/gtrace/gtrace-core.c
-index 3f55d8b7302d..231d06218d8e 100644
+index cae0a7fa820f..3f55d8b7302d 100644
 --- a/drivers/hwtracing/gtrace/gtrace-core.c
 +++ b/drivers/hwtracing/gtrace/gtrace-core.c
-@@ -654,7 +654,9 @@ static void gtrace_release_path_nodes(struct gtrace_path *path)
- }
+@@ -13,6 +13,7 @@
+ #include <linux/spinlock.h>
+ #include <linux/xarray.h>
+ #include <linux/gtrace.h>
++#include <linux/perf_event.h>
  
- static int __gtrace_comp_start(struct gtrace_component *comp,
--			       struct gtrace_path *path)
-+			       struct gtrace_path *path,
-+			       struct gtrace_connection *inconn,
-+			       struct gtrace_connection *outconn)
- {
- 	struct gtrace_comp_priv *cpriv = to_gtrace_comp_priv(comp);
- 	const struct gtrace_driver *gtdrv = to_gtrace_driver(comp->dev.driver);
-@@ -690,6 +692,12 @@ static int __gtrace_comp_start(struct gtrace_component *comp,
- 			cpriv->owner = task_pid_nr(path->event->owner);
- 	}
+ #define GTRACE_POLL_TIMEOUT_US_DEFAULT	10
  
-+	if (gtdrv->start_port) {
-+		ret = gtdrv->start_port(comp, inconn, outconn);
-+		if (ret)
-+			goto out;
-+	}
-+
- 	cpriv->start_count++;
- out:
- 	raw_spin_unlock_irqrestore(&cpriv->lock, flags);
-@@ -697,7 +705,9 @@ static int __gtrace_comp_start(struct gtrace_component *comp,
- }
+@@ -665,10 +666,16 @@ static int __gtrace_comp_start(struct gtrace_component *comp,
  
- static int __gtrace_comp_stop(struct gtrace_component *comp,
--			      struct gtrace_path *path)
-+			      struct gtrace_path *path,
-+			      struct gtrace_connection *inconn,
-+			      struct gtrace_connection *outconn)
- {
- 	struct gtrace_comp_priv *cpriv = to_gtrace_comp_priv(comp);
- 	const struct gtrace_driver *gtdrv = to_gtrace_driver(comp->dev.driver);
-@@ -715,13 +725,16 @@ static int __gtrace_comp_stop(struct gtrace_component *comp,
- 		goto out;
- 	}
- 
-+	if (!gtdrv) {
-+		ret = -ENODEV;
-+		goto out;
-+	}
-+
-+	if (gtdrv->stop_port)
-+		gtdrv->stop_port(comp, inconn, outconn);
-+
- 	cpriv->start_count--;
- 	if (!cpriv->start_count) {
--		if (!gtdrv) {
--			ret = -ENODEV;
--			goto out;
--		}
--
- 		if (gtdrv->stop)
- 			ret = gtdrv->stop(comp);
- 		comp->path = NULL;
-@@ -734,19 +747,36 @@ static int __gtrace_comp_stop(struct gtrace_component *comp,
- 
- int gtrace_path_start(struct gtrace_path *path)
- {
--	struct gtrace_path_node *node;
-+	struct gtrace_path_node *node, *prev;
-+	struct gtrace_connection *inconn;
- 	int ret = 0;
- 
- 	list_for_each_entry_reverse(node, &path->comp_list, head) {
--		ret = __gtrace_comp_start(node->comp, path);
-+		if (node->comp == gtrace_path_source(path)) {
-+			inconn = NULL;
-+		} else {
-+			prev = list_prev_entry(node, head);
-+			inconn = prev->conn;
-+		}
-+
-+		ret = __gtrace_comp_start(node->comp, path, inconn, node->conn);
- 		if (ret)
- 			break;
- 	}
- 
- 	/* If a component failed to start, stop all the components that were started before it */
--	if (ret)
--		list_for_each_entry_continue(node, &path->comp_list, head)
--			__gtrace_comp_stop(node->comp, path);
-+	if (ret) {
-+		list_for_each_entry_continue(node, &path->comp_list, head) {
-+			if (node->comp == gtrace_path_source(path)) {
-+				inconn = NULL;
-+			} else {
-+				prev = list_prev_entry(node, head);
-+				inconn = prev->conn;
+ 	raw_spin_lock_irqsave(&cpriv->lock, flags);
+ 	if (cpriv->start_count) {
+-		if (cpriv->owner != path->owner || cpriv->mode != path->mode) {
++		if (cpriv->mode != path->mode) {
+ 			ret = -EBUSY;
+ 			goto out;
+ 		}
++		if (cpriv->mode == GTRACE_COMPONENT_MODE_PERF) {
++			if (cpriv->owner != task_pid_nr(path->event->owner)) {
++				ret = -EBUSY;
++				goto out;
 +			}
-+
-+			__gtrace_comp_stop(node->comp, path, inconn, node->conn);
 +		}
-+	}
- 
- 	return ret;
- }
-@@ -754,11 +784,19 @@ EXPORT_SYMBOL_GPL(gtrace_path_start);
- 
- int gtrace_path_stop(struct gtrace_path *path)
- {
--	struct gtrace_path_node *node;
-+	struct gtrace_path_node *node, *prev;
-+	struct gtrace_connection *inconn;
- 	int ret = 0, err;
- 
- 	list_for_each_entry(node, &path->comp_list, head) {
--		err = __gtrace_comp_stop(node->comp, path);
-+		if (node->comp == gtrace_path_source(path)) {
-+			inconn = NULL;
-+		} else {
-+			prev = list_prev_entry(node, head);
-+			inconn = prev->conn;
-+		}
-+
-+		err = __gtrace_comp_stop(node->comp, path, inconn, node->conn);
- 		if (err && !ret)
- 			ret = err;
+ 	} else {
+ 		if (gtdrv->start) {
+ 			comp->path = path;
+@@ -678,8 +685,9 @@ static int __gtrace_comp_start(struct gtrace_component *comp,
+ 				goto out;
+ 			}
+ 		}
+-		cpriv->owner = path->owner;
+ 		cpriv->mode = path->mode;
++		if (cpriv->mode == GTRACE_COMPONENT_MODE_PERF)
++			cpriv->owner = task_pid_nr(path->event->owner);
  	}
+ 
+ 	cpriv->start_count++;
+diff --git a/drivers/hwtracing/gtrace/gtrace-perf.c b/drivers/hwtracing/gtrace/gtrace-perf.c
+index 703c12b95665..2fcfbae9acf6 100644
+--- a/drivers/hwtracing/gtrace/gtrace-perf.c
++++ b/drivers/hwtracing/gtrace/gtrace-perf.c
+@@ -137,7 +137,7 @@ static void *gtrace_setup_aux(struct perf_event *event, void **pages,
+ 			continue;
+ 		}
+ 
+-		path->owner = task_pid_nr(event->owner);
++		path->event = event;
+ 		*gtrace_event_cpu_path_ptr(event_data, cpu) = path;
+ 	}
+ 
 diff --git a/include/linux/gtrace.h b/include/linux/gtrace.h
-index 4bbe5ac835ec..ee60585ef65c 100644
+index 76b1aa9cfe79..3d769b405030 100644
 --- a/include/linux/gtrace.h
 +++ b/include/linux/gtrace.h
-@@ -55,9 +55,11 @@ enum gtrace_format {
-  * @src_port:    A connection's source port number.
-  * @src_fwnode:  Source component's fwnode handle.
-  * @src_comp:    Source component's pointer.
-+ * @src_refcnt:  Number of paths currently using this connection's source port.
-  * @dest_port:   A connection's destination port number.
-  * @dest_fwnode: Destination component's fwnode handle.
-  * @dest_comp:   Destination component's pointer.
-+ * @dest_refcnt: Number of paths currently routing data into the destination port.
-  */
- struct gtrace_connection {
- 	int src_port;
-@@ -66,6 +68,8 @@ struct gtrace_connection {
- 	struct fwnode_handle *dest_fwnode;
- 	struct gtrace_component *src_comp;
- 	struct gtrace_component *dest_comp;
-+	u32 src_refcnt;
-+	u32 dest_refcnt;
+@@ -325,7 +325,7 @@ struct gtrace_path {
+ 	enum gtrace_component_mode	mode;
+ 	u32				trace_id;
+ #define GTRACE_INVALID_TRACE_ID	0
+-	pid_t				owner;
++	struct perf_event		*event;
  };
  
- struct gtrace_platform_data;
-@@ -363,6 +367,8 @@ int gtrace_path_copyto_auxbuf(struct gtrace_path *path,
-  *                 via @format (see PERF_AUX_FLAG_PMU_FORMAT_TYPE_MASK).
-  * @start:         Callback to start tracing.
-  * @stop:          Callback to stop tracing.
-+ * @start_port:    Callback to start a specific component port.
-+ * @stop_port:     Callback to stop a specific component port.
-  * @probe:         Driver probe() function.
-  * @remove:        Driver remove() function.
-  * @get_trace_id:  Get/allocate a trace ID.
-@@ -376,6 +382,12 @@ struct gtrace_driver {
- 						 u64 *format);
- 	int			(*start)(struct gtrace_component *comp);
- 	int			(*stop)(struct gtrace_component *comp);
-+	int			(*start_port)(struct gtrace_component *comp,
-+					      struct gtrace_connection *inconn,
-+					      struct gtrace_connection *outconn);
-+	void			(*stop_port)(struct gtrace_component *comp,
-+					     struct gtrace_connection *inconn,
-+					     struct gtrace_connection *outconn);
- 	int			(*probe)(struct gtrace_component *comp);
- 	void			(*remove)(struct gtrace_component *comp);
- 	int			(*get_trace_id)(struct gtrace_component *comp,
+ struct gtrace_component *gtrace_path_source(struct gtrace_path *path);
 -- 
 2.34.1
 
