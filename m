@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52444606A326
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:17:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEA27606A31F
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:18:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=m1bk8b+y;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=kxJdmQni
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qoYboeqZ;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=dRq2txoK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,36 +14,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=wvvM3My3mulaQgDp9woNNMUaIaW80UKO6iKJUpl+sK0=; b=m1bk8b+y/uIMZExVHln4QxpAgq
-	TX97AoDK/pRa5tEjgjyXyCIkkt3rQ5UFqZ8rUmHCsIvuFmoTtpUkIDibdwTAsPqqifHIlv5oAcEJl
-	FPrTEPAoiL3zn07dM2liR1wSHFx/HzenCaNvWvbNocNF2JeteTnl0foWc3t+AtZizPgjafaXyFbvj
-	1qIKfttZXI0H3WJI2kb+h8uqUIzyNvGMmgE2k7E3kZv6nthVUK8Pq0yqLoC5G9/+qtj5amDG9G2gn
-	HUHbd7Y+FI4yAkKmSXgd1t7TvbZZImzIgo+5RS+AuwQjfhVtnPM0pluH6u7BD90gzh65gu/GwqcJ+
-	tbkEDBBw==;
+	bh=Tlv5l2o227P6/mUvhJ6sgXF5F0+RMEQZEUpi8YmdSyE=; b=qoYboeqZXvyhgEKJ1vPW+mlZ+D
+	6k7Ridrz5W41XBt895flDdUvljWbxFc8sTDmLeWOhnglpMt8LAGxdcc2J+TUrkEwi3UljN/FatT0n
+	fjEt/n1AwZfHUykl1wrBE/SqPagsu2rETMlIof0mA7chmQMlKqxBsiZFLykaLSzSS0t+iQInimhek
+	j5Rn5qzmnN39qk7Xihp6hFb8TW21jvm5f5es1cPEn/bFab1F8xzfBGCJgmYohXM0V8AGoXkOcAh2Q
+	lUP+zYtMVWW5Yc1hfMIzM6ms5Z0Qfs4supPfVt1ZWsvN1bWdYWYI6nZ87/cBarJ2O2QE+3ac/+Odt
+	efwgxo4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK5mz-0000000FP3r-1wRM;
-	Fri, 23 Oct 2026 03:17:53 +0000
-Received: from bg1.exmail.qq.com ([114.132.65.219])
+	id 1xK5n2-0000000FP9b-3Vdb;
+	Fri, 23 Oct 2026 03:17:58 +0000
+Received: from smtpbgau2.qq.com ([54.206.34.216])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK5mw-0000000FOzW-2n7w
+	id 1xK5my-0000000FOtw-1Xpv
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Oct 2026 03:17:52 +0000
+	Fri, 23 Oct 2026 03:17:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1792725423;
-	bh=vWQktdY0FJQ5gIjz1Q30N3BQ8TqP5aQ0k0nFlP9ztcs=;
+	s=mxsw2412; t=1792725422;
+	bh=bsuNMawsZswDZeHZEj3++8TLnfQ2KNVFzLTMhe5/fD8=;
 	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=kxJdmQniWYep+12l2eQgqZZCisJD4fTFbeqWxvKtKadhA4hxQfnspTOBVYVJTZNvR
-	 NCZpoIEIMRbEvrnIvIbNx+9zfhw5n4+mjq8Ny62ZO3SS1aQM379s3PMBdARH4SUQQy
-	 Zn8+uXFHUiinZ1TOLc6vXfag9lZDMWsbQa2Uz5vA=
-X-QQ-mid: esmtpsz11t1792725367t0c5d5bcc
-X-QQ-Originating-IP: m8cE/nnKQ7AQSkw7rS498QjHIKtl7CwzZZu0z0jXsao=
+	b=dRq2txoKN2EDhc90MFkidRPL+2nShBSkbpN1zmvRNrI/lpyhOG6yj7WJ/29JRk9Zd
+	 pU9lYnDLdpae7HUxXCq2oMC0pH77Bdq9464ph4Z/rr63hqoJECM2u5VvYmh8EJ+iLw
+	 u1SHXTUP/Kaoo/SsDqfAqS2eZcmo3yUCWiCokEi4=
+X-QQ-mid: esmtpsz11t1792725362t82081f48
+X-QQ-Originating-IP: VcyNqYW9njYNpQVBfz/f1c7Vuj+E1gizXSEdWY5ikc0=
 Received: from snode5.. ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 23 Oct 2026 11:16:04 +0800 (CST)
+	id ; Fri, 23 Oct 2026 11:16:00 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 501167956966261696
+X-BIZMAIL-ID: 18250832488890256495
 EX-QQ-RecipientCnt: 26
 From: Zane Leung <liangzhen@linux.spacemit.com>
 To: gregkh@linuxfoundation.org,
@@ -72,9 +72,9 @@ Cc: mike.leach@arm.com,
 	coresight@lists.linaro.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 15/24] gtrace: Only copy AUX data from the path sink
-Date: Fri, 23 Oct 2026 11:14:56 +0800
-Message-Id: <20261023031505.2020925-16-liangzhen@linux.spacemit.com>
+Subject: [PATCH 14/24] gtrace: Add CoreSight funnel driver
+Date: Fri, 23 Oct 2026 11:14:55 +0800
+Message-Id: <20261023031505.2020925-15-liangzhen@linux.spacemit.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
 References: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
@@ -82,28 +82,28 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: OfpDajcwo3IHQP+k03sP+W/QXns+tpOF0aOBHg9FzZHJBhY6QhkukzA6
-	AjtVRQsbhhLfhBm97lCZ9GQkLOU8/4ei/0VnKhRCIlBTMoj+sSsaU+gaUKh4UIe6GFazkof
-	VY690EhZvkSymVNiz5Z5nCo6LxxgupqLQT5yFF+dUyjl9oLgzr54t0Z8GMUyrd6ntB/AIQb
-	WpjwkNiNJRVkJNbq9wRJ2tY+Zdm1grgl5KqOuLYC7/qTgf4vYLNn0WG/GuPw8wZeGhdQHIX
-	B061hTfSXmBn6KuBnD6r0z89LNNcNe9jPOLpARV8weB2tO6Y9KzbDva9jPmhaE14XroL/1p
-	CjhFinxVGTxeKULLCJb7PpaPnSPgBdRB9FiPUEpsy4xurY2ccuF6jCeP7nA0IusloI7ZBCb
-	pn7Vr6n85UVbcC+tCB6odNZUTgGo0X6ZJjcLTsiQBizSy6MzU1mRAxxfUL48OnNcEJqIWs9
-	JpkZTUH09rp0aIlcp5qvB8y2nB75flMW03dh0wdkaI8ByV1Zroz1qn21SyVVAnPkBQFjov/
-	N589RDN0dF78TK/sx5RLeUg0X6N46w8eqSpW8kdxyUTdQIg1iMBP1ZWsRbPjUDSbYRTSTyI
-	FqtWgfY9xmgrcsFJq2T6wPx6jwd24maIcYP6PT5jheDLqbKh66b0RuYkhFouCQx5CcU8EZ8
-	xndy8Rr+ftw+6LpvhUd6d3qblFEUl8AXRsIDIRlDDEtIraH70IWce396xrAXvbH4SSzr8U7
-	x2N7XEzcDkfMuXto8jkCFSrFSWElMU1x/b/V1OihoNZuOjJoyVJs5wpzmP1YL+aqYo+pENF
-	EK+VUiAKlQIytbadUZ71biXqIaD8+glKYIGLNMwkQjpPR+52GJOX2nQFseSHowfqMYIwWus
-	eFjubU224iuiip1YnzPVl+ZanbzIIKn2O6wZsMIzWJMeacwdsie6FnUHvubdyijEpES9PST
-	QEo1b0DNl7mI5MUfCgXGZBT5o72v4A5Ul5SeEGF3WXxJPCIjiw/v1UAtmwAFRQ7bHiFot1j
-	EZHZ46eGXQYGU1kI5Izgb/7H8SgVcnYRfQPFe2VoU6d2C1amzVHAWwFrqENmrMnxExGifbe
-	ZjrGPDk0ULA5OhQ+jfoTCwLXiFeyiYFYQ==
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+X-QQ-XMAILINFO: NY6OurWw+pG/c2vUUaVNPATZbmhJi9emAsaHRrBPMtOfBjns9xSIMM0U
+	QMyDnY5fbdF1+IlDTck+0FRY7lnvz0C+2XqnMboHVCoSZo+7uW1ZsvB6lsGkvhZ0ZhI0vhz
+	3Xc1JEd+DUgeK9/D1FJdcowmPi5qJnkOP0k317OMo4K6TvXWNQeZUujndJ6AbnfE5f11S2d
+	yDiyt0fQaqfA3Up/ZdTSp7SwFjEPxrp9GLGUCu0RRYG61EAKYtHuyV+p0QKGmxXkXEg+/zF
+	mufHrnD9WRZGFEbt9tVkBhsHSfs8aZYmy4tetM30cnaR6lIiNDzfQslY46bBVi33p1OAmV9
+	4SEol1aT0idsEYZuesFIcJmDV4jFj8SJjicZRVMkp+rzGq5zggrVtyRKdqnFRql/eHZiB0d
+	fpXdOOyPz2EQJCX1y4gLj/TIdM37j4CEeX83Db45qW7jgfQWdT59pIhYDKpAY5TA2hemoRc
+	bSyUod2CEgxvcP7SfDVmTG0KlVyXU65wNPg9w5w0EXAKTQ59SRt3yYW34ZHNAiYInjKPrAy
+	tx5y1oUjoBxmn+1bi5qZlNtNGLDVmhZsoUkoeKCLkR7NsNemnKCuKOAEJEgfRuWTFI1dkpH
+	ck9P2szuzX1ACxZIbTbIkRVCeOH+i1BQY0O9GkGWGbyeNoke5yXO7EzTyaa6gdH80C4uRBJ
+	RRp7GGb9hvs2Y2SWzutGgpJu9ldj2uENkIx1+lrojm7ts3kJFMbc9GtD7uHQSLdUJb9q6Ni
+	X61b9HWCB4MAV6xm1wgOqWWuVZ+Cljtwp0RXeYE4cWEMgrh2Cph6WQwzQqp3T9itugnqxfg
+	1Ojf6mtlyZNHZrvj0vs5p1Qf9MDYp0AIQrfuLkBKuOg/lLrEz4GU7TFaM8bqJSQXwWLrNVI
+	5oma35igTjcpOJ/xXIWxDYct0Zc+3RQpbH7IJSS7avToDUNV5X8InEkjNfpMxKB5N5caww/
+	+VDmpCDNYFXPZ0fOalH8WZM/yGP/uC6yJcwSiXoYdnFt+axk/ml6jhfgSLk4t1kY3YvN53C
+	ZsLFTzrzibH3ZvM1Io9y2ct5l2bLHyQByc9xBiWzaMbvYob6ZT1ZVKKLt32w4m1bfIabaBy
+	AQ6IW+2IfyUs/Yi4DV94b7AvUtg9LYO9w==
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_201751_059332_ADA1F811 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20261022_201753_046871_ED095538 
+X-CRM114-Status: GOOD (  26.20  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,192 +124,483 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-gtrace_path_copyto_auxbuf() walked the path and copied from the first
-component implementing copyto_auxbuf(). For a linksink like ETF used as
-a link, this picked the wrong component. Call the sink's callback
-directly via gtrace_path_sink() and pass the perf handle so the sink
-can set AUX flags itself.
+Add a CoreSight funnel driver for the gtrace framework, derived from
+drivers/hwtracing/coresight/coresight-funnel.c.
 
 Signed-off-by: Zane Leung <liangzhen@linux.spacemit.com>
 ---
- drivers/hwtracing/gtrace/gtrace-core.c     | 39 ++++++++++------------
- drivers/hwtracing/gtrace/gtrace-perf.c     | 13 ++------
- drivers/hwtracing/gtrace/rvtrace-ramsink.c | 10 ++++--
- include/linux/gtrace.h                     | 10 +++---
- 4 files changed, 34 insertions(+), 38 deletions(-)
+ drivers/hwtracing/gtrace/Kconfig            |  13 +
+ drivers/hwtracing/gtrace/Makefile           |   1 +
+ drivers/hwtracing/gtrace/coresight-funnel.c | 430 ++++++++++++++++++++
+ 3 files changed, 444 insertions(+)
+ create mode 100644 drivers/hwtracing/gtrace/coresight-funnel.c
 
-diff --git a/drivers/hwtracing/gtrace/gtrace-core.c b/drivers/hwtracing/gtrace/gtrace-core.c
-index 231d06218d8e..a42b1844da29 100644
---- a/drivers/hwtracing/gtrace/gtrace-core.c
-+++ b/drivers/hwtracing/gtrace/gtrace-core.c
-@@ -806,14 +806,14 @@ int gtrace_path_stop(struct gtrace_path *path)
- EXPORT_SYMBOL_GPL(gtrace_path_stop);
+diff --git a/drivers/hwtracing/gtrace/Kconfig b/drivers/hwtracing/gtrace/Kconfig
+index 5dce4474db7c..081af9c0c670 100644
+--- a/drivers/hwtracing/gtrace/Kconfig
++++ b/drivers/hwtracing/gtrace/Kconfig
+@@ -101,3 +101,16 @@ config GTRACE_CORESIGHT
  
- int gtrace_path_copyto_auxbuf(struct gtrace_path *path,
-+			      struct perf_output_handle *handle,
- 			      struct gtrace_perf_auxbuf *buf,
--			      size_t *bytes_copied, u64 *format)
-+			      size_t *bytes_copied)
- {
--	struct gtrace_comp_priv *sink = to_gtrace_comp_priv(gtrace_path_sink(path));
--	const struct gtrace_driver *gtdrv;
--	struct gtrace_component *comp;
--	struct gtrace_path_node *node;
--	int ret = -EOPNOTSUPP;
-+	struct gtrace_component *sink = gtrace_path_sink(path);
-+	struct gtrace_comp_priv *spriv = to_gtrace_comp_priv(sink);
-+	const struct gtrace_driver *sinkdrv = to_gtrace_driver(sink->dev.driver);
-+	int ret = 0;
- 	unsigned long flags;
- 
- 	/*
-@@ -823,25 +823,20 @@ int gtrace_path_copyto_auxbuf(struct gtrace_path *path,
- 	 * sink's lock also stops another path from starting the sink before copy
- 	 * completes.
- 	 */
--	raw_spin_lock_irqsave(&sink->lock, flags);
--	if (sink->start_count) {
--		*bytes_copied = 0;
--		ret = 0;
--		goto out;
--	}
--
--	list_for_each_entry(node, &path->comp_list, head) {
--		comp = node->comp;
--		gtdrv = to_gtrace_driver(comp->dev.driver);
--		if (!gtdrv || !gtdrv->copyto_auxbuf)
--			continue;
-+	raw_spin_lock_irqsave(&spriv->lock, flags);
-+	if (!spriv->start_count) {
-+		if (!sinkdrv) {
-+			ret = -ENODEV;
-+			goto out;
-+		}
- 
--		*bytes_copied = gtdrv->copyto_auxbuf(comp, buf, format);
--		ret = 0;
--		break;
-+		if (sinkdrv->copyto_auxbuf) {
-+			*bytes_copied = sinkdrv->copyto_auxbuf(sink, handle, buf);
-+			ret = 0;
-+		}
- 	}
- out:
--	raw_spin_unlock_irqrestore(&sink->lock, flags);
-+	raw_spin_unlock_irqrestore(&spriv->lock, flags);
- 	return ret;
- }
- EXPORT_SYMBOL_GPL(gtrace_path_copyto_auxbuf);
-diff --git a/drivers/hwtracing/gtrace/gtrace-perf.c b/drivers/hwtracing/gtrace/gtrace-perf.c
-index 604b673a29d5..3c8b620df5a8 100644
---- a/drivers/hwtracing/gtrace/gtrace-perf.c
-+++ b/drivers/hwtracing/gtrace/gtrace-perf.c
-@@ -243,7 +243,6 @@ static void gtrace_event_stop(struct perf_event *event, int mode)
- {
- 	struct gtrace_ctxt *ctxt = this_cpu_ptr(&gtrace_ctxt);
- 	struct perf_output_handle *handle = &ctxt->handle;
--	u64 format = PERF_AUX_FLAG_GTRACE_FORMAT_UNKNOWN;
- 	struct gtrace_event_data *event_data;
- 	int ret, cpu = smp_processor_id();
- 	struct gtrace_path *path;
-@@ -280,17 +279,11 @@ static void gtrace_event_stop(struct perf_event *event, int mode)
- 	if (handle->event && (mode & PERF_EF_UPDATE)) {
- 		if (WARN_ON_ONCE(handle->event != event))
- 			return;
--		ret = gtrace_path_copyto_auxbuf(path, &event_data->buf, &size, &format);
-+		ret = gtrace_path_copyto_auxbuf(path, handle, &event_data->buf, &size);
- 		WARN_ON_ONCE(ret);
--		if (READ_ONCE(handle->event)) {
--			/* Tag the AUX data with the source's trace format. */
--			perf_aux_output_flag(handle, format);
--			if (size > handle->size) {
--				size = handle->size;
--				perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED);
--			}
-+		if (READ_ONCE(handle->event))
- 			perf_aux_output_end(handle, size);
--		} else
-+		else
- 			WARN_ON(size);
- 	}
- 
-diff --git a/drivers/hwtracing/gtrace/rvtrace-ramsink.c b/drivers/hwtracing/gtrace/rvtrace-ramsink.c
-index 9588c32c5b13..e0826d3f0d60 100644
---- a/drivers/hwtracing/gtrace/rvtrace-ramsink.c
-+++ b/drivers/hwtracing/gtrace/rvtrace-ramsink.c
-@@ -11,6 +11,7 @@
- #include <linux/minmax.h>
- #include <linux/types.h>
- #include <linux/sizes.h>
-+#include <linux/perf_event.h>
- #include <uapi/linux/perf_event.h>
- #include "rvtrace.h"
- 
-@@ -147,8 +148,8 @@ static void tbuf_to_pbuf_copy(struct trace_buf *src, struct trace_buf *dst, size
- }
- 
- static size_t rvtrace_ramsink_copyto_auxbuf(struct gtrace_component *comp,
--					    struct gtrace_perf_auxbuf *buf,
--					    u64 *format)
-+					    struct perf_output_handle *handle,
-+					    struct gtrace_perf_auxbuf *buf)
- {
- 	struct rvtrace_ramsink_priv *priv = dev_get_drvdata(&comp->dev);
- 	struct trace_buf src, dst;
-@@ -181,6 +182,11 @@ static size_t rvtrace_ramsink_copyto_auxbuf(struct gtrace_component *comp,
- 		priv->prev_wp = wp;
- 	}
- 
-+	if (bytes > handle->size) {
-+		bytes = handle->size;
-+		perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED);
+ 	  To compile this driver as a module, choose M here: the module
+ 	  will be called coresight.
++
++config CORESIGHT_FUNNEL
++	tristate "CoreSight Trace Funnel driver"
++	depends on GTRACE_CORESIGHT
++	default y
++	help
++	  This driver provides support for the CoreSight funnel component.
++	  The funnel merges trace data from multiple input ports into a single
++	  output stream. It supports both static funnels (platform bus,
++	  arm,coresight-static-funnel) and dynamic funnels (AMBA bus).
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called coresight-funnel.
+diff --git a/drivers/hwtracing/gtrace/Makefile b/drivers/hwtracing/gtrace/Makefile
+index 0833a40c397c..d2745c961a75 100644
+--- a/drivers/hwtracing/gtrace/Makefile
++++ b/drivers/hwtracing/gtrace/Makefile
+@@ -12,3 +12,4 @@ obj-$(CONFIG_RVTRACE_RAMSINK) += rvtrace-ramsink.o
+ obj-$(CONFIG_RVTRACE_FUNNEL) += rvtrace-funnel.o
+ obj-$(CONFIG_RVTRACE_ATBBRIDGE) += rvtrace-atbbridge.o
+ obj-$(CONFIG_GTRACE_CORESIGHT) += coresight-platform.o
++obj-$(CONFIG_CORESIGHT_FUNNEL) += coresight-funnel.o
+diff --git a/drivers/hwtracing/gtrace/coresight-funnel.c b/drivers/hwtracing/gtrace/coresight-funnel.c
+new file mode 100644
+index 000000000000..e7a3f185da56
+--- /dev/null
++++ b/drivers/hwtracing/gtrace/coresight-funnel.c
+@@ -0,0 +1,430 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2011-2012, The Linux Foundation. All rights reserved.
++ *
++ * Description: CoreSight Funnel driver for the gtrace framework.
++ * Derived from drivers/hwtracing/coresight/coresight-funnel.c.
++ */
++
++#include <linux/acpi.h>
++#include <linux/kernel.h>
++#include <linux/init.h>
++#include <linux/types.h>
++#include <linux/device.h>
++#include <linux/err.h>
++#include <linux/fs.h>
++#include <linux/slab.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/amba/bus.h>
++#include <linux/clk.h>
++
++#include "coresight.h"
++
++#define FUNNEL_FUNCTL		0x000
++#define FUNNEL_PRICTL		0x004
++
++#define FUNNEL_HOLDTIME_MASK	0xf00
++#define FUNNEL_HOLDTIME_SHFT	0x8
++#define FUNNEL_HOLDTIME		(0x7 << FUNNEL_HOLDTIME_SHFT)
++#define FUNNEL_ENSx_MASK	0xff
++
++/**
++ * struct funnel_drvdata - specifics associated to a funnel component
++ * @base:	memory mapped base address for this component.
++ * @atclk:	optional clock for the core parts of the funnel.
++ * @pclk:	APB clock if present, otherwise NULL
++ * @comp:	component vitals needed by the framework.
++ * @priority:	port selection order.
++ */
++struct funnel_drvdata {
++	void __iomem		*base;
++	struct clk		*atclk;
++	struct clk		*pclk;
++	struct gtrace_component *comp;
++	unsigned long		priority;
++};
++
++static int dynamic_funnel_enable_hw(struct funnel_drvdata *drvdata, int port)
++{
++	u32 functl;
++	int rc = 0;
++	struct gtrace_component *comp = drvdata->comp;
++
++	CS_UNLOCK(drvdata->base);
++
++	functl = readl_relaxed(drvdata->base + FUNNEL_FUNCTL);
++	/* Claim the device only when we enable the first slave */
++	if (!(functl & FUNNEL_ENSx_MASK)) {
++		rc = coresight_claim_device_unlocked(comp);
++		if (rc)
++			goto done;
 +	}
 +
- 	tbuf_to_pbuf_copy(&src, &dst, bytes);
- 	dev_dbg(&comp->dev, "Copied %zu bytes\n", bytes);
- 	return bytes;
-diff --git a/include/linux/gtrace.h b/include/linux/gtrace.h
-index e9210b0a73b5..39ae13701615 100644
---- a/include/linux/gtrace.h
-+++ b/include/linux/gtrace.h
-@@ -13,6 +13,7 @@
- #include <linux/platform_device.h>
- #include <linux/property.h>
- #include <linux/types.h>
-+#include <linux/perf_event.h>
- 
- #define GTRACE_PMU_ATTR_CFG_CONTEXT_SHIFT	1
- #define GTRACE_PMU_ATTR_CFG_SYNCMODE_MASK	GENMASK(3, 2)
-@@ -363,15 +364,16 @@ struct gtrace_perf_auxbuf {
- };
- 
- int gtrace_path_copyto_auxbuf(struct gtrace_path *path,
-+			      struct perf_output_handle *handle,
- 			      struct gtrace_perf_auxbuf *buf,
--			      size_t *bytes_copied, u64 *format);
-+			      size_t *bytes_copied);
- 
- /**
-  * struct gtrace_driver - Representation of a trace driver.
-  * @id_table:      Table to match components handled by the driver.
-  * @copyto_auxbuf: Callback to copy data into perf AUX buffer. The driver
-  *                 reports the PMU specific trace format of the copied data
-- *                 via @format (see PERF_AUX_FLAG_PMU_FORMAT_TYPE_MASK).
-+ *                 via @handle (see PERF_AUX_FLAG_PMU_FORMAT_TYPE_MASK).
-  * @start:         Callback to start tracing.
-  * @stop:          Callback to stop tracing.
-  * @start_port:    Callback to start a specific component port.
-@@ -385,8 +387,8 @@ int gtrace_path_copyto_auxbuf(struct gtrace_path *path,
- struct gtrace_driver {
- 	const struct gtrace_component_id *id_table;
- 	size_t			(*copyto_auxbuf)(struct gtrace_component *comp,
--						 struct gtrace_perf_auxbuf *buf,
--						 u64 *format);
-+						 struct perf_output_handle *handle,
-+						 struct gtrace_perf_auxbuf *buf);
- 	int			(*start)(struct gtrace_component *comp);
- 	int			(*stop)(struct gtrace_component *comp);
- 	int			(*start_port)(struct gtrace_component *comp,
++	functl &= ~FUNNEL_HOLDTIME_MASK;
++	functl |= FUNNEL_HOLDTIME;
++	functl |= (1 << port);
++	writel_relaxed(functl, drvdata->base + FUNNEL_FUNCTL);
++	writel_relaxed(drvdata->priority, drvdata->base + FUNNEL_PRICTL);
++done:
++	CS_LOCK(drvdata->base);
++	return rc;
++}
++
++static int funnel_enable(struct gtrace_component *comp,
++			 struct gtrace_connection *in,
++			 struct gtrace_connection *out)
++{
++	int rc = 0;
++	struct funnel_drvdata *drvdata = dev_get_drvdata(comp->dev.parent);
++	bool first_enable = false;
++
++	if (in->dest_refcnt == 0) {
++		if (drvdata->base)
++			rc = dynamic_funnel_enable_hw(drvdata, in->dest_port);
++		if (!rc)
++			first_enable = true;
++	}
++	if (!rc)
++		in->dest_refcnt++;
++
++	if (first_enable)
++		dev_dbg(&comp->dev, "FUNNEL inport %d enabled\n",
++			in->dest_port);
++	return rc;
++}
++
++static void dynamic_funnel_disable_hw(struct funnel_drvdata *drvdata,
++				      int inport)
++{
++	u32 functl;
++	struct gtrace_component *comp = drvdata->comp;
++
++	CS_UNLOCK(drvdata->base);
++
++	functl = readl_relaxed(drvdata->base + FUNNEL_FUNCTL);
++	functl &= ~(1 << inport);
++	writel_relaxed(functl, drvdata->base + FUNNEL_FUNCTL);
++
++	/* Disclaim the device if none of the slaves are now active */
++	if (!(functl & FUNNEL_ENSx_MASK))
++		coresight_disclaim_device_unlocked(comp);
++
++	CS_LOCK(drvdata->base);
++}
++
++static void funnel_disable(struct gtrace_component *comp,
++			   struct gtrace_connection *in,
++			   struct gtrace_connection *out)
++{
++	struct funnel_drvdata *drvdata = dev_get_drvdata(comp->dev.parent);
++	bool last_disable = false;
++
++	if (--in->dest_refcnt == 0) {
++		if (drvdata->base)
++			dynamic_funnel_disable_hw(drvdata, in->dest_port);
++		last_disable = true;
++	}
++
++	if (last_disable)
++		dev_dbg(&comp->dev, "FUNNEL inport %d disabled\n",
++			in->dest_port);
++}
++
++static ssize_t priority_show(struct device *dev,
++			     struct device_attribute *attr, char *buf)
++{
++	struct funnel_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	unsigned long val = drvdata->priority;
++
++	return sprintf(buf, "%#lx\n", val);
++}
++
++static ssize_t priority_store(struct device *dev,
++			      struct device_attribute *attr,
++			      const char *buf, size_t size)
++{
++	int ret;
++	unsigned long val;
++	struct funnel_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	ret = kstrtoul(buf, 16, &val);
++	if (ret)
++		return ret;
++
++	drvdata->priority = val;
++	return size;
++}
++static DEVICE_ATTR_RW(priority);
++
++static u32 get_funnel_ctrl_hw(struct funnel_drvdata *drvdata)
++{
++	u32 functl;
++
++	CS_UNLOCK(drvdata->base);
++	functl = readl_relaxed(drvdata->base + FUNNEL_FUNCTL);
++	CS_LOCK(drvdata->base);
++
++	return functl;
++}
++
++static ssize_t funnel_ctrl_show(struct device *dev,
++			     struct device_attribute *attr, char *buf)
++{
++	u32 val;
++	struct funnel_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	pm_runtime_get_sync(dev->parent);
++
++	val = get_funnel_ctrl_hw(drvdata);
++
++	pm_runtime_put(dev->parent);
++
++	return sprintf(buf, "%#x\n", val);
++}
++static DEVICE_ATTR_RO(funnel_ctrl);
++
++static struct attribute *coresight_funnel_attrs[] = {
++	&dev_attr_funnel_ctrl.attr,
++	&dev_attr_priority.attr,
++	NULL,
++};
++ATTRIBUTE_GROUPS(coresight_funnel);
++
++static int funnel_probe(struct device *dev, struct resource *res)
++{
++	void __iomem *base;
++	struct gtrace_platform_data *pdata = NULL;
++	struct funnel_drvdata *drvdata;
++	struct gtrace_component_id id = {
++		.type = GTRACE_CORESIGHT_FUNNEL,
++		.version = CORESIGHT_COMPONENT_ID_VERSION,
++	};
++	int ret;
++
++	if (is_of_node(dev_fwnode(dev)) &&
++	    of_device_is_compatible(dev->of_node, "arm,coresight-funnel"))
++		dev_warn_once(dev, "Uses OBSOLETE CoreSight funnel binding\n");
++
++	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
++	if (!drvdata)
++		return -ENOMEM;
++
++	ret = coresight_get_enable_clocks(dev, &drvdata->pclk, &drvdata->atclk);
++	if (ret)
++		return ret;
++
++	pdata = coresight_get_platform_data(dev);
++	if (IS_ERR(pdata))
++		return PTR_ERR(pdata);
++
++	/*
++	 * Map the device base for dynamic-funnel, which has been
++	 * validated by AMBA core.
++	 */
++	if (res) {
++		base = devm_ioremap_resource(dev, res);
++		if (IS_ERR(base))
++			return PTR_ERR(base);
++		drvdata->base = base;
++		pdata->groups = coresight_funnel_groups;
++		pdata->io_mem = true;
++		pdata->base = base;
++		coresight_clear_self_claim_tag(pdata);
++	}
++
++	dev_set_drvdata(dev, drvdata);
++
++	drvdata->comp = gtrace_register_component(&id, "cs_funnel", pdata);
++	if (IS_ERR(drvdata->comp))
++		return PTR_ERR(drvdata->comp);
++
++	return 0;
++}
++
++static void funnel_remove(struct device *dev)
++{
++	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
++
++	gtrace_unregister_component(drvdata->comp);
++}
++
++#ifdef CONFIG_PM
++static int funnel_runtime_suspend(struct device *dev)
++{
++	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
++
++	clk_disable_unprepare(drvdata->atclk);
++	clk_disable_unprepare(drvdata->pclk);
++
++	return 0;
++}
++
++static int funnel_runtime_resume(struct device *dev)
++{
++	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
++	int ret;
++
++	ret = clk_prepare_enable(drvdata->pclk);
++	if (ret)
++		return ret;
++
++	ret = clk_prepare_enable(drvdata->atclk);
++	if (ret)
++		clk_disable_unprepare(drvdata->pclk);
++
++	return ret;
++}
++#endif
++
++static const struct dev_pm_ops funnel_dev_pm_ops = {
++	SET_RUNTIME_PM_OPS(funnel_runtime_suspend, funnel_runtime_resume, NULL)
++};
++
++static int funnel_platform_probe(struct platform_device *pdev)
++{
++	struct resource *res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	int ret;
++
++	pm_runtime_get_noresume(&pdev->dev);
++	pm_runtime_set_active(&pdev->dev);
++	pm_runtime_enable(&pdev->dev);
++
++	ret = funnel_probe(&pdev->dev, res);
++	pm_runtime_put(&pdev->dev);
++	if (ret)
++		pm_runtime_disable(&pdev->dev);
++
++	return ret;
++}
++
++static void funnel_platform_remove(struct platform_device *pdev)
++{
++	struct funnel_drvdata *drvdata = dev_get_drvdata(&pdev->dev);
++
++	if (WARN_ON(!drvdata))
++		return;
++
++	funnel_remove(&pdev->dev);
++	pm_runtime_disable(&pdev->dev);
++}
++
++static const struct of_device_id funnel_match[] = {
++	{.compatible = "arm,coresight-static-funnel"},
++	{}
++};
++
++MODULE_DEVICE_TABLE(of, funnel_match);
++
++#ifdef CONFIG_ACPI
++static const struct acpi_device_id funnel_acpi_ids[] = {
++	{"ARMHC9FE", 0, 0, 0}, /* ARM Coresight Static Funnel */
++	{"ARMHC9FF", 0, 0, 0}, /* ARM CoreSight Dynamic Funnel */
++	{},
++};
++MODULE_DEVICE_TABLE(acpi, funnel_acpi_ids);
++#endif
++
++static struct platform_driver funnel_driver = {
++	.probe		= funnel_platform_probe,
++	.remove		= funnel_platform_remove,
++	.driver		= {
++		.name   = "coresight-funnel",
++		/* THIS_MODULE is taken care of by platform_driver_register() */
++		.of_match_table = funnel_match,
++		.acpi_match_table = ACPI_PTR(funnel_acpi_ids),
++		.pm	= &funnel_dev_pm_ops,
++		.suppress_bind_attrs = true,
++	},
++};
++
++static int dynamic_funnel_probe(struct amba_device *adev,
++				const struct amba_id *id)
++{
++	int ret;
++
++	ret = funnel_probe(&adev->dev, &adev->res);
++	if (!ret)
++		pm_runtime_put(&adev->dev);
++
++	return ret;
++}
++
++static void dynamic_funnel_remove(struct amba_device *adev)
++{
++	funnel_remove(&adev->dev);
++}
++
++static const struct amba_id dynamic_funnel_ids[] = {
++	{
++		.id     = 0x000bb908,
++		.mask   = 0x000fffff,
++	},
++	{
++		/* Coresight SoC-600 */
++		.id     = 0x000bb9eb,
++		.mask   = 0x000fffff,
++	},
++	{ 0, 0, NULL },
++};
++
++MODULE_DEVICE_TABLE(amba, dynamic_funnel_ids);
++
++static struct amba_driver dynamic_funnel_driver = {
++	.drv = {
++		.name	= "coresight-dynamic-funnel",
++		.pm	= &funnel_dev_pm_ops,
++		.suppress_bind_attrs = true,
++	},
++	.probe		= dynamic_funnel_probe,
++	.remove		= dynamic_funnel_remove,
++	.id_table	= dynamic_funnel_ids,
++};
++
++static const struct gtrace_component_id coresight_funnel_ids[] = {
++	{ .type = GTRACE_CORESIGHT_FUNNEL,
++	  .version = CORESIGHT_COMPONENT_ID_VERSION, },
++	{},
++};
++
++static struct gtrace_driver coresight_funnel_driver = {
++	.id_table = coresight_funnel_ids,
++	.start_port = funnel_enable,
++	.stop_port = funnel_disable,
++	.driver = {
++		.name = "coresight-funnel",
++	},
++};
++
++static int __init funnel_init(void)
++{
++	int ret;
++
++	ret = gtrace_register_driver(&coresight_funnel_driver);
++	if (ret)
++		return ret;
++
++	ret = coresight_init_driver("funnel", &dynamic_funnel_driver, &funnel_driver);
++	if (ret) {
++		gtrace_unregister_driver(&coresight_funnel_driver);
++		return ret;
++	}
++
++	return 0;
++}
++
++static void __exit funnel_exit(void)
++{
++	coresight_remove_driver(&dynamic_funnel_driver, &funnel_driver);
++	gtrace_unregister_driver(&coresight_funnel_driver);
++}
++
++module_init(funnel_init);
++module_exit(funnel_exit);
++
++MODULE_AUTHOR("Pratik Patel <pratikp@codeaurora.org>");
++MODULE_AUTHOR("Mathieu Poirier <mathieu.poirier@linaro.org>");
++MODULE_AUTHOR("Zane Leung <liangzhen@linux.spacemit.com>");
++MODULE_DESCRIPTION("Arm CoreSight Funnel Driver");
++MODULE_LICENSE("GPL v2");
 -- 
 2.34.1
 
