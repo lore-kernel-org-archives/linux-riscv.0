@@ -2,70 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3A6E606A31B
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 10:19:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A02C6606A321
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 11:16:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DRZqEiEt;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=H87Iowrz
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ohp69FF8;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=dEp9P8wt
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=GliEOjKF64hm1/dai6/rJ/9/1vuic6uPT1mLOZ999mg=; b=DRZqEiEtXZHl78M5+pfMvlvm2y
-	2wbydHL0EmD8aZxRWzIutVI3TajmqMkMeGt4THABBhhn6BGZv7Ua6Iw2As2TcDLEo18tr5UwDdM1N
-	dfpvh2KhlwFdEwf0ShHs0a6+VA50TMWHMoRVxbrtfaR1makpIBxHWkJF7FbsbGdUBDIaWmHB2nC9u
-	cbI/kydmCYnwBqECtQMkHg2R7z1nuL5kWyC4+rpmkgEOCHhWLQ6vZtWj/oGqn/uKJq8rXB6jPMkOd
-	K7ZoXfPnEevcG6AVzfx0EiiUMW6pbHA1Mgqh/+Gm1cMa+WljtkvQYuIDQezdXy97i5FDlXfL2hmZE
-	aZMYBaLQ==;
+	bh=2ABBsYPZWmPi3/fDA3mLey69f7Jffu1MU/kDs57R/Iw=; b=ohp69FF8xDm+GkGSU5QQYCeUud
+	mUQXNbjiQdsMQRh8ypdtyaZgEU+5Nst/s2MjxN1/1hemrXS0nMyC1Ujfooqj8vikKZKKrvSn2cQ0s
+	FnG2whNsbGuDKynLdf61+rNxXsuglOt0iLF4o0KTul6t8DDIsULUctn/jdqgL0Y8HOalNB8hKu9jK
+	nKnlpLNv6F6Zei/zXXAntI53I1KTjeAYkDAR18bkXlWP++xSv6yalqIQmIHt8F8dtfrJna9ZNdhvm
+	P0q80dSVNEXV/MJHUwM4QhyeHPSya5TserPa14z9xtkaQXqJZ+ZzgUCTZ8+KxiKufsQpTjidjEKQL
+	z8VtF0rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKCMd-0000000G8oo-4AgT;
-	Fri, 23 Oct 2026 10:19:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKCMb-0000000G8mV-0Dvr;
-	Fri, 23 Oct 2026 10:19:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3502A1650;
-	Fri, 23 Oct 2026 03:19:00 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6AFBD3F7B4;
-	Fri, 23 Oct 2026 03:19:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792750743; bh=cTejc6vMr58Bc8gk6KW2BncO0y2Cvz1clpAKwoF7/Ic=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=H87IowrzP0rj9C3cOW7Vzu9QCUMfiSLZ0/G+PHAGddRwpJrTeToyiptqu8vx7+3pH
-	 w8RG+x0XddtHFphc6crHsU1gk8O6PWmj3qeZaN0M0Ly+45BVp2wb77l+7WxSJLLoTm
-	 DUEPs9U6xhyWQsEoNRpuxhalPnHIewHnLwfzo0Zw=
-Date: Fri, 23 Oct 2026 15:48:59 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: Muchun Song <songmuchun@bytedance.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@kernel.org>, Oscar Salvador <osalvador@suse.de>, 
-	Dave Hansen <dave.hansen@intel.com>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org, Muchun Song <muchun.song@linux.dev>
-Subject: Re: [PATCH v3 4/4] arm64/mm: fix destructor for unconstructed
- hotplug page tables
-Message-ID: <4vrj226au2t5cyjsgqem7bami3tsgn57zcbw6cbedhkutknnh3@p4hngiltvm6j>
-References: <20261023063428.3658761-1-songmuchun@bytedance.com>
- <20261023063428.3658761-5-songmuchun@bytedance.com>
+	id 1xKDGC-0000000GDOm-20C6;
+	Fri, 23 Oct 2026 11:16:32 +0000
+Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xKDG9-0000000GDMp-0oVw;
+	Fri, 23 Oct 2026 11:16:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1792754183; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=XR763hCbspNzvt9Ja5KlngGTT7u+E0yj2HR4cp4PfjA=;
+	b=dEp9P8wtKFFnU9ygvZhkHsuOeVWzaAuomqIWciSFKZ+L9UE6UfM4JQuBFeedv7e1nkFVu/G9DWjpVO9pG0NcEJKTnwwH/Ok3T4uD7ImX0uhE+QmFFFjyO2eT1qQo9hfITP+QeEXi28Yz//e+8iFUpGCH0XDaw2AC6/kdBK/c2UM=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R211e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=14;SR=0;TI=SMTPD_---0XDM1n5K_1792754181;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XDM1n5K_1792754181 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 23 Oct 2026 19:16:21 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	alex@ghiti.fr,
+	rppt@kernel.org,
+	pasha.tatashin@soleen.com,
+	pratyush@kernel.org,
+	graf@amazon.com,
+	shuah@kernel.org
+Cc: guoren@kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org,
+	kexec@lists.infradead.org
+Subject: [PATCH 1/4] riscv: Call early_ioremap_setup() before parsing the DTB
+Date: Fri, 23 Oct 2026 19:16:09 +0800
+Message-ID: <20261023111612.2134-2-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261023111612.2134-1-cp0613@linux.alibaba.com>
+References: <20261023111612.2134-1-cp0613@linux.alibaba.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261023063428.3658761-5-songmuchun@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_031905_174108_2C6E29D9 
-X-CRM114-Status: GOOD (  19.41  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261023_041629_420782_6849B9A7 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,69 +77,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 23, 2026 at 02:34:28PM +0800, Muchun Song wrote:
-> Commit c594b83457cc ("arm64: mm: call pagetable dtor when freeing
-> hot-removed page tables") made free_hotplug_pgtable_page()
-> unconditionally run the page-table destructor. This matches page tables
-> allocated by the arm64 mapping code, which runs the corresponding
-> constructors.
-> 
-> However, arm64 also uses the generic sparse-vmemmap population code.
-> Runtime intermediate page tables allocated by that code do not run a
-> page-table constructor. Freeing one during memory hot-remove therefore
-> runs a destructor without a matching constructor and corrupts
-> NR_PAGETABLE accounting.
-> 
-> Free intermediate page-table pages through pagetable_free(). It runs the
-> destructor only for constructor-backed pages and then releases the page
-> through the page-table freeing path.
-> 
-> Fixes: c594b83457cc ("arm64: mm: call pagetable dtor when freeing hot-removed page tables")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
-> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+early_ioremap_setup() fills in the slot_virt[] array whose entries the
+return value of early_ioremap()/early_memremap() is composed from.  On
+RISC-V it ran after parse_dtb(), so an early_memremap() reached from
+the device tree scan returned "offset + 0" -- NULL for a page aligned
+address -- and the caller could only report a mapping failure.  This
+stayed latent because nothing reached from parse_dtb() asked for an
+early mapping before; the DT based kexec handover parsing is the first
+such caller, as kho_populate() maps the handover FDT and the scratch
+descriptor array with early_memremap().
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Move the call to the top of setup_arch(), which is how arm64 and x86
+already order it (early_fixmap_init()/early_ioremap_init() before
+setup_machine_fdt()/parse_setup_data()).  The BTMAP window is mapped
+into early_pg_dir by setup_vm(), and RISC-V neither calls
+early_ioremap_reset() nor defines __late_set_fixmap(), so the virtual
+addresses stay identical across the switch to the final page tables
+and nothing else in setup_arch() depends on the previous ordering.
 
-> ---
-> v3:
-> - Collect Acked-by from David Hildenbrand
-> - Collect Reviewed-by from Kevin Brodsky
-> 
-> v2:
-> - Free intermediate tables through pagetable_free() (suggested by David
->   Hildenbrand)
-> - Update the commit message for the page-table freeing path
-> ---
->  arch/arm64/mm/mmu.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 79d90226fd5d..4dce8fa227c3 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1495,8 +1495,7 @@ static void free_hotplug_page_range(struct page *page, size_t size,
->  
->  static void free_hotplug_pgtable_page(struct page *page)
->  {
-> -	pagetable_dtor(page_ptdesc(page));
-> -	free_hotplug_page_range(page, PAGE_SIZE, NULL);
-> +	pagetable_free(page_ptdesc(page));
->  }
->  
->  static bool pgtable_range_aligned(unsigned long start, unsigned long end,
-> -- 
-> 2.54.0
-> 
+Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+---
+ arch/riscv/kernel/setup.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index d79f99b86033..45e2ef9d32fa 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -308,12 +308,12 @@ extern void __init init_rt_signal_env(void);
+ 
+ void __init setup_arch(char **cmdline_p)
+ {
++	early_ioremap_setup();
+ 	parse_dtb();
+ 	setup_initial_init_mm(_stext, _etext, _edata, _end);
+ 
+ 	*cmdline_p = boot_command_line;
+ 
+-	early_ioremap_setup();
+ 	sbi_init();
+ 	jump_label_init();
+ 	parse_early_param();
+-- 
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
