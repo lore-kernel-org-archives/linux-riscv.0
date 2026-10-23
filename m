@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFBBF606A327
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 11:16:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84F03606A31D
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 11:58:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=llDuKkaw;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=l3Zp4gkU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HcV5IIpy;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NfrNZSom
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,57 +14,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=tNlKLVE+f7/GssleL434wJ9q6tFRAuufMWvUMqViPxQ=; b=llDuKkawXZ3XuJHwpl/fBz6mT/
-	HxIrxLIpRwfux0Lxgl/eCwBt7ZjwDj190FDzl44aY8eQ4LfuSRq0D1m/OZlP7HKZ+nko+D9NzChXG
-	IRN54+5U1PP55EsUvfuIqwmL8RpdwsU7B/YSTh/zjxX7ey09w8X3ti5GajE4JhzQLymFHE+gfQ1Vi
-	YJcK8LGjFJFQ/giWdTNOT7+G0zEeFBjx9U5iRBDIIiu2IjL/prbdUwBuYxDGUAqqFSW8D45bMkRK4
-	/B1d2xvuCdvPI+ua3eAWHlVetu+fClHPVY1bdBEVwUBc0XxPkBvTewPQm7iCyDRzcmL38NhV4OqcE
-	f4G3572Q==;
+	bh=xZp5Ra7+qMp1d9uTiqhwOgy8Kao5KyQfUaZtKKGgdXk=; b=HcV5IIpyfLPVgC/UdT1mNAhT7L
+	ILvElISGvNGBTdzFmsljqZdmd8R/e/HU/G44paJGKCiiMpjh9MVBXgxfaMf0ixh+Y0odTXh0XSH0/
+	p2aRXa7Soye7NF+4uyIzwnBv/mANvXiusd0GchmgKNYH2cQTvZb9pPOsQJnRo1qx/KYu94oAfSpWZ
+	ZAJIPUjiAHB8vaQsbQPZl6qyAdLUbBhZ5hEafdRz8Yv/0gzA0wti2INCjZkT+c+FyIwUKfeuoGBY2
+	WfsA9hRotIv8gqN0Dcyemr5K48JUebG+QRk1wOg6P3Zc9QctrS9uQOTmcGJoRL/IgTgh0ZpZDOdb/
+	X/V+Dkjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKDGI-0000000GDTg-0ZHK;
-	Fri, 23 Oct 2026 11:16:38 +0000
-Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
+	id 1xKDuQ-0000000GG7u-0ZIL;
+	Fri, 23 Oct 2026 11:58:06 +0000
+Received: from out-4.mta0.migadu.com ([2001:41d0:1004:224b::4] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKDG9-0000000GDMq-0j4W;
-	Fri, 23 Oct 2026 11:16:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1792754183; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=PGqMJHk6LUVuJtb9sOmDDL50VOC0Sssl6rxAA31XIdA=;
-	b=l3Zp4gkUxMeF3lIIPkCM/jGo5ZCCHJlORzXBc3zlZXSzIk8WuaFNHU5fYnEZHyrRHvpHPy657kgOr3cj0Dc45kIg85+jAQz97TjgWJ2pmybPVzPXU8GcrlH6Vj7DqoKah12F/wx5X6PjlguSPD66PmnGg2yWuRQYiptY3DD2ryM=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R151e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=14;SR=0;TI=SMTPD_---0XDM1n5k_1792754182;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XDM1n5k_1792754182 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 23 Oct 2026 19:16:22 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: pjw@kernel.org,
+	id 1xKDuM-0000000GG6k-1w5T
+	for linux-riscv@lists.infradead.org;
+	Fri, 23 Oct 2026 11:58:04 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=ZidFtH1/LnObjsGNvMsrIN8j2jFRHd//7zJzoyuXcVg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1792756678; v=1; x=1793361478;
+ b=NfrNZSomapIGotMnzKQ141Ht8EqMJ7W3EZbPfPMNMiYjh/9bM26MPmLPaOm8MmwQClF71wJf
+ MkBDifIoWcI80GYDyDYMxQYFiEBoNboJKcJBvTeZkfeKrkkQEpIKojg1R4Z+hS9N3OdZq3VqK2k
+ ITnxZTYLpTFNFUlilk3r0uhU=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 8a40efd914636a4c;
+	Fri, 23 Oct 2026 11:57:58 +0000
+X-Mizu-Trace-ID: 8a40efd914636a4c
+X-Migadu-Flow: FLOW_OUT
+From: Jinyu Tang <jinyu.tang@linux.dev>
+To: SeungJu Cheon <suunj1331@gmail.com>
+Cc: anup@brainfault.org,
+	atish.patra@linux.dev,
+	tjytimi@163.com,
+	inochiama@gmail.com,
+	pjw@kernel.org,
 	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
 	alex@ghiti.fr,
-	rppt@kernel.org,
-	pasha.tatashin@soleen.com,
-	pratyush@kernel.org,
-	graf@amazon.com,
-	shuah@kernel.org
-Cc: guoren@kernel.org,
+	andrew.jones@linux.dev,
+	pbonzini@redhat.com,
+	seanjc@google.com,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org,
-	kexec@lists.infradead.org
-Subject: [PATCH 2/4] riscv: Add support for kexec handover (KHO)
-Date: Fri, 23 Oct 2026 19:16:10 +0800
-Message-ID: <20261023111612.2134-3-cp0613@linux.alibaba.com>
+	stable@vger.kernel.org,
+	sashiko-bot@kernel.org
+Subject: Re: [PATCH] KVM: riscv: Only fast-path dirty-log write faults on host-writable leaves
+Date: Fri, 23 Oct 2026 19:57:47 +0800
+Message-ID: <20261023115747.2545223-1-jinyu.tang@linux.dev>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261023111612.2134-1-cp0613@linux.alibaba.com>
-References: <20261023111612.2134-1-cp0613@linux.alibaba.com>
+In-Reply-To: <20261017030927.345454-1-suunj1331@gmail.com>
+References: <20261017030927.345454-1-suunj1331@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_041629_521713_9D2210E6 
-X-CRM114-Status: UNSURE (   7.11  )
+X-CRM114-CacheID: sfid-20261023_045802_721260_EB2060DD 
+X-CRM114-Status: UNSURE (   5.48  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -17.6 (-----------------)
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,48 +86,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-KHO is architecture independent: the outgoing kernel publishes the
-handover FDT and the scratch descriptor array in the /chosen node of
-the DTB it builds for the incoming kernel (kho_add_chosen(), reached
-from of_kexec_alloc_and_setup_fdt()), and the incoming kernel picks
-both up while scanning that node (early_init_dt_check_kho() ->
-kho_populate()).
+On Sat, Oct 17, 2026 at 12:09:26PM +0900, SeungJu Cheon wrote:
+> +		/* Let the slow path handle host-side write protection and CoW. */
+> +		if (!(pte_val(old_pte) & KVM_GSTAGE_PTE_HOST_WRITABLE)) {
+> +			ret = false;
+> +			break;
+> +		}
 
-RISC-V already builds that DTB in load_extra_segments() and passes it
-to the incoming kernel in a1, so only the architecture symbol is
-missing.  Depend on 64BIT to match ARCH_SUPPORTS_KEXEC_FILE, and on
-MMU because KEXEC_HANDOVER selects CMA, which depends on MMU.
+Thanks for fixing this.
+Tested on QEMU 10.2.1 with a private memfd mapping and dirty logging.
+A guest read followed by a write corrupts the shared backing without
+this fix; and with it, CoW occurs and the backing stays unchanged.
 
-Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
----
- arch/riscv/Kconfig | 3 +++
- 1 file changed, 3 insertions(+)
+Reviewed-by: Jinyu Tang <jinyu.tang@linux.dev>
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 5874ca30f4f6..4f7d2f3f80b1 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -1125,6 +1125,9 @@ config ARCH_SELECTS_KEXEC_FILE
- config ARCH_SUPPORTS_KEXEC_PURGATORY
- 	def_bool ARCH_SUPPORTS_KEXEC_FILE
- 
-+config ARCH_SUPPORTS_KEXEC_HANDOVER
-+	def_bool 64BIT && MMU
-+
- config ARCH_SUPPORTS_CRASH_DUMP
- 	def_bool y
- 
--- 
-2.50.1
-
+Thanks,
+Jinyu
 
 _______________________________________________
 linux-riscv mailing list
