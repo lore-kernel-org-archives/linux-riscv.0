@@ -2,115 +2,109 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51BB1606A319
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 01:57:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4753606A31A
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:16:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=geoR5rHl;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CY0O+LdO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eAciz1Q2;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=pKmQjJ+y
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
-	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Dv5MWa/f22/55itMuKcsPrBJYP8nkD3DMrWN9AYfMak=; b=geoR5rHl5RXuAg/NH1ERA76tOy
-	PmutY8Ukk/wRMIUXAWBJuw/ZKDLXIfa5TGY2ANTP6YoRE7+DM8BplV6sEFcdjKVajV8K3in4ODkMA
-	aHt++ya2N2ZS7/e0mmPOVfhOykpwo6d2DKL5xD4IrtFLH0jez+yTlIHH82ExJtiGt3Ec5ft+Ok6qQ
-	OtdA9EalvD+HjPtG5gIRq2yqo/SGNgvLw5ERRus1A0vtQ9gLahlcRKCTuQcWFHLPXdxwCAJ4EhBf0
-	84tl4jwkv1naLd92lD4XZ2LOIDp4jQeOP16qLYs+QOjn6XFaYYqjvg8rjTD2Ebk7EzdK4uw2zkL2U
-	n5j6lanQ==;
+	bh=QNdCpiouTDVjpZQBPkgym6DOM0XiGzqNKVxEX3ymvKU=; b=eAciz1Q23YXg9w+qFFPkiYP7Ip
+	N+E+HCbQS9HPx2FJhCLuwhgNQTa31u/MnOECWu44ISKFhU6ZRqrFm72VBSNovGBY6vzrbCpMpG6fd
+	bf0kIvRXNj/Bk355OCwRiD45R9qJ8NWvtEhfS13vnW2RcYYdIpV5fKavCuSH5bI6V9GzV8QMr4rh3
+	soN/6wKXG2bQbQygB6fjFgMn/QY1zWv51U0M6b1Oa6KokcJCHskeAdYIIwbhQQXWNWkDnsRfAqQ4a
+	WpP/f9NTmhibB767zduWi3QIDN7tJX6fWUfjMVqzIzMxxbHcpaYTOvWMUTctQ06NzwKdEMBrMgX+V
+	ohI0X1iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK4Wh-0000000FIUs-22Ik;
-	Fri, 23 Oct 2026 01:56:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xK5lg-0000000FO3w-0Hsd;
+	Fri, 23 Oct 2026 03:16:32 +0000
+Received: from smtpbgeu1.qq.com ([52.59.177.22])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK4Wf-0000000FITr-3Osc
+	id 1xK5la-0000000FNym-2g1U
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Oct 2026 01:56:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 68E3F44795;
-	Fri, 23 Oct 2026 01:56:57 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1792720617;
-	b=Hw9xMgXy6Kd5SPRE4KI+mbZaqbILxC0MaJz1ovL+hYMdSLe3bwmUYPHYBiCglCsAmteM
-	 Z/vFJH/lInSXk+uU91lyVsjC4Iul0Gd83SO0cIT0KQ6UVhFzoVgApvMDg2zyx4rJc4XuO
-	 KFe0KcWnYv9pfpER4czIiuuEsZbIeWIXPZOs4ap6G53jwj2MIondHimJRwD9lZM83MZSn
-	 0NupXSrLeqIN0T3xa/aL0QsukZWVVOupXVKwy2G8s4NLb/cbkRNuytuUbihiVI0lZZk8B
-	 xTTUm1mxSZ3adXxhuvDACaRjZmeMJ95A3/sRDI/Hu7GyZOj+JPalVwquE71L7xR1GIw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1792720617;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=EjlnT36PPD6d61eOuiIF54hdKy2MIBMSZuFKuTN71fM=;
-	b=zg/ajtoqILWizaSZaMghVNB9+xKKooR3j8IulCe+/1m68rGdAfQrla3a4z7FzI5krtSg
-	 n1x2XPxdQaayxoCpNonOIu2ZhAA2wIlHkozgMOB19sqaI31uoTq4kgx28iBVe5QZWqRlm
-	 N3fCBd5On9YWKIls04qvt7Y0Dlfh5hcpYi9O3vHOeDCVxP8dMRkMZKwoLeg0N8sbMhZQb
-	 /bip0Z8/q79J07B2tYM/kXLrJ+AcvJXb1WMdoCVyuG4VS6nSK8HL0JmCkxkftwZNdj0q+
-	 FTtGCKk7dhEYeX8pLLfzyo9N4lba4sLqEdll6PIS6Mhc/Kw8JMZgG3qxNn0rG3zJz/w==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 6BD711F01828;
-	Fri, 23 Oct 2026 01:56:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792720617;
-	bh=EjlnT36PPD6d61eOuiIF54hdKy2MIBMSZuFKuTN71fM=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=CY0O+LdOcBcKveIrx2SF4IqXJpurim0kjgPfwV8B6dSpi2FVZVaFqPiR8zA9jq3tl
-	 gmQx1rfVdOGk0ZstE7GjWxS6tI1mO1i2Dm8Ri7TKIep4qDf6Y2gQOw6NTZr7tETV48
-	 fsNtu78wJ6uAmhxyOQ9VHakRHltPkN/LPRFCEKB4nuUIG8MKzG8RhIGo19ItSSVqqP
-	 etBjEctesh3xC5X81bqZtddrmxQELKsYv23dNX7Ibgj3Q0F4stjtiWsK9Ht1R/IkpN
-	 UQ+94Bi/8f4xWXYrQmrLrlrZBIAmKKm/jcVkTAdRFf1Qsj1Chek8xOAmr1RajM/tiJ
-	 FwfaRlfgardeg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id C241442146;
-	Fri, 23 Oct 2026 01:56:54 +0000 (UTC)
-From: Xincheng Ji via B4 Relay <devnull+jixincheng.ultrarisc.com@kernel.org>
-Subject: [PATCH v5 0/7] riscv: Add device tree support for UltraRISC DP1000
-Date: Fri, 23 Oct 2026 09:56:40 +0800
-Message-Id: <20261023-ultrarisc-dts-v5-0-af79dbd6ccec@ultrarisc.com>
+	Fri, 23 Oct 2026 03:16:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1792725332;
+	bh=ycInvx1qy9e2Ou+CC/55gtU6rXfr+tHoZssJUfTsh4s=;
+	h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=pKmQjJ+y7wnKcHreG0z83H0UZS7b21cCNfy12bWyv/CcLg5XZ84Fqb/3HZtiZB7nQ
+	 jmqINFLhQznQgL6f2qYH7B+HSOWzhw1rv5k4qjEIwM2b+8cROiGlBCBQKOZ2j5TMGf
+	 mgOFz19iSg0mJhS0kSWAX3dZB8fjIjrhjB5enc1U=
+X-QQ-mid: esmtpsz11t1792725325tcd4064c9
+X-QQ-Originating-IP: ZUJ/9HzdDMZhP4cT6tmKa8YcwHzj6gLVQbvEb3UPIVk=
+Received: from snode5.. ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 23 Oct 2026 11:15:22 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 6095290627579753242
+EX-QQ-RecipientCnt: 26
+From: Zane Leung <liangzhen@linux.spacemit.com>
+To: gregkh@linuxfoundation.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	alexander.shishkin@linux.intel.com,
+	suzuki.poulose@arm.com,
+	mchitale@gmail.com,
+	anup@brainfault.org,
+	irogers@google.com
+Cc: mike.leach@arm.com,
+	james.clark@linaro.org,
+	leo.yan@arm.com,
+	peterz@infradead.org,
+	mingo@redhat.com,
+	namhyung@kernel.org,
+	mark.rutland@arm.com,
+	jolsa@kernel.org,
+	adrian.hunter@intel.com,
+	alex@ghiti.fr,
+	atish.patra@linux.dev,
+	andrew.jones@oss.qualcomm.com,
+	sunilvl@oss.qualcomm.com,
+	liangzhen@linux.spacemit.com,
+	zhuangqiubin@linux.spacemit.com,
+	coresight@lists.linaro.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 04/24] gtrace: Add RISC-V trace encoder sysfs support
+Date: Fri, 23 Oct 2026 11:14:45 +0800
+Message-Id: <20261023031505.2020925-5-liangzhen@linux.spacemit.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
+References: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIANm+2moC/23Q3U7DMAwF4FeZek1R4vw1E0K8B+LCThxWxDZou
- gKa9u6kGQJW7dJq/J36HJvMQ8+5Wa+OzcBTn/v9rgzmZtWEDe6eue1jmRsQYIUBaA+v44BDn0M
- bx9z6iKQQlLRkm7LzNnDqP6v3+HSe84FeOIwz8vNi4PdDCRrPz5ot54w1aL26qzleuDZ+bDH8S
- 5ugFa1H5Sl1kZRUD7/fbsN+e19tHMOmOsmAjcqyRI2RrPHYSUhRS21iQGDrSXpt1OWWi4YliM5
- oWzJQ6VnxQrtggZRxqXM6ecnzFmHmtgRv+7EsCq20SDJEEQOnDjyThWRId8jeIASWjmJq5k42f
- R73w1etfJK1gnp1B3rR7iTLzVYiOWRiz+by5qpN8CfMvS2EuTXDpIN32rlwVVC/ghRSLQU1Cyk
- pJgL0Il4T9H/BLwVdBOXd/AchlvKXwul0+gZGX1NqiAIAAA==
-X-Change-ID: 20260522-ultrarisc-dts-9dab3a2316b6
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Andrew Lunn <andrew@lunn.ch>, 
- Jia Wang <wangjia@ultrarisc.com>, Xincheng Ji <jixincheng@ultrarisc.com>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Anup Patel <anup@brainfault.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
- linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792720613; l=7263;
- i=jixincheng@ultrarisc.com; s=20260922; h=from:subject:message-id;
- bh=dY9XikwZ8pE3Tbs+CBPDuW74NG7hS6wepUlnCqJ3Y78=;
- b=W8irDb4sLUqq+Dk3dqYXyGXlqDoc2w2tTDidjjwf7NiLk+7vvuB/eVe8qP58KUg+nR6ndMytM
- mk+BBYvAj/NDVIC9QrrwV/a4Ppu1i9Q8VaVxWZQAekD/2+EXRov3+tA
-X-Developer-Key: i=jixincheng@ultrarisc.com; a=ed25519;
- pk=n848dcS5D6g0vLad/rjp4Gf/1eedTe1a3pYUrkt2260=
-X-Endpoint-Received: by B4 Relay for jixincheng@ultrarisc.com/20260922 with
- auth_id=1046
-X-Original-From: Xincheng Ji <jixincheng@ultrarisc.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: OMYZW3dCyEoOkL56WduUgWmtiTZM4GhS+mzOXkCVDxnSRb7jbzkJhJiV
+	9wh6xSz9bRkmx9opOvPbbFF1P+2lg0s64MmkQv0+MusK30d9OlmY5DI4bg/+N1nLL6H9d/C
+	ZjZ10kObUUiye9ztBbjodwLutbLUgDcrd3R4YyKjSiTOmXfqEXHW8Nm0PPylIMvhyEWIdtN
+	SqNEflcDK+jgsoVV8JYNXrL5bS65ka3BKK+gAgTEqs4Jh/Ei47lcBhdGIfaFbr/V2c0wnqP
+	YGOQ3g887A+28Ogz8IK80CPoZbiArb+i6XDHK3tqifpjHrXUjZo9Dl519l446PWfUTrggDn
+	ONqN8xasFREXs8BVcZKJyHYAP2ye60yEDe4O8ncg/EOsmMIob3er29vkfVrdFcXt7CMqH2a
+	6oZxBOIkbkaYgtBl6emOX5XhSNteynRc1iWC5llQWiZiFEFD2353EvtZNzy4h08gQ1CSEpZ
+	WwM3ZPaGq/2zzKn07GW3PtXRONSSLRvl3MpZ8TPs65JBzjgXF2D4lkTIG8c75XYYdcG1lCB
+	QZPNqftY3EjHZWxlFd0ybq+q0MheANwVJYTJTNBUxEYSVgZ3nXs6mH7afS9ghnru44w512e
+	0ILQSQo43EpEU3qyAWbgUBBpRgILXhH/VoXIdl1/rzZ6m6fpO7FvySynBVASpRDF4lbA83R
+	JMtfFKi84eeAVK0JAUT77kejBeDZpR1mgjJG2uOz5Am/MDop3D/mJEetbrP8oPUAlX2C8Ud
+	Cc+aoDKgmL235Awjm4lEJ1MANSl3Tt7rBqKsO2pq36AYV3Wu4ILBDt5Q42LKEDtR4yTosmG
+	IMbmF0oVNtQjJabvuOZyaNHXlA+ts3JQ6q++uuXLLG6DzGDSKURSiweUnMBiuve6Fy3O/fh
+	O53W61a1ZWOWezg4xpeYzrM6SWppHG6FmSvmAGxs2oVry5Hk2DBro29noLTrjmOGD2H7B8K
+	jCT1X58Yyb90o0ZZpQ0klRLmhakQIaGqBU8vRo8EZk4A963jxYuao1pWl9LfE/U65SxD+G2
+	UJE/eUtI9hfQA6BZgOZNDtSOr4mhVvoqalFUKrk37lZrjSQKazuYuSXk92pctXssuSZA1m+
+	Qpa3PXrYfvQHuempQoIwLrnXyQ14gh7lA==
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261022_201627_149941_77567881 
+X-CRM114-Status: GOOD (  21.17  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,7 +114,6 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: jixincheng@ultrarisc.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -131,152 +124,604 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add Devicetree support for the UltraRISC DP1000 RISC-V SoC and two
-DP1000-based motherboards: Shenzhen Rongda M0 and Milk-V Titan.
+Add sysfs attribute support for RISC-V trace encoder components in
+the platform driver. The encoder attribute groups are now assigned to
+pdata->groups based on component type during registration, enabling
+encoder configuration through sysfs interfaces.
 
-DP1000 integrates eight UltraRISC CP100 CPU cores.  The SoC description
-includes the CPU and cache topology, CLINT, PLIC, clock controller,
-pinctrl, GPIO, four UARTs, two SPI controllers, four I2C controllers,
-three PCIe root complexes, GMAC, and the DMA controller.
-
-The Shenzhen Rongda M0 and Milk-V Titan device trees add their
-board-specific pin multiplexing, RTC devices, and Ethernet PHY
-configuration.  Both boards enable the three PCIe root complexes and
-the GMAC described as disabled by default in the SoC DTS.  The Titan
-description also provides its GPIO wakeup keys.
-
-The binding patches add the vendor, CPU, board, and peripheral compatible
-strings consumed by the new device trees.  The SPI, I2C, and AXI DMA nodes
-use their respective generic DesignWare compatible strings as fallbacks.
-
-An earlier version of the DP1000 SoC and board Devicetree support was
-posted as part of a combined Devicetree and pinctrl series. The pinctrl
-binding and driver were subsequently split out and merged separately.
-This series carries the updated Devicetree portion.
-
-Link: https://lore.kernel.org/all/20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com/
-
-The following prerequisites have been applied to their respective
-subsystem trees but are not yet included in the base:
-
-- net: stmmac: Add common internal RGMII delay handling and DP1000 support
-  https://lore.kernel.org/netdev/20260907-dwmac-ultrarisc-v2-0-9a39bf8db313@ultrarisc.com/
-
-- dt-bindings: i2c: dw: Add compatible for UltraRISC DP1000 SoC
-  https://patch.msgid.link/20260907-ultrarisc-dts-v2-6-5eb4c97477c5@ultrarisc.com
-
-- dt-bindings: dma: snps,dw-axi-dmac: Add UltraRISC DP1000 compatible
-  https://patch.msgid.link/20260907-ultrarisc-dts-v2-7-5eb4c97477c5@ultrarisc.com
-
-Testing:
-- Built dp1000-shenrongda-m0.dtb and dp1000-milkv-titan.dtb with
-  ARCH=riscv and W=1.
-- Ran dt_binding_check for the modified and prerequisite bindings.
-- Validated both DTBs against the relevant Devicetree schemas with
-  CHECK_DTBS=y and all prerequisite changes applied.
-- Boot-tested both DTBs on Shenzhen Rongda M0 and Milk-V Titan. Verified
-  the CPU topology and CBO selftests, UART, SPI, I2C/RTC, system memory,
-  and all three PCIe root complexes. The expected PCIe endpoints were
-  enumerated on both boards.
-- With the prerequisite GMAC series applied, ultrarisc-dwmac established
-  1000 Mb/s full-duplex links with the YT8531S PHY on M0 and the RTL8211F
-  PHY on Titan.
-
-Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-Signed-off-by: Xincheng Ji <jixincheng@ultrarisc.com>
+Signed-off-by: Zane Leung <liangzhen@linux.spacemit.com>
 ---
-Changes in v5:
-- Drop the deprecated label properties from the Milk-V Titan PHY LED
-  nodes so that LED names are composed from color and function
-- Replace the deprecated snps,nr-gpios property with ngpios for all four
-  DP1000 GPIO ports, preserving the existing GPIO counts.
-- Link to v4: https://patch.msgid.link/20261019-ultrarisc-dts-v4-0-3979747cda2e@ultrarisc.com
+ drivers/hwtracing/gtrace/Makefile             |   1 +
+ ...trace-encoder.c => rvtrace-encoder-core.c} | 117 +++++--
+ .../hwtracing/gtrace/rvtrace-encoder-sysfs.c  | 290 ++++++++++++++++++
+ drivers/hwtracing/gtrace/rvtrace-encoder.h    |  53 ++++
+ drivers/hwtracing/gtrace/rvtrace-platform.c   |   8 +
+ drivers/hwtracing/gtrace/rvtrace.h            |   3 +
+ 6 files changed, 438 insertions(+), 34 deletions(-)
+ rename drivers/hwtracing/gtrace/{rvtrace-encoder.c => rvtrace-encoder-core.c} (60%)
+ create mode 100644 drivers/hwtracing/gtrace/rvtrace-encoder-sysfs.c
+ create mode 100644 drivers/hwtracing/gtrace/rvtrace-encoder.h
 
-Changes in v4:
-- Move L2 cache nodes out of the CPU nodes and reference them using
-  next-level-cache, following the standard Devicetree cache topology.
-- Link to v3: https://patch.msgid.link/20261013-ultrarisc-dts-v3-0-5ff3ebb2a90d@ultrarisc.com
-
-Changes in v3:
-- Drop the DP1000 SPI binding patch, which has been merged, and the I2C
-  and DMA binding patches, which have been applied.
-- Correct the reg property address ranges and sizes for DMA and I2C nodes in the DP1000 base device tree.
-- Link to v2: https://patch.msgid.link/20260907-ultrarisc-dts-v2-0-5eb4c97477c5@ultrarisc.com
-
-Changes in v2:
-- Remove the dependency on the DP1000 clock series, which has since
-  been merged.
-- Drop the generic DWMAC compatible patch; DP1000 GMAC support is handled
-  by a separate prerequisite series.
-- Drop the RISC-V CPU binding yamllint fix, which has been applied.
-- Add DP1000-specific resource constraints and hardware descriptions to
-  the SPI, I2C and DMA bindings.
-- Correct the native chip-select count of SPI1 from three to four.
-- Describe all eight per-channel DMA interrupts.
-- Update the DP1000 GMAC nodes for the separate GMAC support series:
-  remove the generic DWMAC fallback, use "rgmii-id" for both boards, and
-  clarify the fixed MAC-side RGMII delays.
-- Link to v1: https://patch.msgid.link/20260824-ultrarisc-dts-v1-0-61ab7aebe9e5@ultrarisc.com
-
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-To: Albert Ou <aou@eecs.berkeley.edu>
-To: Alexandre Ghiti <alex@ghiti.fr>
-To: Jia Wang <wangjia@ultrarisc.com>
-To: Daniel Lezcano <daniel.lezcano@kernel.org>
-To: Thomas Gleixner <tglx@kernel.org>
-To: Samuel Holland <samuel.holland@sifive.com>
-To: Anup Patel <anup@brainfault.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@sifive.com>
-Cc: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org
-
----
-Jia Wang (7):
-      dt-bindings: vendor-prefixes: Add shenrongda
-      dt-bindings: riscv: cpus: Add UltraRISC CP100 compatible
-      dt-bindings: riscv: Add UltraRISC DP1000 board compatibles
-      dt-bindings: timer: Add UltraRISC DP1000 CLINT
-      riscv: dts: ultrarisc: Add initial device tree for UltraRISC DP1000
-      riscv: dts: ultrarisc: Add Shenzhen Rongda M0 board device tree
-      riscv: dts: ultrarisc: Add Milk-V Titan board device tree
-
- Documentation/devicetree/bindings/riscv/cpus.yaml  |   1 +
- .../devicetree/bindings/riscv/ultrarisc.yaml       |  27 +
- .../devicetree/bindings/timer/sifive,clint.yaml    |   1 +
- .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
- MAINTAINERS                                        |   8 +
- arch/riscv/boot/dts/Makefile                       |   1 +
- arch/riscv/boot/dts/ultrarisc/Makefile             |   3 +
- .../dts/ultrarisc/dp1000-milkv-titan-pinctrl.dtsi  | 108 +++
- .../boot/dts/ultrarisc/dp1000-milkv-titan.dts      | 201 +++++
- arch/riscv/boot/dts/ultrarisc/dp1000-pinctrl.h     |  63 ++
- .../ultrarisc/dp1000-shenrongda-m0-pinctrl.dtsi    |  79 ++
- .../boot/dts/ultrarisc/dp1000-shenrongda-m0.dts    | 113 +++
- arch/riscv/boot/dts/ultrarisc/dp1000.dtsi          | 865 +++++++++++++++++++++
- 13 files changed, 1472 insertions(+)
----
-base-commit: 704340f1cd0dcef829eb62f5b48ae95a2ce17bdf
-change-id: 20260522-ultrarisc-dts-9dab3a2316b6
-prerequisite-message-id: <20260907-dwmac-ultrarisc-v2-0-9a39bf8db313@ultrarisc.com>
-prerequisite-patch-id: 92e6cf1352d54e283d7721dc1542b580b8a41be1
-prerequisite-patch-id: 875c2058e9d8a983d785d7447374758f994dc847
-prerequisite-patch-id: 060a9b129c32c623a52ab1ba66f7a357e54575ff
-prerequisite-patch-id: 9aafbac6d2531a378b2057bf57787c814523f9d3
-prerequisite-patch-id: d75120a112276bd966d37441bd4d631e1539d0e8
-prerequisite-patch-id: f526d36e1a4adb659a812fd4145dca2e69b19453
-prerequisite-patch-id: 7d5e12085468dba34526d9047c62b357f874f91e
-
-Best regards,
---  
-Xincheng Ji <jixincheng@ultrarisc.com>
-
+diff --git a/drivers/hwtracing/gtrace/Makefile b/drivers/hwtracing/gtrace/Makefile
+index ff79a49bdb5e..87cb5add78d4 100644
+--- a/drivers/hwtracing/gtrace/Makefile
++++ b/drivers/hwtracing/gtrace/Makefile
+@@ -6,4 +6,5 @@ gtrace-$(CONFIG_OF) += gtrace-of.o
+ 
+ obj-$(CONFIG_RVTRACE) += rvtrace-platform.o
+ obj-$(CONFIG_RVTRACE_ENCODER) += rvtrace-encoder.o
++rvtrace-encoder-y := rvtrace-encoder-core.o rvtrace-encoder-sysfs.o
+ obj-$(CONFIG_RVTRACE_RAMSINK) += rvtrace-ramsink.o
+diff --git a/drivers/hwtracing/gtrace/rvtrace-encoder.c b/drivers/hwtracing/gtrace/rvtrace-encoder-core.c
+similarity index 60%
+rename from drivers/hwtracing/gtrace/rvtrace-encoder.c
+rename to drivers/hwtracing/gtrace/rvtrace-encoder-core.c
+index f24780b1ca1e..01925ebdfbde 100644
+--- a/drivers/hwtracing/gtrace/rvtrace-encoder.c
++++ b/drivers/hwtracing/gtrace/rvtrace-encoder-core.c
+@@ -10,28 +10,13 @@
+ #include <linux/minmax.h>
+ #include <linux/slab.h>
+ #include <linux/types.h>
++#include <linux/bitfield.h>
+ #include "rvtrace.h"
++#include "rvtrace-encoder.h"
+ 
+-#define RVTRACE_COMPONENT_CTRL_ITRACE_SHIFT	2
+-#define RVTRACE_COMPONENT_CTRL_INSTMODE_MASK	0x7
+-#define RVTRACE_COMPONENT_CTRL_INSTMODE_SHIFT	4
+-#define RVTRACE_COMPONENT_CTRL_INSTMODE_OPIT	0x6
+-#define RVTRACE_COMPONENT_CTRL_INHIBITSRC_SHIFT	15
+-#define RVTRACE_COMPONENT_CTRL_FORMAT_MASK	0x7
+-#define RVTRACE_COMPONENT_CTRL_FORMAT_SHIFT	24
+-#define RVTRACE_COMPONENT_CTRL_FORMAT_ETRACE	0x0
+-#define RVTRACE_COMPONENT_CTRL_FORMAT_NTRACE	0x1
+-
+-#define RVTRACE_ENCODER_INSTFEAT_OFFSET		0x8
+-#define RVTRACE_ENCODER_INSTFEAT_SRCID_MASK	0xfff
+-#define RVTRACE_ENCODER_INSTFEAT_SRCID_SHIFT	16
+-#define RVTRACE_ENCODER_INSTFEAT_SRCBITS_MASK	0xf
+-#define RVTRACE_ENCODER_INSTFEAT_SRCBITS_SHIFT	28
+-#define RVTRACE_ENCODER_INSTFEAT_SRCBITS_MAX	12
+-
+-struct rvtrace_encoder_priv {
+-	u32 srcbits;
+-};
++static int boot_enable;
++module_param(boot_enable, int, 0444);
++MODULE_PARM_DESC(boot_enable, "Enable tracing on boot");
+ 
+ /*
+  * Set the srcid and clear trTeInhibitSrc bit so that the emitted trace messages carry
+@@ -42,10 +27,10 @@ static void rvtrace_encoder_set_srcid(struct gtrace_platform_data *pdata, u32 sr
+ 	u32 val;
+ 
+ 	val = gtrace_read32(pdata, RVTRACE_ENCODER_INSTFEAT_OFFSET);
+-	val &= ~(RVTRACE_ENCODER_INSTFEAT_SRCID_MASK << RVTRACE_ENCODER_INSTFEAT_SRCID_SHIFT);
+-	val &= ~(RVTRACE_ENCODER_INSTFEAT_SRCBITS_MASK << RVTRACE_ENCODER_INSTFEAT_SRCBITS_SHIFT);
+-	val |= pdata->bound_cpu << RVTRACE_ENCODER_INSTFEAT_SRCID_SHIFT;
+-	val |= srcbits << RVTRACE_ENCODER_INSTFEAT_SRCBITS_SHIFT;
++	val &= ~RVTRACE_ENCODER_INSTFEAT_SRCID_MASK;
++	val &= ~RVTRACE_ENCODER_INSTFEAT_SRCBITS_MASK;
++	val |= FIELD_PREP(RVTRACE_ENCODER_INSTFEAT_SRCBITS_MASK, srcbits);
++	val |= FIELD_PREP(RVTRACE_ENCODER_INSTFEAT_SRCID_MASK, pdata->bound_cpu);
+ 	gtrace_write32(pdata, val, RVTRACE_ENCODER_INSTFEAT_OFFSET);
+ 
+ 	val = gtrace_read32(pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
+@@ -53,11 +38,32 @@ static void rvtrace_encoder_set_srcid(struct gtrace_platform_data *pdata, u32 sr
+ 	gtrace_write32(pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
+ }
+ 
++static void rvtrace_encoder_get_syncmode_hw(struct gtrace_platform_data *pdata,
++					    bool *syncmode_hw)
++{
++	u32 ctrl, val;
++	enum rvtrace_encoder_syncmode mode;
++
++	ctrl = gtrace_read32(pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
++
++	for (mode = RVTRACE_ENCODER_SYNCMODE_OFF; mode < RVTRACE_ENCODER_SYNCMODE_MAX; mode++) {
++		val = ctrl & ~RVTRACE_COMPONENT_CTRL_SYNCMODE_MASK;
++		val |= FIELD_PREP(RVTRACE_COMPONENT_CTRL_SYNCMODE_MASK, mode);
++		gtrace_write32(pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
++		val = gtrace_read32(pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
++		val = FIELD_GET(RVTRACE_COMPONENT_CTRL_SYNCMODE_MASK, val);
++		syncmode_hw[mode] = (mode == val);
++	}
++
++	gtrace_write32(pdata, ctrl, RVTRACE_COMPONENT_CTRL_OFFSET);
++}
++
+ static int rvtrace_encoder_probe(struct gtrace_component *comp)
+ {
+ 	struct gtrace_platform_data *pdata = comp->pdata;
+ 	struct rvtrace_encoder_priv *priv;
+ 	u32 val, hw_srcbits, srcbits;
++	int ret;
+ 
+ 	if (pdata->bound_cpu < 0) {
+ 		dev_err(&comp->dev, "cpu property missing. Please fix firmware.\n");
+@@ -68,6 +74,28 @@ static int rvtrace_encoder_probe(struct gtrace_component *comp)
+ 	if (!priv)
+ 		return -ENOMEM;
+ 
++	/* Get trTeFormat */
++	val = gtrace_read32(pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
++	priv->format = FIELD_GET(RVTRACE_COMPONENT_CTRL_FORMAT_MASK, val);
++	if (priv->format > GTRACE_FORMAT_NTRACE) {
++		dev_err(&comp->dev, "unsupported trace format %d\n", priv->format);
++		return -EINVAL;
++	}
++
++	/* Get trTeInstSyncMode */
++	priv->syncmode = FIELD_GET(RVTRACE_COMPONENT_CTRL_SYNCMODE_MASK, val);
++	rvtrace_encoder_get_syncmode_hw(pdata, priv->syncmode_hw);
++
++	/* Check if trTeContext is hardwired to 0 */
++	val |= BIT(RVTRACE_COMPONENT_CTRL_CONTEXT_SHIFT);
++	gtrace_write32(pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
++	val = gtrace_read32(pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
++	if (val & BIT(RVTRACE_COMPONENT_CTRL_CONTEXT_SHIFT)) {
++		priv->has_context = true;
++		val &= ~BIT(RVTRACE_COMPONENT_CTRL_CONTEXT_SHIFT);
++		gtrace_write32(pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
++	}
++
+ 	/* Check if trTeInhibitSrc is hardwired to 1 */
+ 	val = gtrace_read32(pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
+ 	val &= ~BIT(RVTRACE_COMPONENT_CTRL_INHIBITSRC_SHIFT);
+@@ -76,14 +104,16 @@ static int rvtrace_encoder_probe(struct gtrace_component *comp)
+ 	if (!(val & BIT(RVTRACE_COMPONENT_CTRL_INHIBITSRC_SHIFT))) {
+ 		/* Probe how many bits can trTeSrcID span in the emitted Trace messages */
+ 		val = gtrace_read32(pdata, RVTRACE_ENCODER_INSTFEAT_OFFSET);
+-		val |= (RVTRACE_ENCODER_INSTFEAT_SRCBITS_MASK <<
+-			RVTRACE_ENCODER_INSTFEAT_SRCBITS_SHIFT);
+-		gtrace_write32(pdata, val, RVTRACE_ENCODER_INSTFEAT_OFFSET);
+-		val = gtrace_read32(pdata, RVTRACE_ENCODER_INSTFEAT_OFFSET);
+-		hw_srcbits = (val >> RVTRACE_ENCODER_INSTFEAT_SRCBITS_SHIFT) &
+-			     RVTRACE_ENCODER_INSTFEAT_SRCBITS_MASK;
++		hw_srcbits = RVTRACE_ENCODER_INSTFEAT_SRCBITS_MAX;
++		do {
++			val &= ~RVTRACE_ENCODER_INSTFEAT_SRCBITS_MASK;
++			val |= FIELD_PREP(RVTRACE_ENCODER_INSTFEAT_SRCBITS_MASK, hw_srcbits);
++			gtrace_write32(pdata, val, RVTRACE_ENCODER_INSTFEAT_OFFSET);
++			val = gtrace_read32(pdata, RVTRACE_ENCODER_INSTFEAT_OFFSET);
++			if (FIELD_GET(RVTRACE_ENCODER_INSTFEAT_SRCBITS_MASK, val) == hw_srcbits)
++				break;
++		} while (--hw_srcbits);
+ 		/* Determine if there are sufficient bits to hold max cpus */
+-		hw_srcbits = min_t(u32, hw_srcbits, RVTRACE_ENCODER_INSTFEAT_SRCBITS_MAX);
+ 		srcbits = min_t(u32, hw_srcbits, order_base_2(nr_cpu_ids));
+ 		if (srcbits && pdata->bound_cpu < BIT(srcbits)) {
+ 			rvtrace_encoder_set_srcid(pdata, srcbits);
+@@ -98,6 +128,15 @@ static int rvtrace_encoder_probe(struct gtrace_component *comp)
+ 		gtrace_write32(pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
+ 	}
+ 	dev_set_drvdata(&comp->dev, priv);
++
++	if (boot_enable) {
++		ret = gtrace_enable_sysfs(comp);
++		if (ret) {
++			dev_err(&comp->dev, "failed to enable tracing on boot.\n");
++			return -EINVAL;
++		}
++		priv->boot_enable = true;
++	}
+ 	return 0;
+ }
+ 
+@@ -117,10 +156,20 @@ static int rvtrace_encoder_start(struct gtrace_component *comp)
+ 		return ret;
+ 	}
+ 
+-	/* set mode */
+ 	val = gtrace_read32(pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
+-	val &= ~(RVTRACE_COMPONENT_CTRL_INSTMODE_MASK << RVTRACE_COMPONENT_CTRL_INSTMODE_SHIFT);
+-	val |= (RVTRACE_COMPONENT_CTRL_INSTMODE_OPIT << RVTRACE_COMPONENT_CTRL_INSTMODE_SHIFT);
++	/* set mode */
++	val &= ~RVTRACE_COMPONENT_CTRL_INSTMODE_MASK;
++	val |= FIELD_PREP(RVTRACE_COMPONENT_CTRL_INSTMODE_MASK,
++		RVTRACE_COMPONENT_CTRL_INSTMODE_OPIT);
++	/* set context */
++	val &= ~BIT(RVTRACE_COMPONENT_CTRL_CONTEXT_SHIFT);
++	val |= FIELD_PREP(BIT(RVTRACE_COMPONENT_CTRL_CONTEXT_SHIFT), !!priv->context);
++	/* set syncmode */
++	val &= ~RVTRACE_COMPONENT_CTRL_SYNCMODE_MASK;
++	val |= FIELD_PREP(RVTRACE_COMPONENT_CTRL_SYNCMODE_MASK, priv->syncmode);
++	/* set syncmax */
++	val &= ~RVTRACE_COMPONENT_CTRL_SYNCMAX_MASK;
++	val |= FIELD_PREP(RVTRACE_COMPONENT_CTRL_SYNCMAX_MASK, priv->syncmax);
+ 	gtrace_write32(pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
+ 
+ 	val = gtrace_read32(pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
+diff --git a/drivers/hwtracing/gtrace/rvtrace-encoder-sysfs.c b/drivers/hwtracing/gtrace/rvtrace-encoder-sysfs.c
+new file mode 100644
+index 000000000000..e973d0e43036
+--- /dev/null
++++ b/drivers/hwtracing/gtrace/rvtrace-encoder-sysfs.c
+@@ -0,0 +1,290 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2026 Qualcomm Technologies, Inc.
++ */
++
++#include <linux/device.h>
++#include <linux/gtrace.h>
++#include <linux/types.h>
++#include "rvtrace.h"
++#include "rvtrace-encoder.h"
++
++struct rvtrace_component_reg {
++	struct gtrace_component *comp;
++	u32 offset;
++	u32 data;
++};
++
++static void do_smp_cross_read(void *data)
++{
++	struct rvtrace_component_reg *reg = data;
++
++	reg->data = gtrace_relaxed_read32(reg->comp->pdata, reg->offset);
++}
++
++static u32 rvtrace_cross_read(struct gtrace_component *comp, u32 offset)
++{
++	struct gtrace_platform_data *pdata = comp->pdata;
++	struct rvtrace_component_reg reg;
++
++	reg.comp = comp;
++	reg.offset = offset;
++	/*
++	 * smp cross call ensures the CPU will be powered up before
++	 * accessing the RISC-V trace core registers
++	 */
++	smp_call_function_single(pdata->bound_cpu, do_smp_cross_read, &reg, 1);
++	return reg.data;
++}
++
++static u32 rvtrace_attr_to_offset(struct device_attribute *attr)
++{
++	struct dev_ext_attribute *eattr;
++
++	eattr = container_of(attr, struct dev_ext_attribute, attr);
++	return (u32)(unsigned long)eattr->var;
++}
++
++static ssize_t rvtrace_reg_show(struct device *dev,
++				struct device_attribute *attr,
++				char *buf)
++{
++	u32 val, offset;
++	struct gtrace_component *comp = to_gtrace_component(dev);
++
++	offset = rvtrace_attr_to_offset(attr);
++
++	val = rvtrace_cross_read(comp, offset);
++
++	return scnprintf(buf, PAGE_SIZE, "0x%x\n", val);
++}
++
++/*
++ * Macro to set an RO ext attribute with offset and show function.
++ */
++#define rvtrace_reg_showfn(name, offset, showfn) (	    \
++	&((struct dev_ext_attribute[]) {		    \
++	   {						    \
++		__ATTR(name, 0444, showfn, NULL),	    \
++		(void *)(unsigned long)offset		    \
++	   }						    \
++	})[0].attr.attr					    \
++	)
++
++/* macro using the default rvtrace_reg_show function */
++#define rvtrace_reg(name, offset)	\
++	rvtrace_reg_showfn(name, offset, rvtrace_reg_show)
++
++static ssize_t cpu_show(struct device *dev,
++			struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++
++	return sysfs_emit(buf, "%d\n", comp->pdata->bound_cpu);
++}
++static DEVICE_ATTR_RO(cpu);
++
++static struct attribute *rvtrace_encoder_attrs[] = {
++	&dev_attr_cpu.attr,
++	NULL,
++};
++
++static struct attribute *rvtrace_encoder_mgmt_attrs[] = {
++	rvtrace_reg(control, RVTRACE_COMPONENT_CTRL_OFFSET),
++	rvtrace_reg(features, RVTRACE_ENCODER_INSTFEAT_OFFSET),
++	NULL,
++};
++
++static ssize_t format_show(struct device *dev,
++			   struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_encoder_priv *priv = dev_get_drvdata(&comp->dev);
++
++	return sysfs_emit(buf, "%u\n", priv->format);
++}
++static DEVICE_ATTR_RO(format);
++
++static ssize_t has_context_show(struct device *dev,
++				struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_encoder_priv *priv = dev_get_drvdata(&comp->dev);
++
++	return sysfs_emit(buf, "%u\n", priv->has_context);
++}
++static DEVICE_ATTR_RO(has_context);
++
++static ssize_t context_show(struct device *dev,
++			    struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_encoder_priv *priv = dev_get_drvdata(&comp->dev);
++
++	return sysfs_emit(buf, "%u\n", priv->context);
++}
++
++static ssize_t context_store(struct device *dev,
++			     struct device_attribute *attr,
++			     const char *buf, size_t size)
++{
++	int ret;
++	unsigned long val;
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_encoder_priv *priv = dev_get_drvdata(&comp->dev);
++
++	if (!priv->has_context)
++		return -EINVAL;
++
++	ret = kstrtoul(buf, 10, &val);
++	if (ret)
++		return ret;
++
++	priv->context = !!val;
++
++	return size;
++}
++static DEVICE_ATTR_RW(context);
++
++static const char *const syncmodes_str[] = {
++	[RVTRACE_ENCODER_SYNCMODE_OFF]		= "off",
++	[RVTRACE_ENCODER_SYNCMODE_MESSAGES]	= "messages",
++	[RVTRACE_ENCODER_SYNCMODE_CLOCK]	= "clock",
++	[RVTRACE_ENCODER_SYNCMODE_INSTRUCTION]	= "instruction",
++};
++
++static ssize_t syncmodes_available_show(struct device *dev,
++					struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_encoder_priv *priv = dev_get_drvdata(&comp->dev);
++	ssize_t size = 0;
++	enum rvtrace_encoder_syncmode mode;
++
++	for (mode = RVTRACE_ENCODER_SYNCMODE_OFF; mode < RVTRACE_ENCODER_SYNCMODE_MAX; mode++) {
++		if (priv->syncmode_hw[mode])
++			size += sysfs_emit_at(buf, size, "%s ",
++				syncmodes_str[mode]);
++	}
++
++	size += sysfs_emit_at(buf, size, "\n");
++	return size;
++}
++static DEVICE_ATTR_RO(syncmodes_available);
++
++static ssize_t syncmode_preferred_show(struct device *dev,
++				       struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_encoder_priv *priv = dev_get_drvdata(&comp->dev);
++
++	return sysfs_emit(buf, "%s\n", syncmodes_str[priv->syncmode]);
++}
++
++static ssize_t syncmode_preferred_store(struct device *dev,
++					struct device_attribute *attr,
++					const char *buf, size_t size)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_encoder_priv *priv = dev_get_drvdata(&comp->dev);
++
++	if (sysfs_streq(buf, syncmodes_str[RVTRACE_ENCODER_SYNCMODE_OFF]) &&
++			priv->syncmode_hw[RVTRACE_ENCODER_SYNCMODE_OFF])
++		priv->syncmode = RVTRACE_ENCODER_SYNCMODE_OFF;
++	else if (sysfs_streq(buf, syncmodes_str[RVTRACE_ENCODER_SYNCMODE_MESSAGES]) &&
++			priv->syncmode_hw[RVTRACE_ENCODER_SYNCMODE_MESSAGES])
++		priv->syncmode = RVTRACE_ENCODER_SYNCMODE_MESSAGES;
++	else if (sysfs_streq(buf, syncmodes_str[RVTRACE_ENCODER_SYNCMODE_CLOCK]) &&
++			priv->syncmode_hw[RVTRACE_ENCODER_SYNCMODE_CLOCK])
++		priv->syncmode = RVTRACE_ENCODER_SYNCMODE_CLOCK;
++	else if (sysfs_streq(buf, syncmodes_str[RVTRACE_ENCODER_SYNCMODE_INSTRUCTION]) &&
++			priv->syncmode_hw[RVTRACE_ENCODER_SYNCMODE_INSTRUCTION])
++		priv->syncmode = RVTRACE_ENCODER_SYNCMODE_INSTRUCTION;
++	else
++		return -EINVAL;
++	return size;
++}
++static DEVICE_ATTR_RW(syncmode_preferred);
++
++static ssize_t syncmax_show(struct device *dev,
++			    struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_encoder_priv *priv = dev_get_drvdata(&comp->dev);
++
++	return sysfs_emit(buf, "%u\n", priv->syncmax);
++}
++
++static ssize_t syncmax_store(struct device *dev,
++			     struct device_attribute *attr,
++			     const char *buf, size_t size)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_encoder_priv *priv = dev_get_drvdata(&comp->dev);
++	unsigned long val;
++	int ret;
++
++	ret = kstrtoul(buf, 0, &val);
++	if (ret)
++		return ret;
++
++	if (val > RVTRACE_COMPONENT_CTRL_SYNCMAX_MAX)
++		return -EINVAL;
++
++	priv->syncmax = val;
++	return size;
++}
++static DEVICE_ATTR_RW(syncmax);
++
++static struct attribute *rvtrace_encoder_control_attrs[] = {
++	&dev_attr_format.attr,
++	&dev_attr_has_context.attr,
++	&dev_attr_context.attr,
++	&dev_attr_syncmodes_available.attr,
++	&dev_attr_syncmode_preferred.attr,
++	&dev_attr_syncmax.attr,
++	NULL,
++};
++
++static ssize_t srcbits_show(struct device *dev,
++			    struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_encoder_priv *priv = dev_get_drvdata(&comp->dev);
++
++	return sysfs_emit(buf, "%u\n", priv->srcbits);
++}
++static DEVICE_ATTR_RO(srcbits);
++
++static struct attribute *rvtrace_encoder_features_attrs[] = {
++	&dev_attr_srcbits.attr,
++	NULL,
++};
++
++static const struct attribute_group rvtrace_encoder_group = {
++	.attrs = rvtrace_encoder_attrs,
++};
++
++static const struct attribute_group rvtrace_encoder_mgmt_group = {
++	.attrs = rvtrace_encoder_mgmt_attrs,
++	.name = "mgmt",
++};
++
++static const struct attribute_group rvtrace_encoder_control_group = {
++	.attrs = rvtrace_encoder_control_attrs,
++	.name = "control",
++};
++
++static const struct attribute_group rvtrace_encoder_features_group = {
++	.attrs = rvtrace_encoder_features_attrs,
++	.name = "features",
++};
++
++const struct attribute_group *rvtrace_encoder_groups[] = {
++	&rvtrace_encoder_group,
++	&rvtrace_encoder_mgmt_group,
++	&rvtrace_encoder_control_group,
++	&rvtrace_encoder_features_group,
++	NULL,
++};
++EXPORT_SYMBOL_GPL(rvtrace_encoder_groups);
+diff --git a/drivers/hwtracing/gtrace/rvtrace-encoder.h b/drivers/hwtracing/gtrace/rvtrace-encoder.h
+new file mode 100644
+index 000000000000..733d44c0e641
+--- /dev/null
++++ b/drivers/hwtracing/gtrace/rvtrace-encoder.h
+@@ -0,0 +1,53 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef __RVTRACE_ENCODER_H__
++#define __RVTRACE_ENCODER_H__
++
++#define RVTRACE_COMPONENT_CTRL_ITRACE_SHIFT     2
++#define RVTRACE_COMPONENT_CTRL_INSTMODE_MASK	GENMASK(6, 4)
++#define RVTRACE_COMPONENT_CTRL_INSTMODE_OPIT	0x6
++#define RVTRACE_COMPONENT_CTRL_CONTEXT_SHIFT	9
++#define RVTRACE_COMPONENT_CTRL_INHIBITSRC_SHIFT	15
++#define RVTRACE_COMPONENT_CTRL_SYNCMODE_MASK	GENMASK(17, 16)
++#define RVTRACE_COMPONENT_CTRL_SYNCMAX_MASK	GENMASK(23, 20)
++#define RVTRACE_COMPONENT_CTRL_SYNCMAX_MAX	15
++#define RVTRACE_COMPONENT_CTRL_FORMAT_MASK	GENMASK(26, 24)
++#define RVTRACE_COMPONENT_CTRL_FORMAT_ETRACE	0x0
++#define RVTRACE_COMPONENT_CTRL_FORMAT_NTRACE	0x1
++
++#define RVTRACE_ENCODER_INSTFEAT_OFFSET		0x8
++#define RVTRACE_ENCODER_INSTFEAT_SRCID_MASK	GENMASK(27, 16)
++#define RVTRACE_ENCODER_INSTFEAT_SRCBITS_MASK	GENMASK(31, 28)
++#define RVTRACE_ENCODER_INSTFEAT_SRCBITS_MAX	12
++
++enum rvtrace_encoder_syncmode {
++	RVTRACE_ENCODER_SYNCMODE_OFF,
++	RVTRACE_ENCODER_SYNCMODE_MESSAGES,
++	RVTRACE_ENCODER_SYNCMODE_CLOCK,
++	RVTRACE_ENCODER_SYNCMODE_INSTRUCTION,
++	RVTRACE_ENCODER_SYNCMODE_MAX,
++};
++
++/**
++ * struct rvtrace_encoder_priv - Private driver data for the rvtrace encoder.
++ * @syncmode_hw: Hardware capability for synchronization modes.
++ * @syncmode:    Current operational synchronization mode configured in hardware.
++ * @syncmax:     Maximum interval value allowed for synchronization.
++ * @srcbits:     Width of source bits allocated for trace generation.
++ * @format:      Trace format type used by this encoder compinent.
++ * @has_context: Hardware flag for scontext/mcontext and privilege tracking.
++ * @context:     Current configuration for scontext/mcontext and privilege tracking.
++ * @boot_enable: Flag to automatically enable tracing on boot.
++ */
++struct rvtrace_encoder_priv {
++	bool syncmode_hw[RVTRACE_ENCODER_SYNCMODE_MAX];
++	u32 syncmode;
++	u32 syncmax;
++	u32 srcbits;
++	enum gtrace_format format;
++	bool has_context;
++	bool context;
++	bool boot_enable;
++};
++
++#endif/* __RVTRACE_ENCODER_H__ */
+diff --git a/drivers/hwtracing/gtrace/rvtrace-platform.c b/drivers/hwtracing/gtrace/rvtrace-platform.c
+index e5c1f47388a2..64496a638359 100644
+--- a/drivers/hwtracing/gtrace/rvtrace-platform.c
++++ b/drivers/hwtracing/gtrace/rvtrace-platform.c
+@@ -129,6 +129,14 @@ static int rvtrace_platform_probe(struct platform_device *pdev)
+ 	id.type = gtype;
+ 	id.version = rvtrace_component_mkversion(major, minor);
+ 
++	switch (gtype) {
++	case GTRACE_RVTRACE_ENCODER:
++		pdata->groups = rvtrace_encoder_groups;
++		break;
++	default:
++		pdata->groups = NULL;
++	}
++
+ 	comp = gtrace_register_component(&id, rvtrace_type_name(gtype), pdata);
+ 	if (IS_ERR(comp))
+ 		return PTR_ERR(comp);
+diff --git a/drivers/hwtracing/gtrace/rvtrace.h b/drivers/hwtracing/gtrace/rvtrace.h
+index e6be1ce303cc..fee8e2e4f42a 100644
+--- a/drivers/hwtracing/gtrace/rvtrace.h
++++ b/drivers/hwtracing/gtrace/rvtrace.h
+@@ -118,4 +118,7 @@ static inline int rvtrace_comp_poll_empty(struct gtrace_component *comp)
+ 
+ extern const struct gtrace_hw_ops rvtrace_hw_ops;
+ 
++/* Sysfs attribute groups for RISC-V trace components */
++extern const struct attribute_group *rvtrace_encoder_groups[];
++
+ #endif /* __LINUX_RVTRACE_H__ */
+-- 
+2.34.1
 
 
 _______________________________________________
