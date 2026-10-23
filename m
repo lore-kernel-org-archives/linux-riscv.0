@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8068A60A2616
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 10:18:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3A6E606A31B
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 10:19:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JPx80oHc;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Gv0tPwNP
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DRZqEiEt;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=H87Iowrz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,33 +14,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=2n+8NmrxwsCZ6hH7qD9Y68sUP094jtSp4urgot1M26Q=; b=JPx80oHcJV9iJ6L0FMud6yliAZ
-	JVw9QGx7ggEAjvDjngRNiiYrYn0KiBp8PzKdPpaKwApMCza6KslZK0q1rtJwXA77zdZi95J3pxhNA
-	IntkTfBlj4E3sp6c02vQyMpFiInjc+Q8jKVpvvjgyJxoKSCFuAMs9Nmhhx1kAn71IoSKpl7+SV/9R
-	bgls+gYXa1FI2byiugePuWX1lOS8MZTDtImfFUbyoKPSVvb0Xp55TXCwHGHFZTxutE6fq1MNwsy/9
-	QSHZ6FqItGuClMnIdLnO/c9ZgcB0KUcXPxpkjIViu/kRQv/UKPnrjNL9dCeij89mRcTuNRTDa1+4D
-	ZJz1Ubag==;
+	bh=GliEOjKF64hm1/dai6/rJ/9/1vuic6uPT1mLOZ999mg=; b=DRZqEiEtXZHl78M5+pfMvlvm2y
+	2wbydHL0EmD8aZxRWzIutVI3TajmqMkMeGt4THABBhhn6BGZv7Ua6Iw2As2TcDLEo18tr5UwDdM1N
+	dfpvh2KhlwFdEwf0ShHs0a6+VA50TMWHMoRVxbrtfaR1makpIBxHWkJF7FbsbGdUBDIaWmHB2nC9u
+	cbI/kydmCYnwBqECtQMkHg2R7z1nuL5kWyC4+rpmkgEOCHhWLQ6vZtWj/oGqn/uKJq8rXB6jPMkOd
+	K7ZoXfPnEevcG6AVzfx0EiiUMW6pbHA1Mgqh/+Gm1cMa+WljtkvQYuIDQezdXy97i5FDlXfL2hmZE
+	aZMYBaLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKCMD-0000000G8Zh-1NZJ;
-	Fri, 23 Oct 2026 10:18:41 +0000
+	id 1xKCMd-0000000G8oo-4AgT;
+	Fri, 23 Oct 2026 10:19:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKCMA-0000000G8XI-0i18;
-	Fri, 23 Oct 2026 10:18:39 +0000
+	id 1xKCMb-0000000G8mV-0Dvr;
+	Fri, 23 Oct 2026 10:19:06 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 49A5A1650;
-	Fri, 23 Oct 2026 03:18:27 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3502A1650;
+	Fri, 23 Oct 2026 03:19:00 -0700 (PDT)
 Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BA9CC3F7B4;
-	Fri, 23 Oct 2026 03:18:29 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6AFBD3F7B4;
+	Fri, 23 Oct 2026 03:19:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792750710; bh=rDCKGdRiz166rbp3L1GqdW0EbXoka1CMQiZb1poZNJc=;
+	t=1792750743; bh=cTejc6vMr58Bc8gk6KW2BncO0y2Cvz1clpAKwoF7/Ic=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Gv0tPwNP8G2Bw0xRprgdfHjdFBGNFMpk/hG8nosXDB1w7Glh9RBzUtz+iqZOceuqt
-	 mV0LBePmBjv5oLWjuqGK9bhC+ApU8fxvizU/c3YNVk8ks5ke0P3dwGpCmBZ76NwIbf
-	 fVBicOBhEo6p+0BCv8JfVzLhwHxKLSqtRnu3CS3g=
-Date: Fri, 23 Oct 2026 15:48:27 +0530
+	b=H87IowrzP0rj9C3cOW7Vzu9QCUMfiSLZ0/G+PHAGddRwpJrTeToyiptqu8vx7+3pH
+	 w8RG+x0XddtHFphc6crHsU1gk8O6PWmj3qeZaN0M0Ly+45BVp2wb77l+7WxSJLLoTm
+	 DUEPs9U6xhyWQsEoNRpuxhalPnHIewHnLwfzo0Zw=
+Date: Fri, 23 Oct 2026 15:48:59 +0530
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: Muchun Song <songmuchun@bytedance.com>
 Cc: Andrew Morton <akpm@linux-foundation.org>, 
@@ -53,18 +53,18 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	Alexander Gordeev <agordeev@linux.ibm.com>, Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org, 
 	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org, stable@vger.kernel.org, Muchun Song <muchun.song@linux.dev>
-Subject: Re: [PATCH v3 1/4] mm: fix missing page-table destructor in
- pagetable_free()
-Message-ID: <s5wpe6iiidy6eo5lqs5zqut3d2of3erbxz6xofah4i4n56qxdn@r7vjivchqfil>
+Subject: Re: [PATCH v3 4/4] arm64/mm: fix destructor for unconstructed
+ hotplug page tables
+Message-ID: <4vrj226au2t5cyjsgqem7bami3tsgn57zcbw6cbedhkutknnh3@p4hngiltvm6j>
 References: <20261023063428.3658761-1-songmuchun@bytedance.com>
- <20261023063428.3658761-2-songmuchun@bytedance.com>
+ <20261023063428.3658761-5-songmuchun@bytedance.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261023063428.3658761-2-songmuchun@bytedance.com>
+In-Reply-To: <20261023063428.3658761-5-songmuchun@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_031838_391678_448CDDE7 
-X-CRM114-Status: GOOD (  26.09  )
+X-CRM114-CacheID: sfid-20261023_031905_174108_2C6E29D9 
+X-CRM114-Status: GOOD (  19.41  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,109 +85,59 @@ X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 23, 2026 at 02:34:25PM +0800, Muchun Song wrote:
-> Since commit 49f599666420 ("mm: call ctor/dtor for kernel PTEs"),
-> pte_alloc_one_kernel() runs the page-table constructor for kernel PTE
-> tables.
+On Fri, Oct 23, 2026 at 02:34:28PM +0800, Muchun Song wrote:
+> Commit c594b83457cc ("arm64: mm: call pagetable dtor when freeing
+> hot-removed page tables") made free_hotplug_pgtable_page()
+> unconditionally run the page-table destructor. This matches page tables
+> allocated by the arm64 mapping code, which runs the corresponding
+> constructors.
 > 
-> HVO (HugeTLB Vmemmap Optimization) uses pte_alloc_one_kernel() when
-> splitting a PMD. Restoring the vmemmap backing pages does not collapse
-> the PTE table, so a later memory hot-remove eventually frees it through
-> pagetable_free() on x86-64. That releases the page without running the
-> matching destructor and leaves NR_PAGETABLE elevated.
+> However, arm64 also uses the generic sparse-vmemmap population code.
+> Runtime intermediate page tables allocated by that code do not run a
+> page-table constructor. Freeing one during memory hot-remove therefore
+> runs a destructor without a matching constructor and corrupts
+> NR_PAGETABLE accounting.
 > 
-> Make pagetable_free() the common free-side primitive for page-table
-> pages. It checks PageTable() and runs the destructor only when the
-> constructor state is still present. Callers that explicitly ran
-> pagetable_dtor() have already cleared PageTable(), so they are not
-> destructed twice; pages that never ran a constructor are freed directly.
+> Free intermediate page-table pages through pagetable_free(). It runs the
+> destructor only for constructor-backed pages and then releases the page
+> through the page-table freeing path.
 > 
-> Fixes: 49f599666420 ("mm: call ctor/dtor for kernel PTEs")
-> Cc: stable@vger.kernel.org # bf9e4e30f353: x86/mm: use pagetable_free()
-> Cc: stable@vger.kernel.org # 39406c05f8f1: x86/mm: Fix freeing of PMD-sized vmemmap pages
+> Fixes: c594b83457cc ("arm64: mm: call pagetable dtor when freeing hot-removed page tables")
 > Cc: stable@vger.kernel.org
 > Assisted-by: LLM
 > Signed-off-by: Muchun Song <songmuchun@bytedance.com>
-> Reviewed-by: Jose A. Perez de Azpillaga <azpijr@gmail.com>
 > Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> Acked-by: Dave Hansen <dave.hansen@intel.com>
 > Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
 Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
 > ---
 > v3:
-> - Explain why pagetable_free() does not run the destructor twice
->   (requested by Kevin Brodsky)
-> - Add x86 stable prerequisites (suggested by
->   Jose A. Perez de Azpillaga)
-> - Collect Acked-by from Dave Hansen and David Hildenbrand
-> - Collect Reviewed-by from Jose A. Perez de Azpillaga and Kevin
->   Brodsky
+> - Collect Acked-by from David Hildenbrand
+> - Collect Reviewed-by from Kevin Brodsky
 > 
 > v2:
-> - Move destructor handling from x86 into pagetable_free() (suggested by
->   David Hildenbrand)
-> - Trim and update the commit message (requested by Dave Hansen)
+> - Free intermediate tables through pagetable_free() (suggested by David
+>   Hildenbrand)
+> - Update the commit message for the page-table freeing path
 > ---
->  include/linux/mm.h | 37 ++++++++++++++++++++-----------------
->  1 file changed, 20 insertions(+), 17 deletions(-)
+>  arch/arm64/mm/mmu.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
 > 
-> diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index dd09c438fa23..466875c5908b 100644
-> --- a/include/linux/mm.h
-> +++ b/include/linux/mm.h
-> @@ -3812,23 +3812,6 @@ static inline void pagetable_free_kernel(struct ptdesc *pt)
->  	__pagetable_free(pt);
->  }
->  #endif
-> -/**
-> - * pagetable_free - Free pagetables
-> - * @pt:	The page table descriptor
-> - *
-> - * pagetable_free frees the memory of all page tables described by a page
-> - * table descriptor and the memory for the descriptor itself.
-> - */
-> -static inline void pagetable_free(struct ptdesc *pt)
-> -{
-> -	if (ptdesc_test_kernel(pt)) {
-> -		ptdesc_clear_kernel(pt);
-> -		pagetable_free_kernel(pt);
-> -	} else {
-> -		__pagetable_free(pt);
-> -	}
-> -}
-> -
->  #if defined(CONFIG_SPLIT_PTE_PTLOCKS)
->  #if ALLOC_SPLIT_PTLOCKS
->  void __init ptlock_cache_init(void);
-> @@ -3921,6 +3904,26 @@ static inline void pagetable_dtor(struct ptdesc *ptdesc)
->  	lruvec_stat_sub_folio(folio, NR_PAGETABLE);
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 79d90226fd5d..4dce8fa227c3 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1495,8 +1495,7 @@ static void free_hotplug_page_range(struct page *page, size_t size,
+>  
+>  static void free_hotplug_pgtable_page(struct page *page)
+>  {
+> -	pagetable_dtor(page_ptdesc(page));
+> -	free_hotplug_page_range(page, PAGE_SIZE, NULL);
+> +	pagetable_free(page_ptdesc(page));
 >  }
 >  
-> +/**
-> + * pagetable_free - Free pagetables
-> + * @pt:	The page table descriptor
-> + *
-> + * pagetable_free frees the memory of all page tables described by a page
-> + * table descriptor and the memory for the descriptor itself.
-> + */
-> +static inline void pagetable_free(struct ptdesc *pt)
-> +{
-> +	if (PageTable(ptdesc_page(pt)))
-> +		pagetable_dtor(pt);
-> +
-> +	if (ptdesc_test_kernel(pt)) {
-> +		ptdesc_clear_kernel(pt);
-> +		pagetable_free_kernel(pt);
-> +	} else {
-> +		__pagetable_free(pt);
-> +	}
-> +}
-> +
->  static inline void pagetable_dtor_free(struct ptdesc *ptdesc)
->  {
->  	pagetable_dtor(ptdesc);
+>  static bool pgtable_range_aligned(unsigned long start, unsigned long end,
 > -- 
 > 2.54.0
 > 
