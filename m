@@ -2,113 +2,61 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66F99606A31A
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:50:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 734F2606A319
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 04:11:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dYKqZp05;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=EPHNdmTF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oNwoYPBg;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=picoheart.com header.i=@picoheart.com header.a=rsa-sha256 header.s=feishu2604151535 header.b=wk2IsIMM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=HmmUR5GACnDcuvK982ASj4V8tKfmtUHr5Gl17yLHV1Y=; b=dYKqZp05cvECs+naFSw1JwzotW
-	Jr1eUrjgY4ze4kIfgGVwOng4Vwj6ErwhALdhnXOQo/ohhVqJfbbjfqE30tHq4bdXYw/Nt3ZgG1/Lr
-	1psz5KjiNvlR24veGkP0jnFyygJW2qhrChLC1SYH8swFCXZ00RtPnfj+vfu2gIKNvxPf9yE7lFWzY
-	lipTOw8aA2JIIwvM7WIiO487+H2oFzEdltINcfM2akBr3zBG6l6stJuoSRWVI97mAXR52Owg/xltG
-	mO+4Q7RoAAhIYu3MIJNj10mQ0B26KS5R963VdTtL6rhfBluswAl4sBardBcgil71DaaxFzSeHh2ZU
-	aocGHYag==;
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:From:To:Subject:Cc:
+	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Unsubscribe-Post:List-Owner;
+	bh=0bt9Il4jihZcIF3zgogTEUuWa2ZrQ3z/fwrrGww1xis=; b=oNwoYPBgBqvyKqSnKYbLW8uBHI
+	9mifkzrXrGgWgdHGwX09RbIxIDYr+TawN5uTbmYF5Z8ou5iCR6cpjxazo5nIBm4Aer4xhlxZE04UM
+	pkrv3oa2nGcQaJpicAuuu1ObX8IjBLtyDOjpC8JuwFXwmeq5Qb8WaGwOfIka2+vphG43B5w0Lpdrg
+	hCaddTSZ9b/GK9C+oj6mBNrhefT63W2fE3/rgMXvy+l9RWuGdqUWTCUGhaV4ARgOW5hlWEgXigOtL
+	H99+u7sCphksbYkmF+XQDO/oRM8Aj98bguA3z76KuJvmK8y3BbPEDluJinhvB3YyX6k+EKEaGZQyk
+	Ox3p7Y+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK6I5-0000000FSPJ-1rXT;
-	Fri, 23 Oct 2026 03:50:01 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1xK6d3-0000000FToW-2wW2;
+	Fri, 23 Oct 2026 04:11:41 +0000
+Received: from va-2-28.ptr.blmpb.com ([209.127.231.28])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK6I2-0000000FSNl-0eR0
+	id 1xK6d0-0000000FTo7-2E23
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Oct 2026 03:49:59 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4a20b122af8so3185205e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Oct 2026 20:49:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792727396; cv=none;
-        d=google.com; s=arc-20260327;
-        b=BAyC20QSO3lJQAAMH9wIe/xzXR/OBGEQK0+5fy0/1XUjY48AYR+9FrZWWpdBoHVZ5c
-         u2XWJcK+32kWoPn/ByyIZ9ALuPLAxfMot9ENQOCl/+779bBvs8m12IkycJVDHXFkHV5A
-         IcBPLfVTFImAmyVeBEn69C1HzGo1M4poOK9QNwcYEMWxisfXRe3HjmvToWu3Q51bXm7x
-         5rJy0GAfRbbSgy3iWX5rkh07wPb0BH/jtTjlo0sYTJcwNf+ogbw5+cnQYyEbMKXnHqto
-         fluJ7HvU0pqXpum3DfvJQqUmFE1PRGYb8A+xcs4FbyNHNwzWa8fU3Dbrusw0nOLmIzyh
-         G+fA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=e8SruC8g2rwvdIhh7oEO3GCo3RXeoIg5jF9AOnzr/wQ=;
-        fh=21Cctb+t5bfnKZ/o3bcXgzQTvNz8PCIVc+utPFiBs6I=;
-        b=eHAzE6rSBSZ7oHCM0VZKm2j1RhsLvGRXc/9/wrLmcWjaMkgC8CxiXilbVP8X3QB8Hq
-         SZwOoSqTVdxyHt1g9rLzGcrGx1hqTMT+vbFc2n7IvH3HFSpniedXOzwW5BLkR4oWYiLw
-         lV4jBkHmpLIpsq3cDuQ5pL31BXeDw3d1UHQX+u5e/IXnUK/f22gvuUtF0RDN2CbNMwL4
-         guEqZZLj9OoYUoA63O4Bbp822YQ1vP9aInDGao1SYcXkwj7VGTSO3rqekZ7AysG/j6ac
-         fboVU9TQrQCS2f1s8FO7WtJb7gtS/SArh1kO0lR96GwG+rIELk9kc2IAM+X5YiRUge2R
-         SJeQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault.org; s=google; t=1792727396; x=1793332196; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=e8SruC8g2rwvdIhh7oEO3GCo3RXeoIg5jF9AOnzr/wQ=;
-        b=EPHNdmTFHWaE/OypCx1vXsosPRmYYfUEi1rRYdI/e/MlhI5aP6QrpT+1vLnF+x4h2p
-         mw4YlG65f6pXmz4q7ylR+yGPu6nMxHAzbLmXAe8rWoO/PQUS90s4CpyPpOXq22x/psnE
-         iJNRj6QeY7Wo17IYDBDzaC6D//tYZcjqy6BUZcYoodHimEFkI6b9Y43ABY4hB6lWOsXD
-         pVmt00IkGoSmBTM7erKGN5haraEMk6ByLXc+Uqlo42MNPvH3gjw4Gtj34jm/0KVtgm80
-         QO3utz95XG46I5jB9EiwV3It3ns2gOLSFldZXetrZacAJPFZ2fWmsqYqRg0ISIR2Ca/Q
-         T8VA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792727396; x=1793332196;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=e8SruC8g2rwvdIhh7oEO3GCo3RXeoIg5jF9AOnzr/wQ=;
-        b=iv6MJPIHhS2uybBTqDp3SVOHbfjcfy5UtNz67bbHroTyGrxTj0Ev5iJNtCi4Bkqv31
-         1vEvO52zHxuasqyVRKcmy8xPP0iIFUAaOx+UYQ3+zZXp0avg3R5b+IeUe7ctjOLbMKEK
-         2NPmpRUIhybN7EaD3S7+SVhKLUPYEbiV0Kj/vo/46ND/eUyoJ8sGsaUcq48gJnFFk0jn
-         ejWpMhVcUzy3+HtblK3r5JhfVqV/OYGlRgQmrcJI9kRO+YhXWiAgY5ioylRhnC9CNXzX
-         /WLOF5qI/ARiJ9nkyO/1gEI+DZJ2d1h1JEgoUeNIFZcfWRk2Q6ddStty7VShXMYe0XaO
-         aRMg==
-X-Forwarded-Encrypted: i=1; AKwUvByo4BdzoaN1QUJGGzCV9cOfJa9UgMNNbtgLTd6ElWypHlfjSyJbdr6lVlX9am/qtrtbnkjHNAdG4gLGfA==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKTdlVLG1GekWFvfOJQ4x0w1Q2QO7bBoLYDTs/6hOPWzE61lF/d
-	cJoinBisopsAduMMtsZzSKMZFCU2Epy5mgRWDd/lKfpCV0Hmv6Kmjb8Q2qdXsLlXtd7AGp+BnV5
-	qprkf+I/a4pD4qzpwfbDg3I+fZJwo/TSb3OcOkJQCOQ==
-X-Gm-Gg: AYBFou2jXP/hRCw88J/HskNRKlU2o5UbvW45Gt+oibaESUkotIdvlohWNIG/ikfi64H
-	I+63JOQcinYcTj7Yc6LiKtQwu7pBqrrPjZzmwBi+FZIulaSuqy3qfwzdTPVlJrY39JSX4OA9P9U
-	Tm7edsXLosbL3PbViEZu3CQbgGBkSQ2UDWb6iCZpU/UjKU8lBnjjJMulC2ApY1CRnk7WkcQHbp2
-	vhqOiNUd9qsY+GV1GGV0tKp8620o+KTEslSuBV0m5OJ6XmXRBimYrwdeKssRbf7lhqH5mPHScKj
-	jie+jJHUZif3GckXPuPyEDt9pElBbKbOQwuiJ4v6PpArQRudiGfTxjFeC1CDftHqLNtuh+zTNHI
-	K/Ujgx0Ll15RfnhTlE6KHkBvjpPaB3viusaweeO+zW6IUP9djevxAwferXCPNboUhG7duCsqv1p
-	AJcqst6G5guZ3KeM7TpKAc79eHR/2zukbV/m2AqTDk10q5sWa5qA+LpgE=
-X-Received: by 2002:a05:600c:a45:b0:4a1:fae2:a8ab with SMTP id
- 5b1f17b1804b1-4a211c78b0fmr14407705e9.3.1792727395607; Thu, 22 Oct 2026
- 20:49:55 -0700 (PDT)
+	Fri, 23 Oct 2026 04:11:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=feishu2604151535; d=picoheart.com; t=1792728690; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=sSBU3xK2Ij3rZocO6L3/7j8rVVMv4LqkqRjKfDYfDmY=;
+ b=wk2IsIMMssIxbKIQqY3JgOGI+qXD2W6OyMLebSTOyEIyah/et7Yfp3EGUtfBLTyL3FfHJx
+ H1LWcNPGJEO5VVAihYUfac23qv4EtPn9+AibseRXR8zkuhuw42yGdoCVvX0K6pYaRFij4e
+ 7qIgRoxF3+z2ivdIUMNSwic9QBnZKESAsMYrOTklgq6TBPM8vUFeN0p8kUl8C8KJTlGVWA
+ 0LDIhXHZOeqpVktEx/j3WXPqH/RvA8tE1k1WaKcOLfTQisfqfs7ycpvdmRvaT332IEBWge
+ Bv5QOjY/3rDZoyktmx8aijnlM+mOW0Hzj00gr5jXFKMXHMmENcDOydJw0SfL7w==
+Date: Fri, 23 Oct 2026 12:11:15 +0800
+Message-Id: <20261023041115.65939-1-yang.yicong@picoheart.com>
+Received: from G9WYR9K0VW.bytedance.net ([58.250.106.101]) by smtp.feishu.cn with ESMTPS; Fri, 23 Oct 2026 12:11:27 +0800
+X-Mailer: git-send-email 2.54.0
+X-Lms-Return-Path: <lba+26adade70+082d6e+lists.infradead.org+yang.yicong@picoheart.com>
+Cc: <anup@brainfault.org>, <alex@ghiti.fr>, <geshijian@picoheart.com>, 
+	<yang.yicong@picoheart.com>
+X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
+Subject: [PATCH] riscv-v: Decouple the NR_CPUS from RISCV_SBI_V01
+To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
+	<linux-riscv@lists.infradead.org>
+From: "Yicong Yang" <yang.yicong@picoheart.com>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-References: <CAAhSdy1zNA7Xn9Uv1fFTRJMuCP0Pd2xLQazzm2FedTo_DZwMCA@mail.gmail.com>
- <CABgObfaH4-Ud4VR=GC8giDmWGJWS-tvYSmPOs4TtWg2hm4ocqw@mail.gmail.com>
-In-Reply-To: <CABgObfaH4-Ud4VR=GC8giDmWGJWS-tvYSmPOs4TtWg2hm4ocqw@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 23 Oct 2026 09:19:44 +0530
-X-Gm-Features: AclHuK-CvaYfVDOqEfQN7aLUZ5bdjR2uJDsmHLdPAvhCz9ZB6h-rXHKmpRHIUtw
-Message-ID: <CAAhSdy15rF2Hj8Zph7n61tfW79iSPe8mvLpy+eQRcyvAC0TZCA@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/riscv changes for 7.4
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
-	Atish Patra <atish.patra@linux.dev>, 
-	"KVM RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_204958_213389_60EB0539 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20261022_211138_799132_02EB89F9 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,46 +67,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-T24gVGh1LCBPY3QgMjIsIDIwMjYgYXQgNjozNuKAr1BNIFBhb2xvIEJvbnppbmkgPHBib256aW5p
-QHJlZGhhdC5jb20+IHdyb3RlOgo+Cj4gT24gVGh1LCBPY3QgMjIsIDIwMjYgYXQgMjo1MeKAr1BN
-IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+IHdyb3RlOgo+ID4KPiA+IEhpIFBhb2xv
-LAo+ID4KPiA+IEkgd2FzIG9uIHZhY2F0aW9uIGxhc3Qgd2VlazsgaGVuY2UsIEkgYW0gc2VuZGlu
-Zwo+ID4gdGhlIEtWTSBSSVNDLVYgNy40IFBSIGEgYml0IGxhdGUuIEFwb2xvZ2llcyBmb3IKPiA+
-IHRoZSBpbmNvbnZlbmllbmNlLgo+Cj4gVGhlIHByb2JsZW0gaXMgbm90IHRoZSBQUiwgaXQncyB0
-aGF0ICpub25lKiBvZiB0aGVzZSBjaGFuZ2VzIHdlcmUgaW4KPiBsaW51eC1uZXh0IHVudGlsIHll
-c3RlcmRheS4gIFRoaXMgaXMgbm90IHRoZSBmaXJzdCB0aW1lIHRoYXQgSSBub3RpY2UKPiB0aGlz
-IGFuZCByZW1pbmQgeW91IG9mIGl0Li4uCj4KPiBUaGVzZSBhcmUgODAlIGJ1Z2ZpeGVzIG9yIG90
-aGVyd2lzZSBub3QgbmV3IGZlYXR1cmVzIChlLmcuIDMvNC81LzYgaW4KPiB0aGUgbGlzdCBiZWxv
-dyB3b3VsZCBiZSBmaW5lIGV2ZW4gZm9yIC1yY04pLCBzbyBJJ2xsIHB1bGwKPiBuZXZlcnRoZWxl
-c3MuIEJ1dCAqcGxlYXNlKiB0cnkgdG8gY29tbWl0IHN0dWZmIGFzIHNvb24gYXMgaXQncyByZWFk
-eSEKCkkgZ2VuZXJhbGx5IHVwZGF0ZSByaXNjdl9rdm1fbmV4dCBicmFuY2ggbXVjaCBlYXJsaWVy
-IGJlZm9yZQptZXJnZSB3aW5kb3cgYnV0IHRoaXMgdGltZSBJIG1pc3NlZC4gR29pbmcgZm9yd2Fy
-ZCwgSSB3aWxsIGVuc3VyZQpyaXNjdl9rdm1fbmV4dCBicmFuY2ggaXMgdXBkYXRlZCBzb29uZXIu
-CgpUaGFua3MsCkFudXAKCgo+Cj4gUGFvbG8KPgo+ID4KPiA+IFdlIGhhdmUgdGhlIGZvbGxvd2lu
-ZyBLVk0gUklTQy1WIGNoYW5nZXMgZm9yIDcuNDoKPiA+IDEpIExhenkgVi1leHRlbnNpb24gZW5h
-YmxlbWVudCBmb3IgS1ZNIHNlbGZ0ZXN0cwo+ID4gMikgSW1wbGVtZW50IEtWTV9QUkVfRkFVTFRf
-TUVNT1JZIGlvY3RsKCkgYW5kIGVuYWJsZSBjb3JyZXNwb25kaW5nIEtWTSBzZWxmdGVzdHMKPiA+
-IDMpIFNob3cgc2VwYy9zY2F1c2Uvc3R2YWwgQ1NScyBpbiBLVk0gc2VsZnRlc3RzIHZjcHUgZHVt
-cAo+ID4gNCkgVXNlIGEgcmF3IGxvY2sgZm9yIElNU0lDIHdha2V1cCBzdGF0ZQo+ID4gNSkgUmVq
-ZWN0IHZDUFUgY3JlYXRpb24gYWZ0ZXIgQUlBIGluaXRpYWxpemF0aW9uCj4gPiA2KSBVcGRhdGVk
-IG5leHQgYnJhbmNoIG5hbWUgaW4gS1ZNL3Jpc2N2IE1BSU5UQUlORVJTIGVudHJ5Cj4gPiA3KSBB
-bGxvdyBaaWNjbHNtLCBaaWNjYW1vYSwgWmljY2lmLCBaYTY0cnMgZm9yIEtWTSBndWVzdAo+ID4K
-PiA+IEluIGFkZGl0aW9uIHRvIHRoZSBhYm92ZSwgd2UgYWxzbyBoYXZlIHRoZSBmb2xsb3dpbmcg
-Zml4ZXMKPiA+IGFuZCBtaW5vciBpbXByb3ZlbWVudHM6Cj4gPiAxKSBBdm9pZCByZWR1bmRhbnQg
-aW50ZXJydXB0IGNoZWNrIGZvciBwZW5kaW5nIHRpbWVycwo+ID4gMikgRml4IGJ1aWxkIHdpdGgg
-dmVjdG9yIHN1cHBvcnQgZGlzYWJsZWQKPiA+IDMpIEZpeCBJUEkgZGVsaXZlcnkgZm9yIG91dC1v
-Zi1vcmRlciB2Y3B1X2lkCj4gPiA0KSBSZXBsYWNlIGltc2ljIHN3aXRjaC1jYXNlIG1hY3JvcyB3
-aXRoIHJhbmdlIGNoZWNrcwo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+Currently the NR_CPUS configuration is highly coupled with
+RISCV_SBI_V01 as SBI v0.1 has a limitation on the maximum
+support hartid. This doesn't make sense as enable
+RISCV_SBI_V01 only enable the build of related functions
+but the platform could use a higher SBI version which
+doesn't even have v0.1 function, or have v0.1 functions
+that doesn't use hartid e.g. SBI console. Add this doesn't
+solve the problem for out-of-range hartid as NR_CPUS only
+restrict the maximum CPU number kernel can support but
+not the maximum hartid, see __sbi_v01_cpumask_to_hartmask().
+
+Disable RISCV_SBI_V01 for larger NR_CPUS is not reasonable
+as platform may choose to use certain v0.1 function e.g.
+SBI console, but not others.
+
+Break the tie between NR_CPUS and RISCV_SBI_V01 to allow
+>64 NR_CPUS along with SBI v0.1 build for high end server.
+
+Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
+---
+ arch/riscv/Kconfig | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 5874ca30f4f6..d02b70ffde48 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -453,10 +453,8 @@ config SMP
+ config NR_CPUS
+ 	int "Maximum number of CPUs (2-512)"
+ 	depends on SMP
+-	range 2 512 if !RISCV_SBI_V01 && 64BIT
+-	range 2 128 if !RISCV_SBI_V01 && 32BIT
+-	range 2 64 if RISCV_SBI_V01 && 64BIT
+-	range 2 32 if RISCV_SBI_V01 && 32BIT
++	range 2 512 if 64BIT
++	range 2 128 if 32BIT
+ 	default "32" if 32BIT
+ 	default "64" if RISCV_SBI_V01 && 64BIT
+ 	default "256" if !RISCV_SBI_V01 && 64BIT
+-- 
+2.54.0 (Apple Git-157)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
