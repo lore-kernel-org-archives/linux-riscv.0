@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D78A606A31B
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:18:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACB0F606A323
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:18:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Mqn1fRP+;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=nR6Cafaa
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mNQ2psi8;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=q7U2/shp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,36 +14,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=QEguCn83gy6rIRgSqRsVOn8biDnv3mhp/QmhPUvZIJ4=; b=Mqn1fRP+TGD0h3ddcCRcr4uGhY
-	zhSSjAhD4q7HZarDGn/pInhvYQI54AeD3XdaYUhmEHuW2FPAD7KbYatSrLzNnFHub6lMkYrHisfo0
-	dfL38Re33+Z16c48u6/f3LvQ+XR0bVGvccTEINBryAScCgGt6IOO3lRLH7idXxAaKPnkC/LSYWN+9
-	mKjfDkHttncnXPA7CCS60EzwliRv70JR4ipvIWV3PccsDHVvd6IzrTw4kOdiRIzrwmdu7vcnz/LRK
-	VheBDJQk/luerO72Qa7ESLgwgZ29tFnGw+wVmffo4O3uzV/hkf4CogLSaePTqwsXy5WH1QEuqYiPn
-	xu78R9qg==;
+	bh=bQlvcZzHBB6el0M5MJuvSG18KhjDeH27XYtvWGELCbg=; b=mNQ2psi8jGwgXCxCqLpNgyduS8
+	oSIgH3DKAk2fh8+DEbEarvhkG6201Qa92j6Mdb87K1Qz135zlBHPTnG9dRgLBJk03NsYc2uA6APHa
+	1osPPalYuaEqiHGcipFzNd99kfeBJ0DKg+z7dWWVrYJR3m3oRvsosBaslG/4B+/TivNms7mqmPp8k
+	ePaAO7VrMH71FrTNirP1YvKvCfKEk044V8oF7hfZMk44aR+GXCuRCQa5mZvMuIiFud5sN1cXCaUM6
+	oDX5aaxTN1yvryI0rNnTIR224PWX/XoSv2z0Jrc7NbYfVI38d4BBfX+6jYwZDAt01+T7NxEPFxxrP
+	v2neIozg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK5nA-0000000FPHs-08Wn;
-	Fri, 23 Oct 2026 03:18:04 +0000
-Received: from smtp-usa1.onexmail.com ([52.205.10.60])
+	id 1xK5nM-0000000FPSx-0iEl;
+	Fri, 23 Oct 2026 03:18:16 +0000
+Received: from smtpbgjp3.qq.com ([54.92.39.34])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK5n6-0000000FPBI-3p4m
+	id 1xK5nI-0000000FPHM-3qQs
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Oct 2026 03:18:03 +0000
+	Fri, 23 Oct 2026 03:18:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1792725428;
-	bh=jems36ZyCMio5DHjWW4K3j7Cy2Dpa9yQxkXkkknhqG0=;
+	s=mxsw2412; t=1792725435;
+	bh=hrqZgpXEbRCXYwF/fMDlhxzbJHeEM8/U9JvY1dw+mwU=;
 	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=nR6CafaaGuQQzqiTTirNnOmcF/lmZPomh7IcPj6sbd9wwEwkspuJv/V3NOhofTpqo
-	 Jyi5X2JfT0XA+ko5nN8KBsTzRPE9eh3FObCzgEExnbYZQ5s0eOTKgovOUqZZqws0Pp
-	 4WbtQp2rys0LQ7C3+6Bfrl+zc3N2Wb9XAKxNnkGc=
-X-QQ-mid: esmtpsz11t1792725370te99b9679
-X-QQ-Originating-IP: n7zbQ3yIL03qVRYiYpE6SuaL6NrmGcp6uGlDmpnv3xM=
+	b=q7U2/shpB8rGQW27OuGcKklxvj9080yTgjmwylDejO7cPDJH60Wi6R7TrMIsMmjmD
+	 w+pN+rMkjXLPS39NvvZdrXsvqaloXNT3QYEmpm+ozAww0zlYMNzfqQ1iNJAt09E7ow
+	 uoXnIbCKNgCMx/D1twmtberL/iNlIxpdQg0pjGBw=
+X-QQ-mid: esmtpsz11t1792725381t9933039b
+X-QQ-Originating-IP: zBnCj0Pl9x55BvX5w7GkJn8w3izRmCpCLEcc7pj1jOg=
 Received: from snode5.. ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 23 Oct 2026 11:16:08 +0800 (CST)
+	id ; Fri, 23 Oct 2026 11:16:19 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8562332882774819472
+X-BIZMAIL-ID: 8460341350556304876
 EX-QQ-RecipientCnt: 26
 From: Zane Leung <liangzhen@linux.spacemit.com>
 To: gregkh@linuxfoundation.org,
@@ -72,9 +72,9 @@ Cc: mike.leach@arm.com,
 	coresight@lists.linaro.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 16/24] perf: Flag whether gtrace AUX data carries CoreSight framing
-Date: Fri, 23 Oct 2026 11:14:57 +0800
-Message-Id: <20261023031505.2020925-17-liangzhen@linux.spacemit.com>
+Subject: [PATCH 19/24] gtrace: Add setup_sysfs_buf callback to setup sysfs sink buffer
+Date: Fri, 23 Oct 2026 11:15:00 +0800
+Message-Id: <20261023031505.2020925-20-liangzhen@linux.spacemit.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
 References: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
@@ -82,29 +82,28 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MsvKKjAOQ1AaMhPI55VFTKrH2mVOONDTyOpg+ZB07am93l9YegJ6qziN
-	Y/fsIDTSU3mVgcALgFM4m0KTlX/PWPYaw/TZOshQQ2jNTpfle22OmF15gvOmnLNtXS/rUYq
-	mu57SP9gnnjcJAYhAR9Qu7QEmRqiuhcet/s0mBimyBHZc+ziYyvPusUpuagsvi3b2fEJMUE
-	tcFGGgzyJi9knQ3LHvz/lj3ss5VfjaxaiijtRoTtQirs/av9xCufouG6AFFAIjaTKPu7LF/
-	Ir+VrnCpdw33GjD2vx0ce5CswEeV8hQsZSy6xdTF9ESxllYi/Qj1IFG1Ne8MkH6r+g9UtgY
-	ARoyofRzFUxFZ84OvXbfWVjCXI9iqizfDfktK9m+65ZYk7WaIkvpI2N1tFp4M9BZyUjvFRf
-	lyTlQdYc70UFIJLiLQ28Nev/RwxPWE7EsmWpweoO9xwWuLnFlFSTZ4m3v673H/QmiZqaKPL
-	h8li4MHYGnJrpKv2+sR4hU+Ms2fj64b6CRjIXC+paJm1XamnVHNva5FtUbmDzlt490vC+pt
-	+x3QwPVKuFZF0IRbDTT8F4RO3rB96RXLdoiRJtIoVzWeqkxpyajMKLkxxgVuVfgPPM7nZSF
-	/KPCdXjwS0nuWYz9RSOzYOWELQIckdhDRq8EsxOGS5NMN6klWKf/PQ0snkiYnDsAZYzlsAe
-	SgvzlrI/v7mxZnR8mfOckKAHLnQwteJB6czF6bfC32jeX0vlGvxwdhe8khHIXK3DcS6Q06T
-	oRY00cm4bmXarN1okc4SD/rp+TXM+w+NyApW1Q7GwxrUUWATP9LpdIMm5XQ6i5F4pGDr4Yd
-	YEal/fjP2gF5iLl8gLaVNMTykwDqLB/O3PSDqiXUNJDuFMeNsaOI2mgtK1ZQFmUu+EJ+Apl
-	59Sq3FAh4D1wZTh3B2mhau468bdciMS8WmVoXagBijSeLFVdHstt6sWwkkPrBP2UETYtM7k
-	7Txxjq9olRXLYeF+yDc0cwoPTbzBIsuZBc0UWrnQPuurCE4oKbspS5bSgXqKILMJpsBJJNn
-	JFe4eomLt/a/MwKEjwjYIpu6MtZj9cFlbY8oVWvhgaAD6pHgfhIVFO2qaJDEf5G/Pv4T+PX
-	Xy4ys3eaG/o
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-XMAILINFO: NDgMZBR9sMmatuPt4E/niLZWmzf9ctllFvLRuFuf9VDi0PMFIibxkBIg
+	ItQi/Chl6XUzLiPKEEmXtnM0hzB/R3poQsDYk093maYr1/RG720Wb1JdvFxn53dMJO/567v
+	LgqhM0BzlvZzwE5eNDwHNjx3DUgT6DoNFpKLU8ORwvIVUjiLHob4kJG0M0QUUFmyy1HNuns
+	XmlswuFD82CKjUjJnacv/scwI1jfbmMBJ/9d7sLscrRIoGrOkC6Fn80FItuB2GdoBfqmP8w
+	uy/kxheAPi/752GrcbjVM9KGZVLbh8sfxYRQBh8oAERITnBjJRjshSYOhdVAzhxL8x6D2wv
+	aemlD+QEPYPogq6t5cBivTj/LR/zJq9ujrRSKl7zW0ORmhHIYXFAlaVFq8u3ENglWpM6n1y
+	7eORglVodzHuqaJ/aKcisdAI8D5kXGWKq4ha201xOZsILfEf6mBSYM8pPKf30yGW6ykyCt7
+	JtC+FVdCNFCoR1P9x7oby4L9q5XZqIP7RrnCtcAnN6vWMmWw5sL99I9rweB5tD2NjP7Ki8k
+	SBvesNtizB21GHC2IJzkSL7pByXB1JMDXeW43nhivRywaRU923bjLCuf6PL7kfsuWHPR+pp
+	gbJTe1+vHZ71eWKObyHNotIAOihP2TbJxwOjA4UjPO+i7VaGijsVAu3hBbOC889TdtuO+Qa
+	5Wk4LbpEL2bBNRCQLosuv+wYA+hTCzfmhi03ejCfpV8wQ1goWjKpMQs08ezSQW/HEbcREDg
+	dAVDyuhRtEPiFl8CspkAzwM0jVGH6xkKP7V4owtejstbDrXv01FCFLX5HzmbjjYW5bT4qfd
+	7J4ycz11bF1VezUG++V68inN35axyyFkSCwYlZNiH6r2l8Tfi4s+sqSImDyhIUy9H9K/mhL
+	p1rHmxHx+PsGFlXo1pI7jeM/jol8/ZyR7NEoR6hROL1CwL12dCnbytWNPVWSPl+rIiC58I0
+	TtmONXWOlW+f0YHG8D3g4ZjFAQI6tMRWB4978LynQbHaMV+D9rYdhQqWxPbpKMzSjK/LKoE
+	9OZjj595sSRLiNfe+8r6thtDBUjMGoU15c/VxXYtUTQ1YIVzU6TSVT9SaunCwL+QuiSwrao
+	sJzeLnnomuC
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_201801_471636_BF8E0AEE 
-X-CRM114-Status: UNSURE (   7.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261022_201813_241504_5B6FA859 
+X-CRM114-Status: GOOD (  11.61  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,40 +124,67 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Define PERF_AUX_FLAG_GTRACE_FORMAT_CORESIGHT for the gtrace format
-which reports whether the data has been wrapped in CoreSight frame
-formatting by a CoreSight sink.
+Add a setup_sysfs_buf() callback to gtrace_driver and invoke it from
+gtrace_enable_sysfs() before the path is started, so the sink can
+allocate its sysfs trace buffer outside the spinlock held by the core
+start path.
 
 Signed-off-by: Zane Leung <liangzhen@linux.spacemit.com>
 ---
- include/uapi/linux/perf_event.h       | 1 +
- tools/include/uapi/linux/perf_event.h | 1 +
- 2 files changed, 2 insertions(+)
+ drivers/hwtracing/gtrace/gtrace-sysfs.c | 12 ++++++++++++
+ include/linux/gtrace.h                  |  2 ++
+ 2 files changed, 14 insertions(+)
 
-diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_event.h
-index 2ac00a409a04..9d9ed2adc1d4 100644
---- a/include/uapi/linux/perf_event.h
-+++ b/include/uapi/linux/perf_event.h
-@@ -1315,6 +1315,7 @@ enum perf_callchain_context {
- #define PERF_AUX_FLAG_GTRACE_FORMAT_UNKNOWN	 0x0000
- #define PERF_AUX_FLAG_GTRACE_FORMAT_ETRACE	 0x0100 /* RISC-V E-trace format */
- #define PERF_AUX_FLAG_GTRACE_FORMAT_NTRACE	 0x0200 /* RISC-V N-Trace format */
-+#define PERF_AUX_FLAG_GTRACE_FORMAT_CORESIGHT	 0x0300 /* Trace with CoreSight formatted frames */
+diff --git a/drivers/hwtracing/gtrace/gtrace-sysfs.c b/drivers/hwtracing/gtrace/gtrace-sysfs.c
+index 5f4f3fcb56a4..23b0a21ef9c0 100644
+--- a/drivers/hwtracing/gtrace/gtrace-sysfs.c
++++ b/drivers/hwtracing/gtrace/gtrace-sysfs.c
+@@ -85,6 +85,7 @@ static int gtrace_validate_source_sysfs(struct gtrace_component *comp,
+ int gtrace_enable_sysfs(struct gtrace_component *comp)
+ {
+ 	struct gtrace_component *sink;
++	struct gtrace_driver *sinkdrv;
+ 	struct gtrace_path *path;
+ 	int ret;
  
- #define PERF_FLAG_FD_NO_GROUP			(1UL << 0)
- #define PERF_FLAG_FD_OUTPUT			(1UL << 1)
-diff --git a/tools/include/uapi/linux/perf_event.h b/tools/include/uapi/linux/perf_event.h
-index 2ac00a409a04..9d9ed2adc1d4 100644
---- a/tools/include/uapi/linux/perf_event.h
-+++ b/tools/include/uapi/linux/perf_event.h
-@@ -1315,6 +1315,7 @@ enum perf_callchain_context {
- #define PERF_AUX_FLAG_GTRACE_FORMAT_UNKNOWN	 0x0000
- #define PERF_AUX_FLAG_GTRACE_FORMAT_ETRACE	 0x0100 /* RISC-V E-trace format */
- #define PERF_AUX_FLAG_GTRACE_FORMAT_NTRACE	 0x0200 /* RISC-V N-Trace format */
-+#define PERF_AUX_FLAG_GTRACE_FORMAT_CORESIGHT	 0x0300 /* Trace with CoreSight formatted frames */
+@@ -114,6 +115,17 @@ int gtrace_enable_sysfs(struct gtrace_component *comp)
  
- #define PERF_FLAG_FD_NO_GROUP			(1UL << 0)
- #define PERF_FLAG_FD_OUTPUT			(1UL << 1)
+ 	mutex_lock(&gtrace_mutex);
+ 
++	if (!sink)
++		sink = gtrace_path_sink(path);
++	sinkdrv = to_gtrace_driver(sink->dev.driver);
++	if (sinkdrv && sinkdrv->setup_sysfs_buf) {
++		ret = sinkdrv->setup_sysfs_buf(sink);
++		if (ret) {
++			gtrace_destroy_path(path);
++			goto out;
++		}
++	}
++
+ 	ret = gtrace_path_start(path);
+ 	if (ret)
+ 		gtrace_destroy_path(path);
+diff --git a/include/linux/gtrace.h b/include/linux/gtrace.h
+index a3d125882ec9..0957d0490c57 100644
+--- a/include/linux/gtrace.h
++++ b/include/linux/gtrace.h
+@@ -377,6 +377,7 @@ int gtrace_path_copyto_auxbuf(struct gtrace_path *path,
+ /**
+  * struct gtrace_driver - Representation of a trace driver.
+  * @id_table:      Table to match components handled by the driver.
++ * @setup_sysfs_buf: Callback to setup sink-specific sysfs buffer.
+  * @alloc_buf:     Callback to alloc sink-specific buffer.
+  * @free_buf:      Callback to free sink-specific buffer.
+  * @copyto_auxbuf: Callback to copy data into perf AUX buffer. The driver
+@@ -394,6 +395,7 @@ int gtrace_path_copyto_auxbuf(struct gtrace_path *path,
+  */
+ struct gtrace_driver {
+ 	const struct gtrace_component_id *id_table;
++	int			(*setup_sysfs_buf)(struct gtrace_component *comp);
+ 	void			*(*alloc_buf)(struct gtrace_component *comp,
+ 					     struct perf_event *event, void **pages,
+ 					     int nr_pages, bool overwrite);
 -- 
 2.34.1
 
