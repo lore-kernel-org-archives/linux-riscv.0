@@ -2,61 +2,109 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 734F2606A319
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 04:11:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6243606A31A
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 06:34:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oNwoYPBg;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=picoheart.com header.i=@picoheart.com header.a=rsa-sha256 header.s=feishu2604151535 header.b=wk2IsIMM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fGWIhmlo;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=iSumUcoI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:From:To:Subject:Cc:
-	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Unsubscribe-Post:List-Owner;
-	bh=0bt9Il4jihZcIF3zgogTEUuWa2ZrQ3z/fwrrGww1xis=; b=oNwoYPBgBqvyKqSnKYbLW8uBHI
-	9mifkzrXrGgWgdHGwX09RbIxIDYr+TawN5uTbmYF5Z8ou5iCR6cpjxazo5nIBm4Aer4xhlxZE04UM
-	pkrv3oa2nGcQaJpicAuuu1ObX8IjBLtyDOjpC8JuwFXwmeq5Qb8WaGwOfIka2+vphG43B5w0Lpdrg
-	hCaddTSZ9b/GK9C+oj6mBNrhefT63W2fE3/rgMXvy+l9RWuGdqUWTCUGhaV4ARgOW5hlWEgXigOtL
-	H99+u7sCphksbYkmF+XQDO/oRM8Aj98bguA3z76KuJvmK8y3BbPEDluJinhvB3YyX6k+EKEaGZQyk
-	Ox3p7Y+g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=br9zwlqq6VBBdGVw1fw91ZMkDr7Kg+DdTFU49nlXDZU=; b=fGWIhmlomMLHWE1mTDQqAdlaAV
+	xJWEkyZhVqUpZwTmW24VcpxXBBtcf5+EJ8PQKLFnFAuIAiXlsOzjYZRcCa7ErZOtNUwMFitbaPtII
+	FajO2kzgxPaGkyyXyZwa1TrT+ssPOEVfqQDzLiZ0qooW7w5cM/apopGiIATbBOBEv0oJPVb/tcSMR
+	XOM5rF0Nby7txTny8ItwhwdSeyKnST6Q6dSBCe6bZ96noiTBX40lHFJmjd004mz6l3jt7FBFIaVCu
+	ENHBOm2nymVlN8EvI6+R/YsX1a/PakPPmECyL1A4GuQ3xRUc1UWrQ+2EznV6LBsZSnjuDhNmU9bXY
+	foYE9M+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK6d3-0000000FToW-2wW2;
-	Fri, 23 Oct 2026 04:11:41 +0000
-Received: from va-2-28.ptr.blmpb.com ([209.127.231.28])
+	id 1xK8rW-0000000FZsX-1f2u;
+	Fri, 23 Oct 2026 06:34:46 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK6d0-0000000FTo7-2E23
+	id 1xK8rT-0000000FZqp-0e8n
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Oct 2026 04:11:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1792728690; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=sSBU3xK2Ij3rZocO6L3/7j8rVVMv4LqkqRjKfDYfDmY=;
- b=wk2IsIMMssIxbKIQqY3JgOGI+qXD2W6OyMLebSTOyEIyah/et7Yfp3EGUtfBLTyL3FfHJx
- H1LWcNPGJEO5VVAihYUfac23qv4EtPn9+AibseRXR8zkuhuw42yGdoCVvX0K6pYaRFij4e
- 7qIgRoxF3+z2ivdIUMNSwic9QBnZKESAsMYrOTklgq6TBPM8vUFeN0p8kUl8C8KJTlGVWA
- 0LDIhXHZOeqpVktEx/j3WXPqH/RvA8tE1k1WaKcOLfTQisfqfs7ycpvdmRvaT332IEBWge
- Bv5QOjY/3rDZoyktmx8aijnlM+mOW0Hzj00gr5jXFKMXHMmENcDOydJw0SfL7w==
-Date: Fri, 23 Oct 2026 12:11:15 +0800
-Message-Id: <20261023041115.65939-1-yang.yicong@picoheart.com>
-Received: from G9WYR9K0VW.bytedance.net ([58.250.106.101]) by smtp.feishu.cn with ESMTPS; Fri, 23 Oct 2026 12:11:27 +0800
+	Fri, 23 Oct 2026 06:34:44 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-cc7d154ec4fso229456a12.0
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Oct 2026 23:34:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1792737279; x=1793342079; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=64tBqhaCstcvhuNkWvz0hImiXE9PsoHY46iN8B5GY0M=;
+        b=iSumUcoILtWST7ulihlVQYL1FwGYdMZiC6vAoP0rAJ0TgnG4eqqo5176Ymko+CHNwn
+         p20QK5sL9snxQR4CCTqRhp17A3RvkdQa4C7bGmvoR4C3t0Wr9oNsiMN+d26cstOW9Ba/
+         GXqHhqHlSrRlruANUvqk6mzZTXdUkwLhTXJvHasw+RL7x8wa0aBDTB1o3bdJyXODUaTH
+         3faxmpf9RQzCc7nAM4KgcNZSC+9ihmmOFlrYmMys8ZwtcHMTGefXKWpiNlp2ZOJEHHLs
+         Luodh0GiBITz+9QjM+s5BYX22jchKcZQvdjpt1ODkHtmeMYAV+1A+rJM5ubMz9JhhL2b
+         IGZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792737279; x=1793342079;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=64tBqhaCstcvhuNkWvz0hImiXE9PsoHY46iN8B5GY0M=;
+        b=n0GfmkcOWbJekdfDRt36wkDRNuPs67KCkHKToy1dfcR2y2KjjUHLtvm4RsO35OwFdX
+         7pqrl6PTuxtt9+oypKEnMlRutCNXdRntsTWfHWC0kov0HjHybHEaMldubj5h2U7ehZEK
+         v6ls8wZqZS63fD6Q9Ec1PIpImMh+b158DKeJd1TSpnLHikgas/tIpPISCwbyoPvYeJUL
+         q99XtPVQpa3nAacJ7IQEMnoNaizbrYA+g8Iz16xCEKljzpR5jyOGq5ZHTttNE9XBN49r
+         9SwrXTIfin4E7E/iOEPmAw168+cKaMNHGHCK82e1CsU7pECbaZLjMVf/8NL7nfmB6HcQ
+         uYQA==
+X-Forwarded-Encrypted: i=1; AKwUvBwnJocfR0b0e9gah1kjHxCzGAzVuG8PjEJCHX0Mso7wPJTKmkADDll78gNzjBZZN94CC3jsY6n7114CeA==@lists.infradead.org
+X-Gm-Message-State: AFq9FYLWOuo+NtMgNj5P/PF0DHoGEj7HFxKRTKwKA4HapmtyMeXxoPCq
+	GOLPYqtD/39fqXTNYnWmurWVRBLBJ9XKnIMAEXeUkaLn0LJTYnQ5wiMEQ1oeJ160TeI=
+X-Gm-Gg: AYBFou2NPwRFWLZmNFeZUso33Ze3ersgD86fLX+8t6KwhOM/oOPnFVjTQUpbWpFMTv4
+	pwK4LTWhaXSNjrVw4H7sTMrePwapfRyV75gulHz1rlY2A57Iii1UIoqUYNTFGdboKx73sm6aUL5
+	KNXznchqYY5BvUGiGGxhziHA7VzjVQf5BoNxRR5x0ciAQGVhCEn2wmk/ybIMFct3zkirHUUxLpA
+	cYbS0n0Oxm/rlblwqQzUaTwc8C7wf5wntmXEflKinR9LdTJUkKMfu8xKGF97yTwgWmJh/kEmBZc
+	VVBKeq9apF4IJIskJIoA8VAIOss2iYfSrAIRZawAF/vgR/XeYRuHKZno6Du9sICFeMbEepPKK5R
+	Dc4JAEpF/k9mlNpUTMC3f5NawLDks3SB2BF6kaqL9K2agdHmbdx3QalAJ4vlDkhM+/OEn8hKjKl
+	1lbEcInSSpG5uL1HvPqW5q/qmhhI2Hk6+Gusjdd9PKb+P6KJO0rEVWpFKVBvarCl/l9x+VMucjc
+	qW29V9Ab/gLLUZvGe3JsJioUBXwGB4OiPfR0iaPqZE6LhfUZF7zvG7bAgjZGkBpK91jE6oQOkcL
+	Nw==
+X-Received: by 2002:a17:90b:1c82:b0:3ac:a7ee:6770 with SMTP id 98e67ed59e1d1-3adce0ccd3dmr1138974a91.7.1792737278490;
+        Thu, 22 Oct 2026 23:34:38 -0700 (PDT)
+Received: from n232-176-004.byted.org ([36.110.163.103])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3add246f308sm575202a91.0.2026.10.22.23.34.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 Oct 2026 23:34:37 -0700 (PDT)
+From: Muchun Song <songmuchun@bytedance.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@kernel.org>,
+	Oscar Salvador <osalvador@suse.de>,
+	Dave Hansen <dave.hansen@intel.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Muchun Song <muchun.song@linux.dev>,
+	Muchun Song <songmuchun@bytedance.com>
+Subject: [PATCH v3 0/4] mm: Fix page-table teardown during memory hot-remove
+Date: Fri, 23 Oct 2026 14:34:24 +0800
+Message-ID: <20261023063428.3658761-1-songmuchun@bytedance.com>
 X-Mailer: git-send-email 2.54.0
-X-Lms-Return-Path: <lba+26adade70+082d6e+lists.infradead.org+yang.yicong@picoheart.com>
-Cc: <anup@brainfault.org>, <alex@ghiti.fr>, <geshijian@picoheart.com>, 
-	<yang.yicong@picoheart.com>
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-Subject: [PATCH] riscv-v: Decouple the NR_CPUS from RISCV_SBI_V01
-To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
-	<linux-riscv@lists.infradead.org>
-From: "Yicong Yang" <yang.yicong@picoheart.com>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_211138_799132_02EB89F9 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261022_233443_302058_EFD7E46D 
+X-CRM114-Status: GOOD (  11.15  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,56 +118,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Currently the NR_CPUS configuration is highly coupled with
-RISCV_SBI_V01 as SBI v0.1 has a limitation on the maximum
-support hartid. This doesn't make sense as enable
-RISCV_SBI_V01 only enable the build of related functions
-but the platform could use a higher SBI version which
-doesn't even have v0.1 function, or have v0.1 functions
-that doesn't use hartid e.g. SBI console. Add this doesn't
-solve the problem for out-of-range hartid as NR_CPUS only
-restrict the maximum CPU number kernel can support but
-not the maximum hartid, see __sbi_v01_cpumask_to_hartmask().
+Memory hot-remove can free page-table pages allocated through paths with
+different constructor state. Some paths run the page-table constructor,
+while generic sparse-vmemmap population may not. The x86, RISC-V, and
+arm64 teardown paths did not handle that distinction consistently,
+leaving constructor/destructor accounting unbalanced.
 
-Disable RISCV_SBI_V01 for larger NR_CPUS is not reasonable
-as platform may choose to use certain v0.1 function e.g.
-SBI console, but not others.
+Make pagetable_free() handle any remaining constructor state before
+freeing a page-table page. Callers that already ran pagetable_dtor()
+have cleared that state, so the destructor is not run twice. The RISC-V
+and arm64 fixes then use this common helper for their memory-hot-remove
+paths.
 
-Break the tie between NR_CPUS and RISCV_SBI_V01 to allow
->64 NR_CPUS along with SBI v0.1 build for high end server.
+The architecture fixes depend on the common MM change in patch 1, so
+this remains a single series. I expect it to go through the MM tree,
+with review or acks from the relevant architecture maintainers.
 
-Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
----
- arch/riscv/Kconfig | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+v3:
+- Explain why pagetable_free() does not run the destructor twice.
+- Add the x86 stable prerequisites noted by Jose A. Perez de Azpillaga.
+- Collect Acked-by and Reviewed-by tags from reviewers.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 5874ca30f4f6..d02b70ffde48 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -453,10 +453,8 @@ config SMP
- config NR_CPUS
- 	int "Maximum number of CPUs (2-512)"
- 	depends on SMP
--	range 2 512 if !RISCV_SBI_V01 && 64BIT
--	range 2 128 if !RISCV_SBI_V01 && 32BIT
--	range 2 64 if RISCV_SBI_V01 && 64BIT
--	range 2 32 if RISCV_SBI_V01 && 32BIT
-+	range 2 512 if 64BIT
-+	range 2 128 if 32BIT
- 	default "32" if 32BIT
- 	default "64" if RISCV_SBI_V01 && 64BIT
- 	default "256" if !RISCV_SBI_V01 && 64BIT
+v2: https://lore.kernel.org/20261010112457.49485-1-songmuchun@bytedance.com/
+- Move the destructor decision from x86 into pagetable_free(), as
+  suggested by David Hildenbrand.
+- Use pagetable_free() for non-reserved RISC-V page-table pages and
+  simplify reserved-page handling.
+- Collect David Hildenbrand's Acked-by on the RISC-V PUD fix.
+- Use pagetable_free() for arm64 intermediate page-table pages, as
+  suggested by David Hildenbrand.
+- Trim and update the commit messages, as requested by Dave Hansen.
+
+v1: https://lore.kernel.org/20261008073021.2512665-1-songmuchun@bytedance.com/
+
+Muchun Song (4):
+  mm: fix missing page-table destructor in pagetable_free()
+  riscv/mm: fix hotplug page-table destructor handling
+  riscv/mm: fix missing destructor for hotplug PUD tables
+  arm64/mm: fix destructor for unconstructed hotplug page tables
+
+ arch/arm64/mm/mmu.c  |  3 +--
+ arch/riscv/mm/init.c | 32 +++++++++++++-------------------
+ include/linux/mm.h   | 37 ++++++++++++++++++++-----------------
+ 3 files changed, 34 insertions(+), 38 deletions(-)
+
+
+base-commit: 26d7e34b4226709084461a07bf28d9066fa96d8c
 -- 
-2.54.0 (Apple Git-157)
+2.54.0
+
 
 _______________________________________________
 linux-riscv mailing list
