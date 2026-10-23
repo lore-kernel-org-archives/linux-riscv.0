@@ -2,91 +2,117 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70FE6606A31A
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 21:03:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33712606A31A
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 21:13:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wWunMcHZ;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Uq2tmGaB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cc2dD3jG;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=BOK0jA69
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=XbRlMvNLeiqDcP9GQfe60t3PG1sEqJCi75nRYMg2EYA=; b=wWunMcHZdPornbIh+Kx7imT2t1
-	wiAUR4/k7HdTY5ERAGGmLBJV2KwT5RQ8WCGBpNY40LuhkUiID56TkeO0t3fO7Yx/2V9nv8HD69dYr
-	/Fezb9gSOXarELHg3wYSF70/TgF0XXl/zVyIKSEzQ9ety6elfaZlFm+mGqqQ3351ZKupPnZvFjUsW
-	nzXdra92FM8AvJgxcqfTmloUOKlcy+3NCclnrcK+TSOBX9iVzGfJF+czNk+3rE1Eob3Cp25FDKRMw
-	4QU9z0YEvTfxp0eSOCgxTkoEKfmS5G4gHkFTfBpH+TCmXVQPTSx3dYgtsj5UU8EfdZNNr95zjUXBt
-	XJE+lHQQ==;
+	bh=PlrzFkI1PRKuDaAEJdgNjwX5hgUGfyf84TGIAlQHz/k=; b=cc2dD3jGXzA7RPrDLHE0htUOML
+	sCh+nGn7oejwN2+pL5PQXbcc1Hl4i7NJWlNg3WTYQgBCT7wP97NqWlPCCKmv4qA5PSa+GzIKfgr6K
+	CFcnhcwTICRopmbK0YDdqJ7yVkDznQbUFrMOadj1cNYZBlbWh/IY/VF9AirXRdDebCMxWgabVTnPj
+	/Vjw9eD5TS8lGXs9htDgS7BA8YBD3DARtD9up0SShxCj4sdmBEeHr6l7tw3deCL2sqTha/Fb8xVaK
+	l3JB/8yYtbSO9CkLx0LoKmo1JWSYa/MFFwSlIDym6vBgd3TTqQ7v5JwyxgH2/+PRtR3Cbh8rRLDC/
+	kh44Qjig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKMQ8-0000000Gy2s-1FbS;
-	Fri, 23 Oct 2026 21:03:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xKMa6-0000000GyZ4-3ncd;
+	Fri, 23 Oct 2026 21:13:42 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKMQ7-0000000Gy2d-0JfH;
-	Fri, 23 Oct 2026 21:03:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 65CAD41766;
-	Fri, 23 Oct 2026 21:03:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97F501F01828;
-	Fri, 23 Oct 2026 21:03:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792789402;
-	bh=z4qvQCN58U+JYqI9bDmfn/D5nhfh4S82nzs2P03LmsM=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=Uq2tmGaBxQvk3ht7HGTfPReMFqJyJBCqOBq0vIxhArHZHHeoamuJ6hketeNzAHwZ8
-	 StcQA3xVSJUZdHusYqq87suQp54bO9TdiZ0Pr4Ze4Wu2fGh5HjQOT/CoRjmyJUuOT5
-	 DQIFlkgiCw5uboeFrJN90fUZm+ihmGYUDBYalCT5RPVFLoqxwSKvqaI9hdOaScug8P
-	 bsCdObO84vUQd+eimnQGnJ/jGAyvXaf1qnLPgmpV54ONY8AyHfNjtN36ieHAOum0Wt
-	 WlnPPiOkJPBZadv8Dcg6YFnsEANfVbG9w4HaV+a+oZJwLVONF8+aKkQsdWKxbxEmfR
-	 J7+cwITy6EDVA==
-From: Thomas Gleixner <tglx@kernel.org>
-To: "H. Peter Anvin" <hpa@zytor.com>, Sebastian Andrzej Siewior
- <bigeasy@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>, Peter Zijlstra
- <peterz@infradead.org>, Michael Ellerman <mpe@ellerman.id.au>, Shrikanth
- Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org, Kees Cook
- <kees@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- loongarch@lists.linux.dev, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Sven Schnelle
- <svens@linux.ibm.com>, linux-s390@vger.kernel.org, x86@kernel.org, Mark
- Rutland <mark.rutland@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, Andy
- Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Richard
- Henderson <richard.henderson@linaro.org>, Russell King
- <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Guo
- Ren <guoren@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Helge Deller <deller@gmx.de>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Richard Weinberger
- <richard@nod.at>, Chris Zankel <chris@zankel.net>,
- linux-arm-kernel@lists.infradead.org, linux-alpha@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-m68k@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-um@lists.infradead.org, Arnd Bergmann
- <arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>, Will Deacon
- <will@kernel.org>, Brian Cain <bcain@kernel.org>, Michal Simek
- <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, "David S. Miller"
- <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>,
- linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org,
- linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-arch@vger.kernel.org, Michal =?utf-8?Q?Such=C3=A1nek?=
- <msuchanek@suse.de>, Jonathan
- Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
-Subject: Re: [patch 16/18] x86/entry: Get rid of the sys_ni_syscall()
- indirection
-In-Reply-To: <C6D7BF04-4CF7-48D1-93B5-E80D52C2617D@zytor.com>
-References: <20260707181957.433213175@kernel.org>
- <20260707190254.493733289@kernel.org>
- <20261022142425.3Wx-RrU5@linutronix.de> <87fqxx1r80.ffs@fw13>
- <87cxt11ktr.ffs@fw13> <1149A39E-BEBA-46EA-94F4-4DFFC4733EF5@zytor.com>
- <871p9g1s3w.ffs@fw13> <87y0boze95.ffs@fw13>
- <C6D7BF04-4CF7-48D1-93B5-E80D52C2617D@zytor.com>
-Date: Fri, 23 Oct 2026 23:03:19 +0200
-Message-ID: <87se1wyvs8.ffs@fw13>
+	id 1xKMa4-0000000GyYg-2C7p
+	for linux-riscv@lists.infradead.org;
+	Fri, 23 Oct 2026 21:13:41 +0000
+Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-3ab3b29a210so12312721fa.0
+        for <linux-riscv@lists.infradead.org>; Fri, 23 Oct 2026 14:13:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792790018; cv=none;
+        d=google.com; s=arc-20260327;
+        b=N1niYOm5+3Nb7oJrz4GpxL4W0/W8HlACElpza7V+gWImGJOm0WCWeVtlz/4Oiu2Ihk
+         P2y07fopFHfxsb6Iy7a+WtDKbBV/sYVCXH/OQbmOXbjeFycoqMRBeflnPn4Qxzmf2Wsa
+         i+Uhta3PaMq2cStTIyNKrDIwi3594G8fKqX+C0JjV7Krf9v198lP+2mdp/8130WSRUfx
+         VaAGMmqglLoM/Vf31LhQTN6FhaeG/5nbpeJjskZYiPduDACYYUHYW7UFI6jobyR8i2Bs
+         1IJPgyDoIyIpynggKJj7xBNSNElhoVAROIpE1fhD7M/kcStrY1hYLgv4PdOo32AkXwLi
+         YLsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=JUnmhWE/6nuKeVluLworAnQepkBWhUtRWFlIO5F95AY=;
+        fh=ByGmLcseM4MNmxwD6VeEpp9iSa+798i7K76ys2Z585I=;
+        b=lbc92KZaCF+yBnB2odX+vxDHj+ctuRU6HU5QW7A0eFw0wXdQ/Etidbr/Xu/d6ZBNDL
+         q0gW65dcOT/sPFNruHtSpBLVf2iw+nlXUsMmDg4LFu+bwKOm8BnI1+6Gow5u8NN2AD63
+         0rCGw+bcvFJP1rNJ+ieAGNYozTPfKj2jJiG+6tqGlXAuXaxp+ek8unl0ui+AJvIGjOT4
+         XQCJ0nsjrRXFRrv2KUqKggzQng5bVuJTDVwmoijptsHIV//FPCwjH/8Q8e/v/rhkRvPM
+         ssN1H5sn9hLtFC51gvhnZ1A+Tokk36wpreE02qNYEeiZUGf4A5Ey92V9cnAUYKjHmTQs
+         2iFQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792790018; x=1793394818; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JUnmhWE/6nuKeVluLworAnQepkBWhUtRWFlIO5F95AY=;
+        b=BOK0jA69r1+2DKMEcscKr3um9xgvfJ85C57MMuILS3DP3bmgwGn+FDVJcgdjxrn2pl
+         sfKcRC/a5ZJFuFWp+zHZrS67xq/8hW3GotjQkkraK0urVn4VpmdCThotrQX2CKKLFcfd
+         DWvrK7A2U2oZmJUDHo3f18OgmjITxBo5+IvcKbZiFKA/AT70PQ85EmjEbcBZr4db6h6w
+         4M7ZWrvT/UGmbf+usqT/jvgDYf0HTz/YqAkgA8cQ+HE36yJ7e/U5AVvX7zz8leav92NM
+         lqf5zXzZED4s71EqpOQ54Wt/WDtpurfWM2dQiVkGco3eI1Ubo3LdfQxQk26/XTILlq7J
+         NQUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792790018; x=1793394818;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=JUnmhWE/6nuKeVluLworAnQepkBWhUtRWFlIO5F95AY=;
+        b=QCPkrkPmymd/AFjTZKpbFKmGpCOiVKzyBT/yQno1x0v37fwxhkmuHq5OQH0RMH2hmO
+         8kUovmDbL6wb5VCHyCDd6W5zK8WvZf+37fpZAk0DUrr9py6qZ6S16WTSAHrSZ+diD8/l
+         V19/eL2pw8TdYfMIP2gT+iYN7P7v/zWS2bjPmZ0fB8YYPoTzD8lW6X8lRa4MrMicr6of
+         XYNU8/zqN5oMEYHOrcvj2HH5XGP9Enh+IgTU7wbI8u3Ud19YT9o6J2QjTEaUP5Dv3ntf
+         lg+pLVDJxS9VJc89xyrjdiyNy44d2XEuz4zQ6d/xLCw38PcfCD9H6FEJSv59GXKimoUc
+         fEqg==
+X-Forwarded-Encrypted: i=1; AKwUvBzKAD68jgLRRB/KGbaBP5Xw4XQ6qXQS+f/ecuj26ZBxDvdSUkGZVwQga5B5ONCx0aBGoUgNZx8fVRQYlQ==@lists.infradead.org
+X-Gm-Message-State: AFq9FYJHH7HIjIKt/OQknAGN7Q7jup/Mzf/e7Xc0b5XsDUX5nYCh2oq7
+	ve1tiVEyWWcKdfnIXJsqoMs7MUoU99nehUEAOesSUwOARJr5jg8YHMvoFJJugmnmwys5YNXYMEp
+	U5/OOxuHF+SIOAtkB7hgsX+uwXSd1WQg=
+X-Gm-Gg: AYBFou234ymxVzsWeS9mQJ3oKYidZpdgIjgKzgiWWdjAPrY3lgyoSBal0YV7OqMfVYg
+	6uJ4N5/ZW1cC1kB8XVyMcvkO4iW1GP9xHKlB8AU5/6kiHqdBiqgVAgcd4sE/owGOVEXVyJV2DhF
+	adLsGSJT9hvKszUnNBvgcfIw+GP8gVdD5Avgvt8Xf5wKBr53MZkxu3wrvOCs75IeXL45D14Sbdr
+	O39JKkvT6IIrH3TzR+0BnKJdof0FZ/FydKY4kIDrqSfdEW1JFp4rZkZNuT1CDMXQOMdoCPmvSJ0
+	SPiPihLmN6xprMef3zAqi7WncTMIQz7EMLpGA/Ky6vvoMzUlXusVSr7wbLTGM0DiplrlwR+7rjP
+	bAy24bxn9reQadYzDktdh1LwTuV4MUYO2F4c=
+X-Received: by 2002:a05:651c:31c2:b0:3ab:1dcd:934c with SMTP id
+ 38308e7fff4ca-3ac6fde7f59mr807181fa.1.1792790017198; Fri, 23 Oct 2026
+ 14:13:37 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+References: <20261020053435.1179054-4-oss.patchbox@gmail.com>
+ <20261020053435.1179054-5-oss.patchbox@gmail.com> <20261023133546.GK3381610@ziepe.ca>
+In-Reply-To: <20261023133546.GK3381610@ziepe.ca>
+From: Yuho Choi <oss.patchbox@gmail.com>
+Date: Fri, 23 Oct 2026 17:13:25 -0400
+X-Gm-Features: AclHuK-BL1qI8bRaWELf_dQ7T0J3FzJ5N6gMRBUwAUZwcBedJJGHcJxZ4v19rv8
+Message-ID: <CAGG=RgB9QziCsSXxqY0ZLYGyWhDhoqhOzxRx-W8Jomw=kCrb9Q@mail.gmail.com>
+Subject: Re: [PATCH v1 1/2] iommu/riscv: Keep page table pages when IOTLB
+ invalidation fails
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Tomasz Jeznach <tomasz.jeznach@linux.dev>, Joerg Roedel <joro@8bytes.org>, 
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Fangyu Yu <fangyu.yu@linux.alibaba.com>, Zong Li <zong.li@sifive.com>, 
+	Lu Baolu <baolu.lu@linux.intel.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, iommu@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261023_141340_592553_7FA010C8 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,124 +125,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-0.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 23 2026 at 08:38, H. Peter Anvin wrote:
-> On October 23, 2026 7:24:22 AM PDT, Thomas Gleixner <tglx@kernel.org> wrote:
->>The real question is how we ended up there. By design or as an
->>implementation detail which got later set in stone and the selftest was
->>written to test the implementation instead of testing against a
->>specification.
->>
->>I went back in history and in 2.6.12 the behavior was for both i386 and
->>x86_64:
->>
->>  regs->ax = -ENOSYS;
->>  syscall_trace_enter();
->>  if (syscall_nr < MAX)
->>  	do_syscall();
->>  ....
->>
->>IOW, a tracer modification of regs->ax is not overwritten when the
->>syscall number is out of range.
->>
->>Between 2.6.19-rc2 and -rc3 x86_64 was changed to _always_ overwrite
->>regs->ax when the syscall number is out of range.
->>
->>In the 3.8 merge window seccomp introduced the -1 == skip bogosity which
->>got fixed up and made "consistent" in several changes afterwards. Just
->>that it never reached a state of consistency due to the overloading.
->>
->>So are we stuck with this behavior or do we sit down and define what the
->>correct behavior should be?
->>
+On Fri, 23 Oct 2026 at 09:35, Jason Gunthorpe <jgg@ziepe.ca> wrote:
 >
-> Going back on something from 3.8 that is actively used seems unwise. I
-> fear that that ship sailed a long time ago, even though I hate it just
-> as much as you do.
+> Invalidation is not allowed to fail. Drivers always have to free the
+> pages.
+>
+> The system is irrecoverably broken if the iommu driver blows up so
+> much it cannot invalidate.
 
-Well, overwriting the tracer written value for invalid syscall numbers
-is something we can't undo. Though the interesting question is whether
-the -1 overloading needs to be preserved. The new code uses returns
-false when the syscall has to be aborted and that leaves the return code
-untouched. When syscall_enter_trace() returns true, the syscall is
-invoked, so it would be consistent to overwrite the return code with
--ENOSYS even for -1. But yeah, some esoteric nonsense might rely on that
-behaviour for the wrong reasons.
-
-Fix below.
+Thank you for explaining this, Jason. I'll drop this series.
 
 Thanks,
-
-        tglx
----
---- a/arch/x86/entry/syscall_32.c
-+++ b/arch/x86/entry/syscall_32.c
-@@ -77,6 +77,8 @@ static __always_inline void do_syscall_3
- 	if (likely(nr < IA32_NR_syscalls)) {
- 		nr = array_index_nospec(nr, IA32_NR_syscalls);
- 		regs->ax = ia32_sys_call(regs, (unsigned int)nr);
-+	} else {
-+		regs->ax = -ENOSYS;
- 	}
- }
- 
---- a/arch/x86/entry/syscall_64.c
-+++ b/arch/x86/entry/syscall_64.c
-@@ -64,15 +64,20 @@ static __always_inline bool do_syscall_x
- 	return false;
- }
- 
--static __always_inline void do_syscall_x32(struct pt_regs *regs, unsigned long nr)
-+static __always_inline bool do_syscall_x32(struct pt_regs *regs, unsigned long nr)
- {
-+	if (!IS_ENABLED(CONFIG_X86_X32_ABI))
-+		return false;
-+
- 	/* Adjust the starting offset of the table */
- 	nr -= __X32_SYSCALL_BIT;
- 
--	if (IS_ENABLED(CONFIG_X86_X32_ABI) && likely(nr < X32_NR_syscalls)) {
-+	if (likely(nr < X32_NR_syscalls)) {
- 		nr = array_index_nospec(nr, X32_NR_syscalls);
- 		regs->ax = x32_sys_call(regs, (unsigned int)nr);
-+		return true;
- 	}
-+	return false;
- }
- 
- /* Returns true to return using SYSRET, or false to use IRET */
-@@ -81,8 +86,21 @@ static __always_inline void do_syscall_x
- 	if (likely(syscall_enter_from_user_mode_randomize_stack(regs, &nr))) {
- 		instrumentation_begin();
- 
--		if (!do_syscall_x64(regs, nr))
--			do_syscall_x32(regs, nr);
-+		if (unlikely(!do_syscall_x64(regs, nr))) {
-+			/*
-+			 * The special treatment of syscall number -1 is a
-+			 * historical bogosity as the original code used -1 to
-+			 * indicate syscall abort, which is not distinguishable
-+			 * from a syscall which is invoked with syscall number
-+			 * -1. The historic behavior is to keep the return value
-+			 * in regs->ax unmodified in that case, which means it's
-+			 * either the preset value -ENOSYS or a value which was
-+			 * written by a tracer. If the syscall number is invalid
-+			 * but not -1 then overwrite any tracer modification.
-+			 */
-+			if (!do_syscall_x32(regs, nr) && nr != -1L)
-+				regs->ax = -ENOSYS;
-+		}
- 
- 		instrumentation_end();
- 	}
-
-
+Yuho
 
 _______________________________________________
 linux-riscv mailing list
