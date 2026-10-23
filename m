@@ -2,12 +2,12 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 021A4606A325
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:18:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85497606A320
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:18:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rsbzGQ7K;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=cpLl6HrB;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=rBtD6q8R
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bB/K7Q+u;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=sppU8oV+;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=mUonnEwr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -15,51 +15,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=mBaZxD23bEHmggt41sYQMVsbdCltHepscqpnenQ2+UE=; b=rsbzGQ7KYuIA5sIyBH3NE742Nl
-	D+4HEwsXihJGc37C8JVXQUiJ6SJGYDRe0EWD+ABZmPb8A7m7u+UCM4D8HGuBspvSRYF1RmfQSTD4G
-	6Tl8MKvUl/KHxO7OURAx1RGtIYXlXdSVE6Vt3vSQ+3QN1iGFwDb7ZFmvB8J8oVIpHTZ8ejsq9ihBW
-	KYlSMrxPAuDdIJ1bpvGolB1tKLFsCu85y4pTMryLiqQu6SfMMwwMqSxuQgg2xQ/QxzJcaN6yIyj2j
-	ZO+8jBcEz+nBV7ynxF3fk5Kk/3GxiESbDwPgQIs7HMAtBi/aVlI55jVUDaTfc02sOMNVNHlP4Kkv4
-	rqhSHQEQ==;
+	bh=hWtmm9wGf8WaeSOnop72IClW5Yz4nkkjcFY/9jWOw8c=; b=bB/K7Q+uJIttc/VFqnGZFrXJUE
+	9c2T6YMBPEFqKzDYGq8u+eO6EXklIYlgLFFnCFRcqk1p+KbHIneZJoXSmzRESJEYDaTJIlr7f4uI0
+	ulqwZ0UQN1VaMtEI6CrLEgS8dHUpUwPOXRS8dWtKpM4cH7mwweaKVmqvSZJe8ILJdNAXoZKPmAdZG
+	rp9/S2qQpYedOYi9bkMsaV0ghrbBvPLdt3cqDaaG6MzhDUpQKjOyb+2uqZM9SK2UfmzFWBTPiugOD
+	S+8pv1M4GyfIFMPMKjZ2PuFAzDl36qsHDhDyCMcHB1vpv/8tW8ioPtexZ1l5DcHOPjMsrfKZBEjkR
+	PtRS+s+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK5nQ-0000000FPYG-28DF;
-	Fri, 23 Oct 2026 03:18:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xK5nW-0000000FPdN-38VZ;
+	Fri, 23 Oct 2026 03:18:26 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK5nO-0000000FPVg-3xFa
+	id 1xK5nV-0000000FPbw-19ym
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 23 Oct 2026 03:18:19 +0000
+	Fri, 23 Oct 2026 03:18:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=IIzNbh4VgZ2+A4NRQQWGvVM2A0ZOY77Hg5b3LZspggs=; b=cpLl6HrBqExapFBmk64BVZYyrJ
-	lb8Q4iWxH5NyzCiDF4938jSjUhjlWrMsAwYT9GQr3NApiW0XxV5pYwG/9El/QajVS9A9nrwD8QAM8
-	CntLGwZBh+Pku5CuAS0MqUxqcN5xrKEMt8iBf2VdPuQPRvN3/3SQkYTLefocoKFlj4qi6nPXZQQ4y
-	uX0lpz+Q7WKV6BuIH8nH08Qej3dtr5FKUkg6cp8T0LlQV0PO5XusSz5mmJ30RU5geOo+9s+e75EJS
-	eRaN8wrnA9L7JinlnH0arRiG636a0ppTylOPSjY4b18ffaXCd6jIARNch/M4ZO4L1jUsTCXuBmbk6
-	y5FNXLCg==;
-Received: from smtpbgeu1.qq.com ([52.59.177.22])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK5nH-00000008cH0-2bEQ
+	bh=x1t2wRyiMsCX+S9SSJc8zl8w/ipVR+PJvncysloZdQU=; b=sppU8oV+JY3sqkD6HwVWvM88HT
+	2YKZe/PeIhFQ26prbxNKd8iKlcM7QeAwxGkH74evXXuiicNkEE6K0tbf3LaIHb3DnULxLB2Sr+Z8N
+	ELr3z7ODRc6fVhbc9+sQ6hv+bdMSTStZK9OlunWzHjZH6Jlhsj+6vHybcIZyEZ781KuqTTFm+u0fV
+	riAbZjkMrvLEiOJKywsf/9METWiRyVKbxfX82gPNxvw1ZJooFSK0mOaAehGEukcSNVkveWJzPKsOM
+	Qv7UstlOz7ax1YWalm4DW9d8DuN6xpRpiiESm/lNWaZULtYBCIs0MXuS8S+FZqkdy6fQ+LoMEjU+B
+	lIF4SGyQ==;
+Received: from bg4.exmail.qq.com ([43.155.65.254])
+	by casper.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xK5nK-00000007akZ-11B3
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Oct 2026 03:18:17 +0000
+	Fri, 23 Oct 2026 03:18:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1792725431;
-	bh=IIzNbh4VgZ2+A4NRQQWGvVM2A0ZOY77Hg5b3LZspggs=;
+	s=mxsw2412; t=1792725404;
+	bh=x1t2wRyiMsCX+S9SSJc8zl8w/ipVR+PJvncysloZdQU=;
 	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=rBtD6q8RYXMkOTynqG6jiZ+gsmUZLowS3PmnHyt5c3RFTKXScLTzdCJxVCgKnTmVT
-	 a+yX2zi77x4TbTfYx7UK5rjPRZ2aaa9LKTvCcQOUHOfT/vJtlchS+agGdPwvZNxBU9
-	 h/yjNdiqKloCBw/cn2d0MIodP4G3JPO2EUqAbGPY=
-X-QQ-mid: esmtpsz11t1792725374tdc004b56
-X-QQ-Originating-IP: 69HE26miq7s3+N55bq0kU5fExvDLQGCVhHeFKR1CFug=
+	b=mUonnEwrXCxfdaLp0UMs4wXS7FXE4uODysKpFB8Y6nzy+JrfsCz7fmki6AgfBBuzN
+	 i/hcS+kjmlwlRy3Z5MgMXGy78xZhFRc1auZwJNd8A3HSrbD7UZlxAHqWGLV/Ia9CS5
+	 ax9jvWsbLew861jOP9yi/TQqL0IhPmtkS7U7y9co=
+X-QQ-mid: esmtpsz11t1792725400t34e7458c
+X-QQ-Originating-IP: pccNKTx+mVIUzlajMI0DmeGUtOZ1T9bK+j8NVvvvReI=
 Received: from snode5.. ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 23 Oct 2026 11:16:11 +0800 (CST)
+	id ; Fri, 23 Oct 2026 11:16:38 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 14460720927037419999
+X-BIZMAIL-ID: 15986341407937940342
 EX-QQ-RecipientCnt: 26
 From: Zane Leung <liangzhen@linux.spacemit.com>
 To: gregkh@linuxfoundation.org,
@@ -88,9 +88,9 @@ Cc: mike.leach@arm.com,
 	coresight@lists.linaro.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 17/24] gtrace: Unify default sink selection across CPUs in perf setup
-Date: Fri, 23 Oct 2026 11:14:58 +0800
-Message-Id: <20261023031505.2020925-18-liangzhen@linux.spacemit.com>
+Subject: [PATCH 24/24] perf tools: gtrace: Add AUX trace decoder and branch sample synthesis
+Date: Fri, 23 Oct 2026 11:15:05 +0800
+Message-Id: <20261023031505.2020925-25-liangzhen@linux.spacemit.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
 References: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
@@ -98,29 +98,31 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: OWV6Cj5PHfJtQfQCVYNZHjtnNLErg9SgsmIWOtnZ9L6ZxcrSzzZeV3Fe
-	Wvw0uqQ5piFiNyXmWJGs12klWZJLFY52MZNNO3IdCsXrF/CYHEJdcRHiDn859GlPf5YJvhK
-	YDoScYNT6B92+yEYayWaWI4zZwatydP+Wn3THJEL4OeccRU0crY/jooLX8YQ3swI4jkEuI3
-	BfC4euWEWaOjUx0lJcfSb0Y3VbPwKYAYz6HyukXg8f5n181cP970WJErx9cY4Nlun23GAs2
-	RLzCgZhoDAGZ+0el+7fUcZH/x9984c++SGzRf7iF0xQ9uKz1Few1UDGE9eWj8/Vco1j4Ye8
-	zVDOJE841FZgfB94JVI4NCrkp3VteY1de9IKhy8v6FcTWqZX+ED5XtyLc1YcT9A62+w4bTK
-	5FBF3BQJT+6/AeRShMi+DcnFSbOme4SrJMx/fGlvqtoO/9pqCTdxmfKQp8lsXPa05qySc9Y
-	o6pzm2RXRbrEoYRusz+XtOXxBp8ZDUzCN2zaQpWR7WIWuEg8Jq8B9KLNBU/m9p6BPuD2bbM
-	LNFxLPtnmHvp+0+cGdn5DR3OTWZnYQzeIgoOx8BgAXTMWbcscpR1vM1peFQ9OMsKZlJQBKM
-	vgeulQ5fsx2a/MED2fqWjeJUt9gjzhl/BaNoutYy2QyiYhnO2O6VHaOlA4yyzhfYJeuIBhO
-	oV+dyFkTT0vFRh2APHrL1f0JUa9Ae6FssaECUX7xgvrDPPmOxmFVCh0zZSXAkGvAmd0noaR
-	QkrQodyE2xNYfm/fGZLObpP8C26zKV6mOtm3OfnKpYLYfFnCM4rzYXx4odLF0cm0dRbHQjx
-	slUIsyGrloTNEFosHRl4mwuvLp7x3sA5X7Z7abvXVV4vVWhmhajUhrA9rrl/Lv+ZiTzvq9g
-	8IeDze7PFFRGi5ZDN+kqZCWxvTcV5PEkd0LK51R7AyXJWXV9uii+aMVAhpJtzb2AMElT6+5
-	q/vaQV76Mw1QZ9QsTScALgRUSwAnxrPMq+8RvmyruHpglk8Dzw49bkEt+ZcwVpmzFKi6PXT
-	UK6ymr211aoobA9Kfg9h1AF7Q9LFbjiJ+Y59iK3cQOHrZtiQgrU0AV+N6hK3/TeH+EtjrJF
-	mQk7KBQo65In5YkfQ9r4IQr9NUXNb3UGg==
-X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
-X-QQ-RECHKSPAM: 0
+X-QQ-XMAILINFO: OKnzZZy8ux9JZZ9TPPNzxJzD4BpLWK4fAl+EIXHIEmeTN3i/QCMd3ApF
+	fDENXR4d4/cdl0EIe+0UlXR7kiSwfYckrp9UfAcG0WXFktiYNj8FiBOxaD17qxtNsr0veTD
+	oBUJ3H54HKUI5mzGFZ2/x9b5kkb/uhlnk8wiD7bJEPYWPgSspYBaLyUIkkqApButC3YzMnu
+	2jpzaiJveCX3qDXxBpqzDpo4t7fxsz5SSScQfYEH9LOlb0GI5RTWisfAESTHJ3ipRw6Th+Q
+	tt5UJC7NwXwAgsNz4yIQsWJqm6zbCfjPtG79QgT8g+1CzAFtGKImWsc4odxKp/ShISMprGg
+	yk9bqCuvuanI6bzL7aafxNWXHh9e6irAfsBqyJyYt45a8yZtqKlCV/LulTDFF/k4ytYAh8I
+	9fw+1dUVy0E3PBGaMrLIK0AphSGpErNl/9AzrY84ImhXG7hDSN7we+XIKNmkM0UHyiDAxEj
+	uH9B/pUarhaaqo/QbtpQJfvgMbnSJsOo5snXv2j8imuPkvVhkEBp4DqGNAWmNFSkAR+cGeX
+	7RSH1tmjTSmIcw7NFv3Y1d8Mw8xaMrOjThDGLyW/k9S4dcWo3too2aChPSJvIIB1v1iK8GA
+	QRwskK2oaIUw3vAPXisArraGGjZxxOIfqTHBOqbPfKnAQFkysirlrN5VQm1TyfCIyEPOFRQ
+	+u/JPQ6HenmiQ1zC39Ebz5UIJ3UG48dua01gC9rv4E0LK5V4f225oa0tfUquWzOvwlBmK1n
+	Ne4SI6H2h7aniIIoSVaDbgmhUnVLm9Tx57L+obj0SK/eDAFXXEigzWHTbZuDtdxVj37zcME
+	xQdHTWHoyIkxlqoodVpmhi21+gQJfXa4ZEQpqPrgyRPh1OrNCWjhM84zSrRmFg9afpln1zY
+	1xlOqwx8tLMmAqRHyLdzrBWjR43+qXvqcBtr+rAXy1SzdMZ1+MwBjoqLJgy23FVLI6vBvw2
+	xkArUyu0Yl8oacJAdKAOIR4KHS0MoFy0wqHqAch5TmrZyFcA0l1Dmk2YAgrAEbHdCrE+a8s
+	blQA9Dxn3rS6k0XCPsm1rC2rcOSGLzFMiDgq1Mj3xg8JNpoWpaumGpfm3vOpEMHjFB86xdC
+	oy+HLGJmzK2OKDrcPfUURf2hpFSCFMT0lJJzXqjQIxGtgiDBVM3KfpQs6ZAujBzyZVB1m9B
+	TF73
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-SPAM: true
+X-QQ-RECHKSPAM: 3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_041812_508922_C199DD64 
-X-CRM114-Status: GOOD (  16.13  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20261023_041814_904763_92F60760 
+X-CRM114-Status: GOOD (  21.58  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,65 +142,1348 @@ X-Spam-Status: No, score=-12.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-In gtrace_setup_aux(), remember the sink found for the first CPU and
-pass it to gtrace_create_path() for the remaining CPUs so they share a
-compatible default sink. Clear a CPU from the mask when no path can be
-built for it and abort when no sink is reachable at all.
+Implement the gtrace auxtrace decoder: queue AUX buffers, run timeless or
+timestamped decoding, and synthesize branch samples from decoded trace
+packets.  Support machine-mode instruction access via new '-m/--firmware'
+and '--firmware-base' options.
 ---
- drivers/hwtracing/gtrace/gtrace-perf.c | 17 +++++++++++++++--
- 1 file changed, 15 insertions(+), 2 deletions(-)
+ tools/perf/builtin-script.c      |    4 +
+ tools/perf/util/gtrace-decoder.c | 1206 +++++++++++++++++++++++++++++-
+ tools/perf/util/symbol_conf.h    |    2 +
+ 3 files changed, 1197 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/hwtracing/gtrace/gtrace-perf.c b/drivers/hwtracing/gtrace/gtrace-perf.c
-index 3c8b620df5a8..9b874daa807f 100644
---- a/drivers/hwtracing/gtrace/gtrace-perf.c
-+++ b/drivers/hwtracing/gtrace/gtrace-perf.c
-@@ -109,6 +109,7 @@ static void *gtrace_setup_aux(struct perf_event *event, void **pages,
- 			       int nr_pages, bool overwrite)
- {
- 	struct gtrace_event_data *event_data = NULL;
-+	struct gtrace_component *sink = NULL;
- 	struct page **pagelist;
- 	int cpu = event->cpu, i;
- 	cpumask_t *mask;
-@@ -120,7 +121,7 @@ static void *gtrace_setup_aux(struct perf_event *event, void **pages,
- 	INIT_WORK(&event_data->work, free_event_data);
- 	mask = &event_data->mask;
- 	/*
--	 * Create the path for each CPU in the mask. In case of any failure skip the CPU
-+	 * Create the path for each CPU in the mask. In case of any failure clear the CPU
- 	 */
- 	for_each_cpu(cpu, mask) {
- 		struct gtrace_component *src;
-@@ -132,16 +133,28 @@ static void *gtrace_setup_aux(struct perf_event *event, void **pages,
- 			continue;
- 		}
+diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
+index ad8ca08ceb5f..d1173c80b6fa 100644
+--- a/tools/perf/builtin-script.c
++++ b/tools/perf/builtin-script.c
+@@ -4088,6 +4088,10 @@ int cmd_script(int argc, const char **argv)
+ 		   "file", "vmlinux pathname"),
+ 	OPT_STRING(0, "kallsyms", &symbol_conf.kallsyms_name,
+ 		   "file", "kallsyms pathname"),
++	OPT_STRING('m', "firmware", &symbol_conf.firmware_name,
++		   "file", "machine mode firmware binary pathname"),
++	OPT_STRING(0, "firmware-base", &symbol_conf.firmware_base,
++		   "address", "base address for machine mode firmware (e.g., 0x100000000)"),
+ 	OPT_BOOLEAN('G', "hide-call-graph", &no_callchain,
+ 		    "When printing symbols do not display call chain"),
+ 	OPT_CALLBACK(0, "symfs", NULL, "directory[,layout]", SYMFS_HELP,
+diff --git a/tools/perf/util/gtrace-decoder.c b/tools/perf/util/gtrace-decoder.c
+index d70cb7cd399f..b2973f7ad3fe 100644
+--- a/tools/perf/util/gtrace-decoder.c
++++ b/tools/perf/util/gtrace-decoder.c
+@@ -13,6 +13,24 @@
+ #include "session.h"
+ #include "gtrace.h"
+ #include "debug.h"
++#include "color.h"
++#include <linux/bitfield.h>
++#include "intlist.h"
++#include "machine.h"
++#include "map.h"
++#include "thread.h"
++#include "thread_map.h"
++#include "thread-stack.h"
++#include "util.h"
++#include "dso.h"
++#include "maps.h"
++#include "symbol.h"
++#include "addr_location.h"
++#include "util/synthetic-events.h"
++#include <fcntl.h>
++#include <unistd.h>
++#include "rvtrace-decoder/rvtrace-decoder.h"
++#include "../../arch/riscv/include/asm/insn.h"
  
--		path = gtrace_create_path(src, NULL, GTRACE_COMPONENT_MODE_PERF);
-+		path = gtrace_create_path(src, sink, GTRACE_COMPONENT_MODE_PERF);
- 		if (IS_ERR(path)) {
- 			cpumask_clear_cpu(cpu, mask);
- 			continue;
- 		}
+ struct gtrace_decoder {
+ 	struct auxtrace auxtrace;
+@@ -22,31 +40,242 @@ struct gtrace_decoder {
+ 	u32 pmu_type;
+ 	int num_cpu;
+ 	u64 **metadata;
++	struct auxtrace_queues queues;
++	struct auxtrace_heap heap;
++	struct itrace_synth_opts synth_opts;
++	struct dso *firmware_dso;
++	struct maps *firmware_maps;
++	bool timeless_decoding;
++	bool per_thread_decoding;
++	bool data_queued;
++	u64 latest_kernel_timestamp;
++	u64 branches_sample_type;
++	u64 branches_id;
+ };
  
-+		/*
-+		 * The first found sink is saved here and passed to
-+		 * gtrace_create_path() to check whether the remaining sources
-+		 * have a compatible default sink.
-+		 */
-+		if (!sink)
-+			sink = gtrace_path_sink(path);
+-static int gtrace_process_event(struct perf_session *session __maybe_unused,
+-				 union perf_event *event __maybe_unused,
+-				 struct perf_sample *sample __maybe_unused,
+-				 const struct perf_tool *tool __maybe_unused)
++enum coresight_format {
++	UNSET,
++	FORMATTED,
++	UNFORMATTED
++};
 +
- 		path->event = event;
- 		*gtrace_event_cpu_path_ptr(event_data, cpu) = path;
++struct gtrace_queue {
++	struct gtrace_decoder *ptr;
++	struct thread *thread;
++	struct rvtrace_decoder *decoder;
++	struct auxtrace_buffer *buffer;
++	union perf_event *event_buf;
++	unsigned int queue_nr;
++	u64 offset;
++	enum coresight_format cs_format;
++};
++
++static int gtrace_process_timeless_queues(struct gtrace_decoder *ptr,
++					  pid_t tid);
++static int gtrace_process_timestamped_queues(struct gtrace_decoder *ptr);
++
++static int gtrace_process_itrace_start(struct gtrace_decoder *ptr,
++				       union perf_event *event)
+ {
++	struct thread *th;
++
++	if (ptr->timeless_decoding)
++		return 0;
++
++	/*
++	 * Add the tid/pid to the log so that we can get a match when
++	 * we get a contextID from the decoder.
++	 */
++	th = machine__findnew_thread(ptr->machine,
++				     event->itrace_start.pid,
++				     event->itrace_start.tid);
++	if (!th)
++		return -ENOMEM;
++
++	thread__put(th);
++
+ 	return 0;
+ }
+ 
+-static int gtrace_process_auxtrace_event(struct perf_session *session __maybe_unused,
+-					  union perf_event *event __maybe_unused,
+-					  const struct perf_tool *tool __maybe_unused)
++static int gtrace_process_switch_cpu_wide(struct gtrace_decoder *ptr,
++					  union perf_event *event)
+ {
++	struct thread *th;
++	bool out = event->header.misc & PERF_RECORD_MISC_SWITCH_OUT;
++
++	if (ptr->timeless_decoding)
++		return 0;
++
++	if (!out)
++		return 0;
++
++	th = machine__findnew_thread(&ptr->session->machines.host,
++				     event->context_switch.next_prev_pid,
++				     event->context_switch.next_prev_tid);
++
++	if (!th)
++		return -ENOMEM;
++
++	thread__put(th);
++
+ 	return 0;
+ }
+ 
+-static int gtrace_flush(struct perf_session *session __maybe_unused,
+-			 const struct perf_tool *tool __maybe_unused)
++static int gtrace_process_event(struct perf_session *session,
++				 union perf_event *event,
++				 struct perf_sample *sample,
++				 const struct perf_tool *tool)
+ {
++	struct gtrace_decoder *ptr = container_of(session->auxtrace, struct gtrace_decoder,
++					    auxtrace);
++	if (dump_trace)
++		return 0;
++
++	if (!tool->ordered_events) {
++		pr_err("GTRACE requires ordered events\n");
++		return -EINVAL;
++	}
++
++	switch (event->header.type) {
++	case PERF_RECORD_EXIT:
++		if (ptr->per_thread_decoding && ptr->timeless_decoding)
++			return gtrace_process_timeless_queues(ptr, event->fork.tid);
++		break;
++
++	case PERF_RECORD_ITRACE_START:
++		return gtrace_process_itrace_start(ptr, event);
++
++	case PERF_RECORD_SWITCH_CPU_WIDE:
++		return gtrace_process_switch_cpu_wide(ptr, event);
++
++	case PERF_RECORD_AUX:
++		if (sample->time && (sample->time != (u64)-1))
++			ptr->latest_kernel_timestamp = sample->time;
++		break;
++
++	default:
++		break;
++	}
++
++	return 0;
++}
++
++static void gtrace_dump_event(struct gtrace_queue *gtraceq,
++			      struct auxtrace_buffer *buffer)
++{
++	int ret;
++	const char *color = PERF_COLOR_BLUE;
++	struct rvtrace_decoder *decoder = gtraceq->decoder;
++
++	color_fprintf(stdout, color,
++		      ". ... Trace Encoder Trace data: size %#zx bytes\n",
++		      buffer->size);
++
++	ret = decoder->decode(gtraceq->decoder, RVTRACE_DECODE_MSG,
++			      buffer->data, buffer->size);
++	if (ret)
++		color_fprintf(stdout, color, " Bad packet!\n");
++}
++
++static void dump_queued_data(struct gtrace_decoder *ptr,
++			     struct perf_record_auxtrace *event)
++{
++	struct auxtrace_buffer *buf;
++	unsigned int i;
++	/*
++	 * Find all buffers with same reference in the queues and dump them.
++	 * This is because the queues can contain multiple entries of the same
++	 * buffer that were split on aux records.
++	 */
++	for (i = 0; i < ptr->queues.nr_queues; ++i)
++		list_for_each_entry(buf, &ptr->queues.queue_array[i].head, list)
++			if (buf->reference == event->reference)
++				gtrace_dump_event(ptr->queues.queue_array[i].priv, buf);
++}
++
++static int gtrace_process_auxtrace_event(struct perf_session *session,
++					 union perf_event *event,
++					 const struct perf_tool *tool __maybe_unused)
++{
++	struct gtrace_decoder *ptr = container_of(session->auxtrace, struct gtrace_decoder,
++					    auxtrace);
++
++	if (!ptr->data_queued) {
++		struct auxtrace_buffer *buffer;
++		off_t  data_offset;
++		int fd = perf_data__fd(session->data);
++		bool is_pipe = perf_data__is_pipe(session->data);
++		int err;
++		int idx = event->auxtrace.idx;
++
++		if (is_pipe)
++			data_offset = 0;
++		else {
++			data_offset = lseek(fd, 0, SEEK_CUR);
++			if (data_offset == -1)
++				return -errno;
++		}
++
++		err = auxtrace_queues__add_event(&ptr->queues, session,
++						 event, data_offset, &buffer);
++		if (err)
++			return err;
++
++		if (dump_trace)
++			if (auxtrace_buffer__get_data(buffer, fd)) {
++				gtrace_dump_event(ptr->queues.queue_array[idx].priv, buffer);
++				auxtrace_buffer__put_data(buffer);
++			}
++	} else if (dump_trace)
++		dump_queued_data(ptr, &event->auxtrace);
++
+ 	return 0;
+ }
+ 
+-static void gtrace_free_events(struct perf_session *session __maybe_unused)
++static int gtrace_flush(struct perf_session *session,
++			 const struct perf_tool *tool)
+ {
++	struct gtrace_decoder *ptr = container_of(session->auxtrace, struct gtrace_decoder,
++					    auxtrace);
++	if (dump_trace)
++		return 0;
++
++	if (!tool->ordered_events)
++		return -EINVAL;
++
++	if (ptr->timeless_decoding)
++		return gtrace_process_timeless_queues(ptr, -1);
++
++	return gtrace_process_timestamped_queues(ptr);
++}
++
++static void gtrace_free_queue(void *priv)
++{
++	struct gtrace_queue *gtraceq = priv;
++
++	if (!gtraceq)
++		return;
++
++	if (gtraceq->decoder)
++		rvtrace_decoder_free(gtraceq->decoder);
++	thread__zput(gtraceq->thread);
++	zfree(&gtraceq->event_buf);
++	free(gtraceq);
++}
++
++static void gtrace_free_events(struct perf_session *session)
++{
++	unsigned int i;
++	struct gtrace_decoder *ptr = container_of(session->auxtrace, struct gtrace_decoder,
++					    auxtrace);
++	struct auxtrace_queues *queues = &ptr->queues;
++
++	for (i = 0; i < queues->nr_queues; i++) {
++		gtrace_free_queue(queues->queue_array[i].priv);
++		queues->queue_array[i].priv = NULL;
++	}
++
++	auxtrace_queues__free(queues);
+ }
+ 
+ static void gtrace_free(struct perf_session *session)
+@@ -54,6 +283,7 @@ static void gtrace_free(struct perf_session *session)
+ 	struct gtrace_decoder *ptr = container_of(session->auxtrace, struct gtrace_decoder,
+ 					    auxtrace);
+ 
++	gtrace_free_events(session);
+ 	session->auxtrace = NULL;
+ 	for (int i = 0; i < ptr->num_cpu; i++)
+ 		zfree(&ptr->metadata[i]);
+@@ -70,6 +300,643 @@ static bool gtrace_evsel_is_auxtrace(struct perf_session *session,
+ 	return evsel->core.attr.type == ptr->pmu_type;
+ }
+ 
++static void gtrace_set_thread(struct gtrace_queue *gtraceq,
++			      pid_t tid)
++{
++	struct gtrace_decoder *ptr = gtraceq->ptr;
++
++	if (tid != -1) {
++		thread__zput(gtraceq->thread);
++		gtraceq->thread = machine__find_thread(ptr->machine, -1, tid);
++	}
++
++	/* Couldn't find a known thread */
++	if (!gtraceq->thread)
++		gtraceq->thread = machine__idle_thread(ptr->machine);
++}
++
++/*
++ * Register firmware ELF PT_LOAD segments as maps in the machine's kernel maps,
++ * so that perf script can resolve symbols for M-mode (machine mode) samples.
++ *
++ * base is the absolute physical load address of the firmware (from --firmware-base).
++ * p_paddr in the ELF is the relative address within the firmware image.
++ *
++ *   map->start = base + p_paddr
++ *   map->end   = base + p_paddr + p_memsz
++ *   map->pgoff = p_offset
++ *
++ * map__map_ip(paddr) = paddr - start + pgoff = p_offset + (paddr - base - p_paddr)
++ */
++static int gtrace_register_firmware_maps(struct gtrace_decoder *ptr,
++					 struct dso *dso, u64 base)
++{
++	Elf64_Ehdr ehdr;
++	Elf64_Phdr phdr;
++	int fd, i, ret = 0;
++	const char *filename = dso__long_name(dso);
++
++	fd = open(filename, O_RDONLY);
++	if (fd < 0)
++		return -1;
++
++	if (pread(fd, &ehdr, sizeof(ehdr), 0) != sizeof(ehdr)) {
++		ret = -1;
++		goto out;
++	}
++
++	for (i = 0; i < ehdr.e_phnum; i++) {
++		struct map *map;
++
++		if (pread(fd, &phdr, sizeof(phdr),
++			  ehdr.e_phoff + (u64)i * ehdr.e_phentsize) != sizeof(phdr))
++			continue;
++
++		if (phdr.p_type != PT_LOAD || phdr.p_memsz == 0)
++			continue;
++
++		map = map__new2(base + phdr.p_paddr, dso);
++		if (!map) {
++			ret = -ENOMEM;
++			goto out;
++		}
++
++		map__set_end(map, base + phdr.p_paddr + phdr.p_memsz);
++		map__set_pgoff(map, phdr.p_offset);
++
++		pr_debug("gtrace: machine code map [%#"PRIx64"-%#"PRIx64"] pgoff=%#"PRIx64" %s\n",
++			 base + phdr.p_paddr, base + phdr.p_paddr + phdr.p_memsz,
++			 (u64)phdr.p_offset, dso__long_name(dso));
++
++		ret = maps__insert(ptr->firmware_maps, map);
++		map__put(map);
++		if (ret)
++			goto out;
++	}
++out:
++	close(fd);
++	return ret;
++}
++
++static int gtrace_insert_map_cb(struct map *map, void *data)
++{
++	struct maps *kmaps = data;
++
++	maps__insert(kmaps, map);
++	return 0;
++}
++
++static u32 gtrace_machine_mode_access(struct gtrace_queue *gtraceq, u64 address,
++				       size_t size, u8 *buffer)
++{
++	struct machine *machine = gtraceq->ptr->machine;
++	struct map *map;
++	struct dso *dso;
++	u64 offset;
++	int len;
++
++	if (!gtraceq->ptr->firmware_dso) {
++		ui__warning_once("RISC-V Trace: Machine mode code binary not provided.\n"
++				 "              Failed to read address 0x%lx.\n"
++				 "              Use option '-m /path/to/firmware --firmware-base 0xBASE'\n"
++				 "              to specify the binary and its base address.\n",
++				 address);
++		return 0;
++	}
++
++	map = maps__find(gtraceq->ptr->firmware_maps, address);
++	if (!map)
++		return 0;
++
++	/*
++	 * Insert firmware maps into kernel maps for symbol resolution.
++	 * Re-insert if kcore loading has removed them (kcore calls
++	 * maps__remove_maps which clears all non-kernel maps).
++	 */
++	if (!maps__find(machine__kernel_maps(machine), address)) {
++		maps__for_each_map(gtraceq->ptr->firmware_maps,
++				   gtrace_insert_map_cb,
++				   machine__kernel_maps(machine));
++		map__load(map);
++	}
++
++	dso = map__dso(map);
++	offset = map__map_ip(map, address);
++	len = dso__data_read_offset(dso, machine, offset, buffer, size);
++	map__put(map);
++	return len > 0 ? len : 0;
++}
++
++static u32 gtrace_mem_access(void *data, u64 address, enum riscv_privilege_mode prv,
++			     int context, size_t size, u8 *buffer)
++{
++	u8 cpumode;
++	u64 offset;
++	int len;
++	struct machine *machine;
++	struct addr_location al;
++	struct dso *dso;
++	int ret = 0;
++	struct gtrace_queue *gtraceq = data;
++
++	if (!gtraceq)
++		goto out;
++
++	addr_location__init(&al);
++
++	/* If the riscv_privilege_mode is machine mode, access physical address by /dev/mem */
++	if (prv == RISCV_PRIV_MACHINE_MODE)
++		return gtrace_machine_mode_access(gtraceq, address, size, buffer);
++
++	machine = gtraceq->ptr->machine;
++	if (address >= machine__kernel_start(machine))
++		cpumode = PERF_RECORD_MISC_KERNEL;
++	else
++		cpumode = PERF_RECORD_MISC_USER;
++
++	if (thread__tid(gtraceq->thread) != context)
++		gtrace_set_thread(gtraceq, context);
++
++	if (!thread__find_map(gtraceq->thread, cpumode, address, &al))
++		goto out;
++
++	dso = map__dso(al.map);
++	if (!dso)
++		goto out;
++
++	if (dso__data(dso)->status == DSO_DATA_STATUS_ERROR &&
++	    dso__data_status_seen(dso, DSO_DATA_STATUS_SEEN_ITRACE))
++		goto out;
++
++	offset = map__map_ip(al.map, address);
++
++	map__load(al.map);
++
++	len = dso__data_read_offset(dso, machine, offset, buffer, size);
++	if (len <= 0) {
++		ui__warning_once("GTRACE: Missing DSO. Use 'perf archive' or debuginfod to export data from the traced system.\n"
++				 "                     Enable CONFIG_PROC_KCORE or use option '-k /path/to/vmlinux' for kernel symbols.\n");
++		if (!dso__auxtrace_warned(dso)) {
++			pr_err("RISC-V Trace: Debug data not found for address %#"PRIx64" in %s\n",
++				address,
++				dso__long_name(dso) ? dso__long_name(dso) : "Unknown");
++			dso__set_auxtrace_warned(dso);
++		}
++		goto out;
++	}
++	ret = len;
++out:
++	addr_location__exit(&al);
++	return ret;
++}
++
++static u8 gtrace_cpu_mode(enum riscv_privilege_mode prv)
++{
++	u8 cpumode;
++
++	switch (prv) {
++	case RISCV_PRIV_USER_MODE:
++		cpumode = PERF_RECORD_MISC_USER;
++		break;
++	case RISCV_PRIV_SUPERVISOR_MODE:
++	case RISCV_PRIV_MACHINE_MODE:
++	default:
++		cpumode = PERF_RECORD_MISC_KERNEL;
++		break;
++	}
++	return cpumode;
++}
++
++static void gtrace_synth_copy_insn(struct gtrace_queue *gtraceq,
++				   struct rvtrace_packet *packet,
++				   struct perf_sample *sample)
++{
++	int ret;
++	u32 insn;
++
++	ret = gtrace_mem_access(gtraceq, sample->ip, packet->prv, packet->context,
++				sizeof(insn), (u8 *)&insn);
++	if (!ret)
++		return;
++
++	sample->insn_len = ((insn & __INSN_LENGTH_MASK) == __INSN_LENGTH_GE_32) ? 4 : 2;
++	memcpy(sample->insn, &insn, sample->insn_len);
++}
++
++static inline u64 gtrace_resolve_sample_time(struct gtrace_queue *gtraceq,
++					     struct rvtrace_packet *packet)
++{
++	struct gtrace_decoder *ptr = gtraceq->ptr;
++
++	if (!ptr->timeless_decoding)
++		return packet->timestamp;
++	else
++		return ptr->latest_kernel_timestamp;
++}
++
++static int gtrace_synth_branch_sample(struct gtrace_queue *gtraceq,
++				      struct rvtrace_packet *packet)
++{
++	int ret = 0;
++	struct gtrace_decoder *ptr = gtraceq->ptr;
++	struct perf_sample sample;
++	union perf_event *event = gtraceq->event_buf;
++
++	perf_sample__init(&sample, /*all=*/true);
++	event->sample.header.type = PERF_RECORD_SAMPLE;
++	event->sample.header.misc = gtrace_cpu_mode(packet->prv);
++	event->sample.header.size = sizeof(struct perf_event_header);
++
++	if (thread__tid(gtraceq->thread) != packet->context)
++		gtrace_set_thread(gtraceq, packet->context);
++
++	/* Set time field based on rvtrace auxtrace config. */
++	sample.time = gtrace_resolve_sample_time(gtraceq, packet);
++
++	sample.ip = packet->start_addr;
++	sample.pid = thread__pid(gtraceq->thread);
++	sample.tid = thread__tid(gtraceq->thread);
++	sample.addr = packet->end_addr;
++	sample.insn_cnt = packet->insn_cnt;
++	sample.id = gtraceq->ptr->branches_id;
++	sample.stream_id = gtraceq->ptr->branches_id;
++	sample.period = 1;
++	sample.cpu = packet->cpu;
++	sample.flags = 0;
++	sample.cpumode = event->sample.header.misc;
++
++	gtrace_synth_copy_insn(gtraceq, packet, &sample);
++
++	ret = perf_session__deliver_synth_event(ptr->session, event, &sample);
++	if (ret)
++		pr_err(
++		"RISC-V Trace: failed to deliver instruction event, error %d\n",
++		ret);
++	perf_sample__exit(&sample);
++
++	return ret;
++}
++
++static int gtrace_synth_events(struct gtrace_decoder *ptr,
++			       struct perf_session *session)
++{
++	struct evlist *evlist = session->evlist;
++	struct evsel *evsel;
++	struct perf_event_attr attr;
++	bool found = false;
++	u64 id;
++	int err;
++
++	evlist__for_each_entry(evlist, evsel) {
++		if (evsel->core.attr.type == ptr->pmu_type) {
++			found = true;
++			break;
++		}
++	}
++
++	if (!found) {
++		pr_debug("No selected events with RISC-V Trace data\n");
++		return 0;
++	}
++
++	memset(&attr, 0, sizeof(struct perf_event_attr));
++	attr.size = sizeof(struct perf_event_attr);
++	attr.type = PERF_TYPE_HARDWARE;
++	attr.sample_type = evsel->core.attr.sample_type & PERF_SAMPLE_MASK;
++	attr.sample_type |= PERF_SAMPLE_IP | PERF_SAMPLE_TID |
++			    PERF_SAMPLE_PERIOD;
++	if (ptr->timeless_decoding)
++		attr.sample_type &= ~(u64)PERF_SAMPLE_TIME;
++	else
++		attr.sample_type |= PERF_SAMPLE_TIME;
++
++	attr.exclude_user = evsel->core.attr.exclude_user;
++	attr.exclude_kernel = evsel->core.attr.exclude_kernel;
++	attr.exclude_hv = evsel->core.attr.exclude_hv;
++	attr.exclude_host = evsel->core.attr.exclude_host;
++	attr.exclude_guest = evsel->core.attr.exclude_guest;
++	attr.sample_id_all = evsel->core.attr.sample_id_all;
++	attr.read_format = evsel->core.attr.read_format;
++
++	/* create new id val to be a fixed offset from evsel id */
++	id = evsel->core.id[0] + 1000000000;
++	if (!id)
++		id = 1;
++
++	if (ptr->synth_opts.branches) {
++		attr.config = PERF_COUNT_HW_BRANCH_INSTRUCTIONS;
++		attr.sample_period = 1;
++		attr.sample_type |= PERF_SAMPLE_ADDR;
++
++		err = perf_session__deliver_synth_attr_event(session, &attr, id);
++		if (err)
++			return err;
++		ptr->branches_sample_type = attr.sample_type;
++		ptr->branches_id = id;
++		id += 1;
++		attr.sample_type &= ~(u64)PERF_SAMPLE_ADDR;
++	}
++
++	return 0;
++}
++
++static int gtrace_process_queue(struct gtrace_queue *gtraceq)
++{
++	struct rvtrace_packet_buffer *packet_buffer = &gtraceq->decoder->packet_buffer;
++
++	for (int i = 0; i < packet_buffer->size; i++) {
++		struct rvtrace_packet packet = packet_buffer->packets[i];
++
++		if (packet.sample_type == RVTRACE_RANGE)
++			gtrace_synth_branch_sample(gtraceq, &packet);
++		else if (packet.sample_type == RVTRACE_LOSS)
++			fprintf(stdout, "RISC-V Trace: FIFO overrun, messages lost\n");
++		else if (packet.sample_type == RVTRACE_ERROR)
++			fprintf(stdout, "RISC-V Trace: Packet data parsing error\n");
++	}
++
++	return 0;
++}
++
++static int gtrace_get_trace(struct gtrace_queue *gtraceq)
++{
++	struct auxtrace_buffer *aux_buffer = gtraceq->buffer;
++	struct auxtrace_buffer *old_buffer = aux_buffer;
++	struct auxtrace_queue *queue;
++
++	queue = &gtraceq->ptr->queues.queue_array[gtraceq->queue_nr];
++
++	aux_buffer = auxtrace_buffer__next(queue, aux_buffer);
++
++	/* If no more data, drop the previous auxtrace_buffer and return */
++	if (!aux_buffer) {
++		if (old_buffer)
++			auxtrace_buffer__drop_data(old_buffer);
++		return 0;
++	}
++
++	gtraceq->buffer = aux_buffer;
++
++	/* If the aux_buffer doesn't have data associated, try to load it */
++	if (!aux_buffer->data) {
++		/* get the file desc associated with the perf data file */
++		int fd = perf_data__fd(gtraceq->ptr->session->data);
++
++		aux_buffer->data = auxtrace_buffer__get_data(aux_buffer, fd);
++		if (!aux_buffer->data)
++			return -ENOMEM;
++	}
++
++	/* If valid, drop the previous buffer */
++	if (old_buffer)
++		auxtrace_buffer__drop_data(old_buffer);
++
++	return aux_buffer->size;
++}
++
++/*
++ * gtrace_get_data_block: Fetch a block from the auxtrace_buffer queue
++ *                         if need be.
++ * Returns:     < 0     if error
++ *              = 0     if no more auxtrace_buffer to read
++ *              > 0     if the current buffer isn't empty yet
++ */
++static int gtrace_get_data_block(struct gtrace_queue *gtraceq)
++{
++	int ret;
++
++	ret = gtrace_get_trace(gtraceq);
++	if (ret <= 0)
++		return ret;
++
++	/*
++	 * We cannot assume consecutive blocks in the data file
++	 * are contiguous, reset the decoder to force re-sync.
++	 */
++	ret = rvtrace_decoder_reset(gtraceq->decoder);
++	if (ret)
++		return ret;
++
++	return gtraceq->buffer->size;
++}
++
++static int gtrace_run_timeless_decoder(struct gtrace_queue *gtraceq)
++{
++	struct rvtrace_decoder *decoder = gtraceq->decoder;
++	int ret;
++
++	while (1) {
++		ret = gtrace_get_data_block(gtraceq);
++		if (ret < 0)
++			return ret;
++
++		if (ret == 0)
++			break;
++
++		ret = decoder->decode(decoder, RVTRACE_DECODE_INSN,
++				      gtraceq->buffer->data,
++				      gtraceq->buffer->size);
++		if (ret)
++			return ret;
++
++		ret = gtrace_process_queue(gtraceq);
++		if (ret)
++			return ret;
++	}
++
++	return ret;
++}
++
++static int gtrace_process_timeless_queues(struct gtrace_decoder *ptr,
++					  pid_t tid)
++{
++	unsigned int i;
++	struct auxtrace_queues *queues = &ptr->queues;
++
++	for (i = 0; i < queues->nr_queues; i++) {
++		struct auxtrace_queue *queue = &ptr->queues.queue_array[i];
++		struct gtrace_queue *gtraceq = queue->priv;
++
++		if (gtraceq && ((tid == -1) || (queue->tid == tid))) {
++			gtrace_set_thread(gtraceq, queue->tid);
++			gtrace_run_timeless_decoder(gtraceq);
++		}
++	}
++
++	return 0;
++}
++
++static u64 gtrace_queue_get_timestamp(struct gtrace_queue *gtraceq)
++{
++	struct rvtrace_packet_buffer *packet_buffer = &gtraceq->decoder->packet_buffer;
++
++	for (int i = 0; i < packet_buffer->size; i++) {
++		struct rvtrace_packet packet = packet_buffer->packets[i];
++
++		if (packet.sample_type == RVTRACE_RANGE)
++			return packet.timestamp;
++	}
++
++	return 0;
++}
++
++static int gtrace_queue_first_timestamp(struct gtrace_decoder *ptr,
++					struct gtrace_queue *gtraceq,
++					unsigned int queue_nr)
++{
++	struct rvtrace_decoder *decoder = gtraceq->decoder;
++	u64 timestamp = 0;
++	int ret;
++
++	/* Decode the first segment of data until a timestamp is found,
++	 * then add it to the heap for sorting by time across multiple
++	 * queues.
++	 */
++	while (1) {
++		/*
++		 * Fetch an aux_buffer from this gtraceq. Bail if no more
++		 * blocks or an error has been encountered.
++		 */
++		ret = gtrace_get_data_block(gtraceq);
++		if (ret <= 0)
++			goto out;
++
++		ret = decoder->decode(decoder, RVTRACE_DECODE_INSN,
++				      gtraceq->buffer->data,
++				      gtraceq->buffer->size);
++		if (ret)
++			goto out;
++
++		timestamp = gtrace_queue_get_timestamp(gtraceq);
++
++		/* We found a timestamp, no need to continue. */
++		if (timestamp)
++			break;
++	}
++
++	/* We have a timestamp and add it to the min heap */
++	ret = auxtrace_heap__add(&ptr->heap, queue_nr, timestamp);
++out:
++	return ret;
++}
++
++static int gtrace_process_timestamped_queues(struct gtrace_decoder *ptr)
++{
++	int ret = 0;
++	unsigned int queue_nr, i;
++	struct auxtrace_queue *queue;
++	struct gtrace_queue *gtraceq;
++
++	/* First, find the first timestamp for each queue and add it to the heap. */
++	for (i = 0; i < ptr->queues.nr_queues; i++) {
++		queue = &ptr->queues.queue_array[i];
++		gtraceq = queue->priv;
++		if (!gtraceq)
++			continue;
++
++		gtrace_set_thread(gtraceq, queue->tid);
++
++		ret = gtrace_queue_first_timestamp(ptr, gtraceq, i);
++		if (ret)
++			return ret;
++	}
++
++	/* Process queues in the heap in timestamp order */
++	while (1) {
++		if (!ptr->heap.heap_cnt)
++			break;
++
++		/* Take the entry at the top of the min heap */
++		queue_nr = ptr->heap.heap_array[0].queue_nr;
++		queue = &ptr->queues.queue_array[queue_nr];
++		gtraceq = queue->priv;
++
++		/*
++		 * Remove the top entry from the heap since we are about
++		 * to process it.
++		 */
++		auxtrace_heap__pop(&ptr->heap);
++
++		/*
++		 * Packets associated with this timestamp are already in
++		 * the gtraceq->packet_buffer, so process them.
++		 */
++		ret = gtrace_process_queue(gtraceq);
++		if (ret)
++			return ret;
++
++		/*
++		 * Packets for this timestamp have been processed, time to
++		 * move on to the next timestamp, find the next timestamp
++		 * for this gtraceq.
++		 */
++		ret = gtrace_queue_first_timestamp(ptr, gtraceq, queue_nr);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
++static struct gtrace_queue *gtrace_alloc_queue(struct gtrace_decoder *ptr,
++					       unsigned int queue_nr)
++{
++	struct gtrace_queue *gtraceq;
++
++	gtraceq = zalloc(sizeof(*gtraceq));
++	if (!gtraceq)
++		return NULL;
++
++	gtraceq->event_buf = malloc(PERF_SAMPLE_MAX_SIZE);
++	if (!gtraceq->event_buf)
++		goto out_free;
++
++	gtraceq->ptr = ptr;
++	gtraceq->queue_nr = queue_nr;
++	gtraceq->offset = 0;
++
++	return gtraceq;
++
++out_free:
++	zfree(&gtraceq->event_buf);
++	free(gtraceq);
++
++	return NULL;
++
++}
++
++static int gtrace_setup_queue(struct gtrace_decoder *ptr,
++			      struct auxtrace_queue *queue,
++			      unsigned int queue_nr)
++{
++	struct gtrace_queue *gtraceq = queue->priv;
++
++	if (gtraceq)
++		return 0;
++
++	gtraceq = gtrace_alloc_queue(ptr, queue_nr);
++	if (!gtraceq)
++		return -ENOMEM;
++
++	queue->priv = gtraceq;
++	queue->cpu = queue_nr;
++
++	return 0;
++}
++
++static void gtrace_setup_timeless_decoding(struct gtrace_decoder *ptr)
++{
++	u64 *metadata = ptr->metadata[0];
++
++	/* Override timeless mode with user input from --itrace=Z */
++	if (ptr->synth_opts.timeless_decoding) {
++		ptr->timeless_decoding = true;
++		return;
++	}
++
++	ptr->timeless_decoding = metadata[RVTRACE_ENCODER_TIMESTAMP];
++}
++
+ static const char * const gtrace_global_header_fmts[] = {
+ 	[GTRACE_PMU_TYPE_CPUS]		    = "	    PMU type/num cpus	    %llx\n",
+ };
+@@ -99,6 +966,251 @@ static void gtrace_print_auxtrace_info(u64 *val, int num_cpu)
+ 	}
+ }
+ 
++static struct gtrace_queue *gtrace_get_queue(struct gtrace_decoder *ptr, int cpu)
++{
++	if (ptr->per_thread_decoding)
++		return ptr->queues.queue_array[0].priv;
++
++	if (cpu < 0 || cpu >= (int)ptr->queues.nr_queues)
++		return NULL;
++
++	return ptr->queues.queue_array[cpu].priv;
++}
++
++/**
++ * Puts a fragment of an auxtrace buffer into the auxtrace queues based
++ * on the bounds of aux_event, if it matches with the buffer that's at
++ * file_offset.
++ *
++ * Normally, whole auxtrace buffers would be added to the queue. But we
++ * want to reset the decoder for every PERF_RECORD_AUX event, and the decoder
++ * is reset across each buffer, so splitting the buffers up in advance has
++ * the same effect.
++ */
++static int gtrace_queue_aux_fragment(struct perf_session *session, off_t file_offset, size_t sz,
++				     struct perf_record_aux *aux_event, struct perf_sample *sample)
++{
++	int err;
++	char buf[PERF_SAMPLE_MAX_SIZE];
++	union perf_event *auxtrace_event_union;
++	struct perf_record_auxtrace *auxtrace_event;
++	union perf_event auxtrace_fragment;
++	__u64 aux_offset, aux_size;
++	enum coresight_format cs_format;
++
++	struct gtrace_decoder *ptr = container_of(session->auxtrace, struct gtrace_decoder,
++					    auxtrace);
++
++	/*
++	 * There should be a PERF_RECORD_AUXTRACE event at the file_offset that we got
++	 * from looping through the auxtrace index.
++	 */
++	err = perf_session__peek_event(session, file_offset, buf,
++				       PERF_SAMPLE_MAX_SIZE, &auxtrace_event_union, NULL);
++	if (err)
++		return err;
++	auxtrace_event = &auxtrace_event_union->auxtrace;
++	if (auxtrace_event->header.type != PERF_RECORD_AUXTRACE)
++		return -EINVAL;
++
++	if (auxtrace_event->header.size < sizeof(struct perf_record_auxtrace) ||
++		auxtrace_event->header.size != sz) {
++		return -EINVAL;
++	}
++
++	/*
++	 * Compare only TIDs if auxtrace CPU is -1, and CPUs if auxtrace CPU is not -1.
++	 * Return 'not found' if mismatch.
++	 */
++	if (auxtrace_event->cpu == (__u32) -1) {
++		ptr->per_thread_decoding = true;
++		if (auxtrace_event->tid != sample->tid)
++			return 1;
++	} else if (auxtrace_event->cpu != sample->cpu) {
++		if (ptr->per_thread_decoding) {
++			/*
++			 * Found a per-cpu buffer after a per-thread one was
++			 * already found
++			 */
++			pr_err("GTRACE: Inconsistent per-thread/per-cpu mode.\n");
++			return -EINVAL;
++		}
++		return 1;
++	}
++
++	if (aux_event->flags & PERF_AUX_FLAG_OVERWRITE) {
++		/*
++		 * Clamp size in snapshot mode. The buffer size is clamped in
++		 * __auxtrace_mmap__read() for snapshots, so the aux record size doesn't reflect
++		 * the buffer size.
++		 */
++		aux_size = min(aux_event->aux_size, auxtrace_event->size);
++
++		/*
++		 * In this mode, the head also points to the end of the buffer so aux_offset
++		 * needs to have the size subtracted so it points to the beginning as in normal mode
++		 */
++		aux_offset = aux_event->aux_offset - aux_size;
++	} else {
++		aux_size = aux_event->aux_size;
++		aux_offset = aux_event->aux_offset;
++	}
++
++	if (aux_offset >= auxtrace_event->offset &&
++	    aux_offset + aux_size <= auxtrace_event->offset + auxtrace_event->size) {
++		struct gtrace_queue *gtraceq = gtrace_get_queue(ptr, auxtrace_event->cpu);
++
++		if (!gtraceq)
++			return -EINVAL;
++
++		/*
++		 * If this AUX event was inside this buffer somewhere, create a new auxtrace event
++		 * based on the sizes of the aux event, and queue that fragment.
++		 */
++		auxtrace_fragment.auxtrace = *auxtrace_event;
++		auxtrace_fragment.auxtrace.size = aux_size;
++		auxtrace_fragment.auxtrace.offset = aux_offset;
++		auxtrace_fragment.auxtrace.idx = gtraceq->queue_nr;
++		file_offset += aux_offset - auxtrace_event->offset + auxtrace_event->header.size;
++
++		pr_debug3("GTRACE: Queue buffer size: %#"PRI_lx64" offset: %#"PRI_lx64
++			  " tid: %d cpu: %d\n", aux_size, aux_offset, sample->tid, sample->cpu);
++		err = auxtrace_queues__add_event(&ptr->queues, session, &auxtrace_fragment,
++						 file_offset, NULL);
++		if (err)
++			return err;
++
++		cs_format = (aux_event->flags & PERF_AUX_FLAG_GTRACE_FORMAT_CORESIGHT) ?
++					FORMATTED : UNFORMATTED;
++		if (gtraceq->cs_format != UNSET && cs_format != gtraceq->cs_format) {
++			pr_err("GTRACE: mixed coresight formatted and unformatted trace not supported\n");
++			return -EINVAL;
++		}
++		gtraceq->cs_format = cs_format;
++		return 0;
++	}
++
++	/* Wasn't inside this buffer, but there were no parse errors. 1 == 'not found' */
++	return 1;
++}
++
++static int gtrace_queue_aux_records_cb(struct perf_session *session, union perf_event *event,
++				       u64 offset __maybe_unused, void *data __maybe_unused)
++{
++	struct perf_sample sample;
++	int ret;
++	struct auxtrace_index_entry *ent;
++	struct auxtrace_index *auxtrace_index;
++	struct evsel *evsel;
++	size_t i;
++
++	/* Don't care about any other events, we're only queuing buffers for AUX events */
++	if (event->header.type != PERF_RECORD_AUX)
++		return 0;
++
++	if (event->header.size < sizeof(struct perf_record_aux))
++		return -EINVAL;
++
++	/* Truncated Aux records can have 0 size and shouldn't result in anything being queued. */
++	if (!event->aux.aux_size)
++		return 0;
++
++	/*
++	 * Parse the sample, we need the sample_id_all data that comes after the event so that the
++	 * CPU or PID can be matched to an AUXTRACE buffer's CPU or PID.
++	 */
++	evsel = evlist__event2evsel(session->evlist, event);
++	if (!evsel)
++		return -EINVAL;
++	perf_sample__init(&sample, /*all=*/false);
++	ret = evsel__parse_sample(evsel, event, &sample);
++	if (ret)
++		goto out;
++
++	/*
++	 * Loop through the auxtrace index to find the buffer that matches up with this aux event.
++	 */
++	list_for_each_entry(auxtrace_index, &session->auxtrace_index, list) {
++		for (i = 0; i < auxtrace_index->nr; i++) {
++			ent = &auxtrace_index->entries[i];
++			ret = gtrace_queue_aux_fragment(session, ent->file_offset,
++							ent->sz, &event->aux, &sample);
++			/*
++			 * Stop search on error or successful values. Continue search on
++			 * 1 ('not found')
++			 */
++			if (ret != 1)
++				goto out;
++		}
++	}
++
++	/*
++	 * Couldn't find the buffer corresponding to this aux record, something went wrong. Warn but
++	 * don't exit with an error because it will still be possible to decode other aux records.
++	 */
++	pr_err("CS ETM: Couldn't find auxtrace buffer for aux_offset: %#"PRI_lx64
++	       " tid: %d cpu: %d\n", event->aux.aux_offset, sample.tid, sample.cpu);
++	ret = 0;
++out:
++	perf_sample__exit(&sample);
++	return ret;
++
++}
++
++static int gtrace_queue_aux_records(struct perf_session *session)
++{
++	struct auxtrace_index *index = list_first_entry_or_null(&session->auxtrace_index,
++								struct auxtrace_index, list);
++
++	if (index && index->nr > 0)
++		return perf_session__peek_events(session, session->header.data_offset,
++						 session->header.data_size,
++						 gtrace_queue_aux_records_cb, NULL);
++
++	return 0;
++}
++
++static int gtrace_create_queue_decoder(struct gtrace_queue *gtraceq)
++{
++	struct gtrace_decoder *ptr = gtraceq->ptr;
++	struct rvtrace_decoder_params params;
++
++	params.data = gtraceq;
++	params.mem_access = gtrace_mem_access;
++	params.coresight_formatted = gtraceq->cs_format == FORMATTED;
++	params.format = ptr->metadata[gtraceq->queue_nr][RVTRACE_ENCODER_FORMAT];
++	params.srcbits = ptr->metadata[gtraceq->queue_nr][RVTRACE_ENCODER_SRCBITS];
++	gtraceq->decoder = rvtrace_decoder_new(&params);
++	if (!gtraceq->decoder)
++		return -EINVAL;
++
++	return 0;
++}
++
++static int gtrace_create_decoders(struct gtrace_decoder *ptr)
++{
++	struct auxtrace_queues *queues = &ptr->queues;
++
++	for (unsigned int i = 0; i < queues->nr_queues; i++) {
++		bool empty = list_empty(&queues->queue_array[i].head);
++		struct gtrace_queue *gtraceq = queues->queue_array[i].priv;
++		int ret;
++
++		/*
++		 * Don't create decoders for empty queues, mainly because
++		 * q->format is unknown for empty queues.
++		 */
++		assert(empty || gtraceq->cs_format != UNSET);
++		if (empty)
++			continue;
++
++		ret = gtrace_create_queue_decoder(gtraceq);
++		if (ret)
++			return ret;
++	}
++	return 0;
++}
++
+ int gtrace__process_auxtrace_info(union perf_event *event,
+ 				   struct perf_session *session)
+ {
+@@ -106,7 +1218,7 @@ int gtrace__process_auxtrace_info(union perf_event *event,
+ 	struct gtrace_decoder *ptr;
+ 	u64 *priv;
+ 	u64 **metadata;
+-	int num_cpu;
++	int num_cpu, max_cpu = 0;
+ 	int priv_size;
+ 	int err;
+ 	int i;
+@@ -115,7 +1227,6 @@ int gtrace__process_auxtrace_info(union perf_event *event,
+ 	num_cpu = priv[GTRACE_PMU_TYPE_CPUS] & 0xffffffff;
+ 	if (dump_trace)
+ 		gtrace_print_auxtrace_info(priv, num_cpu);
+-
+ 	priv_size = auxtrace_info->header.size - sizeof(struct perf_event_header) -
+ 		    INFO_HEADER_SIZE - GTRACE_HEADER_SIZE;
+ 	if (num_cpu <= 0 || priv_size <= 0 ||
+@@ -126,7 +1237,7 @@ int gtrace__process_auxtrace_info(union perf_event *event,
+ 	if (!metadata)
+ 		return -ENOMEM;
+ 
+-	i = GTRACE_HEADER_SIZE;
++	i = GTRACE_HEADER_MAX;
+ 
+ 	for (int j = 0; j < num_cpu; j++) {
+ 		metadata[j] = zalloc(sizeof(*metadata[j]) * RVTRACE_ENCODER_PRIV_MAX);
+@@ -137,6 +1248,9 @@ int gtrace__process_auxtrace_info(union perf_event *event,
+ 
+ 		for (int k = 0; k < RVTRACE_ENCODER_PRIV_MAX; k++)
+ 			metadata[j][k] = priv[i + k];
++
++		if ((int)metadata[j][RVTRACE_ENCODER_CPU] > max_cpu)
++			max_cpu = metadata[j][RVTRACE_ENCODER_CPU];
+ 		i += RVTRACE_ENCODER_PRIV_MAX;
  	}
  
-+	/* no sink found for any CPU - cannot trace */
-+	if (!sink)
-+		goto err;
+@@ -146,6 +1260,26 @@ int gtrace__process_auxtrace_info(union perf_event *event,
+ 		goto err_free_metadata;
+ 	}
+ 
++	err = auxtrace_queues__init_nr(&ptr->queues, max_cpu + 1);
++	if (err)
++		goto err_free_metadata;
 +
- 	/* If we don't have any CPUs ready for tracing, abort */
- 	cpu = cpumask_first(&event_data->mask);
- 	if (cpu >= nr_cpu_ids)
++	for (unsigned int j = 0; j < ptr->queues.nr_queues; ++j) {
++		err = gtrace_setup_queue(ptr, &ptr->queues.queue_array[j], j);
++		if (err)
++			goto err_free_queues;
++	}
++
++	if (session->itrace_synth_opts->set) {
++		ptr->synth_opts = *session->itrace_synth_opts;
++	} else {
++		itrace_synth_opts__set_default(&ptr->synth_opts,
++				session->itrace_synth_opts->default_no_sample);
++		ptr->synth_opts.callchain = false;
++		ptr->synth_opts.thread_stack = session->itrace_synth_opts->thread_stack;
++	}
++
++
+ 	ptr->session = session;
+ 	ptr->machine = &session->machines.host;
+ 	ptr->auxtrace_type = auxtrace_info->type;
+@@ -161,10 +1295,52 @@ int gtrace__process_auxtrace_info(union perf_event *event,
+ 	ptr->auxtrace.evsel_is_auxtrace = gtrace_evsel_is_auxtrace;
+ 	session->auxtrace = &ptr->auxtrace;
+ 
+-	return 0;
++	gtrace_setup_timeless_decoding(ptr);
++
++	/* Load firmware binary if specified */
++	if (symbol_conf.firmware_name) {
++		u64 base_addr = 0;
++
++		if (symbol_conf.firmware_base)
++			base_addr = strtoull(symbol_conf.firmware_base, NULL, 0);
++
++		ptr->firmware_dso = dso__new(symbol_conf.firmware_name);
++		if (ptr->firmware_dso) {
++			ptr->firmware_maps = maps__new(ptr->machine);
++			if (!ptr->firmware_maps ||
++				gtrace_register_firmware_maps(ptr,
++							      ptr->firmware_dso,
++							      base_addr) < 0) {
++				pr_err("Failed to register machine code maps: %s\n",
++					symbol_conf.firmware_name);
++				dso__put(ptr->firmware_dso);
++				ptr->firmware_dso = NULL;
++				maps__put(ptr->firmware_maps);
++				ptr->firmware_maps = NULL;
++			}
++		}
++	}
+ 
++	err = gtrace_synth_events(ptr, session);
++	if (err)
++		goto err_free_queues;
++
++	err = gtrace_queue_aux_records(session);
++	if (err)
++		goto err_free_queues;
++
++	err = gtrace_create_decoders(ptr);
++	if (err)
++		goto err_free_queues;
++
++	ptr->data_queued = ptr->queues.populated;
++	return 0;
++err_free_queues:
++	auxtrace_queues__free(&ptr->queues);
++	session->auxtrace = NULL;
+ err_free_metadata:
+ 	for (int j = 0; j < num_cpu; j++)
+-		zfree(&metadata);
++		zfree(&metadata[j]);
++	zfree(&metadata);
+ 	return err;
+ }
+diff --git a/tools/perf/util/symbol_conf.h b/tools/perf/util/symbol_conf.h
+index 0dee5aa6a534..83fc134ea8ac 100644
+--- a/tools/perf/util/symbol_conf.h
++++ b/tools/perf/util/symbol_conf.h
+@@ -72,6 +72,8 @@ struct symbol_conf {
+ 			prefer_latency;
+ 	const char	*vmlinux_name,
+ 			*kallsyms_name,
++			*firmware_name,
++			*firmware_base,
+ 			*source_prefix,
+ 			*field_sep,
+ 			*graph_function;
 -- 
 2.34.1
 
