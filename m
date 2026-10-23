@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA4F0606A32A
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:18:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3233B606A321
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:18:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JJPWYoFl;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=xu+oFaIM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NLd+5Jjy;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=YVTpT7Qw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,36 +14,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=nNN2VxiFuFeEK+IfGDBVee4jXu8hgdKA3zquSpenZQU=; b=JJPWYoFlgBGCZbsZSql9WJGFTC
-	C1LfMicc50MLDHiMKNc9Ut/aevxb8dTTQjMKhAjUiwpuEjt2GXYaCgjSa70mA+5fOV71maZpdtF3k
-	fDpiLMd0IOyBrd7YC8enU3eW8Z81l/hFO0HrUEyx7n0+poeRFHGCsfi/O8Qk6FiIkvYqsx6Dlqxm0
-	mLD9SizdZWRSAPMoHfkC+vumVyMzUFkCZuSAatl8jfzHdaxAjka6cv20DQOYINGrGHHz2FiFL/p4i
-	V50zyf0ReGYz53dXp9AKSj/O+vBlgwVCwmImBYO9ofOUdHUfmN0VXh7A4bphPHYm8rKDBBTXxn1YO
-	UE99h5aw==;
+	bh=6QYKHyFCF5NlOYlVU52AMuh8/C5Vo654hhJylPzKZpg=; b=NLd+5JjyO0nxEI1yDH3kOb/QXq
+	VkyCAIRWle/hCT9T+Q0WbKNS20IuVMlxT7uha6zmalPwT1JwQr7m1U4UJVvucLZsco7sT4g8z9D/w
+	qafk+je5UaAimW6mxhbzQX1uIduhGUVehGBtiejf9dplDUYlZCTHFmCs+fQlagefcMDVxjRJTpx1t
+	tvSQEiYHKQqZ6Z/6nSn3cK5O9fGGM9qAT14sYI0WARAhOtDULz0jI7nh8a7R/GEWZ7GcXwSrvR8br
+	GW3omjJ9CvzTggKN0RmiyYwa7NjjySdOcCHbfvbTCerDE7vV+CnalF20gXLeuX2RfinbemDyKZZxA
+	mYamuHqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK5n4-0000000FPBQ-21kK;
-	Fri, 23 Oct 2026 03:17:58 +0000
-Received: from smtpbgbr1.qq.com ([54.207.19.206])
+	id 1xK5n6-0000000FPER-2rAC;
+	Fri, 23 Oct 2026 03:18:00 +0000
+Received: from smtpbgeu2.qq.com ([18.194.254.142])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK5mz-0000000FOtx-36TF
+	id 1xK5n0-0000000FOxG-0vyQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Oct 2026 03:17:56 +0000
+	Fri, 23 Oct 2026 03:17:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1792725418;
-	bh=gtx+W44xo1ZwzGpsTsWw/W+cEc1Mponwv80ce0mZe+8=;
+	s=mxsw2412; t=1792725415;
+	bh=mkGGwXbQybCvoYCC3csEwc/txTzlfZkmjYSHY29OcVA=;
 	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=xu+oFaIM5G9pDE2cTpp7MSvQksJaJl3aHnBiamCTIxd3B8kdUiJW+kigipoiPfGZz
-	 rOtqV+OLLYw5gA81UTbHX6p2qWaOonwHuRu+GPseURO+OVmEVc6fwFzIA7SGILNs7N
-	 jwcQ2tFQF8yvMqI4K7e3JhU/Enxh3SiKrcV8acxk=
-X-QQ-mid: esmtpsz11t1792725359t42f8dea9
-X-QQ-Originating-IP: 7RgGK9DOgKvKQk688Ih1akniNMRZTbSVAxNhnFlyluM=
+	b=YVTpT7Qw1n5wFl2rSvoxK/NUAkHg22STNcu7LlMOz9yoxgVwNJR/o77ZKAvwAu/22
+	 guEAPm3qJsyrqdszYkEAgYS6xf/0e3u+8mTNVA29JRf1AMubjf6hJh1kQJnBQbu0mJ
+	 RvDnZ3L47Kn31RqQBrfe8z30k45iLzCPjr0eBfQ0=
+X-QQ-mid: esmtpsz11t1792725351t814e59f4
+X-QQ-Originating-IP: yzOEdM5/KM/iy2YXPZCwe3IX4Cbiir/s+/R1sBcG26I=
 Received: from snode5.. ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 23 Oct 2026 11:15:56 +0800 (CST)
+	id ; Fri, 23 Oct 2026 11:15:48 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1905336421296564157
+X-BIZMAIL-ID: 12203296309924822045
 EX-QQ-RecipientCnt: 26
 From: Zane Leung <liangzhen@linux.spacemit.com>
 To: gregkh@linuxfoundation.org,
@@ -72,9 +72,9 @@ Cc: mike.leach@arm.com,
 	coresight@lists.linaro.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 13/24] gtrace: Add CoreSight platform core APIs
-Date: Fri, 23 Oct 2026 11:14:54 +0800
-Message-Id: <20261023031505.2020925-14-liangzhen@linux.spacemit.com>
+Subject: [PATCH 11/24] gtrace: Add RISC-V trace timestamp support
+Date: Fri, 23 Oct 2026 11:14:52 +0800
+Message-Id: <20261023031505.2020925-12-liangzhen@linux.spacemit.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
 References: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
@@ -82,28 +82,28 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: M9U6erWNshaGuxUTjJ652GluQzxUyjDNddpq7G1n7mVFm+ngg2etK8Wh
-	ofr5gyEZXW7X1cfkNQ2UKH/QcbUwnZyRKLFIwMEf4Xvc5gejmZy/+uOwFQZ1XLxa8AA0Xk9
-	DDfaoR6Olf8oV/WLKVtL67K6NtRZxtWj348aq0cLK2AuAyCG/FXQN8sLBzYBgNzyUqlv3cY
-	/wpwo4AjGPTIpdqgAPF993FCQnP2dVxGAefPV28h/ZFFXrsu6MKGNTabI+dmsE0jhfei1S4
-	6S++XvZmUXwVljuW4VvVUlix/KbISybFnAcr5yerhUhfvr1q77krbUTctpCmtzIEjUcfuos
-	nN2q9zxcSno2cAulTyN8fN1kmSguYY2jmrZBJYIiaNPMGSe4ES8YYKPYqycPdr22F/PfVxz
-	gncvmgGTfvQlDFdCgy0wIWfm7jH7p+TK42+wXOz8sveJ6YFR6ZmdtN/rFxYSzXp4qvFGhwy
-	6l7+QkS590JU0C2CGevQwJ1XaikSeNLJH80JkSIWjqDlngwJkI7zmXUl3QO/DdvjRCYEe0x
-	nDcm96T6F1ndTjnm2yHMJtoZpiOIRPsDJY1U1eMepTV661yBcXqI/BGndXm7McogHYcQ7Z4
-	6JXVeceB0W7UoLiyImN167TWiWXc57M8b6wuNNXvlXIAzXxw2zI6wtx3NXhmgwGk3Y5Wwrb
-	IKnHWtp1Ou5CqWLJt1c6YzfVlLmC8Jo9XT7M3BcctTTjEVOoDpectKgo9bjAyCuftQuLFS7
-	L4ojyfZQ2deK+MJYYuc0Hco0jzo3b/qAmV8HXNXlb0+TZkV2wpmZEspTIJlvTRn//Xg33zH
-	+padOrSw7fT3WDPgnfJ2Bt6Po+Ja1Ja7DQz4WsvxYe30gkTEcJze8jp5lnYoWoVZh5PN6Z6
-	Tqv4NY0cxItB5a7A4xWOEd9vCAB+2SxZK0tWeKe77Pr3ePl0rwreRE+lRk2dzHDxNICoWaK
-	ZlnvWofyfQpjJl4mOVJdN26OcLMyQl6cyeuj9QmQIRcVgfhn4Ojpl7KiEipI2H+EviRs4bU
-	XXoWz5mb+mm6AVu58lXjcV7SuJweud+6NBGs+YD7qn38Z4HH5JqY/J5Z6lRpGbry0LCt2Wy
-	+abdH3KEFuFw1ahfmQtotQ=
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-XMAILINFO: NkePUIh4Ak4YualQUQhVuXIBehEKHSVRFdNYbHrdZfbD8ZVNxecLh2VD
+	Wab4E2kF9dvIj/8lrZry6nkjPMKiBak/HFGojGYDxDHmMj4C7VMW+ApKmBCKBR8A+d78RWz
+	xXwrUeWmZgCWStCDhTjXw4gcZNYQ4iWtBVIZhIM00VRtXTtnjJwCjuZ1a4eqA1oPh/AIHe+
+	jSCZV71oOjbwWQEsqLZyI6+RFHQWtdvMEG/Fol3rHUq8mmWf0OQADRCqFF1xWScR9zNdCER
+	SA6HCaJeOY5sLwBIeDnZobkNuo6UtVHOeW7z02920zt+GwKy00hKo+T/P/s9kiM+FgIaA12
+	Q+/72TVxiS348UEs9pOR/gjZT95Nn7YmNpGvSmaR2gIE9xDzQwbxv6zc1tPzh+WugatZjPR
+	8qZ2EGOCIXHFOs79zZ9ehjJSdkkja8vbDB78iHF7pljZCTlJOcup+ZfoNFYqJhoeeMo6A0F
+	kQPTlIKBkIEXX1VCQdTDu1yoAI8jyfBL/jwUmDWv7R+oahOhYr0yCJCS8J9wMumjAVTH7x7
+	gTlnl08e6DW714TYPe11+9x3n/AXWpO5VDBzAcyAamaVgyoK6CeR1c/JeC8xTVpv8zKP4vV
+	Kq2YiqTSv7IcyS+UpKDs7Crf/VJ8PbYdceVBxiAnoIf/WCsQeEt36AHgFF0UIpM5zBOOS5N
+	zp0HNZSnQMdeihPm6Gf5GGjfGgorbyg0TWnveB3DPkq41prQENGpBwHWbdBh9pfnXfS+gd1
+	EHLybgZE4pwXEpu/czCR3DfaRcno6xFe9YfpLgH/QmRQq8tadSuO628kzXav0Uxejn2ctkE
+	uFkT4jivxhqiW0gGKR0YsQod+HFj2idY5DNmuk57qccP+RLvNaCX3Ti08CUt7zeNsi+qCfm
+	WPs1QWwmdiybhUpy+IHSbdbt+tTSxqwRLZ3sSO4/75bMB6iegxIweP4Q9JQP3CwRRBIs8ob
+	T8wflHnxXC3PDr1sAygUG4ATGQ/otcZoYlcZUGY6DM7Y3bNs3/84AdpDidG27fdjKjOLR2j
+	WjGVUNdDKr6PTQ9PPNwH6x7hqX0IbfPdIcdvaBNZtZW9pRm1m0BkO/bhbZd7vGcYqoTqoFp
+	mYZBfTce1CmD5G2Al6Cm5g=
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_201754_678749_A28ABC0C 
-X-CRM114-Status: GOOD (  28.14  )
+X-CRM114-CacheID: sfid-20261022_201754_918963_A7020366 
+X-CRM114-Status: GOOD (  22.35  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,573 +124,681 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add CoreSight infrastructure for the gtrace framework, providing driver
-registration helper, clock management, and other core integration APIs.
+Add a shared timestamp component for the RISC-V trace encoder and
+funnel.
 
 Signed-off-by: Zane Leung <liangzhen@linux.spacemit.com>
 ---
- drivers/hwtracing/gtrace/Kconfig              |  15 +
- drivers/hwtracing/gtrace/Makefile             |   1 +
- drivers/hwtracing/gtrace/coresight-platform.c | 279 ++++++++++++++++++
- drivers/hwtracing/gtrace/coresight.h          | 212 +++++++++++++
- include/linux/gtrace.h                        |   7 +
- 5 files changed, 514 insertions(+)
- create mode 100644 drivers/hwtracing/gtrace/coresight-platform.c
- create mode 100644 drivers/hwtracing/gtrace/coresight.h
+ drivers/hwtracing/gtrace/Makefile             |   3 +-
+ .../hwtracing/gtrace/rvtrace-encoder-core.c   |  16 +-
+ .../hwtracing/gtrace/rvtrace-encoder-sysfs.c  |  33 ++
+ drivers/hwtracing/gtrace/rvtrace-encoder.h    |   8 +
+ drivers/hwtracing/gtrace/rvtrace-funnel.c     |  55 +++
+ drivers/hwtracing/gtrace/rvtrace-funnel.h     |   8 +
+ drivers/hwtracing/gtrace/rvtrace-timestamp.c  | 336 ++++++++++++++++++
+ drivers/hwtracing/gtrace/rvtrace-timestamp.h  |  44 +++
+ 8 files changed, 500 insertions(+), 3 deletions(-)
+ create mode 100644 drivers/hwtracing/gtrace/rvtrace-timestamp.c
+ create mode 100644 drivers/hwtracing/gtrace/rvtrace-timestamp.h
 
-diff --git a/drivers/hwtracing/gtrace/Kconfig b/drivers/hwtracing/gtrace/Kconfig
-index 3af47d7c3ce3..5dce4474db7c 100644
---- a/drivers/hwtracing/gtrace/Kconfig
-+++ b/drivers/hwtracing/gtrace/Kconfig
-@@ -86,3 +86,18 @@ config RVTRACE_ATBBRIDGE
- 
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called rvtrace-atbbridge.
-+
-+config GTRACE_CORESIGHT
-+	tristate "CoreSight Trace Support"
-+	depends on RISCV
-+	depends on GTRACE
-+	select ARM_AMBA
-+	help
-+	  This provides the CoreSight backend for the generic hardware trace
-+	  (gtrace) framework. It provides the CoreSight claim protocol,
-+	  component and driver registration helpers, and clock management
-+	  used by the individual CoreSight component drivers (TMC, funnel,
-+	  etc.) to register CoreSight hardware with the gtrace core.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called coresight.
 diff --git a/drivers/hwtracing/gtrace/Makefile b/drivers/hwtracing/gtrace/Makefile
-index 3f1dcb5664a2..0833a40c397c 100644
+index 9c99d917b9f4..b60d3cfe5248 100644
 --- a/drivers/hwtracing/gtrace/Makefile
 +++ b/drivers/hwtracing/gtrace/Makefile
-@@ -11,3 +11,4 @@ rvtrace-encoder-y := rvtrace-encoder-core.o rvtrace-encoder-sysfs.o
+@@ -4,7 +4,8 @@ obj-$(CONFIG_GTRACE) += gtrace.o
+ gtrace-y := gtrace-core.o gtrace-perf.o gtrace-sysfs.o
+ gtrace-$(CONFIG_OF) += gtrace-of.o
+ 
+-obj-$(CONFIG_RVTRACE) += rvtrace-platform.o
++obj-$(CONFIG_RVTRACE) += rvtrace.o
++rvtrace-y := rvtrace-platform.o rvtrace-timestamp.o
+ obj-$(CONFIG_RVTRACE_ENCODER) += rvtrace-encoder.o
+ rvtrace-encoder-y := rvtrace-encoder-core.o rvtrace-encoder-sysfs.o
  obj-$(CONFIG_RVTRACE_RAMSINK) += rvtrace-ramsink.o
- obj-$(CONFIG_RVTRACE_FUNNEL) += rvtrace-funnel.o
- obj-$(CONFIG_RVTRACE_ATBBRIDGE) += rvtrace-atbbridge.o
-+obj-$(CONFIG_GTRACE_CORESIGHT) += coresight-platform.o
-diff --git a/drivers/hwtracing/gtrace/coresight-platform.c b/drivers/hwtracing/gtrace/coresight-platform.c
-new file mode 100644
-index 000000000000..f5a472e86a32
---- /dev/null
-+++ b/drivers/hwtracing/gtrace/coresight-platform.c
-@@ -0,0 +1,279 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * CoreSight platform backend shared functions for the gtrace framework.
-+ * Derived from drivers/hwtracing/coresight/coresight-core.c.
-+ *
-+ * Copyright (c) 2012, The Linux Foundation. All rights reserved.
-+ */
+diff --git a/drivers/hwtracing/gtrace/rvtrace-encoder-core.c b/drivers/hwtracing/gtrace/rvtrace-encoder-core.c
+index 17a3dde1314c..c0541fee6b93 100644
+--- a/drivers/hwtracing/gtrace/rvtrace-encoder-core.c
++++ b/drivers/hwtracing/gtrace/rvtrace-encoder-core.c
+@@ -127,6 +127,10 @@ static int rvtrace_encoder_probe(struct gtrace_component *comp)
+ 		val |= BIT(RVTRACE_COMPONENT_CTRL_INHIBITSRC_SHIFT);
+ 		gtrace_write32(pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
+ 	}
 +
-+#include <linux/acpi.h>
-+#include <linux/bitfield.h>
-+#include <linux/build_bug.h>
-+#include <linux/cpu_pm.h>
-+#include <linux/kernel.h>
-+#include <linux/init.h>
-+#include <linux/types.h>
-+#include <linux/device.h>
-+#include <linux/io.h>
-+#include <linux/err.h>
-+#include <linux/export.h>
-+#include <linux/slab.h>
-+#include <linux/stringhash.h>
-+#include <linux/clk.h>
-+#include <linux/gtrace.h>
-+#include <linux/property.h>
-+#include <linux/delay.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/panic_notifier.h>
-+
-+#include "coresight.h"
-+
-+/*
-+ * When losing synchronisation a new barrier packet needs to be inserted at the
-+ * beginning of the data collected in a buffer.  That way the decoder knows that
-+ * it needs to look for another sync sequence.
-+ */
-+const u32 coresight_barrier_pkt[4] = {0x7fffffff, 0x7fffffff, 0x7fffffff, 0x7fffffff};
-+EXPORT_SYMBOL_GPL(coresight_barrier_pkt);
-+
-+static u32 coresight_read_claim_tags_unlocked(struct gtrace_component *comp)
-+{
-+	return FIELD_GET(CORESIGHT_CLAIM_MASK,
-+			gtrace_relaxed_read32(comp->pdata, CORESIGHT_CLAIMCLR));
-+}
-+
-+static void coresight_set_self_claim_tag_unlocked(struct gtrace_component *comp)
-+{
-+	gtrace_relaxed_write32(comp->pdata, CORESIGHT_CLAIM_SELF_HOSTED,
-+			       CORESIGHT_CLAIMSET);
-+	/* Make sure everyone has seen this */
-+	mb();
-+}
-+
-+void coresight_clear_self_claim_tag(struct gtrace_platform_data *pdata)
-+{
-+	if (pdata->io_mem)
-+		CS_UNLOCK(pdata->base);
-+	coresight_clear_self_claim_tag_unlocked(pdata);
-+	if (pdata->io_mem)
-+		CS_LOCK(pdata->base);
-+}
-+EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag);
-+
-+void coresight_clear_self_claim_tag_unlocked(struct gtrace_platform_data *pdata)
-+{
-+	gtrace_relaxed_write32(pdata, CORESIGHT_CLAIM_SELF_HOSTED,
-+			       CORESIGHT_CLAIMCLR);
-+	/* Make sure everyone has seen this */
-+	mb();
-+}
-+EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag_unlocked);
-+
-+/*
-+ * coresight_claim_device_unlocked : Claim the device for self-hosted usage
-+ * to prevent an external tool from touching this device. As per PSCI
-+ * standards, section "Preserving the execution context" => "Debug and Trace
-+ * save and Restore", DBGCLAIM[1] is reserved for Self-hosted debug/trace and
-+ * DBGCLAIM[0] is reserved for external tools.
-+ *
-+ * Called with CS_UNLOCKed for the component.
-+ * Returns : 0 on success
-+ */
-+int coresight_claim_device_unlocked(struct gtrace_component *comp)
-+{
-+	u32 tag;
-+	struct gtrace_platform_data *pdata;
-+
-+	if (WARN_ON(!comp))
-+		return -EINVAL;
-+
-+	pdata = comp->pdata;
-+	tag = coresight_read_claim_tags_unlocked(comp);
-+
-+	switch (tag) {
-+	case CORESIGHT_CLAIM_FREE:
-+		coresight_set_self_claim_tag_unlocked(comp);
-+		if (coresight_read_claim_tags_unlocked(comp) == CORESIGHT_CLAIM_SELF_HOSTED)
-+			return 0;
-+
-+		/* There was a race setting the tag, clean up and fail */
-+		coresight_clear_self_claim_tag_unlocked(pdata);
-+		dev_dbg(&comp->dev, "Busy: Couldn't set self claim tag");
-+		return -EBUSY;
-+
-+	case CORESIGHT_CLAIM_EXTERNAL:
-+		/* External debug is an expected state, so log and report BUSY */
-+		dev_dbg(&comp->dev, "Busy: Claimed by external debugger");
-+		return -EBUSY;
-+
-+	default:
-+	case CORESIGHT_CLAIM_SELF_HOSTED:
-+	case CORESIGHT_CLAIM_INVALID:
-+		dev_err_once(&comp->dev, "Invalid claim tag state: %x", tag);
-+		return -EBUSY;
-+	}
-+}
-+EXPORT_SYMBOL_GPL(coresight_claim_device_unlocked);
-+
-+int coresight_claim_device(struct gtrace_component *comp)
-+{
-+	int rc;
-+
-+	if (WARN_ON(!comp))
-+		return -EINVAL;
-+
-+	CS_UNLOCK(comp->pdata->base);
-+	rc = coresight_claim_device_unlocked(comp);
-+	CS_LOCK(comp->pdata->base);
-+
-+	return rc;
-+}
-+EXPORT_SYMBOL_GPL(coresight_claim_device);
-+
-+/*
-+ * coresight_disclaim_device_unlocked : Clear the claim tag for the device.
-+ * Called with CS_UNLOCKed for the component.
-+ */
-+void coresight_disclaim_device_unlocked(struct gtrace_component *comp)
-+{
-+	if (WARN_ON(!comp))
-+		return;
-+
-+	if (coresight_read_claim_tags_unlocked(comp) == CORESIGHT_CLAIM_SELF_HOSTED)
-+		coresight_clear_self_claim_tag_unlocked(comp->pdata);
-+	else
-+		/*
-+		 * The external agent may have not honoured our claim
-+		 * and has manipulated it. Or something else has seriously
-+		 * gone wrong in our driver.
-+		 */
-+		dev_WARN_ONCE(&comp->dev, 1, "External agent took claim tag");
-+}
-+EXPORT_SYMBOL_GPL(coresight_disclaim_device_unlocked);
-+
-+void coresight_disclaim_device(struct gtrace_component *comp)
-+{
-+	if (WARN_ON(!comp))
-+		return;
-+
-+	CS_UNLOCK(comp->pdata->base);
-+	coresight_disclaim_device_unlocked(comp);
-+	CS_LOCK(comp->pdata->base);
-+}
-+EXPORT_SYMBOL_GPL(coresight_disclaim_device);
-+
-+/*
-+ * Attempt to find and enable programming clock (pclk) and trace clock (atclk)
-+ * for the given device.
-+ *
-+ * For ACPI devices, clocks are controlled by firmware, so bail out early in
-+ * this case. Also, skip enabling pclk if the clock is managed by the AMBA
-+ * bus driver instead.
-+ *
-+ * atclk is an optional clock, it will be only enabled when it is existed.
-+ * Otherwise, a NULL pointer will be returned to caller.
-+ *
-+ * Returns: '0' on Success; Error code otherwise.
-+ */
-+int coresight_get_enable_clocks(struct device *dev, struct clk **pclk,
-+				struct clk **atclk)
-+{
-+	WARN_ON(!pclk);
-+
-+	if (has_acpi_companion(dev))
-+		return 0;
-+
-+	if (!dev_is_amba(dev)) {
-+		/*
-+		 * "apb_pclk" is the default clock name for an Arm Primecell
-+		 * peripheral, while "apb" is used only by the CTCU driver.
-+		 *
-+		 * For easier maintenance, CoreSight drivers should use
-+		 * "apb_pclk" as the programming clock name.
-+		 */
-+		*pclk = devm_clk_get_optional_enabled(dev, "apb_pclk");
-+		if (!*pclk)
-+			*pclk = devm_clk_get_optional_enabled(dev, "apb");
-+		if (IS_ERR(*pclk))
-+			return PTR_ERR(*pclk);
++	priv->has_timestamp = rvtrace_timestamp_reset(pdata) == 0;
++	if (priv->has_timestamp)
++		rvtrace_timestamp_init(pdata, &priv->ts_priv);
+ 	dev_set_drvdata(&comp->dev, priv);
+ 
+ 	ret = gtrace_perf_symlink(comp, true);
+@@ -155,6 +159,8 @@ static void rvtrace_encoder_parse_event_config(struct rvtrace_encoder_priv *priv
+ 	u64 config = event->attr.config;
+ 	enum rvtrace_encoder_syncmode syncmode;
+ 
++	if (priv->has_timestamp)
++		priv->ts_ctrl = config & BIT(GTRACE_PMU_ATTR_CFG_TIMESTAMP_SHIFT);
+ 	if (priv->has_context)
+ 		priv->context = config & BIT(GTRACE_PMU_ATTR_CFG_CONTEXT_SHIFT);
+ 
+@@ -170,11 +176,17 @@ static int rvtrace_encoder_start(struct gtrace_component *comp)
+ 	struct rvtrace_encoder_priv *priv = dev_get_drvdata(&comp->dev);
+ 	struct gtrace_platform_data *pdata = comp->pdata;
+ 	struct gtrace_path *path = comp->path;
++	struct perf_event *event = NULL;
+ 	int ret;
+ 	u32 val;
+ 
+-	if (path->mode == GTRACE_COMPONENT_MODE_PERF)
+-		rvtrace_encoder_parse_event_config(priv, path->event);
++	if (path->mode == GTRACE_COMPONENT_MODE_PERF) {
++		event = path->event;
++		rvtrace_encoder_parse_event_config(priv, event);
 +	}
 +
-+	/* Initialization of atclk is skipped if it is a NULL pointer. */
-+	if (atclk) {
-+		*atclk = devm_clk_get_optional_enabled(dev, "atclk");
-+		if (IS_ERR(*atclk))
-+			return PTR_ERR(*atclk);
-+	}
++	if (priv->has_timestamp)
++		rvtrace_timestamp_setup(pdata, &priv->ts_priv, event, priv->ts_ctrl);
+ 
+ 	if (priv->srcbits)
+ 		rvtrace_encoder_set_srcid(pdata, priv->srcbits);
+diff --git a/drivers/hwtracing/gtrace/rvtrace-encoder-sysfs.c b/drivers/hwtracing/gtrace/rvtrace-encoder-sysfs.c
+index e973d0e43036..638759be2987 100644
+--- a/drivers/hwtracing/gtrace/rvtrace-encoder-sysfs.c
++++ b/drivers/hwtracing/gtrace/rvtrace-encoder-sysfs.c
+@@ -84,8 +84,40 @@ static ssize_t cpu_show(struct device *dev,
+ }
+ static DEVICE_ATTR_RO(cpu);
+ 
++static ssize_t ts_ctrl_show(struct device *dev,
++			    struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_encoder_priv *priv = dev_get_drvdata(&comp->dev);
 +
-+	return 0;
++	return sysfs_emit(buf, "%u\n", priv->ts_ctrl);
 +}
-+EXPORT_SYMBOL_GPL(coresight_get_enable_clocks);
 +
-+struct gtrace_platform_data *
-+coresight_get_platform_data(struct device *dev)
++static ssize_t ts_ctrl_store(struct device *dev,
++			     struct device_attribute *attr,
++			     const char *buf, size_t size)
 +{
 +	int ret;
-+	struct gtrace_platform_data *pdata = NULL;
++	unsigned long val;
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_encoder_priv *priv = dev_get_drvdata(&comp->dev);
 +
-+	pdata = devm_kzalloc(dev, sizeof(*pdata), GFP_KERNEL);
-+	if (!pdata) {
-+		ret = -ENOMEM;
-+		goto err_out;
-+	}
++	if (!priv->has_timestamp)
++		return -EINVAL;
 +
-+	pdata->dev = dev;
-+	pdata->control_poll_timeout_usecs = 100;
-+
-+	ret = gtrace_of_parse_outconns(pdata);
-+	if (ret) {
-+		dev_err_probe(pdata->dev, ret, "failed to parse output connections\n");
-+		goto err_out;
-+	}
-+
-+	ret = gtrace_of_parse_inconns(pdata);
-+	if (ret) {
-+		dev_err_probe(pdata->dev, ret, "failed to parse input connections\n");
-+		goto err_out;
-+	}
-+
-+	return pdata;
-+err_out:
-+	return ERR_PTR(ret);
-+}
-+EXPORT_SYMBOL_GPL(coresight_get_platform_data);
-+
-+int coresight_init_driver_with_owner(const char *drv, struct amba_driver *amba_drv,
-+				     struct platform_driver *pdev_drv, struct module *owner,
-+				     const char *mod_name)
-+{
-+	int ret;
-+
-+	ret = __amba_driver_register(amba_drv, owner);
-+	if (ret) {
-+		pr_err("%s: error registering AMBA driver\n", drv);
++	ret = kstrtoul(buf, 10, &val);
++	if (ret)
 +		return ret;
-+	}
 +
-+	ret = __platform_driver_register(pdev_drv, owner, mod_name);
-+	if (!ret)
-+		return 0;
++	priv->ts_ctrl = !!val;
 +
-+	pr_err("%s: error registering platform driver\n", drv);
-+	amba_driver_unregister(amba_drv);
-+	return ret;
++	return size;
 +}
-+EXPORT_SYMBOL_GPL(coresight_init_driver_with_owner);
++static DEVICE_ATTR_RW(ts_ctrl);
 +
-+void coresight_remove_driver(struct amba_driver *amba_drv,
-+			     struct platform_driver *pdev_drv)
+ static struct attribute *rvtrace_encoder_attrs[] = {
+ 	&dev_attr_cpu.attr,
++	&dev_attr_ts_ctrl.attr,
+ 	NULL,
+ };
+ 
+@@ -285,6 +317,7 @@ const struct attribute_group *rvtrace_encoder_groups[] = {
+ 	&rvtrace_encoder_mgmt_group,
+ 	&rvtrace_encoder_control_group,
+ 	&rvtrace_encoder_features_group,
++	&rvtrace_timestamp_group,
+ 	NULL,
+ };
+ EXPORT_SYMBOL_GPL(rvtrace_encoder_groups);
+diff --git a/drivers/hwtracing/gtrace/rvtrace-encoder.h b/drivers/hwtracing/gtrace/rvtrace-encoder.h
+index 733d44c0e641..579567dabb3a 100644
+--- a/drivers/hwtracing/gtrace/rvtrace-encoder.h
++++ b/drivers/hwtracing/gtrace/rvtrace-encoder.h
+@@ -3,6 +3,8 @@
+ #ifndef __RVTRACE_ENCODER_H__
+ #define __RVTRACE_ENCODER_H__
+ 
++#include "rvtrace-timestamp.h"
++
+ #define RVTRACE_COMPONENT_CTRL_ITRACE_SHIFT     2
+ #define RVTRACE_COMPONENT_CTRL_INSTMODE_MASK	GENMASK(6, 4)
+ #define RVTRACE_COMPONENT_CTRL_INSTMODE_OPIT	0x6
+@@ -38,6 +40,9 @@ enum rvtrace_encoder_syncmode {
+  * @has_context: Hardware flag for scontext/mcontext and privilege tracking.
+  * @context:     Current configuration for scontext/mcontext and privilege tracking.
+  * @boot_enable: Flag to automatically enable tracing on boot.
++ * @has_timestamp: Hardware flag indicating if timestamp generation is supported.
++ * @ts_ctrl:       Current configuration state of timestamp control.
++ * @ts_priv:       Private configuration data specific to the timestamp unit.
+  */
+ struct rvtrace_encoder_priv {
+ 	bool syncmode_hw[RVTRACE_ENCODER_SYNCMODE_MAX];
+@@ -48,6 +53,9 @@ struct rvtrace_encoder_priv {
+ 	bool has_context;
+ 	bool context;
+ 	bool boot_enable;
++	bool has_timestamp;
++	bool ts_ctrl;
++	struct rvtrace_timestamp_priv ts_priv;
+ };
+ 
+ #endif/* __RVTRACE_ENCODER_H__ */
+diff --git a/drivers/hwtracing/gtrace/rvtrace-funnel.c b/drivers/hwtracing/gtrace/rvtrace-funnel.c
+index 941cd3360395..c4b3396568f7 100644
+--- a/drivers/hwtracing/gtrace/rvtrace-funnel.c
++++ b/drivers/hwtracing/gtrace/rvtrace-funnel.c
+@@ -9,10 +9,28 @@
+ #include "rvtrace.h"
+ #include "rvtrace-funnel.h"
+ 
++static void rvtrace_funnel_parse_event_config(struct rvtrace_funnel_priv *priv,
++					      struct perf_event *event)
 +{
-+	platform_driver_unregister(pdev_drv);
-+	amba_driver_unregister(amba_drv);
-+}
-+EXPORT_SYMBOL_GPL(coresight_remove_driver);
++	u64 config = event->attr.config;
 +
-+MODULE_LICENSE("GPL v2");
-+MODULE_AUTHOR("Pratik Patel <pratikp@codeaurora.org>");
-+MODULE_AUTHOR("Mathieu Poirier <mathieu.poirier@linaro.org>");
-+MODULE_AUTHOR("Zane Leung <liangzhen@linux.spacemit.com>");
-+MODULE_DESCRIPTION("CoreSight backend for the generic trace framework");
-diff --git a/drivers/hwtracing/gtrace/coresight.h b/drivers/hwtracing/gtrace/coresight.h
++	priv->ts_ctrl = config & BIT(GTRACE_PMU_ATTR_CFG_TIMESTAMP_SHIFT);
++}
++
+ static int rvtrace_funnel_start(struct gtrace_component *comp)
+ {
++	struct gtrace_path *path = comp->path;
++	struct rvtrace_funnel_priv *priv = dev_get_drvdata(&comp->dev);
++	struct perf_event *event = NULL;
+ 	int ret;
+ 
++	if (path->mode == GTRACE_COMPONENT_MODE_PERF) {
++		event = path->event;
++		rvtrace_funnel_parse_event_config(priv, event);
++	}
++	if (priv->has_timestamp)
++		rvtrace_timestamp_setup(comp->pdata, &priv->ts_priv, event, priv->ts_ctrl);
++
+ 	ret = gtrace_enable_component(comp);
+ 	if (ret)
+ 		dev_err(&comp->dev, "failed to start rvtrace funnel.\n");
+@@ -99,8 +117,40 @@ static ssize_t disinput_show(struct device *dev,
+ }
+ static DEVICE_ATTR_RO(disinput);
+ 
++static ssize_t ts_ctrl_show(struct device *dev,
++			    struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_funnel_priv *priv = dev_get_drvdata(&comp->dev);
++
++	return sysfs_emit(buf, "%u\n", priv->ts_ctrl);
++}
++
++static ssize_t ts_ctrl_store(struct device *dev,
++			     struct device_attribute *attr,
++			     const char *buf, size_t size)
++{
++	int ret;
++	unsigned long val;
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_funnel_priv *priv = dev_get_drvdata(&comp->dev);
++
++	if (!priv->has_timestamp)
++		return -EINVAL;
++
++	ret = kstrtoul(buf, 10, &val);
++	if (ret)
++		return ret;
++
++	priv->ts_ctrl = !!val;
++
++	return size;
++}
++static DEVICE_ATTR_RW(ts_ctrl);
++
+ static struct attribute *rvtrace_funnel_attrs[] = {
+ 	&dev_attr_disinput.attr,
++	&dev_attr_ts_ctrl.attr,
+ 	NULL,
+ };
+ 
+@@ -110,6 +160,7 @@ static struct attribute_group rvtrace_funnel_group = {
+ 
+ const struct attribute_group *rvtrace_funnel_groups[] = {
+ 	&rvtrace_funnel_group,
++	&rvtrace_timestamp_group,
+ 	NULL,
+ };
+ EXPORT_SYMBOL_GPL(rvtrace_funnel_groups);
+@@ -123,6 +174,10 @@ static int rvtrace_funnel_probe(struct gtrace_component *comp)
+ 	if (!priv)
+ 		return -ENOMEM;
+ 
++	priv->has_timestamp = rvtrace_timestamp_reset(pdata) == 0;
++	if (priv->has_timestamp)
++		rvtrace_timestamp_init(pdata, &priv->ts_priv);
++
+ 	gtrace_write32(pdata, RVTRACE_FUNNEL_DISINPUT_MASK, RVTRACE_FUNNEL_DISINPUT_OFFSET);
+ 	priv->disinput_mask = gtrace_read32(pdata, RVTRACE_FUNNEL_DISINPUT_OFFSET);
+ 	dev_set_drvdata(&comp->dev, priv);
+diff --git a/drivers/hwtracing/gtrace/rvtrace-funnel.h b/drivers/hwtracing/gtrace/rvtrace-funnel.h
+index 41547c8971ba..dddab5db8bef 100644
+--- a/drivers/hwtracing/gtrace/rvtrace-funnel.h
++++ b/drivers/hwtracing/gtrace/rvtrace-funnel.h
+@@ -6,16 +6,24 @@
+ #ifndef __RVTRACE_HENNEL_H__
+ #define __RVTRACE_HENNEL_H__
+ 
++#include "rvtrace-timestamp.h"
++
+ #define RVTRACE_FUNNEL_DISINPUT_OFFSET	0x008
+ #define RVTRACE_FUNNEL_DISINPUT_MASK	0xffff
+ 
+ /**
+  * struct rvtrace_encoder_priv - Private driver data for the rvtrace funnel
+  * @disinput_mask: Bitmask of inputs supporting disable.
++ * @has_timestamp: Hardware flag indicating if timestamp generation is supported.
++ * @ts_ctrl:       Current configuration state of timestamp control.
++ * @ts_priv:       Private configuration data specific to the timestamp unit.
+  */
+ 
+ struct rvtrace_funnel_priv {
+ 	u32 disinput_mask;
++	bool has_timestamp;
++	bool ts_ctrl;
++	struct rvtrace_timestamp_priv ts_priv;
+ };
+ 
+ #endif /* __RVTRACE_ENCODER_H__ */
+diff --git a/drivers/hwtracing/gtrace/rvtrace-timestamp.c b/drivers/hwtracing/gtrace/rvtrace-timestamp.c
 new file mode 100644
-index 000000000000..f369911daace
+index 000000000000..0ec7436add16
 --- /dev/null
-+++ b/drivers/hwtracing/gtrace/coresight.h
-@@ -0,0 +1,212 @@
++++ b/drivers/hwtracing/gtrace/rvtrace-timestamp.c
+@@ -0,0 +1,336 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
 +/*
-+ * CoreSight component register layout and helpers for the gtrace framework.
-+ * Derived from drivers/hwtracing/coresight/coresight-priv.h and
-+ * include/linux/coresight.h.
-+ *
-+ * Copyright (c) 2012, The Linux Foundation. All rights reserved.
-+ *
-+ * CoreSight component register layout and helpers for the CoreSight backend
-+ * of the generic trace (gtrace) framework. These definitions are specific to
-+ * the CoreSight architecture and must not be used by the generic core.
++ * Copyright(C) 2026 Spacemit Technologies, Inc.
 + */
 +
-+#ifndef __LINUX_CORESIGHT_H__
-+#define __LINUX_CORESIGHT_H__
-+
++#include <linux/device.h>
 +#include <linux/gtrace.h>
-+#include <linux/types.h>
-+#include <linux/amba/bus.h>
++#include <linux/bitfield.h>
++#include "rvtrace.h"
++#include "rvtrace-timestamp.h"
++#include "rvtrace-encoder.h"
++#include "rvtrace-funnel.h"
 +
-+/*
-+ * Coresight management registers (0xf00-0xfcc)
-+ * 0xfa0 - 0xfa4: Management	registers in PFTv1.0
-+ *		  Trace		registers in PFTv1.1
-+ */
-+#define CORESIGHT_ITCTRL	0xf00
-+#define CORESIGHT_CLAIMSET	0xfa0
-+#define CORESIGHT_CLAIMCLR	0xfa4
-+#define CORESIGHT_LAR		0xfb0
-+#define CORESIGHT_LSR		0xfb4
-+#define CORESIGHT_DEVARCH	0xfbc
-+#define CORESIGHT_AUTHSTATUS	0xfb8
-+#define CORESIGHT_DEVID		0xfc8
-+#define CORESIGHT_DEVTYPE	0xfcc
-+
-+/*
-+ * Coresight device CLAIM protocol.
-+ * See PSCI - ARM DEN 0022D, Section: 6.8.1 Debug and Trace save and restore.
-+ */
-+#define CORESIGHT_CLAIM_MASK		GENMASK(1, 0)
-+#define CORESIGHT_CLAIM_FREE		0
-+#define CORESIGHT_CLAIM_EXTERNAL	1
-+#define CORESIGHT_CLAIM_SELF_HOSTED	2
-+#define CORESIGHT_CLAIM_INVALID		3
-+
-+/* Peripheral id registers (0xFD0-0xFEC) */
-+#define CORESIGHT_PERIPHIDR4	0xfd0
-+#define CORESIGHT_PERIPHIDR5	0xfd4
-+#define CORESIGHT_PERIPHIDR6	0xfd8
-+#define CORESIGHT_PERIPHIDR7	0xfdC
-+#define CORESIGHT_PERIPHIDR0	0xfe0
-+#define CORESIGHT_PERIPHIDR1	0xfe4
-+#define CORESIGHT_PERIPHIDR2	0xfe8
-+#define CORESIGHT_PERIPHIDR3	0xfeC
-+/* Component id registers (0xFF0-0xFFC) */
-+#define CORESIGHT_COMPIDR0	0xff0
-+#define CORESIGHT_COMPIDR1	0xff4
-+#define CORESIGHT_COMPIDR2	0xff8
-+#define CORESIGHT_COMPIDR3	0xffC
-+
-+#define CORESIGHT_UNLOCK	0xc5acce55
-+
-+#define BMVAL(val, lsb, msb)    ((val & GENMASK(msb, lsb)) >> lsb)
-+
-+extern const u32 coresight_barrier_pkt[4];
-+#define CORESIGHT_BARRIER_PKT_SIZE (sizeof(coresight_barrier_pkt))
-+
-+#define CORESIGHT_COMPONENT_ID_VERSION	1
-+
-+static inline void coresight_insert_barrier_packet(void *buf)
++int rvtrace_timestamp_reset(struct gtrace_platform_data *pdata)
 +{
-+	if (buf)
-+		memcpy(buf, coresight_barrier_pkt, CORESIGHT_BARRIER_PKT_SIZE);
++	gtrace_write32(pdata, 0, RVTRACE_TIMESTAMP_CTRL_OFFSET);
++	gtrace_write32(pdata, RVTRACE_COMPONENT_CTRL_ACTIVE_MASK, RVTRACE_TIMESTAMP_CTRL_OFFSET);
++	return gtrace_poll_bit(pdata, RVTRACE_TIMESTAMP_CTRL_OFFSET,
++			       RVTRACE_COMPONENT_CTRL_ACTIVE_SHIFT, 1,
++			       pdata->control_poll_timeout_usecs);
 +}
++EXPORT_SYMBOL_GPL(rvtrace_timestamp_reset);
 +
-+static inline void CS_LOCK(void __iomem *addr)
++void rvtrace_timestamp_init(struct gtrace_platform_data *pdata,
++			    struct rvtrace_timestamp_priv *priv)
 +{
-+	do {
-+		/* Wait for things to settle */
-+		mb();
-+		writel_relaxed(0x0, addr + CORESIGHT_LAR);
-+	} while (0);
-+}
++	u32 ctrl, val;
++	enum rvtrace_timestamp_mode mode;
 +
-+static inline void CS_UNLOCK(void __iomem *addr)
-+{
-+	do {
-+		writel_relaxed(CORESIGHT_UNLOCK, addr + CORESIGHT_LAR);
-+		/* Make sure everyone has seen this */
-+		mb();
-+	} while (0);
-+}
++	ctrl = gtrace_read32(pdata, RVTRACE_TIMESTAMP_CTRL_OFFSET);
++	priv->mode = FIELD_GET(RVTRACE_TIMESTAMP_MODE_MASK, ctrl);
 +
-+#define CORESIGHT_CIDRn(i)	(0xFF0 + ((i) * 4))
-+
-+static inline u32 coresight_get_cid(void __iomem *base)
-+{
-+	u32 i, cid = 0;
-+
-+	for (i = 0; i < 4; i++)
-+		cid |= readl(base + CORESIGHT_CIDRn(i)) << (i * 8);
-+
-+	return cid;
-+}
-+
-+static inline bool is_coresight_device(void __iomem *base)
-+{
-+	u32 cid = coresight_get_cid(base);
-+
-+	return cid == CORESIGHT_CID;
-+}
-+
-+#define CORESIGHT_PIDRn(i)	(0xFE0 + ((i) * 4))
-+
-+static inline u32 coresight_get_pid(struct gtrace_platform_data *pdata)
-+{
-+	u32 i, pid = 0;
-+
-+	for (i = 0; i < 4; i++)
-+		pid |= gtrace_relaxed_read32(pdata, CORESIGHT_PIDRn(i)) << (i * 8);
-+
-+	return pid;
-+}
-+
-+/*
-+ * Macros and inline functions to handle CoreSight UCI data and driver
-+ * private data in AMBA ID table entries, and extract data values.
-+ */
-+
-+/* coresight AMBA ID, no UCI, no driver data: id table entry */
-+#define CS_AMBA_ID(pid)			\
-+	{				\
-+		.id	= pid,		\
-+		.mask	= 0x000fffff,	\
++	/* get timestamp mode hw */
++	for (mode = RVTRACE_TIMESTAMP_MODE_NONE; mode < RVTRACE_TIMESTAMP_MODE_MAX; mode++) {
++		val = ctrl & ~RVTRACE_TIMESTAMP_MODE_MASK;
++		val |= FIELD_PREP(RVTRACE_TIMESTAMP_MODE_MASK, mode);
++		gtrace_write32(pdata, val, RVTRACE_TIMESTAMP_CTRL_OFFSET);
++		val = gtrace_read32(pdata, RVTRACE_TIMESTAMP_CTRL_OFFSET);
++		val = FIELD_GET(RVTRACE_TIMESTAMP_MODE_MASK, val);
++		priv->mode_hw[mode] = (mode == val);
 +	}
 +
-+/* coresight AMBA ID, UCI with driver data only: id table entry. */
-+#define CS_AMBA_ID_DATA(pid, dval)				\
-+	{							\
-+		.id	= pid,					\
-+		.mask	= 0x000fffff,				\
-+		.data	=  (void *)&(struct amba_cs_uci_id)	\
-+			{				\
-+				.data = (void *)dval,	\
-+			}				\
-+	}
++	gtrace_write32(pdata, ctrl, RVTRACE_TIMESTAMP_CTRL_OFFSET);
++}
++EXPORT_SYMBOL_GPL(rvtrace_timestamp_init);
 +
-+/* coresight AMBA ID, full UCI structure: id table entry. */
-+#define __CS_AMBA_UCI_ID(pid, m, uci_ptr)	\
-+	{					\
-+		.id	= pid,			\
-+		.mask	= m,			\
-+		.data	= (void *)uci_ptr	\
-+	}
-+#define CS_AMBA_UCI_ID(pid, uci)	__CS_AMBA_UCI_ID(pid, 0x000fffff, uci)
-+/*
-+ * PIDR2[JEDEC], BIT(3) must be 1 (Read As One) to indicate that rest of the
-+ * PIDR1, PIDR2 DES_* fields follow JEDEC encoding for the designer. Use that
-+ * as a match value for blanket matching all devices in the given CoreSight
-+ * device type and architecture.
-+ */
-+#define PIDR2_JEDEC			BIT(3)
-+#define PID_PIDR2_JEDEC			(PIDR2_JEDEC << 16)
-+/*
-+ * Match all PIDs in a given CoreSight device type and architecture, defined
-+ * by the uci.
-+ */
-+#define CS_AMBA_MATCH_ALL_UCI(uci)					\
-+	__CS_AMBA_UCI_ID(PID_PIDR2_JEDEC, PID_PIDR2_JEDEC, uci)
-+
-+/* extract the data value from a UCI structure given amba_id pointer. */
-+static inline void *coresight_get_uci_data(const struct amba_id *id)
++static bool rvtrace_timestamp_is_internal(struct rvtrace_timestamp_priv *priv)
 +{
-+	struct amba_cs_uci_id *uci_id = id->data;
-+
-+	if (!uci_id)
-+		return NULL;
-+
-+	return uci_id->data;
++	return (priv->mode == RVTRACE_TIMESTAMP_MODE_INTERNAL_SYSTEM ||
++		priv->mode == RVTRACE_TIMESTAMP_MODE_INTERNAL_CORE);
 +}
 +
-+static inline void *coresight_get_uci_data_from_amba(const struct amba_id *table, u32 pid)
++static void rvtrace_timestamp_parse_event_config(struct rvtrace_timestamp_priv *priv,
++						 struct perf_event *event)
 +{
-+	while (table->mask) {
-+		if ((pid & table->mask) == table->id)
-+			return coresight_get_uci_data(table);
-+		table++;
-+	};
++	u64 config = event->attr.config;
++
++	if (priv->mode_hw[FIELD_GET(GTRACE_PMU_ATTR_CFG_TSMODE_MASK, config)])
++		priv->mode = FIELD_GET(GTRACE_PMU_ATTR_CFG_TSMODE_MASK, config);
++	if (rvtrace_timestamp_is_internal(priv))
++		priv->prescale = FIELD_GET(GTRACE_PMU_ATTR_CFG_TSPRESCALE_MASK, config);
++}
++
++void rvtrace_timestamp_setup(struct gtrace_platform_data *pdata,
++			     struct rvtrace_timestamp_priv *priv,
++			     struct perf_event *event,
++			     bool enable)
++{
++	u32 val;
++
++	if (event)
++		rvtrace_timestamp_parse_event_config(priv, event);
++
++	val = gtrace_read32(pdata, RVTRACE_TIMESTAMP_CTRL_OFFSET);
++	val &= ~RVTRACE_TIMESTAMP_MODE_MASK;
++	val &= ~RVTRACE_TIMESTAMP_PRESCALE_MASK;
++	val |= FIELD_PREP(RVTRACE_TIMESTAMP_MODE_MASK, priv->mode);
++	val |= FIELD_PREP(RVTRACE_TIMESTAMP_PRESCALE_MASK, priv->prescale);
++
++	val &= ~BIT(RVTRACE_TIMESTAMP_COUNT_SHIFT);
++	val &= ~BIT(RVTRACE_TIMESTAMP_ENABLE_SHIFT);
++	if (enable) {
++		val |= BIT(RVTRACE_TIMESTAMP_COUNT_SHIFT);
++		val |= BIT(RVTRACE_TIMESTAMP_ENABLE_SHIFT);
++	}
++
++	gtrace_write32(pdata, val, RVTRACE_TIMESTAMP_CTRL_OFFSET);
++}
++EXPORT_SYMBOL_GPL(rvtrace_timestamp_setup);
++
++static struct rvtrace_timestamp_priv *get_timestamp_priv(struct gtrace_component *comp)
++{
++	enum gtrace_component_type gtype = comp->id.type;
++
++	if (gtype == GTRACE_RVTRACE_ENCODER) {
++		struct rvtrace_encoder_priv *priv = dev_get_drvdata(&comp->dev);
++		return &priv->ts_priv;
++	} else if (gtype == GTRACE_RVTRACE_FUNNEL) {
++		struct rvtrace_funnel_priv *priv = dev_get_drvdata(&comp->dev);
++		return &priv->ts_priv;
++	}
++
 +	return NULL;
 +}
 +
-+int coresight_claim_device(struct gtrace_component *comp);
-+int coresight_claim_device_unlocked(struct gtrace_component *comp);
-+void coresight_clear_self_claim_tag(struct gtrace_platform_data *pdata);
-+void coresight_clear_self_claim_tag_unlocked(struct gtrace_platform_data *pdata);
-+void coresight_disclaim_device(struct gtrace_component *comp);
-+void coresight_disclaim_device_unlocked(struct gtrace_component *comp);
++static struct gtrace_component *rvtrace_find_funnel(struct gtrace_component *comp)
++{
++	struct gtrace_platform_data *pdata = comp->pdata;
++	struct gtrace_connection *conn = NULL;
++	int i;
 +
-+struct gtrace_platform_data *coresight_get_platform_data(struct device *dev);
-+int coresight_get_enable_clocks(struct device *dev, struct clk **pclk,
-+				struct clk **atclk);
++	if (comp->id.type == GTRACE_RVTRACE_FUNNEL)
++		return comp;
 +
-+int coresight_init_driver_with_owner(const char *drv, struct amba_driver *amba_drv,
-+				     struct platform_driver *pdev_drv, struct module *owner,
-+				     const char *mod_name);
-+#define coresight_init_driver(drv, amba_drv, pdev_drv) \
-+	coresight_init_driver_with_owner(drv, amba_drv, pdev_drv, THIS_MODULE, KBUILD_MODNAME)
++	if (!pdata->nr_outconns)
++		return NULL;
 +
-+void coresight_remove_driver(struct amba_driver *amba_drv,
-+			     struct platform_driver *pdev_drv);
++	for (i = 0; i < pdata->nr_outconns; i++) {
++		conn = pdata->outconns[i];
++		if (conn && conn->dest_comp)
++			break;
++	}
 +
-+#endif /* __LINUX_CORESIGHT_H__ */
-diff --git a/include/linux/gtrace.h b/include/linux/gtrace.h
-index ee60585ef65c..e9210b0a73b5 100644
---- a/include/linux/gtrace.h
-+++ b/include/linux/gtrace.h
-@@ -33,6 +33,13 @@ enum gtrace_component_type {
- 	GTRACE_RVTRACE_RAMSINK,
- 	GTRACE_RVTRACE_PIBSINK,
- 	GTRACE_RVTRACE_ATBBRIDGE,
-+	GTRACE_CORESIGHT_FUNNEL,
-+	GTRACE_CORESIGHT_REPLICATOR,
-+	GTRACE_CORESIGHT_TMC_ETB,
-+	GTRACE_CORESIGHT_TMC_ETR,
-+	GTRACE_CORESIGHT_TMC_ETF,
-+	GTRACE_CORESIGHT_ETB,
-+	GTRACE_CORESIGHT_TPIU,
- 	GTRACE_COMPONENT_TYPE_MAX
- };
- 
++	if (!conn)
++		return NULL;
++
++	return rvtrace_find_funnel(conn->dest_comp);
++}
++
++static struct gtrace_component *rvtrace_timestamp_get_source(struct gtrace_component *comp)
++{
++	struct gtrace_component *dest = comp;
++
++	if (dest->id.type == GTRACE_RVTRACE_ENCODER) {
++		struct rvtrace_encoder_priv *priv = dev_get_drvdata(&dest->dev);
++
++		if (priv && priv->has_timestamp)
++			return dest;
++
++		dest = rvtrace_find_funnel(dest);
++		if (!dest)
++			return NULL;
++	}
++
++	if (dest->id.type == GTRACE_RVTRACE_FUNNEL) {
++		struct rvtrace_funnel_priv *priv = dev_get_drvdata(&dest->dev);
++
++		if (priv && priv->has_timestamp)
++			return dest;
++	}
++
++	return NULL;
++}
++
++static ssize_t source_show(struct device *dev,
++			   struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++
++	comp = rvtrace_timestamp_get_source(comp);
++	if (!comp)
++		return -EINVAL;
++
++	return sysfs_emit(buf, "%s\n", dev_name(&comp->dev));
++}
++static DEVICE_ATTR_RO(source);
++
++static const char * const modes_str[] = {
++	[RVTRACE_TIMESTAMP_MODE_NONE] = "none",
++	[RVTRACE_TIMESTAMP_MODE_EXTERNAL] = "external",
++	[RVTRACE_TIMESTAMP_MODE_INTERNAL_SYSTEM] = "internal_system",
++	[RVTRACE_TIMESTAMP_MODE_INTERNAL_CORE] = "internal_core",
++	[RVTRACE_TIMESTAMP_MODE_SHARED] = "shared",
++};
++
++static ssize_t modes_available_show(struct device *dev,
++				    struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_timestamp_priv *priv;
++	enum rvtrace_timestamp_mode mode;
++	ssize_t size = 0;
++
++	comp = rvtrace_timestamp_get_source(comp);
++	if (!comp)
++		return -EINVAL;
++
++	priv = get_timestamp_priv(comp);
++
++	for (mode = RVTRACE_TIMESTAMP_MODE_NONE; mode < RVTRACE_TIMESTAMP_MODE_MAX; mode++) {
++		if (priv->mode_hw[mode])
++			size += sysfs_emit_at(buf, size, "%s ", modes_str[mode]);
++	}
++
++	size += sysfs_emit_at(buf, size, "\n");
++	return size;
++}
++static DEVICE_ATTR_RO(modes_available);
++
++static ssize_t mode_preferred_show(struct device *dev,
++				   struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_timestamp_priv *priv;
++
++	comp = rvtrace_timestamp_get_source(comp);
++	if (!comp)
++		return -EINVAL;
++
++	priv = get_timestamp_priv(comp);
++
++	return sysfs_emit(buf, "%s\n", modes_str[priv->mode]);
++}
++
++static ssize_t mode_preferred_store(struct device *dev,
++				    struct device_attribute *attr,
++				    const char *buf, size_t size)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_timestamp_priv *priv;
++
++	comp = rvtrace_timestamp_get_source(comp);
++	if (!comp)
++		return -EINVAL;
++
++	priv = get_timestamp_priv(comp);
++
++	if (sysfs_streq(buf, modes_str[RVTRACE_TIMESTAMP_MODE_NONE]) &&
++			priv->mode_hw[RVTRACE_TIMESTAMP_MODE_NONE])
++		priv->mode = RVTRACE_TIMESTAMP_MODE_NONE;
++	else if (sysfs_streq(buf, modes_str[RVTRACE_TIMESTAMP_MODE_EXTERNAL]) &&
++			priv->mode_hw[RVTRACE_TIMESTAMP_MODE_EXTERNAL])
++		priv->mode = RVTRACE_TIMESTAMP_MODE_EXTERNAL;
++	else if (sysfs_streq(buf, modes_str[RVTRACE_TIMESTAMP_MODE_INTERNAL_SYSTEM]) &&
++			priv->mode_hw[RVTRACE_TIMESTAMP_MODE_INTERNAL_SYSTEM])
++		priv->mode = RVTRACE_TIMESTAMP_MODE_INTERNAL_SYSTEM;
++	else if (sysfs_streq(buf, modes_str[RVTRACE_TIMESTAMP_MODE_INTERNAL_CORE]) &&
++			priv->mode_hw[RVTRACE_TIMESTAMP_MODE_INTERNAL_CORE])
++		priv->mode = RVTRACE_TIMESTAMP_MODE_INTERNAL_CORE;
++	else if (sysfs_streq(buf, modes_str[RVTRACE_TIMESTAMP_MODE_SHARED]) &&
++			priv->mode_hw[RVTRACE_TIMESTAMP_MODE_SHARED])
++		priv->mode = RVTRACE_TIMESTAMP_MODE_SHARED;
++	else
++		return -EINVAL;
++	return size;
++}
++static DEVICE_ATTR_RW(mode_preferred);
++
++static ssize_t prescale_show(struct device *dev,
++			     struct device_attribute *attr, char *buf)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_timestamp_priv *priv;
++
++	comp = rvtrace_timestamp_get_source(comp);
++	if (!comp)
++		return -EINVAL;
++
++	priv = get_timestamp_priv(comp);
++
++	return sysfs_emit(buf, "%u\n", priv->prescale);
++}
++
++static ssize_t prescale_store(struct device *dev,
++			      struct device_attribute *attr,
++			      const char *buf, size_t size)
++{
++	struct gtrace_component *comp = to_gtrace_component(dev);
++	struct rvtrace_timestamp_priv *priv;
++	unsigned long val;
++	int ret;
++
++	comp = rvtrace_timestamp_get_source(comp);
++	if (!comp)
++		return -EINVAL;
++
++	ret = kstrtoul(buf, 0, &val);
++	if (ret)
++		return ret;
++
++	if (val > RVTRACE_TIMESTAMP_PRESCALE_MAX)
++		return -EINVAL;
++
++	priv = get_timestamp_priv(comp);
++	if (!rvtrace_timestamp_is_internal(priv))
++		return -EINVAL;
++
++	priv->prescale = val;
++
++	return size;
++}
++static DEVICE_ATTR_RW(prescale);
++
++static ssize_t control_show(struct device *dev,
++			    struct device_attribute *attr, char *buf)
++{
++	u32 val;
++	struct gtrace_component *comp = to_gtrace_component(dev);
++
++	comp = rvtrace_timestamp_get_source(comp);
++	if (!comp)
++		return -EINVAL;
++
++	val = gtrace_read32(comp->pdata, RVTRACE_TIMESTAMP_CTRL_OFFSET);
++
++	return sysfs_emit(buf, "0x%x\n", val);
++}
++static DEVICE_ATTR_RO(control);
++
++static struct attribute *rvtrace_timestamp_attrs[] = {
++	&dev_attr_source.attr,
++	&dev_attr_modes_available.attr,
++	&dev_attr_mode_preferred.attr,
++	&dev_attr_prescale.attr,
++	&dev_attr_control.attr,
++	NULL,
++};
++
++static umode_t timestamp_attr_is_visible(struct kobject *kobj,
++					 struct attribute *attr, int idx)
++{
++	struct device *dev = kobj_to_dev(kobj);
++	struct gtrace_component *comp = to_gtrace_component(dev);
++
++	if (rvtrace_timestamp_get_source(comp))
++		return attr->mode;
++
++	return 0;
++}
++
++struct attribute_group rvtrace_timestamp_group = {
++	.attrs = rvtrace_timestamp_attrs,
++	.name = "timestamp",
++	.is_visible = timestamp_attr_is_visible,
++};
++EXPORT_SYMBOL_GPL(rvtrace_timestamp_group);
+diff --git a/drivers/hwtracing/gtrace/rvtrace-timestamp.h b/drivers/hwtracing/gtrace/rvtrace-timestamp.h
+new file mode 100644
+index 000000000000..75924d397996
+--- /dev/null
++++ b/drivers/hwtracing/gtrace/rvtrace-timestamp.h
+@@ -0,0 +1,44 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright(C) 2026 Spacemit Technologies, Inc.
++ */
++
++#ifndef __RVTRACE_TIMESTAMP_H__
++#define __RVTRACE_TIMESTAMP_H__
++
++#include <linux/types.h>
++
++#define RVTRACE_TIMESTAMP_CTRL_OFFSET		0x040
++#define RVTRACE_TIMESTAMP_COUNT_SHIFT		1
++#define RVTRACE_TIMESTAMP_MODE_MASK		GENMASK(6, 4)
++#define RVTRACE_TIMESTAMP_PRESCALE_MASK		GENMASK(9, 8)
++#define RVTRACE_TIMESTAMP_PRESCALE_MAX		3
++#define RVTRACE_TIMESTAMP_ENABLE_SHIFT		15
++#define RVTRACE_TIMESTAMP_WIDTH_MASK		GENMASK(29, 24)
++
++enum rvtrace_timestamp_mode {
++	RVTRACE_TIMESTAMP_MODE_NONE,
++	RVTRACE_TIMESTAMP_MODE_EXTERNAL,
++	RVTRACE_TIMESTAMP_MODE_INTERNAL_SYSTEM,
++	RVTRACE_TIMESTAMP_MODE_INTERNAL_CORE,
++	RVTRACE_TIMESTAMP_MODE_SHARED,
++	RVTRACE_TIMESTAMP_MODE_MAX
++};
++
++struct rvtrace_timestamp_priv {
++	bool mode_hw[RVTRACE_TIMESTAMP_MODE_MAX];
++	enum rvtrace_timestamp_mode mode;
++	u32 prescale;
++};
++
++int rvtrace_timestamp_reset(struct gtrace_platform_data *pdata);
++void rvtrace_timestamp_init(struct gtrace_platform_data *pdata,
++			    struct rvtrace_timestamp_priv *priv);
++void rvtrace_timestamp_setup(struct gtrace_platform_data *pdata,
++			     struct rvtrace_timestamp_priv *priv,
++			     struct perf_event *event,
++			     bool enable);
++
++extern struct attribute_group rvtrace_timestamp_group;
++
++#endif/* __RVTRACE_TIMESTAMP_H__ */
 -- 
 2.34.1
 
