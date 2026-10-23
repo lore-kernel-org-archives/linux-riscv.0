@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55241606A32A
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:17:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A41DD606A31B
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 03:17:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=p3U3K3z1;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=PUj+R9gN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=A221NTxd;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=YMXz2WHv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,36 +14,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ZTtIKIYfMTveJQOoSJur3mkhHLAx1W0JylOwPFFZ9ZA=; b=p3U3K3z1J54NOZQmnTBB/0LJXF
-	961Z/tBJR/ZFGRtjTzFVFj3Bstidj28RZoWrL8PlL6lIbg/78NJABH8wbHxyoRLqLLddAMvvHLI1/
-	iC6IxkNu4sDq1BhYZ5XIYqYlYL3bxan9/YcAqVEkDYMYgpjvkWN0jql0E/6meB4+ZX0yLbjbbyq96
-	TnoDR2riOz+UzbjpruI1Xy0bf+sdo+KVg1J+lbXpb8H5Z1C/ziuxIc6QzA4gGR0wfdlFGmC5tggb1
-	pGPvYNjpI2TdHLSse6I5Gek0XSlqs9VT3D4Ra403y/r7kzckWMBiZCPo8urmsiM/n90Ua8iERnLf2
-	aqXDQBfw==;
+	bh=26CtXI0Nbqco7aGA7XcR9fJMV7BHKZOfofvWvts8vHI=; b=A221NTxdVPuzBSHr6mDPuT2bD0
+	UfSHTAsr70zcyb6c0YOUQvj7oNOhnd6sru8DeO/WcBNuokTSOrVzAJWG/f8qIW7TMeh9klcZn+Z1d
+	kpAz/gY2ec13/dEvt2OfcluwWufKLA3Cks5sxb2NxgayGp+cuJp9KOJ86ANeBusW54DbOzuNN4zIc
+	rzvd+mPeL+Jvr41DjxOguh6AnTaRFiihOfuEzIe4Vhed9JzjzLzOsazBQSz2s/n0nAMGkZWm2KFk1
+	11yexZQ5YZJB0U+KXM+M+8+zLYMGBXHNmgPkFYbn+gyM+7gBnxcFKfmACwZsFJkREi/F9lQTZfhyc
+	2KDqnApw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK5mg-0000000FOmS-2W63;
-	Fri, 23 Oct 2026 03:17:34 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1xK5mo-0000000FOu9-37WI;
+	Fri, 23 Oct 2026 03:17:42 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK5mc-0000000FOcw-23oN
+	id 1xK5mm-0000000FOqh-0Wvt
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Oct 2026 03:17:32 +0000
+	Fri, 23 Oct 2026 03:17:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1792725411;
-	bh=H2IWjALvk048zmw1NNQJbWvBa81ip8KPbZToHaA7//w=;
+	s=mxsw2412; t=1792725400;
+	bh=TJKnXlsFNec6dkG8Of/+OQNoL/g553QNDCHrW4f2rMw=;
 	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=PUj+R9gNtiM0DV8nPfgY/CYMmRT+y4kxvpObW9Ixgb9uWBKzHXqBeX2mD69+gc0OG
-	 loDyRRsh5DJ1y80D2Gapo/yoovTqxtx2Kuu7GvSQnJnCONvGZD336703l3jpDq/D9y
-	 al+Epl320HL8xDndnxOJDfMZdSaCbosJKJe8EF6o=
-X-QQ-mid: esmtpsz11t1792725347t7dc60920
-X-QQ-Originating-IP: FlUNMiK0eSMbacfSZBIik/POwMPtq8ySglL4HEmJvX0=
+	b=YMXz2WHv/7S+OQ3EoBuMUEBrZLL+fjG+h6ZEHB1TkGsRVTvAIh2mjNv9bz95ilVJb
+	 3SQ4+hqTibT9vPRFi8g9WvCeIVSrZO8Lzgy+zPk60jbqB4Lambo3uiiZjxETz7H2AH
+	 CYD7K7OOrjYkmmRIfIRZs0zp+9qMxxhpMjnRrQCA=
+X-QQ-mid: esmtpsz11t1792725396ta92cdf18
+X-QQ-Originating-IP: uS23LMjyJb0eY6SsY9MC10n7RoVJDT5LFpIhRm3plCE=
 Received: from snode5.. ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 23 Oct 2026 11:15:45 +0800 (CST)
+	id ; Fri, 23 Oct 2026 11:16:34 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 13336916703402963863
+X-BIZMAIL-ID: 8401073697936701238
 EX-QQ-RecipientCnt: 26
 From: Zane Leung <liangzhen@linux.spacemit.com>
 To: gregkh@linuxfoundation.org,
@@ -72,9 +72,9 @@ Cc: mike.leach@arm.com,
 	coresight@lists.linaro.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 10/24] gtrace: Add RISC-V trace funnel driver
-Date: Fri, 23 Oct 2026 11:14:51 +0800
-Message-Id: <20261023031505.2020925-11-liangzhen@linux.spacemit.com>
+Subject: [PATCH 23/24] perf tools: gtrace: Record and parse trace encoder metadata
+Date: Fri, 23 Oct 2026 11:15:04 +0800
+Message-Id: <20261023031505.2020925-24-liangzhen@linux.spacemit.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
 References: <20261023031505.2020925-1-liangzhen@linux.spacemit.com>
@@ -82,28 +82,29 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MsVBbRzZvhHA1gJVb+9GtO3YAxyX3A5aLJznpRFBrSoRZnOxsOJEsrgM
-	BzBzVxZu/z3VLSfzNfTBY899fks1tuqILtCQ5Uzqx7BiGQ7Y4HLYPay2mtXAUt76Qn93iRQ
-	vLscifRfbQCoE7KeyuKT3AnS6uaTN/zY3/ulCP/Tt2o3/w+xX+lOPmXaTXTbSkPXEiYYT9o
-	JTY0BSs5/CdjvuIz76VaNHFU2qvuyamO8703TW098njTaH3gUZp/ATHMEjV+OPox+AXL0aQ
-	HAGQDvP3lmnQ/62fvfURb/fnM5BBMVEK+tJCXBnOcjEwenluSKS2e3f4wAcIV1BRz3u/uiN
-	0VQLbfnccXVUTLaIjrpJ61IKkIkCs5qaDHqmpAPEsS0uhVFrUibwv4hVr8S4DBiGvNB2iko
-	PBkExWp5a/higWs90Pd108k8EJJkmwTEQwS2ty+o3dH58GygC5DyvkP6U6exspMr1i077ar
-	hWxQfiGe7GUZw2e9u4DbyiqyPacT9dxj2JPRQAl2lGSFGuqnQ4PuyU0b7tUJaKYWPCRHYn2
-	MF11WpUJuxG6dSil0Oe83nZbd6YOshbvDPZ9MPJKOQMKRwBPrX1IOm3yrGYAuPWvaWYIH1j
-	wgFO+lV0t/DsoSGMmdPILvtIXw0qtR9zw5sL345i0YMfptH4CGhQQtZaDDvaGejUxj64+Jl
-	EMZRqjHGRy7xFHoNXERnokQ/KhNKLAhm1dnLdpqfkcz8hHnUlGvtx5TAElux5pbFYGpNi0/
-	9jxq657k43BNIoi0x91OYX49e2aPrAPRPVGWcODdtTU6drx7AWPcFO0DmClzAyKwE1UFQV0
-	X1rFdn/LLHNcq2xG/KUNxm6edxy44dqzAm7L89EIlzKHkWC0u0gipdkmzp67UbdOUXvjSgF
-	37Ie4rUliIShtKE63DjZMtt/l9AAyeO/+y5q5h8ZntTJEuIupjzJA9QcQvvg32H661PrGF+
-	i+5Fcn+gqQ4km+3J3T0NGTJWfp6TiWT65zc1Au8C8MIRKDSRy1o4pt17fEcct+LSBTGOn2q
-	bqzSW9U4DGa3XjpEVH4m+lYEOxcbziaNmkUUh76OMHCKWFv/I/JX39WiAukOd2anQicfHPX
-	lwxP/ZMft8azdAbKf6NR7A=
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-X-QQ-RECHKSPAM: 0
+X-QQ-XMAILINFO: ONRI2CXyYHbo9P7H2iJc8U9iY2XEWLx48f+5HP2jrxNeXWx1Hu/8Bw59
+	OIZyU6zR7so9jry2aCbRIWu8Rd6F/sft5diXGJrvpUL95C5L8depylne8GBI8AH6YLdg7NQ
+	2mAmMgQVySmXFtMjLLFCbYMzbG6ElFCNdyPK78hkvWDF4a3awoErkC6wOcu+SwZhAMjA8m6
+	bSmktc2LQRTe2riMxSByz8AXlkvOhGtIEkk6E8riM3f6TQ7YCoEb4Ui3UJDDePlqYuc8+Vp
+	XUe3L6oFdHyRngv1tTJNGmwiNPuiOTQi9ihoIyhmw7eH2oKdxYOdEMAoO8wupZQj6ew/7cU
+	0qCIHE9avpS+zslru8iqBVdxMFFII+3sx6zU9NXcbdZ5VuMsjHz9VzRpctixNSwsOq4s2vo
+	Yop5iS9DzXrCyWJWT8knkFUnygPCHSe78KkkSUJCVLf7/JRxSBsXsxJ60yaOALt5oSDDuQF
+	BpPw7LobBd5usQVQVlHZtYHNLwdgdyEC88p8qFLNpbob+nPCknN4jPlVJqEyblmPEh5sR0T
+	8SBoSwird8P47Svnzl+EDfuo3PrH+cKTyCiFMZX7A6/m+r07/sCflHSYJZbiPEW9iiI6vEz
+	vPTRQIViT0QuC6rMvrHkWzZFEhKH36d8dRoUHPoJ6sIPKBXB5DlDvzOVQM/TntFsRRhab1J
+	fsfNNVaQCCPvDV+j2fBGeSD33dRxZiFENOInsx1orS7tn0/bWONUWJKP56x+8Kml2cx+xUL
+	XeW39aV+sKW2JNRo5idWcT6FJVR0PBl5m2B8TegErvu72jNVU6ElPdy6wQecSqzRbcWIwkl
+	yFVzA6drwrWw9zI9rKCIXC55A7IlY0Ehfn9wM6g+FRV9TjEqYhMchzEELGsTTUTYQ6C/+ae
+	8k0qMk2hUqnJueejP/fvsB51ObX7clDdyMcVKBox8P9raKTDojhZP6wa0+XtBdUzB5onP7d
+	bMxbl+0XdLW4Wb1h+p1HtokGjl1aXQ8oYnBpWR3r5lQKXMk8GdqRQ9FDxojUQXGOpW0k8Eh
+	IKHRg2zLVLfL/jLyMDp8N/s+nx7Q8RLwJLlT7Peg1mXgWqgJJB0btdROvSiN9sufMqnmETB
+	XgPfsiXf09MlpKp45QaYWVfKkYBGuvLgKPvYchYvPDWzwPRukXZKqsyj6nCBF5EKg==
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-SPAM: true
+X-QQ-RECHKSPAM: 3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_201731_185947_09800226 
-X-CRM114-Status: GOOD (  25.53  )
+X-CRM114-CacheID: sfid-20261022_201740_485407_4EB668BB 
+X-CRM114-Status: GOOD (  19.78  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,275 +125,451 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add initial implementation of RISC-V Trace funnel driver. The funnel
-is defined in the RISC-V Trace Control Interface specification.
+Collect the read-only trace encoder control, features and timestamp
+registers per CPU into the AUXTRACE_INFO metadata and validate the
+requested context, syncmode, syncmax and timestamp options against the
+hardware before recording. Parse the metadata back in the decoder.
 
 Signed-off-by: Zane Leung <liangzhen@linux.spacemit.com>
 ---
- drivers/hwtracing/gtrace/Kconfig            |  14 ++
- drivers/hwtracing/gtrace/Makefile           |   1 +
- drivers/hwtracing/gtrace/rvtrace-funnel.c   | 165 ++++++++++++++++++++
- drivers/hwtracing/gtrace/rvtrace-funnel.h   |  21 +++
- drivers/hwtracing/gtrace/rvtrace-platform.c |   3 +
- drivers/hwtracing/gtrace/rvtrace.h          |   1 +
- 6 files changed, 205 insertions(+)
- create mode 100644 drivers/hwtracing/gtrace/rvtrace-funnel.c
- create mode 100644 drivers/hwtracing/gtrace/rvtrace-funnel.h
+ tools/perf/arch/riscv/util/auxtrace.c | 203 +++++++++++++++++++++++++-
+ tools/perf/util/gtrace-decoder.c      |  89 ++++++++++-
+ tools/perf/util/gtrace.h              |  30 +++-
+ 3 files changed, 311 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/hwtracing/gtrace/Kconfig b/drivers/hwtracing/gtrace/Kconfig
-index e5b62d65e2fd..f6026965c54d 100644
---- a/drivers/hwtracing/gtrace/Kconfig
-+++ b/drivers/hwtracing/gtrace/Kconfig
-@@ -57,3 +57,17 @@ config RVTRACE_RAMSINK
+diff --git a/tools/perf/arch/riscv/util/auxtrace.c b/tools/perf/arch/riscv/util/auxtrace.c
+index 882632511d09..c11c5c34cbc8 100644
+--- a/tools/perf/arch/riscv/util/auxtrace.c
++++ b/tools/perf/arch/riscv/util/auxtrace.c
+@@ -9,6 +9,7 @@
+ #include <linux/bitops.h>
+ #include <linux/log2.h>
+ #include <linux/zalloc.h>
++#include <linux/bitfield.h>
+ #include <errno.h>
+ #include <limits.h>
+ #include <stdlib.h>
+@@ -39,28 +40,217 @@ struct rvtrace_recording {
+ 	struct evlist *evlist;
+ };
  
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called rvtrace-ramsink.
++static const char * const metadata_encoder_ro[] = {
++	[RVTRACE_ENCODER_FORMAT]    = "control/format",
++	[RVTRACE_ENCODER_CONTEXT]   = "control/has_context",
++	[RVTRACE_ENCODER_SRCBITS]   = "features/srcbits",
++	[RVTRACE_ENCODER_TIMESTAMP] = "timestamp/source",
++};
 +
-+config RVTRACE_FUNNEL
-+	tristate "RISC-V Trace Funnel driver"
-+	depends on RVTRACE
-+	default y
-+	help
-+	  This driver provides support for the RISC-V trace funnel component
-+	  which is defined by the RISC-V Trace Control Interface specification.
-+	  The funnel merges trace data from multiple input ports into a single
-+	  output stream. It is a link component in the trace path between
-+	  sources and sinks.
+ static size_t rvtrace_info_priv_size(struct auxtrace_record *itr __maybe_unused,
+ 				     struct evlist *evlist __maybe_unused)
+ {
+-	return GTRACE_AUXTRACE_PRIV_SIZE;
++	int encoder;
++	struct perf_cpu_map *event_cpus = evlist->core.user_requested_cpus;
++	struct perf_cpu_map *intersect_cpus;
 +
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called rvtrace-funnel.
-diff --git a/drivers/hwtracing/gtrace/Makefile b/drivers/hwtracing/gtrace/Makefile
-index 87cb5add78d4..9c99d917b9f4 100644
---- a/drivers/hwtracing/gtrace/Makefile
-+++ b/drivers/hwtracing/gtrace/Makefile
-@@ -8,3 +8,4 @@ obj-$(CONFIG_RVTRACE) += rvtrace-platform.o
- obj-$(CONFIG_RVTRACE_ENCODER) += rvtrace-encoder.o
- rvtrace-encoder-y := rvtrace-encoder-core.o rvtrace-encoder-sysfs.o
- obj-$(CONFIG_RVTRACE_RAMSINK) += rvtrace-ramsink.o
-+obj-$(CONFIG_RVTRACE_FUNNEL) += rvtrace-funnel.o
-diff --git a/drivers/hwtracing/gtrace/rvtrace-funnel.c b/drivers/hwtracing/gtrace/rvtrace-funnel.c
-new file mode 100644
-index 000000000000..941cd3360395
---- /dev/null
-+++ b/drivers/hwtracing/gtrace/rvtrace-funnel.c
-@@ -0,0 +1,165 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2026 Spacemit Technologies, Inc.
-+ */
++	if (!perf_cpu_map__has_any_cpu(event_cpus)) {
++		/* cpu map is not "any" CPU , we have specific CPUs to work with */
++		struct perf_cpu_map *online_cpus = perf_cpu_map__new_online_cpus();
 +
-+#include <linux/device.h>
-+#include <linux/gtrace.h>
-+#include <linux/types.h>
-+#include "rvtrace.h"
-+#include "rvtrace-funnel.h"
-+
-+static int rvtrace_funnel_start(struct gtrace_component *comp)
-+{
-+	int ret;
-+
-+	ret = gtrace_enable_component(comp);
-+	if (ret)
-+		dev_err(&comp->dev, "failed to start rvtrace funnel.\n");
-+
-+	return ret;
-+}
-+
-+static int rvtrace_funnel_stop(struct gtrace_component *comp)
-+{
-+	struct rvtrace_funnel_priv *priv = dev_get_drvdata(&comp->dev);
-+	int ret;
-+
-+	ret = gtrace_disable_component(comp);
-+	if (ret) {
-+		dev_err(&comp->dev, "failed to stop rvtrace funnel.\n");
-+		return ret;
++		intersect_cpus = perf_cpu_map__intersect(event_cpus, online_cpus);
++		perf_cpu_map__put(online_cpus);
++	} else {
++		/* Event can be "any" CPU so count all online CPUs. */
++		intersect_cpus = perf_cpu_map__new_online_cpus();
 +	}
 +
-+	if (priv->disinput_mask)
-+		gtrace_write32(comp->pdata, RVTRACE_FUNNEL_DISINPUT_MASK,
-+				RVTRACE_FUNNEL_DISINPUT_OFFSET);
++	encoder = perf_cpu_map__nr(intersect_cpus);
++	perf_cpu_map__put(intersect_cpus);
++
++	return (GTRACE_HEADER_SIZE + encoder * RVTRACE_ENCODER_PRIV_SIZE);
++
++}
++
++static bool gtrace_pmu_path_exists(struct perf_pmu *pmu, struct perf_cpu cpu, const char *path)
++{
++	char pmu_path[PATH_MAX];
++
++	/* Get RO metadata from sysfs */
++	snprintf(pmu_path, PATH_MAX, "cpu%d/%s", cpu.cpu, path);
++
++	return perf_pmu__file_exists(pmu, pmu_path);
++}
++
++static int rvtrace_get_ro(struct perf_pmu *pmu, struct perf_cpu cpu, const char *path, __u64 *val)
++{
++	char pmu_path[PATH_MAX];
++	int scan;
++
++	/* Get RO metadata from sysfs */
++	snprintf(pmu_path, PATH_MAX, "cpu%d/%s", cpu.cpu, path);
++
++	scan = perf_pmu__scan_file(pmu, pmu_path, "%llx", val);
++	if (scan != 1) {
++		pr_err("%s: error reading: %s\n", __func__, pmu_path);
++		return -EINVAL;
++	}
 +
 +	return 0;
 +}
 +
-+static int _rvtrace_funnel_start_port(struct gtrace_component *comp, int port)
++static void rvtrace_get_metadata(struct perf_cpu cpu, u32 *offset,
++				 struct auxtrace_record *itr,
++				 struct perf_record_auxtrace_info *info)
 +{
-+	struct gtrace_platform_data *pdata = comp->pdata;
-+	struct rvtrace_funnel_priv *priv = dev_get_drvdata(&comp->dev);
-+	u32 disinput;
-+	int ret;
++	struct rvtrace_recording *ptr = container_of(itr, struct rvtrace_recording, itr);
++	struct perf_pmu *rvtrace_pmu = ptr->rvtrace_pmu;
++	bool timestamp_exists;
 +
-+	if (!(priv->disinput_mask & BIT(port)))
++	info->priv[*offset + RVTRACE_ENCODER_CPU] = cpu.cpu;
++	info->priv[*offset + RVTRACE_ENCODER_NR_TRC_PARAMS] = RVTRACE_ENCODER_NR_TRC_PARAMS_LENGTH;
++
++	/* Get read-only information from sysFS */
++	rvtrace_get_ro(rvtrace_pmu, cpu, metadata_encoder_ro[RVTRACE_ENCODER_FORMAT],
++		       &info->priv[*offset + RVTRACE_ENCODER_FORMAT]);
++	rvtrace_get_ro(rvtrace_pmu, cpu, metadata_encoder_ro[RVTRACE_ENCODER_CONTEXT],
++		       &info->priv[*offset + RVTRACE_ENCODER_CONTEXT]);
++	rvtrace_get_ro(rvtrace_pmu, cpu, metadata_encoder_ro[RVTRACE_ENCODER_SRCBITS],
++		       &info->priv[*offset + RVTRACE_ENCODER_SRCBITS]);
++
++	timestamp_exists = gtrace_pmu_path_exists(rvtrace_pmu, cpu,
++			metadata_encoder_ro[RVTRACE_ENCODER_TIMESTAMP]);
++	info->priv[*offset + RVTRACE_ENCODER_TIMESTAMP] = timestamp_exists ? 1 : 0;
++
++	/* Where the next CPU entry should start from */
++	*offset += RVTRACE_ENCODER_PRIV_MAX;
+ }
+ 
+ static int rvtrace_info_fill(struct auxtrace_record *itr,
+ 			     struct perf_session *session __maybe_unused,
+ 			     struct perf_record_auxtrace_info *auxtrace_info, size_t priv_size)
+ {
++	unsigned int i;
++	u32 offset;
++	u64 nr_cpu, type;
++	struct perf_cpu_map *cpu_map;
++	struct perf_cpu_map *event_cpus = evlist__core(session->evlist)->user_requested_cpus;
++	struct perf_cpu_map *online_cpus = perf_cpu_map__new_online_cpus();
+ 	struct rvtrace_recording *ptr = container_of(itr, struct rvtrace_recording, itr);
+ 	struct perf_pmu *rvtrace_pmu = ptr->rvtrace_pmu;
++	struct perf_cpu cpu;
++
++	if (priv_size != rvtrace_info_priv_size(itr, session->evlist))
++		return -EINVAL;
+ 
+-	if (priv_size != GTRACE_AUXTRACE_PRIV_SIZE)
++	if (!evlist__core(session->evlist)->nr_mmaps)
+ 		return -EINVAL;
+ 
++	if (perf_cpu_map__has_any_cpu(event_cpus)) {
++		cpu_map = online_cpus;
++	} else {
++		perf_cpu_map__for_each_cpu(cpu, i, event_cpus) {
++			if (!perf_cpu_map__has(online_cpus, cpu))
++				return -EINVAL;
++		}
++
++		cpu_map = event_cpus;
++	}
++
++	nr_cpu = perf_cpu_map__nr(cpu_map);
++	type = rvtrace_pmu->type;
++
+ 	auxtrace_info->type = PERF_AUXTRACE_GTRACE;
+-	auxtrace_info->priv[0] = rvtrace_pmu->type;
++	auxtrace_info->priv[GTRACE_PMU_TYPE_CPUS] = type << 32;
++	auxtrace_info->priv[GTRACE_PMU_TYPE_CPUS] |= nr_cpu;
++
++	offset = GTRACE_HEADER_MAX;
++
++	perf_cpu_map__for_each_cpu(cpu, i, cpu_map) {
++		assert(offset < priv_size);
++		rvtrace_get_metadata(cpu, &offset, itr, auxtrace_info);
++	}
++
++	perf_cpu_map__put(online_cpus);
++
++	return 0;
++}
++
++static int rvtrace_encoder_validate_context(struct perf_pmu *rvtrace_pmu, struct evsel *evsel,
++					    struct perf_cpu cpu)
++{
++	int err;
++	u64 ctxt;
++	__u64 context;
++
++	evsel__get_config_val(evsel, "context", &ctxt);
++
++	if (!ctxt)
 +		return 0;
 +
-+	disinput = gtrace_read32(pdata, RVTRACE_FUNNEL_DISINPUT_OFFSET);
-+	disinput &= ~BIT(port);
-+	gtrace_write32(pdata, disinput, RVTRACE_FUNNEL_DISINPUT_OFFSET);
-+	ret = gtrace_poll_bit(pdata, RVTRACE_FUNNEL_DISINPUT_OFFSET,
-+			      port, 0, comp->pdata->control_poll_timeout_usecs);
-+	if (ret)
-+		dev_err(&comp->dev, "failed to enable rvtrace funnel inport %d.\n", port);
++	err = rvtrace_get_ro(rvtrace_pmu, cpu,
++			     metadata_encoder_ro[RVTRACE_ENCODER_CONTEXT], &context);
++	if (err)
++		return err;
 +
-+	return ret;
-+}
-+
-+static int rvtrace_funnel_start_port(struct gtrace_component *comp,
-+				     struct gtrace_connection *in,
-+				     struct gtrace_connection *out)
++	if (!context) {
++		pr_err("context not supported");
++		return -EINVAL;
++	}
+ 
+ 	return 0;
+ }
+ 
++static int rvtrace_encoder_validate_timestamp(struct perf_pmu *rvtrace_pmu, struct evsel *evsel,
++					      struct perf_cpu cpu)
 +{
-+	int ret = 0;
++	u64 ts;
 +
-+	if (in->dest_refcnt == 0)
-+		ret = _rvtrace_funnel_start_port(comp, in->dest_port);
-+	if (!ret)
-+		in->dest_refcnt++;
++	evsel__get_config_val(evsel, "timestamp", &ts);
 +
-+	return ret;
-+}
++	if (!ts)
++		return 0;
 +
-+static void rvtrace_funnel_stop_port(struct gtrace_component *comp,
-+				     struct gtrace_connection *in,
-+				     struct gtrace_connection *out)
-+{
-+	/*
-+	 * Setting trFunnelEnable to 0 flushes any queued trace data to output.
-+	 * Due to this flush behavior of the RISC-V trace funnel during component
-+	 * disablement, we do not disable individual ports here. Instead, we
-+	 * defer it and disable all ports at once when the entire component is
-+	 * stopped. For now, we only need to decrement the reference count.
-+	 */
-+	--in->dest_refcnt;
-+}
++	if (!gtrace_pmu_path_exists(rvtrace_pmu, cpu,
++		    metadata_encoder_ro[RVTRACE_ENCODER_TIMESTAMP])) {
++		pr_err("timestamp not supported");
++		return -EINVAL;
++	}
 +
-+static ssize_t disinput_show(struct device *dev,
-+                            struct device_attribute *attr, char *buf)
-+{
-+	u32 val;
-+	struct gtrace_component *comp = to_gtrace_component(dev);
-+
-+	val = gtrace_read32(comp->pdata, RVTRACE_FUNNEL_DISINPUT_OFFSET);
-+
-+	return scnprintf(buf, PAGE_SIZE, "0x%x\n", val);
-+}
-+static DEVICE_ATTR_RO(disinput);
-+
-+static struct attribute *rvtrace_funnel_attrs[] = {
-+	&dev_attr_disinput.attr,
-+	NULL,
-+};
-+
-+static struct attribute_group rvtrace_funnel_group = {
-+	.attrs = rvtrace_funnel_attrs,
-+};
-+
-+const struct attribute_group *rvtrace_funnel_groups[] = {
-+	&rvtrace_funnel_group,
-+	NULL,
-+};
-+EXPORT_SYMBOL_GPL(rvtrace_funnel_groups);
-+
-+static int rvtrace_funnel_probe(struct gtrace_component *comp)
-+{
-+	struct gtrace_platform_data *pdata = comp->pdata;
-+	struct rvtrace_funnel_priv *priv;
-+
-+	priv = devm_kzalloc(&comp->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	gtrace_write32(pdata, RVTRACE_FUNNEL_DISINPUT_MASK, RVTRACE_FUNNEL_DISINPUT_OFFSET);
-+	priv->disinput_mask = gtrace_read32(pdata, RVTRACE_FUNNEL_DISINPUT_OFFSET);
-+	dev_set_drvdata(&comp->dev, priv);
 +	return 0;
 +}
 +
-+static const struct gtrace_component_id rvtrace_funnel_ids[] = {
-+	{ .type = GTRACE_RVTRACE_FUNNEL,
-+	  .version = rvtrace_component_mkversion(1, 0), },
-+	{},
-+};
-+
-+static struct gtrace_driver rvtrace_funnel_driver = {
-+	.id_table = rvtrace_funnel_ids,
-+	.start = rvtrace_funnel_start,
-+	.stop = rvtrace_funnel_stop,
-+	.start_port = rvtrace_funnel_start_port,
-+	.stop_port = rvtrace_funnel_stop_port,
-+	.probe = rvtrace_funnel_probe,
-+	.driver = {
-+		.name = "rvtrace-funnel",
-+	},
-+};
-+
-+static int __init rvtrace_funnel_init(void)
++static int rvtrace_validate_config(struct perf_pmu *rvtrace_pmu, struct evsel *evsel)
 +{
-+	return gtrace_register_driver(&rvtrace_funnel_driver);
++	unsigned int idx;
++	int err = 0;
++	struct perf_cpu_map *event_cpus = evlist__core(evsel->evlist)->user_requested_cpus;
++	struct perf_cpu_map *intersect_cpus;
++	struct perf_cpu cpu;
++
++	if (!perf_cpu_map__has_any_cpu(event_cpus)) {
++		struct perf_cpu_map *online_cpus = perf_cpu_map__new_online_cpus();
++
++		intersect_cpus = perf_cpu_map__intersect(event_cpus, online_cpus);
++		perf_cpu_map__put(online_cpus);
++	} else {
++		intersect_cpus = perf_cpu_map__new_online_cpus();
++	}
++
++	perf_cpu_map__for_each_cpu_skip_any(cpu, idx, intersect_cpus) {
++		err = rvtrace_encoder_validate_context(rvtrace_pmu, evsel, cpu);
++		if (err)
++			break;
++
++		err = rvtrace_encoder_validate_timestamp(rvtrace_pmu, evsel, cpu);
++		if (err)
++			break;
++	}
++
++	perf_cpu_map__put(intersect_cpus);
++	return err;
 +}
 +
-+static void __exit rvtrace_funnel_exit(void)
-+{
-+	gtrace_unregister_driver(&rvtrace_funnel_driver);
-+}
+ static int rvtrace_set_auxtrace_mmap_page(struct record_opts *opts)
+ {
+ 	bool privileged = perf_event_paranoid_check(-1);
+@@ -127,6 +317,9 @@ static int rvtrace_recording_options(struct auxtrace_record *itr, struct evlist
+ 	evlist__to_front(evlist, rvtrace_evsel);
+ 	evsel__set_sample_bit(rvtrace_evsel, TIME);
+ 
++	if (opts->sample_time_set)
++		evsel__set_config_if_unset(rvtrace_evsel, "timestamp", 1);
 +
-+module_init(rvtrace_funnel_init);
-+module_exit(rvtrace_funnel_exit);
+ 	/* Add dummy event to keep tracking */
+ 	err = parse_event(evlist, "dummy:u");
+ 	if (err)
+@@ -139,6 +332,10 @@ static int rvtrace_recording_options(struct auxtrace_record *itr, struct evlist
+ 	tracking_evsel->core.attr.sample_period = 1;
+ 	evsel__set_sample_bit(tracking_evsel, TIME);
+ 
++	err = rvtrace_validate_config(rvtrace_pmu, rvtrace_evsel);
++	if (err)
++		return err;
 +
-+MODULE_AUTHOR("Zane Leung");
-+MODULE_DESCRIPTION("RISC-V Trace Funnel Driver");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/hwtracing/gtrace/rvtrace-funnel.h b/drivers/hwtracing/gtrace/rvtrace-funnel.h
-new file mode 100644
-index 000000000000..41547c8971ba
---- /dev/null
-+++ b/drivers/hwtracing/gtrace/rvtrace-funnel.h
-@@ -0,0 +1,21 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (c) 2026 Spacemit Technologies, Inc.
-+ */
-+
-+#ifndef __RVTRACE_HENNEL_H__
-+#define __RVTRACE_HENNEL_H__
-+
-+#define RVTRACE_FUNNEL_DISINPUT_OFFSET	0x008
-+#define RVTRACE_FUNNEL_DISINPUT_MASK	0xffff
-+
-+/**
-+ * struct rvtrace_encoder_priv - Private driver data for the rvtrace funnel
-+ * @disinput_mask: Bitmask of inputs supporting disable.
-+ */
-+
-+struct rvtrace_funnel_priv {
-+	u32 disinput_mask;
+ 	return 0;
+ }
+ 
+diff --git a/tools/perf/util/gtrace-decoder.c b/tools/perf/util/gtrace-decoder.c
+index c25fbfc61928..d70cb7cd399f 100644
+--- a/tools/perf/util/gtrace-decoder.c
++++ b/tools/perf/util/gtrace-decoder.c
+@@ -12,6 +12,7 @@
+ #include "evlist.h"
+ #include "session.h"
+ #include "gtrace.h"
++#include "debug.h"
+ 
+ struct gtrace_decoder {
+ 	struct auxtrace auxtrace;
+@@ -19,6 +20,8 @@ struct gtrace_decoder {
+ 	struct perf_session *session;
+ 	struct machine *machine;
+ 	u32 pmu_type;
++	int num_cpu;
++	u64 **metadata;
+ };
+ 
+ static int gtrace_process_event(struct perf_session *session __maybe_unused,
+@@ -52,7 +55,10 @@ static void gtrace_free(struct perf_session *session)
+ 					    auxtrace);
+ 
+ 	session->auxtrace = NULL;
+-	free(ptr);
++	for (int i = 0; i < ptr->num_cpu; i++)
++		zfree(&ptr->metadata[i]);
++	zfree(&ptr->metadata);
++	zfree(&ptr);
+ }
+ 
+ static bool gtrace_evsel_is_auxtrace(struct perf_session *session,
+@@ -64,24 +70,88 @@ static bool gtrace_evsel_is_auxtrace(struct perf_session *session,
+ 	return evsel->core.attr.type == ptr->pmu_type;
+ }
+ 
++static const char * const gtrace_global_header_fmts[] = {
++	[GTRACE_PMU_TYPE_CPUS]		    = "	    PMU type/num cpus	    %llx\n",
 +};
 +
-+#endif /* __RVTRACE_ENCODER_H__ */
-diff --git a/drivers/hwtracing/gtrace/rvtrace-platform.c b/drivers/hwtracing/gtrace/rvtrace-platform.c
-index 64496a638359..ad8daa06e13e 100644
---- a/drivers/hwtracing/gtrace/rvtrace-platform.c
-+++ b/drivers/hwtracing/gtrace/rvtrace-platform.c
-@@ -133,6 +133,9 @@ static int rvtrace_platform_probe(struct platform_device *pdev)
- 	case GTRACE_RVTRACE_ENCODER:
- 		pdata->groups = rvtrace_encoder_groups;
- 		break;
-+	case GTRACE_RVTRACE_FUNNEL:
-+		pdata->groups = rvtrace_funnel_groups;
-+		break;
- 	default:
- 		pdata->groups = NULL;
- 	}
-diff --git a/drivers/hwtracing/gtrace/rvtrace.h b/drivers/hwtracing/gtrace/rvtrace.h
-index fee8e2e4f42a..a345ba110267 100644
---- a/drivers/hwtracing/gtrace/rvtrace.h
-+++ b/drivers/hwtracing/gtrace/rvtrace.h
-@@ -120,5 +120,6 @@ extern const struct gtrace_hw_ops rvtrace_hw_ops;
++static const char * const rvtrace_encoder_priv_fmts[] = {
++	[RVTRACE_ENCODER_CPU]		    = "	    CPU			    %lld\n",
++	[RVTRACE_ENCODER_NR_TRC_PARAMS]	    = "	    NR_TRC_PARAMS	    %lld\n",
++	[RVTRACE_ENCODER_FORMAT]	    = "	    FORMAT		    %lld\n",
++	[RVTRACE_ENCODER_CONTEXT]	    = "	    CONTEXT		    %lld\n",
++	[RVTRACE_ENCODER_SRCBITS]	    = "	    SRCBITS		    %lld\n",
++	[RVTRACE_ENCODER_TIMESTAMP]	    = "	    TIMESTAMP		    %lld\n",
++};
++
++static void gtrace_print_auxtrace_info(u64 *val, int num_cpu)
++{
++	int i, j, cpu = 0, nr_params = 0, fmt_offset = 0;
++
++	for (i = 0; i < GTRACE_HEADER_MAX; i++)
++		fprintf(stdout, gtrace_global_header_fmts[i], val[i]);
++
++	for (i = GTRACE_HEADER_MAX; cpu < num_cpu; cpu++) {
++		fprintf(stdout, rvtrace_encoder_priv_fmts[RVTRACE_ENCODER_CPU], val[i++]);
++		nr_params = val[i++];
++		fmt_offset = RVTRACE_ENCODER_FORMAT;
++		for (j = fmt_offset; j < nr_params + fmt_offset; j++, i++)
++			fprintf(stdout, rvtrace_encoder_priv_fmts[j], val[i]);
++	}
++}
++
+ int gtrace__process_auxtrace_info(union perf_event *event,
+ 				   struct perf_session *session)
+ {
+ 	struct perf_record_auxtrace_info *auxtrace_info = &event->auxtrace_info;
+ 	struct gtrace_decoder *ptr;
+-
+-	if (auxtrace_info->header.size < GTRACE_AUXTRACE_PRIV_SIZE +
+-	    sizeof(struct perf_record_auxtrace_info))
++	u64 *priv;
++	u64 **metadata;
++	int num_cpu;
++	int priv_size;
++	int err;
++	int i;
++
++	priv = (u64 *) auxtrace_info->priv;
++	num_cpu = priv[GTRACE_PMU_TYPE_CPUS] & 0xffffffff;
++	if (dump_trace)
++		gtrace_print_auxtrace_info(priv, num_cpu);
++
++	priv_size = auxtrace_info->header.size - sizeof(struct perf_event_header) -
++		    INFO_HEADER_SIZE - GTRACE_HEADER_SIZE;
++	if (num_cpu <= 0 || priv_size <= 0 ||
++	    num_cpu > priv_size / (int)sizeof(u64))
+ 		return -EINVAL;
  
- /* Sysfs attribute groups for RISC-V trace components */
- extern const struct attribute_group *rvtrace_encoder_groups[];
-+extern const struct attribute_group *rvtrace_funnel_groups[];
+-	ptr = zalloc(sizeof(*ptr));
+-	if (!ptr)
++	metadata = zalloc(sizeof(*metadata) * num_cpu);
++	if (!metadata)
+ 		return -ENOMEM;
  
- #endif /* __LINUX_RVTRACE_H__ */
++	i = GTRACE_HEADER_SIZE;
++
++	for (int j = 0; j < num_cpu; j++) {
++		metadata[j] = zalloc(sizeof(*metadata[j]) * RVTRACE_ENCODER_PRIV_MAX);
++		if (!metadata[j]) {
++			err = -ENOMEM;
++			goto err_free_metadata;
++		}
++
++		for (int k = 0; k < RVTRACE_ENCODER_PRIV_MAX; k++)
++			metadata[j][k] = priv[i + k];
++		i += RVTRACE_ENCODER_PRIV_MAX;
++	}
++
++	ptr = zalloc(sizeof(*ptr));
++	if (!ptr) {
++		err = -ENOMEM;
++		goto err_free_metadata;
++	}
++
+ 	ptr->session = session;
+ 	ptr->machine = &session->machines.host;
+ 	ptr->auxtrace_type = auxtrace_info->type;
+-	ptr->pmu_type = auxtrace_info->priv[0];
++	ptr->pmu_type = (unsigned int) ((priv[GTRACE_PMU_TYPE_CPUS] >> 32) & 0xffffffff);
++	ptr->num_cpu = num_cpu;
++	ptr->metadata = metadata;
+ 
+ 	ptr->auxtrace.process_event = gtrace_process_event;
+ 	ptr->auxtrace.process_auxtrace_event = gtrace_process_auxtrace_event;
+@@ -92,4 +162,9 @@ int gtrace__process_auxtrace_info(union perf_event *event,
+ 	session->auxtrace = &ptr->auxtrace;
+ 
+ 	return 0;
++
++err_free_metadata:
++	for (int j = 0; j < num_cpu; j++)
++		zfree(&metadata);
++	return err;
+ }
+diff --git a/tools/perf/util/gtrace.h b/tools/perf/util/gtrace.h
+index 02db4f2ff9f5..76006e30e7c3 100644
+--- a/tools/perf/util/gtrace.h
++++ b/tools/perf/util/gtrace.h
+@@ -11,7 +11,35 @@
+ 
+ struct perf_session;
+ 
+-#define GTRACE_AUXTRACE_PRIV_SIZE      sizeof(u64)
++/* Supported trace protocol formats */
++enum gtrace_format {
++	GTRACE_FORMAT_ETRACE,
++	GTRACE_FORMAT_NTRACE,
++};
++
++enum {
++	GTRACE_PMU_TYPE_CPUS,
++	GTRACE_HEADER_MAX,
++};
++
++/* RISC-V Trace Encoder metadata */
++enum {
++	RVTRACE_ENCODER_CPU,
++	RVTRACE_ENCODER_NR_TRC_PARAMS,
++	RVTRACE_ENCODER_FORMAT,
++	RVTRACE_ENCODER_CONTEXT,
++	RVTRACE_ENCODER_SRCBITS,
++	RVTRACE_ENCODER_TIMESTAMP,
++	RVTRACE_ENCODER_PRIV_MAX,
++};
++
++#define RVTRACE_ENCODER_NR_TRC_PARAMS_LENGTH (RVTRACE_ENCODER_PRIV_MAX - RVTRACE_ENCODER_FORMAT)
++
++#define GTRACE_HEADER_SIZE             (GTRACE_HEADER_MAX * sizeof(u64))
++#define RVTRACE_ENCODER_PRIV_SIZE      (RVTRACE_ENCODER_PRIV_MAX * sizeof(u64))
++
++#define INFO_HEADER_SIZE (sizeof(((struct perf_record_auxtrace_info *)0)->type) + \
++			  sizeof(((struct perf_record_auxtrace_info *)0)->reserved__))
+ 
+ int gtrace__process_auxtrace_info(union perf_event *event, struct perf_session *session);
+ #endif
 -- 
 2.34.1
 
