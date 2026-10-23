@@ -2,108 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07B97606A330
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 07:33:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D70F9606A322
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 08:00:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4pxVepG9;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W+0kF2YT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yS/3qhny;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=codethink.co.uk header.i=@codethink.co.uk header.a=rsa-sha256 header.s=imap4-20230908 header.b=aLp7+vXu
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=7i1Q9tug12jdVA+M/At5OLCe9CLP6P6MGZ7r3bYtMMw=; b=4pxVepG9G3oNP7tjMUVKoHj3ud
-	tKage9M8Mi2hLYhoC8gtItH8mZfVslYDMkv6YquPll/CsVNrlaq4Ol3ORNr+KqIcHMM6Oghhh6dr4
-	30gR9w8xwRHpH9SniWx+Xq60fNe0dg+skNn1iqazVe8DaZ0c+MO1D4Yxu50BNTMRmLLX1Txezgg9R
-	T5WWNhabR7fKXB3qijp77bV4APgAF6ZF7kToeFm5zYOmpWI0xxsbDoeUjIQ+o3pjY+J0CndNV+Ib9
-	Sb9BoOviaWPH+HVg4+KZZjm2WrR5fNmCpG2XxGtslAa8ewrII6I/0u0Nq/G5bhJuglK5fHCPZUYCU
-	X7BM4SQQ==;
+	bh=tFhfmoR4vfbNK+luidgwfb2bIec7BvLzAUKpeksLlSE=; b=yS/3qhny007RqjvUVLhpg5zX2Y
+	5wvHZPaY2xjTQY7G+kE/Mh9BtrK+HgVGUtLCiPruBnemUISvquE6q4eHklkpJKBRdG1oJjV2JMBZb
+	kfmO3GkoWnBIJS1Y1Ziyx2kV/oopXjUg0rcciiXbKPOmQ160H14PRUdiHDmoSMKyY+Z4xQEZwi5fA
+	XsORFh7pgRQQDJXJl0CxZEQ96fBLcmbCOIWwtjyScY3+/YcazUQHh82jSNPjdtIZH+hZVRgvhomsc
+	jf2VlwYRKcEPt93INW14KEa2JLNCwfk7Y8KUEt/NGkn1s13BueidSghyJYqn5brZZFgT0giWWEoUZ
+	jU/UjSOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK9mS-0000000FlJv-2PKW;
-	Fri, 23 Oct 2026 07:33:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xKACO-0000000FqFa-2TQb;
+	Fri, 23 Oct 2026 08:00:24 +0000
+Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK9mD-0000000Fl4m-16T2;
-	Fri, 23 Oct 2026 07:33:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2CD2860A60;
-	Fri, 23 Oct 2026 07:33:19 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1792740798;
-	b=n1EU+14t85857+Zc2Dk/i6a6lASF6iMg9If4UzpKJOgYCN7blibvkSazDxH6b+qYEMyY
-	 uMIUC4RSabbaCP+C2oqZlewjoO+QbLKxuJT4ARd0Vlb+09G8Dk0FIAKMlPOnBIe8Xx70W
-	 ohK+N06N63tdh6F3CAysG7h84pz+Sfnf7/FQSAbc7OwpVrXDd2ZwiFHEAzv3TJJ0MvYY7
-	 49pN9L21BFqO0Kg2fy/2NICTy40K9SAjIoMGYfYM/pdr2kYzSMuw1U++NzhWTwaZ7jwiO
-	 4cDro00sNSnVzDV5IuDp/CZmmk9nyZIl+G47jtMgM3V5sXS8ZdbBiOY4qggIFLahUoQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1792740798;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=+OjyAynH0oD0HVraX7bbem/k32aJw3On3UPimsYKksQ=;
-	b=KIf8c4X67EwOUTXEq6w1KIR5GFe2nXozAnQZMR4wwWe5jvLqWoufmgpeL4QYAmUUBfeo
-	 BJ0FExe+B1XtKbvsM088QPNUk5VXg5+zOMO0qGu1vH7kC3jOV3kxQasHlkVlCHPpcXBsB
-	 ggV2YfkOShIXPfOOQZinXYuCYilVf1JP0Kq+AJzSS2sUJyWnG8aqbEVltt8HmvjKYZaJO
-	 zmaMZA24S/bthpB0lUxFv9E3zsF5NiyoQFfz3+2742OFDcuuC0nt8onPSlVaAz0m1C9yx
-	 kLRMqChBYLg/ALMTAT6ohUK+w3Vao96Pc+KSYD43N5BfnO12H39kHRaXf8QwfjYP28Q==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id DF62B1F031E4;
-	Fri, 23 Oct 2026 07:33:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792740798;
-	bh=+OjyAynH0oD0HVraX7bbem/k32aJw3On3UPimsYKksQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=W+0kF2YTSD2UlZjSeo4uBf4oN3rq6GlCPjDSJLxhvOxfwIR0q294PxqqRRgZxI4cu
-	 3EwsOG/3tFSyJPtqOzLmVrEkWQA3zOuC/4aUObctJFdWGH7AhD2aACaahrGyHV+bNp
-	 DPNomSiUbDwQ4fcm91SmQeLSAtm3aYCWEVFcAvsDyqJ8CQjTzzCPpOn7n7j/msHVWm
-	 sz3c1et1VhI1TO/Yi+hWNA6idSHZRY5IMKubvJC/jGkU2de+9I4kp24PNNIvyyylnX
-	 9cm12cLkZ7PRgu6c9aMJiYSqrQ0JqEWX492krPcEaYs15SkDKPeDtPG56uJlQj65aO
-	 +5OnIdSr+inOw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 48838421CE;
-	Fri, 23 Oct 2026 07:33:17 +0000 (UTC)
-From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Fri, 23 Oct 2026 15:33:14 +0800
-Subject: [PATCH 1/5] riscv: kexec: Disable the MMU before walking the entry
- list
+	id 1xKACL-0000000FqDs-2Hg3
+	for linux-riscv@lists.infradead.org;
+	Fri, 23 Oct 2026 08:00:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Reply-To; bh=6ewGmAlFYwsNDKvJWEZID5X9+tdMRDfrjURgzdEaZTs=; b=aLp7+vXuIfkGnsz9
+	StFobNKifmcZc13DIr1yqvsHN11UaNjXGlCY9384GSy3nYOqxvqN/R/OrLNBWTxW7rQVRxGahj3cu
+	cPg2qLDtF3aQBPsOHAld6+dFggk/dW5vOz8Dhmp125oFH3BDUZdAn61EYMlNb4lUVfDKQPWfjg4DJ
+	oFTheX5fBhkoVg/bHgfrbo2xaxeoFs98VCkNtZAxXyQ7Rms3nEuP1IsZvXsDBr9EJf/V2j+OFzIGa
+	iHBpc/tx2dD+wtUeUsy6Wx6hVHFD+lA0Qy/VaaYN13xsNb+LdJxfOQwfSHi9qrxMaPpf7oaacpmbL
+	eweJmgWtHtjUZLDPhg==;
+Received: from [167.98.27.226] (helo=[10.35.224.5])
+	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1xKABh-00CJU2-RC; Fri, 23 Oct 2026 08:59:41 +0100
+Message-ID: <4382d639-62ba-40ea-88f5-ff5242b79ebf@codethink.co.uk>
+Date: Fri, 23 Oct 2026 08:59:39 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261023-riscv-kexec-cma-fixes-v1-1-825b90ea23c4@iscas.ac.cn>
-References: <20261023-riscv-kexec-cma-fixes-v1-0-825b90ea23c4@iscas.ac.cn>
-In-Reply-To: <20261023-riscv-kexec-cma-fixes-v1-0-825b90ea23c4@iscas.ac.cn>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Baoquan He <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>, 
- Pasha Tatashin <pasha.tatashin@soleen.com>, 
- Pratyush Yadav <pratyush@kernel.org>, Yao Zi <me@ziyao.cc>
-Cc: Han Gao <rabenda.cn@gmail.com>, Han Gao <gaohan@iscas.ac.cn>, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- llvm@lists.linux.dev, kexec@lists.infradead.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792740795; l=2405;
- i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=EJAmc1LhiOIaPfBoanoCTj1bfUwyzJ9NpP/6hMQvfHg=;
- b=HLOjXket0TJYHSjizcezuxCYXNT1wamHy7x02PGGvb9bpIIlzpofSThrWyW6LG0iwUaelhZT9
- ertk9LY+oWQCK+TpyWDObtpYQmdHgxIQWiAwAV1oGrsKG+MLqHRx8Zi
-X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
- pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
-X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
- auth_id=1262
-X-Original-From: Han Gao <gaohan@iscas.ac.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: Fix SR_SUM leakage across context switches
+To: Andy Chiu <tchiu@tenstorrent.com>, Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ zong.li@sifive.com, wangruikang@iscas.ac.cn, debug@rivosinc.com,
+ qirui.001@bytedance.com, guoziyi114@gmail.com, samuel.holland@sifive.com,
+ cyrilbur@tenstorrent.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20261022083212.84721-1-cuiyunhui@bytedance.com>
+ <atqL1ScMLUg2bM_E@Tao-Chiu's-Mac>
+Content-Language: en-GB
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <atqL1ScMLUg2bM_E@Tao-Chiu's-Mac>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261023_010021_663611_F322CA21 
+X-CRM114-Status: GOOD (  30.13  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,90 +72,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: gaohan@iscas.ac.cn
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Han Gao <gaohan@iscas.ac.cn>
+On 22/10/2026 23:19, Andy Chiu wrote:
+> Hi Yunhui,
+> 
+> On Thu, Oct 22, 2026 at 04:32:12PM +0800, Yunhui Cui wrote:
+>> __switch_to() saves the sstatus value of prev and restores the SR_SUM bit
+>> of next with csrs. However, csrs only sets bits. If prev has SR_SUM set
+>> and next has SR_SUM clear in its saved state, the old SR_SUM bit remains
+>> set in sstatus.
+>>
+>> This lets next run with user memory access enabled even though its saved
+>> SR_SUM state is clear.
+>>
+>> Use csrrc to save the sstatus value of prev and clear SR_SUM from the
+>> live CSR before restoring the saved SR_SUM state of next. This keeps
+>> prev's SR_SUM state intact, while preventing it from leaking to next.
+> 
+> Do you have a way to trigger this bug on existing code or is it the cae
+> where the bug could happen but we never experienced it in real life?
 
-riscv_kexec_relocate() only switches satp to Bare when it meets an
-IND_INDIRECTION entry. Since segments may be allocated from CMA at their
-destination, an image can have no indirection pages, and its list then
-holds only IND_DONE. The relocation code jumps to the physical entry
-point with the MMU still enabled and loops on instruction page faults.
+The original case for dealing with this was due to the user-access
+macros occasionally embedding calls into the area where the SR_SUM
+was set, allowing pre-emption there. We did try and fix this and as
+far as I knew then it was mostly fixed by re-ordering the uaccess
+macros.
 
-Switch to Bare mode before reading the first entry, converting the list
-pointer from its linear-map address.
+> If I understand correctly, this can only happen when the user access
+> routing volutarily makes a schedule() call mid-flight, or a code fogets
+> to turn off SR_SUM right after an user access and has a live SR_SUM when
+> calling schedule some time after. Both case should be a bug as SR_SUM
+> shouldn't live in the kernel code that is not doing user access.
 
-Fixes: 07d24902977e ("kexec: enable CMA based contiguous allocation")
-Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
----
- arch/riscv/kernel/kexec_relocate.S | 29 +++++++++++++----------------
- 1 file changed, 13 insertions(+), 16 deletions(-)
+I'm not sure how much code does a SR_SUM enable a few different accesses
+and then SR_SUM disable, but IIRC there is a possibility to do this.
 
-diff --git a/arch/riscv/kernel/kexec_relocate.S b/arch/riscv/kernel/kexec_relocate.S
-index de0a4b35d01e..419b56600550 100644
---- a/arch/riscv/kernel/kexec_relocate.S
-+++ b/arch/riscv/kernel/kexec_relocate.S
-@@ -34,24 +34,22 @@ SYM_CODE_START(riscv_kexec_relocate)
- 	csrw	CSR_SIP, zero
- 
- 	/*
--	 * When we switch SATP.MODE to "Bare" we'll only
--	 * play with physical addresses. However the first time
--	 * we try to jump somewhere, the offset on the jump
--	 * will be relative to pc which will still be on VA. To
--	 * deal with this we set stvec to the physical address at
--	 * the start of the loop below so that we jump there in
--	 * any case.
-+	 * Switch SATP.MODE to "Bare" before reading any entry. An image
-+	 * whose segments were allocated from CMA at their destination has
-+	 * no indirection pages, so its list may hold only IND_DONE.
-+	 *
-+	 * pc is still a VA here: set stvec to the physical address of the
-+	 * loop below, so that we get there even if the next instruction
-+	 * fetch faults. The entry list starts at image->head, in the
-+	 * linear mapping.
- 	 */
- 	la	s6, 1f
- 	sub	s6, s6, s4
-+	sub	s0, s0, s4
- 	csrw	CSR_STVEC, s6
--
--	/*
--	 * With C-extension, here we get 42 Bytes and the next
--	 * .align directive would pad zeros here up to 44 Bytes.
--	 * So manually put a nop here to avoid zeros padding.
--	*/
--	nop
-+	csrw	CSR_SATP, zero
-+	sfence.vma
-+	jr	s6
- 
- 	/* Process entries in a loop */
- .align 2
-@@ -70,8 +68,7 @@ SYM_CODE_START(riscv_kexec_relocate)
- 	andi	t1, t0, 0x2
- 	beqz	t1, 2f
- 	andi	s0, t0, ~0x2
--	csrw	CSR_SATP, zero
--	jr	s6
-+	j	1b
- 
- 2:
- 	/* IND_DONE entry ? -> jump to done label */
+> A trap-introduced context switch would interrupt a code that have SR_SUM
+> set. However, since the bit is cleared at every exception entry, the
+> context switch code would not see a live SR_SUM. Seeing the bit set in
+> this case means something is not turning SR_SUM off properly.
+> 
+> I aggree that this is the better way to handle SR_SUM in a context switch
+> but attaching a call trace or stating that "We have not caught this in
+> real world due to ..." in the commit message would be appreciated.
+> 
+> Cheers,
+> Andy
+> 
+>>
+>> Fixes: 788aa64c01f1 ("riscv: save the SR_SUM status over switches")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+>> ---
+>>   arch/riscv/kernel/entry.S | 6 +++---
+>>   1 file changed, 3 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+>> index 61b7a77166971..628b85e3915a7 100644
+>> --- a/arch/riscv/kernel/entry.S
+>> +++ b/arch/riscv/kernel/entry.S
+>> @@ -443,15 +443,15 @@ SYM_FUNC_START(__switch_to)
+>>   	REG_S s10, TASK_THREAD_S10_RA(a3)
+>>   	REG_S s11, TASK_THREAD_S11_RA(a3)
+>>   
+>> -	/* save the user space access flag */
+>> -	csrr  s0, CSR_STATUS
+>> +	/* Save and clear the user space access flag. */
+>> +	li    s1, SR_SUM
+>> +	csrrc s0, CSR_STATUS, s1
+>>   	REG_S s0, TASK_THREAD_SUM_RA(a3)
+>>   
+>>   	/* Save the kernel shadow call stack pointer */
+>>   	scs_save_current
+>>   	/* Restore context from next->thread */
+>>   	REG_L s0,  TASK_THREAD_SUM_RA(a4)
+>> -	li    s1,  SR_SUM
+>>   	and   s0,  s0, s1
+>>   	csrs  CSR_STATUS, s0
+>>   	REG_L ra,  TASK_THREAD_RA_RA(a4)
+>> -- 
+>> 2.39.5
+>>
+> 
+
 
 -- 
-2.55.0
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
 
-
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
