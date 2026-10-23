@@ -2,78 +2,89 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84F03606A31D
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 11:58:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F12C3606A31A
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2026 13:09:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HcV5IIpy;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NfrNZSom
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=C5xhMhTi;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m7RG/5lG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=xZp5Ra7+qMp1d9uTiqhwOgy8Kao5KyQfUaZtKKGgdXk=; b=HcV5IIpyfLPVgC/UdT1mNAhT7L
-	ILvElISGvNGBTdzFmsljqZdmd8R/e/HU/G44paJGKCiiMpjh9MVBXgxfaMf0ixh+Y0odTXh0XSH0/
-	p2aRXa7Soye7NF+4uyIzwnBv/mANvXiusd0GchmgKNYH2cQTvZb9pPOsQJnRo1qx/KYu94oAfSpWZ
-	ZAJIPUjiAHB8vaQsbQPZl6qyAdLUbBhZ5hEafdRz8Yv/0gzA0wti2INCjZkT+c+FyIwUKfeuoGBY2
-	WfsA9hRotIv8gqN0Dcyemr5K48JUebG+QRk1wOg6P3Zc9QctrS9uQOTmcGJoRL/IgTgh0ZpZDOdb/
-	X/V+Dkjw==;
+	bh=UYQOnvogJLxbHE1BQ2YLUCRyMxHTrwvWCT5ZLEhrwoo=; b=C5xhMhTiR9wE43nNxjMkSxJzK5
+	Li1uMCAPJP6Fn56dDpkxfCVYDfYumFLfql96/pA7hiPfNLzj7KNQGsZirucv/N0xnux1qKA5pQoo+
+	Bt0e2D4mAxsrHlNt1COSsuoXx+JTDUBMb4YXFyFomJPtImN7rlVMddgS4EqnJN//Rb8yt8MzfHu8x
+	pvDHTaZLtOVb/m5tKqRUzZOkIsNe77OWV8H+J0y4jkOrb7Df0/+RVMSCRU5ZVadw3O7blS9BsphzP
+	SiowRpHWEm8i1YS08orXqXV71MOqPWsdziA+rvHOXKkWHsau15u+IyG8Ag0nwPbJ7Yxliho7hSZD+
+	i3VBZa9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKDuQ-0000000GG7u-0ZIL;
-	Fri, 23 Oct 2026 11:58:06 +0000
-Received: from out-4.mta0.migadu.com ([2001:41d0:1004:224b::4] helo=mta0.migadu.com)
+	id 1xKF1G-0000000GLgg-1Wea;
+	Fri, 23 Oct 2026 13:09:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKDuM-0000000GG6k-1w5T
-	for linux-riscv@lists.infradead.org;
-	Fri, 23 Oct 2026 11:58:04 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=ZidFtH1/LnObjsGNvMsrIN8j2jFRHd//7zJzoyuXcVg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1792756678; v=1; x=1793361478;
- b=NfrNZSomapIGotMnzKQ141Ht8EqMJ7W3EZbPfPMNMiYjh/9bM26MPmLPaOm8MmwQClF71wJf
- MkBDifIoWcI80GYDyDYMxQYFiEBoNboJKcJBvTeZkfeKrkkQEpIKojg1R4Z+hS9N3OdZq3VqK2k
- ITnxZTYLpTFNFUlilk3r0uhU=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 8a40efd914636a4c;
-	Fri, 23 Oct 2026 11:57:58 +0000
-X-Mizu-Trace-ID: 8a40efd914636a4c
-X-Migadu-Flow: FLOW_OUT
-From: Jinyu Tang <jinyu.tang@linux.dev>
-To: SeungJu Cheon <suunj1331@gmail.com>
-Cc: anup@brainfault.org,
-	atish.patra@linux.dev,
-	tjytimi@163.com,
-	inochiama@gmail.com,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	andrew.jones@linux.dev,
-	pbonzini@redhat.com,
-	seanjc@google.com,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	sashiko-bot@kernel.org
-Subject: Re: [PATCH] KVM: riscv: Only fast-path dirty-log write faults on host-writable leaves
-Date: Fri, 23 Oct 2026 19:57:47 +0800
-Message-ID: <20261023115747.2545223-1-jinyu.tang@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261017030927.345454-1-suunj1331@gmail.com>
-References: <20261017030927.345454-1-suunj1331@gmail.com>
+	id 1xKF1E-0000000GLgR-0alb;
+	Fri, 23 Oct 2026 13:09:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BCED242AF7;
+	Fri, 23 Oct 2026 13:09:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEFE51F01825;
+	Fri, 23 Oct 2026 13:09:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792760950;
+	bh=nlznPFw9V2Gc6GAfgQKy3QilQuYPxjyao4Hf2pcvcDM=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=m7RG/5lGWSbIc838b0jmvSS290uWfurhu3YNfo5bVNzSTvTPTC7ghSWC8leVP3nQ+
+	 b1I3jDHg/InxLf552w5eGHsTrs/J6pcIRU/3j2o4lXMu8kdY2pE31lXQZ6mDuOD9a9
+	 /bZSvE9+INNA1eyAemAPUHtpahZxa52CO1uiN/pTg/xq6n5EpQE55LyKwMgvscOovl
+	 vpke1gUvPTZai31N3aWvQD3q3fnksvGf8uxqyvKnNdAccPdM5DjsmOgJhH0dNQrOqX
+	 DgjQebBUKnbd01GrrL7MPL69Sel1P4/LLNB/kJOWZzm+JYUNtbLukoPTq27kTGyxJT
+	 /kgHrVGsqnwng==
+From: Thomas Gleixner <tglx@kernel.org>
+To: "H. Peter Anvin" <hpa@zytor.com>, Sebastian Andrzej Siewior
+ <bigeasy@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, Peter Zijlstra
+ <peterz@infradead.org>, Michael Ellerman <mpe@ellerman.id.au>, Shrikanth
+ Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org, Kees Cook
+ <kees@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ loongarch@lists.linux.dev, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Sven Schnelle
+ <svens@linux.ibm.com>, linux-s390@vger.kernel.org, x86@kernel.org, Mark
+ Rutland <mark.rutland@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, Andy
+ Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Richard
+ Henderson <richard.henderson@linaro.org>, Russell King
+ <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Guo
+ Ren <guoren@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, Helge Deller <deller@gmx.de>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Richard Weinberger
+ <richard@nod.at>, Chris Zankel <chris@zankel.net>,
+ linux-arm-kernel@lists.infradead.org, linux-alpha@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-m68k@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-um@lists.infradead.org, Arnd Bergmann
+ <arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>, Will Deacon
+ <will@kernel.org>, Brian Cain <bcain@kernel.org>, Michal Simek
+ <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, "David S. Miller"
+ <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>,
+ linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-arch@vger.kernel.org, Michal =?utf-8?Q?Such=C3=A1nek?=
+ <msuchanek@suse.de>, Jonathan
+ Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
+Subject: Re: [patch 16/18] x86/entry: Get rid of the sys_ni_syscall()
+ indirection
+In-Reply-To: <1149A39E-BEBA-46EA-94F4-4DFFC4733EF5@zytor.com>
+References: <20260707181957.433213175@kernel.org>
+ <20260707190254.493733289@kernel.org>
+ <20261022142425.3Wx-RrU5@linutronix.de> <87fqxx1r80.ffs@fw13>
+ <87cxt11ktr.ffs@fw13> <1149A39E-BEBA-46EA-94F4-4DFFC4733EF5@zytor.com>
+Date: Fri, 23 Oct 2026 15:09:07 +0200
+Message-ID: <871p9g1s3w.ffs@fw13>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_045802_721260_EB2060DD 
-X-CRM114-Status: UNSURE (   5.48  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,29 +97,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, Oct 17, 2026 at 12:09:26PM +0900, SeungJu Cheon wrote:
-> +		/* Let the slow path handle host-side write protection and CoW. */
-> +		if (!(pte_val(old_pte) & KVM_GSTAGE_PTE_HOST_WRITABLE)) {
-> +			ret = false;
-> +			break;
-> +		}
+On Thu, Oct 22 2026 at 17:22, H. Peter Anvin wrote:
+> On October 22, 2026 2:34:08 PM PDT, Thomas Gleixner <tglx@kernel.org> wrote:
+>>-static __always_inline void do_syscall_x32(struct pt_regs *regs, unsigned long nr)
+>>+static __always_inline bool do_syscall_x32(struct pt_regs *regs, unsigned long nr)
+>> {
+>>+	if (!IS_ENABLED(CONFIG_X86_X32_ABI))
+>>+		return false;
+>>+
+>>+	/* Preserve the historic insanity of treating -1 special on x32 */
+>>+	if (nr == ULONG_MAX)
+>>+		return true;
+>
+> It was never limited to x32...
 
-Thanks for fixing this.
-Tested on QEMU 10.2.1 with a private memfd mapping and dirty logging.
-A guest read followed by a write corrupts the shared backing without
-this fix; and with it, CoW occurs and the backing stays unchanged.
+Tired brain misread the test output:
 
-Reviewed-by: Jinyu Tang <jinyu.tang@linux.dev>
+[RUN]   Running tests under ptrace: modifying the default return
+[RUN]       Checking system calls with msb = 0 (0x0)
+[OK]                x32 syscalls 0:-64..-2 returned -ENOSYS as expected
+[OK]                x32 syscall 0:-1 returned MODIFIED_BY_PTRACE as expected
+[OK]                x64 syscalls 0:-64..-1 returned -ENOSYS as expected
+
+But that's because the "-1" on x32 is actually 0xFFFFFFFF while on x64
+it's 0x7FFFFFFF.
+
+The whole mess comes from using -1 as indicator for syscall abort which
+is undistinguishable from a syscall(nr=-1).
+
+Bah. Let me restore this nonsense.
 
 Thanks,
-Jinyu
+
+        tglx
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
