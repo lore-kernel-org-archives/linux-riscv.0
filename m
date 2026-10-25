@@ -2,105 +2,111 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85B31606A31A
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 Oct 2026 13:02:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77D80606A322
+	for <linux-riscv@archiver.kernel.org>; Sun, 25 Oct 2026 18:47:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KNCKkZJZ;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=Hp7aKAmF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dCiIc4XP;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J6C08BAV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=hqH6GotrPXVs+aNfmL6ZWjo1anZ5lUPoO9JmnaUquKA=; b=KNCKkZJZoXSLEWURfVNcUNw4Fv
-	8Y9YnKKCajmmJq9jwzdMwVV7TahldbnfW/3UakwrX7tZ1g1jc77nrqtiyslzLlEM5T2uzIrbNWIfa
-	V9cMCAdSOObZ75KFUOfEDfBLCFSREE1l6IJGUeLaDkevwyMi7MEq7PsMFl20BwYiQnMivCuJU3nKR
-	Luh+oa+7hcxkD9GL6Davlg5Tnj+VGmyZ/60HZiD0EbwTAPc9MUFzLS2StTOQVdz2fourb6dXEVvSi
-	nXYj//z92pdhx88izJNxnOKvlxw2b5nNSQNR/ASOPM2S2rslhj57qdDJabQqthzw2smNn/DcSV7m8
-	EoXDVkDg==;
+	bh=vi7ICLQBDwsDnASOirNwLIUXPx/px21UFVKxFLfZL1w=; b=dCiIc4XPBVyxlx5daa9HnjgeDg
+	ldFUU81297x0W1fTGRH7wc1HcBVRqMdo/zoGn2QED+Q4F8lmLm2nXbLPJPKluVhC/vTawN6NwegkO
+	9oqgSYZrBNL1Jqipt23nPkbAnwDFWVxCOVjYjgdgj8QKUPnxBX4N/eahQTAyDabx5ysYCiSsO3Wf4
+	4K7CqaGgw8c6wq91/6NDcSMhIVInEelDjJ5k/aG2rBvBmfQE5GqO/8ePRSNjazaM5cF48EFQNimY6
+	mKpkD0Kfr9L7ZWnYPnrcAjlHIXjrj9Cz0s7p9gNhBuezGMSpuV4ZYbCfh6uGvyNDmnTMKkJKsK7Ko
+	0sOSBgXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKxrb-000000013zl-2oye;
-	Sun, 25 Oct 2026 13:02:15 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1xL3Fu-00000001Ioe-39t4;
+	Sun, 25 Oct 2026 18:47:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKxra-000000013z8-0Ff9
-	for linux-riscv@lists.infradead.org;
-	Sun, 25 Oct 2026 13:02:15 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2e7e742a2c7so14118575ad.0
-        for <linux-riscv@lists.infradead.org>; Sun, 25 Oct 2026 06:02:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792933333; x=1793538133; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BeWhtqurdRURXZzZxthQRkSgg7DOPSB9+FM4Irtz//w=;
-        b=Hp7aKAmFjbh/ra2gR+Er+br4Py5iWqQAOc6ovKKqdKO0jaOxgojG2ULSODUY6L/wyt
-         PjXO6LDmuIIYksWqiXbPozZ9mlUkae9yG0jOEMsoOMNZw1KNITp3x1WgEnSlCUTyuwDo
-         rk3iA43SI2EqE/WQh02YahEOFuVgNQy5a2MAI/7FhSE8/k9lA+0+H5HGnwCvVG+imkB0
-         Qv1EKIFkCzYgo7EiCeHN3W55L017Fbg5fROqTVRww+dx0mxi+VotTT+R4lQxh0FkB0GN
-         c2oSBcxVgR8yszzhxjGPAn46cwtXzP1IjfnCeF/vwMaUULnpEydQMxneVntVaiRYkS9t
-         ptMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792933333; x=1793538133;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BeWhtqurdRURXZzZxthQRkSgg7DOPSB9+FM4Irtz//w=;
-        b=I0Z8Y1uB/n2HoH24M5C1wNcxOcYhpn3np5nZVPhHm4YP8+9z9HdD0MgOM67/zGOzOR
-         mvs3kWS30pjOVcgycQhE1YpSCrlExOIjF0ZvWgt35rVDT5Z7zutTAdgfdGKXe9yaQ3+e
-         2gkWMHqYIuKd7qLMnNJuzsyRGxANIt9bzP7g5/qQqHhQVhznb9ODIA4Ue2H9BYYSgkqC
-         humiRy4exyRgUmHr8zfqxdMEcnQ38R2Kau4LBoIK3SefkQC962xMwwn3YmLFmBrQ9b0q
-         9gE6oDYTLpFoYVB62HiNxDmkY/s10aRTjVJ6nEshY3Szb63GzkE04M8DSCBZU6MzkJUA
-         gX3A==
-X-Forwarded-Encrypted: i=1; AKwUvBwnOxFs1nrpYY6mPxZ8VKGT2xJvozNdFdyfj9yGbnJdaOcIsO66LfluwWZ5/qP8bTJGNe1W8OJi388B3Q==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKmbTWkHIRTfYav2S9mXUwqhsKNP6qHzZtVEUo9/cPnys/FiiHk
-	9KExq6BVdnQBEgQ5o1D4ENT/Keav4YuJoWBLSUK8MHlvnTiB56yF3hO2
-X-Gm-Gg: AYBFou0cngUdBtBsIN7URpPSBOjSlHjprI8C95X7hj8EtGXhZWSxiHye4pgcuQMBBep
-	+UMTKtHPNeUsDLLfk2KkLNEL9ekdMNZqe6AKHO+Km1+2LOwxsUHhEsqLccjUFB3CxwrIWsEjjYW
-	MwSBmbG8UgRJXz++dwZQZjaV5Irulb3BsscWTlBcHowbvhW2X0RnjmDpu0VpFqTW6ZLrm+xq0u5
-	ejNkJ35in4YjwBo/eXlPxOkFVDR6d+72S+oGUajvFS8tB2cM2Y5ZliicBU7iOpYD++Ykrw3ZmTz
-	j3i/Qtmyu9GSt79ORRFfzV/oR4CaLt0XdleXRDxA+ivY8OFiJ4GvAa0cmBUuM6o9AYOYcDkXzXy
-	BfnVmXtZ13mbb4jdl0wSs5xH8WrgUV8SE6l785l2Mpxd+QL0IyWvuVu+rL1eJLkoxzyiQfYjd7/
-	JdantuM3SDZcLuHa6lBLLxa+y1dcLn/R0YSSkl2aghv69mOmcw39rD2VMS00p0P2h85Me4RM29m
-	DpMfFeuFhFyaREX/UCRVYYp/k2XvPDWoMkfN8SRgvI977WAvldr9PJVIqW1w6Vq62P6Dcm77cyi
-	fXyFanf9eEnThzQ6AcT9CtApdLp3zgJ1pONXmq6v5SPO+XasV2Si5EPavWhVmPGHTtfN5wKmfPe
-	qfYgP++AZUm26vSFuLG7RhaRJ7nn0fUIrK+VhygYg3TJ87dlC49VogyRyLA==
-X-Received: by 2002:a17:903:198e:b0:2e5:41d6:178c with SMTP id d9443c01a7336-2ea9cc5802emr27275065ad.33.1792933332318;
-        Sun, 25 Oct 2026 06:02:12 -0700 (PDT)
-Received: from alanhc-14700.tailb22ec2.ts.net (180-177-138-120.dynamic.kbronet.com.tw. [180.177.138.120])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ea9b14d1ddsm8430055ad.40.2026.10.25.06.02.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 Oct 2026 06:02:11 -0700 (PDT)
-From: Hung-Chun Tseng <alan.tseng.cs@gmail.com>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: dlan@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	e@freeshell.de,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] riscv: dts: spacemit: k1: mark boot-critical SoC nodes bootph-pre-ram
-Date: Sun, 25 Oct 2026 21:02:04 +0800
-Message-ID: <20261025130206.187282-1-alan.tseng.cs@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <CANAwSgQ=Djw_o89MgvEsmKVxuNiE3Yuy=e0T5DcLfqCYy6eWMw@mail.gmail.com>
-References: <20261024092558.143621-1-alan.tseng.cs@gmail.com> <20261024092558.143621-2-alan.tseng.cs@gmail.com> <CANAwSgQ=Djw_o89MgvEsmKVxuNiE3Yuy=e0T5DcLfqCYy6eWMw@mail.gmail.com>
+	id 1xL3Fr-00000001Inj-3kcY;
+	Sun, 25 Oct 2026 18:47:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 35C62600CB;
+	Sun, 25 Oct 2026 18:47:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D2E91F01828;
+	Sun, 25 Oct 2026 18:47:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792954057;
+	bh=5wnAqR12mDvQqCEE/MRBIlSMPEALxmmJZfIrTK2aMRo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=J6C08BAV+F3iiWM9FlcPNqjRNGrOHJtPKNVu3OUcI7HqHZFW2bJf7N0c8G+JK3kuC
+	 Q9nwKr5QZZOaBx04tv6bryafAtS3l8ddZSESLreLqFOuH9yUyY5YFa2WLyjKrfokOY
+	 I5aQbn4Z7ktlYAGGiVhADA+Z2owm484BBGS0MXEu9+8SJ1Xd+9nopeImLHezCjmbsI
+	 l+b9jyQmwALbi3HX0Fd2Od6jLx4uuOwo/I0r78SNRDtzRGmz0Z0w8l5bueq5IOCdWr
+	 lyimjYWJ1aQUhpScd4g5pAdhgA9k8TZ3KLStW1ngSWF9YCMs/TnFJYzxEr+8kDEq+3
+	 1F+kG3xlNHiHw==
+Date: Sun, 25 Oct 2026 19:47:34 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Srikar Dronamraju <srikar@linux.ibm.com>,
+	Ingo Molnar <mingo@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, Scott Wood <oss@buserror.net>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Srikar Dronamraju <srikar@linux.vnet.ibm.com>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Kees Cook <kees@kernel.org>, Jinjie Ruan <ruanjinjie@huawei.com>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Pengjie Zhang <zhangpengjie2@huawei.com>,
+	Thierry Reding <treding@nvidia.com>, Xi Ruoyao <xry111@xry111.site>,
+	"Rafael J. Wysocki (Intel)" <rafael@kernel.org>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Rong Bao <rong.bao@csmantle.top>, Hui Wang <hui.wang@canonical.com>,
+	Thorsten Blum <thorsten.blum@linux.dev>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org
+Subject: Re: [PATCH] sched/hotplug: Remove unused idle_task_exit
+Message-ID: <at5OxorR-UUIxlIe@pavilion.home>
+References: <20261016095711.1364609-1-srikar@linux.ibm.com>
+ <attjv8zOftf9Hlqe@localhost.localdomain>
+ <20261023165434.GX2823843@noisy.programming.kicks-ass.net>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_060214_122363_D838E391 
-X-CRM114-Status: GOOD (  17.61  )
-X-Spam-Score: -2.1 (--)
+Content-Disposition: inline
+In-Reply-To: <20261023165434.GX2823843@noisy.programming.kicks-ass.net>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,59 +116,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Anand,
+Le Fri, Oct 23, 2026 at 06:54:34PM +0200, Peter Zijlstra a =E9crit :
+> On Fri, Oct 23, 2026 at 03:40:15PM +0200, Frederic Weisbecker wrote:
+> > Le Fri, Oct 16, 2026 at 03:26:40PM +0530, Srikar Dronamraju a =E9crit :
+> > > Commit 21641bd9a7a7 ("lazy tlb: fix hotplug exit race with
+> > > MMU_LAZY_TLB_SHOOTDOWN") moved the handling previously performed by
+> > > idle_task_exit() into the scheduler CPU hotplug path using
+> > > sched_force_init_mm().
+> > > =
 
-On Sun, 25 Oct 2026 at 18:43, Anand Moon <linux.amoon@gmail.com> wrote:
-> Could you update the pinctrl and GPIO configurations, including all
-> necessary pin
-> assignments, to bring up the SD card, PCIe, and Ethernet nodes?
->
-> Please ensure that the required bootph-pre-ram properties are applied
-> to the relevant
-> pinctrl, GPIO, and other dependent nodes wherever necessary for SD card boot and
-> SPL initialization.
+> > > As a result, idle_task_exit() is now an empty stub and the remaining
+> > > architecture call sites have no effect.
+> > > =
 
-I'd like to keep this series to what is needed before DRAM is up.
-PCIe and Ethernet are not used in that phase, and their pinctrl-0
-entries are already in the board files.
+> > > Remove the calls to idle_task_exit() and the now unused stub.
+> > > =
 
-For the boot media, the BootROM has already set up the pins of the
-device it loaded the SPL from. U-Boot's spacemit_k1_defconfig does
-not enable SPL_PINCTRL or SPL_GPIO either, so the tags would have no
-user today. SD boot on a Milk-V Jupiter works without them.
+> > > Signed-off-by: Srikar Dronamraju <srikar@linux.ibm.com>
+> > =
 
-E also asked on the cover letter to keep the BootROM part and the DRAM
-part apart, so I'd rather not widen it.
+> > Reviewed-by: Frederic Weisbecker <frederic@kernel.org>
+> =
 
-> Additionally, could you update the regulator-name properties for
-> vdd_core, vdd_1v8,
-> and vdd_1v8_mmc?  On all the boards, the SPL code requires these regulator names
-> to locate and enable the corresponding regulators during early boot.
+> Excellent; less is more and all that. Shall I take this through the
+> scheduler tree?
 
-These names come from the U-Boot SPL code, not from the board
-schematics, and U-Boot already sets them in
-arch/riscv/dts/k1-bananapi-f3-u-boot.dtsi and k1-musepi-pro-u-boot.dtsi.
-I think that is the right place for them.
+Yes please :-)
 
-> I am verifying the changes against the existing U-Boot board device
-> tree and configuration to ensure
-> that SD card, eMMC, PCIe, and Ethernet initialization work correctly.
+-- =
 
-Thanks for testing. Please let me know how it goes.
-
-Thanks,
-Hung-Chun
+Frederic Weisbecker
+SUSE Labs
 
 _______________________________________________
 linux-riscv mailing list
