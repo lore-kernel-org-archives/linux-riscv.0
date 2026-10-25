@@ -2,100 +2,113 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F907606A31A
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 Oct 2026 08:39:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9267606A31A
+	for <linux-riscv@archiver.kernel.org>; Sun, 25 Oct 2026 10:43:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ocbb2Rnj;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=roEk7o38
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DCW1cfkx;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=krVaarOp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=I36Cpxv7QvD6JVVAEzZzUpclu3zcaVJS1pkeAZQ2gEY=; b=Ocbb2Rnjm5GyQCy0laNpC47gZk
-	I65ml8euv2w8yMoRezttcA9fhLh9jS4iZt/yfmwzJpzSxrXFVorAlo9GhziowukitMh1TOPJFYqn9
-	S6BmvUWOXSNJQWCyzshO34O85cVjgVq73+lZVs3epE/Dp7IC36tYoK25Ue+51Q87v9AnWFiSVchlU
-	WI2yuaQ16Y4i2FYLsz3HEJpPtNOr8kg6RcyXYWDQKWlXF+hPk4jx92WKeiW0d4z2wcGRTDiWFitGB
-	ahaYQkIvAjlR8aUXDxBhMw8DUgKtMxWK/zqlphh0wdC7vuceR7zzJhaW9vJxovZ+I7eIqbGc6SGpY
-	55/18kPQ==;
+	bh=J3QYmn2h9tDqq5qtkT7oljonKD9ldKW2ZmNXdf0SIdg=; b=DCW1cfkx7jG7YseluR0JErCv9z
+	oz3J98J1SucbzVLwZI4Pik12yBqkz9Xq6qQ+3QmrfXlN/8umez3O8li0LuL3cVtVejI5JuQGkBhcs
+	XL4yDgLyuqNt0qettn6pT3gykXzhY2JwzNIvZ82QL0egCrN7Qv5hxWwpYiW8dprxO66GHQL6wVkQ/
+	9H2pPISMUYpNW+81E631IjmM7d6X5op4JF6UiWNb1ofgziFfAQY8TbxALA+XhaSGfg978LuRcUNEG
+	Sg68oU89BODkr5Nn96Rep8RNItX/ALm2IXJgoMNiYurHPoWM3PDNfsDyZ/iTzsIBAFcC2oCQ+t5/6
+	Nhehj5NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKtlW-00000000tCv-4AwV;
-	Sun, 25 Oct 2026 08:39:43 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1xKvhS-00000000yim-1a5z;
+	Sun, 25 Oct 2026 10:43:38 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKtlU-00000000tCZ-1F5M
+	id 1xKvhQ-00000000yiM-0OXJ
 	for linux-riscv@lists.infradead.org;
-	Sun, 25 Oct 2026 08:39:41 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-3ac7c7b3a90so1001902a91.3
-        for <linux-riscv@lists.infradead.org>; Sun, 25 Oct 2026 01:39:39 -0700 (PDT)
+	Sun, 25 Oct 2026 10:43:37 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6b1aa377c61so2672678a12.3
+        for <linux-riscv@lists.infradead.org>; Sun, 25 Oct 2026 03:43:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792925014; cv=none;
+        d=google.com; s=arc-20260327;
+        b=cv8fiW8HWA3V9M7GTv9roiSvfjoCa77RJoprswnU9t7mnBJr278NbSQ7BMlfI4vdMF
+         k1SczbA6sB9oPKzuy7wm91MQo+5kzXTGRQg79zgXW3lJyGISJ73hnaR0fsZD7tRweufQ
+         IKdUOyEn87oU+aljecQJQ6F8Mqptn6gj0kBF25+iCkdrHlBHOtbYx97nfIJXVjc2nxJN
+         THIUf8lmOl+X7IR/2z1bD3d4NRFh0V8mjY6lJjWhH13ezb8m53fiExog6exTIVT9k/yI
+         0OBekfYQCQMJZKGiv2wIxPvd+UJbvBbrvdiW7zfsfWBvvGHpwRysgFu83YjbaT6PgHvp
+         5UbQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=2nhVqeDWML+DyZIbNVrMj09Q/t6YqRPgh+lFp44NdbU=;
+        fh=ePLgPPNZhzLfPEFnyPzV0YLa5us9BvjHf7USFhxCuiY=;
+        b=UqDr5zVDhwg8kGqnnN5S59Mh/zZ3y1BtxZGRsM9MLpKwvb2ZKr+Tu96aOvLWVmAHhf
+         8zzviYjgBVc90TzM9pP4n2cuv+CzmLRn4JVl1SmRAuNNuhsfVrJQP/5mZM+KkWT+WjMe
+         VVmP6qfNbpf+ip1c1pTSN0eIkremuVmq60AarhY3PtNXb8OVJlvp1+hjtIvgOQcCeYQY
+         2c9v458wZVUDMzh/rGO7Z3HW3oFYukdM05gXTuvEWbnIQxjgjUytY60NF3Oel+pkqr07
+         YQYnBTbT+JQF2WMcyVIHiNsrOXUmkxXBAAmq7SevxWVJHJftPD35i2S+zHsScQvc8OnR
+         GOpg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792917579; x=1793522379; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aZgZnRh0aurROdQhtMg5ehI3tYqFA35O+N2pjyOvIwc=;
-        b=roEk7o38pWTxxApxUrRtiozK0mly+heFlhtT8o9jFHvOROrRZ6f0UkgNQfVnX5zQi+
-         4vzDSTTh2QJ9zmPBzE5YkAnpNuUPvhuj5kC02f9AGK7gHh3GdNeDg2fE+g76E6sK+CzA
-         jC+9obUw379cddsZ9b9Gpa/Lo9mEh87Kjc+UPjY44N7QPzmBDqxQV9hup2Iy6BoQfQqP
-         nvVmHqefrLfvlfU8FlF+/+vaJ6pe1r+MH3xJMdSNdFqyagDtxxx065EqjSf2Uyj+grt6
-         rPiRmxUXHrcezFfMVn9j5Bh5N8wKEVy4MTAdRavyO4y5cE1KfmxdE3zxl3Ulsswrog5a
-         2/gw==
+        d=gmail.com; s=20251104; t=1792925014; x=1793529814; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2nhVqeDWML+DyZIbNVrMj09Q/t6YqRPgh+lFp44NdbU=;
+        b=krVaarOpSR5dayOR1rJy3InuaCsc20LPm7IOY3H0LbNvvj+tf7Ap9ft2jLzanuxTUB
+         Z3xZP9tFlA/o5P3247EGkewpLzmeqB0cA+VocquudkxTGXkNdgo6LOAi0x8CPcmkRZFq
+         v8lrr+vh9LdgA39xwjuPilk5aFH7DZgXe5itA/Y5FYIXVD0uM9vV44T2rjfW4ioxiX/u
+         PF1NFlZ9L2SrNSzGyL+EB5ubhgJWmA0GJHTMo8HHLSnuoVluNbXyM2R7M4d0GfH6u+qR
+         Cu+ozWhJhoHwFAvHSlPD8HMHfF2dWo8i4HKDNt8IhSWuf6tbT0VPZzVJKKI0NdE0xK09
+         /YTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792917579; x=1793522379;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aZgZnRh0aurROdQhtMg5ehI3tYqFA35O+N2pjyOvIwc=;
-        b=wwkxoW6PeyjEmxi0B4xriUPA4i1bQBGsGgRleEQ4lEwim3ODdYV0YYqcSa525gppHb
-         JJY86Tr3bHPhA2NUdke7LVgbVx8tPRlTdJHKOfpwxlYAt8V+JkT1TeFetq1anTigzdB8
-         mXZACy1i8e/WgmXNAiWuuizyQGgRhHZrbDFKLnqjxJeoHbXmY4o+5Ln6II/wJ+7jfij1
-         DN3ecDh/1+BjQtU8vJth304I8/0hqhB1fUyFZwDnNx6oE/M76PwNZwqXD3n/gUpUaO16
-         QpawUTcW3oNHV2LgYlP7sC0uldQnQ4w8Ju1e0uGdPulS385aaQoLdYO3bhq2LKPQ35/2
-         nBMg==
-X-Forwarded-Encrypted: i=1; AKwUvBxzAax1T2bTebwJ0M5ruwI1msglglBcVGN6kLqB6nx7Vj0+CgqYdsMlHevwSeTpdv0r096j1FV5NuoN5Q==@lists.infradead.org
-X-Gm-Message-State: AFq9FYLa4XJ0S9O74Euv6gBpKgwvYX1YHKy3qPifo6Co4XRs2vx69kJJ
-	/h1ERUL2/cZjZTxqhsMBeWUHYtdctCJ3yncNc6MUBM4eKkDp6sX3viBO
-X-Gm-Gg: AYBFou2q08yNAgdUHcw44D/52bXY6RG7WNuVPWz0Emfv/yYkNurd3pe/WPzhMhvJ6Jn
-	/mCBpVH84JiJZ48PMAcGjMOn77iFq0H41jhZZVccbtKPmpgRPDXaSyeGyD6VP3vDHx7gHsqfM5R
-	sG+NsAcZaGA+XkjHJhZuNntPQamt8+whpvpIarwldkCPnAYEtO64PKjhATyTMQMeWuK9KgB4lbv
-	y4d43b3wJ8+wOkQZjRXuFE39eOh6vhcSybAKHAuPwchYwZ98fm2Mswu0vVDOadHs5KaEIDPIe6y
-	0DwqrmP0zm4wt/twczOyIbbjfZArurF+SqPoz9utbKzsstOXIz/XyRoZias6Oe9GfPFGMl6efxD
-	o4wnZtuKEvnVTAWrJS4ckkMBNeYv53PQGCSp5Tr7mmFahNdweTh8adxqb57MLewuEMMR9OIO5sM
-	Z9hkWNDadE31vRwDQegRK5ateufqYJhrWDNG8zO6VUlbU75z0UQRHJ8WRVoXEnsO3Y62oPHSRda
-	s86ixonb2kXf11pDlac37ayAjMiex0rMKV47X5mowX/Zp8O/JcO2WYL5dv6+KZy4LvSVw+d4Zj+
-	y7vj1A7IP3EPVC/p8pV6wKAOj1aFu6tfdldHC5hiz83iEKIJ3lHYdgTBUDeAdgXVXYJbhu8AdOO
-	pL75TjroFjHp2zQOCW/xUjvM+brQg+hnJJyg=
-X-Received: by 2002:a17:90b:5906:b0:3ad:1841:6f8b with SMTP id 98e67ed59e1d1-3adead0bdc7mr3144482a91.37.1792917578985;
-        Sun, 25 Oct 2026 01:39:38 -0700 (PDT)
-Received: from alanhc-14700.tailb22ec2.ts.net (180-177-138-120.dynamic.kbronet.com.tw. [180.177.138.120])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3adebe69478sm4585051a91.3.2026.10.25.01.39.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 Oct 2026 01:39:38 -0700 (PDT)
-From: Hung-Chun Tseng <alan.tseng.cs@gmail.com>
-To: Yixun Lan <dlan@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	E Shattow <e@freeshell.de>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/2] riscv: dts: spacemit: mark K1 boot nodes bootph-pre-ram
-Date: Sun, 25 Oct 2026 16:39:31 +0800
-Message-ID: <20261025083933.26066-1-alan.tseng.cs@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20260707; t=1792925014; x=1793529814;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=2nhVqeDWML+DyZIbNVrMj09Q/t6YqRPgh+lFp44NdbU=;
+        b=1h3Q1MEXAQL24dqYZSQUX2YXKFFPt40zy3NPTRneTSI+uUlgP7Itv023K5UPEn95H7
+         x/Q+I+0YPbfnIt3VUXml7/3RFzOgGyY7eBsuP2vXkYQeIK9IjWKR8dVaGksSlc+LrxI1
+         y15mxJUYnCfacG3W6AN872JmJWQF0H0EwqrlajxVN8EMNmicMlElfqWSzBwxuWZJbLvt
+         W9XsAbmOdFd/j/SK5KoC3Itazu04FU8BjZuAgmmXBUduEJQ1WYpDSdOTyZPSIcMHeemL
+         PR4QukFP36Q+3vmNhhE+OdmoREnzv5scIKvGdq/KUoRr//05ARTk6aP4FYAeRBMarpqh
+         hdRw==
+X-Forwarded-Encrypted: i=1; AKwUvBx43FJrjQi8jIzeh5jYwetJmTK9SLO5w6CRA/RTtnaW/Ug5WfwvwxCkGzpm2Pz0iNAx2Bp8wrxipaiATA==@lists.infradead.org
+X-Gm-Message-State: AFq9FYIVX8Qyp8FDRLAC+XJ7plcWNFhK8U4lksEfaaVZ7Pu7/kospyxW
+	9I/GWOSgokkQNlliiNNsQwDUJV0tAENs6Pzbz45siRcOBUqLbo/FB70F4RGrEKRynXAlMsUvy5S
+	yc5+IThEw5YBtbf+Q9puSMr0cYibgDug=
+X-Gm-Gg: AYBFou3NeNbcza0nzC5fZAeWSG7stboYACzyb0N8nS1L0eDIP2l4Zm5HNeIJA4OZBrJ
+	Yu/tIaPT5dGfTqRSd4tRDyEOx+MAshxQp6t1DJZrIi5UjMtD4SDzqNPemHfvAtaiszrMieOkF98
+	R4AcbF/NQomvNGZmPrXjG6sIcWH4Tn1pRNlY4iJuMTeUjhqKK5Es8JW3nK++ZlrrnmmTw9+k8qD
+	rJbPSgYMNiPoiXjR1iNr0tRbCkXrmYl1gmh+oD81n+XM1SCjAabpOt0uFbOEorWqGsGYabCvNXD
+	bDtVY3fpGdxpB1pRj2dUIi/A5hs6oP7jnL6w/rJ/YBZPWpmRDPixf6TrbicIu0hPCRiDpxozugh
+	sN6FLbwQbfkzFyToc7s3Fer8XNj08S6HNQiw=
+X-Received: by 2002:a05:6402:270c:b0:6b2:20b:aed4 with SMTP id
+ 4fb4d7f45d1cf-6b4430199aamr5305867a12.38.1792925013523; Sun, 25 Oct 2026
+ 03:43:33 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+References: <20261024092558.143621-1-alan.tseng.cs@gmail.com> <20261024092558.143621-2-alan.tseng.cs@gmail.com>
+In-Reply-To: <20261024092558.143621-2-alan.tseng.cs@gmail.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Sun, 25 Oct 2026 16:13:16 +0530
+X-Gm-Features: AclHuK-kOeWVKlgsWorJqSjEZdHZLjS8gQzZJLPBLsv2jCYHjrUYgUabSVC5ZyA
+Message-ID: <CANAwSgQ=Djw_o89MgvEsmKVxuNiE3Yuy=e0T5DcLfqCYy6eWMw@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] riscv: dts: spacemit: k1: mark boot-critical SoC
+ nodes bootph-pre-ram
+To: Hung-Chun Tseng <alan.tseng.cs@gmail.com>
+Cc: Yixun Lan <dlan@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, E Shattow <e@freeshell.de>, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_013940_352868_D54733D9 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20261025_034336_154176_CBD03133 
+X-CRM114-Status: GOOD (  14.03  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,65 +122,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On the SpacemiT K1 the BootROM loads the next boot stage into SRAM, and
-that stage sets up DRAM. This series marks the nodes it needs for that
-bootph-pre-ram: the SoC clocks, UART, boot media and the two I2C buses
-in k1.dtsi, and the board EEPROM (which holds the DRAM configuration),
-the PMIC rails and the SPI NOR in the board files.
+Hi Hung-Chun,
 
-The vendor confirmed that the BootROM itself does not access the
-EEPROM [1]. It is tagged because bootph-pre-ram covers the phase that
-sets up SDRAM, and DRAM cannot be trained without it.
+On Sat, 24 Oct 2026 at 14:57, Hung-Chun Tseng <alan.tseng.cs@gmail.com> wrote:
+>
+> The K1 BootROM loads the next boot stage from SD, eMMC or SPI NOR into
+> SRAM, and that stage brings up DRAM. To do so it needs the fixed clocks,
+> the clock and reset controllers, the console UART, the boot media
+> controllers (sdhci0, eMMC and QSPI), and two I2C buses that every K1
+> board wires the same way: i2c2 to the EEPROM that holds the DRAM
+> configuration, and i2c8 to the PMIC that supplies the SoC.
+>
+> Mark these nodes bootph-pre-ram, the phase that sets up SDRAM.
+>
+> Reviewed-by: E Shattow <e@freeshell.de>
+> Signed-off-by: Hung-Chun Tseng <alan.tseng.cs@gmail.com>
 
-Testing: all K1 DTBs build, and dtbs_check is clean for them with and
-without this series.
+Thanks for these changes. It helped me a lot.
 
-I used Claude to help read the U-Boot SPL and the device trees. I
-checked the changes and ran dtbs_check myself.
+Could you update the pinctrl and GPIO configurations, including all
+necessary pin
+assignments, to bring up the SD card, PCIe, and Ethernet nodes?
 
-Changes in v3:
-- Reword both commit messages to describe the hardware instead of what
-  an SPL does, and drop the U-Boot paragraph from patch 1 (E)
-- Tag i2c2 in k1.dtsi too, as every K1 board has the EEPROM there
-- Tag eeprom@50 on the OrangePi RV2 and R2S, missed in v2 (Sashiko)
-- Drop the Assisted-by tags, see commit 1e035297ffda
-- Keep E's Reviewed-by on both patches, as the changes are the ones
-  discussed on v2
-- Link to v2: https://lore.kernel.org/all/20261017180141.3477743-1-alan.tseng.cs@gmail.com/
+Please ensure that the required bootph-pre-ram properties are applied
+to the relevant
+pinctrl, GPIO, and other dependent nodes wherever necessary for SD card boot and
+SPL initialization.
 
-Changes in v2:
-- Tag i2c8 in k1.dtsi instead of in every board file (Yixun)
-- Rebase onto the spacemit dt-for-next branch
-- Link to v1: https://lore.kernel.org/all/20261012235624.77993-1-alan.tseng.cs@gmail.com/
+Additionally, could you update the regulator-name properties for
+vdd_core, vdd_1v8,
+and vdd_1v8_mmc?  On all the boards, the SPL code requires these regulator names
+to locate and enable the corresponding regulators during early boot.
 
-[1] https://lore.kernel.org/all/20261021083425-GKA125937@kernel.org/
+I am verifying the changes against the existing U-Boot board device
+tree and configuration to ensure
+that SD card, eMMC, PCIe, and Ethernet initialization work correctly.
 
-Hung-Chun Tseng (2):
-  riscv: dts: spacemit: k1: mark boot-critical SoC nodes bootph-pre-ram
-  riscv: dts: spacemit: mark K1 board boot devices bootph-pre-ram
-
- arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi |  5 +++++
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   |  5 +++++
- arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts |  6 ++++++
- arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts    |  6 ++++++
- arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts  |  5 +++++
- arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts  |  6 ++++++
- arch/riscv/boot/dts/spacemit/k1.dtsi              | 14 ++++++++++++++
- 7 files changed, 47 insertions(+)
-
-
-base-commit: d05c6236496071916e19012cda7149465f15e66e
--- 
-2.43.0
-
+Thanks
+-Anand
 
 _______________________________________________
 linux-riscv mailing list
