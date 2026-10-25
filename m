@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C888060A2613
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 Oct 2026 12:24:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30C3F60A262A
+	for <linux-riscv@archiver.kernel.org>; Sun, 25 Oct 2026 12:24:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=H039f5k5;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BZaNROX0
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VrREcU4p;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n65zebUv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,72 +14,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=MuXVTW0Z/dV7YzfZcdSJ9qJt+VR0v5Svg9RCVLM+gdA=; b=H039f5k56zuPUKaMB9AgRgpQhu
-	0Oc0Rco+dFYtpSpZEQGwxBPhjOdlksYuTQGxJTWT33roAJZS9nltil2m2UxBzpUyrI1kyfdm6bFk+
-	SJe4oy8XdGdWztjW0ABcj+6k5URv9vi3znJG4NfE4k9OYj62/Wpbs4Ybe63sm5VxMctpOfKQmfXuB
-	N25bI3r0yZOHTWBBZyYFpZec4yekE75qyn8wINTADLKiOLUf6jJDEqDHNkY0uxtu6HcFBTdY7sAMh
-	VIrBmMO4tiozSsY72WxKd4b1eXENlRtjwF83aeU4aQXpG1YKAR8/k2Dw5J1XjtI/fFIVZQc5kGQKN
-	tB6V2NVg==;
+	bh=hpXEZxoAl2kodbDYNeQfFYO91iB9y+1ylt/pSWBEUGY=; b=VrREcU4pyGauT8KqypU/Bwpll/
+	DsNX9Bk6XmvM0tpmQveNZzNhJfuGCzyPWGT9yA+m8uV6JvJ2rIBM9D4Oj/aKynydGAm3ub87wzbUc
+	7nb5OgEPECQKGvfGL+YMshcb+i0yzQ5ABfWFk9KPAmzcmM+9BTwyLE8zfJceUU+Bx4A6ZMIWVz32i
+	8h4KUvefTjiOpNlT65f+fNDFgmg0oJ+5XXupbDcUzM+WULu6gxnaVNEpA0JCnpN6jZqSQ+UikwOpH
+	jqoGuWTOmPhiy0BvgyBCGioF3YaRbksvvvyKQ4qs2KfHBN/udkdXt+owadDWu2eKRp2dcrXg0J3c6
+	S6wuO2ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKxGu-0000000122H-1yZh;
+	id 1xKxGu-0000000122C-1bYk;
 	Sun, 25 Oct 2026 12:24:20 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKxGl-000000011zL-1Fhy
+	id 1xKxGk-000000011zG-3d61
 	for linux-riscv@lists.infradead.org;
-	Sun, 25 Oct 2026 12:24:11 +0000
+	Sun, 25 Oct 2026 12:24:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1352B43EB4;
-	Sun, 25 Oct 2026 12:24:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9D0FA444EE;
+	Sun, 25 Oct 2026 12:24:10 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1792931051;
-	b=PwQ7KR8ElhDwu25xfRD9ik3gbOZhQ6XaxxhfMQp0hfn6pDCiUEdPDfBkuF/sLNPCjA0X
-	 hMtdcKDfFnGoBer0AHLMK0Z8bmfdt7H16GlpglNywN2bdbfUMw4yRWfznV+L3Oi8pLABe
-	 c/tzhtrugeU5nVhA7blcl1FGl5M+oZKpM77Sn+6qwTGEhzxCgLWGAnbzKB7wQy4qMmUCp
-	 dmZ206BMC6zbqdNv8pAfVGoymxx99a7801UuFPbHC9s6SP+DEGrsDSTDYYMq9TUuyPirQ
-	 RfPW8K0h1RVR28axaV9tkyYysJmOgJxXeWQbfhwTTYEzT3sieZIeZ1mJWlbcA64CxCw==
+	t=1792931050;
+	b=3SSGZ1oFG5oiNN6a/uxXER4+kTmDRagi2KIWiz7+/AILukfW5chY3+gtV6ATpukx31t4
+	 RL1brQO+gaNG451O5iDOw6HAovxemEblEySngDSsykKF9WuH64PAYbQ+CozhQkKmyd0hD
+	 Y3KGJCXc2HZ2+v2908kx0cQqUr99/J76l+RVNHmy1+e7M21QXV36fI1bjfy8PNy3gNHPB
+	 pMZxLWDYknQw7Dglg8HwzsU1txqWWpUm5F9OycpauLfpNfQBZQJxk5Ma362CmXh7RAyL3
+	 +NUc7xgnbVhHwnFWOaNwi1mY1b6BN6RDwyH/1952ZuXUBbtHvLm5gbqEy86w0Gu1w5w==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1792931051;
+	c=relaxed/relaxed; t=1792931050;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To;
-	bh=rYn91d5AW51ekC0xiIwh3eq8N8kKGkt85e7bIYf78I0=;
-	b=D2EsZM4Ybd9ziRQFu+omy7kIeZWv3HHXkMjBo1BUy0mwMh/fIFPKUtfAEnFIsMdRxq3D
-	 iuEgrVwgrgwhpfSFEf9q4fwBGwJKlh84qFZjML3T3woIJ4ZfmyAzNAE5/wk6mlFaoF4rY
-	 vwki9Fkl4jdPxP4vlq/D/T7FpxkszB858yI3OJNsLIPo/0Khg4w6w/rz7dhIkC/TlLkiD
-	 O+91AiBIqwq1z4dNangWE+q2i2HKOV4OjMn1Im5auquF2Fmn5QNRWE/xTfSvq/YX1YSg+
-	 vOvnfZB4Y/cV8yZHn5sdSglerER441bgBawRXTOc6CLS2XOl2qyt/Unat0zazDiXZBQ==
+	bh=L1F7WlUoN4mFJWR9t+hIT+/uE1kbw6CXTVSOSM8bDz4=;
+	b=dac0DpHxsOApC2WRWGDZHgCbQ8GCbuLjdh43OLcD8GgC054Qxw3N7/LFKPEHBE2VCkRu
+	 7jAiQN874yjkciMveeJHYOwQLphd0T9sk2aWgpjV8fCpw5/tkk2qWQ/Cu2DE6Vz5fUuw3
+	 FszDwLm0K4u3cLocrESOu9nkhdgGDqCaY76dag7X+tWIqQ/S8p4EBKc0TqFN/tUiGTZPi
+	 wJ+9jLxdUW03+dQLe3XLN1fXQvEiGcClxU4XAQEMtTwMptFgi2+sdh8wmIaCDny+e4oge
+	 fpME6sLbEzZpOeZvx4zaVvTePf8NtKgfbloJ8xVEUYc79UBQBSyjXMrGYwetVM8YkWg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id E312F1F031E2;
-	Sun, 25 Oct 2026 12:24:08 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 6FBAB1F031E1;
+	Sun, 25 Oct 2026 12:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1792931050;
-	bh=rYn91d5AW51ekC0xiIwh3eq8N8kKGkt85e7bIYf78I0=;
+	bh=L1F7WlUoN4mFJWR9t+hIT+/uE1kbw6CXTVSOSM8bDz4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=BZaNROX0pkyhIwlulD+FqoSWFCqr9cGcKDaJ8Rh1VNCi+NpPo4Fd+ETSO/cQU+Mv7
-	 S5G6FCG3UssNF0iVSbVz60GaXM8QJ6AtEsjFVzNuaXwxI9YVBOrEG9Cogjjy8UTZvv
-	 23dYLwPCMjp79IrvqBvM/bFgj8UJDLn+4LInUbd5wJvIwwX3XelDtNZ030zAxqln34
-	 MMEccnB6xhTSN2juGUR82rwiVFMga8xn9Anq4hTtjqwsVem54r10wNbWjJGFlA8R2E
-	 yVj883+LiTEgj0H0LLUF2A41X28BwS+bjyd7RF3Ba92JiieD6sFmPEA4YLH5pFFe3n
-	 zReZoUma0Hysg==
+	b=n65zebUvX4CHF97lKvOS/eh9MQftI9z1GuFxyqm/bFvDvGXVaA/PmBBFwDkIoyXLG
+	 bqmeR6EVJm3JhjfaoSqIRyAAieBRW4tOdSVPc+RIPr7wtODODtiGYKQ92n6E6Qyyoc
+	 u1t0Dr4FkNay+zZz+HY87i85TR5KoZuwP7E9DC/vOUg4ZNwDRyFflnIwJJ8zmYhRKs
+	 BmKQ1TinVR+K4HleYgwaJMSczji1nC7AxeSi9Y4fbKt5oVUmqZfkw/0nagDrlHfoiQ
+	 VX003mHHTCsGdHHkhkShCIbZQt44anYWWFfflYoT2vRl2gS510zJuRmlnCgfd0MPr9
+	 TeTN3NRI2Kohg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 4287344A14;
+	by lkml.kernel.org (Postfix) with ESMTP id 5852844A1C;
 	Sun, 25 Oct 2026 12:24:07 +0000 (UTC)
 From: Xincheng Ji via B4 Relay <devnull+jixincheng.ultrarisc.com@kernel.org>
-Date: Sun, 25 Oct 2026 20:24:05 +0800
-Subject: [PATCH v7 5/7] riscv: dts: ultrarisc: Add initial device tree for
- UltraRISC DP1000
+Date: Sun, 25 Oct 2026 20:24:07 +0800
+Subject: [PATCH v7 7/7] riscv: dts: ultrarisc: Add Milk-V Titan board
+ device tree
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261025-ultrarisc-dts-v7-5-621eca2b8790@ultrarisc.com>
+Message-Id: <20261025-ultrarisc-dts-v7-7-621eca2b8790@ultrarisc.com>
 References: <20261025-ultrarisc-dts-v7-0-621eca2b8790@ultrarisc.com>
 In-Reply-To: <20261025-ultrarisc-dts-v7-0-621eca2b8790@ultrarisc.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -96,11 +96,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
  linux-riscv@lists.infradead.org
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792931045; l=26221;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792931045; l=7285;
  i=jixincheng@ultrarisc.com; s=20260922; h=from:subject:message-id;
- bh=U+CvNl/hC5MA6y3/HwIcO9IG4emC0pfEMNJ+kFUW/C4=;
- b=smFlhztvglf+ZEk9NBQdeuP1s1tYbMF2uKzJ6v9lLz6zWYkitHEepO39V29LQfQv4gc3gsE5N
- 9a1hVmYuBXtArRvQL+ZC84/FnRKcFtJTiTy8fnekW952mFqnAuJcvoo
+ bh=N15xNr9bvlgkkaVh4klby1aaV/DTJXi0aS7YY+IWrPo=;
+ b=0we2YFUbduAyR3+ocykIqKrXQTSJFYf5kkW1T8IzdQaLi526IbCCciQWDIb/B/Us2ogm2x28U
+ 8MOA9Qba1pADX+NNVAWcyfgIVH1M6CJubcQQsKQUATUk/aPfUek7ciM
 X-Developer-Key: i=jixincheng@ultrarisc.com; a=ed25519;
  pk=n848dcS5D6g0vLad/rjp4Gf/1eedTe1a3pYUrkt2260=
 X-Endpoint-Received: by B4 Relay for jixincheng@ultrarisc.com/20260922 with
@@ -119,908 +119,351 @@ Reply-To: jixincheng@ultrarisc.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-22.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 From: Jia Wang <wangjia@ultrarisc.com>
 
-Add the base device tree for the UltraRISC DP1000 SoC. It describes
-eight CP100 CPU cores, their cache topology, and essential peripherals
-including CLINT, PLIC, the clock controller, pinctrl, GPIO, UART, SPI,
-I2C, PCIe, GMAC, and the DMA controller.
+Milk-V Titan is an ITX motherboard based on the UltraRISC DP1000 SoC.
 
+Link: https://milkv.io/docs/titan/overview
 Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-Signed-off-by: Xincheng Ji <jixincheng@ultrarisc.com>
 ---
- MAINTAINERS                               |   1 +
- arch/riscv/boot/dts/ultrarisc/dp1000.dtsi | 865 ++++++++++++++++++++++++++++++
- 2 files changed, 866 insertions(+)
+ arch/riscv/boot/dts/ultrarisc/Makefile             |   1 +
+ .../dts/ultrarisc/dp1000-milkv-titan-pinctrl.dtsi  | 108 +++++++++++
+ .../boot/dts/ultrarisc/dp1000-milkv-titan.dts      | 201 +++++++++++++++++++++
+ 3 files changed, 310 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 7eb1b2971bea..a97926dadba4 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23645,6 +23645,7 @@ L:	linux-riscv@lists.infradead.org
- S:	Supported
- T:	git https://github.com/ultrarisc/linux.git
- F:	Documentation/devicetree/bindings/riscv/ultrarisc.yaml
-+F:	arch/riscv/boot/dts/ultrarisc/
- 
- RNBD BLOCK DRIVERS
- M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
-diff --git a/arch/riscv/boot/dts/ultrarisc/dp1000.dtsi b/arch/riscv/boot/dts/ultrarisc/dp1000.dtsi
+diff --git a/arch/riscv/boot/dts/ultrarisc/Makefile b/arch/riscv/boot/dts/ultrarisc/Makefile
+index 454d849a6ce4..dfd15c064d07 100644
+--- a/arch/riscv/boot/dts/ultrarisc/Makefile
++++ b/arch/riscv/boot/dts/ultrarisc/Makefile
+@@ -1,2 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_ARCH_ULTRARISC) += dp1000-milkv-titan.dtb
+ dtb-$(CONFIG_ARCH_ULTRARISC) += dp1000-shenrongda-m0.dtb
+diff --git a/arch/riscv/boot/dts/ultrarisc/dp1000-milkv-titan-pinctrl.dtsi b/arch/riscv/boot/dts/ultrarisc/dp1000-milkv-titan-pinctrl.dtsi
 new file mode 100644
-index 000000000000..4e4db83318a4
+index 000000000000..7a812e40a249
 --- /dev/null
-+++ b/arch/riscv/boot/dts/ultrarisc/dp1000.dtsi
-@@ -0,0 +1,865 @@
++++ b/arch/riscv/boot/dts/ultrarisc/dp1000-milkv-titan-pinctrl.dtsi
+@@ -0,0 +1,108 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright(C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
 + */
 +
-+/dts-v1/;
++#include "dp1000.dtsi"
++#include "dp1000-pinctrl.h"
 +
-+#include <dt-bindings/clock/ultrarisc,dp1000-clk.h>
++&pinctrl {
++	i2c0_pins: i2c0-pins {
++		pins = <PA12 PA13>;
++		function = "i2c";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	i2c1_pins: i2c1-pins {
++		pins = <PB6 PB7>;
++		function = "i2c";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	i2c2_pins: i2c2-pins {
++		pins = <PC0 PC1>;
++		function = "i2c";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	i2c3_pins: i2c3-pins {
++		pins = <PC2 PC3>;
++		function = "i2c";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	io_pins: io-pins {
++		pins = <PA10 PA15 PB0 PB1 PB2 PD6 PD7>;
++		function = "gpio";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	gpio_keys_pins: gpio-keys-pins {
++		pins = <PA4 PA11 PA14>;
++		function = "gpio";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	mux_dcdc_i2c_pins: mux-dcdc-i2c-pins {
++		pins = <PA5>;
++		function = "gpio";
++	};
++
++	mux_i2c3_pins: mux-i2c3-pins {
++		pins = <PA6>;
++		function = "gpio";
++	};
++
++	mux_uart0_pins: mux-uart0-pins {
++		pins = <PA7>;
++		function = "gpio";
++	};
++
++	spi0_pins: spi0-pins {
++		pins = <PD0 PD1 PD2 PD3 PD4 PD5>;
++		function = "spi";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	spi1_pins: spi1-pins {
++		pins = <PA0 PA1 PA2 PA3>;
++		function = "spi";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	uart0_pins: uart0-pins {
++		pins = <PA8 PA9>;
++		function = "uart";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	uart1_pins: uart1-pins {
++		pins = <PB4 PB5>;
++		function = "uart";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	uart2_pins: uart2-pins {
++		pins = <PC4 PC5>;
++		function = "uart";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	uart3_pins: uart3-pins {
++		pins = <PC6 PC7>;
++		function = "uart";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++};
+diff --git a/arch/riscv/boot/dts/ultrarisc/dp1000-milkv-titan.dts b/arch/riscv/boot/dts/ultrarisc/dp1000-milkv-titan.dts
+new file mode 100644
+index 000000000000..89c41b382942
+--- /dev/null
++++ b/arch/riscv/boot/dts/ultrarisc/dp1000-milkv-titan.dts
+@@ -0,0 +1,201 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright(C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
++ */
++
++#include "dp1000-milkv-titan-pinctrl.dtsi"
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/input/gpio-keys.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/leds/common.h>
 +
 +/ {
-+	compatible = "ultrarisc,dp1000";
-+	#address-cells = <2>;
-+	#size-cells = <2>;
++	model = "Milk-V Titan";
++	compatible = "milkv,titan", "ultrarisc,dp1000";
 +
-+	cpus {
++	aliases {
++		serial0 = &uart0;
++		serial1 = &uart1;
++		serial2 = &uart2;
++		serial3 = &uart3;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	gpio-keys {
++		compatible = "gpio-keys";
++		pinctrl-names = "default";
++		pinctrl-0 = <&gpio_keys_pins>;
++
++		key-wakeup-0 {
++			label = "Wake-Up";
++			gpios = <&gpio_a 14 GPIO_ACTIVE_LOW>;
++			linux,code = <KEY_WAKEUP>;
++			linux,input-type = <EV_KEY>;
++			debounce-interval = <10>;
++			wakeup-source;
++			wakeup-event-action = <EV_ACT_ASSERTED>;
++		};
++
++		key-wakeup-1 {
++			label = "Power";
++			gpios = <&gpio_a 11 GPIO_ACTIVE_LOW>;
++			linux,code = <KEY_POWER>;
++			linux,input-type = <EV_KEY>;
++			debounce-interval = <10>;
++			wakeup-source;
++			wakeup-event-action = <EV_ACT_ASSERTED>;
++		};
++
++		key-wakeup-2 {
++			label = "Wake-Up-by-USB";
++			interrupts-extended = <&gpio_a 4 IRQ_TYPE_EDGE_FALLING>;
++			linux,code = <KEY_WAKEUP>;
++			linux,input-type = <EV_KEY>;
++			debounce-interval = <10>;
++			wakeup-source;
++		};
++	};
++};
++
++&i2c0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c0_pins>;
++};
++
++&i2c1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c1_pins>;
++};
++
++&i2c2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c2_pins>;
++
++	rtc@68 {
++		compatible = "st,m41t11";
++		reg = <0x68>;
++	};
++};
++
++&i2c3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c3_pins>;
++};
++
++&spi0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&spi0_pins>;
++};
++
++&spi1 {
++	num-cs = <1>;
++
++	pinctrl-names = "default";
++	pinctrl-0 = <&spi1_pins>;
++};
++
++&uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0_pins>;
++};
++
++&uart1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart1_pins>;
++};
++
++&uart2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart2_pins>;
++};
++
++&uart3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart3_pins>;
++};
++
++&pcie_x16 {
++	status = "okay";
++};
++
++&pcie_x4a {
++	status = "okay";
++};
++
++&pcie_x4b {
++	status = "okay";
++};
++
++&gpio {
++	pinctrl-names = "default";
++	pinctrl-0 = <&io_pins &mux_dcdc_i2c_pins &mux_i2c3_pins &mux_uart0_pins>;
++};
++
++&gpio_a {
++	dcdc-i2c-mux-hog {
++		gpio-hog;
++		gpios = <5 GPIO_ACTIVE_HIGH>;
++		output-low;
++		line-name = "dcdc-i2c-mux";
++	};
++
++	i2c3-mux-hog {
++		gpio-hog;
++		gpios = <6 GPIO_ACTIVE_HIGH>;
++		output-low;
++		line-name = "i2c3-mux";
++	};
++
++	uart0-mux-hog {
++		gpio-hog;
++		gpios = <7 GPIO_ACTIVE_HIGH>;
++		output-high;
++		line-name = "uart0-mux";
++	};
++};
++
++&ethernet {
++	phy-handle = <&phy0>;
++	/*
++	 * The PCB does not add RGMII TX or RX clock delays. The DP1000
++	 * integration adds fixed delays in both directions.
++	 */
++	phy-mode = "rgmii-id";
++
++	status = "okay";
++
++	mdio {
++		compatible = "snps,dwmac-mdio";
 +		#address-cells = <1>;
 +		#size-cells = <0>;
-+		timebase-frequency = <10000000>;
 +
-+		cpu0: cpu@0 {
-+			compatible = "ultrarisc,cp100", "riscv";
-+			reg = <0x0>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "h",
-+					       "zba", "zbb", "zbc", "zbs", "zicntr",
-+					       "zicsr", "zifencei", "zihpm", "ziccif",
-+					       "ziccrse", "ziccamoa", "za64rs", "zicbom",
-+					       "zicbop", "zicboz", "zkt", "svade",
-+					       "ssccptr", "sstvecd", "sscounterenw",
-+					       "shcounterenw", "shtvala", "shvstvecd",
-+					       "shvsatpa", "svvptc";
-+			mmu-type = "riscv,sv48";
-+			clock-frequency = <2000000000>;
-+			/*
-+			 * L1 I-cache and D-cache:
-+			 * block-size 64B
-+			 * 4-way set associative, size 64KB
-+			 * per-core.
-+			 */
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+			next-level-cache = <&l2_cache0>;
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
++		phy0: ethernet-phy@0 {
++			reg = <0>;
 +
-+			cpu0_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
++			leds {
++				#address-cells = <1>;
++				#size-cells = <0>;
 +
-+		};
-+
-+		cpu1: cpu@1 {
-+			compatible = "ultrarisc,cp100", "riscv";
-+			reg = <0x1>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "h",
-+					       "zba", "zbb", "zbc", "zbs", "zicntr",
-+					       "zicsr", "zifencei", "zihpm", "ziccif",
-+					       "ziccrse", "ziccamoa", "za64rs", "zicbom",
-+					       "zicbop", "zicboz", "zkt", "svade",
-+					       "ssccptr", "sstvecd", "sscounterenw",
-+					       "shcounterenw", "shtvala", "shvstvecd",
-+					       "shvsatpa", "svvptc";
-+			mmu-type = "riscv,sv48";
-+			clock-frequency = <2000000000>;
-+			/*
-+			 * L1 I-cache and D-cache:
-+			 * block-size 64B
-+			 * 4-way set associative, size 64KB
-+			 * per-core.
-+			 */
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+			next-level-cache = <&l2_cache1>;
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+
-+			cpu1_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+
-+		};
-+
-+		cpu2: cpu@2 {
-+			compatible = "ultrarisc,cp100", "riscv";
-+			reg = <0x2>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "h",
-+					       "zba", "zbb", "zbc", "zbs", "zicntr",
-+					       "zicsr", "zifencei", "zihpm", "ziccif",
-+					       "ziccrse", "ziccamoa", "za64rs", "zicbom",
-+					       "zicbop", "zicboz", "zkt", "svade",
-+					       "ssccptr", "sstvecd", "sscounterenw",
-+					       "shcounterenw", "shtvala", "shvstvecd",
-+					       "shvsatpa", "svvptc";
-+			mmu-type = "riscv,sv48";
-+			clock-frequency = <2000000000>;
-+			/*
-+			 * L1 I-cache and D-cache:
-+			 * block-size 64B
-+			 * 4-way set associative, size 64KB
-+			 * per-core.
-+			 */
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+			next-level-cache = <&l2_cache2>;
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+
-+			cpu2_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+
-+		};
-+
-+		cpu3: cpu@3 {
-+			compatible = "ultrarisc,cp100", "riscv";
-+			reg = <0x3>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "h",
-+					       "zba", "zbb", "zbc", "zbs", "zicntr",
-+					       "zicsr", "zifencei", "zihpm", "ziccif",
-+					       "ziccrse", "ziccamoa", "za64rs", "zicbom",
-+					       "zicbop", "zicboz", "zkt", "svade",
-+					       "ssccptr", "sstvecd", "sscounterenw",
-+					       "shcounterenw", "shtvala", "shvstvecd",
-+					       "shvsatpa", "svvptc";
-+			mmu-type = "riscv,sv48";
-+			clock-frequency = <2000000000>;
-+			/*
-+			 * L1 I-cache and D-cache:
-+			 * block-size 64B
-+			 * 4-way set associative, size 64KB
-+			 * per-core.
-+			 */
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+			next-level-cache = <&l2_cache3>;
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+
-+			cpu3_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+
-+		};
-+
-+		cpu4: cpu@10 {
-+			compatible = "ultrarisc,cp100", "riscv";
-+			reg = <0x10>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "h",
-+					       "zba", "zbb", "zbc", "zbs", "zicntr",
-+					       "zicsr", "zifencei", "zihpm", "ziccif",
-+					       "ziccrse", "ziccamoa", "za64rs", "zicbom",
-+					       "zicbop", "zicboz", "zkt", "svade",
-+					       "ssccptr", "sstvecd", "sscounterenw",
-+					       "shcounterenw", "shtvala", "shvstvecd",
-+					       "shvsatpa", "svvptc";
-+			mmu-type = "riscv,sv48";
-+			clock-frequency = <2000000000>;
-+			/*
-+			 * L1 I-cache and D-cache:
-+			 * block-size 64B
-+			 * 4-way set associative, size 64KB
-+			 * per-core.
-+			 */
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+			next-level-cache = <&l2_cache4>;
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+
-+			cpu4_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+
-+		};
-+
-+		cpu5: cpu@11 {
-+			compatible = "ultrarisc,cp100", "riscv";
-+			reg = <0x11>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "h",
-+					       "zba", "zbb", "zbc", "zbs", "zicntr",
-+					       "zicsr", "zifencei", "zihpm", "ziccif",
-+					       "ziccrse", "ziccamoa", "za64rs", "zicbom",
-+					       "zicbop", "zicboz", "zkt", "svade",
-+					       "ssccptr", "sstvecd", "sscounterenw",
-+					       "shcounterenw", "shtvala", "shvstvecd",
-+					       "shvsatpa", "svvptc";
-+			mmu-type = "riscv,sv48";
-+			clock-frequency = <2000000000>;
-+			/*
-+			 * L1 I-cache and D-cache:
-+			 * block-size 64B
-+			 * 4-way set associative, size 64KB
-+			 * per-core.
-+			 */
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+			next-level-cache = <&l2_cache5>;
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+
-+			cpu5_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+
-+		};
-+
-+		cpu6: cpu@12 {
-+			compatible = "ultrarisc,cp100", "riscv";
-+			reg = <0x12>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "h",
-+					       "zba", "zbb", "zbc", "zbs", "zicntr",
-+					       "zicsr", "zifencei", "zihpm", "ziccif",
-+					       "ziccrse", "ziccamoa", "za64rs", "zicbom",
-+					       "zicbop", "zicboz", "zkt", "svade",
-+					       "ssccptr", "sstvecd", "sscounterenw",
-+					       "shcounterenw", "shtvala", "shvstvecd",
-+					       "shvsatpa", "svvptc";
-+			mmu-type = "riscv,sv48";
-+			clock-frequency = <2000000000>;
-+			/*
-+			 * L1 I-cache and D-cache:
-+			 * block-size 64B
-+			 * 4-way set associative, size 64KB
-+			 * per-core.
-+			 */
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+			next-level-cache = <&l2_cache6>;
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+
-+			cpu6_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+
-+		};
-+
-+		cpu7: cpu@13 {
-+			compatible = "ultrarisc,cp100", "riscv";
-+			reg = <0x13>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "h",
-+					       "zba", "zbb", "zbc", "zbs", "zicntr",
-+					       "zicsr", "zifencei", "zihpm", "ziccif",
-+					       "ziccrse", "ziccamoa", "za64rs", "zicbom",
-+					       "zicbop", "zicboz", "zkt", "svade",
-+					       "ssccptr", "sstvecd", "sscounterenw",
-+					       "shcounterenw", "shtvala", "shvstvecd",
-+					       "shvsatpa", "svvptc";
-+			mmu-type = "riscv,sv48";
-+			clock-frequency = <2000000000>;
-+			/*
-+			 * L1 I-cache and D-cache:
-+			 * block-size 64B
-+			 * 4-way set associative, size 64KB
-+			 * per-core.
-+			 */
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <0x10000>;
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <256>;
-+			i-cache-size = <0x10000>;
-+			next-level-cache = <&l2_cache7>;
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+
-+			cpu7_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+
-+		};
-+
-+		/*
-+		 * Per-core L2 caches are unified, 8-way set associative, and 512KB
-+		 * with 64-byte cache lines.
-+		 */
-+		l2_cache0: l2-cache0 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-size = <0x80000>;
-+			cache-sets = <1024>;
-+			cache-unified;
-+			next-level-cache = <&cluster0_l3>;
-+		};
-+
-+		l2_cache1: l2-cache1 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-size = <0x80000>;
-+			cache-sets = <1024>;
-+			cache-unified;
-+			next-level-cache = <&cluster0_l3>;
-+		};
-+
-+		l2_cache2: l2-cache2 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-size = <0x80000>;
-+			cache-sets = <1024>;
-+			cache-unified;
-+			next-level-cache = <&cluster0_l3>;
-+		};
-+
-+		l2_cache3: l2-cache3 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-size = <0x80000>;
-+			cache-sets = <1024>;
-+			cache-unified;
-+			next-level-cache = <&cluster0_l3>;
-+		};
-+
-+		l2_cache4: l2-cache4 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-size = <0x80000>;
-+			cache-sets = <1024>;
-+			cache-unified;
-+			next-level-cache = <&cluster1_l3>;
-+		};
-+
-+		l2_cache5: l2-cache5 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-size = <0x80000>;
-+			cache-sets = <1024>;
-+			cache-unified;
-+			next-level-cache = <&cluster1_l3>;
-+		};
-+
-+		l2_cache6: l2-cache6 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-size = <0x80000>;
-+			cache-sets = <1024>;
-+			cache-unified;
-+			next-level-cache = <&cluster1_l3>;
-+		};
-+
-+		l2_cache7: l2-cache7 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-size = <0x80000>;
-+			cache-sets = <1024>;
-+			cache-unified;
-+			next-level-cache = <&cluster1_l3>;
-+		};
-+
-+		cpu-map {
-+			cluster0: cluster0 {
-+				core0 {
-+					cpu = <&cpu0>;
++				led@1 {
++					reg = <1>;
++					color = <LED_COLOR_ID_YELLOW>;
++					function = LED_FUNCTION_INDICATOR;
++					default-state = "keep";
++					linux,default-trigger = "netdev";
 +				};
 +
-+				core1 {
-+					cpu = <&cpu1>;
-+				};
-+
-+				core2 {
-+					cpu = <&cpu2>;
-+				};
-+
-+				core3 {
-+					cpu = <&cpu3>;
++				led@2 {
++					reg = <2>;
++					color = <LED_COLOR_ID_GREEN>;
++					function = LED_FUNCTION_ACTIVITY;
++					default-state = "keep";
++					linux,default-trigger = "netdev";
 +				};
 +			};
-+
-+			cluster1: cluster1 {
-+				core0 {
-+					cpu = <&cpu4>;
-+				};
-+
-+				core1 {
-+					cpu = <&cpu5>;
-+				};
-+
-+				core2 {
-+					cpu = <&cpu6>;
-+				};
-+
-+				core3 {
-+					cpu = <&cpu7>;
-+				};
-+			};
-+		};
-+
-+		cluster0_l3: l3-cache0 {
-+			/*
-+			 * L3 cache:
-+			 * cache-unified, block-size 64B
-+			 * 16-way set associative, size 4MB
-+			 * per-cluster.
-+			 */
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <3>;
-+			cache-size = <0x400000>;
-+			cache-sets = <0x1000>;
-+			cache-unified;
-+			next-level-cache = <&l4_cache>;
-+		};
-+
-+		cluster1_l3: l3-cache1 {
-+			/*
-+			 * L3 cache:
-+			 * cache-unified, block-size 64B
-+			 * 16-way set associative, size 4MB
-+			 * per-cluster.
-+			 */
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <3>;
-+			cache-size = <0x400000>;
-+			cache-sets = <0x1000>;
-+			cache-unified;
-+			next-level-cache = <&l4_cache>;
-+		};
-+	};
-+
-+	l4_cache: l4-cache {
-+		/*
-+		 * L4 cache:
-+		 * cache-unified, block-size 64B
-+		 * 16-way set associative, size 16MB
-+		 * shared by the SoC.
-+		 */
-+		compatible = "cache";
-+		cache-block-size = <64>;
-+		cache-level = <4>;
-+		cache-size = <0x1000000>;
-+		cache-sets = <0x4000>;
-+		cache-unified;
-+	};
-+
-+	osc_24m: clock-24m {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <24000000>;
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+
-+		clint: timer@8000000 {
-+			compatible = "ultrarisc,dp1000-clint", "sifive,clint0";
-+			reg = <0x0 0x8000000 0x0 0x100000>;
-+			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
-+					      <&cpu1_intc 3>, <&cpu1_intc 7>,
-+					      <&cpu2_intc 3>, <&cpu2_intc 7>,
-+					      <&cpu3_intc 3>, <&cpu3_intc 7>,
-+					      <&cpu4_intc 3>, <&cpu4_intc 7>,
-+					      <&cpu5_intc 3>, <&cpu5_intc 7>,
-+					      <&cpu6_intc 3>, <&cpu6_intc 7>,
-+					      <&cpu7_intc 3>, <&cpu7_intc 7>;
-+		};
-+
-+		plic: interrupt-controller@9000000 {
-+			compatible = "ultrarisc,dp1000-plic", "ultrarisc,cp100-plic";
-+			reg = <0x0 0x9000000 0x0 0x4000000>;
-+			#interrupt-cells = <1>;
-+			#address-cells = <0>;
-+			interrupt-controller;
-+			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>, <&cpu0_intc 10>,
-+					      <&cpu1_intc 11>, <&cpu1_intc 9>, <&cpu1_intc 10>,
-+					      <&cpu2_intc 11>, <&cpu2_intc 9>, <&cpu2_intc 10>,
-+					      <&cpu3_intc 11>, <&cpu3_intc 9>, <&cpu3_intc 10>,
-+					      <&cpu4_intc 11>, <&cpu4_intc 9>, <&cpu4_intc 10>,
-+					      <&cpu5_intc 11>, <&cpu5_intc 9>, <&cpu5_intc 10>,
-+					      <&cpu6_intc 11>, <&cpu6_intc 9>, <&cpu6_intc 10>,
-+					      <&cpu7_intc 11>, <&cpu7_intc 9>, <&cpu7_intc 10>;
-+			riscv,ndev = <160>;
-+		};
-+
-+		clkc: clock-controller@11080000 {
-+			compatible = "ultrarisc,dp1000-clk";
-+			reg = <0x0 0x11080000 0x0 0x1000>;
-+			clocks = <&osc_24m>;
-+			#clock-cells = <1>;
-+		};
-+
-+		pinctrl: pinctrl@11081000 {
-+			compatible = "ultrarisc,dp1000-pinctrl";
-+			reg = <0x0 0x11081000 0x0 0x1000>;
-+		};
-+
-+		gpio: gpio@20200000 {
-+			compatible = "snps,dw-apb-gpio";
-+			reg = <0x0 0x20200000 0x0 0x1000>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			clock-names = "bus", "db";
-+			clocks = <&clkc DP1000_CLK_SUBSYS>,
-+				 <&clkc DP1000_CLK_SUBSYS>;
-+
-+			gpio_a: gpio-port@0 {
-+				compatible = "snps,dw-apb-gpio-port";
-+				reg = <0>;
-+				gpio-controller;
-+				#gpio-cells = <2>;
-+				ngpios = <16>;
-+				interrupt-controller;
-+				#interrupt-cells = <2>;
-+				interrupt-parent = <&plic>;
-+				interrupts = <34>;
-+				gpio-ranges = <&pinctrl 0 0 16>;
-+			};
-+
-+			gpio_b: gpio-port@1 {
-+				compatible = "snps,dw-apb-gpio-port";
-+				reg = <1>;
-+				gpio-controller;
-+				#gpio-cells = <2>;
-+				ngpios = <8>;
-+				gpio-ranges = <&pinctrl 0 16 8>;
-+			};
-+
-+			gpio_c: gpio-port@2 {
-+				compatible = "snps,dw-apb-gpio-port";
-+				reg = <2>;
-+				gpio-controller;
-+				#gpio-cells = <2>;
-+				ngpios = <8>;
-+				gpio-ranges = <&pinctrl 0 24 8>;
-+			};
-+
-+			gpio_d: gpio-port@3 {
-+				compatible = "snps,dw-apb-gpio-port";
-+				reg = <3>;
-+				gpio-controller;
-+				#gpio-cells = <2>;
-+				ngpios = <8>;
-+				gpio-ranges = <&pinctrl 0 32 8>;
-+			};
-+		};
-+
-+		uart0: serial@20300000 {
-+			compatible = "ultrarisc,dp1000-uart", "snps,dw-apb-uart";
-+			reg = <0x0 0x20300000 0x0 0x10000>;
-+			interrupt-parent = <&plic>;
-+			interrupts = <17>;
-+			clocks = <&clkc DP1000_CLK_UART0>,
-+				 <&clkc DP1000_CLK_SUBSYS>;
-+			clock-names = "baudclk", "apb_pclk";
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+		};
-+
-+		uart1: serial@20310000 {
-+			compatible = "ultrarisc,dp1000-uart", "snps,dw-apb-uart";
-+			reg = <0x0 0x20310000 0x0 0x10000>;
-+			interrupt-parent = <&plic>;
-+			interrupts = <18>;
-+			clocks = <&clkc DP1000_CLK_UART1>,
-+				 <&clkc DP1000_CLK_SUBSYS>;
-+			clock-names = "baudclk", "apb_pclk";
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+		};
-+
-+		uart2: serial@20400000 {
-+			compatible = "ultrarisc,dp1000-uart", "snps,dw-apb-uart";
-+			reg = <0x0 0x20400000 0x0 0x10000>;
-+			interrupt-parent = <&plic>;
-+			interrupts = <25>;
-+			clocks = <&clkc DP1000_CLK_UART2>,
-+				 <&clkc DP1000_CLK_SUBSYS>;
-+			clock-names = "baudclk", "apb_pclk";
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+		};
-+
-+		uart3: serial@20410000 {
-+			compatible = "ultrarisc,dp1000-uart", "snps,dw-apb-uart";
-+			reg = <0x0 0x20410000 0x0 0x10000>;
-+			interrupt-parent = <&plic>;
-+			interrupts = <26>;
-+			clocks = <&clkc DP1000_CLK_UART3>,
-+				 <&clkc DP1000_CLK_SUBSYS>;
-+			clock-names = "baudclk", "apb_pclk";
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+		};
-+
-+		spi0: spi@20320000 {
-+			compatible = "ultrarisc,dp1000-spi", "snps,dw-apb-ssi";
-+			reg = <0x0 0x20320000 0x0 0x1000>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			clocks = <&clkc DP1000_CLK_SPI0>,
-+				 <&clkc DP1000_CLK_SUBSYS>;
-+			clock-names = "ssi_clk", "pclk";
-+			interrupt-parent = <&plic>;
-+			interrupts = <19>;
-+			num-cs = <3>;
-+		};
-+
-+		spi1: spi@20420000 {
-+			compatible = "ultrarisc,dp1000-spi", "snps,dw-apb-ssi";
-+			reg = <0x0 0x20420000 0x0 0x1000>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			clocks = <&clkc DP1000_CLK_SPI1>,
-+				 <&clkc DP1000_CLK_SUBSYS>;
-+			clock-names = "ssi_clk", "pclk";
-+			interrupt-parent = <&plic>;
-+			interrupts = <27>;
-+			num-cs = <4>;
-+		};
-+
-+		i2c0: i2c@20330000 {
-+			compatible = "ultrarisc,dp1000-i2c", "snps,designware-i2c";
-+			reg = <0x0 0x20330000 0x0 0x10000>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			clock-frequency = <400000>;
-+			clocks = <&clkc DP1000_CLK_I2C0>,
-+				 <&clkc DP1000_CLK_SUBSYS>;
-+			clock-names = "ref", "pclk";
-+			interrupt-parent = <&plic>;
-+			interrupts = <20>;
-+		};
-+
-+		i2c1: i2c@20340000 {
-+			compatible = "ultrarisc,dp1000-i2c", "snps,designware-i2c";
-+			reg = <0x0 0x20340000 0x0 0x10000>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			clock-frequency = <400000>;
-+			clocks = <&clkc DP1000_CLK_I2C1>,
-+				 <&clkc DP1000_CLK_SUBSYS>;
-+			clock-names = "ref", "pclk";
-+			interrupt-parent = <&plic>;
-+			interrupts = <21>;
-+		};
-+
-+		i2c2: i2c@20430000 {
-+			compatible = "ultrarisc,dp1000-i2c", "snps,designware-i2c";
-+			reg = <0x0 0x20430000 0x0 0x10000>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			clock-frequency = <400000>;
-+			clocks = <&clkc DP1000_CLK_I2C2>,
-+				 <&clkc DP1000_CLK_SUBSYS>;
-+			clock-names = "ref", "pclk";
-+			interrupt-parent = <&plic>;
-+			interrupts = <28>;
-+		};
-+
-+		i2c3: i2c@20440000 {
-+			compatible = "ultrarisc,dp1000-i2c", "snps,designware-i2c";
-+			reg = <0x0 0x20440000 0x0 0x10000>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			clock-frequency = <400000>;
-+			clocks = <&clkc DP1000_CLK_I2C3>,
-+				 <&clkc DP1000_CLK_SUBSYS>;
-+			clock-names = "ref", "pclk";
-+			interrupt-parent = <&plic>;
-+			interrupts = <29>;
-+		};
-+
-+		pcie_x16: pcie@21000000 {
-+			compatible = "ultrarisc,dp1000-pcie";
-+			reg = <0x0 0x21000000 0x0 0x1000000>,
-+			      <0x0 0x4fff0000 0x0 0x10000>;
-+			reg-names = "dbi", "config";
-+			clocks = <&clkc DP1000_CLK_PCIEX16_CORE>,
-+				 <&clkc DP1000_CLK_PCIE_DBI>,
-+				 <&clkc DP1000_CLK_PCIE_AUX>;
-+			clock-names = "core", "dbi", "aux";
-+			ranges = <0x81000000 0x0 0x00000000 0x0 0x4fbf0000 0x0 0x00400000>,
-+				 <0x82000000 0x0 0x40000000 0x0 0x40000000 0x0 0x0fbf0000>,
-+				 <0xc3000000 0x40 0x00000000 0x40 0x00000000 0xd 0x00000000>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			#interrupt-cells = <1>;
-+			device_type = "pci";
-+			dma-coherent;
-+			bus-range = <0x0 0xff>;
-+			num-lanes = <16>;
-+			interrupt-parent = <&plic>;
-+			interrupts = <43>, <44>, <45>, <46>, <47>;
-+			interrupt-names = "msi", "inta", "intb", "intc", "intd";
-+			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-+			interrupt-map = <0x0 0x0 0x0 0x1 &plic 44>,
-+					<0x0 0x0 0x0 0x2 &plic 45>,
-+					<0x0 0x0 0x0 0x3 &plic 46>,
-+					<0x0 0x0 0x0 0x4 &plic 47>;
-+
-+			status = "disabled";
-+		};
-+
-+		pcie_x4a: pcie@23000000 {
-+			compatible = "ultrarisc,dp1000-pcie";
-+			reg = <0x0 0x23000000 0x0 0x1000000>,
-+			      <0x0 0x6fff0000 0x0 0x10000>;
-+			reg-names = "dbi", "config";
-+			clocks = <&clkc DP1000_CLK_PCIEX4_CORE>,
-+				 <&clkc DP1000_CLK_PCIE_DBI>,
-+				 <&clkc DP1000_CLK_PCIE_AUX>;
-+			clock-names = "core", "dbi", "aux";
-+			ranges = <0x81000000 0x0 0x00000000 0x0 0x6fbf0000 0x0 0x00400000>,
-+				 <0x82000000 0x0 0x60000000 0x0 0x60000000 0x0 0x0fbf0000>,
-+				 <0xc3000000 0x80 0x00000000 0x80 0x00000000 0xd 0x00000000>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			#interrupt-cells = <1>;
-+			device_type = "pci";
-+			dma-coherent;
-+			bus-range = <0x0 0xff>;
-+			num-lanes = <4>;
-+			interrupt-parent = <&plic>;
-+			interrupts = <63>, <64>, <65>, <66>, <67>;
-+			interrupt-names = "msi", "inta", "intb", "intc", "intd";
-+			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-+			interrupt-map = <0x0 0x0 0x0 0x1 &plic 64>,
-+					<0x0 0x0 0x0 0x2 &plic 65>,
-+					<0x0 0x0 0x0 0x3 &plic 66>,
-+					<0x0 0x0 0x0 0x4 &plic 67>;
-+
-+			status = "disabled";
-+		};
-+
-+		pcie_x4b: pcie@24000000 {
-+			compatible = "ultrarisc,dp1000-pcie";
-+			reg = <0x0 0x24000000 0x0 0x1000000>,
-+			      <0x0 0x7fff0000 0x0 0x10000>;
-+			reg-names = "dbi", "config";
-+			clocks = <&clkc DP1000_CLK_PCIEX4_CORE>,
-+				 <&clkc DP1000_CLK_PCIE_DBI>,
-+				 <&clkc DP1000_CLK_PCIE_AUX>;
-+			clock-names = "core", "dbi", "aux";
-+			ranges = <0x81000000 0x0 0x00000000 0x0 0x7fbf0000 0x0 0x00400000>,
-+				 <0x82000000 0x0 0x70000000 0x0 0x70000000 0x0 0x0fbf0000>,
-+				 <0xc3000000 0xc0 0x00000000 0xc0 0x00000000 0xd 0x00000000>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			#interrupt-cells = <1>;
-+			device_type = "pci";
-+			dma-coherent;
-+			bus-range = <0x0 0xff>;
-+			num-lanes = <4>;
-+			interrupt-parent = <&plic>;
-+			interrupts = <73>, <74>, <75>, <76>, <77>;
-+			interrupt-names = "msi", "inta", "intb", "intc", "intd";
-+			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-+			interrupt-map = <0x0 0x0 0x0 0x1 &plic 74>,
-+					<0x0 0x0 0x0 0x2 &plic 75>,
-+					<0x0 0x0 0x0 0x3 &plic 76>,
-+					<0x0 0x0 0x0 0x4 &plic 77>;
-+
-+			status = "disabled";
-+		};
-+
-+		ethernet: ethernet@38000000 {
-+			compatible = "ultrarisc,dp1000-gmac", "snps,dwmac-5.20";
-+			reg = <0x0 0x38000000 0x0 0x1000000>;
-+			clocks = <&clkc DP1000_CLK_GMAC>;
-+			clock-names = "stmmaceth";
-+			interrupt-parent = <&plic>;
-+			interrupts = <84>;
-+			interrupt-names = "macirq";
-+			snps,txpbl = <8>;
-+			snps,rxpbl = <8>;
-+
-+			status = "disabled";
-+		};
-+
-+		dmac: dma-controller@39000000 {
-+			compatible = "ultrarisc,dp1000-axi-dma", "snps,axi-dma-1.01a";
-+			reg = <0x0 0x39000000 0x0 0x1000000>;
-+			clocks = <&clkc DP1000_CLK_SYSPLL_DIV2>,
-+				 <&clkc DP1000_CLK_SUBSYS>;
-+			clock-names = "core-clk", "cfgr-clk";
-+			#dma-cells = <1>;
-+			dma-channels = <8>;
-+			interrupt-parent = <&plic>;
-+			interrupts = <152>, <153>, <154>, <155>,
-+				     <156>, <157>, <158>, <159>;
-+			snps,dma-masters = <1>;
-+			snps,data-width = <4>;
-+			snps,block-size = <512 512 512 512 512 512 512 512>;
-+			snps,priority = <0 1 2 3 4 5 6 7>;
-+			snps,axi-max-burst-len = <256>;
 +		};
 +	};
 +};
