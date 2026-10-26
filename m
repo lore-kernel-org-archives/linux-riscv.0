@@ -2,76 +2,78 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CEA3606A327
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 03:44:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40A00606A31E
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 03:44:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1Q3tSOR8;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=C24m/7sU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=L2ROmCU7;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=pquVHigd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=UK4V0sno3iHanjYzW9kcaHA5QoD37g492Jo2afmKqKs=; b=1Q3tSOR8oiMaGedBEsTxp5ABxr
-	ZGiL+/QtBG9b+b5cp2DWkid/AdFjleb2n0Tp3b6JYc/ZqDo/KWWIHdgNkEkImY5U5uIJ2HRr3I3Al
-	mfq6Zg+nDpq7v0iVxjY9+KlPUCDw6BQtILnYJ4x+p/ueo78V0s9YPGd8zyYXlYkPHRM5RmxBw0fTS
-	x8fxtUVqZLyFqg9B210IJFXCcB/ulTtQo9r8mUj3IevJ9PkzhgkouK5Qv3BoQjsu0wYK0NXrP7CrC
-	Ao3r4jsfu22kgniYMmcCpkx0CCZi+xj4dTBmyI6nkh53yDCWzH3USv6SkgwVGp3oH+evNOBI9jFy2
-	PcrRme9Q==;
+	bh=QKyoUmUIZlePhG4tTWhKozrJaI179Tb466llr3yMWlA=; b=L2ROmCU7+8xWqKqwyIoSVS5lkr
+	DUjU0V1wXuXQvVRxtdodDTJSL9gYELf44ukXE3y2zu22E4IOAGihPcSg2/P8X3UP00WOYGKxK5W4P
+	QFZjoi8/aJiTEkSIfGzDhkIFT6LzSTkIIq2GsHbOA89mAxRYWSpQ8z4C/voX1DeKal3iwzfeOu3eJ
+	nO/29IrCjK+pckGNY/Pix+UMjUSzJWEEMaz378GN4UHbT1iyEnJ1iUZYEa0TF7zA9+NrzNzb9SbDl
+	Ib94WjAbHhtF1Z8wrehObqm5MqxlgpSHTqAHAASq3h+lR7FfLO6Qr81zTNFoase3das9aH6jHhqir
+	ttJ774UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLBdS-00000001fpO-3lVO;
-	Mon, 26 Oct 2026 03:44:34 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1xLBdV-00000001fqO-0HJ1;
+	Mon, 26 Oct 2026 03:44:37 +0000
+Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLBdQ-00000001fnf-1Nmu
+	id 1xLBdR-00000001fo9-2O4a
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Oct 2026 03:44:33 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-5365b48238dso20426691cf.0
-        for <linux-riscv@lists.infradead.org>; Sun, 25 Oct 2026 20:44:31 -0700 (PDT)
+	Mon, 26 Oct 2026 03:44:34 +0000
+Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-5364648ae07so32956381cf.1
+        for <linux-riscv@lists.infradead.org>; Sun, 25 Oct 2026 20:44:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792986270; x=1793591070; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FuZU9Bm4L1tjpR5OE6ZUvzPtHgo0PRLa1bH4/fzLGaA=;
-        b=C24m/7sUHKZVbj3+vBdPzl8+UkklUV22nk+HzKV/nuO1l/M264pFRqof/JURC31usj
-         TF3N4S5Jx0x+ANcPxgrZwYTLbof7YN8XHK1dSZVn10uIdtEmZGlRfFe2R05zUeTMMva7
-         19+M8BqO/Aa1EDF56ocusPbjdhiQLUKIANkytXslAAgk/ZCcBe3VrDHyMVSAuEFxI2bX
-         VGtKtcpkYpX9r2mvDlfn598Jza8zjzCUJmbHHvQpeE41UbfaFYta28z/Z9uRmK99TRLN
-         PP0AsAeTxnyPOnqAQL4bXi1rpsJexYcw+0EqldMusehGIBs1on9BKj0HKVn4Jeo8sGQF
-         pV+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792986270; x=1793591070;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1792986272; x=1793591072; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=FuZU9Bm4L1tjpR5OE6ZUvzPtHgo0PRLa1bH4/fzLGaA=;
-        b=MsdZ6gfsAwVxl0pIgZIPANs6LcQXNfIu8PK9S5HPfa+v1Pe3jQt8S+ByxJsZknNrcO
-         AGGGB9Od1nqO0P2pBWaYW3akoc3XHfZKgdMUlvSWUrA8uHq0pKQNj88afGUsQL5hRwjn
-         Ip5N/ZTNoqQ+40K0Lpz8puRvlMEfMxDcmkBZpg1f38tzmtMXqEHL3zWa3y5D1eyCjhAr
-         VjsJDF8gamB0zTvkLvc6u1d++3a/zAbCI/oSsTQkne2lnwVfT04F3JYjFjiLg7IlVNYa
-         6oT7oy7EW08pOVCHz+kHaTIBCqkoChCMKTQiDK/5okx6Nl2hSPh8Q6oTrLCJTsZNwjOa
-         gPjQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwXzIunUhkZEHURZECc7Wkbi3B3OjjDUb4/VnE4oHxg9XjKOS254JaJHiTvRLhK67Znht9MzvM3rMaRTg==@lists.infradead.org
-X-Gm-Message-State: AFq9FYLS+PB7p2eX3Ha/slTlA/50V2JMZXblYmiB9V6xjZb9tl++5QPY
-	tfueI9mDugEzdyAbibLWOCYq8xw/1PVzAfRgINh5f8ALICyT6YJObmUG
-X-Gm-Gg: AYBFou1lri0CCxytO6vK3nj1gOXaRwk3mi0VZVdxsFqsJBAf6GlU/hRwnyo9YS412sM
-	a/KFW0QqTVv1b1zrK4ZNlM/pi4Gu9vNqabbxf9Ps3KojhLXvDH/Dr6IuFFGdYGbGSqx/X0BI1t+
-	FCLm8Cj3TQHbZg7Dohdwhz86FVKCLia5vdeiLMi+wx558wnMYuI0TTsKnsjgkdCXemK1H7DD4UM
-	8KBUX/jecrdbR3SJjCcADzkgJOHMI+8cmJ/LYLTghuOyDbA/Ff8Qc3I+V9hMLGkfX62AosKztPD
-	Uz3UyiNQGtx/xh4tbx5ZgaovDtLoj1n71mFJ9fHltBzfuMDJO5WakGFB8003i0KCZwVy1/xFZuh
-	KRcBsLq/yY3ICgoChOaZvzpR6WP7fNANn2KuyJ6q9Besp5Sn+9czNYjdRyFG5NhRI36TxLjVX9x
-	DLyHLeF50DIC71iAPp0oO/+QOTz92UeVePnIJRSGs/9pVuz8DgOOtHMqJKnuCXfGj9skdW8L6EO
-	RDwUk3dSQMdVA4VL2jC/E9PncYjI2jwwSYfEUn5yXRlnWKImqGKgdiP+ytw/YrDnbHpVqa9bsil
-	RFdyK/rvobIF9r+c/yDpskzOla30rlIodX2+cS8AtrAE3CXvKXqO1F+lRrwq
-X-Received: by 2002:ac8:6546:0:b0:536:699d:9a1c with SMTP id d75a77b69052e-5383b3509cdmr79585421cf.2.1792986270529;
-        Sun, 25 Oct 2026 20:44:30 -0700 (PDT)
+        bh=epO44nguKeOQQCjQUMlL4Yq07v1OlIx6nj2eYc7j0sg=;
+        b=pquVHigdiic9Q/11PW43ItTNStT7HhsEeVOMpngQyqWF8E7u/9CExMEweA9Q2stYqE
+         Ty/osZq1s26ZgBq4IlsC9XAF93KMx1LCrI4Uc6hfxqlvTnNRmRW0V6sKGxMu3IOS8roZ
+         qBg508rhWyh1zsHedr3Dak24Q5QWciZMVQq4pOsxV4pXtbWsIMeFYvLSi1F12YoJRUI8
+         iuGIs+ljghXYECQY7lG2xqCgYqOCk6ZybKWiPP+Vp9nxxiczdMlBD2FLvCGP2XwxrJoq
+         3JUgaqE2kcYHWxTjpgEx7tz4vE4aspw7mwnmR3cPPEF5PI5EigpwLCYmpZRl+1dTKJm9
+         ajnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792986272; x=1793591072;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=epO44nguKeOQQCjQUMlL4Yq07v1OlIx6nj2eYc7j0sg=;
+        b=GALHKNA3jqVQLpSTE7byh9h4Bl5cBNAHFwcbnYEitJJV3nQYBftnXg4+UAd6XKiZhQ
+         qzBUk3c6BrZ4Ls2GNWd1r3/Nzm3nCb+xQE3nxCsCDlfkYs9N0qJhoJ5O1z28/ms7OJWc
+         2Jx0mgxVDO52xkByu35fIhy0uRUhXDE/mjGAuGfAxy00WDTeQJZnZZ8swok5BAg9Laif
+         au/lE5iTMn7JRSpBf17kpko92qEU/+PzA2leizR4FYzTsjMF5nU04ySX+OBs4TZIJD2j
+         UbBD2bDUTRCp330nr17bT4cz5NoqnWDXXdbkV264PYyYLZLXyOKA/lWvqS4oaXBZaM59
+         u7jw==
+X-Forwarded-Encrypted: i=1; AKwUvBxaCZCukTgnvGmkmlmLrOlfVcK4PAdXqpsGzW0VRWyEL3L6YFSO4sn4CRO6gciSFeBGnhsxPyUskDWzFA==@lists.infradead.org
+X-Gm-Message-State: AFq9FYL4TmHbZXsqQZpdmTje+WiTKs9NtJosu3BByj8o4Ce0gvxcdHRf
+	2Bl+oLSQQkjDl9Ajv2qskKtogSsi13e82oyVP80Vmtl45w6We8XmsnRL
+X-Gm-Gg: AYBFou09HuEJIlc17wMLpOwLqXm8oOS/k5D0cb0IByUMxcGF3ks/KbQmoPWk8MeMtzx
+	BwN8jlZJoE/isUsZ4thYj7IUEMRD7nyeDCa4fsSkW/vikXG5g0aWeVrDKcigAB2ttb/ZmBjPrTB
+	iWBC8x4aLULNTPa0vIfwektulI1XRKvFskSE03QilcNNgpucAprtTsoeuB6TPzTqgfs+kN9pS5T
+	Z4Wp8Zcss4nE+SsWaoopaK7AJAjcYNxpyd5VOPMXwp76Q0mHeMkrZSrXxMWUnKsppnqGPAlzjXx
+	p+5nLdpEgEPd3pRrK/4IDVEff0lvQSi1hfrkNWIHOmizK47AGo7mCB2UPswNkSJIjWiiwydapVB
+	ks3BpVKoaNrduedeoqkZaFLmoIzOe0Mp8sd+Fu6Ee1aZ+exHlm8Yhrs9PIAHTAB5eb+40g+BI1I
+	+dIPjFS+Q0/Am8L9Bnxudn0WSbWLDQL7DkKwAlR7ILjXb/fegtlNHfXK7Wsy+UpY9hFv4Xw9RkQ
+	voGqxNZWdAAWRi53BzLUeVfltl5pMDFbE8dLEyUbRpln5SgyZZ1GB1vlFXClEqMbY3TcNzVL4wU
+	cYNtsVIKSVyxPXiNrBNUrX6w7CH5K7jfgfVheN/gUg5iJ90H4H55AQWhOh32klUCQfgW+Nlao0a
+	OjSmp5g==
+X-Received: by 2002:a05:622a:64f:b0:535:13c1:ce94 with SMTP id d75a77b69052e-5383b5d830emr85091791cf.38.1792986272132;
+        Sun, 25 Oct 2026 20:44:32 -0700 (PDT)
 Received: from paul-white-HP-Pavilion-Laptop-15-cs1xxx.mynetworksettings.com ([2600:4040:ad65:1c00:4cc4:d0be:4ab6:9a0b])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-538394c5273sm46202121cf.9.2026.10.25.20.44.29
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-538394c5273sm46202121cf.9.2026.10.25.20.44.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 Oct 2026 20:44:30 -0700 (PDT)
+        Sun, 25 Oct 2026 20:44:31 -0700 (PDT)
 From: Paul White <paul.white.kernel@gmail.com>
 To: anup@brainfault.org,
 	atish.patra@linux.dev,
@@ -84,16 +86,18 @@ Cc: kvm@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Paul White <paul.white.kernel@gmail.com>
-Subject: [PATCH 0/2] KVM: riscv: Unify and optimize FP register loops
-Date: Sun, 25 Oct 2026 23:41:25 -0400
-Message-ID: <cover.1792982932.git.paul.white.kernel@gmail.com>
+Subject: [PATCH 1/2] KVM: riscv: Eliminate redundancy in get_reg function via pointers
+Date: Sun, 25 Oct 2026 23:41:26 -0400
+Message-ID: <f7fcf15c1117ce734247cf951c0afff1f5eb54c8.1792982932.git.paul.white.kernel@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <cover.1792982932.git.paul.white.kernel@gmail.com>
+References: <cover.1792982932.git.paul.white.kernel@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_204432_379175_5D917DD5 
-X-CRM114-Status: GOOD (  15.52  )
-X-Spam-Score: -1.1 (-)
+X-CRM114-CacheID: sfid-20261025_204433_648209_1F16B236 
+X-CRM114-Status: GOOD (  23.02  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,53 +110,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FORGED_GMAIL_RCVD,
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
 	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=no autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The change to both patches in this series is a 
-structural/architectural one. Both functions set_reg and get_reg use 
-identical code to locate the register the application specified in the 
-token even though they do different things with that location 
-information: the set_reg function adds data the application requested 
-to send to that identified location  (in the copy_from_user function) 
-while the get_reg function retrieves what data is at that identified 
-location and sends it to the application (using the copy_to_user 
-function). Everything else is the same. That is the only difference 
-between the code. 
+The original code is essentially asking: for each possible floating
+point mode, ask if reg_num is a status control register or a data
+register. It is redundant to ask those same questions for every
+possible floating point mode case.
 
-Therefore I was able to apply the same solution to both of the 
-function's finding-the-requested-register parts (which is everything 
-up until the final if statement) which were filled with redundancy. 
-The solution I came up with is to create local variables for the 
-entire function for all the variables of the original code that would 
-be different, depending on the floating point type. Then once I ask 
-whether it is a double floating point or single floating point mode, I 
-assign the aforementioned variables to the values they should have for 
-that mode so that when I go through the if statements that ask whether 
-the requested register number is a status control register or data 
-register, I only have to go through it once because the respective 
-floating point values/addresses would have been assigned to the 
-aforementioned local variables, so the whole code kind of changes or 
-is tailored to the floating point type. 
+In order to only ask the "status control register or data register"
+question once, the variables in the status control if statement and
+the data register if statement that would be different depending on
+the type of floating point mode (for example,
+KVM_REG_RISCV_FP_F_REG(fcsr) would be KVM_REG_RISCV_FP_D_REG(fcsr) if
+the floating point mode was double) were made local variables of the
+entire function so that once the cpu passes the if statement inquiring
+whether it is double point mode or single point mode, all the
+variables that change depending on the type in the status control if
+statements and data register if statements will be set to the
+appropriate values they should be when in that mode before/when it
+enters the status control and data register if statements, allowing me
+to only have to ask those questions once and creating a dynamic code
+that changes based on the information. This results in a "asking the
+type then asking status control or data register question once"
+structure rather than a type-questions, type-questions redundant
+structure like before.
 
-This architectural change/solution will make the cpu execute the code 
-faster (as the cpu will have less decisions to make and the bare-metal 
-math used to figure out the address of the register is executed faster 
-by the cpu than looking up object properties and array indexes), is 
-more maintainable, and is more readable.
+This results in faster cpu execution because despite the longer lines
+of code the cpu has to make less decisions, which saves time in case,
+due to its tendency to make assumptions about what an if statement will
+evaluate to, it has to backpedal because it realized it needed to go
+down a different if statement/path. Finding an address via my
+bare-metal approach is also faster than looking up an object properties
+and then an array. It is also more maintainable in the future. If the
+original code needed to be changed, you would have to remember to do
+the same thing to both type blocks whereas mine would just require a
+change in the beginning if statements. If a new floating point mode was
+added you have to ask those same questions all over again, which may
+make the code longer in the long run.
 
-Paul White (2):
-  KVM: riscv: Eliminate redundancy in get_reg function via pointers
-  KVM: riscv: Eliminate redundancy in set_reg function via pointers
+I also renamed reg_num to token_reg_num in my code as I felt it made
+it clearer that it was the register number the application wants and
+requested in a token. It differentiated it from the many other
+variables with the word reg in it.
 
- arch/riscv/kvm/vcpu_fp.c | 128 +++++++++++++++++++++++----------------
- 1 file changed, 76 insertions(+), 52 deletions(-)
+Signed-off-by: Paul White <paul.white.kernel@gmail.com>
+---
+ arch/riscv/kvm/vcpu_fp.c | 70 +++++++++++++++++++++++-----------------
+ 1 file changed, 41 insertions(+), 29 deletions(-)
 
+diff --git a/arch/riscv/kvm/vcpu_fp.c b/arch/riscv/kvm/vcpu_fp.c
+index bb11e6757d34..16999a5c45de 100644
+--- a/arch/riscv/kvm/vcpu_fp.c
++++ b/arch/riscv/kvm/vcpu_fp.c
+@@ -83,41 +83,53 @@ int kvm_riscv_vcpu_get_reg_fp(struct kvm_vcpu *vcpu,
+ 	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
+ 	unsigned long __user *uaddr =
+ 			(unsigned long __user *)(unsigned long)reg->addr;
+-	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
++	unsigned long token_reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
+ 					    KVM_REG_SIZE_MASK |
+ 					    rtype);
+ 	void *reg_val;
+ 
++	u32 *fcsr_addr;
++	void *f_array_addr;
++	size_t byte_offset = 0;
++	unsigned long offical_fcsr_num = 0;
++	unsigned long offical_first_reg = 0;
++	unsigned long offical_last_reg = 0;
++
+ 	if ((rtype == KVM_REG_RISCV_FP_F) &&
+ 	    riscv_isa_extension_available(vcpu->arch.isa, F)) {
++		fcsr_addr = &cntx->fp.f.fcsr;
++		f_array_addr = &cntx->fp.f.f;
++		byte_offset = 4;
++		offical_fcsr_num = KVM_REG_RISCV_FP_F_REG(fcsr);
++		offical_first_reg = KVM_REG_RISCV_FP_F_REG(f[0]);
++		offical_last_reg = KVM_REG_RISCV_FP_F_REG(f[31]);
++	} else if  ((rtype == KVM_REG_RISCV_FP_D) &&
++			   riscv_isa_extension_available(vcpu->arch.isa, D)) {
++		fcsr_addr = &cntx->fp.d.fcsr;
++		f_array_addr = &cntx->fp.d.f;
++		byte_offset = 8;
++		offical_fcsr_num = KVM_REG_RISCV_FP_D_REG(fcsr);
++		offical_first_reg = KVM_REG_RISCV_FP_D_REG(f[0]);
++		offical_last_reg = KVM_REG_RISCV_FP_D_REG(f[31]);
++	} else {
++		return -ENOENT;
++	}
++
++	if (token_reg_num == offical_fcsr_num) {
+ 		if (KVM_REG_SIZE(reg->id) != sizeof(u32))
+ 			return -EINVAL;
+-		if (reg_num == KVM_REG_RISCV_FP_F_REG(fcsr))
+-			reg_val = &cntx->fp.f.fcsr;
+-		else if ((KVM_REG_RISCV_FP_F_REG(f[0]) <= reg_num) &&
+-			  reg_num <= KVM_REG_RISCV_FP_F_REG(f[31])) {
+-			reg_num = array_index_nospec(reg_num,
+-					ARRAY_SIZE(cntx->fp.f.f));
+-			reg_val = &cntx->fp.f.f[reg_num];
+-		} else
+-			return -ENOENT;
+-	} else if ((rtype == KVM_REG_RISCV_FP_D) &&
+-		   riscv_isa_extension_available(vcpu->arch.isa, D)) {
+-		if (reg_num == KVM_REG_RISCV_FP_D_REG(fcsr)) {
+-			if (KVM_REG_SIZE(reg->id) != sizeof(u32))
+-				return -EINVAL;
+-			reg_val = &cntx->fp.d.fcsr;
+-		} else if ((KVM_REG_RISCV_FP_D_REG(f[0]) <= reg_num) &&
+-			   reg_num <= KVM_REG_RISCV_FP_D_REG(f[31])) {
+-			if (KVM_REG_SIZE(reg->id) != sizeof(u64))
+-				return -EINVAL;
+-			reg_num = array_index_nospec(reg_num,
+-					ARRAY_SIZE(cntx->fp.d.f));
+-			reg_val = &cntx->fp.d.f[reg_num];
+-		} else
+-			return -ENOENT;
+-	} else
++		reg_val = fcsr_addr;
++	} else if ((offical_first_reg <= token_reg_num) && (token_reg_num <= offical_last_reg)) {
++		if ((KVM_REG_SIZE(reg->id) != sizeof(u32)) &&
++		    (KVM_REG_SIZE(reg->id) != sizeof(u64))) {
++			return -EINVAL;
++		}
++		token_reg_num = array_index_nospec(token_reg_num,
++						   32);
++		reg_val = (u8 *)f_array_addr + (token_reg_num * byte_offset);
++	} else {
+ 		return -ENOENT;
++	}
+ 
+ 	if (copy_to_user(uaddr, reg_val, KVM_REG_SIZE(reg->id)))
+ 		return -EFAULT;
+@@ -144,9 +156,9 @@ int kvm_riscv_vcpu_set_reg_fp(struct kvm_vcpu *vcpu,
+ 		if (reg_num == KVM_REG_RISCV_FP_F_REG(fcsr))
+ 			reg_val = &cntx->fp.f.fcsr;
+ 		else if ((KVM_REG_RISCV_FP_F_REG(f[0]) <= reg_num) &&
+-			  reg_num <= KVM_REG_RISCV_FP_F_REG(f[31])) {
++			 reg_num <= KVM_REG_RISCV_FP_F_REG(f[31])) {
+ 			reg_num = array_index_nospec(reg_num,
+-					ARRAY_SIZE(cntx->fp.f.f));
++						     ARRAY_SIZE(cntx->fp.f.f));
+ 			reg_val = &cntx->fp.f.f[reg_num];
+ 		} else
+ 			return -ENOENT;
+@@ -161,7 +173,7 @@ int kvm_riscv_vcpu_set_reg_fp(struct kvm_vcpu *vcpu,
+ 			if (KVM_REG_SIZE(reg->id) != sizeof(u64))
+ 				return -EINVAL;
+ 			reg_num = array_index_nospec(reg_num,
+-					ARRAY_SIZE(cntx->fp.d.f));
++						     ARRAY_SIZE(cntx->fp.d.f));
+ 			reg_val = &cntx->fp.d.f[reg_num];
+ 		} else
+ 			return -ENOENT;
 -- 
 2.53.0
 
