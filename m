@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CF10606A321
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 07:53:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9303E606A332
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 07:53:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NLB+lIq7;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Z3shP3oo
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=14ONoNTk;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=03ar2c3F
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,37 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=FbcImjJAHOWXpg/CoBMnBBvVljuPMbynAjWfm6qfrpg=; b=NLB+lIq7jUEsmgkpIZ8noUY96o
-	04iTv2opfzH2BOGP6CSxfbpUlTZuTtXMo91tafoLRv2KUq0ejoTZkO2Z28z6VqOny9q138aUPPzWk
-	GOdbDwT4M9iyorc6TTAdwFCVV2fiELCo4gS7oAdKaqDFioVXdte4wfznAu0R8f96QxFH5lUmXms20
-	94A0XbMUBEZQUKsMJ4IHez6m/pQ6YUKdJqXrSkWmKRLoGku4C8stjRKhfiYDRlSkScxCLJkDPy7PV
-	oMxSD/4XTGdoIoCul4vWnmajWIUCybAsev8r+dpuxgFhCy01BKEUjFYQZfOLudHHqTlSvO0o3uE8t
-	qsl7/Olg==;
+	bh=xT69HAhUTEjcd36CyEaBxlmaxbI7Sx1/uhwmTNiYpsA=; b=14ONoNTkqeAO+XnYB0kA01LI6d
+	aCAjrwsFzLuKdp7KHLQP63QUgcpRAHUk4Key2JGMCcRlonHygfjnt0i0uQEI670bG1sNX340+mXXJ
+	ipEpNyqx24xLzTsDsV3IZVhFmXgZUMC1AoeOA+o4uob/w0enmhlaGa+SxOZswEc48Y0RQ9+/C8out
+	Zzev7gd7b/YxIhEPjGQYBva0TScfke5YwcIma0E1R7Tb3KxEfcWE7oXNsSOpnMV/iDpUrhNEtMf2w
+	g3rNljBIrwHOw44sTAYkYKfTI+m+Lko63BGjBPW4zjv7LEPiII/o6PaBifQ/aW5dBS7tVZ2oP3YmS
+	2fs7G9sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLFWC-00000001sIF-3UdF;
-	Mon, 26 Oct 2026 07:53:20 +0000
-Received: from [113.46.200.220] (helo=canpmsgout05.his.huawei.com)
+	id 1xLFWI-00000001sOX-1x1s;
+	Mon, 26 Oct 2026 07:53:26 +0000
+Received: from [113.46.200.221] (helo=canpmsgout06.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLFW8-00000001sEG-1nXH;
-	Mon, 26 Oct 2026 07:53:18 +0000
+	id 1xLFW8-00000001sEj-2nlF;
+	Mon, 26 Oct 2026 07:53:19 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=Q37eFExC6M3HhNsbtTO2StjSIwhNf+LEG0N/7SGQYv4=;
-	b=Z3shP3ooxReMBA6K6DclOtd/c2nZdN888LJ5ncwYrjzheXC87zR6soeusaGbvrPDnNaF8GwCQ
-	tc4X52XOgex3AWsBhHnMMeeLI33bz6Y1GZcn3FLoZQhPUDgfmMnazgw/k4BKLKkBbrSfJ9uqVwE
-	/IsGeUkCOtVWYA6xCLw6NHY=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4jCm7s1zgyz12LJ2;
-	Mon, 26 Oct 2026 15:52:57 +0800 (CST)
+	bh=Rzgj0WOLXKB6VKhWoOY12UdlFXj+IGnJLCC3ycbQVqc=;
+	b=03ar2c3FhutEUxaafMIfjuK9f2ryOHen7GaqdGUEOYhquUoUKDfQqQKQu0ZFsQKKpgfiKyWu/
+	mN53uByKMufcuXcrY4KsgespDODRZAULR9yDAaUM2W2+BIvzUQg0r12PrTKP3lXVpBHvC6e4LXS
+	mYq1xxS88k6PyPduHQ1w6W4=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4jCm8100JVzRhRs;
+	Mon, 26 Oct 2026 15:53:04 +0800 (CST)
 Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3B53B4057D;
-	Mon, 26 Oct 2026 15:52:53 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 4BDEF4056D;
+	Mon, 26 Oct 2026 15:53:12 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
  (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 26 Oct
- 2026 15:52:51 +0800
+ 2026 15:53:01 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
 	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <maddy@linux.ibm.com>,
@@ -67,9 +67,9 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
 	<linux-riscv@lists.infradead.org>, <kexec@lists.infradead.org>
-Subject: [PATCH v7 01/15] arm64: kexec_file: Stop using the Image text_offset
-Date: Mon, 26 Oct 2026 15:51:47 +0800
-Message-ID: <20261026075201.699550-2-ruanjinjie@huawei.com>
+Subject: [PATCH v7 08/15] arm64: kexec_file: Simplify load_other_segments()
+Date: Mon, 26 Oct 2026 15:51:54 +0800
+Message-ID: <20261026075201.699550-9-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261026075201.699550-1-ruanjinjie@huawei.com>
 References: <20261026075201.699550-1-ruanjinjie@huawei.com>
@@ -78,8 +78,8 @@ MIME-Version: 1.0
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_005316_798816_A7DABC2A 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20261026_005317_068278_DDD35071 
+X-CRM114-Status: GOOD (  10.22  )
 X-Spam-Score: -1.3 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,70 +100,86 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-image_load() adds text_offset to kernel_segment->mem and subtracts it
-from kernel_segment->memsz.  For CMA backed segments this breaks the
-load path: the payload is copied to page_address(cma), which is the CMA
-base, while image->start is set to the adjusted address, so kexec jumps
-into the middle of the kernel.  kimage_map_segment() has the same
-mismatch when a segment has been moved.
-
-The adjusted memsz also breaks the release path: the CMA pages are
-freed using segment->memsz >> PAGE_SHIFT, which is fewer than were
-allocated, leaking the tail of the allocation.
-
-Since commit 751c263bb74f ("arm64: remove TEXT_OFFSET randomization")
-TEXT_OFFSET is always zero.  This has been upstream since v5.8, so no
-LTS kernel carries a non-zero text_offset.  Drop the adjustment and
-reject images with a non-zero value instead of booting them from a
-wrong address.  With the adjustment gone, segments stay at their CMA
-base and the release size matches the allocation.
+Pass the kbuf fields to crash_prepare_headers() and set elf_headers
+before kexec_add_buffer(), so the error path needs no vfree()
+because arch_kimage_file_post_load_cleanup() will do it.
 
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>
-Link: https://lore.kernel.org/all/20260921090450.807575-2-ruanjinjie@huawei.com/
-Link: https://lore.kernel.org/all/20260921090450.807575-3-ruanjinjie@huawei.com/
-Fixes: 07d24902977e ("kexec: enable CMA based contiguous allocation")
-Suggested-by: Mike Rapoport <rppt@kernel.org>
+Cc: Baoquan He <baoquan.he@linux.dev>
+Cc: Breno Leitao <leitao@debian.org>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/kernel/kexec_image.c | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+ arch/arm64/kernel/machine_kexec_file.c | 35 +++++++++++---------------
+ 1 file changed, 15 insertions(+), 20 deletions(-)
 
-diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
-index b8d0fb0a9daf..74d24c8aa2fa 100644
---- a/arch/arm64/kernel/kexec_image.c
-+++ b/arch/arm64/kernel/kexec_image.c
-@@ -80,12 +80,17 @@ static void *image_load(struct kimage *image,
- 	kbuf.bufsz = kernel_len;
- 	kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
- 	kbuf.memsz = le64_to_cpu(h->image_size);
-+	/*
-+	 * Pre-v5.8 images carry a non-zero text_offset, which is no longer
-+	 * honored; reject them instead of loading them at a wrong address.
-+	 */
- 	text_offset = le64_to_cpu(h->text_offset);
-+	if (text_offset) {
-+		pr_err("Unsupported Image text_offset 0x%lx\n", text_offset);
-+		return ERR_PTR(-ENOEXEC);
-+	}
- 	kbuf.buf_align = MIN_KIMG_ALIGN;
+diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
+index 2f750e5f4fcc..d3d191a5ac89 100644
+--- a/arch/arm64/kernel/machine_kexec_file.c
++++ b/arch/arm64/kernel/machine_kexec_file.c
+@@ -78,47 +78,42 @@ int load_other_segments(struct kimage *image,
+ 			char *initrd, unsigned long initrd_len,
+ 			char *cmdline)
+ {
+-	struct kexec_buf kbuf = {};
++	struct kexec_buf kbuf = {
++		.image = image,
++		/* not allocate anything below the kernel */
++		.buf_min = kernel_load_addr + kernel_size,
++		.buf_max = ULONG_MAX,
++	};
+ 	void *dtb = NULL;
+ 	unsigned long initrd_load_addr = 0, dtb_len,
+ 		      orig_segments = image->nr_segments;
+ 	int ret = 0;
  
--	/* Adjust kernel segment with TEXT_OFFSET */
--	kbuf.memsz += text_offset;
+-	kbuf.image = image;
+-	/* not allocate anything below the kernel */
+-	kbuf.buf_min = kernel_load_addr + kernel_size;
 -
- 	kernel_segment_number = image->nr_segments;
+ #ifdef CONFIG_CRASH_DUMP
+ 	/* load elf core header */
+-	void *headers;
+-	unsigned long headers_sz;
+ 	if (image->type == KEXEC_TYPE_CRASH) {
+-		ret = crash_prepare_headers(true, &headers, &headers_sz, NULL);
++		ret = crash_prepare_headers(true, &kbuf.buffer, &kbuf.bufsz, NULL);
+ 		if (ret) {
+ 			pr_err("Preparing elf core header failed\n");
+ 			goto out_err;
+ 		}
  
- 	/*
-@@ -117,8 +122,6 @@ static void *image_load(struct kimage *image,
- 	}
+-		kbuf.buffer = headers;
+-		kbuf.bufsz = headers_sz;
++		if (unlikely(image->elf_headers))
++			vfree(image->elf_headers);
++
++		image->elf_headers = kbuf.buffer;
++		image->elf_headers_sz = kbuf.bufsz;
++
+ 		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
+-		kbuf.memsz = headers_sz;
++		kbuf.memsz = kbuf.bufsz;
+ 		kbuf.buf_align = SZ_64K; /* largest supported page size */
+-		kbuf.buf_max = ULONG_MAX;
+ 		kbuf.top_down = true;
  
- 	kernel_segment = &image->segment[kernel_segment_number];
--	kernel_segment->mem += text_offset;
--	kernel_segment->memsz -= text_offset;
- 	image->start = kernel_segment->mem;
+ 		ret = kexec_add_buffer(&kbuf);
+-		if (ret) {
+-			vfree(headers);
++		if (ret)
+ 			goto out_err;
+-		}
+-
+-		if (unlikely(image->elf_headers))
+-			vfree(image->elf_headers);
  
- 	kexec_dprintk("Loaded kernel at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+-		image->elf_headers = headers;
+ 		image->elf_load_addr = kbuf.mem;
+-		image->elf_headers_sz = headers_sz;
+ 
+ 		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+ 			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
 -- 
 2.34.1
 
