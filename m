@@ -2,99 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54A3D606A31B
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 09:14:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 459AE606A321
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 09:20:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pJ8kIXY7;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=uesWt4mf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=5ClS2nzH;
+	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=KCYQ3d8B
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=EWJlEQ6mnxM8RKU+99ov0w3qDJ59j6ZtQuCXTJFopIs=; b=pJ8kIXY73g1DamU61dQaLsgllj
-	u59FGHkr6/BYEizBRkbUakMR9oYfQh0NRXGIRvuKrxw8A7xe5ZZ5jIc/jcZg0CfFKE7bw5tpT8Sz/
-	6ap2/oczZ8pXOWs++Zvv6S3Z2Vr6FUZJC8F0OweRaF5Z5d2jNHCsGcYb7pDBp0S4vUpuGXVxQNrve
-	FabShjHqDTyDIFo1kfdi3yW4sXxhgEe2iP/0vwNy5PI+vgmM9vdI1HD+JgXsmGrklAx/simB9J/MO
-	5DrNDXpNvxgSGjx0Nl9VAGHsMQgxwok9PuY5r/9usQ3PORMw7X1b/8AyfZ0A9vmBY/LM/eeNPhavM
-	yz1ogGFA==;
+	bh=BgEoVzTIi7+FBTj7SLfIMj9m2pehf18qZC3nOPbCTs0=; b=5ClS2nzHJ1kA0vLgc7mIiazf5n
+	FAi/7N/AZT86htg2lvOz7RWrkLqtHd6AnVcSyUgRaCY9sSWbhjkuy6hKYzfF5KmAai20SL8zlREHI
+	jmH/w96JVstLtiNJs1bC4Jtt4NXkcY/AES1zixBiPZ8FePmnJ5U7iH1EvyIa2NZoQJo1UAjBrU+QY
+	yOMqDeaEnr8ZI1P/slznmUkehUzZ+604ReKwWHjKevzr2ejD2ILgeMHaVkL/Kerljx298PaFEi+8U
+	n/b6mPMgpJFnducHqK68lMA2eltNqbzmOgIw/Ye4UaPE8TfnFueOaJmiHZg3m1G2S+es0KDezAHET
+	p46N1DGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLGmG-000000021O5-3UwE;
-	Mon, 26 Oct 2026 09:14:00 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1xLGsa-000000021zG-2t41;
+	Mon, 26 Oct 2026 09:20:32 +0000
+Received: from esa1.hc555-34.eu.iphmx.com ([23.90.104.144])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLGmA-000000021N1-2mtU;
-	Mon, 26 Oct 2026 09:13:58 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261026091349euoutp0260a6484cdb132677f41b85104a90e968~iCXwB5PQU2933229332euoutp024;
-	Mon, 26 Oct 2026 09:13:49 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261026091349euoutp0260a6484cdb132677f41b85104a90e968~iCXwB5PQU2933229332euoutp024
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1793006029;
-	bh=BKmKriFXy7STc0ChdV4GVkhXybSuVhKoMJ3vCyY6ebQ=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=uesWt4mf7L6uH2e2D0Uz0HVRucHuV8HZkP6w6G5X4a91jpvD/uKc3BJqBUmuRXjve
-	 GgrdbGaDFfjJl73WiJG4wPNL+OImYScLzZ5eCyyvPV3LlJUGczWGKuH07jKOHSZaRq
-	 J4j2ifjZbGqdQZI5IPmFXPvANcfdee4i8r50bnPI=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261026091348eucas1p104a72aa9c878c637a7ef778613c492a9~iCXvH8nmx3193831938eucas1p1i;
-	Mon, 26 Oct 2026 09:13:48 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261026091345eusmtip1dd488ccf4592aee32b30711c858f6c13~iCXsMa8873092630926eusmtip1x;
-	Mon, 26 Oct 2026 09:13:45 +0000 (GMT)
-Message-ID: <943aa2e7-3945-48f9-9a87-9c963f97099d@samsung.com>
-Date: Mon, 26 Oct 2026 10:13:45 +0100
+	id 1xLGsV-000000021yO-28fP
+	for linux-riscv@lists.infradead.org;
+	Mon, 26 Oct 2026 09:20:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
+  t=1793006433; x=1824542433;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=uGCeqIYPVTWeDJJfWeU+9/cQCa+F/WwI43wicP9K2Yw=;
+  b=KCYQ3d8BC6LOh0U9g5HwITPm7r9BnX1sJzcDBeZ5l6L/JvUMZebjtQXl
+   DYWSDuNO00kveejRx4PVjuuVatl8TGMcvI0d04BAG1toRlg2Ne8kloQQ0
+   aucnJvjvITQfBye8tPGwYklkerVbT3MlmxQpF6FSTnQvG/AxbNrWejORx
+   TKW9Iqvh6BYxXv19aLfjCFi2jvqgLYZleniJ//2TkenhmznntVhayDhn9
+   74ObsS10DXNwCmsDn8TfeK0Z4PjEfMc+hJGCD0IctayG/vJyiumbcMkdF
+   Gf80TEHiafkVevY8jKkaLV15WGyg8uQLD89kZzHXTCrNkp5QkChVW9f1b
+   Q==;
+X-CSE-ConnectionGUID: D3+XTIVyRBGhwyKqK8J34w==
+X-CSE-MsgGUID: 190YVqLvRLaYd6P2aE8CiQ==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from unknown (HELO ces01_data.me-corp.lan) ([146.255.191.134])
+  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2026 11:20:28 +0200
+X-CSE-ConnectionGUID: CkXdoubjRnyo21NCJH6SIQ==
+X-CSE-MsgGUID: pykcE/+eQSyNxiY+M3dD6w==
+Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.3])
+  by ces01_data.me-corp.lan with SMTP; 26 Oct 2026 11:28:12 +0200
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Mon, 26 Oct 2026 11:20:21 +0200
+From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Subject: [PATCH v3 0/2] riscv: support CPUs with Zalrsc but not Zaamo
+Date: Mon, 26 Oct 2026 11:20:01 +0200
+Message-Id: <20261026-lrsc-only-v3-0-ec29c8190fb1@mobileye.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 16/20] phy: Add common Innosilicon HDMI PHY helpers
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss
-	<rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
-	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
-	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
-	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
-	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
-	Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
-	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
-	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
-	Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Joshua Peisach <jpeisach@ubuntu.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
-	<u.kleine-koenig@baylibre.com>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <asEPmpQTwXYADwTk@parshuram>
-X-CMS-MailID: 20261026091348eucas1p104a72aa9c878c637a7ef778613c492a9
-X-Msg-Generator: CA
-X-RootMTR: 20260915153242eucas1p1394a6a5e272f106b9cab2a0f709ddeb8
-X-EPHeader: CA
-X-CMS-RootMailID: 20260915153242eucas1p1394a6a5e272f106b9cab2a0f709ddeb8
-References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-	<CGME20260915153242eucas1p1394a6a5e272f106b9cab2a0f709ddeb8@eucas1p1.samsung.com>
-	<20260915-jh7110-clean-send-v4-16-f0e4fd6f2cc8@samsung.com>
-	<asEPmpQTwXYADwTk@parshuram>
+X-B4-Tracking: v=1; b=H4sIAEEb32oC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDQyMD3Zyi4mTd/LycSt3kZAMzEyOjNNOkJEMloPqCotS0zAqwWdGxtbU
+ A31/R3FsAAAA=
+X-Change-ID: 20260120-lrsc-only-cc06422f5bb1
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Gary Guo <gary@garyguo.net>, 
+ Yury Norov <yury.norov@gmail.com>, 
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, cfu@wavecomp.com, 
+ torvalds@linux-foundation.org, olof@lixom.net, 
+ aleksa.paunovic@htecgroup.com, arikalo@gmail.com, 
+ Boqun Feng <boqun@kernel.org>, Boqun Feng <boqun@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Vladimir.Kondratiev@mobileye.com, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_021355_317702_8CBB2635 
-X-CRM114-Status: GOOD (  28.07  )
-X-Spam-Score: -3.1 (---)
+X-CRM114-CacheID: sfid-20261026_022028_072224_F0CC0D99 
+X-CRM114-Status: GOOD (  14.33  )
+X-Spam-Score: -4.0 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,105 +92,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Vinod,
+RISC-V split the A extension into Zaamo (AMO*.w/AMO*.d) and Zalrsc
+(LR/SC). Linux has so far required the whole A extension.
 
-On 10/3/26 16:22, Vinod Koul wrote:
-> On 15-09-26, 17:32, Michal Wilczynski wrote:
->> The Innosilicon HDMI PHY IP is used by several SoCs. They differ in
->> where the PHY register block sits in the register space and in which
->> pixel clocks they support, but the pre-PLL programming sequence and the
->> layout of its registers are the same.
->>
->> Add a small library holding that shared part: the pre-PLL configuration
->> table format, a lookup, clk_ops determine_rate and recalc_rate helpers,
->> and the pre-PLL register programming. Callers pass a regmap, a register
->> offset for the PHY block, and their own pixel clock table.
->>
->> No driver uses it yet; the users are converted separately.
-> 
-> Is there anything in phy patches here that has dependency with rest? If
-> not consider splitting it up...
+MIPS P8700 [1] implements only Zalrsc. AMO instructions are emulated by a
+trap into SBI. I measured typical userspace atomics on this CPU: an
+LR/SC atomic takes about 40 cycles, an AMO atomic about 600. The same
+ratio applies to kernel refcounts, bitops, xchg and futexes, so the
+kernel needs to emit LR/SC when Zaamo is not implemented.
 
-The phy patches don't depend on anything else so they apply cleanly
-from this series alone. The helpers and the Rockchip conversion are
-self contained and the JH7110 phy driver only needs its parent at
-runtime not at build time.
+Mobileye is going to use the "eyeq7h" platform, built on this CPU, for
+ADAS and autonomous driving. Kernel atomics are on the scheduling,
+memory-management and driver paths of that product, so the emulated
+AMO cost is not acceptable there.
 
-I kept everything in one series so a single posting applies and boots on
-its own. The patches already target three separate trees and everyone
-testing this has been applying the full set splitting would force them
-to assemble two postings in the correct order, given that the JH7110 phy
-driver build depends on the helpers. The v5 cover letter lists which
-tree each patch goes to.
+This series keeps today's default: both extensions on, -march still
+contains "a", generated code is unchanged. Turning Zaamo off is a
+NONPORTABLE choice. The resulting kernel matches one -march, which
+userspace has to use as well, so a runtime alternative would not
+produce a portable image.
 
-That being said, the helpers and the Rockchip conversion are the two
-patches independent of the StarFive work - happy to send those as a
-separate series if you'd rather take them that way.
+Zalrsc stays mandatory. cmpxchg, conditional atomics and futex CAS are
+already LR/SC sequences; Zaamo cannot replace them. BPF atomic ops
+still emit AMO and remain unsupported on a Zalrsc-only kernel.
 
-> 
->> +static u8 inno_read(const struct inno_hdmi_phy_pre_pll *pll, unsigned int reg)
->> +{
->> +	unsigned int val;
->> +	int ret;
->> +
->> +	ret = regmap_read(pll->regmap, inno_reg(pll, reg), &val);
->> +	if (ret)
->> +		return 0;
->> +
->> +	return val;
-> 
-> why not just return regmap_read()
-> 
-> There is no logic here, nothing. This is really not ideal.
-> Also why add a wrapper and not use regmap directly?
+[1] https://mips.com/products/hardware/p8700/
 
-The same IP block is used by both Rockchip and the JH7110 but on the
-JH7110 the registers sit at a 0x100 offset.That is what inno_reg() is
-for.
+Changes in v3:
+- Make Zalrsc mandatory. cmpxchg and the conditional atomics already
+  use LR/SC, so RISCV_ISA_ZALRSC can no longer be turned off.
+- Check AMO and LR/SC support independently. A kernel that emits both
+  requires "a", or both "zaamo" and "zalrsc".
+- Put the LR/SC bitop sequence in its own block so two inlined
+  set_bit or clear_bit calls compile.
+- Remove the LR/SC loop that ran after the hart lottery and accessed
+  address 1. Build the lottery increment with add so RV32 assembles.
+- Add an exception-table entry for sc as well as lr in the futex
+  LR/SC helper.
 
-Dropping the error is wrong though - nd comes from one of those reads
-and then becomes the divisor in do_div(vco, nd * 5 ) so a failed read
-feeds in 0. I will make it return int and have recalc_rate check.
+Changes in v2:
+- Switch from a runtime choice of atomic implementation to a
+  compile-time one, gated by NONPORTABLE.
 
-> 
->> +/**
->> + * inno_hdmi_phy_pre_pll_determine_rate - clk_ops.determine_rate helper
->> + * @pll: pre-PLL instance
->> + * @req: rate request, updated with the rate the PHY would produce
->> + *
->> + * The PHY can only generate the pixel clocks described by its table, so a
->> + * request that does not appear there is rejected rather than rounded.
->> + *
->> + * Return: 0 on success, -EINVAL if the rate is not supported.
->> + */
->> +int inno_hdmi_phy_pre_pll_determine_rate(const struct inno_hdmi_phy_pre_pll *pll,
->> +					 struct clk_rate_request *req)
->> +{
->> +	const struct inno_hdmi_phy_pre_pll_config *cfg;
->> +	unsigned long rate = rounddown(req->rate, 1000);
->> +
->> +	for (cfg = pll->table; cfg->pixclock != 0; cfg++) {
-> 
-> Is there a chance of null/garbage if we reach end of table? You dont
-> know the size of table, and incrementing pointer without bounds does not
-> look good to me.
+Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+---
+Vladimir Kondratiev (2):
+      riscv: build kernel atomics from LR/SC when Zaamo is disabled
+      riscv: accept the atomic extensions this kernel was built with
 
-Fair. For now both config tables end with a sentinel, so it cannot
-happen. I can add the count of the bounds though.
-
-> 
-> 
+ arch/riscv/Kconfig               | 23 +++++++++++++++++
+ arch/riscv/Makefile              | 15 ++++++++---
+ arch/riscv/include/asm/atomic.h  | 56 +++++++++++++++++++++++++++++++++++++++-
+ arch/riscv/include/asm/bitops.h  | 51 ++++++++++++++++++++++++++++++++++++
+ arch/riscv/include/asm/cmpxchg.h | 18 +++++++++++++
+ arch/riscv/include/asm/futex.h   | 53 +++++++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/cpu.c          | 28 +++++++++++++++++---
+ arch/riscv/kernel/entry.S        |  9 +++++++
+ arch/riscv/kernel/head.S         | 14 ++++++++++
+ 9 files changed, 258 insertions(+), 9 deletions(-)
+---
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+change-id: 20260120-lrsc-only-cc06422f5bb1
 
 Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+--  
+Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+
 
 _______________________________________________
 linux-riscv mailing list
