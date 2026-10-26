@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40A00606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D098606A32E
 	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 03:44:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=L2ROmCU7;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=pquVHigd
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Wk1K96T8;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=RsMzAqiv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,66 +14,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=QKyoUmUIZlePhG4tTWhKozrJaI179Tb466llr3yMWlA=; b=L2ROmCU7+8xWqKqwyIoSVS5lkr
-	DUjU0V1wXuXQvVRxtdodDTJSL9gYELf44ukXE3y2zu22E4IOAGihPcSg2/P8X3UP00WOYGKxK5W4P
-	QFZjoi8/aJiTEkSIfGzDhkIFT6LzSTkIIq2GsHbOA89mAxRYWSpQ8z4C/voX1DeKal3iwzfeOu3eJ
-	nO/29IrCjK+pckGNY/Pix+UMjUSzJWEEMaz378GN4UHbT1iyEnJ1iUZYEa0TF7zA9+NrzNzb9SbDl
-	Ib94WjAbHhtF1Z8wrehObqm5MqxlgpSHTqAHAASq3h+lR7FfLO6Qr81zTNFoase3das9aH6jHhqir
-	ttJ774UQ==;
+	bh=1oJBYNJsSFJc0AmQAVLKa/MvkqxLjvJhDRFly/oft2A=; b=Wk1K96T8RY7GypiDwXImORGpgW
+	UrqiOkCB7Xs0LjSwufTYo6K9Sft6KddTV7O6Yc7JeMejR6gJ73g0kgb1rr3lKlrWOhoSpo+uqOAsi
+	gksgQNHJjeEDQgE+6q6me+WXFczsy6HZWrjTaL4NziJH9FGITVdUMZXO4Mh6OO+NpqL3iqtpwyp84
+	aYI3dOz+KuJ0aZb/wxNJFGrQ7Tm8d5Y+ItqKjm6X2ww0oBjzDXa1yRDaaHhIqmmMt1s286ORY/iMv
+	Cdi2sxoS6l2HiUimkJZDeXozgl/HMIro7W1OgJeVDOlDTE5h0zXpx2JBT3rXyq4IU4LtDiZAL39Zo
+	ZBLC3G1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLBdV-00000001fqO-0HJ1;
+	id 1xLBdV-00000001fr5-1HWW;
 	Mon, 26 Oct 2026 03:44:37 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLBdR-00000001fo9-2O4a
+	id 1xLBdS-00000001foB-1VsI
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Oct 2026 03:44:34 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-5364648ae07so32956381cf.1
+	Mon, 26 Oct 2026 03:44:35 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-5365d26ccbdso30389661cf.0
         for <linux-riscv@lists.infradead.org>; Sun, 25 Oct 2026 20:44:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792986272; x=1793591072; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792986273; x=1793591073; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=epO44nguKeOQQCjQUMlL4Yq07v1OlIx6nj2eYc7j0sg=;
-        b=pquVHigdiic9Q/11PW43ItTNStT7HhsEeVOMpngQyqWF8E7u/9CExMEweA9Q2stYqE
-         Ty/osZq1s26ZgBq4IlsC9XAF93KMx1LCrI4Uc6hfxqlvTnNRmRW0V6sKGxMu3IOS8roZ
-         qBg508rhWyh1zsHedr3Dak24Q5QWciZMVQq4pOsxV4pXtbWsIMeFYvLSi1F12YoJRUI8
-         iuGIs+ljghXYECQY7lG2xqCgYqOCk6ZybKWiPP+Vp9nxxiczdMlBD2FLvCGP2XwxrJoq
-         3JUgaqE2kcYHWxTjpgEx7tz4vE4aspw7mwnmR3cPPEF5PI5EigpwLCYmpZRl+1dTKJm9
-         ajnw==
+        bh=ODlqko/BPpmyU4h+oI7UAqT8yjWxPc3m1CLwqWBtjDo=;
+        b=RsMzAqivZfsrG4c3+88oRXGqAndT/MvdVmzkMMhVCtGVeehhlgELqvq9qd3tHQuq1P
+         /pfZ7j4BaTKqSoSL4rYTh9M30pTkPqd8RQy8WLLAdLfFlA718ReD5H8X1UbtphTiSUpj
+         Hnybczb55VatAk8/bkEv9Xkrdu5gTBzR8r4Jb9FO1kPUco03nVDOj/5max/U1S8y/5h7
+         JmDbXg2vRonz4anJmtRDymDvibKXmfk2FvSGI/IrOR6i1LEYT+9VMHDgpuUigGf4akkX
+         uoZyqgVF0MDCwSHWS7vO8L5dy0EE3kCaTy6emzizUe+rRPb5ElAHSHlpMj3VP18Dm79T
+         XwPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792986272; x=1793591072;
+        d=1e100.net; s=20260707; t=1792986273; x=1793591073;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=epO44nguKeOQQCjQUMlL4Yq07v1OlIx6nj2eYc7j0sg=;
-        b=GALHKNA3jqVQLpSTE7byh9h4Bl5cBNAHFwcbnYEitJJV3nQYBftnXg4+UAd6XKiZhQ
-         qzBUk3c6BrZ4Ls2GNWd1r3/Nzm3nCb+xQE3nxCsCDlfkYs9N0qJhoJ5O1z28/ms7OJWc
-         2Jx0mgxVDO52xkByu35fIhy0uRUhXDE/mjGAuGfAxy00WDTeQJZnZZ8swok5BAg9Laif
-         au/lE5iTMn7JRSpBf17kpko92qEU/+PzA2leizR4FYzTsjMF5nU04ySX+OBs4TZIJD2j
-         UbBD2bDUTRCp330nr17bT4cz5NoqnWDXXdbkV264PYyYLZLXyOKA/lWvqS4oaXBZaM59
-         u7jw==
-X-Forwarded-Encrypted: i=1; AKwUvBxaCZCukTgnvGmkmlmLrOlfVcK4PAdXqpsGzW0VRWyEL3L6YFSO4sn4CRO6gciSFeBGnhsxPyUskDWzFA==@lists.infradead.org
-X-Gm-Message-State: AFq9FYL4TmHbZXsqQZpdmTje+WiTKs9NtJosu3BByj8o4Ce0gvxcdHRf
-	2Bl+oLSQQkjDl9Ajv2qskKtogSsi13e82oyVP80Vmtl45w6We8XmsnRL
-X-Gm-Gg: AYBFou09HuEJIlc17wMLpOwLqXm8oOS/k5D0cb0IByUMxcGF3ks/KbQmoPWk8MeMtzx
-	BwN8jlZJoE/isUsZ4thYj7IUEMRD7nyeDCa4fsSkW/vikXG5g0aWeVrDKcigAB2ttb/ZmBjPrTB
-	iWBC8x4aLULNTPa0vIfwektulI1XRKvFskSE03QilcNNgpucAprtTsoeuB6TPzTqgfs+kN9pS5T
-	Z4Wp8Zcss4nE+SsWaoopaK7AJAjcYNxpyd5VOPMXwp76Q0mHeMkrZSrXxMWUnKsppnqGPAlzjXx
-	p+5nLdpEgEPd3pRrK/4IDVEff0lvQSi1hfrkNWIHOmizK47AGo7mCB2UPswNkSJIjWiiwydapVB
-	ks3BpVKoaNrduedeoqkZaFLmoIzOe0Mp8sd+Fu6Ee1aZ+exHlm8Yhrs9PIAHTAB5eb+40g+BI1I
-	+dIPjFS+Q0/Am8L9Bnxudn0WSbWLDQL7DkKwAlR7ILjXb/fegtlNHfXK7Wsy+UpY9hFv4Xw9RkQ
-	voGqxNZWdAAWRi53BzLUeVfltl5pMDFbE8dLEyUbRpln5SgyZZ1GB1vlFXClEqMbY3TcNzVL4wU
-	cYNtsVIKSVyxPXiNrBNUrX6w7CH5K7jfgfVheN/gUg5iJ90H4H55AQWhOh32klUCQfgW+Nlao0a
-	OjSmp5g==
-X-Received: by 2002:a05:622a:64f:b0:535:13c1:ce94 with SMTP id d75a77b69052e-5383b5d830emr85091791cf.38.1792986272132;
-        Sun, 25 Oct 2026 20:44:32 -0700 (PDT)
+        bh=ODlqko/BPpmyU4h+oI7UAqT8yjWxPc3m1CLwqWBtjDo=;
+        b=DJsAubU3f2SLkbkjMIyp4Ky94BHhBLdFuKXY6mD0QYAL3zuK4NMK9pn5MyM0TjOWML
+         xBSXE25Kf0AADr4ZDfMHqTNy4nvUMw2Lq+PJCB4FGciC18TgMQAOLbwhhdM/D19pc1k2
+         iF6kqIZR7SskHMHNtqhJphSmp+sPmLtF7Ipm+SJGTQVOmFqnAI3ckaE4HZAzDTGLG1O/
+         MnmHNF6n5+xy+Cjms3MJW4I/k4oQLaVSVC1XbFIKYbsJWsdnprhmYUu9cfwYNN0lahC+
+         ZS3WG3LHqdlXYXzhfy6o/UOujARyUPjVIUSUWMTlMkdsGVDvi0RJts96OVnFXALHrYaS
+         L0jQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzcioU5pA0rkiIFj2ENgsUtQRQWDfMZ8M6zbTTeAVM+Xa2uaI7JE1XFeWaR6gnN3PUv2KjEkb3AqZLoJQ==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKarHp4TJ++ijapgZ1CUYfoPVYKzU8vZ/goW24g94RKnfg9vJzg
+	sCoLiS3IZXEIb2Vnr2lKKUCC8Y7ACz5Wr6rJDZRCHOuvyecWlTS1uDkD
+X-Gm-Gg: AYBFou0o915cSWKDPmlrse7/uVVZy7EMsgVS8gIEjMGT8qqkqGQPvuWOtB0Xzo90Y+U
+	RMex0l5dNZb9m3/8zb5xVXw0vlW7Ta9ZgpnP/zP+0G6NxQs7bkB0f3lQUu4bArW6j17My9uc2e2
+	kjogp+RY1AdZ7qfeWcIcaBqxYNEsDVJD1rqTtd9UW4uvUlHOAl244wyaKT1gOPUz0pLScFzLQqW
+	swPkE4RJndprgFc79hR5H8EhWQr8qXnZER6wyfu9WrTwO4VHXgzkShLTxva4murWIeT7RhsQjGX
+	1BQ2+c5iZOctwStXV/dLB1DT0Fro7xhUH/c7md9hf3oWR3zw8xFfjcA8NOcDck1Vfc3lbTVPDJ5
+	C9rVpp/NS9WcmLotY+y5lp4P+W8sxM/qET2q6CSyC/IkLq3lgQ00sCfQHQgjB9fyfbBjkSTgnEx
+	iNbF69ERiw87Odn+Kp60JldhnZgLrqVAoIv4jal3OVRSe+2lY3rilEGJDTWDrE3Bx+dPlc60X5D
+	a3Ezn5VaVAYfLTJMHa8AgchXEs71OQw22wpCdHp5pO4YmLax18dTyfjuwl9yDCBuSVxtwb+alcG
+	el0eQdV4acNhVZVIZT1K4wkzb71I9VYPiklrI3Li9PYFEqZ3KPQuYGD/mRu1
+X-Received: by 2002:ac8:5a0f:0:b0:530:1b1:72be with SMTP id d75a77b69052e-5383b6838c2mr89604751cf.40.1792986273086;
+        Sun, 25 Oct 2026 20:44:33 -0700 (PDT)
 Received: from paul-white-HP-Pavilion-Laptop-15-cs1xxx.mynetworksettings.com ([2600:4040:ad65:1c00:4cc4:d0be:4ab6:9a0b])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-538394c5273sm46202121cf.9.2026.10.25.20.44.30
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-538394c5273sm46202121cf.9.2026.10.25.20.44.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 Oct 2026 20:44:31 -0700 (PDT)
+        Sun, 25 Oct 2026 20:44:32 -0700 (PDT)
 From: Paul White <paul.white.kernel@gmail.com>
 To: anup@brainfault.org,
 	atish.patra@linux.dev,
@@ -86,18 +85,18 @@ Cc: kvm@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Paul White <paul.white.kernel@gmail.com>
-Subject: [PATCH 1/2] KVM: riscv: Eliminate redundancy in get_reg function via pointers
-Date: Sun, 25 Oct 2026 23:41:26 -0400
-Message-ID: <f7fcf15c1117ce734247cf951c0afff1f5eb54c8.1792982932.git.paul.white.kernel@gmail.com>
+Subject: [PATCH 2/2] KVM: riscv: Eliminate redundancy in set_reg function via pointers
+Date: Sun, 25 Oct 2026 23:41:27 -0400
+Message-ID: <073a56efd7e8f5b1e54207f266e1fa972b54a0e2.1792982932.git.paul.white.kernel@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1792982932.git.paul.white.kernel@gmail.com>
 References: <cover.1792982932.git.paul.white.kernel@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_204433_648209_1F16B236 
-X-CRM114-Status: GOOD (  23.02  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261025_204434_413730_FE921ABE 
+X-CRM114-Status: GOOD (  22.89  )
+X-Spam-Score: -1.1 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,11 +109,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	FORGED_GMAIL_RCVD,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
@@ -156,19 +156,20 @@ make the code longer in the long run.
 
 I also renamed reg_num to token_reg_num in my code as I felt it made
 it clearer that it was the register number the application wants and
-requested in a token. It differentiated it from the many other
-variables with the word reg in it.
+requested in a token so that it can write data into that register. It
+differentiated it from the many other variables with the word reg in
+it.
 
 Signed-off-by: Paul White <paul.white.kernel@gmail.com>
 ---
- arch/riscv/kvm/vcpu_fp.c | 70 +++++++++++++++++++++++-----------------
- 1 file changed, 41 insertions(+), 29 deletions(-)
+ arch/riscv/kvm/vcpu_fp.c | 64 ++++++++++++++++++++++++----------------
+ 1 file changed, 38 insertions(+), 26 deletions(-)
 
 diff --git a/arch/riscv/kvm/vcpu_fp.c b/arch/riscv/kvm/vcpu_fp.c
-index bb11e6757d34..16999a5c45de 100644
+index 16999a5c45de..fe4957603519 100644
 --- a/arch/riscv/kvm/vcpu_fp.c
 +++ b/arch/riscv/kvm/vcpu_fp.c
-@@ -83,41 +83,53 @@ int kvm_riscv_vcpu_get_reg_fp(struct kvm_vcpu *vcpu,
+@@ -144,41 +144,53 @@ int kvm_riscv_vcpu_set_reg_fp(struct kvm_vcpu *vcpu,
  	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
  	unsigned long __user *uaddr =
  			(unsigned long __user *)(unsigned long)reg->addr;
@@ -211,9 +212,9 @@ index bb11e6757d34..16999a5c45de 100644
 -		if (reg_num == KVM_REG_RISCV_FP_F_REG(fcsr))
 -			reg_val = &cntx->fp.f.fcsr;
 -		else if ((KVM_REG_RISCV_FP_F_REG(f[0]) <= reg_num) &&
--			  reg_num <= KVM_REG_RISCV_FP_F_REG(f[31])) {
+-			 reg_num <= KVM_REG_RISCV_FP_F_REG(f[31])) {
 -			reg_num = array_index_nospec(reg_num,
--					ARRAY_SIZE(cntx->fp.f.f));
+-						     ARRAY_SIZE(cntx->fp.f.f));
 -			reg_val = &cntx->fp.f.f[reg_num];
 -		} else
 -			return -ENOENT;
@@ -228,7 +229,7 @@ index bb11e6757d34..16999a5c45de 100644
 -			if (KVM_REG_SIZE(reg->id) != sizeof(u64))
 -				return -EINVAL;
 -			reg_num = array_index_nospec(reg_num,
--					ARRAY_SIZE(cntx->fp.d.f));
+-						     ARRAY_SIZE(cntx->fp.d.f));
 -			reg_val = &cntx->fp.d.f[reg_num];
 -		} else
 -			return -ENOENT;
@@ -246,29 +247,8 @@ index bb11e6757d34..16999a5c45de 100644
  		return -ENOENT;
 +	}
  
- 	if (copy_to_user(uaddr, reg_val, KVM_REG_SIZE(reg->id)))
+ 	if (copy_from_user(reg_val, uaddr, KVM_REG_SIZE(reg->id)))
  		return -EFAULT;
-@@ -144,9 +156,9 @@ int kvm_riscv_vcpu_set_reg_fp(struct kvm_vcpu *vcpu,
- 		if (reg_num == KVM_REG_RISCV_FP_F_REG(fcsr))
- 			reg_val = &cntx->fp.f.fcsr;
- 		else if ((KVM_REG_RISCV_FP_F_REG(f[0]) <= reg_num) &&
--			  reg_num <= KVM_REG_RISCV_FP_F_REG(f[31])) {
-+			 reg_num <= KVM_REG_RISCV_FP_F_REG(f[31])) {
- 			reg_num = array_index_nospec(reg_num,
--					ARRAY_SIZE(cntx->fp.f.f));
-+						     ARRAY_SIZE(cntx->fp.f.f));
- 			reg_val = &cntx->fp.f.f[reg_num];
- 		} else
- 			return -ENOENT;
-@@ -161,7 +173,7 @@ int kvm_riscv_vcpu_set_reg_fp(struct kvm_vcpu *vcpu,
- 			if (KVM_REG_SIZE(reg->id) != sizeof(u64))
- 				return -EINVAL;
- 			reg_num = array_index_nospec(reg_num,
--					ARRAY_SIZE(cntx->fp.d.f));
-+						     ARRAY_SIZE(cntx->fp.d.f));
- 			reg_val = &cntx->fp.d.f[reg_num];
- 		} else
- 			return -ENOENT;
 -- 
 2.53.0
 
