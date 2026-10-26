@@ -2,12 +2,12 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC20B606A323
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 07:54:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2828606A31D
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 07:54:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rZ8QFt/V;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=LVfBJjwv;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Ga32W/q9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Jp6AcXZA;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=qGsUzG0D;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=HG0/QuPq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -15,51 +15,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=0oBUVqN6Yoos6Da2DgOu+g0C0mjOrGr1vgW4rEYbXNo=; b=rZ8QFt/VdLwIDRyouoLtKMQMU2
-	i8RTO0oGMumaMbmDMT81OtbosIm++sclQOOumn5PpHbl7MFrmoam442pMcxKbaiVfdwYYwXXXFdwW
-	UU8Le1X6bazaLgL0Oyca3JnbMS3MbptYQiKh7P1KP0wsI8ob+clg9cXnI9ayE6DyPb+aMt1uT5KVZ
-	C3nPFeD30bSMeGIwWy3u/9+UWbuT+EYSJExPyuaIfWeLISVecMj9nvx6LjC7vZAgoN1vUqDIv2X0y
-	cuDSu2vkRuvf7kngo8W5H+Czh4tGZJs0uBCxP3Eu7ZuJFG3FvZL6czcsQtEa33slPpa0m5PgWOvpr
-	zJCEa7GQ==;
+	bh=8qjQwqlAUpLGgYb+nsS533FPGHZZwEinL8odeW/ufO0=; b=Jp6AcXZAltDrhfmJTnFr7NEhfP
+	ollc5NvENdD2QryAuVGka+uuTGGuQ0U4NmQ0ZaJ2dD05x1C7vkSroqwzE3gK/Am394y2nDqBhFav6
+	cpASr9G2+y69l+6nEIcqm6ec1+gpH0/qytNUY9NCwlYeOpfd9fLJluD87NT9oM+2/7KYxuA/Jweo5
+	8cM/n4CdvlDG8HQQKiZPG6vEbXRS4/8JTVWUHOl2f68581eZKqIuaYI0p3T2wdXP5rupwtY6rBivQ
+	rgWlio8OxSfWZHgUUBtyjgHJgYbMtgOyPwHK+3Xpv1xNdQfdAgjN/iZAumAdQ5n0N9lv2f1rVp+FW
+	JtnGrYZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLFWn-00000001tJJ-2lwK;
-	Mon, 26 Oct 2026 07:53:57 +0000
+	id 1xLFWq-00000001tOy-1KGK;
+	Mon, 26 Oct 2026 07:54:00 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLFWN-00000001sVX-0mjk;
+	id 1xLFWN-00000001sWQ-3kr9;
 	Mon, 26 Oct 2026 07:53:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:
 	Reply-To:Cc:Content-ID:Content-Description;
-	bh=KNWTXNHlGHuycYJm8WZHZ/fidjINRwAU6PBqTwjHUHw=; b=LVfBJjwv7zrmnFy/u/LqsQprd2
-	7bhM4hr3yAYHrVn2PI8OfjpkSVT1gDIQEWiWu6+8aLP7/6DJTqfEgFBNeXVlq6xzsMZwcFzmUUfzL
-	aSTG8DtJsoC1LZ7kwgb+evakBHeoAO2m5Yi1fmnMyEQnoV9q+Peuj0zuJrfyBOlgzB0TYS7P8YB4B
-	U3Ht2fShM8o9My2Cc3otOmpwGpSSEMkEEUUmTKYa/l32TubYsRL5eeylcq1d/UvWm7tnea105eceZ
-	aqh+jv/KvOFpx4ADRUVtDWBZGQVa6oqjVocUJ9jxPOpXaEDGj+7JRJKYlbL5CODvGuL1uX9qJQ9sg
-	xKdg7c3A==;
+	bh=jdb+FzIP+JGrz3+cSov7xHfESxVUswVkb1EAdhB48po=; b=qGsUzG0DaZY8DIUGuyxH6b85HU
+	1jE5yDTk/LrHxPYbYdVpUv11IBGLh6XL59RRzjEKRr+fSlJil3aP4CmQpHgr5rPPfLVtxDW1G7mlT
+	Xyi9DvlKYoJq4MvGzDi94xQyL9S7sYBYSKTmujlnP18ZyFJdHUEQFXm6kVfxVlKgp9+8w2yBKdaVG
+	31jF6vTIkPIItZdvundd+0j+Lns7Xw4dEKPpzerM3YeeLHgE9xFFrepsHYNXiuGydBh1rT/WAY2vP
+	anf11yZIoSWWUPhYnZTf7p5x22lvHu/1SaM5txsss2p+TlC0f3gh6eeobTOSJlTOnopCIfyuj92A0
+	vylbpPLQ==;
 Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLFWG-0000000DYKb-2r0R;
-	Mon, 26 Oct 2026 07:53:29 +0000
+	id 1xLFWI-0000000DYKp-3YlS;
+	Mon, 26 Oct 2026 07:53:30 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=KNWTXNHlGHuycYJm8WZHZ/fidjINRwAU6PBqTwjHUHw=;
-	b=Ga32W/q9n6BWh6YVi/36poQ20ex680TNdZc9j7iPGqYYZ64NtI8lEE9hFJNiOaDwGTkxl4fzP
-	+V/kWaT8owGMiWIUr/UuDmr/k1e1jttIw1cASA14I4NkKr/tKOK02Lg67AuvzB3SFvc1jBDGhOS
-	WVOsY687V1NTTIu8S8qlUok=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4jCm7j49f8zmV7t;
-	Mon, 26 Oct 2026 15:52:49 +0800 (CST)
+	bh=jdb+FzIP+JGrz3+cSov7xHfESxVUswVkb1EAdhB48po=;
+	b=HG0/QuPqcSc5Txc+rnubE/9m3Di5iemqrPfWvL0PKSAMseALjazVprq/ZH0YJuSbx9GcAT3i5
+	Bg2wZgbnfUOMPl50jf4lBomnkmrAHoElGSIe9Yi/LeqIDdKD/lRtA7zesXhK0BsxBOXbBrHTrN1
+	Oxrh/0lAmGJVvj+weAA+WnI=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4jCm860Ll1zmV7t;
+	Mon, 26 Oct 2026 15:53:10 +0800 (CST)
 Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9C4664056C;
-	Mon, 26 Oct 2026 15:52:54 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 19ECD40586;
+	Mon, 26 Oct 2026 15:53:15 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
  (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 26 Oct
- 2026 15:52:53 +0800
+ 2026 15:53:13 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
 	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <maddy@linux.ibm.com>,
@@ -82,9 +82,9 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
 	<linux-riscv@lists.infradead.org>, <kexec@lists.infradead.org>
-Subject: [PATCH v7 02/15] kexec: Extract kexec_free_segment_cma() from kimage_free_cma()
-Date: Mon, 26 Oct 2026 15:51:48 +0800
-Message-ID: <20261026075201.699550-3-ruanjinjie@huawei.com>
+Subject: [PATCH v7 10/15] riscv: kexec_file: Simplify load_extra_segments()
+Date: Mon, 26 Oct 2026 15:51:56 +0800
+Message-ID: <20261026075201.699550-11-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261026075201.699550-1-ruanjinjie@huawei.com>
 References: <20261026075201.699550-1-ruanjinjie@huawei.com>
@@ -93,8 +93,9 @@ MIME-Version: 1.0
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_075325_367202_DA186036 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20261026_075327_452988_25954C3B 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.2 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -115,83 +116,74 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Arch loaders truncate nr_segments when a placement fails, so the CMA
-pages of the dropped segments become unreachable.  Export a per-segment
-helper so they can be released first.
+Pass the kbuf fields to crash_prepare_headers() and set elf_headers
+before kexec_add_buffer(), so the error path needs no vfree()
+because arch_kimage_file_post_load_cleanup() will do it.
 
-Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
 Cc: Baoquan He <baoquan.he@linux.dev>
-Cc: Mike Rapoport <rppt@kernel.org>
-Cc: Pasha Tatashin <pasha.tatashin@soleen.com>
-Cc: Pratyush Yadav <pratyush@kernel.org>
-Cc: Breno Leitao <leitao@debian.org>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- include/linux/kexec.h |  2 ++
- kernel/kexec_core.c   | 25 ++++++++++++++-----------
- 2 files changed, 16 insertions(+), 11 deletions(-)
+ arch/riscv/kernel/machine_kexec_file.c | 28 +++++++++++---------------
+ 1 file changed, 12 insertions(+), 16 deletions(-)
 
-diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-index 0af8ae4fdd08..faba26f871a4 100644
---- a/include/linux/kexec.h
-+++ b/include/linux/kexec.h
-@@ -532,6 +532,7 @@ extern bool kexec_file_dbg_print;
+diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
+index 26cd2a8bd0cd..ca921b063920 100644
+--- a/arch/riscv/kernel/machine_kexec_file.c
++++ b/arch/riscv/kernel/machine_kexec_file.c
+@@ -247,39 +247,35 @@ int load_extra_segments(struct kimage *image, unsigned long kernel_start,
+ 	int ret;
+ 	void *fdt;
+ 	unsigned long initrd_pbase = 0UL;
+-	struct kexec_buf kbuf = {};
+ 	char *modified_cmdline = NULL;
+-
+-	kbuf.image = image;
+-	kbuf.buf_min = kernel_start + kernel_len;
+-	kbuf.buf_max = PFN_PHYS(max_low_pfn);
++	struct kexec_buf kbuf = {
++		.image = image,
++		.buf_min = kernel_start + kernel_len,
++		.buf_max = PFN_PHYS(max_low_pfn),
++	};
  
- extern void *kimage_map_segment(struct kimage *image, int idx);
- extern void kimage_unmap_segment(void *buffer);
-+void kexec_free_segment_cma(struct kimage *image, unsigned long idx);
- #else /* !CONFIG_KEXEC_CORE */
- struct pt_regs;
- struct task_struct;
-@@ -543,6 +544,7 @@ static inline int kexec_crash_loaded(void) { return 0; }
- static inline void *kimage_map_segment(struct kimage *image, int idx)
- { return NULL; }
- static inline void kimage_unmap_segment(void *buffer) { }
-+static inline void kexec_free_segment_cma(struct kimage *image, unsigned long idx) { }
- #define kexec_in_progress false
- #endif /* CONFIG_KEXEC_CORE */
+ #ifdef CONFIG_CRASH_DUMP
+ 	/* Add elfcorehdr */
+ 	if (image->type == KEXEC_TYPE_CRASH) {
+-		void *headers;
+-		unsigned long headers_sz;
+-		ret = crash_prepare_headers(true, &headers, &headers_sz, NULL);
++		ret = crash_prepare_headers(true, &kbuf.buffer, &kbuf.bufsz, NULL);
+ 		if (ret) {
+ 			pr_err("Preparing elf core header failed\n");
+ 			goto out;
+ 		}
  
-diff --git a/kernel/kexec_core.c b/kernel/kexec_core.c
-index dc770b9a6d05..03c666ffe18d 100644
---- a/kernel/kexec_core.c
-+++ b/kernel/kexec_core.c
-@@ -554,22 +554,25 @@ static void kimage_free_entry(kimage_entry_t entry)
- 	kimage_free_pages(page);
- }
+-		kbuf.buffer = headers;
+-		kbuf.bufsz = headers_sz;
++		image->elf_headers = kbuf.buffer;
++		image->elf_headers_sz = kbuf.bufsz;
++
+ 		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
+-		kbuf.memsz = headers_sz;
++		kbuf.memsz = kbuf.bufsz;
+ 		kbuf.buf_align = ELF_CORE_HEADER_ALIGN;
+ 		kbuf.top_down = true;
  
--static void kimage_free_cma(struct kimage *image)
-+void kexec_free_segment_cma(struct kimage *image, unsigned long idx)
- {
--	unsigned long i;
-+	struct page *cma = image->segment_cma[idx];
-+	u32 nr_pages = image->segment[idx].memsz >> PAGE_SHIFT;
+ 		ret = kexec_add_buffer(&kbuf);
+-		if (ret) {
+-			vfree(headers);
++		if (ret)
+ 			goto out;
+-		}
+-		image->elf_headers = headers;
++
+ 		image->elf_load_addr = kbuf.mem;
+-		image->elf_headers_sz = headers_sz;
  
--	for (i = 0; i < image->nr_segments; i++) {
--		struct page *cma = image->segment_cma[i];
--		u32 nr_pages = image->segment[i].memsz >> PAGE_SHIFT;
-+	if (!cma)
-+		return;
- 
--		if (!cma)
--			continue;
-+	arch_kexec_pre_free_pages(page_address(cma), nr_pages);
-+	dma_release_from_contiguous(NULL, cma, nr_pages);
-+	image->segment_cma[idx] = NULL;
-+}
- 
--		arch_kexec_pre_free_pages(page_address(cma), nr_pages);
--		dma_release_from_contiguous(NULL, cma, nr_pages);
--		image->segment_cma[i] = NULL;
--	}
-+static void kimage_free_cma(struct kimage *image)
-+{
-+	unsigned long i;
- 
-+	for (i = 0; i < image->nr_segments; i++)
-+		kexec_free_segment_cma(image, i);
- }
- 
- void kimage_free(struct kimage *image)
+ 		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+ 			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
 -- 
 2.34.1
 
