@@ -2,85 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FB5F606A31A
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 07:54:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2638C606A31A
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 08:06:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iM4c5cPi;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=i/tDu0hR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CYdo+7NO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=+NFxegIdXihJkAqauwV8C4Hcwm3wcoZloUXepwfclK4=; b=iM4c5cPikhH7bkkDC/GwgZUHvn
-	MhYJXxtmoOx8FxbY335h4Tx0tUiHMdaYxkvhoOXB5ILVFFklSRjeDj/dswcHbPvEQXM77hQ3uF+SS
-	A4DhLgxM4cQWfHfcmblhwLYWTfLJxL1Slp2DUD5HGattAnHbvAlckbTlgbPSsJs8BL9brTR/rTjZh
-	RHspjhGnx9IitZY3G8Ma7pUkWUJ+91IwOb16UIGFM/t5Y9T01AdCq3+LTuBI7jqtmRHifB+e63J6e
-	hs5PaiYDALf6myl0fBwIxw2yrqYOvHQ1euc0jMdqR0sclKCF97svsb8OayEjt4aw3uIh1JiiquzC4
-	aaT0imaQ==;
+	bh=Z2ODRaX1rls1TvR8zm6a588kl+8gcDCpoovECMGsgLE=; b=CYdo+7NO7yfuV/V7Efz8MzEe66
+	5XoM6GzQQ3FuyRKGi6zoB8QKfMZGgGbNganrFeyE+XHY7JzXWaJPYE3rNXG59nZzqjYY43XuVec8/
+	eUi7BgrIY5DHH27cA+St9OFcB0uafFYA8YNMdBu3wErSGbs9vxtnM5l/Ajg4PDfQAVwT541kc4GIo
+	PfTQSgu38ITj1bVSuzQPbvW7MDXcZCfhmzJdbzNXBgz/NAyL4MtAiMGU2OBn58sPZr19eJ9sP7NNn
+	A1IAe67Uun6yhYVYwm8YwDNMlVJIWerv8bB+XJ9H6blTaGI2xg8xI3rXFfLGTv6XYgoiAxeYnkkSo
+	hZPhkhDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLFWt-00000001tVv-29WF;
-	Mon, 26 Oct 2026 07:54:03 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1xLFj0-00000001vLC-0TQp;
+	Mon, 26 Oct 2026 08:06:34 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.34])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLFWP-00000001sWM-3ufb;
-	Mon, 26 Oct 2026 07:53:36 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=bRgvT4M6zCmamxWGSrBdW+BlwCux5jgaEyxoifxfGVg=;
-	b=i/tDu0hR4P8PU+U8oPjyPQ9EF8alWIFqXGzv9qPyFbKCx309eZreFwDTG8P/PU+Az2OFHivnW
-	dAukHMVSlOpNoil+ylf3dggtFS+JbQEj9vm+QAD3pPqNTSUJ2NZ/u6rHuupD1GkwERJcPZI/tpz
-	ylHUt5cJqjHbMlOR32GhfdM=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4jCm87640HzpStt;
-	Mon, 26 Oct 2026 15:53:11 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id B1FE1202E6;
-	Mon, 26 Oct 2026 15:53:20 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 26 Oct
- 2026 15:53:19 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <maddy@linux.ibm.com>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <chleroy@kernel.org>,
-	<ritesh.list@gmail.com>, <sshegde@linux.ibm.com>, <pjw@kernel.org>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
-	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <akpm@linux-foundation.org>,
-	<baoquan.he@linux.dev>, <rppt@kernel.org>, <pasha.tatashin@soleen.com>,
-	<pratyush@kernel.org>, <thuth@redhat.com>, <ruanjinjie@huawei.com>,
-	<leitao@debian.org>, <yeoreum.yun@arm.com>, <robh@kernel.org>,
-	<sourabhjain@linux.ibm.com>, <kees@kernel.org>, <coiby.xu@gmail.com>,
-	<Yeking@Red54.com>, <tangyouling@kylinos.cn>, <maqianga@uniontech.com>,
-	<zhangtianyang@loongson.cn>, <guodongtai@kylinos.cn>, <blum@kernel.org>,
-	<adityag@linux.ibm.com>, <hui.wang@canonical.com>, <sohammetha01@gmail.com>,
-	<guoren@kernel.org>, <gaohan@iscas.ac.cn>, <kai.huang@intel.com>,
-	<kas@kernel.org>, <vishal.l.verma@intel.com>, <piliu@redhat.com>,
-	<jbouron@amazon.com>, <mclapinski@google.com>, <me@linux.beauty>,
-	<graf@amazon.com>, <bgwin@google.com>, <x86@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <kexec@lists.infradead.org>
-Subject: [PATCH v7 14/15] LoongArch: kexec_file: Use kexec_load_other_segments() to simplify code
-Date: Mon, 26 Oct 2026 15:52:00 +0800
-Message-ID: <20261026075201.699550-15-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261026075201.699550-1-ruanjinjie@huawei.com>
-References: <20261026075201.699550-1-ruanjinjie@huawei.com>
+	id 1xLFix-00000001vKa-1CfH;
+	Mon, 26 Oct 2026 08:06:32 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4jCmRL3fzxz4yjSf;
+	Mon, 26 Oct 2026 16:06:22 +0800 (CST)
+Received: from szxl2zmapp06.zte.com.cn ([10.1.32.108])
+	by mse-fl1.zte.com.cn with SMTP id 69Q865A0064039;
+	Mon, 26 Oct 2026 16:06:05 +0800 (+08)
+	(envelope-from gong.shuai@sanechips.com.cn)
+Received: from ubuntu-35-gs (unknown [10.230.214.35])
+	by smtp (Zmail) with SMTP;
+	Mon, 26 Oct 2026 16:06:07 +0800
+X-Zmail-TransId: 3e816adf09e6027-1935f
+X-Zmail-LocalSMTP: 1
+X-Zmail-RealSender: gong.shuai@sanechips.com.cn
+From: Gong Shuai <gong.shuai@sanechips.com.cn>
+To: fangyu.yu@linux.alibaba.com
+Cc: alex@ghiti.fr, andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu,
+        gsh517025@gmail.com, guoren@kernel.org, iommu@lists.linux.dev,
+        jgg@nvidia.com, jgg@ziepe.ca, joro@8bytes.org, jroedel@suse.de,
+        kvm-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org, palmer@dabbelt.com, pjw@kernel.org,
+        robin.murphy@arm.com, tomasz.jeznach@linux.dev, will@kernel.org,
+        zong.li@sifive.com, Gong Shuai <gong.shuai@sanechips.com.cn>
+Subject: Re: [RFC PATCH v2 3/4] iommu/riscv: Add guest IMSIC GPA mapping helpers
+Date: Mon, 26 Oct 2026 16:06:04 +0800
+Message-ID: <20261026080604.184574-1-gong.shuai@sanechips.com.cn>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261016030138.91675-1-fangyu.yu@linux.alibaba.com>
+References: <20261016030138.91675-1-fangyu.yu@linux.alibaba.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
+X-MAIL: mse-fl1.zte.com.cn 69Q865A0064039
+X-TLS: YES
+X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
+X-SOURCE-IP: 10.5.228.132 unknown Mon, 26 Oct 2026 16:06:22 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6ADF09FE.001/4jCmRL3fzxz4yjSf
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_005334_355291_2767BA2F 
-X-CRM114-Status: GOOD (  20.36  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261026_010631_485496_CACBD8CD 
+X-CRM114-Status: GOOD (  18.94  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,236 +84,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Replace the local copy with the common helper.  The retry loop stays
-and the command line is built in the setup hook.
+Hi Fangyu,
 
-Cc: Huacai Chen <chenhuacai@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Baoquan He <baoquan.he@linux.dev>
-Cc: Mike Rapoport <rppt@kernel.org>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- arch/loongarch/include/asm/kexec.h         |  4 -
- arch/loongarch/kernel/kexec_efi.c          | 12 ++-
- arch/loongarch/kernel/kexec_elf.c          | 11 ++-
- arch/loongarch/kernel/machine_kexec_file.c | 94 ++++------------------
- 4 files changed, 32 insertions(+), 89 deletions(-)
+> >Andrew has moved well past a v3
+> >
+> >I shouldn't be seeing code in iommu or irq drivers directly mapping into
+> >domains. That doesn't work, Andrew's latest series don't do this.
+> >
+> >It still needs to use the SW_MSI mechanism and related.
+> >
+>
+> Andrew has posted two patch series in the community: one is the
+> MSI remap v6 series[1], and another is the IRQ bypass v3 series[2].
+> I think you are referring to the MSI remap v6 series. My patch was
+> based on the IRQ bypass v3 series, and I added this patch on top
+> of it.
+>
+> [1] https://lore.kernel.org/linux-iommu/179209292714.4133959.5997128071302263244.b4-review@b4/T/#t
+> [2] https://lore.kernel.org/linux-riscv/20260928143113.49838-1-andrew.jones@oss.qualcomm.com/
+>
+> >Nothing in the commit messages clearly explained what this is actually for
+> >without having to go dig up the riscv manuals again. Please explain how the
+> >interrupt translation works and what actual user visible problem this is
+> >trying to solve is.
+> >
+>
+> The interrupt translation is based on Andrew's irq bypass patch
+> description.
+>
+> RISC-V IOMMU defines an optional MSI page table feature, which can
+> be used to implement irq bypass by translating the vIMSIC GPA to
+> the pIMSIC HPA.
+>
+> My patch complements that design. If the RISC-V IOMMU hardware does
+> not implement the MSI page table, then the second-stage page table
+> can be used instead to map vIMSIC GPA to pIMSIC HPA.
 
-diff --git a/arch/loongarch/include/asm/kexec.h b/arch/loongarch/include/asm/kexec.h
-index 6be136e9f0a0..e58cf7e282a9 100644
---- a/arch/loongarch/include/asm/kexec.h
-+++ b/arch/loongarch/include/asm/kexec.h
-@@ -49,10 +49,6 @@ extern const struct kexec_file_ops kexec_elf_ops;
- 
- int arch_kimage_file_post_load_cleanup(struct kimage *image);
- #define arch_kimage_file_post_load_cleanup arch_kimage_file_post_load_cleanup
--
--extern int load_other_segments(struct kimage *image,
--		unsigned long kernel_load_addr, unsigned long kernel_size,
--		char *initrd, unsigned long initrd_len, char *cmdline, unsigned long cmdline_len);
- #endif
- 
- typedef void (*do_kexec_t)(unsigned long efi_boot,
-diff --git a/arch/loongarch/kernel/kexec_efi.c b/arch/loongarch/kernel/kexec_efi.c
-index d42711b895a2..1362e51e9171 100644
---- a/arch/loongarch/kernel/kexec_efi.c
-+++ b/arch/loongarch/kernel/kexec_efi.c
-@@ -44,6 +44,12 @@ static void *efi_kexec_load(struct kimage *image,
- 	unsigned long text_offset, kernel_segment_number;
- 	struct kexec_buf kbuf = {};
- 	struct kexec_segment *kernel_segment;
-+	struct kexec_load_params params = {
-+		.initrd = initrd,
-+		.initrd_len = initrd_len,
-+		.cmdline = cmdline,
-+		.cmdline_len = cmdline_len,
-+	};
- 	struct loongarch_image_header *h;
- 
- 	h = (struct loongarch_image_header *)kernel;
-@@ -76,9 +82,9 @@ static void *efi_kexec_load(struct kimage *image,
- 	while ((ret = kexec_add_buffer(&kbuf)) == 0) {
- 		/* Try to load additional data */
- 		kernel_segment = &image->segment[kernel_segment_number];
--		ret = load_other_segments(image, kernel_segment->mem,
--					  kernel_segment->memsz, initrd,
--					  initrd_len, cmdline, cmdline_len);
-+		params.kernel_load_addr = kernel_segment->mem;
-+		params.kernel_size = kernel_segment->memsz;
-+		ret = kexec_load_other_segments(image, &params, false);
- 		if (!ret)
- 			break;
- 
-diff --git a/arch/loongarch/kernel/kexec_elf.c b/arch/loongarch/kernel/kexec_elf.c
-index 1b6b64744c7f..47272cfa990d 100644
---- a/arch/loongarch/kernel/kexec_elf.c
-+++ b/arch/loongarch/kernel/kexec_elf.c
-@@ -62,6 +62,12 @@ static void *elf_kexec_load(struct kimage *image,
- 	struct kexec_buf kbuf = {};
- 	struct kexec_elf_info elf_info;
- 	struct kexec_segment *kernel_segment;
-+	struct kexec_load_params params = {
-+		.initrd = initrd,
-+		.initrd_len = initrd_len,
-+		.cmdline = cmdline,
-+		.cmdline_len = cmdline_len,
-+	};
- 
- 	ret = kexec_build_elf_info(kernel, kernel_len, &ehdr, &elf_info);
- 	if (ret < 0)
-@@ -83,8 +89,9 @@ static void *elf_kexec_load(struct kimage *image,
- 
- 	/* Load additional data */
- 	kernel_segment = &image->segment[kernel_segment_number];
--	ret = load_other_segments(image, kernel_segment->mem, kernel_segment->memsz,
--				  initrd, initrd_len, cmdline, cmdline_len);
-+	params.kernel_load_addr = kernel_segment->mem;
-+	params.kernel_size = kernel_segment->memsz;
-+	ret = kexec_load_other_segments(image, &params, false);
- 	if (ret < 0)
- 		goto out;
- 
-diff --git a/arch/loongarch/kernel/machine_kexec_file.c b/arch/loongarch/kernel/machine_kexec_file.c
-index c0a799f0d240..d65cb40ef047 100644
---- a/arch/loongarch/kernel/machine_kexec_file.c
-+++ b/arch/loongarch/kernel/machine_kexec_file.c
-@@ -110,112 +110,46 @@ static void cmdline_add_elfcorehdr(struct kimage *image, unsigned long *cmdline_
- 
- #endif
- 
--/*
-- * Try to add the initrd to the image. If it is not possible to find valid
-- * locations, this function will undo changes to the image and return non zero.
-- */
--int load_other_segments(struct kimage *image,
--			unsigned long kernel_load_addr, unsigned long kernel_size,
--			char *initrd, unsigned long initrd_len, char *cmdline, unsigned long cmdline_len)
-+int arch_kexec_setup_other_segments(struct kimage *image,
-+				    struct kexec_load_params *params,
-+				    unsigned long initrd_load_addr)
- {
--	int ret = 0;
- 	unsigned long cmdline_tmplen = 0;
--	unsigned long initrd_load_addr = 0;
--	unsigned long orig_segments = image->nr_segments;
--	char *modified_cmdline = NULL;
--	struct kexec_buf kbuf = {
--		.image = image,
--		/* Don't allocate anything below the kernel */
--		.buf_min = kernel_load_addr + kernel_size,
--		.buf_max = ULONG_MAX,
--	};
-+	unsigned long cmdline_len = params->cmdline_len;
-+	const char *cmdline = params->cmdline;
-+	char *modified_cmdline;
- 
- 	modified_cmdline = kzalloc(COMMAND_LINE_SIZE, GFP_KERNEL);
- 	if (!modified_cmdline)
--		return -EINVAL;
-+		return -ENOMEM;
- 
- 	cmdline_add_loader(&cmdline_tmplen, modified_cmdline);
- 	/* Ensure it's null terminated */
- 	modified_cmdline[COMMAND_LINE_SIZE - 1] = '\0';
- 
- #ifdef CONFIG_CRASH_DUMP
--	/* Load elf core header */
- 	if (image->type == KEXEC_TYPE_CRASH) {
--		ret = crash_prepare_headers(true, &kbuf.buffer, &kbuf.bufsz, NULL);
--		if (ret < 0) {
--			pr_err("Preparing elf core header failed\n");
--			goto out_err;
--		}
--
--		if (unlikely(image->elf_headers))
--			vfree(image->elf_headers);
--
--		image->elf_headers = kbuf.buffer;
--		image->elf_headers_sz = kbuf.bufsz;
--
--		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
--		kbuf.memsz = kbuf.bufsz;
--		kbuf.buf_align = SZ_64K; /* largest supported page size */
--		kbuf.top_down = true;
--
--		ret = kexec_add_buffer(&kbuf);
--		if (ret < 0)
--			goto out_err;
--
--		image->elf_load_addr = kbuf.mem;
--
--		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
--			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
--
- 		/* Add the mem=size@start parameter to the command line */
- 		cmdline_add_mem(&cmdline_tmplen, modified_cmdline);
- 
- 		/* Add the elfcorehdr=size@start parameter to the command line */
--		cmdline_add_elfcorehdr(image, &cmdline_tmplen, modified_cmdline, kbuf.bufsz);
-+		cmdline_add_elfcorehdr(image, &cmdline_tmplen, modified_cmdline,
-+				       image->elf_headers_sz);
- 	}
- #endif
- 
--	/* Load initrd */
--	if (initrd) {
--		kbuf.buffer = initrd;
--		kbuf.bufsz = initrd_len;
--		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
--		kbuf.memsz = initrd_len;
--		kbuf.buf_align = 0;
--		/* within 1GB-aligned window of up to 32GB in size */
--		kbuf.buf_max = round_down(kernel_load_addr, SZ_1G) + (unsigned long)SZ_1G * 32;
--		kbuf.top_down = false;
--
--		ret = kexec_add_buffer(&kbuf);
--		if (ret < 0)
--			goto out_err;
--		initrd_load_addr = kbuf.mem;
--
--		kexec_dprintk("Loaded initrd at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
--			      initrd_load_addr, kbuf.bufsz, kbuf.memsz);
--
--		/* Add the initrd=start,size parameter to the command line */
-+	/* Add the initrd=start,size parameter to the command line */
-+	if (initrd_load_addr)
- 		cmdline_add_initrd(image, &cmdline_tmplen, modified_cmdline, initrd_load_addr);
--	}
- 
- 	if (cmdline_len + cmdline_tmplen > COMMAND_LINE_SIZE) {
- 		pr_err("Appending command line exceeds COMMAND_LINE_SIZE\n");
--		ret = -EINVAL;
--		goto out_err;
-+		kfree(modified_cmdline);
-+		return -EINVAL;
- 	}
- 
- 	memcpy(modified_cmdline + cmdline_tmplen, cmdline, cmdline_len);
--	cmdline = modified_cmdline;
--	image->arch.cmdline_ptr = (unsigned long)cmdline;
-+	image->arch.cmdline_ptr = (unsigned long)modified_cmdline;
- 
- 	return 0;
--
--out_err:
--	while (image->nr_segments > orig_segments) {
--		kexec_free_segment_cma(image, image->nr_segments - 1);
--		image->nr_segments--;
--	}
--
--	kfree(modified_cmdline);
--	return ret;
- }
--- 
-2.34.1
+Using the regular stage-2 page table to translate MSI target
+addresses seems reasonable to me as a fallback for hardware without
+MSI_FLAT.
 
+I would like to share my personal understanding of Jason's review.
+Please correct me if I missed his point.
+
+His concern seems to be about who owns and maintains these mappings.
+When the RISC-V IOMMU driver calls iommu_map directly on a paging
+domain managed by iommufd, the mappings are not visible to the domain
+owner. This makes it difficult to handle mapping lifetime and
+hardware page table replacement correctly.
+
+The current SW_MSI support does not appear to cover this use case
+directly. It allocates IOVAs for host MSI pages and records the
+resulting mappings. Guest forwarding instead requires mappings at
+fixed guest GPAs, with their target HPAs changing when vCPUs migrate.
+Supporting this through SW_MSI would therefore seem to require a
+nontrivial extension.
+
+Best regards,
+Shuai
+
+>
+> Thanks,
+> Fangyu
+>
+> >--
+> >Jason
+>
 
 _______________________________________________
 linux-riscv mailing list
