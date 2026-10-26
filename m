@@ -2,76 +2,99 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2638C606A31A
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 08:06:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54A3D606A31B
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 09:14:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CYdo+7NO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pJ8kIXY7;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=uesWt4mf
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Z2ODRaX1rls1TvR8zm6a588kl+8gcDCpoovECMGsgLE=; b=CYdo+7NO7yfuV/V7Efz8MzEe66
-	5XoM6GzQQ3FuyRKGi6zoB8QKfMZGgGbNganrFeyE+XHY7JzXWaJPYE3rNXG59nZzqjYY43XuVec8/
-	eUi7BgrIY5DHH27cA+St9OFcB0uafFYA8YNMdBu3wErSGbs9vxtnM5l/Ajg4PDfQAVwT541kc4GIo
-	PfTQSgu38ITj1bVSuzQPbvW7MDXcZCfhmzJdbzNXBgz/NAyL4MtAiMGU2OBn58sPZr19eJ9sP7NNn
-	A1IAe67Uun6yhYVYwm8YwDNMlVJIWerv8bB+XJ9H6blTaGI2xg8xI3rXFfLGTv6XYgoiAxeYnkkSo
-	hZPhkhDw==;
+	bh=EWJlEQ6mnxM8RKU+99ov0w3qDJ59j6ZtQuCXTJFopIs=; b=pJ8kIXY73g1DamU61dQaLsgllj
+	u59FGHkr6/BYEizBRkbUakMR9oYfQh0NRXGIRvuKrxw8A7xe5ZZ5jIc/jcZg0CfFKE7bw5tpT8Sz/
+	6ap2/oczZ8pXOWs++Zvv6S3Z2Vr6FUZJC8F0OweRaF5Z5d2jNHCsGcYb7pDBp0S4vUpuGXVxQNrve
+	FabShjHqDTyDIFo1kfdi3yW4sXxhgEe2iP/0vwNy5PI+vgmM9vdI1HD+JgXsmGrklAx/simB9J/MO
+	5DrNDXpNvxgSGjx0Nl9VAGHsMQgxwok9PuY5r/9usQ3PORMw7X1b/8AyfZ0A9vmBY/LM/eeNPhavM
+	yz1ogGFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLFj0-00000001vLC-0TQp;
-	Mon, 26 Oct 2026 08:06:34 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.34])
+	id 1xLGmG-000000021O5-3UwE;
+	Mon, 26 Oct 2026 09:14:00 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLFix-00000001vKa-1CfH;
-	Mon, 26 Oct 2026 08:06:32 +0000
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4jCmRL3fzxz4yjSf;
-	Mon, 26 Oct 2026 16:06:22 +0800 (CST)
-Received: from szxl2zmapp06.zte.com.cn ([10.1.32.108])
-	by mse-fl1.zte.com.cn with SMTP id 69Q865A0064039;
-	Mon, 26 Oct 2026 16:06:05 +0800 (+08)
-	(envelope-from gong.shuai@sanechips.com.cn)
-Received: from ubuntu-35-gs (unknown [10.230.214.35])
-	by smtp (Zmail) with SMTP;
-	Mon, 26 Oct 2026 16:06:07 +0800
-X-Zmail-TransId: 3e816adf09e6027-1935f
-X-Zmail-LocalSMTP: 1
-X-Zmail-RealSender: gong.shuai@sanechips.com.cn
-From: Gong Shuai <gong.shuai@sanechips.com.cn>
-To: fangyu.yu@linux.alibaba.com
-Cc: alex@ghiti.fr, andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu,
-        gsh517025@gmail.com, guoren@kernel.org, iommu@lists.linux.dev,
-        jgg@nvidia.com, jgg@ziepe.ca, joro@8bytes.org, jroedel@suse.de,
-        kvm-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-riscv@lists.infradead.org, palmer@dabbelt.com, pjw@kernel.org,
-        robin.murphy@arm.com, tomasz.jeznach@linux.dev, will@kernel.org,
-        zong.li@sifive.com, Gong Shuai <gong.shuai@sanechips.com.cn>
-Subject: Re: [RFC PATCH v2 3/4] iommu/riscv: Add guest IMSIC GPA mapping helpers
-Date: Mon, 26 Oct 2026 16:06:04 +0800
-Message-ID: <20261026080604.184574-1-gong.shuai@sanechips.com.cn>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261016030138.91675-1-fangyu.yu@linux.alibaba.com>
-References: <20261016030138.91675-1-fangyu.yu@linux.alibaba.com>
+	id 1xLGmA-000000021N1-2mtU;
+	Mon, 26 Oct 2026 09:13:58 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261026091349euoutp0260a6484cdb132677f41b85104a90e968~iCXwB5PQU2933229332euoutp024;
+	Mon, 26 Oct 2026 09:13:49 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261026091349euoutp0260a6484cdb132677f41b85104a90e968~iCXwB5PQU2933229332euoutp024
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1793006029;
+	bh=BKmKriFXy7STc0ChdV4GVkhXybSuVhKoMJ3vCyY6ebQ=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=uesWt4mf7L6uH2e2D0Uz0HVRucHuV8HZkP6w6G5X4a91jpvD/uKc3BJqBUmuRXjve
+	 GgrdbGaDFfjJl73WiJG4wPNL+OImYScLzZ5eCyyvPV3LlJUGczWGKuH07jKOHSZaRq
+	 J4j2ifjZbGqdQZI5IPmFXPvANcfdee4i8r50bnPI=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261026091348eucas1p104a72aa9c878c637a7ef778613c492a9~iCXvH8nmx3193831938eucas1p1i;
+	Mon, 26 Oct 2026 09:13:48 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261026091345eusmtip1dd488ccf4592aee32b30711c858f6c13~iCXsMa8873092630926eusmtip1x;
+	Mon, 26 Oct 2026 09:13:45 +0000 (GMT)
+Message-ID: <943aa2e7-3945-48f9-9a87-9c963f97099d@samsung.com>
+Date: Mon, 26 Oct 2026 10:13:45 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
-X-MAIL: mse-fl1.zte.com.cn 69Q865A0064039
-X-TLS: YES
-X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
-X-SOURCE-IP: 10.5.228.132 unknown Mon, 26 Oct 2026 16:06:22 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6ADF09FE.001/4jCmRL3fzxz4yjSf
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 16/20] phy: Add common Innosilicon HDMI PHY helpers
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss
+	<rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
+	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
+	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
+	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
+	Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
+	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
+	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
+	Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Joshua Peisach <jpeisach@ubuntu.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@baylibre.com>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <asEPmpQTwXYADwTk@parshuram>
+X-CMS-MailID: 20261026091348eucas1p104a72aa9c878c637a7ef778613c492a9
+X-Msg-Generator: CA
+X-RootMTR: 20260915153242eucas1p1394a6a5e272f106b9cab2a0f709ddeb8
+X-EPHeader: CA
+X-CMS-RootMailID: 20260915153242eucas1p1394a6a5e272f106b9cab2a0f709ddeb8
+References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+	<CGME20260915153242eucas1p1394a6a5e272f106b9cab2a0f709ddeb8@eucas1p1.samsung.com>
+	<20260915-jh7110-clean-send-v4-16-f0e4fd6f2cc8@samsung.com>
+	<asEPmpQTwXYADwTk@parshuram>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_010631_485496_CACBD8CD 
-X-CRM114-Status: GOOD (  18.94  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261026_021355_317702_8CBB2635 
+X-CRM114-Status: GOOD (  28.07  )
+X-Spam-Score: -3.1 (---)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,79 +107,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Fangyu,
+Hi Vinod,
 
-> >Andrew has moved well past a v3
-> >
-> >I shouldn't be seeing code in iommu or irq drivers directly mapping into
-> >domains. That doesn't work, Andrew's latest series don't do this.
-> >
-> >It still needs to use the SW_MSI mechanism and related.
-> >
->
-> Andrew has posted two patch series in the community: one is the
-> MSI remap v6 series[1], and another is the IRQ bypass v3 series[2].
-> I think you are referring to the MSI remap v6 series. My patch was
-> based on the IRQ bypass v3 series, and I added this patch on top
-> of it.
->
-> [1] https://lore.kernel.org/linux-iommu/179209292714.4133959.5997128071302263244.b4-review@b4/T/#t
-> [2] https://lore.kernel.org/linux-riscv/20260928143113.49838-1-andrew.jones@oss.qualcomm.com/
->
-> >Nothing in the commit messages clearly explained what this is actually for
-> >without having to go dig up the riscv manuals again. Please explain how the
-> >interrupt translation works and what actual user visible problem this is
-> >trying to solve is.
-> >
->
-> The interrupt translation is based on Andrew's irq bypass patch
-> description.
->
-> RISC-V IOMMU defines an optional MSI page table feature, which can
-> be used to implement irq bypass by translating the vIMSIC GPA to
-> the pIMSIC HPA.
->
-> My patch complements that design. If the RISC-V IOMMU hardware does
-> not implement the MSI page table, then the second-stage page table
-> can be used instead to map vIMSIC GPA to pIMSIC HPA.
+On 10/3/26 16:22, Vinod Koul wrote:
+> On 15-09-26, 17:32, Michal Wilczynski wrote:
+>> The Innosilicon HDMI PHY IP is used by several SoCs. They differ in
+>> where the PHY register block sits in the register space and in which
+>> pixel clocks they support, but the pre-PLL programming sequence and the
+>> layout of its registers are the same.
+>>
+>> Add a small library holding that shared part: the pre-PLL configuration
+>> table format, a lookup, clk_ops determine_rate and recalc_rate helpers,
+>> and the pre-PLL register programming. Callers pass a regmap, a register
+>> offset for the PHY block, and their own pixel clock table.
+>>
+>> No driver uses it yet; the users are converted separately.
+> 
+> Is there anything in phy patches here that has dependency with rest? If
+> not consider splitting it up...
 
-Using the regular stage-2 page table to translate MSI target
-addresses seems reasonable to me as a fallback for hardware without
-MSI_FLAT.
+The phy patches don't depend on anything else so they apply cleanly
+from this series alone. The helpers and the Rockchip conversion are
+self contained and the JH7110 phy driver only needs its parent at
+runtime not at build time.
 
-I would like to share my personal understanding of Jason's review.
-Please correct me if I missed his point.
+I kept everything in one series so a single posting applies and boots on
+its own. The patches already target three separate trees and everyone
+testing this has been applying the full set splitting would force them
+to assemble two postings in the correct order, given that the JH7110 phy
+driver build depends on the helpers. The v5 cover letter lists which
+tree each patch goes to.
 
-His concern seems to be about who owns and maintains these mappings.
-When the RISC-V IOMMU driver calls iommu_map directly on a paging
-domain managed by iommufd, the mappings are not visible to the domain
-owner. This makes it difficult to handle mapping lifetime and
-hardware page table replacement correctly.
+That being said, the helpers and the Rockchip conversion are the two
+patches independent of the StarFive work - happy to send those as a
+separate series if you'd rather take them that way.
 
-The current SW_MSI support does not appear to cover this use case
-directly. It allocates IOVAs for host MSI pages and records the
-resulting mappings. Guest forwarding instead requires mappings at
-fixed guest GPAs, with their target HPAs changing when vCPUs migrate.
-Supporting this through SW_MSI would therefore seem to require a
-nontrivial extension.
+> 
+>> +static u8 inno_read(const struct inno_hdmi_phy_pre_pll *pll, unsigned int reg)
+>> +{
+>> +	unsigned int val;
+>> +	int ret;
+>> +
+>> +	ret = regmap_read(pll->regmap, inno_reg(pll, reg), &val);
+>> +	if (ret)
+>> +		return 0;
+>> +
+>> +	return val;
+> 
+> why not just return regmap_read()
+> 
+> There is no logic here, nothing. This is really not ideal.
+> Also why add a wrapper and not use regmap directly?
+
+The same IP block is used by both Rockchip and the JH7110 but on the
+JH7110 the registers sit at a 0x100 offset.That is what inno_reg() is
+for.
+
+Dropping the error is wrong though - nd comes from one of those reads
+and then becomes the divisor in do_div(vco, nd * 5 ) so a failed read
+feeds in 0. I will make it return int and have recalc_rate check.
+
+> 
+>> +/**
+>> + * inno_hdmi_phy_pre_pll_determine_rate - clk_ops.determine_rate helper
+>> + * @pll: pre-PLL instance
+>> + * @req: rate request, updated with the rate the PHY would produce
+>> + *
+>> + * The PHY can only generate the pixel clocks described by its table, so a
+>> + * request that does not appear there is rejected rather than rounded.
+>> + *
+>> + * Return: 0 on success, -EINVAL if the rate is not supported.
+>> + */
+>> +int inno_hdmi_phy_pre_pll_determine_rate(const struct inno_hdmi_phy_pre_pll *pll,
+>> +					 struct clk_rate_request *req)
+>> +{
+>> +	const struct inno_hdmi_phy_pre_pll_config *cfg;
+>> +	unsigned long rate = rounddown(req->rate, 1000);
+>> +
+>> +	for (cfg = pll->table; cfg->pixclock != 0; cfg++) {
+> 
+> Is there a chance of null/garbage if we reach end of table? You dont
+> know the size of table, and incrementing pointer without bounds does not
+> look good to me.
+
+Fair. For now both config tables end with a sentinel, so it cannot
+happen. I can add the count of the bounds though.
+
+> 
+> 
 
 Best regards,
-Shuai
-
->
-> Thanks,
-> Fangyu
->
-> >--
-> >Jason
->
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
 
 _______________________________________________
 linux-riscv mailing list
