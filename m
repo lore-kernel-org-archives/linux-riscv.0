@@ -2,101 +2,114 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D098606A32E
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 03:44:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EAA2606A322
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 05:39:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Wk1K96T8;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=RsMzAqiv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IEzaUoJH;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=ZutRtVBl
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=1oJBYNJsSFJc0AmQAVLKa/MvkqxLjvJhDRFly/oft2A=; b=Wk1K96T8RY7GypiDwXImORGpgW
-	UrqiOkCB7Xs0LjSwufTYo6K9Sft6KddTV7O6Yc7JeMejR6gJ73g0kgb1rr3lKlrWOhoSpo+uqOAsi
-	gksgQNHJjeEDQgE+6q6me+WXFczsy6HZWrjTaL4NziJH9FGITVdUMZXO4Mh6OO+NpqL3iqtpwyp84
-	aYI3dOz+KuJ0aZb/wxNJFGrQ7Tm8d5Y+ItqKjm6X2ww0oBjzDXa1yRDaaHhIqmmMt1s286ORY/iMv
-	Cdi2sxoS6l2HiUimkJZDeXozgl/HMIro7W1OgJeVDOlDTE5h0zXpx2JBT3rXyq4IU4LtDiZAL39Zo
-	ZBLC3G1g==;
+	bh=ABWTixUkYcv/0DltdEfneasZ/yGi4kSBBN+B9d/yGK0=; b=IEzaUoJHREwrrfi01Uqa08x6Yn
+	k24Q+tkPexBKoSQ2Qi+fGxDCzyuNzQ9SqFvFzQ/kjHL/JrWLw/UQHDsdv/hXvJRAm4ixeLlv0HO1A
+	B+cxb4zuiDB+mqDxxxD7SqILuk1We9Fv3w/duDRfpKDcwnGjRAvNchJMQ12M+isvF+BHZxlc6gSiw
+	YT24El1kxj2RVABu0o2eVSh+wOiDsSKbxWhdsSD2a52iJT5B+43yotQT7jx2pn+YnWPAYv95RZ/E9
+	FL07cxmtQv7IwbNzCDnzsGJ0xDymPbN1MJHBbYW3Yz1IFCSkQUaf7DZNjEPE+FgmXiDd5xRHQ7yC3
+	ob6bpDnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLBdV-00000001fr5-1HWW;
-	Mon, 26 Oct 2026 03:44:37 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1xLDQ9-00000001juE-3iIX;
+	Mon, 26 Oct 2026 05:38:57 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLBdS-00000001foB-1VsI
+	id 1xLDQ7-00000001jtt-0r0Z
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Oct 2026 03:44:35 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-5365d26ccbdso30389661cf.0
-        for <linux-riscv@lists.infradead.org>; Sun, 25 Oct 2026 20:44:33 -0700 (PDT)
+	Mon, 26 Oct 2026 05:38:56 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-6af9a9451daso3958006a12.0
+        for <linux-riscv@lists.infradead.org>; Sun, 25 Oct 2026 22:38:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792993133; cv=none;
+        d=google.com; s=arc-20260327;
+        b=l1CYPoH8CB6kURm0TP85WkditvjRXzI0HL9Ttjgz0J+5q2su8D3/5UFKHmbLs/e5EJ
+         Vkmf4QOdiR89h8jQup5dwEgKLO+CuWSf6Aral+p5MJCwXLY7Bmzw3e5TZuIJdAqm/Zfi
+         Be55UvSmTJSoTqSXxUpHotNmsLKvWiVr071kFsSRFGsGxZL/MtplUW/x63Z/KMf0PfP7
+         0QV9Oui7wSbBv/x2R9CWP+oyrNSKyIkZteYR9hj2H4CfE2nwwSFa1hEVJEkEZZ5B/JN8
+         dntgyhihwCqIQt1u1e7l5WIinXS35JeGjTlJcO6Xvig0eyD/+Pz7cyYgpq/6/D+BPUQe
+         NpdQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=KRC9z7Hf6UT0/DB2ko9R8MQynM5giNRybmjOpJEixmM=;
+        fh=blyT5XY84ffCLv9OV2FhBxopUuSnLRsazIfZclH7UeY=;
+        b=TB2fRlfeTaZEoCqKUXjOv9zWUaUXjyJ8ZZmua+rCuwHuJXeZpxj2niLgXmk4jF3FFo
+         ueVUTX0TfBkpReTw3xR9uuoEWfoF7ePrlE3wlHVjpVBBZzjZEcKkrI/cRq888Ja12PUo
+         mHitRbSJuUSb+WmT7hnJ+ZQlXmDzNOEyVsfyUAsFc+DnpeLiNBCJhDcD8JRS+dN48KXN
+         iGh1GWtaj3vWM8kfjQyCIPyG3Vkpk/uQPE4lW4I+a5u64Tt/Gj2eu8ZL3RYUFzaDkATm
+         5m5R/I0sZ+hm6Whknvf5WqHjcwxDx71qJIC2qRP27rMDge3rwhQ95IRGYCzqEZ30bqW5
+         8i9w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792986273; x=1793591073; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ODlqko/BPpmyU4h+oI7UAqT8yjWxPc3m1CLwqWBtjDo=;
-        b=RsMzAqivZfsrG4c3+88oRXGqAndT/MvdVmzkMMhVCtGVeehhlgELqvq9qd3tHQuq1P
-         /pfZ7j4BaTKqSoSL4rYTh9M30pTkPqd8RQy8WLLAdLfFlA718ReD5H8X1UbtphTiSUpj
-         Hnybczb55VatAk8/bkEv9Xkrdu5gTBzR8r4Jb9FO1kPUco03nVDOj/5max/U1S8y/5h7
-         JmDbXg2vRonz4anJmtRDymDvibKXmfk2FvSGI/IrOR6i1LEYT+9VMHDgpuUigGf4akkX
-         uoZyqgVF0MDCwSHWS7vO8L5dy0EE3kCaTy6emzizUe+rRPb5ElAHSHlpMj3VP18Dm79T
-         XwPA==
+        d=gmail.com; s=20251104; t=1792993133; x=1793597933; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KRC9z7Hf6UT0/DB2ko9R8MQynM5giNRybmjOpJEixmM=;
+        b=ZutRtVBl7v5tYAxT2/BVShXjUIWr1917jRXblWiEc7hDw8TamawodPZci+XJySipv2
+         a/83gOlQSMR+1sV8933su5ANvTCEE5FN1S4wHcaFVwk3S9sElLGmpPq4vAVb13MS2Hqf
+         s3ZbzibXyV3iHQ7TSFDz0aN3tuAlybZWTlNaeJIHwtSa8ckoMkJxP77xVZnwUO6fR3un
+         qwdIpFtBwYZihzCJjn/ZUIiKUxz97u2qn7dbZrOvsHfPEaHOoNCJEc/DYNtYfupgdr1X
+         Y57esK9UG1LA35/zQ/osmEqDJbU1nFq05Gpl7mjvPnxBxvJr+j0yWVs8YwZqrbLo1Wfq
+         YjYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792986273; x=1793591073;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ODlqko/BPpmyU4h+oI7UAqT8yjWxPc3m1CLwqWBtjDo=;
-        b=DJsAubU3f2SLkbkjMIyp4Ky94BHhBLdFuKXY6mD0QYAL3zuK4NMK9pn5MyM0TjOWML
-         xBSXE25Kf0AADr4ZDfMHqTNy4nvUMw2Lq+PJCB4FGciC18TgMQAOLbwhhdM/D19pc1k2
-         iF6kqIZR7SskHMHNtqhJphSmp+sPmLtF7Ipm+SJGTQVOmFqnAI3ckaE4HZAzDTGLG1O/
-         MnmHNF6n5+xy+Cjms3MJW4I/k4oQLaVSVC1XbFIKYbsJWsdnprhmYUu9cfwYNN0lahC+
-         ZS3WG3LHqdlXYXzhfy6o/UOujARyUPjVIUSUWMTlMkdsGVDvi0RJts96OVnFXALHrYaS
-         L0jQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzcioU5pA0rkiIFj2ENgsUtQRQWDfMZ8M6zbTTeAVM+Xa2uaI7JE1XFeWaR6gnN3PUv2KjEkb3AqZLoJQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKarHp4TJ++ijapgZ1CUYfoPVYKzU8vZ/goW24g94RKnfg9vJzg
-	sCoLiS3IZXEIb2Vnr2lKKUCC8Y7ACz5Wr6rJDZRCHOuvyecWlTS1uDkD
-X-Gm-Gg: AYBFou0o915cSWKDPmlrse7/uVVZy7EMsgVS8gIEjMGT8qqkqGQPvuWOtB0Xzo90Y+U
-	RMex0l5dNZb9m3/8zb5xVXw0vlW7Ta9ZgpnP/zP+0G6NxQs7bkB0f3lQUu4bArW6j17My9uc2e2
-	kjogp+RY1AdZ7qfeWcIcaBqxYNEsDVJD1rqTtd9UW4uvUlHOAl244wyaKT1gOPUz0pLScFzLQqW
-	swPkE4RJndprgFc79hR5H8EhWQr8qXnZER6wyfu9WrTwO4VHXgzkShLTxva4murWIeT7RhsQjGX
-	1BQ2+c5iZOctwStXV/dLB1DT0Fro7xhUH/c7md9hf3oWR3zw8xFfjcA8NOcDck1Vfc3lbTVPDJ5
-	C9rVpp/NS9WcmLotY+y5lp4P+W8sxM/qET2q6CSyC/IkLq3lgQ00sCfQHQgjB9fyfbBjkSTgnEx
-	iNbF69ERiw87Odn+Kp60JldhnZgLrqVAoIv4jal3OVRSe+2lY3rilEGJDTWDrE3Bx+dPlc60X5D
-	a3Ezn5VaVAYfLTJMHa8AgchXEs71OQw22wpCdHp5pO4YmLax18dTyfjuwl9yDCBuSVxtwb+alcG
-	el0eQdV4acNhVZVIZT1K4wkzb71I9VYPiklrI3Li9PYFEqZ3KPQuYGD/mRu1
-X-Received: by 2002:ac8:5a0f:0:b0:530:1b1:72be with SMTP id d75a77b69052e-5383b6838c2mr89604751cf.40.1792986273086;
-        Sun, 25 Oct 2026 20:44:33 -0700 (PDT)
-Received: from paul-white-HP-Pavilion-Laptop-15-cs1xxx.mynetworksettings.com ([2600:4040:ad65:1c00:4cc4:d0be:4ab6:9a0b])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-538394c5273sm46202121cf.9.2026.10.25.20.44.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 Oct 2026 20:44:32 -0700 (PDT)
-From: Paul White <paul.white.kernel@gmail.com>
-To: anup@brainfault.org,
-	atish.patra@linux.dev,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Paul White <paul.white.kernel@gmail.com>
-Subject: [PATCH 2/2] KVM: riscv: Eliminate redundancy in set_reg function via pointers
-Date: Sun, 25 Oct 2026 23:41:27 -0400
-Message-ID: <073a56efd7e8f5b1e54207f266e1fa972b54a0e2.1792982932.git.paul.white.kernel@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <cover.1792982932.git.paul.white.kernel@gmail.com>
-References: <cover.1792982932.git.paul.white.kernel@gmail.com>
+        d=1e100.net; s=20260707; t=1792993133; x=1793597933;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=KRC9z7Hf6UT0/DB2ko9R8MQynM5giNRybmjOpJEixmM=;
+        b=WCbSCkuL/aCgz7mwBldidCPnz0wsrBDpoTefIuhnpbFFy3flEZ1LADDs/1j7XIDaTt
+         7SkQxa5wW3dIb3GSngvm43NhOxu9IUbVO+DeCuH5b0HIPyrHCIwgYPyHphdBb09yHMZ9
+         GzRKrwErLfsbVWk8gr1OHqxnylwe+0wRawfrk4lWPJ0pwz/VnAROrIx2XLbswZIMRgkx
+         ipDjATjkb7S1uzo/CuprYmstxh3f4cSWxUl9aFwmq+lHpRXW/hnRr4VT4WJmp3cBR/Oj
+         qF32zWkq/fJDPj19RbptBUxmxE+6RNiobPeLTH3oHiyBmA0xrzF4xAfZh2kQVEy2DMRN
+         6KBw==
+X-Forwarded-Encrypted: i=1; AKwUvByip2PcsXgA+tFJKXr7mV4/tzho43Z7oQq9QLK/Q78bB4zFSDAOZ90PxQr57XnA8O+BQZ4TDVtK9VNatg==@lists.infradead.org
+X-Gm-Message-State: AFq9FYIOl9TzyLnCRnjNfNeT8oo3OnEiqgaWQjX40ofrarxDLuanqOP/
+	fDdr9F8OhmncS+ON293qLpSw8qgYeAkB4epg8DEmlr6dRzYZMRJ+ZVcOChYwhpK3nGbuN5JLJww
+	bpvwUVALvmPB0I0vBrQMkv8bFKF5DQcs=
+X-Gm-Gg: AYBFou0KfvBMbsm/YEP3ys+dE+Q5BFzHwWg6dgm6phrI2geK/I+hFS3aH6j0a2cayFZ
+	VmyKgrXdb4jAstJrRliB+B6/K4lTL0nR54hXQI1L8GBwE+FaqzWcQ31Vz3sRcNEBWfPYZhcS6ag
+	kOB4BDfeymrAExAaPfeGaxrlk76BY6+aHadmxy93JlzueW5lnRrdeknp2h2qyeBpqQKnYXnAMyK
+	mlLEQCQZbTDDjb+yJBJ5wOtujXfgFoquDPAPJLzQPC9jpOzcoTGCn2WOL5YzyZQod1XtetgHpqI
+	iFZ7EUMe04TyCvZZp5gh6/8wKwXXDktKxVpBMxslryNATXKFr26uuZ+EAJQXJ2QQhFg4n1331xP
+	5wtKh3vcSyfeWSVH1Hxr8ivy6Vo3YlLtzekE=
+X-Received: by 2002:a05:6402:5630:b0:6aa:1112:62f2 with SMTP id
+ 4fb4d7f45d1cf-6b442fcb0b1mr5488509a12.15.1792993133095; Sun, 25 Oct 2026
+ 22:38:53 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+References: <20261024092558.143621-1-alan.tseng.cs@gmail.com>
+ <20261024092558.143621-2-alan.tseng.cs@gmail.com> <CANAwSgQ=Djw_o89MgvEsmKVxuNiE3Yuy=e0T5DcLfqCYy6eWMw@mail.gmail.com>
+ <20261025130206.187282-1-alan.tseng.cs@gmail.com>
+In-Reply-To: <20261025130206.187282-1-alan.tseng.cs@gmail.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Mon, 26 Oct 2026 11:08:36 +0530
+X-Gm-Features: AclHuK9RjSFEksyS7-_jnVXSvRIxT2GkoKRYV9Xd_PqlQ07C_F6NfX7RJdwzzV4
+Message-ID: <CANAwSgTiSiEfdLD7yUwcbFnXfRpnSNZu_GXLnQnXipc+ansnPQ@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] riscv: dts: spacemit: k1: mark boot-critical SoC
+ nodes bootph-pre-ram
+To: Hung-Chun Tseng <alan.tseng.cs@gmail.com>
+Cc: dlan@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	e@freeshell.de, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_204434_413730_FE921ABE 
-X-CRM114-Status: GOOD (  22.89  )
-X-Spam-Score: -1.1 (-)
+X-CRM114-CacheID: sfid-20261025_223855_294421_94A53D66 
+X-CRM114-Status: GOOD (  32.52  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,149 +122,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FORGED_GMAIL_RCVD,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The original code is essentially asking: for each possible floating
-point mode, ask if reg_num is a status control register or a data
-register. It is redundant to ask those same questions for every
-possible floating point mode case.
+Hi Hung-Chun,
 
-In order to only ask the "status control register or data register"
-question once, the variables in the status control if statement and
-the data register if statement that would be different depending on
-the type of floating point mode (for example,
-KVM_REG_RISCV_FP_F_REG(fcsr) would be KVM_REG_RISCV_FP_D_REG(fcsr) if
-the floating point mode was double) were made local variables of the
-entire function so that once the cpu passes the if statement inquiring
-whether it is double point mode or single point mode, all the
-variables that change depending on the type in the status control if
-statements and data register if statements will be set to the
-appropriate values they should be when in that mode before/when it
-enters the status control and data register if statements, allowing me
-to only have to ask those questions once and creating a dynamic code
-that changes based on the information. This results in a "asking the
-type then asking status control or data register question once"
-structure rather than a type-questions, type-questions redundant
-structure like before.
+On Sun, 25 Oct 2026 at 18:32, Hung-Chun Tseng <alan.tseng.cs@gmail.com> wrote:
+>
+> Hi Anand,
+>
+> On Sun, 25 Oct 2026 at 18:43, Anand Moon <linux.amoon@gmail.com> wrote:
+> > Could you update the pinctrl and GPIO configurations, including all
+> > necessary pin
+> > assignments, to bring up the SD card, PCIe, and Ethernet nodes?
+> >
+> > Please ensure that the required bootph-pre-ram properties are applied
+> > to the relevant
+> > pinctrl, GPIO, and other dependent nodes wherever necessary for SD card boot and
+> > SPL initialization.
+>
+> I'd like to keep this series to what is needed before DRAM is up.
+> PCIe and Ethernet are not used in that phase, and their pinctrl-0
+> entries are already in the board files.
+>
+> For the boot media, the BootROM has already set up the pins of the
+> device it loaded the SPL from. U-Boot's spacemit_k1_defconfig does
+> not enable SPL_PINCTRL or SPL_GPIO either, so the tags would have no
+> user today. SD boot on a Milk-V Jupiter works without them.
+>
+It is partially working, but the current approach is not ideal.
+I have made some driver and configuration changes to get it working on
+my Banana Pi BPI-F3.
 
-This results in faster cpu execution because despite the longer lines
-of code the cpu has to make less decisions, which saves time in case,
-due to its tendency to make assumptions about what an if statement will
-evaluate to, it has to backpedal because it realized it needed to go
-down a different if statement/path. Finding an address via my
-bare-metal approach is also faster than looking up an object properties
-and then an array. It is also more maintainable in the future. If the
-original code needed to be changed, you would have to remember to do
-the same thing to both type blocks whereas mine would just require a
-change in the beginning if statements. If a new floating point mode was
-added you have to ask those same questions all over again, which may
-make the code longer in the long run.
+The main issue is that SPL_PINCTRL and SPL_GPIO support are required
+for board bring-up,
+but these options are currently missing from the U-Boot configuration.
 
-I also renamed reg_num to token_reg_num in my code as I felt it made
-it clearer that it was the register number the application wants and
-requested in a token so that it can write data into that register. It
-differentiated it from the many other variables with the word reg in
-it.
+Here is my u-boot logs with some debug prints.
 
-Signed-off-by: Paul White <paul.white.kernel@gmail.com>
----
- arch/riscv/kvm/vcpu_fp.c | 64 ++++++++++++++++++++++++----------------
- 1 file changed, 38 insertions(+), 26 deletions(-)
+[1] https://gist.github.com/moonlinux/a491bf56bfa914e4bf5f661635eefe9c
 
-diff --git a/arch/riscv/kvm/vcpu_fp.c b/arch/riscv/kvm/vcpu_fp.c
-index 16999a5c45de..fe4957603519 100644
---- a/arch/riscv/kvm/vcpu_fp.c
-+++ b/arch/riscv/kvm/vcpu_fp.c
-@@ -144,41 +144,53 @@ int kvm_riscv_vcpu_set_reg_fp(struct kvm_vcpu *vcpu,
- 	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
- 	unsigned long __user *uaddr =
- 			(unsigned long __user *)(unsigned long)reg->addr;
--	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
-+	unsigned long token_reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
- 					    KVM_REG_SIZE_MASK |
- 					    rtype);
- 	void *reg_val;
- 
-+	u32 *fcsr_addr;
-+	void *f_array_addr;
-+	size_t byte_offset = 0;
-+	unsigned long offical_fcsr_num = 0;
-+	unsigned long offical_first_reg = 0;
-+	unsigned long offical_last_reg = 0;
-+
- 	if ((rtype == KVM_REG_RISCV_FP_F) &&
- 	    riscv_isa_extension_available(vcpu->arch.isa, F)) {
-+		fcsr_addr = &cntx->fp.f.fcsr;
-+		f_array_addr = &cntx->fp.f.f;
-+		byte_offset = 4;
-+		offical_fcsr_num = KVM_REG_RISCV_FP_F_REG(fcsr);
-+		offical_first_reg = KVM_REG_RISCV_FP_F_REG(f[0]);
-+		offical_last_reg = KVM_REG_RISCV_FP_F_REG(f[31]);
-+	} else if  ((rtype == KVM_REG_RISCV_FP_D) &&
-+			   riscv_isa_extension_available(vcpu->arch.isa, D)) {
-+		fcsr_addr = &cntx->fp.d.fcsr;
-+		f_array_addr = &cntx->fp.d.f;
-+		byte_offset = 8;
-+		offical_fcsr_num = KVM_REG_RISCV_FP_D_REG(fcsr);
-+		offical_first_reg = KVM_REG_RISCV_FP_D_REG(f[0]);
-+		offical_last_reg = KVM_REG_RISCV_FP_D_REG(f[31]);
-+	} else {
-+		return -ENOENT;
-+	}
-+
-+	if (token_reg_num == offical_fcsr_num) {
- 		if (KVM_REG_SIZE(reg->id) != sizeof(u32))
- 			return -EINVAL;
--		if (reg_num == KVM_REG_RISCV_FP_F_REG(fcsr))
--			reg_val = &cntx->fp.f.fcsr;
--		else if ((KVM_REG_RISCV_FP_F_REG(f[0]) <= reg_num) &&
--			 reg_num <= KVM_REG_RISCV_FP_F_REG(f[31])) {
--			reg_num = array_index_nospec(reg_num,
--						     ARRAY_SIZE(cntx->fp.f.f));
--			reg_val = &cntx->fp.f.f[reg_num];
--		} else
--			return -ENOENT;
--	} else if ((rtype == KVM_REG_RISCV_FP_D) &&
--		   riscv_isa_extension_available(vcpu->arch.isa, D)) {
--		if (reg_num == KVM_REG_RISCV_FP_D_REG(fcsr)) {
--			if (KVM_REG_SIZE(reg->id) != sizeof(u32))
--				return -EINVAL;
--			reg_val = &cntx->fp.d.fcsr;
--		} else if ((KVM_REG_RISCV_FP_D_REG(f[0]) <= reg_num) &&
--			   reg_num <= KVM_REG_RISCV_FP_D_REG(f[31])) {
--			if (KVM_REG_SIZE(reg->id) != sizeof(u64))
--				return -EINVAL;
--			reg_num = array_index_nospec(reg_num,
--						     ARRAY_SIZE(cntx->fp.d.f));
--			reg_val = &cntx->fp.d.f[reg_num];
--		} else
--			return -ENOENT;
--	} else
-+		reg_val = fcsr_addr;
-+	} else if ((offical_first_reg <= token_reg_num) && (token_reg_num <= offical_last_reg)) {
-+		if ((KVM_REG_SIZE(reg->id) != sizeof(u32)) &&
-+		    (KVM_REG_SIZE(reg->id) != sizeof(u64))) {
-+			return -EINVAL;
-+		}
-+		token_reg_num = array_index_nospec(token_reg_num,
-+						   32);
-+		reg_val = (u8 *)f_array_addr + (token_reg_num * byte_offset);
-+	} else {
- 		return -ENOENT;
-+	}
- 
- 	if (copy_from_user(reg_val, uaddr, KVM_REG_SIZE(reg->id)))
- 		return -EFAULT;
--- 
-2.53.0
+> E also asked on the cover letter to keep the BootROM part and the DRAM
+> part apart, so I'd rather not widen it.
+>
+> > Additionally, could you update the regulator-name properties for
+> > vdd_core, vdd_1v8,
+> > and vdd_1v8_mmc?  On all the boards, the SPL code requires these regulator names
+> > to locate and enable the corresponding regulators during early boot.
+>
+> These names come from the U-Boot SPL code, not from the board
+> schematics, and U-Boot already sets them in
+> arch/riscv/dts/k1-bananapi-f3-u-boot.dtsi and k1-musepi-pro-u-boot.dtsi.
+> I think that is the right place for them.
+>
+I have made some changes while integrating this patch series into U-Boot.
+I am following the approach used in configs/starfive_visionfive2_defconfig
+to keep arch/riscv/dts/spacemit-k1-u-boot.dtsi as minimal and generic
+as possible,
+focusing only on the essential SPL bring-up requirements.
 
+> > I am verifying the changes against the existing U-Boot board device
+> > tree and configuration to ensure
+> > that SD card, eMMC, PCIe, and Ethernet initialization work correctly.
+>
+> Thanks for testing. Please let me know how it goes.
+
+The goal is to move most board bring-up configuration into the
+upstream device tree,
+allowing each board to enable its peripherals using the existing
+upstream configuration.
+Once this patch series is merged into U-Boot's dts/upstream/, we can
+keep the board-specific
+configuration minimal, avoid duplication, and reduce the maintenance burden.
+
+>
+> Thanks,
+> Hung-Chun
+
+Thanks
+-Anand
 
 _______________________________________________
 linux-riscv mailing list
