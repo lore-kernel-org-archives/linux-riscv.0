@@ -2,118 +2,99 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 824FF606A31A
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 21:08:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C168606A32C
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2026 23:26:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=M1ClGSc7;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CQuxmZUJ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ygdzReYL;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dVSKUpok
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=j8jYKkbf3Tx7Cv5Ol83vaIIgu1XKu2jGEVoXex21caQ=; b=M1ClGSc7zHU3vciGVFuyp1hSiH
-	jk2WuSB4cCQviD2BrhWIEucSDddq6KI0oIgxFXnq/0xUCQ9JmdXKBOVXbdWf0Dok39qYVltjaMqM0
-	ItCP0LY8LoVGAQlH9/OAIcnOTwen6JxuNY6z1l9hmlSKdR0EiuQTmE+b+Zfbp42+UAnLc/N3ppJ2T
-	e+iXd7km2VmNzmqtyIwfLox0kLEzEex0s40vShUgrY2Mo/J3xl7UTj1owvSuO9TDFly662FGTQ76I
-	+Z2U31ExeG2ffCcsM/8+DrVHWPMb9YeoJueCZmoz+6EqurLK/mnt/3Ls7TrO6cxkQr0r2kxAMIeZD
-	d9uHHJNQ==;
+	bh=p4LTwVtqLGpBwvgFC0d3SXUntn/AL+kfEYaWoATzlPI=; b=ygdzReYL2lvKVZl8lwVYwz4n4Q
+	qgVhk0QMf3EBcwCx5D3SQMxH6+C45ZlSOcIhx60gzUGuuZqpR/zcBEPw+MN6RTuPFAcWreL/7kzLT
+	OG6GbE9WEAljigJzZU3ogJdabSfd3PXmYJNPZHfWGiD8MYJ0Ksds4b7iAYx55J5doBu1N+xhJU3ZM
+	I8Db7+qbBDQzKra54R1hYtfQZajDBi1uSvedhECpsd3SUO3ven5D5gUyaBN9YeL6aE3x/xpAohQ85
+	CY4P3wu+7zhRPu/uKNi0pFsCkSJaILniG5AEfNBZPEJ1b0uIiQgJJ/gVMdULKGzI3/owGfdl13nXT
+	UDvTAImg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLRvf-00000003Gl0-2XpX;
-	Mon, 26 Oct 2026 21:08:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xLU4k-00000003Qfv-1yUm;
+	Mon, 26 Oct 2026 23:25:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLRve-00000003Gku-1P77
+	id 1xLU4j-00000003Qfn-3zq9
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Oct 2026 21:08:26 +0000
+	Mon, 26 Oct 2026 23:25:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BBA36405FB;
-	Mon, 26 Oct 2026 21:08:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCCDF1F01825;
-	Mon, 26 Oct 2026 21:08:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B3B1640F0B;
+	Mon, 26 Oct 2026 23:25:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 418561F031E6;
+	Mon, 26 Oct 2026 23:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793048905;
-	bh=PC1CXbiHzhQLku5W1cl0FjvjhWJ5KEZGUIcph1ecHwY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=CQuxmZUJFoHe/jVdB/Td1vVaISzkT31yz4kuoP+9Yf6XgCaMbl6F5B4zTdm8amOx6
-	 Z2zDvTa7sws8ye+cXb9w90RQJ1xrpGccTMU/inaNNbT9EOS+7YKzBDHxrl8TVHJpKi
-	 jQVOUH5FOREAqLhZHRorelHQKb4HpsMDpXypnX13JNXddnVaAyripGFIM3k/BAYi3t
-	 qhee9qBa0Muu2zQtovUANgP48Gz45LaFAzSypGrjypZDV75SDXJOWSKQO9cLhgq8IV
-	 aahuPEKJro72FUipgua8rXcW+Tz43i0i+D+bXeiJ5dnHRDltvwZPwpMrkGuVDew2YA
-	 VT7p4t6xKB7Qw==
-Message-ID: <ebc7bde1-f52e-4da8-b16f-822d6c0a4d74@kernel.org>
-Date: Mon, 26 Oct 2026 18:45:48 +0100
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	s=k20260515; t=1793057157;
+	bh=Q0pu8Ss8TrSLj8FO7fPlBZkaV3M1b2y5HjOs69Tagg4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dVSKUpokpjZ2lKz5sgu2+jgvyzGaSAX6vRYnlBpqKjvv2mqyYXaKpBuR9ymf5d4t8
+	 tq9iBj4ML9mzo4NKpDlpawTt+NR7UDyy+Nryj6tREZ7yArc/rpBOpz/A4/5br4zG0+
+	 x0iZdj2f5Sb5mwmph2bcuRITXMEesZE9h+BBFF/4Ov3fZwvoF7ayNIbuWmfsW/EaFa
+	 uCYZV36D8wg+9VF8I0AsLF+HgmaGBIG64Mybgex/7/uAKQwJJFOb3g+Ha1dY3JZJU3
+	 cv+TTihPxIhbLZRaqQuPTWl+/FxkHdQBqxm5KMmqpUXuBfJWoDm+8MDdv9iWk9VtNB
+	 vWJGYSqa3KOOw==
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 777D9198003A;
+	Mon, 26 Oct 2026 19:25:50 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-06.internal (MEProxy); Mon, 26 Oct 2026 19:25:54 -0400
+X-ME-Sender: <xms:feHfanZpZUzt37xIKFMuhKYUFAtgK8yWR3GHHYBN4crIzFUmPStkLg>
+    <xme:feHfaqGlVMcnpDgJwDaPOrhkpPz-l7KLsejCHugjrfQNWs-YOMd1UNJGC3J8HMdhb
+    XxwLAGBAeAYEZz9m5T6y4uz95UExrZAV9TlK9SXo7Sfx6kNBTl0qwJ0rw>
+X-ME-Received: <xmr:feHfalA5lzAkAy0z_s4afQXpTiAjCdmMnVzhaz0p1_wzq0YiYLTZcm-gG40>
+X-ME-Proxy-Cause: dmFkZTFRlyYFTVCU8gz2uLLoT2C5lHvwgmu12wMMEQ6YxiRDppxkDVz3lGvq6FPF9nVzQk
+    SFaEBrDBm1p0HD3mb1az3KLUorngiBeBcGFQN9J0rx7wJvoCKxUijbnqaYFl15corEhTQ3
+    PtbN5UIO7QLz7cypEQ8KcC2DzjGrV9Kt9rYgVrf9N4HJAQWkm8mmBm9ly2gH8NcVzKWb12
+    dY2VvASWoZK+uTeLH2UyJQt1P3Hsxk6Rmsloqw7ul0jaPTfpquQD0WRZHE9UeHHD+0psFm
+    YzE1oihGTq+GRZjvnCp6GuUBvQ9PVGybvVXIYcMJEViW6EseE1H2NDWp8egeDxaoUcaxLZ
+    SSSoIStv9q2nnST4FJGE2BV02RK9Mhkpe7p+aVCmZvN7WfopAV9qpW/cKGTYxBR3CwdGWI
+    TNjIcQbidM4621IEdTS3q111CDkxnz60VIpI3FChrbNu3d9zbDhf0LIE2iY2ejz8kQnCDC
+    QL9Q3UBqwbVUOn/4huG7cF/Z/XCSZgWxN3N7B+TmGSgnLVdpuMehA9FZzTPavrZCspYWvl
+    vPboJw8C0/8RbgeUatl8cUmLEQTyYeHySn5wVJjJP5PUs2i0Jnf2FmFHiajzSQ/3Xdf+06
+    CRN3+1TBQULPtrqMtYKPJ/rmbhFwk5F7bDLJcFimdhxy1Ti7vqxpOKPm/5Qw
+X-ME-Proxy: <xmx:feHfarEmGn9mslsPWrk22jv1auijKERY1VJIkEeWMKixgN4FxGkirw>
+    <xmx:feHfaoKcSWozlOVaBIiqZZ61MY9JFby0V3o3Tv8W-V45yKwYpmKbEw>
+    <xmx:feHfavv2_vQ0rVxLyS2FbZtDsbmCX5kQvzWIKr8U5kzHZtLaIKhSSw>
+    <xmx:feHfaloD4SLm4alh9hDWWN68BxlT5hOWB_-adeAqEbrckPhYCyPUdw>
+    <xmx:fuHfajUgFsFx_vLn6zIxQC_SLrFj7GMClday7_qablEEOnO_uCuY1ALk>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 26 Oct 2026 19:25:47 -0400 (EDT)
+Date: Mon, 26 Oct 2026 23:25:46 +0000
+From: Kiryl Shutsemau <kas@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>, 
+	Usama Arif <usamaarif642@gmail.com>, Frank van der Linden <fvdl@google.com>, 
+	Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>, 
+	Vlastimil Babka <vbabka@suse.cz>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	Zi Yan <ziy@nvidia.com>, Baoquan He <bhe@redhat.com>, Michal Hocko <mhocko@suse.com>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, kernel-team@meta.com, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
 Subject: Re: [PATCHv7 13/18] mm: Drop fake head checks
-To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
- Usama Arif <usamaarif642@gmail.com>, Frank van der Linden <fvdl@google.com>
-Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
- Vlastimil Babka <vbabka@suse.cz>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Zi Yan <ziy@nvidia.com>,
- Baoquan He <bhe@redhat.com>, Michal Hocko <mhocko@suse.com>,
- Johannes Weiner <hannes@cmpxchg.org>, Jonathan Corbet <corbet@lwn.net>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, kernel-team@meta.com, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
+Message-ID: <at_f43oDv73y-t7O@thinkstation>
 References: <20260227194302.274384-1-kas@kernel.org>
  <20260227194302.274384-14-kas@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260227194302.274384-14-kas@kernel.org>
+ <ebc7bde1-f52e-4da8-b16f-822d6c0a4d74@kernel.org>
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <ebc7bde1-f52e-4da8-b16f-822d6c0a4d74@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,62 +107,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DATE_IN_PAST_03_06,
-	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 2/27/26 20:42, Kiryl Shutsemau (Meta) wrote:
-> From: Kiryl Shutsemau <kas@kernel.org>
+On Mon, Oct 26, 2026 at 06:45:48PM +0100, David Hildenbrand (Arm) wrote:
+> On 2/27/26 20:42, Kiryl Shutsemau (Meta) wrote:
+> > From: Kiryl Shutsemau <kas@kernel.org>
+> > 
+> > With fake head pages eliminated in the previous commit, remove the
+> > supporting infrastructure:
+> > 
+> >   - page_fixed_fake_head(): no longer needed to detect fake heads;
+> >   - page_is_fake_head(): no longer needed;
+> >   - page_count_writable(): no longer needed for RCU protection;
+> >   - RCU read_lock in page_ref_add_unless(): no longer needed;
 > 
-> With fake head pages eliminated in the previous commit, remove the
-> supporting infrastructure:
-> 
->   - page_fixed_fake_head(): no longer needed to detect fake heads;
->   - page_is_fake_head(): no longer needed;
->   - page_count_writable(): no longer needed for RCU protection;
->   - RCU read_lock in page_ref_add_unless(): no longer needed;
+> I have an AI report that removing RCU read-lock was wrong.
 
-I have an AI report that removing RCU read-lock was wrong.
+Ughh. Yes, it is a real bug.
 
-The sequence is trivial:
+My reasoning in the commit message was wrong. Nothing stops a
+speculative get from writing to one after the remap. On x86 even a
+failing cmpxchg faults there.
 
-1) read() -> .... page_ref_add_unless_zero() -> atomic_add_unless()
+The fix I have in mind is to let the atomic fault.
 
-	int c = raw_atomic_read(v);
+If the update faults, the struct page is a read-only HVO tail with a
+zero refcount, so the get just fails. An exception table entry on the
+cmpxchg handles it. No RCU on either side, and the fast path stays the
+same lock cmpxchg loop.
 
-	do {
-		if (unlikely(c == u))
-			break;
+Only x86, riscv and loongarch have HVO. Below is x86 only, to show the
+idea; riscv and loongarch need the same primitive in their LL/SC
+fetch_add_unless().
 
-We pass that check. Then we sleep (rescheduled, vcpu rescheduled etc)
+Lightly tested on x86 by hitting a real HVO tail page.
 
-2) Page gets freed
+Does it look sane?
 
-3) Huge page gets allocated and HVO makes the struct page read-only.
+I can prepare a proper patchset if looks reasonable.
 
-4) 1) continues
-
-	} while (!raw_atomic_try_cmpxchg(v, &c, c + a));
-
-
-Then we try to write to a memmap that has been optimized by HVO and is read-only.
-
-Apparently easy to reproduce by adding a delay before the cmpxchg().
-
-
-The AI fix I received alongside the report is obviously complete garbage (as it
-causes severe overhead on all fronts) and I am going to spare you from it.
-
-Can you look into it?
-
+diff --git a/arch/x86/include/asm/atomic.h b/arch/x86/include/asm/atomic.h
+index 75743f1dfd4e..5252b1382ed0 100644
+--- a/arch/x86/include/asm/atomic.h
++++ b/arch/x86/include/asm/atomic.h
+@@ -108,6 +108,25 @@ static __always_inline bool arch_atomic_try_cmpxchg(atomic_t *v, int *old, int n
+ }
+ #define arch_atomic_try_cmpxchg arch_atomic_try_cmpxchg
+ 
++/*
++ * arch_atomic_fetch_add_unless_nofault() is arch_atomic_fetch_add_unless(),
++ * except that a fault on the access jumps to @label instead of oopsing.  It
++ * works in any context, including with IRQs disabled.
++ */
++#define arch_atomic_fetch_add_unless_nofault(_v, _a, _u, label)	\
++({									\
++	atomic_t *__v = (_v);						\
++	int __a = (_a), __u = (_u);					\
++	int __c = arch_atomic_read(__v);				\
++									\
++	do {								\
++		if (unlikely(__c == __u))				\
++			break;						\
++	} while (!__try_cmpxchg_nofault(&__v->counter, &__c,		\
++					__c + __a, label));		\
++	__c;								\
++})
++
+ static __always_inline int arch_atomic_xchg(atomic_t *v, int new)
+ {
+ 	return arch_xchg(&v->counter, new);
+diff --git a/arch/x86/include/asm/cmpxchg.h b/arch/x86/include/asm/cmpxchg.h
+index a88b06f1c35e..685aab3edd3f 100644
+--- a/arch/x86/include/asm/cmpxchg.h
++++ b/arch/x86/include/asm/cmpxchg.h
+@@ -232,6 +232,63 @@ extern void __add_wrong_size(void)
+ #define arch_try_cmpxchg_local(ptr, pold, new)				\
+ 	__try_cmpxchg_local((ptr), (pold), (new), sizeof(*(ptr)))
+ 
++/*
++ * __try_cmpxchg_nofault() is arch_try_cmpxchg() on a 4-byte kernel variable,
++ * except that a fault on the access jumps to @label instead of oopsing.
++ */
++#ifdef CONFIG_CC_HAS_ASM_GOTO_TIED_OUTPUT
++#define __try_cmpxchg_nofault(_ptr, _pold, _new, label)		\
++({									\
++	bool success;							\
++	__typeof__(_ptr) _old = (__typeof__(_ptr))(_pold);		\
++	__typeof__(*(_ptr)) __old = *_old;				\
++	__typeof__(*(_ptr)) __new = (_new);				\
++									\
++	if (sizeof(*(_ptr)) != 4)					\
++		__cmpxchg_wrong_size();					\
++	asm_goto_output("\n"						\
++			"1: " LOCK_PREFIX "cmpxchgl %[new], %[ptr]\n"	\
++			_ASM_EXTABLE(1b, %l[label])			\
++			: "=@ccz" (success),				\
++			  [ptr] "+m" (*(_ptr)),				\
++			  [old] "+a" (__old)				\
++			: [new] "r" (__new)				\
++			: "memory"					\
++			: label);					\
++	if (unlikely(!success))						\
++		*_old = __old;						\
++	likely(success);						\
++})
++#else
++#define __try_cmpxchg_nofault(_ptr, _pold, _new, label)		\
++({									\
++	int __err = 0;							\
++	bool success;							\
++	__typeof__(_ptr) _old = (__typeof__(_ptr))(_pold);		\
++	__typeof__(*(_ptr)) __old = *_old;				\
++	__typeof__(*(_ptr)) __new = (_new);				\
++									\
++	if (sizeof(*(_ptr)) != 4)					\
++		__cmpxchg_wrong_size();					\
++	asm volatile("\n"						\
++		     "1: " LOCK_PREFIX "cmpxchgl %[new], %[ptr]\n"	\
++		     "2:\n"						\
++		     _ASM_EXTABLE_TYPE_REG(1b, 2b, EX_TYPE_EFAULT_REG,	\
++					   %[errout])			\
++		     : "=@ccz" (success),				\
++		       [errout] "+r" (__err),				\
++		       [ptr] "+m" (*(_ptr)),				\
++		       [old] "+a" (__old)				\
++		     : [new] "r" (__new)				\
++		     : "memory");					\
++	if (unlikely(__err))						\
++		goto label;						\
++	if (unlikely(!success))						\
++		*_old = __old;						\
++	likely(success);						\
++})
++#endif
++
+ /*
+  * xadd() adds "inc" to "*ptr" and atomically returns the previous
+  * value of "*ptr".
+diff --git a/include/linux/page_ref.h b/include/linux/page_ref.h
+index 9f5c75d06f76..82a2fc445ce6 100644
+--- a/include/linux/page_ref.h
++++ b/include/linux/page_ref.h
+@@ -246,9 +246,31 @@ static inline int folio_ref_dec_return(struct folio *folio)
+ 	return page_ref_dec_return(&folio->page);
+ }
+ 
++#ifdef CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
++/*
++ * HVO maps the tail struct pages of a hugetlb folio read-only.  A speculative
++ * caller can read a non-zero refcount, then the page gets freed, becomes a
++ * tail page of a hugetlb folio and is remapped before the update.  The
++ * atomic then faults.  A read-only struct page is a hugetlb tail page with a
++ * zero refcount, so the fault means no reference can be taken.
++ */
++static __always_inline bool __page_ref_add_unless_zero(atomic_t *v, int nr)
++{
++	instrument_atomic_read_write(v, sizeof(*v));
++	return arch_atomic_fetch_add_unless_nofault(v, nr, 0, fault) != 0;
++fault:
++	return false;
++}
++#else
++static __always_inline bool __page_ref_add_unless_zero(atomic_t *v, int nr)
++{
++	return atomic_add_unless(v, nr, 0);
++}
++#endif
++
+ static inline bool page_ref_add_unless_zero(struct page *page, int nr)
+ {
+-	bool ret = atomic_add_unless(&page->_refcount, nr, 0);
++	bool ret = __page_ref_add_unless_zero(&page->_refcount, nr);
+ 
+ 	if (page_ref_tracepoint_active(page_ref_mod_unless))
+ 		__page_ref_mod_unless(page, nr, ret);
 -- 
-Cheers,
-
-David
+  Kiryl Shutsemau / Kirill A. Shutemov
 
 _______________________________________________
 linux-riscv mailing list
