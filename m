@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B292606A31D
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 06:36:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FC54606A323
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 06:36:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FsW0A5PV;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=MaI5+MYi
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yBTiTKV0;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=Snx6N9ZQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,66 +14,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=/xRTNPZ0phsoeBHakhxHsBV8fPH3E4ozBpobCG5+ktY=; b=FsW0A5PVvCgMjF1fQLva3RZa/Z
-	eLL9TDpe6qsXRFw37lSh2IFrTFrADV+Q5utkXQi8weq0wbs6+/UAQQ7bRjkARvkQoh7Nhc/T0Bf+f
-	3Sbhk+/jRwP9Alm5LzCzRp0+EN+WA6Ct2b/F/2Z7smXxYvV6aVsfDBdYhrTvl2PiLT+OvTnJeBO1x
-	YV99qDn9GFEFOQcnzkY5lsDvsS8kS9sELbgd0LgFG2lyuEen2Q6P91+V9mktoOD0sQpSsD5DDLDEU
-	oYeCjMSu09s4XlzR/ho94TZ1YvLOSV4aN+SranW9PuaFVfCAr5v//aDCMb2+Df8JRygbHvm2ePjhq
-	k2Eir0hA==;
+	bh=IIIK2eJ1tc+PxSNixg5LPm6dzLhHuOG6i734o1/7wAk=; b=yBTiTKV02tKSZjS2h+kV+QJABk
+	bjCekEh+khUO1hbdhoIUpDoITlNWiXsdm/XtOMw+MDbBjLgW11X63XwMMs4//lAWHZk8cMBKsEc8Z
+	5ZsbHnwoUwWwSDI/61/AsGuefsOGgy2/i6qHwSKogtRbCNdOJQgHygtH+nbysrBLH/C3Xzy3kNkft
+	NenUqWpHMHrpAG7tXaYEZ6Ckqj6Kh1CQF6Pqk9h0ISG/kEpZTXY9ORJ/8S8lepAC9a82oYdacN7jB
+	mcuFLnCgihMIj/7xtKEvvRqBPPYiy0WIBr1nSZlLzFVYRZr1+dcoKEoGN8BMvNz3YLIicGa6G+lKi
+	ncCWBGIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLanQ-00000003qT0-3iUh;
-	Tue, 27 Oct 2026 06:36:32 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1xLanV-00000003qWx-0hex;
+	Tue, 27 Oct 2026 06:36:37 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLanL-00000003qPK-37AY
+	id 1xLanS-00000003qTR-0Zjy
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Oct 2026 06:36:31 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2ea759cc9b6so14200065ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 26 Oct 2026 23:36:27 -0700 (PDT)
+	Tue, 27 Oct 2026 06:36:35 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-cc4aa0246b7so1575788a12.3
+        for <linux-riscv@lists.infradead.org>; Mon, 26 Oct 2026 23:36:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chrisdown.name; s=google; t=1793082987; x=1793687787; darn=lists.infradead.org;
+        d=chrisdown.name; s=google; t=1793082993; x=1793687793; darn=lists.infradead.org;
         h=user-agent:in-reply-to:content-disposition:content-type
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=jw0B9wUqj1NgmgC61ADFFOy+zq/xWh/Ds6uCN7rNkRA=;
-        b=MaI5+MYiOxM1qWepHPRd3ylPvIzwO8cMYblsnfW8gT6wxhu+96iIbdkIO9qvugI+g8
-         5TVcE7VV8MghdiqHpLquMofe3GEcnOSe+aH1dQJzZJNLMQ2UilaFPTKFGTnUEc2TqSBd
-         r5wquhkchSfvEBGE5sYy0DDwPhyzf+h2J4chE=
+        bh=dYFbbcr2uYZUTl7G/v0LoaX9lneqHtmhHpczJAH5sbg=;
+        b=Snx6N9ZQGxKyEHSSMZidInOfCCOMXC9++AAQLVaGiKsdqMDSchtYDwLY9oFnpbtKqO
+         nu8C7gEqQ991flGNolG3v1c8YbX0lLJHGFExjWMCftCTE192+XSqQpYvczItUpZILODy
+         XoC4uQ49M1KDVzXY8hSfVoUMXX2RcXe1Qm/3E=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793082987; x=1793687787;
+        d=1e100.net; s=20260707; t=1793082993; x=1793687793;
         h=user-agent:in-reply-to:content-disposition:content-type
          :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=jw0B9wUqj1NgmgC61ADFFOy+zq/xWh/Ds6uCN7rNkRA=;
-        b=WHrQJ666PSGJzUWbRBKmTsVSZxEPL9KllMhnYbS0yWH8Yt4eOLaiDJgm9JCQorP9Q8
-         8MhiQ3rzCcjuvjWDJSshatZCsglsNicRHuDwxOZ209QYlYZL/xYt76mDAwzNocAjwGGi
-         dMo2rLOnELEtS8CMIbsPs6YYr2KzvTl4xQKtCV84HzjDszOmLoVqCwmuq4ZhxJsCUl9r
-         e84phlF9rAb+xIltUhCzD503GzfRrNO8c5sGbGEKRARyK+PE8glupiR4VuY//oaodRgo
-         UPncvYp1ZDt+MTPDZ7NAj54mlbJNbfM3ZoesnFZUwMiGeBWyAr1Fg6wXbqJf4RC/q7eq
-         ztcw==
-X-Forwarded-Encrypted: i=1; AKwUvBzWEvruG+OUCKXvyHHJVKe9uvdLNSuUg7oRmaQ3/9h9rMZLDtvH9/DpWHNncc1x3afm/6g3AOjULcqWAQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYLtIc481Cy8zavXe9QMyXzMHbACqHTJRK0tuzE9HzlpQDvqzvCl
-	41LxsocnwziCgldTuO2pyC4rhwiHqAzRF+xu7TeAAKtxO2Nu0JR97iMFk7kuU0YVFYl5BIfvT7a
-	wJzwx+enT0vP+UdQ=
-X-Gm-Gg: AYBFou3WgvPbDZFyMkuOAplEjkPkfTyS0NYN6RKXIybPGMrvvEaVNcifwHDQOHsMMFu
-	h1D0f6+PEsTtQpM75dVh9IzleY+v3EfZr2auenZzz99EImrc3PSvyTnh8SOT3Vovi4S7KVwTIf9
-	oZbL6Izj0ZG+KsGkkBLPxtkJLsO1sASqlOhTPBRJHJeFAG8UIpmCQ0TdFPrBot3RuurKSNNZfHu
-	+zYLgaIlbLJrtMYZyVGMjM35u3EJghTutI8hOGDOLRMuizqML7QTQDaiOm8jURx5f3gQCP2y26d
-	x7EDANfj3nxpYzr23RN57emdTujfFvX8TzcNvsRc+jf36xbb5d5KJti0+VibilAuTAFcB22kzSH
-	f4of+5SeXD0GuCwtkXDpjBAilAPWAgVIwZAz99mIiLTareYtUi/+HfSmQrYJliQdQuEgJzUwb9+
-	DVop9nivJqZB/ws1dzSEtUrFhUaaPXrnU+wCdtj35AS4Dk47HJ0UTBGJHTh5mpjWQyJx59HLQIE
-	SJQlkIPyIMEO8SPOOtT20jW+VndZF0wXuvG9gPxqsSTn1akdi+WUg+vDvTotUDrB4ihT7DhdrSQ
-	7td3Ml5obea1yvNAGlJY5pzywzFCvkHCbFJA1luXXVTr8DFZFtQHa7Lf/I69Z3FOzoe1j9IlwqC
-	72lXPQ/3wv5nVBb7B9mwk7jjLKBeP2XM6cQ6L8k3nIfwPok1WZAJxKtN94Um6vx5qwHNZIadN
-X-Received: by 2002:a17:903:3806:b0:2e9:5175:2eb with SMTP id d9443c01a7336-2ea9c0f388fmr74433055ad.1.1793082986640;
-        Mon, 26 Oct 2026 23:36:26 -0700 (PDT)
+        bh=dYFbbcr2uYZUTl7G/v0LoaX9lneqHtmhHpczJAH5sbg=;
+        b=25lJwODfbd8xw45S6+lhT6uw+Tat2B5Ueau8m0zryA4DN8TyoVBZ/hq3+Ae+GA86lI
+         /z2XdLlcRVuakz6y8mDkZqp1bxZqZsfrPbv5DJU6W6qRvCqQrDn1EoDMPreJ2O95r1tJ
+         0eriFMQXZzPxdTw0K8VhSxUUYcqacxzI0ueOlLvIwX9kUALa0KiETmoK1A/iX1PRBszl
+         xaqxgKDELfE0KOWaIo5yUOrfz6fOTq+fLjZEnKFgEo1Oyn6SH2V/s7kNLHX3XURXFZrV
+         WpR/OWQgWsUpu0l2Rx6GYsJQsCn9TaILYtP1Oq3jpUqH6ExIhJueHI1KjLq5SvVzK2yP
+         IeRA==
+X-Forwarded-Encrypted: i=1; AKwUvByRIorsJt5fUMqQeEQAO9oq8iEXfzCj7G5VxDD8rwG7ZKXGHDMcrIGHlYslNTCog6KDzCZmNrpZN6M96g==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKBK+LKBOxMDLHqGTgdwRtLRVcOFK/uorZEwXC2wLjF5aSNJrwb
+	NnazITbCqTN0d2AoGi4xDdRwDFD3J7ddawrUjNveGUsy6/ZeoFw0LP34yGlSZ1cufq8=
+X-Gm-Gg: AYBFou25+aDQNvIU+hq0xPHa5NgDkbW47p24AOYmDEMUXsSv3+MzhQyyGfy+d5+sjem
+	2WN5QUqtTJQpZD4w/nwfmassF/M1SffJ95yFoisF5x/fw5lbJzaDq8UjGTgpy/SoI5LQUkNILKM
+	f1FpaWzn1h/Dg3eGxMXgDvyCD/UJynH6TV4RvX2JGe6ZQw/dy92Klu0dDstZ8GEXXsAjzbYhWmQ
+	74vkIzsA7Go8EAWpTWCO2RGbQzS25rGDuSp5axmuDKzRCNEao7Wx7jSwj0gX5+XaETnGAVMNi2K
+	+BlPeqgOlnoo+fmRxY1HfxzpKmzQEFawwSjfWll90ublJhH1Q5ee0uOQ9uljGqxxyrSdUk8M6g3
+	jbA8IZTvNxwXSR8SauG1RRzwnxiPDemXwX25JmN1IZPEKKAzm0d8oLZBGoFWMItrHHjbjWbssA6
+	vN8ODrTbLFA0pKStTbWuL2UNVEu8/ZmFhIPF+RnS7k0bX836KPUUSmhhPBpFCR8NJAZJvgvn8wh
+	TADP9Q6GAv2DwElgRAYDnqQHBVD4SHfYpKkKeNG+VI07sEoujKHza/3bJCQSMmM3ypJ6N/Yudqi
+	ZrCR0LJBxlnVWieoU4a22hfgmUtEgnaXvT65yEzXCEEBCk1cdA8thfCFu48SMlF+VHsi+JaKcV7
+	ubPGBDKx16+0ZoeNmKlClmVI=
+X-Received: by 2002:a17:90b:3ec2:b0:3a8:1a1a:7895 with SMTP id 98e67ed59e1d1-3adeae6d30bmr6210081a91.18.1793082993200;
+        Mon, 26 Oct 2026 23:36:33 -0700 (PDT)
 Received: from localhost ([116.86.153.182])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eae6b768ffsm4180085ad.24.2026.10.26.23.36.24
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae40456f65sm2331529a91.13.2026.10.26.23.36.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 23:36:25 -0700 (PDT)
-Date: Tue, 27 Oct 2026 14:36:21 +0800
+        Mon, 26 Oct 2026 23:36:32 -0700 (PDT)
+Date: Tue, 27 Oct 2026 14:36:28 +0800
 From: Chris Down <chris@chrisdown.name>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	Kees Cook <kees@kernel.org>
@@ -96,8 +95,9 @@ Cc: Juri Lelli <juri.lelli@redhat.com>,
 	linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
 	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
 	kernel-team@meta.com
-Subject: [PATCH 2/3] sched/core: Add sched_stack_end_check= boot parameter
-Message-ID: <3d2bb6a8508b9d801878bb82c88165a1b1ff5f40.1793082868.git.chris@chrisdown.name>
+Subject: [PATCH 3/3] lkdtm/bugs: Add CORRUPT_STACK_END to test the scheduler
+ stack end check
+Message-ID: <7c4627a57202b505bc03837680f6b43c2683bc07.1793082868.git.chris@chrisdown.name>
 References: <cover.1793082868.git.chris@chrisdown.name>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
@@ -105,8 +105,8 @@ Content-Disposition: inline
 In-Reply-To: <cover.1793082868.git.chris@chrisdown.name>
 User-Agent: Mutt/2.3.3 (9073d26d) (2026-06-12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_233627_790180_02E13A51 
-X-CRM114-Status: GOOD (  19.88  )
+X-CRM114-CacheID: sfid-20261026_233634_197067_749B65B9 
+X-CRM114-Status: GOOD (  14.17  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,93 +128,65 @@ X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-CONFIG_SCHED_STACK_END_CHECK makes schedule_debug() check the magic at
-the end of the outgoing task's stack and panic if it has been
-overwritten.
-
-Right now this can only be configured by setting the Kconfig option at
-build time. At Meta we have it on for some hosts and off for others,
-since it is helpful but adds cost on context switching. That means today
-we have to build separate kernels for each, which is less than ideal.
-
-So let's make this configurable at boot time. In benchmarking sched pipe
-and sched messaging performance is unaffected.
+There's no existing test for this, so let's add one.
 
 Signed-off-by: Chris Down <chris@chrisdown.name>
 ---
- .../admin-guide/kernel-parameters.txt         |  8 +++++
- kernel/sched/core.c                           | 33 +++++++++++++++----
- 2 files changed, 35 insertions(+), 6 deletions(-)
+ drivers/misc/lkdtm/bugs.c               | 21 +++++++++++++++++++++
+ tools/testing/selftests/lkdtm/tests.txt |  1 +
+ 2 files changed, 22 insertions(+)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index fbee7b544903..95911d33c0fe 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -6811,6 +6811,14 @@ Kernel parameters
- 			core priority to both SMT siblings, so this option
- 			does not favor either sibling.
- 
-+	sched_stack_end_check= [KNL]
-+			Format: <bool>
-+			Check the magic value at the end of the outgoing
-+			task's stack (and its shadow call stack, if any) on
-+			every call to schedule(), and panic if it has been
-+			overwritten.
-+			Default set by CONFIG_SCHED_STACK_END_CHECK.
-+
- 	sched_verbose	[KNL,EARLY] Enables verbose scheduler debug messages.
- 
- 	schedstats=	[KNL,X86] Enable or disable scheduled statistics.
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index fc269fd10192..c1fb86b813bb 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -6143,18 +6143,39 @@ static noinline void __schedule_bug(struct task_struct *prev)
- 	add_taint(TAINT_WARN, LOCKDEP_STILL_OK);
+diff --git a/drivers/misc/lkdtm/bugs.c b/drivers/misc/lkdtm/bugs.c
+index 3eca2ef64aff..929a60db00d6 100644
+--- a/drivers/misc/lkdtm/bugs.c
++++ b/drivers/misc/lkdtm/bugs.c
+@@ -215,6 +215,26 @@ static noinline void lkdtm_CORRUPT_STACK_STRONG(void)
+ 	__lkdtm_CORRUPT_STACK((void *)&data);
  }
  
-+static DEFINE_STATIC_KEY_MAYBE_RO(CONFIG_SCHED_STACK_END_CHECK, sched_stack_end_check);
-+
-+static int __init setup_sched_stack_end_check(char *str)
++static void lkdtm_CORRUPT_STACK_END(void)
 +{
-+	bool enable;
++	unsigned long *stack_end = end_of_stack(current);
 +
-+	if (kstrtobool(str, &enable)) {
-+		pr_warn("Unable to parse sched_stack_end_check=\n");
-+		return 0;
++	if (READ_ONCE(*stack_end) != STACK_END_MAGIC) {
++		pr_err("FAIL: stack end magic is already corrupted\n");
++		return;
 +	}
 +
-+	if (enable)
-+		static_branch_enable(&sched_stack_end_check);
-+	else
-+		static_branch_disable(&sched_stack_end_check);
++	pr_info("Corrupting stack end magic and calling schedule() ...\n");
++	WRITE_ONCE(*stack_end, ~STACK_END_MAGIC);
++	schedule_timeout_uninterruptible(1);
 +
-+	return 1;
++	/* Still alive, so let's restore the magic so nothing else trips over it. */
++	WRITE_ONCE(*stack_end, STACK_END_MAGIC);
++	pr_err("FAIL: corrupted stack end was not detected by the scheduler\n");
++	pr_expected_config_param(CONFIG_SCHED_STACK_END_CHECK,
++				 "sched_stack_end_check");
 +}
-+__setup("sched_stack_end_check=", setup_sched_stack_end_check);
 +
- /*
-  * Various schedule()-time debugging checks and statistics:
-  */
- static inline void schedule_debug(struct task_struct *prev, bool preempt)
- {
--#ifdef CONFIG_SCHED_STACK_END_CHECK
--	if (task_stack_end_corrupted(prev))
--		panic("corrupted stack end detected inside scheduler\n");
-+	if (static_branch_maybe(CONFIG_SCHED_STACK_END_CHECK,
-+				&sched_stack_end_check)) {
-+		if (task_stack_end_corrupted(prev))
-+			panic("corrupted stack end detected inside scheduler\n");
+ static pid_t stack_pid;
+ static unsigned long stack_addr;
  
--	if (scs_is_enabled() && task_scs_end_corrupted(prev))
--		panic("corrupted shadow stack detected inside scheduler\n");
--#endif
-+		if (scs_is_enabled() && task_scs_end_corrupted(prev))
-+			panic("corrupted shadow stack detected inside scheduler\n");
-+	}
- 
- #ifdef CONFIG_DEBUG_ATOMIC_SLEEP
- 	if (!preempt && READ_ONCE(prev->__state) && prev->non_block_count) {
+@@ -854,6 +874,7 @@ static struct crashtype crashtypes[] = {
+ 	CRASHTYPE(EXHAUST_STACK),
+ 	CRASHTYPE(CORRUPT_STACK),
+ 	CRASHTYPE(CORRUPT_STACK_STRONG),
++	CRASHTYPE(CORRUPT_STACK_END),
+ 	CRASHTYPE(REPORT_STACK),
+ 	CRASHTYPE(REPORT_STACK_CANARY),
+ 	CRASHTYPE(UNALIGNED_LOAD_STORE_WRITE),
+diff --git a/tools/testing/selftests/lkdtm/tests.txt b/tools/testing/selftests/lkdtm/tests.txt
+index bec57a02913a..2d856ed77a64 100644
+--- a/tools/testing/selftests/lkdtm/tests.txt
++++ b/tools/testing/selftests/lkdtm/tests.txt
+@@ -10,6 +10,7 @@ EXCEPTION
+ #EXHAUST_STACK Corrupts memory on failure
+ #CORRUPT_STACK Crashes entire system on success
+ #CORRUPT_STACK_STRONG Crashes entire system on success
++#CORRUPT_STACK_END Crashes entire system on success
+ ARRAY_BOUNDS call trace:|UBSAN: array-index-out-of-bounds
+ FAM_BOUNDS call trace:|UBSAN: array-index-out-of-bounds
+ PTR_BOUNDS call trace:|UBSAN: array-index-out-of-bounds
 -- 
 2.54.0
 
