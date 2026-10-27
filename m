@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06D25606A322
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 15:38:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7905606A322
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 15:38:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AnjPca98;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bR7xm1Ty
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4c3n8U3t;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SuWvAT3P
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,70 +14,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=3pafdY9xRJ9zta5PxmWHqBWqdJe4oidgP1jboaXj+Fk=; b=AnjPca98/riaVQilrkaHewJNDh
-	QPRG6avpMZ+7H1YYtOB2HuN49+QqPhyW1lnh9whFknPz41mAiroE01ie8kVwU1PvHXGXEXPGPpsiO
-	70JQtCU2HZXuWrDr2p+t89750j5EqImDa9+ARQ1M4+BFep4O1DcF1aczZJ+a3bHGqSmd+ZWOY4Xte
-	3gAQ0s7hk/Juy3hWBCTOr97ImAyauD2W2jdqfq3pRULizPpDyYwTWKdhgVQWNlU33XAPWSHtm9s/e
-	yuuNExDyCUSsKPGORscGuuHmyimXu2X02c+Jjvw9oZU15z9GM5wOfqMvU65uspOGjctE5D+aOJ6Da
-	kaWvb3og==;
+	bh=HMUixUiaoTmSUQAg851Ex2p3T29VM343Mf/5psIP8JA=; b=4c3n8U3tVp5nUxycz0JP0i4rkn
+	B927/2urjcbSIGBdEhpZtci7FHEr5OVTxAI+kIy4EaK0x/mZFMpGk4bYzqjGxCFck/H/cK3t9bnp5
+	snhkCsFaTrmJ7aFPWEJSd75bFVOv/JNSIlYaBz2WOvrxCnwczamI6KpgIPyq3Q+zYOsX1d+aaGdW/
+	/Hjvhw/oRYzSABsPHhH6gTtjxvJDmwbPUpc5Mvd4sxsooKqhIyRkBbm3Q7tVjdWOabnF78WlKzT7A
+	7ONZ44TX1qTVlGRtt4RfqppwG96cpr/wgjASoQPJW3b02odGY2w7aaXI2FERYgWEFcC+BjE568Lom
+	ClAa1oNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjFc-00000005DI8-0k1t;
-	Tue, 27 Oct 2026 15:38:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xLjFi-00000005DSx-3iSf;
+	Tue, 27 Oct 2026 15:38:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjEb-00000005Bp4-12vH;
-	Tue, 27 Oct 2026 15:37:09 +0000
+	id 1xLjEb-00000005Bpm-48Cb;
+	Tue, 27 Oct 2026 15:37:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF92143A80;
-	Tue, 27 Oct 2026 15:37:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 992DD44205;
+	Tue, 27 Oct 2026 15:37:09 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793115428;
-	b=EGu+2KVzaXW2+DtaK+sP18j54eG/LBIEchI1zB5LzytuA1hgELdJikQB//jZjwhw8pUu
-	 i3ztChLrnYpxg9Kqte9uEUCIj+WsZmBoW7mHRLvwYDFAo8dqIRarWbXlue+HwtkjGpi/l
-	 yIATVrgHKPHyNCvzplDoHyVHANK55L/a5k6PxKPF/xaC0hnStIy8nAgSEI2F2h/EVMv2Q
-	 0uMCPl/htuuMXtK1QLtPDg0TAcppj2s+JSh9hWOCcvBUk4IKx8nPXyB59fVQLq+/YS/iE
-	 bBr5I8XbEqLrnXIObmcKUs8VBMZoSulLSGcZyWWsfJCzjLBzqZcf2ZtkgJFr1Xh1UYg==
+	t=1793115429;
+	b=H4qZ2vUMgaP22bKWxncuZTU7U9/SIjGr/k4O0sFR4gVXTNPk8csPErFsXGtd3QnjEAZb
+	 09Ehd2UeX8UrsBg4+OBlIJY6ipQcylQRp+iAyPwV+75kHpW43Fu6fwlSz1gVZk7CrukZY
+	 Yeb6tTyokfLQH5AoOiyn5aA916CHcYUKZTuxq9I8oEEKWKp3EcZU2bvt7F1nERX7u47wM
+	 25ULYDoWY+OFv10Yhi30SCeTAfZWZ0h5c6/JZatW8/SMI01eqOeCvKaE46TxpMSgMngKW
+	 hsW5Lqiufe0HLVk+6qiZeT6gtIRR5yIQ+QtpPB22s37b4jet9/18G2HrRSIj3OClQRQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793115428;
+	c=relaxed/relaxed; t=1793115429;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=E+Sl1Gk0Izp8iNjXVvH7BXDYK1wVBrrJEHxdo0B8yl4=;
-	b=SRvDRoidAwMrjgsTnWGooogBZNNXuMhrh3rPqVTJ0cS3VgR60Yxe/X1x4Gl82b/5xhNE
-	 6/R6DNE58TqNrGvLtahYFLPQ4BjOYLYMGP1Nz3rH5elzwl0zM5AGHzwuXiGxigBcfv1C3
-	 1ye4FaSuVRE2tR9BlY67rhj66SEG8vX8GkzKZmQWmcRqxqLdPGyvFjnQ6ZWkHoAyr+4BO
-	 3+3dyri9inWYO2CbHxmxmmmsKYWY64AbXseYEDFH5nNFbeYFAUued3II0Md8kTJl4kVeA
-	 B3ip1G8QqkVpBpaD/dwKPW5Y+MDoGzM5yV5xKz1MIJ9eatWJqtdxdVADvPh8Jaimk2w==
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=oS++xhGGDKIKaoPqn/jR4GeC6Udugr7VmWtN0GgLuxc=;
+	b=TH9b9wkZenzzVNMGWFopyw3hMbB/1iEzj1F4LSKnRuIC0pWK+W7CE7Nwguu7Ob/sdwtl
+	 nX3zBMERuDTb8jmUymo0ncFevWvfhYF9jzmFhOGDZSOVY4O3KWSnDig1j7OEiOgFYjeM9
+	 TnWKbSanxI1CcTPFFaSbXdLKeZH4Uu0LyoOP30EAu+EBn1ciKDAx9FZLD5O1yK6wlRyBt
+	 JlCWjE/um285Tbfh/6GAZ9pGRqrfceP2XEaFra0x8J8h46hkvm+QFpss99WfsKLuqppjh
+	 6Rm0My/dXR0IqUHtHnBO7Qs4uj9eOhFQOiuXYqCsHhhQ8rTaRJc/XrnZ+MoSpQ8hGrA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 6ED991F01406;
+	by smtp.kernel.org (Postfix) with ESMTPS id 365841F01400;
 	Tue, 27 Oct 2026 15:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793115428;
-	bh=E+Sl1Gk0Izp8iNjXVvH7BXDYK1wVBrrJEHxdo0B8yl4=;
+	s=k20260515; t=1793115429;
+	bh=oS++xhGGDKIKaoPqn/jR4GeC6Udugr7VmWtN0GgLuxc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=bR7xm1TyW/mZ+g+K/JQDfjq+WTR2Q+KQ9xV05YUFS1rrOy4h1D5+At02UypeQSNcb
-	 areiyLyVtV4MdZGki/4mpnmGs4eVLPd/CW+fZYVNgLs48LYiIPEgVS7c4vZwOFLwFc
-	 z3/n4HuXcNIhI/S6ep2Hyh9LuZ8xBAeCQw+RnmY0+vSKFM9+yWJLlE5GEl13ocI+Gh
-	 79p2ZWliSe1hFyoIdFj7Tg3ytQyVYugzlCZz/rvkh9h2+vFSuVLPCdIAHt++z6bN/M
-	 brY3RCs4vkYZ+kIr/010xWXKel5iO4FBT2XTRljYkvf3y7Umd4LxlmlWD8CKrCTihe
-	 y1p70T1808Tyg==
+	b=SuWvAT3P0MN5hxmaN5JeGG3PsAudaZj6boS02VN0HnDUVQDowA7goRvDuwmSdtA/T
+	 dAdpJOdHEg5oUaHI6sel1Y81JgZfHwehFrNxGDQPCoILIn79G1mgOt2smfDd5dhVwL
+	 62HNQJTYMUEFNCwDPw5M59/5OX5X/rHFqruMsFClaVoFxfiZhGQ1wJDmczu6FRkTYR
+	 YYHIhKbfhy8oY5RT5yfNRS5irHTOeOB4HGVqaEk5OX2bK5wVd1K6G7Yh5rs0coPcSY
+	 VvzR/Sc0O1GBsHNaRbMml/qLP0zdvl1cbPSYwdKAo9jlpnIReKwTM4JzdIGyzz0vsI
+	 LWtS3i38wWFZw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id C4E7245173;
+	by lkml.kernel.org (Postfix) with ESMTP id AF7944516B;
 	Tue, 27 Oct 2026 15:37:01 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Tue, 27 Oct 2026 23:37:06 +0800
-Subject: [PATCH RFC 15/18] riscv: dts: zhihe: add A210 module memory
+Date: Tue, 27 Oct 2026 23:37:04 +0800
+Subject: [PATCH RFC 13/18] riscv: dts: zhihe: add A210 core support
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261027-a210-scmi-v1-15-74d58ce85bd8@iscas.ac.cn>
+Message-Id: <20261027-a210-scmi-v1-13-74d58ce85bd8@iscas.ac.cn>
 References: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
 In-Reply-To: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
 To: Sudeep Holla <sudeep.holla@kernel.org>, 
@@ -105,11 +105,11 @@ Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
  linux-serial@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793115418; l=777;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793115418; l=13008;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=YcgMhPuDLQowVTt+MvNEeWTBEwtrbKzVnPLSZwTdXCU=;
- b=aUMIJL92mbux7iKL81HC8BugLUrnFHAYSK4Kw4wHQGnOxZD4j4gnfd866EGabI+4vyPwKFYDP
- sZTzA4FsxPbBmnaie1KIQJHeJ87wIlZuzcWbbwJzVsdRHl1t2mYFYd/
+ bh=RQLOLtjHxIvwJUeim1bI53l1VbR+S6hkZ7O/I75dWFE=;
+ b=HnZ4tu8a9SgcvOQ8d6+Xys900xL5pZ80qqnexgVKI4/zWKJAXeLMu6zlMAKyYov2KoeZvw6ZV
+ TyX3+7TGTd8BbSkmdU6meacMzlk3eB4m7C3x/0llWRWySfb/kBHtw4v
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -135,31 +135,480 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Han Gao <gaohan@iscas.ac.cn>
+From: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
 
-Add the A210 module memory node with a default 4 GiB range for boot
-firmware to update with the detected capacity.
+Describe the CPU clusters, interrupt controllers and pad controllers.
+Use SCMI clock and reset services through the E902 mailbox, with a
+second mailbox channel for firmware notifications.
 
+Signed-off-by: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- arch/riscv/boot/dts/zhihe/a210-som.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ arch/riscv/boot/dts/zhihe/a210.dtsi | 458 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 458 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/zhihe/a210-som.dtsi b/arch/riscv/boot/dts/zhihe/a210-som.dtsi
+diff --git a/arch/riscv/boot/dts/zhihe/a210.dtsi b/arch/riscv/boot/dts/zhihe/a210.dtsi
 new file mode 100644
-index 000000000000..a77447e402d7
+index 000000000000..c7b623800aa7
 --- /dev/null
-+++ b/arch/riscv/boot/dts/zhihe/a210-som.dtsi
-@@ -0,0 +1,11 @@
++++ b/arch/riscv/boot/dts/zhihe/a210.dtsi
+@@ -0,0 +1,458 @@
 +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++/*
++ * Copyright (C) 2021 Alibaba Group Holding Limited.
++ */
 +
-+#include "a210.dtsi"
++#include <dt-bindings/clock/zhihe,a210-scmi.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/reset/zhihe,a210-scmi.h>
 +
 +/ {
-+	/* The loader replaces this reference capacity after DDR training. */
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x1 0x0>;
++	compatible = "zhihe,a210";
++	#address-cells = <2>;
++	#size-cells = <2>;
++
++	cpus: cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <24000000>;
++
++		cpu-map {
++			cluster0 {
++				core0 {
++					cpu = <&c908_0>;
++				};
++
++				core1 {
++					cpu = <&c908_1>;
++				};
++
++				core2 {
++					cpu = <&c908_2>;
++				};
++
++				core3 {
++					cpu = <&c908_3>;
++				};
++			};
++
++			cluster1 {
++				core0 {
++					cpu = <&c920_4>;
++				};
++
++				core1 {
++					cpu = <&c920_5>;
++				};
++
++				core2 {
++					cpu = <&c920_6>;
++				};
++
++				core3 {
++					cpu = <&c920_7>;
++				};
++			};
++		};
++
++		c0_l2_cache: l2-cache0 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-sets = <512>;
++			cache-size = <524288>;
++			cache-unified;
++		};
++
++		c1_l2_cache: l2-cache1 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-sets = <1024>;
++			cache-size = <1048576>;
++			cache-unified;
++		};
++
++		c908_0: cpu@0 {
++			device_type = "cpu";
++			compatible = "thead,c908", "riscv";
++			reg = <0>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <256>;
++			d-cache-size = <32768>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <256>;
++			i-cache-size = <32768>;
++			mmu-type = "riscv,sv39";
++			next-level-cache = <&c0_l2_cache>;
++			riscv,cbom-block-size = <64>;
++			riscv,cbop-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "b", "v", "sscofpmf", "sstc",
++					       "svpbmt", "zba", "zbb", "zbc",
++					       "zbs", "zicbom", "zicbop",
++					       "zicboz", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu0_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		c908_1: cpu@1 {
++			device_type = "cpu";
++			compatible = "thead,c908", "riscv";
++			reg = <1>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <256>;
++			d-cache-size = <32768>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <256>;
++			i-cache-size = <32768>;
++			mmu-type = "riscv,sv39";
++			next-level-cache = <&c0_l2_cache>;
++			riscv,cbom-block-size = <64>;
++			riscv,cbop-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "b", "v", "sscofpmf", "sstc",
++					       "svpbmt", "zba", "zbb", "zbc",
++					       "zbs", "zicbom", "zicbop",
++					       "zicboz", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu1_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		c908_2: cpu@2 {
++			device_type = "cpu";
++			compatible = "thead,c908", "riscv";
++			reg = <2>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <256>;
++			d-cache-size = <32768>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <256>;
++			i-cache-size = <32768>;
++			mmu-type = "riscv,sv39";
++			next-level-cache = <&c0_l2_cache>;
++			riscv,cbom-block-size = <64>;
++			riscv,cbop-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "b", "v", "sscofpmf", "sstc",
++					       "svpbmt", "zba", "zbb", "zbc",
++					       "zbs", "zicbom", "zicbop",
++					       "zicboz", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu2_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		c908_3: cpu@3 {
++			device_type = "cpu";
++			compatible = "thead,c908", "riscv";
++			reg = <3>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <256>;
++			d-cache-size = <32768>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <256>;
++			i-cache-size = <32768>;
++			mmu-type = "riscv,sv39";
++			next-level-cache = <&c0_l2_cache>;
++			riscv,cbom-block-size = <64>;
++			riscv,cbop-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "b", "v", "sscofpmf", "sstc",
++					       "svpbmt", "zba", "zbb", "zbc",
++					       "zbs", "zicbom", "zicbop",
++					       "zicboz", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu3_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		c920_4: cpu@4 {
++			device_type = "cpu";
++			compatible = "thead,c920", "riscv";
++			reg = <4>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <512>;
++			d-cache-size = <65536>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <512>;
++			i-cache-size = <65536>;
++			mmu-type = "riscv,sv39";
++			next-level-cache = <&c1_l2_cache>;
++			riscv,cbom-block-size = <64>;
++			riscv,cbop-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "b", "v", "sscofpmf", "sstc",
++					       "svpbmt", "zba", "zbb", "zbc",
++					       "zbs", "zicbom", "zicbop",
++					       "zicboz", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu4_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		c920_5: cpu@5 {
++			device_type = "cpu";
++			compatible = "thead,c920", "riscv";
++			reg = <5>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <512>;
++			d-cache-size = <65536>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <512>;
++			i-cache-size = <65536>;
++			mmu-type = "riscv,sv39";
++			next-level-cache = <&c1_l2_cache>;
++			riscv,cbom-block-size = <64>;
++			riscv,cbop-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "b", "v", "sscofpmf", "sstc",
++					       "svpbmt", "zba", "zbb", "zbc",
++					       "zbs", "zicbom", "zicbop",
++					       "zicboz", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu5_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		c920_6: cpu@6 {
++			device_type = "cpu";
++			compatible = "thead,c920", "riscv";
++			reg = <6>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <512>;
++			d-cache-size = <65536>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <512>;
++			i-cache-size = <65536>;
++			mmu-type = "riscv,sv39";
++			next-level-cache = <&c1_l2_cache>;
++			riscv,cbom-block-size = <64>;
++			riscv,cbop-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "b", "v", "sscofpmf", "sstc",
++					       "svpbmt", "zba", "zbb", "zbc",
++					       "zbs", "zicbom", "zicbop",
++					       "zicboz", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu6_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		c920_7: cpu@7 {
++			device_type = "cpu";
++			compatible = "thead,c920", "riscv";
++			reg = <7>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <512>;
++			d-cache-size = <65536>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <512>;
++			i-cache-size = <65536>;
++			mmu-type = "riscv,sv39";
++			next-level-cache = <&c1_l2_cache>;
++			riscv,cbom-block-size = <64>;
++			riscv,cbop-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "b", "v", "sscofpmf", "sstc",
++					       "svpbmt", "zba", "zbb", "zbc",
++					       "zbs", "zicbom", "zicbop",
++					       "zicboz", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu7_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++	};
++
++	firmware {
++		scmi {
++			compatible = "arm,scmi";
++			mboxes = <&mbox_e902 0>, <&mbox_e902 1>;
++			mbox-names = "tx", "rx";
++			shmem = <&scmi_shmem>, <&scmi_notification_shmem>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			scmi_clk: protocol@14 {
++				reg = <0x14>;
++				#clock-cells = <1>;
++			};
++
++			scmi_reset: protocol@16 {
++				reg = <0x16>;
++				#reset-cells = <1>;
++			};
++		};
++	};
++
++	soc {
++		compatible = "simple-bus";
++		ranges;
++		#address-cells = <2>;
++		dma-noncoherent;
++		#size-cells = <2>;
++
++		mbox_e902: mailbox@321000 {
++			compatible = "zhihe,a210-ap-mailbox";
++			reg = <0 0x00321000 0 0x1000>,
++			      <0 0x00311000 0 0x1000>,
++			      <0 0x00320000 0 0x1000>;
++			reg-names = "interrupt", "tx", "rx";
++			interrupt-parent = <&intc>;
++			interrupts = <336 IRQ_TYPE_LEVEL_HIGH>;
++			#mbox-cells = <1>;
++		};
++
++		peri3_padctrl: pinctrl@542000 {
++			compatible = "zhihe,a210-peri3-pinctrl";
++			reg = <0x0 0x00542000 0x0 0x1000>;
++			clocks = <&scmi_clk A210_CLK_PERI3_PAD>;
++			clock-names = "pclk";
++			resets = <&scmi_reset A210_RESET_PERI3_PAD>;
++
++			status = "disabled";
++		};
++
++		peri1_padctrl: pinctrl@2026000 {
++			compatible = "zhihe,a210-peri1-pinctrl";
++			reg = <0x0 0x02026000 0x0 0x1000>;
++			clocks = <&scmi_clk A210_CLK_PERI1_PAD>;
++			clock-names = "pclk";
++
++			status = "disabled";
++		};
++
++		peri2_padctrl: pinctrl@8411000 {
++			compatible = "zhihe,a210-peri2-pinctrl";
++			reg = <0x0 0x08411000 0x0 0x1000>;
++			clocks = <&scmi_clk A210_CLK_PERI2_PAD>;
++			clock-names = "pclk";
++			resets = <&scmi_reset A210_RESET_PERI2_PAD>;
++
++			status = "disabled";
++		};
++
++		intc: interrupt-controller@18000000 {
++			compatible = "zhihe,a210-plic", "thead,c900-plic";
++			reg = <0x0 0x18000000 0x0 0x04000000>;
++			#address-cells = <0>;
++			#interrupt-cells = <2>;
++			interrupt-controller;
++			interrupts-extended = <&cpu0_intc 0xffffffff>,
++					      <&cpu0_intc 9>,
++					      <&cpu1_intc 0xffffffff>,
++					      <&cpu1_intc 9>,
++					      <&cpu2_intc 0xffffffff>,
++					      <&cpu2_intc 9>,
++					      <&cpu3_intc 0xffffffff>,
++					      <&cpu3_intc 9>,
++					      <&cpu4_intc 0xffffffff>,
++					      <&cpu4_intc 9>,
++					      <&cpu5_intc 0xffffffff>,
++					      <&cpu5_intc 9>,
++					      <&cpu6_intc 0xffffffff>,
++					      <&cpu6_intc 9>,
++					      <&cpu7_intc 0xffffffff>,
++					      <&cpu7_intc 9>;
++			riscv,ndev = <351>;
++		};
++
++		clint0: clint@1c000000 {
++			compatible = "zhihe,a210-clint", "thead,c900-clint";
++			reg = <0x0 0x1c000000 0x0 0x0000d800>;
++			interrupts-extended = <&cpu0_intc 3>,
++					      <&cpu0_intc 7>,
++					      <&cpu1_intc 3>,
++					      <&cpu1_intc 7>,
++					      <&cpu2_intc 3>,
++					      <&cpu2_intc 7>,
++					      <&cpu3_intc 3>,
++					      <&cpu3_intc 7>,
++					      <&cpu4_intc 3>,
++					      <&cpu4_intc 7>,
++					      <&cpu5_intc 3>,
++					      <&cpu5_intc 7>,
++					      <&cpu6_intc 3>,
++					      <&cpu6_intc 7>,
++					      <&cpu7_intc 3>,
++					      <&cpu7_intc 7>;
++		};
++
++		aon_padctrl: pinctrl@30848000 {
++			compatible = "zhihe,a210-aon-pinctrl";
++			reg = <0x0 0x30848000 0x0 0x2000>;
++			clocks = <&scmi_clk A210_CLK_AON_SYS>;
++			clock-names = "pclk";
++
++			status = "disabled";
++		};
++
++		sram@30907c00 {
++			compatible = "mmio-sram";
++			reg = <0 0x30907c00 0 0x200>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges = <0 0 0x30907c00 0x200>;
++
++			scmi_shmem: scp-sram@0 {
++				compatible = "arm,scmi-shmem";
++				reg = <0 0x100>;
++			};
++
++			scmi_notification_shmem: scp-sram@100 {
++				compatible = "arm,scmi-shmem";
++				reg = <0x100 0x100>;
++			};
++		};
 +	};
 +};
 
