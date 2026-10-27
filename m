@@ -2,78 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A606606CB2C
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 12:29:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 224F3606CB3F
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 12:30:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UjdTtVIr;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=ie8Q0fCu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GearsWT1;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=oFz0dNxn
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=lDy+E0sBEuWe5UV1BiBiVjtwLtWNQ7A/17vKiOTmuU8=; b=UjdTtVIrtq7bgG+hTdZW4YP6nj
-	hdzxYTNXsb8tLHGGB0czFcaVbFyR9N6pT+QY3OGYWbDUFEwry+9xj0Dz+0A0j9kQ+VhEqziU+2EA2
-	19niV27rhheHLgxsb2kCUC5sdXaok5jRZaqMxYrePSVUnBscURPGKrcB4ODZ7xyK+U9y7I2kD5iWb
-	sfoHovbgDCtS8UvtNAdDHqqUn8GqZ/n4GTHKJ03fpUXnSVwEA9kTpX06vPN3Msqqmkc3Cv6MExqZc
-	pIuC5g4gLJPBdcyeVtSDXAw2eGplzaWRwD3eKG40mGFN9Q/vqfjNaHK487i/w7WB9H4fuSq+mmlaB
-	/uPpsvFQ==;
+	bh=dSJN4tML6VWjyS6YmC64zUYQdSf49B+CC2vMq/YAMdM=; b=GearsWT18/4GYrvOFUpzGs4NHW
+	ynAWLUZhSDScX5uB5LsN2iNQs6l+Cccr0X/6IJt0ZzlfNh5VTVC7ViNVHeM7u9pH3JY0MMqaW/bKw
+	RtrZEakgRmrGtk5epDLJFAOb0/nIlZsd+NnCesakF/14CsPTruX0Ko5cDvThtD/U0SS2cpef68y1e
+	yS6GUQo8M1H5tupwF01hRlIX4puuNj6RTc1EFAWG3vWlTue2VPIbAQeCSGhjMivmW4/F2r5723WDb
+	9W2tvU+8tTGUPkv9Lt4JaBTEudgZrvQgf//+8FCndbvsDvr8Leb4Cz39yY//V5sxHSwd9IoqLJ2rw
+	tkziURmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLgJ8-00000004eF0-2lPW;
-	Tue, 27 Oct 2026 12:29:38 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1xLgJR-00000004eo2-2z2t;
+	Tue, 27 Oct 2026 12:29:57 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLgId-00000004cwM-04yT;
-	Tue, 27 Oct 2026 12:29:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=5r
-	TEfJyH8+8TFmlvfs8UtpwLKWhfbVwPgm8PGgqTxGU=; b=ie8Q0fCuq74BxlHMKN
-	rqVQbExiWDMoqUzfp8O3Y/hWetwXPiAFKAyLO7FSIdPsoisDrRl7PnIb2yafKVk3
-	DbNld+Q7sGWlFp+SoTnJwMlWHEZm6yZ/CQkjgXae2uC+mH2aUYyoRXtP7kZskJqB
-	qEm607T+lG8JRwT/TzissUwC4=
-Received: from Precision-7960.. (unknown [])
-	by gzsmtp5 (Coremail) with SMTP id QCgvCgAH_5wFmeBq67qCCQ--.31668S2;
-	Tue, 27 Oct 2026 20:28:53 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: bhelgaas@google.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	jingoohan1@gmail.com
-Cc: imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v4 16/16] PCI: dwc: ultrarisc: Use cached PCIe capability offset
-Date: Tue, 27 Oct 2026 20:28:27 +0800
-Message-ID: <20261027122827.2725643-17-18255117159@163.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261027122827.2725643-1-18255117159@163.com>
-References: <20261027122827.2725643-1-18255117159@163.com>
+	id 1xLgJP-00000004ekv-2vz6
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 27 Oct 2026 12:29:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=TEtKC47I2aW92wCX8ceE3Qq4fHsnf6t3ajY/y/wrOAM=; b=oFz0dNxnz56JDogfZNZ3EcKBOe
+	p/m3wd/aD1ouGh7D5TT4x8mldu1x54Im/ac1rqMMevZmEidyYtcN+ivOlf2Thn6SpMf5YxmBpAoTQ
+	ACQ0QZ5dqhlqIrZJFZjdD32yrkKpxhlXJcDwBYr4es40imisWDbsX65FBBPCyvIXijJMwJJram/IE
+	tBMccaHODu2a+6WaIkXlsMgQHpOeXupPOOVG2c+EnHZEn2cTe8Z/8tIneZpBMPZziWd0bkrYlaqgs
+	dLt6KjEQnal4f+pZgXQXpUoSzeTKvhdXVCgTa2N2pkLnI3dPR2NYs/RNJlgEklMwTx88Hl7DsRiJc
+	aetUoipA==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xLgJJ-0000000DUxD-3wq1;
+	Tue, 27 Oct 2026 12:29:50 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 3EE4A300DB9; Tue, 27 Oct 2026 13:29:49 +0100 (CET)
+Date: Tue, 27 Oct 2026 13:29:49 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Kiryl Shutsemau <kas@kernel.org>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Matthew Wilcox <willy@infradead.org>,
+	Usama Arif <usamaarif642@gmail.com>,
+	Frank van der Linden <fvdl@google.com>,
+	Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Zi Yan <ziy@nvidia.com>, Baoquan He <bhe@redhat.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	kernel-team@meta.com, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andy Lutomirski <luto@kernel.org>
+Subject: Re: [PATCHv7 13/18] mm: Drop fake head checks
+Message-ID: <20261027122949.GB2668804@noisy.programming.kicks-ass.net>
+References: <20260227194302.274384-1-kas@kernel.org>
+ <20260227194302.274384-14-kas@kernel.org>
+ <ebc7bde1-f52e-4da8-b16f-822d6c0a4d74@kernel.org>
+ <at_f43oDv73y-t7O@thinkstation>
+ <f97a8d33-50b2-4a86-8381-ee840cdfa2f9@kernel.org>
+ <20261027110028.GH2668564@noisy.programming.kicks-ass.net>
+ <auCKv_omLGRc6wv2@thinkstation>
+ <20261027121323.GO2668564@noisy.programming.kicks-ass.net>
+ <auCXVv9yXtaS42w8@thinkstation>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: QCgvCgAH_5wFmeBq67qCCQ--.31668S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Cr18Aw1UZr1xJrykur4rKrg_yoW8JFykpa
-	yaqr1YyF1ktr4Yyan2ka4DWFy2qFnxAryDJan7Kr13ZFy2krWUW34vka4FyFnrCF4UKryY
-	k3yYyFW7Gas5Jw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piFfOwUUUUU=
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6wY63WrgmQYa+AAA39
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_052907_521830_78F11947 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.8 (-)
+Content-Disposition: inline
+In-Reply-To: <auCXVv9yXtaS42w8@thinkstation>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,42 +98,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	FROM_LOCAL_DIGITS,FROM_LOCAL_HEX,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-4.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-ultrarisc_pcie_host_init() runs from the .init callback with the
-controller already enabled. Replace the capability search with
-dw_pcie_get_pcie_cap(). Since the lookup is performed lazily at the
-point of use, the driver no longer depends on any earlier caching step
-and the offset is always valid here.
+On Tue, Oct 27, 2026 at 12:22:56PM +0000, Kiryl Shutsemau wrote:
+> On Tue, Oct 27, 2026 at 01:13:23PM +0100, Peter Zijlstra wrote:
+> > On Tue, Oct 27, 2026 at 12:00:47PM +0000, Kiryl Shutsemau wrote:
+> > 
+> > > Fair enough. Here's some context.
+> > > 
+> > > HVO (HugeTLB Vmemmap Optimization) frees most of the memmap of a hugetlb
+> > > folio by remapping the struct pages after the first vmemmap page to a
+> > > shared page, mapped read-only.
+> > > 
+> > > Every lockless get of a page reference (e.g. page cache lookup, PFN
+> > > scanners) relies on page_ref_add_unless_zero(), which is
+> > > atomic_add_unless(&page->_refcount, nr, 0).
+> > > 
+> > > The page can be freed and reused between finding it and the get; the
+> > > zero refcount is what makes the get fail. The race:
+> > > 
+> > >   lockless get                        other CPU
+> > >   c = atomic_read(&page->_refcount)
+> > >   c != 0
+> > >                                       page freed
+> > >                                       page allocated as a hugetlb tail
+> > >                                       HVO remaps it read-only
+> > >   try_cmpxchg(&page->_refcount, &c, c + nr)
+> > >     -> write fault on read-only vmemmap
+> > 
+> > I missed a little something here; page->_refcount is in the page-frame;
+> > how does the page itself being RO affect this?
+> 
+> Emm. I am not sure I follow the question.
+> 
+> The memory itself is not touched. HVO remaps the vmemmap, the array of
+> struct pages: the part that holds the folio's tail struct pages points
+> to the shared page, mapped PAGE_KERNEL_RO. So it is the struct page,
+> and its _refcount, that is read-only.
+> 
+> For a 2M folio with 4K pages, its struct pages take 8 pages of vmemmap;
+> the last 7 of them map to that one RO page.
 
-Signed-off-by: Hans Zhang <18255117159@163.com>
----
- drivers/pci/controller/dwc/pcie-ultrarisc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Like I just explain to David on IRC; my brain has a 1:1 relation between
+PFN and struct page. It makes no sense for struct page to be RO, ever.
 
-diff --git a/drivers/pci/controller/dwc/pcie-ultrarisc.c b/drivers/pci/controller/dwc/pcie-ultrarisc.c
-index 51e89180490d..85373b479b64 100644
---- a/drivers/pci/controller/dwc/pcie-ultrarisc.c
-+++ b/drivers/pci/controller/dwc/pcie-ultrarisc.c
-@@ -56,7 +56,7 @@ static int ultrarisc_pcie_host_init(struct dw_pcie_rp *pp)
- 	FIELD_MODIFY(PORT_FLT_SF_MASK, &val, PORT_FLT_SF_VAL_64);
- 	dw_pcie_writel_dbi(pci, PCIE_TIMER_CTRL_MAX_FUNC_NUM, val);
- 
--	cap_exp = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-+	cap_exp = dw_pcie_get_pcie_cap(pci);
- 	val = dw_pcie_readl_dbi(pci, cap_exp + PCI_EXP_LNKCTL2);
- 	FIELD_MODIFY(PCI_EXP_LNKCTL2_TLS, &val, PCI_EXP_LNKCTL2_TLS_16_0GT);
- 	dw_pcie_writel_dbi(pci, cap_exp + PCI_EXP_LNKCTL2, val);
--- 
-2.43.0
-
+Anyway, let me try and figure out how all this works, this is 'weird'.
 
 _______________________________________________
 linux-riscv mailing list
