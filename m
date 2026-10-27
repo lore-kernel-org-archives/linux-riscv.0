@@ -2,63 +2,59 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3529D606A32F
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 23:15:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F240606A31A
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 23:35:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=c3haj7vg;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PVnQXRQw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZFb4mQ9k
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=rDLu5YXFxCGcT+v/7cGZBRfbGtIedEgVm6SxOQUbZUo=; b=c3haj7vgevqyd387YTCGinFgGN
-	zJq15idZAJ1v6ynRtCKruX4rqNpjCX6Q/3gd7uw3TIsz0aRYA0Oedy5UC8uNZsVeGsZ3NFJURBkT4
-	WABQFX/j0BuZwjHydVV7384kWBLJzOkPSdr2jARv1B5kTKsL0NOf3VUZnLs0bDFr5WG5vuGLAiQE/
-	uw/ikrz+fKK0BElo6nAnAGKOXIdNrlR+cYdvepI27MRm5EQO7mMtKmkyzQ+tfjI5n6wqzpYGxK0iP
-	LRcZskT4zYsfh9cNzaRCer2pEXJStxmxOZmuv9tMbYBSftA/6GWqT03JuRV7K8XoMNRI9eD3kLK7F
-	tzLbYU+A==;
+	bh=z1d0j4BAmF4LuPic8sDsstsikh7EEd3wpwpLLr+5fCM=; b=ZFb4mQ9k+8jDwuW/e+vD8OPBr6
+	XOBQkPcAJsBFUc4zZXsTaOso5+gOheH8w5lToW4Vju6KfBgFLEVgxQ0eK3B7oQo/f2Z7OmXV1BpQS
+	yKzHI/nK5AO8PvvEHIP3vZHqMbfkm4NFEkMn2fgRPZCYbtKSwt7RrNLRwyqdrvSotJFiIKeVj98Vd
+	vanyG6IGbhLx+vNIjapaITueGdkyPXSH4c/MRj5npmT9ffgIa1VZayBHU/QWYx6xj019ZQ5UwPNaq
+	K8Uy3hRRDvcsRO6QN5+PpfNhHYTul/4scB+ytGsxquC24db0z4T3jI+5S5eUQXZmflxWUR/VAwvXW
+	jWYB5jDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLqOH-00000005uOL-1aNX;
-	Tue, 27 Oct 2026 23:15:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLqOG-00000005uO0-1ptM;
-	Tue, 27 Oct 2026 23:15:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D51FC43E67;
-	Tue, 27 Oct 2026 23:15:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 875A81F01825;
-	Tue, 27 Oct 2026 23:15:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793142935;
-	bh=CA/7Tox0t7EgvF7I3HnmzpFFxPiq5q1ElSMkzQot6VE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=PVnQXRQwjWsHVoayiNThshV99xcymU/V/pIZswtKDDmYMDJnOaOF0e4WQ7NFLyn2U
-	 hgbefSKUGrnKZ0wCwyAx6tS3q1iVEd2hqs5S1mvjxrh7pnqk7AkuDvh0wc0rFHGQZW
-	 CCI0r4bHaPu9ujtyJPNsRSPmR/5zGCIWHZHLXZ5Wp8LZlMpqX2Pd+u+Ay/HTGI+req
-	 r/99UDdROlN1XtaPaPQIWoAM1cKqtxREE8Szyk5HcNBzLT3i1yjFBRXX1sUwq8EkYr
-	 wrMun3XHkKgkbcRXvN7v9s6BDe1OKuYAOrghVqQXkizpkbbFOoNsm+SD4JzlS8ufzX
-	 6Z8j9YCxGv+ew==
-Date: Tue, 27 Oct 2026 18:15:34 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Hans Zhang <18255117159@163.com>
-Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
-	mani@kernel.org, jingoohan1@gmail.com, imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-tegra@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 00/16] PCI: dwc: Cache PCIe capability offset
-Message-ID: <20261027231534.GA520774@bhelgaas>
+	id 1xLqh1-00000005vkt-2mpE;
+	Tue, 27 Oct 2026 23:34:59 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xLqgz-00000005vkZ-1ZBb;
+	Tue, 27 Oct 2026 23:34:57 +0000
+Message-ID: <099dc59b-0699-4c2d-875e-289cf6d32cce@infradead.org>
+Date: Tue, 27 Oct 2026 16:34:56 -0700
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261027122827.2725643-1-18255117159@163.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] sched/core: Add sched_stack_end_check= boot parameter
+To: Chris Down <chris@chrisdown.name>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Kees Cook <kees@kernel.org>
+Cc: Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Will Deacon <will@kernel.org>, Sami Tolvanen <samitolvanen@google.com>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kernel-team@meta.com
+References: <cover.1793082868.git.chris@chrisdown.name>
+ <3d2bb6a8508b9d801878bb82c88165a1b1ff5f40.1793082868.git.chris@chrisdown.name>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <3d2bb6a8508b9d801878bb82c88165a1b1ff5f40.1793082868.git.chris@chrisdown.name>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,42 +67,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 27, 2026 at 08:28:11PM +0800, Hans Zhang wrote:
-> Hi,
-> 
-> The DWC PCIe core and its platform drivers repeatedly call
-> dw_pcie_find_capability(pci, PCI_CAP_ID_EXP) to obtain the offset of the
-> PCI Express Capability structure, including in paths that run more than
-> once such as link polling, suspend/resume and interrupt handlers.
-> 
-> Add a cached pcie_cap field to struct dw_pcie and a
-> dw_pcie_get_pcie_cap() helper that performs the lookup on first use and
-> caches the result, then convert the core and the 14 platform drivers
-> that use PCI_CAP_ID_EXP.
-> 
-> After this series, dw_pcie_find_capability(..., PCI_CAP_ID_EXP) no
-> longer appears in drivers/pci/controller/dwc/ outside of the helper
-> itself.
-> ...
 
-> base-commit: 4352b8aee98005853aa63f57d6377282de17a33f
 
-This does indeed apply cleanly on 4352b8aee980 ("Merge tag
-'i3c/for-7.3' of git://git.kernel.org/pub/scm/linux/kernel/git/i3c/linux"),
-but that's pretty old and not really useful any more.
+On 10/26/26 11:36 PM, Chris Down wrote:
+> +static int __init setup_sched_stack_end_check(char *str)
+> +{
+> +	bool enable;
+> +
+> +	if (kstrtobool(str, &enable)) {
+> +		pr_warn("Unable to parse sched_stack_end_check=\n");
+> +		return 0;
+> +	}
 
-PCI topic branches are typically based on -rc1, but of course v7.4-rc1
-hasn't been tagged.  Until it is, you can use pci/main as a good base.
-It's currently 17bb0e2f6c80 ("Merge tag 'pci-v7.4-changes' of
-git://git.kernel.org/pub/scm/linux/kernel/git/pci/pci"), so
-drivers/pci/ in v7.4-rc1 will be pretty close to that.
+This error branch should return 1 since it handled the command
+line parameter -- it just didn't like the "value."
+
+Returning 0 causes the option string to be added to init's
+environment, which is not wanted in this case.
+
+-- 
+~Randy
+
 
 _______________________________________________
 linux-riscv mailing list
