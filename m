@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CBCD606A321
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 15:37:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3480F606D93B
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 15:37:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iQnwF5H+;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k1TtMq6c
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fLP7aqO4;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ebo1EUcv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,71 +14,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=dLRHW3xWJvjskBJ0h5IN9KQUDrVIBIkcveLQY2VHkEY=; b=iQnwF5H+7iUjGQYm6ELqYxl7Hg
-	ThRlO4UUFIqHDYrhBs2BOZ+jG6ohE9d/g/Zcz0lVk3lXJk1GyOzxkXiNRPy4Q7qSgyZQFT3wqci2v
-	APnjiVez3Pls9Q92tomN/39p6PRlzl6b7C6SRchEd81vk9r3Nw9pJlqr/qgQEqPVOBR7qpoWJ/5C4
-	wWfiJWw7srE1NRuoj3rcpe/Af6QTJgjBVAeh7diXt7kw5YjkwfR9v5HRwh9i9NTzGOUWmR9ZlmZHe
-	gmU6MVyTVmabuKcJHFV27g1ZqRR6kEPA/Zl3CMZqGx0wvIFXC9ACuonNfBTcuzotYIn8STulzXqcw
-	C78P3Wnw==;
+	bh=e/greKJ9X/79FXRoOPP8l8wh2cKba920H6h99hasQWo=; b=fLP7aqO49P7eHhDJpuZPlBCYy1
+	wYMmV4rZcbBlHYPonO3G8ActvBT5vUwherLCUp/CF6rEhiNI80ehUZD+Wq1NELJSnM6IbAYyIJAU4
+	mgZa2vF69Caadm8bai/zotCibcYTNtW5VpOlpAQ5dc+uMowCCXhmYW84r0Hd8rbgDnPsuakZIr40Y
+	pFXjb+8llpLR+4eLc8k9Te2X7IjC/xudM/dvdiyufi+vAQM5QQfEJ1y0hDNvD6sH9X0t+jZm+6MDr
+	Xf1Atph4CCe06dl+KtnUOslighmV87SQqmSZqPoGug9yqqh68sTafSeWbwH3LkuknXNKQqIzpykRK
+	o9qjcm/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjF2-00000005CRX-2mZc;
-	Tue, 27 Oct 2026 15:37:36 +0000
+	id 1xLjF6-00000005CYZ-1JaM;
+	Tue, 27 Oct 2026 15:37:40 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjEX-00000005Bkv-2X6l;
+	id 1xLjEX-00000005Bl9-3bL9;
 	Tue, 27 Oct 2026 15:37:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 52E8443EBA;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8258043EB6;
 	Tue, 27 Oct 2026 15:37:05 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1793115425;
-	b=Ywa8MSiejR/f1YYcj/kiGYnf8OoFAOwaugBiii4/UJ9OfL/t74fa3rQgsPtOcdIC3BFz
-	 f1Q9ufGaq1jZlhEwaHCYllIKk0HXiY9UEa7WKfglEzTUlbHH7YoXhCxMw3xiG7cI4L8N2
-	 iDvaJXt5XC9l8trhUGVNY/vbiT+e0yQXZ0D1ilWSOwBN18bktDLiAOj2pr3BkMbTFEP3R
-	 oAOE7D0oletW5OHlvY94F/GPgEtYHzE3s7+8l579yoTvW32a10H4iKlHkzbrnoIOJTnrz
-	 vNXihvhsc8hOvKGtB3s5gzVn2c7OXTcWq8OYgbaV+spihG33TR3inB6LzIw6DFIl5zg==
+	b=TPw/y8wrt3+iMCglB7apz0HDy0WfBDGowvcrnJmUjecm2xv3pNrFaZM6a0D2hXADkz14
+	 AlgIA3+D8D3f7iB0u2jKaDGZENOhzZ7tx9TqqZn/MesZXSZKndDG1oX1xTdjkMPwZnCE7
+	 kVARXbXbF6n/6DZJrARDsmBzgJtNd01LRoTy5Y6UglD/pP6ltIlpKGGJD5iY5b+iAA7S0
+	 X8c5N26M9JmkuaKIR8184B3rWMg8n2HnQgC0vv6hQpppTWdD6DnDM1nRNzkrBsRYwZkgp
+	 gGSjmJI4kS1UAkqCGj1VelktOVPRYkiV/vfqVgezUboXWGSrfzUQwXdY31f1EvhsKaQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1793115425;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To;
-	bh=Wg/4rCc9Y69RwQr7t1OslmfPJs2UBZmRz8gauVCMqkE=;
-	b=U6HPvvbCj+wLEPhNIqlywgF7J7cKl4LmjF+NuhyVa0VqQREnFnYX/Vcw80XrsHhnKj4V
-	 LPO+tVI3Vt3Nk0CoiZgH6uFU0/lMtjazQs3BtpdIAkTOaizjjLGKnK2jTsYgxwxLJjC4h
-	 XV+sxC2m3bJJCDnGzh30/INaWib59CHZ4+ve5TV+QUSDgvatQx5honHY//Ow7ZUWeoYPB
-	 y0UQkgaLALlKbkfuhGY2Gsd4R1wJ6ZTfNusGPVscelhHdC2hmxQFaVmj6NmAxFU2jOEcF
-	 e9i9jThPMt6BPkWETHKn1qsAq3qcgG0bKdZwKQpeAYAmWmp7RwdcUQFC6FAShUbzdUA==
+	bh=8zdkSy4S9d8mahCstou+MAd3++gCJOCaSRrb4UBEAWU=;
+	b=dK+31QxFP1lBZfAHRbsBImu/6kBph/QURVqKxC0hlkrrQMHse4y8StP1dVGJKPeSMgAh
+	 MYt6ESU1y3UYFJwJkilpt+dS90ZjlnpJrjE6Ta1MTuAwxMsyc9QYPDPgpYRR8h6QBjm+M
+	 7nJUWx844KBxWSAXdqCvzhsNnNfZVSs6QrVLGuOEnJ28Es7oNRdOqnwxuXW7WwLIOc4Qf
+	 a4LzBa5HsAmxJJAJRErTwcxc1TpSq5WXUlLW2RH7KxyD2IvbAqCARQfeXTAbl94jlnN54
+	 idCxbu+VBUvFF96rrGrBAKABec3UK3yBWjz1zWtfxPcia8CKBwCl5IQHFS6/VQbdx7Q==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id BE2A51F031F1;
-	Tue, 27 Oct 2026 15:37:03 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id B4BE51F031E9;
+	Tue, 27 Oct 2026 15:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1793115425;
-	bh=Wg/4rCc9Y69RwQr7t1OslmfPJs2UBZmRz8gauVCMqkE=;
+	bh=8zdkSy4S9d8mahCstou+MAd3++gCJOCaSRrb4UBEAWU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=k1TtMq6c/WTv48i4q3qBxo5ssYXw2BOWw1W18j15xuLHNw4DwX2jGcb51WY+M6Cei
-	 5Xetw0blVNtzG1xYHxoJBM6srZDGtw5e9zY1z1CCikpjEThb91yw6yLTsBVRCsYYqo
-	 DW68+lxNR/WAYqioYEIw+8zjFTM93ioRLFEkW+Taus2iPJZVXklGA5ypRH+BGjngKQ
-	 shPrZI16eq+pg3YnmwpuOwSVbDEFqs0dfzj7ZW6OSMKC3QwxGgJVof1B66FOOi0dz5
-	 p/M9L/pmRzACbByKLDDKEyfDXAdJ3nV+u4dFvJBOvu54OZmo+qq+krAuKdtXpjrVHT
-	 zHVg+46ytmT7g==
+	b=ebo1EUcvfmzZ/mY9wwKc+oCbv/uFVd19Xq1vXyakOrs2McvmVbVg775+BFIbFfvIn
+	 2hV1XlxRanuWs0RVw3jDfQzuTU+yPfW2zVanSV/PlWcWDeTUVL3YV04/jQ5tW1eggT
+	 W7RDU6tyeT8mqJuQchZdDnXtZLPvs1j4lnoVYlbUjj1P9QdO+TDTa3yM5xqP7qmae3
+	 C7z/zutZPTLc0drDxwh7gjiHd9DEyKt6/PsrNtImOVtCT8IQx+qdnE1xGPGnGfzxIz
+	 /7XjliBBJqOBKwvbPL6DAgfztXeuuzOSlLSgweHnWsF4m8TrG/adYTblbbOetGEIv5
+	 7UE3i3SWiGE9Q==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 7344545157;
+	by lkml.kernel.org (Postfix) with ESMTP id 3A68145143;
 	Tue, 27 Oct 2026 15:37:01 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Tue, 27 Oct 2026 23:36:59 +0800
-Subject: [PATCH RFC 08/18] dt-bindings: interrupt-controller: add Zhihe
- A210 PLIC
+Date: Tue, 27 Oct 2026 23:36:54 +0800
+Subject: [PATCH RFC 03/18] riscv: add Zhihe A210 support
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261027-a210-scmi-v1-8-74d58ce85bd8@iscas.ac.cn>
+Message-Id: <20261027-a210-scmi-v1-3-74d58ce85bd8@iscas.ac.cn>
 References: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
 In-Reply-To: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
 To: Sudeep Holla <sudeep.holla@kernel.org>, 
@@ -106,11 +105,11 @@ Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
  linux-serial@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793115418; l=961;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793115418; l=1013;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=MYmNcIdDPzIqU+lFcft+1pLSNPlzC5ZsJ4TFo0L1GrE=;
- b=Vhx+1FMKGBmb9XNkIq6p+G9/3cD2jq2U9rQkE36iw94gvXsWmdIZaqbb+gQDI3rmihzrmhBNC
- uFqJfWO5xdtCbVnBFGZ7UJCwkdi2VTYeHduCK06ARF1vJDnM8k3m/a5
+ bh=4BCg+toIRbmSQPVtgy4Q0XzWNjGrXKkDc5R8if2Rdc4=;
+ b=1pDamW3QTPBKSSKzzRENwqiqMqVJhpTprOuArsGVVA8UErhZhB2MrFaIMX07VrlWigcyFgZL1
+ WpehrKhtBPgC++sF6Kq8JbHl8+KDOE37eNlO24T6In/83R1aQLkLfpV
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -138,26 +137,36 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
 
-Add the A210 PLIC compatible with the thead,c900-plic fallback.
+Add the ARCH_ZHIHE option for the Zhihe A210 SoC.
 
 Signed-off-by: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
+Co-developed-by: Han Gao <gaohan@iscas.ac.cn>
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- .../devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml      | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/Kconfig.socs | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index cde4bb691897..fd5b61db3f5f 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -80,6 +80,7 @@ properties:
-               - sophgo,sg2042-plic
-               - sophgo,sg2044-plic
-               - thead,th1520-plic
-+              - zhihe,a210-plic
-           - const: thead,c900-plic
-       - items:
-           - const: ultrarisc,dp1000-plic
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index cecbce0c4983..b9863ebd88c7 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -91,6 +91,16 @@ config ARCH_ULTRARISC
+ 	  This enables support for UltraRISC SoC platform hardware,
+ 	  including boards based on the UR-DP1000.
+ 
++config ARCH_ZHIHE
++	bool "ZhiHe SoCs"
++	depends on 64BIT && MMU
++	select ARCH_HAS_RESET_CONTROLLER
++	help
++	  Enable support for the Zhihe A210 SoC.
++	  A210 has four C908 and four C920 RISC-V CPU cores.
++	  Supported boards include the Melon Pi V1 and V2.
++	  Say Y here to build a kernel for these boards.
++
+ config ARCH_VIRT
+ 	bool "QEMU Virt Machine"
+ 	select POWER_RESET
 
 -- 
 2.55.0
