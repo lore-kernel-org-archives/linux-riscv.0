@@ -2,203 +2,60 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9C63606A332
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 15:52:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 147EC606A31B
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 16:18:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LVlNPrLD;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=El8Ub3SQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PGUEim4S;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eaw/6xZS
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=7rNueMxSIUNgD2JhJkJ1L+h8vxQUOdBLWSFmM5NzPnM=; b=LVlNPrLDMLvFJcol+PRvwT1fEc
-	rygHTujwiRKFyPHUcutaxrM4EXC5/8OCAkpFJ21kHFaXdwzSyFim7S2MA7nXfr5LAkN/Qf55Vo/Zm
-	DV+eouPQXJQxNPQvLJluAkQyNA65Qian0y8StNke6CSUduGFxSvy/QdYW95/V429psmC5tix9mBQp
-	Fan/3DCZf5LDPSLdjdGOo2GWKE944eNif95lIr7HlT5L/oEeWzgOTguAzgc9lT4F89hlFJ1g7yvf9
-	I1eDqtnhDJUB/yfBKkbiwbDRtiUQ2Vh2nK5HHpkjRPwHda0x/qzPU9VAgOPkJwo7+4vk4Q2/dYfLe
-	fyqg+dwg==;
+	bh=iB7hRV7V9O3sSQjQoQr4L/Wad+siUixC5EgknFO7HOA=; b=PGUEim4SqmYuXyfDlCRAuSnIpt
+	vIA6PXI+5xXBlI6pKL2PDDcgqIeXjWkKyqpCDVYTlUS8CLCSzKyI7D+kt7GWmoJrJhyolk87oxjp6
+	IvBikntGl/UH2uOLppDpLejMI51lhujt21/3j8GUhftlDij8yyg3bikakdSx9whqpOFJqn1NIlLWr
+	1x9Xe5UgOwr/XSGXQd9Mfa5v1JoPzgvg40NhLRetJb2Xnuq+WrhHOZ/+jXqFTWrONgDlQEarLSXbC
+	W6rLFUU+0QwyvmDHqTKSPMbYGFjoxGA3uTX9Vnoojs1J+GK2JIQD/WVO0IXHu/odew/QoD7WZVnIs
+	GKsf3VHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjSx-00000005HB4-3uFY;
-	Tue, 27 Oct 2026 15:51:59 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1xLjsT-00000005Kei-3puV;
+	Tue, 27 Oct 2026 16:18:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjSv-00000005HAC-09x0;
-	Tue, 27 Oct 2026 15:51:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YZWwAwoSx+P4FxPQNIQslkbyZpSP9gG3yV2ZBwgWJl2QErHd7docAr6iqNwp8aE8fQyKAAlT2d2OS6Gv4mR1cNVW4Qiory68wps5nFJIP4eNa6SQCYRRaS6wgMu0tF9EB5U33oO8oBoUMdFFajDrFDhfB5yz/f7fPJ66zlzyldNLHUXp5Ne/LhmR6cQ3uQ5MbJMgsDa51BxvgTL1agAUgnUmu7M4T3BhHc/mJbamJMiSFeyV2xtRj23tKuF3gjUh+/lJ5nb/S+95PhwVKtA7YUFXsSeTpNpRN/dUsfkmnrKRk6I6+RCX9cjbLF43FfZuj/gLiPva7j1/4AdXqBhYmg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lVBnn/kwF1N44jQKpuK1cugn5AVXBs178J6gGYiQ9XI=;
- b=e1zWJIRlec3+w4R/F1XQtfXRM9q8CDg4pqSW5Ag4vj7P82tQQRltF7W03jXL2/98SqpDOgySx42FrRRKJh0y7ajah0YEs/Dwv5JU4DddLVhHaTpop4jl4o7cEJG93XCwd7CKSOWzRnkXI6YeJe7qukXlzetRuxxVT2W6r/MkTtihoNkgKeC0sUH9xyxwhkfGptw+aGze2aswFzgbDNSewdZAc7nOgJT0bzoepDc1RBWkvHpw7nW9NwlZYNGTBuzR9n86BLubBM5Fd488d09JI6kvgSrcGDEiL0w4zqAb7w9LlYDKAQeKLpr0uAsaYie9QaOVrH6Ar+xLGmZwA3gMdQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lVBnn/kwF1N44jQKpuK1cugn5AVXBs178J6gGYiQ9XI=;
- b=El8Ub3SQkAhZcV+zpyAe0zN8vPTbpl4nBK4/iXCUisHvmDVms55nfIJxJBFVF/0zhIExpODe1tl5Ba3X7hOjKRObKuvPZuqT/On8pTdzNKrn+RLZ7iPAHDBjl1LMjo6w6yhbT4jASfEXg+8wJ+prmaCf7MpaViLfgiBxPx8zko0=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
- by MW6PR12MB8866.namprd12.prod.outlook.com (2603:10b6:303:24c::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
- 2026 15:51:50 +0000
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287%5]) with mapi id 15.21.0546.021; Tue, 27 Oct 2026
- 15:51:49 +0000
-Message-ID: <3d38c4a5-1a12-4af1-ac2e-413a457ce4c5@amd.com>
-Date: Tue, 27 Oct 2026 16:51:36 +0100
-User-Agent: Mozilla Thunderbird
+	id 1xLjsM-00000005KZJ-20dD;
+	Tue, 27 Oct 2026 16:18:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9998A602C2;
+	Tue, 27 Oct 2026 16:18:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17FA41F01825;
+	Tue, 27 Oct 2026 16:18:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793117893;
+	bh=gzqWKjNAt9lqP6pzm2jk44aYuqndLp4yTwvo+4KqEyE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eaw/6xZSvd/iUmSOi8x3BJdGmmK2e2Au+98Gmi/jqPb/fsxjYFyg2asyyhJnch6aW
+	 wiiYi0eITIbZDq54HaW38SGswS0qGyltyrmNEvvLUgZrcg3MfWR9qehG4imuCVOpGL
+	 JLBJMFg4bFYLFuqGqIHPNPdaHWv4b1hxzIOgmIltqxGKohsv70X69oBDXW+gIkAM9P
+	 6ksq060/PG/zOz5Emn8kneLWdVFzz4b9Fry3mL204ZqJhnBuP6P3beekO0yFayQ3hq
+	 GdLB0wZ1l9tZcPdFY3Dx++WAI2wf8fFk1D10texSvMGm5UdAm082/dyBMfy0jfVO2w
+	 miwbGbIVbN6NA==
+Date: Tue, 27 Oct 2026 16:18:04 +0000
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Michal Simek <michal.simek@amd.com>
 Subject: Re: [PATCH RFC 01/18] firmware: arm_scmi: Allow SCMI transports on
  RISC-V
-To: gaohan@iscas.ac.cn, Sudeep Holla <sudeep.holla@kernel.org>,
- Cristian Marussi <cristian.marussi@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>,
- Jassi Brar <jassisinghbrar@gmail.com>, Linus Walleij <linusw@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Thomas Gleixner <tglx@kernel.org>,
- Radu Rendec <radu@rendec.net>, Samuel Holland <samuel.holland@sifive.com>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Anup Patel
- <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Drew Fustini <fustini@kernel.org>,
- Icenowy Zheng <uwu@icenowy.me>, Inochi Amaoto <inochiama@gmail.com>,
- Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>,
- Jiaxun Yang <jiaxun.yang@flygoat.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org,
- linux-serial@vger.kernel.org
+Message-ID: <20261027-quaint-demonic-poodle-6c1e10@sudeepholla>
 References: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
  <20261027-a210-scmi-v1-1-74d58ce85bd8@iscas.ac.cn>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- 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
- mpwx1d8=
-In-Reply-To: <20261027-a210-scmi-v1-1-74d58ce85bd8@iscas.ac.cn>
-X-ClientProxiedBy: SJ0PR13CA0218.namprd13.prod.outlook.com
- (2603:10b6:a03:2c1::13) To LV5PR12MB9779.namprd12.prod.outlook.com
- (2603:10b6:408:301::14)
+ <3d38c4a5-1a12-4af1-ac2e-413a457ce4c5@amd.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|MW6PR12MB8866:EE_
-X-MS-Office365-Filtering-Correlation-Id: 09d77921-3e9f-4e1e-6156-08df34423699
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|366016|921020|261026121527099003|11063799006|4143699003|56012099006|261021123027099003|261009223027099003|261022105027099003|10067099003|261021121427099003|18002099003|22082099003|6133799003|261026140227099003|3023799007;
-X-Microsoft-Antispam-Message-Info: XPvcZYuTVwRWh4B85Nxge+uI2SlrJ0ohRyqF3CBbQr+vjPjojnPPgxQCa/j702C6HBk74sQpOtAR1wCL2u8fAiDZ597srmBcNIeIdPzHvy/UxORsKPdBGCZbMRo6fa0hGSG35C807h1exze3ICiJzEoVBOon6aS5hrC5vBmzTng05jV5N8bG6yKxvu6rIJytfJf/oWjj1a9OcZfQdQRER9PCh+MWWse8JEoNZr2mT/yxTqQZvrm+Yjs40Fs2AfQEINZCwfzQdlPii0/xB7CPkEiSh/TiAwYiW0JX1UaVlBLQs40IyS8/MS2sK6K2DDfm2qA+4KiFwfBty7RFbm4L3rpxBZ/3W6p9LB/qs+W26erWQvILwNhvfnR8MzugcdRR2oDqnhIADp3H9Tt/6lFeT0aPXe+fYlxJloxGKTPw/zlGeML2xD3O/1VMgXB8rh3rTSWlLqDiYA1rJIesgcrak4JYh0GDat7y/LEpiVJnDbHcQGw/LXkPS47aMWDDBsKO1txcTKWcjLb9arpe06/Or4yU7WyHawZ82KqsmvM7mnf+e+4WQmRQcDOVC3j44vOLcfAURfQG0Sj0sqE8BzPTqzpNvla1+7wP4I1eMmSWFa/npSnM1eBP2c3gEKJAJVvSytxAqCrrstgIrTCyMbq2y59WD/cMaunTM4Jy/jf6BlMqnNmLKKK6agxOxv16z470f9ZhVjxzjm+U/LAreYtwkw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(366016)(921020)(261026121527099003)(11063799006)(4143699003)(56012099006)(261021123027099003)(261009223027099003)(261022105027099003)(10067099003)(261021121427099003)(18002099003)(22082099003)(6133799003)(261026140227099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UFJLaURObE9keUpMS0tKdFZsRGJSRzlCcEkzRVcrdDBJTUtBbGdYNlBrTW0x?=
- =?utf-8?B?NDlGMWRlZ3l5L2ptSHl4eHVlSWpqVHpnN2ZVMlRZaFcyNGJKSk5QMDdsOUZU?=
- =?utf-8?B?Yk1YeGxjaEdSSlFCTDRHaE5UbHVveTZKN0RYMjU3d1dYUE9DNEs4enBXQkRQ?=
- =?utf-8?B?Wkx2cU5Vd21kNExzUDNvQzRmZ3BPRTdHUWJkdU1pOVpsblpaZnoxMThYU3dN?=
- =?utf-8?B?ekdJb0pvaWtYMDJuNmdyRFA3NWtYZWlHQ0Eyb2FLS3NudWR2ZEl3R3F6MDdN?=
- =?utf-8?B?QTNkQXV3QUpJaFVrQVkwbFFKUW90MWpkZVUxelNPYStzbUJ3L3ExWnViRHBD?=
- =?utf-8?B?WWE1R0ZuLzQxeVhXL08yRXZ4dlA0Y3JLc0RrNjlJOU1hL3hIL1lMU3ZrVmlh?=
- =?utf-8?B?R3JXRjFOU284WXF1WU1hemF1djRvZmdqU2xKQ2dxLzE3amkvZjhsK1Zwd3Fq?=
- =?utf-8?B?MmFDbzVEeU0yYnNWQUtrZCtLTnJZUmEyU1REM1E4YkQrYWI2VUxpVXNndWVS?=
- =?utf-8?B?QnJLZ0FzOHQ0enRoSnFwbFdKQlErT3FQZXNISVJ5S2ZBY0RvR244azNQU051?=
- =?utf-8?B?cmU1YnpEWlVZbkIreFN4aG1rRUlqMkZqVklqeVN3NFJ4T2E5NEZMWUVQQm9n?=
- =?utf-8?B?U0NrQURxTVMvNTliY2gvQVJ1UnRxSmpXTUFyZDFiejhSVGluOHQzZGU0dEFV?=
- =?utf-8?B?UWtqOGpqWkNBYUhEVGlRREpaWlFYbzUvTVk1bW5QRjB0dENwOHJSTWUvbUhx?=
- =?utf-8?B?M25pSXRMVFlac0tIU0lSRitYUXFMaUJLOUpPY3NKQ2QyU2lLclFBUXFtUnZM?=
- =?utf-8?B?UUtjdXNaaWpXbHdFbDBYZVZoSXlwL1RVWjNYZm1GNjRWcEdjaVkrclRsUVdq?=
- =?utf-8?B?MWxUU0JGU1NPWHhveDVhTklDZmJBa2hnZ29VcU9TMUNhbHhZcTRBUUo0ZGt5?=
- =?utf-8?B?cVk2V2dVenpNTGNva0xqQXNmZ3drRnhIanN1UWhkM2hmRmJ1MUZhcGtZQ3Js?=
- =?utf-8?B?VEhRY1BaYy9hN05iQUlheEEzTVlGV2lyNzhiaEFocTU2V285NzBLbUFRa1NT?=
- =?utf-8?B?LzVRZ1RQWEZ4QmRRaWV4TmY5dXF4Nmx6amViUEZaVlAwdFJ0SllZSHlOVUZQ?=
- =?utf-8?B?QzBTNmprc0FKQ0tOWk00bWZ0b2p2SFhLZDZjRGhSWHV6b1FzUGt0ZVVqY0pj?=
- =?utf-8?B?SU56L2N5QXVoVExENFdOQWpyRlRZeU82Smw1WElSdC9GbUpjMzZEakNZQzlW?=
- =?utf-8?B?MjNDaitZUVFvaXloeWRHV3JKV1IzUzFSNm5qWExseHBUU0NpaS9EbkcrZnlK?=
- =?utf-8?B?L1U3dGVsbnNSSHNEcHJDRlVsUVZ4Y2hacmdqWFJ6WDhJeUhqT01BbWk2S0Zl?=
- =?utf-8?B?bnBVcWR2WjdNOHRtem9hUUVCTnM2M0NYMkFDb2laSHdLbm02Nlc1end3ZzJz?=
- =?utf-8?B?eHdpdGdJeVJheEVkNjM5V2hzM0N0VXRzUFA2ZTJxUkhENkVoTlJLSW9KQmJ5?=
- =?utf-8?B?ZHVIRnNmbjBmK1M1WU12bmNXalJDOGZxWFlDdk1Rd1R5c29zVmpMN1lVdmxo?=
- =?utf-8?B?YldDSmpEVVQ0NW9OM01DSkVseXNOUWI3TWI0bndmY3RPdm9DMTJ2M2lDT28y?=
- =?utf-8?B?OGRLZmRzc3k3dDZZZVJVRzY4ZmN5N2h6YzduL1Z5KzN3c2h4bFBsWHJnbEww?=
- =?utf-8?B?UnRiUHlRTytqcTg3c2ZKL3ZpUngzTS84WHBZa2VhSWplUERTbmQ4a0J5cmNp?=
- =?utf-8?B?ZU00Zmc4VFlhNWV2U1k5d2V4VDVyOGxpaTM4U0xCZDVaSTRidVUvemxoOFNT?=
- =?utf-8?B?dmZ3R29GZ29veiszYW5WV3dEN1VkaVlMR3lCVUQvU3RGQ0lyZW1NdVJFU3hm?=
- =?utf-8?B?YlZpeEVweWFheGZaNFlRRGF4d3E1am42Z09SMXFUZ3drbEh0M2tsajhKY1Q5?=
- =?utf-8?B?bmpOS1BlM2pZNDltMTNKVGhHbHFxUCt0QUpMNTRCSmJ5ZUVKb2VYSGlGWUxN?=
- =?utf-8?B?S3B1RElDNzdsa3pUejMxa1JieHZhK0srTXozR2dsdUJhSytiRHFBN08xVjlW?=
- =?utf-8?B?UHArdzNkZjdIaUVqT2tZOHE4U1A1K3pZTmdhd0JCbDJYZS9qWWoyNDdQM09G?=
- =?utf-8?B?N0VGQWVPa09LN2NPQ2pwQVBOS0xDVUV4d0hvSzZGT0RWb0VxbDgvWEFCbGNV?=
- =?utf-8?B?dTYxNVE3RG5mYTRxZXl5VWZzbCsydWQ5NnUwL0ZidUFjUzZIc0RhVHdiYVRC?=
- =?utf-8?B?bG5zNWZsOHhkTFM4a2VpcnE5RzZsZnBiSE50b2s0eWNmcEpJd2g0YSs1R1po?=
- =?utf-8?B?NkJZNWs2QkpOaXg1K2ROL0lSOGhHeHU1dm5FRGJpbklSLzZDeVZ0dz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 09d77921-3e9f-4e1e-6156-08df34423699
-X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 15:51:49.9540
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UQA+Kwhf3qPfUuwcCqaLNMSF3cWNLTbtbYHw+bCcBcNcz1mShnJysM+JSH/pCSc3
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8866
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_085157_114549_B89A9BF0 
-X-CRM114-Status: GOOD (  13.69  )
-X-Spam-Score: -2.1 (--)
+Content-Disposition: inline
+In-Reply-To: <3d38c4a5-1a12-4af1-ac2e-413a457ce4c5@amd.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -208,48 +65,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Drew Fustini <fustini@kernel.org>, Radu Rendec <radu@rendec.net>, Yao Zi <me@ziyao.cc>, Paul Walmsley <paul.walmsley@sifive.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, Vivian Wang <wangruikang@iscas.ac.cn>, linux-riscv@lists.infradead.org, Jiri Slaby <jirislaby@kernel.org>, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Jerome Brunet <jbrunet+clk@baylibre.com>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Jassi Brar <jassisinghbrar@gmail.com>, Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux-serial@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>, gaohan@iscas.ac.cn, Sudeep Holla <sudeep.holla@kernel.org>, linux-gpio@vger.kernel.org, Daniel Lezcano <daniel.lezcano@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, Paul Walmsley <pjw@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, Stephen Boyd <sboyd@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Inochi Amaoto <inochiama@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-
-On 10/27/26 16:36, Han Gao via B4 Relay wrote:
-> From: Han Gao <gaohan@iscas.ac.cn>
+On Tue, Oct 27, 2026 at 04:51:36PM +0100, Michal Simek wrote:
 > 
-> Mailbox and shared-memory SCMI transports do not require ARM execution.
-> Allow RISC-V platforms to use the existing SCMI core and protocol drivers;
-> architecture-specific transports retain their own dependencies.
 > 
-> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
-> ---
->   drivers/firmware/arm_scmi/Kconfig | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+> On 10/27/26 16:36, Han Gao via B4 Relay wrote:
+> > From: Han Gao <gaohan@iscas.ac.cn>
+> > 
+> > Mailbox and shared-memory SCMI transports do not require ARM execution.
+> > Allow RISC-V platforms to use the existing SCMI core and protocol drivers;
+> > architecture-specific transports retain their own dependencies.
+> > 
+> > Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> > ---
+> >   drivers/firmware/arm_scmi/Kconfig | 2 +-
+> >   1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/firmware/arm_scmi/Kconfig b/drivers/firmware/arm_scmi/Kconfig
+> > index 783c24a20e29..1cfe2b572d18 100644
+> > --- a/drivers/firmware/arm_scmi/Kconfig
+> > +++ b/drivers/firmware/arm_scmi/Kconfig
+> > @@ -3,7 +3,7 @@ menu "ARM System Control and Management Interface Protocol"
+> >   config ARM_SCMI_PROTOCOL
+> >   	tristate "ARM System Control and Management Interface (SCMI) Message Protocol"
+> > -	depends on ARM || ARM64 || COMPILE_TEST
+> > +	depends on ARM || ARM64 || RISCV || COMPILE_TEST
 > 
-> diff --git a/drivers/firmware/arm_scmi/Kconfig b/drivers/firmware/arm_scmi/Kconfig
-> index 783c24a20e29..1cfe2b572d18 100644
-> --- a/drivers/firmware/arm_scmi/Kconfig
-> +++ b/drivers/firmware/arm_scmi/Kconfig
-> @@ -3,7 +3,7 @@ menu "ARM System Control and Management Interface Protocol"
->   
->   config ARM_SCMI_PROTOCOL
->   	tristate "ARM System Control and Management Interface (SCMI) Message Protocol"
-> -	depends on ARM || ARM64 || COMPILE_TEST
-> +	depends on ARM || ARM64 || RISCV || COMPILE_TEST
+> 
+> I would prefer to remove ARM || ARM64 dependencies completely that you don't
+> need to add RISCV there.
+> 
 
+Agreed. Before merging, we should trigger exploratory builds across multiple
+architectures. This will help us catch any hardware-specific dependencies,
+such as arch-exclusive IO accessors, that I might be overlooking right now.
 
-I would prefer to remove ARM || ARM64 dependencies completely that you don't 
-need to add RISCV there.
-
-Thanks,
-Michal
+-- 
+Regards,
+Sudeep
 
 _______________________________________________
 linux-riscv mailing list
