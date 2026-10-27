@@ -2,112 +2,91 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FC54606A323
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 06:36:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7263606A31A
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 08:01:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yBTiTKV0;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=Snx6N9ZQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bOanWmmR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=IIIK2eJ1tc+PxSNixg5LPm6dzLhHuOG6i734o1/7wAk=; b=yBTiTKV02tKSZjS2h+kV+QJABk
-	bjCekEh+khUO1hbdhoIUpDoITlNWiXsdm/XtOMw+MDbBjLgW11X63XwMMs4//lAWHZk8cMBKsEc8Z
-	5ZsbHnwoUwWwSDI/61/AsGuefsOGgy2/i6qHwSKogtRbCNdOJQgHygtH+nbysrBLH/C3Xzy3kNkft
-	NenUqWpHMHrpAG7tXaYEZ6Ckqj6Kh1CQF6Pqk9h0ISG/kEpZTXY9ORJ/8S8lepAC9a82oYdacN7jB
-	mcuFLnCgihMIj/7xtKEvvRqBPPYiy0WIBr1nSZlLzFVYRZr1+dcoKEoGN8BMvNz3YLIicGa6G+lKi
-	ncCWBGIw==;
+	bh=SKJHOV5BOOrBusKVuHDDKk2S63301ZNzkD3RJpQ2RCo=; b=bOanWmmRL8uEX2509hvI+rfYwn
+	ChFLvVuDHj5njOMsMYDZVpidX9apJv94+9zO3y+vC+nX2wHUOWypGYd/itiRMHvckwwLG/GfqbfDE
+	4So889hPCTzqM5Ct5R9tFQisoWZahK9FdEatEoa7i7KuUk3eBRobWzCN0Wb5qRK4qqr67SopPmTFc
+	Z+J4+tdcUcgkTrddzslxN1nPbj1o3ElYDKdDHShOJLYPyRFaQgKuyMW9Zyix+1kDsIF57kOjeIBTp
+	xjeBwAX71GPToX85KGJrJTBzn7dgvyzQJp5aOmFsa5yvw74WdE0P06Evqt97L1KnP60y5axs7frGj
+	BWS7lH0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLanV-00000003qWx-0hex;
-	Tue, 27 Oct 2026 06:36:37 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1xLc7L-00000003yAL-3e9B;
+	Tue, 27 Oct 2026 08:01:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLanS-00000003qTR-0Zjy
+	id 1xLc7K-00000003yAE-2d0N
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Oct 2026 06:36:35 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-cc4aa0246b7so1575788a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 26 Oct 2026 23:36:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chrisdown.name; s=google; t=1793082993; x=1793687793; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=dYFbbcr2uYZUTl7G/v0LoaX9lneqHtmhHpczJAH5sbg=;
-        b=Snx6N9ZQGxKyEHSSMZidInOfCCOMXC9++AAQLVaGiKsdqMDSchtYDwLY9oFnpbtKqO
-         nu8C7gEqQ991flGNolG3v1c8YbX0lLJHGFExjWMCftCTE192+XSqQpYvczItUpZILODy
-         XoC4uQ49M1KDVzXY8hSfVoUMXX2RcXe1Qm/3E=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793082993; x=1793687793;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dYFbbcr2uYZUTl7G/v0LoaX9lneqHtmhHpczJAH5sbg=;
-        b=25lJwODfbd8xw45S6+lhT6uw+Tat2B5Ueau8m0zryA4DN8TyoVBZ/hq3+Ae+GA86lI
-         /z2XdLlcRVuakz6y8mDkZqp1bxZqZsfrPbv5DJU6W6qRvCqQrDn1EoDMPreJ2O95r1tJ
-         0eriFMQXZzPxdTw0K8VhSxUUYcqacxzI0ueOlLvIwX9kUALa0KiETmoK1A/iX1PRBszl
-         xaqxgKDELfE0KOWaIo5yUOrfz6fOTq+fLjZEnKFgEo1Oyn6SH2V/s7kNLHX3XURXFZrV
-         WpR/OWQgWsUpu0l2Rx6GYsJQsCn9TaILYtP1Oq3jpUqH6ExIhJueHI1KjLq5SvVzK2yP
-         IeRA==
-X-Forwarded-Encrypted: i=1; AKwUvByRIorsJt5fUMqQeEQAO9oq8iEXfzCj7G5VxDD8rwG7ZKXGHDMcrIGHlYslNTCog6KDzCZmNrpZN6M96g==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKBK+LKBOxMDLHqGTgdwRtLRVcOFK/uorZEwXC2wLjF5aSNJrwb
-	NnazITbCqTN0d2AoGi4xDdRwDFD3J7ddawrUjNveGUsy6/ZeoFw0LP34yGlSZ1cufq8=
-X-Gm-Gg: AYBFou25+aDQNvIU+hq0xPHa5NgDkbW47p24AOYmDEMUXsSv3+MzhQyyGfy+d5+sjem
-	2WN5QUqtTJQpZD4w/nwfmassF/M1SffJ95yFoisF5x/fw5lbJzaDq8UjGTgpy/SoI5LQUkNILKM
-	f1FpaWzn1h/Dg3eGxMXgDvyCD/UJynH6TV4RvX2JGe6ZQw/dy92Klu0dDstZ8GEXXsAjzbYhWmQ
-	74vkIzsA7Go8EAWpTWCO2RGbQzS25rGDuSp5axmuDKzRCNEao7Wx7jSwj0gX5+XaETnGAVMNi2K
-	+BlPeqgOlnoo+fmRxY1HfxzpKmzQEFawwSjfWll90ublJhH1Q5ee0uOQ9uljGqxxyrSdUk8M6g3
-	jbA8IZTvNxwXSR8SauG1RRzwnxiPDemXwX25JmN1IZPEKKAzm0d8oLZBGoFWMItrHHjbjWbssA6
-	vN8ODrTbLFA0pKStTbWuL2UNVEu8/ZmFhIPF+RnS7k0bX836KPUUSmhhPBpFCR8NJAZJvgvn8wh
-	TADP9Q6GAv2DwElgRAYDnqQHBVD4SHfYpKkKeNG+VI07sEoujKHza/3bJCQSMmM3ypJ6N/Yudqi
-	ZrCR0LJBxlnVWieoU4a22hfgmUtEgnaXvT65yEzXCEEBCk1cdA8thfCFu48SMlF+VHsi+JaKcV7
-	ubPGBDKx16+0ZoeNmKlClmVI=
-X-Received: by 2002:a17:90b:3ec2:b0:3a8:1a1a:7895 with SMTP id 98e67ed59e1d1-3adeae6d30bmr6210081a91.18.1793082993200;
-        Mon, 26 Oct 2026 23:36:33 -0700 (PDT)
-Received: from localhost ([116.86.153.182])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae40456f65sm2331529a91.13.2026.10.26.23.36.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 23:36:32 -0700 (PDT)
-Date: Tue, 27 Oct 2026 14:36:28 +0800
-From: Chris Down <chris@chrisdown.name>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Kees Cook <kees@kernel.org>
-Cc: Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Ard Biesheuvel <ardb@kernel.org>, Will Deacon <will@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	kernel-team@meta.com
-Subject: [PATCH 3/3] lkdtm/bugs: Add CORRUPT_STACK_END to test the scheduler
- stack end check
-Message-ID: <7c4627a57202b505bc03837680f6b43c2683bc07.1793082868.git.chris@chrisdown.name>
-References: <cover.1793082868.git.chris@chrisdown.name>
+	Tue, 27 Oct 2026 08:01:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 63D2A43EC8;
+	Tue, 27 Oct 2026 08:01:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59B3E1F01825;
+	Tue, 27 Oct 2026 08:00:53 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <cover.1793082868.git.chris@chrisdown.name>
-User-Agent: Mutt/2.3.3 (9073d26d) (2026-06-12)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_233634_197067_749B65B9 
-X-CRM114-Status: GOOD (  14.17  )
-X-Spam-Score: -2.1 (--)
+Subject: Re: [PATCH v7 6/6] PCI: spacemit-k1: Add Spacemit K3 PCIe host
+ controller support
+From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: Inochi Amaoto <inochiama@gmail.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+ Jingoo Han <jingoohan1@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Frank Li <Frank.Li@nxp.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Niklas Cassel <cassel@kernel.org>, 
+ Christian Bruel <christian.bruel@foss.st.com>, 
+ Senchuan Zhang <zhangsenchuan@eswincomputing.com>, 
+ Vincent Guittot <vincent.guittot@linaro.org>, 
+ Randolph Lin <randolph@andestech.com>, 
+ Xincheng Zhang <zhangxincheng@ultrarisc.com>, 
+ Alex Elder <elder@riscstar.com>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+ Vidya Sagar <vidyas@nvidia.com>, Pengpeng Hou <pengpeng@iscas.ac.cn>, 
+ Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>, 
+ Gustavo Pimentel <gustavo.pimentel@synopsys.com>, linux-pci@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+In-Reply-To: <bddc44d0-5446-40a9-b211-28d0b03f89ad@ti.com>
+References: <20260929083755.458238-1-inochiama@gmail.com>
+ <20260929083755.458238-7-inochiama@gmail.com>
+ <179232693939.2114.10956498814503201256.b4-reply@b4>
+ <athvDzJHs7WQmBnx@inochi.infowork>
+ <bddc44d0-5446-40a9-b211-28d0b03f89ad@ti.com>
+Date: Tue, 27 Oct 2026 13:30:45 +0530
+Message-Id: <179308804504.2479.5374380919602671853.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6234;
+ i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
+ bh=iOohDRtxxe9CNbFudFpxxtv+wrhF1+p97PhHV4HpkC0=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBq4FowyUBvub8gHFvOntzFuPIDgQkxWHu9pPjWw
+ 7FstetbLnqJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCauBaMAAKCRBVnxHm/pHO
+ 9ZvJCACRv09Mq7Pi4mwNeBkYn0omULLAUDZ+vefsb7uf5r6eAWaz/W/Sbkm5JeoQZ0PnRrgtPMJ
+ 8dJBpAjk9HJDhrTZQnE5Y8wiih/odeQ42YpmUWwZCFnOTGNWdGwTeVubE+SJCwbxHGX8qMxZWnF
+ O7G7NthKI9jx/ytADIoT+Gp2DTe3nN5i6/AftHK1KY0BMRGVQr2EZ4AiRzgA+XY2skVuktf7zGN
+ iX4kPqcYsK0WxKVqQWy3DSk4+eJnhZuHhl8oxlfApyQsBl+1M/PLbE9j9SggnO2+wC1ZMPuGKZq
+ ytzs7F06LggMAisEEkIwZDt1Wxv7cLKo3gKZJoomkSBEuFJR
+X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,75 +99,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-There's no existing test for this, so let's add one.
+On 2026-10-21 13:56 +0530, Siddharth Vadapalli wrote:
+> On 10/21/26 1:26 PM, Inochi Amaoto wrote:
+> > On Sun, Oct 18, 2026 at 06:05:39PM +0530, Manivannan Sadhasivam wrote:
+> >> On 2026-09-29 16:37 +0800, Inochi Amaoto wrote:
+> >>> The PCIe controller on Spacemit K3 is almost a standard Synopsys
+> >>> DesignWare PCIe IP with extra link and reset control. Unlike
+> >>> the PCIe controller on K1, this controller supports external MSI
+> >>> interrupt controller and can use multiple PHYs at the same time.
+> >>>
+> >>> Add driver to support PCIe controller on Spacemit K3 PCIe.
+> >>>
+> >>> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> >>> ---
+> >>>   drivers/pci/controller/dwc/Kconfig            |   4 +-
+> >>>   drivers/pci/controller/dwc/pcie-spacemit-k1.c | 139 ++++++++++++++++++
+> >>>   2 files changed, 141 insertions(+), 2 deletions(-)
+> >>>
+> >>> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+> >>> index dcfbe7e229fd..f9c27165260e 100644
+> >>> --- a/drivers/pci/controller/dwc/Kconfig
+> >>> +++ b/drivers/pci/controller/dwc/Kconfig
+> >>> @@ -443,7 +443,7 @@ config PCIE_SOPHGO_DW
+> >>>   	  Sophgo SoCs.
+> >>>   
+> >>>   config PCIE_SPACEMIT_K1
+> >>> -	tristate "SpacemiT K1 PCIe controller (host mode)"
+> >>> +	tristate "SpacemiT PCIe controller (host mode)"
+> >>>   	depends on ARCH_SPACEMIT || COMPILE_TEST
+> >>>   	depends on HAS_IOMEM
+> >>>   	select PCIE_DW_HOST
+> >>> @@ -451,7 +451,7 @@ config PCIE_SPACEMIT_K1
+> >>>   	default ARCH_SPACEMIT
+> >>>   	help
+> >>>   	  Enables support for the DesignWare based PCIe controller in
+> >>> -	  the SpacemiT K1 SoC operating in host mode.  Three controllers
+> >>> +	  the SpacemiT SoC operating in host mode. Three controllers
+> >>>   	  are available on the K1 SoC; the first of these shares a PHY
+> >>>   	  with a USB 3.0 host controller (one or the other can be used).
+> >>>   
+> >>> diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> >>> index ec59ccb710ec..61b430f2294a 100644
+> >>> --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> >>> +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> >>> @@ -28,8 +28,18 @@
+> >>>   #define SMLH_LINK_UP			BIT(1)
+> >>>   #define RDLH_LINK_UP			BIT(12)
+> >>>   
+> >>> +#define INTR_STATUS				0x0010
+> >>> +
+> >>>   #define INTR_ENABLE				0x0014
+> >>>   #define MSI_CTRL_INT			BIT(11)
+> >>> +#define RDLH_LINK_UP_INT		BIT(20)
+> >>> +
+> >>> +#define K3_PHY_AHB_IRQSTATUS_INTX		0x0008
+> >>> +
+> >>> +#define K3_ADDR_INTR_STATUS1			0x0018
+> >>> +
+> >>> +#define K3_CACHE_MSTR_AWCACHE_MODE	GENMASK(14, 11)
+> >>> +#define K3_CACHE_MSTR_AWCACHE_BEHAVIOR	0xf
+> >>>   
+> >>>   /* Some controls require APMU regmap access */
+> >>>   #define SYSCON_APMU			"spacemit,apmu"
+> >>> @@ -44,6 +54,9 @@
+> >>>   
+> >>>   #define PCIE_CONTROL_LOGIC			0x0004
+> >>>   #define PCIE_SOFT_RESET			BIT(0)
+> >>> +#define PCIE_PERSTN_OE			BIT(24)
+> >>> +#define PCIE_PERSTN_OUT			BIT(25)
+> >>> +#define PCIE_IGNORE_PERSTN		BIT(31)
+> >>>   
+> >>>   struct k1_pcie;
+> >>>   
+> >>> @@ -315,6 +328,123 @@ static int k1_pcie_parse_port(struct k1_pcie *k1)
+> >>>   	return ret;
+> >>>   }
+> >>>   
+> >>> +static int k3_pcie_init(struct dw_pcie_rp *pp)
+> >>> +{
+> >>> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> >>> +	struct k1_pcie *k1 = to_k1_pcie(pci);
+> >>> +	u32 reset_ctrl = k1->pmu_off + PCIE_CLK_RESET_CONTROL;
+> >>> +	u32 val;
+> >>> +	int ret;
+> >>> +
+> >>> +	regmap_clear_bits(k1->pmu, reset_ctrl, LTSSM_EN);
+> >>> +
+> >>> +	k1_pcie_toggle_soft_reset(k1);
+> >>> +
+> >>> +	/* K3: Set IGNORE_PERSTN and drive PERSTN_OE high (assert reset) */
+> >>> +	regmap_update_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
+> >>> +			   PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE | PCIE_PERSTN_OUT,
+> >>> +			   PCIE_IGNORE_PERSTN | PCIE_PERSTN_OE);
+> >>> +
+> >>> +	ret = k1_pcie_enable_resources(k1);
+> >>> +	if (ret)
+> >>> +		goto failed_resources;
+> >>> +
+> >>> +	regmap_set_bits(k1->pmu, reset_ctrl, PCIE_AUX_PWR_DET);
+> >>> +	regmap_clear_bits(k1->pmu, reset_ctrl, APP_HOLD_PHY_RST);
+> >>> +
+> >>> +	ret = phy_bulk_init(k1->phy_count, k1->phys);
+> >>> +	if (ret)
+> >>> +		goto failed_phy_init;
+> >>
+> >> You got me confused with this PHY bulk API for a moment. I think you are trying
+> >> to control all the PHYs of the multi-port RC setup at once. But I believe
+> >> that's not what we want mostly. Each port is an independent entity with its own
+> >> PHY, PERST# etc... So the RC driver controlling all the PHYs at once, doesn't
+> >> seem logical.
+> >>
+> > 
+> > In fact this thing is different. Accoring to statement from spacemit,
+> > for software, it does not need to care about how the phy topology,
+> > and which phy/phys is/are attached to the RC. It just needs to enable
+> > all the phy and configure the APMU, which is the one that give some
+> > control on PERST# and others. The phy itself does nothing on this.
+> According to section "14.1.4 PHY Configuration Block Diagram" in the User 
+> Manual for the Spacemit K3 SoC [0],the x8 Lane PCIe Controller namely 'PCIe 
+> A' requires multiple PHYs (ranging from PHY0 to PHY5) to be 
+> initialized/enabled simultaneously for a single Root-Port configuration. So 
+> the phy_bulk_init() API here seems to be used in that sense. Mani's concern 
+> is that the PHYs for all PCIe Controller instances are being configured in 
+> a single invocation to phy_bulk_init() rather than the potentially multiple 
+> PHY instances of a single PCIe Controller instance. Since k3_pcie_init is 
+> invoked per Root-Port instance (i.e. per PCIe Controller instance), the 
+> phy_bulk_init() API should configure 'all' PHY instances _strictly_ 
+> associated with the corresponding PCIe instance. This might already be the 
+> case.
+> 
+> [0]: 
+> https://spacemit.com/community/document/info?lang=en&nodepath=hardware/key_stone/k3/k3_docs/k3_usermanual/14_connectivity/pcie.md
+> 
 
-Signed-off-by: Chris Down <chris@chrisdown.name>
----
- drivers/misc/lkdtm/bugs.c               | 21 +++++++++++++++++++++
- tools/testing/selftests/lkdtm/tests.txt |  1 +
- 2 files changed, 22 insertions(+)
+Thanks for sharing the link to the doc. I didn't know this SoC allows muxing
+multiple PHYs for a single RP. Now the bulk API makes sense!
 
-diff --git a/drivers/misc/lkdtm/bugs.c b/drivers/misc/lkdtm/bugs.c
-index 3eca2ef64aff..929a60db00d6 100644
---- a/drivers/misc/lkdtm/bugs.c
-+++ b/drivers/misc/lkdtm/bugs.c
-@@ -215,6 +215,26 @@ static noinline void lkdtm_CORRUPT_STACK_STRONG(void)
- 	__lkdtm_CORRUPT_STACK((void *)&data);
- }
- 
-+static void lkdtm_CORRUPT_STACK_END(void)
-+{
-+	unsigned long *stack_end = end_of_stack(current);
-+
-+	if (READ_ONCE(*stack_end) != STACK_END_MAGIC) {
-+		pr_err("FAIL: stack end magic is already corrupted\n");
-+		return;
-+	}
-+
-+	pr_info("Corrupting stack end magic and calling schedule() ...\n");
-+	WRITE_ONCE(*stack_end, ~STACK_END_MAGIC);
-+	schedule_timeout_uninterruptible(1);
-+
-+	/* Still alive, so let's restore the magic so nothing else trips over it. */
-+	WRITE_ONCE(*stack_end, STACK_END_MAGIC);
-+	pr_err("FAIL: corrupted stack end was not detected by the scheduler\n");
-+	pr_expected_config_param(CONFIG_SCHED_STACK_END_CHECK,
-+				 "sched_stack_end_check");
-+}
-+
- static pid_t stack_pid;
- static unsigned long stack_addr;
- 
-@@ -854,6 +874,7 @@ static struct crashtype crashtypes[] = {
- 	CRASHTYPE(EXHAUST_STACK),
- 	CRASHTYPE(CORRUPT_STACK),
- 	CRASHTYPE(CORRUPT_STACK_STRONG),
-+	CRASHTYPE(CORRUPT_STACK_END),
- 	CRASHTYPE(REPORT_STACK),
- 	CRASHTYPE(REPORT_STACK_CANARY),
- 	CRASHTYPE(UNALIGNED_LOAD_STORE_WRITE),
-diff --git a/tools/testing/selftests/lkdtm/tests.txt b/tools/testing/selftests/lkdtm/tests.txt
-index bec57a02913a..2d856ed77a64 100644
---- a/tools/testing/selftests/lkdtm/tests.txt
-+++ b/tools/testing/selftests/lkdtm/tests.txt
-@@ -10,6 +10,7 @@ EXCEPTION
- #EXHAUST_STACK Corrupts memory on failure
- #CORRUPT_STACK Crashes entire system on success
- #CORRUPT_STACK_STRONG Crashes entire system on success
-+#CORRUPT_STACK_END Crashes entire system on success
- ARRAY_BOUNDS call trace:|UBSAN: array-index-out-of-bounds
- FAM_BOUNDS call trace:|UBSAN: array-index-out-of-bounds
- PTR_BOUNDS call trace:|UBSAN: array-index-out-of-bounds
--- 
-2.54.0
+For the next iteration, please include a link to this page.
+
+- Mani
 
 
 _______________________________________________
