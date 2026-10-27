@@ -2,128 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B33A3606A31D
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 20:16:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7E28606A31A
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 21:13:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PpWh3obE;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jJW0SXJL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2py5NWEW;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Abdg4LFy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
+	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=4o4sZPMIz4GIuCGwUADDvoCA0RrSP251RerAVZBLXJ0=; b=PpWh3obEWtpPpmpyo27DauvTu1
-	XhYNaMlACHMtRQUD5cp0496jpOuSNh7cUUl43IyfHt0rsrqmyEc6LGUPBQOOENqpLeI/bQlhoqH1Y
-	xv8fPzwHk7zvNPm8FZB8XYrBsor16LzPCIqJikICax2HdF0PBcfX35i2tWyev9kp1bYSkiH0AP4Z/
-	AOtWJBYlHjXflbPdhJ3ki+/tvXO/NwnJ0N+79YYqyBBHZPAun1h7uSpDDqzSUEp3rfoIX1mfeJ4uE
-	wVnMPH6eKATw3/8L/Vo50/7hGsgejnV5pBT1VJu5cuC2q8xCP9ThpfrZzmHJvvZ6efvsT5lI/JxNI
-	Tqrp7oiw==;
+	bh=wq9RJiqU/FaaT2RGvSpyBQSVvcbV2zL8HJ+v9BIxVJU=; b=2py5NWEWkwCvlK77udU0JPZEkR
+	bgnQzv7gkSAnxOqQuhCMJoTKt9ryK7AoO4fhYxbujySUPiWIVAYedKYGvukwsrJ2JZJXUf7iSAFNW
+	334WCYn/BkqbUPYT9YuWClpm38aU5CiNODtL0vtMs/pXGgv60+tPIF5wRHLwH/57Clo9RxfTI4BxY
+	BFubYBLqEUGV0EYfzeXfOOXaEVdNSfzcYDamy6TfaJl/wjlVPbIBKrxS76yDO0fWE72PR+mMfFBCj
+	w54Iz5li3jX5JMVlpPM8VQ4tHKZ+DGHc9yQcaZvz59Jov8KidPEIeTnAGeo4VixNz1K2A+kejO3w5
+	ErxtZF+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLnax-00000005i6i-2qAL;
-	Tue, 27 Oct 2026 20:16:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xLoU4-00000005mFH-24ZC;
+	Tue, 27 Oct 2026 21:13:28 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLnav-00000005i6U-3Y5p
+	id 1xLoU0-00000005mE7-36iN
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Oct 2026 20:16:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9645C41E91;
-	Tue, 27 Oct 2026 20:16:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AA341F01828;
-	Tue, 27 Oct 2026 20:16:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793132189;
-	bh=yv3WgMVRZis5mvccj4o/E0izobfrAv/a1j0nsDI8MA0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=jJW0SXJLeraETSisKmLGPZ7i/niPRtOH+C6mSo0yvHCASRUUPPEIxjgRf6Amq8fm+
-	 guD8eMawZUcIYN4L8ottvokjcLzQtRxTIc6G/IaYcQ28Enew/DR0Bnl3BsYV/QQE2J
-	 0hdFqwJZNLy8RKx4IJqyGPpAU9wV/3120sksETknuNAP8zPqt4N860F/uqakh7J7BY
-	 rZ3SThlETe8nJioehN7u2DR+e6u0H+HcigoSFiL10pPiH6mkacMEP5q/dTdZzfuopT
-	 MmIzUUMf8ZnIOiPnpYj5WEcYVoDTKryLy7LcYVnKciV6QElSnOEpZ5Ft6bRTWLHX4N
-	 dKR41ADQjP4Gw==
-Message-ID: <9da1d287-c101-4af0-8371-888e78b3defe@kernel.org>
-Date: Tue, 27 Oct 2026 21:16:20 +0100
+	Tue, 27 Oct 2026 21:13:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1793135601;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type;
+	bh=A6CTgTOgYlFCYkkhKt3b0AM3/EI4NmjmVT/AVxhYtRA=;
+	b=Abdg4LFybpq9h6TbzQfE4t+NevgVi0WEZXETCRqPEw1g8JwjeAvYzjrqTSooCEk03apvZ5
+	AguQXnD1ZRniiJ4c1yr1lKS5zRmGD3VgcAwelt8KFg8LOeXa4gwrp4/mADwBPte4YYGO2/
+	aD6DE6K8yuuFDHtwPeWVR24R3MmF2A4=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-678-2CjxF7pjPHCKbEy8vrbJRA-1; Tue,
+ 27 Oct 2026 17:13:20 -0400
+X-MC-Unique: 2CjxF7pjPHCKbEy8vrbJRA-1
+X-Mimecast-MFC-AGG-ID: 2CjxF7pjPHCKbEy8vrbJRA_1793135599
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4E4BF195422F;
+	Tue, 27 Oct 2026 21:13:18 +0000 (UTC)
+Received: from kchamart.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1ED0F1955F08;
+	Tue, 27 Oct 2026 21:13:15 +0000 (UTC)
+Date: Tue, 27 Oct 2026 22:13:13 +0100
+From: Kashyap Chamarthy <kchamart@redhat.com>
+To: linux-riscv@lists.infradead.org, qemu-riscv@nongnu.org,
+	kvm-riscv@lists.infradead.org
+Subject: [CFP] RISC-V Devroom at FOSDEM 2027
+Message-ID: <auET6VbZLtXTUDsQ@kchamart.csb>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv7 13/18] mm: Drop fake head checks
-To: Kiryl Shutsemau <kas@kernel.org>, Muchun Song <muchun.song@linux.dev>
-Cc: Peter Zijlstra <peterz@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Matthew Wilcox <willy@infradead.org>, Usama Arif <usamaarif642@gmail.com>,
- Frank van der Linden <fvdl@google.com>, Oscar Salvador <osalvador@suse.de>,
- Mike Rapoport <rppt@kernel.org>, Vlastimil Babka <vbabka@suse.cz>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Zi Yan <ziy@nvidia.com>,
- Baoquan He <bhe@redhat.com>, Michal Hocko <mhocko@suse.com>,
- Johannes Weiner <hannes@cmpxchg.org>, Jonathan Corbet <corbet@lwn.net>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, kernel-team@meta.com, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>
-References: <ebc7bde1-f52e-4da8-b16f-822d6c0a4d74@kernel.org>
- <at_f43oDv73y-t7O@thinkstation>
- <f97a8d33-50b2-4a86-8381-ee840cdfa2f9@kernel.org>
- <20261027110028.GH2668564@noisy.programming.kicks-ass.net>
- <auCKv_omLGRc6wv2@thinkstation>
- <f3f3aca9-bdb7-4aec-9099-9fb63a60e61d@kernel.org>
- <auCZFckDfBMrlfxV@thinkstation>
- <070DDE5C-2183-4A8B-AC2D-891CAE15E581@linux.dev>
- <d7a634b6-8668-4753-8bfc-e9334dde705e@kernel.org>
- <4A32F5E6-977D-4720-8723-B19AFBC08FCF@linux.dev>
- <auDkbDlgSZxqlk2G@thinkstation>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <auDkbDlgSZxqlk2G@thinkstation>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 6QSfZ6ciYrMEY52CoPMzNXjoBIOrKa2CaQY5waxo_7g_1793135599
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261027_141324_852701_CE8BE463 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.5 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,28 +83,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/27/26 18:51, Kiryl Shutsemau wrote:
-> On Tue, Oct 27, 2026 at 10:03:54PM +0800, Muchun Song wrote:
->> Therefore, I am kind of leaning towards removing the RO protection
->> and restoring RW permissions to solve the race.
-> 
-> Okay, what about this:
+Hello!
 
-I'd be fine with that. Best to send it out officially such that we get more
-feedback from other folks.
+We are pleased to announce[1] the Call for Participation (CFP) for the
+RISC-V devroom at FOSDEM 2027.  
+
+FOSDEM 2027 (https://fosdem.org/2027/) will take place on the 30th and
+31st January, 2027 in Brussels, Belgium.
+
+The RISC-V devroom is on January 31st (Sunday afternoon).
+
+Important dates
+---------------
+
+- 01 December   2026: Talk submission deadline
+- 15 December   2026: Final schedule announcement
+- 31 January    2027: RISC-V devroom
+
+About the RISC-V devroom
+------------------------
+
+The RISC-V devroom aims to bring software & firmware developers,
+toolchain maintainers, and hardware designers to discuss upstreaming
+efforts and hard technical problems that can't be solved over email.
+This devroom is a collaborative effort, and is organized by folks
+actively working in the RISC-V ecosystem.
+
+Suggested topics
+----------------
+
+Any RISC-V-related topics that fit the spirit of free and open source
+software (FOSS) are welcome.  Some topics to consider:
+
+  - RISC-V hardware (e.g. cores, SoCs, accelerators)
+  - Operating system porting, kernels, and hypervisors
+  - Toolchains: compilers, linkers, and debuggers
+  - Firmware and boot (e.g. OpenSBI, EDK2, U-Boot)
+  - Emulation (e.g. QEMU, Spike)
+  - ISA-level updates relevant to the Linux ecosystem and RVA23
+    readiness
+  - Performance and correctness tools (e.g. perf, Valgrind)
+  - Language runtimes and their RISC-V enablement, maintenance, and
+    performance (e.g. Go, OpenJDK, Node.js, Rust, Python)
+  - Package ecosystems and build systems (e.g. riscv64 prebuilt packages
+    and build support across npm, pip, Cargo, Maven, Go modules)
+  - Applications and middleware (e.g. riscv64 porting, RVV-optimized
+    code paths)
+
+We are also interested in experience reports and technical work that
+help make complete, production-relevant FOSS workloads available,
+usable, and well-supported on RISC-V. 
+
+Submit a talk
+-------------
+
+Please visit the FOSDEM 2027 Pretalx website:
+https://pretalx.fosdem.org/fosdem-2027/cfp.  Your submission should
+include:
+
+- The title and subtitle of your talk (please be clear and descriptive)
+- Select "RISC-V devroom" as the track
+- A good abstract of a couple of paragraphs (be thoughtful with AI use)
+- A short bio and contact information
+- Relevant URLs
+
+We suggest a talk length of 15-20 minutes plus 5 minutes of Q&A, since
+the devroom runs for half a day this year.  With good planning, one can
+pack quite a punch in 15 minutes.
+
+Presentations will be recorded and streamed.  Sending your proposal
+implies giving permission to have your presentation recorded and
+distributed together with your slides under a Creative Commons CC-BY
+license.
 
 
--- 
-Cheers,
+Regards,
+Kashyap Chamarthy
+Ludovic Henry
+(On behalf of the devroom committee)
 
-David
+		* * *
+
+[1] Also on the FOSDEM list:
+    https://lists.fosdem.org/hyperkitty/list/fosdem@lists.fosdem.org/thread/K63XKEFUWSSZF6UTWFXFOPO5F2GNM3XX/
+
 
 _______________________________________________
 linux-riscv mailing list
