@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 106AF606A31B
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 10:08:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B733F606A327
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2026 10:17:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YRAZ6ov6;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=NGCBUMdX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3iKiihw1;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=J/OytH94
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,37 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=rXn4b5ERiMoACOAnn+bXqrPbrb0trlF0q51P66OJRtw=; b=YRAZ6ov6OB5Vn238EgBHEIdq3m
-	0z50aSZxPWNS0qv5DDrgj97VHtbY2m+cFtTvGvSKZOvIdoF6dscfRur2vG0cWr+KgPSdEz/4n8qks
-	PK0/C/ZAmoBId/TToiTBJzqF3dtJZRhILPeaqh2z/lblrKI496wP9r6ofwCF+SJo4CsdD1rK2RaUA
-	clBDuSv0rVqAsSbURyQxH4Yz8XHY583ZlmIPrWCBu0D3QQZkSdzngi6WfWgNLZU935UcpOoAxAfGT
-	0iiNOW7C6DXaxnOWXqQb0sHjPV2QfvVyrwfpz9t5TIB1wSf1eoh8b5KLPL2YsxxlLQvX8TWWtLYfp
-	SSzcMTxQ==;
+	bh=jCURDUqvvaFRDRpQrad19j04o/xqPSEAet8LX98efVo=; b=3iKiihw1A69eNw3cUmhWAMrisy
+	ybJqaeB4qDQ19qn7elcUr/8GSfAmh7wo7xSd7Bf9VAB90bjBoPAfrbztFYH0xyX5vR1c+ESEs1vdE
+	Zs1/JXx8fJwRAcHxvblDPtegpwZcYylw1ZFCkbss66kuR+OnRpisde79jhNwo7wlimBVr/x/baej5
+	W7z81/NGeddi8ebasYACL87FbtrprcPFVS87WvKOZCN8Nbq7haDyF/OBI+9SVL+bY+GrzuckiNIDr
+	0paUnsjxKdogWKJGSnF6poJ+ObOAEdgpPfZ+Zz7yXnAvUFcGtRKseVLAz5g/DY4CejD7sPMUUGs74
+	Jz1Tld8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLe6u-00000004GOc-0Lwm;
-	Tue, 27 Oct 2026 10:08:52 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1xLeF1-00000004HOU-0gy5;
+	Tue, 27 Oct 2026 10:17:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLe6s-00000004GNz-0zoS;
-	Tue, 27 Oct 2026 10:08:50 +0000
+	id 1xLeEy-00000004HN6-3Xum;
+	Tue, 27 Oct 2026 10:17:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=qiaO6NvHT131FFl120scy8yJd6FUUFlCG1Hv9v54ahE=; b=NGCBUMdXdJFVTJj/z7nivuoX+x
-	CSbKmBIGQqxpLcFazgufw9fMYp0JyrILLrWQDML7QuHtBndH792b+RdtE3kRq9V6oT2HgvEso/rad
-	JYDY8nBxqwqzCP5uDMP88K/QyIf1xMX38sEUkKKWpEpcHPOe1ZYVEoaIoyM4RxKwd+rXOdDhKw9JB
-	w5W3VXGbtLBDiS3xEhiiLGnyvycGD/C8FQOgfy+JyKc+Oh0fVP6DNAKuwICnx9RGFlU+M28hW+hE7
-	CU48hgn6IuCXWODpk2UPqQtPHcKrWwzqOso/g5h3RX/7JsDBEIWEGbm6yW/c0q/k5lFCQBzEl60Ng
-	ITd03XIA==;
+	bh=z0ECnIZcfjaHWvnEWv9CS9AUxde5/Sd5zctaZmB4Mes=; b=J/OytH94niERjjNnCyanm0sACp
+	9oX+BES4yTwe9x2jTflF5mZJPoPoMgWl7AyswlY+/XigL1zHv7gzrmgxbJoxhzi59XbOn7Y73QLow
+	Y4sIGVdAJUT5JxFbPHfXn+lQbax9Arcc6UZGhPH0VU1XhL3zRyxtEfmaS0pAQ8qiJpq7J2b/ODrV5
+	akhmUwaPYmpHCamFXp9CHTcqKNHP3CsXi/p3gjhKglmmoVY2LEFbkdElG7ZU87lQCf7h45VJfDBcB
+	pWlqfSt0JfTW3llPsaCZkQFda+FNuN3lJhb4IpbDQc08bZnSxUo5M2rAqIwfKfeICScQYhn9Ndg7M
+	0UlDbFlw==;
 Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLe6m-0000000CuBU-48NO;
-	Tue, 27 Oct 2026 10:08:45 +0000
+	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xLeEq-0000000EiPL-3Sv6;
+	Tue, 27 Oct 2026 10:17:06 +0000
 Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 08E3A300DB9; Tue, 27 Oct 2026 11:08:44 +0100 (CET)
-Date: Tue, 27 Oct 2026 11:08:43 +0100
+	id 75DE43014C0; Tue, 27 Oct 2026 11:17:03 +0100 (CET)
+Date: Tue, 27 Oct 2026 11:17:03 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: Chris Down <chris@chrisdown.name>
 Cc: Ingo Molnar <mingo@redhat.com>, Kees Cook <kees@kernel.org>,
@@ -67,15 +67,14 @@ Cc: Ingo Molnar <mingo@redhat.com>, Kees Cook <kees@kernel.org>,
 	linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
 	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
 	kernel-team@meta.com
-Subject: Re: [PATCH 1/3] sched/core: Skip the shadow stack end check when SCS
- is disabled
-Message-ID: <20261027100843.GA2668564@noisy.programming.kicks-ass.net>
+Subject: Re: [PATCH 2/3] sched/core: Add sched_stack_end_check= boot parameter
+Message-ID: <20261027101703.GB2668564@noisy.programming.kicks-ass.net>
 References: <cover.1793082868.git.chris@chrisdown.name>
- <0e607d3aa7c2c4cc1b5b8ba7b0e25ebdb55726af.1793082868.git.chris@chrisdown.name>
+ <3d2bb6a8508b9d801878bb82c88165a1b1ff5f40.1793082868.git.chris@chrisdown.name>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <0e607d3aa7c2c4cc1b5b8ba7b0e25ebdb55726af.1793082868.git.chris@chrisdown.name>
+In-Reply-To: <3d2bb6a8508b9d801878bb82c88165a1b1ff5f40.1793082868.git.chris@chrisdown.name>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,40 +94,102 @@ X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 27, 2026 at 02:36:09PM +0800, Chris Down wrote:
-> With CONFIG_DYNAMIC_SCS, shadow call stacks are only used when the boot
-> CPU lacks pointer authentication. scs_release() already checks
-> scs_is_enabled() before it looks at the shadow stack since commit
-> 9beccca09840 ("scs: add support for dynamic shadow call stacks"), but
-> schedule_debug() does not.
+On Tue, Oct 27, 2026 at 02:36:21PM +0800, Chris Down wrote:
+> CONFIG_SCHED_STACK_END_CHECK makes schedule_debug() check the magic at
+> the end of the outgoing task's stack and panic if it has been
+> overwritten.
 > 
-> With CONFIG_SCHED_STACK_END_CHECK=y it therefore checks init_task's
-> unused shadow stack on every context switch. That is harmless right now,
-> but the check is redundant and costs a load from an unrelated cache line
-> in __schedule().
+> Right now this can only be configured by setting the Kconfig option at
+> build time. At Meta we have it on for some hosts and off for others,
+> since it is helpful but adds cost on context switching. That means today
+> we have to build separate kernels for each, which is less than ideal.
 > 
-> So, let's guard on scs_is_enabled(). It is a static branch, and it folds
-> to true when CONFIG_DYNAMIC_SCS is not set.
+> So let's make this configurable at boot time. In benchmarking sched pipe
+> and sched messaging performance is unaffected.
 > 
 > Signed-off-by: Chris Down <chris@chrisdown.name>
 > ---
->  kernel/sched/core.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  .../admin-guide/kernel-parameters.txt         |  8 +++++
+>  kernel/sched/core.c                           | 33 +++++++++++++++----
+>  2 files changed, 35 insertions(+), 6 deletions(-)
 > 
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index fbee7b544903..95911d33c0fe 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -6811,6 +6811,14 @@ Kernel parameters
+>  			core priority to both SMT siblings, so this option
+>  			does not favor either sibling.
+>  
+> +	sched_stack_end_check= [KNL]
+> +			Format: <bool>
+> +			Check the magic value at the end of the outgoing
+> +			task's stack (and its shadow call stack, if any) on
+> +			every call to schedule(), and panic if it has been
+> +			overwritten.
+> +			Default set by CONFIG_SCHED_STACK_END_CHECK.
+> +
+>  	sched_verbose	[KNL,EARLY] Enables verbose scheduler debug messages.
+>  
+>  	schedstats=	[KNL,X86] Enable or disable scheduled statistics.
 > diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-> index d7c3b43158de..fc269fd10192 100644
+> index fc269fd10192..c1fb86b813bb 100644
 > --- a/kernel/sched/core.c
 > +++ b/kernel/sched/core.c
-> @@ -6152,7 +6152,7 @@ static inline void schedule_debug(struct task_struct *prev, bool preempt)
->  	if (task_stack_end_corrupted(prev))
->  		panic("corrupted stack end detected inside scheduler\n");
+> @@ -6143,18 +6143,39 @@ static noinline void __schedule_bug(struct task_struct *prev)
+>  	add_taint(TAINT_WARN, LOCKDEP_STILL_OK);
+>  }
 >  
-> -	if (task_scs_end_corrupted(prev))
-> +	if (scs_is_enabled() && task_scs_end_corrupted(prev))
->  		panic("corrupted shadow stack detected inside scheduler\n");
+> +static DEFINE_STATIC_KEY_MAYBE_RO(CONFIG_SCHED_STACK_END_CHECK, sched_stack_end_check);
+> +
+> +static int __init setup_sched_stack_end_check(char *str)
+> +{
+> +	bool enable;
+> +
+> +	if (kstrtobool(str, &enable)) {
+> +		pr_warn("Unable to parse sched_stack_end_check=\n");
+> +		return 0;
+> +	}
+> +
+> +	if (enable)
+> +		static_branch_enable(&sched_stack_end_check);
+> +	else
+> +		static_branch_disable(&sched_stack_end_check);
+> +
+> +	return 1;
+> +}
+> +__setup("sched_stack_end_check=", setup_sched_stack_end_check);
+> +
+>  /*
+>   * Various schedule()-time debugging checks and statistics:
+>   */
+>  static inline void schedule_debug(struct task_struct *prev, bool preempt)
+>  {
+> -#ifdef CONFIG_SCHED_STACK_END_CHECK
+> -	if (task_stack_end_corrupted(prev))
+> -		panic("corrupted stack end detected inside scheduler\n");
+> +	if (static_branch_maybe(CONFIG_SCHED_STACK_END_CHECK,
+> +				&sched_stack_end_check)) {
+> +		if (task_stack_end_corrupted(prev))
+> +			panic("corrupted stack end detected inside scheduler\n");
+>  
+> -	if (scs_is_enabled() && task_scs_end_corrupted(prev))
+> -		panic("corrupted shadow stack detected inside scheduler\n");
+> -#endif
+> +		if (scs_is_enabled() && task_scs_end_corrupted(prev))
+> +			panic("corrupted shadow stack detected inside scheduler\n");
+> +	}
 
-How about you push that scs_is_enabled() into task_scs_end_corrupted(),
-this makes less noise here, and also keeps the next patch saner, no?
+I just noticed that there's a number of task_stack_end_corrupted()
+checks that:
+
+ - do not also do task_scs_end_corrupted(); should
+   task_scs_end_corrupted() be put inside task_stack_end_corrupted() to
+   make sure they're always done in tandem and the shadow stack check
+   isn't lost?
+
+ - should these other sites also respect this switch? It seems weird to
+   only have this one site affected.
 
 _______________________________________________
 linux-riscv mailing list
