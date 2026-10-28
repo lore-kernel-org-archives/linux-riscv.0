@@ -2,68 +2,77 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2ED5A606A31A
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 03:04:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1932F606A31A
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 03:07:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SzK/vYsN;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=QQ1aOpqD
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nRp2cVgx;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=JIC+3XoR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bTgwxygQHRg/OLXokOS2TojmGaFXOtsUxLwIDkSjg/4=; b=SzK/vYsNZXGf/d1Y0Fqx9aIAj5
-	NJcRhFlRgJzVNu+9KYMxmDVZqO4Yu+JIOb3whFS6YAKW8p43wfFLEZex/Ap9hqED+IdKtsDB59/8A
-	mC4C1egE/8d9IX2RtIoJ0pIyMmeR0pkRFwqom4MmZ7teQblEEWwIKMuCETOLjTa/3CVuEh1PD5E/R
-	psnAMXf7PZYByZ23yilF4th/jskOStgRqvnHDehWYTdSvFDU9JWtfyimGwFZaEjiyUqV3hZ+gFBv1
-	VVUQidg1hswfIhzcomvUjV67K5tkDJABDStC9KxftEb8/dbmvOhL9XzqpiN1zL9T8zX9V1WULRJeY
-	FaVcVVaA==;
+	bh=7vJKDWaMINrLi25GrY57UebN24R8aNnFLnVP8lMxWr0=; b=nRp2cVgxjZ/imD1Udjva20BTO0
+	5nAgAo2KengfZv1Auq6QDorjEVfJpjOru+nOL8eofH145YtkzksFO2rjKupa/+oJUk9/6PTaJbs0Z
+	GSVVXuCfU1oAnMfUjuIsoFzc8tio/B/x2RWp3ZWuivp8wrki9c4olR9lNQVj22+W4Brfcj5ziGI3D
+	7iyKKFN/R7hF3N9978ukFv5m8+kONXk2dK+QCnMAt0X8jFVA4zLXt4PZe1ob0gMXOpz4uszthmu6h
+	Jx1g7Hf7TokIZgTNbP6/VEjh31MeSy/SKZ8dMtIrz/O7knUvRa08k4zPNUCqZW8PYhgioCMLuKxYA
+	r2NFJjLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLtxt-000000068EQ-2Ka4;
-	Wed, 28 Oct 2026 03:04:37 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
+	id 1xLu0V-000000068YU-0ac9;
+	Wed, 28 Oct 2026 03:07:19 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLtxp-000000068Dn-3bhs;
-	Wed, 28 Oct 2026 03:04:36 +0000
+	id 1xLu0S-000000068WY-3YQ2;
+	Wed, 28 Oct 2026 03:07:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=QmKBIsPj275zjC+RHeRaYLF2SPXRKuXi+F+O6Y1Ma/A=;
-	b=QQ1aOpqDWE8FU3TPOhW+MfG6j6+N0eoK3n+xE4A/cpC2NORjs2103GBylGScI5
-	q8c0cxRwAm6kYho2xTHspJS4gAcZRiDhhuVMJ/CBYYkW7Kvn3hy/IMDIL5HpB68D
-	/SsVO2fsRmuU7tlU/QFtZKHwEc8PRZPRLuLQieOhufzIw=
-Message-ID: <e89439cb-b4cc-44ca-99bd-977e4d659e47@163.com>
-Date: Wed, 28 Oct 2026 11:04:11 +0800
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=H7
+	/WiFVVM2Ct9E/WSDPj/g8wukhy3907IvTWxmVmjP8=; b=JIC+3XoR2kMfR2J5D9
+	4N+FL69uSijetsI0O8w8D2AZoMtL1Jt/dnuesm2kuf2eUnlJp5EAKz1Nu2X5IVQU
+	KlthXBDV+VqqhunuHfHwETE/YVqsEaiWt+aw/J++XDvj4nOzOTGsauxX7V7bddpL
+	9gn5lHSqmjA4pkU4IKALE7+2c=
+Received: from Precision-7960.. (unknown [])
+	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wDnD07QZuFqZiY4DA--.60713S6;
+	Wed, 28 Oct 2026 11:07:01 +0800 (CST)
+From: Hans Zhang <18255117159@163.com>
+To: bhelgaas@google.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	jingoohan1@gmail.com
+Cc: imx@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	sophgo@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Hans Zhang <18255117159@163.com>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v5 04/16] PCI: dwc: layerscape-ep: Use cached PCIe capability offset
+Date: Wed, 28 Oct 2026 11:06:40 +0800
+Message-ID: <20261028030652.2917756-5-18255117159@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261028030652.2917756-1-18255117159@163.com>
+References: <20261028030652.2917756-1-18255117159@163.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 01/16] PCI: dwc: Add pcie_cap field and caching helper
-To: Shawn Lin <shawn.lin@rock-chips.com>, bhelgaas@google.com,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- jingoohan1@gmail.com
-Cc: imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-amlogic@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, sophgo@lists.linux.dev,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-tegra@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261027122827.2725643-1-18255117159@163.com>
- <20261027122827.2725643-2-18255117159@163.com>
- <80f85ae9-7162-4940-8dec-690bc00098b4@rock-chips.com>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <80f85ae9-7162-4940-8dec-690bc00098b4@rock-chips.com>
-X-CM-TRANSID: PCgvCgDnL4srZuFqgH73CA--.31342S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3WF1rtF48GFWUGF4rAF4kXrb_yoW7Kw15p3
-	yUtF1akFs8JrWav3W2v3W3JF1a9as3JFW7Jwn3Gw13Zr9xur1xKFy0yrWYkF17Crs2gw1j
-	9r4jqa4xCrs8AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UuwZcUUUUU=
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC7A23W2rhZi2d5QAA31
+X-CM-TRANSID: _____wDnD07QZuFqZiY4DA--.60713S6
+X-Coremail-Antispam: 1Uf129KBjvJXoW7uFyrXr45GF17AF43Cw13XFb_yoW8WF1fpF
+	Z8JF1Ykr18JF4SgFnF9a1DWr13GF9xAFW7Ja97Kw1avFyav3yUG3s0yryftFn7KFZFkF1a
+	v3y5tFW5uw4rAFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piLZ2-UUUUU=
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6xbhhWrhZtbEBwAA3h
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_200434_766262_A2ED385B 
-X-CRM114-Status: GOOD (  37.21  )
+X-CRM114-CacheID: sfid-20261027_200717_193796_8B83CC20 
+X-CRM114-Status: GOOD (  11.77  )
 X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,128 +83,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
 	FROM_LOCAL_DIGITS,FROM_LOCAL_HEX,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-CgpPbiAxMC8yNy8yNiAyMToxMiwgU2hhd24gTGluIHdyb3RlOgo+IEhpIEhhbnMsCj4gCj4g5Zyo
-IDIwMjYvMTAvMjcg5pif5pyf5LqMIDIwOjI4LCBIYW5zIFpoYW5nIOWGmemBkzoKPj4gVGhlIERX
-QyBQQ0llIGNvcmUgYW5kIGl0cyBwbGF0Zm9ybSBkcml2ZXJzIHJlcGVhdGVkbHkgY2FsbAo+PiBk
-d19wY2llX2ZpbmRfY2FwYWJpbGl0eShwY2ksIFBDSV9DQVBfSURfRVhQKSB0byBvYnRhaW4gdGhl
-IG9mZnNldCBvZiB0aGUKPj4gUENJIEV4cHJlc3MgQ2FwYWJpbGl0eSBzdHJ1Y3R1cmUuIEJlc2lk
-ZXMgYmVpbmcgdmVyYm9zZSwgdGhhdCBwZXJmb3JtcyBhCj4+IERCSSByZWFkIGV2ZXJ5IHRpbWUs
-IGluY2x1ZGluZyBpbiBwYXRocyB0aGF0IHJ1biByZXBlYXRlZGx5IHN1Y2ggYXMgbGluawo+PiB1
-cCBwb2xsaW5nLCBzdXNwZW5kL3Jlc3VtZSBhbmQgaW50ZXJydXB0IGhhbmRsZXJzLgo+Pgo+PiBB
-ZGQgYSBwY2llX2NhcCBmaWVsZCB0byBzdHJ1Y3QgZHdfcGNpZSBhbmQgYSBoZWxwZXIKPj4gZHdf
-cGNpZV9nZXRfcGNpZV9jYXAoKSB0aGF0IHBlcmZvcm1zIHRoZSBsb29rdXAgb24gZmlyc3QgdXNl
-IGFuZCBjYWNoZXMKPj4gdGhlIHJlc3VsdCBmb3IgdGhlIHN1YnNlcXVlbnQgY2FsbHMuCj4+Cj4+
-IFRoZSBsb29rdXAgaXMgZGVsaWJlcmF0ZWx5IGRvbmUgbGF6aWx5LCBhdCB0aGUgZmlyc3QgcGxh
-Y2UgdGhhdCBuZWVkcyB0aGUKPj4gb2Zmc2V0LCBpbnN0ZWFkIG9mIGF0IGEgZml4ZWQgcG9pbnQg
-ZHVyaW5nIGNvbnRyb2xsZXIgaW5pdGlhbGl6YXRpb24uCj4+IFRoaXMgZ3VhcmFudGVlcyB0aGF0
-IHRoZSBEQkkgcmVhZCBoYXBwZW5zIGV4YWN0bHkgd2hlbiB0aGUgb3BlbiBjb2RlZAo+PiBkd19w
-Y2llX2ZpbmRfY2FwYWJpbGl0eSgpIGNhbGwgaXQgcmVwbGFjZXMgdXNlZCB0byBoYXBwZW4sIHNv
-IG5vIERCSQo+PiBhY2Nlc3MgY2FuIGJlIG1hZGUgYmVmb3JlIHRoZSBjb250cm9sbGVyIGNsb2Nr
-cywgcmVzZXRzIGFuZCBwb3dlciBhcmUKPiAKPiAKPiBXaXRoIHRoZSBjb250cm9sbGVyIGluYWNj
-ZXNzaWJsZSAoY2xvY2tzL3Bvd2VyIGdhdGVkKSwgd2hhdCBhIERCSQo+IHJlYWQgcmV0dXJucyBp
-cyBwbGF0Zm9ybSBkZXBlbmRlbnQsIG1vc3QgaW50ZWdyYXRpb25zIGp1c3QgaGFuZyB0aGUKPiBh
-Y2Nlc3NpbmcgQ1BVLCBsaWtlIFJvY2tjaGlwJ3MgU29Dcywgb3RoZXJzIG1pZ2h0IHJldHVybiB6
-ZXJvIG9yCj4gZ2FyYmFnZS4gWmVybyBzZWxmLWhlYWxzIGFzIHRoZSBjb21taXQgbWVzc2FnZSBk
-ZXNjcmliZXMsIGJ1dCBhIGdhcmJhZ2UgCj4gbm9uLXplcm8gbG9va3VwIHdvdWxkIG5vdyBiZSBj
-YWNoZWQgaW5kZWZpbml0ZWx5LCBzbyBldmVyeSBsYXRlciBjYWxsZXIKPiB3b3VsZCB1c2UgYSBi
-b2d1cyBvZmZzZXQ/Cj4gCj4gUGVyaGFwcyB0aGUgIlRYIEludGVyZmFjZSBQcm9ncmVzc2lvbiBE
-ZXRlY3Rpb24gRmVhdHVyZXMiIG9mIGR3YyBJUAo+IGNvdWxkIGhlbHAgcmV0dXJuIGEgZGVkaWNh
-dGVkIHZhbHVlPyBJIGRvbid0IGtub3csIHNvIEkgbmVlZCB0byBjaGVjawo+IGl0IGludGVybmFs
-bHkuIEkgd2lsbCBnZXQgYmFjayB0byB5b3UgbGF0ZXIuCgpIaSwKClRoYW5rcyBmb3IgdGhlIHJl
-dmlldy4KCgpZb3UgYXJlIHJpZ2h0IHRoYXQgdGhlIGNhY2hlIG11c3Qgbm90IHR1cm4gYSBib2d1
-cyB2YWx1ZSBpbnRvIGEgcGVybWFuZW50Cm9uZS4gU29tZSBkZXRhaWxzIGFuZCBvbmUgY2hhbmdl
-IGluIHY1OgoKLSBkd19wY2llX2dldF9wY2llX2NhcCgpIGlzIG9ubHkgY2FsbGVkIGF0IHRoZSBz
-aXRlcyB0aGF0IHByZXZpb3VzbHkKICAgY2FsbGVkIGR3X3BjaWVfZmluZF9jYXBhYmlsaXR5KCkg
-ZGlyZWN0bHksIHNvIHRoaXMgc2VyaWVzIGRvZXMgbm90IGFkZAogICBvciBtb3ZlIGEgREJJIGFj
-Y2Vzcy4gSXQgZG9lcyBub3QgdHJ5IHRvIGZpeCB0aGUgIkRCSSBhY2Nlc3NlZCB3aGlsZQogICB0
-aGUgY29udHJvbGxlciBpcyBpbmFjY2Vzc2libGUiIHByb2JsZW07IHRoYXQgYmVoYXZpb3IgaXMg
-cGxhdGZvcm0KICAgc3BlY2lmaWMgYW5kIHByZS1leGlzdGluZy4KLSBkd19wY2llX2ZpbmRfY2Fw
-YWJpbGl0eSgpIGFscmVhZHkgcmVqZWN0cyBvZmZzZXRzIGJlbG93IHRoZSBzdGFuZGFyZAogICBo
-ZWFkZXIsIHVuYWxpZ25lZCBvZmZzZXRzLCBhbmQgZW50cmllcyB3aG9zZSBjYXBhYmlsaXR5IElE
-IGlzIG5vdAogICBQQ0lfQ0FQX0lEX0VYUCwgc28gYSBib2d1cyB2YWx1ZSBoYXMgdG8gbG9vayBs
-aWtlIGEgdmFsaWQgY2FwYWJpbGl0eQogICBlbnRyeSB0byBiZSByZXR1cm5lZCBhdCBhbGwuCi0g
-VG8gbWFrZSBzdXJlIHRoYXQgYSB0cmFuc2llbnQgYm9ndXMgcmVhZCBjYW5ub3Qgc3RpY2sgYW55
-d2F5LCB2NSBvbmx5CiAgIGNhY2hlcyB0aGUgb2Zmc2V0IGFmdGVyIHRoZSBjYXBhYmlsaXR5IElE
-IGhhcyBiZWVuIHJlYWQgYmFjayBhdCB0aGF0CiAgIG9mZnNldC4gSWYgdGhlIHJlYWQtYmFjayBk
-b2VzIG5vdCBjb25maXJtIFBDSV9DQVBfSURfRVhQLCB0aGUgb2Zmc2V0IGlzCiAgIHN0aWxsIHVz
-ZWQgZm9yIHRoZSBjdXJyZW50IGFjY2VzcyAoc2FtZSBhcyB0aGUgb3BlbiBjb2RlZCBzZWFyY2gK
-ICAgYmVmb3JlKSwgYnV0IGl0IGlzIG5vdCBjYWNoZWQsIGFuZCB0aGUgbmV4dCBjYWxsIHNlYXJj
-aGVzIGFnYWluIC0gdGhlCiAgIHNhbWUgc2VsZi1oZWFsaW5nIGJlaGF2aW9yIGFzIHRoZSB6ZXJv
-L25vdC1mb3VuZCBjYXNlLgoKSWYgdGhlIERXQyBJUCBoYXMgYSByZWxpYWJsZSB3YXkgdG8gdGVs
-bCB3aGV0aGVyIHRoZSBjb3JlIGlzIGFjY2Vzc2libGUKKHRoZSAiVFggSW50ZXJmYWNlIFByb2dy
-ZXNzaW9uIERldGVjdGlvbiIgZmVhdHVyZSB5b3UgbWVudGlvbmVkKSwgdGhhdAp3b3VsZCBiZSBl
-dmVuIGJldHRlciB0aGFuIHZhbGlkYXRpbmcgdGhlIHZhbHVlLiBJIHdvdWxkIGJlIGdsYWQgdG8g
-dXNlIGl0CmlmIHlvdSBjYW4gc2hhcmUgdGhlIGRldGFpbHM7IGl0IHByb2JhYmx5IGRlc2VydmVz
-IGEgc2VwYXJhdGUgcGF0Y2ggc28KdGhhdCBhbGwgREJJIGFjY2Vzc2VzIGNhbiBiZSBndWFyZGVk
-LCBub3Qgb25seSB0aGlzIGxvb2t1cC4KCkJlc3QgcmVnYXJkcywKSGFucwoKPiAKPiAKPj4gZW5h
-YmxlZC4gVGhpcyBtYXR0ZXJzIGZvciBlbmRwb2ludCBjb250cm9sbGVycyBzdWNoIGFzIHFjb20t
-ZXAgYW5kCj4+IHRlZ3JhMTk0LCB3aGVyZSBEQkkgaXMgb25seSBhY2Nlc3NpYmxlIGFmdGVyIFBF
-UlNUIyBpcyBkZWFzc2VydGVkLCBhbmQgaXQKPj4gYWxzbyBtZWFucyBwbGF0Zm9ybSBkcml2ZXJz
-IGRvIG5vdCBoYXZlIHRvIGNhbGwgdGhlIGhlbHBlciBmcm9tIGEKPj4gc3BlY2lmaWMgY2FsbGJh
-Y2sgYXQgdGhlIHJpZ2h0IHRpbWUuCj4+Cj4+IFRoZSBjYWNoZWQgdmFsdWUgaXMgYWNjZXNzZWQg
-d2l0aCBSRUFEX09OQ0UoKS9XUklURV9PTkNFKCksIGJlY2F1c2UgdGhlCj4+IGZpcnN0IGxvb2t1
-cCBtYXkgYmUgdHJpZ2dlcmVkIGZyb20gZGlmZmVyZW50IGNvbnRleHRzLCBmb3IgZXhhbXBsZSB0
-aGUKPj4gcWNvbS1lcCBnbG9iYWwgSVJRIGFuZCBQRVJTVCMgSVJRIGhhbmRsZXJzLiBBIGNvbmN1
-cnJlbnQgbG9va3VwIHN0b3Jlcwo+PiB0aGUgc2FtZSB2YWx1ZSwgc28gdGhpcyByYWNlIGlzIGJl
-bmlnbi4KPj4KPj4gQSByZXR1cm4gdmFsdWUgb2YgMCBtZWFucyB0aGF0IHRoZSBjYXBhYmlsaXR5
-IGlzIG5vdCBwcmVzZW50LiBUaGlzCj4+IGNhbm5vdCBoYXBwZW4gb24gcmVhbCBEV0MgaGFyZHdh
-cmUsIHdoZXJlIHRoZSBQQ0kgRXhwcmVzcyBDYXBhYmlsaXR5IGlzCj4+IG1hbmRhdG9yeSwgc28g
-YSBuZWdhdGl2ZSByZXN1bHQgaXMgbm90IGNhY2hlZCBzZXBhcmF0ZWx5OiBpdCBvbmx5IGNhdXNl
-cwo+PiB0aGUgc2VhcmNoIHRvIGJlIHJlcGVhdGVkLCB3aGljaCBkb2VzIG5vdCBhZmZlY3QgY29y
-cmVjdG5lc3MuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IEhhbnMgWmhhbmcgPDE4MjU1MTE3MTU5QDE2
-My5jb20+Cj4+IC0tLQo+PiDCoCBkcml2ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2llLWRlc2ln
-bndhcmUuaCB8IDM0ICsrKysrKysrKysrKysrKysrKysrCj4+IMKgIDEgZmlsZSBjaGFuZ2VkLCAz
-NCBpbnNlcnRpb25zKCspCj4+Cj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3BjaS9jb250cm9sbGVy
-L2R3Yy9wY2llLWRlc2lnbndhcmUuaCBiL2RyaXZlcnMvIAo+PiBwY2kvY29udHJvbGxlci9kd2Mv
-cGNpZS1kZXNpZ253YXJlLmgKPj4gaW5kZXggMDczNWFlOTQwOTI0Li5mYTMxZThiNzYzYmMgMTAw
-NjQ0Cj4+IC0tLSBhL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaWUtZGVzaWdud2FyZS5o
-Cj4+ICsrKyBiL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaWUtZGVzaWdud2FyZS5oCj4+
-IEBAIC01OTIsNiArNTkyLDggQEAgc3RydWN0IGR3X3BjaWUgewo+PiDCoMKgwqDCoMKgwqAgKiB1
-c2VfcGFyZW50X2R0X3JhbmdlcyB0byB0cnVlIHRvIGF2b2lkIHRoaXMgd2FybmluZy4KPj4gwqDC
-oMKgwqDCoMKgICovCj4+IMKgwqDCoMKgwqAgYm9vbMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgdXNl
-X3BhcmVudF9kdF9yYW5nZXM7Cj4+ICsKPj4gK8KgwqDCoCB1OMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqAgcGNpZV9jYXA7wqDCoMKgIC8qIE9mZnNldCBvZiBQQ0lfQ0FQX0lEX0VYUCAqLwo+PiDCoCB9
-Owo+PiDCoCAjZGVmaW5lIHRvX2R3X3BjaWVfZnJvbV9wcChwb3J0KSBjb250YWluZXJfb2YoKHBv
-cnQpLCBzdHJ1Y3QgCj4+IGR3X3BjaWUsIHBwKQo+PiBAQCAtODMwLDYgKzgzMiwzOCBAQCBzdGF0
-aWMgaW5saW5lIHZvaWQgZHdfcGNpZV9kYmlfcm9fd3JfZGlzKHN0cnVjdCAKPj4gZHdfcGNpZSAq
-cGNpKQo+PiDCoMKgwqDCoMKgIGR3X3BjaWVfd3JpdGVsX2RiaShwY2ksIHJlZywgdmFsKTsKPj4g
-wqAgfQo+PiArLyoqCj4+ICsgKiBkd19wY2llX2dldF9wY2llX2NhcCgpIC0gUmV0dXJuIHRoZSBQ
-Q0llIENhcGFiaWxpdHkgb2Zmc2V0Cj4+ICsgKiBAcGNpOiBEV0MgaW5zdGFuY2UKPj4gKyAqCj4+
-ICsgKiBUaGUgb2Zmc2V0IG9mIHRoZSBQQ0kgRXhwcmVzcyBDYXBhYmlsaXR5IHN0cnVjdHVyZSBp
-cyByZWFkIG9uY2UgZnJvbQo+PiArICogdGhlIERCSSBjb25maWd1cmF0aW9uIHNwYWNlIG9uIHRo
-ZSBmaXJzdCBjYWxsIGFuZCBjYWNoZWQgaW4KPj4gKyAqIEBwY2ktPnBjaWVfY2FwIGZvciB0aGUg
-c3Vic2VxdWVudCBvbmVzLgo+PiArICoKPj4gKyAqIFRoZSBsb29rdXAgaXMgZG9uZSBsYXppbHkg
-YXQgdGhlIGZpcnN0IHBsYWNlIHRoYXQgYWN0dWFsbHkgbmVlZHMgdGhlCj4+ICsgKiBvZmZzZXQs
-IHNvIHRoZSBEQkkgcmVhZCBoYXBwZW5zIGV4YWN0bHkgd2hlbiBpdCB1c2VkIHRvIGhhcHBlbiBi
-ZWZvcmUKPj4gKyAqIGNhY2hpbmcgd2FzIGludHJvZHVjZWQsIGkuZS4gbmV2ZXIgYmVmb3JlIHRo
-ZSBjb250cm9sbGVyJ3MgY2xvY2tzLAo+PiArICogcmVzZXRzIGFuZCBwb3dlciBhcmUgZW5hYmxl
-ZC4KPj4gKyAqCj4+ICsgKiBEV0MgUENJZSBjb250cm9sbGVycyBhbHdheXMgaW1wbGVtZW50IHRo
-ZSBQQ0kgRXhwcmVzcyBDYXBhYmlsaXR5LCAKPj4gc28gYQo+PiArICogcmV0dXJuIHZhbHVlIG9m
-IDAgbWVhbnMgdGhhdCB0aGUgaGFyZHdhcmUgaXMgbm90IHVzYWJsZS4gQ2FsbGVycyB0aGF0Cj4+
-ICsgKiBjaGVjayB0aGUgcmV0dXJuZWQgb2Zmc2V0IGtlZXAgd29ya2luZywgYW5kIHRoZSAobmV2
-ZXIgZXhwZWN0ZWQpCj4+ICsgKiBsb29rdXAgaXMgc2ltcGx5IHJlcGVhdGVkIG9uIHRoZSBuZXh0
-IGNhbGwuCj4+ICsgKgo+PiArICogUmV0dXJuOiB0aGUgY2FjaGVkIG9mZnNldCwgb3IgMCBpZiB0
-aGUgY2FwYWJpbGl0eSBpcyBub3QgcHJlc2VudC4KPj4gKyAqLwo+PiArc3RhdGljIGlubGluZSB1
-OCBkd19wY2llX2dldF9wY2llX2NhcChzdHJ1Y3QgZHdfcGNpZSAqcGNpKQo+PiArewo+PiArwqDC
-oMKgIHU4IGNhcCA9IFJFQURfT05DRShwY2ktPnBjaWVfY2FwKTsKPj4gKwo+PiArwqDCoMKgIGlm
-ICghY2FwKSB7Cj4+ICvCoMKgwqDCoMKgwqDCoCBjYXAgPSBkd19wY2llX2ZpbmRfY2FwYWJpbGl0
-eShwY2ksIFBDSV9DQVBfSURfRVhQKTsKPj4gK8KgwqDCoMKgwqDCoMKgIFdSSVRFX09OQ0UocGNp
-LT5wY2llX2NhcCwgY2FwKTsKPj4gK8KgwqDCoCB9Cj4+ICsKPj4gK8KgwqDCoCByZXR1cm4gY2Fw
-Owo+PiArfQo+PiArCj4+IMKgIHN0YXRpYyBpbmxpbmUgaW50IGR3X3BjaWVfc3RhcnRfbGluayhz
-dHJ1Y3QgZHdfcGNpZSAqcGNpKQo+PiDCoCB7Cj4+IMKgwqDCoMKgwqAgaWYgKHBjaS0+b3BzICYm
-IHBjaS0+b3BzLT5zdGFydF9saW5rKQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+Replace the dw_pcie_find_capability(pci, PCI_CAP_ID_EXP) calls in
+ls_pcie_ep_probe() and ls_pcie_ep_event_handler() with
+dw_pcie_get_pcie_cap().
+
+The probe reads the Link Capabilities register to save the values
+configured by the Reset Configuration Word anyway, so the offset is
+cached there. The link down event handler runs in hardirq context and
+can then simply reuse the cached value instead of walking the
+capability list every time the link goes down.
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Hans Zhang <18255117159@163.com>
+---
+ drivers/pci/controller/dwc/pci-layerscape-ep.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/pci/controller/dwc/pci-layerscape-ep.c b/drivers/pci/controller/dwc/pci-layerscape-ep.c
+index 527c57114dcfe..113be247b01b0 100644
+--- a/drivers/pci/controller/dwc/pci-layerscape-ep.c
++++ b/drivers/pci/controller/dwc/pci-layerscape-ep.c
+@@ -84,7 +84,7 @@ static irqreturn_t ls_pcie_ep_event_handler(int irq, void *dev_id)
+ 
+ 	if (val & PEX_PF0_PME_MES_DR_LUD) {
+ 
+-		offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
++		offset = dw_pcie_get_pcie_cap(pci);
+ 
+ 		/*
+ 		 * The values of the Maximum Link Width and Supported Link
+@@ -268,7 +268,7 @@ static int __init ls_pcie_ep_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, pcie);
+ 
+-	offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
++	offset = dw_pcie_get_pcie_cap(pci);
+ 	pcie->lnkcap = dw_pcie_readl_dbi(pci, offset + PCI_EXP_LNKCAP);
+ 
+ 	ret = dw_pcie_ep_init(&pci->ep);
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
