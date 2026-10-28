@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E82D3606BF8F
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 19:03:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC1E160A260D
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 19:03:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Mn57R/n1;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Fs7TmEji
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KPAwy9u3;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=d2L7Tk1p
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,63 +14,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=xzZHM2ZMteyTcSuzSUyawp/oaU4RnKqnzAnGLcxJ7oM=; b=Mn57R/n1bsn2EQsM4cphGs5xk0
-	PpC7GslCqpfSjcXQuPXc+NS2pc1gsIX0r68yqgswCJem0xf1PUbNgFChUZ/Lc1j1w+cTMIjj1RDpG
-	B3U1MuGek8TmsEFWwdWQiSNYyxVkEo36zau4u4EUu5vV/omKNbaU4WKyCHD+mKsdhVQ/7ot52G3Dm
-	LHr331k7t41BtoikWCoeSIie7k88CWeirKKK+3pza0jhFwJlWrnifCiqA+oB/kpxu4aYTE5JYVtRD
-	XMeLsZ+oOHV4Z3GXitMJEtGBeIgkJ8zWeC1gWWbqkpNPLh2XO8Tv5NAH/bmCYo6siJsmW8HOfzAZ2
-	golnEMZg==;
+	bh=T4Is+nNqBnoyT9P/CqNqks5DoU/7xeMiwEk+EGcGJZQ=; b=KPAwy9u3vpgrPjD0Se4SRHM9RC
+	75nKKxXHA2wz1N9dLyefQEfGWEYWfe0+kmfHae5SRrhZbx9SAWIjHRDJm3clUZnQC28frcB1IVNrh
+	bSpE755sCHhCQwoEaKOo3sL47yJe0/g8VdwBH2M8U3TeL8JMEpMTfFZK6Tsq0GVmZ+KtGaasciL77
+	pZz1FriOE5J5CSVTYew4Psgq3hho5y/pLty3CShaMC+/htZgpMGgpJcP+C0FOBjNjpWpOSlnI6M9G
+	Db/hTww9Re8Xp2FtD70cMuRDC/ItoAdgOzIKY56hpZx5MCJBOTVcHrvSSpHf00qcspcs0G+G2x8oP
+	xE5DJCLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM8vc-00000007ngD-1xQj;
-	Wed, 28 Oct 2026 19:03:16 +0000
-Received: from mail-pg1-x548.google.com ([2607:f8b0:4864:20::548])
+	id 1xM8vk-00000007nqF-02dB;
+	Wed, 28 Oct 2026 19:03:24 +0000
+Received: from mail-pl1-x645.google.com ([2607:f8b0:4864:20::645])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM8vT-00000007nSJ-2gaW
+	id 1xM8vV-00000007nUJ-04qB
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Oct 2026 19:03:08 +0000
-Received: by mail-pg1-x548.google.com with SMTP id 41be03b00d2f7-cc1ca15334cso1431750a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Oct 2026 12:03:06 -0700 (PDT)
+	Wed, 28 Oct 2026 19:03:10 +0000
+Received: by mail-pl1-x645.google.com with SMTP id d9443c01a7336-2e9572e892dso9629115ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Oct 2026 12:03:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1793214186; x=1793818986; darn=lists.infradead.org;
+        d=google.com; s=20260707; t=1793214187; x=1793818987; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=kQihi39MSjxZBPCKWC1v+KxEdPYKoJ3DWZvMHVb+Z7E=;
-        b=Fs7TmEji1Os+v4bAxh/his3s9wTK6TMkoO6Miy8bQXB9H+1dZ69IMGSydpfgtjetl2
-         99E2+DdYZAkzNo5DqflrXMz9maE0iIBx3aEI89jZEBF7S5Paadg/a68rMs/+ALkJzwiQ
-         +FqaBNb37DqYXcQiryJoyPGElslw8LAL51dJsSUJ4UtYbkH2YDhUy0qnG6YueTXxVMTI
-         PJ9EQkakpIZdAD92ObGm9pqPB52v3nA7vZPCLDXyjNB1AOLpoDDZLe8nwI6MMA1YYE01
-         KH9nFSOci8MELXhZVzY1crSTsNh1SH+YSsayXwMmsNrmUMXzE2xigIVZiGtLu8bU9r4w
-         hgUQ==
+        bh=RloCiG6ktfajfft7oZXWWlUR2yO2W/arq16CEWx06hk=;
+        b=d2L7Tk1pgFzXYESpA4PmRzfAcOjDg7egmaTYdMTZxZiVSVDiQp3gibDoxlcDeUjCwe
+         E2s22EyOO2MR9iVDO5jZ+ZOE9A+TIeG4H/k9tv5ctTKmqcjzRFPPDOptd2EuHdw3D+Ec
+         6ghI0DxiffUSYE7ui5XQPgJFbIIdPWLjwScX4kdgNSLKjcNAA+to3HjG8Z/uwItavBQX
+         KfA80qMLxswy7/HWYjLiA3imzYiEiM51i1PtBmokWC/IMI43TC5ujoK5dE8J14PUU3o6
+         yA6LJnzeYZCmaLKEibnJGoMtqKIZ7kIDgqZzGBaStEtOujZMiQGE9/waCza650l9VcKU
+         u1Pg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793214186; x=1793818986;
+        d=1e100.net; s=20260707; t=1793214187; x=1793818987;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=kQihi39MSjxZBPCKWC1v+KxEdPYKoJ3DWZvMHVb+Z7E=;
-        b=bX1MLimUGjHCX9ce8SpiPNN4X1aR9qY6hg6ukBtal9usbQk2rY1Hf6d1IEChYdKYbn
-         HZ03kMjj7dTYhfO0VMDTDwaT5NK0AerQgXZKJY2HnzYqbFKjMyf7ZVGLJRzL9d6QWmmE
-         z08Ak0I0Ucnr3Nofe4y+o0gEDhcH8x+3JkDv/S7G001BemG8VTCqm5V3YThQqRNhi9jL
-         Uz9d3rs8eTrveBBMtQPPLjX5iWoW0K8/acGJ+J0jSFDgxkspoVnKMbp7brZQCqcWiSSC
-         DXSXhUswwxu+6UjlyRLJm3YQHgLYy7xy5tccBqIuloRXwiTgPjybjerrF3Zf2EzjEb+d
-         ZNbw==
-X-Forwarded-Encrypted: i=1; AKwUvBxolwewME6Ht+IXBmfXtIcpM9fiht8N8vEXM2pdtlnZpr62TS+wQutReoQVxr/R3dKsf0M/VDtnuTKS1A==@lists.infradead.org
-X-Gm-Message-State: AFq9FYIE4OVciFIebwsnxRrCyINgHguTwdQa+EW8/4p8WD1wRaevECjC
-	t9PX/ljuIK5rW5a+kS3FLfMLn37pTHAFY81eyFez1vyxMivj3795ipXhqy5+4Hwj+h318i8C7rs
-	O6X/fzg==
-X-Received: from pgx20.prod.google.com ([2002:a63:1754:0:b0:cd4:ef82:4e33])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:a120:b0:3e1:5816:8749
- with SMTP id adf61e73a8af0-3e9023eda44mr2865201637.38.1793214185450; Wed, 28
- Oct 2026 12:03:05 -0700 (PDT)
-Date: Wed, 28 Oct 2026 12:02:55 -0700
+        bh=RloCiG6ktfajfft7oZXWWlUR2yO2W/arq16CEWx06hk=;
+        b=yUOs9ZKACcfA1NZheicTTRHXZQYj5jqUGsv6h0ESE9wlRhd5NSxGgKJkD6G0RYOGU0
+         lhGUl0hRYJu9Vcg8CfW2jS1wH2Fl51c/dhgaB10KWVAs0bPcWtBPJXY+Lya6B2CDezS7
+         yPvxP2v1M4jioPsoe7xa6GqgdZFA8csnMEoejtpKYhBk69Gw+jgXFF+/PbP/KWV3BpqI
+         FPBdkFokBeppQySLvhDUboZRSS1R/JP/VGwOcGpe1rfeCxzlXS5bumz1snUwbrqNNMQ8
+         ista+p+tMEw/aZwUc8S+1Uk9rj41doevrI2Z+EE1H+3Hj2lqhKp9FF7lHX6OxSVxh10d
+         OoFw==
+X-Forwarded-Encrypted: i=1; AKwUvBwkrLMPwGG786VRTcn3va/Q6a1lkg1pqcYND8zL7kK2Fi0M3OBImU0/ID6TNEWOadH/pP+YgH+Jh7+ViA==@lists.infradead.org
+X-Gm-Message-State: AFq9FYIcdEgqcqajtPgRUxW1rH9lXTA4MHqDNrsbkFw5oTunL4fuadZR
+	Q2IJB7eylMXmkDz/NvNZbXgqC1LZD+LzkzM9vFNvbJ9hSzNhJGzEILZEmgfFF78WREpPFUmnDzE
+	JwHcaIg==
+X-Received: from plma18.prod.google.com ([2002:a17:902:7d92:b0:2e9:73da:58d6])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:d504:b0:2e8:3d48:4d92
+ with SMTP id d9443c01a7336-2eb003bf1dfmr27738995ad.33.1793214186739; Wed, 28
+ Oct 2026 12:03:06 -0700 (PDT)
+Date: Wed, 28 Oct 2026 12:02:56 -0700
 In-Reply-To: <20261028190259.1819571-1-seanjc@google.com>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
 References: <20261028190259.1819571-1-seanjc@google.com>
 X-Mailer: git-send-email 2.56.0.313.g2479322e68-goog
-Message-ID: <20261028190259.1819571-4-seanjc@google.com>
-Subject: [PATCH 3/7] KVM: PPC: Explicitly force IPIs when directly kicking vCPUs
+Message-ID: <20261028190259.1819571-5-seanjc@google.com>
+Subject: [PATCH 4/7] KVM: MIPS: Rework kvm_arch_vcpu_should_kick() to use
+ standard implementation
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -88,8 +89,8 @@ Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	Stefan Teodorescu <fane@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_120307_698069_924D1466 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20261028_120309_097031_4748FEDF 
+X-CRM114-Status: GOOD (  11.84  )
 X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,146 +113,37 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Explicitly force an IPI when invoking kvm_vcpu_kick() directly instead of
-relying on kvm_arch_vcpu_should_kick() to unconditionally return 1/true.
-This will allow dropping kvm_arch_vcpu_should_kick() in favor of
-kvm_request_needs_ipi().
+Rework MIPS' kvm_arch_vcpu_should_kick() to use the "standard" arch
+implementation so that the arch hook can be dropped (MIPS is the only
+arch other than PPC that implements a non-standard hook, and PPC uses the
+recently added @force param when invoking __kvm_vcpu_kick() instead of
+relying on kvm_arch_vcpu_should_kick()).
 
-No functional change intended (1 || 1 == true).
+Convert MIPS to the standard implementation even though the code should be
+unreachable (neither kvm_vcpu_kick() nor kvm_make_request_and_kick() are
+used by MIPS or common KVM), so that there is a bisection point if the
+code is somehow reachable.
+
+No functional change intended (because the code is currently unreachable).
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/powerpc/include/asm/kvm_ppc.h | 13 ++++++++++++-
- arch/powerpc/kvm/book3s.c          |  4 ++--
- arch/powerpc/kvm/book3s_pr.c       |  2 +-
- arch/powerpc/kvm/booke.c           |  6 +++---
- arch/powerpc/kvm/e500_emulate.c    |  2 +-
- arch/powerpc/kvm/powerpc.c         |  2 +-
- 6 files changed, 20 insertions(+), 9 deletions(-)
+ arch/mips/kvm/mips.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/powerpc/include/asm/kvm_ppc.h b/arch/powerpc/include/asm/kvm_ppc.h
-index 169ea6a7fbad..bbe7378ad0ef 100644
---- a/arch/powerpc/include/asm/kvm_ppc.h
-+++ b/arch/powerpc/include/asm/kvm_ppc.h
-@@ -30,6 +30,17 @@
- #endif
- #include <asm/inst.h>
+diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
+index a53abbba43ea..c37e212bc0a3 100644
+--- a/arch/mips/kvm/mips.c
++++ b/arch/mips/kvm/mips.c
+@@ -122,7 +122,7 @@ bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu)
  
-+/*
-+ * TODO: For unknown reasons, KVM PPC has historically ignored vcpu->mode when
-+ *       determining if kicking a vCPU needs an IPI.  Either document why that
-+ *       behavior is necessary, or drop this helper and the @force param from
-+ *       __kvm_vcpu_kick().
-+ */
-+static inline void kvmppc_vcpu_kick(struct kvm_vcpu *vcpu)
-+{
-+	__kvm_vcpu_kick(vcpu, false, true);
-+}
-+
- /*
-  * KVMPPC_INST_SW_BREAKPOINT is debug Instruction
-  * for supporting software breakpoint.
-@@ -598,7 +609,7 @@ static inline void kvmppc_clear_host_ipi(int cpu)
- 
- static inline void kvmppc_fast_vcpu_kick(struct kvm_vcpu *vcpu)
+ int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
  {
--	kvm_vcpu_kick(vcpu);
-+	kvmppc_vcpu_kick(vcpu);
+-	return 1;
++	return kvm_vcpu_exiting_guest_mode(vcpu) == IN_GUEST_MODE;
  }
  
- static inline bool kvm_hv_mode_active(void)		{ return false; }
-diff --git a/arch/powerpc/kvm/book3s.c b/arch/powerpc/kvm/book3s.c
-index 2efbe05caed7..dce53c5a3868 100644
---- a/arch/powerpc/kvm/book3s.c
-+++ b/arch/powerpc/kvm/book3s.c
-@@ -260,7 +260,7 @@ void kvmppc_core_queue_external(struct kvm_vcpu *vcpu,
- 	 * external interrupts for the guest just before entering
- 	 * the guest.  That is OK even if userspace did do a
- 	 * KVM_INTERRUPT_SET on a pseries guest vcpu, because the
--	 * caller (kvm_vcpu_ioctl_interrupt) does a kvm_vcpu_kick()
-+	 * caller (kvm_vcpu_ioctl_interrupt) does a kvmppc_vcpu_kick()
- 	 * which ends up doing a smp_send_reschedule(), which will
- 	 * pull the guest all the way out to the host, meaning that
- 	 * we will call kvmppc_core_prepare_to_enter() before entering
-@@ -827,7 +827,7 @@ int kvm_arch_vcpu_ioctl_set_guest_debug(struct kvm_vcpu *vcpu,
- void kvmppc_decrementer_func(struct kvm_vcpu *vcpu)
- {
- 	kvmppc_core_queue_dec(vcpu);
--	kvm_vcpu_kick(vcpu);
-+	kvmppc_vcpu_kick(vcpu);
- }
- 
- int kvmppc_core_vcpu_create(struct kvm_vcpu *vcpu)
-diff --git a/arch/powerpc/kvm/book3s_pr.c b/arch/powerpc/kvm/book3s_pr.c
-index ecfb88bf6464..1894968f2c25 100644
---- a/arch/powerpc/kvm/book3s_pr.c
-+++ b/arch/powerpc/kvm/book3s_pr.c
-@@ -2066,7 +2066,7 @@ static struct kvmppc_ops kvm_ops_pr = {
- 	.emulate_op = kvmppc_core_emulate_op_pr,
- 	.emulate_mtspr = kvmppc_core_emulate_mtspr_pr,
- 	.emulate_mfspr = kvmppc_core_emulate_mfspr_pr,
--	.fast_vcpu_kick = kvm_vcpu_kick,
-+	.fast_vcpu_kick = kvmppc_vcpu_kick,
- 	.arch_vm_ioctl  = kvm_arch_vm_ioctl_pr,
- #ifdef CONFIG_PPC_BOOK3S_64
- 	.hcall_implemented = kvmppc_hcall_impl_pr,
-diff --git a/arch/powerpc/kvm/booke.c b/arch/powerpc/kvm/booke.c
-index 13ad4cf5fa71..fd7f24a68b31 100644
---- a/arch/powerpc/kvm/booke.c
-+++ b/arch/powerpc/kvm/booke.c
-@@ -650,7 +650,7 @@ static void kvmppc_watchdog_func(struct timer_list *t)
- 	if (new_tsr & TSR_WIS) {
- 		smp_wmb();
- 		kvm_make_request(KVM_REQ_PENDING_TIMER, vcpu);
--		kvm_vcpu_kick(vcpu);
-+		kvmppc_vcpu_kick(vcpu);
- 	}
- 
- 	/*
-@@ -661,7 +661,7 @@ static void kvmppc_watchdog_func(struct timer_list *t)
- 	    vcpu->arch.watchdog_enabled) {
- 		smp_wmb();
- 		kvm_make_request(KVM_REQ_WATCHDOG, vcpu);
--		kvm_vcpu_kick(vcpu);
-+		kvmppc_vcpu_kick(vcpu);
- 	}
- 
- 	/*
-@@ -1872,7 +1872,7 @@ void kvmppc_set_tsr_bits(struct kvm_vcpu *vcpu, u32 tsr_bits)
- 	set_bits(tsr_bits, &vcpu->arch.tsr);
- 	smp_wmb();
- 	kvm_make_request(KVM_REQ_PENDING_TIMER, vcpu);
--	kvm_vcpu_kick(vcpu);
-+	kvmppc_vcpu_kick(vcpu);
- }
- 
- void kvmppc_clr_tsr_bits(struct kvm_vcpu *vcpu, u32 tsr_bits)
-diff --git a/arch/powerpc/kvm/e500_emulate.c b/arch/powerpc/kvm/e500_emulate.c
-index 051102d50c31..10cd6b4ab456 100644
---- a/arch/powerpc/kvm/e500_emulate.c
-+++ b/arch/powerpc/kvm/e500_emulate.c
-@@ -75,7 +75,7 @@ static int kvmppc_e500_emul_msgsnd(struct kvm_vcpu *vcpu, int rb)
- 		int cpir = cvcpu->arch.shared->pir;
- 		if ((param & PPC_DBELL_MSG_BRDCAST) || (cpir == pir)) {
- 			set_bit(prio, &cvcpu->arch.pending_exceptions);
--			kvm_vcpu_kick(cvcpu);
-+			kvmppc_vcpu_kick(cvcpu);
- 		}
- 	}
- 
-diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
-index 9194cf492d1c..09c94b849185 100644
---- a/arch/powerpc/kvm/powerpc.c
-+++ b/arch/powerpc/kvm/powerpc.c
-@@ -1903,7 +1903,7 @@ int kvm_vcpu_ioctl_interrupt(struct kvm_vcpu *vcpu, struct kvm_interrupt *irq)
- 
- 	kvmppc_core_queue_external(vcpu, irq);
- 
--	kvm_vcpu_kick(vcpu);
-+	kvmppc_vcpu_kick(vcpu);
- 
- 	return 0;
- }
+ int kvm_arch_enable_virtualization_cpu(void)
 -- 
 2.56.0.313.g2479322e68-goog
 
