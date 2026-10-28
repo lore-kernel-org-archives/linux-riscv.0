@@ -2,94 +2,113 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A315F606A322
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 13:19:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3159C606A332
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 13:30:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MoyNP7ix;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uG/UI1Du
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zh1GL/2V;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=jn9xmHTd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:CC:To:MIME-Version:Message-ID:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=RwIffzzok7rO/73G3Yb3jywPjRi9imtchY8AbG1VIbE=; b=MoyNP7ix6uCxEePfez7aPRvlFX
-	gxyMdVXOZEv/EvyZAqDrkIP7k+OCRA5Jarqnp4YRLVrGTnmXmW300LdJk7EXFTEFFKV8bdBqs52/B
-	DnLg7xzExzj6KCVnT3wXeuRWiYhMntGOD/vvw0PaSAlMy8jwGAknWEXDtf660/xc3vUqQtuhlo7+H
-	Q+HOA99Kk0YQfEmA4IzRfHd5dS1x/768PcLtXE07UyzCUMUsq99a1nDFSvR3DrhwsbYL3Q1P/kugH
-	JmvEDm1JKCJcO4BqSwetVaQ7M1l1w7/GLyQ7QGKzfjyKhpOm+tP/FC65bI8dd+/VXd74pvcBoAOrk
-	HTsHofCQ==;
+	bh=1mvbMcOXr53NZwjmiKqnuxTp1smIfixy0pJFltHkFlY=; b=zh1GL/2Vfw1/NsJMqehrjCUYhk
+	qc9OZ4QY+6rD1GGzie8+tzJB72XOEmuai3VNjoSQ4MljirEAa2f554vSAHJK/kKb0mucyNX/ZRlTG
+	0gSxyvQyK8IZyq9DjG0Tyo6X6lM8gyM9rPA6eu2I/DDxZyNo6FblJf0dFUVEIkXX7+TV5bsBbUNrR
+	nTFTv+Uxpzk6ZJ6Sob4Uxl6Fh8LlEmcYEZeVKBdxEganiqk60JjhMbdZSqbi3959Sv2TAdX1pdYZC
+	i/NmMzM8rdNF9h4JHeRLuOydZh4wfkNTeNaF02XZc9p4no3S0qmFREiRnexfz1FRjOurEAU5w63mO
+	4AodlfUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM3ZE-000000072Qh-0Y1d;
-	Wed, 28 Oct 2026 13:19:48 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1xM3ja-0000000746d-2Jos;
+	Wed, 28 Oct 2026 13:30:31 +0000
+Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM3ZC-000000072P2-0sML
+	id 1xM3jX-0000000744z-2K6e
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Oct 2026 13:19:47 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-6b1aa27963eso3167936a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Oct 2026 06:19:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793193584; x=1793798384; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Wr/bf4ddaLfe4dUuERT7xlpqqtK0FHujYgWWBDTQd8k=;
-        b=uG/UI1Du1UyJ2xsyFklTOpht2v2AVcTI5teyvWMFJvjZytQQ8g2W8CLRy0RRWFbmaQ
-         7W0R/dD2nwzERiaV8o6aJsTm4Vn+/ocSWwHGqEGJKadUjqN/AOu/W1y1Qxw+XPk18yX0
-         5Wc1LqVRXak1CMW3lFdnYAeoiDNYvCwfCBvVVzqvYNzPyEf7PwuV0dStujXN9hhd2xXe
-         krmtSj4IDuzjMax92QTT3DoC/1d8i3SswTu3xH0rO0Mvxylt5BG0wM9MIY6HukG/1aNk
-         9POJ6zUkyGWLIoELFbZbBDWpZCynMrYMY/hPJn4xwCDWq05UTg/SlYLzKwHgKS4RiBSg
-         SUrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793193584; x=1793798384;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Wr/bf4ddaLfe4dUuERT7xlpqqtK0FHujYgWWBDTQd8k=;
-        b=pbSZtPQudqKEj4BbnzpyDoYgZ/jt+rR4AKWNGQbqDfCyKdp+OThSHoIvvb6ReXKHPO
-         01GG+nLfPnmIPo0kwimj8BFy9NXZCQL4hpYeXp35ia+mr0gXlMoTks7duXYf65K71lml
-         F0qYdvtozzr/TaTGPmGyFbv6TwMmH3Trno3YUd5aD+pEpBf+enIWUl84aKcjQlPN+cAQ
-         AhSO2AXRNH6gjbT0yYg1jOWOaIaDN0u2T3BYiNIsj1jBcNDmptc3oDsFw17HJQaWSmQn
-         zPkbtJjajNWWR9EFybqK0CB5Ug+W5BCzW4z5BZANPVTxyKn6Jwpm/hPJNzMIiRzcSCT6
-         is3g==
-X-Forwarded-Encrypted: i=1; AKwUvBz4I46S7+gHjpT7OSmqAyS75NsU6TxrIkFBLD5rhXWwHUdbRxGHCXXk2aGwxy+ytvoaWqlARNMWoEQO/A==@lists.infradead.org
-X-Gm-Message-State: AFq9FYLvwYsdWSTwl+9EpwLjruYfkgMh0wNsE8PpXXQUBAoTpGWw902f
-	HA28y6F1ZNmnsAcohYRdvkVULx9u3khBdT7tya+a0bBphSdejmfCWz1m
-X-Gm-Gg: AYBFou1fP4knCuqKYO1YWHlMgKNcHIdcDidumobVANlVVnpqnup2+k/XEJNSR9ZiaDD
-	bnj7VzFQxI/DsWRn1G3Wmd7H+AKGl7irxQMZFuBhmW/jYeGq5sxAi0pi3I4AcYN41yISPtxhWo4
-	xLjFPkXLMZPePHR0RMH7Dh26qo0ylRmPpqqjJeOG8GO+ZbadxlR8OoCqjzqjBIRfNI1arKPAjQJ
-	lk7oARZzYViXBHtoCr5vx8gJWlKExm671Iut2ZVns0efBMOdQ3pUlWKUv/kurhaMCEFtqkwJm7J
-	PnFNnDsByKcD0Aa79v7w+MC91MzhbYibt3DtM4RyP0QsuoV6pJDDGS5FnYFN2ODLDtoIzCNqPy1
-	HuLTKW1pKU67usG6Y9FOPQr9AB9JICDFLLICTxxtJnirZl12fl+lpca8d/5d0lNhxx8sYL54r78
-	aIndwOaBZEjPAQOGhxvCfmedHxxi9xr/lDi25n4JWdyybACPcOmrltwY0g8Oadg0Iv1SOvLAIrl
-	oqMgffhgNvYDb1hdILWaBS7ijcxcVgAgQ8mx4Sg4LLCPgl8AtHG7AYbfqSU/A2M3yKkjSGppfQG
-	bLiWHQKiPKsTSc/V24jmWcMwRdOCZkcpGaVexQwPS1tA
-X-Received: by 2002:a17:907:6d20:b0:c3f:153a:864e with SMTP id a640c23a62f3a-c49a7425a2dmr540243466b.22.1793193584242;
-        Wed, 28 Oct 2026 06:19:44 -0700 (PDT)
-Received: from localhost.localdomain ([2a06:c701:4778:c500:47f1:8a3:6e76:cd9e])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c46bd790afasm597041866b.68.2026.10.28.06.19.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2026 06:19:43 -0700 (PDT)
-From: Avi Weiss <thnkslprpt@gmail.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Avi Weiss <thnkslprpt@gmail.com>
-Subject: [PATCH] cache: sifive_ccache: skip disabled device tree nodes
-Date: Wed, 28 Oct 2026 15:19:40 +0200
-Message-ID: <20261028131939.1014720-2-thnkslprpt@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 28 Oct 2026 13:30:29 +0000
+Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
+	by mx07-00376f01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69SBfEn54125979;
+	Wed, 28 Oct 2026 13:30:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=dk201812; bh=VJ/6NMjArldnd2LrCTUeK9F
+	OgABgG5tf4SqsaACiUZM=; b=jn9xmHTdodrRwEm3EqLIXcf9SGpTeI//KJRFg2F
+	yVgL9K68YldWykOAGUbCS1C1drwNL2ujmz26mQFqhXFB6lcl3+t27t9pCueG2i7i
+	ZFRw/Zs7OitBV0+oTFmbQ0ipgfijxie2Yu8LtbKDeldHx+pqGNgUVQ291f1CIFNM
+	OvXaQC2OZUqJAa1RmME0XAHvhw2X5TOblhRpDBBNOMUshESWMj8Kteu5LlSQhmPz
+	eFHjufKyweAMno9k9sDI/WvctMJZGWicZpWYodQ3YKB5e0WIQyJ50GbxgyxG3xvH
+	f4/QLmNmpa/CJPtaroTtjQmcNeNikFo4iiS3PENPaqbKTCQ==
+Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 4hk414ghyt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 28 Oct 2026 13:30:05 +0000 (GMT)
+Received: from [127.0.1.1] (172.25.10.25) by HHMAIL01.hh.imgtec.org
+ (10.100.10.19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 28 Oct
+ 2026 13:30:03 +0000
+From: Alexandru Dadu <alexandru.dadu@imgtec.com>
+Subject: [PATCH 0/5] drm/imagination: RISC-V and META firmware interface
+ updates
+Date: Wed, 28 Oct 2026 15:29:32 +0200
+Message-ID: <20261028-prep-meta-fw-arch-independent-v1-0-73e116f02172@imgtec.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAL344WoC/yXMSwoCMRCE4asMvbYhk0UQryIuYrritGAMSXzAM
+ He31U3BB8W/UkdTdDpMKzU8teu9GObdRGmJ5QJWMZN3PszO77k2VL5hRM4vji0trEVQYVMG5yx
+ BkgQfxJE17J31/esfT3/3x/mKNL5R2rYPFq82D4EAAAA=
+X-Change-ID: 20261028-prep-meta-fw-arch-independent-ffd6dcd626d0
+To: Alessio Belle <alessio.belle@imgtec.com>,
+        Luigi Santivetti
+	<luigi.santivetti@imgtec.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Paul Walmsley <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>
+CC: <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        "Alexandru
+ Dadu" <alexandru.dadu@imgtec.com>,
+        Matt Coster <opensource@mtcoster.net>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793194203; l=1843;
+ i=alexandru.dadu@imgtec.com; s=20260304; h=from:subject:message-id;
+ bh=r3LQlFHpmdFnfQSRY534xyHfTuQ82MkeXdcVGI+ap8c=;
+ b=nboDUwGV0y4I5xZveKaifiwwVLlaND7fRP/Xa9fZRf4TOa9tM1ggq9lEKGfGREOfro767VntG
+ ajpQlRAeQAnCELkQ3zIjKaFGrlKnFSOxZiAZnu1mH/UCA/nvMVkQvKy
+X-Developer-Key: i=alexandru.dadu@imgtec.com; a=ed25519;
+ pk=FU07SyNrYGwhahqSxbWEuzyXlUh47xBXvLvOR7UA6+U=
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI4MDA1MyBTYWx0ZWRfX/+7RNtA7+LV9
+ O51yS2ySSAT0vu5KmLdY19hKFgZ1DGRZc83F/ksRLCUqGPzgklJ0RCViy/4Q4WC6J49ozM0fFJx
+ HdTL3OGlwfSMn9NgfSpap1UWHro3p18=
+X-Authority-Analysis: v=2.4 cv=AMk9Hd7f c=1 sm=1 tr=0 ts=6ae1f8dd cx=c_pps
+ a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
+ a=1spURiKJc90A:10 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=7RYWX5rxfSByPNLylY2M:22
+ a=r_1tXGB3AAAA:8 a=qumoa_GKI_aNSdBMfk0A:9 a=QEXdDO2ut3YA:10
+ a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-ORIG-GUID: 2rBl2Mtw_qRvhM9LRCPFgDQ9pEQi_yf8
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI4MDA1MyBTYWx0ZWRfX8o9jhNjAS1kC
+ WU1Dz0UP4Y8ilnUE+j0HalMuglBrTq64Xw8cqQqftEKdrP/dWQpZkbVW/fUpqVvqcfCs4fmWXBT
+ xFE3PHtuprBJpuSYnwKSVOCqEOkUDHyHCe84/DjIvskki1Z8RIBmu3brfk4VVXE0ne3azPsMRCf
+ fZi7qDFBTt9zZtE4OxXkwPHv3QrizyLb9hfZIfoaa3F5nTsdu/7KZvL15I0FCNvpUUarnSYFJPx
+ Qp7EdsHIyK926PjimrjT84SjBPUTiZd34trSfGsgPOch1q076Vhn1BwINgJKYcbYnSxH1FRPvOZ
+ QVhraKlCL45R1cQ9AH1z7aF27VOMVqzEPqBO4BNgCjHSmzIDZ5Su1fUGJXyoP/S81Q/iM9rILwA
+ jj+FgpFNJFQShO/5MTyr2FB0ZQ6kPLf6cKOHz3IQgm+nfPv/CnR+RlTyJo4TY3uh58sFgzJlMZw
+ KO89I7SsXTP6ig3+PnA==
+X-Proofpoint-GUID: 2rBl2Mtw_qRvhM9LRCPFgDQ9pEQi_yf8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_061946_255943_5EA83F4C 
-X-CRM114-Status: GOOD (  10.71  )
-X-Spam-Score: 0.4 (/)
+X-CRM114-CacheID: sfid-20261028_063027_906310_30348F33 
+X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,47 +121,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.3 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,FROM_LOCAL_NOVOWEL,
-	HEADER_FROM_DIFFERENT_DOMAINS,HK_RANDOM_FROM,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-sifive_ccache_init() uses of_find_matching_node_and_match(), which also
-returns nodes marked as disabled. The initializer can therefore map and
-access a cache controller that the device tree marks unavailable.
+Refactor RISC-V and META firmware interface headers to have a more
+generic and architecture independent approach:
+1. Limits access to the RISC-V and META firmware respective interfaces.
+2. Aligns RISC-V and META firmware headers with the other processor
+headers.
+3. Add "_fw_" component to the headers filename.
 
-Select the first available matching node before accessing its registers.
-This also handles a disabled node preceding an enabled one.
-
-Fixes: a967a289f169 ("RISC-V: sifive_l2_cache: Add L2 cache controller driver for SiFive SoCs")
-Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
+Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
 ---
- drivers/cache/sifive_ccache.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Alessio Belle (4):
+      drm/imagination: Limit access to the RISC-V firmware interface
+      drm/imagination: Update RISC-V firmware header
+      drm/imagination: Limit access to the META firmware interface
+      drm/imagination: Update the META firmware header
 
-diff --git a/drivers/cache/sifive_ccache.c b/drivers/cache/sifive_ccache.c
-index 71d3f94987fa..02878d54381d 100644
---- a/drivers/cache/sifive_ccache.c
-+++ b/drivers/cache/sifive_ccache.c
-@@ -297,7 +297,9 @@ static int __init sifive_ccache_init(void)
- 	unsigned long quirks __maybe_unused;
- 	int rc;
- 
--	np = of_find_matching_node_and_match(NULL, sifive_ccache_ids, &match);
-+	for_each_matching_node_and_match(np, sifive_ccache_ids, &match)
-+		if (of_device_is_available(np))
-+			break;
- 	if (!np)
- 		return -ENODEV;
- 
+Alexandru Dadu (1):
+      drm/imagination: Prepare heap config header for multi-arch support
 
-base-commit: 65ba8f34ec886ec72b2c07ddc8cf3d815c32869d
--- 
-2.43.0
+ drivers/gpu/drm/imagination/pvr_fw.c               |   7 +-
+ drivers/gpu/drm/imagination/pvr_fw.h               |  26 +++
+ drivers/gpu/drm/imagination/pvr_fw_meta.c          | 104 +++++++-----
+ drivers/gpu/drm/imagination/pvr_fw_meta.h          |  14 --
+ .../{pvr_rogue_meta.h => pvr_fw_meta_internal.h}   | 175 +++++++++++----------
+ drivers/gpu/drm/imagination/pvr_fw_mips.c          |   1 +
+ drivers/gpu/drm/imagination/pvr_fw_riscv.c         |  13 +-
+ .../gpu/drm/imagination/pvr_fw_riscv_internal.h    |  43 +++++
+ drivers/gpu/drm/imagination/pvr_fw_startstop.c     |  61 +++----
+ drivers/gpu/drm/imagination/pvr_gem.h              |   3 +-
+ .../{pvr_rogue_heap_config.h => pvr_heap_config.h} |  26 +--
+ ...vr_rogue_riscv.h => pvr_rogue_riscv_internal.h} |  10 +-
+ drivers/gpu/drm/imagination/pvr_vm.c               |  18 +--
+ 13 files changed, 296 insertions(+), 205 deletions(-)
+---
+base-commit: 6e375de99d0c420169481fcd36064177ab55b09d
+change-id: 20261028-prep-meta-fw-arch-independent-ffd6dcd626d0
+
+Best regards,
+--  
+Alexandru Dadu <alexandru.dadu@imgtec.com>
 
 
 _______________________________________________
