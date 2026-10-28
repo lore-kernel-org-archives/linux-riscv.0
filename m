@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 049C1606A321
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 02:11:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5DCB606A31A
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 02:38:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zJiqm3fS;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=qYpt+RJw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kwOhDVxT;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jXwOsPem
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
@@ -14,54 +14,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ovBJYV9vtCtRv8urMNFJDyj1Nq7VGEK6QJrOanNpAo0=; b=zJiqm3fSiOmu/AySlKlmgYRoBT
-	i/snLBmWs5f99R6aT8FNKxPnsKVorFIYqNBUYhLwhZjXkGbX1pSrXlR3qVM2VoUaoG/VwkI+Iuslz
-	pRSAfrBx84oDXZEoM3h01h2P+d1STnYP7PEIl6d2umx/EHrKSpN+hGwKWK5OiltA80wEIKaeLGogK
-	3xld0pmMiYweIfuO0IwbNhKmf/LR/9diYlZKGlD4F/sPEx9qV1qS0dxPGb0hR0dcrL4eGmFtFCF+M
-	npAQQa2WKx3ddBCn/AjY/HHjUiFZ4VxQPfJSIKcd56CRiljnH8+qpyCd65daiOUD0Nu0YmEREyJGZ
-	tNkAeRJQ==;
+	bh=xqbcSls0uPMSAbpsfbppFPz5i2gbEUHupR/hxWrjQs8=; b=kwOhDVxTfTKKnrcUc7JjHkEuLD
+	a+8LcevNmPu/eMk7yh1XQd0JKZqDPh3KBTeYzdQnxAv3FZM1mcgQb6gGekQsyGFSZQtwAZuOVsGa7
+	voxRMLKavm67t/D5D0tQekO1nT3ieYeNeI+5Ri/bLKbz98N1xrsS7oK2aV5nf355tX7a6JAdAq3pU
+	u2wHnB234wc68rr4YSXMfOdpFreHc0ZYjIAht5kWA6t0Yh8HI+PLDap7633Vsq4cLIRCoXdh2jXAs
+	EnfBWcgfgSa4XwEM4B4N2/YkjdSblBFVmYhdHTNOeNUkKmfix1XsG1F1c1cq0hfCpwxNlcuX6C5gQ
+	Umit3QQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLt8F-0000000654b-3TCC;
-	Wed, 28 Oct 2026 02:11:15 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1xLtYq-000000066Xi-0F2j;
+	Wed, 28 Oct 2026 02:38:44 +0000
+Received: from out-11.mta0.migadu.com ([2001:41d0:1004:224b::b] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLt8C-0000000652b-1iCN;
-	Wed, 28 Oct 2026 02:11:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=dRf6oI9OjFWY1cb4Veae1z+HSgCdbz4ogw7DjgHpwGM=;
-	b=qYpt+RJwRCF0KX/+Je23SE2RJtdg8sWfRlTJBYkgQjazqIosKZrPy7BmiKqm9R
-	lMeSBT6H/smy5N567aYskw3soxO2lZEjFu6+3moV22mJgNt2lfVoA1/U+RSmdIP+
-	eNPBKt+kFxH/QXb7xPiQMm1mkDGc1IgvPyHBAIFAj2h4o=
-Message-ID: <9a761c42-9edd-48f4-b3a4-c275b603cc3e@163.com>
-Date: Wed, 28 Oct 2026 10:10:33 +0800
+	id 1xLtYj-000000066X2-0vCh
+	for linux-riscv@lists.infradead.org;
+	Wed, 28 Oct 2026 02:38:42 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=mH0ZQfc34RCOtl2VGjdl8OmmCthdfz1kAMiroh/O+oo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1793155110; v=1; x=1793759910;
+ b=jXwOsPemx6nPPPWhLyBfFsUK638JsuH8vWBB2BXx1z2g/7MsOmykTPau9pQ+A8fZw7P0ZpTa
+ fGknOnwEHphp2pvLDdsQzifBLrGH6Tf8cX0ILKEQn9HEIRfho1LVCmyrFJIFVGYtRJ6CZ79JBSz
+ D8weOeehEMYc1l8qTXKqM7l8=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 7896afea03d26d48;
+	Wed, 28 Oct 2026 02:38:30 +0000
+X-Mizu-Trace-ID: 7896afea03d26d48
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <7cb3dd91-f518-49b6-b311-9ec807b3c63b@linux.dev>
+Date: Wed, 28 Oct 2026 10:38:22 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/16] PCI: dwc: Cache PCIe capability offset
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
- mani@kernel.org, jingoohan1@gmail.com, imx@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-amlogic@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- sophgo@lists.linux.dev, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-tegra@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261027231534.GA520774@bhelgaas>
+Subject: Re: [PATCHv7 13/18] mm: Drop fake head checks
+To: Kiryl Shutsemau <kas@kernel.org>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Matthew Wilcox <willy@infradead.org>, Usama Arif <usamaarif642@gmail.com>,
+ Frank van der Linden <fvdl@google.com>, Oscar Salvador <osalvador@suse.de>,
+ Mike Rapoport <rppt@kernel.org>, Vlastimil Babka <vbabka@suse.cz>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Zi Yan <ziy@nvidia.com>,
+ Baoquan He <bhe@redhat.com>, Michal Hocko <mhocko@suse.com>,
+ Johannes Weiner <hannes@cmpxchg.org>, Jonathan Corbet <corbet@lwn.net>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, kernel-team@meta.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>
+References: <ebc7bde1-f52e-4da8-b16f-822d6c0a4d74@kernel.org>
+ <at_f43oDv73y-t7O@thinkstation>
+ <f97a8d33-50b2-4a86-8381-ee840cdfa2f9@kernel.org>
+ <20261027110028.GH2668564@noisy.programming.kicks-ass.net>
+ <auCKv_omLGRc6wv2@thinkstation>
+ <f3f3aca9-bdb7-4aec-9099-9fb63a60e61d@kernel.org>
+ <auCZFckDfBMrlfxV@thinkstation>
+ <070DDE5C-2183-4A8B-AC2D-891CAE15E581@linux.dev>
+ <d7a634b6-8668-4753-8bfc-e9334dde705e@kernel.org>
+ <4A32F5E6-977D-4720-8723-B19AFBC08FCF@linux.dev>
+ <auDkbDlgSZxqlk2G@thinkstation>
 Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <20261027231534.GA520774@bhelgaas>
-X-CM-TRANSID: _____wD33x2jWeFqyfNqDQ--.48494S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Ar4DJr17Xr4kCw1xZw47urg_yoW8Xr4kpF
-	Wjgrs2yF4kXrn2vanF93Wj93W7AF9Iy3y3CanxG34avr90vF4IgF40vrW3GF9Fyrs29r4a
-	yFWjq3s8Gas8AFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U4UDXUUUUU=
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC7ASSNmrhWaRq6QAA35
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <auDkbDlgSZxqlk2G@thinkstation>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_191112_872996_4122C16C 
-X-CRM114-Status: GOOD (  10.38  )
-X-Spam-Score: -1.8 (-)
+X-CRM114-CacheID: sfid-20261027_193839_248042_A9F0766E 
+X-CRM114-Status: GOOD (  45.27  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,54 +95,232 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	FROM_LOCAL_DIGITS,FROM_LOCAL_HEX,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 
 
-On 10/28/26 07:15, Bjorn Helgaas wrote:
-> On Tue, Oct 27, 2026 at 08:28:11PM +0800, Hans Zhang wrote:
->> Hi,
->>
->> The DWC PCIe core and its platform drivers repeatedly call
->> dw_pcie_find_capability(pci, PCI_CAP_ID_EXP) to obtain the offset of the
->> PCI Express Capability structure, including in paths that run more than
->> once such as link polling, suspend/resume and interrupt handlers.
->>
->> Add a cached pcie_cap field to struct dw_pcie and a
->> dw_pcie_get_pcie_cap() helper that performs the lookup on first use and
->> caches the result, then convert the core and the 14 platform drivers
->> that use PCI_CAP_ID_EXP.
->>
->> After this series, dw_pcie_find_capability(..., PCI_CAP_ID_EXP) no
->> longer appears in drivers/pci/controller/dwc/ outside of the helper
->> itself.
->> ...
-> 
->> base-commit: 4352b8aee98005853aa63f57d6377282de17a33f
-> 
-> This does indeed apply cleanly on 4352b8aee980 ("Merge tag
-> 'i3c/for-7.3' of git://git.kernel.org/pub/scm/linux/kernel/git/i3c/linux"),
-> but that's pretty old and not really useful any more.
-> 
-> PCI topic branches are typically based on -rc1, but of course v7.4-rc1
-> hasn't been tagged.  Until it is, you can use pci/main as a good base.
-> It's currently 17bb0e2f6c80 ("Merge tag 'pci-v7.4-changes' of
-> git://git.kernel.org/pub/scm/linux/kernel/git/pci/pci"), so
-> drivers/pci/ in v7.4-rc1 will be pretty close to that.
+On 2026/10/28 01:51, Kiryl Shutsemau wrote:
+> On Tue, Oct 27, 2026 at 10:03:54PM +0800, Muchun Song wrote:
+>> Therefore, I am kind of leaning towards removing the RO protection
+>> and restoring RW permissions to solve the race.
+> Okay, what about this:
+>
+>  From e23ab850837b53cc79d57d58f1cfb4266e745c3d Mon Sep 17 00:00:00 2001
+> From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+> Date: Tue, 27 Oct 2026 17:23:47 +0000
+> Subject: [PATCH] mm/hugetlb_vmemmap: map the shared tail page writable
+>
+> page_ref_add_unless_zero() reads the refcount and then updates it with
+> a cmpxchg.  A lockless get, such as a page cache lookup or a PFN
+> scanner, can read a non-zero refcount from a page that is then freed
+> and reused as a hugetlb tail page.  If HVO remaps its struct page to
+> the shared tail page in between, the cmpxchg writes to read-only
+> vmemmap:
+>
+>      CPU0 (lockless get)               CPU1
+>      c = atomic_read(&page->_refcount)
+>                                        page freed
+>                                        page allocated as a hugetlb tail
+>                                        HVO remaps the struct page RO
+>      try_cmpxchg(&page->_refcount, &c, c + 1)
+>        -> write fault on read-only vmemmap
+>
+> The refcount is zero by then and the compare fails, but LOCK CMPXCHG on
+> x86 writes anyway.  The kernel oopses when hugetlb pages are allocated
 
-Hello Bjorn,
+Is this an X86-specific issue? If not, I suggest a more generic
+description.
 
-Will rebase on pci/main.
+> at runtime with HVO enabled while a lockless get races with it.
+>
+> Commit bd225530a4c7 ("mm/hugetlb_vmemmap: fix race with speculative PFN
+> walkers") closed the window with RCU on both sides.  The RCU was removed
+> together with fake heads, on the wrong belief that it was only needed
+> for them.
+>
+> Map the shared tail page writable instead of restoring the RCU.  Every
+> struct page on it is a tail with a zero refcount, so a late cmpxchg
+> fails and leaves the page unchanged.  RCU would put rcu_read_lock()
+> back around every get and synchronize_rcu() back into hugetlb
+> allocation and freeing.
+>
+> The cost is the protection against stray writes to tail struct pages.
+> The shared page is shared by all hugetlb folios of the same order in
+> the zone, so such a write now corrupts all of them instead of oopsing.
+>
+> Bootmem folios optimized in early boot get their tails mapped writable
+> and write protected later.  Drop the write protect step.
 
-Best regards,
-Hans
+For bootmem folios, I don't think the RO mapping should be removed,
+because we are in the initialization stage of struct page.
+No one should touch those pages at this point; otherwise, they could
+encounter uninitialized struct page as well. This assumes no race
+exists during early boot.
 
+Since such a problem does not exist during the boot stage, why should
+we give up the protection that RO provides?
+
+Thoughts?
+
+Thanks,
+Muchun
+
+>
+> Fixes: 32c440d67e6c ("mm: drop fake head checks")
+> Fixes: 01b1d0ffb6f7 ("hugetlb: remove VMEMMAP_SYNCHRONIZE_RCU")
+> Reported-by: David Hildenbrand (Arm) <david@kernel.org>
+> Closes: https://lore.kernel.org/r/ebc7bde1-f52e-4da8-b16f-822d6c0a4d74@kernel.org
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> ---
+>   Documentation/mm/vmemmap_dedup.rst | 13 +++++++++----
+>   include/linux/mm.h                 |  2 --
+>   mm/hugetlb.c                       |  4 ----
+>   mm/hugetlb_vmemmap.c               | 21 +++++++--------------
+>   mm/sparse-vmemmap.c                | 23 -----------------------
+>   5 files changed, 16 insertions(+), 47 deletions(-)
+>
+> diff --git a/Documentation/mm/vmemmap_dedup.rst b/Documentation/mm/vmemmap_dedup.rst
+> index 9fa8642ded48..6cd85aca4b96 100644
+> --- a/Documentation/mm/vmemmap_dedup.rst
+> +++ b/Documentation/mm/vmemmap_dedup.rst
+> @@ -131,8 +131,15 @@ pages of ``struct page`` (page 1 to page 7) are tail pages.
+>   The optimization is only applied when the size of the struct page is a power
+>   of 2. In this case, all tail pages of the same order are identical. See
+>   compound_head(). This allows us to remap the tail pages of the vmemmap to a
+> -shared, read-only page. The head page is also remapped to a new page. This
+> -allows the original vmemmap pages to be freed.
+> +shared page. The head page is also remapped to a new page. This allows the
+> +original vmemmap pages to be freed.
+> +
+> +The shared page is mapped writable. A lockless get of a page reference can
+> +read a non-zero refcount before the remap and attempt its atomic update
+> +after it. The refcount of a tail page is zero, so the update fails without
+> +changing the page. Nothing else may write to the shared page: it is shared
+> +by all HugeTLB pages of the same size in the zone, and a stray write would
+> +corrupt all of them.
+>   
+>   Here is how things look after remapping::
+>   
+> @@ -196,8 +203,6 @@ happens at a later stage when we populate the sections. HugeTLB reuses the
+>   the head vmemmap page representing, whereas device-dax reuses the tail
+>   vmemmap page. This results in only half of the savings compared to HugeTLB.
+>   
+> -Deduplicated tail pages are not mapped read-only.
+> -
+>   Here's how things look like on device-dax after the sections are populated::
+>   
+>    +-----------+ ---virt_to_page---> +-----------+   mapping to   +-----------+
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index dd09c438fa23..bfaf4ce6d831 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -5162,8 +5162,6 @@ int vmemmap_populate(unsigned long start, unsigned long end, int node,
+>   int vmemmap_populate_hvo(unsigned long start, unsigned long end,
+>   			 unsigned int order, struct zone *zone,
+>   			 unsigned long headsize);
+> -void vmemmap_wrprotect_hvo(unsigned long start, unsigned long end, int node,
+> -			  unsigned long headsize);
+>   void vmemmap_populate_print_last(void);
+>   #ifdef CONFIG_MEMORY_HOTPLUG
+>   void vmemmap_free(unsigned long start, unsigned long end,
+> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+> index cea25773a6c9..7596704d94b5 100644
+> --- a/mm/hugetlb.c
+> +++ b/mm/hugetlb.c
+> @@ -3220,10 +3220,6 @@ static bool __init hugetlb_bootmem_page_earlycma(struct huge_bootmem_page *m)
+>    * if marked with the 'noinit' flag. Set it to the default (MIGRATE_MOVABLE)
+>    * here, or MIGRATE_CMA if this was a page allocated through an early CMA
+>    * reservation.
+> - *
+> - * In case of vmemmap optimized folios, the tail vmemmap pages are mapped
+> - * read-only, but that's ok - for sparse vmemmap this does not write to
+> - * the page structure.
+>    */
+>   static void __init hugetlb_bootmem_init_migratetype(struct folio *folio,
+>   							  struct hstate *h)
+> diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
+> index 917db0984143..77f9d035d04c 100644
+> --- a/mm/hugetlb_vmemmap.c
+> +++ b/mm/hugetlb_vmemmap.c
+> @@ -222,10 +222,12 @@ static void vmemmap_remap_pte(pte_t *pte, unsigned long addr,
+>   		VM_WARN_ON_ONCE(!PageTail((const struct page *)addr));
+>   
+>   		/*
+> -		 * Remap the tail pages as read-only to catch illegal write
+> -		 * operation to the tail pages.
+> +		 * Map the shared tail page writable. A lockless get that read
+> +		 * a non-zero refcount before the remap can still do its
+> +		 * cmpxchg after it. The refcount is zero, so the cmpxchg
+> +		 * fails and leaves the page unchanged.
+>   		 */
+> -		entry = mk_pte(walk->vmemmap_tail, PAGE_KERNEL_RO);
+> +		entry = mk_pte(walk->vmemmap_tail, PAGE_KERNEL);
+>   	}
+>   
+>   	list_add(&page->lru, walk->vmemmap_pages);
+> @@ -629,19 +631,10 @@ static void __hugetlb_vmemmap_optimize_folios(struct hstate *h,
+>   	nr_to_optimize = 0;
+>   	list_for_each_entry(folio, folio_list, lru) {
+>   		int ret;
+> -		unsigned long spfn, epfn;
+>   
+> -		if (boot && folio_test_hugetlb_vmemmap_optimized(folio)) {
+> -			/*
+> -			 * Already optimized by pre-HVO, just map the
+> -			 * mirrored tail page structs RO.
+> -			 */
+> -			spfn = (unsigned long)&folio->page;
+> -			epfn = spfn + hugetlb_vmemmap_size(h);
+> -			vmemmap_wrprotect_hvo(spfn, epfn, folio_nid(folio),
+> -					HUGETLB_VMEMMAP_RESERVE_SIZE);
+> +		/* Already optimized by pre-HVO */
+> +		if (boot && folio_test_hugetlb_vmemmap_optimized(folio))
+>   			continue;
+> -		}
+>   
+>   		nr_to_optimize++;
+>   
+> diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
+> index 5a2469fb1838..3f25d4a0bf47 100644
+> --- a/mm/sparse-vmemmap.c
+> +++ b/mm/sparse-vmemmap.c
+> @@ -299,29 +299,6 @@ int __meminit vmemmap_populate_basepages(unsigned long start, unsigned long end,
+>   	return vmemmap_populate_range(start, end, node, altmap, -1, 0);
+>   }
+>   
+> -/*
+> - * Write protect the mirrored tail page structs for HVO. This will be
+> - * called from the hugetlb code when gathering and initializing the
+> - * memblock allocated gigantic pages. The write protect can't be
+> - * done earlier, since it can't be guaranteed that the reserved
+> - * page structures will not be written to during initialization,
+> - * even if CONFIG_DEFERRED_STRUCT_PAGE_INIT is enabled.
+> - *
+> - * The PTEs are known to exist, and nothing else should be touching
+> - * these pages. The caller is responsible for any TLB flushing.
+> - */
+> -void vmemmap_wrprotect_hvo(unsigned long addr, unsigned long end,
+> -				    int node, unsigned long headsize)
+> -{
+> -	unsigned long maddr;
+> -	pte_t *pte;
+> -
+> -	for (maddr = addr + headsize; maddr < end; maddr += PAGE_SIZE) {
+> -		pte = virt_to_kpte(maddr);
+> -		ptep_set_wrprotect(&init_mm, maddr, pte);
+> -	}
+> -}
+> -
+>   #ifdef CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
+>   static __meminit struct page *vmemmap_get_tail(unsigned int order, struct zone *zone)
+>   {
 
 
 _______________________________________________
