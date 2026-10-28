@@ -2,107 +2,108 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A88B606A31C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 13:57:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6636B606A31A
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 14:17:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VoWDooUx;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZwIzZq+o
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Bezmynr1;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zcdh2eIB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=9dGZA1jJ0P1AivOgUTR0Q3VdvsPfy5ChXzXQWDfEN+c=; b=VoWDooUxSeB0o0exgi2OZ1yoz4
-	Y5dzoAWErYBpJn1ffugrVdsN5QJRUoBqy+KMQyewcdyd2WeRHAEit1mVfffxur+mxbxCGL1DCeoZh
-	PWmDsJtrqKEMkJzxU6YvSJ04yy7NlUYimNePzWbToy661TROAr6Kc4Cv0qJ+rWIczPxlUCZ7zCSCv
-	vhcf0CzrbmoYA0AcXF11MaVO5hd2iuRXLoKP/rVE5x8f82fuy3DymZFpOdVOoWBsOUxtqNN2X7oj9
-	wBwI4noHpfAN4WiO6Yw+5Ow2dfzY5XiLqmOEjsh4kMCScDcUe0Ao+mw/F5shEJdpjXTi+VMWE6l7O
-	vlAfD4ig==;
+	bh=HZeUmkniBhKMlpRaq4Vl0MwKwJMYHNIfAqq7v+dAyoQ=; b=Bezmynr152x+vV/QXsaFhYv/BQ
+	ki1brTUhdO//8nEUW//BVWlTAMzBoGxW+zbW34zlUSiRGbM3DLW0WOBcbYBZs5GT0oH1jYKqN8VWv
+	EPvtHRXvb0mwiSr7og8Afej2cOSC3RJ760x+ywbeew0hY0JMA8JITzsfl1990MFv2U4sbHUoLtg7Z
+	ow6xwLmhObC0xBvJrk+mZsBNyt69W+tzUOzH2/4ju0aRSRjfdFtn/ApSn7uXvM7yxZvHNIHyA/3M8
+	zjE5w7AGRkZTxmtC1TtqPiNox3gCZAIjHgmVstc/SIdBMY7GvoD5OCdegS5Aat9OYkfaYo4NRykXl
+	csxFxvcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM49j-000000078Wd-2Bf8;
-	Wed, 28 Oct 2026 13:57:31 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1xM4Sl-00000007BFh-1hgv;
+	Wed, 28 Oct 2026 14:17:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM49g-000000078Vi-1wuM;
-	Wed, 28 Oct 2026 13:57:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793195849; x=1824731849;
-  h=message-id:subject:from:to:cc:date:in-reply-to:
-   references:content-transfer-encoding:mime-version;
-  bh=kjoWncs6Ir+gA9d8rwO7aJw5Gvr2T1m9bpDOqJloaOw=;
-  b=ZwIzZq+ozL1CIxqmw2WKf+NvZDuyx0YsJkKbifCOXplLjHYlj78YhoqF
-   GZ4T178s+rBLI0Wf6czymlgpO66CsBppllp38+eBcU8J3hQ6f/cDvKtZP
-   JxjJWmRb2EZ85mYaiFpCFTqq1X9LCeVFZI0KEkHbn5cHqU6SaU5u8Ncm6
-   qpjQnIPSURjzw6CSmmKs7fntpwTeurt2QIiDz2WcQHuXOKCj5UAbCF00b
-   +zyFqLAA89r08MVecMbTUErEtSMGZbNtyJmpRCJdRVvqPHMJu9IlCFQbH
-   Pu5OqHFRAcxSTEnq9VeFFBD26ZA/xsK/L4Znb8vsztKCUnFTErbKNOmFS
-   w==;
-X-CSE-ConnectionGUID: NzN1LAoPR5GOC5+F1c4rhg==
-X-CSE-MsgGUID: fUtc+uuEQoaybo+koIXSFA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11949"; a="1929839"
-X-IronPort-AV: E=Sophos;i="6.27,182,1787036400"; 
-   d="scan'208";a="1929839"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2026 06:57:27 -0700
-X-CSE-ConnectionGUID: XGvMYi6BQtyLHQWIIJ1jww==
-X-CSE-MsgGUID: zT8iJdk1T9Kr8hcOLr1FEw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,182,1787036400"; 
-   d="scan'208";a="6667408"
-Received: from ncintean-mobl1.ger.corp.intel.com ([10.245.244.235])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2026 06:57:14 -0700
-Message-ID: <733ef8df15abeeacea0ac12dd93ad1eba5755dbe.camel@linux.intel.com>
-Subject: Re: [PATCH v4 00/23] gpio: Improvements around device-id arrays
-From: Alan Borzeszkowski <alan.borzeszkowski@linux.intel.com>
-To: Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?= "(The Capable Hub)"
-	 <u.kleine-koenig@baylibre.com>, Linus Walleij <linusw@kernel.org>, Bartosz
- Golaszewski <brgl@kernel.org>
-Cc: Andy Shevchenko <andy@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Lixu Zhang <lixu.zhang@intel.com>, Sakari
- Ailus	 <sakari.ailus@linux.intel.com>, Broadcom internal kernel review list
-	 <bcm-kernel-feedback-list@broadcom.com>, Florian Fainelli	
- <florian.fainelli@broadcom.com>, Eugeniy Paltsev
- <Eugeniy.Paltsev@synopsys.com>,  Frank Li <Frank.Li@nxp.com>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team	 <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Imre Kaloz	 <kaloz@kernel.org>, Conor
- Dooley <conor.dooley@microchip.com>, Valentina Fernandez
- <valentina.fernandezalanis@microchip.com>, Daire McNamara
- <daire.mcnamara@microchip.com>,  Daniel Palmer <daniel@thingy.jp>, Romain
- Perier <romain.perier@gmail.com>, Robert Jarzmik	 <robert.jarzmik@free.fr>,
- imx@lists.linux.dev, 	linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, Hoan Tran	 <hoan@os.amperecomputing.com>,
- Mika Westerberg <westeri@kernel.org>, Hans de Goede <hansg@kernel.org>,
- Nuno =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>, 
-	linux-hwmon@vger.kernel.org, Matti Vaittinen <mazziesaccount@gmail.com>, 
- "Enrico Weigelt, metux IT consult"	 <info@metux.net>, Viresh Kumar
- <vireshk@kernel.org>, 	virtualization@lists.linux.dev, Yinbo Zhu
- <zhuyinbo@loongson.cn>, Thierry Reding	 <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>, 	linux-tegra@vger.kernel.org, Geert
- Uytterhoeven <geert+renesas@glider.be>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Srinivas Neeli
- <srinivas.neeli@amd.com>, Michal Simek	 <michal.simek@amd.com>,
- linux-aspeed@lists.ozlabs.org, asahi@lists.linux.dev, 
-	linux-mediatek@lists.infradead.org, openbmc@lists.ozlabs.org, 
-	linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-unisoc@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, Michael Buesch <m@bues.ch>,
- William Breathitt Gray	 <wbg@kernel.org>, Robert Richter <rric@kernel.org>,
- Andy Shevchenko	 <andriy.shevchenko@linux.intel.com>,
- linux-acpi@vger.kernel.org
-Date: Wed, 28 Oct 2026 14:57:11 +0100
-In-Reply-To: <cover.1793097104.git.u.kleine-koenig@baylibre.com>
-References: <cover.1793097104.git.u.kleine-koenig@baylibre.com>
-User-Agent: Evolution 3.56.2-9 
+	id 1xM4Sj-00000007BF7-4Alf
+	for linux-riscv@lists.infradead.org;
+	Wed, 28 Oct 2026 14:17:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E14D9601F0;
+	Wed, 28 Oct 2026 14:17:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 019B81F01829;
+	Wed, 28 Oct 2026 14:17:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793197028;
+	bh=KjE+Uii9HdIaARV62zaMQ61CIuncPf7bH8UJ3pdaQYA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Zcdh2eIBUKC4hwGul8m2X99COtLyRxU9I1tM3K8HNMrbYYnTTWhdHlgLZ8oc9hQ0E
+	 hkij64PMlw2B35u30Io3tH3HsD0bNhhXsgX59QJdkIQoqrmwecSDeQzG4blmv9KCKs
+	 zpbyI7gIirKXkwF2M7UlINaw/GRVFmWIbS7pSH3TIHgpDG7aJwpWbBcAaNwEJGxUg/
+	 UUvr1CGfqhw8l0QXJXNBe42SvHDAw91meYdE2y4qqF/osXsIl4NB3bv5lDIrCwlYfD
+	 WJwEisb3g4Fv+JB51XtPrQYsW8TA6hHI6AdqdFh3MOkHtw1CHYKUBb2HdzBgS8AyGI
+	 CnOSlmOc8ymzQ==
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfauth.ams.internal (Postfix) with ESMTP id D36591980047;
+	Wed, 28 Oct 2026 10:17:00 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Wed, 28 Oct 2026 10:17:05 -0400
+X-ME-Sender: <xms:3APiarzKAOrcCYp85okUrZ2ipEC1s0_1ePxXIfY-lxyVQMiegoW3RA>
+    <xme:3APialnQLfKLFrYVeEEVADA0jAmf6HH1ltvAfNtwvNPkBuO2C5Cpsma4S1o5FTtj9
+    VyCwbXtl-zUXNXPceKZODaNKjyKNXXbQUbQBhiWJHMUBUfJzNv-7Mn_>
+X-ME-Received: <xmr:3APiakHTaLOPvpay-J_NhtjKgcQ_ww__mVDZ3LIB3wD_2Z2fanEzh75cX_w>
+X-ME-Proxy-Cause: dmFkZTFBUCDrd/5ordvcAtkU6JjR9vrPimb+UYxK8G9IVcsl+hsz6Ui5my93/MGWrjS87u
+    fXqSgPXckr17WjUL+tJxx9X6tIeCr9bfJMhwSdRRpKBvQHhzUHHeuF90VW3GvmiAwMBcQx
+    Rf2Yec/qkpxdmRN0gn81nfMEtgtzr9xle+Sqvm4msx4Gu47eXQusCRI+UTCHDaQLpM88Zw
+    rA2KSpwrrNtwy3hNsymytz/3zQf5zrQhLIfZgGCnRsgT13HdYXLGRb5Hfufh9/xN00Sw7j
+    VoUYeEMtfP62ZRJRgpiIZ1sb8H4pSmNadcRIVzTJpNxYLEIHjCh6+OIkfWTl5h6WIw54gA
+    KE6JNmsl7DeQ0Kg8mW/mO/uEfAd5ourm2uLsVrQyqhxYxZW46VXJE/JyALAdTsn4tHLHQR
+    9J3XB/OTW36iz9yadG/flUPik6iZcWFmEGKzsegO1g5puDzneN2xiaetmpoWF0UM5wnKqK
+    MFQ06f2mDmplk9n8JKhi5ClQ5Fqm71Y2Jgt/24wpthhs2MF+1PFVTNqTJDk2AJWHnLl5y8
+    ++hBW9M77S9dYUxy+BMYF15QXjLxOsg3nNoK+b02p8kN9M/KDQpW6b5xHKMmV9hna2Qdc4
+    F2kZ6V+Uw0HniFG7WD/kBET6ZxUz0YZm4Xr7zmI/BK6THBFe4X3S7pitIvXA
+X-ME-Proxy: <xmx:3APiavvE6bgdYAFNatLpfiwUmYDHEf2Vhcf47WwzCbXrTusVjOa3qQ>
+    <xmx:3APiavmbcczH63JKhRwHD1r6QjyCYmIrLFH_oanCxvKE4F4WEB5DrA>
+    <xmx:3APianwxi9Dw8YGSVfLzE8GTkVg27tEhM9sqm9dz5SzZi_IXUNaZCA>
+    <xmx:3APiatyMDZq22FQv9KsG6a4USfJlj0dx88WiiH47AEK5QjqspxFgHA>
+    <xmx:3APiaoAX3LCP0OQaKpTMG_-mBpGkeN7sa6qxLJajKmYN5axko5dE0bEh>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 28 Oct 2026 10:16:59 -0400 (EDT)
+Date: Wed, 28 Oct 2026 14:16:58 +0000
+From: Kiryl Shutsemau <kas@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Muchun Song <muchun.song@linux.dev>, 
+	"David Hildenbrand (Arm)" <david@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Matthew Wilcox <willy@infradead.org>, Usama Arif <usamaarif642@gmail.com>, 
+	Frank van der Linden <fvdl@google.com>, Oscar Salvador <osalvador@suse.de>, 
+	Mike Rapoport <rppt@kernel.org>, Vlastimil Babka <vbabka@suse.cz>, 
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Zi Yan <ziy@nvidia.com>, Baoquan He <bhe@redhat.com>, 
+	Michal Hocko <mhocko@suse.com>, Johannes Weiner <hannes@cmpxchg.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, kernel-team@meta.com, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, Dave Hansen <dave.hansen@linux.intel.com>, 
+	Andy Lutomirski <luto@kernel.org>
+Subject: Re: [PATCHv7 13/18] mm: Drop fake head checks
+Message-ID: <auIDteFAFYTihu4_@thinkstation>
+References: <f3f3aca9-bdb7-4aec-9099-9fb63a60e61d@kernel.org>
+ <auCZFckDfBMrlfxV@thinkstation>
+ <070DDE5C-2183-4A8B-AC2D-891CAE15E581@linux.dev>
+ <d7a634b6-8668-4753-8bfc-e9334dde705e@kernel.org>
+ <4A32F5E6-977D-4720-8723-B19AFBC08FCF@linux.dev>
+ <auDkbDlgSZxqlk2G@thinkstation>
+ <7cb3dd91-f518-49b6-b311-9ec807b3c63b@linux.dev>
+ <20261028080635.GD2668804@noisy.programming.kicks-ass.net>
+ <auHxIORufMbldrBr@thinkstation>
+ <20261028133439.GK2668804@noisy.programming.kicks-ass.net>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_065728_561693_C67807A0 
-X-CRM114-Status: GOOD (  12.75  )
-X-Spam-Score: -4.2 (----)
+Content-Disposition: inline
+In-Reply-To: <20261028133439.GK2668804@noisy.programming.kicks-ass.net>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,45 +113,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-SGksCgpPbiBUdWUsIDIwMjYtMTAtMjcgYXQgMTE6NDggKzAxMDAsIFV3ZSBLbGVpbmUtS8O2bmln
-IChUaGUgQ2FwYWJsZSBIdWIpCndyb3RlOgo+IEhlbGxvLAo+IAo+IHRoZSBvcmlnaW5hbCBtb3Rp
-dmF0aW9uIGZvciB0aGlzIHNlcmllcyBhcmUgdGhlIHBhdGNoZXMgdGhhdCBjb252ZXJ0Cj4gdGhl
-Cj4gYXJyYXlzIHRvIHVzZSBuYW1lZCBpbml0aWFsaXplcnMsIHNlZQo+IGh0dHBzOi8vbG9yZS5r
-ZXJuZWwub3JnL2FsbC9jb3Zlci4xNzgwMDQ4OTI1LmdpdC51LmtsZWluZS1rb2VuaWdAYmF5bGli
-cmUuY29tLwo+IGZvciB0aGUgaWRlYSBiZWhpbmQgaXQuIExvb2tpbmcgbGVmdCBhbmQgcmlnaHQg
-YSBiaXQgd2hpbGUKPiBpbXBsZW1lbnRpbmcKPiB0aGF0LCB0aGUgc2VyaWVzIGdyZXcgYSBiaXQu
-Cj4gCj4gQ2hhbmdlcyBzaW5jZSB2MyAoYXZhaWxhYmxlIGF0Cj4gaHR0cHM6Ly9sb3JlLmtlcm5l
-bC5vcmcvYWxsL2NvdmVyLjE3OTMwMzA4MjAuZ2l0LnUua2xlaW5lLWtvZW5pZ0BiYXlsaWJyZS5j
-b20KPiApOgo+IAo+IMKgLSBQaWNrZWQgdXAgcmV2aWV3IHRhZ3MgKGI0IGV2ZW4gZm91bmQgc29t
-ZSBmcm9tIHYyKQo+IMKgLSBBZGQgYSAybmQgTU9EVUxFX0RFVklDRV9UQUJMRShvZiwgLi4uKSBp
-biBkcml2ZXJzL2dwaW8vZ3Bpby0KPiBtcGM1MjAwLmMKPiDCoMKgIChNeSBncmVwIGRpZG4ndCBo
-YW5kbGUgPjEgZHJpdmVyIHBlciBmaWxlIHdlbGwpLCBub3RpY2VkIGJ5Cj4gU2FzaGlrbwo+IMKg
-LSBOZXcgcGF0Y2ggdG8gdXNlIG5hbWVkIGluaXRpYWxpemVycyBmb3IgYXV4aWxpYXJ5X2Rldmlj
-ZV9pZCBhcnJheXMKPiDCoC0gRml4IGNvZGUgc3R5bGUgb2Ygb2ZfZGV2aWNlX2lkIGFycmF5IGlu
-IGRyaXZlcnMvZ3Bpby9ncGlvLWdyZ3Bpby5jCj4gwqDCoCAoTXkgc2NyaXB0IGRvZXNuJ3QgaGFu
-ZGxlIG9mX2RldmljZV9pZDo6bmFtZSkgYW5kCj4gwqDCoCBkcml2ZXJzL2dwaW8vZ3Bpby1wcGM0
-NHguYyAoZGlkbid0IGV4aXN0IHlldCB3aGVuIEkgc2VudCB2MiBhbmQKPiDCoMKgIGZhaWxlZCB0
-byBub3RpY2UgdGhhdCBmb3IgdjMpCj4gwqAtIEZpeCBjb2RlIHN0eWxlIG9mIGF1eGlsaWFyeV9k
-ZXZpY2VfaWQgYXJyYXkgaW4KPiDCoMKgIGRyaXZlcnMvZ3Bpby9ncGlvLXNoYXJlZC1wcm94eS5j
-LCBtaXNzZWQgYXMgSSBkaWRuJ3QgaGF2ZSBhIHNjcmlwdAo+IMKgwqAgZm9yIGF1eGlsaWFyeV9k
-ZXZpY2VfaWQgYmVmb3JlLgo+IMKgLSBEcm9wcGVkIGEgZmV3IGJyb2tlbiBlbWFpbCBhZGRyZXNz
-ZXMgZnJvbSBDYzoKPiAKPiBCZXN0IHJlZ2FyZHMKPiBVd2UKPiAKPiBVd2UgS2xlaW5lLUvDtm5p
-ZyAoVGhlIENhcGFibGUgSHViKSAoMjMpOgo+IFsuLi5dCj4gwqAgZ3BpbzogVXNlIG5hbWVkIGlu
-aXRpYWxpemVycyBmb3IgYWNwaV9kZXZpY2VfaWQgYXJyYXkKPiBbLi4uXQo+IMKgIGdwaW86IFVu
-aWZ5IHN0eWxlIG9mIGFjcGlfZGV2aWNlX2lkIGFycmF5cwo+IFsuLi5dCj4gCj4gWy4uLl0KPiDC
-oGRyaXZlcnMvZ3Bpby9ncGlvLW5vdmFsYWtlLWV2ZW50cy5jIHzCoCA0ICsrLS0KPiBbLi4uXQo+
-IAoKRm9yIGdwaW8tbm92YWxha2UtZXZlbnRzCgpBY2tlZC1ieTogQWxhbiBCb3J6ZXN6a293c2tp
-IDxhbGFuLmJvcnplc3prb3dza2lAbGludXguaW50ZWwuY29tPgoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Wed, Oct 28, 2026 at 02:34:39PM +0100, Peter Zijlstra wrote:
+> > Only architectures with HVO matter here: x86-64, riscv and loongarch.
+> > arm64 has had it disabled since 060a2c92d1b6.
+> 
+> Per that commit, could it be re-enabled now that its no longer marked RO?
+
+No. The problem there is the PFN change on a live vmemmap PTE, which
+needs break-before-make on arm64. Dropping RO only removes the
+permission change.
+
+James Houghton is working on it with an Access Flag trick:
+
+https://lore.kernel.org/r/20261003002123.505555-1-jthoughton@google.com
+
+arm64 will need the writable tail too: its atomic_fetch_add_unless() is
+a CAS loop.
+
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
