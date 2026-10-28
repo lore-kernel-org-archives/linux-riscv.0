@@ -2,92 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3A9760A2619
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 03:08:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEAC9606A31A
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 03:11:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dYUiVD6J;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=fXrSW3rV;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=RSwjLMSz
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KJbEx7fn;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=xtRtx65O
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bM0At9CNh9BN0/OFLknXnkENYeFpus8932n5piDeof0=; b=dYUiVD6JMOe4qh2MmVBumF/Vl8
-	EhlOLnhdKEa1NVklNfxbDmceOpPNE0JouVk8a3MLGS7qL9gUxyrD9FIq9y4h6HvcMRaDJsx8QWTgk
-	Fwz/mtxAZ1yUCfJD9rmA09WyQ91E0DKum5GTgqFYGJ9BVoccI2gotk19OOLqUXkSiBENdbr82cLkE
-	6r4bKoqNwDVNKmQIbhosZgcjYnC9/VLXjo3nUPLY1ovWmfZgSujJorxuGoQBmv6DfpGA8NacWbk24
-	7aU+MjWch5cWL34scNGUjZc03XVUugm/cA9jzOdsg52n5hvJk/ms9doHrx/oZqkTOeD8afhhi9yyC
-	gaPWkDsw==;
+	bh=pLFiRI/U6a7wgSPdKyOegMwoSrUw15BbL5uZC3okugI=; b=KJbEx7fnSfXQ6KriSCBLC7AA0z
+	j+j2yI0OCZufGwYeKH1LlVlnkGqZtdn7cQuH5CZtC3Yp4m7FB9PRcq2GYVr04yCavM2mgO5LDu6Id
+	ou7pAf0G5WXx4lK4MeAd2fvok4cjPPgQOH12K7p1WvfURLFTU4rbRslMI7PzeVy0/ZUzZ2T5l0ZL9
+	WnHd/xzJb3QRlEXk3Boo6coNrFsy8xnWZ8DAtQYh1kcdexQhKbymDV1b1GDdHCR/3OK/s3oNE8tTM
+	uZwWBTucByCY1l8tt6XhI/rCmIM2FVI1+pdnx76CfwiJa0LLh6BIbl4s3NHDO3kPOj9qtUudBTtGg
+	8T8rXd3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLu1D-00000006AC1-2AdG;
-	Wed, 28 Oct 2026 03:08:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xLu4Z-00000006Bfo-3Cqa;
+	Wed, 28 Oct 2026 03:11:31 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLu13-000000069iq-1j1d;
-	Wed, 28 Oct 2026 03:07:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=uGOww8cTZ+dmcRduWhvlBtmVa5S9Xqh7rcDtCCMSFaU=; b=fXrSW3rVREwZw8nwhrKqzlcL5f
-	meAOIOZWfADqJ93Va4/HPplSjHhytnyKxyRYm/9RdTSA71/Ba5mWzLUPSJ7UhvDGzX7Oz3BBTY4i1
-	S3H7DxuPPghgueDO0WxxQmDykmttHSv8zRAS/FaPd0g+69LhEDsx+Rz/C6enfFrESgRrdEGC75V2Z
-	8096nXKBbpV3DOvKHXTMhfBJut7yWNeqwEOrGDRavqhmR2cBnLoB9dXPupOwE+Cr9AKGESCoPlBW/
-	pKg5kHLto4zB6XqqFT4x+nzL1hfuxMXhB0fow0BdavZZowT/37Exk2uYCnd+plKB6FiCtM1RBklMi
-	Gb851Ajg==;
-Received: from m16.mail.163.com ([117.135.210.5])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLu0y-0000000FdaX-10P1;
-	Wed, 28 Oct 2026 03:07:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=uG
-	Oww8cTZ+dmcRduWhvlBtmVa5S9Xqh7rcDtCCMSFaU=; b=RSwjLMSzAQnxak8cmk
-	7cG9+kuYA6fM6xiN80akLhw8s7Dr7paowbfmps8cOdj+m4q4E3/iC+HYPXjScxR7
-	CJJfX/W9z09f3QH56i8pO5ywPoHHyAS3UdLaxVepcGDglSHUjPxK4SmXu7KmviBi
-	lwzcQRd5cGDFhgdUvc+MwLEC0=
-Received: from Precision-7960.. (unknown [])
-	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wDXT8PnZuFq9rwVDg--.12376S2;
-	Wed, 28 Oct 2026 11:07:20 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: bhelgaas@google.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	jingoohan1@gmail.com
-Cc: imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	sophgo@lists.linux.dev,
+	id 1xLu4V-00000006Bdh-2a19;
+	Wed, 28 Oct 2026 03:11:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1793157081; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=NOidjj5Ml69IXBVDgaaqFA/kPNhQ/xUITVxdD/pzEd8=;
+	b=xtRtx65OIFgXfVbAoOTaWKzAr1tLfCQcK1REqn8+jDz0Eteiue2T3jVQrIlmxHlcmjxWMDJiJ128ATH4kyJKt0V3PhoxuXcpFbRdBsvDuJnrPuZVzwt3Jof2wydPhnA/uj8qLtjka409gYVruXeVdGf5OTIIVD09/UTenuRbKoI=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R471e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=jinyue.li@linux.alibaba.com;NM=1;PH=DS;RN=15;SR=0;TI=SMTPD_---0XDfYO0M_1793157079;
+Received: from aa8c952a0f58..(mailfrom:jinyue.li@linux.alibaba.com fp:SMTPD_---0XDfYO0M_1793157079 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 28 Oct 2026 11:11:20 +0800
+From: Li Jinyue <jinyue.li@linux.alibaba.com>
+To: Atish Patra <atish.patra@linux.dev>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>
+Cc: Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Xixin Liu <liuxixin@kylinos.cn>,
+	Andrew Jones <ajones@ventanamicro.com>,
 	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v5 16/16] PCI: dwc: ultrarisc: Use cached PCIe capability offset
-Date: Wed, 28 Oct 2026 11:06:52 +0800
-Message-ID: <20261028030652.2917756-17-18255117159@163.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261028030652.2917756-1-18255117159@163.com>
-References: <20261028030652.2917756-1-18255117159@163.com>
+	stable@vger.kernel.org
+Subject: [PATCH] drivers/perf: riscv: Fix racy hw.idx use in user access paths
+Date: Wed, 28 Oct 2026 03:11:19 +0000
+Message-Id: <20261028031119.1485928-1-jinyue.li@linux.alibaba.com>
+X-Mailer: git-send-email 2.25.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: _____wDXT8PnZuFq9rwVDg--.12376S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Cr18Aw18ur17KF4rWF47XFb_yoW8JFy3pa
-	yaqr1YyF1kJr4Yyws2ka4DWF12q3ZxAryDJan7Kr13ZFyakrWUX34vk34rtFnFkF4UKr1Y
-	kw4FyFy7G3WrXwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pirWriUUUUU=
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC7AnmimrhZunUcQAA3o
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_030749_108459_6D37C817 
-X-CRM114-Status: GOOD (  10.27  )
-X-Spam-Score: 0.4 (/)
+X-CRM114-CacheID: sfid-20261027_201128_198333_F2E0BBAA 
+X-CRM114-Status: GOOD (  24.47  )
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,41 +75,230 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	FROM_LOCAL_DIGITS,FROM_LOCAL_HEX,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-ultrarisc_pcie_host_init() runs from the .init callback with the
-controller already enabled. Replace the capability search with
-dw_pcie_get_pcie_cap(). Since the lookup is performed lazily at the
-point of use, the driver no longer depends on any earlier caching step
-and the offset is always valid here.
+riscv_pmu_event_idx() and arch_perf_update_userpage() are called from
+perf_mmap() through perf_event_update_userpage(), and
+pmu_sbi_set_scounteren()/pmu_sbi_reset_scounteren() run on every CPU in
+mm_cpumask() through IPIs sent by pmu_sbi_event_mapped() and
+pmu_sbi_event_unmapped(). None of them hold the event context lock, so
+the event can be scheduled in or out on another CPU at the same time,
+and riscv_pmu_add()/riscv_pmu_del() change hw.idx underneath them.
 
-Signed-off-by: Hans Zhang <18255117159@163.com>
+Taking the context lock is not an option: perf_event_update_userpage()
+is also called from riscv_pmu_add() and riscv_pmu_del(), which already
+hold it.
+
+Commit 3fec323339a4 ("drivers: perf: Fix panic in riscv SBI mmap
+support") added hw.idx != -1 checks to the scounteren helpers and to
+riscv_perf_user_access(), but hw.idx is loaded again afterwards to
+index pmu_ctr_list, so the check does not cover the access.
+riscv_pmu_event_idx() has no check and relies on perf_event_index(),
+which only looks at the software state (event->state and hw.state) and
+not at hw.idx. event_sched_in() marks the event ACTIVE before calling
+pmu::add(), and hw.state is still zero on the first schedule-in, so
+perf_event_index() can call into the driver with hw.idx == -1.
+event_sched_out() likewise calls pmu::del() before the state changes.
+
+syzkaller hits this on QEMU with KASAN. In every report the faulting
+address is pmu_ctr_list[-1]:
+
+  BUG: KASAN: slab-out-of-bounds in pmu_sbi_csr_index+0x80/0x82
+  Read of size 8 at addr ff60000009933bf8 by task syz.0.5217/27313
+  Call Trace:
+   pmu_sbi_csr_index+0x80/0x82
+   riscv_pmu_event_idx+0x9c/0xd8
+   perf_event_update_userpage+0x544/0x6ca
+   riscv_pmu_event_mapped+0x6e/0x98
+   perf_mmap+0xbcc/0x22ae
+   __mmap_region+0x1128/0x2398
+   mmap_region+0x3cc/0x466
+   do_mmap+0xe7c/0x162c
+   vm_mmap_pgoff+0x1e8/0x362
+   ksys_mmap_pgoff+0x338/0x402
+   __riscv_sys_mmap+0x11c/0x18c
+
+The same read is also reported in pmu_sbi_ctr_get_width() from
+arch_perf_update_userpage(), in pmu_sbi_set_scounteren() from the IPI
+handler and in pmu_sbi_reset_scounteren() from perf_mmap_close().
+
+Load hw.idx once with READ_ONCE() in these paths, check that value and
+use it for the lookup. Change the csr_index() callback to take the
+counter index so that the value checked is the value used; neither
+backend needs anything else from the event. Use WRITE_ONCE() for the
+stores in riscv_pmu_add() and riscv_pmu_del().
+
+Fixes: cc4c07c89aad ("drivers: perf: Implement perf event mmap support in the SBI backend")
+Cc: stable@vger.kernel.org
+Signed-off-by: Li Jinyue <jinyue.li@linux.alibaba.com>
 ---
- drivers/pci/controller/dwc/pcie-ultrarisc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/perf/riscv_pmu.c        | 22 ++++++++++++++--------
+ drivers/perf/riscv_pmu_legacy.c |  4 ++--
+ drivers/perf/riscv_pmu_sbi.c    | 14 ++++++++------
+ include/linux/perf/riscv_pmu.h  |  2 +-
+ 4 files changed, 25 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/pcie-ultrarisc.c b/drivers/pci/controller/dwc/pcie-ultrarisc.c
-index 523f454c6c524..915305bd88df4 100644
---- a/drivers/pci/controller/dwc/pcie-ultrarisc.c
-+++ b/drivers/pci/controller/dwc/pcie-ultrarisc.c
-@@ -56,7 +56,7 @@ static int ultrarisc_pcie_host_init(struct dw_pcie_rp *pp)
- 	FIELD_MODIFY(PORT_FLT_SF_MASK, &val, PORT_FLT_SF_VAL_64);
- 	dw_pcie_writel_dbi(pci, TIMER_CTRL_MAX_FUNC_NUM, val);
+diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+index 8e3cd0f35336..0ec4114595b0 100644
+--- a/drivers/perf/riscv_pmu.c
++++ b/drivers/perf/riscv_pmu.c
+@@ -18,18 +18,23 @@
  
--	cap_exp = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-+	cap_exp = dw_pcie_get_pcie_cap(pci);
- 	val = dw_pcie_readl_dbi(pci, cap_exp + PCI_EXP_LNKCTL2);
- 	FIELD_MODIFY(PCI_EXP_LNKCTL2_TLS, &val, PCI_EXP_LNKCTL2_TLS_16_0GT);
- 	dw_pcie_writel_dbi(pci, cap_exp + PCI_EXP_LNKCTL2, val);
+ #include <asm/sbi.h>
+ 
+-static bool riscv_perf_user_access(struct perf_event *event)
++static bool riscv_perf_user_access(struct perf_event *event, int idx)
+ {
+ 	return ((event->attr.type == PERF_TYPE_HARDWARE) ||
+ 		(event->attr.type == PERF_TYPE_HW_CACHE) ||
+ 		(event->attr.type == PERF_TYPE_RAW)) &&
+ 		!!(event->hw.flags & PERF_EVENT_FLAG_USER_READ_CNT) &&
+-		(event->hw.idx != -1);
++		(idx != -1);
+ }
+ 
+ void arch_perf_update_userpage(struct perf_event *event,
+ 			       struct perf_event_mmap_page *userpg, u64 now)
+ {
++	/*
++	 * hw.idx is updated by pmu::add()/del() on another CPU, so take a
++	 * snapshot and use it for both the check and the lookup.
++	 */
++	int idx = READ_ONCE(event->hw.idx);
+ 	struct clock_read_data *rd;
+ 	unsigned int seq;
+ 	u64 ns;
+@@ -37,7 +42,7 @@ void arch_perf_update_userpage(struct perf_event *event,
+ 	userpg->cap_user_time = 0;
+ 	userpg->cap_user_time_zero = 0;
+ 	userpg->cap_user_time_short = 0;
+-	userpg->cap_user_rdpmc = riscv_perf_user_access(event);
++	userpg->cap_user_rdpmc = riscv_perf_user_access(event, idx);
+ 
+ 	/*
+ 	 * The counters are 64-bit but the priv spec doesn't mandate all the
+@@ -45,7 +50,7 @@ void arch_perf_update_userpage(struct perf_event *event,
+ 	 * the cpu vendor.
+ 	 */
+ 	if (userpg->cap_user_rdpmc)
+-		userpg->pmc_width = to_riscv_pmu(event->pmu)->ctr_get_width(event->hw.idx) + 1;
++		userpg->pmc_width = to_riscv_pmu(event->pmu)->ctr_get_width(idx) + 1;
+ 
+ 	do {
+ 		rd = sched_clock_read_begin(&seq);
+@@ -265,7 +270,7 @@ static int riscv_pmu_add(struct perf_event *event, int flags)
+ 	if (idx < 0)
+ 		return idx;
+ 
+-	hwc->idx = idx;
++	WRITE_ONCE(hwc->idx, idx);
+ 	cpuc->events[idx] = event;
+ 	cpuc->n_events++;
+ 	hwc->state = PERF_HES_UPTODATE | PERF_HES_STOPPED;
+@@ -293,7 +298,7 @@ static void riscv_pmu_del(struct perf_event *event, int flags)
+ 	if (rvpmu->ctr_clear_idx)
+ 		rvpmu->ctr_clear_idx(event);
+ 	perf_event_update_userpage(event);
+-	hwc->idx = -1;
++	WRITE_ONCE(hwc->idx, -1);
+ }
+ 
+ static void riscv_pmu_read(struct perf_event *event)
+@@ -353,12 +358,13 @@ static int riscv_pmu_event_init(struct perf_event *event)
+ static int riscv_pmu_event_idx(struct perf_event *event)
+ {
+ 	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
++	int idx = READ_ONCE(event->hw.idx);
+ 
+-	if (!(event->hw.flags & PERF_EVENT_FLAG_USER_READ_CNT))
++	if (!(event->hw.flags & PERF_EVENT_FLAG_USER_READ_CNT) || idx == -1)
+ 		return 0;
+ 
+ 	if (rvpmu->csr_index)
+-		return rvpmu->csr_index(event) + 1;
++		return rvpmu->csr_index(idx) + 1;
+ 
+ 	return 0;
+ }
+diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
+index 1b8e4789cb3c..e540bb798fb6 100644
+--- a/drivers/perf/riscv_pmu_legacy.c
++++ b/drivers/perf/riscv_pmu_legacy.c
+@@ -76,9 +76,9 @@ static void pmu_legacy_ctr_start(struct perf_event *event, u64 ival)
+ 	local64_set(&hwc->prev_count, initial_val);
+ }
+ 
+-static uint8_t pmu_legacy_csr_index(struct perf_event *event)
++static uint8_t pmu_legacy_csr_index(int idx)
+ {
+-	return event->hw.idx;
++	return idx;
+ }
+ 
+ static void pmu_legacy_event_mapped(struct perf_event *event, struct mm_struct *mm)
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 2991dd92def2..2360ee5d8843 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -530,9 +530,9 @@ int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr)
+ }
+ EXPORT_SYMBOL_GPL(riscv_pmu_get_hpm_info);
+ 
+-static uint8_t pmu_sbi_csr_index(struct perf_event *event)
++static uint8_t pmu_sbi_csr_index(int idx)
+ {
+-	return pmu_ctr_list[event->hw.idx].csr - CSR_CYCLE;
++	return pmu_ctr_list[idx].csr - CSR_CYCLE;
+ }
+ 
+ static unsigned long pmu_sbi_get_filter_flags(struct perf_event *event)
+@@ -809,19 +809,21 @@ static u64 pmu_sbi_ctr_read(struct perf_event *event)
+ static void pmu_sbi_set_scounteren(void *arg)
+ {
+ 	struct perf_event *event = (struct perf_event *)arg;
++	int idx = READ_ONCE(event->hw.idx);
+ 
+-	if (event->hw.idx != -1)
++	if (idx != -1)
+ 		csr_write(CSR_SCOUNTEREN,
+-			  csr_read(CSR_SCOUNTEREN) | BIT(pmu_sbi_csr_index(event)));
++			  csr_read(CSR_SCOUNTEREN) | BIT(pmu_sbi_csr_index(idx)));
+ }
+ 
+ static void pmu_sbi_reset_scounteren(void *arg)
+ {
+ 	struct perf_event *event = (struct perf_event *)arg;
++	int idx = READ_ONCE(event->hw.idx);
+ 
+-	if (event->hw.idx != -1)
++	if (idx != -1)
+ 		csr_write(CSR_SCOUNTEREN,
+-			  csr_read(CSR_SCOUNTEREN) & ~BIT(pmu_sbi_csr_index(event)));
++			  csr_read(CSR_SCOUNTEREN) & ~BIT(pmu_sbi_csr_index(idx)));
+ }
+ 
+ static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+index ecaa40370830..4690a5646ae9 100644
+--- a/include/linux/perf/riscv_pmu.h
++++ b/include/linux/perf/riscv_pmu.h
+@@ -66,7 +66,7 @@ struct riscv_pmu {
+ 	void		(*event_init)(struct perf_event *event);
+ 	void		(*event_mapped)(struct perf_event *event, struct mm_struct *mm);
+ 	void		(*event_unmapped)(struct perf_event *event, struct mm_struct *mm);
+-	uint8_t		(*csr_index)(struct perf_event *event);
++	uint8_t		(*csr_index)(int idx);
+ 
+ 	struct cpu_hw_events	__percpu *hw_events;
+ 	struct hlist_node	node;
 -- 
-2.43.0
+2.25.1
 
 
 _______________________________________________
