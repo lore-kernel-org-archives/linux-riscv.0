@@ -2,108 +2,94 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DD88606A31A
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 13:04:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A315F606A322
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 13:19:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uq6tqtvM;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NhoVazCk
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MoyNP7ix;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uG/UI1Du
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=BkoJ6VhezW37LSJ5ZWZfxvgZBW5DS5sPcqish+qr+kI=; b=uq6tqtvM59fl4BRJNyGQjd2dhv
-	r054zukDErp4MeSdPLhsn5Kn3TD750P7wdvmHYPg2cE7wFcJsrygMRaChQlcAtl1yFsRDelwUgqSZ
-	/K4y8XzfG8gsW6r03AcGi622s1ex1yrfedV5bWh7wH46sAhynOR2mM0IdxA5ypX5qyYX+9E15SlAA
-	FKDXTUm/dmO9mPZmUXfe4TkjDm+1TvpFmXSLTNa/JbgWSihKFpd9obXm/7LwfuDFUCulaV0drYMla
-	0mJ/IEHMdLJDnCQk0AEmh59NpusSiDeuqkmpMAiaRcuJpOIV/nRrD+GmAd7fgS245Wt4pmpye7diw
-	mmgXhcLg==;
+	bh=RwIffzzok7rO/73G3Yb3jywPjRi9imtchY8AbG1VIbE=; b=MoyNP7ix6uCxEePfez7aPRvlFX
+	gxyMdVXOZEv/EvyZAqDrkIP7k+OCRA5Jarqnp4YRLVrGTnmXmW300LdJk7EXFTEFFKV8bdBqs52/B
+	DnLg7xzExzj6KCVnT3wXeuRWiYhMntGOD/vvw0PaSAlMy8jwGAknWEXDtf660/xc3vUqQtuhlo7+H
+	Q+HOA99Kk0YQfEmA4IzRfHd5dS1x/768PcLtXE07UyzCUMUsq99a1nDFSvR3DrhwsbYL3Q1P/kugH
+	JmvEDm1JKCJcO4BqSwetVaQ7M1l1w7/GLyQ7QGKzfjyKhpOm+tP/FC65bI8dd+/VXd74pvcBoAOrk
+	HTsHofCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM3Kn-000000070aq-0YjB;
-	Wed, 28 Oct 2026 13:04:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xM3ZE-000000072Qh-0Y1d;
+	Wed, 28 Oct 2026 13:19:48 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM3Kl-000000070aT-48w3
+	id 1xM3ZC-000000072P2-0sML
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Oct 2026 13:04:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BB21160120;
-	Wed, 28 Oct 2026 13:04:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1D551F01825;
-	Wed, 28 Oct 2026 13:04:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793192689;
-	bh=OG80Mz0mVm49EyuyKHOkJqtYHLMvKooWxYEt+ri6Okc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NhoVazCkHOBZd/Zh8WtWlntaIO9ino1lTyefSK8Dzb4X7rZBNS7fhkNVtdGcP7Vdb
-	 cGNbg6lFcEZvFjT9yMlCTwP0SqOF9qq5NhXW5cvhPl0xIwEr/6L1LkNZ/uQXf4aKoi
-	 clPXr9aGTTc3EyDb+CotvlY11YlESdSO1VdrbdyIfTAyysBgktMbUkrEUpSh9IMlcM
-	 ftZdaz6ql75fiVG+RctbuKjhXW5zisfa9P6A7RWIlUDFmg1y4qEYh9gGrGcv24aiMY
-	 RQJ+Uor7BCdHWg/Ja0NxSTpMLPcpXq6FVL+09fkmcCDKK41pgGMTScRqAMVA7WiXTd
-	 C1UvOifI78Avg==
-Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 72805198003A;
-	Wed, 28 Oct 2026 09:04:41 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-11.internal (MEProxy); Wed, 28 Oct 2026 09:04:46 -0400
-X-ME-Sender: <xms:6PLhamR2N2SYNNuW2COGtT0iyhIuZN4Ab6M11IdWYpzZuKhsU46euQ>
-    <xme:6PLhasO4PXs2DpvcsOJdlR4DUwcFplQftBYqhk86Injx7DrJH78rj0Flf6xhD1ZCG
-    9pRgr7WmxxhEKvC9jS3FNwkDCbgMXER2Q_-Oi7X5VYg422dDXLURdp2>
-X-ME-Received: <xmr:6PLhalRzbQegRW9_6wGQEi1w56Rek9Y-7oRBd7AXEqBOGSgslElXkkEZ0hw>
-X-ME-Proxy-Cause: dmFkZTFg4m4oPEAUf0wKUWw/Iv3SvfDuV2dwoufosxi56rG8rE3yzXkDOL9mHtdMD5t3xb
-    TNtQvdWPVpliQZzMEq2j9Gt/Qeqa/rF77vTyxnTf5UOLPNJ2zUCh17VsnOcEYbxGgk6pd/
-    jnrFGdaKttqtWNKjNbixKC92UE8SCbRpRx0WxGiIqSl0J0ICk0JQhy9Sr/LMCk3/IVcW/o
-    bCjLH09OVr/VQlaboh+GTF0eV9P0WsRQ0NN8dvTtbJ5CULwJ3YspX58BzjPnKc4esZY0AE
-    vCO/2EXsD9kJV70LTbLoWjGuNnwDImFpXgd/qrFbj8lz7uaYEYKynkoZbbntZlYoJ2cVe9
-    /+rhqV/xdrC6ND9aiGvuSZn+fk+lMFKBk+CwBAGjoY66y4uTs5oqVkdwtiVpN3jnfufyiw
-    mbFGB54MLhrD1QUgxn90nVffgd8oQRT4PZ2d0Cv8SF1Gpgx6GZU5qUwdlixKbbdcCnstPy
-    C4OiiGs/7AHNy17plPHaquUuUuXG0T7RKsstw38S2VOjByMTyHT12LhV9xiy9nSaBbtkzo
-    eBHrVxgrtsC+JoLewb5t0X58mNTZctuMyI/X+JJS417uckswZSke7odEKVKiXLKSFCGJgN
-    lxiRKVDKgquvVnW9gYMK5Q2ompqZeG5/mSl+cviBwf32c/V8SUzaJThtISOA
-X-ME-Proxy: <xmx:6PLhaiC6UtU4qiOKsaD5z32WpUxwn9JqWMWZSp2POMwzX3Gff5sviw>
-    <xmx:6PLhau5rgYZr77ak_O9wBERlqC7gG-5MjSAFZcS46YIGK_q8Pomf4g>
-    <xmx:6PLhanADBjgOZwiVxGQ_V1IaXvAzSFbWN577V2Cq37A223MQNBj2kg>
-    <xmx:6PLhaicpZIf6CfrEn_5aKXq1MPBLbhnnSSAvw380Z41uC6bjcbw0yw>
-    <xmx:6fLhaquilv7jS-EmMG921CB-BsfpaPFMfHQ-RZ4zKq83ZgdvbLzPWKgp>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 28 Oct 2026 09:04:39 -0400 (EDT)
-Date: Wed, 28 Oct 2026 13:04:38 +0000
-From: Kiryl Shutsemau <kas@kernel.org>
-To: Muchun Song <muchun.song@linux.dev>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Matthew Wilcox <willy@infradead.org>, Usama Arif <usamaarif642@gmail.com>, 
-	Frank van der Linden <fvdl@google.com>, Oscar Salvador <osalvador@suse.de>, 
-	Mike Rapoport <rppt@kernel.org>, Vlastimil Babka <vbabka@suse.cz>, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Zi Yan <ziy@nvidia.com>, Baoquan He <bhe@redhat.com>, 
-	Michal Hocko <mhocko@suse.com>, Johannes Weiner <hannes@cmpxchg.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Huacai Chen <chenhuacai@kernel.org>, 
-	WANG Xuerui <kernel@xen0n.name>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, kernel-team@meta.com, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, Dave Hansen <dave.hansen@linux.intel.com>, 
-	Andy Lutomirski <luto@kernel.org>
-Subject: Re: [PATCHv7 13/18] mm: Drop fake head checks
-Message-ID: <auHxpuEHrpkvSFFi@thinkstation>
-References: <f97a8d33-50b2-4a86-8381-ee840cdfa2f9@kernel.org>
- <20261027110028.GH2668564@noisy.programming.kicks-ass.net>
- <auCKv_omLGRc6wv2@thinkstation>
- <f3f3aca9-bdb7-4aec-9099-9fb63a60e61d@kernel.org>
- <auCZFckDfBMrlfxV@thinkstation>
- <070DDE5C-2183-4A8B-AC2D-891CAE15E581@linux.dev>
- <d7a634b6-8668-4753-8bfc-e9334dde705e@kernel.org>
- <4A32F5E6-977D-4720-8723-B19AFBC08FCF@linux.dev>
- <auDkbDlgSZxqlk2G@thinkstation>
- <7cb3dd91-f518-49b6-b311-9ec807b3c63b@linux.dev>
+	Wed, 28 Oct 2026 13:19:47 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-6b1aa27963eso3167936a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Oct 2026 06:19:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793193584; x=1793798384; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Wr/bf4ddaLfe4dUuERT7xlpqqtK0FHujYgWWBDTQd8k=;
+        b=uG/UI1Du1UyJ2xsyFklTOpht2v2AVcTI5teyvWMFJvjZytQQ8g2W8CLRy0RRWFbmaQ
+         7W0R/dD2nwzERiaV8o6aJsTm4Vn+/ocSWwHGqEGJKadUjqN/AOu/W1y1Qxw+XPk18yX0
+         5Wc1LqVRXak1CMW3lFdnYAeoiDNYvCwfCBvVVzqvYNzPyEf7PwuV0dStujXN9hhd2xXe
+         krmtSj4IDuzjMax92QTT3DoC/1d8i3SswTu3xH0rO0Mvxylt5BG0wM9MIY6HukG/1aNk
+         9POJ6zUkyGWLIoELFbZbBDWpZCynMrYMY/hPJn4xwCDWq05UTg/SlYLzKwHgKS4RiBSg
+         SUrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793193584; x=1793798384;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Wr/bf4ddaLfe4dUuERT7xlpqqtK0FHujYgWWBDTQd8k=;
+        b=pbSZtPQudqKEj4BbnzpyDoYgZ/jt+rR4AKWNGQbqDfCyKdp+OThSHoIvvb6ReXKHPO
+         01GG+nLfPnmIPo0kwimj8BFy9NXZCQL4hpYeXp35ia+mr0gXlMoTks7duXYf65K71lml
+         F0qYdvtozzr/TaTGPmGyFbv6TwMmH3Trno3YUd5aD+pEpBf+enIWUl84aKcjQlPN+cAQ
+         AhSO2AXRNH6gjbT0yYg1jOWOaIaDN0u2T3BYiNIsj1jBcNDmptc3oDsFw17HJQaWSmQn
+         zPkbtJjajNWWR9EFybqK0CB5Ug+W5BCzW4z5BZANPVTxyKn6Jwpm/hPJNzMIiRzcSCT6
+         is3g==
+X-Forwarded-Encrypted: i=1; AKwUvBz4I46S7+gHjpT7OSmqAyS75NsU6TxrIkFBLD5rhXWwHUdbRxGHCXXk2aGwxy+ytvoaWqlARNMWoEQO/A==@lists.infradead.org
+X-Gm-Message-State: AFq9FYLvwYsdWSTwl+9EpwLjruYfkgMh0wNsE8PpXXQUBAoTpGWw902f
+	HA28y6F1ZNmnsAcohYRdvkVULx9u3khBdT7tya+a0bBphSdejmfCWz1m
+X-Gm-Gg: AYBFou1fP4knCuqKYO1YWHlMgKNcHIdcDidumobVANlVVnpqnup2+k/XEJNSR9ZiaDD
+	bnj7VzFQxI/DsWRn1G3Wmd7H+AKGl7irxQMZFuBhmW/jYeGq5sxAi0pi3I4AcYN41yISPtxhWo4
+	xLjFPkXLMZPePHR0RMH7Dh26qo0ylRmPpqqjJeOG8GO+ZbadxlR8OoCqjzqjBIRfNI1arKPAjQJ
+	lk7oARZzYViXBHtoCr5vx8gJWlKExm671Iut2ZVns0efBMOdQ3pUlWKUv/kurhaMCEFtqkwJm7J
+	PnFNnDsByKcD0Aa79v7w+MC91MzhbYibt3DtM4RyP0QsuoV6pJDDGS5FnYFN2ODLDtoIzCNqPy1
+	HuLTKW1pKU67usG6Y9FOPQr9AB9JICDFLLICTxxtJnirZl12fl+lpca8d/5d0lNhxx8sYL54r78
+	aIndwOaBZEjPAQOGhxvCfmedHxxi9xr/lDi25n4JWdyybACPcOmrltwY0g8Oadg0Iv1SOvLAIrl
+	oqMgffhgNvYDb1hdILWaBS7ijcxcVgAgQ8mx4Sg4LLCPgl8AtHG7AYbfqSU/A2M3yKkjSGppfQG
+	bLiWHQKiPKsTSc/V24jmWcMwRdOCZkcpGaVexQwPS1tA
+X-Received: by 2002:a17:907:6d20:b0:c3f:153a:864e with SMTP id a640c23a62f3a-c49a7425a2dmr540243466b.22.1793193584242;
+        Wed, 28 Oct 2026 06:19:44 -0700 (PDT)
+Received: from localhost.localdomain ([2a06:c701:4778:c500:47f1:8a3:6e76:cd9e])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c46bd790afasm597041866b.68.2026.10.28.06.19.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Oct 2026 06:19:43 -0700 (PDT)
+From: Avi Weiss <thnkslprpt@gmail.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Avi Weiss <thnkslprpt@gmail.com>
+Subject: [PATCH] cache: sifive_ccache: skip disabled device tree nodes
+Date: Wed, 28 Oct 2026 15:19:40 +0200
+Message-ID: <20261028131939.1014720-2-thnkslprpt@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <7cb3dd91-f518-49b6-b311-9ec807b3c63b@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261028_061946_255943_5EA83F4C 
+X-CRM114-Status: GOOD (  10.71  )
+X-Spam-Score: 0.4 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,33 +102,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-12.3 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,FROM_LOCAL_NOVOWEL,
+	HEADER_FROM_DIFFERENT_DOMAINS,HK_RANDOM_FROM,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 28, 2026 at 10:38:22AM +0800, Muchun Song wrote:
-> > Bootmem folios optimized in early boot get their tails mapped writable
-> > and write protected later.  Drop the write protect step.
-> 
-> For bootmem folios, I don't think the RO mapping should be removed,
-> because we are in the initialization stage of struct page.
-> No one should touch those pages at this point; otherwise, they could
-> encounter uninitialized struct page as well. This assumes no race
-> exists during early boot.
-> 
-> Since such a problem does not exist during the boot stage, why should
-> we give up the protection that RO provides?
+sifive_ccache_init() uses of_find_matching_node_and_match(), which also
+returns nodes marked as disabled. The initializer can therefore map and
+access a cache controller that the device tree marks unavailable.
 
-Agreed. Nothing does a lockless get on bootmem folios before hugetlb
-takes them, so they can stay RO.
+Select the first available matching node before accessing its registers.
+This also handles a disabled node preceding an enabled one.
 
-I will keep the pre-HVO write-protect and post the patch.
+Fixes: a967a289f169 ("RISC-V: sifive_l2_cache: Add L2 cache controller driver for SiFive SoCs")
+Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
+---
+ drivers/cache/sifive_ccache.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/cache/sifive_ccache.c b/drivers/cache/sifive_ccache.c
+index 71d3f94987fa..02878d54381d 100644
+--- a/drivers/cache/sifive_ccache.c
++++ b/drivers/cache/sifive_ccache.c
+@@ -297,7 +297,9 @@ static int __init sifive_ccache_init(void)
+ 	unsigned long quirks __maybe_unused;
+ 	int rc;
+ 
+-	np = of_find_matching_node_and_match(NULL, sifive_ccache_ids, &match);
++	for_each_matching_node_and_match(np, sifive_ccache_ids, &match)
++		if (of_device_is_available(np))
++			break;
+ 	if (!np)
+ 		return -ENODEV;
+ 
+
+base-commit: 65ba8f34ec886ec72b2c07ddc8cf3d815c32869d
 -- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
