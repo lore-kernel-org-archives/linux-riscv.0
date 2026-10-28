@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 077B6606A31D
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 22:43:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74F18606A31A
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 22:43:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tgoAgrPh;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MFIQexco
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t3Frn1qY;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xfekL2eJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,66 +14,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=hf2Zsiae/jArksEwj/HkT/To6p0ztuAgfDRYYU9j4Ds=; b=tgoAgrPhAK5zY8O6gEjBvkB/L5
-	0LsB0k2E40EDfbCgF+Ya/Wrvi0mjTEM8U0RZu7XUJG8WL//1HdXAXXEy636fcKrcxD+yrTEoH9kbq
-	yciBrqmTTTfhe7q/bSmNtvCUVdSaarVisA0joPRocezxZqn2Lrb4ZmVqmFQXdkC1FrPles/QrWJQz
-	mKrnKZhYn/O70X0fJkaeau1uDx/829waOJ5OY7gSbHLHX4Lq1FIllG7J1PKwAzXKC+Kku7iLB942P
-	QsbhPjBJz7gGuU44uOWYl+9/jKkY7fUwHJ8s4evfhuIIaAAxSY+4lWBz8HXBrIem20jkxYPkSogJI
-	mIZcERbA==;
+	bh=YnIyDVOvjdYBozRjlHGlgFHUH17qVcqYLKE4WeG3AMc=; b=t3Frn1qYoiUWxwouohMl4+dfot
+	N80KUiM4XsFhO/zTm6sQzM/nwTIUlW7RVlMADxyyNDr2Gyhc+aVkeCAT1HNNZA3ecwiOQ1A6LY7xU
+	adI6P51P3HapEAd3MYAVk4rvXFoTEaKBNzjy3hiOyazvdy7UpLg4lvwH6YaOknefeElTSKcKv24wh
+	POeXCKgVaxRBS7c0oJbrbSXbI6X/NdmReCOuij3RedQ7+PKIvdkv7wHceM26Mb84APd8rr85zurE+
+	RW8mPg4lQpPM3ukmTSbOiuhJJ4ze1ifHiAcev/q5OoonSswqbFSRcDwMc0pEzoz79nkNx6fKZvQTN
+	YtxPNTMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMCMn-000000081yU-453u;
-	Wed, 28 Oct 2026 22:43:33 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMCMj-000000081vE-1nUW
-	for linux-riscv@lists.infradead.org;
+	id 1xMCMk-000000081wW-3AFh;
 	Wed, 28 Oct 2026 22:43:30 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-9440304604aso18106485a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Oct 2026 15:43:28 -0700 (PDT)
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMCMh-000000081tx-3CV2
+	for linux-riscv@lists.infradead.org;
+	Wed, 28 Oct 2026 22:43:29 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-93e55db58cfso129225185a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Oct 2026 15:43:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793227407; x=1793832207; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793227406; x=1793832206; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=dAZhtXQcONVBEEfX+FEqGwIc1UuckqT1BoM+QvmFfV4=;
-        b=MFIQexcoJRkbeooT33rMrf2+RLH9hgzZ45+rq8aIZoOJgBOVD6jdrYUlcILQPD3+Uq
-         zlXDP+gWCLalC8FuaE0nUDtNFJaUmRD6QjqifKwFAPLwTs96WIzzScfS+KjLquIH/qgX
-         QXIdObwkidL1dNsf+d+u/rR3G/BK912m++c/jeQ3a/gW9WlRA1mDAeLQBgtfL6S+mjvl
-         pxvVmQmsOyxVIgLVnP69WqBXisxV144JWKNIudZb4/OHr58+Z04PaZWjdeUscpu1LBgJ
-         bQ+fj1dejKLg61ICwtKJDZqt2q7eaRVtO+OFXNwBDTZeT5D8WMteuwoUa085FRks6Zbw
-         uZhA==
+        bh=qy3A1Vkwd/cDXLut21ZiXnCP/BKq6y64SvmrcYwH9Tc=;
+        b=xfekL2eJk9Gjz+5JItAtLWGNJOkMG9y4zdtbIZi0Nq/q2f3QY+AqgSe++eYIb2sdkh
+         k/V9/vWsOKOmssDgS7F9t/rKI5k8sTn49hwCC4VRurSAjvYP9BjILg+iCMS7AdJMCLUX
+         8VdTSKpmPG5O3H0sT6Vrnwd0AjcyY0HNb7yTO4pHU+dWcHCAGtYejCjO2Aa9HLK+P4Hd
+         kaXZbx/lCG/pMWkwtbfuTTcE+XfnZMPgZOFSj70s3haCtvMlSx/aNnf/6SJ6WrBhUxgx
+         p4/Y8rM3vD6Ielq52T5IivCsi/sOmVlw+GxQQu+ZX8NbkVXhwy+reENBSGIw46YZuN1/
+         58Tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793227407; x=1793832207;
+        d=1e100.net; s=20260707; t=1793227406; x=1793832206;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dAZhtXQcONVBEEfX+FEqGwIc1UuckqT1BoM+QvmFfV4=;
-        b=LgYCXtNx7Zc+300z2YOaD42JIf6ulcutiiE6FsX4hKC0TUjbl+DowRMw4tTX4n5k33
-         IrXMQHurQfuB+r3o6p8C+DJ4odELuN34A6ElHkoETB4Fx24eOPgzv7l38U9zfcFS6GPA
-         9voEqZfpgrQdE35xjlX2XLqm9cF3MNp35CB0L9vTTMJx4GQsYZFDOMHRR08JyRYZ0H2r
-         eEQradIb6iEhRTNWXvtXumfjwbVWQKPvOSH8dVByVTgIl+MGeSfuFFLXbtmvQp5GBKoF
-         VrfTqPauT5XpukAuMK+l5i9mAUmfdJtlGgFK9eBBoeeFSeQVNUz/YnwGspd6NxZGV0MP
-         G/pQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwT8+4gT0NN4oit6QGH5DWzxef8LIhoSYTIr9TpYRX4OwKXBUAqgIhtyGwEPyZX/BHlTqBejaOVhgs6Rw==@lists.infradead.org
-X-Gm-Message-State: AFq9FYLYCsXPFnyb8sx6dBXeLGHFqAR0Dk7PKyAR5/Icnict9NU8ZGlk
-	ULwIChiubxdFdevQVWP7qdkovBwiyfB6WKfl2VZWb3dkn0opE1LuebvV
-X-Gm-Gg: AYBFou10dD+8y89yTZezpwErVqxzlauYATFawPixV0zefywtuMJB5DC9WEtqHq11pI9
-	oy3WdmYkFv/EJXIBQqQPkAW6ZPvZ88JaQfCoY6Ka1EGSF8zlEKYR9jID0G89954X/nr1C9Ralfv
-	39ASb8AEy5qRWX+iZJNUoSg9sqhX95YUfuFFa4Ye8PSliO6dP6oDgDd4pzXcyBEb6GN6rVuSMPn
-	bcgfjigDztVy2s3vc6G/I+naMe8XA3W0mnxWc/M0BdjyqHAoY52ZicOrL6VGnHWH47U7OrnO2dr
-	zmb5OMdf1Gcliy/4MtB6YXfpy/0p7V8NM/fXJWbNPgim6j6MrYEszrV0cYgiE/kuzDVVxyAMyno
-	EU5+7FL/tKlQ1GOo3lY3HVe5mPTo2bO3N2LDmUZtWxpJSbxj3DnSEVsyzEi1ezjq8HHtybU4lFZ
-	a77ndX1Sca3OrM15UgZl7rZoQEVjjR8ZCa9dt9sdClD0bJVcBEOpD+rv4eqUOFoYFtc5vphqZEk
-	KTuKMY+h6cqpzBenwaDsYTCe6HwdlUesHgMnPJ0wP8z/g4tlWkeCyVUNEO7BHOTwVPpoivLkhxF
-	XLOrNltWnAFl1jR6iRS6OUQdZ2XYhGqntc6Bj07RIi3CdOF3jIaIWmPYAelhB/FfGxffo+LGO5R
-	/SdnffxXdE5FAS7JT/tXNPMSqdzxduhlUKZjsEfNjxB9nKisXU0I=
-X-Received: by 2002:a05:620a:410f:b0:93e:53db:d59e with SMTP id af79cd13be357-9441338b4cfmr150529085a.23.1793227407492;
-        Wed, 28 Oct 2026 15:43:27 -0700 (PDT)
+        bh=qy3A1Vkwd/cDXLut21ZiXnCP/BKq6y64SvmrcYwH9Tc=;
+        b=IcFHB2zEBCLhemyHl6Wk3tDgBbLH2ioeV5ItMxHvH8yYf2WPebA9+7Bqbuan+nOPLF
+         1xYGCg+fYwCh1rMvUZjlXBKcJxLy08CRsNGFGs9rWrDN8LjL+12Dnf7S7V71C0Bq/q3B
+         Qhz62OsOmaXhSsPzQAUF3KO2XUYUfLViDnJ6OL/kD3tzBHg2EHWIRN2RNH9f8WV5v4Hi
+         zoVAAxCVfsxeaW416rVsdn4BGwsNW27H06zkocNE0VtmRMcSwNXizCWcjwB3KHfzAvOl
+         CKsP8tl5m+9erlfixuKI3PhRlaF7OR+EKmlAfJoXmjwiHwGGLiJcHpQWbEKJh9aF+mCE
+         XYRw==
+X-Forwarded-Encrypted: i=1; AKwUvBwJ6GHnxc+jrD8lP5QQ76Cjb4w1qxbLgmA1ZV7uLiciwbnTV23UdscM6K5UZip2fn3GwQSu1b3Hmc3meg==@lists.infradead.org
+X-Gm-Message-State: AFq9FYI2CLCfD6uy/iZxDeDApwRFIkwv7YUIpTNFKxhxJvHf0GDPMf8/
+	eanQw3qvtO21uaHYDURXt9eG8kebm8e5DSwZ4apryxpWghAmoe53p9bI
+X-Gm-Gg: AYBFou3/seLzQja0VyiCpC0ytuH9kTKT+ACVggoJTP7frphjzlhXwQEoUgAPlkj8zyW
+	iit3KqcH4bNgFrwZHL8QkfRKPX7oBJWDhtxNZWvD7rBn8oB3A4xSDcaQtt8L31oS8hJCk55TB6Q
+	cgI0vakaSWAA6V/bP/Zs/L6Tm7YZWVAhLAl9tuVRHl/MyfC5QukY3KgdzLXBJDMds5rDZpjypBx
+	PKFJE20waGH3iZBN8oWW6vj3O9dDg4w6IVREG/D/wxMaLGl7Ue48MPtoJmHeAsqHLVVvbidYks7
+	zydZXtZobfExo0lxWWg1tIAEA/VR6CKonkq2CuRkT8cpxn9M85/2UaSNFLNHHss9pn0+hAQO9Nl
+	aUfl2YmGl3Cs9F9FoYGb9W95ivOboQV+qK7bS6u9+kt+zJdEuG1e00BwtQZv5HoRkCd2r3GMt1q
+	y9vXHLsKWjW4Z8ixY1tuc5AgviQY4gxiyH6VeUJIBfGkTcCNx2CPlNxO+1ZKp9AvZyHeWwyTic7
+	XsXKUeH+Hk48obLqhONjb92dkz74VPFdVL14avZBqPqtC4eDtVtz21ATuztkogobH4S7OlQnwDb
+	EVXUnLhF/3S7I30MoobOhITW6PQirV0Oo4r/GrsBf8DdjDzsO+AKGc9pp6U2kIQoPPfLIqKgQe4
+	tYSLdjwJsHfnue1fWprCGkF+7TqIyDqSHmNLtsKDNHaClgIsiQWo=
+X-Received: by 2002:a05:620a:2629:b0:93e:c12c:9b77 with SMTP id af79cd13be357-94408d68de4mr575691585a.82.1793227405973;
+        Wed, 28 Oct 2026 15:43:25 -0700 (PDT)
 Received: from paul-white-HP-Pavilion-Laptop-15-cs1xxx.mynetworksettings.com ([2600:4040:ad65:1c00:b8:5aeb:4bda:886])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-940f0787d96sm1370085685a.28.2026.10.28.15.43.26
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-940f0787d96sm1370085685a.28.2026.10.28.15.43.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2026 15:43:26 -0700 (PDT)
+        Wed, 28 Oct 2026 15:43:25 -0700 (PDT)
 From: Paul White <paul.white.kernel@gmail.com>
 To: anup@brainfault.org,
 	atish.patra@linux.dev,
@@ -86,17 +86,17 @@ Cc: kvm@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Paul White <paul.white.kernel@gmail.com>
-Subject: [PATCH v2 2/2] KVM: riscv: Eliminate redundancy in set_reg function via pointers
-Date: Wed, 28 Oct 2026 18:43:09 -0400
-Message-ID: <7290d6f5bead955e7a4bcb5b7aba97962031f0cb.1793223506.git.paul.white.kernel@gmail.com>
+Subject: [PATCH v2 1/2] KVM: riscv: Eliminate redundancy in get_reg function via pointers
+Date: Wed, 28 Oct 2026 18:43:08 -0400
+Message-ID: <072bcc0994a5d2a0c21778a7a6f9e395395535c6.1793223506.git.paul.white.kernel@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1793223506.git.paul.white.kernel@gmail.com>
 References: <cover.1793223506.git.paul.white.kernel@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_154329_485646_EB3C379D 
-X-CRM114-Status: GOOD (  24.43  )
+X-CRM114-CacheID: sfid-20261028_154327_820384_EE74BC4D 
+X-CRM114-Status: GOOD (  24.48  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -156,27 +156,26 @@ make the code longer in the long run.
 
 I also renamed reg_num to token_reg_num in my code as I felt it made
 it clearer that it was the register number the application wants and
-requested in a token so that it can write data into that register. It
-differentiated it from the many other variables with the word reg in
-it.
+requested in a token. It differentiated it from the many other
+variables with the word reg in it.
 
 Signed-off-by: Paul White <paul.white.kernel@gmail.com>
 ---
 v2:
- - only checked whether size token listed was either 32 or 64 which
-   could create/allow tokens with mismatched sizes and types to pass,
-   but should've checked if token's size was correct for its FP type.
-   Did this by replacing u32 and u64 with byte_offset because it is a
-   existing mode-dependent variable.
+- Only checked whether size token listed was 32 or 64 bits, which could
+  create/allow tokens with mismatched sizes and types to pass.
+  Should've checked if token's size was correct for its FP type. Did
+  this by replacing u32 and u64 parts with byte_offset because it is
+  mode-dependent local variable.
 ---
- arch/riscv/kvm/vcpu_fp.c | 62 +++++++++++++++++++++++-----------------
- 1 file changed, 36 insertions(+), 26 deletions(-)
+ arch/riscv/kvm/vcpu_fp.c | 68 +++++++++++++++++++++++-----------------
+ 1 file changed, 39 insertions(+), 29 deletions(-)
 
 diff --git a/arch/riscv/kvm/vcpu_fp.c b/arch/riscv/kvm/vcpu_fp.c
-index da4f83be6b19..b8e89107b6c3 100644
+index bb11e6757d34..da4f83be6b19 100644
 --- a/arch/riscv/kvm/vcpu_fp.c
 +++ b/arch/riscv/kvm/vcpu_fp.c
-@@ -142,41 +142,51 @@ int kvm_riscv_vcpu_set_reg_fp(struct kvm_vcpu *vcpu,
+@@ -83,41 +83,51 @@ int kvm_riscv_vcpu_get_reg_fp(struct kvm_vcpu *vcpu,
  	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
  	unsigned long __user *uaddr =
  			(unsigned long __user *)(unsigned long)reg->addr;
@@ -219,9 +218,9 @@ index da4f83be6b19..b8e89107b6c3 100644
 -		if (reg_num == KVM_REG_RISCV_FP_F_REG(fcsr))
 -			reg_val = &cntx->fp.f.fcsr;
 -		else if ((KVM_REG_RISCV_FP_F_REG(f[0]) <= reg_num) &&
--			 reg_num <= KVM_REG_RISCV_FP_F_REG(f[31])) {
+-			  reg_num <= KVM_REG_RISCV_FP_F_REG(f[31])) {
 -			reg_num = array_index_nospec(reg_num,
--						     ARRAY_SIZE(cntx->fp.f.f));
+-					ARRAY_SIZE(cntx->fp.f.f));
 -			reg_val = &cntx->fp.f.f[reg_num];
 -		} else
 -			return -ENOENT;
@@ -236,7 +235,7 @@ index da4f83be6b19..b8e89107b6c3 100644
 -			if (KVM_REG_SIZE(reg->id) != sizeof(u64))
 -				return -EINVAL;
 -			reg_num = array_index_nospec(reg_num,
--						     ARRAY_SIZE(cntx->fp.d.f));
+-					ARRAY_SIZE(cntx->fp.d.f));
 -			reg_val = &cntx->fp.d.f[reg_num];
 -		} else
 -			return -ENOENT;
@@ -252,8 +251,29 @@ index da4f83be6b19..b8e89107b6c3 100644
  		return -ENOENT;
 +	}
  
- 	if (copy_from_user(reg_val, uaddr, KVM_REG_SIZE(reg->id)))
+ 	if (copy_to_user(uaddr, reg_val, KVM_REG_SIZE(reg->id)))
  		return -EFAULT;
+@@ -144,9 +154,9 @@ int kvm_riscv_vcpu_set_reg_fp(struct kvm_vcpu *vcpu,
+ 		if (reg_num == KVM_REG_RISCV_FP_F_REG(fcsr))
+ 			reg_val = &cntx->fp.f.fcsr;
+ 		else if ((KVM_REG_RISCV_FP_F_REG(f[0]) <= reg_num) &&
+-			  reg_num <= KVM_REG_RISCV_FP_F_REG(f[31])) {
++			 reg_num <= KVM_REG_RISCV_FP_F_REG(f[31])) {
+ 			reg_num = array_index_nospec(reg_num,
+-					ARRAY_SIZE(cntx->fp.f.f));
++						     ARRAY_SIZE(cntx->fp.f.f));
+ 			reg_val = &cntx->fp.f.f[reg_num];
+ 		} else
+ 			return -ENOENT;
+@@ -161,7 +171,7 @@ int kvm_riscv_vcpu_set_reg_fp(struct kvm_vcpu *vcpu,
+ 			if (KVM_REG_SIZE(reg->id) != sizeof(u64))
+ 				return -EINVAL;
+ 			reg_num = array_index_nospec(reg_num,
+-					ARRAY_SIZE(cntx->fp.d.f));
++						     ARRAY_SIZE(cntx->fp.d.f));
+ 			reg_val = &cntx->fp.d.f[reg_num];
+ 		} else
+ 			return -ENOENT;
 -- 
 2.53.0
 
