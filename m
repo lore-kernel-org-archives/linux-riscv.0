@@ -2,72 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E17DF606BF87
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 19:03:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32D9C606BF94
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 19:03:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QI4RcGqv;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HFA2Yfl0
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fNicSuaY;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=NGFb/RCD
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:Mime-Version:Date:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=OKkW/FNDzQfTQoxkT6vZaYem74Q6oorkohZy8HfrqkQ=; b=QI4RcGqvKXeLiPeyzhtSzx4cT1
-	w1TmLcLCudTWDHzLwyzeU7FvXHY33y93hCnt1NSGIFD/5zuUByZitkWQsH73KcwkIfnuMIg+k4GM1
-	AePfT7zwI6my7Z6fdpkXXVFH2Ll/f4HFZlGz/8p2Dl+j378eOotFRc8oUAwC+b961U3NiaaYKm1At
-	KAiAQL4Tb5gWQtWhPEjXRPZar3FThBRUbfbJ8aPQSl4JOkX876rBX3zIH8snBiinE0OnOxFckQOsP
-	LgaqYO/7T1/mJfO0J1PRQHmnJdj0h2vy/kGo9reTcLPeSRg5b0CFES96maqfOHOlpWJT+SRyc11U7
-	15nc5Bsg==;
+	bh=K4SI6GVVi5/DONYDCCWIn3LG5OSMAr8S0AY0JYwsflg=; b=fNicSuaYhwj1GdJuMAhM8lX8my
+	vIjbyu2vd98tkomEohLrYAxX5c+c2VX5hiFVIfO4GbdxFU0UTJ9RaiymvMPAD//OPQS7PUw599rve
+	WjYnzgE/+2bCtdFPK2kXyUngtw+cIfdfiAnEJx/hnzJtug+W7UgXm660p+vlBoNrWENI4D9FT/RpA
+	3LgAi4TYzzI/rtZN+kGSFOlMa+/2FwkFLkPendTwXivuHoJ/Mg5rpqsfw1WN58KkmJFNl1eWLc5Qw
+	8vi5zzgALsdDvwuOh6t4iyv9NFU/YC+Yri3qljMMnLDlJjUWb7SGNURiFGaiv4RC9wQPAxJ2z72Bd
+	VAMs1/Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM8vT-00000007nTf-1IyA;
-	Wed, 28 Oct 2026 19:03:07 +0000
-Received: from mail-pf1-x445.google.com ([2607:f8b0:4864:20::445])
+	id 1xM8va-00000007nde-3gsM;
+	Wed, 28 Oct 2026 19:03:14 +0000
+Received: from mail-pl1-x647.google.com ([2607:f8b0:4864:20::647])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM8vQ-00000007nQ3-0s88
+	id 1xM8vS-00000007nRD-1sw4
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Oct 2026 19:03:06 +0000
-Received: by mail-pf1-x445.google.com with SMTP id d2e1a72fcca58-8a064f294cbso916190b3a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Oct 2026 12:03:02 -0700 (PDT)
+	Wed, 28 Oct 2026 19:03:07 +0000
+Received: by mail-pl1-x647.google.com with SMTP id d9443c01a7336-2e93f67358eso12170125ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Oct 2026 12:03:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1793214182; x=1793818982; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :reply-to:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HbuVr5an123e2WdNsh7qTkraPx2QUzUAuDpOvbvX5g4=;
-        b=HFA2Yfl0qTJoOMyX1RF+lgP0cNFt0v3VklrJBm/bwhrhtGoif54eXqiLCyZbqdYjUJ
-         wDbRXgK4m/EPZ+bVpVihufgVinKMNCJkP7prjsRFuWB33BJhASxOPPy7hePY+dAgTQk7
-         igoULsaOSHbmXeJN+hB2Vx23++Igt9cxhK+2unp9yj+YuO6uU6xef38YIE+stZd6Sms6
-         RBin0/vCt2kh3IEwv97vOB4FqjW7FJXqlJ94H/55tI8zQBTVHnUtu/SpWoX8EIo4kuI0
-         lLAz8uMDJkwCCZe4oI/lIYnsKpgY1a3NQ9NcGHHlsaIROSaxvFwDylfnEvFBavdcTKSj
-         8E4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793214182; x=1793818982;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=google.com; s=20260707; t=1793214184; x=1793818984; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=HbuVr5an123e2WdNsh7qTkraPx2QUzUAuDpOvbvX5g4=;
-        b=xj5i16Wfh4dV5yqhUUEpSZoygl2yJ9suB8A4nbwoJGSnIVKF3xs4k7lehbOvo97vr2
-         L+QgFV2fAxL9v2J+wiZDkFV3d/ssnOh3vi7nY82g0SX6X9sM5AooOhxgmpjjy3fRR301
-         /79en+ryFEaoVFcKI4pA86JJznien+kNworybm9NxZh9LBZr0C4YUICgtcXc4ntYNVZ2
-         8QEYQ2K7QW+zWJkHG0qee5kmBF+YE5FVZcUXBXiJD2I9JKuxf9hxnQIdPZ6B1oyTRh9E
-         Z3Th72Me707VgIp6H0KCLJ2BaayPgOw0pRjMnDUGz/z3fA2GKOahhIs73KVYJZ43SWT1
-         WxTw==
-X-Forwarded-Encrypted: i=1; AKwUvBwgWaLh9cry2XzAFgwAFZ0J7Gh157pfiTmaqISYF9xQt+xporGkieea7JeAgRF5arzG6PBlTmChw4JxYQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYK+0sCOWocuyTQY6XXgQacb9YKTN/fj7TWFMNzUCmk5wqb75Bj5
-	zO8ovmmd0DvFUvji/bm8tt9MpDhSDfNw6pCZD4/kBru/umYFXpdWDuKMKZBdgcMpyfBDOvtgvgf
-	bgwKaSQ==
-X-Received: from pfog22.prod.google.com ([2002:aa7:8756:0:b0:8a0:7e84:9992])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:18a8:b0:899:55e9:880b
- with SMTP id d2e1a72fcca58-8a6e72dc7admr2727923b3a.14.1793214181492; Wed, 28
- Oct 2026 12:03:01 -0700 (PDT)
-Date: Wed, 28 Oct 2026 12:02:52 -0700
+        bh=ua8GfkfDrHDUR8px+Sy19+vmLzFSWzTq6VAHh+SakiE=;
+        b=NGFb/RCD0VAplnHpuvuQ7ny6tLr+WrtOWctWSAcGiDaYd/U7i7b+Kaiv0UJGlZ5u0z
+         yIrWf0adQkG3Yqa25KjyhLHUCYdTuQLca8AHprFnI3wzNzPZ/ZKYRQoTDAkg9I3l+K84
+         vcPdeP57kACoKs2FPI9Bn1IzcbLyoNJ4QLo4nAx/WCx1zfEMMa500/SnQu5Ryfcof8ZO
+         /VY7bqush6AAX58Gn4ObACiQ2HksfuwbEVDrA8gTZe9i0Pl4npahHLsg/Bvo3qJjkTII
+         XdMb2k0t2G1YeJn0iXFjO4VmUaTZE7BaIu+L6sOCl0Uch3wm3dbB2CUMaDK4hdds+hjD
+         SIkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793214184; x=1793818984;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ua8GfkfDrHDUR8px+Sy19+vmLzFSWzTq6VAHh+SakiE=;
+        b=opE+itiVG+8LHnREWDsyBNHFMVRbF7PJq8O60VIT30Cx7wTrzHLNVfrjIPUv5FLJT4
+         H+26ADGKO1nA33aGu54B+c7uO2VvsEFrdV++8fVWmkk23aqpVIUhUMyfEonK6NsENkm/
+         ZFgv0WXetPY+zLf4u0QpZfrE3A89C93RGPQsHUq2IZGfNg/xoloytGHayfWTlcJrJnP+
+         6uYEhs7i655ptmkE3tF1RNOpB64aqvFnhIkyc0CLnuJ8ecTB0qjRlvVQc+iAMEoxE8fh
+         BEPaVeHal53XH4HhAxN+aDrDUfRLGltT3FawMXntWdRHMRJAZ9IfOgcPuv55gPkI7qKM
+         oc4Q==
+X-Forwarded-Encrypted: i=1; AKwUvByL5iYRy+7jDt4ipeAMrk5ZtWmUMLUln7JnttAhAs3WQq2OZyQLiKAxEDd2e/DDvj6ingiuxjavlmR+Yw==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKe4B3HQgud18vpW4o9lV9chsjUKPxC9bTUfCuOdqakhYUNYvFo
+	vmJXbsHLWRjkBWaphgWc2JzaaBBydr+q0C5aHUY2G9qVYuaYKyi0HirUJB6auSwLImXIcclh/ke
+	qVPOlVg==
+X-Received: from pjbov14.prod.google.com ([2002:a17:90b:258e:b0:3a8:d9d:78ef])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:224f:b0:3a0:b312:1fbe
+ with SMTP id 98e67ed59e1d1-3ae580a7ac7mr2187674a91.23.1793214184152; Wed, 28
+ Oct 2026 12:03:04 -0700 (PDT)
+Date: Wed, 28 Oct 2026 12:02:54 -0700
+In-Reply-To: <20261028190259.1819571-1-seanjc@google.com>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
+References: <20261028190259.1819571-1-seanjc@google.com>
 X-Mailer: git-send-email 2.56.0.313.g2479322e68-goog
-Message-ID: <20261028190259.1819571-1-seanjc@google.com>
-Subject: [PATCH 0/7] KVM: Ensure WAIT requests actually wait
+Message-ID: <20261028190259.1819571-3-seanjc@google.com>
+Subject: [PATCH 2/7] KVM: Add a @force param to __kvm_vcpu_kick() for PPC
+ backwards compatibility
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -85,9 +89,8 @@ Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	Stefan Teodorescu <fane@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_120304_465565_0DE68DFF 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261028_120306_501044_7A23768F 
+X-CRM114-Status: GOOD (  14.74  )
 X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,70 +105,84 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Fix a bug in where kvm_make_request_and_kick() won't actually wait if the
-kick races without another non-waiting kick.  The issue is that all of the
-conditional kvm_arch_vcpu_should_kick() implementations are missing this code:
+Plumb in a @force param to __kvm_vcpu_kick() to force an IPI without
+checking kvm_arch_vcpu_should_kick().  The param will be used to drop
+kvm_arch_vcpu_should_kick() in favor of kvm_request_needs_ipi() without
+regressing PPC, which for unknown reasons unconditionally blasts an IPI
+in a variety of kvm_vcpu_kick() flows.
 
-	if (req & KVM_REQUEST_WAIT)
-		return mode != OUTSIDE_GUEST_MODE;
+No functional change intended (nothing yet passes in @force=true).
 
-Thankfully, kvm_request_needs_ipi() does the right thing, so this doesn't
-affect kvm_make_all_cpus_request() or kvm_make_vcpus_request_mask(), i.e. it's
-limited to x86 SNP's used of kvm_make_request_and_kick().
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ include/linux/kvm_host.h |  6 +++---
+ virt/kvm/kvm_main.c      | 10 +++++++---
+ 2 files changed, 10 insertions(+), 6 deletions(-)
 
-To fix, address this TODO:
-
-  /* TODO: merge with kvm_arch_vcpu_should_kick */
-
-and purge kvm_arch_vcpu_should_kick().  As usual, PPC makes that difficult
-because it has wonky code that is poorly documented.  For reasons unknown,
-kvm_vcpu_kick() unconditionally returns true on (most flavors of) PPC.  To
-preserve that behavior, add a compatibility wrapper in PPC, along with a
-@force param to __kvm_vcpu_kick().
-
-This series would ideally go into 7.4, even though it's obviously not small,
-as guest_memfd in-place conversion massively widens the window where a missed
-kick+wait can lead to the host trying to reclaim an in-use VMSA page, which
-is generally fatal to the host.
-
-Sean Christopherson (7):
-  KVM: s390: Drop unused and unreachable kvm_arch_vcpu_should_kick()
-  KVM: Add a @force param to __kvm_vcpu_kick() for PPC backwards
-    compatibility
-  KVM: PPC: Explicitly force IPIs when directly kicking vCPUs
-  KVM: MIPS: Rework kvm_arch_vcpu_should_kick() to use standard
-    implementation
-  KVM: Move kvm_arch_vcpu_should_kick() to common code as
-    kvm_vcpu_should_kick()
-  KVM: Plumb the full request into __kvm_vcpu_kick()
-  KVM: Drop kvm_vcpu_should_kick() and use kvm_request_needs_ipi()
-
- arch/arm64/kvm/arm.c               |  5 -----
- arch/loongarch/kvm/vcpu.c          |  5 -----
- arch/mips/kvm/mips.c               |  5 -----
- arch/powerpc/include/asm/kvm_ppc.h | 13 ++++++++++++-
- arch/powerpc/kvm/book3s.c          |  4 ++--
- arch/powerpc/kvm/book3s_pr.c       |  2 +-
- arch/powerpc/kvm/booke.c           |  6 +++---
- arch/powerpc/kvm/e500_emulate.c    |  2 +-
- arch/powerpc/kvm/powerpc.c         |  7 +------
- arch/riscv/kvm/vcpu.c              |  5 -----
- arch/s390/kvm/s390/s390.c          |  7 -------
- arch/x86/kvm/x86.c                 |  5 -----
- include/linux/kvm_host.h           |  7 +++----
- virt/kvm/kvm_main.c                | 28 ++++++++++++++++------------
- 14 files changed, 39 insertions(+), 62 deletions(-)
-
-
-base-commit: 7e60162b16f9da0d2fa83da5c1723b6853a0ac1d
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index e7fc94e2910a..3b9844c3906d 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1570,11 +1570,11 @@ void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu);
+ bool kvm_vcpu_wake_up(struct kvm_vcpu *vcpu);
+ 
+ #ifndef CONFIG_S390
+-void __kvm_vcpu_kick(struct kvm_vcpu *vcpu, bool wait);
++void __kvm_vcpu_kick(struct kvm_vcpu *vcpu, bool wait, bool force);
+ 
+ static inline void kvm_vcpu_kick(struct kvm_vcpu *vcpu)
+ {
+-	__kvm_vcpu_kick(vcpu, false);
++	__kvm_vcpu_kick(vcpu, false, false);
+ }
+ #endif
+ 
+@@ -2315,7 +2315,7 @@ static __always_inline void kvm_make_request(int req, struct kvm_vcpu *vcpu)
+ static inline void kvm_make_request_and_kick(int req, struct kvm_vcpu *vcpu)
+ {
+ 	kvm_make_request(req, vcpu);
+-	__kvm_vcpu_kick(vcpu, req & KVM_REQUEST_WAIT);
++	__kvm_vcpu_kick(vcpu, req & KVM_REQUEST_WAIT, false);
+ }
+ #endif
+ 
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index cf4cb586f140..67addb9e48a7 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -3908,7 +3908,7 @@ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_vcpu_wake_up);
+ /*
+  * Kick a sleeping VCPU, or a guest VCPU in guest mode, into host kernel mode.
+  */
+-void __kvm_vcpu_kick(struct kvm_vcpu *vcpu, bool wait)
++void __kvm_vcpu_kick(struct kvm_vcpu *vcpu, bool wait, bool force)
+ {
+ 	int me, cpu;
+ 
+@@ -3933,9 +3933,13 @@ void __kvm_vcpu_kick(struct kvm_vcpu *vcpu, bool wait)
+ 	 * after kvm_arch_vcpu_should_kick(), which could result in sending an
+ 	 * IPI to the previous pCPU.  But, that's ok because the purpose of the
+ 	 * IPI is to force the vCPU to leave IN_GUEST_MODE, and migrating the
+-	 * vCPU also requires it to leave IN_GUEST_MODE.
++	 * vCPU also requires it to leave IN_GUEST_MODE
++	 *
++	 * Note #2, do NOT check if an IPI is needed if @force is true, as the
++	 * check also modifies vcpu->mode and KVM PPC needs to avoid that side
++	 * effect for unknown historical reasons.
+ 	 */
+-	if (kvm_arch_vcpu_should_kick(vcpu)) {
++	if (force || kvm_arch_vcpu_should_kick(vcpu)) {
+ 		cpu = READ_ONCE(vcpu->cpu);
+ 		if (cpu != me && (unsigned int)cpu < nr_cpu_ids && cpu_online(cpu)) {
+ 			/*
 -- 
 2.56.0.313.g2479322e68-goog
 
