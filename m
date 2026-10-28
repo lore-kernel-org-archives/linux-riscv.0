@@ -2,78 +2,93 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CD89606A324
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 14:41:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F86B606AB2C
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 15:22:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WyPAxnns;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YirwpN8N
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BXRycfz2;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=fQwPSBpU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=pCMPUoZoyN+g4q1rkhSnCzRW35N7o9GTasa28mUVNXQ=; b=WyPAxnnsDGE7Q6I5Jgr2H9m+Ux
-	Oy+9c3gCoFsoi/n0WNksFgx5XVmhV/U3nHKYZ79+IaezEQbauSfMO05yrtW58kunELNRf36AnpWzb
-	In5lXY3O2fRBo1ZenmxOYL1qrOuhbcwHaS49GLd/Q6GhNf9s/7C1cnOth+5EQrbYRN5VQajhAZjJY
-	LO+cHm5t67RLkK1s/s+GfJp7qHhvDh76nzbfoJgna8K8ZACIN2u0VvRRg1tEx8IOSgl/p5lh8H8pM
-	tvzo+6z6enlL+N+OySX3L+MZDtaNlcTVZPVJQrm4Ec4Luf8qg6fGdTnTkCy6FdiwK5ObVKMJO3iOB
-	uKKWRwQQ==;
+	bh=3fCsTTxV0Uej16eDQJqUbwadmbGczzJdaG4pXueJ3+Y=; b=BXRycfz2cjUGsSpIR/7b2xtpLk
+	a1oQ0AwGEYKJt0kQuPKna/tzxgF4NkpP5KsgyIJGKuvyffL9pOg9GG6uV5RCxe8Z5wY3o/plQS2Vq
+	iVenvq86gMirn1dP1hFZYR+UxhDPUiXkFC53EWxaQqCxvMCXsPuauk6HPv2BD0mYSYP3KK5tFkjoP
+	ox2LPg0RwKvOP+MgV+16iX4J9gfvDyH78H7ZVdYNyEOpG29Xer/KdedTzi+th9nnIW8w4JFw7UfEn
+	GW7YrGszG0KPbyKnsmR/5jhW84jlvwQUjDtyPHNUXZdyKiPLO6eVyjMNJZsQfa3zBA+5rT3rLKMN/
+	L7WdUNfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM4pt-00000007ECW-44Mo;
-	Wed, 28 Oct 2026 14:41:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xM5U0-00000007LBK-3hQb;
+	Wed, 28 Oct 2026 15:22:32 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM4ps-00000007EC5-33jh;
-	Wed, 28 Oct 2026 14:41:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6CCEC600DA;
-	Wed, 28 Oct 2026 14:41:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEB3E1F01829;
-	Wed, 28 Oct 2026 14:40:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793198463;
-	bh=SJDODn+Daxete0vXNEeSBNeEHTwbpeBhwXO3acT8Jjc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YirwpN8NTIcpR91bbQZOawatQgF7WOZribCgtbQv3D9/IEwAE5fo0kroa8564+nYm
-	 6mlIYEBpfTW8Hqn/astGPJWT6TccQlGtF8K2Obc9yA7PSFBQ5ZI4xyquuc/F+pHVtR
-	 6mfQBL/ylb+NNAYpULUdWpufa1il/FmWMeO/5fdDmtuolhmVdvOYx+ccHFXLe62LO5
-	 N2u3xI5LUJgVwLhHVABfH8nV9r726sROrQ1qjsm6R9Ky251dULE/J4o5RQ/SajqFaa
-	 jY4c95rf9MSoJ+RZnUy0WvNnTVDAJMXFPA3JdsdcWtIEamSQ3buF1Xsw0gfKRvBcD3
-	 P3On2k6G6xutA==
-Date: Wed, 28 Oct 2026 14:40:56 +0000
-From: Mark Brown <broonie@kernel.org>
-To: =?iso-8859-1?Q?Iv=E1n?= Ezequiel Rodriguez <ivanrwcm25@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Deepak Gupta <debug@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>,
-	Christian Brauner <brauner@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Yury Khrustalev <yury.khrustalev@arm.com>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Zong Li <zong.li@sifive.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Zishun Yi <vulab@iscas.ac.cn>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] arm64/gcs: release GCS on failed fork
-Message-ID: <fc71b59b-aeee-4d68-9d48-9eb9ba707321@sirena.org.uk>
-References: <cover.1792519121.git.ivanrwcm25@gmail.com>
- <8522b8d3d3ecda7474d0af8b8517c1f5d708ecc2.1792519121.git.ivanrwcm25@gmail.com>
+	id 1xM5Tx-00000007L85-22YP
+	for linux-riscv@lists.infradead.org;
+	Wed, 28 Oct 2026 15:22:31 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261028152227euoutp01e2eb4c75f41e8b98350f3d62cda25c54~iusKw5Ydp0707307073euoutp01c
+	for <linux-riscv@lists.infradead.org>; Wed, 28 Oct 2026 15:22:26 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261028152227euoutp01e2eb4c75f41e8b98350f3d62cda25c54~iusKw5Ydp0707307073euoutp01c
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1793200947;
+	bh=xBtco3yaw3qEzXnfIqoE7d0Ook29poapW94M82D2xPU=;
+	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
+	b=fQwPSBpUAkaEsyUCQ8rrhxlmIAkTBNxkPuEgbG+gG3aOm6HHfPWc9RMqVhK9J4qwY
+	 r4oD6xTY4JUxACnPovdtFm3WyAAqO3BL8vLaaClPD9mWfOiWUWDHlkLKMfQr/HW2QJ
+	 PYxcITTU6peVRe7kuEi1ejqICeAKFyQqlcLEqQ7A=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261028152226eucas1p1d17fa9350e2d480774843e5b9e78fb37~iusKa4ztM1685916859eucas1p1c;
+	Wed, 28 Oct 2026 15:22:26 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261028152225eusmtip16d6428135e48edb5558e2cbfe49d21ca~iusJm4mEe2037320373eusmtip1Q;
+	Wed, 28 Oct 2026 15:22:25 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Wed, 28 Oct 2026 16:21:41 +0100
+Subject: [PATCH v6 1/5] dt-bindings: phy: Add starfive,jh7110-inno-hdmi-phy
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <8522b8d3d3ecda7474d0af8b8517c1f5d708ecc2.1792519121.git.ivanrwcm25@gmail.com>
-X-Cookie: Pushing 30 is exercise enough.
+Message-Id: <20261028-jh7110-inno-hdmi-phy-v6-1-f3379684d97e@samsung.com>
+In-Reply-To: <20261028-jh7110-inno-hdmi-phy-v6-0-f3379684d97e@samsung.com>
+To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
+	<neil.armstrong@linaro.org>,  Manivannan Sadhasivam <mani@kernel.org>, Rob
+	Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor
+	Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,  Emil Renner
+	Berthing <kernel@esmil.dk>,  Hal Feng <hal.feng@starfivetech.com>, Dominique
+	Belhachemi <db@domibel.de>,  Michal Wilczynski <m.wilczynski@samsung.com>,
+	Andy Yan <andyshrk@163.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,  Marek
+	Szyprowski <m.szyprowski@samsung.com>,  Icenowy Zheng
+	<zhengxingda@iscas.ac.cn>,  Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	Joshua Peisach <jpeisach@ubuntu.com>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2053;
+	i=m.wilczynski@samsung.com; h=from:subject:message-id;
+	bh=WSoM/PLgxIAO3P/HP4El0/pBeW1xIxFbcAyyXD+Ha8c=;
+	b=owGbwMvMwCGWumv6zndzRCIZT6slMWQ9EjYQKrk1N7aa4wx7YUij4xrX0wvezhLa4u1Tvszj1
+	ttgJXOujlIWBjEOBlkxRZazG6ONJP8xPC0//vgXzBxWJpAhDFycAjAR40uMDB9e3f7AwHDgHr+p
+	vXKjo+9VyeuvreZVLtXQ3Rpn/SNpJTvD/6pz/6TnXMx1FtvNzcvDJZt7KNSqQmzjvGy1fKboc4v
+	KWAA=
+X-Developer-Key: i=m.wilczynski@samsung.com; a=openpgp;
+	fpr=CDB15B3219FE00E577C7E3FA65BA97B9EE9C1459
+X-CMS-MailID: 20261028152226eucas1p1d17fa9350e2d480774843e5b9e78fb37
+X-Msg-Generator: CA
+X-RootMTR: 20261028152226eucas1p1d17fa9350e2d480774843e5b9e78fb37
+X-EPHeader: CA
+X-CMS-RootMailID: 20261028152226eucas1p1d17fa9350e2d480774843e5b9e78fb37
+References: <20261028-jh7110-inno-hdmi-phy-v6-0-f3379684d97e@samsung.com>
+	<CGME20261028152226eucas1p1d17fa9350e2d480774843e5b9e78fb37@eucas1p1.samsung.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261028_082229_799374_0D1583A7 
+X-CRM114-Status: GOOD (  12.98  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,77 +98,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4851241573157543772=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Add the dt-binding for the StarFive JH7110 Innosilicon HDMI PHY.
 
---===============4851241573157543772==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="JK4egr7oBGvhaW3C"
-Content-Disposition: inline
+This device is a child of the starfive,jh7110-hdmi-subsystem node. It
+functions as both a PHY provider for the controller and as a clock
+provider for the variable pixel clock (hdmi_pclk), which it generates
+from its refoclk.
 
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ .../phy/starfive,jh7110-inno-hdmi-phy.yaml         | 49 ++++++++++++++++++++++
+ 1 file changed, 49 insertions(+)
 
---JK4egr7oBGvhaW3C
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+diff --git a/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..6417553e0f5ba295b0451301ca7c1a25534993a3
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
+@@ -0,0 +1,49 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/starfive,jh7110-inno-hdmi-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 Innosilicon INNO HDMI PHY
++
++maintainers:
++  - Michal Wilczynski <m.wilczynski@samsung.com>
++
++description:
++  The PHY portion of the StarFive JH7110 INNO HDMI IP.
++
++properties:
++  compatible:
++    const: starfive,jh7110-inno-hdmi-phy
++
++  clocks:
++    maxItems: 1
++    description: Reference oscillator.
++
++  '#clock-cells':
++    const: 0
++
++  '#phy-cells':
++    const: 0
++
++required:
++  - compatible
++  - clocks
++  - '#clock-cells'
++  - '#phy-cells'
++
++additionalProperties: false
++
++examples:
++  # Shown as a child of the HDMI subsystem node; see
++  # Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-hdmi-subsystem.yaml
++  # for the full node.
++  - |
++    phy {
++        compatible = "starfive,jh7110-inno-hdmi-phy";
++        #clock-cells = <0>;
++        clocks = <&xin24m>;
++        #phy-cells = <0>;
++    };
++
++...
 
-On Tue, Oct 20, 2026 at 03:19:30PM -0300, Iv=E1n Ezequiel Rodriguez wrote:
+-- 
+2.34.1
 
-> +++ b/arch/arm64/include/asm/gcs.h
-> @@ -67,6 +67,13 @@ void gcs_preserve_current_state(void);
->  unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
->  				     const struct kernel_clone_args *args);
-> =20
-> +static inline void gcs_reset_thread(struct task_struct *task)
-> +{
-> +	task->thread.gcs_base =3D 0;
-> +	task->thread.gcs_size =3D 0;
-> +	task->thread.gcspr_el0 =3D 0;
-> +}
-> +
-
-The other process.c specific helpers are all in process.c.  Otherwise
-this looks OK, though I'm still not clear about the analysis for why
-x86 is not also affected.
-
-Note that since you sent this in reply to the old thread is was buried
-in my inbox.
-
---JK4egr7oBGvhaW3C
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmriCXcACgkQJNaLcl1U
-h9DyKwf/f0wQRzWGs4z7w3rL3l/aDet1CHGvYQeENmeNCwRcMkxKv7+aoLzrNWJX
-ZlLAXfNLCaK0SG3xcaLnerecwFSW/K+zwNIqFQf7E3czUrYNyZ6QyuUeY1sWKkni
-fD8xwhMCQeDCKMrIJvAYMYNgT6sFI5r0TrowwJjKsFgitHpQ9+QU05extDSJ6JoH
-Mqn0oOauMbIXl7F25YhJ63+d1nlTajtFiq5VoI5tIjcWosAdpaEmySSpBX1pqBF3
-90lzfVTXtNPpv1qJHoHhFhfttnlVCvwGp/lgwQK1kw+fw2wlfHdR/PXLR5hnkqA5
-fhLzMJjBO1oi0mpX+FfxV5lWZTHuaA==
-=qGVS
------END PGP SIGNATURE-----
-
---JK4egr7oBGvhaW3C--
-
-
---===============4851241573157543772==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4851241573157543772==--
-
