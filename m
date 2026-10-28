@@ -2,91 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E71C606A320
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 08:06:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E3E4606A31A
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 08:23:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HCOBAwMH;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=JeUmYbrV
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3qUlE2dw;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZL8jr8Y7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=b61SIPlWfJlSsqgHBEsoATKMuRrzVETvAdZufWKh4Js=; b=HCOBAwMH8064FsCkAvws7wjVG0
-	1Q4Gm1mKlYQV3qNWgcfj84Uu8KjGWAC4eNsM1ZcR7WnaJ9vYRk2dgzH0R6oCuMu0KAg3pNpaBMcTO
-	4xdW7QWTDnzLWYmmlsnWifOmakqzvWxZeGKht9lUcse1SaWsZn0JXYvDxhPvno2nzPZI2JZ8/4nqj
-	ous12fB2749oTtro7phVr+Ol2wUQ7w7ZzxcFsKWaC32LeKnKpBFhHyr7P68wUWNVeNcQqwI1qoqwX
-	aLiYCwZAKFLWg3ZTclcAftMrqN4/yVezynbVa/Pgo92EFBhpskU532LbGr2P3sg1e2fcskgpD5WSW
-	pEuhRoNA==;
+	bh=e75bhDDrmdB0xq+aCmIiZzj0qF34ax9AEXaTVAuBmrY=; b=3qUlE2dwbRzJN7iBlzyPbE5It4
+	fEIvoSH/ZdwFJDJQ+OvlYAODK+lHdZT8R8R5lRh+/lNoEixWFYXZkC+6C4Bi0UdTFyq8a16rKL0iV
+	k7uFHHCrAt/rBH8RsE0ZE79FnDVyppZ+tl/f4NJ/ZBmsTpbRC3cw3exhpc5O+YUPxBNVXZ8yYEtTc
+	cE3903ArUMNqS6wYctk985nBZi6XHru0G4bNnOk663lTFBWxoCgP0+28WUsfVYBUnW7+t4yr0mkjp
+	w6Z6TY4rkkDFm92TdTLn0h3qAWn2YL0ElkhrOnFlIS2AGkbpxHa+miXIk6LuQ2h0DjzPpadMTQFQB
+	xb1X/WvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLygN-00000006VlF-1vqR;
-	Wed, 28 Oct 2026 08:06:51 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1xLywO-00000006Xq9-0kjf;
+	Wed, 28 Oct 2026 08:23:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLygM-00000006Vl5-0gJw
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 28 Oct 2026 08:06:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=c240DR83JuR63BMG4/5b1ZEcsT+lI3V8H+zMAtuhVW4=; b=JeUmYbrVJ5hVNkMe52I30pmZwb
-	L+n8t3cHN2+9FUJIQE15d3lhvXFlG4ucACiZ0nBTW+0PzzZLkZNMT67Ef8gqakJ4JJPxpvHRdamWC
-	JVoCh5fhQu1TgksInJTUjpzBJ3rbH4WH1gVgyCb8kuRXJw9sn7t33KaNmdCLZ8WEaw0ZjnR8ocks8
-	CU8OoqRi4TMb/SF3TUlzO/5+tzoBDD1Qp2K1+Uaukof1vxIdis56J+A6BLdVKWz01rJQzblygcKN1
-	gZxkSxBjuuVpqKS7RL1cwX500QdpU5nvVEqkWZi25MP4gCisv7FCpv3jk/mgXBHj/enb6KgwlrH7C
-	GvanlsQw==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLyg8-000000025sx-1dmn;
-	Wed, 28 Oct 2026 08:06:36 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 4FE7A30120E; Wed, 28 Oct 2026 09:06:35 +0100 (CET)
-Date: Wed, 28 Oct 2026 09:06:35 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Muchun Song <muchun.song@linux.dev>
-Cc: Kiryl Shutsemau <kas@kernel.org>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Usama Arif <usamaarif642@gmail.com>,
-	Frank van der Linden <fvdl@google.com>,
-	Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Zi Yan <ziy@nvidia.com>, Baoquan He <bhe@redhat.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	kernel-team@meta.com, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>
-Subject: Re: [PATCHv7 13/18] mm: Drop fake head checks
-Message-ID: <20261028080635.GD2668804@noisy.programming.kicks-ass.net>
-References: <f97a8d33-50b2-4a86-8381-ee840cdfa2f9@kernel.org>
- <20261027110028.GH2668564@noisy.programming.kicks-ass.net>
- <auCKv_omLGRc6wv2@thinkstation>
- <f3f3aca9-bdb7-4aec-9099-9fb63a60e61d@kernel.org>
- <auCZFckDfBMrlfxV@thinkstation>
- <070DDE5C-2183-4A8B-AC2D-891CAE15E581@linux.dev>
- <d7a634b6-8668-4753-8bfc-e9334dde705e@kernel.org>
- <4A32F5E6-977D-4720-8723-B19AFBC08FCF@linux.dev>
- <auDkbDlgSZxqlk2G@thinkstation>
- <7cb3dd91-f518-49b6-b311-9ec807b3c63b@linux.dev>
+	id 1xLywM-00000006Xps-40ln;
+	Wed, 28 Oct 2026 08:23:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 40D0442ADB;
+	Wed, 28 Oct 2026 08:23:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DE3C1F01825;
+	Wed, 28 Oct 2026 08:23:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793175802;
+	bh=oi76zVLqRGBKbEzlYKScXk0Y5BaGKUVtwQusrfnUs5M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=ZL8jr8Y7iXVGk1a6orLHdtmPCjF718grxXoQZnVPL4GvQRdRl05DjNjcgF+CdvYr1
+	 rOFtqbscS6ehiqR8YjtxvacCNlv1Fd7ZP2K5DM6BJO2lVbt0/ICRjzOy+7A3clbSQT
+	 3m8CtOkBOAECobb43W+OWcTgS4cyGB44pdS/SV1nsLqpmBCtdd4VWmrBbhMOAtKxPi
+	 gczbZb+ZGR+GQqnY11QrHZFtSknxqD4wGYSVgwjticezk5plamMGCfxacwqeo11NVf
+	 2ArufGw3NQMjAsVtIIB8HRMgM8ngJEbOmWjR3PSOxOD+m84PX4b/0rrHy1K3UeURcK
+	 31f2KlN3Sypcw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xLywJ-000000081ye-2Bov;
+	Wed, 28 Oct 2026 08:23:19 +0000
+Date: Wed, 28 Oct 2026 08:23:18 +0000
+Message-ID: <86qzhaxmh5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jiale Yao <yaojiale02@163.com>
+Subject: Re: [PATCH 00/12] irqchip: validate remaining MADT records before use
+In-Reply-To: <20261028050039.121080-1-yaojiale02@163.com>
+References: <20261028050039.121080-1-yaojiale02@163.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <7cb3dd91-f518-49b6-b311-9ec807b3c63b@linux.dev>
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yaojiale02@163.com, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, lpieralisi@kernel.org, tglx@kernel.org, radu@rendec.net, chenhuacai@kernel.org, kernel@xen0n.name, jiaxun.yang@flygoat.com, anup@brainfault.org, rafael.j.wysocki@intel.com, sunilvl@ventanamicro.com, andrew.jones@linux.dev, jic23@kernel.org, guohanjun@huawei.com, tomasz.nowicki@linaro.org, grant.likely@linaro.org, jason@lakedaemon.net, rrichter@cavium.com, catalin.marinas@arm.com, wangliupu@loongson.cn, zhangtianyang@loongson.cn, lvjianmin@loongson.cn, conor.dooley@microchip.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,59 +74,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, Tianyang Zhang <zhangtianyang@loongson.cn>, Catalin Marinas <catalin.marinas@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Jiaxun Yang <jiaxun.yang@flygoat.com>, Andrew Jones <andrew.jones@linux.dev>, Conor Dooley <conor.dooley@microchip.com>, Hanjun Guo <guohanjun@huawei.com>, WANG Xuerui <kernel@xen0n.name>, linux-riscv@lists.infradead.org, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Huacai Chen <chenhuacai@kernel.org>, Liupu Wang <wangliupu@loongson.cn>, Grant Likely <grant.likely@linaro.org>, linux-mips@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Jason Cooper <jason@lakedaemon.net>, Tomasz Nowicki <tomasz.nowicki@linaro.org>, Robert Richter <rrichter@cavium.com>, Jianmin Lv <lvjianmin@loongson.cn>, loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Radu Rendec <radu@rendec.net>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>, Jonathan Cameron <jic23@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 28, 2026 at 10:38:22AM +0800, Muchun Song wrote:
+On Wed, 28 Oct 2026 05:00:27 +0000,
+Jiale Yao <yaojiale02@163.com> wrote:
 > 
+> Several ACPI interrupt-controller callbacks cast generic MADT subtable
+> headers to controller-specific records and access typed fields without
+> first checking that the firmware supplied the complete structure. A
+> truncated entry can therefore cause an out-of-bounds read during early
+> interrupt-controller and CPU discovery.
 > 
-> On 2026/10/28 01:51, Kiryl Shutsemau wrote:
-> > On Tue, Oct 27, 2026 at 10:03:54PM +0800, Muchun Song wrote:
-> > > Therefore, I am kind of leaning towards removing the RO protection
-> > > and restoring RW permissions to solve the race.
-> > Okay, what about this:
-> > 
-> >  From e23ab850837b53cc79d57d58f1cfb4266e745c3d Mon Sep 17 00:00:00 2001
-> > From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-> > Date: Tue, 27 Oct 2026 17:23:47 +0000
-> > Subject: [PATCH] mm/hugetlb_vmemmap: map the shared tail page writable
-> > 
-> > page_ref_add_unless_zero() reads the refcount and then updates it with
-> > a cmpxchg.  A lockless get, such as a page cache lookup or a PFN
-> > scanner, can read a non-zero refcount from a page that is then freed
-> > and reused as a hugetlb tail page.  If HVO remaps its struct page to
-> > the shared tail page in between, the cmpxchg writes to read-only
-> > vmemmap:
-> > 
-> >      CPU0 (lockless get)               CPU1
-> >      c = atomic_read(&page->_refcount)
-> >                                        page freed
-> >                                        page allocated as a hugetlb tail
-> >                                        HVO remaps the struct page RO
-> >      try_cmpxchg(&page->_refcount, &c, c + 1)
-> >        -> write fault on read-only vmemmap
-> > 
-> > The refcount is zero by then and the compare fails, but LOCK CMPXCHG on
-> > x86 writes anyway.  The kernel oopses when hugetlb pages are allocated
+> Add the missing minimum-size checks at the callback boundaries. Records
+> which are passed from a probe validator to an initialization callback are
+> validated once in the validator, before either callback accesses them.
 > 
-> Is this an X86-specific issue? If not, I suggest a more generic
-> description.
+> The issues were found by code inspection and have not been tested on real
+> hardware.
 
-AFAICT most architectures that implement single compare-and-swap
-instructions are affected, with the possible exception of s390.
+How does this compare to the series posted at [1]?
 
-That is, sparc, arm64-lse, riscv-Zacas, loonarch-amocas, openrisc (and
-ia64 for those people keeping the out-of-tree port alive) all require
-write protection to begin cmpxchg.
+No version number, no change log, and not even an attempt at a QEMU
+test run. If you want people to review this stuff, you need to up your
+game a tiny bit.
 
-All the LL/SC architectures should be fine, they'll never get to the SC
-part.
+	M.
+
+[1] https://lore.kernel.org/20261021144524.364143-1-yaojiale02@163.com
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
