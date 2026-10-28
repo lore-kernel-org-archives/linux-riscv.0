@@ -2,124 +2,57 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76AF4606A32C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 16:58:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E1C6606A31F
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2026 17:48:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Uw5XmkOu;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=YffUjBfT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qLSUfxfy;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ded5COZ7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=tCed8Ab9lt5chI7d9cB1P9v1eKLdcUOBa/K9dDJ3A+g=; b=Uw5XmkOuTcOT4vLSDyofC8jg7V
-	srMru+xuPSiCpbPVYAgkg0kjnWJejrGo+/tADcsJ+7plzM5cWOGm5d/G+XkFuf+75FVNCiV1fS+1Y
-	oKpvi94rJ4xPM6L/ZizUL1FwQyP/0hNSmMrC0YDEEJYQZAMzcYmoSRaGX0xmDR+mX4KumNkE4Ctr2
-	ySTP8bn0XchaD5EIWlr0aR7cMTonDAGmQztXXgXZvljKwTuRiJh3SuFnwODyajuqakj6GbWi7U8jX
-	eIXeeP+jraZ4+w+zGFY2xGPmgO2hJTOy9adsc1ykhQgzCTj6E3fTeAYrCP1jltSBZsJpOk3mYBq4u
-	10+6SfPw==;
+	bh=XgP5ZZegaXTVoLZ/h/PpwkdheKjlM4v1E4rg5GVxPM8=; b=qLSUfxfyuhkfurxW7VEV1hCoW3
+	MD6hN5vGOV3xJoJxlW8Xc/6Zrmd58LXqjiY2g/BYwRxyzdpdWyvW3aZxUqT19iaq0rjIfc1bhBUzu
+	OobrPL2R5SGJLf1jfelXBTMnPbaQBHdABfiGpuSNL0SJ2zIalAldpaiwWd7/+V0M82W/whYbA651a
+	/WKG4Hv2YMqqONKnl5V1Bqp6i4fQdfWIHLvMjHb55khgeSRtXQqwX119vYUaKZbl9XdBG9Ey21fMV
+	w2+9uWCDNwuvd+3pBUROMwjlg9ISGilGH2blkznCUpve0CnO2/YkLH0elR6GlIu27RzQOunm++eTT
+	BAQaWHag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM6yl-00000007crI-1xsr;
-	Wed, 28 Oct 2026 16:58:23 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xM7kz-00000007hat-2ZPF;
+	Wed, 28 Oct 2026 17:48:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM6yi-00000007cqu-0ole
-	for linux-riscv@lists.infradead.org;
-	Wed, 28 Oct 2026 16:58:22 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69SFAXtE1153221;
-	Wed, 28 Oct 2026 16:57:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ti9xJXOUpVhBEh6IONzPkiFQ8GBGVezeIUFHL8AKXKk=; b=YffUjBfTczHe4yr9
-	Gv6SleZL8PlqEZC/7RJ9U46flRHculBLbP10ufcxgd8uMy/o5ebzgMCZ3BZ0pbDz
-	6uDocDnxLYI0Brx6TenAhRs1fKGrEtfsiPzS0W7RhbXWoRECWxkKaWRn7m5hdAqt
-	4/cZ3VaTKG667F+d9q+NyVsnbSax0Z+ztmAMoG1MrjLp8HJHnOr8eqdxeMNF0WZV
-	faJG2jiMAP75Yoo3jaCdSvMddNObdZ3KCvAVQQogPZdPLgBQXXQmu8SIwJ+kWggd
-	lEKw2cMmimqxm/0akg+sALsUsjtTH2pKmHM/WxEPiPbql1e0aofG0X6F4wp+Qhw1
-	5+f8wg==
-Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hk6be3m0k-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 28 Oct 2026 16:57:45 +0000 (GMT)
-Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 69SGtYEW1881526;
-	Wed, 28 Oct 2026 16:55:34 GMT
-Received: from hu-devc-blr-u24-a.qualcomm.com (hu-anuppate-blr.qualcomm.com [10.131.36.165])
-	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 69SGtYij1881490
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 28 Oct 2026 16:55:34 +0000 (GMT)
-Received: by hu-devc-blr-u24-a.qualcomm.com (Postfix, from userid 486687)
-	id 26E47220FD; Wed, 28 Oct 2026 22:25:33 +0530 (+0530)
-From: Anup Patel <anup.patel@oss.qualcomm.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-        Alexandre Ghiti <alex@ghiti.fr>,
-        Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>,
-        Conor Dooley <conor@kernel.org>, Atish Patra <atish.patra@linux.dev>,
-        Anup Patel <anup@brainfault.org>
-Cc: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>,
-        Yunhui Cui <cuiyunhui@bytedance.com>,
-        Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-        Arnaldo Carvalho de Melo <acme@kernel.org>,
-        Namhyung Kim <namhyung@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-        Adrian Hunter <adrian.hunter@intel.com>,
-        James Clark <james.clark@linaro.org>, Will Deacon <will@kernel.org>,
-        Thomas Gleixner <tglx@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-        Randy Dunlap <rdunlap@infradead.org>, Shuah Khan <shuah@kernel.org>,
-        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-        =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
-Subject: [PATCH v11 1/9] riscv: add SBI SSE extension definitions
-Date: Wed, 28 Oct 2026 22:25:23 +0530
-Message-ID: <20261028165531.940336-2-anup.patel@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261028165531.940336-1-anup.patel@oss.qualcomm.com>
-References: <20261028165531.940336-1-anup.patel@oss.qualcomm.com>
+	id 1xM7kx-00000007haN-34Ur;
+	Wed, 28 Oct 2026 17:48:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C9407601EF;
+	Wed, 28 Oct 2026 17:48:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8996F1F01828;
+	Wed, 28 Oct 2026 17:48:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793209689;
+	bh=/Wv2oduyHCB3bINkvbXDumOCP+2XIPoe6lycT40yGmU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ded5COZ7NK1LzkY5zjgze165QjBxccKnZt8HKG45T+ir/wGv+XVL4qTFMgnqrqSOl
+	 L1HGKA+Fq5Yfn383MT9I0SC7m7tmCLqA6V3sO7toYVKVSu51xZ/A/DzG6kI6oHsfe3
+	 JSqLPvahttWSBHqyRmT13u6BB42i4DocncHMis9Aa3PotPzDx5DTCf7PB1VPOJXgF0
+	 s91q6oskyk4rpFa2vweOrbaaoTN+XNUVJYbsparmFsIjHZ+mkutEwZCATAltmh2HEb
+	 QNc8bTZoZCK4qOdqlfHsFZwsBsk4ZcPmjD5NlR4xudHffk1l9IY+jvfi3g7NaDRZbS
+	 XRsCIz6O09PUw==
+Date: Wed, 28 Oct 2026 17:48:00 +0000
+From: Conor Dooley <conor@kernel.org>
+To: gaohan@iscas.ac.cn
+Subject: Re: [PATCH RFC 00/18] riscv: add initial Zhihe A210 support using
+ SCMI clocks and resets
+Message-ID: <20261028-shrivel-wrath-b50d6b12c259@spud>
+References: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-ORIG-GUID: dkZmSZzbxwJmRS_gJnpkAuJnr5u0P2Rb
-X-Authority-Analysis: v=2.4 cv=HeuB3SE8 c=1 sm=1 tr=0 ts=6ae22989 cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=HwFc7jivAAAA:8
- a=h0uksLzaAAAA:8 a=EUspDBNiAAAA:8 a=968KyxNXAAAA:8 a=7gMZY_Da8-zL24rEBcEA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=kr7TZk85JJIQSqC0cl8G:22
- a=MSi_79tMYmZZG2gvAgS0:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI4MDA2NyBTYWx0ZWRfX/AE8MXY3mPPY
- 83eMgQboUsdR2oP8VsOBS4rY0zkfc1eAdXzFFXvc4ShLO3huQq46wI45r56P+EpLKZFyoLkYcsa
- GIMzsQlBl7aOX93JdulyQPR3HrKCPpI=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI4MDA2NyBTYWx0ZWRfX/csPbFPAbpOU
- DfLPlawkIeukrRiwt8TLtUN3gjYHWAfRBwXU63jUAC3sr1wIx9moXrH2+fY5EHP3YkN6fJpLr6S
- 5oYdLR1eSuhQ7HyqCqazdWj+EzsO5Zh3SbVXcUWj+9Jbqz8u0wQZFYfEZYVoXBvEIRYqumjcQOL
- kErgawbWpxYf056dZQrXba9jByKN46owX0zeTvuiA4ov40fKjqylKeojnjjxLyzgSxBdrUtOrTX
- xvkVNZvi/1MYyPhNoOAq/tcK+VB2CxmG+5zSUyd9itG2f07aoGQLh35d2voPnQ4iHzLWjZiia8w
- PJLl9QLQ1ByAnEFbVQIVj4Nu2dYAi1x0g+Qq8rzESHYjfTYk0vWIUNMqxhTGTu9XCt+o/oPExhc
- O+Hx66x9LTdZuJg9N5SUkWQu3wTWFFTyZ5AZ/MOXqLAVTqsn75JJ8vZ2sXJQZSQCBZszGGHA1qK
- /udj4t1qF8CYqEQc1Gg==
-X-Proofpoint-GUID: dkZmSZzbxwJmRS_gJnpkAuJnr5u0P2Rb
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-28_05,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 adultscore=0 phishscore=0 impostorscore=0 bulkscore=0
- lowpriorityscore=0 spamscore=0 clxscore=1015 priorityscore=1501
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
- definitions=main-2610280067
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_095820_350987_92A8D84D 
-X-CRM114-Status: GOOD (  12.05  )
-X-Spam-Score: -2.7 (--)
+In-Reply-To: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,77 +62,197 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Drew Fustini <fustini@kernel.org>, Radu Rendec <radu@rendec.net>, Yao Zi <me@ziyao.cc>, Paul Walmsley <paul.walmsley@sifive.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, Vivian Wang <wangruikang@iscas.ac.cn>, linux-riscv@lists.infradead.org, Jiri Slaby <jirislaby@kernel.org>, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Jerome Brunet <jbrunet+clk@baylibre.com>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Jassi Brar <jassisinghbrar@gmail.com>, Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux-serial@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, linux-gpio@vger.kernel.org, Daniel Lezcano <daniel.lezcano@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, Paul Walmsley <pjw@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, Stephen Boyd <sboyd@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Inochi Amaoto <inochiama@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Content-Type: multipart/mixed; boundary="===============4243704344936604491=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-RnJvbTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgoKQWRkIGRlZmluaXRp
-b25zIGZvciB0aGUgU0JJIFN1cGVydmlzb3IgU29mdHdhcmUgRXZlbnRzIGV4dGVuc2lvbiBbMV0u
-ClRoaXMgZXh0ZW5zaW9uIGVuYWJsZXMgdGhlIFNCSSB0byBpbmplY3QgZXZlbnRzIGludG8gc3Vw
-ZXJ2aXNvciBzb2Z0d2FyZQptdWNoIGxpa2UgQVJNIFNERUkuCgpbMV0gaHR0cHM6Ly9saXN0cy5y
-aXNjdi5vcmcvZy90ZWNoLXBycy9tZXNzYWdlLzUxNQoKU2lnbmVkLW9mZi1ieTogQ2zDqW1lbnQg
-TMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgpDby1kZXZlbG9wZWQtYnk6IEhpbWFuc2h1IENo
-YXVoYW4gPGhpbWFuc2h1LmNoYXVoYW5Ab3NzLnF1YWxjb21tLmNvbT4KU2lnbmVkLW9mZi1ieTog
-SGltYW5zaHUgQ2hhdWhhbiA8aGltYW5zaHUuY2hhdWhhbkBvc3MucXVhbGNvbW0uY29tPgpDby1k
-ZXZlbG9wZWQtYnk6IFpoYW5wZW5nIFpoYW5nIDx6aGFuZ3poYW5wZW5nLmphc3BlckBieXRlZGFu
-Y2UuY29tPgpTaWduZWQtb2ZmLWJ5OiBaaGFucGVuZyBaaGFuZyA8emhhbmd6aGFucGVuZy5qYXNw
-ZXJAYnl0ZWRhbmNlLmNvbT4KLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oIHwgNjMg
-KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCiAxIGZpbGUgY2hhbmdlZCwgNjMg
-aW5zZXJ0aW9ucygrKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmgg
-Yi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oCmluZGV4IGZkNjI2NmE3YjMzOS4uZWIyMmQ3
-OWNlYTYxIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oCisrKyBiL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmgKQEAgLTQwLDYgKzQwLDcgQEAgZW51bSBzYmlfZXh0
-X2lkIHsKIAlTQklfRVhUX0ZXRlQgPSAweDQ2NTc0NjU0LAogCVNCSV9FWFRfTVBYWSA9IDB4NEQ1
-MDU4NTksCiAJU0JJX0VYVF9EQlRSID0gMHg0NDQyNTQ1MiwKKwlTQklfRVhUX1NTRSA9IDB4NTM1
-MzQ1LAogCiAJLyogRXhwZXJpbWVudGFscyBleHRlbnNpb25zIG11c3QgbGllIHdpdGhpbiB0aGlz
-IHJhbmdlICovCiAJU0JJX0VYVF9FWFBFUklNRU5UQUxfU1RBUlQgPSAweDA4MDAwMDAwLApAQCAt
-NTA4LDYgKzUwOSw2OCBAQCBlbnVtIHNiaV9tcHh5X3JwbWlfYXR0cmlidXRlX2lkIHsKICNkZWZp
-bmUgU0JJX01QWFlfQ0hBTl9DQVBfU0VORF9XSVRIT1VUX1JFU1AJQklUKDQpCiAjZGVmaW5lIFNC
-SV9NUFhZX0NIQU5fQ0FQX0dFVF9OT1RJRklDQVRJT05TCUJJVCg1KQogCitlbnVtIHNiaV9leHRf
-c3NlX2ZpZCB7CisJU0JJX1NTRV9FVkVOVF9BVFRSX1JFQUQgPSAwLAorCVNCSV9TU0VfRVZFTlRf
-QVRUUl9XUklURSwKKwlTQklfU1NFX0VWRU5UX1JFR0lTVEVSLAorCVNCSV9TU0VfRVZFTlRfVU5S
-RUdJU1RFUiwKKwlTQklfU1NFX0VWRU5UX0VOQUJMRSwKKwlTQklfU1NFX0VWRU5UX0RJU0FCTEUs
-CisJU0JJX1NTRV9FVkVOVF9DT01QTEVURSwKKwlTQklfU1NFX0VWRU5UX0lOSkVDVCwKKwlTQklf
-U1NFX0hBUlRfVU5NQVNLLAorCVNCSV9TU0VfSEFSVF9NQVNLLAorfTsKKworZW51bSBzYmlfc3Nl
-X3N0YXRlIHsKKwlTQklfU1NFX1NUQVRFX1VOVVNFRCAgICAgPSAwLAorCVNCSV9TU0VfU1RBVEVf
-UkVHSVNURVJFRCA9IDEsCisJU0JJX1NTRV9TVEFURV9FTkFCTEVEICAgID0gMiwKKwlTQklfU1NF
-X1NUQVRFX1JVTk5JTkcgICAgPSAzLAorfTsKKworLyogU0JJIFNTRSBFdmVudCBBdHRyaWJ1dGVz
-LiAqLworZW51bSBzYmlfc3NlX2F0dHJfaWQgeworCVNCSV9TU0VfQVRUUl9TVEFUVVMJCT0gMHgw
-MDAwMDAwMCwKKwlTQklfU1NFX0FUVFJfUFJJTwkJPSAweDAwMDAwMDAxLAorCVNCSV9TU0VfQVRU
-Ul9DT05GSUcJCT0gMHgwMDAwMDAwMiwKKwlTQklfU1NFX0FUVFJfUFJFRkVSUkVEX0hBUlQJPSAw
-eDAwMDAwMDAzLAorCVNCSV9TU0VfQVRUUl9FTlRSWV9QQwkJPSAweDAwMDAwMDA0LAorCVNCSV9T
-U0VfQVRUUl9FTlRSWV9BUkcJCT0gMHgwMDAwMDAwNSwKKwlTQklfU1NFX0FUVFJfSU5URVJSVVBU
-RURfU0VQQwk9IDB4MDAwMDAwMDYsCisJU0JJX1NTRV9BVFRSX0lOVEVSUlVQVEVEX0ZMQUdTCT0g
-MHgwMDAwMDAwNywKKwlTQklfU1NFX0FUVFJfSU5URVJSVVBURURfQTYJPSAweDAwMDAwMDA4LAor
-CVNCSV9TU0VfQVRUUl9JTlRFUlJVUFRFRF9BNwk9IDB4MDAwMDAwMDksCisKKwlTQklfU1NFX0FU
-VFJfTUFYCQk9IDB4MDAwMDAwMEEKK307CisKKyNkZWZpbmUgU0JJX1NTRV9BVFRSX1NUQVRVU19T
-VEFURV9PRkZTRVQJMAorI2RlZmluZSBTQklfU1NFX0FUVFJfU1RBVFVTX1NUQVRFX01BU0sJCTB4
-MworI2RlZmluZSBTQklfU1NFX0FUVFJfU1RBVFVTX1BFTkRJTkdfT0ZGU0VUCTIKKyNkZWZpbmUg
-U0JJX1NTRV9BVFRSX1NUQVRVU19JTkpFQ1RfT0ZGU0VUCTMKKworI2RlZmluZSBTQklfU1NFX0FU
-VFJfQ09ORklHX09ORVNIT1QJQklUKDApCisKKyNkZWZpbmUgU0JJX1NTRV9BVFRSX0lOVEVSUlVQ
-VEVEX0ZMQUdTX1NTVEFUVVNfU1BQCUJJVCgwKQorI2RlZmluZSBTQklfU1NFX0FUVFJfSU5URVJS
-VVBURURfRkxBR1NfU1NUQVRVU19TUElFCUJJVCgxKQorI2RlZmluZSBTQklfU1NFX0FUVFJfSU5U
-RVJSVVBURURfRkxBR1NfSFNUQVRVU19TUFYJQklUKDIpCisjZGVmaW5lIFNCSV9TU0VfQVRUUl9J
-TlRFUlJVUFRFRF9GTEFHU19IU1RBVFVTX1NQVlAJQklUKDMpCisjZGVmaW5lIFNCSV9TU0VfQVRU
-Ul9JTlRFUlJVUFRFRF9GTEFHU19TU1RBVFVTX1NQRUxQCUJJVCg0KQorI2RlZmluZSBTQklfU1NF
-X0FUVFJfSU5URVJSVVBURURfRkxBR1NfU1NUQVRVU19TRFQJQklUKDUpCisKKyNkZWZpbmUgU0JJ
-X1NTRV9FVkVOVF9MT0NBTF9ISUdIX1BSSU9fUkFTCTB4MDAwMDAwMDAKKyNkZWZpbmUgU0JJX1NT
-RV9FVkVOVF9MT0NBTF9ET1VCTEVfVFJBUAkJMHgwMDAwMDAwMQorI2RlZmluZSBTQklfU1NFX0VW
-RU5UX0dMT0JBTF9ISUdIX1BSSU9fUkFTCTB4MDAwMDgwMDAKKyNkZWZpbmUgU0JJX1NTRV9FVkVO
-VF9MT0NBTF9QTVVfT1ZFUkZMT1cJMHgwMDAxMDAwMAorI2RlZmluZSBTQklfU1NFX0VWRU5UX0xP
-Q0FMX0xPV19QUklPX1JBUwkweDAwMTAwMDAwCisjZGVmaW5lIFNCSV9TU0VfRVZFTlRfR0xPQkFM
-X0xPV19QUklPX1JBUwkweDAwMTA4MDAwCisjZGVmaW5lIFNCSV9TU0VfRVZFTlRfTE9DQUxfU09G
-VFdBUkVfSU5KRUNURUQJMHhmZmZmMDAwMAorI2RlZmluZSBTQklfU1NFX0VWRU5UX0dMT0JBTF9T
-T0ZUV0FSRV9JTkpFQ1RFRAkweGZmZmY4MDAwCisKKyNkZWZpbmUgU0JJX1NTRV9FVkVOVF9QTEFU
-Rk9STQkJQklUKDE0KQorI2RlZmluZSBTQklfU1NFX0VWRU5UX0dMT0JBTAkJQklUKDE1KQorCiAv
-KiBTQkkgZGVidWcgdHJpZ2dlcnMgZnVuY3Rpb24gSURzICovCiBlbnVtIHNiaV9leHRfZGJ0cl9m
-aWQgewogCVNCSV9FWFRfREJUUl9OVU1fVFJJR0dFUlMgPSAwLAotLSAKMi40My4wCgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+--===============4243704344936604491==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="RV8O/JhgCogw9BKb"
+Content-Disposition: inline
+
+--RV8O/JhgCogw9BKb
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Oct 27, 2026 at 11:36:51PM +0800, Han Gao via B4 Relay wrote:
+> This adds initial support for the Zhihe A210 SoC and the Melon Pi V1
+> and V2 boards. It replaces the earlier series [1]. The way clocks and
+> resets are handled changed completely, so I am posting it as a new RFC
+> rather than as v2.
+>=20
+> The A210 has eight RISC-V cores in two clusters, four C908 and four
+> C920, plus an E902 management core. In [1] Linux drove the clock and
+> reset registers directly. Review pointed out that those blocks were not
+> modelled properly, and they are also used by the E902 firmware, which
+> owns the power, PMIC and CPU DVFS sequencing. This series leaves those
+> registers to the firmware and uses the standard SCMI clock and reset
+> protocols instead.
+>=20
+> I also looked at RPMI before settling on SCMI. The firmware has to
+> provide reset domains for the UARTs and pad controllers and sensors for
+> thermal management, and RPMI has no ratified protocol for either yet.
+> SCMI covers everything the firmware exposes today: clock, reset, power
+> domain, performance, voltage, sensor and system power. Linux, U-Boot
+> and EDK2 already have SCMI clients, so on the Linux side only the
+> mailbox transport is new. RPMI support in U-Boot is also still being
+> debated [8].
+
+FWIW, this is perfectly fine by me - makes no difference to me if people
+want to support SCMI or RPMI on their platform.
+But I want to know what the story is going to be in terms of a) vendor
+provided firmware and b) upstream opensbi support for this.
+
+Will opensbi actually add SCMI support into the project, or will this
+method force people to use random downstream firmware indefinitely for
+this platform? That's especially true if the vendors are not behind this
+effort and will not be providing SCMI capable firmware with the board,
+or in their BSP for people that integrate the A210 SoC, forcing people
+to re-image their boards to run mainline.
+
+Cheers,
+Conor.
+
+>=20
+> The SCMI related changes compared to [1]:
+>=20
+> - The native clock and reset drivers and their bindings are gone.
+> - A new mailbox driver for the AP to E902 doorbell. One channel carries
+>   SCMI requests, the other carries notifications from the firmware. The
+>   shared memory lives in the AON SRAM.
+> - arm_scmi transports can be built on RISC-V.
+> - New dt-bindings headers for the SCMI clock and reset IDs exported by
+>   the firmware. Only the IDs used here are defined for now. More will
+>   be appended later without renumbering the existing ones.
+> - Each UART has separate APB and serial resets, so the UARTs get a
+>   "zhihe,a210-uart" compatible with two resets, as Philipp suggested.
+> - The pin controllers take their pad resets from SCMI.
+>=20
+> Other changes since [1]: the pinctrl binding explains the SDIO pad names
+> and the shared SDIO mux bit, pin nodes are ordered as pins, function,
+> then configuration, and the defconfig commit explains why ten 8250
+> ports are needed.
+>=20
+> The series covers the mailbox, the pin controller, the UARTs and the
+> bindings and device trees around them. It is based on v7.3 and boots on
+> a Melon Pi V2 to a shell on the UART console with all eight CPUs online.
+> I would mostly like feedback on the SCMI approach and the ID headers
+> before sending the rest of the platform.
+>=20
+> The E902 firmware is a Zephyr based SCMI server [2]. The rest of the
+> boot chain is coreboot [3], OpenSBI [4] and EDK2 [5][6]. The complete
+> Linux tree with the remaining peripherals is at [7].
+>=20
+> [1] https://lore.kernel.org/r/20261022-a210-init-v1-0-5e438f972d24@iscas.=
+ac.cn
+> [2] https://github.com/RevySR/zephyr/tree/xuantie/scmi
+> [3] https://github.com/revyos/coreboot/tree/a210/scmi
+> [4] https://github.com/revyos/opensbi/tree/a210/scmi
+> [5] https://github.com/revyos/edk2/tree/a210/scmi
+> [6] https://github.com/revyos/ruyiedk2/tree/a210/scmi
+> [7] https://github.com/RevySR/linux/tree/a210/scmi-bootchain-v7.3
+> [8] https://lists.u-boot-project.org/pipermail/u-boot/2026-October/635007=
+=2Ehtml
+>=20
+> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> ---
+> Han Gao (10):
+>       firmware: arm_scmi: Allow SCMI transports on RISC-V
+>       dt-bindings: mailbox: add the A210 AP to E902 doorbell
+>       mailbox: add A210 AP to E902 doorbell support
+>       dt-bindings: timer: add Zhihe A210 CLINT
+>       dt-bindings: firmware: add A210 SCMI clock and reset IDs
+>       dt-bindings: serial: snps-dw-apb-uart: add Zhihe A210 UART
+>       riscv: dts: zhihe: add A210 module memory
+>       riscv: dts: zhihe: add Melon Pi V1 and V2
+>       riscv: defconfig: enable A210 support
+>       MAINTAINERS: add Zhihe A210
+>=20
+> Zhiguo Zhu (8):
+>       dt-bindings: vendor-prefixes: add Zhihe
+>       riscv: add Zhihe A210 support
+>       dt-bindings: pinctrl: add Zhihe A210 pin controller
+>       pinctrl: zhihe: add A210 support
+>       dt-bindings: interrupt-controller: add Zhihe A210 PLIC
+>       dt-bindings: riscv: add Melon Pi V1 and V2
+>       riscv: dts: zhihe: add A210 core support
+>       riscv: dts: zhihe: add A210 UARTs
+>=20
+>  .../interrupt-controller/sifive,plic-1.0.0.yaml    |    1 +
+>  .../bindings/mailbox/zhihe,a210-ap-mailbox.yaml    |   76 ++
+>  .../bindings/pinctrl/zhihe,a210-pinctrl.yaml       |  211 ++++
+>  Documentation/devicetree/bindings/riscv/zhihe.yaml |   27 +
+>  .../bindings/serial/snps-dw-apb-uart.yaml          |    5 +-
+>  .../devicetree/bindings/timer/sifive,clint.yaml    |    1 +
+>  .../devicetree/bindings/vendor-prefixes.yaml       |    2 +
+>  MAINTAINERS                                        |   14 +
+>  arch/riscv/Kconfig.socs                            |   10 +
+>  arch/riscv/boot/dts/Makefile                       |    1 +
+>  arch/riscv/boot/dts/zhihe/Makefile                 |    2 +
+>  arch/riscv/boot/dts/zhihe/a210-melonpi-common.dtsi |   55 +
+>  arch/riscv/boot/dts/zhihe/a210-melonpi-v1.dts      |    9 +
+>  arch/riscv/boot/dts/zhihe/a210-melonpi-v2.dts      |    9 +
+>  arch/riscv/boot/dts/zhihe/a210-som.dtsi            |   11 +
+>  arch/riscv/boot/dts/zhihe/a210.dtsi                |  619 ++++++++++
+>  arch/riscv/configs/defconfig                       |   10 +
+>  drivers/firmware/arm_scmi/Kconfig                  |    2 +-
+>  drivers/mailbox/Kconfig                            |    9 +
+>  drivers/mailbox/Makefile                           |    2 +
+>  drivers/mailbox/mailbox-a210.c                     |  205 ++++
+>  drivers/pinctrl/Kconfig                            |   14 +
+>  drivers/pinctrl/Makefile                           |    1 +
+>  drivers/pinctrl/pinctrl-a210.c                     | 1212 ++++++++++++++=
+++++++
+>  include/dt-bindings/clock/zhihe,a210-scmi.h        |   15 +
+>  include/dt-bindings/reset/zhihe,a210-scmi.h        |   13 +
+>  26 files changed, 2534 insertions(+), 2 deletions(-)
+> ---
+> base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+> change-id: 20261027-a210-scmi-ec32fdc246a6
+>=20
+> Best regards,
+> -- =20
+> Han Gao <gaohan@iscas.ac.cn>
+>=20
+>=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--RV8O/JhgCogw9BKb
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCauI1TQAKCRB4tDGHoIJi
+0kURAQCUCYGbEMJ2NtTgInuo3iF5HLvfVD/KWlN1F3WR+DiNPwD+M0vPtUSR3sBM
+RMtElB8aaZ7S8AQB/fwplFhnSj58zg0=
+=p4sC
+-----END PGP SIGNATURE-----
+
+--RV8O/JhgCogw9BKb--
+
+
+--===============4243704344936604491==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4243704344936604491==--
+
