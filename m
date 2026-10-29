@@ -2,62 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B48C1606A31C
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2026 08:25:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 685FA606A31A
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2026 08:40:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kKhSYCON;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=lanxincomputing-com.20200927.dkim.feishu.cn header.i=@lanxincomputing-com.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=cjj1Rrte
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kYfcz3S3;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=W9rQcmyK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Date:Cc:To:Mime-Version:
-	Message-Id:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Unsubscribe-Post:List-Owner;
-	bh=0dklHNeHfDANPkvP3iRHPmsqCs61bSEIN2tuBi4wTcs=; b=kKhSYCONfloF7K9Sban7v3cg4t
-	IysessE5hJs2Yeg4Jp6aZrcgqmRcq1BwhvChd8oedfZOb2pcdtqxYEVyIbnecXGQPSDR0/h/sHuwp
-	diW5GzhdRBo/btjS6qeQjSuXS9+03ypyGMZ0OfKIHYucESEX7OMRXTzbtV39DnfapU5fKiqU/94aK
-	IfmSKPKBRWAOUyaP2WDD34yVM6m0tnMi+9bhegrzdKpEg1s70TckrRdtBKq3Qlo+cDZ8YS+eklLsm
-	B7EdtpvYJWsEIXJsOxyZfUgJqbnZu42mKbDrUkjZjme661dDltrHvKeFdFc3+bxdxz6kpdkJUHmd+
-	hdrWSkTQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=n+xcEbcidO03WWdFBhTZnUidEuuo72rJHY0/BfJTxHc=; b=kYfcz3S3TP8vvH/khRFuvgiNeU
+	QLKaLmU2xvEQAmraID2QQ3Z+p7fkWgou2fItYAC4n4vGNDQnOcPoGl7wVxJEJ87y5qz9wdfpcJtKJ
+	TJY6ErWhdU9mT6rJiA+UErFuoulectcp+VYf+4XV+xSZvWLOJ6/1wRk93qQKJ1Om8g4TM3OKc48hU
+	vXSADXvAXFmnCzefutEVNSNsSUKBJH8079mLnA8FnmR9buKC9gI5Ay8WJ5BSseymzkz2Nquhqz7iK
+	hOU4Zw2KTJauyxeYyFpj0Slx+NXM9SlKyEwElE2OR2ZU5w4Oh0gtgzSvvPe2TgLDw9S19OjbIDoYN
+	jNW9F2UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMLRo-00000008iUJ-3W06;
-	Thu, 29 Oct 2026 08:25:20 +0000
-Received: from va-2-28.ptr.blmpb.com ([209.127.231.28])
+	id 1xMLgc-00000008kOf-1JR1;
+	Thu, 29 Oct 2026 08:40:38 +0000
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMLRl-00000008iSi-0H6k
+	id 1xMLgX-00000008kNn-3sQQ
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Oct 2026 08:25:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1793262307;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=sDSw+quj48/Sv4K0BAesVEV8uBVWYkpg2NZQSvi+LvE=;
- b=cjj1Rrteu7g9BBTuYp+/eEn96lTrJ4mIGH9s18T8Vc8vbQoj/Jjy1ln+epszOtNLHROjFR
- jFjAUtLmNrs2KiPpu2RrZ1WAtEQ0TTcq/1REmqOl+n87ZkDg+987O3nsH2/lHt40mMEPUw
- O4GZn8j6UuudfhgMyOHKjGbeoJ5dkqbw+c+4mreN231rtmygpHtb+G67Cviv4mnbhshHgC
- Hjk7JXPrMkqWuEEDWccoiK8HOZtlHaLBO0p9Wm2pkOCvnlQdxukOiejfua5SmNujPe+SwQ
- fXn/jiT0gCO59wFnR+lqpzZAiNmSzD3zSbjo+pEul1qhGk5Ybp6UnNJ88n0F7w==
-From: "BillXiang" <xiangwencheng@lanxincomputing.com>
-Message-Id: <20261029082426.706302-1-xiangwencheng@lanxincomputing.com>
-X-Original-From: BillXiang <xiangwencheng@lanxincomputing.com>
+	Thu, 29 Oct 2026 08:40:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1793263166;
+	bh=boRhbr+FM0tKBVcgDQpQ3P+TqBiVA+fRPepHBkPCF+8=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=W9rQcmyKjgTytjMR4u3B+Cu9siLmCoXsuRELJAUCJyASY8qIF5vrv1R4Re8xnSUbK
+	 gVfbD2Xn5gfWWsCkvtOxb8C24mQrG1z+rSMMdKRmCt/qqVWkEJ7huG4ggEMTyHu3gy
+	 vlwEtPeR7oKunhFbRTPrLKlTbjeK3m4Fa8izsMHE=
+X-QQ-mid: zesmtpgz8t1793263159t33143ec8
+X-QQ-Originating-IP: m1XVQ5RI6q/S3Bf3iwqFd6FKZ8h9v92/ZduyIH/iRPY=
+Received: from LT-LIANGBAIHUI.dc.com ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 29 Oct 2026 16:39:16 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 17958232766869935615
+EX-QQ-RecipientCnt: 15
+From: Baihui Liang <liangbaihui@linux.spacemit.com>
+Date: Thu, 29 Oct 2026 16:38:48 +0800
+Subject: [PATCH] drm/imagination: retry runtime idle when firmware is not
+ yet idle
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-To: <anup@brainfault.org>
-Cc: <atish.patra@linux.dev>, <pjw@kernel.org>, <palmer@dabbelt.com>, 
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <kvm@vger.kernel.org>, 
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>, 
-	<linux-kernel@vger.kernel.org>, <xiangwencheng@lanxincomputing.com>
-Date: Thu, 29 Oct 2026 16:24:26 +0800
-X-Mailer: git-send-email 2.53.0
-Received: from lanxin-ThinkBook-16-G5-IRH ([123.120.5.129]) by smtp.feishu.cn with ESMTP; Thu, 29 Oct 2026 16:25:04 +0800
-Subject: [PATCH v2] riscv: KVM: Add hart-to-vCPU mapping for faster MSI injection
-X-Lms-Return-Path: <lba+26ae302e1+5f56c3+lists.infradead.org+xiangwencheng@lanxincomputing.com>
+MIME-Version: 1.0
+Message-Id: <20261029-img-pm-autosuspend-v1-1-26851840a34e@linux.spacemit.com>
+X-B4-Tracking: v=1; b=H4sIABcG42oC/yXMQQqDMBBA0avIrDtgYjHVqxQXakadgjFkjAji3
+ Rt1+Rb/HyAUmATq7IBAGwsvLkG9Muin1o2EbJNB57pUua6Q5xH9jG1cF4niyVk0xmj7Kd6qHAy
+ k0AcaeL+n3+axxO5H/Xqd4Dz/ZG7Y6HYAAAA=
+X-Change-ID: 20261029-img-pm-autosuspend-7772d83416f7
+To: Alessio Belle <alessio.belle@imgtec.com>, 
+ Luigi Santivetti <luigi.santivetti@imgtec.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Yixun Lan <dlan@kernel.org>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: imagination@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, Baihui Liang <liangbaihui@linux.spacemit.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793263157; l=1595;
+ i=liangbaihui@linux.spacemit.com; s=20261015; h=from:subject:message-id;
+ bh=zcUD8QgC3EZy/zoKLS2pFNdag8Gz1I+LICYi+Le1+OE=;
+ b=BGFNDhIg6gYlpPJnNL7ooDA1mNIquk2dbIWADun6A9/CLBlkcvx7AGym1elhzughIf07XBNLl
+ a5MYEDW0pHRCgphZ4r2moevt2DG8eGpwFmP7nHX/AqDlc/SGrjvy6LZ
+X-Developer-Key: i=liangbaihui@linux.spacemit.com; a=ed25519;
+ pk=L9Pa1YBHFuJrRPNu/FfSW/likBvv9j2dUrR3r+YyJ5M=
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: Ngwq0BL9nhqb60vOODS5E0lkpgMDTR689lmmhpTtfWsJPKa6h60qF1OX
+	C9Wlno9QMtshJED13MtriB5wljj+PhiQKz54qf3txEvxb2bxsCK/YFizDvw0SUIyNPH6xvi
+	Fk7xQn4sFwIn8WPopURHSLHgTyXLvCLhtvnrtzhtN3fpsnfldh6qLxvfNuJKuoEKxpZt+lf
+	/tCAknFMrLLKdL36ZEz7BbMiVgPgsHjRuRzTdNA4vNGo40OAQoqHBVZg01Zh3/NeryW1X3F
+	u1XLrQ2RWeP1oJk381Y3ZLeP9Wd763i3XTrdSrunnEzHenSFwzkLihqYeXWvYlft0fqUGrG
+	UxucaXelUwT7nw1tSFaAYoqm8WVj7IC3DKKh2iarg5YoFQ4dVlV5r9QW5P17T2SDIOpTQN0
+	Uo2VSdKMAUEHYmlLJCXVVXnfNWukNTqdHeCGwvMT00jNU4PrtRP+9masxQIdbQsuR696bPC
+	LD7SrPiGuXQ9IA/+fOERf6JH5tPX+FG2ocRe/7hn1iIPR08/tsNia9URjvCe1kmF/yDZqrI
+	R/MEqqp5jTcKzRy+3j4dV5GfP/NuS/WWW6Jn+gu7qik6M6ChyZUUIOFQ6aw0maaMR6ptqaQ
+	6VHEl7gg7wa4fE6TmNkewr78Ofo8hqSEmwsTeVjKMwZO0bBKT2tfjSVtM4Sdwi4mRLsBC8V
+	psBEP0psW6pB7GDLm5zgW1TgNZpxgMfHlVBxmGHYe7bD1nwlgJcSQ2xk+8n8RuOLPyEBMYn
+	lpI3egJWpYrvt677tSCg5dSKne5PRrW2dmKuYFd/y8QMqV0e3XlqgfSx3+Q1ADgYotnYr//
+	Pwnpem6UUoOZrXejf2shvuVE34tegafbFqLAD98xc1QgyevvIwYCAK3eJoC9aRoZl9yb+lM
+	X+T/rBfHw+FUG4XXpY6rUwsObeJh0QuCc49pm7sChXa+E3qw+lL8eWH70+5mB4lNEgxtpfC
+	lRgXP48L06cpk+ei3CcJX+Q5mkjGBheJI6V0IXvu0INJBEe8sUIjVfCh8uLlnQgyQBDDcGi
+	SmYVoLhfwD/vDcy1AYHFJi8999gdCgYZsVWX5v30HT1Lkyjy6z/h2y+GiyXRY=
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_012517_344974_F7BD386F 
-X-CRM114-Status: GOOD (  16.16  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261029_014034_841200_4B75660F 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,165 +113,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Replace linear searches over all vCPUs in MSI injection paths with a
-hart_index -> vCPU xarray lookup table. This avoids O(n) scans on
-every injected interrupt and improves performance when the number of
-vCPUs is large.
+Returning -EBUSY from ->runtime_idle() prevents the PM core from
+retrying the idle check. Schedule an autosuspend so the idle state
+can be re-evaluated once the firmware reaches ROGUE_FWIF_POW_IDLE.
 
-Both kvm_riscv_aia_inject_msi_by_id() and kvm_riscv_aia_inject_msi()
-now use the table instead of iterating over the vCPU list.
-
-Signed-off-by: BillXiang <xiangwencheng@lanxincomputing.com>
-Changes in v2:
-- Use xarray instead of normal array to handle incontiguous hart_index.
-- Link to v1:
-  https://lore.kernel.org/kvm-riscv/20260730093614.983508-1-xiangwencheng@lanxincomputing.com/
+Signed-off-by: Baihui Liang <liangbaihui@linux.spacemit.com>
 ---
- arch/riscv/include/asm/kvm_aia.h |  3 ++
- arch/riscv/kvm/aia_device.c      | 50 +++++++++++++++++---------------
- 2 files changed, 30 insertions(+), 23 deletions(-)
+Tested on SpacemiT K3 (PowerVR Rogue BXM-4-64) by running vulkaninfo
+repeatedly. Without this change the device intermittently stayed
+runtime-active after the last user went away, because the firmware had
+not yet reached ROGUE_FWIF_POW_IDLE when the idle check ran. With the
+change the device reliably suspends.
+---
+ drivers/gpu/drm/imagination/pvr_power.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
-index ab03f853e507..3b075f18e1d6 100644
---- a/arch/riscv/include/asm/kvm_aia.h
-+++ b/arch/riscv/include/asm/kvm_aia.h
-@@ -12,6 +12,7 @@
+diff --git a/drivers/gpu/drm/imagination/pvr_power.c b/drivers/gpu/drm/imagination/pvr_power.c
+index eb4b6ecdf4f..6f38249ffcb 100644
+--- a/drivers/gpu/drm/imagination/pvr_power.c
++++ b/drivers/gpu/drm/imagination/pvr_power.c
+@@ -434,7 +434,16 @@ pvr_power_device_idle(struct device *dev)
+ 	struct drm_device *drm_dev = platform_get_drvdata(plat_dev);
+ 	struct pvr_device *pvr_dev = to_pvr_device(drm_dev);
  
- #include <linux/jump_label.h>
- #include <linux/kvm_types.h>
-+#include <linux/xarray.h>
- #include <asm/csr.h>
- 
- struct kvm_aia {
-@@ -47,6 +48,8 @@ struct kvm_aia {
- 
- 	/* Internal state of APLIC */
- 	void		*aplic_state;
+-	return pvr_power_is_idle(pvr_dev) ? 0 : -EBUSY;
++	if (pvr_power_is_idle(pvr_dev))
++		return 0;
 +
-+	struct xarray hart_to_vcpu;
- };
- 
- struct kvm_vcpu_aia_csr {
-diff --git a/arch/riscv/kvm/aia_device.c b/arch/riscv/kvm/aia_device.c
-index efc7c0bcfba9..a415a8c10967 100644
---- a/arch/riscv/kvm/aia_device.c
-+++ b/arch/riscv/kvm/aia_device.c
-@@ -259,6 +259,8 @@ static int aia_init(struct kvm *kvm)
- 	if (ret)
- 		return ret;
- 
-+	xa_init(&aia->hart_to_vcpu);
++	/*
++	 * Firmware not yet idle; reject but schedule autosuspend so
++	 * runtime_idle() can be retried.
++	 */
++	pm_runtime_autosuspend(dev);
 +
- 	/* Iterate over each VCPU */
- 	kvm_for_each_vcpu(idx, vcpu, kvm) {
- 		vaia = &vcpu->arch.aia_context;
-@@ -280,6 +282,11 @@ static int aia_init(struct kvm *kvm)
- 		/* Update HART index of the IMSIC based on IMSIC base */
- 		vaia->hart_index = aia_imsic_hart_index(aia,
- 							vaia->imsic_addr);
-+		
-+		ret = xa_insert(&aia->hart_to_vcpu, vaia->hart_index, vcpu, GFP_KERNEL);
-+		if (ret) { 
-+			goto fail_cleanup_imsics;
-+		}
- 
- 		/* Initialize IMSIC for this VCPU */
- 		ret = kvm_riscv_vcpu_aia_imsic_init(vcpu);
-@@ -299,6 +306,7 @@ static int aia_init(struct kvm *kvm)
- 			continue;
- 		kvm_riscv_vcpu_aia_imsic_cleanup(vcpu);
- 	}
-+	xa_destroy(&aia->hart_to_vcpu);
- 	kvm_riscv_aia_aplic_cleanup(kvm);
- 	return ret;
- }
-@@ -557,30 +565,25 @@ void kvm_riscv_vcpu_aia_deinit(struct kvm_vcpu *vcpu)
- int kvm_riscv_aia_inject_msi_by_id(struct kvm *kvm, u32 hart_index,
- 				   u32 guest_index, u32 iid)
- {
--	unsigned long idx;
- 	struct kvm_vcpu *vcpu;
-+	struct kvm_aia *aia = &kvm->arch.aia;
- 
- 	/* Proceed only if AIA was initialized successfully */
- 	if (!kvm_riscv_aia_initialized(kvm))
- 		return -EBUSY;
- 
--	/* Inject MSI to matching VCPU */
--	kvm_for_each_vcpu(idx, vcpu, kvm) {
--		if (vcpu->arch.aia_context.hart_index == hart_index)
--			return kvm_riscv_vcpu_aia_imsic_inject(vcpu,
--							       guest_index,
--							       0, iid);
--	}
--
--	return 0;
-+	vcpu = xa_load(&aia->hart_to_vcpu, hart_index);
-+	if (!vcpu)
-+		return 0;
-+	
-+	return kvm_riscv_vcpu_aia_imsic_inject(vcpu, guest_index, 0, iid);
++	return -EBUSY;
  }
  
- int kvm_riscv_aia_inject_msi(struct kvm *kvm, struct kvm_msi *msi)
- {
- 	gpa_t tppn, ippn;
--	unsigned long idx;
- 	struct kvm_vcpu *vcpu;
--	u32 g, toff, iid = msi->data;
-+	u32 g, toff, iid = msi->data, hart_index;
- 	struct kvm_aia *aia = &kvm->arch.aia;
- 	gpa_t target = (((gpa_t)msi->address_hi) << 32) | msi->address_lo;
- 
-@@ -595,18 +598,16 @@ int kvm_riscv_aia_inject_msi(struct kvm *kvm, struct kvm_msi *msi)
- 	g = tppn & (BIT(aia->nr_guest_bits) - 1);
- 	tppn &= ~((gpa_t)(BIT(aia->nr_guest_bits) - 1));
- 
--	/* Inject MSI to matching VCPU */
--	kvm_for_each_vcpu(idx, vcpu, kvm) {
--		ippn = vcpu->arch.aia_context.imsic_addr >>
--					IMSIC_MMIO_PAGE_SHIFT;
--		if (ippn == tppn) {
--			toff = target & (IMSIC_MMIO_PAGE_SZ - 1);
--			return kvm_riscv_vcpu_aia_imsic_inject(vcpu, g,
--							       toff, iid);
--		}
--	}
-+	hart_index = aia_imsic_hart_index(aia, target);
-+	vcpu = xa_load(&aia->hart_to_vcpu, hart_index);
-+	if (!vcpu)
-+		return 0;
- 
--	return 0;
-+	ippn = vcpu->arch.aia_context.imsic_addr >> IMSIC_MMIO_PAGE_SHIFT;
-+	if (ippn != tppn)
-+		return 0;
-+	toff = target & (IMSIC_MMIO_PAGE_SZ - 1);
-+	return kvm_riscv_vcpu_aia_imsic_inject(vcpu, g,	toff, iid);
- }
- 
- int kvm_riscv_aia_inject_irq(struct kvm *kvm, unsigned int irq, bool level)
-@@ -647,9 +648,12 @@ void kvm_riscv_aia_init_vm(struct kvm *kvm)
- 
- void kvm_riscv_aia_destroy_vm(struct kvm *kvm)
- {
-+	struct kvm_aia *aia = &kvm->arch.aia;
- 	/* Proceed only if AIA was initialized successfully */
- 	if (!kvm_riscv_aia_initialized(kvm))
- 		return;
-+	
-+	xa_destroy(&aia->hart_to_vcpu);
- 
- 	/* Cleanup APLIC context */
- 	kvm_riscv_aia_aplic_cleanup(kvm);
--- 
-2.53.0
+ static int
+
+---
+base-commit: c339f4010dea8b0d754f84ace70cd1b089878ef8
+change-id: 20261029-img-pm-autosuspend-7772d83416f7
+
+Best regards,
+--  
+Baihui Liang <liangbaihui@linux.spacemit.com>
+
 
 _______________________________________________
 linux-riscv mailing list
