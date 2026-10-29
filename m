@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5ECCA606A31A
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2026 05:07:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21C2B606A32C
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2026 05:07:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vLKFInAd;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Y6vD5IFm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MJb25cmr;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wP3/L7/x
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,72 +14,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=0u2LJ3l0nuyCL53pu2DFKG6gb1mClY7oesncYaFMwOw=; b=vLKFInAdwL7y6ke7jtk0aNrb5P
-	SS3CnqbC1cTsaIzrIeSTtXP/bL8lOsEnt1ziStGs6rK3uBlUT56irW+w8iZIc7qVpnuhnRdUyhBTg
-	yi7pKOriYpRyzKNdIL7b03YDe+9I8yl3rYvX0Z6y9A/cAA7IV3wfk1je3zUFHkEgEKkd7IudmwvYh
-	gL+20hflR5Ci6VM5uqZzNATMD++Lv9QB3L/V5P7OGraAxK/URi9sFpgzBrZ8NCbiGLLI64ntpxT0K
-	p0XskINMZmdgF7mHs75eUOrNwb8do/HMC8k8l61sn1eTp9AusEcHZbNJIzSazpEdQHjcrgs/xfsu9
-	dWAcHnVA==;
+	bh=mrfQiyvqpt72/ifz8lBBkWSqR6dTycgaBfuUKY9p5cA=; b=MJb25cmrQe7KK0h8qzmMT/S5D+
+	Sz37fB4hbgtK5zF6H/nP+8e8lEXxjm9BLkeCHZek4hvljox2Isj1yFQPnoODbTMVb7mrw2emvqVB/
+	Wvpf2UbGI8P+sjJxf+ElqmuteZweggcmGns57E2p16gfy1bJ4NCKxIe6XIhoErdYGmT3QRdXEuJfJ
+	OKYVHvnigTYzWb2cattHw9pgzzYukA4q5q3iqhFK/sXLq7wZr1PjIM5U6QDcU4SHAI4jhP0jLC+rl
+	sJfp/3bRkF7CZqUvOkO5XzzyStakOtAPU9FQ9RnsE7UdofFppu7iUsmiszJHUFhdDmsUfeLbtfC+K
+	nYGGQ8Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMIMH-00000008NGE-1vai;
-	Thu, 29 Oct 2026 05:07:25 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1xMIMO-00000008NNO-37U5;
+	Thu, 29 Oct 2026 05:07:32 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMIMC-00000008NC3-3pTP
+	id 1xMIML-00000008NIs-3FE8
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Oct 2026 05:07:23 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2e985106c0cso14958145ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Oct 2026 22:07:20 -0700 (PDT)
+	Thu, 29 Oct 2026 05:07:31 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2e946155442so13513485ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Oct 2026 22:07:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793250439; x=1793855239; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793250447; x=1793855247; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zGV4hq0i8RZtAPVqoljw/C8+Ety28xxbkClqaDK3k9U=;
-        b=Y6vD5IFmmWPANBwPEpQGZyDCj/ItTRbYqJ1NPys0CjHRmvUvi6zjtybuLkVNhXSPn+
-         gCOSE+1vyUgW3frH0dCbT21Tvzp59s9ZnHo0PhGNm+EE/lNoD2ZQw4a+KiAXmQ5H4tlC
-         blaSUEKZd0EFGLUr10adscg08YtzRpb0RX6M+MSQzSWQdXqE6DHinRCjSx1/30lXuQq7
-         0gud1sA7gZd5NyMkJxIFFsNzG15tTT+DNyY4A8p+e1vBukfiuQE/XeHu7zlMxI7oqm13
-         12oVVzlUSVLCB6+EhzYlE7ZpFIRbpKSV8UTrhjjEZeQsPpUYxPgcxIFWZCFFzdv2iWgw
-         ds5w==
+        bh=zQNT7IgbxAV25cmcgrqKQ0fkAq6sElRF1wG29F8EmV0=;
+        b=wP3/L7/x5EGFR551yKoEcPO9HTd1QxmICCxgb8CxX1Go9FRUyFr1ZhT30+n8psOnKq
+         cI8ksrrkoanuSdibx9H5k6M+Kd7wCJ9r0YqSmLOB1CymTRotc5iCadTt8Qv10SczPjzp
+         TDGHPzrNBoWF30reZAl9zhmc/wo6RpxXB4k7pQf7lT+A+8gz+vS1vULSTPKKgG4phW3u
+         G87t+GyIvhil+dnaRkymqzL2uduo27q+smCc9t1pkylQ1HNd7STZAjZ1SQ8s/FmfqFiD
+         QwFfgaPfIfKysoLy5TZBXrJTAJ3P2GKVN51CyIu8aOm+6O+aUQ1C0aVsmA81sG5m9+zH
+         WHeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793250439; x=1793855239;
+        d=1e100.net; s=20260707; t=1793250447; x=1793855247;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=zGV4hq0i8RZtAPVqoljw/C8+Ety28xxbkClqaDK3k9U=;
-        b=MkY2MgqhIi8HWUb664C1GRlfEsAvOMqJIn2wVtcgp0ewKO1L13slJMe9uH51AyFHBM
-         B4VJ3vKPMLCpOsbvqr6UvCEGAKy9eE9bu5U3M3zmPGPCPOY+lhZ7mkdESFqkIBPXjjGn
-         s6nLSSaz0oAHSTJP0V3a+EhCfAJnnBavyprx1ZeT1EXiluII6kRKpfaMEovVSLfc1MI4
-         o/klQ/YSsXuhHS1/s25vcZLUI1HPsC09+blzpjXzE6wGZdT/Tir6rneSiJ9jd8n/XVP5
-         aFVHKYt5QlBI87XUdz9QguvvA8698Z5n4ypb8cgaLCGJdO/A8Y4E13dkZt6PLM7SllKw
-         9ZmQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwg4z9NLfw4qBA9I7ztUkRWJF1VZLPxehihFETSRMQAfNs5jZlJWj5ABGbvE+Q+UIWOG7qWoEPP2gBCrQ==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ6P5yHpIZUnmsAVE8O6bAhMV+CUtxN6+p9FtjsWTYzP9pvT4AP
-	Djepxj+MCnieI3KAlZbKK2YasJ6izowQjFGhiRStGboFsvClGm3n3G8U
-X-Gm-Gg: AYBFou0WI41fIDX2emd5KklqjLusfpPDpcWtoClcgFmIgze+2gq9Ym1cCcGqJcQrxYB
-	J8Kvopsj7fNZmoBBGiv9Uo4v6RLrJtRbDuuDWlPgtiZ6VVpA9E9iNVHCGQiOhASQ1MmAjRL5xZY
-	1AiS/AUqTdFrLZ/nWzAVcUWIMqJTeuChdnZ2FQhUDUO5v9XaUa4CHk/CG9xAHvovijYD173/H0C
-	id1dGLEZwxYuw7KYNhMX5zbWztwuvpjXJWKVJSZ92BYXzQBsy8xFPAj9qvNuHC58rOufhzq+ZEX
-	J+U2c6lsjo6HMpdwp+TO5SLuJBoTW+GG9X0ZopSOaWjD4/ap33+Tqkkjz5sHo796paSJQADlyC+
-	NW4Uc5+TB/cFAXbCpRg6XZXGepBX2Mvx9IBOAF1whhrc8ESeJD2W9vYNTfo19zwZ6TdDGhSmoPe
-	AnHL0CvG8q2kpwQQY/KaSmnTowO+uX5UG/pxBkEADhrm3HE8hqVZnuYbm6/UX92o/tulm4XU29O
-	6THUV9N85abU+nnqKBx436FKGg8NN//f6HNNN8kqOQd1hRg0VGn4dhE/nJ83+eFxbH0yKSy4TtZ
-	ZO2WKHeMgLkMw5EKK1BZDg9nG7gG6Q==
-X-Received: by 2002:a17:902:da8d:b0:2e9:69b1:1b9b with SMTP id d9443c01a7336-2eb0012c7f1mr38007225ad.8.1793250439420;
-        Wed, 28 Oct 2026 22:07:19 -0700 (PDT)
+        bh=zQNT7IgbxAV25cmcgrqKQ0fkAq6sElRF1wG29F8EmV0=;
+        b=KXybSm5u31YCYVbFFunQzFnIkCxui3JkQkx1xWhgtQXJWlc6epghjPr0Ok8fiiifsd
+         KKZgT3GC8FuG120XH4fnAayJJOkPLf040+y0sG0153gEWCyImghRLrAHFKmwEJscgQUL
+         pWzT4SIMMGqrk0qeF5wmkV54M932I5x8bsTScuK6B0lSzD+YeVconoV0KwTReCMfcj+P
+         CZMn51Ev+GNHR8ca1LqfkNP4+5aeFjbwEvoVrz9uoziFi9upFKR/3/xbXmcVOmOa5z8w
+         XVEsi8tet4IHAO0e3SmnMdMokLDiyv3coK9p/P+b8AK8FRRs7GNshVMv/rpq5Jzs80OY
+         q7mA==
+X-Forwarded-Encrypted: i=1; AKwUvBzIJPozb7k1N+nHHyCX9RtqMSwNIZNK1IquhObyvFoq/+/nSgoc03/x97blYgtj3d8S+8IIIpGpSw9nXw==@lists.infradead.org
+X-Gm-Message-State: AFq9FYKepVQB30WgbUdsRnwr416C8Z5s2UEXJETDLBp9NSc8EsQ3NtBk
+	V+JLcqo5rVTDFQYE5zElNxq6j60wRhhDnPe0U6lBiodYC9ZkDeRDYFDq
+X-Gm-Gg: AYBFou0erjahvx6jYfPicSxLo6DvWcGvKM565oIMETUI619UQ8sajKdIjMoDkchahbJ
+	QvQpcSwjGDNfzw7KEy6jLK2GuBUEshg46RoHx04DKrlNlsWD4anwRFAE4XwKjT3RHfbRBjFUEXf
+	npAQv0PDAvZZAP4w3bKiBvL/PXGie98WlG9gehzEQND7ug3heIr/HBSqzWWGiMPOf0h9wQsw4KE
+	qflgrSKu2wDMV87B5gnmwFmdKIecY8ImOfK2Ww7TDakc1Dx4Yl0a5iVeOrTu2ypUjt5NGq+WBHz
+	jwN26Fnnz1niJE5Qd/7eCaKnzC7p/okJGPC0WqswF3U9yI333LQbF779uNw3rrAVy76hi4Gap+9
+	hHCAhq752U65vglYCnq+UHRMjdSxw8rrYNCG8r15ws6EB2+IkQJXgYKYrfbxa5Gu+tY0Ij6bTe9
+	Snq7f5HHF6a7D8AZghOAClgjq4aDewvx8Ds4at85Uli2jazskQPDPjUxpk2a9TUBIpBbtLaXSKF
+	uRiF8bw/BVVNE2ZIfH3O2T2FktlWD4cEmOD0Qzt5r+x7Lh7EwbVqAwhFIvTR5RHfZ1WBCXO8fA6
+	Wkd5fmSgbT1llLuop4OP01UTjqKc
+X-Received: by 2002:a17:902:d485:b0:2dd:ad73:c93a with SMTP id d9443c01a7336-2eb004fc927mr39045165ad.27.1793250447442;
+        Wed, 28 Oct 2026 22:07:27 -0700 (PDT)
 Received: from [127.0.1.1] ([169.211.140.146])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eae6c9d2cesm28159685ad.65.2026.10.28.22.07.11
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eae6c9d2cesm28159685ad.65.2026.10.28.22.07.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2026 22:07:18 -0700 (PDT)
+        Wed, 28 Oct 2026 22:07:27 -0700 (PDT)
 From: Kwanghoon Son <asdfkwang@gmail.com>
-Date: Thu, 29 Oct 2026 01:05:51 -0400
-Subject: [PATCH RFC 10/12] riscv: dts: bouffalolab: Add Sipeed M1s Dock
+Date: Thu, 29 Oct 2026 01:05:52 -0400
+Subject: [PATCH RFC 11/12] riscv: defconfig: Enable Bouffalo Lab SoCs
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261029-rust-bl808-console-v1-10-b736ee920078@gmail.com>
+Message-Id: <20261029-rust-bl808-console-v1-11-b736ee920078@gmail.com>
 References: <20261029-rust-bl808-console-v1-0-b736ee920078@gmail.com>
 In-Reply-To: <20261029-rust-bl808-console-v1-0-b736ee920078@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -106,8 +106,9 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_220721_280193_E648A234 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20261028_220729_824954_ECEAAA82 
+X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -129,96 +130,27 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add the M1s SoM memory and 40 MHz crystal, and enable UART3 on the Dock
-with a direct stdout path and 115200 8N1 settings.
-
-Boot firmware initializes PSRAM, UART pads and shared PLLs. The tested
-firmware configures D0 TIME at 320 MHz / 380, represented as 842105 Hz.
-Firmware using another timer configuration must fix up timebase-
-frequency. The declared 64 MiB PSRAM range must retain firmware
-reservations or be narrowed by firmware when memory is assigned to
-another core.
-
-The stdout path selects the native polling printk console; userspace TTY
-I/O is deferred.
+Enable support for Bouffalo Lab SoCs in the default configuration and
+build the BL808 device trees. The Rust UART driver remains an explicit
+configuration choice.
 
 Signed-off-by: Kwanghoon Son <asdfkwang@gmail.com>
 ---
- arch/riscv/boot/dts/Makefile                          |  1 +
- arch/riscv/boot/dts/bouffalolab/Makefile              |  2 ++
- .../boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts    | 18 ++++++++++++++++++
- arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi | 19 +++++++++++++++++++
- 4 files changed, 40 insertions(+)
+ arch/riscv/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-index 69d8751fb17c803f0efb8003e111ee24144c222b..294f9c119f8f1d608c878ca1f95891843301f07e 100644
---- a/arch/riscv/boot/dts/Makefile
-+++ b/arch/riscv/boot/dts/Makefile
-@@ -2,6 +2,7 @@
- subdir-y += allwinner
- subdir-y += andes
- subdir-y += anlogic
-+subdir-y += bouffalolab
- subdir-y += canaan
- subdir-y += eswin
- subdir-y += microchip
-diff --git a/arch/riscv/boot/dts/bouffalolab/Makefile b/arch/riscv/boot/dts/bouffalolab/Makefile
-new file mode 100644
-index 0000000000000000000000000000000000000000..4d63365edc095fbe9df31c4b12e29c4b624cbd1f
---- /dev/null
-+++ b/arch/riscv/boot/dts/bouffalolab/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+dtb-$(CONFIG_ARCH_BOUFFALOLAB) += bl808-sipeed-m1s-dock.dtb
-diff --git a/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..c719a53c6e2de45f3718b48ba2116e99c70e559b
---- /dev/null
-+++ b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
-@@ -0,0 +1,18 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include "bl808-sipeed-m1s.dtsi"
-+
-+/ {
-+	model = "Sipeed M1s Dock";
-+	compatible = "sipeed,m1s-dock", "sipeed,m1s", "bflb,bl808";
-+
-+	chosen {
-+		stdout-path = "/soc/serial@30002000:115200n8";
-+	};
-+};
-+
-+&uart3 {
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
-new file mode 100644
-index 0000000000000000000000000000000000000000..ae54e6e301ed2c5a1448d52c530c5074515ee38c
---- /dev/null
-+++ b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
-@@ -0,0 +1,19 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+#include "bl808.dtsi"
-+
-+/ {
-+	compatible = "sipeed,m1s", "bflb,bl808";
-+	memory@50000000 {
-+		device_type = "memory";
-+		reg = <0x50000000 0x04000000>;
-+	};
-+
-+	cpus {
-+		timebase-frequency = <842105>;
-+	};
-+};
-+
-+&xtal {
-+	clock-frequency = <40000000>;
-+};
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index 04ae305d5511bb0760247f50d4b69b1e3a00527b..78a5580021d8cd654c33df931149a2224465285a 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -24,6 +24,7 @@ CONFIG_BLK_DEV_INITRD=y
+ CONFIG_PROFILING=y
+ CONFIG_ARCH_ANDES=y
+ CONFIG_ARCH_ANLOGIC=y
++CONFIG_ARCH_BOUFFALOLAB=y
+ CONFIG_ARCH_ESWIN=y
+ CONFIG_ARCH_MICROCHIP=y
+ CONFIG_ARCH_SIFIVE=y
 
 -- 
 2.47.3
