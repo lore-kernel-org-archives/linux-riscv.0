@@ -2,130 +2,62 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CAA12606A31E
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2026 08:15:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B48C1606A31C
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2026 08:25:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NEFMMLb2;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=F/m37bxI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kKhSYCON;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=lanxincomputing-com.20200927.dkim.feishu.cn header.i=@lanxincomputing-com.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=cjj1Rrte
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	In-Reply-To:Mime-Version:References:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
-	bh=SOm/ojn6gXGppeJi54JBRvkUO71nz5WptCKh5P59g7k=; b=NEFMMLb205WucX4YLDv6SIEfZX
-	UAPUyuJdjfd3kmr+PqtpEeP9J8zrPoxYDmeyUjK5RaGJjHVfuZVBBUk7M+RMPRAGVQiGOYzZIdOKl
-	9NEHInuVrEGuBGFnilhnfS0kbCRZoGUHKKP7rBSfwhkmmJtc6LkB586NV54s6O++h4sHK4GD5e7sO
-	TNcOMB7aPMADyle8CZwTlSl5U4X1VMoaL+TVRZ2JsuuT69Cy+oK2WnKDJw/ln7C6AqRtxZWcObn9e
-	G1rVD3qy00GCO4BTER29nJr1GNR6noaZVvL0kGDfqDh+rNJFlVT42E9UOQaX3Eml+TTPtDTiO1rbX
-	dTCSAMaQ==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Date:Cc:To:Mime-Version:
+	Message-Id:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Unsubscribe-Post:List-Owner;
+	bh=0dklHNeHfDANPkvP3iRHPmsqCs61bSEIN2tuBi4wTcs=; b=kKhSYCONfloF7K9Sban7v3cg4t
+	IysessE5hJs2Yeg4Jp6aZrcgqmRcq1BwhvChd8oedfZOb2pcdtqxYEVyIbnecXGQPSDR0/h/sHuwp
+	diW5GzhdRBo/btjS6qeQjSuXS9+03ypyGMZ0OfKIHYucESEX7OMRXTzbtV39DnfapU5fKiqU/94aK
+	IfmSKPKBRWAOUyaP2WDD34yVM6m0tnMi+9bhegrzdKpEg1s70TckrRdtBKq3Qlo+cDZ8YS+eklLsm
+	B7EdtpvYJWsEIXJsOxyZfUgJqbnZu42mKbDrUkjZjme661dDltrHvKeFdFc3+bxdxz6kpdkJUHmd+
+	hdrWSkTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMLI6-00000008h1M-474W;
-	Thu, 29 Oct 2026 08:15:19 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1xMLRo-00000008iUJ-3W06;
+	Thu, 29 Oct 2026 08:25:20 +0000
+Received: from va-2-28.ptr.blmpb.com ([209.127.231.28])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMLI3-00000008h0g-24Cv
+	id 1xMLRl-00000008iSi-0H6k
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Oct 2026 08:15:16 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-3ab752f6244so2171548a91.2
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Oct 2026 01:15:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1793261714; cv=none;
-        d=google.com; s=arc-20260327;
-        b=GBLMzhHgjX/k8yScove72Lu2/uyB3xF/YsQGuKO/oSXJ0vmOtBcC/nkyCT19uNcntU
-         RKakjVA9a7YhivUckf2vr9/Ae5gbQBmemi5hth/KoygOyLVLgx3vRnJbU54Tj0Gddu9u
-         DQh9UyOV/hd6KuErN7k2D3JZYHYM+8ev8aMDPWIjnxQKs8EzWqtFku+Bt+pD2wltKPms
-         hI7tbPdCJViInlI5W+GMacEYsCYemxJRt9D1Z68hmxre80K7GDRFrAt2CkQb7iNNxSaq
-         Wq4tyI4lhEP8Uw5TOqZMRDg5BkuJqsOIB9GkqzGu4AeFx+IOCPMXMmTQ48iit/bLm0JS
-         4Kng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:in-reply-to:mime-version:references
-         :user-agent:from:dkim-signature;
-        bh=msFGCktevQa+phvCxwZ5TloB/VJ6CyygSDWLYKumkSA=;
-        fh=z3qQxdzQxUK6GseSrDXx2FtOk4hdEZ3HLnU1oYTlF3Y=;
-        b=ADvP4KWxmx50rEH5iSbt3H88I1GBNOXPLhu1wxKyDJFKwruuQ2CUivdg3Lafh7tHW4
-         hiPBifpitoLGLAvIuW4YDGSkiawXsXN9IDKTfriaqi1nkWGgtPueeC9ZWp77cLk6TfC6
-         MSouzUHqKiqiZiq+Gj06WWsbt27YLEg0kOZfFgy9S2+yT/qToFk6842zHxQv2skKZ2GP
-         oTaljU4VYMdwqx0/+bB0B/2Wu0PLhAROfRxmpaLu/8F2s68V727+xVmgpDwQ6Q8/QyOw
-         X9IS3aHhwY74kx2vfglTus0dRGpX6F5m9xax72rBBDPs89EJyVkWtt4DqgHLv+nnVpCA
-         KtqQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1793261714; x=1793866514; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:in-reply-to:mime-version
-         :references:user-agent:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=msFGCktevQa+phvCxwZ5TloB/VJ6CyygSDWLYKumkSA=;
-        b=F/m37bxIw3ccJKp69N0kKcdsT27MdA4mHngYp7+94wUnq476f29WzE7HIK529dBM5g
-         n7YUbAIpDmPO6NH+/bPjm3OLMG1yG6tNfcZ0t/qS7zwEh9vuk1ed5kyptuSibdEaICJi
-         SYfxPD7GPDNsg87g9xYV1mYoj6hWIa2nzs07Mxxha+HDTiJpf/455hCsI45hbnnz9OtG
-         Xbl6JUA40JQkVxqNHT+W6wbC7FD+300ngSAoDCki6Ja4n7onY10EWVPvY0dXcLw3Gb6J
-         4ZaqBGMUPywpmqz4WSLB8NvalZQvnmXVbPg1+nXsyeplC2bV9bQIESz5MeKxuF5UJ/uC
-         un6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793261714; x=1793866514;
-        h=content-type:cc:to:subject:message-id:date:in-reply-to:mime-version
-         :references:user-agent:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=msFGCktevQa+phvCxwZ5TloB/VJ6CyygSDWLYKumkSA=;
-        b=tS7tAGZGGTlo8tTwH+xMJfVg6KNbR0cNWRQzt3Mskq5fdIZ9xiYXGqxpczpMGfAUzh
-         eoP1vhTzS7aBHpP8Uh5EqeEfG/zHTyLOeWlg9z2F6RI8KozYremmbS6QNvYYm9OmhI2i
-         uCa/Jbf8r4rE3YYQD8Ga6HC8qcddwuwizT1jx+D3yAs6e+DkFSN1RZHlUuOanj9RUeCG
-         Y4qJClaDBPoM1a3GIyvsOaNfNcVTHRTLu6zPhvUASpTc9tj9MIw4bEDarfDmJzd1A/md
-         jDkhm/JFp8aNI98/EY/SHAIfSx3Z5AssoR/U6HT84il3HTIA6kNVlJ7wt3UP3m2U5iPk
-         CHUw==
-X-Forwarded-Encrypted: i=1; AKwUvBxS2Mn0Ys/RXhmDeiyICwxDPlFmK4cEaO0opoOC+UAhNHfofCOswEP9MKq/MV1o25krzwKqDDItXTPHvA==@lists.infradead.org
-X-Gm-Message-State: AFq9FYKDshpm6LGGO7Sa93faUgS5h/Yao8iVqUIq8rUUXkIQek/3edfL
-	GWCIrcO7KkJB+KyTNA/HuTm9y7PIozp5gmTMt93qpmQlq4nZBJlzMZKcxaw4wtuBd+0mSb7tmGH
-	PSys6mbcYDbnMoHd6PpwgrIOr9OXPKKb44Gzg3iO72Q==
-X-Gm-Gg: AYBFou12NjUzp8bdop+DuEs2+y8UP+frnVrfl6dXdUH4qG3fV0+E8iuaEooeJ3eCgtD
-	b9tmkAXDxExSJIGWdi2kWtTeJBUFmzqZS9TAvvXsQgGMpDlz/MXOQBPqPWl4PPoVnZ4k16+DfzH
-	XENbH6UVJZaN2WEUb2PFCCsgkGhhD9TOwFhYA1dkYnvxabNqiO5ywNOSuA4NhQ+/L+jikqDzqJR
-	8LBCVWaxfLoixA8uXH31rzHu1hNHj6gMibpX9EGYAIUhN3ARsI2uA5gguaSb/tmsjFaCRd4DNpT
-	uJrYpQDPOAgeKyWO3wzDCDloavq0L7hDU7SjBzVq3q35p86YbiE7WO1g5YVRW9Qm6l+GaXnYHIZ
-	HfSYiWidqgEO28Nr4emITkxZ4IYmxkC/q4jSPHQM9PUeRz8Sk1fJD9u5RhQ==
-X-Received: by 2002:a17:90b:1644:b0:3ac:bc3d:6fe5 with SMTP id
- 98e67ed59e1d1-3ae57df3d9cmr3792452a91.7.1793261714053; Thu, 29 Oct 2026
- 01:15:14 -0700 (PDT)
-Received: from 44278815321 named unknown by gmailapi.google.com with HTTPREST;
- Thu, 29 Oct 2026 01:15:09 -0700
-Received: from 44278815321 named unknown by gmailapi.google.com with HTTPREST;
- Thu, 29 Oct 2026 01:15:09 -0700
-From: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-User-Agent: Mozilla Thunderbird
-X-Original-From: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-References: <20261028165531.940336-1-anup.patel@oss.qualcomm.com>
- <CACnXVncwzQiUN9CO8_Ds7UQJEKzEF29vagsTFrC0WbRZXt7aLw@mail.gmail.com>
- <CAAhSdy1u4Tme=cv7pSyYeahh1BQhQOnsnWBn3D4yxTnfzrApPA@mail.gmail.com>
- <CACnXVndt7Rm3UqZH=T3xYjQ+1H-zPMgU29FcCOjJ2mtu=avoWg@mail.gmail.com>
- <CAAhSdy3WVmzEkG4fgTuXENcys_cWX8h6Hag_fYSkyOdu++iBBQ@mail.gmail.com> <auLxHK4g-_MvFyrp@hu-himchau-blr.qualcomm.com>
+	Thu, 29 Oct 2026 08:25:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1793262307;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=sDSw+quj48/Sv4K0BAesVEV8uBVWYkpg2NZQSvi+LvE=;
+ b=cjj1Rrteu7g9BBTuYp+/eEn96lTrJ4mIGH9s18T8Vc8vbQoj/Jjy1ln+epszOtNLHROjFR
+ jFjAUtLmNrs2KiPpu2RrZ1WAtEQ0TTcq/1REmqOl+n87ZkDg+987O3nsH2/lHt40mMEPUw
+ O4GZn8j6UuudfhgMyOHKjGbeoJ5dkqbw+c+4mreN231rtmygpHtb+G67Cviv4mnbhshHgC
+ Hjk7JXPrMkqWuEEDWccoiK8HOZtlHaLBO0p9Wm2pkOCvnlQdxukOiejfua5SmNujPe+SwQ
+ fXn/jiT0gCO59wFnR+lqpzZAiNmSzD3zSbjo+pEul1qhGk5Ybp6UnNJ88n0F7w==
+From: "BillXiang" <xiangwencheng@lanxincomputing.com>
+Message-Id: <20261029082426.706302-1-xiangwencheng@lanxincomputing.com>
+X-Original-From: BillXiang <xiangwencheng@lanxincomputing.com>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
-In-Reply-To: <auLxHK4g-_MvFyrp@hu-himchau-blr.qualcomm.com>
-Date: Thu, 29 Oct 2026 01:15:09 -0700
-X-Gm-Features: AclHuK_f9UmrKyQEn9kevLn5RZ0DxR6jXXwQ6CxrknwZt6gPcFhXWT1BqyQH4Dk
-Message-ID: <CACnXVndTuZd8jyVG0=KEq1WicQ4iCA22_TkOnSMyrtbTD+ybWA@mail.gmail.com>
-Subject: Re: [PATCH v11 0/9] riscv: add SBI Supervisor Software Events support
-To: Paul Walmsley <pjw@kernel.org>, Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-Cc: Anup Patel <anup.patel@oss.qualcomm.com>, Yunhui Cui <cuiyunhui@bytedance.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	James Clark <james.clark@linaro.org>, Will Deacon <will@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Randy Dunlap <rdunlap@infradead.org>, Shuah Khan <shuah@kernel.org>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Atish Patra <atish.patra@linux.dev>, Yuanzhu <yuanzhu@bytedance.com>
+To: <anup@brainfault.org>
+Cc: <atish.patra@linux.dev>, <pjw@kernel.org>, <palmer@dabbelt.com>, 
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <kvm@vger.kernel.org>, 
+	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>, 
+	<linux-kernel@vger.kernel.org>, <xiangwencheng@lanxincomputing.com>
+Date: Thu, 29 Oct 2026 16:24:26 +0800
+X-Mailer: git-send-email 2.53.0
+Received: from lanxin-ThinkBook-16-G5-IRH ([123.120.5.129]) by smtp.feishu.cn with ESMTP; Thu, 29 Oct 2026 16:25:04 +0800
+Subject: [PATCH v2] riscv: KVM: Add hart-to-vCPU mapping for faster MSI injection
+X-Lms-Return-Path: <lba+26ae302e1+5f56c3+lists.infradead.org+xiangwencheng@lanxincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_011515_666671_EB03FD3F 
-X-CRM114-Status: GOOD (  15.01  )
-X-Spam-Score: 0.2 (/)
+X-CRM114-CacheID: sfid-20261029_012517_344974_F7BD386F 
+X-CRM114-Status: GOOD (  16.16  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,70 +70,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FORGED_MUA_MOZILLA,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Himanshu, Paul,
+Replace linear searches over all vCPUs in MSI injection paths with a
+hart_index -> vCPU xarray lookup table. This avoids O(n) scans on
+every injected interrupt and improves performance when the number of
+vCPUs is large.
 
-On 10/29/26 3:09 PM, Himanshu Chauhan wrote:
-> On Thu, Oct 29, 2026 at 11:32:36AM +0530, Anup Patel wrote:
->>>>> [...]
->>>>> Paul, please hold off on taking this version into for-next until
->>>>> these fixes are included. The rebase and PMU testing are useful, but
->>>>> there are still outstanding correctness issues.
->>>>>
->>>>> I will consolidate the changes and post v12 against riscv/for-next,
->>>>> with an updated changelog and validation results. Let's coordinate
->>>>> the next posting to keep everything together.
->>>>>
->>>>> Thanks,
->>>>> Zhanpeng
->>>>>
->>>>> [1] https://lore.kernel.org/r/as79MHtNYd-VbUug@hu-himchau-blr.qualcomm.com/
->>>>
->>>> Regards,
->>>> Anup
->>>
->>> I'll post a focused v12 before this weekend with the immediate
->>> correctness fixes. Further improvements can follow separately.
->>
->> Linux-7.4 merge window closes end-of this week so your v12
->> will be too late for it hence I suggest sending incremental fixes
->> separately.
->>
->
-> Hi Zhanpeng,
->
-> I agree with Anup. IMO, SSE as a feature is ready. It will be easier
-> for you and for me if the patches are merged. It has become a pain to
-> send revised RAS patches because of the dependency.The issue that I
-> identified can be sent incrementally in coming weeks.
->
-> I would request Paul to pick up the SSE patches now.
->
-> Regards
-> Himanshu
+Both kvm_riscv_aia_inject_msi_by_id() and kvm_riscv_aia_inject_msi()
+now use the table instead of iterating over the vCPU list.
 
-SSE v12[1] is ready with the correctness fixes discussed on the v10 threads.
+Signed-off-by: BillXiang <xiangwencheng@lanxincomputing.com>
+Changes in v2:
+- Use xarray instead of normal array to handle incontiguous hart_index.
+- Link to v1:
+  https://lore.kernel.org/kvm-riscv/20260730093614.983508-1-xiangwencheng@lanxincomputing.com/
+---
+ arch/riscv/include/asm/kvm_aia.h |  3 ++
+ arch/riscv/kvm/aia_device.c      | 50 +++++++++++++++++---------------
+ 2 files changed, 30 insertions(+), 23 deletions(-)
 
-Himanshu, I checked your posted RAS v5 series against v12: all nine
-patches apply cleanly without modification. V12 uses the same
-riscv/for-next base as v11, so switching the dependency requires no
-changes to your patches.
-
-Paul, please pick up v12 rather than v11 so these fixes are included
-from the start.
-
-Thanks,
-Zhanpeng
-
-[1]
-https://lore.kernel.org/linux-riscv/20261029074853.35467-1-zhangzhanpeng.jasper@bytedance.com/
+diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
+index ab03f853e507..3b075f18e1d6 100644
+--- a/arch/riscv/include/asm/kvm_aia.h
++++ b/arch/riscv/include/asm/kvm_aia.h
+@@ -12,6 +12,7 @@
+ 
+ #include <linux/jump_label.h>
+ #include <linux/kvm_types.h>
++#include <linux/xarray.h>
+ #include <asm/csr.h>
+ 
+ struct kvm_aia {
+@@ -47,6 +48,8 @@ struct kvm_aia {
+ 
+ 	/* Internal state of APLIC */
+ 	void		*aplic_state;
++
++	struct xarray hart_to_vcpu;
+ };
+ 
+ struct kvm_vcpu_aia_csr {
+diff --git a/arch/riscv/kvm/aia_device.c b/arch/riscv/kvm/aia_device.c
+index efc7c0bcfba9..a415a8c10967 100644
+--- a/arch/riscv/kvm/aia_device.c
++++ b/arch/riscv/kvm/aia_device.c
+@@ -259,6 +259,8 @@ static int aia_init(struct kvm *kvm)
+ 	if (ret)
+ 		return ret;
+ 
++	xa_init(&aia->hart_to_vcpu);
++
+ 	/* Iterate over each VCPU */
+ 	kvm_for_each_vcpu(idx, vcpu, kvm) {
+ 		vaia = &vcpu->arch.aia_context;
+@@ -280,6 +282,11 @@ static int aia_init(struct kvm *kvm)
+ 		/* Update HART index of the IMSIC based on IMSIC base */
+ 		vaia->hart_index = aia_imsic_hart_index(aia,
+ 							vaia->imsic_addr);
++		
++		ret = xa_insert(&aia->hart_to_vcpu, vaia->hart_index, vcpu, GFP_KERNEL);
++		if (ret) { 
++			goto fail_cleanup_imsics;
++		}
+ 
+ 		/* Initialize IMSIC for this VCPU */
+ 		ret = kvm_riscv_vcpu_aia_imsic_init(vcpu);
+@@ -299,6 +306,7 @@ static int aia_init(struct kvm *kvm)
+ 			continue;
+ 		kvm_riscv_vcpu_aia_imsic_cleanup(vcpu);
+ 	}
++	xa_destroy(&aia->hart_to_vcpu);
+ 	kvm_riscv_aia_aplic_cleanup(kvm);
+ 	return ret;
+ }
+@@ -557,30 +565,25 @@ void kvm_riscv_vcpu_aia_deinit(struct kvm_vcpu *vcpu)
+ int kvm_riscv_aia_inject_msi_by_id(struct kvm *kvm, u32 hart_index,
+ 				   u32 guest_index, u32 iid)
+ {
+-	unsigned long idx;
+ 	struct kvm_vcpu *vcpu;
++	struct kvm_aia *aia = &kvm->arch.aia;
+ 
+ 	/* Proceed only if AIA was initialized successfully */
+ 	if (!kvm_riscv_aia_initialized(kvm))
+ 		return -EBUSY;
+ 
+-	/* Inject MSI to matching VCPU */
+-	kvm_for_each_vcpu(idx, vcpu, kvm) {
+-		if (vcpu->arch.aia_context.hart_index == hart_index)
+-			return kvm_riscv_vcpu_aia_imsic_inject(vcpu,
+-							       guest_index,
+-							       0, iid);
+-	}
+-
+-	return 0;
++	vcpu = xa_load(&aia->hart_to_vcpu, hart_index);
++	if (!vcpu)
++		return 0;
++	
++	return kvm_riscv_vcpu_aia_imsic_inject(vcpu, guest_index, 0, iid);
+ }
+ 
+ int kvm_riscv_aia_inject_msi(struct kvm *kvm, struct kvm_msi *msi)
+ {
+ 	gpa_t tppn, ippn;
+-	unsigned long idx;
+ 	struct kvm_vcpu *vcpu;
+-	u32 g, toff, iid = msi->data;
++	u32 g, toff, iid = msi->data, hart_index;
+ 	struct kvm_aia *aia = &kvm->arch.aia;
+ 	gpa_t target = (((gpa_t)msi->address_hi) << 32) | msi->address_lo;
+ 
+@@ -595,18 +598,16 @@ int kvm_riscv_aia_inject_msi(struct kvm *kvm, struct kvm_msi *msi)
+ 	g = tppn & (BIT(aia->nr_guest_bits) - 1);
+ 	tppn &= ~((gpa_t)(BIT(aia->nr_guest_bits) - 1));
+ 
+-	/* Inject MSI to matching VCPU */
+-	kvm_for_each_vcpu(idx, vcpu, kvm) {
+-		ippn = vcpu->arch.aia_context.imsic_addr >>
+-					IMSIC_MMIO_PAGE_SHIFT;
+-		if (ippn == tppn) {
+-			toff = target & (IMSIC_MMIO_PAGE_SZ - 1);
+-			return kvm_riscv_vcpu_aia_imsic_inject(vcpu, g,
+-							       toff, iid);
+-		}
+-	}
++	hart_index = aia_imsic_hart_index(aia, target);
++	vcpu = xa_load(&aia->hart_to_vcpu, hart_index);
++	if (!vcpu)
++		return 0;
+ 
+-	return 0;
++	ippn = vcpu->arch.aia_context.imsic_addr >> IMSIC_MMIO_PAGE_SHIFT;
++	if (ippn != tppn)
++		return 0;
++	toff = target & (IMSIC_MMIO_PAGE_SZ - 1);
++	return kvm_riscv_vcpu_aia_imsic_inject(vcpu, g,	toff, iid);
+ }
+ 
+ int kvm_riscv_aia_inject_irq(struct kvm *kvm, unsigned int irq, bool level)
+@@ -647,9 +648,12 @@ void kvm_riscv_aia_init_vm(struct kvm *kvm)
+ 
+ void kvm_riscv_aia_destroy_vm(struct kvm *kvm)
+ {
++	struct kvm_aia *aia = &kvm->arch.aia;
+ 	/* Proceed only if AIA was initialized successfully */
+ 	if (!kvm_riscv_aia_initialized(kvm))
+ 		return;
++	
++	xa_destroy(&aia->hart_to_vcpu);
+ 
+ 	/* Cleanup APLIC context */
+ 	kvm_riscv_aia_aplic_cleanup(kvm);
+-- 
+2.53.0
 
 _______________________________________________
 linux-riscv mailing list
