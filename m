@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BE33606A31A
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2026 19:05:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59881606A32F
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2026 19:07:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PRIavIMq;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pui3m9Aj
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QDOvbiOK;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C4nsDuHy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
@@ -14,37 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=C38d0CW6wHVNFHnMvE0I/7xtzpXtnroP/CZ0yUyX5z0=; b=PRIavIMqqxyagAGXzSxDcwIFRY
-	DxhsQfnNMLTfOjAonuqfXNnBK6Z6cUcS/i0ujqB61KaJ8+ovD3FC6nPtoxzLScy89JA1vdADACMvf
-	rFYcsJgPwSoGA2djom55o3YFnnyJl5cDvxF4eELGb05Krk2flUVRkAZJFbOPyJLmAEAuRNBePvuQv
-	oiBkG5nRU0IDVuxx37C9T14MzRfD6WeNzceZdRflfFJuGyRolekq0IRgzvuzHOfozV5ArNduRKiX6
-	xLG/CnR66DWvxkcgAw6+KXX+czmZGOstVYXXdLeOqzcLuLBhJnyyLDRhINdMzzFJWhC+D3ZP7D+ny
-	8YqOnAwA==;
+	bh=xRAVnJ5Axb7sAh48JdleVgxy5gSwkgZ5bkyQIrf1Dt8=; b=QDOvbiOK7An5oAhifLwCZfhr51
+	9rSrnDW5Sq9FSbAg6o72a/nxfy4Km0OCPunZ8IqgFWdq2aM0WmNrSW1JkFUSIQFvJB1uClJY4ILCu
+	5PKJO5MAUS9GalU9RkdLV94Y6IDn1KaT4UCOeabtq7tlDj4W563dmQ7rOWAxtxzr0uW1NTNoBPAdQ
+	CZUukoZivXAyH9HBXc+UZ8wQYUtd4QJZQ9xeS/7Q3jyDMsHT0tTQIv43SnywlsSH21JHlljJIQCUn
+	1bGMZ/1HMzCsOFAVxyW/nTT18xtHSxK0nDXYKQ0dWb3brTNC/SlrYtmRaCZuzQ7vzs2mT+GZDhpip
+	2amUYEiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMVRC-0000000ACzS-269Z;
-	Thu, 29 Oct 2026 19:05:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xMVSw-0000000AD7v-3GSo;
+	Thu, 29 Oct 2026 19:07:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMVRA-0000000ACzJ-0316
+	id 1xMVSv-0000000AD7V-2Ik7
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Oct 2026 19:05:20 +0000
+	Thu, 29 Oct 2026 19:07:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C0D13600DA;
-	Thu, 29 Oct 2026 19:05:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 747CA1F01816;
-	Thu, 29 Oct 2026 19:05:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C4A1440A13;
+	Thu, 29 Oct 2026 19:07:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7E831F01816;
+	Thu, 29 Oct 2026 19:07:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793300718;
-	bh=ZIrKddf6pvxQavxN4Amy5fMjCUZq8twVYnoaojmCO50=;
+	s=k20260515; t=1793300828;
+	bh=Q/k77D2FVuph6npJ0a+RTbXmZgoRa6iV3ban8Ate6SQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Pui3m9AjSPH1MZlpcaehf1JH5eg/ZnS7g/erGiLGLK4BqVVBUQtlnOkYVhg5IENyl
-	 TJqWo6nwpnO27pqSFlm4w+r4s/rg3NBrFhOJReBK9LK+wzY0RvRduLQaMqRgDc6d1S
-	 zm0uDg3CaFEOQjDcJrgihZwxjE8a8GML5q/e1susNgAdpcFvbPPmc3YJvbf2sx1iDM
-	 n+Hkt1rSjyDElXicwNDqQ0JGnCtVzVEEq7ERoTZZFeo2MAkvudTi8lAznndem5DQ/A
-	 4Fh62FFYdq8oh4cXpBPjFaHUH2PTJR27Cz5SDtgnQHgLobCmyPcU+1IoO2GjIzPAPN
-	 zifHWKznRsZ3g==
-Date: Thu, 29 Oct 2026 19:05:10 +0000
+	b=C4nsDuHyQXW1fnF05v4Ne8m9yjO9uZCBOH8EBKrlr1y0AX998WQEcdzrtKr1gUXuT
+	 znDGwOjXUkl7D4e2nYf09JZcN/aTd6egr2sfvCIbSILDQlaP2UIuf41s/zsres0t+k
+	 Dx60kUSfUpKOuU2ueNsrg3YlDXMrivcBVKEIKPhRg+5TkXrnhnTKOE6YtssTLz4BVg
+	 KroXqcjbrcX/OPe5PMWekwiFWUxwOHvqsXn1Yqj1Dsv78v6EFh7DFPpJcHItUYCUdt
+	 HhJX9kMFOHO8+BRtJwuGKqShYs1P+fsjAhtpVCicwAUMrYNFPvMWHLmEidb64xY67f
+	 8zViiAWgtKrkw==
+Date: Thu, 29 Oct 2026 19:07:00 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Kwanghoon Son <asdfkwang@gmail.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -71,13 +71,13 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org
-Subject: Re: [PATCH RFC 09/12] riscv: dts: bouffalolab: Add BL808 SoC
-Message-ID: <20261029-rimless-could-7b96455c785b@spud>
+Subject: Re: [PATCH RFC 10/12] riscv: dts: bouffalolab: Add Sipeed M1s Dock
+Message-ID: <20261029-pork-resonant-fb692b84bef7@spud>
 References: <20261029-rust-bl808-console-v1-0-b736ee920078@gmail.com>
- <20261029-rust-bl808-console-v1-9-b736ee920078@gmail.com>
+ <20261029-rust-bl808-console-v1-10-b736ee920078@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20261029-rust-bl808-console-v1-9-b736ee920078@gmail.com>
+In-Reply-To: <20261029-rust-bl808-console-v1-10-b736ee920078@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,7 +87,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5684684138122755960=="
+Content-Type: multipart/mixed; boundary="===============7431056645367713954=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
@@ -96,133 +96,140 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============5684684138122755960==
+--===============7431056645367713954==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="9JO81ZQA/u1VUulC"
+	protocol="application/pgp-signature"; boundary="J9vR3WpxbNmjOFyr"
 Content-Disposition: inline
 
---9JO81ZQA/u1VUulC
+--J9vR3WpxbNmjOFyr
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Oct 29, 2026 at 01:05:50AM -0400, Kwanghoon Son wrote:
-> Add the BL808 D0 CPU, PLIC, CLINT and UART3. Leave UART3 disabled for
-> boards to enable. UART3 connects directly to PLIC source 20; firmware
-> sets up UART clocks and pins.
+On Thu, Oct 29, 2026 at 01:05:51AM -0400, Kwanghoon Son wrote:
+> Add the M1s SoM memory and 40 MHz crystal, and enable UART3 on the Dock
+> with a direct stdout path and 115200 8N1 settings.
+>=20
+> Boot firmware initializes PSRAM, UART pads and shared PLLs. The tested
+> firmware configures D0 TIME at 320 MHz / 380, represented as 842105 Hz.
+> Firmware using another timer configuration must fix up timebase-
+> frequency. The declared 64 MiB PSRAM range must retain firmware
+> reservations or be narrowed by firmware when memory is assigned to
+> another core.
+>=20
+> The stdout path selects the native polling printk console; userspace TTY
+> I/O is deferred.
 >=20
 > Signed-off-by: Kwanghoon Son <asdfkwang@gmail.com>
 > ---
->  arch/riscv/boot/dts/bouffalolab/bl808.dtsi | 70 ++++++++++++++++++++++++=
+>  arch/riscv/boot/dts/Makefile                          |  1 +
+>  arch/riscv/boot/dts/bouffalolab/Makefile              |  2 ++
+>  .../boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts    | 18 +++++++++++++=
++++++
+>  arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi | 19 +++++++++++++=
 ++++++
->  1 file changed, 70 insertions(+)
+>  4 files changed, 40 insertions(+)
 >=20
-> diff --git a/arch/riscv/boot/dts/bouffalolab/bl808.dtsi b/arch/riscv/boot=
-/dts/bouffalolab/bl808.dtsi
+> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> index 69d8751fb17c803f0efb8003e111ee24144c222b..294f9c119f8f1d608c878ca1f=
+95891843301f07e 100644
+> --- a/arch/riscv/boot/dts/Makefile
+> +++ b/arch/riscv/boot/dts/Makefile
+> @@ -2,6 +2,7 @@
+>  subdir-y +=3D allwinner
+>  subdir-y +=3D andes
+>  subdir-y +=3D anlogic
+> +subdir-y +=3D bouffalolab
+>  subdir-y +=3D canaan
+>  subdir-y +=3D eswin
+>  subdir-y +=3D microchip
+> diff --git a/arch/riscv/boot/dts/bouffalolab/Makefile b/arch/riscv/boot/d=
+ts/bouffalolab/Makefile
 > new file mode 100644
-> index 0000000000000000000000000000000000000000..c739c77960c4578b87fcf2bc0=
-96ef7c8cda089bd
+> index 0000000000000000000000000000000000000000..4d63365edc095fbe9df31c4b1=
+2e29c4b624cbd1f
 > --- /dev/null
-> +++ b/arch/riscv/boot/dts/bouffalolab/bl808.dtsi
-> @@ -0,0 +1,70 @@
+> +++ b/arch/riscv/boot/dts/bouffalolab/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +dtb-$(CONFIG_ARCH_BOUFFALOLAB) +=3D bl808-sipeed-m1s-dock.dtb
+> diff --git a/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts b/=
+arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..c719a53c6e2de45f3718b48ba=
+2116e99c70e559b
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
+> @@ -0,0 +1,18 @@
 > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 > +
-> +#include <dt-bindings/interrupt-controller/irq.h>
+> +/dts-v1/;
+> +
+> +#include "bl808-sipeed-m1s.dtsi"
 > +
 > +/ {
-> +	compatible =3D "bflb,bl808";
-> +	#address-cells =3D <1>;
-> +	#size-cells =3D <1>;
+> +	model =3D "Sipeed M1s Dock";
+> +	compatible =3D "sipeed,m1s-dock", "sipeed,m1s", "bflb,bl808";
+> +
+> +	chosen {
+> +		stdout-path =3D "/soc/serial@30002000:115200n8";
+
+You should be able to do this normally, with an alias. Why are you not
+just using what Jisheng did?
+
+> +	};
+> +};
+> +
+> +&uart3 {
+> +	status =3D "okay";
+> +};
+> diff --git a/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi b/arch=
+/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..ae54e6e301ed2c5a1448d52c5=
+30c5074515ee38c
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
+> @@ -0,0 +1,19 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +
+> +#include "bl808.dtsi"
+> +
+> +/ {
+> +	compatible =3D "sipeed,m1s", "bflb,bl808";
+> +	memory@50000000 {
+> +		device_type =3D "memory";
+> +		reg =3D <0x50000000 0x04000000>;
+> +	};
 > +
 > +	cpus {
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <0>;
-> +
-> +		cpu0: cpu@0 {
-> +			compatible =3D "thead,c906", "riscv";
-> +			device_type =3D "cpu";
-> +			reg =3D <0>;
-> +			mmu-type =3D "riscv,sv39";
-
-> +			riscv,isa =3D "rv64imafdc";
-
-Please drop this property, there shouldn't be any part of the stack that
-needs it anymore.
-
-Cheers,
-Conor.
-
-> +			riscv,isa-base =3D "rv64i";
-> +			riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c",
-> +					       "zicsr", "zifencei", "zicntr", "zihpm";
-> +
-> +			cpu0_intc: interrupt-controller {
-> +				compatible =3D "riscv,cpu-intc";
-> +				interrupt-controller;
-> +				#interrupt-cells =3D <1>;
-> +			};
-> +		};
+> +		timebase-frequency =3D <842105>;
 > +	};
+> +};
 > +
-> +	xtal: clock-xtal {
-> +		compatible =3D "fixed-clock";
-> +		#clock-cells =3D <0>;
-> +	};
-> +
-> +	soc {
-> +		compatible =3D "simple-bus";
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <1>;
-> +		ranges;
-> +		interrupt-parent =3D <&plic>;
-> +		dma-noncoherent;
-> +
-> +		uart3: serial@30002000 {
-> +			compatible =3D "bflb,uart";
-> +			reg =3D <0x30002000 0x1000>;
-> +			interrupts =3D <20 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks =3D <&xtal>;
-> +			clock-names =3D "baud";
-> +			status =3D "disabled";
-> +		};
-> +
-> +		plic: interrupt-controller@e0000000 {
-> +			compatible =3D "bflb,bl808-plic", "thead,c900-plic";
-> +			reg =3D <0xe0000000 0x04000000>;
-> +			interrupts-extended =3D <&cpu0_intc 11>, <&cpu0_intc 9>;
-> +			interrupt-controller;
-> +			#address-cells =3D <0>;
-> +			#interrupt-cells =3D <2>;
-> +			riscv,ndev =3D <82>;
-> +		};
-> +
-> +		timer@e4000000 {
-> +			compatible =3D "bflb,bl808-clint", "thead,c900-clint";
-> +			reg =3D <0xe4000000 0xc000>;
-> +			interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>;
-> +		};
-> +	};
+> +&xtal {
+> +	clock-frequency =3D <40000000>;
 > +};
 >=20
 > --=20
 > 2.47.3
 >=20
 
---9JO81ZQA/u1VUulC
+--J9vR3WpxbNmjOFyr
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCauOY5gAKCRB4tDGHoIJi
-0msBAP4795/OI4/Z/fe0Yr9RRuYypthWWhBXNyzAEDKFE8sLdQEAtwkfNDEfXRMn
-ii8vn56yY4seLAp/qcClM7GtoSAN2Ak=
-=DS5v
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCauOZVAAKCRB4tDGHoIJi
+0hefAQCx6AghS4pcdmANbBU2tVNMmclGvVSFzmC/lcvaVeI8XQD+LPMSJc5dKINU
+zz5nZFMqfz/eATnkpvTcsHFkGQ/XgQU=
+=IKb1
 -----END PGP SIGNATURE-----
 
---9JO81ZQA/u1VUulC--
+--J9vR3WpxbNmjOFyr--
 
 
---===============5684684138122755960==
+--===============7431056645367713954==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -233,5 +240,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5684684138122755960==--
+--===============7431056645367713954==--
 
