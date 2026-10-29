@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4F6A606A31C
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2026 18:52:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55903606A33A
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2026 18:55:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=A7wTsOVX;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DGEcPwfk
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jobVsd/S;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ETFMsP8s
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
@@ -14,37 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=0THpcFb+1dS+fLMj5T8bqn9qaCpiI9gi9ixJisIop20=; b=A7wTsOVXVI9cvhtT3vDCi27Yel
-	i5TCFHPgAgkAm+x1FrtZp6zVkzyP1w6a4x+G2wtZZn8wEkzK2mFc+extdzx4tAGsbKU+3rvn4lw1E
-	/kvVHR+q7JKRDugdGAlyToyeihv+uugOvrchBD55qUOfspiE64SGnW7VGXNWz5dEQ30haAF5KuKRj
-	7nUwkGwo4En5JCv1fHD8oxBCwubC4VHBweMABo0/SMcz/4qBYIfh+vtR0SLJYdrtNmDeebrGQUnZv
-	I4DRxzZStd7UrYCI0J83QPar0QzWdUvQPbDoK83mUfnnZlqYQj2lWUIzK9J6GFpmPGwxSsu4pOS1T
-	AwjtVc+g==;
+	bh=VIZptbR10ZvPha5D5t+Zf2toYpF7aG2Mr99JK038DDY=; b=jobVsd/SMntqtXz0cucgZGPF3a
+	Fi6gO/ozr22p61SvDMu9hmae8Gr6+EXoOW6TQ3CIMdc2sIRfoheYs5IiCqVj1y55mVFfHH5ugtd7Y
+	x1LC+/wIsXZ71ZOdnpKeuyc5GDjN+kgT7ZeB9ZYBm39WyOZIRqXS3dOAWreYnudiUKXUuaxmcZ69V
+	6D/p1q00CcoMoSqc72KY6TJK7d+loQHT4uhExvsmvW9ZYxzR8mPpYy5cfKk/4RDwlctqqM17kiJTm
+	g5tb0oYFyX4gDC5AoZ84X932kczW/anWb1tZaqDE0wmGbncYK/ERLK4tS8NevFXVbUB0NeaUG11OX
+	3RO1OgNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMVEg-0000000AB5d-0Ygr;
-	Thu, 29 Oct 2026 18:52:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xMVHA-0000000ABSV-0WpO;
+	Thu, 29 Oct 2026 18:55:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMVEf-0000000AB5M-02Lh
+	id 1xMVH7-0000000ABSM-3x4L
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Oct 2026 18:52:25 +0000
+	Thu, 29 Oct 2026 18:54:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E9712600C8;
-	Thu, 29 Oct 2026 18:52:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D24D1F01816;
-	Thu, 29 Oct 2026 18:52:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 561FC4388C;
+	Thu, 29 Oct 2026 18:54:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20B621F01816;
+	Thu, 29 Oct 2026 18:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793299943;
-	bh=XWPYBGnM5MkiXHmVnaCPpYcOP6fueC/bukxMlPBkAzU=;
+	s=k20260515; t=1793300097;
+	bh=wEgbHVoAVDi5POFLCru0ShT3/K2/8OJVSBqmnEGYSeo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DGEcPwfkatxrQKJzpfcKlaBXAYxwYS49Sx49GlL2tG4+fEjjG+zm6qvMbCMMYfHvO
-	 FmkChSx1ug7A45iUKCoLTkCs2hUmp/rXY3a5HMPnYGsRdPbwVrjDXBr2nH/Rj/m4M4
-	 GPmXaLEFAkS8TvMO+WxjjjClYw0trZrfJ7YYF86rd6AHtbpFxJMU6wb6ImaZwp/TmX
-	 Nq1BmQNrEcKWR0y26EPbOHfOnALPQylDPhy245z/6HNsio9GsDq4sbzvNgKSOPiIvZ
-	 PN9+GPzhF1NTFZBCuwbfwtErfnGWBqgZ2w+UPstL+wEs5I2SGQpM5zxeaoXqYY88/Q
-	 YuNj/sWF4ri/Q==
-Date: Thu, 29 Oct 2026 18:52:15 +0000
+	b=ETFMsP8s7BqWCCvKeR8RYN4ZbgkNL97EI1G0cfCpGTNPDTtpy+LJHIkygumdQSR6Z
+	 YZoiaI0cRVFxac43T+75VHxazwRUFK/rY9SRmpVzb2r3Gc1Gm6bcMYPXKN0TFXXG7F
+	 D8d0zAbx/00vMCVqqSrjDgZty6kFK5ropSwVzkmzlGVaVUGj7BYoE0bL1UPUCAlO6F
+	 clg3Vh4cSWhi5hgmrwheRXHYVWmGRMaJna6/glQxmbmR4pCC4SED8hlOFty84skrfZ
+	 OQC1MBwEg9bofBa/HM61P1HBpEBb1daP/Q08BXjHuua7zqnkA8DQlKeRkN9FyM4Yho
+	 1AUknEPd2kX4g==
+Date: Thu, 29 Oct 2026 18:54:49 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Kwanghoon Son <asdfkwang@gmail.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -71,13 +71,13 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org
-Subject: Re: [PATCH RFC 01/12] dt-bindings: vendor-prefixes: Add Bouffalo Lab
-Message-ID: <20261029-unpaired-viper-830e55436015@spud>
+Subject: Re: [PATCH RFC 05/12] dt-bindings: serial: Add BL808 UART
+Message-ID: <20261029-pouch-enunciate-e74cf84e42a7@spud>
 References: <20261029-rust-bl808-console-v1-0-b736ee920078@gmail.com>
- <20261029-rust-bl808-console-v1-1-b736ee920078@gmail.com>
+ <20261029-rust-bl808-console-v1-5-b736ee920078@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20261029-rust-bl808-console-v1-1-b736ee920078@gmail.com>
+In-Reply-To: <20261029-rust-bl808-console-v1-5-b736ee920078@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,7 +87,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5345891353890381402=="
+Content-Type: multipart/mixed; boundary="===============3537163604013454348=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
@@ -96,69 +96,123 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============5345891353890381402==
+--===============3537163604013454348==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="rHCtu9GAzIbs5mdw"
+	protocol="application/pgp-signature"; boundary="F1Dhg2KrVTCkSmmT"
 Content-Disposition: inline
 
---rHCtu9GAzIbs5mdw
+--F1Dhg2KrVTCkSmmT
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Oct 29, 2026 at 01:05:42AM -0400, Kwanghoon Son wrote:
-> Register bflb for Bouffalo Lab Technology (Nanjing) Co., Ltd. Reuse the
-> prefix already deployed by Zephyr, including its bflb,uart binding.
+On Thu, Oct 29, 2026 at 01:05:46AM -0400, Kwanghoon Son wrote:
+> Describe the UART register range, interrupt and baud clock input.
+> Initial Linux support targets the BL808 32-byte FIFO and reuses
+> Zephyr's bflb,uart compatible. UART3 is D0 PLIC source 20.
 >=20
 > Link: https://docs.zephyrproject.org/latest/build/dts/api/bindings/serial=
 /bflb,uart.html
 >=20
 > Signed-off-by: Kwanghoon Son <asdfkwang@gmail.com>
-
-Worth noting that last time this came up, we agreed on "bouffalolab"
-because that matched the domain used by the vendor - which is what we
-use as the source for compatible strings.
-
-https://lore.kernel.org/all/20230607195027.GA3894404-robh@kernel.org/
 > ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+>  .../devicetree/bindings/serial/bflb,uart.yaml      | 57 ++++++++++++++++=
+++++++
+>  1 file changed, 57 insertions(+)
 >=20
-> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Doc=
-umentation/devicetree/bindings/vendor-prefixes.yaml
-> index 5471a06f93f1012f08e26f7f105ad846ab3629ac..24c670ff75b6f482ede1bda3b=
-59c70ed9116042f 100644
-> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> @@ -249,6 +249,8 @@ patternProperties:
->      description: Shanghai Belling Co., Ltd.
->    "^bestar,.*":
->      description: Shenzhen Bestar Electronic Technology Co., Ltd.
-> +  "^bflb,.*":
-> +    description: Bouffalo Lab Technology (Nanjing) Co., Ltd.
->    "^bhf,.*":
->      description: Beckhoff Automation GmbH & Co. KG
->    "^bigtreetech,.*":
+> diff --git a/Documentation/devicetree/bindings/serial/bflb,uart.yaml b/Do=
+cumentation/devicetree/bindings/serial/bflb,uart.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..df29d258f0a1c6d7bb283cf19=
+c4157436991b64b
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/serial/bflb,uart.yaml
+> @@ -0,0 +1,57 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/serial/bflb,uart.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Bouffalo Lab UART Controller
+> +
+> +description: |
+> +  UART IP used by Bouffalo Lab SoCs. Initial Linux support covers the
+> +  BL808 controller with a 32-byte FIFO. The compatible follows Zephyr.
+> +
+> +maintainers:
+> +  - Kwanghoon Son <asdfkwang@gmail.com>
+> +
+> +allOf:
+> +  - $ref: serial.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: bflb,uart
+
+This needs to be a device-specific compatible - please just use the
+binding already reviewed and agreed upon in Jisheng's 2023 series.
+
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: Baud rate generator clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: baud
+
+Drop this clock name, with only one clock there's no more need for it
+than the interrupt-names or reg-names that you do not use either.
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    uart3: serial@30002000 {
+> +        compatible =3D "bflb,uart";
+> +        reg =3D <0x30002000 0x1000>;
+> +        interrupts =3D <20 IRQ_TYPE_LEVEL_HIGH>;
+> +        clocks =3D <&uart_baud>;
+> +        clock-names =3D "baud";
+> +    };
+> +...
 >=20
 > --=20
 > 2.47.3
 >=20
 
---rHCtu9GAzIbs5mdw
+--F1Dhg2KrVTCkSmmT
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCauOV3wAKCRB4tDGHoIJi
-0mtFAQC91Kvt02oSw6bmF5jkMTfZvkF2KHf55Yk+76p/7FQUZAD8Dz2UZOSHhRNH
-/FY6RKawJXTzMCT7gGeHa+1gFxncYQU=
-=6vqi
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCauOWeQAKCRB4tDGHoIJi
+0uKtAP0ejRfkQ6TQ/zZ8dEodbmT5akOou9YEluj6A8bUEGnyQgEA1uS4y7a9YWeA
+TkOZjaMll9OgIUH9gJmfHcwWaiRo2Q0=
+=y6XU
 -----END PGP SIGNATURE-----
 
---rHCtu9GAzIbs5mdw--
+--F1Dhg2KrVTCkSmmT--
 
 
---===============5345891353890381402==
+--===============3537163604013454348==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -169,5 +223,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5345891353890381402==--
+--===============3537163604013454348==--
 
