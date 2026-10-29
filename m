@@ -2,74 +2,126 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E7D2606A31A
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2026 12:38:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC997606A31C
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2026 12:42:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=a1L+EIOM;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=k67Btizv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OWsC0pfI;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=mdWwyzmu;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm2 header.b=WuArQmNM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=VDgzWoa6PdxToechO3l6abt1fGrZcLr0wGEaSUYIFB4=; b=a1L+EIOMjI25u471qE0W9hhCbL
-	BwW5CBduKKT19/LPsDpxFdQ+bjHnRZT/LW/aXt6Ct/soVZlF5iZv8GpgwJ2w9RX4Zx30aGnfegf28
-	tsbr8j39rq9sm140uOTm+DmErVk/FVDCclrCOJPmN/Tj+TgAo/WJ5f7yW86VpdrA5htI+aQjHmPHR
-	iUlvfovykW29GyScec1FIHLdOqPoOQTtlAqx8nJ2EN1KeiFdSi13NmIcn3+WtIfnXZAtUwg8oEA7o
-	4kPPtoydu7DviJZQmQTlJqVRFo2ACMK7ZW1Sd0ezrhseUYZl3+XHSC5eqG3CzzsrWFTcmjnED/uN1
-	vQGkiQMQ==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
+	bh=odAcZ504iqNJnKRys4MV06XkIx/P2H5QhacHFtkSee4=; b=OWsC0pfIgiRoqRmYWH+bS75HoY
+	ARA65zdLwx4r4aN8smKERisJ32mQAWJUcWnHfDy8UxZxUdRrmByG5RiylS+b8TTMLPY0+C5S4bAV+
+	042eVwLgJD8uJNNnVRNu+zRK0dYOjUg/Brgljw3wfQijfmWDn9ffgkr4wepvrmM2uLvnIktbnkDiu
+	AoDZmLNmC1I+uvQhC9inbr8Bj4lpaNp7xFBShxADzr4jruQ3KoTxPM3fceTTtBEpDkceSnYfolJpY
+	7A+lGWxNrarmzFR/AY8KgO/NmHI8QeIq3gXca9ga2RLOYI+Cevsa6bXtBjwTze1NB5xdaDs1r0MIQ
+	Chnga70g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMPOm-00000009D5z-4AbW;
-	Thu, 29 Oct 2026 12:38:29 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1xMPST-00000009E6e-45jE;
+	Thu, 29 Oct 2026 12:42:17 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMPNK-00000009AWB-34tt;
-	Thu, 29 Oct 2026 12:37:00 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Agob3mxTkSGaZEZx4j5S6+DBpuThzoNSaaqrk8jqMB0=;
-	b=k67Btizv1fAQItPylmcBlD0pIsexbpL9ZSdTgZyatxhSmAEaEiWO/67ei17si3r2oeut3cxfJ
-	Zld1/NcXkOpWSd4DssLH8oWXlRCceQTA61vsE0sWLEzqazlLI2UkhjwjTonVqR15JzQ6baPph+t
-	AYactcV8YYmWKgIGyRnPKQk=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4jFkHs3wycz1cyNp;
-	Thu, 29 Oct 2026 20:36:41 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 00A1140578;
-	Thu, 29 Oct 2026 20:36:49 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 29 Oct
- 2026 20:36:48 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <reinette.chatre@intel.com>, <james.morse@arm.com>, <ben.horgan@arm.com>,
-	<fenghuay@nvidia.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<mark.rutland@arm.com>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
-	<rdunlap@infradead.org>, <tony.luck@intel.com>, <Dave.Martin@arm.com>,
-	<babu.moger@amd.com>, <tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <hpa@zytor.com>,
-	<tan.shaopeng@jp.fujitsu.com>, <jic23@kernel.org>, <zengheng4@huawei.com>,
-	<gshan@redhat.com>, <x86@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [RFC PATCH v2 14/19] fs/resctrl: Manage assignable counters for every monitor resource
-Date: Thu, 29 Oct 2026 20:36:06 +0800
-Message-ID: <20261029123611.1108424-15-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261029123611.1108424-1-ruanjinjie@huawei.com>
-References: <20261029123611.1108424-1-ruanjinjie@huawei.com>
+	id 1xMPSQ-00000009E5y-1iHM
+	for linux-riscv@lists.infradead.org;
+	Thu, 29 Oct 2026 12:42:16 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfout.stl.internal (Postfix) with ESMTP id 6F60B1D000AF
+	for <linux-riscv@lists.infradead.org>; Thu, 29 Oct 2026 08:42:12 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Thu, 29 Oct 2026 08:42:12 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1793277726;
+	 x=1793364126; bh=d66C6wv4DLzU4mI043VbebszTBlofQJOPgwX8Cd6dwM=; b=
+	mdWwyzmuwDTzAvUsxCtWbuMCcTKNS4bJzaY2TEeIJrI7yuOx+1wIj7unZryo+WQB
+	XMhpAa1cMaIixs85Y+pZ+n39ksYgSfcGdeTl3QocE/6oFU1GZY+wWZJLzfe5UPrj
+	RlxUCaMP7bE6IEXHdu8grAu0AcWetmyHunksqNFfzkLCI7Mi6CwHhTAwJfKHXDPe
+	e3Z3SzujDe5G9YaWhA5JuHlyJF3CeRwS3L84HJBtOJaKKfJNPa4hQooyxJgcnCYK
+	XcvcxgL6r9Aif9Qgzzu0gvkovzR2Br2DU0YiTbeCmmpo+VlJuyfkkaEsu3ahM2y6
+	ees+Y8fHHDuDkAduUCqpWA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1793277726; x=
+	1793364126; bh=d66C6wv4DLzU4mI043VbebszTBlofQJOPgwX8Cd6dwM=; b=W
+	uArQmNM2TdA/7IGGj8PR5oVaLYbgV0+e6zFBBnA/tb2D3vszfX+Wbo1Z+KKtli5l
+	gAJ6+abnCgQPC7ansT10lcjTIsfVjbCLd6NNYM4126zLf3AuuVJLtl7ZdOS2cmPl
+	tQLHLq+QaKTG3B86cdjNS4+1kCjLLctfMiEdEf1qd9PXhFxtY+TUxcNBReuC5T8z
+	mrrh0V/Bq5LBWCuiFzDv3BREQFjfiH6EUL9YojdnM5ViGUn3UGG9TJmIXLQc5ngp
+	pYQOUfQrGIQREYDkjxMVSb1n4QaDPTZQdRs/W4bi/h4C3iYSv+qw9s3et/4JUeYz
+	c+mj6fwLRpDOhjJDAj2Mw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-08;
+	repo=github.com/dkim2wg/interop; date=2026-10-28; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1793277726; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmc+;
+	s=fm2:rsa-sha256:l7Hqk0VROUpeTnCP6gN/EyerlKn19jFp/14i16wYxrpGtAa
+	xtQZLJXkQiE/jCjl1uThXO+DpVFSpVJ9zpBhyJFxfXU34DkA0P7NE0qlSEUN6Ta2
+	WkyFnCuoWaD2eeogWFCq+mAdiYAoT7FymyTfPVANt6HYHEx0LBSdeuD/9brCyV2/
+	aE96qp8eS0gxI10o4jb6PdHLlawo5bvssK8wkMm53tcnPMlizL7YqVQH38H6i+hX
+	+BrxTSR0t5TDy/rB5Eob03wLaTN27w6vYw9GAzT5VJ07TXIpmY5bbvbJON39jCqj
+	mzz6K2CRpMfph2zofnVPc0fYYYFOU3OK/ql75MA==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-08;
+	repo=github.com/dkim2wg/interop; date=2026-10-28; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:pa8id8lezNHZnkKCJdOaeGBTdvPO8v5XG/p8liF/bjw=:zS2WM14JlEd46YHq+76lHPH8OxosPMsFWFrHE0AZa5U=;
+X-ME-Sender: <xms:GD_jars-SiAZ94GhE4p5hGsN425X319VhlpSOuAvB0LAROqjAyGhDA>
+    <xme:GD_janSL602wCkOQBa2SEr4zFhG4eIMO8EKrbNAwWQFXh8GcwITo-tvIXnuq3t91s
+    2LNX1sux-UXIYBpnlfhlpQplJRFIWpWAEkb5bnqK5fMK67C7I5OS9EI>
+X-ME-Proxy-Cause: dmFkZTF1xeXukoYxtIemiSr7RmgPQKVnIlQT+D5fkGBom82nl7QChx9FOS7mWdlUT9+ErJ
+    kw8oCVFb8WcQicGskO3E4Bh8+FW6iiADuk0vexDdjlt6X6rnIPM/vaAWSAPvg7m32O14hd
+    4D6mdwnuYRucC5ycg1z5ZC0g+33fkdixQJ9HuIlbPD33vvSXXoIUXMZOQMIkhblzBPz2Vn
+    7Ha5MO8EXCdb4tOozCTfzfSXc6MQGpeRgufwg7Qs3KqpNn/Vbvhv7sWjDtPhqOMGV2TXho
+    fhLYxhQuYIqSHePKOBrv13qC0NDIX5Uce4IQBcqlvqWT7EvTBRwO0UPSz2t1/wqZMVf5Cn
+    SeLTQy1cF4VBH0fDdeKaDRkjA/3wX1svU9lp9S8/oBjK8016WKz/aMHS6UQ5HgnaN0bY6t
+    xaibeWvLblU9HiJXGCl4QjQq8Q7Qr1N1Mbuia8GstGHix762UveSr7WaxKt5RQDa94+WKT
+    REql0mFBWF+Zk4InDt1jMYAGzfcfJowE47U6LsU0UVP+dwSwIpxwH0G2GqUD6rwOC1twnu
+    6nOMfTmidcHMDvAxPUsoJqNL/9IqnryByrUiikyPrZUsuxmBlyw/HoV37yo32VLdxhBvep
+    VBZx4EE37nNZMEGfrSEVJvVvvB/Rv5Ojdcee0+nR3b5Z1dC+aT0kKBQp/2Cw
+X-ME-Proxy: <xmx:Gj_jaqSh7hEkubgpWYjB74-ubspQz37C-J7HMabAvLe7G8X6oqIluA>
+    <xmx:Gj_jaj7N-fx7uAIOncAl0IKrd2aD2t_4ZwXY3qeB0UT0gsn4Nj8pzg>
+    <xmx:Gj_jak3WLme5pxtj055C-QzyS0Ylbif5tgmetW7xpsnzy4QLdxNDzA>
+    <xmx:Gj_jagkJWBtj3aPUQBTOXlRTD9KYjJd5p28VQdS-a5WImaSxJDjchg>
+    <xmx:Hj_jauxjz1r3cHXoIDfeJxPTV9VljSckPEplyQ2UGA_vJLqeDvPhijTu>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 014FC32A0099; Thu, 29 Oct 2026 08:41:59 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+X-ThreadId: Auj5kB-x7wqJ
+Date: Thu, 29 Oct 2026 13:41:36 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Thomas Huth" <thuth@redhat.com>, "Nathan Chancellor" <nathan@kernel.org>,
+ "Nicolas Schier" <nsc@kernel.org>, "Paul Walmsley" <pjw@kernel.org>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>
+Cc: soc@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+ "Alexandre Ghiti" <alex@ghiti.fr>,
+ "Nick Desaulniers" <ndesaulniers@google.com>,
+ "Bill Wendling" <morbo@google.com>, "Justin Stitt" <justinstitt@google.com>,
+ linux-riscv@lists.infradead.org, llvm@lists.linux.dev
+Message-Id: <f7533c95-8b42-4154-b76b-7d0dfb56148c@app.fastmail.com>
+In-Reply-To: <20261023064908.66707-1-thuth@redhat.com>
+References: <20261023064908.66707-1-thuth@redhat.com>
+Subject: Re: [PATCH v5 00/13] treewide: Replace __ASSEMBLY__ with __ASSEMBLER__ in
+ header files
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_053659_077915_CAD1FC59 
-X-CRM114-Status: GOOD (  22.54  )
+X-CRM114-CacheID: sfid-20261029_054214_761760_1EDC8EF7 
+X-CRM114-Status: GOOD (  14.49  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,309 +135,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Creating or removing a monitor group only assigns or frees counters for
-the L3 MBM events. Walk every resource that has assignable counters and
-handle each of its MBM events.
+On Fri, Oct 23, 2026, at 08:48, Thomas Huth wrote:
+> The kernel Makefiles define the __ASSEMBLY__ macro to provide
+> a way to use headers in both, assembly and C source code.
+> However, all the supported versions of the GCC and Clang compilers (and
+> also other compilers like Tiny-C or PCC) define the macro __ASSEMBLER__
+> automatically already when compiling assembly code, too, so some kernel
+> headers are using __ASSEMBLER__ instead. With regards to userspace code,
+> this seems also to be constant source of confusion, see for example these
+> links here:
+>
+>  https://lore.kernel.org/kvm/20250222014526.2302653-1-seanjc@google.com/
+>  
+> https://stackoverflow.com/questions/28924355/gcc-assembler-preprocessor-not-compatible-with-standard-headers
+>  https://forums.raspberrypi.com/viewtopic.php?p=1652944#p1653834
+>  https://github.com/riscv-software-src/opensbi/issues/199
+>
+> To avoid confusion in the future, it makes sense to standardize
+> on the macro that gets defined by the compiler, so this patch series
+> changes all occurrences of __ASSEMBLY__ into __ASSEMBLER__ and
+> finally removes the -D__ASSEMBLY__ from the Makefiles.
+>
+> I split the patches per architecture / maintained subsystem to ease
+> the review, and I also split the uapi headers from the normal ones in
+> case we ever decide that uapi needs to be treated differently from the
+> normal headers here and the patches would need to get reverted.
 
-Set the default event filter for each such resource, build the BMEC file
-names from the event names, and register the shared info files once.
-resctrl_l3_mon_resource_init() now covers more than the L3, so drop L3
-from its name. mbm_L3_assignments keeps its name and stays L3 only.
+I have started an asm-generic branch[1] for 7.5 based on today's mainline
+snapshot and applied the series. I'll rebase once more after -rc1 is
+out to ensure this can be tested in linux-next.
 
-No functional change as only the L3 can have assignable counters.
+Thanks a lot for getting this finished!
 
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- fs/resctrl/internal.h |  4 +-
- fs/resctrl/monitor.c  | 94 ++++++++++++++++++++++++++-----------------
- fs/resctrl/rdtgroup.c | 28 +++++++------
- 3 files changed, 74 insertions(+), 52 deletions(-)
+     Arnd
 
-diff --git a/fs/resctrl/internal.h b/fs/resctrl/internal.h
-index f84152734fd1..32bc6bda31b7 100644
---- a/fs/resctrl/internal.h
-+++ b/fs/resctrl/internal.h
-@@ -381,9 +381,9 @@ int alloc_rmid(u32 closid);
- 
- void free_rmid(u32 closid, u32 rmid);
- 
--int resctrl_l3_mon_resource_init(void);
-+int resctrl_mon_resource_init(void);
- 
--void resctrl_l3_mon_resource_exit(void);
-+void resctrl_mon_resource_exit(void);
- 
- void mon_event_count(void *info);
- 
-diff --git a/fs/resctrl/monitor.c b/fs/resctrl/monitor.c
-index 739134e2ff77..9032456ad7c9 100644
---- a/fs/resctrl/monitor.c
-+++ b/fs/resctrl/monitor.c
-@@ -1356,19 +1356,20 @@ static int rdtgroup_assign_cntr_event(struct rdt_l3_mon_domain *d, struct rdtgro
-  */
- void rdtgroup_assign_cntrs(struct rdtgroup *rdtgrp)
- {
--	struct rdt_resource *r = resctrl_arch_get_resource(RDT_RESOURCE_L3);
--
--	if (!r->mon_capable || !resctrl_arch_mbm_cntr_assign_enabled(r) ||
--	    !r->mon.mbm_assign_on_mkdir)
--		return;
-+	struct mon_evt *mevt;
-+	struct rdt_resource *r;
- 
--	if (resctrl_is_mon_event_enabled(r, QOS_MBM_TOTAL_EVENT_ID))
--		rdtgroup_assign_cntr_event(NULL, rdtgrp,
--					   &mon_event_all[r->rid][QOS_MBM_TOTAL_EVENT_ID]);
-+	for_each_mon_capable_rdt_resource(r) {
-+		if (!resctrl_arch_mbm_cntr_assign_enabled(r) ||
-+		    !r->mon.mbm_assign_on_mkdir)
-+			continue;
- 
--	if (resctrl_is_mon_event_enabled(r, QOS_MBM_LOCAL_EVENT_ID))
--		rdtgroup_assign_cntr_event(NULL, rdtgrp,
--					   &mon_event_all[r->rid][QOS_MBM_LOCAL_EVENT_ID]);
-+		for_each_mon_event(r, mevt) {
-+			if (!mevt->enabled || !resctrl_is_mbm_event(mevt->evtid))
-+				continue;
-+			rdtgroup_assign_cntr_event(NULL, rdtgrp, mevt);
-+		}
-+	}
- }
- 
- /*
-@@ -1415,18 +1416,19 @@ static void rdtgroup_unassign_cntr_event(struct rdt_l3_mon_domain *d, struct rdt
-  */
- void rdtgroup_unassign_cntrs(struct rdtgroup *rdtgrp)
- {
--	struct rdt_resource *r = resctrl_arch_get_resource(RDT_RESOURCE_L3);
--
--	if (!r->mon_capable || !resctrl_arch_mbm_cntr_assign_enabled(r))
--		return;
-+	struct mon_evt *mevt;
-+	struct rdt_resource *r;
- 
--	if (resctrl_is_mon_event_enabled(r, QOS_MBM_TOTAL_EVENT_ID))
--		rdtgroup_unassign_cntr_event(NULL, rdtgrp,
--					     &mon_event_all[r->rid][QOS_MBM_TOTAL_EVENT_ID]);
-+	for_each_mon_capable_rdt_resource(r) {
-+		if (!resctrl_arch_mbm_cntr_assign_enabled(r))
-+			continue;
- 
--	if (resctrl_is_mon_event_enabled(r, QOS_MBM_LOCAL_EVENT_ID))
--		rdtgroup_unassign_cntr_event(NULL, rdtgrp,
--					     &mon_event_all[r->rid][QOS_MBM_LOCAL_EVENT_ID]);
-+		for_each_mon_event(r, mevt) {
-+			if (!mevt->enabled || !resctrl_is_mbm_event(mevt->evtid))
-+				continue;
-+			rdtgroup_unassign_cntr_event(NULL, rdtgrp, mevt);
-+		}
-+	}
- }
- 
- static int resctrl_parse_mem_transactions(char *tok, u32 *val)
-@@ -1954,7 +1956,7 @@ static void closid_num_dirty_rmid_free(void)
- }
- 
- /**
-- * resctrl_l3_mon_resource_init() - Initialise global monitoring structures.
-+ * resctrl_mon_resource_init() - Initialise global monitoring structures.
-  *
-  * Allocate and initialise global monitor resources that do not belong to a
-  * specific domain. i.e. the closid_num_dirty_rmid[] used to find the CLOSID
-@@ -1964,37 +1966,49 @@ static void closid_num_dirty_rmid_free(void)
-  * Resctrl's cpuhp callbacks may be called before this point to bring a domain
-  * online.
-  *
-+ * The L3 events remain the backing for the MBA software controller and for the
-+ * event configuration files, which are named after the L3 events.
-+ *
-  * Return: 0 for success, or -ENOMEM.
-  */
--int resctrl_l3_mon_resource_init(void)
-+int resctrl_mon_resource_init(void)
- {
--	struct rdt_resource *r = resctrl_arch_get_resource(RDT_RESOURCE_L3);
-+	struct rdt_resource *l3 = resctrl_arch_get_resource(RDT_RESOURCE_L3);
-+	bool assignable = false, configurable = false;
-+	struct rdt_resource *r;
- 	int ret;
- 
--	if (!r->mon_capable)
-+	if (!resctrl_arch_mon_capable())
- 		return 0;
- 
--	ret = closid_num_dirty_rmid_alloc(r);
-+	ret = closid_num_dirty_rmid_alloc(l3);
- 	if (ret)
- 		return ret;
- 
-+	/*
-+	 * BMEC is L3 only: resctrl_arch_is_evt_configurable() has no resource
-+	 * argument. The L2 events are not configurable.
-+	 */
- 	if (resctrl_arch_is_evt_configurable(QOS_MBM_TOTAL_EVENT_ID)) {
--		mon_event_all[r->rid][QOS_MBM_TOTAL_EVENT_ID].configurable = true;
-+		mon_event_all[l3->rid][QOS_MBM_TOTAL_EVENT_ID].configurable = true;
- 		resctrl_file_fflags_init("mbm_total_bytes_config",
- 					 RFTYPE_MON_INFO | RFTYPE_RES_CACHE);
- 	}
- 	if (resctrl_arch_is_evt_configurable(QOS_MBM_LOCAL_EVENT_ID)) {
--		mon_event_all[r->rid][QOS_MBM_LOCAL_EVENT_ID].configurable = true;
-+		mon_event_all[l3->rid][QOS_MBM_LOCAL_EVENT_ID].configurable = true;
- 		resctrl_file_fflags_init("mbm_local_bytes_config",
- 					 RFTYPE_MON_INFO | RFTYPE_RES_CACHE);
- 	}
- 
--	if (resctrl_is_mon_event_enabled(r, QOS_MBM_LOCAL_EVENT_ID))
-+	if (resctrl_is_mon_event_enabled(l3, QOS_MBM_LOCAL_EVENT_ID))
- 		mba_mbps_default_event = QOS_MBM_LOCAL_EVENT_ID;
--	else if (resctrl_is_mon_event_enabled(r, QOS_MBM_TOTAL_EVENT_ID))
-+	else if (resctrl_is_mon_event_enabled(l3, QOS_MBM_TOTAL_EVENT_ID))
- 		mba_mbps_default_event = QOS_MBM_TOTAL_EVENT_ID;
- 
--	if (r->mon.mbm_cntr_assignable) {
-+	for_each_mon_capable_rdt_resource(r) {
-+		if (!r->mon.mbm_cntr_assignable)
-+			continue;
-+
- 		if (resctrl_is_mon_event_enabled(r, QOS_MBM_TOTAL_EVENT_ID))
- 			mon_event_all[r->rid][QOS_MBM_TOTAL_EVENT_ID].evt_cfg = r->mon.mbm_cfg_mask;
- 		if (resctrl_is_mon_event_enabled(r, QOS_MBM_LOCAL_EVENT_ID))
-@@ -2003,26 +2017,32 @@ int resctrl_l3_mon_resource_init(void)
- 									    READS_TO_LOCAL_S_MEM |
- 									    NON_TEMP_WRITE_TO_LOCAL_MEM);
- 		r->mon.mbm_assign_on_mkdir = true;
-+		assignable = true;
-+		configurable |= r->mon.mbm_cntr_configurable;
-+	}
-+
-+	if (assignable) {
- 		resctrl_file_fflags_init("num_mbm_cntrs",
- 					 RFTYPE_MON_INFO | RFTYPE_RES_CACHE);
- 		resctrl_file_fflags_init("available_mbm_cntrs",
- 					 RFTYPE_MON_INFO | RFTYPE_RES_CACHE);
- 		resctrl_file_fflags_init("event_filter", RFTYPE_ASSIGN_CONFIG);
--		if (r->mon.mbm_cntr_configurable)
-+		if (configurable)
- 			resctrl_file_mode_init("event_filter", 0644);
- 		resctrl_file_fflags_init("mbm_assign_on_mkdir", RFTYPE_MON_INFO |
- 					 RFTYPE_RES_CACHE);
--		resctrl_file_fflags_init("mbm_L3_assignments", RFTYPE_MON_BASE);
- 	}
- 
-+	/* The counter assignment interface is named after the L3 events. */
-+	if (l3->mon.mbm_cntr_assignable)
-+		resctrl_file_fflags_init("mbm_L3_assignments", RFTYPE_MON_BASE);
-+
- 	return 0;
- }
- 
--void resctrl_l3_mon_resource_exit(void)
-+void resctrl_mon_resource_exit(void)
- {
--	struct rdt_resource *r = resctrl_arch_get_resource(RDT_RESOURCE_L3);
--
--	if (!r->mon_capable)
-+	if (!resctrl_arch_mon_capable())
- 		return;
- 
- 	closid_num_dirty_rmid_free();
-diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-index b992f4b5270f..ba36b6b0c085 100644
---- a/fs/resctrl/rdtgroup.c
-+++ b/fs/resctrl/rdtgroup.c
-@@ -1927,6 +1927,7 @@ void resctrl_bmec_files_show(struct rdt_resource *r, struct kernfs_node *l3_mon_
- 			     bool show)
- {
- 	struct kernfs_node *kn_config, *mon_kn = NULL;
-+	struct mon_evt *mevt;
- 	char name[32];
- 
- 	if (!l3_mon_kn) {
-@@ -1937,14 +1938,15 @@ void resctrl_bmec_files_show(struct rdt_resource *r, struct kernfs_node *l3_mon_
- 		l3_mon_kn = mon_kn;
- 	}
- 
--	kn_config = kernfs_find_and_get(l3_mon_kn, "mbm_total_bytes_config");
--	if (kn_config) {
--		kernfs_show(kn_config, show);
--		kernfs_put(kn_config);
--	}
-+	for_each_mon_event(r, mevt) {
-+		if (!mevt->configurable)
-+			continue;
-+
-+		sprintf(name, "%s_config", mevt->name);
-+		kn_config = kernfs_find_and_get(l3_mon_kn, name);
-+		if (!kn_config)
-+			continue;
- 
--	kn_config = kernfs_find_and_get(l3_mon_kn, "mbm_local_bytes_config");
--	if (kn_config) {
- 		kernfs_show(kn_config, show);
- 		kernfs_put(kn_config);
- 	}
-@@ -4613,7 +4615,7 @@ void resctrl_offline_mon_domain(struct rdt_resource *r, struct rdt_domain_hdr *h
-  * Called when the first CPU of a domain comes online, regardless of whether
-  * the filesystem is mounted.
-  * During boot this may be called before global allocations have been made by
-- * resctrl_l3_mon_resource_init().
-+ * resctrl_mon_resource_init().
-  *
-  * Called during CPU online that may run as soon as CPU online callbacks
-  * are set up during resctrl initialization. The number of supported RMIDs
-@@ -4812,13 +4814,13 @@ int resctrl_init(void)
- 
- 	io_alloc_init();
- 
--	ret = resctrl_l3_mon_resource_init();
-+	ret = resctrl_mon_resource_init();
- 	if (ret)
- 		return ret;
- 
- 	ret = sysfs_create_mount_point(fs_kobj, "resctrl");
- 	if (ret) {
--		resctrl_l3_mon_resource_exit();
-+		resctrl_mon_resource_exit();
- 		return ret;
- 	}
- 
-@@ -4853,7 +4855,7 @@ int resctrl_init(void)
- 
- cleanup_mountpoint:
- 	sysfs_remove_mount_point(fs_kobj, "resctrl");
--	resctrl_l3_mon_resource_exit();
-+	resctrl_mon_resource_exit();
- 
- 	return ret;
- }
-@@ -4889,7 +4891,7 @@ static bool resctrl_online_domains_exist(void)
-  * When called by the architecture code, all CPUs and resctrl domains must be
-  * offline. This ensures the limbo and overflow handlers are not scheduled to
-  * run, meaning the data structures they access can be freed by
-- * resctrl_l3_mon_resource_exit().
-+ * resctrl_mon_resource_exit().
-  *
-  * After resctrl_exit() returns, the architecture code should return an
-  * error from all resctrl_arch_ functions that can do this.
-@@ -4916,6 +4918,6 @@ void resctrl_exit(void)
- 	 * it can be used to umount resctrl.
- 	 */
- 
--	resctrl_l3_mon_resource_exit();
-+	resctrl_mon_resource_exit();
- 	free_rmid_lru_list();
- }
--- 
-2.34.1
-
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/arnd/asm-generic.git/log/?h=asm-generic
 
 _______________________________________________
 linux-riscv mailing list
