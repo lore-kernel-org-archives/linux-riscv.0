@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55903606A33A
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2026 18:55:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0807860A260B
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2026 18:58:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jobVsd/S;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ETFMsP8s
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DbDtt45I;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KD1wJEbK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
@@ -14,37 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=VIZptbR10ZvPha5D5t+Zf2toYpF7aG2Mr99JK038DDY=; b=jobVsd/SMntqtXz0cucgZGPF3a
-	Fi6gO/ozr22p61SvDMu9hmae8Gr6+EXoOW6TQ3CIMdc2sIRfoheYs5IiCqVj1y55mVFfHH5ugtd7Y
-	x1LC+/wIsXZ71ZOdnpKeuyc5GDjN+kgT7ZeB9ZYBm39WyOZIRqXS3dOAWreYnudiUKXUuaxmcZ69V
-	6D/p1q00CcoMoSqc72KY6TJK7d+loQHT4uhExvsmvW9ZYxzR8mPpYy5cfKk/4RDwlctqqM17kiJTm
-	g5tb0oYFyX4gDC5AoZ84X932kczW/anWb1tZaqDE0wmGbncYK/ERLK4tS8NevFXVbUB0NeaUG11OX
-	3RO1OgNQ==;
+	bh=mcXDW+g5r7m4UWcDQobpYeLp98hSBAFP6hvRqOaS6eU=; b=DbDtt45IPDWeLUKSm0PK4zvUS/
+	0Rzb94Vzog2kAbLJ/qbeFwsVf/Il/mZSHonFsZ0zo9+eFIJpByRw9vzRjmvKZ4HT2tx9M2uGGMgcP
+	VkEB0SO2KWlmiWXCAv3a3WluX4RS6x0S3rS+ETML2A35tGB0hVntSSe2N+7BDCv5D2HNAx4gn3mXk
+	whuGcHgZUr5HBnJNbIwk5nerCk0pBlXt6ct0gumxNYLohwMjWjWQfPP8IPfkLaVHEUX6vmL/wW4YO
+	RBF1phQjK0T661SZtIr/T83UsezuxSrmzH9rDyc4YPnVnmW2vfbA/jT5LDpFH60XHgwnssdWRHsir
+	eQfaE0Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMVHA-0000000ABSV-0WpO;
-	Thu, 29 Oct 2026 18:55:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xMVKt-0000000AByb-3b5O;
+	Thu, 29 Oct 2026 18:58:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMVH7-0000000ABSM-3x4L
+	id 1xMVKs-0000000AByK-450k
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Oct 2026 18:54:58 +0000
+	Thu, 29 Oct 2026 18:58:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 561FC4388C;
-	Thu, 29 Oct 2026 18:54:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20B621F01816;
-	Thu, 29 Oct 2026 18:54:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0ED1B60267;
+	Thu, 29 Oct 2026 18:58:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCDA51F01300;
+	Thu, 29 Oct 2026 18:58:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793300097;
-	bh=wEgbHVoAVDi5POFLCru0ShT3/K2/8OJVSBqmnEGYSeo=;
+	s=k20260515; t=1793300329;
+	bh=KHONBBdjh7iQh0mapfdJy3cnY06ZDJP4tujkx2v2Pl4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ETFMsP8s7BqWCCvKeR8RYN4ZbgkNL97EI1G0cfCpGTNPDTtpy+LJHIkygumdQSR6Z
-	 YZoiaI0cRVFxac43T+75VHxazwRUFK/rY9SRmpVzb2r3Gc1Gm6bcMYPXKN0TFXXG7F
-	 D8d0zAbx/00vMCVqqSrjDgZty6kFK5ropSwVzkmzlGVaVUGj7BYoE0bL1UPUCAlO6F
-	 clg3Vh4cSWhi5hgmrwheRXHYVWmGRMaJna6/glQxmbmR4pCC4SED8hlOFty84skrfZ
-	 OQC1MBwEg9bofBa/HM61P1HBpEBb1daP/Q08BXjHuua7zqnkA8DQlKeRkN9FyM4Yho
-	 1AUknEPd2kX4g==
-Date: Thu, 29 Oct 2026 18:54:49 +0000
+	b=KD1wJEbKIuWT4XOC8ifnI/94JBSzXbzTjHdfbSPYxot9vTldReA0Qgz8lBQYeUvb7
+	 LskigVpp9/BJotoFwQWnCc7p6Qq0AuSfzVWr/4CuGKDg5Z60HOZf864RjkLRy0YC/Y
+	 tYdvmLF6KkManvmNbqWJ6c5kyZUf6QOaZNTSftjTiDHcpCXPKPGSpjK5OPVbgktAnM
+	 NQL75YZUQPanIt1Le4tXrnNgdy/clqaa06SMG4He+ms6Gy6HInIpaipN/i30VANb84
+	 acKccbgk/3BtPJtoyHLvY8KgotLiBR7og+PkZ3nw4y3EZWctu3Y3gooBOrxpkroLXS
+	 pCzj+mcF+5OGw==
+Date: Thu, 29 Oct 2026 18:58:41 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Kwanghoon Son <asdfkwang@gmail.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -71,13 +71,13 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org
-Subject: Re: [PATCH RFC 05/12] dt-bindings: serial: Add BL808 UART
-Message-ID: <20261029-pouch-enunciate-e74cf84e42a7@spud>
+Subject: Re: [PATCH RFC 08/12] riscv: Add Bouffalo Lab SoC selection
+Message-ID: <20261029-urging-dimly-3747c8bb9b1f@spud>
 References: <20261029-rust-bl808-console-v1-0-b736ee920078@gmail.com>
- <20261029-rust-bl808-console-v1-5-b736ee920078@gmail.com>
+ <20261029-rust-bl808-console-v1-8-b736ee920078@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20261029-rust-bl808-console-v1-5-b736ee920078@gmail.com>
+In-Reply-To: <20261029-rust-bl808-console-v1-8-b736ee920078@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,7 +87,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3537163604013454348=="
+Content-Type: multipart/mixed; boundary="===============0120965677944266664=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
@@ -96,123 +96,73 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============3537163604013454348==
+--===============0120965677944266664==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="F1Dhg2KrVTCkSmmT"
+	protocol="application/pgp-signature"; boundary="TJwnwN6dd3J6z/rc"
 Content-Disposition: inline
 
---F1Dhg2KrVTCkSmmT
+--TJwnwN6dd3J6z/rc
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Oct 29, 2026 at 01:05:46AM -0400, Kwanghoon Son wrote:
-> Describe the UART register range, interrupt and baud clock input.
-> Initial Linux support targets the BL808 32-byte FIFO and reuses
-> Zephyr's bflb,uart compatible. UART3 is D0 PLIC source 20.
->=20
-> Link: https://docs.zephyrproject.org/latest/build/dts/api/bindings/serial=
-/bflb,uart.html
+On Thu, Oct 29, 2026 at 01:05:49AM -0400, Kwanghoon Son wrote:
+> Add a platform selection for the BL808 64-bit D0 processor, including
+> the T-HEAD errata and common clock framework used by its UART.
 >=20
 > Signed-off-by: Kwanghoon Son <asdfkwang@gmail.com>
 > ---
->  .../devicetree/bindings/serial/bflb,uart.yaml      | 57 ++++++++++++++++=
-++++++
->  1 file changed, 57 insertions(+)
+>  arch/riscv/Kconfig.socs | 8 ++++++++
+>  1 file changed, 8 insertions(+)
 >=20
-> diff --git a/Documentation/devicetree/bindings/serial/bflb,uart.yaml b/Do=
-cumentation/devicetree/bindings/serial/bflb,uart.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..df29d258f0a1c6d7bb283cf19=
-c4157436991b64b
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/serial/bflb,uart.yaml
-> @@ -0,0 +1,57 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/serial/bflb,uart.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Bouffalo Lab UART Controller
-> +
-> +description: |
-> +  UART IP used by Bouffalo Lab SoCs. Initial Linux support covers the
-> +  BL808 controller with a 32-byte FIFO. The compatible follows Zephyr.
-> +
-> +maintainers:
-> +  - Kwanghoon Son <asdfkwang@gmail.com>
-> +
-> +allOf:
-> +  - $ref: serial.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: bflb,uart
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index cecbce0c498384d3283ed23cbf2514391eee361d..ea4667da7716a9a8d2ae156c4=
+22b277064b42530 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -12,6 +12,14 @@ config ARCH_ANLOGIC
+>  	help
+>  	  This enables support for Anlogic SoC platform hardware.
+> =20
+> +config ARCH_BOUFFALOLAB
+> +	bool "Bouffalo Lab BL808 SoC"
 
-This needs to be a device-specific compatible - please just use the
-binding already reviewed and agreed upon in Jisheng's 2023 series.
+Ideally, this should be more generic because it would eventually include
+other bouffalo devices.
 
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: Baud rate generator clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: baud
+> +	depends on 64BIT && MMU
+> +	select ERRATA_THEAD
 
-Drop this clock name, with only one clock there's no more need for it
-than the interrupt-names or reg-names that you do not use either.
+> +	select COMMON_CLK
 
+This is not needed, there's a select of COMMON_CLK at the arch level.
+
+> +	help
+> +	  This enables support for Bouffalo Lab SoC platform hardware.
 > +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - clock-names
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    uart3: serial@30002000 {
-> +        compatible =3D "bflb,uart";
-> +        reg =3D <0x30002000 0x1000>;
-> +        interrupts =3D <20 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks =3D <&uart_baud>;
-> +        clock-names =3D "baud";
-> +    };
-> +...
+>  config ARCH_ESWIN
+>  	bool "ESWIN SoCs"
+>  	help
 >=20
 > --=20
 > 2.47.3
 >=20
 
---F1Dhg2KrVTCkSmmT
+--TJwnwN6dd3J6z/rc
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCauOWeQAKCRB4tDGHoIJi
-0uKtAP0ejRfkQ6TQ/zZ8dEodbmT5akOou9YEluj6A8bUEGnyQgEA1uS4y7a9YWeA
-TkOZjaMll9OgIUH9gJmfHcwWaiRo2Q0=
-=y6XU
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCauOXYQAKCRB4tDGHoIJi
+0m4+APwLLXxq0bZ7C1Uz5V8JPQ30iBNkzxhYIBytaujWnKP6mQEAjbdFyjoBSugn
+VC4kWUeUZlKq+dktIimVpN1lv8AjaAE=
+=5lfT
 -----END PGP SIGNATURE-----
 
---F1Dhg2KrVTCkSmmT--
+--TJwnwN6dd3J6z/rc--
 
 
---===============3537163604013454348==
+--===============0120965677944266664==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -223,5 +173,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3537163604013454348==--
+--===============0120965677944266664==--
 
