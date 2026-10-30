@@ -2,85 +2,95 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F1BC606A329
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 18:49:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25A25606A31A
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 18:57:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yqth/ACN;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dne/oRkf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QB7xw76q;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aTmUcgIn
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=4/p1pYY0WhX3qFngfXrWyx7AFBihI1cAaiSJf2b315U=; b=yqth/ACNH5q45EpbUZVB5KSYDs
-	zLp9npCSUVrfKFCE0OVagAx7eBRtRA00aM754NWVsuGcR/Op/hxvWAWojrhr+IKXpcTwDJbmmoJux
-	y8MrwPG9B7MR9gZfQ+jgHTQq6VMHfDoLIaS3K82nAs9eZoV4sVQ6vGWS7zPyGNSM5guNhIhPOu03s
-	PZsqOwW7NYwKl+WvXzqWlmoNdj4sUwrGn2TeGibSPw5FZnDIPMbUe8u/R6LNiT8ivgwFHTFfEHo0L
-	qjBxpr1yFTNMBpAcbPYKNGaHNZTVPCYVKcnXLZ7gaQGaqi8W8g7fmuyo6nxK4F85tOXyk9mCLm9wE
-	iKYuPk1w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
+	bh=KzeuD5N2Axn50y7Wd7usIhjG1qlWgoUru591tTLRMJo=; b=QB7xw76qnrBE+i3DViITQME49l
+	ACK800N1qVOlcuH8xIMfic5S3oS3ENN1chigHMw7GB32FQkZrEQHCyTs3Vd4NC1adHhF3cQK0RvZK
+	mrpu4bi1hS2kCnHfITP0/RJ01HRgn6NCEHZSdAYUgNX2C2dMtkYemcZ+567Bo3V1h1otgJqAG2Y7s
+	JQOwN1K8CdroBuZD7JfIlbiLXk9hN1sN5ose/p6tNtZJCdxf4J/J7HPzpIAIBabLGZ0hnRa2jjrtP
+	KOUStG6APJK2Sq4UksK0jrFgDQ4uR7XtBWP+89nZD1XXoT6ySYOhXEF9UBGKWt9HPQEom58PlN3jH
+	1FPhINVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMreo-0000000CQLj-1V2y;
-	Fri, 30 Oct 2026 18:48:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xMrmu-0000000CRDG-3jHs;
+	Fri, 30 Oct 2026 18:57:16 +0000
+Received: from mail-pj1-x1045.google.com ([2607:f8b0:4864:20::1045])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMrem-0000000CQLM-2tgC
+	id 1xMrmr-0000000CRC3-1quv
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Oct 2026 18:48:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6CD38601EE;
-	Fri, 30 Oct 2026 18:48:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13A2C1F000C1;
-	Fri, 30 Oct 2026 18:48:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793386131;
-	bh=R/eIeqkBzYBk/a7bk6HBVW5bw90Y01K8kHpJhRb/ZEw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dne/oRkfLYri4BFiKeyLkAjOPPkE4/MjbAS5xLOIkxVFiO5Tz3S2GwZy5vqztJS+S
-	 SlH+BLaXRWJjUvYldSciyH5tr9fj5GWB0DP21dSZHUny+9haPdib/8Z30pmXR7tkAS
-	 y3oj2gFInLggMWmmTMengisGONlGd/GwvWkGpGeeZCP6JMUvOlmta8IJO9XKXxR2tT
-	 3+Wqci9W9kMknmBQor273A8rkAUmN7ziVLIDMzDZ+Ke+Rgh/IxRyj/0AQMxGdIZjdB
-	 EaBnqu3AgerPufv67HsyfTChzJu9jO9qgHDrHbPI8ofwt5Ru/5fWgEPGUcOBPW1QYk
-	 XyBu0HOERGGYw==
-Date: Fri, 30 Oct 2026 18:48:42 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Kwanghoon Son <asdfkwang@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org
-Subject: Re: [PATCH RFC 12/12] MAINTAINERS: Add Bouffalo Lab BL808 support
-Message-ID: <20261030-slider-finished-360b10521e0b@spud>
-References: <20261029-rust-bl808-console-v1-0-b736ee920078@gmail.com>
- <20261029-rust-bl808-console-v1-12-b736ee920078@gmail.com>
- <20261029-spyglass-evasion-772697094cb9@spud>
- <20261029-amuser-savior-6a6ab062f471@spud>
- <auSDJH9V31wmbrYv@debian>
+	Fri, 30 Oct 2026 18:57:14 +0000
+Received: by mail-pj1-x1045.google.com with SMTP id 98e67ed59e1d1-3ae19907a31so1074181a91.0
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Oct 2026 11:57:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1793386631; x=1793991431; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=AqsM43MOtFOSSZV0EEwrjw089w0rw12SYsGwf7bUH9w=;
+        b=aTmUcgInJWzGDcA3hBhixPsoo7/pcFOLe2gkbrlA2VVGFh2Cjrl6NL1VUv3GmGHr94
+         Pb2mDoXopi4e0069911wwauOZzNlqi5DLSrqaRNc1NFHotcI3FCuBJ7rQ1MN96g9UCxK
+         txxd63MRtsUyuoc7aS3d0bR/18XfQzIQgndopwIAKm6xX1VvLLbdqwujnhQwMFlHSSMQ
+         sbooExNv4RvxHPjTYmJ8gM5NPqkt/CbAzWSNbwn+kMsRZS1VqPFua6IaxcKDfm7XMdb4
+         /EO0Jgb1tbTMeuWvzExe4NOwuVH8yl9k6Jeg1o3qWz3z011zayN4duzg9r4QmjDxWI4T
+         tXZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793386631; x=1793991431;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=AqsM43MOtFOSSZV0EEwrjw089w0rw12SYsGwf7bUH9w=;
+        b=z+aD/M6GPeaTDPLqe4iHAUkYK0/OwnHUUce+fTmjFS7JOxjmt3HDIskP56ZdjS6dou
+         IbE4tK62KHtmRLCi5Eo3Kdn44oE4MAuMBMP/Lq3mkMya2BeOHEVs9sX12E1aWfS/ruMc
+         qbIjgojelRbruwu3WBzz09riOkkuT6qmEgWu6MQ9pMmgB9p6svJflamZJ4WNJoOiPuN1
+         CmHbWu5xCAFQjEJuIY+9XYLxRF9iNojsTeecq04NoU9tKRMYIrAbZmYcCNsqNwLZ8cCg
+         b87oqy7yZGFj5F2/BDAOYZ2k3QVr0o0RMxH1Tts+1fjbdgEHtd2HVobMo3Lkzxh2vy+h
+         jD9A==
+X-Forwarded-Encrypted: i=1; AKwUvByl6nBTLL0UN4ebAPWoNuxrwKq1l8LSYSbJqNK5g6irw54JrEJrGVrbLeocqQz4dDVfhIuRhu3mJQeY9w==@lists.infradead.org
+X-Gm-Message-State: AFq9FYI6pehWzuHZ5D7SM9JanR8jM4E7duiFDMkFkt6h3Nw+mAmmCMlr
+	8SnMnCNgTiZ1zm3o9vK6zUOE8AKFCu3ZMSISNzJMIGE4q/hwjv5YPVCOIi7SwfKX4oXUOIOF8Sk
+	LyVYP6A==
+X-Received: from pjbbo5.prod.google.com ([2002:a17:90b:905:b0:3ac:24b3:3484])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:c2c6:b0:3ac:b3c7:de04
+ with SMTP id 98e67ed59e1d1-3ae897aa752mr1800362a91.34.1793386630946; Fri, 30
+ Oct 2026 11:57:10 -0700 (PDT)
+Date: Fri, 30 Oct 2026 11:57:10 -0700
+In-Reply-To: <auStM0rbFol79h5o@li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-In-Reply-To: <auSDJH9V31wmbrYv@debian>
+Mime-Version: 1.0
+References: <20261028190259.1819571-1-seanjc@google.com> <20261028190259.1819571-4-seanjc@google.com>
+ <auStM0rbFol79h5o@li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com>
+Message-ID: <auTohixp3V5-vNsB@google.com>
+Subject: Re: [PATCH 3/7] KVM: PPC: Explicitly force IPIs when directly kicking vCPUs
+From: Sean Christopherson <seanjc@google.com>
+To: Gautam Menghani <gautam@linux.ibm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Nicholas Piggin <npiggin@gmail.com>, Atish Patra <atish.patra@linux.dev>, 
+	Alexandre Ghiti <alex@ghiti.fr>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Stefan Teodorescu <fane@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261030_115713_549062_F66AC50A 
+X-CRM114-Status: GOOD (  22.78  )
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,136 +100,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5816478320800731773=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============5816478320800731773==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="z09qSibq+nPgici6"
-Content-Disposition: inline
+On Fri, Oct 30, 2026, Gautam Menghani wrote:
+> On Wed, Oct 28, 2026 at 12:02:55PM -0700, Sean Christopherson wrote:
+> > Explicitly force an IPI when invoking kvm_vcpu_kick() directly instead of
+> > relying on kvm_arch_vcpu_should_kick() to unconditionally return 1/true.
+> > This will allow dropping kvm_arch_vcpu_should_kick() in favor of
+> > kvm_request_needs_ipi().
+> > 
+> > No functional change intended (1 || 1 == true).
+> > 
+> > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > ---
+> >  arch/powerpc/include/asm/kvm_ppc.h | 13 ++++++++++++-
+> >  arch/powerpc/kvm/book3s.c          |  4 ++--
+> >  arch/powerpc/kvm/book3s_pr.c       |  2 +-
+> >  arch/powerpc/kvm/booke.c           |  6 +++---
+> >  arch/powerpc/kvm/e500_emulate.c    |  2 +-
+> >  arch/powerpc/kvm/powerpc.c         |  2 +-
+> >  6 files changed, 20 insertions(+), 9 deletions(-)
+> > 
+> > diff --git a/arch/powerpc/include/asm/kvm_ppc.h b/arch/powerpc/include/asm/kvm_ppc.h
+> > index 169ea6a7fbad..bbe7378ad0ef 100644
+> > --- a/arch/powerpc/include/asm/kvm_ppc.h
+> > +++ b/arch/powerpc/include/asm/kvm_ppc.h
+> > @@ -30,6 +30,17 @@
+> >  #endif
+> >  #include <asm/inst.h>
+> >  
+> > +/*
+> > + * TODO: For unknown reasons, KVM PPC has historically ignored vcpu->mode when
+> > + *       determining if kicking a vCPU needs an IPI.  Either document why that
+> > + *       behavior is necessary, or drop this helper and the @force param from
+> > + *       __kvm_vcpu_kick().
+> > + */
+> > +static inline void kvmppc_vcpu_kick(struct kvm_vcpu *vcpu)
+> > +{
+> > +	__kvm_vcpu_kick(vcpu, false, true);
+> > +}
+> > +
+> 
+> AFAICS, there is no reason for PPC to always return 1. I was looking at
+> the old patches on mailing list and found this - https://lore.kernel.org/kvm/0FEE585F-5E21-47F2-A3F0-AD0DE05EBB43@suse.de
+> 
+> ```
+> How about we return 1 for kvm_arch_vcpu_in_guest_mode() on !x86 always, just
+> like it's done today basically? Then we can worry about needless IPIs later
+> and don't regress from the respective current kick implementations.
+> ```
 
---z09qSibq+nPgici6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+FWIW, I found that as well, but there are a metric ton of kvm_vcpu_kick() calls
+that have been added since then, and they scared me.
 
-On Fri, Oct 30, 2026 at 07:44:36AM -0400, Kwanghoon Son wrote:
-> On Thu, Oct 29, 2026 at 07:20:41PM +0000, Conor Dooley wrote:
-> > On Thu, Oct 29, 2026 at 07:08:56PM +0000, Conor Dooley wrote:
-> > > On Thu, Oct 29, 2026 at 01:05:53AM -0400, Kwanghoon Son wrote:
-> > > > Add a MAINTAINERS entry for the Bouffalo Lab BL808 platform, device=
- trees
-> > > > and Rust serial driver and abstractions.
-> > > >=20
-> > > > Signed-off-by: Kwanghoon Son <asdfkwang@gmail.com>
-> > > > ---
-> > > >  MAINTAINERS | 13 +++++++++++++
-> > > >  1 file changed, 13 insertions(+)
-> > > >=20
-> > > > diff --git a/MAINTAINERS b/MAINTAINERS
-> > > > index 801f964899ba790a8f71fe61f9b3777a494dabd5..b76d3e168468bf6139c=
-958a81b626c73b422c0d4 100644
-> > > > --- a/MAINTAINERS
-> > > > +++ b/MAINTAINERS
-> > > > @@ -4926,6 +4926,19 @@ S:	Maintained
-> > > >  F:	Documentation/devicetree/bindings/iio/imu/bosch,bmi323.yaml
-> > > >  F:	drivers/iio/imu/bmi323/
-> > > > =20
-> > > > +BOUFFALO LAB BL808 SUPPORT
-> > > > +M:	Kwanghoon Son <asdfkwang@gmail.com>
-> > > > +L:	linux-riscv@lists.infradead.org
-> > > > +L:	linux-serial@vger.kernel.org
-> > > > +S:	Maintained
-> > >=20
-> > > Missing git tree, unless you're expecting me to apply patches for the
-> > > platform for you?
->=20
-> I added this entry after seeing checkpatch's MAINTAINERS warning,
-> but made its scope too broad. I'll separate the BL808 platform support
-> from the generic Rust serial abstractions in MAINTAINERS.
+> However, I'll do some testing and get back by mid next week to make sure
+> there are no suprises.
 
-Okay, that's good - but that's more of a response to my comment down
-below about splitting the entry, not a response to what I was asking
-here about the lack of a git tree. Are you going to send the SoC
-maintainers PRs for this platform or were you expecting someone else to
-apply the patches for this platform (IOW, me).
-
->=20
-> >=20
-> > Additionally, are you actually going to add wider scale support for this
-> > device? Like a clock-controller driver and the various other
-> > peripherals, or is this really just a vehicle to support your rust
-> > serial driver work?
-> >=20
->=20
-> Yes, I'd like to extend BL808 support beyond serial. I have local work
-> on peripheral clock/reset support, pinctrl/GPIO, SPI and PWM, including
-> an SPI display on the M1s Dock.
->=20
-> I'd like to bring those pieces upstream incrementally as they are ready!
-
-Cool!
-
->=20
-> > >=20
-> > > > +F:	Documentation/devicetree/bindings/riscv/bflb.yaml
-> > > > +F:	Documentation/devicetree/bindings/serial/bflb,uart.yaml
-> > > > +F:	arch/riscv/boot/dts/bouffalolab/
-> > > > +F:	drivers/tty/serial/bflb_uart.rs
-> > >=20
-> > > > +F:	rust/helpers/serial.c
-> > > > +F:	rust/kernel/serial.rs
-> > > > +F:	rust/kernel/serial/
-> > >=20
-> > > These should probably not be maintained under the arch support since
-> > > they're not platform specific.
-> > >=20
-> > > > +
-> > > >  BPF JIT for ARC
-> > > >  M:	Shahab Vahedi <list+bpf@vahedi.org>
-> > > >  L:	bpf@vger.kernel.org
-> > > >=20
-> > > > --=20
-> > > > 2.47.3
-> > > >=20
-> >=20
-> >=20
->=20
-> Thanks for review!
->=20
-> Best regards,
-> Kwang.
-
---z09qSibq+nPgici6
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCauTmigAKCRB4tDGHoIJi
-0kS/AQD87LyZbjxV+0reytTO2JJdLqp7qGXF8E+JLF1EVO2SNwD+PJ0smcHb0yyh
-KcwNJW06vgZpnTnI5RXuUEIPuE3QcQs=
-=UI1l
------END PGP SIGNATURE-----
-
---z09qSibq+nPgici6--
-
-
---===============5816478320800731773==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks!  If we can drop the PPC behavior, that would be wonderful!  Though if
+we do that, it should be for 7.5 in a follow-up (this series really should go
+into 7.4 due to the SNP issue).
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5816478320800731773==--
-
