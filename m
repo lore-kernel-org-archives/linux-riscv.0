@@ -2,87 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EDF2606A31F
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 18:02:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE591606A31C
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 18:14:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Gft0PAaQ;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=jCwZPf+Y
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=g1aWMadq;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sAk9vhac
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=pAJdbSqr/nCCj8FNVds8UqplXfskoXOn4pbJ1KTLXlo=; b=Gft0PAaQKHlA9XC32UEtspc0u1
-	anfSzXTt+Wrq2LmwyhOB+7waRApq41ACrHBv1k9vpDIIPeotq/OlWzlF4qFsHbEUnCk18ONjWzGZV
-	fk/70IM9PWRGwvrOtQuMwJPG2ylmyatTCjZcqTM8lKtGGh6pbe1JoI1PXJRumrzB2GEA9imqYA24M
-	cM0ZpQCTRB6UYiNGWbGgdqOtELZrc19hJi0bS88U9X3qS1i2no8Gu8seFT+x85MwXcGwrjmxSqLhU
-	7O0c0fyZD6A3YYIQHSCIlLBv1vKu4hiVI6YnBUood+18VlfetPpjHuAjhvAgrUSVUJZVOnlwIXSOr
-	u0FlgFXQ==;
+	bh=FrzJPZTqunT+DqkEAMha1gJmmdSTH3s5uwQYUeWs6yI=; b=g1aWMadqZIirw2Q6c1MS9GHps7
+	tFTR0aj2Fajx3FPIyQAtctg2i7oOXXnfjS2J38kXT19G/wqF0BVCLisejI0HpoZMN5l0wW1KX/D/9
+	h7JilOVWBxRnq7E6+h4dcHeaRkLqAKBUdTM9S1EPZJuoUkw18Wd01LIC6q1pEgCw4CNn/V/F2Vywp
+	KFu/xB/5iLDdZ6AheoHog+abVUhfdMTWJcmS9mEsQnGeSNeJXKFI5iGMGv8VEn4MU5mk/jTrLpToR
+	QjDja3P7IpwXrqowyyfBuO5htVx20TcJgJUTzV7eOKJdUnIAxnN2bBzCfPSuyDcWB0xSpgjVBQ513
+	9LKhJ4ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMqvV-0000000CLPV-0Mkx;
-	Fri, 30 Oct 2026 18:02:05 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xMr7f-0000000CNc9-3Dau;
+	Fri, 30 Oct 2026 18:14:39 +0000
+Received: from out-142.mta1.migadu.com ([95.215.58.142] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMqvR-0000000CLOB-0llM;
-	Fri, 30 Oct 2026 18:02:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=9gfQkCnTfkug6p4HXHCVXaX3Q+suBlhnBegGYXjv1IY=; b=jCwZPf+YIAUctffkKF7pw1WOTQ
-	CqyoI3bprXm02g6eVWMZAP2o9CQVig+ZDJuoNwBP1DxIkVbxMu2P/p4tXuxMKYc4Ct92k59PUjQcu
-	p9M0fxe+NKOPyBTiu4qZ2BMXCD5QeYqAOL4k5RyLDO01SzgGowPpWRasZrVz0wa/3JwDJ69OQ5HjO
-	4UM6+54lKVKYP6PTNYFyIhj0lDGZ7WeJFcJ+JWU2yRWfB/ufDvxDvH0vcmrgyj7hjhi7+KK0AishG
-	9nt0DMnXu14dtZMGcnL5n4WhtagwmsKlCTgUsCSliSuChpiCIPJYQEQsCDmoc4yHiNsX+FkeeXrRO
-	6c6ajRIw==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Emil Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Dominique Belhachemi <db@domibel.de>, Andy Yan <andyshrk@163.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Yakir Yang <kuankuan.y@gmail.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Michal Wilczynski <m.wilczynski@samsung.com>,
- Conor Dooley <conor@kernel.org>, William Qiu <william.qiu@starfivetech.com>,
- Xingyu Wu <xingyu.wu@starfivetech.com>, Sandy Huang <hjc@rock-chips.com>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Maud Spierings <maud_spierings@murena.io>,
- Graham Markall <hello@big-grey.co.uk>,
- Icenowy Zheng <zhengxingda@iscas.ac.cn>,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>,
- Joshua Peisach <jpeisach@ubuntu.com>,
- Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>,
- Byron Stanoszek <gandalf@winds.org>, OOHehir <oo.hehir@gmail.com>
-Subject: Re: [PATCH v6 09/18] drm/bridge: inno-hdmi: Allow the register map to come
- from a parent
-Date: Fri, 30 Oct 2026 19:01:08 +0100
-Message-ID: <3194397.687JKscXgg@phil>
-In-Reply-To: <20261029-jh7110-clean-send-v6-9-759594e43acf@samsung.com>
-References: <20261029-jh7110-clean-send-v6-0-759594e43acf@samsung.com>
- <CGME20261029075407eucas1p1c9b0d887cafa4c3c10bb34fa3ef3c4b7@eucas1p1.samsung.com>
- <20261029-jh7110-clean-send-v6-9-759594e43acf@samsung.com>
+	id 1xMr7b-0000000CNaz-3pUm
+	for linux-riscv@lists.infradead.org;
+	Fri, 30 Oct 2026 18:14:38 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=+TY283G1borHAZaLlZTGzy3/NR1BKFVZwd1ZnwDzwwY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1793384071; v=1; x=1793988871;
+ b=sAk9vhacnCG4G0BRbv+RUr2STznQC/GMNOMR1Pa7jqMuFDS603ChwiDIe2Z21sE7+l5vQO1z
+ GdB+cDbOx05Byd5LomnCRmaAncX4+m/KXDKwa9Wehsupvt9geNIo8SQCHDZFnji9CzQuo/WQ3Qk
+ e0aVKgxMFdiAmRSlVND1Wz5Y=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id f6094ec407c97bfb;
+	Fri, 30 Oct 2026 18:14:31 +0000
+X-Mizu-Trace-ID: f6094ec407c97bfb
+X-Migadu-Flow: FLOW_OUT
+Date: Fri, 30 Oct 2026 18:14:22 +0000
+From: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
+To: Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
+	Ilya Leoshkevich <iii@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	John Fastabend <john.fastabend@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>, 
+	Puranjay Mohan <puranjay@kernel.org>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
+	Maxwell Bland <mbland@motorola.com>, Will Deacon <will@kernel.org>, 
+	Sami Tolvanen <samitolvanen@google.com>
+Cc: bpf@vger.kernel.org, linux-s390@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Pu Lehui <pulehui@huawei.com>, 
+	Sashiko <sashiko-bot@kernel.org>, "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
+Subject: [PATCH bpf v2] bpf: Fix jited line info off by the CFI preamble
+Message-ID: <20261030-b4-arm64-bpf-linfo-cfi-v2-1-4eac83435d4b@linux.dev>
+X-B4-Tracking: v=1; b=H4sIAA/c5GoC/yWM0QrCMBAEf6XsswchprX1V8SH5rzTE01LoiKU/
+ rtRH2fZmQVFsknBvlmQ5WXFplTBbxrwZUxnITtVhne+c4NvKQYa870LFGelmyWdiNVIW972w06
+ C6xlVnrOovX/hA+oVx/9YnvEq/Pgmsa4fd/SC6X8AAAA=
+X-Change-ID: 20260925-b4-arm64-bpf-linfo-cfi-f5c3897e408c
+X-Mailer: b4 0.15.2
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_110201_230905_817BE213 
-X-CRM114-Status: GOOD (  23.76  )
+X-CRM114-CacheID: sfid-20261030_111436_947573_939237B8 
+X-CRM114-Status: GOOD (  13.29  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,67 +85,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-QW0gRG9ubmVyc3RhZywgMjkuIE9rdG9iZXIgMjAyNiwgMDg6NTM6NDMgTWl0dGVsZXVyb3DDpGlz
-Y2hlIE5vcm1hbHplaXQgc2NocmllYiBNaWNoYWwgV2lsY3p5bnNraToKPiBPbiBzb21lIFNvQ3Mg
-dGhlIEhETUkgY29udHJvbGxlciBkb2VzIG5vdCBvd24gaXRzIHJlZ2lzdGVyIHdpbmRvdy4gVGhl
-Cj4gU3RhckZpdmUgSkg3MTEwIGRvY3VtZW50cyBvbmUgNjQgS0IgYmxvY2ssIHUwX2hkbWl0eCwg
-dGhhdCBob2xkcyBib3RoCj4gdGhlIGNvbnRyb2xsZXIgYW5kIHRoZSBQSFksIHNvIHRoZSBwYXJl
-bnQgZGV2aWNlIG1hcHMgaXQgYW5kIG93bnMgdGhlCj4gcmVnbWFwIHdoaWxlIHRoZSB0d28gY2hp
-bGRyZW4gc2hhcmUgaXQuCj4gCj4gVXNlIGEgcmVnbWFwIHN1cHBsaWVkIGJ5IHRoZSBwYXJlbnQg
-ZGV2aWNlIHdoZW4gdGhlcmUgaXMgb25lLCBhbmQga2VlcAo+IG1hcHBpbmcgb3VyIG93biByZXNv
-dXJjZSB3aGVuIHRoZXJlIGlzIG5vdCwgc28gcGxhdGZvcm1zIHRoYXQgb3duIHRoZWlyCj4gcmVn
-aXN0ZXIgd2luZG93IGFyZSB1bmFmZmVjdGVkLgo+IAo+IFJldmlld2VkLWJ5OiBKb3NodWEgUGVp
-c2FjaCA8anBlaXNhY2hAdWJ1bnR1LmNvbT4KPiBUZXN0ZWQtYnk6IEJ5cm9uIFN0YW5vc3playA8
-Z2FuZGFsZkB3aW5kcy5vcmc+Cj4gVGVzdGVkLWJ5OiBPT0hlaGlyIDxvby5oZWhpckBnbWFpbC5j
-b20+Cj4gU2lnbmVkLW9mZi1ieTogTWljaGFsIFdpbGN6eW5za2kgPG0ud2lsY3p5bnNraUBzYW1z
-dW5nLmNvbT4KPiAtLS0KPiAgZHJpdmVycy9ncHUvZHJtL2JyaWRnZS9pbm5vLWhkbWkuYyB8IDMx
-ICsrKysrKysrKysrKysrKysrKysrKysrKysrKystLS0KPiAgMSBmaWxlIGNoYW5nZWQsIDI4IGlu
-c2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCj4gCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1
-L2RybS9icmlkZ2UvaW5uby1oZG1pLmMgYi9kcml2ZXJzL2dwdS9kcm0vYnJpZGdlL2lubm8taGRt
-aS5jCj4gaW5kZXggMjIyZjY1MjI4NDRlZTYwYWU5YTA3YWIyZGNjYTc0OGRiZjc0MDNlNC4uYTg5
-MDViZjYyN2EyMjRkN2UzOTE4NTE0MTk1ZjE4MTAxNjRkYzI2ZiAxMDA2NDQKPiAtLS0gYS9kcml2
-ZXJzL2dwdS9kcm0vYnJpZGdlL2lubm8taGRtaS5jCj4gKysrIGIvZHJpdmVycy9ncHUvZHJtL2Jy
-aWRnZS9pbm5vLWhkbWkuYwo+IEBAIC0zOTcsNiArMzk3LDcgQEAgc3RydWN0IGlubm9faGRtaSB7
-Cj4gIAlzdHJ1Y3QgY2xrICpwY2xrOwo+ICAJc3RydWN0IGNsayAqcmVmY2xrOwo+ICAJdm9pZCBf
-X2lvbWVtICpyZWdzOwo+ICsJc3RydWN0IHJlZ21hcCAqcmVnbWFwOwo+ICAJc3RydWN0IHJlZ21h
-cCAqZ3JmOwo+ICAKPiAgCXN0cnVjdCBpbm5vX2hkbWlfaTJjICppMmM7Cj4gQEAgLTQ3MCwxMSAr
-NDcxLDI1IEBAIHN0YXRpYyBpbnQgaW5ub19oZG1pX2ZpbmRfcGh5X2NvbmZpZyhzdHJ1Y3QgaW5u
-b19oZG1pICpoZG1pLAo+ICAKPiAgc3RhdGljIGlubGluZSB1OCBoZG1pX3JlYWRiKHN0cnVjdCBp
-bm5vX2hkbWkgKmhkbWksIHUxNiBvZmZzZXQpCj4gIHsKPiArCXUzMiB2YWw7Cj4gKwo+ICsJaWYg
-KGhkbWktPnJlZ21hcCkgewo+ICsJCWlmIChyZWdtYXBfcmVhZChoZG1pLT5yZWdtYXAsIG9mZnNl
-dCAqIDQsICZ2YWwpKQo+ICsJCQlyZXR1cm4gMDsKPiArCj4gKwkJcmV0dXJuIHZhbDsKPiArCX0K
-PiArCj4gIAlyZXR1cm4gcmVhZGxfcmVsYXhlZChoZG1pLT5yZWdzICsgKG9mZnNldCkgKiAweDA0
-KTsKPiAgfQo+ICAKPiAgc3RhdGljIGlubGluZSB2b2lkIGhkbWlfd3JpdGViKHN0cnVjdCBpbm5v
-X2hkbWkgKmhkbWksIHUxNiBvZmZzZXQsIHUzMiB2YWwpCj4gIHsKPiArCWlmIChoZG1pLT5yZWdt
-YXApIHsKPiArCQlyZWdtYXBfd3JpdGUoaGRtaS0+cmVnbWFwLCBvZmZzZXQgKiA0LCB2YWwpOwo+
-ICsJCXJldHVybjsKPiArCX0KPiArCj4gIAl3cml0ZWxfcmVsYXhlZCh2YWwsIGhkbWktPnJlZ3Mg
-KyAob2Zmc2V0KSAqIDB4MDQpOwo+ICB9Cj4gIAo+IEBAIC0xMTAxLDkgKzExMTYsMTkgQEAgc3Ry
-dWN0IGlubm9faGRtaSAqaW5ub19oZG1pX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBk
-ZXYsCj4gIAloZG1pLT5kZXYgPSBkZXY7Cj4gIAloZG1pLT5wbGF0X2RhdGEgPSBwbGF0X2RhdGE7
-Cj4gIAo+IC0JaGRtaS0+cmVncyA9IGRldm1fcGxhdGZvcm1faW9yZW1hcF9yZXNvdXJjZShwZGV2
-LCAwKTsKPiAtCWlmIChJU19FUlIoaGRtaS0+cmVncykpCj4gLQkJcmV0dXJuIEVSUl9DQVNUKGhk
-bWktPnJlZ3MpOwo+ICsJLyoKPiArCSAqIE9uIHBsYXRmb3JtcyB3aGVyZSB0aGUgY29udHJvbGxl
-ciBzaGFyZXMgYSByZWdpc3RlciBzcGFjZSB3aXRoCj4gKwkgKiBvdGhlciBibG9ja3MsIHRoZSBw
-YXJlbnQgb3ducyB0aGUgcmVnbWFwLiBGYWxsIGJhY2sgdG8gbWFwcGluZwo+ICsJICogb3VyIG93
-biByZXNvdXJjZSB3aGVyZSBpdCBkb2VzIG5vdC4KPiArCSAqLwo+ICsJaWYgKGRldi0+cGFyZW50
-KQo+ICsJCWhkbWktPnJlZ21hcCA9IGRldl9nZXRfcmVnbWFwKGRldi0+cGFyZW50LCBOVUxMKTsK
-PiArCj4gKwlpZiAoIWhkbWktPnJlZ21hcCkgewo+ICsJCWhkbWktPnJlZ3MgPSBkZXZtX3BsYXRm
-b3JtX2lvcmVtYXBfcmVzb3VyY2UocGRldiwgMCk7Cj4gKwkJaWYgKElTX0VSUihoZG1pLT5yZWdz
-KSkKPiArCQkJcmV0dXJuIEVSUl9DQVNUKGhkbWktPnJlZ3MpOwo+ICsJfQoKd2h5IGNhbid0IHlv
-dSBqdXN0IGFsc28gdXNlIGEgbW1pbyByZWdtYXAgaGVyZT8gQmVjYXVzZSB3aXRoIHRoaXMgY2hh
-bmdlCnRoZSBkcml2ZXIgbm93IGhhcyAyIGNvbXBldGluZyByZWdpc3RlciBpbnRlcmZhY2VzIGFu
-ZCB5b3UgbmVlZCB0aG9zZQpjb25kaXRpb25hbHMgYWxsIHRoZSB0aW1lLgoKSnVzdCBjb252ZXJ0
-IHRoZSBleGlzdGluZyB1c2VyIHRvIGFsc28gdXNlIGEgcmVnbWFwIHBsZWFzZS4KCgpIZWlrbwoK
-CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+With CONFIG_CFI=y, every jited line info entry after a function's
+first is cfi_get_offset() bytes too high on x86-64, riscv64 and arm64,
+so tools that use it show the wrong source line.
+
+The JITs count the insn_to_jit_off[] offsets from the start of the
+image. Since the CFI commits below, prog->bpf_func starts
+cfi_get_offset() bytes into the image, and bpf_prog_fill_jited_linfo()
+adds the offsets to prog->bpf_func. s390 corrects its offsets before
+the call, the other three JITs do not.
+
+Subtract cfi_get_offset() once in bpf_prog_fill_jited_linfo() and drop
+the s390 correction. jited_linfo[0] stays prog->bpf_func, the
+function's ksym address. Without CONFIG_CFI, cfi_get_offset() is 0 and
+nothing changes.
+
+Fixes: 4f9087f16651 ("x86/cfi,bpf: Fix BPF JIT call")
+Fixes: e63985ecd226 ("bpf, riscv64/cfi: Support kCFI + BPF on riscv64")
+Fixes: 710618c760c0 ("arm64/cfi,bpf: Support kCFI + BPF on arm64")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/20260904014748.C04AA1F000E9@smtp.kernel.org/
+Reported-by: Alexei Starovoitov <ast@kernel.org>
+Closes: https://lore.kernel.org/all/DLNXZ2WK7TPD.2RZBUNRS4FA4L@gmail.com/
+Signed-off-by: Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
+---
+Changes in v2:
+- Fix it once in bpf_prog_fill_jited_linfo() instead of in the arm64
+  JIT, which covers x86-64 and riscv64 too, and drop the s390
+  correction loop.
+- Link to v1: https://lore.kernel.org/r/20260925-b4-arm64-bpf-linfo-cfi-v1-1-e930ab335170@linux.dev
+
+Stable trees that do not have commit 227b4e108adc ("s390/bpf: Add
+kCFI support") take this without the s390 hunk.
+
+Drafted with the help of an AI assistant and reviewed by the sender.
+---
+ arch/s390/net/bpf_jit_comp.c | 2 --
+ kernel/bpf/core.c            | 8 +++++---
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/arch/s390/net/bpf_jit_comp.c b/arch/s390/net/bpf_jit_comp.c
+index 56ec49894dda..83da3a00db7e 100644
+--- a/arch/s390/net/bpf_jit_comp.c
++++ b/arch/s390/net/bpf_jit_comp.c
+@@ -2428,8 +2428,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
+ 	fp->jited_len = jit.size - cfi_get_offset();
+ 
+ 	if (!fp->is_func || extra_pass) {
+-		for (int i = 0; i < fp->len; i++)
+-			jit.addrs[i] -= cfi_get_offset();
+ 		bpf_prog_fill_jited_linfo(fp, jit.addrs + 1);
+ free_addrs:
+ 		kvfree(jit.addrs);
+diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+index 7cf37690d41f..b9709e3b7656 100644
+--- a/kernel/bpf/core.c
++++ b/kernel/bpf/core.c
+@@ -206,7 +206,9 @@ void bpf_prog_jit_attempt_done(struct bpf_prog *prog)
+  * here is relative to the prog itself instead of the main prog.
+  * This array has one entry for each xlated bpf insn.
+  *
+- * jited_off is the byte off to the end of the jited insn.
++ * jited_off is the byte off to the end of the jited insn, counted from
++ * the start of the jited image, which is cfi_get_offset() bytes before
++ * prog->bpf_func.
+  *
+  * Hence, with
+  * insn_start:
+@@ -220,7 +222,7 @@ void bpf_prog_jit_attempt_done(struct bpf_prog *prog)
+  *
+  * For i > linfo_idx,
+  *
+- * jited_linfo[i] = prog->bpf_func +
++ * jited_linfo[i] = prog->bpf_func - cfi_get_offset() +
+  *	insn_to_jit_off[linfo[i].insn_off - insn_start - 1]
+  */
+ void bpf_prog_fill_jited_linfo(struct bpf_prog *prog,
+@@ -248,7 +250,7 @@ void bpf_prog_fill_jited_linfo(struct bpf_prog *prog,
+ 		/* The verifier ensures that linfo[i].insn_off is
+ 		 * strictly increasing
+ 		 */
+-		jited_linfo[i] = prog->bpf_func +
++		jited_linfo[i] = prog->bpf_func - cfi_get_offset() +
+ 			insn_to_jit_off[linfo[i].insn_off - insn_start - 1];
+ }
+ 
+
+---
+base-commit: fb7bd3a2aad70a76232a7168a505386d0a1396af
+change-id: 20260925-b4-arm64-bpf-linfo-cfi-f5c3897e408c
+
+Best regards,
+--  
+Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
