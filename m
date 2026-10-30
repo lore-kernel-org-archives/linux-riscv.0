@@ -2,79 +2,97 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E017606A31F
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 07:48:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F160606A33A
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 09:41:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iLZ0os3r
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TsQl8w1z;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=DDAtNtD0
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
-	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=CdPjJAVzf90ngOgCPG1fOw4SdPFsezYStwMKpbUUbPI=; b=iLZ0os3r0723eYt4qbwUFELSF/
-	CPVvy/hu2nZ7bsiNa1MGVZPlFpeEkiMQsfb92C65XMPhlA2kxf+8O4vZxj61BR4FPwWywWVV7tJ9U
-	lOjuPdsJyIhJDGRxH5ZyurImEM86QmKAonFohz9zsQK9FyNvBfInJr7Hw1ZsgWf4fD6q1ddRHJVw1
-	MARnw256Zn4AAXefnsmxqH6E4dbYM+/gyNRz03DcS2e+lmg7Kew5YqUqWH0yK6EkCZz17n64hfOB+
-	ywebZS4XJi4jSiDlpKbw7ETILhnjQbE41aJI5dT035j89cA7kK3c8uRTAvu6TQUkb/fxvDdYhxS3j
-	bI9C4C4Q==;
+	bh=W6Kin9dtcokzlrykqerJAArkZ9SCg0obdcOj453zjBc=; b=TsQl8w1zNxr376JcgXx3CMLwUG
+	d0HyHvrGaRJ3L1JNICKzNBbbpuMIEybYFGyg2PvDq+7l2lbFBX3xqutBwzUYM7EkJuENaVchm74O+
+	AbzCb5JjQDGpWxAaF5ss8gm8e7Ga1eAytlj+BmuKdB3Mw75TmOELzBbHco07jPWWuJr9q5FyDUhAK
+	ssp8pjGRENEUzw2q/F7Xd8fe8VG4XujqvTF+y+qUlowalKrosNRfu2xsyl4SpsYVDbnINk9NPlnbw
+	gjfpTqOL/XaO0ePdj3ikN0mhEDkNktPPF8NaqVmFbkgFnZh5ZJtAqqH+AHyBa7vtFzUlfq4FumRYI
+	LviTz/Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMhLl-0000000B1oL-18TZ;
-	Fri, 30 Oct 2026 07:48:33 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1xMj7I-0000000BGxW-2MBF;
+	Fri, 30 Oct 2026 09:41:44 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMhLc-0000000B1ha-41TD;
-	Fri, 30 Oct 2026 07:48:29 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.150])
-	by APP-05 (Coremail) with SMTP id zQCowABn0TusS+RqhTm6DA--.1494S3;
-	Fri, 30 Oct 2026 15:47:58 +0800 (CST)
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Date: Fri, 30 Oct 2026 15:47:49 +0800
-Subject: [PATCH 1/3] dt-bindings: display: bridge: document TH1520 MIPI DSI
- controller
+	id 1xMj7D-0000000BGlY-0wcA
+	for linux-riscv@lists.infradead.org;
+	Fri, 30 Oct 2026 09:41:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1793353243;
+	bh=NIxqMKyYG+I1FTMitPEEM3EWEjjxuEu8hI5Iv15e8d8=;
+	h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=DDAtNtD0q/KvjbCLWTbQ3Rm4UA19210bMlQE+l+xn2DtoYIX/2uUdW8G5kjfuDyM9
+	 zQCIr48hFJ9hcH8QkjW3bTAY+5x7QOocofn4vEdMooie8RfP5f4JX2U6wzCODd7Mvu
+	 0vpw0l9IuwuK9S9+rDVnDuo6+2qR49PR3CTuSFNo=
+X-QQ-mid: esmtpsz17t1793353237t9232972f
+X-QQ-Originating-IP: 5U1DF8ULzeZro/FTuuUh22awM6fJteIZcTjwwHXA5Jg=
+Received: from snode5.. ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 30 Oct 2026 17:40:34 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4904317109447055735
+EX-QQ-RecipientCnt: 14
+From: Chunyan Zhang <chunyan.zhang@linux.spacemit.com>
+To: Yixun Lan <dlan@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: spacemit@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: dts: spacemit: k3: add USB3 port A (DRD) nodes
+Date: Fri, 30 Oct 2026 17:40:24 +0800
+Message-Id: <20261030094024.3226356-1-chunyan.zhang@linux.spacemit.com>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261030-th1520-dw-mipi-dsi-v1-1-753f34fd304f@iscas.ac.cn>
-References: <20261030-th1520-dw-mipi-dsi-v1-0-753f34fd304f@iscas.ac.cn>
-In-Reply-To: <20261030-th1520-dw-mipi-dsi-v1-0-753f34fd304f@iscas.ac.cn>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andyshrk@163.com>
-X-Mailer: b4 0.15.0
-X-CM-TRANSID: zQCowABn0TusS+RqhTm6DA--.1494S3
-X-Coremail-Antispam: 1UD129KBjvJXoWxXw13tF4furyfurW5CF48Zwb_yoW5AF1Dpa
-	yfCF4xJF18tFnIvan3Kr18AF43XrsYyFn8Ww17J340yayYg3W2q39IkFn0qFyUJF1xZasx
-	ZF4j9ryxKFn2v3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmF14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
-	xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
-	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
-	kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY
-	6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42
-	IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2
-	KfnxnUUI43ZEXa7VUUbTmDUUUUU==
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: NM9I2yEVFVi899hibyAnu/+EAt52mwU6rNHZslqc35u7l/lAHvacQ3Xn
+	xMeJB6Q+fr35IaZeqg/qZE6jRUkuLKPnPL8toS8BcLWoWIGhsiU6M605eE9qoG9AW+ta6OQ
+	RF5c8dyRQDAkU9F27dZQn+EgCJlsKFGNXgQ5BDlodJAqG0ws+ufYWNx69qLqDEj2koOEFSj
+	akLosHF2LGDqZ5UrPfSPBT1QTcMcJ+Ox8j1d93vupCHSdcTFtqRuYslI7uaBURhu7REojBR
+	plgF5O5F+m8TVlHtzbdPaXCJJY6YH/BjBSenb7elJ+k4OZHyzORfkOBm/qUhUHAehPkJLRV
+	VQAppFIcTdIK4+mjkW9fHeUct8KfM1TrRtaaBSkNtCn8+Oe6p7I6XYPZKcipPAR5718kqSy
+	5+R77gtlsZyRuUNUz6y/+q2PrmWP0g34xu0HxSlikeI4WAptQJbIxzF2kaxlILByCbdPbzw
+	RyRRrYjJBdNisBA1BHB0rK6x7McOeMXJIoS7Vq6nkE7eB83Ok1Ky5xgzY+QHYwgThrbtMu+
+	xKT1n4lMhJv7y4XRBTsGXZ2CBkfHIwcWjEaq4FuqRCzd0Mt22WF433jXoXFGEhAjZGUWMxq
+	/bWhxsGgnlNGRpVPbB4xJ7/1LgSVRdVO3neFQS1hyQEBnZhWbjcuPCVjDm/trXuBitXzE5/
+	zJK3gL3sWk0LtRRZeQG436eou3bR/RcdzY1tMOz78IskqXh8eNnk4+DI0rIWhnjHKAT/rvK
+	/wwPyJRivBKK3ak2VdA+Bv/1ehqBRmFxAnM5TTDokM2kBgmghMPdVHmb1aE7MhhX5dsorra
+	1QKSz1QOiRASH6mY9lRzFg1fQZBn8IeWPKuauiSZXxoloaDuvZX1Jx/E8AUNWUi2pgRoJVo
+	9fS9QPpnLEGAi8US7hL8CEkHlNvfwl3kyswzgUPljRHvE0+g6I1ZLhrAevbBWkqBxvZsCNw
+	3c0N9R96U+m4WbHP5kyeLjfeU1ybygMSD01MgSVn/5TZAUvd5duyaXi3dQBaPWyLyVfIMr2
+	QeuBSTSNW0zzNt7WstPbgzY4gxP5AgiOl89Em6fTt5dTUTXvKxo5IpyYNjlNzS+VGNR74xS
+	BWusNunyo/hLSrSKLeA97emUNulLeofH8kS7qkP0Lp9H/OI4jYOoFLcqu9eDGYknsTLguvc
+	L4ct
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_004825_395561_F27BB2D4 
-X-CRM114-Status: GOOD (  10.05  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261030_024140_116290_B6720AD8 
+X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,7 +102,6 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -95,127 +112,84 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-T-Head TH1520 SoC contains two DesignWare MIPI DSI host controllers.
+Describe the DWC3 controller and its USB 2.0 PHY for USB3 port A
+of the K3 SoC.
 
-Add a binding document for them, referencing the common dw-mipi-dsi
-binding file.
+Only the U2 lane is described: Port A's SuperSpeed PHY has no driver
+yet, so the port runs at high-speed (maximum-speed = "high-speed").
 
-Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Enable USB3 port A with dr_mode = "peripheral", so it can be used as
+a USB device.
+
+Signed-off-by: Chunyan Zhang <chunyan.zhang@linux.spacemit.com>
 ---
- .../display/bridge/thead,th1520-dw-mipi-dsi.yaml   | 102 +++++++++++++++++++++
- 1 file changed, 102 insertions(+)
+ arch/riscv/boot/dts/spacemit/k3-pico-itx.dts |  9 ++++++
+ arch/riscv/boot/dts/spacemit/k3.dtsi         | 30 ++++++++++++++++++++
+ 2 files changed, 39 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-mipi-dsi.yaml b/Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-mipi-dsi.yaml
-new file mode 100644
-index 0000000000000..23c249f1c1b71
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-mipi-dsi.yaml
-@@ -0,0 +1,102 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/bridge/thead,th1520-dw-mipi-dsi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+index b084a35aa00e..74d4fdf9e405 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
++++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+@@ -323,6 +323,15 @@ &usb2_phy {
+ 	status = "okay";
+ };
+ 
++&usb3a_u2phy {
++	status = "okay";
++};
 +
-+title: T-Head TH1520 DesignWare MIPI DSI Host Controller
++&usb3a {
++	dr_mode = "peripheral";
++	status = "okay";
++};
 +
-+maintainers:
-+  - Icenowy Zheng <zhengxingda@iscas.ac.cn>
+ &usb3d_u2phy {
+ 	status = "okay";
+ };
+diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+index c3f2dce0969c..220dfe29bb78 100644
+--- a/arch/riscv/boot/dts/spacemit/k3.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+@@ -630,6 +630,36 @@ gmac2_axi_setup: stmmac-axi-config {
+ 			};
+ 		};
+ 
++		usb3a: usb@cad00000 {
++			compatible = "spacemit,k3-dwc3";
++			reg = <0x0 0xcad00000 0x0 0x10000>;
++			interrupts = <118 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-parent = <&saplic>;
++			clocks = <&syscon_apmu CLK_APMU_USB3_PORTA_BUS>;
++			clock-names = "usbdrd30";
++			resets = <&syscon_apmu RESET_APMU_USB3_A_AHB>,
++				 <&syscon_apmu RESET_APMU_USB3_A_VCC>,
++				 <&syscon_apmu RESET_APMU_USB3_A_PHY>;
++			reset-names = "ahb", "vcc", "phy";
++			phys = <&usb3a_u2phy>;
++			phy-names = "usb2-phy";
++			phy_type = "utmi";
++			snps,dis_enblslpm_quirk;
++			snps,dis_u2_susphy_quirk;
++			snps,dis-del-phy-power-chg-quirk;
++			snps,dis-tx-ipgap-linecheck-quirk;
++			maximum-speed = "high-speed";
++			status = "disabled";
++		};
 +
-+description:
-+  The MIPI DSI host controller in TH1520 is a Synopsys DesignWare MIPI DSI
-+  host controller paired with an integrated Synopsys MIPI D-PHY.
++		usb3a_u2phy: phy@cad20000 {
++			compatible = "spacemit,k3-usb2-phy";
++			reg = <0x0 0xcad20000 0x0 0x200>;
++			clocks = <&syscon_apmu CLK_APMU_USB3_PORTA_BUS>;
++			#phy-cells = <0>;
++			status = "disabled";
++		};
 +
-+allOf:
-+  - $ref: snps,dw-mipi-dsi.yaml#
-+
-+properties:
-+  compatible:
-+    const: thead,th1520-dw-mipi-dsi
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: DSI controller APB clock
-+      - description: PHY configuration clock
-+      - description: PHY reference clock
-+      - description: DSI controller input pixel clock gate
-+
-+  clock-names:
-+    items:
-+      - const: pclk
-+      - const: phy_cfg
-+      - const: ref
-+      - const: pixel
-+
-+  syscon:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle to the VO subsystem system controller.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - resets
-+  - reset-names
-+  - interrupts
-+  - syscon
-+  - ports
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/reset/thead,th1520-reset.h>
-+
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      dsi0: dsi@ffef500000 {
-+        compatible = "thead,th1520-dw-mipi-dsi";
-+        reg = <0xff 0xef500000 0x0 0x1000>;
-+        interrupts = <119 IRQ_TYPE_LEVEL_HIGH>;
-+        clocks = <&clk_vo CLK_MIPI_DSI0_PCLK>,
-+                 <&clk_vo CLK_MIPI_DSI0_CFG>,
-+                 <&clk_vo CLK_MIPI_DSI0_REFCLK>,
-+                 <&clk_vo CLK_MIPIDSI0_PIXCLK>;
-+        clock-names = "pclk", "phy_cfg", "ref", "pixel";
-+        resets = <&rst TH1520_RESET_ID_DSI0_APB>;
-+        reset-names = "apb";
-+        syscon = <&syscon_vo>;
-+
-+        ports {
-+          #address-cells = <1>;
-+          #size-cells = <0>;
-+
-+          port@0 {
-+            reg = <0>;
-+
-+            dsi0_in: endpoint {
-+              remote-endpoint = <&dpu_out_dpi0>;
-+            };
-+          };
-+
-+          dsi0_out_port: port@1 {
-+            reg = <1>;
-+
-+            dsi0_out_panel: endpoint {
-+              remote-endpoint = <&panel_in>;
-+            };
-+          };
-+        };
-+      };
-+    };
-
+ 		pdma: dma-controller@d4000000 {
+ 			compatible = "spacemit,k3-pdma";
+ 			reg = <0x0 0xd4000000 0x0 0x4000>;
 -- 
-2.56.0
+2.34.1
 
 
 _______________________________________________
