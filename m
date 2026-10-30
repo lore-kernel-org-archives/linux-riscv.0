@@ -2,58 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83887606A31A
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 01:27:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 899D0606A31A
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 01:28:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RUIoeQhH;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=NTqKdH5F
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SPZ7VzVj;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Lafy3Bx/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=5U1LA8tvRr4rLVgoWkcmIzvedoC32Qnmgjd1qLCtVBU=; b=RUIoeQhH9HZYsUg0FNXwF+x+1K
-	/PMRfMP6PV1rCH4yQ/LvqmAs87AJhgvlRDnuaQkYTVtgSONrXqVkDAMt/wqblwLG2+Ts1x9idvF+g
-	5U1HfdefMWYcHeXRzuAihYqkW89VXtdxnM/mlJKotnkxkwnOdXubUpwt/O7L/6uX2DpofwyIMrpIl
-	64Xfex+dk02PTtT1/ZP/3fN/QcN3Ds6UaQLlvtaE/fv03bNEpfDIrspJeVHnAq+hLiipt5S73cmW+
-	eBqUB1IF3arq6Xj2c2hMpQOMjibfCw3BT9ebIFCNF+Swk3svcXUF/lk5ORtC6Lvo1GXupAy24Kg7P
-	6ZAKmRYw==;
+	bh=bAPo4DuYE70nKaHnzS10CH/dyReyp/ABqHfUOIfpre8=; b=SPZ7VzVjuDc7PElQi2MvJJ3rz8
+	j8hDYFb3/3Xc12GTuJMAjqt+R0mhG2GrEHKX32odI9XZi+uIpbAIBEwKS4EsqjZnU/tb2dIrEg+4c
+	bcdZvVhfDDlAXQpwRICGDR19P6lQVAW+jgUxdhGCPQB4uTB83ODRQan8oGhsGTM0pB90khX2tppha
+	llZf5F+tkn00iORbJkuP8WZpmjv8Acor2O2pqHgvurueFj5EvwokjNfM+quVuXhNcVXMvo78zMsvZ
+	2AxBr7S4Mn+pvvhv9+Ovv9KM0aFja+A8HB60zY9ksn9kHaGUg644PO8whylSxC31KPZrNWdVH0+1p
+	qebt5BhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMbOL-0000000Aber-0xcg;
-	Fri, 30 Oct 2026 01:26:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xMbPT-0000000AbjZ-2onJ;
+	Fri, 30 Oct 2026 01:27:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMbOJ-0000000Abel-2BoF
+	id 1xMbPS-0000000AbjS-2IHv
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Oct 2026 01:26:47 +0000
+	Fri, 30 Oct 2026 01:27:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4401143C8C;
-	Fri, 30 Oct 2026 01:26:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC5401F000C1;
-	Fri, 30 Oct 2026 01:26:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1793323606;
-	bh=R+7wMeQRfWueUJAeG/KPsvC6BLbhrIuEh3kJTRzJT8U=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=NTqKdH5F/sVmrX83aYf/qMaQtAoYv7RnBq/ETuLKwReNF6mHLjTD4RHExhDGcdlpU
-	 NkLlBhUVc4otfWDMO3hSlUhRf0xcxp9ug/R4Tf8gDvHbfBk6FN9wvZFNYve4Z9otpQ
-	 gyZPKxp+LIi4u6PCi9oc8aB6gOCiYhy2O0rk5zQg=
-Date: Thu, 29 Oct 2026 18:26:45 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Jackie Liu <liu.yun@linux.dev>
-Cc: glider@google.com, dvyukov@google.com, elver@google.com, pjw@kernel.org,
- alex@ghiti.fr, aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
- linux-mm@kvack.org, kasan-dev@googlegroups.com, muchun.song@linux.dev
-Subject: Re: [PATCH v2 0/3] kfence: fix pool allocation failure handling
-Message-Id: <20261029182645.d6e7b119a562c973d19cda63@linux-foundation.org>
-In-Reply-To: <cover.1793242457.git.liuyun01@kylinos.cn>
-References: <cover.1793242457.git.liuyun01@kylinos.cn>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	by tor.source.kernel.org (Postfix) with ESMTP id 96272600E4;
+	Fri, 30 Oct 2026 01:27:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 111FD1F000C1;
+	Fri, 30 Oct 2026 01:27:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793323675;
+	bh=FUuEMEp4Sq4+y9YNfcK1/A/G/PTtLzDOc0DPIC0ZA9Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Lafy3Bx/zY7kgVvrbo4ZtiaAI4XfHukxMcompVEw2fX6IOYTpGmmd3NKbK2POBab1
+	 XjO7VLTzkiQOMJQWc/L0Qe9NwhGrBVjHUIAEl3Nwd2EquWVQ0FKcvUz0CqO7GRH0We
+	 z6aNmIHHqWzTIl0WSBD1BeKmXKXV1umK0iiVPEA7Dzh5jvJn6Q4PVtwNCBYHMs3Tw/
+	 y4PD/qlqZrRWcVtqDe1Nky7ZA6vsVEo2LFajwDrIetgPH3mGblMNIqKr2lDXop0bpE
+	 aUq7PN1FDVsu3XQzp3QW0m+g9zV1vRyZiZSPlofbPV0kmY8ywmUQWrEGCJYLaGTkNX
+	 R1qt3B05a2Oaw==
+Date: Thu, 29 Oct 2026 18:27:53 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Kanak Shilledar <kanak.shilledar@axis.com>
+Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] riscv: dts: thead: beaglev-ahead: Cleanup with
+ dt-check-style
+Message-ID: <auPymWTegG8Gj1bt@thelio>
+References: <20261002-fix-dts-th1520-v1-0-9a8810091d47@axis.com>
+ <20261002-fix-dts-th1520-v1-1-9a8810091d47@axis.com>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20261002-fix-dts-th1520-v1-1-9a8810091d47@axis.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,37 +76,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, 29 Oct 2026 10:57:40 +0800 Jackie Liu <liu.yun@linux.dev> wrote:
-
-> Fix the cleanup address and page reuse window in failed late KFENCE
-> initialization. Also let RISC-V boot if the early pool reservation fails.
+On Fri, Oct 02, 2026 at 03:43:33PM +0200, Kanak Shilledar wrote:
+> A lot of warnings were thrown via krzk's updates to the dt-check-style
+> tool. These were observed when running the tool in strict mode. Most
+> of the issues were related to missing blank lines and out of order
+> properties and nodes such as:
 > 
-> Patch 2 depends on patch 1. Patch 3 can be applied independently.
+> 	thead/th1520-beaglev-ahead.dts:43: [child-name-order] child node 'leds' out of name order
+> 	thead/th1520-beaglev-ahead.dts:46: [property-order] property 'compatible' out of canonical order (should sort before 'pinctrl-0')
+> 	thead/th1520-beaglev-ahead.dts:79: [child-name-order] child node 'hdmi-connector' out of name order
+> 	thead/th1520-beaglev-ahead.dts:115: [required-blank-lines] "status" must be preceded by a blank line
+> 	[...]
+> 
+> Fix these warnings to make the file more readable and maintainable
+> along with that to make it more compliant with the devicetree
+> specifications.
+> 
+> Signed-off-by: Kanak Shilledar <kanak.shilledar@axis.com>
+> ---
+>  arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 119 +++++++++++----------
+>  1 file changed, 62 insertions(+), 57 deletions(-)
 
-Thanks.
-
-We're all horridly busy with bugfixes at present and the first thing
-recipients think when presented with yet another is "why should I look
-at this".
-
-So it really helps to start out with a succinct and punchy sentence
-which explains that thing.
-
-LLM suggested to me
-
-: KFENCE initialization failures can cause kernel crashes or memory
-: corruption, while a RISC-V failure can prevent the system from booting.
-: These fixes make the failure paths safe and allow systems to continue
-: running with KFENCE disabled.
-
-How does that sound?
+Reviewed-by: Drew Fustini <fustini@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
