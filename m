@@ -2,93 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 401BE606A31A
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 02:04:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4861C606A320
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 02:31:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=E7g113Za;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=pST1Bafh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Lz7Gohap
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=pgeromA/qMUQgjpF9EGd8woGGg3WttHfHsfOW9sELXc=; b=E7g113Zanxf3zWsUHtmWzZWkTU
-	9gP3VEA0hbZ7ICT0uTqx+6TlURp0fV41Y8is5SpjUpRx/L27noHeDWarY5zXNzODN0qsliMObB4+z
-	0KkOIzjlHaugEBTYRKqaoSWF/qGh/VkbkuppZTnROBhC7lpVl5YTyh8h/W2EbYdFrUK7Y3qVEa1Uh
-	v5Tx8TSms03TF7gexc29pE9YgbxK9L7GQsco6adu0Xuy9VPLpUtQSLc8O7Lh0KFZbh0BgiXt5qUOM
-	JnZROtaGkorXq8Ssvl1Y2l43AtfV1NYwsrr5ysRq2uS2RrJLrKxcG1HFGMM44g9/wnDmU3TGoyqLU
-	SmBh67EQ==;
+	bh=KYy0TX2cTi1mkEnGMRsfWXSHJFBH4A326ClYikmvTBU=; b=Lz7GohapwmWGDjsAkYDm8LGAfI
+	rz2KLcmcRLOCiSLQiesTDihZGrtNIDbF7CdMVZpBAKg+YY9IV+vsJ3tGwuhco3lONZJwFyBY8QZSf
+	7O7mQ/J6ZQkrajkldzypZvU+nEeOX8hzahShMoxY1EkwOcqiwNzbwMDFDbqkI/4e0FZUsO4jdkZvC
+	B5fzFgAuPkoz0rV3pf6/yMn7J3+owqrQBYiO0JHCCJ1Of+4i0m06dA0jTVLIkymGgBKEM4v2yPUNo
+	aQjJRN3B9sBUY8EJ0xFXQ3fI44EqZolK0ggWGNI4xzYu3JSb8E0u0TMWgGbNFDLMc4pyHfG2fXxjQ
+	0W4yih8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMbyW-0000000AeT9-045l;
-	Fri, 30 Oct 2026 02:04:12 +0000
-Received: from smtpbgsg2.qq.com ([54.254.200.128])
+	id 1xMcOx-0000000AfQG-2rf5;
+	Fri, 30 Oct 2026 02:31:31 +0000
+Received: from mxct.zte.com.cn ([183.62.165.209])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMbyR-0000000AeR2-36Ra
-	for linux-riscv@lists.infradead.org;
-	Fri, 30 Oct 2026 02:04:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1793325834;
-	bh=pumged/0aPi5xqnB+RarXs8Eh9+4eMDOVCGQ7bmfyDY=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=pST1Bafh9YDZnRMH21BHCclv5V5LLeCK6ZGjg1da1GUVhXhgHyoBYRfABI/cSEHmf
-	 zSm5d+DY2loPXq7ucezKX3N7gr81xHUMKmJ58kjGY8IaWxx6S5HJSDuO68Pls2ZNIl
-	 WMxRR1SBnVewM/sRYSyCNWSZBiHI0Ve7bL+gTmnA=
-X-QQ-mid: zesmtpgz5t1793325832tbc76324c
-X-QQ-Originating-IP: 1BbxyIvlF3AOamn5bZyHYBEFlVP5ZviaER6ZNnc482Y=
-Received: from = ( [58.254.69.131])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 30 Oct 2026 10:03:50 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 9133408313636271411
-EX-QQ-RecipientCnt: 16
+	id 1xMcOu-0000000AfP9-1GF2;
+	Fri, 30 Oct 2026 02:31:30 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4jG4ps6VlHz5B1C7;
+	Fri, 30 Oct 2026 10:31:17 +0800 (CST)
+Received: from szxlzmapp02.zte.com.cn ([10.5.231.79])
+	by mse-fl1.zte.com.cn with SMTP id 69U2V9Yu030476;
+	Fri, 30 Oct 2026 10:31:09 +0800 (+08)
+	(envelope-from gong.shuai@sanechips.com.cn)
+Received: from ubuntu-35-gs (unknown [10.230.214.35])
+	by smtp (Zmail) with SMTP;
+	Fri, 30 Oct 2026 10:31:10 +0800
+X-Zmail-TransId: 3e816ae40168028-1fbe9
+X-Zmail-LocalSMTP: 1
+X-Zmail-RealSender: gong.shuai@sanechips.com.cn
+From: Gong Shuai <gong.shuai@sanechips.com.cn>
+To: fangyu.yu@linux.alibaba.com
+Cc: gong.shuai@sanechips.com.cn, iommu@lists.linux.dev,
+        kvm-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org
+Subject: Re: [RFC PATCH v5 03/10] iommu/riscv: report iommu capabilities
+Date: Fri, 30 Oct 2026 10:31:04 +0800
+Message-ID: <20261030023104.51259-1-gong.shuai@sanechips.com.cn>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261020094106.92722-4-fangyu.yu@linux.alibaba.com>
+References: <20261020094106.92722-4-fangyu.yu@linux.alibaba.com>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-Date: Fri, 30 Oct 2026 10:03:47 +0800
-Message-Id: <DMHSY8103ELL.1ZNKF2EH6PDSG@linux.spacemit.com>
-Cc: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] riscv: dts: spacemit: k3: enable status of mimsic and
- maplic to okay
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "E Shattow" <e@freeshell.de>, "Anirudh Srinivasan"
- <asrinivasan@oss.tenstorrent.com>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Yixun Lan" <dlan@kernel.org>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>, "Paul Walmsley" <pjw@kernel.org>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Guodong Xu" <docular.xu@gmail.com>
-X-Mailer: aerc 0.21.0-reader-ipc4
-References: <20261029162343.1896134-1-e@freeshell.de>
-In-Reply-To: <20261029162343.1896134-1-e@freeshell.de>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MRoXHVs8e1kF+8olKmi2bjyN+Iu7GOtZU0RQJmb2PbZGb6ZSNwGZaSrV
-	jDGkx8jeXuJrF5Q0nT/DQjrXcIYy7Lb7/AolC0OFYBA+gIQOyaHYK3qCCUID9YbHElpAhrU
-	yg56NlakCROQc1grP1XbNg7XWGmyMRK/X56Z9Ks8Dri9I+AlDaaTzVNSdkym025w+rjo0qg
-	Sp5sg4I1Ne4PHuOeTaSHkpSv/+gRa6Ejm+5d1rlpFqUT3LeB6d+dtYwgjYQzNdrrpHQSdFs
-	iVA/dIhB+aJZ4itgP9WOcnHfLDtL63lI2+Xqllsez3MlgwWIc2FDT7/pA12ziKD+SFZeYcl
-	NncS3QRm+qi1W1g5ImO6uHCegqd58pT7bUtsOkhINSWEG36hRS82oWzusx/3fiPEu68Pv3R
-	LgugnXvvl215eiBHvbgKgqY8dQAMC0NOX6qFIwyeK2Wjy+O1rilb4Hx9z3b5G8KRXF8VeO9
-	WQbE4SaNiRY/WjNsN7UpUlTrFDZGkUpX8zE/+2cVe4Jit+HRnnZTVP5kPjVEY+aQvWhSQCp
-	kErdeBNcrSkD7yz4XBbe2tel/6ngm/O67Vw6hCOKQ3a/vZBOa4TtZDl/qqDyfL8bNEyOBv2
-	y6kv5mL+RULYuug5fez8TaOoxS/RX9WgdKtJlOFDyLqVUH6E44HnIcls+p9TkMDrYw3N6Yb
-	xrFuxLGsZxBbRy6TtxstPuWSIJblyc4eOcQqw/ofNWe2+8S08cI2guT/7ukePDLa3ncQWq+
-	pcX7Y7HbRnuXBvwt4s3ed87QcYRQNn0T5KbrgZhGMbECWHokpLKxqJir4wd9/Ws5cR6O4qI
-	ZdWUIyF0HTZelN9WDA8V7+GhzoWq8Q++JNd7WlwlFrnp77uQvIow5pV3/iES8U7n8tCNaMb
-	4QpO9DDAji0ecYZgsBo2FT2mi+AWPT5szPReBtZrIivhbNXT6ACjz0ugtvQdzi7WTZHxn4+
-	76mKdtV+ZbJMr5e6m/HnimNDvllp6Z2hGbWpxa1OUo/z7uV5aBfN2ct9zhKlLPKhVS14XtE
-	7zkwv4l1crAhtWEaNcXTZ+vTbFGd/dLEMf5i+9tQKy7a1lxVb5ZEtZDKym2XXAMexzQSFXD
-	vVk30RYxdYCmuD1/v06DGwCXq70qKAk8clfjjGivBlu5ScKa0pUELY=
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-X-QQ-RECHKSPAM: 0
+MIME-Version: 1.0
+X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
+X-MAIL: mse-fl1.zte.com.cn 69U2V9Yu030476
+X-TLS: YES
+X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
+X-SOURCE-IP: 10.5.228.132 unknown Fri, 30 Oct 2026 10:31:17 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6AE40175.001/4jG4ps6VlHz5B1C7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_190408_706855_D6C41677 
-X-CRM114-Status: GOOD (  14.67  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261029_193128_510951_99B0875D 
+X-CRM114-Status: GOOD (  12.63  )
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,99 +77,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7070911036922358078=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============7070911036922358078==
-Content-Type: multipart/signed;
- boundary=d3a7c47642dadbe68b345e1aa39039756e5537a343a8d6d35518f7cdf663;
- micalg=pgp-sha512; protocol="application/pgp-signature"
+Hi Fangyu,
 
---d3a7c47642dadbe68b345e1aa39039756e5537a343a8d6d35518f7cdf663
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+> From: Tomasz Jeznach <tjeznach@rivosinc.com>
+>
+> Report RISC-V IOMMU capabilities required by VFIO subsystem
+> to enable PCIe device assignment.
+>
+> Signed-off-by: Tomasz Jeznach <tjeznach@rivosinc.com>
+> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+> Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
 
-Hi E,
+This patch has already been merged
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3069e8f3e1e9bdf007316eadae4d1777065e7b78
 
-On Thu Oct 29, 2026 at 9:23 AM -0700, E Shattow wrote:
-> Change the "reserved" status of mimsic and maplic to "okay". There is
-> an mainline OpenSBI user of this and setting status okay resolves the
-> stall of Linux when probing peripherals at boot.
+Thanks,
+Shuai
 
-Thanks for bringing this here. I still think status =3D "reserved" in
-k3.dtsi is the right description.
-
-(To clarify the Acked-by I gave on the U-Boot thread: it was for
-carrying the override in spacemit-k3-u-boot.dtsi, not for changing
-the kernel DT)
-
-> @@ -1452,7 +1452,7 @@ mimsic: interrupt-controller@f1000000 {
->  			msi-controller;
->  			riscv,hart-index-bits =3D <4>;
->  			riscv,num-ids =3D <511>;
-> -			status =3D "reserved";
-> +			status =3D "okay";
->  		};
-> =20
->  		maplic: interrupt-controller@f1800000 {
-> @@ -1464,7 +1464,7 @@ maplic: interrupt-controller@f1800000 {
->  			riscv,children =3D <&saplic>;
->  			riscv,delegation =3D <&saplic 1 512>;
->  			riscv,num-sources =3D <512>;
-> -			status =3D "reserved";
-> +			status =3D "okay";
->  		};
-> Fixes: 56f37e391a62 ("riscv: dts: spacemit: add initial support for K3 So=
-C")
-I don't think this is a bug in the kernel DT either.
-
-This was also discussed when k3.dtsi was reviewed [1]. The DTB built
-from the kernel tree is often loaded directly by the bootloader (e.g.
-from /boot) instead of the FDT that OpenSBI has already fixed up. With
-"okay" there, Linux would probe the M-level IMSIC/APLIC and take an
-access fault. The compromise back then was to keep them out of the
-kernel's view in k3.dtsi ("disabled" at first, "reserved" since v5)
-and enable them for the firmware build in -u-boot.dtsi, which is
-exactly what your U-Boot patch does.
-
-(Also replacing Guodong's address with his current one in Cc.)
-
-[1] https://lore.kernel.org/all/77f9a001-7f0a-4c29-abcb-501e875da117@sifive=
-.com/
-
---=20
-Troy Mitchell
-
---d3a7c47642dadbe68b345e1aa39039756e5537a343a8d6d35518f7cdf663
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iIYEABYKAC4WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCauP7AxAcdHJveUBrZXJu
-ZWwub3JnAAoJEJgJ74D5MzQv7O4A/0OMejfxLYWKCiyBxXllnt6RD3VnWHq2NL5z
-/dd3+uI/AP990NcnV/KPEsOBMIQFQt2/RvfPFEHzG8uLFdZpTMS7CQ==
-=6CKn
------END PGP SIGNATURE-----
-
---d3a7c47642dadbe68b345e1aa39039756e5537a343a8d6d35518f7cdf663--
-
-
---===============7070911036922358078==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> ---
+>  drivers/iommu/riscv/iommu.c | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+>
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index fe8e6d0f8a23..40beccedd39f 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -1444,6 +1444,16 @@ static struct iommu_group *riscv_iommu_device_group(struct device *dev)
+>  	return generic_device_group(dev);
+>  }
+> 
+> +static bool riscv_iommu_capable(struct device *dev, enum iommu_cap cap)
+> +{
+> +	switch (cap) {
+> +	case IOMMU_CAP_CACHE_COHERENCY:
+> +		return true;
+> +	default:
+> +		return false;
+> +	}
+> +}
+> +
+>  static int riscv_iommu_of_xlate(struct device *dev, const struct of_phandle_args *args)
+>  {
+>  	return iommu_fwspec_add_ids(dev, args->args, 1);
+> @@ -1505,6 +1515,7 @@ static void riscv_iommu_release_device(struct device *dev)
+> 
+>  static const struct iommu_ops riscv_iommu_ops = {
+>  	.of_xlate = riscv_iommu_of_xlate,
+> +	.capable = riscv_iommu_capable,
+>  	.identity_domain = &riscv_iommu_identity_domain,
+>  	.blocked_domain = &riscv_iommu_blocking_domain,
+>  	.release_domain = &riscv_iommu_blocking_domain,
+> -- 
+> 2.50.1
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7070911036922358078==--
-
