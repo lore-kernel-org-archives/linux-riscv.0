@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4566A606A31C
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 05:56:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7459E606A32C
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 05:58:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PUAaWJUI;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gh5146ym
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KnNalHhX;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n/JomPMd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,67 +14,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=WCvPFyyRKQexNzPlAbkxQaUgBkBCFzq6dxAQHLyoIns=; b=PUAaWJUIjz15yIZfMtzhQlzfSX
-	qACX9gDi8Mxl/RvZe5IBcejcPsDt1vgtps63gGJfATMR5bJTHGrz9RqPOefDiZR8gse76WbijOlxl
-	2m62iyBDWUAOkRqtAnHY3kR3WuS6hbyORSoLQehT/KKDExsgSoBnGyoDLQ9TEFHij+CuAc7fKcLjb
-	mUdZzh9TdYOwM0H89JQwxqpfEShgzLCooWz+CANITXpm4rrdoXmKyWJ+H6yzyOOa0uXP3YCz4Ri90
-	42NHz2Q/CXGoM1T6fOyKVyLJobmdLThSddurHLwOaFY0LqovLjWfBeXejDyuRiOv+fNTWau4RbdzQ
-	7NyA0cSg==;
+	bh=ZptiXwEkUuSGI3sXZAO+B3uhbzjpJfYEjBtnQAD4hwg=; b=KnNalHhXEg2PVJZqdiA3zDLH+A
+	3xmkQYdr31pImBnm8dkNz48BL4xIN/FdFp1r6yhGGDY4IHsLgjOLEfhOPjl3gUG957ARb//i6JOrM
+	DSctVRBYCsifS0zFWNJUF9S2RIulA/MX3jRbkFnltx2jomKA0DLpoZ4M6QxoYPcsB1awK1A9Qolpp
+	QQRDQihTH+hGZbLMuTylu1sEF2FxoQaiDDbkhLIGEs4miSFM9WxRvtvVQJxT2JlEiizLs0iZCgZNY
+	4WgqERvZck+6jKU1HgvjtesNrJcBu2/a50949C+/dty9iv71YmQz8243lLdSR95PUDi5wf3q3Xo22
+	urq0da9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMfbK-0000000Arpc-3YAI;
-	Fri, 30 Oct 2026 05:56:30 +0000
-Received: from mail-pj2-x07.google.com ([2607:f8b0:4864:39::7])
+	id 1xMfdb-0000000As0w-1vgp;
+	Fri, 30 Oct 2026 05:58:51 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMfbG-0000000Arp1-3viF
+	id 1xMfdY-0000000As0b-3wAB
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Oct 2026 05:56:29 +0000
-Received: by mail-pj2-x07.google.com with SMTP id 98e67ed59e1d1-3ac6fe4aff0so304500a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Oct 2026 22:56:26 -0700 (PDT)
+	Fri, 30 Oct 2026 05:58:50 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-3ae2b7e1e17so206131a91.3
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Oct 2026 22:58:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793339785; x=1793944585; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793339927; x=1793944727; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=1anniFrPD+gJ2zvk7tqiNGRs4XaU4IBzFvazZsvzhO0=;
-        b=gh5146ymvrBdPrJuePT0zVLL08BNCEGV9Z55ppZstXQ2FVWnx9nwEekSM2e516dVjE
-         u3mQ8JHSAUZ3Q2hZT0bgX05RIhm7sPKZ9wWwLpM4S1b+p1Ww1dKG8AEv0KAnxfDcyyI1
-         dvJyPitJVkjBlsrWfCUhhEoH3jouZq31hnzlg3VP6TopE1/xxK0DxZwxgCYNCVnmNMQI
-         2kofGfpQk0NH9QJL5G3dNYD6G0OeWSGgG6yHJHl9MnbxpNTvTWCgbRANulTK+phLO6cz
-         CugpwBZRIPig6HKOhe0Sn1WJ8b3Z33n1tFJ2iDx7FJm56D7m3S2uMd4ZeBiUervCrDP9
-         rGsw==
+        bh=x1ZOonFo86/OLdHx4TEfvsl1dhP8QB7LtaQ6AkA34Vc=;
+        b=n/JomPMdqDOVSSY9kr7GQdZswQt8KHMnO848lyG3gsTwfvdsRGM64PxCL6lmZIQHrW
+         T0lb758rtXybbgo1KSC6YMh8cWz+NWn4yNJDyj+18zyTBjDEO9I/hHwwWVN13i/i06WT
+         zl/Sr9Zc8PnfcztFh3zP89hh0zdtYANpcC/RCihLmfqlHOOQBaCnhHLKE6ePumrSf+5n
+         Z3XwdO+W53w1XqGeg0lsHkvrPw76pjaQjSW9YQdclSi+oLhRp2bZuVrbLjM8SexQuEWc
+         jX05fWMsCHW9I/okFzgIVya/uUw6UyVTwaaK3x7bZW8qVL7v8o3lTxTp7neDQiDfxky5
+         PvAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793339785; x=1793944585;
+        d=1e100.net; s=20260707; t=1793339927; x=1793944727;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=1anniFrPD+gJ2zvk7tqiNGRs4XaU4IBzFvazZsvzhO0=;
-        b=Ql9OmULO0TkjTEGDlxceVBGZYAbvriJQ4wEpFI1fjyMW00QddRGYA8Bdh5S7elFAnT
-         mxlqqajWqos8ExoeNiam2fEUW+lCKnsSjYnHRX+pBxsj2jsNZeHUlPFBjMf/uXwK3z85
-         /NZNznU4nw3QO3nTQkdqAssQEVpGLxrmBLHh5vKHcQR2Xm1C7YIOUZ50Orz6lGGA6YbC
-         ls45ZXIcE9pVbIQmlFoBUYIYpOD0yVgASvMw/3V23NJTw33Cm6MFlaRUJm/U4y0o+eFd
-         Sw3XV+BcYrhu3lI3vYQAeZf7yxyeMaKW9r4ce4Uz0US3y9PtXiMZdHhS4ZctXBMe1zXg
-         Ficg==
-X-Forwarded-Encrypted: i=1; AKwUvBzoC37bCkxdkgK7phRKDM3cZljF3AX4TCuQWJL2UWoR44AwUkEkSGyqASL6uQZx5DuVrtsm/A0kFyrM9w==@lists.infradead.org
-X-Gm-Message-State: AFq9FYLXppBm+26dju9+pUgKwE9mPrsfWQfmhuX3karBPKIhzp73OO7R
-	KunconwMUlmbvhjIzEZP6qn/DT6soK1QTglOXvXjDHlUe5IXuXhNKnXa
-X-Gm-Gg: AYBFou382hmQOaFMc078Ss5+BO0r4j3ThGcSL5uP6jPtnkr6i04y1zEg+7jSwjYQBip
-	nbE6g1TQuzhx/YlBt8ePz1cELNT78upMfxD9ZIavwsvJ62Brp+H+IUTHRuyO40obLySiN0Dcpz6
-	EQuVwaqjVbISL+X2IqefhHtVNibILUM49pnuGx4j2s+C1dcwchl1nahjz8KMGGJoA90iSX6xfaM
-	DvPhjLZ+bOjkzBfQ5Zq9raWdwDqJ0gquAdB5y7rBqdkxZdri+9kcseOON4+XCcfR3I8U7zU1Zc1
-	paNNNrSGuQ3dW6uQU2LZeaLOvUxcCkpBxKiOWUxNyyVVjzj2S/tAQiCpKwGhqEP8eDWIE7xllYc
-	HIg68cgKrkIgSDTrrLIcqAX5BTQx9JwbYhVFTy7gHrYrHEw1tj6asaIEpF4nPOhQWWSwuYuMdWZ
-	kwxd6M/rHljagz5PQ86/67Iw6jx/8djXV+VMaxHQR9frFz3ft72099sgyF4iRBlZw9ofMtFWVTE
-	FKYwhjo6edA6sXAK2dXkR01RRn11dTQVMg3X7/sKTvpsOFGDYqvhT8zNrLcsP54LApe4P39jPTu
-	pChIa9EwOETZu2zT8RDwBg==
-X-Received: by 2002:a17:90b:3142:b0:3ab:4f1:4f7e with SMTP id 98e67ed59e1d1-3ae897f3919mr1033345a91.28.1793339785483;
-        Thu, 29 Oct 2026 22:56:25 -0700 (PDT)
+        bh=x1ZOonFo86/OLdHx4TEfvsl1dhP8QB7LtaQ6AkA34Vc=;
+        b=1KFX/HBLlAABCjYNH/lqDBYfdpEa+L9rBNxwhBHnUbJFX9A5diCIfJUyf77wSoFGy7
+         MmVNCtxbR+mPVmKrU7bAs+JqprpfCFUFWFbMkPXm6/7Q/hwKDNmdBJvcFcluAoRZZ/5c
+         3n/j/ZpbH8T4FfhsI2OZu8JidAieVxQNK9tmWFaympZJ3PXKRaUyEEL9BEmZl16n+6WJ
+         kpGTeTTNul8ESeh24gduSClRKN8Xk0II1xOB6w9s82nks50VkVaRZMKME/FVioP1WR6W
+         MlbCXHyZkcMqIovK6eKR9bEggdMSYzT0SXwFUkGW2hmRVy2UVmW9lyzhk3z/XPmr55DN
+         fbiQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw7UDBElNP/hCVa6JMSS8RkqYyKRchxVabFVkNmr3nsKPlwYf4P2P9ChE0Jc5trICkkcHs+Kvga0IHABw==@lists.infradead.org
+X-Gm-Message-State: AFq9FYLHkiYn2xIffAJTtOALxFw/URrQde4Ao1+ICFl5hB1HXWElPLee
+	Ym13E+FH5EBA5oi0u+vdvW5nTogVxTzKMJmx+sfmW9/A+xR5k+CyptwA
+X-Gm-Gg: AYBFou21B+6Zip0S3j4v2trEoBO3FqYUBcgOzrKfKlNfsJlzDVoc2KkNypt6TdvOaHK
+	+GmHLNFM7KFEF41yZxOmhwCs7mmhrqKto1j6y1DZRgrBrMtK1K+FDwPkBThY0872CEC2NbkNOTM
+	M/4wk1VCIjPY2gBodZ/JTF8ni854f6wU3SDIsrQPMbOBDN+T4vip0Aow+AYEzpjHRsEI6oHLJN1
+	q0ogLx91/ZSy38JgXBhXwiYKBs90OvB5DgyQda6ZOuv90QZAXp8cXCg9BvsNUNvbxjME0G1wjk1
+	5jLWLV1sd2huivnHQf5UWaVM+mVUrDagDNEV3M6mYntyId6oSvqBJghPxjr4FsUsHxF/y1YcXgY
+	L19YgcB4zHnxmTWpy7S9yWiDE2G6A/7p18K0JYJQ9GMeNzX3W4oKXEVTd/xkUaG2lnUTjQSzFPU
+	J9BIdNrF8zENmwwQ1Inel6714NhXOrec8tCx59Cbn0xcWQb3EizhfB/GPNNFJWJKBP0FJR/cCir
+	alKrCg1ChtXZHsr4+jzlDxP7cN9Kqmvyro0E71qCKELMYY7PUlTPOR98Sc4blYhAMY2fGXa9TYB
+	CsJZ2qLcgvPw+qgRitXbVA==
+X-Received: by 2002:a17:90b:4e88:b0:3ac:85be:cd52 with SMTP id 98e67ed59e1d1-3ae89867829mr983310a91.59.1793339927439;
+        Thu, 29 Oct 2026 22:58:47 -0700 (PDT)
 Received: from debian ([169.211.140.146])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae8454327esm2520564a91.4.2026.10.29.22.56.17
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae6e8fb2c5sm7211185a91.3.2026.10.29.22.58.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 22:56:24 -0700 (PDT)
-Date: Fri, 30 Oct 2026 01:56:15 -0400
+        Thu, 29 Oct 2026 22:58:46 -0700 (PDT)
+Date: Fri, 30 Oct 2026 01:58:38 -0400
 From: Kwanghoon Son <asdfkwang@gmail.com>
 To: Conor Dooley <conor@kernel.org>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -101,19 +101,18 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org
-Subject: Re: [PATCH RFC 05/12] dt-bindings: serial: Add BL808 UART
-Message-ID: <auQxfw7NgnfnVi2G@debian>
+Subject: Re: [PATCH RFC 08/12] riscv: Add Bouffalo Lab SoC selection
+Message-ID: <auQyDnBA2tS2MtxV@debian>
 References: <20261029-rust-bl808-console-v1-0-b736ee920078@gmail.com>
- <20261029-rust-bl808-console-v1-5-b736ee920078@gmail.com>
- <20261029-pouch-enunciate-e74cf84e42a7@spud>
- <20261029-sequester-countable-6a7b597c2551@spud>
+ <20261029-rust-bl808-console-v1-8-b736ee920078@gmail.com>
+ <20261029-urging-dimly-3747c8bb9b1f@spud>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261029-sequester-countable-6a7b597c2551@spud>
+In-Reply-To: <20261029-urging-dimly-3747c8bb9b1f@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_225626_978345_AD4832D6 
-X-CRM114-Status: GOOD (  24.80  )
+X-CRM114-CacheID: sfid-20261029_225849_030681_7CA4A2EA 
+X-CRM114-Status: GOOD (  20.47  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -135,115 +134,54 @@ X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 29, 2026 at 07:18:38PM +0000, Conor Dooley wrote:
-> On Thu, Oct 29, 2026 at 06:54:49PM +0000, Conor Dooley wrote:
-> > On Thu, Oct 29, 2026 at 01:05:46AM -0400, Kwanghoon Son wrote:
-> > > Describe the UART register range, interrupt and baud clock input.
-> > > Initial Linux support targets the BL808 32-byte FIFO and reuses
-> > > Zephyr's bflb,uart compatible. UART3 is D0 PLIC source 20.
-> > > 
-> > > Link: https://docs.zephyrproject.org/latest/build/dts/api/bindings/serial/bflb,uart.html
-> > > 
-> > > Signed-off-by: Kwanghoon Son <asdfkwang@gmail.com>
-> > > ---
-> > >  .../devicetree/bindings/serial/bflb,uart.yaml      | 57 ++++++++++++++++++++++
-> > >  1 file changed, 57 insertions(+)
-> > > 
-> > > diff --git a/Documentation/devicetree/bindings/serial/bflb,uart.yaml b/Documentation/devicetree/bindings/serial/bflb,uart.yaml
-> > > new file mode 100644
-> > > index 0000000000000000000000000000000000000000..df29d258f0a1c6d7bb283cf19c4157436991b64b
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/serial/bflb,uart.yaml
-> > > @@ -0,0 +1,57 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/serial/bflb,uart.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: Bouffalo Lab UART Controller
-> > > +
-> > > +description: |
-> > > +  UART IP used by Bouffalo Lab SoCs. Initial Linux support covers the
-> > > +  BL808 controller with a 32-byte FIFO. The compatible follows Zephyr.
-> > > +
-> > > +maintainers:
-> > > +  - Kwanghoon Son <asdfkwang@gmail.com>
-> > > +
-> > > +allOf:
-> > > +  - $ref: serial.yaml#
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    const: bflb,uart
+On Thu, Oct 29, 2026 at 06:58:41PM +0000, Conor Dooley wrote:
+> On Thu, Oct 29, 2026 at 01:05:49AM -0400, Kwanghoon Son wrote:
+> > Add a platform selection for the BL808 64-bit D0 processor, including
+> > the T-HEAD errata and common clock framework used by its UART.
 > > 
-> > This needs to be a device-specific compatible - please just use the
-> > binding already reviewed and agreed upon in Jisheng's 2023 series.
-
-Again. I'll base this on Jisheng's reviewed binding which is
-"bouffalolab,bl808-uart".
-
+> > Signed-off-by: Kwanghoon Son <asdfkwang@gmail.com>
+> > ---
+> >  arch/riscv/Kconfig.socs | 8 ++++++++
+> >  1 file changed, 8 insertions(+)
 > > 
-> > > +
-> > > +  reg:
-> > > +    maxItems: 1
-> > > +
-> > > +  interrupts:
-> > > +    maxItems: 1
-> > > +
-> > > +  clocks:
-> > > +    items:
-> > > +      - description: Baud rate generator clock
-> > > +
-> > > +  clock-names:
-> > > +    items:
-> > > +      - const: baud
-> > 
-> > Drop this clock name, with only one clock there's no more need for it
-> > than the interrupt-names or reg-names that you do not use either.
+> > diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> > index cecbce0c498384d3283ed23cbf2514391eee361d..ea4667da7716a9a8d2ae156c422b277064b42530 100644
+> > --- a/arch/riscv/Kconfig.socs
+> > +++ b/arch/riscv/Kconfig.socs
+> > @@ -12,6 +12,14 @@ config ARCH_ANLOGIC
+> >  	help
+> >  	  This enables support for Anlogic SoC platform hardware.
+> >  
+> > +config ARCH_BOUFFALOLAB
+> > +	bool "Bouffalo Lab BL808 SoC"
+> 
+> Ideally, this should be more generic because it would eventually include
+> other bouffalo devices.
 
-I'll remove clock-names from the binding, driver will look up the single
-clock without a name.
+Agreed. I'll change the discription more detail with devices
+information.
 
 > 
-> And additionally, I see no value in picking something to suit zephyr,
-> when zephyr uses things like "bflb,clock-controller" or "bflb,pwm-1" and
-> "bflb,pwm2" and so on. Make a clean break and do things correctly rather
-> than try (and fail) to be compatible with the zephyr dts.
+> > +	depends on 64BIT && MMU
+> > +	select ERRATA_THEAD
+> 
+> > +	select COMMON_CLK
+> 
+> This is not needed, there's a select of COMMON_CLK at the arch level.
 > 
 
-I'll describe the hardware rather than compatiblity reusing the Zephyr
-name.
+I'll remove the redundant select COMMON_CLK in v2 as well.
 
+> > +	help
+> > +	  This enables support for Bouffalo Lab SoC platform hardware.
+> > +
+> >  config ARCH_ESWIN
+> >  	bool "ESWIN SoCs"
+> >  	help
 > > 
-> > > +
-> > > +required:
-> > > +  - compatible
-> > > +  - reg
-> > > +  - interrupts
-> > > +  - clocks
-> > > +  - clock-names
-> > > +
-> > > +unevaluatedProperties: false
-> > > +
-> > > +examples:
-> > > +  - |
-> > > +    #include <dt-bindings/interrupt-controller/irq.h>
-> > > +
-> > > +    uart3: serial@30002000 {
-> > > +        compatible = "bflb,uart";
-> > > +        reg = <0x30002000 0x1000>;
-> > > +        interrupts = <20 IRQ_TYPE_LEVEL_HIGH>;
-> > > +        clocks = <&uart_baud>;
-> > > +        clock-names = "baud";
-> > > +    };
-> > > +...
-> > > 
-> > > -- 
-> > > 2.47.3
-> > > 
-> 
-> 
+> > -- 
+> > 2.47.3
+> > 
 
 
 
