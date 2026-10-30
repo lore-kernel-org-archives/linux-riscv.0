@@ -2,70 +2,118 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E01EE606B94F
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 11:00:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9212C606A31A
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 11:38:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QaGd9w/O;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gFmP0aln
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=R3e2Zvxk;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EeaLjiDW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=QBifZ7EnOP/Rjuc0TLsLWBvlPnampkQ02JnC4J1LDxQ=; b=QaGd9w/O/VB9y9VgqpHQ9GacWx
-	iaPYhvB3reldD796kl43hOAbQ6kyuRB6pTSyH2of2VqzAF52aAfJvgF3da41A6q4oYDGdSfW+9Tlv
-	9OXgx2zXxyFDEWKtnMDGuyOOMesev7Hcrmstw5OFrxjaA0yPN3Yx2DNp2xDz9qSauL+Midf2JETRG
-	9kFiG045LMqhQsHF9EyFL2+amKQTfFBqTewsEyPzgEV+FM9vu75g/oFMdMnuAsXzTY5GEIbxav+je
-	CTUlQB8S5FG2PzURRBdiKwMMpr+1H1z2eZ0wOhF3rLOmSnVTSt93HsgoUYDJpujU6z43IOxB4BVx4
-	zpQ7uAwg==;
+	bh=NhxB+pvU8WbZbAPJvzgNBPbfdcSuAJWjH84XbFnMGws=; b=R3e2Zvxk9740nCTad0gUumNCL2
+	sF276Pl9j/j5FLnv567c5g9b+KLzBMmprQqGKmCrYdmhA7iStOZdUpNwpBIEXRQ6mB9hlUzEO6aBd
+	lErKBUegY1ca/d6zh9AqBx5ob8rDl2feYA8Gdt/W5KvbK4eRrNvIwq+wybqMXA4mD+yyjpje9BO7I
+	Nh5MugIcKECvqzcL+8IyTU9js+EHldTB6nwdnBWp6iHWxUHvGRH105OULfOSW30hRWrKuigIMHPMM
+	1QRaJ7PL93WiO6psNScs+2sPzNpnMcpvfBCAROmpqQVPLManibEppUNdnIVkuO4UzhD8oOR6pEnJz
+	OmuZO0Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMkL5-0000000BU0D-1o6x;
-	Fri, 30 Oct 2026 11:00:03 +0000
-Received: from out-236.mta1.migadu.com ([95.215.58.236] helo=mta1.migadu.com)
+	id 1xMkw4-0000000BZX8-2E2N;
+	Fri, 30 Oct 2026 11:38:16 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMkL3-0000000BTxC-1Jld
+	id 1xMkw1-0000000BZWJ-2ieP
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Oct 2026 11:00:02 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=Xvi5KNjnUNgFYmy8o8KNB4Su4NYMJfcH+HIyAbsvVmY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793357998; v=1; x=1793962798;
- b=gFmP0alniqK3Q0vS/ktp6PiXW0dA1EMgfRWdUgU9LyHjzTEttQaVOAlP+fzz1O+MVqRCjMmH
- f52mdQwGXsRq4uQJ8u88wl3preiqWL7ysZrwnUNwwpK+ajYxdHAzU09TiYG2PnIKV+XjDPgir9F
- jnirJFu1ie973VRPZF65DrtI=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 79fb9df180a5e2f4;
-	Fri, 30 Oct 2026 10:59:58 +0000
-X-Mizu-Trace-ID: 79fb9df180a5e2f4
-X-Migadu-Flow: FLOW_OUT
-From: Jackie Liu <liu.yun@linux.dev>
-To: akpm@linux-foundation.org
-Cc: palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	glider@google.com,
-	dvyukov@google.com,
-	elver@google.com,
-	pjw@kernel.org,
-	alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-mm@kvack.org,
-	kasan-dev@googlegroups.com
-Subject: [PATCH 2/2] riscv: Prepare late KFENCE pools with PTE mappings
-Date: Fri, 30 Oct 2026 18:59:33 +0800
-Message-ID: <20261030105933.4180-3-liu.yun@linux.dev>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261030105933.4180-1-liu.yun@linux.dev>
-References: <20261030105933.4180-1-liu.yun@linux.dev>
+	Fri, 30 Oct 2026 11:38:15 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-8a06b27bf9bso202421b3a.2
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Oct 2026 04:38:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793360291; x=1793965091; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=e15qUec2OZ0h2GwREdIp79FcmOHYvFA4NalPpqIJkEE=;
+        b=EeaLjiDW42Mi8315hHZK7ivQ0jyUL7PbYD7yRTkkxmeVZotxHVXQKLuWDNRy57JEfS
+         s+kd6pCVNi2Cu1Tsbm6CvxDUQP5aS6mCqh+4A1OhF2wWQpajoTAzygjDce5S92fLqqdF
+         Qj2qeOzujXpdnGPH7manV8gvfiD7460UWSnfQXjMBbB7VriVnzd7cCwb8wDUZ7YFcsLn
+         JurX+r9ZaIkNoUpYT7viEE9GmNveiNkjjIPly5QdR3NamDUZzYLjubUbZYBmNRjiSB/c
+         nCX/yvtqJa916G34o4TrxuwizAIxG95qPd8hf4YFIA0slDOyAqJ7vusuHpvLGXTH9bbu
+         Ss4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793360291; x=1793965091;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=e15qUec2OZ0h2GwREdIp79FcmOHYvFA4NalPpqIJkEE=;
+        b=J4Uhe9kJOZxYd+IdJGe6JYZBUQOrQILEQAOlfBk0Zkkt/q8ltAUELvCo1TQbgWkt2P
+         z5G82w4SQWpZ8w/dxLXKmRBWDPMq+U1YeutJHuDwup5ghDeiII/gyDN19qSC66HiK7zY
+         IzBpqsJPnhprMyt10erV1x9iOU12HZTQe1FO0p9XkAdtkFR/PFc1qSHIPvmUvN79Fsjw
+         +7KFmvRgyb3ErifthBNjLONQYFqZxOnVGnkznijDG71Q0o0emlnTDMyzPaAdrPnZ0ZqF
+         97mxbFSBEPeKkb1WUzc41O5GcejP7K5eUITK5FUpuZ+2H/POAZzs/7bxYQiFJjX+g/t6
+         YUtQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxs6pLkyi/T5OijZjMCGp4DE6hVJ/pKL6aj6mUFNCLQSiFcrfwsrVJXguWpLY6ATj48MfXtEUQipsSq8w==@lists.infradead.org
+X-Gm-Message-State: AFq9FYJac4dXM7DI4RIhktWAP/88bpsfEWQ5OVV1MSnqVLlXtHLZJEHo
+	UldaBgiWroZVnBLO2oQePTe2zUde8yeklfdiqtVGE6JiBYqQ6MvPuldL
+X-Gm-Gg: AYBFou1AyKzw2G5jeibjGdKtp+HtSXrLi/Q+xFkXVRaEWJcrT3ev8qd9IWte16QZiEr
+	Jes6S7vM0GROc06X2Z9F7UUuR7iGkNVLBoz6fPnS9gmZtDkR5FgC82A/Z8sG2lUwpLDwJd1JD8I
+	f4/A8ONN6SHwp0A+vAtmDHoDzcgFGoG4F8FDbOOvnJTaPGszFCBpzjcqA15uF/C2ONj7dMCYDWB
+	j1eRUCJP/I7AlwRaeCUxODYo+v48Lwervp2rw9hd7B0m1jDO7pgTyPdJvE2G7fcB0IvbojRVMlO
+	ahYPSmG2uh7SO1eFLyhbwMLrA1xXaV2MG5yfd+fS8BfnWdLq6Yvmv3nsVoVaoU1g48iz7JJ5zHI
+	Uyj9Ilvi//4UUeEWKBCfYz5A/l7iZGyorNaADxJlAJyA2Y5b7CFDYaraSkPxkld3Z0FnKSLtbYI
+	ZyC7Lx3lA6B/cnMBG1nSTQtARVe7zIoB6jdheCzSypm4FBy5tF2b0WdMDUykIzHJNu5x2toGXfS
+	GCq5M/hVS8cNdWa9gEkMxxeFu2/xERZ/cqEekz6kW8AqO92CDMxrXYXzJyLZ8t6E+anxN3sjq8r
+	o6567DH1CPjeQWS5ulc6uw==
+X-Received: by 2002:a05:6a20:918e:b0:3e1:dfcb:5a75 with SMTP id adf61e73a8af0-3e928956abfmr1766192637.21.1793360291245;
+        Fri, 30 Oct 2026 04:38:11 -0700 (PDT)
+Received: from debian ([169.211.140.146])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8a9ea4865c8sm679545b3a.0.2026.10.30.04.38.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Oct 2026 04:38:10 -0700 (PDT)
+Date: Fri, 30 Oct 2026 07:37:54 -0400
+From: Kwanghoon Son <asdfkwang@gmail.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+	Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org
+Subject: Re: [PATCH RFC 10/12] riscv: dts: bouffalolab: Add Sipeed M1s Dock
+Message-ID: <auSBktpboye35BrU@debian>
+References: <20261029-rust-bl808-console-v1-0-b736ee920078@gmail.com>
+ <20261029-rust-bl808-console-v1-10-b736ee920078@gmail.com>
+ <20261029-pork-resonant-fb692b84bef7@spud>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20261029-pork-resonant-fb692b84bef7@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_040001_514666_87B7296C 
-X-CRM114-Status: GOOD (  19.98  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261030_043813_702711_9C40C7FF 
+X-CRM114-Status: GOOD (  21.56  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,274 +126,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Jackie Liu <liuyun01@kylinos.cn>
+On Thu, Oct 29, 2026 at 07:07:00PM +0000, Conor Dooley wrote:
+> On Thu, Oct 29, 2026 at 01:05:51AM -0400, Kwanghoon Son wrote:
+> > Add the M1s SoM memory and 40 MHz crystal, and enable UART3 on the Dock
+> > with a direct stdout path and 115200 8N1 settings.
+> > 
+> > Boot firmware initializes PSRAM, UART pads and shared PLLs. The tested
+> > firmware configures D0 TIME at 320 MHz / 380, represented as 842105 Hz.
+> > Firmware using another timer configuration must fix up timebase-
+> > frequency. The declared 64 MiB PSRAM range must retain firmware
+> > reservations or be narrowed by firmware when memory is assigned to
+> > another core.
+> > 
+> > The stdout path selects the native polling printk console; userspace TTY
+> > I/O is deferred.
+> > 
+> > Signed-off-by: Kwanghoon Son <asdfkwang@gmail.com>
+> > ---
+> >  arch/riscv/boot/dts/Makefile                          |  1 +
+> >  arch/riscv/boot/dts/bouffalolab/Makefile              |  2 ++
+> >  .../boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts    | 18 ++++++++++++++++++
+> >  arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi | 19 +++++++++++++++++++
+> >  4 files changed, 40 insertions(+)
+> > 
+> > diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> > index 69d8751fb17c803f0efb8003e111ee24144c222b..294f9c119f8f1d608c878ca1f95891843301f07e 100644
+> > --- a/arch/riscv/boot/dts/Makefile
+> > +++ b/arch/riscv/boot/dts/Makefile
+> > @@ -2,6 +2,7 @@
+> >  subdir-y += allwinner
+> >  subdir-y += andes
+> >  subdir-y += anlogic
+> > +subdir-y += bouffalolab
+> >  subdir-y += canaan
+> >  subdir-y += eswin
+> >  subdir-y += microchip
+> > diff --git a/arch/riscv/boot/dts/bouffalolab/Makefile b/arch/riscv/boot/dts/bouffalolab/Makefile
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..4d63365edc095fbe9df31c4b12e29c4b624cbd1f
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/bouffalolab/Makefile
+> > @@ -0,0 +1,2 @@
+> > +# SPDX-License-Identifier: GPL-2.0
+> > +dtb-$(CONFIG_ARCH_BOUFFALOLAB) += bl808-sipeed-m1s-dock.dtb
+> > diff --git a/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..c719a53c6e2de45f3718b48ba2116e99c70e559b
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
+> > @@ -0,0 +1,18 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > +
+> > +/dts-v1/;
+> > +
+> > +#include "bl808-sipeed-m1s.dtsi"
+> > +
+> > +/ {
+> > +	model = "Sipeed M1s Dock";
+> > +	compatible = "sipeed,m1s-dock", "sipeed,m1s", "bflb,bl808";
+> > +
+> > +	chosen {
+> > +		stdout-path = "/soc/serial@30002000:115200n8";
+> 
+> You should be able to do this normally, with an alias. Why are you not
+> just using what Jisheng did?
 
-RISC-V preallocates a PTE-mapped KFENCE pool, but pools allocated after
-boot may use huge mappings. arch_kfence_init_pool() leaves those mappings
-unchanged, while kfence_protect_page() requires PTEs.
+Because rust does NOT have alias OF yet.
+I intended to post the Rust OF alias helper separately after this RFC.
+But if this way wrong, I would patch for rust OF alias together.
 
-Use set_memory_4k() to prepare each pool. Add a force_pte mode to the
-linear-map splitter so fully covered huge mappings are split as well.
-Preserve permissions and flush the TLB even if splitting fails partway.
+> 
+> > +	};
+> > +};
+> > +
+> > +&uart3 {
+> > +	status = "okay";
+> > +};
+> > diff --git a/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..ae54e6e301ed2c5a1448d52c530c5074515ee38c
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
+> > @@ -0,0 +1,19 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > +
+> > +#include "bl808.dtsi"
+> > +
+> > +/ {
+> > +	compatible = "sipeed,m1s", "bflb,bl808";
+> > +	memory@50000000 {
+> > +		device_type = "memory";
+> > +		reg = <0x50000000 0x04000000>;
+> > +	};
+> > +
+> > +	cpus {
+> > +		timebase-frequency = <842105>;
+> > +	};
+> > +};
+> > +
+> > +&xtal {
+> > +	clock-frequency = <40000000>;
+> > +};
+> > 
+> > -- 
+> > 2.47.3
+> > 
 
-Keep the early PTE mapping to avoid boot-time page-table allocations.
-Release that pool when boot parameters disable sampling, so late enabling
-initializes a fresh pool. If reservation fails, continue booting with
-sampling disabled to avoid an unprepared fallback pool, while allowing
-a later retry.
-
-Link: https://lore.kernel.org/all/sashiko-outbox-190189@kernel.org/
-Fixes: 25abe0db9243 ("riscv: Fix kfence now that the linear mapping can be backed by PUD/P4D/PGD")
-Signed-off-by: Jackie Liu <liuyun01@kylinos.cn>
----
- arch/riscv/include/asm/kfence.h     |  4 ++-
- arch/riscv/include/asm/set_memory.h |  3 ++
- arch/riscv/mm/init.c                | 23 +++++++++---
- arch/riscv/mm/pageattr.c            | 56 ++++++++++++++++++++---------
- 4 files changed, 65 insertions(+), 21 deletions(-)
-
-diff --git a/arch/riscv/include/asm/kfence.h b/arch/riscv/include/asm/kfence.h
-index 29cb3a6ee113d..d7bc84cc5107a 100644
---- a/arch/riscv/include/asm/kfence.h
-+++ b/arch/riscv/include/asm/kfence.h
-@@ -8,10 +8,12 @@
- #include <asm-generic/pgalloc.h>
- #include <asm/cacheflush.h>
- #include <asm/pgtable.h>
-+#include <asm/set_memory.h>
- 
- static inline bool arch_kfence_init_pool(void)
- {
--	return true;
-+	return !set_memory_4k((unsigned long)__kfence_pool,
-+			      KFENCE_POOL_SIZE / PAGE_SIZE);
- }
- 
- static inline bool kfence_protect_page(unsigned long addr, bool protect)
-diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-index e9f9960c19477..dfd41466265f3 100644
---- a/arch/riscv/include/asm/set_memory.h
-+++ b/arch/riscv/include/asm/set_memory.h
-@@ -11,6 +11,9 @@
-  * Functions to change memory attributes.
-  */
- #ifdef CONFIG_MMU
-+#ifdef CONFIG_64BIT
-+int set_memory_4k(unsigned long addr, int numpages);
-+#endif
- int set_memory_ro(unsigned long addr, int numpages);
- int set_memory_rw(unsigned long addr, int numpages);
- int set_memory_x(unsigned long addr, int numpages);
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index b50de11605c6c..aee6fc4d6c5df 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -173,6 +173,16 @@ void __init arch_mm_preinit(void)
- 	BUG_ON(!mem_map);
- #endif /* CONFIG_FLATMEM */
- 
-+#ifdef CONFIG_KFENCE
-+	/* Boot parameters have been parsed, and memblock can still free the pool. */
-+	if (!__kfence_pool) {
-+		kfence_sample_interval = 0;
-+	} else if (!kfence_sample_interval) {
-+		memblock_free(__kfence_pool, KFENCE_POOL_SIZE);
-+		__kfence_pool = NULL;
-+	}
-+#endif
-+
- 	if (IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) && !swiotlb &&
- 	    dma_cache_alignment != 1) {
- 		/*
-@@ -1230,10 +1240,12 @@ static void __init create_linear_mapping_page_table(void)
- 	 *  for this region.
- 	 */
- 	kfence_pool = memblock_phys_alloc(KFENCE_POOL_SIZE, PAGE_SIZE);
--	BUG_ON(!kfence_pool);
--
--	memblock_mark_nomap(kfence_pool, KFENCE_POOL_SIZE);
--	__kfence_pool = __va(kfence_pool);
-+	if (kfence_pool) {
-+		memblock_mark_nomap(kfence_pool, KFENCE_POOL_SIZE);
-+		__kfence_pool = __va(kfence_pool);
-+	} else {
-+		pr_err("failed to allocate kfence pool\n");
-+	}
- #endif
- 
- 	/* Map all memory banks in the linear mapping */
-@@ -1254,6 +1266,9 @@ static void __init create_linear_mapping_page_table(void)
- #endif
- 
- #ifdef CONFIG_KFENCE
-+	if (!kfence_pool)
-+		return;
-+
- 	create_linear_mapping_range(kfence_pool, kfence_pool + KFENCE_POOL_SIZE, PAGE_SIZE, NULL);
- 
- 	memblock_clear_nomap(kfence_pool, KFENCE_POOL_SIZE);
-diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-index 32834a09a8097..35990e7f9ebe5 100644
---- a/arch/riscv/mm/pageattr.c
-+++ b/arch/riscv/mm/pageattr.c
-@@ -94,7 +94,8 @@ static const struct mm_walk_ops pageattr_ops = {
- 
- #ifdef CONFIG_64BIT
- static int __split_linear_mapping_pmd(pud_t *pudp,
--				      unsigned long vaddr, unsigned long end)
-+				      unsigned long vaddr, unsigned long end,
-+				      bool force_pte)
- {
- 	pmd_t *pmdp;
- 	unsigned long next;
-@@ -104,7 +105,7 @@ static int __split_linear_mapping_pmd(pud_t *pudp,
- 	do {
- 		next = pmd_addr_end(vaddr, end);
- 
--		if (next - vaddr >= PMD_SIZE &&
-+		if (!force_pte && next - vaddr >= PMD_SIZE &&
- 		    vaddr <= (vaddr & PMD_MASK) && end >= next)
- 			continue;
- 
-@@ -133,7 +134,8 @@ static int __split_linear_mapping_pmd(pud_t *pudp,
- }
- 
- static int __split_linear_mapping_pud(p4d_t *p4dp,
--				      unsigned long vaddr, unsigned long end)
-+				      unsigned long vaddr, unsigned long end,
-+				      bool force_pte)
- {
- 	pud_t *pudp;
- 	unsigned long next;
-@@ -144,7 +146,7 @@ static int __split_linear_mapping_pud(p4d_t *p4dp,
- 	do {
- 		next = pud_addr_end(vaddr, end);
- 
--		if (next - vaddr >= PUD_SIZE &&
-+		if (!force_pte && next - vaddr >= PUD_SIZE &&
- 		    vaddr <= (vaddr & PUD_MASK) && end >= next)
- 			continue;
- 
-@@ -169,7 +171,7 @@ static int __split_linear_mapping_pud(p4d_t *p4dp,
- 			set_pud(pudp, pfn_pud(page_to_pfn(pmd_page), PAGE_TABLE));
- 		}
- 
--		ret = __split_linear_mapping_pmd(pudp, vaddr, next);
-+		ret = __split_linear_mapping_pmd(pudp, vaddr, next, force_pte);
- 		if (ret)
- 			return ret;
- 	} while (pudp++, vaddr = next, vaddr != end);
-@@ -178,7 +180,8 @@ static int __split_linear_mapping_pud(p4d_t *p4dp,
- }
- 
- static int __split_linear_mapping_p4d(pgd_t *pgdp,
--				      unsigned long vaddr, unsigned long end)
-+				      unsigned long vaddr, unsigned long end,
-+				      bool force_pte)
- {
- 	p4d_t *p4dp;
- 	unsigned long next;
-@@ -190,10 +193,10 @@ static int __split_linear_mapping_p4d(pgd_t *pgdp,
- 		next = p4d_addr_end(vaddr, end);
- 
- 		/*
--		 * If [vaddr; end] contains [vaddr & P4D_MASK; next], we don't
--		 * need to split, we'll change the protections on the whole P4D.
-+		 * Unless PTE mappings are required, change the protections of a
-+		 * fully covered P4D mapping without splitting it.
- 		 */
--		if (next - vaddr >= P4D_SIZE &&
-+		if (!force_pte && next - vaddr >= P4D_SIZE &&
- 		    vaddr <= (vaddr & P4D_MASK) && end >= next)
- 			continue;
- 
-@@ -228,7 +231,7 @@ static int __split_linear_mapping_p4d(pgd_t *pgdp,
- 			set_p4d(p4dp, pfn_p4d(page_to_pfn(pud_page), PAGE_TABLE));
- 		}
- 
--		ret = __split_linear_mapping_pud(p4dp, vaddr, next);
-+		ret = __split_linear_mapping_pud(p4dp, vaddr, next, force_pte);
- 		if (ret)
- 			return ret;
- 	} while (p4dp++, vaddr = next, vaddr != end);
-@@ -238,7 +241,7 @@ static int __split_linear_mapping_p4d(pgd_t *pgdp,
- 
- static int __split_linear_mapping_pgd(pgd_t *pgdp,
- 				      unsigned long vaddr,
--				      unsigned long end)
-+				      unsigned long end, bool force_pte)
- {
- 	unsigned long next;
- 	int ret;
-@@ -246,7 +249,7 @@ static int __split_linear_mapping_pgd(pgd_t *pgdp,
- 	do {
- 		next = pgd_addr_end(vaddr, end);
- 		/* We never use PGD mappings for the linear mapping */
--		ret = __split_linear_mapping_p4d(pgdp, vaddr, next);
-+		ret = __split_linear_mapping_p4d(pgdp, vaddr, next, force_pte);
- 		if (ret)
- 			return ret;
- 	} while (pgdp++, vaddr = next, vaddr != end);
-@@ -254,9 +257,30 @@ static int __split_linear_mapping_pgd(pgd_t *pgdp,
- 	return 0;
- }
- 
--static int split_linear_mapping(unsigned long start, unsigned long end)
-+static int split_linear_mapping(unsigned long start, unsigned long end,
-+				bool force_pte)
- {
--	return __split_linear_mapping_pgd(pgd_offset_k(start), start, end);
-+	return __split_linear_mapping_pgd(pgd_offset_k(start), start, end, force_pte);
-+}
-+
-+/* Split the direct map into base pages without changing its permissions. */
-+int set_memory_4k(unsigned long addr, int numpages)
-+{
-+	unsigned long end = addr + PAGE_SIZE * numpages;
-+	int ret;
-+
-+	if (!numpages)
-+		return 0;
-+	if (!is_linear_mapping(addr) || !is_linear_mapping(end - 1))
-+		return -EINVAL;
-+
-+	mmap_write_lock(&init_mm);
-+	ret = split_linear_mapping(addr, end, true);
-+	mmap_write_unlock(&init_mm);
-+
-+	/* A failed allocation may still have split an upper-level mapping. */
-+	flush_tlb_all();
-+	return ret;
- }
- #endif	/* CONFIG_64BIT */
- 
-@@ -296,7 +320,7 @@ static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
- 			lm_start = (unsigned long)page_address(area->pages[i]);
- 			lm_end = lm_start + PAGE_SIZE;
- 
--			ret = split_linear_mapping(lm_start, lm_end);
-+			ret = split_linear_mapping(lm_start, lm_end, false);
- 			if (ret)
- 				goto unlock;
- 
-@@ -314,7 +338,7 @@ static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
- 			lm_end = end;
- 		}
- 
--		ret = split_linear_mapping(lm_start, lm_end);
-+		ret = split_linear_mapping(lm_start, lm_end, false);
- 		if (ret)
- 			goto unlock;
- 
--- 
-2.43.0
 
 
 _______________________________________________
