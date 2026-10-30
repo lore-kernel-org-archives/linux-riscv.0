@@ -2,119 +2,126 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11293606A336
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 11:44:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D2B2606A31D
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 13:30:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1JVrzyXp;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R2YFLRQ9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Fq+1Ig3P;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=fritz.com header.i=@fritz.com header.a=rsa-sha256 header.s=mail header.b=AmiP1sdZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=tYhWOi9c+ydCcNE0B6cbURUK/AnhZnq/kM7Q7myKC1s=; b=1JVrzyXpjEB+zDsGfFctUxojWu
-	MS6Amj2x3FqYcEvDF1aB4TShrpSmD5OM80Dilu0vePTi7JF7RBe1wzpqY67SbRONr50+sWYJmQaXH
-	Fv4I8Bw9lYhKpF0vvAx2O284gTHiQ+LhqvUwLQhdI73FEjkCwxCMtRbc4I6xY6LMpzlbxjZOjRiCI
-	O0TOoKKMgMV1gGwidnaoQKA8tB390wIZduq7M0mgJ8U/Fl9gHbAG2NurvnfpQcJjJ8t7zbG79O8pB
-	QgCZpvFZejQon7nPxKrEPIJk8w+vmB07YvShu6o3y05TX8/3y4Nfk6ERO0W4PhJxqWCsPXB5/0J74
-	cWg8wnmg==;
+	bh=VDH+LyiyupFrrxk+7YU1u9s2KUXt5dVvr3NYfTcY7ZU=; b=Fq+1Ig3Ptu/DdXcQU8wJiXVpu7
+	tC7/wy39tUq2wx6A/1M7y0WbWnrlQF74mOz/c9B8bhuZ0ZubbaflbpWeg3PTx1wn5055x6cjcOjnj
+	5jLYpPiN0lHMbO29APGQ+X35+sAK4/D2kTzUhLDyskAw6goLfWgb5qHIF+/i6YkxH4CIawO9v446b
+	jSLNez3hlBk5cpm99ADfCK7BY4qXbMwv6rlq0V9AKiAj+orWjX3Zg6Q1dsYX0BtLx9WB2e2QktKWK
+	dsPsY+vFZNobS9bwK6aLl645yW6rKp7W1XOwvERgztf/XspYV9dwap7FwuC5pf2keiuIXLTHQt1bo
+	q7ZKzMjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMl2P-0000000BaLV-0cnq;
-	Fri, 30 Oct 2026 11:44:49 +0000
-Received: from mail-pz2-x0a.google.com ([2607:f8b0:4864:3b::a])
+	id 1xMmg5-0000000Bkli-2mUv;
+	Fri, 30 Oct 2026 13:29:53 +0000
+Received: from mail.avm.de ([212.42.244.94])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMl2L-0000000BaKH-3rMf
-	for linux-riscv@lists.infradead.org;
-	Fri, 30 Oct 2026 11:44:47 +0000
-Received: by mail-pz2-x0a.google.com with SMTP id 41be03b00d2f7-cd3da0e82daso107094a12.1
-        for <linux-riscv@lists.infradead.org>; Fri, 30 Oct 2026 04:44:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793360684; x=1793965484; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=J/6UIvMwC+2M7xk6hrl7rsj5PVVyi+u7mrNva4BtF6A=;
-        b=R2YFLRQ9x6YeK6M1amo+4zI7JM+bE3Q6YqtbS/tCLE5P2BhvTXkApCsvRHcW7eXlXv
-         MTEexpqtn62gb5zDpUKCjteI7j9z/Fhgm+hHNsPZW0z7876TVgjbcZ29w/4E8ksVGI2p
-         O4FJnz13uvtqroWkNYZv/NlfqieqSfUdqUle6BSeZAkr7AnJ0xRad7fKDxJJCU1FkuBH
-         Wd+640UUO/LgBPOJH39JcqHwwaJVPQxa9BNq0onH6v5j8O09rs6reRHk0KdpVHRD6qm3
-         Jr9MWPJ6YuS4mDKLRz4CCtmjcDnwNvr2P2cyDCJSqU362GTrer029J0rf813X4tpYUDX
-         dK2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793360684; x=1793965484;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=J/6UIvMwC+2M7xk6hrl7rsj5PVVyi+u7mrNva4BtF6A=;
-        b=1TdBflxbKyiuom5rpuBaKGCVwpo61WRjK+2NE1ceLnWtT273db12QRjlwOhxVcZtKk
-         cfVBBWfyr26u/cj9mgOoUJsV1BGpWOGD83vtLMHQiJvqMp+Cg/9nit+ip01BKNaxPOLa
-         +qMu4wJEiq4u8O2Li4vCn7joRV4lj1RpQZHiI0cjswRgqc3PLT9wj2wz+aeDRjvCJe6b
-         Jdm3s5+1oIRww1ij2hvhjwqyyBevkH3aHJu2o207MiJpDAIhFJHjJhpnD+ARePUi55Dj
-         AEhfceesll6sQIiFnatJBeiwWJYdJcXNww/YdA06fNUQQU5JtcwkEv6Rs+xe51aRBKgO
-         T4zQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxTHLfCTsAdY7Nqwcspf9uu1XpY3v05YiywnvHgRmQ4AfAJm5FgrvO5wS7Cbz5TcXXZdd9/iuEtxOTx8w==@lists.infradead.org
-X-Gm-Message-State: AFq9FYJt71ou1WPGLIN8yXjWQCb/Qg04AphoqOE/Yw4NRGz2tosmI3mP
-	ZXW3XJ9U+vuv5nkuXJ37ZzbaWFVDkXznFghPji55PDXh+A8IOs9ygzlF
-X-Gm-Gg: AYBFou34UVCI5TbgPcoUX95tyIT9yhnVTksWdGMZY/DqSfTCQxEFBmpqsHT6lruF3Ct
-	BwXB5maGNVNYj0i/t3gaWAjulJA6+OHgOz3weW7oNSmM5bQfGzsBa2HUTGGBKvvXodIwpqqPBen
-	ExUzfGFJ8KBxAFjZuVmBUw7QftfFdeYJCmA0ziSsbNa7IKkdQkblSTXPPaj6Wpjheqd4wn8gkMA
-	I4MsSZgY6f4Ct3jS+is/UT4gn+iFSfIL7AI7Z8IA7pKuyHmdYlixKKnEkxM+LZMrlIXUXhHg/gp
-	5L7pmIsU5eyaGwtZRCmdqJVsEOWsnNAG9Jyy6OwpemMAQET4JuccDGgD2h6NOJqBPp5v6BId+Ge
-	J4e35FDkRqPFVyq/gKzT9x96yB/YVIgUsSpM6p21CGiZOEgCTake/7wSdPHxcCQ4iyKBB5egWfV
-	7DGhaRdJlzHJpJ6PD4piLqXoHRTXykUqnGqqfh7uiDakdVBmE3HehGP9Oc5fuAGL4uU4fhH/KAj
-	mB38cqZ6GtQX6HPzytuZRc0F5hcuKfvfvKgfFeR0zvXHFPZAHgypc/3GYNayAsT7t9Wd/QjjQmr
-	m74jIwrdbBkxA5vgBifmPQ==
-X-Received: by 2002:a05:6a00:2d1c:b0:8a0:7dc4:95c0 with SMTP id d2e1a72fcca58-8a9be5896acmr1842901b3a.15.1793360684421;
-        Fri, 30 Oct 2026 04:44:44 -0700 (PDT)
-Received: from debian ([169.211.140.146])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8a9eef957e6sm660253b3a.15.2026.10.30.04.44.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 04:44:43 -0700 (PDT)
-Date: Fri, 30 Oct 2026 07:44:36 -0400
-From: Kwanghoon Son <asdfkwang@gmail.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>,
+	id 1xMmg0-0000000Bkks-2OIc;
+	Fri, 30 Oct 2026 13:29:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=fritz.com; s=mail;
+	t=1793366980; bh=a/fEt90n+2smzc8tULN5m3m/hMMA3WQXHcvWhcoynLc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AmiP1sdZKE4ipmV9XkFzIAg6sDdTc8piKssit8JG5M7jVm+wWoA9HNBcL6nnioxmf
+	 UtVWmWL8HC8cipXhGGKFKn344d7QBy4BigwXDhd9cibHOOYqfnPwcm+wl7S8LyH40H
+	 PIcRpdlbp12mkcZ/qVoxVXxHxdsVB4yBgm4K8e8Gb7j8o5MGT6HVOS52CCT1ImUgYM
+	 rC8fGm5esO5fYtQK82TXSmpyrCUdX6hUkhNuydSuiEjRPAEuIkSRJ3Vr5CzOMuVEiE
+	 +YmeA56zTDNX6G2v3XBcddEQclfpxGdALH3GP+htSNoKgdV3GvyPoPiSSRu1+yw2Ux
+	 Cmo8WDvejZ5Lw==
+Received: from [212.42.244.78] (helo=mail.avm.de)
+	by mail.avm.de with ESMTP (eXpurgate 4.57.1)
+	(envelope-from <n.schier@fritz.com>)
+	id 6ae49bc4-23c8-7f0000032729-7f0000019970-1
+	for <multiple-recipients>; Fri, 30 Oct 2026 14:29:40 +0100
+Received: from mail-auth.fritz.com (unknown [212.42.244.78])
+	by mail.avm.de (Postfix) with ESMTPS;
+	Fri, 30 Oct 2026 14:29:40 +0100 (CET)
+Date: Fri, 30 Oct 2026 14:29:39 +0100
+From: Nicolas Schier <n.schier@fritz.com>
+To: Thomas Huth <thuth@redhat.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor <nathan@kernel.org>,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Matt Turner <mattst88@gmail.com>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Luis Augenstein <luis.augenstein@tngtech.com>,
+	Maximilian Huber <maximilian.huber@tngtech.com>,
+	Anup Patel <anup@brainfault.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andy Lutomirski <luto@kernel.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, soc@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+	Mark Rutland <mark.rutland@arm.com>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Sean Christopherson <seanjc@google.com>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org
-Subject: Re: [PATCH RFC 12/12] MAINTAINERS: Add Bouffalo Lab BL808 support
-Message-ID: <auSDJH9V31wmbrYv@debian>
-References: <20261029-rust-bl808-console-v1-0-b736ee920078@gmail.com>
- <20261029-rust-bl808-console-v1-12-b736ee920078@gmail.com>
- <20261029-spyglass-evasion-772697094cb9@spud>
- <20261029-amuser-savior-6a6ab062f471@spud>
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, linux-alpha@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org, linux-efi@vger.kernel.org,
+	netdev@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH v5 13/13] treewide: Stop defining __ASSEMBLY__ for
+ assembler files
+Message-ID: <20261030-dexterous-manatee-of-honor-eac4eb@l-nschier-z2>
+References: <20261023064908.66707-1-thuth@redhat.com>
+ <20261023064908.66707-14-thuth@redhat.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261029-amuser-savior-6a6ab062f471@spud>
+In-Reply-To: <20261023064908.66707-14-thuth@redhat.com>
+Organization: FRITZ! Technology GmbH
+x-ms-reactions: disallow
+X-purgate-ID: 149429::1793366980-B27F8EE4-FD80AEC5/0/0
+X-purgate-type: clean
+X-purgate-size: 2843
+X-Notice: Whitelisted
+X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
+X-purgate: clean
+X-pfmilter: host: postfix-mx-03  mail-id: CA9E3A07A1  external: no
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_044445_969618_56352276 
-X-CRM114-Status: GOOD (  25.92  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261030_062949_043596_5C3DBFD2 
+X-CRM114-Status: GOOD (  13.23  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,92 +131,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1841719437742228488=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 29, 2026 at 07:20:41PM +0000, Conor Dooley wrote:
-> On Thu, Oct 29, 2026 at 07:08:56PM +0000, Conor Dooley wrote:
-> > On Thu, Oct 29, 2026 at 01:05:53AM -0400, Kwanghoon Son wrote:
-> > > Add a MAINTAINERS entry for the Bouffalo Lab BL808 platform, device trees
-> > > and Rust serial driver and abstractions.
-> > > 
-> > > Signed-off-by: Kwanghoon Son <asdfkwang@gmail.com>
-> > > ---
-> > >  MAINTAINERS | 13 +++++++++++++
-> > >  1 file changed, 13 insertions(+)
-> > > 
-> > > diff --git a/MAINTAINERS b/MAINTAINERS
-> > > index 801f964899ba790a8f71fe61f9b3777a494dabd5..b76d3e168468bf6139c958a81b626c73b422c0d4 100644
-> > > --- a/MAINTAINERS
-> > > +++ b/MAINTAINERS
-> > > @@ -4926,6 +4926,19 @@ S:	Maintained
-> > >  F:	Documentation/devicetree/bindings/iio/imu/bosch,bmi323.yaml
-> > >  F:	drivers/iio/imu/bmi323/
-> > >  
-> > > +BOUFFALO LAB BL808 SUPPORT
-> > > +M:	Kwanghoon Son <asdfkwang@gmail.com>
-> > > +L:	linux-riscv@lists.infradead.org
-> > > +L:	linux-serial@vger.kernel.org
-> > > +S:	Maintained
-> > 
-> > Missing git tree, unless you're expecting me to apply patches for the
-> > platform for you?
+--===============1841719437742228488==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="FhzCQO4A3K0b968D"
+Content-Disposition: inline
 
-I added this entry after seeing checkpatch's MAINTAINERS warning,
-but made its scope too broad. I'll separate the BL808 platform support
-from the generic Rust serial abstractions in MAINTAINERS.
+--FhzCQO4A3K0b968D
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> Additionally, are you actually going to add wider scale support for this
-> device? Like a clock-controller driver and the various other
-> peripherals, or is this really just a vehicle to support your rust
-> serial driver work?
-> 
+On Fri, Oct 23, 2026 at 08:48:50AM +0200, Thomas Huth wrote:
+> All spots have been changed to __ASSEMBLER__ (i.e. the macro that
+> gets defined by the compiler), so we don't have to manually define
+> __ASSEMBLY__ anymore.
+>=20
+> Signed-off-by: Thomas Huth <thuth@redhat.com>
+> ---
+>  Makefile                                             | 2 +-
+>  arch/alpha/boot/compressed/Makefile                  | 2 +-
+>  arch/arm64/kernel/vdso32/Makefile                    | 1 -
+>  arch/loongarch/vdso/Makefile                         | 2 +-
+>  arch/mips/boot/compressed/Makefile                   | 2 +-
+>  arch/mips/vdso/Makefile                              | 2 +-
+>  arch/powerpc/boot/Makefile                           | 2 +-
+>  arch/powerpc/platforms/cell/spufs/Makefile           | 2 +-
+>  arch/s390/Makefile                                   | 2 +-
+>  arch/x86/boot/Makefile                               | 2 +-
+>  arch/x86/boot/compressed/Makefile                    | 2 +-
+>  arch/x86/realmode/rm/Makefile                        | 2 +-
+>  arch/xtensa/kernel/Makefile                          | 2 +-
+>  drivers/firmware/efi/libstub/Makefile                | 2 +-
+>  drivers/net/wan/Makefile                             | 2 +-
+>  scripts/Makefile.build                               | 2 +-
+>  scripts/gfp-translate                                | 2 +-
+>  scripts/headers_install.sh                           | 1 -
+>  scripts/sbom/tests/cmd_graph/test_savedcmd_parser.py | 2 +-
+>  tools/testing/selftests/kvm/lib/riscv/handlers.S     | 4 ----
+>  tools/testing/selftests/vDSO/vgetrandom-chacha.S     | 2 --
+>  21 files changed, 17 insertions(+), 25 deletions(-)
+>=20
 
-Yes, I'd like to extend BL808 support beyond serial. I have local work
-on peripheral clock/reset support, pinctrl/GPIO, SPI and PWM, including
-an SPI display on the M1s Dock.
+Reviewed-by: Nicolas Schier <n.schier@fritz.com>
 
-I'd like to bring those pieces upstream incrementally as they are ready!
 
-> > 
-> > > +F:	Documentation/devicetree/bindings/riscv/bflb.yaml
-> > > +F:	Documentation/devicetree/bindings/serial/bflb,uart.yaml
-> > > +F:	arch/riscv/boot/dts/bouffalolab/
-> > > +F:	drivers/tty/serial/bflb_uart.rs
-> > 
-> > > +F:	rust/helpers/serial.c
-> > > +F:	rust/kernel/serial.rs
-> > > +F:	rust/kernel/serial/
-> > 
-> > These should probably not be maintained under the arch support since
-> > they're not platform specific.
-> > 
-> > > +
-> > >  BPF JIT for ARC
-> > >  M:	Shahab Vahedi <list+bpf@vahedi.org>
-> > >  L:	bpf@vger.kernel.org
-> > > 
-> > > -- 
-> > > 2.47.3
-> > > 
-> 
-> 
+--FhzCQO4A3K0b968D
+Content-Type: application/pgp-signature; name=signature.asc
 
-Thanks for review!
+-----BEGIN PGP SIGNATURE-----
 
-Best regards,
-Kwang.
+iQIzBAABCAAdFiEEDv+Fiet06YHnC6RpiMa8nIiabbgFAmrkm8MACgkQiMa8nIia
+bbgYnhAAoBtAI6CuFq9HQy+0LMEBBrZiObTja20n/nhSog1KoLUqfiUozqhmkZ/q
+CT6UauaVVL+guGjUkQd4MU9Y4sF+qy0kKmfzavbo/MIofHFX6fypq5WinV83BS4k
+PfHvku6pkGUFMvVkCliG3iiJVbANl4MGycOY5VxIXI9veRse6+SRuWaP5fqRD0dv
+XZHNc+ZmLOMmkijTKgYUq7fUIdBhxmeq4Px5Q0aq0cESHCORoGOcUcdASB8KRxr/
+S2whk42NUvuQxJF/S68XDQ9N3LdkhPBY2Y0GHdcJ+esswGxGJVb7rfY38dRXkz8R
+a/X59L/D+n6k/1v/xfmmj36rd/INoushZOa+gNXEg5KPwORqTYICzhwVlfZz5mdv
+0XgTKePC+FBeKnCHfJjMK1P6SAnag5q59vu8MXmzNGH9HIhm2PzyPhRrPYA4lwBl
+N1Hh9kQBBwy4oEdLX69syKiLtIA3mDxbo80VqRIUm6MpUjxkTbkAgLQgfXDRz2M0
+Wa9/fDB/O1tJKj8IR8V+jbjPqz5/6/fNkpD9/6fpqvBgeD2vkjOk3q/IvTq5gvHK
+ApKpaLY5DYJBXdX80Rm5ofEmFac0/p9C+eX3ovHAHFIG7JPR5kTF3fwDtbSbP7z6
+ghTZsJCcqEgyM22oqOSpskYbUmxnPEnUkGMg6K1a7KZPgUJQ9zA=
+=Pwya
+-----END PGP SIGNATURE-----
+
+--FhzCQO4A3K0b968D--
+
+
+--===============1841719437742228488==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1841719437742228488==--
+
