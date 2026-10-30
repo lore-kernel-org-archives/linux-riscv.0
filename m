@@ -2,84 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A4D7606A322
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 18:59:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EC97606A31A
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 19:11:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1sppqCes;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=yMDR21xP
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rWhi1mnf;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cJGl/G/2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=aFy9tz60o9XvjdS0HM/Qh5xR9LLf4dnhxR338gu5UwE=; b=1sppqCes7ggnXYoRK3KnfnyRZs
-	Ya1dvKGyBoFcvSUJfDz/yOxwuEa934dIrSUvdvGHUXAsw+oB6pwiVJCPXq5CRWyyOU0j9Hgv/v0Cd
-	SsjrDNQW/OTwLsksF1x1GUHjzouv2tvjZ3/80exQY78ViCXKgRUR1vR+wsfa0wi2uFbYZVj9dfG2m
-	9mtAs4HsuTs3c+n70shB4qDHg3P3f61HGFd1s7UkFdijF8qLWUf2iqEAgPFIClm6UbeUi8Z3PVBa1
-	GPMNWiqv7QccZBW3hDMjDW3FXx6Fq8pR7j8Qx6jSecfic4R0Cz3dAPMyiZ2UhWxOxbgP6BuCNPUSX
-	gBx4FDbg==;
+	bh=lVN7ywji1l+QtLsixSUQfA8dIlGBj4NPkDh/RckXwcY=; b=rWhi1mnfrM/Rqbq8SuUqvkatBz
+	zmt4ogUVePGtZpO7TiQIZteD92zHwWIhr7do66Dbf96cKDgOkNZPI/9xWK40uyedgwR8Rxr4V06tO
+	DsP5nnLi5QifD0UjQjkdxcL9G0nruilwmU7XdsOH7r4gZO/aWcgfKasOtrJiPLltG9y8eMJLkGC/j
+	EarTdxbAjsoWMJdHPRJPw8fljyiZbG1QwtWz6hSeBjDYOgQn8gSJpf/OVp2JLy6jFX1m5fWlhi4a7
+	O0Azdc3bfqyqO84gWqfxbtqGeK+C7LI4a5eE5Faj8qT2zaIxWYOcwdBvUn+R/y0qakWrSrgBkMjG+
+	iyz/WSeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMroa-0000000CRX4-1N6R;
-	Fri, 30 Oct 2026 18:59:00 +0000
-Received: from xmbghk7.mail.qq.com ([43.163.128.55])
+	id 1xMs0w-0000000CT33-1u6W;
+	Fri, 30 Oct 2026 19:11:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMroX-0000000CRWN-0uyW;
-	Fri, 30 Oct 2026 18:58:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1793386730; bh=mw96Q007DUPAQeKT8Ptwo3yABVaVeFnZ+TFfC0JmVJ8=;
-	h=From:To:Cc:Subject:Date;
-	b=yMDR21xPnfephXqAxRXDTKMF0f3O1t4bQN2gVuUDIo6viJU566JwQSPmE/pncAFwa
-	 SvgRZpbWDZXmn3O/e5IRmD60yrM3kaJ8DIW3eZeThfz0158r+nMwfx+nx8vEq3ofLf
-	 TzApOeLWcJC3rppCMCxe8TsQa6W3+9K8NAuxG8oA=
-Received: from cyy-pc.lan ([240e:37c:221f:3500:33ac:ff07:4262:aa6f])
-	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
-	id EAC2CE97; Sat, 31 Oct 2026 02:58:44 +0800
-X-QQ-mid: xmsmtpt1793386724t5a8cffea
-Message-ID: <tencent_C8B170AF63DC42F81A47F9EA044BB4B11C09@qq.com>
-X-QQ-XMAILINFO: MDJWyUmJdVqKyq6UzhUWUXe+4k6nld/Qa5hXvirgeodHiPQTqx5ZGiPGbDNjZX
-	 4qgBqJX7f5EYtOIGRcELlt5Hu7bZsdvzNlHnZi/R9D0bt8PMemZzy67lQIoYR8QQwNclLy4UbYLv
-	 4jU6O+u/VH0cvmaBHCZe8eBAjqjd2x49hPuLybfqomJq7EEaCIxShYmBj0q+oL5svh8QUmbDvKPT
-	 nCvSLFhLySRNnDW4EFHt0b/z+ewKh/1/dN3UpDzI4EMSIIpaB1vXGOV0lf29SuN2z9VNyxGk9d9e
-	 pFLmJM2W9S1BwVoT9VWOGgKI8czYvBkXH8lie1HnO4NMunCByORRYn/tuslVApvIiXXO5CEKn2W9
-	 F28keu9gS1gEKEODEH1d/fkqeD6SLBofCPpTZRKyje4vqClWdi2UO0S6wxpVW36o06hKrXla2FyE
-	 lydfhHbkztV5R0hUYJdDunm8Q7Eqyv5/ahZhzAZmh/gqxXMBlWYDJcNUHIhUsE4dMg3mbJLgLKuO
-	 JaY9YaTX/AMcsmrJRG7DacKsHQuSuJsQAq3gc5iJD7WWRB/PwDXNgrIyGbFeVrUPSdcAI9536qHl
-	 vJeCSNqIuWT9sDZVmdtONJj8WfAjz1WTHtpwJs8BVS0mqUfnAx6N73wJTUoKc2kmCaJNpXqejTXs
-	 j/uAtOTRr8Ve+/X+kAu+TofzdTeSsKi9ynS3rlyw1f49eT4Z5smOxqVzTJWqa9nJwj7GshoWCHnl
-	 YyjRp8MDgTZNgz5kcWETZgpQS7ycJZ4oI3BiXgYdNF7pctMl1bP0ti3CK4WvlIrjuGBwIfXB5VZB
-	 dZphAlVex5klG+9gNA3rdAmyvVlZ20WzwsYocIM84gBvTsvod/viMgjWJyDrQmUriEN87IdVNWrS
-	 ltOB2ifHzWtCXzn8q94zbrgLejWikVtOEcQ2QXES/KSVC9yF3tl8qY91cSqHgD2xqqLhv4xds6Xa
-	 4PbxkxsOFACNC3Vz0y0a2KwxQaQlnzJOlQ01bTMC7x+RqiHaSNzeXG6L5/IUL53OiRwjtrzHPPqk
-	 9ndeif1q2Y1zdx8Fx9r0xAt9AIL0N3/AicUjVU4Q4g8fPVwRdvloiJX3ro9xwlLhjV0DJEsBAwqv
-	 8+8P9zqo5zfLEBCAUJBlfNSFvTzg==
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-USESPAMBG: true
-From: Yangyu Chen <cyy@cyyself.name>
-To: anup@brainfault.org
-Cc: atish.patra@linux.dev,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yangyu Chen <cyy@cyyself.name>,
-	stable@vger.kernel.org
-Subject: [PATCH] RISC-V: KVM: Fix G-stage page table memory leak on VM destroy
-Date: Sat, 31 Oct 2026 02:58:36 +0800
-X-OQ-MSGID: <20261030185836.4018167-1-cyy@cyyself.name>
-X-Mailer: git-send-email 2.53.0
+	id 1xMs0t-0000000CT2i-3Arf;
+	Fri, 30 Oct 2026 19:11:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9390060202;
+	Fri, 30 Oct 2026 19:11:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 856D71F000C1;
+	Fri, 30 Oct 2026 19:11:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793387501;
+	bh=T4hFvVxLfjnAJg8k+NzczjZdpae4mRcTksCIzgxfA9U=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=cJGl/G/2fQF1yJWHTie2xk6HB608xeSGry+Y/uMzkiv7mSAAvI/rgcFa2ycf1BTVh
+	 d35A0kNRaV1SESzGWirJvsignzKFJjZo7LJ49bkaLS5abOu8oYwNJDowAY4LXAaFk3
+	 1qvBtDFkFqlDjn51/ADmcGHjG88Z10ZTRm9cloeKGen2Fvgbp7EvWKP7Fs/k+w7w7I
+	 N+Bpq3UQzRBk81FGdRpPvr/G8hUKlkAznQ9epCS9WohqPLXX6ImGQB2IoLMbeTEcsI
+	 X7PFkJetPPJchwZrSKjuCFkEbuOgCvp7lXiZPRZWxHOpx5mbgnJHdFUTifU5ObrOgF
+	 1vyrUAqP9m8pA==
+From: Thomas Gleixner <tglx@kernel.org>
+To: "H. Peter Anvin" <hpa@zytor.com>, Sebastian Andrzej Siewior
+ <bigeasy@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, Peter Zijlstra
+ <peterz@infradead.org>, Michael Ellerman <mpe@ellerman.id.au>, Shrikanth
+ Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org, Kees Cook
+ <kees@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ loongarch@lists.linux.dev, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Sven Schnelle
+ <svens@linux.ibm.com>, linux-s390@vger.kernel.org, x86@kernel.org, Mark
+ Rutland <mark.rutland@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, Andy
+ Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Richard
+ Henderson <richard.henderson@linaro.org>, Russell King
+ <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Guo
+ Ren <guoren@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, Helge Deller <deller@gmx.de>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Richard Weinberger
+ <richard@nod.at>, Chris Zankel <chris@zankel.net>,
+ linux-arm-kernel@lists.infradead.org, linux-alpha@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-m68k@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-um@lists.infradead.org, Arnd Bergmann
+ <arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>, Will Deacon
+ <will@kernel.org>, Brian Cain <bcain@kernel.org>, Michal Simek
+ <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, "David S. Miller"
+ <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>,
+ linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-arch@vger.kernel.org, Michal =?utf-8?Q?Such=C3=A1nek?=
+ <msuchanek@suse.de>, Jonathan
+ Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
+Subject: [PATCH] x86/entry: Fix ptrace regression
+In-Reply-To: <87se1wyvs8.ffs@fw13>
+References: <20260707181957.433213175@kernel.org>
+ <20260707190254.493733289@kernel.org>
+ <20261022142425.3Wx-RrU5@linutronix.de> <87fqxx1r80.ffs@fw13>
+ <87cxt11ktr.ffs@fw13> <1149A39E-BEBA-46EA-94F4-4DFFC4733EF5@zytor.com>
+ <871p9g1s3w.ffs@fw13> <87y0boze95.ffs@fw13>
+ <C6D7BF04-4CF7-48D1-93B5-E80D52C2617D@zytor.com> <87se1wyvs8.ffs@fw13>
+Date: Fri, 30 Oct 2026 20:11:37 +0100
+Message-ID: <87mrrvxaty.ffs@fw13>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_115857_594848_8BE9EFC8 
-X-CRM114-Status: GOOD (  21.71  )
-X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,163 +98,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-kvm_riscv_mmu_free_pgd() tears down the G-stage with
-kvm_riscv_gstage_unmap_range() over the whole guest physical address
-space. That function looks up each address with
-kvm_riscv_gstage_get_leaf(), which walks down to the leaf PTE, and then
-clears only that leaf. kvm_riscv_gstage_op_pte() frees a page table only
-when it is called on a non-leaf PTE, which never happens here, so every
-page table below the PGD is leaked when a VM is destroyed. With 4 KiB
-mappings this is one page per 2 MiB of guest memory that was ever
-mapped, plus the upper-level tables.
+The recent rework of the syscall entry code missed the historical detail of
+the abuse of syscall number -1L to abort a syscall and keep modifications
+by tracers to the return value, while a rewrite of the syscall number to an
+invalid value undoes eventual tracer modification to the return value and
+overwrites it with -ENOSYS.
 
-The leaked pages are not slab, vmalloc or page cache, so they show up
-only as unaccounted used memory. On a SpacemiT K3 host, a workload that
-creates and destroys tens of thousands of small VMs leaked 0.5-1 MiB per
-VM and ran the host out of memory after about 20,000 VMs.
+Restore the original behaviour.
 
-Add kvm_riscv_gstage_unmap_all(), which calls kvm_riscv_gstage_op_pte()
-with GSTAGE_OP_CLEAR on every PGD entry. That recursively clears all
-leaf PTEs and frees each page table below the PGD. Use it in
-kvm_riscv_mmu_free_pgd().
-
-Tested with a reproducer script that builds a minimal KVM host kernel
-from a source tree and boots it under QEMU 11.0.2 (TCG, rv64 with H,
-Sv57x4 G-stage). Its init creates 10 VMs one after another. Each guest
-writes one word in every 2 MiB of an 8 GiB RAM region (anonymous memory
-with MADV_NOHUGEPAGE, so 4 KiB G-stage mappings) and then shuts down,
-so each VM needs 4096 last-level page tables (16 MiB). MemFree lost per
-VM, after one warm-up VM:
-
-  before:  16415 kB  (RESULT: LEAK)
-  after:    1636 kB  (RESULT: OK, noise)
-
-The bug was found while investigating the host OOM, and the fix and
-reproducer were written with the help of an AI coding assistant
-(Claude). The analysis, fix and test results above were reviewed by
-the submitter.
-
-Fixes: 9d05c1fee837 ("RISC-V: KVM: Implement stage2 page table programming")
+Fixes: 1b1f3b3e1b39 ("x86/entry: Get rid of the sys_ni_syscall() indirection")
+Reported-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Signed-off-by: Thomas Gleixner <tglx@kernel.org>
 Cc: stable@vger.kernel.org
-Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+Closes: https://lore.kernel.org/all/20261022142425.3Wx-RrU5@linutronix.de
 ---
-How to reproduce:
+ arch/x86/entry/syscall_32.c |    2 ++
+ arch/x86/entry/syscall_64.c |   26 ++++++++++++++++++++++----
+ 2 files changed, 24 insertions(+), 4 deletions(-)
 
-The reproducer script is at
-https://gist.github.com/cyyself/23abb87a8ad9ee8c64ce03cca78669fc
-and needs riscv64-linux-gnu-gcc, qemu-system-riscv64 and cpio. Run it
-from the top of a kernel source tree:
-
-	$ cd linux
-	$ /path/to/kvm-riscv-gstage-leak.sh
-
-It builds a minimal riscv64 KVM host kernel (allnoconfig + KVM) into
-.kvm-leak-build/ and boots it under QEMU (TCG, -cpu rv64,h=true) with a
-static test program as /init. The test creates 10 VMs one after another.
-Each guest touches one page in every 2 MiB of 8 GiB of guest RAM, so it
-needs 16 MiB of last-level G-stage page tables. The test then prints how
-much MemFree each VM leaves behind. The first run takes about 1.5
-minutes, mostly kernel build; reruns take about 10 seconds.
-
-Without this patch:
-
-	10 VMs, each touching one 4 KiB page per 2 MiB of 8 GiB guest RAM
-	MemFree 2037664 -> 1873512 kB: 16415 kB lost per VM (a leaking kernel loses ~16384 kB)
-	RESULT: LEAK
-
-With this patch:
-
-	MemFree 2054080 -> 2037716 kB: 1636 kB lost per VM (a leaking kernel loses ~16384 kB)
-	RESULT: OK
-
-The exit status is 0 for OK, 1 for LEAK and 2 if the test could not
-run. IMAGE=<path/to/Image> boots an existing kernel instead of building
-one. That kernel needs CONFIG_KVM=y, CONFIG_BLK_DEV_INITRD=y and
-CONFIG_DEVTMPFS=y.
-
-I also tested VMs that select Sv39x4, Sv48x4 and Sv57x4 through
-KVM_CAP_VM_GPA_BITS, and four VMs with mixed modes alive at the same
-time, destroyed one by one while the remaining VMs kept running and
-were checked for correct guest memory contents. With this patch, no
-memory was lost in any mode and no guest data was corrupted. Without
-it, every mode leaked about 16 MiB per VM.
----
- arch/riscv/include/asm/kvm_gstage.h |  2 ++
- arch/riscv/kvm/gstage.c             | 22 ++++++++++++++++++++++
- arch/riscv/kvm/mmu.c                |  3 +--
- 3 files changed, 25 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/include/asm/kvm_gstage.h b/arch/riscv/include/asm/kvm_gstage.h
-index aaf080ba1b77..90ec9e0b34b1 100644
---- a/arch/riscv/include/asm/kvm_gstage.h
-+++ b/arch/riscv/include/asm/kvm_gstage.h
-@@ -80,6 +80,8 @@ bool kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
- bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
- 				  gpa_t start, gpa_t size, bool may_block);
- 
-+bool kvm_riscv_gstage_unmap_all(struct kvm_gstage *gstage);
-+
- bool kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end);
- 
- bool kvm_riscv_gstage_wp_pt_masked(struct kvm_gstage *gstage, gfn_t base_gfn,
-diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-index e5002cb9cbef..c912cdc2021f 100644
---- a/arch/riscv/kvm/gstage.c
-+++ b/arch/riscv/kvm/gstage.c
-@@ -456,6 +456,28 @@ bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
- 	return flush;
+--- a/arch/x86/entry/syscall_32.c
++++ b/arch/x86/entry/syscall_32.c
+@@ -77,6 +77,8 @@ static __always_inline void do_syscall_3
+ 	if (likely(nr < IA32_NR_syscalls)) {
+ 		nr = array_index_nospec(nr, IA32_NR_syscalls);
+ 		regs->ax = ia32_sys_call(regs, (unsigned int)nr);
++	} else {
++		regs->ax = -ENOSYS;
+ 	}
  }
  
-+/*
-+ * Clear every G-stage mapping and free all page tables below the PGD.
-+ * kvm_riscv_gstage_unmap_range() only clears leaf PTEs and leaves the
-+ * page tables in place, so it cannot be used to tear down a G-stage.
-+ */
-+bool kvm_riscv_gstage_unmap_all(struct kvm_gstage *gstage)
-+{
-+	u32 level = gstage->pgd_levels - 1;
-+	pte_t *pgd = (pte_t *)gstage->pgd;
-+	unsigned long i, page_size;
-+	bool flush = false;
-+
-+	if (gstage_level_to_page_size(gstage, level, &page_size))
+--- a/arch/x86/entry/syscall_64.c
++++ b/arch/x86/entry/syscall_64.c
+@@ -64,15 +64,20 @@ static __always_inline bool do_syscall_x
+ 	return false;
+ }
+ 
+-static __always_inline void do_syscall_x32(struct pt_regs *regs, unsigned long nr)
++static __always_inline bool do_syscall_x32(struct pt_regs *regs, unsigned long nr)
+ {
++	if (!IS_ENABLED(CONFIG_X86_X32_ABI))
 +		return false;
 +
-+	for (i = 0; i < kvm_riscv_gstage_pgd_size / sizeof(pte_t); i++)
-+		flush |= kvm_riscv_gstage_op_pte(gstage, i * page_size, &pgd[i],
-+						 level, GSTAGE_OP_CLEAR);
-+
-+	return flush;
-+}
-+
- bool kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end)
- {
- 	int ret;
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 371fccaf9df0..87838a0f6bb9 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -784,8 +784,7 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
- 	write_lock(&kvm->mmu_lock);
- 	if (kvm->arch.pgd) {
- 		kvm_riscv_gstage_init(&gstage, kvm);
--		flush = kvm_riscv_gstage_unmap_range(&gstage, 0UL,
--			kvm_riscv_gstage_gpa_size(kvm->arch.pgd_levels), false);
-+		flush = kvm_riscv_gstage_unmap_all(&gstage);
- 		pgd = READ_ONCE(kvm->arch.pgd);
- 		kvm->arch.pgd = NULL;
- 		kvm->arch.pgd_phys = 0;
--- 
-2.53.0
-
+ 	/* Adjust the starting offset of the table */
+ 	nr -= __X32_SYSCALL_BIT;
+ 
+-	if (IS_ENABLED(CONFIG_X86_X32_ABI) && likely(nr < X32_NR_syscalls)) {
++	if (likely(nr < X32_NR_syscalls)) {
+ 		nr = array_index_nospec(nr, X32_NR_syscalls);
+ 		regs->ax = x32_sys_call(regs, (unsigned int)nr);
++		return true;
+ 	}
++	return false;
+ }
+ 
+ /* Returns true to return using SYSRET, or false to use IRET */
+@@ -81,8 +86,21 @@ static __always_inline void do_syscall_x
+ 	if (likely(syscall_enter_from_user_mode_randomize_stack(regs, &nr))) {
+ 		instrumentation_begin();
+ 
+-		if (!do_syscall_x64(regs, nr))
+-			do_syscall_x32(regs, nr);
++		if (unlikely(!do_syscall_x64(regs, nr))) {
++			/*
++			 * The special treatment of syscall number -1 is a
++			 * historical bogosity as the original code used -1 to
++			 * indicate syscall abort, which is not distinguishable
++			 * from a syscall which is invoked with syscall number
++			 * -1. The historic behavior is to keep the return value
++			 * in regs->ax unmodified in that case, which means it's
++			 * either the preset value -ENOSYS or a value which was
++			 * written by a tracer. If the syscall number is invalid
++			 * but not -1 then overwrite any tracer modification.
++			 */
++			if (!do_syscall_x32(regs, nr) && nr != -1L)
++				regs->ax = -ENOSYS;
++		}
+ 
+ 		instrumentation_end();
+ 	}
 
 _______________________________________________
 linux-riscv mailing list
