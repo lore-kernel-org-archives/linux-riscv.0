@@ -2,80 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE591606A31C
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 18:14:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CA6E60A381A
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 18:16:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=g1aWMadq;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sAk9vhac
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0vP9BJcp;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eTpNv1es
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=FrzJPZTqunT+DqkEAMha1gJmmdSTH3s5uwQYUeWs6yI=; b=g1aWMadqZIirw2Q6c1MS9GHps7
-	tFTR0aj2Fajx3FPIyQAtctg2i7oOXXnfjS2J38kXT19G/wqF0BVCLisejI0HpoZMN5l0wW1KX/D/9
-	h7JilOVWBxRnq7E6+h4dcHeaRkLqAKBUdTM9S1EPZJuoUkw18Wd01LIC6q1pEgCw4CNn/V/F2Vywp
-	KFu/xB/5iLDdZ6AheoHog+abVUhfdMTWJcmS9mEsQnGeSNeJXKFI5iGMGv8VEn4MU5mk/jTrLpToR
-	QjDja3P7IpwXrqowyyfBuO5htVx20TcJgJUTzV7eOKJdUnIAxnN2bBzCfPSuyDcWB0xSpgjVBQ513
-	9LKhJ4ew==;
+	bh=yaJzfkP9y9iDamvtqCbigqghZhkKgEWpe9ASvBB0FOA=; b=0vP9BJcpsHrKxg85vwLQN/IOgQ
+	nBQwC+QPb96OXCzI1lmnjn9v3eDAvticpNPf7tpDGmeIZNIB+xCHHAMm9Se/hujv/3aMV6IfY2i9C
+	rBKF5H3aY+Hbvyvek/uR9xvTPhG8SeO6DRTSmyem+EbANyJjHQ08wC29phARgSWe7xct6c9kvFqkF
+	HNe9Y31e6pDQMhac6QXx9jOf4sKGnWpOttJ4cNCHSonJ1IzaAMoBw0ZoXmD3X4elwVKniV9a3yqMt
+	T4dx+/cOiOpV1DXQzSKJiPykNrj5Zt1n33Fc9V42gF7wek+y68X4RrU4wPFEOZm//lWLdRFCSrOoy
+	bf4O91OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMr7f-0000000CNc9-3Dau;
-	Fri, 30 Oct 2026 18:14:39 +0000
-Received: from out-142.mta1.migadu.com ([95.215.58.142] helo=mta1.migadu.com)
+	id 1xMr8u-0000000CNqd-0M3m;
+	Fri, 30 Oct 2026 18:15:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMr7b-0000000CNaz-3pUm
+	id 1xMr8s-0000000CNqQ-1AOb
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Oct 2026 18:14:38 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=+TY283G1borHAZaLlZTGzy3/NR1BKFVZwd1ZnwDzwwY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793384071; v=1; x=1793988871;
- b=sAk9vhacnCG4G0BRbv+RUr2STznQC/GMNOMR1Pa7jqMuFDS603ChwiDIe2Z21sE7+l5vQO1z
- GdB+cDbOx05Byd5LomnCRmaAncX4+m/KXDKwa9Wehsupvt9geNIo8SQCHDZFnji9CzQuo/WQ3Qk
- e0aVKgxMFdiAmRSlVND1Wz5Y=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id f6094ec407c97bfb;
-	Fri, 30 Oct 2026 18:14:31 +0000
-X-Mizu-Trace-ID: f6094ec407c97bfb
-X-Migadu-Flow: FLOW_OUT
-Date: Fri, 30 Oct 2026 18:14:22 +0000
-From: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
-To: Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
-	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
-	Ilya Leoshkevich <iii@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	John Fastabend <john.fastabend@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>, 
-	Puranjay Mohan <puranjay@kernel.org>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
-	Maxwell Bland <mbland@motorola.com>, Will Deacon <will@kernel.org>, 
-	Sami Tolvanen <samitolvanen@google.com>
-Cc: bpf@vger.kernel.org, linux-s390@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Pu Lehui <pulehui@huawei.com>, 
-	Sashiko <sashiko-bot@kernel.org>, "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
-Subject: [PATCH bpf v2] bpf: Fix jited line info off by the CFI preamble
-Message-ID: <20261030-b4-arm64-bpf-linfo-cfi-v2-1-4eac83435d4b@linux.dev>
-X-B4-Tracking: v=1; b=H4sIAA/c5GoC/yWM0QrCMBAEf6XsswchprX1V8SH5rzTE01LoiKU/
- rtRH2fZmQVFsknBvlmQ5WXFplTBbxrwZUxnITtVhne+c4NvKQYa870LFGelmyWdiNVIW972w06
- C6xlVnrOovX/hA+oVx/9YnvEq/Pgmsa4fd/SC6X8AAAA=
-X-Change-ID: 20260925-b4-arm64-bpf-linfo-cfi-f5c3897e408c
-X-Mailer: b4 0.15.2
+	Fri, 30 Oct 2026 18:15:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0DE2940A7A;
+	Fri, 30 Oct 2026 18:15:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 495E01F00A17;
+	Fri, 30 Oct 2026 18:15:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793384153;
+	bh=p6XBeS28YdeKR1FrvM+4ypySmOBgmuPeaEe4fr40c/Y=;
+	h=From:To:Cc:Subject:Date;
+	b=eTpNv1es5b+ljOxmfoakZGsli9Xn2JnIbLUIyejGvKlPgVxycFZH6IGqIzhd41hbu
+	 eC1jvCjpYBnT7aD/5MEvPnkcKR+W3N4yGPgFNXg2Tdou5EnHQBxsG7WDTG+TFBGBvt
+	 e07VrI5qFeD5DDHzmOgbwJitvJv7HhX0+GuBZe5Z4t1211Os7y0TI3xXhkaGzNg143
+	 h3VPFDB51fwauqkGh4ZQQt2Kxl7Ehahf3oe+R2hv4zyImywT/aV917PRZ53oMqJ6Dl
+	 m0O76w9SUPMOTlzn3Y+qj2+o58xofh3f1+MylqAgm6tB/zGm4oCTMjMitgKDG9abAA
+	 0JvfCu7BNGjAw==
+From: Conor Dooley <conor@kernel.org>
+To: Linus Walleij <linusw@kernel.org>
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Valentina Fernandez <valentina.fernandezalanis@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-riscv@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] pinctrl: mpfs-mssio: remove unused mutex
+Date: Fri, 30 Oct 2026 18:12:14 +0000
+Message-ID: <20261030181214.2448140-3-conor@kernel.org>
+X-Mailer: git-send-email 2.53.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_111436_947573_939237B8 
-X-CRM114-Status: GOOD (  13.29  )
-X-Spam-Score: -2.1 (--)
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1905; i=conor.dooley@microchip.com; h=from:subject; bh=Cij3GL7z2OJhW4lZm9udhmYEzhHSkCOKSkfmcKM8MXI=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDFlP7v4TOJc0NWfPD/FD8yOXiQYenj4hRGPidQk9A9Gof j0LqfqKjlIWBjEuBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEzk2V1Ghl9P5GUmdTEmGc/7 JH2PY23eaj8+VoWqq3s3HO+cN+vyoTSGv4IT17bfF01YuCNk33L/+StcnQ4Wy/HGLd7gfyOxP6q zhRUA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,99 +80,62 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-With CONFIG_CFI=y, every jited line info entry after a function's
-first is cfi_get_offset() bytes too high on x86-64, riscv64 and arm64,
-so tools that use it show the wrong source line.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-The JITs count the insn_to_jit_off[] offsets from the start of the
-image. Since the CFI commits below, prog->bpf_func starts
-cfi_get_offset() bytes into the image, and bpf_prog_fill_jited_linfo()
-adds the offsets to prog->bpf_func. s390 corrects its offsets before
-the call, the other three JITs do not.
+The pinctrl core creates a mutex that is used to protect things like the
+generic dt node mapping functions. The (currently) unused mutex was added
+when the driver was in RFC state and contained a custom dt node mapping
+function, and used the driver's own mutex to protect it. The driver
+probably could have borrowed the core's, but this is moot since the merged
+version of the driver no longer has a custom dt node mapper. Remove the
+unused mutex.
 
-Subtract cfi_get_offset() once in bpf_prog_fill_jited_linfo() and drop
-the s390 correction. jited_linfo[0] stays prog->bpf_func, the
-function's ksym address. Without CONFIG_CFI, cfi_get_offset() is 0 and
-nothing changes.
-
-Fixes: 4f9087f16651 ("x86/cfi,bpf: Fix BPF JIT call")
-Fixes: e63985ecd226 ("bpf, riscv64/cfi: Support kCFI + BPF on riscv64")
-Fixes: 710618c760c0 ("arm64/cfi,bpf: Support kCFI + BPF on arm64")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260904014748.C04AA1F000E9@smtp.kernel.org/
-Reported-by: Alexei Starovoitov <ast@kernel.org>
-Closes: https://lore.kernel.org/all/DLNXZ2WK7TPD.2RZBUNRS4FA4L@gmail.com/
-Signed-off-by: Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-Changes in v2:
-- Fix it once in bpf_prog_fill_jited_linfo() instead of in the arm64
-  JIT, which covers x86-64 and riscv64 too, and drop the s390
-  correction loop.
-- Link to v1: https://lore.kernel.org/r/20260925-b4-arm64-bpf-linfo-cfi-v1-1-e930ab335170@linux.dev
-
-Stable trees that do not have commit 227b4e108adc ("s390/bpf: Add
-kCFI support") take this without the s390 hunk.
-
-Drafted with the help of an AI assistant and reviewed by the sender.
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Linus Walleij <linusw@kernel.org>
+CC: linux-riscv@lists.infradead.org
+CC: linux-gpio@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
 ---
- arch/s390/net/bpf_jit_comp.c | 2 --
- kernel/bpf/core.c            | 8 +++++---
- 2 files changed, 5 insertions(+), 5 deletions(-)
+ drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c | 6 ------
+ 1 file changed, 6 deletions(-)
 
-diff --git a/arch/s390/net/bpf_jit_comp.c b/arch/s390/net/bpf_jit_comp.c
-index 56ec49894dda..83da3a00db7e 100644
---- a/arch/s390/net/bpf_jit_comp.c
-+++ b/arch/s390/net/bpf_jit_comp.c
-@@ -2428,8 +2428,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
- 	fp->jited_len = jit.size - cfi_get_offset();
+diff --git a/drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c b/drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c
+index 8da0c5312ce3..17c6d4190053 100644
+--- a/drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c
++++ b/drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c
+@@ -56,7 +56,6 @@ struct mpfs_pinctrl {
+ 	struct device *dev;
+ 	struct regmap *regmap;
+ 	struct regmap *sysreg_regmap;
+-	struct mutex mutex;
+ 	struct pinctrl_desc desc;
+ };
  
- 	if (!fp->is_func || extra_pass) {
--		for (int i = 0; i < fp->len; i++)
--			jit.addrs[i] -= cfi_get_offset();
- 		bpf_prog_fill_jited_linfo(fp, jit.addrs + 1);
- free_addrs:
- 		kvfree(jit.addrs);
-diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-index 7cf37690d41f..b9709e3b7656 100644
---- a/kernel/bpf/core.c
-+++ b/kernel/bpf/core.c
-@@ -206,7 +206,9 @@ void bpf_prog_jit_attempt_done(struct bpf_prog *prog)
-  * here is relative to the prog itself instead of the main prog.
-  * This array has one entry for each xlated bpf insn.
-  *
-- * jited_off is the byte off to the end of the jited insn.
-+ * jited_off is the byte off to the end of the jited insn, counted from
-+ * the start of the jited image, which is cfi_get_offset() bytes before
-+ * prog->bpf_func.
-  *
-  * Hence, with
-  * insn_start:
-@@ -220,7 +222,7 @@ void bpf_prog_jit_attempt_done(struct bpf_prog *prog)
-  *
-  * For i > linfo_idx,
-  *
-- * jited_linfo[i] = prog->bpf_func +
-+ * jited_linfo[i] = prog->bpf_func - cfi_get_offset() +
-  *	insn_to_jit_off[linfo[i].insn_off - insn_start - 1]
-  */
- void bpf_prog_fill_jited_linfo(struct bpf_prog *prog,
-@@ -248,7 +250,7 @@ void bpf_prog_fill_jited_linfo(struct bpf_prog *prog,
- 		/* The verifier ensures that linfo[i].insn_off is
- 		 * strictly increasing
- 		 */
--		jited_linfo[i] = prog->bpf_func +
-+		jited_linfo[i] = prog->bpf_func - cfi_get_offset() +
- 			insn_to_jit_off[linfo[i].insn_off - insn_start - 1];
- }
+@@ -677,7 +676,6 @@ static int mpfs_pinctrl_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct mpfs_pinctrl *pctrl;
+-	int ret;
  
-
----
-base-commit: fb7bd3a2aad70a76232a7168a505386d0a1396af
-change-id: 20260925-b4-arm64-bpf-linfo-cfi-f5c3897e408c
-
-Best regards,
---  
-Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
+ 	pctrl = devm_kzalloc(dev, sizeof(*pctrl), GFP_KERNEL);
+ 	if (!pctrl)
+@@ -703,10 +701,6 @@ static int mpfs_pinctrl_probe(struct platform_device *pdev)
+ 
+ 	pctrl->dev = dev;
+ 
+-	ret = devm_mutex_init(dev, &pctrl->mutex);
+-	if (ret)
+-		return ret;
+-
+ 	platform_set_drvdata(pdev, pctrl);
+ 
+ 	pctrl->pctrl = devm_pinctrl_register(&pdev->dev, &pctrl->desc, pctrl);
+-- 
+2.53.0
 
 
 _______________________________________________
