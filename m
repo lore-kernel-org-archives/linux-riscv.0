@@ -2,70 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E1F2606A324
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 16:38:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C737606A325
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2026 17:03:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0sBlyvYW;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Zd/VYZzH
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cRl62tJ2;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BaCdGxpI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=fTtbPcS29U1qHVgc3ktWR2jiVoze29hEtVyWPMSl8L0=; b=0sBlyvYW/Jd4z1hROmJzDojnAw
-	VDkgDoRpRNSfqGaN+sGycN+wX2EVctLfuS+NsRwyMlpNSD4QNE427phulwKpA4zZG/3stn3LX25lI
-	72YdsEDhRpjXZnY6aPAK97/eeBg9S+fj8gq7gh5mqvC7uWoSFmp46BNBTx6o7WDNyQqztMrK6wLyI
-	pOEQWFVsVcxqtl53mxQ6Fv80BWC6OqPhZOBk5V55hEcAlG7NYolHM1R3ULL2KJribPVhLFJNL5I2X
-	z312XE0Oq3DwX2tkWf82wRi/wYkLAUe5igy2CkKR85wwLRlNcUzFvUFZSgDJvQj0Xrg965BniiY+Z
-	fgtDkzgw==;
+	bh=nMz4xUiBsnUgb8TBI+gjm0E+Ghdqs1kewNkQ/LXPihM=; b=cRl62tJ2g2tzExdTY/0x1naQKm
+	qre4ouNE+x+qeeSGBVUhT3qI74E+F+pxZO+YQZ5or1CbnOoJs0TDZRGS5NFbdmGQxvUan8hPpOgab
+	J5QdtcKalhDih1dYRIn04Fk+Gk/9xVVvOvddk2R5Fax7qrBlqaqQsuS84oN/lzqnSdOKx2QUGmyur
+	H5NeIxTk30kKjUMAeDj6qBc9jz/z9Oc2PmHnxW5p7sSPQhNrJnSlQjPM51bCzLaqwdbLkWUQr6llI
+	DP5RoMyvzFyEcRP84/UNGZ1BBfsppA6c8NhuC+Oqc/K3V6UiIwci8i176AIRBhNq0Ac6TMIt+F6no
+	rlZT1eXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMpcL-0000000C9Lv-3cx0;
-	Fri, 30 Oct 2026 16:38:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMpcJ-0000000C9KV-14jC;
-	Fri, 30 Oct 2026 16:38:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F5B01682;
-	Fri, 30 Oct 2026 09:38:05 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D0C43F673;
-	Fri, 30 Oct 2026 09:38:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793378288; bh=Rfc4WAfhYKXq9UXyLbETI7ENpp2ZXXl3U2uJkCJ+X0U=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=Zd/VYZzHC0G8xIyj2KtjF5zomiTqmINVwwYmlLjfKLdpjcOPnRrjfCyWT3CuBbbTp
-	 J4zFyqlptBA3FPP4bz6rXczLbQWb/Y/m1ILcXgRV/1RVjTTZQxhMzeoDnxPhjSbwhx
-	 G5XsdXCf20ZF8aFLJMUi+knOUeh0gOCHlWeFd/Oo=
-Message-ID: <bea9392d-a9d1-4683-ba2c-41139a1dca9d@arm.com>
-Date: Fri, 30 Oct 2026 16:38:03 +0000
+	id 1xMq0S-0000000CBhP-2jH6;
+	Fri, 30 Oct 2026 17:03:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMq0R-0000000CBgz-1qnp
+	for linux-riscv@lists.infradead.org;
+	Fri, 30 Oct 2026 17:03:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 46905601EE;
+	Fri, 30 Oct 2026 17:03:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8DD51F0093A;
+	Fri, 30 Oct 2026 17:03:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793379786;
+	bh=xsarIZJL4PEc9Bxn42jOu8TJETM+T2V8nUbleqFixHE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BaCdGxpId/gMQjXhzIEWh4taJZzC1v4DRG0gg8E43qkw07Rv3yW3BvtakGav2a2dI
+	 +tsT6KlAuQPRfrlQUmEDQ++wiSjh3oL/1G7V2AGQSLpfmXbknma4B6SA5f6SajBy/H
+	 PMNf4PxgUFXkMhQZQ1RDxH1YtTyWnXBHa6UWepe4qm25dU4Qj56p95ALEj7/VzpZRr
+	 OkFtso6ZHZbCibRn8fHfQenEeDBBY7W5GCoUZnVBhqzEL7FF8l9QXLSKFo9D1ebxTf
+	 tuQh6e87oDfEhBucVEdX83CE49zlxJwG3sOJTEUm8J92VGXJIr7/aHbe8UdHc51GUT
+	 czucnDKw3Ajbg==
+Date: Fri, 30 Oct 2026 10:03:04 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Yao Zi <me@ziyao.cc>
+Cc: Han Gao <gaohan@iscas.ac.cn>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Han Gao <rabenda.cn@gmail.com>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/4] riscv: dts: thead: add Milk-V Meles
+Message-ID: <auTNyLqjBVgt2enA@thelio>
+References: <20261001-rv-meles-v2-0-c61052262f84@iscas.ac.cn>
+ <20261001-rv-meles-v2-2-c61052262f84@iscas.ac.cn>
+ <asbBtj3fL0PUNGJ-@pie>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 01/19] arm_mpam: resctrl: Leave CDP off when there
- are too few PARTIDs
-To: Jinjie Ruan <ruanjinjie@huawei.com>, reinette.chatre@intel.com,
- james.morse@arm.com, fenghuay@nvidia.com, catalin.marinas@arm.com,
- will@kernel.org, mark.rutland@arm.com, corbet@lwn.net,
- skhan@linuxfoundation.org, rdunlap@infradead.org, tony.luck@intel.com,
- Dave.Martin@arm.com, babu.moger@amd.com, tglx@kernel.org, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
- tan.shaopeng@jp.fujitsu.com, jic23@kernel.org, zengheng4@huawei.com,
- gshan@redhat.com, x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20261029123611.1108424-1-ruanjinjie@huawei.com>
- <20261029123611.1108424-2-ruanjinjie@huawei.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20261029123611.1108424-2-ruanjinjie@huawei.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_093811_485241_07DE15FA 
-X-CRM114-Status: GOOD (  25.29  )
-X-Spam-Score: -4.4 (----)
+Content-Disposition: inline
+In-Reply-To: <asbBtj3fL0PUNGJ-@pie>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,111 +77,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Jinjie,
-
-Thanks for this fix!
-
-On 29/10/2026 12:35, Jinjie Ruan wrote:
-> Enabling CDP needs a second PARTID for the reserved closid.
-
-I'm not sure what a 'reserved closid' is here but you could just say:
-
-Enabling CDP requires at least 2 PARTIDs.
-
-> If firmware
-> reports too few PARTIDs, resctrl_arch_set_cdp_enabled() returns -EINVAL,
-
-Not all systems are firmware backed. This can be:
-
-If there are too few PARTIDs, ... .
-
-> but only after it has recorded CDP as enabled, halved the monitor count
-> and turned off the mbw_max MBA control. 
-
-
-> resctrl then reports an error
-> and believes CDP is off, which leaves the two sides out of step and the
-> halved monitor count and the missing MBA control are not undone.
-
-I think the 'reports an error part' can be dropped leaving 'resctrl then believes CDP is off...' as
-exactly what resctrl does is not important here.
-
+On Wed, Oct 07, 2026 at 10:03:34PM +0000, Yao Zi wrote:
+> On Thu, Oct 01, 2026 at 03:44:11PM +0800, Han Gao wrote:
+> > Add the Milk-V Meles board with UART0, eMMC, SD, Ethernet and the PWM2
+> > fan. Describe the board pin assignments and the PHY on the GMAC0 MDIO
+> > bus. Give GPIO banks aliases and name the exposed 40-pin header lines.
+> > 
+> > The eMMC I/O supply is fixed at 1.8 V. Enable DDR52 at that voltage and
+> > retain the 52 MHz board limit. Describe 8 GiB as the default memory
+> > size; firmware updates it to match the detected RAM capacity.
+> > 
+> > Reviewed-by: Drew Fustini <fustini@kernel.org>
+> > Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> > ---
+> >  arch/riscv/boot/dts/thead/Makefile               |   1 +
+> >  arch/riscv/boot/dts/thead/th1520-milkv-meles.dts | 227 +++++++++++++++++++++++
+> >  2 files changed, 228 insertions(+)
+> > 
+> > diff --git a/arch/riscv/boot/dts/thead/Makefile b/arch/riscv/boot/dts/thead/Makefile
+> > index b55a17127c2bc06cbfb06d5f7c92dc7296e98437..25f7fe068368c97df2490bedc3eae70276a2e442 100644
+> > --- a/arch/riscv/boot/dts/thead/Makefile
+> > +++ b/arch/riscv/boot/dts/thead/Makefile
+> > @@ -1,2 +1,3 @@
+> >  # SPDX-License-Identifier: GPL-2.0
+> >  dtb-$(CONFIG_ARCH_THEAD) += th1520-lichee-pi-4a.dtb th1520-beaglev-ahead.dtb
+> > +dtb-$(CONFIG_ARCH_THEAD) += th1520-milkv-meles.dtb
+> > diff --git a/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts b/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..3714047190789bfccd8ff6810342d7ff865e74e4
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts
+> > @@ -0,0 +1,227 @@
+> > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> > +/*
+> > + * Copyright (C) 2021-2022 Alibaba Group Holding Limited.
+> > + * Copyright (C) 2026 Han Gao <gaohan@iscas.ac.cn>
+> > + */
 > 
-> Check the PARTID limit, and work out the CDP PARTIDs, before anything is
-
-Why work out the CDP PARTIDs so early if they aren't going to be used?
-
-> changed so a failed enable has no effect.
+> ...
 > 
-> Fixes: 6789fb99282c ("arm_mpam: resctrl: Add CDP emulation")
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  drivers/resctrl/mpam_resctrl.c | 20 ++++++++++++--------
->  1 file changed, 12 insertions(+), 8 deletions(-)
+> > +&emmc {
+> > +	bus-width = <8>;
+> > +	max-frequency = <52000000>;
+> > +	cap-mmc-highspeed;
+> > +	mmc-ddr-1_8v;
+> > +	non-removable;
+> > +	no-sdio;
+> > +	no-sd;
+> > +
+> > +	status = "okay";
+> > +};
 > 
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index 5468367776e2..886f0595d364 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
-> @@ -210,6 +210,18 @@ int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
->  	if (enable)
->  		pr_warn("CDP is an expert feature and may cause MPAM to malfunction.\n");
->  
-> +	/*
-> +	 * Check this before changing any state: if CDP can't be enabled the
-> +	 * caller must see CDP left off.
-> +	 */
+> Could you please explain the 52MHz limitation? This doesn't match what
+> I saw at RevyOS' downstream kernel, which seems the only distribution
+> supported by Milk-V officially.
+> 
+> Regards,
+> Yao Zi
+> 
+> [1]: https://github.com/revyos/th1520-linux-kernel/blob/a092d55649279e1c9bcda2769b8f6b4370fa2c94/arch/riscv/boot/dts/thead/th1520-milkv-meles.dts#L1012-L1023
 
-I don't think this comment is needed. Failing early rather than failing late after some side effects
-have happened is clearly better.
+Sorry about not following up on this sooner.
 
-> +	if (enable) {
-> +		if (mpam_partid_max < 1)
-> +			return -EINVAL;
-> +
-> +		partid_d = resctrl_get_config_index(RESCTRL_RESERVED_CLOSID, CDP_DATA);
-> +		partid_i = resctrl_get_config_index(RESCTRL_RESERVED_CLOSID, CDP_CODE);
-
-The partid_d/partid_i determination can stay below so it's close to the user.
-
-I think we can just have the check here:
-
-if (enable && mpam_partid_max < 1)
-  	return -EINVAL;
+Han Gao - could you explain what the motivation was for 52MHz?
 
 Thanks,
-
-Ben
-
-> +	}
-> +
->  	/*
->  	 * resctrl_arch_set_cdp_enabled() is only called with enable set to
->  	 * false on error and unmount.
-> @@ -238,14 +250,6 @@ int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
->  	if (!cdp_enabled && mpam_resctrl_controls[RDT_RESOURCE_MBA].class)
->  		mpam_resctrl_controls[RDT_RESOURCE_MBA].resctrl_res.alloc_capable = true;
->  
-> -	if (enable) {
-> -		if (mpam_partid_max < 1)
-> -			return -EINVAL;
-> -
-> -		partid_d = resctrl_get_config_index(RESCTRL_RESERVED_CLOSID, CDP_DATA);
-> -		partid_i = resctrl_get_config_index(RESCTRL_RESERVED_CLOSID, CDP_CODE);
-> -	}
-> -
->  	mpam_set_task_partid_pmg(current, partid_d, partid_i, 0, 0);
->  	WRITE_ONCE(arm64_mpam_global_default, mpam_get_regval(current));
->  
-
+Drew
 
 _______________________________________________
 linux-riscv mailing list
