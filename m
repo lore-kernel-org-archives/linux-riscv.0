@@ -2,94 +2,91 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30EB0606A31A
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Oct 2026 02:05:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1917E606A31D
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Oct 2026 02:15:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FHrcuhNS;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=JihZ0ji1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wT5sF+pc;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ffz+sS/H
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=G0DJrexoP9WrCGlAsSa2dwhjM26eQ7YEQEkDHw23wyU=; b=FHrcuhNS453B7IGlvS5XlhHZoT
-	/CzF2wGXv5eR5uFiQ+pj5s72Kkr9s3Dsq6mqDwS0cKD9nmbG/c+tztIIqJ1Lk6aq+4qkdq5MfIdAV
-	af5y5m57dxfxL+JpcDes08puXl/8afcJo+8wKKT1Q9eV3uVawFF8Y03R8yLzkh55Tff1MR/PZlYC0
-	k49atnR3aS2+htMHOqfAZhTZHKEFHgheJQ/T6lEaI5K65A9eKAxauHTgwAOPyel9Da1b9vzuuApgi
-	83tTizkb0tOgaSHz5rGCy0I9qRVGThwmksGIupQtNAO1yCIb4scO5CnON0Tit46HjcxFKrDwGQWuQ
-	cTlSdx2w==;
+	bh=xpMEdnZWEXdQpxkwXJR1U3pWrTKPNvDbHswPIlbl2Pk=; b=wT5sF+pcKvKwc9VNk1NEBDSVwQ
+	2CQCO7IKTHCtIusDc2IWshzIZyHimSOjk37BFeuWYJIyou4/r4eotctwKYwDD2lHdXZH5VJiq39oK
+	xuNtWnr8kCjKTBwIpv71dJ4/GTQrxX1ipI/p+Da1NX1xFTNg9MrJ5yhsh8fUuUhud9OwVzTZL9zpJ
+	pv55nrx1B59a/icb44kRnrOcR6iPQIbT8wvJDpenvJd0qxY0MAoF1vBjhNTLXaTshy5ZBjYOlM0Ge
+	Fr5UvZ+aM2Q88snJozGk6Uz+FX2HY5foUKu8+9IanPoOa8IarKbKg8KTrTZ2C56dPpqWszbQ2flrX
+	RjQl5E5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMyTA-0000000Cr2L-1xcl;
-	Sat, 31 Oct 2026 02:05:20 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1xMycr-0000000CrZN-2TjY;
+	Sat, 31 Oct 2026 02:15:21 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMyT7-0000000Cr1U-2EaF;
-	Sat, 31 Oct 2026 02:05:19 +0000
+	id 1xMyco-0000000CrZ1-42Rk
+	for linux-riscv@lists.infradead.org;
+	Sat, 31 Oct 2026 02:15:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793412318; x=1824948318;
+  t=1793412919; x=1824948919;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=rFP0baAiFvMl7x0GJSmUU/DikfJl7LDgkFNhT+TL2Hc=;
-  b=JihZ0ji1Oa2FEpQib77UNpOFcgowPdG9aHa9OTIuZeRexSpQOmqfNR+v
-   hVraazopQiuAHFnYZ9iDnZS9NTCs6ZMtL9SuCrUm89Yx46zNfN0/reA7F
-   +lTHI97ZuI1TT7+vmpkMhQhCx3db86r9H4cWizXXzYp/YBRQodIzNwg6g
-   KuET09cPYAB9/RyJD+4Uma15GLO7NDv9i6Xeu2HhTDLivqiaupsiXbqk3
-   VFffn7BSwByUoeSNbXCYEYhq4FFwNCoXhywP54/qC/EQwzaEWRFJxJkAq
-   Q07DHcCVP8oZ6juLVx68gGmOy2x1HcPURNuvWQuN5f4EkQIwg5iUQYItP
-   w==;
-X-CSE-ConnectionGUID: GwmZErnnTC+NlNM+AM9clQ==
-X-CSE-MsgGUID: qurwsl5MTGq08FAtWCnHFQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11951"; a="2210048"
+  bh=JDGnfo9AO3La6lbmSWT/ExmOzEpPsX5TkCTGoppcGTk=;
+  b=Ffz+sS/HMnP/ci3DyL8sXpvUS4MHZol414VTyrCmWEVzE3Qw1mq8Dx8P
+   HotAn3CRC4EJ9HNKmRAyKHvqXFl6JOLzPH95ExNWsq6GDPNmScUBp/2cy
+   dxl9ysOMwW9cR8PYfMyX6tWgwVUSng9fMAREr9E4W1aA9GVpVzSLZM2G/
+   A4c8ZU7FH2yfpKT5k96/RjT/SjLRpnOk/V64wTIflcSqftPUrCL4F+IkK
+   GqkSmZzizqCy3cFu3Hk0mxw4F3WYQhjxgdG7ZuYMdBRbfPcY4OmhIhO3N
+   v426YhtFFkQoJxkQ4scfvnutZdYWRtFN0apUCPeq8yVmKvC0VaE9NcPH7
+   A==;
+X-CSE-ConnectionGUID: MDgiXPNaSE2s347gMz4L1Q==
+X-CSE-MsgGUID: MnWgDMZgQkaasCrHLGyk2g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11951"; a="2092322"
 X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
-   d="scan'208";a="2210048"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 19:05:16 -0700
-X-CSE-ConnectionGUID: rpu8b9TrR9KayjHTgqdWLw==
-X-CSE-MsgGUID: gFTzgCr4SSm7mo8/J3eY3A==
+   d="scan'208";a="2092322"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 19:15:18 -0700
+X-CSE-ConnectionGUID: AiHVaetHQuKJFUKKhBg86g==
+X-CSE-MsgGUID: 37q5X9yRROuT9Ddl+x8oDQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
-   d="scan'208";a="5540397"
+   d="scan'208";a="5467278"
 Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 30 Oct 2026 19:05:10 -0700
+  by orviesa008.jf.intel.com with ESMTP; 30 Oct 2026 19:15:11 -0700
 Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
 	(envelope-from <lkp@intel.com>)
-	id 1xMySw-00000000cRg-0s3X;
-	Sat, 31 Oct 2026 02:05:06 +0000
-Date: Sat, 31 Oct 2026 10:04:26 +0800
+	id 1xMycd-00000000cSC-3G7I;
+	Sat, 31 Oct 2026 02:15:07 +0000
+Date: Sat, 31 Oct 2026 10:14:53 +0800
 From: kernel test robot <lkp@intel.com>
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	Andy Yan <andyshrk@163.com>
-Subject: Re: [PATCH 3/3] drm/bridge: add TH1520 DesignWare MIPI DSI host
- controller
-Message-ID: <202610311004.6oZFiXBi-lkp@intel.com>
-References: <20261030-th1520-dw-mipi-dsi-v1-3-753f34fd304f@iscas.ac.cn>
+To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Will Deacon <will@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>, Gary Guo <gary@garyguo.net>,
+	Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, cfu@wavecomp.com,
+	torvalds@linux-foundation.org, olof@lixom.net,
+	aleksa.paunovic@htecgroup.com, arikalo@gmail.com,
+	Boqun Feng <boqun@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Vladimir.Kondratiev@mobileye.com
+Subject: Re: [PATCH v3 1/2] riscv: build kernel atomics from LR/SC when Zaamo
+ is disabled
+Message-ID: <202610311058.zODtC2bF-lkp@intel.com>
+References: <20261026-lrsc-only-v3-1-ec29c8190fb1@mobileye.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261030-th1520-dw-mipi-dsi-v1-3-753f34fd304f@iscas.ac.cn>
+In-Reply-To: <20261026-lrsc-only-v3-1-ec29c8190fb1@mobileye.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_190517_620185_50BCC335 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20261030_191519_063943_572B59F4 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,7 +97,6 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>, llvm@lists.linux.dev, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -111,123 +107,38 @@ X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Icenowy,
+Hi Vladimir,
 
-kernel test robot noticed the following build warnings:
+kernel test robot noticed the following build errors:
 
-[auto build test WARNING on c03c1a14507dfaf8b856c2608f9ac216021fc222]
+[auto build test ERROR on c03c1a14507dfaf8b856c2608f9ac216021fc222]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Icenowy-Zheng/dt-bindings-display-bridge-document-TH1520-MIPI-DSI-controller/20261030-154749
+url:    https://github.com/intel-lab-lkp/linux/commits/Vladimir-Kondratiev/riscv-build-kernel-atomics-from-LR-SC-when-Zaamo-is-disabled/20261026-112002
 base:   c03c1a14507dfaf8b856c2608f9ac216021fc222
-patch link:    https://lore.kernel.org/r/20261030-th1520-dw-mipi-dsi-v1-3-753f34fd304f%40iscas.ac.cn
-patch subject: [PATCH 3/3] drm/bridge: add TH1520 DesignWare MIPI DSI host controller
-config: arm64-randconfig-1001-20261031 (https://download.01.org/0day-ci/archive/20261031/202610311004.6oZFiXBi-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project c2ea4440d4b64c148de4fdfca1fc2c437a0701e4)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261031/202610311004.6oZFiXBi-lkp@intel.com/reproduce)
+patch link:    https://lore.kernel.org/r/20261026-lrsc-only-v3-1-ec29c8190fb1%40mobileye.com
+patch subject: [PATCH v3 1/2] riscv: build kernel atomics from LR/SC when Zaamo is disabled
+config: riscv-randconfig-1000-20261031 (https://download.01.org/0day-ci/archive/20261031/202610311058.zODtC2bF-lkp@intel.com/config)
+compiler: riscv32-linux-gcc (GCC) 8.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261031/202610311058.zODtC2bF-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202610311004.6oZFiXBi-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202610311058.zODtC2bF-lkp@intel.com/
 
-All warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
->> drivers/gpu/drm/bridge/th1520-dw-mipi-dsi.c:445:22: warning: variable 'ret' is uninitialized when used here [-Wuninitialized]
-     445 |                 dev_err_probe(dev, ret, "Unable to get DSI registers\n");
-         |                                    ^~~
-   drivers/gpu/drm/bridge/th1520-dw-mipi-dsi.c:428:12: note: initialize the variable 'ret' to silence this warning
-     428 |         int i, ret;
-         |                   ^
-         |                    = 0
-   1 warning generated.
-
-
-vim +/ret +445 drivers/gpu/drm/bridge/th1520-dw-mipi-dsi.c
-
-   420	
-   421	static int th1520_dw_mipi_dsi_probe(struct platform_device *pdev)
-   422	{
-   423		const struct dsi_chip_data *cdata;
-   424		struct device *dev = &pdev->dev;
-   425		struct th1520_dw_mipi_dsi *dsi;
-   426		struct resource *res;
-   427		void __iomem *base;
-   428		int i, ret;
-   429	
-   430		dsi = devm_kzalloc(dev, sizeof(*dsi), GFP_KERNEL);
-   431		if (!dsi)
-   432			return -ENOMEM;
-   433	
-   434		dsi->dev = dev;
-   435	
-   436		dsi->syscon = syscon_regmap_lookup_by_phandle(dev->of_node, "syscon");
-   437		if (IS_ERR(dsi->syscon)) {
-   438			ret = PTR_ERR(dsi->syscon);
-   439			dev_err_probe(dev, ret, "Unable to get system controller regmap\n");
-   440			return ret;
-   441		}
-   442	
-   443		base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-   444		if (IS_ERR(base)) {
- > 445			dev_err_probe(dev, ret, "Unable to get DSI registers\n");
-   446			return PTR_ERR(base);
-   447		}
-   448	
-   449		cdata = of_device_get_match_data(dev);
-   450		i = 0;
-   451		while (cdata[i].reg) {
-   452			if (cdata[i].reg == res->start) {
-   453				dsi->cdata = &cdata[i];
-   454				break;
-   455			}
-   456	
-   457			i++;
-   458		}
-   459	
-   460		if (!dsi->cdata) {
-   461			dev_err(dev, "Failed to find chip data for this controller\n");
-   462			return -EINVAL;
-   463		}
-   464	
-   465		dsi->clk_ref = devm_clk_get_enabled(dev, "ref");
-   466		if (IS_ERR(dsi->clk_ref)) {
-   467			ret = PTR_ERR(dsi->clk_ref);
-   468			dev_err_probe(dev, ret, "Unable to get PHY reference clock\n");
-   469			return ret;
-   470		}
-   471	
-   472		dsi->clk_cfg = devm_clk_get_enabled(dev, "phy_cfg");
-   473		if (IS_ERR(dsi->clk_cfg)) {
-   474			ret = PTR_ERR(dsi->clk_cfg);
-   475			dev_err_probe(dev, ret, "Unable to get PHY configuration clock\n");
-   476			return ret;
-   477		}
-   478	
-   479		dsi->clk_pix = devm_clk_get(dev, "pixel");
-   480		if (IS_ERR(dsi->clk_pix)) {
-   481			ret = PTR_ERR(dsi->clk_pix);
-   482			dev_err_probe(dev, ret, "Unable to get PHY pixel clock\n");
-   483			return ret;
-   484		}
-   485	
-   486		dsi->pdata.base = base;
-   487		dsi->pdata.priv_data = dsi;
-   488		dsi->pdata.max_data_lanes = 4;
-   489		dsi->pdata.phy_ops = &th1520_dw_mipi_dsi_phy_ops;
-   490		dsi->pdata.mode_valid = dsi_mode_valid;
-   491	
-   492		platform_set_drvdata(pdev, dsi);
-   493	
-   494		dsi->dmd = dw_mipi_dsi_probe(pdev, &dsi->pdata);
-   495		if (IS_ERR(dsi->dmd)) {
-   496			ret = PTR_ERR(dsi->dmd);
-   497			dev_err_probe(dev, ret, "Failed to initialize mipi dsi host\n");
-   498			return ret;
-   499		}
-   500	
-   501		return 0;
-   502	}
-   503	
+>> cc1: error: -march=rv32imc_zalrsc: unsupported ISA substring '_zalrsc'
+   make[3]: *** [scripts/Makefile.build:290: scripts/mod/empty.o] Error 1 shuffle=1963593903
+>> cc1: error: -march=rv32imc_zalrsc: unsupported ISA substring '_zalrsc'
+   make[3]: *** [scripts/Makefile.build:185: scripts/mod/devicetable-offsets.s] Error 1 shuffle=1963593903
+   make[3]: Target 'scripts/mod/' not remade because of errors.
+   make[2]: *** [Makefile:1424: prepare0] Error 2 shuffle=1963593903
+   make[2]: Target 'prepare' not remade because of errors.
+   make[1]: *** [Makefile:248: __sub-make] Error 2 shuffle=1963593903
+   make[1]: Target 'prepare' not remade because of errors.
+   make: *** [Makefile:248: __sub-make] Error 2 shuffle=1963593903
+   make: Target 'prepare' not remade because of errors.
 
 --
 0-DAY CI Kernel Test Service
