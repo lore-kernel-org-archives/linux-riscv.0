@@ -2,41 +2,41 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45E3460A2606
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Oct 2026 08:30:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A260606A321
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Oct 2026 08:30:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TWt4YTT7;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=ZembZGWz
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lYqvsTmN;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=Fgf1Ut1M
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Kz+qwlP4url2IZzKa3ey30jkBmwn2qnvut5MvpJZMkw=; b=TWt4YTT7eNriEp7aDJGMseaBZL
-	84SnIqBKj5H0IjIQBwcGYe9aMEy3A9O8TeeSrZjcwbI7hr2Cls5xzC6ytgAVmI0nfCRN4du7bPVhJ
-	thkw95VcSVtN+diMjKaMqVGob4EdMfd7jGDrOpnXNfufaWwo4ft6GqhlFnOzUdg325YHgjhZ9paIb
-	DBLcbXFw2ZGgAbxzNGPvPnqv7YM6NnmikLj1cckeXcLc0xfmnR9HU8pisLN9Ih6GjnAjrN6zcPebt
-	iuGSuio3RHmEVn73ASWafD9jbAtoiAH3q9RW9vZuP7ofkuZHStrQlwwb4q97ssmf/S9Srk8RlF1dD
-	16D7Ly1Q==;
+	bh=GnfVFL7xIZ45sWsCeE9C5bnoPVJFvfLhWZTeoMdnToE=; b=lYqvsTmN6KIkGMlNJgJV656sqm
+	w0K32GRfjbsLSUmHoexNzsTTuVn0BV8HKTpHkg6vDdWxNNDf7b4oINfeXO4yvDd34AdBFhB7uutbb
+	4mD/RsaC+Cz2o00jf7XZhFB4TbYErnnjEIBRWQ1WAP17mJPGLRxizgleU2yIt2pHjBrwlpV/K/4LX
+	rJu8WX7VVPIpxn0FQqU573X7Pmkn7SJTuHBd7ATgSkC1kNsSXw+kKojiEw9KBWks2hdSDHHvmpoeu
+	0aDjuEbUwjj7qZFboOVUjQnrltvHAuCuFOiiO7dXmGf0DqPrBrdOL+4IalvhFLkVCt2GjkkrQcVhU
+	UbfbcypA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN4U6-0000000D3dQ-0DZ0;
-	Sat, 31 Oct 2026 08:30:42 +0000
-Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
+	id 1xN4UI-0000000D3vf-3wLB;
+	Sat, 31 Oct 2026 08:30:54 +0000
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN4Tt-0000000D3Vh-3LI9;
-	Sat, 31 Oct 2026 08:30:33 +0000
+	id 1xN4U4-0000000D3au-2wYV;
+	Sat, 31 Oct 2026 08:30:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1793435421; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=fytrSwMAocM2/QBU3ULUTJt5nlk8iqp0tjge5H6XjD8=;
-	b=ZembZGWzjuYZ+zRQq+sOlgsuIdaD3rQgW8V0+PmuRZefuR39+t5z67BJhxHORY7m4xdlu+UGU+r9+pGjPP9L3mQEWmdV2EoyT47CYroTVmNWSmnkkkrrNafvr/Aox383qP3fqcMuBBPYCg4FW8xQTSg+fFZvc7Zjj4B3sSQ4+Uw=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R621e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0XDo-2iC_1793435417;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XDo-2iC_1793435417 cluster:ay36)
+	t=1793435437; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=11EZsZQc/6GCS8JBX6hOIFtCcJazynSKhMoTlW4DEkk=;
+	b=Fgf1Ut1M55KuTVDf6TpnEqUbAfHX+vA9opzTWJBniyV7KFaraMzpObO6BoKNKmvVn1ZZQna6Sql1HySydL9w4eploM4+3VQyNSega74z8GxOYuEDTIWn4P+Kxjztreyn0lW7b5SMAzXyIJWhuhcS2Xi+CaQqbVdXAtPAOBwpR28=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R161e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=29;SR=0;TI=SMTPD_---0XDo-2nW_1793435433;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XDo-2nW_1793435433 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Sat, 31 Oct 2026 16:30:19 +0800
+          Sat, 31 Oct 2026 16:30:34 +0800
 From: fangyu.yu@linux.alibaba.com
 To: tomasz.jeznach@linux.dev,
 	joro@8bytes.org,
@@ -65,16 +65,20 @@ Cc: fangyu.yu@linux.alibaba.com,
 	iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org
-Subject: [PATCH v6 00/10] iommu/riscv: Add hardware dirty tracking for second-stage domains
-Date: Sat, 31 Oct 2026 16:30:04 +0800
-Message-Id: <20261031083014.15040-1-fangyu.yu@linux.alibaba.com>
+	kvm-riscv@lists.infradead.org,
+	Nutty Liu <nutty.liu@hotmail.com>
+Subject: [PATCH v6 08/10] iommu/riscv: Pre-enable GADE for second-stage domains
+Date: Sat, 31 Oct 2026 16:30:12 +0800
+Message-Id: <20261031083014.15040-9-fangyu.yu@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20261031083014.15040-1-fangyu.yu@linux.alibaba.com>
+References: <20261031083014.15040-1-fangyu.yu@linux.alibaba.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261031_013030_431568_70F82099 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20261031_013040_912176_98E25740 
+X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,155 +92,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-The RISC-V IOMMU architecture defines an AMO_HWAD capability (Hardware
-Access/Dirty update) that allows the IOMMU to atomically set the A/D bits
-in second-stage PTEs on DMA access.  When DC.tc.GADE is asserted, the IOMMU
-autonomously sets D on the first write to a page mapped by an iohgatp
-domain.  This series wires that capability up to the iommufd dirty-tracking
-interface (IOMMU_HWPT_SET_DIRTY_TRACKING / IOMMU_HWPT_GET_DIRTY_BITMAP) and
-reports IOMMU_CAP_DIRTY_TRACKING.
+Pre-enable RISCV_IOMMU_DC_TC_GADE in the device context when
+attaching a second-stage domain, if the IOMMU supports AMO_HWAD.
 
-Design notes
-============
+Software pre-populates second-stage page tables with D set, so
+enabling GADE by default does not change normal behavior. When
+dirty tracking is enabled, iommufd clears the pre-set D bits and
+GADE becomes necessary for hardware to update the dirty bit on
+write access.
 
-* The feature is scoped to second-stage (iohgatp) domains only; these are
-  the domains created for KVM / VFIO device pass-through when userspace
-  allocates an HWPT with IOMMU_HWPT_ALLOC_NEST_PARENT or
-  IOMMU_HWPT_ALLOC_DIRTY_TRACKING.  First-stage (iosatp) domains are not
-  touched by this series.
+This avoids toggling GADE dynamically and keeps device context
+setup consistent with second-stage domain attachment.
 
-* The page-table side plugs into the existing generic_pt dirty hook
-  framework (amdv1 / vtdss style).  RISC-V adds the three required PTE
-  ops - is_write_dirty / make_write_clean / make_write_dirty.
-
-Testing
-=======
-
-* Test on QEMU RISC-V, a nvme and an e1000e device was passed through
-  to an L2 guest via vfio-pci + iommufd.
-
-* generic_pt KUnit: the existing test_dirty case now runs and passes for
-  the RISC-V 64-bit format.
-
-Follow-up work
-==============
-* Build a dedicated end-to-end test case that drives the full flow
-  (HWPT_ALLOC with DIRTY_TRACKING -> attach -> IOAS_MAP -> generate real
-  DMA -> SET_DIRTY_TRACKING -> GET_DIRTY_BITMAP -> verify bitmap against
-  expected IOVA footprint) so that the behaviour can be regression-tested
-  beyond the KUnit PTE-level coverage.
-
-LLM-based coding assistants were used for code exploration, patch
-review, test execution, and drafting/editing messages and this cover
-letter. I reviewed and finalized all resulting code and text.
-
-This series functionally depends on [1], which has been posted but is not
-yet in mainline. 
-
+Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
 ---
-Changes in v6:
-    - Drop the RFC tag.
-    - Rebased on top of mainline (390febb5805d).
-    - Carry the unmerged prerequisite [2] as patch 1.
-    - Drop "iommu/riscv: report iommu capabilities"; mainline commit
-      3069e8f3e1e9 ("iommu/riscv: Report cache coherency capability")
-      already adds riscv_iommu_capable().
-    - domain_alloc_paging_flags: drop the redundant flags pre-check and
-      supported_flags, and split the per-stage setup into
-      riscv_iommu_init_domain_s1() / riscv_iommu_init_domain_s2().
-      (Per Jason)
-    - Link to v5:
-      https://lore.kernel.org/linux-iommu/20261020094106.92722-1-fangyu.yu@linux.alibaba.com/
-Changes in v5:
-    - Propagate the GADE bit from the new device context into the hardware
-      DC in riscv_iommu_iodir_update(), so the pre-enabled GADE actually
-      reaches the hardware. (Per Gong Shuai)
-    - Issue a global IOTINVAL.GVMA in riscv_iommu_iodir_set_mode(), so that
-      second-stage translations cached before a DDTP mode change (e.g. by
-      a previous kernel after kexec) are flushed as the specification
-      requires. (Per Tan Chi)
-    - Rebased on top of v7.3, with [1] and [2] applied.
-    - Link to v4:
-      https://lore.kernel.org/linux-riscv/20260915032828.11250-1-fangyu.yu@linux.alibaba.com/
-Changes in v4 (Jason's suggestions):
-    - Rebased the series on top of [1] and [2].
-    - Drop the RISC-V-specific pt_num_items_lg2() top-level special case.
-    - Validate page-table address widths by translation stage: accept only
-      Sv39/Sv48/Sv57 widths for first-stage tables and only Sv39x4/Sv48x4/
-      Sv57x4 widths for second-stage tables.
-    - Replace the aliased first-stage/second-stage MODE union with
-      independent FSC/IOSATP and IOHGATP MODE fields.
-    - Add pt_dirty_supported() to restrict RISC-V generic_pt dirty tracking
-      to second-stage tables.
-    - Link to v3:
-      https://lore.kernel.org/linux-riscv/20260821132749.82070-1-fangyu.yu@linux.alibaba.com/
-Changes in v3 (Andrew Jones's suggestions):
-    - Rebased the series on top of Andrew Jones' generic_pt RISC-V supported
-      feature mask fix, which adds PT_FEAT_RISCV_SVPBMT to the supported feature
-      set.
-    - Added PT_FEAT_RISCV_S2 to the RISC-V generic_pt supported feature mask and
-      KUnit feature matrix.
-    - Kept PT_FEAT_SIGN_EXTEND only for first-stage RISC-V KUnit configs; second
-      stage configs now use PT_FEAT_RISCV_S2 without sign-extension semantics.
-    - Split RISC-V IOMMU capability checks into first-stage FSC and second-stage
-      IOHGATP helpers.
-    - Updated second-stage paging domain setup to use GPA widths 41/50/59 and to
-      avoid PT_FEAT_SIGN_EXTEND.
-    - Link to v2:
-      https://lore.kernel.org/linux-riscv/20260507113706.11400-1-fangyu.yu@linux.alibaba.com/
-Changes in v2 (Jason's suggestions):
-    - Introduced a single PT_FEAT_RISCV_S2: second-stage selection is driven
-      purely by this feature bit.
-    - Switched from dynamic DC.tc.GADE toggling to static pre-enable.
-    - domain_alloc_paging_flags: follow the switch/case design from other
-      drivers.
-    - Drop IOMMU_CAP_DEFERRED_FLUSH in riscv_iommu_capable.
-    - Remove the .hw_info-related patch.
-    - Link to v1:
-      https://lore.kernel.org/linux-riscv/20260428131359.34872-1-fangyu.yu@linux.alibaba.com/
+ drivers/iommu/riscv/iommu.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-[1] https://lore.kernel.org/linux-iommu/1-v2-563ee63886f0+1209-iommupt_armv8_jgg@nvidia.com/
-[2] https://lore.kernel.org/linux-iommu/20260818092444.42755-1-andrew.jones@oss.qualcomm.com/
-
-Andrew Jones (1):
-  iommu/generic_pt: Fix the RISC-V supported feature mask
-
-Fangyu Yu (6):
-  iommupt: Add RISC-V Second-stage (iohgatp) page table support
-  iommupt: Add RISC-V dirty tracking PTE ops
-  iommu/riscv: Add domain_alloc_paging_flags for second-stage domain
-  iommu/riscv: Pre-enable GADE for second-stage domains
-  iommu/riscv: Add dirty tracking support for second-stage domains
-  iommu/riscv: Add IOTINVAL.GVMA invalidations
-
-Tomasz Jeznach (1):
-  RISC-V: KVM: Enable KVM_VFIO interfaces on RISC-V arch
-
-Zong Li (2):
-  iommu/riscv: use data structure instead of individual values
-  iommu/riscv: support GSCID and GVMA invalidation command
-
- arch/riscv/kvm/Kconfig                       |   2 +
- drivers/iommu/generic_pt/fmt/iommu_riscv64.c |   3 +-
- drivers/iommu/generic_pt/fmt/riscv.h         | 158 ++++++++++--
- drivers/iommu/riscv/iommu-bits.h             |   7 +
- drivers/iommu/riscv/iommu.c                  | 238 +++++++++++++++----
- include/linux/generic_pt/common.h            |   4 +
- include/linux/generic_pt/iommu.h             |  11 +
- 7 files changed, 353 insertions(+), 70 deletions(-)
-
-
-base-commit: 390febb5805d3bb830402679f277f1d5f309e6bc
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index 082f55c44d20..fc7a80393833 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -1237,6 +1237,8 @@ static void riscv_iommu_iodir_update(struct riscv_iommu_device *iommu,
+ 	for (i = 0; i < fwspec->num_ids; i++) {
+ 		dc = riscv_iommu_get_dc(iommu, fwspec->ids[i]);
+ 		tc = READ_ONCE(dc->tc);
++		tc &= ~RISCV_IOMMU_DC_TC_GADE;
++		tc |= new_dc->tc & RISCV_IOMMU_DC_TC_GADE;
+ 		tc |= new_dc->ta & RISCV_IOMMU_DC_TC_V;
+ 
+ 		WRITE_ONCE(dc->fsc, new_dc->fsc);
+@@ -1353,6 +1355,8 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+ 			FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_MODE, pt_info.iohgatp_mode) |
+ 			FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_GSCID, domain->gscid) |
+ 			FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_PPN, pt_info.ppn);
++		if (iommu->caps & RISCV_IOMMU_CAPABILITIES_AMO_HWAD)
++			dc.tc |= RISCV_IOMMU_DC_TC_GADE;
+ 	} else {
+ 		if (!riscv_iommu_fsc_supported(iommu, pt_info.fsc_iosatp_mode))
+ 			return -ENODEV;
 -- 
 2.50.1
 
