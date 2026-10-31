@@ -2,77 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92D21606A31A
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Oct 2026 02:25:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 962F260A2608
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Oct 2026 08:30:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oLeQDMsb;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=raUpYOFg
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=J4qSBD68;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=iYFHEv53
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=q2Fxfj3C4F0TqdwQq2WQQ/SqXazMt1qETvZoFlU8ZQ4=; b=oLeQDMsbl1YEtyM41kUWTUu2tQ
-	rs1rha/IF9BB93dNZm3jRHj9NRz2R+FpcRIH/377N0ypUCPuWPg/emGjj9l0KSb0STeP9JdPqRZdV
-	aWLbqfCWrTKrfTwwPujy+DK2/bmL7sYlz/266ZQNr62oIKH1CqvVVLPbPF4mtkvnobu8bXAIvATtp
-	+K+tzzsq1f9UoZycGUD/MNIAyyZNGRN2sBK+nQc8czAvZHSxzYTR+9veQuDZsc6UkwCNfvq03f++y
-	fgNikjtNSuslX/d6UBTnUndDqw5tweVNpH5tvrYcZgrdjBpF5kIL3SadeR6nuDohgYEzTxfQutNZu
-	kiS4ilIQ==;
+	bh=v38y/jmSTjxVNDV7q4Zzm0rt4KBcW9cOU48/Kxao2kE=; b=J4qSBD68B/jL5SBDKrDlbSFxXn
+	QvynuRwKS401PT1qX97IgXr9e2tbbXHrY7gx7qPiAyp4KvLT8gY1FEOqwd9Ng3y01xuxUy79funSo
+	WR2i2ea+GZDUA/mHYlv4eiUrNa/Dgk65o9DN+R0KKrjFFmiwWIe0Q05cpt3KQfU8z/uvhxfhMYAcy
+	apFykFKrxqRWvc+/dEyyvOxkp4k18zycr4qHq/pAYahbheGIJ6AXUI43Iohtu8mwCupMtSQMyvooj
+	91ZB2/f9MRpgc1VcW5t7VIqzEMwp5JsgX3G1+EZzrpIkHt0wCtfOr1yyzkdMYoHT/RySEJUjVKVo3
+	9WcxRtxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMymF-0000000Crp5-2TWc;
-	Sat, 31 Oct 2026 02:25:03 +0000
-Received: from [113.46.200.217] (helo=canpmsgout02.his.huawei.com)
+	id 1xN4Tw-0000000D3XP-3uvI;
+	Sat, 31 Oct 2026 08:30:32 +0000
+Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMymB-0000000Cro8-34Lq;
-	Sat, 31 Oct 2026 02:25:02 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=nB4pM2ZJXpnwRA8pYcn66mc+0T+eg4LR6jSzacwN0sA=;
-	b=raUpYOFgQh9voYZCcg/OdijcaqglHGfZZNxTVqJS0LCtBGqRCcsPX7o9pBhQCMBGH31u4wfgw
-	Qjfi6WZmlQEhgM12bST5N2B2vkEcfU3HyItBP3p/jVOytsN7ALvwk7SZvmfNA7YywyBpTgjsnuY
-	HzdvuTsz24yzs1NokF/AV48=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jGhcR0LV4zcZyQ;
-	Sat, 31 Oct 2026 10:24:23 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id DCCDF40538;
-	Sat, 31 Oct 2026 10:24:41 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 31 Oct
- 2026 10:24:40 +0800
-Message-ID: <04b19a8f-72aa-4342-b5ec-a0bf8417b276@huawei.com>
-Date: Sat, 31 Oct 2026 10:24:40 +0800
+	id 1xN4Tt-0000000D3Vk-2gc9;
+	Sat, 31 Oct 2026 08:30:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1793435423; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=JvLg4S5shvS7IVAuk/ea4lw7Xa2XcuYDCBZ9VnAd86s=;
+	b=iYFHEv53TnBB0X4KK3H1nP71vR5aAIIpgIANX0MAVlIW2iLZd9GS48AKEpy4lxxtLB+5YpaHrQArrmQRoW+arU1fMDn8Wh/z6lwF9XdjqIn8aDWyWW3UBFu4eEerX6hvx3X6RS0kp4g5WhUVsQiUodx9WmGrKyyhBVH4yA2k+CA=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R801e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=30;SR=0;TI=SMTPD_---0XDo-2im_1793435420;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XDo-2im_1793435420 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sat, 31 Oct 2026 16:30:21 +0800
+From: fangyu.yu@linux.alibaba.com
+To: tomasz.jeznach@linux.dev,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	baolu.lu@linux.intel.com,
+	jroedel@suse.de,
+	zong.li@sifive.com,
+	andrew.jones@linux.dev,
+	anup@brainfault.org,
+	jgg@nvidia.com,
+	jgg@ziepe.ca,
+	kevin.tian@intel.com,
+	atish.patra@linux.dev,
+	skhawaja@google.com,
+	vasant.hegde@amd.com,
+	joerg.roedel@amd.com,
+	tanchi25@mails.ucas.ac.cn,
+	gong.shuai@sanechips.com.cn
+Cc: fangyu.yu@linux.alibaba.com,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org,
+	Andrew Jones <andrew.jones@oss.qualcomm.com>,
+	Nutty Liu <nutty.liu@hotmail.com>
+Subject: [PATCH v6 01/10] iommu/generic_pt: Fix the RISC-V supported feature mask
+Date: Sat, 31 Oct 2026 16:30:05 +0800
+Message-Id: <20261031083014.15040-2-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20261031083014.15040-1-fangyu.yu@linux.alibaba.com>
+References: <20261031083014.15040-1-fangyu.yu@linux.alibaba.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 01/19] arm_mpam: resctrl: Leave CDP off when there
- are too few PARTIDs
-To: Ben Horgan <ben.horgan@arm.com>, <reinette.chatre@intel.com>,
-	<james.morse@arm.com>, <fenghuay@nvidia.com>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <mark.rutland@arm.com>, <corbet@lwn.net>,
-	<skhan@linuxfoundation.org>, <rdunlap@infradead.org>, <tony.luck@intel.com>,
-	<Dave.Martin@arm.com>, <babu.moger@amd.com>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <tan.shaopeng@jp.fujitsu.com>, <jic23@kernel.org>,
-	<zengheng4@huawei.com>, <gshan@redhat.com>, <x86@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-References: <20261029123611.1108424-1-ruanjinjie@huawei.com>
- <20261029123611.1108424-2-ruanjinjie@huawei.com>
- <bea9392d-a9d1-4683-ba2c-41139a1dca9d@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <bea9392d-a9d1-4683-ba2c-41139a1dca9d@arm.com>
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_192500_494769_39B81CBE 
-X-CRM114-Status: GOOD (  29.34  )
-X-Spam-Score: -1.3 (-)
+X-CRM114-CacheID: sfid-20261031_013030_431183_A90A6B11 
+X-CRM114-Status: UNSURE (   6.63  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,80 +90,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-CgrlnKggMjAyNi8xMC8zMSAwOjM4LCBCZW4gSG9yZ2FuIOWGmemBkzoKPiBIaSBKaW5qaWUsCj4g
-Cj4gVGhhbmtzIGZvciB0aGlzIGZpeCEKPiAKPiBPbiAyOS8xMC8yMDI2IDEyOjM1LCBKaW5qaWUg
-UnVhbiB3cm90ZToKPj4gRW5hYmxpbmcgQ0RQIG5lZWRzIGEgc2Vjb25kIFBBUlRJRCBmb3IgdGhl
-IHJlc2VydmVkIGNsb3NpZC4KPiAKPiBJJ20gbm90IHN1cmUgd2hhdCBhICdyZXNlcnZlZCBjbG9z
-aWQnIGlzIGhlcmUgYnV0IHlvdSBjb3VsZCBqdXN0IHNheToKCkhpIEJlbiwKCgpUaGlzIG1lYW5z
-IHRoZXJlIGFyZSB0d28gY29waWVzOiBvbmUgZm9yIGRhdGEgYW5kIG9uZSBmb3IgY29kZS4KCj4g
-Cj4gRW5hYmxpbmcgQ0RQIHJlcXVpcmVzIGF0IGxlYXN0IDIgUEFSVElEcy4KCk9LLgoKPiAKPj4g
-SWYgZmlybXdhcmUKPj4gcmVwb3J0cyB0b28gZmV3IFBBUlRJRHMsIHJlc2N0cmxfYXJjaF9zZXRf
-Y2RwX2VuYWJsZWQoKSByZXR1cm5zIC1FSU5WQUwsCj4gCj4gTm90IGFsbCBzeXN0ZW1zIGFyZSBm
-aXJtd2FyZSBiYWNrZWQuIFRoaXMgY2FuIGJlOgo+IAo+IElmIHRoZXJlIGFyZSB0b28gZmV3IFBB
-UlRJRHMsIC4uLiAuCgpUaGFuayB5b3UhIEkgd2lsbCBmaXggaXQuCgo+IAo+PiBidXQgb25seSBh
-ZnRlciBpdCBoYXMgcmVjb3JkZWQgQ0RQIGFzIGVuYWJsZWQsIGhhbHZlZCB0aGUgbW9uaXRvciBj
-b3VudAo+PiBhbmQgdHVybmVkIG9mZiB0aGUgbWJ3X21heCBNQkEgY29udHJvbC4gCj4gCj4gCj4+
-IHJlc2N0cmwgdGhlbiByZXBvcnRzIGFuIGVycm9yCj4+IGFuZCBiZWxpZXZlcyBDRFAgaXMgb2Zm
-LCB3aGljaCBsZWF2ZXMgdGhlIHR3byBzaWRlcyBvdXQgb2Ygc3RlcCBhbmQgdGhlCj4+IGhhbHZl
-ZCBtb25pdG9yIGNvdW50IGFuZCB0aGUgbWlzc2luZyBNQkEgY29udHJvbCBhcmUgbm90IHVuZG9u
-ZS4KPiAKPiBJIHRoaW5rIHRoZSAncmVwb3J0cyBhbiBlcnJvciBwYXJ0JyBjYW4gYmUgZHJvcHBl
-ZCBsZWF2aW5nICdyZXNjdHJsIHRoZW4gYmVsaWV2ZXMgQ0RQIGlzIG9mZi4uLicgYXMKPiBleGFj
-dGx5IHdoYXQgcmVzY3RybCBkb2VzIGlzIG5vdCBpbXBvcnRhbnQgaGVyZS4KCldpbGwgdXBkYXRl
-IGl0LgoKPiAKPj4KPj4gQ2hlY2sgdGhlIFBBUlRJRCBsaW1pdCwgYW5kIHdvcmsgb3V0IHRoZSBD
-RFAgUEFSVElEcywgYmVmb3JlIGFueXRoaW5nIGlzCj4gCj4gV2h5IHdvcmsgb3V0IHRoZSBDRFAg
-UEFSVElEcyBzbyBlYXJseSBpZiB0aGV5IGFyZW4ndCBnb2luZyB0byBiZSB1c2VkPwoKTW9kaWZp
-ZWQgdGhlbSB0b2dldGhlciBhcyBhIHdob2xlLgoKPiAKPj4gY2hhbmdlZCBzbyBhIGZhaWxlZCBl
-bmFibGUgaGFzIG5vIGVmZmVjdC4KPj4KPj4gRml4ZXM6IDY3ODlmYjk5MjgyYyAoImFybV9tcGFt
-OiByZXNjdHJsOiBBZGQgQ0RQIGVtdWxhdGlvbiIpCj4+IFNpZ25lZC1vZmYtYnk6IEppbmppZSBS
-dWFuIDxydWFuamluamllQGh1YXdlaS5jb20+Cj4+IC0tLQo+PiAgZHJpdmVycy9yZXNjdHJsL21w
-YW1fcmVzY3RybC5jIHwgMjAgKysrKysrKysrKysrLS0tLS0tLS0KPj4gIDEgZmlsZSBjaGFuZ2Vk
-LCAxMiBpbnNlcnRpb25zKCspLCA4IGRlbGV0aW9ucygtKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvZHJp
-dmVycy9yZXNjdHJsL21wYW1fcmVzY3RybC5jIGIvZHJpdmVycy9yZXNjdHJsL21wYW1fcmVzY3Ry
-bC5jCj4+IGluZGV4IDU0NjgzNjc3NzZlMi4uODg2ZjA1OTVkMzY0IDEwMDY0NAo+PiAtLS0gYS9k
-cml2ZXJzL3Jlc2N0cmwvbXBhbV9yZXNjdHJsLmMKPj4gKysrIGIvZHJpdmVycy9yZXNjdHJsL21w
-YW1fcmVzY3RybC5jCj4+IEBAIC0yMTAsNiArMjEwLDE4IEBAIGludCByZXNjdHJsX2FyY2hfc2V0
-X2NkcF9lbmFibGVkKGVudW0gcmVzY3RybF9yZXNfbGV2ZWwgcmlkLCBib29sIGVuYWJsZSkKPj4g
-IAlpZiAoZW5hYmxlKQo+PiAgCQlwcl93YXJuKCJDRFAgaXMgYW4gZXhwZXJ0IGZlYXR1cmUgYW5k
-IG1heSBjYXVzZSBNUEFNIHRvIG1hbGZ1bmN0aW9uLlxuIik7Cj4+ICAKPj4gKwkvKgo+PiArCSAq
-IENoZWNrIHRoaXMgYmVmb3JlIGNoYW5naW5nIGFueSBzdGF0ZTogaWYgQ0RQIGNhbid0IGJlIGVu
-YWJsZWQgdGhlCj4+ICsJICogY2FsbGVyIG11c3Qgc2VlIENEUCBsZWZ0IG9mZi4KPj4gKwkgKi8K
-PiAKPiBJIGRvbid0IHRoaW5rIHRoaXMgY29tbWVudCBpcyBuZWVkZWQuIEZhaWxpbmcgZWFybHkg
-cmF0aGVyIHRoYW4gZmFpbGluZyBsYXRlIGFmdGVyIHNvbWUgc2lkZSBlZmZlY3RzCj4gaGF2ZSBo
-YXBwZW5lZCBpcyBjbGVhcmx5IGJldHRlci4KCldpbGwgZGVsZXRlIGl0LgoKPiAKPj4gKwlpZiAo
-ZW5hYmxlKSB7Cj4+ICsJCWlmIChtcGFtX3BhcnRpZF9tYXggPCAxKQo+PiArCQkJcmV0dXJuIC1F
-SU5WQUw7Cj4+ICsKPj4gKwkJcGFydGlkX2QgPSByZXNjdHJsX2dldF9jb25maWdfaW5kZXgoUkVT
-Q1RSTF9SRVNFUlZFRF9DTE9TSUQsIENEUF9EQVRBKTsKPj4gKwkJcGFydGlkX2kgPSByZXNjdHJs
-X2dldF9jb25maWdfaW5kZXgoUkVTQ1RSTF9SRVNFUlZFRF9DTE9TSUQsIENEUF9DT0RFKTsKPiAK
-PiBUaGUgcGFydGlkX2QvcGFydGlkX2kgZGV0ZXJtaW5hdGlvbiBjYW4gc3RheSBiZWxvdyBzbyBp
-dCdzIGNsb3NlIHRvIHRoZSB1c2VyLgoKV2lsbCBwdXQgaXQgYmFjayBpbiBpdHMgb3JpZ2luYWwg
-cGxhY2UuCgo+IAo+IEkgdGhpbmsgd2UgY2FuIGp1c3QgaGF2ZSB0aGUgY2hlY2sgaGVyZToKPiAK
-PiBpZiAoZW5hYmxlICYmIG1wYW1fcGFydGlkX21heCA8IDEpCj4gICAJcmV0dXJuIC1FSU5WQUw7
-CgpUaGF0IGlzIGZpbmUuCgo+IAo+IFRoYW5rcywKPiAKPiBCZW4KPiAKPj4gKwl9Cj4+ICsKPj4g
-IAkvKgo+PiAgCSAqIHJlc2N0cmxfYXJjaF9zZXRfY2RwX2VuYWJsZWQoKSBpcyBvbmx5IGNhbGxl
-ZCB3aXRoIGVuYWJsZSBzZXQgdG8KPj4gIAkgKiBmYWxzZSBvbiBlcnJvciBhbmQgdW5tb3VudC4K
-Pj4gQEAgLTIzOCwxNCArMjUwLDYgQEAgaW50IHJlc2N0cmxfYXJjaF9zZXRfY2RwX2VuYWJsZWQo
-ZW51bSByZXNjdHJsX3Jlc19sZXZlbCByaWQsIGJvb2wgZW5hYmxlKQo+PiAgCWlmICghY2RwX2Vu
-YWJsZWQgJiYgbXBhbV9yZXNjdHJsX2NvbnRyb2xzW1JEVF9SRVNPVVJDRV9NQkFdLmNsYXNzKQo+
-PiAgCQltcGFtX3Jlc2N0cmxfY29udHJvbHNbUkRUX1JFU09VUkNFX01CQV0ucmVzY3RybF9yZXMu
-YWxsb2NfY2FwYWJsZSA9IHRydWU7Cj4+ICAKPj4gLQlpZiAoZW5hYmxlKSB7Cj4+IC0JCWlmICht
-cGFtX3BhcnRpZF9tYXggPCAxKQo+PiAtCQkJcmV0dXJuIC1FSU5WQUw7Cj4+IC0KPj4gLQkJcGFy
-dGlkX2QgPSByZXNjdHJsX2dldF9jb25maWdfaW5kZXgoUkVTQ1RSTF9SRVNFUlZFRF9DTE9TSUQs
-IENEUF9EQVRBKTsKPj4gLQkJcGFydGlkX2kgPSByZXNjdHJsX2dldF9jb25maWdfaW5kZXgoUkVT
-Q1RSTF9SRVNFUlZFRF9DTE9TSUQsIENEUF9DT0RFKTsKPj4gLQl9Cj4+IC0KPj4gIAltcGFtX3Nl
-dF90YXNrX3BhcnRpZF9wbWcoY3VycmVudCwgcGFydGlkX2QsIHBhcnRpZF9pLCAwLCAwKTsKPj4g
-IAlXUklURV9PTkNFKGFybTY0X21wYW1fZ2xvYmFsX2RlZmF1bHQsIG1wYW1fZ2V0X3JlZ3ZhbChj
-dXJyZW50KSk7Cj4+ICAKPiAKCi0tIApCZXN0IHJlZ2FyZHMsCkppbmppZQoKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Andrew Jones <andrew.jones@oss.qualcomm.com>
+
+The RISC-V format advertises Svpbmt to its users, but omits the feature
+from PT_SUPPORTED_FEATURES. Add it there so configurations which enable
+Svpbmt pass generic page-table feature validation.
+
+Fixes: f196a8668797 ("iommu/riscv: Advertise Svpbmt support to generic page table")
+Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+Tested-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+---
+ drivers/iommu/generic_pt/fmt/iommu_riscv64.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/iommu/generic_pt/fmt/iommu_riscv64.c b/drivers/iommu/generic_pt/fmt/iommu_riscv64.c
+index b18fc4d109f5..1bb74114fb02 100644
+--- a/drivers/iommu/generic_pt/fmt/iommu_riscv64.c
++++ b/drivers/iommu/generic_pt/fmt/iommu_riscv64.c
+@@ -7,7 +7,8 @@
+ #define PT_SUPPORTED_FEATURES                                  \
+ 	(BIT(PT_FEAT_SIGN_EXTEND) | BIT(PT_FEAT_FLUSH_RANGE) | \
+ 	 BIT(PT_FEAT_RISCV_SVNAPOT_64K) |                      \
+-	 BIT(PT_FEAT_DETAILED_GATHER))
++	 BIT(PT_FEAT_DETAILED_GATHER) |                        \
++	 BIT(PT_FEAT_RISCV_SVPBMT))
+ #define PT_FORCE_ENABLED_FEATURES BIT(PT_FEAT_DETAILED_GATHER)
+ 
+ #include "iommu_template.h"
+-- 
+2.50.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
