@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECA8560701DE
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0513360701E0
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FQGj+DIE;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P0LOEbRv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NPxbxG6c;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jP10cT91
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,52 +14,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=dkezfHrcYrxYl74aHO5KBLk6//ZBXHurNfog7otSsao=; b=FQGj+DIEuxyp43lIbWqWYX8YmI
-	J60CXjjg17olc4y0COLX/U2EWlwMif+GU6FtPS6o1vIi2Lm0RlsiHBxdoba7ds/gNvrZ/zqJ3tyMF
-	rM8C9PP2BVQq2h+i4jvpxNtXGColVNbQzVFINVoLLvlcQHXT16pnBXBfI+ejsVpRFjHoVpfdFUAJb
-	wa6zhCyH3ELlj/dXAzL2KQaytyM8ZZ0I2x7vQbkRJnpfzoMVoB5BKXInZpbhoEjHzU6PEx1SiheYA
-	8NHYXhpcy0VMdIkvu8p/BeqlLew8+PWmGh7x/MabXOlo78ij4slU6q2xtn8X5JKvozzT0kVIj+y5Z
-	8ThbI19Q==;
+	bh=C/jiwsgeFzzwgMz+YYkPdiAeFOQ+z2UYTx17LaKRo4c=; b=NPxbxG6cg1ozm+MMT5W3CUWKav
+	FHUzlnxbRyPeL+x6ApOT0zO4Ehwj5P/aJk4TonlS95sAdHGDsT/rZJoW0eBjpGa4JwVutC/QDMS/C
+	12wo0EJjb7GLa0BhZIpic6tz4ae+37tXmvwnfy7KfUFSaw3PgPYLUieiVNG1CfOvO5VxAdIc1XXJj
+	9ZKjxbfHddS8d+pY1DjZaza95/OC8eVinJtqP5ToL5vQq0892NaHqNyAtJgFEl/PpSXoos0scJwER
+	mn8Ke1+/ffHcfSH4tN9HRC4gwF/dNKOdQO1yNi5qzok92NcUSSyZjCTqcnZdoNk0fwb5wtR2VbVG4
+	MdgoHi5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqt-0000000F0gb-3dRh;
-	Sun, 01 Nov 2026 22:16:35 +0000
+	id 1xNdqo-0000000F0T3-3Cds;
+	Sun, 01 Nov 2026 22:16:30 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqa-0000000Ezke-2IJa
+	id 1xNdqX-0000000Ezc4-2M62
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Nov 2026 22:16:16 +0000
+	Sun, 01 Nov 2026 22:16:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D45FB60617;
-	Sun,  1 Nov 2026 22:16:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8632D1F00A1D;
-	Sun,  1 Nov 2026 22:16:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D1DC06024D
+	for <linux-riscv@lists.infradead.org>; Sun,  1 Nov 2026 22:16:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 875131F000C1;
+	Sun,  1 Nov 2026 22:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571375;
-	bh=pqV79QmChFOf3bbPGI4+7921MVE85dKKWV9jL57f3sM=;
+	s=k20260515; t=1793571372;
+	bh=giZGJrmJ+qacYqxmdFZFyw17xIbuZvWJpSr/F67UmNM=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=P0LOEbRvwTcNBUSW901O5u0IbTsFAS0u7tlHAilX4zpQhlj7rov3kTzRYxOrtXJkq
-	 +kLlB6UyHSdCxIZGfBJQPBLWPHsIw97WryXY4R57r+FehjA0yUzJg9yHCqGZu5/j7u
-	 qF/Ye8qIspqZju8mEmIBaczCeiWVktuLMbCu4tTlypu/S5LEtFoYvRsLOGiwJOxDK2
-	 fhKyBYx4IL+DOEPxJrlBKp6SmfV9nsobQTiRrZDMrgZQPiFYfY0ahvxyOCsHSIIgxn
-	 7zGTWtOhm+EOfESSKUksCnsHptg+CLBeRTvGHiV3Lmw6GrMNWHipG3V8ozR5jeBUhV
-	 pcMZBgzINShfQ==
+	b=jP10cT91/z/TVGLS1LbXUmDx/BvBQNuhf30v2H4Hx5WDw1rP1N7tofXE15JkcGK85
+	 TY4ZvR/OPuuJQ90O3Wygg4v8bQQ0ahkmCONct0gECzbDiWFDPOkH3QXVEdwZEtJ4DN
+	 RMt0JvJMQ87UevxMmtffQm2smJdP6NQ9domQ1VkvQBjypQmqgyJNxyKboUrCmj3Tcd
+	 ictPzu9tMSImPCe91AaZmiopVLrfx+ViUgaMDgE+qS0XL3b8BJqBpztEM1PI7NBeY9
+	 6IQKGPRlxlhF/HULLFO1uRyX/g9zjnp66sFOxLItIhI6Bn3ygRjxPMYbBEAL9VJHGF
+	 TslbjOWCm0e4w==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7D49838003B8;
-	Sun,  1 Nov 2026 22:16:15 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7D27038003B8;
+	Sun,  1 Nov 2026 22:16:12 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/2] Do not reserve memory for coprocessor FW
+Subject: Re: [GIT PULL][3/4] RISC-V soc drivers for v7.4
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357137404.2624073.6489638020939885844.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:16:14 +0000
-References: <20260921-sophgo-remove-coprocessor-node-v1-0-ace29446b327@gmail.com>
-In-Reply-To: <20260921-sophgo-remove-coprocessor-node-v1-0-ace29446b327@gmail.com>
-To: Andrei Lalaev <andrey.lalaev@gmail.com>
-Cc: linux-riscv@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, chen.wang@linux.dev, inochiama@gmail.com,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- me@ziyao.cc, devicetree@vger.kernel.org, sophgo@lists.linux.dev,
+Message-Id: <179357137104.2624073.12690536548445042177.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:16:11 +0000
+References: <20261013-glitter-lingo-dce2f8d724c9@spud>
+In-Reply-To: <20261013-glitter-lingo-dce2f8d724c9@spud>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, soc@kernel.org,
  linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,24 +79,25 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Inochi Amaoto <inochiama@gmail.com>:
+This pull request was applied to riscv/linux.git (fixes)
+by Arnd Bergmann <arnd@arndb.de>:
 
-On Mon, 21 Sep 2026 17:08:58 +0200 you wrote:
-> Milk-V Duo and Duo-256M reserve a region for coprocessor FW at
-> the end of RAM. It is not correct because:
->   - FSBL can be configured to load FW into a different region
->   - if no firmware is loaded, the reserved memory is wasted
+On Tue, 13 Oct 2026 16:38:28 +0100 you wrote:
+> Hey folks,
 > 
-> As explained in [1, 2], FSBL should reserve the region at runtime.
+> Diff here contains a lot of clock bindings, so I've provided an explanation
+> in the tag.
+> 
+> Thanks,
+> Conor.
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/2] riscv: dts: sophgo: cv1800b-milkv-duo: drop reserved memory node
-    https://git.kernel.org/riscv/c/6645398c4621
-  - [2/2] riscv: dts: sophgo: sg2002-milkv-duo256m: drop reserved memory node
-    https://git.kernel.org/riscv/c/60e4cafd3090
+  - [GIT,PULL,3/4] RISC-V soc drivers for v7.4
+    https://git.kernel.org/riscv/c/b45ebc4a7cfa
+  - [GIT,PULL,4/4] standalone cache drivers for v7.4
+    https://git.kernel.org/riscv/c/655e6054acfb
 
 You are awesome, thank you!
 -- 
