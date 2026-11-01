@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EA6060A2630
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81A5B6071847
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YnsYH7LR;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BMnj3hsa
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UDTpBZHD;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PKfbTIwU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,52 +14,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Vs5RU/B+Tb2+e/vPU67Uz6Ce+h/Z4ufuq5fJDpKlXi8=; b=YnsYH7LRIPCN0Q7h3lIzJ52rp5
-	4P6+XXTvsdyJpW7byy3ab/KYa2TUzd14QCj1i9T/DN+g6lInshmhK1VkQ0lJFOLXNM/gMBB1e9W9J
-	XHU2W6vPQIgHQI4X5uel3bZ78cYzRmHCkvvYDCKGiSPAQiNxuJSInH1dsw4wUZMujBEJxHWtISnQI
-	l2jafyWtnSRt+YU0MtUpSvqGQnXbF9sx7lCdNHZhNraz5ovG7aHN0J6JL0lTyg4Tal7zDEpQu7dts
-	w3D3hQRdX3xqzM7oPbj45s/LZbE/nOTg9hEm6JGaj8kOu532BJbRHLOqqBZaLkRyXWEnQXqsDHm9r
-	V/yROquw==;
+	bh=0VpMs/Yl/jZZ0n1gfwK1X+YXJMX6NpE0X8oG/UXDZRw=; b=UDTpBZHDAHMV0ogmi6nQavRmYQ
+	C7zWKiCnqE33gVdsEXuv/nRpXj3b0uWaP2vNaDO/WHPN5X0u9clnNswk0nYsOR/1fiuqvyb+DU48u
+	a4DRk/f6E1bokk3sE7MyjF2lgmxHJRJLwo30/PwXpmlvdD+4L97aYpbkoYhazzcTm9i3oiEj5cemY
+	DApFFeIW8pKXvpLydHvGJv9NRcS32jxOqqir2QRbB8gvSHds4P0ugLtZ4pPfIB13KcpNu1H9DhiVh
+	io8Fue0wMsvKK1OKlAYMKgadHOhopPdmdY2uVr/tGHN9uleumS9z8NSyPXIpHOtX5NOiEyXVr3jY4
+	AMl/wavg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqw-0000000F0mg-1VjA;
-	Sun, 01 Nov 2026 22:16:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xNdqx-0000000F0rA-408j;
+	Sun, 01 Nov 2026 22:16:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqd-0000000EztV-1Lww
+	id 1xNdqf-0000000F01v-3XsS
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Nov 2026 22:16:19 +0000
+	Sun, 01 Nov 2026 22:16:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 996CA60611;
-	Sun,  1 Nov 2026 22:16:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A73C1F01579;
-	Sun,  1 Nov 2026 22:16:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6BDF44197A;
+	Sun,  1 Nov 2026 22:16:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48F151F00A1F;
+	Sun,  1 Nov 2026 22:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571378;
-	bh=M/w8YBijKICyv173+X+mvFtJwUapRf2FeO+G+UMwaco=;
+	s=k20260515; t=1793571381;
+	bh=dO8IDvnKbQ89guABqKeHsYCIoKDAIsVkhl3ddA1wtcc=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=BMnj3hsa46AOqOrQT2/Y5wnpFmHLimlftjstHkzvdSw4htP6NG1zM6u+BhYbp/VSw
-	 V5PrPc96aMRY3rTe9PQZsWwTmTWqR/mlfrx4McZOajiVeNk2NGFUAf1cYOQ9LM65Hf
-	 XbR9n3ByPX5BH9mYn+4glr0tKySkevcoSkHXJm9jO7oIPfR8EooJzqaRfzBNoqkGSI
-	 2cA0HdfDULemdO0DZjp8DSGx9LhU5cEuU2CjkjAMOcxQUf7eBKp1YIkf9orV7pRmyn
-	 X5NtSU7OSuOd2h+SAf43OmCudbnuM0+XhxatsNeadDNyJQ6abRx09/ufB13bh8EdU+
-	 wR+OqXJKjJTbg==
+	b=PKfbTIwUwRg7utef2I61K+61rzrtDd/F/7eBveR00naBoqdh8F3uPt9bannBILkUq
+	 FQXvy8Z0s5mkEUdeNhZmZVKFkBmt/LUE+5D1CvzgeMepBxoKf1PdLKC8RwoCB40Mf5
+	 OdkcjsQ690c2MU+DctNOxnLmgdhbGaelLNRiN/qixigRpPtaiG2ijQmAVgt/H9pdCb
+	 FiOvUSJsvaZ7CtN4srqpYrX5YQCsqj7N4Wxx4hnjOnXfuL07C7Ow54npn+WdSZ8oPe
+	 Plja86Te6UpKeeKPM7LXj3NXO5VI//NBfrJ+Uv+0AsJVqmhPK+HaK/XHSo8YOL1C3I
+	 iVVMD5YkVeKPA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 401E838003B8;
-	Sun,  1 Nov 2026 22:16:18 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 4025738003B8;
+	Sun,  1 Nov 2026 22:16:21 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH] irqchip: riscv-imsic: Expose the fwnode via the global
- config
+Subject: Re: [PATCH v8 00/22] Add basic pinctrl drivers for JHB100 SoC
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357137690.2624073.10590886013198507782.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:16:16 +0000
-References: <20261002120417.2708979-1-prajwal.n@oss.qualcomm.com>
-In-Reply-To: <20261002120417.2708979-1-prajwal.n@oss.qualcomm.com>
-To: Prajwal N <prajwal.n@oss.qualcomm.com>
-Cc: linux-riscv@lists.infradead.org, anup@brainfault.org, tglx@kernel.org,
- radu@rendec.net, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, linux-kernel@vger.kernel.org, prajwal.n.oss@gmail.com
+Message-Id: <179357137979.2624073.5964699004424197111.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:16:19 +0000
+References: <20260910100357.130134-1-changhuang.liang@starfivetech.com>
+In-Reply-To: <20260910100357.130134-1-changhuang.liang@starfivetech.com>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, linusw@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, kernel@esmil.dk, pjw@kernel.org,
+ aou@eecs.berkeley.edu, palmer@dabbelt.com, alex@ghiti.fr,
+ p.zabel@pengutronix.de, brgl@kernel.org, linux-gpio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ lianfeng.ouyang@starfivetech.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,23 +83,64 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Thomas Gleixner <tglx@kernel.org>:
+This series was applied to riscv/linux.git (fixes)
+by Linus Walleij <linusw@kernel.org>:
 
-On Fri,  2 Oct 2026 17:34:17 +0530 you wrote:
-> The fwnode describes a global property of the IMSIC interrupt
-> controller that is equally relevant to external consumers of
-> imsic_global_config as it is to the imsic_priv itself.
+On Thu, 10 Sep 2026 03:03:35 -0700 you wrote:
+> The JHB100 SoC has 13 pinctrl domains - sys0, sys0h, sys1, sys2, per0, per1,
+> per2, per2pok, per3, adc0, adc1, emmc, and vga.
 > 
-> Keeping it in imsic_priv forces the external drivers to access
-> the private structure rather than using the already exported
-> imsic_get_global_config() interface.
+> In the current series, we will only add the following pinctrl:
+>  - sys0, sys0h, sys1, sys2
+>  - per0, per1, per2, per2pok, per3
 > 
 > [...]
 
 Here is the summary with links:
-  - irqchip: riscv-imsic: Expose the fwnode via the global config
-    https://git.kernel.org/riscv/c/ff6f8cd2919b
+  - [v8,01/22] dt-bindings: pincfg-node: Add property 'input-debounce-ns'
+    https://git.kernel.org/riscv/c/5dde08ea70b9
+  - [v8,02/22] pinctrl: pinconf-generic: Add property 'input-debounce-ns'
+    (no matching commit)
+  - [v8,03/22] dt-bindings: pinctrl: Add starfive,jhb100-sys0-pinctrl
+    https://git.kernel.org/riscv/c/9d3dc8decb60
+  - [v8,04/22] pinctrl: starfive: Add StarFive JHB100 sys0 controller driver
+    (no matching commit)
+  - [v8,05/22] dt-bindings: pinctrl: Add starfive,jhb100-sys0h-pinctrl
+    https://git.kernel.org/riscv/c/6701c1c00891
+  - [v8,06/22] pinctrl: starfive: Add StarFive JHB100 sys0h controller driver
+    (no matching commit)
+  - [v8,07/22] dt-bindings: pinctrl: Add starfive,jhb100-sys1-pinctrl
+    https://git.kernel.org/riscv/c/bf8241062c79
+  - [v8,08/22] pinctrl: starfive: Add StarFive JHB100 sys1 controller driver
+    https://git.kernel.org/riscv/c/1d5c13990916
+  - [v8,09/22] dt-bindings: pinctrl: Add starfive,jhb100-sys2-pinctrl
+    https://git.kernel.org/riscv/c/941cc8022c21
+  - [v8,10/22] pinctrl: starfive: Add StarFive JHB100 sys2 controller driver
+    https://git.kernel.org/riscv/c/594deb7f74f4
+  - [v8,11/22] dt-bindings: pinctrl: Add starfive,jhb100-per0-pinctrl
+    https://git.kernel.org/riscv/c/402323de0c04
+  - [v8,12/22] pinctrl: starfive: Add StarFive JHB100 per0 controller driver
+    (no matching commit)
+  - [v8,13/22] dt-bindings: pinctrl: Add starfive,jhb100-per1-pinctrl
+    https://git.kernel.org/riscv/c/d6001140c2e8
+  - [v8,14/22] pinctrl: starfive: Add StarFive JHB100 per1 controller driver
+    (no matching commit)
+  - [v8,15/22] dt-bindings: pinctrl: Add starfive,jhb100-per2-pinctrl
+    https://git.kernel.org/riscv/c/b598855cc302
+  - [v8,16/22] pinctrl: starfive: Add StarFive JHB100 per2 controller driver
+    (no matching commit)
+  - [v8,17/22] dt-bindings: pinctrl: Add starfive,jhb100-per2pok-pinctrl
+    https://git.kernel.org/riscv/c/c9ed9daba98a
+  - [v8,18/22] pinctrl: starfive: Add StarFive JHB100 per2pok controller driver
+    (no matching commit)
+  - [v8,19/22] dt-bindings: pinctrl: Add starfive,jhb100-per3-pinctrl
+    https://git.kernel.org/riscv/c/340588f9b94c
+  - [v8,20/22] pinctrl: starfive: Add StarFive JHB100 per3 controller driver
+    (no matching commit)
+  - [v8,21/22] riscv: dts: starfive: Add JHB100 pinctrl pad number header
+    (no matching commit)
+  - [v8,22/22] riscv: dts: starfive: jhb100: Add pinctrl nodes
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
