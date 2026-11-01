@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B104D6074B68
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 359E46074B73
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vKvsdpf2;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X5GhBN9X
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rMeYsVxO;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XYeaF+lL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,51 +14,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=/Y6VGd8NLrBHXGtBfB8GUchjyOG9L+duJK7q2MFA+YM=; b=vKvsdpf2sp/fk1wkCS69hAVXVu
-	Pc4S2nIWO81cq6YEM00azHFcDzJ4BNH1A0GOLsP3RFxDLf9nbiJ/dCjPPA8W29XmcQxDnj589/olV
-	VcnQiWgnO4VQGQuhBjx4M0+M3O2g3Kiuna+q3oV06i077N/ZGnJXd1cxDOAIeQkdspmYNRDVOoWX1
-	QpaxbZq6XM0TGcVMecF1QgVy3OXC2s3cNRMBOoZCdScslI5SHJFl3CTqehNn5f+dcmDjuGBdleehg
-	/SsQeI6SKqiIfsxwmO9nzx3Bj6aUc0N1VKLkINbGDFJauBeq1OsRgG/sCthol0syKa41t53V6HGUZ
-	pkXXCpUg==;
+	bh=vsTJHwpAdjcqn2Nh/LBGtF53IXgJwT92OQagyf94HMU=; b=rMeYsVxOh2hSfy3BeSA5/6phV3
+	p2AKMwHjGRlRgx0i+5mKT0ja8AMO0Q8y7hP7rAwQjIpWXR31XFyIYcGVzSdRHkQLWwMZd6qIUMm2K
+	AneE9aymYB3B8qbf7O/q/puPfAKE6gWw1JqItTPDW5Amz8hvtxTtUWLm2MGxkgTnA6p3FUU9VYtzv
+	E/lq/clgTvRXKxp9WOtl7KWqWhbcM0N6EDLS+Kl+KuWV3gnlKY2B+MswAxB5FRTmkQOmP6qDS44z2
+	GY0Lm3vMoWKdS6dZISmxDJegRsq/6GLxrkhoBt8pMaAgOTT07ORX7ZSBllaxicjKeiZ59E35lk1Nn
+	BakGUPEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdrI-0000000F1uR-226o;
-	Sun, 01 Nov 2026 22:17:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xNdrM-0000000F27h-18Ns;
+	Sun, 01 Nov 2026 22:17:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqu-0000000F0gh-1Egj
-	for linux-riscv@lists.infradead.org;
-	Sun, 01 Nov 2026 22:16:36 +0000
+	id 1xNdqw-0000000F0o6-37bD;
+	Sun, 01 Nov 2026 22:16:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 945FC6061A;
-	Sun,  1 Nov 2026 22:16:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4847A1F00919;
-	Sun,  1 Nov 2026 22:16:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 667B544035;
+	Sun,  1 Nov 2026 22:16:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 495611F00919;
+	Sun,  1 Nov 2026 22:16:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571395;
-	bh=ommBQgrQeMhNbDQOeLi1eUBrq5i9pecvZuHTvg+KCVA=;
+	s=k20260515; t=1793571398;
+	bh=jgMNL39llvWo9fpC9p/QMlWjuszkHAxcrG1aLPRLi8g=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=X5GhBN9XGEjLvDcB/bvkJIcWjHLmjFuoNl7IPxqhQ+x5K/tgHjKPHLcxnMlip4mu6
-	 APdud8YmZw2K37DdQZzUqHA8yG3qY7yo7IzC6lsBz+GB7iS0QqNROv1zUGAI1PDiMm
-	 WYKDtPcobc4yy4cjuqc9Wt1zCWzznJi98CPOlWLcMx6PyleaGq+ajmIBy2JLpJD2zS
-	 7dSMPuQk1+QHMQfS1wCpKJw1ZfcwdpV2EXrpClw7PusP11ECRQ1CWfqJaborqShyoS
-	 sZ9OCXQ/oxNq5rvkLnKFla5RZGdVR+XhgqxBsOMKwJ8x8GajPgAqSPUY/UNRedZMB+
-	 qOPixWqR40iTA==
+	b=XYeaF+lLG+zcg+MoYoZlG0y/uk5q8MRTTDbq8BkdvkzUFl9Vun1ihD1SxAc2ECy16
+	 z4DWocwx1WWi47Oj9QiNtJ6jmhL7zmf5bxeoWHoY4yzM2kZQfolcuIAWxK+jS7cm07
+	 fmwAg/Ivw2hGS6A7TJkYkC3exTpBiM5aaokwLR9TjbsfP3pWR5EZZp804p7drBfMd8
+	 frNkLhYzNMl5ef+Cj82eXGRsRKL/A4gC1aPR37M48qabULeNXZFgqSenEBQ9QKLwWw
+	 Vzz4O5/hem3VSNyc/YuAn2p3V4AP0T1bhoNHZjIEalvXnARs3fwKPBkflkTi+V8isn
+	 Z38bORaSKlOQw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 4026838003B8;
-	Sun,  1 Nov 2026 22:16:35 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 4020238003B8;
+	Sun,  1 Nov 2026 22:16:38 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH] irqchip/riscv-imsic: Use GENMASK for base address masks
+Subject: Re: [PATCH v9 0/3] PCI prerequisites for PHY consumer/provider split
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357139379.2624073.2605115252327012698.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:16:33 +0000
-References: <20260718040000.004.929c1ef2-caplitmus-rv@iscas.ac.cn>
-In-Reply-To: <20260718040000.004.929c1ef2-caplitmus-rv@iscas.ac.cn>
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Cc: linux-riscv@lists.infradead.org, anup@brainfault.org, tglx@kernel.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- bjorn@rivosinc.com, linux-kernel@vger.kernel.org
+Message-Id: <179357139679.2624073.13873851750746305916.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:16:36 +0000
+References: <20260810124315.433448-1-vladimir.oltean@nxp.com>
+In-Reply-To: <20260810124315.433448-1-vladimir.oltean@nxp.com>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, spacemit@lists.linux.dev,
+ linux-tegra@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,25 +81,27 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Thomas Gleixner <tglx@kernel.org>:
+This series was applied to riscv/linux.git (fixes)
+by Bjorn Helgaas <bhelgaas@google.com>:
 
-On Sat, 18 Jul 2026 12:34:36 +0800 you wrote:
-> The IMSIC DT binding allows riscv,guest-index-bits up to 7 and
-> riscv,hart-index-bits up to 15. On RV32, guest-index-bits=7 and
-> hart-index-bits=13, together with the 12-bit IMSIC page offset, is a
-> binding-valid layout that consumes a 32-bit low-address mask.
+On Mon, 10 Aug 2026 15:43:12 +0300 you wrote:
+> "[PATCH v8 phy-next 00/31] Split Generic PHY consumer and provider API"
+> https://lore.kernel.org/linux-phy/20260505100523.1922388-1-vladimir.oltean@nxp.com/
+> became unmanageably large for a single patch series and needs to be
+> split per subsystem.
 > 
-> The parser accepts this equality case because it rejects only values
-> larger than the remaining bit budget. The base address canonicalization
-> then builds the low-address mask with BIT(sum) - 1. When sum is 32 on
-> RV32, that expression shifts an unsigned long by its full width.
+> Here are the patches pertaining to PCI extracted out of the larger
+> series.
 > 
 > [...]
 
 Here is the summary with links:
-  - irqchip/riscv-imsic: Use GENMASK for base address masks
-    https://git.kernel.org/riscv/c/bd7d57a03c4b
+  - [v9,1/3] PCI: cadence: Preserve all error codes in cdns_plat_pcie_probe()
+    https://git.kernel.org/riscv/c/fe108800a865
+  - [v9,2/3] PCI: Add missing headers transitively included by <linux/phy/phy.h>
+    https://git.kernel.org/riscv/c/a685daa02d97
+  - [v9,3/3] PCI: Remove device links to PHY
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
