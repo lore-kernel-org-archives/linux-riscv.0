@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0513360701E0
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D53B60701EA
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NPxbxG6c;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jP10cT91
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lA/12QI9;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b93Tisum
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,50 +14,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=C/jiwsgeFzzwgMz+YYkPdiAeFOQ+z2UYTx17LaKRo4c=; b=NPxbxG6cg1ozm+MMT5W3CUWKav
-	FHUzlnxbRyPeL+x6ApOT0zO4Ehwj5P/aJk4TonlS95sAdHGDsT/rZJoW0eBjpGa4JwVutC/QDMS/C
-	12wo0EJjb7GLa0BhZIpic6tz4ae+37tXmvwnfy7KfUFSaw3PgPYLUieiVNG1CfOvO5VxAdIc1XXJj
-	9ZKjxbfHddS8d+pY1DjZaza95/OC8eVinJtqP5ToL5vQq0892NaHqNyAtJgFEl/PpSXoos0scJwER
-	mn8Ke1+/ffHcfSH4tN9HRC4gwF/dNKOdQO1yNi5qzok92NcUSSyZjCTqcnZdoNk0fwb5wtR2VbVG4
-	MdgoHi5w==;
+	bh=XeL1MmVSiBD7fIOCY++I8G5gvVBdxV5GcBwRxs4nfDo=; b=lA/12QI9osmEFk6kMYVG2HzcKi
+	riZCocaXdhjEPk3m1eLl9LGOlBskO7ltlVkFRHRQtXQnDjAsjIugfgSNVSpjcLJix4G68+9CUCQex
+	kHsdnCSk/vueTzXaMtp3XY97E4Om9lPzU9wYVjW+KIIASN6xXjifFUvT9tSPE3q46o8oojrL2MQVR
+	xcxp/KndOFoNMhEkHnbCtDZWNUPgr7949rbxsxsVJNebRpfAqfT2exhTg14QtK/G/56sYTioHf+dD
+	nKIRpDapvbGAOFLuR9rc/90XSwH95pvE8Px+HXA7pT95QbO0mDQJFrOglMWmgKzrN9jN9QysTAHt+
+	OpkMUwHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqo-0000000F0T3-3Cds;
-	Sun, 01 Nov 2026 22:16:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xNdqu-0000000F0jB-3UUy;
+	Sun, 01 Nov 2026 22:16:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqX-0000000Ezc4-2M62
+	id 1xNdqb-0000000Eznx-1mzl
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Nov 2026 22:16:13 +0000
+	Sun, 01 Nov 2026 22:16:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D1DC06024D
-	for <linux-riscv@lists.infradead.org>; Sun,  1 Nov 2026 22:16:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 875131F000C1;
-	Sun,  1 Nov 2026 22:16:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0F1C444001;
+	Sun,  1 Nov 2026 22:16:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E473F1F00A22;
+	Sun,  1 Nov 2026 22:16:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571372;
-	bh=giZGJrmJ+qacYqxmdFZFyw17xIbuZvWJpSr/F67UmNM=;
+	s=k20260515; t=1793571376;
+	bh=Y2PM7PaXPlUtwF7G8UYPMk8Ond4TLwOL7+2XwT/8nDE=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=jP10cT91/z/TVGLS1LbXUmDx/BvBQNuhf30v2H4Hx5WDw1rP1N7tofXE15JkcGK85
-	 TY4ZvR/OPuuJQ90O3Wygg4v8bQQ0ahkmCONct0gECzbDiWFDPOkH3QXVEdwZEtJ4DN
-	 RMt0JvJMQ87UevxMmtffQm2smJdP6NQ9domQ1VkvQBjypQmqgyJNxyKboUrCmj3Tcd
-	 ictPzu9tMSImPCe91AaZmiopVLrfx+ViUgaMDgE+qS0XL3b8BJqBpztEM1PI7NBeY9
-	 6IQKGPRlxlhF/HULLFO1uRyX/g9zjnp66sFOxLItIhI6Bn3ygRjxPMYbBEAL9VJHGF
-	 TslbjOWCm0e4w==
+	b=b93Tisumf6w7GwGg8JsDtZTrtSbJIwBF1ayU27ZD9hDVNCKU+qHGncd2hKM6zZeEE
+	 jqomQF87URgdYK6poFOsR7kRwDChp6ccHh/bHjl9SrnVqpaxdjTQuZcMjisuMRbwBa
+	 8XGe+/7YUCA13wsqzPzmfTYPvAyhD6EnG59ZBNv+/suxVtJ9hEBYgi5Jmc1KVs0kwx
+	 bb3J2bs2zH9njzILt2JEGLSf3CPj4Sz/jrt8R8D19hpYS25c4F54gOQIW+OZzODjHg
+	 CQtQL42bgXBw4WrzOMtlYI14bZwlPgLM+40OhowN0JkJluG6I2TDV4KM6/AVlWy/PT
+	 yoYfcdU5IiCvA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7D27038003B8;
-	Sun,  1 Nov 2026 22:16:12 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D442738003B8;
+	Sun,  1 Nov 2026 22:16:16 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [GIT PULL][3/4] RISC-V soc drivers for v7.4
+Subject: Re: [PATCH v5 0/5] Enable Bluetooth and WiFi on K3 Pico ITX
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357137104.2624073.12690536548445042177.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:16:11 +0000
-References: <20261013-glitter-lingo-dce2f8d724c9@spud>
-In-Reply-To: <20261013-glitter-lingo-dce2f8d724c9@spud>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, soc@kernel.org,
- linux-kernel@vger.kernel.org
+Message-Id: <179357137554.2624073.2079736918807982610.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:16:15 +0000
+References: <20260928205012.3689405-1-aurelien@aurel32.net>
+In-Reply-To: <20260928205012.3689405-1-aurelien@aurel32.net>
+To: Aurelien Jarno <aurelien@aurel32.net>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ dlan@kernel.org, spacemit@lists.linux.dev
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,25 +80,31 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hello:
 
-This pull request was applied to riscv/linux.git (fixes)
-by Arnd Bergmann <arnd@arndb.de>:
+This series was applied to riscv/linux.git (fixes)
+by Yixun Lan <dlan@kernel.org>:
 
-On Tue, 13 Oct 2026 16:38:28 +0100 you wrote:
-> Hey folks,
+On Mon, 28 Sep 2026 22:49:05 +0200 you wrote:
+> This patchset enables Bluetooth through USB on the K3 Pico ITX board and
+> adds the rfkill nodes for Bluetooth and WLAN so that the devices can be
+> activated.
 > 
-> Diff here contains a lot of clock bindings, so I've provided an explanation
-> in the tag.
-> 
-> Thanks,
-> Conor.
+> Note that WLAN support (patch 4) is only useful with the following
+> patchset, but they can be applied independently:
+> - https://lore.kernel.org/spacemit/20260923015016.64069-1-inochiama@gmail.com/T/#t
 > 
 > [...]
 
 Here is the summary with links:
-  - [GIT,PULL,3/4] RISC-V soc drivers for v7.4
-    https://git.kernel.org/riscv/c/b45ebc4a7cfa
-  - [GIT,PULL,4/4] standalone cache drivers for v7.4
-    https://git.kernel.org/riscv/c/655e6054acfb
+  - [v5,1/5] riscv: dts: spacemit: k3: move USB3 phy to board level
+    https://git.kernel.org/riscv/c/a87ca1e5b5d2
+  - [v5,2/5] riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX board
+    https://git.kernel.org/riscv/c/2b9612eceb96
+  - [v5,3/5] riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX board
+    https://git.kernel.org/riscv/c/ea5cef6d5f3b
+  - [v5,4/5] riscv: dts: spacemit: k3: add rfkill node for WLAN on the K3 Pico-ITX board
+    https://git.kernel.org/riscv/c/2f3b7240a4c2
+  - [v5,5/5] riscv64: defconfig: Enable BT and WLAN support for SpacemiT K3 Pico-ITX board
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
