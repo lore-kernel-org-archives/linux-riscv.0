@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EAC760701D3
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECA8560701DE
 	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ANitmktV;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CSZItbFK
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FQGj+DIE;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P0LOEbRv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,50 +14,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=RiYFt5U413wfH13O+uDPRqe5JXb7ypPj4cxTsGDk0l4=; b=ANitmktVekHz35vLlZ1BymLy+L
-	eZZdzcG9EZhWwTfGuAgyOXcTTvrwGNNFx+OW2CbP1ZCKfkaLl1Maa0zhW46RPKwEGTuVvj7fQwl1G
-	SsDfr/vMN2V8DSy8VC2df2uZ+Ov5FeLO2T7ZdP0Poxs7hySaWWirDlFukirz4N6tl3rwjoNpGz4Q2
-	D4iA0joKPglstKOY0+E1uMSGnGcF4jXXa3KataHJn9vWg5TwcuFyYMSeW7z1bScLwKu/qLNwHWqfA
-	gknMiSaQ83glLuQBS157uTSEp3SE1QhRNXUa+PHQ+mDaJntUVQCfHF85S71bf4M7A7fGaE7jF6W7l
-	508CdTdw==;
+	bh=dkezfHrcYrxYl74aHO5KBLk6//ZBXHurNfog7otSsao=; b=FQGj+DIEuxyp43lIbWqWYX8YmI
+	J60CXjjg17olc4y0COLX/U2EWlwMif+GU6FtPS6o1vIi2Lm0RlsiHBxdoba7ds/gNvrZ/zqJ3tyMF
+	rM8C9PP2BVQq2h+i4jvpxNtXGColVNbQzVFINVoLLvlcQHXT16pnBXBfI+ejsVpRFjHoVpfdFUAJb
+	wa6zhCyH3ELlj/dXAzL2KQaytyM8ZZ0I2x7vQbkRJnpfzoMVoB5BKXInZpbhoEjHzU6PEx1SiheYA
+	8NHYXhpcy0VMdIkvu8p/BeqlLew8+PWmGh7x/MabXOlo78ij4slU6q2xtn8X5JKvozzT0kVIj+y5Z
+	8ThbI19Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqo-0000000F0RO-18nZ;
-	Sun, 01 Nov 2026 22:16:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNdqt-0000000F0gb-3dRh;
+	Sun, 01 Nov 2026 22:16:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqV-0000000EzWy-1dk3
+	id 1xNdqa-0000000Ezke-2IJa
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Nov 2026 22:16:11 +0000
+	Sun, 01 Nov 2026 22:16:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2BE6F402A3;
-	Sun,  1 Nov 2026 22:16:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D1131F000C1;
-	Sun,  1 Nov 2026 22:16:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D45FB60617;
+	Sun,  1 Nov 2026 22:16:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8632D1F00A1D;
+	Sun,  1 Nov 2026 22:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571371;
-	bh=YLKh8ba9L3rUxnN5x+nnHd88mmDqVen/JZWph5lSrDU=;
+	s=k20260515; t=1793571375;
+	bh=pqV79QmChFOf3bbPGI4+7921MVE85dKKWV9jL57f3sM=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=CSZItbFKmma0qjQPQ1I+yVnn0zcypanEL3Js6cusu/K3BruI16405oj2sfQPr4Qxo
-	 5vyR0gnYlSUMtCLvP1Sr5lji1J0tWWWmzF1yE4ojdGA4M6cWfaC4UrT28Uk+e7J40E
-	 WIcpCJnlN0XYsd+gexjLjS718qwcGcvSvQqqNcH5DTxvY/HnZy2bouWOekavUGTTX+
-	 rfIYZ9CrSd+SsV+poLXDzWIcuyml4/jPE8dQQpSOEj2TLS3JdBUqUmexEBuMmy7uZM
-	 bBaAXihgJiq3V2N5pAkBfVjYTnN+aBBfjhqZ6A4R9rwY1OllGuQb6x9ADBVrjkI0UR
-	 6ccb5+35KLfEg==
+	b=P0LOEbRvwTcNBUSW901O5u0IbTsFAS0u7tlHAilX4zpQhlj7rov3kTzRYxOrtXJkq
+	 +kLlB6UyHSdCxIZGfBJQPBLWPHsIw97WryXY4R57r+FehjA0yUzJg9yHCqGZu5/j7u
+	 qF/Ye8qIspqZju8mEmIBaczCeiWVktuLMbCu4tTlypu/S5LEtFoYvRsLOGiwJOxDK2
+	 fhKyBYx4IL+DOEPxJrlBKp6SmfV9nsobQTiRrZDMrgZQPiFYfY0ahvxyOCsHSIIgxn
+	 7zGTWtOhm+EOfESSKUksCnsHptg+CLBeRTvGHiV3Lmw6GrMNWHipG3V8ozR5jeBUhV
+	 pcMZBgzINShfQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 031AD38003B8;
-	Sun,  1 Nov 2026 22:16:11 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7D49838003B8;
+	Sun,  1 Nov 2026 22:16:15 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH] irqchip/sifive-plic: Panic if initialization fails
+Subject: Re: [PATCH 0/2] Do not reserve memory for coprocessor FW
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357136954.2624073.18206480386098589488.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:16:09 +0000
-References: <20260911145037.427896-1-namcao@linutronix.de>
-In-Reply-To: <20260911145037.427896-1-namcao@linutronix.de>
-To: Nam Cao <namcao@linutronix.de>
-Cc: linux-riscv@lists.infradead.org, tglx@kernel.org, radu@rendec.net,
- pjw@kernel.org, samuel.holland@sifive.com, anup@brainfault.org,
+Message-Id: <179357137404.2624073.6489638020939885844.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:16:14 +0000
+References: <20260921-sophgo-remove-coprocessor-node-v1-0-ace29446b327@gmail.com>
+In-Reply-To: <20260921-sophgo-remove-coprocessor-node-v1-0-ace29446b327@gmail.com>
+To: Andrei Lalaev <andrey.lalaev@gmail.com>
+Cc: linux-riscv@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, chen.wang@linux.dev, inochiama@gmail.com,
+ pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ me@ziyao.cc, devicetree@vger.kernel.org, sophgo@lists.linux.dev,
  linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,32 +73,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Thomas Gleixner <tglx@kernel.org>:
+This series was applied to riscv/linux.git (fixes)
+by Inochi Amaoto <inochiama@gmail.com>:
 
-On Fri, 11 Sep 2026 16:50:37 +0200 you wrote:
-> If PLIC initialization fails, the driver unwinds and returns an error.
-> However, that is futile because the system cannot function without the
-> PLIC: all device interrupts are routed through it.
+On Mon, 21 Sep 2026 17:08:58 +0200 you wrote:
+> Milk-V Duo and Duo-256M reserve a region for coprocessor FW at
+> the end of RAM. It is not correct because:
+>   - FSBL can be configured to load FW into a different region
+>   - if no firmware is loaded, the reserved memory is wasted
 > 
-> Instead of the unnecessary cleanups, panic when PLIC initialization fails.
-> 
-> Signed-off-by: Nam Cao <namcao@linutronix.de>
+> As explained in [1, 2], FSBL should reserve the region at runtime.
 > 
 > [...]
 
 Here is the summary with links:
-  - irqchip/sifive-plic: Panic if initialization fails
-    https://git.kernel.org/riscv/c/dd6abfd40c6d
+  - [1/2] riscv: dts: sophgo: cv1800b-milkv-duo: drop reserved memory node
+    https://git.kernel.org/riscv/c/6645398c4621
+  - [2/2] riscv: dts: sophgo: sg2002-milkv-duo256m: drop reserved memory node
+    https://git.kernel.org/riscv/c/60e4cafd3090
 
 You are awesome, thank you!
 -- 
