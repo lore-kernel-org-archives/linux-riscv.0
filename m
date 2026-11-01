@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F35160A2611
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25B70606F2F1
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yspEtEMb;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K+V9Dv3q
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XSQWxR0V;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YLtzwK85
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,70 +14,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=6IOMu2E50EX9UwwlzuyxIFV2kQQjGeHTh3Kjyj3Wd5U=; b=yspEtEMb8oX9uq/TyzDsMVpJZP
-	Wg861E7EnfJYbdVXz832nZSQeXMCiWGF6XqqfzgQ2pQB1h6SpXhGaHgVqQ1ugVtmUxwpD6TFnbUb+
-	gxKMJrNfvB1RGzG+rFxyWtIgxf320Wa76k4Rf15zu1cV9xqRrIEh12rFqxztSNcupkoV6sSUfC6LR
-	ggUK9MpAgXlsnRkSBauveqnfJii+DIyTvUCOGDjiQR47jmb+SHeLS9yYHC+A/+i5vLyYoHdduemRr
-	uFqz52dw1vGmxMVqudvlAzFXr5ZBwgxWckAKsVmvP1duBveC5YV+gQ2MrVBBVuAgV5Mfcn+Tsbdnd
-	7ihpebjA==;
+	bh=USH+eaowtEfE/+NZ01Rf4YpVNzbnj00nAESdxsFqK6A=; b=XSQWxR0VhkQgRwYhsG8L+utHBj
+	AHqyKrV+mNGWvLhk0oUHrBbrX3G/QMOEezoapyZ+DpajW/eyuUnTbSVCwsYWrIYW/LuCPj2HFOZ7G
+	JP/EDJaLgqOYJ8bSHSejs9kh6auP+qxp4yep9RFfTDm09d4Y53YJo4N5CB5mxQCGH8Wrd5s2ksSpu
+	45ybZoPwf31FCCgKvWlN2hcv9B/AxHeRj2PT6LlhQ23NdQcqVc1JRImJ0r4ah+bLBuqARFD5jwsmk
+	Ivb6IPcKEqD3x3AeCDvRxAQev+RuPPHsfB/55Csu3c0yB6UQdZ74bl2g+vSDWBtpYwFRIDfT51bGG
+	biKC+fTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqE-0000000Eyxk-3wQk;
-	Sun, 01 Nov 2026 22:15:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xNdqA-0000000EysC-3mPx;
+	Sun, 01 Nov 2026 22:15:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqC-0000000EytQ-0Rl4;
-	Sun, 01 Nov 2026 22:15:52 +0000
+	id 1xNdq9-0000000Eypa-07VY;
+	Sun, 01 Nov 2026 22:15:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B7A7744006;
-	Sun,  1 Nov 2026 22:15:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B0951F00A23;
-	Sun,  1 Nov 2026 22:15:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C2CE043EBB;
+	Sun,  1 Nov 2026 22:15:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8672C1F000C1;
+	Sun,  1 Nov 2026 22:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571351;
-	bh=FccY8w4XVKmL62rTrNsIiuAmg2iirAJ9NTvcPUeI7l0=;
+	s=k20260515; t=1793571348;
+	bh=zWjchA1R3k2PWinfdPa1bmSSkYcmsFonhHSsoHtMyf0=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=K+V9Dv3qcTj5160hj+SlEd6bb36GPd0hfxFxqjLqYo66VpB8oCIm4PuHm9pjlid/h
-	 xICIzZcud0NUgf8UqhSDgZUnCOe+E4H24SE9jF1p7O4fFeppaF6xJ19c2x3GponAYK
-	 zBB0xnPMXK3KXJyJgXpeecppENU8uStUTuAYpN58z1zi5XdcZnpfMOTU/Sjz04mpNh
-	 EBDswN/2U3tv2zVNouRalxGVIPr45mrQWsWqgkUoAJAzcLHlFn+u4O5aPuxyp1V9hh
-	 nqI9MBjEMOeTC+Cpzk8pdEQbjpMVozvCH8kCeYtfZV/f7RAOqeoEUa4gaQ0O3fobrF
-	 9dSJrBw8PPsVQ==
+	b=YLtzwK85l4hGxLyA70UvP4j1W3M7aK0AnO65y/AzsiFBwFu+o+am4lM03VbtHtJ5K
+	 SS29sY8vrSYrA6jdvWzfwe5K90LxJtzoHxZZu0mTSUAvpZkN1PYLCGRsEs6UgYx0aB
+	 97oKuIhcSNLzzTU7IsY2JDbPwHgALU8UUMTUIacoZU37AQpC6KtulGbzQ30fh/1Pj7
+	 439Gr0UJypJlNRfMtvA0ZTTdkqVe4hPq7HarsqK8Usmvu9Wk0QYv2Bnam4S5juFWnH
+	 d/jArMh+zoyROvtkvZe5ytr6PBXG3TqNVsxhJFaqiJVBj+Botefdp40TKRHbDajTSy
+	 ztyxsj6TJTA0w==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7D3DF38003B8;
-	Sun,  1 Nov 2026 22:15:51 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7D5C738003B8;
+	Sun,  1 Nov 2026 22:15:48 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next v16 0/7] net: stmmac: qcom-ethqos: add support
- for
- SCMI power domains
+Subject: Re: [PATCH 00/15] vdso: Clean up the vsyscall.h headers
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357135004.2624073.6498267080189807632.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:15:50 +0000
-References: <20261014-qcom-sa8255p-emac-v16-0-0266c2ead980@oss.qualcomm.com>
-In-Reply-To: <20261014-qcom-sa8255p-emac-v16-0-0266c2ead980@oss.qualcomm.com>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: linux-riscv@lists.infradead.org, andersson@kernel.org,
- konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, vkoul@kernel.org, peppe.cavallaro@st.com,
- wens@kernel.org, jernej.skrabec@gmail.com, neil.armstrong@linaro.org,
- khilman@baylibre.com, jbrunet@baylibre.com, shawnguo@kernel.org,
- festevam@gmail.com, jan.petrous@oss.nxp.com, s32@nxp.com,
- mohd.anwar@oss.qualcomm.com, romain.gantois@bootlin.com,
- geert+renesas@glider.be, magnus.damm@gmail.com, mripard@kernel.org,
- christophe.roullier@foss.st.com, brgl@kernel.org, edumazet@kernel.org,
- radu@rendec.net, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, dfustini@tenstorrent.com,
- linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org,
- linux-mips@vger.kernel.org, imx@lists.linux.dev,
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
- sophgo@lists.linux.dev, bartosz.golaszewski@linaro.org,
- sashiko-bot@kernel.org, martin.blumenstingl@googlemail.com,
- krzysztof.kozlowski@oss.qualcomm.com, prabhakar.mahadev-lad.rj@bp.renesas.com
+Message-Id: <179357134704.2624073.7289302544673229273.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:15:47 +0000
+References: <20260909-vdso-asm-generic-vsyscall-h-v1-0-63ae856cc659@linutronix.de>
+In-Reply-To: <20260909-vdso-asm-generic-vsyscall-h-v1-0-63ae856cc659@linutronix.de>
+To: =?utf-8?q?Thomas_Wei=C3=9Fschuh_=3Cthomas=2Eweissschuh=40linutronix=2Ede=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
+Cc: linux-riscv@lists.infradead.org, luto@kernel.org, tglx@kernel.org,
+ vincenzo.frascino@arm.com, linux-kernel@vger.kernel.org,
+ linux-s390@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,33 +83,50 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Jakub Kicinski <kuba@kernel.org>:
+by Thomas Gleixner <tglx@kernel.org>:
 
-On Wed, 14 Oct 2026 14:36:39 +0200 you wrote:
-> Add support for the firmware-managed variant of the DesignWare MAC on
-> the sa8255p platform. This series contains new DT bindings and driver
-> changes required to support the MAC in the STMMAC driver.
+On Wed, 09 Sep 2026 10:51:13 +0200 you wrote:
+> The vsyscall.h headers are a mess. Some of that was necessary back when
+> some architectures where not using the generic vDSO infrastructure.
+> Now that this is not necessary anymore, the headers can be cleaned up
+> and many of the can be deleted altogether.
 > 
-> It also reorganizes the ethqos code quite a bit to make the introduction
-> of power domains into the driver a bit easier on the eye.
+> The recipient list is trimmed to only the vDSO maintainers and the
+> architecture lists.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next,v16,1/7] net: stmmac: dwmac4: don't program the 1us tick counter without a CSR clock
-    https://git.kernel.org/riscv/c/d09d7b8e86e5
-  - [net-next,v16,2/7] dt-bindings: net: qcom: document the ethqos device for SCMI-based systems
-    https://git.kernel.org/riscv/c/534198a05d92
-  - [net-next,v16,3/7] net: stmmac: qcom-ethqos: set serdes mode before powerup
-    https://git.kernel.org/riscv/c/7af44cb9e447
-  - [net-next,v16,4/7] net: stmmac: qcom-ethqos: update phy_mode to the resolved interface in mac_finish()
-    https://git.kernel.org/riscv/c/05b3ea7346e3
-  - [net-next,v16,5/7] net: stmmac: qcom-ethqos: reuse the address of ethqos_emac_driver_data
-    https://git.kernel.org/riscv/c/92719abd6378
-  - [net-next,v16,6/7] net: stmmac: qcom-ethqos: factor out linux-level setup into a separate function
-    https://git.kernel.org/riscv/c/acf1e3db9151
-  - [net-next,v16,7/7] net: stmmac: qcom-ethqos: add support for sa8255p
-    https://git.kernel.org/riscv/c/bb3183e1c938
+  - [01/15] vdso: Move the kernel-side time update helpers to a new header
+    https://git.kernel.org/riscv/c/35f0a96848a7
+  - [02/15] vdso/gettimeofday: Define fallback __arch_get_vdso_u_time_data() in gettimeofday.c
+    https://git.kernel.org/riscv/c/4fba7bb3e73a
+  - [03/15] vdso/getrandom: Define fallback __arch_get_vdso_u_rng_data() in getrandom.c
+    https://git.kernel.org/riscv/c/ca0da001d3cf
+  - [04/15] vdso/vsyscall: Define fallback time synchronization functions in vsyscall.c
+    https://git.kernel.org/riscv/c/e4eeeaa14d8d
+  - [05/15] vdso: Delete asm-generic/vdso/vsyscall.h
+    https://git.kernel.org/riscv/c/8579b901d150
+  - [06/15] x86/vdso: Move vDSO page definitions to asm/vdso.h
+    https://git.kernel.org/riscv/c/8051a0f482e6
+  - [07/15] sparc/vdso: Move __VDSO_PAGES to asm/vdso.h
+    https://git.kernel.org/riscv/c/782478555fc6
+  - [08/15] s390/vdso: Delete asm/vdso/vsyscall.h inclusions
+    https://git.kernel.org/riscv/c/d5b1dadd2ef0
+  - [09/15] sparc/vdso: Delete asm/vdso/vsyscall.h inclusion
+    https://git.kernel.org/riscv/c/cc729f844815
+  - [10/15] x86/vdso: Delete asm/vdso/vsyscall.h inclusions
+    https://git.kernel.org/riscv/c/3086b69ee00f
+  - [11/15] arm64/vdso: Delete asm/vdso/vsyscall.h inclusions
+    https://git.kernel.org/riscv/c/128b1c7d3ac8
+  - [12/15] riscv/hwprobe: Include vdso/datapage.h
+    https://git.kernel.org/riscv/c/0d10af5db481
+  - [13/15] vdso: Remove unnecessary vdso/vsyscall.h includes
+    https://git.kernel.org/riscv/c/d6df494a0135
+  - [14/15] vdso: Add asm-generic/vdso/vsyscall.h
+    https://git.kernel.org/riscv/c/996b01393e93
+  - [15/15] vdso: Remove __ASSEMBLER__ guards from vsyscall.h
+    https://git.kernel.org/riscv/c/9e61cabcce2b
 
 You are awesome, thank you!
 -- 
