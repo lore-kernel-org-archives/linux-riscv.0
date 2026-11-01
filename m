@@ -2,68 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30AD9606A324
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 04:17:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31D6C606A324
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 12:52:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UDRDsHUV;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Szc8bvtd
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pVuYMe4J;
+	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=c2rp+mBO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=qEcmdgag7rnKXiKkznTnqnXpuxTRfQKTeb2prt5WN18=; b=UDRDsHUVWhoQincnwZJgPHg3lM
-	CgKLSazFa6DxKZDSVL9/5aw51EVhnDAVFKqN2GPwtEtsUekTVlbqICdG9L5XVXPsuCYtzq+KEI08b
-	SnaauYsBuI0K00lBfF479fuWjgYDuimh+FTMrN5Bno7cNNz0amkRYURjPw8YdyevMlTMVm1fTc6+j
-	6UcyJa4zd0yTZUR/4llTz8CD2KqqW6MAqbCgX3P/JxFfseoK4jDTgu8mJpwpH6gJPXZ3LfCf0qulK
-	gLVq1+9aELZ9jXV7J8yNRcZD+dJGqJXXkTCn+sQx8M1lnvU05Agy9DMHibFInM6rV3lgnJYiRorO2
-	rbhRWuZg==;
+	bh=Vu+EpUqIf0aMeltaCbj9Cuat7sf+sGF3tOa6h+l/Eeo=; b=pVuYMe4JaUYSY4jaV/BVjfNR98
+	lTUdjH537RsLGitQBrvmhAmEq7ooBtYThb69LTtiCTxId2diy1He0IIcdnCL2+qi2NCSrZBq6/F+m
+	1ik9unUY4Ra7wtZuhQlJjC9ptZVF8QG7mZJLVzoq/yFwg8iqzzyVmtTLpyBUhEi457PaA7YVQ7yi9
+	SRCJdjx8bKY2s+RwT86eDi/3p7C9Grg4XyPpw6nJQjwjnpRG6KEYI9ERdM+foPCeMHe+uLx3dePp6
+	BH7IQFMvJCcpZx90cz2tO5TRkpLzBdn9h3MsDZWv809kKXrELLKNzbgRlrVxJsdGSZA48HTlJRPCG
+	MX650iqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNN0O-0000000Ds43-1d6E;
-	Sun, 01 Nov 2026 04:17:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNV2c-0000000EDWk-1Kw6;
+	Sun, 01 Nov 2026 12:52:06 +0000
+Received: from esa1.hc555-34.eu.iphmx.com ([23.90.104.144])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNN0M-0000000Ds3q-1gWb;
-	Sun, 01 Nov 2026 04:17:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B672A4095F;
-	Sun,  1 Nov 2026 04:17:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B3681F000C1;
-	Sun,  1 Nov 2026 04:17:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793506633;
-	bh=mUqu+6HsBuPxnZ0xvfhrdFnRGtvir4qjhgMAVr4T9Ko=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=Szc8bvtdgyfePD3Lcy+welmLY8PIM/MtSN+SWIMLPjyxSAUjFYbtzX/kg/Gk5W6ob
-	 AYPG16F5BppYWK28ekq6B4oHkbVsa+lhdlIX9kk2K7luf1zP8bvyIiQlN7cxKLefnz
-	 AoI6Ac242CTEeqI3aifav4i4kabOUAzpWrpQTkliA8ZqivaSs5YfaonNvidpfoWMJa
-	 6jPJ8xnrDXxGgY7hl5m0qHxKAk5XJempL3eDIBY50vaX+CFknAYUnPM1R+RrTcypkl
-	 ukEcKPlOK+p0kKrGynfvdOLrmP1tOsJWpENln+kYeylBrjzAxWzp/+bUv9vsW/XkIc
-	 9w+/Glq+JuypQ==
-X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Kohei Enju <enju.kohei@fujitsu.com>
-Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH v6 6/8] dma: swiotlb: Centralize memory-encryption pool
- sizing
-In-Reply-To: <auR0fT1yrKQ9wbm8@FCCLS0092175.localdomain>
-References: <20260924060756.1325156-1-aneesh.kumar@kernel.org>
- <20260924060756.1325156-7-aneesh.kumar@kernel.org>
- <asVs3doaJ4WrT3M2@willie-the-truck> <asYZFXGyafRjjBS0@arm.com>
- <asYiOgskwi8JYLe_@willie-the-truck> <yq5awlrt3dwo.fsf@kernel.org>
- <yq5av77c92oo.fsf@kernel.org> <aseRzPshcoys7AJS@arm.com>
- <yq5ao6d48dqr.fsf@kernel.org> <auR0fT1yrKQ9wbm8@FCCLS0092175.localdomain>
-Date: Sun, 01 Nov 2026 09:47:05 +0530
-Message-ID: <yq5a8q3d9oe6.fsf@kernel.org>
+	id 1xNV2Z-0000000EDUx-1KuC
+	for linux-riscv@lists.infradead.org;
+	Sun, 01 Nov 2026 12:52:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
+  t=1793537523; x=1825073523;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=fzO6/tBvzjG5tEeJvVUYifVW+dbAyvdgAGc9/Aw6eXU=;
+  b=c2rp+mBOz7Tp9b0psvsFjcbqS+JN1LTVbwNf7rycivtIXpOjQiSChC/M
+   7MkWxPIkm9/Cd9Xm6Bu/0FDsJjPKbEKB9KIAiqn1UMRx30fcSatFEIwad
+   TetGlYr2NXtAhvxk7BWuRmQwXRG3rNpXFX4Y8KnhUuYIXQAyeZeJFbiJ/
+   VIR2r+rkPpJ+kgBX2RMvGkr8bseFbzrgP2uYS19J3QlEqHjJ6Xg/tW59g
+   WtsnOZ7OrZmORrUKfW9vAEiVRZWfp7nv598ASZhzQohPsPOK12LxYjzGt
+   pTS79prEg+yPZt6XJgYV9CX5w3eQEfLqmw3U+K3JKsd5Vol594Lwph5Wu
+   A==;
+X-CSE-ConnectionGUID: E/pjsYqmQYSnpQq2uGcVKQ==
+X-CSE-MsgGUID: pyApzvqSRO6CZh0rqJSjZQ==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from unknown (HELO ces01_data.me-corp.lan) ([146.255.191.134])
+  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2026 14:51:58 +0200
+X-CSE-ConnectionGUID: t2vqmZwwQ1KLb1z0tZwntA==
+X-CSE-MsgGUID: hNNBhcZ5R+iVMtXNsCB+tw==
+Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.3])
+  by ces01_data.me-corp.lan with SMTP; 01 Nov 2026 14:59:56 +0200
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Sun, 01 Nov 2026 14:51:56 +0200
+From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Subject: [PATCH v4 0/2] riscv: support CPUs with Zalrsc but not Zaamo
+Date: Sun, 01 Nov 2026 14:51:38 +0200
+Message-Id: <20261101-lrsc-only-v4-0-4e1d010463b3@mobileye.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIANs152oC/03MQQ7CIBCF4as0sxYDtDbWlfcwXcg42EloMWCIp
+ OHuIisXs/gnL98OkQJThEu3Q6DEkf1WYzh0gMt9e5LgR23QUo9SaSlciCj85rJAlOOgtT0Zo6D
+ uX4Esf5p1m2svHN8+5Ean/vdtiqr3p6ReSEGoJzyrSVqjrqs37CjTEf0KcynlCy9OJXOlAAAA
+X-Change-ID: 20260120-lrsc-only-cc06422f5bb1
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Gary Guo <gary@garyguo.net>, 
+ Yury Norov <yury.norov@gmail.com>, 
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, cfu@wavecomp.com, 
+ torvalds@linux-foundation.org, olof@lixom.net, 
+ aleksa.paunovic@htecgroup.com, arikalo@gmail.com, 
+ Boqun Feng <boqun@kernel.org>, Boqun Feng <boqun@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Vladimir.Kondratiev@mobileye.com, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+X-Mailer: b4 0.16.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261101_045203_851561_7165B806 
+X-CRM114-Status: GOOD (  13.81  )
+X-Spam-Score: -4.0 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,157 +92,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Kohei Enju <enju.kohei@fujitsu.com> writes:
+RISC-V split the A extension into Zaamo (AMO*.w/AMO*.d) and Zalrsc
+(LR/SC). Linux has so far required the whole A extension.
 
-> On 10/08 20:02, Aneesh Kumar K.V wrote:
->> Catalin Marinas <catalin.marinas@arm.com> writes:
->> 
->> > On Thu, Oct 08, 2026 at 11:03:27AM +0530, Aneesh Kumar K.V wrote:
->> >> Aneesh Kumar K.V <aneesh.kumar@kernel.org> writes:
->> >> > Will Deacon <will@kernel.org> writes:
->> >> >> On Wed, Oct 07, 2026 at 11:04:05AM +0100, Catalin Marinas wrote:
->> >> >>> On Tue, Oct 06, 2026 at 10:49:17PM +0100, Will Deacon wrote:
->> >> >>> > On Thu, Sep 24, 2026 at 11:37:54AM +0530, Aneesh Kumar K.V (Arm) wrote:
->> >> >>> > > @@ -496,7 +516,8 @@ swiotlb_select_pool_policy(unsigned int flags)
->> >> >>> > >  	if (swiotlb_force_disable)
->> >> >>> > >  		return SWIOTLB_POOL_NONE;
->> >> >>> > >  
->> >> >>> > > -	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
->> >> >>> > > +	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
->> >> >>> > > +	    !restricted_dma_pool_present)
->> >> >>> > >  		return SWIOTLB_POOL_CC_GUEST;
->> >> >>> > 
->> >> >>> > I think this check on the restricted DMA pool is too general -- the pool
->> >> >>> > could be tied to a specific DMA-capable peripheral and so treating its
->> >> >>> > presence as a global property isn't right.
->> >> >>> 
->> >> >>> I agree it's a hack but that was the simplest way to avoid the pVMs
->> >> >>> getting a bounce buffer after this patch. More than happy to leave it
->> >> >>> out and reduce the buffer on cmdline or we come up with some better
->> >> >>> heuristics.
->> >> >>
->> >> >> Hrm, that does mean that reverting just this part will regress pVMs
->> >> >> because they'll suddenly be allocating a tonne more memory for an
->> >> >> entirely unused swiotlb buffer. So I think I'd prefer to drop the entire
->> >> >> series until this has been worked out properly.
->> >> >>
->> >> >>> Another option could be the arch code passing another flag that it
->> >> >>> doesn't want an encrypted pool (e.g. when running in a pKVM guest) but I
->> >> >>> don't particularly this either. The arch code doesn't know whether
->> >> >>> there's an alternative pool.
->> >> >>
->> >> >> At that point, the default size may as well be driven by the
->> >> >> drivers/virt/coco driver.
->> >> >>
->> >> >>> That said, such heuristics should have been a separate patch to make it
->> >> >>> easier to review/drop.
->> >> >>
->> >> >> I think the only right way to get a semi-accurate heuristic is to take
->> >> >> into account the set of dma-capable devices that will use the swiotlb
->> >> >> pool, but that's fiddly and should probably be tackled as a separate
->> >> >> series. Maybe a simpler hack in that direction would be to take the
->> >> >> SWIOTLB_POOL_CC_GUEST if _any_ device is going to use swiotlb? You'll
->> >> >> run into the usual problem of not being able to tell if a device is
->> >> >> DMA-capable or not, but you could probably look for a global restricted
->> >> >> DMA pool and, if that doesn't exist, check for per-device restricted pools
->> >> >> on dma-coherent devices (since restricted DMA isn't supported by ACPI) as
->> >> >> a reasonable approximation.
->> >> >
->> >> > So, something like this?
->> >> >
->> >> > 	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
->> >> > 	    swiotlb_cc_guest_needs_default_pool())
->> >> > 		return SWIOTLB_POOL_CC_GUEST;
->> >> >
->> >> 
->> >> Detecting a DMA-capable device is not straightforward, and if we get it
->> >> wrong, we will enable SWIOTLB_POOL_CC_GUEST unnecessarily. Would the
->> >> code below be a reasonable approximation of what you suggested?
->> >> 
->> >> Another option would be to make swiotlb_cc_guest_needs_default_pool() a
->> >> weak function that architectures can override. arm64 pKVM could then use
->> >> a different scheme (for this patch series default to false). Would that
->> >> be preferable?
->> >
->> > Even the rmem check for each device is still a hack that may bite us in
->> > the future (private devices for example would not need swiotlb). I'm
->> > thinking more and more of leaving the sizing an arch-specific decision,
->> > don't bother generalising it at all.
->> >
->> > On pKVM vs CCA guests, there's really nothing specific here to pKVM
->> > guests. The only difference is that confidential guests that so far have
->> > run without a swiotlb buffer will regress if their memory is tight. For
->> > confidential guests without dedicated rmem (either CCA or pKVM), I think
->> > our options are either command line swiotlb sizing or dynamic swiotlb.
->> >
->> > Could you respin your series while leaving out the generic sizing? IOW,
->> > no x86 code generalisation. We can discuss the best strategy on sizing
->> > later (I haven't checked how much of this series still makes sense
->> > without the generic sizing).
->> >
->> 
->> It would mostly consist of the first three cleanup patches, followed by
->> three patches that replace the addressing_limit argument with flags.
->> 
->> #define SWIOTLB_VERBOSE	(1 << 0) /* verbose initialization */
->> /* Initialize a pool for devices with limited DMA addressing. */
->> #define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 1)
->> /* Initialize a pool that requires architecture remapping. */
->> #define SWIOTLB_INIT_REMAP		(1 << 2)
->> /* Initialize a pool for DMA to memory-encrypted host or guest memory. */
->> #define SWIOTLB_INIT_MEM_ENCRYPT		(1 << 3)
->> /* Initialize a pool for unaligned kmalloc bouncing. */
->> #define SWIOTLB_INIT_KMALLOC		(1 << 4)
->> /* Do not initialize a pool unless SWIOTLB is explicitly required. */
->> #define SWIOTLB_INIT_DEFAULT_OFF		(1 << 5)
->> 
->> This results in the large change below. I'm not sure we want to do this
->> for no real benefit other than making swiotlb_should_init() slightly
->> easier to follow.
->> 
->> static bool __init swiotlb_should_init(unsigned int flags)
->> {
->> 	if (swiotlb_force_disable)
->> 		return false;
->> 
->> 	if (swiotlb_force_bounce)
->> 		return true;
->> 
->> 	if (flags & (SWIOTLB_INIT_REMAP | SWIOTLB_INIT_MEM_ENCRYPT)))
->> 		return true;
->> 
->> 	/* Explicit requirements override an architecture's default opt-out. */
->> 	if (flags & SWIOTLB_INIT_DEFAULT_OFF)
->> 		return false;
->> 
->> 	return flags & (SWIOTLB_INIT_ADDRESSING_LIMIT | SWIOTLB_INIT_KMALLOC);
->> }
->>  [...]
->
-> Hi Aneesh,
->
-> I can reproduce the CCA regression discussed in this thread:
->   https://lore.kernel.org/all/yq5azeyxyfol.fsf@kernel.org/#t
->
-> The guest runs out of SWIOTLB slots, causing disk I/O to fail and
-> preventing the guest from booting.
->
-> I would like to test the fix on real CCA hardware. Could you please Cc
-> me when you respin the series? I follow LKML, but I may still miss the
-> posting by chance.
->
+MIPS P8700 [1] implements only Zalrsc. AMO instructions are emulated by a
+trap into SBI. I measured typical userspace atomics on this CPU: an
+LR/SC atomic takes about 40 cycles, an AMO atomic about 600. The same
+ratio applies to kernel refcounts, bitops, xchg and futexes, so the
+kernel needs to emit LR/SC when Zaamo is not implemented.
 
-The conclusion was to either use CONFIG_SWIOTLB_DYNAMIC or swiotlb kernel command line
-option
+Mobileye is going to use the "eyeq7h" platform, built on this CPU, for
+ADAS and autonomous driving. Kernel atomics are on the scheduling,
+memory-management and driver paths of that product, so the emulated
+AMO cost is not acceptable there.
 
--aneesh
+This series keeps today's default: both extensions on, -march still
+contains "a", generated code is unchanged. Turning Zaamo off is a
+NONPORTABLE choice. The resulting kernel matches one -march, which
+userspace has to use as well, so a runtime alternative would not
+produce a portable image.
+
+Zalrsc stays mandatory. cmpxchg, conditional atomics and futex CAS are
+already LR/SC sequences; Zaamo cannot replace them. BPF atomic ops
+still emit AMO and remain unsupported on a Zalrsc-only kernel.
+
+[1] https://mips.com/products/hardware/p8700/
+
+Changes in v4:
+- Require a compiler that accepts _zalrsc in -march before Zaamo can
+  be disabled. GCC 15.1 introduces that support. Older compilers keep
+  Zaamo enabled and -march keeps "a".
+- Link to v3: https://patch.msgid.link/20261026-lrsc-only-v3-0-ec29c8190fb1@mobileye.com
+
+Changes in v3:
+- Make Zalrsc mandatory. cmpxchg and the conditional atomics already
+  use LR/SC, so RISCV_ISA_ZALRSC can no longer be turned off.
+- Check AMO and LR/SC support independently. A kernel that emits both
+  requires "a", or both "zaamo" and "zalrsc".
+- Put the LR/SC bitop sequence in its own block so two inlined
+  set_bit or clear_bit calls compile.
+- Remove the LR/SC loop that ran after the hart lottery and accessed
+  address 1. Build the lottery increment with add so RV32 assembles.
+- Add an exception-table entry for sc as well as lr in the futex
+  LR/SC helper.
+
+Changes in v2:
+- Switch from a runtime choice of atomic implementation to a
+  compile-time one, gated by NONPORTABLE.
+
+Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+---
+Vladimir Kondratiev (2):
+      riscv: build kernel atomics from LR/SC when Zaamo is disabled
+      riscv: accept the atomic extensions this kernel was built with
+
+ arch/riscv/Kconfig               | 32 +++++++++++++++++++++++
+ arch/riscv/Makefile              | 15 ++++++++---
+ arch/riscv/include/asm/atomic.h  | 56 +++++++++++++++++++++++++++++++++++++++-
+ arch/riscv/include/asm/bitops.h  | 51 ++++++++++++++++++++++++++++++++++++
+ arch/riscv/include/asm/cmpxchg.h | 18 +++++++++++++
+ arch/riscv/include/asm/futex.h   | 53 +++++++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/cpu.c          | 28 +++++++++++++++++---
+ arch/riscv/kernel/entry.S        |  9 +++++++
+ arch/riscv/kernel/head.S         | 14 ++++++++++
+ 9 files changed, 267 insertions(+), 9 deletions(-)
+---
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+change-id: 20260120-lrsc-only-cc06422f5bb1
+
+Best regards,
+--  
+Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+
 
 _______________________________________________
 linux-riscv mailing list
