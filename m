@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FD11606A326
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49A7C606A326
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=j39jgRGl;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VlnlOoUU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=w6U2qRwY;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B37CRQpc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,53 +14,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=g2wa3J7SAnc1wQwfWBhWr4FKnZ/YBor+nGz4GkpjKt0=; b=j39jgRGlRxgEe3ys8k5gU6bEde
-	uB6svPa00yn3JXkPGnjsg3KhTbjRLlZX12qh4Tml30fJ8RB6w4/Vp4Ih3Ofo1YLChieMib+YXSEGU
-	BXUsexpkjKIvuTiXJjR6HtJR3BWfv6wcMfmcFVBSFhnjMl93Acji8lq8B4vHRjUgG/LmeH1ZznOUO
-	u8/rr2fjgP8nf5/95UDcwolWHkgvUNPK2z5ta/oYegKxNv6RWhx3bnIT+2x/JbIIXqyXFtFi93AI4
-	aFIn81FRvLzhXeEqXjRdL1Fsxz+fTy2aKZlCaOLG+IJWwdk/U+6pvGgtvM8eCozxNzkzX4Ce6MLJY
-	vNJ4z4Fg==;
+	bh=PWdYc7uWdwZ5AhBkcEoNeY4u/7Wht/nl3zEeIhxRCEs=; b=w6U2qRwYIOEJZSAmpWVsFlWdIK
+	L1IobZeKa5h/FKjy9QeIjkthNi3rhiEau8jpdnZ7rdjfR9LRvBy2drB+GhiYbxbAoDgNJmLkssBex
+	tGyL0ZZZioV2rPpnVKQapx1nOEaGwl8flVRsFmj+xpC7CqSzMDg405hNtHReY4vTE/RIb7GK0dUwZ
+	hdbp/IZ9I30aSBNRsZy/RffkM6563Wp+jW7jZrhp2ewBGi+mjwZuvGQhb/92ym65wj5bLdrMKasEc
+	l104PUoPmfYU+q70ojQavgqD4eWHx/4D2SxjzLU/q9+icpRLvIj/alYTMFKPEyl24nz0txw8WgQlu
+	TOE6jWRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdry-0000000F4JE-1NHe;
-	Sun, 01 Nov 2026 22:17:42 +0000
+	id 1xNds4-0000000F4gZ-3J9y;
+	Sun, 01 Nov 2026 22:17:48 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdrT-0000000F2Tq-0pil;
-	Sun, 01 Nov 2026 22:17:11 +0000
+	id 1xNdrX-0000000F2l9-1sCN;
+	Sun, 01 Nov 2026 22:17:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E3C8F400B8;
-	Sun,  1 Nov 2026 22:17:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2A0F1F00A15;
-	Sun,  1 Nov 2026 22:17:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6C97643EC5;
+	Sun,  1 Nov 2026 22:17:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AF4C1F0093A;
+	Sun,  1 Nov 2026 22:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571429;
-	bh=Fv8sMlP8O3GHUSoY8MBfh8MY+kr37FDNK89rZQzSXdU=;
+	s=k20260515; t=1793571434;
+	bh=cjatygCmxk8XIyEbtr4pyzKJ6E60G4Tfi3euF78nVXA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=VlnlOoUUEu9V0plLi4Kke52P9Sf7LmnCXI3/r9nD/EkLF8dgcbn/b70x7s8xOpjzM
-	 vBDpICruAngiVNvxs7IVSzf2GH3D+B5AcFg6C/1RMLmTfGWgGqs0LmJd92jQOeIJaF
-	 wsK9MssC5+2tsvQklkL07S8F2Zzqk3PTJHN1zfusMqgsbvhB+jUERHRUHHZskloFPo
-	 yl/WabE6HiCKHMwoMCYwf1B+T0vXDZWAeuYQt311a5PVRX3ugUcvRN0wyZzbvYibPV
-	 2TlmBTOm6MSHm2nJI9gJKa3Redvt//yKNi/XBo/uFCvCdVwIZi6hXO14jaV0sdhUS0
-	 kunSJJwhwyeCQ==
+	b=B37CRQpcdmmwCy32vZHgPCWMyUptn49raCX3hJZVcxsEUYOsqHqKCUFeSZMmdrHar
+	 P973m1II/ofRE5pnWqeiZvqWMGVRqsLIUP1n1XIX0nFBkKS0IRka2D7KopquB77g6O
+	 Mp/unwfBnH0l1eqg07ua7p0Vs/LC2MTS3vGGD6h6owSUEaRNT6q1AXW/x5xBnzEQnc
+	 EmKj7qUuyXmc8mBTkvUCHpgFrpk8n5Uq59fpbStEBh5xRF1iBXEyBMchINku/sQN+X
+	 GTmMdu6UOejRm4ya75HKvjJSDVBqFLUssCE8lSC7D/wzZYaWR0EmUh/OpuxZjzWe5k
+	 ui1FC15h7AaNQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA5B438003B8;
-	Sun,  1 Nov 2026 22:17:09 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 403AC38003B8;
+	Sun,  1 Nov 2026 22:17:14 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/2] lib/crypto: Use size_t lengths for Poly1305 and
- ChaCha
+Subject: Re: [PATCH RESEND] sched: Convert paravirt_steal to new static key
+ APIs
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357142829.2624073.2124484665042168888.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:17:08 +0000
-References: <20261014152604.323310-1-ebiggers@kernel.org>
-In-Reply-To: <20261014152604.323310-1-ebiggers@kernel.org>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-crypto@vger.kernel.org,
- ardb@kernel.org, Jason@zx2c4.com, herbert@gondor.apana.org.au,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
- vladimir@genproof.com
+Message-Id: <179357143279.2624073.7781801497885838332.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:17:12 +0000
+References: <20260819081207.12150-1-hongyan.xia@transsion.com>
+In-Reply-To: <20260819081207.12150-1-hongyan.xia@transsion.com>
+To: Hongyan Xia <hongyan.xia@transsion.com>
+Cc: linux-riscv@lists.infradead.org, jgross@suse.com, ajay.kaher@broadcom.com,
+ alexey.makhalov@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
+ catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+ kernel@xen0n.name, maddy@linux.ibm.com, mpe@ellerman.id.au,
+ npiggin@gmail.com, chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+ pbonzini@redhat.com, vkuznets@redhat.com, sstabellini@kernel.org,
+ oleksandr_tyshchenko@epam.com, peterz@infradead.org, juri.lelli@redhat.com,
+ vincent.guittot@linaro.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
+ bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
+ kprateek.nayak@amd.com, jiazi.li@transsion.com,
+ virtualization@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
+ xen-devel@lists.xenproject.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,24 +93,22 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Eric Biggers <ebiggers@kernel.org>:
+This patch was applied to riscv/linux.git (fixes)
+by Peter Zijlstra <peterz@infradead.org>:
 
-On Wed, 14 Oct 2026 17:26:02 +0200 you wrote:
-> This series upgrades the Poly1305 and ChaCha functions to use size_t
-> lengths, matching the rest of the crypto library.
+On Wed, 19 Aug 2026 08:12:09 +0000 you wrote:
+> From: Hongyan Xia <hongyan.xia@transsion.com>
 > 
-> It also fixes the (not currently reached) handling of lengths above
-> S32_MAX bytes, and (not currently known to matter in practice) the
-> assembly functions depending on unspecified high register bits.
+> paravirt_steal_rq_enabled and paravirt_steal_enabled use raw static_key
+> APIs which are now deprecated. Use the new API instead.
+> 
+> No functional change.
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/2] lib/crypto: poly1305: Use size_t length
-    https://git.kernel.org/riscv/c/0b58c136c2f9
-  - [2/2] lib/crypto: chacha: Use size_t length
-    https://git.kernel.org/riscv/c/e42003dba6dd
+  - [RESEND] sched: Convert paravirt_steal to new static key APIs
+    https://git.kernel.org/riscv/c/a5576ebce920
 
 You are awesome, thank you!
 -- 
