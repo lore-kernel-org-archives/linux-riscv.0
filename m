@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77A006075743
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4301B606F2FC
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SSQ4BBNy;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HQucWQ4l
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iHUnqWGt;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PCRw8XNL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,53 +14,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=qVLvQyS3qSqKODTso8ZElGmf7srI1/kt7mGBflzfwsI=; b=SSQ4BBNyBo+fkAGMEU4eFEZbEm
-	7FGNsXGRbln6GjOCo7f6Uyxya8pNuY13qwkcG9LzJULNXLtjJd9721gHOUWV558kSvNVPytu4qL4A
-	Co2KmgsqxGCt3F5zHCywB+eMj9i3pWK/pqJMEoCybJp9pfW5So/F7Q4lYHVsw9xZURCI+R+rnABOa
-	BonsNHLEBEMOQyJS7RdFaRseAa1YFCN4D/UoEL409uoW41Tui2LflB7fMRb9G13TGZFTJrOPtT5CO
-	kAo+PFdVfe2kXSgroQvBogE26wBJD4yKCV4UlKMhvsAsgSDrQeVGbLDsoXysZ6cDvQl2Es3HEZy8V
-	lchvH3Zg==;
+	bh=P2B8R0MHkcrPL9/CGV4vaQb7gzk3AU/cpVVUHp/S8sc=; b=iHUnqWGtYjMhNt9vt+ZAkkVsgt
+	nsDH2lbHVTOoXqqTkYrw0ojUxSvC5pId8Lm31kC6xCudqavlvzaPtGY04Tw3g5o/ZoX1SvW2Gkch8
+	db4iBSHjSyIFLtl5HCRsOEtI7KsFd2wF9SMIpXY2+jdL+YY8HozHAbAK+A7u85Frn8yQAM3YJY52n
+	q/3phQo2Cur3nZiJshwzOwB8GgsJMylm0NdEGhWp/6/s+p40kLfSKevTFkih0T5X1tmYFk8ZZ1Wf/
+	IZ7Xo5j0aBbhTPwwelcvVSwiKcAylPHhl16e0LWH0ez+FBwGykuNoc+uUjHkJIxaSqcdpWkSGx8uj
+	d7E+dYRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdrI-0000000F1vz-3pM9;
-	Sun, 01 Nov 2026 22:17:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNdre-0000000F3BL-3PAD;
+	Sun, 01 Nov 2026 22:17:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqv-0000000F0jw-2g8a
-	for linux-riscv@lists.infradead.org;
-	Sun, 01 Nov 2026 22:16:37 +0000
+	id 1xNdr5-0000000F1A3-3LfH;
+	Sun, 01 Nov 2026 22:16:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E222A41F9A;
-	Sun,  1 Nov 2026 22:16:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C27321F000C1;
-	Sun,  1 Nov 2026 22:16:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 32AD660618;
+	Sun,  1 Nov 2026 22:16:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C43571F00A1C;
+	Sun,  1 Nov 2026 22:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571396;
-	bh=4/be1ZrHaJFMLso5b5pIRzsIB4FCGWBb23W7/vuRdXI=;
+	s=k20260515; t=1793571406;
+	bh=9SjWrhc7XGpfrZLDGv5e/UGJ5LKzUlRr1ymU5F3rbK4=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=HQucWQ4ltkOJetKmKDw0fBX4T/NcSVy2UOVZe7RE1BwoXyWPf4E+/+gI+fAAt/JJ8
-	 XvnAvlkVpHmaZwe2CkSSxrjlpxUMcvBv82b05B78RIRAqfrqqyr9ppNrPQ/3LQXQ3p
-	 65OBUP/u9uuvV7XCxzRlSspAaNxGpU0Q0sHJ735yBY4yibdr1EqLZBrkPMGiiT4tgL
-	 SxFqb33KkpO0owBrNtnC9lQHkQN3H4JPArw5MdGK09LdsxcosEr3bUHemz2nulD/43
-	 jdW4qdmRNg1G1OIpVGTw1S0sfdK80uKuz5GLwlTQJ7dSi4uTaPjf58zu8xJVzFs5Lw
-	 Z8SscnFcSUaiw==
+	b=PCRw8XNLxhwpgQY+VNJEgyemCH7WcIUexDDLxDQtKsJZyKUtdTMN3MNlZltJ6M0iy
+	 0sNvBS5zOI3cOGvEHXCS4FDiiBRJt4YTWvt0Z5W2pEwwNWqyPsD/jW7sJeFMWEVfwu
+	 32f/8TpLwxDIfiPxqr6f6Sc8JtU205KYvtKUxdXIsWKDgfMrSec039M8wUBLONKqKV
+	 C8h60HgiPJV6UBIQ+RJCyhEArenvuts1IeS5Ti1EIWkF9gSpCYTJmdYsxaCB3+MhvH
+	 cKC00fZeAT+3Xb1OaF1XeCb/NrEIVbK+ayJvZHgHKBP7c9ZLF51en7iMywKamnPnBz
+	 Vky2U/YXxjHxw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA42C38003B8;
-	Sun,  1 Nov 2026 22:16:36 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA1E838003B8;
+	Sun,  1 Nov 2026 22:16:46 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 1/1] riscv: dts: spacemit: set ETH MAC from eeprom for
- OrangePi
+Subject: Re: [PATCH v2] arch, mm: promote DEBUG_WX to CHECK_WX
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357139529.2624073.3641099794462777978.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:16:35 +0000
-References: <20261006100000.548264-1-amadeus@jmu.edu.cn>
-In-Reply-To: <20261006100000.548264-1-amadeus@jmu.edu.cn>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: linux-riscv@lists.infradead.org, dlan@kernel.org, robh@kernel.org,
- pjw@kernel.org, aou@eecs.berkeley.edu, alex@ghiti.fr, palmer@dabbelt.com,
- conor+dt@kernel.org, krzk+dt@kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, spacemit@lists.linux.dev
+Message-Id: <179357140534.2624073.9989407542230376185.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:16:45 +0000
+References: <20260926-direct-map-verify-wx-v2-1-efcd64a6b74a@kernel.org>
+In-Reply-To: <20260926-direct-map-verify-wx-v2-1-efcd64a6b74a@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
+ aou@eecs.berkeley.edu, agordeev@linux.ibm.com, alex@ghiti.fr, bp@alien8.de,
+ catalin.marinas@arm.com, chleroy@kernel.org, borntraeger@linux.ibm.com,
+ dave.hansen@linux.intel.com, david@kernel.org, gerald.schaefer@linux.ibm.com,
+ hca@linux.ibm.com, mingo@redhat.com, liam@infradead.org, ljs@kernel.org,
+ maddy@linux.ibm.com, mark.rutland@arm.com, mpe@ellerman.id.au,
+ mhocko@suse.com, npiggin@gmail.com, palmer@dabbelt.com, pjw@kernel.org,
+ hpa@zytor.com, ritesh.list@gmail.com, linux@armlinux.org.uk,
+ sshegde@linux.ibm.com, surenb@google.com, svens@linux.ibm.com,
+ tglx@kernel.org, gor@linux.ibm.com, vbabka@kernel.org, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,32 +79,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Yixun Lan <dlan@kernel.org>:
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Tue,  6 Oct 2026 18:00:00 +0800 you wrote:
-> The EEPROM on the OrangePi R2S and RV2 stores the MAC address.
-> Assign it to Ethernet, with ethernet1 having a MAC offset of 1.
+On Sat, 26 Sep 2026 12:29:29 +0300 you wrote:
+> Verification that the kernel does not have writable + executable
+> mappings is about detecting security risks rather than a pure debug
+> feature.
 > 
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-> ---
-> Changes in v2:
->   Remove Ethernet alias changes.
+> Major distribution configurations enable it in their kernels as well as
+> defconfigs of most architectures that have ARCH_HAS_DEBUG_WX.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,1/1] riscv: dts: spacemit: set ETH MAC from eeprom for OrangePi
-    https://git.kernel.org/riscv/c/d05c62364960
+  - [v2] arch, mm: promote DEBUG_WX to CHECK_WX
+    https://git.kernel.org/riscv/c/2e83e2ce34ff
 
 You are awesome, thank you!
 -- 
