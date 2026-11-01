@@ -2,83 +2,110 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9569606A324
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 12:52:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CB4A606A339
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 13:35:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nU7GY+JI;
-	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=be6vr8jn
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QbwKB9jb;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JCYwvM+A
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
+	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=WOiFd92ffQ8y5Gx64wlwulz8Mep8Cy2OCQ0KBy7nG9c=; b=nU7GY+JIb5X7UlMCd1Zn/Zq1JP
-	GfmbNLGE096O4Y/2Ky5eeBiLo2HtZLy9l4508WpkP2t9/H46pwOm6oP1BkHVKcH1LJ0F+09tU/dMa
-	Bu4AE27qSzouZqFWA/ssB+VzzGog15qdI4ghrXqjJkCmyvfS+qkl3WXlRi3kmlsKMkzBaJ7WMCyLG
-	eeYfWqwYUiiKf8+Cb78FxdcFdWHTeeVxASzNmGXN38LG6PG8nKymtf4sSONTNNMf827HazWGLz4/g
-	+3ZTqcSYg75YgJ8/d9UmdCYiaiiL61ohQiJmcXlK3uBNW5IGS7PosaEHy2vmMLADiBDklXvughrfw
-	Pqo+zFBA==;
+	bh=bldK1hBjUL62BWuNfoBhhoRUzsTFop3oB87b+rdyHPs=; b=QbwKB9jbWuUGo91gHQ6GUYLPwJ
+	5HNPuDaZ5qFUG/FOMSVoe/RA3HSWV9jXxn+DoeLaui8oQwgCfjTvVw0hbdU7qtBnqngte+ii3hBNx
+	QeFJRlJfYD2rJ5LIjMfX3RXMNiOvwikOdL+9tRxpRDF2htHSVaEcsQQb5Oc/xPty1wdCehM/ust1M
+	5EQzEsMHOz0/dACtT4f4S1iA4sRpbzFjCZZEGoNQDEBXvwKUotvLwowB9EfH3okr0pa0MQvUNhFuY
+	Fp5Ki2CA6xg+DxcVDPtg1myzC+hxKG9z/hPwiauDzkimTRCv8iT6qhA0Acd+tTGlArGClioSUCq8K
+	fNyMVQkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNV2e-0000000EDXR-1iI7;
-	Sun, 01 Nov 2026 12:52:08 +0000
-Received: from esa2.hc555-34.eu.iphmx.com ([23.90.104.147])
+	id 1xNVii-0000000EXcj-3zcO;
+	Sun, 01 Nov 2026 13:35:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNV2a-0000000EDVJ-2uTt
+	id 1xNVih-0000000EXcL-2c6L
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Nov 2026 12:52:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1793537524; x=1825073524;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=XcUFy86mcXwBkdVbQzI9DqvGN0xrj3EmlcdsiyF9xIA=;
-  b=be6vr8jnEwD9hw6zKhljsKSEIxjcgrSi1gS8pxdPqsPRhBMHuLu56l16
-   wb28K8sVu1bwuOVmXV1eHd0X/Vde0kAlMyRJ7QMW61ySCPuGQ+dGL7zUT
-   BLLqYPOzQh+lX/uEc6mn+W5AOO40Xj+C/MkPu8UrjcqvfwqG+qSlOhr4G
-   LfyahxV7IRALD4TbKlhfc/IYCjQMGTQO7EyifYR1B6WXcag/1CCfwGkQH
-   HQn/INhm4tE/nzCxBgmohU7WRVMJoJmDCH+yAGOukLo+gBGSCWMvmyYkG
-   cageS/R863ngHYuj+GU9NIWub3qzL0RAaao6L4+W4AbDZBT6/Pe2DBKXf
-   w==;
-X-CSE-ConnectionGUID: Cfc2BJRkTDGSYULFHo+gpQ==
-X-CSE-MsgGUID: OfecgBBIR0Sqq4LNpHZyaA==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces02_data.me-corp.lan) ([146.255.191.134])
-  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2026 14:52:00 +0200
-X-CSE-ConnectionGUID: NRXJzW0zTWqgjUI9udJRrw==
-X-CSE-MsgGUID: CJJN556EQJmMSBLCCC7cOg==
-Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.3])
-  by ces02_data.me-corp.lan with SMTP; 01 Nov 2026 14:59:53 +0200
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Sun, 01 Nov 2026 14:51:59 +0200
-From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Date: Sun, 01 Nov 2026 14:51:40 +0200
-Subject: [PATCH v4 2/2] riscv: accept the atomic extensions this kernel was
- built with
+	Sun, 01 Nov 2026 13:35:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 41E1E43CF3;
+	Sun,  1 Nov 2026 13:35:35 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1793540135;
+	b=g+N8uNK4pW2uEsDKruX9CgdrnilbDpfUYvqNDEnjh1NKcCsMHUn5k0x85H1bovMW+sX7
+	 EbrmfAI7+fK1VMwoaD5/HHwXR8c2qh6LlvYR2tMMEQjsT+lCShnV7gQZuLKV0+rejv75l
+	 /drE90Z8dcTL3MrKOWI/D2qcrB0+0/MyRzmNXE8PPOr37+IqphmA9NQPXQNPF6tbtUN8O
+	 WQKbEx4IAgdlwLbpA8X0EFKDeRzK7oWXr34cUDBPPUfxKaOMXdZMgM7Ht5Ws1HDSR0Xqu
+	 10/nBIdQjWZ6ZSDk/xIzTvLTg0QEg8Kn2xNDNarqNKBke6/imVrdzIo1HUXOMHZ6Qeg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1793540135;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=2j0aw3/fwYjSaUMy9PnObd47hX5Q/nwFx1rM+QDf2+8=;
+	b=mRtji1W0ELRncsyerfOhI0KlgdcmUhGwcMNzwILxhNhywD+8eA6qEPrCpBqaF7geM0zc
+	 m0a5Kx9uyVbF3klrAT+FXgGk5tyC9EmOVAIqtEZWQRyrEKQcXM3sMLA7lOLcEWzZPzdEZ
+	 q8vtjnK+JgHurq5aJxlaVuIzqngngdBYJ94AuClQcMpV1/YSoA9n4/hiB1usNc7CyV97X
+	 nR6oNw46q4a/SLeJhUhnMX1gNQpPzOctJJ3sNLC2mxZDZmFkJ2gdCZgMfB33RuW2eLVL9
+	 llBlvz9pPsE47mo3kD6/z8tdptw/saeuU+MWYCBYsUXWcv/ubI6w7mHp1tYiANLYiSg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 8ECA51F000C1;
+	Sun,  1 Nov 2026 13:35:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793540135;
+	bh=2j0aw3/fwYjSaUMy9PnObd47hX5Q/nwFx1rM+QDf2+8=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=JCYwvM+AD0MYSuKs1MXKPTSh7etkftipl4iZ4IRRh1sIoUTpk9teFcPWj/3hBQz6j
+	 bSZNTCuNT+6nVESMe1stUW0mlPyYhQi9tsg14znp8R3IQvrZ1BIPFKzHtXd3cNCZ32
+	 glBrj4uz8kKoIJxsW6ncnGEuJM/mvhHD/dsSWRBgd2XlB8g23v0l5lxvFmW/8dBY86
+	 hVxMrwAcqmDNQysG87pmcg+y5vGivhGkor9MfoceSI6UI/s2vRk4+uaSDyh8AG69bc
+	 m1MV5N2Ga0TgBQHqcjvnsw0HM6PLKf2hv6JM6CBGfAobixRK9c7fTO7GCQuwb0LiqD
+	 bJ12VT6/DAl1A==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id E1CF84617F;
+	Sun,  1 Nov 2026 13:35:32 +0000 (UTC)
+From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
+Subject: [PATCH 0/2] riscv: dts: sifive: Add the missing FU740 CLINT
+Date: Sun, 01 Nov 2026 21:35:30 +0800
+Message-Id: <20261101-b4-sifive-fu740-clint-v1-0-b4821199a733@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261101-lrsc-only-v4-2-4e1d010463b3@mobileye.com>
-References: <20261101-lrsc-only-v4-0-4e1d010463b3@mobileye.com>
-In-Reply-To: <20261101-lrsc-only-v4-0-4e1d010463b3@mobileye.com>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Mark Rutland <mark.rutland@arm.com>, Gary Guo <gary@garyguo.net>, 
- Yury Norov <yury.norov@gmail.com>, 
- Rasmus Villemoes <linux@rasmusvillemoes.dk>, cfu@wavecomp.com, 
- torvalds@linux-foundation.org, olof@lixom.net, 
- aleksa.paunovic@htecgroup.com, arikalo@gmail.com, 
- Boqun Feng <boqun@kernel.org>, Boqun Feng <boqun@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Vladimir.Kondratiev@mobileye.com, 
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-X-Mailer: b4 0.16.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_045205_040602_35520D92 
-X-CRM114-Status: GOOD (  13.44  )
-X-Spam-Score: -4.0 (----)
+X-B4-Tracking: v=1; b=H4sIACNA52oC/x3MwQrCMAyA4VcZORtoarHOV5EdZk00IJ00WxHK3
+ n3F43f4/wbGRdngNjQoXNV0yR10GiC95/xi1Gc3eOcvRI7wEdBUtDLKFoPD9NG8Yhqj52uQM0W
+ C3n4Li/7+3/u07wddh7XwZwAAAA==
+X-Change-ID: 20261101-b4-sifive-fu740-clint-c972e84f3171
+To: Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, 
+ Conor Dooley <conor@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Yao Zi <me@ziyao.cc>, Jiaxun Yang <jiaxun.yang@flygoat.com>, 
+ Han Gao <rabenda.cn@gmail.com>, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Han Gao <gaohan@iscas.ac.cn>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793540132; l=659;
+ i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
+ bh=zbiSOQWLdGE5tt0JW6MLdKrOIrFoJPTWAw/TL/wVUds=;
+ b=HiUmzTmHTD+hCzm1soKt+gVyAuz6OzLSGaBME2Y8KVey3oK63FqARxKpGB4WVNO4kQgONpIw/
+ g6yZvvpQZPXAnV4tdPN6zzPRMc/F2GB0hcJjkJ6stm1a9txHQFvLPij
+X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
+ pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
+X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
+ auth_id=1262
+X-Original-From: Han Gao <gaohan@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,6 +115,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: gaohan@iscas.ac.cn
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -98,64 +126,27 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-riscv_early_of_processor_hartid() rejects a hart unless its
-riscv,isa-extensions property contains "a". That rejects a Zalrsc-only
-hart even when the kernel was built to use only LR/SC.
+coreboot and U-Boot already describe the FU740 CLINT for OpenSBI.
+Add the missing node to the Linux device tree and document its
+compatible.
 
-Require "a" or "zaamo" when the kernel emits AMO, and "a" or "zalrsc"
-when it emits LR/SC. A normal build defines both toolchain macros and
-still requires the full A extension. The legacy "riscv,isa" fallback
-keeps its rv{32,64}ima check.
-
-Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- arch/riscv/kernel/cpu.c | 28 ++++++++++++++++++++++++----
- 1 file changed, 24 insertions(+), 4 deletions(-)
+Han Gao (2):
+      dt-bindings: timer: add the FU740 CLINT
+      riscv: dts: sifive: describe the FU740 CLINT
 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 3dbc8cc557dd..5d1e39d16e59 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -82,12 +82,32 @@ int __init riscv_early_of_processor_hartid(struct device_node *node, unsigned lo
- 		return -ENODEV;
- 
- 	if (of_property_match_string(node, "riscv,isa-extensions", "i") < 0 ||
--	    of_property_match_string(node, "riscv,isa-extensions", "m") < 0 ||
--	    of_property_match_string(node, "riscv,isa-extensions", "a") < 0) {
--		pr_warn("CPU with hartid=%lu does not support ima", *hart);
-+	    of_property_match_string(node, "riscv,isa-extensions", "m") < 0) {
-+		pr_warn("CPU with hartid=%lu does not support im", *hart);
- 		return -ENODEV;
- 	}
--
-+#if !defined(__riscv_atomic) && !defined(__riscv_zaamo) && !defined(__riscv_zalrsc)
-+#error "Need AMO or LR/SC atomics"
-+#endif
-+	/*
-+	 * Require each atomic form this kernel emits. The single-letter
-+	 * "a" extension satisfies either check. A Zalrsc-only build defines
-+	 * __riscv_zalrsc and checks that extension only.
-+	 */
-+#if defined(__riscv_atomic) || defined(__riscv_zaamo)
-+	if (of_property_match_string(node, "riscv,isa-extensions", "a") < 0 &&
-+	    of_property_match_string(node, "riscv,isa-extensions", "zaamo") < 0) {
-+		pr_warn("CPU with hartid=%lu does not support AMO atomics", *hart);
-+		return -ENODEV;
-+	}
-+#endif
-+#if defined(__riscv_atomic) || defined(__riscv_zalrsc)
-+	if (of_property_match_string(node, "riscv,isa-extensions", "a") < 0 &&
-+	    of_property_match_string(node, "riscv,isa-extensions", "zalrsc") < 0) {
-+		pr_warn("CPU with hartid=%lu does not support LR/SC atomics", *hart);
-+		return -ENODEV;
-+	}
-+#endif
- 	return 0;
- 
- old_interface:
+ Documentation/devicetree/bindings/timer/sifive,clint.yaml |  1 +
+ arch/riscv/boot/dts/sifive/fu740-c000.dtsi                | 11 +++++++++++
+ 2 files changed, 12 insertions(+)
+---
+base-commit: cbbddb6b08cc9900a87cccaa9b22bbe06aa4f50a
+change-id: 20261101-b4-sifive-fu740-clint-c972e84f3171
 
+Best regards,
 -- 
-2.43.0
+Han Gao <gaohan@iscas.ac.cn>
+
 
 
 _______________________________________________
