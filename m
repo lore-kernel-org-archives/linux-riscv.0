@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49A7C606A326
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE279606A326
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=w6U2qRwY;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B37CRQpc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=inkAS1Zq;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mU2smauH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,64 +14,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=PWdYc7uWdwZ5AhBkcEoNeY4u/7Wht/nl3zEeIhxRCEs=; b=w6U2qRwYIOEJZSAmpWVsFlWdIK
-	L1IobZeKa5h/FKjy9QeIjkthNi3rhiEau8jpdnZ7rdjfR9LRvBy2drB+GhiYbxbAoDgNJmLkssBex
-	tGyL0ZZZioV2rPpnVKQapx1nOEaGwl8flVRsFmj+xpC7CqSzMDg405hNtHReY4vTE/RIb7GK0dUwZ
-	hdbp/IZ9I30aSBNRsZy/RffkM6563Wp+jW7jZrhp2ewBGi+mjwZuvGQhb/92ym65wj5bLdrMKasEc
-	l104PUoPmfYU+q70ojQavgqD4eWHx/4D2SxjzLU/q9+icpRLvIj/alYTMFKPEyl24nz0txw8WgQlu
-	TOE6jWRQ==;
+	bh=L9M0tTozlbbzK2GYZtUk0Z0I+Re2+p9eLyPnW3A53o4=; b=inkAS1ZqFvfLmchq5J0delmpvM
+	08vQypoCNZfMsgUkNsqrTCLoDakw9Wh1Js+J9e9D33dSP2whN2gLQMaeCId+w2FYy5cajkBr99dBW
+	UL7KnG7Q20s9lID/EEWnNEajeCR49INSzb8KlabUkCcyTBo8JQuvpGIFI7xogJz+QoUDpwncNQTvi
+	Oih76Ubtw1JURFpxUzcCj9lh14NAo9bfDITo9GvkRryNGIfRzPRiW+/zhFfAv6C7xCv7UsgUdiFDf
+	jr9QzC7GxXVRtEvRUPG6sYehGa2iQp+UcNGiLFaJmiIXn6q3zhSTZuROuKMIBltfeBbuG3A5E4ER1
+	aUXigWsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNds4-0000000F4gZ-3J9y;
-	Sun, 01 Nov 2026 22:17:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNds1-0000000F4Vu-4A8n;
+	Sun, 01 Nov 2026 22:17:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdrX-0000000F2l9-1sCN;
-	Sun, 01 Nov 2026 22:17:15 +0000
+	id 1xNdrY-0000000F2r3-3TbX
+	for linux-riscv@lists.infradead.org;
+	Sun, 01 Nov 2026 22:17:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6C97643EC5;
-	Sun,  1 Nov 2026 22:17:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AF4C1F0093A;
-	Sun,  1 Nov 2026 22:17:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E0C5740A30;
+	Sun,  1 Nov 2026 22:17:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C42D91F000C1;
+	Sun,  1 Nov 2026 22:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571434;
-	bh=cjatygCmxk8XIyEbtr4pyzKJ6E60G4Tfi3euF78nVXA=;
+	s=k20260515; t=1793571435;
+	bh=W3SseAUw1Adaw7R24q7ka5OACCTvGj4w3HZoU07C3lM=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=B37CRQpcdmmwCy32vZHgPCWMyUptn49raCX3hJZVcxsEUYOsqHqKCUFeSZMmdrHar
-	 P973m1II/ofRE5pnWqeiZvqWMGVRqsLIUP1n1XIX0nFBkKS0IRka2D7KopquB77g6O
-	 Mp/unwfBnH0l1eqg07ua7p0Vs/LC2MTS3vGGD6h6owSUEaRNT6q1AXW/x5xBnzEQnc
-	 EmKj7qUuyXmc8mBTkvUCHpgFrpk8n5Uq59fpbStEBh5xRF1iBXEyBMchINku/sQN+X
-	 GTmMdu6UOejRm4ya75HKvjJSDVBqFLUssCE8lSC7D/wzZYaWR0EmUh/OpuxZjzWe5k
-	 ui1FC15h7AaNQ==
+	b=mU2smauHsTpSk4e8o5VKlerWwdMjuW2RmdR8AA+TXE/q8eg2LBHimTGFzN+bxJWlF
+	 k1bkTo89sPzE5TbPsJzPK3mhefVdXN4tiDH8cHAZpDwp4trNnwoRf66/XiGfVmJpwC
+	 s3FuzrojyaL2b2uP62vOSTQd+4TqGoon2EIkdmJ/DIgzCjuikMm4iZU7A8taIufZAa
+	 N01ab3ILH0PGIjJ4Mdar7ihYBy8vUwmsGmbKTgipSbuuljgnYErIeQJNZKrQB2iU5r
+	 JjXniizbRhbYDeCQ1+jOWUNY1MKLKwokkcdJwAfDMFedOaRs9IWoD8nlMMQIqTzYZv
+	 pcASdvIycRRyw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 403AC38003B8;
-	Sun,  1 Nov 2026 22:17:14 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA38438003B8;
+	Sun,  1 Nov 2026 22:17:15 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH RESEND] sched: Convert paravirt_steal to new static key
- APIs
+Subject: Re: [GIT PULL] RISC-V updates for v7.4
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357143279.2624073.7781801497885838332.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:17:12 +0000
-References: <20260819081207.12150-1-hongyan.xia@transsion.com>
-In-Reply-To: <20260819081207.12150-1-hongyan.xia@transsion.com>
-To: Hongyan Xia <hongyan.xia@transsion.com>
-Cc: linux-riscv@lists.infradead.org, jgross@suse.com, ajay.kaher@broadcom.com,
- alexey.makhalov@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
- catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
- kernel@xen0n.name, maddy@linux.ibm.com, mpe@ellerman.id.au,
- npiggin@gmail.com, chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
- pbonzini@redhat.com, vkuznets@redhat.com, sstabellini@kernel.org,
- oleksandr_tyshchenko@epam.com, peterz@infradead.org, juri.lelli@redhat.com,
- vincent.guittot@linaro.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
- bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
- kprateek.nayak@amd.com, jiazi.li@transsion.com,
- virtualization@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
- xen-devel@lists.xenproject.org
+Message-Id: <179357143430.2624073.14407284284401354103.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:17:14 +0000
+References: <7cd0fc49-0592-2030-17bc-83edd5003817@kernel.org>
+In-Reply-To: <7cd0fc49-0592-2030-17bc-83edd5003817@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
+ linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,22 +79,22 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Peter Zijlstra <peterz@infradead.org>:
+This pull request was applied to riscv/linux.git (fixes)
+by Linus Torvalds <torvalds@linux-foundation.org>:
 
-On Wed, 19 Aug 2026 08:12:09 +0000 you wrote:
-> From: Hongyan Xia <hongyan.xia@transsion.com>
+On Wed, 28 Oct 2026 21:32:56 -0600 (MDT) you wrote:
+> Linus,
 > 
-> paravirt_steal_rq_enabled and paravirt_steal_enabled use raw static_key
-> APIs which are now deprecated. Use the new API instead.
+> Please pull these RISC-V updates for v7.4.  These are mostly
+> optimizations, fixes, and preparation for work that we're planning for
+> v7.5 - there's not much in terms of new features this time.
 > 
-> No functional change.
 > 
 > [...]
 
 Here is the summary with links:
-  - [RESEND] sched: Convert paravirt_steal to new static key APIs
-    https://git.kernel.org/riscv/c/a5576ebce920
+  - [GIT,PULL] RISC-V updates for v7.4
+    https://git.kernel.org/riscv/c/1b8b67503725
 
 You are awesome, thank you!
 -- 
