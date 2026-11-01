@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B2B9606A334
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A8F3606A334
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Xp671PFB;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N6nTVfdH
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tHI3CxJr;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U17mrsiF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,54 +14,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=VzxmX4INn390vUSro3PAlYVrRsj8/QXnKWkcfGMG+bo=; b=Xp671PFBhoPCqBK3M8lM45CuEC
-	J3clqK69YY5fpGIRW3Ut5Uibr7/wOrLcQ4c9pz/a0v9cVd8tmMS5v86eAY9NnMvzL6/gN25fPcMfW
-	lcvYUmrC7Wa15B92CNjT+S+Inj0p347Sdc/1hyNUODAIxF6OyS6G6qBBbWaS0OzSS3MXSY4zE6msF
-	K5YcLt6Swio81TWU/NPIV25WZbc21HtZSdjLLdwAE5jGmdjJ+wEgch/AAiIfCzG/N5y37JkDMw3PE
-	cPI1qwls5R2RoBXV/FJuD9qYcGxXyP2BgJP3lp9DuRCvRHI6QlgSDaj30mPcHrz1I3ly4FwqQAaJO
-	owYw3zAg==;
+	bh=n9+VOmFv8QvSMKXzXQMrSZ9tTlgzvQztbxc9ecnMgvY=; b=tHI3CxJrpAKF22XhPuBv1v7Y+2
+	YeJpPB48h8MBsk7BQsBk+mkWXsvvfv20baoRv/AXK/JvXy8KWgXZHGAYVP3LBfqn0GtuYxYx6JYKD
+	smmQfH1b9q2WiAv1lpRhpRwyx41zJHFftDK5MV2lBhok7+KJLWS6bsuc8oynFYz9dsxF2eD+nsiqq
+	AXI0jGXbDa37QCU2C7bO+iTa3iN1yF/6dyuqIDpnYW7L35CHMYVZEH8lmEbXpWP7ep7jxt0EPA07H
+	WyBdKymh12k+yet7S9svbkxhCkjVWmX4U7g2qTtZyikhyU3Az7g4OnlDulQE9dWTPXCJ4WpVjzlbT
+	BJ0+4v5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdrl-0000000F3Z7-0GpS;
-	Sun, 01 Nov 2026 22:17:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xNdrn-0000000F3hg-3t2r;
+	Sun, 01 Nov 2026 22:17:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdrF-0000000F1hY-1eXR
+	id 1xNdrI-0000000F1rz-1oOB
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Nov 2026 22:16:57 +0000
+	Sun, 01 Nov 2026 22:17:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 95744605D0;
-	Sun,  1 Nov 2026 22:16:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A2621F000C1;
-	Sun,  1 Nov 2026 22:16:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9C93A6025A;
+	Sun,  1 Nov 2026 22:16:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 523D31F00A16;
+	Sun,  1 Nov 2026 22:16:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571416;
-	bh=gmHoPhac8xdzo93RJmgS5fUm3Pc0rWkwSmth62nTPqo=;
+	s=k20260515; t=1793571419;
+	bh=nX9wbUjqzB9m4WCjSMCeEkPdiA1kFI3uH4dgYr5NhHc=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=N6nTVfdHt7MVhFuXciAxURK0MJ2kI9qDi9HMYYd5jGX4G9Jm8Bg3ANfJkThMy1oXu
-	 ZOS0MJoKf+NZYrRifICZK4JbYJKfSjtTWM2uzNWhta5GHaIW3Frqnq+ZKpjjujnOVP
-	 QPCsQm/I79caUKsvjHGTBZx7K6VX9iAYPPRFGk0HsRRYu9Vj+Oyg0XwMoJclp8Qauz
-	 ZDM7s/DSEeF6wJ9wTTSEvO/iXLh3UGzjQET8W+96a2+jl4HqUqwqgHRmdAbO6mBHKF
-	 MKuLE0Umzge+n/nxtFwnx10gepJ/IdxUYc/qA3zMssLCR6fuzFe+eiaevGu9MP/10s
-	 c4o6nYNmjvXrQ==
+	b=U17mrsiFIlmivT7Z1KlGuXKWEGRIW5laxD3b0f+b513X7OK1WGMNA8q8DqHSqZoTp
+	 dlXmYgFBi4TBStkiUkyNuA1Si2KYVt1GI6FKTxl2gWcCUUsO5h/hD9jb83U1KPef6N
+	 zLOxHhlvKfsoWA2iXtY4yU1tq5yHV+StmS3zGcVcfQg9SL4gSikHSTPdWsUsk50mIO
+	 a0tEVh8ys5+O+hpWXysw05hR5g1Ohy6TXSgOGTdR3DEuOM8XHb/skK4Yon0Omhae3E
+	 RPONtRYmcYuaGw0l2nqukd5wGRPNLjGHzaa2xDNJ1D/z7/O0p36mu4VgGbliIL2o+J
+	 ost03wVWiZsGg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 4014D38003B8;
-	Sun,  1 Nov 2026 22:16:56 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 400A438003B8;
+	Sun,  1 Nov 2026 22:16:59 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [RESEND PATCH] mm/page_table_check: add explicit pmd_none check
- in
- pte_clear_range
+Subject: Re: [GIT PULL] RISC-V updates for v7.3-rc7
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357141484.2624073.1401864471103431291.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:16:54 +0000
-References: <20260819025516.2967199-1-ye.liu@linux.dev>
-In-Reply-To: <20260819025516.2967199-1-ye.liu@linux.dev>
-To: Ye Liu <ye.liu@linux.dev>
-Cc: linux-riscv@lists.infradead.org, pasha.tatashin@soleen.com,
- akpm@linux-foundation.org, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, liuye@kylinos.cn, alex@ghiti.fr, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
+Message-Id: <179357141780.2624073.2430346439842888636.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:16:57 +0000
+References: <b31764b3-32cd-644e-4e07-52c3d1f24265@kernel.org>
+In-Reply-To: <b31764b3-32cd-644e-4e07-52c3d1f24265@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,22 +78,22 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Andrew Morton <akpm@linux-foundation.org>:
+This pull request was applied to riscv/linux.git (fixes)
+by Linus Torvalds <torvalds@linux-foundation.org>:
 
-On Wed, 19 Aug 2026 10:55:15 +0800 you wrote:
-> From: Ye Liu <liuye@kylinos.cn>
+On Sun, 11 Oct 2026 00:05:14 -0600 (MDT) you wrote:
+> Linus,
 > 
-> In __page_table_check_pte_clear_range(), the condition to determine
-> whether to iterate over PTEs only checked pmd_bad() and pmd_leaf().
-> This relies on the implicit assumption that pmd_none() is always a
-> subset of pmd_bad() on all architectures supporting PAGE_TABLE_CHECK.
+> Please pull these RISC-V updates for v7.3-rc7.  There are several security
+> fixes, a significant strnlen() regression fix, and several other
+> miscellaneous fixes.  My intention was to send these earlier, but LPC got
+> in the way.
 > 
 > [...]
 
 Here is the summary with links:
-  - [RESEND] mm/page_table_check: add explicit pmd_none check in pte_clear_range
-    https://git.kernel.org/riscv/c/0224133dba05
+  - [GIT,PULL] RISC-V updates for v7.3-rc7
+    https://git.kernel.org/riscv/c/b2d929a1c2a8
 
 You are awesome, thank you!
 -- 
