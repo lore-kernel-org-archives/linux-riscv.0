@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4301B606F2FC
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88AB1606F2F1
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iHUnqWGt;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PCRw8XNL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bRrZFfT7;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G4ZsiFDt
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,59 +14,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=P2B8R0MHkcrPL9/CGV4vaQb7gzk3AU/cpVVUHp/S8sc=; b=iHUnqWGtYjMhNt9vt+ZAkkVsgt
-	nsDH2lbHVTOoXqqTkYrw0ojUxSvC5pId8Lm31kC6xCudqavlvzaPtGY04Tw3g5o/ZoX1SvW2Gkch8
-	db4iBSHjSyIFLtl5HCRsOEtI7KsFd2wF9SMIpXY2+jdL+YY8HozHAbAK+A7u85Frn8yQAM3YJY52n
-	q/3phQo2Cur3nZiJshwzOwB8GgsJMylm0NdEGhWp/6/s+p40kLfSKevTFkih0T5X1tmYFk8ZZ1Wf/
-	IZ7Xo5j0aBbhTPwwelcvVSwiKcAylPHhl16e0LWH0ez+FBwGykuNoc+uUjHkJIxaSqcdpWkSGx8uj
-	d7E+dYRQ==;
+	bh=IDPMwJq0xK5Stz79bdYvzSLSYDKjZIDicx/BiF2zlCg=; b=bRrZFfT7fwA6DyrWPQJ29jdN4W
+	UxArI/65F+7CioxEgDtOckxIsVXjj1OV5bqIaL+5+w2zN4xMqzGVZU+qSTFXXiK5M1lqD1xXDwjmN
+	vDugYgjs2YUMRDuUTkxeCrHmgGX+kayfQ78Lp6JjWopDYKpxVBCOA8Mvc2FeC4grT0L8d6OmnBRwW
+	/fXrbZUXSV7Yrhs40/SC9a8JDL8fzN7Bsknzl1TK+86uQ1oYdeOdTWfKjoNyzmX79zKYYBdNTwEAm
+	ct4c3DhpZOqs8rr93EJfTCg1RuknPXhk0Fa/IPi9XJGFS05521XDTpu08lvj2hF0oWzZBCNVqRWkd
+	dLKvvk0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdre-0000000F3BL-3PAD;
-	Sun, 01 Nov 2026 22:17:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xNdrh-0000000F3LB-1486;
+	Sun, 01 Nov 2026 22:17:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdr5-0000000F1A3-3LfH;
-	Sun, 01 Nov 2026 22:16:47 +0000
+	id 1xNdrA-0000000F1Qe-201u
+	for linux-riscv@lists.infradead.org;
+	Sun, 01 Nov 2026 22:16:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 32AD660618;
-	Sun,  1 Nov 2026 22:16:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C43571F00A1C;
-	Sun,  1 Nov 2026 22:16:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E6CE843C19;
+	Sun,  1 Nov 2026 22:16:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C59771F00919;
+	Sun,  1 Nov 2026 22:16:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571406;
-	bh=9SjWrhc7XGpfrZLDGv5e/UGJ5LKzUlRr1ymU5F3rbK4=;
+	s=k20260515; t=1793571411;
+	bh=1M18UEoj2fkXVA3N5MwFODgLvNc8kgHEtwNhvCdbEts=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=PCRw8XNLxhwpgQY+VNJEgyemCH7WcIUexDDLxDQtKsJZyKUtdTMN3MNlZltJ6M0iy
-	 0sNvBS5zOI3cOGvEHXCS4FDiiBRJt4YTWvt0Z5W2pEwwNWqyPsD/jW7sJeFMWEVfwu
-	 32f/8TpLwxDIfiPxqr6f6Sc8JtU205KYvtKUxdXIsWKDgfMrSec039M8wUBLONKqKV
-	 C8h60HgiPJV6UBIQ+RJCyhEArenvuts1IeS5Ti1EIWkF9gSpCYTJmdYsxaCB3+MhvH
-	 cKC00fZeAT+3Xb1OaF1XeCb/NrEIVbK+ayJvZHgHKBP7c9ZLF51en7iMywKamnPnBz
-	 Vky2U/YXxjHxw==
+	b=G4ZsiFDtZ62yw/+PrdD8L5Da6gB7BqqsvG701dZBR1txA7fSnfvZerKJe/hPf9qvZ
+	 4dhfa7sn+SvyWYLr7JPbMzZROg2ndHcu7yFY9M8ejckEQk4zQGTsveX3hMKIkIAR/h
+	 PEOoFYc5ThbkMFFjiIdoT8PETipkrDFzVTx+1f+O/+qNRcnzOuAxDSUC01qJCR5DHV
+	 IwXAm8U8f+iDeO4dcnr2aFpB55Po8yP/uLgPpGwbX+WgwBeS9CZ3V717KQuYvMjhJQ
+	 epfyR6Fge8m1DNcfsWd/uIU03aC59pi4rQI3NJu/wm3NOxeMOZXb84fp+XODxAaIA3
+	 sDGSj81m6UQ2w==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA1E838003B8;
-	Sun,  1 Nov 2026 22:16:46 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA28A38003B8;
+	Sun,  1 Nov 2026 22:16:51 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] arch, mm: promote DEBUG_WX to CHECK_WX
+Subject: Re: [PATCH v2 0/4] spi: sophgo: Fix SPI NOR errors and clock limits
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357140534.2624073.9989407542230376185.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:16:45 +0000
-References: <20260926-direct-map-verify-wx-v2-1-efcd64a6b74a@kernel.org>
-In-Reply-To: <20260926-direct-map-verify-wx-v2-1-efcd64a6b74a@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
- aou@eecs.berkeley.edu, agordeev@linux.ibm.com, alex@ghiti.fr, bp@alien8.de,
- catalin.marinas@arm.com, chleroy@kernel.org, borntraeger@linux.ibm.com,
- dave.hansen@linux.intel.com, david@kernel.org, gerald.schaefer@linux.ibm.com,
- hca@linux.ibm.com, mingo@redhat.com, liam@infradead.org, ljs@kernel.org,
- maddy@linux.ibm.com, mark.rutland@arm.com, mpe@ellerman.id.au,
- mhocko@suse.com, npiggin@gmail.com, palmer@dabbelt.com, pjw@kernel.org,
- hpa@zytor.com, ritesh.list@gmail.com, linux@armlinux.org.uk,
- sshegde@linux.ibm.com, surenb@google.com, svens@linux.ibm.com,
- tglx@kernel.org, gor@linux.ibm.com, vbabka@kernel.org, will@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org
+Message-Id: <179357141023.2624073.834055517039065391.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:16:50 +0000
+References: <20261001-fix-sg204xspi-v2-0-014dbaf22b5e@iscas.ac.cn>
+In-Reply-To: <20261001-fix-sg204xspi-v2-0-014dbaf22b5e@iscas.ac.cn>
+To: Han Gao <gaohan@iscas.ac.cn>
+Cc: linux-riscv@lists.infradead.org, broonie@kernel.org, looong.bin@gmail.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ chen.wang@linux.dev, inochiama@gmail.com, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, rabenda.cn@gmail.com,
+ lihangfan@iscas.ac.cn, linux-spi@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ sophgo@lists.linux.dev
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,22 +84,28 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Andrew Morton <akpm@linux-foundation.org>:
+This series was applied to riscv/linux.git (fixes)
+by Inochi Amaoto <inochiama@gmail.com>:
 
-On Sat, 26 Sep 2026 12:29:29 +0300 you wrote:
-> Verification that the kernel does not have writable + executable
-> mappings is about detecting security risks rather than a pure debug
-> feature.
+On Thu, 01 Oct 2026 02:22:49 +0800 you wrote:
+> The SG204x SPI NOR driver ignores transfer errors and clock limits.
+> Fix both, enable SPI NOR on SRD3-10, and use 12.5 MHz on SRD3-10 and
+> SG2042 to match EDK2 and the vendor kernel, respectively.
 > 
-> Major distribution configurations enable it in their kernels as well as
-> defconfigs of most architectures that have ARCH_HAS_DEBUG_WX.
+> Tested on SRD3-12 at 12.5 MHz: both flashes identify correctly, SFDP
+> reads succeed, and two full 64 MiB reads per flash match.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2] arch, mm: promote DEBUG_WX to CHECK_WX
-    https://git.kernel.org/riscv/c/2e83e2ce34ff
+  - [v2,1/4] spi: sg2044-nor: Return transfer errors
+    (no matching commit)
+  - [v2,2/4] spi: sg2044-nor: Honor SPI clock limits
+    (no matching commit)
+  - [v2,3/4] riscv: dts: sophgo: Enable SPI NOR on SRD3-10
+    https://git.kernel.org/riscv/c/0fe449e8ff7b
+  - [v2,4/4] riscv: dts: sophgo: Limit SG2042 SPI NOR to 12.5 MHz
+    https://git.kernel.org/riscv/c/a3a8c25c59f8
 
 You are awesome, thank you!
 -- 
