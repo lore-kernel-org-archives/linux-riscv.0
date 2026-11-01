@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B177606F6B3
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C057606F6B9
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=o7wyRU1L;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Sw2wvSa9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=F2RZo8He;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a/3BEpcj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,59 +14,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=eSMuNF94sZNE5HOyNmfq+9/MvU277DHkyxy5tgD/7sA=; b=o7wyRU1LkTyAqBcGLhBb8oGUiz
-	3ZDH5oC3Q1fIn+7LNn4s1lc0IN7KTPSTY6r/+FJ5w66Spx7qnQ6pKNheEG3ubmIKrEXjkP26N9D3C
-	jVNVXZrc5oXJ47nCbq4eO5PTaHUW+1LyQwXmasyRt5UDh1VvQvQeY4sohFBvELBFxUQM7jLtGN/D4
-	M35IZdfNEDyxNYMhyYcbjBTBMAwY5ezIybljkYXubGRI4B7AO/qfeBRGmoaYp04vo/naMTTaeeSYu
-	WLgO2p8eFw4pk2W5lfO5JJ8cGFczFztFMxD14UAzyt043ZPUrv0S2j/1ge9nWSO4pp9c6/4/XmQOf
-	yn4q5y9A==;
+	bh=IjuDDUSCsZLZuxIGx1tjmG7WzlVxiaVymLL/y9oxgi8=; b=F2RZo8HeMKoXo24V3ClfWW5VGV
+	ojaGhO4Xg34J+pmk7KlHGNu5vn91+NAmk1VS//zor9FeZTyzvN/6Qphy9tsgjAlIBC8gEuA+X8Hnt
+	CZgpMCryWogneaMboQ0M7US1yEYpEgT2blmOhzHaSDQoDDz+JcfPloUnLGZ2m7Teuh2iU5S7UO0xs
+	g3yrk2Hfza9nEMelrFwc/SlTTh1vrvJgLzMZJAxGhry7YnpAXHGyG1vlzmPDhdaJtzoDhJ0XqvzpB
+	xz5fxPZENvoc/H7fMEN3Pd9jdnd4ZOUiEuZEPY1E1qdDJ0zPNSAvuFuZCA4r94JTtU9/mqXCDC9ka
+	NSJFhvDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdrj-0000000F3U3-3PuA;
-	Sun, 01 Nov 2026 22:17:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xNdrf-0000000F3FB-3LHS;
+	Sun, 01 Nov 2026 22:17:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdrD-0000000F1bv-1Yzp
+	id 1xNdr8-0000000F1Hf-00Hi
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Nov 2026 22:16:55 +0000
+	Sun, 01 Nov 2026 22:16:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F0F6644009;
-	Sun,  1 Nov 2026 22:16:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5BBD1F00A1A;
-	Sun,  1 Nov 2026 22:16:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6FBD941F9A;
+	Sun,  1 Nov 2026 22:16:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A1C81F000C1;
+	Sun,  1 Nov 2026 22:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571414;
-	bh=HltbMUNV2mL7CmzUNbC48/jDW0dqtweL2/SgQbNH2V0=;
+	s=k20260515; t=1793571409;
+	bh=qT2GUUvMsvsdxjeGOlN5O8jOvRC8RtpY6AMZ++u4SV4=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=Sw2wvSa9SHk+5nIAcZtroRIwKn3V8PzpfgbTLlVEV2B7Xsn//R4odyY0lpJuvkfxl
-	 NUZRIwvOhsHBhiPm4aKwcK/KKj3SJoyTiRkThQXKWOCyMxiNH0czjnItiMBrcqFga7
-	 uuczREcVU5lBB+gyieVoJQUbYjoYHae2v3rLcILiOpCvWoFXuRaWQn0K5Q/kHvzBTZ
-	 7pABNP2hcIomqaTsjurf04sAXjbEbAJtS5ik2OrgzBtbk8OsoUZ/jXIyzmR7cCJIyQ
-	 383vUSbItJnXYvFwIhgBanuA94ScjhOdY/FSt2V66ReLpmbDYJ9lM4+t4c4cA36L5q
-	 FvbztgSLAHKsQ==
+	b=a/3BEpcjERRS1qf1ykCRoCBxX8UxmcohB0yzmRvJnU2+gY5IhSpHZmpTJX7wZsWZx
+	 zNBg6DhehxxNhO40NOIsNPit4E75mWQMiEKi0py+NsH8Q7orlj2SbdYEJ7e8BuDQ2X
+	 2cB642WkEvvWfUEs8DYYeb2CIQawi2EDq+2UOAlDTFqFxZgGAqiHvAYf4efzlAoYQm
+	 3fHE42xKId9UvA1/Nb2UhG2VAg4/UPvGOYqLITZc7MqlWTAvP2xk87F35Zstthi/d5
+	 7Eg4txIqXtU/k2xtW1/pP9mPw1G8TyDhFGzXJd7A4EtREYqtpO6+0+2eiTXeTre+WZ
+	 GbhPPxXET+0Ag==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA53838003B8;
-	Sun,  1 Nov 2026 22:16:54 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 401AD38003B8;
+	Sun,  1 Nov 2026 22:16:49 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 00/10] riscv: Add device tree support for UltraRISC
- DP1000
+Subject: Re: [PATCH] dt-bindings: gpu: img,powervr-rogue: add spacemit,k1-gpu
+ and spacemit,k3-gpu
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357141329.2624073.10814218023350815293.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:16:53 +0000
-References: <20260907-ultrarisc-dts-v2-0-5eb4c97477c5@ultrarisc.com>
-In-Reply-To: <20260907-ultrarisc-dts-v2-0-5eb4c97477c5@ultrarisc.com>
-To: Jia Wang <wangjia@ultrarisc.com>
-Cc: linux-riscv@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, daniel.lezcano@kernel.org,
- tglx@kernel.org, samuel.holland@sifive.com, anup@brainfault.org,
- broonie@kernel.org, andi.shyti@kernel.org, mika.westerberg@linux.intel.com,
- Eugeniy.Paltsev@synopsys.com, vkoul@kernel.org, Frank.Li@kernel.org,
+Message-Id: <179357140787.2624073.18323938412420431030.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:16:47 +0000
+References: <20261015-spacemit-gpu-binding-v1-1-a7a23c7e7788@linux.spacemit.com>
+In-Reply-To: <20261015-spacemit-gpu-binding-v1-1-a7a23c7e7788@linux.spacemit.com>
+To: Baihui Liang <liangbaihui@linux.spacemit.com>
+Cc: linux-riscv@lists.infradead.org, alessio.belle@imgtec.com,
+ luigi.santivetti@imgtec.com, airlied@gmail.com, simona@ffwll.ch,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, dlan@kernel.org,
+ imagination@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- paul.walmsley@sifive.com, palmer@sifive.com, conor@kernel.org,
- linux-spi@vger.kernel.org, linux-i2c@vger.kernel.org,
- dmaengine@vger.kernel.org, conor.dooley@microchip.com
+ spacemit@lists.linux.dev
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,41 +85,25 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Vinod Koul <vkoul@kernel.org>:
+This patch was applied to riscv/linux.git (fixes)
+by Rob Herring (Arm) <robh@kernel.org>:
 
-On Mon, 07 Sep 2026 17:54:39 +0800 you wrote:
-> Add Devicetree support for the UltraRISC DP1000 RISC-V SoC and two
-> DP1000-based motherboards: Shenzhen Rongda M0 and Milk-V Titan.
+On Thu, 15 Oct 2026 15:00:48 +0800 you wrote:
+> Add compatible strings for the IMG GPUs in SpacemiT K1 and K3 SoCs:
+> - K1: IMG BXE-2-32 (adds a dedicated entry for a single core
+>   clock and power domain).
+> - K3: IMG BXM-4-64 (shares the same configuration and entry as
+>   the T-Head TH1520).
 > 
-> DP1000 integrates eight UltraRISC CP100 CPU cores.  The SoC description
-> includes the CPU and cache topology, CLINT, PLIC, clock controller,
-> pinctrl, GPIO, four UARTs, two SPI controllers, four I2C controllers,
-> three PCIe root complexes, GMAC, and the DMA controller.
+> Both SoCs require a single power domain provided by the APMU driver
+> (currently pending mainline):
+> Link: https://lore.kernel.org/all/20261008-04-k3-pm-support-v2-0-6f778a53dd2d@kernel.org/
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,01/10] dt-bindings: vendor-prefixes: Add shenrongda
-    (no matching commit)
-  - [v2,02/10] dt-bindings: riscv: cpus: Add UltraRISC CP100 compatible
-    (no matching commit)
-  - [v2,03/10] dt-bindings: riscv: Add UltraRISC DP1000 board compatibles
-    (no matching commit)
-  - [v2,04/10] dt-bindings: timer: Add UltraRISC DP1000 CLINT
-    (no matching commit)
-  - [v2,05/10] spi: dt-bindings: snps,dw-apb-ssi: Add compatible for UltraRISC DP1000 SoC
-    (no matching commit)
-  - [v2,06/10] dt-bindings: i2c: dw: Add compatible for UltraRISC DP1000 SoC
-    https://git.kernel.org/riscv/c/3d067add1281
-  - [v2,07/10] dt-bindings: dma: snps,dw-axi-dmac: Add UltraRISC DP1000 compatible
-    https://git.kernel.org/riscv/c/58a66a560aa1
-  - [v2,08/10] riscv: dts: ultrarisc: Add initial device tree for UltraRISC DP1000
-    (no matching commit)
-  - [v2,09/10] riscv: dts: ultrarisc: Add Shenzhen Rongda M0 board device tree
-    (no matching commit)
-  - [v2,10/10] riscv: dts: ultrarisc: Add Milk-V Titan board device tree
-    (no matching commit)
+  - dt-bindings: gpu: img,powervr-rogue: add spacemit,k1-gpu and spacemit,k3-gpu
+    https://git.kernel.org/riscv/c/16f30811a935
 
 You are awesome, thank you!
 -- 
