@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F4F86070EA7
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AB6160A3816
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=I8qBVh1v;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E/aQ2MKr
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=T/OpWmIS;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ge8BG+tp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,53 +14,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=B0izYy0lLq+1qBOuByQspO2Cw2QT1BGkT3ZkvPnSa4o=; b=I8qBVh1vYuq2bu1XIgy0qp+8UT
-	BvS/aI/N65WBpOH2jiCjKIF+rMx9Lzist7v6p/G2lvIZ0kSAR5a+npuU6n20fPVWpXpUEG3FDrEkv
-	CRRhkxJT8dUsglf3xtU1MpcsGex7aoYQXRazdBxFpz84TRnEwQzkVDDi1ckXKwNw26qk3HMttUmFP
-	+/meGR4mApjppjvk2th8ZM6SKGv1K+rqtbehALunyheCb3I3wXJIgHUrIktpjoBMzdT0jN364/Laq
-	5BhI07zRWTs2iM8lZZbF3y8VjqxHAf9Qs4qNafT93/YelKChMvaZVibWgJ4S0nVYBWPsXznEmMIjh
-	Ji7zVynQ==;
+	bh=PWONFnK7+tkdAMbdwVTnfdu18NsUXJX6jorcj2Wcorw=; b=T/OpWmISPIakncdKSYvNiqH2LZ
+	Ku/t1B7iI/7uBY5H/QPjPpuiyFPob1ekf3tARkCS7Kyqga//KODRPZKaYJJlv1yb5DhiBPJHwF2og
+	/ReEz3ZrENoQI6HAGCpqswktXjUJRwXx3hBCLj3Pqk4JSC1vv7nTXXQVv9cwqFxJoTaJcMhcY2Sbf
+	MpgRq/VMLVUcfvn/pY+8SSlDjq+vpi/5xFgTTm5USVmwTqtgq2laGBBWe6xJnp9GKjyXIhUUZN0Wi
+	stPUxijt0sfnnt5nTrxAw6KXLyMUSiTNe+Ms6DKt2OlDYsIx3ojds1Y8X53BlrKjipLzkDfL9MPgt
+	tAxmURrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqx-0000000F0q9-15Jr;
-	Sun, 01 Nov 2026 22:16:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xNdqy-0000000F0uT-3rzm;
+	Sun, 01 Nov 2026 22:16:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqe-0000000Ezyn-3Qzx
+	id 1xNdqh-0000000F067-0xgG
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Nov 2026 22:16:20 +0000
+	Sun, 01 Nov 2026 22:16:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 230D66060D;
-	Sun,  1 Nov 2026 22:16:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C768E1F01578;
-	Sun,  1 Nov 2026 22:16:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id ED3AF4404B;
+	Sun,  1 Nov 2026 22:16:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C55C31F00919;
+	Sun,  1 Nov 2026 22:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571379;
-	bh=3jtJ8UO3TkxY0olDal3hNFiHyaDqKlexwUqaCAVk6ok=;
+	s=k20260515; t=1793571382;
+	bh=nBsBcIeqHzTwHRwp6mbkSbzQ3uarBYC6aAPPLwIw/OY=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=E/aQ2MKrGbi8mlSbFdskUu+G46rV8LTVckPtm9QEs2zR6KBVwpg1cdZTLjU3MPKFX
-	 8hDyOtmRO2vLQl2nvvOumhVUBUjD2pQLrIGfZJNBq0lVm/FXApgzycubsx3wdOjcvj
-	 4GFAtH9vVAYaMyetYOHalb2p1YW6Pgfta/AN0sBlmrOPqWpRoHhM9r7I7A/84zl9vU
-	 OQBNREIuzXWERb7PVgKWI4AtxQjpRDSB5g8qSKAAO+c8+jOwBoaGYT3pxPDT3424fI
-	 fbbdqrCQERz+qdOUmFCmlujLaGBL575NzeDeupoGvnqLS3Ds5HcDfaAI1XuyNGkpE6
-	 ItL837Zn2+DJQ==
+	b=ge8BG+tpekAEo+TZQBgfvGTUGoOFRmuU0sqtbDWsBG1E1UTg6b6J4VfGfd1nqF6Z3
+	 dxC7UhyiuirH66kwoe6ZI2qNpzGHPuX1TBFNPb8GqXg1qOAm0/ttZHT9HosQHtZslN
+	 woMOtTaVXoa+A7tit4xlZnferQ0ALwKyjKubejIZumpnFlfQ57e5/xfu57Txo3PjF1
+	 xErzRFsTYOfQQ6ie+PDBvSFDcBMJBHtcGvirHE49cePICxmiiKRheaTMIGUH9csnus
+	 ZfNKmVre6h+JiizjeTSaE/VZJvWIINzapMcyCqc/+GWYS8ZWV2ONnMz3chGRKabrrj
+	 6oAV13ouliW4g==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA21038003B8;
-	Sun,  1 Nov 2026 22:16:19 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA3C938003B8;
+	Sun,  1 Nov 2026 22:16:22 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] irqchip/riscv-imsic: Reject overlapping group index
- fields
+Subject: Re: [RESEND PATCH bpf-next 0/2] riscv,
+ bpf: Support indirect calls to bpf subprogs (callx)
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357137829.2624073.14938760984077073549.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:16:18 +0000
-References: <caplitmus-rv.v2.imsic.f2c0e5bdc627451c83deb0cf7eb8834a@163.com>
-In-Reply-To: <caplitmus-rv.v2.imsic.f2c0e5bdc627451c83deb0cf7eb8834a@163.com>
-To: Pengpeng Hou <hppiscas@163.com>
-Cc: linux-riscv@lists.infradead.org, anup@brainfault.org, tglx@kernel.org,
- alex@ghiti.fr, andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu,
- bjorn@kernel.org, linux-kernel@vger.kernel.org, palmer@dabbelt.com,
- pjw@kernel.org, radu@rendec.net
+Message-Id: <179357138129.2624073.3730426403768307422.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:16:21 +0000
+References: <20260930064928.1909085-1-pulehui@huaweicloud.com>
+In-Reply-To: <20260930064928.1909085-1-pulehui@huaweicloud.com>
+To: Pu Lehui <pulehui@huaweicloud.com>
+Cc: linux-riscv@lists.infradead.org, bjorn@kernel.org, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, ast@kernel.org, daniel@iogearbox.net,
+ andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com, martin.lau@linux.dev,
+ song@kernel.org, yonghong.song@linux.dev, jolsa@kernel.org,
+ emil@etsalapatis.com, ihor.solodrai@linux.dev, puranjay@kernel.org,
+ pjw@kernel.org, palmer@dabbelt.com, alex@ghiti.fr, pulehui@huawei.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,24 +84,25 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Thomas Gleixner <tglx@kernel.org>:
+This series was applied to riscv/linux.git (fixes)
+by Alexei Starovoitov <ast@kernel.org>:
 
-On Sun, 20 Sep 2026 21:07:54 +0800 you wrote:
-> The IMSIC address layout places the group index above the page offset,
-> guest index and HART index. imsic_parse_fwnode() checks the individual
-> field widths and the upper end of the group field, but does not check
-> that its lower end is above the other fields.
+On Wed, 30 Sep 2026 06:49:26 +0000 you wrote:
+> From: Pu Lehui <pulehui@huawei.com>
 > 
-> Reject a nonzero group field whose shift overlaps the lower fields.
-> Otherwise a firmware-supplied layout can assign the same address bit to
-> different indices when MSI target addresses are constructed.
+> This series implements support for indirect calls to bpf subprogs on
+> riscv64 and enables the corresponding selftests.
+> 
+> Meanwhile, this series also resolves the test_verifier failures
+> previously captured by riscv-bpf-daily due to missing callx support [0].
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2] irqchip/riscv-imsic: Reject overlapping group index fields
-    https://git.kernel.org/riscv/c/8caa8fcec8db
+  - [RESEND,bpf-next,1/2] riscv, bpf: Support indirect calls to bpf subprogs (callx)
+    https://git.kernel.org/riscv/c/1cec0b70fdc6
+  - [RESEND,bpf-next,2/2] selftests/bpf: Enable callx related testcases for RV64
+    https://git.kernel.org/riscv/c/530dfafc6107
 
 You are awesome, thank you!
 -- 
