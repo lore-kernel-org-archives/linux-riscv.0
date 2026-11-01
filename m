@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B827606A334
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FD11606A326
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=v8WmMZSH;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oa6XY8H0
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=j39jgRGl;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VlnlOoUU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,54 +14,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=9/vQPgcYp6Kxwo9uGez3SDQ2LDgpBy9hnC62rIkon2I=; b=v8WmMZSHK+saUH3XZYWekGbCgt
-	RNO3fLSe06IXMOx8jRsn37gPMyr1O7HiEYQ3JRTix94oGBB3IYEkcXAMjlHzDL9WLMHq5Kcsvd0J7
-	EcvQh0l1BAB5tWTjUaLvKiIeRsF0zJqinRGOWXBZUGjvvZKACDGfhlzoHsl+a9IlchJt9btwYtzsS
-	2q4aStpC3bwUTFz7uJEG5MZ2WEGsoG4Y4hszitFG8qbNXscTy18oFsmoqQVwmV0gqLr5a8v4efeLE
-	n3C4fQ9THpOEQv76yj5e7czMTcCWHPu0XYmV/bgNWgb1sMf2FQ3b2qJklH3EN47EQ5IINuC6kVp08
-	7UcIFs6Q==;
+	bh=g2wa3J7SAnc1wQwfWBhWr4FKnZ/YBor+nGz4GkpjKt0=; b=j39jgRGlRxgEe3ys8k5gU6bEde
+	uB6svPa00yn3JXkPGnjsg3KhTbjRLlZX12qh4Tml30fJ8RB6w4/Vp4Ih3Ofo1YLChieMib+YXSEGU
+	BXUsexpkjKIvuTiXJjR6HtJR3BWfv6wcMfmcFVBSFhnjMl93Acji8lq8B4vHRjUgG/LmeH1ZznOUO
+	u8/rr2fjgP8nf5/95UDcwolWHkgvUNPK2z5ta/oYegKxNv6RWhx3bnIT+2x/JbIIXqyXFtFi93AI4
+	aFIn81FRvLzhXeEqXjRdL1Fsxz+fTy2aKZlCaOLG+IJWwdk/U+6pvGgtvM8eCozxNzkzX4Ce6MLJY
+	vNJ4z4Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNds0-0000000F4RR-3HBw;
-	Sun, 01 Nov 2026 22:17:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xNdry-0000000F4JE-1NHe;
+	Sun, 01 Nov 2026 22:17:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdrW-0000000F2fo-0LgU
-	for linux-riscv@lists.infradead.org;
-	Sun, 01 Nov 2026 22:17:14 +0000
+	id 1xNdrT-0000000F2Tq-0pil;
+	Sun, 01 Nov 2026 22:17:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 20B4E60616;
-	Sun,  1 Nov 2026 22:17:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C383C1F0093A;
-	Sun,  1 Nov 2026 22:17:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E3C8F400B8;
+	Sun,  1 Nov 2026 22:17:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2A0F1F00A15;
+	Sun,  1 Nov 2026 22:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571432;
-	bh=0VUu6Q3iQ1FQir9zMfLK4+e/rrsGptg78V82yq/1WLM=;
+	s=k20260515; t=1793571429;
+	bh=Fv8sMlP8O3GHUSoY8MBfh8MY+kr37FDNK89rZQzSXdU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=oa6XY8H0fpx7lSgfUce6a2Ro+FE0x6zYQkloDozziCJBx9XCKaN+W3QH7mNiF+J83
-	 QgYdtjEWChc25JoV2Rf9+TnfSBOHkPeztjTa0eR/FkoOzV3usJLSOGOZ98Wn0D6cqm
-	 lFLzESsUiAwShrYfvzcMF/rBSDxVguVKBV4DStBFt3FkpxJS5VaDI+zdcFLYTJd0dO
-	 Jx5XDZschGj8UaY9Yx6/l4V15Et1mcLV5uSLvR2gXkJ07E65WL5eC8MB2cjT6KnaeD
-	 NX+DV9hcerAW1g31Nwg5WfylbS1b6g8bO6GuUH1fApCr2PvubIBTS+z3HiC/i0UL6u
-	 2u3ewTEIT0rng==
+	b=VlnlOoUUEu9V0plLi4Kke52P9Sf7LmnCXI3/r9nD/EkLF8dgcbn/b70x7s8xOpjzM
+	 vBDpICruAngiVNvxs7IVSzf2GH3D+B5AcFg6C/1RMLmTfGWgGqs0LmJd92jQOeIJaF
+	 wsK9MssC5+2tsvQklkL07S8F2Zzqk3PTJHN1zfusMqgsbvhB+jUERHRUHHZskloFPo
+	 yl/WabE6HiCKHMwoMCYwf1B+T0vXDZWAeuYQt311a5PVRX3ugUcvRN0wyZzbvYibPV
+	 2TlmBTOm6MSHm2nJI9gJKa3Redvt//yKNi/XBo/uFCvCdVwIZi6hXO14jaV0sdhUS0
+	 kunSJJwhwyeCQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA31538003B8;
-	Sun,  1 Nov 2026 22:17:12 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA5B438003B8;
+	Sun,  1 Nov 2026 22:17:09 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/3] Remove deprecated static key API in scheduler code
+Subject: Re: [PATCH 0/2] lib/crypto: Use size_t lengths for Poly1305 and
+ ChaCha
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357143129.2624073.6891423921734394986.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:17:11 +0000
-References: <cover.1784538478.git.hongyan.xia@transsion.com>
-In-Reply-To: <cover.1784538478.git.hongyan.xia@transsion.com>
-To: Hongyan Xia <hongyan.xia@transsion.com>
-Cc: linux-riscv@lists.infradead.org, mingo@redhat.com, peterz@infradead.org,
- juri.lelli@redhat.com, vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
- rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
- vschneid@redhat.com, kprateek.nayak@amd.com, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- jiazi.li@transsion.com, linux-kernel@vger.kernel.org
+Message-Id: <179357142829.2624073.2124484665042168888.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:17:08 +0000
+References: <20261014152604.323310-1-ebiggers@kernel.org>
+In-Reply-To: <20261014152604.323310-1-ebiggers@kernel.org>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-crypto@vger.kernel.org,
+ ardb@kernel.org, Jason@zx2c4.com, herbert@gondor.apana.org.au,
+ linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
+ vladimir@genproof.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,22 +82,24 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Peter Zijlstra <peterz@infradead.org>:
+This series was applied to riscv/linux.git (fixes)
+by Eric Biggers <ebiggers@kernel.org>:
 
-On Mon, 20 Jul 2026 09:38:02 +0000 you wrote:
-> From: Hongyan Xia <hongyan.xia@transsion.com>
+On Wed, 14 Oct 2026 17:26:02 +0200 you wrote:
+> This series upgrades the Poly1305 and ChaCha functions to use size_t
+> lengths, matching the rest of the crypto library.
 > 
-> While working on something static-key-related I noticed we still have a
-> few sites calling the deprecated static key APIs. The old API with name
-> static_key_true and static_key_false are also super confusing. Move all
-> of them to the new API.
+> It also fixes the (not currently reached) handling of lengths above
+> S32_MAX bytes, and (not currently known to matter in practice) the
+> assembly functions depending on unspecified high register bits.
 > 
 > [...]
 
 Here is the summary with links:
-  - [2/3] sched: Convert paravirt_steal to new static key APIs
-    https://git.kernel.org/riscv/c/a5576ebce920
+  - [1/2] lib/crypto: poly1305: Use size_t length
+    https://git.kernel.org/riscv/c/0b58c136c2f9
+  - [2/2] lib/crypto: chacha: Use size_t length
+    https://git.kernel.org/riscv/c/e42003dba6dd
 
 You are awesome, thank you!
 -- 
