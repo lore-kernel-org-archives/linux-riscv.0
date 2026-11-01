@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A8AB60A3818
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54B80606DB46
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZgJn7UlI;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SmGl7Wg9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4Pz2FrVz;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aQ9aTFbN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,55 +14,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=/jn9iz2PnSjZXYaLwDBV3/mA35kT+rfqsQQMB1e76lg=; b=ZgJn7UlIicZnsi+wHu/OeVJVWo
-	qfDTT/R6QSsPStc/oLj+Gna4pK4h2fKNeu0xUB6KbBk6HIXKv/Xu6TlGgmgsxgUitSjhChSVzA8SN
-	nYREquKCWNpVvcJUpdfLmmvCKBOf1WO76BjLAGiXsOPDu2PiRVbL1t0QczqkvY2A112LvxzZaWWL9
-	DNKSAfCZG6tVH/JKLYgGJNFT7xHtdD6sf06bKlkw3rb8x70tGZ/Kw+UuN4UH/4Sa2MVRogAjDdA8g
-	VX7gUtL9pLaTcgev2SQnWcSYfyNd5+kgKuTmMq73zUhXqRMoxqK1ibBpGgBe58S9SX6FB7SU8mLXu
-	ipAnG4lg==;
+	bh=OG0DfAuBdD6hx+sNXAwcUaaRCxMEbXCZhWJkq7Teu3o=; b=4Pz2FrVzc/MXoDEVqdlKjY/If2
+	eaIJFSHl1CyzqpeDRkFMlSHVdJuQIwPqhM2Ard9GTxzLD7l2IQOKfbpkIoCPboT03yB3vZNRHYdEI
+	u5hF4q8ovu2USUhC4PC2nHW3nMSbl2OngeXYMZmLth57N+Thk5FSODuy+OtrsMcOjnFad0rIeFzP1
+	l6PsJ5VvIBbcJlUStBxDgBdEU/iFCo6r7TtBvcvs2YlCa3DDUozK8tOVCPVBGQKS8Uq5uyzX1KKGO
+	Kl+JVBpeDteR03VpODiupFiamYVG8Dv6iBrl8HfpsljniyxXsTv3lWRYE2WwvssmayGbpqRMqiT7i
+	jmqGIS5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqd-0000000EzvA-2CNN;
-	Sun, 01 Nov 2026 22:16:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xNdqj-0000000F0Bz-0YoP;
+	Sun, 01 Nov 2026 22:16:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqH-0000000Ez2M-0MdT;
-	Sun, 01 Nov 2026 22:15:57 +0000
+	id 1xNdqM-0000000EzGQ-3f3l;
+	Sun, 01 Nov 2026 22:16:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 63140605CA;
-	Sun,  1 Nov 2026 22:15:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ED961F00A20;
-	Sun,  1 Nov 2026 22:15:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B65644049;
+	Sun,  1 Nov 2026 22:16:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 193F01F0157F;
+	Sun,  1 Nov 2026 22:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571356;
-	bh=W87d5476muuX3/O8DzYP4tAKHPl6gp8nviee8ooqz2c=;
+	s=k20260515; t=1793571362;
+	bh=/L1K5/K20Lylg3Y8uBVzdGE1hVGy8dUc9P/IZwg+EOY=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=SmGl7Wg9g1RxLvPfW2dALi+8QfaputCLxqfCXXzYwQxYXBE+HvzPQgFDkM9HsWvTL
-	 Xkkz0PMUmTmvi/9Cla9KrdHM8gMqSRVDrIS1Q2Awnl4sjtfhB9oKLuislGoFVvEj8h
-	 B3b5eyTdD/3KWwfeuWkUb0b+N6f8Y8ngmSseQOZcfrUINE2oZehPMiqWOBxoVj7O9T
-	 BRDW1sUwlnFaN3KWeyuMYiJv0qlIvtBeI6VC6WOVxEwu0HebGW+Scz5MniIlsKSd6F
-	 Yy+z6qlaX0muqhV6dMFi4jyvg06S8qEnYCKjcUoFuToUfoPo6JQ/ZrhT1lyDNFTzVO
-	 Loi5eGgGSeZJg==
+	b=aQ9aTFbN6x7ouscVsLZNxTXAO5E8ItcKZ9dPsJi9yvOWb/a0tVFSzFxK6HBHwvwkR
+	 qnGRH5hE04iqB7Hbx0soOLs60ndhW9fPRu1docmwvHJCPZ1sGH3aXo+aMYOMYvfS/m
+	 gLRk+lBuqCl595dJR/qDiLKaO5xzK3h4Qld2hh9aTq14S9IhqhLCn8gScipgdXhxZ4
+	 yz+eYaG3uHp5cGLm2P5HKV4lVfGfqkmRrBkNdAW5mFqV2BM1XB5v27eb8KPzOhQwgY
+	 8+dN6TuAxSwtlFieAsFFjpYJH+0D2okoO4dGm6PQ3yCoJG1GIK5OBjtH+j2NcShuR6
+	 6ScWRzm3UZjKQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 0315838003B8;
-	Sun,  1 Nov 2026 22:15:56 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 031C838003B8;
+	Sun,  1 Nov 2026 22:16:02 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 0/2] kexec: fix probe error codes and error propagation
+Subject: Re: [PATCH v4 00/22] kbuild: significantly speed up kernel builds
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357135454.2624073.2428991164390583415.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:15:54 +0000
-References: <20260821-mpilaniy-v3-0-76b355399d2e@redhat.com>
-In-Reply-To: <20260821-mpilaniy-v3-0-76b355399d2e@redhat.com>
-To: Mukesh Pilaniya <mpilaniy@redhat.com>
-Cc: linux-riscv@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org,
- mark.rutland@arm.com, chenhuacai@kernel.org, kernel@xen0n.name,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- akpm@linux-foundation.org, baoquan.he@linux.dev, rppt@kernel.org,
- pasha.tatashin@soleen.com, pratyush@kernel.org, ltao@redhat.com,
- prudo@redhat.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- kexec@lists.infradead.org, include@grrlz.net
+Message-Id: <179357136054.2624073.6980997342883603672.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:16:00 +0000
+References: <20260923-build-speedup-v4-0-73128809a4a4@kernel.org>
+In-Reply-To: <20260923-build-speedup-v4-0-73128809a4a4@kernel.org>
+To: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
+ nathan@kernel.org, nsc@kernel.org, ndesaulniers@google.com, morbo@google.com,
+ justinstitt@google.com, masahiroy@kernel.org, legion@kernel.org,
+ tglx@kernel.org, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+ x86@kernel.org, hpa@zytor.com, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, arnd@arndb.de, catalin.marinas@arm.com,
+ will@kernel.org, mark.rutland@arm.com, ardb@kernel.org,
+ ilias.apalodimas@linaro.org, jpoimboe@kernel.org, peterz@infradead.org,
+ ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net,
+ bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org,
+ aliceryhl@google.com, tmgross@umich.edu, dakr@kernel.org,
+ daniel.almeida@collabora.com, tamird@kernel.org, acourbot@nvidia.com,
+ work@onurozkan.dev, corbet@lwn.net, rdunlap@infradead.org, kees@kernel.org,
+ gustavoars@kernel.org, linux-kbuild@vger.kernel.org,
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
+ linux-doc@vger.kernel.org, axboe@kernel.dk, linux-hardening@vger.kernel.org,
+ petr.pavlu@suse.com, n.schier@fritz.com, manuelebnerli@mailbox.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,24 +96,65 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Mike Rapoport (Microsoft) <rppt@kernel.org>:
+by Nathan Chancellor <nathan@kernel.org>:
 
-On Fri, 21 Aug 2026 19:19:56 +0530 you wrote:
-> While debugging a misleading error on s390x where kexec -s reported
-> "syscall kexec_file_load not available" instead of the actual EINVAL
-> from a kernel command line that exceeded the architecture limit, we
-> found that some kexec image probe functions return -EINVAL instead of
-> -ENOEXEC for format mismatches, and kexec_image_probe_default() has a
-> bug where it returns whatever the last loader returned rather than
-> always returning -ENOEXEC when no loader matches.
+On Wed, 23 Sep 2026 18:17:49 +0100 you wrote:
+> A typical kernel build consists of a frustratingly large amount of time
+> spent stuck in single-threaded bottlenecks.
+> 
+> It turns out that there's a lot we can do about this and doing so
+> significantly impacts kernel build times.
+> 
+> This series makes allmodconfig builds up to 36% faster, incremental builds
+> up to ~70% faster, and noop builds up to ~90% faster.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v3,1/2] kexec: return -ENOEXEC from image probe functions on mismatch
-    https://git.kernel.org/riscv/c/2792b4b15f14
-  - [v3,2/2] kexec: fix error propagation in kexec_image_probe_default()
-    https://git.kernel.org/riscv/c/b7c94f4d0961
+  - [v4,01/22] kbuild: do not allocate .modinfo in vmlinux
+    https://git.kernel.org/riscv/c/5fe4dd596641
+  - [v4,02/22] kallsyms: index symbols by token to speed up table compression
+    https://git.kernel.org/riscv/c/6f014bf46faf
+  - [v4,03/22] kallsyms: output binary data to speed output and kallsyms assembly
+    https://git.kernel.org/riscv/c/83da9f3197e5
+  - [v4,04/22] sorttable: parse nm output correctly
+    https://git.kernel.org/riscv/c/4719513c0fa2
+  - [v4,05/22] kbuild: do not sort nm output where the order is irrelevant
+    https://git.kernel.org/riscv/c/c2970d8b52d1
+  - [v4,06/22] kbuild: only emit vmlinux relocations when required
+    https://git.kernel.org/riscv/c/8050568e0a46
+  - [v4,07/22] elf-parse: add section flags, symbol binding and mapping helpers
+    https://git.kernel.org/riscv/c/5005f8043c09
+  - [v4,08/22] kallsyms: reimplement mksysmap in C
+    https://git.kernel.org/riscv/c/531980b4b17e
+  - [v4,09/22] kbuild: calculate list, composite object state per object
+    (no matching commit)
+  - [v4,10/22] kbuild: implement and use depcheck to check dependency timestamps
+    (no matching commit)
+  - [v4,11/22] kbuild: move the toolchain checks into scripts/Kconfig.toolchain
+    https://git.kernel.org/riscv/c/f85147b291e3
+  - [v4,12/22] kbuild: avoid re-running compiler and linker probes
+    https://git.kernel.org/riscv/c/454e00cf8ee5
+  - [v4,13/22] modpost: cache section relocation mismatch state
+    (no matching commit)
+  - [v4,14/22] modpost: emit module descriptors as assembly
+    (no matching commit)
+  - [v4,15/22] kbuild: batch module finalisation
+    (no matching commit)
+  - [v4,16/22] objtool: do not hash DWARF relocations
+    (no matching commit)
+  - [v4,17/22] objtool: cache relocations, do less work, eliminate relocation hash
+    (no matching commit)
+  - [v4,18/22] objtool: size the instruction hash to the text
+    (no matching commit)
+  - [v4,19/22] objtool: decode instructions and resolve branch targets in parallel
+    (no matching commit)
+  - [v4,20/22] rust: make exports.o depend on the headers generated for it
+    (no matching commit)
+  - [v4,21/22] kbuild: build rust crates in parallel with the rest of the build
+    (no matching commit)
+  - [v4,22/22] kbuild: compress the kernel with pigz if available
+    https://git.kernel.org/riscv/c/48ebe1cbbeb5
 
 You are awesome, thank you!
 -- 
