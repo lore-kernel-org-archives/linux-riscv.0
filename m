@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D53B60701EA
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F4F86070EA7
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lA/12QI9;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b93Tisum
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=I8qBVh1v;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E/aQ2MKr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,51 +14,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=XeL1MmVSiBD7fIOCY++I8G5gvVBdxV5GcBwRxs4nfDo=; b=lA/12QI9osmEFk6kMYVG2HzcKi
-	riZCocaXdhjEPk3m1eLl9LGOlBskO7ltlVkFRHRQtXQnDjAsjIugfgSNVSpjcLJix4G68+9CUCQex
-	kHsdnCSk/vueTzXaMtp3XY97E4Om9lPzU9wYVjW+KIIASN6xXjifFUvT9tSPE3q46o8oojrL2MQVR
-	xcxp/KndOFoNMhEkHnbCtDZWNUPgr7949rbxsxsVJNebRpfAqfT2exhTg14QtK/G/56sYTioHf+dD
-	nKIRpDapvbGAOFLuR9rc/90XSwH95pvE8Px+HXA7pT95QbO0mDQJFrOglMWmgKzrN9jN9QysTAHt+
-	OpkMUwHA==;
+	bh=B0izYy0lLq+1qBOuByQspO2Cw2QT1BGkT3ZkvPnSa4o=; b=I8qBVh1vYuq2bu1XIgy0qp+8UT
+	BvS/aI/N65WBpOH2jiCjKIF+rMx9Lzist7v6p/G2lvIZ0kSAR5a+npuU6n20fPVWpXpUEG3FDrEkv
+	CRRhkxJT8dUsglf3xtU1MpcsGex7aoYQXRazdBxFpz84TRnEwQzkVDDi1ckXKwNw26qk3HMttUmFP
+	+/meGR4mApjppjvk2th8ZM6SKGv1K+rqtbehALunyheCb3I3wXJIgHUrIktpjoBMzdT0jN364/Laq
+	5BhI07zRWTs2iM8lZZbF3y8VjqxHAf9Qs4qNafT93/YelKChMvaZVibWgJ4S0nVYBWPsXznEmMIjh
+	Ji7zVynQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqu-0000000F0jB-3UUy;
-	Sun, 01 Nov 2026 22:16:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xNdqx-0000000F0q9-15Jr;
+	Sun, 01 Nov 2026 22:16:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqb-0000000Eznx-1mzl
+	id 1xNdqe-0000000Ezyn-3Qzx
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Nov 2026 22:16:17 +0000
+	Sun, 01 Nov 2026 22:16:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0F1C444001;
-	Sun,  1 Nov 2026 22:16:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E473F1F00A22;
-	Sun,  1 Nov 2026 22:16:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 230D66060D;
+	Sun,  1 Nov 2026 22:16:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C768E1F01578;
+	Sun,  1 Nov 2026 22:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571376;
-	bh=Y2PM7PaXPlUtwF7G8UYPMk8Ond4TLwOL7+2XwT/8nDE=;
+	s=k20260515; t=1793571379;
+	bh=3jtJ8UO3TkxY0olDal3hNFiHyaDqKlexwUqaCAVk6ok=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=b93Tisumf6w7GwGg8JsDtZTrtSbJIwBF1ayU27ZD9hDVNCKU+qHGncd2hKM6zZeEE
-	 jqomQF87URgdYK6poFOsR7kRwDChp6ccHh/bHjl9SrnVqpaxdjTQuZcMjisuMRbwBa
-	 8XGe+/7YUCA13wsqzPzmfTYPvAyhD6EnG59ZBNv+/suxVtJ9hEBYgi5Jmc1KVs0kwx
-	 bb3J2bs2zH9njzILt2JEGLSf3CPj4Sz/jrt8R8D19hpYS25c4F54gOQIW+OZzODjHg
-	 CQtQL42bgXBw4WrzOMtlYI14bZwlPgLM+40OhowN0JkJluG6I2TDV4KM6/AVlWy/PT
-	 yoYfcdU5IiCvA==
+	b=E/aQ2MKrGbi8mlSbFdskUu+G46rV8LTVckPtm9QEs2zR6KBVwpg1cdZTLjU3MPKFX
+	 8hDyOtmRO2vLQl2nvvOumhVUBUjD2pQLrIGfZJNBq0lVm/FXApgzycubsx3wdOjcvj
+	 4GFAtH9vVAYaMyetYOHalb2p1YW6Pgfta/AN0sBlmrOPqWpRoHhM9r7I7A/84zl9vU
+	 OQBNREIuzXWERb7PVgKWI4AtxQjpRDSB5g8qSKAAO+c8+jOwBoaGYT3pxPDT3424fI
+	 fbbdqrCQERz+qdOUmFCmlujLaGBL575NzeDeupoGvnqLS3Ds5HcDfaAI1XuyNGkpE6
+	 ItL837Zn2+DJQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D442738003B8;
-	Sun,  1 Nov 2026 22:16:16 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA21038003B8;
+	Sun,  1 Nov 2026 22:16:19 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v5 0/5] Enable Bluetooth and WiFi on K3 Pico ITX
+Subject: Re: [PATCH v2] irqchip/riscv-imsic: Reject overlapping group index
+ fields
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357137554.2624073.2079736918807982610.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:16:15 +0000
-References: <20260928205012.3689405-1-aurelien@aurel32.net>
-In-Reply-To: <20260928205012.3689405-1-aurelien@aurel32.net>
-To: Aurelien Jarno <aurelien@aurel32.net>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- dlan@kernel.org, spacemit@lists.linux.dev
+Message-Id: <179357137829.2624073.14938760984077073549.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:16:18 +0000
+References: <caplitmus-rv.v2.imsic.f2c0e5bdc627451c83deb0cf7eb8834a@163.com>
+In-Reply-To: <caplitmus-rv.v2.imsic.f2c0e5bdc627451c83deb0cf7eb8834a@163.com>
+To: Pengpeng Hou <hppiscas@163.com>
+Cc: linux-riscv@lists.infradead.org, anup@brainfault.org, tglx@kernel.org,
+ alex@ghiti.fr, andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu,
+ bjorn@kernel.org, linux-kernel@vger.kernel.org, palmer@dabbelt.com,
+ pjw@kernel.org, radu@rendec.net
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +82,24 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Yixun Lan <dlan@kernel.org>:
+This patch was applied to riscv/linux.git (fixes)
+by Thomas Gleixner <tglx@kernel.org>:
 
-On Mon, 28 Sep 2026 22:49:05 +0200 you wrote:
-> This patchset enables Bluetooth through USB on the K3 Pico ITX board and
-> adds the rfkill nodes for Bluetooth and WLAN so that the devices can be
-> activated.
+On Sun, 20 Sep 2026 21:07:54 +0800 you wrote:
+> The IMSIC address layout places the group index above the page offset,
+> guest index and HART index. imsic_parse_fwnode() checks the individual
+> field widths and the upper end of the group field, but does not check
+> that its lower end is above the other fields.
 > 
-> Note that WLAN support (patch 4) is only useful with the following
-> patchset, but they can be applied independently:
-> - https://lore.kernel.org/spacemit/20260923015016.64069-1-inochiama@gmail.com/T/#t
+> Reject a nonzero group field whose shift overlaps the lower fields.
+> Otherwise a firmware-supplied layout can assign the same address bit to
+> different indices when MSI target addresses are constructed.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v5,1/5] riscv: dts: spacemit: k3: move USB3 phy to board level
-    https://git.kernel.org/riscv/c/a87ca1e5b5d2
-  - [v5,2/5] riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX board
-    https://git.kernel.org/riscv/c/2b9612eceb96
-  - [v5,3/5] riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX board
-    https://git.kernel.org/riscv/c/ea5cef6d5f3b
-  - [v5,4/5] riscv: dts: spacemit: k3: add rfkill node for WLAN on the K3 Pico-ITX board
-    https://git.kernel.org/riscv/c/2f3b7240a4c2
-  - [v5,5/5] riscv64: defconfig: Enable BT and WLAN support for SpacemiT K3 Pico-ITX board
-    (no matching commit)
+  - [v2] irqchip/riscv-imsic: Reject overlapping group index fields
+    https://git.kernel.org/riscv/c/8caa8fcec8db
 
 You are awesome, thank you!
 -- 
