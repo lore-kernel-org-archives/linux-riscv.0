@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4218B60A2603
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37252606A329
 	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:39:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ifd4/e5X;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NMPhMg7/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xiG775sa;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QphlQCK8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,50 +14,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Ru8nTY+iufLTH+CPrJtbBEN9+lTlAmITlNdsojW9pjk=; b=Ifd4/e5XDCtDCldmKVSOBrsmMy
-	dfzZADUiLbhyNp6WAXktfnRoR7wgZTLLRJhixrYUHEskRoMEo3JIyvZ4CadQ4wcSphmefJxNa8w5d
-	DjvzR8IBramnaNsHENAOJW4awjUQY5OwI/vrkwHIxK48uvLN6Pt2daX+hSa8HtTdxVClA8OB4fsG8
-	BiF/j3dzEHuFnhLvXgTmAZ4hkbYLWDbcj9kO1nGo6pzWigA5EGtrjQGamb0XNRxt6JEerBx6A1EbF
-	wgjTiF6fZKW5/2lM3wHXmwKxwALC3nOw+psovT3bgigb3J+HRcMZspp3OFMvI/N2XbT/TrOcabYhZ
-	4jgncUAA==;
+	bh=ARiDjm4sIGDSxqmI+kv7f4yBQAKdICMhVLZPVGy6tl4=; b=xiG775saHsvBrZ00JAsTfMnRyv
+	hgJHf/ondCma0eBPz7R2ZpkJi6y0/ha2XnlaO6M/komkWuaiGeqEyEZgWHDFfiqUXbVKZqZzSapFC
+	VHUQ7eEcMEZAs+hIhNvW3ZM6IcNJgEX4ioO9HxcsPEvoKZps/1iKRyprwQIZRAhtRd7qqAZEBn3y5
+	e84wA39lS3ubxlNerDjMHmrg0bsMZqecfa2GpOgU1wrUsr7geBClTM6j9bR+fmeR3tk2sXqxzA8E9
+	bQ69HE7g8nICvmHrHduq0bn42drzqTgY3ek1MknvFfqKp2P2W/e+O+abeu+R/kb88T8hjcSRL3g0P
+	ISKz6w9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNeDG-0000000F9l2-1UGr;
+	id 1xNeDG-0000000F9lC-2Ejo;
 	Sun, 01 Nov 2026 22:39:42 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNeDD-0000000F9jV-1qlq
+	id 1xNeDG-0000000F9kj-0fqk
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Nov 2026 22:39:39 +0000
+	Sun, 01 Nov 2026 22:39:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E36054004E
-	for <linux-riscv@lists.infradead.org>; Sun,  1 Nov 2026 22:39:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C614E1F00A15;
-	Sun,  1 Nov 2026 22:39:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E3BA84323F;
+	Sun,  1 Nov 2026 22:39:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5CEB1F00A15;
+	Sun,  1 Nov 2026 22:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793572778;
-	bh=DRQRIRQarXTnNZOzq36UNa3LsErU7BTljNQ23y9A7r0=;
+	s=k20260515; t=1793572781;
+	bh=uKOf/sWuocTr+7AtsLJJEtOK0qwIac4arzN8no/qmUE=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=NMPhMg7/LznAP1qKPdQhcyzfkoRnuRkq7vWZjqAO6yYDMCI3+mTSy00GNoTykPN/l
-	 I+GcNSBWN/4lKNE6BrbqMKRcw2/+bmGiav7aSTicXO36taBJC5NZH18IU5+Coi0wDA
-	 gdR+edr+EYORtPTeI3PIdccVm00zUB6RTLyHFT1po3Dthbd/+/AQoelHGin4MWU/kH
-	 uoyu3FyWLf+cXi9OWPgdTyEABrwXLQsIAJPmb66RPyboOjS6jYP2HlbHO9F5enDPf3
-	 gg8XEGofYWsoGjADLkrLrV//hLH/EIbWNPvi1BLJ2/pR3iSrs8Q6hADfijvq8CV2e9
-	 aclo/6XUh1New==
+	b=QphlQCK8cpyKZuXZE49sZvVNg4wC9zZbAZq8JggdsOIJ5/Jv2HOTHHVSr0SGZ0VfM
+	 SGfAJrhIQjrkWNZd67JOm67gETu116yDg0Y8XASkdC0QA/KPSft57ElcJKmgx9sq8n
+	 CI6zyrHdsnmPr4N01ivysUI89C+y4mjbbCXC+i5g3V5Hq5DjWt0sI6f38KF3/IjTUq
+	 +rgjeOvteGPHVDbr8i7jkfzvIprxCsgDafSYnknEU9zUGJvnacnYVJV+/Bgs1ofO/6
+	 uUWECZt8Y7dugr1aIceBUnZrRXbRHK0jqlPPUn5/02FKZLMujct1uqmvCxMnAXDvM4
+	 HxQN66YfkYiDQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA314391AF9C;
-	Sun,  1 Nov 2026 22:39:38 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA41C391AF9C;
+	Sun,  1 Nov 2026 22:39:41 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [GIT PULL][1/4] RISC-V firmware drivers for v7.4
+Subject: Re: [GIT PULL] RISC-V Sophgo Devicetrees for v7.4
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357277729.2624073.16276179294842565397.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:39:37 +0000
-References: <20261013-defame-busload-7eeb111f35ce@spud>
-In-Reply-To: <20261013-defame-busload-7eeb111f35ce@spud>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, soc@kernel.org,
- linux-kernel@vger.kernel.org
+Message-Id: <179357278029.2624073.4779038529304323110.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:39:40 +0000
+References: <aff6ff25-8969-4a35-9543-9113afb2e003@linux.dev>
+In-Reply-To: <aff6ff25-8969-4a35-9543-9113afb2e003@linux.dev>
+To: Chen Wang <chen.wang@linux.dev>
+Cc: linux-riscv@lists.infradead.org, soc@kernel.org, arnd@arndb.de,
+ conor+dt@kernel.org, inochiama@gmail.com, sophgo@lists.linux.dev,
+ gaohan@iscas.ac.cn, lihangfan@iscas.ac.cn, chenyou910331@gmail.com,
+ andrey.lalaev@gmail.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,23 +84,20 @@ Hello:
 This pull request was applied to riscv/linux.git (for-next)
 by Alexandre Belloni <alexandre.belloni@bootlin.com>:
 
-On Tue, 13 Oct 2026 16:14:18 +0100 you wrote:
-> Hey folks,
+On Fri, 9 Oct 2026 17:23:58 +0800 you wrote:
+> Hey Arnd,
 > 
-> Might be my last mini PR here, since the RISC-V SSE driver is coming via
-> the actual RISC-V tree, so there'll almost certainly be a much increased
-> activity here going forwards.
+> Please pull this dt changes for RISC-V/Sophgo.
 > 
-> I'm a bit late PR wise (sorry) but I blame conferences and a busy week
-> beforehand for that...
+> Thanks,
+> 
+> Chen
 > 
 > [...]
 
 Here is the summary with links:
-  - [GIT,PULL,1/4] RISC-V firmware drivers for v7.4
-    https://git.kernel.org/riscv/c/7c2871861461
-  - [GIT,PULL,2/4] RISC-V misc. devicetrees for v7.4
-    https://git.kernel.org/riscv/c/928fdc6ff69b
+  - [GIT,PULL] RISC-V Sophgo Devicetrees for v7.4
+    https://git.kernel.org/riscv/c/5d299ec9395e
 
 You are awesome, thank you!
 -- 
