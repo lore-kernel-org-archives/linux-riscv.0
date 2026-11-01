@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25B70606F2F1
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96B9F606B054
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XSQWxR0V;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YLtzwK85
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NC59w9e8;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZKoBexQh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,53 +14,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=USH+eaowtEfE/+NZ01Rf4YpVNzbnj00nAESdxsFqK6A=; b=XSQWxR0VhkQgRwYhsG8L+utHBj
-	AHqyKrV+mNGWvLhk0oUHrBbrX3G/QMOEezoapyZ+DpajW/eyuUnTbSVCwsYWrIYW/LuCPj2HFOZ7G
-	JP/EDJaLgqOYJ8bSHSejs9kh6auP+qxp4yep9RFfTDm09d4Y53YJo4N5CB5mxQCGH8Wrd5s2ksSpu
-	45ybZoPwf31FCCgKvWlN2hcv9B/AxHeRj2PT6LlhQ23NdQcqVc1JRImJ0r4ah+bLBuqARFD5jwsmk
-	Ivb6IPcKEqD3x3AeCDvRxAQev+RuPPHsfB/55Csu3c0yB6UQdZ74bl2g+vSDWBtpYwFRIDfT51bGG
-	biKC+fTQ==;
+	bh=96CyJG+pjJPy2Y5hQBCWpmxdrdSmoQ6Yi+Ji8/fJErE=; b=NC59w9e8aaI8+HYfF0X6LiHjVC
+	Wl81jp8HGrW/GFzX0xje+SdEAp6nXlceKcPNkMynh9rLiOam/Gn2F0TJHvo6Z7Y1lHmgrf+4Pv407
+	H191PsOc6kIWQvvIHPh6Y6cTMfiJ3Ra3vHyHN8fOzUg4xyrbiuZCeOxcY/BZkRfyTbTeNZK5TgaOH
+	UrThLDUOxCZphsVhZ3zIENn5E0nHOHwpvg/Jkj91Ur+78ovueoDKE7sZD3wRfcRFaHNMB2sPFDE3R
+	JfwUGhMDOcjLpyFIiYChoBPQG0F92ECGvL/ApAZHZ5YGTUl8OGaRkmt/oitAH7dR81VpY/oz6J4MZ
+	5EOXdfOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqA-0000000EysC-3mPx;
-	Sun, 01 Nov 2026 22:15:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNdqZ-0000000Ezjx-3idc;
+	Sun, 01 Nov 2026 22:16:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdq9-0000000Eypa-07VY;
-	Sun, 01 Nov 2026 22:15:49 +0000
+	id 1xNdqF-0000000Eyxo-28sR;
+	Sun, 01 Nov 2026 22:15:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C2CE043EBB;
-	Sun,  1 Nov 2026 22:15:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8672C1F000C1;
-	Sun,  1 Nov 2026 22:15:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D6BAE601FF;
+	Sun,  1 Nov 2026 22:15:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85D121F00A02;
+	Sun,  1 Nov 2026 22:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571348;
-	bh=zWjchA1R3k2PWinfdPa1bmSSkYcmsFonhHSsoHtMyf0=;
+	s=k20260515; t=1793571354;
+	bh=NtvSLxCeAfOoCPUcLXijhf4eopOStWrRuZXjlGTbL0Y=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=YLtzwK85l4hGxLyA70UvP4j1W3M7aK0AnO65y/AzsiFBwFu+o+am4lM03VbtHtJ5K
-	 SS29sY8vrSYrA6jdvWzfwe5K90LxJtzoHxZZu0mTSUAvpZkN1PYLCGRsEs6UgYx0aB
-	 97oKuIhcSNLzzTU7IsY2JDbPwHgALU8UUMTUIacoZU37AQpC6KtulGbzQ30fh/1Pj7
-	 439Gr0UJypJlNRfMtvA0ZTTdkqVe4hPq7HarsqK8Usmvu9Wk0QYv2Bnam4S5juFWnH
-	 d/jArMh+zoyROvtkvZe5ytr6PBXG3TqNVsxhJFaqiJVBj+Botefdp40TKRHbDajTSy
-	 ztyxsj6TJTA0w==
+	b=ZKoBexQhRXRdf4UMV5kLb9mnk7bxuTeU9/aOxjsdVCuZzJfHLn+5n4iKhY/oUvoLp
+	 JVlIk4OSC46FGW/cqROShhBfR0LCiGtieNG3r2bP4+vQJKQQN6avAsI3VexTFYEc6H
+	 HeqNJOYNac6pTBjs08uHalbq9/cCo6b4M6EJbRyY8db+P5Yb+nJ89MfGrKvDO/DvqA
+	 EWV32KMLhX7VyAZUZh9xWUqV88A96fOJFPJbNBsWYVqdUjgIvMvML58c4FLKcoe6ME
+	 onFhhkTXSYOw8AndRXgJz1clc6dTs2kPPNm3il6xlWAexBttRJ6fQAlrv66HQgZ0KI
+	 /vAjPn1nOn1zQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7D5C738003B8;
-	Sun,  1 Nov 2026 22:15:48 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7D3C738003B8;
+	Sun,  1 Nov 2026 22:15:54 +0000 (UTC)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH 00/15] vdso: Clean up the vsyscall.h headers
+Subject: Re: [PATCH] kexec: return -ENOEXEC from image probe functions on
+ mismatch
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357134704.2624073.7289302544673229273.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:15:47 +0000
-References: <20260909-vdso-asm-generic-vsyscall-h-v1-0-63ae856cc659@linutronix.de>
-In-Reply-To: <20260909-vdso-asm-generic-vsyscall-h-v1-0-63ae856cc659@linutronix.de>
-To: =?utf-8?q?Thomas_Wei=C3=9Fschuh_=3Cthomas=2Eweissschuh=40linutronix=2Ede=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, luto@kernel.org, tglx@kernel.org,
- vincenzo.frascino@arm.com, linux-kernel@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org
+Message-Id: <179357135307.2624073.4721839203390727689.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:15:53 +0000
+References: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com>
+In-Reply-To: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com>
+To: Mukesh Pilaniya <mpilaniy@redhat.com>
+Cc: linux-riscv@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org,
+ mark.rutland@arm.com, chenhuacai@kernel.org, kernel@xen0n.name,
+ pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ akpm@linux-foundation.org, baoquan.he@linux.dev, rppt@kernel.org,
+ pasha.tatashin@soleen.com, pratyush@kernel.org, ltao@redhat.com,
+ prudo@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+ kexec@lists.infradead.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,51 +85,27 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Thomas Gleixner <tglx@kernel.org>:
+This patch was applied to riscv/linux.git (fixes)
+by Mike Rapoport (Microsoft) <rppt@kernel.org>:
 
-On Wed, 09 Sep 2026 10:51:13 +0200 you wrote:
-> The vsyscall.h headers are a mess. Some of that was necessary back when
-> some architectures where not using the generic vDSO infrastructure.
-> Now that this is not necessary anymore, the headers can be cleaned up
-> and many of the can be deleted altogether.
+On Thu, 13 Aug 2026 12:36:29 +0530 you wrote:
+> Several kexec_file_load() image probe functions return -EINVAL when
+> they do not recognize the image format.  A probe function that rejects
+> an image should return -ENOEXEC to indicate that the image is not a
+> recognized executable format.  -EINVAL implies a problem with the
+> syscall parameters, not with image recognition.
 > 
-> The recipient list is trimmed to only the vDSO maintainers and the
-> architecture lists.
+> kexec_image_probe_default() iterates through registered loaders and
+> returns the last probe's error code to the caller.  That error
+> propagates as the kexec_file_load() return value to userspace.
+> Returning -EINVAL from a probe when no loader matches is semantically
+> incorrect and misleads userspace about the nature of the failure.
 > 
 > [...]
 
 Here is the summary with links:
-  - [01/15] vdso: Move the kernel-side time update helpers to a new header
-    https://git.kernel.org/riscv/c/35f0a96848a7
-  - [02/15] vdso/gettimeofday: Define fallback __arch_get_vdso_u_time_data() in gettimeofday.c
-    https://git.kernel.org/riscv/c/4fba7bb3e73a
-  - [03/15] vdso/getrandom: Define fallback __arch_get_vdso_u_rng_data() in getrandom.c
-    https://git.kernel.org/riscv/c/ca0da001d3cf
-  - [04/15] vdso/vsyscall: Define fallback time synchronization functions in vsyscall.c
-    https://git.kernel.org/riscv/c/e4eeeaa14d8d
-  - [05/15] vdso: Delete asm-generic/vdso/vsyscall.h
-    https://git.kernel.org/riscv/c/8579b901d150
-  - [06/15] x86/vdso: Move vDSO page definitions to asm/vdso.h
-    https://git.kernel.org/riscv/c/8051a0f482e6
-  - [07/15] sparc/vdso: Move __VDSO_PAGES to asm/vdso.h
-    https://git.kernel.org/riscv/c/782478555fc6
-  - [08/15] s390/vdso: Delete asm/vdso/vsyscall.h inclusions
-    https://git.kernel.org/riscv/c/d5b1dadd2ef0
-  - [09/15] sparc/vdso: Delete asm/vdso/vsyscall.h inclusion
-    https://git.kernel.org/riscv/c/cc729f844815
-  - [10/15] x86/vdso: Delete asm/vdso/vsyscall.h inclusions
-    https://git.kernel.org/riscv/c/3086b69ee00f
-  - [11/15] arm64/vdso: Delete asm/vdso/vsyscall.h inclusions
-    https://git.kernel.org/riscv/c/128b1c7d3ac8
-  - [12/15] riscv/hwprobe: Include vdso/datapage.h
-    https://git.kernel.org/riscv/c/0d10af5db481
-  - [13/15] vdso: Remove unnecessary vdso/vsyscall.h includes
-    https://git.kernel.org/riscv/c/d6df494a0135
-  - [14/15] vdso: Add asm-generic/vdso/vsyscall.h
-    https://git.kernel.org/riscv/c/996b01393e93
-  - [15/15] vdso: Remove __ASSEMBLER__ guards from vsyscall.h
-    https://git.kernel.org/riscv/c/9e61cabcce2b
+  - kexec: return -ENOEXEC from image probe functions on mismatch
+    https://git.kernel.org/riscv/c/2792b4b15f14
 
 You are awesome, thank you!
 -- 
