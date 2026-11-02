@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34070606A32F
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 19:46:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0C18606A32E
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 19:46:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=h0V6q7/h;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W5rudeN/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ix82L2ZD;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MbbHgxWW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,71 +14,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=SHz5DVqOp9g0bggyC+6AmGDQDWcw64Sa5rEiNcA9oJ0=; b=h0V6q7/htikag9LRmKzhNNJ0dl
-	EdMEv5WWv/Gfo66opcQN8m9rmfMGMkPIepEYRmZ9B9xyEM0Jf8cvdDj2Ghclzchv9nEsBETPJXVLQ
-	lJzzVVPGMsQ6sPskPmgolmZ5blwLJElVJopHGEvSwJP8k+zhLsymK7lmv7/wFSj3kBdaX8vZZ/0Kk
-	Y4xf6ULIPCclq7ySenWxtosz3fxqzA8A3kKGX5Yf2qgAVTM8SjSmh5lcTW41FCmsMbDIaMsuHoogQ
-	My3UMmLy3h87wB1JlRruIKhlmzow4iYOnvnomFx1ogli4WB5IvFjggCHjKz0O4w1Y2XbfFfqMFEiA
-	HuNKCScA==;
+	bh=pbl9vnW/qmUvDhHlQnZh3iYTwyNWmHoQt1UXV0ZDbi8=; b=Ix82L2ZD3bvOYGGxreHtYlrp5J
+	2zpG5J+orQ+jdYL7COiUb1qh7yjRDR8gWw5KT4yxkr0Nd/XmshXWqSJ0i+ClguRowO8mtmjiq8qhv
+	g1CDyAA2wG9lFPt9DrJI2YjvqE1R4snxMkcYduyTHjFGHDt818SeZLDa+84mwxiXA8w+tWCNhO0BE
+	nosWvX9fWmJzhaffOozWmkdwaL/eyfzWypOE6obMaiwXa4tNr/f9Q1dedlVXsD7PtNVfDzu4PxvEP
+	RZJBmPKjO8isb1EYJzhiAM/jCOxzkRXTwpTH/W7iuuoG9T9v/i2oLBj734/oBlDamU8Fdp/z9bopL
+	RU6Kbghw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxz2-00000000AF4-2X0A;
-	Mon, 02 Nov 2026 19:46:20 +0000
+	id 1xNxz3-00000000AGt-1JKt;
+	Mon, 02 Nov 2026 19:46:21 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxy6-000000008bS-29hD;
-	Mon, 02 Nov 2026 19:45:25 +0000
+	id 1xNxyA-000000008dp-0rba;
+	Mon, 02 Nov 2026 19:45:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4461B44610;
-	Mon,  2 Nov 2026 19:45:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8889344623;
+	Mon,  2 Nov 2026 19:45:24 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793648722;
-	b=sIvOjamXTvZrndOeoaw0Z1RawDRDFjqk3hyNUMPR1P3G2KttkIAZXBB1X5l0TOvZ05Sb
-	 AI+gC/N0lHSST4JRte7Yk9f1ReMSg2L0FeycIJqYGsGxoEwdrkGPCXZYToCgb5+ejoHQV
-	 Eqb08XdUC4uwMuuuksCxHq2DaJzovlX3gqXYxcrxB8+yNX3AhMQneQpl0xBvya3BRHOSd
-	 ybCtR9EghIPZfTgbFEjdeHGhcibfHCurJeVDVIC6wgKvMad5JQEOOYsuS3wYkd/ZzY7PF
-	 NmeBkPBS2YvVu6qofPVHCPuyNeqrps27YHnPclrgeLdIAYpOKCNW/SfqEQh3oHd0xPw==
+	t=1793648724;
+	b=fly8MnMLxQkj7QnhtcTqGnn1JCAqPUcXhYE7+HiQ7wGpOwaRFshkyfplcRGFU5/H9iQh
+	 yNUSSJx6QudD3BKgUMoxWVhb4yBgiXeHv8Nd7Z9yCyad/xu+gYfTydHGAwHauMuhArnoU
+	 nBXk/jGIUXREvPS9Av3WcsObXrtQ7/wO9ODzBuG99ef/5QqMLG9abZwF5AczyFJnMulWL
+	 vBbBDCdBet81IcpWVDUVNybzR0qA5KrupXMzVRNurMSPSs1jrqW9buToORqeBL+eM8Et0
+	 wvNaTd89/T/0WqYlQBsK+rFIQR1YaCGR2RAcn4vGEgpKMtXkAQzOVpYFZ+4gNnkj7Yg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793648722;
+	c=relaxed/relaxed; t=1793648724;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Rmfx7QYlhFdbxH6abqp7/AYToCj2a0IViMkw7PBXQf8=;
-	b=xMI+bY0x09fuhFnB0dFX/DogrCXcsLJTJi/An02AZ/ny4M1VhyUNFX5CTxPhEBlsUyG0
-	 aQlcfzY/KlxZLwiB1MFCrrdq8zMqY4HOL4Men5hAs5fpSxGuqUQj9hnCc/a23YoM+lzYI
-	 07c84BLidSS7S7ocGvlqG2NBy9h9YFcZrhufQHCyQLUUen/YgVYSEtqEasww2KcDwdrCk
-	 FMhSOdwdZqI2bI0NkLIFUj8h3rUmDK0pknxhucgN0C7qXatDuseIwJPBNV+76fPRnrLZJ
-	 69amymiMzFFUu7HxDfkZTqWfFSp3ujJNfTNmA5hsMPMmtDx4IO3s6N4QbprtOeqxMRQ==
+	bh=xDviUrSMqV9Z+mot6jCFHNu1hNqv1bylSy05f5qWmgw=;
+	b=MKqNiY5nM22mJ9GI3JuZrOsqYNakqrhtpUJNFXC66/LJUPwNjex6iSzh8Ur9ZQ3bHYi3
+	 n/9iBQFGp9eP9NkNfA7xG6KRvNQDrluObqPb7/dG4Dn1pe9oGzzCY3m2Y7bNZ0cGi9o/3
+	 W9w1OpBji2en3NcllwuOAYlYIoiMnKYbIc4Gn5xLx8prNVFS+VeufgqiFsbvPNgEVHLEh
+	 C3GeIvnGF/xuplgz2TlIPxzfWjRi/86OUaHkNI728Pief+rJelY7io7YlEVB8RnZR5VKo
+	 NsO1V9iehdq2u7knew2dYy6HygDuVOtVU317gkGPVyLRk2zvqSS8BH14yZzRxb0plTQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B95B31F00A2A;
-	Mon,  2 Nov 2026 19:45:11 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 655C51F00A1D;
+	Mon,  2 Nov 2026 19:45:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793648722;
-	bh=Rmfx7QYlhFdbxH6abqp7/AYToCj2a0IViMkw7PBXQf8=;
+	s=k20260515; t=1793648724;
+	bh=xDviUrSMqV9Z+mot6jCFHNu1hNqv1bylSy05f5qWmgw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=W5rudeN/9ftHf2uMl3BdPZ05LRbMbd3yveTCJ3gcETNplQP+7wwydsdWBk07mnb2c
-	 6IppoNJDPkaHDQrq2ce0HBasQsbS+21PZ9rZ6UI76e8AfnHzhPzD1OBMHTSs9kZDG8
-	 BNqvv/VUDRWHoMl7eM/gW7FzNRFBDsfuHf8TI8Dr551JP86QX8R/TcOEz46uqszw19
-	 RNQ1JSqTMLtS6T6vAVJ5TVPbkLyryyDAHHwf8Pg5SrGX9KnH1smH1AMJUz/atNT01V
-	 rMMALjI+pwrYgXrPonhiuwDD1BM/MO/vIvZVnYmmYlvUe0Rx9F+iifzwL9TTETVq2Z
-	 0PIEEdeKApzTA==
+	b=MbbHgxWW2YJEnOlOf10TwB62Gzg84RjY6W0IkpARovW8PSsh+XZ/MicGtGaKHhnxN
+	 0DxY2xHonBHwTSuv+lMoBst3PJM6edBbG0sYbcQb5pRjCXSYOc6G0ucpvId8KHOEKL
+	 pG1TRaYZu38mRJtGyIlno37FlnqB73audAjmRq5+Oo5QV4gGN1obi8bb11Ak2QnCFc
+	 hav1rFuhhu1q5axxdkey4mbQS5ODEGZxt2a06p4TSxx8HrnirH8ElU/+44gV7uBWW5
+	 vzd4Oaib630dckPKiPZTK/fU6hCEYHTv0thmOK/9HCW7TDp+r42DBnl+AXtSNCalFa
+	 wgHKdA+bfjPjA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 568294662D;
+	by lkml.kernel.org (Postfix) with ESMTP id B618246645;
 	Mon,  2 Nov 2026 19:45:09 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Tue, 03 Nov 2026 03:45:14 +0800
-Subject: [PATCH RFC v3 11/17] dt-bindings: serial: snps-dw-apb-uart: add
- Zhihe A210 UART
+Date: Tue, 03 Nov 2026 03:45:20 +0800
+Subject: [PATCH RFC v3 17/17] MAINTAINERS: add Zhihe A210
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261103-a210-scmi-v3-11-ee6b31580808@iscas.ac.cn>
+Message-Id: <20261103-a210-scmi-v3-17-ee6b31580808@iscas.ac.cn>
 References: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
 In-Reply-To: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
 To: Sudeep Holla <sudeep.holla@kernel.org>, 
@@ -107,13 +106,13 @@ Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
  Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
  linux-serial@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, 
- Han Gao <gaohan@iscas.ac.cn>, Conor Dooley <conor.dooley@microchip.com>
+ Han Gao <gaohan@iscas.ac.cn>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793648705; l=1465;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793648705; l=998;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=QLjwbL73GqPkQVnItJ73UGwGElc2NGvSKMH+o+6GPQk=;
- b=GwTMVWufbQ3apHJbtkCx8hlRQnr+EZ3B6ni/R6Ct6tj8GjQaIdyxcUFNA6jzCIbaIHbScNRAo
- NxteGYBNi8CCG2wb3dxhMiBYvRAuuXZM8hNZ8O6SDJT8ZST/KoSAtkO
+ bh=8rAYBDf7gj4NVAnJH29mjOJ+nEym4unk8d8Kkoausq0=;
+ b=6TtP6/NuwZRzu3va09O8e8UnA3pvPHGh9UPTGAq0Dmo7rbWDjdpRffzRpEhXpozRYgIMWLU6S
+ zn1EkLvVW2CC6itThiOaOSkDpscWcGEVnsphO87jn/Tou5u0i4hWASF
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -141,47 +140,36 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Han Gao <gaohan@iscas.ac.cn>
 
-The Zhihe A210 UARTs have separate APB and serial clock domain resets.
-Add an SoC-specific compatible that, like the StarFive JH7110 one,
-allows both resets.
+Add Zhiguo Zhu and Han Gao as A210 maintainers.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ MAINTAINERS | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-index e2ca126d58ba..a46a87e100bf 100644
---- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-@@ -29,7 +29,9 @@ allOf:
-       properties:
-         compatible:
-           contains:
--            const: starfive,jh7110-uart
-+            enum:
-+              - starfive,jh7110-uart
-+              - zhihe,a210-uart
-     then:
-       properties:
-         resets:
-@@ -43,6 +45,7 @@ allOf:
-               enum:
-                 - starfive,jh7110-uart
-                 - syna,sl2610-uart
-+                - zhihe,a210-uart
-     then:
-       properties:
-         resets:
-@@ -92,6 +95,7 @@ properties:
-               - syna,sl2610-uart
-               - ti,tda54-uart
-               - ultrarisc,dp1000-uart
-+              - zhihe,a210-uart
-           - const: snps,dw-apb-uart
-       - const: snps,dw-apb-uart
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 93abbb315065..64ed305d9bce 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -30860,6 +30860,18 @@ L:	linux-kernel@vger.kernel.org
+ S:	Maintained
+ F:	arch/x86/kernel/cpu/zhaoxin.c
  
++ZHIHE A210 SOC SUPPORT
++M:	Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
++M:	Han Gao <gaohan@iscas.ac.cn>
++L:	linux-riscv@lists.infradead.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/mailbox/zhihe,a210-ap-mailbox.yaml
++F:	Documentation/devicetree/bindings/pinctrl/zhihe,a210-pinctrl.yaml
++F:	Documentation/devicetree/bindings/riscv/zhihe.yaml
++F:	arch/riscv/boot/dts/zhihe/
++F:	drivers/mailbox/mailbox-a210.c
++F:	drivers/pinctrl/pinctrl-zhihe-a210.c
++
+ ZONED BLOCK DEVICE (BLOCK LAYER)
+ M:	Damien Le Moal <dlemoal@kernel.org>
+ L:	linux-block@vger.kernel.org
 
 -- 
 2.55.0
