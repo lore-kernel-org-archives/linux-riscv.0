@@ -2,68 +2,122 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 430EE60850BE
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31ACC606D811
 	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 19:45:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=R4+7yOSW;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hth+rPdM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YVeKiArq;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YolLX4Ue
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=TMinNDL1UyNEo63bO0Bkf1LA48yZzavU/gLM1wwyJ64=; b=R4+7yOSW/liEr1LtMGrdx/N+ZV
-	5wTDglkmtN4XuwqfTtUh+IZa6WodcOoV1PG2ijBfZCW+lounQ9GdMupK9sD2MIuYzzOXocFJNQGi5
-	7VSIIwOLljcuVB5GBzpRbzRycjq4vJVqVskWyzH9cH7FxWanTLCUkeglXwZXIcd3BXbeSpJAIJ31r
-	mQy09xLdigs3eFSiNDVWQKbtpr/K3ZfoEaUV2eCikWUSBXOfwmEqOflpopZ3ZXHsgqiY432vzJZ/n
-	XaeWqdEDbetz6N7Yd/QiKzJrm/4WDg5lNSr1+N4QxEFm/L6WMHR3faH9dd/TOIOoEZtD4Ia86XMpx
-	BWFLfoCw==;
+	bh=LkrJ9Ps/5AE9vVhXTBOI6Vn25G1FHAoQdQpWX82Ehc0=; b=YVeKiArqJJVyQUP41f/L3RzW2S
+	gM+TPNtlg68cBl0Axxy/xh0L3NRVNcY/u8c8mjNvHmETYgCguwYrrD58Nn2f7b8BNlsyeVp9HI/4S
+	8lC13KD3VF0ZZkctyhAl/mO4nmTZ4ueCKSMa+iz9oX/kIdMqqGvQriHlzvEI2BmBR6+SEkIcKGwNN
+	LKEZtVKm9HJGS8kBwK5Up9hts2pAGtCHdnn+0zWzx9+SarA9cs09TbpUoPFRi9Yx8WcWI2tEnEw7Q
+	H572f7wfGJtnqLAbJsT2xYjLGNjytqB6A4lqFyLuFZ2ZLQQw6yCsB3OgVsvROq0x8RDAQFG/Fl1EV
+	VWNTxyRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxUr-000000004f3-1f3P;
-	Mon, 02 Nov 2026 19:15:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xNxy1-000000008Ws-1UUs;
+	Mon, 02 Nov 2026 19:45:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxUp-000000004eq-2gkp
-	for linux-riscv@lists.infradead.org;
-	Mon, 02 Nov 2026 19:15:07 +0000
+	id 1xNxxv-000000008PY-3KH6;
+	Mon, 02 Nov 2026 19:45:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1A6F060136;
-	Mon,  2 Nov 2026 19:15:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 132871F00A16;
-	Mon,  2 Nov 2026 19:15:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 46ED344520;
+	Mon,  2 Nov 2026 19:45:11 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1793648711;
+	b=gCY9Sw5infX66iayivlWj57SK3ohKDlFeDQvALk9kQfkiS3nA953VszldQrVzMm5cXMT
+	 J8Ix5aEaCbkYWb8L/vd3AMCIWjxi7wlALue3/qJi9wp9kUnmO8GbABn/1by00GCHpXDH5
+	 Yt+eCytFTRKw1up+WpkMODIlh17RaCKVajiNPEfG02/M0g9y9tCuib7+006mMJ8kuPf90
+	 q9UfVotCIrXVp/EgOTGcXMA/0kB1Drv+GL5itLmrp3ZOC4taSweS482Li/L0mdj1+ro6R
+	 RvWSFDx+ZfhkoYn3zrnSscpn+0Jz4L7gyZTRB2nkPMPH+gEYPEiI6J+O4NhngzQoAwg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1793648711;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=HaDvqqM1aHY770KYqszI2Ek8CtfQ6a2OxvtP+NU3+wQ=;
+	b=b8IZhwtqK8ZQjXH5oZN//g6gInBohGkdNB+tMsuQlIT46nukOods6OA8U0cf/pXpzW+y
+	 Vgq3gSAji8VW4XB1rzKzNgkUYLs/N8nmlRMMN7nPDcZKTzmJSuhiAYIOOaHOorI9WjiWM
+	 rH5OPdUxj1BTXPOEEOWxLzoB80BiY6ouOwkFjqrx2K+mR6DPDY2deR/0cwKZnArHdiZ35
+	 BrE0ZHmkZJtCFGfOxh40EksrPjPiYuAMSm9tU2xXeU7bLMumcgKvj8BS9h42QbgK6qlP5
+	 mUzHCZhW/SwXkQ1CWQzw3makRauH22fe95uQv59TZQxqnU09Up0PGjiPTTmxdU4DVsg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 4F49C1F00A16;
+	Mon,  2 Nov 2026 19:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793646906;
-	bh=Ub7b5kzLvl9OAeW8ozCd6H/592RWGbAqWfLNRh//2/A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Hth+rPdMehrl9EA1niQuNJaYSiG8QK4UJG4rx8w5Ztdq3W+R1L/UaI6/zUUkZCN7K
-	 xDyiXsp4wlh0FJCJDcFHwZcofoZr4pjikuBS2SlOck6aQiKqdbcDOc9EbVT/oeE8G0
-	 9SJlMrKd3rpvhnrldz1cIOWF6WmQ9z9mKwbt7Ge9PitOwZLM44JstbN2OfxP03NCyJ
-	 HA8EV2ZhDX+d7Sp2/aIYeLSy1ZDmsglmKsl6wJtM839v9kvTMwIesqkqeWDNnOD50Z
-	 clF9ZfT7ekH6mdC2DlAz099ceeGe12OL0RSdfav0IQJ+Sk5NRtGVo5NJDqW6i6Kvzl
-	 qrK7BS0wJSM3g==
-Date: Mon, 2 Nov 2026 19:15:02 +0000
-From: Conor Dooley <conor@kernel.org>
-To: marouene.boubakri@oss.nxp.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Anup Patel <anup@brainfault.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Radu Rendec <radu@rendec.net>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/8] dt-bindings: timer: sifive,clint: add OpenHW Group
- CVA6 APU
-Message-ID: <20261102-coagulant-unplanned-f98c31a5a309@spud>
-References: <20261102141727.640769-1-marouene.boubakri@oss.nxp.com>
- <20261102141727.640769-4-marouene.boubakri@oss.nxp.com>
+	s=k20260515; t=1793648711;
+	bh=HaDvqqM1aHY770KYqszI2Ek8CtfQ6a2OxvtP+NU3+wQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=YolLX4UeIWcinCTZMwcPOnHtbpLUJ1Sm4h2+pNBInaieR6ih/ZVy9jAtHUx4qOqSo
+	 19hfnbV+PYuSnNzMFqhv53h1+xFsy9ORpomMeoc1PrZqP0aXwKkQ8jfYZ7fl9T30i8
+	 BPFHdJ4Wd2Dxg0jy+KJ2VkevebmZ3p4NgqKlxFXod1W+UBIxha5wJ7zLwus5uv5/DL
+	 akbPKN8VVTYXBlYTPjtjWcDptgQnVrGwqHjqkVdW9yUQ0ar2KS7+9hdfQJ/OnZG9hh
+	 tUShvoIYgDByp3L7Q1Qa8KNsx2fElveGas3qNSWswe8+h55hh9rutOpxXTk2oWbAE2
+	 WEV3yWDUkhpCw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id C064B4660A;
+	Mon,  2 Nov 2026 19:45:08 +0000 (UTC)
+From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
+Date: Tue, 03 Nov 2026 03:45:05 +0800
+Subject: [PATCH RFC v3 02/17] dt-bindings: vendor-prefixes: add Zhihe
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20261102141727.640769-4-marouene.boubakri@oss.nxp.com>
+Message-Id: <20261103-a210-scmi-v3-2-ee6b31580808@iscas.ac.cn>
+References: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
+In-Reply-To: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
+To: Sudeep Holla <sudeep.holla@kernel.org>, 
+ Cristian Marussi <cristian.marussi@arm.com>, 
+ Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>, 
+ Jassi Brar <jassisinghbrar@gmail.com>, Linus Walleij <linusw@kernel.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Thomas Gleixner <tglx@kernel.org>, 
+ Radu Rendec <radu@rendec.net>, Samuel Holland <samuel.holland@sifive.com>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Anup Patel <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Drew Fustini <fustini@kernel.org>, 
+ Icenowy Zheng <uwu@icenowy.me>, Inochi Amaoto <inochiama@gmail.com>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, 
+ Jiaxun Yang <jiaxun.yang@flygoat.com>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
+ linux-serial@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, 
+ Han Gao <gaohan@iscas.ac.cn>, Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793648705; l=895;
+ i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
+ bh=NfTLhXrzvQ5lJQxz8O7S6dCaG/HAPcHpRM6wkHRi+5Q=;
+ b=EkHFLciIZZch9iuzOgwnaOmlBKnGOxBB8HE+LG+jczcEBL90Piz0He2kOn+rtz71Xo+GEU838
+ hwzMmb+9JLiDM5aTAdDBvaE/0wPenle5w5E4JW3Kx4+wybSBOWepjx7
+X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
+ pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
+X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
+ auth_id=1262
+X-Original-From: Han Gao <gaohan@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,51 +127,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7755451236465407019=="
+Reply-To: gaohan@iscas.ac.cn
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============7755451236465407019==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ck1ZkQepgggIYSGA"
-Content-Disposition: inline
+From: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
 
---ck1ZkQepgggIYSGA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Add the vendor prefix for Zhihe Computing.
 
+Signed-off-by: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
---ck1ZkQepgggIYSGA
-Content-Type: application/pgp-signature; name=signature.asc
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 5471a06f93f1..e6db332510bc 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1995,6 +1995,8 @@ patternProperties:
+     description: Zealz
+   "^zeitec,.*":
+     description: ZEITEC Semiconductor Co., LTD.
++  "^zhihe,.*":
++    description: Zhihe Computing Limited
+   "^zidoo,.*":
+     description: Shenzhen Zidoo Technology Co., Ltd.
+   "^zii,.*":
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaujhNgAKCRB4tDGHoIJi
-0vnqAP49VXjGm7Y82Jh8vMDSzllX63VvhJSZatC/j3MzWdJm0gEA40JIqOL0/nky
-JeL86xTzQidzloCS9D260V0s7U2YHgg=
-=Ze0C
------END PGP SIGNATURE-----
-
---ck1ZkQepgggIYSGA--
+-- 
+2.55.0
 
 
---===============7755451236465407019==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7755451236465407019==--
-
