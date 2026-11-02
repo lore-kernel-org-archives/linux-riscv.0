@@ -2,70 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E848606A32C
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 09:18:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A92B606A324
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 09:19:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gXuQbkxG;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=baidu.com header.i=@baidu.com header.a=rsa-sha256 header.s=selector1 header.b=QaGTAqh5
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=I5hw8c5c
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ngHIuJyvK4esftPE479SDYv00tsWAoQ/FByI95CoGL4=; b=gXuQbkxGtMmaVniobCIo3DBlbx
-	geE/eizCW0tb/t5RNbv8VFJbHDU4RqDXdtav4JIngnGnOc3c15yFdqSZBrqcODQJMqGbAbqZC8aKn
-	j4E2b4+qTBxssYixBliJiHsmvwhZcw3Oe4SFhQo9WcbaNWppEMUmwsetUD0rwq960y4PyaErkusNh
-	YMqK3B2a+Mg5TsFIAxGM+2zgjMSNVD3i/cD6wqhjjLA2TsY7GuOZqewrM7L7EMXvJyw0Dgpwd1Ywn
-	VXkDX9JhdrIFuH1Mz6E9j4IDnkgD9HQSpbwcwLHGfti4Mc5FnTllSnRX4jxjKeoMi7u7ogRPO8lAP
-	VY2G0FFQ==;
+	bh=fUQIL8fQ7soTJIOvhn+4liGgYTrtduxDwvlDqcOOOFM=; b=I5hw8c5cFUlGvkY66i12VZBoq3
+	mu1TDxXcPz63408PQu7D7MT71IwwQwOm3qgJppha/3ALLbD6qU+ejdPMo0Iz3bwBviWXP9/dpsemS
+	lD6mbz7b4g/E3tHGPxDaGOjtv0q0FOvfJ7RoJmRoo7342AaMAljdykZPXiuN4nA0d2eD5UpJvizSE
+	BbU1OJ4cBYaLzfFF57Ot+1F03o3y1nQef7jadA833QFgJUHld0NerGPM09kcBcWDfxTOTaoHSZ9ch
+	d7kzB+R4+FLIhi+AS02Hyyu+yU8jK3cXpiuTGYTgaXquTJiPDaJ2dE6XsnOT9ZXax0mTnRAfSdtqJ
+	mwzpWl8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNoBa-0000000Fyez-3Dis;
-	Mon, 02 Nov 2026 09:18:38 +0000
-Received: from mx24.baidu.com ([111.206.215.185] helo=outbound.baidu.com)
-	by bombadil.infradead.org with smtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNoBV-0000000Fye3-0QZC
-	for linux-riscv@lists.infradead.org;
-	Mon, 02 Nov 2026 09:18:37 +0000
-X-MD-Sfrom: lirongqing@baidu.com
-X-MD-SrcIP: 172.31.50.47
-From: lirongqing <lirongqing@baidu.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim
-	<namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Alexander
- Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
- Ghiti <alex@ghiti.fr>, Li RongQing <lirongqing@baidu.com>, Atish Patra
-	<atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>, Shenlin Liang
-	<liangshenlin@eswincomputing.com>, <linux-perf-users@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH] perf kvm: Fix RISC-V VM-exit duration accounting
-Date: Mon, 2 Nov 2026 17:18:09 +0800
-Message-ID: <20261102091809.2215-1-lirongqing@baidu.com>
-X-Mailer: git-send-email 2.17.1
+	id 1xNoC2-0000000FyiC-07XZ;
+	Mon, 02 Nov 2026 09:19:06 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.35])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNoBy-0000000FygR-3kMH;
+	Mon, 02 Nov 2026 09:19:04 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4jJ5jh6ZLjz8Xrrl;
+	Mon, 02 Nov 2026 17:18:48 +0800 (CST)
+Received: from szxl2zmapp06.zte.com.cn ([10.1.32.108])
+	by mse-fl2.zte.com.cn with SMTP id 6A29Ic4i018555;
+	Mon, 2 Nov 2026 17:18:38 +0800 (+08)
+	(envelope-from gong.shuai@sanechips.com.cn)
+Received: from ubuntu-35-gs (unknown [10.230.214.35])
+	by smtp (Zmail) with SMTP;
+	Mon, 2 Nov 2026 17:18:40 +0800
+X-Zmail-TransId: 3e816ae85560029-030da
+X-Zmail-LocalSMTP: 1
+X-Zmail-RealSender: gong.shuai@sanechips.com.cn
+From: Gong Shuai <gong.shuai@sanechips.com.cn>
+To: fangyu.yu@linux.alibaba.com
+Cc: alex@ghiti.fr, andrew.jones@linux.dev, anup@brainfault.org,
+        aou@eecs.berkeley.edu, atish.patra@linux.dev, baolu.lu@linux.intel.com,
+        gong.shuai@sanechips.com.cn, guoren@kernel.org, iommu@lists.linux.dev,
+        jgg@nvidia.com, jgg@ziepe.ca, joerg.roedel@amd.com, joro@8bytes.org,
+        jroedel@suse.de, kevin.tian@intel.com, kvm-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+        nutty.liu@hotmail.com, palmer@dabbelt.com, pjw@kernel.org,
+        robin.murphy@arm.com, skhawaja@google.com, tanchi25@mails.ucas.ac.cn,
+        tomasz.jeznach@linux.dev, vasant.hegde@amd.com, will@kernel.org,
+        zong.li@sifive.com
+Subject: Re: [PATCH v6 09/10] iommu/riscv: Add dirty tracking support for second-stage domains
+Date: Mon,  2 Nov 2026 17:18:23 +0800
+Message-ID: <20261102091823.54287-1-gong.shuai@sanechips.com.cn>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261031083014.15040-10-fangyu.yu@linux.alibaba.com>
+References: <20261031083014.15040-10-fangyu.yu@linux.alibaba.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-ClientProxiedBy: bjkjy-exc6.internal.baidu.com (172.31.50.50) To
- bjkjy-exc3.internal.baidu.com (172.31.50.47)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=baidu.com;
-	s=selector1; t=1793611102;
-	bh=XcbRLYGB82m3MgaPiEO3IYAwJ6GpxW8GbWCS3Wtb9Xo=;
-	h=From:To:Subject:Date:Message-ID:Content-Type;
-	b=QaGTAqh59VJmYEyQkD08q3w0vGj4YFhITfHtYX1uz2jXSYjtggLmQ+KD3uH09wDlH
-	 R/Ym+pWCCUyLabnZ4ex5LpqBitWIyM8AvxLaS53KXd/eK/eihx+vIER57blefyObCL
-	 cq7g96xqj91yO4wudC6Xi9KyRMwxGrkhkYftCjCTYbtAFnbUqq09aRoL+BTb9XaQhm
-	 cQpY07863XfCjI2ZwAIDz5/TL+y5TxcyEbU72e+s1n7rPOlTwM2jChrHOqL/0UJ3m9
-	 Qo/lvS/cvATyFLomyQnKtrqYBmGeKiVNXojCp6kP/NrR7t7fiD29lirNBkmatr9nPs
-	 9lcVzgrRBnj8g==
+X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
+X-MAIL: mse-fl2.zte.com.cn 6A29Ic4i018555
+X-TLS: YES
+X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
+X-SOURCE-IP: 10.5.228.133 unknown Mon, 02 Nov 2026 17:18:48 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6AE85578.000/4jJ5jh6ZLjz8Xrrl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_011835_869726_12CCF0EE 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261102_011903_264583_8C016595 
+X-CRM114-Status: GOOD (  13.41  )
+X-Spam-Score: -2.9 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,54 +94,103 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Li RongQing <lirongqing@baidu.com>
+Hi Fangyu,
 
-Use kvm_exit as the start event and the following kvm_entry as the
-end event for RISC-V VM-exit statistics. Keep decoding scause from
-the exit sample.
+>From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>
+>Add hardware dirty tracking support for second-stage (iohgatp) domains
+>used in KVM VFIO device pass-through.
+>
+>The RISC-V IOMMU can automatically set the dirty bit in PTEs on write
+>access when DC.tc.GADE is set and the hardware has AMO_HWAD capability.
+>Wire this up to the iommufd dirty tracking interface:
+>
+>  - riscv_iommu_set_dirty_tracking(): Always enabled dirty tracking for
+>    second-stage domain.
+>
+>  - riscv_iommu_dirty_ops: Exposes set_dirty_tracking and the generic
+>    page-table read_and_clear_dirty via IOMMU_PT_DIRTY_OPS(riscv_64).
+>
+>  - domain_alloc_paging_flags: Assigns dirty_ops to second-stage domains
+>    when AMO_HWAD is advertised in hardware capabilities.
+>
+>  - riscv_iommu_capable: Reports IOMMU_CAP_DIRTY_TRACKING when
+>    AMO_HWAD is present.
+>
+>Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+>---
+> drivers/iommu/riscv/iommu.c | 22 ++++++++++++++++++++++
+> 1 file changed, 22 insertions(+)
+>
+>diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+>index fc7a80393833..9f572baeca74 100644
+>--- a/drivers/iommu/riscv/iommu.c
+>+++ b/drivers/iommu/riscv/iommu.c
+>@@ -1377,6 +1377,21 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+> 	return 0;
+> }
+> 
+>+static int riscv_iommu_set_dirty_tracking(struct iommu_domain *iommu_domain,
+>+					  bool enable)
+>+{
+>+	/*
+>+	 * Always enabled and the dirty bitmap is cleared prior to
+>+	 * set_dirty_tracking().
+>+	 */
+>+	return 0;
+>+}
+>+
+>+static const struct iommu_dirty_ops riscv_iommu_dirty_ops = {
+>+	IOMMU_PT_DIRTY_OPS(riscv_64),
+>+	.set_dirty_tracking = riscv_iommu_set_dirty_tracking,
+>+};
+>+
+> static const struct iommu_domain_ops riscv_iommu_paging_domain_ops = {
+> 	IOMMU_PT_DOMAIN_OPS(riscv_64),
+> 	.attach_dev = riscv_iommu_attach_paging_domain,
+>@@ -1439,6 +1454,9 @@ static int riscv_iommu_init_domain_s2(struct device *dev,
+> 	if (domain->gscid < 0)
+> 		return -ENOMEM;
+> 
+>+	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_AMO_HWAD)
+>+		domain->domain.dirty_ops = &riscv_iommu_dirty_ops;
 
-Before this change, RISC-V measured guest runtime as VM-exit time.
+This sets dirty_ops based on whether the allocating device's IOMMU
+supports AMO_HWAD. As I understand it, the domain/HWPT is not tied
+to that IOMMU instance. A later attach may target a device behind
+another instance without AMO_HWAD, and the attach can still succeed
+with GADE disabled, potentially causing guest page faults.
 
-Fixes: da7b1b525e97 ("perf kvm/riscv: Port perf kvm stat to RISC-V")
-Signed-off-by: Li RongQing <lirongqing@baidu.com>
----
- tools/perf/util/kvm-stat-arch/kvm-stat-riscv.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+Shouldn't we therefore revalidate AMO_HWAD cap for domains with
+dirty_ops and reject this combination?
 
-diff --git a/tools/perf/util/kvm-stat-arch/kvm-stat-riscv.c b/tools/perf/util/kvm-stat-arch/kvm-stat-riscv.c
-index 967bba2..09c9c7d 100644
---- a/tools/perf/util/kvm-stat-arch/kvm-stat-riscv.c
-+++ b/tools/perf/util/kvm-stat-arch/kvm-stat-riscv.c
-@@ -31,13 +31,7 @@ static void event_get_key(struct perf_sample *sample,
- }
- 
- static bool event_begin(struct perf_sample *sample,
--			struct event_key *key __maybe_unused)
--{
--	return evsel__name_is(sample->evsel, kvm_entry_trace(EM_RISCV));
--}
--
--static bool event_end(struct perf_sample *sample,
--		      struct event_key *key)
-+			struct event_key *key)
- {
- 	if (evsel__name_is(sample->evsel, kvm_exit_trace(EM_RISCV))) {
- 		event_get_key(sample, key);
-@@ -46,6 +40,12 @@ static bool event_end(struct perf_sample *sample,
- 	return false;
- }
- 
-+static bool event_end(struct perf_sample *sample,
-+		      struct event_key *key __maybe_unused)
-+{
-+	return evsel__name_is(sample->evsel, kvm_entry_trace(EM_RISCV));
-+}
-+
- static const struct kvm_events_ops exit_events = {
- 	.is_begin_event = event_begin,
- 	.is_end_event	= event_end,
--- 
-2.9.4
+FYI, both AMD and Intel have attach-time dirty-tracking checks. See
+drivers/iommu/intel/iommu.c:3195 and drivers/iommu/amd/iommu.c:3221.
+
+Thanks,
+Shuai
+
+>+
+> 	return 0;
+> }
+> 
+>@@ -1559,9 +1577,13 @@ static struct iommu_group *riscv_iommu_device_group(struct device *dev)
+> 
+> static bool riscv_iommu_capable(struct device *dev, enum iommu_cap cap)
+> {
+>+	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+>+
+> 	switch (cap) {
+> 	case IOMMU_CAP_CACHE_COHERENCY:
+> 		return dev_is_dma_coherent(dev);
+>+	case IOMMU_CAP_DIRTY_TRACKING:
+>+		return !!(iommu->caps & RISCV_IOMMU_CAPABILITIES_AMO_HWAD);
+> 	default:
+> 		return false;
+> 	}
+>-- 
+>2.50.1
 
 
 _______________________________________________
