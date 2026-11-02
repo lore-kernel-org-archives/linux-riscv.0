@@ -2,95 +2,111 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDCCC60A0CA8
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 15:34:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B99F1608509D
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 16:21:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bxGPjBWm;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=oPe0IcYv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AwKDs6BL;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Bkvlc9Uh;
+	dkim=fail reason="signature verification failed" header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=no3DkXB1
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
-	bh=wJsnBpTlw8gKB9DxhxCZXTIuYdQsxqypnbwdW6QYPR8=; b=bxGPjBWmIfo408XURbly2hF3JW
-	PoLUI6lx99wfIDXToHHs+rd8thMfbTzJJce90FjUeoSazmHnn2xYB3Y+T1g8Aq+NcoMPn5f6rGHU0
-	qoiZ5uSb3/wk7PXfg+ozLd64ssBvUpOjtPP7M9/1Sy/10VghV6cLjLsHVpCTjf3aMeVunXHltIDOA
-	m+adwj6a++t9O1SmDAxriehJKzSKI1z66FY1Qh3geg9oolwSlv49jAYw19rho89hriK688BB4+SsP
-	znhxachaVOlIE+ARKj4dO0QbwotLVBoSu28JKevftqrEg3eJjdDFW1hhO68gk8SCCvlMTrc6SsMlt
-	AhxAJpkA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=2pto8mzh5n2hdXCYPTLpIFdAHvxrCxVaw7qo1qBSJpA=; b=AwKDs6BLZ4bkD7RS6sgreoG3ip
+	nGz/RHMiczB3T7BIZXLbfTIsbV9xMslUxFq6eR/ulkF2gLir5SYcKxH/UCwOGsWQXQsWijHYrduvV
+	oW3LdxevpnsirF7bYNQ2q4qB/pWDaoyC8DVIGWBLKFDWkXKVKX3sldyFcmXQiatXLsrw4lp0Ghfgr
+	yVyqcuqPFfbJ0Jc1Dz9EZcD06HUUg1trorHUk8Me8olbUCzckYKqZOObPtTEDhzOnP6Z6mdnANhtH
+	yT06nTXSChO2bM+TfawiX0IKWt0EsHpMghLI9Vzts07PWKxwCbtURWngzFMDAIkd4NWO6wAVcna5E
+	TPjMIgbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNu3S-0000000H8T3-0QoF;
-	Mon, 02 Nov 2026 15:34:38 +0000
-Received: from mail-pj1-x1048.google.com ([2607:f8b0:4864:20::1048])
+	id 1xNumg-0000000HHLA-3aOj;
+	Mon, 02 Nov 2026 16:21:22 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNu3O-0000000H8RZ-4246
-	for linux-riscv@lists.infradead.org;
-	Mon, 02 Nov 2026 15:34:36 +0000
-Received: by mail-pj1-x1048.google.com with SMTP id 98e67ed59e1d1-3ac8f449d1bso2537076a91.3
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Nov 2026 07:34:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1793633673; x=1794238473; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=s4vRCplgEoCQN3eUv6q9zSWbIbV1TXU7YJjG5+iZQYY=;
-        b=oPe0IcYvzRVIEPSrn83v8Zxlre0REOvLhv6juNd/Yejhv+zHjL3g8CeVoppGvuxmXu
-         xYycZfW817swvXZxIunZyYzewVqyVZ16Zw+OTMuRwTlozhUVpD92CFExGr5NH3kwgP3U
-         tmZtpYkQrhIoig7e3/4tWMUhe8JNgwCwHRxZzQOrQ1lVF2E59UYbAbH4fTSB5rPkWh/D
-         awTXoCdo1EiXQi74VjXLn1m4RkJJi36IRj71F4U5hlGzzqY3BVXLQBz+AnlvSMG30iAM
-         eVdipn0/A+l4WraFhi2x0EotRLa2xQE+VmX9Pny7TPG5isBJR9znrpQD5ehtoHfGt1iS
-         CdxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793633673; x=1794238473;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=s4vRCplgEoCQN3eUv6q9zSWbIbV1TXU7YJjG5+iZQYY=;
-        b=WIY/iuKcnbWvdWdgLIZ3owj6gpp/ECShU0KgUcoVYeXosfOzMuhIPNFxTJezr0kuDk
-         8PdvowZJbuUPszNzmqknnJsp3R2BJ+CwWiskM3Be4yt7WZAUuasBw88I6jM5uzvUg9UA
-         hr7+Lrq+7VY8j8h/Ms5wUPGEyDSYCU/Gr6mysDAhec7CWV3bmuJw4/pP51UIeDGqNdgx
-         0ZSuN57BAUekbJ1Kfn4+MY4sRkHZGeD8ydPQ+EFlRi4RB1VwAd1GpNi7CXSXfcO6eXG/
-         bvO5GdvdyUtfwT7MBnATfgaXZlL1A2QXnovp2ovR3gsfZMpW4NKacyTtDqCo6pC3LtIk
-         E1vQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwwxALzBn97h39m4EUdwggPi9beiudQzbz5JWkvvHSb1q2lgRiZpg3JfxX1gTVfPezHZ3C/QXCYarPtJg==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9gFUwBfVhcTTyPo0NDSm9Eio193KQGg+Ig0e6RCckCQqvZG6NP
-	meBD0jn7jEUev+fy14PDS0wgbgQRuPh8DjzrPoKZ8PCiCPO8XLg2QP1FtIuBa1YOpVroOq8d/vZ
-	fuq1unw==
-X-Received: from pjso1.prod.google.com ([2002:a17:90a:c081:b0:3a8:211b:6c8b])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2749:b0:3ad:43c1:7d41
- with SMTP id 98e67ed59e1d1-3ae897429b9mr7590262a91.33.1793633673063; Mon, 02
- Nov 2026 07:34:33 -0800 (PST)
-Date: Mon, 2 Nov 2026 07:34:32 -0800
-In-Reply-To: <20261102153228.240804-H-seiden@linux.ibm.com>
+	id 1xNumd-0000000HHKS-19IQ;
+	Mon, 02 Nov 2026 16:21:20 +0000
+Date: Mon, 2 Nov 2026 17:21:13 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1793636476;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CAbnxO0/qUW9BHgq0s5afN/fwZolzjrBJaRnSuaEmAo=;
+	b=Bkvlc9UhhyCv5ZdWUMU6G9Li+R2BVAADYWwZuoqUAyqvUjCoGYGxXIn4ALH8UCKwa4wXF8
+	oraU/gZ8eujvwMvYkEcPGl9LoaQ4y8L5gTwgvEqTaLIOKyYpw0Vt21vSoLNR9nGu5XUZGy
+	Ei+jDbIPpRtvYxUN3n40OXfMZKwhjOcptRjzclaFhqfaMjZ4DnPJp2kIUEARXrDA2lfCj7
+	Xc9td9/O5azqjpJ09IA+6VHzOt3kgO7Q3tW3z+AQm8NXUA0NJY3SKFbPnSH3MoCGBJlCpq
+	9SKkxdgYMHfQI6T9cHJ58WWsIb3edmk7YJmf4hhOdiwEorZM3Pu5QhcHBVRk7Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1793636476;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CAbnxO0/qUW9BHgq0s5afN/fwZolzjrBJaRnSuaEmAo=;
+	b=no3DkXB1ZRbLOBdX8Sfg5H+HK/netv5lLDsnHm2NNe1d6SMQE1Lawcr4U1D9QbHBAGIkXh
+	QAa36tqetUjJ21Dw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Thomas Gleixner <tglx@kernel.org>
+Cc: "H. Peter Anvin" <hpa@zytor.com>, LKML <linux-kernel@vger.kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	linuxppc-dev@lists.ozlabs.org, Kees Cook <kees@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
+	x86@kernel.org, Mark Rutland <mark.rutland@arm.com>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Andy Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Guo Ren <guoren@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Helge Deller <deller@gmx.de>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Richard Weinberger <richard@nod.at>,
+	Chris Zankel <chris@zankel.net>,
+	linux-arm-kernel@lists.infradead.org, linux-alpha@vger.kernel.org,
+	linux-csky@vger.kernel.org, linux-m68k@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-sh@vger.kernel.org, linux-um@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>,
+	Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>,
+	Michal Simek <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	Michal =?utf-8?B?U3VjaMOhbmVr?= <msuchanek@suse.de>,
+	Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
+Subject: Re: [PATCH V2] x86/entry: Fix ptrace regression
+Message-ID: <20261102162113.LEAhpzer@linutronix.de>
+References: <20261022142425.3Wx-RrU5@linutronix.de>
+ <87fqxx1r80.ffs@fw13>
+ <87cxt11ktr.ffs@fw13>
+ <1149A39E-BEBA-46EA-94F4-4DFFC4733EF5@zytor.com>
+ <871p9g1s3w.ffs@fw13>
+ <87y0boze95.ffs@fw13>
+ <C6D7BF04-4CF7-48D1-93B5-E80D52C2617D@zytor.com>
+ <87se1wyvs8.ffs@fw13>
+ <87mrrvxaty.ffs@fw13>
+ <87ecd4xwlr.ffs@fw13>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-References: <20261028190259.1819571-1-seanjc@google.com> <20261028190259.1819571-2-seanjc@google.com>
- <20261102153228.240804-H-seiden@linux.ibm.com>
-Message-ID: <auitiPKnFueBJzPA@google.com>
-Subject: Re: [PATCH 1/7] KVM: s390: Drop unused and unreachable kvm_arch_vcpu_should_kick()
-From: Sean Christopherson <seanjc@google.com>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Nicholas Piggin <npiggin@gmail.com>, 
-	Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Stefan Teodorescu <fane@google.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <87ecd4xwlr.ffs@fw13>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_073435_328225_0BA65A64 
-X-CRM114-Status: GOOD (  12.15  )
-X-Spam-Score: -9.5 (---------)
+X-CRM114-CacheID: sfid-20261102_082119_484951_3F632EDA 
+X-CRM114-Status: GOOD (  10.63  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,26 +119,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026, Steffen Eiden wrote:
-> On Wed, Oct 28, 2026 at 12:02:53PM -0700, Sean Christopherson wrote:
-> > Drop s390's kvm_arch_vcpu_should_kick() stub as the one and only call site
-> > is wrapped with "#ifndef CONFIG_S390".
-> 
-> In the somehow near future I'll remove those #ifdefs and use the kick
-> stuff for kvm_arm64. The native s390 KVM then must at least keep an
-> (unused) symbol at hand. It seems that the compiler could not optimize
-> those calls away. So let's keep it there so I do not have to re-add it
-> soon.
+On 2026-11-01 18:58:08 [+0100], Thomas Gleixner wrote:
+> --- a/arch/x86/entry/syscall_32.c
+> +++ b/arch/x86/entry/syscall_32.c
+> @@ -77,6 +77,10 @@ static __always_inline void do_syscall_3
+>  	if (likely(nr < IA32_NR_syscalls)) {
+>  		nr = array_index_nospec(nr, IA32_NR_syscalls);
+>  		regs->ax = ia32_sys_call(regs, (unsigned int)nr);
+> +	} else {
+> +		/* See comment in do_syscall_64() */
+> +		if (nr != -1UL) {
+> +			regs->ax = -ENOSYS;
 
-Please read the rest of the series.  kvm_arch_vcpu_should_kick() goes away
-entirely.
+A curly closing bracket here and then it compiles for me. Or remove the
+one in the "if" line.
+
+>  	}
+>  }
+
+With either of the suggested changes:
+Tested-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+
+Sebastian
 
 _______________________________________________
 linux-riscv mailing list
