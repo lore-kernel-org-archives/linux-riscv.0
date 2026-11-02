@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E13560A2619
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 11:22:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 450F0606A33E
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 11:22:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JAF89DSD;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=P7pPmEP1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YGVb34gE;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=PsZ/xV55
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,39 +14,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=R1I5PNA8UPWcEEM5OzuTBErBBUjRfd5B9SbXTn7LNxU=; b=JAF89DSDyXG5McEulzV961EKs7
-	IZ0h437Ud1rgzA9FqwILHTxYUVAipUULuglNJkhUDQX3D/dtAYAsp12G3aGdg0AFQGJjfIEDv7F1a
-	52gmBv3w/AUObl8ugwaJ50VwqeNmdwAtrXIL55Lphz0+7KPbW2mpHVJWxT4YvWvQ+Vw3n3uIimvJw
-	wDb8/4bcLzz1JEUYk84Jb74y4gyOMTaZb2FZecuwHnfVk+YfId2xD2UUinoxUMwPGHrfAzGhmCS37
-	qwoy5uKd7tkpk/iHqRM54ddRn4gCNfu/CXLf2eCFmZVRZh+gZOgy4zR8vDPZucnRjJ4/0HE5kv6CB
-	L+DT1n/w==;
+	bh=dn72UbkyAhhEfp1SPeEGRKR+Jk0OqPBdJAYCkWPQI3w=; b=YGVb34gEVe7OTL21DpIvfS0LoH
+	r1p5M0sKqUZ8JYGQx7AHg0CAQYMjo18Z1Py6JeqtMwtmHAZqAT8PEB0KT2J/KkToNstzO2J4a68YA
+	VsmvIrXvAYFS7uPVAsKh8gpqqFpkFTzOykJBIrW3708K0FrfWuCcAtpEZqWndYpWEig47jwTRsAkB
+	uO3G0mDducki2UQZZn8nSjbKRG2tqUrqzs5D8/nfXz9ZVrUqEnppXDa+fkuP2lqWJ0H+9tSAJkEbV
+	XSm+eDiYQzeLEZ5q7eEeoZIZseYNbwAXcrahcjDoH1l99dqi6+LVAh6PImqZkomw6k+dktevqc7bD
+	n5g1vcYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNq74-0000000GIW4-0dvJ;
-	Mon, 02 Nov 2026 11:22:06 +0000
+	id 1xNq7M-0000000GInV-3ZMs;
+	Mon, 02 Nov 2026 11:22:24 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNq70-0000000GIT6-2KxY;
-	Mon, 02 Nov 2026 11:22:03 +0000
+	id 1xNq7I-0000000GIjA-3iRz;
+	Mon, 02 Nov 2026 11:22:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 368B01691;
-	Mon,  2 Nov 2026 03:21:58 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E6232972;
+	Mon,  2 Nov 2026 03:22:17 -0800 (PST)
 Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4818B3F632;
-	Mon,  2 Nov 2026 03:21:55 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2DD373F632;
+	Mon,  2 Nov 2026 03:22:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793618521; bh=kV7fmntEBngzWjlRtt0fXgbabk4vgoYlOIhmmgX++kY=;
+	t=1793618540; bh=iAKWhkLBUL8Dbje3w+lN/zrtNjFP/+2E4XMbJAzkSwE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=P7pPmEP1+y7xcVY0D4K6XD0jQizTpCe9MveMakhuwNTgU2/rc02un0pmGMjXbJF0R
-	 aYrAH5ZcOrnP+iq/bNtZh3I9kNmBsSIpcL/OxZxQcPA/T9dh0psHgdWo77wSDR8Jtr
-	 w16o3AMZnYr0X/mED3RmiUDXSnMXprAQfKtqzhZg=
+	b=PsZ/xV55JWI15/OuGGIzIxarKfdNw1USnk6yd5/qGxAT2iQNKUyjmZiknVsIG9EAM
+	 FHVIK/r0dSwZlieqJ6i4Ub47uuLajcoviLMk9DLJUT8YpfdyuFurfnAbmwFqi15Qes
+	 azpHEA/ThKpZh5kfXCYp/IH1C3ruHlJgAZacMHks=
 From: Yeoreum Yun <yeoreum.yun@arm.com>
-Date: Mon, 02 Nov 2026 11:21:17 +0000
-Subject: [PATCH RESEND v2 04/21] LoongArch: mm: define pud_leaf() only when
- PUD exists
+Date: Mon, 02 Nov 2026 11:21:20 +0000
+Subject: [PATCH RESEND v2 07/21] mm/pgtable: define
+ (pgd|p4d|pud)_offset_lockless() for folded page tables
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261102-dummy_ptxp3-v2-4-78840b2ec73c@arm.com>
+Message-Id: <20261102-dummy_ptxp3-v2-7-78840b2ec73c@arm.com>
 References: <20261102-dummy_ptxp3-v2-0-78840b2ec73c@arm.com>
 In-Reply-To: <20261102-dummy_ptxp3-v2-0-78840b2ec73c@arm.com>
 To: Russell King <linux@armlinux.org.uk>, 
@@ -79,22 +79,22 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
  linux-openrisc@vger.kernel.org
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=993; i=yeoreum.yun@arm.com;
- h=from:subject:message-id; bh=u7CkBygp3t9kTReuMDaCmZH0s2byLy+RqHAVuQrH24I=;
- b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBq6HIwlxi0fq0NvoRR6wAM7dkyWS9oxQBI40Cgc
- DKUESF9vgqJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCauhyMAAKCRBt1cPRWsUx
- M0akC/9EGZkuiEkdTxl3CwYCFtvx1xhNG+FjrVxbus6mPWauJ8F5+J5sg5Np9DCF7VcqrJ7ge/+
- bth6MHuatRPh7bNm2qmt1JrSUpNXrDlMed/ARE35YCapddiVFrA/hyghxyvDrMd5RXiBZ1M4RTK
- PBpos5isVI6lqHRQNvFpm93ZH2dO+LOClaTapIUlIZCo5Lg/rNxgcJrdFYAMGgANqyeKI3gKPd6
- lQtVhU1ZcDtV2xOKlhJegzKtK8N2O6FCC0F/mzVAlow4BD/Owt2Y9Pla/PUoribW/NWNTCSJ5mV
- yQmIkHn4eDIrvIg4JJi4YgB0AVvnHsv9ctgHp71nNecFNaljvmmvh40iYvrgkfBuuxpwT2Hsyzi
- PDwD5+lh1C/9TTrOCsmc4rjeHahxJv3TCJ1ggX4w1/T9VRTBKxgZEgoQWtprkyPP6vK+BHLuFtd
- Y+v4psuuQM6VJV21P5UYO8NVMmjA0VothRLarZ8QJmarCmc3Eu856bpeW5BNJO+iTCRXs=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4366; i=yeoreum.yun@arm.com;
+ h=from:subject:message-id; bh=u76iVQJbWCdkEbiJ5jZQxWZGCtfm9Pp2msKkXET/qwE=;
+ b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBq6HIypEb9aXVoCMG7pxsrAGeq/LTHoW1uWXEBM
+ pIwPB40LByJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCauhyMgAKCRBt1cPRWsUx
+ MzzkDADQPtRN+DQ0QdZ/E5ulISLF3JkAQe33ZVd/+S87WO+Sy3zOmf/s77mek/A86gwCB52rGz6
+ NsFtjGs+ALYco+k3aCZaOJ+4OI+GsRLUJBA8kK1l/X00CILC9t0qmJGYamB8dsPxPMO+M21DwVI
+ /rk19ar+YAisNFKK7f0r5JRGn1r6rtA/zTelmesjg8qXXW2d3R/orYzgSRJNRVGfHplzMvW5WF7
+ 2SV4kMDEQq/4kLJUcVebxdFAS9HJCf3XrJTRtiDgy0aEVXoT+q2DWd2LJKPSA+QL6zMvxFgIt8D
+ t6P+wsuF+ihqujWnCZw/I+PE5C+Jd11Rk9vGE3JKnMrNmMnR1Sp2jL30ZQcG/HwQ7coqXiYVVSk
+ vhNQdA4aQ9WI4ceztWVvVzhXt1frhLl1HR8P0NGGqLVFaAJL3L+M+HjZBrU9dMhkbtwMTx/1+S9
+ SzYhL7QXCQWSjEax1AfhVDQ8sPZIqGPWAtZQ/BR8IPZRp8AoNMk/iHqhsX16+teiHOk3Y=
 X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
  fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_032202_695373_A88627B8 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20261102_032221_111766_3B17C7A6 
+X-CRM114-Status: GOOD (  14.68  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -117,32 +117,119 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 
-In include/asm-generic/pgtable-nopmd.h, pud_leaf() is hardcoded
-to return false as inline function, but it misses the "define pud_leaf
-pud_leaf" part.
+The default helpers fallback to pud_offset(), passing a pointer to the
+stack value.
 
-To prepare for fixing that, define pud_leaf() only when
-__PAGETABLE_PMD_FOLDED isn't defined.
+Let's provide variants that do exactly what (pgd|p4d|pud)_offset() do,
+but ignore the passed pgd_t/p4d_t/pud_t, consequently not working on a
+pointer to the stack value like the default handlers would.
+
+With this patch, Drop the arm64 custom variant that did that. As it documents:
+
+	Note: reusing the original pointer means that it may be
+	dereferenced the same (live) page-table entry multiple times.
+	This is safe because it is still only loaded once in the
+	context of each level and the CPU guarantees same-address
+	read-after-read ordering.
+
+Do not document this, as the double read will be removed in the next patch.
 
 Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 ---
- arch/loongarch/include/asm/pgtable.h | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/include/asm/pgtable.h    | 23 -----------------------
+ include/asm-generic/pgtable-nop4d.h |  7 +++++++
+ include/asm-generic/pgtable-nopmd.h |  7 +++++++
+ include/asm-generic/pgtable-nopud.h |  7 +++++++
+ 4 files changed, 21 insertions(+), 23 deletions(-)
 
-diff --git a/arch/loongarch/include/asm/pgtable.h b/arch/loongarch/include/asm/pgtable.h
-index f876031351319..9a62b87c246de 100644
---- a/arch/loongarch/include/asm/pgtable.h
-+++ b/arch/loongarch/include/asm/pgtable.h
-@@ -631,7 +631,9 @@ static inline long pmd_protnone(pmd_t pmd)
- #endif /* CONFIG_ARCH_HAS_PTE_PROTNONE */
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 763c5a411d64e..b391f325670f8 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -1141,29 +1141,6 @@ static inline bool pgtable_l5_enabled(void) { return false; }
+ #define p4d_clear_fixmap()
  
- #define pmd_leaf(pmd)		((pmd_val(pmd) & _PAGE_HUGE) != 0)
-+#ifndef __PAGETABLE_PMD_FOLDED
- #define pud_leaf(pud)		((pud_val(pud) & _PAGE_HUGE) != 0)
-+#endif
+ #define p4d_offset_kimg(dir,addr)	((p4d_t *)dir)
+-
+-static inline
+-p4d_t *p4d_offset_lockless_folded(pgd_t *pgdp, pgd_t pgd, unsigned long addr)
+-{
+-	/*
+-	 * With runtime folding of the pud, pud_offset_lockless() passes
+-	 * the 'pgd_t *' we return here to p4d_to_folded_pud(), which
+-	 * will offset the pointer assuming that it points into
+-	 * a page-table page. However, the fast GUP path passes us a
+-	 * pgd_t allocated on the stack and so we must use the original
+-	 * pointer in 'pgdp' to construct the p4d pointer instead of
+-	 * using the generic p4d_offset_lockless() implementation.
+-	 *
+-	 * Note: reusing the original pointer means that we may
+-	 * dereference the same (live) page-table entry multiple times.
+-	 * This is safe because it is still only loaded once in the
+-	 * context of each level and the CPU guarantees same-address
+-	 * read-after-read ordering.
+-	 */
+-	return p4d_offset(pgdp, addr);
+-}
+-#define p4d_offset_lockless p4d_offset_lockless_folded
+-
+ #endif  /* CONFIG_PGTABLE_LEVELS > 4 */
  
- /*
-  * We provide our own get_unmapped area to cope with the virtual aliasing
+ #define pgd_set_fixmap(addr)	((pgd_t *)set_fixmap_offset(FIX_PGD, addr))
+diff --git a/include/asm-generic/pgtable-nop4d.h b/include/asm-generic/pgtable-nop4d.h
+index c6a5a43899b50..019c3f074b771 100644
+--- a/include/asm-generic/pgtable-nop4d.h
++++ b/include/asm-generic/pgtable-nop4d.h
+@@ -39,6 +39,13 @@ static inline p4d_t *p4d_offset(pgd_t *pgd, unsigned long address)
+ 	return (p4d_t *)pgd;
+ }
+ 
++static inline p4d_t *p4d_offset_lockless(pgd_t *pgdp, pgd_t pgd,
++		unsigned long address)
++{
++	return (p4d_t *)pgdp;
++}
++#define p4d_offset_lockless p4d_offset_lockless
++
+ #define p4d_val(x)				(pgd_val((x).pgd))
+ #define __p4d(x)				((p4d_t) { __pgd(x) })
+ 
+diff --git a/include/asm-generic/pgtable-nopmd.h b/include/asm-generic/pgtable-nopmd.h
+index 4e5aaf253b6a5..1dd5b165234be 100644
+--- a/include/asm-generic/pgtable-nopmd.h
++++ b/include/asm-generic/pgtable-nopmd.h
+@@ -49,6 +49,13 @@ static inline pmd_t * pmd_offset(pud_t * pud, unsigned long address)
+ }
+ #define pmd_offset pmd_offset
+ 
++static inline pmd_t *pmd_offset_lockless(pud_t *pudp, pud_t pud,
++		unsigned long address)
++{
++	return (pmd_t *)pudp;
++}
++#define pmd_offset_lockless pmd_offset_lockless
++
+ #define pmd_val(x)				(pud_val((x).pud))
+ #define __pmd(x)				((pmd_t) { __pud(x) } )
+ 
+diff --git a/include/asm-generic/pgtable-nopud.h b/include/asm-generic/pgtable-nopud.h
+index 6c9bca78047c4..5a2b0a81ae197 100644
+--- a/include/asm-generic/pgtable-nopud.h
++++ b/include/asm-generic/pgtable-nopud.h
+@@ -47,6 +47,13 @@ static inline pud_t *pud_offset(p4d_t *p4d, unsigned long address)
+ }
+ #define pud_offset pud_offset
+ 
++static inline pud_t *pud_offset_lockless(p4d_t *p4dp, p4d_t p4d,
++		unsigned long address)
++{
++	return (pud_t *)p4dp;
++}
++#define pud_offset_lockless pud_offset_lockless
++
+ #define pud_val(x)				(p4d_val((x).p4d))
+ #define __pud(x)				((pud_t) { __p4d(x) })
+ 
 
 -- 
 2.43.0
