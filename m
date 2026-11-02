@@ -2,102 +2,108 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77B4C606AA34
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 12:26:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26FB2606A331
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 13:14:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oJQDYKAc;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=FjuC4ywp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CSPrOCfK;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=hYheTBp3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=5fAaEPnWpAgst8E6HHZj5AvtK3CCLd5EgJWL5j3YCN0=; b=oJQDYKAc3XAdFqDlukktyNV024
-	2OHz9NBfir9GZuiK5TtrnUk/6Ao8ti5bzL4QrudHmnRXcWyuLrbN8jwSb9n9WwFLSoAW7W9xuFSW3
-	BsCA6FxDOMR5+GVGOnFcrZH7kS1G6AEHAxcD0gcs2O8F51ZfFnioGOg9kV/xz5LakUDtyerferFYC
-	1MC2Id7A+3f5ChY6PTAAxiCXnxxPZAh+4jTxe4IhhtngyMiX+TbxtdD5gfOSGcw4ldbp8omfXMfxb
-	Naz7itm9OzOoSi/Vmti38vUUrm+8AESc+6epScbrlxC/A26tmy4XHfND2IcVxnxWRrQDxTeO5h+Mu
-	Y5HonCkg==;
+	List-Archive:List-Unsubscribe:List-Id:From:In-Reply-To:MIME-Version:
+	References:Message-ID:Subject:Cc:To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
+	bh=m6n9dq9QCpNnAZWvVkuzAbvW5EHXoTSN/jnvQ8znO9Y=; b=CSPrOCfKvQoJVzxS/OX6EsILQ8
+	99LbPpwU8oO8FjW6r6yChGHsD0pmEpw5I3meVmCdQu9YdrKE07m9QsB1zMn7Jc/hdPXX6lOVBkUJl
+	cZJCqtDGttEL1mY1A1qZjuNWlr9gKdZ3Ok1+syjDAkjNOVJVOqvmRONOC5DKyz2j7gYn8gRxi2dO4
+	4/cKmHq5Lx/OBP2UUIepFupzVT8QlqcxOETyt6ciOnMVzCLH8Kj5HEcuwl7ZLKuOV3DWOKBTTu2Mt
+	YFL66nAVqVlCScFaIzBCLvMqDZDgimdNxlLP0EeaRcblSZELqVqnApnn7+SJlXcI2DqmNPz0fyh+9
+	Oc+upbwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNr7T-0000000GU5d-3CVQ;
-	Mon, 02 Nov 2026 12:26:35 +0000
-Received: from smtpbgeu1.qq.com ([52.59.177.22])
+	id 1xNrrS-0000000GZoM-0pOu;
+	Mon, 02 Nov 2026 13:14:06 +0000
+Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNr7M-0000000GU3h-0aJg
+	id 1xNrrO-0000000GZnJ-3mhl
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Nov 2026 12:26:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1793622370;
-	bh=kYoEHv1yJWT5CYnv9W1t01akAHdAj5zwmImIgwGqYBU=;
-	h=MIME-Version:From:Date:Message-ID:Subject:To;
-	b=FjuC4ywpgmDhy1DVijeU0zlWbRfHWZvmAxDzZDk0A9GiKemI8FT4u43vmPJf+zJiS
-	 fQGYn7a7wZNd/46mESKNy8b8yVEmR554lXCcMWsJAr9MfsLU33zirii8+sRcKzo2oi
-	 LTdgKvaybh+JhC8/AyKPKmcJwfZ1YI6EDNLg8akg=
-X-QQ-mid: esmtpgz13t1793622369tffcc5b9d
-X-QQ-Originating-IP: MewkfB/vp1fpn1TFVKSdKp0dl1l1LY0o1YkpxDBlOr4=
-Received: from mail-pl1-f171.google.com ( [209.85.214.171])
-	by bizesmtp.qq.com (ESMTP) with SMTP id 0
-	for <linux-riscv@lists.infradead.org>; Mon, 02 Nov 2026 20:26:06 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 16018785558085199489
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2e7e742a2c7so18852555ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Nov 2026 04:26:08 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBwNHqXBekjhkd3GeBywEeIiTd0j30mKpaZm145beJCRKKhaTd2S/LX8CCclvBwscILucAKLJyJtgj+e0w==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8gphy5p/lr5zegmgJKCm7rAGqKMXQ3B0iGc9ZlO+qZxaJdLMYG
-	tcGwDvN3RSNMY+JUw7utvQBjZIxRxg0eo9W5G8TWaJ3ikhDwrHYzvuYFHJfnQl1YdLSf+eaXKTF
-	Gj+eexL+5K+KUVRMk7033qkzTMGKdHEQ=
-X-Received: by 2002:a17:903:1212:b0:2e9:fd49:64a with SMTP id
- d9443c01a7336-2eb3640f012mr65226725ad.1.1793622366169; Mon, 02 Nov 2026
- 04:26:06 -0800 (PST)
+	Mon, 02 Nov 2026 13:14:04 +0000
+Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-91c79f306e9so35313646d6.3
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Nov 2026 05:14:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1793625241; x=1794230041; darn=lists.infradead.org;
+        h=from:rom:in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=xQ6t+GMfhU5C0Rvm61dIpYM5RO8AvEBQYn2+KfQV/CM=;
+        b=hYheTBp3IzfTgNhE+KBl9hokesHafIVQWqOtCsQ7TgS6YeerBNcr/5CyN285aPmRWE
+         F35AaO8Yn3/YGMdDDWLfo1RqMna5FAbYTr8KZKmxFs6Br75tgm5faaEBdyeINrUrrpRc
+         Moekigwv8QuQg5O6uiyzLBnc4xDmBL2ThUdEieIarIJRnYNRruz+NbN72ZRGatYbnQGN
+         pn5ioY604c5ZN3hr8Etu//U7+gIw6uuOA2HtVD76ju4261WMhcDbm87X/Aj7gyPHtz5a
+         wHUslbAvCEY//gd+snvMC9VY6602BeGEdnmBHv5h/N6Ml+R4X1s36UtgT8xgRdUd8Y+u
+         Jlfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793625241; x=1794230041;
+        h=from:rom:in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=xQ6t+GMfhU5C0Rvm61dIpYM5RO8AvEBQYn2+KfQV/CM=;
+        b=VhGzDhAxEmNz4TNlT1tAiIdM2hFV0GcWqwuksGLCZvWLP9sOup7vnAF7LsojOoqYpX
+         DbW8FjxhtpDiY9/p+iutb7GAshrS9xRZMT70kQ01966tVpIuruqgtSiX20nnhhimUqK5
+         NnPup4BryYtb2V3YXC3WCw7p0xLqUWLlToihd3w8vhiXmG40yKNwgY3CPHPYQB02VZTk
+         3WUD+5q+oC7dSkcYTlRdWBqjdjt0+IPjrwM2rlRRowF+txpWqn2OmlDprr3n0rRcDWmm
+         UYQql2djRE+8ktnxVxbuhADk9U4XZnPBb2K3h6Vg+aR2TOvg/GKUxvztDfS3N/hqVyXi
+         8h+g==
+X-Forwarded-Encrypted: i=1; AKwUvBwvwlcn2eoMiYkIlHEClSIhGvHC+4XijK3Y/FjyNjVkXA3iFkFbEt7Pflnar8qEG0U1j+MIYxoC7nWSDg==@lists.infradead.org
+X-Gm-Message-State: AFq9FYJF0+ap4pVLc9PVAS34pkVJXm/CjcNRB4obmEuXCnL4rSl8yJjI
+	qYQ3zDbRE14nl1bNjeqfLH86tm41ABCzwnH9CXwysSAfkkqatzNeh3qvifU++SrGHGA=
+X-Gm-Gg: AYBFou3JXdBs2db6/nZlyVH1qnY31yrrQ9U68TzGyFyTLlQXrYqPWJV7mPshcatzZ+L
+	WhshHQ9faq9f0nNIu0zBLYYOONR7O98VVOZ0j1FTrr8ezJ5yRWXIgrlKASx4H168jC7Zk61d6mn
+	WyA08/Fj1m0PARdFAw3Mpbgc94uQjjaJuvDVYUVCatgSvmUlSEGHrBDHVV2Re2WcvXpj96HkILJ
+	p5gTeJ8G94fN4Yuh8bu6ANjcp76xnxmLcn1SCPpAkCv5Xfwhzyp2AYTynr54Yt2YTyrkKQDHKxx
+	A4tRR2IqADZt5SRsjTghurklqUXupVqdbM/RPahX/C4e+0j+mb9EfQDmFttVVQDqhgbEcUx7MNY
+	la+lvK0BAJU4l2J2GcSDWz/eE5nVd7muuCUA9qGbvQRrhxVMB0X7X6UOfXA86Vma8Rgoy1spA6k
+	M/3z+2SbDhdXOQOIqbc8DEM5ULPn8AnLICVfoP3Rlt47Uj69RLx76F48E2KIZQZ7H/AfGg8933Y
+	M3U8ChB30SpF9NrqNMFqa9USmKthBvWbkW5tjHBs8Nev/C1FoJ7dVELt+sp2GHtRUtayvvavRZ8
+	Ddad9n4xkYv+xSbU1B9/qQfotHJyXwBo0kuKSJDJA6RqJKvc9Qlq37UHNoji/gnksDLULnAdHKn
+	iSlVHq6FLTqm0Ax2f6XRKKrmHHOMVM+4=
+X-Received: by 2002:a05:622a:a07:b0:533:3fc2:8b19 with SMTP id d75a77b69052e-542b658df3cmr161864101cf.20.1793625240711;
+        Mon, 02 Nov 2026 05:14:00 -0800 (PST)
+Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5431246c7basm85036611cf.18.2026.11.02.05.13.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Nov 2026 05:13:57 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xNrrI-00000009is5-3yQf;
+	Mon, 02 Nov 2026 09:13:56 -0400
+Date: Mon, 2 Nov 2026 09:13:56 -0400
+To: Gong Shuai <gong.shuai@sanechips.com.cn>
+Cc: fangyu.yu@linux.alibaba.com, alex@ghiti.fr, andrew.jones@linux.dev,
+	anup@brainfault.org, aou@eecs.berkeley.edu, atish.patra@linux.dev,
+	baolu.lu@linux.intel.com, guoren@kernel.org, iommu@lists.linux.dev,
+	joerg.roedel@amd.com, joro@8bytes.org, jroedel@suse.de,
+	kevin.tian@intel.com, kvm-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	nutty.liu@hotmail.com, palmer@dabbelt.com, pjw@kernel.org,
+	robin.murphy@arm.com, skhawaja@google.com,
+	tanchi25@mails.ucas.ac.cn, tomasz.jeznach@linux.dev,
+	vasant.hegde@amd.com, will@kernel.org, zong.li@sifive.com
+Subject: Re: [PATCH v6 09/10] iommu/riscv: Add dirty tracking support for
+ second-stage domains
+Message-ID: <20261102131356.GA274202@nvidia.com>
+References: <20261031083014.15040-10-fangyu.yu@linux.alibaba.com>
+ <20261102091823.54287-1-gong.shuai@sanechips.com.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261030094024.3226356-1-chunyan.zhang@linux.spacemit.com>
- <auYxFRtKWbGAlRTL@aurel32.net> <CAAfSe-shesRwmdKhZojqbZjJejVEtA47NXBwNmrpAsTsk6m5rA@mail.gmail.com>
- <DMKIFFUY4T1C.TTDVVD0FOSF1@kernel.org>
-In-Reply-To: <DMKIFFUY4T1C.TTDVVD0FOSF1@kernel.org>
-From: Chunyan Zhang <chunyan.zhang@linux.spacemit.com>
-Date: Mon, 2 Nov 2026 20:25:29 +0800
-X-Gmail-Original-Message-ID: <648788BF6233AD63+CAAfSe-uMrrX2Y_mzt5-Hhr+ssfwLVhs094PBb-ZTgKFLPwVjgA@mail.gmail.com>
-X-Gm-Features: AclHuK8Nf_Wjx0Fs3iSP6YTyXDr4sshL9mP7vgixNBtorqmmqEdGoXFlzXEdNkY
-Message-ID: <CAAfSe-uMrrX2Y_mzt5-Hhr+ssfwLVhs094PBb-ZTgKFLPwVjgA@mail.gmail.com>
-Subject: Re: [PATCH] riscv: dts: spacemit: k3: add USB3 port A (DRD) nodes
-To: Troy Mitchell <troy@kernel.org>
-Cc: Yixun Lan <dlan@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Aurelien Jarno <aurelien@aurel32.net>, linux-kernel@vger.kernel.org, 
-	spacemit@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>, devicetree@vger.kernel.org, 
-	linux-riscv <linux-riscv-bounces@lists.infradead.org>, 
-	Troy Mitchell <troy.mitchell@linux.dev>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: M+3MKZmQIfwi6Co6/vf4q2UGW2uJI9BbabwuJq+lAL0dBJ7slFOYeu1Y
-	cJ01R1xJ9c7dJT5f2omXf4UL41QOOACjC5V9k8ZkxWUg4LTLvB0Pd/iN30QlKzMQ3V1vQqb
-	QmN9qrqUJ6kYVFptMJMqTudZJvpbUpyM8CB4SQ8XU9Xo2Uef0CPTUVXRs4ujJI24shAC5Tx
-	u4TJMPGP7c6m25jGOmDfk3Rz8tQVsMZDV4llYImKS7nonrMG45RIx2p5eklzoScQ4L5dWH4
-	JcL2h6ubJJzKEY8c1m3baLr0dmdNWk4IayinV96NLkFLDp7m+id72rAsR7gxETxyBHElZTR
-	z/MfGy9zZt9+RX1bhhoup2h2xE7TQybO96SBquM0xAkKAZLINcn3Jye9Z9M4/dW75yEBBN/
-	boSGybpP6A0+40uaRlx7/qZdccQrRDq8KpHv/pLRMpI0f2zDajjtGIxkKAT58Usw/xWjtiA
-	jblcP7+fFXwavOqPQRmWaMYOM7bLfI1vic4iLza+CbHKsRAw2cMYbiWq4rcP8iai+F2BguK
-	9alHobrVxN8MXdxc4PzLHiZUazsXg43eYimwVUeGiW9jHWK11ECyI1AG+DSbrCr6UgtMVZH
-	oeR6iqCZLaftadfSu+ZJKBy6uujf7iMiPkrf2u/+if14YGrvB+yN9myKt9QAv58L/LTVhJE
-	Lx7ge9QuThSD/DLN+BnkTTVmJ7XB2twWPs+XS0IVU+zgbNCgHYxq2QFlJlKXVb/yh18enY3
-	zImCLWXIvs7a8+GDBiYvx21azXLo3nw8dO4vIXDqFJpGrn9p63ao35x7lHsS7c7o1/lZbQn
-	d1Djevflc59nK4Mmf/Bvry2/cZ12V7Y+jdzWDiafNQIjBJ7kzHTjQs6FbRO0mUr47nvfk0s
-	gCs+V7eeovj+lnvebQ4CyJ88zlC7N8gp/ITnHi9XhMae6YLQQf1zrHiHsm9prk2MUkyS7HE
-	WuJgBQwDG6VkJMXGU/Elgt8Lv/AR1amsURQvJdLjNhi4iISKX4e25kn4lrzS4/WUtpdJBGt
-	sIccHXS8oagTfgmGB1EF4ivZOpUJnCWYp0r6pE4/wKNwQKNDHuwSlOJ8kr1OEkkqVFzrMe5
-	g==
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-X-QQ-RECHKSPAM: 0
+Content-Disposition: inline
+In-Reply-To: <20261102091823.54287-1-gong.shuai@sanechips.com.cn>
+rom: Jason Gunthorpe <jgg@nvidia.com>
+From: Jason Gunthorpe <jgg@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_042628_700699_5CE4F409 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20261102_051403_114954_013D4621 
+X-CRM114-Status: GOOD (  13.88  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,42 +114,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-SGkgVHJveSwKCk9uIE1vbiwgMiBOb3YgMjAyNiBhdCAxNDoyNywgVHJveSBNaXRjaGVsbCA8dHJv
-eUBrZXJuZWwub3JnPiB3cm90ZToKPgo+IEhpIENodW55YW4sCj4KPiBPbiBGcmkgT2N0IDMwLCAy
-MDI2IGF0IDU6NDAgUE0gKzA4MDAsIENodW55YW4gWmhhbmcgd3JvdGU6Cj4gPiBEZXNjcmliZSB0
-aGUgRFdDMyBjb250cm9sbGVyIGFuZCBpdHMgVVNCIDIuMCBQSFkgZm9yIFVTQjMgcG9ydCBBCj4g
-PiBvZiB0aGUgSzMgU29DLgo+ID4KPiA+IE9ubHkgdGhlIFUyIGxhbmUgaXMgZGVzY3JpYmVkOiBQ
-b3J0IEEncyBTdXBlclNwZWVkIFBIWSBoYXMgbm8gZHJpdmVyCj4gPiB5ZXQsIHNvIHRoZSBwb3J0
-IHJ1bnMgYXQgaGlnaC1zcGVlZCAobWF4aW11bS1zcGVlZCA9ICJoaWdoLXNwZWVkIikuCj4gPgo+
-ID4gRW5hYmxlIFVTQjMgcG9ydCBBIHdpdGggZHJfbW9kZSA9ICJwZXJpcGhlcmFsIiwgc28gaXQg
-Y2FuIGJlIHVzZWQgYXMKPiA+IGEgVVNCIGRldmljZS4KPgo+IFBvcnQgQSBpcyBhIFR5cGUtQyBw
-b3J0IGJlaGluZCBhIEZVU0IzMDEsIHNvIHBsZWFzZSBub3RlIGluIHRoZSBjb21taXQKPiBtZXNz
-YWdlIHRoYXQgaXQncyBkZXZpY2Utb25seSB1bnRpbCB0aGUgQ0MgY29udHJvbGxlciBpcyBkZXNj
-cmliZWQuCj4KPiBXYXMgdGhpcyB0ZXN0ZWQgd2l0aCBhIEMtdG8tQyBjYWJsZT8gVGhhdCBkZXBl
-bmRzIG9uIHRoZSBGVVNCMzAxJ3MKPiBwb3dlci1vbiBDQyBtb2RlLCBzaW5jZSBub3RoaW5nIGNv
-bmZpZ3VyZXMgaXQgeWV0LgoKSnVzdCB0ZXN0ZWQsCgpPbiBLMzoKfiAjIGxzIC9zeXMvY2xhc3Mv
-dWRjCmNhZDAwMDAwLnVzYgp+ICMgY2F0IC9zeXMvY2xhc3MvdWRjL2NhZDAwMDAwLnVzYi9zdGF0
-ZTsgZWNobwpjb25maWd1cmVkCn4gIyBjYXQgL3N5cy9jbGFzcy91ZGMvY2FkMDAwMDAudXNiL2N1
-cnJlbnRfc3BlZWQ7IGVjaG8KaGlnaC1zcGVlZAp+ICMgY2F0IC9zeXMva2VybmVsL2NvbmZpZy91
-c2JfZ2FkZ2V0L2cxL2lkVmVuZG9yOyBlY2hvCjB4MWQ2Ygp+ICMgY2F0IC9zeXMva2VybmVsL2Nv
-bmZpZy91c2JfZ2FkZ2V0L2cxL2lkUHJvZHVjdDsgZWNobwoweDAxMDQKfiAjIGxzIC9zeXMva2Vy
-bmVsL2NvbmZpZy91c2JfZ2FkZ2V0L2cxL2Z1bmN0aW9ucwphY20udXNiMCAgICAgICAgICAgZWNt
-LnVzYjAgICAgICAgICAgIG1hc3Nfc3RvcmFnZS51c2IwCn4gIwoKQW5kIHRoZSBob3N0IHNpZGUg
-c2VlcyBWSURfMUQ2QjowMTA0IHdpdGggbm8gZXJyb3IuIFRoaXMgaXMgbm90Cmd1YXJhbnRlZWQg
-YWNyb3NzIGFsbCBDLXRvLUMgaG9zdC9jYWJsZSBjb21iaW5hdGlvbnMg4oCUIHdpbGwgbm90ZSBp
-bgp0aGUgY29tbWl0IG1lc3NhZ2UgdGhhdCBQb3J0IEEgaXMgZGV2aWNlLW9ubHkgdW50aWwgdGhl
-IENDIGNvbnRyb2xsZXIKaXMgZGVzY3JpYmVkLCBhbmQgdGhhdCBDLXRvLUMgYmVoYXZpb3IgZGVw
-ZW5kcyBvbiB0aGUgRlVTQjMwMSBwb3dlci1vbgpkZWZhdWx0LgoKVGhhbmtzLApDaHVueWFuCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Mon, Nov 02, 2026 at 05:18:23PM +0800, Gong Shuai wrote:
+> >@@ -1439,6 +1454,9 @@ static int riscv_iommu_init_domain_s2(struct device *dev,
+> > 	if (domain->gscid < 0)
+> > 		return -ENOMEM;
+> > 
+> >+	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_AMO_HWAD)
+> >+		domain->domain.dirty_ops = &riscv_iommu_dirty_ops;
+> 
+> This sets dirty_ops based on whether the allocating device's IOMMU
+> supports AMO_HWAD. As I understand it, the domain/HWPT is not tied
+> to that IOMMU instance. A later attach may target a device behind
+> another instance without AMO_HWAD, and the attach can still succeed
+> with GADE disabled, potentially causing guest page faults.
+> 
+> Shouldn't we therefore revalidate AMO_HWAD cap for domains with
+> dirty_ops and reject this combination?
+> 
+> FYI, both AMD and Intel have attach-time dirty-tracking checks. See
+> drivers/iommu/intel/iommu.c:3195 and drivers/iommu/amd/iommu.c:3221.
+
+Right, need to check on every domain attach that the domain is
+compatible with the iommu instance.
+
+Jason
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
