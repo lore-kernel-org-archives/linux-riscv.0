@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C1B6606A338
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 11:22:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF163606A33C
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 11:22:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RfbtraP4;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=sGQxrLj2
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hJMHJhdL;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=NeJMQzqw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,38 +14,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=GJcdGI1V6TBC1NsmN+FK/7IPjMJZ+dkq02yWivcCR1A=; b=RfbtraP4A75ASSjGEkYcIZq1IG
-	lv6FrcbXYO0ubilCfBdHj+xO39rHBmzbugSGv95UcRRNnJMBuo8geuqa9mpP7aGntD6zzEWvZ4Svw
-	b+lewe8xwJEqohubeP5Vi94OA3sAtphaQ9cDeR+gA+rKbHJkmwRmb/SIDVIQ+V3pLTs3/q8G864Hd
-	hgoqzK8XhPgMtUcdNiehWEfkUSDHezxEH1DjGJO4xM8IIWhrQHxeEbTHsObiYkMJncCkDOrzt4hXY
-	KdhwCpVFMTxa8/Trsawyoo7f76WFFE26KZd9cpAxAdI+bD3rl0rG1uzFQVd4gI2uLZkF6MvJaPiqI
-	ITs/rI0A==;
+	bh=oSga1ZGZyTUYDB4rOc6jBYO50OH8DwgRulTFVpWgkmQ=; b=hJMHJhdLI1nqhrZzj8TGixfVAp
+	XegKn+caLGnEBJ0gIxoHI1mrCf5W8QZ9ddQMJvSmfQtTBgliL2F0W2/g9/5aJMl7pmQ3PVOyem8Hg
+	k1Q2Ar1ax5An2eVTG/YIFYNLLaPqyIAfasWswAIl/AvU4fELx1EUKqDM+S0aNfeRVUJgJMZusKh/R
+	BE9QKQA/NanQ2/rzTwIWaYLnyY5CEcEznyN+aogva4JucilIViPKZDhoIsxSUn6DliWZdQYT9jUei
+	FirwkXlkCLyCAoEg62OC53yJO1McZo8HJRMnWbgl7eaZCW8t4i15W993T49C7dCQxGVvYafSCPbX5
+	+mOYJr8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNq6r-0000000GIMO-1YLF;
-	Mon, 02 Nov 2026 11:21:55 +0000
+	id 1xNq7B-0000000GIbg-0ZXx;
+	Mon, 02 Nov 2026 11:22:13 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNq6n-0000000GIKO-3HAv;
-	Mon, 02 Nov 2026 11:21:51 +0000
+	id 1xNq76-0000000GIXm-3gkw;
+	Mon, 02 Nov 2026 11:22:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 98BB5293B;
-	Mon,  2 Nov 2026 03:21:45 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7E1BF2972;
+	Mon,  2 Nov 2026 03:22:04 -0800 (PST)
 Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ABBBC3F632;
-	Mon,  2 Nov 2026 03:21:42 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 906F43F632;
+	Mon,  2 Nov 2026 03:22:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793618508; bh=MWIk55sq3Xl5IhFPSCZgQqnLya5ldzX0H6ZlzYM7l/s=;
+	t=1793618527; bh=t0SkgFkvYDykWTdwPClx+wiQRsFxgewU3m4qBQArb9Y=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=sGQxrLj2PAVQM5fHkHevqVIfVin1ll/3g3ae4t/g8HEOkurxB70lXF0DZTL/IljQ5
-	 rHKZXsGBRrFJanBWMs+pRElUxUB2BOmIRgyPg/tZXyH7V1J+xZrJnVL8vDsgkjLlnk
-	 oes83MtSFez0CJt//3pZ8TBKJnbeTFU4waApKUA8=
+	b=NeJMQzqwvJCGViHbJ7QrglEcV+sHE+Y7LmN8Mv9KRlpD1KsgVkRdJciC+OcIGK7Ag
+	 luR4kD9pngLARUQXLPyQKeqzGp8WZsRMvLq6m0Yi96l+E6h6jYcb/XlccgGehaPKp5
+	 sPYNbHXRsNYuX/TWYKOBUYKwQid6g9Lg7pUylVag=
 From: Yeoreum Yun <yeoreum.yun@arm.com>
-Date: Mon, 02 Nov 2026 11:21:15 +0000
-Subject: [PATCH RESEND v2 02/21] ARM: mm: make 2-level pgd_t a scalar
+Date: Mon, 02 Nov 2026 11:21:18 +0000
+Subject: [PATCH RESEND v2 05/21] MIPS: mm: define pud_leaf() only when PUD
+ exists
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261102-dummy_ptxp3-v2-2-78840b2ec73c@arm.com>
+Message-Id: <20261102-dummy_ptxp3-v2-5-78840b2ec73c@arm.com>
 References: <20261102-dummy_ptxp3-v2-0-78840b2ec73c@arm.com>
 In-Reply-To: <20261102-dummy_ptxp3-v2-0-78840b2ec73c@arm.com>
 To: Russell King <linux@armlinux.org.uk>, 
@@ -78,22 +79,23 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
  linux-openrisc@vger.kernel.org
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2019; i=yeoreum.yun@arm.com;
- h=from:subject:message-id; bh=4Z0osGAP3S0civxPu6dKKFX1qsd70Ol0fauRungSauY=;
- b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBq6HIvrNf0zi5GZGBTyShCkosyjcm/ve62Hffev
- ytAlT3j/TaJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCauhyLwAKCRBt1cPRWsUx
- M12BC/9v/yOQz+XWwbdtR0EhCi2ksiI4sjutQ/bwS5HN1By936VSeN3wcUH0K1fKV0O4ZIiW+s2
- SfJf6SpaQEfPzplAyvkiXQnqW09aHWhOdT1UwkkxMNSsHXdfqi1M4FHRSWPCkb6K0FI12tyXCNB
- h4nuW6sYscec7ovrm5iXzQbZ18FdIgFk4raQqVHNTwmq+NydXKk3z4z1PKr6pQr9LF/IibhywF4
- XjnF1eu4DGG5cokFCAkzEPmLAy7JprIb56giiRaum8uQRFE4AQ+Cp1WSXeJ2dYh0gtBvPfSBIC/
- mxl4TgYzuAab+dAvT/qiL8ektFPYyYhHDUvtnnvaYZd7YDgQ3WVoVaWuqwj0VkGu2Zkeaqp0uR9
- 2vHpxiZK4KVn3Mm9K7SZrbcjdZUCchSWx3i9Tlu4I8WUFQY0nxAPvoTQsduekKtvwMxY20rvnhs
- Tv4dNY9GxHesD3XthpSYqMK/OdNippbv5S3PTdRLmqElgGJKdAMoOXuZeIn1q0haCDfG0=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=952; i=yeoreum.yun@arm.com;
+ h=from:subject:message-id; bh=yLp6pLFkEq1XlBsrO8HJPn9OYitILCqfI5l0JaR3PzY=;
+ b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBq6HIxBJSBNoM97Az+FdfadshzwrJE6Hk2Nn9Vz
+ MKxgKY54myJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCauhyMQAKCRBt1cPRWsUx
+ M2E/C/4qpH/vx+lqCX8XvGB0nXajTdL1XeeI+ifzMxsOUQjJtT8tY/smDQ5SKrR6WinrXO6Ngc8
+ WmJ6HXGoOoY6VCHl5ja78DeFl3o38mPbYI06PBowiBBAaaOBJkWomfxtw3g2ZgG4Uh1aqfv6fXp
+ vwiLGY6gzsFsCz2pkFz/WVYHWeWqpPNYSc9pZpJinfslFX4hi/cKag4gdGQKNYILIYyJJvIlbNy
+ BM+ngv4diTaMO/vug1mgTvnHEo8CA7knFGj0n3zq1xoj8KhWbK3mVzkWZUqO7kxKi9KP6At4d68
+ cjOzafYZVtnW0n4cMsgFw6P6ue/iZVXDPbhXMFL2jnVeya9rQru/UtN3eOKJMxDQ4gIJ2i7xQeY
+ 6agNDrREyget33aj1qdFW+UzgsOEn063yBZc3RAdit42b8EUr85bUWAHsHJnOQnFedG3AFdIRv5
+ S1T3ej8geq/V9IRjOPajCdzqh5MA+dmkNPfvhLTNuLYlId5s2wizCxEMs+pERzFa1A2c4=
 X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
  fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_032149_916349_22BD0C53 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20261102_032209_042175_F9C38B89 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,66 +118,33 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 
-As pgd_t is returned from a function like pgdp_get(), pgd_t shouldn't
-be an array.
+In include/asm-generic/pgtable-nopmd.h, pud_leaf() has hardcoded
+to return false as inline function, but it misses the "define pud_leaf"
+part.
 
-So, just use an u64, and extract the right 32bit value in pgd_val().
-
-Leave the STRICT_MM_TYPECHECKS case alone for now.
-
-As an alternative, the STRICT_MM_TYPECHECKS approach could be used here
-as well, but using an u64 looks conceptually cleaner, even though
-pgd_val() gets a bit more involved.
+To prepare for fixing that, define pud_leaf() only when
+__PAGETABLE_PMD_FOLDED isn't defined.
 
 Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 ---
- arch/arm/include/asm/pgtable-2level-types.h | 20 +++++++++++++++++---
- 1 file changed, 17 insertions(+), 3 deletions(-)
+ arch/mips/include/asm/pgtable.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm/include/asm/pgtable-2level-types.h b/arch/arm/include/asm/pgtable-2level-types.h
-index 650e793f41429..805044ea315b7 100644
---- a/arch/arm/include/asm/pgtable-2level-types.h
-+++ b/arch/arm/include/asm/pgtable-2level-types.h
-@@ -25,7 +25,7 @@ typedef struct { pteval_t pgprot; } pgprot_t;
+diff --git a/arch/mips/include/asm/pgtable.h b/arch/mips/include/asm/pgtable.h
+index fa7b935f947ca..151f4d15bd12b 100644
+--- a/arch/mips/include/asm/pgtable.h
++++ b/arch/mips/include/asm/pgtable.h
+@@ -745,8 +745,10 @@ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
  
- #define pte_val(x)      ((x).pte)
- #define pmd_val(x)      ((x).pmd)
--#define pgd_val(x)	((x).pgd[0])
-+#define pgd_val(x)      ((x).pgd[0])
- #define pgprot_val(x)   ((x).pgprot)
+ #ifdef _PAGE_HUGE
+ #define pmd_leaf(pmd)	((pmd_val(pmd) & _PAGE_HUGE) != 0)
++#ifndef __PAGETABLE_PMD_FOLDED
+ #define pud_leaf(pud)	((pud_val(pud) & _PAGE_HUGE) != 0)
+ #endif
++#endif
  
- #define __pte(x)        ((pte_t) { (x) } )
-@@ -36,14 +36,28 @@ typedef struct { pteval_t pgprot; } pgprot_t;
- /*
-  * .. while these make it easier on the compiler
-  */
-+typedef u64 pgdval_t;
-+
- typedef pteval_t pte_t;
- typedef pmdval_t pmd_t;
--typedef pmdval_t pgd_t[2];
-+typedef pgdval_t pgd_t;
- typedef pteval_t pgprot_t;
+ #define gup_fast_permitted(start, end)	(!cpu_has_dc_aliases)
  
- #define pte_val(x)      (x)
- #define pmd_val(x)      (x)
--#define pgd_val(x)	((x)[0])
-+
-+static inline pmdval_t pgd_val(pgd_t pgd)
-+{
-+	/*
-+	 * A PGD entry actually corresponds to two PMD entries in the PMD table.
-+	 * Both PMD entries point to PTE tables residing in the same physical page,
-+	 * but at different offsets. See include/asm/pgtable-2level.h for details.
-+	 *
-+	 * Historically, pgd_val() has returned the lower of the two PMD entries.
-+	 */
-+	return (*(pmdval_t (*)[2])&pgd)[0];
-+}
-+
- #define pgprot_val(x)   (x)
- 
- #define __pte(x)        (x)
 
 -- 
 2.43.0
