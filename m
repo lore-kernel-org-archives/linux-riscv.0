@@ -2,119 +2,131 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 995836088B11
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 14:30:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B4D3607B446
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 14:39:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GyejK5Di;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l+R0JO26
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SXip3LWU;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=jrsDzUSF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=JyLsElG7AAkFsYJGKAb1u4ZvR/ATB1Y0CUWkDKNmLK8=; b=GyejK5DiDqkqY1/T9hqn12kgtW
-	ZppM9+hlzZ8SeeyO44ZvAlga49/sAss2H4WO742dgT9tQcNpbshDc62ngUz1zLXkDhH5ykM9ahIWL
-	TyG8HBkCy9RitC6CV1QQU0pVizH31v78GgzyJ6DpbsyQ8kKUmGl8ACvCIeP4b9KvoHVVmNfnJMPfw
-	al8VF5aXqfB8JKmb5QQEy4sC3yiwRiLLno3CpovGW5FjlDOa3CCiuTr8oHiscGFg1OWAhEpQ/7025
-	GMt6x/hJMQADFw6N1TBG2OIcOmQhhaToXMi0/f3Gmh+GAbNmvaFQtY4VG42EFZXn1KKxM1Hoddab+
-	Isv2BDbw==;
+	bh=f7CdvfxOPW7u3aoHMypnJHn8Ctj24EAJjyO6YHrqExw=; b=SXip3LWUo+AqaGsZI+Q+ouaiZE
+	Xw9PN5rm0qw12+7S11FoyNK8kL7C+Xsx32s8hl9h6cVLf+GHisuTia5MlvPTyK+3YzipbLmvD4Sii
+	zBo3RD1q7x3VVSXUpWAJkEQjSd5Etvo5RYDPd2DLHxNC4o5ohZ66qS51vTpDSk7bfMwMerVCaVSqQ
+	jXb9v2QV6LPEUYETL2XDaLCmrcencRNh/itOftGrsS1s9N0QR9ev/avRNvPCPHuEQ780o0nRZnhgT
+	pjRqqMPpQ9u8XMtkNr7OpJbDwIimLULpK345Xhz2P+xsx3yf4lxUrSgU+FpMO1pKWMUcIniT5uM1/
+	2UxIzhoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNt3G-0000000GqGr-1WLZ;
-	Mon, 02 Nov 2026 14:30:23 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1xNtBi-0000000Gr8d-3BKH;
+	Mon, 02 Nov 2026 14:39:06 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNt3D-0000000GqEP-2kvn
-	for linux-riscv@lists.infradead.org;
-	Mon, 02 Nov 2026 14:30:21 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-8a05da1cc1fso1236709b3a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Nov 2026 06:30:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793629819; x=1794234619; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Gts2WqsGwLc0uD/7GkoBlKKwzjNqrANh5XxTu7k3RAs=;
-        b=l+R0JO26A5QTQpwHBtwGPNqaqbuWucmtibkfWWulrcX+HMp2QfZxf5S7BVWBmLhT0c
-         59v6akdbOpo3O9Vq03cYnHyIYEmnnDvk01dqd2mDYUjkrPbdrYgEgS4LkVVRl0qIn6L9
-         6jQJcvZdAdHK2jTYQST+4uqlNzxkzCRlhJ9K7XOCkoO60f4kwUKOruX8A4xQl+JGdbvE
-         3AiMvu51GZLbc0FsRaK06G6JuxP/n++PF/YJpMdtVFAeWxma02MA4yvK/Cdii/9Ikwr5
-         9Od6wRG/P5Qfd6JRtWKEJHz+srdgX71MTYzhSRNj5bDEtPt8LW5q0Atskn0TnG662hzq
-         JZOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793629819; x=1794234619;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Gts2WqsGwLc0uD/7GkoBlKKwzjNqrANh5XxTu7k3RAs=;
-        b=k19n6RyCuYaaQgYzeFDnnuUCih96jMfoC9BTrUiYyLjgRxmguQ6u0Fu+2Sj0mE15Vt
-         CFdxl9+ZIhOTl2gOvi6YCbRnTGhPCmUWypJ1sRPrsShmnwevPEhUGAnZh6QX8Pei7JiS
-         np93l0qc03KgY4GaAAiIOeHLQ+XFXmxkA0QiQc26B2HrSZFMDMQfne2z0mDDcDqhXQC5
-         zt1G2VOrkZUiWutPfpWPcGdiLIpvZp4v+NV1FaakAmX3p7hkRG8gD0y/yDxniL9EgisF
-         yapPeGiGudu/74G6NeGOf4ij8GbSI99Vw+2r8Lb0Xu7P+h+Q26tnhj/4JWk3wjHisDhP
-         //lg==
-X-Forwarded-Encrypted: i=1; AKwUvBxbi4OYQxPJkSm53sUBKO/p1yii4YIG0W/ueztIUTN8HOBKu/8shOmocOSQ0zE0ptyJH2HbK5b64fSeHQ==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8ZUTXQqA8cUZvkDEsMEZCaJzLnFR+bgTYjAWUxhxBiYcdOn/fg
-	j6ZOJ3Ct1ppP9uVgKiY9m9C9ue8Kpk5boxvk7xA6k78MTozZIYEAMMAs
-X-Gm-Gg: AYBFou0eoiTKFMeXcwnskPzrMCHqAYnbRZj+u2EVlegoXLnXWQhEk9REUi+GOw79/+B
-	8TpUoejmVBzVVxAClfy6ZW7HuQuVMPXYB4QmPeGR4OnhZQIwhqcqSmYnZw5Pe5zf9vzzxocPZ97
-	xMxIYpDXX8a+qbQ5kFd6tVIeBE1x8HUOS4bpyhHOGW1QDzlyw4EGdzu2t6ntmKE/3vTbngUFQnj
-	ufylOvdjYrUMPvOs/v2r/5VOnTWIu3Xgb5NoqkeZ2QMQ9HkP/qjUUoefsKG0NBFNQojzZkAXOoi
-	B3Mj/jlL+/bkcRocVmdNrqxknbaJeVkSd01faN13mZx1nubf+1S3KRa/x8D8wc+8JbpQcJrc+5I
-	GYfOMUlLfRQV+Vg8o8tN6/O9rvMBIeMQOQD4V88cJEl302bBYK5ci3ar5I3yzttoMcxGaYZaE+O
-	M//Gv3PNeaoNt9krW6uKjOJoFXblkus5CkxsKPuT5VZ25nWM+wc1iR9GwUm3qQpe4UzWDMsGWYl
-	iNVWUXE/b4qiOy8J1NFtIXsThLNk8hEEeDKSvhiXfMJiLFTyUEBQkM5/U7GKkqv39ev6p2HmkhL
-	4WR6tJwDA+VUuqsyAr7M5jZRV2vziD7+R1g2zsbWPPORxXFHwyOzJWZV/g==
-X-Received: by 2002:a05:6a00:3908:b0:898:22b4:c8c8 with SMTP id d2e1a72fcca58-8a9ba9f783dmr7803008b3a.2.1793629818400;
-        Mon, 02 Nov 2026 06:30:18 -0800 (PST)
-Received: from localhost ([2.27.148.106])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8aad77fcb8dsm2219095b3a.1.2026.11.02.06.30.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 06:30:17 -0800 (PST)
-From: Han Gao <rabenda.cn@gmail.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Han Gao <rabenda.cn@gmail.com>,
-	gaohan@iscas.ac.cn,
-	Drew Fustini <fustini@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Anup Patel <anup@brainfault.org>,
-	Radu Rendec <radu@rendec.net>,
-	Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	linux-gpio@vger.kernel.org,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>
-Subject: Re: [PATCH 13/18] riscv: dts: zhihe: add A210 core support
-Date: Mon,  2 Nov 2026 22:30:09 +0800
-Message-ID: <20261102143010.3785824-1-rabenda.cn@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261022-radiation-ivory-c8f9f9c66b7f@spud>
-References: 
+	id 1xNtBf-0000000Gr7I-1t1r;
+	Mon, 02 Nov 2026 14:39:05 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A2EEEvg3103442;
+	Mon, 2 Nov 2026 14:38:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=t3uMzKFF0fpXKNPzeuZqcP8SHbCjBI
+	Lits3drrR5UAs=; b=jrsDzUSF/OggKdN81wWhb4EQ3nK8LML9mgaSnR8qAY70jz
+	0DbJXtS4PJuv8PQiLy7abs+fG7sndfj6ShOJulStFvMaB4jzVmChtTE0sAet0Vm3
+	A1+30vWOdajDQi0XubC1JRA8+Z0IFqBUkwIt3tZHqrS7135+dwCfgEZ9oFFGPewC
+	l25ok0YfFnDEr9VN3wS8SYboK6sKCmQ6lfAwbRcX9ljp4AV5DyeSlhrCxiJoEWty
+	Y1DzMBTvPDR+g06pwD9FhYxvyUDi1W8x+t9hc8THVHlowf7A2mNVTcdtd7GnSpo3
+	aFq1FAonyVk3KK0s0pDgB8L2nMIRTSxdOjGsR3jA==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4hn826h1td-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 02 Nov 2026 14:38:33 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6A2E5w6Q1034496;
+	Mon, 2 Nov 2026 14:38:32 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4hnu1vebv3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 02 Nov 2026 14:38:32 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6A2EcS5845613524
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 2 Nov 2026 14:38:28 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A89912004D;
+	Mon,  2 Nov 2026 14:38:28 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0A5D02004E;
+	Mon,  2 Nov 2026 14:38:22 +0000 (GMT)
+Received: from li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com (unknown [9.39.25.78])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon,  2 Nov 2026 14:38:21 +0000 (GMT)
+Date: Mon, 2 Nov 2026 20:08:19 +0530
+From: Gautam Menghani <gautam@linux.ibm.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+        Huacai Chen <chenhuacai@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Paolo Bonzini <pbonzini@redhat.com>, Fuad Tabba <fuad.tabba@linux.dev>,
+        Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>, Nicholas Piggin <npiggin@gmail.com>,
+        Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        kvm@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Stefan Teodorescu <fane@google.com>
+Subject: Re: [PATCH 3/7] KVM: PPC: Explicitly force IPIs when directly
+ kicking vCPUs
+Message-ID: <auiZYdVzhFbnj0iy@li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com>
+References: <20261028190259.1819571-1-seanjc@google.com>
+ <20261028190259.1819571-4-seanjc@google.com>
+ <auStM0rbFol79h5o@li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com>
+ <auTohixp3V5-vNsB@google.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <auTohixp3V5-vNsB@google.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: MVuzkhZ7vtCvo0_kidGaNnCzUH4z2Q5t
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAyMDA1NiBTYWx0ZWRfX9NPC/owi16S7
+ 9yPcxDuxCXAVRis8gROnpHUQtX1lgGRd8hAKUnleFK3QWlX1SdAjhFR8oEvK54MRQDdismPxh+K
+ SQ8loUK3UQRzfSLpS9uRj+aWjubkYTlbIquMNg8PhpfWVJkZ76O3xxEXr80qfN6IOD19XJfjKtr
+ 634hKk5awadYPmt24Ux7BsSNM3cqVRZujAolWeljDDPrwops7bov/t92bCk4p83QwKy6YXStSnl
+ 0VsEIPP7bIE5T7r4zJSL0tKzTIgSYx+WFY3Qwo3DYgWTx5sTM9UVeBsh0rxrl31K1IM0pQFj1A7
+ gw+VtvRxiUYjK/87Jg4SStypE42sXR/2o22pNseu+/r/yDHR8uGSsjBtiHv4st3RTmohj8hx7JP
+ UCE4D1U1IEi/wr/eFIXPrL9wTCpxRXnB0VIgaijskvnY1QOUMWWKwaAo3sk8IykSUxckF0V1iQL
+ y3XMeya+tQcv90pkeiQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAyMDA1NiBTYWx0ZWRfX/Jv0f66eb8FC
+ gBsCZTcz1I/pV05gMEXUAwMes48ABsD2pbDotd5Qxpz6XqvBunVHHDSaqleBJACDat+c8lSkusL
+ mmZ2c5c7i5Q1tgycd0AKgoXZ+Q680vQ=
+X-Proofpoint-GUID: 3_YY6ZYXsy9uBgG-NjaOA9L9V7gYRG4x
+X-Authority-Analysis: v=2.4 cv=EsJHPicA c=1 sm=1 tr=0 ts=6ae8a06a cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
+ a=1XWaLZrsAAAA:8 a=VnNF1IyMAAAA:8 a=duh_M4KPJp97uAtK-N0A:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-02_04,2026-11-02_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 clxscore=1015 lowpriorityscore=0 malwarescore=0
+ priorityscore=1501 adultscore=0 impostorscore=0 phishscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610300000
+ definitions=main-2611020056
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_063019_704951_E11F0FDE 
-X-CRM114-Status: GOOD (  17.16  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261102_063903_494433_D26AA3D3 
+X-CRM114-Status: GOOD (  31.19  )
+X-Spam-Score: -2.6 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,90 +139,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, 22 Oct 2026 19:48:36 +0100 Conor Dooley <conor@kernel.org> wrote:
+On Fri, Oct 30, 2026 at 11:57:10AM -0700, Sean Christopherson wrote:
+> On Fri, Oct 30, 2026, Gautam Menghani wrote:
+> > On Wed, Oct 28, 2026 at 12:02:55PM -0700, Sean Christopherson wrote:
+> > > Explicitly force an IPI when invoking kvm_vcpu_kick() directly instead of
+> > > relying on kvm_arch_vcpu_should_kick() to unconditionally return 1/true.
+> > > This will allow dropping kvm_arch_vcpu_should_kick() in favor of
+> > > kvm_request_needs_ipi().
+> > > 
+> > > No functional change intended (1 || 1 == true).
+> > > 
+> > > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > > ---
+> > >  arch/powerpc/include/asm/kvm_ppc.h | 13 ++++++++++++-
+> > >  arch/powerpc/kvm/book3s.c          |  4 ++--
+> > >  arch/powerpc/kvm/book3s_pr.c       |  2 +-
+> > >  arch/powerpc/kvm/booke.c           |  6 +++---
+> > >  arch/powerpc/kvm/e500_emulate.c    |  2 +-
+> > >  arch/powerpc/kvm/powerpc.c         |  2 +-
+> > >  6 files changed, 20 insertions(+), 9 deletions(-)
+> > > 
+> > > diff --git a/arch/powerpc/include/asm/kvm_ppc.h b/arch/powerpc/include/asm/kvm_ppc.h
+> > > index 169ea6a7fbad..bbe7378ad0ef 100644
+> > > --- a/arch/powerpc/include/asm/kvm_ppc.h
+> > > +++ b/arch/powerpc/include/asm/kvm_ppc.h
+> > > @@ -30,6 +30,17 @@
+> > >  #endif
+> > >  #include <asm/inst.h>
+> > >  
+> > > +/*
+> > > + * TODO: For unknown reasons, KVM PPC has historically ignored vcpu->mode when
+> > > + *       determining if kicking a vCPU needs an IPI.  Either document why that
+> > > + *       behavior is necessary, or drop this helper and the @force param from
+> > > + *       __kvm_vcpu_kick().
+> > > + */
+> > > +static inline void kvmppc_vcpu_kick(struct kvm_vcpu *vcpu)
+> > > +{
+> > > +	__kvm_vcpu_kick(vcpu, false, true);
+> > > +}
+> > > +
+> > 
+> > AFAICS, there is no reason for PPC to always return 1. I was looking at
+> > the old patches on mailing list and found this - https://lore.kernel.org/kvm/0FEE585F-5E21-47F2-A3F0-AD0DE05EBB43@suse.de
+> > 
+> > ```
+> > How about we return 1 for kvm_arch_vcpu_in_guest_mode() on !x86 always, just
+> > like it's done today basically? Then we can worry about needless IPIs later
+> > and don't regress from the respective current kick implementations.
+> > ```
+> 
+> FWIW, I found that as well, but there are a metric ton of kvm_vcpu_kick() calls
+> that have been added since then, and they scared me.
+> 
+> > However, I'll do some testing and get back by mid next week to make sure
+> > there are no suprises.
+> 
+> Thanks!  If we can drop the PPC behavior, that would be wonderful!  Though if
+> we do that, it should be for 7.5 in a follow-up (this series really should go
+> into 7.4 due to the SNP issue).
 
-> On Thu, Oct 22, 2026 at 03:53:33AM +0800, Han Gao via B4 Relay wrote:
-> > +	soc {
-> > +		compatible = "simple-bus";
-> > +		ranges;
-> > +		#address-cells = <2>;
-> > +		dma-noncoherent;
-> > +		#size-cells = <2>;
-> > +
-> > +		clk: clock-controller@260000 {
-> > +			compatible = "zhihe,a210-clk";
-> > +			reg = <0x0 0x00260000 0x0 0x1000>,
-> > +			      <0x0 0x00250000 0x0 0x1000>,
-> > +			      <0x0 0x10141600 0x0 0x100>,
-> > +			      <0x0 0x10141400 0x0 0x100>,
-> > +			      <0x0 0x04810000 0x0 0x1000>,
-> > +			      <0x0 0x05810000 0x0 0x1000>,
-> > +			      <0x0 0x04900000 0x0 0x1000>,
-> > +			      <0x0 0x20250000 0x0 0x1000>,
-> > +			      <0x0 0x10140000 0x0 0xe00>;
-> 
-> This looks very much like an incorrect modelling of the device.
-> Most of these should be individual devices, and those labeled "sysreg"
-> probably should be syscons as they likely contain multiple functions,
-> not just clocks?
-> 
-> > +			reg-names = "pll-wrap", "top-crg", "cpu-ss-clk-sysreg",
-> > +				    "cpu-ss-cpu-pll", "ddr0-sysreg",
-> > +				    "ddr1-sysreg", "slc-dual-sysreg",
-> > +				    "top-crg-t", "cpu-ss-ccu";
-> > +			#clock-cells = <1>;
-> > +			clocks = <&osc_32k>, <&osc_24m>, <&rc_24m>;
-> > +			clock-names = "osc-32k", "osc-24m", "rc-24m";
-> > +		};
-> > +
-> > +		clk_peri: clock-controller@300200 {
-> > +			compatible = "zhihe,a210-peri-clk";
-> > +			reg = <0x0 0x00300200 0x0 0x4>,
-> > +			      <0x0 0x02010200 0x0 0x8>,
-> > +			      <0x0 0x08400200 0x0 0x8>,
-> > +			      <0x0 0x00540200 0x0 0x4>,
-> > +			      <0x0 0x27420200 0x0 0x200>;
-> 
-> Same here, particularly things that are only a single word wide...
-> 
-> > +			reg-names = "peri0-sysreg", "peri1-sysreg",
-> > +				    "peri2-sysreg", "peri3-sysreg", "tee-crg";
-> > +			#clock-cells = <1>;
-> > +		};
-> 
-> > +		clk_aon: clock-controller@30844000 {
-> > +			compatible = "zhihe,a210-aon-clk";
-> > +			reg = <0 0x30844000 0 0x1c>;
-> 
-> 0x1c is also suspiciously narrow, but believable. Is there a register
-> map for this device available somewhere (ideally in english, but I
-> suppose machine translation will do a sufficient job) so that I can try
-> to understand how this device should be modelled?
 
-Thanks. There is no public register map, unfortunately. In the next
-version the E902 firmware will take over these blocks, and Linux will
-get clocks and resets through SCMI instead, so they will no longer be
-described in the DT.
+Yeah I looked into it and realized that the newer variants of KVM on PPC
+are not even using vcpu->mode at all. So that has to be fixed from our
+end.
 
-> 
-> Thanks,
-> Conor.
-> 
-> > +			#clock-cells = <1>;
-> > +			clocks = <&aon_110m>, <&osc_24m>, <&aon_rc>, <&osc_32k>;
-> > +			clock-names = "high", "osc", "rc", "rtc";
-> > +		};
-> 
-
-Sent using hkml (https://github.com/sjp38/hackermail)
+For this series,
+Reviewed-by: Gautam Menghani <gautam@linux.ibm.com> # PPC
 
 _______________________________________________
 linux-riscv mailing list
