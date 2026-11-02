@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 192B2606A324
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 19:24:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8134606A33F
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 19:30:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MAdqn6LR;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=butBOikZ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XDEuO5lU;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IIWbNPU2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
@@ -14,37 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=PaXh0Ua5UHrCAmT4wjA3p1s7YTfTbkdaJB/z5NpUSrw=; b=MAdqn6LR54F9z1Pi4M7UA3Awdp
-	vpXuUxZzplHzv/bzc+gUxp9XU90NkJjCEeS1QCryJQII/LV/aXYEFNLaOQwFMwbrAFmyD7a/QwSUp
-	S4z4iYLcbqNpErTRA4bFxNeLLR6UYuIFhvw2jWtwUErYpONkkG4//ntYdsx9Z1y/mJRN4N53AJJ0Z
-	SkjoaWNRlZXPrAVwXvLxuk/48IrN97Vfv/Q5QNjpVPiju1iFW+lr24wpOc3sVC/9JnRDMzw0AFGka
-	ql/N++jZUV8lBJyz63lR1r5tlURj2xiYhOb7dYCYk4ROKokNXBoLZP/7W0/6+RQTeDY2RnS5Jvuxn
-	WoFbDKSw==;
+	bh=RSCQvMIalozSw315s28Fg8HhmfMSBzNwDutn7AVeEcM=; b=XDEuO5lUSlXRU4fN4lp8OXRJs1
+	oDbwbaIAlz44+BvBs1Le9vPFiId/8lp+tElVTMGyj5TLBijC2G8NiOKkCT8o3dQKMxy7xEyZHQscf
+	Y5x8cF7NmnD6kgW80QLXXR9Y4bTkCs9L33zBwH1vljT7y1aPyEV0zFckuq8TuQ+9ROSdGHCyWqf+Q
+	X5TOr5fcqta3PFK6QRDgcUXAkiwhKKv2C/kJZCjdG6GJjJX8QJA0FgnOwOkngPcA7xuIL51l+J4sf
+	5qPW1vGVjQlEWyxcxO0pG31u9XWLh2QnuaAIMWVQFPHPdGV+3NiYNSLz9a13iPopXm6SWrfACXEYA
+	6peJG7VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxdk-000000005ot-2SzP;
-	Mon, 02 Nov 2026 19:24:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xNxk0-000000006aQ-2xbq;
+	Mon, 02 Nov 2026 19:30:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxdj-000000005oG-0t4a
+	id 1xNxjz-000000006a7-2Hbe
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Nov 2026 19:24:19 +0000
+	Mon, 02 Nov 2026 19:30:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D0BF943AD6;
-	Mon,  2 Nov 2026 19:24:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B5E21F00A16;
-	Mon,  2 Nov 2026 19:24:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9416D601DE;
+	Mon,  2 Nov 2026 19:30:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 845CE1F00A1A;
+	Mon,  2 Nov 2026 19:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793647458;
-	bh=BqhAHZ1CAtWu/7yJzc2Z1CotAWcWleo0RVIl/xA44qo=;
+	s=k20260515; t=1793647846;
+	bh=BfhxWykTmPc6wyjeVHTR21Enz+OZo/UGczIHttX3ohI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=butBOikZsSTt6L+OgmLjcLlwoy1icu8Z0meF6li9wTbJCgd7o9KG3YERIQmLWn/os
-	 6/PphErsbvCfBXuC+G1xamDNqRymIcKvXGavKrF5O2q56iRKksae6nfjJhM5LRAS2z
-	 KnvNnjzXg30V+heQDPRauiomUylktC/jxRffmoDAQIhaAjd04yIhZaZxVSzwrsQG/Q
-	 H+2XNm1pxJfdtWqdftFbIRd4gjC8NgTt90/hdzP3uCgPFk5rcukhp4OIsnsX4PTeAw
-	 Ic7wB//aUsUzXUvoQNOpZvCxM/KCThD+dAi8xeOl/YtVgj6dHTGE43+mCw7vcBsk8t
-	 1bRfioQZK+poQ==
-Date: Mon, 2 Nov 2026 19:24:14 +0000
+	b=IIWbNPU2lDllFE/WRQ7Y998Rg+/pXHzawGjvgbMq4ZqNv9gzB8aPd0CIx7U/F/ZD/
+	 iJXo64WgvNf2rQC2j0CanZ8MzWnsf3Wcpnxv7MRzcOpBT3HBUrLq8gRGSjybm10rD/
+	 BmI5AoMuQ+02ru1A77u/AvWkHrZyf/iT4a+s8rJw3aaKGM0fhIWkaPLCNzyYvbIjlG
+	 Bi6eM+bHxAwuP/6pQXhcoyEL5XU5065YuM637Ivt0ckZWikz2bnPhrPuomstoK4Z7q
+	 BiRRn1CnFSFRPdbq7rEA+24Ame7OG3Z2Mk5ura6B6Clcfa0Pt2efwabZ8O2leZtjLd
+	 tMpa3WcCI0sMA==
+Date: Mon, 2 Nov 2026 19:30:41 +0000
 From: Conor Dooley <conor@kernel.org>
 To: marouene.boubakri@oss.nxp.com
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -56,13 +56,14 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Samuel Holland <samuel.holland@sifive.com>,
 	Radu Rendec <radu@rendec.net>, devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 6/8] riscv: add ARCH_OPENHWGROUP Kconfig option
-Message-ID: <20261102-rice-large-30bcaaf9de67@spud>
+Subject: Re: [PATCH 7/8] riscv: dts: openhwgroup: add CVA6 APU on Digilent
+ Genesys 2
+Message-ID: <20261102-salsa-cartel-dd4f4b2a9639@spud>
 References: <20261102141727.640769-1-marouene.boubakri@oss.nxp.com>
- <20261102141727.640769-7-marouene.boubakri@oss.nxp.com>
+ <20261102141727.640769-8-marouene.boubakri@oss.nxp.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20261102141727.640769-7-marouene.boubakri@oss.nxp.com>
+In-Reply-To: <20261102141727.640769-8-marouene.boubakri@oss.nxp.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,80 +73,362 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6316029288558148515=="
+Content-Type: multipart/mixed; boundary="===============8302462058438994038=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============6316029288558148515==
+--===============8302462058438994038==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="SVuCYZvGx7jAhdE2"
+	protocol="application/pgp-signature"; boundary="e+Bmd5hFsa6OPnoE"
 Content-Disposition: inline
 
---SVuCYZvGx7jAhdE2
+--e+Bmd5hFsa6OPnoE
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 02, 2026 at 03:17:25PM +0100, marouene.boubakri@oss.nxp.com wro=
+On Mon, Nov 02, 2026 at 03:17:26PM +0100, marouene.boubakri@oss.nxp.com wro=
 te:
 > From: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
 >=20
-> Add the SoC selection entry for OpenHW Group platforms, which is used
-> to build the device trees of the CVA6 APU FPGA platform.
+> The CVA6 APU is the FPGA SoC built around the OpenHW Group CVA6 core in
+> the CVA6 repository (corev_apu/fpga, release v5.3.0). It targets the
+> Digilent Genesys 2 board and provides a CLINT, a PLIC, a 16550 UART, a
+> Xilinx SPI controller connected to the SD card slot and a Xilinx GPIO
+> block driving the LEDs.
+>=20
+> Describe the SoC in cva6-genesys2.dtsi, shared by the two configurations
+> of the core that the FPGA platform builds, and add a board device tree
+> for each of them:
+>=20
+>   - cv64a6: rv64imafdc with the B, Zcb, Zicond and Zkn extensions,
+>     Sv39, 1 GiB of DDR3
+>   - cv32a6: rv32ima, Sv32, 128 MiB of DDR3
+>=20
+> The ISA extensions follow the core configurations of CVA6 v5.3.0
+> (core/include/cv64a6_imafdc_sv39_config_pkg.sv and
+> cv32a6_ima_sv32_fpga_config_pkg.sv).
+>=20
+> The platform also has a lowRISC Ethernet controller and a PULP APB
+> timer. They are left out until bindings exist for them.
 >=20
 > Signed-off-by: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
 > ---
->  arch/riscv/Kconfig.socs | 9 +++++++++
->  1 file changed, 9 insertions(+)
+>  MAINTAINERS                                   |   7 +
+>  arch/riscv/boot/dts/Makefile                  |   1 +
+>  arch/riscv/boot/dts/openhwgroup/Makefile      |   2 +
+>  .../boot/dts/openhwgroup/cv32a6-genesys2.dts  |  29 ++++
+>  .../boot/dts/openhwgroup/cv64a6-genesys2.dts  |  31 +++++
+>  .../boot/dts/openhwgroup/cva6-genesys2.dtsi   | 131 ++++++++++++++++++
+>  6 files changed, 201 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/openhwgroup/Makefile
+>  create mode 100644 arch/riscv/boot/dts/openhwgroup/cv32a6-genesys2.dts
+>  create mode 100644 arch/riscv/boot/dts/openhwgroup/cv64a6-genesys2.dts
+>  create mode 100644 arch/riscv/boot/dts/openhwgroup/cva6-genesys2.dtsi
 >=20
-> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> index cecbce0c49..289448e489 100644
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
-> @@ -26,6 +26,15 @@ config ARCH_MICROCHIP
->  	help
->  	  This enables support for Microchip SoC platforms.
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 782389bd5c..17865074a2 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -23566,6 +23566,13 @@ T:	git https://git.kernel.org/pub/scm/linux/kern=
+el/git/conor/linux.git/
+>  F:	arch/riscv/boot/dts/canaan/
+>  F:	arch/riscv/boot/dts/sifive/
 > =20
-> +config ARCH_OPENHWGROUP
-> +	bool "OpenHW Group SoCs"
-> +	help
-> +	  This enables support for OpenHW Group SoC platform hardware.
+> +RISC-V OPENHW GROUP SoC SUPPORT
+> +M:	Marouene Boubakri <marouene.boubakri@oss.nxp.com>
+> +L:	linux-riscv@lists.infradead.org
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/riscv/openhwgroup.yaml
+> +F:	arch/riscv/boot/dts/openhwgroup/
 
-> +	  Current support is for the CVA6 APU, the FPGA platform built
-> +	  around the CVA6 application class core, with the 32-bit (cv32a6)
-> +	  and 64-bit (cv64a6) configurations of the core on the Digilent
-> +	  Genesys 2 board.
-
-Delete all this, it'll just bitrot over time.
+There's no git tree here, are you expecting me to apply the patches for
+your platform?
 
 > +
->  config ARCH_RENESAS
->  	bool "Renesas RISC-V SoCs"
->  	help
+>  RISC-V PMU DRIVERS
+>  M:	Atish Patra <atish.patra@linux.dev>
+>  R:	Anup Patel <anup@brainfault.org>
+> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> index 69d8751fb1..305a93ad6f 100644
+> --- a/arch/riscv/boot/dts/Makefile
+> +++ b/arch/riscv/boot/dts/Makefile
+> @@ -5,6 +5,7 @@ subdir-y +=3D anlogic
+>  subdir-y +=3D canaan
+>  subdir-y +=3D eswin
+>  subdir-y +=3D microchip
+> +subdir-y +=3D openhwgroup
+>  subdir-y +=3D renesas
+>  subdir-y +=3D sifive
+>  subdir-y +=3D sophgo
+> diff --git a/arch/riscv/boot/dts/openhwgroup/Makefile b/arch/riscv/boot/d=
+ts/openhwgroup/Makefile
+> new file mode 100644
+> index 0000000000..a75a5863b7
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/openhwgroup/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +dtb-$(CONFIG_ARCH_OPENHWGROUP) +=3D cv32a6-genesys2.dtb cv64a6-genesys2.=
+dtb
+> diff --git a/arch/riscv/boot/dts/openhwgroup/cv32a6-genesys2.dts b/arch/r=
+iscv/boot/dts/openhwgroup/cv32a6-genesys2.dts
+> new file mode 100644
+> index 0000000000..83d0286171
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/openhwgroup/cv32a6-genesys2.dts
+> @@ -0,0 +1,29 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+> +/*
+> + * Copyright 2026 NXP
+> + *
+> + * OpenHW Group CVA6 APU, 32-bit core (cv32a6), on the Digilent Genesys =
+2.
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "cva6-genesys2.dtsi"
+> +
+> +/ {
+> +	model =3D "OpenHW Group CVA6 cv32a6 on Digilent Genesys 2";
+> +	compatible =3D "openhwgroup,cv32a6-genesys2", "openhwgroup,cva6-apu";
+> +
+> +	memory@80000000 {
+> +		device_type =3D "memory";
+> +		/* 128 MiB of DDR3, as configured for this core by the FPGA build */
+> +		reg =3D <0x0 0x80000000 0x0 0x8000000>;
+> +	};
+> +};
+> +
+> +&cpu0 {
+> +	compatible =3D "openhwgroup,cv32a6", "riscv";
+> +	riscv,isa-base =3D "rv32i";
+> +	riscv,isa-extensions =3D "i", "m", "a", "zicntr", "zicsr", "zifencei",
+> +			       "zihpm";
+> +	mmu-type =3D "riscv,sv32";
+> +};
+> diff --git a/arch/riscv/boot/dts/openhwgroup/cv64a6-genesys2.dts b/arch/r=
+iscv/boot/dts/openhwgroup/cv64a6-genesys2.dts
+> new file mode 100644
+> index 0000000000..8fe653b35c
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/openhwgroup/cv64a6-genesys2.dts
+> @@ -0,0 +1,31 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+> +/*
+> + * Copyright 2026 NXP
+> + *
+> + * OpenHW Group CVA6 APU, 64-bit core (cv64a6), on the Digilent Genesys =
+2.
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "cva6-genesys2.dtsi"
+> +
+> +/ {
+> +	model =3D "OpenHW Group CVA6 cv64a6 on Digilent Genesys 2";
+> +	compatible =3D "openhwgroup,cv64a6-genesys2", "openhwgroup,cva6-apu";
+
+As I mentioned, these need to change.
+
+> +
+> +	memory@80000000 {
+> +		device_type =3D "memory";
+> +		/* 1 GiB of DDR3, as configured for this core by the FPGA build */
+> +		reg =3D <0x0 0x80000000 0x0 0x40000000>;
+> +	};
+> +};
+> +
+> +&cpu0 {
+> +	compatible =3D "openhwgroup,cv64a6", "riscv";
+> +	riscv,isa-base =3D "rv64i";
+> +	riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c", "b", "zba",
+> +			       "zbb", "zbc", "zbkb", "zbkc", "zbkx", "zbs",
+> +			       "zca", "zcb", "zcd", "zicntr", "zicond", "zicsr",
+> +			       "zifencei", "zihpm", "zknd", "zkne", "zknh";
+> +	mmu-type =3D "riscv,sv39";
+> +};
+> diff --git a/arch/riscv/boot/dts/openhwgroup/cva6-genesys2.dtsi b/arch/ri=
+scv/boot/dts/openhwgroup/cva6-genesys2.dtsi
+> new file mode 100644
+> index 0000000000..95978274a7
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/openhwgroup/cva6-genesys2.dtsi
+> @@ -0,0 +1,131 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+> +/*
+> + * Copyright 2026 NXP
+> + *
+> + * OpenHW Group CVA6 APU on the Digilent Genesys 2 FPGA board.
+> + *
+> + * The SoC description is shared between the 32-bit (cv32a6) and the
+> + * 64-bit (cv64a6) configurations of the CVA6 core. The core specific
+> + * properties and the memory size are set in the board .dts files.
+> + */
+> +
+> +/ {
+> +	#address-cells =3D <2>;
+> +	#size-cells =3D <2>;
+> +
+> +	aliases {
+> +		serial0 =3D &uart0;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path =3D "serial0:115200n8";
+> +	};
+
+As I understand it, these should always be at the board level, but given
+this is a pure FPGA design there's gonna be some oddness and I think
+that's okay.
+
+
+> +
+> +	cpus {
+> +		#address-cells =3D <1>;
+> +		#size-cells =3D <0>;
+> +		/* The CLINT mtime counter runs at half the core clock */
+> +		timebase-frequency =3D <25000000>;
+> +
+> +		cpu0: cpu@0 {
+> +			device_type =3D "cpu";
+> +			reg =3D <0>;
+> +			clock-frequency =3D <50000000>;
+> +			tlb-split;
+> +
+> +			cpu0_intc: interrupt-controller {
+> +				#interrupt-cells =3D <1>;
+> +				interrupt-controller;
+> +				compatible =3D "riscv,cpu-intc";
+> +			};
+> +		};
+> +	};
+> +
+> +	/* Peripheral clock, the same as the core clock */
+
+Sounds like you're then missing a clocks property in your cpu?
+
+> +	clk50: clock-50mhz {
+> +		compatible =3D "fixed-clock";
+> +		#clock-cells =3D <0>;
+> +		clock-frequency =3D <50000000>;
+> +		clock-output-names =3D "clk50";
+> +	};
+
+Is this genuinely a fixed clock, or an output of a clocking-wizard
+instance (or similar)?
+
+Cheers,
+Conor.
+
+> +
+> +	leds {
+> +		compatible =3D "gpio-leds";
+> +
+> +		led-0 {
+> +			gpios =3D <&gpio0 1 0>;
+> +			linux,default-trigger =3D "heartbeat";
+> +		};
+> +	};
+> +
+> +	soc {
+> +		#address-cells =3D <2>;
+> +		#size-cells =3D <2>;
+> +		compatible =3D "simple-bus";
+> +		ranges;
+> +
+> +		clint: clint@2000000 {
+> +			compatible =3D "openhwgroup,cva6-clint", "sifive,clint0";
+> +			reg =3D <0x0 0x2000000 0x0 0xc0000>;
+> +			interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>;
+> +		};
+> +
+> +		plic: interrupt-controller@c000000 {
+> +			compatible =3D "openhwgroup,cva6-plic", "sifive,plic-1.0.0";
+> +			reg =3D <0x0 0xc000000 0x0 0x4000000>;
+> +			#address-cells =3D <0>;
+> +			#interrupt-cells =3D <1>;
+> +			interrupt-controller;
+> +			interrupts-extended =3D <&cpu0_intc 11>, <&cpu0_intc 9>;
+> +			riscv,ndev =3D <30>;
+> +		};
+> +
+> +		uart0: serial@10000000 {
+> +			compatible =3D "ns16550a";
+> +			reg =3D <0x0 0x10000000 0x0 0x1000>;
+> +			clock-frequency =3D <50000000>;
+> +			interrupt-parent =3D <&plic>;
+> +			interrupts =3D <1>;
+> +			/* Registers are 32-bit wide and 32-bit aligned */
+> +			reg-shift =3D <2>;
+> +			reg-io-width =3D <4>;
+> +		};
+> +
+> +		spi0: spi@20000000 {
+> +			compatible =3D "xlnx,xps-spi-2.00.a";
+> +			reg =3D <0x0 0x20000000 0x0 0x1000>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			interrupt-parent =3D <&plic>;
+> +			interrupts =3D <2>;
+> +			xlnx,num-ss-bits =3D <1>;
+> +			xlnx,num-transfer-bits =3D <8>;
+> +
+> +			mmc@0 {
+> +				compatible =3D "mmc-spi-slot";
+> +				reg =3D <0>;
+> +				spi-max-frequency =3D <12500000>;
+> +				voltage-ranges =3D <3300 3300>;
+> +				disable-wp;
+> +			};
+> +		};
+> +
+> +		gpio0: gpio@40000000 {
+> +			compatible =3D "xlnx,xps-gpio-1.00.a";
+> +			reg =3D <0x0 0x40000000 0x0 0x10000>;
+> +			clocks =3D <&clk50>;
+> +			#gpio-cells =3D <2>;
+> +			gpio-controller;
+> +			xlnx,all-inputs =3D <0>;
+> +			xlnx,all-inputs-2 =3D <0>;
+> +			xlnx,dout-default =3D <0>;
+> +			xlnx,dout-default-2 =3D <0>;
+> +			xlnx,gpio-width =3D <8>;
+> +			xlnx,gpio2-width =3D <8>;
+> +			xlnx,interrupt-present =3D <0>;
+> +			xlnx,is-dual =3D <1>;
+> +			xlnx,tri-default =3D <0xffffffff>;
+> +			xlnx,tri-default-2 =3D <0xffffffff>;
+> +		};
+> +	};
+> +};
 > --=20
 > 2.43.0
 >=20
 
---SVuCYZvGx7jAhdE2
+--e+Bmd5hFsa6OPnoE
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaujjXgAKCRB4tDGHoIJi
-0jALAP0WW8TLwZ7TIANzBaugcK0mbOjCrVpgWybIjtJQ951x5wEAktICrb4s4gPY
-pj1QuLqMdR3V8VoBM2VBfuXOfRWqjwU=
-=dT3B
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaujk4QAKCRB4tDGHoIJi
+0oeIAP46LJrUgot7AlG3TyETQUXfPmRg49sgupvNR0OciLDXuwD/ZXUuz6PgUJe7
++dM4J/5uSikM4PHmRRM4arLTunsX9wE=
+=+2Db
 -----END PGP SIGNATURE-----
 
---SVuCYZvGx7jAhdE2--
+--e+Bmd5hFsa6OPnoE--
 
 
---===============6316029288558148515==
+--===============8302462058438994038==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -156,5 +439,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6316029288558148515==--
+--===============8302462058438994038==--
 
