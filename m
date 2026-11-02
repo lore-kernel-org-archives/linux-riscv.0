@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CDB8606A32E
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 19:46:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34070606A32F
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 19:46:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EfFfKBuN;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BuNEFe1h
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=h0V6q7/h;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W5rudeN/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,70 +14,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=G1G7qdPqDTUv8tSsJckpYDVJx8UFiRERZvZ78iovXRE=; b=EfFfKBuNxI6JA3WFVLkdDLJI+Q
-	87n888En2MHfHSSkd0L1we0k+KFCnMu7M8CmwFoChIw+kH5XtSxK4UM4veYroMbeuzG0sMYo/2Y/X
-	fdilB31o2OQWk6ZMZasLPl7OIdLhWPRWKNJ87YCvjr/iB4CuO1kp7GqTWMJ7p8+xaK7C/DVM+FB9y
-	+j7N9gW8QJiOk6XLIl66JyM7VsKZaD1WP5XO+IoNj6jzcxvy1HNQZ+HeK4QgOZSZSil66bJlwkJjC
-	reyjqmDUJuPZjNXsubMoMbI5CS5pSWrjOWlpKliDod/W7gm67yij/7IdW7QnAa/r+fFprJwUzjmRL
-	vuBRXvqw==;
+	bh=SHz5DVqOp9g0bggyC+6AmGDQDWcw64Sa5rEiNcA9oJ0=; b=h0V6q7/htikag9LRmKzhNNJ0dl
+	EdMEv5WWv/Gfo66opcQN8m9rmfMGMkPIepEYRmZ9B9xyEM0Jf8cvdDj2Ghclzchv9nEsBETPJXVLQ
+	lJzzVVPGMsQ6sPskPmgolmZ5blwLJElVJopHGEvSwJP8k+zhLsymK7lmv7/wFSj3kBdaX8vZZ/0Kk
+	Y4xf6ULIPCclq7ySenWxtosz3fxqzA8A3kKGX5Yf2qgAVTM8SjSmh5lcTW41FCmsMbDIaMsuHoogQ
+	My3UMmLy3h87wB1JlRruIKhlmzow4iYOnvnomFx1ogli4WB5IvFjggCHjKz0O4w1Y2XbfFfqMFEiA
+	HuNKCScA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxyw-000000009v8-0WUZ;
-	Mon, 02 Nov 2026 19:46:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xNxz2-00000000AF4-2X0A;
+	Mon, 02 Nov 2026 19:46:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxyA-000000008dr-0ru2;
-	Mon, 02 Nov 2026 19:45:31 +0000
+	id 1xNxy6-000000008bS-29hD;
+	Mon, 02 Nov 2026 19:45:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5FD174465B;
-	Mon,  2 Nov 2026 19:45:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4461B44610;
+	Mon,  2 Nov 2026 19:45:22 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793648724;
-	b=SbeRy2vnjST4rVn/xZbnvrA7q4EN0F28T+c1ZnXJpna9RhRS6hV4/FS4HtlTVorFwLQx
-	 I71iiU12CeQuQ/kifT06NONn4F02PBfPbXEiO1HqYPmgr+7JgqZhnXbIF47WZt5zGraEb
-	 Ko5uZ2d6lJWIvXn7bs8kxIYsLwV+ihJT/bPlebOP61kngdETE3VhxczBAXGHLGOfuZyKW
-	 FNlMkFemQPToc8r/qrcH7zDS4A3MC3M3EOeooezXT9O/Ml6G5eGQ4ms63nlobwNUjECXc
-	 27Ly8Y68DkfjIfC4isQGrNDl7JMqzSwhdFH39FiwYWjlsz7hTYaPO1NV7t2yS2xDrRA==
+	t=1793648722;
+	b=sIvOjamXTvZrndOeoaw0Z1RawDRDFjqk3hyNUMPR1P3G2KttkIAZXBB1X5l0TOvZ05Sb
+	 AI+gC/N0lHSST4JRte7Yk9f1ReMSg2L0FeycIJqYGsGxoEwdrkGPCXZYToCgb5+ejoHQV
+	 Eqb08XdUC4uwMuuuksCxHq2DaJzovlX3gqXYxcrxB8+yNX3AhMQneQpl0xBvya3BRHOSd
+	 ybCtR9EghIPZfTgbFEjdeHGhcibfHCurJeVDVIC6wgKvMad5JQEOOYsuS3wYkd/ZzY7PF
+	 NmeBkPBS2YvVu6qofPVHCPuyNeqrps27YHnPclrgeLdIAYpOKCNW/SfqEQh3oHd0xPw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793648724;
+	c=relaxed/relaxed; t=1793648722;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=O3an+/q3JaFkFvnjOlTdpdXG9frcgBLFrKEyJdxf5OE=;
-	b=E6/9ox+E+mFMpuSvyuoqqKfOp2BI8kZwpWjH+Lej5EyB7xXojKSB48tVEEb0/RJpdhtK
-	 H6sXqfhveLgsmLuZdS7Bsc0/U+FulrhIR1wiZCThd3qzROVSNZmJK1F7X/47ADwlQcfsV
-	 vk0BBnOU5MA/Vjl4RRM4jX/zPA22ldFpJSnwMXXd3bH8+lWe/dMxtQ3brSIUU+b9vfE+J
-	 TwRiJIvXmX+4rOIPmLy8UE3ML4db/Vcr1NJav+CFWfBFIK1yc+TkByRD82H53HiCpvrgu
-	 57xAZtIV26QGMlkEvHZNmltHTe7oMGdDyQbnWq8a6WarBQRoOY/UI7UdvuuN0zQeg+w==
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Rmfx7QYlhFdbxH6abqp7/AYToCj2a0IViMkw7PBXQf8=;
+	b=xMI+bY0x09fuhFnB0dFX/DogrCXcsLJTJi/An02AZ/ny4M1VhyUNFX5CTxPhEBlsUyG0
+	 aQlcfzY/KlxZLwiB1MFCrrdq8zMqY4HOL4Men5hAs5fpSxGuqUQj9hnCc/a23YoM+lzYI
+	 07c84BLidSS7S7ocGvlqG2NBy9h9YFcZrhufQHCyQLUUen/YgVYSEtqEasww2KcDwdrCk
+	 FMhSOdwdZqI2bI0NkLIFUj8h3rUmDK0pknxhucgN0C7qXatDuseIwJPBNV+76fPRnrLZJ
+	 69amymiMzFFUu7HxDfkZTqWfFSp3ujJNfTNmA5hsMPMmtDx4IO3s6N4QbprtOeqxMRQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 6903B1F00A18;
+	by smtp.kernel.org (Postfix) with ESMTPS id B95B31F00A2A;
 	Mon,  2 Nov 2026 19:45:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793648724;
-	bh=O3an+/q3JaFkFvnjOlTdpdXG9frcgBLFrKEyJdxf5OE=;
+	s=k20260515; t=1793648722;
+	bh=Rmfx7QYlhFdbxH6abqp7/AYToCj2a0IViMkw7PBXQf8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=BuNEFe1hSy4cE3FW/67KnZOMITNSCO9vDBG5qGk3IkzVxhZCeIDzQGXtfBK/QWoAJ
-	 2yMz9CRg12pnPhHlYL7PWwUlfYjQDvv1kOk1MA2975L6ug4xGxDnH6T/z5x8z+I3Ln
-	 tYrpzlfolinJ5evdKeVpBkj1P4P0vDru7OLKZwbQ40dNNpJ9Vik+/PvzM3aBg2VrTl
-	 5S3KngCNF7YyM96aJKZhQ086EFIMFo6si5d3teTFv37DVqbWSUV4HpGHLD9lpDBx8u
-	 C1z1rEM52YZVLR457Dz+5fpZI9i4/U7Mm/LQcJjPooRX1FoarksOz0TC1jUDZuYBQw
-	 BlIfQGE/DFc8g==
+	b=W5rudeN/9ftHf2uMl3BdPZ05LRbMbd3yveTCJ3gcETNplQP+7wwydsdWBk07mnb2c
+	 6IppoNJDPkaHDQrq2ce0HBasQsbS+21PZ9rZ6UI76e8AfnHzhPzD1OBMHTSs9kZDG8
+	 BNqvv/VUDRWHoMl7eM/gW7FzNRFBDsfuHf8TI8Dr551JP86QX8R/TcOEz46uqszw19
+	 RNQ1JSqTMLtS6T6vAVJ5TVPbkLyryyDAHHwf8Pg5SrGX9KnH1smH1AMJUz/atNT01V
+	 rMMALjI+pwrYgXrPonhiuwDD1BM/MO/vIvZVnYmmYlvUe0Rx9F+iifzwL9TTETVq2Z
+	 0PIEEdeKApzTA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 389C146625;
+	by lkml.kernel.org (Postfix) with ESMTP id 568294662D;
 	Mon,  2 Nov 2026 19:45:09 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Tue, 03 Nov 2026 03:45:12 +0800
-Subject: [PATCH RFC v3 09/17] dt-bindings: riscv: add Melon Pi V1 and V2
+Date: Tue, 03 Nov 2026 03:45:14 +0800
+Subject: [PATCH RFC v3 11/17] dt-bindings: serial: snps-dw-apb-uart: add
+ Zhihe A210 UART
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261103-a210-scmi-v3-9-ee6b31580808@iscas.ac.cn>
+Message-Id: <20261103-a210-scmi-v3-11-ee6b31580808@iscas.ac.cn>
 References: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
 In-Reply-To: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
 To: Sudeep Holla <sudeep.holla@kernel.org>, 
@@ -108,11 +109,11 @@ Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-serial@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, 
  Han Gao <gaohan@iscas.ac.cn>, Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793648705; l=1374;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793648705; l=1465;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=on0k3/ROjA851j7Dksi+n9Xdm06/pOAfayb1Q0RsTuY=;
- b=yw0IrnyLTxmztJavqYfKhhL2myTsoZy7TMwCtCKz6+Y7dKW/IYH9BiFXU9mExAFIIVwQZTeoY
- i4l298DpxJ8Axd6Vf7Va9DUyyrhEKnbacj0VmCMJjtdnxOHkT0/9HKB
+ bh=QLjwbL73GqPkQVnItJ73UGwGElc2NGvSKMH+o+6GPQk=;
+ b=GwTMVWufbQ3apHJbtkCx8hlRQnr+EZ3B6ni/R6Ct6tj8GjQaIdyxcUFNA6jzCIbaIHbScNRAo
+ NxteGYBNi8CCG2wb3dxhMiBYvRAuuXZM8hNZ8O6SDJT8ZST/KoSAtkO
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -138,52 +139,49 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
+From: Han Gao <gaohan@iscas.ac.cn>
 
-Add bindings for Melon Pi V1 and V2 with the A210 module. V3 uses the
-same board compatible as V2.
+The Zhihe A210 UARTs have separate APB and serial clock domain resets.
+Add an SoC-specific compatible that, like the StarFive JH7110 one,
+allows both resets.
 
-Signed-off-by: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Co-developed-by: Han Gao <gaohan@iscas.ac.cn>
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- Documentation/devicetree/bindings/riscv/zhihe.yaml | 27 ++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+ Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/zhihe.yaml b/Documentation/devicetree/bindings/riscv/zhihe.yaml
-new file mode 100644
-index 000000000000..aa778275ab5d
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/zhihe.yaml
-@@ -0,0 +1,27 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/zhihe.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Zhihe SoC-based boards
-+
-+maintainers:
-+  - Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - description: Melon Pi V1 and V2 with the A210 SODIMM module
-+        items:
-+          - enum:
-+              - zhihe,a210-melonpi-v1
-+              - zhihe,a210-melonpi-v2
-+          - const: zhihe,a210-som
-+          - const: zhihe,a210
-+
-+additionalProperties: true
-+
-+...
+diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+index e2ca126d58ba..a46a87e100bf 100644
+--- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
++++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+@@ -29,7 +29,9 @@ allOf:
+       properties:
+         compatible:
+           contains:
+-            const: starfive,jh7110-uart
++            enum:
++              - starfive,jh7110-uart
++              - zhihe,a210-uart
+     then:
+       properties:
+         resets:
+@@ -43,6 +45,7 @@ allOf:
+               enum:
+                 - starfive,jh7110-uart
+                 - syna,sl2610-uart
++                - zhihe,a210-uart
+     then:
+       properties:
+         resets:
+@@ -92,6 +95,7 @@ properties:
+               - syna,sl2610-uart
+               - ti,tda54-uart
+               - ultrarisc,dp1000-uart
++              - zhihe,a210-uart
+           - const: snps,dw-apb-uart
+       - const: snps,dw-apb-uart
+ 
 
 -- 
 2.55.0
