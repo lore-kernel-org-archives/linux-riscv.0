@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30270606D81B
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 19:46:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22A2D6082BE9
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 19:46:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2OjlwV0L;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ElOsybAp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jVhbq0Kk;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MrVzVqGg
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,70 +14,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=3pafdY9xRJ9zta5PxmWHqBWqdJe4oidgP1jboaXj+Fk=; b=2OjlwV0LUsWshYA6g+SxzWD/Qj
-	5c62dwMEpaEW8O4O9wDbCaTExixZ6ScGFvzMOOXfnVD+6C4G2H+5x3wRz+BQZnm2n2J9gw1NunTg/
-	90UBTaA28x/+6yU+V0MKdFHvFp5iqc5CF3nFU9GlPbrS6kGajMxlthRmj0uGOoGI76WjFVvfbNlXp
-	mbbBqG8YIo7tmnUaxzRRdMBrQncI7Y36/1dSsihtHdPf5k+nypOP07UlifzLkXLn1U/z5MZ0F5klQ
-	A/WWNTXyYgFqJDhQKrkE8SAtmlo3l4DLy0dIzUwF3yC508EIGsM98O7pkt5cF8ZWbUdAcTt//yKKu
-	hkdprw0w==;
+	bh=Qj+WNdEyUHhdDcVRXDGytO11hZvGU5UrzbQdAoVUwwQ=; b=jVhbq0KkWgvm/LxCM3700i0oSh
+	wsrg4zTMnpSPBtkYyMZxUIf1hwfF5DLWS/goej+XFJCxg5qWZlSxCDg1aQbdeRGjATskjBL6Q+0rL
+	qM7+IZm3E26WznjfxZLBkbW25Svj2Y3ri8zg8IuUSifp+qkhQNqIpZnrAqBgD30DHTXxC4YzLAO8l
+	5osJdPe3/tBwioArw248mXoe7stM1FsRmvH7A1rjz+9tAnWD1Yu3vTG3/TFnUjJgsMl/nM7C+muY2
+	UVQGgygtn8uAa5lpGaN2Y5PG3hjZ9iNMUp+cOmXh+O73JuHVk2i86L23fvr9tByDlXmCPnsn2jL9w
+	+pD7Gn1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxya-0000000099i-0KBD;
-	Mon, 02 Nov 2026 19:45:52 +0000
+	id 1xNxyl-000000009WD-4B0R;
+	Mon, 02 Nov 2026 19:46:04 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxy0-000000008U3-0W0K;
-	Mon, 02 Nov 2026 19:45:16 +0000
+	id 1xNxy7-000000008bb-1mWE;
+	Mon, 02 Nov 2026 19:45:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C0F36414F7;
-	Mon,  2 Nov 2026 19:45:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3064D40826;
+	Mon,  2 Nov 2026 19:45:23 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793648715;
-	b=c60FhZSLfJdQPfcdSArXyTt+Q13tlVdLIx0WBAyeKg+lrUV3Cl9ogfT04NSJrMna6s15
-	 uCktQjLzdAMSmxOqz+os4rtu8ig9rb3oG97Kq82x5qLCD3hNRjPIRWT/i8GvCOQ8bMV5S
-	 xGvBzROCZ4b/1rv55eYwnAZdWCWHfxf8biqdJ/lZIwjLs3OVeA6KolOQX3GWARw3eecjI
-	 zlMhTGU+gz1TXSEmIpmNExT9q/08qW8MHhsBy8T/vkqyQ4u3BUI3FkUgyRNY9xqlyqj3j
-	 pIaaLTN0VYi9+Zg7bWR8jSikFumJ3Fk3HeetNf6b0vVtPOz6s0m5meJbMzlB5aTiQjA==
+	t=1793648723;
+	b=mY1Cc8eZ7z58nZ+a7sXJGVslzEh0iAgKTf/2st7/jYZy9rG10M+f4leyvn07emefCd1z
+	 seDWKdUIujxaTPXCGEh99iNvC0cu6rmjjjlGjdGgVSsDuTWDEE1lFkEaYJszC2gtWOdPb
+	 r28LPNN4CnKuy4TnXyAnnGM3K+WL0BdXFE4DxTHX4HCAU3kKqFZQSax1Su7VjC0tqQURM
+	 H8VRDbgJvrhfZorHMfb4eVNEjLZDioUaubvG4zlsUMjp9TTk0viWrnuHh2FUupNWRY4pB
+	 hhzaiu1dqgvy+UzG+bSUhNHGHY287UavbluA/VHPj8uo9JSdTZjHaw/SrExdxcIBz5g==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793648715;
+	c=relaxed/relaxed; t=1793648723;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=E+Sl1Gk0Izp8iNjXVvH7BXDYK1wVBrrJEHxdo0B8yl4=;
-	b=3FGRdQeBKM6YJTdcRqrGlhM6G5MPe+EOCXbq/PiW47vCAcxw1rBc+RmI+BKbJJiywQkf
-	 cWqa4CNgJVi3GvtVcXNjflx2HiAua2jBTOdVlSmsT4RWj5lOtw3CXiF7/mR8Qdub2Ro9W
-	 2VLfMFANqnTZyZG5JCBdrRx1t1VGaQKt3seJZxJAzag5+UksAjS+TL50lAyGHHws9nXhu
-	 QHaMQpQK+JdZbRd4s0j8BoDBsjd0ybtSHVTwT5QPkI5IKwCj9QcRJPioQt73QAAa+mCyL
-	 Doy7nZhC+/C2nQSK5rbLlr74SsPi8ROuCLYQnRF9gP9UEgdRJivm4z335HL7PDi6DBQ==
+	bh=Q5sP7zJDVKsg8tL+CekeKmX0pZ6GZsu9tbiTl6q7uqI=;
+	b=yFW0KCSR9nJtOe6yOGOKw0HgPiIE1h5czbb4aHYCNP1//AGRNlYGpWl6IDYLDqOUp3Eo
+	 /mdEPvq0uQb+3cKv96AtR5p2vh9y/B0oNIOZ7F3I3kJcWHthapGmW7mROcWOYbwPdv2Ro
+	 oEbYVeOlBJAUx29rrG/mygLba2ga8xhV490PTU11oTH+rqkJ7BkUZKhVJ98OuOvZNwrEp
+	 FiZtPolmDUhWbmLAkIhTvjkTfWgoCu9AEr/zTRgmsC4NRol6uSaarTRL+FDmOrQrZogVp
+	 igzXAP2OzJSYYzQf8bjsuVFCJs6AnvScOZu+8J4lX/B+gfhUZAEgwJrsQIehNfWoxUg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id F3C1B1F00A27;
-	Mon,  2 Nov 2026 19:45:11 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id DE1041F0180A;
+	Mon,  2 Nov 2026 19:45:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793648715;
-	bh=E+Sl1Gk0Izp8iNjXVvH7BXDYK1wVBrrJEHxdo0B8yl4=;
+	s=k20260515; t=1793648723;
+	bh=Q5sP7zJDVKsg8tL+CekeKmX0pZ6GZsu9tbiTl6q7uqI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=ElOsybApz+l9j2Bi0vhKZSGf1bBjxGv6W6mYeIdnt8MroWkQjR3Q7ogwPhpT06Chm
-	 5nZw0wGU3fNNGdHvNc46D5fGuGjAyUS33O1yhYPqXsik+jmmTgQDYhZpD0TLbd0M8o
-	 W+cAOeLalsQvRUsfy6S0dGM8u/pVj9X9ph6s8PyqCvEURMvGsVMkdhw3AVadF3WM+l
-	 M+wRMn8bcXq8hmGr36TdXaYidMykNvJdVoLoXfFAGhDmc0NXElxX6MxU+4H5AJcPRY
-	 TyZ3Nx3Vksu1mSiwEzXUepNIhSHmKPdwyshxcRxbwSUsSz786yxlAYsbpks/BuiwR3
-	 yBa+HeblqnYfg==
+	b=MrVzVqGgG2NFYPEkyVSCloBEPVZh55NsYQLKqe6CG5FrFf3Fyrr55qkKdhszCZpLP
+	 /prCgX2hIO+As6RDXlfw8mXp81ls9tMCMozOd96P8IMy1qRbhnpDcz0WpD0uZc+g5K
+	 Mm6eiJxssOZtjwk1e6o2K7YuODvYl1zvzstYVmWJon/SwDEOXsCSBYpZT7XGNg1Kk/
+	 OB1U2qRGSUtxf+5s1AgVhVlv2f5iPjd3GXDb1NOr4Xcgfo2HOit8hh6LLh/gSPvFbs
+	 KqzdfVPUj9sTpPTmcBtQM/WP/aWIyY+bC3gz5O2Jki4953V5rNpRknE1HkSnXHoiDR
+	 gTyRW346Shn2g==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 8775146639;
+	by lkml.kernel.org (Postfix) with ESMTP id 96A274663D;
 	Mon,  2 Nov 2026 19:45:09 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Tue, 03 Nov 2026 03:45:17 +0800
-Subject: [PATCH RFC v3 14/17] riscv: dts: zhihe: add A210 module memory
+Date: Tue, 03 Nov 2026 03:45:18 +0800
+Subject: [PATCH RFC v3 15/17] riscv: dts: zhihe: add Melon Pi V1 and V2
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261103-a210-scmi-v3-14-ee6b31580808@iscas.ac.cn>
+Message-Id: <20261103-a210-scmi-v3-15-ee6b31580808@iscas.ac.cn>
 References: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
 In-Reply-To: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
 To: Sudeep Holla <sudeep.holla@kernel.org>, 
@@ -108,11 +108,11 @@ Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-serial@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, 
  Han Gao <gaohan@iscas.ac.cn>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793648705; l=777;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793648705; l=3373;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=YcgMhPuDLQowVTt+MvNEeWTBEwtrbKzVnPLSZwTdXCU=;
- b=Y4lI8673ffBSGvGUvR8TW2oNRV2yJq+b13kVULUpd8094Rdj5zdOhEq52/aKiT/FxqZbiu02T
- vGoyqQWuTEKCXPpcj9O6MffWpBqvTbgdlSgRnELC/hPFixfOigKhp8P
+ bh=oY4cd1y5LBziUvIW+aG4iF3iEAIqMm4nbEZQYJakX5E=;
+ b=0QUOckcOgdi00x96GxaCYHXqAzOf45yMAotlvmrxpn8ZF3p90BpvmPnd8mP/zRvFFnRsrWM/w
+ K/37RwOZ36zBUOmaL9zufz6Ll6bxG5qY2cEG+9q4rmFCsnoG5mCgT4A
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -140,30 +140,125 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Han Gao <gaohan@iscas.ac.cn>
 
-Add the A210 module memory node with a default 4 GiB range for boot
-firmware to update with the detected capacity.
+Add Melon Pi V1 and V2 with the UART4 console on GPIO2_0 and GPIO2_1.
+Use serial aliases to preserve physical UART numbering.
 
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- arch/riscv/boot/dts/zhihe/a210-som.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ arch/riscv/boot/dts/Makefile                       |  1 +
+ arch/riscv/boot/dts/zhihe/Makefile                 |  2 +
+ arch/riscv/boot/dts/zhihe/a210-melonpi-common.dtsi | 55 ++++++++++++++++++++++
+ arch/riscv/boot/dts/zhihe/a210-melonpi-v1.dts      |  9 ++++
+ arch/riscv/boot/dts/zhihe/a210-melonpi-v2.dts      |  9 ++++
+ 5 files changed, 76 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/zhihe/a210-som.dtsi b/arch/riscv/boot/dts/zhihe/a210-som.dtsi
+diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+index 69d8751fb17c..445edde8f107 100644
+--- a/arch/riscv/boot/dts/Makefile
++++ b/arch/riscv/boot/dts/Makefile
+@@ -12,3 +12,4 @@ subdir-y += spacemit
+ subdir-y += starfive
+ subdir-y += tenstorrent
+ subdir-y += thead
++subdir-y += zhihe
+diff --git a/arch/riscv/boot/dts/zhihe/Makefile b/arch/riscv/boot/dts/zhihe/Makefile
 new file mode 100644
-index 000000000000..a77447e402d7
+index 000000000000..553102091d4f
 --- /dev/null
-+++ b/arch/riscv/boot/dts/zhihe/a210-som.dtsi
-@@ -0,0 +1,11 @@
++++ b/arch/riscv/boot/dts/zhihe/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_ARCH_ZHIHE) += a210-melonpi-v1.dtb a210-melonpi-v2.dtb
+diff --git a/arch/riscv/boot/dts/zhihe/a210-melonpi-common.dtsi b/arch/riscv/boot/dts/zhihe/a210-melonpi-common.dtsi
+new file mode 100644
+index 000000000000..52015f6de5f8
+--- /dev/null
++++ b/arch/riscv/boot/dts/zhihe/a210-melonpi-common.dtsi
+@@ -0,0 +1,55 @@
 +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +
-+#include "a210.dtsi"
++#include "a210-som.dtsi"
 +
 +/ {
-+	/* The loader replaces this reference capacity after DDR training. */
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x1 0x0>;
++	aliases {
++		serial0 = &uart0;
++		serial1 = &uart1;
++		serial2 = &uart2;
++		serial3 = &uart3;
++		serial4 = &uart4;
++		serial5 = &uart5;
++		serial6 = &uart6;
++		serial7 = &uart7;
++		serial8 = &uart8;
++		serial9 = &uart9;
 +	};
++
++	chosen {
++		stdout-path = "serial4:115200n8";
++	};
++};
++
++&peri2_padctrl {
++	status = "okay";
++
++	uart4_pins: uart4-0 {
++		rx-pins {
++			pins = "GPIO2_1";
++			function = "uart4";
++			bias-disable;
++			drive-strength = <1>;
++			input-enable;
++			input-schmitt-enable;
++			slew-rate = <0>;
++		};
++
++		tx-pins {
++			pins = "GPIO2_0";
++			function = "uart4";
++			bias-disable;
++			drive-strength = <3>;
++			input-disable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
++};
++
++&uart4 {
++	pinctrl-0 = <&uart4_pins>;
++	pinctrl-names = "default";
++
++	status = "okay";
++};
+diff --git a/arch/riscv/boot/dts/zhihe/a210-melonpi-v1.dts b/arch/riscv/boot/dts/zhihe/a210-melonpi-v1.dts
+new file mode 100644
+index 000000000000..a88e9b949c4a
+--- /dev/null
++++ b/arch/riscv/boot/dts/zhihe/a210-melonpi-v1.dts
+@@ -0,0 +1,9 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++/dts-v1/;
++
++#include "a210-melonpi-common.dtsi"
++
++/ {
++	compatible = "zhihe,a210-melonpi-v1", "zhihe,a210-som", "zhihe,a210";
++	model = "Melon Pi V1";
++};
+diff --git a/arch/riscv/boot/dts/zhihe/a210-melonpi-v2.dts b/arch/riscv/boot/dts/zhihe/a210-melonpi-v2.dts
+new file mode 100644
+index 000000000000..71752471c5fb
+--- /dev/null
++++ b/arch/riscv/boot/dts/zhihe/a210-melonpi-v2.dts
+@@ -0,0 +1,9 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++/dts-v1/;
++
++#include "a210-melonpi-common.dtsi"
++
++/ {
++	compatible = "zhihe,a210-melonpi-v2", "zhihe,a210-som", "zhihe,a210";
++	model = "Melon Pi V2";
 +};
 
 -- 
