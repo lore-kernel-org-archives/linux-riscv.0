@@ -2,93 +2,99 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9277A606A324
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 10:10:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8759C60A263A
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2026 11:21:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WgIGqSO2
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0uRmEtQI;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=nbJ29IH6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=MkmVFG1UU7+Y1fhwzwNvePx0vR/OuWLXbAWMZW/HiU8=; b=WgIGqSO28EQUUfVPYR9lB401ur
-	+Ob8wJdiMI01cAC1goRZ9r04ZTm2VAIbQ5lIQHF/KQMQS1fXP2NrGkRQJQEfjbOSLHvLaiFNZm7yh
-	g4I1MzGst+drUWuWkf7hsy+rjylMFTFDC3UGptcrFTC4m+0o3FTok6xddaBYWONx8AM44yay5hJ+9
-	1QAJGOkfs1efKuyYLHN+80zffUmvxDTzpMEOjktkxc0cLtanIZmE8IX/H5lQpMYN02B6OPAOOOrNh
-	nnPty9eu75nRxVjmzs3um/ouXQN2eMoV2RADCVAl2UQM8ECzqO3Jh6Alk8OpkgtCTGD9O3loUtzWU
-	fKlV17kA==;
+	bh=FHoxOtDS7u6Hw/dxKqRh5ioyunEkDfXrMOPBRsrSFcY=; b=0uRmEtQISseRCeR9c/724gp0Pp
+	PtnqgyYfhqFxnsl0OOqKXAHf9FQI8r38iEMv8NrOzZJth0GY+F3NSf5Fkn7GGoKNhSnG1QmUdIgwF
+	u42mel3aom7zhwIOzCvQeOsrNBjei5e/u0Oht2EKwYXPAJPhGTR/X2j+7j2mE22pRQxjBKMVA61gf
+	dJx8xJ/+uYm5IhbEf2vSLkN3ijLLHV5klOSdDFb6qEwqzx1TpOMUwE5YXOV47FMJpmVJGJE5dXRlL
+	pJCbWg/8S9urQpuX1fULytRV/iJz6nwSK9DvDFPrWh3XIdJ37xXt/0zicVck7HZTfQ06JuXi8nS+S
+	cEwEgXPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNozR-0000000G8FH-0a2j;
-	Mon, 02 Nov 2026 10:10:09 +0000
-Received: from mail-vs1-f51.google.com ([209.85.217.51])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNozO-0000000G8EF-1Mfp
-	for linux-riscv@lists.infradead.org;
-	Mon, 02 Nov 2026 10:10:07 +0000
-Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-7cccb2c96d0so705636137.0
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Nov 2026 02:10:05 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793614204; x=1794219004;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=kku90+qM041/ZsQ9tSwaVmVz4Dm8H3ilNwTawTrWwWg=;
-        b=kFxNJd1j6vLAPG7+K0qYFMJcmGu4UePYaVm2u3AbTfxXoOUtDXhQWyoj6e2P+wO8TA
-         tAQI5BjVYvjvbJ753GE4m7NkSRFrNrxjsFq4HwuPKmITzQP5yU4bgLuLnHxx9gejCEMp
-         ovYSzyto5oEJMRwh6e5q0eW7g4hqwW0iagUSXJQdTGR5v3dryzA4c3fu53lpJf+eO2gS
-         v1aWh+TSKXx8QCk2W+FJReGbQ2zn19TuSCpdGVyOQX5o83NfBIsnTx8czD1j2+xPETst
-         8j6gCFx8dRDr1cR/Xonl3FtzdssmMzCY6TvX/kkneziScyrPxfWJ9E/Fdby4awo+iv76
-         tw3w==
-X-Forwarded-Encrypted: i=1; AKwUvBwdA2mulV90qSJPV+WNDFn7o5/MeuoT5EzDNjZqxVOAfO5Bi5oSeLNJRIWuqTc+xJp8NYEoacOZ0aXTmQ==@lists.infradead.org
-X-Gm-Message-State: APuU4Z+aCjU9KTWCFOc14RFUv24dJUgmV316tvxwlD7HEyr2hLJLuf+u
-	pPKHbY4xjThfyWG7InQDbuq1SSoj0zHbfi3sn+AA3GoPGr6DY1RV+zxdegHzJUz9
-X-Gm-Gg: AYBFou3Wte+zuh6zUHL9lxxULn7lRYF/ojouH3nVdSsJ7OHK/pDk4ItoqpFCGt0eFwd
-	bs4/Ra3zfUTOmrNXEokw1U0LMlOlDsOEP8iW+Og8bzfz2VGPfASOgKE/3HT2l+feW7NwRVf26Ss
-	Si6dT96mgj1u2JKFe4Y+VhSVZu/Zrwm5LBaNs65iE9m/i5o9lkPzRj7f3mXvhd7coSc/CI/XmaG
-	gBLZrsGbCrsqtkl/4dew6bt7z3B86TGhkL+l/dQJ3LBhMbfeQCY7szvpMGZfKH+52fjU0MG4YR9
-	qXlbhJFyVF9v5C9D0Ep8VlLJWAOy1sWHeJUfbLXBJr5pSorVAnZYSszfRi62iK1C+ueQCj+tMAy
-	yEcpgd+W/5hO92XYcG4mch8Wi5KEnzPpNjYVLX7H+l0huWELzoCOodWVhEQZ7lTEX8oD0CXj8tg
-	hldvdzQ6BI/UaEMkbaUQi3vreOMCZ/h1fWayGSCoJ2hDdHb1iBUr1XF1Gno4G7ngaHjoYtTIJ4e
-	/z+XfKvmeCzNiDDd1khkN6MF9+YZ1Wmw1EUi5HeVTh6AvvKwfHqIvU/tLhyNGwyZJTR2kPs8mry
-	3hHDSElStG3W/RfcZxUIo4ni2WVv597HVjjJlAdQYEfgWiRLKDpfBX2yvgcToCybgg==
-X-Received: by 2002:a05:6102:6cc:b0:7d0:3da9:3e16 with SMTP id ada2fe7eead31-7d07227aaa9mr3321756137.3.1793614204429;
-        Mon, 02 Nov 2026 02:10:04 -0800 (PST)
-Received: from mail-ua1-f50.google.com (mail-ua1-f50.google.com. [209.85.222.50])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d0776a824csm9658148137.11.2026.11.02.02.10.03
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Nov 2026 02:10:04 -0800 (PST)
-Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-9906034086cso594691241.1
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Nov 2026 02:10:03 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvByWv0PAi37v2fppU/GiBzhqBrXTg7gta0Y2Bf+8yodBokz48nc9yEpFtA/Qsx8Pnq3jEjgWzTk/5meoog==@lists.infradead.org
-X-Received: by 2002:a05:6102:3706:b0:7c3:9b0c:a75 with SMTP id
- ada2fe7eead31-7d0725ceb28mr3125663137.12.1793614203445; Mon, 02 Nov 2026
- 02:10:03 -0800 (PST)
+	id 1xNq6l-0000000GIId-0hPs;
+	Mon, 02 Nov 2026 11:21:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNq6h-0000000GIG6-2afx;
+	Mon, 02 Nov 2026 11:21:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 505DE2A31;
+	Mon,  2 Nov 2026 03:21:39 -0800 (PST)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 638CC3F632;
+	Mon,  2 Nov 2026 03:21:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793618502; bh=vEzrqCWaH6sVkcTMp6OI/QOpWZT9yXWBiNbXxiv6lmA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=nbJ29IH6dzX4ajlSXZsYxUhN1Lgz7qI7Kf5XaxQjBx/xo9v7XPDH8Ju+9BXJRBPse
+	 e8oLA7buAWAo7aZl1xI9J9NpPa0gvVM1iZGlL9vD4OwU9kc5aWCdjj4sVHMsz5gOdC
+	 kzyj1pP43iYB3WNlRCyithRJP5str24lHrOCdHmc=
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+Date: Mon, 02 Nov 2026 11:21:14 +0000
+Subject: [PATCH RESEND v2 01/21] ARM: mm: make nommu pgd_t a scalar
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <fe117dd44728fe7c96f3e4b3ec88c6ca83c5da9b.1791880574.git.geert+renesas@glider.be>
-In-Reply-To: <fe117dd44728fe7c96f3e4b3ec88c6ca83c5da9b.1791880574.git.geert+renesas@glider.be>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 2 Nov 2026 11:09:51 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWhOu+1YU7z0WR=2M5OuGjdXmH6m5__F7TmhRGQx52jMg@mail.gmail.com>
-X-Gm-Features: AclHuK8J4Hpof_2n20HSIIi8CLwkgCm2egqJasTQSM_ACF5dfMV0X89nwIyfFeA
-Message-ID: <CAMuHMdWhOu+1YU7z0WR=2M5OuGjdXmH6m5__F7TmhRGQx52jMg@mail.gmail.com>
-Subject: Re: [PATCH] perf/renesas: Remove remaining RISCV_ALTERNATIVE references
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Conor Dooley <conor.dooley@microchip.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Magnus Damm <magnus.damm@gmail.com>, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	Geert Uytterhoeven <geert+renesas@glider.be>
+Message-Id: <20261102-dummy_ptxp3-v2-1-78840b2ec73c@arm.com>
+References: <20261102-dummy_ptxp3-v2-0-78840b2ec73c@arm.com>
+In-Reply-To: <20261102-dummy_ptxp3-v2-0-78840b2ec73c@arm.com>
+To: Russell King <linux@armlinux.org.uk>, 
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Arnd Bergmann <arnd@arndb.de>, Andrew Morton <akpm@linux-foundation.org>, 
+ Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, Barry Song <baohua@kernel.org>, 
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+ Wei Xu <weixugc@google.com>, Johannes Weiner <hannes@cmpxchg.org>, 
+ David Hildenbrand <david@kernel.org>, Michal Hocko <mhocko@kernel.org>, 
+ Lorenzo Stoakes <ljs@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+ Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>, 
+ Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, "Liam R. Howlett" <liam@infradead.org>, 
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+ Jonas Bonn <jonas@southpole.se>, 
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
+ Stafford Horne <shorne@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+ linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-openrisc@vger.kernel.org
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1081; i=yeoreum.yun@arm.com;
+ h=from:subject:message-id; bh=ODmKgHrv0SlU2okc3grPddikJ1BO4DLAINSWVDYQruI=;
+ b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBq6HIvGLS699hx7hG7O/gmI78xbHdrhwDkf+7I9
+ DWzP3L/JCaJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCauhyLwAKCRBt1cPRWsUx
+ M3LaDACfxss2j2NeE3BbTwwhokaDiCVaW/H2/Mn+uUenKG2jgF/kgodnvVS74EsJjBiO+N61g8k
+ jWQPIwa3DH8V2Bt7Ff/0DyErPtKYiTAgNkr0bTxKT8vl3v5bJYwh2f8oMpNlskDhO5YF9ajXEFZ
+ 4ER8DxM8Y0Bot9aN/p+GNwx5V7S7M+ZxGwyoFmLXbIMo8frKb97sxPDAfsQWhXc/21AGoZR07PA
+ INOCEo64nIFS15biXbqjKkhz6Cg9u4ZiO2+9vVuGSmKykqv/EuGUfHOmt969sV+myhOj6IOf9Y7
+ Pm5ViXArvK4RfqS7EjpzDiY+Ijjv+sJGjYyXgNxNfnVM57alioKTkUndEkuHX0dCDAOx2+PcrCg
+ 3E0y/PCa4svejSAe9h8r+1ip3k9DsHNUK382M6HKF32gPu7Wr7WsSAR4RGYgAKC+6k2G0Iy/yKt
+ 3AY/4iUvtbWQKzfONYzBUemon4pM3LwvK4VOQ4z77hFiMuT2j+pbqBBod0/uxLBwdhzPQ=
+X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
+ fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_021006_375689_A2933386 
-X-CRM114-Status: GOOD (  24.74  )
-X-Spam-Score: -1.6 (-)
+X-CRM114-CacheID: sfid-20261102_032143_741365_E1CB0AEF 
+X-CRM114-Status: GOOD (  13.06  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,66 +107,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, 13 Oct 2026 at 10:39, Geert Uytterhoeven
-<geert+renesas@glider.be> wrote:
-> As riscv always selects RISCV_ALTERNATIVE, the option was removed.
-> However, a few references were left, making it impossible to enable
-> RZ/Five support (ARCH_R9A07G043).
->
-> Fix this by removing all remaining references.
->
-> Fixes: b924210f542e13c7 ("riscv: remove RISCV_ALTERNATIVE Kconfig option")
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> To be applied to riscv/for-next, or folded into the original commit.
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 
-As the broken commit is now in v7.4-rc1, this can no longer be fixed
-in the original commit...
+As pgd_t is returned  from a function, like pgdp_get(). pgd_t shouldn't be
+an array.
 
-> --- a/drivers/perf/Kconfig
-> +++ b/drivers/perf/Kconfig
-> @@ -117,7 +117,7 @@ config STARFIVE_STARLINK_PMU
->
->  config ANDES_CUSTOM_PMU
->         bool "Andes custom PMU support"
-> -       depends on ARCH_RENESAS && RISCV_ALTERNATIVE && RISCV_PMU_SBI
-> +       depends on ARCH_RENESAS && RISCV_PMU_SBI
->         default y
->         help
->           The Andes cores implement the PMU overflow extension very
-> diff --git a/drivers/soc/renesas/Kconfig b/drivers/soc/renesas/Kconfig
-> index a63df28df3b5e7c7..0b6876ef6dca228b 100644
-> --- a/drivers/soc/renesas/Kconfig
-> +++ b/drivers/soc/renesas/Kconfig
-> @@ -461,7 +461,6 @@ config ARCH_R9A07G043
->         bool "RISC-V Platform support for R9A07G043F (RZ/Five)"
->         depends on NONPORTABLE
->         depends on !DMA_DIRECT_REMAP
-> -       depends on RISCV_ALTERNATIVE
->         depends on !RISCV_ISA_ZICBOM
->         depends on RISCV_SBI
->         select ARCH_RZG2L
+There is no need to match the actual arm page tables, because with nommu
+there are no page tables. It's all just in place to make the compiler
+happy. Making it a scalar will make the compiler happy.
 
-... so I am queuing it in renesas-fixes for v7.4, unless someone
-screams.
+So let's just use an u32.
 
-Gr{oetje,eeting}s,
+Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+---
+ arch/arm/include/asm/page-nommu.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-                        Geert
+diff --git a/arch/arm/include/asm/page-nommu.h b/arch/arm/include/asm/page-nommu.h
+index e74415c959bea..88659b38e2364 100644
+--- a/arch/arm/include/asm/page-nommu.h
++++ b/arch/arm/include/asm/page-nommu.h
+@@ -18,12 +18,12 @@
+  */
+ typedef unsigned long pte_t;
+ typedef unsigned long pmd_t;
+-typedef unsigned long pgd_t[2];
++typedef unsigned long pgd_t;
+ typedef unsigned long pgprot_t;
+ 
+ #define pte_val(x)      (x)
+ #define pmd_val(x)      (x)
+-#define pgd_val(x)	((x)[0])
++#define pgd_val(x)      (x)
+ #define pgprot_val(x)   (x)
+ 
+ #define __pte(x)        (x)
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.43.0
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
