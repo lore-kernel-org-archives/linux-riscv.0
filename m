@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4C34606D832
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 09:02:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F81F606D811
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 09:02:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QOC5uQ7B;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=lgkTXmZQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=j6ehiFud;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=w560sXMx
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,49 +14,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ftASHKwtqJG+MphNFKb32MylcBweTPrqhG+pUgGuAUM=; b=QOC5uQ7BAb4xQUD/p7ioZXPifX
-	n0+UQ2+TjvTZJ2GSGEiTXR7KgiGO+hvEncncUoLw5WkYT40muFTd9/vYiadLRtUfrQ/2hE8BAAiJF
-	qhTrvbM31J8OeJ3IIgOX5gCEqQWNWnHHvhBmmzfPw8jqmX1f4JI7quJmcltrIT4dBOdc/ECAsuen3
-	vWEwQnD1yLegcFtR2AJBxn8B2r4BYVvZMNj42jO2VAjuAuRBE9T9AUw1uUijyMbjYO3n4HRSHDco5
-	C5XUDIVRZyy2OVnqTA6HvMNxzJBVi6N1DdFzSSArQzPCy0dHCHLE8MtwPSoekUwUzBAgovTFd7HqT
-	a7Ki8zgA==;
+	bh=FEuAcKagVEHFI4fUKJ89yYMhzFq5dQhLo1QDLss0VNI=; b=j6ehiFudX7cd449bSzslZr5BWz
+	11oqUJ/sXfZCQBFpS33G4qywFmFe2RnnaxMgtlDHIIrmIgSIJvk9FzsfpqHJ2KakVzvuTu75x3/Hf
+	w6ET+iawYaOKe+e/T/EQw7MJhxDRHiRMVMYAJ2IwCTvYpXfU+eR6lSPiFceAkkblIsJEjxibn2MRv
+	g0g3SoBpMXXN07rWDWzGlIm5HUpBo/kqsi3yJdb/ymtFheoYAYvFxOkMDhwXvQlq0jnoOqjYwEHHD
+	qTQjxYHIpNa0VmIaP6uZRJqgs+gRqC11Xifd07UG7KWQaLhHVhveD98j67ZwTLz/jX8RobXf2W7Qb
+	wOERVeuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOAOl-00000001foQ-22ch;
-	Tue, 03 Nov 2026 09:01:43 +0000
+	id 1xOAOh-00000001fnM-2hpD;
+	Tue, 03 Nov 2026 09:01:39 +0000
 Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOAOO-00000001fiJ-1z56
+	id 1xOAON-00000001fi0-3XbR
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Nov 2026 09:01:32 +0000
+	Tue, 03 Nov 2026 09:01:26 +0000
 Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
-	by mx08-00376f01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A34D6uC3126677;
-	Tue, 3 Nov 2026 09:00:58 GMT
+	by mx08-00376f01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A34D6u83126677;
+	Tue, 3 Nov 2026 09:00:54 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=8
-	UxN5G4CszVASc0eJ51bWhZrmzSLYZSfVvLKokYxmLc=; b=lgkTXmZQIqmGXVOco
-	LY7LDJ2/J7CNEKPT6/pgmqMPhGR/UUk1wV3/uSRLDe87W9GnqqXEntwyBFEaaEUj
-	xR89SI7N2i1SGtp51tBIvxqN7PZnD1ZwnHc8jaDY7zqGuVHoqLIXQnibP4ge/cpU
-	TfKwWxP+pOuleOk8clDmczRqmI2xu0pMyOK2JHM0f4BvSDjkyRgCU7RbGq2xsB1h
-	JvdVyr6R2hFUMTiqEQ9kWvwX61JXQ8TY54eCPX3O//ORbu0DiqOs/Gr5Tkp27PKN
-	b0lTMuCCx5zLas3o58nWEYO+nsI9Rt2bFDluvTlusAM1rex7sn84DMEhGCaPLNtS
-	MGFjA==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=c
+	9w2cVYOS/JtP/ygwOyGXTYQMzbvgLvIS7g/OWDgsqQ=; b=w560sXMxThzFDCB6G
+	YevGbDFQBFZwYvIZMtqjAiIx8mwPpRL7inVQYEqMFC8jUK+e8TAuyNi6vqK09xD5
+	MnFZaXoHc3YeQhp7SZx6igm7WVir3L0W9699orxAJKWbgxxpU1+QBjL3MUdbOMeR
+	mGlNQSKJAI0xSR6gZQNw/lQFq+WH//QiZZ2JWQgpoP7uBN93I/DsC3vIJtD/y8LX
+	RNMxUW5JE6fOH4An4aKilZ6XaFK+gkCdN7Yc311pnUHcUj6d9QZvCHAFge9oRzeN
+	N5Bqa+lE+IanyZf64y7tZ6ZV54J2IHCEyYh4e2ImOnaK5MhKO7oxQ0iHNHLE+M3N
+	rQPlw==
 Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 4hn7ft23tw-5
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 4hn7ft23tw-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 03 Nov 2026 09:00:57 +0000 (GMT)
+	Tue, 03 Nov 2026 09:00:54 +0000 (GMT)
 Received: from [127.0.1.1] (172.25.5.26) by HHMAIL01.hh.imgtec.org
  (10.100.10.19) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 3 Nov
- 2026 09:00:55 +0000
+ 2026 09:00:52 +0000
 From: Alexandru Dadu <alexandru.dadu@imgtec.com>
-Date: Tue, 3 Nov 2026 11:00:42 +0200
-Subject: [PATCH v4 3/5] drm/imagination: Make the RISC-V firmware header
- arch-independent
+Date: Tue, 3 Nov 2026 11:00:40 +0200
+Subject: [PATCH v4 1/5] drm/imagination: Prepare heap config header for
+ multi-arch support
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-ID: <20261103-prep-meta-fw-arch-independent-v4-3-513d1c51f458@imgtec.com>
+Message-ID: <20261103-prep-meta-fw-arch-independent-v4-1-513d1c51f458@imgtec.com>
 References: <20261103-prep-meta-fw-arch-independent-v4-0-513d1c51f458@imgtec.com>
 In-Reply-To: <20261103-prep-meta-fw-arch-independent-v4-0-513d1c51f458@imgtec.com>
 To: Alessio Belle <alessio.belle@imgtec.com>,
@@ -74,38 +74,37 @@ To: Alessio Belle <alessio.belle@imgtec.com>,
 CC: <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
         <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         "Alexandru
- Dadu" <alexandru.dadu@imgtec.com>,
-        Matt Coster <opensource@mtcoster.net>
+ Dadu" <alexandru.dadu@imgtec.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793696450; l=5651;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793696450; l=7080;
  i=alexandru.dadu@imgtec.com; s=20260304; h=from:subject:message-id;
- bh=N00B/HKIov+RzgHbL1f3a705Bh43/lCp6PTCWxTp7oE=;
- b=qoxoQIyBIxYbxeVbXcHQazY3xuEiUzNbbamk0JvDqfm1yzjbI/nmxlFrq2WaeDjfltjHPROx3
- BQWWQkhAItPDSKaTe1nemiqAoUg6gG16EO/bQo1+D1v0TY02iyMC2AW
+ bh=9eDwkLGnx8tNwuQaBx3u4oUMlcw41201/Cad9UF2XXs=;
+ b=F4TBoWj7J/sdQvRgXMhkCZM1/wWLq/dlUCsDJlsBcZsprJMJsuczxkLers+ou/3JbANgyRxZz
+ tP6OcS/IZ5aDokloT7XEtbIDBZ+d1E/WDfyqQ9R9gR3/YY5v3SwT1LT
 X-Developer-Key: i=alexandru.dadu@imgtec.com; a=ed25519;
  pk=FU07SyNrYGwhahqSxbWEuzyXlUh47xBXvLvOR7UA6+U=
-X-Proofpoint-ORIG-GUID: YGNGvhxVgp7TrJb3Wf0Xgbj2uXW2qpuf
-X-Proofpoint-GUID: YGNGvhxVgp7TrJb3Wf0Xgbj2uXW2qpuf
-X-Authority-Analysis: v=2.4 cv=HaSB3SE8 c=1 sm=1 tr=0 ts=6ae9a2ca cx=c_pps
+X-Proofpoint-ORIG-GUID: j8eRxaGk6x6skMS_XYNDfUzcgCs6nQLs
+X-Proofpoint-GUID: j8eRxaGk6x6skMS_XYNDfUzcgCs6nQLs
+X-Authority-Analysis: v=2.4 cv=HaSB3SE8 c=1 sm=1 tr=0 ts=6ae9a2c6 cx=c_pps
  a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
  a=h_3jC4m0AyQA:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
  a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=qZQ2PDNLMSdLoqI-hfl9:22
- a=r_1tXGB3AAAA:8 a=SqUUmSXaI7-uYlY8_LkA:9 a=QEXdDO2ut3YA:10
+ a=r_1tXGB3AAAA:8 a=wwnLb05hCPqUNQMNHCwA:9 a=QEXdDO2ut3YA:10
  a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAzMDAzNSBTYWx0ZWRfX7Ao0If+7Z2+G
- TQSx+mWs+T2QRTq272X9j0Qjo7/nNS4S+vcZns1mu/MS2I7qIwswCR4vyffdkueo3f5mhIVIZHY
- 9+k04JfGbrpnT0voYO2AC65xmcI3ezE=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAzMDAzNSBTYWx0ZWRfX0bkhqC3C0PLJ
- RFbRr8SDPLdd9wrGGzrGSi0xOiezBw/JXYot8McqVDLDvlFhI++JSqfzPS0sL1mUZobtfY3WAWr
- NcIErZ1pi0WKA5RNi2HsoEBhqPU1Is3MW7n8rh2AWO4TJLqyzMmSuPolH6OW8rgzA0p6wTn0sKU
- pxDND3SHmwStTvsawLv2nckf3rEkcMGN3XIcDdHdnmulxESADMqT1EaVlDDpzBwKs2P870WuIVS
- lv964SAbogxE78RPGr3BlvyEuBB9ji2vEM8RVGneNkBuJoYf2Y/2l63UMxi0Tx1GpgNpk2z4AZL
- 5ihhrj+lJnsaAvXSPeft1vZhe3u39RJDdGwpOzil2K6nmiLaYqepBSUKbFq/clpsYmeaZ/rW/D3
- 4KrFh+gC2htupVOKlfnO3o3SFa7pVmasHp6FKZNlgPpvPNT5T8xPSgxXgT9fWCrPPnoQDERZq6x
- PQuxWm5xAi/FzJPYjSg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAzMDAzNSBTYWx0ZWRfX7aCapeBOYh3X
+ hYJPUry5vsNiJZAy/+HIaSca5IqnOuXrUDD9R9tVskZvvlYyFmbBH5d0o2Ox9uFmm2NgERXCYez
+ ZE9RSCRbIgVh3tqmTPnT6xxVdC9YUVM=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAzMDAzNSBTYWx0ZWRfX9l6JnthbsGbT
+ wWsx1zcTKhjHvAwC9nH+q+mz1EfJ9H506iLqd2FGUiFHZucf8chvpKHzXgra0nPPGVb1J4C+p9H
+ yg1PVl6KrZJh9WeUCC/z+GCNL76t8cyjF0NogFKdvtQ8t7tiWvmjpCYN2GJJkLAccVPaWo9xfzP
+ mRNvCfGTrLcwb68Lx+n22Jc8aC70V+KmUVT0vZmiJM3QkIa6Eomx4QxoL374Xdv66v3U2FFqxGK
+ cQ9PTuB1/R8txxYux/qWlpHP9zT92gnAdRlK0fIRX/lhsyxhPgjOP1j0hwLAOVvI0QffHfARXyg
+ gor2HbXXxltVdUPVk1ZA+REaV1PRsck7LCqSq5WHLnQxSR0PZ4j9yh9HWy8j0LG5qV7RAy9fQDC
+ O5rNJL7sGdKwsgWzZjYEozaHbsRd8gcRIhtB1mfJzTNaPcPryx3v+ZeCG6WgWIiyFrmlpzXkcmC
+ PqDKXu+hS3NPcxudK6Q==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_010124_032639_4A5163DC 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20261103_010120_227846_0F798DA9 
+X-CRM114-Status: GOOD (  17.37  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -126,165 +125,190 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Alessio Belle <alessio.belle@imgtec.com>
+Update the name of pvr_rogue_heap_config.h to pvr_heap_config.h to
+prepare it for a more generic implementation that will have memory
+sections defined for multiple GPU architectures.
+Update the multi-arch common define names to a generic format.
 
-This header file contains definitions common to all PowerVR
-architectures starting from Rogue, so rename both the file and its
-contents to reflect this.
-
-Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
-Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
 ---
- drivers/gpu/drm/imagination/pvr_fw_riscv.c         | 14 +++----
- .../gpu/drm/imagination/pvr_fw_riscv_internal.h    | 43 ++++++++++++++++++++++
- .../gpu/drm/imagination/pvr_rogue_riscv_internal.h | 43 ----------------------
- 3 files changed, 50 insertions(+), 50 deletions(-)
+ drivers/gpu/drm/imagination/pvr_fw.c               |  7 +++---
+ drivers/gpu/drm/imagination/pvr_gem.h              |  2 +-
+ .../{pvr_rogue_heap_config.h => pvr_heap_config.h} | 26 +++++++++++-----------
+ drivers/gpu/drm/imagination/pvr_vm.c               | 18 +++++++--------
+ 4 files changed, 26 insertions(+), 27 deletions(-)
 
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_riscv.c b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
-index 0d4dd45520a9..2b24c40bc20f 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_riscv.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
-@@ -6,10 +6,10 @@
- #include "pvr_fw_info.h"
- #include "pvr_fw_mips.h"
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.c b/drivers/gpu/drm/imagination/pvr_fw.c
+index c6c77b152342..4d5df5272f46 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.c
++++ b/drivers/gpu/drm/imagination/pvr_fw.c
+@@ -9,9 +9,8 @@
+ #include "pvr_fw_startstop.h"
+ #include "pvr_fw_trace.h"
  #include "pvr_gem.h"
-+#define PVR_FW_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
-+#include "pvr_fw_riscv_internal.h"
-+#undef PVR_FW_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
- #include "pvr_rogue_cr_defs.h"
--#define PVR_ROGUE_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
--#include "pvr_rogue_riscv_internal.h"
--#undef PVR_ROGUE_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
++#include "pvr_heap_config.h"
+ #include "pvr_power.h"
+-#include "pvr_rogue_fwif_dev_info.h"
+-#include "pvr_rogue_heap_config.h"
  #include "pvr_vm.h"
  
- #include <linux/compiler.h>
-@@ -43,13 +43,13 @@ pvr_riscv_wrapper_init(struct pvr_device *pvr_dev)
+ #include <drm/drm_drv.h>
+@@ -372,8 +371,8 @@ fw_sysinit_init(void *cpu_ptr, void *priv)
+ 	WARN_ON(pvr_fw_object_get_dma_addr(fw_mem->fault_page_obj, 0, &fault_dma_addr));
+ 	fwif_sysinit->fault_phys_addr = (u64)fault_dma_addr;
  
- 	pvr_cr_write64(pvr_dev,
- 		       PVR_CR_REPEAT_X(ROGUE_CR_FWCORE_ADDR_REMAP_CONFIG,
--				       ROGUE_RISCV_REGION_BOOTLDR_CODE),
-+				       PVR_RISCV_REGION_BOOTLDR_CODE),
- 		       code_addr | common_opts |
- 		       ROGUE_CR_FWCORE_ADDR_REMAP_CONFIGx_FETCH_EN_EN);
+-	fwif_sysinit->pds_exec_base = ROGUE_PDSCODEDATA_HEAP_BASE;
+-	fwif_sysinit->usc_exec_base = ROGUE_USCCODE_HEAP_BASE;
++	fwif_sysinit->pds_exec_base = PVR_PDSCODEDATA_HEAP_BASE;
++	fwif_sysinit->usc_exec_base = PVR_USCCODE_HEAP_BASE;
  
- 	pvr_cr_write64(pvr_dev,
- 		       PVR_CR_REPEAT_X(ROGUE_CR_FWCORE_ADDR_REMAP_CONFIG,
--				       ROGUE_RISCV_REGION_BOOTLDR_DATA),
-+				       PVR_RISCV_REGION_BOOTLDR_DATA),
- 		       data_addr | common_opts |
- 		       ROGUE_CR_FWCORE_ADDR_REMAP_CONFIGx_LOAD_STORE_EN_EN);
+ 	pvr_fw_object_get_fw_addr(fw_mem->runtime_cfg_obj, &fwif_sysinit->runtime_cfg_fw_addr);
+ 	pvr_fw_object_get_fw_addr(fw_dev->fw_trace.tracebuf_ctrl_obj,
+diff --git a/drivers/gpu/drm/imagination/pvr_gem.h b/drivers/gpu/drm/imagination/pvr_gem.h
+index 4286e047ae24..ae7af82b6f17 100644
+--- a/drivers/gpu/drm/imagination/pvr_gem.h
++++ b/drivers/gpu/drm/imagination/pvr_gem.h
+@@ -4,7 +4,7 @@
+ #ifndef PVR_GEM_H
+ #define PVR_GEM_H
  
-@@ -132,9 +132,9 @@ pvr_riscv_get_fw_addr_with_offset(struct pvr_fw_object *fw_obj, u32 offset)
+-#include "pvr_rogue_heap_config.h"
++#include "pvr_heap_config.h"
+ #include "pvr_rogue_meta.h"
  
- 	/* RISC-V cacheability is determined by address. */
- 	if (fw_obj->gem->flags & PVR_BO_FW_FLAGS_DEVICE_UNCACHED)
--		fw_addr |= ROGUE_RISCVFW_REGION_BASE(SHARED_UNCACHED_DATA);
-+		fw_addr |= PVR_RISCVFW_REGION_BASE(SHARED_UNCACHED_DATA);
- 	else
--		fw_addr |= ROGUE_RISCVFW_REGION_BASE(SHARED_CACHED_DATA);
-+		fw_addr |= PVR_RISCVFW_REGION_BASE(SHARED_CACHED_DATA);
+ #include <uapi/drm/pvr_drm.h>
+diff --git a/drivers/gpu/drm/imagination/pvr_rogue_heap_config.h b/drivers/gpu/drm/imagination/pvr_heap_config.h
+similarity index 85%
+rename from drivers/gpu/drm/imagination/pvr_rogue_heap_config.h
+rename to drivers/gpu/drm/imagination/pvr_heap_config.h
+index 5c33b342dda5..280bf1ed523b 100644
+--- a/drivers/gpu/drm/imagination/pvr_rogue_heap_config.h
++++ b/drivers/gpu/drm/imagination/pvr_heap_config.h
+@@ -1,8 +1,8 @@
+ /* SPDX-License-Identifier: GPL-2.0-only OR MIT */
+ /* Copyright (c) 2023 Imagination Technologies Ltd. */
  
- 	return fw_addr;
- }
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_riscv_internal.h b/drivers/gpu/drm/imagination/pvr_fw_riscv_internal.h
-new file mode 100644
-index 000000000000..abcbb4ef06fe
---- /dev/null
-+++ b/drivers/gpu/drm/imagination/pvr_fw_riscv_internal.h
-@@ -0,0 +1,43 @@
-+/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-+/* Copyright (c) 2024 Imagination Technologies Ltd. */
-+
-+#ifndef PVR_FW_RISCV_INTERNAL_H
-+#define PVR_FW_RISCV_INTERNAL_H
-+
-+#ifndef PVR_FW_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
-+#error This file may only be included if explicitly defined
-+#endif
-+
-+#include "pvr_rogue_cr_defs.h"
-+
-+#include <linux/bitops.h>
-+#include <linux/sizes.h>
-+#include <linux/types.h>
-+
-+#define PVR_RISCVFW_REGION_SIZE SZ_256M
-+#define PVR_RISCVFW_REGION_SHIFT __ffs(PVR_RISCVFW_REGION_SIZE)
-+
-+enum pvr_riscvfw_region {
-+	PVR_RISCV_REGION__RESERVED_0 = 0,
-+	PVR_RISCV_REGION__RESERVED_1,
-+	PVR_RISCV_REGION_SOCIF,
-+	PVR_RISCV_REGION__RESERVED_3,
-+	PVR_RISCV_REGION__RESERVED_4,
-+	PVR_RISCV_REGION_BOOTLDR_DATA,
-+	PVR_RISCV_REGION_SHARED_CACHED_DATA,
-+	PVR_RISCV_REGION__RESERVED_7,
-+	PVR_RISCV_REGION_COREMEM,
-+	PVR_RISCV_REGION__RESERVED_9,
-+	PVR_RISCV_REGION__RESERVED_A,
-+	PVR_RISCV_REGION__RESERVED_B,
-+	PVR_RISCV_REGION_BOOTLDR_CODE,
-+	PVR_RISCV_REGION_SHARED_UNCACHED_DATA,
-+	PVR_RISCV_REGION__RESERVED_E,
-+	PVR_RISCV_REGION__RESERVED_F,
-+
-+	PVR_RISCV_REGION__COUNT,
-+};
-+
-+#define PVR_RISCVFW_REGION_BASE(r) ((u32)(PVR_RISCV_REGION_##r) << PVR_RISCVFW_REGION_SHIFT)
-+
-+#endif /* PVR_FW_RISCV_INTERNAL_H */
-diff --git a/drivers/gpu/drm/imagination/pvr_rogue_riscv_internal.h b/drivers/gpu/drm/imagination/pvr_rogue_riscv_internal.h
-deleted file mode 100644
-index ba18c2a82205..000000000000
---- a/drivers/gpu/drm/imagination/pvr_rogue_riscv_internal.h
-+++ /dev/null
-@@ -1,43 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 OR MIT */
--/* Copyright (c) 2024 Imagination Technologies Ltd. */
--
--#ifndef PVR_ROGUE_RISCV_INTERNAL_H
--#define PVR_ROGUE_RISCV_INTERNAL_H
--
--#ifndef PVR_ROGUE_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
--#error This file may only be included if explicitly defined
--#endif
--
--#include "pvr_rogue_cr_defs.h"
--
--#include <linux/bitops.h>
--#include <linux/sizes.h>
--#include <linux/types.h>
--
--#define ROGUE_RISCVFW_REGION_SIZE SZ_256M
--#define ROGUE_RISCVFW_REGION_SHIFT __ffs(ROGUE_RISCVFW_REGION_SIZE)
--
--enum rogue_riscvfw_region {
--	ROGUE_RISCV_REGION__RESERVED_0 = 0,
--	ROGUE_RISCV_REGION__RESERVED_1,
--	ROGUE_RISCV_REGION_SOCIF,
--	ROGUE_RISCV_REGION__RESERVED_3,
--	ROGUE_RISCV_REGION__RESERVED_4,
--	ROGUE_RISCV_REGION_BOOTLDR_DATA,
--	ROGUE_RISCV_REGION_SHARED_CACHED_DATA,
--	ROGUE_RISCV_REGION__RESERVED_7,
--	ROGUE_RISCV_REGION_COREMEM,
--	ROGUE_RISCV_REGION__RESERVED_9,
--	ROGUE_RISCV_REGION__RESERVED_A,
--	ROGUE_RISCV_REGION__RESERVED_B,
--	ROGUE_RISCV_REGION_BOOTLDR_CODE,
--	ROGUE_RISCV_REGION_SHARED_UNCACHED_DATA,
--	ROGUE_RISCV_REGION__RESERVED_E,
--	ROGUE_RISCV_REGION__RESERVED_F,
--
--	ROGUE_RISCV_REGION__COUNT,
--};
--
--#define ROGUE_RISCVFW_REGION_BASE(r) ((u32)(ROGUE_RISCV_REGION_##r) << ROGUE_RISCVFW_REGION_SHIFT)
--
--#endif /* PVR_ROGUE_RISCV_INTERNAL_H */
+-#ifndef PVR_ROGUE_HEAP_CONFIG_H
+-#define PVR_ROGUE_HEAP_CONFIG_H
++#ifndef PVR_HEAP_CONFIG_H
++#define PVR_HEAP_CONFIG_H
+ 
+ #include <linux/sizes.h>
+ 
+@@ -14,7 +14,7 @@
+  * fits into this, but the firmware heap is only ever created in the
+  * kernel driver and never exposed to userspace.
+  *
+- * ROGUE_PDSCODEDATA_HEAP_BASE and ROGUE_USCCODE_HEAP_BASE will be programmed,
++ * PVR_PDSCODEDATA_HEAP_BASE and PVR_USCCODE_HEAP_BASE will be programmed,
+  * on a global basis, into ROGUE_CR_PDS_EXEC_BASE and ROGUE_CR_USC_CODE_BASE_*
+  * respectively. Therefore if client drivers use multiple configs they must
+  * still be consistent with their definitions for these heaps.
+@@ -38,9 +38,9 @@
+ /* 0x80_0000_0000 ************************************************************/
+ 
+ /* 0x80_0000_0000 - 0x9F_FFFF_FFFF **/
+-/* 512 GiB to 640 GiB, size of 128 GiB : GENERAL_HEAP */
+-#define ROGUE_GENERAL_HEAP_BASE 0x8000000000ull
+-#define ROGUE_GENERAL_HEAP_SIZE SZ_128G
++/* 512 GiB to 640 GiB, size of 128 GiB : GENERAL_HEAP **/
++#define PVR_GENERAL_HEAP_BASE 0x8000000000ull
++#define PVR_GENERAL_HEAP_SIZE SZ_128G
+ 
+ /* 0xA0_0000_0000 - 0xAF_FFFF_FFFF */
+ /* 640 GiB to 704 GiB, size of 64 GiB : FREE */
+@@ -58,8 +58,8 @@
+ 
+ /* 0xDA_0000_0000 - 0xDA_FFFF_FFFF */
+ /* 872 GiB to 876 GiB, size of 4 GiB : PDSCODEDATA_HEAP */
+-#define ROGUE_PDSCODEDATA_HEAP_BASE 0xDA00000000ull
+-#define ROGUE_PDSCODEDATA_HEAP_SIZE SZ_4G
++#define PVR_PDSCODEDATA_HEAP_BASE 0xDA00000000ull
++#define PVR_PDSCODEDATA_HEAP_SIZE SZ_4G
+ 
+ /* 0xDB_0000_0000 - 0xDB_FFFF_FFFF */
+ /* 876 GiB to 880 GiB, size of 256 MiB (reserved 4GiB) : BRN */
+@@ -76,8 +76,8 @@
+ 
+ /* 0xE0_0000_0000 - 0xE0_FFFF_FFFF */
+ /* 896 GiB to 900 GiB, size of 4 GiB : USCCODE_HEAP */
+-#define ROGUE_USCCODE_HEAP_BASE 0xE000000000ull
+-#define ROGUE_USCCODE_HEAP_SIZE SZ_4G
++#define PVR_USCCODE_HEAP_BASE 0xE000000000ull
++#define PVR_USCCODE_HEAP_SIZE SZ_4G
+ 
+ /* 0xE1_0000_0000 - 0xE1_BFFF_FFFF */
+ /* 900 GiB to 903 GiB, size of 3 GiB : RESERVED */
+@@ -99,8 +99,8 @@
+ 
+ /* 0xF2_0000_0000 - 0xF2_001F_FFFF **/
+ /* 968 GiB to 969 GiB, size of 2 MiB : VISTEST_HEAP */
+-#define ROGUE_VISTEST_HEAP_BASE 0xF200000000ull
+-#define ROGUE_VISTEST_HEAP_SIZE SZ_2M
++#define PVR_VISTEST_HEAP_BASE 0xF200000000ull
++#define PVR_VISTEST_HEAP_SIZE SZ_2M
+ 
+ /* 0xF2_4000_0000 - 0xF2_FFFF_FFFF */
+ /* 969 GiB to 972 GiB, size of 3 GiB : FREE */
+@@ -110,4 +110,4 @@
+ 
+ /* 0xFF_FFFF_FFFF ************************************************************/
+ 
+-#endif /* PVR_ROGUE_HEAP_CONFIG_H */
++#endif /* PVR_HEAP_CONFIG_H */
+diff --git a/drivers/gpu/drm/imagination/pvr_vm.c b/drivers/gpu/drm/imagination/pvr_vm.c
+index ceb78694cd98..ae965043237d 100644
+--- a/drivers/gpu/drm/imagination/pvr_vm.c
++++ b/drivers/gpu/drm/imagination/pvr_vm.c
+@@ -6,9 +6,9 @@
+ #include "pvr_device.h"
+ #include "pvr_drv.h"
+ #include "pvr_gem.h"
++#include "pvr_heap_config.h"
+ #include "pvr_mmu.h"
+ #include "pvr_rogue_fwif.h"
+-#include "pvr_rogue_heap_config.h"
+ 
+ #include <drm/drm_exec.h>
+ #include <drm/drm_gem.h>
+@@ -950,20 +950,20 @@ static const struct drm_pvr_static_data_area static_data_areas[] = {
+  */
+ static const struct drm_pvr_heap pvr_heaps[] = {
+ 	[DRM_PVR_HEAP_GENERAL] = {
+-		.base = ROGUE_GENERAL_HEAP_BASE,
+-		.size = ROGUE_GENERAL_HEAP_SIZE,
++		.base = PVR_GENERAL_HEAP_BASE,
++		.size = PVR_GENERAL_HEAP_SIZE,
+ 		.flags = 0,
+ 		.page_size_log2 = PVR_DEVICE_PAGE_SHIFT,
+ 	},
+ 	[DRM_PVR_HEAP_PDS_CODE_DATA] = {
+-		.base = ROGUE_PDSCODEDATA_HEAP_BASE,
+-		.size = ROGUE_PDSCODEDATA_HEAP_SIZE,
++		.base = PVR_PDSCODEDATA_HEAP_BASE,
++		.size = PVR_PDSCODEDATA_HEAP_SIZE,
+ 		.flags = 0,
+ 		.page_size_log2 = PVR_DEVICE_PAGE_SHIFT,
+ 	},
+ 	[DRM_PVR_HEAP_USC_CODE] = {
+-		.base = ROGUE_USCCODE_HEAP_BASE,
+-		.size = ROGUE_USCCODE_HEAP_SIZE,
++		.base = PVR_USCCODE_HEAP_BASE,
++		.size = PVR_USCCODE_HEAP_SIZE,
+ 		.flags = 0,
+ 		.page_size_log2 = PVR_DEVICE_PAGE_SHIFT,
+ 	},
+@@ -974,8 +974,8 @@ static const struct drm_pvr_heap pvr_heaps[] = {
+ 		.page_size_log2 = PVR_DEVICE_PAGE_SHIFT,
+ 	},
+ 	[DRM_PVR_HEAP_VIS_TEST] = {
+-		.base = ROGUE_VISTEST_HEAP_BASE,
+-		.size = ROGUE_VISTEST_HEAP_SIZE,
++		.base = PVR_VISTEST_HEAP_BASE,
++		.size = PVR_VISTEST_HEAP_SIZE,
+ 		.flags = 0,
+ 		.page_size_log2 = PVR_DEVICE_PAGE_SHIFT,
+ 	},
 
 -- 
 2.43.0
