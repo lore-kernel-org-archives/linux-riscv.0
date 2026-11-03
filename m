@@ -2,71 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6C4E606C543
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 10:15:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE4CF606BFA6
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 11:04:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1lNfzYXQ;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l4M9873z
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rzt9/Zmu;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Jc90BoPB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=GobtQbGoA410ZiB+XMyUnZxUIDTN4b08GtqwXaBGUCo=; b=1lNfzYXQ7RZHFpKe7KKkUtLpWe
-	W3jFcS4VMJ2UozIe+V9t1y/hVk7FdwjoBTjRsUbGUoFxeEHvAtxGY6+5GuQHVzHPScdl2ijWZ/qaO
-	MEnHhtKMoOnmDdDjgOsFNmpmSo2HbrL7lvRyDC2Gb1NckUsrg1MnxoTZra3BmtSaAbWFkcMeyySbT
-	/T/tXNkKE3NGsus51K38J6IZR3Wy8T6NS7KferAXzjHNRNXuyUWHGDUrAnEfsuGK3IQE3CaqD2FDR
-	A7tP++ciJjgtwtU6+IcRo6MLcEjHqPo/x91OoBu2L6I9tM1H5yoStuTW5As1Bm+7f28QFuzDxoqlq
-	bXIpVKFg==;
+	bh=sZojBBli3MFGoUkxP7Is1xnPmVBBdPDOt3fuVp22bxA=; b=rzt9/Zmu69gyUUYQf4pYg9zET7
+	hs8uDTU2SfgwoURpSxxyk/9U4BHGLYh+kLstLVgfo90luM9ElUTJJVPBy1TNU0A9+RVYp9az1lhig
+	r79KNhky7nEb0HU1tg1WAzjmNiFdMO8JNUPbUrCbnLTLjq4CQn5r/IYhAdzRBX8mwma2s+2OQ1YQW
+	4SJ60QWEWl1PeT84bq4qCfKaBYaSQ3Pbim43cO7SrABfdzw+yemQvampeI47l/B9MAn+owZYlJ20t
+	+qoAK5hp15AYH3GX9IIXoSILha0qUih6uveuoxyGHJef04eXzrXQUJKH7yfOHS4r1eok5HaobME96
+	XE8Rm/Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBY9-00000001w8y-2tdo;
-	Tue, 03 Nov 2026 10:15:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xOCJB-000000028Fz-3o1V;
+	Tue, 03 Nov 2026 11:04:05 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBY7-00000001w3h-034m;
-	Tue, 03 Nov 2026 10:15:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0008C601FF;
-	Tue,  3 Nov 2026 10:15:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C53311F000C1;
-	Tue,  3 Nov 2026 10:15:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793700925;
-	bh=5o98qwlKEQyOrCRjq2RUqHe7Txdo2HfIj4qXGPwficc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=l4M9873zeOp+nuSn9vGGPWM/5zR54YN8iGYC/B8Y18HQJOpFdwDfuPsn2vNUNk+NP
-	 Uhf2M+Btkoiph3PQBpwJsFhic896iAqepE0h9dLCpKlAT/9gUjbY5mhQLzGQ3/fL1f
-	 ZsQ1uSDCfX8u5/3T+tY4zOt7H2ihasdNaaoxKbI2NBQYIYbtZO9nG9bwX8dcZbYdyO
-	 0BQUezOpFtIVi/H+vhLMA7bUtpqmWfcSpK93Xv8oCzQ+t22pDSLZjSIfg3hXfKDps3
-	 DdRnHbHugGUkSbZpCF5hrPiL7KiLQeeff3o/ayxbyjmYJq+PIMS+HKqulLooeXACS4
-	 r4f891vSExf1A==
-Date: Tue, 3 Nov 2026 12:15:16 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: gaohan@iscas.ac.cn
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>, Yao Zi <me@ziyao.cc>,
-	Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	kexec@lists.infradead.org
-Subject: Re: [PATCH 4/5] kexec_core: Clear the unused part of CMA segments
-Message-ID: <aum0NFfSezGOiR0K@kernel.org>
-References: <20261023-riscv-kexec-cma-fixes-v1-0-825b90ea23c4@iscas.ac.cn>
- <20261023-riscv-kexec-cma-fixes-v1-4-825b90ea23c4@iscas.ac.cn>
+	id 1xOCJ9-000000028Eq-1Rts
+	for linux-riscv@lists.infradead.org;
+	Tue, 03 Nov 2026 11:04:04 +0000
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 9D3482000E3;
+	Tue, 03 Nov 2026 12:04:01 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793703841;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9+j8TmaWLqssBXOiaemL9Pho6D080LRmzK8roZic8Ps=;
+	b=Jc90BoPB2m09qPV5RCIggu7BdHaigZs6oobU/kkMRjlBvAQQsER36aTYs+0yA4V2viZn0D
+	9IOFnm4MB2MrtSWlBawUEn6m77a+pjGsUtPg2Jh9RvDMzHE/FIrmgZNh5h+CYpDwQXX5jD
+	PInHrpp2ZdVA0T8XeRSodcB5WlYvLvfZDtqC4XjERA6LUcs94M6GOmBdnbtPMf01xb1r2S
+	V8UrXgvcdt1+KL5bTrDQ9HCOKfB3aIuHHYgna2kvUIW/cTkRIOypRpEYFd3t7W1uC7pkbc
+	uMoepfkGQ15NlXW9fEqQeZ0YWY55oxNkfj4tjw//OIhvyTq3DQokuzhZk0pgYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793703841;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9+j8TmaWLqssBXOiaemL9Pho6D080LRmzK8roZic8Ps=;
+	b=T49uY6iISswxJGUtAIkUg8wnsDsUJizPUO3sawt1f2O1BXLVCYGBQE0ajEGa2gNNV78NU+
+	7L3a7hhs8dGEvBValngCo0hBJiDANqQwMUNJ1m1AuYD/9itxmIJ9QhLLMVvQDAdHhM56WM
+	MVAMX3PP6axkRUiLIH5TUYZNaPyO39HTUWYtYzkBD07mnDsNGFM3vPECWf9xl/mKUADZWF
+	adW5UMzwDpgvLxEBNSteHJYgrp8V+yBmQ/TKlXu460xSGgZuG+Ee3dT9wBJ5G8XrzUWuWc
+	qYsITrrpF3dH6XKzKXC2VhO1fw5Co4qtEMi4ZwghwjGwPcpsLFD85oe0ZYwAQw==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793703841; a=rsa-sha256;
+	cv=none;
+	b=Rx6LJC2yTwIOFc6EGkNmrGtrnjTzEvcY++tM/oV8LLfz5QM7h9x9mY4C3Z8S9L588dbilv
+	w5jy9BoYMt6EUr0gC+aQLnl4AQnyVCh0BaPd//AMaL9An0sBqQjLfsuv8SyMz/b+3Ww/eR
+	ORd0UFW3BHtirreItQZs1ShGIaJeYIj/O2X4sKuiM2G/5OfaQyoVeEH7yHMuuEdyfppaMs
+	e6Gded/RTFspCTzgjkOYJSY7invnM7WY447zw7vYzPTRaCrWUNzOc9YNQBk4KVFUiOAPgo
+	YlilMSkEuvCt3vgptrFl79cSFb62ExXMV+DvTP9Gm1zdl2L8FrdDFrCSbb/zWA==
+Message-ID: <bb3ee3d119d848034fa16943a4df9639b39df98c.camel@pengutronix.de>
+Subject: Re: [PATCH v2] reset: spacemit: Fix the RCPU2 PWM reset registers
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Hung-Chun Tseng <alan.tseng.cs@gmail.com>, Guodong Xu
+ <docular.xu@gmail.com>,  Yixun Lan <dlan@kernel.org>
+Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>, Alex Elder	
+ <elder@riscstar.com>, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, 	linux-kernel@vger.kernel.org
+Date: Tue, 03 Nov 2026 12:04:01 +0100
+In-Reply-To: <20261021132130.3026998-1-alan.tseng.cs@gmail.com>
+References: <20261021132130.3026998-1-alan.tseng.cs@gmail.com>
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261023-riscv-kexec-cma-fixes-v1-4-825b90ea23c4@iscas.ac.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261103_030403_537289_957260D0 
+X-CRM114-Status: UNSURE (   4.27  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,68 +98,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 23, 2026 at 03:33:17PM +0800, Han Gao via B4 Relay wrote:
-> From: Han Gao <gaohan@iscas.ac.cn>
+On Mi, 2026-10-21 at 21:21 +0800, Hung-Chun Tseng wrote:
+> Every entry in k1_rcpu2_resets[] uses RCPU2_PWM9_CLK_RST, so asserting
+> or deasserting the reset of any RCPU2 PWM from 0 to 8 acts on PWM9
+> instead. Each PWM has its own register, RCPU2_PWMn_CLK_RST at offset
+> 4 * n, as k1-syscon.h already defines.
 > 
-> kimage_load_cma_segment() copies the source data into pages that are not
-> cleared, but zeroes nothing after it: the final memset() runs once the
-> loop has consumed all of memsz. The tail of the last source page and
-> every page beyond bufsz keep stale data, while the purgatory digest
-> covers them as zeroes.
-> 
-> A kexec_file reboot then stops in purgatory on a digest mismatch, for
-> instance when the DTB lands in a reused CMA page.
-> 
-> Zero the remainder of each page instead.
-> 
-> Fixes: 07d24902977e ("kexec: enable CMA based contiguous allocation")
-> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> [...]
 
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Applied to reset/fixes, thanks!
 
-> ---
->  kernel/kexec_core.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/kernel/kexec_core.c b/kernel/kexec_core.c
-> index dc770b9a6d05..0d6e10bea4e4 100644
-> --- a/kernel/kexec_core.c
-> +++ b/kernel/kexec_core.c
-> @@ -780,15 +780,15 @@ static int kimage_load_cma_segment(struct kimage *image, int idx)
->  			goto out;
->  		}
->  
-> +		/* CMA pages are not cleared: zero the part without source data */
-> +		memset(ptr + uchunk, 0, mchunk - uchunk);
-> +
->  		ptr    += mchunk;
->  		mbytes -= mchunk;
->  
->  		cond_resched();
->  	}
->  
-> -	/* Clear any remainder */
-> -	memset(ptr, 0, mbytes);
-> -
->  out:
->  	return result;
->  }
-> 
-> -- 
-> 2.55.0
-> 
-> 
+[1/1] reset: spacemit: Fix the RCPU2 PWM reset registers
+      https://git.kernel.org/pub/scm/linux/kernel/git/pza/linux.git/commit/?id=168cae7e87463
 
--- 
-Sincerely yours,
-Mike.
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
