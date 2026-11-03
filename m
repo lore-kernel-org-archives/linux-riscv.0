@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 077FE606A7B4
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 15:19:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A111606A780
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 15:19:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HoEli2aB;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=QcT7w6DL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NBCDbW1I;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=WGi3Rlf9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,66 +14,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=pY5RMtsaM7g3s1bYXVUkaRJ/CLedEh3gv+G7Zq6hims=; b=HoEli2aBptuGbmcQO0+dDEfNnM
-	6Fta2NTVOzw/t4Ivw158jEQkZvreEHpFZo9GqVsFtNnVRRSjuQ9Mmy3xCK3lWDx4B6PEUptsmzjuX
-	EwP+Zpvn9ixmqnv8nPkq/Woxinj8/cz13jbBCxKQ6HhZPQsg5jWL9LfJ/bi31glgSvXBHba5Gtq4U
-	frvUKD/t0UApLWhhtrKLG5HkZpOLGCQTyKK5WceFilL6tuAPTSe8j7iSIHkH4cqRVfRddNw5n3aZb
-	qfZvtOTJCsE2rhXCrr8hgeGTBnv6e+iTbxI/HJAWi6gefokj8sVT52jsnwgrHdY5UXcqFGgnkn4ic
-	1BAE3aqQ==;
+	bh=ylWwyyrVVKdyeQnIrlhhLc7evEvxWU6UcmYavMGtSAU=; b=NBCDbW1ILAUWpSxS+09AekmIrz
+	Vw9SWMtHXgcIA0DHx55/5QaFiVizKmu08AiE8N21ZuGttMKGLickLjV/gB3v/VCYogZksFEUkWhV3
+	kF4XDDNdluga3k5WNw28bOUblNtPim26ab5f6MS5llwC1vMa3j945O5tscb4VY7PQgNysATIRQmki
+	GmWfjoYC3p4E3LB9HZdzuOf4Tyj4yTyRpLXmkGvpOa1rFWbBwsQW8aN1RlhXs42hpK4DFSh+d4LYw
+	RGujTFkWGbLCbhCG2NkZMTAu5ycn2Dt9Fb69tOxaUM2cKfEXxuRgIlO3h1q4S/0qKOukRTmSc/7N/
+	jztDUmtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOGI3-00000002vZm-3eCk;
-	Tue, 03 Nov 2026 15:19:11 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1xOGIS-00000002vyc-0KQb;
+	Tue, 03 Nov 2026 15:19:36 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOGHm-00000002v9U-02QC
+	id 1xOGHw-00000002vRs-3ODX
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Nov 2026 15:18:59 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ea0efd636dso38509245ad.0
-        for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2026 07:18:53 -0800 (PST)
+	Tue, 03 Nov 2026 15:19:13 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2e8b20a899fso29464815ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2026 07:19:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chrisdown.name; s=google; t=1793719133; x=1794323933; darn=lists.infradead.org;
+        d=chrisdown.name; s=google; t=1793719144; x=1794323944; darn=lists.infradead.org;
         h=user-agent:in-reply-to:content-disposition:content-type
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=x+ielrpl05GqbiDgrjkNFqFmUWyU2mlgjjUSLSA7ydE=;
-        b=QcT7w6DLB48L39gRd3QDgJKv9d5VgIZc1cHm72J/1Wej1wAK9Gus42DrD0EfwlEUtH
-         Z9keVkjT+WlTBwvxjAXnJicLaUKeyyxbQNorqDxLWawbfuilSeNvgLLzHowN58dIHHey
-         7owGbjIF7s1ls/kLu09pgTlpXUUwCmKmG5wrk=
+        bh=Ed/gwawEhmgCUsO2zTzDURm/4rT61HQtm1nt/NY8TTM=;
+        b=WGi3Rlf9YiGW0vFHQNSnOm7cdw3B72i95xXuq1W58Ford6te0x2yGywCPUWWGt8N9+
+         uZM8udMFFMn4Wwx38/vfueHAue3mLhZtdIXvVJyCV0NO/mUSBzblmOYtFcRv8J6+ZWRH
+         QTTMVebTWadZwkZs1vSpKSXk4Cj1+s5PXX/EE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793719133; x=1794323933;
+        d=1e100.net; s=20260707; t=1793719144; x=1794323944;
         h=user-agent:in-reply-to:content-disposition:content-type
          :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=x+ielrpl05GqbiDgrjkNFqFmUWyU2mlgjjUSLSA7ydE=;
-        b=jxkmV6/7qySgtCne8fPZ+ItLPeQZpboXOOoL5tnOaOeKm5OyJ3fQCdxdnLdmX+HlK6
-         nH4S6d9VCDb75eMm2NdcXAzEzOXyFr0oZ6uIxs/ihdCOxjq+Wm3xNbbnnreihTBX+yI+
-         CIC6Eui1aBVFuU3br/Pn90uBcLaNgtOoCQB3HVOLPc0HgrzPwBzcqSn4SjkMJdSESdqU
-         IckMf/aYBrNsnmNCD10n5Kw6kUzfUPoOYFw2nFhd2iVWyZDATJo/3NTNpIqHuP2q9nkF
-         wi4eU9yIA++cl9ZwVo6e60HBUZokdmyqcePuRrTpg3rKMhYTZTol9IRC0xYGSUuuRK8O
-         BXhQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzu80J4FhvAgPXH1qBq+Y+QzQYIgGyx7I7oMYFzuNybGdr+4nU9EFbgPEaDG7slNPn/+KP8ZqfX4g14Bw==@lists.infradead.org
-X-Gm-Message-State: APuU4Z//rf7U9CubvvRs06qCV7XhaZWZEFP5Ab3kAdieGUfEzYxPdUvT
-	WI1LH3wZGm+dINqFi4vck1i2w+nnnEpSe0fKbleUHnrReVapp95pfirU3WhI840HoeI=
-X-Gm-Gg: AYBFou3rjQZFnH14hUnVE9LFhzkuXqtW5oB71dOW1PQjcdI546kHkzO6i9IwX6CfBvp
-	WI0azY7gG9wM1qZECIcVCKLI1c6IWzVel+bSTT/FD0nkunyRiLR0LX97rSWMMUH8Gws13YKnG1z
-	iZrRlLD1fOP2iws9FVv/C6Vex6a+3KA8P4s65PGOSk3CTp/lHlDUNr8af2oCiNvzt+60SGWVaPV
-	XEpEnk+U1Hx5bjULFg0U5RO4idaI/2/hYUMRsPJZ+MNbwPdcGMz0rtJg+cQuhPh859sQWaoypVp
-	l364FxrlUfnhiIqaZYp6ZVv0iOIXMQEiVsY9h+2U6YWw5SuyH0zEtgbo4FFg9RDskDszqU4NE37
-	GVzdIsnix2KH+cGbUfaGcb6pJS0SZXl0dAvGB2CO+Xy1F+RpAS8FLg7Vz76XXPcjFwNL33qeuF7
-	x3sqGLNvQnWKgPDGjZxjDDRwgLMjOyU5slNEdnrl+Qr3Sdqkg4E86VGnfi2q4dIWecxKe0hrRIP
-	5/jUJ1k7AlYyhlQYhPMrn0cQr4Xspbe6eCGibU6PX1zSS9U4waF5NWTOYFEW9xf8NDQJgXvMbwO
-	TIiJ2Xt7pXuiOKGcrueFp33czCQVF7UM1YEdj72lmkxSfTTPEZQH8W6VzMnUlpNxK8+niDg9sWB
-	b4P3Cuk1NU2ZTIQhDpYh3Xvl/cEjW+ta3V+3Wqu4BfBhgPQmSXOaIVFTRumcGXjiXojkSrCuk3S
-	3wfqzPRvR/fxHdIkuN2w==
-X-Received: by 2002:a17:903:1b26:b0:2eb:1e07:adc5 with SMTP id d9443c01a7336-2eb364026e5mr130622425ad.2.1793719132693;
-        Tue, 03 Nov 2026 07:18:52 -0800 (PST)
+        bh=Ed/gwawEhmgCUsO2zTzDURm/4rT61HQtm1nt/NY8TTM=;
+        b=SbIA4mpH7wVC5o0xX8keyZlR32J06Vw63G8AhM7hR7SJO4qWyWUBYJBrwF5RvSYwwK
+         xgGbLGeFd2FQgAhWLKKYZfA1BhycP+c8ZxuGtOs1B4xGJAKyXhQU41CgYS6L/m+dyh9w
+         N6OQxnTm8jjpEPnhLBWYKZS3fbw29VOxGcpAv/Zdhq0M6GCvFMrLbtEHJILLLARB3nX3
+         0DHbczSe1ZDBqAwMVKtfYLR5DMh5i7+AyVAffhtSSQhmHN8e6ylV3fhIsyJPxxIc9q6M
+         wiO/uhNLD8gEKY50liO1NSSyvRImisK5ziSJYTHSnC2rghfkGoYqE5qSjLtpyTe0zz/a
+         BXAw==
+X-Forwarded-Encrypted: i=1; AKwUvBw5frWO3+HUw8fVBSA2B5GF3X9OFXzfjYaIuwzSNOw3VwEWnORDJmyVVIgc++wNK1OtQ3URKyCnceL1NQ==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8S7dAHeR0LgFyXFuXsBcYhAmF51EuDfFyjp573XNshB3sVvUNT
+	daSS87t43QD3nl/qpGmSQMouuS/0UTGkNJEqFDtJJ/F71rmM4n4f8tGB9JYgysR8cf0=
+X-Gm-Gg: AYBFou21XgHb7GgyyXirFCswVIIUkoC8wBg1/PmKjD1IvgE9BGwtbN1CoTIxC7T4WGq
+	ZGrjtC+8zoG6LsPOPgFfLFJg7zNe7V1osaJEM+FKZgkTW+JKjKYZFeGbqUcn41Z3h1r2Y8wCA/H
+	KJ1l+Gx+OlLuMYEQYDzHhnfjlt4D0xC5Fc15PZYxZRsrX/Eg2bM8l7N85NQy5QguOwlFSnqUp3j
+	xS4pQBp7B4Tg2GxDwSsttM5sRqeJkADsOJktuhXGeUBY8TO4bRejTetZYOO5OS4EsM3NPBRzA8B
+	7lhkKDaM41PeCCE1xfsKAh2G2Wyqsp8TpsLBzjSjAC0hWKA333zZAxPnR05q4pJlMNNnyNdAnG+
+	GfPTAxweKJ72DC8De/SEXqn8YFO+9ivMKL2FIUGzURxJzZI5EXRT62ATT6tJlaXgX2LydHvZZ6i
+	iSxiEs6BB2pU0my7HrqeLli1WgrRnxC4t563J1kixDHbPtTbn+9eWwlx0lpV1M0oVP/LSROUirk
+	c7tl7I7UfnIvXimIw9ODZsormVx6BvTgyDhMuHJaCCpbESE1/pGqO5XNoiE36cchAddAgUaorAy
+	cAOCTXilC0Oc61n2Bd18k3vFb8yIg5zlDHNMELaMAe3R3s+Apk53kYoDCvr6mF6JRyLOdn2cuz5
+	AHqiXncmlDMYVQbzyNLnnsJEYPRdhP3/Uq8baqzIPl8f8X1sBnAYNEk6eD/wslZL1dGNys54yu2
+	os1h6W7O2wAjx1lA4Qzw==
+X-Received: by 2002:a17:903:1b05:b0:2db:733c:fd1f with SMTP id d9443c01a7336-2eb364005f0mr112964235ad.8.1793719143805;
+        Tue, 03 Nov 2026 07:19:03 -0800 (PST)
 Received: from localhost ([116.86.153.182])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eb39266b84sm43036115ad.43.2026.11.03.07.18.48
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eb39262c47sm43118815ad.38.2026.11.03.07.19.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Nov 2026 07:18:48 -0800 (PST)
-Date: Tue, 3 Nov 2026 23:18:45 +0800
+        Tue, 03 Nov 2026 07:19:02 -0800 (PST)
+Date: Tue, 3 Nov 2026 23:18:59 +0800
 From: Chris Down <chris@chrisdown.name>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	"Liam R. Howlett" <liam@infradead.org>,
@@ -114,9 +114,8 @@ Cc: Jeff Xu <jeffxu@google.com>, David Hildenbrand <david@kernel.org>,
 	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
 	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
 	linux-kernel@vger.kernel.org, kernel-team@meta.com
-Subject: [PATCH v2 6/8] mm/mseal: Seal system mappings in
- __install_special_mapping()
-Message-ID: <74ead8d457288df215405298e213246ef6a1ce68.1793718940.git.chris@chrisdown.name>
+Subject: [PATCH v2 7/8] mm/mseal: Add no_mseal_sys_mappings boot parameter
+Message-ID: <701a3346a0105e801d247c11139853f156a8d15a.1793718940.git.chris@chrisdown.name>
 References: <cover.1793718940.git.chris@chrisdown.name>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
@@ -124,8 +123,8 @@ Content-Disposition: inline
 In-Reply-To: <cover.1793718940.git.chris@chrisdown.name>
 User-Agent: Mutt/2.3.3 (9073d26d) (2026-06-12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_071854_070145_3E05BF3E 
-X-CRM114-Status: GOOD (  23.27  )
+X-CRM114-CacheID: sfid-20261103_071907_803684_DD9D7191 
+X-CRM114-Status: GOOD (  26.87  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -147,251 +146,173 @@ X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-VM_SEALED_SYSMAP isn't really a VMA flag, it's an alias for VM_SEALED or
-VM_NONE depending on CONFIG_MSEAL_SYSTEM_MAPPINGS. Every caller of
-_install_special_mapping() on an architecture which supports sealing
-system mappings has to remember to pass it, and it keeps those callers
-on the legacy vm_flags_t API.
+CONFIG_MSEAL_SYSTEM_MAPPINGS seals each process' system mappings, such
+as the vDSO, when they are created. These are read-only or execute-only
+mappings which every process trusts, so sealing them means that a memory
+corruption bug which can pass a bad pointer to mprotect(), mremap() or
+munmap() can't be used to make them writable, or to move or replace
+them.
 
-Let's instead have __install_special_mapping() seal the mapping itself
-when mseal_system_mappings() says so, and remove VM_SEALED_SYSMAP.
+However, sealing can only be chosen at build time, and it breaks
+software which moves or modifies these mappings. This is not ideal,
+since hosts which want sealing and hosts which run such software then
+can't share a kernel.
 
-The only special mapping on these architectures which didn't already
-pass VM_SEALED_SYSMAP is the x86 uprobe trampoline, which is now sealed
-as well. The previous patch makes sure that's safe.
+For example, at Meta, we build sealing into the kernel for our VM hosts,
+and we'd like it on as much of the rest of the fleet as possible. The
+problem is that the rest of the fleet also runs things which it breaks.
+As one example among many, Reverie (which our deterministic execution
+tool, Hermit, is built on) patches the vDSO of the processes it traces
+by injecting an mprotect() [0]. So right now the hosts which want
+sealing need their own kernel image, and this option is one of the
+things which forces that.
 
-Since this seals all special mappings, the architecture opt-in now
-requires that none of them are moved or unmapped.
+So, to improve this, let's add no_mseal_sys_mappings. That way one
+kernel can be built with CONFIG_MSEAL_SYSTEM_MAPPINGS=y, keep sealing on
+by default, and turn it off only on the hosts which need it. Kernels
+built without the option are unchanged.
 
+Since sealing can now be turned off at boot, MSEAL_SYSTEM_MAPPINGS also
+no longer needs to depend on !CHECKPOINT_RESTORE. The option is off by
+default and already documents that it breaks CRIU, so let's drop the
+dependency. For the same reason, the documentation no longer needs to
+say that it can't be enabled universally.
+
+Link: https://docs.rs/reverie-core/latest/reverie/vdso/index.html # [0]
 Signed-off-by: Chris Down <chris@chrisdown.name>
 ---
- Documentation/userspace-api/mseal.rst | 3 ++-
- arch/arm64/kernel/vdso.c              | 9 +++------
- arch/loongarch/kernel/vdso.c          | 3 +--
- arch/riscv/kernel/vdso.c              | 2 +-
- arch/s390/kernel/vdso.c               | 2 +-
- arch/x86/entry/vdso/vma.c             | 5 ++---
- include/linux/mm.h                    | 6 ------
- init/Kconfig                          | 5 ++---
- kernel/events/uprobes.c               | 2 +-
- lib/vdso/datastore.c                  | 2 +-
- mm/Kconfig                            | 3 ++-
- mm/vma.c                              | 2 ++
- mm/vma.h                              | 5 +++++
- 13 files changed, 23 insertions(+), 26 deletions(-)
+ Documentation/admin-guide/kernel-parameters.txt |  7 +++++++
+ Documentation/userspace-api/mseal.rst           |  9 +++++----
+ mm/Kconfig                                      | 15 ++++++++-------
+ mm/mseal.c                                      | 12 ++++++++++++
+ mm/vma.h                                        |  5 ++++-
+ 5 files changed, 36 insertions(+), 12 deletions(-)
 
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 0b3c140babd9..a72904ebb98d 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -4603,6 +4603,13 @@ Kernel parameters
+ 
+ 	nomodule	Disable module load
+ 
++	no_mseal_sys_mappings
++			[KNL,EARLY] With CONFIG_MSEAL_SYSTEM_MAPPINGS, don't
++			seal system mappings such as the vDSO. Sealing them
++			breaks software which moves, unmaps or modifies them,
++			such as CHECKPOINT_RESTORE (CRIU), UML, gVisor and rr.
++			See Documentation/userspace-api/mseal.rst.
++
+ 	nonmi_ipi	[X86] Disable using NMI IPIs during panic/reboot to
+ 			shutdown the other cpus.  Instead use the REBOOT_VECTOR
+ 			irq.
 diff --git a/Documentation/userspace-api/mseal.rst b/Documentation/userspace-api/mseal.rst
-index c039d782f9f5..060c9829306b 100644
+index 060c9829306b..0efdc5469085 100644
 --- a/Documentation/userspace-api/mseal.rst
 +++ b/Documentation/userspace-api/mseal.rst
-@@ -133,7 +133,8 @@ Use cases
+@@ -143,12 +143,13 @@ Use cases
  
- - System mappings:
-   The system mappings are created by the kernel and include vdso, vvar,
--  vvar_vclock, vectors (arm compat-mode), sigpage (arm compat-mode), uprobes.
-+  vvar_vclock, vectors (arm compat-mode), sigpage (arm compat-mode), uprobes,
-+  uprobe trampolines (x86).
+   If supported by an architecture (CONFIG_ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS),
+   the CONFIG_MSEAL_SYSTEM_MAPPINGS seals all system mappings of this
+-  architecture.
++  architecture. The ``no_mseal_sys_mappings`` kernel command line parameter
++  turns this off.
  
-   Those system mappings are readonly only or execute only, memory sealing can
-   protect them from ever changing to writable or unmapped/remapped as different
-diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
-index 50596dab23f9..542adc47cd02 100644
---- a/arch/arm64/kernel/vdso.c
-+++ b/arch/arm64/kernel/vdso.c
-@@ -127,8 +127,7 @@ static int __setup_additional_pages(enum vdso_abi abi,
- 	mm->context.vdso = (void *)vdso_base;
- 	ret = _install_special_mapping(mm, vdso_base, vdso_text_len,
- 				       VM_READ|VM_EXEC|gp_flags|
--				       VM_MAYREAD|VM_MAYWRITE|VM_MAYEXEC|
--				       VM_SEALED_SYSMAP,
-+				       VM_MAYREAD|VM_MAYWRITE|VM_MAYEXEC,
- 				       vdso_info[abi].cm);
- 	if (IS_ERR(ret))
- 		goto up_fail;
-@@ -254,8 +253,7 @@ static int aarch32_kuser_helpers_setup(struct mm_struct *mm)
- 	 */
- 	ret = _install_special_mapping(mm, AARCH32_VECTORS_BASE, PAGE_SIZE,
- 				       VM_READ | VM_EXEC |
--				       VM_MAYREAD | VM_MAYEXEC |
--				       VM_SEALED_SYSMAP,
-+				       VM_MAYREAD | VM_MAYEXEC,
- 				       &aarch32_vdso_maps[AA32_MAP_VECTORS]);
+   WARNING: This feature breaks programs which rely on relocating
+-  or unmapping system mappings. Known broken software at the time
+-  of writing includes CHECKPOINT_RESTORE, UML, gVisor, rr. Therefore
+-  this config can't be enabled universally.
++  or unmapping system mappings. Software known to break with it
++  at the time of writing includes CHECKPOINT_RESTORE, UML, gVisor
++  and rr.
  
- 	return PTR_ERR_OR_ZERO(ret);
-@@ -278,8 +276,7 @@ static int aarch32_sigreturn_setup(struct mm_struct *mm)
- 	 */
- 	ret = _install_special_mapping(mm, addr, PAGE_SIZE,
- 				       VM_READ | VM_EXEC | VM_MAYREAD |
--				       VM_MAYWRITE | VM_MAYEXEC |
--				       VM_SEALED_SYSMAP,
-+				       VM_MAYWRITE | VM_MAYEXEC,
- 				       &aarch32_vdso_maps[AA32_MAP_SIGPAGE]);
- 	if (IS_ERR(ret))
- 		goto out;
-diff --git a/arch/loongarch/kernel/vdso.c b/arch/loongarch/kernel/vdso.c
-index 1edc8fb720de..c9ffc124bfb1 100644
---- a/arch/loongarch/kernel/vdso.c
-+++ b/arch/loongarch/kernel/vdso.c
-@@ -109,8 +109,7 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
- 	vdso_addr = data_addr + VVAR_SIZE;
- 	vma = _install_special_mapping(mm, vdso_addr, info->size,
- 				       VM_READ | VM_EXEC |
--				       VM_MAYREAD | VM_MAYWRITE | VM_MAYEXEC |
--				       VM_SEALED_SYSMAP,
-+				       VM_MAYREAD | VM_MAYWRITE | VM_MAYEXEC,
- 				       &info->code_mapping);
- 	if (IS_ERR(vma)) {
- 		ret = PTR_ERR(vma);
-diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
-index 5666cec180ac..4213de6afb9a 100644
---- a/arch/riscv/kernel/vdso.c
-+++ b/arch/riscv/kernel/vdso.c
-@@ -140,7 +140,7 @@ static int __setup_additional_pages(struct mm_struct *mm,
- 
- 	ret =
- 	   _install_special_mapping(mm, vdso_base, vdso_text_len,
--		(VM_READ | VM_EXEC | VM_MAYREAD | VM_MAYWRITE | VM_MAYEXEC | VM_SEALED_SYSMAP),
-+		(VM_READ | VM_EXEC | VM_MAYREAD | VM_MAYWRITE | VM_MAYEXEC),
- 		vdso_info->cm);
- 
- 	if (IS_ERR(ret))
-diff --git a/arch/s390/kernel/vdso.c b/arch/s390/kernel/vdso.c
-index a905f989f910..a9dd3876e7fd 100644
---- a/arch/s390/kernel/vdso.c
-+++ b/arch/s390/kernel/vdso.c
-@@ -65,7 +65,7 @@ static int map_vdso(unsigned long addr, unsigned long vdso_mapping_len)
- 	vdso_text_start = vvar_start + VDSO_NR_PAGES * PAGE_SIZE;
- 	/* VM_MAYWRITE for COW so gdb can set breakpoints */
- 	vma = _install_special_mapping(mm, vdso_text_start, vdso_text_len,
--				       VM_READ|VM_EXEC|VM_SEALED_SYSMAP|
-+				       VM_READ|VM_EXEC|
- 				       VM_MAYREAD|VM_MAYWRITE|VM_MAYEXEC,
- 				       &vdso_mapping);
- 	if (IS_ERR(vma)) {
-diff --git a/arch/x86/entry/vdso/vma.c b/arch/x86/entry/vdso/vma.c
-index 4bd3b22beea9..e49d4e4d7b67 100644
---- a/arch/x86/entry/vdso/vma.c
-+++ b/arch/x86/entry/vdso/vma.c
-@@ -178,8 +178,7 @@ static int map_vdso(const struct vdso_image *image, unsigned long addr)
- 				       text_start,
- 				       image->size,
- 				       VM_READ|VM_EXEC|
--				       VM_MAYREAD|VM_MAYWRITE|VM_MAYEXEC|
--				       VM_SEALED_SYSMAP,
-+				       VM_MAYREAD|VM_MAYWRITE|VM_MAYEXEC,
- 				       &vdso_mapping);
- 
- 	if (IS_ERR(vma)) {
-@@ -198,7 +197,7 @@ static int map_vdso(const struct vdso_image *image, unsigned long addr)
- 				       VDSO_VCLOCK_PAGES_START(addr),
- 				       VDSO_NR_VCLOCK_PAGES * PAGE_SIZE,
- 				       VM_READ|VM_MAYREAD|VM_IO|VM_DONTDUMP|
--				       VM_PFNMAP|VM_SEALED_SYSMAP,
-+				       VM_PFNMAP,
- 				       &vvar_vclock_mapping);
- 
- 	if (IS_ERR(vma)) {
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index d89e6f823c9f..09c047dc9faf 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -567,12 +567,6 @@ enum {
- /* Temporary until VMA flags conversion complete. */
- #define VM_STACK_FLAGS vma_flags_to_legacy(VMA_STACK_FLAGS)
- 
--#ifdef CONFIG_MSEAL_SYSTEM_MAPPINGS
--#define VM_SEALED_SYSMAP	VM_SEALED
--#else
--#define VM_SEALED_SYSMAP	VM_NONE
--#endif
--
- /* VMA basic access permission flags */
- #define VM_ACCESS_FLAGS (VM_READ | VM_WRITE | VM_EXEC)
- #define VMA_ACCESS_FLAGS mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT)
-diff --git a/init/Kconfig b/init/Kconfig
-index 4013781e0a02..35d349cff1a3 100644
---- a/init/Kconfig
-+++ b/init/Kconfig
-@@ -1955,9 +1955,8 @@ config ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
- 	  A 64-bit kernel is required for the memory sealing feature.
- 	  No specific hardware features from the CPU are needed.
- 
--	  To enable this feature, the architecture needs to update their
--	  special mappings calls to include the sealing flag and confirm
--	  that it doesn't unmap/remap system mappings during the life
-+	  To enable this feature, the architecture needs to confirm that it
-+	  doesn't unmap/remap any of its special mappings during the life
- 	  time of the process. The existence of this flag for an architecture
- 	  implies that it does not require the remapping of the system
- 	  mappings during process lifetime, so sealing these mappings is safe
-diff --git a/kernel/events/uprobes.c b/kernel/events/uprobes.c
-index caf444762a27..2290a4cbebf8 100644
---- a/kernel/events/uprobes.c
-+++ b/kernel/events/uprobes.c
-@@ -1727,7 +1727,7 @@ static int xol_add_vma(struct mm_struct *mm, struct xol_area *area)
- 
- 	vma = _install_special_mapping(mm, area->vaddr, PAGE_SIZE,
- 				VM_EXEC|VM_MAYEXEC|VM_DONTCOPY|
--				VM_MIXEDMAP|VM_SEALED_SYSMAP,
-+				VM_MIXEDMAP,
- 				&xol_mapping);
- 	if (IS_ERR(vma)) {
- 		ret = PTR_ERR(vma);
-diff --git a/lib/vdso/datastore.c b/lib/vdso/datastore.c
-index 1426bf4e0c12..e8933ff44aa4 100644
---- a/lib/vdso/datastore.c
-+++ b/lib/vdso/datastore.c
-@@ -124,6 +124,6 @@ struct vm_area_struct *vdso_install_vvar_mapping(struct mm_struct *mm, unsigned
- {
- 	return _install_special_mapping(mm, addr, VDSO_NR_PAGES * PAGE_SIZE,
- 					VM_READ | VM_MAYREAD | VM_DONTDUMP |
--					VM_MIXEDMAP | VM_SEALED_SYSMAP,
-+					VM_MIXEDMAP,
- 					&vdso_vvar_mapping);
- }
+ When not to use mseal
+ =====================
 diff --git a/mm/Kconfig b/mm/Kconfig
-index 40172787dfa7..316515589cdb 100644
+index 316515589cdb..bb2a60f52c8e 100644
 --- a/mm/Kconfig
 +++ b/mm/Kconfig
-@@ -1363,7 +1363,8 @@ config MSEAL_SYSTEM_MAPPINGS
+@@ -1359,24 +1359,25 @@ config MSEAL_SYSTEM_MAPPINGS
+ 	bool "mseal system mappings"
+ 	depends on 64BIT
+ 	depends on ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
+-	depends on !CHECKPOINT_RESTORE
  	help
  	  Apply mseal on system mappings.
  	  The system mappings includes vdso, vvar, vvar_vclock,
--	  vectors (arm compat-mode), sigpage (arm compat-mode), uprobes.
-+	  vectors (arm compat-mode), sigpage (arm compat-mode), uprobes,
-+	  uprobe trampolines (x86).
+ 	  vectors (arm compat-mode), sigpage (arm compat-mode), uprobes,
+ 	  uprobe trampolines (x86).
  
- 	  A 64-bit kernel is required for the memory sealing feature.
- 	  No specific hardware features from the CPU are needed.
-diff --git a/mm/vma.c b/mm/vma.c
-index 423383d59c59..67116be0260a 100644
---- a/mm/vma.c
-+++ b/mm/vma.c
-@@ -3705,6 +3705,8 @@ struct vm_area_struct *__install_special_mapping(
+-	  A 64-bit kernel is required for the memory sealing feature.
+-	  No specific hardware features from the CPU are needed.
+-
+ 	  WARNING: This feature breaks programs which rely on relocating
+-	  or unmapping system mappings. Known broken software at the time
+-	  of writing includes CHECKPOINT_RESTORE, UML, gVisor, rr. Therefore
+-	  this config can't be enabled universally.
++	  or unmapping system mappings. Software known to break with it
++	  at the time of writing includes CHECKPOINT_RESTORE, UML, gVisor
++	  and rr.
++
++	  With this configuration option set, the feature can be disabled
++	  with the no_mseal_sys_mappings boot parameter.
  
- 	vma_flags_set_mask(&vma_flags, mm->def_vma_flags);
- 	vma_flags_set(&vma_flags, VMA_DONTEXPAND_BIT);
-+	if (mseal_system_mappings())
-+		vma_flags_set(&vma_flags, VMA_SEALED_BIT);
- 	if (pgtable_supports_soft_dirty())
- 		vma_flags_set(&vma_flags, VMA_SOFTDIRTY_BIT);
- 	vma_flags_clear_mask(&vma_flags, VMA_LOCKED_MASK);
+ 	  For complete descriptions of memory sealing, please see
+ 	  Documentation/userspace-api/mseal.rst
+ 
++	  If unsure, say N.
++
+ config HAVE_ARCH_USERFAULTFD_WP
+ 	bool
+ 	help
+diff --git a/mm/mseal.c b/mm/mseal.c
+index 7a8ac66dc215..271b44e628c5 100644
+--- a/mm/mseal.c
++++ b/mm/mseal.c
+@@ -7,6 +7,7 @@
+  *  Author: Jeff Xu <jeffxu@chromium.org>
+  */
+ 
++#include <linux/init.h>
+ #include <linux/mempolicy.h>
+ #include <linux/minmax.h>
+ #include <linux/mman.h>
+@@ -16,6 +17,17 @@
+ #include <linux/sched.h>
+ #include "internal.h"
+ 
++#ifdef CONFIG_MSEAL_SYSTEM_MAPPINGS
++bool mseal_system_mappings_disabled __ro_after_init;
++
++static int __init early_no_mseal_sys_mappings(char *buf)
++{
++	mseal_system_mappings_disabled = true;
++	return 0;
++}
++early_param("no_mseal_sys_mappings", early_no_mseal_sys_mappings);
++#endif
++
+ static bool range_contains_unmapped(unsigned long start, unsigned long end)
+ {
+ 	VMA_ITERATOR(vmi, current->mm, start);
 diff --git a/mm/vma.h b/mm/vma.h
-index 3fc3b47a954b..3982b239d0b4 100644
+index 3982b239d0b4..11ff9c7d6592 100644
 --- a/mm/vma.h
 +++ b/mm/vma.h
-@@ -800,6 +800,11 @@ static inline bool vma_is_sealed(struct vm_area_struct *vma)
+@@ -800,9 +800,12 @@ static inline bool vma_is_sealed(struct vm_area_struct *vma)
  }
  #endif
  
-+static inline bool mseal_system_mappings(void)
-+{
-+	return IS_ENABLED(CONFIG_MSEAL_SYSTEM_MAPPINGS);
-+}
++extern bool mseal_system_mappings_disabled;
 +
+ static inline bool mseal_system_mappings(void)
+ {
+-	return IS_ENABLED(CONFIG_MSEAL_SYSTEM_MAPPINGS);
++	return IS_ENABLED(CONFIG_MSEAL_SYSTEM_MAPPINGS) &&
++	       !mseal_system_mappings_disabled;
+ }
+ 
  #if defined(CONFIG_STACK_GROWSUP)
- int expand_upwards(struct vm_area_struct *vma, unsigned long address);
- #endif
 -- 
 2.54.0
 
