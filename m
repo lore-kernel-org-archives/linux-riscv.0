@@ -2,72 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A028606A324
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 04:02:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2403E606A324
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 05:47:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=llTkWP2i;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mkciFVIq
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uaqKXWr1
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=nyoU3zJaXnr4o82WVQhjCGttHe0/9d/0X9JYgD9HRtU=; b=llTkWP2iwSSfdcgiwrDz13xYRz
-	coEhB0ghbsL1JzDYUj9aWvR+Jlf+CzbwcRZf9L7mZIeWMbEh/Iilb05SZLhC9KYotxy4KD7nKz9Uh
-	7BIAbh40Bg4NYj1W48F5FvkZt1awft7A/JoK8xIudcwbSIqTruhoCu2GW3oAqFrL/NJ0YUjWhB25w
-	H7JnKIC3rw8DlKXk6n+5hHbURGrNeY1yB7QHKmKKg8FgkwxGoXU92LDO2yiGFTZQihoUyEn7CwCx0
-	LuEg4CIbtDa9hcF6YIu7fCVJqf5IzgnpJiAJ2vi5934ME3FHtHpZoKmQ+PHh/HnUxL4lTjTsQsdqW
-	LbqtoxVw==;
+	bh=wHwreRWJR7vgZbev4SBvClXZiVtNO3/0biDj+D5GyE8=; b=uaqKXWr1YXvY4aNvlP+iFrRUB6
+	U8hrfd1rp4/ve8FqaRQQL897kSE4qFbUpKqjAXNeVeIelRVA6bW8DT5AAVpC9A9suV190+/sq6/qH
+	HdvGZ9UABbNsi1ZbImEfPfHOE5/W5IJrP7lrhim0/RkiVVplKj4gaLHZoQcZHbe5FoSir2Nx6Wwel
+	EfX2RPjNYeCIrjWPkQsKXRRR0dAkOiEi3eOG8pVx3yOCENFV3TcATjWZZBKt8xvP6t8qIwSfqMDt8
+	8K3c6DOJonlaqNAYfvHOL4d/nkqCBCj94GUQJLtSFT4+ShIY3+Lp+eYhHsz2OXmAPoktad4cVzbcZ
+	at3DbkxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO5if-00000000yHO-2mIH;
-	Tue, 03 Nov 2026 04:01:57 +0000
-Received: from out-7.mta0.migadu.com ([2001:41d0:1004:224b::7] helo=mta0.migadu.com)
+	id 1xO7Mp-000000019jt-2Kdd;
+	Tue, 03 Nov 2026 05:47:31 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO5ic-00000000yGp-0cbb
+	id 1xO7Mm-000000019iK-1xCI
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Nov 2026 04:01:56 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=CKEHs2xNjn3vFUKXk/OC1dgxFsocWFipvyVq/CmrhPw=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793678508; v=1; x=1794283308;
- b=mkciFVIqfGgD8r4GUzUx/IMdlICBgx1UnRaGabM3UodtroGDLhWeiFlH/0shEeRCZGP5IB92
- 06thgCYP1xhGDvEoArNEuo+ZSvUlgpHl6Lnk9yZfhdVp/+l5+caYDg1VrFQ9lN820ojB4KYhvkg
- gcPXLyqFh4T7yntjinwdzxZY=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by mta11.migadu.com with ESMTPS id 54dd4c98615b8fc8;
-	Tue, 03 Nov 2026 04:01:48 +0000
-X-Mizu-Trace-ID: 54dd4c98615b8fc8
-X-Migadu-Flow: FLOW_OUT
+	Tue, 03 Nov 2026 05:47:31 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.98])
+	by APP-01 (Coremail) with SMTP id qwCowADnE_5ndelqIhI0AA--.57481S2;
+	Tue, 03 Nov 2026 13:47:21 +0800 (CST)
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>
+Subject: [PATCH] dt-bindings: mfd: syscon: add T-Head TH1520 compatibles
+Date: Tue,  3 Nov 2026 13:47:16 +0800
+Message-ID: <20261103054716.1767730-1-zhengxingda@iscas.ac.cn>
+X-Mailer: git-send-email 2.56.0
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH] riscv: mm: Add KASAN shadow mapping to flush_cache_vmap()
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <20261102134422.610837-1-alitariq45892@gmail.com>
-Date: Tue, 3 Nov 2026 12:01:27 +0800
-Cc: Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org,
- Alexandre Ghiti <alex@ghiti.fr>,
- Vivian Wang <wangruikang@iscas.ac.cn>,
- Yunhui Cui <cuiyunhui@bytedance.com>,
- Mike Rapoport <rppt@kernel.org>,
- David Hildenbrand <david@kernel.org>,
- kasan-dev@googlegroups.com,
- linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-Message-Id: <63411FA9-C16A-4E40-8C3C-13C58FB844A0@linux.dev>
-References: <20261102134422.610837-1-alitariq45892@gmail.com>
-To: Ali Tariq <alitariq45892@gmail.com>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
+MIME-Version: 1.0
+X-CM-TRANSID: qwCowADnE_5ndelqIhI0AA--.57481S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7Xw4rAFW8uFW5Ar4kWFy8Xwb_yoWDWFbEgF
+	1xJFs0yan7AFWrtayvqryxJF1fJw4akwnrAw17CF43J34Sva4FqF97K3yYkrW8uF4fuF17
+	Cas7X3y7XanrKjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb3xFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
+	Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
+	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
+	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
+	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
+	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvf
+	C2KfnxnUUI43ZEXa7VUbGQ6JUUUUU==
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_200155_310835_CD5FA846 
-X-CRM114-Status: GOOD (  11.32  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261102_214728_927533_37D64B51 
+X-CRM114-Status: UNSURE (   5.65  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,52 +77,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, mfd@lists.linux.dev, linux-kernel@vger.kernel.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Cgo+IE9uIE5vdiAyLCAyMDI2LCBhdCAyMTo0NCwgQWxpIFRhcmlxIDxhbGl0YXJpcTQ1ODkyQGdt
-YWlsLmNvbT4gd3JvdGU6Cj4gCj4gZmx1c2hfY2FjaGVfdm1hcCgpIHNldHMgYSBwZXItQ1BVIGZs
-YWcsIGFuZCBhIGtlcm5lbCBwYWdlIGZhdWx0Cj4gdGhhdCBmaW5kcyB0aGUgZmxhZyBzZXQgZ2V0
-cyBhbiBzZmVuY2Uudm1hIGFuZCBhIHJldHJ5Lgo+IGZsdXNoX2NhY2hlX3ZtYXAoKSBvbmx5IHNl
-dHMgdGhlIGZsYWcgZm9yIHZtYWxsb2MsIG1vZHVsZSBhbmQgdm1lbW1hcAo+IHJhbmdlcy4ga2Fz
-YW5fcG9wdWxhdGVfdm1hbGxvYygpIG1hcHMgbmV3IHNoYWRvdyBwYWdlcyBhbmQgY2FsbHMKPiBm
-bHVzaF9jYWNoZV92bWFwKCkgb24gdGhlIHNoYWRvdyByYW5nZSwgc28gbm8gZmxhZyBnZXRzIHNl
-dC4KPiBGb3Igdm1hcCgpLXN0eWxlIGFyZWFzLCBrYXNhbl91bnBvaXNvbl92bWFsbG9jKCkgd3Jp
-dGVzCj4gdGhlIG5ldyBzaGFkb3cgcmlnaHQgYXdheS4gSWYgdGhlIENQVSBoYXNu4oCZdCBzZWVu
-IHRoZSBuZXcgZW50cnkgeWV0LAo+IHRoZSBzdG9yZSBmYXVsdHMsIGFuZCBzaW5jZSB0aGVyZSBp
-cyBubyBmbGFnIHNldCwgdGhlIGtlcm5lbCBjcmFzaGVzLgo+IAo+IFsgICAgMC42NzUyMTZdIFVu
-YWJsZSB0byBoYW5kbGUga2VybmVsIHBhZ2luZyByZXF1ZXN0IGF0IHZpcnR1YWwgYWRkcmVzcyBm
-ZmZmZmZmN2MwMDlhMDAwCj4gQ3VycmVudCBzd2FwcGVyLzAgcGd0YWJsZTogNEsgcGFnZXNpemUs
-IDM5LWJpdCBWQXMsIHBnZHA9MHgwMDAwMDAwMDA0NTA0MDAwCj4gW2ZmZmZmZmY3YzAwOWEwMDBd
-IHBnZD0wMDAwMDAwMDlmZjZlMDAxLCBwNGQ9MDAwMDAwMDA5ZmY2ZTAwMSwgcHVkPTAwMDAwMDAw
-OWZmNmUwMDEsIHBtZD0wMDAwMDAwMDQwMGU3NDAxLCBwdGU9MDAwMDAwMDA0MDNjYjBlNwo+IHN0
-YXR1czogMDAwMDAwMDIwMDAwMDEyMCBiYWRhZGRyOiBmZmZmZmZmN2MwMDlhMDAwIGNhdXNlOiAw
-MDAwMDAwMDAwMDAwMDBmCj4gX19tZW1zZXQrMHg2MC8weGZlCj4ga2FzYW5fdW5wb2lzb24rMHgy
-Ni8weDRlCj4gX19rYXNhbl91bnBvaXNvbl92bWFsbG9jKzB4MjAvMHgyZQo+IF9fZ2V0X3ZtX2Fy
-ZWFfbm9kZSsweDFjNi8weDI3Ngo+IGdldF92bV9hcmVhX2NhbGxlcisweDUyLzB4ODQKPiB2bWFw
-KzB4ZjAvMHgyNjQKPiBkbWFfY29tbW9uX2NvbnRpZ3VvdXNfcmVtYXArMHhhMC8weGQwCj4gYXRv
-bWljX3Bvb2xfZXhwYW5kKzB4YjYvMHgzMTAKPiBfX2RtYV9hdG9taWNfcG9vbF9pbml0LmlzcmEu
-MCsweGY2LzB4MWMwCj4gZG1hX2F0b21pY19wb29sX2luaXQrMHhmNi8weDFhYQo+IGRvX29uZV9p
-bml0Y2FsbCsweDEzNC8weDkyOAo+IGtlcm5lbF9pbml0X2ZyZWVhYmxlKzB4NTMyLzB4NjBhCj4g
-a2VybmVsX2luaXQrMHgyOC8weDE2Mgo+IHJldF9mcm9tX2Zvcmtfa2VybmVsKzB4ODIvMHg5NGMK
-PiByZXRfZnJvbV9mb3JrX2tlcm5lbF9hc20rMHgxNi8weDE4Cj4gCj4gVGhlIFBURSBpcyB2YWxp
-ZCwgc28gdGhlIG1hcHBpbmcgd2FzIGluIHBsYWNlIHdoZW4gdGhlIENQVSBmYXVsdGVkLgo+IAo+
-IFRlc3RlZCBvbiBPcmFuZ2UgUGkgUlYyOiB3aXRob3V0IHRoaXMgcGF0Y2ggMiBvZiAzMCBib290
-cyBjcmFzaGVkLAo+IHdpdGggaXQgNTAgb2YgNTAgYm9vdGVkLgo+IAo+IEFkZCB0aGUgS0FTQU4g
-c2hhZG93IHJlZ2lvbiB0byB0aGUgcmFuZ2VzIGZvciB3aGljaCBmbHVzaF9jYWNoZV92bWFwKCkK
-PiBjYWxscyBtYXJrX25ld192YWxpZF9tYXAoKSwgYXMgY29tbWl0IDRlZGQ3MGVlNmE3ZCAoIm1t
-L3NwYXJzZS12bWVtbWFwOgo+IGZsdXNoX2NhY2hlX3ZtYXAoKSBhZnRlciBob3RwbHVnZ2luZyB2
-bWVtbWFwIikgZGlkIGZvciB2bWVtbWFwLgo+IAo+IEZpeGVzOiA1MDM2MzhlMGJhYmYgKCJyaXNj
-djogU3RvcCBlbWl0dGluZyBwcmV2ZW50aXZlIHNmZW5jZS52bWEgZm9yIG5ldyB2bWFsbG9jIG1h
-cHBpbmdzIikKPiBTaWduZWQtb2ZmLWJ5OiBBbGkgVGFyaXEgPGFsaXRhcmlxNDU4OTJAZ21haWwu
-Y29tPgoKQWNrZWQtYnk6IE11Y2h1biBTb25nIDxtdWNodW4uc29uZ0BsaW51eC5kZXY+CgpUaGFu
-a3MuCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+T-Head TH1520 has multiple system controllers for the "subsystems" on
+the chip.
+
+Add them to the syscon binding.
+
+Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+---
+ Documentation/devicetree/bindings/mfd/syscon.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+index 80ff0e1caca22..b9d45f98345f2 100644
+--- a/Documentation/devicetree/bindings/mfd/syscon.yaml
++++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+@@ -126,6 +126,13 @@ properties:
+               - st,spear1340-misc
+               - stericsson,nomadik-pmu
+               - starfive,jh7100-sysmain
++              - thead,th1520-syscon-ao
++              - thead,th1520-syscon-ap
++              - thead,th1520-syscon-dsp
++              - thead,th1520-syscon-misc
++              - thead,th1520-syscon-vo
++              - thead,th1520-syscon-vi
++              - thead,th1520-syscon-vp
+               - ti,am62-opp-efuse-table
+               - ti,am62-usb-phy-ctrl
+               - ti,am625-dss-oldi-io-ctrl
+-- 
+2.56.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
