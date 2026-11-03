@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01AC9606A328
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A33FF606A328
 	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 14:51:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uEHDcGpO;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=ICvj5WE+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xx5FXtJA;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=KTQ8EfaO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,23 +14,23 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=9Mkc7LKrqRTdiXaJpRTAX2O9uF2y4Y7hWLWo45GE8sk=; b=uEHDcGpO1j+p3XGDPJE7MSmAbq
-	88q4xSCR8wtCyBEG2pl7XXE6Ufsjnc0wcvrfAAN45ohTBa9EhX171YPZ4YgQO6YEcyYXiD8zdn918
-	BqeA0Z1QkyaqvyUw855Cudu7eUtAOTVaRROwmJ10lYfdFDELfZap+7NBfrBYTBEKi5baKpC0rMBpg
-	ftrGO30lSLJcVqHjkA3bbDQr6elzwdYrjFkGAS3upFBtADEBkGS8u/4s1ga7vi/YT/cTO6sj9nbCa
-	ARlY5FdT/G60jobjt0X2rfTQ55zIzLwojNJc2xpbOk4ogYwHWgL5Sm9t/SMh6ckhZmI2+QkyvPUvG
-	byIYg7pg==;
+	bh=H4kYVL1X+6jk2jsYzr+9h2eQwaDzIUQRkSn8aGbv79Q=; b=xx5FXtJAEidv9DS1Ic9b5KpoJF
+	UzJYjYJgWsPoOuo/Q8tK3+AhJFq2JRDRur1l6f4EcMNdNvOh3G6cylyuk4AvrI0D8zQwXaOpIRv0v
+	qjJ44APM8D60wQGWa4txjvAw4RaRkoippy+lVqkXewiH/sjhyXfhfM/woq+9ZjN/p9LWdRoiAKUIG
+	38E40wQVa8sn4KjmGe9OGUFXd8wj14uxCDGGUnFIh/BvsAtXOXmyjYs+oi2GLbjBRgMbM3rfqT4PD
+	oiFgIE7JAeHUuqhTLKPvnfatGR5Zf3Zr2Gtcy3LDCdU6JGsCqiQRQIM+2ZePECUOAbINTFHovbQal
+	bjbA0ecQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOFrO-00000002mkU-1BjA;
-	Tue, 03 Nov 2026 14:51:38 +0000
+	id 1xOFrK-00000002mgQ-1sOd;
+	Tue, 03 Nov 2026 14:51:34 +0000
 Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOFrI-00000002mcu-2ShS;
-	Tue, 03 Nov 2026 14:51:33 +0000
+	id 1xOFrF-00000002mb3-1Igd;
+	Tue, 03 Nov 2026 14:51:31 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
 	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id E4187202BA5;
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id CC94C2006C0;
 	Tue, 03 Nov 2026 15:51:22 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1793717482;
@@ -38,45 +38,45 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=VI0iedr3l6UnJVhvQ9nem8eALFnLeOipkazoUwv0yeA=;
-	b=ICvj5WE+/qMkpksveE1cuUdf8x62cyKCNRavmANEo6QpF26Q1n9U7prkdYvQ8p6aKlmxHT
-	WxXMnwIzGBp0vTVLPiQIlzDh5SnJEoSIwpdO3WVPstLXliT7MDeulahR+QRTRD9HlyeU+t
-	PrgBNL6/ww+oII5JXrzRoip3M6yEP5ETo/L4qtP6gDNtAvNrUoLSY4HP7HNdDR886PqtMJ
-	eloY2mmlyT9lgOk0+8q8RFZ/TU6AIKSh7MSCl6/G2Cg1sr311OjTsbkUar+yg+Xg4Nj86O
-	bMZRmQ2MDFR1ciRU+rqGr2ZXtYtNji5iUbRNK0HDCuuY9HTtB28UZbjmdTt6DQ==
+	bh=X265BLa7eap+hC6jsG4UHQiCMMg6MiP11gMxTREeoPs=;
+	b=KTQ8EfaO3t7b2IgeSfu5l3QnKcGQy4ryDP5+ng+pa2rWScrDG6/6MBLrlnWEYfK+7tuX15
+	hInYzlXAP+MMzkqCAWDc65fYwqiiQTz/pHRh790R3wjhS9Jrv8lBLsc9Pfk69GYTWV9B3b
+	pAUeHIiZnIMKqCabTFkH9v/P9WrFCWbu4czjJFB+cfcqI0CTGJ+18oO3J82+b0jlaViCtM
+	laLYNJUSh8ZKaFJm86nracSclUnNnQiHVUA3l2qkYn8vbr10YGuFs374RVrHgFCxhj+CBa
+	rvYEyJJRXwk9CS0+8HtfUXPJ/4mFk69E21U7wpkHRZ3YB5DtAVfc36u5u5I+hw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1793717482;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=VI0iedr3l6UnJVhvQ9nem8eALFnLeOipkazoUwv0yeA=;
-	b=J6Svhfg4f47IA3gpokoOvkGdpVlJiYbImQsmVWJWekBiliqoHSizbON+x6tBje77cpw+Vl
-	pO7T0rp6qI+Zjxrvdf4Qt7mw4uSCHSHEQ1eqpKQyo+tnuR4JM3erEWwbJXQGOsISfEzi8C
-	CGYqkA5CR9z1wnQSv8q2PzN4wK7U5svIXzeMTkSQ6b1cVJKpVqidMcUBtN2Mjlp9BSeYpF
-	si1+2dVVTQLiOplpYqDH6dM+aCdLFEKxQ0I2r91mn+8Ftb9Svh9eapEWyfGXBHSTPga35T
-	/vjgrsW4+jL6ozXkFXkJCleBnBAPGJ2/E1PFfTNYDuIcvTqmJVdN0aXGln+C1g==
+	bh=X265BLa7eap+hC6jsG4UHQiCMMg6MiP11gMxTREeoPs=;
+	b=Tgd5xSbvuorrusawlOCVf2vWZhJO+EKNfDFPkYXFOOHmXzHIGRcA45Fmhk+ThNIbNksNjA
+	A91DKpluqC9SnCkxmccRNAKD+/5DdNWICvVnH0fyuYH+A8QkrdD2CcaRCKgkQ/XQMJBgVJ
+	FpN0CKPDMIysededJzCiJTrbzPJ1KRN/K6rGq3qcnERtPA1WOcjbQTi7MiYPYTOIfDZlrG
+	1P3URSCDOpbzmz8HxWlOivZZZsy1a6mNXuxIefJfYe8U9I6OeaTYbaa8dbqShyh4qwddlR
+	26EWxffH39r0vaE/RznclXqjMkqJoVvhpn6UgJYOIOJZCeaatZu9oLUOm+dT4g==
 ARC-Authentication-Results: i=1;
 	ORIGINATING;
 	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
 ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793717482; a=rsa-sha256;
 	cv=none;
-	b=CamiGPHrqXx6rLoBJojRsvaJVAtjQq/DmT/0WlQowAxv7wXui+Fn/VWWuYAsf55K4m7Xgm
-	lQo3eCZ8ROkyiZtR2/SkwK+aartL+iqv/Iivheyu/jDWOqGObhePx5vQO8rL920Rb/GzM+
-	ejk1BYyHcmgC2uXnCC+n4Wth14TQa/TsTI9r2lCy0nRnxNbm8l/qRTwksE+u62gwxV6KVE
-	lRKHw9T96l8iNj7p18A92rXEmB/vGtbpmTU1HhvycKCUL6pdu4kScHpWhtmeNNpvR1ptYz
-	reLOYFKYO3MkIZqkpcWbTeqDJq5O1OezGk2nze4IkVhXft6F7zJDOgJ24u4r6Q==
+	b=Qb/VfYJCjyGdaSPc095QlqNrSm852yMQ5xYaQEJwSpP3vDGxqq/qr9gtYIVENa4jUiZJa4
+	glXbtJ/zD2WNC0HL08qar+we/sRm4GpEj0zJBMdnW77thsTsxr+bZKqOG1tTZZGuWK1KYD
+	25O9RaX4EcfXGpo9ROT7PjtAsdA0Ao5sx6BZUF1eYS2Qzb76eQglTaLQbFE3M4KgDPWT1G
+	BaEyXy1cyAvW3HJPm627bDbxh/6LYkxbShDiF4rOk1lLUFWpUHkV7V3w74z4tz+qQHzuAm
+	b9HUljpA5IlQXJYKWixPG1bu+QnVJaflBiZ4EDEoq4F/uMA7rCFQJEhN3eHwEA==
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <p.zabel@pengutronix.de>)
-	id 1xOFr8-002SzQ-2g;
+	id 1xOFr8-002SzQ-2I;
 	Tue, 03 Nov 2026 15:51:22 +0100
 From: Philipp Zabel <p.zabel@pengutronix.de>
-Date: Tue, 03 Nov 2026 15:51:25 +0100
-Subject: [PATCH 5/8] reset: mpfs: Use regmap_test_bits in mpfs_status
+Date: Tue, 03 Nov 2026 15:51:23 +0100
+Subject: [PATCH 3/8] reset: k210: Use regmap_test_bits in k210_rst_status
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261103-reset-regmap-test-bits-v1-5-1b33607a76b0@pengutronix.de>
+Message-Id: <20261103-reset-regmap-test-bits-v1-3-1b33607a76b0@pengutronix.de>
 References: <20261103-reset-regmap-test-bits-v1-0-1b33607a76b0@pengutronix.de>
 In-Reply-To: <20261103-reset-regmap-test-bits-v1-0-1b33607a76b0@pengutronix.de>
 To: Damien Le Moal <dlemoal@kernel.org>, 
@@ -91,8 +91,8 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Philipp Zabel <p.zabel@pengutronix.de>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_065132_780091_7F6A0FD5 
-X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-CacheID: sfid-20261103_065129_540293_5D65ADD9 
+X-CRM114-Status: UNSURE (   8.28  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -114,35 +114,34 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Simplify mpfs_status() by using regmap_test_bits().
+Simplify k210_rst_status() by using regmap_test_bits().
 Now returns 1 if asserted for all bits.
 
 Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
 ---
- drivers/reset/reset-mpfs.c | 9 +--------
- 1 file changed, 1 insertion(+), 8 deletions(-)
+ drivers/reset/reset-k210.c | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
 
-diff --git a/drivers/reset/reset-mpfs.c b/drivers/reset/reset-mpfs.c
-index 8ffcc54ee6f6..ec61b4a1d753 100644
---- a/drivers/reset/reset-mpfs.c
-+++ b/drivers/reset/reset-mpfs.c
-@@ -63,15 +63,8 @@ static int mpfs_deassert(struct reset_controller_dev *rcdev, unsigned long id)
- static int mpfs_status(struct reset_controller_dev *rcdev, unsigned long id)
+diff --git a/drivers/reset/reset-k210.c b/drivers/reset/reset-k210.c
+index e77e4cca377d..58ad8be18741 100644
+--- a/drivers/reset/reset-k210.c
++++ b/drivers/reset/reset-k210.c
+@@ -59,14 +59,8 @@ static int k210_rst_status(struct reset_controller_dev *rcdev,
+ 			   unsigned long id)
  {
- 	struct mpfs_reset *rst = to_mpfs_reset(rcdev);
--	u32 reg;
+ 	struct k210_rst *ksr = to_k210_rst(rcdev);
+-	u32 reg, bit = BIT(id);
+-	int ret;
  
--	regmap_read(rst->regmap, REG_SUBBLK_RESET_CR, &reg);
+-	ret = regmap_read(ksr->map, K210_SYSCTL_PERI_RESET, &reg);
+-	if (ret)
+-		return ret;
 -
--	/*
--	 * It is safe to return here as MPFS_NUM_RESETS makes sure the sign bit
--	 * is never hit.
--	 */
--	return (reg & BIT(id));
-+	return regmap_test_bits(rst->regmap, REG_SUBBLK_RESET_CR, BIT(id));
+-	return reg & bit;
++	return regmap_test_bits(ksr->map, K210_SYSCTL_PERI_RESET, BIT(id));
  }
  
- static int mpfs_reset(struct reset_controller_dev *rcdev, unsigned long id)
+ static int k210_rst_xlate(struct reset_controller_dev *rcdev,
 
 -- 
 2.47.3
