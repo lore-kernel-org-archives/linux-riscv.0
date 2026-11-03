@@ -2,81 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4E59606A324
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 08:05:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23CC8606D83E
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 08:09:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=5Ah02mD1;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=WPkOyO7/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bU2qPTMR;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=JATa7QQl
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=7D8E/Y4h2QoKu9iaNVl2F5X++h5M7wOyl7i2/8yOZ20=; b=5Ah02mD1C/6KJ23fj8tOE563Gq
-	iljlr4Mp5aa+Ild++7fWIwFswGWAtHvxlpR1O59Dl+LV0O+mX3kKgJJjfvrXbZuIcgC3JfiSwfwtQ
-	jgwfH5mq8UvlY6PEUbzg1fYdNHC3h3yzdyDo70I/COLnjObI8IAsToWzsAO9mEiVXSgEI/WvK9XpS
-	s2jPC7KzvYlzZwa4PHbt0hCneYtebr8UE78tovuAv6O//wgGh4pQbeOgawxzOfbf0Z3DBF3gslMpV
-	kn1B4Xiq+0nxRGvzL9JqLHenLLal8s/0yLfabiYXge/8AfF7BVRTztuejtCwqzS6SWsqp5jP4Vfgn
-	fgTjS+qg==;
+	bh=aADz6eQb7W5N0vKfMLVFp3OkZCje3AYOFPkWEhJ3uns=; b=bU2qPTMRN1yObbCvEgmw3Xp5+U
+	NNLhjKGJI5O5v27NHFlH4COVq257ytMUYtb/IZwCKC3wWufZHhg7Io0+k7X3ddJu6Ia9NMHefwjp/
+	ND4/dDOXK8K3BTznx4nhr2MzuVWW/P2mB2YmIUpIdNH2d9+Mf36DI9cdwpomE3xtw0R+8FOWIOMj0
+	WjUPmy0O2yibrCqiimcx/UTXlzRLfApliSXlC51M1RYyA2BmKiECWYExNxqSPX6vPqvTxZyxJeGcE
+	K+SnVK+0oYLTNPAV7uotbmIftKHaem3Zp3vsRlKTebhJG2xhhzTN4VGU8REir59CjYiBsYvGKlGSL
+	C74w4J4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9Vt-00000001Th3-0xyL;
-	Tue, 03 Nov 2026 08:05:01 +0000
-Received: from out-16.mta0.migadu.com ([2001:41d0:1004:224b::10] helo=mta0.migadu.com)
+	id 1xO9aZ-00000001UIB-10Q2;
+	Tue, 03 Nov 2026 08:09:51 +0000
+Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9Vp-00000001Tfj-28Zo
-	for linux-riscv@lists.infradead.org;
-	Tue, 03 Nov 2026 08:04:59 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=RWmMBXkZ+vwtLY3BE8puJytWEPMWyGOh1ixW8aK6vWM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793693091; v=1; x=1794297891;
- b=WPkOyO7/jXnLDvvc58HZsAFsfZhlf1yGovKl4MbrDD3v7pUevz+ROx/uSPrQ1a7NHZFsII+0
- gP0Gw5D1MyVzs8i7M66XV5NhZ+lxO8D2+BMYmIXo1Vr48JqGui41RiSMEIjRZEUmPTeEOwyDoa7
- Qhw6IteAtpqUdxhI+EMQw8M4=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by mta11.migadu.com with ESMTPS id d76ee08530dc8e23;
-	Tue, 03 Nov 2026 08:04:51 +0000
-X-Mizu-Trace-ID: d76ee08530dc8e23
-X-Migadu-Flow: FLOW_OUT
-From: Troy Mitchell <troy.mitchell@linux.dev>
-Date: Tue, 03 Nov 2026 08:04:33 +0000
-Subject: [PATCH] irqchip/riscv-imsic: Synchronize remote state with IRQ
- work
+	id 1xO9aV-00000001UFg-0cRP;
+	Tue, 03 Nov 2026 08:09:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1793693385; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=WJpxS6fBbPkCEJfRw7yC+xmbJiBPG7KHL3DiOO0TU/c=;
+	b=JATa7QQllxyXirelWKr/o69Q3iMQA3lj+1AbynX+mh4AoEy9uwiSc0yVWamw3yh3zhpG2UdWnG5CdAORT/Shhi23WPKx4y2KnhLf/96JQfZN9FQ2nBrWqiJ8ehnnlzUsvEevFFzmVL9a8woSbYfi8mm4rjlEjsd4yMxVlDESx00=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=14;SR=0;TI=SMTPD_---0XE27L1d_1793693383;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XE27L1d_1793693383 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 03 Nov 2026 16:09:44 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	alex@ghiti.fr,
+	rppt@kernel.org,
+	pasha.tatashin@soleen.com,
+	pratyush@kernel.org,
+	graf@amazon.com,
+	shuah@kernel.org
+Cc: guoren@kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org,
+	kexec@lists.infradead.org
+Subject: [PATCH v2 5/5] selftests: liveupdate: Add riscv support
+Date: Tue,  3 Nov 2026 16:09:26 +0800
+Message-ID: <20261103080926.2079-6-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261103080926.2079-1-cp0613@linux.alibaba.com>
+References: <20261103080926.2079-1-cp0613@linux.alibaba.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261103-imsic-remote-sync-irqwork-v1-1-8b5c951fc62a@linux.dev>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CQAxG4auQrm0yg4ZEr2JcaPnRapjRFgVDu
- LujLr/FezM5TOG0q2YyvNQ1p4K4qkgux3QGa1tMdaibGMOatXcVNvR5APs7Cas9xmw33koHaWQ
- TQwsq/d3Q6fR77w9/+/N0hQzfIS3LB/3jP2V9AAAA
-X-Change-ID: 20261103-imsic-remote-sync-irqwork-9cfec6c410de
-To: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
- Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>
-Cc: Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-rt-devel@lists.linux.dev, 
- Troy Mitchell <troy.mitchell@linux.dev>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5097;
- i=troy.mitchell@linux.dev; h=from:subject:message-id;
- bh=RWmMBXkZ+vwtLY3BE8puJytWEPMWyGOh1ixW8aK6vWM=;
- b=owGbwMvMwCU2g/N9w09jE33G02pJDFkvpy6okFmZcNa7vdtgpfeWyO8zZ3w4vqH13Lv8ghreL
- RzfZCIvd5SyMIhxMciKKbJ0P+DZVuATZVsgUOgLM4eVCWQIAxenAEzkcArDXzHZrdmfAnZsvee9
- cz77heo9BSmFKsUCMwt3hgdd3e+5yYjhv2fKPcUE/RVvL/40XrcnKqleN61dWtFz3YWO7d4rJvb
- mMgAA
-X-Developer-Key: i=troy.mitchell@linux.dev; a=openpgp;
- fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_000457_701515_DD2DCE73 
-X-CRM114-Status: GOOD (  22.77  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_000947_367718_D4E61BD0 
+X-CRM114-Status: GOOD (  15.30  )
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,144 +79,114 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Remote IMSIC state updates are deferred to a timer on the target CPU.
-If that CPU has stopped its local clockevent and is waiting for a
-broadcast interrupt, enabling the broadcast IRQ can depend on delivery
-of that same interrupt. This can stall timer delivery when the broadcast
-IRQ is unmasked or moved to another CPU, including during CPU hotplug.
+Teach the live update vmtest runner about riscv64: map the target to ARCH
+riscv, describe the QEMU virt machine, the kernel image and its console,
+and add the arch config fragment holding the three symbols needed to get
+a console on the virt machine's 16550A port.
 
-Queue hard IRQ work to synchronize remote state independently of timer
-delivery. Keep synchronous updates on the local CPU and the timer retry
-for an unfinished vector move. Hard IRQ work also avoids depending on a
-schedulable worker when PREEMPT_RT is enabled.
+KHO is the only dependency of LIVEUPDATE (kernel/liveupdate/Kconfig), so
+now that riscv has KHO the LUO tests only need the runner to stop
+rejecting the architecture.
 
-Fixes: 21a8f8a0eb35 ("irqchip: Add RISC-V incoming MSI controller early driver")
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
+Add riscv64 to the CROSS_COMPILE auto-detection list and to the target
+list of the batch runner as well, matching the existing aarch64/x86_64
+entries.
+
+Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 ---
-This was found while bringing up the SoC timer on SpacemiT K3 as a tick
-broadcast device.
 
-Without a real broadcast device, the tick code falls back to the hrtimer
-based broadcast, which keeps one CPU's local timer running. Once the SoC
-timer is registered it replaces the hrtimer broadcast, and every CPU may
-stop its local timer in idle.
+Test: qemu-system-riscv64 (virt, -cpu max, -m 1G, -smp 2, TCG), in-tree
+runner "tools/testing/selftests/liveupdate/vmtest.sh -t riscv64 -T <suite>",
+all four suites:
 
-On K3 the SoC timer interrupt goes through APLIC in MSI mode to IMSIC.
-When the CPU owning it goes offline, the interrupt is moved to a CPU
-that may already be idle with its local timer stopped. IMSIC leaves the
-enable on the new target to a timer on that CPU, and that timer can only
-fire through the broadcast interrupt, which is not enabled yet. The
-system stalls.
+  luo_kexec_simple:    SIMPLE KEXEC TEST PASSED
+  luo_multi_session:   MULTI-SESSION KEXEC TEST PASSED
+  luo_stress_files:    MANY-FILES KEXEC TEST PASSED (500 files)
+  luo_stress_sessions: MANY-SESSIONS KEXEC TEST PASSED (2000 sessions)
 
-Tested on a K3 COM260 board by offlining the CPU owning the broadcast
-interrupt, and then each CPU in turn, under a timerfd load:
-- v7.4-rc1 with the SpacemiT SoC timer series and local timers forced
-  to stop in idle
-- a vendor 6.18 kernel with SBI cpuidle states that stop the local timer
+The simple suite's serial log shows the full handover round trip:
 
-Both stall without this patch and pass with it.
----
- drivers/irqchip/Kconfig                 |  1 +
- drivers/irqchip/irq-riscv-imsic-state.c | 19 +++++++++++++------
- drivers/irqchip/irq-riscv-imsic-state.h |  4 ++++
- 3 files changed, 18 insertions(+), 6 deletions(-)
+  KHO: found kexec handover data.
+  luo: Retrieved live update data, liveupdate number: 1
+  KHO: exec from: 7.4.0-rc1-next-20261102-00005-gfca49e548231 (count 1)
+  # [STAGE 2] Test data verified successfully.
+  --- SIMPLE KEXEC TEST PASSED ---
 
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index 136bab41f801..5cdc3f52198c 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -651,6 +651,7 @@ config RISCV_IMSIC
- 	bool
- 	depends on RISCV
- 	select IRQ_DOMAIN_HIERARCHY
-+	select IRQ_WORK if SMP
- 	select GENERIC_IRQ_MATRIX_ALLOCATOR
- 	select GENERIC_MSI_IRQ
- 	select IRQ_MSI_LIB
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
-index 01620373b43a..f6373e4019a2 100644
---- a/drivers/irqchip/irq-riscv-imsic-state.c
-+++ b/drivers/irqchip/irq-riscv-imsic-state.c
-@@ -252,6 +252,11 @@ void imsic_local_delivery(bool enable)
+ tools/testing/selftests/liveupdate/config.riscv64 | 3 +++
+ tools/testing/selftests/liveupdate/run-vmtests.sh | 2 +-
+ tools/testing/selftests/liveupdate/vmtest.sh      | 8 +++++++-
+ 3 files changed, 11 insertions(+), 2 deletions(-)
+ create mode 100644 tools/testing/selftests/liveupdate/config.riscv64
+
+diff --git a/tools/testing/selftests/liveupdate/config.riscv64 b/tools/testing/selftests/liveupdate/config.riscv64
+new file mode 100644
+index 000000000000..edbc551199b0
+--- /dev/null
++++ b/tools/testing/selftests/liveupdate/config.riscv64
+@@ -0,0 +1,3 @@
++CONFIG_SERIAL_8250=y
++CONFIG_SERIAL_8250_CONSOLE=y
++CONFIG_SERIAL_OF_PLATFORM=y
+diff --git a/tools/testing/selftests/liveupdate/run-vmtests.sh b/tools/testing/selftests/liveupdate/run-vmtests.sh
+index d656ce58c5a7..2e3f5f6f96b3 100755
+--- a/tools/testing/selftests/liveupdate/run-vmtests.sh
++++ b/tools/testing/selftests/liveupdate/run-vmtests.sh
+@@ -4,7 +4,7 @@
+ SCRIPT_DIR=$(dirname "$(realpath "$0")")
+ TEST_RUNNER="$SCRIPT_DIR/vmtest.sh"
+ 
+-TARGETS=("x86_64" "aarch64")
++TARGETS=("x86_64" "aarch64" "riscv64")
+ 
+ GREEN='\033[0;32m'
+ RED='\033[0;31m'
+diff --git a/tools/testing/selftests/liveupdate/vmtest.sh b/tools/testing/selftests/liveupdate/vmtest.sh
+index f3fb4142c81d..e67e4613aee8 100755
+--- a/tools/testing/selftests/liveupdate/vmtest.sh
++++ b/tools/testing/selftests/liveupdate/vmtest.sh
+@@ -25,6 +25,10 @@ function get_arch_conf() {
+ 		QEMU_CMD="qemu-system-x86_64"
+ 		KERNEL_IMAGE="bzImage"
+ 		KERNEL_CMDLINE="console=ttyS0"
++	elif [[ "$arch" == "riscv" ]]; then
++		QEMU_CMD="qemu-system-riscv64 -M virt -cpu max"
++		KERNEL_IMAGE="Image"
++		KERNEL_CMDLINE="console=ttyS0"
+ 	else
+ 		echo "Unsupported architecture: $arch"
+ 		exit 1
+@@ -37,7 +41,7 @@ $0 [-d build_dir] [-j jobs] [-t target_arch] [-T test_name] [-w workspace_dir] [
+ Options:
+ 	-d)	path to the kernel build directory (default: .luo_test_build.<arch>)
+ 	-j)	number of jobs for compilation
+-	-t)	run test for target_arch (aarch64, x86_64)
++	-t)	run test for target_arch (aarch64, x86_64, riscv64)
+ 	-T)	test name to run (default: luo_kexec_simple)
+ 	-w)	custom workspace directory (default: creates temp dir)
+ 	-k)	keep workspace directory after successful test
+@@ -87,6 +91,7 @@ function detect_cross_compile() {
+ 	case "$target" in
+ 		aarch64) candidate="aarch64-linux-gnu-" ;;
+ 		x86_64)  candidate="x86_64-linux-gnu-" ;;
++		riscv64) candidate="riscv64-linux-gnu-" ;;
+ 		*)       skip "Auto-detection for target '$target' not supported. Please set CROSS_COMPILE manually." ;;
+ 	esac
+ 
+@@ -194,6 +199,7 @@ function target_to_arch() {
+ 	case $target in
+ 	     aarch64) echo "arm64" ;;
+ 	     x86_64) echo "x86" ;;
++	     riscv64) echo "riscv" ;;
+ 	     *) skip "architecture $target is not supported"
+ 	esac
  }
- 
- #ifdef CONFIG_SMP
-+static void imsic_local_sync_work(struct irq_work *work)
-+{
-+	imsic_local_sync_all(false);
-+}
-+
- static void imsic_local_timer_callback(struct timer_list *timer)
- {
- 	imsic_local_sync_all(false);
-@@ -268,18 +273,19 @@ static void __imsic_remote_sync(struct imsic_local_priv *lpriv, unsigned int cpu
- 	 */
- 
- 	/*
--	 * We schedule a timer on the target CPU if the target CPU is not
--	 * same as the current CPU. An offline CPU will unconditionally
--	 * synchronize IDs through imsic_starting_cpu() when the
--	 * CPU is brought up.
-+	 * A remote CPU may have stopped its local timer and be waiting for
-+	 * the broadcast interrupt whose IMSIC state needs updating. Use an
-+	 * IPI-backed work item so enabling that interrupt does not depend on
-+	 * its delivery. An offline CPU synchronizes IDs in imsic_starting_cpu().
- 	 */
- 	if (cpu_online(cpu)) {
- 		if (cpu == smp_processor_id()) {
- 			if (__imsic_local_sync(lpriv))
- 				return;
-+			__imsic_local_timer_start(lpriv, cpu);
-+		} else {
-+			irq_work_queue_on(&lpriv->sync_work, cpu);
- 		}
--
--		__imsic_local_timer_start(lpriv, cpu);
- 	}
- }
- #else
-@@ -510,6 +516,7 @@ static int __init imsic_local_init(void)
- #ifdef CONFIG_SMP
- 		/* Setup lazy timer for synchronization */
- 		timer_setup(&lpriv->timer, imsic_local_timer_callback, TIMER_PINNED);
-+		lpriv->sync_work = IRQ_WORK_INIT_HARD(imsic_local_sync_work);
- #endif
- 
- 		/* Allocate vector array */
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.h b/drivers/irqchip/irq-riscv-imsic-state.h
-index 189829b8673a..a36b9f0ef840 100644
---- a/drivers/irqchip/irq-riscv-imsic-state.h
-+++ b/drivers/irqchip/irq-riscv-imsic-state.h
-@@ -9,6 +9,7 @@
- 
- #include <linux/irqchip/riscv-imsic.h>
- #include <linux/irqdomain.h>
-+#include <linux/irq_work.h>
- #include <linux/fwnode.h>
- #include <linux/timer.h>
- 
-@@ -34,6 +35,9 @@ struct imsic_local_priv {
- 	unsigned long				*dirty_bitmap;
- 
- #ifdef CONFIG_SMP
-+	/* Remote synchronization must not depend on a timer interrupt. */
-+	struct irq_work				sync_work;
-+
- 	/* Local timer for synchronization */
- 	struct timer_list			timer;
- #endif
-
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261103-imsic-remote-sync-irqwork-9cfec6c410de
-
-Best regards,
---  
-Troy Mitchell <troy.mitchell@linux.dev>
+-- 
+2.50.1
 
 
 _______________________________________________
