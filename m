@@ -2,75 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC624606D80C
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 09:51:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A3D1606C574
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 10:15:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=i9eSLbaD
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=C3BqceaM;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UU0i2ECF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Ju8pjFjOUwLU3mJ86tByfum10W7uzXn6r8f7gF1HptU=; b=i9eSLbaDI89aw3BsWPWk8djqcb
-	6+0i39HXmR7gPFJl8NxZI4MS/UMhPI6GxGewUkUf8FRwJOIslELzdG6Wvb061qLisLQn/DYtXp4Ia
-	3uhZKADRKHxUl6fRLawm8B9+NYxhaAU9cLIkX+nKBpyYcOijvgampcfueEY9247at0a6TodMEaRnv
-	7Alxf80DTu3tYUF/b9SHlTW18TknQVGs/vFhXjPiL8G5c+JH4FkcnEf0OqONxOz1xLPEmaJPII1lW
-	fa/V/Xzr+Tq3sUTZPXHQCI4PnADKhp7vbRfpiyWTUjGm9ka32LpjMTppKjMMHHp8vWoa2psGvAOnT
-	4UGsO0eg==;
+	bh=nJiCszcUbEyPgDISJkXrmHfoNfzifYkuoOSnsLwFlXc=; b=C3BqceaMA6CknJ142BNeQhon5K
+	R3YQRskfZ4AR6PU2vg5xiRN5sDCyDUCi8koww8JADQ8dc7NdxWHtT2Jcu6Y0r6x8RKNiwqfmXHfXT
+	cY7MUCDBlpPBRQ1xRxVs3tNvd8h8qo7UxWbHPBV838+q0LCYZ/a8co6zFGNeGiO1TMJneeUNIMl9w
+	mA9HHZ5R1z9eEUTcmRt1hbhnruahhKfUtA09Km8J88pN34pSfCQbb7BJ2SwZqWkxGDXJiLJ9fHrQ+
+	IpbShB/sLhje0UmzksXR9IduLDdzCsFRMWc2wuKxsdr/HbpxVxuKb1vu/64MxQdSKBsd5Oj5HZMB9
+	466fMGzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBAY-00000001oys-0YJf;
-	Tue, 03 Nov 2026 09:51:06 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1xOBXp-00000001vdf-1n19;
+	Tue, 03 Nov 2026 10:15:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBAV-00000001oyG-0Mdg
-	for linux-riscv@lists.infradead.org;
-	Tue, 03 Nov 2026 09:51:04 +0000
-Received: from smtpclient.apple (unknown [121.237.245.232])
-	by APP-05 (Coremail) with SMTP id zQCowAAHobZ_rulqo_g+AA--.1625S2;
-	Tue, 03 Nov 2026 17:50:55 +0800 (CST)
+	id 1xOBXf-00000001vLV-3SNL;
+	Tue, 03 Nov 2026 10:14:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 91C0941333;
+	Tue,  3 Nov 2026 10:14:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F32DB1F00919;
+	Tue,  3 Nov 2026 10:14:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793700899;
+	bh=U90YHHqYabJCzGCISBw16c6Orv5qCzpj8HcVqDO2HtM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=UU0i2ECFurVjJyBCS6ZF6AH2Xktl7pInMJd7bazTQddWePDIEA5puQTogv9IC4gmj
+	 vDXtNCxrzh7MDJ3y8rdI/oSSkl60s21Po9fm5r9bLuW6alBau2Jag4PshJqMPPNyXv
+	 vbVWT40/nrXKwReI3HHsqnziuE7kypXnARDHkipEtL71XPpOzXK8B0PI/SHFk7Zuxi
+	 8UnJMwBR0AXholRlH1Ulo9W1W0gkzlSzG/FngOBMmh3bYiTP4poFqmEban/zXNJXR/
+	 ZqovUxW/zY9QWyRYIKWlJC3ZxoqmwoyCPoDjpLmBdOngc8Mj0IiybdzgtAYP84YlhL
+	 u/1XA/JjrQJtg==
+Date: Tue, 3 Nov 2026 12:14:50 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: gaohan@iscas.ac.cn
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>, Yao Zi <me@ziyao.cc>,
+	Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+	kexec@lists.infradead.org
+Subject: Re: [PATCH 3/5] kexec_file: Honor the segment alignment for CMA
+ allocations
+Message-ID: <aum0GlBKTfZ6rvgL@kernel.org>
+References: <20261023-riscv-kexec-cma-fixes-v1-0-825b90ea23c4@iscas.ac.cn>
+ <20261023-riscv-kexec-cma-fixes-v1-3-825b90ea23c4@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH v2] uprobes: Restore original return address in uretprobe
- context
-From: daichengrong <daichengrong@iscas.ac.cn>
-In-Reply-To: <20260810080140.96587-1-daichengrong@iscas.ac.cn>
-Date: Tue, 3 Nov 2026 16:58:03 +0800
-Cc: linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org,
- Masami Hiramatsu <mhiramat@kernel.org>,
- alex@ghiti.fr,
- Albert Ou <aou@eecs.berkeley.edu>
-Message-Id: <313E1182-DADD-485A-AE2C-36ACA58F35DE@iscas.ac.cn>
-References: <20260810080140.96587-1-daichengrong@iscas.ac.cn>
-To: Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
-X-CM-TRANSID: zQCowAAHobZ_rulqo_g+AA--.1625S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxArWkCr1UKF4fAFy5GryrCrg_yoWrXrWkpa
-	1vka43KFWDG34UuFZxXr45Z3WFvrZ5Xw47Cr1xK34fC345KryxJw1I93yUZF1FyrZ2gF17
-	Ar4jkFWUAa9rJrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUv2b7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUtVWrXwAv7VC2z280aVAFwI0_Gr0_Cr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JMxkF7I0En4kS14v26r126r1D
-	MxkIecxEwVAFwVW8uwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s
-	026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_
-	Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20x
-	vEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE
-	14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa
-	7IU5iB_UUUUUU==
-X-CM-SenderInfo: pgdluxxhqj201qj6x2xfdvhtffof0/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_015103_552374_85260BA0 
-X-CRM114-Status: GOOD (  19.52  )
-X-Spam-Score: -1.9 (-)
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20261023-riscv-kexec-cma-fixes-v1-3-825b90ea23c4@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,8 +77,8 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
@@ -90,72 +87,57 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-SGksCgpKdXN0IGEgZnJpZW5kbHkgcGluZyBhYm91dCB0aGlzIHBhdGNoLiBBbnkgZmVlZGJhY2sg
-b3IgcmV2aWV3IHdvdWxkIGJlIGFwcHJlY2lhdGVkLgoKVGhhbmtzIQoKPiAyMDI25bm0OOaciDEw
-5pelIDE2OjAx77yMZGFpY2hlbmdyb25nIDxkYWljaGVuZ3JvbmdAaXNjYXMuYWMuY24+IOWGmemB
-k++8mgo+IAo+IHVyZXRwcm9iZSByZXBsYWNlcyB0aGUgb3JpZ2luYWwgcmV0dXJuIGFkZHJlc3Mg
-b2YgYSBwcm9iZWQgZnVuY3Rpb24gd2l0aAo+IGEgdHJhbXBvbGluZSBhZGRyZXNzIHRvIGNhcHR1
-cmUgZnVuY3Rpb24gcmV0dXJuIGV2ZW50cy4KPiAKPiBBZnRlciB0aGUgdHJhbXBvbGluZSBpcyBl
-bnRlcmVkIGFuZCB0aGUgdXJldHByb2JlIGhhbmRsZXIgY29tcGxldGVzLCB0aGUKPiBvcmlnaW5h
-bCByZXR1cm4gYWRkcmVzcyBuZWVkcyB0byBiZSByZXN0b3JlZCBpbiB0aGUgdXNlciByZWdpc3Rl
-ciBjb250ZXh0Cj4gdG8ga2VlcCB0aGUgcmVnaXN0ZXIgc3RhdGUgY29uc2lzdGVudCB3aXRoIHRo
-ZSBzdGF0ZSBiZWZvcmUgcHJvYmluZy4KPiAKPiBBZGQgYW4gYXJjaGl0ZWN0dXJlLXNwZWNpZmlj
-IGhvb2sgZm9yIHJlc3RvcmluZyB0aGUgb3JpZ2luYWwgcmV0dXJuCj4gYWRkcmVzcyBkdXJpbmcg
-dXJldHByb2JlIGhhbmRsaW5nLgo+IAo+IFRoZSBpbml0aWFsIGltcGxlbWVudGF0aW9uIGFkZHMg
-c3VwcG9ydCBmb3IgUklTQy1WLiBPdGhlciBhcmNoaXRlY3R1cmVzCj4ga2VlcCB0aGUgZGVmYXVs
-dCBlbXB0eSBpbXBsZW1lbnRhdGlvbiB1bnRpbCB0aGVpciBjb3JyZXNwb25kaW5nIHJlc3RvcmUK
-PiBsb2dpYyBpcyBpbXBsZW1lbnRlZC4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBkYWljaGVuZ3Jvbmcg
-PGRhaWNoZW5ncm9uZ0Bpc2Nhcy5hYy5jbj4KPiAtLS0KPiBDaGFuZ2UgaW4gdjI6Cj4gLSBSZW5h
-bWUgYXJjaF91cmV0cHJvYmVfaGlqYWNrX3NldF9hZGRyKCkgdG8gYXJjaF91cmV0cHJvYmVfcmVz
-dG9yZV9yZXR1cm5fYWRkcmVzcygpIGFzIHN1Z2dlc3RlZAo+IAo+IHYxOiBodHRwczovL2xvcmUu
-a2VybmVsLm9yZy9hbGwvMjAyNjA3MTcwODIzMzEuMjcwNTgtMS1kYWljaGVuZ3JvbmdAaXNjYXMu
-YWMuY24vCj4gLS0tCj4gYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL3Vwcm9iZXMuYyB8IDcgKysr
-KysrKwo+IGluY2x1ZGUvbGludXgvdXByb2Jlcy5oICAgICAgICAgICAgfCAxICsKPiBrZXJuZWwv
-ZXZlbnRzL3Vwcm9iZXMuYyAgICAgICAgICAgIHwgNSArKysrKwo+IDMgZmlsZXMgY2hhbmdlZCwg
-MTMgaW5zZXJ0aW9ucygrKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9i
-ZXMvdXByb2Jlcy5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL3Vwcm9iZXMuYwo+IGluZGV4
-IGViMTc3ZDBjZThhYi4uOTBlZDg1OTZlNzNmIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2Vy
-bmVsL3Byb2Jlcy91cHJvYmVzLmMKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvdXBy
-b2Jlcy5jCj4gQEAgLTEzOSw2ICsxMzksMTMgQEAgYXJjaF91cmV0cHJvYmVfaGlqYWNrX3JldHVy
-bl9hZGRyKHVuc2lnbmVkIGxvbmcgdHJhbXBvbGluZV92YWRkciwKPiByZXR1cm4gcmE7Cj4gfQo+
-IAo+ICt2b2lkCj4gK2FyY2hfdXJldHByb2JlX3Jlc3RvcmVfcmV0dXJuX2FkZHJlc3ModW5zaWdu
-ZWQgbG9uZyBvcmlnX3JldF92YWRkciwKPiArICBzdHJ1Y3QgcHRfcmVncyAqcmVncykKPiArewo+
-ICsgcmVncy0+cmEgPSBvcmlnX3JldF92YWRkcjsKPiArfQo+ICsKPiBpbnQgYXJjaF91cHJvYmVf
-ZXhjZXB0aW9uX25vdGlmeShzdHJ1Y3Qgbm90aWZpZXJfYmxvY2sgKnNlbGYsCj4gdW5zaWduZWQg
-bG9uZyB2YWwsIHZvaWQgKmRhdGEpCj4gewo+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2xpbnV4L3Vw
-cm9iZXMuaCBiL2luY2x1ZGUvbGludXgvdXByb2Jlcy5oCj4gaW5kZXggZjU0OGZlYTJhZGVjLi5h
-ZjViNjMzZjkyZGQgMTAwNjQ0Cj4gLS0tIGEvaW5jbHVkZS9saW51eC91cHJvYmVzLmgKPiArKysg
-Yi9pbmNsdWRlL2xpbnV4L3Vwcm9iZXMuaAo+IEBAIC0yMzAsNiArMjMwLDcgQEAgZXh0ZXJuIGJv
-b2wgYXJjaF91cHJvYmVfeG9sX3dhc190cmFwcGVkKHN0cnVjdCB0YXNrX3N0cnVjdCAqdHNrKTsK
-PiBleHRlcm4gaW50ICBhcmNoX3Vwcm9iZV9leGNlcHRpb25fbm90aWZ5KHN0cnVjdCBub3RpZmll
-cl9ibG9jayAqc2VsZiwgdW5zaWduZWQgbG9uZyB2YWwsIHZvaWQgKmRhdGEpOwo+IGV4dGVybiB2
-b2lkIGFyY2hfdXByb2JlX2Fib3J0X3hvbChzdHJ1Y3QgYXJjaF91cHJvYmUgKmF1cCwgc3RydWN0
-IHB0X3JlZ3MgKnJlZ3MpOwo+IGV4dGVybiB1bnNpZ25lZCBsb25nIGFyY2hfdXJldHByb2JlX2hp
-amFja19yZXR1cm5fYWRkcih1bnNpZ25lZCBsb25nIHRyYW1wb2xpbmVfdmFkZHIsIHN0cnVjdCBw
-dF9yZWdzICpyZWdzKTsKPiArZXh0ZXJuIHZvaWQgYXJjaF91cmV0cHJvYmVfcmVzdG9yZV9yZXR1
-cm5fYWRkcmVzcyh1bnNpZ25lZCBsb25nIG9yaWdfcmV0X3ZhZGRyLCBzdHJ1Y3QgcHRfcmVncyAq
-cmVncyk7Cj4gZXh0ZXJuIGJvb2wgYXJjaF91cmV0cHJvYmVfaXNfYWxpdmUoc3RydWN0IHJldHVy
-bl9pbnN0YW5jZSAqcmV0LCBlbnVtIHJwX2NoZWNrIGN0eCwgc3RydWN0IHB0X3JlZ3MgKnJlZ3Mp
-Owo+IGV4dGVybiBib29sIGFyY2hfdXByb2JlX2lnbm9yZShzdHJ1Y3QgYXJjaF91cHJvYmUgKmF1
-cCwgc3RydWN0IHB0X3JlZ3MgKnJlZ3MpOwo+IGV4dGVybiB2b2lkIGFyY2hfdXByb2JlX2NvcHlf
-aXhvbChzdHJ1Y3QgcGFnZSAqcGFnZSwgdW5zaWduZWQgbG9uZyB2YWRkciwKPiBkaWZmIC0tZ2l0
-IGEva2VybmVsL2V2ZW50cy91cHJvYmVzLmMgYi9rZXJuZWwvZXZlbnRzL3Vwcm9iZXMuYwo+IGlu
-ZGV4IDYzMDBiMjE2MDEyYy4uOWEyZTljZTRlMzk4IDEwMDY0NAo+IC0tLSBhL2tlcm5lbC9ldmVu
-dHMvdXByb2Jlcy5jCj4gKysrIGIva2VybmVsL2V2ZW50cy91cHJvYmVzLmMKPiBAQCAtMTc0OCw2
-ICsxNzQ4LDEwIEBAIHZvaWQgKiBfX3dlYWsgYXJjaF91cmV0cHJvYmVfdHJhbXBvbGluZSh1bnNp
-Z25lZCBsb25nICpwc2l6ZSkKPiByZXR1cm4gJmluc247Cj4gfQo+IAo+ICt2b2lkIF9fd2VhayBh
-cmNoX3VyZXRwcm9iZV9yZXN0b3JlX3JldHVybl9hZGRyZXNzKHVuc2lnbmVkIGxvbmcgb3JpZ19y
-ZXRfdmFkZHIsIHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+ICt7Cj4gK30KPiArCj4gc3RhdGljIHN0
-cnVjdCB4b2xfYXJlYSAqX19jcmVhdGVfeG9sX2FyZWEodW5zaWduZWQgbG9uZyB2YWRkcikKPiB7
-Cj4gc3RydWN0IG1tX3N0cnVjdCAqbW0gPSBjdXJyZW50LT5tbTsKPiBAQCAtMjY1OSw2ICsyNjYz
-LDcgQEAgdm9pZCB1cHJvYmVfaGFuZGxlX3RyYW1wb2xpbmUoc3RydWN0IHB0X3JlZ3MgKnJlZ3Mp
-Cj4gdmFsaWQgPSAhbmV4dF9jaGFpbiB8fCBhcmNoX3VyZXRwcm9iZV9pc19hbGl2ZShuZXh0X2No
-YWluLCBSUF9DSEVDS19SRVQsIHJlZ3MpOwo+IAo+IGluc3RydWN0aW9uX3BvaW50ZXJfc2V0KHJl
-Z3MsIHJpLT5vcmlnX3JldF92YWRkcik7Cj4gKyBhcmNoX3VyZXRwcm9iZV9yZXN0b3JlX3JldHVy
-bl9hZGRyZXNzKHJpLT5vcmlnX3JldF92YWRkciwgcmVncyk7Cj4gZG8gewo+IC8qIHBvcCBjdXJy
-ZW50IGluc3RhbmNlIGZyb20gdGhlIHN0YWNrIG9mIHBlbmRpbmcgcmV0dXJuIGluc3RhbmNlcywK
-PiAqIGFzIGl0J3Mgbm90IHBlbmRpbmcgYW55bW9yZTogd2UganVzdCBmaXhlZCB1cCBvcmlnaW5h
-bAo+IC0tIAo+IDIuMjUuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+On Fri, Oct 23, 2026 at 03:33:16PM +0800, Han Gao via B4 Relay wrote:
+> From: Han Gao <gaohan@iscas.ac.cn>
+> 
+> dma_alloc_from_contiguous() limits the requested alignment to
+> CONFIG_CMA_ALIGNMENT without reporting it. kexec_alloc_contig() can
+> therefore place a segment at a less aligned address than buf_align. On
+> RISC-V with 4 KiB pages, the default 1 MiB limit is below the 2 MiB
+> kernel alignment, and the new kernel stops at the setup_vm() BUG_ON for
+> a misaligned physical address.
+> 
+> Release such a block and fall back to the regular memory hole search,
+> which honors the alignment.
+> 
+> Fixes: 07d24902977e ("kexec: enable CMA based contiguous allocation")
+> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+
+> ---
+>  kernel/kexec_file.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
+> index 59fb9d71e9d8..6ce10e01414e 100644
+> --- a/kernel/kexec_file.c
+> +++ b/kernel/kexec_file.c
+> @@ -690,6 +690,13 @@ static int kexec_alloc_contig(struct kexec_buf *kbuf)
+>  
+>  	mem = page_to_boot_pfn(p) << PAGE_SHIFT;
+>  
+> +	/* dma_alloc_from_contiguous() caps the alignment at CONFIG_CMA_ALIGNMENT. */
+> +	if (!IS_ALIGNED(mem, kbuf->buf_align)) {
+> +		pr_debug("CMA block 0x%lx is not aligned to 0x%lx\n", mem, kbuf->buf_align);
+> +		dma_release_from_contiguous(NULL, p, nr_pages);
+> +		return -EINVAL;
+> +	}
+> +
+>  	if (kimage_is_destination_range(kbuf->image, mem, mem + kbuf->memsz)) {
+>  		/* Our region is already in use by a statically defined one. Bail out. */
+>  		pr_debug("CMA overlaps existing mem: 0x%lx+0x%lx\n", mem, kbuf->memsz);
+> 
+> -- 
+> 2.55.0
+> 
+> 
+
+-- 
+Sincerely yours,
+Mike.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
