@@ -2,90 +2,130 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE4CF606BFA6
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 11:04:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1D78606A332
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 11:46:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rzt9/Zmu;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Jc90BoPB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=082ZapoM;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=XBPDSV6U
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=sZojBBli3MFGoUkxP7Is1xnPmVBBdPDOt3fuVp22bxA=; b=rzt9/Zmu69gyUUYQf4pYg9zET7
-	hs8uDTU2SfgwoURpSxxyk/9U4BHGLYh+kLstLVgfo90luM9ElUTJJVPBy1TNU0A9+RVYp9az1lhig
-	r79KNhky7nEb0HU1tg1WAzjmNiFdMO8JNUPbUrCbnLTLjq4CQn5r/IYhAdzRBX8mwma2s+2OQ1YQW
-	4SJ60QWEWl1PeT84bq4qCfKaBYaSQ3Pbim43cO7SrABfdzw+yemQvampeI47l/B9MAn+owZYlJ20t
-	+qoAK5hp15AYH3GX9IIXoSILha0qUih6uveuoxyGHJef04eXzrXQUJKH7yfOHS4r1eok5HaobME96
-	XE8Rm/Iw==;
+	bh=lRTCUwB7pSVQ4H2xXxjJlw54/Gzo5hB0wRRX178+1pk=; b=082ZapoM+4lhagPvTfCCA2dEmv
+	J0JEjY/e4fP3npcpQXDL2sVrehtdLMRQ7ab4eFlWJt7nv7b3Zc+Ca49yO4wHXRIbRoMHSAV5mT2E6
+	+CUakaP3pqQnGUqxjMiAonQJyLZc2NqPaotf7aP3jyctpz137u8pRILEE1B6eCDOgHrQ4evsG0cYG
+	rZwuAOb9QC7HePKdYkyqK7+laQ2DDYT2Zs6EnLZtg4DmO3WE83IzmKQ9lML0H9hFVIeyq8D5dXqLI
+	XD1EBASJWWuvARUDV1mJsOFXJlt/iE68M5xyOLDhMZcz0EzRlU5tGWaO+3zTBCYJV46pEzuPLAWXs
+	Qe8jsDtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOCJB-000000028Fz-3o1V;
-	Tue, 03 Nov 2026 11:04:05 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1xOCy9-00000002Fuk-20Vk;
+	Tue, 03 Nov 2026 11:46:25 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOCJ9-000000028Eq-1Rts
-	for linux-riscv@lists.infradead.org;
-	Tue, 03 Nov 2026 11:04:04 +0000
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 9D3482000E3;
-	Tue, 03 Nov 2026 12:04:01 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1793703841;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9+j8TmaWLqssBXOiaemL9Pho6D080LRmzK8roZic8Ps=;
-	b=Jc90BoPB2m09qPV5RCIggu7BdHaigZs6oobU/kkMRjlBvAQQsER36aTYs+0yA4V2viZn0D
-	9IOFnm4MB2MrtSWlBawUEn6m77a+pjGsUtPg2Jh9RvDMzHE/FIrmgZNh5h+CYpDwQXX5jD
-	PInHrpp2ZdVA0T8XeRSodcB5WlYvLvfZDtqC4XjERA6LUcs94M6GOmBdnbtPMf01xb1r2S
-	V8UrXgvcdt1+KL5bTrDQ9HCOKfB3aIuHHYgna2kvUIW/cTkRIOypRpEYFd3t7W1uC7pkbc
-	uMoepfkGQ15NlXW9fEqQeZ0YWY55oxNkfj4tjw//OIhvyTq3DQokuzhZk0pgYA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1793703841;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9+j8TmaWLqssBXOiaemL9Pho6D080LRmzK8roZic8Ps=;
-	b=T49uY6iISswxJGUtAIkUg8wnsDsUJizPUO3sawt1f2O1BXLVCYGBQE0ajEGa2gNNV78NU+
-	7L3a7hhs8dGEvBValngCo0hBJiDANqQwMUNJ1m1AuYD/9itxmIJ9QhLLMVvQDAdHhM56WM
-	MVAMX3PP6axkRUiLIH5TUYZNaPyO39HTUWYtYzkBD07mnDsNGFM3vPECWf9xl/mKUADZWF
-	adW5UMzwDpgvLxEBNSteHJYgrp8V+yBmQ/TKlXu460xSGgZuG+Ee3dT9wBJ5G8XrzUWuWc
-	qYsITrrpF3dH6XKzKXC2VhO1fw5Co4qtEMi4ZwghwjGwPcpsLFD85oe0ZYwAQw==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793703841; a=rsa-sha256;
-	cv=none;
-	b=Rx6LJC2yTwIOFc6EGkNmrGtrnjTzEvcY++tM/oV8LLfz5QM7h9x9mY4C3Z8S9L588dbilv
-	w5jy9BoYMt6EUr0gC+aQLnl4AQnyVCh0BaPd//AMaL9An0sBqQjLfsuv8SyMz/b+3Ww/eR
-	ORd0UFW3BHtirreItQZs1ShGIaJeYIj/O2X4sKuiM2G/5OfaQyoVeEH7yHMuuEdyfppaMs
-	e6Gded/RTFspCTzgjkOYJSY7invnM7WY447zw7vYzPTRaCrWUNzOc9YNQBk4KVFUiOAPgo
-	YlilMSkEuvCt3vgptrFl79cSFb62ExXMV+DvTP9Gm1zdl2L8FrdDFrCSbb/zWA==
-Message-ID: <bb3ee3d119d848034fa16943a4df9639b39df98c.camel@pengutronix.de>
-Subject: Re: [PATCH v2] reset: spacemit: Fix the RCPU2 PWM reset registers
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Hung-Chun Tseng <alan.tseng.cs@gmail.com>, Guodong Xu
- <docular.xu@gmail.com>,  Yixun Lan <dlan@kernel.org>
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>, Alex Elder	
- <elder@riscstar.com>, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, 	linux-kernel@vger.kernel.org
-Date: Tue, 03 Nov 2026 12:04:01 +0100
-In-Reply-To: <20261021132130.3026998-1-alan.tseng.cs@gmail.com>
-References: <20261021132130.3026998-1-alan.tseng.cs@gmail.com>
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	id 1xOCy6-00000002FsQ-1uKG;
+	Tue, 03 Nov 2026 11:46:23 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A3AEnqC4045893;
+	Tue, 3 Nov 2026 11:45:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=rQNgYgRzwbgahGLohNvZBfs82BLnKv
+	w2G9BPFntd+2Y=; b=XBPDSV6U1ByAfT/2HXWiYPBImtoE06l1RsLvOPr+Mg1Wdg
+	5bb7Q4UvH0mEeFRj51IZNVX9NifoIpA9L056gpcpDJYHk5VjyO/RQmX944rPTcqT
+	lza8DMAA2sFbSnKXHJIeLKs+Q8G1+3X9B+dEQMrLtkOkjp4pNJTbzJPAiDcZXVUE
+	p6Db6wAKv27p8hT6TDeMeXOr4Vk2Xpp7upRB50EYJzqoLgx5W9PMpVDKF0KnA/eX
+	bnd0mHKF4Ty7FsZMzKSxZD1WU4h6XYV6jH6M4KptIOxivjveMfPtf8UA4FEmQ1NM
+	hLDM5ogor5Zfi+YhNntcsukL5xZcXKcEJ/fYDveQ==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4hn80snd8h-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 03 Nov 2026 11:45:57 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6A3AK5Iq2350043;
+	Tue, 3 Nov 2026 11:45:56 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4hqbqk8stp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 03 Nov 2026 11:45:56 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6A3BjoS127460120
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 3 Nov 2026 11:45:50 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 770852004D;
+	Tue,  3 Nov 2026 11:45:50 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 9A1B320040;
+	Tue,  3 Nov 2026 11:45:49 +0000 (GMT)
+Received: from osiris (unknown [9.111.24.158])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Tue,  3 Nov 2026 11:45:49 +0000 (GMT)
+Date: Tue, 3 Nov 2026 12:45:48 +0100
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+        Huacai Chen <chenhuacai@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Paolo Bonzini <pbonzini@redhat.com>, Fuad Tabba <fuad.tabba@linux.dev>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>, Nicholas Piggin <npiggin@gmail.com>,
+        Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        kvm@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Stefan Teodorescu <fane@google.com>
+Subject: Re: [PATCH 1/7] KVM: s390: Drop unused and unreachable
+ kvm_arch_vcpu_should_kick()
+Message-ID: <20261103114548.119911-B-seiden@linux.ibm.com>
+References: <20261028190259.1819571-1-seanjc@google.com>
+ <20261028190259.1819571-2-seanjc@google.com>
+ <20261102153228.240804-H-seiden@linux.ibm.com>
+ <auitiPKnFueBJzPA@google.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <auitiPKnFueBJzPA@google.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: pVpgdP1XGIbnstN6hf1_H30Mry2kEc8w
+X-Proofpoint-ORIG-GUID: l9khr2_nw7GEkBcFn3H6-NSEwUfuIP0C
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAzMDA0NiBTYWx0ZWRfX1XmGS9lHsUL0
+ R/pqFn7OS4O6sIvO6xkJJLw7ub5XYBJJ8rT4n7ytkLsrM+nXxJ8ALAk6IZ7cxaLgxzx/sz6YekU
+ QUQNLzCc+AcEIzFSIIId4SI+3jZ4xWcemIVFHv+lYM846eTlTDBy/sVfsO3lwE4suzbkGudS2Kb
+ gxPBGGgvMaIVdytp/A39MMoe5QDoT7CkGj5SGrkaqTAe4eTeD+SzsmTdUt/UyjY9TJC3JseqnJa
+ QEo75BJzfvgqw3u+U+2wRBpyO7uPflzaZ5caj2HokpnoTurGkxzXBgpUXpjVDxTHjuBmXjI8rPa
+ vxWDAmBlV9AhIXjL/sn+6LcGLT5sIIA/1vfGnxBH9hGUn2tSE9JXdCrUFdxql4RE+ZLXgJZ4H1I
+ Kt9BEBx2jKRF/wavIUPm0bKdaAiukt/xqjNHAoSCxYurQjxD+KTis8S/8SmPNJktwNxtQkMBgIp
+ 7SZvF2lkFSgtvQ77a7g==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAzMDA0NiBTYWx0ZWRfX8KXTgj3ZDXIb
+ rszJKiaYCEhjwddi22AWOUixDabzaYbTZeZqW4OyLHY9z/7j8facbJ5/xv2IRGOBpQn4thL/pQY
+ S1fxrlzI0e+Xs7MM8Gx7oKdd53KSVec=
+X-Authority-Analysis: v=2.4 cv=FIqOVOos c=1 sm=1 tr=0 ts=6ae9c975 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=14yfDfNcGX1pIiSJYtUA:9
+ a=CjuIK1q_8ugA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-03_02,2026-11-02_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 malwarescore=0 impostorscore=0 spamscore=0 lowpriorityscore=0
+ bulkscore=0 suspectscore=0 clxscore=1015 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610300000 definitions=main-2611030046
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_030403_537289_957260D0 
-X-CRM114-Status: UNSURE (   4.27  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_034622_501999_A616F7BB 
+X-CRM114-Status: GOOD (  17.59  )
+X-Spam-Score: -2.6 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,28 +138,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mi, 2026-10-21 at 21:21 +0800, Hung-Chun Tseng wrote:
-> Every entry in k1_rcpu2_resets[] uses RCPU2_PWM9_CLK_RST, so asserting
-> or deasserting the reset of any RCPU2 PWM from 0 to 8 acts on PWM9
-> instead. Each PWM has its own register, RCPU2_PWMn_CLK_RST at offset
-> 4 * n, as k1-syscon.h already defines.
+On Mon, Nov 02, 2026 at 07:34:32AM -0800, Sean Christopherson wrote:
+> On Mon, Nov 02, 2026, Steffen Eiden wrote:
+> > On Wed, Oct 28, 2026 at 12:02:53PM -0700, Sean Christopherson wrote:
+> > > Drop s390's kvm_arch_vcpu_should_kick() stub as the one and only call site
+> > > is wrapped with "#ifndef CONFIG_S390".
+> > 
+> > In the somehow near future I'll remove those #ifdefs and use the kick
+> > stuff for kvm_arm64. The native s390 KVM then must at least keep an
+> > (unused) symbol at hand. It seems that the compiler could not optimize
+> > those calls away. So let's keep it there so I do not have to re-add it
+> > soon.
 > 
-> [...]
+> Please read the rest of the series.  kvm_arch_vcpu_should_kick() goes away
+> entirely.
 
-Applied to reset/fixes, thanks!
+Sorry for that. This patch just jumped to my attention and I had no time
+yet to read the rest. 
 
-[1/1] reset: spacemit: Fix the RCPU2 PWM reset registers
-      https://git.kernel.org/pub/scm/linux/kernel/git/pza/linux.git/commit/?id=168cae7e87463
-
-regards
-Philipp
+	Steffen
 
 _______________________________________________
 linux-riscv mailing list
