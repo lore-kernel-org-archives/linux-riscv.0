@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 513ED606D806
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 12:03:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8CB4606D819
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 12:03:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CKI5tx1r;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=cCjGWU9S
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=k0QFnXQ4;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=PwoQat0r
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,29 +14,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=FfZrgb0PYI6NKvRDNglDR5xIopdiTKXqaPfC6pFjb7Y=; b=CKI5tx1rGj24tn+Ew/TBTbYwCv
-	36OSXPpdTVd73uKBR2kjSlWlHMR9svEQ/IvJG1ujlMYrnMrtWdTBFMaHCV85reMPEp7Zb1i0YHBAa
-	mafBbo/ZRbbMJ098mzhINHJ9Sv2lYTHFh2dhn7pr9CujeCwVsXl0V/3Th+nWuo6e/eun1JHHtDMAU
-	yzlF7fjKefJAX+6pEw5L3+r4drNcd9/3TffnysipoIjmyBjw8eZHb0S6BHK1Krhx/DihiPBk/m7du
-	oEMQEZ0xT8dtDapTAKIyDCuv7ms+FuCVX5o/2IffNAZEhwNkpym3V6AH2eyTY6Mgi5D57GMkJXIsK
-	G9cJzn1w==;
+	bh=fR0W/VTuZOpbJJw2lnq03wUPH/93blQ+tM3LC7aJA1E=; b=k0QFnXQ4/ZQF3a30d82pmmMpIa
+	+Q0dvSEHGfevoRwNmyW9f+T/Q0Ppl6/jOIOXsgCEbvHraimDGIy6ziYsB92iqTSWjyUjxQhapzEJl
+	Vtp1MbfENbu9af3ALrQLKlsM54l3acp2I1cyGTcia5FWY1GAlO4hzCaiBl3dN5qMdMxa9DZIUKEwQ
+	CApT9z7bAvRUE6MDl4hvwlDg15ltijqe6o9b9iicfvA/YoHNeoovX7ekNNKnEIZyV0pv8L9BRxN4x
+	pq4fdlXOlm93aRvJVA+tnUWHFDksyXVZO+7Yw8EMVoSvtyBkE0A/6DuulK/jrMFOb46tlVIiW31+d
+	6X331/gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xODEc-00000002JJW-04KB;
-	Tue, 03 Nov 2026 12:03:26 +0000
-Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
+	id 1xODEg-00000002JQ6-3pDe;
+	Tue, 03 Nov 2026 12:03:30 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xODEW-00000002J87-21HN;
-	Tue, 03 Nov 2026 12:03:22 +0000
+	id 1xODEa-00000002JE5-03ri;
+	Tue, 03 Nov 2026 12:03:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1793707397; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=6p5yvFa6XuR3x0uOGBMYmOORDZRKEzDHmfCxWVkYjRA=;
-	b=cCjGWU9SCP5WJ3ZfZQOGv9jgcCagPCUYFtPXOZCfirAk0uDNE8LwBffQs15Gha3IMFDSLzCQb9y/86VlcABzd4OlSFICUkyWCVyh0HQGXFIDlrTHjrFZ40pTPCFyE/n2+rlnXsonV1FQJJ9r0CHy8SqLy0khi2R58zn/SFDDzkc=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R181e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=29;SR=0;TI=SMTPD_---0XE2qH.c_1793707394;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XE2qH.c_1793707394 cluster:ay36)
+	t=1793707401; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=NOxToOaRCWHOshJgMcU31n+bkp0++VjZYWL+rK/hMio=;
+	b=PwoQat0rStQKNniXm2CLGOpw/39cEiOdRNQClpTmPwSoSIewwVcxfqwI5DdAYMzEGDSIHdgwJoSap3iNUYAVzNJDr9Yrm/1Z1XJEL8SHPqOVgn658/FyUEHvwhnfeeuZl7C1DMvC+d148A+0roZS+CX8iiJtzxDVsVL5MgUTa80=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R861e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=29;SR=0;TI=SMTPD_---0XE2qH0l_1793707398;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XE2qH0l_1793707398 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 03 Nov 2026 20:03:15 +0800
+          Tue, 03 Nov 2026 20:03:19 +0800
 From: fangyu.yu@linux.alibaba.com
 To: tomasz.jeznach@linux.dev,
 	joro@8bytes.org,
@@ -67,17 +67,17 @@ Cc: fangyu.yu@linux.alibaba.com,
 	linux-riscv@lists.infradead.org,
 	kvm-riscv@lists.infradead.org,
 	Nutty Liu <nutty.liu@hotmail.com>
-Subject: [PATCH v7 08/10] iommu/riscv: Pre-enable GADE for second-stage domains
-Date: Tue,  3 Nov 2026 20:02:34 +0800
-Message-Id: <20261103120236.53474-9-fangyu.yu@linux.alibaba.com>
+Subject: [PATCH v7 10/10] iommu/riscv: Add IOTINVAL.GVMA invalidations
+Date: Tue,  3 Nov 2026 20:02:36 +0800
+Message-Id: <20261103120236.53474-11-fangyu.yu@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20261103120236.53474-1-fangyu.yu@linux.alibaba.com>
 References: <20261103120236.53474-1-fangyu.yu@linux.alibaba.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_040320_749088_000C3CEB 
-X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-CacheID: sfid-20261103_040324_869641_BB93113E 
+X-CRM114-Status: UNSURE (   7.42  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -102,46 +102,54 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-Pre-enable RISCV_IOMMU_DC_TC_GADE in the device context when
-attaching a second-stage domain, if the IOMMU supports AMO_HWAD.
-
-Software pre-populates second-stage page tables with D set, so
-enabling GADE by default does not change normal behavior. When
-dirty tracking is enabled, iommufd clears the pre-set D bits and
-GADE becomes necessary for hardware to update the dirty bit on
-write access.
-
-This avoids toggling GADE dynamically and keeps device context
-setup consistent with second-stage domain attachment.
+Previously, only IOTINVAL.VMA was issued, which is insufficient for
+second-stage address translation consistency.
 
 Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
 ---
- drivers/iommu/riscv/iommu.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/iommu/riscv/iommu.c | 18 +++++++++++++++---
+ 1 file changed, 15 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 61dfde11ba13..b3f05dfdf278 100644
+index ff1043afe973..8c15710d60b6 100644
 --- a/drivers/iommu/riscv/iommu.c
 +++ b/drivers/iommu/riscv/iommu.c
-@@ -1237,6 +1237,8 @@ static void riscv_iommu_iodir_update(struct riscv_iommu_device *iommu,
- 	for (i = 0; i < fwspec->num_ids; i++) {
- 		dc = riscv_iommu_get_dc(iommu, fwspec->ids[i]);
- 		tc = READ_ONCE(dc->tc);
-+		tc &= ~RISCV_IOMMU_DC_TC_GADE;
-+		tc |= new_dc->tc & RISCV_IOMMU_DC_TC_GADE;
- 		tc |= new_dc->ta & RISCV_IOMMU_DC_TC_V;
+@@ -831,6 +831,15 @@ static int riscv_iommu_iodir_set_mode(struct riscv_iommu_device *iommu,
+ 	riscv_iommu_cmd_inval_vma(&cmd);
+ 	riscv_iommu_cmd_send(iommu, &cmd);
  
- 		WRITE_ONCE(dc->fsc, new_dc->fsc);
-@@ -1353,6 +1355,8 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
- 			FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_MODE, pt_info.iohgatp_mode) |
- 			FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_GSCID, domain->gscid) |
- 			FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_PPN, pt_info.ppn);
-+		if (iommu->caps & RISCV_IOMMU_CAPABILITIES_AMO_HWAD)
-+			dc.tc |= RISCV_IOMMU_DC_TC_GADE;
- 	} else {
- 		if (!riscv_iommu_fsc_supported(iommu, pt_info.fsc_iosatp_mode))
- 			return -ENODEV;
++	/*
++	 * Per the RISC-V IOMMU spec (sec. 5.5), the IOMMU may retain
++	 * cached translations across mode switches. IOTINVAL.VMA only
++	 * covers first-stage leaf PTEs, so use a global IOTINVAL.GVMA
++	 * to flush stale second-stage translations.
++	 */
++	riscv_iommu_cmd_inval_gvma(&cmd);
++	riscv_iommu_cmd_send(iommu, &cmd);
++
+ 	/* IOFENCE.C */
+ 	riscv_iommu_cmd_sync(iommu, RISCV_IOMMU_IOTINVAL_TIMEOUT);
+ 
+@@ -1176,12 +1185,15 @@ static void riscv_iommu_iodir_iotinval(struct riscv_iommu_device *iommu,
+ 		/*
+ 		 * else: IOTINVAL.VMA with GV=1,AV=PSCV=0,and
+ 		 * GSCID=DC.iohgatp.GSCID
+-		 *
++		 */
++		riscv_iommu_cmd_send(iommu, &cmd);
++		/*
+ 		 * IOTINVAL.GVMA with GV=1,AV=0,and
+ 		 * GSCID=DC.iohgatp.GSCID
+-		 * TODO: For now, the Second-Stage feature have not yet been merged,
+-		 * also issue IOTINVAL.GVMA once second-stage support is merged.
+ 		 */
++		riscv_iommu_cmd_inval_gvma(&cmd);
++		riscv_iommu_cmd_inval_set_gscid(&cmd,
++			FIELD_GET(RISCV_IOMMU_DC_IOHGATP_GSCID, iohgatp));
+ 	}
+ 	riscv_iommu_cmd_send(iommu, &cmd);
+ }
 -- 
 2.50.1
 
