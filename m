@@ -2,110 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 185CF6076B85
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D32C6076B87
 	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 08:37:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jlQT7c2a;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=Z132Wof5
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TEOnHnrr;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=EcLo26a3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References:Message-ID
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=FEuAcKagVEHFI4fUKJ89yYMhzFq5dQhLo1QDLss0VNI=; b=jlQT7c2aPiz8w4OWOXbdE/qRYG
-	Qce5DSUQM/QTLs7f6vKkyRjrTwwsCIDs9El24NK6iJmpgHfzWwjV2IEkXruGW0yj5QwQCRuf9qEUk
-	YL9wk7A0MDhuenVUwNmXbpNZQKWEWo8TaM0tef+RlfDZgbF41uKkslc9E1UNNIntrILjmC6mr/1GJ
-	eiXBgoVMLw4n/7sftbslp5HXksVyzX7YNwzGRZ1QmUm26BRVDUBLE9qn/tiwUMPJXB+6GVHTq7/ab
-	RrZ9gMOFVtLDGPihHQNM48Mrc0Rq4S+QqZutQDXo8vlwLT5JmGWEV7gq5UU7TM2Cm+FT64E/2KzPl
-	KkYfRKJg==;
+	bh=XkC5UeSsb6J+PblsSMghk91jJ3cgePQKSeVx6MRDTgY=; b=TEOnHnrrGwx6teOhsD7xrsTrTQ
+	veCLseper66b4F9cTsmpD/G6L2ml9ON6A+lufNwb+UPlbADDne7bbCjRExBum8uKz/2Kx7+LgBICe
+	7Rc3PIvYg8piO+p9meEeDRLpSyUPEl9UXI2PvEpWx4svH/wcvrN0eUPh75SK6/ZZAJr2DAuzfuK+Q
+	iE8j4TW+v8AEc9xfS6PM7/9uJPSoYUCuhBXMh1GBcQW3xZ+QRgao2m7X9Bww4TaW+YS0AkjJ/lXBH
+	b/HZWutahHGiwP48FO3ckMcdfoMjAL0SVnjfSm0YrIHLOBGbcTpOd5u/bv+sSR3NemVNNmUOmG/Jb
+	aKO9VxTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOA1b-00000001Zwb-13lN;
+	id 1xOA1b-00000001ZwH-0EdI;
 	Tue, 03 Nov 2026 08:37:47 +0000
-Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
+Received: from smtpbgsg1.qq.com ([54.254.200.92])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOA1H-00000001Zpm-2fnh
+	id 1xOA1F-00000001ZpW-3Wrd
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Nov 2026 08:37:41 +0000
-Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
-	by mx08-00376f01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A35Wq4v3269100;
-	Tue, 3 Nov 2026 08:36:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=c
-	9w2cVYOS/JtP/ygwOyGXTYQMzbvgLvIS7g/OWDgsqQ=; b=Z132Wof5HxrhaWtI8
-	H08BbulOqXahUdalH3nVGeQd/6fjWNr1EUS3xLEyIxiN9CH6KL2BEeF+UmYezwbN
-	ORHsvMG7NIrkC5o+VcSzV3e5owRgBCA7yADY3yFM9sdF1WFN7wvZ6ewgSg0Zjx/4
-	S8603Wddyy/0cpmbmnZd57VEV20t7gM/etSWP9p8yn0SLRuiUNLZHh6A9RRr3Ph1
-	RbKXh10Vs7uoWxIbiuB2yRKFUutVSS+dkBnuBcChYuOzMjd0jkOOANsR0VD0VEcv
-	IlyjpmcE+psBGGUGV18gjPbxvwGPxw8rk7b/kzadUIXfC3AO3uj7NOZM9aMv/xv4
-	BUkRQ==
-Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 4hn7ft239b-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 03 Nov 2026 08:36:53 +0000 (GMT)
-Received: from [127.0.1.1] (172.25.5.26) by HHMAIL01.hh.imgtec.org
- (10.100.10.19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 3 Nov
- 2026 08:36:51 +0000
-From: Alexandru Dadu <alexandru.dadu@imgtec.com>
-Date: Tue, 3 Nov 2026 10:36:17 +0200
-Subject: [PATCH v3 1/5] drm/imagination: Prepare heap config header for
- multi-arch support
+	Tue, 03 Nov 2026 08:37:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1793695034;
+	bh=pOH/pz5YI6n5r4yeSn21B/P2nSnkvlBqbg8UUHq5vZU=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=EcLo26a3AGIS9XZNSijAaKMHz00dPQ/WvTDDzwSX9id3eZ4dshhzDOiY1QM6IuLBg
+	 BdBY7z8zU5i9Y5H9tB2Ab7e4tLqn4/xypEHVLmMTjGSbaH0eCYveFahlJOcnJHo9Gg
+	 hquJj672weI3fKVME7SxRRHrWdyGrGJs49j2rxds=
+X-QQ-mid: esmtpgz12t1793695033tdc4d96fb
+X-QQ-Originating-IP: JcdVJio/hJmTz6vZxxa3J3Rp1TnfThoafdDs7/0vr9o=
+Received: from = ( [58.254.69.131])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 03 Nov 2026 16:37:10 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 8282491870121424289
+EX-QQ-RecipientCnt: 16
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Date: Tue, 03 Nov 2026 08:36:48 +0000
+Subject: [PATCH 3/5] riscv: dts: spacemit: Add the K1 APB timer
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-ID: <20261103-prep-meta-fw-arch-independent-v3-1-563dbaf1b779@imgtec.com>
-References: <20261103-prep-meta-fw-arch-independent-v3-0-563dbaf1b779@imgtec.com>
-In-Reply-To: <20261103-prep-meta-fw-arch-independent-v3-0-563dbaf1b779@imgtec.com>
-To: Alessio Belle <alessio.belle@imgtec.com>,
-        Luigi Santivetti
-	<luigi.santivetti@imgtec.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Paul Walmsley <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>
-CC: <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        "Alexandru
- Dadu" <alexandru.dadu@imgtec.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793695010; l=7080;
- i=alexandru.dadu@imgtec.com; s=20260304; h=from:subject:message-id;
- bh=9eDwkLGnx8tNwuQaBx3u4oUMlcw41201/Cad9UF2XXs=;
- b=eyhJPV1IKgynrQp3wPGtVRaL5Q6L0UWQKHKdiqhh87t5/KnbdxJr4RDrLtbEPx1cO7fvP/nj6
- BNmTsVnDPZnDgSR5TkijmXWAQ/62LYDIXFxlR5dmd0TTHwMUwxP/eg7
-X-Developer-Key: i=alexandru.dadu@imgtec.com; a=ed25519;
- pk=FU07SyNrYGwhahqSxbWEuzyXlUh47xBXvLvOR7UA6+U=
-X-Proofpoint-ORIG-GUID: sEFYC7S8JDdE48YA-1gRAeuAW23M_Nb9
-X-Proofpoint-GUID: sEFYC7S8JDdE48YA-1gRAeuAW23M_Nb9
-X-Authority-Analysis: v=2.4 cv=HaSB3SE8 c=1 sm=1 tr=0 ts=6ae99d25 cx=c_pps
- a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
- a=h_3jC4m0AyQA:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=qZQ2PDNLMSdLoqI-hfl9:22
- a=r_1tXGB3AAAA:8 a=wwnLb05hCPqUNQMNHCwA:9 a=QEXdDO2ut3YA:10
- a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAzMDAzNCBTYWx0ZWRfXwoVI+jhRUczt
- reXCm3AxIZt2oMdhqxYUOhNHEQZbUbrTD7nCPyyapDSkidrwi5MkEx9WU+FmXx6VSTjt1LsNjDa
- A9A+LXjdO+Gkg7fREdi4omrCwAg5+qQ=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAzMDAzNCBTYWx0ZWRfX5YY0g8gfSp2G
- sFM5Q6uhd+ZdFmSd8olEDsb2hBahZB6oiOZC93TcE6nTFsLHUY18txPkEXjathLMx/+2r3lnHtw
- Uh/anRlMUcdGGDRQuwy06ohuDc+puSSdvbbY3tkEJ//845u2zOGX8Qvx2QoUkylLXbFSUH7me9b
- sfE5HErP+lVcEHgQNoQuhfg6dqVCQWmW1DZG2Aqmz57fbog/7v4dwuJGqAysg6brp+2G2hVmbwt
- HG4U7o4UD/56C/nmqZYWoFkmwUGSeFiZj3ryqEuv1Ez7/6cQDn+/eA70DD1Xi/Zp0YHr3T93Jnl
- ULIoczbyIxFtffaoTHcVf576p798PkVjK1oD3UEi83TCmVDgleoDyTh9pnwHvJoB0SC6Zn9sqqa
- CDANQ2m0Dc99X6Gj2F6fn4R9gRyDVF0EC0lRmGMOHcdwRWpk9svJTKrcWo5e8DJaCZmBmgyiBQJ
- WPWCADHJUEx7XnbseTw==
+Message-Id: <20261103-spacemit-soc-timer-v1-3-36722421db6e@linux.spacemit.com>
+References: <20261103-spacemit-soc-timer-v1-0-36722421db6e@linux.spacemit.com>
+In-Reply-To: <20261103-spacemit-soc-timer-v1-0-36722421db6e@linux.spacemit.com>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1252;
+ i=troy.mitchell@linux.spacemit.com; h=from:subject:message-id;
+ bh=MskIDgqPGeV/8XRXVLyf9Iga/gwF4QUehWI17LXRw8Y=;
+ b=owGbwMvMwCU2g/N9w09jE33G02pJDFkv5yrnru7ZKtn7onXL9yWxG9MvyClvTH93QWlpWOpF4
+ 7xTl5V3dJSyMIhxMciKKbJ0P+DZVuATZVsgUOgLM4eVCWQIAxenAExEVZzhv0vekUhWF/cDDrxR
+ pVOqWQ8HlGlVZ/Jsiz1gtfW+YfhpMYa/IoKTVOcGz9JyXvg4a2+4gGt8kbb+7mr9U3eX2zz+vms
+ ODwA=
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=openpgp;
+ fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: M8BaT0GEeXPx/NNhnjzhsl8/Fiox/cTCavMobl6pYUcejSbd3fePUASI
+	HpSumTidgvvd+N/rl1aeQyxWmCyulCDBWWgCQGsAj9TMbXh6tiAwAGy9OuqpRNXaN9njka5
+	hSLCWkevuJsy5mEE0i+tScdDAQQnCvAvAGUYZKiGVk1H+iAFIQ2NR/WbO2brfm42tk9EsKM
+	xEdfZu4iPbKoBGoSmyRdCE5mSZN7paP/K/CgRRejiaPBWzoGjzdXdaDIk/L17AvmrzwVt8e
+	Rtzt/qosckBk/lN086VqbY9mJumxm3N9BoyArJ6oI0O2cGetNyzLlarY1Nxr60a611KosoU
+	teWSH5UXUMyr38D/c6JTA6EDLIdepSasCQiAO1ahQPkh+rsRGOqbBQiXxXfKfVxzPm12G6U
+	/gzLpQmonTIGJ5kXctYmbfXuIXm8heTkscjnF551I6EhlAXwBbrfp6OgULlYlqbCxtLFlpj
+	jDfwU4N7QNY6h/AUp9FzoeMAJN/ZwrftrxRmrgF728w70yJaZtU0tiNm9qtwslLOPlH+a8y
+	2vMuiOWa1HcSbP0PAzDZT9BAd513PJuhjYoOJnGq+vEuQKBoIRCcU7AoIfkN4qIeoQdVK9J
+	yGAQytn+cFrN7ulwW5YP7z9tTIfxWMrFOpno8FAGfQyJc53XWK8LIN/i/TYc89k+sTeKVU/
+	M3j42CTdqQvE2j0qsNTmnhw08c8T/IFmy4FRnxyZtfKfvgP7n1uir9sI+m+OQ5n50IgwfHr
+	Jlo1mHjrco4nAXe39C/vquVs6TVgBvTxd0jeuabi3dPA4NtC2clPj8fZYQFOpo4Cp/SgBc1
+	6v2gs74rt6UwjGWdskavwovV4lr86/X2ovbbKdGNmbUb/o2kJY/GCfR2ksYYOxroOqjJiUI
+	LKqbGprKZnMRstI5t7EbaactnVgnKLVr1QIReDwnLZZzJAJ8Ex6kQ3NvJqHyXv3h1VO9uWU
+	XjPTTEoOFwf6y88Z9YUTKWSoAZ4LccwbU3Bd5lD1BjzlnnetkPf8ZNFTcpGlSvBPl5FhDQ/
+	3XQ54Uw4fqIpbAuN66Jxf8YWeEkoXuIuWwIFja+tTZqNpi+q0/ES5P6f827+zDBP/OvxiF4
+	gy8AUWSYelx6FDiQry5yvnz1u2NtEyREgFRumuW6MkCu+tjcKGHiI/6g0Sspg+T7J0kEZeE
+	ctAx
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_003727_949885_BA429540 
-X-CRM114-Status: GOOD (  17.47  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261103_003726_282369_FC1ABA77 
+X-CRM114-Status: UNSURE (   7.34  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,193 +119,42 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Update the name of pvr_rogue_heap_config.h to pvr_heap_config.h to
-prepare it for a more generic implementation that will have memory
-sections defined for multiple GPU architectures.
-Update the multi-arch common define names to a generic format.
+Describe the first APB timer block and its counter 0 interrupt so it can
+provide a shared clockevent. Connect its functional and bus clocks and
+reset, and select the oscillator-derived 1 MHz input for a stable counter
+rate independent of the PLLs.
 
-Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
- drivers/gpu/drm/imagination/pvr_fw.c               |  7 +++---
- drivers/gpu/drm/imagination/pvr_gem.h              |  2 +-
- .../{pvr_rogue_heap_config.h => pvr_heap_config.h} | 26 +++++++++++-----------
- drivers/gpu/drm/imagination/pvr_vm.c               | 18 +++++++--------
- 4 files changed, 26 insertions(+), 27 deletions(-)
+ arch/riscv/boot/dts/spacemit/k1.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/gpu/drm/imagination/pvr_fw.c b/drivers/gpu/drm/imagination/pvr_fw.c
-index c6c77b152342..4d5df5272f46 100644
---- a/drivers/gpu/drm/imagination/pvr_fw.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw.c
-@@ -9,9 +9,8 @@
- #include "pvr_fw_startstop.h"
- #include "pvr_fw_trace.h"
- #include "pvr_gem.h"
-+#include "pvr_heap_config.h"
- #include "pvr_power.h"
--#include "pvr_rogue_fwif_dev_info.h"
--#include "pvr_rogue_heap_config.h"
- #include "pvr_vm.h"
+diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+index 542bfc0d19f5..c3db90f6bf14 100644
+--- a/arch/riscv/boot/dts/spacemit/k1.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+@@ -583,6 +583,18 @@ i2c5: i2c@d4013800 {
+ 			status = "disabled";
+ 		};
  
- #include <drm/drm_drv.h>
-@@ -372,8 +371,8 @@ fw_sysinit_init(void *cpu_ptr, void *priv)
- 	WARN_ON(pvr_fw_object_get_dma_addr(fw_mem->fault_page_obj, 0, &fault_dma_addr));
- 	fwif_sysinit->fault_phys_addr = (u64)fault_dma_addr;
- 
--	fwif_sysinit->pds_exec_base = ROGUE_PDSCODEDATA_HEAP_BASE;
--	fwif_sysinit->usc_exec_base = ROGUE_USCCODE_HEAP_BASE;
-+	fwif_sysinit->pds_exec_base = PVR_PDSCODEDATA_HEAP_BASE;
-+	fwif_sysinit->usc_exec_base = PVR_USCCODE_HEAP_BASE;
- 
- 	pvr_fw_object_get_fw_addr(fw_mem->runtime_cfg_obj, &fwif_sysinit->runtime_cfg_fw_addr);
- 	pvr_fw_object_get_fw_addr(fw_dev->fw_trace.tracebuf_ctrl_obj,
-diff --git a/drivers/gpu/drm/imagination/pvr_gem.h b/drivers/gpu/drm/imagination/pvr_gem.h
-index 4286e047ae24..ae7af82b6f17 100644
---- a/drivers/gpu/drm/imagination/pvr_gem.h
-+++ b/drivers/gpu/drm/imagination/pvr_gem.h
-@@ -4,7 +4,7 @@
- #ifndef PVR_GEM_H
- #define PVR_GEM_H
- 
--#include "pvr_rogue_heap_config.h"
-+#include "pvr_heap_config.h"
- #include "pvr_rogue_meta.h"
- 
- #include <uapi/drm/pvr_drm.h>
-diff --git a/drivers/gpu/drm/imagination/pvr_rogue_heap_config.h b/drivers/gpu/drm/imagination/pvr_heap_config.h
-similarity index 85%
-rename from drivers/gpu/drm/imagination/pvr_rogue_heap_config.h
-rename to drivers/gpu/drm/imagination/pvr_heap_config.h
-index 5c33b342dda5..280bf1ed523b 100644
---- a/drivers/gpu/drm/imagination/pvr_rogue_heap_config.h
-+++ b/drivers/gpu/drm/imagination/pvr_heap_config.h
-@@ -1,8 +1,8 @@
- /* SPDX-License-Identifier: GPL-2.0-only OR MIT */
- /* Copyright (c) 2023 Imagination Technologies Ltd. */
- 
--#ifndef PVR_ROGUE_HEAP_CONFIG_H
--#define PVR_ROGUE_HEAP_CONFIG_H
-+#ifndef PVR_HEAP_CONFIG_H
-+#define PVR_HEAP_CONFIG_H
- 
- #include <linux/sizes.h>
- 
-@@ -14,7 +14,7 @@
-  * fits into this, but the firmware heap is only ever created in the
-  * kernel driver and never exposed to userspace.
-  *
-- * ROGUE_PDSCODEDATA_HEAP_BASE and ROGUE_USCCODE_HEAP_BASE will be programmed,
-+ * PVR_PDSCODEDATA_HEAP_BASE and PVR_USCCODE_HEAP_BASE will be programmed,
-  * on a global basis, into ROGUE_CR_PDS_EXEC_BASE and ROGUE_CR_USC_CODE_BASE_*
-  * respectively. Therefore if client drivers use multiple configs they must
-  * still be consistent with their definitions for these heaps.
-@@ -38,9 +38,9 @@
- /* 0x80_0000_0000 ************************************************************/
- 
- /* 0x80_0000_0000 - 0x9F_FFFF_FFFF **/
--/* 512 GiB to 640 GiB, size of 128 GiB : GENERAL_HEAP */
--#define ROGUE_GENERAL_HEAP_BASE 0x8000000000ull
--#define ROGUE_GENERAL_HEAP_SIZE SZ_128G
-+/* 512 GiB to 640 GiB, size of 128 GiB : GENERAL_HEAP **/
-+#define PVR_GENERAL_HEAP_BASE 0x8000000000ull
-+#define PVR_GENERAL_HEAP_SIZE SZ_128G
- 
- /* 0xA0_0000_0000 - 0xAF_FFFF_FFFF */
- /* 640 GiB to 704 GiB, size of 64 GiB : FREE */
-@@ -58,8 +58,8 @@
- 
- /* 0xDA_0000_0000 - 0xDA_FFFF_FFFF */
- /* 872 GiB to 876 GiB, size of 4 GiB : PDSCODEDATA_HEAP */
--#define ROGUE_PDSCODEDATA_HEAP_BASE 0xDA00000000ull
--#define ROGUE_PDSCODEDATA_HEAP_SIZE SZ_4G
-+#define PVR_PDSCODEDATA_HEAP_BASE 0xDA00000000ull
-+#define PVR_PDSCODEDATA_HEAP_SIZE SZ_4G
- 
- /* 0xDB_0000_0000 - 0xDB_FFFF_FFFF */
- /* 876 GiB to 880 GiB, size of 256 MiB (reserved 4GiB) : BRN */
-@@ -76,8 +76,8 @@
- 
- /* 0xE0_0000_0000 - 0xE0_FFFF_FFFF */
- /* 896 GiB to 900 GiB, size of 4 GiB : USCCODE_HEAP */
--#define ROGUE_USCCODE_HEAP_BASE 0xE000000000ull
--#define ROGUE_USCCODE_HEAP_SIZE SZ_4G
-+#define PVR_USCCODE_HEAP_BASE 0xE000000000ull
-+#define PVR_USCCODE_HEAP_SIZE SZ_4G
- 
- /* 0xE1_0000_0000 - 0xE1_BFFF_FFFF */
- /* 900 GiB to 903 GiB, size of 3 GiB : RESERVED */
-@@ -99,8 +99,8 @@
- 
- /* 0xF2_0000_0000 - 0xF2_001F_FFFF **/
- /* 968 GiB to 969 GiB, size of 2 MiB : VISTEST_HEAP */
--#define ROGUE_VISTEST_HEAP_BASE 0xF200000000ull
--#define ROGUE_VISTEST_HEAP_SIZE SZ_2M
-+#define PVR_VISTEST_HEAP_BASE 0xF200000000ull
-+#define PVR_VISTEST_HEAP_SIZE SZ_2M
- 
- /* 0xF2_4000_0000 - 0xF2_FFFF_FFFF */
- /* 969 GiB to 972 GiB, size of 3 GiB : FREE */
-@@ -110,4 +110,4 @@
- 
- /* 0xFF_FFFF_FFFF ************************************************************/
- 
--#endif /* PVR_ROGUE_HEAP_CONFIG_H */
-+#endif /* PVR_HEAP_CONFIG_H */
-diff --git a/drivers/gpu/drm/imagination/pvr_vm.c b/drivers/gpu/drm/imagination/pvr_vm.c
-index ceb78694cd98..ae965043237d 100644
---- a/drivers/gpu/drm/imagination/pvr_vm.c
-+++ b/drivers/gpu/drm/imagination/pvr_vm.c
-@@ -6,9 +6,9 @@
- #include "pvr_device.h"
- #include "pvr_drv.h"
- #include "pvr_gem.h"
-+#include "pvr_heap_config.h"
- #include "pvr_mmu.h"
- #include "pvr_rogue_fwif.h"
--#include "pvr_rogue_heap_config.h"
- 
- #include <drm/drm_exec.h>
- #include <drm/drm_gem.h>
-@@ -950,20 +950,20 @@ static const struct drm_pvr_static_data_area static_data_areas[] = {
-  */
- static const struct drm_pvr_heap pvr_heaps[] = {
- 	[DRM_PVR_HEAP_GENERAL] = {
--		.base = ROGUE_GENERAL_HEAP_BASE,
--		.size = ROGUE_GENERAL_HEAP_SIZE,
-+		.base = PVR_GENERAL_HEAP_BASE,
-+		.size = PVR_GENERAL_HEAP_SIZE,
- 		.flags = 0,
- 		.page_size_log2 = PVR_DEVICE_PAGE_SHIFT,
- 	},
- 	[DRM_PVR_HEAP_PDS_CODE_DATA] = {
--		.base = ROGUE_PDSCODEDATA_HEAP_BASE,
--		.size = ROGUE_PDSCODEDATA_HEAP_SIZE,
-+		.base = PVR_PDSCODEDATA_HEAP_BASE,
-+		.size = PVR_PDSCODEDATA_HEAP_SIZE,
- 		.flags = 0,
- 		.page_size_log2 = PVR_DEVICE_PAGE_SHIFT,
- 	},
- 	[DRM_PVR_HEAP_USC_CODE] = {
--		.base = ROGUE_USCCODE_HEAP_BASE,
--		.size = ROGUE_USCCODE_HEAP_SIZE,
-+		.base = PVR_USCCODE_HEAP_BASE,
-+		.size = PVR_USCCODE_HEAP_SIZE,
- 		.flags = 0,
- 		.page_size_log2 = PVR_DEVICE_PAGE_SHIFT,
- 	},
-@@ -974,8 +974,8 @@ static const struct drm_pvr_heap pvr_heaps[] = {
- 		.page_size_log2 = PVR_DEVICE_PAGE_SHIFT,
- 	},
- 	[DRM_PVR_HEAP_VIS_TEST] = {
--		.base = ROGUE_VISTEST_HEAP_BASE,
--		.size = ROGUE_VISTEST_HEAP_SIZE,
-+		.base = PVR_VISTEST_HEAP_BASE,
-+		.size = PVR_VISTEST_HEAP_SIZE,
- 		.flags = 0,
- 		.page_size_log2 = PVR_DEVICE_PAGE_SHIFT,
- 	},
++		timer0: timer@d4014000 {
++			compatible = "spacemit,k1-timer";
++			reg = <0x0 0xd4014000 0x0 0x100>;
++			interrupts = <23>;
++			clocks = <&syscon_apbc CLK_TIMERS1>,
++				 <&syscon_apbc CLK_TIMERS1_BUS>;
++			clock-names = "func", "bus";
++			assigned-clocks = <&syscon_apbc CLK_TIMERS1>;
++			assigned-clock-rates = <1000000>;
++			resets = <&syscon_apbc RESET_TIMERS1>;
++		};
++
+ 		syscon_apbc: system-controller@d4015000 {
+ 			compatible = "spacemit,k1-syscon-apbc";
+ 			reg = <0x0 0xd4015000 0x0 0x1000>;
 
 -- 
-2.43.0
+2.56.0
 
 
 _______________________________________________
