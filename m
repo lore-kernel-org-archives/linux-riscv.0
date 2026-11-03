@@ -2,86 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CE186071A26
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FAA76071A08
 	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 15:11:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xAKaM4ma;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j9gQCSXd
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ET7rsuBq;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fYxbj334
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
+	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Au6yRCKnXy9k++HaFWtIkaHskgRlXuOzm/M0I3UojYw=; b=xAKaM4ma6E8rYM3huY0ZxbbLh0
-	+ucgItWIoD6X794bOrkHJD/VfYaDECsKhel82KaNZXNSxfg7/UOPZWY1Ahxb41B3k9T6nw3JVcPQk
-	cMh7AU1NVsmUCDUi5LJXQxSlPUVJ02Kmp+dFZ3vJoZdp1/akcRb4GIGDz58Iwtwj9mhx/6Z7pNimW
-	hymV56xomI49EkDJhUmU/iZTth4YzI8MAi8QKHf/j60OHHQGVsQJ93opmP/YD3wbFp1TFs5dlqi38
-	MuwDaTDqcOHNdWmPWfJnLZi9Ax9KXt59R9JKZ0QIQMQKfqUyZNb7C+1g95+ZBqhew3U7jqFPaOOhf
-	8f8ScBpA==;
+	bh=uK8dKKZHyLNIIpEwRvvzBNpzhx4Z0OQd751Z8J4sWnU=; b=ET7rsuBqz3nR748iinlEqKbkKw
+	4BC3nrSQhcgBhUkHpyWlcdcRqP2MucAwVAAtLoLBuYjXLfpfMLvGWphmNxbB9VKf0QUvTUKoWKGoa
+	iS488Ihq0ChdhiP5HuqdHwC86m1qb4jmvCEKHzQSmxDr8sHj3Cf5Zrig06N7R+ZL7zdKTscvEYgLy
+	JUNBYchJA9J+AABkqxGSuFsh9JQAlY+5F2RfIpFVv6LOS5BHqq4QI00VxEP/mpZ+jZGkYw2ZrwLob
+	WfuffIIj6YO5kPT9lYDt/5tRNAfoVrV8bkOK9ze8P6OF4UKjRkOnzvRiNDnkXeM45RJ6dnbhZ1LtW
+	KYk3Gkdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOGAm-00000002s2I-0IeN;
-	Tue, 03 Nov 2026 15:11:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xOGAn-00000002s3a-1VYw;
+	Tue, 03 Nov 2026 15:11:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOGAk-00000002s0Z-2Vao
+	id 1xOGAl-00000002s1d-2euZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Nov 2026 15:11:38 +0000
+	Tue, 03 Nov 2026 15:11:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5779E43896;
-	Tue,  3 Nov 2026 15:11:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 621F243FD7;
+	Tue,  3 Nov 2026 15:11:39 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793718698;
-	b=2bfMFHZY8qxWH2YV0FfJB/v5znEXofF272T3q4YdYUfvlK0Fg+NhYOIMHdH/nmP1USpd
-	 NYMH95U2N00U9y7D/n3Q3VnxZwcJh9Kat7IGDAA74D7aCTMoZxUR0ySVJgf4kvkTaysh5
-	 fjjZh08zmMpvAUh3sMR23XpBAyoBewYWbTkv9kE5d/36oBZ5bBYjh8t421TG+sdI8axga
-	 marKt1hRmzU558zJ4Hn1YjIac+T7BOpQnAQ89YaR+zNvmglm282V981DvjZJsFx+PaJDF
-	 6+WlpPTDBUKxg0nSww113CKw96LVX/inGbCveL4Ir2URl3PmYFJ/uK+IPaz/uqUYkbw==
+	t=1793718699;
+	b=TqcYEbU6cUws9uFdvfODD9QEJmjLtU/nQyQSj/eJ40N4Pz1TcnmsKhml3mZbETc01SQS
+	 ojjpQEplRxVUpSYf87Ydwrw/kIsyDxZzUf8p8M6Khwiobs79Is5J2aGFTZiPykWO2jPKG
+	 TGahqwbDUu2RFuYnr9VbUy1cTkf5JDFqP0CIlNnGQ6vZY7ewUYTVh0dcIunu9Avo94WP2
+	 PQMTpGqFYSeOGPYKvtqlWa01lDjkkUPZI7ezdwiH5UB04LjukWI3CIA3m/4MTifWQ7G9J
+	 NWMqFC139p5ljaPVY1zZ06oSc7HakvcpyyZ1Y4fcCURlzZV+7uKFiMHr5bPeBHpbhYw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793718698;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=4+NonyAXN/54L4B5J1GdAxssGMZv7U7qe2SeN3qFx78=;
-	b=AaF/jqFOm/qU42WeDBLJloB+rUZBdJbBHvrFdWYPULwoZn/VOYopXFTEQc/tyoVvGUQe
-	 7skXMPA1d5xv7UiqCntMsd3wwKb0YglEwOUpx5dmTWkKg4hsuNUQvEBeFsuVbtpVj2TEO
-	 7LtJa6XLn3kQNtMXjmeB5VSN2IUQ82jLAEV/X8dAYVgFv6Ch23pyOtfPJsNTmN96IdO56
-	 xKy9kAFpW/6b01WDqCaklVRb9rsPSG5pm3Wl2l/xP/cdBmQFiBmoreIw83ud8WYvvITIR
-	 HKYDYI3noQliK3iMMxld6/HPOuxe7+G9Jea3rkHhLcJZcY7rksU48E1C8sPdfq12bwA==
+	c=relaxed/relaxed; t=1793718699;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=sy1sdDWA+u1mhmEL4Lf6QFFARB0/Ugd7xLpfO88L4lc=;
+	b=lVESqMq4wr/w44ShaI9cS3eAg3PMNapSbif23wRbLUPeVT/Uy3f1zfbajs01ndjzF+Ez
+	 ljVuGFKYIZmXzvzTTBH2SAN+5pFHxN6o/LisyPAKDcOjNzYOICbQCO49OURbKl6oI6udj
+	 cNZcfcCbjHiAlJv9Ayx+VbpZC69+jeUMBbNEMOvcMqvlv7/zHzstUSajKIq6+fA7Q+cuh
+	 d7YsxZ+ibJF5Gr4+7ULH1g+HECMvQu6S9/xB52+wKsxG8a9XLr/6AJmM+foIIgkqqci0T
+	 I143KaIeeRQwhexcmxawXuUV4KX3H3BlYHRBJ6fjRXfIJCG90v7VtzAvg5kziZfvAYg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 809A81F00919;
+	by smtp.kernel.org (Postfix) with ESMTPS id 810121F00A02;
 	Tue,  3 Nov 2026 15:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793718698;
-	bh=4+NonyAXN/54L4B5J1GdAxssGMZv7U7qe2SeN3qFx78=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=j9gQCSXdMNbaZ8cZ/S2FzSxtYkt8ZYZ6xj4khI1hM/ZQSgpzcFrk4Rzecl5gjipzJ
-	 38f51C1Duq7NJUwW43iYZ+GP6pp4CXQbAInXqnne4+l9DmhjeeskQDl1qnf2zMRI+e
-	 SUXd31l/RwuhBkAsDsyWphKbru+2RhrMihiw27K4xDVG7uwol9clCYbxFMB9l3w/hB
-	 r4iVnsOEmaTy8dl31pOSDRHL/RitEaRBD2KX3X8EHktEU1b/kqx3uIRjMROEqBvZ7e
-	 i1mg0f0gf6rtHZXNNkPKAg737ibWzUQ7R4kNRI8EZ6Z2akmf2/qFkTrH024lijiWck
-	 yaB+3xkL2YnsQ==
+	s=k20260515; t=1793718699;
+	bh=sy1sdDWA+u1mhmEL4Lf6QFFARB0/Ugd7xLpfO88L4lc=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=fYxbj334IUJNPyH4MS8xQ7OawT3dfy3iL6avv8YcEcwfj4XNb03zWd0wf7wi1c+aJ
+	 1GiYO/kZloi6iOy95BhYV33rSZTCd8ifSBmvWV+17S1cAcpJm6NLk9AAeupvFS8l1h
+	 3QAkL5FCQ3HiX1DapXuXHdvQgAfUZIIT5iPXu+DFSrA09gXt+hTfFHCgzGQ/UYcaU9
+	 ymMnlkQ4UjdcSJgQoXrcslshKuoQVyNeVYd8YLjHiIWiklxWZBt7C8CrgTNqLZjw0P
+	 n7u5cCPJqo246DfemJ10Ue379ixN7eWVwpqqw4iQi0AVUXInlNBqk334cPtqZC5kMj
+	 RxVKkOUFPZaCQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id DD59E469CA;
+	by lkml.kernel.org (Postfix) with ESMTP id CDF61469B6;
 	Tue,  3 Nov 2026 15:11:35 +0000 (UTC)
 From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Date: Tue, 03 Nov 2026 16:11:25 +0100
-Subject: [PATCH v2 1/8] dt-bindings: vendor-prefixes: Add GlobalFoundries,
- Inc.
+Subject: [PATCH v2 0/8] Add support for MIPS P8700
+Date: Tue, 03 Nov 2026 16:11:24 +0100
+Message-Id: <20261103-p8700-dts-v2-0-3ac5d49f2c37@htecgroup.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261103-p8700-dts-v2-1-3ac5d49f2c37@htecgroup.com>
-References: <20261103-p8700-dts-v2-0-3ac5d49f2c37@htecgroup.com>
-In-Reply-To: <20261103-p8700-dts-v2-0-3ac5d49f2c37@htecgroup.com>
+X-B4-Tracking: v=1; b=H4sIAJz56WoC/03MQQ6CMBCF4auQWVvTGSpFVt7DsNAypV1ISYtEQ
+ 3p3K25c/i8v3waJo+cEXbVB5NUnH6YSdKjAuNs0svBDaSBJjazpJOZWSymGJQmFum2tREWkofz
+ nyNa/duval3Y+LSG+d3rF7/pTzqj+lBWFFDU12qLiu2G8uIXNGMNzPprwgD7n/AH05L2cpgAAA
+ A==
+X-Change-ID: 20260325-p8700-dts-41788f014227
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -99,11 +101,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, 
  Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793718695; l=1355;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793718695; l=3907;
  i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
- bh=9qjHBKUSAQcCeAu/Qtd3snEiEJmunnX9GsHooFoy87M=;
- b=FQWNfNXPVPyp9HJv9Ro8JIQfGPRSFgeAR5mxjbX3Yj2tWFah2fC2WlJBGPsEWhms7Kehkze/9
- coy1AgxDG2ZAdwB4eu1SQoofaw4GGP2gKwswIauZ/qaGaNSvqUbszk8
+ bh=zHYiuOrAOGUKb3zk94xINXfL6OoQmBspjmotb9xqkoU=;
+ b=33gipfFB6OzQenMAHjINnWTFCT/xdttEHnqLGCLAJiRQNhETw4JLG2O0GHJThKzb8M3j5YRLT
+ oCK/su/6u43B8QEX7nQDKqC3jwkwpElqvZbIKl+DAVwNwb/gG5Ptwhp
 X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
  pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
 X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
@@ -129,42 +131,81 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+The MIPS P8700 is a multi-core RISC-V microprocessor system, supporting
+both single-cluster and multi-cluster configurations. [1]
+This series adds full description of the platform,
+including the Boston FPGA board configured with a P8700 bitfile.
 
-GlobalFoundries acquired MIPS. All MIPS RISC-V
-compatibles should be labeled with the 'gf' prefix in the future.
+The P8700 cores support the RV64GCZba_Zbb (G = IMAFD) Standard ISA,
+with a caveat: the A extension is only partially supported, and all ZAAMO
+extension instructions are emulated on the SBI level. The device tree
+intentionally does not reflect this fact. Vladimir Kondratiev's series
+improves performance by directly substituting AMO instructions with LR/SC. [4]
+The two patchsets do not depend on one another.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+The board itself is the same board as 'img,boston', configured with a different
+bitfile [3]. The Boston board has been supported since commit 6e62a888029b
+("MIPS: generic: Support MIPS Boston development boards") (thanks to Maciej for finding the ref).
+
+GlobalFoundries has acquired MIPS [2] and the vendor prefix
+for all newly added MIPS RISC-V hardware reflects that fact.
+
+I tested this series both on QEMU and a Boston board
+configured with a single P8700 CPU,
+after applying the necessary U-Boot and OpenSBI changes
+to match the 'compatible' strings and the changed MTIMER register order.
+We are planning to upstream these as well.
+
+Links:
+[1] https://mips.com/wp-content/uploads/2025/11/P8700-F_Programmers_Reference_Manual-TM.pdf
+[2] https://gf.com/news-and-events/news/globalfoundries-completes-acquisition-of-mips/
+[3] https://training.mips.com/cps_mips/Examples/MD00901_Boot-MIPS_Example_Boot_Code_for_MIPS_Cores.pdf
+[4] https://lore.kernel.org/all/20261026-lrsc-only-v3-0-ec29c8190fb1@mobileye.com/
+
 Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Changes in v2:
+- Patch 1: Replace "MIPS Technology" with "MIPS Technologies".
+- Patch 3: Name the FPGA used and add the versioned bitfile compatible.
+- Patch 5: Drop hart indexes from MSWI.
+- Patch 6: Swap mtimecmp and mtime, require reg-names both for mtime and mtimecmp on P8700.
+- Original patch 7: Dropped.
+- Patch 7 (previously 8): Remove additional harts that are not
+  present in the bitfile I have. Reflect changes made in patches 3, 5 and 6.
+  Remove riscv,cbom-block-size. Drop undocumented compatibles. Other minor changes.
+- Link to v1: https://lore.kernel.org/r/20260914-p8700-dts-v1-0-3267f14ebce1@htecgroup.com
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index ba2002969373433b1f48118872c46cf7bcfff276..eea7f86ebed0d038c53cd3c22d2dd71514224475 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -668,6 +668,8 @@ patternProperties:
-     description: Genexis BV/AB
-   "^geniatech,.*":
-     description: Geniatech, Inc.
-+  "^gf,.*":
-+    description: GlobalFoundries, Inc.
-   "^giantec,.*":
-     description: Giantec Semiconductor, Inc.
-   "^giantplus,.*":
-@@ -1104,7 +1106,7 @@ patternProperties:
-   "^minix,.*":
-     description: MINIX Technology Ltd.
-   "^mips,.*":
--    description: MIPS Technology (deprecated, use 'mti' or 'img')
-+    description: MIPS Technologies Inc. (deprecated, use 'mti', 'img', or 'gf')
-     deprecated: true
-   "^miramems,.*":
-     description: MiraMEMS Sensing Technology Co., Ltd.
+---
+Aleksa Paunovic (8):
+      dt-bindings: vendor-prefixes: Add GlobalFoundries, Inc.
+      dt-bindings: riscv: cpus: add gf,mips-p8700
+      dt-bindings: riscv: Add MIPS Boston board compatible
+      dt-bindings: interrupt-controller: Add MIPS P8700 APLIC
+      dt-bindings: interrupt-controller: Add MIPS P8700 ACLINT MSWI
+      dt-bindings: timer: Add MIPS P8700 ACLINT MTIMER
+      riscv: dts: gf: Initial support for the P8700 Boston board
+      riscv: defconfig: Enable GF SoCs
 
+ .../bindings/interrupt-controller/riscv,aplic.yaml |   1 +
+ .../thead,c900-aclint-mswi.yaml                    |  11 ++
+ Documentation/devicetree/bindings/riscv/cpus.yaml  |   1 +
+ Documentation/devicetree/bindings/riscv/gf.yaml    |  33 +++++
+ .../bindings/timer/thead,c900-aclint-mtimer.yaml   |  35 ++++++
+ .../devicetree/bindings/vendor-prefixes.yaml       |   4 +-
+ arch/riscv/Kconfig.socs                            |   6 +
+ arch/riscv/boot/dts/Makefile                       |   1 +
+ arch/riscv/boot/dts/gf/Makefile                    |   2 +
+ arch/riscv/boot/dts/gf/p8700-boston.dts            | 135 +++++++++++++++++++++
+ arch/riscv/boot/dts/gf/p8700.dtsi                  |  82 +++++++++++++
+ arch/riscv/configs/defconfig                       |   1 +
+ 12 files changed, 311 insertions(+), 1 deletion(-)
+---
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+change-id: 20260325-p8700-dts-41788f014227
+
+Best regards,
 -- 
-2.43.0
+Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 
 
 
