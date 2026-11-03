@@ -2,93 +2,110 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A1F4606A32E
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 09:00:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98B91606A32C
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 09:01:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DqPm8yMZ;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=JbCHADdc;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=TZQcwYgH;
-	dkim=neutral header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=BkGYvZPs
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Y4YF5pYA;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=xhonaemW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References:Message-ID
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ncV7sZZqncbLvswc8eg6DCuzqYS8mnxNvbNYsIkwUH0=; b=DqPm8yMZXJv5fHr/eiv2j1qu2y
-	uXRQ6AQ/jixntj+f+jcNmYU7tTqb+1+IRgUS3ULbv/xQn2PRVKuVGJjAagS33GxdqZavDsRq8bc/0
-	WfiKk/xu0ldaQ9107iwM+vXVH0dvLHjquqgMhexbSe1EgUToXOoKWa6dp5Fi3MOGUdCP7aqIVg1qy
-	zkZHxEkMFDbxJnerBenqf2FbgGigu+a6mluLi7XLiFm+XJHtWBAhwOjPcBj7oCt35dQUdpxNYtAZs
-	P/wMfq4QD9I4N1yKBsGMRmcWS3+oMxL28JrTS5VeFQi4JhvKyZnXiF2sm169/IhI3hwbWD4ibMokf
-	z6HldSoQ==;
+	bh=vu2OHYnDUaAlWDZJTRhOV/q/G6/c59KMXkRJs8sN2UM=; b=Y4YF5pYA4tTD7+Impe6HzPmJ5R
+	Xa9mrgAm29GjiJtkuz4XRCnqGqEpqm2jZ9XU0mJW5IO0Do6jGrJRyNl8n/gnWOtM3TbQgIeAmiKiY
+	9FyKS2oAgoHqksDWgzbrtJdBg/usYdrlggS3j7bzZQNO99Azt585h1nryAK2YiKuM4Dj3M+ZyDHvN
+	AIycAWfHGn9k3lW0am2L6fkOm7rn22phEWDgAvrvrhjmyM6+twpPWZPnZJIZwRUVTFY0r6JXF0+OR
+	7+DTs9gpPyCPORw+A01XjvWsZjztvBzwR3bApGl35KhoZ183KO4u4+7zJw53Grlneu5RVjX6S4K3n
+	0YC+vfZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOAN6-00000001fRC-3ons;
-	Tue, 03 Nov 2026 09:00:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xOAOU-00000001fkZ-1Kmq;
+	Tue, 03 Nov 2026 09:01:26 +0000
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOAN2-00000001fQ8-1SNW
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 03 Nov 2026 09:00:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=QD+CkWG5oyxTZO6V2pW1MZiGJv6VerTZJtv13Pu63rQ=; b=JbCHADdcBzYTlp6TAZM7tdeCQF
-	2KWZJLhCoj+CmuilAmYTkrrPoxeY4A2kRBrub0RLF8KbeTVs3InlpSBpKL4Y2DyeKLx3zf9vVKGj7
-	yElml/lrqVyKdzkVaiQZutHiE2b41Cjbujwjc1QdP/pEjNK0FadvPECv7Xdpt922M1/rvZ7W/dDuf
-	WDkZwgeEqUVrb5BZyImxzZWRHoE+jeulhYsAdbnNbws3CQ/U1Rlc4xHSpSIwW1HyIo4+aO5RQGNFY
-	kM5YnhZxNbkOTtwtjs4AwmrhEwNHv8fcInTO8nIXcNjzR0rKgeSCSntwIVmDP6IamikL4618akSp/
-	tydmFK/w==;
-Received: from galois.linutronix.de ([193.142.43.55])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOAMz-00000000DcW-276Q
+	id 1xOAOM-00000001fhv-3zDr
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Nov 2026 08:59:55 +0000
-Date: Tue, 3 Nov 2026 09:59:49 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1793696391;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QD+CkWG5oyxTZO6V2pW1MZiGJv6VerTZJtv13Pu63rQ=;
-	b=TZQcwYgHEkQKzBdxCYgoF4NlP5tocqsMMzriVFP/C1WqBZa09mv2OB2oqDSLHTxPBMi56Z
-	xx9RC2sOxOvZZSB4ZGllg+wsv4OXMdYS/+VlZKuPXwAaLh3FZ3j8s0rKXV9sp9qYypwgjd
-	vjhVej7+5lui3ST4QgKreOQJE8m53gvuNdZR/+OogXkO4p1wJShVaMIqzRlCCXOYe+pENX
-	A41rGs9i7z2HuLPiMK8mvMrTjZLIIZsWw1XDlCq3MJduJg23yNiKC8twgnpIePHoKQe12N
-	yZpcBoh3XX/1DZmq/iyUy4UxgODCgMvbhy3dVFVwJVMmYRKpW+PLCnbcDGN+/w==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1793696391;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QD+CkWG5oyxTZO6V2pW1MZiGJv6VerTZJtv13Pu63rQ=;
-	b=BkGYvZPsVd4OcDfywug6gYGoeGQK32t2wF3ew8Ol7bpFcJo40b4EnCyNA4YhhGdid6FuuP
-	iS5opXFdm3oDP4CQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Troy Mitchell <troy.mitchell@linux.dev>
-Cc: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH] irqchip/riscv-imsic: Synchronize remote state with IRQ
- work
-Message-ID: <20261103085949.HPHNwwhb@linutronix.de>
-References: <20261103-imsic-remote-sync-irqwork-v1-1-8b5c951fc62a@linux.dev>
+	Tue, 03 Nov 2026 09:01:20 +0000
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A34D6uB3126677;
+	Tue, 3 Nov 2026 09:00:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=a
+	Iu6pEYpp53YfCiyYllM4lyrdWdbqBwyNFhZJ0QDrzY=; b=xhonaemWGo2/VTiuD
+	cO+ODCD9enDYuHb+rVaCq9WtOr0T9A3drUy8zjnX7jNNJ5EtgxBxjtvpiFoaooJp
+	ujz9DGy9zysNrBPh97RmR8Xv+FWM7Mu6EA9duuav+HDwLBaqm/9W+XNp/ry+/vrq
+	+yJSNuT8MdKR81SGN2rxv3cb+1hw7MpL4PFJeEbT9/hkxzoBk4FHqTU43LlZbbsS
+	CXoNwI6mRXQLJ5rYxzzNNqKQXNWqhx6DAHhaHQe8WcKtqGgxHqUbCvu7LCbbAGwF
+	373SUdsVAslDyAemckdkyKHuxJ/6pGOAGTYOXbfVmYuxA+Nn6OYKgs5faw0LAWv7
+	EZmzA==
+Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 4hn7ft23tw-4
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 03 Nov 2026 09:00:57 +0000 (GMT)
+Received: from [127.0.1.1] (172.25.5.26) by HHMAIL01.hh.imgtec.org
+ (10.100.10.19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 3 Nov
+ 2026 09:00:53 +0000
+From: Alexandru Dadu <alexandru.dadu@imgtec.com>
+Date: Tue, 3 Nov 2026 11:00:41 +0200
+Subject: [PATCH v4 2/5] drm/imagination: Limit access to the RISC-V
+ firmware interface
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261103-imsic-remote-sync-irqwork-v1-1-8b5c951fc62a@linux.dev>
+Message-ID: <20261103-prep-meta-fw-arch-independent-v4-2-513d1c51f458@imgtec.com>
+References: <20261103-prep-meta-fw-arch-independent-v4-0-513d1c51f458@imgtec.com>
+In-Reply-To: <20261103-prep-meta-fw-arch-independent-v4-0-513d1c51f458@imgtec.com>
+To: Alessio Belle <alessio.belle@imgtec.com>,
+        Luigi Santivetti
+	<luigi.santivetti@imgtec.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Paul Walmsley <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>
+CC: <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        "Alexandru
+ Dadu" <alexandru.dadu@imgtec.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793696450; l=2210;
+ i=alexandru.dadu@imgtec.com; s=20260304; h=from:subject:message-id;
+ bh=wDgtp6LBF/C29pe2CVlQTKRn+Z/Fia+UZ37qNopawhs=;
+ b=JPx0YNX6rYAc5d3d610ehzC+CwR0463S6loAbAfli9IDIbl0ejbvXzDTaZoM9ca6+jmbUrVdf
+ YMWMA31sBloCM3trKqaEZagNKacq174EW/xJz+5lCo0TQqaURnUw+gj
+X-Developer-Key: i=alexandru.dadu@imgtec.com; a=ed25519;
+ pk=FU07SyNrYGwhahqSxbWEuzyXlUh47xBXvLvOR7UA6+U=
+X-Proofpoint-ORIG-GUID: 4moQY90ydiS9mn9W0l2cNRCojUDToav7
+X-Proofpoint-GUID: 4moQY90ydiS9mn9W0l2cNRCojUDToav7
+X-Authority-Analysis: v=2.4 cv=HaSB3SE8 c=1 sm=1 tr=0 ts=6ae9a2c9 cx=c_pps
+ a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
+ a=h_3jC4m0AyQA:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=qZQ2PDNLMSdLoqI-hfl9:22
+ a=r_1tXGB3AAAA:8 a=xwwprR_ITuhyIuDbuUkA:9 a=QEXdDO2ut3YA:10
+ a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAzMDAzNSBTYWx0ZWRfX62lD0zqm5E3K
+ /TA1Gt9Y1ac4JbhUXgccfNOYpTyXZ9ji0+oUpcZWXHScJraL0NnxXmBs4uKHkbEF0etMnOe8U6w
+ C2/Jfnvn2tb4azcAsPAjf6bZPYeuOL0=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAzMDAzNSBTYWx0ZWRfXz7K7fhtcDr40
+ ppkgTTJGx3EZkEs4lWxIpkL1bfMhj40ewdp+AK5OtIZe6Je9VoLQ/Bio9qmv6gYIRpu18BYjfTD
+ 8t3eJGGkwoanKiMxLpNCxG9r+mdOaUFuiyNzwjOwgHOE+1pRpN3Gm8zJKTibe+lf7+T1eXDjbkB
+ Wkgmbd7jpjHfSeuTri6dWvLAs+jkdPbh1GdhgJ2AWdZtoGgI3fFIaCH1KmaQTRg1MmylL9zbN5A
+ lyDV6pQCLcSjP+qFXB2x7KRxQiUCuAn8cbbOdE1kbOweJ3HyrKoykFUKDP5GbR1phTvM2C5DplF
+ R5NjvIPL78KbmS4G44rSrelmsd56Nw8djhsLB+chwGe3tokebpVOjuzXrePdIbsp+m24AACxWc5
+ lETYiNWsRzMs9Pvbidhe2rzRJx6dxJk8B3JSmy0MClDzvy09f12/4cM4+oPRgA7YXlIH6xQwjgf
+ MTQbzVsKPnrE2UO2lEw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_085953_670899_D753043A 
-X-CRM114-Status: GOOD (  11.19  )
-X-Spam-Score: -2.5 (--)
+X-CRM114-CacheID: sfid-20261103_010119_258156_466CB6F1 
+X-CRM114-Status: GOOD (  11.04  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,31 +118,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 2026-11-03 08:04:33 [+0000], Troy Mitchell wrote:
-> Without a real broadcast device, the tick code falls back to the hrtimer
-> based broadcast, which keeps one CPU's local timer running. Once the SoC
-> timer is registered it replaces the hrtimer broadcast, and every CPU may
-> stop its local timer in idle.
-> 
-> On K3 the SoC timer interrupt goes through APLIC in MSI mode to IMSIC.
-> When the CPU owning it goes offline, the interrupt is moved to a CPU
-> that may already be idle with its local timer stopped. IMSIC leaves the
-> enable on the new target to a timer on that CPU, and that timer can only
-> fire through the broadcast interrupt, which is not enabled yet. The
-> system stalls.
+From: Alessio Belle <alessio.belle@imgtec.com>
 
-So the broadcast timer is moved on CPU which is idle and waking the CPU
-is done by a timer, which does not work if the CPU is idle.
-This makes sense.
+- Rename the RISC-V firmware processor header adding an "internal"
+  suffix.
+- Add guard to the RISC-V firmware processor header to prevent
+  accidental inclusion outside of the RISC-V firmware specific logic.
 
-Sebastian
+Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
+Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
+---
+ drivers/gpu/drm/imagination/pvr_fw_riscv.c                     |  4 +++-
+ .../{pvr_rogue_riscv.h => pvr_rogue_riscv_internal.h}          | 10 +++++++---
+ 2 files changed, 10 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_riscv.c b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
+index cd84635bb88d..0d4dd45520a9 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_riscv.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
+@@ -7,7 +7,9 @@
+ #include "pvr_fw_mips.h"
+ #include "pvr_gem.h"
+ #include "pvr_rogue_cr_defs.h"
+-#include "pvr_rogue_riscv.h"
++#define PVR_ROGUE_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
++#include "pvr_rogue_riscv_internal.h"
++#undef PVR_ROGUE_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
+ #include "pvr_vm.h"
+ 
+ #include <linux/compiler.h>
+diff --git a/drivers/gpu/drm/imagination/pvr_rogue_riscv.h b/drivers/gpu/drm/imagination/pvr_rogue_riscv_internal.h
+similarity index 81%
+rename from drivers/gpu/drm/imagination/pvr_rogue_riscv.h
+rename to drivers/gpu/drm/imagination/pvr_rogue_riscv_internal.h
+index d971729e18a4..ba18c2a82205 100644
+--- a/drivers/gpu/drm/imagination/pvr_rogue_riscv.h
++++ b/drivers/gpu/drm/imagination/pvr_rogue_riscv_internal.h
+@@ -1,8 +1,12 @@
+ /* SPDX-License-Identifier: GPL-2.0 OR MIT */
+ /* Copyright (c) 2024 Imagination Technologies Ltd. */
+ 
+-#ifndef PVR_ROGUE_RISCV_H
+-#define PVR_ROGUE_RISCV_H
++#ifndef PVR_ROGUE_RISCV_INTERNAL_H
++#define PVR_ROGUE_RISCV_INTERNAL_H
++
++#ifndef PVR_ROGUE_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
++#error This file may only be included if explicitly defined
++#endif
+ 
+ #include "pvr_rogue_cr_defs.h"
+ 
+@@ -36,4 +40,4 @@ enum rogue_riscvfw_region {
+ 
+ #define ROGUE_RISCVFW_REGION_BASE(r) ((u32)(ROGUE_RISCV_REGION_##r) << ROGUE_RISCVFW_REGION_SHIFT)
+ 
+-#endif /* PVR_ROGUE_RISCV_H */
++#endif /* PVR_ROGUE_RISCV_INTERNAL_H */
+
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
