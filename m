@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F593606EE80
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 08:09:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D37AA606D809
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 08:10:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BoqLVqOT;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=iiG8CCqB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xE7KV8hu;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=GmD+/f44
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,29 +14,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=myfiT/kU83n9FgK05LWd1prQjyuseWDmotGNr4EDTw8=; b=BoqLVqOT3hHRMKeVk90npIlzA4
-	Q5ANaiYwSWmf8tvF6z6ZndxKKp1aXSIYzYGbR6EaDvEE9lrELCKUKCyYl+QLxIGO0hYQmVxxnYaWT
-	4f1rY5a5BJtObjboC0e+VzH5x48g/Do5ssrw43XrbISk+B4mUPwRHMXRzfR+J+28zITnU8J260Fy1
-	6wkP4wkAHsbkxujl7/TTfyvT9o8lZZuPRaR8aeMlDh4S+vrglB8WVCpGDrn69fPV8uCVHoZJ65/K0
-	r0s/ioMcvvGuy3cFyRMI27Es7n2SgKXs+MV505bKgUM4AQH7TZQHPzYUo1yVB99qNMcsoTSMuVK0Y
-	OQOI75pA==;
+	bh=2ABBsYPZWmPi3/fDA3mLey69f7Jffu1MU/kDs57R/Iw=; b=xE7KV8huiaI6xkiOTEK79VCb22
+	T+axeLcReQTX3FjINYTYGiyHdvveF0JaLdSLBkd0LWJ7qB/ZuNEI/gVdc2YfhT4tBoVEydFCYn8qA
+	qcJRin30itElhYEBrAtocuv9mJTN8/oR14i2iPSy0n7fJbzfVZPtRJHuyc1D+yF+4RhOBxo7dcs4+
+	kWeccV5hXa4tcpjTjNI0jLYjHEtnIqSBSvKcbcWDq8dVGie6eeFLPL+Yx6T9lF0k50R6S2MUzpiB0
+	cUugGpGdabfOh5hqwzJ6iwOxi5/xxd0W/LT3fiRZZniCdO7o41qglCZ6Po1eyRuz6wuLIncpvlBiW
+	JUGf2BgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9ac-00000001UL2-265k;
-	Tue, 03 Nov 2026 08:09:54 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1xO9af-00000001UQs-3Wmf;
+	Tue, 03 Nov 2026 08:09:57 +0000
+Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9aV-00000001UFc-0iWx;
-	Tue, 03 Nov 2026 08:09:49 +0000
+	id 1xO9aW-00000001UFd-34ao;
+	Tue, 03 Nov 2026 08:09:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1793693381; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=o3gZPUQLWwPhGV6D4A+78sPcL2sUrR6F9w4Qn0I0nOg=;
-	b=iiG8CCqBa/RrPbbDC6xfxjAXrR/xIXBquz/CjKjtOdTcuOS56kKcqjxymuNzcQR+/v3OLS/XX4fj6/85TdZiiTTNlbvcQqSvnMgu7EDNRUC3YgykClcDbF3cI5OO4xsS9bJwmhE7oWjnnAEGGzqr0d3K5vzdonQBXhZ5OhptIQM=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R931e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=14;SR=0;TI=SMTPD_---0XE27L.Y_1793693380;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XE27L.Y_1793693380 cluster:ay36)
+	t=1793693382; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=XR763hCbspNzvt9Ja5KlngGTT7u+E0yj2HR4cp4PfjA=;
+	b=GmD+/f44f1RyDyJe7erwdfFa1X/AHP0KD6LWWFwPDRsbi/xDff0N7sRoodRqP3N91v2/TLd0/nQ9OQr2DmDcUtr68gwotu/aLidiIJu0vBvQCWICPUAjeFJkY0Xiz08m2iOzcDzfbhGQzqVTuNy9jsms3wFw0j17ev5/QZs5CFY=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R181e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=14;SR=0;TI=SMTPD_---0XE27L01_1793693380;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XE27L01_1793693380 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 03 Nov 2026 16:09:40 +0800
+          Tue, 03 Nov 2026 16:09:41 +0800
 From: Chen Pei <cp0613@linux.alibaba.com>
 To: pjw@kernel.org,
 	palmer@dabbelt.com,
@@ -52,17 +52,18 @@ Cc: guoren@kernel.org,
 	linux-mm@kvack.org,
 	linux-kselftest@vger.kernel.org,
 	kexec@lists.infradead.org
-Subject: [PATCH v2 1/5] kho: Do not translate the handover FDT address in is_kho_boot()
-Date: Tue,  3 Nov 2026 16:09:22 +0800
-Message-ID: <20261103080926.2079-2-cp0613@linux.alibaba.com>
+Subject: [PATCH v2 2/5] riscv: Call early_ioremap_setup() before parsing the DTB
+Date: Tue,  3 Nov 2026 16:09:23 +0800
+Message-ID: <20261103080926.2079-3-cp0613@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261103080926.2079-1-cp0613@linux.alibaba.com>
 References: <20261103080926.2079-1-cp0613@linux.alibaba.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_000947_374025_8159AD55 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20261103_000948_953342_71B027C4 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,66 +85,47 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-is_kho_boot() only has to say whether a handover FDT was recorded, but
-it asks kho_get_fdt() for one and so converts kho_in.fdt_phys with
-phys_to_virt() just to throw the pointer away. Both callers use it as a
-boolean and never dereference the result.
+early_ioremap_setup() fills in the slot_virt[] array whose entries the
+return value of early_ioremap()/early_memremap() is composed from.  On
+RISC-V it ran after parse_dtb(), so an early_memremap() reached from
+the device tree scan returned "offset + 0" -- NULL for a page aligned
+address -- and the caller could only report a mapping failure.  This
+stayed latent because nothing reached from parse_dtb() asked for an
+early mapping before; the DT based kexec handover parsing is the first
+such caller, as kho_populate() maps the handover FDT and the scratch
+descriptor array with early_memremap().
 
-On riscv64 that conversion is not valid yet when efi_init() reaches it:
-setup_vm() leaves kernel_map.va_pa_offset at 0 and setup_bootmem()
-assigns it later, so a handover boot that came through UEFI panics in
-linear_mapping_pa_to_va(). Only debug builds fail -- without
-CONFIG_DEBUG_VIRTUAL __va() degenerates to "phys + 0" and the boolean
-stays correct -- but the panic also goes unnoticed without an earlycon.
+Move the call to the top of setup_arch(), which is how arm64 and x86
+already order it (early_fixmap_init()/early_ioremap_init() before
+setup_machine_fdt()/parse_setup_data()).  The BTMAP window is mapped
+into early_pg_dir by setup_vm(), and RISC-V neither calls
+early_ioremap_reset() nor defines __late_set_fixmap(), so the virtual
+addresses stay identical across the switch to the final page tables
+and nothing else in setup_arch() depends on the previous ordering.
 
-Check the physical address instead. Nothing needs the translation, and
-architectures stay free to bring their linear mapping up whenever they
-like.
-
-Fixes: d6d511639185 ("kexec: introduce is_kho_boot()")
 Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 ---
-
-Tested on qemu-system-riscv64 (virt, -cpu max, TCG): edk2
-RISCV_VIRT_CODE.fd/VARS.fd on pflash with OpenSBI fw_dynamic.bin below
-it, and a GPT disk holding an ESP with grub plus the kernel and an ext4
-partition as rootfs.  Kernel config is riscv defconfig plus
-DEBUG_KERNEL, DEBUG_VIRTUAL, KEXEC_FILE, KEXEC_HANDOVER and the kho
-selftest fragment; the outgoing kernel gets "kho=on" and the kho
-selftest init does kexec_file_load() followed by reboot(RB_KEXEC).
-
-Before, the first handover panics.  earlycon= is needed to see it: the
-BUG precedes console registration, so without an earlycon the machine
-goes silent right after kexec.
-
-  KHO: found kexec handover data.
-  efi: EFI v2.7 by EDK II
-  kernel BUG at arch/riscv/mm/physaddr.c:47!
-  epc : linear_mapping_pa_to_va+0x1c/0x1e
-   ra : is_kho_boot+0x18/0x28
-
-After, the same setup keeps handing over until the window closes, 29
-consecutive boots and no BUG.
-
-  KHO: found kexec handover data.
-  KHO: exec from: 7.4.0-rc1-next-20261102-00005-gfca49e548231 (count 29)
-
- kernel/liveupdate/kexec_handover.c | 2 +-
+ arch/riscv/kernel/setup.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/kernel/liveupdate/kexec_handover.c b/kernel/liveupdate/kexec_handover.c
-index 6f1f55fe3181..6ab181de345c 100644
---- a/kernel/liveupdate/kexec_handover.c
-+++ b/kernel/liveupdate/kexec_handover.c
-@@ -1643,7 +1643,7 @@ EXPORT_SYMBOL_GPL(kho_restore_free);
-  */
- bool is_kho_boot(void)
- {
--	return !!kho_get_fdt();
-+	return kho_in.fdt_phys != 0;
- }
- EXPORT_SYMBOL_GPL(is_kho_boot);
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index d79f99b86033..45e2ef9d32fa 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -308,12 +308,12 @@ extern void __init init_rt_signal_env(void);
  
+ void __init setup_arch(char **cmdline_p)
+ {
++	early_ioremap_setup();
+ 	parse_dtb();
+ 	setup_initial_init_mm(_stext, _etext, _edata, _end);
+ 
+ 	*cmdline_p = boot_command_line;
+ 
+-	early_ioremap_setup();
+ 	sbi_init();
+ 	jump_label_init();
+ 	parse_early_param();
 -- 
 2.50.1
 
