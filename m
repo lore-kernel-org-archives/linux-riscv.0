@@ -2,115 +2,133 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC1FE6082BC5
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 16:49:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9EEC606A33A
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 17:01:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=H5GSH7Bx;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=BZKTqSfZ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2uOK8KQC;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=SiNdDEnX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=g5lACtQsbKxd5ole5WGk3Ez6Vo8kRRfyY73McxTR6HI=; b=H5GSH7BxnGi1BInE+Kgdg9g7ZK
-	wDIcUci85NpjdaXFZTGp7k8BoZTilm4FXg3XKmKrwuv8H3izTjm2/1debtDlhs0lsQhSzoKLqHixo
-	GeGpL3jSdjgWQArS/oJ7TZFHVHERwPKv5w1qr9AqKnvK7SDkGw+m7Oqxw9umh5Hcz3uLZkrJI/s2c
-	y/0RC80YS0d4cRf2IFlWXFlUDocMz8gwjATOLMWmDm52pbIIv4Z7iiNSLv88qNoKJ7jCmVnEWtQ8h
-	Umj00/hCqJTD0Jw1j1IYdkjfV2DK3ExJpqFobVT5SDuyy9XYqwifMCnRokufOnbQV5lCRWsJVimLE
-	bOzYpqmw==;
+	bh=Icfjjk8kreMD++hgWqXsZen93PSSFm+u5eTzw/BQxPk=; b=2uOK8KQCQ5A9UM7ZVOLt0r9ub5
+	q7uyWipu2VnjtJWmDlPRhnQ0ZG/yqeQ6Nyslq22Cxr3saWPha1SjQQZHpNvbyplMzHC+UKyBA7jNk
+	9qaU8fNaUZcmniPl3qAHfZkvLItc8nqpFq+r3U8isltzY0oyFjx/ppEGShgAfgD1AYq7hO+JxcFKy
+	/uTbVljIXcQgWQMwD2x+LI9axUOcSoyy9A6vFL3rxbXXeqg750n/souNgW3ES9A5NEkwYCjfwBhwZ
+	1yoXwYbbBkbz56u/Fy97KUxwXarMb+OFn0pKRpZZGJiOdkunM3YvnQNb+glE9I8gSeQ2/ceWkqbOp
+	PXO5bz6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOHhO-00000003DSy-1BWJ;
-	Tue, 03 Nov 2026 16:49:26 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1xOHsy-00000003FiG-1ghk;
+	Tue, 03 Nov 2026 17:01:24 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOHhK-00000003DQ9-36QN
+	id 1xOHst-00000003Fhd-3Vty
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Nov 2026 16:49:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=R9Dy
-	48Gg68z6JbCwXeGt+RTdvVH82Yt9FWqbgGzfrzY=; b=BZKTqSfZwdhpx8MSBYyZ
-	Jo0+7Fl/Dx1uDGVAkHAD/aL4YecYKnQhkqybkL63HcTfBnn3ibTKAgC8Ql5eF5Xj
-	fO0qycxsw4HlTUjN4UtljRtDvzRjWUpn/tfMpkPdVgPb/kjLqRU7Ia0cnmAvk6/s
-	dQo9MXr4hUGWbA2mTi6yp60HqdkZrgPVJ5a5V6EF6WMxaaj5kwJro8DUMZy+AnNQ
-	CnB5dOjITMTMbb/uY/Q22pbBFaGDkDhUsjbTS8i8+h08eGNj+GDf2r4Wj/9vlL1a
-	v46nTWysCmgA9NVgarUwzYN9oPXQM1OtEQrfVxvSz43VgnKaEcOTk7cEEI3V3k/7
-	7g==
-Received: (qmail 359133 invoked from network); 3 Nov 2026 17:49:15 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 3 Nov 2026 17:49:15 +0100
-X-UD-Smtp-Session: l3s3148p1@DIfkCmJfcrTAwtcC
-Date: Tue, 3 Nov 2026 18:49:14 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Frank.Li@oss.nxp.com
-Cc: Mark Brown <broonie@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Radu Pirea <radu_nicolae.pirea@upb.ro>,
-	CL Wang <cl634@andestech.com>,
-	Ryan Wanner <ryan.wanner@microchip.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Vladimir Oltean <olteanv@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Han Xu <han.xu@nxp.com>,
-	Haibo Chen <haibo.chen@nxp.com>, Linus Walleij <linusw@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, Yixun Lan <dlan@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Laxman Dewangan <ldewangan@nvidia.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Sowjanya Komatineni <skomatineni@nvidia.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	"open list:SPI SUBSYSTEM" <linux-spi@vger.kernel.org>,
-	"moderated list:ARM/Microchip (AT91) SoC support" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
-	"open list:FREESCALE DSPI DRIVER" <imx@lists.linux.dev>,
-	"open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>,
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
-	"open list:RENESAS RZ/V2H(P) RSPI DRIVER" <linux-renesas-soc@vger.kernel.org>,
-	"open list:SAMSUNG SPI DRIVERS" <linux-samsung-soc@vger.kernel.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>,
-	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>,
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
-	"open list:TEGRA ARCHITECTURE SUPPORT" <linux-tegra@vger.kernel.org>,
-	vkoul@kernel.org
-Subject: Re: [PATCH 1/1] spi: use dmaengine_desc_set_callback()
-Message-ID: <auoQiuIm9FxdOrYl@shikoro>
-References: <20261102174005.3933649-1-Frank.Li@oss.nxp.com>
+	Tue, 03 Nov 2026 17:01:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KKsAnmufZwHuSHnk4zTp5guIyQ2VClfNWymErmjEWRNC3BQO/mgkFd4kfQktllIy/xmnq05y8zNkTAaT4Rrmnq1aXu1Mpzv8uYuY4yUmGKnKVvYoAa5eX6UvyJ6j/0nQu6AZfCJqO6JGQpey5Hz07DcHVAhXPmTMefURhqFV3LVF30Q9YSVav5JrjX/yub/Lrmtn4VtKw5wJxQlyCsrKTTRvYJ9iZY+nktjWQe+Cp88e3yvIkPcytrl2drBwfuCT1No6+IOrDoXDGuJ6MgH7W15QtQqVLP2E2eMiQAj3X02pXPXuNWeBw7dwYd5p85A8NqWKeOxapD4DcgPfk96uRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fX8haYnt3Sq7RT6GXwVlSImbTCnf8Fz5QKUxu0Wl+ak=;
+ b=NNEYmcA+fLge2M22AMKxbBZulkW87Duc0fSPmLdWs5PTjmFBfl987cAo2BS7E0T2CztL6rSzbsJ8AABnC7RROzMH3u/mYnsxx0U+Rjs18LuqT3CihHTavtygeFSb3AHKFjHiLV5+aQPfaBDm16oftVvzZVGi5A2DRmmB8jZBcDgOHXFJfr8q1DsCRwTUvVNbSHYh2Z62sevgv/5o5JtrZDkcNhEiJknufhf2JCmBfpJ2yqByEzuiskNh1DrQ8BFoaMVElY+IfvBZ2ZwVRg4O0xgbiyXl2EiT72kPBvYou5b7Iqzc2s2wGqDwZoj5IO1al/lboG1ZMwS25JtiIyYltQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fX8haYnt3Sq7RT6GXwVlSImbTCnf8Fz5QKUxu0Wl+ak=;
+ b=SiNdDEnXmpjuYw/6mK7SH8zRJQXvNDhkGU2UGUL73OvD//FH/TNkzJj3reINL6WMbCFyjJRLpl99w9O9lc/BUg8PmZr9RD81UtzmSvuzgklul0rFEA1gzqFeboxZITa/UZao0uIbdAdWx8ZT7OGfryOQbDizu1uT5uWSBIIW/QC7axb35rFhVl8NXd7RQhWe/9MyHFQskhOzdccS7tzokt2ugCdWMV4ReYfSipFpXwmDiPmLy4wWWVNvjxO8dmEdpI9w+Z9v3UcL9xvFA2qrNgO/LaNN+OTcb6vSQ+JAobejpgsp64esrmTrw4b/0qeLRpAurTComcgGllNBou2Xtw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
+ (2603:10a6:102:4ab::13) by MMZPR04MB886210.eurprd04.prod.outlook.com
+ (2603:10a6:190:4e::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Tue, 3 Nov 2026
+ 17:01:11 +0000
+Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
+ ([fe80::80e9:ab1c:dbc4:6930]) by PA3PR04MB11203.eurprd04.prod.outlook.com
+ ([fe80::80e9:ab1c:dbc4:6930%3]) with mapi id 15.21.0569.011; Tue, 3 Nov 2026
+ 17:01:06 +0000
+From: marouene.boubakri@oss.nxp.com
+To: jenswi@kernel.org
+Cc: sumit.garg@kernel.org,
+	arnd@arndb.de,
+	op-tee@lists.trustedfirmware.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	amirreza.zarrabi@oss.qualcomm.com,
+	peter.lin@sifive.com,
+	Marouene Boubakri <marouene.boubakri@oss.nxp.com>
+Subject: [PATCH v5] tee: optee: build the Arm-specific code only on Arm
+Date: Tue,  3 Nov 2026 18:15:04 +0100
+Message-Id: <20261103171504.910646-1-marouene.boubakri@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+X-ClientProxiedBy: AM8P189CA0017.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:218::22) To PA3PR04MB11203.eurprd04.prod.outlook.com
+ (2603:10a6:102:4ab::13)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261102174005.3933649-1-Frank.Li@oss.nxp.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA3PR04MB11203:EE_|MMZPR04MB886210:EE_
+X-MS-Office365-Filtering-Correlation-Id: 79329601-3fab-405a-f407-08df39cc0d2e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|23010399003|366016|1800799024|6133799003|10067099003|18002099003|3023799007|56012099006|11063799006|261022105027099003|5023799004|261022113327099003|261009223027099003|261022075727099003|261021123027099003|261102123227099003|261028144727099003|261009221227099003|261021135927099003|261026140227099003|261026121527099003|261021121427099003;
+X-Microsoft-Antispam-Message-Info: hfDe/qZEP9OkvNj74c/zEjRVEbTkTkLrYKMAW31RyGM4Wi0ISoALfdoF2Og/Dk79Zhgou+cMs62AsBggj/Qgw7YJZ1l24fu00A0UfDQWLFxAPHL0vN+rMunAsiBs3HdyeFO2V8EcruSpQhn0vbJcslH7N7RE4lRECIGlZJx379YFA6kXoIsP/A8iQUS+gNQYRRcRU8Eb5qUNBkd0TYbXtN+Joa768A78UvDBTUI6AOQeHG7J2ZkkxeXoIWiOoI1ubo2NR3ITULsh8HPSYvwJ7djgfFVso7uDNGYrgbbURy8rtOQZW/fQscQxGMYcEWV2QOr2iRxIDU5Sm9KJAB+jM9CQHBV9c1Q3HjdXaszzz+P0Fv42NElWxNNiE6haDtUcKniBuChUU7ybAKYUlX+AFDxSCf4yyno6AuFvV1CuvghUN4JxzoUBND1ccf4EAHBNDtSxHtt/7VjfM8MIvr9hcycepfe+BaBtmvb0c3OCAttch47TMUqa+d9Rbv7/AHIC6YZQxmMPmjjTBUtvjrV4Pgp3WdQs2B4Jb5/wNUvby8hOrjVZoGRXczSEwXS3o8TxgRAfSTABWgte1HogVl0N01+5KGa+TqegOuAbI/p3I5m0QsOqksutVoTXxiRwvUql
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA3PR04MB11203.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(23010399003)(366016)(1800799024)(6133799003)(10067099003)(18002099003)(3023799007)(56012099006)(11063799006)(261022105027099003)(5023799004)(261022113327099003)(261009223027099003)(261022075727099003)(261021123027099003)(261102123227099003)(261028144727099003)(261009221227099003)(261021135927099003)(261026140227099003)(261026121527099003)(261021121427099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?36HF6m0w0C3eOM17kTgS5YHekAWEg6z1+TAIS8vrhg0gf8e1Z3suk8Mk/Tym?=
+ =?us-ascii?Q?Cx1K38z6tUUTryR0sfuRhPNEV1f/uJl9+CAeAckwEfJ81PhATUHlsLXQ3W/I?=
+ =?us-ascii?Q?6NgAhajFcbFTZw63tsEMeFIDeIzO4LyxBKawc/WD5lraxW//jsUle+6xbZqQ?=
+ =?us-ascii?Q?cxaRCHB5LsSXtXAdM58ZQBM06OCQ7pkrZqIuI1ViRP7YdrcLBWhU0mXLCdvk?=
+ =?us-ascii?Q?Qs1sYyULomJ6h5vlPq1HGxGJBMAQf1/YpCujgL8wlOR2qSEWBW8NPUNClQGn?=
+ =?us-ascii?Q?ZUIfqHLTMqKYfPAlUFuTgFlLVQLBYKIsODaVAyaBIHFinUQ/iY2QApctJKLB?=
+ =?us-ascii?Q?Oj4mquRBWi+X4zUvAY+uouA/AsYgobXpMlQ+NPfgKY8qN3rO+bv8/HdIg8OQ?=
+ =?us-ascii?Q?WkfVGynM+Tg06dpZniXwD6sGMwqWh4M9i7kUZwGU5IjAk0dij1G6mbRACfPu?=
+ =?us-ascii?Q?UaWA7dfKlwd4sRoXVCNoY44gymoNb4QrLgVib9KHwHPcID+x09eqi5OJmln1?=
+ =?us-ascii?Q?urDRzRzPKgfV6h+DtyhQPRiqYVbt1SiPypL0lRghrYdBMH2Vi7sqDvz6jh5g?=
+ =?us-ascii?Q?G8iY5qDrH3ez9DaIStj2jqFc/OXS/gWFipCyIyBxa0Ium770Oo8ABzPZylok?=
+ =?us-ascii?Q?j4El3fv0cQlnS1WsUiQjgrU1Q15DGISxj0aL7d61IVqKtrTrVSSUm+E0ssd3?=
+ =?us-ascii?Q?05gWsnzHIm3o2gsT2JL/6nXr7/t3BRJCxZ9ymffnagaLlCXZzvEp4dmcQF+h?=
+ =?us-ascii?Q?R/YNpy0UURHPToLfAv/wNiBee0VtAAtStEjGe8Iywv8OQwSD96AuzylSnSjJ?=
+ =?us-ascii?Q?mkyTjxtOX7W4Wg4oYAkYenyCUGj/x9bbdQI34AbHvaNtb5n93eY4SEUQ4U74?=
+ =?us-ascii?Q?4PmygovtZz7Yyhwx/pua5+0clK1V1Yx9t0xEXlkHXcQq5GBNuyizON8MPtv6?=
+ =?us-ascii?Q?mCaFhuEW1DcnrwwVA05c/WSD7bUD6vsdcDD12ksWgjKV/ZMyvnrXzxuYuEJE?=
+ =?us-ascii?Q?Te2kdEoHRNeNLlgYqqYZD4Fufl4owOPjCFHuMOOOt1dziG4sc3Ga2R2BfalH?=
+ =?us-ascii?Q?3Dq8+txvcLoSgxCC5McoLDdxw/CXaev50z7MgiQbPrc0k61vx6cPziYvSgUA?=
+ =?us-ascii?Q?lGc0aTwEb5Zf+22C/RNlM/0qPrKLjEuLVlLhZh9eWfZj7UO+YhC94Quvm4B4?=
+ =?us-ascii?Q?4HhPUHFF1hkHLgMqL4+UL6gwE8f30pyFg2s6pfr3Pdw4cj+B1gKdEfao8YAj?=
+ =?us-ascii?Q?5HNozWbLsGMdvZi1gC7R+4uL/TjcHEWGbCkrfx/ymXaUo0HGqy2IPMpcVoLX?=
+ =?us-ascii?Q?huOWmDfF4KYbn29VT7IWQMrGd4Dy0sqSM9g46bQsCBLDalc2fOx0x5Wzg68a?=
+ =?us-ascii?Q?nmuKYWV8iTMMl+xQ21hYFj0owiv8/RCxYZnoEtg7LhCmLfrTiSELo5eSJ7VR?=
+ =?us-ascii?Q?+E10EbHufYiDoiw9CaXh2xOuWj7GxrxVjB2V01XaD54wx2bHC0s4PXaJMOuM?=
+ =?us-ascii?Q?WzLdq525UFRtnJ5zqpLz3+kHX/1nWOfLSMBsY09I3oxqbEWrJ1TR9ieJgC2U?=
+ =?us-ascii?Q?3Zo9vdXaGSXO5lf2kmCkKLa+CLaOZ1Uv5BNgZYIrfACunkl98VPV1S3nzoFr?=
+ =?us-ascii?Q?1hMVoquMhHoqXd56CpgqmEfHExvVNcNci/IxjjeDgQfae40x0c3foeYUi30B?=
+ =?us-ascii?Q?bxRmFNSrRg2fM8IooFhqI+vpDe2hht2QXvlmE61olKKB02gXKEalozmayiqC?=
+ =?us-ascii?Q?Y4p3yaSsoYGwqg1CDlRKbLwnrc4Q3eVHS2wkKvepFcWJltCHUDlNI/KSwMn1?=
+X-MS-Exchange-AntiSpam-MessageData-1: UsHDzmUqKnml4g==
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 79329601-3fab-405a-f407-08df39cc0d2e
+X-MS-Exchange-CrossTenant-AuthSource: PA3PR04MB11203.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 17:01:06.9009
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dXA0Bx53bv6DDdhRCxavN1xQPXBTR5MFNpjZgK0o0edX5Lqj2zAUd47QFO9DMAT1Nr3qStkEZ04+hUKeTv7khV+i2StpTwcBkpMwMvhiRuSgJVM+NTcIaUrf34BNkKpJGot3JMJxHdSNjQfApE6hYQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MMZPR04MB886210
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_084923_060768_61248DAA 
-X-CRM114-Status: UNSURE (   6.89  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_090120_039604_A4A1ADCA 
+X-CRM114-Status: GOOD (  23.94  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,21 +141,278 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+From: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
 
->  drivers/spi/spi-cadence-quadspi.c | 3 +--
->  drivers/spi/spi-dw-dma.c          | 6 ++----
->  drivers/spi/spi-sh-msiof.c        | 6 ++----
+The OP-TEE driver reaches OP-TEE through the SMC ABI or the FF-A ABI,
+both specific to Arm, yet builds both unconditionally together with the
+SMC Calling Convention definitions they rely on: ffa_abi.c is always
+compiled and only its registration is conditioned on
+IS_REACHABLE(CONFIG_ARM_FFA_TRANSPORT), and optee_private.h includes
+<linux/arm-smccc.h> and defines the SMC and FF-A specific types for
+every file of the driver. This is fine as long as the driver depends on
+HAVE_ARM_SMCCC, but it keeps the driver from being built for an
+architecture without SMCCC, such as RISC-V.
 
-For these:
+Build smc_abi.c only when HAVE_ARM_SMCCC is set and ffa_abi.c only when
+the FF-A transport is enabled, and provide stubs for their registration
+otherwise, so that it fails with -EOPNOTSUPP as the FF-A ABI already
+does when the FF-A transport is not reachable. Keep the SMCCC header,
+the SMC invoke function type, the SMC and FF-A specific structures and
+the SMC RPC register parameters in optee_private.h under the same
+conditions, and drop the unused <linux/arm-smccc.h> include from
+notif.c.
 
-Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com> # Renesas related drivers
+Make OPTEE depend on ARM_FFA_TRANSPORT || !ARM_FFA_TRANSPORT, as it
+already does for RPMB, so that the driver is limited to a module when
+the FF-A transport is one, rather than built in without FF-A support.
+ffa_abi.c is thus built exactly when the FF-A transport is enabled,
+and the FF-A transport is then always reachable from the driver: key
+the FF-A parts of optee_private.h on IS_ENABLED(), so that the layout
+of struct optee does not depend on whether the including code is built
+in or modular, and drop the now always true IS_REACHABLE() checks in
+optee_ffa_abi_register() and optee_ffa_abi_unregister().
+
+OPTEE still depends on HAVE_ARM_SMCCC, so smc_abi.c is still always
+built. The only visible change is that OPTEE=y can no longer be
+combined with ARM_FFA_TRANSPORT=m: such a configuration now resolves to
+OPTEE=m, with the FF-A ABI available.
+
+Signed-off-by: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
+---
+Changes in v5:
+- Replace IS_REACHABLE(CONFIG_ARM_FFA_TRANSPORT) with
+  IS_ENABLED(CONFIG_ARM_FFA_TRANSPORT) in optee_private.h: with OPTEE
+  depending on ARM_FFA_TRANSPORT || !ARM_FFA_TRANSPORT the FF-A
+  transport is always reachable when enabled, and IS_REACHABLE() made
+  the presence of the 'ffa' member of struct optee depend on whether
+  the includer is built in or modular (Arnd, Jens).
+- Update the commit message accordingly.
+v4: https://lore.kernel.org/all/20260924105145.532787-1-marouene.boubakri@oss.nxp.com/
+
+Changes in v4:
+- Make OPTEE depend on ARM_FFA_TRANSPORT || !ARM_FFA_TRANSPORT so that
+  the driver is limited to =m when the FF-A transport is =m (Jens).
+- Update the commit message accordingly.
+v3: https://lore.kernel.org/all/20260922131735.524635-1-marouene.boubakri@oss.nxp.com/
+
+Changes in v3:
+- Dropped the RPMI ABI placeholder and the RISC-V enablement patches,
+  this is now a single patch (Jens).
+- Key the FF-A parts of optee_private.h on IS_REACHABLE() instead of
+  IS_ENABLED(): with OPTEE=y and ARM_FFA_TRANSPORT=m kbuild drops
+  ffa_abi.o from the built-in optee.o while optee_ffa_abi_register()
+  was still declared, which does not link.
+- Drop the now always true IS_REACHABLE() checks in
+  optee_ffa_abi_register() and optee_ffa_abi_unregister().
+- Describe the current FF-A conditional compilation accurately in the
+  commit message.
+- Posted as a new thread with a proper subject prefix.
+v2: https://lore.kernel.org/op-tee/20260915020235.507302-2-marouene.boubakri@oss.nxp.com/
+
+Changes in v2:
+- No code change, the testing section of the cover letter was completed.
+v1: https://lore.kernel.org/op-tee/20260914175435.118303-2-marouene.boubakri@oss.nxp.com/
+ drivers/tee/optee/Kconfig         |  1 +
+ drivers/tee/optee/Makefile        |  4 ++--
+ drivers/tee/optee/ffa_abi.c       |  8 ++-----
+ drivers/tee/optee/notif.c         |  1 -
+ drivers/tee/optee/optee_private.h | 39 ++++++++++++++++++++++++++++++-
+ 5 files changed, 43 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/tee/optee/Kconfig b/drivers/tee/optee/Kconfig
+index 50d2051..891dac6 100644
+--- a/drivers/tee/optee/Kconfig
++++ b/drivers/tee/optee/Kconfig
+@@ -5,6 +5,7 @@ config OPTEE
+ 	depends on HAVE_ARM_SMCCC
+ 	depends on MMU
+ 	depends on RPMB || !RPMB
++	depends on ARM_FFA_TRANSPORT || !ARM_FFA_TRANSPORT
+ 	help
+ 	  This implements the OP-TEE Trusted Execution Environment (TEE)
+ 	  driver.
+diff --git a/drivers/tee/optee/Makefile b/drivers/tee/optee/Makefile
+index ad7049c..183cdde 100644
+--- a/drivers/tee/optee/Makefile
++++ b/drivers/tee/optee/Makefile
+@@ -7,8 +7,8 @@ optee-objs += rpc.o
+ optee-objs += protmem.o
+ optee-objs += supp.o
+ optee-objs += device.o
+-optee-objs += smc_abi.o
+-optee-objs += ffa_abi.o
++optee-$(CONFIG_HAVE_ARM_SMCCC) += smc_abi.o
++optee-$(CONFIG_ARM_FFA_TRANSPORT) += ffa_abi.o
+ 
+ # for tracing framework to find optee_trace.h
+ CFLAGS_smc_abi.o := -I$(src)
+diff --git a/drivers/tee/optee/ffa_abi.c b/drivers/tee/optee/ffa_abi.c
+index 633715b..08236d8 100644
+--- a/drivers/tee/optee/ffa_abi.c
++++ b/drivers/tee/optee/ffa_abi.c
+@@ -1212,14 +1212,10 @@ static struct ffa_driver optee_ffa_driver = {
+ 
+ int optee_ffa_abi_register(void)
+ {
+-	if (IS_REACHABLE(CONFIG_ARM_FFA_TRANSPORT))
+-		return ffa_register(&optee_ffa_driver);
+-	else
+-		return -EOPNOTSUPP;
++	return ffa_register(&optee_ffa_driver);
+ }
+ 
+ void optee_ffa_abi_unregister(void)
+ {
+-	if (IS_REACHABLE(CONFIG_ARM_FFA_TRANSPORT))
+-		ffa_unregister(&optee_ffa_driver);
++	ffa_unregister(&optee_ffa_driver);
+ }
+diff --git a/drivers/tee/optee/notif.c b/drivers/tee/optee/notif.c
+index 6e85f2f..6801422 100644
+--- a/drivers/tee/optee/notif.c
++++ b/drivers/tee/optee/notif.c
+@@ -5,7 +5,6 @@
+ 
+ #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+ 
+-#include <linux/arm-smccc.h>
+ #include <linux/errno.h>
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
+diff --git a/drivers/tee/optee/optee_private.h b/drivers/tee/optee/optee_private.h
+index aefe1e6..02d6f79 100644
+--- a/drivers/tee/optee/optee_private.h
++++ b/drivers/tee/optee/optee_private.h
+@@ -6,7 +6,6 @@
+ #ifndef OPTEE_PRIVATE_H
+ #define OPTEE_PRIVATE_H
+ 
+-#include <linux/arm-smccc.h>
+ #include <linux/notifier.h>
+ #include <linux/rhashtable.h>
+ #include <linux/rpmb.h>
+@@ -15,6 +14,10 @@
+ #include <linux/types.h>
+ #include "optee_msg.h"
+ 
++#ifdef CONFIG_HAVE_ARM_SMCCC
++#include <linux/arm-smccc.h>
++#endif
++
+ #define DRIVER_NAME "optee"
+ 
+ #define OPTEE_MAX_ARG_SIZE	1024
+@@ -42,10 +45,12 @@
+  */
+ #define OPTEE_DEFAULT_MAX_NOTIF_VALUE	255
+ 
++#ifdef CONFIG_HAVE_ARM_SMCCC
+ typedef void (optee_invoke_fn)(unsigned long, unsigned long, unsigned long,
+ 				unsigned long, unsigned long, unsigned long,
+ 				unsigned long, unsigned long,
+ 				struct arm_smccc_res *);
++#endif
+ 
+ /**
+  * struct optee_call_waiter - TEE entry may need to wait for a free TEE thread
+@@ -119,6 +124,7 @@ struct optee_supp {
+ 	struct completion reqs_c;
+ };
+ 
++#ifdef CONFIG_HAVE_ARM_SMCCC
+ /**
+  * struct optee_pcpu - per cpu notif private struct passed to work functions
+  * @optee:	optee device reference
+@@ -149,7 +155,9 @@ struct optee_smc {
+ 	struct work_struct notif_pcpu_work;
+ 	unsigned int notif_cpuhp_state;
+ };
++#endif
+ 
++#if IS_ENABLED(CONFIG_ARM_FFA_TRANSPORT)
+ /**
+  * struct optee_ffa -  FFA communication struct
+  * @ffa_dev:		FFA device, contains the destination id, the id of
+@@ -170,6 +178,7 @@ struct optee_ffa {
+ 	struct workqueue_struct *notif_wq;
+ 	struct work_struct notif_work;
+ };
++#endif
+ 
+ struct optee;
+ 
+@@ -257,8 +266,12 @@ struct optee {
+ 	const struct optee_ops *ops;
+ 	struct tee_context *ctx;
+ 	union {
++#ifdef CONFIG_HAVE_ARM_SMCCC
+ 		struct optee_smc smc;
++#endif
++#if IS_ENABLED(CONFIG_ARM_FFA_TRANSPORT)
+ 		struct optee_ffa ffa;
++#endif
+ 	};
+ 	struct optee_shm_arg_cache shm_arg_cache;
+ 	struct optee_call_queue call_queue;
+@@ -290,6 +303,7 @@ struct optee_context_data {
+ 	struct list_head sess_list;
+ };
+ 
++#ifdef CONFIG_HAVE_ARM_SMCCC
+ struct optee_rpc_param {
+ 	u32	a0;
+ 	u32	a1;
+@@ -300,6 +314,7 @@ struct optee_rpc_param {
+ 	u32	a6;
+ 	u32	a7;
+ };
++#endif
+ 
+ /* Holds context that is preserved during one STD call */
+ struct optee_call_ctx {
+@@ -422,9 +437,31 @@ static inline void reg_pair_from_64(u32 *reg0, u32 *reg1, u64 val)
+ }
+ 
+ /* Registration of the ABIs */
++#ifdef CONFIG_HAVE_ARM_SMCCC
+ int optee_smc_abi_register(void);
+ void optee_smc_abi_unregister(void);
++#else
++static inline int optee_smc_abi_register(void)
++{
++	return -EOPNOTSUPP;
++}
++
++static inline void optee_smc_abi_unregister(void)
++{
++}
++#endif
++#if IS_ENABLED(CONFIG_ARM_FFA_TRANSPORT)
+ int optee_ffa_abi_register(void);
+ void optee_ffa_abi_unregister(void);
++#else
++static inline int optee_ffa_abi_register(void)
++{
++	return -EOPNOTSUPP;
++}
++
++static inline void optee_ffa_abi_unregister(void)
++{
++}
++#endif
+ 
+ #endif /*OPTEE_PRIVATE_H*/
+
+base-commit: 827751b699b79a6e569983359c02dce67f81b94c
+-- 
+2.43.0
 
 
 _______________________________________________
