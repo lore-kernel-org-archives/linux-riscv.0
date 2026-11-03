@@ -2,148 +2,114 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63063606A327
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 16:02:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC1FE6082BC5
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 16:49:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3RWmdd3Z;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=rLQlUCJO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=H5GSH7Bx;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=BZKTqSfZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=zh7ZykWqUBYuCgBtoCxcAnu7Hu7/WlaMkGlieNAeCJQ=; b=3RWmdd3ZHtyek6np8fwzx4oOkf
-	wHBBwhYQqm0XOR1gwIk+kXk78KluJN/TZCyaKPVYjU56ax1+1hOB0FsGY1XtkAYDoyoJ4BB7OpT2m
-	0a4HxPOsCFoqLTNKYNpm+1qd3ncFgrEH8+5Vs8QAQ3U1fKNU/qdozXnD6MpsR6PUF8posr5bMnXV8
-	DBLzJmqQExQfKp+AOblM66y2S4MIQyVNcSQt5QCPYf1kL5s6UMjVaVgqvpiV7z5iveQJUFDviE62R
-	2chNzta5Md/aFk7B2ptyoBdKMaiaq6v7WtG3yt5kmVJrG/S/W1jl1fNsucb4q7ec8z2eM1nD5/KDu
-	hi/akoNA==;
+	bh=g5lACtQsbKxd5ole5WGk3Ez6Vo8kRRfyY73McxTR6HI=; b=H5GSH7BxnGi1BInE+Kgdg9g7ZK
+	wDIcUci85NpjdaXFZTGp7k8BoZTilm4FXg3XKmKrwuv8H3izTjm2/1debtDlhs0lsQhSzoKLqHixo
+	GeGpL3jSdjgWQArS/oJ7TZFHVHERwPKv5w1qr9AqKnvK7SDkGw+m7Oqxw9umh5Hcz3uLZkrJI/s2c
+	y/0RC80YS0d4cRf2IFlWXFlUDocMz8gwjATOLMWmDm52pbIIv4Z7iiNSLv88qNoKJ7jCmVnEWtQ8h
+	Umj00/hCqJTD0Jw1j1IYdkjfV2DK3ExJpqFobVT5SDuyy9XYqwifMCnRokufOnbQV5lCRWsJVimLE
+	bOzYpqmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOGxP-00000003341-1FG4;
-	Tue, 03 Nov 2026 16:01:55 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1xOHhO-00000003DSy-1BWJ;
+	Tue, 03 Nov 2026 16:49:26 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOGxN-0000000333D-2fHa;
-	Tue, 03 Nov 2026 16:01:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mR75k6cpFMLwvaYJm4aInbg9uPFkjAp8TRqL9tl/o0lAaOyIQRVSTB8ypKKJtvLCr9h/GuQsdjD3CGfWWrJvN4rkgiTfmFzeqgJtmlnJVsTWGzNy8PAdtpfv9IGIwwJ3EsxugiK5+vodySPIKp4RWx4N7X/yCTgZ2ZmKyPpz1vmyudCC9DrZnk9qPWb+zc4F1obevCFSDVEDZ78KkkkXLiAZbj1JgJxkCMbCmR8bwRDwCm6oQT4eoQOXFtZG8/+aPrhn5D+TojucC72MosFFpbXW/MD/UtSNGD0Qrp90TlP28AH1MP4juBDm+Ac+eFSq3zbDEfM4EipK+gR+OP4utg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NxRFJnP0vCfVm5KhlOIIHh2uAAiRiqctWk96g7tOrUs=;
- b=Ho/5yjF9c668r32HEkRnmt77MBlpNkz8/3l5ohIx/9JtNYvTEEH0gRgG8fv0xMfmlL+8l/Z2YO1iz1NXfVcW8uQLy621eot8bEBMTtLjtG1R1Ui79aNKoYxpXkSIllzt4N6MtHk9lxb0fteNEtEPJ3jXImxhnY0/qVPIWgfulXd+kxHJw94cfYIBFVd9DWrb3QUiPJFP6FC7OMDoCbHNOqf41nmRjkSHBiRoRVHQqOARBVRxG/0he/XT620d1/WhA0hcQu40okGaxqC9vnYO3boC9QxekpDO0PFdZzvse/lcXiVxLcSPLKJQ0auNCFNi3P+e4RnJpIvWeOb6uHcSUA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NxRFJnP0vCfVm5KhlOIIHh2uAAiRiqctWk96g7tOrUs=;
- b=rLQlUCJOTjylveRzkwMb1EAto8v2Hqi+zRG1dr+X3BZ1gjpwh3mZfkVcFCagBIbu/Jnd6v+4rygpHNX+X70uRdINv3roH36eqMLFasbR5q/whzC60h8uIf7Q2G41KxpgWOlgid3HJ3QDSiWMRfEQ4KMxO28mWGzZR9p5BsazGmDlWhTyo+qqco7iG3WamnHqWefcI2q20Ugp7Fxl/jG+8GvBbFAJcGz8aBK1SB2rYYwKAkkUSefm7pRckT5fX9dlGztjjNFuB28Kw4JRzawQB1Hmrgr17FAc/BzFuy18DlZCA4jeXBQ34jAo4eoy36pG5P/mAkThVzSfadPOvZlvZg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by IA0PR12MB8375.namprd12.prod.outlook.com
- (2603:10b6:208:3dd::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Tue, 3 Nov
- 2026 16:01:41 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0592.007; Tue, 3 Nov 2026
- 16:01:41 +0000
-Date: Tue, 3 Nov 2026 12:01:38 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Simon Glass <sjg@chromium.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	linux-integrity@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
-	Piotr =?utf-8?B?S3LDs2w=?= <piotr.krol@3mdeb.com>,
-	Ross Philipson <ross.philipson@gmail.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Song Shuai <songshuaishuai@tinylab.org>
-Subject: Re: [PATCH v2 04/15] efi/libstub: Add a general way to get symbols
- from the vmlinux into zboot
-Message-ID: <20261103160138.GA3165945@nvidia.com>
-References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
- <4-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
-Content-Disposition: inline
-In-Reply-To: <4-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
-X-ClientProxiedBy: YT4PR01CA0318.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:10a::9) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
+	id 1xOHhK-00000003DQ9-36QN
+	for linux-riscv@lists.infradead.org;
+	Tue, 03 Nov 2026 16:49:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=R9Dy
+	48Gg68z6JbCwXeGt+RTdvVH82Yt9FWqbgGzfrzY=; b=BZKTqSfZwdhpx8MSBYyZ
+	Jo0+7Fl/Dx1uDGVAkHAD/aL4YecYKnQhkqybkL63HcTfBnn3ibTKAgC8Ql5eF5Xj
+	fO0qycxsw4HlTUjN4UtljRtDvzRjWUpn/tfMpkPdVgPb/kjLqRU7Ia0cnmAvk6/s
+	dQo9MXr4hUGWbA2mTi6yp60HqdkZrgPVJ5a5V6EF6WMxaaj5kwJro8DUMZy+AnNQ
+	CnB5dOjITMTMbb/uY/Q22pbBFaGDkDhUsjbTS8i8+h08eGNj+GDf2r4Wj/9vlL1a
+	v46nTWysCmgA9NVgarUwzYN9oPXQM1OtEQrfVxvSz43VgnKaEcOTk7cEEI3V3k/7
+	7g==
+Received: (qmail 359133 invoked from network); 3 Nov 2026 17:49:15 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 3 Nov 2026 17:49:15 +0100
+X-UD-Smtp-Session: l3s3148p1@DIfkCmJfcrTAwtcC
+Date: Tue, 3 Nov 2026 18:49:14 +0200
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Frank.Li@oss.nxp.com
+Cc: Mark Brown <broonie@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Radu Pirea <radu_nicolae.pirea@upb.ro>,
+	CL Wang <cl634@andestech.com>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Vladimir Oltean <olteanv@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Han Xu <han.xu@nxp.com>,
+	Haibo Chen <haibo.chen@nxp.com>, Linus Walleij <linusw@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>, Yixun Lan <dlan@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alain Volmat <alain.volmat@foss.st.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Laxman Dewangan <ldewangan@nvidia.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Sowjanya Komatineni <skomatineni@nvidia.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	"open list:SPI SUBSYSTEM" <linux-spi@vger.kernel.org>,
+	"moderated list:ARM/Microchip (AT91) SoC support" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	"open list:FREESCALE DSPI DRIVER" <imx@lists.linux.dev>,
+	"open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>,
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
+	"open list:RENESAS RZ/V2H(P) RSPI DRIVER" <linux-renesas-soc@vger.kernel.org>,
+	"open list:SAMSUNG SPI DRIVERS" <linux-samsung-soc@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>,
+	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>,
+	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
+	"open list:TEGRA ARCHITECTURE SUPPORT" <linux-tegra@vger.kernel.org>,
+	vkoul@kernel.org
+Subject: Re: [PATCH 1/1] spi: use dmaengine_desc_set_callback()
+Message-ID: <auoQiuIm9FxdOrYl@shikoro>
+References: <20261102174005.3933649-1-Frank.Li@oss.nxp.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|IA0PR12MB8375:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2b409bb8-c304-4df2-37e4-08df39c3bf0f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|10067099003|22082099003|261102123227099003|18002099003|261021135927099003|56012099006|11063799006|4143699003|261021121427099003|261022075727099003|261022115727099003;
-X-Microsoft-Antispam-Message-Info: WTbVxq4H8WiM2LXuASztVVzLIU7xAC78p6y17VXQi/75pxtZSIkBgauQBRQc/YJvQasEpwDgQBHSQU3PDsMogQO/E8mhtB3xLlm9ZodMMyIJWjA82Vh9pAnQ86uV0cLZCq87SYZhQ6hy3d/FdLn+6zo3XYEdU+ntlbDOD81n/aHeinGBxeeq9jwOe+GSNbWSUUUhnrPFeteACCQfjza7ryeE0QYWq9HLZFcGyHWtu7Ol1Ho/YzFjFVGqvZHpr2FSiZ6D3zc0ExyMLwuAZaJ6QAJ/PYPQebzr8xXCze3X68aZe9OSRXPdb9CPwj5SP+4Z6f+owCs/GHVEjXAZQn1kSvKQROQo5JRROq1KQQFDjMLdOX/scNd8TmZHgfluk1a74u/gNKcdrEuv2AxArehKrjk1EKchKJ7i1U/wUS5iDGRcQPV5zQjAmUSnEwDrpgfFMKfIDyGg6BmA3THaT3LxgDuAbUGRGcwSNaO2dRDEUAOvxNk3u4Ui/Akvz4HXH13ggA2F36GfgoQLwPsbZWiobnfTJnHNdozPThE+5qcSmEP4X05YyocxNRY4GO7qbTMtZ0WZApCmigURFsTvyHsuTLCqIHHFcApJ9rKubHy3AfD6TRoT8FIj/XWG+qxZ9Jch6CH3QDj/Lm2o4xhxCqihvi9m81XP5SmxyMj5LwCScaM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(10067099003)(22082099003)(261102123227099003)(18002099003)(261021135927099003)(56012099006)(11063799006)(4143699003)(261021121427099003)(261022075727099003)(261022115727099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?v77AKHZwBL46MFGmwAsRPMZWrqHkaiynTP4GPl0EMrln8qTi0owllx80PUgQ?=
- =?us-ascii?Q?IBHswilCMYAexjNwjc41nfcENVKm6dDvKBTkul5maWucZEMNx8YSLUG09Zf2?=
- =?us-ascii?Q?NbW0BWkRJoHT0UeXj35JrXqRbJaVW1YaJ8a63mY7EN12ti4TdPq+tjv4Ixio?=
- =?us-ascii?Q?z9HZNaANHHp2nKxKdjYnN+rhgHap+Z/ho31JxicMPg337WtHNiav33HbJB7K?=
- =?us-ascii?Q?Z4Kg+XivAhDL17UDejyLQM8C0CyTpG58z25nQezVy3FVPlyNMsSyyT2VOwMz?=
- =?us-ascii?Q?PEKYh9wrtOZdSXoqqHr8oTtg2Doqc466PfQZkE4Pagw2BFvwdcffpepz2zj4?=
- =?us-ascii?Q?QOfEQPbUW+n9HSKCzSPHQpY/6ut1ZMaRAg37aavwKaFaiYZjK1hKoPdv/UOS?=
- =?us-ascii?Q?kQ88gbCyJbtNXtlauVEed8vz8PBI1QETKYoT42KrebkhWac4dVDKL9P1l65E?=
- =?us-ascii?Q?d7TxwqJbOu3vq/f+FnRHqdbti/AnU0r2uSwRp8wtSiYx17Fzl2pLIvdyDgEn?=
- =?us-ascii?Q?AFRwy+eX7zlXqv9/SZyPpOP8cTwhHYkKVpkElJ75D4ZoWEnfqJXH4wnUotOK?=
- =?us-ascii?Q?J4ljmKnbOd+vXJHDpRpUkht0rS26NksoPbXGgmgk7/FbdHzo7Mt5Eadg5Fp8?=
- =?us-ascii?Q?bc19h1FJEWS7FC+OLUMJVrABmALIAW5LwXXZjCeelUpQYcTgNeIQjc1tIKbu?=
- =?us-ascii?Q?epbfR+5koQvyxUfQgBNgnsPZaZrnxEC1ObXGkPhyubbkXa9qlr6EOKsyKPAJ?=
- =?us-ascii?Q?SsYiB27xA1EKpTwruaymoks0ww3jfVfDV1+0+wQEJHAe3IN6LpsA3cDa/1uz?=
- =?us-ascii?Q?QQRcrFOyLVbqDhYVdWU7GeidJLaZ2fw9XTP5EsHTMzCFebYMSKuAMsD25pFY?=
- =?us-ascii?Q?72y354zQHs9a8LVJJL56QOBYIBDtvYH5+PSjf/ISO+U/SZWyyoESaW+FoHuE?=
- =?us-ascii?Q?5YY8ZepAoIda3JdUFL1sjq/nrw6tt+8RccF8TYNFCFqwB5AUCeqjY2lo3b/f?=
- =?us-ascii?Q?/2a+ZCq4s6AVAj9v66LbGKFrDJzLUfWEuuLqmsZYVZrqW1DFKllhuTZvp98F?=
- =?us-ascii?Q?D+hSr3rp+H7EnaIfzshKWoqVz389XA22tCBEEkwxDi845uAKUPIQ4s0vOPms?=
- =?us-ascii?Q?U0USQRqyuTS50jvoDSSmGXD1O5olThDH+hIPiuSCg7l3yaODI4bv3DIEHLzX?=
- =?us-ascii?Q?0WhVNwMOg2DbThDEjKqrbRGQ7MM7iQ8iaP68AchCVfs1i4+RMeF9Ea0SXJ4P?=
- =?us-ascii?Q?8dJrEwAIjrdITqV7I07dknGiLWosQCL+r5sKhoF4BQ+QCJCwsrOwH15Quz1A?=
- =?us-ascii?Q?+PIxcXnPVzfaLpfal1n8GwV3GPZC1XT/kBvNFWYST+M0N9uojs0fv4XLW+v7?=
- =?us-ascii?Q?tf0jzYCJU8mSDIZdmD/uKMa5BYimrN95MQd3Enl6UzdrPLTxxL7qtY2eN9ZZ?=
- =?us-ascii?Q?4t6yzPiA2QIwn1KahqbmVonBnffdaMhiudE6P1/SJxCJUkbQFa1oDCeJDJ8D?=
- =?us-ascii?Q?uTIQ7kLTID42fcK4HdVI4vaKAqaT3zMznfRK8x/+iVz+gTq54RrMreYwTovk?=
- =?us-ascii?Q?O9H39FjTI3FAS/J0Z+YrG4g1BU31SNdAafqB948T2axCK/xwA4UCMQNJ9fHF?=
- =?us-ascii?Q?9n6G2UGNN8NlJme1Mbe9WeSwGC15nPtFjxO+dT4r00BnvHk8ZfA8DypP/0wE?=
- =?us-ascii?Q?KcdkXi2zRjN14esufG9ykUsuJF3xoYNm8D4KGicjnv3Ic+Rd?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2b409bb8-c304-4df2-37e4-08df39c3bf0f
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 16:01:40.7413
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7iV7et6HbGRij22+uJGcgmJwUxXSV51jcnTkKHZgS6HdJG9Ct0nWTx5a/f13IbkI
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8375
+Content-Disposition: inline
+In-Reply-To: <20261102174005.3933649-1-Frank.Li@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_080153_683202_FDF76679 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20261103_084923_060768_61248DAA 
+X-CRM114-Status: UNSURE (   6.89  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -157,39 +123,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 02, 2026 at 08:31:41PM -0300, Jason Gunthorpe wrote:
-> Currently the zboot stub has no access to symbols in the vmlinux. In
-> contrast x86 has a voffsets.h header that allows the stub to know whatever
-> symbols it wants for the decompressed image. ARM DRTM needs another 4
-> symbol locations to work, and it also wants to compile the DRTM libstub
-> code once and have it work in both zboot and embedded.
-> 
-> The current solution in arm is "code_size" from commit 45dd403da851
-> ("efi/zboot: arm64: Inject kernel code size symbol into the zboot
-> payload"). This is neat, but it makes the zboot and embedded cases
-> work differently.
-> 
-> The x86 voffsets.h approach is also nice, but it can only work in zboot
-> since it relies on 'nm vmlinux' to extract the locations. That's a
-> circular dependency for the embedded stub.
 
-Ard,
+>  drivers/spi/spi-cadence-quadspi.c | 3 +--
+>  drivers/spi/spi-dw-dma.c          | 6 ++----
+>  drivers/spi/spi-sh-msiof.c        | 6 ++----
 
-Did you have any further thoughts on this patch? Did the sketch you
-showed me at LPC turn into anything?
+For these:
 
-It is rc1 and another month has gone by so I'd like to repost this
-with all the feedback
+Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com> # Renesas related drivers
 
-Thanks,
-Jason
 
 _______________________________________________
 linux-riscv mailing list
