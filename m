@@ -2,116 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 310606076B82
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C21C6076B92
 	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 08:37:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=c/eRfqlP;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=ZWkcACQf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rnUgo7W3;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=kuGQ+OYV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:CC:To:MIME-Version:Message-ID:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=c1tkrXk6xi96dlxQekaxkyY+1l7MpwJk64F3FJdRgF0=; b=c/eRfqlPYDK9QHfzG6aUHL+uFL
-	Wtu6PcYKIAbR4XnK8/Of5FP0rG7Q4YPPVX929Nr31iyt9tkj9vi7M7Mjolx/0BT68ss+OAnv3rt1H
-	ZN55dNnDSnmhLCnTAs8/+6YNKabpHxdp4nNwMnO9mL9fIcfYdRRC6Jjbdf74WzuStHmSacXHjeu5V
-	sC6VNFOY5xF7P6WY0Y7WNzvfyJyAUwH0ND+fC8e9KeMBCChZPOgGn5B49zlWa5iT6qYMBPL5ED68R
-	nCBe23H8Xm9zCynbfS5Dhmwj2RdXcSrfEiawUpm0cmTuBqn3SnZ3K/qGwPmbr29v68p2bl0zNE0kX
-	99OyMWjA==;
+	bh=fqrv1dX+5yOJU/4s9jWG4QF67cSMKcN1+n7PipeLYic=; b=rnUgo7W3UFd3vaVu98rSVbaOo8
+	6D2cU5Y9/cnkNCXntpmwp/EH3VC68aeq1hc0T/Py6Q2oqSU/G+Hg0ae+2i6YfPSGzbCBe3111PfSv
+	IzCpcg3kVhTKoS/fLgt5Gq+NS+2IAov1zgrtXHQJcYd2Tg+u6MDs6iuNtN9q7oTlsrfwPgs2c3UlE
+	4e2bejk2jnhRBOCaNFYO/mhg/nEu6pHVpMxCe5XCJikY5s5g/vMlOZvlHYasyzOEcruToMYefhGtI
+	TzKTPx7sAOslJqmvsGq3G500XGHSnhv62BVuEljPdvCsToeWC6IYwbRqA6+hIYg/mU/r8y5aMQjuA
+	0yHaY31A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOA1b-00000001Zx0-203H;
-	Tue, 03 Nov 2026 08:37:47 +0000
-Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
+	id 1xOA1d-00000001Zxo-2fJf;
+	Tue, 03 Nov 2026 08:37:49 +0000
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOA1H-00000001Zpo-2RUr
+	id 1xOA1U-00000001ZrS-1lq6
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Nov 2026 08:37:42 +0000
-Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
-	by mx08-00376f01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A35Wq4u3269100;
-	Tue, 3 Nov 2026 08:36:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=dk201812; bh=cANI97668GsCuPQO6W/6kct
-	9AjkFv8U+ngiTKgyJZu4=; b=ZWkcACQfT6GS2oTE8RETJqRA9IEMwWiohRoTcrk
-	e+wV4YXWUZomnqq4rh/QpNTi9ZLI39HGCR1VgUFgnDH52Zx82hsU+RPzYUgw/TZ2
-	d4SM+9gV7v7bNa1GqvW+ABwjmHmhnsrzQhWcJI7hMYgghA5C8CdsO0nIDe2yX/GO
-	yNEK2BwUUkgDqbLGjVzpaRIKMR7KwGIuWdwRyIYF3Sb647Vh3Oxbwn/lOX0j3L+8
-	ktW4JzpV0WWbSr6dL8faIJW+LcIHTy0ErI2GVgwUEyR+gl04Vzi/wsWR6VkPiW0W
-	TnScBv1u/DFWHi7bFlk21Hyrcy+jma7NANG006alNiNZ0zA==
-Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 4hn7ft239a-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 03 Nov 2026 08:36:52 +0000 (GMT)
-Received: from [127.0.1.1] (172.25.5.26) by HHMAIL01.hh.imgtec.org
- (10.100.10.19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 3 Nov
- 2026 08:36:50 +0000
-From: Alexandru Dadu <alexandru.dadu@imgtec.com>
-Subject: [PATCH v3 0/5] drm/imagination: RISC-V and META firmware interface
- updates
-Date: Tue, 3 Nov 2026 10:36:16 +0200
-Message-ID: <20261103-prep-meta-fw-arch-independent-v3-0-563dbaf1b779@imgtec.com>
+	Tue, 03 Nov 2026 08:37:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1793695045;
+	bh=k/qijytVFIsC4oBmo7E3xWvc1VpP3rElv6FAFcCDtSk=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=kuGQ+OYVYZYKS/yecfpVmiR8QUZOJs3BniCprObj3Tbq3v/66xMTpS2GNZDnpw9/R
+	 0+l53KHroxswqBp5praQbmbWxUmYDQlM3+4anV541sBPhy5QlRBx2rPMCpU5WjcISh
+	 /RfuxhlS2CbH2SMy8QTk8DcZyNiqE0caA2qC6VRE=
+X-QQ-mid: zesmtpgz7t1793695044t51b83d38
+X-QQ-Originating-IP: MqKM/sJkuvDY17zuAK1CItbTzJpswIk3WyxUZSB12UA=
+Received: from = ( [58.254.69.131])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 03 Nov 2026 16:37:20 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 2555415276138771105
+EX-QQ-RecipientCnt: 16
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Date: Tue, 03 Nov 2026 08:36:50 +0000
+Subject: [PATCH 5/5] MAINTAINERS: Add entry for SpacemiT timer
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAACd6WoC/43OTQ7CIBAF4Ks0rB0DNKXWlfcwLigMLSb9CSBqm
- t5dqBtd6WaSl7x8bxbi0Vn05FgsxGG03k5jCuWuIKqXY4dgdcqEUy4Y5QeYHc4wYJBg7iCd6sG
- OGmdMZwxgjBZaacGFpiQZqW3sY/PPl3f2t/aKKmQ0N3rrw+Se2wOR5d6/W5EBhbpExoShnNX8Z
- IcuoNqraSB5LPJPrvnF8cS1jam0aNpaVt/cuq4vhfzeVSwBAAA=
-X-Change-ID: 20261028-prep-meta-fw-arch-independent-ffd6dcd626d0
-To: Alessio Belle <alessio.belle@imgtec.com>,
-        Luigi Santivetti
-	<luigi.santivetti@imgtec.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Paul Walmsley <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>
-CC: <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        "Alexandru
- Dadu" <alexandru.dadu@imgtec.com>,
-        Matt Coster <opensource@mtcoster.net>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793695010; l=2876;
- i=alexandru.dadu@imgtec.com; s=20260304; h=from:subject:message-id;
- bh=S9myfWbC7UBl3b49CPkRxkIKUFPauY5A1Unn3wq/YuQ=;
- b=jppBDapa84q3RwFHj2PPkEhNR7QROmmXBJxxVvGkYiwZNTdmoLK0RmRtM0f13hkizdFMaQjaI
- We/don5Y8FnCuB8pPGJ0NTEJJsD4Ocj5b6JT+lAHLeQke6xpeafvGL/
-X-Developer-Key: i=alexandru.dadu@imgtec.com; a=ed25519;
- pk=FU07SyNrYGwhahqSxbWEuzyXlUh47xBXvLvOR7UA6+U=
-X-Proofpoint-ORIG-GUID: U4kkKWtW81Mlf18E-PfbKhogaDGVxxrb
-X-Proofpoint-GUID: U4kkKWtW81Mlf18E-PfbKhogaDGVxxrb
-X-Authority-Analysis: v=2.4 cv=HaSB3SE8 c=1 sm=1 tr=0 ts=6ae99d24 cx=c_pps
- a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
- a=h_3jC4m0AyQA:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=qZQ2PDNLMSdLoqI-hfl9:22
- a=bC-a23v3AAAA:8 a=r_1tXGB3AAAA:8 a=QyXUC8HyAAAA:8 a=VwQbUJbxAAAA:8
- a=pGLkceISAAAA:8 a=_O3DOGVWAAAA:8 a=e5mUnYsNAAAA:8 a=JfrnYn6hAAAA:8
- a=gXtLJ4WPg2CJrXxS_-4A:9 a=QEXdDO2ut3YA:10 a=FO4_E8m0qiDe52t0p3_H:22
- a=t8nPyN_e6usw4ciXM-Pk:22 a=2TKV-7w1aU1AVAwN0oqT:22 a=Vxmtnl_E_bksehYqCbjh:22
- a=1CNFftbPRP8L7MoqJWF3:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAzMDAzNCBTYWx0ZWRfX7fI1S8OftG3N
- B56LhCUuaTAAi9gJKBE1AkX2tiHXwnX3+h4AKhy9qDA7gnpkjDlQzBUW0SxACGq3+6ZCMeVNMcO
- We94qoUcm7JOWh/Y5+FFxigXIA6zT+o=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAzMDAzNCBTYWx0ZWRfX0WlOmMIX+H7L
- PeV9rnGxVZMoJCoXrZ6otuv4lO1KaIkywOvCLW7F6nkByc+9X0Ywo82hyBPLFF01fAlru0fl1ZB
- Rh/rpn/euJeXE5XvKS+bK9Vxi7D73gPDey94zw0nAYSQsNgpHvXUnBp78TWbHKe3YHqYSR7mqbc
- 3X5gZlgZR0a8BV6U/G1sgvsJdkvkt98IYhRyJ9rOMdn+OX2lHnvbZWnQsZy6/3mNWKj1lYqBcUt
- DwZdtFRa8R+vHtidCEAQCSfFuKK3HsM7PjYBXkK6E6gF4Sr3ILzUo5ECCAMrOrPALagESO5JfSm
- ZHJMNnuCi/9mPxd5CBx8v6V57RYH05LtFT9EiGVsefah5JmdvGaekxouLHunHtG5J74c7OhkEdR
- zt8pIh6yIaiVtB8ja84248S41V8xKzdeO0gbnV92HmoiQp+JvshrLUbnSuORu5eFgCljO09PW68
- KrkdbH6MIlSKgZ1twvg==
+Message-Id: <20261103-spacemit-soc-timer-v1-5-36722421db6e@linux.spacemit.com>
+References: <20261103-spacemit-soc-timer-v1-0-36722421db6e@linux.spacemit.com>
+In-Reply-To: <20261103-spacemit-soc-timer-v1-0-36722421db6e@linux.spacemit.com>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=795;
+ i=troy.mitchell@linux.spacemit.com; h=from:subject:message-id;
+ bh=iHFUNkL4vpfnAkYRawlVPY3gFssiqBgZcrn/XNSsq1c=;
+ b=owGbwMvMwCU2g/N9w09jE33G02pJDFkv5yr3pDuqGN7hk550Kajk6Iynx+UOXk10yC3xFuL/9
+ rTBf4dSRykLgxgXg6yYIkv3A55tBT5RtgUChb4wc1iZQIYwcHEKwES87zP89+oymXkx5N66JA1e
+ Q567JXZHe67Y7/m/gC1i1RqH6yosgowM/8x8b/6Z8t5P7Hqccf3q289CLrGeNPvdaWuW1ui8Oje
+ BCwA=
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=openpgp;
+ fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MbGAPuuY7aUIQbOFRQnfzKgpf0YNY30SZZn732AElhYAcRo2NN2Z0OET
+	vptVEaN4QWcANE0zRqpzIo1BkkIkUufbEpf9juamQpT3/SH+8CpbwujbXlgw5+6CyDhnbx7
+	RrDT9M8mFR/KccP5cE3EaKE7zD0cMWj/fhTY6Febe74ZO6Iejz8H3e3oAinSTp7Re30VbEl
+	oj/Sp6j/ZqP99uW4zMvl7tiGyEswwXKrnmOKYvfCtzz3jGhuDbSYXPtgqbLlFphG2WH6j8j
+	43+b7V0ZHqa0rZ6410fkVRDn6QDhbO46RYk06+2TCePFjouo0DvxF6JJtoOfPL7zxdfBKAT
+	nbs8T8ZQOnOotyPshIRG51lgxL8gTuiE6su7pWWx+iyVuux7PDVDIaDV7OI2ge4T8KAXaru
+	MkhqxlQpWKNwnGgKUcF7VqBxCEKx2Fmoi5H+avKLKUysm/EErNpY2MqaxtjXb5adZYxvIai
+	KxQ/rOh389XX3S9O30gFaXIg18AQJcE/jG1FyWepmNkpAi+qrrh7iEmqOFW2efs/Vnsl4RE
+	+G3Cqane2FFENc2gsWFC0f4CnGtddS1riJTASBVXfg1EqNJmrUyFWp6VM6qMn1zakXU9hAk
+	axgd97i+wtIbRubOynb6zigeUNa394shd3OZTYnVVv7on0UMGuTtguSpc+gxjQNYXdRr847
+	gS2gKx7BtuONbeaCaWNsNV2igt/C3Muy7X8SY/T3sOC5CdWmypIC/9meQYALC0DRl/3qeDD
+	bFQtfXE04SvNbp8fR4ZkSauV8CRrli7fIzGKD4ZgiDu+D3PacblSUENk6p3JiOMSByocImu
+	9oMg6yOurMYWEDIjl4FNFZ7389CL9B5rpjs7yqmi64KMJPY0TBdXsbA0YsIxLvmmkqFAS2V
+	LEmd8GQ/gluGBSNB1giOHgj4CXpkJGniR11LLIXTNtWqJzH8uGF1OOmMKXCgMTNlQMQM0XD
+	6MlzmoohgQ+5EAwQoNZxiN0mMMysx7gzaDgOvaibVI2zBWHqhwLK2g6TO1CRc3XTzSzivxO
+	EJByhIDTkCyj9RTvJCIgIRIMS9pQQR4dkCw9Ej/gpAeCECHqj3iOecl0GacEQLcZjl81WZT
+	1jlMxjB/ByXHlQcW/mC1Q6cIlHa9SXE934nSYdyiUXEy62WSMKDsFqafEk+1YsW6OADOmrO
+	Ztz6eMD/nl4p0ErS9l5Ylt8nsA==
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_003727_896655_60C14264 
-X-CRM114-Status: GOOD (  11.92  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261103_003741_872952_9639AA54 
+X-CRM114-Status: UNSURE (   7.44  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,70 +119,34 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Refactor RISC-V and META firmware interface headers to have a more
-generic and architecture independent approach:
-1. Limits access to the RISC-V and META firmware respective interfaces.
-2. Aligns RISC-V and META firmware headers with the other processor
-headers.
-3. Add "_fw_" component to the headers filename.
+Add a maintainer entry for the SpacemiT K1/K3 timer binding and
+clocksource driver.
 
-Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
-Changes in v3:
-- Fixed remarks raised by Sashiko in pvr_fw_startstop.c.
-- Link to v2: https://patch.msgid.link/20261029-prep-meta-fw-arch-independent-v2-0-b9f5d69b7a52@imgtec.com
+ MAINTAINERS | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Changes in v2:
-- Update the commit messages to better describe the changes.
-- Link to v1: https://patch.msgid.link/20261028-prep-meta-fw-arch-independent-v1-0-73e116f02172@imgtec.com
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 93abbb315065..e607e9cb07a0 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -26372,6 +26372,12 @@ S:	Maintained
+ F:	drivers/reset/spacemit/
+ F:	include/dt-bindings/reset/spacemit,k3-resets.h
+ 
++SPACEMIT TIMER DRIVER
++M:	Troy Mitchell <troy.mitchell@linux.spacemit.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/timer/spacemit,k1-timer.yaml
++F:	drivers/clocksource/timer-spacemit.c
++
+ SPANISH DOCUMENTATION
+ M:	Carlos Bilbao <carlos.bilbao@kernel.org>
+ R:	Avadhut Naik <avadhut.naik@amd.com>
 
-To: Alessio Belle <alessio.belle@imgtec.com>
-To: Luigi Santivetti <luigi.santivetti@imgtec.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-To: Maxime Ripard <mripard@kernel.org>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-To: David Airlie <airlied@gmail.com>
-To: Simona Vetter <simona@ffwll.ch>
-To: Paul Walmsley <pjw@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-To: Albert Ou <aou@eecs.berkeley.edu>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: imagination@lists.freedesktop.org
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org
-
----
-Alessio Belle (4):
-      drm/imagination: Limit access to the RISC-V firmware interface
-      drm/imagination: Make the RISC-V firmware header arch-independent
-      drm/imagination: Limit access to the META firmware interface
-      drm/imagination: Make the META firmware header arch-independent
-
-Alexandru Dadu (1):
-      drm/imagination: Prepare heap config header for multi-arch support
-
- drivers/gpu/drm/imagination/pvr_fw.c               |   7 +-
- drivers/gpu/drm/imagination/pvr_fw.h               |  26 +++
- drivers/gpu/drm/imagination/pvr_fw_meta.c          | 104 +++++++-----
- drivers/gpu/drm/imagination/pvr_fw_meta.h          |  14 --
- .../{pvr_rogue_meta.h => pvr_fw_meta_internal.h}   | 175 +++++++++++----------
- drivers/gpu/drm/imagination/pvr_fw_mips.c          |   1 +
- drivers/gpu/drm/imagination/pvr_fw_riscv.c         |  13 +-
- .../gpu/drm/imagination/pvr_fw_riscv_internal.h    |  43 +++++
- drivers/gpu/drm/imagination/pvr_fw_startstop.c     |  61 +++----
- drivers/gpu/drm/imagination/pvr_gem.h              |   3 +-
- .../{pvr_rogue_heap_config.h => pvr_heap_config.h} |  26 +--
- drivers/gpu/drm/imagination/pvr_rogue_riscv.h      |  39 -----
- drivers/gpu/drm/imagination/pvr_vm.c               |  18 +--
- 13 files changed, 289 insertions(+), 241 deletions(-)
----
-base-commit: 6e375de99d0c420169481fcd36064177ab55b09d
-change-id: 20261028-prep-meta-fw-arch-independent-ffd6dcd626d0
-
-Best regards,
---  
-Alexandru Dadu <alexandru.dadu@imgtec.com>
+-- 
+2.56.0
 
 
 _______________________________________________
