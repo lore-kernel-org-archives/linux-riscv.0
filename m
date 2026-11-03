@@ -2,155 +2,51 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E55F5606EEA5
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 13:06:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E448606D801
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 13:20:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Pa0J6Mc5;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=Tlk9CB2V
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vSqQ5rBU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=lASCjlbSo8cNbz8HJDV2swUZyqlGYUylNWdQVvFN8so=; b=Pa0J6Mc5lLxlPmzoVFcijmH5Wb
-	wajrbvffmgL0h3e0UgYJ26IRFfMCalpuxc5Dk6LmPIV8bcvnZbj8ds06L+J6eb/fprMnU7Mdkui0b
-	rEkFD2bJSso2/TzSy45J/4uj+2UzydU5k/UEinolWj5G+LonDA/hsb3iGc3nSy5KrZKfnMdGnqrAs
-	yDEgzcv6s9/1nR8fne9fp7fSsOLM4A9pPJN43DPZgibDCWYc12UnXuyOZh2wOXEPPvzyxoIetKctB
-	8QrC4HJDS+sm11DiwBpQ7yU3gCVLo54huRQB3gawCE3ZnR7CsO/zxW/oJLhhkYFNa8FySfO7w3FUc
-	Ra+A2j0w==;
+	bh=6KepomfP08kaJS1xJCGG+dBHlLXTXYaSNGD6lfsDdgo=; b=vSqQ5rBU08amdk3W8hMxXSYVbf
+	Nm7rLDnZmW05LSvsKjenFg22f44Qv4dAvZgFFI6fRI1jORhSP9sBsiifgDNDapb9V15jjfshJX/1I
+	Bz7gYfmPDG6WH41f8rn0UrQxQ9Did7GoZU3t92mdVb4QTP4Zyg88cFVyso4qq7vp3ITxjObOLMmHS
+	Yfe4QakBdRTh311FCGxsWF6iwHPOSQCyqY4/b4nPN3SN+kE9BfYa2mIIZVJKvetj5Wcmd8+Lg1LZh
+	CA1jiS1MYMYoEuFxAvKW9LJQfUfa0L2JVM0AJJcQS3RZhkeoQHYbyIWzwfVEAdZMZ8Y0odXhcCy79
+	vuCusdqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOEDw-00000002Tmi-16jg;
-	Tue, 03 Nov 2026 13:06:48 +0000
-Received: from mail-swedencentralazon11013028.outbound.protection.outlook.com ([52.101.83.28] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1xOEQx-00000002WjJ-3Sww;
+	Tue, 03 Nov 2026 13:20:15 +0000
+Received: from sym.noone.org ([2a01:4f8:120:4161::3] helo=sym2.noone.org)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOEDY-00000002Sxa-3aOg;
-	Tue, 03 Nov 2026 13:06:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VuX63EqfmQxhi0BPjm4/sVUeJbR/xreWewgObOj4VQ8y8lVEqLv8BVovsUGhg2b7fWK2L+IzxDa6MbWVKbC5An0D+fPtdbcOMnqQS6o47WDzMBD39BCH21+hWmmmZojSQ1AJpR18gkyEwA5LCBiNkg4pXOmnOHiJATug7rQ1JB9SH36XBOAKU6qWLExOZWgdByMb2RUuXbhyp1sWOGhtpsA4YHRV7PDLQqrZIgeTUKkZcn18Ngk4KBVEmBsZks84YzqvsMkOHvrXTZajXu932uUgPeqpTcR/gBN6+qXcLTlLUx691P+YiTXWDuxflpDAOCe85wQg6ZVDbhtl8ppGig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IDhXslPpLUjpmgJ9lF7wLDQiPC8B9j6Mf5c17GbQios=;
- b=ShvrnUpxpi+lX3A/lmDV+P6d1Jj3ydGxGrmXTGVWF+W+3VUASub6sOFsoOekiOimAQooxPVWE/90i0JekJ8QOwAKssKYch0ZxShMz2w4huEdIGrMYZwDbDP+1ly+4re1j/jD249FJIICbgue/jT0LF93dRY0L1DroAp2elgbeIcWpbxMhTEgYtcaU3okfBzol66vnYCoMjbLd7ODakqKsQfnsheQE1+yGNRYGE03K+KWnbwu6S8m3HST08boUO9gefvzJ4xG8Eu5p0gWPwF+dcqO378cwyMEdwMntVI6lJKJiui1uxbr5krd8NmI4u0Duywt56cdxTMDa/yxOm7FSw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=oss.nxp.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IDhXslPpLUjpmgJ9lF7wLDQiPC8B9j6Mf5c17GbQios=;
- b=Tlk9CB2VhhLRqkwigzKpCwkIOVBT6xmRqkSNOjm1g2kpUf1+KfEwT0U5iBvxOpB5vwm8Jcfyf9f1fKplZzToN3Xuz/7tpuN9EZBgd9w1gCsLNrgru7bSxcZYnc0FFC4sETSoUPEgddD5nFZzGqvdwpIndX79APSQhu97FdjnwtoLEOAjvkM4HwDugSM0k1xXuC6i/YFilrtvQbXQ0lLZjLdR4QwXNmcAUFgln2HDUnryxls+Xo/6QsR6SfdNb9vwJ/dos4OiWdc+kWls9OJh11XoHB/iGg5m+fZcpC/X4+RPnmfQ8s2icHiy4wPT2xCMOW5iHYASiEob2RVB/sclQw==
-Received: from AS9P309CA0008.EURP309.PROD.OUTLOOK.COM (2603:10a6:20b:45d::15)
- by GVSPR10MB953803.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:71d::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Tue, 3 Nov 2026
- 13:06:15 +0000
-Received: from AM1PEPF000C1AD7.eurprd02.prod.outlook.com
- (2603:10a6:20b:45d:cafe::2b) by AS9P309CA0008.outlook.office365.com
- (2603:10a6:20b:45d::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.3 via Frontend Transport; Tue, 3
- Nov 2026 13:06:15 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- AM1PEPF000C1AD7.mail.protection.outlook.com (10.167.242.102) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.592.5 via Frontend Transport; Tue, 3 Nov 2026 13:06:15 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 3 Nov
- 2026 14:06:22 +0100
-Received: from gnbcxd0016.gnb.st.com (10.130.77.119) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 3 Nov
- 2026 14:05:51 +0100
-Date: Tue, 3 Nov 2026 14:05:49 +0100
-From: Alain Volmat <alain.volmat@foss.st.com>
-To: <Frank.Li@oss.nxp.com>
-CC: Mark Brown <broonie@kernel.org>, Nicolas Ferre
-	<nicolas.ferre@microchip.com>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Radu Pirea <radu_nicolae.pirea@upb.ro>, CL Wang <cl634@andestech.com>, "Ryan
- Wanner" <ryan.wanner@microchip.com>, Florian Fainelli
-	<florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, Scott Branden
-	<sbranden@broadcom.com>, Broadcom internal kernel review list
-	<bcm-kernel-feedback-list@broadcom.com>, Vladimir Oltean <olteanv@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Han Xu <han.xu@nxp.com>, Haibo Chen
-	<haibo.chen@nxp.com>, Linus Walleij <linusw@kernel.org>, Andy Shevchenko
-	<andriy.shevchenko@linux.intel.com>, Daniel Mack <daniel@zonque.org>,
-	"Haojian Zhuang" <haojian.zhuang@gmail.com>, Robert Jarzmik
-	<robert.jarzmik@free.fr>, Heiko Stuebner <heiko@sntech.de>, Fabrizio Castro
-	<fabrizio.castro.jz@renesas.com>, Andi Shyti <andi.shyti@kernel.org>, "Tudor
- Ambarus" <tudor.ambarus@linaro.org>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar
-	<alim.akhtar@samsung.com>, Yixun Lan <dlan@kernel.org>, Troy Mitchell
-	<troy.mitchell@linux.spacemit.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, Laxman Dewangan <ldewangan@nvidia.com>,
-	Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter
-	<jonathanh@nvidia.com>, Sowjanya Komatineni <skomatineni@nvidia.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu
-	<mhiramat@kernel.org>, "open list:SPI SUBSYSTEM" <linux-spi@vger.kernel.org>,
-	"moderated list:ARM/Microchip (AT91) SoC support"
-	<linux-arm-kernel@lists.infradead.org>, open list
-	<linux-kernel@vger.kernel.org>, "moderated list:BROADCOM BCM2711/BCM2835 ARM
- ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, "open list:FREESCALE
- DSPI DRIVER" <imx@lists.linux.dev>, "open list:ARM/QUALCOMM MAILING LIST"
-	<linux-arm-msm@vger.kernel.org>, "open list:ARM/Rockchip SoC support"
-	<linux-rockchip@lists.infradead.org>, "open list:RENESAS RZ/V2H(P) RSPI
- DRIVER" <linux-renesas-soc@vger.kernel.org>, "open list:SAMSUNG SPI DRIVERS"
-	<linux-samsung-soc@vger.kernel.org>, "open list:RISC-V SPACEMIT SoC Support"
-	<linux-riscv@lists.infradead.org>, "open list:RISC-V SPACEMIT SoC Support"
-	<spacemit@lists.linux.dev>, "moderated list:ARM/STM32 ARCHITECTURE"
-	<linux-stm32@st-md-mailman.stormreply.com>, "open list:ARM/Allwinner sunXi
- SoC support" <linux-sunxi@lists.linux.dev>, "open list:TEGRA ARCHITECTURE
- SUPPORT" <linux-tegra@vger.kernel.org>, <vkoul@kernel.org>
-Subject: Re: [PATCH 1/1] spi: use dmaengine_desc_set_callback()
-Message-ID: <auncLWeLzd8OL9SQ@gnbcxd0016.gnb.st.com>
-References: <20261102174005.3933649-1-Frank.Li@oss.nxp.com>
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261102174005.3933649-1-Frank.Li@oss.nxp.com>
-X-Disclaimer: ce message est personnel / this message is private
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM1PEPF000C1AD7:EE_|GVSPR10MB953803:EE_
-X-MS-Office365-Filtering-Correlation-Id: b77f3807-152a-4efe-e3aa-08df39ab3e4c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|36860700016|1800799024|23010399003|6133799003|10067099003|18002099003|261102123227099003|22082099003|56012099006|11063799006|261022105027099003|261026140227099003|261009223027099003|261009220027099003|261009221727099003|261009221227099003|261009223327099003|261028144727099003|261021135927099003|261021121427099003|41080700001;
-X-Microsoft-Antispam-Message-Info: ZjzWigixUF1WXu4m54pXncf6zJcdHsviUVaBb9yW9UQs5zdJBPcfld3tL7opRqei5bXcaJ2vhbcrKdQCNi6uRzC2bad26Sqa/ZrX2BCmX3aHTPsXkoSuefNVeBHhb6KOrQW+VJRqVOAjxFQvM1ItsaBiWM8U/MnLzk0jwBPum73P2pTBnHjO925JbXXYYOuWlLcDHUbU50mWp7RLJkja6sE0wWEfAqPecGUhRYzo/OJRqDEUsGth6VqGN5sFYq1orHR+TwNBrJZmvo0fgSEknnwAK7CvRow54sZhyTS4tsnmrWyLv3E5Nagpmkj8TvSWUMuRITnMbceQHEioD9XNMbNGCG1PHcYRRZRD9d4u1u10Oey6s1WP5reHhm4bv2MzNMxvuvbpZ9lPOLtZju5j6ITSmMt+snBfodCoATwNEiehyeida6xSaNnF3JzOwb2YWqbD+p+kHwTe7PApXWQIUUMBZOnSiDc91ef5okhuRxS2YPsZqP5oDZs7BGOgTAe2vJp4qCIC4oieNnIW2UwLtpQ875EemCCGezdDSnAwkP5tiFnnBx8Ay/63MB4IAChV93Vys1axSReM4k+Gk7nT74GDYJQ3+5wL7GtCJcAT3P/SPfVXGCdP/GniY9qGP6WFHrSFH6CluFPtLKQ+K83Hhn/k+rFElkaTum4pvJ3YLVTAC7aRsjTHPE4TcIaSac+xtzDylyOXRlMLqUDcDosSldNruuWobdHt78IA36Nbj+7GZXwA7n/EdUu8Q2P30F3rbWftLqPx8iGpwk+288j/7Q==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(36860700016)(1800799024)(23010399003)(6133799003)(10067099003)(18002099003)(261102123227099003)(22082099003)(56012099006)(11063799006)(261022105027099003)(261026140227099003)(261009223027099003)(261009220027099003)(261009221727099003)(261009221227099003)(261009223327099003)(261028144727099003)(261021135927099003)(261021121427099003)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: XQ7uq+C8+wjt39eT63XGGSwIvkGlwUfA/5kYIh0DgP3VJ0tkzh7pGUomg5JB0E+vIYr901g5oQsY9gQnHSJXXqyManmUCqremKfjlJLsPIiUnpUSnH1JiWoU6OEN7nMG3dJ2gE0kk+sW2qMxt/1GN5G+lLXs8Rq3Q+OuZUtLTGQ2baZrHZp0ShXJ0bysnclJG5NFu9j66wkDtgPQZYKZ8JRxKFIyJGylvQzP028+eL2VvuOX6kK+Q3fq39jnXyR0h2UI2053kofmsjg9bHLUvT7HW8pp9ptYXmJjX63cmHBhAi+b0LRYcOF/hN4AlQgLLlATTgebrmCYO4WMrWuTlhBGXxpTgomumpKS752oP8JekjW1MWa07O1H8XR9F/l66G+TlXkxruTXLZfrPu0h8CqbXF9epUPveVGD0z9RVTRRxN7RPxwRoG3QOOl4dUis
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 13:06:15.6730
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b77f3807-152a-4efe-e3aa-08df39ab3e4c
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM1PEPF000C1AD7.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVSPR10MB953803
+	id 1xOEQu-00000002Wim-3ohR
+	for linux-riscv@lists.infradead.org;
+	Tue, 03 Nov 2026 13:20:14 +0000
+Received: by sym2.noone.org (Postfix, from userid 1002)
+	id 4jJq1d09zXz2Ftnn; Tue,  3 Nov 2026 14:20:03 +0100 (CET)
+From: Tobias Klauser <tklauser@distanz.ch>
+To: linux-riscv@lists.infradead.org
+Cc: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Zong Li <zong.li@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH] riscv: cfi: Bounds check restore token in create_rstor_token() before swap
+Date: Tue,  3 Nov 2026 14:20:03 +0100
+Message-Id: <20261103132003.24312-1-tklauser@distanz.ch>
+X-Mailer: git-send-email 2.11.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_050625_047058_8E9D61C0 
-X-CRM114-Status: GOOD (  11.01  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_052013_119389_C5100A1A 
+X-CRM114-Status: UNSURE (   8.82  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,65 +56,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026 at 12:39:58PM -0500, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
-> 
-> Replace open-coded assignments to callback and callback_param fields
-> of struct dma_async_tx_descriptor with calls to the
-> dmaengine_desc_set_callback() helper across SPI bus drivers.
-> 
-> No functional change intended. Prepare make to struct
-> dma_async_tx_descriptor private to the DMA engine.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  drivers/spi/atmel-quadspi.c       | 3 +--
->  drivers/spi/spi-at91-usart.c      | 3 +--
->  drivers/spi/spi-atcspi200.c       | 3 +--
->  drivers/spi/spi-atmel.c           | 3 +--
->  drivers/spi/spi-bcm2835.c         | 6 ++----
->  drivers/spi/spi-cadence-quadspi.c | 3 +--
->  drivers/spi/spi-davinci.c         | 6 ++----
->  drivers/spi/spi-dw-dma.c          | 6 ++----
->  drivers/spi/spi-ep93xx.c          | 3 +--
->  drivers/spi/spi-fsl-dspi.c        | 6 ++----
->  drivers/spi/spi-fsl-lpspi.c       | 6 ++----
->  drivers/spi/spi-geni-qcom.c       | 3 +--
->  drivers/spi/spi-img-spfi.c        | 6 ++----
->  drivers/spi/spi-imx.c             | 6 ++----
->  drivers/spi/spi-ingenic.c         | 3 +--
->  drivers/spi/spi-mxs.c             | 3 +--
->  drivers/spi/spi-nxp-xspi.c        | 3 +--
->  drivers/spi/spi-omap2-mcspi.c     | 6 ++----
->  drivers/spi/spi-pic32.c           | 3 +--
->  drivers/spi/spi-pl022.c           | 3 +--
->  drivers/spi/spi-pxa2xx-dma.c      | 3 +--
->  drivers/spi/spi-qup.c             | 3 +--
->  drivers/spi/spi-rockchip.c        | 6 ++----
->  drivers/spi/spi-rspi.c            | 6 ++----
->  drivers/spi/spi-rzv2h-rspi.c      | 3 +--
->  drivers/spi/spi-s3c64xx.c         | 3 +--
->  drivers/spi/spi-sh-msiof.c        | 6 ++----
->  drivers/spi/spi-spacemit-k1.c     | 3 +--
->  drivers/spi/spi-stm32-ospi.c      | 3 +--
->  drivers/spi/spi-stm32-qspi.c      | 3 +--
->  drivers/spi/spi-stm32.c           | 9 +++------
+create_rstor_token() computes addr and passes it to amo_user_shstk(),
+which executes ssamoswap.d on it under __enable_user_access() without
+ever validating that addr is a legitimate user-space address. The
+sibling function restore_user_shstk() had the same issue and was fixed
+by commit df333b72c0e1 ("riscv: cfi: Bounds check restore token before
+swap").
 
-For the spi-stm32.c
-Acked-by: Alain Volmat <alain.volmat@foss.st.com>
+Fixes: c70772afd5cc ("riscv/mm: Implement map_shadow_stack() syscall")
+Signed-off-by: Tobias Klauser <tklauser@distanz.ch>
+---
+ arch/riscv/kernel/usercfi.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Regards,
-Alain
+diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
+index 86141e5bab82..7971a98ca0c3 100644
+--- a/arch/riscv/kernel/usercfi.c
++++ b/arch/riscv/kernel/usercfi.c
+@@ -158,6 +158,9 @@ static int create_rstor_token(unsigned long ssp, unsigned long *token_addr)
+ 	/* On RISC-V we're constructing token to be function of address itself */
+ 	addr = ssp - SHSTK_ENTRY_SIZE;
+ 
++	if (!access_ok((unsigned long __user *)addr, SHSTK_ENTRY_SIZE))
++		return -EFAULT;
++
+ 	if (amo_user_shstk((unsigned long __user *)addr, (unsigned long)ssp) == -1)
+ 		return -EFAULT;
+ 
+-- 
+2.56.0
+
 
 _______________________________________________
 linux-riscv mailing list
