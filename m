@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8E6F6071A12
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 15:18:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83B50608361A
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 15:18:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iKQ0Rqbx;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=GG7xzjk/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pN+HYm2/;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=qg+Y3OIj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,66 +14,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=1ThxrTHtdsZGg+pIlCMYW9Jx7JA145USTHZUPLTr/JQ=; b=iKQ0RqbxVQRwTJRNMoVDMImU4O
-	zyk3Vzpntep9pAQbdVbty4uxTRD6K8seiXa4VPJtdqSrx/b4tGCfAIdZAFyird/FGgg6VTp7EX+jF
-	7kcVs8EBxApFBr3nTBYwweYmLLDLnjzQefudP01LylEDesz73HzSC/jXUZzGdCRnTO24nj6yrQ8Ej
-	Njjhs/Qjb+zAKZx2M7d4Umm8z1UjpxbLEuR+SKiibEDTFpHhwv+LReFm2jFHa8eRGUdI7szM9nLM2
-	KHZRxNvNfXXbjj8LfJC8y50/UFv5bioii2VtJabiYymKTs6j/YHdkEsRzITeB5gqOsiKqIMG5+xJ6
-	/chNnhDQ==;
+	bh=4hbhC0OILDXc6kDbCIDGCjLHCOCUdxaNKrh/SWGs6+c=; b=pN+HYm2/Posu02Jv5yf2IkOeMS
+	RlNkKHRAXjGQnXesiIb3BawBn+XQut9Xy+jxvpXKb4bzfzQ8JwQO/0W8elFCw4tsfQ+/gcuLd8bnx
+	NfSj7CdhX45LWOEhgHUuGwE6NQLWcD41f+YFbkFl61LRof1EIpfU3b8c1fVLMFZyBfEzYZXkYLZLs
+	wpXhDqamnvjVeKoXGN83nNkQJQf6gXSrGE75Pq7Gt5hgp2YHQ9ou+n+1fxeMaKvauNqEJAC+s8SBs
+	ryMcVmjhlKMzipKz+nmDJg4tNSecUYKYCgX5+g/adxvfSl39ys8xZ22IB8+sqtqiR1pTEnsEtRy96
+	6yTGMeWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOGHR-00000002uq6-3nPf;
-	Tue, 03 Nov 2026 15:18:33 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1xOGHe-00000002v6v-0RKQ;
+	Tue, 03 Nov 2026 15:18:48 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOGHM-00000002uke-0Sq3
+	id 1xOGHX-00000002uyZ-2K9E
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Nov 2026 15:18:32 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2ea94541adbso18875975ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2026 07:18:27 -0800 (PST)
+	Tue, 03 Nov 2026 15:18:41 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-8a05b210703so1665024b3a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2026 07:18:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chrisdown.name; s=google; t=1793719107; x=1794323907; darn=lists.infradead.org;
+        d=chrisdown.name; s=google; t=1793719118; x=1794323918; darn=lists.infradead.org;
         h=user-agent:in-reply-to:content-disposition:content-type
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=DEpA7EB35ETX+QEM+S0rPeRue+CXb/aqgZ9fcs/1WrA=;
-        b=GG7xzjk/ZoL2k5UJ+hPbYzZzqWXSKOjejmNmYnvFlLkOwXJJXOJWY0wfqUiJO3s30a
-         obRWVlulSXGw3ko6pPkGJRf4/PCTW/sPMwq1oKTzpkjLIZzgCAgLJNpFgkAaKFxMW3wi
-         IodEqAezQiqjmg5VdLWaiBrGZ3aZMGTYfMxhQ=
+        bh=wslCY1XSUoR3v4P9N4tk1erDlQSR29c2WrcvV4W33z8=;
+        b=qg+Y3OIjXtl2zyFhdTkjqBKDCrA4aEWh0X66Dj0EJ5IIQzQBd9kjHP7uZ5TK0oilAk
+         gkSyrhjGnvuO8J2acbq0VpX0aaFzrJKA7oLFZetOlrhr0/gyiFRHka0FU+4s9fUkXr2q
+         enCPD0h/OuLxKiV1G0N19lCQC1L2luYJhZSiQ=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793719107; x=1794323907;
+        d=1e100.net; s=20260707; t=1793719118; x=1794323918;
         h=user-agent:in-reply-to:content-disposition:content-type
          :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=DEpA7EB35ETX+QEM+S0rPeRue+CXb/aqgZ9fcs/1WrA=;
-        b=bmKWjWbl238EH0ae1woLjQ0DYwyOUW42qWb5LKitKpEWmhe/6RfNEMBRkU8YxScuPq
-         loWKG5/Vu+oixhmT/2Ye+rVWtXOrGnmVEQMwqhN+8xTzuNofVMIQf/PYo35LnNNH3KYo
-         YGXlixIlGRaV9xY88Uz7Qbt5GjdyPsfNGirMh/UzVhHWJH4k0yHmPX87fWzculoj5/Ks
-         k/504XLsshxgKJvlgNecTwQTZHPxoeHih/Aoq00xpLLLgboxKrEebPVF7fIUFaZ+z2Ow
-         mvlVZieGFzUwEzZuXfg29ANihWLm6o5wrizSl9S0NMfjjV9J1NiaBn8kokgYA8Cnud1O
-         5X8Q==
-X-Forwarded-Encrypted: i=1; AKwUvByqMFFEnyT3iK3ZvUg/vvKcbACsZp2FrqZ83ZLOc79tRFH7h8TGJfQEjMY2zhQIKptTvmYKFKBTVal9lw==@lists.infradead.org
-X-Gm-Message-State: APuU4Z/Wcw0cApiOYRcoy6IgiIsxKAkOvhL+SM72N+TM5r6h+cJy0b8x
-	lVIG+ltVfMc7YFcwptGcqowLRQoTk7u/09P/ycd+KsmXKRMM59FWGrsh/M0i6Q8U77E=
-X-Gm-Gg: AYBFou39Wt3EydGedhPRQto6yxD16Kw69xYfwXXyeGn2xssNpf8q7LV2H+ppr9dmvo0
-	/C1X4jvQ8JkicbKrGB0HYOn35+/zpcigzMm6of1oQKhKTiU9GSA0rhTA/0UzmJeX5HN0T8sRPCq
-	sSlKNKXah4Y3T50kJuiYR0PoI2tTihlHjVGxl3mpXCcVEb0HNSCJJdNZnXAWA1yDes85Fkj8jAR
-	dty6a6g2BIHK1g7UpRQOeVmyZWRDMrOrwHdVgxmptynMXZfEtg95XtpuMPpXb0poEfOnG5gP+pg
-	5RCtczOn/Xv5QuQBzEY9vLuqrvMEV2YGfBRgvxq2WAtb5l33KYtiOe5phpk/No80x9eVvqMjl6o
-	RDNWdehtG8CeleYqpXMVbk4yHxYbJEqDC+82c/2tfNlFho/+hqnZQl2pXI6apFGsD13roENU3pH
-	wA4TU8/1xg1hKJD31Ktfa8w9c9VnYAmi7vQQSxEP07acI110uCFCPnY8dFHSwIo3XrmM1H5i15I
-	rQrrXVaJFEZ5MZFvaIxgq6siazqznzs5tFQZ6XmAIXMNb5EwdQxFk3WYXi+W7j/NAMW5ly0OaQN
-	3+nNLRiB6p/CSUULmfBbv1jGw/g5KquUVl+H7X29u0K0BulniXmb4NIbxu0mefkqv+O/ns+EyJV
-	oXV+T+AzOGuaOMfQPeobPK0w+RSqYa5oRMSOVtjjc5SuvMudfQP81vL21lbsCzcPh7PPLCvoBKR
-	m5hAseD2g83qFiZahxaEk=
-X-Received: by 2002:a17:903:1aef:b0:2e2:f2f9:b1ef with SMTP id d9443c01a7336-2eb364bc076mr131151785ad.39.1793719107092;
-        Tue, 03 Nov 2026 07:18:27 -0800 (PST)
+        bh=wslCY1XSUoR3v4P9N4tk1erDlQSR29c2WrcvV4W33z8=;
+        b=EtKKo4vZSZWqyHouFU2He5OU8xVWddco25Ulgwwcp3ENoeb+WRW2fFepFL8SekVK7i
+         Aj2BHBea4vJm/n/AgAwl+xUE/GZx/BEhzQTX5iLHQIkinksiOrW8s5IST0OrABUxzUBY
+         4cWDhggtrtz3ue3b1jq3XkpK5+BJLt2ifCGUsv2Y4yT5BmtDhp2woQURCq64rBo9dy8D
+         Fzfm6cWsF+jBkZfgd7HTl6qPWxllxXSHyUdfkyxut69tCwtN1z6JdNr/JxrDQYA+aZgq
+         U3XdYTP10jYxxnWc4ppz92S+sL6i3WPXQnCo0XHiVsZHrArNO6qKWDul8r6LAujkOyrj
+         grmg==
+X-Forwarded-Encrypted: i=1; AKwUvBzgi60GG/13J92LXmaMs50J47KrNWSBEiYnCqjyZGdl67kLpKWyogCobS6NTKaHvK0ZY/SpH6rqVU/1tg==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8KH/gsdcuBWQGLWiInx17NAvVyDy104tI0CI3puNllFO5ijRlU
+	rrTcBUirx+HLd7aahOaOG2iTHkloUIsPa/hTgpiBoQeE8JByOTLv3mqvKmm7xlKSLc8=
+X-Gm-Gg: AYBFou1okj2QK6jf68B5AP2MokZop29GCae2GZAYFVuc5h4O7SMR29JY9CuYw3tpivz
+	IXw6syc1C27jvNo7PHTrihkd2LOWMAIOGoKOxRxNu9X1Wj+NoFI4uF0suGJsSb5xnm3gPizVJRH
+	5IUGzwI/o+OUi+pW7VC8A+jkfzlLmGrncaQPCRccOTwO3+09Umd6GtdZFLTg0PtKXgiFMC7GHcs
+	22qWVO4LnUWIjvIhe3DJTmcHid9B8oSCHMswuZV64alkYFD69yWzV6iv+qnotKrZl6gkICUcO1O
+	jCJU4jebLxsNxt3RDWeo+rHn0yohcxaHhFPLqihTWBctlCGbd/vqmSRDwj2flo1ipmEOp7VlQ7V
+	Nglf3tLpRq036xoOWz4sGZhEDqyXmk4k8QG4xfg01DoYU/1PK4lcvHQKssD6DjrGEXX+Hc7UnTj
+	CKsHI6gZDaUxqB9oicjFElqRcKu1YmdOeIZhwq0+5ZPMhU2EvkvESHnyapOjf21/BdVYWH24k4I
+	ljtFx9k+sWyooLUnYCEmdXFg7LcQu2RQmgMvZJ9EVeTK+2mLOtYIfW9i7xpIPiA3JouamJ89OXg
+	Eo6nT/vxkJs0HeI2QxKRztQnVGnQ92kgRX+940rHY/1lmy9Rtm+CkTVGILSuNdEW6ToG0yU4VEQ
+	v3rpNGF/d0Ao1Md8FNYvF2drxD5mTa7eEO+U11uKFfJXVtZ5CdNTPas2/AH5VnsZ/pWZ5LzfCa8
+	xjpC3XIoiOFGrwEVOIag==
+X-Received: by 2002:a05:6a20:914a:b0:3dd:a009:3182 with SMTP id adf61e73a8af0-3e928e2909amr12529216637.42.1793719118513;
+        Tue, 03 Nov 2026 07:18:38 -0800 (PST)
 Received: from localhost ([116.86.153.182])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eb392613bbsm43426035ad.37.2026.11.03.07.18.25
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cdb362ab313sm1592131a12.0.2026.11.03.07.18.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Nov 2026 07:18:25 -0800 (PST)
-Date: Tue, 3 Nov 2026 23:18:23 +0800
+        Tue, 03 Nov 2026 07:18:35 -0800 (PST)
+Date: Tue, 3 Nov 2026 23:18:33 +0800
 From: Chris Down <chris@chrisdown.name>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	"Liam R. Howlett" <liam@infradead.org>,
@@ -114,8 +114,9 @@ Cc: Jeff Xu <jeffxu@google.com>, David Hildenbrand <david@kernel.org>,
 	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
 	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
 	linux-kernel@vger.kernel.org, kernel-team@meta.com
-Subject: [PATCH v2 4/8] mm/mseal: Move MSEAL_SYSTEM_MAPPINGS to mm/Kconfig
-Message-ID: <6d72b96fdd36c8870393d8d6e67a811a9bce9e4f.1793718940.git.chris@chrisdown.name>
+Subject: [PATCH v2 5/8] uprobes/x86: Leave sealed trampolines in place on
+ optimisation failure
+Message-ID: <eafd3da2cd2c3e2c4d137a46f50351dc6290c5ea.1793718940.git.chris@chrisdown.name>
 References: <cover.1793718940.git.chris@chrisdown.name>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
@@ -123,8 +124,8 @@ Content-Disposition: inline
 In-Reply-To: <cover.1793718940.git.chris@chrisdown.name>
 User-Agent: Mutt/2.3.3 (9073d26d) (2026-06-12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_071830_058463_2B590B7C 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20261103_071839_610569_5884C9F9 
+X-CRM114-Status: GOOD (  15.92  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -146,83 +147,35 @@ X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-MSEAL_SYSTEM_MAPPINGS is in security/Kconfig, but it's an mm feature,
-it's implemented in mm, and changes to it need to go past mm.
+If swbp_optimize() fails, __arch_uprobe_optimize() unmaps the
+trampoline it has just created. The next patch seals all special
+mappings when CONFIG_MSEAL_SYSTEM_MAPPINGS is enabled, which includes
+uprobe trampolines, and then this do_munmap() would fail with -EPERM
+and warn a second time.
 
-Let's move it to mm/Kconfig, next to the other VMA features. No
-functional change.
+Nothing is really leaked if we leave the trampoline mapped in that
+case, since get_uprobe_trampoline() reuses any existing trampoline
+which is in reach of the probe. So let's just leave it in place when
+it's sealed.
 
-Suggested-by: Lorenzo Stoakes <ljs@kernel.org>
 Signed-off-by: Chris Down <chris@chrisdown.name>
 ---
- mm/Kconfig       | 21 +++++++++++++++++++++
- security/Kconfig | 21 ---------------------
- 2 files changed, 21 insertions(+), 21 deletions(-)
+ arch/x86/kernel/uprobes.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/mm/Kconfig b/mm/Kconfig
-index afff1b25b543..40172787dfa7 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -1355,6 +1355,27 @@ config ANON_VMA_NAME
- 	  area from being merged with adjacent virtual memory areas due to the
- 	  difference in their name.
- 
-+config MSEAL_SYSTEM_MAPPINGS
-+	bool "mseal system mappings"
-+	depends on 64BIT
-+	depends on ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
-+	depends on !CHECKPOINT_RESTORE
-+	help
-+	  Apply mseal on system mappings.
-+	  The system mappings includes vdso, vvar, vvar_vclock,
-+	  vectors (arm compat-mode), sigpage (arm compat-mode), uprobes.
-+
-+	  A 64-bit kernel is required for the memory sealing feature.
-+	  No specific hardware features from the CPU are needed.
-+
-+	  WARNING: This feature breaks programs which rely on relocating
-+	  or unmapping system mappings. Known broken software at the time
-+	  of writing includes CHECKPOINT_RESTORE, UML, gVisor, rr. Therefore
-+	  this config can't be enabled universally.
-+
-+	  For complete descriptions of memory sealing, please see
-+	  Documentation/userspace-api/mseal.rst
-+
- config HAVE_ARCH_USERFAULTFD_WP
- 	bool
- 	help
-diff --git a/security/Kconfig b/security/Kconfig
-index f7bf6cdc6229..1679e8d009c3 100644
---- a/security/Kconfig
-+++ b/security/Kconfig
-@@ -49,27 +49,6 @@ config PROC_MEM_NO_FORCE
- 
- endchoice
- 
--config MSEAL_SYSTEM_MAPPINGS
--	bool "mseal system mappings"
--	depends on 64BIT
--	depends on ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
--	depends on !CHECKPOINT_RESTORE
--	help
--	  Apply mseal on system mappings.
--	  The system mappings includes vdso, vvar, vvar_vclock,
--	  vectors (arm compat-mode), sigpage (arm compat-mode), uprobes.
--
--	  A 64-bit kernel is required for the memory sealing feature.
--	  No specific hardware features from the CPU are needed.
--
--	  WARNING: This feature breaks programs which rely on relocating
--	  or unmapping system mappings. Known broken software at the time
--	  of writing includes CHECKPOINT_RESTORE, UML, gVisor, rr. Therefore
--	  this config can't be enabled universally.
--
--	  For complete descriptions of memory sealing, please see
--	  Documentation/userspace-api/mseal.rst
--
- config SECURITY
- 	bool "Enable different security models"
- 	depends on SYSFS
+diff --git a/arch/x86/kernel/uprobes.c b/arch/x86/kernel/uprobes.c
+index 0f60c0d076b6..fb895bfc09e0 100644
+--- a/arch/x86/kernel/uprobes.c
++++ b/arch/x86/kernel/uprobes.c
+@@ -1183,7 +1183,7 @@ static int __arch_uprobe_optimize(struct arch_uprobe *auprobe, struct mm_struct
+ 	if (IS_ERR(tramp))
+ 		return PTR_ERR(tramp);
+ 	ret = swbp_optimize(auprobe, vma, vaddr, tramp->vm_start);
+-	if (WARN_ON_ONCE(ret) && new_mapping)
++	if (WARN_ON_ONCE(ret) && new_mapping && !vma_test(tramp, VMA_SEALED_BIT))
+ 		WARN_ON_ONCE(do_munmap(mm, tramp->vm_start, PAGE_SIZE, NULL));
+ 	return ret;
+ }
 -- 
 2.54.0
 
