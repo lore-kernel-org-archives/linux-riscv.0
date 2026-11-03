@@ -2,75 +2,127 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC6C4606A339
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 08:15:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8BB8606A95E
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 08:37:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PEsulnqA
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vjd1sRjd;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=LMsofHs4;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=yk07rjLd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References:Message-ID
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=H1Rbt3miwTS7JbdaEQ3Y63tHLK3k6aDWxvxAi9awoco=; b=PEsulnqAdegJP1i4bpYNqWZy4b
-	AQ44ZsQpcp6vz1yr4jolxJaQ1ylvCo66dTXmXDUrmazOZMIA7MeL9RhlLSAptdAnNmqJ4+iCo8WQn
-	2Nf3q9kAYi88YW6nylBbgIkYUTDaHaXvnDE5hXp8IDvZru85gsULWMxLzR0QWR6C2a6YTEmPmzjGy
-	bZa74a3j4odzxTVDWkkmJBmjMClplZeL1LrBeJ1lzsPcTSyWYI4PjHFSZe/RBLcjxmNEefBlI4RUe
-	lbgTsdPVvavXw0Nf/CXswsn57BJamU3laGSi6AeWQyc6lIW+eh8YaB1T+fG3UCCpy3olHj+7gxcE8
-	DYnfTrMw==;
+	bh=ftASHKwtqJG+MphNFKb32MylcBweTPrqhG+pUgGuAUM=; b=vjd1sRjdbxj+Vv/Ab9jQ7l9XEK
+	Rlmg+bMv2vw5vSIUwWQb6TxVeUe+xw0KBv6C+XJ4ldfkJnEjIjMxF6WRCmMAVyzDwMurISDwUJlIW
+	lB1xS6YCgX0WXhSm4IhlrO+7cob4KrjGUXlN69oUNHMq0kyGbPPLVIW6xDBIqScfT6wRz0kcsRqfu
+	57C3oAr9GI+gu/imLiv7EOsxAqRdT9KCm1s3kGBmWsbLUtlGOoxqrjH1Z5s4kBKlItjp3sH8ULVkd
+	833YKwcVCVUiurqC8x3qSBo1mpJlRNg9fUXL4Tj6C1xzNwG1xkyhA6XARjdOfOPMNy2yUbYg8avN0
+	7Ss0bw1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9fh-00000001Vq0-3cxZ;
-	Tue, 03 Nov 2026 08:15:09 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1xOA1V-00000001ZuM-407a;
+	Tue, 03 Nov 2026 08:37:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9fb-00000001VnE-2hs9;
-	Tue, 03 Nov 2026 08:15:05 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.98])
-	by APP-05 (Coremail) with SMTP id zQCowABH4LX3l+lq3fQ9AA--.19826S4;
-	Tue, 03 Nov 2026 16:14:58 +0800 (CST)
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Wei Fu <wefu@redhat.com>,
-	Drew Fustini <dfustini@tenstorrent.com>
-Subject: [PATCH v4 2/2] phy: add a driver for T-Head TH1520 USB PHY
-Date: Tue,  3 Nov 2026 16:14:44 +0800
-Message-ID: <20261103081444.1983071-3-zhengxingda@iscas.ac.cn>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261103081444.1983071-1-zhengxingda@iscas.ac.cn>
-References: <20261103081444.1983071-1-zhengxingda@iscas.ac.cn>
+	id 1xOA1T-00000001Zsd-01Fw
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 03 Nov 2026 08:37:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
+	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=8UxN5G4CszVASc0eJ51bWhZrmzSLYZSfVvLKokYxmLc=; b=LMsofHs4Of8+Q5BmnPi13exVBF
+	mMe2fHvHtk2Pc4/i2e4YxirwJSWdQ98oNiN84nOrZllHKXY9DYe0GPpnZWGONwQ61UhoybEfkmObn
+	BMDBfVOEWk5WkccfJKDmlZStU4DSUN0LOJH5aYx64TJKnl28YsUhU19qi8kOcJUJ/h/mWrH2RjF5D
+	YjUGk74yDTV63oySV+zvecPezzeX60oVqZqMQ37r5Y45h9OUEakjEn7b6C3P5AWrmYcmr6MNHLjOM
+	EiZ7koN3z5w4ddJY3sXgc+ltkoh8/F/M0ieJERekp6qfsq5gfZnCtic3KoFRO1uZNzonC9m93Ulny
+	u93+oRJQ==;
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOA1L-00000000Bs1-2ZpG
+	for linux-riscv@lists.infradead.org;
+	Tue, 03 Nov 2026 08:37:37 +0000
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A35Wq4w3269100;
+	Tue, 3 Nov 2026 08:36:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=8
+	UxN5G4CszVASc0eJ51bWhZrmzSLYZSfVvLKokYxmLc=; b=yk07rjLdOz4d3oYBG
+	5qomcqDsvDWGhnHgkQ7bKwZT9/A85TfPBjh+IcAIf7Z6aoHQeDnNWBUKMJBUzuvc
+	r7cNRjtq7slwDOjJI0ibGEOyHHNxtBhFP2SuSjrMgBlSyO4t4chtGqbZTaXB3DF7
+	++DizptrH6ssiZEiHcn7IDcHXXq8C8d842bfl/tYc35GEREvfr99jgC/SDAz3eDf
+	JADZh1Sd9cqynvbQAVvekUrAvrG0vbG7WkTigQbbeGV94EOoUcTKHB5sb2pTw/yI
+	xK1MSBDTL1WRgBXadyNH5GedsGMRSAEmD+VusNamLPFbMzwoR+H0timL2mxQCNOr
+	tcqjw==
+Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 4hn7ft239d-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 03 Nov 2026 08:36:56 +0000 (GMT)
+Received: from [127.0.1.1] (172.25.5.26) by HHMAIL01.hh.imgtec.org
+ (10.100.10.19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 3 Nov
+ 2026 08:36:54 +0000
+From: Alexandru Dadu <alexandru.dadu@imgtec.com>
+Date: Tue, 3 Nov 2026 10:36:19 +0200
+Subject: [PATCH v3 3/5] drm/imagination: Make the RISC-V firmware header
+ arch-independent
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowABH4LX3l+lq3fQ9AA--.19826S4
-X-Coremail-Antispam: 1UD129KBjvJXoW3GrykAry8tFyrKr13KFW5GFg_yoW3KFWUpa
-	9xCFWFyr1ktFsIgw4xJr1UCFWSqa17ta4aqry7G3WfZa43Kryrua90gFW5Zryvvrs7ZrWf
-	tr98GFW2kF1UK37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUm014x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
-	xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
-	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
-	kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY
-	6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0x
-	vEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVj
-	vjDU0xZFpf9x0JUQXo7UUUUU=
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Message-ID: <20261103-prep-meta-fw-arch-independent-v3-3-563dbaf1b779@imgtec.com>
+References: <20261103-prep-meta-fw-arch-independent-v3-0-563dbaf1b779@imgtec.com>
+In-Reply-To: <20261103-prep-meta-fw-arch-independent-v3-0-563dbaf1b779@imgtec.com>
+To: Alessio Belle <alessio.belle@imgtec.com>,
+        Luigi Santivetti
+	<luigi.santivetti@imgtec.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Paul Walmsley <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>
+CC: <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        "Alexandru
+ Dadu" <alexandru.dadu@imgtec.com>,
+        Matt Coster <opensource@mtcoster.net>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793695010; l=5651;
+ i=alexandru.dadu@imgtec.com; s=20260304; h=from:subject:message-id;
+ bh=N00B/HKIov+RzgHbL1f3a705Bh43/lCp6PTCWxTp7oE=;
+ b=3swtk+RoCa5U/larbbtXjQB1+Tt9tIgNcH0Z+fiqAdjL/J7PjAcQ/5uFxFgb+BiAAGnBIT1FF
+ e+Ri3EOd87eBVGgfLi+vfvtrvUhmPjecIyf1yoD8EGt+X5PVd8MbSBO
+X-Developer-Key: i=alexandru.dadu@imgtec.com; a=ed25519;
+ pk=FU07SyNrYGwhahqSxbWEuzyXlUh47xBXvLvOR7UA6+U=
+X-Proofpoint-ORIG-GUID: fFSjjc3PWMgEf7-m_QaMj2hitMKu0dKs
+X-Proofpoint-GUID: fFSjjc3PWMgEf7-m_QaMj2hitMKu0dKs
+X-Authority-Analysis: v=2.4 cv=HaSB3SE8 c=1 sm=1 tr=0 ts=6ae99d28 cx=c_pps
+ a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
+ a=h_3jC4m0AyQA:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=qZQ2PDNLMSdLoqI-hfl9:22
+ a=r_1tXGB3AAAA:8 a=SqUUmSXaI7-uYlY8_LkA:9 a=QEXdDO2ut3YA:10
+ a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAzMDAzNCBTYWx0ZWRfX0Bx5I7RDiA18
+ IWw+9Nv4R9cJAk2HWPOiJdqNu5J5096eONaH6S4ceZl2mCu3B/gHNx01Tx6zSYKvSJE/cHHDgZl
+ m4xs8sfR8tSluPS+6QDp2lBs+d02opg=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAzMDAzNCBTYWx0ZWRfXyS8E8z8V/3Y6
+ hiHYpaFSHUEafzme5uUnDVaW03GOp86JanTbo3UZ93DbXlPx8Al9/ZNWo+n2XOQmk24Wky1Z3BW
+ FxLFcBbnFyc8x8iWe3Pq2YDCLgpJEnVyJUVBE3Z9PH5F047+BJ10zAz+kZCeJp5BVvsK4RXuGFo
+ YBwjX3x1d0bKoob9bCaWdet0Y0XYsjbaSOXwXeeJk8wrDqFuYRM1cTMwt10V1Z4bXHBOHcwnR/F
+ NvDB3cJJq5dcHZd1fZjUh1caQ9O+B1h4+7ZVcEwOoABhUBdk8dg3pHmpLX35OTSd7X6GHiZvYZz
+ qu3q9qWcWQinEcRF7HZ+h2Osxx7wa2LpjANM7KR2+1rvcUnIgtyj6bhwIPmQbji8dzrvIiv3TOP
+ hCCmQmsbAHmDqJG0/GcmmnWBh/gq2spCV+vbyhw4/1tW77KbBWQmq4Ntt2Jfg2mcjh5CnUIdkdF
+ L/tvpcCXI/Dw+1Inrvw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_001504_489952_196F0E5A 
-X-CRM114-Status: GOOD (  24.39  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261103_083734_078176_73F45669 
+X-CRM114-Status: GOOD (  15.27  )
+X-Spam-Score: -0.9 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,7 +132,6 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -91,281 +142,168 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The USB PHY on T-Head TH1520 SoC is a Synopsys USB 3.0 FemtoPHY, with
-some PHY parameters exported as another system controller along with it.
+From: Alessio Belle <alessio.belle@imgtec.com>
 
-A few PHY parameters have unusable defaults. Add a driver that programs
-them before releasing the PHY from reset in addition to
-clock/reset/regulator management.
+This header file contains definitions common to all PowerVR
+architectures starting from Rogue, so rename both the file and its
+contents to reflect this.
 
-Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
+Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
 ---
-Changes in v4:
-- Make exit callback always success to prevent PHY state machine desync
-  with clk/rst state as suggested by Sashiko.
-- Re-wrap some comments targetting full 80 columns.
-- Use dev_err_probe for PHY creation error handling, to prevent spamming
-  the kernel log with -EPROBE_DEFER.
-Changes in v3:
-- Use fsleep() to replace udelay(), and add proper inclusion of
-  linux/delay.h for this function. (fsleep() suggested by Drew and
-  inclusion suggested by Sashiko)
-- Adapt Drew's suggestion on the wording of the commit message's 2nd
-  paragraph.
-Changes in v2:
-- Removed unreferenced register names.
-- Changed the behavior to leaving bus clock on instead of binding it to
-  the regmap.
-- Removed early return for reset deassert failure in phy exit callback.
-- Tweaked the Kconfig item (removed default value and added "select
-  REGMAP_MMIO).
+ drivers/gpu/drm/imagination/pvr_fw_riscv.c         | 14 +++----
+ .../gpu/drm/imagination/pvr_fw_riscv_internal.h    | 43 ++++++++++++++++++++++
+ .../gpu/drm/imagination/pvr_rogue_riscv_internal.h | 43 ----------------------
+ 3 files changed, 50 insertions(+), 50 deletions(-)
 
- drivers/phy/Kconfig                |   1 +
- drivers/phy/Makefile               |   1 +
- drivers/phy/thead/Kconfig          |  12 ++
- drivers/phy/thead/Makefile         |   2 +
- drivers/phy/thead/phy-th1520-usb.c | 179 +++++++++++++++++++++++++++++
- 5 files changed, 195 insertions(+)
- create mode 100644 drivers/phy/thead/Kconfig
- create mode 100644 drivers/phy/thead/Makefile
- create mode 100644 drivers/phy/thead/phy-th1520-usb.c
-
-diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-index 105fbe408aa25..55c058e2d96ea 100644
---- a/drivers/phy/Kconfig
-+++ b/drivers/phy/Kconfig
-@@ -201,6 +201,7 @@ source "drivers/phy/st/Kconfig"
- source "drivers/phy/starfive/Kconfig"
- source "drivers/phy/sunplus/Kconfig"
- source "drivers/phy/tegra/Kconfig"
-+source "drivers/phy/thead/Kconfig"
- source "drivers/phy/ti/Kconfig"
- source "drivers/phy/xilinx/Kconfig"
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_riscv.c b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
+index 0d4dd45520a9..2b24c40bc20f 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_riscv.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
+@@ -6,10 +6,10 @@
+ #include "pvr_fw_info.h"
+ #include "pvr_fw_mips.h"
+ #include "pvr_gem.h"
++#define PVR_FW_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
++#include "pvr_fw_riscv_internal.h"
++#undef PVR_FW_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
+ #include "pvr_rogue_cr_defs.h"
+-#define PVR_ROGUE_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
+-#include "pvr_rogue_riscv_internal.h"
+-#undef PVR_ROGUE_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
+ #include "pvr_vm.h"
  
-diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
-index c6dd02003bbe9..8bf431454dcea 100644
---- a/drivers/phy/Makefile
-+++ b/drivers/phy/Makefile
-@@ -53,5 +53,6 @@ obj-$(CONFIG_GENERIC_PHY)		+= allwinner/	\
- 					   starfive/	\
- 					   sunplus/	\
- 					   tegra/	\
-+					   thead/	\
- 					   ti/		\
- 					   xilinx/
-diff --git a/drivers/phy/thead/Kconfig b/drivers/phy/thead/Kconfig
+ #include <linux/compiler.h>
+@@ -43,13 +43,13 @@ pvr_riscv_wrapper_init(struct pvr_device *pvr_dev)
+ 
+ 	pvr_cr_write64(pvr_dev,
+ 		       PVR_CR_REPEAT_X(ROGUE_CR_FWCORE_ADDR_REMAP_CONFIG,
+-				       ROGUE_RISCV_REGION_BOOTLDR_CODE),
++				       PVR_RISCV_REGION_BOOTLDR_CODE),
+ 		       code_addr | common_opts |
+ 		       ROGUE_CR_FWCORE_ADDR_REMAP_CONFIGx_FETCH_EN_EN);
+ 
+ 	pvr_cr_write64(pvr_dev,
+ 		       PVR_CR_REPEAT_X(ROGUE_CR_FWCORE_ADDR_REMAP_CONFIG,
+-				       ROGUE_RISCV_REGION_BOOTLDR_DATA),
++				       PVR_RISCV_REGION_BOOTLDR_DATA),
+ 		       data_addr | common_opts |
+ 		       ROGUE_CR_FWCORE_ADDR_REMAP_CONFIGx_LOAD_STORE_EN_EN);
+ 
+@@ -132,9 +132,9 @@ pvr_riscv_get_fw_addr_with_offset(struct pvr_fw_object *fw_obj, u32 offset)
+ 
+ 	/* RISC-V cacheability is determined by address. */
+ 	if (fw_obj->gem->flags & PVR_BO_FW_FLAGS_DEVICE_UNCACHED)
+-		fw_addr |= ROGUE_RISCVFW_REGION_BASE(SHARED_UNCACHED_DATA);
++		fw_addr |= PVR_RISCVFW_REGION_BASE(SHARED_UNCACHED_DATA);
+ 	else
+-		fw_addr |= ROGUE_RISCVFW_REGION_BASE(SHARED_CACHED_DATA);
++		fw_addr |= PVR_RISCVFW_REGION_BASE(SHARED_CACHED_DATA);
+ 
+ 	return fw_addr;
+ }
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_riscv_internal.h b/drivers/gpu/drm/imagination/pvr_fw_riscv_internal.h
 new file mode 100644
-index 0000000000000..ba0ceac54c1b0
+index 000000000000..abcbb4ef06fe
 --- /dev/null
-+++ b/drivers/phy/thead/Kconfig
-@@ -0,0 +1,12 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+config PHY_TH1520_USB
-+	tristate "USB PHY driver for T-Head TH1520 SoC"
-+	depends on ARCH_THEAD || COMPILE_TEST
-+	depends on COMMON_CLK
-+	depends on HAS_IOMEM
-+	depends on OF
-+	depends on RESET_CONTROLLER
-+	select GENERIC_PHY
-+	select REGMAP_MMIO
-+	help
-+	  Enable support for the USB PHY on the T-Head TH1520 SoC.
-diff --git a/drivers/phy/thead/Makefile b/drivers/phy/thead/Makefile
-new file mode 100644
-index 0000000000000..5b459bc7004bd
---- /dev/null
-+++ b/drivers/phy/thead/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+obj-$(CONFIG_PHY_TH1520_USB) += phy-th1520-usb.o
-diff --git a/drivers/phy/thead/phy-th1520-usb.c b/drivers/phy/thead/phy-th1520-usb.c
-new file mode 100644
-index 0000000000000..cfc0844b4df3c
---- /dev/null
-+++ b/drivers/phy/thead/phy-th1520-usb.c
-@@ -0,0 +1,179 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 Institute of Software, Chinese Academy of Sciences (ISCAS)
-+ *
-+ * Authors:
-+ * Icenowy Zheng <zhengxingda@iscas.ac.cn>
-+ */
++++ b/drivers/gpu/drm/imagination/pvr_fw_riscv_internal.h
+@@ -0,0 +1,43 @@
++/* SPDX-License-Identifier: GPL-2.0 OR MIT */
++/* Copyright (c) 2024 Imagination Technologies Ltd. */
 +
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/regulator/consumer.h>
-+#include <linux/reset.h>
++#ifndef PVR_FW_RISCV_INTERNAL_H
++#define PVR_FW_RISCV_INTERNAL_H
 +
-+#define USB_SYSCON_OFFSET		0xf000
++#ifndef PVR_FW_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
++#error This file may only be included if explicitly defined
++#endif
 +
-+/* All the below registers are in the USB syscon region */
-+#define USB_SSP_EN			0x34
-+#define USB_SSP_EN_REF_SSP_EN		BIT(0)
++#include "pvr_rogue_cr_defs.h"
 +
-+#define USB_SYS				0x3c
-+#define USB_SYS_COMMONONN		BIT(0)
++#include <linux/bitops.h>
++#include <linux/sizes.h>
++#include <linux/types.h>
 +
-+/* The last register according to the manual */
-+#define USB_TEST_REG3			0x5c
++#define PVR_RISCVFW_REGION_SIZE SZ_256M
++#define PVR_RISCVFW_REGION_SHIFT __ffs(PVR_RISCVFW_REGION_SIZE)
 +
-+struct th1520_usb_phy {
-+	struct platform_device *pdev;
-+	struct phy *phy;
-+	struct regmap *regmap;
-+	struct clk *ref_clk;
-+	struct reset_control *phy_reset;
++enum pvr_riscvfw_region {
++	PVR_RISCV_REGION__RESERVED_0 = 0,
++	PVR_RISCV_REGION__RESERVED_1,
++	PVR_RISCV_REGION_SOCIF,
++	PVR_RISCV_REGION__RESERVED_3,
++	PVR_RISCV_REGION__RESERVED_4,
++	PVR_RISCV_REGION_BOOTLDR_DATA,
++	PVR_RISCV_REGION_SHARED_CACHED_DATA,
++	PVR_RISCV_REGION__RESERVED_7,
++	PVR_RISCV_REGION_COREMEM,
++	PVR_RISCV_REGION__RESERVED_9,
++	PVR_RISCV_REGION__RESERVED_A,
++	PVR_RISCV_REGION__RESERVED_B,
++	PVR_RISCV_REGION_BOOTLDR_CODE,
++	PVR_RISCV_REGION_SHARED_UNCACHED_DATA,
++	PVR_RISCV_REGION__RESERVED_E,
++	PVR_RISCV_REGION__RESERVED_F,
++
++	PVR_RISCV_REGION__COUNT,
 +};
 +
-+static int th1520_usb_phy_init(struct phy *phy)
-+{
-+	struct th1520_usb_phy *th1520_phy = phy_get_drvdata(phy);
-+	int ret;
++#define PVR_RISCVFW_REGION_BASE(r) ((u32)(PVR_RISCV_REGION_##r) << PVR_RISCVFW_REGION_SHIFT)
 +
-+	ret = clk_prepare_enable(th1520_phy->ref_clk);
-+	if (ret)
-+		return ret;
-+
-+	ret = reset_control_assert(th1520_phy->phy_reset);
-+	if (ret)
-+		goto err_disable_clk;
-+
-+	/*
-+	 * Do some initial PHY setup:
-+	 * - Set COMMONONN to allow the PHY to automatically power down.
-+	 * - Set REF_SSP_EN to enable feeding reference clock to SuperSpeed PHY
-+	 *   clock PLL.
-+	 */
-+	regmap_set_bits(th1520_phy->regmap, USB_SYS, USB_SYS_COMMONONN);
-+	regmap_set_bits(th1520_phy->regmap, USB_SSP_EN, USB_SSP_EN_REF_SSP_EN);
-+
-+	ret = reset_control_deassert(th1520_phy->phy_reset);
-+	if (ret)
-+		goto err_disable_clk;
-+
-+	fsleep(10);
-+
-+	return 0;
-+
-+err_disable_clk:
-+	clk_disable_unprepare(th1520_phy->ref_clk);
-+	return ret;
-+}
-+
-+static int th1520_usb_phy_exit(struct phy *phy)
-+{
-+	struct th1520_usb_phy *th1520_phy = phy_get_drvdata(phy);
-+
-+	reset_control_assert(th1520_phy->phy_reset);
-+	clk_disable_unprepare(th1520_phy->ref_clk);
-+
-+	return 0;
-+}
-+
-+static const struct phy_ops th1520_usb_phy_ops = {
-+	.init		= th1520_usb_phy_init,
-+	.exit		= th1520_usb_phy_exit,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static const struct regmap_config phy_regmap_config = {
-+	.reg_bits = 32,
-+	.val_bits = 32,
-+	.reg_stride = 4,
-+	.max_register = USB_TEST_REG3,
-+};
-+
-+static int th1520_usb_phy_probe(struct platform_device *pdev)
-+{
-+	struct phy_provider *phy_provider;
-+	struct device *dev = &pdev->dev;
-+	struct th1520_usb_phy *th1520_phy;
-+	struct reset_control *bus_reset;
-+	struct clk *bus_clk;
-+	void __iomem *base;
-+	int ret;
-+
-+	th1520_phy = devm_kzalloc(dev, sizeof(*th1520_phy), GFP_KERNEL);
-+	if (!th1520_phy)
-+		return -ENOMEM;
-+
-+	th1520_phy->pdev = pdev;
-+
-+	base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	th1520_phy->ref_clk = devm_clk_get(dev, "ref");
-+	if (IS_ERR(th1520_phy->ref_clk))
-+		return PTR_ERR(th1520_phy->ref_clk);
-+
-+	/* Enable the bus clock and leave it that way */
-+	bus_clk = devm_clk_get_enabled(dev, "bus");
-+	if (IS_ERR(bus_clk))
-+		return PTR_ERR(bus_clk);
-+
-+	/* De-assert the bus reset and leave it that way */
-+	bus_reset = devm_reset_control_get_exclusive_deasserted(dev, "bus");
-+	if (IS_ERR(bus_reset))
-+		return PTR_ERR(bus_reset);
-+
-+	th1520_phy->phy_reset = devm_reset_control_get_exclusive(dev, "phy");
-+	if (IS_ERR(th1520_phy->phy_reset))
-+		return PTR_ERR(th1520_phy->phy_reset);
-+
-+	/*
-+	 * Schematics of several boards (Lichee Module 4A/Milk-V Meles) describe
-+	 * this power rail as always-on.
-+	 */
-+	ret = devm_regulator_get_enable(dev, "avdd33-usb3");
-+	if (ret)
-+		return ret;
-+
-+	th1520_phy->regmap = devm_regmap_init_mmio(dev,
-+						   base + USB_SYSCON_OFFSET,
-+						   &phy_regmap_config);
-+	if (IS_ERR(th1520_phy->regmap))
-+		return dev_err_probe(dev, PTR_ERR(th1520_phy->regmap),
-+				     "Failed to init regmap\n");
-+
-+	th1520_phy->phy = devm_phy_create(dev, dev->of_node, &th1520_usb_phy_ops);
-+	if (IS_ERR(th1520_phy->phy))
-+		return dev_err_probe(dev, PTR_ERR(th1520_phy->phy),
-+				     "Failed to create PHY\n");
-+
-+	phy_set_drvdata(th1520_phy->phy, th1520_phy);
-+
-+	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-+
-+	return PTR_ERR_OR_ZERO(phy_provider);
-+}
-+
-+static const struct of_device_id th1520_usb_phy_of_table[] = {
-+	{ .compatible = "thead,th1520-usb-phy" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, th1520_usb_phy_of_table);
-+
-+static struct platform_driver th1520_usb_phy_driver = {
-+	.driver = {
-+		.name = "th1520-usb-phy",
-+		.of_match_table = th1520_usb_phy_of_table,
-+	},
-+	.probe = th1520_usb_phy_probe,
-+};
-+
-+module_platform_driver(th1520_usb_phy_driver);
-+
-+MODULE_DESCRIPTION("T-Head TH1520 USB PHY driver");
-+MODULE_LICENSE("GPL");
++#endif /* PVR_FW_RISCV_INTERNAL_H */
+diff --git a/drivers/gpu/drm/imagination/pvr_rogue_riscv_internal.h b/drivers/gpu/drm/imagination/pvr_rogue_riscv_internal.h
+deleted file mode 100644
+index ba18c2a82205..000000000000
+--- a/drivers/gpu/drm/imagination/pvr_rogue_riscv_internal.h
++++ /dev/null
+@@ -1,43 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 OR MIT */
+-/* Copyright (c) 2024 Imagination Technologies Ltd. */
+-
+-#ifndef PVR_ROGUE_RISCV_INTERNAL_H
+-#define PVR_ROGUE_RISCV_INTERNAL_H
+-
+-#ifndef PVR_ROGUE_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
+-#error This file may only be included if explicitly defined
+-#endif
+-
+-#include "pvr_rogue_cr_defs.h"
+-
+-#include <linux/bitops.h>
+-#include <linux/sizes.h>
+-#include <linux/types.h>
+-
+-#define ROGUE_RISCVFW_REGION_SIZE SZ_256M
+-#define ROGUE_RISCVFW_REGION_SHIFT __ffs(ROGUE_RISCVFW_REGION_SIZE)
+-
+-enum rogue_riscvfw_region {
+-	ROGUE_RISCV_REGION__RESERVED_0 = 0,
+-	ROGUE_RISCV_REGION__RESERVED_1,
+-	ROGUE_RISCV_REGION_SOCIF,
+-	ROGUE_RISCV_REGION__RESERVED_3,
+-	ROGUE_RISCV_REGION__RESERVED_4,
+-	ROGUE_RISCV_REGION_BOOTLDR_DATA,
+-	ROGUE_RISCV_REGION_SHARED_CACHED_DATA,
+-	ROGUE_RISCV_REGION__RESERVED_7,
+-	ROGUE_RISCV_REGION_COREMEM,
+-	ROGUE_RISCV_REGION__RESERVED_9,
+-	ROGUE_RISCV_REGION__RESERVED_A,
+-	ROGUE_RISCV_REGION__RESERVED_B,
+-	ROGUE_RISCV_REGION_BOOTLDR_CODE,
+-	ROGUE_RISCV_REGION_SHARED_UNCACHED_DATA,
+-	ROGUE_RISCV_REGION__RESERVED_E,
+-	ROGUE_RISCV_REGION__RESERVED_F,
+-
+-	ROGUE_RISCV_REGION__COUNT,
+-};
+-
+-#define ROGUE_RISCVFW_REGION_BASE(r) ((u32)(ROGUE_RISCV_REGION_##r) << ROGUE_RISCVFW_REGION_SHIFT)
+-
+-#endif /* PVR_ROGUE_RISCV_INTERNAL_H */
+
 -- 
-2.56.0
+2.43.0
 
 
 _______________________________________________
