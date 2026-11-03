@@ -2,11 +2,12 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63BEF606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B5AA606A32C
 	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2026 08:59:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jlU54Q1a;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JZcSuSTF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jNBbK+Es;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=MCDQRdDu;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CFFIM3QB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,66 +15,81 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=GHY8dP0+Nk3Rh/WNnubZpPZHzb1IjjCi6c8+pTiFTCU=; b=jlU54Q1adHHmXpT8RIoinJ38W+
-	eRWl8oyH3K2znK0AU0tAKNi4xxbRx8QT3iI8T7ZJXv0mf1vW9XFflN0mN4ms1kaW75cp8Y+FjoXwl
-	03KZuqKrK6JAyM21MFXKvFdVHxUswMMiqKXXqYCbZQVAKrCFYEI5nF6cpEv8jw6WCvgIFtdGS1sv9
-	fv4OfC9roz2ji0SLTpuH3hNZ5nBHdGDsN3oaKsYLClgLWgviRk6Ojqo4rGSShttbTzsdRsjaraXpg
-	LvpnkR8efH8P4x+IqvDqvzuU4+vJUDLYmtnkbrBf8TteM715VL6OTez04Hb1+yLrohYu7q3TyfX8n
-	ktbLi3ww==;
+	bh=zH+gQzzFGUOOaYMUIG+vCUFY152g9ie78kdlOzNgU3w=; b=jNBbK+EsnXb96CJSZxohiKIJIj
+	yQf5jLTQ4mFDsZnS0Xa7nRI2A5aC3mRFPO6d052e301vMEh3w9UTmFf/3iZV1z3604rmJQwGUN8E7
+	Bf007wA0cKQdLlGClpguKd0KphXdf5S8tOlrnYcV5itR5XZqQnActeVA/V6/AQKigiGNNvC7p2tQ7
+	OvA56nujYxqIDHNWtwkwuEyusMrbt6EGoo5o3P8PMLnzCMd7DVB7LFOT/vZyIy6eUQxgbh6O5lzcJ
+	54hTle9+ASAzcN7nrKZrr3BCDHtoeF8CT8BjAfRVnaGVq/vsLyn2E1lzkw96fmaDp8w/e7ZJbEUN+
+	Ie2iW8ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOAMN-00000001f8F-3n6L;
-	Tue, 03 Nov 2026 08:59:15 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1xOAMP-00000001f9l-4AtG;
+	Tue, 03 Nov 2026 08:59:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOAMJ-00000001f6O-3RXw
+	id 1xOAMO-00000001f8J-3TD3
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 03 Nov 2026 08:59:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=XdWSx5jEVXu7O1L25NHaAg46eSzRTcB1Jp91d+n101c=; b=MCDQRdDuU48F8IvbtTe5y2Wc/4
+	1A1ybN+2U80IMFne5NlyvA3RsWIx36+9M60bBD6cr6ToIU508O1d8QV1SuBQAA5/tNRjwuTUZg8gT
+	4k6VgQy0D2hF9a89uy+zeM6Ji+gRoutESw7ZzJz5E/4Hg4tEVDxaa1F4vViEk7VBfh9mTRKjpbq5I
+	gFq+rgiZ74etH21tGbRRyHAxSV+ukdyI0/buU174XMREHvBuMDOQTgUQXhKZ8i3PNms5x+dVyfF1S
+	sA+0nwb5T3YX6FL2RkvrUFMK3FQXMpkw32baXSVtzJedShff1ShGthoHYq7urFvV6FHKrz0lbFNo9
+	r1RM6xRQ==;
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOAMF-00000000DWD-4BdA
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Nov 2026 08:59:14 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-cd63b18598dso192551a12.1
-        for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2026 00:59:11 -0800 (PST)
+	Tue, 03 Nov 2026 08:59:09 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-3ae1a9e187aso602724a91.3
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2026 00:59:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793696351; x=1794301151; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793696346; x=1794301146; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=9H0FtVqjAvdxJU4WnvNJ2DEU2rxaugxZZsDOPGa/Ctk=;
-        b=JZcSuSTFhr59FWtAN3paMr56dIboxTSqCjcJdhiiUYwu1KbVpZl4YgNm0P/kJ5Nk/N
-         p/3LE4/UsvifHE06pN392w0JePP/3K1ThqEwS9ZmuPMVEbX1lLxtrr60Snju35DSs+k5
-         DARcZ+gLpM4qSuwc5IxHepjez0fBAjC1qWik1afmie1+lHDR9mlBn4jQgg2S2Zgl0LU3
-         ptGvRB/ck4trcvtU/vdgq6VJAs7z396BZaJSIoT6viW7E68obrGtCmZ5o8yPnkERByQE
-         C0eKxycvypBuORenkBgFHdPt6S9ghSEn/booAGFxXfqfJJ2OWdRMT1LWI1iu706Mas7U
-         gARw==
+        bh=XdWSx5jEVXu7O1L25NHaAg46eSzRTcB1Jp91d+n101c=;
+        b=CFFIM3QBjUl4ShOP2zZT6TO2i/B/N2MieqdXaOtAP8w1NEXWd/vL1U4LwYQ5Ufpo9J
+         hw0Cdia7YLkpjvM5rWeyvr2Z1Gh+lawRgCb0UGly1Q361axI4UN++cn2gDAuxdDJrWM1
+         ZQEbJsoTjcLnKBnfLgL2K9KiLC/1aFltIIaCt1Id6mfoIAnBGdCBsbi5ve/hdt07BSzl
+         74TxyDcPu0xrFEIREqMVbyiJVvuKFenWYu8wYKZKO6quVoHR5PTOiaVLiAfMhxb7bhp/
+         3CMzY2JXCddDC3YRqty8FS6AUXa7JsZVJL6Ks7DQPotteolzyFvKMubu6X6d/Sy98WXb
+         C46A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793696351; x=1794301151;
+        d=1e100.net; s=20260707; t=1793696346; x=1794301146;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9H0FtVqjAvdxJU4WnvNJ2DEU2rxaugxZZsDOPGa/Ctk=;
-        b=06VR7iR9/bxTrGt6Q3Oy/xpfZ6vUz+MLXZz19EHNXtrEMFm1ASk7AAi5ZsFxe+joFL
-         RYgHf5c+dnafexxTyCXkwBLwxg6+U1ODH23KXTdby7Hj/2PIQdKuC874GSbi8cfbpCkS
-         QAZlwCz9tIqlUtAxJ+wRSQmUYnvWu0x168QQrrJHroKHQyLmN+JfAnlcJSBN8FIRUKhu
-         zCsaJRnsrTMiktsf27Sv4vBu3+tu3O6CzkAfpj/twpEzvlHez6qC2hez5nKsWmJX+TXG
-         RKgV09l8EUjLfTCRwU1Kuq0iVEdWd6U4u8DkSITcOACC0GCputbb/V1cezt/c1OpKfg1
-         +M5w==
-X-Forwarded-Encrypted: i=1; AKwUvBwTQjVaxd2TqEyeW8Ks2veloO9HvKZzt0aKMF1x50Mfa/UvTrgn5+Uhd/nLexf0BUmKaVgEYwDQyN4upA==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8WUYa9fcEAkvc26uoGGjhHB8oEH4CzhoZxfZsjoZr2LG/pGTB9
-	tOzowUmZ6bUejNsXxH1C8nnKkdLbiC8GUThA+ffVVWSjjP7HxqPNCH05
-X-Gm-Gg: AYBFou3AbWIwoYmCHo1oWwPg+pJGEM5SKeCsQt6TWxkjghPxX01q3Wky1siy4mJhpLB
-	gakmBQwwjcyZEyNjpTjAcCSC0E/D2Z3jPx4W2rNRva8QtSRCnhS3nqnHVb7xusZ+xJWCbc48f1F
-	UO/H3nOsS37iwiovAlJOcgEeWVHU3RrtjmXkKl9z5eM0OV8m3EoxrhT4k+DJNWpKdL2+mMaqwge
-	/DsHEJVnuTKtuLIOkSiULBZbwtUCwTelFD67EVWx7QD95QO+two1bO4KJei40M2q6G5oMoo6lSw
-	eed74GHuc09X+o3aM81nygKK1c6iuZgEJpg11dR40h/bUxRtnOPznBPg90GQhsmsZCRfB+JFtWf
-	XWpph9N4gZGRsIJKveMpgMUvyFdpGkEY5hXBuegRcoZTeuAAwnWdCLXqoDmGpOI2SK3yFnWYTQZ
-	kZXpihZM9takK2Lp9uHaBWUHuZlFJqVSOBdSNpxxaUlkxSDy5QqhqEar3j0sB1r9pDESa1/bSbA
-	fu1HH9sL88QpW8swNuiEylCgOx+J47+m8bhUxgCi750PNRxY5Q5hM+2v9IXbsD9WZdNIilU0nmK
-	XXh4TTXO8OaAD8QTIPQQSHK8gAUr1rM+5lD42QFgc84ruKBuIykrMSm9cgZhzpnBmneBWDqasmZ
-	S/4tds0LcDNap
-X-Received: by 2002:a17:90b:28c7:b0:3a0:238b:db4d with SMTP id 98e67ed59e1d1-3ae897f82c4mr17367231a91.5.1793696350816;
-        Tue, 03 Nov 2026 00:59:10 -0800 (PST)
+        bh=XdWSx5jEVXu7O1L25NHaAg46eSzRTcB1Jp91d+n101c=;
+        b=F8nH5hwoqVMniWwwWcv037YJvHG1Q1JtSRK6ApRUeGC7ZdpYHKDm2fUu+R3hTcIJgD
+         StMIW01jofZ+W0eCDjqXjnGARv1h8mtFIJesavr6KXobhaU6XhL5OTNJUkVqzO0dDW4H
+         WbOFChirkwCIH6WIzx51fTkytEKFJyvel9zjV7e/rMUDMulYpshSTrJGqGX1Kdj6sx+s
+         ZueB6vP3jQIv86aosxChJc+6qoeNXhrVlSnpqU87oJYhdX/rPeDH0V4AkLFALVqmDerY
+         AeLH2UwKZ7dm/uragaiWGBdoN+cvNdgP/dqEZRHgebIT0ssLe4P+/dFZfzPec7ejD/9j
+         Pzqw==
+X-Forwarded-Encrypted: i=1; AKwUvBw3Juay1yMKgZJ++y/VMKgysq105DTyF+9qxsinu/IAyoPBPPW/DenqkoxpGksft0xsA37AkFhCJK7ksA==@lists.infradead.org
+X-Gm-Message-State: APuU4Z//agnQiOVR+Gr6majPLZF5XSnexyXFY/O8Fyb/+7A8EZDopikI
+	hGKrcjV7Ls30UCZ+ml2bj9pOmhTXyMdbpoZOOpDVlWtjYfrY7Y0w5E3B
+X-Gm-Gg: AYBFou2MsWxJrR25EzMluXg/hM+hG6Zu2faDF/VoEHjKkHZdL0UrBMYz5CT89UmUDi7
+	qIjLX0rgOtaNLJqDMxh54J9sLFAT3maXRCY3K8PaHWw10ch28c+82P2LslXvKXQElA9dUVaZiM2
+	dhF5wDKjS+3RKHeCtBAGkRLIWmuU/E9EwO/kOzakH2iXzd+LcexOlK3rOq3sH71jpHLTnLioxmc
+	hct3SIudIGhPwB+4qsy98TBViJ5ik7D1qdCee8lwlUOTvGUWAVy09Caae9GdHxxuu5DHr/YM61V
+	zxLcY5IpGTynMsbs45hlTw+ehvFVG7ptvKYbGtOU9nbXNDSMV9A+9ni4L1swd4tNBsHjLPUnodV
+	xZSQtypUOJBe0RHxOfJOItodi7oIGBEMV69xZqLDvdP/56JiUTd3MTYowuaC7mWU8Qyc5qP0rae
+	99Mx5V3mr2vkxj/lxA2LcGNemp9IzD2kUcKkX4c45SqagpTjQT6Xch6FyGEHvkf4Hi4pJX5EyU1
+	f/h0DX0qgYf+aNCvvzMAmfzrCRjQyoS1sBq3dbu4bSEccLiEPoZFcPpY2EvEPP91f9Xxjm1z7w0
+	5me0THClS5kKk6EK/7PT+B7mvkej7ECAINzvkWv1kvC92y3LjTL3BabJSrPZC8y2Cewv/MfsavU
+	hzo1JBLBzgaMR
+X-Received: by 2002:a17:90b:4487:b0:3ac:9c37:9422 with SMTP id 98e67ed59e1d1-3ae89626108mr17481897a91.2.1793696345686;
+        Tue, 03 Nov 2026 00:59:05 -0800 (PST)
 Received: from chenyou.. ([140.116.39.229])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b07c6740a1sm3345662a91.10.2026.11.03.00.59.06
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b07c6740a1sm3345662a91.10.2026.11.03.00.59.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Nov 2026 00:59:10 -0800 (PST)
+        Tue, 03 Nov 2026 00:59:04 -0800 (PST)
 From: Chen-Yu Yeh <chenyou910331@gmail.com>
 To: Vinod Koul <vkoul@kernel.org>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -93,18 +109,18 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Chen-Yu Yeh <chenyou910331@gmail.com>
-Subject: [PATCH 2/3] phy: sophgo: Add USB role switch support for CV18XX/SG200X
-Date: Tue,  3 Nov 2026 16:58:46 +0800
-Message-ID: <20261103085847.338613-3-chenyou910331@gmail.com>
+Subject: [PATCH 1/3] dt-bindings: phy: sophgo,cv1800b-usb2-phy: Add USB role switch properties
+Date: Tue,  3 Nov 2026 16:58:45 +0800
+Message-ID: <20261103085847.338613-2-chenyou910331@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261103085847.338613-1-chenyou910331@gmail.com>
 References: <20261103085847.338613-1-chenyou910331@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_005911_873242_AD13ECA4 
-X-CRM114-Status: GOOD (  23.66  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261103_085908_388315_9F12823B 
+X-CRM114-Status: GOOD (  10.05  )
+X-Spam-Score: 0.1 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,229 +141,45 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The USB role of the dwc2 controller on CV18XX/SG200X is selected by the
-ID override in the top syscon (offset 0x48, bits 6 and 7). The vendor
-kernel switches roles by writing only this override, and dwc2 follows
-through its Connector ID status change handling.
+The USB role on CV18XX/SG200X is selected by the ID override in the top
+syscon, which belongs to this PHY, so the PHY is what provides the role
+switch.
 
-The usb-role-switch support in dwc2 does not work on this SoC. It
-switches roles through the GOTGCTL session overrides, and clearing
-B-valid while the core is a B-device with VBUS present makes
-GOTGINT.SesEndDet fire back to back, which hangs the board in the
-interrupt handler. This happens on "echo host" and at probe without
-role-switch-default-mode.
-
-Register a role switch in the PHY driver when the PHY node has
-usb-role-switch, and write only the ID override when the role changes.
-
-There are two ordering details:
-
- - Set the default role before registering the PHY provider, so dwc2
-   already sees the final role when it probes. Otherwise it records the
-   role it sees at probe and keeps the interrupt mask of that role.
-
- - Ignore phy_set_mode() while the role switch is in use, because
-   usb_add_hcd() asks for host mode on any controller that has a host
-   side, which would override the default role.
-
-The ID has no "unattached" state, so USB_ROLE_NONE selects the default
-role.
-
-Move the register write to a helper shared with the set_mode callback,
-and update PHY_VBUS_POWER and the ID override in a single write.
-
-Tested on Milk-V Duo 256M with dr_mode = "otg" and a v7.3-rc5 based tree:
-
-  Default peripheral, bare board on a PC, no manual step after boot:
-    role device, 0x03000048 = 0x3c0, UDC configured, PC sees 0525:a4a2
-    echo host:   role host, 0x03000048 = 0x142
-    echo device: role device, 0x03000048 = 0x3c0, UDC configured
-    echo none:   role device, 0x03000048 = 0x3c0
-
-  Default host, on the USB & Ethernet IO board, no manual step after boot:
-    role host, 0x03000048 = 0x142, the hub enumerates at 3.4 s, a USB
-    stick plugged in later shows up as sda
-
-Registers at boot in the host case, before and after this change:
-
-            before        after
-  GINTMSK   0xd0bc3cd4    0xf300081e    (PrtInt masked -> unmasked)
-  HPRT0     0x00021403    0x00001005    (ConnDet pending -> port enabled)
+Allow usb-role-switch and role-switch-default-mode on the PHY node. The
+default mode only has a meaning when the role switch is present.
 
 Signed-off-by: Chen-Yu Yeh <chenyou910331@gmail.com>
 ---
- drivers/phy/sophgo/Kconfig           |   2 +
- drivers/phy/sophgo/phy-cv1800-usb2.c | 107 +++++++++++++++++++++++++--
- 2 files changed, 102 insertions(+), 7 deletions(-)
+ .../bindings/phy/sophgo,cv1800b-usb2-phy.yaml         | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/drivers/phy/sophgo/Kconfig b/drivers/phy/sophgo/Kconfig
-index 2c943bbe1f81..055cbcd32891 100644
---- a/drivers/phy/sophgo/Kconfig
-+++ b/drivers/phy/sophgo/Kconfig
-@@ -10,6 +10,8 @@ config PHY_SOPHGO_CV1800_USB2
- 	depends on MFD_SYSCON
- 	depends on USB_SUPPORT
- 	select GENERIC_PHY
-+	select USB_COMMON
-+	select USB_ROLE_SWITCH
- 	help
- 	  Enable this to support the USB 2.0 PHY used with
- 	  the DWC2 USB controller in Sophgo CV18XX/SG200X
-diff --git a/drivers/phy/sophgo/phy-cv1800-usb2.c b/drivers/phy/sophgo/phy-cv1800-usb2.c
-index 6fe846534e9c..b4c27ab41a6f 100644
---- a/drivers/phy/sophgo/phy-cv1800-usb2.c
-+++ b/drivers/phy/sophgo/phy-cv1800-usb2.c
-@@ -13,8 +13,11 @@
- #include <linux/of_address.h>
- #include <linux/platform_device.h>
- #include <linux/phy/phy.h>
-+#include <linux/property.h>
- #include <linux/regmap.h>
- #include <linux/spinlock.h>
-+#include <linux/usb/otg.h>
-+#include <linux/usb/role.h>
+diff --git a/Documentation/devicetree/bindings/phy/sophgo,cv1800b-usb2-phy.yaml b/Documentation/devicetree/bindings/phy/sophgo,cv1800b-usb2-phy.yaml
+index 2ff8f85d0282..a1d164686b07 100644
+--- a/Documentation/devicetree/bindings/phy/sophgo,cv1800b-usb2-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/sophgo,cv1800b-usb2-phy.yaml
+@@ -34,6 +34,15 @@ properties:
+   resets:
+     maxItems: 1
  
- #define REG_USB_PHY_CTRL		0x048
- 
-@@ -37,8 +40,93 @@ struct cv1800_usb_phy {
- 	struct clk	*usb_lpm_clk;
- 	struct clk	*usb_stb_clk;
- 	bool		support_otg;
-+	struct usb_role_switch	*role_sw;
-+	enum usb_role		default_role;
- };
- 
-+static int cv1800_usb_phy_set_id(struct cv1800_usb_phy *phy, enum usb_role role)
-+{
-+	unsigned int regval;
++  usb-role-switch:
++    $ref: /schemas/usb/usb-drd.yaml#/properties/usb-role-switch
 +
-+	switch (role) {
-+	case USB_ROLE_DEVICE:
-+		regval = PHY_ID_OVERWRITE_EN | PHY_ID_OVERWRITE_MODE_DEVICE;
-+		break;
-+	case USB_ROLE_HOST:
-+		regval = PHY_ID_OVERWRITE_EN | PHY_ID_OVERWRITE_MODE_HOST |
-+			 PHY_VBUS_POWER;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
++  role-switch-default-mode:
++    $ref: /schemas/usb/usb-drd.yaml#/properties/role-switch-default-mode
 +
-+	return regmap_update_bits(phy->syscon, REG_USB_PHY_CTRL,
-+				  PHY_ID_OVERWRITE_EN | PHY_ID_OVERWRITE_MODE |
-+				  PHY_VBUS_POWER, regval);
-+}
++dependencies:
++  role-switch-default-mode: [ usb-role-switch ]
 +
-+static int cv1800_usb_phy_role_set(struct usb_role_switch *sw, enum usb_role role)
-+{
-+	struct cv1800_usb_phy *phy = usb_role_switch_get_drvdata(sw);
-+
-+	if (role == USB_ROLE_NONE)
-+		role = phy->default_role;
-+
-+	return cv1800_usb_phy_set_id(phy, role);
-+}
-+
-+static enum usb_role cv1800_usb_phy_role_get(struct usb_role_switch *sw)
-+{
-+	struct cv1800_usb_phy *phy = usb_role_switch_get_drvdata(sw);
-+	unsigned int val = 0;
-+	int ret = regmap_read(phy->syscon, REG_USB_PHY_CTRL, &val);
-+
-+	if (ret)
-+		return USB_ROLE_NONE;
-+
-+	if (val & PHY_ID_OVERWRITE_MODE)
-+		return USB_ROLE_DEVICE;
-+
-+	return USB_ROLE_HOST;
-+}
-+
-+static void cv1800_usb_phy_role_unregister(void *data)
-+{
-+	usb_role_switch_unregister(data);
-+}
-+
-+static int cv1800_usb_phy_setup_role_switch(struct device *dev,
-+					    struct cv1800_usb_phy *phy)
-+{
-+	struct usb_role_switch_desc desc = {
-+		.fwnode = dev_fwnode(dev),
-+		.set = cv1800_usb_phy_role_set,
-+		.get = cv1800_usb_phy_role_get,
-+		.allow_userspace_control = true,
-+		.driver_data = phy,
-+	};
-+	int ret;
-+
-+	if (!device_property_read_bool(dev, "usb-role-switch"))
-+		return 0;
-+
-+	if (usb_get_role_switch_default_mode(dev) == USB_DR_MODE_HOST)
-+		phy->default_role = USB_ROLE_HOST;
-+	else
-+		phy->default_role = USB_ROLE_DEVICE;
-+
-+	ret = cv1800_usb_phy_set_id(phy, phy->default_role);
-+	if (ret)
-+		return ret;
-+
-+	phy->role_sw = usb_role_switch_register(dev, &desc);
-+	if (IS_ERR(phy->role_sw))
-+		return PTR_ERR(phy->role_sw);
-+
-+	return devm_add_action_or_reset(dev, cv1800_usb_phy_role_unregister,
-+					phy->role_sw);
-+}
-+
- static int cv1800_usb_phy_set_mode(struct phy *_phy,
- 				   enum phy_mode mode, int submode)
- {
-@@ -46,17 +134,17 @@ static int cv1800_usb_phy_set_mode(struct phy *_phy,
- 	unsigned int regval = 0;
- 	int ret;
- 
-+	/* The role switch owns the ID override */
-+	if (phy->role_sw)
-+		return 0;
-+
- 	dev_info(&phy->phy->dev, "set mode %d", (int)mode);
- 
- 	switch (mode) {
- 	case PHY_MODE_USB_DEVICE:
--		regval = PHY_ID_OVERWRITE_EN | PHY_ID_OVERWRITE_MODE_DEVICE;
--		regmap_clear_bits(phy->syscon, REG_USB_PHY_CTRL, PHY_VBUS_POWER);
--		break;
-+		return cv1800_usb_phy_set_id(phy, USB_ROLE_DEVICE);
- 	case PHY_MODE_USB_HOST:
--		regval = PHY_ID_OVERWRITE_EN | PHY_ID_OVERWRITE_MODE_HOST;
--		regmap_set_bits(phy->syscon, REG_USB_PHY_CTRL, PHY_VBUS_POWER);
--		break;
-+		return cv1800_usb_phy_set_id(phy, USB_ROLE_HOST);
- 	case PHY_MODE_USB_OTG:
- 		if (!phy->support_otg)
- 			return 0;
-@@ -107,7 +195,7 @@ static int cv1800_usb_phy_probe(struct platform_device *pdev)
- 	if (!parent)
- 		return -ENODEV;
- 
--	phy = devm_kmalloc(dev, sizeof(*phy), GFP_KERNEL);
-+	phy = devm_kzalloc(dev, sizeof(*phy), GFP_KERNEL);
- 	if (!phy)
- 		return -ENOMEM;
- 
-@@ -144,6 +232,11 @@ static int cv1800_usb_phy_probe(struct platform_device *pdev)
- 		return ret;
- 
- 	phy_set_drvdata(phy->phy, phy);
-+
-+	ret = cv1800_usb_phy_setup_role_switch(dev, phy);
-+	if (ret)
-+		return ret;
-+
- 	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
- 
- 	return PTR_ERR_OR_ZERO(phy_provider);
+ required:
+   - compatible
+   - "#phy-cells"
+@@ -51,4 +60,6 @@ examples:
+       clocks = <&clk 93>, <&clk 94>, <&clk 95>;
+       clock-names = "app", "stb", "lpm";
+       resets = <&rst 58>;
++      usb-role-switch;
++      role-switch-default-mode = "peripheral";
+     };
 -- 
 2.43.0
 
