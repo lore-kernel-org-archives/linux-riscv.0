@@ -2,104 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEE15606A31B
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 10:47:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28263606A330
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 10:59:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mvEwneeZ;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VJrT2/1Q
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2ha+qcWt;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=m08KhV0f
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
-	bh=IbwadDo6biR41kct9hdJusIkVKGKs/jYR/HLEtnorxc=; b=mvEwneeZsFDjbI5bobu1zS6ouZ
-	J6phs9Iu68gjxrR9TOcwuxGCP35PVUTTagWrXT3Uyq7DR60f27zVa4rhRXkoYEtnfSPeJTkeWyyit
-	oMEfGDUFFGUpJYgX69v4Nk1X/hYVRWsszMGMKCXhH1OB8wsaxYD/oIvY+lTEgy8+XcyABiv7WQsqr
-	I0UMb6Y2MqiBrlH1ZFcmbeSfMArUi9nCHxpj6WfKOm0Q0jLKVYYRYIL9hWmCIvFVxDQcx1uy9FdPS
-	ybq/LJr7vduUBzkncWN9b8SSj3cuulPvU0hb2j/6ZHDcJ5dMOnpVeU14iOHdLB1B49prTokAtvfmq
-	Ta9+hAFA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=RSdajaM+mmKucrKvLdlMNcfw1jeskGimxDLeJSY0s7s=; b=2ha+qcWtV0hmZTaB1m63JTryrL
+	AANog5R+Si2lz6/VIk9kKRACTyUU556Tf8GZLBGdSdDp+l0aObXL7XiJJxEoR5jt73LtaVTvQ21Gx
+	/uU3Z1EZv/2pyaqIyUq3t1tUlm5tKkaB3d/6BYtWZP4rkHJvJcaeH8HfzUSdiCOVGQY5VX3P5+h3o
+	JpWQpWdnO05bJc0TDQKMiA6QM8cgkAMVEvbLnQdH0RlwE4XsukhexQnYGUDtD4/pDqf22f4qcnQQP
+	j7ieaOUyztdhl+FB1/dEIiWZ5MmyKrMFoRMk5ZLyT+ZmXf0B7dxfNyAI8UHyiEGDEMK1u5UcfiX+P
+	5Qr4W35Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYWI-000000052V8-2gPD;
-	Wed, 04 Nov 2026 10:47:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xOYi0-000000054ie-2Ozl;
+	Wed, 04 Nov 2026 10:59:12 +0000
+Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYWH-000000052UZ-0dIe;
-	Wed, 04 Nov 2026 10:47:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 937AA43AD5;
-	Wed,  4 Nov 2026 10:47:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CDC51F00A16;
-	Wed,  4 Nov 2026 10:47:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793789224;
-	bh=bhOmEa952md/X2FxyjNFbUxSEKG6z2HGY2NSxyblu7s=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=VJrT2/1QLEtsT7IAJHPVIQ2ISxt4hMdc3map/aD2+trIBN9mSj3nx2Q9bTpfMT3MF
-	 cGNw4vlunjJnW2IgqkdannjrufnBjkEyqAdwxHFKLVUEMfE+G1hX5DaeWBXjmWX36S
-	 imsPN3k2zFxiGZhrAEtQPYo34cnkB1wIfefgCgCRieHnN8ascqJ5oPN4Fh4QbYtHlq
-	 7/wVgTJuM16kHNFu8An5p+QSkHTadJXmkvy+7t9tMNoYCB9OvYjalYNNGUIRajXJbd
-	 YN4n/cPqhT0kWRFpjhDg6dKdJbl4dZ4IR8N3yu9oo0FcspYKIrDgWmd+hMBEXfPmLJ
-	 lIvFousnuVg2A==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id BE33A198003A;
-	Wed,  4 Nov 2026 05:47:00 -0500 (EST)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Wed, 04 Nov 2026 05:47:00 -0500
-X-ME-Sender: <xms:Hw3ranMJL85RL35ZdIqlVZy7B5jeINP5BbPezeQrDi-SF2g1QOUblw>
-    <xme:Hw3raswrF1gip8laAtOzF-VI-pmh8_xio3Iv18-kjvZb7gAJgZagRdgIgdR_Z9VpH
-    3aGcEn9wEYZRA1vkqbcSrpJfGBueP2SI-2Ks1wLLANcLZGoARC6PFs>
-X-ME-Proxy-Cause: dmFkZTFcPavaLWIfgpoRM8kguzVyv4s6FUkLYAQNGvkUHQVN3xVxVzv9NryfTRmBx2+1+T
-    O8Nt36zML1hPcpqbZ31+TrK5u1pojcuEtJ4d9wGWUhJ3PA4GR64AER0KVm/mg5J8CEvDjb
-    87JxU7ByEHQUkd87rjl5YJ6VpVGYEteXdzVHpDfaZbUb25I8yUXHEzXzvTki5YhHrX0+Ff
-    dEw6DUI60ChXVG7qPis8rKSRSBjgm3FH41orMrqi8AzmwVObG7DSV0A/n08w8QClZ1o7l+
-    535jOrxx7Ryk22b71pTU7piz9TOaOxspVPbT5mctmMzGlgM03lWJfWSB8QGDefxIJWbjYs
-    SWRWaf8wtqVtG/y8VhcGvWaXz0LsELuUcWCWXl8uYz0FlppVOkjLlTI83jJnQvIsR6wW9A
-    CHbjI9SRCOspRJI14AvVQ1gcqqNFg/aukBnzTQSgDXsMSAvOzAUMquE+WlSukqk5s0kWpa
-    njVLPVqOL6PMp5x3IoZtBkRTGd/N3jxEy8pK1FCY/kEv9MN3SOjavcn9IuRnWmh/83Rc77
-    6GG8VVWJng4fdcHXdysUYGD2mMNjsZxD/N6+r+yDqOve4t+C3EzK9VWq9skd3rDm5qfSyS
-    0v1Q3nZRYNBxw1A74kxjY01EsAfvmnziAM0IIiwwBMPqwOU9vx9fO+TEwqTQ
-X-ME-Proxy: <xmx:JA3rarOc2on3e1xb7iUIdCss_xeJ3zdgPplKMTBac8Yz3xu00QXGXA>
-    <xmx:JA3rakancmdTtLZDM22WzdIgr8lJQn3ocDdsi_RjrSD_VtAdD8coHg>
-    <xmx:JA3ras7McSax5611gqIhLQldHowrwdBi4-xbCgqokzbp7BU_VCYGyw>
-    <xmx:JA3rarBd0hh0XKEJUgCfUXIrbQcvdDWVyz9bN0fiE8VImxPs8sd5Dg>
-    <xmx:JA3rar7rbi7TJSfdSFS58Fu87suf-sHWjoQzGw8ON1-8MnFv5N6AUirL>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 3A57AF8008E; Wed,  4 Nov 2026 05:46:55 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1xOYhy-000000054fM-1PCH;
+	Wed, 04 Nov 2026 10:59:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1793789946; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
+	bh=3nff9d/AA4m5vVgbnjj/6QnlBWUP9A3eO3LG2cNpO0Q=;
+	b=m08KhV0fkxsfrfrjQiWp6HnWt8T+koWD1umEJghybHZAO3s6Qf6Jm3NiZccdI3RejYTik1tSWFB1jgRoGgRirlwwBvH5vgBJX5YZ2VerKPUC/oBEHXmL4YwXrJD0JKPAwSd2c3LHTYEb7wyizeUoO6jx5KNIf0rdOs/qlAL3jQQ=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=30;SR=0;TI=SMTPD_---0XE5XI7y_1793789942;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XE5XI7y_1793789942 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 04 Nov 2026 18:59:04 +0800
+From: fangyu.yu@linux.alibaba.com
+To: gong.shuai@sanechips.com.cn
+Cc: ajones@ventanamicro.com,
+	alex@ghiti.fr,
+	andrew.jones@linux.dev,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	baolu.lu@linux.intel.com,
+	fangyu.yu@linux.alibaba.com,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
+	jgg@nvidia.com,
+	jgg@ziepe.ca,
+	joerg.roedel@amd.com,
+	joro@8bytes.org,
+	jroedel@suse.de,
+	kevin.tian@intel.com,
+	kvm-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robin.murphy@arm.com,
+	skhawaja@google.com,
+	tanchi25@mails.ucas.ac.cn,
+	tjeznach@rivosinc.com,
+	tomasz.jeznach@linux.dev,
+	vasant.hegde@amd.com,
+	will@kernel.org,
+	zong.li@sifive.com
+Subject: Re: [PATCH v7 06/10] RISC-V: KVM: Enable KVM_VFIO interfaces on RISC-V arch 
+Date: Wed,  4 Nov 2026 18:59:01 +0800
+Message-Id: <20261104105901.64207-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20261104064540.115560-1-gong.shuai@sanechips.com.cn>
+References: <20261104064540.115560-1-gong.shuai@sanechips.com.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Date: Wed, 04 Nov 2026 11:46:33 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Jason Gunthorpe" <jgg@nvidia.com>
-Cc: "Alexandre Ghiti" <alex@ghiti.fr>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Arnd Bergmann" <arnd@arndb.de>, "Catalin Marinas" <catalin.marinas@arm.com>,
- "Jonathan Corbet" <corbet@lwn.net>, "David Sterba" <dsterba@suse.com>,
- "Ilias Apalodimas" <ilias.apalodimas@linaro.org>, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
- "Mark Rutland" <mark.rutland@arm.com>, "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Paul Walmsley" <pjw@kernel.org>, "Randy Dunlap" <rdunlap@infradead.org>,
- "Simon Glass" <sjg@chromium.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
- "Nick Terrell" <terrelln@fb.com>, "Will Deacon" <will@kernel.org>,
- "Alexandre Ghiti" <alexghiti@rivosinc.com>,
- "Conor Dooley" <conor.dooley@microchip.com>,
- "Jonathan Cameron" <jonathan.cameron@oss.qualcomm.com>,
- linux-integrity@vger.kernel.org, "Palmer Dabbelt" <palmer@rivosinc.com>,
- patches@lists.linux.dev, =?UTF-8?Q?Piotr_Kr=C3=B3l?= <piotr.krol@3mdeb.com>,
- "Ross Philipson" <ross.philipson@gmail.com>,
- "Sami Tolvanen" <samitolvanen@google.com>,
- "Song Shuai" <songshuaishuai@tinylab.org>
-Message-Id: <cc4d09b6-a56b-44a2-a137-f27bc87e96e3@app.fastmail.com>
-In-Reply-To: <20261103160138.GA3165945@nvidia.com>
-References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
- <4-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
- <20261103160138.GA3165945@nvidia.com>
-Subject: Re: [PATCH v2 04/15] efi/libstub: Add a general way to get symbols from the
- vmlinux into zboot
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261104_025910_550931_AD3AAC69 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,45 +90,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-
-On Tue, 3 Nov 2026, at 17:01, Jason Gunthorpe wrote:
-> On Fri, Oct 02, 2026 at 08:31:41PM -0300, Jason Gunthorpe wrote:
->> Currently the zboot stub has no access to symbols in the vmlinux. In
->> contrast x86 has a voffsets.h header that allows the stub to know whatever
->> symbols it wants for the decompressed image. ARM DRTM needs another 4
->> symbol locations to work, and it also wants to compile the DRTM libstub
->> code once and have it work in both zboot and embedded.
->> 
->> The current solution in arm is "code_size" from commit 45dd403da851
->> ("efi/zboot: arm64: Inject kernel code size symbol into the zboot
->> payload"). This is neat, but it makes the zboot and embedded cases
->> work differently.
->> 
->> The x86 voffsets.h approach is also nice, but it can only work in zboot
->> since it relies on 'nm vmlinux' to extract the locations. That's a
->> circular dependency for the embedded stub.
->
-> Ard,
->
-> Did you have any further thoughts on this patch? Did the sketch you
-> showed me at LPC turn into anything?
->
-
-I will get back to you before the end of the week.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+PkhpIEZhbmd5dSwKPgo+PiBGcm9tOiBUb21hc3ogSmV6bmFjaCA8dGplem5hY2hAcml2b3NpbmMu
+Y29tPgo+Pgo+PiBFbmFibGUgS1ZNL1ZGSU8gc3VwcG9ydCBvbiBSSVNDLVYgYXJjaGl0ZWN0dXJl
+Lgo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBUb21hc3ogSmV6bmFjaCA8dGplem5hY2hAcml2b3NpbmMu
+Y29tPgo+PiBTaWduZWQtb2ZmLWJ5OiBBbmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50YW5hbWljcm8u
+Y29tPgo+PiBTaWduZWQtb2ZmLWJ5OiBGYW5neXUgWXUgPGZhbmd5dS55dUBsaW51eC5hbGliYWJh
+LmNvbT4KPj4gLS0tCj4+ICBhcmNoL3Jpc2N2L2t2bS9LY29uZmlnIHwgMiArKwo+PiAgMSBmaWxl
+IGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9r
+dm0vS2NvbmZpZyBiL2FyY2gvcmlzY3Yva3ZtL0tjb25maWcKPj4gaW5kZXggZjdlNGQwZjliMTU2
+Li4xMzU1MmNmYzJjZDMgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3Yva3ZtL0tjb25maWcKPj4g
+KysrIGIvYXJjaC9yaXNjdi9rdm0vS2NvbmZpZwo+PiBAQCAtMjgsOCArMjgsMTAgQEAgY29uZmln
+IEtWTQo+PiAgCXNlbGVjdCBLVk1fR0VORVJJQ19IQVJEV0FSRV9FTkFCTElORwo+PiAgCXNlbGVj
+dCBLVk1fR0VORVJJQ19QUkVfRkFVTFRfTUVNT1JZCj4+ICAJc2VsZWN0IFZJUlRfWEZFUl9UT19H
+VUVTVF9XT1JLCj4+ICsJc2VsZWN0IEtWTV9WRklPCj4+ICAJc2VsZWN0IFNDSEVEX0lORk8KPj4g
+IAlzZWxlY3QgR1VFU1RfUEVSRl9FVkVOVFMgaWYgUEVSRl9FVkVOVFMKPj4gKwlzZWxlY3QgU1JD
+VQo+Cj5UaGlzIG9wdGlvbiBpcyBub3cgbWVhbmluZ2xlc3MsIHBsZWFzZSByZW1vdmUgaXQuCgpU
+aGFua3MgZm9yIHRoZSBoZWFkcy11cC4KSeKAmWxsIHJlbW92ZSBpdCBmcm9tIHRoZSBuZXh0IHZl
+cnNpb24uCgpUaGFua3MsCkZhbmd5dQoKPlNlZToKPmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xp
+bnV4LXJpc2N2LzIwMjMwMTA1MDAzODEzLjE3NzAzNjctNS1wYXVsbWNrQGtlcm5lbC5vcmcvCj4K
+PlRoYW5rcywKPlNodWFpCj4KPj4gIAloZWxwCj4+ICAJICBTdXBwb3J0IGhvc3RpbmcgdmlydHVh
+bGl6ZWQgZ3Vlc3QgbWFjaGluZXMuCj4+Cj4+IC0tCj4+IDIuNTAuMQoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
