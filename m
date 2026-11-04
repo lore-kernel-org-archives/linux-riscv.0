@@ -2,149 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C139606A328
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 11:42:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29D64606A335
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 11:50:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=f1cgQTV3;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=selector1 header.b=TJ9gwzUO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=H08pg3ec;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=qcEj/cNz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
-	bh=5sroPwqESAMmTTCKCtFylxt3eTPPltyoyjFfdM5kepM=; b=f1cgQTV3joLP4djR7P+3QtM6Tl
-	BY2RnM7/DGhISWi2/bHYAtShgBY4OqziHbyNaZ77r/pt5cUPsSjk1K+lxR9aiuqciGRK27CTIdL3s
-	JwOPnPkpaMIGAN/oBkW6K07OgYUZEAcmUBCs0lD58TE/hLGCAm1cL/c52OC5m2vyHH67OHGRuL3yJ
-	YmJlPNxWd+arTyCvwhtgOnNWZcjpGFmJGi0p3ZqnMK3Bo3xE31LOnsDhWZxoF/SqfLhlOPYjFB/MA
-	PDQ5/uFh7ut147B6dyNrOZJXhwA8/j79spZZMehkZ4S6j4b4assPqnGW9rUM+d5WUj0WLQPzAgFtd
-	3wK6t5ww==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=kxVQ2hCbrbW7E7cVlbOL65jncspKyOBxBLvz/Amg7EY=; b=H08pg3ecpdsVdhIS5aQWozLL5b
+	wDGGOgzCaDhgTBDOUEW4dLow3OGZriBL4sOcnXdnWoGGhX2ncZQSjfKODfx27XtNBIYQv8eKSm/Db
+	TurIGCLD7LanjVF6RInant92IFqT8DqQ4eoTUXyrtu3gt5j86sEPiixZNe3Soi4RX8ICQwlGQkOKa
+	GFWe/UvcdEs7iv+lm2oSN2E6V8rGmgOglUAaVzZeNZ2VN3Ypvr+2U5irzdEjOlyLuEKG0zQPn0vMa
+	qHnspAunIW1ingABLXEw0Z6oTa5mS1BRiTiz5iMF+p/AVBDSoFzFkxxw5RGlbr8JiV6B6zFCTtl2/
+	rU+Sg6TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZNP-00000005D1N-2QXu;
-	Wed, 04 Nov 2026 11:41:59 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1xOZVS-00000005E1B-0LK1;
+	Wed, 04 Nov 2026 11:50:18 +0000
+Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZNN-00000005D03-1owo
-	for linux-riscv@lists.infradead.org;
-	Wed, 04 Nov 2026 11:41:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=csxqNYALcwULClzF1ADHuRtLcpHu8Lmj06j5SYXxDANyFWi7Ant7BLX5O27V8UtnFS1kMG1gJ2LkMjQs3dJpx6MIdbMuRpJDa9IEM8A0D22W9w34by8WhwzuEKFWiJ2tyVx4O/dQfH+vdWe6ldRloV3Uk/IwoCJHuNCkPxQF6ZCrtE5HU+AI5oE0fJ64n//u5C6LR5eLGc/PLbTLfej7xi+zZeGvEGWmCvRwqiNihTkFxOVxdI/pJ0jzg4drCyAVVzBbdNtNVLSI6G+rRuYThczeTLhqx1VGPmzpZ8ZHcz4O3oH4TDhEm9niW+oiyO6fzU5z2CwJ9CEbY/76q0qCqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A35hgcep/lsQ+GAMtP1yn/k4CnWU+R9xhFBn+NXyxAE=;
- b=JxImqcKLfxDEzozrlI3yzmUiHMy0Vn3J32mctO9kq+Coim/w2sgm6MC48Zddq+U7RCMdEnEjQjMsPIdPtVvHnxA4+h4CPIu+tzD0GROKmNsmKOz4y/WqoLOqW9j2L4D7stB8ZZ1DKcimS78oLwlqliJSRzJjA4+uWLle7fkQlKbWexaAAwniTcBPjslhiv1donw1AXP3LVpK0twBNcwNx6D0myiwu2Tn3NaMfDsEy483fHecQhsAFSfNMVBVxPS4AwUP5a6zOsDyJbFxAqqpULA1SfG1PSHkIkpgIEF2wst2BUi5ZpDOcfs9EgrOYPSNfFdZXTZb114qsbkHKhMycA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mobileye.com; dmarc=pass action=none header.from=mobileye.com;
- dkim=pass header.d=mobileye.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mobileye.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=A35hgcep/lsQ+GAMtP1yn/k4CnWU+R9xhFBn+NXyxAE=;
- b=TJ9gwzUOlOJPpc0AK+E7KgyATZM8Juan5I0/5d7DBgSEvv5Byb+nz0tQjLjWpruYII7ggSrxHHqDL83gGz4MoLF5rPfCYpNostQyVD3MswrkSNWm+y3vnoLToaXauErl8WDZswYHPb99adopLqPIYLyeipCdrMmSAlsyX3qaMLE=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mobileye.com;
-Received: from ZR6PR09MB889505.eurprd09.prod.outlook.com
- (2603:10a6:910:e0::22) by MI7PR09MB416415.eurprd09.prod.outlook.com
- (2603:10a6:290:109::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.9; Wed, 4 Nov 2026
- 11:41:48 +0000
-Received: from ZR6PR09MB889505.eurprd09.prod.outlook.com
- ([fe80::9006:1164:b51f:23a2]) by ZR6PR09MB889505.eurprd09.prod.outlook.com
- ([fe80::9006:1164:b51f:23a2%4]) with mapi id 15.21.0569.011; Wed, 4 Nov 2026
- 11:41:47 +0000
-Message-ID: <28a25fef-2a53-4d4f-b43e-6e8740c08e1e@mobileye.com>
-Date: Wed, 4 Nov 2026 13:41:44 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] riscv: build kernel atomics from LR/SC when Zaamo
- is disabled
-To: Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Gary Guo <gary@garyguo.net>,
- Yury Norov <yury.norov@gmail.com>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>, cfu@wavecomp.com,
- torvalds@linux-foundation.org, olof@lixom.net,
- aleksa.paunovic@htecgroup.com, arikalo@gmail.com,
- Boqun Feng <boqun@kernel.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261101-lrsc-only-v4-0-4e1d010463b3@mobileye.com>
- <20261101-lrsc-only-v4-1-4e1d010463b3@mobileye.com>
- <20261103-distance-audio-9b6aac0b1b4b@spud>
-Content-Language: en-US
-From: Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>
-In-Reply-To: <20261103-distance-audio-9b6aac0b1b4b@spud>
-X-ClientProxiedBy: TLZP290CA0009.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:9::18) To ZR6PR09MB889505.eurprd09.prod.outlook.com
- (2603:10a6:910:e0::22)
+	id 1xOZVO-00000005Dzx-0Fej;
+	Wed, 04 Nov 2026 11:50:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1793793010; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=dHmMS48ILVn+iA6DDXmhdMJgbhJve1Nt2JIcHMkfueY=;
+	b=qcEj/cNz6Sp3dAVjfmkj6NnLl1p+uvmSeulbHGWBbf0Q6ciz1rLjSIyufkallqr+0TVoCsyCo1pXvlZVha9hT7ij66IQlpEoDyVUcuRQDQXWuwoOY096etNPP3DHMKoL7PX1aARzh3NiV+AhkmlpEx5g+UaqK7AOvS2mOLpCSBQ=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R651e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=29;SR=0;TI=SMTPD_---0XE5lrbG_1793793006;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XE5lrbG_1793793006 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 04 Nov 2026 19:50:08 +0800
+From: fangyu.yu@linux.alibaba.com
+To: gong.shuai@sanechips.com.cn
+Cc: alex@ghiti.fr,
+	andrew.jones@linux.dev,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	baolu.lu@linux.intel.com,
+	fangyu.yu@linux.alibaba.com,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
+	jgg@nvidia.com,
+	jgg@ziepe.ca,
+	joerg.roedel@amd.com,
+	joro@8bytes.org,
+	jroedel@suse.de,
+	kevin.tian@intel.com,
+	kvm-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	nutty.liu@hotmail.com,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robin.murphy@arm.com,
+	skhawaja@google.com,
+	tanchi25@mails.ucas.ac.cn,
+	tomasz.jeznach@linux.dev,
+	vasant.hegde@amd.com,
+	will@kernel.org,
+	zong.li@sifive.com
+Subject: Re: [PATCH v7 09/10] iommu/riscv: Add dirty tracking support for second-stage domains 
+Date: Wed,  4 Nov 2026 19:50:01 +0800
+Message-Id: <20261104115001.71362-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20261104084503.118083-1-gong.shuai@sanechips.com.cn>
+References: <20261104084503.118083-1-gong.shuai@sanechips.com.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZR6PR09MB889505:EE_|MI7PR09MB416415:EE_
-X-MS-Office365-Filtering-Correlation-Id: bc5c9635-de6a-46e9-7366-08df3a689bd0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|1800799024|6133799003|10067099003|18002099003|22082099003|3023799007|56012099006|4143699003|11063799006|261022075727099003|261022105027099003|261028144727099003|261102124527099003|261102123227099003|261026140227099003|261026121527099003|261021135927099003|261021121427099003|261021123027099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info: l6vxLel0P0X61Zb6hA7J/evc1TUs2Srj+Pk5WtaIYc0prtYuQC1vN8IqnJhGRxAupDi4PJazqkz4/kVB3t3zgtJiR8yHWEfwaqxWUewBkwfPAlP3KkFkoLS5Yjk5sR/u7y6K/DdPfK9HyyujIqvLTdbJae3QvxptT9epNQX7OtmxrNWNGta45yNKhaI3E73YAHIoWKIQG8uoV14/999axOuu9SmB2iTEI6Lz+y3w9jXSUDvvchdEGAV5zgzTrBZiAXD8pnHFyZiFXiNJ1W9F8xME6y4hR2hn4cb3lUsA+NaSkCQU3eYXoFuONrAVQPQH5/YEO5MYuwNvEJVXLVNHtt15QWjMHGJ8tRmkJRoJvzg48Rpt5roO6v/eepfTGz0KAi3Q9p2mOe5PeO3tcAz7SSo4hRH1u+f/7ZmmdmN+rKi6qQLOfLFvJyvUB3fCKNfwLjG/0E72L3fsDdgdXCAXzFOA7xwgUsrFGtpG4IQMPvFRaRJM9rcPpRgjoy09vNOM8WSZQJGGfy2pOUXuZ9rIOw0T1xK0Kf2UTJjFUUgiTi8Wsh5fT9HLe21afIVtyIgYSTDumWhOVQHQgBgPcPKUpBCPW5Hb4nT8ZJJMpx2TWiQ9repeMa7+MICexsWbLlKQyixQeMeFX8BEXzsQN3z5HtAxnyUSlYMb9mhZ2Q1Y448=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZR6PR09MB889505.eurprd09.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(1800799024)(6133799003)(10067099003)(18002099003)(22082099003)(3023799007)(56012099006)(4143699003)(11063799006)(261022075727099003)(261022105027099003)(261028144727099003)(261102124527099003)(261102123227099003)(261026140227099003)(261026121527099003)(261021135927099003)(261021121427099003)(261021123027099003)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R3p1Tk02MXJHc2tEMkVhejF5Z3dYenZOeW16NVp3U2JwY1FVN0svRUZXUlRk?=
- =?utf-8?B?MVkvMEI5ODFjMmxlYWxuS2RjRTNqRXdUV3N5dzFPNkdQdHEyZTEvam1hanBX?=
- =?utf-8?B?RlllSE15WG84YkVpc0hUWEljeE5TT3p6S2tVTnJlMExnYXhITmpzSS9DV21o?=
- =?utf-8?B?Y3RuYXJZdmd0Vmh3SXMvVWpKTkdqK0tCL1RLSTExc0FzOXp6dGI2ZnljU1VR?=
- =?utf-8?B?S2NrZWxjek9RTmFPVFdySmtzeVUrQ3I5VnU4MGJJc3gzVVZGUFF1U0EyZ1lS?=
- =?utf-8?B?SjdqMlRTSkpuaUl3VWMxeVV6eEJ3amJLbksyQnZBWVNYTGMvUHJyUlpXUGl4?=
- =?utf-8?B?SmNaNUh4MitZWFdrYVdjUEp2RVlpVkdjd2o0THNnUGp4SXdISXgxOXZTVndL?=
- =?utf-8?B?dEQyUkpyM0NQdWZDSU1qbzlCLzdGVlpIaGpQUnRPZU5UWlN5MjlPaFBxenZB?=
- =?utf-8?B?RmhNTk5Ka3hvUGJDMFZreDFQWE5hQzhHTEJTVVozLy9DazRwdlRmVWFsdElN?=
- =?utf-8?B?T29JbEdNc2FqWldzUU5EY2ZtTjFKTWN0N0hZUEk2bWQ2R0JvN2xzZTB1WmNC?=
- =?utf-8?B?V2hYeHhSLzdmTGhLMGdqL0NMU2JNNFlTdkwycUxQSHRVbngrUHhmWTN2VFVV?=
- =?utf-8?B?Z1pweUo0SW5uRGxTd1BPcU9mOE9HRFJ3WkE3anR5djJ3VlU5OXJxQ0tvaWRC?=
- =?utf-8?B?eC9NY0Q2VzlFY09LWDE3Tm04ZjliR2FYTm9YSzN6ZS9HVXdHTWVrREVWb0pU?=
- =?utf-8?B?TWZwZHdKRjY4TXFkcjJUSHNkY0JLSjQ1Qm1lUmlmTzJQSGVHQVNEMVQyQ1Bq?=
- =?utf-8?B?RE9yRjJJUk81MTZpaDhPUmFSNmFNaUErS2VET251TjZUaFFHNFA1RXR0NVBF?=
- =?utf-8?B?eFhmSkNpbnNEUWhmNEJlTUtpaUVGMHQrVDl4YUNUOGlWYUY0dS9xcVBkNWpI?=
- =?utf-8?B?RkhIbTVBVHZsWk9TUzQ5cStoSUtUbGNITTdRcysrQThDQ3hNSFcxSklaelNF?=
- =?utf-8?B?NEJqV0pJTGNhTnZkMXIyaWd1U3Mrd1BucFFEckJNQmVvL1ZROHNYQ3luQm1j?=
- =?utf-8?B?ajNtT25qb1JrSG01NjhBcndUbTczME1ONGdVMW5mbEpRNXNhZWwySzlkL1BX?=
- =?utf-8?B?QWlaTFBFQmo0aVBaVExDSDl3bUtWWmU1TTQvUWFiUzJsQzJSeXVaUG92bUFJ?=
- =?utf-8?B?SHJPdkhpRElTOUhYRkNKK3lKOW1LeVFnVHBBcXM2QmxYanRRUXE5dTFaVmZn?=
- =?utf-8?B?WC9taUhVRExKb054UG5pb1RhNFBHRTY3OEg4OU41TFhRNjlwZ3ZabjhrSExL?=
- =?utf-8?B?K1MydHdUZlZyRUp6VDB2TEpNVDZhd2lobkFYQXVJM204T3NJT3N1bG9xZ0kz?=
- =?utf-8?B?Sy96bTh6S3lTRmRMUFJqMWZ6UkM5blR1SlphWSt3S2NLRjd6SnFPeU5icnVy?=
- =?utf-8?B?dXByNVZvcnRLYkVNZi9DZWl3dytUcm9zRlhQUHVMaFVERm9LMldLNGNOaHVH?=
- =?utf-8?B?RWdRenVldW1NTU9TUCtRTExjdEcxbWFMRmVseFdzYTZnQkpxYldtVkc5bERs?=
- =?utf-8?B?NkFBRlpoWE95eU9QUlJjSVFsbjI3MDk4emRCelF0Ri9wUkVJS3pqUHA5dUFh?=
- =?utf-8?B?akEyQjkyODFwemx5TE5VSXdQU3ZNMk1ZNTAvZ3VVR0dqWEdCWGowNkg5WGN4?=
- =?utf-8?B?NG9wUHFmRGQ0aW9RdVNnZjB0SWUvK2xvRUJVeWhGYlRrRzZjb2JhKzNLVnEx?=
- =?utf-8?B?UDhtbWh1YVB2TFR5Z0xHTkwvK0hISWRMazhtZm91UStSL29kOFQrWkI3Zkd1?=
- =?utf-8?B?NHc1OGpzdDRVNjViSTVZQ3pDRVZ1VFh6Tm52R1F0OExtZXVwdnc1Rk0wRFcz?=
- =?utf-8?B?eXIxaTVpeXBnOGxMcHk1Yy9TNldDU2NUcGVOUnk1MGE1U1NxTk1JbVk2VDlj?=
- =?utf-8?B?dFk5WS9OY3NXYjZzS1QxaVJBVW90ZGRXTjc0L3FLZ3FxVmwvTUwvL240V2F3?=
- =?utf-8?B?NEQ5R21XTVFvaTNRdnB6QXQra2FNUjdlVG9ZSWwzS0MwRlVlZEFBOVp1Zmd2?=
- =?utf-8?B?S3FiK3Z2MlJjcExobXJOcmhwQmVOdXIzczZwQ0tndHBDbkFuYUNBWDJybGh3?=
- =?utf-8?B?M0VDeE5nRHFWK292b2tNV1Q1ZEpTT2IyTndmeE9oajFDS2FhWGluQkVpaldx?=
- =?utf-8?B?Z3BSUEpGWFNKZ1V4V1lMdy9LdGE2NHUxdHdZWVJxSmJ5WjZPUEJkR3JBRFZh?=
- =?utf-8?B?b28vZnlJeExxWHRTTUVaNE0vT0duS0h5NVJuZkhyL2lHNVZINFRTcmpkcTc0?=
- =?utf-8?B?UmpJdTJKVFR2OUNtNFZmTDY2ZVZTZURPVy8vc29MUW9tQzFBejVXQT09?=
-X-OriginatorOrg: mobileye.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bc5c9635-de6a-46e9-7366-08df3a689bd0
-X-MS-Exchange-CrossTenant-AuthSource: ZR6PR09MB889505.eurprd09.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 11:41:47.5710
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f85ba13-6953-46a6-9c5b-7599fd80e9aa
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NjoGoRRgbpYA9CsKNAq4bUuy5iXVkV2WkJtdOZdOjkvWOcab0WGNbxSXxci5QKaz9bo5B26V2xlz0HmK3MlqGg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI7PR09MB416415
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_034157_671874_A5D52EE1 
-X-CRM114-Status: GOOD (  45.59  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261104_035014_626366_5B40D873 
+X-CRM114-Status: GOOD (  19.84  )
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,149 +91,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/3/26 23:09, Conor Dooley wrote:
->> +config TOOLCHAIN_HAS_ZALRSC
->> +	bool
->> +	default y
->> +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64im_zalrsc)
->> +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32im_zalrsc)
+>Hi Fangyu,
+>
+>> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>> 
+>> Add hardware dirty tracking support for second-stage (iohgatp) domains
+>> used in KVM VFIO device pass-through.
+>> 
+>> The RISC-V IOMMU can automatically set the dirty bit in PTEs on write
+>> access when DC.tc.GADE is set and the hardware has AMO_HWAD capability.
+>> Wire this up to the iommufd dirty tracking interface:
+>> 
+>>   - riscv_iommu_set_dirty_tracking(): Return success without toggling GADE.
+>> 
+>>   - riscv_iommu_dirty_ops: Exposes set_dirty_tracking and the generic
+>>     page-table read_and_clear_dirty via IOMMU_PT_DIRTY_OPS(riscv_64).
+>> 
+>>   - domain_alloc_paging_flags: Assigns dirty_ops to second-stage domains
+>>     when IOMMU_HWPT_ALLOC_DIRTY_TRACKING is requested.
+>> 
+>>   - riscv_iommu_capable: Reports IOMMU_CAP_DIRTY_TRACKING when
+>>     AMO_HWAD is present.
+>> 
+>> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>> Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+>> ---
+>>  drivers/iommu/riscv/iommu.c | 32 ++++++++++++++++++++++++++++++--
+>>  1 file changed, 30 insertions(+), 2 deletions(-)
+>> 
+>> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+>> index b3f05dfdf278..ff1043afe973 100644
+>> --- a/drivers/iommu/riscv/iommu.c
+>> +++ b/drivers/iommu/riscv/iommu.c
+>> @@ -1350,6 +1350,10 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+>>  	if (domain->gscid) {
+>>  		if (!riscv_iommu_iohgatp_supported(iommu, pt_info.iohgatp_mode))
+>>  			return -EINVAL;
+>> +		/* Dirty tracking requires AMO_HWAD on every attached IOMMU */
+>> +		if (iommu_domain->dirty_ops &&
+>> +		    !(iommu->caps & RISCV_IOMMU_CAPABILITIES_AMO_HWAD))
+>> +			return -EINVAL;
+>>  
+>>  		dc.iohgatp =
+>>  			FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_MODE, pt_info.iohgatp_mode) |
+>> @@ -1377,6 +1381,21 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+>>  	return 0;
+>>  }
+>>  
+>> +static int riscv_iommu_set_dirty_tracking(struct iommu_domain *iommu_domain,
+>> +					  bool enable)
+>> +{
+>> +	/*
+>> +	 * Always enabled and the dirty bitmap is cleared prior to
+>> +	 * set_dirty_tracking().
+>> +	 */
+>> +	return 0;
+>> +}
 >> +
->> +config RISCV_ISA_ZAAMO
->> +	bool "Zaamo extension support for AMO atomics" if NONPORTABLE && TOOLCHAIN_HAS_ZALRSC
-> 
-> Probably this option should be called something like
-> TOOLCHAIN_HAS_ZALRSC_ZAAMO if you're going to use it like this, because
-> it is confusing why ZALRSC gates a ZAAMO option.
-> 
-> I'm curious actually, does every toolchain provide zalrsc and zaamo as a
-> pair, or should you check for both here? I'd be surprised if there was a
-> toolchain with one but not the other but worth checking to avoid some
-> bizarre toolchain bug..
+>> +static const struct iommu_dirty_ops riscv_iommu_dirty_ops = {
+>> +	IOMMU_PT_DIRTY_OPS(riscv_64),
+>> +	.set_dirty_tracking = riscv_iommu_set_dirty_tracking,
+>> +};
+>> +
+>>  static const struct iommu_domain_ops riscv_iommu_paging_domain_ops = {
+>>  	IOMMU_PT_DOMAIN_OPS(riscv_64),
+>>  	.attach_dev = riscv_iommu_attach_paging_domain,
+>> @@ -1418,7 +1437,8 @@ static int riscv_iommu_init_domain_s1(struct device *dev,
+>>   */
+>>  static int riscv_iommu_init_domain_s2(struct device *dev,
+>>  				      struct riscv_iommu_domain *domain,
+>> -				      struct pt_iommu_riscv_64_cfg *cfg)
+>> +				      struct pt_iommu_riscv_64_cfg *cfg,
+>> +				      u32 flags)
+>>  {
+>>  	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+>>  
+>> @@ -1439,6 +1459,10 @@ static int riscv_iommu_init_domain_s2(struct device *dev,
+>>  	if (domain->gscid < 0)
+>>  		return -ENOMEM;
+>>  
+>> +	/* AMO_HWAD is checked by iommufd via IOMMU_CAP_DIRTY_TRACKING */
+>> +	if (flags & IOMMU_HWPT_ALLOC_DIRTY_TRACKING)
+>> +		domain->domain.dirty_ops = &riscv_iommu_dirty_ops;
+>> +
+>>  	return 0;
+>>  }
+>>  
+>> @@ -1481,7 +1505,7 @@ riscv_iommu_domain_alloc_paging_flags(struct device *dev, u32 flags,
+>>  	case IOMMU_HWPT_ALLOC_NEST_PARENT:
+>>  	case IOMMU_HWPT_ALLOC_DIRTY_TRACKING:
+>>  	case IOMMU_HWPT_ALLOC_DIRTY_TRACKING | IOMMU_HWPT_ALLOC_NEST_PARENT:
+>> -		ret = riscv_iommu_init_domain_s2(dev, domain, &cfg);
+>> +		ret = riscv_iommu_init_domain_s2(dev, domain, &cfg, flags);
+>>  		break;
+>>  	default:
+>>  		ret = -EOPNOTSUPP;
+>> @@ -1559,9 +1583,13 @@ static struct iommu_group *riscv_iommu_device_group(struct device *dev)
+>>  
+>>  static bool riscv_iommu_capable(struct device *dev, enum iommu_cap cap)
+>>  {
+>> +	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+>> +
+>>  	switch (cap) {
+>>  	case IOMMU_CAP_CACHE_COHERENCY:
+>>  		return dev_is_dma_coherent(dev);
+>> +	case IOMMU_CAP_DIRTY_TRACKING:
+>> +		return !!(iommu->caps & RISCV_IOMMU_CAPABILITIES_AMO_HWAD);
+>
+>I'm not quite sure about this. Could there be a device that supports
+>AMO_HWAD but not any of the S2 modes? GET_HW_INFO would report
+>DIRTY_TRACKING as supported, but HWPT_ALLOC would then fail in
+>riscv_iommu_init_domain_s2(). Should this check also include the
+>S2 modes, like
+>
+>    AMO_HWAD && (SV39X4|SV48X4|SV57X4) ?
+>
 
-Agree, will be in next version.
+Good question, I had also considered this.
 
-> Ah, right. But that kinda goes against how NONPORTABLE is meant to work
-> since the default cannot run on all platforms? At that point, just get
-> rid of NONPORTABLE?
+From the IOMMU spec alone, I could not confirm whether
+AMO_HWAD implies support for S2 modes.
 
-Agree, dropping NONPORTABLE
+However, I found this statement in the IOMMU spec:
 
-> | My logic when adding it:
-> | There are 2 sets of extensions related defines: one is Kconfig ones,
-> | CONFIG_RISCV_ISA_<ext>; and another one found in the
-> | arch/riscv/include/asm/hwcap.h, RISCV_ISA_EXT_<ext>
-> | 
-> | In the hwcap.h, there's already
-> | 
-> | #define RISCV_ISA_EXT_ZAAMO		97
-> | #define RISCV_ISA_EXT_ZALRSC		98
-> | 
-> | added by commit 35173b666a16 (riscv: add parsing for Zaamo and Zalrsc
-> | extensions, 2024-06-19)
-> | 
-> | These 2 sets are logically coupled, and used in the BPF JUT code like
-> | 
-> | #define rv_ext_enabled(ext) \
-> | 	(IS_ENABLED(CONFIG_RISCV_ISA_##ext) &&
-> | riscv_has_extension_likely(RISCV_ISA_EXT_##ext))
-> | 
-> | So I thought if RISCV_ISA_EXT_ZALRSC exists although it is mandatory,
-> | CONFIG_RISCV_ISA_ZALRSC counterpart should exist for the same reason.
-> | 
-> | Do you suggest this is different case and it is worth to remove
-> | CONFIG_RISCV_ISA_ZALRSC anyway?
-> 
-> If this is the justification for it, then you need to provide this
-> justification in your commit message - but if zalrsc is always enabled
-> then there's no need for any code like that in the bpf jit in the first
-> place, once more making this dead code that should be deleted?
+"The IOMMU must support all the virtual memory
+extensions that are supported by any of the harts in
+the system."
 
-Adding justification. Also, it is possible to have zaamo+zacas and not
-support zalrsc; in this case CONFIG_RISCV_ISA_ZALRSC will be "n"; adding
-clause explaining this theoretical option.
+For virtualization scenarios, we assume the CPU hart
+must support at least one S2 mode (hgatp). From this
+perspective, the IOMMU should support at least one S2
+mode in a virtualization setup, regardless of
+AMO_HWAD.
 
->> +# Zaamo is off only when the compiler accepts _zalrsc in -march.
-> 
-> I think the comment here is not quite right, it should be "can only be
-> off", no?
+>BTW, in riscv_iommu_init_domain_s1/s2, why not return -EOPNOTSUPP
+>instead of -ENODEV for "cannot find supported page table mode"?
+>
 
-Sure, fixed
+I used -ENODEV to follow the existing S1 behavior:
+no compatible paging mode is available on this IOMMU.
 
->> +ifneq ($(CONFIG_RISCV_ISA_A),y)
->> +riscv-march-$(CONFIG_RISCV_ISA_ZAAMO) := $(riscv-march-y)_zaamo
-> 
-> Isn't this dead code? The logic for RISCV_ISA_A is:
-> config RISCV_ISA_A
-> 	def_bool RISCV_ISA_ZAAMO && RISCV_ISA_ZALRSC
-> but ZALRSC is always set, so RISCV_ISA_A is equivalent to
-> RISCV_ISA_ZAAMO so there can't be a case where RISCV_ISA_A is not set
-> but RISCV_ISA_ZAAMO is?
-> 
->> +riscv-march-$(CONFIG_RISCV_ISA_ZALRSC) := $(riscv-march-y)_zalrsc
-> 
-> And here, this is effectively just riscv-march-y, since if you get as
-> far as here, it must be true.
+While -EOPNOTSUPP would also be reasonable, I suggest
+keeping S1 and S2 consistent and leaving this unchanged
+in this series.
 
-See above, in theory one can have zaamo+zacas but not zalrsc
-> | > ...why are we making this a compiletime decision in the first place?
-> | > Why can't this be an alternative, starting with the zalrsc stuff and
-> | > moving to the better implementation if available?
-> | 
-> | I started with alternatives approach, see
-> | Suspicious Link - Removed
-> | Then I converted it to the static compile-time decision following input
-> | from Gary Guo that I think is valid, here:
-> | Suspicious Link - Removed
-> 
-> 
-> Okay, that logic from Gary does make some sense. I'll accept that
-> argument, but again this needs to be communicated in the commit message.
+Thanks,
+Fangyu
 
-Done
-
-> | There's BPF JIT that emits AMO instructions, patch for this is not ready
-> | yet. These AMO instructions will be emulated and work correctly but very
-> | slowly.
-> 
-> I think that needs to be part of this series. You're far too focused on
-> your individual platform where the instructions work, rather than the
-> holistic solution of lowering our minimum requirements so that platforms
-> that do not have any AMO support work. The only way that it'd make sense
-> to move forward with this without the bpf jit patch is if you disabled
-> bpf entirely when RISCV_ISA_ZAAMO is disabled.
-
-Added patch for BPF JIT.
-
-Also, added is patch for kprobes/uprobes, to reject probes inside lr/sc
-sequence. This is needed anyway, having lr/sc blocks for any atomics
-only increase chances but we do have lr/sc blocks in code anyway and
-need to protect it.
-
-> 
->> +#if defined(__riscv_atomic) || defined(__riscv_zaamo)
-> 
-> Something else to note is that we do not use this pattern anywhere else
-> in arch code as far as I know? We always use the RISC_ISA_WHATEVER
-> config option to gate conditional stuff. Since RISCV_ISA_A is equivalent
-> to RISCV_ISA_ZAAMO (unless I am mistaken there somehow) this just collapses
-> to a single check?
-
-Agree, replacing with #ifdef CONFIG_RISCV_ISA_ZAAMO>> +#else
->> +#error "Need AMO or LR/SC atomics"
-> 
-> And this error is actually unreachable?
-> 
-> (and so on in every other place that this pattern is repeated)
-
-Agree, removed
-Thanks, Vladimir
+>Thanks,
+>Shuai
+>
+>>  	default:
+>>  		return false;
+>>  	}
+>> -- 
+>> 2.50.1
+>> 
 
 _______________________________________________
 linux-riscv mailing list
