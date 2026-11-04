@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39583606A326
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 22:55:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99BF56082BE1
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 23:02:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0eUySIIi;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IJOJe1/i
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Vkk7Cn0E;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AffaDmK1
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,37 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=4rozOdDf8s2rRbxVQt3Yk1khnF469Atb4+eFc/1T0MA=; b=0eUySIIir0Tkd+hdRSB+KQdAUo
-	40K2dvW4qN6mn1dxQrn/7j0iYsAN6HEnaDLFpZmvWgvOyfa+SbvhmY3WO3G2lJ4Zp8yZueW3jvPua
-	mtYsrSz2RVW2iC40tOAS00ig6dDcw8CSCdHdz0KHc8asKV84BBcqyb7xKZ/gD/0BOQPZPsidP1pNX
-	6EQN7kaXBksHm05ZF1eQwuEMikLJIfjP4wtBb7HkeAH7pRVDqTFudTrRGvXwK1Oeryi9gKeTWnosa
-	YX1m+hK14uWs4ro2ye6FTxsPdOoCVpKCdXKl8HflJ7ANRUQ3+6laYmvpXbXgDZYZPeqPydNhD+fhL
-	6JMm9Wmw==;
+	bh=oqflasn/mDaNtn5t/utwigs5OCMyhKzg1fnhqld1vVk=; b=Vkk7Cn0EvXuMpaac2v/AQOoSg3
+	nNintgsh1YzEFYBaf84Q0Dv/ZGz5yVKqip8cZISw2glctIxX/1IGk3V4orBmpkn0VjouRJaSIN+U9
+	GoCqI7Ba4Zu0+wg8A+JzJ+m/audPO7kq/LkwbzeFN1muC1MJFSrQDF+lxxCTqafZAKg2eRY4f+m6l
+	2ud9O9yK16wihlYfxcDwqsAqajSdBYGKAJsH819kBnX9AMckrZrYCuMZ/RHHGA/CEWXM5TH3VhHmj
+	+bo9AyWrLqSJ8lDo1X1EkJPDSil9QdB6ne5gZrrB/AoPvwoWmlcfJLhGGwl85z78xGj0pcv4U+zAz
+	xAFMZ1eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOjt4-00000007C5h-0kHU;
-	Wed, 04 Nov 2026 22:55:22 +0000
+	id 1xOk0D-00000007D3D-3p4g;
+	Wed, 04 Nov 2026 23:02:45 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOjt1-00000007C54-0DDp;
-	Wed, 04 Nov 2026 22:55:19 +0000
+	id 1xOk0A-00000007D2M-0gxd;
+	Wed, 04 Nov 2026 23:02:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B09EF40F19;
-	Wed,  4 Nov 2026 22:55:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE3DC1F000C1;
-	Wed,  4 Nov 2026 22:54:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7516143B25;
+	Wed,  4 Nov 2026 23:02:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FCD91F00A18;
+	Wed,  4 Nov 2026 23:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793832918;
-	bh=mnDJw6GAIrvgHGIFoXKuODYKqpGo1OAyqHDyDG0Xkfs=;
+	s=k20260515; t=1793833361;
+	bh=faVYG+5p25QPZ5jO9MjUiu/Ltiks8UpOg4pXnPN3sY4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=IJOJe1/ilgJHQLkVgZLjG8WTnd31bid7aYmQtlGoWDjGUJ6M5+DR5+rcRicIImoks
-	 i/yAZCI4AGUGWVmhQnYkfxmd75gKnSiKCoBwAEbwDRf0e1IEeit8xHV5Dt8ipao8dU
-	 jwZiinU2gw3IV8dMd1Vu3F2bGiWzVhhKzoYi2C8RYCgqPjYr/0ILxk0FbjxpotE5AK
-	 9ZmTccHWAxa4eQMkVvnPODuuez8gUXgnGm+sE6hPmI+qwCKeaIPZmdB2iwFYR6QvSK
-	 rRemK4IDg8mOiZwV+sShIuCyqG1xz8wht2UaLvAJbRbueE1EosP9CZswPj5wEIU0Fq
-	 7KnVdclfzHwsQ==
-Message-ID: <63c24437-4261-4a51-be7e-31ac0759a095@kernel.org>
-Date: Wed, 4 Nov 2026 23:54:56 +0100
+	b=AffaDmK1nAJFIZOcKFXhI7ch/PjsnP05KdrAgKQZEp0GZxvC8P8mAoNxhBYDNJjgU
+	 nCAIj5t25AYXI9KGygKBLo5baE4wkhhsoEha81JuexT/xyEi2Zr++TchPgoCymcDef
+	 r3ZZBRICCyliFRdQW/gb90PWic3BEY1oQQr7xnQqhaFHMccTlCBhFJcSbMeieg7HW9
+	 rk8I8oAhTJS7C6RFfg5PrRSiDryhmpg4zNj1rs6IbOuwVLoj/CSHbkdY+4dccrv5ti
+	 SeaN5K5vRzV5lM4KNj4VXdDQKev+Wqm+CphEC4lmHL3H+WC0SN/q5UFVSJBoIGqEPj
+	 WRW4500FxKHNg==
+Message-ID: <fbcb650d-0f60-468d-b1cc-255ea8a93db3@kernel.org>
+Date: Thu, 5 Nov 2026 00:02:21 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
@@ -104,12 +104,8 @@ Cc: Frank.Li@oss.nxp.com, Mark Brown <broonie@kernel.org>,
  Wolfram Sang <wsa+renesas@sang-engineering.com>,
  Thierry Reding <treding@nvidia.com>
 References: <20261104152253.3279052-1-Frank.Li@oss.nxp.com>
- <autj6pr_bPaul3w0@ashevche-desk.local>
- <7f96599b-681d-4963-bdda-1274371ac84f@kernel.org>
- <f1fa853d-1703-411d-b2d2-0fb0b176c2fa@kernel.org>
- <autqC143h7Qf1R9H@ashevche-desk.local>
- <9e39502a-dd17-4fa2-98a3-9019523cb5e8@kernel.org>
- <auuYcS7-YqJKcUbE@ashevche-desk.local>
+ <b656861c-a087-4087-952e-91fd15fadd52@kernel.org>
+ <auuZHTvr5UI9Q9Q4@ashevche-desk.local>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -155,7 +151,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <auuYcS7-YqJKcUbE@ashevche-desk.local>
+In-Reply-To: <auuZHTvr5UI9Q9Q4@ashevche-desk.local>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,27 +164,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 04/11/2026 21:41, Andy Shevchenko wrote:
+On 04/11/2026 21:44, Andy Shevchenko wrote:
+>> Andy,
+>> These three lines look correct.
 >>
->> But sure, if we want to play such numbers game, I will be sending
->> reviews for single lines.
+>> LGTM:
+>>
+>> Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
 > 
-> I'm not playing anything. The problem is that the patch unites the files that
-> have distinct maintainers and unrelated to each other code. That's why in the
-> subsystems I maintain, I almost always require to split on per-driver basis.
-> Yes, exceptions are possible, but has to be quite rare.
+> As
+> 
+>   Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org> # atmel-quadspi
+> 
+> Note, it's in your power to ask the author to split out what you maintain
+> to a separate change. So, it's your choice what to do, Ack the full patch,
+> give a partial Rb, ask for a split, ignore reviewing (often means silent
+> agreement when maintainer just applies that kind of a patch)
 
-That's independent problem. Patch could be split, but it was not. Since
-it was not, receiving end should act accordingly, e.g. when performing
-incomplete review of only part of the patch, do not call that entire
-patch was reviewed by giving the Rb tag, but give Ack tag.
+The "# note" after the tag solves the problem partially, if people were
+actually using it. Solves people looking at the Git commit and being
+mislead by partial review applying to entire commit. Does not solve
+credits, because Rb for three lines is not the same as for 100.
+
+From v1 of this patch, four people (Alain, Lab, Troy, Kunihiko) did not
+use it even though reviewing only part. Only Wolfram, so 20% of partial
+reviews, used that syntax. Without that syntax, b4 will pick up Rb tag
+like it was for entire commit.
+
+So I do repeat - if one does not want to use that syntax, then just Ack,
+instead of creating false impression of reviewing everything.
 
 Best regards,
 Krzysztof
