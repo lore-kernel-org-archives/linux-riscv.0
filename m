@@ -2,78 +2,109 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D697606A328
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 14:22:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4DCE606A32D
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 14:35:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oxDoZq3K;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=lnGD52sa
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=a/xaBClX;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oUiXfXRG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Ti1uN34hOEtDQ7RoIOBKTWSs2X8KqCYM0+tcoQ0mMfY=; b=oxDoZq3K640Li+cz9iu6e0pkw+
-	60JGefSuLDk+BLteGqHDcX2tg1RWOgC2m7CfK7vNeVpIvTZ0e23UhJNEiB+jB/BSj4g2VL/T7F/7T
-	3RDUwZZGnl+LqACCzUWEQQVPkQsXGD941gUL4CfN4YZPdkN0VOyBfd3HVd3Ul48NN029OglMRzNur
-	U304y+mB8HIMckmVqAZBnROTBTwK2FWadG0u9GKQuSQn2bx2phvmJcbxQB/N9x/froFSSAj6Qj4Io
-	51+4adPBqQuBxhjQrwZtCYT60I4P3Du4u032K4YUcycWTuQkR4apfZyBwsEeXsr4FWGqQtib8VCUP
-	1djSILVQ==;
+	bh=uBnxWet4J1zQAiuoseEiKvw+F+uiWmnW6j6f7iDwvvg=; b=a/xaBClXrOdoVZooKhPOvEdvfa
+	ZnSQPh9g5qRkcgeUqHzimHxi2bcuK4huHEFn1Y33blAxDx1HsX/2ll43gimKTXHn9bWd+Vd01Xd7A
+	7HQ8TyZDhvEbKoenrbrcHGVR2nG4FOKoiPpCHoqTbDA6Zle4Gjj921MSluAUWY9OyfqHnbNbwhZX5
+	KKa9V9SjdKh4nru44McLGRfMtJYGRsdEErfV+tDCa9zbcAIdWDtUGRLI+GhkETWUT1uzuJTHbrXMp
+	yadr4nf/Cx3+uOuCwXAqD9CsoPd5YBc/uStUKr9Ohwb0BS64UoUS9BViwz/bvZy9yqI4kPrkIpmU/
+	lMLg4QYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xObsB-00000005c2y-0YGJ;
-	Wed, 04 Nov 2026 14:21:55 +0000
-Received: from out-191.mta0.migadu.com ([2001:41d0:1004:224b::bf] helo=mta0.migadu.com)
+	id 1xOc5I-00000005ekV-2dIj;
+	Wed, 04 Nov 2026 14:35:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xObs8-00000005c1q-0ck9
+	id 1xOc5G-00000005ekE-3Ehb
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Nov 2026 14:21:53 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=jDeSXWBLkiDEIo9mIW3HLqLNQ8245vFAegvkXKNefFg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793802108; v=1; x=1794406908;
- b=lnGD52samrfS3MBuIirWqCYJAwbYi7EdNvm2dHwOTKGwm5B6/vXhxGDipWWKryvxzeY/LocX
- w+F0pUczOgs90xL3vTWGTgQLzwFDPsMjyTJk29JX4ZQpeFPFE4gyzkvPhxDmj4ByJsRFHEJmvip
- maWLJUXkLxo51o9O+YEUxc5I=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by mta10.migadu.com with ESMTPS id 3a1212f53063606c;
-	Wed, 04 Nov 2026 14:21:48 +0000
-X-Mizu-Trace-ID: 3a1212f53063606c
-X-Migadu-Flow: FLOW_OUT
-From: Troy Mitchell <troy.mitchell@linux.dev>
-Date: Wed, 04 Nov 2026 14:21:40 +0000
-Subject: [PATCH] irqchip/riscv-aplic: Process pending affinity changes on
- EOI
+	Wed, 04 Nov 2026 14:35:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C225403E1;
+	Wed,  4 Nov 2026 14:35:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C36F01F0093A;
+	Wed,  4 Nov 2026 14:35:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793802926;
+	bh=259c1LmT7AqmM/9aZ6KRKIwG0j1/LADB8Zw7QHVbn7g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=oUiXfXRGMzDrLRdd6T0Oich0vIauJ1IxXJ1dFn9HNlQS7VRbIEYQoO5icKIFbDYQr
+	 FIesjkf53ezMftVt9AD4US0AhPM55AOt/3/t0+EPXznJHtv46pzaI/tqJWeBBhawhp
+	 ah2Z+RrmBGaLz/vTFwdBuZRRAC5Yx6UswFArajHFusFtCw7BjkTb1Z9G5ygQztzj0X
+	 oZQ+pC6lBBtSH80vJoKzQmhxC4Xu7t4+iMh9oIXUuwMnMNQ53p4tBhIuK3Lh6et0NY
+	 42k7EbDFannFvNeheyUQyuk+7awK7cJqVO7kQvbL6Ly+M4C2cMDqvLbMOR6aJBA5/j
+	 DOKbg8gShIJOQ==
+Message-ID: <12f80449-9d6c-4fb7-bcc4-e7d38e868da2@kernel.org>
+Date: Wed, 4 Nov 2026 15:35:16 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261104-aplic-affinity-fix-v1-1-e538cd76e563@linux.dev>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQrCMBCF4auUWTswNlKMVxEXSTrREYklScUSe
- veOdvk9eH+Dwlm4wKVrkPkjRd5JcTx0EB4u3RllVENP/UCWLLrpJQFdjJKkLhjli2dyJ2/Ij2Q
- Y9Dhl1vkfvd52l9k/OdRfCdZ1A2qOKu92AAAA
-X-Change-ID: 20260909-aplic-affinity-fix-80a4b30bd03e
-To: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@kernel.org>, 
- Radu Rendec <radu@rendec.net>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: Anup Patel <apatel@ventanamicro.com>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Troy Mitchell <troy.mitchell@linux.dev>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1784;
- i=troy.mitchell@linux.dev; h=from:subject:message-id;
- bh=jDeSXWBLkiDEIo9mIW3HLqLNQ8245vFAegvkXKNefFg=;
- b=owGbwMvMwCU2g/N9w09jE33G02pJDFmv7UtP7dqQLHRn+s1Zf/VuWa25m3Q0YNL0NwFards2R
- /2IETrwqqOUhUGMi0FWTJGl+wHPtgKfKNsCgUJfmDmsTCBDGLg4BWAiVXMZ/qc9SK0slw07MPl2
- xsMV3V3Fc8I7JubuudlxNW7mPQVrfSZGhvOZ9+z+pa82zN7z1YktLsv86Iq0mjcdx/YXP6ln4al
- o4AEA
-X-Developer-Key: i=troy.mitchell@linux.dev; a=openpgp;
- fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_062152_407181_BC48CD85 
-X-CRM114-Status: UNSURE (   9.98  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] tools/mm: add hwpoison-panic tool
+To: Breno Leitao <leitao@debian.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Miaohe Lin
+ <linmiaohe@huawei.com>, Naoya Horiguchi <nao.horiguchi@gmail.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: SJ Park <sj@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org, kernel-team@meta.com
+References: <20260813-memory_failure_rewrite_test-v3-1-f9fb6542cbff@debian.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260813-memory_failure_rewrite_test-v3-1-f9fb6542cbff@debian.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,60 +117,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-IMSIC rejects an affinity change with -EBUSY while a previous vector
-move is still in flight, and the IRQ core then records the new mask as
-pending. The change is meant to be applied by irq_move_irq() in the
-IMSIC irq_ack callback, but APLIC MSI interrupts are handled by
-handle_fasteoi_irq(), which does not call irq_ack.
+On 8/13/26 13:45, Breno Leitao wrote:
+> Add a tool that enables the vm.panic_on_unrecoverable_memory_failure
+> sysctl, picks a kernel-owned PFN and writes its physical address to
+> hard_offline_page.  Three page kinds are selectable with -k: rodata
+> (default), slab or pgtable. In all cases the host should panic.
+> 
+> Example:
+> 
+>         # ./hwpoison-panic -k slab --yes-panic-my-kernel
+>         injecting hwpoison at phys 0x100032000 (pfn 0x100032, kind=slab)
+>         expecting kernel panic: 'Memory failure: <pfn>: unrecoverable page'
+> 
+> In dmesg, you will see:
+> 
+>         Memory failure: 0x100032: unhandlable page.
+>         Memory failure: 0x100032: recovery action for reserved kernel page: Ignored
+>         Kernel panic - not syncing: Memory failure: 0x100032: unrecoverable page
+> 
+> This lives in tools/mm rather than selftests/mm because every successful
+> run crashes the machine, which is not something to run from CI.
+> 
+> The --yes-panic-my-kernel argument is required so an accidental
+> invocation does not take the box down.
 
-The pending change is therefore never applied. While it is pending,
-later affinity changes only update the pending mask, so the interrupt
-stays on its old CPU.
+This is not upstream yet, right?
 
-Call the parent's irq_ack from the EOI callback, before retriggering
-level sources so that they fire at the updated target.
+Anything missing or is this good to go in?
 
-Fixes: 58d868b67a9a ("RISC-V: Select CONFIG_GENERIC_PENDING_IRQ")
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
----
- drivers/irqchip/irq-riscv-aplic-msi.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+-- 
+Cheers,
 
-diff --git a/drivers/irqchip/irq-riscv-aplic-msi.c b/drivers/irqchip/irq-riscv-aplic-msi.c
-index fb8d1838609f..a10cc1fb50c2 100644
---- a/drivers/irqchip/irq-riscv-aplic-msi.c
-+++ b/drivers/irqchip/irq-riscv-aplic-msi.c
-@@ -57,9 +57,12 @@ static void aplic_msi_irq_retrigger_level(struct irq_data *d)
- static void aplic_msi_irq_eoi(struct irq_data *d)
- {
- 	/*
--	 * EOI handling is required only for level-triggered interrupts
--	 * when APLIC is in MSI mode.
-+	 * The fasteoi flow does not call irq_ack. Let the IMSIC parent
-+	 * process affinity moves deferred while its previous vector move
-+	 * was still in flight. Both edge and level sources need this.
- 	 */
-+	irq_chip_ack_parent(d);
-+
- 	aplic_msi_irq_retrigger_level(d);
- }
- 
-
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20260909-aplic-affinity-fix-80a4b30bd03e
-
-Best regards,
---  
-Troy Mitchell <troy.mitchell@linux.dev>
-
+David
 
 _______________________________________________
 linux-riscv mailing list
