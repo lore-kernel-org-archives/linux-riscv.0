@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39295606D819
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B00A5606D819
 	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 16:49:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0FY2C/sC;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JjG5PPKO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pdH+3QBU;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KhvWsSxV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,43 +14,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=3f9Bi4t/6C1m8fAYvzbC3zr2Ww/2B58/7DCNboZjoz8=; b=0FY2C/sCULSdiVN3krH0Z333AX
-	l6O6s6yp+9NdGLvBPT46Ko9tIDAmbdupHfDjcayMB0renwoVzqjAGGAuUMGq2RZLzoBZMv0spGXS2
-	AaEZAVEsna5UXZAllbk0i3yq0ZXZV5VcOiQCR681nuKMGeagTspyjFsAMUSR7gLhrt2Q5l4Tj8KYL
-	sKnczAxxlT/BZdKoz2/VtrOTocsRm/uPJp76ywB5jryOiDfU/GSrCT8XBjSNRGkJWVb1ivwGTDact
-	kNi+XW4LsFuBkT8E1bQteMqwgV75JWK80fgdTjC9KUfukeip9HIDlc8tAxM9aVdlDavB0cybvFjyr
-	WR1X6bfw==;
+	bh=XEqBCFityfBiujPingAGrtnPNwZpKY+W1HAaZNT6S+8=; b=pdH+3QBUsaXvwzwXfbz9XnUmSd
+	dklMOpeJ7sDA42gxnZv/5ZdAfizMMNMUQkRkZQyBwf8TTmooJ+Tgr24CFAppGTV/RVc/vUgQsNNk5
+	BDkTfqVYa0EewBR7QY3sRMYeXETg9+of+25srrEZemaCyrONCo1ID5QKYR1Ob/f2bhMZKEiBRSpsZ
+	M4iCCoVMIIRh1zJ4GGyi7U7VN3bJ20br+GvoK2ClM8MWnfxR7kT5PneOEp4uNZS5yGBvPSrXuO/Dz
+	2f6Oq5Jd5ZHRWhzGOvaOR3e2Z7gOOvA0vQDaBm3cWIUrRW8m7K45rnYGG3+v/qvDiTbOoM7zF5sjf
+	Y3HS6ntA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOeAl-000000065N9-287t;
+	id 1xOeAl-000000065Nf-3WVQ;
 	Wed, 04 Nov 2026 16:49:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOeAi-000000065K3-2rZC
+	id 1xOeAj-000000065Lp-2wXl
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Nov 2026 16:49:12 +0000
+	Wed, 04 Nov 2026 16:49:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6EA9560D9B;
+	by sea.source.kernel.org (Postfix) with ESMTP id 752C04097D;
+	Wed,  4 Nov 2026 16:49:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E352E1F00A2C;
 	Wed,  4 Nov 2026 16:49:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D16BA1F00A1B;
-	Wed,  4 Nov 2026 16:49:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793810952;
-	bh=Ul0hUmeo3LFdX4pn+/+/DTUhcde+OaB2Bf1Yr6WVPDI=;
+	s=k20260515; t=1793810953;
+	bh=tEKKYrXNj6XgAhGCoGYV4RqZc7pwG0hhr+FNinyDBHA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=JjG5PPKOpxISlpksdmehpQ/KZfo/DwMkKqPfYVOYzAYHbma7zSbTmygYw5Pd4/sLs
-	 MW/DQc9q1VTjTIpJWC84WDJhS72f7tbi6TQT6zgSxhOJygmAtVx1vLbXB+xJndRLpG
-	 V9QUIEkHAlxGxwMUvxflG97Z61CR1NJILFuGbO3VNimpiABAjV7zWzqjuX1qHpwhaq
-	 3Y/NSF8iOVU5Qu/qnwSML4zjzjW+I0I70EipAeqGlZucSOyQH88+tiGCFeMHkahLon
-	 x0Kw2rxW7PsEfGJRfB8fqXQFTyrhdont2OPknaF7MT/f0zVVF++BSBQGPiq4DtNEcj
-	 NGw8I7iDX8y+w==
+	b=KhvWsSxV8wgO6j8+evSeL8TkbxH0SzNHJ5oH2SmIoc9NDYD+PDOy2A4IxnrAe08XS
+	 1xyuipGuoMYH7V64zhL+vqJP7S5vUrUsj88pvb9qLqGv6Sa5QdO2KKYoHhec4HvscL
+	 FxlQeJnTco2wSGBjZ2LZoPTM3r7vUgk/OTonUhvRgwt5oMhc4Win0O/B9fYbE8KfWV
+	 W6Rj48qbPwoRhYtQLXEZL2/Rpyz1vr1jBpHVKN1Q8kKwRjNVcNm5OSzyRNFwZ+FsUL
+	 3Balzi1b85kMpVp3fPRYnCu1mzppY4VseMnNj5EXiBaMMI3zkiYOZMTguFdegybkk9
+	 lZh5j/EmUZxWw==
 From: Drew Fustini <fustini@kernel.org>
-Date: Wed, 04 Nov 2026 08:35:21 -0800
-Subject: [PATCH v10 4/6] dt-bindings: riscv: Add binding for CBQRI
- controllers
+Date: Wed, 04 Nov 2026 08:35:23 -0800
+Subject: [PATCH v10 6/6] MAINTAINERS: resctrl: Add myself as reviewer
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261104-dfustini-atl-sc-cbqri-dt-v10-4-1636a003a3c0@kernel.org>
+Message-Id: <20261104-dfustini-atl-sc-cbqri-dt-v10-6-1636a003a3c0@kernel.org>
 References: <20261104-dfustini-atl-sc-cbqri-dt-v10-0-1636a003a3c0@kernel.org>
 In-Reply-To: <20261104-dfustini-atl-sc-cbqri-dt-v10-0-1636a003a3c0@kernel.org>
 To: Adrien Ricciardi <aricciardi@baylibre.com>, 
@@ -82,12 +81,12 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
  linux-riscv@lists.infradead.org, x86@kernel.org, devicetree@vger.kernel.org, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4769; i=fustini@kernel.org;
- h=from:subject:message-id; bh=8djz2Kg+tF9ynqTzK/QM7Bf2l1QkJifYg2dWCOTqWXg=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWS9TmI9+vWbgnaYTfIdY6k5Cc0J710E8o5XxN/fr3Cl5
- rxmnMT2jlIWBjEuBlkxRZZNH/IuLPEK/bpg/ottMHNYmUCGMHBxCsBErtcwMtzIX9c593eoRHvB
- 0c3bFkyxybfbsP1r+Or+DXs709oWlD5lZLj6dZtORLayhX2Zh9Z6nh8+s2TaL1x/PW2GxUIO2yz
- 3g/wA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=739; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=XUHkgMfDTiHQfhcpXAJzPajKkk2ZY54UiaPZ41kdAiA=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWS9TmJ9sz/PP1bkK++ifb13zk08X6t28o1XaU7izMfSq
+ 7sKd99z6ShlYRDjYpAVU2TZ9CHvwhKv0K8L5r/YBjOHlQlkCAMXpwBMpHQKI8M+jSUahSs0XfZK
+ 6xY8vGxjlce5NN73nG/FoVkG4rMUdH8xMrzyaWOwV+IOct97bMXBHQEOLRIJXg564q0tkR2zNOx
+ FGAA=
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -102,146 +101,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Document the device tree binding for RISC-V CBQRI capacity and bandwidth
-controllers. Each controller is named by a device-specific compatible
-followed by the generic compatible. The binding also describes the
-common riscv,cbqri-rcid and riscv,cbqri-mcid properties, and the
-riscv,cbqri-cache phandle, required for capacity controllers, that
-links a capacity controller to the cache whose capacity it allocates.
+The RISC-V CBQRI support builds on the common resctrl code, so changes
+there affect RISC-V. Add myself as a reviewer to stay aware of them.
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+Suggested-by: Reinette Chatre <reinette.chatre@intel.com>
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- .../devicetree/bindings/riscv/riscv,cbqri.yaml     | 98 ++++++++++++++++++++++
- MAINTAINERS                                        |  1 +
- 2 files changed, 99 insertions(+)
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml b/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
-new file mode 100644
-index 000000000000..851b4e53a751
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
-@@ -0,0 +1,98 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/riscv,cbqri.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RISC-V Capacity and Bandwidth QoS Register Interface (CBQRI) controller
-+
-+description: |
-+  The RISC-V CBQRI specification defines capacity-controller and
-+  bandwidth-controller register blocks that allocate cache capacity and memory
-+  bandwidth to resource-control IDs (RCIDs) and monitor usage per
-+  monitoring-counter ID (MCID):
-+  https://github.com/riscv-non-isa/riscv-cbqri/blob/main/riscv-cbqri.pdf
-+
-+  Allocation and monitoring share one register block, and a controller may
-+  implement either or both. A driver discovers which at runtime from the
-+  capabilities register, so the compatible names only the controller type. It
-+  does not distinguish allocation-only, monitoring-only or combined
-+  controllers, and no property declares monitoring support.
-+
-+maintainers:
-+  - Drew Fustini <fustini@kernel.org>
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - tenstorrent,ascalon-shared-cache-controller
-+          - const: riscv,cbqri-capacity-controller
-+      - items:
-+          - not: {}
-+            description: Needs a vendor-specific compatible
-+          - const: riscv,cbqri-bandwidth-controller
-+
-+  reg:
-+    maxItems: 1
-+    description:
-+      The CBQRI controller register block.
-+
-+  riscv,cbqri-rcid:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      The maximum number of RCIDs the controller supports. RCIDs are the
-+      resource-control IDs that allocation operations target.
-+
-+  riscv,cbqri-mcid:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      The maximum number of MCIDs the controller supports. MCIDs are the
-+      monitoring-counter IDs that usage-monitoring operations target. Present
-+      on controllers that implement monitoring.
-+
-+  riscv,cbqri-cache:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle to the cache node whose capacity this controller allocates.
-+      Applies to capacity controllers that back a CPU cache. The cache level
-+      and the harts sharing it are taken from that node's cache topology.
-+
-+required:
-+  - compatible
-+  - reg
-+
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: riscv,cbqri-capacity-controller
-+    then:
-+      required:
-+        - riscv,cbqri-rcid
-+        - riscv,cbqri-cache
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    l2_cache: l2-cache {
-+        compatible = "cache";
-+        cache-level = <2>;
-+        cache-unified;
-+        cache-size = <0xc00000>;
-+        cache-sets = <512>;
-+        cache-block-size = <64>;
-+    };
-+
-+    qos-controller@a21a00c0 {
-+        compatible = "tenstorrent,ascalon-shared-cache-controller",
-+                     "riscv,cbqri-capacity-controller";
-+        reg = <0xa21a00c0 0xf40>;
-+        riscv,cbqri-rcid = <16>;
-+        riscv,cbqri-cache = <&l2_cache>;
-+    };
-+
-+...
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 1ba75a57c77b..636835e313ee 100644
+index df051086b5dd..e5731902d318 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -24137,6 +24137,7 @@ M:	Drew Fustini <fustini@kernel.org>
- R:	yunhui cui <cuiyunhui@bytedance.com>
- L:	linux-riscv@lists.infradead.org
+@@ -23463,6 +23463,7 @@ M:	x86@kernel.org
+ R:	Dave Martin <Dave.Martin@arm.com>
+ R:	James Morse <james.morse@arm.com>
+ R:	Babu Moger <babu.moger@amd.com>
++R:	Drew Fustini <fustini@kernel.org>
+ L:	linux-kernel@vger.kernel.org
  S:	Supported
-+F:	Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
- F:	arch/riscv/include/asm/qos.h
- F:	arch/riscv/include/asm/resctrl.h
- F:	arch/riscv/kernel/qos.c
+ P:	Documentation/process/maintainer-tip.rst
 
 -- 
 2.43.0
