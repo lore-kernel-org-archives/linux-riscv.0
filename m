@@ -2,82 +2,60 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E99D606A31B
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 08:24:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60216606A330
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 08:26:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=B7SS5o3F;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pbpa+2DK
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dHOAkFM/;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nW5BYAki
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=UKLy46aY78PJT5qNRBd27iAx8XvxiJgtqmlqobzCsu0=; b=B7SS5o3FU8ZDSBfImpN0WYc73H
-	V1sz3RSM72BInTCh3dnR34Lv4dFNWh07NVtZcbdjXAV+rN4b0IOg8m4HOzAHB/VIIoPWm0g+Os3sT
-	0/6h896EHndVNTYnc/rlpehzmS4xCuKwfW3J09e4lWhXHOYUEnFUSaCOjQkbXaeKEXGduGeBg+vKN
-	Ox4+hqWvXYWHI3sTDrcqu22VAnhyW1Lwo5fOY22qGBJmjQg6BAOrY1nz7nArKa/JzryZ2DzAxYvAc
-	x8wZyhCYBcAaijdbiZSxfsUY4sgvxDJE6Spn3jbxGEsfH6L8v+3UWkY+4ffyTbCNWnn9XqK1XC8EO
-	g6plEtgw==;
+	bh=nspsf4+jMlsGLxGxlxmNPoWvSAj3ExAeBZmgTYiVjHE=; b=dHOAkFM/5ujru0gFF7U02n61Lq
+	uKaizWgFP5c3Zjx2HkMj12FothU+qi3LgLLN7HO89bXzg+TeF2mf2J5AUzMsjIKMgevuXLJCLDABw
+	zThwWoBZdRVQRcH7jVghlHmhOy0u5su3bDaQ5f3n7rdI0C79/S4jw/mES7/fHcKXH5M8YYaSlvLjY
+	FhnuYZZjvFvfdqixnPZK45CFQ39BMbnaqKIYKnwwHFwYToYZKt1bNFN1GvtQAxdYyKlnxM64U+Wb3
+	XQJPxtPNoHWAFbptNoSjvgcgVkAaxZaXpurvo5seSr3f2Lbh8r0DygKStTlBGkIAxNxsdZvRbVIUV
+	XAIeyhNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWIN-00000004hEa-1UO9;
-	Wed, 04 Nov 2026 08:24:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOWJu-00000004hWc-3cTm;
+	Wed, 04 Nov 2026 08:26:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWIK-00000004hEF-387T;
-	Wed, 04 Nov 2026 08:24:32 +0000
+	id 1xOWJs-00000004hW1-3zHN;
+	Wed, 04 Nov 2026 08:26:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4EF3641FE9;
-	Wed,  4 Nov 2026 08:24:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B19731F000C1;
-	Wed,  4 Nov 2026 08:24:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5197260267;
+	Wed,  4 Nov 2026 08:26:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBCC81F000C1;
+	Wed,  4 Nov 2026 08:26:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793780672;
-	bh=8vB0PZ5tIyrqi06oZoeDXV7eNQMFi8LujXvMSkvp01c=;
+	s=k20260515; t=1793780768;
+	bh=J3ThcFtrRkgwnMtkNBNcnxrXl5oKD/YpSEz2FCPS0e4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Pbpa+2DKJN9odUECxDlScQFXnrbOaBJIUKagi5ayjjpBq7bdmLKwTUIFufIIgI58l
-	 E4E60RP2PCeSibLp0AdQPzrCknnVqvSpYVsQpYM8AaLo87XQOwzONw6VEwCLsfh6f2
-	 Z8udQgVY8UNXJP1fM+jMudkWSlV/KBuK8Y5B8cblI8tLY1zPRpzhqY4U9byO7fQEgA
-	 cbw6GBPcP04JZ+dir+J7rjPWhGLON/Ui7BjbO0ft8rhMgr3eCnBKqyHS9bgdT7RaVM
-	 atFwwAsTQX5icoEp5HHhyE8I9HDvlyfIaI/LrV+/HH8jbDvF9YNe1trEvfctBbtrI5
-	 NmZlXaS8L23fQ==
-Message-ID: <9b99c531-1977-4bc1-8105-bd9c3e129951@kernel.org>
-Date: Wed, 4 Nov 2026 09:24:15 +0100
+	b=nW5BYAkiJKIjsord9BybRbZzsABBgSbKHBIx+fEbmhHW7NAlvgpmhZEBNrH3ZDIpv
+	 UhpmHApaRr81Eh4mWZONdzdUwVsuTE1On0usga42gDyVkO/wWESG1gSV7gCz5FHKfH
+	 ArDkKEtJHUKJ98HyEcc4qKimFqj4Ic9evIf+rfn5R9454gZSy8kM+VnVmABLUm3YYX
+	 Vvk4BJTwa5bsevXD2+kfMPnRfGB/JvwY8K165e8w870aL0JvVlJRSplmNRfDmErffN
+	 lwPlJDC0BuUdtf1mvvje3goqENp0/1d3ogmhPLXzLc3CNZEpvoA4JAsQicSJ3VlMZ/
+	 BmMkISc4MfhrQ==
+Message-ID: <ee28bd16-11fc-4b78-b1ee-e0e20bb0cfdb@kernel.org>
+Date: Wed, 4 Nov 2026 09:26:00 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v3 00/17] riscv: add initial Zhihe A210 support using
- SCMI clocks and resets
-To: Han Gao <gaohan@iscas.ac.cn>, Sudeep Holla <sudeep.holla@kernel.org>,
- Cristian Marussi <cristian.marussi@arm.com>,
- Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v4 0/2] phy: add support for TH1520 USB PHY
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>,
- Jassi Brar <jassisinghbrar@gmail.com>, Linus Walleij <linusw@kernel.org>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Bartosz Golaszewski <brgl@kernel.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Thomas Gleixner <tglx@kernel.org>,
- Radu Rendec <radu@rendec.net>, Samuel Holland <samuel.holland@sifive.com>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Anup Patel
- <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Drew Fustini <fustini@kernel.org>,
- Icenowy Zheng <uwu@icenowy.me>, Inochi Amaoto <inochiama@gmail.com>,
- Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>,
- Jiaxun Yang <jiaxun.yang@flygoat.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org,
- linux-serial@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>,
- Conor Dooley <conor.dooley@microchip.com>
-References: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
+ <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Wei Fu <wefu@redhat.com>, Drew Fustini <dfustini@tenstorrent.com>
+References: <20261103081444.1983071-1-zhengxingda@iscas.ac.cn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -123,7 +101,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
+In-Reply-To: <20261103081444.1983071-1-zhengxingda@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,6 +111,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -143,22 +122,23 @@ X-Spam-Status: No, score=-5.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 02/11/2026 20:45, Han Gao wrote:
-> This adds initial support for the Zhihe A210 SoC and the Melon Pi V1
-> and V2 boards.
+On 03/11/2026 09:14, Icenowy Zheng wrote:
+> This patchset is split from the "Add TH1520 USB support" patchset,
+> with only the PHY binding/driver part.
 > 
-> The A210 has four C908V and four C920V2 cores, plus an E902 management
-> core. The E902 firmware handles clocks, resets, power, the PMIC and
-> CPU DVFS, so Linux uses SCMI for clocks and resets. The only new SCMI
-> piece is the mailbox to the E902. [2] explains why I picked SCMI over
-> RPMI.
-> 
+> Icenowy Zheng (2):
+>   dt-bindings: phy: add binding for T-Head TH1520 USB PHY
+>   phy: add a driver for T-Head TH1520 USB PHY
+
+
 Considering how vulab@iscas.ac.cn is ignoring reviews/comments and spams
 with a lot of unthreaded emails, completely disregarding any tries of
 contact over last 1.5 months, shall we ignore all contributions from
 @iscas.ac.cn?
 
 Maybe this will be the only way to actually be heard?
+
+Icenowy, do you have any possibility to reach to bot spammers from vulab?
 
 Best regards,
 Krzysztof
