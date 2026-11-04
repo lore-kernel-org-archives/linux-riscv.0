@@ -2,64 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5E3B606A31B
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 07:57:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A506606A326
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 08:06:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Jbkh/1T1;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=picoheart.com header.i=@picoheart.com header.a=rsa-sha256 header.s=feishu2604151535 header.b=J/KPIoap
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=H5B1Vem7;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=picoheart.com header.i=@picoheart.com header.a=rsa-sha256 header.s=feishu2604151535 header.b=W2/poyEC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:From:To:
-	References:Cc:In-Reply-To:Mime-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
-	bh=sCMHhitXnWG71YGbT8oMiR2Q0SgvxpiefW1mmIhX2m0=; b=Jbkh/1T1D1UouAqpB8NptovacD
-	9dQMmasm2cKFDLI361wm/NCocnfFWAXlRav0DOQqbNIQCH9s7vWY2uJiZLw0bgHC0nIWeqhngqQA/
-	4omX93S5F+b4v/7NXkvC6JazDHHpiAUa4txDoa6cv0FnOzPgq88NrBxO8xTE8EZoawkChhIEass+d
-	ZBDA72S3+ZRHxet/cBVT2eQZ7vocWyJKQogyuNwoLpiQjafYBU0LxkJSswneF51ezi2O/OwzcwEuX
-	aZkJ2cZTsAvHBvAX7esxG0Cd3jrmNA8MNBO8vzvfSBVslhkwXfleIh7X2mvRlqCcoFFUn3GHJajjV
-	yKHC6rmQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Cc:Mime-Version:Date:
+	Subject:From:To:References:Message-Id:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=Yz/j204uZySaKvdiK6ZvI/1I1hLaCkWn71q5vcnJ0hY=; b=H5B1Vem7T3/A0eqdvJb652vfGM
+	zuWmKJN5703rpNH91uwkisZEIOjEcLXOQcdkSO+v2q38y+oTglGGtER4deLJEaHWf6WqKTD3nSwVe
+	jwdaIx9YLo6ci/jZ2pvMj7gJ4EkeQKSTm9T1YzSb4GXLGxBn+uR9F/PCIIAKQXkevUPmgNK/a7F4v
+	kytHiKGc17pV6JB7vnrwyTW92Hwsh+ShLVpQIwmsqzZyRGaAjKn0kVxf8fFTkp+jgGeIpuEQ46fnR
+	I4kuU+doknhweHK9x05/itaneC1PQ6mCDggc5bxUhhkTIjdpj192M7JQEHAy3HngVhkkUiczH9lR/
+	giVi3BfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOVsF-00000004cgu-3NxI;
-	Wed, 04 Nov 2026 07:57:35 +0000
-Received: from va-2-37.ptr.blmpb.com ([209.127.231.37])
+	id 1xOW0g-00000004dns-0UlE;
+	Wed, 04 Nov 2026 08:06:18 +0000
+Received: from va-2-26.ptr.blmpb.com ([209.127.231.26])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOVsC-00000004cf7-0lb2
+	id 1xOW0d-00000004dnT-1tYa
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Nov 2026 07:57:33 +0000
+	Wed, 04 Nov 2026 08:06:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1793779046; h=from:subject:
+ s=feishu2604151535; d=picoheart.com; t=1793779571; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=A5s9seOm8RDxpahgqLuwrvstI6MmFOug3w6IEiWSP9g=;
- b=J/KPIoapnw189509e/nasbTFI5zS/aOyQS+O6uTleRCsxAWws6vMGJ+pfoRoBd6632F9oj
- u/yc0nh4+DITMBlMbK8+HZrPLsfVooMPlhkn5NY5xC0xCK44YqeuZK2HAT+mhm8rAA07S0
- WNxzI+puc3j6qdKVwi2jvvVg5bPA4olcxfDa+bslHz2cS3V1CMzNIjBlXuHqX9WlZBvFzz
- VltWYikBsiG08/OzSjHC6Wj/uVKmX6fhJZtQiM3zdkq1dAr6EWwpkhZAv9WWQYaaWjA2h4
- 4hARH+JzGzsKS7Ku6bu0Ezko3YmTfSGwAAgaulv77UsVzRpXToMF7rzIom3a1g==
+ bh=sduOP3VW/r6BpntDuFO0P9ijMJnVNglrHxEYHPAMFGs=;
+ b=W2/poyECXARfu9is4ZU+Li4KeWeaPximlH2D+qD/TtRq5pFs1hXguohrDoTv1QWajIW5bE
+ bWHGMG3A38jijTz83NfkZL3Pjn0ZD8cxzuwiLiXl2U0dFvlBU+XcHz8qkl32oAvv3HfK60
+ FUJnM3Zs4xMx6vor1GOKrQq/BBEGresZkX5H1vS8bbQQlIPpX8d9EvgcntG2PJuU+ikNTM
+ ybnyQIulSG7ks+IUOMg/UM5P007X1Io74MBRw9ASOO5CKOFRVHUZ5PblRJ/Axi66s+I3Re
+ zEyGK/bX70o+82tz7jD0IzEl+XJqRybW6elVag0fk5w6JHlWlEbDNnJ0+RMQOg==
+Message-Id: <b8f28bee-83d6-4566-889d-6119e2837ddb@picoheart.com>
+X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
+Received: from [100.86.223.207] ([61.141.241.106]) by smtp.feishu.cn with ESMTPS; Wed, 04 Nov 2026 16:05:58 +0800
+References: <20261022083212.84721-1-cuiyunhui@bytedance.com>
+To: "Yunhui Cui" <cuiyunhui@bytedance.com>
+From: "Yicong Yang" <yang.yicong@picoheart.com>
+Subject: Re: [PATCH] riscv: Fix SR_SUM leakage across context switches
+X-Lms-Return-Path: <lba+26aeae767+8503a9+lists.infradead.org+yang.yicong@picoheart.com>
+User-Agent: Mozilla Thunderbird
+Date: Wed, 4 Nov 2026 16:05:55 +0800
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
-X-Lms-Return-Path: <lba+26aeae564+e74832+lists.infradead.org+yang.yicong@picoheart.com>
-Received: from G9WYR9K0VW.bytedance.net ([61.141.241.113]) by smtp.feishu.cn with ESMTPS; Wed, 04 Nov 2026 15:57:22 +0800
-In-Reply-To: <20261104075706.73657-1-yang.yicong@picoheart.com>
-Cc: <conor@kernel.org>, <wangruikang@iscas.ac.cn>, <ganboing@gmail.com>, 
-	<alex@ghiti.fr>, <cleger@meta.com>, <geshijian@picoheart.com>, 
-	<niehaitao@picoheart.com>, <cuiyunhui@bytedance.com>, 
-	<gaohan@iscas.ac.cn>, <yang.yicong@picoheart.com>
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-References: <20261104075706.73657-1-yang.yicong@picoheart.com>
-To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
-	<linux-riscv@lists.infradead.org>
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-Subject: [PATCH v6 5/5] riscv: errata: picoheart: Add workaround for AMOCASQ errata
-Date: Wed,  4 Nov 2026 15:57:06 +0800
-Message-Id: <20261104075706.73657-6-yang.yicong@picoheart.com>
-X-Mailer: git-send-email 2.54.0
+Content-Language: en-US
+Cc: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
+	<alex@ghiti.fr>, <zong.li@sifive.com>, <wangruikang@iscas.ac.cn>, 
+	<debug@rivosinc.com>, <qirui.001@bytedance.com>, <guoziyi114@gmail.com>, 
+	<samuel.holland@sifive.com>, <ben.dooks@codethink.co.uk>, 
+	<cyrilbur@tenstorrent.com>, <linux-riscv@lists.infradead.org>, 
+	<linux-kernel@vger.kernel.org>, <yang.yicong@picoheart.com>, 
+	<stable@vger.kernel.org>
+In-Reply-To: <20261022083212.84721-1-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_235732_298285_D8961A6B 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20261104_000615_599898_B6B17B44 
+X-CRM114-Status: GOOD (  14.28  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,136 +76,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Some Picoheart CPUs implement Zacas extension but lack support
-for AMOCASQ PMA attribute. Thus makes the CASQ instruction de
-facto unavailable. Since currently no ways to retrieve the PMA
-information and the riscv kernel will declare cmpxchg128 support
-if platform declare support of Zacas, the use of cmpxchg128 will
-lead to PMA violation and crash the kernel. Add the errata
-workaround to disable the use of cmpxchg128 on the affected CPUs.
+On 10/22/26 4:32 PM, Yunhui Cui wrote:
+> __switch_to() saves the sstatus value of prev and restores the SR_SUM bit
+> of next with csrs. However, csrs only sets bits. If prev has SR_SUM set
+> and next has SR_SUM clear in its saved state, the old SR_SUM bit remains
+> set in sstatus.
+> 
+> This lets next run with user memory access enabled even though its saved
+> SR_SUM state is clear.
+> 
+> Use csrrc to save the sstatus value of prev and clear SR_SUM from the
+> live CSR before restoring the saved SR_SUM state of next. This keeps
+> prev's SR_SUM state intact, while preventing it from leaking to next.
+> 
+> Fixes: 788aa64c01f1 ("riscv: save the SR_SUM status over switches")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 
-Tested-by: Han Gao <gaohan@iscas.ac.cn>
-Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
----
- arch/riscv/Kconfig.errata                    | 12 ++++++++++
- arch/riscv/errata/picoheart/errata.c         | 25 +++++++++++++++++++-
- arch/riscv/include/asm/cmpxchg.h             | 18 +++++++++++++-
- arch/riscv/include/asm/errata_list_vendors.h |  3 ++-
- 4 files changed, 55 insertions(+), 3 deletions(-)
+a straightforward fix :)
 
-diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-index c75dec4b0ba7..4e6516ba3a42 100644
---- a/arch/riscv/Kconfig.errata
-+++ b/arch/riscv/Kconfig.errata
-@@ -202,4 +202,16 @@ config ERRATA_PICOHEART_CBO_CLEAN
- 
- 	   If you don't know what to do here, say "Y".
- 
-+config ERRATA_PICOHEART_AMOCASQ
-+	bool "Apply Picoheart AMOCASQ errata"
-+	depends on ERRATA_PICOHEART && RISCV_ISA_ZACAS
-+	default y
-+	help
-+	  Some Picoheart CPUs implement the Zacas extension but lack support
-+	  for AMOCASQ PMA attribute. Thus makes the CASQ instruction de facto
-+	  unavailable. Enable this errata workaround to disable the use of
-+	  CASQ in the kernel (cmpxchg128).
-+
-+	  If you don't know what to do here, say "Y".
-+
- endmenu # "CPU errata selection"
-diff --git a/arch/riscv/errata/picoheart/errata.c b/arch/riscv/errata/picoheart/errata.c
-index c945ae694396..a658f38cf4de 100644
---- a/arch/riscv/errata/picoheart/errata.c
-+++ b/arch/riscv/errata/picoheart/errata.c
-@@ -174,11 +174,34 @@ static void picoheart_errata_probe_cbo_clean(unsigned int stage,
- 	static_branch_enable(&has_picoheart_cbo_clean_errata);
- }
- 
-+static bool picoheart_errata_probe_amocasq(unsigned int stage,
-+					   unsigned long archid,
-+					   unsigned long impid)
-+{
-+	if (!IS_ENABLED(CONFIG_ERRATA_PICOHEART_AMOCASQ))
-+		return false;
-+
-+	if (!IS_ENABLED(CONFIG_RISCV_ISA_ZACAS) ||
-+	    !riscv_isa_extension_available(NULL, ZACAS))
-+		return false;
-+
-+	if (archid != 0x804a555049544552 || impid != 0x100)
-+		return false;
-+
-+	return true;
-+}
-+
- static u32 picoheart_errata_probe(unsigned int stage, unsigned long archid,
- 				  unsigned long impid)
- {
-+	u32 cpu_req_errata = 0;
-+
- 	picoheart_errata_probe_cbo_clean(stage, archid, impid);
--	return 0;
-+
-+	if (picoheart_errata_probe_amocasq(stage, archid, impid))
-+		cpu_req_errata |= BIT(ERRATA_PICOHEART_AMOCASQ);
-+
-+	return cpu_req_errata;
- }
- 
- void picoheart_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
-diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index 662e160b0522..0488b9314c13 100644
---- a/arch/riscv/include/asm/cmpxchg.h
-+++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -329,7 +329,23 @@
- 
- #if defined(CONFIG_64BIT) && defined(CONFIG_RISCV_ISA_ZACAS) && defined(CONFIG_TOOLCHAIN_HAS_ZACAS)
- 
--#define system_has_cmpxchg128()        riscv_has_extension_unlikely(RISCV_ISA_EXT_ZACAS)
-+#define system_has_cmpxchg128 system_has_cmpxchg128
-+static __always_inline bool system_has_cmpxchg128(void)
-+{
-+	/* The vendor erratum overrides the standard Zacas alternative. */
-+	asm goto(ALTERNATIVE_2(
-+			"nop",
-+			"j %l[l_yes]",
-+			STANDARD_EXT, RISCV_ISA_EXT_ZACAS, 1,
-+			"nop",
-+			PICOHEART_VENDOR_ID, ERRATA_PICOHEART_AMOCASQ,
-+			CONFIG_ERRATA_PICOHEART_AMOCASQ)
-+		: : : : l_yes);
-+
-+	return false;
-+l_yes:
-+	return true;
-+}
- 
- union __u128_halves {
- 	u128 full;
-diff --git a/arch/riscv/include/asm/errata_list_vendors.h b/arch/riscv/include/asm/errata_list_vendors.h
-index 8160afed8d21..97b7bbdc4984 100644
---- a/arch/riscv/include/asm/errata_list_vendors.h
-+++ b/arch/riscv/include/asm/errata_list_vendors.h
-@@ -29,7 +29,8 @@
- #endif
- 
- #ifdef CONFIG_ERRATA_PICOHEART
--#define ERRATA_PICOHEART_NUMBER	0
-+#define ERRATA_PICOHEART_AMOCASQ	0
-+#define ERRATA_PICOHEART_NUMBER		1
- #endif
- 
- #endif /* ASM_ERRATA_LIST_VENDORS_H */
--- 
-2.54.0 (Apple Git-157)
+Reviewed-by: Yicong Yang <yang.yicong@picoheart.com>
+
+> ---
+>  arch/riscv/kernel/entry.S | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index 61b7a77166971..628b85e3915a7 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -443,15 +443,15 @@ SYM_FUNC_START(__switch_to)
+>  	REG_S s10, TASK_THREAD_S10_RA(a3)
+>  	REG_S s11, TASK_THREAD_S11_RA(a3)
+>  
+> -	/* save the user space access flag */
+> -	csrr  s0, CSR_STATUS
+> +	/* Save and clear the user space access flag. */
+> +	li    s1, SR_SUM
+> +	csrrc s0, CSR_STATUS, s1
+>  	REG_S s0, TASK_THREAD_SUM_RA(a3)
+>  
+>  	/* Save the kernel shadow call stack pointer */
+>  	scs_save_current
+>  	/* Restore context from next->thread */
+>  	REG_L s0,  TASK_THREAD_SUM_RA(a4)
+> -	li    s1,  SR_SUM
+>  	and   s0,  s0, s1
+>  	csrs  CSR_STATUS, s0
+>  	REG_L ra,  TASK_THREAD_RA_RA(a4)
 
 _______________________________________________
 linux-riscv mailing list
