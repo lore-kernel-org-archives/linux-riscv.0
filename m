@@ -2,149 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92FF1606A31B
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 11:24:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B87B606D804
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 11:27:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GU+5fDM7;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=selector1 header.b=k5X+iqXJ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rwVo2qpA;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=aJysmVG6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
-	bh=oO0PBuAoGn71FXCOGSkds2cd9txXrtCtZiIs8XvZJpk=; b=GU+5fDM7J6/SLYFQ4zujpKm4+D
-	C4fMqrEs2mEkrj92XCaUoiJW87zGttp4lt+nTjyekeXQWfMfWyAxJb/+QUjdi09F3Fqm3vQAgzWIk
-	2oqG7rHpyXVXFx9y3n4XGSBgBbkB46d49Rjszo9L5Cz94JTf4dWNDiQ5wZ4LGItyQVtchF7apry9e
-	XOOHsTINkVOKY6Yo5nWh/+qaLL5akI9pLq0PitWFk7dfPszkiEEjjaEMHx/3wf0JkvqjqPQYqyPjF
-	JVDwFK/uP4PYmVcPle+2Ujh8jVqUpXGjQzp4xghkYzytLXA6TNENn9F9bZ79QK8r3pdIWTJSHlGd9
-	c0lsqbTw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=SvyeibP1qNmxkS98QpFKSfSL4eyjP9zDrcLqgBsKm5M=; b=rwVo2qpAR0kHa4cIxjJjRfYP6c
+	a6963zKlduJEVM+2OPRVPABRfSNj/HeUyoiA/A39M1kpQE2mUMg16U8y1xm2Wvfjwu8do312mwLER
+	F1FOyunUE+NlmoHtJik7Eh+h9x4dls4soxcbJtbim4tqEcX7P6PEgDsc94aVp3dE1E5xpBx3FJzCQ
+	ORGcscDm9Jjfu1S1T8JAf+x62y0kKBWBZ5Do4doU916Ue02R3yyaVbCsjR+ANjce2Qe41pBnPmbRH
+	KrxJOvyKG/k3IwN3Sh6mlNkinAM+dBY/WUyKZx/SZEBZEhQK2qPI9YQhz+g9dMEoyd6/h/fE1kBs5
+	Ypk2WQ8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZ63-000000058rI-1qCN;
-	Wed, 04 Nov 2026 11:24:03 +0000
-Received: from mail-norwayeastazon11013001.outbound.protection.outlook.com ([40.107.159.1] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1xOZ9J-000000059YF-28Nv;
+	Wed, 04 Nov 2026 11:27:25 +0000
+Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZ5z-000000058q3-3Kia
-	for linux-riscv@lists.infradead.org;
-	Wed, 04 Nov 2026 11:24:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bDp52DsfE4xz2l7A0DRcgabV8yvst0ykJUNOokQb5B8BVsztxE0YUEqUxzPx/NWwTn8DgsZXUZ9Jg2TCpCDXv0zySybdsAVcbHJ3sfhI+ORex87hA1mhrbB03i8loGIVr/dhyXhWiJfjwkgV2CNkd3zdYRzGLoEU5oV6ieu2qYs3szXChEoi6l66wdEpxFDjCbCew2wZFDWByQy+OB4mqOgz+BsElHk3hVM4C7fKdTSz197BTgeePWRZPN7pY36ZvdCWSeFyZGlxS4udzeuOZZmt9efmP5r3SLK+6Z76YdD6HdAcAzr5RUjfgk4yK1Ar+khXfxe/8LqXU/qKrQdLHQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tmCGdJ8ICJLuqjCemmxrHvDkkOi2nHpa5vhXBiTxYfc=;
- b=CUm/TUgcF2FVUoVII/wd+1McUHNtj4jpAje9sDz/ys6aSH5YFREdnSQx1//uZFkAqTc4Ql46ooagPMhKF629X0daNVO8IYM+AvOhQBAtIb7in82SdDcCgDUNKxevze71H4olGJBYsGaU6qaf+3LaKSLtXDXS2ZK+Ua7FrwawIs2syw2FgsDBpG4+ZSnOicUxZkIE6QnDsIf87tK/FQ3AGYkSgo5lAKv7+NL1zJ5K4C0IM7B5YG8SLTCou/LXfRkTolh5QndpxVp0/72+IZdVfDlZrbVrDkX0U7pvOKGbynfyAnvRiAL2fQ5g42DzKTTBHAyeD+pe9FVeBPOx8g9ztg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mobileye.com; dmarc=pass action=none header.from=mobileye.com;
- dkim=pass header.d=mobileye.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mobileye.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tmCGdJ8ICJLuqjCemmxrHvDkkOi2nHpa5vhXBiTxYfc=;
- b=k5X+iqXJmM/H4EFanLX8gZCf/LNHCqt2TeKcqvaT1VgVa7l7CFb6ZIoH2bgE5A4tFSPq2YLJ1e/1QGMvQxtCM3CFF/qN4GeXMmCi+k7O/ZuheJgX0xCPiyxC7hOBSJzbDZGMfh+1+c1T/vEj5KjEbdUAzbiJy6jZzyEy2cK7RFo=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mobileye.com;
-Received: from ZR6PR09MB889505.eurprd09.prod.outlook.com
- (2603:10a6:910:e0::22) by DU4PR09MB8388.eurprd09.prod.outlook.com
- (2603:10a6:10:627::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Wed, 4 Nov 2026
- 11:23:55 +0000
-Received: from ZR6PR09MB889505.eurprd09.prod.outlook.com
- ([fe80::9006:1164:b51f:23a2]) by ZR6PR09MB889505.eurprd09.prod.outlook.com
- ([fe80::9006:1164:b51f:23a2%4]) with mapi id 15.21.0569.011; Wed, 4 Nov 2026
- 11:23:55 +0000
-Message-ID: <507f3761-1104-4d15-8fb0-c2fca037ddd4@mobileye.com>
-Date: Wed, 4 Nov 2026 13:23:52 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] riscv: accept the atomic extensions this kernel
- was built with
-To: Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Gary Guo <gary@garyguo.net>,
- Yury Norov <yury.norov@gmail.com>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>, cfu@wavecomp.com,
- torvalds@linux-foundation.org, olof@lixom.net,
- aleksa.paunovic@htecgroup.com, arikalo@gmail.com,
- Boqun Feng <boqun@kernel.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261101-lrsc-only-v4-0-4e1d010463b3@mobileye.com>
- <20261101-lrsc-only-v4-2-4e1d010463b3@mobileye.com>
- <20261103-pushcart-very-04a34d0ffb0e@spud>
-Content-Language: en-US
-From: Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>
-In-Reply-To: <20261103-pushcart-very-04a34d0ffb0e@spud>
-X-ClientProxiedBy: TLZP290CA0004.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:9::15) To ZR6PR09MB889505.eurprd09.prod.outlook.com
- (2603:10a6:910:e0::22)
+	id 1xOZ9E-000000059UL-050I;
+	Wed, 04 Nov 2026 11:27:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1793791637; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=eSRpEyiCpq6q3r3x8lXM5Pt5HeYqMgK+KLNe7ym6hQM=;
+	b=aJysmVG6wDCaBZ7s8EgxxqW0ZdYj5atcNO+3tRr7lf/sZyC++VlaEgXc+MhFiBjsoYrQbPeZCInd2YCKi95EtNpqQqDkIXZ/MshChRPkpwpycCD8b/+RVHvyZySDKmgZLW1vjgz27UCfli8zkiwKBUL5UFQCzT/yFfoZk9wUmaQ=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R861e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=29;SR=0;TI=SMTPD_---0XE5bSHL_1793791633;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XE5bSHL_1793791633 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 04 Nov 2026 19:27:15 +0800
+From: fangyu.yu@linux.alibaba.com
+To: gong.shuai@sanechips.com.cn
+Cc: alex@ghiti.fr,
+	andrew.jones@linux.dev,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	baolu.lu@linux.intel.com,
+	fangyu.yu@linux.alibaba.com,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
+	jgg@nvidia.com,
+	jgg@ziepe.ca,
+	joerg.roedel@amd.com,
+	joro@8bytes.org,
+	jroedel@suse.de,
+	kevin.tian@intel.com,
+	kvm-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	nutty.liu@hotmail.com,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robin.murphy@arm.com,
+	skhawaja@google.com,
+	tanchi25@mails.ucas.ac.cn,
+	tomasz.jeznach@linux.dev,
+	vasant.hegde@amd.com,
+	will@kernel.org,
+	zong.li@sifive.com
+Subject: Re: [PATCH v7 05/10] iommu/riscv: support GSCID and GVMA invalidation command 
+Date: Wed,  4 Nov 2026 19:27:12 +0800
+Message-Id: <20261104112712.68199-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20261104092111.119394-1-gong.shuai@sanechips.com.cn>
+References: <20261104092111.119394-1-gong.shuai@sanechips.com.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZR6PR09MB889505:EE_|DU4PR09MB8388:EE_
-X-MS-Office365-Filtering-Correlation-Id: e927a3b6-bf9a-495e-9eee-08df3a661ca6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|7416014|10067099003|18002099003|22082099003|3023799007|56012099006|4143699003|11063799006|261022105027099003|261021121427099003|261022075727099003|261021135927099003|261026121527099003|261102124527099003|261026140227099003|261028144727099003|261102123227099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info: eYyFuLUTqjPNYNwbioiRYccvQ1xgIhn8NX+sCOBUFWGQu+EHm957WkDSvgbtfV6wDbUhKONy9Q4ED5asRSk39IqcnffstZWVGlGjYmTa0EDThsRneU/RDj5+DUPQgEUN0IPcYi2j6NGVvO4y1v2E9ya5F1bBWwQk+8ftGjwp2+ahiH38HXF7ogoikSY0qAG7boFagzSTfV3ag7bMxHcENNzWTJAnK2ZAspFuLx/sKHR8RrPiT4ho7hIOFBQi2TbrjOAuQ4O41ltU7YYdQND4elkWPf6NlkNh5847VNvYtehh05aTpI+iqbJZJTojuOjrS+1UJXTR4Kkwsiv0aiL0MT+VIMmMn0WkRMt+625U97H0OX6Bv2QRk45Z/gJSjnSFy+okaJW1Lb9WHrofRYQexwzG1poMoRUZwerZBX2NkeZAj62PKZ5cnnQ/GRx6I7pr9bJtAFJHqmHxJQv64G12SWfoJSAbgFArx++tQhUHQqwlLimHCspvnPMp6yP1tZ9hr4I2hyQgmgYzFih1JRsE/WR/3O//mvSGAdqorwBApfThDW5OgnGnlBbg75uPj5JoNyuq91/M28Z10z/A+MM4142YT4X/tyy1qENA2/xb5PiV/bfFmhBa/SPJiwp3+XUqu5CJxwS1yF2dRWOGD51gHooGkDS1nb1lg6GRAnxE90Y=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZR6PR09MB889505.eurprd09.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(7416014)(10067099003)(18002099003)(22082099003)(3023799007)(56012099006)(4143699003)(11063799006)(261022105027099003)(261021121427099003)(261022075727099003)(261021135927099003)(261026121527099003)(261102124527099003)(261026140227099003)(261028144727099003)(261102123227099003)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UUpPendLTHlCWXR1VWNXZEJxc2tVRjE0U25jTFVLMmM3VFM5aGpXaCtOZzdn?=
- =?utf-8?B?bEJiUnhnQ1BlMFJ4N21lZ0VPTStFYzZRQ2xkWVl6NzJDNTZPQzA0alRUWjRp?=
- =?utf-8?B?KzA4NGRpT29PQ1JrUldkL044QWUrNEt4L0hSMm9pdlExRFhHeXhMa0xXeTFC?=
- =?utf-8?B?QUJDaG1RS1pKbVQzSVBzdHB1Z1NOWjBNeDNJUEZ4aVdFYmt1NVNERkt5eFJG?=
- =?utf-8?B?R0N6cS9hYlZRdXlaMC9JTW4yWnJPZURLSGxId3RZSkIxV05KS1Y4UnNMU3hj?=
- =?utf-8?B?ZWVkMzcyelJGNzViUzQwbkFGMC9JWWdDTGlReWF3NXc3cFEzSmZQdFJyZ2pQ?=
- =?utf-8?B?WXlmclVOU3FUc1lwVk1jUHY5M1ozc1NQU0dZRnNxQVRneDMrTFcwWVo2Mm5s?=
- =?utf-8?B?VUs3ZzdkNS92OTV6TnVNYWJ0eXBjTW0zUFltSUlLbzdKamY3b1Zza0ZJcVVh?=
- =?utf-8?B?aTRzYmxJcnFMTTlTajk0TGVoWWdvbDJiZDJRcmZGZm9aREg1aXM1cGtEaEoz?=
- =?utf-8?B?R25CbzR6a2FrQ25pNEo0WjJPWWVtOW9nWjdQTkg0QjJyblhkVmlVK2FJWWtC?=
- =?utf-8?B?VVNoczh0bzQ0WTlLYXhPSWVVTVN3UlFmZ2VZcStLeXJZcVEvWEE1YkgvRHMw?=
- =?utf-8?B?Z0NoOU9ldmd5YmlFcVlMR0dVT2p6cWxQUHUyWUhDaGtMcS9USmkrbmhQM2lD?=
- =?utf-8?B?TVdxcXF3TXBaNGJaTWtPaEpZSFQ4cHpoSDV5a09Gb2dEM0JwaWMwQjRZRjY5?=
- =?utf-8?B?dTFVS0JuWXNsanloZzZ2S1lMR25UdDVyRzRtZmg5TmprWGdxbzVjZGx3NFph?=
- =?utf-8?B?UHVRYWRIeGlKNEdZaE1wSE1BekZ6d0JJQUdWRzJpQ3JzalVhSlUxc21xUklv?=
- =?utf-8?B?U2VVTmxpRlhlQ1RnR2kxWjZwYjlqY0xSYTN5dHdYdkpTUkJmMklhTmNKSk5o?=
- =?utf-8?B?NU1FS2ZWNUlPdmdiRWVkN1hvQWc0dzhBaEFvZGw0QjYzSXFCeWRMdEtTcE13?=
- =?utf-8?B?Tk1ST3dqSVp0QkpEa21vbDRtRURKVEJPWEwzWkZNOFFiYUduTVluWmFDMWZq?=
- =?utf-8?B?TVZRMXZ5RHgzOHZLL3FITHV3bDAreFpCVnBLVmQ5NHQ3TDRzVlpnRWxjUktv?=
- =?utf-8?B?YmFHSisvRVVTbCt6TFZJZnlEL1BJRHpNSXQvWGtYd2hMSGp5NWFXek9UOWJQ?=
- =?utf-8?B?OXhSMCsrekpxMDJmQkFQVUlKVGpScXpYU2ovZ2cvS0huMDUwamZnaE0rRUlI?=
- =?utf-8?B?Um1zVkd4SnNpeUl1QkpONmNRc2xCUzJoempuVkNzVXBrbVNPMnd0SU53aWoy?=
- =?utf-8?B?UmM2aGZncVJGMXlNbFozaGJpeXZIbFBJTU1KZ1lJdHVLZG5PN0Nxem9keVVt?=
- =?utf-8?B?aUovNlFzbU5aOUw4endodzgrNk51V1piaTdKQW9UQVhoR1JnbFFVM0d0dDJk?=
- =?utf-8?B?TXdWaENBZVVJb3Nwb0JEMjZqd0grWHRGZkhVcTdVaUxlVmJuY0RQUnRRRjMv?=
- =?utf-8?B?TXc0aW9qUlRyQlRkd3dkN1pvRitWenA1OVNJNmpaNUxWcTE3YTQyUWlxbUdH?=
- =?utf-8?B?VS9WQUtwRTFUNlVIOW4zRGRTNzJlK1NQMnJHZ3RRUVJUNXdZdmtHTkQvcXlm?=
- =?utf-8?B?bk1sbmhoZTZ2ZFdMeFM4MVkxQUI0NTkvYmM3RUlyRWJDREcrZjBOWEFvK0Fv?=
- =?utf-8?B?cmxTV3BhdjFXNFRLdzlkZUpVRTJQVG04bXZhRVB2bXZhTVF2UUc2ckRVVlhH?=
- =?utf-8?B?YlBqNVFQR0JuVkxkNFRDT2xHLzFGL2g1RkRzK3Y0UFMvSks5WTBuclhKeFZw?=
- =?utf-8?B?aG5BUmpjY3Jydm0vTVd0UmFKcEt6VXNoQ0VmSmxsSEU4YWFQMXlXMlBMNWF6?=
- =?utf-8?B?ZUswek9EMWVLWkptRjVPSEEzV3dEMTZWMWV2TTRadEVkdEpaRlErVnBhZ0o2?=
- =?utf-8?B?T2J3N0FrZktrdkpTT3NlZXJBUUoyMXVoYkI2bk1pTXROTTB4WW1QSDhqUzRq?=
- =?utf-8?B?VWcrWmJnSnFEdENWNUYyR0RwM3ljRTJtSHVVWG1rVDJaWmo4MnM5RzJwbDY5?=
- =?utf-8?B?MzN2U2E0VFZrZkNPWE56R3pESUF0a0xRY1VKMnJUaExRRmhlVGd1ZDlURlJ0?=
- =?utf-8?B?SHBtLzBvR1ZiSE5TaTVNZGt6Y0YvZHJCVzdkSTd6YnE4UzI2Ukllb3E0dm9I?=
- =?utf-8?B?M3FnUkExRk5pd0NoUm5iTnBWanFZWUtzMXB3L2paOXd4Y3FVREVvd0pNc09S?=
- =?utf-8?B?OEY3NkNnSWxaMnNVNGg3N1MrM1Nib0FVcW53bjdselFUU29kbFZkVTkyc1Bo?=
- =?utf-8?B?eEh1T2tkc0w5bTJRY0FtU3paRXM1TXhlVFFUT2lwbGNGRHRncjdkUT09?=
-X-OriginatorOrg: mobileye.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e927a3b6-bf9a-495e-9eee-08df3a661ca6
-X-MS-Exchange-CrossTenant-AuthSource: ZR6PR09MB889505.eurprd09.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 11:23:55.2658
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f85ba13-6953-46a6-9c5b-7599fd80e9aa
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xlFXefBZNZhQBTMu3vdD7rrNSRKHnNqWJDRquJhtx3DIuLd9abC6+sHSTz1WuDJ8bpo3ftvR5K7r+DRuWtipsQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR09MB8388
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_032400_018895_BB4F1BCF 
-X-CRM114-Status: GOOD (  18.30  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261104_032720_222942_F72F0294 
+X-CRM114-Status: GOOD (  18.35  )
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,43 +91,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/3/26 23:41, Conor Dooley wrote:
-> That got me thinking though, I feel like this breaks some of the
-> extension parsing logic in other ways.
-> 
-> If you putting zalrsc and zaamo in your devicetree, we never do any
-> backwards processing to set the a extension (we don't do this for any
-> extensions by design, we only populate "child" extensions based on their
-> "parent"). If there's some userspace thing that expects to see a in
-> cpufeature or w/e it'd break. There shouldn't be since a has always been
-> supported but who knows. You need custom userspace anyway so I honestly
-> don't give that much of a shit about this going wrong.
-> 
-> What does "worry" me is hwprobe. Currently you've not modified hwprobe
-> at all to correctly state that you do not support
-> RISCV_HWPROBE_BASE_BEHAVIOR_IMA. (and brings up the question of whether
-> you support RISCV_HWPROBE_BASE_BEHAVIOR_IMA_FD etc!)
-> 
-> Maybe, again you don't care cos of your custom userspace, but this needs
-> to be holistic if it is being done at all.
-> Personally, I don't want to lower the minimum requirements - the people
-> designing this stuff to run linux should have checked to see what our
-> requirements were (and have always been...).
+>Hi Fangyu,
+>
+>> From: Zong Li <zong.li@sifive.com>
+>>
+>> This patch adds a ID Allocator for GSCID and a wrap for setting up
+>> GSCID in IOTLB invalidation command.
+>>
+>> Set up iohgatp to enable second stage table and flush stage-2 table if
+>> the GSCID is set.
+>>
+>> The GSCID of domain should be freed when release domain. GSCID will be
+>> allocated for parent domain in nested IOMMU process.
+>>
+>> Signed-off-by: Zong Li <zong.li@sifive.com>
+>> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>> Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+>> ---
+>>  drivers/iommu/riscv/iommu-bits.h |  7 ++++
+>>  drivers/iommu/riscv/iommu.c      | 62 ++++++++++++++++++++++++++------
+>>  2 files changed, 58 insertions(+), 11 deletions(-)
+>>
+>> diff --git a/drivers/iommu/riscv/iommu-bits.h b/drivers/iommu/riscv/iommu-bits.h
+>> index f2ef9bd3cde9..65d1f2250011 100644
+>> --- a/drivers/iommu/riscv/iommu-bits.h
+>> +++ b/drivers/iommu/riscv/iommu-bits.h
+>> @@ -720,6 +720,13 @@ static inline void riscv_iommu_cmd_inval_vma(struct riscv_iommu_command *cmd)
+>>  	cmd->dword1 = 0;
+>>  }
+>>
+>> +static inline void riscv_iommu_cmd_inval_gvma(struct riscv_iommu_command *cmd)
+>> +{
+>> +	cmd->dword0 = FIELD_PREP(RISCV_IOMMU_CMD0_OPCODE, RISCV_IOMMU_CMD_IOTINVAL_OPCODE) |
+>> +		      FIELD_PREP(RISCV_IOMMU_CMD0_FUNC, RISCV_IOMMU_CMD_IOTINVAL_FUNC_GVMA);
+>> +	cmd->dword1 = 0;
+>> +}
+>> +
+>>  static inline void riscv_iommu_cmd_inval_set_addr(struct riscv_iommu_command *cmd,
+>>  						  u64 addr)
+>>  {
+>> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+>> index 918fce4aa8c4..5546dfcd976c 100644
+>> --- a/drivers/iommu/riscv/iommu.c
+>> +++ b/drivers/iommu/riscv/iommu.c
+>> @@ -49,6 +49,10 @@
+>>  static DEFINE_IDA(riscv_iommu_pscids);
+>>  #define RISCV_IOMMU_MAX_PSCID		(BIT(20) - 1)
+>>
+>> +/* IOMMU GSCID allocation namespace. */
+>> +static DEFINE_IDA(riscv_iommu_gscids);
+>> +#define RISCV_IOMMU_MAX_GSCID		(BIT(16) - 1)
+>> +
+>>  /* Device resource-managed allocations */
+>>  struct riscv_iommu_devres {
+>>  	void *addr;
+>> @@ -842,6 +846,7 @@ struct riscv_iommu_domain {
+>>  	struct list_head bonds;
+>>  	spinlock_t lock;		/* protect bonds list updates. */
+>>  	int pscid;
+>> +	int gscid;
+>>  };
+>>  PT_IOMMU_CHECK_DOMAIN(struct riscv_iommu_domain, riscvpt.iommu, domain);
+>>
+>> @@ -1004,7 +1009,7 @@ static void riscv_iommu_tlbi_calc(struct riscv_iommu_tlbi *tlbi,
+>>  }
+>>
+>>  static void riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
+>> -					  int pscid,
+>> +					  int pscid, int gscid,
+>>  					  struct riscv_iommu_tlbi *tlbi)
+>>  {
+>>  	bool use_nl = tlbi->non_leaf &&
+>> @@ -1012,8 +1017,13 @@ static void riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
+>>  	struct riscv_iommu_command cmd;
+>>  	unsigned int i;
+>>
+>> -	riscv_iommu_cmd_inval_vma(&cmd);
+>> -	riscv_iommu_cmd_inval_set_pscid(&cmd, pscid);
+>> +	if (gscid) {
+>> +		riscv_iommu_cmd_inval_gvma(&cmd);
+>> +		riscv_iommu_cmd_inval_set_gscid(&cmd, gscid);
+>> +	} else {
+>> +		riscv_iommu_cmd_inval_vma(&cmd);
+>> +		riscv_iommu_cmd_inval_set_pscid(&cmd, pscid);
+>> +	}
+>
+>As I understand it, the same choice is needed in
+>riscv_iommu_bond_unlink().
+>
+>The missing GVMA command does not break anything today, because every
+>caller of bond_unlink() runs iodir_update() just before it, and that
+>already sends the GVMA for the old GSCID. But depending on that
+>ordering seems fragile, and the comment in bond_unlink(), "invalidate
+>all cached entries for domain's PSCID", is no longer true now that we
+>have S2 domains.
+>
 
-I will drop this patch and keep advertising "a" because formally it is
-true - all "a" including amo instructions do work but rather slow. Also,
-not worth to complicate logic here for (so far) one very special SoC.
-For this SoC, we will compile user space with upfront knowledge of all
-hardware features.
+There is no functional issue with the current code, since
+iodir_update() already performs the required invalidation.
 
-Thanks, Vladimir
+That said, as this series adds S2 domain support,
+bond_unlink() should indeed be updated accordingly.
+Good catch.
+
+Thanks,
+Fangyu
+
+>The change, if you think it is needed, fits better in the last patch,
+>"iommu/riscv: Add IOTINVAL.GVMA invalidations". I am replying here
+>only because the code is very similar.
+>
+>Thanks,
+>Shuai
+>
 
 _______________________________________________
 linux-riscv mailing list
