@@ -2,59 +2,57 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEB1F606A31B
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 06:23:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0789E606A326
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 06:23:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BnueSzlN;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=ToyicpK/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XGnLBba7;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=uWLjDoct
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=f80gFqphZUlHuIfgGh3YOgchhMDSjRMCOP+4gWTwNNg=; b=BnueSzlNPQezoRfc0vd2SxHGbd
-	i5GGnDhHkClT3VsQAmt5IwrfevfFUWD6PgcMi/QZRArrMADczWJsVHCWsHKpH0rcI4c/VHVVL8bYU
-	9XUEwbvEU/P5EoVdprzZO9812IR8eZO1winjfmrTecLh4tyMst7rgkYWPEIH9CmoAg3t+GJVDM3n3
-	Wnb+duJeRBLfagUJf1qieL+VUoBa2fn09SzHIIiph0uZSCD6zGQKy2wNbKT+nLvRXgjjekBWxqxw/
-	+fpODJfAzOujQEwm6pIAhKQIzLqFgtgKDFAgiHitg6D4n5fXxZrmhxfJfIgm1LARuZ3Mll0VC+XX7
-	WuZZpCZQ==;
+	bh=OaDCnE28kcabAVUTDLFX4ha9SGqs3Kh+Yk35hHId6T0=; b=XGnLBba7p96R/ESpMzI2H6JjzK
+	MkYmjFOU+MJK0WUmK+bvzOGWwKfi8ANd9LbWFUgda51BhWzxSa2vsBMU+Zuews4HL2oUtgecrNESl
+	0KrFEWPxJglw0H3BI80Tsn9tzbCqK5FpDNzTcHBY9MR51zAkrsziDG6TpzBwQhoXkJ8o2z07/VBS8
+	ZxAyahvmaeMxKOOLXU8edcoWVMmHkcXDDc4ian/9hbwW2xPgzxTMY+wW2nemtf3s19nsY+SBlYw3U
+	o4/qvgCefkq+0vTNQPD1i55Zq+ROW81q6iRAG6Nm2nqrSjF8GCjxg4wdn3AaBuKIu8ArUyS8BRk/W
+	DbaKnjhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOUOh-00000004P7i-1AVW;
-	Wed, 04 Nov 2026 06:22:59 +0000
-Received: from smtpbgbr1.qq.com ([54.207.19.206])
+	id 1xOUOk-00000004P8b-25Cr;
+	Wed, 04 Nov 2026 06:23:02 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOUOd-00000004P6I-1kp9
+	id 1xOUOh-00000004P6N-2jvF
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Nov 2026 06:22:57 +0000
+	Wed, 04 Nov 2026 06:23:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1793773321;
-	bh=3e7+Hhln6FlsUG4lOrO8gQQ4QR4kAprqaH3c6bbIIdo=;
-	h=From:Subject:Date:Message-Id:MIME-Version:To;
-	b=ToyicpK/guk3tEy+bJgHjdB1GDC+doZ5C2iq99BFjXO5uJEeHAW2/ta+w1BslHPoZ
-	 VZfvmm++b73fWFH4ioiyO3UXAPsyeBV/yZic8ut7Ts9IW2DuJtkUjFLSBoGdnuS/Fz
-	 6DRREo414zlZBcE3ulMBtZHGgLyyPTfhS38HKdIg=
-X-QQ-mid: esmtpsz21t1793773319t077b6b8f
-X-QQ-Originating-IP: UbTdAw6IsnjA8fB7/tidvUEPpAu5a2tQesr5FK86Hv0=
+	s=mxsw2412; t=1793773326;
+	bh=RS8HQHUDLvu3L0nrb3s/fU2QFoH0d0vm0L4FG+93668=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=uWLjDoct0Drng1xi1gU7wQnUZnNCkP0hgpDMiPjjgobwqMYDTMAu5pw6+8CQk5DgB
+	 6TpjABOZwQSY5lLZgoUly0xMZBa/utPjalKBRejdf8HjTjvLcWCiKgCbiK84L3m2e0
+	 rPXJi6ehs7oiZu4Tv0ChYADJcSjQ7thWANfIpe/A=
+X-QQ-mid: zesmtpsz8t1793773324t7b13cf52
+X-QQ-Originating-IP: dr7aZKcoVFwVL1+V7P+P4KXa9jl1lrdr29Yc0oryszw=
 Received: from = ( [183.48.245.66])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 04 Nov 2026 14:21:56 +0800 (CST)
+	id ; Wed, 04 Nov 2026 14:22:01 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 14544746940952886182
+X-BIZMAIL-ID: 12024928077256599196
 EX-QQ-RecipientCnt: 15
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: [PATCH 0/2] spacemit: k3: Add support for BS01DCMA board
-Date: Wed, 04 Nov 2026 06:21:49 +0000
-Message-Id: <20261104-k3-bs01dcma-v1-0-794025247e4a@linux.spacemit.com>
+Date: Wed, 04 Nov 2026 06:21:50 +0000
+Subject: [PATCH 1/2] dt-bindings: riscv: spacemit: Add K3 BS01DCMA
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrA0kMaTgVcSFjqMdxSgZW4Tg3
- Rvr8i3+TyAUmQTqIkGkLwtvIcOUBeC7CxMpHrLBauuN0U4tlepFmwHXTjn/Gsl6dN4i5GKPNPL
- 5vzXtY/n0M+FxL+C6fiSwbdZvAAAA
-X-Change-ID: 20261104-k3-bs01dcma-467fe26c462c
+Message-Id: <20261104-k3-bs01dcma-v1-1-794025247e4a@linux.spacemit.com>
+References: <20261104-k3-bs01dcma-v1-0-794025247e4a@linux.spacemit.com>
+In-Reply-To: <20261104-k3-bs01dcma-v1-0-794025247e4a@linux.spacemit.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
  Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -64,39 +62,39 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=806;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=805;
  i=troy.mitchell@linux.spacemit.com; h=from:subject:message-id;
- bh=R+ytypgJjwtCuLK4OPXu2LlirewZmyB9gvazMxLCYrk=;
- b=owGbwMvMwCU2g/N9w09jE33G02pJDFmvzrNc+tZwb/O74n81zy1OOT6ZuJuZvTQm/5W2/hTu5
- 2vmxu207ihlYRDjYpAVU2TpfsCzrcAnyrZAoNAXZg4rE8gQBi5OAZjIvfMM/7SmPJh1736hT+7/
- C+HprtZF8ayPY56kOeQv2/37IK9U5W5GhluJc5bq6EzRPbTMRuZ3yNJve02Ng9QtHV85dRSHTO9
- dzgUA
+ bh=ghUSxoaLZNOHu0bC2sc85BOdFzkkpY7rTBR2ijIXN9s=;
+ b=owGbwMvMwCU2g/N9w09jE33G02pJDFmvzrOkpwVlnbM4/vUeF8PfiuOPbm8Ii78qo2rGe2qSx
+ oLDvVY/OkpZGMS4GGTFFFm6H/BsK/CJsi0QKPSFmcPKBDKEgYtTACaiy8Lw3+elvNzu0+yn7z7a
+ 8T+VtXEKa0/e2Sd6/V2XAv+6nd4YJ8vIcITn1d0FupuOVfmvPHfyl9W1T8ud7josD/r6zehuYma
+ GBTsA
 X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=openpgp;
  fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
 X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NM+HyBNiu6fq7Tr6EgpFWBvLxZmGjXG0kbzXva01l+3RrrtPSxRTIHvS
-	GqCNeVImgo3NeYS0h/A4bb/rzIWkmDNRjfozpBiD4UCn4oicYJv124x2iZl19q+v9Ug+LZD
-	Ae8ZrjPCkDyva+E4R1jWr2WWcwmFPsbzwJWZ4ZwANEP+GJPv86KhBQKLWfe4/bKr2AKoNF+
-	88k8yl42VhuLQkbvIVizJnsJ0k5huDqd7EdsU2GOXst5gfTx9gvnEs9sQi/klpEi2EguSq2
-	dK8iH5W6qdyJvls/llNlCd93vVEuBDAGhFJu/8GFoU19aMPxwPcdzL9CZbCRuyEPEusQdvR
-	fottSQ0Sr6jMK6a1yaUwW2JYL/OJu/E259PCH6qfxAycl6QQe6U2CY2tluu3LYxgfC0sK0G
-	RMc/NQ7h4HEaMBbf0SW8U6u3x2d8o/9HxCvTTqZMFkj7DivjXU8r03zSmNIv7NGeQ//dI7W
-	psgIH3ItMqDyS5aZhczC6phH8EtrdEVFeLXn7P5LSbsO3MgwmDdNGNsNZv6MT0OoopBxrJH
-	eUkiYW/fk4wo6N7S9hYkoRH1Rn7DV1LTsVBNmAxrT+Cqp1su9LvWvujUyKcy5pyTSIsHJxs
-	eJYrPMBwlXCuPnaWHN1c7bk9LAYT2/5lAA6DafDtAT8CkwhQ5XS+/5u4tmo18DdgDRsR3CE
-	P8ECqY75mWgrpBckjSLussF3su/nzlEyuDaRBUGISeJGyoeR3zviLI7bu9liReXFZWoMlZ0
-	+gFuSmXDnt4113rxwtKYltZxwKJTwyoBMJItZkyuv9suZOL8d9Qg8v9Z60CIBcnZizODfvU
-	RDhIosIMvumVIb6P1eysSXeTkVB2teHQsojZgvgTbA5QElZZO1Uaaf0WoBfkjycyjVfwpUJ
-	zQnobBcvYhMCtIXc7UHHfUchtX40n+OPd2PLU/sikmsE8I1wiRnNWegnxzDruo2DeXgg0v8
-	8f8+yzarWsbcLGO3b22uRxXj4k78eEH62NK6gmF578oVghxxaZCPGjGGj340aLeUHxxKlyI
-	U0W7a8NGb4g/kb64KUJ/+/VhZQ8C3MCf1p4gtJvlFpKL5faf4KkbIVy/lRNMkkHsMLbaCty
-	PcO7Y/+2GK6
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MBlb9jzPUvXQ4NoKWm7q6YaLzkeMPGqRd07xUFMx9LD54J0wXiOrysjx
+	gFSU7WZTBGYqZrmIMQEuHJILAVaSf9qY3/GMOq90UvFpdKPOUNCM3d3puMtM/Xyl7nfoQbq
+	JblE4yh6MeGrtpV0yyB0ZfX65QV85F2a9EZ7P7FHH5bT1m6ZfnxgQGyoLRyGYPrdUGqr0tF
+	kcgb+CxKLzxHcNBsoc2Fqy1XFmbMXCBHHxeaQ+2wqgk92w9wn/ssz2ycwII5AHh89+3ormF
+	5hDNo+S6j+RYvbqdWi5z9FtmFDg+IfoZ7a8nYedsW+pVUEfNhQeDZF3CgJf10VtRH0f2wmS
+	yRnJ7H6/nnfdnL5wY75xXvIl+fEjzg8UXizCfkuP1hGJmV24EqJTJaLEq8MNMAlZ3c9Zwdo
+	hjKbbG1WJ8kPKt/QEM2XUDuOuNtDdRQIEtm89AGWmm2MGXnxqdoW7lfCOMrcAvRqrDQuGa0
+	stSSpv8DtNzyYvrA8qR5FHUPsiV1FeXwMfqRoj179qk8cJTUcyriLSBm5RgLApfypN6lfRs
+	06gMj8yWUHYNdTIhsrbIQVeWs6vJEh/2hJ0qE+eGNkuIzWjpTWPwPvKAMz5SNsJQdYfSbBO
+	/pAuMzmoqYxGx/hOSUUNWoDp7SSYRDsHZgV1Y5ByehjvQbpiniKf16kCj9yV1Gq9BfGow5g
+	M8SW1eNO4S2sCZMyfdzXcnbhXnMzZs8c2T/o0CaelY40YaWHteZdyNb4cs+oN04S1rUCT7/
+	pBJdJ62dQ6gP1y7EFbFaXvw3cvTbezHrIlbuXzd6+TYxC3Rrd4PuQx4c8QeBzK0sKrSv8/W
+	bhDgwM4TsgIzrfTAYUfjUKhgMTZ9riJRv9ReE2dS0OjDHmzVRStm4O8kgZnTFgEpDbQJ0rl
+	H7mefLMNQ6DabwBVt1atC1ipxLXf3xqbgQmK7fJLmuFrQtLm7koDpR4yfKsSAIcbZ+pCqwb
+	A86A9oJzmiklmPXsT5mvV/h5s47IFM/s7k34BXx311Mvf+c9XVf3JvMqVSOtzYMbfGcmLJW
+	Z/nzFFqW0yW43j4fLrHk/5xKY+Tm0GMNR/ft88KO1fN0r/ULoXyTFAkB5nClmRM/+eHpan/
+	qZvmm0Jq5+hszLuTBYDHQWBEpiILlbMSmd+FbfNV2BXTCpEvrR69TKgRzJZNEz3/A==
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_222256_259258_757868F1 
-X-CRM114-Status: UNSURE (   5.81  )
+X-CRM114-CacheID: sfid-20261103_222300_492112_7131E9C3 
+X-CRM114-Status: UNSURE (   8.16  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -111,35 +109,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This patch series adds initial support for the SpacemiT K3 BS01DCMA
-board, which is equipped with a K3 SoC, 16 GiB of LPDDR5 memory, a P1
-PMIC, an EEPROM and QSPI NOR flash.
+BS01DCMA is a board based on the SpacemiT K3 SoC. Add its compatible
+with the K3 SoC fallback.
 
-Enable support for the serial console, EEPROM, PMIC and QSPI NOR flash.
-
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
-Troy Mitchell (2):
-      dt-bindings: riscv: spacemit: Add K3 BS01DCMA
-      riscv: dts: spacemit: Add K3 BS01DCMA support
+ Documentation/devicetree/bindings/riscv/spacemit.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
- .../devicetree/bindings/riscv/spacemit.yaml        |   1 +
- arch/riscv/boot/dts/spacemit/Makefile              |   1 +
- arch/riscv/boot/dts/spacemit/k3-bs01dcma.dts       | 266 +++++++++++++++++++++
- 3 files changed, 268 insertions(+)
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261104-k3-bs01dcma-467fe26c462c
+diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+index 4ee9c88984b4..5023093ca2eb 100644
+--- a/Documentation/devicetree/bindings/riscv/spacemit.yaml
++++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+@@ -35,6 +35,7 @@ properties:
+       - items:
+           - enum:
+               - deepcomputing,fml13v05
++              - spacemit,k3-bs01dcma
+               - spacemit,k3-pico-itx
+           - const: spacemit,k3
+       - items:
 
-Best regards,
---  
-Troy Mitchell <troy.mitchell@linux.spacemit.com>
+-- 
+2.56.0
 
 
 _______________________________________________
