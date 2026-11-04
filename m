@@ -2,97 +2,59 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEEBD606A33B
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 10:25:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF811606A31B
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 10:44:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0fWkl/Qm;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=R10bR+nG
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eBcb8dmd;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IAMT6IEp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=AM1O1gP+dA5DLY23/9B0ytjeHdAcVO/HPIldSo4v2ps=; b=0fWkl/QmhI+cAWE99Y6DzJE1ty
-	HK35g37+a94CL3GABg9sWnsEZDEFHYpp158B05FyGltoQPHi4INrX4yhQPzeTMUESREacFbJQPvGq
-	LBA86Y7kTcBGqaYhsl48Aieqj7Of59lZbR25RyRLETL3WaKF5zVg/+WJgA/Kn1fg3Yz6HNMEwRhUR
-	x2zQ3m0D+SsB2jXW55M7UNVXNM8JP0r800QzL7vqSk1Bfoo7qbSg0wOPVg5466dwtGs279NoJDzsC
-	k502ln+O0yh4UufOuRDiRqQj/LjXRJf1J+yJGm4woI1yHISiC/LupcLCaPnTicf04Uzt10fgjnqs8
-	9J4D+l2Q==;
+	bh=LDZhzDsNJ1SGAAw3LgDNvNGMLDh/oJDszPG+7CfXzcw=; b=eBcb8dmd5ZNzeVefdmni9V0hQv
+	Xs48Tg2Zx6uyjtlwIC5XqBrN/T0sVOaKqaNlEGCU6k4xjeccI3vxKrwc97KUWrng2UpH+9Ds5kYM2
+	7sprXdHDiG6GUHrP4Cyy7FhIiFpCTiRLveKZK2e7VJs8NVC7ef5atI/UpJqeaTjPRUbJ1ix/2OOZ9
+	HzhK2CPY+iJK9eNktQ8kvrlR0T/Gg3Ul9MpAE9SXBKMKEzftgFb8Diw1Gzux6sSxlLq0Kz6HDgay+
+	SyWGFqUvnlfV4xcQ3Ttzm8s/9iLUl/7e4QJ50yLfDXuKjO6poFsQvqH5GuQ0b56sLzOg8PAoYrvs3
+	U03KIENA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYBh-00000004zZt-1B2t;
-	Wed, 04 Nov 2026 10:25:49 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1xOYT9-000000051u6-2iYH;
+	Wed, 04 Nov 2026 10:43:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYBd-00000004zXG-2vjY;
-	Wed, 04 Nov 2026 10:25:47 +0000
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 60653200AD7;
-	Wed, 04 Nov 2026 11:25:41 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1793787941;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o3uO33BWTvRzGT589zK5XHXlVqQazzRdbRxGw4lkcXk=;
-	b=R10bR+nGpDOBHsBsgfY6x5gF6MVODYpe6zLWjOZvK+UTPbvF0HfqI/A/FRWV1xQ4rLOnJG
-	Hb8X0WX7j8MES5DZFlHTx+H0VDKdNkdnDXrwpBmZQD9uxqA2KqMQa+cD/tPkBFUbCD/bzy
-	HDEzMn4V9OjGUW4bx9vc1i1mW99gnJJv7Kker8hWZzv4E56jco3hpM2e6rpueAOWLuKM/c
-	hC7UWblK3ZcwnjcxAgxFp/foAklOa+fGZBqbfdfoPH3N4tWeIrqEcoIWLYNbphD/LSX+Y6
-	Cj5o9sYMg6E8rkMq1xVDrb3oQEqgDJt4gK6LDpJsPOTicIIrL87fbOnc7srrHg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1793787941;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o3uO33BWTvRzGT589zK5XHXlVqQazzRdbRxGw4lkcXk=;
-	b=aFCcuWhsp1Rz+FS39uH9Jep8WwzbEDt5X9Up5FrfhiHMupYvat/6ZsySEzPCJQbFFbrwdF
-	KxQfsflbd/FGbjgketDjDxiEn+2hXdq/QUXfdX/hn9MkcRlUk4K7KZQPX5inZV51ngDGxH
-	oIB7VXZOgAg4jv6zK11cAa1CH+MPVj8pg+Uf6/8qUbf5eMCW7rNfx49qebB3SqkOXX7wCK
-	u9AmNrsZPEEUK10aJK3NUbySExb7xvJ9jQPNOt1owma2lxC7CWI6AgDNp1UFTgKoXS0iiU
-	MOHCpL73RQg2QI3XWSMy8OMvGqtPnFpWcm8xM+tuBQynPUYBWfjXIlQnceVmUQ==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793787941; a=rsa-sha256;
-	cv=none;
-	b=W2SKAYeDEhEpB+KWH744MC/8Zua/10/EdN1knlfwc1zu3oHnUZNBLRDhvIToO9Czib2rc8
-	ttW6//vcBNO82+tOTuPweTyX/nRR4Z7AbC3GD6HS726LZbYk++LEDxksFPWHt9BHbnWpcK
-	OG+b2US90SeGVwPL6nQbqQWGLAdr9wssj3RIJH12VMFyi59Hyocz+TvK3UUS3TJdi4aTo6
-	rOBFxvK4R//wbiwbT556vl5gcqkF+t/7KkgN4E14J4r8OYUCcJa7eKz9jyp3oyB9AD4FBa
-	1rSsYoeu/4NZAATdwpGICbJiZk7+wqYyVkVOJBfhgH6VBVLUGxaHyUfOYokBsQ==
-Message-ID: <9afb8ddc8451afad4f7ff7b9a133dd8542d07205.camel@pengutronix.de>
-Subject: Re: [PATCH 1/3] hwspinlock: sun6i: Get the clock and the reset
- without names
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>, Wilken Gottwalt
-	 <wilken.gottwalt@posteo.net>, Bjorn Andersson <andersson@kernel.org>
-Cc: Baolin Wang <baolin.wang@linux.alibaba.com>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai	 <wens@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland	 <samuel@sholland.org>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt	 <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti	 <alex@ghiti.fr>, Andre Przywara
- <andre.przywara@arm.com>, Bastian Germann	 <bage@debian.org>,
- linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Wed, 04 Nov 2026 11:25:41 +0100
-In-Reply-To: <20260927025626.69614-2-tien.nguyenminh@embeddedlinux.blog>
-References: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
-	 <20260927025626.69614-2-tien.nguyenminh@embeddedlinux.blog>
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	id 1xOYT8-000000051ti-2AQC
+	for linux-riscv@lists.infradead.org;
+	Wed, 04 Nov 2026 10:43:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6EC2C60DA7;
+	Wed,  4 Nov 2026 10:43:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97CC71F000C1;
+	Wed,  4 Nov 2026 10:43:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793789029;
+	bh=4+EcRDWVmPDx1ZpyH2GACpj8rgMH2E771rpsXUmTySI=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=IAMT6IEpl/QMyUK0smoW4bFmv3nLyQ7xt99aBDZLcTYCFItn0RTUnhrfLwFNuNQUT
+	 P4ebdCuXDpC+CwFG7aTmsIYpJ6BDwcxQKB3mdjsVkWxrcwWacToq65U+rswtrWs4dJ
+	 3jSTCBJK4pOZRinRwH54VZgPcyrssoF/ynNmiy5XRmIEu3VynlgUJNFb8bkotuZebX
+	 CiO4ftWaoQZ5V21RYmfu+jsPz5qKyGpoKyxR7wSHjzLNCywv90YP+u451pW+g1cqYH
+	 m7ET7EzTzhtXO71f8/wRTSSqoVEz88PlVY70Rl02YtpdVgErR30z1Bp9gF695XOLkJ
+	 dhkxW5T9/J8lQ==
+Content-Type: multipart/mixed; boundary="===============5210111555606903047=="
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_022545_894354_AB6D8FB8 
-X-CRM114-Status: GOOD (  17.14  )
-X-Spam-Score: -2.1 (--)
+Message-Id: <6e5775fb342f79e0404d11547d954fc855dd7bfcfafac5d43184c966fc3ca290@mail.kernel.org>
+In-Reply-To: <20261104100411.997-4-cp0613@linux.alibaba.com>
+References: <20261104100411.997-4-cp0613@linux.alibaba.com>
+Subject: Re: [PATCH v2 bpf-next 3/3] selftests/bpf: Add a runtime test for private stack and stack arguments
+From: bot+bpf-ci@kernel.org
+To: cp0613@linux.alibaba.com,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,memxor@gmail.com,bjorn@kernel.org,puranjay@kernel.org
+Cc: eddyz87@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,pulehui@huawei.com,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,luke.r.nels@gmail.com,xi.wang@gmail.com,shuah@kernel.org,rgbi3307@gmail.com,guoren@kernel.org,bpf@vger.kernel.org,linux-riscv@lists.infradead.org,linux-kselftest@vger.kernel.org,linux-kernel@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Wed,  4 Nov 2026 10:43:48 +0000 (UTC)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,61 +64,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On So, 2026-09-27 at 09:56 +0700, Nguyen Minh Tien wrote:
-> The driver looks up its clock and reset by the name "ahb", but the
-> binding doesn't define clock-names or reset-names, so a node that
-> follows the binding fails to probe:
-> 
->   sun6i_hwspinlock 3005000.hwlock: unable to get AHB clock (-2)
-> 
-> There is only one of each, so get them without a name. That is what
-> was asked for when the names were added to an A64 node, and nodes that
-> do set "ahb" keep working. For the reset, call the explicit
-> devm_reset_control_get_exclusive(), which devm_reset_control_get()
-> only wraps.
-> 
-> Fixes: 3c881e05c814 ("hwspinlock: add sun6i hardware spinlock support")
-> Link: https://lore.kernel.org/f720eaf9-01d0-0e57-f6bf-9aade00aafb8@linaro.org
-> Signed-off-by: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>
-> ---
->  drivers/hwspinlock/sun6i_hwspinlock.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/hwspinlock/sun6i_hwspinlock.c b/drivers/hwspinlock/sun6i_hwspinlock.c
-> index c2d3145880..e7cc121310 100644
-> --- a/drivers/hwspinlock/sun6i_hwspinlock.c
-> +++ b/drivers/hwspinlock/sun6i_hwspinlock.c
-> @@ -104,14 +104,14 @@ static int sun6i_hwspinlock_probe(struct platform_device *pdev)
->  	if (!priv)
->  		return -ENOMEM;
->  
-> -	priv->ahb_clk = devm_clk_get(&pdev->dev, "ahb");
-> +	priv->ahb_clk = devm_clk_get(&pdev->dev, NULL);
->  	if (IS_ERR(priv->ahb_clk)) {
->  		err = PTR_ERR(priv->ahb_clk);
->  		dev_err(&pdev->dev, "unable to get AHB clock (%d)\n", err);
->  		return err;
->  	}
->  
-> -	priv->reset = devm_reset_control_get(&pdev->dev, "ahb");
-> +	priv->reset = devm_reset_control_get_exclusive(&pdev->dev, NULL);
+--===============5210111555606903047==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+> selftests/bpf: Add a runtime test for private stack and stack arguments
 
-regards
-Philipp
+TL;DR: Commit message only: it may be inaccurate in saying fentry/fexit tests
+are left at NO_PRIV_STACK, since tracing programs that recurse are eligible
+for a private stack; the review suggests rewording.
+
+>     selftests/bpf: Add a runtime test for private stack and stack arguments
+>
+>     No existing test reaches the combination. bpf_enable_priv_stack() grants
+>     an adaptive private stack only to kprobe, tracepoint, perf_event and
+>     raw_tracepoint programs, and to tracing, lsm and struct_ops ones that
+>     request it or recurse. The stack-argument tests run from tc, socket,
+>     syscall and fentry/fexit, all left at NO_PRIV_STACK; the private-stack
+>     tests call subprograms of up to three arguments, which stay in
+>     registers. Neither pairs a private stack with outgoing stack arguments,
+>     where the caller writes the argument area relative to SP and the callee
+>     reads it relative to the frame pointer.
+>
+>     Add a runtime test for that combination. A static ten-argument callee
+>     writes through a pointer into the caller frame and keeps a 128-byte
+>     volatile local array, so its own depth crosses the 64-byte threshold at
+>     which the verifier grants a subprog the adaptive private stack. The same
+>     workload runs from a raw tracepoint, which gets a private stack, and
+>     from tc, which does not; the test pins itself to each allowed CPU in
+>     turn and checks the CPU the program reported.
+>
+>     A runtime result cannot show where the three stack areas landed, so the
+>     riscv64 __jited patterns pin the layout: the caller's kernel frame is 48
+>     bytes against the control group's 176 and the callee's 64 against 208,
+>     the 128 and 144 byte differences being exactly the BPF stack that moved
+>     to the per-CPU area. Both groups write the two outgoing arguments at
+>     0x0(sp) and 0x8(sp) and the callee reads them back at 0x0(s0) and
+>     0x8(s0), so the outgoing area, the saved registers and the BPF stack
+>     occupy disjoint ranges. None of the patterns assert the per-CPU lookup,
+>     which is only emitted on CONFIG_SMP, so one set matches SMP and UP
+>     alike.
+>
+>     The zero-depth struct_ops program is a control case for the kernel
+>     stack path, not a private-stack allocation: the verifier grants the
+>     adaptive private stack only once a subprog's stack depth, rounded up to
+>     the JIT's 16-byte granularity, reaches 64 bytes.
+>
+>     Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+
+The commit message says the stack-argument tests run from "tc, socket,
+syscall and fentry/fexit, all left at NO_PRIV_STACK".  Is that accurate
+for fentry/fexit?
+
+Those are BPF_PROG_TYPE_TRACING programs, and bpf_enable_priv_stack() does:
+
+    case BPF_PROG_TYPE_TRACING:
+    case BPF_PROG_TYPE_LSM:
+    case BPF_PROG_TYPE_STRUCT_OPS:
+        if (prog->aux->priv_stack_requested || bpf_prog_check_recur(prog))
+            return PRIV_STACK_ADAPTIVE;
+
+bpf_prog_check_recur() returns true for TRACING unless expected_attach_type
+is BPF_TRACE_ITER, so the fentry/fexit tracers in
+progs/tracing_stack_arg_tailcall_tracer.c and
+progs/tracing_struct_int128_tracer.c get PRIV_STACK_ADAPTIVE at the program
+level.  That is the "tracing ... ones that ... recurse" case named in the
+preceding sentence.
+
+The real reasons those tracers never pair a private stack with stack
+arguments seem to be different.  check_max_stack_depth_subprog() only gives
+a subprog PRIV_STACK_ADAPTIVE when its rounded depth reaches
+BPF_PRIV_STACK_MIN_SIZE (64), and these programs only copy a few ctx[]
+slots into globals.  They also make no outgoing stack-argument calls; the
+stack arguments belong to the traced syscall-program target.
+
+Could the sentence say that the fentry/fexit tracers are eligible for a
+private stack, but stay below the 64-byte threshold and make no
+stack-argument calls?
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/41813628482
+--===============5210111555606903047==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5210111555606903047==--
+
