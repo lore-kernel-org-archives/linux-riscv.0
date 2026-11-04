@@ -2,81 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED7CB606A31B
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 06:46:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F19F9606D809
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 07:05:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=chZy2SiR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HBVkx7Xx;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AsX9geCN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Message-Id:MIME-Version:Subject:Date
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=dG7M+ax0eCEexB+J/kgDkPU/iLbSJc98cwGjUlW2K00=; b=chZy2SiRlEXJphStsHoMMzCDYx
-	t3oVd7w9+fAhqRIrbCnOjLX+oy9yd3mF7MPEQjeZozuu5jQusNPNjCQxlg1S4uRgiE7DTbSUU2Wnt
-	OlE0jU545IveL0R0o4aU0573CPePRtL9Ak641PF2C+PRvmdfgtBDo0seChanNtFUzdTa0mcZCnXQ4
-	cq/3fd4/kYc564kND6B+XetcTRLGtWgnBjI+6oqpEMhnRjRwaaKswsHghw4Vg7HhPw4IpQYIBjeo6
-	XeUNyVX4mkRe7Cf+TRxXY9Ly2Di9chhZMNzsTHo59SASE16Zq1cRIko4v68ard70U/TXR6D2j8UD8
-	SJhhX7Sw==;
+	bh=GQ/+AZrjKBLfUUKMK42CZBz+pmuhGM56LHbVBh3FjUU=; b=HBVkx7Xx18K01uhqFymyt3+4Nu
+	cvSWJbrFQU15a6ZGEIuUfAM+y2loSWzkJMO8OhDzzRqaqEPB1qW7SuWCiJfqg4y1hCZ6ggPd0SryJ
+	Rgq/j84Hnk2ES1gN0GZmjrAMGo1K+wEWn0AYbI+uFYYuBW8subT9u7mt0e6CwS7SkPZposmnAc4ni
+	CUvt79Toc/hsH/QqdGOkd+y062s3E+BSnrJFPoXxDJl8ZM5Ulk972NsrHJOSiv/50JPfYPaZFFXyI
+	nRagpXLBmF0GGrcPn5snhyM/oEa3OtlJUW5UxHFlwI/vWxES19MACzz4vrKDcKy7WCGbtTzpHE/Th
+	j9LahzEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOUl6-00000004R72-1XzP;
-	Wed, 04 Nov 2026 06:46:08 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.35])
+	id 1xOV4D-00000004SXR-0OFE;
+	Wed, 04 Nov 2026 07:05:53 +0000
+Received: from out-82.mta1.migadu.com ([95.215.58.82] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOUl3-00000004R6H-1PeK;
-	Wed, 04 Nov 2026 06:46:06 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4jKGDJ0s8Cz8Xrrf;
-	Wed, 04 Nov 2026 14:45:52 +0800 (CST)
-Received: from szxlzmapp04.zte.com.cn ([10.5.231.166])
-	by mse-fl2.zte.com.cn with SMTP id 6A46jiZE066518;
-	Wed, 4 Nov 2026 14:45:44 +0800 (+08)
-	(envelope-from gong.shuai@sanechips.com.cn)
-Received: from ubuntu-35-gs (unknown [10.230.214.35])
-	by smtp (Zmail) with SMTP;
-	Wed, 4 Nov 2026 14:45:46 +0800
-X-Zmail-TransId: 3e816aead493029-bd580
-X-Zmail-LocalSMTP: 1
-X-Zmail-RealSender: gong.shuai@sanechips.com.cn
-From: Gong Shuai <gong.shuai@sanechips.com.cn>
-To: fangyu.yu@linux.alibaba.com
-Cc: ajones@ventanamicro.com, alex@ghiti.fr, andrew.jones@linux.dev,
-        anup@brainfault.org, aou@eecs.berkeley.edu, atish.patra@linux.dev,
-        baolu.lu@linux.intel.com, gong.shuai@sanechips.com.cn,
-        guoren@kernel.org, iommu@lists.linux.dev, jgg@nvidia.com, jgg@ziepe.ca,
-        joerg.roedel@amd.com, joro@8bytes.org, jroedel@suse.de,
-        kevin.tian@intel.com, kvm-riscv@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-        palmer@dabbelt.com, pjw@kernel.org, robin.murphy@arm.com,
-        skhawaja@google.com, tanchi25@mails.ucas.ac.cn, tjeznach@rivosinc.com,
-        tomasz.jeznach@linux.dev, vasant.hegde@amd.com, will@kernel.org,
-        zong.li@sifive.com
-Subject: Re: [PATCH v7 06/10] RISC-V: KVM: Enable KVM_VFIO interfaces on RISC-V arch
-Date: Wed,  4 Nov 2026 14:45:40 +0800
-Message-ID: <20261104064540.115560-1-gong.shuai@sanechips.com.cn>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261103120236.53474-7-fangyu.yu@linux.alibaba.com>
-References: <20261103120236.53474-7-fangyu.yu@linux.alibaba.com>
+	id 1xOV49-00000004SWc-24Bm
+	for linux-riscv@lists.infradead.org;
+	Wed, 04 Nov 2026 07:05:52 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=rSnU8lJu7f/t4TTjB5ud1DlUs3JtaUJ65UuR/fs2+h8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1793775947; v=1; x=1794380747;
+ b=AsX9geCNDR7EPS7ICq2wQRuHqBdiMM04HJ0Z50ez3gs9n3fsl3AvJBTlbJ2yaPqriMoHqV/+
+ gghE309eJsfZjsim1i8kAkvycJkYbjUibM0lYyuq2GeZNF5j3xLDeBbuvwYSewzyH3Rcx9EUBM9
+ CvOccltcEoZus396viEG4XSY=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by mta11.migadu.com with ESMTPS id 5f8c3ce56e6e10fc;
+	Wed, 04 Nov 2026 07:05:47 +0000
+X-Mizu-Trace-ID: 5f8c3ce56e6e10fc
+X-Migadu-Flow: FLOW_OUT
+From: Troy Mitchell <troy.mitchell@linux.dev>
+Date: Wed, 04 Nov 2026 07:05:40 +0000
+Subject: [PATCH v5] riscv: disable local interrupts and stop other CPUs
+ before reboot/shutdown
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
-X-MAIL: mse-fl2.zte.com.cn 6A46jiZE066518
-X-TLS: YES
-X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
-X-SOURCE-IP: 10.5.228.133 unknown Wed, 04 Nov 2026 14:45:52 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6AEAD4A0.000/4jKGDJ0s8Cz8Xrrf
+Message-Id: <20261104-v7-0-rc1-rv-dis-int-before-restart-v5-1-956ec09c900d@linux.dev>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/63RTWrDMBAF4KsErTtBv1bTVe9RspDGo1pQW0FSR
+ Urw3SvaQkxXLnQ1vM33HsyNFcqRCns63FimFktMSw/m4cBwcssrQRx7ZpLLgSshoFngkFFAbjD
+ GAnGp4CmkTJCpVJcrGK/ISKe9FifWoSmWmvLHV0cT/bz8iWsCBHjUg9fKCHT4/BaX9+txpMbOn
+ W9yS9pdpOwkJ8RHE7y3Ifwm1YZUfBepOmkcN9YGHIUafshycUhzrEdM87et7/aJ75uru62l93r
+ gqF2g7dy1myGnGeqUyd2f9Q/2un4CZIiKIiACAAA=
+X-Change-ID: 20260311-v7-0-rc1-rv-dis-int-before-restart-5b3e52a4b419
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3853;
+ i=troy.mitchell@linux.dev; h=from:subject:message-id;
+ bh=rSnU8lJu7f/t4TTjB5ud1DlUs3JtaUJ65UuR/fs2+h8=;
+ b=owGbwMvMwCU2g/N9w09jE33G02pJDFmvbrpYVG79FSj093Ts1y/71zva7PD+fC1bkHfj7fc7v
+ rRPmaO8uaOUhUGMi0FWTJGl+wHPtgKfKNsCgUJfmDmsTCBDGLg4BWAiTPoMv9lK7+8ozDvmccSn
+ 7KxFt/h7249lWQzXzuxWUxIoaLL31WX4H3bkfpp2+2uFW5LiHxb/fnWrSNT4xsFzPB28xTu/cfX
+ tZwAA
+X-Developer-Key: i=troy.mitchell@linux.dev; a=openpgp;
+ fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_224605_543481_41EFDAEC 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261103_230549_817286_C86D64B3 
+X-CRM114-Status: GOOD (  12.98  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,6 +80,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Troy Mitchell <troy.mitchell@linux.dev>, linux-kernel@vger.kernel.org, Troy Mitchell <troy.mitchell@linux.spacemit.com>, Jisheng Zhang <jszhang@kernel.org>, Yixun Lan <dlan@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, Aurelien Jarno <aurelien@aurel32.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -96,44 +91,118 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Fangyu,
+Currently, the RISC-V implementation of machine_restart(), machine_halt(),
+and machine_power_off() invokes the kernel teardown chains (e.g.,
+do_kernel_restart()) with local interrupts enabled and other CPUs still
+running.
 
-> From: Tomasz Jeznach <tjeznach@rivosinc.com>
-> 
-> Enable KVM/VFIO support on RISC-V architecture.
-> 
-> Signed-off-by: Tomasz Jeznach <tjeznach@rivosinc.com>
-> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
-> ---
->  arch/riscv/kvm/Kconfig | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-> index f7e4d0f9b156..13552cfc2cd3 100644
-> --- a/arch/riscv/kvm/Kconfig
-> +++ b/arch/riscv/kvm/Kconfig
-> @@ -28,8 +28,10 @@ config KVM
->  	select KVM_GENERIC_HARDWARE_ENABLING
->  	select KVM_GENERIC_PRE_FAULT_MEMORY
->  	select VIRT_XFER_TO_GUEST_WORK
-> +	select KVM_VFIO
->  	select SCHED_INFO
->  	select GUEST_PERF_EVENTS if PERF_EVENTS
-> +	select SRCU
+This implementation fails to provide a deterministic execution environment
+for registered handlers in the restart or power-off notifier chains. These
+chains are intended to be executed in a strict atomic and single-threaded
+context.
 
-This option is now meaningless, please remove it.
-See:
-https://lore.kernel.org/linux-riscv/20230105003813.1770367-5-paulmck@kernel.org/
+Specifically, under CONFIG_PREEMPT_RCU, rcu_read_lock() does not increment
+the preempt_count. If local interrupts remain enabled, the environment
+is not guaranteed to be atomic. This can lead to a context misidentification
+within generic kernel teardown code, causing it to incorrectly enter
+non-atomic paths (such as attempting to acquire sleeping locks), which
+results in fatal "scheduling while atomic" splats or system hangs.
 
-Thanks,
-Shuai
+Additionally, stopping other CPUs ensures the primary CPU has exclusive
+access to the hardware state during the final teardown phase, preventing
+unpredictable interference from other active cores.
 
->  	help
->  	  Support hosting virtualized guest machines.
->  
-> -- 
-> 2.50.1
+Align RISC-V with other major architectures by disabling local interrupts
+and stopping other CPUs at the beginning of the shutdown sequences. This
+guarantees the architectural expectations of the kernel's restart and
+power-off handlers are met.
+
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
+Tested-by: Aurelien Jarno <aurelien@aurel32.net>
+Tested-by: Anand Moon <linux.amoon@gmail.com>
+Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
+---
+Changes in v5:
+- Rebase onto v7.4-rc1.
+- Add Jisheng's Reviewed-by tag.
+- Link to v4: https://patch.msgid.link/20260907-v7-0-rc1-rv-dis-int-before-restart-v4-1-42bb460c4afe@linux.dev
+
+Changes in v4:
+- Rebase onto v7.3-rc1.
+- Link to v3: https://lore.kernel.org/r/20260330-v7-0-rc1-rv-dis-int-before-restart-v3-1-5a0577fcd136@linux.spacemit.com
+
+Changes in v3:
+- add Aurelien's tag
+- Link to v2: https://lore.kernel.org/all/20260317-v7-0-rc1-rv-dis-int-before-restart-v2-1-0ecc85fbb7ff@linux.dev/
+
+Changes in v2:
+- expand the fix to cover machine_halt() and machine_power_off() for
+  architectural consistency.
+- update commit message
+- Link to v1: https://lore.kernel.org/r/20260311-v7-0-rc1-rv-dis-int-before-restart-v1-1-bc46b4351cac@linux.dev
+
+To: Paul Walmsley <pjw@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+To: Albert Ou <aou@eecs.berkeley.edu>
+To: Alexandre Ghiti <alex@ghiti.fr>
+To: Yixun Lan <dlan@kernel.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: spacemit@lists.linux.dev
+---
+ arch/riscv/kernel/reset.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/arch/riscv/kernel/reset.c b/arch/riscv/kernel/reset.c
+index 14eb08a6db85..ec84e3c94a3a 100644
+--- a/arch/riscv/kernel/reset.c
++++ b/arch/riscv/kernel/reset.c
+@@ -6,6 +6,7 @@
+ #include <linux/efi.h>
+ #include <linux/reboot.h>
+ #include <linux/pm.h>
++#include <linux/smp.h>
+ 
+ static void __noreturn default_power_off(void)
+ {
+@@ -18,6 +19,9 @@ EXPORT_SYMBOL(pm_power_off);
+ 
+ void machine_restart(char *cmd)
+ {
++	local_irq_disable();
++	smp_send_stop();
++
+ 	/*
+ 	 * UpdateCapsule() depends on the system being reset via ResetSystem().
+ 	 */
+@@ -30,12 +34,18 @@ void machine_restart(char *cmd)
+ 
+ void machine_halt(void)
+ {
++	local_irq_disable();
++	smp_send_stop();
++
+ 	do_kernel_power_off();
+ 	default_power_off();
+ }
+ 
+ void machine_power_off(void)
+ {
++	local_irq_disable();
++	smp_send_stop();
++
+ 	do_kernel_power_off();
+ 	default_power_off();
+ }
+
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20260311-v7-0-rc1-rv-dis-int-before-restart-5b3e52a4b419
+
+Best regards,
+--  
+Troy Mitchell <troy.mitchell@linux.dev>
 
 
 _______________________________________________
