@@ -2,59 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF811606A31B
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 10:44:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C4BA606A331
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 10:44:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eBcb8dmd;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IAMT6IEp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CfbcB+4G;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=aVwRKbt/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=LDZhzDsNJ1SGAAw3LgDNvNGMLDh/oJDszPG+7CfXzcw=; b=eBcb8dmd5ZNzeVefdmni9V0hQv
-	Xs48Tg2Zx6uyjtlwIC5XqBrN/T0sVOaKqaNlEGCU6k4xjeccI3vxKrwc97KUWrng2UpH+9Ds5kYM2
-	7sprXdHDiG6GUHrP4Cyy7FhIiFpCTiRLveKZK2e7VJs8NVC7ef5atI/UpJqeaTjPRUbJ1ix/2OOZ9
-	HzhK2CPY+iJK9eNktQ8kvrlR0T/Gg3Ul9MpAE9SXBKMKEzftgFb8Diw1Gzux6sSxlLq0Kz6HDgay+
-	SyWGFqUvnlfV4xcQ3Ttzm8s/9iLUl/7e4QJ50yLfDXuKjO6poFsQvqH5GuQ0b56sLzOg8PAoYrvs3
-	U03KIENA==;
+	bh=Eza8AcThRhSmfFp2okZlF7eAhi2KmQRppkXA5iCmhDk=; b=CfbcB+4GV8O0hywrzenRqFAmKM
+	2utaM/VYn0bY+Zk/kJgjQ3j4orw1uLpLU3bV7NDf5iH2JEKhyohweJPYmzDwh8vBLw+bJ9lV9j2H3
+	Xs6ScoBSZqHwrjCxU/wpaDp8nMCsDZ/srKjE4/mypMajwdQWV34cx9ICvHN1gTsi8FdZJUxtT/ZoY
+	HYx93daQbtVoqxUXkZFHierjvzau359NU5eBjI5TrdiVjo5bP+0t0yT7qM/tV1HMFeylhkq0A7mKG
+	oFlkSirLCmeEtqsImeoxpDXmzLovAepcNe+ZmltFyKFs67JRtL2Tk4rFaT/i1vYfLLnRarC6EZioM
+	GSjRRqaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYT9-000000051u6-2iYH;
-	Wed, 04 Nov 2026 10:43:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xOYU1-00000005240-0Qvp;
+	Wed, 04 Nov 2026 10:44:45 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYT8-000000051ti-2AQC
+	id 1xOYTy-0000000521g-1L7w
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Nov 2026 10:43:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6EC2C60DA7;
-	Wed,  4 Nov 2026 10:43:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97CC71F000C1;
-	Wed,  4 Nov 2026 10:43:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793789029;
-	bh=4+EcRDWVmPDx1ZpyH2GACpj8rgMH2E771rpsXUmTySI=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=IAMT6IEpl/QMyUK0smoW4bFmv3nLyQ7xt99aBDZLcTYCFItn0RTUnhrfLwFNuNQUT
-	 P4ebdCuXDpC+CwFG7aTmsIYpJ6BDwcxQKB3mdjsVkWxrcwWacToq65U+rswtrWs4dJ
-	 3jSTCBJK4pOZRinRwH54VZgPcyrssoF/ynNmiy5XRmIEu3VynlgUJNFb8bkotuZebX
-	 CiO4ftWaoQZ5V21RYmfu+jsPz5qKyGpoKyxR7wSHjzLNCywv90YP+u451pW+g1cqYH
-	 m7ET7EzTzhtXO71f8/wRTSSqoVEz88PlVY70Rl02YtpdVgErR30z1Bp9gF695XOLkJ
-	 dhkxW5T9/J8lQ==
-Content-Type: multipart/mixed; boundary="===============5210111555606903047=="
+	Wed, 04 Nov 2026 10:44:44 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261104104439euoutp0154511d7a876c0c5fc2cddf97b372d328~k0anb0J5_2392423924euoutp01X
+	for <linux-riscv@lists.infradead.org>; Wed,  4 Nov 2026 10:44:39 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261104104439euoutp0154511d7a876c0c5fc2cddf97b372d328~k0anb0J5_2392423924euoutp01X
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1793789079;
+	bh=QCti1+cjG3WmeJe83h4JqyxWGyupjY6tSFq+NOeohc4=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=aVwRKbt/eCuT/LLi+iS2q2MvTjPe8+YgOc5ZiYaPi5lajxwrALZ6sLsgnNobEEc++
+	 45fJxHdrSWbpDIfoAOppkPHqPK9OX5RhrPSo2To2U72qfabgmLUhzzuJukiuSxo4ah
+	 p2v6a4XYQc+oJlIi0Am/8en6Qm+8DVdu3JVbZjN4=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261104104438eucas1p1d6a04d93c57861bfd221971b6df5ce0b~k0anNqHe-0214602146eucas1p1Q;
+	Wed,  4 Nov 2026 10:44:38 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261104104437eusmtip1b1ace1fd24a647c7c83a0ed6c768be5b~k0amZBb451927419274eusmtip1F;
+	Wed,  4 Nov 2026 10:44:37 +0000 (GMT)
+Message-ID: <29cfb3a7-81c2-4c52-913b-cf72e19ff0d8@samsung.com>
+Date: Wed, 4 Nov 2026 11:44:37 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <6e5775fb342f79e0404d11547d954fc855dd7bfcfafac5d43184c966fc3ca290@mail.kernel.org>
-In-Reply-To: <20261104100411.997-4-cp0613@linux.alibaba.com>
-References: <20261104100411.997-4-cp0613@linux.alibaba.com>
-Subject: Re: [PATCH v2 bpf-next 3/3] selftests/bpf: Add a runtime test for private stack and stack arguments
-From: bot+bpf-ci@kernel.org
-To: cp0613@linux.alibaba.com,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,memxor@gmail.com,bjorn@kernel.org,puranjay@kernel.org
-Cc: eddyz87@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,pulehui@huawei.com,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,luke.r.nels@gmail.com,xi.wang@gmail.com,shuah@kernel.org,rgbi3307@gmail.com,guoren@kernel.org,bpf@vger.kernel.org,linux-riscv@lists.infradead.org,linux-kselftest@vger.kernel.org,linux-kernel@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Wed,  4 Nov 2026 10:43:48 +0000 (UTC)
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v3 2/2] of: reserved_mem: allocate and map the
+ reserved_mem array early
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-mm@kvack.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Mike Rapoport <rppt@kernel.org>, Rob Herring
+	<robh@kernel.org>, Saravana Kannan <saravanak@kernel.org>, Oreoluwa
+	Babatunde <oreoluwa.babatunde@oss.qualcomm.com>, Wandun
+	<chenwandun1@gmail.com>, Andrew Morton <akpm@linux-foundation.org>,
+	linux-riscv <linux-riscv@lists.infradead.org>
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <CAMuHMdV2ET0Y_=m3LHmL12VNhqK7tBKod0kph6GdZ7Q8XXhP8A@mail.gmail.com>
+X-CMS-MailID: 20261104104438eucas1p1d6a04d93c57861bfd221971b6df5ce0b
+X-Msg-Generator: CA
+X-RootMTR: 20261015082334eucas1p2a3bbf3650f279abbd39d05d63e35aba6
+X-EPHeader: CA
+X-CMS-RootMailID: 20261015082334eucas1p2a3bbf3650f279abbd39d05d63e35aba6
+References: <CGME20261015082334eucas1p2a3bbf3650f279abbd39d05d63e35aba6@eucas1p2.samsung.com>
+	<20261015082315.56876-1-m.szyprowski@samsung.com>
+	<20261015082315.56876-3-m.szyprowski@samsung.com>
+	<CAMuHMdXcM9yvwLBSi-aYRinG3omhu5aoeNVYynfFQsnDDWR-Hw@mail.gmail.com>
+	<b71ac175-fba5-4f61-bbdb-0b98dec9ccee@samsung.com>
+	<CAMuHMdV2ET0Y_=m3LHmL12VNhqK7tBKod0kph6GdZ7Q8XXhP8A@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261104_024442_622430_4F8FD850 
+X-CRM114-Status: GOOD (  21.33  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,109 +89,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============5210111555606903047==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-
-> selftests/bpf: Add a runtime test for private stack and stack arguments
-
-TL;DR: Commit message only: it may be inaccurate in saying fentry/fexit tests
-are left at NO_PRIV_STACK, since tracing programs that recurse are eligible
-for a private stack; the review suggests rewording.
-
->     selftests/bpf: Add a runtime test for private stack and stack arguments
->
->     No existing test reaches the combination. bpf_enable_priv_stack() grants
->     an adaptive private stack only to kprobe, tracepoint, perf_event and
->     raw_tracepoint programs, and to tracing, lsm and struct_ops ones that
->     request it or recurse. The stack-argument tests run from tc, socket,
->     syscall and fentry/fexit, all left at NO_PRIV_STACK; the private-stack
->     tests call subprograms of up to three arguments, which stay in
->     registers. Neither pairs a private stack with outgoing stack arguments,
->     where the caller writes the argument area relative to SP and the callee
->     reads it relative to the frame pointer.
->
->     Add a runtime test for that combination. A static ten-argument callee
->     writes through a pointer into the caller frame and keeps a 128-byte
->     volatile local array, so its own depth crosses the 64-byte threshold at
->     which the verifier grants a subprog the adaptive private stack. The same
->     workload runs from a raw tracepoint, which gets a private stack, and
->     from tc, which does not; the test pins itself to each allowed CPU in
->     turn and checks the CPU the program reported.
->
->     A runtime result cannot show where the three stack areas landed, so the
->     riscv64 __jited patterns pin the layout: the caller's kernel frame is 48
->     bytes against the control group's 176 and the callee's 64 against 208,
->     the 128 and 144 byte differences being exactly the BPF stack that moved
->     to the per-CPU area. Both groups write the two outgoing arguments at
->     0x0(sp) and 0x8(sp) and the callee reads them back at 0x0(s0) and
->     0x8(s0), so the outgoing area, the saved registers and the BPF stack
->     occupy disjoint ranges. None of the patterns assert the per-CPU lookup,
->     which is only emitted on CONFIG_SMP, so one set matches SMP and UP
->     alike.
->
->     The zero-depth struct_ops program is a control case for the kernel
->     stack path, not a private-stack allocation: the verifier grants the
->     adaptive private stack only once a subprog's stack depth, rounded up to
->     the JIT's 16-byte granularity, reaches 64 bytes.
->
->     Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
-
-The commit message says the stack-argument tests run from "tc, socket,
-syscall and fentry/fexit, all left at NO_PRIV_STACK".  Is that accurate
-for fentry/fexit?
-
-Those are BPF_PROG_TYPE_TRACING programs, and bpf_enable_priv_stack() does:
-
-    case BPF_PROG_TYPE_TRACING:
-    case BPF_PROG_TYPE_LSM:
-    case BPF_PROG_TYPE_STRUCT_OPS:
-        if (prog->aux->priv_stack_requested || bpf_prog_check_recur(prog))
-            return PRIV_STACK_ADAPTIVE;
-
-bpf_prog_check_recur() returns true for TRACING unless expected_attach_type
-is BPF_TRACE_ITER, so the fentry/fexit tracers in
-progs/tracing_stack_arg_tailcall_tracer.c and
-progs/tracing_struct_int128_tracer.c get PRIV_STACK_ADAPTIVE at the program
-level.  That is the "tracing ... ones that ... recurse" case named in the
-preceding sentence.
-
-The real reasons those tracers never pair a private stack with stack
-arguments seem to be different.  check_max_stack_depth_subprog() only gives
-a subprog PRIV_STACK_ADAPTIVE when its rounded depth reaches
-BPF_PRIV_STACK_MIN_SIZE (64), and these programs only copy a few ctx[]
-slots into globals.  They also make no outgoing stack-argument calls; the
-stack arguments belong to the traced syscall-program target.
-
-Could the sentence say that the fentry/fexit tracers are eligible for a
-private stack, but stay below the 64-byte threshold and make no
-stack-argument calls?
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/41813628482
---===============5210111555606903047==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5210111555606903047==--
-
+T24gMDQuMTEuMjAyNiAwOToxOSwgR2VlcnQgVXl0dGVyaG9ldmVuIHdyb3RlOgo+IE9uIFR1ZSwg
+MyBOb3YgMjAyNiBhdCAyMDoyNSwgTWFyZWsgU3p5cHJvd3NraSA8bS5zenlwcm93c2tpQHNhbXN1
+bmcuY29tPiB3cm90ZToKPj4gT24gMDMuMTEuMjAyNiAxOTowNCwgR2VlcnQgVXl0dGVyaG9ldmVu
+IHdyb3RlOgo+Pj4gT24gVGh1LCAxNSBPY3QgMjAyNiBhdCAxMDoyOSwgTWFyZWsgU3p5cHJvd3Nr
+aSA8bS5zenlwcm93c2tpQHNhbXN1bmcuY29tPiB3cm90ZToKPj4+PiBHZXQgcmlkIG9mIHRoZSBz
+dGF0aWMsIGxpbWl0ZWQtc2l6ZSByZXNlcnZlZF9tZW0gYXJyYXkgYW5kIHJlcGxhY2UgaXQKPj4+
+PiB3aXRoIGFycmF5IGFsbG9jYXRlZCBieSBtZW1ibG9ja19hbGxvY19yYXcoKSBhbmQgYWNjZXNz
+ZWQgZGlyZWN0bHkgb3IKPj4+PiB0aHJvdWdoIGEgdGVtcG9yYXJ5IGVhcmx5X21lbXJlbWFwKCkg
+bWFwcGluZyAoZGVwZW5kaW5nIG9uIHRoZQo+Pj4+IGFyY2hpdGVjdHVyZSBzdXBwb3J0KS4gU3Vj
+aCBtYXBwaW5nIGlzIG5lZWRlZCBmb3Igc29tZSBhcmNoaXRlY3R1cmVzCj4+Pj4gKGxpa2UgQVJN
+NjQpLCB3aGVyZSBsaW5lYXIgbWFwIGlzIG5vdCB5ZXQgYXZhaWxhYmxlIGR1cmluZyBlYXJseSBi
+b290Cj4+Pj4gc2Nhbi4gVGhlIGFycmF5IGlzIGFsbG9jYXRlZCBmcm9tIHRoZSBib3R0b20gb2Yg
+UkFNIHRvIGF2b2lkIHBsYWNpbmcgaXQKPj4+PiBpbiBoaWdobWVtIGFyZWEsIGJlY2F1c2Ugc29t
+ZSBhcmNoaXRlY3R1cmVzIChlLmcuIFh0ZW5zYSwgQy1TS1ksIE1JUFMzMikKPj4+PiBzZXQgdGhl
+IG1lbWJsb2NrIGxpbWl0IHRvIHRoZSBlbmQgb2YgbG93bWVtIG9ubHkgYWZ0ZXIgdGhlIGVhcmx5
+IHNjYW4uCj4+Pj4gVGhlIGVhcmx5IG1hcHBpbmcgaXMgbm90IHVzZWQgb24gUFBDNjQsIHdoZXJl
+IHRoZSBzY2FuIGlzIGRvbmUgYmVmb3JlCj4+Pj4gZWFybHlfaW9yZW1hcF9zZXR1cCgpLCBidXQg
+dGhlIG1lbW9yeSBhbGxvY2F0ZWQgYnkgbWVtYmxvY2sgaXMgYWxyZWFkeQo+Pj4+IGFjY2Vzc2li
+bGUgYXQgdGhhdCBwb2ludC4KPj4+Pgo+Pj4+IEhhdmluZyBhIHNpbmdsZSwgd3JpdGVhYmxlIGFy
+cmF5IHdpdGggYWxsIHJlc2VydmVkIHJlZ2lvbnMgcmVtb3ZlcyB0aGUKPj4+PiBuZWVkIHRvIHBl
+cmZvcm0gdHdvIHN0ZXAgaW5pdGlhbGl6YXRpb24gaW50cm9kdWNlZCBieSBjb21taXQKPj4+PiA4
+YTZlMDJkMGMwMGUgKCJvZjogcmVzZXJ2ZWRfbWVtOiBSZXN0cnVjdHVyZSBob3cgdGhlIHJlc2Vy
+dmVkIG1lbW9yeQo+Pj4+IHJlZ2lvbnMgYXJlIHByb2Nlc3NlZCIpLCBzbyBhbGwgcmVnaW9ucyBj
+YW4gYmUgcHJvY2Vzc2VkIGR1cmluZyB0aGUKPj4+PiBlYXJseSBzY2FuIGFnYWluLgo+Pj4+Cj4+
+Pj4gVGhlIHJlc2VydmVkX21lbSBhcnJheSBpcyBhbGxvY2F0ZWQgb25seSBhZnRlciBhbGwgc3Rh
+dGljIChkZWZpbmVkIGJ5Cj4+Pj4gdGhlICdyZWcnIHByb3BlcnR5KSByZWdpb25zIGFyZSBtYXJr
+ZWQgYXMgcmVzZXJ2ZWQgb3Igbm8tbWFwLCBzbyBpdAo+Pj4+IGNhbm5vdCBiZSBwbGFjZWQgaW4g
+YW55IG9mIHRoZW0uIEVycm9ycyBvZiB0aGUgZWFybHkgcmVzZXJ2YXRpb25zIGFyZQo+Pj4+IG5v
+dCByZWNvcmRlZCBwZXIgcmVnaW9uLCBvbmx5IHRoZSBmYWN0IHRoYXQgc29tZSBvZiB0aGVtIGZh
+aWxlZCBpcwo+Pj4+IHN0b3JlZCBhbmQgYSBtZXNzYWdlIGFza2luZyB0byBmaXggdGhlIGRldmlj
+ZS10cmVlIGlzIHByaW50ZWQuIFRoZQo+Pj4+IHJlZ2lvbiBzcGVjaWZpYyBpbml0IGZ1bmN0aW9u
+cyBmb3IgdGhlIHN0YXRpYyByZWdpb25zIGFyZSB0aGVuIGNhbGxlZAo+Pj4+IGluIGEgc2VwYXJh
+dGUgcGFzcywgb25jZSB0aGUgYXJyYXkgaXMgYXZhaWxhYmxlLiBUaGVuIGFsbCBkeW5hbWljYWxs
+eQo+Pj4+IGFsbG9jYXRlZCByZXNlcnZlZCByZWdpb25zIGFyZSBwcm9jZXNzZWQuCj4+Pj4KPj4+
+PiBTdWdnZXN0ZWQtYnk6IE1pa2UgUmFwb3BvcnQgPHJwcHRAa2VybmVsLm9yZz4KPj4+PiBMaW5r
+OiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvYXNjNmJyc19nMGt5MHdPTUBrZXJuZWwub3Jn
+Lwo+Pj4+IFNpZ25lZC1vZmYtYnk6IE1hcmVrIFN6eXByb3dza2kgPG0uc3p5cHJvd3NraUBzYW1z
+dW5nLmNvbT4KPj4+IFRoYW5rcyBmb3IgeW91ciBwYXRjaCwgd2hpY2ggaXMgbm93IGNvbW1pdCBh
+YTA1ZmFmODE1ODM2YzQ3ICgib2Y6Cj4+PiByZXNlcnZlZF9tZW06IGFsbG9jYXRlIGFuZCBtYXAg
+dGhlIHJlc2VydmVkX21lbSBhcnJheSBlYXJseSIpCj4+PiBpbiBkdC1yaC9mb3ItbmV4dC4KPj4+
+Cj4+PiBUaGlzIGNhdXNlcyBhbiBlYXJseSBjcmFzaCBvbiBCZWFnbGVWIFN0YXJsaWdodCBCZXRh
+Ogo+Pj4KPj4+ICBbLi4uXQo+Pj4gIGVhcmx5Y29uOiB1YXJ0MCBNTUlPMzI6MHgwMDAwMDAwMDEy
+NDQwMDAwIChvcHRpb25zICcxMTUyMDBuOCcpCj4+PiAgcHJpbnRrOiBsZWdhY3kgYm9vdGNvbnNv
+bGUgW3VhcnQwXSBlbmFibGVkCj4+PiAgcHJpbnRrOiBkZWJ1Zzogc2tpcCBib290IGNvbnNvbGUg
+ZGUtcmVnaXN0cmF0aW9uLgo+Pj4gIGVmaTogVUVGSSBub3QgZm91bmQuCj4+PiAtT0Y6IHJlc2Vy
+dmVkIG1lbTogMHgwMDAwMDAwMGZiMDAwMDAwLi4weDAwMDAwMDAwZmNmZmZmZmYgKDMyNzY4IEtp
+QikKPj4+IG1hcCBub24tcmV1c2FibGUgZnJhbWVidWZmZXJAZmIwMDAwMDAKPj4+IC1PRjogcmVz
+ZXJ2ZWQgbWVtOiAweDAwMDAwMDAwZjkwMDAwMDAuLjB4MDAwMDAwMDBmOWZmZmZmZiAoMTYzODQg
+S2lCKQo+Pj4gbWFwIG5vbi1yZXVzYWJsZSBmcmFtZWJ1ZmZlckBmOTAwMDAwMAo+Pj4gLU9GOiBy
+ZXNlcnZlZCBtZW06IDB4MDAwMDAwMDBkMDAwMDAwMC4uMHgwMDAwMDAwMGY3ZmZmZmZmICg2NTUz
+NjAgS2lCKQo+Pj4gbWFwIG5vbi1yZXVzYWJsZSBmcmFtZWJ1ZmZlckBkMDAwMDAwMAo+Pj4gLU9G
+OiByZXNlcnZlZCBtZW06IDB4MDAwMDAwMDBjOTAwMDAwMC4uMHgwMDAwMDAwMGNjZmZmZmZmICg2
+NTUzNiBLaUIpCj4+PiBtYXAgbm9uLXJldXNhYmxlIGZyYW1lYnVmZmVyQGM5MDAwMDAwCj4+PiAt
+T0Y6IHJlc2VydmVkIG1lbTogMHgwMDAwMDAwMGZhMDAwMDAwLi4weDAwMDAwMDAwZmFmZmZmZmYg
+KDE2Mzg0IEtpQikKPj4+IG5vbWFwIG5vbi1yZXVzYWJsZSBkbWEtcmVzZXJ2ZWRAZmEwMDAwMDAK
+Pj4+IC1SZXNlcnZlZCBtZW1vcnk6IGNyZWF0ZWQgRE1BIG1lbW9yeSBwb29sIGF0IDB4MDAwMDAw
+MTA3YTAwMDAwMCwgc2l6ZSAxNjM4NCBLaUIKPj4+IC1PRjogcmVzZXJ2ZWQgbWVtOiBpbml0aWFs
+aXplZCBub2RlIGxpbnV4LGRtYUAxMDdhMDAwMDAwLCBjb21wYXRpYmxlCj4+PiBpZCBzaGFyZWQt
+ZG1hLXBvb2wKPj4+IC1PRjogcmVzZXJ2ZWQgbWVtOiAweDAwMDAwMDEwN2EwMDAwMDAuLjB4MDAw
+MDAwMTA3YWZmZmZmZiAoMTYzODQgS2lCKQo+Pj4gbm9tYXAgbm9uLXJldXNhYmxlIGxpbnV4LGRt
+YUAxMDdhMDAwMDAwCj4+PiAtU0JJIEhTTSBleHRlbnNpb24gZGV0ZWN0ZWQKPj4+IC1bLi4uXQo+
+Pj4gK09vcHMgLSBzdG9yZSAob3IgQU1PKSBhY2Nlc3MgZmF1bHQgWyMxXQo+Pj4gK01vZHVsZXMg
+bGlua2VkIGluOgo+Pj4gK0NQVTogMCBVSUQ6IDAgUElEOiAwIENvbW06IHN3YXBwZXIgTm90IHRh
+aW50ZWQKPj4+IDcuNC4wLXJjMS1zdGFybGlnaHQtMDAwMDItZ2FhMDVmYWY4MTU4MyAjNDExIFBS
+RUVNUFQKPj4+ICtIYXJkd2FyZSBuYW1lOiBCZWFnbGVWIFN0YXJsaWdodCBCZXRhIChEVCkKPj4+
+ICtlcGMgOiBfX21lbXNldCsweDY4LzB4ZmUKPj4+ICsgcmEgOiBmZHRfc2Nhbl9yZXNlcnZlZF9t
+ZW0rMHgzYTQvMHg4MGEKPj4+ICtlcGMgOiBmZmZmZmZmZjgwODdmZDg4IHJhIDogZmZmZmZmZmY4
+MGEzMTNjOCBzcCA6IGZmZmZmZmZmODE0MDNjMjAKPj4+ICsgZ3AgOiBmZmZmZmZmZjgxNGRjNmMw
+IHRwIDogZmZmZmZmZmY4MTQwY2Y4MCB0MCA6IGZmZmZmZmM0ZmVhMzhmZjAKPj4+ICsgdDEgOiAw
+MDAwMDAwMDgwMjAwMDAwIHQyIDogZmZmZmZmYzRmZWMwMzAwOCBzMCA6IGZmZmZmZmZmODE0MDNk
+MTAKPj4+ICsgczEgOiBmZmZmZmZmZmZmZmZmZmZmIGEwIDogZmZmZmZmYzRmZWEzOTAwMCBhMSA6
+IDAwMDAwMDAwMDAwMDAwMDAKPj4+ICsgYTIgOiAwMDAwMDAwMDAwMDAwMGYwIGEzIDogZmZmZmZm
+YzRmZWEzOTBmMCBhNCA6IDAwMDAwMDAwMDAwMDAwMDgKPj4+ICsgYTUgOiBmZmZmZmZmZjgwODdm
+ZDg4IGE2IDogMDAwMDAwMDAwMDAwMDBmMCBhNyA6IDAwMDAwMDAwMDAwMDEwMDAKPj4+ICsgczIg
+OiBmZmZmZmZjNGZlYzAwMDAwIHMzIDogMDAwMDAwMDAwMDAwMDBmMCBzNCA6IDAwMDAwMDAwMDAw
+MDAwMDAKPj4+ICsgczUgOiAwMDAwMDAwMDAwMDAyZGUwIHM2IDogMDAwMDAwMDAwMDAwMDAwNiBz
+NyA6IGZmZmZmZmZmZmVmZWZlZmUKPj4+ICsgczggOiBmZmZmZmZjNGZlYzAyZmQ0IHM5IDogZmZm
+ZmZmZmY4MTQ4ZTMxOCBzMTA6IGZmZmZmZmZmZmVmZWZlZmYKPj4+ICsgczExOiBmZmZmZmZjNGZl
+YTM5MDAwIHQzIDogZmZmZmZmZmY4MTUwZGYwMCB0NCA6IGZmZmZmZmZmODE1MGRmMDAKPj4+ICsg
+dDUgOiBmZmZmZmZmZjgxNTBkZjAwIHQ2IDogZmZmZmZmZmY4MTUwZGY3OCBzc3AgOiAwMDAwMDAw
+MDAwMDAwMDAwCj4+PiArc3RhdHVzOiAwMDAwMDAwMjAwMDAwMTAwIGJhZGFkZHI6IGZmZmZmZmM0
+ZmVhMzkwMDAgY2F1c2U6IDAwMDAwMDAwMDAwMDAwMDcKPj4+ICtbPGZmZmZmZmZmODA4N2ZkODg+
+XSBfX21lbXNldCsweDY4LzB4ZmUKPj4+ICtbPGZmZmZmZmZmODBhMmY2M2E+XSBlYXJseV9pbml0
+X2ZkdF9zY2FuX3Jlc2VydmVkX21lbSsweGE0LzB4MTEwCj4+PiArWzxmZmZmZmZmZjgwYTA2Yzhl
+Pl0gcGFnaW5nX2luaXQrMHgxN2MvMHg0NmEKPj4+ICtbPGZmZmZmZmZmODBhMDQ2ZGM+XSBzZXR1
+cF9hcmNoKzB4ZGMvMHg1ODQKPj4+ICtbPGZmZmZmZmZmODBhMDA5Yjg+XSBzdGFydF9rZXJuZWwr
+MHg5OC8weDk0MAo+Pj4gK0NvZGU6IDAwMDAgODc5MyAwMGU3IDgzMDUgOTdiYSA4NzgyIGIwMjMg
+MDBiMiBiNDIzIDAwYjIgKGI4MjMpIDAwYjIKPj4+ICstLS1bIGVuZCB0cmFjZSAwMDAwMDAwMDAw
+MDAwMDAwIF0tLS0KPj4+ICtLZXJuZWwgcGFuaWMgLSBub3Qgc3luY2luZzogRmF0YWwgZXhjZXB0
+aW9uIGluIGludGVycnVwdAo+Pj4gKy0tLVsgZW5kIEtlcm5lbCBwYW5pYyAtIG5vdCBzeW5jaW5n
+OiBGYXRhbCBleGNlcHRpb24gaW4gaW50ZXJydXB0IF0tLS0KPj4+Cj4+PiBSZXZlcnRpbmcgdGhl
+IGNvbW1pdCBmaXhlcyB0aGUgaXNzdWUuCj4+IERvZXMgbW92aW5nIGVhcmx5X2luaXRfZmR0X3Nj
+YW5fcmVzZXJ2ZWRfbWVtKCkgdG8gdGhlIGVuZCBvZiBzZXR1cF9ib290bWVtKCkKPj4gaW4gYXJj
+aC9yaXNjdi9tbS9pbml0LmMgY2hhbmdlIGFueXRoaW5nPwo+IFVuZm9ydHVuYXRlbHkgdGhhdCBk
+b2Vzbid0IG1ha2UgYSBkaWZmZXJlbmNlLgoKV2VsbCwgdGhhdCdzIHN0aWxsIGEgcG90ZW50aWFs
+IGlzc3VlLCBzbyBJIHdpbGwgc2VuZCBhIHNlcGFyYXRlIGZpeCBmb3IgdGhhdC4KCgo+PiBDb3Vs
+ZCBZb3UgcHJvdmlkZSBhIGZ1bGwgYm9vdCBsb2cgZnJvbSB0aGUgd29ya2luZyBrZXJuZWwgYW5k
+IC9wcm9jL2lvbWVtIGR1bXA/Cj4gU2VudCBieSBwZXJzb25hbCBlbWFpbC4KPiBUaGUgcmVsZXZh
+bnQgcGFydCBvZiAvcHJvYy9pb21lbSBpczoKPgo+ICAgICA4MDAwMDAwMC1jZmZmZmZmZiA6IFN5
+c3RlbSBSQU0KPiAgICAgICA4MDIwMDAwMC04MDIwMWZmZiA6IFJlc2VydmVkCj4gICAgICAgODAy
+MDIwMDAtODE3MzBiZjcgOiBLZXJuZWwgaW1hZ2UKPiAgICAgICAgIDgwMjAyMDAwLTgwYWE3ZTcz
+IDogS2VybmVsIGNvZGUKPiAgICAgICAgIDgxMDAwMDAwLTgxM2ZmZmZmIDogS2VybmVsIHJvZGF0
+YQo+ICAgICAgICAgODE2MDAwMDAtODE2ZGQ5ZmYgOiBLZXJuZWwgZGF0YQo+ICAgICAgICAgODE2
+ZGUwMDAtODE3MzBiZjcgOiBLZXJuZWwgYnNzCj4gICAgICAgODE3MzBiZjgtODE3ZmZmZmYgOiBS
+ZXNlcnZlZAo+ICAgICAgIDg4MDAwMDAwLTg4MDA3ZmZmIDogUmVzZXJ2ZWQKPiAgICAgICA5YzAw
+MDAwMC1jN2ZmZmZmZiA6IFJlc2VydmVkCj4gICAgICAgYzkwMDAwMDAtY2NmZmZmZmYgOiBSZXNl
+cnZlZAo+ICAgICBkMDAwMDAwMC1mN2ZmZmZmZiA6IFJlc2VydmVkCj4gICAgIGY4MDAwMDAwLWY4
+ZmZmZmZmIDogU3lzdGVtIFJBTQo+ICAgICBmOTAwMDAwMC1mY2ZmZmZmZiA6IFJlc2VydmVkCj4g
+ICAgIGZkMDAwMDAwLTI3ZmZmZmZmZiA6IFN5c3RlbSBSQU0KPiAgICAgICAyNzcyZTEwMDAtMjc3
+M2EwZmZmIDogUmVzZXJ2ZWQKPiAgICAgICAyNzczYTEwMDAtMjc3ZmExZmZmIDogUmVzZXJ2ZWQK
+PiAgICAgICAyNzdmYTIwMDAtMjc3ZmNiZmZmIDogUmVzZXJ2ZWQKPiAgICAgICAyNzdmY2UwMDAt
+Mjc3ZmNlZmZmIDogUmVzZXJ2ZWQKPiAgICAgICAyNzdmY2YwMDAtMjdmZmNmZmZmIDogUmVzZXJ2
+ZWQKPiAgICAgICAyN2ZmZDAwMDAtMjdmZmY2ZmZmIDogUmVzZXJ2ZWQKPiAgICAgICAyN2ZmZjcw
+MDAtMjdmZmZmZmZmIDogUmVzZXJ2ZWQKCgpUaGlzIHR1cm5lZCBvdXQgdG8gYmUgYSBib290bG9h
+ZGVyIGlzc3VlIG9uIHRoaXMgYm9hcmQuIFRoZSBwcm90ZWN0ZWQgb3BlbnNiaQptZW1vcnkgcmVn
+aW9uIHdhcyBwbGFjZWQgYmVmb3JlIGtlcm5lbCBhbmQgbm90IHByb3Blcmx5IGRlc2NyaWJlZCBp
+biBkdC4KS2VybmVsIHRyZWF0ZWQgaXQgYXMgYSBub3JtYWzCoG1lbW9yeSByZXN1bHRpbmcgaW4g
+dGhlIGFib3ZlIGNyYXNoLiBDb25maXJtZWQKYnkgR2VlcnQgaW4gcHJpdmF0ZSBkaXNjdXNzaW9u
+LgoKCkJlc3QgcmVnYXJkcwotLSAKTWFyZWsgU3p5cHJvd3NraSwgUGhEClNhbXN1bmcgUiZEIElu
+c3RpdHV0ZSBQb2xhbmQKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
