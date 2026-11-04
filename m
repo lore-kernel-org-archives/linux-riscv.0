@@ -2,82 +2,97 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23492606A32E
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 10:04:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEEBD606A33B
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 10:25:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ijaEwmdO;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=l4/ma7aY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0fWkl/Qm;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=R10bR+nG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Me1JDuSbPdq4xE3F3S79m2x5Vnmabjj+R5CDMagB680=; b=ijaEwmdO7q+sLCDhchR+W+tKQo
-	vpC9YtkKGuly9TQNZWCOw9ncn24GogsYfg7aRKLqlDR6KNlxubJ7soTULHyHhO8cclVoOP+LMJDqn
-	OOFGxmaIDB+iuArA4cHyrkcqfMdSmQudfM0fru0wcUz+26dZkUHgCxVzpAlov+SPBiPkgZfjPDZpm
-	Kb4qga2jKILkRRUxHPJJ6WV94Iapx9vSGdpUGWAJlTNwOa/JT2HK3oHy2BgYjYnwDV31WoPFTJRZq
-	GQxXxci2xLBBKI2fzucjfItrNdix1SG0CMWTPlloF3CTQBJQBcijN7irvHpxT+3ChCVFgWgiLEHu1
-	UisJESQQ==;
+	bh=AM1O1gP+dA5DLY23/9B0ytjeHdAcVO/HPIldSo4v2ps=; b=0fWkl/QmhI+cAWE99Y6DzJE1ty
+	HK35g37+a94CL3GABg9sWnsEZDEFHYpp158B05FyGltoQPHi4INrX4yhQPzeTMUESREacFbJQPvGq
+	LBA86Y7kTcBGqaYhsl48Aieqj7Of59lZbR25RyRLETL3WaKF5zVg/+WJgA/Kn1fg3Yz6HNMEwRhUR
+	x2zQ3m0D+SsB2jXW55M7UNVXNM8JP0r800QzL7vqSk1Bfoo7qbSg0wOPVg5466dwtGs279NoJDzsC
+	k502ln+O0yh4UufOuRDiRqQj/LjXRJf1J+yJGm4woI1yHISiC/LupcLCaPnTicf04Uzt10fgjnqs8
+	9J4D+l2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOXr3-00000004x3z-1pMF;
-	Wed, 04 Nov 2026 10:04:29 +0000
-Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
+	id 1xOYBh-00000004zZt-1B2t;
+	Wed, 04 Nov 2026 10:25:49 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOXqz-00000004x1s-3qXc
-	for linux-riscv@lists.infradead.org;
-	Wed, 04 Nov 2026 10:04:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1793786661; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=El+HFS5rExaXpXDIDYVfuWdl9JJQDwNWbfTECGFZBOs=;
-	b=l4/ma7aYC7tNQ3Iy2BZS1YEWGvMRa/bTP9hmVOfvHReEpUbwXpdrYJEUgz6PcEpoqVDAJR7JGH0y3JM3vAaJ8e4NKuqvBjK7nFQTch+KEf4FQttRl0Mu4Gurn7hJOw3qSFm5P9oQFEAlMKdZarkFdKrxvSMJlDzvMLim6T4z2w8=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R691e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=27;SR=0;TI=SMTPD_---0XE5SaZX_1793786658;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XE5SaZX_1793786658 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 04 Nov 2026 18:04:19 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: ast@kernel.org,
-	daniel@iogearbox.net,
-	andrii@kernel.org,
-	memxor@gmail.com,
-	bjorn@kernel.org,
-	puranjay@kernel.org
-Cc: eddyz87@gmail.com,
-	martin.lau@linux.dev,
-	song@kernel.org,
-	yonghong.song@linux.dev,
-	jolsa@kernel.org,
-	emil@etsalapatis.com,
-	ihor.solodrai@linux.dev,
-	pulehui@huawei.com,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	luke.r.nels@gmail.com,
-	xi.wang@gmail.com,
-	shuah@kernel.org,
-	rgbi3307@gmail.com,
-	guoren@kernel.org,
-	bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 bpf-next 1/3] riscv: bpf: Add BPF private stack support
-Date: Wed,  4 Nov 2026 18:04:09 +0800
-Message-ID: <20261104100411.997-2-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261104100411.997-1-cp0613@linux.alibaba.com>
-References: <20261104100411.997-1-cp0613@linux.alibaba.com>
+	id 1xOYBd-00000004zXG-2vjY;
+	Wed, 04 Nov 2026 10:25:47 +0000
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 60653200AD7;
+	Wed, 04 Nov 2026 11:25:41 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793787941;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=o3uO33BWTvRzGT589zK5XHXlVqQazzRdbRxGw4lkcXk=;
+	b=R10bR+nGpDOBHsBsgfY6x5gF6MVODYpe6zLWjOZvK+UTPbvF0HfqI/A/FRWV1xQ4rLOnJG
+	Hb8X0WX7j8MES5DZFlHTx+H0VDKdNkdnDXrwpBmZQD9uxqA2KqMQa+cD/tPkBFUbCD/bzy
+	HDEzMn4V9OjGUW4bx9vc1i1mW99gnJJv7Kker8hWZzv4E56jco3hpM2e6rpueAOWLuKM/c
+	hC7UWblK3ZcwnjcxAgxFp/foAklOa+fGZBqbfdfoPH3N4tWeIrqEcoIWLYNbphD/LSX+Y6
+	Cj5o9sYMg6E8rkMq1xVDrb3oQEqgDJt4gK6LDpJsPOTicIIrL87fbOnc7srrHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793787941;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=o3uO33BWTvRzGT589zK5XHXlVqQazzRdbRxGw4lkcXk=;
+	b=aFCcuWhsp1Rz+FS39uH9Jep8WwzbEDt5X9Up5FrfhiHMupYvat/6ZsySEzPCJQbFFbrwdF
+	KxQfsflbd/FGbjgketDjDxiEn+2hXdq/QUXfdX/hn9MkcRlUk4K7KZQPX5inZV51ngDGxH
+	oIB7VXZOgAg4jv6zK11cAa1CH+MPVj8pg+Uf6/8qUbf5eMCW7rNfx49qebB3SqkOXX7wCK
+	u9AmNrsZPEEUK10aJK3NUbySExb7xvJ9jQPNOt1owma2lxC7CWI6AgDNp1UFTgKoXS0iiU
+	MOHCpL73RQg2QI3XWSMy8OMvGqtPnFpWcm8xM+tuBQynPUYBWfjXIlQnceVmUQ==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793787941; a=rsa-sha256;
+	cv=none;
+	b=W2SKAYeDEhEpB+KWH744MC/8Zua/10/EdN1knlfwc1zu3oHnUZNBLRDhvIToO9Czib2rc8
+	ttW6//vcBNO82+tOTuPweTyX/nRR4Z7AbC3GD6HS726LZbYk++LEDxksFPWHt9BHbnWpcK
+	OG+b2US90SeGVwPL6nQbqQWGLAdr9wssj3RIJH12VMFyi59Hyocz+TvK3UUS3TJdi4aTo6
+	rOBFxvK4R//wbiwbT556vl5gcqkF+t/7KkgN4E14J4r8OYUCcJa7eKz9jyp3oyB9AD4FBa
+	1rSsYoeu/4NZAATdwpGICbJiZk7+wqYyVkVOJBfhgH6VBVLUGxaHyUfOYokBsQ==
+Message-ID: <9afb8ddc8451afad4f7ff7b9a133dd8542d07205.camel@pengutronix.de>
+Subject: Re: [PATCH 1/3] hwspinlock: sun6i: Get the clock and the reset
+ without names
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>, Wilken Gottwalt
+	 <wilken.gottwalt@posteo.net>, Bjorn Andersson <andersson@kernel.org>
+Cc: Baolin Wang <baolin.wang@linux.alibaba.com>, Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai	 <wens@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland	 <samuel@sholland.org>, Paul
+ Walmsley <pjw@kernel.org>, Palmer Dabbelt	 <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti	 <alex@ghiti.fr>, Andre Przywara
+ <andre.przywara@arm.com>, Bastian Germann	 <bage@debian.org>,
+ linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Wed, 04 Nov 2026 11:25:41 +0100
+In-Reply-To: <20260927025626.69614-2-tien.nguyenminh@embeddedlinux.blog>
+References: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
+	 <20260927025626.69614-2-tien.nguyenminh@embeddedlinux.blog>
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_020426_270380_D406C434 
-X-CRM114-Status: GOOD (  23.82  )
-X-Spam-Score: -17.6 (-----------------)
+X-CRM114-CacheID: sfid-20261104_022545_894354_AB6D8FB8 
+X-CRM114-Status: GOOD (  17.14  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,294 +105,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A program on a private stack keeps its BPF frames in a per-CPU area of
-its own rather than on the kernel stack of whichever context entered it.
-bpf_enable_priv_stack() grants that mode only once the JIT reports
-bpf_jit_supports_private_stack(), which riscv64 did not: programs there
-always ran on the kernel stack, and a struct_ops program that requires
-one was rejected with -EACCES.
+On So, 2026-09-27 at 09:56 +0700, Nguyen Minh Tien wrote:
+> The driver looks up its clock and reset by the name "ahb", but the
+> binding doesn't define clock-names or reset-names, so a node that
+> follows the binding fails to probe:
+> 
+>   sun6i_hwspinlock 3005000.hwlock: unable to get AHB clock (-2)
+> 
+> There is only one of each, so get them without a name. That is what
+> was asked for when the names were added to an A64 node, and nodes that
+> do set "ahb" keep working. For the reset, call the explicit
+> devm_reset_control_get_exclusive(), which devm_reset_control_get()
+> only wraps.
+> 
+> Fixes: 3c881e05c814 ("hwspinlock: add sun6i hardware spinlock support")
+> Link: https://lore.kernel.org/f720eaf9-01d0-0e57-f6bf-9aade00aafb8@linaro.org
+> Signed-off-by: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>
+> ---
+>  drivers/hwspinlock/sun6i_hwspinlock.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/hwspinlock/sun6i_hwspinlock.c b/drivers/hwspinlock/sun6i_hwspinlock.c
+> index c2d3145880..e7cc121310 100644
+> --- a/drivers/hwspinlock/sun6i_hwspinlock.c
+> +++ b/drivers/hwspinlock/sun6i_hwspinlock.c
+> @@ -104,14 +104,14 @@ static int sun6i_hwspinlock_probe(struct platform_device *pdev)
+>  	if (!priv)
+>  		return -ENOMEM;
+>  
+> -	priv->ahb_clk = devm_clk_get(&pdev->dev, "ahb");
+> +	priv->ahb_clk = devm_clk_get(&pdev->dev, NULL);
+>  	if (IS_ERR(priv->ahb_clk)) {
+>  		err = PTR_ERR(priv->ahb_clk);
+>  		dev_err(&pdev->dev, "unable to get AHB clock (%d)\n", err);
+>  		return err;
+>  	}
+>  
+> -	priv->reset = devm_reset_control_get(&pdev->dev, "ahb");
+> +	priv->reset = devm_reset_control_get_exclusive(&pdev->dev, NULL);
 
-Allocate a per-CPU area of the verifier calculated depth plus a 16 byte
-guard region at each end, and point BPF_REG_FP (S5) at the top of it
-while leaving SP on the kernel stack. Every BPF stack access already
-goes through S5, and S5 is callee-saved with each subprog deriving its
-own, so nothing else in the JIT has to know about the private stack.
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-The outgoing stack argument area stays in the kernel frame: callers
-write it relative to SP, callees relative to RV_REG_FP, which the
-prologue sets to the caller's SP.
-
-The per-CPU lookup is emitted after the tail call entry point: a program
-using a private stack can still be entered as a tail call target, and
-RV_TAILCALL_OFFSET is a constant added to the target's bpf_func, so what
-is in front of it must be the same size in every program.
-
-The base is materialized with absolute moves, as on arm64, x86-64 and
-powerpc64: the vmalloc'd per-CPU area is beyond an auipc pair from the
-JIT region, and riscv64 has no register holding the per-CPU offset, so
-the address of __per_cpu_offset is loaded too. emit_imm() is a choice
-there, not a requirement; emit_addr() as used by
-insn_is_mov_percpu_addr() would need an extra_pass argument and an error
-return in bpf_jit_build_prologue(), touching bpf_jit_comp32.c too. Both
-constants are fixed before the offset convergence loop, so the prologue
-length is stable across passes.
-
-The guard value follows arm64, x86-64 and powerpc64, and the 16 byte
-two-copy region at each end follows arm64 and powerpc64, since x86-64
-uses an 8 byte guard with a single copy. A jited program has them
-checked when it is freed, reporting the first corrupted CPU only;
-failure paths release the area unchecked since the image never ran,
-which also clears priv_stack_ptr for the later bpf_jit_free().
-
-RV32 does not declare support and keeps the existing kernel stack
-behaviour.
-
-Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
----
- arch/riscv/net/bpf_jit.h        |  1 +
- arch/riscv/net/bpf_jit_comp64.c | 42 +++++++++++++++--
- arch/riscv/net/bpf_jit_core.c   | 84 +++++++++++++++++++++++++++++----
- 3 files changed, 115 insertions(+), 12 deletions(-)
-
-diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
-index 21a190a6a6d9..efab2b6803e4 100644
---- a/arch/riscv/net/bpf_jit.h
-+++ b/arch/riscv/net/bpf_jit.h
-@@ -14,6 +14,7 @@
- 
- #define RV_MAX_REG_ARGS		8
- #define RV_EXTRA_STK_ARGS	(RV_MAX_REG_ARGS - MAX_BPF_FUNC_REG_ARGS)
-+#define PRIV_STACK_GUARD_SZ	16
- 
- /* verify runtime detection extension status */
- #define rv_ext_enabled(ext) \
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index 371405598faa..a7a7d2f9da85 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -2134,12 +2134,34 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 	return 0;
- }
- 
-+static void emit_priv_stack_frame(struct rv_jit_context *ctx)
-+{
-+	u64 fp = (__force u64)ctx->prog->aux->priv_stack_ptr + PRIV_STACK_GUARD_SZ;
-+
-+	fp += round_up(ctx->prog->aux->stack_depth, STACK_ALIGN);
-+	emit_imm(RV_REG_S5, fp, ctx);
-+#ifdef CONFIG_SMP
-+	emit_lw(RV_REG_T1, offsetof(struct thread_info, cpu), RV_REG_TP, ctx);
-+	emit_imm(RV_REG_T2, (u64)__per_cpu_offset, ctx);
-+	emit_sh3add(RV_REG_T1, RV_REG_T1, RV_REG_T2, ctx);
-+	emit_ld(RV_REG_T1, 0, RV_REG_T1, ctx);
-+	emit_add(RV_REG_S5, RV_REG_S5, RV_REG_T1, ctx);
-+#endif
-+}
-+
- void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
- {
-+	bool priv_stack = ctx->prog->aux->priv_stack_ptr;
- 	int i, stack_adjust = 0, store_offset, bpf_stack_adjust = ctx->stack_arg_sz;
- 
--	bpf_stack_adjust += round_up(ctx->prog->aux->stack_depth, STACK_ALIGN);
--	if (bpf_stack_adjust)
-+	/*
-+	 * With a private stack only the outgoing stack argument area is left in
-+	 * this frame. It has to stay: the caller writes it relative to SP while
-+	 * the callee reads it relative to RV_REG_FP, the caller's SP set below.
-+	 */
-+	if (!priv_stack)
-+		bpf_stack_adjust += round_up(ctx->prog->aux->stack_depth, STACK_ALIGN);
-+	if (bpf_stack_adjust || priv_stack)
- 		mark_fp(ctx);
- 
- 	if (seen_reg(RV_REG_RA, ctx))
-@@ -2217,7 +2239,16 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
- 
- 	emit_addi(RV_REG_FP, RV_REG_SP, stack_adjust, ctx);
- 
--	if (bpf_stack_adjust)
-+	/*
-+	 * Point BPF_REG_FP at the top of this CPU's private stack. A program
-+	 * with one can still be entered as a tail call target, at
-+	 * RV_TAILCALL_OFFSET, so this has to come after that entry point; the
-+	 * offset is a constant added to the target's bpf_func, so everything in
-+	 * front of it must also be the same size in every program.
-+	 */
-+	if (priv_stack)
-+		emit_priv_stack_frame(ctx);
-+	else if (bpf_stack_adjust)
- 		emit_addi(RV_REG_S5, RV_REG_SP, bpf_stack_adjust, ctx);
- 
- 	ctx->stack_size = stack_adjust;
-@@ -2320,3 +2351,8 @@ bool bpf_jit_supports_hmul(void)
- {
- 	return true;
- }
-+
-+bool bpf_jit_supports_private_stack(void)
-+{
-+	return true;
-+}
-diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
-index f2497ec7d378..f2021088e447 100644
---- a/arch/riscv/net/bpf_jit_core.c
-+++ b/arch/riscv/net/bpf_jit_core.c
-@@ -9,6 +9,7 @@
- #include <linux/bpf.h>
- #include <linux/filter.h>
- #include <linux/memory.h>
-+#include <linux/percpu.h>
- #include <asm/text-patching.h>
- #include <asm/cfi.h>
- #include "bpf_jit.h"
-@@ -44,6 +45,62 @@ bool bpf_jit_needs_zext(void)
- 	return true;
- }
- 
-+#define PRIV_STACK_GUARD_VAL	0xEB9F12345678eb9fULL
-+
-+static u32 priv_stack_size(struct bpf_prog *prog)
-+{
-+	return round_up(prog->aux->stack_depth, STACK_ALIGN) +
-+	       2 * PRIV_STACK_GUARD_SZ;
-+}
-+
-+static int alloc_priv_stack(struct bpf_prog *prog)
-+{
-+	u32 size = priv_stack_size(prog);
-+	u32 end = (size - PRIV_STACK_GUARD_SZ) / sizeof(u64);
-+	void __percpu *ptr;
-+	int cpu, i;
-+
-+	ptr = __alloc_percpu_gfp(size, STACK_ALIGN, GFP_KERNEL);
-+	if (!ptr)
-+		return -ENOMEM;
-+
-+	for_each_possible_cpu(cpu) {
-+		u64 *stack = per_cpu_ptr(ptr, cpu);
-+
-+		for (i = 0; i < PRIV_STACK_GUARD_SZ / sizeof(u64); i++) {
-+			stack[i] = PRIV_STACK_GUARD_VAL;
-+			stack[end + i] = PRIV_STACK_GUARD_VAL;
-+		}
-+	}
-+	prog->aux->priv_stack_ptr = ptr;
-+	return 0;
-+}
-+
-+static void priv_stack_check_guard(struct bpf_prog *prog)
-+{
-+	u32 end = (priv_stack_size(prog) - PRIV_STACK_GUARD_SZ) / sizeof(u64);
-+	int cpu;
-+
-+	for_each_possible_cpu(cpu) {
-+		u64 *stack = per_cpu_ptr(prog->aux->priv_stack_ptr, cpu);
-+
-+		if (stack[0] != PRIV_STACK_GUARD_VAL ||
-+		    stack[1] != PRIV_STACK_GUARD_VAL ||
-+		    stack[end] != PRIV_STACK_GUARD_VAL ||
-+		    stack[end + 1] != PRIV_STACK_GUARD_VAL) {
-+			pr_err("bpf-jit: private stack overflow/underflow guard of prog %s corrupted on CPU %d\n",
-+			       bpf_jit_get_prog_name(prog), cpu);
-+			return;
-+		}
-+	}
-+}
-+
-+static void free_priv_stack(struct bpf_prog *prog)
-+{
-+	free_percpu(prog->aux->priv_stack_ptr);
-+	prog->aux->priv_stack_ptr = NULL;
-+}
-+
- struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
- {
- 	unsigned int prog_size = 0, extable_size = 0;
-@@ -84,12 +141,15 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
- 			    round_up((stack_arg_cnt - RV_EXTRA_STK_ARGS) * 8, STACK_ALIGN) : 0;
- 
- 	ctx->prog = prog;
-+	if (prog->aux->jits_use_priv_stack && alloc_priv_stack(prog))
-+		goto out_free_hdr;
-+
- 	ctx->offset = kvzalloc_objs(int, prog->len);
- 	if (!ctx->offset)
--		goto out_offset;
-+		goto out_free_hdr;
- 
- 	if (build_body(ctx, extra_pass, NULL))
--		goto out_offset;
-+		goto out_free_hdr;
- 
- 	for (i = 0; i < prog->len; i++) {
- 		prev_ninsns += 32;
-@@ -104,7 +164,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
- 		ctx->prologue_len = ctx->ninsns;
- 
- 		if (build_body(ctx, extra_pass, ctx->offset))
--			goto out_offset;
-+			goto out_free_hdr;
- 
- 		ctx->epilogue_offset = ctx->ninsns;
- 		bpf_jit_build_epilogue(ctx);
-@@ -124,7 +184,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
- 							  bpf_fill_ill_insns,
- 							  bpf_prog_was_classic(prog));
- 			if (!jit_data->ro_header)
--				goto out_offset;
-+				goto out_free_hdr;
- 
- 			/*
- 			 * Use the image(RW) for writing the JITed instructions. But also save
-@@ -190,10 +250,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
- 			ctx->offset[i] = ctx->offset[i - 1];
- 		ctx->offset[0] = ninsns_rvoff(ctx->prologue_len);
- 		bpf_prog_update_insn_ptrs(prog, ctx->offset, jit_data->ro_image);
--out_offset:
--		kvfree(ctx->offset);
--		kfree(jit_data);
--		prog->aux->jit_data = NULL;
-+		goto out_free_ctx;
- 	}
- 
- 	return prog;
-@@ -209,7 +266,12 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
- 				   sizeof(jit_data->header->size));
- 		bpf_jit_binary_pack_free(jit_data->ro_header, jit_data->header);
- 	}
--	goto out_offset;
-+	free_priv_stack(prog);
-+out_free_ctx:
-+	kvfree(ctx->offset);
-+	kfree(jit_data);
-+	prog->aux->jit_data = NULL;
-+	return prog;
- }
- 
- u64 bpf_jit_alloc_exec_limit(void)
-@@ -261,6 +323,10 @@ void bpf_jit_free(struct bpf_prog *prog)
- 		prog->bpf_func = (void *)prog->bpf_func - cfi_get_offset();
- 		hdr = bpf_jit_binary_pack_hdr(prog);
- 		bpf_jit_binary_pack_free(hdr, NULL);
-+		if (prog->aux->priv_stack_ptr) {
-+			priv_stack_check_guard(prog);
-+			free_priv_stack(prog);
-+		}
- 		WARN_ON_ONCE(!bpf_prog_kallsyms_verify_off(prog));
- 	}
- 
--- 
-2.50.1
-
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
