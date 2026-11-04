@@ -2,136 +2,149 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 334AC606D80D
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 11:37:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C139606A328
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 11:42:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=q0EcBlbb;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=JhPYiiDR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=f1cgQTV3;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=selector1 header.b=TJ9gwzUO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=3uvpcnv2CBAmVNQYZVgO5TV5MRncTMQey1eISKWT0+c=; b=q0EcBlbb5klReaWppRQXC19aTG
-	iaa0wzMsKCsYQvpbdBkT3G/B4hRLeslkMKGt/pRfe6PzWw+JGiLz/rl2PQdnn+su6FvnPaabIZSR2
-	36xRCC9h+IugL/BR5YbabAY1CRh9D39tGw9UNsLC5P+qO8zV/+r5WqFl8LxvnVuWVmqGndlQ/1lJL
-	ncWbyABiMuBCMNQctfsRPO9B/gTGW9WDFs1NJYDtuLu2oejsYWNeKWEUgNjL3Wn/yKS3mcJoRziFj
-	P1a0LFq1ZJesVS0e+NIJo+/Ojy9fLrhDBVCWSIezFI9a3UQhdz/9Q+Gu/0EbR8Ow8D9B6Zj0Z4HM2
-	FkSJNizg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
+	bh=5sroPwqESAMmTTCKCtFylxt3eTPPltyoyjFfdM5kepM=; b=f1cgQTV3joLP4djR7P+3QtM6Tl
+	BY2RnM7/DGhISWi2/bHYAtShgBY4OqziHbyNaZ77r/pt5cUPsSjk1K+lxR9aiuqciGRK27CTIdL3s
+	JwOPnPkpaMIGAN/oBkW6K07OgYUZEAcmUBCs0lD58TE/hLGCAm1cL/c52OC5m2vyHH67OHGRuL3yJ
+	YmJlPNxWd+arTyCvwhtgOnNWZcjpGFmJGi0p3ZqnMK3Bo3xE31LOnsDhWZxoF/SqfLhlOPYjFB/MA
+	PDQ5/uFh7ut147B6dyNrOZJXhwA8/j79spZZMehkZ4S6j4b4assPqnGW9rUM+d5WUj0WLQPzAgFtd
+	3wK6t5ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZIe-00000005BY5-3jit;
-	Wed, 04 Nov 2026 11:37:04 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1xOZNP-00000005D1N-2QXu;
+	Wed, 04 Nov 2026 11:41:59 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZIc-00000005BX0-1Vnl;
-	Wed, 04 Nov 2026 11:37:03 +0000
+	id 1xOZNN-00000005D03-1owo
+	for linux-riscv@lists.infradead.org;
+	Wed, 04 Nov 2026 11:41:59 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wpZTaepZhOkh3V8yZ5YaCkVMeNE2F0dBfVQckMV7E+qYD7I8Malo47C6oEeAqre8MHtLrjDQT+igtLCbepoI3l9oXMMuB8Hp/Ovvt4YCU/hp4CLckXES56Y1xNWHYS17N5IcASW6i9RrGfKRDtHgRf/WaaGjvYH7GwpT7VssBDibRJIozVMAcQb6A+xBtKBHHUpRSW9B5YVgDjsqVbhPpMZY3B12ZfL0sJHvEJOp/4UkN4qhVL3X0041pUQmnMM49Dv68MKFna6Rx5VDArxbsV5BqMJausTCaHMZNZaeVrMEK3fqasay574h8FDY59VlQJCL2N950xjkyg5AYyZEyA==
+ b=csxqNYALcwULClzF1ADHuRtLcpHu8Lmj06j5SYXxDANyFWi7Ant7BLX5O27V8UtnFS1kMG1gJ2LkMjQs3dJpx6MIdbMuRpJDa9IEM8A0D22W9w34by8WhwzuEKFWiJ2tyVx4O/dQfH+vdWe6ldRloV3Uk/IwoCJHuNCkPxQF6ZCrtE5HU+AI5oE0fJ64n//u5C6LR5eLGc/PLbTLfej7xi+zZeGvEGWmCvRwqiNihTkFxOVxdI/pJ0jzg4drCyAVVzBbdNtNVLSI6G+rRuYThczeTLhqx1VGPmzpZ8ZHcz4O3oH4TDhEm9niW+oiyO6fzU5z2CwJ9CEbY/76q0qCqQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QtVfgqLf/FC1enRJUxfRRYjCBo1KOa0huSd7vZP6Rjc=;
- b=ANl0cLL8OCAdlvGSU9RbCNL63Jyinrhn/I7GH+Rsmxv8Idt4E78rk4EMxsM0lu/8UnjT4Z9aJjDBatpjT/zD4JeahIa0hFLxQSg9cPvecgXl3b04U5p4SB8T8/CGUORv93XyJ6gh6/jZ4E31zkfCnWwBOBGZNyHZI6O/5oYYKJ4hxha9vcJrvjrpvOYpSXjBejZFjbYllJnxFDChFjZWkiJOwdNnPuO/QjefrWwczrwFdMs8CTMaxfbRSZaG4M6EfJjdiUWCoQF2M52Q+3GiRU0+CfSQuXm6EnxcDaDdvDM+i7Y6re8lv/UFePzQReeZIuQLsqkgBW+YjuN/SaWKXA==
+ bh=A35hgcep/lsQ+GAMtP1yn/k4CnWU+R9xhFBn+NXyxAE=;
+ b=JxImqcKLfxDEzozrlI3yzmUiHMy0Vn3J32mctO9kq+Coim/w2sgm6MC48Zddq+U7RCMdEnEjQjMsPIdPtVvHnxA4+h4CPIu+tzD0GROKmNsmKOz4y/WqoLOqW9j2L4D7stB8ZZ1DKcimS78oLwlqliJSRzJjA4+uWLle7fkQlKbWexaAAwniTcBPjslhiv1donw1AXP3LVpK0twBNcwNx6D0myiwu2Tn3NaMfDsEy483fHecQhsAFSfNMVBVxPS4AwUP5a6zOsDyJbFxAqqpULA1SfG1PSHkIkpgIEF2wst2BUi5ZpDOcfs9EgrOYPSNfFdZXTZb114qsbkHKhMycA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ smtp.mailfrom=mobileye.com; dmarc=pass action=none header.from=mobileye.com;
+ dkim=pass header.d=mobileye.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mobileye.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QtVfgqLf/FC1enRJUxfRRYjCBo1KOa0huSd7vZP6Rjc=;
- b=JhPYiiDRg3Bs1ZYCwPsDKNWPUZTBGqsXhdeSOOb3nmIR5D2/CMrwf/jFJ1+CMB9owGExJBn83u47/LsbYcmsRX87FWiNOtsvHEIYPNjVYx7Fc3NxymuhJDTlvBLUWm/2ArhxMqEqq/M0ayAzrHWzg0RrjRFwivdRZQmj7z6HqkDINbrSiJlTyPN34yKibJSqA3xdM0nUwfZsTQUU1AMbmGrvmGRKFlafcmZxMgm2nItgdqR1sBsHheZOmdU84n+i150kHwgAH73HoNLUnUNsFgrEf5e18bEP/bChPVBNgPxDxgFxWr41HtPNTaISNR1daT3ae5DxbcpCaC8HTNDK7w==
+ bh=A35hgcep/lsQ+GAMtP1yn/k4CnWU+R9xhFBn+NXyxAE=;
+ b=TJ9gwzUOlOJPpc0AK+E7KgyATZM8Juan5I0/5d7DBgSEvv5Byb+nz0tQjLjWpruYII7ggSrxHHqDL83gGz4MoLF5rPfCYpNostQyVD3MswrkSNWm+y3vnoLToaXauErl8WDZswYHPb99adopLqPIYLyeipCdrMmSAlsyX3qaMLE=
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by AS1PR04MB9264.eurprd04.prod.outlook.com (2603:10a6:20b:4c4::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Wed, 4 Nov 2026
- 11:36:51 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0592.007; Wed, 4 Nov 2026
- 11:36:51 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-To: Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH] dmaengine: Convert to subsys_platform_driver()
-Date: Wed,  4 Nov 2026 19:33:02 +0800
-Message-ID: <20261104113302.1634102-1-peng.fan@oss.nxp.com>
-X-Mailer: git-send-email 2.51.0
-X-ClientProxiedBy: SI3PR01CA0005.apcprd01.prod.exchangelabs.com
- (2603:1096:4:296::13) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+ header.d=none;dmarc=none action=none header.from=mobileye.com;
+Received: from ZR6PR09MB889505.eurprd09.prod.outlook.com
+ (2603:10a6:910:e0::22) by MI7PR09MB416415.eurprd09.prod.outlook.com
+ (2603:10a6:290:109::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.9; Wed, 4 Nov 2026
+ 11:41:48 +0000
+Received: from ZR6PR09MB889505.eurprd09.prod.outlook.com
+ ([fe80::9006:1164:b51f:23a2]) by ZR6PR09MB889505.eurprd09.prod.outlook.com
+ ([fe80::9006:1164:b51f:23a2%4]) with mapi id 15.21.0569.011; Wed, 4 Nov 2026
+ 11:41:47 +0000
+Message-ID: <28a25fef-2a53-4d4f-b43e-6e8740c08e1e@mobileye.com>
+Date: Wed, 4 Nov 2026 13:41:44 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/2] riscv: build kernel atomics from LR/SC when Zaamo
+ is disabled
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>, Gary Guo <gary@garyguo.net>,
+ Yury Norov <yury.norov@gmail.com>,
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, cfu@wavecomp.com,
+ torvalds@linux-foundation.org, olof@lixom.net,
+ aleksa.paunovic@htecgroup.com, arikalo@gmail.com,
+ Boqun Feng <boqun@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261101-lrsc-only-v4-0-4e1d010463b3@mobileye.com>
+ <20261101-lrsc-only-v4-1-4e1d010463b3@mobileye.com>
+ <20261103-distance-audio-9b6aac0b1b4b@spud>
+Content-Language: en-US
+From: Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>
+In-Reply-To: <20261103-distance-audio-9b6aac0b1b4b@spud>
+X-ClientProxiedBy: TLZP290CA0009.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:9::18) To ZR6PR09MB889505.eurprd09.prod.outlook.com
+ (2603:10a6:910:e0::22)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|AS1PR04MB9264:EE_
-X-MS-Office365-Filtering-Correlation-Id: 05f480b9-bc30-43fc-21d4-08df3a67d8bc
+X-MS-TrafficTypeDiagnostic: ZR6PR09MB889505:EE_|MI7PR09MB416415:EE_
+X-MS-Office365-Filtering-Correlation-Id: bc5c9635-de6a-46e9-7366-08df3a689bd0
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|1800799024|23010399003|376014|10067099003|18002099003|56012099006|11063799006|261021135927099003|261022105027099003|261009223027099003|261102130727099003|261022075727099003|261026121527099003|261028144727099003|261021123027099003|261026140227099003|261021121427099003|261102123227099003;
-X-Microsoft-Antispam-Message-Info: wZ6QM4ShJnWZS5n4LDH4I6ev2Kns2yQpQlZ1k6BXjhw4UuZnjZ07eG76OKIMwn4EXzRHjbyw+rYX5s4Kr8yH3LGnMGrq2XRXV4Xg2V4R8MhGbUfBpvPWEQo7igPzOJe9tRK+20mumDGGIbtyseyPrtbaGl5IDg8Vd/vTJ53PdWWTjMILGuRZcXKdxhaqbbu+pJiEIOYdsjkilC5ocsEVcSf2aKXuHbZA+q0I68fOdiLmIVcTe0YsZJzDr7OmoM/yrNYT8LLJ0tOGyG7gTK4nhba2hkT89Q84xeTHe6P8sgrF42vpKWHx5weswBEu3rwZlqFCdgw10GqUt5Y3n3ccc3xetaohRw5kLPQQUKM42VH8tV6uQ1dD9M+2kolbaw8kE7ZAzERtE0fuT2gnBpY/df11DSD3QvM922p3+0Z6owLU0gNKSWiIAe/GOD02Lv/T504/p5qwdFRr08/Ow5vIXBQubO3Ra+BEE3UlLrBGAxeydZhrxtL9fVqxepvsloRUqvT18dkmUly/SSYeaOrFvkPi4pFBVkV91enBGcpiCbrKVEEvO8FL/QkChzfgZW7Fk0LEQXZu5WLlU0YG2anqeteHGDvQu9k4/rOe/G1XnXUXM3F0Kmf6GbV5SVgBhMrXUiH94F7m2YtJkPfXtk5Id5bagUfJ6ELgmrBn8LOdwKE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(1800799024)(23010399003)(376014)(10067099003)(18002099003)(56012099006)(11063799006)(261021135927099003)(261022105027099003)(261009223027099003)(261102130727099003)(261022075727099003)(261026121527099003)(261028144727099003)(261021123027099003)(261026140227099003)(261021121427099003)(261102123227099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|1800799024|6133799003|10067099003|18002099003|22082099003|3023799007|56012099006|4143699003|11063799006|261022075727099003|261022105027099003|261028144727099003|261102124527099003|261102123227099003|261026140227099003|261026121527099003|261021135927099003|261021121427099003|261021123027099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info: l6vxLel0P0X61Zb6hA7J/evc1TUs2Srj+Pk5WtaIYc0prtYuQC1vN8IqnJhGRxAupDi4PJazqkz4/kVB3t3zgtJiR8yHWEfwaqxWUewBkwfPAlP3KkFkoLS5Yjk5sR/u7y6K/DdPfK9HyyujIqvLTdbJae3QvxptT9epNQX7OtmxrNWNGta45yNKhaI3E73YAHIoWKIQG8uoV14/999axOuu9SmB2iTEI6Lz+y3w9jXSUDvvchdEGAV5zgzTrBZiAXD8pnHFyZiFXiNJ1W9F8xME6y4hR2hn4cb3lUsA+NaSkCQU3eYXoFuONrAVQPQH5/YEO5MYuwNvEJVXLVNHtt15QWjMHGJ8tRmkJRoJvzg48Rpt5roO6v/eepfTGz0KAi3Q9p2mOe5PeO3tcAz7SSo4hRH1u+f/7ZmmdmN+rKi6qQLOfLFvJyvUB3fCKNfwLjG/0E72L3fsDdgdXCAXzFOA7xwgUsrFGtpG4IQMPvFRaRJM9rcPpRgjoy09vNOM8WSZQJGGfy2pOUXuZ9rIOw0T1xK0Kf2UTJjFUUgiTi8Wsh5fT9HLe21afIVtyIgYSTDumWhOVQHQgBgPcPKUpBCPW5Hb4nT8ZJJMpx2TWiQ9repeMa7+MICexsWbLlKQyixQeMeFX8BEXzsQN3z5HtAxnyUSlYMb9mhZ2Q1Y448=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZR6PR09MB889505.eurprd09.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(1800799024)(6133799003)(10067099003)(18002099003)(22082099003)(3023799007)(56012099006)(4143699003)(11063799006)(261022075727099003)(261022105027099003)(261028144727099003)(261102124527099003)(261102123227099003)(261026140227099003)(261026121527099003)(261021135927099003)(261021121427099003)(261021123027099003)(261009223027099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DbQPaK9hnQ+AEjcUgKtrOPC4Gre7Ka4Bmk0iOYpFJArqsgry86jvFJY1F9Jt?=
- =?us-ascii?Q?A3QQCHjKAaxWBK0XfUlPAqAtP0ILH93hx7SBf0qfdfACbtx5vKLNmll1oiWU?=
- =?us-ascii?Q?nWJFiQFepsuL2mZxzE3xtkkaFeYgumwyCekgpT7ARcsCPXZyGPACyn45CtbU?=
- =?us-ascii?Q?Njnfq1PdLAa89iMClSXyF3EwuZNg3Lheh0U28o0jeYu7izSvLZJU+ZyyqewP?=
- =?us-ascii?Q?AqMJ4Ve48m45G2Dv/Mc9sh+lu7UvlLpSLO6LLltA/bL9QYdXL1cSwCn7R/6D?=
- =?us-ascii?Q?jb1nED7NV4ntungbnisXLB+BCw2IRq9JtJnNoUohXzdeT6wiY5QvxVov26N8?=
- =?us-ascii?Q?KyEAeejrahNisLJjD2km/qLPdoYmiJtbQ96q15PqQrE28UICm0t2boXhbUtt?=
- =?us-ascii?Q?NYHUxmk4F38SOE5MRHfDrNnrXfhHdWi2bRcrhW2qHHvCEj0Dvaj053OShLvS?=
- =?us-ascii?Q?Fee3K1Y7jhJByPcjPSdnaGlawm9K0KZYSZXQnXSsn2D5BlP3qXdViG3BPDPZ?=
- =?us-ascii?Q?cLB8K9XgSi/oKFZddb0C1v+S3GyRy37f/1lMaHsVdKmeeqM/G2Gtjl7/1nQf?=
- =?us-ascii?Q?VEylFLO8HFDfbkFEilCVCdEJ1J5jrEHpSBL6b79eNiMaEfcWpBMP5gTEUjeJ?=
- =?us-ascii?Q?qzTMAlb280riJVvnfk4S8Bg9BUDn+/9mla9R4EslsZvaNsm7IlIQ3qtg/z0u?=
- =?us-ascii?Q?7+KiVOMJY7DC0ObqgA8aPP7QqTq3pKMAPDXL0DagMPfXzXaozVzdltg8TzKn?=
- =?us-ascii?Q?5OTDeF37AhVRghnaA0BlaZZITkEItrlGhtuRz2yuKLeAaFCQvjvuf1mbGB2q?=
- =?us-ascii?Q?GuDUXaY1aG/e11NEUnjy1wJKgYTKs7G0hLuE8hzyz5fHvjdhSh8mGLOzTF4J?=
- =?us-ascii?Q?YtaAJlJvAm8bHye+DeWGYiWU+w5gGDDGUH1kEksBHGogY+CXHykNJ6myB0DU?=
- =?us-ascii?Q?DYNl9TsPBNOX2TrqgqRdGCcqyYP5B01DSmWv9qtb16mgx17RG0j8ZNaP9GOm?=
- =?us-ascii?Q?LX3oUdbBvR9K4zKoif5BK+7qgdak/j8vmID+AdWVEYMcLjg7+EsvlemlBk/s?=
- =?us-ascii?Q?Slt7wcbRCDAalkIdtrbvK0CiLiGVU+E/g58AJWwVkZ+wuWzPW+eZXicDAi2A?=
- =?us-ascii?Q?9J+7x+yjoKp4GXdbtyXHCTz5GC0Jkh0ug86iKfbV0r20ljiCFxRfESCntrK0?=
- =?us-ascii?Q?Sw8hZvFbbZ5ZFZ93hEAHgVERn1XHM77djP+xosN3g767Y4K/TZ2tDcJSnCPh?=
- =?us-ascii?Q?TrXebq3gPL3xYO6Viiw0JIjXWDkz5tYZeB/vhGQUuBBe+YL97tHtf2wUSVVh?=
- =?us-ascii?Q?Pxsvvu4EcHX3x0YZVL4TAX7AvcHc8QMIWs0MdvMfbbSCt14wctKDOb6XQiW2?=
- =?us-ascii?Q?6ZipSGG0vWBvboFuIv83YMQaq1GT75yejTN1f0J8I7eZ0GIiny1/NbCOZgAL?=
- =?us-ascii?Q?4s5q+4vbyJTgWrA21eZ3DIhE6IphWMbnCRIDX9PzB5cp87jCAJN5OKAPjumT?=
- =?us-ascii?Q?bj6ZGMwcBX1c53IAE2FcmxVZjWcr8N2vV/CHB6Qc4fphi+1LnQtDDZH0uCrT?=
- =?us-ascii?Q?ZKb/yf0ulBJHZHSPexush7GYWBc240o2R6ZQlFKerl7ZYRTa4ooO8awx1YMB?=
- =?us-ascii?Q?+nVh107Y56+p3rfWonizaEWvJCz1F8mAXRb1W9OAj13UP29GK4KSRp2Sq+/Y?=
- =?us-ascii?Q?eTqQfPBKmOc17zTfDnFDVt3ViURimXaHwxUprum6R7PK3g9Wzf2SGFVnFctq?=
- =?us-ascii?Q?+VlqTyu7zpQ3f5sJdXG9G+6p20W3YlaE+Wye9vsywdLn5wYSvuo8?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 05f480b9-bc30-43fc-21d4-08df3a67d8bc
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R3p1Tk02MXJHc2tEMkVhejF5Z3dYenZOeW16NVp3U2JwY1FVN0svRUZXUlRk?=
+ =?utf-8?B?MVkvMEI5ODFjMmxlYWxuS2RjRTNqRXdUV3N5dzFPNkdQdHEyZTEvam1hanBX?=
+ =?utf-8?B?RlllSE15WG84YkVpc0hUWEljeE5TT3p6S2tVTnJlMExnYXhITmpzSS9DV21o?=
+ =?utf-8?B?Y3RuYXJZdmd0Vmh3SXMvVWpKTkdqK0tCL1RLSTExc0FzOXp6dGI2ZnljU1VR?=
+ =?utf-8?B?S2NrZWxjek9RTmFPVFdySmtzeVUrQ3I5VnU4MGJJc3gzVVZGUFF1U0EyZ1lS?=
+ =?utf-8?B?SjdqMlRTSkpuaUl3VWMxeVV6eEJ3amJLbksyQnZBWVNYTGMvUHJyUlpXUGl4?=
+ =?utf-8?B?SmNaNUh4MitZWFdrYVdjUEp2RVlpVkdjd2o0THNnUGp4SXdISXgxOXZTVndL?=
+ =?utf-8?B?dEQyUkpyM0NQdWZDSU1qbzlCLzdGVlpIaGpQUnRPZU5UWlN5MjlPaFBxenZB?=
+ =?utf-8?B?RmhNTk5Ka3hvUGJDMFZreDFQWE5hQzhHTEJTVVozLy9DazRwdlRmVWFsdElN?=
+ =?utf-8?B?T29JbEdNc2FqWldzUU5EY2ZtTjFKTWN0N0hZUEk2bWQ2R0JvN2xzZTB1WmNC?=
+ =?utf-8?B?V2hYeHhSLzdmTGhLMGdqL0NMU2JNNFlTdkwycUxQSHRVbngrUHhmWTN2VFVV?=
+ =?utf-8?B?Z1pweUo0SW5uRGxTd1BPcU9mOE9HRFJ3WkE3anR5djJ3VlU5OXJxQ0tvaWRC?=
+ =?utf-8?B?eC9NY0Q2VzlFY09LWDE3Tm04ZjliR2FYTm9YSzN6ZS9HVXdHTWVrREVWb0pU?=
+ =?utf-8?B?TWZwZHdKRjY4TXFkcjJUSHNkY0JLSjQ1Qm1lUmlmTzJQSGVHQVNEMVQyQ1Bq?=
+ =?utf-8?B?RE9yRjJJUk81MTZpaDhPUmFSNmFNaUErS2VET251TjZUaFFHNFA1RXR0NVBF?=
+ =?utf-8?B?eFhmSkNpbnNEUWhmNEJlTUtpaUVGMHQrVDl4YUNUOGlWYUY0dS9xcVBkNWpI?=
+ =?utf-8?B?RkhIbTVBVHZsWk9TUzQ5cStoSUtUbGNITTdRcysrQThDQ3hNSFcxSklaelNF?=
+ =?utf-8?B?NEJqV0pJTGNhTnZkMXIyaWd1U3Mrd1BucFFEckJNQmVvL1ZROHNYQ3luQm1j?=
+ =?utf-8?B?ajNtT25qb1JrSG01NjhBcndUbTczME1ONGdVMW5mbEpRNXNhZWwySzlkL1BX?=
+ =?utf-8?B?QWlaTFBFQmo0aVBaVExDSDl3bUtWWmU1TTQvUWFiUzJsQzJSeXVaUG92bUFJ?=
+ =?utf-8?B?SHJPdkhpRElTOUhYRkNKK3lKOW1LeVFnVHBBcXM2QmxYanRRUXE5dTFaVmZn?=
+ =?utf-8?B?WC9taUhVRExKb054UG5pb1RhNFBHRTY3OEg4OU41TFhRNjlwZ3ZabjhrSExL?=
+ =?utf-8?B?K1MydHdUZlZyRUp6VDB2TEpNVDZhd2lobkFYQXVJM204T3NJT3N1bG9xZ0kz?=
+ =?utf-8?B?Sy96bTh6S3lTRmRMUFJqMWZ6UkM5blR1SlphWSt3S2NLRjd6SnFPeU5icnVy?=
+ =?utf-8?B?dXByNVZvcnRLYkVNZi9DZWl3dytUcm9zRlhQUHVMaFVERm9LMldLNGNOaHVH?=
+ =?utf-8?B?RWdRenVldW1NTU9TUCtRTExjdEcxbWFMRmVseFdzYTZnQkpxYldtVkc5bERs?=
+ =?utf-8?B?NkFBRlpoWE95eU9QUlJjSVFsbjI3MDk4emRCelF0Ri9wUkVJS3pqUHA5dUFh?=
+ =?utf-8?B?akEyQjkyODFwemx5TE5VSXdQU3ZNMk1ZNTAvZ3VVR0dqWEdCWGowNkg5WGN4?=
+ =?utf-8?B?NG9wUHFmRGQ0aW9RdVNnZjB0SWUvK2xvRUJVeWhGYlRrRzZjb2JhKzNLVnEx?=
+ =?utf-8?B?UDhtbWh1YVB2TFR5Z0xHTkwvK0hISWRMazhtZm91UStSL29kOFQrWkI3Zkd1?=
+ =?utf-8?B?NHc1OGpzdDRVNjViSTVZQ3pDRVZ1VFh6Tm52R1F0OExtZXVwdnc1Rk0wRFcz?=
+ =?utf-8?B?eXIxaTVpeXBnOGxMcHk1Yy9TNldDU2NUcGVOUnk1MGE1U1NxTk1JbVk2VDlj?=
+ =?utf-8?B?dFk5WS9OY3NXYjZzS1QxaVJBVW90ZGRXTjc0L3FLZ3FxVmwvTUwvL240V2F3?=
+ =?utf-8?B?NEQ5R21XTVFvaTNRdnB6QXQra2FNUjdlVG9ZSWwzS0MwRlVlZEFBOVp1Zmd2?=
+ =?utf-8?B?S3FiK3Z2MlJjcExobXJOcmhwQmVOdXIzczZwQ0tndHBDbkFuYUNBWDJybGh3?=
+ =?utf-8?B?M0VDeE5nRHFWK292b2tNV1Q1ZEpTT2IyTndmeE9oajFDS2FhWGluQkVpaldx?=
+ =?utf-8?B?Z3BSUEpGWFNKZ1V4V1lMdy9LdGE2NHUxdHdZWVJxSmJ5WjZPUEJkR3JBRFZh?=
+ =?utf-8?B?b28vZnlJeExxWHRTTUVaNE0vT0duS0h5NVJuZkhyL2lHNVZINFRTcmpkcTc0?=
+ =?utf-8?B?UmpJdTJKVFR2OUNtNFZmTDY2ZVZTZURPVy8vc29MUW9tQzFBejVXQT09?=
+X-OriginatorOrg: mobileye.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bc5c9635-de6a-46e9-7366-08df3a689bd0
+X-MS-Exchange-CrossTenant-AuthSource: ZR6PR09MB889505.eurprd09.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 11:36:20.4858
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 11:41:47.5710
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 4f85ba13-6953-46a6-9c5b-7599fd80e9aa
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: s1KWq1UZEvFoZdDCC7AJp3RNP0rWhC2UIYGQLE9uUasxMK9giBsHxcfaizI+BoTmwI5FbC0ONJ2r71iNZ+xciKxVs/IbgF12f0SGZrYtDVM3krbzsPOA+kJ2PG0Mhr7q
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9264
+X-MS-Exchange-CrossTenant-UserPrincipalName: NjoGoRRgbpYA9CsKNAq4bUuy5iXVkV2WkJtdOZdOjkvWOcab0WGNbxSXxci5QKaz9bo5B26V2xlz0HmK3MlqGg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI7PR09MB416415
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_033702_550070_B38C5D48 
-X-CRM114-Status: GOOD (  10.30  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261104_034157_671874_A5D52EE1 
+X-CRM114-Status: GOOD (  45.59  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,238 +157,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Peng Fan <peng.fan@nxp.com>
+On 11/3/26 23:09, Conor Dooley wrote:
+>> +config TOOLCHAIN_HAS_ZALRSC
+>> +	bool
+>> +	default y
+>> +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64im_zalrsc)
+>> +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32im_zalrsc)
+>> +
+>> +config RISCV_ISA_ZAAMO
+>> +	bool "Zaamo extension support for AMO atomics" if NONPORTABLE && TOOLCHAIN_HAS_ZALRSC
+> 
+> Probably this option should be called something like
+> TOOLCHAIN_HAS_ZALRSC_ZAAMO if you're going to use it like this, because
+> it is confusing why ZALRSC gates a ZAAMO option.
+> 
+> I'm curious actually, does every toolchain provide zalrsc and zaamo as a
+> pair, or should you check for both here? I'd be surprised if there was a
+> toolchain with one but not the other but worth checking to avoid some
+> bizarre toolchain bug..
 
-Replace the open-coded subsys_initcall()/module_exit() platform driver
-registration with subsys_platform_driver().
+Agree, will be in next version.
 
-No functional change.
+> Ah, right. But that kinda goes against how NONPORTABLE is meant to work
+> since the default cannot run on all platforms? At that point, just get
+> rid of NONPORTABLE?
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/dma/at_xdmac.c          | 13 +------------
- drivers/dma/bestcomm/bestcomm.c | 20 +-------------------
- drivers/dma/dma-jz4780.c        | 13 +------------
- drivers/dma/dw/platform.c       | 13 +------------
- drivers/dma/fsl-edma-main.c     | 13 +------------
- drivers/dma/mcf-edma-main.c     | 13 +------------
- drivers/dma/sa11x0-dma.c        | 13 +------------
- drivers/dma/sf-pdma/sf-pdma.c   | 13 +------------
- 8 files changed, 8 insertions(+), 103 deletions(-)
+Agree, dropping NONPORTABLE
 
-diff --git a/drivers/dma/at_xdmac.c b/drivers/dma/at_xdmac.c
-index d40a8b40dddc..3e83883cc17d 100644
---- a/drivers/dma/at_xdmac.c
-+++ b/drivers/dma/at_xdmac.c
-@@ -2487,18 +2487,7 @@ static struct platform_driver at_xdmac_driver = {
- 		.pm		= pm_ptr(&atmel_xdmac_dev_pm_ops),
- 	}
- };
--
--static int __init at_xdmac_init(void)
--{
--	return platform_driver_register(&at_xdmac_driver);
--}
--subsys_initcall(at_xdmac_init);
--
--static void __exit at_xdmac_exit(void)
--{
--	platform_driver_unregister(&at_xdmac_driver);
--}
--module_exit(at_xdmac_exit);
-+subsys_platform_driver(at_xdmac_driver);
- 
- MODULE_DESCRIPTION("Atmel Extended DMA Controller driver");
- MODULE_AUTHOR("Ludovic Desroches <ludovic.desroches@atmel.com>");
-diff --git a/drivers/dma/bestcomm/bestcomm.c b/drivers/dma/bestcomm/bestcomm.c
-index 241a91936fe8..1ec700c2c996 100644
---- a/drivers/dma/bestcomm/bestcomm.c
-+++ b/drivers/dma/bestcomm/bestcomm.c
-@@ -469,28 +469,10 @@ static struct platform_driver mpc52xx_bcom_of_platform_driver = {
- 	},
- };
- 
--
--/* ======================================================================== */
--/* Module                                                                   */
--/* ======================================================================== */
--
--static int __init
--mpc52xx_bcom_init(void)
--{
--	return platform_driver_register(&mpc52xx_bcom_of_platform_driver);
--}
--
--static void __exit
--mpc52xx_bcom_exit(void)
--{
--	platform_driver_unregister(&mpc52xx_bcom_of_platform_driver);
--}
--
- /* If we're not a module, we must make sure everything is setup before  */
- /* anyone tries to use us ... that's why we use subsys_initcall instead */
- /* of module_init. */
--subsys_initcall(mpc52xx_bcom_init);
--module_exit(mpc52xx_bcom_exit);
-+subsys_platform_driver(mpc52xx_bcom_of_platform_driver);
- 
- MODULE_DESCRIPTION("Freescale MPC52xx BestComm DMA");
- MODULE_AUTHOR("Sylvain Munaut <tnt@246tNt.com>");
-diff --git a/drivers/dma/dma-jz4780.c b/drivers/dma/dma-jz4780.c
-index ac2094e65ecf..57ab0f621105 100644
---- a/drivers/dma/dma-jz4780.c
-+++ b/drivers/dma/dma-jz4780.c
-@@ -1128,18 +1128,7 @@ static struct platform_driver jz4780_dma_driver = {
- 		.of_match_table = jz4780_dma_dt_match,
- 	},
- };
--
--static int __init jz4780_dma_init(void)
--{
--	return platform_driver_register(&jz4780_dma_driver);
--}
--subsys_initcall(jz4780_dma_init);
--
--static void __exit jz4780_dma_exit(void)
--{
--	platform_driver_unregister(&jz4780_dma_driver);
--}
--module_exit(jz4780_dma_exit);
-+subsys_platform_driver(jz4780_dma_driver);
- 
- MODULE_AUTHOR("Alex Smith <alex@alex-smith.me.uk>");
- MODULE_DESCRIPTION("Ingenic JZ4780 DMA controller driver");
-diff --git a/drivers/dma/dw/platform.c b/drivers/dma/dw/platform.c
-index 5c1c97eb28a4..95a36af613e8 100644
---- a/drivers/dma/dw/platform.c
-+++ b/drivers/dma/dw/platform.c
-@@ -194,18 +194,7 @@ static struct platform_driver dw_driver = {
- 		.acpi_match_table = ACPI_PTR(dw_dma_acpi_id_table),
- 	},
- };
--
--static int __init dw_init(void)
--{
--	return platform_driver_register(&dw_driver);
--}
--subsys_initcall(dw_init);
--
--static void __exit dw_exit(void)
--{
--	platform_driver_unregister(&dw_driver);
--}
--module_exit(dw_exit);
-+subsys_platform_driver(dw_driver);
- 
- MODULE_LICENSE("GPL v2");
- MODULE_DESCRIPTION("Synopsys DesignWare DMA Controller platform driver");
-diff --git a/drivers/dma/fsl-edma-main.c b/drivers/dma/fsl-edma-main.c
-index 630285c85482..0feb878a03ff 100644
---- a/drivers/dma/fsl-edma-main.c
-+++ b/drivers/dma/fsl-edma-main.c
-@@ -977,18 +977,7 @@ static struct platform_driver fsl_edma_driver = {
- 	.probe          = fsl_edma_probe,
- 	.remove		= fsl_edma_remove,
- };
--
--static int __init fsl_edma_init(void)
--{
--	return platform_driver_register(&fsl_edma_driver);
--}
--subsys_initcall(fsl_edma_init);
--
--static void __exit fsl_edma_exit(void)
--{
--	platform_driver_unregister(&fsl_edma_driver);
--}
--module_exit(fsl_edma_exit);
-+subsys_platform_driver(fsl_edma_driver);
- 
- MODULE_DESCRIPTION("Freescale eDMA engine driver");
- MODULE_LICENSE("GPL v2");
-diff --git a/drivers/dma/mcf-edma-main.c b/drivers/dma/mcf-edma-main.c
-index 9e1c6400c77b..5b72af393ec3 100644
---- a/drivers/dma/mcf-edma-main.c
-+++ b/drivers/dma/mcf-edma-main.c
-@@ -281,18 +281,7 @@ bool mcf_edma_filter_fn(struct dma_chan *chan, void *param)
- 	return false;
- }
- EXPORT_SYMBOL(mcf_edma_filter_fn);
--
--static int __init mcf_edma_init(void)
--{
--	return platform_driver_register(&mcf_edma_driver);
--}
--subsys_initcall(mcf_edma_init);
--
--static void __exit mcf_edma_exit(void)
--{
--	platform_driver_unregister(&mcf_edma_driver);
--}
--module_exit(mcf_edma_exit);
-+subsys_platform_driver(mcf_edma_driver);
- 
- MODULE_ALIAS("platform:mcf-edma");
- MODULE_DESCRIPTION("Freescale eDMA engine driver, ColdFire family");
-diff --git a/drivers/dma/sa11x0-dma.c b/drivers/dma/sa11x0-dma.c
-index a6fa431530e3..6a7a519910ec 100644
---- a/drivers/dma/sa11x0-dma.c
-+++ b/drivers/dma/sa11x0-dma.c
-@@ -1079,18 +1079,7 @@ static struct platform_driver sa11x0_dma_driver = {
- 	.probe		= sa11x0_dma_probe,
- 	.remove		= sa11x0_dma_remove,
- };
--
--static int __init sa11x0_dma_init(void)
--{
--	return platform_driver_register(&sa11x0_dma_driver);
--}
--subsys_initcall(sa11x0_dma_init);
--
--static void __exit sa11x0_dma_exit(void)
--{
--	platform_driver_unregister(&sa11x0_dma_driver);
--}
--module_exit(sa11x0_dma_exit);
-+subsys_platform_driver(sa11x0_dma_driver);
- 
- MODULE_AUTHOR("Russell King");
- MODULE_DESCRIPTION("SA-11x0 DMA driver");
-diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
-index 6f79cc28703e..c7d6774d0970 100644
---- a/drivers/dma/sf-pdma/sf-pdma.c
-+++ b/drivers/dma/sf-pdma/sf-pdma.c
-@@ -639,19 +639,8 @@ static struct platform_driver sf_pdma_driver = {
- 	},
- };
- 
--static int __init sf_pdma_init(void)
--{
--	return platform_driver_register(&sf_pdma_driver);
--}
--
--static void __exit sf_pdma_exit(void)
--{
--	platform_driver_unregister(&sf_pdma_driver);
--}
--
- /* do early init */
--subsys_initcall(sf_pdma_init);
--module_exit(sf_pdma_exit);
-+subsys_platform_driver(sf_pdma_driver);
- 
- MODULE_LICENSE("GPL v2");
- MODULE_DESCRIPTION("SiFive Platform DMA driver");
--- 
-2.51.0
+> | My logic when adding it:
+> | There are 2 sets of extensions related defines: one is Kconfig ones,
+> | CONFIG_RISCV_ISA_<ext>; and another one found in the
+> | arch/riscv/include/asm/hwcap.h, RISCV_ISA_EXT_<ext>
+> | 
+> | In the hwcap.h, there's already
+> | 
+> | #define RISCV_ISA_EXT_ZAAMO		97
+> | #define RISCV_ISA_EXT_ZALRSC		98
+> | 
+> | added by commit 35173b666a16 (riscv: add parsing for Zaamo and Zalrsc
+> | extensions, 2024-06-19)
+> | 
+> | These 2 sets are logically coupled, and used in the BPF JUT code like
+> | 
+> | #define rv_ext_enabled(ext) \
+> | 	(IS_ENABLED(CONFIG_RISCV_ISA_##ext) &&
+> | riscv_has_extension_likely(RISCV_ISA_EXT_##ext))
+> | 
+> | So I thought if RISCV_ISA_EXT_ZALRSC exists although it is mandatory,
+> | CONFIG_RISCV_ISA_ZALRSC counterpart should exist for the same reason.
+> | 
+> | Do you suggest this is different case and it is worth to remove
+> | CONFIG_RISCV_ISA_ZALRSC anyway?
+> 
+> If this is the justification for it, then you need to provide this
+> justification in your commit message - but if zalrsc is always enabled
+> then there's no need for any code like that in the bpf jit in the first
+> place, once more making this dead code that should be deleted?
 
+Adding justification. Also, it is possible to have zaamo+zacas and not
+support zalrsc; in this case CONFIG_RISCV_ISA_ZALRSC will be "n"; adding
+clause explaining this theoretical option.
+
+>> +# Zaamo is off only when the compiler accepts _zalrsc in -march.
+> 
+> I think the comment here is not quite right, it should be "can only be
+> off", no?
+
+Sure, fixed
+
+>> +ifneq ($(CONFIG_RISCV_ISA_A),y)
+>> +riscv-march-$(CONFIG_RISCV_ISA_ZAAMO) := $(riscv-march-y)_zaamo
+> 
+> Isn't this dead code? The logic for RISCV_ISA_A is:
+> config RISCV_ISA_A
+> 	def_bool RISCV_ISA_ZAAMO && RISCV_ISA_ZALRSC
+> but ZALRSC is always set, so RISCV_ISA_A is equivalent to
+> RISCV_ISA_ZAAMO so there can't be a case where RISCV_ISA_A is not set
+> but RISCV_ISA_ZAAMO is?
+> 
+>> +riscv-march-$(CONFIG_RISCV_ISA_ZALRSC) := $(riscv-march-y)_zalrsc
+> 
+> And here, this is effectively just riscv-march-y, since if you get as
+> far as here, it must be true.
+
+See above, in theory one can have zaamo+zacas but not zalrsc
+> | > ...why are we making this a compiletime decision in the first place?
+> | > Why can't this be an alternative, starting with the zalrsc stuff and
+> | > moving to the better implementation if available?
+> | 
+> | I started with alternatives approach, see
+> | Suspicious Link - Removed
+> | Then I converted it to the static compile-time decision following input
+> | from Gary Guo that I think is valid, here:
+> | Suspicious Link - Removed
+> 
+> 
+> Okay, that logic from Gary does make some sense. I'll accept that
+> argument, but again this needs to be communicated in the commit message.
+
+Done
+
+> | There's BPF JIT that emits AMO instructions, patch for this is not ready
+> | yet. These AMO instructions will be emulated and work correctly but very
+> | slowly.
+> 
+> I think that needs to be part of this series. You're far too focused on
+> your individual platform where the instructions work, rather than the
+> holistic solution of lowering our minimum requirements so that platforms
+> that do not have any AMO support work. The only way that it'd make sense
+> to move forward with this without the bpf jit patch is if you disabled
+> bpf entirely when RISCV_ISA_ZAAMO is disabled.
+
+Added patch for BPF JIT.
+
+Also, added is patch for kprobes/uprobes, to reject probes inside lr/sc
+sequence. This is needed anyway, having lr/sc blocks for any atomics
+only increase chances but we do have lr/sc blocks in code anyway and
+need to protect it.
+
+> 
+>> +#if defined(__riscv_atomic) || defined(__riscv_zaamo)
+> 
+> Something else to note is that we do not use this pattern anywhere else
+> in arch code as far as I know? We always use the RISC_ISA_WHATEVER
+> config option to gate conditional stuff. Since RISCV_ISA_A is equivalent
+> to RISCV_ISA_ZAAMO (unless I am mistaken there somehow) this just collapses
+> to a single check?
+
+Agree, replacing with #ifdef CONFIG_RISCV_ISA_ZAAMO>> +#else
+>> +#error "Need AMO or LR/SC atomics"
+> 
+> And this error is actually unreachable?
+> 
+> (and so on in every other place that this pattern is repeated)
+
+Agree, removed
+Thanks, Vladimir
 
 _______________________________________________
 linux-riscv mailing list
