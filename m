@@ -2,106 +2,94 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60216606A330
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 08:26:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5167A606A326
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 08:30:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dHOAkFM/;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nW5BYAki
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RoUoJ/zP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=nspsf4+jMlsGLxGxlxmNPoWvSAj3ExAeBZmgTYiVjHE=; b=dHOAkFM/5ujru0gFF7U02n61Lq
-	uKaizWgFP5c3Zjx2HkMj12FothU+qi3LgLLN7HO89bXzg+TeF2mf2J5AUzMsjIKMgevuXLJCLDABw
-	zThwWoBZdRVQRcH7jVghlHmhOy0u5su3bDaQ5f3n7rdI0C79/S4jw/mES7/fHcKXH5M8YYaSlvLjY
-	FhnuYZZjvFvfdqixnPZK45CFQ39BMbnaqKIYKnwwHFwYToYZKt1bNFN1GvtQAxdYyKlnxM64U+Wb3
-	XQJPxtPNoHWAFbptNoSjvgcgVkAaxZaXpurvo5seSr3f2Lbh8r0DygKStTlBGkIAxNxsdZvRbVIUV
-	XAIeyhNA==;
+	bh=b20YlFjUEPTSN/6tzVYZ9wrFme8pGPSbDQOR9nmlXkA=; b=RoUoJ/zPzFP3FZRfxSsDJJpGO5
+	ExH/2q+hKulI3rwrEKBePrUgo64TvGGw5EWM5+byZas5N6YWFkkEabxbRCHxzDstd8XEhhy8smW1w
+	P6hyf4QjpgDW5NiWchVxlYyk9V6M4c7wDeYZqr4PNfnqjb4SPTfi1PXLcjXTDMizUyE4xnbd+NRHg
+	NscOgN9zYmrF9rv1kOzWNUuLFe7HHTpsFOinCWRt6U7DE4bx9lyj+a9G8RV+QvxeEepJ/TjPpsnhH
+	sQ7ZGFl8z+fFiWbR2+1hq5HLEQ+mQ7HExVfwpvyCNceucBmI+t5URanocKncItQjN1pqMO2bWsc0f
+	19J0VpjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWJu-00000004hWc-3cTm;
-	Wed, 04 Nov 2026 08:26:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xOWOM-00000004i2F-2gnf;
+	Wed, 04 Nov 2026 08:30:46 +0000
+Received: from mail-vs1-f42.google.com ([209.85.217.42])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWJs-00000004hW1-3zHN;
-	Wed, 04 Nov 2026 08:26:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5197260267;
-	Wed,  4 Nov 2026 08:26:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBCC81F000C1;
-	Wed,  4 Nov 2026 08:26:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793780768;
-	bh=J3ThcFtrRkgwnMtkNBNcnxrXl5oKD/YpSEz2FCPS0e4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=nW5BYAkiJKIjsord9BybRbZzsABBgSbKHBIx+fEbmhHW7NAlvgpmhZEBNrH3ZDIpv
-	 UhpmHApaRr81Eh4mWZONdzdUwVsuTE1On0usga42gDyVkO/wWESG1gSV7gCz5FHKfH
-	 ArDkKEtJHUKJ98HyEcc4qKimFqj4Ic9evIf+rfn5R9454gZSy8kM+VnVmABLUm3YYX
-	 Vvk4BJTwa5bsevXD2+kfMPnRfGB/JvwY8K165e8w870aL0JvVlJRSplmNRfDmErffN
-	 lwPlJDC0BuUdtf1mvvje3goqENp0/1d3ogmhPLXzLc3CNZEpvoA4JAsQicSJ3VlMZ/
-	 BmMkISc4MfhrQ==
-Message-ID: <ee28bd16-11fc-4b78-b1ee-e0e20bb0cfdb@kernel.org>
-Date: Wed, 4 Nov 2026 09:26:00 +0100
+	id 1xOWOG-00000004i1C-3s38
+	for linux-riscv@lists.infradead.org;
+	Wed, 04 Nov 2026 08:30:42 +0000
+Received: by mail-vs1-f42.google.com with SMTP id ada2fe7eead31-7cc53938a8fso215608137.2
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Nov 2026 00:30:40 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793781039; x=1794385839;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=VTnZ9KxipM57oeI6XdWPJAXVctjy3UG+Ti/EianJRiM=;
+        b=sPuQqV9D3KPp2jW+/tHg4X3RQuSv7lJ0F0MVm8XQv3QM8YK98sF79FDaNk7I/ShQBY
+         NSA0et5bppucJ1RqKrTKo+Kpfys1cssho4xxEf2vv3kG6dcNzZ/q1cyLotr7hw7jHyR0
+         ISeO+TeBPdwRVu4Fhzk4xq4xZxgCSfPdMEeNc0AwXBLN7U/6aNBA2zy3P/d7Tbq2lCG8
+         /UCt2BQcYU3sV4Zd9ABw8NUItBrUABAajxVFdzgUyceV3ZdyzJ0aBXiKC5nFg6sYqQwp
+         Rx9cr4K7DMjECysmZb+TSQCEuX982mcsJRH9fx6ZOs+KnC0FDkU/ZNhv7pu++neoKtEH
+         Kfdw==
+X-Forwarded-Encrypted: i=1; AKwUvBzKBLrtC8D1QNkuWExYO1X3Xvhtq1vLTg2yB5VousTRxbYi+xxwCjPRkY8d0i+dX+qlqWHBsE2s7OFSFw==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8p553rNZljsX/6shTvbVoY5OdultxUOoEY8ME3tQ3ymPKo+8+r
+	cSAvM/6xcf2zOUvlJHDExwOMUoaSDdHGhtuK7Jt2A4/kUgu6824Ip2LY0Mepb7pX
+X-Gm-Gg: AYBFou01/OGUh8yz4S1PZVlR/RNhVKA+y9BsIyIkXylpybDbaOAcranr5eU2KmMd8t/
+	diTiOR2v1mGnrTLrqtPpLPmyR6GOrUo8Mc50Acd/q+8qnsfV9Ps7sSJGsGhD1qfsS9gLwv3aNff
+	I6Z1DO5WBBXUSq27uxVwntYwNOg/1IBgupAs41x5rnDcWfCxOcDTFVhmiTdFSacGZ/Q6xUZ33k2
+	xK7WeZBs33AQJkPgFn5nHzCbCtmNvKJ86qhZjNjVP2651YFteof3iOjkFbtUzVNzOv3OPx+sVGZ
+	iIcYkWFSxKCoHWC5r2fwG7rYswzeF7j8LAPBze2LYO9b1vrmCoemCQjL4uiIW0wAeFPLiXEtNxa
+	5DXsomrgeGhSK6NHyjPIJbdXOMOXf3OXS7dCSxsYgYv3olyXQKBCS5Qg49FZdT28YfKhJuG1XF+
+	zNuJ2sUWOWKE0ZZh8q7a7g7Z+D7xCRI2l9TrcjgHeVZzRM6CuFZ8PynC823lCTLNUTl2GnsnGCq
+	u4uEC+V4yCrTDdkVX31t+7qhdaMNqGaoYTWZQkF/0zXIZGfaFUQJQq6B8r+NeeHeX78d7y+3oUp
+	2F3shIpIY97Cu/g1l/OI/OWeQldLP/3uDkJtCRnzIHb5Os8odkXpX1HBwHGVmAV8+Q==
+X-Received: by 2002:a05:6102:5243:b0:7cc:115:ddf4 with SMTP id ada2fe7eead31-7d072cafbdamr6022607137.25.1793781039555;
+        Wed, 04 Nov 2026 00:30:39 -0800 (PST)
+Received: from mail-ua1-f44.google.com (mail-ua1-f44.google.com. [209.85.222.44])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5eca8d7780fsm1126660e0c.3.2026.11.04.00.30.39
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Nov 2026 00:30:39 -0800 (PST)
+Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-998569550adso278526241.2
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Nov 2026 00:30:39 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AKwUvBzUezsZ4a4QKHp3w2ME3KvnzbpGyspZx2a/JiEQSiLseRlRPKZoH2ApvCETJtS9++hqoHA7zv4K24FI9Q==@lists.infradead.org
+X-Received: by 2002:a05:6102:8099:b0:7cc:bc0:b2d0 with SMTP id
+ ada2fe7eead31-7d072d59168mr6120354137.33.1793781034293; Wed, 04 Nov 2026
+ 00:30:34 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] phy: add support for TH1520 USB PHY
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Wei Fu <wefu@redhat.com>, Drew Fustini <dfustini@tenstorrent.com>
-References: <20261103081444.1983071-1-zhengxingda@iscas.ac.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261103081444.1983071-1-zhengxingda@iscas.ac.cn>
+References: <20261103-reset-regmap-test-bits-v1-0-1b33607a76b0@pengutronix.de> <20261103-reset-regmap-test-bits-v1-5-1b33607a76b0@pengutronix.de>
+In-Reply-To: <20261103-reset-regmap-test-bits-v1-5-1b33607a76b0@pengutronix.de>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 4 Nov 2026 09:30:22 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdX8-8nEYKOB3Hhbb5DiXHcOgYaMCtJ0do=evQDbYNEMLw@mail.gmail.com>
+X-Gm-Features: AclHuK8USmfzs7i7XtJ90bDmKjuz-weCg5Jo9uiJtfA3Xj-kpN0lb8TQTdngXvE
+Message-ID: <CAMuHMdX8-8nEYKOB3Hhbb5DiXHcOgYaMCtJ0do=evQDbYNEMLw@mail.gmail.com>
+Subject: Re: [PATCH 5/8] reset: mpfs: Use regmap_test_bits in mpfs_status
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Damien Le Moal <dlemoal@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
+	Valentina Fernandez <valentina.fernandezalanis@microchip.com>, 
+	Daire McNamara <daire.mcnamara@microchip.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Michal Simek <michal.simek@amd.com>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261104_003040_964839_A8035B22 
+X-CRM114-Status: GOOD (  14.53  )
+X-Spam-Score: -1.6 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,37 +99,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 03/11/2026 09:14, Icenowy Zheng wrote:
-> This patchset is split from the "Add TH1520 USB support" patchset,
-> with only the PHY binding/driver part.
-> 
-> Icenowy Zheng (2):
->   dt-bindings: phy: add binding for T-Head TH1520 USB PHY
->   phy: add a driver for T-Head TH1520 USB PHY
+On Tue, 3 Nov 2026 at 15:53, Philipp Zabel <p.zabel@pengutronix.de> wrote:
+> Simplify mpfs_status() by using regmap_test_bits().
+> Now returns 1 if asserted for all bits.
 
+and propagates errors.
 
-Considering how vulab@iscas.ac.cn is ignoring reviews/comments and spams
-with a lot of unthreaded emails, completely disregarding any tries of
-contact over last 1.5 months, shall we ignore all contributions from
-@iscas.ac.cn?
+>
+> Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-Maybe this will be the only way to actually be heard?
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-Icenowy, do you have any possibility to reach to bot spammers from vulab?
+Gr{oetje,eeting}s,
 
-Best regards,
-Krzysztof
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
