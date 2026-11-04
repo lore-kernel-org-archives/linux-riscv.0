@@ -2,72 +2,160 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EAD91606AB08
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 21:56:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39583606A326
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 22:55:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t8SNYevU;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dk4t3nQ2
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0eUySIIi;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IJOJe1/i
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=to7TNnpiqe5PyDMVgj/tRWCNUKd2Y73eiXei1FXZLA0=; b=t8SNYevU1gTxCgJkA4aIefEC2i
-	YnBDQcIxjBz8+9LJ02O3la+IjgfjyYZTZucP1sCZYRjGzX0qAK41wbhhmB4MW4o8aKk64yayo3Usw
-	WgbekAkKJU3XfDr8+MgHpEvEfCzoROFJQU+p/PbhEmhnAM/g0wOUf7AD9rIAlZiasFGPQXf85X8rM
-	HZWULuiQyNlEVfczGYSOyfAvt9iUxbfs6UOy0aaY+tAmunK9dP/Esjr0u6yvbo0yeU9ssxJw7mgyc
-	KY+rjYEcyndKVlOudfpY7r48stdhj5YE8GC0t9AZOxU4Oz3Iw/emQPRbxivwBYXNLnAb40NYs4SPK
-	p4Xrw5+A==;
+	bh=4rozOdDf8s2rRbxVQt3Yk1khnF469Atb4+eFc/1T0MA=; b=0eUySIIir0Tkd+hdRSB+KQdAUo
+	40K2dvW4qN6mn1dxQrn/7j0iYsAN6HEnaDLFpZmvWgvOyfa+SbvhmY3WO3G2lJ4Zp8yZueW3jvPua
+	mtYsrSz2RVW2iC40tOAS00ig6dDcw8CSCdHdz0KHc8asKV84BBcqyb7xKZ/gD/0BOQPZPsidP1pNX
+	6EQN7kaXBksHm05ZF1eQwuEMikLJIfjP4wtBb7HkeAH7pRVDqTFudTrRGvXwK1Oeryi9gKeTWnosa
+	YX1m+hK14uWs4ro2ye6FTxsPdOoCVpKCdXKl8HflJ7ANRUQ3+6laYmvpXbXgDZYZPeqPydNhD+fhL
+	6JMm9Wmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOixf-000000076Le-0vvN;
-	Wed, 04 Nov 2026 21:56:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xOjt4-00000007C5h-0kHU;
+	Wed, 04 Nov 2026 22:55:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOixc-000000076LE-0jEd
-	for linux-riscv@lists.infradead.org;
-	Wed, 04 Nov 2026 21:56:02 +0000
+	id 1xOjt1-00000007C54-0DDp;
+	Wed, 04 Nov 2026 22:55:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 82D65605F4;
-	Wed,  4 Nov 2026 21:55:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C35261F000C1;
-	Wed,  4 Nov 2026 21:55:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B09EF40F19;
+	Wed,  4 Nov 2026 22:55:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE3DC1F000C1;
+	Wed,  4 Nov 2026 22:54:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793829359;
-	bh=D4h2FEETnVEpGv52rXuV56YLxzG2GQ7jhklvjDnNRjw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dk4t3nQ2AyRHkhM4jWCe+9MmcV7SZgCX4BWc2JWJDka0i7hrsK4FyrAPoA+m0TwSS
-	 yyeysme84OC2s9OdiT5qaV74+IFr0N3l1EIWLnzK9XhF9m4HsN3ZYh31KRYI+c00nq
-	 uHxVWrvOP1x0FSHaJhWMFmx7r4ZbjGqjGquJe2ZXbaSbbCrl3I6zXhtjSz7Ue2MPqx
-	 ZpNkbjQoHfHcu0lXzceooyku2oNsU2CHYX/joAhPueGGFDW/dEpc2wc4PYiRvFzL2Y
-	 pxtmcMNuUL6kOyCCWYiok3y2G1MwzfJq7nyMnY+feLaBf8QvllWxBSIZJ/AgHgsHuh
-	 gsXrqpGYqNdBg==
-Date: Wed, 4 Nov 2026 21:55:53 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>, Gary Guo <gary@garyguo.net>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, cfu@wavecomp.com,
-	torvalds@linux-foundation.org, olof@lixom.net,
-	aleksa.paunovic@htecgroup.com, arikalo@gmail.com,
-	Boqun Feng <boqun@kernel.org>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/2] riscv: accept the atomic extensions this kernel
- was built with
-Message-ID: <20261104-saddlebag-starring-4380fcc9293c@spud>
-References: <20261101-lrsc-only-v4-0-4e1d010463b3@mobileye.com>
- <20261101-lrsc-only-v4-2-4e1d010463b3@mobileye.com>
- <20261103-pushcart-very-04a34d0ffb0e@spud>
- <507f3761-1104-4d15-8fb0-c2fca037ddd4@mobileye.com>
+	s=k20260515; t=1793832918;
+	bh=mnDJw6GAIrvgHGIFoXKuODYKqpGo1OAyqHDyDG0Xkfs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=IJOJe1/ilgJHQLkVgZLjG8WTnd31bid7aYmQtlGoWDjGUJ6M5+DR5+rcRicIImoks
+	 i/yAZCI4AGUGWVmhQnYkfxmd75gKnSiKCoBwAEbwDRf0e1IEeit8xHV5Dt8ipao8dU
+	 jwZiinU2gw3IV8dMd1Vu3F2bGiWzVhhKzoYi2C8RYCgqPjYr/0ILxk0FbjxpotE5AK
+	 9ZmTccHWAxa4eQMkVvnPODuuez8gUXgnGm+sE6hPmI+qwCKeaIPZmdB2iwFYR6QvSK
+	 rRemK4IDg8mOiZwV+sShIuCyqG1xz8wht2UaLvAJbRbueE1EosP9CZswPj5wEIU0Fq
+	 7KnVdclfzHwsQ==
+Message-ID: <63c24437-4261-4a51-be7e-31ac0759a095@kernel.org>
+Date: Wed, 4 Nov 2026 23:54:56 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <507f3761-1104-4d15-8fb0-c2fca037ddd4@mobileye.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/1] spi: use dmaengine_desc_set_callback()
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Frank.Li@oss.nxp.com, Mark Brown <broonie@kernel.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Radu Pirea <radu_nicolae.pirea@upb.ro>, CL Wang <cl634@andestech.com>,
+ Ryan Wanner <ryan.wanner@microchip.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Vladimir Oltean
+ <olteanv@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Han Xu <han.xu@nxp.com>,
+ Haibo Chen <haibo.chen@nxp.com>, Linus Walleij <linusw@kernel.org>,
+ Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>,
+ Robert Jarzmik <robert.jarzmik@free.fr>, Heiko Stuebner <heiko@sntech.de>,
+ Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Tudor Ambarus
+ <tudor.ambarus@linaro.org>, Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Yixun Lan <dlan@kernel.org>,
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Alain Volmat <alain.volmat@foss.st.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Laxman Dewangan
+ <ldewangan@nvidia.com>, Thierry Reding <thierry.reding@kernel.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Sowjanya Komatineni <skomatineni@nvidia.com>,
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ "open list:SPI SUBSYSTEM" <linux-spi@vger.kernel.org>,
+ "moderated list:ARM/Microchip (AT91) SoC support"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>,
+ "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
+ <linux-rpi-kernel@lists.infradead.org>,
+ "open list:FREESCALE DSPI DRIVER" <imx@lists.linux.dev>,
+ "open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>,
+ "open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
+ "open list:RENESAS RZ/V2H(P) RSPI DRIVER"
+ <linux-renesas-soc@vger.kernel.org>,
+ "open list:SAMSUNG SPI DRIVERS" <linux-samsung-soc@vger.kernel.org>,
+ "open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+ "open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ "open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
+ "open list:TEGRA ARCHITECTURE SUPPORT" <linux-tegra@vger.kernel.org>,
+ Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Thierry Reding <treding@nvidia.com>
+References: <20261104152253.3279052-1-Frank.Li@oss.nxp.com>
+ <autj6pr_bPaul3w0@ashevche-desk.local>
+ <7f96599b-681d-4963-bdda-1274371ac84f@kernel.org>
+ <f1fa853d-1703-411d-b2d2-0fb0b176c2fa@kernel.org>
+ <autqC143h7Qf1R9H@ashevche-desk.local>
+ <9e39502a-dd17-4fa2-98a3-9019523cb5e8@kernel.org>
+ <auuYcS7-YqJKcUbE@ashevche-desk.local>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <auuYcS7-YqJKcUbE@ashevche-desk.local>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,89 +165,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0997622240325566515=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============0997622240325566515==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="FgSR+QDkNdZGN1o1"
-Content-Disposition: inline
+On 04/11/2026 21:41, Andy Shevchenko wrote:
+>>
+>> But sure, if we want to play such numbers game, I will be sending
+>> reviews for single lines.
+> 
+> I'm not playing anything. The problem is that the patch unites the files that
+> have distinct maintainers and unrelated to each other code. That's why in the
+> subsystems I maintain, I almost always require to split on per-driver basis.
+> Yes, exceptions are possible, but has to be quite rare.
 
---FgSR+QDkNdZGN1o1
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+That's independent problem. Patch could be split, but it was not. Since
+it was not, receiving end should act accordingly, e.g. when performing
+incomplete review of only part of the patch, do not call that entire
+patch was reviewed by giving the Rb tag, but give Ack tag.
 
-On Wed, Nov 04, 2026 at 01:23:52PM +0200, Vladimir Kondratiev wrote:
-> On 11/3/26 23:41, Conor Dooley wrote:
-> > That got me thinking though, I feel like this breaks some of the
-> > extension parsing logic in other ways.
-> >=20
-> > If you putting zalrsc and zaamo in your devicetree, we never do any
-> > backwards processing to set the a extension (we don't do this for any
-> > extensions by design, we only populate "child" extensions based on their
-> > "parent"). If there's some userspace thing that expects to see a in
-> > cpufeature or w/e it'd break. There shouldn't be since a has always been
-> > supported but who knows. You need custom userspace anyway so I honestly
-> > don't give that much of a shit about this going wrong.
-> >=20
-> > What does "worry" me is hwprobe. Currently you've not modified hwprobe
-> > at all to correctly state that you do not support
-> > RISCV_HWPROBE_BASE_BEHAVIOR_IMA. (and brings up the question of whether
-> > you support RISCV_HWPROBE_BASE_BEHAVIOR_IMA_FD etc!)
-> >=20
-> > Maybe, again you don't care cos of your custom userspace, but this needs
-> > to be holistic if it is being done at all.
-> > Personally, I don't want to lower the minimum requirements - the people
-> > designing this stuff to run linux should have checked to see what our
-> > requirements were (and have always been...).
->=20
-> I will drop this patch and keep advertising "a" because formally it is
-> true - all "a" including amo instructions do work but rather slow. Also,
-> not worth to complicate logic here for (so far) one very special SoC.
-
-By that logic, do not complicate the kernel at all with this zalrsc-only
-stuff and drop patch 1 too. Please do this properly or do not do it at
-all. If we are introducing the ability to configure the kernel so that
-it runs on systems with only zalrsc, people should be able to run the
-kernel on such systems without a) failing to boot or b) incorrectly
-reporting to userspace what the hardware is capable of doing.
-
-> For this SoC, we will compile user space with upfront knowledge of all
-> hardware features.
-
-
-
---FgSR+QDkNdZGN1o1
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCauup6QAKCRB4tDGHoIJi
-0tyTAQCr6BHIWi2JnJO0X/6lATO17o3V+TmKTbRxO0npO1HrHwD+L47N3tNstjUd
-VjHMaGKyJDMgYEPbpqH1R4fmYsBEuAk=
-=stpy
------END PGP SIGNATURE-----
-
---FgSR+QDkNdZGN1o1--
-
-
---===============0997622240325566515==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0997622240325566515==--
-
