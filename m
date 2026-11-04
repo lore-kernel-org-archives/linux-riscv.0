@@ -2,77 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62275606A31B
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 10:46:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEE15606A31B
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2026 10:47:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mwLBSS5v;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=mEkANnpz
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mvEwneeZ;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VJrT2/1Q
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Unsubscribe-Post:List-Owner;
-	bh=ScozrH22DZZ2n/5IQSF3GqqAZX82YLdANVQV97ZpsCQ=; b=mwLBSS5vgMIwlsqtZuSSGCNFyJ
-	R81O+G8S0lUwPbKg0WqfBJw3eBfdBvn0YcXuyb7jAlLyrqMc4uOXwdBmYAwK+wQdqAtksgADdljF1
-	705yrYqCLvNjZ5FKZ1YiGhjn2EGqZhmo3Ac68qHGxMKhS7d41MIgGcmtE3aFOLH4t2HgB+BqkoMmg
-	0CKGDLm6IsbBb7JFqTYGmVjfOZtYprNdjQg246SBHcGowsSQk8RZGbUiwdfoE4Re6ZAnkjv4EBhK8
-	6PtOBG643w+1g5VT+O81MjAYWkAEVee5YgoKIwZrDdqP631io0XDslJl2ljXSxJmvb/XAuPziG7QA
-	p+YDymJQ==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
+	bh=IbwadDo6biR41kct9hdJusIkVKGKs/jYR/HLEtnorxc=; b=mvEwneeZsFDjbI5bobu1zS6ouZ
+	J6phs9Iu68gjxrR9TOcwuxGCP35PVUTTagWrXT3Uyq7DR60f27zVa4rhRXkoYEtnfSPeJTkeWyyit
+	oMEfGDUFFGUpJYgX69v4Nk1X/hYVRWsszMGMKCXhH1OB8wsaxYD/oIvY+lTEgy8+XcyABiv7WQsqr
+	I0UMb6Y2MqiBrlH1ZFcmbeSfMArUi9nCHxpj6WfKOm0Q0jLKVYYRYIL9hWmCIvFVxDQcx1uy9FdPS
+	ybq/LJr7vduUBzkncWN9b8SSj3cuulPvU0hb2j/6ZHDcJ5dMOnpVeU14iOHdLB1B49prTokAtvfmq
+	Ta9+hAFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYVY-000000052N5-1lzw;
-	Wed, 04 Nov 2026 10:46:20 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1xOYWI-000000052V8-2gPD;
+	Wed, 04 Nov 2026 10:47:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYVV-000000052MN-2ngQ
-	for linux-riscv@lists.infradead.org;
-	Wed, 04 Nov 2026 10:46:19 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261104104615euoutp01ce974afa58f6fa4eae15d27226978c51~k0cBWTH5t2955329553euoutp01G
-	for <linux-riscv@lists.infradead.org>; Wed,  4 Nov 2026 10:46:15 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261104104615euoutp01ce974afa58f6fa4eae15d27226978c51~k0cBWTH5t2955329553euoutp01G
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1793789175;
-	bh=8Ms//SCjMBtZLtOk9KuIQ01hGHzi7dKhO5yJDKE3fuI=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=mEkANnpzRYT8fuIt1XolCJnjpE/FK7WNHqpQlhOxxsEj9z90WlqQUd5tV4R44dHDO
-	 Cmqt7Sqk6nxqF7pkpQWUCRxq+DvMCNFOj2baJJBAunjWKywRSHrKn71/CwMxvURV78
-	 qo70suTDNKKHtYWBbmfUzChU474qnM/FZTLimaqo=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261104104615eucas1p2583cd5bc9ae36bd9ff2d28f87d6e7583~k0cBBCjGw2798527985eucas1p2O;
-	Wed,  4 Nov 2026 10:46:15 +0000 (GMT)
-Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261104104614eusmtip1aebd75a70441e6179ea0b97d1d5e0155~k0cAXegGO2242822428eusmtip1e;
-	Wed,  4 Nov 2026 10:46:14 +0000 (GMT)
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-To: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-mm@kvack.org
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Conor Dooley
-	<conor.dooley@microchip.com>, Geert Uytterhoeven <geert@linux-m68k.org>, Rob
-	Herring <robh@kernel.org>, Mike Rapoport <rppt@kernel.org>, Saravana Kannan
-	<saravanak@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH] riscv: mm: reserve the DTB before scanning reserved memory
-Date: Wed,  4 Nov 2026 11:46:03 +0100
-Message-ID: <20261104104604.3370384-1-m.szyprowski@samsung.com>
-X-Mailer: git-send-email 2.43.0
+	id 1xOYWH-000000052UZ-0dIe;
+	Wed, 04 Nov 2026 10:47:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 937AA43AD5;
+	Wed,  4 Nov 2026 10:47:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CDC51F00A16;
+	Wed,  4 Nov 2026 10:47:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793789224;
+	bh=bhOmEa952md/X2FxyjNFbUxSEKG6z2HGY2NSxyblu7s=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=VJrT2/1QLEtsT7IAJHPVIQ2ISxt4hMdc3map/aD2+trIBN9mSj3nx2Q9bTpfMT3MF
+	 cGNw4vlunjJnW2IgqkdannjrufnBjkEyqAdwxHFKLVUEMfE+G1hX5DaeWBXjmWX36S
+	 imsPN3k2zFxiGZhrAEtQPYo34cnkB1wIfefgCgCRieHnN8ascqJ5oPN4Fh4QbYtHlq
+	 7/wVgTJuM16kHNFu8An5p+QSkHTadJXmkvy+7t9tMNoYCB9OvYjalYNNGUIRajXJbd
+	 YN4n/cPqhT0kWRFpjhDg6dKdJbl4dZ4IR8N3yu9oo0FcspYKIrDgWmd+hMBEXfPmLJ
+	 lIvFousnuVg2A==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id BE33A198003A;
+	Wed,  4 Nov 2026 05:47:00 -0500 (EST)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Wed, 04 Nov 2026 05:47:00 -0500
+X-ME-Sender: <xms:Hw3ranMJL85RL35ZdIqlVZy7B5jeINP5BbPezeQrDi-SF2g1QOUblw>
+    <xme:Hw3raswrF1gip8laAtOzF-VI-pmh8_xio3Iv18-kjvZb7gAJgZagRdgIgdR_Z9VpH
+    3aGcEn9wEYZRA1vkqbcSrpJfGBueP2SI-2Ks1wLLANcLZGoARC6PFs>
+X-ME-Proxy-Cause: dmFkZTFcPavaLWIfgpoRM8kguzVyv4s6FUkLYAQNGvkUHQVN3xVxVzv9NryfTRmBx2+1+T
+    O8Nt36zML1hPcpqbZ31+TrK5u1pojcuEtJ4d9wGWUhJ3PA4GR64AER0KVm/mg5J8CEvDjb
+    87JxU7ByEHQUkd87rjl5YJ6VpVGYEteXdzVHpDfaZbUb25I8yUXHEzXzvTki5YhHrX0+Ff
+    dEw6DUI60ChXVG7qPis8rKSRSBjgm3FH41orMrqi8AzmwVObG7DSV0A/n08w8QClZ1o7l+
+    535jOrxx7Ryk22b71pTU7piz9TOaOxspVPbT5mctmMzGlgM03lWJfWSB8QGDefxIJWbjYs
+    SWRWaf8wtqVtG/y8VhcGvWaXz0LsELuUcWCWXl8uYz0FlppVOkjLlTI83jJnQvIsR6wW9A
+    CHbjI9SRCOspRJI14AvVQ1gcqqNFg/aukBnzTQSgDXsMSAvOzAUMquE+WlSukqk5s0kWpa
+    njVLPVqOL6PMp5x3IoZtBkRTGd/N3jxEy8pK1FCY/kEv9MN3SOjavcn9IuRnWmh/83Rc77
+    6GG8VVWJng4fdcHXdysUYGD2mMNjsZxD/N6+r+yDqOve4t+C3EzK9VWq9skd3rDm5qfSyS
+    0v1Q3nZRYNBxw1A74kxjY01EsAfvmnziAM0IIiwwBMPqwOU9vx9fO+TEwqTQ
+X-ME-Proxy: <xmx:JA3rarOc2on3e1xb7iUIdCss_xeJ3zdgPplKMTBac8Yz3xu00QXGXA>
+    <xmx:JA3rakancmdTtLZDM22WzdIgr8lJQn3ocDdsi_RjrSD_VtAdD8coHg>
+    <xmx:JA3ras7McSax5611gqIhLQldHowrwdBi4-xbCgqokzbp7BU_VCYGyw>
+    <xmx:JA3rarBd0hh0XKEJUgCfUXIrbQcvdDWVyz9bN0fiE8VImxPs8sd5Dg>
+    <xmx:JA3rar7rbi7TJSfdSFS58Fu87suf-sHWjoQzGw8ON1-8MnFv5N6AUirL>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 3A57AF8008E; Wed,  4 Nov 2026 05:46:55 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CMS-MailID: 20261104104615eucas1p2583cd5bc9ae36bd9ff2d28f87d6e7583
-X-Msg-Generator: CA
-X-RootMTR: 20261104104615eucas1p2583cd5bc9ae36bd9ff2d28f87d6e7583
-X-EPHeader: CA
-X-CMS-RootMailID: 20261104104615eucas1p2583cd5bc9ae36bd9ff2d28f87d6e7583
-References: <CGME20261104104615eucas1p2583cd5bc9ae36bd9ff2d28f87d6e7583@eucas1p2.samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_024617_972144_EB6601EA 
-X-CRM114-Status: GOOD (  13.45  )
-X-Spam-Score: -4.4 (----)
+Date: Wed, 04 Nov 2026 11:46:33 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Jason Gunthorpe" <jgg@nvidia.com>
+Cc: "Alexandre Ghiti" <alex@ghiti.fr>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Arnd Bergmann" <arnd@arndb.de>, "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Jonathan Corbet" <corbet@lwn.net>, "David Sterba" <dsterba@suse.com>,
+ "Ilias Apalodimas" <ilias.apalodimas@linaro.org>, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
+ "Mark Rutland" <mark.rutland@arm.com>, "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Paul Walmsley" <pjw@kernel.org>, "Randy Dunlap" <rdunlap@infradead.org>,
+ "Simon Glass" <sjg@chromium.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
+ "Nick Terrell" <terrelln@fb.com>, "Will Deacon" <will@kernel.org>,
+ "Alexandre Ghiti" <alexghiti@rivosinc.com>,
+ "Conor Dooley" <conor.dooley@microchip.com>,
+ "Jonathan Cameron" <jonathan.cameron@oss.qualcomm.com>,
+ linux-integrity@vger.kernel.org, "Palmer Dabbelt" <palmer@rivosinc.com>,
+ patches@lists.linux.dev, =?UTF-8?Q?Piotr_Kr=C3=B3l?= <piotr.krol@3mdeb.com>,
+ "Ross Philipson" <ross.philipson@gmail.com>,
+ "Sami Tolvanen" <samitolvanen@google.com>,
+ "Song Shuai" <songshuaishuai@tinylab.org>
+Message-Id: <cc4d09b6-a56b-44a2-a137-f27bc87e96e3@app.fastmail.com>
+In-Reply-To: <20261103160138.GA3165945@nvidia.com>
+References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+ <4-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+ <20261103160138.GA3165945@nvidia.com>
+Subject: Re: [PATCH v2 04/15] efi/libstub: Add a general way to get symbols from the
+ vmlinux into zboot
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,63 +112,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-early_init_fdt_scan_reserved_mem() allocates memory from memblock while
-it scans /reserved-memory: the reserved_mem array, and the regions that
-are placed dynamically by size. On RISC-V the DTB was only reserved
-after that scan, so memblock could hand out the memory the DTB occupies
-while the DTB was still being parsed.
 
-Reserve the DTB before the scan, so that memblock never allocates from
-it.
 
-Fixes: ef69d2559fe9 ("riscv: Move early dtb mapping into the fixmap region")
-Closes: https://lore.kernel.org/all/b71ac175-fba5-4f61-bbdb-0b98dec9ccee@samsung.com/
-Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
----
- arch/riscv/mm/init.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+On Tue, 3 Nov 2026, at 17:01, Jason Gunthorpe wrote:
+> On Fri, Oct 02, 2026 at 08:31:41PM -0300, Jason Gunthorpe wrote:
+>> Currently the zboot stub has no access to symbols in the vmlinux. In
+>> contrast x86 has a voffsets.h header that allows the stub to know whatever
+>> symbols it wants for the decompressed image. ARM DRTM needs another 4
+>> symbol locations to work, and it also wants to compile the DRTM libstub
+>> code once and have it work in both zboot and embedded.
+>> 
+>> The current solution in arm is "code_size" from commit 45dd403da851
+>> ("efi/zboot: arm64: Inject kernel code size symbol into the zboot
+>> payload"). This is neat, but it makes the zboot and embedded cases
+>> work differently.
+>> 
+>> The x86 voffsets.h approach is also nice, but it can only work in zboot
+>> since it relies on 'nm vmlinux' to extract the locations. That's a
+>> circular dependency for the embedded stub.
+>
+> Ard,
+>
+> Did you have any further thoughts on this patch? Did the sketch you
+> showed me at LPC turn into anything?
+>
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index e822fce0af4b..bbc2d8cb4627 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -294,13 +294,6 @@ static void __init setup_bootmem(void)
- 
- 	reserve_initrd_mem();
- 
--	/*
--	 * No allocation should be done before reserving the memory as defined
--	 * in the device tree, otherwise the allocation could end up in a
--	 * reserved region.
--	 */
--	early_init_fdt_scan_reserved_mem();
--
- 	/*
- 	 * If DTB is built in, no need to reserve its memblock.
- 	 * Otherwise, do reserve it but avoid using
-@@ -309,6 +302,13 @@ static void __init setup_bootmem(void)
- 	 */
- 	if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
- 		memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
-+
-+	/*
-+	 * No allocation should be done before reserving the memory as defined
-+	 * in the device tree, otherwise the allocation could end up in a
-+	 * reserved region.
-+	 */
-+	early_init_fdt_scan_reserved_mem();
- }
- 
- #ifdef CONFIG_RELOCATABLE
--- 
-2.43.0
+I will get back to you before the end of the week.
 
 
 _______________________________________________
