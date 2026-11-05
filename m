@@ -2,73 +2,99 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82C20606A31B
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 06:32:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B174606A328
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 06:48:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z47CpRHv;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lj/doUUc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QeuWiI+a;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=xO0yIJpw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=00g+6pYwLV8CtbgEsK+znXF3Md/3+d9fy3oo3M5vQrw=; b=Z47CpRHvdDDCbzdMbgh5tMy3q8
-	ngnts66NpadmBWRK1hXua6f29NskaosAGqHmBZGKLowkYGn60RdY97MYjFHXVGQpONGqQb8D+p/E8
-	6bWlNXpO29sQBDIVwz6HPO6S4OHvWlmAjsbfLzOn9hUc5REEi+mKVQ/gPF4hWq2BpfX8XIc7aaiOt
-	LAptOqeLvmIwaFDhfg1xVPpuEKamfmA0bEPolVhhqDAPN7q5KnM3ObHjWCzCNxFtvzcV71Q05Mmps
-	JtLJI2s7/Bzm213RjbHDf66sBPKG7hEqLB+V+fH0M4GuwVq+yTz08+chLTinSh3zDqmMUWbdgkIwM
-	5Zk4C+Wg==;
+	bh=cQpFvsKT42GP4x93uYQ4bMyL7VlGVflJAJJp4+4XKa8=; b=QeuWiI+auSdxgaCN+rHA8E+P7/
+	ah1hxBGGcEPui1pBMLb2cKT7DN1KlHw4jeUdiH24a1u4MSc9XHrnZXuo0P6BhwUqOVa0Pubmco3f9
+	+2hP61Ci1p95K0B9JDBmsfMw4IiUf8Ki9BAMvRcuiZTsd0RxAOVWClYLZMRdMq0CbqKmziYH+gVUw
+	c6NGGXpJ+IyDYTNcVY/rZil1MI9KVFYBOFkv/4xCKJ90ApG88Y0I9wckfyB9l5JCMr0PCxIGcUW77
+	ToWMYo212ED5tRxVsGocqv+UY1DUX53zUQ3nDOct0tZCPT9NobO+6ejIqeuYFojEDn5roGBRVX7F/
+	F70ul9Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOr1A-00000007xHx-1LXy;
-	Thu, 05 Nov 2026 06:32:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOrGl-00000007yy8-1pVU;
+	Thu, 05 Nov 2026 06:48:19 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOr18-00000007xHM-3zdF
+	id 1xOrGg-00000007yxP-4APG
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 06:32:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BF8034351A;
-	Thu,  5 Nov 2026 06:32:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D20151F000C1;
-	Thu,  5 Nov 2026 06:32:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793860329;
-	bh=Vbqp7UgRbOPcDIEyCr6Idm5Uw5OguqjA42Dh777M6VI=;
-	h=From:Date:Subject:To:Cc;
-	b=lj/doUUcX7a/MaGmrgGOeqT8x+pqzPYeJ0Oi5A0H8RWdisuOIeR4znDYy+/UfFJzl
-	 btnWa7pty3R39sxHuu9RbLINGn/3ew/V8/82KQTXaR/YFGbn8cNNlZ2cG0x+aBIyO9
-	 qGMUHmk0E0sl+RtLoJO/dlK2CUAShvmtzSejU6WjyCmYVSX7SK+hdoyH/+Pp2FjJyr
-	 pwgdhZHhLa16aopxlWs2xT6PqYaxP2gEz2VihZGBIbTPyhpN7EhkpO/uZ8/STmB+FH
-	 Jm0a76oPVrop33cjz8nUQT80Eln7gA3zCdZskvL/QARW1iSj95IvBVbww3yk500pO+
-	 JgNLAN1oQEy8A==
-From: "GUO Ren (XuanTie)" <guoren@kernel.org>
-Date: Thu, 05 Nov 2026 06:31:20 +0000
-Subject: [PATCH v3] perf vendor events riscv: Add C-SKY C930 JSON file
+	Thu, 05 Nov 2026 06:48:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1793861237;
+	bh=y8vL7kxoR7SzZztx/rZLqHDEEm7PeYDs33h2gMA1c9c=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=xO0yIJpwSl31rfU+maDi4+Z7UWjq2wnsglLv84FL+/cT80gL+TKbbFCYi+pVLWv7I
+	 7w6J9UjLpq/SyAi6mrofOA39vhJJARbKOcz0U1EmggqGj/e83w06iSH5MHssVaExUx
+	 fZwNWNYOnQBNvVn+KCESRm6Uo3HiQpczRy2axeVU=
+X-QQ-mid: esmtpgz16t1793861235t37038cbf
+X-QQ-Originating-IP: InQ75TYjDrWjVR1HZK+vsqw7EkBc6FPy3QXlMoZVjZE=
+Received: from [127.0.0.1] ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 05 Nov 2026 14:47:12 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 13246700401697265975
+Message-ID: <BC03A4A81DF1016A+99de9ff1-0e4e-45ad-a8c2-1a65a6d96afe@linux.spacemit.com>
+Date: Thu, 5 Nov 2026 14:47:11 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261105-csky_c930_pmu-v3-1-3f33e6b3d259@kernel.org>
-X-B4-Tracking: v=1; b=H4sIALci7GoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQwNT3eTi7Mr4ZEtjg/iC3FJdg9TUFFNzI0vDNGMDJaCegqLUtMwKsHn
- RsRB+cWlSVmpyCcgQpdpaAKnJPwhxAAAA
-X-Change-ID: 20261105-csky_c930_pmu-0eed57291f30
-To: Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- James Clark <james.clark@linaro.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org, 
- Chen Pei <cp0613@linux.alibaba.com>, 
- "GUO Ren (XuanTie)" <guoren@kernel.org>
-X-Mailer: b4 0.16.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 03/14] gtrace: Add RISC-V platform driver for the
+ gtrace framework
+To: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <pjw@kernel.org>, Greg KH <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Ian Rogers <irogers@google.com>
+Cc: Anup Patel <anup.patel@oss.qualcomm.com>, Alexandre Ghiti
+ <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Mayuresh Chitale <mchitale@gmail.com>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atish.patra@linux.dev>,
+ Andrew Jones <andrew.jones@oss.qualcomm.com>,
+ Sunil V L <sunilvl@oss.qualcomm.com>, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261001052243.3042627-1-mayuresh.chitale@oss.qualcomm.com>
+ <20261001052243.3042627-4-mayuresh.chitale@oss.qualcomm.com>
+From: Zane Leung <liangzhen@linux.spacemit.com>
+In-Reply-To: <20261001052243.3042627-4-mayuresh.chitale@oss.qualcomm.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: NE5JZmi0+KQuSulpwSo8843Vb3RZC/d8VCQF61aLAMxLEepOs6Vg5OK1
+	KQhHNoyJLZZjk/FTlpgCe6TCPtKDxLZxA+IOOcLOHaZLvTfOsF7Xo8lO231C/H2j3qpml/9
+	ELRk/223cXjdWcNffdjnS+exrfY5MNluvv7mFfXzkI+Qnkske6SMMzsVePZdJvK2jmIxaYX
+	KbDZHShvMbVSfjaYSYqnBgwWXy27cf/g2EQQzmaCnNqYsK6zcJ/DQjLjwf6P1c3YVgp35tl
+	2Ppe++8HJjhHmmzwgNw6UhXeT09ERTz/tWfSKjz3enIaLB/1J+BRKyR1bh3cA+0YISJGlPO
+	hOv5CK/NE19r5ehuAoZuUUM7OqC2Pr9tX/NnNnE2m27raABqbN1wFvW2Q0g0+LvX+Rm5Wy1
+	+nAgEOp32TUWMBAUgRkLaTCPM2Vlw0N/qatZ9xqvFvOYWLi770kNtNfpArGznSvJ7CVvBfi
+	6vI5zWHDJCZVkAm/SxfIKt4n4Y7LvATfLnSvz6VFNtofjvEhIi4eI/YqyeNqDmXvsCkgz2c
+	4PTm/8LLwgVGYjDJxd3j+NO6Y83lvczqB56bG9VIYb8N2a+k4195pneOLbkCy/PPw2kE6nX
+	8tkRRXSkhFQuR9vU1xYwsdjtxM4pR6EdeVdSb02JvtcMkTFtVt35adhDA0fDlL4gLzcbBiX
+	P9ZUg0C3miN0tVKOe76xLXAjiRKUTkTuWu2xanvtYLVlRmSxOQcJkKuFswCa3Cy27Id1Mb9
+	6cI2h7XktxCMbuYVSKbNJfN52cMXAjlFwcfAgAPx6Pw5HiS7hmzsEQsXWY96W5oUacswBwA
+	4A1m7z51eJ47d0Fk8iyANsOZPj7jJVx/RNScq3bSTkXisuciBky4mny3lt83EncBuM2d8Ut
+	Gt5dIK7SdrCwgQF3zhKi5G1oExuzSkZOyZdRH1ZWjRkrT+BfUQUhtrgNyXGVP/VNZxzCDYM
+	ytf5DfG6ku8UwjwJR7I4MwUyv14z2NJN5Ff+4yHriDqdwNSURJnJV5cvrUWTeAk1RoRjkT6
+	S4M/kDvt+voAf52CljfSfMyGjieOE=
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261104_224815_779737_ABFBFDC9 
+X-CRM114-Status: GOOD (  10.33  )
+X-Spam-Score: 0.2 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,684 +107,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-3.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FORGED_MUA_MOZILLA,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Chen Pei <cp0613@linux.alibaba.com>
 
-Add PMU event descriptions for the C-SKY C930 core so perf can list and
-select its hardware events by name instead of requiring raw event codes.
-The events cover core counters, branch prediction, instruction fetch,
-integer execution, load/store operations, vector and floating-point
-execution, caches and TLBs.
+On 10/1/2026 1:22 PM, Mayuresh Chitale wrote:
+> +static const struct of_device_id rvtrace_platform_match[] = {
+> +	{ .compatible = "riscv,trace-component", .data = (void *)GTRACE_FORMAT_ETRACE },
+> +	{}
+> +};
 
-Add a mapfile.csv entry matching mvendorid 0x5b7 and marchid
-0x8000000009201600, allowing any mimpid, to select the C930 event table.
+The current implementation with hardcoded .data = (void *)GTRACE_FORMAT_ETRACE prevents RISC-V N-trace
+from working properly without extending the of_device_id table in the future.
+This directly contradicts what you stated in the cover letter:
+"The RISC-V trace component drivers are designed to be agnostic to the underlying trace protocol hence both
+RISC-V E-trace and RISC-V N-trace should work fine. The discovery of trace protocol parameters are left to
+user-space trace decoder."
+Since the kernel driver is intended to be protocol-agnostic, and a specific in-kernel decoder is not yet implemented
+at this stage, deferring the trace protocol discovery seems to be a much better approach. Once the sysfs interface is
+introduced in future patches, the user-space trace decoder can naturally query and obtain the exact trace protocol
+from it. Therefore, I suggest removing this E-trace specific hardcoding from the match table to keep the driver truly
+protocol-agnostic as originally designed.
 
-For example:
 
-perf stat -e cache.l1d.rd.miss,tlb.l1d.miss ./workload
-
-Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
-Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
----
-XuanTie is the RISC-V processor brand of C-SKY Microsystems Co., Ltd.
-[2]. JEDEC JEP106AB lists C-SKY Microsystems Co., Ltd. as the manufacturer
-associated with ID 0x5b7 [3]. Accordingly, use C-SKY in the patch title
-and csky/ as the vendor directory.
-
-This revision is limited to the PMU event descriptions from v2 3/4.
-perf selects the event table by matching mvendorid, marchid and mimpid,
-so the DT binding additions are not required for this patch. The
-derived metrics patch is also omitted from this revision.
-
-Changes in v3:
- - Repost only the PMU event patch. Omit the DT binding patches
-   (v2 1/4 and 2/4) and the derived metrics patch (v2 4/4).
- - Rename the vendor directory from xuantie/ to csky/ and update the
-   mapfile.csv entry accordingly.
- - Change the patch title to "Add C-SKY C930 PMU events".
- - Drop the topdown.* events, uop.spec, uop.ret, ieu.de.inst_cnt,
-   ieu.rn.inst_cnt and vfpu_ex1_rep.
-
-Changes in v2:
-v2: https://lore.kernel.org/linux-riscv/20251121063439.2545-1-cp0613@linux.alibaba.com/
- - Vendor name update.
-
-Previous versions:
-v1: https://lore.kernel.org/linux-riscv/20250910121121.7203-1-cp0613@linux.alibaba.com/
-
-References:
-[1] https://www.xrvm.com/product/xuantie/C930
-[2] https://www.xrvm.com/declaration
-[3] https://www.jedec.org/standards-documents/docs/jep-106ab
----
- .../pmu-events/arch/riscv/csky/c930/basic.json     |  82 ++++++++++
- .../perf/pmu-events/arch/riscv/csky/c930/ieu.json  |  47 ++++++
- .../perf/pmu-events/arch/riscv/csky/c930/ifu.json  |  62 ++++++++
- .../perf/pmu-events/arch/riscv/csky/c930/l2c.json  |  62 ++++++++
- .../perf/pmu-events/arch/riscv/csky/c930/lsu.json  | 137 +++++++++++++++++
- .../perf/pmu-events/arch/riscv/csky/c930/vfpu.json | 167 +++++++++++++++++++++
- tools/perf/pmu-events/arch/riscv/mapfile.csv       |   1 +
- 7 files changed, 558 insertions(+)
-
-diff --git a/tools/perf/pmu-events/arch/riscv/csky/c930/basic.json b/tools/perf/pmu-events/arch/riscv/csky/c930/basic.json
-new file mode 100644
-index 000000000000..a65b90a682ab
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/csky/c930/basic.json
-@@ -0,0 +1,82 @@
-+[
-+    {
-+        "EventName": "cycles.hart",
-+        "EventCode": "0x00000001",
-+        "BriefDescription": "CPU cycles, incremented on every CPU clock cycle"
-+    },
-+    {
-+        "EventName": "inst.ret",
-+        "EventCode": "0x00000002",
-+        "BriefDescription": "Instruction architecturally executed"
-+    },
-+    {
-+        "EventName": "inst.brjmp.spec",
-+        "EventCode": "0x00000003",
-+        "BriefDescription": "Control transfer instructions"
-+    },
-+    {
-+        "EventName": "inst.mispred.brjmp.spec",
-+        "EventCode": "0x00000004",
-+        "BriefDescription": "Control transfer instructions that mispredicted"
-+    },
-+    {
-+        "EventName": "cache.l1i.rd.access",
-+        "EventCode": "0x00000005",
-+        "BriefDescription": "Instruction Cache accesses"
-+    },
-+    {
-+        "EventName": "cache.l1i.rd.miss",
-+        "EventCode": "0x00000006",
-+        "BriefDescription": "Instruction Cache misses"
-+    },
-+    {
-+        "EventName": "cache.l1d.rd.access",
-+        "EventCode": "0x00000007",
-+        "BriefDescription": "Data Cache load accesses"
-+    },
-+    {
-+        "EventName": "cache.l1d.rd.miss",
-+        "EventCode": "0x00000008",
-+        "BriefDescription": "Data Cache load misses"
-+    },
-+    {
-+        "EventName": "tlb.l1i.access",
-+        "EventCode": "0x00000009",
-+        "BriefDescription": "Instruction TLB accesses"
-+    },
-+    {
-+        "EventName": "tlb.l1i.miss",
-+        "EventCode": "0x0000000a",
-+        "BriefDescription": "Instruction TLB misses"
-+    },
-+    {
-+        "EventName": "tlb.l1d.access",
-+        "EventCode": "0x0000000b",
-+        "BriefDescription": "Data TLB accesses"
-+    },
-+    {
-+        "EventName": "tlb.l1d.miss",
-+        "EventCode": "0x0000000c",
-+        "BriefDescription": "Data TLB misses"
-+    },
-+    {
-+        "EventName": "tlb.pf.access",
-+        "EventCode": "0x0000000d",
-+        "BriefDescription": "Prefetch TLB accesses"
-+    },
-+    {
-+        "EventName": "tlb.pf.miss",
-+        "EventCode": "0x0000000e",
-+        "BriefDescription": "Prefetch TLB misses"
-+    },
-+    {
-+        "EventName": "cache.l2.access",
-+        "EventCode": "0x0000000f",
-+        "BriefDescription": "L2 accesses"
-+    },
-+    {
-+        "EventName": "cache.l2.miss",
-+        "EventCode": "0x00000010",
-+        "BriefDescription": "L2 misses"
-+    }
-+]
-diff --git a/tools/perf/pmu-events/arch/riscv/csky/c930/ieu.json b/tools/perf/pmu-events/arch/riscv/csky/c930/ieu.json
-new file mode 100644
-index 000000000000..7ee0c8e43411
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/csky/c930/ieu.json
-@@ -0,0 +1,47 @@
-+[
-+    {
-+        "EventName": "inst.int.alu.spec",
-+        "EventCode": "0x00000045",
-+        "BriefDescription": "Completed ALU instructions"
-+    },
-+    {
-+        "EventName": "inst.int.mul.spec",
-+        "EventCode": "0x00000046",
-+        "BriefDescription": "Completed MULT instructions"
-+    },
-+    {
-+        "EventName": "inst.int.div.spec",
-+        "EventCode": "0x00000047",
-+        "BriefDescription": "Completed DIV instructions"
-+    },
-+    {
-+        "EventName": "inst.int.csr.spec",
-+        "EventCode": "0x00000048",
-+        "BriefDescription": "Completed CSR instructions"
-+    },
-+    {
-+        "EventName": "ieu.is.siq.stall",
-+        "EventCode": "0x000000c0",
-+        "BriefDescription": "Stall cycles in SX pipe"
-+    },
-+    {
-+        "EventName": "ieu.is.miq.stall",
-+        "EventCode": "0x000000c1",
-+        "BriefDescription": "Stall cycles in MX pipe"
-+    },
-+    {
-+        "EventName": "ieu.is.biq.stall",
-+        "EventCode": "0x000000c2",
-+        "BriefDescription": "Stall cycles in BR pipe"
-+    },
-+    {
-+        "EventName": "ieu.is.lsiq.stall",
-+        "EventCode": "0x000000c3",
-+        "BriefDescription": "Stall cycles in LS pipe"
-+    },
-+    {
-+        "EventName": "ieu.is.vfpq.stall",
-+        "EventCode": "0x000000c4",
-+        "BriefDescription": "Stall cycles in VF pipe"
-+    }
-+]
-diff --git a/tools/perf/pmu-events/arch/riscv/csky/c930/ifu.json b/tools/perf/pmu-events/arch/riscv/csky/c930/ifu.json
-new file mode 100644
-index 000000000000..a8fedd95659a
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/csky/c930/ifu.json
-@@ -0,0 +1,62 @@
-+[
-+    {
-+        "EventName": "inst.mispred.branch",
-+        "EventCode": "0x00000018",
-+        "BriefDescription": "Conditional branches that mispredicted"
-+    },
-+    {
-+        "EventName": "inst.mispred.uncond_branch",
-+        "EventCode": "0x00000019",
-+        "BriefDescription": "Direct jumps that mispredicted"
-+    },
-+    {
-+        "EventName": "inst.mispred.ind",
-+        "EventCode": "0x0000001a",
-+        "BriefDescription": "Indirect jumps that mispredicted"
-+    },
-+    {
-+        "EventName": "inst.mispred.ret",
-+        "EventCode": "0x0000001b",
-+        "BriefDescription": "Function return instructions that mispredicted"
-+    },
-+    {
-+        "EventName": "inst.brjmp.branch.spec",
-+        "EventCode": "0x0000001c",
-+        "BriefDescription": "Conditional branch instructions that speculatively executed"
-+    },
-+    {
-+        "EventName": "inst.brjmp.uncond_branch.spec",
-+        "EventCode": "0x0000001d",
-+        "BriefDescription": "Direct jumps that speculatively executed"
-+    },
-+    {
-+        "EventName": "inst.brjmp.ind.spec",
-+        "EventCode": "0x0000001e",
-+        "BriefDescription": "Indirect jumps that speculatively executed"
-+    },
-+    {
-+        "EventName": "inst.brjmp.ret.spec",
-+        "EventCode": "0x0000001f",
-+        "BriefDescription": "Function return instructions that speculatively executed"
-+    },
-+    {
-+        "EventName": "inst.brjmp.branch.tk",
-+        "EventCode": "0x00000020",
-+        "BriefDescription": "Branch instructions that resolved to be taken"
-+    },
-+    {
-+        "EventName": "cache.l1i.rd.miss.latency",
-+        "EventCode": "0x000000b8",
-+        "BriefDescription": "Cycles where frontend issues no instructions due to L1 instruction cache miss"
-+    },
-+    {
-+        "EventName": "tlb.l1i.miss.latency",
-+        "EventCode": "0x000000b9",
-+        "BriefDescription": "Cycles where frontend issues no instructions due to instruction TLB miss"
-+    },
-+    {
-+        "EventName": "inst.mispred.brjmp.latency",
-+        "EventCode": "0x000000ba",
-+        "BriefDescription": "Cycles where frontend issues no instructions due to branch redirect"
-+    }
-+]
-diff --git a/tools/perf/pmu-events/arch/riscv/csky/c930/l2c.json b/tools/perf/pmu-events/arch/riscv/csky/c930/l2c.json
-new file mode 100644
-index 000000000000..4a8698cf5637
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/csky/c930/l2c.json
-@@ -0,0 +1,62 @@
-+[
-+    {
-+        "EventName": "cache.l2.wb",
-+        "EventCode": "0x000000a2",
-+        "BriefDescription": "L2 Cache write-backs"
-+    },
-+    {
-+        "EventName": "cache.l2.rd",
-+        "EventCode": "0x000000a3",
-+        "BriefDescription": "L2 Cache reads"
-+    },
-+    {
-+        "EventName": "cache.l2.wr",
-+        "EventCode": "0x000000a4",
-+        "BriefDescription": "L2 Cache writes"
-+    },
-+    {
-+        "EventName": "cache.l2.refill.rd",
-+        "EventCode": "0x000000a5",
-+        "BriefDescription": "L2 Cache refills caused by read"
-+    },
-+    {
-+        "EventName": "cache.l2.refill.wr",
-+        "EventCode": "0x000000a6",
-+        "BriefDescription": "L2 Cache refills caused by write"
-+    },
-+    {
-+        "EventName": "cache.l2.wb.victim",
-+        "EventCode": "0x000000a7",
-+        "BriefDescription": "L2 Cache write-backs caused by cache replacements"
-+    },
-+    {
-+        "EventName": "cache.l2.wb.clean",
-+        "EventCode": "0x000000a8",
-+        "BriefDescription": "L2 Cache write-backs caused by CMO or external snoops"
-+    },
-+    {
-+        "EventName": "cache.l2.inval",
-+        "EventCode": "0x000000a9",
-+        "BriefDescription": "L2 Cache invalidations (by CMO or external snoops included)"
-+    },
-+    {
-+        "EventName": "cache.l2.refill.inst",
-+        "EventCode": "0x000000aa",
-+        "BriefDescription": "L2 Cache refills caused by instruction cache load miss"
-+    },
-+    {
-+        "EventName": "bus.access",
-+        "EventCode": "0x000000ab",
-+        "BriefDescription": "All requests sent to the bus"
-+    },
-+    {
-+        "EventName": "bus.rd.access",
-+        "EventCode": "0x000000ac",
-+        "BriefDescription": "All read requests sent to the bus (prefetch included)"
-+    },
-+    {
-+        "EventName": "bus.wr.access",
-+        "EventCode": "0x000000ad",
-+        "BriefDescription": "All write requests sent to the bus (eviction by the current core included, but eviction by external snoops not included)"
-+    }
-+]
-diff --git a/tools/perf/pmu-events/arch/riscv/csky/c930/lsu.json b/tools/perf/pmu-events/arch/riscv/csky/c930/lsu.json
-new file mode 100644
-index 000000000000..eb8d2351dff1
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/csky/c930/lsu.json
-@@ -0,0 +1,137 @@
-+[
-+    {
-+        "EventName": "inst.load.unalign",
-+        "EventCode": "0x00000083",
-+        "BriefDescription": "Unaligned load instructions"
-+    },
-+    {
-+        "EventName": "inst.store.unalign",
-+        "EventCode": "0x00000084",
-+        "BriefDescription": "Unaligned cross-page store instructions"
-+    },
-+    {
-+        "EventName": "cache.l1d.wr.access",
-+        "EventCode": "0x0000008a",
-+        "BriefDescription": "Data Cache store accesses"
-+    },
-+    {
-+        "EventName": "cache.l1d.wr.miss",
-+        "EventCode": "0x0000008b",
-+        "BriefDescription": "Data Cache store misses"
-+    },
-+    {
-+        "EventName": "cache.l1d.refill.inner",
-+        "EventCode": "0x0000008c",
-+        "BriefDescription": "Data Cache misses with L2C hit"
-+    },
-+    {
-+        "EventName": "cache.l1d.refill.outer",
-+        "EventCode": "0x0000008d",
-+        "BriefDescription": "Data Cache misses with L2C miss"
-+    },
-+    {
-+        "EventName": "cache.l1d.wb",
-+        "EventCode": "0x0000008e",
-+        "BriefDescription": "Data Cache dirty cache line evictions"
-+    },
-+    {
-+        "EventName": "cache.l1d.wb.victim",
-+        "EventCode": "0x0000008f",
-+        "BriefDescription": "Data Cache dirty cache line evictions caused by new cache line refilling"
-+    },
-+    {
-+        "EventName": "cache.l1d.wb.clean",
-+        "EventCode": "0x00000090",
-+        "BriefDescription": "Data Cache dirty cache line evictions caused by CMO from another CPU or snoop from another CPU"
-+    },
-+    {
-+        "EventName": "cache.l1d.inval",
-+        "EventCode": "0x00000091",
-+        "BriefDescription": "Data Cache invalidations caused by CMO or snoops"
-+    },
-+    {
-+        "EventName": "inst.ldst.load.spec",
-+        "EventCode": "0x00000092",
-+        "BriefDescription": "Completed load instructions (prefetch not included)"
-+    },
-+    {
-+        "EventName": "inst.ldst.store.spec",
-+        "EventCode": "0x00000093",
-+        "BriefDescription": "Completed store instructions (CMO not included)"
-+    },
-+    {
-+        "EventName": "inst.ldst.lr.spec",
-+        "EventCode": "0x00000094",
-+        "BriefDescription": "Completed lr instructions"
-+    },
-+    {
-+        "EventName": "inst.ldst.sc",
-+        "EventCode": "0x00000095",
-+        "BriefDescription": "Completed sc instructions"
-+    },
-+    {
-+        "EventName": "inst.ldst.sc.pass",
-+        "EventCode": "0x00000096",
-+        "BriefDescription": "Completed sc instructions that pass"
-+    },
-+    {
-+        "EventName": "inst.ldst.sc.fail",
-+        "EventCode": "0x00000097",
-+        "BriefDescription": "Completed sc instructions that fail"
-+    },
-+    {
-+        "EventName": "inst.ldst.amo",
-+        "EventCode": "0x00000098",
-+        "BriefDescription": "Completed AMO instructions"
-+    },
-+    {
-+        "EventName": "inst.ldst.load_acquire.spec",
-+        "EventCode": "0x00000099",
-+        "BriefDescription": "Completed load acquire instructions"
-+    },
-+    {
-+        "EventName": "inst.ldst.store_release.spec",
-+        "EventCode": "0x0000009a",
-+        "BriefDescription": "Completed store release instructions"
-+    },
-+    {
-+        "EventName": "inst.ldst.fence",
-+        "EventCode": "0x0000009b",
-+        "BriefDescription": "Completed fence instructions"
-+    },
-+    {
-+        "EventName": "inst.ldst.fencei",
-+        "EventCode": "0x0000009c",
-+        "BriefDescription": "Completed fencei instructions"
-+    },
-+    {
-+        "EventName": "inst.ldst.dvm_sync",
-+        "EventCode": "0x0000009d",
-+        "BriefDescription": "Completed dvm sync instructions"
-+    },
-+    {
-+        "EventName": "inst.ldst.vec_load.spec",
-+        "EventCode": "0x0000009e",
-+        "BriefDescription": "Completed vector load uops"
-+    },
-+    {
-+        "EventName": "inst.ldst.vec_store.spec",
-+        "EventCode": "0x0000009f",
-+        "BriefDescription": "Completed vector store uops"
-+    },
-+    {
-+        "EventName": "inst.ldst.float_load.spec",
-+        "EventCode": "0x000000a0",
-+        "BriefDescription": "Completed floating-point load uops"
-+    },
-+    {
-+        "EventName": "inst.ldst.float_store.spec",
-+        "EventCode": "0x000000a1",
-+        "BriefDescription": "Completed floating-point store uops"
-+    },
-+    {
-+        "EventName": "inst.ldst.spec",
-+        "EventCode": "0x000000b3",
-+        "BriefDescription": "Completed instructions executed by LSU"
-+    }
-+]
-diff --git a/tools/perf/pmu-events/arch/riscv/csky/c930/vfpu.json b/tools/perf/pmu-events/arch/riscv/csky/c930/vfpu.json
-new file mode 100644
-index 000000000000..e60dea102862
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/csky/c930/vfpu.json
-@@ -0,0 +1,167 @@
-+[
-+    {
-+        "EventName": "inst.sca.fp.arith.spec",
-+        "EventCode": "0x0000005b",
-+        "BriefDescription": "Completed scalar floating-point instructions"
-+    },
-+    {
-+        "EventName": "inst.fp.arith.half.spec",
-+        "EventCode": "0x0000005c",
-+        "BriefDescription": "Completed half-precision floating-point instructions (both scalar and vector included)"
-+    },
-+    {
-+        "EventName": "inst.fp.arith.single.spec",
-+        "EventCode": "0x0000005d",
-+        "BriefDescription": "Completed single-precision floating-point instructions (both scalar and vector included)"
-+    },
-+    {
-+        "EventName": "inst.fp.arith.double.spec",
-+        "EventCode": "0x0000005e",
-+        "BriefDescription": "Completed double-precision floating-point instructions (both scalar and vector included)"
-+    },
-+    {
-+        "EventName": "inst.rvv.arith.spec",
-+        "EventCode": "0x0000005f",
-+        "BriefDescription": "Completed vector arithmetic instructions"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.spec",
-+        "EventCode": "0x00000060",
-+        "BriefDescription": "Completed vector arithmetic uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.fp.spec",
-+        "EventCode": "0x00000061",
-+        "BriefDescription": "Completed vector arithmetic floating-point uops"
-+    },
-+    {
-+        "EventName": "inst.rvv.arith.fp.spec",
-+        "EventCode": "0x00000062",
-+        "BriefDescription": "Completed vector arithmetic floating-point instructions"
-+    },
-+    {
-+        "EventName": "uop.sca.fp.arith.bf.spec",
-+        "EventCode": "0x00000063",
-+        "BriefDescription": "Completed scalar bf floating-point uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.vint8.spec",
-+        "EventCode": "0x00000064",
-+        "BriefDescription": "Completed INT8 vector uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.vint16.spec",
-+        "EventCode": "0x00000065",
-+        "BriefDescription": "Completed INT16 vector uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.vint32.spec",
-+        "EventCode": "0x00000066",
-+        "BriefDescription": "Completed INT32 vector uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.vint64.spec",
-+        "EventCode": "0x00000067",
-+        "BriefDescription": "Completed INT64 vector uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.fix_point.spec",
-+        "EventCode": "0x00000068",
-+        "BriefDescription": "Completed fixed-point vector uops"
-+    },
-+    {
-+        "EventName": "uop.fp.arith.fdiv.spec",
-+        "EventCode": "0x00000069",
-+        "BriefDescription": "Completed floating-point division uops (both scalar and vector included)"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.idiv.spec",
-+        "EventCode": "0x0000006a",
-+        "BriefDescription": "Completed vector integer division uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.zvkn.spec",
-+        "EventCode": "0x0000006b",
-+        "BriefDescription": "Completed zvkn-type uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.zvks.spec",
-+        "EventCode": "0x0000006c",
-+        "BriefDescription": "Completed zvks-type uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.vmulu64.spec",
-+        "EventCode": "0x0000006d",
-+        "BriefDescription": "Completed UINT64 vector multiply uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.vmulu.spec",
-+        "EventCode": "0x0000006e",
-+        "BriefDescription": "Completed UNIT vector multiply uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.vdot.spec",
-+        "EventCode": "0x0000006f",
-+        "BriefDescription": "Completed vdot uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.vfmul.spec",
-+        "EventCode": "0x00000070",
-+        "BriefDescription": "Completed vector floating-point multiply uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.vfadd.spec",
-+        "EventCode": "0x00000071",
-+        "BriefDescription": "Completed vector floating-point add uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.perm.spec",
-+        "EventCode": "0x00000072",
-+        "BriefDescription": "Completed vector permutation uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.redu.spec",
-+        "EventCode": "0x00000073",
-+        "BriefDescription": "Completed vector integer reduction uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.fred.spec",
-+        "EventCode": "0x00000074",
-+        "BriefDescription": "Completed vector floating-point reduction uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.mask.spec",
-+        "EventCode": "0x00000075",
-+        "BriefDescription": "Completed vector arithmetic masked uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.vlmax.spec",
-+        "EventCode": "0x00000076",
-+        "BriefDescription": "Completed vlmax uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.agnostic.spec",
-+        "EventCode": "0x00000077",
-+        "BriefDescription": "Completed vector arithmetic uops with agnostic strategy"
-+    },
-+    {
-+        "EventName": "uop.rvv.arith.idiv_direct.spec",
-+        "EventCode": "0x00000078",
-+        "BriefDescription": "Completed vector integer division uops that produce special result"
-+    },
-+    {
-+        "EventName": "uop.rvv.vadd.spec",
-+        "EventCode": "0x000000ae",
-+        "BriefDescription": "Completed vector integer add uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.vmacc.spec",
-+        "EventCode": "0x000000af",
-+        "BriefDescription": "Completed vector integer multiply-add uops"
-+    },
-+    {
-+        "EventName": "uop.rvv.vfmacc.spec",
-+        "EventCode": "0x000000b0",
-+        "BriefDescription": "Completed vector floating-point multiply-add uops"
-+    }
-+]
-diff --git a/tools/perf/pmu-events/arch/riscv/mapfile.csv b/tools/perf/pmu-events/arch/riscv/mapfile.csv
-index 87cfb0e0849f..372833e0a78e 100644
---- a/tools/perf/pmu-events/arch/riscv/mapfile.csv
-+++ b/tools/perf/pmu-events/arch/riscv/mapfile.csv
-@@ -21,6 +21,7 @@
- 0x489-0x8000000000000[1-6]08-0x[9b][[:xdigit:]]+,v1,sifive/p650,core
- 0x5b7-0x0-0x0,v1,thead/c900-legacy,core
- 0x5b7-0x80000000090c0d00-0x2047000,v1,thead/c900-legacy,core
-+0x5b7-0x8000000009201600-0x[[:xdigit:]]+,v1,csky/c930,core
- 0x602-0x3-0x0,v1,openhwgroup/cva6,core
- 0x67e-0x80000000db0000[89]0-0x[[:xdigit:]]+,v1,starfive/dubhe-80,core
- 0x31e-0x8000000000008a45-0x[[:xdigit:]]+,v1,andes/ax45,core
-
----
-base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
-change-id: 20261105-csky_c930_pmu-0eed57291f30
-
-Best regards,
---  
-GUO Ren (XuanTie) <guoren@kernel.org>
 
 
 _______________________________________________
