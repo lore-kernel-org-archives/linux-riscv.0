@@ -2,97 +2,128 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D40B0606A331
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 10:32:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80A94606A33A
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 10:38:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=V6nYiazG;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=Mcj63AoA
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=knmEEg0m;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=A4rKjlRB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=H8mZwaQ/YZG1Lt1TVZnUnjCVaBr4Mr2Tx2C9KnpLxlw=; b=V6nYiazGtkvvSiIzzyVRZxrw48
-	1P+n8SzKvZRASuREsYRyNzesOlKukGpbYd3NUq1rUlL2cflstE+WazJuHe4/zJsJgCk5AKKhb/E0w
-	1ggfixpDlpQecv6AR1kR5NG6NMpCkm3+xX1p1dUYRDnqmcvz+Y5WpxFlJMeGL282maIh+Q2/Hlf5Y
-	l9ApVUdGuyzNPAvPzCYfpPN3P2QB+VP0J32pLqSxToVzdScPx6898ei11kV7+ng0yQPnHQc5vQGIj
-	rnaU+DcG2lvdv3x8WHPjkgboP9lQrTTO0lL2y6267x7ADah/t6IGnO5WfQp0GkJ+oS9slAMU/uuik
-	TOuMnvGg==;
+	bh=V5MatF5fjVJHBI3ukKdobceQgpJ9tZZHfTYPpQAkjAg=; b=knmEEg0mzS/Zve7xJAACybFm05
+	4tERb0Pk+P7bWjPDdwuSXPuQ9/+0NbmXNl5T218gTbvyUwz9qT0eByB8/5VlDHQ+pfkMt/uOvSJfx
+	855XB/3pf/gTK69Katm4NIV0kdoveWSviOsPD+mWdLZNh7eB3aoV7VaQ/OVCKTZbpf1ZP5dLDLG9S
+	uxRXs0btE5HvPdUdHRYaeyfxg+ZMbMjOYQKt4lIIbLqZ7iBVm0nl1suT47iR/iS6DqA1VHWH5yvfG
+	u1tyqbOd5nrOUfuiCOjvxWvzn8Imue32pp8sIbpgd2mTB7mRVKUERGNyY0fDczzzFXq5fPFyrUWwd
+	auI8F3Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOulQ-00000008Suq-2XPO;
-	Thu, 05 Nov 2026 10:32:12 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1xOurB-00000008TnS-2wbE;
+	Thu, 05 Nov 2026 10:38:09 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOulN-00000008Stn-13NC
-	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 10:32:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1793874696;
-	bh=QpryRELSGG80FrBTzrLF4Ebl/cDHIgqfhVdJfsX/2Ck=;
-	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=Mcj63AoALgifsDYgU9vBGy4J90Hp2sv2lyMKh/3DvDG/34+xGnOugdnR9jgDnH+g/
-	 kWVb9758lfeKO7nbcTeTpkO/ezCAgLyC+g4DBp9a75fSieeyoS4JMipM8uHTrVyFmX
-	 Jc14fF2SpNJa+2LxClMLzPjEs9u1OdFGxADRcJI4=
-X-QQ-mid: esmtpsz11t1793874693t02fac1d7
-X-QQ-Originating-IP: 4eTnkOOCAXSXOIckUgJdTR9LbDF8/V9x8+qSR90OPrc=
-Received: from snode5.. ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 05 Nov 2026 18:31:30 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 313034118725653772
-EX-QQ-RecipientCnt: 14
-From: Chunyan Zhang <chunyan.zhang@linux.spacemit.com>
-To: Yixun Lan <dlan@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: spacemit@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
+	id 1xOur8-00000008TmQ-34lT;
+	Thu, 05 Nov 2026 10:38:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793875087; x=1825411087;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=eqO4A+ClsqjEqfXPQ0TFlIOZ+1UsCC9oIYRbbnK4e7s=;
+  b=A4rKjlRBVFVKIEQC4EavgCR17/xSyjTrOEB2Tb84HNkL6B9y4XJRT1QM
+   iUwkaAxPJL3QUyzkBOA2luwvYVxfQEtYxAZEW+GgljOK2viemRDECySII
+   WP7y3aEe+2a85svsfCglP2dbIrcCrEpO3+UJsHfe9yqiygMRa6YlwWPEW
+   SH/E8Be2sTsitocPTdbj6RjtMQXjuD7nznitbEIfRXlPNJPABOF93RqS8
+   OPhcFvq5cMM3UjilmzE5ltY/OlPLJqNBytdS6Dli+9Pk356d8cgqYZwW5
+   whsC1IhkOREAn7phf37f1DlJwQbvCLs1O+8Yiwt+HbJIKiDSNPAN1i8lB
+   g==;
+X-CSE-ConnectionGUID: iXuTqYgBQ0GG0jAuBhZwtA==
+X-CSE-MsgGUID: qIHA4s5yTq26mhxigq7vnQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11956"; a="2560353"
+X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
+   d="scan'208";a="2560353"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 02:38:06 -0800
+X-CSE-ConnectionGUID: xIegnpX+Sr+k5gjNuD4pbQ==
+X-CSE-MsgGUID: Wcy7neyfQa2lUKLW6Cyinw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
+   d="scan'208";a="7281977"
+Received: from amilburn-desk.amilburn-desk (HELO localhost) ([10.245.244.144])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 02:37:54 -0800
+Date: Thu, 5 Nov 2026 12:37:51 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+Cc: Mark Brown <broonie@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Radu Pirea <radu_nicolae.pirea@upb.ro>,
+	CL Wang <cl634@andestech.com>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Vladimir Oltean <olteanv@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Han Xu <han.xu@nxp.com>,
+	Haibo Chen <haibo.chen@nxp.com>, Linus Walleij <linusw@kernel.org>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>, Yixun Lan <dlan@kernel.org>,
 	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH V2] riscv: dts: spacemit: k3: add USB3 port A (DRD) nodes
-Date: Thu,  5 Nov 2026 18:31:25 +0800
-Message-Id: <20261105103125.2727341-1-chunyan.zhang@linux.spacemit.com>
-X-Mailer: git-send-email 2.34.1
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alain Volmat <alain.volmat@foss.st.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Laxman Dewangan <ldewangan@nvidia.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Sowjanya Komatineni <skomatineni@nvidia.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	"open list:SPI SUBSYSTEM" <linux-spi@vger.kernel.org>,
+	"moderated list:ARM/Microchip (AT91) SoC support" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	"open list:FREESCALE DSPI DRIVER" <imx@lists.linux.dev>,
+	"open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>,
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
+	"open list:RENESAS RZ/V2H(P) RSPI DRIVER" <linux-renesas-soc@vger.kernel.org>,
+	"open list:SAMSUNG SPI DRIVERS" <linux-samsung-soc@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>,
+	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>,
+	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
+	"open list:TEGRA ARCHITECTURE SUPPORT" <linux-tegra@vger.kernel.org>,
+	Frank.Li@oss.nxp.com, vkoul@kernel.org
+Subject: Re: [PATCH 1/1] spi: use dmaengine_desc_set_callback()
+Message-ID: <auxcf206A1yMnHkX@ashevche-desk.local>
+References: <20261102174005.3933649-1-Frank.Li@oss.nxp.com>
+ <2154003.0S5aU1g85B@diego>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: OG+ZLWCSPgTOqtgUVvbWHC1m3fNisTpwm6LHzqUWvC3lb3Gh0m+I8xAz
-	84dQgajOlVSh+wf3r2raeXVbriIdvR8RX6HHOScgHC8dnQ/ZTPzxDYaKaeuR5s+TX11nHua
-	BhB+P/NM+w8PGTAsbTACPCVNDR3An+65vEtMuuERnBI2iQELiuaRgJGNssGnS1Q2QPrH+8o
-	29OMUUvRDkIymDD6I55xaJ162pFLUd7zNKmc02FfDYJ1YsuMZMebXwlSGY4AMpvPUixt0Ut
-	rDgB+0HnyX9ZqK+an2JFWZAMgJrEA9QeGH17zvUX4pN/1d4RYKe4ZgEb/ZK610ERlizxfNK
-	Mbj6+fQekFlHqfIaLSRsDvc5K/4aTq+k/lqw5hqTWhwDHFDnePBeiGcd4gcx5hi/llajCEK
-	IY+F1X71ZLyjAVtPrzCTaOnOM96JypQkxrStWLsHwvbql1W4gYPH9CN+gos5xiYqC8P/PP/
-	2J1eVnZqIsewjxFoB8Nj9HQlrLFeXvVIu1Vz/4DBJ5/u6sCGB5okfRhZiWEI4qL71qL3Z2n
-	xe0/ZlL/+LEmvgJm9HLffKX7Bo9YdKyZOZXzGaLIpmXr7DvMAXHDNIi7EBbv8Y5gGFBa2Hf
-	XDIzio1XKlLMNEB4sVsZRIuL6YmLQyl8itHxpZqAe+ddvK5PQXGYK9FBTe9taNpA7LbrF/1
-	9JhtRtSvX7go/guU0BvRQG3hSLI3/jLRdwpFdfRvatzWunvJbBkYW0WsH2Umk6pM9EOCIjw
-	vgXF0kYgTFCSsbu0YM7EqgjhNJfJU7AerjO0sgVNUmiImCgzeNRgvLICd85Z/yfKrMkbSe9
-	6hZFk5CB8Eq7Sr2PJz2c0qqFA3MDdtQSMKcmVQuglkt5P41eNij+lVWWBNHMsAMKcZgYt79
-	7qoLb6a8OE+8Upa+qvY4olpaQzudWfL93CkAJYWyxW50bwiznSYGKh6kOpKEC9ZGb/zHu6P
-	bX4rvtf/yyIDRbPoE7zhaqY0XHc9KqbaNTkemm+lg4ZYbnqbavRx6111m5fOFkAdNZNJyQ1
-	v95DTbWcypwlXHHkkGXqH4AYoiy6jf11oafY4ZNM/zzYdK6hM8PQ4yf8bTJrjWvAYHrDPjt
-	Q==
-X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
-X-QQ-SPAM: true
-X-QQ-RECHKSPAM: 3
+Content-Disposition: inline
+In-Reply-To: <2154003.0S5aU1g85B@diego>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_023209_940199_05C67577 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_023806_788243_056EC901 
+X-CRM114-Status: GOOD (  16.13  )
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,106 +133,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Describe the DWC3 controller and its USB 2.0 PHY for USB3 port A
-of the K3 SoC.
+On Thu, Nov 05, 2026 at 10:52:38AM +0100, Heiko St=FCbner wrote:
+> Am Montag, 2. November 2026, 18:39:58 Mitteleurop=E4ische Normalzeit schr=
+ieb Frank.Li@oss.nxp.com:
+> > =
 
-Only the U2 lane is described: Port A's SuperSpeed PHY has no driver
-yet, so the port runs at high-speed (maximum-speed = "high-speed").
+> > Replace open-coded assignments to callback and callback_param fields
+> > of struct dma_async_tx_descriptor with calls to the
+> > dmaengine_desc_set_callback() helper across SPI bus drivers.
+> > =
 
-On the K3 Pico-ITX, Port A is a Type-C connector behind a FUSB301 CC
-controller, which is not described yet. Nothing configures the
-FUSB301, so the port relies on its power-on CC mode. Enable Port A
-with dr_mode = "peripheral"; it is device-only until the CC
-controller is described.
+> > No functional change intended. Prepare make to struct
+> > dma_async_tx_descriptor private to the DMA engine.
 
-Signed-off-by: Chunyan Zhang <chunyan.zhang@linux.spacemit.com>
----
-Changes in v2:
-- Rebase onto v7.4-rc1.
-- Move phys/phy-names to the board dts, matching usb3b/c/d.
-- Add snps,dis_u3_susphy_quirk and snps,parkmode-disable-ss-quirk.
-- Note in the commit message that Port A is a Type-C port behind a
-  FUSB301 and is device-only until the CC controller is described.
----
- arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 12 ++++++++
- arch/riscv/boot/dts/spacemit/k3.dtsi         | 29 ++++++++++++++++++++
- 2 files changed, 41 insertions(+)
+[...]
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-index dda420900aa2..d0fbed23ccca 100644
---- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-+++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-@@ -337,6 +337,18 @@ &usb2_phy {
- 	status = "okay";
- };
- 
-+&usb3a {
-+	phys = <&usb3a_u2phy>;
-+	phy-names = "usb2-phy";
-+	maximum-speed = "high-speed";
-+	dr_mode = "peripheral";
-+	status = "okay";
-+};
-+
-+&usb3a_u2phy {
-+	status = "okay";
-+};
-+
- &usb3b {
- 	phys = <&usb3b_u2phy>;
- 	phy-names = "usb2-phy";
-diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
-index e89d2cc5ca8c..2d2569cfe676 100644
---- a/arch/riscv/boot/dts/spacemit/k3.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
-@@ -687,6 +687,35 @@ gmac2_axi_setup: stmmac-axi-config {
- 			};
- 		};
- 
-+		usb3a: usb@cad00000 {
-+			compatible = "spacemit,k3-dwc3";
-+			reg = <0x0 0xcad00000 0x0 0x10000>;
-+			interrupts = <118 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-parent = <&saplic>;
-+			clocks = <&syscon_apmu CLK_APMU_USB3_PORTA_BUS>;
-+			clock-names = "usbdrd30";
-+			resets = <&syscon_apmu RESET_APMU_USB3_A_AHB>,
-+				 <&syscon_apmu RESET_APMU_USB3_A_VCC>,
-+				 <&syscon_apmu RESET_APMU_USB3_A_PHY>;
-+			reset-names = "ahb", "vcc", "phy";
-+			phy_type = "utmi";
-+			snps,dis_enblslpm_quirk;
-+			snps,dis_u2_susphy_quirk;
-+			snps,dis_u3_susphy_quirk;
-+			snps,dis-del-phy-power-chg-quirk;
-+			snps,dis-tx-ipgap-linecheck-quirk;
-+			snps,parkmode-disable-ss-quirk;
-+			status = "disabled";
-+		};
-+
-+		usb3a_u2phy: phy@cad20000 {
-+			compatible = "spacemit,k3-usb2-phy";
-+			reg = <0x0 0xcad20000 0x0 0x200>;
-+			clocks = <&syscon_apmu CLK_APMU_USB3_PORTA_BUS>;
-+			#phy-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		pdma: dma-controller@d4000000 {
- 			compatible = "spacemit,k3-pdma";
- 			reg = <0x0 0xd4000000 0x0 0x4000>;
--- 
-2.34.1
+> > diff --git a/drivers/spi/spi-rockchip.c b/drivers/spi/spi-rockchip.c
+> > index 1a81fd94b4396..f8d6cea2f3dad 100644
+> > --- a/drivers/spi/spi-rockchip.c
+> > +++ b/drivers/spi/spi-rockchip.c
+> > @@ -475,8 +475,7 @@ static int rockchip_spi_prepare_dma(struct rockchip=
+_spi *rs,
+> >  		if (!rxdesc)
+> >  			return -EINVAL;
+> >  =
+
+> > -		rxdesc->callback =3D rockchip_spi_dma_rxcb;
+> > -		rxdesc->callback_param =3D ctlr;
+> > +		dmaengine_desc_set_callback(rxdesc, rockchip_spi_dma_rxcb, NULL, ctl=
+r);
+> >  	}
+> >  =
+
+> >  	txdesc =3D NULL;
+> > @@ -500,8 +499,7 @@ static int rockchip_spi_prepare_dma(struct rockchip=
+_spi *rs,
+> >  			return -EINVAL;
+> >  		}
+> >  =
+
+> > -		txdesc->callback =3D rockchip_spi_dma_txcb;
+> > -		txdesc->callback_param =3D ctlr;
+> > +		dmaengine_desc_set_callback(txdesc, rockchip_spi_dma_txcb, NULL, ctl=
+r);
+> >  	}
+> >  =
+
+> >  	/* rx must be started before tx due to spi instinct */
+> =
+
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+
+Please, use "# subpart(s)" syntax with this tag
+
+   Reviewed-by: Heiko Stuebner <heiko@sntech.de> # rockchip
+
+-- =
+
+With Best Regards,
+Andy Shevchenko
+
 
 
 _______________________________________________
