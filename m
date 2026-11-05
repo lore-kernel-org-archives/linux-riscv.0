@@ -2,103 +2,96 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2CB2606CBCB
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 16:37:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AB44606A31B
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 16:38:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EalhEpMS;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JdNzkF5w
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ralqRmgN;
+	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=aVAU1Xft
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:To:
-	From:Subject:Cc:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=dhNfErP/fVU5XkgGUvjFIJ1mDUBR0Aq393Uki5Foi9g=; b=EalhEpMSh9n08AcCD3WhR6Bd3m
-	ZnxcIbhflK5Dg7kWmmEV9WXQRYCE/QlGRGPZnW+u8S7UtmZmocDjBT9846Fyzg5Yz7TobJlkxVbhm
-	JqCRofy75PxnbbgcRJzbeglhtquyJ0wINve6Btu/Ax2n78vZgaabU4jlIkjLAX/38OINGtHMqBLzt
-	vSlrhdERL3svUEglMcZqTTyx8qETmpAv9rUZr3YyG3plINW+1jFkTXHF5J1VAYWeIccCon1KgNNL/
-	97OU4EVtDANMIi7w8PZiGSPoMEVP7egwus0voFl0uYBwJ8QUJpFeuUJEUy/zbwxxd1YBHFJubgqAV
-	Z6EVFqlg==;
+	bh=bDQcZqBbQYYpv/diqYQ6jRSdWSkCSKGhkoIT5NrhLzE=; b=ralqRmgNwr4Z4nnznH+uGgIHn5
+	P9B2amIvZHsSguzkXGP0EvI7N0XhIVSMWinfc2m5dvwYMRwT4XYfbbsbN6j86kKnwmbGB8EqNbTuH
+	oE+8bBgamWGeaCcAvQ3Qnq67SVLE3Xbs/blWnDUkPjkGDaQi6yaR9QVi0WOyMfKrQjy9keHzCgVIx
+	piTAT0944x+QMYOtA0Q5Y/VXphgV/EM7maoJpeRBF5jgMbkQU1teaNhf50GKDbcWSz++2DSffPjKZ
+	j8MKVlhb0J0Bhig/76X2lkkQ+j/j/prUgmLnjdOkCM038y4PDGQCrGaF1Mf9YUXC1LvFDH+CB+Zr2
+	UYqI62Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP0Si-00000009exZ-052N;
-	Thu, 05 Nov 2026 16:37:17 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1xP0Tz-00000009fDY-3ykf;
+	Thu, 05 Nov 2026 16:38:38 +0000
+Received: from esa1.hc555-34.eu.iphmx.com ([23.90.104.144])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP0SY-00000009ew5-2CuB
+	id 1xP0Ti-00000009f9m-1Gyp
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 16:37:14 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-3acb11973c3so1765256a91.3
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2026 08:37:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793896624; x=1794501424; darn=lists.infradead.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=EMTT2HHjSkY1uGJyH89VPeEJ36kiCXEDFii0T4E6Iac=;
-        b=JdNzkF5wzK0r1BI+mmAgASAJT55HGfe40bLAx9TI1YqALIELyTYbFWxix9zo08FewD
-         yZRRTK12OzU/dpikonPQYCG5MtiAENkJhHVfcwcpnLA69hw5uaQOZrn3QCmMa6eCQF3/
-         ZwMtCCtIxs72LwsDcOLxYSM4TkL4iswFWw7Uywu8acID2q5wArKNpBCrhSn+CHh8oTAd
-         a0PgEpA1XeK5aYOU7lDaQ4YJoqNOsvAhdWqmJxTDaGfC5wmn4J54uDQB8N515eKySMxc
-         nq65lW0anfu4zYKX9Xc493mEZDtXTlocmQ+ftSXB6HOW0RJHf5hf9UK/FcCYfj7V/a4V
-         Z9lA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793896624; x=1794501424;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=EMTT2HHjSkY1uGJyH89VPeEJ36kiCXEDFii0T4E6Iac=;
-        b=jWkYVH96lCS9klH38GnKOk7z8P86oLUoHsN5Qrq2Ul243grqk87SJ3y6k709d2tTRb
-         DvQSgs7uZJQRM5JKfpo39ctCycZXD3wYBYGLn7rjW4ShhJhL69un0id+tFYoZ8qc+m3F
-         HF7RcQ6clAVZ3xGLvsh2MUEzUz/G9JMN/DcvtraAhllxoFHzJIpwuxvojm9x+GJmv3zs
-         fv5w461FVfeGverKwZhfcxZFrgROPn1F90rf9yYQzSzBoQroprM+Ho1/bMH73zLSTAbK
-         pfr8rfwTBOj5PRklZ6/CdHbw+FR0/8Ceg4Dy21mhEUpPaY1PVxUAqy1cZt+8AcxWGxWL
-         /M4Q==
-X-Forwarded-Encrypted: i=1; AKwUvBy8Ig4PVJEbnyNl3zEtAdPiTE7YHkNCD7G54qYMcIlaKuh9cnv/D3xPBFz0L1EQ2jwOw1hMwpRgjbLtaw==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8E96R7YEcvq9zHpnkZxkgO4W2o74I/Z45H9L1Xsc1ujfqfvyRu
-	iNd8AC1frPlD85vbL8b2vp7nJdq4ybZfvmmGHVOz33R+vnlV16TxS0/e
-X-Gm-Gg: AYBFou1FZ2kNZgJbB0XIqHYdrk8zXYoZnANlXCSOuDbojaxs2LVfUOoOaDAffWc2voH
-	N3n8/O+ERJK7h3mc7X6rb4diEg3Bio4El79V8yzk3RvFeqdvZf0o11YVXixVoY0804ZsffH0kzv
-	sjyORg+7g9n3MmdN1fjTkE8guIWhW3EQE9CCgu+SJ3i9xsHW51BVL0TW8m4Hu9wRKtUph2mCuNF
-	tNvVL/LHopnAjtYLQ5PEz6jNsCMpY+bcvUThTCo0sgxXcC4uSnQCsFcgQ+MSJwI9nqKUqgiCQDT
-	fsTnWQdWghSdU4R7oY9f8jnSBJ8ap8gZjax6BzQliM6nnizw46LcG6DWn93bzLLJ/KNSgDj4LNQ
-	tvk02rjMBwnbcrAYKi31FKWF8W2dJ5Ym+YscxOyoLRzdaJjb+QQJhxvY4kuBQtKUa4qwV/zR0Rt
-	/+Htxift8clg8FAqR/TedZdXXFIdV5TIfN5R2DvAhgVMa8rIoRrl9rjHvOUY5nKG4WxWTQY7ssq
-	Z89BcpjNqztc17T7SsqiQclFb979R2RE2Fe0vJNoO/18+qzy6csSx5pHy8001jh/qV6wvHb37c9
-	VsQYboBayGodirGqnqfjYywD2u20LiimsAZ6oHbWuZD2Q2+HFUDZB6xavuEM+pvDh3w0YkMdJV8
-	J8f7Mvf0fzaltbzMwmhGNbUWWoWxGiuWR5Q==
-X-Received: by 2002:a17:90b:4d85:b0:3b0:a378:1cf with SMTP id 98e67ed59e1d1-3b0a378049cmr4183905a91.22.1793896623555;
-        Thu, 05 Nov 2026 08:37:03 -0800 (PST)
-Received: from localhost ([153.61.198.248])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b3160634sm4692625a91.6.2026.11.05.08.37.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Nov 2026 08:37:02 -0800 (PST)
-Date: Thu, 05 Nov 2026 16:37:02 +0000
-Message-Id: <DMNFA3D0M816.2K02S8LB47QM4@gmail.com>
-Cc: <eddyz87@gmail.com>, <martin.lau@linux.dev>, <song@kernel.org>,
- <yonghong.song@linux.dev>, <jolsa@kernel.org>, <emil@etsalapatis.com>,
- <ihor.solodrai@linux.dev>, <pulehui@huawei.com>, <pjw@kernel.org>,
- <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
- <luke.r.nels@gmail.com>, <xi.wang@gmail.com>, <shuah@kernel.org>,
- <rgbi3307@gmail.com>, <guoren@kernel.org>, <bpf@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 bpf-next 3/3] selftests/bpf: Add a runtime test for
- private stack and stack arguments
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Chen Pei" <cp0613@linux.alibaba.com>, <daniel@iogearbox.net>,
- <andrii@kernel.org>, <memxor@gmail.com>, <bjorn@kernel.org>,
- <puranjay@kernel.org>
-In-Reply-To: <20261104100411.997-4-cp0613@linux.alibaba.com>
-References: <20261104100411.997-1-cp0613@linux.alibaba.com> <20261104100411.997-4-cp0613@linux.alibaba.com>
+	Thu, 05 Nov 2026 16:38:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
+  t=1793896705; x=1825432705;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=976/pIIvfKjoAMoUosVI4Ia7fh2byNHJkUDQvR46D3A=;
+  b=aVAU1XftG/5EUIWemhdEw2ppyq97xkFIC3ms97v8v1Z2KZeHiVD4xCID
+   /4IzAwa6tpG5r2V6is0aotpNgzNOtSH+NinLSwDvnOExitAYVtfHUVNtF
+   RgXN9J0Xsf6iXeXHWs1esE7NuaJ9Gl7XKJ9c9+nY3zIbrKQlL3yerF4xy
+   VFi7DvdpB+QDhp/ANPn6LET7Zp2P85dt49/gTa6N5Z624UKKi3tWZ+/EG
+   TTcdiKOkp+14/EWAoVKrtAS2IQVk8eFzD9/OOds/OvwwnDaKgqlg2SgS+
+   U/KBQk7ox1GpJDL9zWkaUlsH6v8ttLXvfyZl1fnacNiYdhD2327h3BSe0
+   A==;
+X-CSE-ConnectionGUID: 4emU8v85TlSOavS/labGbw==
+X-CSE-MsgGUID: AR7m4rMMSbq03ebxXHw9+Q==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
+  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 18:38:22 +0200
+X-CSE-ConnectionGUID: qpIrvR0pTiSq9kvpZaphIw==
+X-CSE-MsgGUID: /qMpZnSsT9OAsfvzs6q+0A==
+Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.2])
+  by ces04_data.me-crop.lan with SMTP; 05 Nov 2026 18:46:11 +0200
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Thu, 05 Nov 2026 18:38:14 +0200
+From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Date: Thu, 05 Nov 2026 18:37:37 +0200
+Subject: [PATCH v5 2/3] riscv, bpf: emit LR/SC loops when Zaamo is disabled
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Message-Id: <20261105-lrsc-only-v5-2-f0648f57b2e1@mobileye.com>
+References: <20261105-lrsc-only-v5-0-f0648f57b2e1@mobileye.com>
+In-Reply-To: <20261105-lrsc-only-v5-0-f0648f57b2e1@mobileye.com>
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Gary Guo <gary@garyguo.net>, 
+ Yury Norov <yury.norov@gmail.com>, 
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
+ Chao-ying Fu <chao-ying.fu@globalfoundries.com>, 
+ torvalds@linux-foundation.org, olof@lixom.net, 
+ aleksa.paunovic@htecgroup.com, arikalo@gmail.com, 
+ Boqun Feng <boqun@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+ Eduard Zingerman <eddyz87@gmail.com>, 
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+ Emil Tsalapatis <emil@etsalapatis.com>, 
+ Ihor Solodrai <ihor.solodrai@linux.dev>, 
+ Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
+ Pu Lehui <pulehui@huawei.com>, Puranjay Mohan <puranjay@kernel.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
+ Boqun Feng <boqun@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Vladimir.Kondratiev@mobileye.com, bpf@vger.kernel.org, 
+ linux-trace-kernel@vger.kernel.org, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_083706_983128_987EF100 
-X-CRM114-Status: GOOD (  11.74  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_083825_197876_473AC59E 
+X-CRM114-Status: GOOD (  29.31  )
+X-Spam-Score: -4.0 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,96 +104,351 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 04, 2026 at 02:04 AM Chen Pei <cp0613@linux.alibaba.com> wrote:
->  .../selftests/bpf/private_stack_runtime.h     |  12 ++
->  .../bpf/prog_tests/private_stack_runtime.c    |  84 +++++++++++
->  .../bpf/progs/private_stack_runtime.c         | 140 ++++++++++++++++++
->  3 files changed, 236 insertions(+)
+A kernel built with CONFIG_RISCV_ISA_ZAAMO disabled is meant for a
+hart where AMO instructions are emulated by an M-mode trap. The BPF JIT
+still encodes amo* instructions for the BPF atomic read-modify-write
+operations, so every such operation takes that trap.
 
-bpf ci is right in the other email.
+Emit an LR/SC loop for BPF_ADD, BPF_AND, BPF_OR, BPF_XOR, their
+BPF_FETCH forms and BPF_XCHG when Zaamo is disabled, on RV32 and RV64.
+The sequences follow the Zalrsc variants in
+arch/riscv/include/asm/atomic.h: a relaxed op discards the old value,
+a fetch op uses .aqrl and returns the old value. BPF_CMPXCHG is
+unchanged; it already uses amocas with Zacas and an LR/SC loop
+otherwise.
 
-pw-bot: cr
+The JIT encodes instructions as integers, so no assembler constraint
+applies and both paths stay compiled. The choice is a plain
+IS_ENABLED() test, the same compile-time decision the rest of the
+kernel makes. The hart advertises "a" either way, so a runtime
+extension check would not tell the two cases apart.
 
-Also, the test runs on riscv64 only. BPF CI runs arm64 and not riscv64.
-arm64 has the same combination and no test for it.
-The run time part has nothing specific to riscv64.
-The __jited patterns pin the frame sizes that clang picks for C code.
-zero_stack doesn't use the private stack.
-It's the only reason for serial_.
+An arena (BPF_PROBE_ATOMIC) access needs an exception table entry for
+each instruction that may fault. The verifier reserves one entry per
+atomic instruction, but an LR/SC loop can fault on either the lr or the
+sc. Count the extra entries once the instruction offsets converge,
+before the image is allocated, and add an entry for the sc that shares
+the fixup of the lr, so a fault skips the retry and the result move.
 
-Two asm progs in verifier_stack_arg.c are enough.
-BPF_PROG_TEST_RUN runs a raw_tp prog. No need to attach it.
-The test runs on x86-64, arm64 and riscv64.
-On x86-64 both frames stay on the kernel stack.
+Co-developed-by: Chao-ying Fu <chao-ying.fu@globalfoundries.com>
+Signed-off-by: Chao-ying Fu <chao-ying.fu@globalfoundries.com>
+Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+---
+ arch/riscv/net/bpf_jit.h        |   1 +
+ arch/riscv/net/bpf_jit_comp32.c |  81 ++++++++++++++++++++++++++++--
+ arch/riscv/net/bpf_jit_comp64.c | 108 +++++++++++++++++++++++++++++++++++++++-
+ arch/riscv/net/bpf_jit_core.c   |  29 +++++++++++
+ 4 files changed, 213 insertions(+), 6 deletions(-)
 
-Like (not even compile tested):
-
-diff --git a/tools/testing/selftests/bpf/progs/verifier_stack_arg.c b/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
-index abf319c..9423048 100644
---- a/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
-@@ -667,6 +667,53 @@ __naked void stack_arg_precision_fallback(void)
- 	);
+diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+index 419b9d795f2a..8c1301289ea8 100644
+--- a/arch/riscv/net/bpf_jit.h
++++ b/arch/riscv/net/bpf_jit.h
+@@ -79,6 +79,7 @@ struct rv_jit_context {
+ 	int nexentries;
+ 	int ex_insn_off;
+ 	int ex_jmp_off;
++	int ex_sc_off;		/* sc in an lr/sc pair; 0 if unused */
+ 	unsigned long flags;
+ 	int stack_size;
+ 	int tcc_offset;
+diff --git a/arch/riscv/net/bpf_jit_comp32.c b/arch/riscv/net/bpf_jit_comp32.c
+index a9e0bd5cc81d..ea1779a23634 100644
+--- a/arch/riscv/net/bpf_jit_comp32.c
++++ b/arch/riscv/net/bpf_jit_comp32.c
+@@ -874,11 +874,67 @@ static int emit_load_r64(const s8 *dst, const s8 *src, s16 off,
+ 	return 0;
  }
-
-+/* Writes both ends of its frame, then reads args 9, 10 and the frame of the caller. */
-+__naked __noinline __used
-+static long priv_stack_10args(long a, long b, long c, long d, long e, long f, long g, long h,
-+			      long i, long *j)
-+{
-+	asm volatile (
-+		"r1 = 0;"
-+		"*(u64 *)(r10 - 8) = r1;"
-+		"*(u64 *)(r10 - 64) = r1;"
-+		"r0 = *(u64 *)(r11 + 32);"
-+		"r1 = *(u64 *)(r11 + 40);"
-+		"r1 = *(u64 *)(r1 + 0);"
-+		"r0 += r1;"
-+		"exit;"
-+	);
-+}
-+
+ 
+-static int emit_bpf_atomic(s8 dst, const s8 *src, const s8 *rs,
+-			   struct rv_jit_context *ctx,
+-			   const struct bpf_insn *insn)
 +/*
-+ * A frame of 64 bytes in a raw_tp prog goes to the private stack.
-+ * arm64 and riscv64 pass args 9 and 10 on the kernel stack.
++ * Read-modify-write via lr/sc for kernels built without Zaamo. T0 holds
++ * the address. T1/T2 are not BPF registers; the address was copied out of
++ * lo(rd) before this is called, so clobbering T2 is fine.
 + */
-+SEC("raw_tp")
-+__description("stack_arg: private stack in the caller and in the callee")
-+__success __retval(890)
-+__naked void stack_arg_priv_stack(void)
++static int emit_bpf_atomic_lrsc(s8 dst, const s8 *rs, s32 imm,
++				struct rv_jit_context *ctx)
 +{
-+	asm volatile (
-+		"r1 = 800;"
-+		"*(u64 *)(r10 - 64) = r1;"
-+		"r1 = r10;"
-+		"r1 += -64;"
-+		"*(u64 *)(r11 - 40) = r1;"
-+		"*(u64 *)(r11 - 32) = 90;"
-+		"*(u64 *)(r11 - 24) = 8;"
-+		"*(u64 *)(r11 - 16) = 7;"
-+		"*(u64 *)(r11 - 8) = 6;"
-+		"r1 = 1;"
-+		"r2 = 2;"
-+		"r3 = 3;"
-+		"r4 = 4;"
-+		"r5 = 5;"
-+		"call priv_stack_10args;"
-+		"exit;"
-+		::: __clobber_all
-+	);
++	bool is_fetch = (imm & BPF_FETCH) || (imm == BPF_XCHG);
++	bool xchg = imm == BPF_XCHG;
++	u8 aq = is_fetch ? 1 : 0;
++	u8 rl = is_fetch ? 1 : 0;
++	u8 old = RV_REG_T1;
++	u8 tmp = RV_REG_T2;
++	int lr_off, jmp_off;
++	s32 op = xchg ? BPF_XCHG : imm & ~BPF_FETCH;
++
++	switch (op) {
++	case BPF_ADD:
++	case BPF_AND:
++	case BPF_OR:
++	case BPF_XOR:
++	case BPF_XCHG:
++		break;
++	default:
++		return -1;
++	}
++
++	lr_off = ctx->ninsns;
++	emit(rv_lr_w(old, 0, dst, aq, rl), ctx);
++
++	switch (op) {
++	case BPF_ADD:
++		emit(rv_add(tmp, old, lo(rs)), ctx);
++		break;
++	case BPF_AND:
++		emit(rv_and(tmp, old, lo(rs)), ctx);
++		break;
++	case BPF_OR:
++		emit(rv_or(tmp, old, lo(rs)), ctx);
++		break;
++	case BPF_XOR:
++		emit(rv_xor(tmp, old, lo(rs)), ctx);
++		break;
++	}
++
++	if (xchg)
++		emit(rv_sc_w(tmp, lo(rs), dst, aq, rl), ctx);
++	else
++		emit(rv_sc_w(tmp, tmp, dst, aq, rl), ctx);
++
++	jmp_off = ninsns_rvoff(lr_off - ctx->ninsns);
++	emit(rv_bne(tmp, RV_REG_ZERO, jmp_off >> 1), ctx);
++	if (is_fetch)
++		emit(rv_addi(lo(rs), old, 0), ctx);
++	return 0;
 +}
 +
- #else
++static int emit_bpf_atomic_amo(s8 dst, const s8 *rs, s32 imm,
++			       struct rv_jit_context *ctx)
+ {
+-	s32 imm = insn->imm;
+ 	bool is_fetch = (imm & BPF_FETCH) || (imm == BPF_XCHG);
+ 	s8 fetch_reg = is_fetch ? lo(rs) : RV_REG_ZERO;
+ 	int aq = is_fetch ? 1 : 0;
+@@ -907,6 +963,23 @@ static int emit_bpf_atomic(s8 dst, const s8 *src, const s8 *rs,
+ 	default:
+ 		return -1;
+ 	}
++	return 0;
++}
++
++static int emit_bpf_atomic(s8 dst, const s8 *src, const s8 *rs,
++			   struct rv_jit_context *ctx,
++			   const struct bpf_insn *insn)
++{
++	s32 imm = insn->imm;
++	bool is_fetch = (imm & BPF_FETCH) || (imm == BPF_XCHG);
++	int ret;
++
++	if (IS_ENABLED(CONFIG_RISCV_ISA_ZAAMO))
++		ret = emit_bpf_atomic_amo(dst, rs, imm, ctx);
++	else
++		ret = emit_bpf_atomic_lrsc(dst, rs, imm, ctx);
++	if (ret)
++		return ret;
+ 
+ 	if (is_fetch) {
+ 		emit(rv_addi(hi(rs), RV_REG_ZERO, 0), ctx);
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index 01fe66774f02..94e4ddc6d965 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -573,6 +573,79 @@ static int emit_atomic_ld_st(u8 rd, u8 rs, const struct bpf_insn *insn,
+ 	return 0;
+ }
+ 
++/*
++ * Read-modify-write via lr/sc for kernels built without Zaamo, matching
++ * the Zalrsc sequences in arch/riscv/include/asm/atomic.h. A relaxed op
++ * discards the old value. A fetch op (including XCHG) uses .aqrl and
++ * writes that value back to val. T2/T3 are not BPF registers; addr may
++ * already be T1.
++ */
++static void emit_atomic_lrsc(u8 addr, u8 val, bool is64, s32 imm,
++			     struct rv_jit_context *ctx)
++{
++	bool fetch = imm & BPF_FETCH;
++	u8 aq = fetch ? 1 : 0;
++	u8 rl = fetch ? 1 : 0;
++	u8 old = RV_REG_T2;
++	u8 tmp = RV_REG_T3;
++	int lr_off, jmp_off;
++	s32 op = imm == BPF_XCHG ? BPF_XCHG : imm & ~BPF_FETCH;
++
++	lr_off = ctx->ninsns;
++	ctx->ex_insn_off = ctx->ninsns;
++	emit(is64 ? rv_lr_d(old, 0, addr, aq, rl) :
++	     rv_lr_w(old, 0, addr, aq, rl), ctx);
++
++	if (op != BPF_XCHG) {
++		if (!is64 && op == BPF_ADD)
++			emit(rv_addw(tmp, old, val), ctx);
++		else if (op == BPF_ADD)
++			emit_add(tmp, old, val, ctx);
++		else if (op == BPF_AND)
++			emit_and(tmp, old, val, ctx);
++		else if (op == BPF_OR)
++			emit_or(tmp, old, val, ctx);
++		else if (op == BPF_XOR)
++			emit_xor(tmp, old, val, ctx);
++
++		ctx->ex_sc_off = ctx->ninsns;
++		emit(is64 ? rv_sc_d(tmp, tmp, addr, aq, rl) :
++		     rv_sc_w(tmp, tmp, addr, aq, rl), ctx);
++	} else {
++		ctx->ex_sc_off = ctx->ninsns;
++		emit(is64 ? rv_sc_d(tmp, val, addr, aq, rl) :
++		     rv_sc_w(tmp, val, addr, aq, rl), ctx);
++	}
++
++	/* Branch offset is relative to this instruction, back to the lr. */
++	jmp_off = ninsns_rvoff(lr_off - ctx->ninsns);
++	emit(rv_bne(tmp, RV_REG_ZERO, jmp_off >> 1), ctx);
++
++	if (fetch) {
++		emit_mv(val, old, ctx);
++		if (!is64)
++			emit_zextw(val, val, ctx);
++	}
++	ctx->ex_jmp_off = ctx->ninsns;
++}
++
++static bool is_atomic_lrsc_op(s32 imm)
++{
++	switch (imm) {
++	case BPF_ADD:
++	case BPF_AND:
++	case BPF_OR:
++	case BPF_XOR:
++	case BPF_ADD | BPF_FETCH:
++	case BPF_AND | BPF_FETCH:
++	case BPF_OR | BPF_FETCH:
++	case BPF_XOR | BPF_FETCH:
++	case BPF_XCHG:
++		return true;
++	}
++	return false;
++}
++
+ static int emit_atomic_rmw(u8 rd, u8 rs, const struct bpf_insn *insn,
+ 			   struct rv_jit_context *ctx)
+ {
+@@ -601,6 +674,12 @@ static int emit_atomic_rmw(u8 rd, u8 rs, const struct bpf_insn *insn,
+ 		rd = RV_REG_T1;
+ 	}
+ 
++	/* Without Zaamo, every op except cmpxchg is an lr/sc loop. */
++	if (!IS_ENABLED(CONFIG_RISCV_ISA_ZAAMO) && is_atomic_lrsc_op(imm)) {
++		emit_atomic_lrsc(rd, rs, is64, imm, ctx);
++		return 0;
++	}
++
+ 	switch (imm) {
+ 	/* lock *(u32/u64 *)(dst_reg + off16) <op>= src_reg */
+ 	case BPF_ADD:
+@@ -732,8 +811,8 @@ bool ex_handler_bpf(const struct exception_table_entry *ex,
+ }
+ 
+ /* For accesses to BTF pointers, add an entry to the exception table */
+-static int add_exception_handler(const struct bpf_insn *insn, int dst_reg,
+-				 struct rv_jit_context *ctx)
++static int add_exception_handler_one(const struct bpf_insn *insn, int dst_reg,
++				     struct rv_jit_context *ctx)
+ {
+ 	struct exception_table_entry *ex;
+ 	unsigned long pc;
+@@ -804,6 +883,31 @@ static int add_exception_handler(const struct bpf_insn *insn, int dst_reg,
+ 	return 0;
+ }
+ 
++/*
++ * An lr/sc pair faults on either instruction. Both entries share the fixup
++ * that follows the loop, so a probe fault skips the retry and the result move.
++ */
++static int add_exception_handler(const struct bpf_insn *insn, int dst_reg,
++				 struct rv_jit_context *ctx)
++{
++	int sc_off = ctx->ex_sc_off;
++	int jmp_off = ctx->ex_jmp_off;
++	int ret;
++
++	ctx->ex_sc_off = 0;
++	/* Offset discovery runs before the image exists. Entries are added later. */
++	if (!ctx->insns)
++		return 0;
++
++	ret = add_exception_handler_one(insn, dst_reg, ctx);
++	if (ret || sc_off <= 0)
++		return ret;
++
++	ctx->ex_insn_off = sc_off;
++	ctx->ex_jmp_off = jmp_off;
++	return add_exception_handler_one(insn, dst_reg, ctx);
++}
++
+ static int gen_jump_or_nops(void *target, void *ip, u32 *insns, bool is_call)
+ {
+ 	s64 rvoff;
+diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+index cbfcd287ea16..cba0d34c3e6f 100644
+--- a/arch/riscv/net/bpf_jit_core.c
++++ b/arch/riscv/net/bpf_jit_core.c
+@@ -16,6 +16,34 @@
+ /* Number of iterations to try until offsets converge. */
+ #define NR_JIT_ITERATIONS	32
+ 
++/*
++ * The verifier reserves one extable slot per BPF_PROBE_ATOMIC. Without
++ * Zaamo a read-modify-write atomic is an lr/sc loop that can fault on
++ * either instruction, so reserve a second slot for the sc.
++ */
++static void rv_jit_add_lrsc_exentries(struct bpf_prog *prog)
++{
++	const struct bpf_insn *insn = prog->insnsi;
++	int i;
++
++	if (IS_ENABLED(CONFIG_RISCV_ISA_ZAAMO) || __riscv_xlen != 64)
++		return;
++
++	for (i = 0; i < prog->len; i++, insn++) {
++		if (BPF_CLASS(insn->code) != BPF_STX ||
++		    BPF_MODE(insn->code) != BPF_PROBE_ATOMIC ||
++		    bpf_atomic_is_load_store(insn))
++			continue;
++		if (BPF_SIZE(insn->code) != BPF_W &&
++		    BPF_SIZE(insn->code) != BPF_DW)
++			continue;
++		/* amocas is a single faulting instruction. */
++		if (insn->imm == BPF_CMPXCHG && rv_ext_enabled(ZACAS))
++			continue;
++		prog->aux->num_exentries++;
++	}
++}
++
+ static int build_body(struct rv_jit_context *ctx, bool extra_pass, int *offset)
+ {
+ 	const struct bpf_prog *prog = ctx->prog;
+@@ -100,6 +128,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
+ 		if (ctx->ninsns == prev_ninsns) {
+ 			if (jit_data->header)
+ 				break;
++			rv_jit_add_lrsc_exentries(prog);
+ 			/* obtain the actual image size */
+ 			extable_size = prog->aux->num_exentries *
+ 				sizeof(struct exception_table_entry);
 
- SEC("socket")
+-- 
+2.43.0
 
 
 _______________________________________________
