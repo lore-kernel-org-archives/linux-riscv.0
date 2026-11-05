@@ -2,118 +2,59 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5658A606A339
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 17:11:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E50DC606A333
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 17:33:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=F8bo0vtQ;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nCBJ4Wja
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Dy6sbHdL;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RSvp97un
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=1KJ5m+G0Dxd9weJXxIR+fuZ22OFFrR5ztz1ZQY2c/hA=; b=F8bo0vtQMJwIO9fUA5hhPRJmAc
-	9lKxygDNvLrsYS9QJJVWaW2QLHYK0o2MOe06/uSXFmiOvhVtaXRwvsLqMhI+F8sJylKk3KbYoEPg4
-	FAh8+9I/XU3UQUfh29dtRVnggjB3IA4vqlJJn3AhuUEo5XsLytlfoudFh4M7rTGbSx7CpnOBnDOWn
-	BuiQ7lSkFh9bx68IKfgbhIZUK5p/pnmnCgM/6VqKKbOqSg8prh6PATe26JFzKSb2MH+9wwp0XZhRR
-	EOpZfg/2unxKs64InpnrPxV2jK4vPhnmIzlYBUCzGUBwAqU8iIYFKKo2hNrAgOVMtI46OrYc+9KGN
-	yBTQVqZA==;
+	bh=NhlSYIkZK/RTjfvAc2SXz+U0sLrVAJxVEYolIZd8AaU=; b=Dy6sbHdLhbc2Vp7b8oLtnKJiaX
+	W2/NiPpatKgBPwYD71eIHeowUORhA76t84AtxcxBTRG1mVyEZqoG/aUDZl1wSt12bcYnyLFJyautW
+	tdCpiXSSccfwOYCRrCclf8B5H+dYc+cwFm4RlwcL8KVZYeq+nEIiScy7aKUJ3A1yUBkrcMsCa6Sqc
+	vdNuBWlcSShGlHmbbTxyeh0ftgvh8VuVNqhaRmnrNQNH2OL44PiQ/fxopk1S2K8Q1vJo1SkRIKoga
+	xSu5XxEJbTVQLA3ReHjHeveM02Xf0sEtdTVSa4wyzrlhTBSQexQb3KlefLCUORaSuQNI9MYXzhFa/
+	FXxzNsQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP100-00000009nxr-1y4G;
-	Thu, 05 Nov 2026 17:11:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xP1Ku-00000009wj2-3MBe;
+	Thu, 05 Nov 2026 17:33:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP0vV-00000009lR7-1pNr
+	id 1xP1Ku-00000009wiQ-1hRw
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 17:07:02 +0000
+	Thu, 05 Nov 2026 17:33:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E2A860145;
-	Thu,  5 Nov 2026 17:07:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C36961F000C1;
-	Thu,  5 Nov 2026 17:06:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AD8D04116F;
+	Thu,  5 Nov 2026 17:33:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA7E91F000C1;
+	Thu,  5 Nov 2026 17:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793898420;
-	bh=+BKEtapVg9ZvVExUrrwjchlBg9HiJLaq+cPGzmG6490=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=nCBJ4WjaV9h7VqVSkn+QKi1XYE0fRlYAYNMppPShoj71GS4tfxkkkZwdzDtxKAKKl
-	 r0jtdIYZA2tq51uKkJAA13EqrgdCxvdUluOASXfXnfu1CRG2qZr5IuDwogdQzQNzQA
-	 y6zVuI1EE+wXeR4KVNis97tkbm05Kqpcp0c0e0xgJKQp9WypE2FyKaaISltCHvtAMI
-	 DJvnfFo2MpFIgEuBmbVBX/x0EEgTAANTpwoQC+6dN5AQS7FlQ6udIY0JtXubxV//jH
-	 E13rtGeBQqTBb5vbueganPKWeP54WeJDqCuNi19/YwwAadmoojigQ0slNYvhOOnCwB
-	 B/Y4ZkDZEcZyw==
-Message-ID: <60c4f0a0-e3c9-42dc-b2e0-0860ab6e30f0@kernel.org>
-Date: Thu, 5 Nov 2026 18:06:51 +0100
+	s=k20260515; t=1793899995;
+	bh=oSm1ozRsqu0jVQ66QOQEEYOnT9bhWnL4fGvmxHAa0xU=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=RSvp97unsAj22ZXChSJySDgVd/iaulJgETAf9ZXTRJvjnqPxDni25Cusy3HfgjWRw
+	 YHgIA/KYMu4iysgB+aprQV4Z6DIE7Tlr0z7U9fmzHpBcLeHmbSy54sXy9p4PuPrHx8
+	 aPz2itEwJ6z3cZmjdMwaSpVwnskA0R4ZJKcpqol3Id44WSW6hUBhkddccNbAGM54T2
+	 OF0D8bUl8uMojLBdwQ5ZBO/5nTPuE2X8VMmqlqeGDhjygcNn0Dj0eqSwqy8jq+75R9
+	 m6i8/3JrokG29nPRJULrTcXp9MQwzj2QChqSrRGzLYQR51qEqdJTl1E+hSj++PlcPP
+	 u4b/Ixq7PiaTA==
+Content-Type: multipart/mixed; boundary="===============4354460838823676982=="
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/9] mm/mprotect: keep writable entries writable on
- permission upgrades
-To: =?UTF-8?Q?Carlos_L=C3=B3pez?= <clopez@suse.de>, kvm@vger.kernel.org,
- linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
- linux-riscv@lists.infradead.org, seanjc@google.com, pbonzini@redhat.com,
- akpm@linux-foundation.org, peterx@redhat.com, ljs@kernel.org,
- imbrenda@linux.ibm.com, borntraeger@linux.ibm.com, frankja@linux.ibm.com,
- Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>,
- "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
- Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
- Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>
-References: <20261105165004.2663799-4-clopez@suse.de>
- <20261105165004.2663799-9-clopez@suse.de>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261105165004.2663799-9-clopez@suse.de>
+Message-Id: <18c9fcbaea4f427a23d9769e82c5b065ccb61392e2f87f97c97614cf252dd48c@mail.kernel.org>
+In-Reply-To: <20261105-lrsc-only-v5-1-f0648f57b2e1@mobileye.com>
+References: <20261105-lrsc-only-v5-1-f0648f57b2e1@mobileye.com>
+Subject: Re: [PATCH v5 1/3] riscv: build kernel atomics from LR/SC when Zaamo is disabled
+From: bot+bpf-ci@kernel.org
+To: vladimir.kondratiev@mobileye.com,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,will@kernel.org,peterz@infradead.org,mark.rutland@arm.com,gary@garyguo.net,yury.norov@gmail.com,linux@rasmusvillemoes.dk,chao-ying.fu@globalfoundries.com,torvalds@linux-foundation.org,olof@lixom.net,aleksa.paunovic@htecgroup.com,arikalo@gmail.com,boqun@kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,luke.r.nels@gmail.com,xi.wang@gmail.com,bjorn@kernel.org,pulehui@huawei.com,puranjay@kernel.org,mhiramat@kernel.org,oleg@redhat.com,boqun@kernel.org
+Cc: linux-riscv@lists.infradead.org,linux-kernel@vger.kernel.org,Vladimir.Kondratiev@mobileye.com,bpf@vger.kernel.org,linux-trace-kernel@vger.kernel.org,vladimir.kondratiev@mobileye.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Thu,  5 Nov 2026 17:33:14 +0000 (UTC)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,62 +64,291 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-T24gMTEvNS8yNiAxNzo1MCwgQ2FybG9zIEzDs3BleiB3cm90ZToKPiBjaGFuZ2VfcHJvdGVjdGlv
-bigpIGFwcGxpZXMgdm1hLT52bV9wYWdlX3Byb3QsIHdoaWNoIGxhY2tzIHRoZSB3cml0ZSBiaXQK
-PiBmb3IgQ29XIGFuZCB3cml0ZS1ub3RpZmllZCBtYXBwaW5ncywgc28gaXQgd3JpdGUtcHJvdGVj
-dHMgZXZlcnkgZW50cnkKPiBpbiB0aGVtLiBXaGVuIGFuIGVudHJ5IHdvdWxkIHNpbXBseSBiZSBt
-YWRlIHdyaXRhYmxlIG9uIGZhdWx0IHdpdGhvdXQKPiBmdXJ0aGVyIGNoZWNrcyAoZS5nLiBkaXJ0
-eSBQVEVzIGluIHNoYXJlZCBtYXBwaW5ncywgZXhjbHVzaXZlIGFub255bW91cwo+IHBhZ2VzKSwg
-TU1fQ1BfVFJZX0NIQU5HRV9XUklUQUJMRSBtYWtlcyB0aGUgZW50cnkgd3JpdGFibGUgYWdhaW4g
-dG8KPiBhdm9pZCB0aGUgZnV0dXJlIGZhdWx0Lgo+IAo+IEhvd2V2ZXIsIHdyaXRhYmxlIGVudHJp
-ZXMgaW4gc2hhcmVkIG1hcHBpbmdzIHRoYXQgYXJlIG5vdCBkaXJ0eSBzdGlsbAo+IGJlY29tZSBy
-ZWFkLW9ubHkuIEZvciBleGFtcGxlLCBhIHVmZmQtd3AgdW5wcm90ZWN0IG1ha2VzIGNsZWFuIHNo
-bWVtCj4gUFRFcyByZWFkLW9ubHkgZXZlbiBpZiB0aGV5IHdlcmUgbmV2ZXIgd3JpdGUtcHJvdGVj
-dGVkLCBlLmcuIHdoZW4gdGhleQo+IHdlcmUgbWFwcGVkIGJ5IGEgcmVhZCBmYXVsdCBiZWZvcmUg
-dWZmZC13cCB3YXMgcmVnaXN0ZXJlZC4gVGhlIG5leHQKPiB3cml0ZSB0byBlYWNoIG9mIHRoZW0g
-Y2F1c2VzIGEgZmF1bHQgdGhhdCBvbmx5IHJlc3RvcmVzIHRoZSB3cml0ZSBiaXQuCj4gCj4gTm93
-IHRoYXQgTU1fQ1BfUEVSTV9VUEdSQURFIGluZGljYXRlcyB3aGV0aGVyIG1wcm90ZWN0KCkgb25s
-eSBhZGRzCj4gcGVybWlzc2lvbnMsIGNoYW5nZV9wcm90ZWN0aW9uKCkgY2FuIHRlbGwsIHRvZ2V0
-aGVyIHdpdGggdGhlCj4gdXNlcmZhdWx0ZmQgdW5wcm90ZWN0IGZsYWdzLCB3aGVuIGEgY2hhbmdl
-IHJldm9rZXMgbm8gYWNjZXNzLiBLZWVwCj4gd3JpdGFibGUgZW50cmllcyB3cml0YWJsZSBpbiB0
-aGVzZSBjYXNlcywgYXQgdGhlIFBURSwgUE1EIGFuZCBQVUQKPiBsZXZlbHMuIFRoaXMgaXMgY29u
-c2lzdGVudCB3aXRoIHRoZSB3cml0ZSBmYXVsdCBoYW5kbGVyLCBhcyBhbiBlbnRyeQo+IHRoYXQg
-aXMgYWxyZWFkeSB3cml0YWJsZSBuZWVkcyBubyB3cml0ZSBmYXVsdC4KPiAKPiBTaWduZWQtb2Zm
-LWJ5OiBDYXJsb3MgTMOzcGV6IDxjbG9wZXpAc3VzZS5kZT4KPiAtLS0KPiAgbW0vaHVnZV9tZW1v
-cnkuYyB8IDcgKysrKysrKwo+ICBtbS9pbnRlcm5hbC5oICAgIHwgNyArKysrKysrCj4gIG1tL21w
-cm90ZWN0LmMgICAgfCA0ICsrKysKPiAgMyBmaWxlcyBjaGFuZ2VkLCAxOCBpbnNlcnRpb25zKCsp
-Cj4gCj4gZGlmZiAtLWdpdCBhL21tL2h1Z2VfbWVtb3J5LmMgYi9tbS9odWdlX21lbW9yeS5jCj4g
-aW5kZXggNTA2ZTFlNjFjMGZkLi42ZTIzZDBlNGFlNjYgMTAwNjQ0Cj4gLS0tIGEvbW0vaHVnZV9t
-ZW1vcnkuYwo+ICsrKyBiL21tL2h1Z2VfbWVtb3J5LmMKPiBAQCAtMjgwOSw2ICsyODA5LDEwIEBA
-IGludCBjaGFuZ2VfaHVnZV9wbWQoc3RydWN0IG1tdV9nYXRoZXIgKnRsYiwgc3RydWN0IHZtX2Fy
-ZWFfc3RydWN0ICp2bWEsCj4gIAlpZiAodXNlcmZhdWx0ZmRfcndwKHZtYSkgJiYgcG1kX3VmZmQo
-ZW50cnkpKQo+ICAJCWVudHJ5ID0gcG1kX21vZGlmeShlbnRyeSwgUEFHRV9OT05FKTsKPiAgCj4g
-KwkvKiBTZWUgY2hhbmdlX3ByZXNlbnRfcHRlcygpLiAqLwo+ICsJaWYgKG1tX2NwX2lzX3Blcm1f
-dXBncmFkZShjcF9mbGFncykgJiYgcG1kX3dyaXRlKG9sZHBtZCkpCj4gKwkJZW50cnkgPSBwbWRf
-bWt3cml0ZShlbnRyeSwgdm1hKTsKPiArCj4gIAkvKiBTZWUgY2hhbmdlX3B0ZV9yYW5nZSgpLiAq
-Lwo+ICAJaWYgKChjcF9mbGFncyAmIE1NX0NQX1RSWV9DSEFOR0VfV1JJVEFCTEUpICYmICFwbWRf
-d3JpdGUoZW50cnkpICYmCj4gIAkgICAgY2FuX2NoYW5nZV9wbWRfd3JpdGFibGUodm1hLCBhZGRy
-LCBlbnRyeSkpCj4gQEAgLTI4ODUsNiArMjg4OSw5IEBAIGludCBjaGFuZ2VfaHVnZV9wdWQoc3Ry
-dWN0IG1tdV9nYXRoZXIgKnRsYiwgc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsCj4gIAkgKi8K
-PiAgCW9sZHB1ZCA9IHB1ZHBfaW52YWxpZGF0ZSh2bWEsIGFkZHIsIHB1ZHApOwo+ICAJZW50cnkg
-PSBwdWRfbW9kaWZ5KG9sZHB1ZCwgbmV3cHJvdCk7Cj4gKwkvKiBTZWUgY2hhbmdlX3ByZXNlbnRf
-cHRlcygpLiAqLwo+ICsJaWYgKG1tX2NwX2lzX3Blcm1fdXBncmFkZShjcF9mbGFncykgJiYgcHVk
-X3dyaXRlKG9sZHB1ZCkpCj4gKwkJZW50cnkgPSBwdWRfbWt3cml0ZShlbnRyeSk7CgpUaGF0IGxv
-b2tzIGNvbXBsZXRlbHkgaGFja2VkIG9uLiBXZSBkbyBoYXZlIGNhbl9jaGFuZ2VfcHVkX3dyaXRh
-YmxlKCkgYmVsb3cgdG8KbWFrZSBzdWNoIGRlY2lzaW9ucy4KCldoYWF0ZXZlciB5b3UgcHJvcG9z
-ZSBoZXJlIGlzIGVpdGhlciB3cm9uZyBvciB3YXkgdG9vIHNoYWt5LCBzb3JyeS4KCi0tIApDaGVl
-cnMsCgpEYXZpZAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+--===============4354460838823676982==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+> riscv: build kernel atomics from LR/SC when Zaamo is disabled
+
+TL;DR:
+- Unbounded futex LR/SC loop may starve, spinning with hash locks held
+- kprobe on LR/SC atomics may livelock
+- Zacas/Zabha still emit AMOs, contradicting docs
+- redundant lr/sc ordering suffixes
+
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+
+[ ... ]
+
+> +config RISCV_ISA_ZAAMO
+> +	bool "Zaamo extension support for AMO atomics" if TOOLCHAIN_HAS_ZALRSC_ZAAMO
+> +	default y
+> +	help
+> +	  Use AMO instructions for kernel atomic memory operations. When
+> +	  disabled, those operations are built from LR/SC and the kernel
+> +	  is compiled with zalrsc instead of the A extension.
+> +
+> [ ... ]
+> +	  A kernel built without Zaamo runs on any CPU that implements the
+> +	  A extension; it only does not use AMO.
+
+The help text says a kernel built without Zaamo "only does not use AMO", and
+the commit message says "On such a CPU the kernel must use LR/SC for every
+atomic" and "every atomic is a constrained LR/SC loop".
+
+Is that accurate when the hart reports Zacas or Zabha?  RISCV_ISA_ZACAS and
+RISCV_ISA_ZABHA stay default y and do not depend on RISCV_ISA_ZAAMO, so a
+ZAAMO=n kernel still issues AMO-class instructions on those harts:
+
+__arch_cmpxchg():
+    if (IS_ENABLED(CONFIG_RISCV_ISA_ZACAS) && ...
+        riscv_has_extension_unlikely(RISCV_ISA_EXT_ZACAS))
+    -> amocas.w / amocas.d
+
+__arch_cmpxchg_masked() -> amocas.b / amocas.h
+__arch_xchg_masked()    -> amoswap.b / amoswap.h (Zabha)
+
+riscv_spinlock_init() also selects the queued spinlock using Zabha when
+Zabha and Zacas are both present, so the spinlock fast paths would run on
+amocas/amoswap.h.
+
+On a CPU that emulates AMOs with an M-mode trap and also reports
+Zacas/Zabha, the hottest atomics would still trap.
+
+Should RISCV_ISA_ZACAS and RISCV_ISA_ZABHA depend on RISCV_ISA_ZAAMO?  If
+not, should the help text and changelog say that Zacas/Zabha AMOs are still
+used when the hart reports them?
+
+[ ... ]
+
+> diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
+> --- a/arch/riscv/include/asm/atomic.h
+> +++ b/arch/riscv/include/asm/atomic.h
+
+[ ... ]
+
+> +#else
+> +#define ATOMIC_OP(op, asm_op, I, asm_type, c_type, prefix)		\
+> +static __always_inline							\
+> +void arch_atomic##prefix##_##op(c_type i, atomic##prefix##_t *v)	\
+> +{									\
+> +	register c_type ret, temp;					\
+> +	__asm__ __volatile__ (						\
+> +		"1:	lr." #asm_type " %1, %0\n"			\
+> +		"	" #asm_op " %2, %1, %3\n"			\
+> +		"	sc." #asm_type " %2, %2, %0\n"			\
+> +		"	bnez %2, 1b\n"					\
+> +		: "+A" (v->counter), "=&r" (ret), "=&r" (temp)		\
+> +		: "r" (I)						\
+> +		: "memory");						\
+> +}
+> +#endif
+
+Can a kprobe placed on one of these lr/sc loops livelock the CPU?  With
+CONFIG_RISCV_ISA_ZAAMO=n, every inlined arch_atomic{,64}_<op>() and
+arch_atomic{,64}_fetch_<op>{,_relaxed}() becomes an lr / op / sc / bnez
+loop, where before it was a single amo<op> instruction that is safe to
+probe.
+
+arch_check_kprobe() only checks that the address is on an instruction
+boundary, and riscv_probe_decode_insn() rejects only system, fence and
+c.ebreak instructions, so a probe on the lr, the sc, or an instruction
+between them is accepted.  The exception return path in entry.S then clears
+the reservation on purpose:
+
+    REG_L  a2, PT_EPC(sp)
+    REG_SC x0, a2, PT_EPC(sp)
+
+The trap for the single-step slot does the same, so the following sc always
+fails, bnez goes back to lr, the probe fires again, and the loop never
+completes.
+
+This was already possible for the existing cmpxchg and conditional-atomic
+LR/SC loops, but with ZAAMO=n it now reaches every atomic_inc(),
+atomic_add() and atomic_fetch_*() site, including small out-of-line
+functions whose first instruction is the lr.
+
+A later commit in this series, 01f0e5fb499d ("riscv: probes: reject probes
+inside an LR/SC sequence"), fixes this, but it is still reachable at this
+commit, which matters for bisection and backports.
+
+[ ... ]
+
+> diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
+> --- a/arch/riscv/include/asm/bitops.h
+> +++ b/arch/riscv/include/asm/bitops.h
+
+[ ... ]
+
+> +#else
+> +#define __test_and_op_bit_ord(op, mod, nr, addr, ord)		\
+> +({								\
+> +	unsigned long __res, __mask, __temp;			\
+> +	__mask = BIT_MASK(nr);					\
+> +	__asm__ __volatile__ (					\
+> +		"1: " __LR #ord " %0, %1\n"			\
+> +		#op " %2, %0, %3\n"				\
+> +		__SC #ord " %2, %2, %1\n"			\
+> +		"bnez %2, 1b\n"					\
+> +		: "=&r" (__res), "+A" (addr[BIT_WORD(nr)]), "=&r" (__temp)	\
+> +		: "r" (mod(__mask))				\
+> +		: "memory");					\
+> +	((__res & __mask) != 0);				\
+> +})
+> +
+> +#define __op_bit_ord(op, mod, nr, addr, ord)			\
+> +do {								\
+> +	unsigned long __res, __temp;				\
+> +	__asm__ __volatile__ (					\
+> +		"1: " __LR #ord " %0, %1\n"			\
+> +		#op " %2, %0, %3\n"				\
+> +		__SC #ord " %2, %2, %1\n"			\
+> +		"bnez %2, 1b\n"					\
+> +		: "=&r" (__res), "+A" (addr[BIT_WORD(nr)]), "=&r" (__temp)	\
+> +		: "r" (mod(BIT_MASK(nr)))			\
+> +		: "memory");					\
+> +} while (0)
+> +#endif
+
+Both macros put the same ordering suffix on the lr and on the sc.  That
+gives:
+
+arch_test_and_set_bit_lock()   (ord = .aq)  -> lr.d.aq  ... sc.d.aq
+arch_clear_bit_unlock()        (ord = .rl)  -> lr.d.rl  ... sc.d.rl
+arch___clear_bit_unlock()      (ord = .rl)  -> lr.d.rl  ... sc.d.rl
+
+arch_xor_unlock_is_negative_byte() hard-codes the same pattern with
+__LR ".rl" and __SC ".rl".
+
+The A extension spec says software should not set rl on an LR unless aq is
+also set, and should not set aq on an SC unless rl is also set, and that
+LR.rl and SC.aq are not guaranteed to provide any stronger ordering than
+having both bits clear but may result in lower performance.
+
+The ordering that is wanted still comes from lr.aq and sc.rl, so the
+semantics hold, but the other annotations do nothing useful and may be
+slower on the hardware this option targets.  They also differ from the rest
+of arch/riscv, where LR/SC ordering is a plain lr plus sc.rl and fences (see
+arch_cmpxchg_acquire/_release and __arch_cmpxchg(), whose lr has no
+ordering suffix).
+
+Could these macros take separate lr and sc suffixes, as the cmpxchg macros
+do with lr_sfx/sc_sfx?
+
+[ ... ]
+
+> diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+> --- a/arch/riscv/include/asm/cmpxchg.h
+> +++ b/arch/riscv/include/asm/cmpxchg.h
+
+[ ... ]
+
+This is the same issue as the Kconfig comment above.  The #ifdef
+CONFIG_RISCV_ISA_ZAAMO in this header does not touch these paths, which
+still emit AMO instructions when the hart advertises Zabha or Zacas:
+
+__arch_xchg_masked()      -> amoswap.b/.h (Zabha), including xchg_relaxed()
+                             on the 16-bit qspinlock tail
+__arch_cmpxchg()          -> amocas.w/.d (Zacas), i.e. every cmpxchg and
+                             try_cmpxchg, including the spinlock fast paths
+__arch_cmpxchg_masked()   -> amocas.b/.h (Zabha + Zacas)
+__arch_cmpxchg128()       -> amocas.q
+
+These still build because each one enables the extension with
+".option arch, +zabha" or ".option arch, +zacas".
+
+This contradicts the commit message statement "A kernel built this way runs
+on any hart that implements A; it just does not use AMO".  Should
+RISCV_ISA_ZACAS and RISCV_ISA_ZABHA depend on RISCV_ISA_ZAAMO?
+
+[ ... ]
+
+> diff --git a/arch/riscv/include/asm/futex.h b/arch/riscv/include/asm/futex.h
+> --- a/arch/riscv/include/asm/futex.h
+> +++ b/arch/riscv/include/asm/futex.h
+
+[ ... ]
+
+> +#else
+> +#define __futex_atomic_op(insn, ret, oldval, uaddr, oparg)	\
+> +{								\
+> +	int temp;						\
+> +								\
+> +	__enable_user_access();					\
+> +	__asm__ __volatile__ (					\
+> +	"1:	lr.w.aqrl %[ov], %[u]			\n"	\
+> +	"	" insn "				\n"	\
+> +	"2:	sc.w.aqrl %[t], %[t], %[u]		\n"	\
+> +	"	bnez %[t], 1b				\n"	\
+
+Can this loop run unbounded while the futex hash-bucket locks are held?
+With CONFIG_RISCV_ISA_ZAAMO=n, FUTEX_WAKE_OP now runs an LR/SC loop on user
+memory:
+
+futex(FUTEX_WAKE_OP)
+  futex_wake_op()                    /* kernel/futex/waitwake.c */
+    double_lock_hb(hb1, hb2)
+    futex_atomic_op_inuser(op, uaddr2)
+      pagefault_disable()
+      arch_futex_atomic_op_inuser()
+        __futex_atomic_op()
+
+The loop exits only when sc.w.aqrl succeeds or faults.  The RISC-V
+eventual-success guarantee for constrained LR/SC loops (the one Ziccrse
+provides) does not hold while other harts keep writing to the reservation
+set; the spec says that in that case no hart is guaranteed to leave its
+LR/SC loop.
+
+A process can do exactly that: one thread calls FUTEX_WAKE_OP on uaddr2
+while a second thread on another hart stores to *uaddr2, or anything else
+in the same reservation granule, in a tight loop.  The kernel then spins
+with preemption disabled and both hash-bucket locks held.  The old
+amo*.w.aqrl version cannot be starved this way because an AMO always
+completes.
+
+arm64 bounds its LDXR/STXR futex loop: LLSC_FUTEX_ATOMIC_OP() in
+arch/arm64/include/asm/futex.h counts down FUTEX_MAX_LOOPS and returns
+-EAGAIN, and futex_wake_op() already handles that:
+
+    if (!IS_ENABLED(CONFIG_MMU) ||
+        unlikely(op_ret != -EFAULT && op_ret != -EAGAIN))
+
+by dropping the locks, calling cond_resched() and retrying.
+
+The commit message says Ziccrse is "the forward-progress guarantee for such
+loops", which does not cover this case.  The existing riscv
+futex_atomic_cmpxchg_inatomic() has the same unbounded pattern, but that
+does not make the new instance correct.
+
+Should both loops be bounded the way arm64 does it?
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/42069736200
+--===============4354460838823676982==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4354460838823676982==--
+
