@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA11F606A326
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 08:24:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB611606A31B
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 08:25:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ueHpW2eX;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=Ti+0JCyg
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vLrISjIB;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=Iuz2OVSs
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,44 +14,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=w7oH07pxYTi2rHwZTW10cFC+X3kWJweRrY64IbsV/MY=; b=ueHpW2eXmUBZB7SYvFFobHJNDK
-	RXD5ZMogaLlTXVfAwU64WUP7Q3JzDFKvDk0lnYbhV+v35Qkxu94eZcDROxKdjvJ5RZHqTc6nnq9XL
-	oC2lN/M1qyCuM3QeSs23PexD6TXW6bHUL2+hFQWuHDsSQMvWW9cmfRlXYVEf/M0uHQcH2SmvW64vv
-	8GONh9XFp92OLtRAcuBS5zDL4mTe7DKzXfgGP3qtPX3twa9k2sRwPWoqDGSPPBxifaYiU8e7NrUs6
-	fEAT1gHAsdLG04tto3Fqa7OLC6rpG0/mMB41pWHPbToLgPExvaDIEmc4CkWDGTh3x9161SW8LitFi
-	4ie8fzYg==;
+	bh=GnsgJW2mlQ+s1yt/HWxhuGjv8euTu3V4QWfjC3NRB1Q=; b=vLrISjIBmncvF6RiDYx4KTvQLW
+	fbrkF/kEq2CIWYab7iJSJ7wJsP+twVrQyedRgD5EtQuCJFJuLvZyGE+k9aHuuGQfTfwmkKFp95zuv
+	OQPBIa/8Mt4fb7xYvRbBRDUbMCDs5MwkOSma0TwsMl15HEJ+3N4XZyZnRjsjZAS+obIHA5c+k0OhD
+	qiS+kmvjY8k53qH0JT6Yv0x0ktJ6hYkdEy/qajYyIMRxVnXYEW/W4tH8JYmdQpaDFfx4jZ4mOrLeL
+	/HDrw5DhR7FJK84t+N7ZxwDhMu5bLAjZD+31diWC6EGTJ700JLH3BBhu6LryFuyybaELeqO4MLeNm
+	iAzijEUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOsmC-000000089Ai-3a15;
-	Thu, 05 Nov 2026 08:24:52 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1xOsmN-000000089GF-44sr;
+	Thu, 05 Nov 2026 08:25:04 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOsm9-0000000895z-1Hl8
+	id 1xOsmF-0000000896w-2clD
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 08:24:52 +0000
+	Thu, 05 Nov 2026 08:25:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1793867042;
-	bh=ex5QciF8HsRuD6/z7Bnz92BFaI2r9RvhM5A2PdC/ryk=;
+	s=mxsw2412; t=1793867053;
+	bh=BeP9abbyuRADpO9tnoSCSAKZO63Jhkhje3D0pWwoNIw=;
 	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=Ti+0JCygyDlUpJxysiAR+jbOJwOHWW8/sS74ZrWCtI0lHnduuwCcgiSDuhJalF4Zi
-	 zOvgjyrWjzj2RqrBS21ajLabaQlpd05WsFQVk+z7BZq9fVWWJ1ngE2wG8ZAb6tmo5W
-	 OGnHCSLuJrNfj9yrz0x2u1sfLKWAzyuULYxAE3Us=
-X-QQ-mid: esmtpgz13t1793867040tc4a0437c
-X-QQ-Originating-IP: o6lwSprFVEZUSfcqPwVGLLBhBzK/F2cLTxbydJuQmYo=
+	b=Iuz2OVSsP8SPiXTU/qhyEhZS6w2BtkyvrKE8bfjLM5H8pWcujjQTzO1QecB1jIxJE
+	 o7/8xsnk/ew+1gnya7zy92QRi8gAaYRkCMmH/y6BwtwQc468ApghSaGdTnxSO/QqLA
+	 wg/0NDbGAI7m1iOjYMx/Yh6CE/L+so5mGImlnfNU=
+X-QQ-mid: esmtpgz11t1793867052tca6bfb24
+X-QQ-Originating-IP: feuNNwSfwKUpywoniGYAh6GBHSA4qT2mk7H4i1Lilj4=
 Received: from = ( [58.254.68.27])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 05 Nov 2026 16:23:57 +0800 (CST)
+	id ; Thu, 05 Nov 2026 16:24:09 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 6585883940759934299
+X-BIZMAIL-ID: 3347373038067916414
 EX-QQ-RecipientCnt: 13
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Thu, 05 Nov 2026 08:23:47 +0000
-Subject: [PATCH 2/5] riscv: dts: spacemit: k3-com260: Move SD card to the
- module
+Date: Thu, 05 Nov 2026 08:23:50 +0000
+Subject: [PATCH 5/5] riscv: dts: spacemit: k3-com260: Set Ethernet MAC from
+ EEPROM
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261105-k3-com260-module-sd-nor-mac-v1-2-138b39d74602@linux.spacemit.com>
+Message-Id: <20261105-k3-com260-module-sd-nor-mac-v1-5-138b39d74602@linux.spacemit.com>
 References: <20261105-k3-com260-module-sd-nor-mac-v1-0-138b39d74602@linux.spacemit.com>
 In-Reply-To: <20261105-k3-com260-module-sd-nor-mac-v1-0-138b39d74602@linux.spacemit.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,40 +62,39 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2076;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1095;
  i=troy.mitchell@linux.spacemit.com; h=from:subject:message-id;
- bh=FW3v+X/LP3K9lLC4PILHOwlmTUeSvDKD94xp6NZYOuw=;
- b=owGbwMvMwCU2g/N9w09jE33G02pJDFlvbEU+GO6Z71S3biWL2vpfdyr33M1fULEsTOfj83188
- teffDO93FHKwiDGxSArpsjS/YBnW4FPlG2BQKEvzBxWJpAhDFycAjCR4GSG//lqBhuif75SK2DP
- b71lcDZhr8OHgH8zj/I9YYzX3zclN53hv4eEAX9EG9fedYWtMwKvOPJkBK/8bNzxWn5BTqPJ1AW
- mvAA=
+ bh=qFPgZ4k0mozVoqhTFNoQ7QRNK6lvGtsHRAAIgvK5R4g=;
+ b=owGbwMvMwCU2g/N9w09jE33G02pJDFlvbEWuzf34v61HMVzu9qcVXXnaf8Mje2Mi26c9/9S8x
+ +d4ngxrRykLgxgXg6yYIkv3A55tBT5RtgUChb4wc1iZQIYwcHEKwET8mhj+KTK5HtkWlH/5ysTk
+ 6JAG2aLCSxecgjNOJzAzrJ1Sep/tBCPDtqTcmyJ1VqFVLFkRz9c/2uO1/tmC9IssPKfPbb764Ps
+ iRgA=
 X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=openpgp;
  fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MmjslNbgB3jamTJrc8F+c+vDArg7XfFN+JuTVmtGT1SJMtLhJwKPm6wz
-	FSnFxFu1unWTdjcqaFbA0vy8oXv6CyHK5uugzbQVQA7vUFmOVwOoZw2QOJQ0D7oh2D6WeqY
-	TzKdavVXfxL9ITrmIXuiDD/LclyZ/jFnbcKLZ4HzAp9BTqGxYRErG7b82OUwsGvGZB5EP88
-	cHmKx0esjy3KnaTFIpEgpANp0YsvetYxRj+UEU4wMVfKUNhJuO/vi9Zxg3YxOZbN+5HCayU
-	MArPXs166zasAR2uAFxksVvSJXVz/DbYfmBtxqYC1bMkEYGqJ4Xscc0eG5nVpc0xXQgOsv+
-	DU3y4YKpnU3KKaga0pbyi6nfa3+stHov43NNvQYRyPZL3ufHdeqSK+g08h3XjNt+0ulQwZD
-	3C7tHmE1BmaqTA8zsDjWoLR2CXpHRlYUq9Rrp5/UJf2QfYSZSWpkgkQhDxd7280Tx6pGzBo
-	h8yVQRL790gCTi5Wvv+9M07JFWSubje/VtW9h9SAwwiTl7ks/f3qqU4qYVGrFf9IisIOsNt
-	xjdWQCpJjT0qm4eiZZ4fdL235MGttHV4qoUBSgFaP9pfi04hd7d1/w8tKwBcIgeNHIrlK/Q
-	x5jCsAlUAUImZH65z8Lax0XdfmkBqBMREL0THucp+Rlq5LRBrG2+voNo2hEwFX39KFs0JVy
-	Xl8kRtgIypkqXtg56iqVr8Uz75lsLV4j/dLH6krX9UYc7S010boN3hVE2FwY/DcjzNc5GX1
-	cW46nrt5Bp6Va0V0LDb+9E+REMynn2AmEpwbnUuRJ7VEBmuWESOi9vRSZ1DnxWcomhtooLX
-	bBdkW3CRtGbtG6SlwmTgyhXFilR97sH5xyUFGWOMtKYHs6JeUcmHTPemRhZwue7wDAtPsyo
-	CTnmxHU4uwpV03t+Jpb2iU5EIf1KlXoD0Jp89GL8S8aQgskT3zPSoqnrAis+cMEiJ8dV30e
-	Hjfzys31D3crk4ICR2qA1nOjeDDcBRewd6OgxUNDuWNM4y/BQYSHmK0VzlL1ij1XaH5BVZ1
-	o7QA3koPse8oRBXKiYGpiC6mMrKAkyxI8vPhVu1j79FRu8/pMA2ecMa9xm/EKDWlJYNgCLP
-	qlqGYKU5WA2+fnu83+j8KLw0ZRJ5T1FBHRdCDKkCFYdnYW7w2U/3RZzax6VIduFaJCJry9S
-	KEciPz1mKHW1se8=
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-XMAILINFO: MzOrCbSXFQdfbPpMec9TkpiZkLfXp6P6XWjwK0P+OoDYnnETu/uza61p
+	8SC6jdq15yK7uZThzNKNdxwbsg1gR3CurBYB9CI85zG+dxwTbQCOjUZqDoq1aTLltCljuJr
+	XbblYLHb8G5GTN75j6qszg8KQHk/+O5CEvjAU+2bRh0cfJuwtoImnWyAEWiKCSJM7DT4x7z
+	N9b8wz8gDgW9yJX23dAtg88Y0vVi5q03bWnFbS5hzC3ZX07YWlYGwwl55UysQQjjPXEu458
+	+cp7uqR5r8BBj+uZ1joQ0tNWluEX+IBjeWI33kg6+RVXETxanX536FRWPLD72diKcf5Y5x8
+	irBCpTNHvGgNPyLMgKD4XUgf+r4AwBvjSgrn664A2D08ODWxpKP272KYkUEOGuyDOaR+Xb1
+	wSoCcMOjhJ3GRN/yfRWLDKy7CBZ7X7hpi7grHjAbGnZBpmc38KkBZxX21h8uF6vRyUHgz05
+	Z1UEaeo0QofysqfDaStmUGhhTQPtI0dpEbcPidPV8GPs/nkGMv6DsJ95W4IWU/gZ2CVuCEQ
+	xA477ncs8w6IGv1CzUcCyrB+4BAIy7j3ipZ6/5NOJBqVJJdoTsa75bB3IXt5BxaGSQ6bw8P
+	/ozLhwlJn9MipwyqS3nWuMKDFfwyIli8xeg0hrNdo0oLi5Rra+UNrkYC2pQ+HT+yZRHWu7i
+	zuP70c40QBkNMDxHtLUnpr1SfD90VxGjOQaPB/A50gjbxMXbT6dN6XQX3hKpbrJksUDoV7S
+	8ZeVxvK/l0MRc681vvzaUPmnkgI/i0iMRNx1x+3yftlHVtQBcAiNt7sgLF8dzDigbYixuCv
+	DHgtJscfPHN1hF4KRwD14mja5apfPxKtSuZaT4cQdnDBS8GL+04mm0SqJelJ+1jzfD+0/QL
+	IhCNLmN3WWSuMVqdfM80mtppbQVkeY3GN23YujNX73jfjURp8O4uOWDCE/+bCZEFt7F4MoE
+	oKdrECeW1BhU95swvL510MKB2jOqwkcBRA2MjKdaZYiEEMjK0oNa4OaqMR8vY3h65wEYgLs
+	WmyXoJ3GBMH6gEI9mXfOUNtaHxp9KYqVzsytgeJkgjrcHp2RRa/gYLUKkTSDJEuiLu372JO
+	1XpCbc/8cms5qC/QPlJFnRJLAQdE3WqHigqxezEXROqaFxE6baPTnVh2mXHRWTkhw==
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_002450_104519_4BEB6E54 
-X-CRM114-Status: UNSURE (   7.27  )
+X-CRM114-CacheID: sfid-20261105_002458_986057_A13C985F 
+X-CRM114-Status: UNSURE (   9.48  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -117,73 +116,38 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The SD card slot, its power supply and the signal-voltage switching
-circuitry reside on the K3 CoM260 module. Describing the slot only in
-the IFX carrier board leaves other CoM260 carriers without this shared
-hardware description.
-
-Move the SD controller configuration into the module include without
-changing its properties, so every carrier using the module inherits it.
+The EEPROM on the K3 CoM260 module stores the board MAC address in its
+ONIE TLV data. Assign it to the module's Ethernet controller, so that
+every carrier board using the module gets a stable MAC address instead
+of a random one.
 
 Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
- arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts | 17 -----------------
- arch/riscv/boot/dts/spacemit/k3-com260.dtsi    | 17 +++++++++++++++++
- 2 files changed, 17 insertions(+), 17 deletions(-)
+ arch/riscv/boot/dts/spacemit/k3-com260.dtsi | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
-index 6e295bc6f196..38809d01df82 100644
---- a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
-+++ b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
-@@ -111,20 +111,3 @@ hub_3_0: hub@2 {
- &usb3b_u2phy {
- 	status = "okay";
- };
--
--&sdhci0 {
--	pinctrl-names = "default","uhs";
--	pinctrl-0 = <&mmc1_cfg>;
--	pinctrl-1 = <&mmc1_uhs_cfg>;
--	bus-width = <4>;
--	cd-gpios = <&gpio K3_GPIO(4) GPIO_ACTIVE_HIGH>;
--	no-mmc;
--	no-sdio;
--	disable-wp;
--	cap-sd-highspeed;
--	vqmmc-supply = <&aldo1>;
--	sd-uhs-sdr25;
--	sd-uhs-sdr50;
--	sd-uhs-sdr104;
--	status = "okay";
--};
 diff --git a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-index 054bfff7413a..f2df797a2c80 100644
+index f94607cb2eeb..1f5c958c9d6d 100644
 --- a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
 +++ b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-@@ -233,6 +233,23 @@ phy1: ethernet-phy@1 {
- 	};
+@@ -42,7 +42,7 @@ eeprom@50 {
+ 		nvmem-layout {
+ 			compatible = "onie,tlv-layout";
+ 
+-			mac-address {
++			mac_address: mac-address {
+ 				#nvmem-cell-cells = <1>;
+ 			};
+ 
+@@ -216,6 +216,8 @@ dldo7: dldo7 {
  };
  
-+&sdhci0 {
-+	pinctrl-names = "default","uhs";
-+	pinctrl-0 = <&mmc1_cfg>;
-+	pinctrl-1 = <&mmc1_uhs_cfg>;
-+	bus-width = <4>;
-+	cd-gpios = <&gpio K3_GPIO(4) GPIO_ACTIVE_HIGH>;
-+	no-mmc;
-+	no-sdio;
-+	disable-wp;
-+	cap-sd-highspeed;
-+	vqmmc-supply = <&aldo1>;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	status = "okay";
-+};
-+
- &uart0 {
+ &eth1 {
++	nvmem-cells = <&mac_address 0>;
++	nvmem-cell-names = "mac-address";
  	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_0_cfg>;
+ 	pinctrl-0 = <&gmac1_rgmii_0_cfg>, <&gmac1_phy_0_cfg>;
+ 	phy-mode = "rgmii-id";
 
 -- 
 2.56.0
