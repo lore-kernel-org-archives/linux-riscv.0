@@ -2,101 +2,138 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D430F606AA6F
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 10:15:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75C3A606D809
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 10:30:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VeL0MrPO;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=Xr6t4hLT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jFX8yaJ1;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=feqhTnqA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=aqIlH1Mk9O0VGbe2iv1QmhlCDVJq3zMI7esPW66nYfA=; b=VeL0MrPOKs7kl91PYRV+2RNTj3
-	YnmI21p+WWAHz3PMT+aLHefy1SacKT5q//5gJK2Gg/2LuEoEqHS6DXlLDBfQhCYB16tvJ30hXUp/Z
-	hmUDnvCl/cStf1jm3wAl29GKOQd5Nrgx8wTCqYft3+CAtZKMaEcgwjJ5dcjmU76G5Qaha2aQel+55
-	5Q+oNSUts/DW50R3otIO9EVN/m1QtHbLtATdiE+lbWgccrEDAjaVPytqzR1ItTqPS5xL7AYEgfoem
-	xi0pNtSiZSCKGE9AWt91Ld8Rc8E+TGTJuU4j/Opqfm5cdVgAuxWidPoCTl74uPdMxfF4cNe8Z45dV
-	CgByXScQ==;
+	bh=uKo92WWsWKRiKav21AO0GCsWWdB4+PMvD80Ig5GmUGc=; b=jFX8yaJ10wDiVufBZ4sDohE+1n
+	YpELh7s9AhtEe/3BqTFZ4de48EH3TlkY7AC11iydyLYAubPoPtzvzwU2Sfl1Ubh1kYLNX/533wjwe
+	8/S/g4koq4+lSgHNCIqDEMxSKrM/lrnyH4zxjyg9hRc8UXYwzOK9jodPm70lF8PYLI3Y7MvWgS9wV
+	IBPWYMQjRUHwhWcQ4HPodsqXKiALWdU58aSArLxzELd6Zp0QvvSNylvyjsCy9g1uc4hFhPNC3U1Kh
+	R76IBLsySP7jaIHa1Idb+ZDo9GyM7VZ7imfrDfVp1aGET0Xz3NRkTDx8M2mFfUjeozYvTiHF5J+VT
+	OgOr7OKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOuUh-00000008Qu5-3X5i;
-	Thu, 05 Nov 2026 10:14:55 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1xOuMc-00000008Ped-15oN;
+	Thu, 05 Nov 2026 10:06:34 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOuUd-00000008QsV-2iaG;
-	Thu, 05 Nov 2026 10:14:54 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261105101447euoutp026d2837d28c67271ae26c59370de1ce6d~lHp1gay492140621406euoutp027;
-	Thu,  5 Nov 2026 10:14:47 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261105101447euoutp026d2837d28c67271ae26c59370de1ce6d~lHp1gay492140621406euoutp027
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1793873687;
-	bh=uvp6buPqQ+9eJjpFgvz/pyRHfAKlcp4kxy7ey2RpwfE=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=Xr6t4hLTbqTMbZ8PN1OE6SDstUWmsOEmpPSjX60geGvAGrv/LRouLb1HbkwZn83V5
-	 az6v0tEb4gaMAks1j4H41rjIdh03Nzty5faC5k62RJ80KH4iCvZbm88R7/1oxrUbKa
-	 FKtfbACftVQnRTRtDHQlCXTf2X6v/rKbHLx4ahDg=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261105101447eucas1p2079230483e67ab1c1aa521c508ccc3e2~lHp1LlepI0033600336eucas1p2k;
-	Thu,  5 Nov 2026 10:14:47 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261105101445eusmtip1619d691fa0ae0794db0ed24c9422d032~lHpzWgfYP0678006780eusmtip1M;
-	Thu,  5 Nov 2026 10:14:45 +0000 (GMT)
-Message-ID: <8638d230-1a12-491c-9608-3e94805addeb@samsung.com>
-Date: Thu, 5 Nov 2026 11:14:45 +0100
+	id 1xOuMY-00000008PdG-45UI;
+	Thu, 05 Nov 2026 10:06:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793873191; x=1825409191;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=sHuju/foWw79h0Lx9lDW6+4gtj0ksiGlzl0r5P+LOfY=;
+  b=feqhTnqAld3zblKxUXhQOyJueNaYdf1WbWXxLWEQGOanoNg86qs1ukYs
+   h5GjyCPw3MuRrXcgEjmRHkP7yQfNij+nLQ3t2PR+DcklbFF2TsZco4oy7
+   z7dPm79yevji8bqDhwZpilDPGgimjrTj4jc3IREBc0WATAo3CHtbHjWTc
+   5D5NupCC73u7kMIEtzj0r5MeAxXmX+Nr/Mq9wngoDKgvPzY672sI4xeSV
+   FfDVmGPq5+tRz12S6MuEi/ViALyJQZep9ZP2PG5znTC549WGo8NJzYcNz
+   0xFW2ijjFlwqLz+ImwoOuDAPhnsO57UZ2+rZc5z/1vTbEtL+swQ58/NO0
+   w==;
+X-CSE-ConnectionGUID: hSjSV3HdSeKK4jhf4dyL6g==
+X-CSE-MsgGUID: YgE+H+C7SHumqMbUX29iLg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11956"; a="2687010"
+X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
+   d="scan'208";a="2687010"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 02:06:29 -0800
+X-CSE-ConnectionGUID: 96Aad4J6Td2JN0y4EunOKw==
+X-CSE-MsgGUID: fNrhP6vdSb+xZdaYz36idw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
+   d="scan'208";a="8733180"
+Received: from amilburn-desk.amilburn-desk (HELO localhost) ([10.245.244.144])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 02:06:17 -0800
+Date: Thu, 5 Nov 2026 12:06:14 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Frank.Li@oss.nxp.com,
+	Mark Brown <broonie@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Radu Pirea <radu_nicolae.pirea@upb.ro>,
+	CL Wang <cl634@andestech.com>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Vladimir Oltean <olteanv@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Han Xu <han.xu@nxp.com>,
+	Haibo Chen <haibo.chen@nxp.com>, Linus Walleij <linusw@kernel.org>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>, Yixun Lan <dlan@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alain Volmat <alain.volmat@foss.st.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Laxman Dewangan <ldewangan@nvidia.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Sowjanya Komatineni <skomatineni@nvidia.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	"open list:SPI SUBSYSTEM" <linux-spi@vger.kernel.org>,
+	"moderated list:ARM/Microchip (AT91) SoC support" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	"open list:FREESCALE DSPI DRIVER" <imx@lists.linux.dev>,
+	"open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>,
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
+	"open list:RENESAS RZ/V2H(P) RSPI DRIVER" <linux-renesas-soc@vger.kernel.org>,
+	"open list:SAMSUNG SPI DRIVERS" <linux-samsung-soc@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>,
+	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>,
+	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
+	"open list:TEGRA ARCHITECTURE SUPPORT" <linux-tegra@vger.kernel.org>,
+	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
+	Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH v2 1/1] spi: use dmaengine_desc_set_callback()
+Message-ID: <auxVFt8_vZKzYniK@ashevche-desk.local>
+References: <f1fa853d-1703-411d-b2d2-0fb0b176c2fa@kernel.org>
+ <autqC143h7Qf1R9H@ashevche-desk.local>
+ <9e39502a-dd17-4fa2-98a3-9019523cb5e8@kernel.org>
+ <auuYcS7-YqJKcUbE@ashevche-desk.local>
+ <63c24437-4261-4a51-be7e-31ac0759a095@kernel.org>
+ <auxGom0XR-Hax9b3@ashevche-desk.local>
+ <00390a20-7630-4066-9779-06c8f915a176@kernel.org>
+ <auxH_WzaOLsQ4-go@shikoro>
+ <auxOFGTRAKb5bLXD@ashevche-desk.local>
+ <auxQU_PU4bwLJUch@shikoro>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 04/18] dt-bindings: soc: starfive: Add
- starfive,jh7110-hdmi-subsystem
-To: Conor Dooley <conor@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Andrzej Hajda
-	<andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent Pinchart
-	<Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, Jernej
-	Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Hal Feng
-	<hal.feng@starfivetech.com>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
-	Belhachemi <db@domibel.de>, Andy Yan <andyshrk@163.com>, David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Yakir Yang
-	<kuankuan.y@gmail.com>, Dmitry Baryshkov
-	<dmitry.baryshkov@oss.qualcomm.com>, William Qiu
-	<william.qiu@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>,
-	Sandy Huang <hjc@rock-chips.com>, Manivannan Sadhasivam <mani@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
-	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
-	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
-	Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Joshua Peisach <jpeisach@ubuntu.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
-	<u.kleine-koenig@baylibre.com>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20261029-flinch-header-bad94288c71b@spud>
-X-CMS-MailID: 20261105101447eucas1p2079230483e67ab1c1aa521c508ccc3e2
-X-Msg-Generator: CA
-X-RootMTR: 20261029075358eucas1p111293c602fc3aac9c6a044fc41488919
-X-EPHeader: CA
-X-CMS-RootMailID: 20261029075358eucas1p111293c602fc3aac9c6a044fc41488919
-References: <20261029-jh7110-clean-send-v6-0-759594e43acf@samsung.com>
-	<CGME20261029075358eucas1p111293c602fc3aac9c6a044fc41488919@eucas1p1.samsung.com>
-	<20261029-jh7110-clean-send-v6-4-759594e43acf@samsung.com>
-	<20261029-flinch-header-bad94288c71b@spud>
+Content-Disposition: inline
+In-Reply-To: <auxQU_PU4bwLJUch@shikoro>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_021452_282341_175771F3 
-X-CRM114-Status: GOOD (  17.04  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261105_020631_100638_E69BE4CF 
+X-CRM114-Status: GOOD (  11.09  )
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,59 +146,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-
-On 10/30/26 00:06, Conor Dooley wrote:
-> On Thu, Oct 29, 2026 at 08:53:38AM +0100, Michal Wilczynski wrote:
->> Add the dt-binding for the StarFive JH7110 HDMI subsystem.
->>
->> The JH7110 HDMI IP is a monolithic block containing both the digital
->> controller and analog PHY in a single register space. This binding
->> defines the parent device, which holds the shared register map, and its
->> two children: the PHY and the controller.
->>
->> The two have separate resources. The PHY takes the 24 MHz reference
->> clock and provides both the pixel clock, which the VOUT clock generator
->> routes on to the display controller, and the phy the controller uses.
->> The controller takes its clocks from the VOUT clock generator. What
->> they share is the register space, which the parent maps.
->>
->> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
->> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
->> ---
->>  .../starfive/starfive,jh7110-hdmi-subsystem.yaml   | 95 ++++++++++++++++++++++
->>  1 file changed, 95 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-hdmi-subsystem.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-hdmi-subsystem.yaml
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..2ff8b0b920aec41a83f0aeaa0ed9c4249fe87f46
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-hdmi-subsystem.yaml
+On Thu, Nov 05, 2026 at 11:45:55AM +0200, Wolfram Sang wrote:
 > 
-> Why is this in bindings/soc? I feel like it should be in
-> bindings/display or something along those lines, since it's the display
-> subsystem of the device?
+> > Then I MUST started REQUIRING to split the patches in such cases to actually
+> > review them?
 > 
-> Cheers,
-> Conor.
+> Okay, this is a solution, too. Or requiring "# subparts"
 
-Fair point - soc/ is mirroring where the drivers sit. I can relocate it
-to bindings/display/starfive/ in v7, together with
-starfive,jh7110-vout-subsystem.yaml, which also belongs to the display
-subsystem.
+TBH, I am flexible to both. Depending on the situation. I don't want to blame
+the author or require additional work when it's not really required. But on
+my side I still want to *review* the piece. So, "# subparts" is fine to me.
 
-
-Best regards,    
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+With Best Regards,
+Andy Shevchenko
+
 
 
 _______________________________________________
