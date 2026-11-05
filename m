@@ -2,97 +2,102 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D045606A326
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 15:42:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1BD2606A329
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 16:17:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OrBnTTM9;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=FCZnOG3L
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=X4lSu3DD;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YPSPbUp/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=/rzx6/vnWo7AfrHNTxDG8izHRl2PCZc7TdKK3qGvvJw=; b=OrBnTTM9rXAJUWfWjGbF/qyQrP
-	sIWwm3D6uL36LqCBT+IXYCgSPFtxLOi9kKyuKTrJ5/Bluvk0Z0LFsn3pAshvP6boRmVbgu/Lg1ZkK
-	dRlGvvP6KXYyt6IzWHkDepGKjHi9ZxM5LdppxCHEC60y6TSzLOeeT9YTZ/c12UIL2CbsCe0VXl96V
-	Dyk8wFDrYBGKBnMTuja8+mEmA3srMnOBY0Y1hRI0QykMYt7q1gasCVMmyFG3ZesOT2onRMtXIORm7
-	xIIh11313xXE58emXyFZbepu5BqyUnUa6WxboUvTHPfPzAJqxstV2cIqrQluenmF6S44cort9DXNR
-	4OnN0WqA==;
+	bh=WMGjAbcFwOJse0wFNEAmnJWzwM4qoul1/2JUbPiuCjo=; b=X4lSu3DDzpDByeUda4Mx8xteCk
+	aSk8E9E0WXpwtZUAFDUi3kCrAqzrTo2CVeVosJaPPmGlJBayInTGsVP7XIWkb+xboa90Nb4GIVxpL
+	a6X8K3uQQlfOxFyg5HzME0nUwu3zVcSawbLvEC2p2hzXMnl65UdSSeQ8RcpCNvyPFNfSo4RPo+nyw
+	FA911Z+K9EOIx6enVmIdMDVrPoUCh1LlTtQSV7c/pjGbpF7Au2p+Sd4iN8HtG6FE9jsxJTsogCzv+
+	J2CERMHKE895BitSAbTaiVqbqK8FHgKEVVDf4yt8+MlAd/5VnZrDQbdbAAPlG/gSyVKdfO/8Bzk+f
+	jABponVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOzbj-00000009QoC-0wTe;
-	Thu, 05 Nov 2026 15:42:31 +0000
-Received: from mail-oi1-x231.google.com ([2607:f8b0:4864:20::231])
+	id 1xP09h-00000009ZA7-2dBz;
+	Thu, 05 Nov 2026 16:17:37 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOzbf-00000009Qm7-3Bvd
+	id 1xP09a-00000009Z8t-0zDj
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 15:42:29 +0000
-Received: by mail-oi1-x231.google.com with SMTP id 5614622812f47-4f488ba6e90so820572b6e.3
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2026 07:42:27 -0800 (PST)
+	Thu, 05 Nov 2026 16:17:36 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-3adc4590de4so1791460a91.2
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2026 08:17:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1793893346; x=1794498146; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=g2sJa9gA62grSjnT/BctMS7+1k6XVxUf8Ncst9sUL/U=;
-        b=FCZnOG3Lwjplvu+PkhQaQvLnyj66dYpND2yJvV2byp+eWI6na0i11QJx7B2pseUr2E
-         aHAytR95S/6KmrH5yAAY6kxHFYO4DgCj4ZnZOu2c9ErcTbkBgXv3vxXeL99TcnTuof8a
-         Cc9vw0ub4u2CsDyf7D9mI10eEV6UgLP4vFM9MdBzJtATjccdBesDgKorHT1ZNldXwlmU
-         FhM9g6/l+wpQBY/hfvg1Ar8tfh0kuTLenanVCrpRemKMBQBbEsKdMhl0VlNLqube2FCm
-         FWDZcW+eacoJxy1N1GoY6MgSKo6y9wLpjkGAWRRMjdDKRCDCILq4LgVJLLqFrCLwSWAM
-         ktpw==
+        d=gmail.com; s=20260707; t=1793895449; x=1794500249; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pPA5ylsXv8X+ypVgKa/sC5fX3KTDXoivEwkyMY95mxU=;
+        b=YPSPbUp/jWrqbXXXp73s3iEmfzMwRRd6sN3YzEZPT0gFm7KwwDOsZFauEoTnOihBy+
+         V4nNZBUd/2jMkEiIpgvb3OAX/R/GlXzQS5ktyhdh2v98eIkwZ1spmtxg/Wlu2QAumCYC
+         FXcWEP0tNoL6E8VVote2YVRZBujkd5B1X9nlXrw5NcaK9UYoLmivR4ioCoIkGOOsTASg
+         TIQVohsCmKGMMb8Whvxv3v6q+W5MdG9hthl6VNN84RpPOl+rRFIOP0/BuuzTdsvAgEVl
+         Ra3upCmQTuXqyDmggqTBShmruBe3O/V4rbM8oTLY+JtGmB7Rg4QpPhBevZLWOkxOFQ1g
+         VzPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793893346; x=1794498146;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1793895449; x=1794500249;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=g2sJa9gA62grSjnT/BctMS7+1k6XVxUf8Ncst9sUL/U=;
-        b=ICQ/Max51A4iTBbPEvzzzr/Yrpf7mWvJdA0XeYRCg03dieUYj5nAaDK7gYe35ZEKCD
-         HtKgfiTEmtN7CLRGJeAuDcdfpqRBXWIBvUzcCpUPKzygUD9jIiolicrOi0qN8O5jeklJ
-         l4DyKh+FJccZr9Jjc5vUkM53iEtVnjifjUyRUzrzQkB4eBMmO7u/jYIBe8eVHyyNqRtp
-         VEOnU7y3/xRsMEWE0qM2nOVBr3T6VMGQjMXoxS5iibjmZeEqMRBcpMJ97tOytW7Y7zpe
-         KC0dYE/YQl4k2N3/bqwsq73a89f4yb9wXO1IEudsPZtDyfJKrljKM7qZCqriePDQJKoy
-         0ENw==
-X-Forwarded-Encrypted: i=1; AKwUvBx42iG/FrpsVWxUKGQHIk1jJrzIXgFcat0LKOS1k18bSl9GnhTKwmbQbg5bMgWvlASnK7KpaIX2wVkGoA==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9OPseWSOJC0zsWd859v1Vmw8FiPbROUUH3EHVqRkPEeGLQzJR9
-	s6XmZ32svK+JPPNYdLcPr+cqe+rfdE0E6iG7KnSMoZ1yMDxF1cOLlf1JkwFCQokh41c=
-X-Gm-Gg: AYBFou0qgutRHMXyPcast8TPPJrNrMCwpzDN4KXg7lrjaIQ47A8JhWXNAGVadxFnQML
-	CXUYee91UYX621MnjwQlgIonNdQH2bBwhrOr9m4NzwNc6STNzbvq8v0rvhstpcBBV5K0/Tl7ua8
-	6wSOopMY3/FVGmsV3P52JIXsuKNzUZ/Eya+n0OxcFJt1BEZrThO74WoCtMhspB6s6CndoF5Gm68
-	SXGpHVLuRuj/ShQuWz/bwYUaI9whhzIQer7Us5/YmwKzOsX9RcILMwnu6vyDQpGmksAqHSfNuAp
-	SwN5QzgpgZhpiKtUHdjf971/zsfYPFttQntWLY/qNMtAAOsmAKEjgGo+4k254/3E4LjtaaDEtiE
-	Qc8O7y8gLFuofV89n8PiNIJG/RjnicrsdU17bsTwaL6nnpG48NmWveTTJ2YgI2o3qo+cVYspVvO
-	pJkSPdlIGP+O35TtQ3c9M+1K6R4MY6+5TElbDQT1mh49yumjeSysv2CeuMzIFDW+FDbssk3OrAF
-	/XlLzfoV8KcXQjcDAryvrAo5JYuuqlsBn8KIWFynBIKGGBT+Wi0u1dluN7DRJKJAlEwLIiNanBn
-	nRultW1jbm0b6WURffQW1rMq8ToOvXc=
-X-Received: by 2002:a05:6808:1b2c:b0:4e5:2f2e:45b4 with SMTP id 5614622812f47-5640dc2a7a3mr13125199b6e.21.1793893346544;
-        Thu, 05 Nov 2026 07:42:26 -0800 (PST)
-Received: from [100.64.0.1] ([136.226.84.194])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-567a9fdfa53sm4318163b6e.15.2026.11.05.07.42.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Nov 2026 07:42:26 -0800 (PST)
-Message-ID: <4ff91002-8a51-4542-8d55-1ff68cd1f684@sifive.com>
-Date: Thu, 5 Nov 2026 09:42:25 -0600
+        bh=pPA5ylsXv8X+ypVgKa/sC5fX3KTDXoivEwkyMY95mxU=;
+        b=wYv9ooU9vPDFd6KnHiO1iO2K8GzFSpo+SM/wrQR/9vY4KVySmxKBV5eKC1yM1Qyi7N
+         Nrozg963uqfMkLUJXjaFslE71uHo3pZtnsyofMUASWMzuWfBnzoqZullxov07KMQNue3
+         IGj8nYuysIbuQupP6PPard5Pd+ZbA+RC75H3q2k8CEoofro/jkaWAozL0lZZORItg2R7
+         QjnmXWbn7t60reuAyx8Mxm4daWcllxtueNLDzphaGMH8i0WBuGM09tr3FP0KtAAhrzRT
+         DF1rltSdTIo0B1iF5Wc4X/jTXe7kPDXkwQXQmPdLAOx7iorsuNcETg+eu3m16HLVbw6a
+         oGIA==
+X-Forwarded-Encrypted: i=1; AKwUvBylyrRDawYTKgN0h3Qw3jpofOBVqza6xKgPVjOgq9I6nxlf1Yaa2ADFxoUKdgbgGDB1cCrDdJ78WIrO5A==@lists.infradead.org
+X-Gm-Message-State: APuU4Z+mhZTm8JbAifmiy+7BO3U0r9ZjMU5lHK15RoHunYjEcv7/NG5q
+	27faXgmM4+1QcxkqsXPP44l+fbpViENhL7pJIxVuHAtua/u9EoR6SQX7
+X-Gm-Gg: AYBFou2pwrKgOtzON7M4o87pG8MCBmNv+vFYRqp1h7yz6dEBZ8En8nrhYnCj6/ROiTv
+	k787PU/z56NyHnM1/6vZ/dm3BJhevwFq2eOCgQDV1oVMBTyVHYH6Kb49v/MP0pLMxvJ+WijdbXq
+	T+Wc3ObavKtxNtCVHxcr/3sqy3x9CKKxFbOp+RHyJyn19PpYGZLFlRWsjNdVGaTacRon/vUWoIh
+	18z/l+Y7/nslyMT3g7V/TQeeHwaxnr+8q99DGfBprpI0ShiNU79T0NwbBP/51N4hF5MLdUH/CLU
+	j68+1alKUYRUAGgHdS4S1a+NQ62hoS1dA9zrEHGdHg1rsmTdJOLZncLss+ZCqpLBzERCVE2gQF0
+	lCifzZ8Bpi0i8ueMqS+oJvVhBbS6vDvk2++IvGQi2sxYiTTZU4LRq2DRBT3UhZBtInaEFI+rQuZ
+	KjLidaQmp/Feq1kGs0LCVOFsic0Kg/ZTOLoqg2hGO6+0NnBOoTDL1ABEJCyYgebXNMLiN1Jn0Fl
+	iDMOJ6LWAU2YdpeCOYeW3jOBVBv79KrlldS4upwqC+DfQKAmTmkTpcGTwvZmJVZ4QpWBJY9HoTL
+	XncKm7zUaZ0G01F08GlYG/bCFns5jN9oI3YjwyTi1fpzhln6DURm8sHNc7AIj7Ay0Sx1wHRkOOm
+	13aOxgNGT6ItFZRiOtNhJDFc=
+X-Received: by 2002:a17:90a:e70c:b0:3ab:2737:3393 with SMTP id 98e67ed59e1d1-3ae89835d94mr17591365a91.40.1793895448800;
+        Thu, 05 Nov 2026 08:17:28 -0800 (PST)
+Received: from visitorckw-work01.c.googlers.com.com (55.11.81.34.bc.googleusercontent.com. [34.81.11.55])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b3287a60sm4981556a91.13.2026.11.05.08.17.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Nov 2026 08:17:28 -0800 (PST)
+From: Kuan-Wei Chiu <visitorckw@gmail.com>
+To: daniel.lezcano@kernel.org,
+	tglx@kernel.org
+Cc: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	geert@linux-m68k.org,
+	laurent@vivier.eu,
+	marscheng@google.com,
+	eleanor15x@gmail.com,
+	jserv@ccns.ncku.edu.tw,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-m68k@lists.linux-m68k.org,
+	Kuan-Wei Chiu <visitorckw@gmail.com>
+Subject: [PATCH 0/8] clocksource/drivers/timer-goldfish: Fix bugs and add DT support
+Date: Thu,  5 Nov 2026 16:16:54 +0000
+Message-ID: <20261105161702.3515900-1-visitorckw@gmail.com>
+X-Mailer: git-send-email 2.56.0.398.g882cbad275-goog
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: cfi: Bounds check restore token in
- create_rstor_token() before swap
-To: Tobias Klauser <tklauser@distanz.ch>, linux-riscv@lists.infradead.org
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Zong Li <zong.li@sifive.com>
-References: <20261103132003.24312-1-tklauser@distanz.ch>
-Content-Language: en-US
-From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <20261103132003.24312-1-tklauser@distanz.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_074228_000775_6A102267 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20261105_081730_272805_73105BF9 
+X-CRM114-Status: GOOD (  10.22  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,52 +111,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 2026-11-03 7:20 AM, Tobias Klauser wrote:
-> create_rstor_token() computes addr and passes it to amo_user_shstk(),
-> which executes ssamoswap.d on it under __enable_user_access() without
-> ever validating that addr is a legitimate user-space address. The
-> sibling function restore_user_shstk() had the same issue and was fixed
-> by commit df333b72c0e1 ("riscv: cfi: Bounds check restore token before
-> swap").
-> 
-> Fixes: c70772afd5cc ("riscv/mm: Implement map_shadow_stack() syscall")
-> Signed-off-by: Tobias Klauser <tklauser@distanz.ch>
-> ---
->  arch/riscv/kernel/usercfi.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
-> index 86141e5bab82..7971a98ca0c3 100644
-> --- a/arch/riscv/kernel/usercfi.c
-> +++ b/arch/riscv/kernel/usercfi.c
-> @@ -158,6 +158,9 @@ static int create_rstor_token(unsigned long ssp, unsigned long *token_addr)
->  	/* On RISC-V we're constructing token to be function of address itself */
->  	addr = ssp - SHSTK_ENTRY_SIZE;
->  
-> +	if (!access_ok((unsigned long __user *)addr, SHSTK_ENTRY_SIZE))
-> +		return -EFAULT;
-> +
+The goldfish timer driver was previously only used and tested on
+single core m68k virt, but the same device is also present on other
+qemu virt machines such as riscv and or1k, where running on SMP exposes
+several issues.
 
-Ah, this is necessary because user_shdw_stk is not trusted; in save_user_shstk()
-it is the user ssp CSR value set via TASK_TI_USER_SSP in entry.S. I had missed
-this earlier.
+Fix the concurrency, oneshot, and registration bugs in the driver, add
+device tree probing support so it can be used across these platforms,
+and add a MAINTAINERS entry.
 
-Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+Tested on qemu m68k virt and on qemu riscv64 virt with 4 SMP cores. On
+riscv64, testing was done by passing clocksource=goldfish_timer on the
+kernel command line and locally bumping the clock_event_device rating
+above the architected timer to verify both clocksource and oneshot
+clockevent operation.
 
-Though since it turns out both callers of amo_user_shstk() need this check, it
-could make sense to move it there to deduplicate it.
+Kuan-Wei Chiu (8):
+  clocksource/drivers/timer-goldfish: Fix latch corruption with spinlock
+  clocksource/drivers/timer-goldfish: Fix oneshot mode spurious
+    interrupt
+  clocksource/drivers/timer-goldfish: Fix resource leaks in init
+  clocksource/drivers/timer-goldfish: Set CLOCK_SOURCE_IS_CONTINUOUS
+    flag
+  clocksource/drivers/timer-goldfish: Drop redundant max_idle_ns setting
+  clocksource/drivers/timer-goldfish: Set clock_event_device cpumask
+  clocksource/drivers/timer-goldfish: Add device tree probing support
+  MAINTAINERS: Add entry for goldfish timer driver
 
->  	if (amo_user_shstk((unsigned long __user *)addr, (unsigned long)ssp) == -1)
->  		return -EFAULT;
->  
+ MAINTAINERS                          |   6 ++
+ drivers/clocksource/Kconfig          |   5 +-
+ drivers/clocksource/timer-goldfish.c | 113 +++++++++++++++++++++------
+ 3 files changed, 99 insertions(+), 25 deletions(-)
+
+-- 
+2.56.0.398.g882cbad275-goog
 
 
 _______________________________________________
