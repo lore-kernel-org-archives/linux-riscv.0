@@ -2,120 +2,91 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CD5B606A33C
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 14:23:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE01A606D809
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 14:50:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uuyB4hf5;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kqUQNpzO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WaSoMnSh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=btiPj5W6QP56TqY+shgSC4SwyIGmiVHoaZUVGYZXh0g=; b=uuyB4hf5I2REbdd8pKTQPlj7KW
-	9d4DCp1yrbJEO9Pl0mo11Uqh9vLydxPKpo1LHBV9Amc37Xz+1theK5AGLz6QiuiLB+Ho10c1iwNCE
-	j3oDxzHsUEV/p8YXAsLF5mkY0B9qUtOCJS5OGCj6Slbl4v4Avk1K+FtrIrG5xnIn6D5kuO4PS/ya9
-	Nx1QTA5gilGlDRVLzXiZi4z0VYFb6LaB4P/DpNS5dcT+2bHXazVyoQpkEu4HoPRlFrYCBRs1wNyuB
-	HgeG9tO0Cdv4jtv7LqeyRP3O/diytcHTY9sIt8P2qDL7NLWkiboDIWRxdE4H/a2Fs+/3qkCdI555z
-	JtESbVqw==;
+	bh=AvSMEwU+/VIJ0Vu59f12nkyhBhBW81kDpYxSg+A+akI=; b=WaSoMnShwedGpwZc/cnr2yaPXj
+	qs4KClzly6EgjpHOMQ09ABfonprXa1eClQBm71yMZiM3hbrvgVYj99d8CAAgQy8fLE2+er8vPV1A6
+	04voiuzFLY/WDdb4GOhc/uoaPP0OsuDlyUIH5RThc9oDrJVx8b9iU4r/KXFEhdcP3df4tFKeGhSWY
+	4iPCMSXE1yTM7YgKNpI0Lsg71hLihJku41aszha4iAdSpu0PqZOxVS+YvDcpAEEkByq4zFn3vf3IJ
+	btUZvpB2m0t06D61zwMW0LQaoDeeHfM4ZwxToDGvv0JkdwRpZ/SnvOqyZsgGstz1nox9nYTN7kHtp
+	+l7ISCzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyMt-00000009Fyb-1vGh;
-	Thu, 05 Nov 2026 14:23:07 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1xOynK-00000009KjL-0LZ5;
+	Thu, 05 Nov 2026 14:50:26 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyMl-00000009Fw1-3Pkd;
-	Thu, 05 Nov 2026 14:23:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793888580; x=1825424580;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=8aE99+VJcMQQ2lFtFNMEVuo+WAHaGpOaIlVw0wUkjj8=;
-  b=kqUQNpzOAFCaYDSHcp8Wj4WmpoX3nJS4a+Kgf73h8jtx535iIXYYaWOe
-   K0Ea57swpZPo5j8bLuVT7bTDYB4F+f0tuwUQH4ZC99CXKTnfsFDX5TXY/
-   i6xUcn5URrVaHkYLilXDyz909mDABgqMSPSqwyt9RxltWwqH0JvaREGZX
-   Ofz5IGRm296N/vS+3rBNBIhX/rQ4IfGN4Uy7pR6YI8GSgrLaksPFXeES8
-   KU9Dr+YOg76ZZmPaFzwIFGav1dnKbeabAUU7RzNkIgXYEpEPxT85n/Ebe
-   bct31QF/JCTlCuG/1Mod9N6tbDgiVUZCYJf6T/+vjf7AaH8uVllOkmbT5
-   g==;
-X-CSE-ConnectionGUID: 3NnQ90yMTs66JXAeEg1Vgg==
-X-CSE-MsgGUID: 1M96ZIE8SYy6yW7CYqPwsg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11957"; a="2703077"
-X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="2703077"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 06:22:59 -0800
-X-CSE-ConnectionGUID: /K275MsMS2iu65atWdhLvw==
-X-CSE-MsgGUID: RsKg5am+RfCPmB5pvRDPCQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="7192371"
-Received: from amilburn-desk.amilburn-desk (HELO localhost) ([10.245.244.144])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 06:22:47 -0800
-Date: Thu, 5 Nov 2026 16:22:45 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Andy Shevchenko <andy@kernel.org>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Lixu Zhang <lixu.zhang@intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Imre Kaloz <kaloz@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Valentina Fernandez <valentina.fernandezalanis@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Daniel Palmer <daniel@thingy.jp>,
-	Romain Perier <romain.perier@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
+	id 1xOynF-00000009Kgc-37Cw;
+	Thu, 05 Nov 2026 14:50:24 +0000
+Received: from k3-03 (unknown [159.226.43.8])
+	by APP-05 (Coremail) with SMTP id zQCowAC3T7WIl+xqYLNgAA--.7023S2;
+	Thu, 05 Nov 2026 22:49:53 +0800 (CST)
+From: Tan Chi <tanchi25@mails.ucas.ac.cn>
+To: gong.shuai@sanechips.com.cn
+Cc: kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
-	Hoan Tran <hoan@os.amperecomputing.com>,
-	Alan Borzeszkowski <alan.borzeszkowski@linux.intel.com>,
-	Mika Westerberg <westeri@kernel.org>,
-	Hans de Goede <hansg@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	linux-hwmon@vger.kernel.org,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	"Enrico Weigelt, metux IT consult" <info@metux.net>,
-	Viresh Kumar <vireshk@kernel.org>, virtualization@lists.linux.dev,
-	Yinbo Zhu <zhuyinbo@loongson.cn>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>, linux-aspeed@lists.ozlabs.org,
-	asahi@lists.linux.dev, linux-mediatek@lists.infradead.org,
-	openbmc@lists.ozlabs.org, linux-omap@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-unisoc@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Michael Buesch <m@bues.ch>, William Breathitt Gray <wbg@kernel.org>,
-	Robert Richter <rric@kernel.org>, linux-acpi@vger.kernel.org
-Subject: Re: [PATCH v4 00/23] gpio: Improvements around device-id arrays
-Message-ID: <auyRNagFOmxf_3nW@ashevche-desk.local>
-References: <cover.1793097104.git.u.kleine-koenig@baylibre.com>
- <2hfpcbk6r56vvhkqyiex2apl3pinieybad5sd3vkvvabqs3uto@lydt3gin5kxe>
- <auxh9PxpJScFO3i2@monoceros>
- <le5gbua6s2mhhv32di4j77qr2we5z5ngzyzmiemhodmblvjiji@q4wf5tdgrbtv>
+	linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev,
+	anup@brainfault.org,
+	atish.patra@linux.dev,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	tomasz.jeznach@linux.dev,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	pbonzini@redhat.com,
+	seanjc@google.com,
+	jgg@ziepe.ca,
+	kevin.tian@intel.com,
+	andrew.jones@oss.qualcomm.com,
+	fangyu.yu@linux.alibaba.com,
+	wu.fei9@sanechips.com.cn,
+	zhao.qingye@sanechips.com.cn,
+	gsh517025@gmail.com
+Subject: Re: [RFC PATCH v2 9/9] iommu/riscv: Add riscv_iommu_attach_dev_nested
+Date: Thu,  5 Nov 2026 22:49:44 +0800
+Message-ID: <20261105144944.10193-1-tanchi25@mails.ucas.ac.cn>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261029061131.584453-10-gong.shuai@sanechips.com.cn>
+References: <20261029061131.584453-10-gong.shuai@sanechips.com.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <le5gbua6s2mhhv32di4j77qr2we5z5ngzyzmiemhodmblvjiji@q4wf5tdgrbtv>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CM-TRANSID: zQCowAC3T7WIl+xqYLNgAA--.7023S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Ar15JryfZr1DAF43WryfZwb_yoW8Gr17pr
+	Z2gFWSyFn5XryF9r1kZw48GryFgF93Aa17WF15K3s2vwsxJ3srtrnxKay2va4SyrykX3W7
+	Xw1q9FsrXFWUu3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBGb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x2
+	0xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18Mc
+	Ij6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48J
+	M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r4a6rW5MxkIecxEwVAFwVW5Xw
+	CF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j
+	6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64
+	vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0x
+	vEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jDb1bUUUUU=
+X-CM-SenderInfo: pwdquxrlsvqzpdlo2hpxfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_062259_909589_ECFA267B 
-X-CRM114-Status: GOOD (  12.83  )
-X-Spam-Score: -4.2 (----)
+X-CRM114-CacheID: sfid-20261105_065022_172772_0EFEF65F 
+X-CRM114-Status: UNSURE (   6.57  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,40 +96,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Nov 05, 2026 at 01:25:34PM +0100, Bartosz Golaszewski wrote:
-> On Thu, Nov 05, 2026 at 12:06:33PM +0100, Uwe Kleine-K=F6nig (The Capable=
- Hub) wrote:
-> > =
+Hi Shuai and Fei,
 
-> > Maybe you just need to add `-3` to your workflow? ISTR this should be
-> > the default for b4, but it seems if failed to mention the -3 in the git
-> > am cmdline.
-> > =
+I noticed a potential issue with fixing the physical DC's PSCID to 0.
 
-> > Should I still resend?
-> =
+In QEMU, different VFIO devices can have separate stage-1 HWPTs while
+sharing the same vIOMMU and stage-2 parent. This means two devices may
+have different first-stage page table roots but the same host GSCID
+and PSCID=0.
 
-> No, it's alright. I would have preferred a clean b4 shazam but that
-> works too, thanks.
+According to the RISC-V IOMMU specification, DC.ta.PSCID identifies
+the first-stage address space when PDTV=0 and the first stage is not
+Bare. Could this cause the physical IOMMU to reuse cached translations
+across different stage-1 address spaces? Even broader invalidations
+would not prevent such cache aliasing.
 
-To make that one should really have a unbiased base with the gpio/for-next,
-say v7.4-rc1. Then with --base present `b4 shazam` should follow that.
+There also seems to be a related issue in patch 6.
+riscv_viommu_cache_invalidate() unconditionally forces PSCV=1 and
+PSCID=0. However, an IOTINVAL.VMA with PSCV=0 also invalidates global
+mappings, while PSCV=1 excludes them. This appears to narrow the
+guest's requested invalidation scope and could leave stale global
+translations cached.
 
--- =
+One possible approach might be to use the PSCID from the guest-provided
+DC.ta when allocating the nested domain, and preserve the guest's PSCID
+and PSCV settings during invalidation while substituting the host GSCID.
+I'm not sure whether additional considerations are needed for PSCID
+reuse or domain lifetime, though.
 
-With Best Regards,
-Andy Shevchenko
-
+Thanks,
+Tan Chi
 
 
 _______________________________________________
