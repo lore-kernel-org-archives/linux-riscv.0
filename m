@@ -2,105 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48670606A330
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 08:17:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7679606A326
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 08:24:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MK0uAqo4;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hbxrgyxx
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=J51iDQFK;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=NjY6rKjx
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version
-	:Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=/jxmTOCnXCgsQjV13CSWHud6CYEU7N4PpGClbPZGJd4=; b=MK0uAqo4J6ddNv0URVJvicYERf
-	AahQ/6hM9B1YR+yYpe+7CTNbVsYY2YAsG3twzH1TaSncz0ck7PYNb8IUpNjVFj/IxuyzPn36F0w7J
-	y0Bpdd/CGYf8o+0PZDqSbvtEYkjNXsMqCnPDlFybzpqw02KTvPDavRKhFAFkThpgv25FdwnrJcD6r
-	Lqi4FWNtaGbv0Mw3EH39LY1rtfeGwkhFUKJFoODp97BFgb8JeUiHvhMiYHSO6m1bCffcSrVKr3ebz
-	AnOJsxpw4NbI+T2sRtSOkEpVE7j9O9sEopTaJ2zmmnRe2JyPv/HYr/+FjTADMTVtPTqbynXjqoVUv
-	Fu4KeOKA==;
+	bh=ECv5QBauttBXRUMo322clRAlfiqbSol7KLkOnaxnKP4=; b=J51iDQFKeJyLfQEVujAnfmiTms
+	XqNp9466li7shTkoQWjYzEQTgng9/q+gtxOMRcMQMkBWkay6SvapefxpIBet7gnSj6TWw3J7AGasr
+	i2AcD7ACDu1K5iC6nEO2Goid01r/xgVMPnFMGNhh2zYP/0BC+5xp7p45gJS9vOTuFMaHcwax6R7d2
+	+s4mqJwsPnYyk+IOfBiShjSdWuLduLjob218Cyb4NYNODXdLnpbaYuK32h/86OrY2VIbIPll5dgPf
+	/SO1KXAvaF+Y/tby9LC+HxIxVUQ+JHkimKJCUlbktdvrSN8TUHtBG+q0ubQlhWX8boY3NJWd+0GFo
+	pL0nj2DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOsfD-000000087HV-0ffA;
-	Thu, 05 Nov 2026 08:17:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOsly-00000008964-2cLE;
+	Thu, 05 Nov 2026 08:24:38 +0000
+Received: from smtpbgsg2.qq.com ([54.254.200.128])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOseu-000000087Dk-0qTX
+	id 1xOslt-0000000892k-27LK
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 08:17:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F0395404D4;
-	Thu,  5 Nov 2026 08:17:19 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793866639;
-	b=1Tu2+M1FpsFi59jzhUDq4o6lT9V70J4c7fh2deZ5uFOngDQpuLCBtLwfy8i732buCrIN
-	 MXqq0sad5mT2dQxgq+9P0NWwqXCCEt1mg1uI2Qt77b9TkEPi3bqp6W+6Xa87lyFbhWo9w
-	 tcIFnGX8/GzQqTY8a5jQoje+jKIHv9J/6kG0VEN6dg7zPzRedMY2E/6VpXVpgtxMPyqvB
-	 NjDmjJPJs2632yBrGDYUykaPBCtREbXzTD55gsC0mDjKLlgNCxzWAZZvQS84lLKvie9gA
-	 BUXVjiD97LjdNWDxgIb1+uS81FW72P4fewNSYh5VreVt7tmFd9bCvBsf1xr/oNeQCcQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793866639;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=KD4AAaRf4p3UJIXQQB6vPlBio7Rs8gGThbMv02QHs+s=;
-	b=P8dR/otbnKnoNLmKnw5R6EHiD9l6QCkSB9xxsG5eAMROSAPLIGpc7w2fry8cRw3CmC2W
-	 9pXLAGnP8E8K3PvXhm4+ZxTaZBrpNzLArU8Gr112dwjgZPHMbwAn6LewBI1dslFTDemP+
-	 u9C/OnW5ys2De1Rezwu9nNXifaevGsjnOQOTa8Dk5j+Ye+yxvs5F9XLy2JhieertnDKYY
-	 QbcfklRbjb+mHIfSNJP/AfL5DfDELdC1i1Ab7H80Uty4NnO/QIh9RS2vK3sY+ALTiITZ5
-	 7SCjDiRL6+pPOkzvcA6XZvnp3TOY+mDK5nDe6ugb29Lzo7sBqfjFstT9HEOw3KuKuMQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 57B8A1F0093A;
-	Thu,  5 Nov 2026 08:17:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793866639;
-	bh=KD4AAaRf4p3UJIXQQB6vPlBio7Rs8gGThbMv02QHs+s=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=hbxrgyxx6BFw8s7ol86ak2XN/m5dn8iNbseaNBqkfFpZdpywaDy7PbC/3HOz9qpPT
-	 hpj+/LDtg+tT/6sN5MyLYnhBNi6uEskHmUbU084E6LMS166zf4FLiUNPKqxryww81m
-	 U28NoNQ88qU8HBTt1fDImh99HH7cFtq6XdBj2kGp1NLrZizY57IjwILnzjcxxQCLhT
-	 3wkO3XuF1gq6QETotn4Uj5zGJpVJo2cxN7eVFaPZ9XsxIAYWhqviAF8eE9YJ10TSX3
-	 B4ZQ54lUxvKtUeHLj1e+iBUhYSHzA0ubaAt0Goiz3ChPs056JuRnAfLkx3IXVdcOZ2
-	 To2X5VfMYMaWw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id ACB544716D;
-	Thu,  5 Nov 2026 08:17:18 +0000 (UTC)
-From: Isaac Adjei via B4 Relay <devnull+code.isaacadjei.me@kernel.org>
-Date: Thu, 05 Nov 2026 08:16:51 +0000
-Subject: [PATCH] gpio: mpfs: reject unsupported interrupt types
+	Thu, 05 Nov 2026 08:24:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1793867033;
+	bh=PMy26U+a8p6T/DZbXU09t/uUDgp8RhhSnvRaYUMUKHQ=;
+	h=From:Subject:Date:Message-Id:MIME-Version:To;
+	b=NjY6rKjxaGur9PgHybhh7lSd0uVrCRtkziXRcOa8KpTYCkTWzkgIeUUdJUWbZ68ap
+	 PPRtB+TAM25GPX4MpUh7hD837B+0P3dVgyzscbK9gF3szgfZeO44oWU4l/0OaJ/Upc
+	 A/IDN0MCmyWfOk3GWqNd0Z9rOzN/Nr8oIYbfx0s4=
+X-QQ-mid: esmtpsz10t1793867031t33177925
+X-QQ-Originating-IP: S5npOyi7aINTfxWjzN8uAgHEA4v9Zxn+qFnXr53kbTw=
+Received: from = ( [58.254.68.27])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 05 Nov 2026 16:23:48 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 11420959379972091869
+EX-QQ-RecipientCnt: 13
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: [PATCH 0/5] riscv: dts: spacemit: k3-com260: Describe SD card, SPI
+ NOR and MAC
+Date: Thu, 05 Nov 2026 08:23:45 +0000
+Message-Id: <20261105-k3-com260-module-sd-nor-mac-v1-0-138b39d74602@linux.spacemit.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261105-gpio-mpfs-irq-type-v1-1-cbb2b0b2a807@isaacadjei.me>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqAIBBA0avIrBtII4muEi1Kx5pFahpRRHdPW
- r7F/w9kSkwZevFAopMzB18gKwFmnfxCyLYYVK20lHWLS+SAW3QZOe143JGQGm061czGWQ0ljIk
- cX/90GN/3AyioTb1kAAAA
-X-Change-ID: 20261105-gpio-mpfs-irq-type-e36c823bcfd6
-To: Conor Dooley <conor.dooley@microchip.com>, 
- Valentina Fernandez <valentina.fernandezalanis@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>, 
- Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>, 
- Dan Carpenter <error27@gmail.com>, Isaac Adjei <code@isaacadjei.me>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793866638; l=1787;
- i=code@isaacadjei.me; s=20261105; h=from:subject:message-id;
- bh=RPHB+79SRzi3MO4cqrlIZyGYkUrVv21I2XEOqLhYUno=;
- b=fFDDILoO4M0UxwIpenwFbNGJG0/z4thpkU2owNKbMEFvFJ2+2Fw0TJ7pG2PG/Yd9BnSqRfuuC
- 2eygNlMXFfxBi6tBkhb9N+FkxBtISiPq5e7WZCwWSl5xEAZcw7nXG0d
-X-Developer-Key: i=code@isaacadjei.me; a=ed25519;
- pk=VhIIXFXv1g0LAdmG85V9QxWkeBc0KGdKUVH/4o0lWco=
-X-Endpoint-Received: by B4 Relay for code@isaacadjei.me/20261105 with
- auth_id=1415
-X-Original-From: Isaac Adjei <code@isaacadjei.me>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ7CIBBA0as0s+4kgLQxXsV0UWHUUQHDtMaEc
+ PdizV+9zS8glJkETl2BTB8WTrFB9x24+xxvhOybwSgzaq0GfB7QpWBGhSH59UUoHmPKGGaH1pJ
+ vaTscDbTDO9OVv/v9PP0t6+VBbvktodYN44gfFX8AAAA=
+X-Change-ID: 20261105-k3-com260-module-sd-nor-mac-44edede14582
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1397;
+ i=troy.mitchell@linux.spacemit.com; h=from:subject:message-id;
+ bh=f8JEl3nwmhnXtGnW8XRJdFD/mPXqxg42zaRBQTXPx4o=;
+ b=owGbwMvMwCU2g/N9w09jE33G02pJDFlvbIWnvTgvpOEbvNRl4l7OK8dTZ/zQEUlJO7Xwl9sVh
+ QRxOROxjlIWBjEuBlkxRZbuBzzbCnyibAsECn1h5rAygQxh4OIUgInML2L4n8jqofpLSHHf1Y+7
+ A74cvuH5+qFuScwd9R3fDlhk7/v94y8jw+Ggh/M+SrqLpAZ6x+Vv0fHQPBj2dKL3QhHJkPu3bYo
+ eswMA
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=openpgp;
+ fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NojR6Ao/DkEDqU2b6fuTKkTmHDlm0Tbs2M7YxujsZMOZZHussXiyYj3R
+	+WqeYs96vuF6KID9CGnZ5zXN1NZbSi2y6FywaWrAYstTkQ5Ok2TxwH8+MKVNDVbD0Dis9vP
+	IxgYnytfEBS7cYB73yEQPfhGUdJL1yE/HGIzJQ2Smd+oNWAnDqhYbzZHLFYCar3GUG8Zkli
+	UZMwd6hafZZ4sW0wTskzcljlbm37rVjQ1RGOoq9yeZ7njsDp6NHFsrA5X3gSHB4m/+53E1t
+	KwQBNK2799oaOLxq+xyY86HtFF+56k6kVxQfiuMAiveWySFWd3pE5bSUe/g0lVPPhI2iQx0
+	9mEB5Y9MdS1cCiSZZB7Rf7EvaySoEHrvYCnu4vxsa6zMmIcJvBU3WyX++nPP5wCA1p+6vjl
+	BPw2W+B7bjENlGr79xF1ct6jtSPQFt330D7mAjuRr2FioUj0/YEaUewvXkXUMjbANBRsuWL
+	HSjtUCqJGvuB1ClU2gheSLcNrlSNfAcI8ddIQ6/oZ8QURkG4/P2qPXWsUU9a0k62lhKiLAz
+	rYKmArs3aCVJUBanqupJJtMU3kydHP273VMHID7VZVhRqX701HF9AUR3VXnA/cQy4UcmdHb
+	qURSKVQDhyFQW6X2NfJfJzMiEV8cmwmvWJQZGstF4uG0qOT/wz4+xuvY/YfxIUscPX6ZjFt
+	N54M+j/8Q8WK6GeeJgURkjeW0CWSfA7eEXwIZmyuTLAcnQNfo/Ea1J+YHtulmq+Luwh2+6k
+	//rLWEfq2EO+QwcI9KlzI2sxGMn6BrupotXWXJlLz/LITDDOX0QHBr4m2liYT5YTrD/rhvZ
+	ePDWwq82WI29gD1jVvjGWlKa6RmyIXzckf9d/Yp48j9xYpd32XQT3jZ/PeikNq2+4RwSJqo
+	ZmEtks7phlyrtjX2OxQYF5XGL5anWy21zkGRud+whfaZHgLR6PaKFi1z5BxoZ09D1MeOB43
+	QSRQZD+DEcr4CAB507FiFkrT+L9+c4S2eUYH0SKR+3tUvaN0xKPiEGNqvRzEMntUnLyD+MD
+	KPokLbg0aPJTo0QsBDnk/MOJaPF0n/esN0lGZ37uW/irQL4xnpLr6+57XZFh9pQKbkf5zjC
+	4AukmzySxBCp5rtjIlSS5lKMkD1fIsz44II3H/oKIbY
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_002434_393757_F1749BE8 
+X-CRM114-Status: UNSURE (   6.97  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,70 +108,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: code@isaacadjei.me
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Isaac Adjei <code@isaacadjei.me>
+The SD card slot and the SPI NOR flash of the K3 CoM260 module, and the
+MAC address stored in its EEPROM, are part of the module, but they are
+either described only in the IFX carrier device tree or not described
+at all.
 
-The switch statement in mpfs_gpio_irq_set_type() does not handle
-unsupported interrupt types. For example, IRQ_TYPE_NONE is not listed.
-
-When an unsupported type is passed, interrupt_type remains
-uninitialised. Its undefined value is then written to the GPIO control
-register. The function still returns 0, making the caller believe the
-operation succeeded.
-
-Add a default case to return -EINVAL for unsupported interrupt types.
-
-Smatch reported the following warning:
-
-  drivers/gpio/gpio-mpfs.c:144 mpfs_gpio_irq_set_type() error: uninitialized symbol 'interrupt_type'.
-
-I built the driver with W=1 and got no warnings. I also reran Smatch
-and confirmed that the warning was resolved.
-
-This is compile-tested only. I do not have access to PolarFire SoC
-hardware for runtime testing.
-
-Fixes: e57b53f0f36a ("gpio: mpfs: Add interrupt support")
-Reported-by: kernel test robot <lkp@intel.com>
-Reported-by: Dan Carpenter <error27@gmail.com>
-Closes: https://lore.kernel.org/r/202411080149.bOpayvf6-lkp@intel.com/
-Signed-off-by: Isaac Adjei <code@isaacadjei.me>
----
- drivers/gpio/gpio-mpfs.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/gpio/gpio-mpfs.c b/drivers/gpio/gpio-mpfs.c
-index 7f0751d7b..0b7a48e0a 100644
---- a/drivers/gpio/gpio-mpfs.c
-+++ b/drivers/gpio/gpio-mpfs.c
-@@ -138,6 +138,8 @@ static int mpfs_gpio_irq_set_type(struct irq_data *data, unsigned int type)
- 	case IRQ_TYPE_LEVEL_LOW:
- 		interrupt_type = MPFS_GPIO_TYPE_INT_LEVEL_LOW;
- 		break;
-+	default:
-+		return -EINVAL;
- 	}
- 
- 	regmap_update_bits(mpfs_gpio->regs, MPFS_GPIO_CTRL(gpio_index),
+Fix the SD card power description, move the SD card slot into the
+shared CoM260 device tree and describe the SPI NOR flash there. Enable
+the AT24 EEPROM driver and the ONIE TLV layout in the RISC-V defconfig,
+then let the module's Ethernet controller take its MAC address from the
+module EEPROM. Every carrier using the module inherits these
+descriptions.
 
 ---
-base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
-change-id: 20261105-gpio-mpfs-irq-type-e36c823bcfd6
+Troy Mitchell (5):
+      riscv: dts: spacemit: k3-com260-ifx: Drop wrong SD card vmmc-supply
+      riscv: dts: spacemit: k3-com260: Move SD card to the module
+      riscv: dts: spacemit: k3-com260: Add SPI NOR flash
+      riscv: defconfig: Enable AT24 EEPROM and ONIE TLV layout
+      riscv: dts: spacemit: k3-com260: Set Ethernet MAC from EEPROM
+
+ arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts | 18 ------
+ arch/riscv/boot/dts/spacemit/k3-com260.dtsi    | 76 +++++++++++++++++++++++++-
+ arch/riscv/configs/defconfig                   |  2 +
+ 3 files changed, 77 insertions(+), 19 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261105-k3-com260-module-sd-nor-mac-44edede14582
 
 Best regards,
--- 
-Isaac Adjei <code@isaacadjei.me>
-
+--  
+Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
 
 _______________________________________________
