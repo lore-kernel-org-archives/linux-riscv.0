@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B4FD606A32C
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 18:40:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5627606A328
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 18:40:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=asnHqErw;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k+QnTs/b
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dYJU/xyD;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kHqVyogz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,36 +14,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=xxu/ukZMh2XPt6R5w+BPxH8s221ZzXWR3mucBkC8Rdk=; b=asnHqErw1HzWgpdpsl3ILeUnYK
-	MkEh91FfQlmw0xJ+UuultJrLjKmCqR0L1BiphTLzKO8SenqSLvyMXc5UNhVgq66p6ptJLu9GhwlEB
-	3Xdqz7X2xjB19fW/k4aclt7vpwIGs1V2aCORRtXFJXGx6EqMMwu3euly45X9cYM4RdIXocSbcniRA
-	MbB8VFuO8UTMC0XucOIhJ3xPBwcw+MOBUALIfPMFWZws9J2J18RvbTv3HrTC5y5yooIy3gw4IZy2f
-	EYmtR/FwFi1jLFA3JSr8v/Gi5GX7W3fwnluv3+LZVTUnm747orn+QEUTbYabzzwZhFw8Vlgag5tSK
-	swMHBqaw==;
+	bh=BLrLOCXLi0sEns+nBQZUVspvqbX46R+8FwbOz7iwNLQ=; b=dYJU/xyDDNynbK5UcLYY5cHuNk
+	XVee+5tPXHnPnCg91PhZCmsCyIsN/P3NFCVQPD/UhOE/uTtPengltqHG/2Vp+BQXip0rFWZ5z+9kk
+	+0iFfyAMOJeQDq0bpTQnvfF/IQuannHCAuZ86i3IZRC9oFUfniNaao4+0RhV/7NfYuXjHLPjRX1m7
+	5zOCnmhBrXJgK275Ui5wVmeAbzhtfZKLFOdyTKq274jDgeJKZLyizOovaV2loem0SjWUiSLAmT6vy
+	6hNpshtE0gg6vfKI11G23XzCuMjRNrWi1VqNp0JaE/WehlCovHrzo+0q2cCY/4KsB4KvY+IYt4w00
+	3bBmvd9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP2NV-0000000AABV-0KxS;
-	Thu, 05 Nov 2026 18:40:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xP2Ni-0000000AAEn-0qYF;
+	Thu, 05 Nov 2026 18:40:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP2NQ-0000000AAAG-2nEN
+	id 1xP2Nb-0000000AAD2-06vC
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 18:39:56 +0000
+	Thu, 05 Nov 2026 18:40:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 24AFC430CD;
-	Thu,  5 Nov 2026 18:39:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 817071F00A1A;
-	Thu,  5 Nov 2026 18:39:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 61A4E6015B;
+	Thu,  5 Nov 2026 18:40:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1217D1F00A18;
+	Thu,  5 Nov 2026 18:40:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793903996;
-	bh=oLnUQHYyXdNhT+rCItNWxapzit366l65YbXVvT4t9nI=;
+	s=k20260515; t=1793904006;
+	bh=SOmm+v5+q4Ie3UaOXttJQyvUvoppMzAuwuREpO3lnEM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=k+QnTs/bDSCwBN660MzQuD8wNdgtNDePZ7KoYShjfYCdpSWEoJgljS5i5Kzld/T7o
-	 DE3MdPgUx9qXwr+2Vsh2YJhhmOgQXty6Hoy7WqfHoJbm92F1oZfqbrw+2VgCkzgD8y
-	 lAvBodgrw0rh5DzfOeEBnKtpky3JEjkaQ/klXdDbalVZKOZN7+7lGuEm9dKwa3pvs8
-	 9A1Xaw+61ORXBN4ftIhkOsrwYSg5+3fxiQJD1G2jH5+l+71BlAKDbCHZm722vCFBeG
-	 khOBUNdIQL1NksOY1Zet8G8xf/C5TxbYk0iiWEBI7CL2ssL6UwzuzmGQV7yglF9rZl
-	 /qpqqTZArkzwQ==
+	b=kHqVyogzxsCRzbS2q/auJxr4pB0zr5JgupIkFB6KKutUygpmgt7VYrAQFJue/Pz/w
+	 28tnsWGOvYXwsiIvV0mvvH99HGIIS9wLk5ojKNiaJxPEseODZAIjI/S9+/OXG+vIo5
+	 edjll3odBTvSxADMyEGsW9kNw6/HV+F7zDPAlKLUwOjHMLMDXe77uzptrzWAF/wCzN
+	 3rYvxfMIxMHsRpovZdVUIn4U2H8phrrfBp4tgsUU1wCf0cLyLXb6xQb5GriPhh3tWB
+	 9IaUxHBm4vvhLY2Ccrx8ff3jMCTw1FuBwqH3d8RNAstjN5wH6aNveqfreLOEl/ADyj
+	 dfJjNPhZ9VQCA==
 From: Conor Dooley <conor@kernel.org>
 To: Stephen Boyd <sboyd@kernel.org>,
 	Brian Masney <bmasney+clk@redhat.com>,
@@ -56,23 +56,26 @@ To: Stephen Boyd <sboyd@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Junhui Liu <junhui.liu@pigmoral.tech>
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>
 Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Brian Masney <bmasney@redhat.com>,
 	Yixun Lan <dlan@kernel.org>,
 	linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: (subset) [PATCH v2 0/2] riscv: dts: anlogic: dr1v90: fix clock dtbs_check errors
-Date: Thu,  5 Nov 2026 18:39:40 +0000
-Message-ID: <179390394384.1477457.6429216758645730448.b4-ty@microchip.com>
+	linux-riscv@lists.infradead.org,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: Re: (subset) [PATCH v5 0/6] clk/reset: anlogic: add support for DR1V90 SoC
+Date: Thu,  5 Nov 2026 18:39:42 +0000
+Message-ID: <179390394383.1477457.11835179524789645900.b4-ty@microchip.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261003-dr1v90-cru-dt-fix-v2-0-6e7d96612ac0@pigmoral.tech>
-References: <20261003-dr1v90-cru-dt-fix-v2-0-6e7d96612ac0@pigmoral.tech>
+In-Reply-To: <20260514-dr1v90-cru-v5-0-34f3021aab51@pigmoral.tech>
+References: <20260514-dr1v90-cru-v5-0-34f3021aab51@pigmoral.tech>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=911; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=YRRo86G5lO4jP2/ynMMu+/bhBF+irqBFrR4pAfSjzn4=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDFlvzuYkm81r+xr82CLTt22a3PPfR8yLrplwJ7esL9p3X vla+nGOjlIWBjEuBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAExE/hkjw/Lw45d+Pnh/oNqp xnGXzt4VWstevtO76LuWZ9ET+7V2HLkM/yO+f9b798xa77fdnhebbuyv3W45dW7G4qSuo9XiX47 Mk+MFAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=598; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=1bhIAEPOqIDfQnMAOf+CD7PXBGi6CxXqji1n09U0SHw=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDFlvzuamnc3+cvftEbGlvI99zzNxFFX2KjW3f7uheVqN4 UzkhIzVHaUsDGJcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZhI+39Ghs7leoxhfKLLlV8t zpd6lKl5OHinLuM8E3erPENP3cgOFYb/Ee/vbmH7PZcvRuvujFNhjD+3Xw3Wr5h+ZpPD811rft3 p4QMA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,22 +98,20 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-On Sat, 03 Oct 2026 00:28:38 +0800, Junhui Liu wrote:
-> The external CAN and watchdog clocks are optional board-level inputs to
-> the DR1V90 CRU. The current binding requires both inputs, causing the
-> common SoC device tree to provide fixed-clock placeholders without the
-> required clock-frequency property. Consequently, dtbs_check reports:
+On Thu, 14 May 2026 17:27:16 +0800, Junhui Liu wrote:
+> Add Clock and Reset Unit (CRU) support for the Anlogic DR1V90 SoC, as
+> well as corresponding dts bindings and dts integration.
 > 
-> arch/riscv/boot/dts/anlogic/dr1v90-mlkpai-fs01.dtb: clock-ext-can (fixed-clock): 'clock-frequency' is a required property
-> 	from schema $id: http://devicetree.org/schemas/clock/fixed-clock.yaml
-> arch/riscv/boot/dts/anlogic/dr1v90-mlkpai-fs01.dtb: clock-ext-wdt (fixed-clock): 'clock-frequency' is a required property
-> 	from schema $id: http://devicetree.org/schemas/clock/fixed-clock.yaml
+> The CRU driver framework is built around the clock controller as the
+> primary device, with the reset controller implemented as an auxiliary
+> device. The clock part refers to the vendor's code [1] to determine the
+> structure of the clock tree.
 > 
 > [...]
 
 Applied to riscv-soc-fixes, thanks!
 
-[2/2] riscv: dts: anlogic: drop unused DR1V90 external clocks
+[5/6] riscv: dts: anlogic: add clocks and CRU for DR1V90
       (no commit info)
 
 Thanks,
