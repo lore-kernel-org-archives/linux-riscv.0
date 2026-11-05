@@ -2,59 +2,102 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E50DC606A333
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 17:33:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F1CB606EE9F
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 17:59:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Dy6sbHdL;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RSvp97un
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=abmWp9O7;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=tenstorrent.com header.i=@tenstorrent.com header.a=rsa-sha256 header.s=google header.b=GaFZRQOZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=NhlSYIkZK/RTjfvAc2SXz+U0sLrVAJxVEYolIZd8AaU=; b=Dy6sbHdLhbc2Vp7b8oLtnKJiaX
-	W2/NiPpatKgBPwYD71eIHeowUORhA76t84AtxcxBTRG1mVyEZqoG/aUDZl1wSt12bcYnyLFJyautW
-	tdCpiXSSccfwOYCRrCclf8B5H+dYc+cwFm4RlwcL8KVZYeq+nEIiScy7aKUJ3A1yUBkrcMsCa6Sqc
-	vdNuBWlcSShGlHmbbTxyeh0ftgvh8VuVNqhaRmnrNQNH2OL44PiQ/fxopk1S2K8Q1vJo1SkRIKoga
-	xSu5XxEJbTVQLA3ReHjHeveM02Xf0sEtdTVSa4wyzrlhTBSQexQb3KlefLCUORaSuQNI9MYXzhFa/
-	FXxzNsQQ==;
+	bh=9nQGok5Bk/PCCD2q5EGZbFM2Xovrhz5rK3vNQ4jSAFk=; b=abmWp9O7wgn84/ZCWY6GgJjfmZ
+	KudRpqANLIoAUoYYScLlPff+XDGn/+9yZ95j1PXdeU6rpeDrdBDGc7vmJrKVFpR2zKjQogdFUdXS2
+	ItXAXaAKYyxChYka7IqpD/XcH/2RzY0MNVBt0bmvSHAmoRRxF13DGV7ay1cay8PRvUlFZwvtbC/I6
+	TKdWynZHwQTWJrPLEXvjm1Mc/hEBFxKvRhn3e+hIpYFF8dl6GJGhkeOpRe71KHqy/C4nyTB+y/GnW
+	k7av3sXgu1sKELhynE/J9pUVYJ1EoeuKIx8U7iB7RhUyxSA4cwMO7ZWpgCHVw1QfCgnK1Lspo9iBN
+	ba8op1Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP1Ku-00000009wj2-3MBe;
-	Thu, 05 Nov 2026 17:33:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xP1kP-0000000A2nF-2A8V;
+	Thu, 05 Nov 2026 17:59:41 +0000
+Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP1Ku-00000009wiQ-1hRw
+	id 1xP1jv-0000000A2gw-2fq2
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 17:33:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AD8D04116F;
-	Thu,  5 Nov 2026 17:33:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA7E91F000C1;
-	Thu,  5 Nov 2026 17:33:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793899995;
-	bh=oSm1ozRsqu0jVQ66QOQEEYOnT9bhWnL4fGvmxHAa0xU=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=RSvp97unsAj22ZXChSJySDgVd/iaulJgETAf9ZXTRJvjnqPxDni25Cusy3HfgjWRw
-	 YHgIA/KYMu4iysgB+aprQV4Z6DIE7Tlr0z7U9fmzHpBcLeHmbSy54sXy9p4PuPrHx8
-	 aPz2itEwJ6z3cZmjdMwaSpVwnskA0R4ZJKcpqol3Id44WSW6hUBhkddccNbAGM54T2
-	 OF0D8bUl8uMojLBdwQ5ZBO/5nTPuE2X8VMmqlqeGDhjygcNn0Dj0eqSwqy8jq+75R9
-	 m6i8/3JrokG29nPRJULrTcXp9MQwzj2QChqSrRGzLYQR51qEqdJTl1E+hSj++PlcPP
-	 u4b/Ixq7PiaTA==
-Content-Type: multipart/mixed; boundary="===============4354460838823676982=="
+	Thu, 05 Nov 2026 17:59:22 +0000
+Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-83bbcfba0ffso1494157a34.0
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2026 09:59:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1793901546; x=1794506346; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Y7xeTFp5Z0R3BfvoCv14UiADEzEqwyyGG4Zubwum7Zo=;
+        b=GaFZRQOZEs1SeTbK3I/G9GzFnW5knT8ZEpt3hicMPH/RpW+x43VaaFXN7hFRE5UDI4
+         5+Coo74/hLDLu6yuikVDl3nQg/CmPMFwqkAUUtbjBrMUTPweEdXPYA9C9FARck75BhOY
+         X5j5RzEMAhOT19HUc1Vq7WvJqiZD6feDPuo0DScBfMWIB6Hn0ZSnjgv+HYicANeBCtdu
+         SNWVlqG1JbXDf8pxgo2rNtQIyU6pZi1gA3tiX38wCo7GepgWlvTbJSoTEYh1uzFKR4+c
+         Nm8oWm0lWT7ncCe+NbdAbN31XxHqthFvcE+ja6W5O1smj1eyEPMz4EFNcQA3mL5ZFG0J
+         1vdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793901546; x=1794506346;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Y7xeTFp5Z0R3BfvoCv14UiADEzEqwyyGG4Zubwum7Zo=;
+        b=X/ReW9JD2fmV74VCgF943u+ddWTONoX6f3t5LHB8/gH2tw+74IexZrtH3FBa53ITBX
+         ZkgB0GldIQNmVrb75LpfzdmLcntur5N1DMLktLNz+EsaK6qWJv9ptFSEP8tVf3xGhyYZ
+         1ApqHFYE8v47XKeNAF2GgK0FH6lSwPT6oBi5MFIXFU105AOFthTJ/DoyUc6GF4gzbdnd
+         /+Ic9sUEb8EUhuEZ2OzRVnlcC0FIMT47wkgq4ugpdrsjMqpZ54w3Fx2yBLHpnztzQqKE
+         eXZQQnQl/lP8CNXKNlX6xAfxSXq56GKg99vCqxry5XS/pN2Bi+tL634MTVAUFWHRY4fC
+         gWLA==
+X-Forwarded-Encrypted: i=1; AKwUvBxtguD33gWgqKxa4niU66//bkU2rh+pWveP1syHTqq2utaw5SlAABpyY14pnhz9AegdDtc5pF2R1Oqsaw==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8gHCB9DS9r9TAaUd3NtvZ+bkQQ6BG9wHl8hW3YPs9mYvkPLXr3
+	4s1zg09enemS7lzUhm9ExlVXripUSZdgS55Olbnylqm0Mmm0Gf1tIYAhF7lTXoPnSfYWzTObeUv
+	3J+WUtrWGqg==
+X-Gm-Gg: AYBFou3zKVIibj56JR3Fm8wCHrec9xaKu7o/XPeB0WooVkDFDxc/wS5S2HN6BJvPGf0
+	KsAd+2k1oXK/OjdX6AUmgngq5c1grh3r/TNMq4sSk0H27+vI+vWP0Z98vHxizRI53GZvAZfijE9
+	otf+veduEDkczVSBuVilSjRy/51o2nBoshi70hfmVIzNDlf+6CY3zapL6Q5z53p866W+48k6ZB+
+	Wmu+UQ8wSvkdYG4C2a8WBKOOY0IfYwihQ1iR7kEqhZbe907uVqiyvplP6pynwFcHeShKcuk2MZf
+	FQ+EQNGolxhI49hlflQ1nEfHB5SbQ2eHLvosgBO8lcGUyLw40LRv7EdIXebYw5+gKzdZr7EKki0
+	KbYCoyv/z17KDotI5WVqCxm1CJyl0Ho3GnsV0TVMrZ1rbq+N5cgFn5ROVgyFqpGQTZnWYufuROI
+	tsXEMPsj1J9sim3chApnCVYzPVVHnbCwwqzpNV/IdZMGGO4eobC6oIuwNYu2n3oBHgRe4SHfdAo
+	HtzlI3qQjW3fbjjRfjCHXmAxshiGaNQjL37XzqEGiO1s7YEjDBrD2w0libUob+RCzgj1eqm0H65
+	wi254M/AdIkI1JUqTbb9hHuaF1d7IK6IbhIbqPg=
+X-Received: by 2002:a05:6830:2b0e:b0:85c:4897:f2ff with SMTP id 46e09a7af769-85f1d0de43bmr99174a34.25.1793901545806;
+        Thu, 05 Nov 2026 09:59:05 -0800 (PST)
+Received: from localhost ([12.55.13.134])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-85ef3e603b9sm5021990a34.20.2026.11.05.09.59.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Nov 2026 09:59:05 -0800 (PST)
+Date: Thu, 5 Nov 2026 11:59:04 -0600
+From: Andy Chiu <tchiu@tenstorrent.com>
+To: Nickolai Zeldovich <nickolai@csail.mit.edu>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Andy Chiu <andybnac@gmail.com>,
+	Guobin Zhang <guobin.zhang@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Shuah Khan <shuah@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] selftests: riscv: test FP state restore when
+ rt_sigreturn() faults
+Message-ID: <auzD6JgYSnW186Bb@Tao-Chiu's-Mac>
+References: <20261031161826.858908-1-nickolai@csail.mit.edu>
+ <20261031161826.858908-3-nickolai@csail.mit.edu>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <18c9fcbaea4f427a23d9769e82c5b065ccb61392e2f87f97c97614cf252dd48c@mail.kernel.org>
-In-Reply-To: <20261105-lrsc-only-v5-1-f0648f57b2e1@mobileye.com>
-References: <20261105-lrsc-only-v5-1-f0648f57b2e1@mobileye.com>
-Subject: Re: [PATCH v5 1/3] riscv: build kernel atomics from LR/SC when Zaamo is disabled
-From: bot+bpf-ci@kernel.org
-To: vladimir.kondratiev@mobileye.com,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,will@kernel.org,peterz@infradead.org,mark.rutland@arm.com,gary@garyguo.net,yury.norov@gmail.com,linux@rasmusvillemoes.dk,chao-ying.fu@globalfoundries.com,torvalds@linux-foundation.org,olof@lixom.net,aleksa.paunovic@htecgroup.com,arikalo@gmail.com,boqun@kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,luke.r.nels@gmail.com,xi.wang@gmail.com,bjorn@kernel.org,pulehui@huawei.com,puranjay@kernel.org,mhiramat@kernel.org,oleg@redhat.com,boqun@kernel.org
-Cc: linux-riscv@lists.infradead.org,linux-kernel@vger.kernel.org,Vladimir.Kondratiev@mobileye.com,bpf@vger.kernel.org,linux-trace-kernel@vger.kernel.org,vladimir.kondratiev@mobileye.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Thu,  5 Nov 2026 17:33:14 +0000 (UTC)
+Content-Disposition: inline
+In-Reply-To: <20261031161826.858908-3-nickolai@csail.mit.edu>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_095907_715795_F4824030 
+X-CRM114-Status: GOOD (  33.33  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,291 +107,221 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============4354460838823676982==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+Hi Nickolai,
 
-> riscv: build kernel atomics from LR/SC when Zaamo is disabled
+On Sat, Oct 31, 2026 at 12:18:26PM -0400, Nickolai Zeldovich wrote:
+> Add a test for the previous patch: the signal frame sits on a
+> userfaultfd page that the handler drops after dirtying the FP
+> registers, so rt_sigreturn() sleeps in the middle of copying the FP
+> registers from the frame. The interrupted code must get its own
+> registers back.
+> 
+> The test is skipped without the D extension or when userfaultfd is not
+> available to the caller.
+>
 
-TL;DR:
-- Unbounded futex LR/SC loop may starve, spinning with hash locks held
-- kprobe on LR/SC atomics may livelock
-- Zacas/Zabha still emit AMOs, contradicting docs
-- redundant lr/sc ordering suffixes
+The test is failing on qemu, with or without the patch applied.
 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-
-[ ... ]
-
-> +config RISCV_ISA_ZAAMO
-> +	bool "Zaamo extension support for AMO atomics" if TOOLCHAIN_HAS_ZALRSC_ZAAMO
-> +	default y
-> +	help
-> +	  Use AMO instructions for kernel atomic memory operations. When
-> +	  disabled, those operations are built from LR/SC and the kernel
-> +	  is compiled with zalrsc instead of the A extension.
+> Signed-off-by: Nickolai Zeldovich <nickolai@csail.mit.edu>
+> ---
+>  .../selftests/riscv/sigreturn/.gitignore      |   1 +
+>  .../selftests/riscv/sigreturn/Makefile        |   5 +-
+>  .../selftests/riscv/sigreturn/fp_restore.c    | 146 ++++++++++++++++++
+>  3 files changed, 151 insertions(+), 1 deletion(-)
+>  create mode 100644 tools/testing/selftests/riscv/sigreturn/fp_restore.c
+> 
+> diff --git a/tools/testing/selftests/riscv/sigreturn/.gitignore b/tools/testing/selftests/riscv/sigreturn/.gitignore
+> index 35002b8ae780..8ed282ecb618 100644
+> --- a/tools/testing/selftests/riscv/sigreturn/.gitignore
+> +++ b/tools/testing/selftests/riscv/sigreturn/.gitignore
+> @@ -1 +1,2 @@
+> +fp_restore
+>  sigreturn
+> diff --git a/tools/testing/selftests/riscv/sigreturn/Makefile b/tools/testing/selftests/riscv/sigreturn/Makefile
+> index 8c77508641f3..ac7ae7a7c2ae 100644
+> --- a/tools/testing/selftests/riscv/sigreturn/Makefile
+> +++ b/tools/testing/selftests/riscv/sigreturn/Makefile
+> @@ -4,9 +4,12 @@
+>  
+>  CFLAGS += -I$(top_srcdir)/tools/include
+>  
+> -TEST_GEN_PROGS := sigreturn
+> +TEST_GEN_PROGS := sigreturn fp_restore
+>  
+>  include ../../lib.mk
+>  
+>  $(OUTPUT)/sigreturn: sigreturn.c
+>  	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) $^
 > +
-> [ ... ]
-> +	  A kernel built without Zaamo runs on any CPU that implements the
-> +	  A extension; it only does not use AMO.
-
-The help text says a kernel built without Zaamo "only does not use AMO", and
-the commit message says "On such a CPU the kernel must use LR/SC for every
-atomic" and "every atomic is a constrained LR/SC loop".
-
-Is that accurate when the hart reports Zacas or Zabha?  RISCV_ISA_ZACAS and
-RISCV_ISA_ZABHA stay default y and do not depend on RISCV_ISA_ZAAMO, so a
-ZAAMO=n kernel still issues AMO-class instructions on those harts:
-
-__arch_cmpxchg():
-    if (IS_ENABLED(CONFIG_RISCV_ISA_ZACAS) && ...
-        riscv_has_extension_unlikely(RISCV_ISA_EXT_ZACAS))
-    -> amocas.w / amocas.d
-
-__arch_cmpxchg_masked() -> amocas.b / amocas.h
-__arch_xchg_masked()    -> amoswap.b / amoswap.h (Zabha)
-
-riscv_spinlock_init() also selects the queued spinlock using Zabha when
-Zabha and Zacas are both present, so the spinlock fast paths would run on
-amocas/amoswap.h.
-
-On a CPU that emulates AMOs with an M-mode trap and also reports
-Zacas/Zabha, the hottest atomics would still trap.
-
-Should RISCV_ISA_ZACAS and RISCV_ISA_ZABHA depend on RISCV_ISA_ZAAMO?  If
-not, should the help text and changelog say that Zacas/Zabha AMOs are still
-used when the hart reports them?
-
-[ ... ]
-
-> diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
-> --- a/arch/riscv/include/asm/atomic.h
-> +++ b/arch/riscv/include/asm/atomic.h
-
-[ ... ]
-
-> +#else
-> +#define ATOMIC_OP(op, asm_op, I, asm_type, c_type, prefix)		\
-> +static __always_inline							\
-> +void arch_atomic##prefix##_##op(c_type i, atomic##prefix##_t *v)	\
-> +{									\
-> +	register c_type ret, temp;					\
-> +	__asm__ __volatile__ (						\
-> +		"1:	lr." #asm_type " %1, %0\n"			\
-> +		"	" #asm_op " %2, %1, %3\n"			\
-> +		"	sc." #asm_type " %2, %2, %0\n"			\
-> +		"	bnez %2, 1b\n"					\
-> +		: "+A" (v->counter), "=&r" (ret), "=&r" (temp)		\
-> +		: "r" (I)						\
-> +		: "memory");						\
+> +$(OUTPUT)/fp_restore: fp_restore.c
+> +	$(CC) -static -pthread -o $@ $(CFLAGS) $(LDFLAGS) $^
+> diff --git a/tools/testing/selftests/riscv/sigreturn/fp_restore.c b/tools/testing/selftests/riscv/sigreturn/fp_restore.c
+> new file mode 100644
+> index 000000000000..1a56684c5f28
+> --- /dev/null
+> +++ b/tools/testing/selftests/riscv/sigreturn/fp_restore.c
+> @@ -0,0 +1,146 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Check that rt_sigreturn() restores the FP registers from the signal
+> + * frame when the copy of the frame sleeps on a page fault while the
+> + * handler's FP state is dirty.  The frame is placed on a userfaultfd
+> + * page that the handler drops, so the copy faults after f0-f15.
+> + */
+> +#include <fcntl.h>
+> +#include <pthread.h>
+> +#include <signal.h>
+> +#include <stdint.h>
+> +#include <string.h>
+> +#include <sys/auxv.h>
+> +#include <sys/ioctl.h>
+> +#include <sys/mman.h>
+> +#include <sys/syscall.h>
+> +#include <ucontext.h>
+> +#include <unistd.h>
+> +#include <asm/hwcap.h>
+> +#include <linux/userfaultfd.h>
+> +#include "kselftest_harness.h"
+> +
+> +#define PAGE		4096UL
+> +#define STACK_SIZE	65536UL
+> +/* the page boundary falls this far into the FP image, after f0-f15 */
+> +#define SPLIT		128
+> +
+> +#define F0_15	"0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15"
+> +/* caller-saved only, so the handler's epilogue does not reload them */
+> +#define HANDLER_REGS	"0, 1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15"
+> +
+> +static uint64_t pattern[16], handler_pattern[16];
+> +static void *saved;
+> +static int placed;
+> +
+> +static void handler(int sig, siginfo_t *si, void *context)
+> +{
+> +	ucontext_t *uc = context;
+> +	unsigned long split = (unsigned long)&uc->uc_mcontext.__fpregs + SPLIT;
+> +
+> +	placed = !(split & (PAGE - 1));
+> +	if (placed) {
+> +		/* rt_sigreturn() will fault on this page and wait for serve() */
+> +		memcpy(saved, (void *)split, PAGE);
+> +		if (madvise((void *)split, PAGE, MADV_DONTNEED))
+> +			_exit(1);
+> +	}
+> +	asm volatile(".irp i, " HANDLER_REGS "\n"
+> +		     "fld f\\i, \\i * 8(%[h])\n"
+> +		     ".endr\n"
+> +		     : : [h] "r" (handler_pattern)
+> +		     : "memory", "ft0", "ft1", "ft2", "ft3", "ft4", "ft5",
+> +		       "ft6", "ft7", "fa0", "fa1", "fa2", "fa3", "fa4", "fa5");
 > +}
-> +#endif
-
-Can a kprobe placed on one of these lr/sc loops livelock the CPU?  With
-CONFIG_RISCV_ISA_ZAAMO=n, every inlined arch_atomic{,64}_<op>() and
-arch_atomic{,64}_fetch_<op>{,_relaxed}() becomes an lr / op / sc / bnez
-loop, where before it was a single amo<op> instruction that is safe to
-probe.
-
-arch_check_kprobe() only checks that the address is on an instruction
-boundary, and riscv_probe_decode_insn() rejects only system, fence and
-c.ebreak instructions, so a probe on the lr, the sc, or an instruction
-between them is accepted.  The exception return path in entry.S then clears
-the reservation on purpose:
-
-    REG_L  a2, PT_EPC(sp)
-    REG_SC x0, a2, PT_EPC(sp)
-
-The trap for the single-step slot does the same, so the following sc always
-fails, bnez goes back to lr, the probe fires again, and the loop never
-completes.
-
-This was already possible for the existing cmpxchg and conditional-atomic
-LR/SC loops, but with ZAAMO=n it now reaches every atomic_inc(),
-atomic_add() and atomic_fetch_*() site, including small out-of-line
-functions whose first instruction is the lr.
-
-A later commit in this series, 01f0e5fb499d ("riscv: probes: reject probes
-inside an LR/SC sequence"), fixes this, but it is still reachable at this
-commit, which matters for bisection and backports.
-
-[ ... ]
-
-> diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
-> --- a/arch/riscv/include/asm/bitops.h
-> +++ b/arch/riscv/include/asm/bitops.h
-
-[ ... ]
-
-> +#else
-> +#define __test_and_op_bit_ord(op, mod, nr, addr, ord)		\
-> +({								\
-> +	unsigned long __res, __mask, __temp;			\
-> +	__mask = BIT_MASK(nr);					\
-> +	__asm__ __volatile__ (					\
-> +		"1: " __LR #ord " %0, %1\n"			\
-> +		#op " %2, %0, %3\n"				\
-> +		__SC #ord " %2, %2, %1\n"			\
-> +		"bnez %2, 1b\n"					\
-> +		: "=&r" (__res), "+A" (addr[BIT_WORD(nr)]), "=&r" (__temp)	\
-> +		: "r" (mod(__mask))				\
-> +		: "memory");					\
-> +	((__res & __mask) != 0);				\
-> +})
 > +
-> +#define __op_bit_ord(op, mod, nr, addr, ord)			\
-> +do {								\
-> +	unsigned long __res, __temp;				\
-> +	__asm__ __volatile__ (					\
-> +		"1: " __LR #ord " %0, %1\n"			\
-> +		#op " %2, %0, %3\n"				\
-> +		__SC #ord " %2, %2, %1\n"			\
-> +		"bnez %2, 1b\n"					\
-> +		: "=&r" (__res), "+A" (addr[BIT_WORD(nr)]), "=&r" (__temp)	\
-> +		: "r" (mod(BIT_MASK(nr)))			\
-> +		: "memory");					\
-> +} while (0)
-> +#endif
-
-Both macros put the same ordering suffix on the lr and on the sc.  That
-gives:
-
-arch_test_and_set_bit_lock()   (ord = .aq)  -> lr.d.aq  ... sc.d.aq
-arch_clear_bit_unlock()        (ord = .rl)  -> lr.d.rl  ... sc.d.rl
-arch___clear_bit_unlock()      (ord = .rl)  -> lr.d.rl  ... sc.d.rl
-
-arch_xor_unlock_is_negative_byte() hard-codes the same pattern with
-__LR ".rl" and __SC ".rl".
-
-The A extension spec says software should not set rl on an LR unless aq is
-also set, and should not set aq on an SC unless rl is also set, and that
-LR.rl and SC.aq are not guaranteed to provide any stronger ordering than
-having both bits clear but may result in lower performance.
-
-The ordering that is wanted still comes from lr.aq and sc.rl, so the
-semantics hold, but the other annotations do nothing useful and may be
-slower on the hardware this option targets.  They also differ from the rest
-of arch/riscv, where LR/SC ordering is a plain lr plus sc.rl and fences (see
-arch_cmpxchg_acquire/_release and __arch_cmpxchg(), whose lr has no
-ordering suffix).
-
-Could these macros take separate lr and sc suffixes, as the cmpxchg macros
-do with lr_sfx/sc_sfx?
-
-[ ... ]
-
-> diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-> --- a/arch/riscv/include/asm/cmpxchg.h
-> +++ b/arch/riscv/include/asm/cmpxchg.h
-
-[ ... ]
-
-This is the same issue as the Kconfig comment above.  The #ifdef
-CONFIG_RISCV_ISA_ZAAMO in this header does not touch these paths, which
-still emit AMO instructions when the hart advertises Zabha or Zacas:
-
-__arch_xchg_masked()      -> amoswap.b/.h (Zabha), including xchg_relaxed()
-                             on the 16-bit qspinlock tail
-__arch_cmpxchg()          -> amocas.w/.d (Zacas), i.e. every cmpxchg and
-                             try_cmpxchg, including the spinlock fast paths
-__arch_cmpxchg_masked()   -> amocas.b/.h (Zabha + Zacas)
-__arch_cmpxchg128()       -> amocas.q
-
-These still build because each one enables the extension with
-".option arch, +zabha" or ".option arch, +zacas".
-
-This contradicts the commit message statement "A kernel built this way runs
-on any hart that implements A; it just does not use AMO".  Should
-RISCV_ISA_ZACAS and RISCV_ISA_ZABHA depend on RISCV_ISA_ZAAMO?
-
-[ ... ]
-
-> diff --git a/arch/riscv/include/asm/futex.h b/arch/riscv/include/asm/futex.h
-> --- a/arch/riscv/include/asm/futex.h
-> +++ b/arch/riscv/include/asm/futex.h
-
-[ ... ]
-
-> +#else
-> +#define __futex_atomic_op(insn, ret, oldval, uaddr, oparg)	\
-> +{								\
-> +	int temp;						\
-> +								\
-> +	__enable_user_access();					\
-> +	__asm__ __volatile__ (					\
-> +	"1:	lr.w.aqrl %[ov], %[u]			\n"	\
-> +	"	" insn "				\n"	\
-> +	"2:	sc.w.aqrl %[t], %[t], %[u]		\n"	\
-> +	"	bnez %[t], 1b				\n"	\
-
-Can this loop run unbounded while the futex hash-bucket locks are held?
-With CONFIG_RISCV_ISA_ZAAMO=n, FUTEX_WAKE_OP now runs an LR/SC loop on user
-memory:
-
-futex(FUTEX_WAKE_OP)
-  futex_wake_op()                    /* kernel/futex/waitwake.c */
-    double_lock_hb(hb1, hb2)
-    futex_atomic_op_inuser(op, uaddr2)
-      pagefault_disable()
-      arch_futex_atomic_op_inuser()
-        __futex_atomic_op()
-
-The loop exits only when sc.w.aqrl succeeds or faults.  The RISC-V
-eventual-success guarantee for constrained LR/SC loops (the one Ziccrse
-provides) does not hold while other harts keep writing to the reservation
-set; the spec says that in that case no hart is guaranteed to leave its
-LR/SC loop.
-
-A process can do exactly that: one thread calls FUTEX_WAKE_OP on uaddr2
-while a second thread on another hart stores to *uaddr2, or anything else
-in the same reservation granule, in a tight loop.  The kernel then spins
-with preemption disabled and both hash-bucket locks held.  The old
-amo*.w.aqrl version cannot be starved this way because an AMO always
-completes.
-
-arm64 bounds its LDXR/STXR futex loop: LLSC_FUTEX_ATOMIC_OP() in
-arch/arm64/include/asm/futex.h counts down FUTEX_MAX_LOOPS and returns
--EAGAIN, and futex_wake_op() already handles that:
-
-    if (!IS_ENABLED(CONFIG_MMU) ||
-        unlikely(op_ret != -EFAULT && op_ret != -EAGAIN))
-
-by dropping the locks, calling cond_resched() and retrying.
-
-The commit message says Ziccrse is "the forward-progress guarantee for such
-loops", which does not cover this case.  The existing riscv
-futex_atomic_cmpxchg_inatomic() has the same unbounded pattern, but that
-does not make the new instance correct.
-
-Should both loops be bounded the way arm64 does it?
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/42069736200
---===============4354460838823676982==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +static void *serve(void *arg)
+> +{
+> +	struct uffdio_copy copy = { .src = (unsigned long)saved, .len = PAGE };
+> +	struct uffd_msg msg;
+> +	int fd = (long)arg;
+> +
+> +	while (read(fd, &msg, sizeof(msg)) == sizeof(msg)) {
+> +		copy.dst = msg.arg.pagefault.address & ~(PAGE - 1);
+> +		copy.copy = 0;
+> +		ioctl(fd, UFFDIO_COPY, &copy);
+> +	}
+> +	return NULL;
+> +}
+> +
+> +TEST(fp_restore_frame_fault)
+> +{
+> +	struct sigaction sa = {
+> +		.sa_sigaction = handler,
+> +		.sa_flags = SA_SIGINFO | SA_ONSTACK,
+> +	};
+> +	struct uffdio_api api = { .api = UFFD_API };
+> +	struct uffdio_register reg = { .mode = UFFDIO_REGISTER_MODE_MISSING };
+> +	stack_t ss = { .ss_size = STACK_SIZE };
+> +	long pid = getpid(), tid = syscall(__NR_gettid);
+> +	uint64_t out[16];
+> +	unsigned long fcsr, shift;
+> +	pthread_t thread;
+> +	int fd, i;
+> +
+> +	if (!(getauxval(AT_HWCAP) & COMPAT_HWCAP_ISA_D))
+> +		SKIP(return, "no D extension");
+> +
+> +	fd = syscall(__NR_userfaultfd, O_CLOEXEC);
+> +	if (fd < 0)
+> +		SKIP(return, "userfaultfd not available");
+> +	ASSERT_EQ(0, ioctl(fd, UFFDIO_API, &api));
+> +
+> +	for (i = 0; i < 16; i++) {
+> +		pattern[i] = 0x4010000000000000ULL + i;
+> +		handler_pattern[i] = 0xbff0000000000000ULL + i;
+> +	}
+> +
+> +	saved = mmap(NULL, PAGE, PROT_READ | PROT_WRITE,
+> +		     MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+> +	ASSERT_NE(MAP_FAILED, saved);
+> +	ss.ss_sp = mmap(NULL, STACK_SIZE, PROT_READ | PROT_WRITE,
+> +			MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+> +	ASSERT_NE(MAP_FAILED, ss.ss_sp);
+> +	/* populate it, so only the page the handler drops faults */
+> +	memset(ss.ss_sp, 0, STACK_SIZE);
+> +	reg.range.start = (unsigned long)ss.ss_sp;
+> +	reg.range.len = STACK_SIZE;
+> +	ASSERT_EQ(0, ioctl(fd, UFFDIO_REGISTER, &reg));
+> +	ASSERT_EQ(0, pthread_create(&thread, NULL, serve, (void *)(long)fd));
+> +	ASSERT_EQ(0, sigaction(SIGUSR1, &sa, NULL));
+> +
+> +	/* lower the frame until the FP image crosses a page at SPLIT */
+> +	for (shift = 0; shift < PAGE && !placed; shift += 16) {
+> +		register long a0 asm("a0") = pid;
+> +		register long a1 asm("a1") = tid;
+> +		register long a2 asm("a2") = SIGUSR1;
+> +		register long a7 asm("a7") = __NR_tgkill;
+> +
+> +		ss.ss_size = STACK_SIZE - shift;
+> +		ASSERT_EQ(0, sigaltstack(&ss, NULL));
+> +		fcsr = 0x1f;
+> +		asm volatile(".irp i, " F0_15 "\n"
+> +			     "fld f\\i, \\i * 8(%[in])\n"
+> +			     ".endr\n"
+> +			     "csrw fcsr, %[fcsr]\n"
+> +			     "ecall\n"
+> +			     "csrr %[fcsr], fcsr\n"
+> +			     ".irp i, " F0_15 "\n"
+> +			     "fsd f\\i, \\i * 8(%[out])\n"
+> +			     ".endr\n"
+> +			     : "+r" (a0), [fcsr] "+r" (fcsr)
+> +			     : "r" (a1), "r" (a2), "r" (a7),
+> +			       [in] "r" (pattern), [out] "r" (out)
+> +			     : "memory", "ft0", "ft1", "ft2", "ft3", "ft4", "ft5",
+> +			       "ft6", "ft7", "fs0", "fs1", "fa0", "fa1", "fa2",
+> +			       "fa3", "fa4", "fa5");
+> +	}
+> +	ASSERT_TRUE(placed);
+> +
+> +	for (i = 0; i < 16; i++) {
+> +		EXPECT_EQ(pattern[i], out[i]) TH_LOG("f%d", i);
+> +	}
+> +	EXPECT_EQ(0x1fUL, fcsr);
+> +}
+> +
+> +TEST_HARNESS_MAIN
+> -- 
+> 2.53.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4354460838823676982==--
-
