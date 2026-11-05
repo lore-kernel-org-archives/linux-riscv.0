@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90C45606A31B
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 03:11:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3ECE8606A31B
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 03:20:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wA26ZTMR;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=rd7VFLaP
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MLGVeXTJ;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=pV8kv3ht
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,83 +14,84 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=8CiCDOYZYicaqWzq1n/n4obpq8tHdVRC8FqEdoLOmig=; b=wA26ZTMR1i72NPertbAt2BTzwX
-	yoy3nJiEs1wYGXsA2Lv4MoxE1Rvhz+6jN0AaKHyxRxjh4JCTlDUCrjupx3wEaNXRkiupdMi9yEDrT
-	0hbo9xdVx+t0wKt0LrESmWmsxtl/xInDDufSVA0gro9GnYmjkXmR4cKdz0aqjvo8zAc0bLvtNlpHE
-	X52gcyvypCqkEleL0o3s/T7/8gWfUi+nsuYTJdd8tikp5uaFe+bnQftohaJ+8DQONOYf3Wf/++zjj
-	+3+7+X0XOERGpdDlWH2337E/cwljTrw9vOmgd9vGQplQE/TJWcHonSWCfi5pHX+WTPuZisB9buZkI
-	N0H4VSJA==;
+	bh=8r7pGytIktPDSWqkLCnrseO/C7OHuRC3eRuzSb1CNo4=; b=MLGVeXTJUbOxpXB72P6Pdp9tgC
+	12II46EIW782fxSJyhvqGmVMv3wriPS8OAakO921d1ErfGiNU8LqZ18bQZecRUOZrg9n4C6bMzbsS
+	lYkwABmLRrKOoDaP6/HAlK8+k8DsNq5IVE0lV49rl1OORuyFc4pdxzAh7lk9rvIcbDBpyYKmfRTDC
+	mWsumRoneoGJNJ1sqLNBFg3CZ+HvVMS8GndqjF/U/w27z20LSmpTyOamKA2j5q0ewasmaELf27ZlQ
+	Au0wkpVGxEqf1DIB9IQTRYEHAb8keEtD2tJsaJSj7hbKLDufPn8oZLYTWo1qleAVPkTSo/wtEYq5b
+	s2S9+4yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOnsd-00000007erk-3Mq0;
-	Thu, 05 Nov 2026 03:11:11 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1xOo1t-00000007fMH-2pDq;
+	Thu, 05 Nov 2026 03:20:45 +0000
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOnsa-00000007eqI-1r9n
+	id 1xOo1q-00000007fL6-2Tcm
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 03:11:10 +0000
+	Thu, 05 Nov 2026 03:20:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1793848257;
-	bh=elWbl+OffFQuIIm3yhMS8vybFO0kHurUhaRvfp7EAfw=;
+	s=mxsw2412; t=1793848779;
+	bh=eiCR7OQYpPnAB0LIBHCUmY4hczAoSVAJP7e9oOsC1mk=;
 	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=rd7VFLaPowHCqUz/0ZqNnCNuCnedb5Ij2k/7h/uKZOENVHl6zdz2w0V2jgdyVPwnI
-	 kZkTkbtvtO6/a7bvL58wCmNWJluOiOaxIPOcgECjPKPYGZVls5JwP4+x7yYIYhBuC6
-	 ktNKqrjNFdhCNosjBFySIALk8O0equZdRFJqS1sU=
-X-QQ-mid: zesmtpgz9t1793848252t934e3f3d
-X-QQ-Originating-IP: PzFdMtmjvpoEZUFriSo1/f1E/ApJhGnMm7BqxTlGO+Q=
+	b=pV8kv3htuM3fk2xOqy8akoSfpO0rVJaNWJwk/eNAD/rSuP8bstO8xlJGT/G20cKM1
+	 +5Xtsa54BgyV5lKkJ1MZ5E15A2fPmIhjgX/3yrA8PuMSTrnPKYv4w1mKxG457e8Q6p
+	 6zSXFOVZsPQSWlC6CaF1mSTH//UatZ8dlaRWeckM=
+X-QQ-mid: esmtpgz11t1793848777t99789d7c
+X-QQ-Originating-IP: 7g3Wfm+iHmokJvzPZ9+1FSgY6SMSZ1RqJkpo1rJsV+c=
 Received: from localhost ( [8.218.183.135])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 05 Nov 2026 11:10:47 +0800 (CST)
+	id ; Thu, 05 Nov 2026 11:19:32 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 10634412826085304588
-EX-QQ-RecipientCnt: 17
+X-BIZMAIL-ID: 3139450742990375673
+EX-QQ-RecipientCnt: 18
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
-Date: Thu, 05 Nov 2026 11:10:47 +0800
-Message-Id: <DMMY4S89W1PJ.WWIUJ905SLXU@linux.spacemit.com>
-Cc: "Bruno Banelli" <bbanelli@gmail.com>, <linux-pci@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>, "Alex Elder"
- <elder@riscstar.com>, "Yixun Lan" <dlan@kernel.org>, "Lorenzo Pieralisi"
- <lpieralisi@kernel.org>, "Krzysztof Wilczynski" <kwilczynski@kernel.org>,
- "Rob Herring" <robh@kernel.org>, "Bjorn Helgaas" <bhelgaas@google.com>,
- "Danilo Krummrich" <dakr@kernel.org>, "Uwe Kleine-Koenig"
- <u.kleine-koenig@baylibre.com>, "Javier Martinez Canillas"
- <javierm@redhat.com>, <linux-kernel@vger.kernel.org>, "linux-riscv"
- <linux-riscv-bounces@lists.infradead.org>
-Subject: Re: [BUG] PCI: spacemit-k1: port C probe hard-hangs a CPU with one
- endpoint on Milk-V Jupiter
+Date: Thu, 05 Nov 2026 11:19:32 +0800
+Message-Id: <DMMYBHEKT16W.33GZJ04KWEPY1@linux.spacemit.com>
+Cc: "Rob Herring" <robh@kernel.org>, "Yixun Lan" <dlan@kernel.org>, "Troy
+ Mitchell" <troy.mitchell@linux.spacemit.com>, "Ping-Ke Shih"
+ <pkshih@realtek.com>, "Anirudh Srinivasan"
+ <asrinivasan@oss.tenstorrent.com>, "Alex Elder" <elder@riscstar.com>,
+ "Vladimir Oltean" <vladimir.oltean@nxp.com>,
+ =?utf-8?b?VXdlIEtsZWluZS1Lw7ZuaWcgKFRoZSBDYXBhYmxlIEh1Yik=?=
+ <u.kleine-koenig@baylibre.com>, "Pengpeng Hou" <pengpeng@iscas.ac.cn>,
+ "open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+ "open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>, "open
+ list" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] PCI: spacemit: Ignore PERST# bit for controllers
 From: "Encrow Thorne" <encrow.thorne@linux.spacemit.com>
-To: "Manivannan Sadhasivam" <mani@kernel.org>, "Encrow Thorne"
- <encrow.thorne@linux.spacemit.com>
+To: "Ali Tariq" <alitariq45892@gmail.com>, "Bjorn Helgaas"
+ <bhelgaas@google.com>, "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, "Manivannan
+ Sadhasivam" <mani@kernel.org>, <linux-pci@vger.kernel.org>
 X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20260825052249.66921-1-bbanelli@gmail.com>
- <DLKRGJBNFVQO.15WZ2SXQLOY0T@linux.spacemit.com>
- <xuafb5qshj6rowe3v6sxyfvtemy4wg2ttqs7lcwu3txu2mpyzm@fr72njh6zgvi>
-In-Reply-To: <xuafb5qshj6rowe3v6sxyfvtemy4wg2ttqs7lcwu3txu2mpyzm@fr72njh6zgvi>
+References: <20261104140750.761330-1-alitariq45892@gmail.com>
+In-Reply-To: <20261104140750.761330-1-alitariq45892@gmail.com>
 X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: M6X4Jj6nmWQyum/iMKz8TxjkkJ7y/4Dfp2UGPg1Nck+98wNvcvLORLQs
-	MTB5O+r07L6tCVLtuO8Q2MdhRqzq3TxfbCYqtA8mThs/mJQ42AJCsWlUrjwCKmKxSEB0st/
-	IjM7gJMpl0vK+PMSooTN8SVRqieZ9ohDChhZds9zyGQwfDtKk4TQvltDqb+9r330b+XCY+0
-	iL1HPFkOuIMKeReO07ijlngEnPv9NVlpprYEv2MMlXcxxS5MCLD0SaCbe3ELsyBUueufj9q
-	i+HszP7fBQWcQV5w12SegnqyLOSnvypcpnuwZ7Jgu/+yOTcO/kzScYLVawOCiRNk7qU+/4m
-	4/Jpb4G2toR/IWVsOL4uL9sM0yy4EGML/hTPlt/tLUqnceEUCsxsIVnUWOvAzF4Kz292Ne/
-	be/SKCQ4e8d3yMAZyYOO+JgK0M6OV7fGiN35oVomkIgnSe3R+1zf1b6vLecf1n+wEev76bH
-	P7ireGMJUrUFQ88J3Thhl8TRmVuJIsHY3bBwaGHYSjQWL4jowG6pUBpkYS1/IXP7xByB27k
-	edIQjGjNwWIIzRQZunTLQbMYB6A5/Wv/5gRj8Gaf88nmSM54n5K44c1svqCW96ozymjZEwx
-	aNP+VCuXVPeulZgLk/NVYczO7u9rrkJ3wGwjkSmzOAQzHeY2EoMOgqgKBMXIDXyGndvFtJO
-	25FLZQ89F+jPQBZ+DHVgRICDkuTQ8ff/CMGLFPa5NdTELSRaoQVVCrCeyUft5NIPe6laAfM
-	hPXNKGIdq+rjamRW6q7/kOucLU2ryC/KKQgUIVJE52C+F3x0hXXs8hOJu6uFZLA+c3w6aX2
-	+bh2Vpc+n13mQuSXsPDfyNKyZRaJH8fdac44JSlLIk4ytcSsBMsBZ1mCSlIB06+ATCh4ePp
-	o6IS5E7coP1OgX6UjxVZCmEZsebL1WeTIfXtELzTWMKuzdIAPuvrpRHWfe9WyeU2nMbI0hY
-	bE7hxXQzVrocer1d+7Cw0BP3CPTbGcRnrkpXDx8bk7RPCmprqd6HnWyYCqZSMegoHSPu6qq
-	HIwRdlow==
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: Oe3CFHOZR6DzuKIN8uHjvMBUlgk1xGkGdFZqmpgKu3g0u37UFzc0TIbT
+	Y8xq9vGlcQq711GJSoeEdDuALZKuJBFadfBD0r36QoOEiyzhUp3fRmEMHaHEXmyReqqo0/A
+	M9uiJK/MdUGO6tM5iJWFTVkyByeTLUwEX83UEiLuK3sce14WXZswrOKVZLcUH5a3ufY/cEm
+	upYkUv7hUH2cxyQ0DEF7cnAK/U3+viZqxO6HqHqUB+XMmLklGrCEqWMu1SPGx1QG4uRj7HY
+	afr64LaJXbTXcV7VYcoKgQdfrBiYtJaVOiCfx1BjI6t90PHJVPP4vIq72kNgja976fCi3ge
+	9IF4RA8sNJphO9MNUKbs18TmEHshcArAgJwEIuTny7qFFSyVV6a8MvxcBjU7IcNVaKv5mtl
+	GfDBKRNDTeWFf5mLOL7PU5QmTrLZAyW+CA2qo0hRDvBw1mSXKzNlwWPWLBfP881MBSqOEkZ
+	3b0Wk5L2vqlSXMMQ7161Cuvf/mXX7Hbw8gVB+gkof0BjqJfSe19Y1js9RoS5lntIfTdmPfP
+	5ix2QPczldSjrrwB1LSICnHq7aPmUwyB6uKEFSqvX+upMff+DZoaQoEqmUkXUq2ZMGTw1T4
+	lAC/GHr7+2myJV1xWMyoNZCOPfXEtH+1e4Y1ML6Hdn0JoV12K3lKE8AgDxx0RBgECcdLEe4
+	4tzORUrW//kfDfjoFkb9DPLV3ftwgZlfMl9PQxB1GaPGq2ByrUMyTBELaq0qIvTRgpppMbG
+	zVz4+h/40TZV9EJwC2mgaPMzAFoeTX8wURiDJPSgQTPfJJJ1Wgf+ebxgkZfwhD9/Ff0cNGU
+	ZLxjKBeF3uaIUuppDvHS0sx8w1HZLPM/mwfH8bbWMOl2/hsd/RrJSXG6gfFjMwFBL0fgn8E
+	Dug7QPyGFMW/yaN93ILzICTaBbmK+ttblsceFHQ80KDOuS5j3W6mE0dviuYrQ0Ntsb7mWy3
+	vbVqnNDV+VOy67STvnpO4FK1teoeSOO7YqPE6TW8cc81rQEZr/dSgPi7hq0WsHGoSIkpdIa
+	+vxBnsEkCCHdORoaezMaBJM2ZU2tE0vV3JGxEmrAcgvLKXQb1QLzLGvUt9vvU4UXy0ce+rM
+	0NO+KlaL9UDj33hVKhpGE2I0StSNBGF9b6wb8y0iIQT94smKZD+8/M=
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_191109_033652_03C3C58B 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20261104_192043_446282_AFB9F6A4 
+X-CRM114-Status: GOOD (  16.38  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,46 +102,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-T24gTW9uIFNlcCAyMSwgMjAyNiBhdCA0OjAzIFBNIENTVCwgTWFuaXZhbm5hbiBTYWRoYXNpdmFt
-IHdyb3RlOgo+IE9uIE1vbiwgU2VwIDIxLCAyMDI2IGF0IDAxOjU1OjQyUE0gKzA4MDAsIEVuY3Jv
-dyBUaG9ybmUgd3JvdGU6Cj4KPiBbLi4uXQo+Cj4+IEhpIEJydW5vLAo+PiAKPj4gVGhlIGlzc3Vl
-IHdhcyBjYXVzZWQgYnkgYSBtaXNzaW5nIGhhcmR3YXJlIGNvbmZpZ3VyYXRpb24gaW4gdGhlIEsx
-IFBDSWUKPj4gaW5pdGlhbGl6YXRpb24uCj4+IAo+PiBUaGUgUE1VIFBDSUVfQ09OVFJPTF9MT0dJ
-QyByZWdpc3RlciBjb250YWlucyBhbiBJR05PUkVfUEVSU1ROIGJpdCAoQklUKDIpKS4KPj4gVGhl
-IGhhcmR3YXJlIG1hbnVhbCBkZXNjcmliZXMgaXQgYXMgZm9sbG93czoKPj4gCj4+IOKAnFdoZW4g
-c2V0IHRvIDEsIHRoZSBQQ0llIGNvbnRyb2xsZXIgYW5kIFBIWSBpZ25vcmUgdGhlIFBFUlNUTiBz
-aWduYWwgZnJvbQo+PiB0aGUgbGluayBwYXJ0bmVyIGluIGJvdGggUkMgYW5kIEVQIG1vZGVzLuKA
-nQo+PiAKPj4gVGhpcyBiaXQgd2FzIG5vdCBjb25maWd1cmVkIGR1cmluZyBSQyBpbml0aWFsaXph
-dGlvbi4gQXMgYSByZXN1bHQsIHRoZQo+PiBjb250cm9sbGVyIGFuZCBQSFkgY291bGQgc3RpbGwg
-YmUgYWZmZWN0ZWQgYnkgdGhlIFBFUlNUTiBpbnB1dCBkdXJpbmcgdGhlCj4+IGVhcmx5IERCSSBh
-Y2Nlc3Nlcy4gV2l0aCB0aGUgSW50ZWwgSTIyNS1WIGluc3RhbGxlZCwgdGhlIGZpcnN0IERCSSBh
-Y2Nlc3MKPj4gY291bGQgcmVtYWluIHBlbmRpbmcgYW5kIGhhbmcgdGhlIENQVS4KPj4gCj4KCkhp
-IE1hbmksCgo+IFdoYXQgZG9lcyB0aGlzICdQRVJTVE4nIGJpdCBjb250cm9scz8gUEVSU1QjIG9y
-IHNvbWV0aGluZyBlbHNlPyBQRVJTVCMgaXMKPiBjb250cm9sbGVkIG9ubHkgYnkgdGhlIFJvb3Qg
-Q29tcGxleCBidHcuIEFsc28sIHdoeSBkb2VzIHRoaXMgbWlzc2luZyByZWdpc3Rlcgo+IGNvbmZp
-Z3VyYXRpb24gb25seSBhZmZlY3RpbmcgSW50ZWwgSTIyNS1WIGVuZHBvaW50IGFuZCBub3Qgb3Ro
-ZXJzPwo+Cj4gLSBNYW5pCgpQQ0lFX0lHTk9SRV9QRVJTVE4gbWFza3MgdGhlIFBFUlNUIyBwYWQg
-aW5wdXQgdG8gdGhlIGxvY2FsIEsxCmNvbnRyb2xsZXIgYW5kIFBIWS4gSXQgZG9lcyBub3QgY29u
-dHJvbCB0aGUgZXh0ZXJuYWwgUEVSU1QjIG91dHB1dC4KT24gSzEsIHRoaXMgaW5wdXQgcGF0aCBy
-ZW1haW5zIGFjdGl2ZSBldmVuIGluIFJDIG1vZGUsIHNvIGEgbG93CmxldmVsIG9uIHRoZSBwYWQg
-Y2FuIGFsc28gaG9sZCB0aGUgbG9jYWwgY29udHJvbGxlciBpbiByZXNldC4KCldlIGZvdW5kIGEg
-MSBrT2htIHB1bGwtZG93biBvbiB0aGUgUEVSU1QjIGxpbmUgb2YgdGhlIHBhcnRpY3VsYXIKSW50
-ZWwgY2FyZCB3ZSB0ZXN0ZWQuIFRvZ2V0aGVyIHdpdGggdGhlIEp1cGl0ZXIgYm9hcmQncyAxMCBr
-T2htCnB1bGwtdXAsIHRoaXMga2VwdCBQRVJTVCMgbG93IGZyb20gcG93ZXItb24sIGluY2x1ZGlu
-ZyBkdXJpbmcgdGhlCmZpcnN0IERCSSBhY2Nlc3MuIFRoZSBvdGhlciBkZXZpY2VzIHdlIHRlc3Rl
-ZCBkaWQgbm90IGhvbGQgdGhlCmxpbmUgbG93IGluIHRoaXMgd2F5LgoKQWZ0ZXIgcmVtb3Zpbmcg
-dGhlIGNhcmQncyBwdWxsLWRvd24sIFBFUlNUIyByZWFjaGVkIDMuMyBWLgoKUmVnYXJkcywKRW5j
-cm93IFRob3JuZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+On Wed Nov 4, 2026 at 10:07 PM CST, Ali Tariq wrote:
+
+Hi Ali,
+> The k1_pcie_init() does not set PCIE_IGNORE_PERSTN bit of the
+> control logic register, which causes controller to reset itself once
+> PERST# signal is asserted even when acting as host.
+> On Orange Pi RV2 (SpacemiT K1), this resets the controller and wipes
+> the IDs. k1_pcie_deinit() leaves PERST# asserted, so when k1_pcie_init()
+> runs again, its first DBI access hangs the CPU.
+>
+> Set PCIE_IGNORE_PERSTN bit of the control logic register of APMU
+> in k1_pcie_init() before enabling resources so controllers
+> dont end up resetting themselves when PERST# signal is asserted.
+>
+> Fixes: ff64e078e45f ("PCI: spacemit: Add SpacemiT PCIe host driver")
+> Signed-off-by: Ali Tariq <alitariq45892@gmail.com>
+> ---
+> Hang log: https://kernelci.cloud-v.co/scheduler/job/420
+> Fixed Log: https://kernelci.cloud-v.co/scheduler/job/430
+> ---
+>  drivers/pci/controller/dwc/pcie-spacemit-k1.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+>
+> diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> index 92a71ea90ac3..af6028e8825a 100644
+> --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> @@ -47,6 +47,7 @@
+>  
+>  #define PCIE_CONTROL_LOGIC			0x0004
+>  #define PCIE_SOFT_RESET			BIT(0)
+> +#define PCIE_IGNORE_PERSTN		BIT(2)	/* 1: ignore PERST# */
+>  
+>  struct k1_pcie {
+>  	struct dw_pcie pci;
+> @@ -131,11 +132,19 @@ static int k1_pcie_init(struct dw_pcie_rp *pp)
+>  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+>  	struct k1_pcie *k1 = to_k1_pcie(pci);
+>  	u32 reset_ctrl;
+> +	u32 ctrl_logic;
+>  	u32 val;
+>  	int ret;
+>  
+>  	k1_pcie_toggle_soft_reset(k1);
+>  
+> +	/*
+> +	 * Ignore the PERST# signal so the controller does not reset
+> +	 * itself when it pulls PERST# low.
+> +	 */
+> +	ctrl_logic = k1->pmu_off + PCIE_CONTROL_LOGIC;
+> +	regmap_set_bits(k1->pmu, ctrl_logic, PCIE_IGNORE_PERSTN);
+> +
+>  	ret = k1_pcie_enable_resources(k1);
+>  	if (ret)
+>  		return ret;
+
+Thanks for investigating this and submitting a fix.
+
+Our testing also confirms that setting PCIE_IGNORE_PERSTN prevents
+PERST# from resetting the local RC and resolves the DBI hang.
+
+I will send a v2 of my earlier patch with an updated explanation
+and the test results.
+
+Regards,
+Encrow Thorne
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
