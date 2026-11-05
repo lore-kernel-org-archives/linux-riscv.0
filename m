@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CA35606A326
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 16:17:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EFB0606A32C
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 16:18:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qPhTjb38;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EDdUrsG5
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YEg5RlNw;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bfTh6wrW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,66 +14,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=WucKL/dATuxtZ/WvcF1VRzH/fFqmth2ZH0zfiEIt9mk=; b=qPhTjb38P4CgVvrPdUuVWCcENk
-	TOBhn/cPNY+Z+5JhBiFeTHAx6F5BtcOL33LyBsFJG3mpT/jDTUkLVRYvgBHAGDqe0jK+plF3FcV+1
-	QX7VSwEKuXG7Sk1nQucnMN6MEj4gMa2TaVWOqOw1taZoMu2Rqz4lWM+ehPa8FEwbCBG/ZX4CIzk2K
-	JCpPTcE4Ztndymvzg++zdVXq7kkM85+0Ptav9Nnnvb+YbQ+hVOpqWdFPoAiozDzB0wgevsBZ6KNfL
-	btjJBa3/X6rMVsSt1xG9ybg4Adc1yWMOYmQivussrqYWIo3Vq3/B4kKrJvMzhgyHhXlBYwfSSE14V
-	Y4+yuUJQ==;
+	bh=qc9k0ed5XopMMzxBqU1ykhZU49z819W1Yvxy/uqWlM0=; b=YEg5RlNwKhrfHsXrEjUXteNoyd
+	CD2bbRIhZW1HO+36FAqeOUa4Yg70/Dvn7QhYb3ZPVx7tel1mqN54koVzeNnJWSpLRr+eIS1RyA2V1
+	c+nRyE77zJ8d5QekhNvyO9Lw5PV68x8NrGWUHPcxehXlHZIxRUrInlLPQnY7mZAVJEGEabVcx4maB
+	jjytrr8De/iVvFAz7rMhKzjJvaYrTGj4rkJ3zLQAMv9D4DWu3vx12FzWFgjNIcZEkBqwWo86vIIVi
+	vj4L7wcYmiR5ySoFZ3SMbx74bFwPttcTAjACdq/7l52D3K9xwPAXyC5YyS+3XwKWRG+5Bs8xlENa7
+	qhcqa3gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP09j-00000009ZAW-1IWY;
-	Thu, 05 Nov 2026 16:17:39 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1xP09t-00000009ZD9-1rQw;
+	Thu, 05 Nov 2026 16:17:49 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP09f-00000009Z9X-47de
+	id 1xP09l-00000009ZAq-0Tfb
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 16:17:37 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-3b09a83d12aso1149597a91.2
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2026 08:17:35 -0800 (PST)
+	Thu, 05 Nov 2026 16:17:42 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-cc147d86bebso639059a12.0
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2026 08:17:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793895455; x=1794500255; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793895460; x=1794500260; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Sbmd56cc2B8bxAxFxQAEiOtDnzrJfFeIJKzZDYlgN4Q=;
-        b=EDdUrsG5L/n4+EFlrt6aJ0QOXsBWE7UZ7ktY+ucVhwMwkOE+4M8uum9T83Jot1P5NB
-         OWuLrKhdVDSkZKq8jBazmcDLSWih8kdZ5cPfh0caZU0Oo4A6TAxFkDpzBmTLtkNPSaI1
-         lYSN+iMH3QgGtyBwSSScfBVRV9vTR7PKfoJ1yDCLEPfzaI5ZjQVjwjw7TuAlyqKsaGBK
-         OeZpoygDN+EnrX0alwc7OATtLXNu3qATzO2MebIfGfADRFTqNW0xyr04nlquZ5lK37FA
-         qJp5S3LopfR6Vx58ML1i20c8E/KPwy6W9DXweE/o6rtL2tPwzA0dCubyUVHTARfgcHTQ
-         8CTw==
+        bh=mPKBLlnM3LFTy4le1GdgYQ+LvOCf+Ky5Ifcj+VZbfQA=;
+        b=bfTh6wrW1Sq7Eg1Nr6zX0GbCREQwRRM+amtjTNVt1tHdR6gHa67TD6CHX5dsXSBrwF
+         ygqYS7wyvkAYfdi6I5eId6wvYhiuyjEtHWM/96piD+MbdJPGDIIl7Mw6wGyqEgC78SvW
+         47FcthVAWmEveacGEXi1G1DXNfPVSXdtLSA+OLL6q6AsXBpNJibszO3C1usNIPpcSPBv
+         UuJDAM5PYfdeKvLXDHNJvr3oySGXpHJLOt6FfXjSwNVhuVlRLBf7Y/9+j0meMjVfSmUK
+         XIlBZTsbZn0ffCHIfqOZ0qVZANakbo+6Yf3WVwecnlKi5eFQxXNOtW+QU4ercxiUPWHR
+         fHNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793895455; x=1794500255;
+        d=1e100.net; s=20260707; t=1793895460; x=1794500260;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Sbmd56cc2B8bxAxFxQAEiOtDnzrJfFeIJKzZDYlgN4Q=;
-        b=L5a9RiTy17063IvqjorFLfpqdBOWy2VuQMZ+A9dxSSEv//xrzZxM7J+HKp1z3UVBie
-         QqGtu+lSYz2+l1kTSw9JrgNmJXNAPmrFEj0/Vn8IQl6iZqNu1uGJ220lDaTKvuyeqRm7
-         T2+RKAhZ38vIqn8F1mt/OLHPzAZOf/4XDue47XDz7FznSh9S7PaT8yqgjrbIXdaGGD3q
-         twhgp9cfRSedpYh6DauKPjVhWeIE3rIY7AxvUMyvgItv/zMoYvG7E0I+LytWM98LLOMn
-         ybjp32QHTXmTSTEmCFcvHGBA8u9L76qsEpFhtgj2fq59na66l655b5YwSDZSdMnpizoX
-         hDaQ==
-X-Forwarded-Encrypted: i=1; AKwUvByILnSRtULEQBUIDX61jmCDOniJSU3G6ed17b15exaYVYygEjh15l0xHHTAKVvLp2STUS4kBJqvqUooEw==@lists.infradead.org
-X-Gm-Message-State: APuU4Z/GrbFJXjb1nq663gvyw+0CCWHT1dou2Kkb0Gk15iQrkFXW8ipp
-	BRbuSxVR+5ccMywt13GSvbE7j7H0sydBNYVy/AjpDJ9QusWeKxVmKRi2
-X-Gm-Gg: AYBFou0M5M3F2ahmYywHTvcuv/JO27r31E1dB1OjyfabaCVVDYjUP0RJP0IE/DtsbLs
-	2fFfT1ZusDelq53zOKdVu8mjkUAoC05A7IRywnhexJAF8dtwDP+B0HpxWXk+wA+uj0leE9rHtAP
-	2kWrXBTcY6qGK8RxQNF8DRGdySsk/QhmVMd13DOxFAryHwwigN+O/GU4XiSKsOKbFVs+ALBpIrY
-	NqCcxdz5ncHRl4h5g7M5HgGF/wKj3koBWW25xbENEZAlIUqF/r029cuinaHkT7+bhRlDpk4MMUR
-	+hNsTmcjU6IV+ljQv47bz+Hb5an6INFXkX0d4sj5fYPsxk7+65ZL7AEGLmpMunbiL36kiAmwREl
-	zLricr+rTl+OApNoKxygjADux7ru7K/NpT7kamWeN9zZpVvyf1agalwz1uqdCHdwOGGJcct16q1
-	mDSi7WobaiylyM9ZB/6uyTA8zC7WFs19/YIZPbyhS8EMG1CM15ki8y/Uzh0r//+e/LcIs3wmQGS
-	69DqqgSc5OsoVI3KsFT00Vj0ll2E3vx+g1B9gt3gz6Erpv7mLp2wE7Tdl7xSNBzdiDuXuIWufZC
-	EROFddl5c0VH7raIfQOZ3EbvWu7tKtAVeuwCbIPXgkzHJWzf8YLTjc0trT7C3cJGLg2ovWu5HlP
-	7FcFSVK1orRzYi2QZqxtO9DWpvrhU3iw+PdvSUUAW3ize
-X-Received: by 2002:a17:90b:4b90:b0:3a4:7730:33dd with SMTP id 98e67ed59e1d1-3ae8984b662mr17099226a91.58.1793895455036;
-        Thu, 05 Nov 2026 08:17:35 -0800 (PST)
+        bh=mPKBLlnM3LFTy4le1GdgYQ+LvOCf+Ky5Ifcj+VZbfQA=;
+        b=fjtvU8Qu/5DIPCmAXhWj7TZO0qQSfObCrvRovy91y2JIM6MkOGOWKfVs+PvtKyOsyX
+         knrMm7BIW+JrWlMLmpImA5mLrzTO13RmFZrXX+h04E7migP2iAOcm5ySk60ZSAhhAUB6
+         q7nE/v3Z6EDpINbj6mk+FGrAInEDJkWzcMewShlTtui4XcKAhxXxd8EZgWMp8OXxCGGF
+         8e34ehOTQnOarY+LTGsNSsI/yPBMtZ4A0jNlUT2o81T82AuGJRALQZ2JaxekHNDuaoLf
+         QFHq23zGE/dvibs2+zOZYGvQz13fKEctH6j3/2gmth4AZuh86J0+a9CzF2l3A23PE3uU
+         0new==
+X-Forwarded-Encrypted: i=1; AKwUvBx8HcqdUQ8t7Z3yRazi9+zJsl8BzFNlLVvBxU73o8rD8whdnw3cXf5Xx+fRv1535+gShQWlyWpAAmXZig==@lists.infradead.org
+X-Gm-Message-State: APuU4Z+uEDtiB8tXJkcmNhjeoIjtxR3WrHGf3MnS1s+QoAO5/OxIuqA9
+	qg1Tol5a0LqQaYIfp4bKW2r8eT6tB3X3fEZOCS/Yxm7bRPdqwMCaSiWm
+X-Gm-Gg: AYBFou2RrkqqMYQPxq0E+yWPp9cjVArD6+C5OveGCARrpmpCu4hysi0B+y1JPcqSlkC
+	B+ANUijKFMPvcbHZGf8jTQJHHCh4Zzo3Qlq+hmuJdZdY/wX2prFiiE9Hd0cVAsFfZNU2LLoSKWc
+	mbTART5VLbteDC5A8rNLxxrYOgVejhUvn1zqp0CVcvOj+nb4y08/dn4x4AwgB7CHubIfggpK0m9
+	l0cHFVtmCyiWoqGc9v4EgenxZEeTVsk1rKIlTI7Fhb9W/MHsa6qJdEE7yYYqk2Aeuwz6Orgx5y8
+	RLsupqZhxl4bUpyjx8mDAYLyq1rcgbDyvvd390cFbJzvC6IqAYE2XW8r/CyM817kn2zINO06994
+	pEAOMD8ohmV4nWQnw3zwlGYP2IIGlLASqM7ngXreZejXGX2miQ+VRMQKLcOYcCMc1D2Z0SYxusI
+	MbH1E3SmcQkzt0r1jZmJyGGQwSDKhNcRpQAtqp1j7TTykVnnFFmscr+J43xNZb4Pf4e9iXvlrRR
+	FtHNZejjqkU3hDuJn7QGM3aZZ7PVvsBQJov3buibmvvJlyqyXw95D+bQbG/JPXokOd5mgtW2nLP
+	hqLSO7qbME31yN0SGHLfkNvYYxIvrmpUYOvs7ZAK11abdE7GJ3Cr1g5nktYNgRgeyhMHKEpld6z
+	gkEw9flRyS0NehhGTEyug53Q=
+X-Received: by 2002:a17:90b:3e4c:b0:3ac:36c7:c144 with SMTP id 98e67ed59e1d1-3b0afc6476bmr1703983a91.28.1793895460202;
+        Thu, 05 Nov 2026 08:17:40 -0800 (PST)
 Received: from visitorckw-work01.c.googlers.com.com (55.11.81.34.bc.googleusercontent.com. [34.81.11.55])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b3287a60sm4981556a91.13.2026.11.05.08.17.29
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b3287a60sm4981556a91.13.2026.11.05.08.17.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 08:17:33 -0800 (PST)
+        Thu, 05 Nov 2026 08:17:39 -0800 (PST)
 From: Kuan-Wei Chiu <visitorckw@gmail.com>
 To: daniel.lezcano@kernel.org,
 	tglx@kernel.org
@@ -90,17 +90,17 @@ Cc: pjw@kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-m68k@lists.linux-m68k.org,
 	Kuan-Wei Chiu <visitorckw@gmail.com>
-Subject: [PATCH 1/8] clocksource/drivers/timer-goldfish: Fix latch corruption with spinlock
-Date: Thu,  5 Nov 2026 16:16:55 +0000
-Message-ID: <20261105161702.3515900-2-visitorckw@gmail.com>
+Subject: [PATCH 2/8] clocksource/drivers/timer-goldfish: Fix oneshot mode spurious interrupt
+Date: Thu,  5 Nov 2026 16:16:56 +0000
+Message-ID: <20261105161702.3515900-3-visitorckw@gmail.com>
 X-Mailer: git-send-email 2.56.0.398.g882cbad275-goog
 In-Reply-To: <20261105161702.3515900-1-visitorckw@gmail.com>
 References: <20261105161702.3515900-1-visitorckw@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_081736_066124_F9363C3D 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20261105_081741_246364_622D7767 
+X-CRM114-Status: GOOD (  10.25  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,67 +122,42 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Reading TIMER_TIME_LOW latches the upper 32 bits of the current time
-into TIMER_TIME_HIGH. Because goldfish_timer_read() reads these two
-registers without synchronization, a concurrent reader from an interrupt
-or another CPU can read TIMER_TIME_LOW in between and overwrite the
-latched high bits.
+goldfish_timer_set_oneshot() writes 0 to TIMER_ALARM_HIGH and
+TIMER_ALARM_LOW. Writing TIMER_ALARM_LOW arms the alarm for timestamp 0,
+which immediately triggers a spurious interrupt when TIMER_IRQ_ENABLED
+is set. Meanwhile, goldfish_timer_shutdown() disables interrupts without
+disarming the alarm.
 
-Protect the register read sequence with a raw spinlock.
+Use TIMER_CLEAR_ALARM to disarm the alarm in both functions.
 
 Fixes: c92e7ef16400 ("clocksource/drivers: Add a goldfish-timer clocksource")
 Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
 ---
- drivers/clocksource/timer-goldfish.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/clocksource/timer-goldfish.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/clocksource/timer-goldfish.c b/drivers/clocksource/timer-goldfish.c
-index 3fe12c7ee7b7..cc02b012ff76 100644
+index cc02b012ff76..b1dc8b388470 100644
 --- a/drivers/clocksource/timer-goldfish.c
 +++ b/drivers/clocksource/timer-goldfish.c
-@@ -6,6 +6,7 @@
- #include <linux/clockchips.h>
- #include <linux/module.h>
- #include <linux/slab.h>
-+#include <linux/spinlock.h>
- #include <linux/goldfish.h>
- #include <clocksource/timer-goldfish.h>
- 
-@@ -14,6 +15,7 @@ struct goldfish_timer {
- 	struct clock_event_device ced;
- 	struct resource res;
- 	void __iomem *base;
-+	raw_spinlock_t lock;
- };
- 
- static struct goldfish_timer *ced_to_gf(struct clock_event_device *ced)
-@@ -30,6 +32,7 @@ static u64 goldfish_timer_read(struct clocksource *cs)
- {
- 	struct goldfish_timer *timerdrv = cs_to_gf(cs);
+@@ -55,8 +55,7 @@ static int goldfish_timer_set_oneshot(struct clock_event_device *evt)
+ 	struct goldfish_timer *timerdrv = ced_to_gf(evt);
  	void __iomem *base = timerdrv->base;
-+	unsigned long flags;
- 	u32 time_low, time_high;
- 	u64 ticks;
  
-@@ -37,8 +40,10 @@ static u64 goldfish_timer_read(struct clocksource *cs)
- 	 * time_low: get low bits of current time and update time_high
- 	 * time_high: get high bits of time at last time_low read
- 	 */
-+	raw_spin_lock_irqsave(&timerdrv->lock, flags);
- 	time_low = gf_ioread32(base + TIMER_TIME_LOW);
- 	time_high = gf_ioread32(base + TIMER_TIME_HIGH);
-+	raw_spin_unlock_irqrestore(&timerdrv->lock, flags);
+-	gf_iowrite32(0, base + TIMER_ALARM_HIGH);
+-	gf_iowrite32(0, base + TIMER_ALARM_LOW);
++	gf_iowrite32(1, base + TIMER_CLEAR_ALARM);
+ 	gf_iowrite32(1, base + TIMER_IRQ_ENABLED);
  
- 	ticks = ((u64)time_high << 32) | time_low;
+ 	return 0;
+@@ -68,6 +67,7 @@ static int goldfish_timer_shutdown(struct clock_event_device *evt)
+ 	void __iomem *base = timerdrv->base;
  
-@@ -107,6 +112,7 @@ int __init goldfish_timer_init(int irq, void __iomem *base)
- 		return -ENOMEM;
+ 	gf_iowrite32(0, base + TIMER_IRQ_ENABLED);
++	gf_iowrite32(1, base + TIMER_CLEAR_ALARM);
  
- 	timerdrv->base = base;
-+	raw_spin_lock_init(&timerdrv->lock);
- 
- 	timerdrv->ced = (struct clock_event_device){
- 		.name			= "goldfish_timer",
+ 	return 0;
+ }
 -- 
 2.56.0.398.g882cbad275-goog
 
