@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 516C7606D80A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0750606A33C
 	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 16:18:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Prm7oomU;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UF1qwqz/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OY6w6lB+;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q1LHtZg8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,66 +14,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=IxB0BROEOsSP4EY39yq3wUBDXbcqKWV593yGrXAtGso=; b=Prm7oomUXzPN+kKa+o/9TBd7iu
-	SaPaY9649z52UW930LwPFrC791MWTQ6ND9bLdsGSw5DbDBUyS2905CuttUAQ3PHOEajTD9r/ygLx4
-	1V32BA4OcC9RTfoZmOmarpP+far/JoFgyzgX2QFwp37KskACXje0LOLY6rITaL/8dHI+RXnYIddqb
-	I/SyVPFLfIND6vR0lw/YxlXKWOofiCqC3ku8g6mPGsgFoO7VYW2XGM5F8sz5pd/G1cAdLtiNo6N9g
-	384yc7mOtJT7wyBcK2it1jBCz2C+ykS0bIwsHBE0RrP1JzjEQjo3DDj3hID6k3Nl4bRzjNXVMwLW6
-	taotflFQ==;
+	bh=Whit5TO3nnTtnrPOm2zxH3vx2Y3LcXVPP2SPwzIclMo=; b=OY6w6lB+n+DGkjGkbBIi6dRcQ/
+	wG9FlRkIEq+aXLkC9fYxo8gW5ZWmMYj2I5wipYC54rHmsUMh+OL8IPsOvUJp1lDiknoKe2wl3fupV
+	4p84MSFbCgSZxJhGnjHerNsz/e1BW/TIkcJve3MCTSvA2mGT8aImIZfIFTsFtzQhxvOuQCmadQyEQ
+	+dqI9H+nwttQKQeiEAcZc7RvJo/kYV/LvVYbz33CM2lcluXGsXAQ5pyL2eq5hpdQfvMXSVX1BVKV1
+	5J4OlUBaOa6sYe6qU5KT3FVTofAXj//zvWj0JsaGFKC+cIPrwqmfTpCrN5VeDNv/invriWySbOGxW
+	vnGRo66Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP0Aj-00000009ZSU-04yo;
-	Thu, 05 Nov 2026 16:18:41 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1xP0An-00000009ZW1-1Opc;
+	Thu, 05 Nov 2026 16:18:45 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP09w-00000009ZEB-17C8
+	id 1xP0AA-00000009ZH7-0S0I
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 16:18:18 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-cc7d154ec4fso964425a12.0
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2026 08:17:51 -0800 (PST)
+	Thu, 05 Nov 2026 16:18:19 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-3b0b3438540so700495a91.0
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2026 08:18:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793895471; x=1794500271; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793895485; x=1794500285; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=1d0Bz7grZ5N14ov6UkXjfbPvCgrK/lOG24d5Ad8AHHw=;
-        b=UF1qwqz/y2KOcsjhuK6kbMP783DxhtOkY92d9q47vb6Id/b2PuD6EU1feM1rgeJ0uV
-         swA24FBGo8v1xervmFMzA5Hfhd9HOqokqiL8QjAAGskrd5ioor/jawT7Frpz4NPzKKJA
-         KkV94d8kRHirjePNB/dcA+YHfZ/LPXbW0mrFtxbBGtvSi9L4YnWisyBHVTfiWX97B9bl
-         Qm15HFHZd450Ay+b3e3PxnQS3Koq9ZoJBYfK668oaJIELaqnGWOlMW2slppas1qmZR7Q
-         roPI8w3rTUHIA14VyyjjgZVEDL5FjXAs07Noila6RflzmcQZTO1iVRE5afUDliixqx82
-         JwYQ==
+        bh=Rcpn9+uSzInsVdObsHDfzPAAeCWQb6QnmPjXwJKGazg=;
+        b=Q1LHtZg8jYsm+bYJ2kw+Brx6Ssfm9ZArjFmYIRLOq4XesYxoBM/kKAFOYvoTsMd/Bz
+         nm1kcRclRjxpRhprfnp22MBdtovTlcSc9chlwXGJG7uQDK0dfWkyPDzW4ptk14t1yWOJ
+         /VlLad27Yszf9G9Z/5DLyUTThuayNryhT7RBqxh5ToN6ui0zbhPXvvE638onGDDXy2ak
+         7GFHQok7peqqQSmRQpSOys5KYTMGKXNZH4CNUojuHYvHPoZRd07Mfw6tR/WHbq7vqn9V
+         mRA1vloaZYNx5EQTS5QQ1XvsY3CbVq82PPINZQ9qmhcEJnL7D2RideK/8uqzraWoPyOl
+         iT7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793895471; x=1794500271;
+        d=1e100.net; s=20260707; t=1793895485; x=1794500285;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1d0Bz7grZ5N14ov6UkXjfbPvCgrK/lOG24d5Ad8AHHw=;
-        b=nWgcM6Y8fdFgs94LB3C9cLQj8Co6H/5EU14rWoAb1/+9e9rp0VSMsgStVl+fOFeE11
-         BRTlfW8Pq25RQG97KwpK5hy7rsjv0wgSGcO6/5N0JttxYF/Ke+Dsr7w8Ze1VPdSzw+E/
-         yUyYkIDkltecy4c7HijQRgKRtr3Ko/TIgSz1zzwB8RtBii5o1U+ZHCW+AO0wL8vEuM+9
-         VajP4Npzm7ZZkowYQEkV5FRUEe+TPfD3e/gQ16IdJ5lxgVAnirBt5u+83LlRW8W7mljG
-         LPNjuczixVZvGDdLH5wstRuYtf/2Ox1Obd33x1FYNwJgWUR40pp0pQqNovvoNcfFxkGA
-         Mkig==
-X-Forwarded-Encrypted: i=1; AKwUvBwn+ou9EBNHoubvlFqoeFjN5qbW3520oYRpH2wn27XRpXJjpIygKon8ipGobLpKHD1OVbV1Xip+zh/Ovw==@lists.infradead.org
-X-Gm-Message-State: APuU4Z/a6UOCvT725IZWYOS/xv83N/YnGcVDmmw2le+um47wwDLlgMXO
-	aZ6lsjqi8P4HmBOI8T8E476p2eMa/WrUFjfRIElk+HYxmcrxy+RMtqYJ
-X-Gm-Gg: AYBFou2qJ/3sHpYYeSOi4+8wMVRscjvJm7beHGozwj0k382FxjjBCUZKqh9o0mRgxNX
-	cjxLMABbVWSIdBZWGfj3cczQZ7iLCfiemTMZSPK+At6F9BPh3J23fvZCt2qsOInZjutYgIKb1HG
-	RN23SfJKFMhW9Fy5tDZVikgoZz+As1pkt17riznd/DZYi8tNNe1FLaV9EI4gW/97omxjAFnxN1E
-	xQqLgOcCFS5IgkKRnD5tGbklHDeuo2BsYvdS1rpiZaL9TmEJ9tyvd3r+ygqHqMUJogQ2paMejid
-	M/pxcBmTZ9IXvvRZ6Zzno+EDYo3NY/2ELHaC8FomKLZ1jc0gxWcg7bCo0+BMp8eFthLsEgPpgis
-	ov78Bz4looZSsUEYGj/TCm0wWjkS3tZA00FKrMnZJoR0Kqamk8Z1HSujwdwcSqcHZUIOKwAEeqK
-	H29qp8obeJ3ok/xU4RtiwAsEc29LMic3rVqTREXfQSXdTRoFqCB42fGZQzE+FVPt/KlYrdO6ZZK
-	MirlyBbop20n/GozdguKAwYootDynSFE498pXcuMFXjeLo3yPstbVonE3NeSuqCdJcsanVamODU
-	MwhAtEeBVACysewlnYE7U64/+y14DZJTVLhw4YaJCLCZgKw28ehgckfHuMuVLlAMpWcqKlo+0U/
-	n2tO66j+n0XBJQcYY6BBpIgs=
-X-Received: by 2002:a17:90b:3844:b0:3ab:36c4:b502 with SMTP id 98e67ed59e1d1-3ae89814e4fmr17090993a91.30.1793895471151;
-        Thu, 05 Nov 2026 08:17:51 -0800 (PST)
+        bh=Rcpn9+uSzInsVdObsHDfzPAAeCWQb6QnmPjXwJKGazg=;
+        b=gM/3Z40lJ8us2FS7KKF1dw51ik3hYGfOD2oUbNYisDY124Ym5ytNKKlr0arxYLoGvw
+         gbFZO23ePRwfmONAtCkJXoj5haC6EvwYhdybPPdQE31P1GXjBZdqae6CZz7zUpDDXU73
+         BxYZy6uLAFU9YTQ5ooIxyw3ddL+SAYq+N93bpRvzVcvSqyK3zDaXGSBj1Hq6cOaKB83F
+         HMOgrbNYu3sFIxISnocnHr03CBK11ek0YBwx+AcjruYDrz5g7BzvOAaeMOuk8dKJFWXr
+         JQhsC/FCHgCXZdaD6Ng5ML6bO+XaupuOw5y2+JYL75aH5igtmNMJYKUKD0/ZyCOjN9Vu
+         T8Vw==
+X-Forwarded-Encrypted: i=1; AKwUvBwgWw+bD7zSoUG0jzqWVTCC+G4aFjq5DjW2va0jUcVIENxq1g17855A356KdFKP+rg8hvDppXUK70+Z9A==@lists.infradead.org
+X-Gm-Message-State: APuU4Z9sktF0ZhUGOu4ztIqHnEZudSvK4S9G8SpZ/RSWdBnntDfCzyFe
+	UADvMVuVQfbh35JcPdv+bemO0QCRsdFnX6giW0kb5M+JcXVOT+hbJj+B
+X-Gm-Gg: AYBFou0e3WFlqNI7Afc9GsCET8Gs+fU2oDvonVhYdUj7+w9Dm/vDdV4qQvBZypFaEBd
+	2AQZbCzX7JtfUBC9pU4J/i4dM0/gkdVdeKKiXI/k4TidimMh2Yt/VHggRQlio4CjidlhbSJraQQ
+	UXjA/c8aKpMlKWMPkyYpO+eObIjNjq5eZRAUwpuPCfI/qIt6FImGrIm6fLxZNQjcv/eX2JQiyb5
+	uIk4PAbFuUoL3YqQG7sMuDmbFogVmp686Nd9UWCUkgYng+m6pE0j1sHWvQrHHIlYu4Sm/AbNl0u
+	Rs/HHJn/xtNZ3fVN5DzRdM29lzS6U1wdSmjWxyGRtXPh7BYmuEfghgww+ubGxTzd8ePPi6jTggp
+	eyyQnE39Qf+ho1m43JDrtVNQIqbAmlC8Y3ypJtgDyONld98xP2EHtu3J2TVXzshQcK5POABCPtW
+	vLcU3Xuv5jk997CyQSVpTErzUVzFSngrew3dGSq+yJD+Hdy3yl3PKT+yEplFmm4I6spKQj8N5yx
+	jGKld81a5oXkc4aOGJtCWTC2N3QED+BNGqbXg4u2qkDAT7v2Asdv1s8V2NodZPTvFhcPXwUocM8
+	CqkOBHclHUwL8bT6GCTXTHgIFPVKTqL1iKoIKEnlP7tl/bOMX+wgSoHw9H3YAHAJhANwCUGU41H
+	zIMWXdIySepP2boNAhE2Db8A=
+X-Received: by 2002:a17:90b:184c:b0:3ac:452b:4a63 with SMTP id 98e67ed59e1d1-3ae897c4ea4mr15905533a91.55.1793895485124;
+        Thu, 05 Nov 2026 08:18:05 -0800 (PST)
 Received: from visitorckw-work01.c.googlers.com.com (55.11.81.34.bc.googleusercontent.com. [34.81.11.55])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b3287a60sm4981556a91.13.2026.11.05.08.17.46
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b3287a60sm4981556a91.13.2026.11.05.08.18.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 08:17:50 -0800 (PST)
+        Thu, 05 Nov 2026 08:18:04 -0800 (PST)
 From: Kuan-Wei Chiu <visitorckw@gmail.com>
 To: daniel.lezcano@kernel.org,
 	tglx@kernel.org
@@ -90,17 +90,18 @@ Cc: pjw@kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-m68k@lists.linux-m68k.org,
 	Kuan-Wei Chiu <visitorckw@gmail.com>
-Subject: [PATCH 4/8] clocksource/drivers/timer-goldfish: Set CLOCK_SOURCE_IS_CONTINUOUS flag
-Date: Thu,  5 Nov 2026 16:16:58 +0000
-Message-ID: <20261105161702.3515900-5-visitorckw@gmail.com>
+Subject: [PATCH 6/8] clocksource/drivers/timer-goldfish: Set clock_event_device cpumask
+Date: Thu,  5 Nov 2026 16:17:00 +0000
+Message-ID: <20261105161702.3515900-7-visitorckw@gmail.com>
 X-Mailer: git-send-email 2.56.0.398.g882cbad275-goog
 In-Reply-To: <20261105161702.3515900-1-visitorckw@gmail.com>
 References: <20261105161702.3515900-1-visitorckw@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_081802_900954_800C27FB 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20261105_081811_069381_6F96066E 
+X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,34 +123,29 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The goldfish timer is a free-running counter, but timerdrv->cs.flags is
-set to 0. Without CLOCK_SOURCE_IS_CONTINUOUS, the clocksource core does
-not mark it as valid for high-resolution timers, preventing the kernel
-from switching to it when oneshot mode is active:
+Leaving timerdrv->ced.cpumask uninitialized triggers a warning in
+clockevents_register_device() when num_possible_cpus() > 1.
 
-  [    0.751173] clocksource: Override clocksource goldfish_timer is not currently HRT compatible - deferring
-
-Set .flags to CLOCK_SOURCE_IS_CONTINUOUS.
+Initialize .cpumask to cpu_possible_mask.
 
 Fixes: c92e7ef16400 ("clocksource/drivers: Add a goldfish-timer clocksource")
 Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
 ---
- drivers/clocksource/timer-goldfish.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/clocksource/timer-goldfish.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/clocksource/timer-goldfish.c b/drivers/clocksource/timer-goldfish.c
-index 8c312c3a64a6..88253bd1f569 100644
+index bac84e0f9b7b..208b80c46193 100644
 --- a/drivers/clocksource/timer-goldfish.c
 +++ b/drivers/clocksource/timer-goldfish.c
-@@ -139,7 +139,7 @@ int __init goldfish_timer_init(int irq, void __iomem *base)
- 		.rating		= 400,
- 		.read		= goldfish_timer_read,
- 		.mask		= CLOCKSOURCE_MASK(64),
--		.flags		= 0,
-+		.flags		= CLOCK_SOURCE_IS_CONTINUOUS,
- 		.max_idle_ns	= LONG_MAX,
- 	};
- 
+@@ -117,6 +117,7 @@ int __init goldfish_timer_init(int irq, void __iomem *base)
+ 	timerdrv->ced = (struct clock_event_device){
+ 		.name			= "goldfish_timer",
+ 		.features		= CLOCK_EVT_FEAT_ONESHOT,
++		.cpumask		= cpu_possible_mask,
+ 		.set_state_shutdown	= goldfish_timer_shutdown,
+ 		.set_state_oneshot      = goldfish_timer_set_oneshot,
+ 		.set_next_event		= goldfish_timer_next_event,
 -- 
 2.56.0.398.g882cbad275-goog
 
