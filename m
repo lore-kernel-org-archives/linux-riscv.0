@@ -2,68 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EDA7606A31B
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 16:39:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29DAD606A32D
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 16:39:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tKt/qSgv;
-	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=H7DixyLU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Dbymldgl;
+	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=uux5BCe9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=IF3M/FSpWegsswS77NFCO/rILc06WLk54C8JCbZfFzc=; b=tKt/qSgvRwxCK5AcyYfPNvwZa/
-	zXTJND6BWLb0DHVzwWFRn8HAzLBdFHzfr62VjA46pWt2c70sJiErLJAODvOTOo4aceCXcTV9YUAnp
-	nqU0LjvL7rVKDI+kOBFVYnYIUavrRxaTqSgpLMH50GKbP/h7NR/AGGK30d8YsFOvjhsJZT8b6uVEZ
-	HSj4g6lIWgg7BrH66Lknc9uaLQcWPON/vDxT0LRqejyUDMSOlHTWg2W0gdFhhy15cjkZibUFN4zgx
-	KIzSaq+OsiTd+bU6QJBwzlcYR2DkN1Tw5psGOF6tlkVutTd2Xfxq0ivQUIutzIx+7ek8wLASU1yri
-	ZlhFze4g==;
+	bh=t5Ad+w/wCV0SB1YzIMZfPOxc3ArHsT/OG1iKeJ6Dnq4=; b=Dbymldgl7Y4n8TUxipCY4DoXk3
+	mdkrjVzYDh9/hFTW7FXc9qYQEjJMQlOtbUIB6w0cz4MgthCenCqopQMyw83Ul9f6Ee0aG9LR8nznN
+	Vtu28T1zRbDGwy2j3D/BfWNQV8PVy6RSTaUALBm/1GL72cVt7jNRXaQvSbwDnrJKB0irs7fwA9BQs
+	mHnjAjs2NCoYbbKXw+Dl381Q90rjm5o4Ci47NinpBtdxzFRfddzem9Z532rAugyH6GCE2NiNJb4ge
+	LIlRxvFeyMfNqx2aymtIR+IAsOiCTEPw/1X1UjLp2aWV7xykBhbZMMt23cbd699Z8Rdxcx+5fOOub
+	/JUbiD2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP0UF-00000009fHE-476j;
-	Thu, 05 Nov 2026 16:38:52 +0000
-Received: from esa3.hc555-34.eu.iphmx.com ([207.54.77.50])
+	id 1xP0UM-00000009fJM-1HrK;
+	Thu, 05 Nov 2026 16:38:58 +0000
+Received: from esa1.hc555-34.eu.iphmx.com ([23.90.104.144])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP0Ti-00000009f99-042n
+	id 1xP0Ty-00000009f9m-4Adn
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 16:38:35 +0000
+	Thu, 05 Nov 2026 16:38:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1793896705; x=1825432705;
-  h=from:subject:date:message-id:mime-version:
-   content-transfer-encoding:to:cc;
-  bh=WvyUYNeaZ1LL9KGoOQ7tav19Ed1rArF0jm0dRRx4+Ug=;
-  b=H7DixyLUxZeKCo1uUHQts6Nq4FFdHuJQEEM7ZN9hPg+wvIysxM0P96Qe
-   MYWsbFBr5W8LUHLgPo1lv+t0m1qSoHiqVBuUkPLzKM7ujNmbpdOxsLEO0
-   WLnWvwWDab77VILiDacXNY5tZ2d13WShTfjkaHiHkjoUi6FgViiyHlqIJ
-   Wx7VSZ24Se2YZzBLfjkjBtd+kwXCe2bHwU3rUBffqDMSzLRsrEARJHQfT
-   HxPAYkj4fu93VBbPdcil420TaY2HKPAzkKRADija7nImJkOpMyhreR9Dy
-   uZDruTJYF4coPY6hmyl5STgDxsajyzwOmh5C3ZFGK8k95VfTx3zQnX+z5
+  t=1793896722; x=1825432722;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=MQguZ0pPB6xu64Iy4rpZmRI3D7Q0au41P1yYEXMSS5w=;
+  b=uux5BCe9u+fynNLo6p/wXGx6HNSnlyKgwUuD/2P/4yUAx5Vmuu1ftYWD
+   yJByIXQ24X4AP7TFgQP38skVicFvr+eChfewoRFMs8uSdRUjbgDcg75yG
+   jm4Iw+br8HAAx+PyUspdN0sV6nYmGmE1h+vxDrrKp/55keIfVlJzDKMsS
+   aRyBUTZEdJ3GwAdm8/gb30rk06Rr6fYGjwviehd+R2MVFHtX0Z5tNrEVc
+   DvM556Yjw6lxBmRyBsbfsOcWSWY7h5g4PUTo+HFLiQVi732QG2JO3wIpX
+   pu5Ln5GqT2bzcMB9RoOVw0Zb+DXiCUKs6hKV1OII03FqfXqkRPkB3wRUo
    Q==;
-X-CSE-ConnectionGUID: 4G+hAbcaTMuBSpC/qgc9vA==
-X-CSE-MsgGUID: xe09LVPAQqKEE0aLn8QZiw==
+X-CSE-ConnectionGUID: 4emU8v85TlSOavS/labGbw==
+X-CSE-MsgGUID: hoRYaHxOT1ydGLpkKGqJkg==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces03_data.me-corp.lan) ([146.255.191.134])
-  by esa3.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 18:38:21 +0200
-X-CSE-ConnectionGUID: 6zHfRl9qR8Wg4YoysQMoXw==
-X-CSE-MsgGUID: snS1cDkuTMebzCQMYkG3wA==
-Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.2])
-  by ces03_data.me-corp.lan with SMTP; 05 Nov 2026 18:46:01 +0200
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Thu, 05 Nov 2026 18:38:11 +0200
+Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
+  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 18:38:23 +0200
+X-CSE-ConnectionGUID: JIxwA1YCRDeUJxsR5v7J3Q==
+X-CSE-MsgGUID: qLV/c2C+Qm2HuxmYRkiwnA==
+Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.3])
+  by ces04_data.me-crop.lan with SMTP; 05 Nov 2026 18:46:12 +0200
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Thu, 05 Nov 2026 18:38:15 +0200
 From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Subject: [PATCH v5 0/3] riscv: support CPUs with slow Zaamo
-Date: Thu, 05 Nov 2026 18:37:35 +0200
-Message-Id: <20261105-lrsc-only-v5-0-f0648f57b2e1@mobileye.com>
+Date: Thu, 05 Nov 2026 18:37:38 +0200
+Subject: [PATCH v5 3/3] riscv: probes: reject probes inside an LR/SC
+ sequence
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIANCw7GoC/12MQQ6CMBBFr0K6tmamLURceQ/jwg6DNAFKWtNIC
- He3sJG4mMWb/PcWETk4juJaLCJwctH5MUN5KgR1z/HF0jWZhQJVASqQfYgk/djPkggqo1RbWos
- i76fArfvsrfsjc+fi24d5Tye9ffcK5jtUkpYgmVRNF6yhtXgbvHU9z3wmP4gtlMxPRsCjbLJsG
- BtAMJW2+k9e1/ULdy9YjeIAAAA=
-X-Change-ID: 20260120-lrsc-only-cc06422f5bb1
+Message-Id: <20261105-lrsc-only-v5-3-f0648f57b2e1@mobileye.com>
+References: <20261105-lrsc-only-v5-0-f0648f57b2e1@mobileye.com>
+In-Reply-To: <20261105-lrsc-only-v5-0-f0648f57b2e1@mobileye.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
  Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
  Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
@@ -92,8 +90,8 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_083827_158572_E1FFA0C5 
-X-CRM114-Status: GOOD (  24.03  )
+X-CRM114-CacheID: sfid-20261105_083838_316770_350F7893 
+X-CRM114-Status: GOOD (  33.20  )
 X-Spam-Score: -4.0 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,148 +112,365 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-RISC-V split the A extension into Zaamo (AMO*.w/AMO*.d) and Zalrsc
-(LR/SC). The kernel puts "a" in -march and emits AMO for atomic_add,
-bitops, xchg and the like, and LR/SC for cmpxchg.
+A kprobe or uprobe replaces an instruction with a breakpoint. The trap
+clears the hart's reservation, so if the breakpoint sits on the lr, on
+the sc, or on any instruction between them, the sc fails, the loop
+branches back to the lr and the probe fires again. The sequence never
+completes.
 
-Zaamo is not always native. On MIPS P8700 [1] every AMO instruction
-traps into M-mode and is emulated there, so the extension is formally
-supported, and advertised to userspace, but very slow. A typical
-uncontended atomic increment costs:
+This has always been possible on RISC-V, because cmpxchg and the
+conditional atomics are LR/SC loops. Once Zaamo is disabled every
+kernel atomic is such a loop, and so is every atomic in userspace built
+for the same hart, so the chance of a probe landing in one grows
+accordingly. arm64 has the same problem and rejects probes inside an
+exclusive-load/store-exclusive region.
 
-  native AMO                                     2..5 cycles
-  LR/SC, private L1 reservation monitor         6..12 cycles
-  LR/SC, PoC (L2) reservation monitor       about 40 cycles
-  AMO emulated by an M-mode trap           about 600 cycles
+Teach the shared instruction decoder to reject lr and sc themselves.
+This covers both kprobes and uprobes.
 
-The last two were measured on the eyeq7h hardware. On such a CPU the
-kernel has to use LR/SC for every atomic.
+For kprobes extend arch_check_kprobe(), which already walks the
+instructions from the enclosing symbol up to the probe address, to
+track whether the address lies between an lr and the following sc, and
+reject it if so. The walk goes forward, so compressed instructions do
+not make it ambiguous.
 
-Mobileye is going to use the "eyeq7h" platform, built on this CPU, for
-ADAS and autonomous driving. Kernel atomics are on the scheduling,
-memory-management and driver paths of that product, so the emulated
-AMO cost is not acceptable there.
-
-Patch 1 adds RISCV_ISA_ZAAMO. It defaults to y and nothing changes:
--march keeps "a" and the generated code is the same. When it is turned
-off, -march carries _zalrsc instead of "a" and every kernel atomic is
-an LR/SC loop. Such a kernel runs on any hart that implements A, it
-just does not use AMO, so the option does not depend on NONPORTABLE.
-Turning Zaamo off needs a compiler that accepts _zaamo and _zalrsc in
--march; GCC 15.1 is the first release that does.
-
-The choice is made at compile time rather than with alternatives.
-Nearly every CPU has a native A extension, and an alternative would
-inflate all those kernels with the nops needed to pad one AMO to the
-size of an LR/SC loop, at every atomic site, for the benefit of a few.
-
-Nothing changes for userspace. The hart still advertises "a", which is
-true. Userspace that cares can know about the slow AMO upfront, or
-measure it.
-
-Zalrsc stays mandatory. cmpxchg, conditional atomics and futex CAS are
-already LR/SC sequences; Zaamo cannot replace them. RISCV_ISA_ZALRSC
-is always y and exists as the Kconfig counterpart of
-RISCV_ISA_EXT_ZALRSC, which hwcap.h already has next to
-RISCV_ISA_EXT_ZAAMO; the two sets are tested together, for example by
-rv_ext_enabled() in the BPF JIT. RISCV_ISA_A exists for the same
-reason, paired with RISCV_ISA_EXT_A.
-
-Three sets of extensions provide every atomic Linux needs: "a", which
-is what the kernel supports today; Zalrsc plus Ziccrse, which this
-series adds, with Ziccrse as the forward-progress guarantee for the
-constrained LR/SC loops; and Zaamo plus Zacas, with CAS loops in place
-of LR/SC as on x86. The series leaves the last one open:
-RISCV_ISA_ZALRSC is where it would go, by allowing "n" there and making
-amocas the base implementation.
-
-The BPF JIT encodes its own atomics. Patch 2 makes it emit LR/SC loops
-when Zaamo is disabled, so BPF programs do not trap either. The Zabha
-and Zacas paths in the JIT and in cmpxchg.h are selected at runtime
-from the ISA string; firmware for a CPU that emulates AMO should not
-advertise them, as both extensions are AMO.
-
-A breakpoint inside an LR/SC sequence drops the reservation and the
-loop never completes. With every atomic an LR/SC loop that is easy to
-hit, so patch 3 makes kprobes and uprobes reject such addresses.
-kprobes walk from the enclosing symbol; uprobes scan forward using the
-constrained-sequence rules from the ISA. This patch fixes a problem
-that exists today, since cmpxchg is already an LR/SC loop. It does not
-depend on the rest of the series and can be merged on its own.
-
-[1] https://mips.com/products/hardware/p8700/
-
-Changes in v5:
-- Treat Zaamo as supported but slow rather than absent. The hart keeps
-  advertising "a" and the kernel keeps accepting it, so the boot-time
-  extension check patch is dropped.
-- Drop the NONPORTABLE dependency. A kernel built without Zaamo runs
-  on any hart that implements A.
-- Rename TOOLCHAIN_HAS_ZALRSC to TOOLCHAIN_HAS_ZALRSC_ZAAMO and test
-  both _zaamo and _zalrsc in -march.
-- Explain why RISCV_ISA_ZALRSC and RISCV_ISA_A exist, and why the
-  choice is made at compile time rather than with alternatives.
-- Add the BPF JIT patch. Without Zaamo the JIT emits LR/SC loops for
-  the BPF read-modify-write atomics on RV32 and RV64, and reserves a
-  second exception-table entry for the sc of an arena atomic.
-- Reject kprobes and uprobes on lr and sc, and on any instruction
-  between them.
-- Link to v4: https://patch.msgid.link/20261101-lrsc-only-v4-0-4e1d010463b3@mobileye.com
-
-Changes in v4:
-- Require a compiler that accepts _zalrsc in -march before Zaamo can
-  be disabled. GCC 15.1 introduces that support. Older compilers keep
-  Zaamo enabled and -march keeps "a".
-- Link to v3: https://patch.msgid.link/20261026-lrsc-only-v3-0-ec29c8190fb1@mobileye.com
-
-Changes in v3:
-- Make Zalrsc mandatory. cmpxchg and the conditional atomics already
-  use LR/SC, so RISCV_ISA_ZALRSC can no longer be turned off.
-- Check AMO and LR/SC support independently. A kernel that emits both
-  requires "a", or both "zaamo" and "zalrsc".
-- Put the LR/SC bitop sequence in its own block so two inlined
-  set_bit or clear_bit calls compile.
-- Remove the LR/SC loop that ran after the hart lottery and accessed
-  address 1. Build the lottery increment with add so RV32 assembles.
-- Add an exception-table entry for sc as well as lr in the futex
-  LR/SC helper.
-
-Changes in v2:
-- Switch from a runtime choice of atomic implementation to a
-  compile-time one, gated by NONPORTABLE.
+uprobes have no symbol to start from and only the probed instruction
+is copied. Use the rules for a constrained LR/SC sequence instead: at
+most 16 instructions between lr and sc, all base integer instructions
+other than loads, stores, JALR, FENCE, SYSTEM and backward jumps or
+branches, or their compressed forms. Read the text that follows the
+probe from the task, which the caller's mmap_lock allows, and walk
+forward. Reaching an sc through permitted instructions only means the
+probe sits inside a sequence; any other instruction, an lr, the end of
+the window or unreadable text means it does not. Only a sequence that
+follows these rules is guaranteed to make progress, so a probe inside
+any other one is already on unsupported ground.
 
 Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 ---
-Vladimir Kondratiev (3):
-      riscv: build kernel atomics from LR/SC when Zaamo is disabled
-      riscv, bpf: emit LR/SC loops when Zaamo is disabled
-      riscv: probes: reject probes inside an LR/SC sequence
+ arch/riscv/include/asm/insn.h          | 28 ++++++++++
+ arch/riscv/kernel/probes/decode-insn.c | 94 ++++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/probes/decode-insn.h |  7 +++
+ arch/riscv/kernel/probes/kprobes.c     | 22 +++++++-
+ arch/riscv/kernel/probes/uprobes.c     | 31 +++++++++++
+ 5 files changed, 180 insertions(+), 2 deletions(-)
 
- arch/riscv/Kconfig                     |  53 ++++++++++++++++
- arch/riscv/Makefile                    |  16 +++--
- arch/riscv/include/asm/atomic.h        |  52 +++++++++++++++-
- arch/riscv/include/asm/bitops.h        |  47 ++++++++++++++
- arch/riscv/include/asm/cmpxchg.h       |  16 +++++
- arch/riscv/include/asm/futex.h         |  45 ++++++++++++++
- arch/riscv/include/asm/insn.h          |  28 +++++++++
- arch/riscv/kernel/entry.S              |   7 +++
- arch/riscv/kernel/head.S               |  12 ++++
- arch/riscv/kernel/probes/decode-insn.c |  94 ++++++++++++++++++++++++++++
- arch/riscv/kernel/probes/decode-insn.h |   7 +++
- arch/riscv/kernel/probes/kprobes.c     |  22 ++++++-
- arch/riscv/kernel/probes/uprobes.c     |  31 ++++++++++
- arch/riscv/net/bpf_jit.h               |   1 +
- arch/riscv/net/bpf_jit_comp32.c        |  81 +++++++++++++++++++++++--
- arch/riscv/net/bpf_jit_comp64.c        | 108 ++++++++++++++++++++++++++++++++-
- arch/riscv/net/bpf_jit_core.c          |  29 +++++++++
- 17 files changed, 636 insertions(+), 13 deletions(-)
----
-base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
-change-id: 20260120-lrsc-only-cc06422f5bb1
+diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+index c3005573e8c9..f5de81753bec 100644
+--- a/arch/riscv/include/asm/insn.h
++++ b/arch/riscv/include/asm/insn.h
+@@ -10,11 +10,16 @@
+ 
+ #define RV_INSN_FUNCT3_MASK	GENMASK(14, 12)
+ #define RV_INSN_FUNCT3_OPOFF	12
++#define RV_INSN_FUNCT5_MASK	GENMASK(31, 27)
++#define RV_INSN_FUNCT5_OPOFF	27
++#define RV_INSN_FUNCT7_MASK	GENMASK(31, 25)
++#define RV_INSN_FUNCT7_OPOFF	25
+ #define RV_INSN_OPCODE_MASK	GENMASK(6, 0)
+ #define RV_INSN_OPCODE_OPOFF	0
+ #define RV_INSN_FUNCT12_OPOFF	20
+ 
+ #define RV_ENCODE_FUNCT3(f_)	(RVG_FUNCT3_##f_ << RV_INSN_FUNCT3_OPOFF)
++#define RV_ENCODE_FUNCT5(f_)	(RVG_FUNCT5_##f_ << RV_INSN_FUNCT5_OPOFF)
+ #define RV_ENCODE_FUNCT12(f_)	(RVG_FUNCT12_##f_ << RV_INSN_FUNCT12_OPOFF)
+ 
+ /* The bit field of immediate value in I-type instruction */
+@@ -136,7 +141,13 @@
+ 
+ /* parts of opcode for RVG*/
+ #define RVG_OPCODE_FENCE	0x0f
++#define RVG_OPCODE_OP_IMM	0x13
+ #define RVG_OPCODE_AUIPC	0x17
++#define RVG_OPCODE_OP_IMM_32	0x1b
++#define RVG_OPCODE_AMO		0x2f
++#define RVG_OPCODE_OP		0x33
++#define RVG_OPCODE_LUI		0x37
++#define RVG_OPCODE_OP_32	0x3b
+ #define RVG_OPCODE_BRANCH	0x63
+ #define RVG_OPCODE_JALR		0x67
+ #define RVG_OPCODE_JAL		0x6f
+@@ -188,6 +199,17 @@
+ #define RVG_FUNCT12_EBREAK	0x1
+ #define RVG_FUNCT12_SRET	0x102
+ 
++/* parts of funct5 code for A extension */
++#define RVG_FUNCT5_LR		0x02
++#define RVG_FUNCT5_SC		0x03
++
++/*
++ * The AMO funct3 field holds the access width: 010 for .w, 011 for .d.
++ * Matching bits 14:13 alone accepts both and nothing else.
++ */
++#define RVG_AMO_WIDTH_MASK	GENMASK(14, 13)
++#define RVG_AMO_WIDTH_WD	BIT(13)
++
+ #define RVG_MATCH_AUIPC		(RVG_OPCODE_AUIPC)
+ #define RVG_MATCH_JALR		(RV_ENCODE_FUNCT3(JALR) | RVG_OPCODE_JALR)
+ #define RVG_MATCH_JAL		(RVG_OPCODE_JAL)
+@@ -200,6 +222,8 @@
+ #define RVG_MATCH_BGEU		(RV_ENCODE_FUNCT3(BGEU) | RVG_OPCODE_BRANCH)
+ #define RVG_MATCH_EBREAK	(RV_ENCODE_FUNCT12(EBREAK) | RVG_OPCODE_SYSTEM)
+ #define RVG_MATCH_SRET		(RV_ENCODE_FUNCT12(SRET) | RVG_OPCODE_SYSTEM)
++#define RVG_MATCH_LR		(RV_ENCODE_FUNCT5(LR) | RVG_AMO_WIDTH_WD | RVG_OPCODE_AMO)
++#define RVG_MATCH_SC		(RV_ENCODE_FUNCT5(SC) | RVG_AMO_WIDTH_WD | RVG_OPCODE_AMO)
+ #define RVC_MATCH_C_BEQZ	(RVC_ENCODE_FUNCT3(C_BEQZ) | RVC_OPCODE_C1)
+ #define RVC_MATCH_C_BNEZ	(RVC_ENCODE_FUNCT3(C_BNEZ) | RVC_OPCODE_C1)
+ #define RVC_MATCH_C_J		(RVC_ENCODE_FUNCT3(C_J) | RVC_OPCODE_C1)
+@@ -227,6 +251,8 @@
+ #define RVC_MASK_C_EBREAK	0xffff
+ #define RVG_MASK_EBREAK		0xffffffff
+ #define RVG_MASK_SRET		0xffffffff
++#define RVG_MASK_LR		(RV_INSN_FUNCT5_MASK | RVG_AMO_WIDTH_MASK | RV_INSN_OPCODE_MASK)
++#define RVG_MASK_SC		(RV_INSN_FUNCT5_MASK | RVG_AMO_WIDTH_MASK | RV_INSN_OPCODE_MASK)
+ 
+ #define __INSN_LENGTH_MASK	_UL(0x3)
+ #define __INSN_LENGTH_GE_32	_UL(0x3)
+@@ -262,6 +288,8 @@ __RISCV_INSN_FUNCS(c_ebreak, RVC_MASK_C_EBREAK, RVC_MATCH_C_EBREAK)
+ __RISCV_INSN_FUNCS(ebreak, RVG_MASK_EBREAK, RVG_MATCH_EBREAK)
+ __RISCV_INSN_FUNCS(sret, RVG_MASK_SRET, RVG_MATCH_SRET)
+ __RISCV_INSN_FUNCS(fence, RVG_MASK_FENCE, RVG_MATCH_FENCE);
++__RISCV_INSN_FUNCS(lr, RVG_MASK_LR, RVG_MATCH_LR)
++__RISCV_INSN_FUNCS(sc, RVG_MASK_SC, RVG_MATCH_SC)
+ 
+ /* special case to catch _any_ system instruction */
+ static __always_inline bool riscv_insn_is_system(u32 code)
+diff --git a/arch/riscv/kernel/probes/decode-insn.c b/arch/riscv/kernel/probes/decode-insn.c
+index 433d9035b888..6a4f55b07d04 100644
+--- a/arch/riscv/kernel/probes/decode-insn.c
++++ b/arch/riscv/kernel/probes/decode-insn.c
+@@ -4,11 +4,99 @@
+ #include <linux/kprobes.h>
+ #include <linux/module.h>
+ #include <linux/kallsyms.h>
++#include <linux/bug.h>
+ #include <asm/sections.h>
+ 
+ #include "decode-insn.h"
+ #include "simulate-insn.h"
+ 
++/*
++ * Can insn sit between the lr and the sc of a constrained LR/SC sequence?
++ * The ISA allows base integer instructions there, except loads, stores,
++ * JALR, FENCE, SYSTEM, backward jumps and taken backward branches, plus
++ * their compressed forms. Backward branches are treated as not allowed:
++ * the retry branch follows the sc, so one inside the body is not a
++ * constrained sequence.
++ */
++static bool __kprobes riscv_insn_is_lrsc_body(u32 insn)
++{
++	u32 funct3;
++
++	if (GET_INSN_LENGTH(insn) == 2) {
++		switch (insn & RVC_INSN_OPCODE_MASK) {
++		case RVC_OPCODE_C0:
++			/* c.addi4spn; the rest of the quadrant is loads and stores */
++			return (insn & RVC_INSN_FUNCT3_MASK) == 0;
++		case RVC_OPCODE_C1:
++			/* Arithmetic, c.j, c.jal and branches, bit 12 is the offset sign */
++			if (riscv_insn_is_c_j(insn) || riscv_insn_is_c_jal(insn) ||
++			    riscv_insn_is_c_beqz(insn) || riscv_insn_is_c_bnez(insn))
++				return !(insn & BIT(12));
++			return true;
++		case RVC_OPCODE_C2:
++			funct3 = (insn & RVC_INSN_FUNCT3_MASK) >> RVC_INSN_FUNCT3_OPOFF;
++			if (funct3 == 0)	/* c.slli */
++				return true;
++			if (funct3 == 4)	/* c.mv, c.add, but not c.jr, c.jalr, c.ebreak */
++				return !riscv_insn_is_c_jr(insn) &&
++				       !riscv_insn_is_c_jalr(insn) &&
++				       !riscv_insn_is_c_ebreak(insn);
++			return false;	/* stack loads and stores */
++		}
++		return false;
++	}
++
++	switch (insn & RV_INSN_OPCODE_MASK) {
++	case RVG_OPCODE_OP_IMM:
++	case RVG_OPCODE_OP_IMM_32:
++	case RVG_OPCODE_LUI:
++	case RVG_OPCODE_AUIPC:
++		return true;
++	case RVG_OPCODE_OP:
++	case RVG_OPCODE_OP_32:
++		/* funct7 0 or 0x20 is base I; anything else is M, B or another extension */
++		return !((insn & RV_INSN_FUNCT7_MASK) & ~(0x20U << RV_INSN_FUNCT7_OPOFF));
++	case RVG_OPCODE_BRANCH:
++	case RVG_OPCODE_JAL:
++		/* forward only, bit 31 is the offset sign */
++		return !(insn & BIT(31));
++	}
++	return false;
++}
++
++/*
++ * Does the instruction at the start of buf lie inside a constrained LR/SC
++ * sequence? Such a sequence holds at most RISCV_LRSC_MAX_BODY instructions
++ * between the lr and the sc, all from the set above. Walk forward from the
++ * probed instruction: reaching an sc through permitted instructions only
++ * means the probe sits in the body; anything else, including an lr that
++ * opens a new sequence, means it does not. The walk stops at the end of
++ * buf, so a short buffer only makes the answer more permissive.
++ */
++bool __kprobes riscv_probe_in_lrsc_body(const u16 *buf, size_t len)
++{
++	size_t off = 0;
++	u32 insn;
++	int n;
++
++	for (n = 0; n <= RISCV_LRSC_MAX_BODY; n++) {
++		if (off + 2 > len)
++			return false;
++		insn = buf[off / 2];
++		if (GET_INSN_LENGTH(insn) == 4) {
++			if (off + 4 > len)
++				return false;
++			insn |= (u32)buf[off / 2 + 1] << 16;
++		}
++		if (riscv_insn_is_sc(insn))
++			return true;
++		if (!riscv_insn_is_lrsc_body(insn))
++			return false;
++		off += GET_INSN_LENGTH(insn);
++	}
++	return false;
++}
++
+ /* Return:
+  *   INSN_REJECTED     If instruction is one not allowed to kprobe,
+  *   INSN_GOOD_NO_SLOT If instruction is supported but doesn't use its slot.
+@@ -23,6 +111,12 @@ riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *api)
+ 	 */
+ 	RISCV_INSN_REJECTED(system,		insn);
+ 	RISCV_INSN_REJECTED(fence,		insn);
++	/*
++	 * The breakpoint trap drops the reservation, so a probe on either
++	 * end of an LR/SC sequence makes the SC fail on every retry.
++	 */
++	RISCV_INSN_REJECTED(lr,			insn);
++	RISCV_INSN_REJECTED(sc,			insn);
+ 
+ 	/*
+ 	 * Simulate instructions list:
+diff --git a/arch/riscv/kernel/probes/decode-insn.h b/arch/riscv/kernel/probes/decode-insn.h
+index 42269a7d676d..aa1b0d363545 100644
+--- a/arch/riscv/kernel/probes/decode-insn.h
++++ b/arch/riscv/kernel/probes/decode-insn.h
+@@ -15,4 +15,11 @@ enum probe_insn {
+ enum probe_insn __kprobes
+ riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *asi);
+ 
++/* A constrained LR/SC sequence has at most this many instructions between lr and sc */
++#define RISCV_LRSC_MAX_BODY	16
++/* Bytes from the probed instruction through the farthest possible sc */
++#define RISCV_LRSC_SCAN_BYTES	((RISCV_LRSC_MAX_BODY + 1) * 4)
++
++bool __kprobes riscv_probe_in_lrsc_body(const u16 *buf, size_t len);
++
+ #endif /* _RISCV_KERNEL_KPROBES_DECODE_INSN_H */
+diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+index 9e2afabf94e8..9c2284eafae9 100644
+--- a/arch/riscv/kernel/probes/kprobes.c
++++ b/arch/riscv/kernel/probes/kprobes.c
+@@ -12,6 +12,7 @@
+ #include <asm/sections.h>
+ #include <asm/cacheflush.h>
+ #include <asm/bug.h>
++#include <asm/insn.h>
+ #include <asm/text-patching.h>
+ 
+ #include "decode-insn.h"
+@@ -49,9 +50,17 @@ static void __kprobes arch_simulate_insn(struct kprobe *p, struct pt_regs *regs)
+ 	post_kprobe_handler(p, kcb, regs);
+ }
+ 
++/*
++ * Walk the instructions from the enclosing symbol up to addr. This checks
++ * that addr is an instruction boundary and that it does not lie inside an
++ * LR/SC sequence: the breakpoint trap drops the reservation, so the SC
++ * would fail and the loop would hit the probe again on every retry.
++ */
+ static bool __kprobes arch_check_kprobe(unsigned long addr)
+ {
+ 	unsigned long tmp, offset;
++	bool in_lrsc = false;
++	u32 insn;
+ 
+ 	/* start iterating at the closest preceding symbol */
+ 	if (!kallsyms_lookup_size_offset(addr, NULL, &offset))
+@@ -61,9 +70,18 @@ static bool __kprobes arch_check_kprobe(unsigned long addr)
+ 
+ 	while (tmp <= addr) {
+ 		if (tmp == addr)
+-			return true;
++			return !in_lrsc;
++
++		insn = *(u16 *)tmp;
++		if (GET_INSN_LENGTH(insn) == 4) {
++			insn |= (u32)*(u16 *)(tmp + 2) << 16;
++			if (riscv_insn_is_lr(insn))
++				in_lrsc = true;
++			else if (riscv_insn_is_sc(insn))
++				in_lrsc = false;
++		}
+ 
+-		tmp += GET_INSN_LENGTH(*(u16 *)tmp);
++		tmp += GET_INSN_LENGTH(insn);
+ 	}
+ 
+ 	return false;
+diff --git a/arch/riscv/kernel/probes/uprobes.c b/arch/riscv/kernel/probes/uprobes.c
+index eb177d0ce8ab..d97a10262166 100644
+--- a/arch/riscv/kernel/probes/uprobes.c
++++ b/arch/riscv/kernel/probes/uprobes.c
+@@ -28,6 +28,34 @@ unsigned long uprobe_get_swbp_addr(struct pt_regs *regs)
+ 	return instruction_pointer(regs);
+ }
+ 
++/*
++ * Is the instruction at addr inside a constrained LR/SC sequence? Only the
++ * probed instruction was copied, so read the text that follows it from the
++ * task. The caller holds mmap_lock, as uprobe_write_opcode() requires too.
++ * Text that cannot be read ends the scan early, which accepts the probe.
++ */
++static bool uprobe_in_lrsc_body(struct mm_struct *mm, unsigned long addr)
++{
++	u16 buf[RISCV_LRSC_SCAN_BYTES / sizeof(u16)];
++	struct vm_area_struct *vma;
++	struct page *page;
++	size_t got = 0;
++	int len;
++
++	while (got < sizeof(buf)) {
++		len = min_t(size_t, sizeof(buf) - got,
++			    PAGE_SIZE - offset_in_page(addr + got));
++		page = get_user_page_vma_remote(mm, addr + got, FOLL_FORCE, &vma);
++		if (IS_ERR(page))
++			break;
++		uprobe_copy_from_page(page, addr + got, (void *)buf + got, len);
++		put_page(page);
++		got += len;
++	}
++
++	return riscv_probe_in_lrsc_body(buf, got);
++}
++
+ int arch_uprobe_analyze_insn(struct arch_uprobe *auprobe, struct mm_struct *mm,
+ 			     unsigned long addr)
+ {
+@@ -53,6 +81,9 @@ int arch_uprobe_analyze_insn(struct arch_uprobe *auprobe, struct mm_struct *mm,
+ 		return -EINVAL;
+ 	}
+ 
++	if (uprobe_in_lrsc_body(mm, addr))
++		return -EINVAL;
++
+ 	return 0;
+ }
+ 
 
-Best regards,
---  
-Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+-- 
+2.43.0
 
 
 _______________________________________________
