@@ -2,100 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1CEA606A333
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 07:09:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1E7E606D80E
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 07:52:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iQ4H9bWu;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=JGHA59W+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JXUrsMVu;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ewqv2x7q
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=QojdPNmIAMb0MXYdKrPlC48JrFNqtwh2m8OvGFaYv6s=; b=iQ4H9bWuVtvFHArifju24pmV3p
-	XYbz2AN4eyoiNp8M32sTTOX3y+/+uA5YKWOeQkdHmaMeFWUSoCez+9+gpUsX2jYJCFw5ZJcDw5uHu
-	HJyeb8noL5ffmXVNn5Rr3SNEXwQFJ+Vci/ZMXP3lf1AaE78PPNfh/uF9jHONj7wgW7tRbmT/hkh++
-	23XOfB7l+88XlTI2so/ebhgxRY1OFFSrejDGtXZqSlekHot387Iw1y8NHmDHMPpoIgXJWdB7M9i1f
-	mR/Ee+tgAHEiMwAshRkoTxrhv7olc4kYR5uagTx26yioH1As5qSD2Zy0LubUlQAXHd1HMf78B+pQu
-	s5V9sBag==;
+	bh=G7drVfZoUCTKf7OXj1x20x3VTkSCDBEPuOq1Nugqp6M=; b=JXUrsMVuw7mBhEk4SmYx/Rlf7Y
+	+viRKLB2DJvVP4JLz/a6HqKdJnQKv6JF4tvYLCMdzz6A7yHchrapGFNTzTCRQRqyNdf9ePYk7cc5N
+	HfhGRxqU4tmgUPiOYPYVzIXC/PVw/LAn2lOAP51JdRgeqokS/zVKfHgYL88sTFkBUtkwixvOPMIiS
+	QOKpRobO7SuQGW+lyqxWbvteb2mMcSZMkBPaf1FrDTDL7wo7mIzo8W5ZQ0js2xYD/37KbcMpqxS4G
+	yp0ey8qnUMuxs2LP6WJgJPFr06cRZ2SfU66rTSmjdoJin8KiIYxYPMTxclFG8cgxfb0ib2MsT5VyS
+	gRQuzZaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOrbV-000000080HA-29Oq;
-	Thu, 05 Nov 2026 07:09:45 +0000
-Received: from smtpbgjp3.qq.com ([54.92.39.34])
+	id 1xOsGy-000000083Zd-1MId;
+	Thu, 05 Nov 2026 07:52:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOrbR-000000080G7-3qGI
-	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 07:09:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1793862542;
-	bh=2wjAopW76cs/UHZAfdI5EmAbrGuClnCkHqmY5dgSxS8=;
-	h=Message-ID:Date:MIME-Version:Subject:From:To;
-	b=JGHA59W+ZTmItwd8n57ZvWi3GIFWqBsgvz4X/GvgbApeAUprIJvtAoBORHyraX1e2
-	 kdgsLl5K8s+fQP5dNdf6WfxMUFUYuAYBeNIzGJu3x7r0I2O0K4tpOJexEuxSFcx4xw
-	 /+9BAfn/fV0YHsJKXHrMF41o8kz2l5qfX1GHQHf8=
-X-QQ-mid: esmtpsz19t1793862540ta706a2a3
-X-QQ-Originating-IP: Q9P8Ls0lg0KstabeEoyvHdwuqg23mI8mBT4P3m+pgGY=
-Received: from [127.0.0.1] ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 05 Nov 2026 15:08:56 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 17593752035460933751
-Message-ID: <17FBF8B3DEC33669+55643c4c-b5ae-4ac3-bb2c-a1653c3a6972@linux.spacemit.com>
-Date: Thu, 5 Nov 2026 15:08:56 +0800
+	id 1xOsGu-000000083Yx-26Tx;
+	Thu, 05 Nov 2026 07:52:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 82C67605FF;
+	Thu,  5 Nov 2026 07:52:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90ABD1F00A15;
+	Thu,  5 Nov 2026 07:52:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793865151;
+	bh=PshXrkjIu/oVh8H0uuMMexWF+3wbEqyJSvZGNZ3+nBg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ewqv2x7qC/seZGztnmn60Jxwl1553DY/3Df5K32EVdXJ/LFXDDt8XPm0md4mvIdbe
+	 O7baTlLtl+fjfHYpiP6NcAphW25/jd9J02KuH6IpVpOf128w6Gk/QhyuyYiZ8AkWEd
+	 5I8acWTijjPru9qgJ7HQjHMGzi6ZlJdrE9q8FPGTREZLPcuF2t9RZCaCb3gZIq0i2F
+	 0CenpiJNcoERzlwxTs0A3D2xG24ySM7ZrAY0uQR/yg7LLM7PxiAALyYLO9ZiDNOVS8
+	 XhlU+5NQ65DYU30sIL8WOqi4fmSQc0g+DhJNmCoP27d9xfq6w4CfLjfd7xU/0Ji7zb
+	 e/wsPKB9qBz9g==
+Date: Thu, 5 Nov 2026 09:52:10 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+	chenhuacai@kernel.org, kernel@xen0n.name, maddy@linux.ibm.com,
+	mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org,
+	ritesh.list@gmail.com, sshegde@linux.ibm.com, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, hpa@zytor.com,
+	akpm@linux-foundation.org, baoquan.he@linux.dev,
+	pasha.tatashin@soleen.com, pratyush@kernel.org, thuth@redhat.com,
+	leitao@debian.org, yeoreum.yun@arm.com, robh@kernel.org,
+	sourabhjain@linux.ibm.com, kees@kernel.org, coiby.xu@gmail.com,
+	Yeking@red54.com, tangyouling@kylinos.cn, maqianga@uniontech.com,
+	zhangtianyang@loongson.cn, guodongtai@kylinos.cn, blum@kernel.org,
+	adityag@linux.ibm.com, hui.wang@canonical.com,
+	sohammetha01@gmail.com, guoren@kernel.org, gaohan@iscas.ac.cn,
+	kai.huang@intel.com, kas@kernel.org, vishal.l.verma@intel.com,
+	piliu@redhat.com, jbouron@amazon.com, mclapinski@google.com,
+	me@linux.beauty, graf@amazon.com, bgwin@google.com, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, kexec@lists.infradead.org
+Subject: Re: [PATCH v7 00/15] kexec: Fix CMA and elf header leaks and rework
+Message-ID: <auw1qgmjWko52oS_@kernel.org>
+References: <20261026075201.699550-1-ruanjinjie@huawei.com>
+ <179380419709.28814.2122135856184991710.b4-review@b4>
+ <932cdfda-7030-4829-8b43-062d208450e4@huawei.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 09/14] gtrace: Add RISC-V Trace ramsink driver
-From: Zane Leung <liangzhen@linux.spacemit.com>
-To: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <pjw@kernel.org>, Greg KH <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Ian Rogers <irogers@google.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Mayuresh Chitale <mchitale@gmail.com>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atish.patra@linux.dev>,
- Andrew Jones <andrew.jones@oss.qualcomm.com>,
- Sunil V L <sunilvl@oss.qualcomm.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Anup Patel <anup.patel@oss.qualcomm.com>
-References: <20261001052243.3042627-1-mayuresh.chitale@oss.qualcomm.com>
- <20261001052243.3042627-10-mayuresh.chitale@oss.qualcomm.com>
- <41B3F89514935AAF+5c08fd7d-1cfb-428c-9ef8-035fa3910bd6@linux.spacemit.com>
-In-Reply-To: <41B3F89514935AAF+5c08fd7d-1cfb-428c-9ef8-035fa3910bd6@linux.spacemit.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MvyKdZyVtFx3UoBxCzEhtd3ZIhrR6mivOCJZvRJoAIRb5gEqlWoOp5Wb
-	L/4WCCS11rjVxKQtfJTBfIhGYemQ98+KT2lbt0LaTn7ChnqFuFWk0eq0SaoiB/X2GyQFjbd
-	4ZbgsHklzZS0Uh1VJeDR8ZBLFPojkMsMrEfEoZ2ofX6RwYKEZUh77dCLv6RMhgpo1SUZD0Y
-	gQjF0NbjtfX3qLSjBad7NH/7UCUV50awbosBtU5cUzX4V7ZOiiZzag4u12e4J3U7dMDc9e7
-	Z9pU9TcqxwgEolCoXdMIrPxK2WSXmmsrfQ7SPxEYOLI1yUwHRsBkLQDxzhEcpdc+u1yn9WY
-	E4JoZshG0e9vf0iudwcLmKPFRnKMrz46I4XDi9pv9nPQRYYXPvYhm1lR8mN3twHSZRkSgAs
-	++0aHcAGL9IczROPOgGmlV4eTs+bUM5e1YiRpYp3wmn32QupqXw054RHqlR3dlsscHSuFco
-	BOkmKvmTPCXjBHJ4Vt49Iis9Jliy14FPCcEtXMRycfuXxlowtOsnmGo9w6FOgBU+pe19QGM
-	TUDLkJnFko48OqoUEacxOxooAwfbxZLEtLRYkIREhDDK453YsG6z7u0BBYOjgTuzv4HToSG
-	Lce+W1K64whehFZeJPoOzZMyGWS7uAtAXvQtE/UvonUbkH79RySQ4kdgAfNGARIkPoyZV5z
-	vIF3Q8ncxDfRiS/l1XYlqqCJQEIqZu1ou9bxrnTy/Ga6f5lCa+lm4SI62Y3xHfG+OT+pQuw
-	v+XyFdzQ7kmBzECv1qj3txHzgBdaUfZ6Dsnr8sE540gE6rXiqGaFeKzaWZQTOTd/m7xNxXe
-	KGLalOKfRjljhswT+MSNZRuWpwKVwYjvOPmVT57oBwRgvMVqfUxKpiv/w+sRzc4zRSajYjZ
-	Vx5T3kNzUQjP7yFunLW4vZSY/xEVWGNLDFpggOnjbOzetpAehf0oRY4How+nZI0u+wNADpM
-	23DWJKtcskNPJy5qV280U9RWF3eBsnZIeUlhi1ywxDCtw/dgrKrJFoT2Kwt+rt05L0wO/oR
-	nlcYuh1b6NiNHLBG6wpAgqSOzWTOSp37lp/8yIxea5OMqwRIWA
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_230942_272476_38360E63 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.2 (/)
+Content-Disposition: inline
+In-Reply-To: <932cdfda-7030-4829-8b43-062d208450e4@huawei.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,45 +85,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FORGED_MUA_MOZILLA,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-On 11/5/2026 3:00 PM, Zane Leung wrote:
-> On 10/1/2026 1:22 PM, Mayuresh Chitale wrote:
->> +/* Helper to access start, limit, wp pair registers */
->> +static u64 rvtrace_ramsink_read_pair(struct gtrace_platform_data *pdata, u32 low_off)
->> +{
->> +	u32 low, high;
->> +
->> +	low = gtrace_read32(pdata, low_off);
->> +	high = gtrace_read32(pdata, low_off + 4);
->> +
->> +	return (u64)high << 32 | low;
->> +}
->> +
->> +static void rvtrace_ramsink_write_pair(struct gtrace_platform_data *pdata, u64 val, u32 low_off)
->> +{
->> +	gtrace_write32(pdata, lower_32_bits(val), low_off);
->> +	gtrace_write32(pdata, upper_32_bits(val), low_off + 4);
->> +}
->> +
->
-> Could you move these helpers into "include/linux/gtrace.h" and implement them as generic APIs
-> (e.g., gtrace_read_pair, gtrace_relaxed_read_pair, gtrace_write_pair, and gtrace_relaxed_write_pair)?
-> This would allow them to be easily reused by future components like Coresight.
-By the way, please pass both |low_off| and |hi_off| as parameters to handle non-contiguous register offsets.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBOb3YgMDUsIDIwMjYgYXQgMTE6NDU6MzlBTSArMDgwMCwgSmluamllIFJ1YW4gd3Jv
+dGU6Cj4g5ZyoIDIwMjYvMTEvNCAyMjo1NiwgTWlrZSBSYXBvcG9ydCDlhpnpgZM6Cj4KPiA+PiBQ
+YXRjaGVzIDgtMTAgcGFzcyB0aGUga2J1ZiBmaWVsZHMgdG8gY3Jhc2hfcHJlcGFyZV9oZWFkZXJz
+KCkgdG8KPiA+PiBzaW1wbGZ5IGNvZGUuCj4gPj4KPiA+PiBQYXRjaCAxMSBmcmVlcyB0aGUgZWxm
+IGNvcmUgaGVhZGVyIGZyb20gdGhlIGdlbmVyaWMgcG9zdC1sb2FkIGNsZWFudXAuCj4gPj4KPiA+
+PiBQYXRjaGVzIDEyLTE1IGFkZCBrZXhlY19sb2FkX290aGVyX3NlZ21lbnRzKCkgYW5kIGNvbnZl
+cnQgdGhlIHRocmVlCj4gPj4gYXJjaGl0ZWN0dXJlcywgYW5kIGFyY2hfa2V4ZWNfc2V0dXBfb3Ro
+ZXJfc2VnbWVudHMoKSBidWlsZHMKPiA+PiB0aGUgYXJjaGl0ZWN0dXJlIHNwZWNpZmljIGJvb3Qg
+cGFyYW1ldGVycyAoYSBEVEIgb3IgYSBjb21tYW5kIGxpbmUpLgo+ID4gCj4gPiBJIHRoaW5rIHRo
+ZSByZWZhY3RvcmluZyBzaG91bGQgZ28gYmVmb3JlIHRoZSBpZGVudGljYWwgZml4ZXMgaW4gYXJj
+aC8KPiA+IGNvZGUuCj4gCj4gSG93ZXZlciwgdGhpcyB3aWxsIGNhdXNlIHRyb3VibGUgZm9yIHRo
+ZSBmaXggcGF0Y2ggaW4gdGhlIHN0YWJsZSByb3VuZC4KClRoYXQncyByaWdodCwgYnV0IHNpbmNl
+IGFjdHVhbCBmaXhlcyBhbnl3YXkgcmVxdWlyZSBjaGFuZ2VzIHRvIGtleGVjIGNvcmUsCkkgdGhp
+bmsgaXQncyBiZXR0ZXIgdG8gcmVmYWN0b3IgZmlyc3QuIFRoZSBjb3JlIHRoYW4gd2lsbCB0YWtl
+IGNhcmUgb2YKcHJvcGVyIGZyZWVpbmcgaW4gdGhlIG1vc3QgY2FzZXMuCgpBbmQgc2luY2UgQ01B
+IHN1cHBvcnQgaW4ga2V4ZWMgaXMgcXVpdGUgbmV3IEkgdGhpbmsgdGhlIGVudGlyZSBzZXQgY2Fu
+IGJlCmJhY2twb3J0ZWQgdG8gc3RhYmxlIHRoZW4uCgpJJ20gcGxhbm5pbmcgdG8gaGF2ZSBhIGNs
+b3NlciBsb29rIGF0IHRoZSByZWZhY3RvcmluZyBSZWFsbHkgU29vbiA6KSAKCj4gLS0gCj4gQmVz
+dCByZWdhcmRzLAo+IEppbmppZQo+IAoKLS0gClNpbmNlcmVseSB5b3VycywKTWlrZS4KCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
