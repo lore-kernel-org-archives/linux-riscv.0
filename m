@@ -2,114 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6039606A31B
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 06:13:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82C20606A31B
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 06:32:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VA9Oq6/z;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=M4pmtFK+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z47CpRHv;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lj/doUUc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=BbFNznTRadQfjYQk1vTZmEka3lb4uCMhnAg5KO983Es=; b=VA9Oq6/zAPZ1CARtKghL1goNcI
-	pN9VmY0lHdigXkIQ4RQrOsoD9EnOHQRk24oMbo7OHokBrnuxcuQWNRc6SqqxNJEgAXoqMNA3giHb7
-	+XBGcTCABrc1/g9kMjum9iX8xsdVkWEDUPiWYr2OWq9qIRI3ywUG5WaCZ3zjdsgLWscyy+LggfaCo
-	iiGN6XILV4U/no+uJarE7rf5HcLSXEGlOlU/V+7fSqAZLkDfaP64ep8Zi+0wrhc+ywBx7e6PH/qzA
-	z/QJBa7fbcfFTKLct+eDBsIGK4Xc2cZQK+hgCEpYusKSvPTSeVmL9SLnA9mZuHHJKEYzsIzs+pXHG
-	rAhYRGHw==;
+	bh=00g+6pYwLV8CtbgEsK+znXF3Md/3+d9fy3oo3M5vQrw=; b=Z47CpRHvdDDCbzdMbgh5tMy3q8
+	ngnts66NpadmBWRK1hXua6f29NskaosAGqHmBZGKLowkYGn60RdY97MYjFHXVGQpONGqQb8D+p/E8
+	6bWlNXpO29sQBDIVwz6HPO6S4OHvWlmAjsbfLzOn9hUc5REEi+mKVQ/gPF4hWq2BpfX8XIc7aaiOt
+	LAptOqeLvmIwaFDhfg1xVPpuEKamfmA0bEPolVhhqDAPN7q5KnM3ObHjWCzCNxFtvzcV71Q05Mmps
+	JtLJI2s7/Bzm213RjbHDf66sBPKG7hEqLB+V+fH0M4GuwVq+yTz08+chLTinSh3zDqmMUWbdgkIwM
+	5Zk4C+Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOqij-00000007vT1-0QXF;
-	Thu, 05 Nov 2026 06:13:10 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1xOr1A-00000007xHx-1LXy;
+	Thu, 05 Nov 2026 06:32:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOqif-00000007vP6-1VcB
+	id 1xOr18-00000007xHM-3zdF
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 06:13:06 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-3ae2b7e1e17so1027862a91.3
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Nov 2026 22:13:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1793859184; x=1794463984; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NCLGTKCHoNQl6zGrnHHJ6bDiMkCD24v1Hv0NuRQZaOo=;
-        b=M4pmtFK+vEiP4OfKJ6u9JtUQ+rIv4vIrruo3jFG0moYSDwMd82mV4lVKXsAyeqEYcS
-         nhK2D4Rx6b6qB/KDjKvP/D50AK8+0BL26SX8YjDEl5joeHKVBQEJUib2NOWanPgQwO+5
-         osXT/kJbej1HEVAmGv2nH7QEufZA3E8LKCwOyAWqsW7v2paISLP0bVop8ngqX1UwyEIi
-         wJ0Sm2+40sPWem67PIGhBPlGewP5F4RF/Jd+L7/mQ1plJyBaDByoAL92m/LDG2/6IQWV
-         yew+bhtymep4PHGNAPVaB/JFtrAi3W0Edfth102HkyilqBDH4AGWesvpZIv87GUlSXTv
-         yCVQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793859184; x=1794463984;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NCLGTKCHoNQl6zGrnHHJ6bDiMkCD24v1Hv0NuRQZaOo=;
-        b=GG1TIFSbEvpY4rU2KkI6+xahyWhdJKwUL1veyGTzXLdZ04dOicdO8TcJaNLcT6/Oyv
-         gBYfwKlDtFIXogIpgIfI9w9KzUOZY6PKVW6CDUKPPQHUY015PtyGKLbAvtpYnEvydenn
-         gH/Xvg16jUjG6NkOVlweiDwn2eoQMr45aNICRPb20CtexmfnXx4GmgO2p76Rn7RCufQP
-         jSbzib/1N2AHPbkR7MCtErYtSmmVSZWud5PQNSBu2LDp48NuBG7U+ic5bCKB8JC5y/QO
-         a3mbFpcVYZBVZBZAfj2IvN8w80ZiF9Ykbk8Y55J0YcdA74ga1NDoyAbPD76ysT07lau8
-         +3Vw==
-X-Forwarded-Encrypted: i=1; AKwUvBzcDDKdiGPCUoqPqWQlUVNeV/oy8ln2pkBdTieVoC6LECMk/ndJBGGOqwNdteLT3mSBMm9QKjSNzpvttA==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8xhrz4CSpnyxd/80mt5APFiEAl87oI+plpEi8LWveSQJLyleNK
-	/iikBgSNLcx+ns69RAPG/9t7LLXjnHCkoRj+CT83tIXsAk1L30SaYJD2ziulaGIL9gg=
-X-Gm-Gg: AYBFou056dT4wEbW8kjpsg0XEHDmmoW46o49xq7vPpFh9GC28ELkcQpvXeEcTrj4D4C
-	bZtF6gmWqxz0ZV1uqsqBD3GqITQMh5k5HhbCmWMnJxCBYHnW5M+6RR/AUNgoAwXmwxdQjj1Wx9q
-	9lbqIRbMqSJMZg8EBxTJGacFGTI2IxtP5LDcZfFviqNlSZ1xBV1nxgWSUtx9VJV2H2FXPQGW+zS
-	T2lqsbnuf3x8xkkEGj0GAS4soL9s8IM+Pv7Iqhktmq0b3fSclCyAc5NYbJ3qbWk3eYiz0ZdxCYg
-	f+IRt1pGBFnVgfCnv4UbXIYgSRQP6fMCF2rEay4ia1pctUXJw8i+/hL8qPXtZNVHiLct0xNK42d
-	nSu+7hp/3DERCXkwNjwEjAwR0gFv+MTxU9v4DWKzIv01scxsrYcZiTKPsjo5VJJyci4lFltLhIP
-	8OLI6yna7rsVS1W2JhW1WxFwY3TtuqcEAZybDOvFj4NI/WLPtMLmn+ltLHOsEWohbXVBtP1UxIi
-	Hl4lZ710ClwlgKaV63DwLyr0mye4TwRuSJuwbRbnj4wTJ//MRbolMAVABdeFhVlkMFNAsk9V14W
-	H2fMXwtkNRgOnmMgT+vmkej32sQOZonWz1vOEP9bazxJYDBH10cZqCSUOpYoPWyMLQ==
-X-Received: by 2002:a17:90b:17cd:b0:3ac:b7b9:6471 with SMTP id 98e67ed59e1d1-3ae8987a7bfmr15529450a91.65.1793859183930;
-        Wed, 04 Nov 2026 22:13:03 -0800 (PST)
-Received: from G6L4RL2QG9.bytedance.net ([61.213.176.8])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b323a1fdsm2107528a91.5.2026.11.04.22.12.57
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 04 Nov 2026 22:13:03 -0800 (PST)
-From: Muchun Song <songmuchun@bytedance.com>
-To: David Hildenbrand <david@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: Lance Yang <lance.yang@linux.dev>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Ritesh Harjani <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Oscar Salvador <osalvador@suse.de>,
-	Qi Zheng <qi.zheng@linux.dev>,
-	Muchun Song <muchun.song@linux.dev>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	linux-mm@kvack.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	x86@kernel.org,
-	loongarch@lists.linux.dev,
-	linux-s390@vger.kernel.org,
-	Muchun Song <songmuchun@bytedance.com>
-Subject: [PATCH v2 5/5] mm/sparse-vmemmap: drop @pgmap from vmemmap population APIs
-Date: Thu,  5 Nov 2026 14:12:17 +0800
-Message-ID: <20261105061217.13302-6-songmuchun@bytedance.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261105061217.13302-1-songmuchun@bytedance.com>
-References: <20261105061217.13302-1-songmuchun@bytedance.com>
+	Thu, 05 Nov 2026 06:32:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BF8034351A;
+	Thu,  5 Nov 2026 06:32:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D20151F000C1;
+	Thu,  5 Nov 2026 06:32:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793860329;
+	bh=Vbqp7UgRbOPcDIEyCr6Idm5Uw5OguqjA42Dh777M6VI=;
+	h=From:Date:Subject:To:Cc;
+	b=lj/doUUcX7a/MaGmrgGOeqT8x+pqzPYeJ0Oi5A0H8RWdisuOIeR4znDYy+/UfFJzl
+	 btnWa7pty3R39sxHuu9RbLINGn/3ew/V8/82KQTXaR/YFGbn8cNNlZ2cG0x+aBIyO9
+	 qGMUHmk0E0sl+RtLoJO/dlK2CUAShvmtzSejU6WjyCmYVSX7SK+hdoyH/+Pp2FjJyr
+	 pwgdhZHhLa16aopxlWs2xT6PqYaxP2gEz2VihZGBIbTPyhpN7EhkpO/uZ8/STmB+FH
+	 Jm0a76oPVrop33cjz8nUQT80Eln7gA3zCdZskvL/QARW1iSj95IvBVbww3yk500pO+
+	 JgNLAN1oQEy8A==
+From: "GUO Ren (XuanTie)" <guoren@kernel.org>
+Date: Thu, 05 Nov 2026 06:31:20 +0000
+Subject: [PATCH v3] perf vendor events riscv: Add C-SKY C930 JSON file
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_221305_428793_B2E6CCFA 
-X-CRM114-Status: GOOD (  16.93  )
-X-Spam-Score: -2.1 (--)
+Message-Id: <20261105-csky_c930_pmu-v3-1-3f33e6b3d259@kernel.org>
+X-B4-Tracking: v=1; b=H4sIALci7GoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQwNT3eTi7Mr4ZEtjg/iC3FJdg9TUFFNzI0vDNGMDJaCegqLUtMwKsHn
+ RsRB+cWlSVmpyCcgQpdpaAKnJPwhxAAAA
+X-Change-ID: 20261105-csky_c930_pmu-0eed57291f30
+To: Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org, 
+ Chen Pei <cp0613@linux.alibaba.com>, 
+ "GUO Ren (XuanTie)" <guoren@kernel.org>
+X-Mailer: b4 0.16.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,404 +88,677 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The vmemmap population and memory hotplug paths no longer need @pgmap
-to decide whether a mapping can be optimized. That state is now carried
-in mem_section, and the architecture-specific population code can make
-the remaining decisions internally.
+From: Chen Pei <cp0613@linux.alibaba.com>
 
-Drop the @pgmap parameter from the vmemmap population helpers and the
-related memory hotplug interfaces, and remove the remaining
-dev_pagemap-specific coupling from those call chains.
+Add PMU event descriptions for the C-SKY C930 core so perf can list and
+select its hardware events by name instead of requiring raw event codes.
+The events cover core counters, branch prediction, instruction fetch,
+integer execution, load/store operations, vector and floating-point
+execution, caches and TLBs.
 
-Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+Add a mapfile.csv entry matching mvendorid 0x5b7 and marchid
+0x8000000009201600, allowing any mimpid, to select the C930 event table.
+
+For example:
+
+perf stat -e cache.l1d.rd.miss,tlb.l1d.miss ./workload
+
+Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
 ---
- arch/arm64/mm/mmu.c                        |  5 ++---
- arch/loongarch/mm/init.c                   |  5 ++---
- arch/powerpc/include/asm/book3s/64/radix.h |  1 -
- arch/powerpc/mm/mem.c                      |  5 ++---
- arch/riscv/mm/init.c                       |  5 ++---
- arch/s390/mm/init.c                        |  5 ++---
- arch/x86/mm/init_64.c                      |  5 ++---
- include/linux/memory_hotplug.h             |  8 +++-----
- include/linux/mm.h                         |  3 +--
- mm/memory_hotplug.c                        | 16 +++++++--------
- mm/memremap.c                              |  4 ++--
- mm/sparse-vmemmap.c                        | 23 ++++++++++------------
- mm/sparse.c                                |  6 ++----
- 13 files changed, 37 insertions(+), 54 deletions(-)
+XuanTie is the RISC-V processor brand of C-SKY Microsystems Co., Ltd.
+[2]. JEDEC JEP106AB lists C-SKY Microsystems Co., Ltd. as the manufacturer
+associated with ID 0x5b7 [3]. Accordingly, use C-SKY in the patch title
+and csky/ as the vendor directory.
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 19459a4a870a..a6b5774005b6 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -2038,13 +2038,12 @@ int arch_add_memory(int nid, u64 start, u64 size,
- 	return ret;
- }
- 
--void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
--			struct dev_pagemap *pgmap)
-+void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- {
- 	unsigned long start_pfn = start >> PAGE_SHIFT;
- 	unsigned long nr_pages = size >> PAGE_SHIFT;
- 
--	__remove_pages(start_pfn, nr_pages, altmap, pgmap);
-+	__remove_pages(start_pfn, nr_pages, altmap);
- 	__remove_pgd_mapping(swapper_pg_dir, __phys_to_virt(start), size);
- }
- 
-diff --git a/arch/loongarch/mm/init.c b/arch/loongarch/mm/init.c
-index ea769e479241..c91afce46136 100644
---- a/arch/loongarch/mm/init.c
-+++ b/arch/loongarch/mm/init.c
-@@ -120,13 +120,12 @@ int arch_add_memory(int nid, u64 start, u64 size, struct mhp_params *params)
- 	return ret;
- }
- 
--void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
--			struct dev_pagemap *pgmap)
-+void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- {
- 	unsigned long start_pfn = start >> PAGE_SHIFT;
- 	unsigned long nr_pages = size >> PAGE_SHIFT;
- 
--	__remove_pages(start_pfn, nr_pages, altmap, pgmap);
-+	__remove_pages(start_pfn, nr_pages, altmap);
- }
- #endif
- 
-diff --git a/arch/powerpc/include/asm/book3s/64/radix.h b/arch/powerpc/include/asm/book3s/64/radix.h
-index df67209b0c5b..0c9195dd50c9 100644
---- a/arch/powerpc/include/asm/book3s/64/radix.h
-+++ b/arch/powerpc/include/asm/book3s/64/radix.h
-@@ -316,7 +316,6 @@ static inline int radix__has_transparent_pud_hugepage(void)
- #endif
- 
- struct vmem_altmap;
--struct dev_pagemap;
- extern int __meminit radix__vmemmap_create_mapping(unsigned long start,
- 					     unsigned long page_size,
- 					     unsigned long phys);
-diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
-index b617b69452cd..2432ff888c03 100644
---- a/arch/powerpc/mm/mem.c
-+++ b/arch/powerpc/mm/mem.c
-@@ -158,13 +158,12 @@ int __ref arch_add_memory(int nid, u64 start, u64 size,
- 	return rc;
- }
- 
--void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
--			      struct dev_pagemap *pgmap)
-+void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- {
- 	unsigned long start_pfn = start >> PAGE_SHIFT;
- 	unsigned long nr_pages = size >> PAGE_SHIFT;
- 
--	__remove_pages(start_pfn, nr_pages, altmap, pgmap);
-+	__remove_pages(start_pfn, nr_pages, altmap);
- 	arch_remove_linear_mapping(start, size);
- }
- #endif
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index e822fce0af4b..6f064875ce8d 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -1749,10 +1749,9 @@ int __ref arch_add_memory(int nid, u64 start, u64 size, struct mhp_params *param
- 	return ret;
- }
- 
--void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
--			      struct dev_pagemap *pgmap)
-+void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- {
--	__remove_pages(start >> PAGE_SHIFT, size >> PAGE_SHIFT, altmap, pgmap);
-+	__remove_pages(start >> PAGE_SHIFT, size >> PAGE_SHIFT, altmap);
- 	remove_linear_mapping(start, size);
- 	flush_tlb_all();
- }
-diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-index be7e009e7b59..91c0edccbb12 100644
---- a/arch/s390/mm/init.c
-+++ b/arch/s390/mm/init.c
-@@ -293,13 +293,12 @@ int arch_add_memory(int nid, u64 start, u64 size,
- 	return rc;
- }
- 
--void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
--			struct dev_pagemap *pgmap)
-+void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- {
- 	unsigned long start_pfn = start >> PAGE_SHIFT;
- 	unsigned long nr_pages = size >> PAGE_SHIFT;
- 
--	__remove_pages(start_pfn, nr_pages, altmap, pgmap);
-+	__remove_pages(start_pfn, nr_pages, altmap);
- 	vmem_remove_mapping(start, size);
- }
- #endif /* CONFIG_MEMORY_HOTPLUG */
-diff --git a/arch/x86/mm/init_64.c b/arch/x86/mm/init_64.c
-index 8b6d86fb5a42..2a635b7f78ea 100644
---- a/arch/x86/mm/init_64.c
-+++ b/arch/x86/mm/init_64.c
-@@ -1273,13 +1273,12 @@ kernel_physical_mapping_remove(unsigned long start, unsigned long end)
- 	remove_pagetable(start, end, true, NULL);
- }
- 
--void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
--			      struct dev_pagemap *pgmap)
-+void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- {
- 	unsigned long start_pfn = start >> PAGE_SHIFT;
- 	unsigned long nr_pages = size >> PAGE_SHIFT;
- 
--	__remove_pages(start_pfn, nr_pages, altmap, pgmap);
-+	__remove_pages(start_pfn, nr_pages, altmap);
- 	kernel_physical_mapping_remove(start, start + size);
- }
- #endif /* CONFIG_MEMORY_HOTPLUG */
-diff --git a/include/linux/memory_hotplug.h b/include/linux/memory_hotplug.h
-index b39605d30896..ec71debc0673 100644
---- a/include/linux/memory_hotplug.h
-+++ b/include/linux/memory_hotplug.h
-@@ -136,10 +136,9 @@ static inline bool movable_node_is_enabled(void)
- 	return movable_node_enabled;
- }
- 
--extern void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
--			       struct dev_pagemap *pgmap);
-+extern void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap);
- extern void __remove_pages(unsigned long start_pfn, unsigned long nr_pages,
--			   struct vmem_altmap *altmap, struct dev_pagemap *pgmap);
-+			   struct vmem_altmap *altmap);
- 
- /* reasonably generic interface to expand the physical pages */
- extern int __add_pages(int nid, unsigned long start_pfn, unsigned long nr_pages,
-@@ -320,8 +319,7 @@ extern int sparse_add_section(int nid, unsigned long pfn,
- 		unsigned long nr_pages, struct vmem_altmap *altmap,
- 		struct dev_pagemap *pgmap);
- extern void sparse_remove_section(unsigned long pfn, unsigned long nr_pages,
--				  struct vmem_altmap *altmap,
--				  struct dev_pagemap *pgmap);
-+				  struct vmem_altmap *altmap);
- extern struct zone *zone_for_pfn_range(enum mmop online_type,
- 		int nid, struct memory_group *group, unsigned long start_pfn,
- 		unsigned long nr_pages);
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 2fa5ce73b382..eb11212be0d4 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -5316,8 +5316,7 @@ static inline void print_vma_addr(char *prefix, unsigned long rip)
- #endif
- 
- struct page * __populate_section_memmap(unsigned long pfn,
--		unsigned long nr_pages, int nid, struct vmem_altmap *altmap,
--		struct dev_pagemap *pgmap);
-+		unsigned long nr_pages, int nid, struct vmem_altmap *altmap);
- void *vmemmap_alloc_block(unsigned long size, int node);
- struct vmem_altmap;
- void *vmemmap_alloc_block_buf(unsigned long size, int node,
-diff --git a/mm/memory_hotplug.c b/mm/memory_hotplug.c
-index 1bfd1f4daeb2..f04a248d8ada 100644
---- a/mm/memory_hotplug.c
-+++ b/mm/memory_hotplug.c
-@@ -416,8 +416,7 @@ int __add_pages(int nid, unsigned long pfn, unsigned long nr_pages,
- 		err = sparse_add_section(nid, pfn, cur_nr_pages, altmap,
- 					 params->pgmap);
- 		if (err) {
--			__remove_pages(start_pfn, pfn - start_pfn, altmap,
--				       params->pgmap);
-+			__remove_pages(start_pfn, pfn - start_pfn, altmap);
- 			break;
- 		}
- 		cond_resched();
-@@ -565,7 +564,6 @@ void remove_pfn_range_from_zone(struct zone *zone,
-  * @pfn: starting pageframe (must be aligned to start of a section)
-  * @nr_pages: number of pages to remove (must be multiple of section size)
-  * @altmap: alternative device page map or %NULL if default memmap is used
-- * @pgmap: device page map or %NULL if not ZONE_DEVICE
-  *
-  * Generic helper function to remove section mappings and sysfs entries
-  * for the section of the memory we are removing. Caller needs to make
-@@ -573,7 +571,7 @@ void remove_pfn_range_from_zone(struct zone *zone,
-  * calling offline_pages().
-  */
- void __remove_pages(unsigned long pfn, unsigned long nr_pages,
--		    struct vmem_altmap *altmap, struct dev_pagemap *pgmap)
-+		    struct vmem_altmap *altmap)
- {
- 	const unsigned long end_pfn = pfn + nr_pages;
- 	unsigned long cur_nr_pages;
-@@ -588,7 +586,7 @@ void __remove_pages(unsigned long pfn, unsigned long nr_pages,
- 		/* Select all remaining pages up to the next section boundary */
- 		cur_nr_pages = min(end_pfn - pfn,
- 				   SECTION_ALIGN_UP(pfn + 1) - pfn);
--		sparse_remove_section(pfn, cur_nr_pages, altmap, pgmap);
-+		sparse_remove_section(pfn, cur_nr_pages, altmap);
- 	}
- }
- 
-@@ -1421,7 +1419,7 @@ static void remove_memory_blocks_and_altmaps(u64 start, u64 size)
- 		memory_block_put(mem);
- 
- 		remove_memory_block_devices(cur_start, memblock_size);
--		arch_remove_memory(cur_start, memblock_size, altmap, NULL);
-+		arch_remove_memory(cur_start, memblock_size, altmap);
- 		altmap_free(altmap);
- 	}
- }
-@@ -1461,7 +1459,7 @@ static int create_altmaps_and_memory_blocks(int nid, struct memory_group *group,
- 		ret = create_memory_block_devices(cur_start, memblock_size, nid,
- 						  params.altmap, group);
- 		if (ret) {
--			arch_remove_memory(cur_start, memblock_size, params.altmap, NULL);
-+			arch_remove_memory(cur_start, memblock_size, params.altmap);
- 			altmap_free(params.altmap);
- 			goto out;
- 		}
-@@ -1548,7 +1546,7 @@ static int __add_memory_resource(int nid, struct resource *res, mhp_t mhp_flags,
- 		/* create memory block devices after memory was added */
- 		ret = create_memory_block_devices(start, size, nid, NULL, group);
- 		if (ret) {
--			arch_remove_memory(start, size, params.altmap, NULL);
-+			arch_remove_memory(start, size, params.altmap);
- 			goto error;
- 		}
- 	}
-@@ -2309,7 +2307,7 @@ static int try_remove_memory(u64 start, u64 size)
- 		 * No altmaps present, do the removal directly
- 		 */
- 		remove_memory_block_devices(start, size);
--		arch_remove_memory(start, size, NULL, NULL);
-+		arch_remove_memory(start, size, NULL);
- 	} else {
- 		/* all memblocks in the range have altmaps */
- 		remove_memory_blocks_and_altmaps(start, size);
-diff --git a/mm/memremap.c b/mm/memremap.c
-index accba23aef28..683a77dd679d 100644
---- a/mm/memremap.c
-+++ b/mm/memremap.c
-@@ -97,10 +97,10 @@ static void pageunmap_range(struct dev_pagemap *pgmap, int range_id)
- 				   PHYS_PFN(range_len(range)));
- 	if (pgmap->type == MEMORY_DEVICE_PRIVATE) {
- 		__remove_pages(PHYS_PFN(range->start),
--			       PHYS_PFN(range_len(range)), NULL, pgmap);
-+			       PHYS_PFN(range_len(range)), NULL);
- 	} else {
- 		arch_remove_memory(range->start, range_len(range),
--				pgmap_altmap(pgmap), pgmap);
-+				pgmap_altmap(pgmap));
- 		kasan_remove_zero_shadow(__va(range->start), range_len(range));
- 	}
- 	mem_hotplug_done();
-diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
-index 71a927d67a9f..5777f2e29684 100644
---- a/mm/sparse-vmemmap.c
-+++ b/mm/sparse-vmemmap.c
-@@ -462,8 +462,7 @@ int __meminit vmemmap_populate_hugepages(unsigned long start, unsigned long end,
- }
- 
- struct page * __meminit __populate_section_memmap(unsigned long pfn,
--		unsigned long nr_pages, int nid, struct vmem_altmap *altmap,
--		struct dev_pagemap *pgmap)
-+		unsigned long nr_pages, int nid, struct vmem_altmap *altmap)
- {
- 	unsigned long start = (unsigned long) pfn_to_page(pfn);
- 	unsigned long end = start + nr_pages * sizeof(struct page);
-@@ -555,11 +554,9 @@ void offline_mem_sections(unsigned long start_pfn, unsigned long end_pfn)
- }
- 
- static struct page * __meminit populate_section_memmap(unsigned long pfn,
--		unsigned long nr_pages, int nid, struct vmem_altmap *altmap,
--		struct dev_pagemap *pgmap)
-+		unsigned long nr_pages, int nid, struct vmem_altmap *altmap)
- {
--	struct page *page = __populate_section_memmap(pfn, nr_pages, nid, altmap,
--						      pgmap);
-+	struct page *page = __populate_section_memmap(pfn, nr_pages, nid, altmap);
- 
- 	memmap_pages_add(section_nr_vmemmap_pages(pfn, nr_pages));
- 
-@@ -567,7 +564,7 @@ static struct page * __meminit populate_section_memmap(unsigned long pfn,
- }
- 
- static void depopulate_section_memmap(unsigned long pfn, unsigned long nr_pages,
--		struct vmem_altmap *altmap, struct dev_pagemap *pgmap)
-+		struct vmem_altmap *altmap)
- {
- 	unsigned long start = (unsigned long) pfn_to_page(pfn);
- 	unsigned long end = start + nr_pages * sizeof(struct page);
-@@ -648,7 +645,7 @@ static int fill_subsection_map(unsigned long pfn, unsigned long nr_pages)
-  * usage map, but still need to free the vmemmap range.
-  */
- static void section_deactivate(unsigned long pfn, unsigned long nr_pages,
--		struct vmem_altmap *altmap, struct dev_pagemap *pgmap)
-+		struct vmem_altmap *altmap)
- {
- 	struct mem_section *ms = __pfn_to_section(pfn);
- 	bool section_is_early = early_section(ms);
-@@ -686,7 +683,7 @@ static void section_deactivate(unsigned long pfn, unsigned long nr_pages,
- 	 * section_activate() and pfn_valid() .
- 	 */
- 	if (!section_is_early)
--		depopulate_section_memmap(pfn, nr_pages, altmap, pgmap);
-+		depopulate_section_memmap(pfn, nr_pages, altmap);
- 	else if (memmap)
- 		free_map_bootmem(memmap);
- 
-@@ -735,9 +732,9 @@ static struct page * __meminit section_activate(int nid, unsigned long pfn,
- 		return pfn_to_page(pfn);
- 
- 	section_set_compound_order_range(pfn, nr_pages, order);
--	memmap = populate_section_memmap(pfn, nr_pages, nid, altmap, pgmap);
-+	memmap = populate_section_memmap(pfn, nr_pages, nid, altmap);
- 	if (!memmap) {
--		section_deactivate(pfn, nr_pages, altmap, pgmap);
-+		section_deactivate(pfn, nr_pages, altmap);
- 		return ERR_PTR(-ENOMEM);
- 	}
- 
-@@ -801,13 +798,13 @@ int __meminit sparse_add_section(int nid, unsigned long start_pfn,
- }
- 
- void sparse_remove_section(unsigned long pfn, unsigned long nr_pages,
--		struct vmem_altmap *altmap, struct dev_pagemap *pgmap)
-+		struct vmem_altmap *altmap)
- {
- 	struct mem_section *ms = __pfn_to_section(pfn);
- 
- 	if (WARN_ON_ONCE(!valid_section(ms)))
- 		return;
- 
--	section_deactivate(pfn, nr_pages, altmap, pgmap);
-+	section_deactivate(pfn, nr_pages, altmap);
- }
- #endif /* CONFIG_MEMORY_HOTPLUG */
-diff --git a/mm/sparse.c b/mm/sparse.c
-index 6acb628c8a73..0b9a6c23a227 100644
---- a/mm/sparse.c
-+++ b/mm/sparse.c
-@@ -204,8 +204,7 @@ void __init sparse_sections_init(void)
- }
- #ifndef CONFIG_SPARSEMEM_VMEMMAP
- struct page __init *__populate_section_memmap(unsigned long pfn,
--		unsigned long nr_pages, int nid, struct vmem_altmap *altmap,
--		struct dev_pagemap *pgmap)
-+		unsigned long nr_pages, int nid, struct vmem_altmap *altmap)
- {
- 	const unsigned long size = PAGE_ALIGN(sizeof(struct page) * PAGES_PER_SECTION);
- 
-@@ -236,8 +235,7 @@ static void __init sparse_metadata_init_nid(int nid,
- 		if (section_nr >= end_section_nr)
- 			break;
- 
--		mem_map = __populate_section_memmap(pfn, PAGES_PER_SECTION, nid,
--						    NULL, NULL);
-+		mem_map = __populate_section_memmap(pfn, PAGES_PER_SECTION, nid, NULL);
- 		if (!mem_map)
- 			panic("Failed to allocate memmap for section %lu\n",
- 			      section_nr);
--- 
-2.54.0
+This revision is limited to the PMU event descriptions from v2 3/4.
+perf selects the event table by matching mvendorid, marchid and mimpid,
+so the DT binding additions are not required for this patch. The
+derived metrics patch is also omitted from this revision.
+
+Changes in v3:
+ - Repost only the PMU event patch. Omit the DT binding patches
+   (v2 1/4 and 2/4) and the derived metrics patch (v2 4/4).
+ - Rename the vendor directory from xuantie/ to csky/ and update the
+   mapfile.csv entry accordingly.
+ - Change the patch title to "Add C-SKY C930 PMU events".
+ - Drop the topdown.* events, uop.spec, uop.ret, ieu.de.inst_cnt,
+   ieu.rn.inst_cnt and vfpu_ex1_rep.
+
+Changes in v2:
+v2: https://lore.kernel.org/linux-riscv/20251121063439.2545-1-cp0613@linux.alibaba.com/
+ - Vendor name update.
+
+Previous versions:
+v1: https://lore.kernel.org/linux-riscv/20250910121121.7203-1-cp0613@linux.alibaba.com/
+
+References:
+[1] https://www.xrvm.com/product/xuantie/C930
+[2] https://www.xrvm.com/declaration
+[3] https://www.jedec.org/standards-documents/docs/jep-106ab
+---
+ .../pmu-events/arch/riscv/csky/c930/basic.json     |  82 ++++++++++
+ .../perf/pmu-events/arch/riscv/csky/c930/ieu.json  |  47 ++++++
+ .../perf/pmu-events/arch/riscv/csky/c930/ifu.json  |  62 ++++++++
+ .../perf/pmu-events/arch/riscv/csky/c930/l2c.json  |  62 ++++++++
+ .../perf/pmu-events/arch/riscv/csky/c930/lsu.json  | 137 +++++++++++++++++
+ .../perf/pmu-events/arch/riscv/csky/c930/vfpu.json | 167 +++++++++++++++++++++
+ tools/perf/pmu-events/arch/riscv/mapfile.csv       |   1 +
+ 7 files changed, 558 insertions(+)
+
+diff --git a/tools/perf/pmu-events/arch/riscv/csky/c930/basic.json b/tools/perf/pmu-events/arch/riscv/csky/c930/basic.json
+new file mode 100644
+index 000000000000..a65b90a682ab
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/csky/c930/basic.json
+@@ -0,0 +1,82 @@
++[
++    {
++        "EventName": "cycles.hart",
++        "EventCode": "0x00000001",
++        "BriefDescription": "CPU cycles, incremented on every CPU clock cycle"
++    },
++    {
++        "EventName": "inst.ret",
++        "EventCode": "0x00000002",
++        "BriefDescription": "Instruction architecturally executed"
++    },
++    {
++        "EventName": "inst.brjmp.spec",
++        "EventCode": "0x00000003",
++        "BriefDescription": "Control transfer instructions"
++    },
++    {
++        "EventName": "inst.mispred.brjmp.spec",
++        "EventCode": "0x00000004",
++        "BriefDescription": "Control transfer instructions that mispredicted"
++    },
++    {
++        "EventName": "cache.l1i.rd.access",
++        "EventCode": "0x00000005",
++        "BriefDescription": "Instruction Cache accesses"
++    },
++    {
++        "EventName": "cache.l1i.rd.miss",
++        "EventCode": "0x00000006",
++        "BriefDescription": "Instruction Cache misses"
++    },
++    {
++        "EventName": "cache.l1d.rd.access",
++        "EventCode": "0x00000007",
++        "BriefDescription": "Data Cache load accesses"
++    },
++    {
++        "EventName": "cache.l1d.rd.miss",
++        "EventCode": "0x00000008",
++        "BriefDescription": "Data Cache load misses"
++    },
++    {
++        "EventName": "tlb.l1i.access",
++        "EventCode": "0x00000009",
++        "BriefDescription": "Instruction TLB accesses"
++    },
++    {
++        "EventName": "tlb.l1i.miss",
++        "EventCode": "0x0000000a",
++        "BriefDescription": "Instruction TLB misses"
++    },
++    {
++        "EventName": "tlb.l1d.access",
++        "EventCode": "0x0000000b",
++        "BriefDescription": "Data TLB accesses"
++    },
++    {
++        "EventName": "tlb.l1d.miss",
++        "EventCode": "0x0000000c",
++        "BriefDescription": "Data TLB misses"
++    },
++    {
++        "EventName": "tlb.pf.access",
++        "EventCode": "0x0000000d",
++        "BriefDescription": "Prefetch TLB accesses"
++    },
++    {
++        "EventName": "tlb.pf.miss",
++        "EventCode": "0x0000000e",
++        "BriefDescription": "Prefetch TLB misses"
++    },
++    {
++        "EventName": "cache.l2.access",
++        "EventCode": "0x0000000f",
++        "BriefDescription": "L2 accesses"
++    },
++    {
++        "EventName": "cache.l2.miss",
++        "EventCode": "0x00000010",
++        "BriefDescription": "L2 misses"
++    }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/csky/c930/ieu.json b/tools/perf/pmu-events/arch/riscv/csky/c930/ieu.json
+new file mode 100644
+index 000000000000..7ee0c8e43411
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/csky/c930/ieu.json
+@@ -0,0 +1,47 @@
++[
++    {
++        "EventName": "inst.int.alu.spec",
++        "EventCode": "0x00000045",
++        "BriefDescription": "Completed ALU instructions"
++    },
++    {
++        "EventName": "inst.int.mul.spec",
++        "EventCode": "0x00000046",
++        "BriefDescription": "Completed MULT instructions"
++    },
++    {
++        "EventName": "inst.int.div.spec",
++        "EventCode": "0x00000047",
++        "BriefDescription": "Completed DIV instructions"
++    },
++    {
++        "EventName": "inst.int.csr.spec",
++        "EventCode": "0x00000048",
++        "BriefDescription": "Completed CSR instructions"
++    },
++    {
++        "EventName": "ieu.is.siq.stall",
++        "EventCode": "0x000000c0",
++        "BriefDescription": "Stall cycles in SX pipe"
++    },
++    {
++        "EventName": "ieu.is.miq.stall",
++        "EventCode": "0x000000c1",
++        "BriefDescription": "Stall cycles in MX pipe"
++    },
++    {
++        "EventName": "ieu.is.biq.stall",
++        "EventCode": "0x000000c2",
++        "BriefDescription": "Stall cycles in BR pipe"
++    },
++    {
++        "EventName": "ieu.is.lsiq.stall",
++        "EventCode": "0x000000c3",
++        "BriefDescription": "Stall cycles in LS pipe"
++    },
++    {
++        "EventName": "ieu.is.vfpq.stall",
++        "EventCode": "0x000000c4",
++        "BriefDescription": "Stall cycles in VF pipe"
++    }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/csky/c930/ifu.json b/tools/perf/pmu-events/arch/riscv/csky/c930/ifu.json
+new file mode 100644
+index 000000000000..a8fedd95659a
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/csky/c930/ifu.json
+@@ -0,0 +1,62 @@
++[
++    {
++        "EventName": "inst.mispred.branch",
++        "EventCode": "0x00000018",
++        "BriefDescription": "Conditional branches that mispredicted"
++    },
++    {
++        "EventName": "inst.mispred.uncond_branch",
++        "EventCode": "0x00000019",
++        "BriefDescription": "Direct jumps that mispredicted"
++    },
++    {
++        "EventName": "inst.mispred.ind",
++        "EventCode": "0x0000001a",
++        "BriefDescription": "Indirect jumps that mispredicted"
++    },
++    {
++        "EventName": "inst.mispred.ret",
++        "EventCode": "0x0000001b",
++        "BriefDescription": "Function return instructions that mispredicted"
++    },
++    {
++        "EventName": "inst.brjmp.branch.spec",
++        "EventCode": "0x0000001c",
++        "BriefDescription": "Conditional branch instructions that speculatively executed"
++    },
++    {
++        "EventName": "inst.brjmp.uncond_branch.spec",
++        "EventCode": "0x0000001d",
++        "BriefDescription": "Direct jumps that speculatively executed"
++    },
++    {
++        "EventName": "inst.brjmp.ind.spec",
++        "EventCode": "0x0000001e",
++        "BriefDescription": "Indirect jumps that speculatively executed"
++    },
++    {
++        "EventName": "inst.brjmp.ret.spec",
++        "EventCode": "0x0000001f",
++        "BriefDescription": "Function return instructions that speculatively executed"
++    },
++    {
++        "EventName": "inst.brjmp.branch.tk",
++        "EventCode": "0x00000020",
++        "BriefDescription": "Branch instructions that resolved to be taken"
++    },
++    {
++        "EventName": "cache.l1i.rd.miss.latency",
++        "EventCode": "0x000000b8",
++        "BriefDescription": "Cycles where frontend issues no instructions due to L1 instruction cache miss"
++    },
++    {
++        "EventName": "tlb.l1i.miss.latency",
++        "EventCode": "0x000000b9",
++        "BriefDescription": "Cycles where frontend issues no instructions due to instruction TLB miss"
++    },
++    {
++        "EventName": "inst.mispred.brjmp.latency",
++        "EventCode": "0x000000ba",
++        "BriefDescription": "Cycles where frontend issues no instructions due to branch redirect"
++    }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/csky/c930/l2c.json b/tools/perf/pmu-events/arch/riscv/csky/c930/l2c.json
+new file mode 100644
+index 000000000000..4a8698cf5637
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/csky/c930/l2c.json
+@@ -0,0 +1,62 @@
++[
++    {
++        "EventName": "cache.l2.wb",
++        "EventCode": "0x000000a2",
++        "BriefDescription": "L2 Cache write-backs"
++    },
++    {
++        "EventName": "cache.l2.rd",
++        "EventCode": "0x000000a3",
++        "BriefDescription": "L2 Cache reads"
++    },
++    {
++        "EventName": "cache.l2.wr",
++        "EventCode": "0x000000a4",
++        "BriefDescription": "L2 Cache writes"
++    },
++    {
++        "EventName": "cache.l2.refill.rd",
++        "EventCode": "0x000000a5",
++        "BriefDescription": "L2 Cache refills caused by read"
++    },
++    {
++        "EventName": "cache.l2.refill.wr",
++        "EventCode": "0x000000a6",
++        "BriefDescription": "L2 Cache refills caused by write"
++    },
++    {
++        "EventName": "cache.l2.wb.victim",
++        "EventCode": "0x000000a7",
++        "BriefDescription": "L2 Cache write-backs caused by cache replacements"
++    },
++    {
++        "EventName": "cache.l2.wb.clean",
++        "EventCode": "0x000000a8",
++        "BriefDescription": "L2 Cache write-backs caused by CMO or external snoops"
++    },
++    {
++        "EventName": "cache.l2.inval",
++        "EventCode": "0x000000a9",
++        "BriefDescription": "L2 Cache invalidations (by CMO or external snoops included)"
++    },
++    {
++        "EventName": "cache.l2.refill.inst",
++        "EventCode": "0x000000aa",
++        "BriefDescription": "L2 Cache refills caused by instruction cache load miss"
++    },
++    {
++        "EventName": "bus.access",
++        "EventCode": "0x000000ab",
++        "BriefDescription": "All requests sent to the bus"
++    },
++    {
++        "EventName": "bus.rd.access",
++        "EventCode": "0x000000ac",
++        "BriefDescription": "All read requests sent to the bus (prefetch included)"
++    },
++    {
++        "EventName": "bus.wr.access",
++        "EventCode": "0x000000ad",
++        "BriefDescription": "All write requests sent to the bus (eviction by the current core included, but eviction by external snoops not included)"
++    }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/csky/c930/lsu.json b/tools/perf/pmu-events/arch/riscv/csky/c930/lsu.json
+new file mode 100644
+index 000000000000..eb8d2351dff1
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/csky/c930/lsu.json
+@@ -0,0 +1,137 @@
++[
++    {
++        "EventName": "inst.load.unalign",
++        "EventCode": "0x00000083",
++        "BriefDescription": "Unaligned load instructions"
++    },
++    {
++        "EventName": "inst.store.unalign",
++        "EventCode": "0x00000084",
++        "BriefDescription": "Unaligned cross-page store instructions"
++    },
++    {
++        "EventName": "cache.l1d.wr.access",
++        "EventCode": "0x0000008a",
++        "BriefDescription": "Data Cache store accesses"
++    },
++    {
++        "EventName": "cache.l1d.wr.miss",
++        "EventCode": "0x0000008b",
++        "BriefDescription": "Data Cache store misses"
++    },
++    {
++        "EventName": "cache.l1d.refill.inner",
++        "EventCode": "0x0000008c",
++        "BriefDescription": "Data Cache misses with L2C hit"
++    },
++    {
++        "EventName": "cache.l1d.refill.outer",
++        "EventCode": "0x0000008d",
++        "BriefDescription": "Data Cache misses with L2C miss"
++    },
++    {
++        "EventName": "cache.l1d.wb",
++        "EventCode": "0x0000008e",
++        "BriefDescription": "Data Cache dirty cache line evictions"
++    },
++    {
++        "EventName": "cache.l1d.wb.victim",
++        "EventCode": "0x0000008f",
++        "BriefDescription": "Data Cache dirty cache line evictions caused by new cache line refilling"
++    },
++    {
++        "EventName": "cache.l1d.wb.clean",
++        "EventCode": "0x00000090",
++        "BriefDescription": "Data Cache dirty cache line evictions caused by CMO from another CPU or snoop from another CPU"
++    },
++    {
++        "EventName": "cache.l1d.inval",
++        "EventCode": "0x00000091",
++        "BriefDescription": "Data Cache invalidations caused by CMO or snoops"
++    },
++    {
++        "EventName": "inst.ldst.load.spec",
++        "EventCode": "0x00000092",
++        "BriefDescription": "Completed load instructions (prefetch not included)"
++    },
++    {
++        "EventName": "inst.ldst.store.spec",
++        "EventCode": "0x00000093",
++        "BriefDescription": "Completed store instructions (CMO not included)"
++    },
++    {
++        "EventName": "inst.ldst.lr.spec",
++        "EventCode": "0x00000094",
++        "BriefDescription": "Completed lr instructions"
++    },
++    {
++        "EventName": "inst.ldst.sc",
++        "EventCode": "0x00000095",
++        "BriefDescription": "Completed sc instructions"
++    },
++    {
++        "EventName": "inst.ldst.sc.pass",
++        "EventCode": "0x00000096",
++        "BriefDescription": "Completed sc instructions that pass"
++    },
++    {
++        "EventName": "inst.ldst.sc.fail",
++        "EventCode": "0x00000097",
++        "BriefDescription": "Completed sc instructions that fail"
++    },
++    {
++        "EventName": "inst.ldst.amo",
++        "EventCode": "0x00000098",
++        "BriefDescription": "Completed AMO instructions"
++    },
++    {
++        "EventName": "inst.ldst.load_acquire.spec",
++        "EventCode": "0x00000099",
++        "BriefDescription": "Completed load acquire instructions"
++    },
++    {
++        "EventName": "inst.ldst.store_release.spec",
++        "EventCode": "0x0000009a",
++        "BriefDescription": "Completed store release instructions"
++    },
++    {
++        "EventName": "inst.ldst.fence",
++        "EventCode": "0x0000009b",
++        "BriefDescription": "Completed fence instructions"
++    },
++    {
++        "EventName": "inst.ldst.fencei",
++        "EventCode": "0x0000009c",
++        "BriefDescription": "Completed fencei instructions"
++    },
++    {
++        "EventName": "inst.ldst.dvm_sync",
++        "EventCode": "0x0000009d",
++        "BriefDescription": "Completed dvm sync instructions"
++    },
++    {
++        "EventName": "inst.ldst.vec_load.spec",
++        "EventCode": "0x0000009e",
++        "BriefDescription": "Completed vector load uops"
++    },
++    {
++        "EventName": "inst.ldst.vec_store.spec",
++        "EventCode": "0x0000009f",
++        "BriefDescription": "Completed vector store uops"
++    },
++    {
++        "EventName": "inst.ldst.float_load.spec",
++        "EventCode": "0x000000a0",
++        "BriefDescription": "Completed floating-point load uops"
++    },
++    {
++        "EventName": "inst.ldst.float_store.spec",
++        "EventCode": "0x000000a1",
++        "BriefDescription": "Completed floating-point store uops"
++    },
++    {
++        "EventName": "inst.ldst.spec",
++        "EventCode": "0x000000b3",
++        "BriefDescription": "Completed instructions executed by LSU"
++    }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/csky/c930/vfpu.json b/tools/perf/pmu-events/arch/riscv/csky/c930/vfpu.json
+new file mode 100644
+index 000000000000..e60dea102862
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/csky/c930/vfpu.json
+@@ -0,0 +1,167 @@
++[
++    {
++        "EventName": "inst.sca.fp.arith.spec",
++        "EventCode": "0x0000005b",
++        "BriefDescription": "Completed scalar floating-point instructions"
++    },
++    {
++        "EventName": "inst.fp.arith.half.spec",
++        "EventCode": "0x0000005c",
++        "BriefDescription": "Completed half-precision floating-point instructions (both scalar and vector included)"
++    },
++    {
++        "EventName": "inst.fp.arith.single.spec",
++        "EventCode": "0x0000005d",
++        "BriefDescription": "Completed single-precision floating-point instructions (both scalar and vector included)"
++    },
++    {
++        "EventName": "inst.fp.arith.double.spec",
++        "EventCode": "0x0000005e",
++        "BriefDescription": "Completed double-precision floating-point instructions (both scalar and vector included)"
++    },
++    {
++        "EventName": "inst.rvv.arith.spec",
++        "EventCode": "0x0000005f",
++        "BriefDescription": "Completed vector arithmetic instructions"
++    },
++    {
++        "EventName": "uop.rvv.arith.spec",
++        "EventCode": "0x00000060",
++        "BriefDescription": "Completed vector arithmetic uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.fp.spec",
++        "EventCode": "0x00000061",
++        "BriefDescription": "Completed vector arithmetic floating-point uops"
++    },
++    {
++        "EventName": "inst.rvv.arith.fp.spec",
++        "EventCode": "0x00000062",
++        "BriefDescription": "Completed vector arithmetic floating-point instructions"
++    },
++    {
++        "EventName": "uop.sca.fp.arith.bf.spec",
++        "EventCode": "0x00000063",
++        "BriefDescription": "Completed scalar bf floating-point uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.vint8.spec",
++        "EventCode": "0x00000064",
++        "BriefDescription": "Completed INT8 vector uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.vint16.spec",
++        "EventCode": "0x00000065",
++        "BriefDescription": "Completed INT16 vector uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.vint32.spec",
++        "EventCode": "0x00000066",
++        "BriefDescription": "Completed INT32 vector uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.vint64.spec",
++        "EventCode": "0x00000067",
++        "BriefDescription": "Completed INT64 vector uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.fix_point.spec",
++        "EventCode": "0x00000068",
++        "BriefDescription": "Completed fixed-point vector uops"
++    },
++    {
++        "EventName": "uop.fp.arith.fdiv.spec",
++        "EventCode": "0x00000069",
++        "BriefDescription": "Completed floating-point division uops (both scalar and vector included)"
++    },
++    {
++        "EventName": "uop.rvv.arith.idiv.spec",
++        "EventCode": "0x0000006a",
++        "BriefDescription": "Completed vector integer division uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.zvkn.spec",
++        "EventCode": "0x0000006b",
++        "BriefDescription": "Completed zvkn-type uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.zvks.spec",
++        "EventCode": "0x0000006c",
++        "BriefDescription": "Completed zvks-type uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.vmulu64.spec",
++        "EventCode": "0x0000006d",
++        "BriefDescription": "Completed UINT64 vector multiply uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.vmulu.spec",
++        "EventCode": "0x0000006e",
++        "BriefDescription": "Completed UNIT vector multiply uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.vdot.spec",
++        "EventCode": "0x0000006f",
++        "BriefDescription": "Completed vdot uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.vfmul.spec",
++        "EventCode": "0x00000070",
++        "BriefDescription": "Completed vector floating-point multiply uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.vfadd.spec",
++        "EventCode": "0x00000071",
++        "BriefDescription": "Completed vector floating-point add uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.perm.spec",
++        "EventCode": "0x00000072",
++        "BriefDescription": "Completed vector permutation uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.redu.spec",
++        "EventCode": "0x00000073",
++        "BriefDescription": "Completed vector integer reduction uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.fred.spec",
++        "EventCode": "0x00000074",
++        "BriefDescription": "Completed vector floating-point reduction uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.mask.spec",
++        "EventCode": "0x00000075",
++        "BriefDescription": "Completed vector arithmetic masked uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.vlmax.spec",
++        "EventCode": "0x00000076",
++        "BriefDescription": "Completed vlmax uops"
++    },
++    {
++        "EventName": "uop.rvv.arith.agnostic.spec",
++        "EventCode": "0x00000077",
++        "BriefDescription": "Completed vector arithmetic uops with agnostic strategy"
++    },
++    {
++        "EventName": "uop.rvv.arith.idiv_direct.spec",
++        "EventCode": "0x00000078",
++        "BriefDescription": "Completed vector integer division uops that produce special result"
++    },
++    {
++        "EventName": "uop.rvv.vadd.spec",
++        "EventCode": "0x000000ae",
++        "BriefDescription": "Completed vector integer add uops"
++    },
++    {
++        "EventName": "uop.rvv.vmacc.spec",
++        "EventCode": "0x000000af",
++        "BriefDescription": "Completed vector integer multiply-add uops"
++    },
++    {
++        "EventName": "uop.rvv.vfmacc.spec",
++        "EventCode": "0x000000b0",
++        "BriefDescription": "Completed vector floating-point multiply-add uops"
++    }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/mapfile.csv b/tools/perf/pmu-events/arch/riscv/mapfile.csv
+index 87cfb0e0849f..372833e0a78e 100644
+--- a/tools/perf/pmu-events/arch/riscv/mapfile.csv
++++ b/tools/perf/pmu-events/arch/riscv/mapfile.csv
+@@ -21,6 +21,7 @@
+ 0x489-0x8000000000000[1-6]08-0x[9b][[:xdigit:]]+,v1,sifive/p650,core
+ 0x5b7-0x0-0x0,v1,thead/c900-legacy,core
+ 0x5b7-0x80000000090c0d00-0x2047000,v1,thead/c900-legacy,core
++0x5b7-0x8000000009201600-0x[[:xdigit:]]+,v1,csky/c930,core
+ 0x602-0x3-0x0,v1,openhwgroup/cva6,core
+ 0x67e-0x80000000db0000[89]0-0x[[:xdigit:]]+,v1,starfive/dubhe-80,core
+ 0x31e-0x8000000000008a45-0x[[:xdigit:]]+,v1,andes/ax45,core
+
+---
+base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
+change-id: 20261105-csky_c930_pmu-0eed57291f30
+
+Best regards,
+--  
+GUO Ren (XuanTie) <guoren@kernel.org>
 
 
 _______________________________________________
