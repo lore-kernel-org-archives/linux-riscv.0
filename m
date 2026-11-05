@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAE5A60A6F43
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 16:31:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52F50606D82C
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 16:32:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MRNY65fT;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SyFM2slw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Qik45mw8;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Okt5JcID
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,52 +14,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=oU/VZu4/Q+wVeHtat+T2Q0u8+SEr99sKbpS/n1348m0=; b=MRNY65fTZeUXY/OzTebylitN5s
-	/LI+ZVCHuxYTemlm01xc6biujBNK/gwCbSJ7/OE0cCKcj3LcErdcijbm9cZWEikC0XdJqBActDMm9
-	xlS562uplp9l23BcJFFFewZ/kMksFMXiZVeAD0j7ImN9STUHPZVa5Jv0PU10He9/HDSu/WYjxFHvB
-	i/wXX4WmeGzOosmCrqFM867lnmuinVWPWzTRjD474zyUf8rH7HmZ1A7zf6ekwTfso75ukos5tHLc+
-	RLSez07FQzNmAfhtqI/9nRYRU3gD0plKZq775wTetMktLfq4m0Rv7koLXbS2k0v6G5pGZk+zb+naM
-	k3MigHcw==;
+	bh=TvmrDlzZtbgGL6NqhpNz03RAMpPUJAkoIcMDwLC/7v0=; b=Qik45mw86Xix+FqIji2oQ9OnPR
+	8veFQV6HhQZKnvRNYwJ0DjBuTtojU0myn2ILWVVieXhuIILab/4sI0VyZPcvdPpWVOOtzJOj6uuZ3
+	UP3PLM0sGQXFvO/iy9EgwFydDaoRaV9ADqtxduSreStYI4CuPdUtywLcgLLNjhHqI+/e7xZ/07gYG
+	I3LL4Z7y6LU0PHpVTIvPYBiCnTcxlmlmplr38eIH2lWSTLieVSRnk50lGS2xyFS2X/1yO/bO5q2KN
+	IUNkGjM3VX6kFmoWEa0yjm71c036RhgtBSKAgI32UHY6Wrmuhiw67zsxxFluYlg+bu6M+fhF0idwc
+	vIkITg7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP0N9-00000009cdK-4BQt;
-	Thu, 05 Nov 2026 16:31:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xP0NP-00000009clc-15WY;
+	Thu, 05 Nov 2026 16:31:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP0N2-00000009cVa-1QMo
+	id 1xP0N9-00000009cbu-0nq5
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 16:31:27 +0000
+	Thu, 05 Nov 2026 16:31:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1D5B143F07;
-	Thu,  5 Nov 2026 16:31:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F1B91F00919;
-	Thu,  5 Nov 2026 16:31:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 99F44609D5;
+	Thu,  5 Nov 2026 16:31:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DD551F00919;
+	Thu,  5 Nov 2026 16:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793896284;
-	bh=ojdQO36VxpBln+lcBBfyYeZVhigXx2PzGxmPWtpJuqs=;
+	s=k20260515; t=1793896290;
+	bh=tYa2kVcQJggBzf30cyG9hxA6HXv+PyuWty9AqwH1tx0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=SyFM2slwcNEzQxdyqKnv71uJj12gtCsSIyOOogNNwwT1c/UhRQe6GO/k6PVXzplol
-	 PvCpy6c8Rf3DbAw+A66Za8aaUbyDfTK5qjqyknbuDUETOpTDfDT1O02gxZOgvBSq8u
-	 cKWVvex8KerxG7LcILXGca2TLev7nlLjfEb9DP2Dl9h6hwexbvA++R+Kk2lS/6qiPr
-	 GkSHdgTNGKCEoeFfCjnz+OcKzaPODHU+tM/atsISP6+fJ+prbOkaG0FhOXzbzmB3E1
-	 ZFggRmplMGIYY4sjZSvaDPKygIV/n/bwGA/YuPdjMFGnNRs9yBvb8OrqVTMwQfEsrJ
-	 35tw2r/ari49Q==
+	b=Okt5JcID6lqYQk81BhtmQVx0ZDemw/aCKTU/Bjy47LZPWA2PuE7Az4nfV/beqI8gc
+	 UkmIOr9JHshoJvgEhX55n+FNyrANHSc3fZdOC2ImWkQimI1G/m7PvbWlHbAdK/B0dM
+	 3hdelEbjqCsynL0JJx4p6RJNuwC36D6C7xX9KJAb1Cd761+N+PAZsIAOuSrRKIS/79
+	 yOsahGFSbEe1DZWVoc4CvjsxTHKZX/B7kplvSN3XqTyPLKmKSOBj+U/vezAqyPP80c
+	 XHVmYcxncvYWTrDsJ0sswzC4EGtNA4He1rl4nkEvY2Bs5NItB4Kas+9Oq0UtqqwTcc
+	 ggOnpG/fYnqqQ==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Anup Patel <anup@brainfault.org>,
 	Marco Crivellari <marco.crivellari@suse.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <pjw@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Phil Auld <pauld@redhat.com>,
 	Radu Rendec <radu@rendec.net>,
-	Samuel Holland <samuel.holland@sifive.com>,
 	Thomas Gleixner <tglx@kernel.org>,
 	Waiman Long <longman@redhat.com>,
 	linux-riscv@lists.infradead.org,
 	"Paul E. McKenney" <paulmck@kernel.org>
-Subject: [PATCH 10/47] irqchip/sifive-plic: Move CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING post stop_machine()
-Date: Thu,  5 Nov 2026 17:30:08 +0100
-Message-ID: <20261105163045.38862-11-frederic@kernel.org>
+Subject: [PATCH 12/47] irqchip/irq-riscv-imsic-early: Move CPUHP_AP_IRQ_RISCV_IMSIC_STARTING post stop_machine()
+Date: Thu,  5 Nov 2026 17:30:10 +0100
+Message-ID: <20261105163045.38862-13-frederic@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261105163045.38862-1-frederic@kernel.org>
 References: <20261105163045.38862-1-frederic@kernel.org>
@@ -94,10 +97,14 @@ a new stop machine post function has been introduced to be executed
 after the main one with IRQs still disabled while other CPUs can exit
 stop_machine().
 
-The callback here simply disables a per-cpu IRQ, which internally locks
-the irq desc. Therefore it can run concurrently with other CPUs.
+The callback here disables the current CPU IPI, which nobody should
+touch concurrently since it is seen offline by other CPUs.
 
-Move it to post stop_machine() accordingly.
+The sync protects internal datas with &lpriv->lock and the IRQ matrix
+offline is protected by &imsic->matrix_lock. Therfore it can run
+concurrently with other CPUs.
+
+Move this teardown callback to post stop_machine() accordingly.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
@@ -105,15 +112,15 @@ Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 2200c6691ac1..c7794716bca6 100644
+index c86570b13fed..151e4d9673b9 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
 @@ -1275,7 +1275,7 @@ void clear_tasks_mm_cpumask(int cpu)
  static int take_cpu_down(void *_param)
  {
  	struct cpuhp_cpu_state *st = this_cpu_ptr(&cpuhp_state);
--	enum cpuhp_state target = max((int)st->target, CPUHP_AP_IRQ_AVECINTC_STARTING);
-+	enum cpuhp_state target = max((int)st->target, CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING);
+-	enum cpuhp_state target = max((int)st->target, CPUHP_AP_IRQ_ACLINT_SSWI_STARTING);
++	enum cpuhp_state target = max((int)st->target, CPUHP_AP_IRQ_RISCV_IMSIC_STARTING);
  	int err, cpu = smp_processor_id();
  
  	/* Ensure this CPU doesn't handle any more interrupts. */
@@ -121,8 +128,8 @@ index 2200c6691ac1..c7794716bca6 100644
  	enum cpuhp_state target = max((int)st->target, CPUHP_AP_OFFLINE);
  	int cpu = smp_processor_id();
  
--	WARN_ON(st->state != CPUHP_AP_IRQ_AVECINTC_STARTING);
-+	WARN_ON(st->state != CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING);
+-	WARN_ON(st->state != CPUHP_AP_IRQ_ACLINT_SSWI_STARTING);
++	WARN_ON(st->state != CPUHP_AP_IRQ_RISCV_IMSIC_STARTING);
  	/*
  	 * Invoke the former CPU_DYING callbacks. DYING must not fail!
  	 */
