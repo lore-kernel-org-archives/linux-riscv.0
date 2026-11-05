@@ -2,94 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 401F7606A326
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 01:20:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7D9D606A31B
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 01:33:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=z5WFtmu/;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=TCfqkYHU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pTTpHtt4;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=NW6/6Jnh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=roQnJI3/Xab065SdH7KxD3hspxs2I37BiB+QRZcxuzk=; b=z5WFtmu/i1i+coVTUh6yWLzGPz
-	RJ9bQ+uMlbCJXmkmUDWEAXYkSzQGQ1Cf5XnBYDuyecpSIEFZPRAUADZIrOPapaipAW17x2sKc0ccL
-	O9OifNkiaok1KrKcC6f6NqTN40kgO1PJ9qlXJzEofh5ftGfckxudwb3TH1t9P8sNGQftlr04DWI4L
-	sH1IQI20oShh9v5whC7sFqIZZsFca58pq06UpoKKUGRPUum7nDYf9xpVvlJ5zgWpBUNPLjmfC151/
-	4PJYels2LnwR0Smi8TD1cuuW7TOiyVODcU1EHThNuQ8o2qbjHxOlPoR4jouKQSaLYgh9krdXEBvuL
-	SnxBVLqA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Mime-Version:Cc:To:
+	Message-Id:Date:References:From:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
+	bh=q7wbAZ39kUXqNWkXaUjU23p3tZuNPbpd1P4exgXyVE0=; b=pTTpHtt4RqTDVDb+s5qg724hFw
+	8OCxJesCJDysW6UNiq/Wg+g0ZvYq8OGkj/tyxxqYiYqp89DACXClBVkXG3kxv5KfI3PTRxioi8lw6
+	Pph7V5+sM5u5gd4WWp5sJBwI0WTc2sHYlPfXFynQelvO+UcmtlG9pSq96IAhlc9RXoGewcIbbbcpw
+	3fqElnsW11LGCWpZOHA+bopzDE+hl9wjF4vXEEpWTkp2W9yL7DnGQCz63hsSPkEW6DPjCHiIxI5ZZ
+	XAEWsz4oLmKbURpoo5XlWtXC12oXDReb7C+tqo3EDfMWb7Z/RS2JYQwCBecK7cztPfS6+3I//Fq1L
+	5RxtWL7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOm9a-00000007Syd-0Ipv;
-	Thu, 05 Nov 2026 01:20:34 +0000
-Received: from smtpbgeu1.qq.com ([52.59.177.22])
+	id 1xOmM1-00000007UO5-1ynP;
+	Thu, 05 Nov 2026 01:33:25 +0000
+Received: from va-2-37.ptr.blmpb.com ([209.127.231.37])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOm9S-00000007SwZ-29QS
+	id 1xOmLy-00000007UMz-1dhK
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 01:20:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1793841588;
-	bh=qg2+dZF3TjKEHvPr7q+CoS4vmmGWQlhmYsqxlyiBRfw=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=TCfqkYHUtSnRj9DAu8t2wmi6ZhdBD7tkPnIEIfSDrNAxebuyO9AbLwB4n3eNQRP26
-	 Eet6SXm9aSCVb43XsRZpE3f/3ujZGFFCfUmS+8H+DssUrTsVXImVHxqZOnq9gFFmX8
-	 RvEIVaHoEGkJ3dO/z94lUKn96e4uq1o0qcuEtric=
-X-QQ-mid: esmtpgz13t1793841586tce477b9b
-X-QQ-Originating-IP: db7vP0PyT1iv0ktdaH831sO646d7fHC9DdZ5Je/YyqQ=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 05 Nov 2026 09:19:44 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 394686068405469888
-EX-QQ-RecipientCnt: 14
+	Thu, 05 Nov 2026 01:33:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1793842388;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=/d8AjzMR8Kwx0Lf9prj+CTkH5Cp2jbRHWYUWf3O5Nro=;
+ b=NW6/6JnhJJ7Wt9dub9t9fuM1m8qckHGHDpKh3GXjqjz0Vr+TdtP1ra00SWhU3x8wRj7PW2
+ 9pXuWHG/Kr194TjEzZ9CmRZavFFjUK1PV+c6B2bBc2o0gxW7wpuVqEH8gy3cGgRrljADYB
+ oov5K/UdoXQpTHYN6NJHGuZYWPA2OjY1tOVf5QLVhkJer8CWfu57Znyof5woiFWcHkEuks
+ pl+xOIIIPyjEVQnRcTTIEmICcoAx7A8EUyp6SOwibG0XwGE2V7YkZnj469DhudYX/eqMo7
+ g3fKh6lmbN5DC9khyprdt9uJyxHWhW8zV9M18bCuXqRZziUtObI9nJrQYhhzug==
+Subject: Re: [PATCH v3 3/3] riscv: dts: spacemit: k3-deepcomputing-fml13v05: Enable SD card support
+From: "Sandie Cao" <sandie.cao@deepcomputing.io>
+References: <20261102060012.100623-1-sandie.cao@deepcomputing.io> <20261102060155.100679-1-sandie.cao@deepcomputing.io>
+	<DMMVRQOY5TBN.J0PHJAAZSC2F@linux.spacemit.com>
+Date: Thu, 05 Nov 2026 09:33:05 +0800
+Message-Id: <407ce3d77416bb2522b7906b0df3d5adf02c27ee.569e40bc.e0a4.4c5f.856e.9977de981adb@feishu.cn>
+To: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+Cc: "Yixun Lan" <dlan@kernel.org>, 
+	"Troy Mitchell" <troy.mitchell@linux.spacemit.com>, 
+	"Conor Dooley" <conor+dt@kernel.org>, "Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
+	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>, 
+	<spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
-Date: Thu, 05 Nov 2026 01:19:43 +0000
-Message-Id: <DMMVRQOY5TBN.J0PHJAAZSC2F@linux.spacemit.com>
-Cc: "Alexandre Ghiti" <alex@ghiti.fr>, <devicetree@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 3/3] riscv: dts: spacemit: k3-deepcomputing-fml13v05:
- Enable SD card support
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Sandie Cao" <sandie.cao@deepcomputing.io>, "Yixun Lan"
- <dlan@kernel.org>, "Troy Mitchell" <troy.mitchell@linux.spacemit.com>,
- "Conor Dooley" <conor+dt@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Paul Walmsley"
- <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
- <aou@eecs.berkeley.edu>
-X-Mailer: aerc 0.21.0-reader-ipc4
-References: <20261102060012.100623-1-sandie.cao@deepcomputing.io>
- <20261102060155.100679-1-sandie.cao@deepcomputing.io>
-In-Reply-To: <20261102060155.100679-1-sandie.cao@deepcomputing.io>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: OZsapEVPoiO6CysBWbheExxOP4cCHLxJ34n2xqQixQ170frSEKKltw99
-	deW+mD8REj37AlVlFArSgblpns9yP8QVCChwffS+mz0Urjc4A2PZXKPR2cSgvKwiRky4OcQ
-	NM0PzM77/ay+nnlvchbKuTyj2ZJ4Z3qhNpJWr7oxxlHyl5Q6wujnKe59wMwhHq/WsVQzJn9
-	OdMr4IdxGaGDF67l7nGCP0AuNomJ5bg0IKcthLbXUQ33CjaSeI4JXWJ4dF4R8gm59xdykP6
-	qQxm1qnfkS9YryM84bPsy3XXm4oxCIDthtUwra8Qs6M3XAE0fi5UXFxZWWw58wxYGaWf0Lt
-	pR/3bi1Cbxpov9/FLj9VFMVOsDOaSTX/FtiMoqTPrK0wlE6zCCCRjQCdGj3oUlTejM1ynLe
-	WuWMNKmTnrqAenO/qOQpJky6yLfWTXr3+8UYiZoLhyXZsnxv9soOrao8Yv8jUOYPagVKbr1
-	j1QKxaJYdhYKJiLaucSZnUhtkIVWpE4XJfQR1D7Uyr+EbD37oghckBMtPZdekvRdnEacgpx
-	WhlG1STbDAY9US0Er4sdkg0ZRpR/bbq3iYbWBWUiLRwZOFhCZFvfr5PTSb9Z0/VV/jdBcjp
-	SmFtOJlHLw16ccYKb8n/sMgyLvlIdZvAjwFevnJ6M4WExRI8GH1XVAiHY9Vk69eSmFvtFNA
-	AwcxywLn09McHKGmWO62ojaPbQvEGsJSLoWPCGgLYBrSQRkk20hQWpHzbf/UnCk6+tyl+Qj
-	fbaHxJkLBD/Ioomnu+ZnlpgakGThs0tIMYN6NRK/G97YJbxPYyzWiAKfwKIRT+kCRwrAsGV
-	/mo7lBEevQEw10ZWoU2uqbuHCMnp3o6XSQMbvSYMThOZlP3CSsRXLXr+YnfSNck71wSDo1Y
-	h8SiCJCMsRRYmU4aWwf5bSWueg8okGshBAC8gniA3PVgXXuUewBA+jSEUiGBstBJizURiB5
-	R9idTsQfVENpaf7wRsW70RpwEArr1OhTtnLjneAMInVKk8OqsEuFDhM/A0/L1CY3I+VUxdZ
-	tiFGpVZ51GWuarRRzqKjtN2eDGjsF+qmFBSy8EnYoCuTlF+LEdNsewy05LEyJPdgxE3ixM/
-	AT6Be3fFWKS+Z4zSpXLyKtZSCCZmW+EDI7mzqMT4dVG
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-X-QQ-RECHKSPAM: 0
+X-Lms-Return-Path: <lba+16aebdcd2+08cacd+lists.infradead.org+sandie.cao@deepcomputing.io>
+In-Reply-To: <DMMVRQOY5TBN.J0PHJAAZSC2F@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_172027_453464_F1B96B28 
-X-CRM114-Status: GOOD (  13.27  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261104_173322_510256_31AA2FA8 
+X-CRM114-Status: GOOD (  13.84  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,7 +71,8 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5578735439891359590=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
@@ -108,80 +81,31 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============5578735439891359590==
-Content-Type: multipart/signed;
- boundary=2980ced06dce2ce2ba54e857a1b9e298e4eb13b22897ac4ebe45f64efc24;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-
---2980ced06dce2ce2ba54e857a1b9e298e4eb13b22897ac4ebe45f64efc24
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-On Mon Nov 2, 2026 at 6:01 AM GMT, Sandie Cao wrote:
-> Add the device tree node SDHCI-0 controller for onboard Micro SD card slo=
-t.
->
-> Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
-> ---
->  .../spacemit/k3-deepcomputing-fml13v05.dts    | 22 +++++++++++++++++++
->  1 file changed, 22 insertions(+)
->
-> diff --git a/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts b=
-/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
-> index 84f66dd8f962..4471338a9774 100644
-> --- a/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
-> @@ -184,6 +184,28 @@ &combophy {
->  	status =3D "okay";
->  };
-> =20
-> +/*
-> + * Onboard SD card slot:
-> + * Plugin/Plugout the SD card before power-on the board for secure.
-How about: "Please insert or remove the SD card while the device is powered=
- off."
-> + * It works as a boot media. so set it to non-removable.
-> + */
-> +&sdhci0 {
-[...]
-> +	non-removable;
-[...]
-> +};
-> +
->  &uart0 {
->  	pinctrl-names =3D "default";
->  	pinctrl-0 =3D <&uart0_0_cfg>;
-
-
---=20
-Troy Mitchell
-
-
---2980ced06dce2ce2ba54e857a1b9e298e4eb13b22897ac4ebe45f64efc24
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCauvZryEcdHJveS5taXRj
-aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC+r8QD9GxMgY37x8+t/
-65Zh+PW3tAkCJ3fBNtdrazmtjmZmGfkA/3z7vLcrPG1IZT0PxKH+NE7ixhomH0B5
-aWKFU6efMCcD
-=Xgv+
------END PGP SIGNATURE-----
-
---2980ced06dce2ce2ba54e857a1b9e298e4eb13b22897ac4ebe45f64efc24--
-
-
---===============5578735439891359590==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5578735439891359590==--
-
+SGksIFRyb3k6Cgo+IEZyb206ICJUcm95IE1pdGNoZWxsIjx0cm95Lm1pdGNoZWxsQGxpbnV4LnNw
+YWNlbWl0LmNvbT4KPiBEYXRlOsKgIFRodSwgTm92IDUsIDIwMjYsIDA5OjIwCj4gT24gTW9uIE5v
+diAyLCAyMDI2IGF0IDY6MDEgQU0gR01ULCBTYW5kaWUgQ2FvIHdyb3RlOgo+ID4gQWRkIHRoZSBk
+ZXZpY2UgdHJlZSBub2RlIFNESENJLTAgY29udHJvbGxlciBmb3Igb25ib2FyZCBNaWNybyBTRCBj
+YXJkIHNsb3QuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogU2FuZGllIENhbyA8c2FuZGllLmNhb0Bk
+ZWVwY29tcHV0aW5nLmlvPgo+ID4gLS0tCj4gPiDCoC4uLi9zcGFjZW1pdC9rMy1kZWVwY29tcHV0
+aW5nLWZtbDEzdjA1LmR0cyDCoCDCoHwgMjIgKysrKysrKysrKysrKysrKysrKwo+ID4gwqAxIGZp
+bGUgY2hhbmdlZCwgMjIgaW5zZXJ0aW9ucygrKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
+c2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2szLWRlZXBjb21wdXRpbmctZm1sMTN2MDUuZHRzIGIvYXJj
+aC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMy1kZWVwY29tcHV0aW5nLWZtbDEzdjA1LmR0cwo+
+ID4gaW5kZXggODRmNjZkZDhmOTYyLi40NDcxMzM4YTk3NzQgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNo
+L3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2szLWRlZXBjb21wdXRpbmctZm1sMTN2MDUuZHRzCj4g
+PiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2szLWRlZXBjb21wdXRpbmctZm1s
+MTN2MDUuZHRzCj4gPiBAQCAtMTg0LDYgKzE4NCwyOCBAQCAmY29tYm9waHkgewo+ID4gwqAgwqAg
+wqAgwqAgwqBzdGF0dXMgPSAib2theSI7Cj4gPiDCoH07Cj4gPiDCoAo+ID4gKy8qCj4gPiArICog
+T25ib2FyZCBTRCBjYXJkIHNsb3Q6Cj4gPiArICogUGx1Z2luL1BsdWdvdXQgdGhlIFNEIGNhcmQg
+YmVmb3JlIHBvd2VyLW9uIHRoZSBib2FyZCBmb3Igc2VjdXJlLgo+IEhvdyBhYm91dDogIlBsZWFz
+ZSBpbnNlcnQgb3IgcmVtb3ZlIHRoZSBTRCBjYXJkIHdoaWxlIHRoZSBkZXZpY2UgaXMgcG93ZXJl
+ZCBvZmYuIgoKT2suIEkgd2lsbCBmaXggaW4gbmV4dCB2ZXJzaW9uLgoKQmVzdCBSZWdhcmRzClNh
+bmRpZQoKPiA+ICsgKiBJdCB3b3JrcyBhcyBhIGJvb3QgbWVkaWEuIHNvIHNldCBpdCB0byBub24t
+cmVtb3ZhYmxlLgo+ID4gKyAqLwo+ID4gKyZzZGhjaTAgewo+IFsuLi5dCj4gPiArIMKgIMKgIMKg
+IMKgbm9uLXJlbW92YWJsZTsKPiBbLi4uXQo+ID4gK307Cj4gPiArCj4gPiDCoCZ1YXJ0MCB7Cj4g
+PiDCoCDCoCDCoCDCoCDCoHBpbmN0cmwtbmFtZXMgPSAiZGVmYXVsdCI7Cj4gPiDCoCDCoCDCoCDC
+oCDCoHBpbmN0cmwtMCA9IDwmdWFydDBfMF9jZmc+Owo+wqAKPsKgCj4gLS3CoAo+IFRyb3kgTWl0
+Y2hlbGwKPsKgCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
