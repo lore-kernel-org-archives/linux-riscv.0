@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A917606A336
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 18:41:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA03C606A339
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 18:41:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QL6dXpD/;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KxNA6PQR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WWJ5ETEs;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mIco+KWB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,36 +14,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=QZIIP1FnVZnAbxagYehe8UUFSHbpF5HKZo0ljO/oAIo=; b=QL6dXpD/4ihgCUXlleRqK8uRAr
-	tJe07X37hb0W6svXrtMvHow8XYOybvvXSkw7NY36SvnbMogkKvEmlGVaUTHDWwykjb5bihHsonBMQ
-	yhBt7y9fk+0RQ6W7ca0k3+amarcspY1R88h1oVtMOtuOwck6iuTVnyJW0wt6ju/QFBFwXWgJRj6oA
-	lusperCORZgpDVGCxW1V6W9s0sFGWNgU0sA2UIfiZ3DTEok7Gh6JN5pA4OLsZen2FVNf7bAoEMjbo
-	kzVoDeew2OEDXkppDxJyEsvweHLvEtHXPPWge9jwgRafkYlzcbQwLi0AajGY59lIVmBnGhHBZo2DM
-	hoh+BPdA==;
+	bh=/UMiVmj59mMLKfOu1V5i1vLDj5O35x2bXRs47iTIiHg=; b=WWJ5ETEsDF6fcTpEZamohhfw2i
+	+bilIxuubBWO62lXyaDR8b9BvLQQWBSj0S6W4wXgtSgHib2JGl0QCsrqsTd7+zhNthYGCXkF/yIcL
+	tbcg6PwYQ7T6SkzbnKRJ0rmkCL24LRfyiYWmOGOxiDVQ+NMGt8uLcGJeflLl4P/VbyKeOB0/x9OxU
+	BK8V2W+Qf5ah6b2oxOBjyt0M27V3sKV6KXCXr5/4H1IrNsLgNO2T18IX+FQsh9GtfEPXtbo6ijFCF
+	NytnwXqFxAJ/Rhi5F5jcHcirZ32IXN07SKAAvUojZMoBIUCnIpJlfi6i86kNkGIm0OEIO+0rRndBX
+	qmUXukyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP2OO-0000000AAPV-3WG8;
-	Thu, 05 Nov 2026 18:40:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xP2Ob-0000000AATD-2IcA;
+	Thu, 05 Nov 2026 18:41:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP2O3-0000000AAJr-3g3S
+	id 1xP2OB-0000000AALh-0qk9
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 18:40:40 +0000
+	Thu, 05 Nov 2026 18:40:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9FEAB432C4;
-	Thu,  5 Nov 2026 18:40:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 808641F000C1;
-	Thu,  5 Nov 2026 18:40:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F0281433E3;
+	Thu,  5 Nov 2026 18:40:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8013F1F000C1;
+	Thu,  5 Nov 2026 18:40:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793904035;
-	bh=owaKlD8oLnDzryLHo6z1T1KNQuIMA+s07F6t1tORQy4=;
+	s=k20260515; t=1793904042;
+	bh=mrPZKSww78CDEYriyViFtkzmvPXUmkfVcHviTAAFbSE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=KxNA6PQRF/ooZDITVNYoeJsxh4blye8mGQicqkeLhnzx3sSR9Wpuy6bYC6WxhdRnI
-	 iLpDZjY5rLhESJYSNt29rrC7kK7yblLO1JI5Sm6IBTIL/415UWOM1iSivDbErdGXTa
-	 wsizeELBGl3kKFfJX3oDSrnVkaTG+NxvmuS4IP+I7WoWo98tJ6Pps3Jh3/zhte7fkF
-	 Vk8uVFUMewyZpRKHPH95MkQLSi9G1Md6TW0XR8mU9tpdMx4Y1toRDo5gCDApTTwcgf
-	 Bv7OGeNkDm+i3rvZHQgkImZZCjl6GPlSCf2nBo+s3nzgrzii4vn9/rHly0leinzsMW
-	 gmoF4aZHXHRLQ==
+	b=mIco+KWBQtZn/2+Ylet//LqsWczzhlOZomRiI2LpIHZJJ6GPSbMN3VrA+4GsWiOjP
+	 DTefVeYO+vOt0oX7+UKiHR7UPvDyVn2j0VLV+cr0nqT0kANak0XZ+F9J1oeBqzFzW7
+	 AD5l3l2XONsnJes0BuTj0msmUcsGwo13np2CjNSsjgs2Rn4bP0rx9ODyXjQZOSNSqS
+	 n+uP8CanP5yBNA5mu58RK9qyc9D0p9vmrFSmdKSHROFRIAw4Uiq0NfHZQL0A3PqiBI
+	 mDD2EvsYBb1gG6r7daXML1EoXyXhcVejztiSvtd6e6s2QJyJSjY6kXbYMZgQB+9R3r
+	 RwFLIkJ1GbdeA==
 From: Conor Dooley <conor@kernel.org>
 To: Stephen Boyd <sboyd@kernel.org>,
 	Brian Masney <bmasney+clk@redhat.com>,
@@ -57,25 +57,27 @@ To: Stephen Boyd <sboyd@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Junhui Liu <junhui.liu@pigmoral.tech>,
-	Valentina Fernandez <valentina.fernandezalanis@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Wentao Liang <vulab@iscas.ac.cn>
+	zhangjiao2 <zhangjiao2@cmss.chinamobile.com>
 Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Brian Masney <bmasney@redhat.com>,
 	Yixun Lan <dlan@kernel.org>,
 	linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] soc: microchip: mpfs-sys-controller: put the flash device reference
-Date: Thu,  5 Nov 2026 18:39:44 +0000
-Message-ID: <179390394386.1477457.365561090513206596.b4-ty@microchip.com>
+	linux-riscv@lists.infradead.org,
+	samuel.holland@sifive.com,
+	domibel@debian.org,
+	panchuang@vivo.com,
+	trivial@kernel.org
+Subject: Re: [PATCH] cache: sifive: Add bounds check for interrupt count in probe
+Date: Thu,  5 Nov 2026 18:39:45 +0000
+Message-ID: <179390394386.1477457.13551015598281475758.b4-ty@microchip.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261104021435.1468301-1-vulab@iscas.ac.cn>
-References: <20261104021435.1468301-1-vulab@iscas.ac.cn>
+In-Reply-To: <20261029064137.569-1-zhangjiao2@cmss.chinamobile.com>
+References: <20261029064137.569-1-zhangjiao2@cmss.chinamobile.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=646; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=ie3smbEtm3ecVbEoJiIqxoXtQG2xYonjbXDjOLJfKXU=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDFlvzuZ+nl7jcuvbt2/TOHL3dQb35l1MTy9QvmnGrTGFQ XCqkUBNRykLgxgXg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACZyX5WR4ZjG0biI+Hv6ERf6 NQyTq2+J/rpqOW/TFlkXk2NG9pc2nmRk2MIlmZt3oZfx+xMzKWWR4JgCXUPxnwKu5hWKVw8r7J7 PAAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=782; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=N1v/Z75LuaIRQEGlixlkdCi8GYwdg/qEI2roVFh8XyQ=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDFlvzuZy7Jiw8uljAwkdKW3Vj6vCfe5t37uTW+J0prt2t meQ5tbpHaUsDGJcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZhIuSPDHz6Or7yVIfd8vWTZ vtgqMz7YV/JFpGzz8lKpE6sj5jd9W8HwT9PFy28Rr4Dw3q9OAYafni5cyLOYVTxjyszLXYxBLVK KDAA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,21 +100,24 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-On Wed, 04 Nov 2026 02:14:35 +0000, Wentao Liang wrote:
-> of_get_mtd_device_by_node() returns an mtd_info with a reference taken
-> on the MTD device, which is stored in sys_controller->flash.  The
-> reference is never released, neither when the last sys_controller user
-> goes away nor on the probe error path that frees a freshly allocated
-> controller without initialising the kref.
+On Thu, 29 Oct 2026 14:41:36 +0800, zhangjiao2 wrote:
+> The sifive_ccache_probe() function uses platform_irq_count() to
+> determine the number of interrupts and then iterates over them,
+> storing each IRQ number into the global g_irq[] array which has
+> a fixed size of SIFIVE_CCACHE_MAX_ECCINTR (4).
 > 
-> Balance it with put_mtd_device() in both places.
+> If the device tree defines more than 4 interrupts for the cache
+> controller, the loop writes past the end of g_irq[], causing a
+> buffer overflow in kernel BSS memory. This could corrupt adjacent
+> global variables and potentially be exploited for privilege
+> escalation.
 > 
 > [...]
 
 Applied to riscv-soc-fixes, thanks!
 
-[1/1] soc: microchip: mpfs-sys-controller: put the flash device reference
-      https://git.kernel.org/conor/c/6fdd47bf3736
+[1/1] cache: sifive: Add bounds check for interrupt count in probe
+      https://git.kernel.org/conor/c/56ca3e2f00b6
 
 Thanks,
 Conor.
