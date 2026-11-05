@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8F3C606A332
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 18:43:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C9EB606A326
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 18:43:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UALOq2dj;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ys07SmHJ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AhBudSnW;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dV6ULbux
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,85 +14,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=3pIX4fgvPHjpyHb6Ab3OG42dCCxcuRALCaoLujPclI0=; b=UALOq2dj219eKVi3vdK8/br/ES
-	cdtNYKlHpWVy9YVFJ3dMVtY/UPAEgxDDh7sU6Kh9xG7RtpTGchvtZmKM7ODaAuPV81sXF03dIWOM1
-	oCk2ut7sHdB3hW0MWSG174yFbSpLrv27ykzJcsI4++vO9JNHOczpud9Hruz4JKscUcP3lw3JEqcWv
-	nvdxFEO+jOxVEX89XZKZZXFke1MUftyIZnyxW0a0ZCz81MPdxQmShtMEDwGjEgntbp1FPpMVSTf/o
-	sjkPcmdQXqubbzQ99Lba7+sO7MY8B5FuEowahCzXbXoXbNDmyo9uEwc86r7h8nNXJWCUu9P5v20ZT
-	vGkUz6Mw==;
+	bh=aGFZYDUum81U4vj+5sa3CEkD6ecFzvdIMoDrZYH8rNM=; b=AhBudSnWHThlOgW5ID+Q75hTxs
+	pDpplLvLTGIP7l+Pfp8QBMcKqRPlSBAGIAF8N31odD0KprxPQR3BsAF/8j69OKH7lx71Hu6flSO/2
+	vSAUVzNbpgQ7eLUlzpqokzJA2/6Lxe9L2JCM2Qu+nECy94kOdPIHJI3fLGZHB9eybjG/4euhrbJsu
+	60Xxyke9qTiBFkGCPQ2uW08jRpAuFtuAB1yeEGR4CVmUlf0VtoU6e2YnaAO+XlFsVS2FxT+EWUvWs
+	j0kJdwDT8T/+iq69xsW/ayGngJjGfNGMnVR5MXn/0Hhgcp4dsyck/f/FVOY2MUXNyda/O7kb6lTEI
+	7+WbEmIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP2QG-0000000AB8W-3i8K;
-	Thu, 05 Nov 2026 18:42:52 +0000
-Received: from out-87.mta0.migadu.com ([2001:41d0:1004:224b::57] helo=mta0.migadu.com)
+	id 1xP2QI-0000000AB9A-1ULH;
+	Thu, 05 Nov 2026 18:42:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP2O0-0000000AAIB-3DbU
+	id 1xP2QD-0000000AB6q-1eva
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 18:40:56 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=pLzdrNFS5rkH0iH7ngCOM+5sJEDVQrr95NdzUO/r4P8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793904030; v=1; x=1794508830;
- b=Ys07SmHJ2H/cIoQA+Q0tN7SuPuvVLR+FtppzrUHVPEl8PTOi0RosDXZ/Bzsomf9DT900ihDI
- heprMEyH1mQBtsgkRxuMgyt0lf9tInGLxfVuO2cJcWmK6Zdf7LaJ6084VoQGmNz5kPXg7ffuouN
- fTxdXB4UKAFImREglHl+A9Xo=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by mta11.migadu.com with ESMTPS id ac5bc4f198cc9f78;
-	Thu, 05 Nov 2026 18:40:19 +0000
-X-Mizu-Trace-ID: ac5bc4f198cc9f78
-X-Migadu-Flow: FLOW_OUT
-From: Usama Arif <usama.arif@linux.dev>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	david@kernel.org,
-	chrisl@kernel.org,
-	kasong@tencent.com,
-	ljs@kernel.org,
-	ziy@nvidia.com,
-	linux-mm@kvack.org
-Cc: chenhuacai@kernel.org,
-	ying.huang@linux.alibaba.com,
-	Baoquan He <baoquan.he@linux.dev>,
-	willy@infradead.org,
-	youngjun.park@lge.com,
-	hannes@cmpxchg.org,
-	riel@surriel.com,
-	shakeel.butt@linux.dev,
-	alex@ghiti.fr,
-	kas@kernel.org,
-	baohua@kernel.org,
-	dev.jain@arm.com,
-	baolin.wang@linux.alibaba.com,
-	Nico Pache <nico.pache@linux.dev>,
-	Liam R. Howlett <liam@infradead.org>,
-	ryan.roberts@arm.com,
-	Vlastimil Babka <vbabka@kernel.org>,
-	lance.yang@linux.dev,
-	linux-kernel@vger.kernel.org,
-	nphamcs@gmail.com,
-	shikemeng@huaweicloud.com,
-	yosry@kernel.org,
-	qi.zheng@linux.dev,
-	luizcap@redhat.com,
-	kernel-team@meta.com,
-	Usama Arif <usama.arif@linux.dev>,
+	Thu, 05 Nov 2026 18:42:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 853D0601D4;
+	Thu,  5 Nov 2026 18:42:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A85051F000C1;
+	Thu,  5 Nov 2026 18:42:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793904168;
+	bh=GRNGObKHI3lnA3yeJz++OADSyBlXSs934ZgQwntZ4Ns=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=dV6ULbuxdTCuH5vO6pjckyW7fXvXauFmAzuA3z1i6VAae+f393/VU+Oi6KdgkRnRd
+	 L3+Wo7DaV57yVOn8X4PDej0IBLfenaWitK5JsgxmU+F4WUsOhI0CaQbXWXfP7O1Gzi
+	 A/QPrm9xJzY1ILQP7uv7VRQ+a2yfXdy/1C5vLfjMHGs33KGSSBR64R28+YvE/mJqFl
+	 XHZTHZ+0xG2yn4ru9o07p6ZzOC+5RIV/NUgQX+XLwy/EeUxfcgFNeC9rw7e5ve52hg
+	 ZkgsPqSbWUi01zGAjV7fCFk1+rA0Viab8lxNa3p7qyOlzSzPlnoQjw0oUbkFgTTWuP
+	 VEmSlMYU/Z1mg==
+From: Conor Dooley <conor@kernel.org>
+To: Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
+	Anup Patel <anup@brainfault.org>,
+	Conor Dooley <conor@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Han Gao <gaohan@iscas.ac.cn>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Yao Zi <me@ziyao.cc>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Han Gao <rabenda.cn@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v9 05/32] riscv: mm: add PMD swap-exclusive helpers
-Date: Thu,  5 Nov 2026 10:38:49 -0800
-Message-ID: <20261105183940.2236717-6-usama.arif@linux.dev>
+Subject: Re: [PATCH 0/2] riscv: dts: sifive: Add the missing FU740 CLINT
+Date: Thu,  5 Nov 2026 18:42:37 +0000
+Message-ID: <179390412800.1478853.10812616929498115582.b4-ty@microchip.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261105183940.2236717-1-usama.arif@linux.dev>
-References: <20261105183940.2236717-1-usama.arif@linux.dev>
+In-Reply-To: <20261101-b4-sifive-fu740-clint-v1-0-b4821199a733@iscas.ac.cn>
+References: <20261101-b4-sifive-fu740-clint-v1-0-b4821199a733@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_104037_080937_703E86FC 
-X-CRM114-Status: UNSURE (   7.85  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-Developer-Signature: v=1; a=openpgp-sha256; l=465; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=K3IQubwUk2vgWcXnLJFAQXa+kWhgi/GPRVetmK83/eA=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDFlvzsleu/9894Lbwol/Q+TOcVkcieJxWnAw6RHDlQVuO Vumv3lzvqOUhUGMi0FWTJEl8XZfi9T6Py47nHvewsxhZQIZwsDFKQATyfjA8D8xhKu1PvevlxL7 lYu3F+iJ6jOzLrrB7P6bX+yJ+wzX+yWMDC1H1pxe/Le4iL///nyj9kOy8RGSFh7RNctOzTx+aEN KKRMA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,59 +87,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Prepare for keeping a PMD-mapped anonymous THP mapped by a PMD across the
-swap round-trip, which makes PG_anon_exclusive have to survive in a swap
-PMD and not just in a swap PTE.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-riscv encodes a swap PMD exactly like a swap PTE, so the new helpers wrap
-the PTE ones and reuse _PAGE_SWP_EXCLUSIVE.
+On Sun, 01 Nov 2026 21:35:30 +0800, Han Gao wrote:
+> coreboot and U-Boot already describe the FU740 CLINT for OpenSBI.
+> Add the missing node to the Linux device tree and document its
+> compatible.
 
-Cc: Paul Walmsley <pjw@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org
-Signed-off-by: Usama Arif <usama.arif@linux.dev>
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
----
- arch/riscv/include/asm/pgtable.h | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+Applied to riscv-dt-for-next, thanks!
 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 2ebd5fa5adc58..fda94dba9bb3e 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -1219,6 +1219,21 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
- }
- 
- #ifdef CONFIG_ARCH_HAS_PMD_SOFTLEAVES
-+static inline bool pmd_swp_exclusive(pmd_t pmd)
-+{
-+	return pte_swp_exclusive(pmd_pte(pmd));
-+}
-+
-+static inline pmd_t pmd_swp_mkexclusive(pmd_t pmd)
-+{
-+	return pte_pmd(pte_swp_mkexclusive(pmd_pte(pmd)));
-+}
-+
-+static inline pmd_t pmd_swp_clear_exclusive(pmd_t pmd)
-+{
-+	return pte_pmd(pte_swp_clear_exclusive(pmd_pte(pmd)));
-+}
-+
- #define __pmd_to_swp_entry(pmd) ((swp_entry_t) { pmd_val(pmd) })
- #define __swp_entry_to_pmd(swp) __pmd((swp).val)
- #endif /* CONFIG_ARCH_HAS_PMD_SOFTLEAVES */
--- 
-2.53.0-Meta
+[1/2] dt-bindings: timer: add the FU740 CLINT
+      https://git.kernel.org/conor/c/c567dab56912
+[2/2] riscv: dts: sifive: describe the FU740 CLINT
+      https://git.kernel.org/conor/c/076ecbd42c0e
 
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
