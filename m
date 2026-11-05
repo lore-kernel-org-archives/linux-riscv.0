@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01F90606A32C
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 09:34:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3FC8606A31B
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 09:37:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=z0D6T/wX;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=S67qv0qC
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FbhRs/TO;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Kz93Il83
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,51 +14,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Id8pYmJNbVtSeKsk5qEAymLQ7c5TWX+TJKRJEg9cb5c=; b=z0D6T/wX/uB7uNtTp3tVpWQo8+
-	Ec6oVrlrKix0sy25bowLlIVWxrZr4/tngSSrVTV3AMBv2EZvmEaIDnMgRIMZxivqWM+oE0gbhs4On
-	H192fWWZ8ztHcZKurx1n/lruBMsF9X/uqSJ+rwD36Yaf7M8FoQE1Fs/qgLB5CFcBiy01fpl/Dlq4Y
-	s5q4ffASwWPXEG56O9zAyumlyDseRS8N6bWvh9e+w3Z4Kmw/u5vTLqDppdIy1FLzgSq+4JRu9RSfo
-	twmDrCBzGRmr/cdDEVqob3UDbWEkVIfUY3d/5ArReL5gXqflxg8XpQYZXJXUpbYimpmtxCJKC+6d3
-	GrAUW+ZA==;
+	bh=XvXRYNBkzTy6QJX4E24XoKVx1EvYe3JEF833vipIMPI=; b=FbhRs/TOKIt0FwFoFdi67VauKG
+	rDOUJV4SscQ0+mIq5KKeR2BgPN13mKcNVPOYvMC4gOHQJmer1U2ta8f6hVRVaHSNTFfZGO+hjJfsD
+	DnvwJY5neUhXGy/ZqTm0IKwobg9HF3WZyyOyjyXp5tloXe+vWFgXHK8nYjQXkrBzeFG6gcvD5Ajew
+	+Ji/YU29jswUdNokkmvcdehkufWLv9VXAzjHTEHcdQdz1CTnsuDc6IbRiQGARP363xi9N61AdjZqp
+	tOyr2qYFNEgFXLhviV22ioZWj3y/0BhbzFEOchdHm5PMMq+8MDliOpNvbYB5NCkzJOYIeQshks16H
+	21gYK7Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtrj-00000008K5B-0JeQ;
-	Thu, 05 Nov 2026 09:34:39 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1xOtuK-00000008KgD-0aJ1;
+	Thu, 05 Nov 2026 09:37:20 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtrb-00000008K3O-3LkL;
-	Thu, 05 Nov 2026 09:34:33 +0000
+	id 1xOttb-00000008KSx-1NxC;
+	Thu, 05 Nov 2026 09:36:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793871271; x=1825407271;
+  t=1793871395; x=1825407395;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=4LUR2vLgdtbMkV4yJV6wiaAwpAfjeOibn9D0PFxVDWA=;
-  b=S67qv0qCoOYpuAGWZpZ6JmmRWB62dqMRCi4Hnzt3qq1262q5oUCYgVp0
-   suztEVtV+t+wIaRZUCfPz/HJUWaowRl2H8jCOIAFz4QRDMyiuX3tUhU6T
-   oqudcx1twOMcmFhCK7KhoHGVvilUUdxV1i/nJ7FOYqy8bNpHceNHEZVC7
-   enJbAZN3KLw8bsgaCh3dM7V0NL6ySTu1aiZ72SSeMIm3NI5yk6IIV2ype
-   KfC3yBvawEQs+GIz/dUfakt06hzGu2ktTfV5L28LvSLvEyDA2ICDdB9NL
-   iIOddSD/LTw0azV9aQDzjKC+qCn5oLk7BMKdoaFOD3/Ju/Qm50XQgn/qN
-   g==;
-X-CSE-ConnectionGUID: 9rOcAc20QiWM2YrZwBJx/w==
-X-CSE-MsgGUID: QVU84vWGQ5O1oTXk+ssdhQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11956"; a="2558367"
+  bh=XPy64qOWUbAHoiyLGCzNor5MK4R9RiDPJM0T594C8kU=;
+  b=Kz93Il83Tv+ryM75PKs53ZyYw8+eSX/36mjsJNOzbzmWnD/BpEWdC/wA
+   OVnculX7A7sV6ztBl1Od1D0Zou+u661GWC75eDR+dVqSLdOp7qwXGTQDf
+   ypK2etKTira+bfcDEE6wK1nSopsEKGjzZBa3vMnyI+iCDm2FFVYUYJsBL
+   wSVbczfgApVtbXIJYkuXBQo4t01dMkTX0aF7uowdKdSFVC/3PnJ3RI8aH
+   cHadGxRyW470JHSfo1rwrONdtwtQuBag+hMrJWVq4eUWZ+STtuG1gz7TQ
+   bIFNSVxVnV7T6OiYtSpbi5WY/WgXxJqJAW9xp5zIntAZqttYGbMJiQLfv
+   w==;
+X-CSE-ConnectionGUID: PO0LoUX/Tfu+jfPIaP/qmw==
+X-CSE-MsgGUID: PLHMEwyMQTiJebmtS25vNg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11956"; a="2745439"
 X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="2558367"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 01:34:30 -0800
-X-CSE-ConnectionGUID: nlTZtjm4QSWKV5TFLHXZjw==
-X-CSE-MsgGUID: 6+CUyE26TrGO0R2loVaiPg==
+   d="scan'208";a="2745439"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 01:36:34 -0800
+X-CSE-ConnectionGUID: JeSjlIADSz2CkG3b626siA==
+X-CSE-MsgGUID: q1LawZWwT3eXus4rDYzo+Q==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="6795038"
+   d="scan'208";a="7120392"
 Received: from amilburn-desk.amilburn-desk (HELO localhost) ([10.245.244.144])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 01:34:19 -0800
-Date: Thu, 5 Nov 2026 11:34:16 +0200
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 01:36:22 -0800
+Date: Thu, 5 Nov 2026 11:36:20 +0200
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Frank.Li@oss.nxp.com, Mark Brown <broonie@kernel.org>,
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Frank.Li@oss.nxp.com,
+	Mark Brown <broonie@kernel.org>,
 	Nicolas Ferre <nicolas.ferre@microchip.com>,
 	Alexandre Belloni <alexandre.belloni@bootlin.com>,
 	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
@@ -110,12 +111,10 @@ Cc: Frank.Li@oss.nxp.com, Mark Brown <broonie@kernel.org>,
 	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
 	"open list:TEGRA ARCHITECTURE SUPPORT" <linux-tegra@vger.kernel.org>,
 	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
 	Thierry Reding <treding@nvidia.com>
 Subject: Re: [PATCH v2 1/1] spi: use dmaengine_desc_set_callback()
-Message-ID: <auxNmE8yZVP-wL2e@ashevche-desk.local>
-References: <20261104152253.3279052-1-Frank.Li@oss.nxp.com>
- <autj6pr_bPaul3w0@ashevche-desk.local>
+Message-ID: <auxOFGTRAKb5bLXD@ashevche-desk.local>
+References: <autj6pr_bPaul3w0@ashevche-desk.local>
  <7f96599b-681d-4963-bdda-1274371ac84f@kernel.org>
  <f1fa853d-1703-411d-b2d2-0fb0b176c2fa@kernel.org>
  <autqC143h7Qf1R9H@ashevche-desk.local>
@@ -124,15 +123,16 @@ References: <20261104152253.3279052-1-Frank.Li@oss.nxp.com>
  <63c24437-4261-4a51-be7e-31ac0759a095@kernel.org>
  <auxGom0XR-Hax9b3@ashevche-desk.local>
  <00390a20-7630-4066-9779-06c8f915a176@kernel.org>
+ <auxH_WzaOLsQ4-go@shikoro>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <00390a20-7630-4066-9779-06c8f915a176@kernel.org>
+In-Reply-To: <auxH_WzaOLsQ4-go@shikoro>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_013432_520331_38AE0541 
-X-CRM114-Status: GOOD (  25.87  )
+X-CRM114-CacheID: sfid-20261105_013638_734590_C33D09B4 
+X-CRM114-Status: GOOD (  11.32  )
 X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -153,59 +153,17 @@ X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Nov 05, 2026 at 10:07:30AM +0100, Krzysztof Kozlowski wrote:
-> On 05/11/2026 10:04, Andy Shevchenko wrote:
-> > On Wed, Nov 04, 2026 at 11:54:56PM +0100, Krzysztof Kozlowski wrote:
-> >> On 04/11/2026 21:41, Andy Shevchenko wrote:
-> >>>>
-> >>>> But sure, if we want to play such numbers game, I will be sending
-> >>>> reviews for single lines.
-> >>>
-> >>> I'm not playing anything. The problem is that the patch unites the files that
-> >>> have distinct maintainers and unrelated to each other code. That's why in the
-> >>> subsystems I maintain, I almost always require to split on per-driver basis.
-> >>> Yes, exceptions are possible, but has to be quite rare.
-> >>
-> >> That's independent problem. Patch could be split, but it was not. Since
-> >> it was not, receiving end should act accordingly, e.g. when performing
-> >> incomplete review of only part of the patch, do not call that entire
-> >> patch was reviewed by giving the Rb tag, but give Ack tag.
+On Thu, Nov 05, 2026 at 11:10:21AM +0200, Wolfram Sang wrote:
+> 
+> > > No, (partial) Rb != Ack.
 > > 
-> > No, (partial) Rb != Ack.
+> > It is, because there is no partial Rb tag.
 > 
-> It is, because there is no partial Rb tag.
-> 
-> There is partial review, but not partial Rb tag, please see exactly
-> submitting patches. It repeats the same in three separate places:
-> 
-> "Acked-by.... user may not have carried out a technical review of the
-> patch,yet they may be satisfied ..."
-> 
-> "Reviewed-by:, instead, indicates that the patch has been reviewed and
-> found acceptable according to the Reviewer's Statement:"
-> 
-> Above important: "THE PATCH"
-> 
-> It is not "the patch or its parts"
-> 
-> Further:
-> 
-> "I state that:
-> (a) I have carried out a technical review of *this* patch to evaluate
-> its appropriateness and readiness for inclusion into  the mainline kernel."
-> 
-> And further:
-> 
-> "A Reviewed-by tag is a statement of opinion that *the patch* is an"
-> 
-> In three places it is THIS or THE patch. Complete (exhaustive) list of
-> options what can be reviewed to get the credit and give statement of
-> oversight.
-> 
-> Statement of oversight DOES NOT include "part of the patch".
+> Heh, just what I wrote a minute ago in the workflows-thread. The clean
+> solution is to introduce one. I'd vote for it.
 
-So, it means I MUST from now on REQUIRE a split before reviewing.
-Right?
+Then I MUST started REQUIRING to split the patches in such cases to actually
+review them?
 
 -- 
 With Best Regards,
