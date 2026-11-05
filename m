@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B174606A328
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 06:48:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8880606A328
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2026 07:01:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QeuWiI+a;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=xO0yIJpw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YA+Lp54f;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=QXVlEXpb
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,51 +14,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=cQpFvsKT42GP4x93uYQ4bMyL7VlGVflJAJJp4+4XKa8=; b=QeuWiI+auSdxgaCN+rHA8E+P7/
-	ah1hxBGGcEPui1pBMLb2cKT7DN1KlHw4jeUdiH24a1u4MSc9XHrnZXuo0P6BhwUqOVa0Pubmco3f9
-	+2hP61Ci1p95K0B9JDBmsfMw4IiUf8Ki9BAMvRcuiZTsd0RxAOVWClYLZMRdMq0CbqKmziYH+gVUw
-	c6NGGXpJ+IyDYTNcVY/rZil1MI9KVFYBOFkv/4xCKJ90ApG88Y0I9wckfyB9l5JCMr0PCxIGcUW77
-	ToWMYo212ED5tRxVsGocqv+UY1DUX53zUQ3nDOct0tZCPT9NobO+6ejIqeuYFojEDn5roGBRVX7F/
-	F70ul9Gg==;
+	bh=szC9dChuy0839mlubL/WrkslNeWYL2uwtuKrdHCo8T4=; b=YA+Lp54fjLWc2UxPxWRaj/T1RJ
+	R7yUV16WANRUBIeypj7eCWJNgQjKCs2xDifoKDq1ZbGsNq7epQKvSFnuChpjZESFwwoXYjkU6H2w0
+	/BGoQoJCu3X/6OpgL4RVhTZA68klnz86nlSg0RUblSiQeuTUeddFfg5ThpkyYDXvawmHbODBs5Zi/
+	R0iyahlXpzhOKqEBgdTwxOIhlLE02s8eFqF2InyNVqAO0zqdTn+niUTMxD/aK9q4lKA8d7dMoOCoC
+	sYPbfXtj7cyMhkM1Sn8A/9wOQ1BXoXunlTH0SsufcfG0HOXjEmTfqg6DWujXPoQjTOEU9KB3It0cl
+	NMNjZsfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOrGl-00000007yy8-1pVU;
-	Thu, 05 Nov 2026 06:48:19 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1xOrT6-00000007zp7-2a4G;
+	Thu, 05 Nov 2026 07:01:04 +0000
+Received: from smtpbgjp3.qq.com ([54.92.39.34])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOrGg-00000007yxP-4APG
+	id 1xOrT4-00000007znT-0tcG
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Nov 2026 06:48:17 +0000
+	Thu, 05 Nov 2026 07:01:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1793861237;
-	bh=y8vL7kxoR7SzZztx/rZLqHDEEm7PeYDs33h2gMA1c9c=;
+	s=mxsw2412; t=1793862020;
+	bh=MXIuh878KbS0qTfh1/i+lplkSClQwh04M6y9YYPiFcg=;
 	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=xO0yIJpwSl31rfU+maDi4+Z7UWjq2wnsglLv84FL+/cT80gL+TKbbFCYi+pVLWv7I
-	 7w6J9UjLpq/SyAi6mrofOA39vhJJARbKOcz0U1EmggqGj/e83w06iSH5MHssVaExUx
-	 fZwNWNYOnQBNvVn+KCESRm6Uo3HiQpczRy2axeVU=
-X-QQ-mid: esmtpgz16t1793861235t37038cbf
-X-QQ-Originating-IP: InQ75TYjDrWjVR1HZK+vsqw7EkBc6FPy3QXlMoZVjZE=
+	b=QXVlEXpbOCjRQE5V9pDOZVsW5dH0UzL+CVeWnmW4/3NRMj8xujVyP4aKs7CUJfW8j
+	 OJ5gjibJ+N1m1iaZ4h3lkXLTD9KxTWnbf6j+ikiaRQ0IAdAoUC+VgBWAVBE9x9C6dx
+	 Cj/DZxNCT6uQXDjcreSwmpN43keZrhuKHjY16S4A=
+X-QQ-mid: zesmtpsz6t1793862018t2516ac74
+X-QQ-Originating-IP: MTeUKjwypxYcnyqmTJBobIe+FEl3TfB5eQ4OtFO434A=
 Received: from [127.0.0.1] ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 05 Nov 2026 14:47:12 +0800 (CST)
+	id ; Thu, 05 Nov 2026 15:00:15 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 13246700401697265975
-Message-ID: <BC03A4A81DF1016A+99de9ff1-0e4e-45ad-a8c2-1a65a6d96afe@linux.spacemit.com>
-Date: Thu, 5 Nov 2026 14:47:11 +0800
+X-BIZMAIL-ID: 3473592725829115131
+Message-ID: <41B3F89514935AAF+5c08fd7d-1cfb-428c-9ef8-035fa3910bd6@linux.spacemit.com>
+Date: Thu, 5 Nov 2026 15:00:15 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 03/14] gtrace: Add RISC-V platform driver for the
- gtrace framework
+Subject: Re: [PATCH v6 09/14] gtrace: Add RISC-V Trace ramsink driver
 To: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <pjw@kernel.org>, Greg KH <gregkh@linuxfoundation.org>,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
  Ian Rogers <irogers@google.com>
-Cc: Anup Patel <anup.patel@oss.qualcomm.com>, Alexandre Ghiti
- <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>,
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>,
  Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
  Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
  Adrian Hunter <adrian.hunter@intel.com>,
@@ -66,34 +64,36 @@ Cc: Anup Patel <anup.patel@oss.qualcomm.com>, Alexandre Ghiti
  Atish Patra <atish.patra@linux.dev>,
  Andrew Jones <andrew.jones@oss.qualcomm.com>,
  Sunil V L <sunilvl@oss.qualcomm.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Anup Patel <anup.patel@oss.qualcomm.com>
 References: <20261001052243.3042627-1-mayuresh.chitale@oss.qualcomm.com>
- <20261001052243.3042627-4-mayuresh.chitale@oss.qualcomm.com>
+ <20261001052243.3042627-10-mayuresh.chitale@oss.qualcomm.com>
 From: Zane Leung <liangzhen@linux.spacemit.com>
-In-Reply-To: <20261001052243.3042627-4-mayuresh.chitale@oss.qualcomm.com>
+In-Reply-To: <20261001052243.3042627-10-mayuresh.chitale@oss.qualcomm.com>
 X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: NE5JZmi0+KQuSulpwSo8843Vb3RZC/d8VCQF61aLAMxLEepOs6Vg5OK1
-	KQhHNoyJLZZjk/FTlpgCe6TCPtKDxLZxA+IOOcLOHaZLvTfOsF7Xo8lO231C/H2j3qpml/9
-	ELRk/223cXjdWcNffdjnS+exrfY5MNluvv7mFfXzkI+Qnkske6SMMzsVePZdJvK2jmIxaYX
-	KbDZHShvMbVSfjaYSYqnBgwWXy27cf/g2EQQzmaCnNqYsK6zcJ/DQjLjwf6P1c3YVgp35tl
-	2Ppe++8HJjhHmmzwgNw6UhXeT09ERTz/tWfSKjz3enIaLB/1J+BRKyR1bh3cA+0YISJGlPO
-	hOv5CK/NE19r5ehuAoZuUUM7OqC2Pr9tX/NnNnE2m27raABqbN1wFvW2Q0g0+LvX+Rm5Wy1
-	+nAgEOp32TUWMBAUgRkLaTCPM2Vlw0N/qatZ9xqvFvOYWLi770kNtNfpArGznSvJ7CVvBfi
-	6vI5zWHDJCZVkAm/SxfIKt4n4Y7LvATfLnSvz6VFNtofjvEhIi4eI/YqyeNqDmXvsCkgz2c
-	4PTm/8LLwgVGYjDJxd3j+NO6Y83lvczqB56bG9VIYb8N2a+k4195pneOLbkCy/PPw2kE6nX
-	8tkRRXSkhFQuR9vU1xYwsdjtxM4pR6EdeVdSb02JvtcMkTFtVt35adhDA0fDlL4gLzcbBiX
-	P9ZUg0C3miN0tVKOe76xLXAjiRKUTkTuWu2xanvtYLVlRmSxOQcJkKuFswCa3Cy27Id1Mb9
-	6cI2h7XktxCMbuYVSKbNJfN52cMXAjlFwcfAgAPx6Pw5HiS7hmzsEQsXWY96W5oUacswBwA
-	4A1m7z51eJ47d0Fk8iyANsOZPj7jJVx/RNScq3bSTkXisuciBky4mny3lt83EncBuM2d8Ut
-	Gt5dIK7SdrCwgQF3zhKi5G1oExuzSkZOyZdRH1ZWjRkrT+BfUQUhtrgNyXGVP/VNZxzCDYM
-	ytf5DfG6ku8UwjwJR7I4MwUyv14z2NJN5Ff+4yHriDqdwNSURJnJV5cvrUWTeAk1RoRjkT6
-	S4M/kDvt+voAf52CljfSfMyGjieOE=
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: OBUGnm9pFasA0Y95VdBqDLkfHFQ+Hd+x2d4AB0Ev0Dp/a54JZmZ8PMr/
+	BHThQC2vFvNTKHF/Krs1Rnatbn3C4KHHMAc5EPY/NknNj8qMron5fuusRp/RL48r1aNzAWk
+	BHTqDINPRqFLCg1S1MrTzN4JaPA+SSQy6hobimWF7OOsrmHuly70R66qAHHX6Bajy7moiZC
+	RZF7H0HyP4NlcoGnxxquUCExuTph8F+0Dqxza2SWdtJgzQSrR1Y3urGlo5eavwyEpVspyX0
+	q0Vhc0+bzoekC5Dj526ssXfnthCuAdgxvLOWzn1aqoyfr0mzk5D6tqu3wGEnNCUjIYc8D9R
+	2/Ld2ia2zmjH1kFO4JDubXGZ+XoGGU19GorSkRIZffXE/5waa0KA3vaumWp6whpGXvNP+CF
+	mFFzODmpgTqRXaopI9xF0mc8OPn96Uch9GTSEptfyM9oYjaAf15kJETJTUIgRsqUsJnfwKA
+	IauJp9dNpxXKmclOhR50BJR3R4qOd2kRUIhBTBL5mG/9ZOX6uu0HTPXap5FG24HBuzrxAjd
+	Do8dUobdWh8RIhd4O8Dz38kNQYt8gN2GgPHnO5SOyLtYRvxoLsiJCV3QNdE2D2lsG/FSMtl
+	yTK8blQMKWHEKdvJIf1MeTm9znUJloqJAsLNIBwYAgVMsx/gPtNrEBALAcvp5hW0DNb+zEC
+	fVsASd16UPNzct//0Hou9ipBucVyXdoGjN+k/mSaf8mQoLar2frX3nE4seQAP281V+yNlXo
+	FlWMAbaEKZjLBhqFeWz7Mjb2/5eL6jEr1g6qLQQfu2iYiL5Ez+dwrLV09qyZDpTZL0E5Tmb
+	GDqSD4Mkyzr4jrUbl6MZz9R2FC0+TB5vHszC7qVzq3Vv0OrJG6jgwqrTBZ+1L9iAZnsw3qy
+	jfcZFNy8o6nPEdUzOdR7FBVyadkVrZPJyIVsQk7fRxS+HDOKtJIjdCZNyeCaZnFVlAS4Vom
+	2n/PPmHj+bn4m9pvAqMo6Fp6KUvPZGDatRXikjAbg/GPK2H39EmaT34U+AuQBpc58OAgObp
+	qIwun8jSwQ/vP/zNfJF4YzUY3SiuzU0/Wdfq/tsw==
 X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_224815_779737_ABFBFDC9 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20261104_230102_699426_63038ECF 
+X-CRM114-Status: UNSURE (   7.04  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: 0.2 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -117,22 +117,28 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 
 On 10/1/2026 1:22 PM, Mayuresh Chitale wrote:
-> +static const struct of_device_id rvtrace_platform_match[] = {
-> +	{ .compatible = "riscv,trace-component", .data = (void *)GTRACE_FORMAT_ETRACE },
-> +	{}
-> +};
+> +/* Helper to access start, limit, wp pair registers */
+> +static u64 rvtrace_ramsink_read_pair(struct gtrace_platform_data *pdata, u32 low_off)
+> +{
+> +	u32 low, high;
+> +
+> +	low = gtrace_read32(pdata, low_off);
+> +	high = gtrace_read32(pdata, low_off + 4);
+> +
+> +	return (u64)high << 32 | low;
+> +}
+> +
+> +static void rvtrace_ramsink_write_pair(struct gtrace_platform_data *pdata, u64 val, u32 low_off)
+> +{
+> +	gtrace_write32(pdata, lower_32_bits(val), low_off);
+> +	gtrace_write32(pdata, upper_32_bits(val), low_off + 4);
+> +}
+> +
 
-The current implementation with hardcoded .data = (void *)GTRACE_FORMAT_ETRACE prevents RISC-V N-trace
-from working properly without extending the of_device_id table in the future.
-This directly contradicts what you stated in the cover letter:
-"The RISC-V trace component drivers are designed to be agnostic to the underlying trace protocol hence both
-RISC-V E-trace and RISC-V N-trace should work fine. The discovery of trace protocol parameters are left to
-user-space trace decoder."
-Since the kernel driver is intended to be protocol-agnostic, and a specific in-kernel decoder is not yet implemented
-at this stage, deferring the trace protocol discovery seems to be a much better approach. Once the sysfs interface is
-introduced in future patches, the user-space trace decoder can naturally query and obtain the exact trace protocol
-from it. Therefore, I suggest removing this E-trace specific hardcoding from the match table to keep the driver truly
-protocol-agnostic as originally designed.
+
+Could you move these helpers into "include/linux/gtrace.h" and implement them as generic APIs
+(e.g., gtrace_read_pair, gtrace_relaxed_read_pair, gtrace_write_pair, and gtrace_relaxed_write_pair)?
+This would allow them to be easily reused by future components like Coresight.
 
 
 
