@@ -2,98 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9A44606A326
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 02:03:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0639606A328
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 02:12:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NNb1d2HC;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HbqvaW22
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QSKqHxks;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=Kf0pnMM7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=+ShIw9mxGW1VImAz2SYOZ86CEDhIz3Tul/Qca2UOw4c=; b=NNb1d2HCIcXPPkRkvkyDyxK8Sd
-	BCEd3A5lLDpnRAxQBGvfJun3iL3VFClCsGjaQyU4KwCwcxC8XbVW4QF/ezLCdvpESJBeb3Af2xy3w
-	7A5k9C4rYFEqQd0LL/CcClofWr0do8PZXrXMsOSb7A0zWTTj7vV8TfuQNF8MV1Vp1IJNsgHii4BGE
-	yUtwA8R6QIxKn2/FGDxxYWdoec7oxYYxC3w9UDli1qV3VEO4dP7TCgaE+D9YlzkRO0FeMjJCvhBPZ
-	nzw6RyzGiaqxbMLfQba7cclt5Z5fX8Jrd0y+vezFCyVYrQZHyYhq7ofnXq1vlC4IJXFZxIjjC7K4I
-	oKHprtoQ==;
+	bh=8rpsVdKrarRVO6Tm2cTl0gzOHpxLVJwn6WdetMzjt6k=; b=QSKqHxks8S9EbGsOi/RcYNlUiO
+	6B6iKRaKTlasIb6zawoWaVOoA910gk5gycMxWrjZjzPPMOtS7tqNrcbPi4T1jMILVdVabAqMB6Kzn
+	F8eWQLolN9cVEei8FTLEelN+VicBZiWPb/Qb7i6eJCMSi+mOmD1QpNP+AAFscSQJJrl7aUG7i5+ql
+	lWo2SOw2Fc5t3RvhvM5rA4kfC2vDfBq358PzgrrEhyJcfq8w8ORnqwzBDfzvNCPr2RS3qO9nMGGr6
+	cdnC2PPdvKmWW3i72WX1E9lXJggu+DedrMasxWo8seUfATTecmdxeylG8QNcyHu+zXCVaoCAo5+z5
+	zyJDzOXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP9Ik-0000000B1yB-3iHn;
-	Fri, 06 Nov 2026 02:03:34 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1xP9RN-0000000B2df-0zJd;
+	Fri, 06 Nov 2026 02:12:29 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP9Ij-0000000B1xX-01T0
+	id 1xP9RJ-0000000B2cE-2XQp
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Nov 2026 02:03:34 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-cd8ba7c2694so52201a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2026 18:03:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793930612; x=1794535412; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=hss8CMdUJlf/6WFGnheIgi73dz4MTpQCYfKabF+VIfc=;
-        b=HbqvaW22JYr87NWwY5yEzM73P7qT2/+zkktWYKWq/zK0i/0mdIZZksh8E3b6EZDVkq
-         Tw3VDh/68qcfirfglwBRlPwouaWtrzDZQfsKir6FVnXhcfsZbDELN73o+I2yfj9ip+Wq
-         iOn/f2YSL76gxO3AjqlEczvzSaigWTxXELECKx5Y1RRxPxFIQyAeNZG8htQyi4/rdQi2
-         PFcOkrbRD6MYfpM9Q4E4Q0rsncioVnBwYRgnFWqR3aea39WLjaWiC/CmV3qHUvty/pw4
-         HJfTeDy/FqU4gE9JwmzVk33sM1+C38pAk8bg3W5fyD8B+5YjhMgOrsDmVnuLY122yqKN
-         hX+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793930612; x=1794535412;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hss8CMdUJlf/6WFGnheIgi73dz4MTpQCYfKabF+VIfc=;
-        b=1W1gSqn2tfWUI3//QEngBIGHeCcr0SFNKEq8/WCMoxDAx9WW2S0j5Q0Shqxn00Ptz6
-         Dglb/otEWrXPNYkdeI7hQAzXR2ExuKwiIrc9ZrqJh5FgdHjsigRn+6Lz4M//Mj+XZkAG
-         /iVuzoPX3Xghlg7ZJf1f//xpkuDFX1a/fGTGUQIj61U1pyjozYDtscY+Wr+aFuyigw6M
-         cAjvHjARgujWkeSQnh5qRdeJQrV+vreSZmiaUICPwwkWoUA4dDsHw+HdQa7MtPfiPImH
-         L35S4f5jxbJjjLVE5C+Lwv4/4swqiAGjxbyaPQ7FcGBtoQGC5DQmSz5OAIwWE5EQ2MFJ
-         +62A==
-X-Forwarded-Encrypted: i=1; AL+hErHYYX4K9L30bLJxWCguSAI9CYOCHYlKi2newmU6Q8imehHfl6Q9vLQv5iZA83qEYWIy+gbOzGDEkPhBWA==@lists.infradead.org
-X-Gm-Message-State: APuU4Z/f4s6T4qe4E5Ic44a9RdePCWk9sFghjllXbCcIOkkFm6JEkzSl
-	NSECK/JKYSy6h5BHnZpT4G0K6IWPp02iW4v0xHNEUuvbodQ4TALFXx2L
-X-Gm-Gg: AYBFou0JbVcBnVogIMwIWeyNTT6absLc9LFlIjVziUoFx8/jZy3hmEsUlhivs0UnVGW
-	pzohd/eLtHMs8o/4LOxG8n439GFfhtKWqd8A1aOn/AermjjZROiBIVzcBDaOmVGtJKTgkwBTAHD
-	gqdsR3wareu/7OXSEarHZ2328qQYxHzwtKjI50nX4ppkBeBkjvklHjM291FcRUtbtwIsrCECXqW
-	34AoTHt+SnIGrv+iKk9eIQev9TmL9Zg83CSurAQkWmC2u4VlelqaaP0HfB5Oafk4KczIAX7VNBe
-	Y3T9hByzE0wfKUImnLjWEgML5wMRFcBHhYucitfTYHNO4qihYCuwEVL7pARHP61eo++b8DExbGA
-	fNTttPDLQPUz0II0+b1oZjdr6xsRemestMe6/Nzi8KN/L6TaPhWWVChHO6D91VvERfZWVe4t0yP
-	ltRUaECaNA3aV1uZXAIJ3dkNjfa3EpHelgwe19ZMJVicZ/v5O5Kmqv5E0QrQrfAZ18qRabTDBq/
-	i3wOyXy+cZYFgpc/Ct5QFrXJUsx+DyyFeSNVLPS8spAD5yR6tRe4ykmx+R3fwE2fMk4tpIPeZTG
-	bWQ/5joUh2gyJGW8TC59aBfEvw==
-X-Received: by 2002:a17:90b:3846:b0:3ab:9f1a:3825 with SMTP id 98e67ed59e1d1-3b0db6218d4mr1002747a91.4.1793930611582;
-        Thu, 05 Nov 2026 18:03:31 -0800 (PST)
-Received: from localhost ([2001:19f0:8000:3bef:5400:6ff:fef9:667])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b32baf86sm5589983a91.17.2026.11.05.18.03.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 18:03:30 -0800 (PST)
-Date: Fri, 6 Nov 2026 10:03:16 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: SeungJu Cheon <suunj1331@gmail.com>, anup@brainfault.org, 
-	atish.patra@linux.dev
-Cc: tjytimi@163.com, inochiama@gmail.com, pjw@kernel.org, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, andrew.jones@linux.dev, 
-	pbonzini@redhat.com, seanjc@google.com, kvm-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
-Subject: Re: [PATCH] KVM: riscv: Only fast-path dirty-log write faults on
- host-writable leaves
-Message-ID: <au01Qocxd1gsXs42@inochi.infowork>
-References: <20261017030927.345454-1-suunj1331@gmail.com>
+	Fri, 06 Nov 2026 02:12:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1793931060;
+	bh=AbuVg4vN10ZA2hcaRa+VCPVPKcQZSgmZ/Iv8DAJnQGg=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=Kf0pnMM7yw1bDZSio6QOf0LdL7sW1Autj2vxxYUIyHV9ybxrZyQhJHMgNuy63CWLE
+	 0wics4rfGxM0jD4m8ClBkStwaoqH7kaLqU17b7csSrA+M5n72n3zLYc97R453bLGrH
+	 XPt3HpoZPbjJzEO1HDtJdI08kz+vfHSHvBf+dh9g=
+X-QQ-mid: zesmtpsz3t1793931058t953477e7
+X-QQ-Originating-IP: BbYzGvXJbyXNANJbyxX8YavOnC2uj3ZadAP1LufNDGI=
+Received: from [10.0.50.11] ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 06 Nov 2026 10:10:56 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 12396898183467200051
+EX-QQ-RecipientCnt: 15
+From: Encrow Thorne <encrow.thorne@linux.spacemit.com>
+Date: Fri, 06 Nov 2026 10:13:53 +0800
+Subject: [PATCH v2] PCI: spacemit: Ignore PERST# input in RC mode on K1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261017030927.345454-1-suunj1331@gmail.com>
+Message-Id: <20261106-spacemit-k1-pcie-fix-v2-1-6d74563b01d5@linux.spacemit.com>
+X-B4-Tracking: v=1; b=H4sIAOA37WoC/22NzQ6CMBCEX4Xs2SXtKgQ8+R6GQylb2Sg/aZFgC
+ O9uJeHm8ZvMfLNCYC8c4Jqs4HmWIEMfgU4J2Nb0D0ZpIgMpylVJGsNoLHcy4VPjaIXRyYKU5c6
+ ZojkX1ECcjp5jvGvvVeRWwjT4z/4y6196CC//hbNGjUpRnVldm9LZ20v695Ie5dQOHVTbtn0Bn
+ Sv+S8EAAAA=
+X-Change-ID: 20260921-spacemit-k1-pcie-fix-256ffa8d382d
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Yixun Lan <dlan@kernel.org>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Alex Elder <elder@riscstar.com>
+Cc: linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Bruno Banelli <bbanelli@gmail.com>, Ali Tariq <alitariq45892@gmail.com>, 
+ Encrow Thorne <encrow.thorne@linux.spacemit.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793931244; l=2232;
+ i=encrow.thorne@linux.spacemit.com; s=20260922; h=from:subject:message-id;
+ bh=7T2alXfTc2E2Sig8ddTkVljE6R+muw/GFLNKQx4Ilng=;
+ b=7Ca91mnujtzIqog/FDsDTW3KYGl2aSZeVwmkYHx8AmdCachE0LwPezwTcEMXQBrHZI7J2aSBy
+ yJwHpwhXnr/CAllIgl1MQmsGO5dujjO4KQjBYUjq0Na91h6EFnLv+E2
+X-Developer-Key: i=encrow.thorne@linux.spacemit.com; a=ed25519;
+ pk=2pmSCQKuWBw48bo9mVmWM77uEWdezu/geF0k1YMFzN4=
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: Mfm8HKGnOlI9/73z/3UqV3IwxbashggCw5UKvSrorhABfst2bcXFqShS
+	ZlM3aPcvozGTrB9o4p3FyFUDxhbAY+y6pLT0I/qz9GFxvX6ogmxFFjGuWZ41+JDJ7pr7gNi
+	PJ9aC0bsR14zaikyVo0KcU3w9wVPNT7Z4cGyzdHHteiREievSXBFF/IafE+xaWDzp86o5Fj
+	Xee7nangQoJ0vinaPtf2J/dX0UAarwipqbQXTqAWrUWb1AZ0W3a+fVyDsGnZCeTS+xcA9AN
+	EJcp7+9w3YGlEADrqYMed2Av2TWPDWAzrDAoyK/f5haFyApJ6reBVf379D6LnBqe+QQGtUW
+	VtKLEb1syoUqxKhU4dqXjL/5v9Bjd8KqazukaItsZcRFG4jA/qJmgAD5TKBCyf5W5kdsWU4
+	gQpoxkiZf5od7H0pcb0j1Ea13MPizx5EOcFBTkcsf+r/hij2ylZyUwBxBgq/xkGEHWLssXh
+	eVgXJJm0aBq6hHuCNnr8S9iGP9e/rW0gYq2hU9JwYvxc31i4Qy+bV7v5kFmFpVSyy3UnGWq
+	rA8NXekYvygcj+P41bspN6rzjmEuqoXBsFyg6auTT+EeonaabW58ukAp9ozVH4c8YVqwycY
+	PIJi0K81HgXxJROfECndHldZ6ujSwtrO3A4fobz7RHSRQPa8kbJUGKbyfGVMmxahAQagrwq
+	+hRdPzsuzVqm+HwFC2wMmY98UIZL37HkLeFQeX77hSSGpXoIc2gfP2RlEVJ3MESXRmvguTh
+	DFSr9QhwbiHxFT2CW76SAo34KypwFTslQ/tUakAkNevY0FVXrQcX+CH9+0YMpLhnWXwdtqf
+	4a6LU9JX5KN2Yi6mXoX0jswIcReyXrDTsDBOVTRQLdujMPgyobMZKAXKQ8GmhLFnYbmtDlC
+	6C63GWgDeMR/gH0/nwPXyxvUA1/I8eAFPHJtG915obSqXx1EPrsc9LBbq/E0GHTMZ9fawSW
+	aDjdB9bY0SoatCXcNr29YMzf8Y7z2U8Jbn9D/orMP0CykLVNwtbJlpbBD/LNdUdwdC2K1Lz
+	iC3uorm/vYpHonWSf6H9lMR73PUPMdBQluPJIWh9viDYTfclaPXiyFOUVQH9lzjH2BNZLeF
+	g6UpmI4XMS0vkspf6rvgDEW11CondrAAxAPr4ZrEc6eOUuMYt9dKVIjmlpqQ9iz4CTAG2pm
+	5Q2fSu5IdtOe1hs=
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_180333_045492_41C1B358 
-X-CRM114-Status: GOOD (  29.87  )
+X-CRM114-CacheID: sfid-20261105_181226_140700_DC51F26C 
+X-CRM114-Status: GOOD (  10.29  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,174 +112,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, Oct 17, 2026 at 12:09:26PM +0900, SeungJu Cheon wrote:
-> The dirty-log write fault fast path sets _PAGE_WRITE without checking
-> whether the backing page is host-writable. A read fault can install
-> a read-only mapping to the shared zero page. A subsequent guest write
-> then takes the fast path and writes into the zero page instead of
-> going through the slow path to break CoW.
-> 
-> Use RSW bit 9 to record host writability before dirty logging forces
-> the mapping read-only. Preserve this bit across write-protection and
-> fall back to the slow path when it is clear.
-> 
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/all/sashiko-outbox-174168@kernel.org/
-> Fixes: 7705be59eb2d ("KVM: riscv: Fast-path dirty logging write faults")
-> Cc: stable@vger.kernel.org # 7.2+
-> Signed-off-by: SeungJu Cheon <suunj1331@gmail.com>
-> ---
-> Testing:
-> 
-> 1. HiFive Premier P550
-> 
->    A selftest makes the guest read an untouched page, then write to
->    it with dirty logging enabled. Before the fix, the write corrupts
->    the host zero page. After the fix, CoW allocates a private page
->    and the zero page stays zero.
-> 
->    dirty_log_perf_test -v 3 -b 256M -i 3 shows no noticeable
->    regression (14-21s per iteration before and after).
-> 
-> 2. QEMU (-cpu rv64,h=true)
-> 
->    The same selftest reproduces the zero-page corruption before the
->    fix and passes after it.
-> 
-> This patch applies on top of the Accessed-bit fix [1].
-> 
-> [1] https://lore.kernel.org/all/20261016101458.221648-1-suunj1331@gmail.com/
-> 
->  arch/riscv/include/asm/kvm_gstage.h |  5 ++++-
->  arch/riscv/kvm/gstage.c             |  5 ++++-
->  arch/riscv/kvm/mmu.c                | 15 +++++++++++++--
->  3 files changed, 21 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/kvm_gstage.h b/arch/riscv/include/asm/kvm_gstage.h
-> index aaf080ba1b77..0d19ad6d7dfe 100644
-> --- a/arch/riscv/include/asm/kvm_gstage.h
-> +++ b/arch/riscv/include/asm/kvm_gstage.h
-> @@ -35,6 +35,9 @@ extern unsigned long kvm_riscv_gstage_max_pgd_levels;
->  #define kvm_riscv_gstage_pgd_xbits	2
->  #define kvm_riscv_gstage_pgd_size	(1UL << (HGATP_PAGE_SHIFT + kvm_riscv_gstage_pgd_xbits))
->  
-> +/* RSW bit 9: the host mapping behind this leaf is writable. */
-> +#define KVM_GSTAGE_PTE_HOST_WRITABLE	BIT(9)
-> +
->  static inline unsigned long kvm_riscv_gstage_gpa_bits(unsigned long pgd_levels)
->  {
->  	return (HGATP_PAGE_SHIFT +
-> @@ -61,7 +64,7 @@ bool kvm_riscv_gstage_try_update_pte(struct kvm_gstage *gstage, u32 level,
->  int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
->  			      struct kvm_mmu_memory_cache *pcache,
->  			      gpa_t gpa, phys_addr_t hpa, unsigned long page_size,
-> -			      bool page_rdonly, bool page_exec,
-> +			      bool page_rdonly, bool page_exec, bool host_writable,
->  			      struct kvm_gstage_mapping *out_map);
->  
->  bool kvm_riscv_gstage_split_huge(struct kvm_gstage *gstage,
-> diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-> index be70607a33ea..d9bfd0c6d5fd 100644
-> --- a/arch/riscv/kvm/gstage.c
-> +++ b/arch/riscv/kvm/gstage.c
-> @@ -207,7 +207,7 @@ static void kvm_riscv_gstage_update_pte_prot(struct kvm_gstage *gstage, u32 leve
->  int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
->  			      struct kvm_mmu_memory_cache *pcache,
->  			      gpa_t gpa, phys_addr_t hpa, unsigned long page_size,
-> -			      bool page_rdonly, bool page_exec,
-> +			      bool page_rdonly, bool page_exec, bool host_writable,
->  			      struct kvm_gstage_mapping *out_map)
->  {
->  	bool found_leaf;
-> @@ -246,6 +246,9 @@ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
->  			prot = PAGE_WRITE;
->  	}
->  
-> +	if (host_writable)
-> +		prot = __pgprot(pgprot_val(prot) | KVM_GSTAGE_PTE_HOST_WRITABLE);
-> +
->  	found_leaf = kvm_riscv_gstage_get_leaf(gstage, gpa, &ptep, &ptep_level);
->  	if (found_leaf) {
->  		/*
-> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> index 042d1e3b3547..196cde6c40cd 100644
-> --- a/arch/riscv/kvm/mmu.c
-> +++ b/arch/riscv/kvm/mmu.c
-> @@ -586,6 +586,12 @@ static bool kvm_riscv_mmu_dirty_log_write_fault_fast(struct kvm *kvm,
->  			break;
->  		}
->  
-> +		/* Let the slow path handle host-side write protection and CoW. */
-> +		if (!(pte_val(old_pte) & KVM_GSTAGE_PTE_HOST_WRITABLE)) {
-> +			ret = false;
-> +			break;
-> +		}
-> +
->  		if (!dirty_marked) {
->  			mark_page_dirty_in_slot(kvm, memslot, gfn);
->  			dirty_marked = true;
-> @@ -630,6 +636,7 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
->  	bool is_hugetlb;
->  	bool unused = false;
->  	bool writable;
-> +	bool host_writable;
->  	unsigned int vma_pageshift;
->  	gfn_t gfn = gpa >> PAGE_SHIFT;
->  	struct vm_area_struct *vma;
-> @@ -714,6 +721,8 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
->  	if (is_error_noslot_pfn(hfn))
->  		return -EFAULT;
->  
-> +	host_writable = writable;
-> +
->  	/*
->  	 * If logging is active then we allow writable pages only
->  	 * for write faults.
-> @@ -739,10 +748,12 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
->  	if (writable) {
->  		mark_page_dirty_in_slot(kvm, memslot, gfn);
->  		ret = kvm_riscv_gstage_map_page(&gstage, pcache, gpa, hfn << PAGE_SHIFT,
-> -						vma_pagesize, false, true, out_map);
-> +						vma_pagesize, false, true, host_writable,
-> +						out_map);
->  	} else {
->  		ret = kvm_riscv_gstage_map_page(&gstage, pcache, gpa, hfn << PAGE_SHIFT,
-> -						vma_pagesize, true, true, out_map);
-> +						vma_pagesize, true, true, host_writable,
-> +						out_map);
->  	}
->  
->  	if (ret)
-> -- 
-> 2.52.0
-> 
+In RC mode, the K1 PERST# pad input also affects the local controller.
+Without PCIE_IGNORE_PERSTN set, asserting PERST# to reset the endpoint
+also resets the RC, losing previously programmed register values,
+including the vendor and device IDs.
 
-I guess this fix miss a part:
+Set PCIE_IGNORE_PERSTN during RC initialization to prevent this
+feedback. Set it before the first DBI access, since PERST# may already
+be low when initialization starts, causing the access to hang.
 
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 53bb25a5a60b..1b35ab980a10 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -761,7 +761,7 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+Fixes: ff64e078e45f ("PCI: spacemit: Add SpacemiT PCIe host driver")
+Reported-by: Bruno Banelli <bbanelli@gmail.com>
+Link: https://lore.kernel.org/all/20260825052249.66921-1-bbanelli@gmail.com/
+Signed-off-by: Encrow Thorne <encrow.thorne@linux.spacemit.com>
+---
+Changes in v2:
+- Rebase onto v7.4-rc1.
+- Explain the PERST# pad input feedback into the local RC.
+- Use PERST# in the subject, commit log and code comment.
+- Add Fixes, Reported-by and Link tags.
+- Link to v1: https://lore.kernel.org/r/20260924-spacemit-k1-pcie-fix-v1-1-002b5c1ba9fc@linux.spacemit.com
+---
+ drivers/pci/controller/dwc/pcie-spacemit-k1.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+index 92a71ea90ac3..bb60a35c2885 100644
+--- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
++++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+@@ -47,6 +47,7 @@
  
- out_unlock:
- 	kvm_release_faultin_page(kvm, page,
--				 unused || (ret && ret != -EEXIST), writable);
-+				 unused || (ret && ret != -EEXIST), host_writable);
- 	write_unlock(&kvm->mmu_lock);
- 	return ret;
- }
+ #define PCIE_CONTROL_LOGIC			0x0004
+ #define PCIE_SOFT_RESET			BIT(0)
++#define PCIE_IGNORE_PERSTN			BIT(2)
+ 
+ struct k1_pcie {
+ 	struct dw_pcie pci;
+@@ -140,6 +141,13 @@ static int k1_pcie_init(struct dw_pcie_rp *pp)
+ 	if (ret)
+ 		return ret;
+ 
++	/*
++	 * Ignore the PERST# pad input in RC mode so asserting PERST# to
++	 * reset the endpoint does not also reset the local controller.
++	 */
++	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
++			PCIE_IGNORE_PERSTN);
++
+ 	/* Set the PCI vendor and device ID */
+ 	dw_pcie_dbi_ro_wr_en(pci);
+ 	dw_pcie_writew_dbi(pci, PCI_VENDOR_ID, PCI_VENDOR_ID_SPACEMIT);
 
-Regards,
-Inochi
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20260921-spacemit-k1-pcie-fix-256ffa8d382d
+
+Best regards,
+-- 
+Encrow Thorne <encrow.thorne@linux.spacemit.com>
+
 
 _______________________________________________
 linux-riscv mailing list
