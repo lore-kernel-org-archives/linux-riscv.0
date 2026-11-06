@@ -2,74 +2,93 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 807FF606A326
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 13:08:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31652606D815
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 13:55:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ckM+iQPI;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GXuAas0C
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HMrP4xtU;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=mHu46RB2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=/tCdl4/MNgZCN+bDyZ4kIap/kFPa7CJPqqcDKEIwzn4=; b=ckM+iQPI4N/zFJ3EQk4YdoNExr
-	a2zuS6yQdEgdbb/hkXzB7PKkciKBIL/VQ9LfJZRwIvKdVrc91XrGVKrezR9a1Ae9PVMfnWLKQ66bZ
-	z6TKsyT9v+1MbZgRZpoXKCGHP/b44ZqM0Ku+b4fsw1edYihhG0OMxlaKdp5zE7WZZttiwlOFU8zUZ
-	IUVnG+1aP4A6E2Vj//F4mb6xoSetqnhl+qJl+tIfiF7ySPEMc77b9igeFxyVTObIkDSFOJl6mL0Ir
-	5rHiVxHLXsCtFoL1YzHjChB/nNHJ6K02BvDdinPzWldu+t36Io4C/Ibg7BKwUtEERI5rTxVtqEbU+
-	1SXN4XOA==;
+	bh=/K7UhtkEcuNsfMSNzJop12jM533a9wntII08h5lN7vs=; b=HMrP4xtUjppkhDfbK4ymPj4G8Q
+	k3lAJ//0HyuU9s776gBUnnuPbLVrUQJkCWi5CAyaE2q/Oc2YKpTsmbf4vMKq5ddUO9ODTqFxBiMm6
+	YFtFsL66WscIB8C94Q4n+KySjerVEDY0iDdtfCOJMRIuv2WUb1fmAItYI8y9F/umrzSicxgapY0bx
+	7c0ECfOSUu84OZpKfsfsdn8RarHVn7TIdfMskmr5frFohiGfY3+rsAVSWWYPU1/C75fqdp40Py5xP
+	tbWNuT/N3C8RnnsSq1m52v0nzXQDoaKQDFbvSJjloRjb+fCFuppD7KW2KLfmxK+IbOyJT7O7zo4j5
+	40ip4eSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPJfy-0000000CO4R-33GH;
-	Fri, 06 Nov 2026 13:08:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xPKPR-0000000CUnQ-3Iyl;
+	Fri, 06 Nov 2026 13:55:13 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPJfx-0000000CO3z-3Kt0
+	id 1xPKPN-0000000CUj4-0RvT
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Nov 2026 13:08:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 28E1543B3E;
-	Fri,  6 Nov 2026 13:08:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 812AF1F0089F;
-	Fri,  6 Nov 2026 13:08:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793970493;
-	bh=TO6nA6fKupuT4LKQD3ReT4Ai1+g7oQCPamJoMi0vNPY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GXuAas0CTeamncwsg42u7CiH8oTxTo2kxvWELAUvYkZNOVg1DcBwc9K0gl/48HeXf
-	 Vktz7nWTAEmDPaGWQDYiifQc3MK39ldDtR4gB062UxMJsyfJPAN+I7gcJnbGu+JCHw
-	 yeQtrEh+Pzf3NvY5J6T1t09OzZAwPB4U8xActYf+jBfN6IT1r/wSxnFTHmVIs96SSE
-	 HP5V4WVmCGhTxyPYzfa1RztLzf1j3ITQrBsjYAcc4dNafT+pcD5wTMh8im3zbQFu/L
-	 Or/u3M24IOnuvY3o9LxXcuKfpcmhicxZlylMhal6UsEhth96Rpzbij23cvjbSZLlme
-	 MRFSF9Gow7xJA==
-Date: Fri, 6 Nov 2026 13:08:07 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>, Gary Guo <gary@garyguo.net>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, cfu@wavecomp.com,
-	torvalds@linux-foundation.org, olof@lixom.net,
-	aleksa.paunovic@htecgroup.com, arikalo@gmail.com,
-	Boqun Feng <boqun@kernel.org>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/2] riscv: accept the atomic extensions this kernel
- was built with
-Message-ID: <20261106-smock-headband-d6a7d568c228@spud>
-References: <20261101-lrsc-only-v4-0-4e1d010463b3@mobileye.com>
- <20261101-lrsc-only-v4-2-4e1d010463b3@mobileye.com>
- <20261103-pushcart-very-04a34d0ffb0e@spud>
- <507f3761-1104-4d15-8fb0-c2fca037ddd4@mobileye.com>
- <20261104-saddlebag-starring-4380fcc9293c@spud>
- <06025d29-44b4-4ae3-bc82-84185ad786f1@mobileye.com>
+	Fri, 06 Nov 2026 13:55:13 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261106135506euoutp020a7fae548224b21b2e17f29656faec38~leTeP_lDN2469924699euoutp02z
+	for <linux-riscv@lists.infradead.org>; Fri,  6 Nov 2026 13:55:06 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261106135506euoutp020a7fae548224b21b2e17f29656faec38~leTeP_lDN2469924699euoutp02z
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1793973306;
+	bh=06AQXyihJq/OEvwcZMATqFb1XaBS16clhoCnTaBSROQ=;
+	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
+	b=mHu46RB2pVMXa2dRtn+nvmIeghwLok2WNcOR56UrmanK6wgT3xFLLPhzqtRIlyjvw
+	 I3d3CtfLsOYzra4/T5nOsgQ/Rj/ZdfLn013f7McHULk1fZKvgRozi+ET+N7rcF3tGG
+	 zwU0njiz5IbL6IIUCJxbid367nfPIEZZ2BbcKqQY=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261106135505eucas1p1d6f266a6f5c36359454745d176d7ed9b~leTd2VRT81758617586eucas1p1T;
+	Fri,  6 Nov 2026 13:55:05 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261106135504eusmtip293b7af368c9743379df5aae21a89c541~leTdBVRnc2294422944eusmtip21;
+	Fri,  6 Nov 2026 13:55:04 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Fri, 06 Nov 2026 14:52:59 +0100
+Subject: [PATCH v7 1/5] dt-bindings: phy: Add starfive,jh7110-inno-hdmi-phy
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <06025d29-44b4-4ae3-bc82-84185ad786f1@mobileye.com>
+Message-Id: <20261106-jh7110-inno-hdmi-phy-v7-1-d49368303800@samsung.com>
+In-Reply-To: <20261106-jh7110-inno-hdmi-phy-v7-0-d49368303800@samsung.com>
+To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
+	<neil.armstrong@linaro.org>,  Manivannan Sadhasivam <mani@kernel.org>, Rob
+	Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor
+	Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,  Emil Renner
+	Berthing <kernel@esmil.dk>,  Hal Feng <hal.feng@starfivetech.com>, Dominique
+	Belhachemi <db@domibel.de>,  Michal Wilczynski <m.wilczynski@samsung.com>,
+	Andy Yan <andyshrk@163.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,  Marek
+	Szyprowski <m.szyprowski@samsung.com>,  Icenowy Zheng
+	<zhengxingda@iscas.ac.cn>,  Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	Joshua Peisach <jpeisach@ubuntu.com>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2057;
+	i=m.wilczynski@samsung.com; h=from:subject:message-id;
+	bh=6AQm50xtAvbrSQTSn64RxXqfjCuQ7qgMNyPcGxB0fq8=;
+	b=owGbwMvMwCGWumv6zndzRCIZT6slMWS9vWM++9W9X858Z8RzhSeYuc7qsd/StZAzd+GqE04bK
+	1PuP9AU6ihlYRDjYJAVU2Q5uzHaSPIfw9Py449/wcxhZQIZwsDFKQATOb2YkeHI33vTH+Xobl2/
+	hEfWVvJelOJ0uf0H/lXw93s+D8i9Ku3B8Js1JmK70F4z/733vtTJKYopCZnc4TK2fH/I6dH9j6r
+	XD3MDAA==
+X-Developer-Key: i=m.wilczynski@samsung.com; a=openpgp;
+	fpr=CDB15B3219FE00E577C7E3FA65BA97B9EE9C1459
+X-CMS-MailID: 20261106135505eucas1p1d6f266a6f5c36359454745d176d7ed9b
+X-Msg-Generator: CA
+X-RootMTR: 20261106135505eucas1p1d6f266a6f5c36359454745d176d7ed9b
+X-EPHeader: CA
+X-CMS-RootMailID: 20261106135505eucas1p1d6f266a6f5c36359454745d176d7ed9b
+References: <20261106-jh7110-inno-hdmi-phy-v7-0-d49368303800@samsung.com>
+	<CGME20261106135505eucas1p1d6f266a6f5c36359454745d176d7ed9b@eucas1p1.samsung.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261106_055509_818688_03BD3C29 
+X-CRM114-Status: GOOD (  12.91  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,143 +98,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7955906873760992578=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============7955906873760992578==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="y7wNRCiC54YoRgMh"
-Content-Disposition: inline
+Add the dt-binding for the StarFive JH7110 Innosilicon HDMI PHY.
 
---y7wNRCiC54YoRgMh
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This device is a child of the starfive,jh7110-hdmi-subsystem node. It
+functions as both a PHY provider for the controller and as a clock
+provider for the variable pixel clock (hdmi_pclk), which it generates
+from its refoclk.
 
-On Thu, Nov 05, 2026 at 02:19:41PM +0200, Vladimir Kondratiev wrote:
-> On 11/4/26 23:55, Conor Dooley wrote:
-> > On Wed, Nov 04, 2026 at 01:23:52PM +0200, Vladimir Kondratiev wrote:
-> >> On 11/3/26 23:41, Conor Dooley wrote:
-> >>> That got me thinking though, I feel like this breaks some of the
-> >>> extension parsing logic in other ways.
-> >>>
-> >>> If you putting zalrsc and zaamo in your devicetree, we never do any
-> >>> backwards processing to set the a extension (we don't do this for any
-> >>> extensions by design, we only populate "child" extensions based on th=
-eir
-> >>> "parent"). If there's some userspace thing that expects to see a in
-> >>> cpufeature or w/e it'd break. There shouldn't be since a has always b=
-een
-> >>> supported but who knows. You need custom userspace anyway so I honest=
-ly
-> >>> don't give that much of a shit about this going wrong.
-> >>>
-> >>> What does "worry" me is hwprobe. Currently you've not modified hwprobe
-> >>> at all to correctly state that you do not support
-> >>> RISCV_HWPROBE_BASE_BEHAVIOR_IMA. (and brings up the question of wheth=
-er
-> >>> you support RISCV_HWPROBE_BASE_BEHAVIOR_IMA_FD etc!)
-> >>>
-> >>> Maybe, again you don't care cos of your custom userspace, but this ne=
-eds
-> >>> to be holistic if it is being done at all.
-> >>> Personally, I don't want to lower the minimum requirements - the peop=
-le
-> >>> designing this stuff to run linux should have checked to see what our
-> >>> requirements were (and have always been...).
-> >>
-> >> I will drop this patch and keep advertising "a" because formally it is
-> >> true - all "a" including amo instructions do work but rather slow. Als=
-o,
-> >> not worth to complicate logic here for (so far) one very special SoC.
-> >=20
-> > By that logic, do not complicate the kernel at all with this zalrsc-only
-> > stuff and drop patch 1 too. Please do this properly or do not do it at
-> > all. If we are introducing the ability to configure the kernel so that
-> > it runs on systems with only zalrsc, people should be able to run the
-> > kernel on such systems without a) failing to boot or b) incorrectly
-> > reporting to userspace what the hardware is capable of doing.
->=20
-> I am reading again risc-v spec, and it says here:
-> https://docs.riscv.org/reference/isa/v20260120/priv/machine.html
->=20
-> "M-mode can also be used to implement features that are too difficult or
-> expensive to implement in hardware directly."
->=20
-> I read it like the feature implemented in the M-mode trap considered
-> "implemented".
->=20
-> Thus in case of AMO emulated in M-mode, it should be considered
-> "implemented" however slow. Indeed AMO instructions are executed
-> correctly from the S/U modes standpoint. Program compiled with these
-> instruction will not crash. It will run quite slow but correctly. So
-> proper wording would be "slow ZAAMO" and not "unsupported ZAAMO"
->=20
-> Is my interpretation of the spec correct?
->=20
-> Also, you accepted patch set introducing this p8700 SoC with "A" marked
-> as "implemented", here:
-> https://lore.kernel.org/all/20261103-agent-lagging-d7fe1c9334f1@spud/
->=20
-> I will follow this direction, keeping "A" as "implemented" and offering
-> choice to use faster atomics implementation for such system
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ .../phy/starfive,jh7110-inno-hdmi-phy.yaml         | 49 ++++++++++++++++++++++
+ 1 file changed, 49 insertions(+)
 
-I think you completely missed my point. I have no problem with declaring
-that this platforms supports any extension that is emulated in firmware.
+diff --git a/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..8dbd113b1534a37d00dfd60454f300531a813b8b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
+@@ -0,0 +1,49 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/starfive,jh7110-inno-hdmi-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 Innosilicon INNO HDMI PHY
++
++maintainers:
++  - Michal Wilczynski <m.wilczynski@samsung.com>
++
++description:
++  The PHY portion of the StarFive JH7110 INNO HDMI IP.
++
++properties:
++  compatible:
++    const: starfive,jh7110-inno-hdmi-phy
++
++  clocks:
++    maxItems: 1
++    description: Reference oscillator.
++
++  '#clock-cells':
++    const: 0
++
++  '#phy-cells':
++    const: 0
++
++required:
++  - compatible
++  - clocks
++  - '#clock-cells'
++  - '#phy-cells'
++
++additionalProperties: false
++
++examples:
++  # Shown as a child of the HDMI subsystem node; see
++  # Documentation/devicetree/bindings/display/starfive/starfive,jh7110-hdmi-subsystem.yaml
++  # for the full node.
++  - |
++    phy {
++        compatible = "starfive,jh7110-inno-hdmi-phy";
++        #clock-cells = <0>;
++        clocks = <&xin24m>;
++        #phy-cells = <0>;
++    };
++
++...
 
-My point is that if we are adding Kconfig options that ostensibly
-mean that the kernel can run on hardware that with a minimum of im + zalrsc,
-then the kernel should actually run and run correctly on those systems.
+-- 
+2.34.1
 
-The option isn't
-CONFIG_SPECIAL_SNOWFLAKE_MIPS_OPTIMISATION_COS_IT_DOESNT_MEET_MIN_REQUIREME=
-NTS,
-and if it is, my opinion is that performance improvements for things
-that don't meet our minimum requirements should stay out of tree (as
-really should any soc-specific tuning options that can't be enabled
-without penalising general hardware). It's not as if this is this device in
-particular being picked on, my own employer has stuff out of tree of that
-nature FWIW. In my opinion, as I have said, patch 1 is only acceptable if
-it actually lowers the minimum requirements from ima to im_zalrsc. It
-really should not be too hard to extend hwprobe to do the right thing,
-or to deal with bpf by either disabling it when the new Kconfig option is
-disabled or by modifying the bpf code to reject the instructions that
-are not present.
-
-Cheers,
-Conor.
-
-
---y7wNRCiC54YoRgMh
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCau3RNwAKCRB4tDGHoIJi
-0jO5AQDkU/HRTt9/PAnDkhU21zOSQb3ux+VM8FFvRPi8tzF/2wD+PlZq6da/ecAy
-hBC8Vg4F4jTM1Vvg2pC2YwDuHhm7cQE=
-=s0yp
------END PGP SIGNATURE-----
-
---y7wNRCiC54YoRgMh--
-
-
---===============7955906873760992578==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7955906873760992578==--
-
