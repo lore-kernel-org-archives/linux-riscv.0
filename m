@@ -2,104 +2,116 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0639606A328
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 02:12:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07115606A31B
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 02:17:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QSKqHxks;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=Kf0pnMM7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sboWL+go;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NYh/1yci
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=8rpsVdKrarRVO6Tm2cTl0gzOHpxLVJwn6WdetMzjt6k=; b=QSKqHxks8S9EbGsOi/RcYNlUiO
-	6B6iKRaKTlasIb6zawoWaVOoA910gk5gycMxWrjZjzPPMOtS7tqNrcbPi4T1jMILVdVabAqMB6Kzn
-	F8eWQLolN9cVEei8FTLEelN+VicBZiWPb/Qb7i6eJCMSi+mOmD1QpNP+AAFscSQJJrl7aUG7i5+ql
-	lWo2SOw2Fc5t3RvhvM5rA4kfC2vDfBq358PzgrrEhyJcfq8w8ORnqwzBDfzvNCPr2RS3qO9nMGGr6
-	cdnC2PPdvKmWW3i72WX1E9lXJggu+DedrMasxWo8seUfATTecmdxeylG8QNcyHu+zXCVaoCAo5+z5
-	zyJDzOXw==;
+	bh=1pbXiOe5Kxr/04Z4dSKgLHULQWLpxhwx8SDLYUcu5Ig=; b=sboWL+goCLjMJY1AkIc1lBiZEB
+	vmuw2lz8uHFGoJ3JfX0PD4RbxjUvfvWS9ZCbxMEk+URdwPtisYIs6/QUr2HiaVawjhUAokdJKxGXC
+	afHtC47GLaTSo1FE8kAGB7/KSgs3GKDePBDQhtsqpsGNOfpvwT8qBS83DwpSkz+nzQWiaZGLZAC0e
+	D0sZuqt15HBloZjNgEs+/dupXCtKUqDbrBmCZXUferZRH98+OzHRtHPvaqH18MgWxNJcik+yQsahl
+	FmpQ8S1VPhXYopaokBDflag0ENdjXetMLrNv8CyWrze6EISTPlflO8bPof8WSCjLU41fdtAsJGRia
+	GJIEZWZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP9RN-0000000B2df-0zJd;
-	Fri, 06 Nov 2026 02:12:29 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1xP9Vt-0000000B2sg-3OIx;
+	Fri, 06 Nov 2026 02:17:09 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP9RJ-0000000B2cE-2XQp
+	id 1xP9Vr-0000000B2sK-2hv4
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Nov 2026 02:12:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1793931060;
-	bh=AbuVg4vN10ZA2hcaRa+VCPVPKcQZSgmZ/Iv8DAJnQGg=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=Kf0pnMM7yw1bDZSio6QOf0LdL7sW1Autj2vxxYUIyHV9ybxrZyQhJHMgNuy63CWLE
-	 0wics4rfGxM0jD4m8ClBkStwaoqH7kaLqU17b7csSrA+M5n72n3zLYc97R453bLGrH
-	 XPt3HpoZPbjJzEO1HDtJdI08kz+vfHSHvBf+dh9g=
-X-QQ-mid: zesmtpsz3t1793931058t953477e7
-X-QQ-Originating-IP: BbYzGvXJbyXNANJbyxX8YavOnC2uj3ZadAP1LufNDGI=
-Received: from [10.0.50.11] ( [61.145.255.150])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 06 Nov 2026 10:10:56 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 12396898183467200051
-EX-QQ-RecipientCnt: 15
-From: Encrow Thorne <encrow.thorne@linux.spacemit.com>
-Date: Fri, 06 Nov 2026 10:13:53 +0800
-Subject: [PATCH v2] PCI: spacemit: Ignore PERST# input in RC mode on K1
+	Fri, 06 Nov 2026 02:17:08 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5be4716d76fso27486e87.2
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2026 18:17:06 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793931424; cv=none;
+        d=google.com; s=arc-20260327;
+        b=gOH2uORx4WgaytluCEsly5NdR4nh4ixCSewLA9M60K0xs9JpEaIeYcPq7eI0AaBMwQ
+         zPf/n/M9zFm60Q2kC3jLc9GHfDOMkPcZydYoa6TdXVWVic5NDZZQptuhOV6yWAIXY8gJ
+         bZ9yRvKAs6YtQERpI2Gw4dX9WBJxf1aAloe6ugDJ8sLoTF92ACff74NKVYAhcxkC5YV6
+         NuB+P6C705Y5fF6fpVO/A4q8W0WffqVTi2ISqDnmXC3T2ApmJ3NJOH7K82b97MtskF6S
+         LOHV8V7E7/QahBION7NegKGshltyrhXum3Bf8vuzwwmuhj/Mo8g3o65M6AY6p0bJRehn
+         xGbQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=brMY+OaA/TMsf3LmZkAREDA9GFOOeLxAwqMfVeCmlKI=;
+        fh=86yGcldMChM+ayp2dbQ9wJhZ3ZjFJ6tehFjJWkeW8Ac=;
+        b=KdXJ1U1tV4VNVx6lqRdncKfJXxXfCLBHLEi/Qkh7rbp+GhdvvVmQGZgJllJugk5j4K
+         3fYe4ldmTFXl9nlDlKHZuKUB0cj7XXt96zQQkCvJBookQaWiOP74iOgkNp1Bo2RLQvio
+         d47qUo7uRDREj/5zWc0FjHNB0Yab8A4PIbu4RvvHRWYy3OzfaTNmU7Vmice1TslpGbPA
+         nBc7GAsVZp4QE0u0aIH69XuLbO3vV8SGXbnAPcuyYqAs69nSC6uklwRB09WEcz8a3rx4
+         DVTKpovlS/1mh7w/kpAjg8de5fflhvxGz1y9Nqw+JRM1KWj4Q+KtlocXEy4oujqNjQAR
+         ZcCg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793931424; x=1794536224; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=brMY+OaA/TMsf3LmZkAREDA9GFOOeLxAwqMfVeCmlKI=;
+        b=NYh/1yci22aRnS6sGG4vK33N95PmNhm0xa676VtzgEGuFrflVgsSpWOh7CrVXUZ4bf
+         8jnFLO8631+ptk1Fv55h5F8XXFmO8HAiDjUjAc9iq+05uPYetxvleLtiDi4Z2Lqbgxpy
+         tX0umCIR9cdgmvDMUwJl5RiPGi3Ono1V4ISC8Pqr3X+fBegnkN8M/mpcnhIWKC26nqP5
+         LnpO0rssUHSfGWUx94HnD1krrdm4N03WCAgjg+l/wdCdXElrWgIqzfBJg1OhnZfmWosb
+         PAHpNykH23KFQUtZDoKHauBow4AsMsqpkxNDk2DGOPklzHJAPNT5nGWF+wGK8Nd+XIt+
+         zwZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793931424; x=1794536224;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=brMY+OaA/TMsf3LmZkAREDA9GFOOeLxAwqMfVeCmlKI=;
+        b=WQY08URNzZtrv9sVzWUUx+YZM1YBebo2SkRVN8XNepF/N6SAZzYsL52Gd1lPrYPpFN
+         Q19Hu7IC8VgblPyz+rJcxgLNkb/RJo1buPEVfTTokNfHNeu8l7qU2fyH2FMn+BLVNJxQ
+         ADT9ykRCChgGbPX+3f5Ci9W5hH1bn44f9JG2jXEoZfq7TWhW5hMALFU/Dc5tVgwrJUTg
+         pqMoo6JnaePrx6oozMKqTVufKrphNRW2zwjS3xy9wfiYQ0iR0sDXRxn/f+EXMngGiIma
+         HLVDcnZTYkJmI9+PVQ7aIQD9BqLZjMhnKzZRsHPQ3T5WgwFp31Nqx/yYstq/ufmANvoi
+         nJgw==
+X-Forwarded-Encrypted: i=1; AKwUvBx/jjTwm+8eEkq/ivQgQAPqlWWfcqawf2/VnSG6ddmPnfupiQKFsVCKgxGDOH2HM3IS/ufmxzyJJRUJaA==@lists.infradead.org
+X-Gm-Message-State: APuU4Z9uvbWDFEhIT0x3fZUtG7Q4rTqg0FOz3fdDBpelf/JAI+iUPj3r
+	lePyY9FD5H6OkNinSglJ1SgrzzhnQbCJ1nnQov7Sb8N9BKrghSYqCfYCGwM3vlGULrr7a837J1X
+	H1Wikgk6affO/T35DW5+hwltK9Kfr5KY=
+X-Gm-Gg: AYBFou3Axj0ZrVvK/p0gBdq5duJZP75GopxyJuqIt0H4iWj8TsECJE1NsLQoSiLUwo/
+	c/nRtP++vzOQyrnjfxFsuEERIZTWImSyaX4vF+Nsr6xtq2ZxxiNua8mWNqWY1RihGA32IzDVHtJ
+	5015WfZKWtxOYpPCwCnIrS4MPNlEQi9KoB4xt8Ixiu1eMdVEou1xl3aIWkHcPnzXi+2F33IF59E
+	Zn5Awtx9OssKNlSdaduDRCKvimgK1+mns1MBe/xjHbJK+LPIWxUO86+0P/LDWPx0+SrZkO6fJP5
+	XS2KFfqhjzLI4XqSMkg2nW1jAos5LQpxNf/VoXhyIx+xyZGYzBc5phl/+jjvQ1QDHatKZxt2kc7
+	y7TiMmLxWUcd2NPGLoeTdy1CgU9jlsCRAOQc4jZ7QXu3HiLSciEt9WGQvHpEv974R7VdLz9bLYc
+	t4BhSmPngPUXu3c/vGdg==
+X-Received: by 2002:a05:6512:2524:b0:5bf:d9b4:2481 with SMTP id
+ 2adb3069b0e04-5c003c16440mr312893e87.6.1793931424363; Thu, 05 Nov 2026
+ 18:17:04 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261106-spacemit-k1-pcie-fix-v2-1-6d74563b01d5@linux.spacemit.com>
-X-B4-Tracking: v=1; b=H4sIAOA37WoC/22NzQ6CMBCEX4Xs2SXtKgQ8+R6GQylb2Sg/aZFgC
- O9uJeHm8ZvMfLNCYC8c4Jqs4HmWIEMfgU4J2Nb0D0ZpIgMpylVJGsNoLHcy4VPjaIXRyYKU5c6
- ZojkX1ECcjp5jvGvvVeRWwjT4z/4y6196CC//hbNGjUpRnVldm9LZ20v695Ie5dQOHVTbtn0Bn
- Sv+S8EAAAA=
-X-Change-ID: 20260921-spacemit-k1-pcie-fix-256ffa8d382d
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Yixun Lan <dlan@kernel.org>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Alex Elder <elder@riscstar.com>
-Cc: linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Bruno Banelli <bbanelli@gmail.com>, Ali Tariq <alitariq45892@gmail.com>, 
- Encrow Thorne <encrow.thorne@linux.spacemit.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793931244; l=2232;
- i=encrow.thorne@linux.spacemit.com; s=20260922; h=from:subject:message-id;
- bh=7T2alXfTc2E2Sig8ddTkVljE6R+muw/GFLNKQx4Ilng=;
- b=7Ca91mnujtzIqog/FDsDTW3KYGl2aSZeVwmkYHx8AmdCachE0LwPezwTcEMXQBrHZI7J2aSBy
- yJwHpwhXnr/CAllIgl1MQmsGO5dujjO4KQjBYUjq0Na91h6EFnLv+E2
-X-Developer-Key: i=encrow.thorne@linux.spacemit.com; a=ed25519;
- pk=2pmSCQKuWBw48bo9mVmWM77uEWdezu/geF0k1YMFzN4=
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: Mfm8HKGnOlI9/73z/3UqV3IwxbashggCw5UKvSrorhABfst2bcXFqShS
-	ZlM3aPcvozGTrB9o4p3FyFUDxhbAY+y6pLT0I/qz9GFxvX6ogmxFFjGuWZ41+JDJ7pr7gNi
-	PJ9aC0bsR14zaikyVo0KcU3w9wVPNT7Z4cGyzdHHteiREievSXBFF/IafE+xaWDzp86o5Fj
-	Xee7nangQoJ0vinaPtf2J/dX0UAarwipqbQXTqAWrUWb1AZ0W3a+fVyDsGnZCeTS+xcA9AN
-	EJcp7+9w3YGlEADrqYMed2Av2TWPDWAzrDAoyK/f5haFyApJ6reBVf379D6LnBqe+QQGtUW
-	VtKLEb1syoUqxKhU4dqXjL/5v9Bjd8KqazukaItsZcRFG4jA/qJmgAD5TKBCyf5W5kdsWU4
-	gQpoxkiZf5od7H0pcb0j1Ea13MPizx5EOcFBTkcsf+r/hij2ylZyUwBxBgq/xkGEHWLssXh
-	eVgXJJm0aBq6hHuCNnr8S9iGP9e/rW0gYq2hU9JwYvxc31i4Qy+bV7v5kFmFpVSyy3UnGWq
-	rA8NXekYvygcj+P41bspN6rzjmEuqoXBsFyg6auTT+EeonaabW58ukAp9ozVH4c8YVqwycY
-	PIJi0K81HgXxJROfECndHldZ6ujSwtrO3A4fobz7RHSRQPa8kbJUGKbyfGVMmxahAQagrwq
-	+hRdPzsuzVqm+HwFC2wMmY98UIZL37HkLeFQeX77hSSGpXoIc2gfP2RlEVJ3MESXRmvguTh
-	DFSr9QhwbiHxFT2CW76SAo34KypwFTslQ/tUakAkNevY0FVXrQcX+CH9+0YMpLhnWXwdtqf
-	4a6LU9JX5KN2Yi6mXoX0jswIcReyXrDTsDBOVTRQLdujMPgyobMZKAXKQ8GmhLFnYbmtDlC
-	6C63GWgDeMR/gH0/nwPXyxvUA1/I8eAFPHJtG915obSqXx1EPrsc9LBbq/E0GHTMZ9fawSW
-	aDjdB9bY0SoatCXcNr29YMzf8Y7z2U8Jbn9D/orMP0CykLVNwtbJlpbBD/LNdUdwdC2K1Lz
-	iC3uorm/vYpHonWSf6H9lMR73PUPMdBQluPJIWh9viDYTfclaPXiyFOUVQH9lzjH2BNZLeF
-	g6UpmI4XMS0vkspf6rvgDEW11CondrAAxAPr4ZrEc6eOUuMYt9dKVIjmlpqQ9iz4CTAG2pm
-	5Q2fSu5IdtOe1hs=
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-RECHKSPAM: 0
+References: <20261104-milkv-duo-eth-overlay-v2-0-e3d2d39cf229@baylibre.com> <20261104-milkv-duo-eth-overlay-v2-1-e3d2d39cf229@baylibre.com>
+In-Reply-To: <20261104-milkv-duo-eth-overlay-v2-1-e3d2d39cf229@baylibre.com>
+From: =?UTF-8?B?6JGJ5a645L2R?= <chenyou910331@gmail.com>
+Date: Fri, 6 Nov 2026 10:16:53 +0800
+X-Gm-Features: AclHuK-dqaISPAtfDlMGbnSeryvn5bwnJRHt-qebg7Qbj88Q7XOH_5ONWOiQpyg
+Message-ID: <CAKspUhKv_6BLHVH_5oBsM8UhvCGHEsukRDmMozZEebHZtoJmcg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] riscv: dts: sophgo: make sg2002-milkv-duo256m-eth
+ overlay generic
+To: Hiago De Franco <hfranco@baylibre.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Chen Wang <chen.wang@linux.dev>, 
+	Inochi Amaoto <inochiama@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_181226_140700_DC51F26C 
-X-CRM114-Status: GOOD (  10.29  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_181707_712798_83AA2355 
+X-CRM114-Status: UNSURE (   6.13  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,72 +124,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-In RC mode, the K1 PERST# pad input also affects the local controller.
-Without PCIE_IGNORE_PERSTN set, asserting PERST# to reset the endpoint
-also resets the RC, losing previously programmed register values,
-including the vendor and device IDs.
+Tested on a Milk-V Duo 256M with the USB & Ethernet IO board, on top of
+v7.4-rc1. The composed sg2002-milkv-duo256m-eth.dtb is byte-identical
+before and after this patch. Booting it, eth0 links at 100Mbps/Full and
+pings the PC over a direct link, 5/5.
 
-Set PCIE_IGNORE_PERSTN during RC initialization to prevent this
-feedback. Set it before the first DBI access, since PERST# may already
-be low when initialization starts, causing the access to hang.
-
-Fixes: ff64e078e45f ("PCI: spacemit: Add SpacemiT PCIe host driver")
-Reported-by: Bruno Banelli <bbanelli@gmail.com>
-Link: https://lore.kernel.org/all/20260825052249.66921-1-bbanelli@gmail.com/
-Signed-off-by: Encrow Thorne <encrow.thorne@linux.spacemit.com>
----
-Changes in v2:
-- Rebase onto v7.4-rc1.
-- Explain the PERST# pad input feedback into the local RC.
-- Use PERST# in the subject, commit log and code comment.
-- Add Fixes, Reported-by and Link tags.
-- Link to v1: https://lore.kernel.org/r/20260924-spacemit-k1-pcie-fix-v1-1-002b5c1ba9fc@linux.spacemit.com
----
- drivers/pci/controller/dwc/pcie-spacemit-k1.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-index 92a71ea90ac3..bb60a35c2885 100644
---- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-+++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-@@ -47,6 +47,7 @@
- 
- #define PCIE_CONTROL_LOGIC			0x0004
- #define PCIE_SOFT_RESET			BIT(0)
-+#define PCIE_IGNORE_PERSTN			BIT(2)
- 
- struct k1_pcie {
- 	struct dw_pcie pci;
-@@ -140,6 +141,13 @@ static int k1_pcie_init(struct dw_pcie_rp *pp)
- 	if (ret)
- 		return ret;
- 
-+	/*
-+	 * Ignore the PERST# pad input in RC mode so asserting PERST# to
-+	 * reset the endpoint does not also reset the local controller.
-+	 */
-+	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
-+			PCIE_IGNORE_PERSTN);
-+
- 	/* Set the PCI vendor and device ID */
- 	dw_pcie_dbi_ro_wr_en(pci);
- 	dw_pcie_writew_dbi(pci, PCI_VENDOR_ID, PCI_VENDOR_ID_SPACEMIT);
-
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20260921-spacemit-k1-pcie-fix-256ffa8d382d
-
-Best regards,
--- 
-Encrow Thorne <encrow.thorne@linux.spacemit.com>
-
+Tested-by: Chen-Yu Yeh <chenyou910331@gmail.com> # Milk-V Duo 256M
 
 _______________________________________________
 linux-riscv mailing list
