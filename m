@@ -2,96 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FAB5606A329
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 14:28:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44FBD606A338
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 14:29:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nIzrhlgO;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=pAEdIxxI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vWXYdmIh;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=stgolabs.net header.i=@stgolabs.net header.a=rsa-sha256 header.s=dreamhost header.b=oBDK2PiW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	References:In-Reply-To:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=nholxY0h8bBSuq15Hl9kNWo/wy91TsFB8wRlhA5C714=; b=nIzrhlgOq5/SIg/Ode0lQExFxE
-	/Ed1WNNBUatkQ26ZKESPPZ44ILQYaqOvYNhR6iuI3Qchic8/FYbsHZTTZRI3M06vZs6q79M8A+kY5
-	XsSgCcHabczOtzgKu1NQZKIrf1qUkGFDW3gqvq/Dd75vfFEY+C7gjxfAjDaNCftIIL5tLuAHa0Q1M
-	5XsIdq2fuWPwCFlTjjC4Ctc4P8uy5VCdPKLLILGj8j0Psi5DdBUGSftfbzfH1596tnXdcrzihD8IM
-	HOQAE3buiF0FlSPqc5OiNkBSzNNoY94Uqp84zayxD15fqEqeEqFnIV3wytPdMjc92bjwVw2BLgIFs
-	tO8RZryQ==;
+	bh=m61e83ZmqiIoG+U3XpFDtgN7qSw0LpcA+bNRygL1zV0=; b=vWXYdmIh4QS5mfemwZvVrBmNVC
+	4XWduOnoXZ8UUmkj7khFKp1dYSUW+bYn7PA0HDq6J+FJvOzXQp0YbGMR/10Dz3AlcjKVd4giQ67jH
+	QGiN490ELbdk4hft8RlyFpS1Xj3RjnuITK7E9fbXGswbGXR8H8yFgtL+SBbgMBMjr52jmRfsuIZ2i
+	8RgwD8GmTeZfoORfGWGnCQGsARtv5F6J2228ewAAuyM0oqXCEfGacRhLTtbQyTyaazzH14AjPopx2
+	vnhg6Ki4ff2lML6YMCnhxQBgFEg23doYHR2N/j75UjcZyHfgcrDR08VQ8r7z0OcrTgBeB7OCc/s/e
+	+DyHnM6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPKv5-0000000Cetl-1gCH;
-	Fri, 06 Nov 2026 14:27:55 +0000
-Received: from smtpbgbr2.qq.com ([54.207.22.56])
+	id 1xPKwK-0000000CfIa-11ki;
+	Fri, 06 Nov 2026 14:29:12 +0000
+Received: from heron.birch.relay.mailchannels.net ([23.83.209.82])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPKv1-0000000CerC-2VWm
+	id 1xPKwH-0000000CfHh-3qAq
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Nov 2026 14:27:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1793975189;
-	bh=ies+2HW5mTG1O2fNxFjPMdL4QQNBslFCepJ6zX5a7fw=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=pAEdIxxI+sv/vZCFW2iSEO2p7nXd507bk4/FWW3GMPIFUSAMOoAmYKpFvJnTIFtb8
-	 DwsEjQJweX8/EK6h+KG5rBowKmD9+klaGwtMC0sygs3iwWmGsbbd452DsHp65w5z41
-	 PwkaHGgMUgktleso6MYFOgBIIYlT+3qUObJWzi3A=
-X-QQ-mid: esmtpsz20t1793975182tbd35ad97
-X-QQ-Originating-IP: TXe3qKmdAqKHaOhVsQVWL6itOrYqiQ+KBF3bprKbVQA=
-Received: from = ( [58.254.68.27])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 06 Nov 2026 22:26:20 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11997525554458896140
-EX-QQ-RecipientCnt: 19
+	Fri, 06 Nov 2026 14:29:11 +0000
+X-Sender-Id: dreamhost|x-authsender|dave@stgolabs.net
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id F0611942F13;
+	Fri, 06 Nov 2026 14:29:08 +0000 (UTC)
+Received: from pdx1-sub0-mail-a256.dreamhost.com (trex-blue-0.trex.outbound.svc.cluster.local [100.99.198.86])
+	(Authenticated sender: dreamhost)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 6BF86942F68;
+	Fri, 06 Nov 2026 14:29:06 +0000 (UTC)
+X-Sender-Id: dreamhost|x-authsender|dave@stgolabs.net
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: dreamhost|x-authsender|dave@stgolabs.net
+X-MailChannels-Auth-Id: dreamhost
+X-Glossy-Industry: 36b28a1f41afe35d_1793975348804_345534686
+X-MC-Loop-Signature: 1793975348804:3988946489
+X-MC-Ingress-Time: 1793975348804
+Received: from pdx1-sub0-mail-a256.dreamhost.com (pop.dreamhost.com
+ [64.90.62.162])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.99.198.86 (trex/8.0.2);
+	Fri, 06 Nov 2026 14:29:08 +0000
+Received: from offworld (unknown [172.58.167.248])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dave@stgolabs.net)
+	by pdx1-sub0-mail-a256.dreamhost.com (Postfix) with ESMTPSA id 4jLhPr3v9Fzymb;
+	Fri,  6 Nov 2026 06:29:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=stgolabs.net;
+	s=dreamhost; t=1793975346;
+	bh=ubtLilUuKAm7/ob2XlUVCx3tABcVwsQNjiV/URQNZI4=;
+	h=Date:From:To:Cc:Subject:Content-Type;
+	b=oBDK2PiWYd9TnRuGNnVYtOh7QJP8qinw0SiQhj+dAlGWADCEANB7uOunGBSZ2OkAm
+	 T+mqINpPuVj2M2ucF3rz3BDkkj7N4hG+zB07OE8enVLdFR3nhh0Z2UGEiaZLTBkwMw
+	 JHNY25KYs42H87uurOxJ624W7DgpEwfVz8nL+eQCyANGHs1N0Ggt2Ny3f8C6bzEYys
+	 asSeX2V4gxvvDFv1TE+wGNNfbnZpkTlcXVvtWLNBhUmtwzn8sec/z4hsQG2qksiYNE
+	 dgs5s/tvqFTt3mbaenSZRSGqIm3vez5R2Es02qXHh9Al38lIUpFRFG0SySFIuFvRVW
+	 3xSuQWS+V45gw==
+Date: Fri, 6 Nov 2026 06:28:57 -0800
+From: Davidlohr Bueso <dave@stgolabs.net>
+To: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu
+Cc: alex@ghiti.fr, parri.andrea@gmail.com, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] riscv: Avoid smp_mb__after_spinlock() fences on non-SMP
+Message-ID: <20261106142857.g5lxebqy6mvv6rtc@offworld>
+References: <20261019013456.1898839-1-dave@stgolabs.net>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-Date: Fri, 06 Nov 2026 14:26:19 +0000
-Message-Id: <DMO74K2MG3D7.15UUOU1O66K6N@linux.spacemit.com>
-Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, "Vadim Fedorenko"
- <vadim.fedorenko@linux.dev>, <netdev@vger.kernel.org>, "Andrew Lunn"
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo
- Abeni" <pabeni@redhat.com>, "Yixun Lan" <dlan@kernel.org>, "Vivian Wang"
- <wangruikang@iscas.ac.cn>, "Chukun Pan" <amadeus@jmu.edu.cn>, "Siddharth
- Vadapalli" <s-vadapalli@ti.com>, "Tomas Hlavacek" <tmshlvck@gmail.com>,
- "Muhammad Bilal" <meatuni001@gmail.com>, "Maxime Chevallier"
- <maxime.chevallier@bootlin.com>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net] net: spacemit: Hold RTNL lock in emac_resume() and
- emac_suspend()
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Ali Tariq" <alitariq45892@gmail.com>
-In-Reply-To: <c55c5878-d9c1-4863-bc55-99d334ba2ede@gmail.com>
-References: <20261105123441.2524171-1-alitariq45892@gmail.com>
- <DMO13SWAGZAN.NYISGLGI7Y5A@linux.spacemit.com>
- <c55c5878-d9c1-4863-bc55-99d334ba2ede@gmail.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: OBWuQifxIv5b2KBpf8uj++rvDiaU4XvB6Php1CxEZXLCqU4oxsoL71iy
-	8Xu5P4MPw29yAfB/T2yQne04rSuQwkA1dI51/CR8gTnJN/TCPgspwmIq9xcFYhxPEeNF/pG
-	eZJDGd8Psg0FFlGF7t2NacuW7bDf5zDjkzAFTucTVMBe3Cc3BMPSOZMlYwftK2gakOUgm0E
-	NV3cKKWu2wH1Ylc708z448Fj35csoWsOTaecUVB2mw4ctprJRidgkZQAssk4lbhk9PZOKvg
-	nR3rZIia00LGlqrAlZsJY/Z+Q8Dk4sj7il+GFRCyKDzst/XQfrN/9wczpQ5A+DzyiuvXyQL
-	YXUEWBujpnDE6uxQk1czWctys1Ia8SjZyszyzIeXBjewo33JotYkeOCUiA2jnM8boXzY92H
-	iFlVtREuPV2KdJzTGpFDJyjqFMfcxVCyWLkEsWaMzuemsWHM+LMvXMNN3WUxU6Ws+jiIlxc
-	75TdP7WAK0yHpquRxdq4cHiOhKCwh0IlU5PIi9/MolGvsDTeSdW4/NpJP7sKKidRmzkpxfR
-	b7Zdy2mgWScH8MsEUFwDFnu2eQGQWmDTKSWOSZiYRQOVUPnWyEiP0IwaYGu6goVxAD+TZxB
-	F5YRs04N1ATLLGbJ+cN+nqCWEokB6lSQcQS08/z2SQcnCi8H1TAjE3yH4IDAnHd7bJP/B76
-	ATI2UjbYShcau5KBIdnfHmzod6GI5/LdXQNnQUtQkzuIUBLOmftZPNGimqdjiyR0vJMJqwO
-	ymcZXpyfrJ0yjfM0fMphxXhthFDP4HhWtmKfTOgyKbWSYKsmQCY30Yeb4VJ6XJAo/jHCWkH
-	FpTYAxNP78QJ04YhzFfrFLJtqAhuQfP1JWwPq+2xPinN3V2fcU6k8OfFVsSoOAl8dCikLRh
-	Qy4ZRS1lXAn6JgMs2s1GJ97nCoiFa+wCr1D+hUhz7x4LaVjXKX0fM8yNIryZ0wNAusbUrD2
-	IgRu9rLlFP0nwByDiRQpgUQvHwCNynuWa3H0PMP5hxg5TPwYuqes3VX4G+/n6GYEjZzcSJA
-	MNbdiM5Q2F7Q1GzOVIQQ8HpkoSo2X2NIFxLre8+CTcOEI/v5BjXlzMKmU2j+SrEDWgjk6Sk
-	iR/99CKTUBXN8wjEdL13xl0Ht1BBLBlMyxiR/CGYj24qYO5n1y574LkjT43+J4Lfw==
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20261019013456.1898839-1-dave@stgolabs.net>
+User-Agent: NeoMutt/20220429
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_062752_807392_43220420 
-X-CRM114-Status: GOOD (  12.25  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261106_062910_094949_0FFACF07 
+X-CRM114-Status: GOOD (  11.49  )
+X-Spam-Score: 1.9 (+)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,76 +92,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6421481142218240856=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============6421481142218240856==
-Content-Type: multipart/signed;
- boundary=dccf64d274bd60cba0fa2d9ae238bd5d3708f6eae0880e28d195f102ba69;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Content-Transfer-Encoding: 8bit
+ping?
 
---dccf64d274bd60cba0fa2d9ae238bd5d3708f6eae0880e28d195f102ba69
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On Sun, 18 Oct 2026, Davidlohr Bueso wrote:
 
-On Fri, 6 Nov 2026 15:44:50 +0500, Ali Tariq wrote:
-> For the deadlock, I think the correct function to call is
-> rtnl_trylock() inside the emac_tx_timeout_task(), which would return
-> if the lock is already held and will hold the lock if it is not.
+>smp_mb__after_spinlock() is defined in asm/barrier.h, which
+>linux/spinlock.h includes unconditionally, so non-SMP kernels get
+>RISCV_FENCE(iorw, iorw) as well and emit a full fence.
 >
-> What are your thoughts on this? Does a v2 changing rtnl_lock() to
-> rtnl_trylock() inside emac_tx_timeout_task() make sense?
-rtnl_trylock() there is fine, it fixes the suspend case.
-
-Looking at it, I found an existing bug though: once the work holds RTNL
-it deadlocks on itself, on every TX timeout:
-
-  emac_tx_timeout_task()
-    dev_close()
-      emac_stop()
-        emac_down()
-          cancel_work_sync(&priv->tx_timeout_task)  <- waits for itself
-
-rtnl_trylock() does not help with that. Please fix it in a separate
-patch ahead of this one, e.g. by resetting in place instead of going
-through dev_close()/dev_open(). Feel free to add:
-Reported-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-
---=20
-Troy Mitchell
-
---dccf64d274bd60cba0fa2d9ae238bd5d3708f6eae0880e28d195f102ba69
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCau3jiyEcdHJveS5taXRj
-aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC9EhwD/bCyatTRIBS+r
-zpKFQzPzJykRoAVi4Rh6mDltoPZYzRkBALYRVcX6Wn1PJuX0hMwEF/A7ErpRIC/z
-5Ba+Vr8flvEC
-=Qi5F
------END PGP SIGNATURE-----
-
---dccf64d274bd60cba0fa2d9ae238bd5d3708f6eae0880e28d195f102ba69--
-
-
---===============6421481142218240856==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>The other architectures that override it, arm64, csky, powerpc and
+>xtensa, define it in asm/spinlock.h, which linux/spinlock.h only
+>includes for CONFIG_SMP, so their non-SMP builds get the generic
+>kcsan_mb() fallback. Move the riscv definition, the SMP fence is
+>unchanged.
+>
+>Signed-off-by: Davidlohr Bueso <dave@stgolabs.net>
+>---
+> arch/riscv/include/asm/barrier.h  | 27 ---------------------------
+> arch/riscv/include/asm/spinlock.h | 27 +++++++++++++++++++++++++++
+> 2 files changed, 27 insertions(+), 27 deletions(-)
+>
+>diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
+>index 700ba3f922cb..2284473844d8 100644
+>--- a/arch/riscv/include/asm/barrier.h
+>+++ b/arch/riscv/include/asm/barrier.h
+>@@ -24,33 +24,6 @@
+> #define __smp_rmb()	RISCV_FENCE(r, r)
+> #define __smp_wmb()	RISCV_FENCE(w, w)
+>
+>-/*
+>- * This is a very specific barrier: it's currently only used in two places in
+>- * the kernel, both in the scheduler.  See include/linux/spinlock.h for the two
+>- * orderings it guarantees, but the "critical section is RCsc" guarantee
+>- * mandates a barrier on RISC-V.  The sequence looks like:
+>- *
+>- *    lr.aq lock
+>- *    sc    lock <= LOCKED
+>- *    smp_mb__after_spinlock()
+>- *    // critical section
+>- *    lr    lock
+>- *    sc.rl lock <= UNLOCKED
+>- *
+>- * The AQ/RL pair provides a RCpc critical section, but there's not really any
+>- * way we can take advantage of that here because the ordering is only enforced
+>- * on that one lock.  Thus, we're just doing a full fence.
+>- *
+>- * Since we allow writeX to be called from preemptive regions we need at least
+>- * an "o" in the predecessor set to ensure device writes are visible before the
+>- * task is marked as available for scheduling on a new hart.  While I don't see
+>- * any concrete reason we need a full IO fence, it seems safer to just upgrade
+>- * this in order to avoid any IO crossing a scheduling boundary.  In both
+>- * instances the scheduler pairs this with an mb(), so nothing is necessary on
+>- * the new hart.
+>- */
+>-#define smp_mb__after_spinlock()	RISCV_FENCE(iorw, iorw)
+>-
+> #define __smp_store_release(p, v)					\
+> do {									\
+> 	compiletime_assert_atomic_type(*p);				\
+>diff --git a/arch/riscv/include/asm/spinlock.h b/arch/riscv/include/asm/spinlock.h
+>index 52f11bfd0079..54bd8db8eb4f 100644
+>--- a/arch/riscv/include/asm/spinlock.h
+>+++ b/arch/riscv/include/asm/spinlock.h
+>@@ -3,6 +3,33 @@
+> #ifndef __ASM_RISCV_SPINLOCK_H
+> #define __ASM_RISCV_SPINLOCK_H
+>
+>+#include <asm/fence.h>
+>+
+>+/*
+>+ * This is a very specific barrier.  See include/linux/spinlock.h for the two
+>+ * orderings it guarantees, but the "critical section is RCsc" guarantee
+>+ * mandates a barrier on RISC-V.  The sequence looks like:
+>+ *
+>+ *    lr.aq lock
+>+ *    sc    lock <= LOCKED
+>+ *    smp_mb__after_spinlock()
+>+ *    // critical section
+>+ *    lr    lock
+>+ *    sc.rl lock <= UNLOCKED
+>+ *
+>+ * The AQ/RL pair provides a RCpc critical section, but there's not really any
+>+ * way we can take advantage of that here because the ordering is only enforced
+>+ * on that one lock.  Thus, we're just doing a full fence.
+>+ *
+>+ * Since we allow writeX to be called from preemptive regions we need at least
+>+ * an "o" in the predecessor set to ensure device writes are visible before the
+>+ * task is marked as available for scheduling on a new hart.  While I don't see
+>+ * any concrete reason we need a full IO fence, it seems safer to just upgrade
+>+ * this in order to avoid any IO crossing a scheduling boundary.  The
+>+ * scheduler pairs this with an mb(), so nothing is necessary on the new hart.
+>+ */
+>+#define smp_mb__after_spinlock()	RISCV_FENCE(iorw, iorw)
+>+
+> #ifdef CONFIG_QUEUED_SPINLOCKS
+> #define _Q_PENDING_LOOPS	(1 << 9)
+> #endif
+>-- 
+>2.39.5
+>
+>
+>_______________________________________________
+>linux-riscv mailing list
+>linux-riscv@lists.infradead.org
+>http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6421481142218240856==--
-
