@@ -2,103 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A3B2606A330
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 21:13:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2D71606A329
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 21:15:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t3XroPnr;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n4zcQDBy
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TmuDM+qG;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NCv5OLM5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=WGc4Yn+sesB7Q9isfZq2emKh1siPYOCMOy8dy7X+3Tc=; b=t3XroPnr37IE70MJvWXeRIMQS2
-	1yY8WLuTg8W5ITJ7iXFOLDf6u376EVWqVaekHhGNOAsrgYI9CPCrY5EbbvsLNKN3vi6Ew0MocZCla
-	tNhaDUv9r3j1m6kRrFBacKvJcETcSj7PTE3kmTY2InY9lx0H6G4FFMMcPOla+K83EeuikPLd2X2cm
-	+KX3O6ZNcOR4d1/Yu/paZ3CxSYTJvncWRPEkzUrzCGxEW3MDrSzF5jbpDW5zJEWbSXJcvKot2uVH4
-	Rdy8/EqFMObAZkxH5iCMS6Z0kuC9LN/q1AMdaE1HZNxSACo8bOldkAOLUDkZew/XndcGHTs3bVVhT
-	AFcJmHGg==;
+	bh=QgHiF4PFf2p44iUyPUynVYI4Olah7vQyLIy79f+RPFE=; b=TmuDM+qGmEtgNzTyQvYnfgkmz0
+	4oad1BZnQ3J/VidNl4IHpCNtdohXpmdt/ThZHagxEfpVZu9U4CUaEhsnRZPvQJGR8lX8XRo1WzIiA
+	MI0tM0V96+f2CI+IvNX1ctppbBo/ImoDp5Mf8S8pDhYIOMjmkbSYVIS3rQBihFmfFr2wH5uEiT/iq
+	PT/7Fbep/bM5Oa555DFRHACYkGVCGO85fZ527K951riPc/7j+t8iGd3uUJT3ifNtsRxduc4DvtJ6a
+	+I2xj++IKkR1VfoX+EKxQmJvEcQ2iHJy0KZNGP3OFYgt4VjqAwhMovp2aB1uoECh+v+e1jfF1g9V4
+	M2K9kgTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPRFS-0000000DfBN-0GAB;
-	Fri, 06 Nov 2026 21:13:22 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1xPRHL-0000000DfRO-26nK;
+	Fri, 06 Nov 2026 21:15:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPRFP-0000000DfB1-1gcM
+	id 1xPRHK-0000000DfRH-0Uyb
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Nov 2026 21:13:20 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4a140e7405dso10983915e9.3
-        for <linux-riscv@lists.infradead.org>; Fri, 06 Nov 2026 13:13:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793999597; x=1794604397; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=KAgB2fssjvIHHivLsh4UbVD8IvzJBAHBr6xJYRkzEJE=;
-        b=n4zcQDByeuFtC6V9OLXD7FQfIj5LRBccLB/fUOtzZdINgXRXprWvK6is/QnSFErjez
-         gT+4cVmSey+Le62ML1kGDC62q0p3PahRkketvDbZLM+AVbxBKEnqsWU1O5qL6tP46Xw1
-         VXvnVAwnHKPPZ6GQBOrxsL50iFNlXH2YQhmlVFOzOlbT1aoL7lw6l48j5bwGBOF8CMAq
-         XvW3jL7MLH3hVH6oM2wt9kCH5oxPBZH0kMXhOBBEvmQn6QmV9+y6rRMi/BAIdmOmkPlL
-         qnmt2l6yMlfGS6GCB1naEY+Skh+xSEZ7fU9j80RaXHFy9+fT8FqSxAgBeET2Moc7hxvl
-         kv3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793999597; x=1794604397;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=KAgB2fssjvIHHivLsh4UbVD8IvzJBAHBr6xJYRkzEJE=;
-        b=Xnic0uSiqnrl74owSFc8wKqm4Y8WBjNxu2A4ent4RIxgj1+c+H9aP4AyxZBg+nBI/b
-         z1Dhewb4EwZc13wZCV83MOZxRLPHq3/tiXSmq3hnrDqGxkv5yS24xhvLffynZBjtDYNi
-         ubXucbx6k1a64Z3Ip4d+0lgFOh6pJavKCcn7dfSzc7dybz11/Td6FPc4raeFFNTDI1Ig
-         P1MJL4bIH2oYKjzb0oSfaErbsYmSTjtMD1nf+Z8+EKHGv9LesNRAqgXg1Y7AGqSfv05C
-         xjDTj2WyV973dcGQOMVEc9WvZo6nMnUUnEia11RSpBqxvXrhQbFDmtFYJEBSg+U2yto0
-         zwMw==
-X-Forwarded-Encrypted: i=1; AKwUvByjYP30GKp/Z9dig0AEfTNr1iO530PC17/nekpV1Hty8Qoh3kbRWbFp4bXJaGPqiJfq+jLMOc4OmbZT1w==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8moTNG11BxPpJFpkBRGJz9PCanhYKydqbL6J92QU3hCAx93F4U
-	AAxCgod14PRTA5coRlwi+qJKOg+MlAJy+Fn8XOA9b1tRNw9HPGbvFh2g
-X-Gm-Gg: AYBFou06vvs6rhL3chFWDS2QDwRy2ipL7rZzjlNF7e1wg5i3yEENjV1Zg2VhqUlwxhc
-	JwyMVWcGrdOR2dFVLO8RzlxwJ7ZR9ZTmw4dKPpELJJ5Fby8v2NfRy4mBcGMizimWW34wATgIUEx
-	85S2z4FQsc4gKAdce0bmjBdYOSK2hjafx+cup9H0PBtN63aVf8WTh772nmE1TO6Pn+ww6oPK/Fv
-	bxPyv/qE5TbDLVeAD2e1bq0vn1aqtU3qMGaT6vHJvzcYVTmVNkobYrwyrNoV6nkQ+YcZOnIiCDN
-	1q1SSLBGxauDHzCAxBz+4S5xe0psjco7CG6wCaLsGARqXMMqhi0JNO4T7/CV5Y2WfSAdoz0eamq
-	+6Tapi6Vzl3Vb8ZQpr1UMgTgKic9CEpgL0P9+EPi2xTTfbtHituK7Pu1hJqhj58gk35rKtnVTWS
-	i2vRW3MMaSsvmbOE4HJpyLVB2AkDxfagkQnaPMf6JUbkTRr8CTHJu0nQH7dq2tgIwK3NYw/VtgQ
-	Rpc/as0bUBB3EACmgN8IyAnDHrSoXL1soRR1HVFTHnKUbGoWAcwzzqfuvmmo5s+GCyaEUj/fMmT
-	Xi64T+300uG16nrzUj9WXkN1ObRFBHI=
-X-Received: by 2002:a05:600c:a013:b0:4a1:f625:2108 with SMTP id 5b1f17b1804b1-4b6e054964cmr57690945e9.33.1793999597217;
-        Fri, 06 Nov 2026 13:13:17 -0800 (PST)
-Received: from hp-z640.fritz.box ([64.43.161.7])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b7950206e3sm11271025e9.3.2026.11.06.13.12.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Nov 2026 13:12:57 -0800 (PST)
-From: Owen O'Hehir <oo.hehir@gmail.com>
-To: E Shattow <e@freeshell.de>,
-	Conor Dooley <conor@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>
-Cc: Rob Herring <robh@kernel.org>,
+	Fri, 06 Nov 2026 21:15:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 01A17601E1;
+	Fri,  6 Nov 2026 21:15:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 374AE1F008A2;
+	Fri,  6 Nov 2026 21:15:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793999716;
+	bh=cDsr5kKiBdFRv3e9B3EpFq9dfSXD/V/9SF4tGqKbj4M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NCv5OLM5WaIcpbmKIbDVp6HIAX/E1r/JtzFAqfxFUN1TJlPaaSUDTFIbCQNu0hLwQ
+	 E6UhgGHqLb7ULhd0Mb42PUVDpzMeZu56rJb8Qp2kYqLlUYva6WtX/5GPnupLk09vFP
+	 Seac2uQW4fwwgblBpzGqFfMFKnBMf7XFgjyPmXrVwsZyx1CZiyJ/O9xUtwO4naNSa+
+	 YahfVbCUkMoOXvxo4VPAnNi2Ljy7eJcTriX6knzPCXaQ9TutCmjb7TEH9h0Bwtvx48
+	 jcFuMD3RGnXQnSL5zDkPCblDgxQwvwjyXGSvFRzHQ2C7KR6JPgg44+WUBW/4Fp6Av9
+	 BO6BXYy1HgqkQ==
+Date: Fri, 6 Nov 2026 21:15:12 +0000
+From: Conor Dooley <conor@kernel.org>
+To: E Shattow <e@freeshell.de>
+Cc: Emil Renner Berthing <kernel@esmil.dk>,
+	Owen O'Hehir <oo.hehir@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: starfive: jh7110-common: keep the status power LED on
-Date: Fri,  6 Nov 2026 21:12:49 +0000
-Message-ID: <20261106211249.73440-1-oo.hehir@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <d051c5f2-3df2-4eeb-b324-6e9ce39a6b27@freeshell.de>
-References: <20261106184055.3891621-1-oo.hehir@gmail.com> <179fe9e8-322b-4745-8734-d5de5f1e8487@freeshell.de> <20261106195945.4157095-1-oo.hehir@gmail.com> <d051c5f2-3df2-4eeb-b324-6e9ce39a6b27@freeshell.de>
+Subject: Re: [PATCH] riscv: dts: starfive: jh7110-common: keep the status
+ power LED on
+Message-ID: <20261106-tumble-hurt-d1a0be3fddae@spud>
+References: <20261106184055.3891621-1-oo.hehir@gmail.com>
+ <179399127414.1902073.729566010968054971.b4-ty@microchip.com>
+ <181fdcd8-80ff-4486-ab16-9cbce16b0a29@freeshell.de>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_131319_448486_7C8B8183 
-X-CRM114-Status: UNSURE (   4.83  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+In-Reply-To: <181fdcd8-80ff-4486-ab16-9cbce16b0a29@freeshell.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,26 +74,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1364040479975949182=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi E,
+--===============1364040479975949182==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="uxj3Bu3KA+9of06z"
+Content-Disposition: inline
 
-Ok, fair point.
+--uxj3Bu3KA+9of06z
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Conor, could you please drop this patch? Apologies for the hassle.
+On Fri, Nov 06, 2026 at 11:06:22AM -0800, E Shattow wrote:
+> Hi Conor,
+>=20
+> On 11/6/26 10:54, Conor Dooley wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> >=20
+> > On Fri, 06 Nov 2026 18:40:55 +0000, Owen O'Hehir wrote:
+> >> The firmware turns the status power LED on, but the node has no
+> >> default-state, so the LED switches off when leds-gpio probes and the
+> >> board looks powered down.
+> >>
+> >> Default the LED to on.
+> >>
+> >> Tested on a VisionFive 2 v1.3B.
+> >>
+> >> [...]
+> >=20
+> > Applied to riscv-dt-fixes, thanks!
+> >=20
+> > [1/1] riscv: dts: starfive: jh7110-common: keep the status power LED on
+> >       https://git.kernel.org/conor/c/68dbe2550bd4
+> >=20
+> > Thanks,
+> > Conor.
+>=20
+> I replied this a moment earlier:
+> https://lore.kernel.org/lkml/179fe9e8-322b-4745-8734-d5de5f1e8487@freeshe=
+ll.de/
+>=20
+> This disagrees with VisionFive 2 Lite schematic; if when this node is
+> consumed by a bootloader it will be evident we are not describing the
+> hardware correctly, no?
 
-Owen
+I am not sure if that's actually relevant though? If the visionfive2lite
+needs this gpio then it shouldn't be listed in a leds node. Changing the
+default status of it doesn't affect the fact that it is wrong to begin
+with, wrong before the patch and wrong afterwards. If there are some
+boards that include this common.dtsi but don't have these leds, they're
+not common and should be moved to the relevant dts files. If you know
+what those are, please send a patch doing the move.
+
+> If you want the light on and it wasn't on at reset or due to boot ROM,
+> then that is userland stuff and not hardware description... but that is
+> your decision to make as maintainer.
+
+It's a power status led, I think it's pretty reasonable for it to
+actually represent power status without intervention in userspace, the
+alternative I guess could be something like setting the function
+property to "power" - but I'm not sure if that does anything for
+gpio-leds.
+
+Cheers,
+Conor.
+
+--uxj3Bu3KA+9of06z
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCau5DYAAKCRB4tDGHoIJi
+0nrFAQDR7pn5SeJlvMs2Unksnuskzogpm5QCuq1mwU5NbmpKOAD/YTa+FWIjGV6W
+9G8YF1A1U6fNmtjrNz9b9so+HUo+ZQs=
+=IGxj
+-----END PGP SIGNATURE-----
+
+--uxj3Bu3KA+9of06z--
+
+
+--===============1364040479975949182==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1364040479975949182==--
+
