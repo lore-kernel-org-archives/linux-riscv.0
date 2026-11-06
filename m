@@ -2,84 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AC40606A31B
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 04:38:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E9C3606A334
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 06:07:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gaDZNzMD;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=h2NarzBu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lNVHL4HK;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uw0K7RCZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=db8l68JXS92trgOabSBwii9XFx9HRwEMp/Jj1pppOM4=; b=gaDZNzMD/WGOxeZlOKJ92xucLo
-	4SGS0M9RM9SvXVQ/Pb9hH4cUDenTqHPZI0afy82+Z4sWsTSI6A8YqxuLBSmU7d37Sx3wdfw96OaiV
-	potnjkQq7LtiSBkr4sZ/39+7jn2w66qNDwKmPc2mgWvgnVxKdfxS7u9lTOBS+Sm5ZQGNPRVQZQBGy
-	YCro8h+mCDlk/OfM0BAc3pdHm7sWOJwIIPaI5/9l5jQbF9qIrDzBgv7H6BjkHIod5OHXoYy0tjnCz
-	N6cIqXRnAXfmh1YO+8PIcTIJ37gQpWruzSCbHnmyM8k4r8YS7I8fekq4k8sFywdWSjtWlEtbFXOUm
-	Bdjh5WQA==;
+	bh=/ZZHe/vgQsMAq38J6itLmbin9ORveHYG5zwO3JaWqIg=; b=lNVHL4HKeBBUErFgN5c6jh3wei
+	QUdxP7y7O1cPOhF3AsG+uq6sX+m7agnz+RNOfg6zv64KttGLHN58ewKAwRpzEYTpyPSR3EYHxpjQF
+	+mQW17lxl+vgxSpnOv0DWvFJu97JP4z4KAgs5OHL7f6DuFok5LtMKr29MBXnN3sE61Ap1S/mBjuxY
+	U+zbhI5/rmdd+nT4st0sCRs8veAVc979IJGuvgWoYDucjMSxjbIrysC4WdQqeQk3fsK6GMIiLL0Ke
+	5/Sw+aahbKWlBPqtdonv8RZtM/0uYURZ0U2uw/rFNNlNLpmxU81waMTnvaySXo9+2+d0O6vHS866h
+	/Yi9XMmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPBiX-0000000BDk3-3g63;
-	Fri, 06 Nov 2026 04:38:21 +0000
-Received: from out-115.mta1.migadu.com ([95.215.58.115] helo=mta1.migadu.com)
+	id 1xPD6M-0000000BJsO-2aSu;
+	Fri, 06 Nov 2026 06:07:02 +0000
+Received: from mail-dy1-x1329.google.com ([2607:f8b0:4864:20::1329])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPBiU-0000000BDiv-2ypQ
+	id 1xPD6I-0000000BJqc-3rCo
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Nov 2026 04:38:20 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=/Yx3i1zeQ5pe4eBI/JzCvDsEdxLLepzecCOmB7O2Y5Q=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793939893; v=1; x=1794544693;
- b=h2NarzBu5wSfv3HGLjDaliK2QJozxMk1T8AWSAyQrfXgHTDTPCv+ZGuVrnREakda/ZEx8QA1
- 8oHdr4LZFwNJAxqLIVYaUXa8CPvRrYRT1iKnDBFCbx5htEVpTCoeBhb92BY4AQ1xCcuyadvcBnR
- 1nSZlm5DlYnhXsdFYvkrWORw=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 9188c1b74d12ac2b;
-	Fri, 06 Nov 2026 04:38:13 +0000
-X-Mizu-Trace-ID: 9188c1b74d12ac2b
-X-Migadu-Flow: FLOW_OUT
-From: Lance Yang <lance.yang@linux.dev>
-To: songmuchun@bytedance.com
-Cc: david@kernel.org,
-	maddy@linux.ibm.com,
-	rppt@kernel.org,
-	akpm@linux-foundation.org,
-	lance.yang@linux.dev,
-	mpe@ellerman.id.au,
-	npiggin@gmail.com,
-	chleroy@kernel.org,
-	ritesh.list@gmail.com,
-	sshegde@linux.ibm.com,
-	osalvador@suse.de,
-	qi.zheng@linux.dev,
-	muchun.song@linux.dev,
-	chenhuacai@kernel.org,
-	kernel@xen0n.name,
-	linux-mm@kvack.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	Fri, 06 Nov 2026 06:07:01 +0000
+Received: by mail-dy1-x1329.google.com with SMTP id 5a478bee46e88-36e99cf7bb3so486133eec.0
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2026 22:06:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793945218; x=1794550018; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=oP3EQV3igCQFQrQhRO3kdFq4f6+qs4DCf/vNPMH0lsQ=;
+        b=uw0K7RCZRy13aJa8Sly2m6IRB0JO3reNzBHTPacOY/4wRPnlmojtPQK3hlEazmr86W
+         MjJeJvAxsuyy4oi9jVHWePxFwmdB4YI2Uml869q/4O6myHfa33qszifARg85p+O2I0PK
+         9M70+TYjbCCN1VDYrMOPQzDxMUahY/A5393OUUwT9qeiAviEL7rgkWbZQr4bnt30WOAp
+         qNFUsWBaEdkUjGTZi0zrbaI7iFj3YK2hmYfzPNyTyrFkch2776fCdJoYoXvKbV4b8afT
+         z2I5cmavkwa6tUyJ7DBdzvCfsT8ZrGwBC1ELJc/+RG5XFTt3EwgYqW1kxSZeMvgApAhX
+         RN8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793945218; x=1794550018;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=oP3EQV3igCQFQrQhRO3kdFq4f6+qs4DCf/vNPMH0lsQ=;
+        b=VJL69V6YWm95ghHhycld2c+RngzR1G85bZp+Jeb/AqTIDe06K3l2DJ3ij1W250y+p7
+         g8VvWNBQaWq3Ckv6gFYs61JbMxjrpxJDYl8UVI2kbWBcDINnjXLwd5+Ku0uGEo1rlDxL
+         V9cBwpz3XHhzWwYjZFYXSl9rgyj1m3ClbS5z7nVxhcQBKLSew9PIwIz/aQZ1g5LBWUcI
+         SyvfDP36unEn7vmuMqtPzEvvbFKoaYu0XCGMYGTfWHOxIXi6KNN6K9ABF0R+idi0Tbei
+         6eFkqQVYrifMmH9mAhrQcPmtiK2q9oZyCXHQA65Ff6tJXvaRwD2V28c/8fCFFFzwKDo4
+         yoSQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzFMF+alQZdJfe0pBtonQ/YezROky0/ZQMWfU6QhPJ4x6HT1efyiZ2tt/R49QSjttYyXUbl96SWh6Zc1Q==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/DgjlX2J2Xoh/mWblTnUxt6sJmtgHhze76ydKYNqXdSJpss8N4
+	Odlt41QRxtS5DzIqbb3vLTCYqUQn33Wy84l7AiQqVe2MAZDEXu2VJZ8A
+X-Gm-Gg: AYBFou2srauimPx2qb3GCP6DvOOo2wU79F0SLaza72Lkosp92yo3tySa/NNpyQTiW6Q
+	h/EkdsfVaHOtpMNynFV9Kjnfa9+masfhAyTS8QQH1ixUJNWhg6dqu7GUjRbLCVQFEGgeYfQJGgU
+	jETVav2lPy9fOfMxKM/w1uUDKOsYT5oDEKWT3xiJkwvkmGOmu40yDVK5671XcjY6lnIFYckEM3t
+	cOH3YCalOeAfDuQGNPMJv6gTR4Q4uSHC6mECW0Bv0CNOPiIE0XytzuStYEeyfRDa6KLtnz2Q+9A
+	+qfynvzw6x45aRRimxx9hfl7qoHCq13PBV+pNwK8MqOvBJvVA/JSc2ehTeuIo7Z0mHMlnKV0P3I
+	w8FNcI8Ea/RiMlSCgrkHdFCjjvvkAlXZFFT1Y7OwpT/RMij1/xD3EtGTj4ai+CSdVHXXPmw5SEd
+	LBYyx1QTt3r1MvC28KDHxU2XfQsV1eSObXpoYf6oe2WpI2PqoAnGWWKtvK6PXFhPnJ75LfHe9gK
+	YoQYqVPhHVPuCsRw25Jg6vefUBP5dQ/znsVWMFdvhM9UiYf9xveAWZhK5svEX8qJcNjpWBavnoO
+	3ztEb9ETO3rcKUrKOOashezSgDxKkFRd53nUhwcNQ9l2bu5b5D64
+X-Received: by 2002:a05:7022:3b83:b0:1b2:4cc7:7db2 with SMTP id a92af1059eb24-1b25d34ed54mr1914086c88.47.1793945217607;
+        Thu, 05 Nov 2026 22:06:57 -0800 (PST)
+Received: from duge-G3-3500.taila331c7.ts.net ([183.192.220.13])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b25e4e079esm2780992c88.19.2026.11.05.22.06.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Nov 2026 22:06:57 -0800 (PST)
+From: Jiayu Du <duge1256@gmail.com>
+To: srini@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	dlan@kernel.org,
+	troy.mitchell@linux.spacemit.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	p.zabel@pengutronix.de,
+	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	x86@kernel.org,
-	loongarch@lists.linux.dev,
-	linux-s390@vger.kernel.org
-Subject: Re: [PATCH v2 1/5] powerpc/mm: make vmemmap_populate_compound_pages() static
-Date: Fri,  6 Nov 2026 12:38:07 +0800
-Message-ID: <20261106043807.32969-1-lance.yang@linux.dev>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20261105061217.13302-2-songmuchun@bytedance.com>
-References: <20261105061217.13302-2-songmuchun@bytedance.com>
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Jiayu Du <duge1256@gmail.com>
+Subject: [PATCH 0/3] Add read-only SpacemiT K3 eFuse support
+Date: Fri,  6 Nov 2026 14:05:22 +0800
+Message-ID: <20261106060525.346873-1-duge1256@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_203819_029012_1EE631E8 
-X-CRM114-Status: UNSURE (   5.02  )
+X-CRM114-CacheID: sfid-20261105_220658_957174_BF53B893 
+X-CRM114-Status: UNSURE (   9.02  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.8 (--)
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,28 +112,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+This series adds read-only NVMEM access to bank 0 and bank 7 of the
+SpacemiT K3 eFuse controller. These banks contain temperature calibration
+parameters and other configuration data.
 
-On Thu, Nov 05, 2026 at 02:12:13PM +0800, Muchun Song wrote:
->vmemmap_populate_compound_pages() is no longer used outside
->radix_pgtable.c.
->
->Make it static and drop the unused dev_pagemap argument from
->its only remaining caller to simplify the code.
->
->Signed-off-by: Muchun Song <songmuchun@bytedance.com>
->Acked-by: Qi Zheng <qi.zheng@linux.dev>
->---
+The driver reads the shadow registers of bank 0 and bank 7 once during
+initialization and keeps a copy in memory. Later NVMEM reads return data
+from this copy without accessing the registers again. Reads outside the
+two bank ranges return zeros.
 
-Feel free to add:
+Tested on a SpacemiT K3 COM260 Kit by reading both banks through the
+NVMEM sysfs interface. The data was unchanged across a reset and a full
+power cycle. Reads crossing a bank boundary returned the expected bank
+bytes and zeros in the keepout region.
 
-Reviewed-by: Lance Yang <lance.yang@linux.dev>
+Jiayu Du (3):
+  dt-bindings: nvmem: Add SpacemiT K3 eFuse controller
+  nvmem: Add read-only SpacemiT K3 eFuse support
+  riscv: dts: spacemit: Add K3 eFuse and temperature trim cells
+
+ .../bindings/nvmem/spacemit,k3-efuse.yaml     |  63 ++++++++
+ MAINTAINERS                                   |   6 +
+ arch/riscv/boot/dts/spacemit/k3.dtsi          |  25 +++
+ drivers/nvmem/Kconfig                         |  14 ++
+ drivers/nvmem/Makefile                        |   1 +
+ drivers/nvmem/spacemit-k3-efuse.c             | 151 ++++++++++++++++++
+ 6 files changed, 260 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/nvmem/spacemit,k3-efuse.yaml
+ create mode 100644 drivers/nvmem/spacemit-k3-efuse.c
+
+
+base-commit: d6bcfc94eb4da6e089c5473970cd96727292fd97
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
