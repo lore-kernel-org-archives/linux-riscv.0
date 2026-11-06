@@ -2,82 +2,93 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB32C606A332
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 03:28:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA2A6606A329
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 03:39:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YX+vR0ot;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=jv8ea/1t
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dw1333lY;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=NdgnQtfW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	References:In-Reply-To:Cc:To:From:Subject:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=vBfaAhnBC8DLX3RMJMw3hPZuud94Zlg0JY2GwM+Owdk=; b=YX+vR0otslzAy4YjitWRMVZLNt
-	YNopWyXB45AAZHUrkpmEtvzG4sSWUXmqv63WGA5ad6HVa14TmtbgMqwKupBJgLSrqDy4gjZPKIyGZ
-	wgmqlpWVGOd88NSsIxGock2hqfSvpqD4oc6Amet55mWqf9s//ge9DV9N5my5BC6f12SqopwUAE+vc
-	DPV1H6Z4OsiKhEcvZzBGamKYKp8F7gfF4FXJYfh141fXfVGyiLZx/01Q7XUTW9yyWupDGnCS2niww
-	ChfI61fTwDUJs5W5zspdmbImwVHcs5OFKZEOGZRuLYNKi3x0/wItG+dT/psC8hR8mIt1Nw41O+zlZ
-	UiVn3P9Q==;
+	bh=7+U4TRUXIXtGTMxYWDwkvlzVGNxakzS52hUUb/wgeZk=; b=dw1333lYKtRCk7b0hM13IU7V/Q
+	9mZcDp8P1JWXAYwHsHCBS/xix8t/riW/bhgf6hfK962xL6SNDw62p/P7HjQMS6NqGepSGRtf5j2F/
+	dakfNiNbnyjFuqGrz6d4+KJl3rhnWYYie914lacJUL85w6wWZFX8m546CNPRzFI/Bg4eYeir7P15/
+	bKXbm/uDyZ0rwcZmFVj1Ohmuj9nds8VP10gQjXNkpyqiw4+SQx7h5jYHnn8UUvSfLtZ2AnPz9MfT7
+	eh/OTUVD/RkCD78qlGGLSZq52oFAhwk1B4xSHpQSwQT9Mb+KT35dxei33/aNTse5yL7hGs/Lap+eO
+	GERsY+xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPAd8-0000000BA4R-2e5A;
-	Fri, 06 Nov 2026 03:28:42 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1xPAnh-0000000BB0u-2TNl;
+	Fri, 06 Nov 2026 03:39:37 +0000
+Received: from smtpbgeu1.qq.com ([52.59.177.22])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPAd4-0000000BA3q-21nx
+	id 1xPAnb-0000000BB0O-38Bz
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Nov 2026 03:28:41 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=yRj7ZrhzBHolO44PFJNnKugjKH5+LOHE1/UFniKyUQY=;
-	b=jv8ea/1t+7GDxMkO/TG3/UWTtGPBNQ6ibf/JeZCMazQPymy7zcQ+TFP0KsiIdGIbY+tl/V9fQ
-	8VKOrujrg2wjxM6/rmLzLaSK+nRRyaurlFFfBcE0vQwc524SBcqZ/B0LPMKdmC8HXyfJvsCDKfr
-	iTrSpowedX9GssJxSSasRT0=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4jLPlG0QVdz1T4gG;
-	Fri,  6 Nov 2026 11:28:10 +0800 (CST)
-Received: from dggpemr100013.china.huawei.com (unknown [7.185.36.198])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4532C4056E;
-	Fri,  6 Nov 2026 11:28:32 +0800 (CST)
-Received: from whupemq100006.china.huawei.com (7.152.184.206) by
- dggpemr100013.china.huawei.com (7.185.36.198) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Fri, 6 Nov 2026 11:28:32 +0800
-Received: from [10.67.110.154] (10.67.110.154) by
- whupemq100006.china.huawei.com (7.152.184.206) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Fri, 6 Nov 2026 11:28:29 +0800
-Message-ID: <ffc28af6-ab99-4006-a827-c3006dba096e@huawei.com>
-Date: Fri, 6 Nov 2026 11:28:28 +0800
+	Fri, 06 Nov 2026 03:39:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1793936358;
+	bh=YWjCVMH6QOR8U1HdP5g2Ap2iHKmTUMycrvWqvC+OZSg=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=NdgnQtfWQTdDDLxkFVmyZenAyc2QFWutEtKY0BPTYdVsReEfuLs6n6HfLluLvXXlF
+	 2pJUBmMf1oyVBznkOa4Xwuld6C7+vfbTQBhDrNNOH2Gi5VxUUxExHJfcaEAfXXJree
+	 G95gYU4uFb6TEW6BRxQSSOpLKKGcnX5Vu0N4N6Ec=
+X-QQ-mid: esmtpgz13t1793936357t36e91489
+X-QQ-Originating-IP: C3yEeWDAIm4PyjGi5UJr3LByUX02//lzDscXXGL1zXk=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 06 Nov 2026 11:39:14 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 9883087005053734820
+EX-QQ-RecipientCnt: 16
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 bpf-next 2/3] selftests/bpf: Enable private stack tests
- for riscv64
-Content-Language: en-US
-To: Chen Pei <cp0613@linux.alibaba.com>, <ast@kernel.org>,
-	<daniel@iogearbox.net>, <andrii@kernel.org>, <memxor@gmail.com>,
-	<bjorn@kernel.org>, <puranjay@kernel.org>
-CC: <eddyz87@gmail.com>, <martin.lau@linux.dev>, <song@kernel.org>,
-	<yonghong.song@linux.dev>, <jolsa@kernel.org>, <emil@etsalapatis.com>,
-	<ihor.solodrai@linux.dev>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <luke.r.nels@gmail.com>,
-	<xi.wang@gmail.com>, <shuah@kernel.org>, <rgbi3307@gmail.com>,
-	<guoren@kernel.org>, <bpf@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20261104100411.997-1-cp0613@linux.alibaba.com>
- <20261104100411.997-3-cp0613@linux.alibaba.com>
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20261104100411.997-3-cp0613@linux.alibaba.com>
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- whupemq100006.china.huawei.com (7.152.184.206)
+Mime-Version: 1.0
+Date: Fri, 06 Nov 2026 03:39:13 +0000
+Message-Id: <DMNTD3S9CNW1.1H4CMNHDJM69D@linux.spacemit.com>
+Subject: Re: [PATCH 2/2] riscv: dts: spacemit: Add K3 BS01DCMA support
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Emil Renner Berthing" <emil.renner.berthing@canonical.com>
+Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Yixun Lan" <dlan@kernel.org>, "Paul
+ Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Guodong
+ Xu" <docular.xu@gmail.com>, "Yangyu Chen" <cyy@cyyself.name>,
+ <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+In-Reply-To: <CAJM55Z9nuO3MneQqBm3K2V2SjOXqXsZcDx9pMzVhxMJJ73xc9Q@mail.gmail.com>
+References: <20261104-k3-bs01dcma-v1-0-794025247e4a@linux.spacemit.com>
+ <20261104-k3-bs01dcma-v1-2-794025247e4a@linux.spacemit.com>
+ <CAJM55Z9Yj87hqwMugqRsf_RL9np=KqzCj-J9RyutuWKd-w-n+g@mail.gmail.com>
+ <CAJM55Z9nuO3MneQqBm3K2V2SjOXqXsZcDx9pMzVhxMJJ73xc9Q@mail.gmail.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NHLGb615Ee/ro7mEPxFyPT/euJjKyX5DrkSw9FAZqTBtDcM7sc8I3DMu
+	AE1/DV7bgQpR3g++m0bMtvu6v5lFl4fUFHssGtqnaRtVWEPfOJmIQIbc7y25gSDrSYE+VUf
+	Og9huuxlj/WC9a51hQaiowE6fqHYA6S/tVQxiZvDclUWoIDM9hO12Y/Q0P4G1Yz7/6tX6jf
+	a96E7bRck+x3YLEL+Cpz0s/RcI6uyqKR4sIS1T+2+9OHY5FSJG5nYZMfmYrmmIrkF1YROAS
+	JOsRH3kOt9/OUoYaGVtg+69G0xWCvfJ19ZN+gDELXlr/MIyawGe887xvX7u+Bu4y3BJN5Be
+	z07ST+UrPOm4mqMxc0PyQjJ9t+zcN4idxYDmm/BGRHInolOk4SECT5I9mfflhu7fKq5xzzp
+	IlIvkbBTFKCv42ZLKy26e0OHEAOaSpER5nV9JfrDIvaeCXbXecTmUHX73lFy70p7j2ve01h
+	lDahcqtREuEmqhPLR0CXfOOy3dETqG5c8M7IYl6tLo4ywobQJvdQoP+LylwFR6ib/P5urL6
+	LSJ2TNFTnXFeZ9dLKZBEJAENtoKCJZWQVFxdy6kycF4OZ4X7A6aECBH5xhUqnFSLq36lqMA
+	RQUKp0k+1MEyEFQcfoUKNrbtJXZQ36w645+5hjwVDFIMhmFfWaKRA3/BgNMKhbrOxm2fXuP
+	CDsF7BlSOOFGdBxwz/yWa8IViHeGa1OsfWtPeyOBQ5EZ7wJBeChJWDIjLjYgdQpg6KFX7lX
+	fwx2f1DfnRyY/eb3km4ujzEv7P5d83YdFW4NhTbfIdy3FfOcNfc76sPZdcZ+5uN9k3OtUM8
+	PcJ9Znd0RSgjp73sRw83Qz62e7IovqUzKxfa7iXlTSPFrhi8EesdakRXEqwLiYV5XYQN63I
+	JEIi1w24BKZaOnnRpC6u9N9V20VmJUDVA7WuTrbEGWHhIGADoyp5RhNXYsdVA+zA5Hs1iIb
+	fIVfbZTspW6BS+G85P8v/RQBxDABOK8hHlRWrJEjZ7V1Ok+2N01vxEZAqTEScO2E2jB0ZZ8
+	IO74eqMeF/EaGPt0Fh34frBhaVbAaZIVm7NRZRQzKWVVR24mwJTILTUXkYW8xexVbxcJ/Qf
+	rnO/VQhm4CGC0P5z/OL0yQEx/cGw/DyF+Jauoj9nWpd/b1bDFrjtd0=
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_192839_133736_EDCB3C92 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20261105_193932_767881_E082205F 
+X-CRM114-Status: GOOD (  16.86  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,144 +99,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============8312973095824652861=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+--===============8312973095824652861==
+Content-Type: multipart/signed;
+ boundary=fa641b20d767eb6dfceae802e81e79246e3b4039a9ed52a8760cf69df47f;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Transfer-Encoding: 8bit
+
+--fa641b20d767eb6dfceae802e81e79246e3b4039a9ed52a8760cf69df47f
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+
+On Wed, 4 Nov 2026 07:43:03 -0500, Emil Renner Berthing wrote:
+> > I just had a talk with Dong from Spacemit. He tells me the
+> > BS01DCMA is the name of a module similar to the com260, only it has
+> > a different form factor and each module consists of 2 separate K3
+> > nodes. Similar to how the com260 module can be used in a small
+> > carrier board (spacemit,k3-com260-ifx) and in a 10-node server
+> > (spacemit,k3-com260-tq), I'd expect to see a
+> > common arch/riscv/boot/dts/spacemit/k3-bs01dcma.dtsi describing the
+> > module itself, and then an
+> > arch/riscv/boot/dts/spacemit/k3-bs01dcma-<something>.dts that
+> > describes the extra peripherals that can be accessed when the module
+> > is plugged into the server.
+> >
+> > [...]
+>
+> Ah, it's called the Cluster Server RV2768
+> https://spacemit.com/community/development-kit/cluster-server-rv2768
+
+Hi Emil,
+
+I've checked with our hardware team. BS01DCMA is indeed a module, so
+the "board" wording in this series is wrong and I'll fix it in the next
+version.
+
+I'd still like to keep a single k3-bs01dcma.dts though. The module is
+only used in the RV2768, and that carrier is essentially just cabling
+to PCIe network cards. Those are found by enumeration and there's
+nothing else on it for the K3 to control, so a
+k3-bs01dcma-rv2768.dts would have nothing to describe.
+
+Does that work for you?
+
+--=20
+Troy Mitchell
+
+--fa641b20d767eb6dfceae802e81e79246e3b4039a9ed52a8760cf69df47f
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCau1L4SEcdHJveS5taXRj
+aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC8bHwEA/wJFXrKpYftH
+FB5kzcPBx6DamUD5F+4zMd1bZudAqVUBAKPNyObrwunkgozWj9HWqQMnkYJyk6XD
+Wmy765878T8H
+=dLV/
+-----END PGP SIGNATURE-----
+
+--fa641b20d767eb6dfceae802e81e79246e3b4039a9ed52a8760cf69df47f--
 
 
-On 2026/11/4 18:04, Chen Pei wrote:
-> The RV64 JIT now supports the private stack. Allow the existing
-> verifier and struct_ops private-stack tests to run on riscv64 and add
-> the expected RV64 JITed instruction patterns.
-> 
-> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
-> ---
->   .../bpf/prog_tests/struct_ops_private_stack.c |  3 +-
->   .../bpf/progs/verifier_private_stack.c        | 41 ++++++++++++++++++-
->   2 files changed, 42 insertions(+), 2 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/bpf/prog_tests/struct_ops_private_stack.c b/tools/testing/selftests/bpf/prog_tests/struct_ops_private_stack.c
-> index 2b3ec2b79091..103179ff8733 100644
-> --- a/tools/testing/selftests/bpf/prog_tests/struct_ops_private_stack.c
-> +++ b/tools/testing/selftests/bpf/prog_tests/struct_ops_private_stack.c
-> @@ -6,7 +6,8 @@
->   #include "struct_ops_private_stack_recur.skel.h"
->   #include "struct_ops_private_stack_large.skel.h"
->   
-> -#if defined(__x86_64__) || defined(__aarch64__) || defined(__powerpc64__)
-> +#if defined(__x86_64__) || defined(__aarch64__) || defined(__powerpc64__) || \
-> +	(defined(__riscv) && __riscv_xlen == 64)
->   static void test_private_stack(void)
->   {
->   	struct struct_ops_private_stack *skel;
-> diff --git a/tools/testing/selftests/bpf/progs/verifier_private_stack.c b/tools/testing/selftests/bpf/progs/verifier_private_stack.c
-> index bbc09f516d92..4df06a82dd04 100644
-> --- a/tools/testing/selftests/bpf/progs/verifier_private_stack.c
-> +++ b/tools/testing/selftests/bpf/progs/verifier_private_stack.c
-> @@ -8,7 +8,8 @@
->   /* From include/linux/filter.h */
->   #define MAX_BPF_STACK    512
->   
-> -#if defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)
-> +#if defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-> +	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)
->   
->   struct elem {
->   	struct bpf_timer t;
-> @@ -42,6 +43,14 @@ __jited("	mov	x0, #0x2a")
->   __jited("	str	x0, [x27]")
->   __jited("...")
->   __jited("	ldp	x25, x27, [sp], {{.*}}")
-> +__arch_riscv64
-> +__jited("	addi	sp, sp, -0x20")
-> +__jited("...")
-> +__jited("	sd	s5, 0x10(sp)")
-> +__jited("...")
-> +__jited("	sd	a0, -0x100(s5)")
-> +__jited("...")
-> +__jited("	ld	s5, 0x10(sp)")
->   __naked void private_stack_single_prog(void)
->   {
->   	asm volatile ("			\
-> @@ -60,6 +69,10 @@ __jited("	subq	$0x8, %rsp")
->   __arch_arm64
->   __jited("	mov	x25, sp")
->   __jited("	sub	sp, sp, #0x10")
-> +__arch_riscv64
-> +__jited("	addi	sp, sp, -0x30")
-> +__jited("...")
-> +__jited("	addi	s5, sp, 0x10")
->   __naked void no_private_stack_nested(void)
->   {
->   	asm volatile ("			\
-> @@ -113,6 +126,14 @@ __jited("	str	x0, [x27]")
->   __jited("	bl	{{.*}}")
->   __jited("...")
->   __jited("	ldp	x25, x27, [sp], {{.*}}")
-> +__arch_riscv64
-> +__jited("	addi	sp, sp, -0x20")
-> +__jited("...")
-> +__jited("	sd	s5, 0x8(sp)")
-> +__jited("...")
-> +__jited("	sd	a0, -0x200(s5)")
-> +__jited("...")
-> +__jited("	ld	s5, 0x8(sp)")
->   __naked void private_stack_nested_1(void)
->   {
->   	asm volatile ("				\
-> @@ -183,6 +204,16 @@ __jited("	bl	0x{{.*}}")
->   __jited("	mov	x8, x0")
->   __jited("	mov	x8, #0x0")
->   __jited("	ldp	x25, x27, [sp], {{.*}}")
-> +__arch_riscv64
-> +__jited("func #1")
-> +__jited("...")
-> +__jited("	addi	sp, sp, -0x20")
-> +__jited("...")
-> +__jited("	sd	s5, 0x8(sp)")
-> +__jited("...")
-> +__jited("	sd	a0, -0x200(s5)")
-> +__jited("...")
-> +__jited("	ld	s5, 0x8(sp)")
->   __naked void private_stack_callback(void)
->   {
->   	asm volatile ("			\
-> @@ -412,6 +443,10 @@ __arch_arm64
->   __jited("	mrs	x10, TPIDR_EL{{[0-1]}}")
->   __jited("	add	x27, x27, x10")
->   __jited("	add	x25, x27, {{.*}}")
-> +__arch_riscv64
-> +__jited("	addi	sp, sp, -0x20")
-> +__jited("...")
-> +__jited("	sd	s5, 0x8(sp)")
->   int private_stack_async_callback_1(void)
->   {
->   	struct bpf_timer *arr_timer;
-> @@ -441,6 +476,10 @@ __arch_x86_64
->   __jited("	subq	$0x100, %rsp")
->   __arch_arm64
->   __jited("	sub	sp, sp, #0x100")
-> +__arch_riscv64
-> +__jited("	addi	sp, sp, -0x120")
-> +__jited("...")
-> +__jited("	addi	s5, sp, 0x100")
->   int private_stack_async_callback_2(void)
->   {
->   	struct bpf_timer *arr_timer;
-
-Apart from not yet supporting exception handling, everything else is fine.
-
-Reviewed-by: Pu Lehui <pulehui@huawei.com>
+--===============8312973095824652861==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8312973095824652861==--
+
