@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A4CB606A326
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 19:48:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D4C0606A330
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 20:00:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MH5aJwhm;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K2yX1gwu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SnDAQTzF;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R5gnvq7G
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,86 +14,89 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=kAOpkZoozX45bePdbUYkLurXBOABQ5Xk392VlNUp4Fc=; b=MH5aJwhmCzvYRkmUOHMH+Wu11H
-	ZM22qjvzu200jypqoh5QO2mZlosVYk8aGEaGLxNBiWF0zwLwNZMM8CCYKyGPWD7RIrQZVBda+S+yW
-	k0KvEDYZVUbvhC/ME6GCmoWjd+LpFyNbv+f5AtQYVuWsWdjaKNXCeZ6yrT3Ng7PW4tHhsMGtoDaKJ
-	rdhUXo+3Aa//PXalJHyAu6Ts/cw6CXNT9sWL+6h/wvZFw6YxXGdY1+S3uSaqGDfHotZSOGjI58DLF
-	/J8VZojmhAk24jv7f217pa8Y7pgIKbDfVN3uO/bxK2dQdgQjkuWfmJPbXwkSx1Az1Y/J4jEXruy0m
-	zo92/6qQ==;
+	bh=AVrAUBNCAUESwgYIm9tyUvXfYoGOSa3gilYfKWo2rLI=; b=SnDAQTzFfUZ8LxQWkIglrQyCM0
+	srlhuJRNmsdEseA8apbKrjyLN4+y5zFPWpW8+WikBT6756mmP8MqfDINo66b1wHV2y1cXXIL3Hxz5
+	Dlfq2SCd/zCAjR5hvXANvBM1EAIXEXlWuKvni7apXPf9Zwm6OjC0xmlNnA+X85jFL7RDYFSPxKViM
+	Q2dboTNMVoZMh/xLJWnB9GA3aETnvRv0NQelWycD54z/bkfukIVWc6shGYrE6Y25+KB9p6XEwkSgz
+	sHL2Bfg36LNkyxd/VPnv5eAFDNYyl/71mA1/dm0nlTBHPJodFKex8RxXZTW/EFoGevIkBoeLiS+tw
+	RJTWAIGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPPvI-0000000DYNv-2Ubt;
-	Fri, 06 Nov 2026 19:48:28 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1xPQ6K-0000000DZ0n-0Phz;
+	Fri, 06 Nov 2026 19:59:52 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPPvF-0000000DYNa-4BWm
+	id 1xPQ6H-0000000DZ0Q-1oVU
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Nov 2026 19:48:27 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-49376eb635fso404577f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 06 Nov 2026 11:48:25 -0800 (PST)
+	Fri, 06 Nov 2026 19:59:50 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4a140e7405dso10530185e9.3
+        for <linux-riscv@lists.infradead.org>; Fri, 06 Nov 2026 11:59:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793994504; x=1794599304; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793995187; x=1794599987; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=I/21Es773AUDvFmxDpw0bwxLoX1T07xfM8g2Md/BJQ4=;
-        b=K2yX1gwup1FCKWgvGvbjI9Tv8PmvJMUq0o68jxTQiQwnX64rk70xEPkfQTD4lcD50b
-         xC6jqUNN4cV341drjrt6Jd9qfgXmjbM95IWZfifvB7FvKszt3/N32Wjgkv8pNGie3M8/
-         T2XiCNO6/YM2BgEaYibTvrcG/SDRzokw/4L4CDrxMvW/uGXxKra3lcy/wvFvI2e4WLuX
-         3LKEByNh+h/LxqtmwMz1erBNzQLDwz6oK9sFzNH38HmKAodDiOD6musv93KKQuV0YWHZ
-         9dxerns6rd7ZczaD3udLhsswZbx7g0ocn1a7ukVvB8l99QfA6KZ+ZxA7PalcN/9OPZHp
-         UObA==
+        bh=yk3scaKWk/QUvYfp97Kf/l/OTmiicn4mPluBuDOW+S0=;
+        b=R5gnvq7GiZ8Ic7vwD2Si4tA6P1aiKZlKcoQ0XTjfCTjvFdSjU83eH5N4r1cprzgzGk
+         v91wCh7Rdk3lQ8/4CcDxMgAkh323JJWZuz04sOfZnA/+MAqD6XjOh4qhU0UvgZDIBGr7
+         AmJWC4+e+gqTL5YS7TAjwfKO0fI7lhPrdrXBpEmjcaIK4BfsWCWP0XHzwFFnVWO4EdjA
+         dYJW54DGsEQFy55R7ucwHt3ZuJc1w3PfNCLAOp4hRCpYwf8n9dGYqekmjwqp6T4YBW7h
+         VPokJJlTD4pIskJK8pa2yHdsaxS116cM8JeFaleEl7d9Sxd+LYy3/N0PvHwKIyy6HGZf
+         3ZVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793994504; x=1794599304;
+        d=1e100.net; s=20260707; t=1793995187; x=1794599987;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=I/21Es773AUDvFmxDpw0bwxLoX1T07xfM8g2Md/BJQ4=;
-        b=U/DmN8GSSDvzIlpmwJB1rwvLEr35BEjkBT12vCuniORMmEAM0zUICvKRE6qVCVEaE/
-         8JTQDV2nGyW40WF77LPKwK8Go9KCjQ79TyGWplU5sB/LJHrqZ8eDyVpDBku0/C/exLkh
-         dFgTxI9SNe6SOKFhJGrxFZ4mHtQK4/mkY3Skanet8NZjbsAI/4uFnRXSG1cBcI2m4PEB
-         z3OIEaYqdULo046WwcNtbtyuNtzeONQ5Zztan87S1/aFIURFFzc58KTG8FXI1UlKmrEe
-         k9K5yKTtm48a11Q/4S+dQZUy5PCAKxq0tzGZOwLR4qp4aBDhjd2k36phhq4Gm8Ik3UqC
-         1DyA==
-X-Forwarded-Encrypted: i=1; AL+hErGBMz9uRZOxLeVh/sM+TriQVhHHC4KkH7awRQBNmyzuIWO706eKJhSc8S/n4gjCE5mjqKAIWfkBSn1P5Q==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8zB88HE00/ZCIkpeFY8c/NhOVv3nYK6ajTQz2K/mAAlHAfTkJU
-	/h9/Bxqv5YzFaeJumVJ9uJoZLeprH1RCTtppaiqQinRQVJBW3qbiuNjPaCfgrfCA
-X-Gm-Gg: AYBFou2Y0hXQWJBpgxx8bd8LpK1i7Clp2O40WSnHBSaBu4N3QEEtTkWpVltoD/SYi8u
-	Scs0NjHSdvi7rp6TXO4Kf57YTOz3XJ0kmcvd72PJCfFg0WU6BQXdnep8EYTyHXYvjbKgrlFbRyq
-	P5Dw6uG3qdpig2nGRqAa83p19eXSHTkJJLGm2t7WViVT7P6F3O9UULF+Q4wCxZZL5jHP6XaIQvc
-	w30uLobalTM+KdWxxEmRudO/3dzM8v8bLE68EUdrmA35zOuPCqXkrCAGNW1W93mcIrfUOS2vq9/
-	N6rua6OQGmk+Joh4R/RxzndMr8hBmRDpoF9enRYAYZ5DcT52Kn6yVq+0bLeDGcWeeLfj9q5IfAo
-	NbMUEjRu8FcxuskJWSPxzqeYQ0EXLq4M6Z89AWA/vYKUaFMnl8W4gmdZVmQr5Zkr5evlllCtwOY
-	+7r/rI6Lmc2+d9wOZiKKduNzJ8rCXQOBXjA78Nmt/Fd1rEJ4h5XJGWCqCpeds0SoT5LIrqcrpDn
-	o3v0nxeRjbAUWSYFJUa7a4xrarArGxz5A6JQAZBmMGzngACd8UPbI7iVcBg4WoEl81QL6pKfmUs
-	gt5D8lWe02uxNV7OgxaLMnJLWv/Bbm0=
-X-Received: by 2002:a05:6000:1acd:b0:490:9fe2:6a39 with SMTP id ffacd0b85a97d-49275fe4e8fmr6979074f8f.20.1793994503735;
-        Fri, 06 Nov 2026 11:48:23 -0800 (PST)
+        bh=yk3scaKWk/QUvYfp97Kf/l/OTmiicn4mPluBuDOW+S0=;
+        b=a3zCQ5tt6WHLXxdMJfO017bosfgyDTAJfAvfREAD6w4vWvG6dmwTwLMIkcpBzWFGGo
+         txq0+2s0G57lqleUF+DsQ9oG6aeqI5/FgTgbrYFwTOUrdXJGN7ADVqny7ZsJesHjiKkU
+         /aXlJ3YypD4Ec7dURf0yg747xy/i4sSbvkesLPpeRfylMycj+1ttpDyuFKUK8LDASdQY
+         ld+hIJBkyzLqHQxYbpUrM6l05Rv1B3Gs0QUhXJH5wJBaWDMHEKpL4BXe4v4IYvXtni6q
+         8TXj66VLsCxZKxtExguMB9sVyVRUVQ3FbLdrGuUwRaRrbGYKqWR+uFk0Egkoi62EXGgb
+         /1/g==
+X-Forwarded-Encrypted: i=1; AKwUvBw0oksE8ZKkUwd2HSvjCUANdqIFzwBzgBmB5xaKHGHsUqEtZz87titLTfrUzmOILue3bQ9Lg814W38t4A==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8Qs3JVCTcPEBTXkrY+rUUXPoA/CMbDiukOZR1JxioGpkgm8cKW
+	LrwAmHKS755HQ4BDBsSO+mWCskQYukgXI4+P6Hg0CNvHvDkkKZIsn3hR
+X-Gm-Gg: AYBFou2r4OXQBbLWDv5lD3Va9rgnCXw/FKyfp0Yjg4bwuTsy2rxnSNvg0VGRMNG0uVA
+	TAtRzC2XfjKj9BdXA3RrrlLw/Y84kt8ISHHSYG/xQ9/5U/DzZQP6gXUfG6ZQHPLyh46vr4H2yUd
+	b5FUpm2DnmlHbyWcD0ra6DbawGu4cuuz1QUkqvlMMhhXTJ79Unju9MVHdmGtCsXhgnSSitUCfyA
+	JKDS8KmijG1QYrF8J+pXvXssFAquI5az3ebc3y49i1ElG5sIDmbnaIDwcN/GFTrHtuJ8SOAaUux
+	eYPu3g25doz4cszKUE7mBW17tL3RQIcYhRH2KS8aYeCPM8D0q8mZaBPF0aDppHhjoq1BtPQtvRn
+	TKiMvy+pm5/SbN4JCUxTpm7j99kiZ5HbY2/D/b4pKEuBES21WOW/cZhDxOUZYgnWwQmA7tVbYJg
+	i6gzkUG4/ZxFnVAXoNE5ELx5nZKe4DxYeAo/37TYGHh6sTmAQ3aJwJcyFtPUGRecHag8ka2YK9D
+	wmSAGoMsAsyeUsFJxxaDUcG+phsDoTmlsLeGh7UWFlvElDG2WAEmR/ppLB6FneJ18n196zuxDq+
+	3RKlmMmXatQwKOOgQ9Qnd+qkIH7oUNI=
+X-Received: by 2002:a05:600c:6090:b0:4a3:598e:e7a8 with SMTP id 5b1f17b1804b1-4b6db0d0817mr56859775e9.4.1793995187215;
+        Fri, 06 Nov 2026 11:59:47 -0800 (PST)
 Received: from hp-z640.fritz.box ([64.43.161.7])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-492d73286cdsm4928130f8f.28.2026.11.06.11.48.22
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b7da62ecc1sm4414165e9.2.2026.11.06.11.59.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Nov 2026 11:48:23 -0800 (PST)
+        Fri, 06 Nov 2026 11:59:46 -0800 (PST)
 From: Owen O'Hehir <oo.hehir@gmail.com>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: dri-devel@lists.freedesktop.org,
+To: E Shattow <e@freeshell.de>,
+	Conor Dooley <conor@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Subject: Re: [PATCH v7 00/19] drm: starfive: jh7110: Enable display subsystem
-Date: Fri,  6 Nov 2026 19:48:22 +0000
-Message-ID: <20261106194822.4153919-1-oo.hehir@gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: dts: starfive: jh7110-common: keep the status power LED on
+Date: Fri,  6 Nov 2026 19:59:45 +0000
+Message-ID: <20261106195945.4157095-1-oo.hehir@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261106-jh7110-clean-send-v7-0-68f7ea9913db@samsung.com>
-References: <20261106-jh7110-clean-send-v7-0-68f7ea9913db@samsung.com>
+In-Reply-To: <179fe9e8-322b-4745-8734-d5de5f1e8487@freeshell.de>
+References: <20261106184055.3891621-1-oo.hehir@gmail.com> <179fe9e8-322b-4745-8734-d5de5f1e8487@freeshell.de>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_114826_045130_4840ED9E 
-X-CRM114-Status: UNSURE (   5.84  )
+X-CRM114-CacheID: sfid-20261106_115949_510845_97169845 
+X-CRM114-Status: UNSURE (   7.02  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -108,27 +111,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Tested on a VisionFive 2 v1.3B with this series and the v7 PHY series
-on next-20261105. All 24 modes the sink advertises set with modetest,
-from 1920x1080@60 down to 640x480, including the mixed sync polarity
-modes 1680x1050@59.88, 1280x800@59.91 and 720x400@70.08, with nothing
-in dmesg.
+Hi E,
 
-One thing outside this series: the modetest pattern showed small black
-bars until I wrote 200 MB of other data, which pushed the pattern out of
-the CPU cache into memory, after which it was clean. The U74 has no
-Svpbmt, so the dumb buffer mapping stays cached here. My v5 run had the
-SiFive uncached-alias errata patches applied and did not show it.
+Thanks for checking. You're right about the commit message: I saw the
+LED lit before Linux probes and assumed the firmware set it, without
+checking where it comes from.
 
-Tested-by: Owen O'Hehir <oo.hehir@gmail.com>
+On the Lite, the schematic (sheet 21) shows RGPIO3 driving the system
+LED and also used for fastboot detection, through jumper J20 that pulls
+it to 1.8 V via R257 (1k). Detection happens at reset, before Linux,
+and R257 limits the current whichever level the pin is driven to
+afterwards, so I don't think driving it high conflicts there.
+
+Owen
 
 _______________________________________________
 linux-riscv mailing list
