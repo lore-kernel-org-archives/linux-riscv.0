@@ -2,99 +2,102 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEE08606EE9E
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 14:00:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E42BA606EE83
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 14:03:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3Ck92wPl;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=lHtCjHhc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Q9bEXoRU;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PenNTOM3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:To:In-Reply-To:Message-Id:
-	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=vuIKQQh8xFaFzGQBhwsyV+Wq1yy0zJAWctXTGppmk/c=; b=3Ck92wPlnHFWRowqdgSMKrnPVx
-	dBRyzBdIiHLg+X96HP/U57X91lB4aayeY+R9cNO7nRR4fKEuf++rjt5AFf0MUPZxMth+RjsKxaRrt
-	W7yrun2vq3AF0IHGKhTYhhmvH5rGam+Tx1oR+JOMGxP1fjuRRDelZkqRiUKKl4xRI3hSWX36KcdfQ
-	35w7+q3salPuuMrQN36ixy6R87Qx6Pndf1eAREGTt/EGY0CL8aTt7/Ma5O7WZqWU8p5n9HXTxIDwt
-	o66mwpDIKZoG5mWMeMctc79PzHniBEQpxEldwaD9PD/HqIKJhLGUgXAy3XRZO3TTAxxmKRG6Po9iD
-	NKpBr2dw==;
+	bh=npMl5fBHNEx+zIF1A5FIlRH1MXic6cIDjFlGFjCm4p0=; b=Q9bEXoRUY2d9jM8lkd1t/mjCQg
+	FKoHmEbzF1D/ApweIWObzKpO/BwtLLxCUdAK5ipAiGS4oQTbApvgvH9mGxkzzXaevc3y186laVts/
+	87DUnlHGCl0TUro+t2gGbnHeFClNO9K41/2BDQJ1tvbkeqEdCKRSoQJpKiFs8w0yBL3MZxyfBJSB/
+	zjWHVchuElXZMp5w0/tQOqAgRbflTHBlVcN9gjEF3mkdeIrz15XVGvIiM4e0aSztpoleHg/dZJrEO
+	L3cn2Vi6WNqyHrvFwMJEH8Zrhf7gUt6HTdrz8Dx7YhmlCzbWGFx0dYxY2LQSGvMEIfTkyPIm5yOJ8
+	ZyyefUGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPKUK-0000000CYkA-3wDn;
-	Fri, 06 Nov 2026 14:00:16 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1xPKXE-0000000Cafh-1kjb;
+	Fri, 06 Nov 2026 14:03:16 +0000
+Received: from mail-dy1-x1335.google.com ([2607:f8b0:4864:20::1335])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPKTX-0000000CX4W-14Zy;
-	Fri, 06 Nov 2026 13:59:40 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261106135925euoutp016cfd679197bf0ea6ec3ca9bebf5c54cc~leXPzvj3h0203402034euoutp01a;
-	Fri,  6 Nov 2026 13:59:25 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261106135925euoutp016cfd679197bf0ea6ec3ca9bebf5c54cc~leXPzvj3h0203402034euoutp01a
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1793973565;
-	bh=FN7vvAgWrNMrFzlbNX5xs/SKPU1mY3uajdXHqZZZf9Y=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=lHtCjHhcS80D7v5i4AFY0WF3oSVLNqanHEKG123HIRmNICdtoHRSGGJKZvDS34gy2
-	 6QXfLOKWafSHMWzX0hAMzVvrt7RQPi7qIxeSwR+QPjkZeoxw85DiDZqLJ+j7guPaYH
-	 PhrbKnAs9ZbrY+807iWTDZneJe6WxpL3Ut2jyADc=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261106135924eucas1p17cd8d0880486f9e932fe1b81ba3eeaf6~leXPJkijI2296222962eucas1p1V;
-	Fri,  6 Nov 2026 13:59:24 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261106135922eusmtip147a3e72fa4d8c516753bc64f3ec47198~leXNaHRwL0119701197eusmtip1g;
-	Fri,  6 Nov 2026 13:59:22 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Fri, 06 Nov 2026 14:58:52 +0100
-Subject: [PATCH v7 18/19] riscv: dts: starfive: jh7110: Update DT for
- display subsystem
+	id 1xPKXC-0000000Cad5-1Nsp
+	for linux-riscv@lists.infradead.org;
+	Fri, 06 Nov 2026 14:03:15 +0000
+Received: by mail-dy1-x1335.google.com with SMTP id 5a478bee46e88-36fc0a3fe93so958638eec.0
+        for <linux-riscv@lists.infradead.org>; Fri, 06 Nov 2026 06:03:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793973793; x=1794578593; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=55So9WQ/WyrADhzVx1hdq8ywmTf+r85oSbdNInvKBS8=;
+        b=PenNTOM3ADluaRg98iIBjV8UWwUK1l/BGJj+6SZxmLJ6ETSKBugOiaY3umvPBipeQP
+         oi25sD42UtCgGtCYGpx43uR3VPWLBo260wRVCCF+3pcEma6f+XsELTsfd7dWcqCHaJq1
+         Q8qEsNW6v+Q4Y6aUJ8VU3jl0fPgTDXw7839F1DnfdbQnqCPbG6mxwtmwCE+DurIguXMo
+         ceUM/JWcWmpvuomi939Pr7iF9P3lZC2EnItClQtu1CSYNzqbhxARKUIEWzULMnHEJPsC
+         eKU76g3Du4aIUvrYW4yRZMUb03m1To1q0o95jv2tMfT2XlAQc4yGmjaOVeWnG4jiTuLS
+         k9jw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793973793; x=1794578593;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=55So9WQ/WyrADhzVx1hdq8ywmTf+r85oSbdNInvKBS8=;
+        b=T1X+ox5c1Cs660Cr12CGe3Zm5hqUGqqUEpE5NtQENrZaEz7Doq35wZ3OoBdj3XXyfy
+         ec1eHp1K9WXxEZQM4pFKA5dWNmnu3b+qW31vKu1v6/ZyZcBUHqdh2Hau7yizk2WDNes5
+         sFwPvS9Ox0BnabmnVuYASUawnKpgupXvXAC9nXNcp0Ys5xUHSiJ1YI1nB+X3DIrDte9g
+         t3zyO8C/xkIs0LBgPN7S5XrWBaNJxg+2/EthdWXrKCxAuIFruTcw3tOZUBFBTZGkRX/n
+         HmTUPEqHWWu7TCRLqSwO0py0VpFspYP5qOZ+P8Psiz7Km0GiJsd7vPTCL7h3MASV/MbU
+         LUPg==
+X-Forwarded-Encrypted: i=1; AL+hErFhDhmGMiOkjviIUd23lC8Xgt1YdqjARNYXiKVP7jaE3VbutqiEXkt/PRH4/TqWiAe3kPgBCFDgcMWEGQ==@lists.infradead.org
+X-Gm-Message-State: APuU4Z+GAeQ5VxnaDL8igwPQ9jsNF0Yj3e1v2vo4mfUa7ZGKiPpxv8y0
+	5IlbvpnS3I2FVy7zFTeu2sEIG3zBNb5EIXaRmZxwCFFok8W06/9qTxcS
+X-Gm-Gg: AYBFou2FlIftHVlDayBtlaYqHQuNy05Zj2Br4V/mkG5h7Csr8MfjOGxpJLM2C3lMG6W
+	Qais3kFDHGeLnw3LNh2720v8BBRm5nuPLvksJIaX6AhJAn5cE06hVqLdn2if5q2yZRJXyHF9i+P
+	TWz+Lwv5tOpT4MrtWptNNzXHRzse+isZUycKi3GptQDYi5OjF+caKv+F6V8i6p2H1INSSS+rFM4
+	LMU11wI/T1pb6+L0xiJEUmuoKDnxhXV7KH0xmGTauLfSlNxyGNk+I+8KHUgt/q5tMkrrwW6OK6h
+	wQvE8CDZDOK1g3OtYPai1fTE19k1U0l5X24/pjYY459CQ+LuAseWLth5kj2KcdlZzN1ci2XYi87
+	czMinxA2ceii9tmi/boEzkPMavUqX58iPZlN/x1xtpSB3eVwNG0MwWQbf/Fvu1qP6NUCW31wKXz
+	3NsjPwx0EK0Y5VVVNnub50ZuBk7wjaEy7y6LlNiJrZi/yjnTfjx2jP8biO+AH6AmvgFGpOzoVJM
+	XV3oSUkf+iW283lVsbrZbIC/HUIN+R22cnWC/NeljU/siDdoNiKaSIWWbNOMcuFpsx6jh8AbVir
+	d4k5W8gZObCNbfOaMnHA6/M99uCROVcU+LxhQhYUW4sMw4H62XTY
+X-Received: by 2002:a05:7301:1887:b0:361:6884:78b1 with SMTP id 5a478bee46e88-36f7671a78cmr3700143eec.28.1793973792971;
+        Fri, 06 Nov 2026 06:03:12 -0800 (PST)
+Received: from fedora ([124.51.157.51])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36faa4b4680sm7004358eec.20.2026.11.06.06.03.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Nov 2026 06:03:12 -0800 (PST)
+From: SeungJu Cheon <suunj1331@gmail.com>
+To: anup@brainfault.org,
+	atish.patra@linux.dev
+Cc: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	jinyu.tang@linux.dev,
+	inochiama@gmail.com,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	SeungJu Cheon <suunj1331@gmail.com>,
+	Sashiko <sashiko-bot@kernel.org>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] KVM: riscv: Only fast-path dirty-log write faults on host-writable leaves
+Date: Fri,  6 Nov 2026 23:02:47 +0900
+Message-ID: <20261106140247.155817-1-suunj1331@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261106-jh7110-clean-send-v7-18-68f7ea9913db@samsung.com>
-In-Reply-To: <20261106-jh7110-clean-send-v7-0-68f7ea9913db@samsung.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>,  Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Andrzej Hajda
-	<andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,  Laurent Pinchart
-	<Laurent.pinchart@ideasonboard.com>,  Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,  Luca Ceresoli
-	<luca.ceresoli@bootlin.com>,  Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,  Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,  Philipp Zabel
-	<p.zabel@pengutronix.de>,  Emil Renner Berthing <kernel@esmil.dk>,  Hal Feng
-	<hal.feng@starfivetech.com>, Heiko Stuebner <heiko@sntech.de>,  Paul
-	Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,  Dominique
-	Belhachemi <db@domibel.de>, Andy Yan <andyshrk@163.com>,  David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,  Yakir Yang
-	<kuankuan.y@gmail.com>,  Dmitry Baryshkov
-	<dmitry.baryshkov@oss.qualcomm.com>,  Michal Wilczynski
-	<m.wilczynski@samsung.com>,  Conor Dooley <conor@kernel.org>, William Qiu
-	<william.qiu@starfivetech.com>,  Xingyu Wu <xingyu.wu@starfivetech.com>,
-	Sandy Huang <hjc@rock-chips.com>,  Manivannan Sadhasivam <mani@kernel.org>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9910;
-	i=m.wilczynski@samsung.com; h=from:subject:message-id;
-	bh=fpU1fbJ1exXPaemJgInI/IV38hgpPcCwNXHW1x4QuSE=;
-	b=owGbwMvMwCGWumv6zndzRCIZT6slMWS9vSve/a/8+6yEhN4lHyJXXIyfZbvVRd/P6fzzxYvvn
-	bHYr3FQp6OUhUGMg0FWTJHl7MZoI8l/DE/Ljz/+BTOHlQlkCAMXpwBMpPwYI8PGFpGJversCpv8
-	K3f7fH83913kiwffrvTd9mtXDDP8cTWd4TfLzjC2hVzVxr5LgkQ92res/f+C/a7Xewarhdc95n5
-	7ksQHAA==
-X-Developer-Key: i=m.wilczynski@samsung.com; a=openpgp;
-	fpr=CDB15B3219FE00E577C7E3FA65BA97B9EE9C1459
-X-CMS-MailID: 20261106135924eucas1p17cd8d0880486f9e932fe1b81ba3eeaf6
-X-Msg-Generator: CA
-X-RootMTR: 20261106135924eucas1p17cd8d0880486f9e932fe1b81ba3eeaf6
-X-EPHeader: CA
-X-CMS-RootMailID: 20261106135924eucas1p17cd8d0880486f9e932fe1b81ba3eeaf6
-References: <20261106-jh7110-clean-send-v7-0-68f7ea9913db@samsung.com>
-	<CGME20261106135924eucas1p17cd8d0880486f9e932fe1b81ba3eeaf6@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_055928_635591_D15F65FB 
-X-CRM114-Status: GOOD (  17.16  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261106_060314_372629_7888865D 
+X-CRM114-Status: GOOD (  17.81  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,352 +107,171 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Joshua Peisach <jpeisach@ubuntu.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Chaoyi Chen <chaoyi.chen@rock-chips.com>, Maud Spierings <maud_spierings@murena.io>, linux-rockchip@lists.infradead.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Byron Stanoszek <gandalf@winds.org>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, linux-riscv@lists.infradead.org, Graham Markall <hello@big-grey.co.uk>, OOHehir <oo.hehir@gmail.com>, linux-arm-kernel@lists.infradead.org, Marek Szyprowski <m.szyprowski@samsung.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Activate the display subsystem by describing the video output subsystem,
-which the documentation calls dom_vout_top, as a bus node covering the
-whole 0x29400000 region, with dc8200, the HDMI block, the video output
-system controller and voutcrg as its children.
+The dirty-log write fault fast path sets _PAGE_WRITE without checking
+whether the backing page is host-writable. A read fault can install
+a read-only mapping to the shared zero page. A subsequent guest write
+then takes the fast path and writes into the zero page instead of
+going through the slow path to break CoW.
 
-The subsystem node owns the resources its children share: the NoC display
-bus clock and reset that gate access to every register in the region, and
-the PD_VOUT power domain. Modelling it this way keeps a shared gate owned
-by the block that shares it, and lets dc8200 inherit dma-noncoherent for
-framebuffer DMA from the bus it sits on.
+Use RSW bit 9 to record host writability before dirty logging forces
+the mapping read-only. Preserve this bit across write-protection and
+fall back to the slow path when it is clear.
 
-The monolithic hdmi node is in turn modelled as a container with hdmi_phy
-and hdmi_controller children, which share its register window: the PHY
-takes only xin24m and provides the pixel clock and the phy, while the
-controller takes its clocks from voutcrg.
-
-voutcrg consumes the pixel clock from the &hdmi_phy node instead of the
-old fixed-clock, and dc8200 gets its pixel clocks from voutcrg's MUXes.
-The old, incorrect hdmitx0-pixel-clock fixed-clock node is removed.
-
-The HDMI controller gets a phandle to the video output system controller,
-which holds the mux selecting the DC8200 output that drives the HDMI
-transmitter.
-
-CMA is enlarged and constrained to memory the display controller can
-address, because the default pool is too small for its framebuffers.
-
-Co-developed-by: Dominique Belhachemi <db@domibel.de>
-Signed-off-by: Dominique Belhachemi <db@domibel.de>
-Tested-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Tested-by: Byron Stanoszek <gandalf@winds.org>
-Tested-by: OOHehir <oo.hehir@gmail.com>
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/sashiko-outbox-174168@kernel.org/
+Fixes: 7705be59eb2d ("KVM: riscv: Fast-path dirty logging write faults")
+Cc: stable@vger.kernel.org # 7.2+
+Reviewed-by: Jinyu Tang <jinyu.tang@linux.dev>
+Signed-off-by: SeungJu Cheon <suunj1331@gmail.com>
 ---
- arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 121 +++++++++++++++++++++++-
- arch/riscv/boot/dts/starfive/jh7110.dtsi        | 105 ++++++++++++++++----
- 2 files changed, 203 insertions(+), 23 deletions(-)
+v2:
+ - Pass host_writable to kvm_release_faultin_page() as well
+   (Inochi Amaoto, Sashiko)
+v1: https://lore.kernel.org/all/20261017030927.345454-1-suunj1331@gmail.com/
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-index 64de468f2c31764bc5eeb91156c37c7adf296308..bfc7ae12822348777cde9b2f2c939e58a629e750 100644
---- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-@@ -33,6 +33,27 @@ memory@40000000 {
- 		bootph-pre-ram;
- 	};
- 
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		/*
-+		 * The display controller allocates its framebuffers from CMA,
-+		 * and the default pool is too small for them. Keep the pool
-+		 * inside the range the controller can address; it fits in the
-+		 * memory every VisionFive 2 variant has.
-+		 */
-+		linux,cma {
-+			compatible = "shared-dma-pool";
-+			reusable;
-+			size = <0x0 0x20000000>;
-+			alignment = <0x0 0x1000>;
-+			alloc-ranges = <0x0 0x70000000 0x0 0x20000000>;
-+			linux,cma-default;
-+		};
-+	};
-+
- 	gpio-restart {
- 		compatible = "gpio-restart";
- 		gpios = <&sysgpio 35 GPIO_ACTIVE_HIGH>;
-@@ -73,12 +94,47 @@ codec {
- 			};
- 		};
- 	};
-+
-+	hdmi-connector {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi_out_con>;
-+			};
-+		};
-+	};
- };
- 
- &cpus {
- 	timebase-frequency = <4000000>;
- };
- 
-+&dc8200 {
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		dpu_port0: port@0 {
-+			reg = <0>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			dpu_out_dpi0: endpoint@0 {
-+				reg = <0>;
-+				remote-endpoint = <&hdmi_in>;
-+			};
-+		};
-+
-+		dpu_port1: port@1 {
-+			reg = <1>;
-+		};
-+	};
-+};
-+
- &dvp_clk {
- 	clock-frequency = <74250000>;
- };
-@@ -99,8 +155,31 @@ &gmac1_rmii_refin {
- 	clock-frequency = <50000000>;
- };
- 
--&hdmitx0_pixelclk {
--	clock-frequency = <297000000>;
-+&hdmi_controller {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&hdmi_pins>;
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+
-+			hdmi_in: endpoint {
-+				remote-endpoint = <&dpu_out_dpi0>;
-+			};
-+		};
-+
-+		hdmi_out_port: port@1 {
-+			reg = <1>;
-+
-+			hdmi_out_con: endpoint {
-+				remote-endpoint = <&hdmi_con_in>;
-+			};
-+		};
-+	};
- };
- 
- &i2srx_bclk_ext {
-@@ -356,6 +435,40 @@ &syscrg {
- };
- 
- &sysgpio {
-+	hdmi_pins: hdmi-0 {
-+		hdmi-cec-pins {
-+			pinmux = <GPIOMUX(14, GPOUT_SYS_HDMI_CEC_SDA,
-+					      GPOEN_SYS_HDMI_CEC_SDA,
-+					      GPI_SYS_HDMI_CEC_SDA)>;
-+			input-enable;
-+			bias-pull-up;
-+		};
-+
-+		hdmi-hpd-pins {
-+			pinmux = <GPIOMUX(15, GPOUT_LOW,
-+					      GPOEN_DISABLE,
-+					      GPI_SYS_HDMI_HPD)>;
-+			input-enable;
-+			bias-disable; /* external pull-up */
-+		};
-+
-+		hdmi-scl-pins {
-+			pinmux = <GPIOMUX(0, GPOUT_SYS_HDMI_DDC_SCL,
-+					     GPOEN_SYS_HDMI_DDC_SCL,
-+					     GPI_SYS_HDMI_DDC_SCL)>;
-+			input-enable;
-+			bias-pull-up;
-+		};
-+
-+		hdmi-sda-pins {
-+			pinmux = <GPIOMUX(1, GPOUT_SYS_HDMI_DDC_SDA,
-+					     GPOEN_SYS_HDMI_DDC_SDA,
-+					     GPI_SYS_HDMI_DDC_SDA)>;
-+			input-enable;
-+			bias-pull-up;
-+		};
-+	};
-+
- 	i2c0_pins: i2c0-0 {
- 		i2c-pins {
- 			pinmux = <GPIOMUX(57, GPOUT_LOW,
-@@ -644,3 +757,7 @@ &U74_3 {
- &U74_4 {
- 	cpu-supply = <&vdd_cpu>;
- };
-+
-+&voutcrg {
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 82ea63f715b0e64f33345e142eaba6ce49eaebf6..ac10d79770f24982e4046abb0030d6a3a23209bd 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -290,12 +290,6 @@ gmac1_rmii_refin: gmac1-rmii-refin-clock {
- 		#clock-cells = <0>;
- 	};
- 
--	hdmitx0_pixelclk: hdmitx0-pixel-clock {
--		compatible = "fixed-clock";
--		clock-output-names = "hdmitx0_pixelclk";
--		#clock-cells = <0>;
--	};
--
- 	i2srx_bclk_ext: i2srx-bclk-ext-clock {
- 		compatible = "fixed-clock";
- 		clock-output-names = "i2srx_bclk_ext";
-@@ -352,6 +346,13 @@ tdm_ext: tdm-ext-clock {
- 		#clock-cells = <0>;
- 	};
- 
-+	xin24m: xin24m-clock {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <24000000>;
-+		clock-output-names = "xin24m";
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		interrupt-parent = <&plic>;
-@@ -1262,22 +1263,84 @@ csi_phy: phy@19820000 {
- 			#phy-cells = <0>;
- 		};
- 
--		voutcrg: clock-controller@295c0000 {
--			compatible = "starfive,jh7110-voutcrg";
--			reg = <0x0 0x295c0000 0x0 0x10000>;
--			clocks = <&syscrg JH7110_SYSCLK_VOUT_SRC>,
--				 <&syscrg JH7110_SYSCLK_VOUT_TOP_AHB>,
--				 <&syscrg JH7110_SYSCLK_VOUT_TOP_AXI>,
--				 <&syscrg JH7110_SYSCLK_VOUT_TOP_HDMITX0_MCLK>,
--				 <&syscrg JH7110_SYSCLK_I2STX0_BCLK>,
--				 <&hdmitx0_pixelclk>;
--			clock-names = "vout_src", "vout_top_ahb",
--				      "vout_top_axi", "vout_top_hdmitx0_mclk",
--				      "i2stx0_bclk", "hdmitx0_pixelclk";
--			resets = <&syscrg JH7110_SYSRST_VOUT_TOP_SRC>;
--			#clock-cells = <1>;
--			#reset-cells = <1>;
-+		vout_subsystem: display-subsystem@29400000 {
-+			compatible = "starfive,jh7110-vout-subsystem";
-+			reg = <0x0 0x29400000 0x0 0x200000>;
-+			ranges;
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_DISP_AXI>;
-+			dma-noncoherent;
- 			power-domains = <&pwrc JH7110_PD_VOUT>;
-+			resets = <&syscrg JH7110_SYSRST_NOC_BUS_DISP_AXI>;
-+
-+			dc8200: display@29400000 {
-+				compatible = "starfive,jh7110-dc8200", "verisilicon,dc";
-+				reg = <0x0 0x29400000 0x0 0x2800>;
-+				clocks = <&voutcrg JH7110_VOUTCLK_DC8200_CORE>,
-+					 <&voutcrg JH7110_VOUTCLK_DC8200_AXI>,
-+					 <&voutcrg JH7110_VOUTCLK_DC8200_AHB>,
-+					 <&voutcrg JH7110_VOUTCLK_DC8200_PIX0>,
-+					 <&voutcrg JH7110_VOUTCLK_DC8200_PIX1>;
-+				clock-names = "core", "axi", "ahb", "pix0", "pix1";
-+				assigned-clocks = <&voutcrg JH7110_VOUTCLK_DC8200_PIX0>,
-+						  <&voutcrg JH7110_VOUTCLK_DC8200_PIX1>;
-+				assigned-clock-parents = <&hdmi_phy>, <&hdmi_phy>;
-+				interrupts = <95>;
-+				resets = <&voutcrg JH7110_VOUTRST_DC8200_CORE>,
-+					 <&voutcrg JH7110_VOUTRST_DC8200_AXI>,
-+					 <&voutcrg JH7110_VOUTRST_DC8200_AHB>;
-+				reset-names = "core", "axi", "ahb";
-+			};
-+
-+			hdmi_subsystem: hdmi@29590000 {
-+				compatible = "starfive,jh7110-hdmi-subsystem";
-+				reg = <0x0 0x29590000 0x0 0x4000>;
-+
-+				hdmi_controller: controller {
-+					compatible =
-+						"starfive,jh7110-inno-hdmi-controller";
-+					clocks = <&voutcrg JH7110_VOUTCLK_HDMI_TX_SYS>,
-+						 <&voutcrg JH7110_VOUTCLK_HDMI_TX_MCLK>,
-+						 <&voutcrg JH7110_VOUTCLK_HDMI_TX_BCLK>,
-+						 <&hdmi_phy>;
-+					clock-names = "pclk", "mclk", "bclk", "pixel";
-+					interrupts = <99>;
-+					phys = <&hdmi_phy>;
-+					resets = <&voutcrg JH7110_VOUTRST_HDMI_TX_HDMI>;
-+					starfive,vout-syscon = <&vout_syscon>;
-+				};
-+
-+				hdmi_phy: phy {
-+					compatible = "starfive,jh7110-inno-hdmi-phy";
-+					clocks = <&xin24m>;
-+					#clock-cells = <0>;
-+					#phy-cells = <0>;
-+				};
-+			};
-+
-+			vout_syscon: syscon@295b0000 {
-+				compatible = "starfive,jh7110-vout-syscon", "syscon";
-+				reg = <0x0 0x295b0000 0x0 0x10000>;
-+			};
-+
-+			voutcrg: clock-controller@295c0000 {
-+				compatible = "starfive,jh7110-voutcrg";
-+				reg = <0x0 0x295c0000 0x0 0x10000>;
-+				clocks = <&syscrg JH7110_SYSCLK_VOUT_SRC>,
-+					 <&syscrg JH7110_SYSCLK_VOUT_TOP_AHB>,
-+					 <&syscrg JH7110_SYSCLK_VOUT_TOP_AXI>,
-+					 <&syscrg JH7110_SYSCLK_VOUT_TOP_HDMITX0_MCLK>,
-+					 <&syscrg JH7110_SYSCLK_I2STX0_BCLK>,
-+					 <&hdmi_phy>;
-+				clock-names = "vout_src", "vout_top_ahb",
-+					      "vout_top_axi", "vout_top_hdmitx0_mclk",
-+					      "i2stx0_bclk", "hdmitx0_pixelclk";
-+				power-domains = <&pwrc JH7110_PD_VOUT>;
-+				resets = <&syscrg JH7110_SYSRST_VOUT_TOP_SRC>;
-+				#clock-cells = <1>;
-+				#reset-cells = <1>;
-+			};
- 		};
- 
- 		pcie0: pcie@940000000 {
+Testing (v2, QEMU -cpu rv64,h=true, 4 vCPUs):
 
+  A selftest makes the guest read an untouched page, then write to it
+  with dirty logging enabled. Before the fix, the host zero page is
+  corrupted (0x5a5a5a5a5a5a5a5a != 0). After the fix, CoW allocates a
+  private page and the zero page stays zero.
+
+  dirty_log_perf_test -v 2 -b 128M -i 3 completes for Sv39/Sv48/Sv57
+  with no warnings in dmesg.
+
+v1 was additionally tested on a HiFive Premier P550 (no noticeable
+regression in dirty_log_perf_test -v 3 -b 256M -i 3). The board is
+not available for v2.
+
+This patch applies on top of the Accessed-bit fix [1].
+
+[1] https://lore.kernel.org/all/20261016101458.221648-1-suunj1331@gmail.com/
+
+ arch/riscv/include/asm/kvm_gstage.h |  5 ++++-
+ arch/riscv/kvm/gstage.c             |  5 ++++-
+ arch/riscv/kvm/mmu.c                | 17 ++++++++++++++---
+ 3 files changed, 22 insertions(+), 5 deletions(-)
+
+diff --git a/arch/riscv/include/asm/kvm_gstage.h b/arch/riscv/include/asm/kvm_gstage.h
+index aaf080ba1b7..0d19ad6d7df 100644
+--- a/arch/riscv/include/asm/kvm_gstage.h
++++ b/arch/riscv/include/asm/kvm_gstage.h
+@@ -35,6 +35,9 @@ extern unsigned long kvm_riscv_gstage_max_pgd_levels;
+ #define kvm_riscv_gstage_pgd_xbits	2
+ #define kvm_riscv_gstage_pgd_size	(1UL << (HGATP_PAGE_SHIFT + kvm_riscv_gstage_pgd_xbits))
+ 
++/* RSW bit 9: the host mapping behind this leaf is writable. */
++#define KVM_GSTAGE_PTE_HOST_WRITABLE	BIT(9)
++
+ static inline unsigned long kvm_riscv_gstage_gpa_bits(unsigned long pgd_levels)
+ {
+ 	return (HGATP_PAGE_SHIFT +
+@@ -61,7 +64,7 @@ bool kvm_riscv_gstage_try_update_pte(struct kvm_gstage *gstage, u32 level,
+ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
+ 			      struct kvm_mmu_memory_cache *pcache,
+ 			      gpa_t gpa, phys_addr_t hpa, unsigned long page_size,
+-			      bool page_rdonly, bool page_exec,
++			      bool page_rdonly, bool page_exec, bool host_writable,
+ 			      struct kvm_gstage_mapping *out_map);
+ 
+ bool kvm_riscv_gstage_split_huge(struct kvm_gstage *gstage,
+diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
+index be70607a33e..d9bfd0c6d5f 100644
+--- a/arch/riscv/kvm/gstage.c
++++ b/arch/riscv/kvm/gstage.c
+@@ -207,7 +207,7 @@ static void kvm_riscv_gstage_update_pte_prot(struct kvm_gstage *gstage, u32 leve
+ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
+ 			      struct kvm_mmu_memory_cache *pcache,
+ 			      gpa_t gpa, phys_addr_t hpa, unsigned long page_size,
+-			      bool page_rdonly, bool page_exec,
++			      bool page_rdonly, bool page_exec, bool host_writable,
+ 			      struct kvm_gstage_mapping *out_map)
+ {
+ 	bool found_leaf;
+@@ -246,6 +246,9 @@ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
+ 			prot = PAGE_WRITE;
+ 	}
+ 
++	if (host_writable)
++		prot = __pgprot(pgprot_val(prot) | KVM_GSTAGE_PTE_HOST_WRITABLE);
++
+ 	found_leaf = kvm_riscv_gstage_get_leaf(gstage, gpa, &ptep, &ptep_level);
+ 	if (found_leaf) {
+ 		/*
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 5664383a1a3..b41534dd500 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -586,6 +586,12 @@ static bool kvm_riscv_mmu_dirty_log_write_fault_fast(struct kvm *kvm,
+ 			break;
+ 		}
+ 
++		/* Let the slow path handle host-side write protection and CoW. */
++		if (!(pte_val(old_pte) & KVM_GSTAGE_PTE_HOST_WRITABLE)) {
++			ret = false;
++			break;
++		}
++
+ 		if (!dirty_marked) {
+ 			mark_page_dirty_in_slot(kvm, memslot, gfn);
+ 			dirty_marked = true;
+@@ -630,6 +636,7 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 	bool is_hugetlb;
+ 	bool unused = false;
+ 	bool writable;
++	bool host_writable;
+ 	unsigned int vma_pageshift;
+ 	gfn_t gfn = gpa >> PAGE_SHIFT;
+ 	struct vm_area_struct *vma;
+@@ -714,6 +721,8 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 	if (is_error_noslot_pfn(hfn))
+ 		return -EFAULT;
+ 
++	host_writable = writable;
++
+ 	/*
+ 	 * If logging is active then we allow writable pages only
+ 	 * for write faults.
+@@ -739,10 +748,12 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 	if (writable) {
+ 		mark_page_dirty_in_slot(kvm, memslot, gfn);
+ 		ret = kvm_riscv_gstage_map_page(&gstage, pcache, gpa, hfn << PAGE_SHIFT,
+-						vma_pagesize, false, true, out_map);
++						vma_pagesize, false, true, host_writable,
++						out_map);
+ 	} else {
+ 		ret = kvm_riscv_gstage_map_page(&gstage, pcache, gpa, hfn << PAGE_SHIFT,
+-						vma_pagesize, true, true, out_map);
++						vma_pagesize, true, true, host_writable,
++						out_map);
+ 	}
+ 
+ 	if (ret)
+@@ -750,7 +761,7 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 
+ out_unlock:
+ 	kvm_release_faultin_page(kvm, page,
+-				 unused || (ret && ret != -EEXIST), writable);
++				 unused || (ret && ret != -EEXIST), host_writable);
+ 	write_unlock(&kvm->mmu_lock);
+ 	return ret;
+ }
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+prerequisite-patch-id: aea68332f05283074bb715e7dde093a2a316a51a
 -- 
-2.34.1
+2.52.0
 
 
 _______________________________________________
