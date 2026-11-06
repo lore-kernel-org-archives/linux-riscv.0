@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC517606A331
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 17:41:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B9BB606A329
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 17:41:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iauVAyTH;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ez/TLdlU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jorIXzRI;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=bD9QnDyB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,45 +14,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=6HYwYp/lBOJj9Ci179E8RZv0dUULfrsqo1y2ooaDUVo=; b=iauVAyTHGidax5QO0U1M8XemQq
-	nAhu2nlegp2UHO54EoOLoM1V8IY2uu4UlifEk1idU+lt5QkmxiEwwaCCOcA0bX5igM3hOPRYfGLyr
-	qXbaw1Ep9JH496eEX59qe1AHn/h9uqUP5FJcMk3dPcuU2XMcLd00Oecm4gS7pLkFDtz5NiwqppBPw
-	bAomnVjXMCsbsWzhixVGfk+S0ucw8hp3GhWCS5rX3RbYv6XmIACMUV6H5fEmsQFSJlgi5BSH/C8OZ
-	cgVsrhytEamDcegdLLVoxlqDm34z4JL9UGOs/51jR3NDsJ7ssltu3wKGjOgl/31qKKEkdsnQCbIqF
-	qaxQSh8g==;
+	bh=SWbA/0SXHyLz5Q4oYrYAt1n2E506hfKAG8Lq/9xgtKE=; b=jorIXzRIAKQuQT7bqAdanMdYGQ
+	+W2fzYb08uenzCQP/WKTDN25b3fzDzgWy1Fh0PUHL4JSO+F2FlEdoVbHDv7LZcAzP0JwZTI4ns2fr
+	OlYxojvrPci+1bDRv4nNug9ibK6OMOblLaEob2XTyxZyetCZtI+cqfVeeCqZdApiEx6ItckvDpUnK
+	7SXHXaM17ecznmiEYbS1/M7Ct6J7jv9unrchmyzYXv3AfokRbSdFOmCQ00U1oXy98IqhTfWQ+Gy3v
+	1hbhKxf5IiLICEaeUUV0ttKGwkTfCYJe0daCtXcWa0S2SQSM+6kC3G00LLTWrYFUqJhaF2u4bSJN9
+	IFtuMebg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPNw8-0000000DGrK-3g5Z;
-	Fri, 06 Nov 2026 17:41:12 +0000
+	id 1xPNwG-0000000DH1F-46Yp;
+	Fri, 06 Nov 2026 17:41:20 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPNw4-0000000DGnw-2o92;
-	Fri, 06 Nov 2026 17:41:12 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A6Exw5u2670638;
-	Fri, 6 Nov 2026 17:40:51 GMT
+	id 1xPNwB-0000000DGuN-0Kdj;
+	Fri, 06 Nov 2026 17:41:19 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A6F00F7044181;
+	Fri, 6 Nov 2026 17:40:58 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=fvMJL5C94XQ
-	OnkbvJOgysjg+kbIx5r0HdtxpVDz2kGg=; b=ez/TLdlURvFLqtEwbKC1YMODzjv
-	FQUrOqV/cVVpbBUcCYSa7EqPZAfJkudDq80VxF8A9TibBm40iKY18yZakno24Lck
-	ya0LFFH7M2VhurJEjLCCdKaamqUdnYxFN5ph7XgIsuawU5zF71qrJb722e6+ilpl
-	3qdtZ6VFjyLmj7N28mmYLZLV/0ggF08mT250iY8wVHeJBTwubj9kVeL9247YxLy5
-	5o4qPf/DoRca0i0dNq7jANb3Oo3/E43/nOfYk1lgwzC8tLPxYfhEAypKSUlbWCQ/
-	zpIS2S1GM7xnKtCwUUooTPVpev8rtfolkpNH2CrX/fYeHB17SEA9y0A7RMw==
-Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hs3pcby1a-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=ts+DqzLxFR8
+	TI6RsQv7hKRjDDcPqTV1DKJzs7FV/2Bo=; b=bD9QnDyBBwz8CVQc57Tz3c2/Cbc
+	02jbZ7wKRuWFUdL1fjbW1v0iEdoIseczUWJDDWQyIF990pS1Ti3BjBElw1hEvsZY
+	5M6BnCOiKUYwexltCtR2CKQ4HEH6vR6XC0ZO/NDU0EELNKLA+U6yPL+rS58X0PZj
+	4pFyqGjTvrdkzc6dfyLP85OeGH3NS7rbjVC2d66WEYUMm4OTzagmBJnQEJHuudQk
+	DjzviSCMN7W+PNBOD38Jwoeb3IB2fD5JdLYJfpcpbXPpK5Q4czpINJiESDPMW6QZ
+	eag2qjxZzyxr85v5PneZjWQYuaxaVbgAPtFpIr23nL8Lx22PeWnpgDHcI6A==
+Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hs3pa3wpp-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 06 Nov 2026 17:40:51 +0000 (GMT)
-Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6A6HelZE3084885;
-	Fri, 6 Nov 2026 17:40:47 GMT
+	Fri, 06 Nov 2026 17:40:58 +0000 (GMT)
+Received: from pps.filterd (apblrppmta02.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA02.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6A6HetqT1892176;
+	Fri, 6 Nov 2026 17:40:55 GMT
 Received: from hu-devc-blr-u24-a.qualcomm.com (hu-vikrsi-blr.qualcomm.com [10.190.111.249])
-	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 6A6HelEc3084757
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 6A6HetSQ1892170
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 06 Nov 2026 17:40:47 +0000 (GMT)
+	Fri, 06 Nov 2026 17:40:55 +0000 (GMT)
 Received: by hu-devc-blr-u24-a.qualcomm.com (Postfix, from userid 4853235)
-	id DCFE3248A1; Fri,  6 Nov 2026 23:10:46 +0530 (+0530)
+	id 8CF06248C6; Fri,  6 Nov 2026 23:10:54 +0530 (+0530)
 From: Vikram Singh <vikram.singh3@oss.qualcomm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
         Arnaldo Carvalho de Melo <acme@kernel.org>,
@@ -77,9 +77,9 @@ Cc: Vikram Singh <vikram.singh3@oss.qualcomm.com>,
         linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
         Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>,
         devicetree@vger.kernel.org
-Subject: [PATCH v4 2/7] riscv: pmu: Add Control transfer records CSR definations.
-Date: Fri,  6 Nov 2026 23:09:37 +0530
-Message-ID: <20261106173942.3175069-3-vikram.singh3@oss.qualcomm.com>
+Subject: [PATCH v4 6/7] riscv: pmu: Integrate CTR Ext support in riscv_pmu_dev driver
+Date: Fri,  6 Nov 2026 23:09:41 +0530
+Message-ID: <20261106173942.3175069-7-vikram.singh3@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261106173942.3175069-1-vikram.singh3@oss.qualcomm.com>
 References: <20261106173942.3175069-1-vikram.singh3@oss.qualcomm.com>
@@ -88,35 +88,35 @@ MIME-Version: 1.0
 X-Proofpoint-Reinject: loops=2 maxloops=12
 X-QCInternal: smtphost
 X-QCInternal: smtphost
-X-Proofpoint-ORIG-GUID: C7bBFFD09xDKuiV82bw20LITV_x4Kavd
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA2MDA3MCBTYWx0ZWRfXwxdpxST8DIT8
- b20yt8PEdBqrWfiBLhTWCEHoGY0gMV0tCEO3ddpfuNB5Q8RWJ5581cMhV3+qx/4N+l7ohXq1CAx
- 7aqRWa/v35kx///bAaoKDsytWMJco9NhQC/twnYvONKu65qpFq1bm9yaAgvDa5u82K3/zdYl/oI
- 4nozXyQtQu7uBc8C38S1+jaAPJEVJxF5e+aVRlDb30jNfPfB6bFeRTUGRCiUsJ9HQ23GGLUARNw
- ciBIUaM6fphSFWZ0LKN473h8DPzaxDIwPUH72ICuW0zrQbfCUnRu2bBPqajIxi5TEQG7BqwyZu1
- 5u8ietbIQyofbtY0WT8z9389sSKHb0u5VQO2iz1DCp8dZEwz8mutOQC66cgBJ95P9/sYCcjgP4W
- fTHr5xebO1WJcUuzh+4dL3qwDWpyANv9CC77IC5l9M3dO1jHi+fMO6Yv7Tl5Q6paJD9khk9iyJh
- qvzl/zqTVCjQhIDsb1w==
-X-Proofpoint-GUID: C7bBFFD09xDKuiV82bw20LITV_x4Kavd
-X-Authority-Analysis: v=2.4 cv=TI3Q2Fla c=1 sm=1 tr=0 ts=6aee1123 cx=c_pps
+X-Authority-Analysis: v=2.4 cv=PLeaavqC c=1 sm=1 tr=0 ts=6aee112a cx=c_pps
  a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
  a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=DJpcGTmdVt4CTyJn9g5Z:22 a=NEAV23lmAAAA:8 a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8
- a=QMCXY-WxTZ0vNH6C3ysA:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA2MDA3MCBTYWx0ZWRfX9lG9hyNS4ORg
- 1f0FEsDIJKWJ4QtLjKwRz2koBSTmuSaGwPHO/0qV4/EK2vaIJUkafabWp3oR00ZM2yJRWHnDIfp
- ZrRd3rdDhGe6V4JYnYfHELFru+DCBRc=
+ a=yOCtJkima9RkubShWh1s:22 a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8
+ a=JYbPudkZx6Tu0gzNZToA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA2MDA3MCBTYWx0ZWRfX3lgE6bptFqtl
+ i/umDMK6+7oYq2yew0x8ULt99kHjWAOl3PJjW4VdInkL1Q3+bBVr1q2g4khLYq9qBqaa5w2Hfdi
+ vAMRDTu9zJzc/0pbhCV6YnF4E5Z4yDA=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA2MDA3MCBTYWx0ZWRfXzHHaU2oSj4Gk
+ Q8lLR3qQucBfLo3J1oxl1ldAdUrOexhAvj0fMEYfy18BmWISq1Exdu6JknvBUWi3yll8sKUaaag
+ tAWprkj+bPSul/QQaSpO1rw6DrlJDZLCpV+TBu+It0tYXJcEJ7nVxzWnirhhhM85fTebrTFSsF4
+ OyckS7iGgUh1OqlSpgPDRckmMO7Gwn9wsWENwuhHTR/RAYVsTO9Y4QICcLtqkaxSkb1RH5gnl89
+ 0hw7H6CM1CmeuAxyz4WCQPdQHTO1pj/gb6LsXxxWHcGUb2tV64qA/F1bJOXePkpH11VDqDLcGp1
+ P88vACaM0l3KVrOwYGF5V7MQrM7+S01H86JcL6mIcT3yeU2IrZCsMGlFaHrWfEeja3yyoFu4Pxe
+ 7TA09azik+WnVFvYsOWePqvnOJIBfL9XKdYRnuhOA+IHqcDQuod7dWm7MCR6mA7H4ilDMvtAh5E
+ TxaekJnbm7j2mSoff2g==
+X-Proofpoint-GUID: YiKnVIFJUuB1Qj2zSLXHRRPraT8YRhuX
+X-Proofpoint-ORIG-GUID: YiKnVIFJUuB1Qj2zSLXHRRPraT8YRhuX
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-06_05,2026-11-06_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 suspectscore=0 adultscore=0 clxscore=1015 lowpriorityscore=0
- spamscore=0 phishscore=0 malwarescore=0 priorityscore=1501 impostorscore=0
+ lowpriorityscore=0 impostorscore=0 malwarescore=0 clxscore=1011 bulkscore=0
+ priorityscore=1501 spamscore=0 phishscore=0 adultscore=0 suspectscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611060070
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_094108_712839_0306AB0C 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20261106_094115_145758_375C606C 
+X-CRM114-Status: GOOD (  23.46  )
 X-Spam-Score: -2.7 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -130,143 +130,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Adding CSR defines for RISCV Control Transfer Records extension [0]
-along with bit-field macros for each CSR.
+This integrates recently added CTR ext support in riscv_pmu_dev driver
+to enable branch stack sampling using PMU events.
 
-[0]: https://github.com/riscv/riscv-control-transfer-records
+This mainly adds CTR enable/disable callbacks in rvpmu_ctr_stop()
+and rvpmu_ctr_start() function to start/stop branch recording along
+with the event.
+
+PMU overflow handler rvpmu_ovf_handler() is also updated to sample
+CTR entries in case of the overflow for the particular event programmed
+to records branches. The recorded entries are fed to core perf for
+further processing.
 
 Co-developed-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
 Signed-off-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
 Signed-off-by: Vikram Singh <vikram.singh3@oss.qualcomm.com>
 ---
- arch/riscv/include/asm/csr.h | 85 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 85 insertions(+)
+ drivers/perf/riscv_pmu.c     |  2 +-
+ drivers/perf/riscv_pmu_sbi.c | 68 +++++++++++++++++++++++++++++++++++-
+ 2 files changed, 68 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index a28dea73dd08..b28ff01d9a89 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -321,6 +321,85 @@
+diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+index a1ae490d94c9..407028f24674 100644
+--- a/drivers/perf/riscv_pmu.c
++++ b/drivers/perf/riscv_pmu.c
+@@ -310,7 +310,7 @@ static int riscv_pmu_event_init(struct perf_event *event)
+ 	uint64_t cmask;
  
- #define CSR_SCOUNTOVF		0xda0
+ 	/* driver does not support branch stack sampling */
+-	if (has_branch_stack(event))
++	if (has_branch_stack(event) && !riscv_pmu_ctr_supported(rvpmu))
+ 		return -EOPNOTSUPP;
  
-+/* M-mode Control Transfer Records CSRs */
-+#define CSR_MCTRCTL		0x34e
-+
-+/* S-mode Control Transfer Records CSRs */
-+#define CSR_SCTRCTL		0x14e
-+#define CSR_SCTRSTATUS		0x14f
-+#define CSR_SCTRDEPTH		0x15f
-+
-+/* VS-mode Control Transfer Records CSRs */
-+#define CSR_VSCTRCTL		0x24e
-+
-+/* xctrtl CSR bits. */
-+#define CTRCTL_U_ENABLE		_AC(0x1, UL)
-+#define CTRCTL_S_ENABLE		_AC(0x2, UL)
-+#define CTRCTL_M_ENABLE		_AC(0x4, UL)
-+#define CTRCTL_RASEMU		_AC(0x80, UL)
-+#define CTRCTL_STE		_AC(0x100, UL)
-+#define CTRCTL_MTE		_AC(0x200, UL)
-+#define CTRCTL_BPFRZ		_AC(0x800, UL)
-+#define CTRCTL_LCOFIFRZ		_AC(0x1000, UL)
-+#define CTRCTL_EXCINH		_AC(0x200000000, UL)
-+#define CTRCTL_INTRINH		_AC(0x400000000, UL)
-+#define CTRCTL_TRETINH		_AC(0x800000000, UL)
-+#define CTRCTL_NTBREN		_AC(0x1000000000, UL)
-+#define CTRCTL_TKBRINH		_AC(0x2000000000, UL)
-+#define CTRCTL_INDCALL_INH	_AC(0x10000000000, UL)
-+#define CTRCTL_DIRCALL_INH	_AC(0x20000000000, UL)
-+#define CTRCTL_INDJUMP_INH	_AC(0x40000000000, UL)
-+#define CTRCTL_DIRJUMP_INH	_AC(0x80000000000, UL)
-+#define CTRCTL_CORSWAP_INH	_AC(0x100000000000, UL)
-+#define CTRCTL_RET_INH		_AC(0x200000000000, UL)
-+#define CTRCTL_INDOJUMP_INH	_AC(0x400000000000, UL)
-+#define CTRCTL_DIROJUMP_INH	_AC(0x800000000000, UL)
-+
-+/* sctrstatus CSR bits. */
-+#define SCTRSTATUS_WRPTR_MASK	0xFF
-+#define SCTRSTATUS_FROZEN	_AC(0x80000000, UL)
-+
-+#ifdef CONFIG_RISCV_M_MODE
-+#define CTRCTL_KERNEL_ENABLE	CTRCTL_M_ENABLE
-+#else
-+#define CTRCTL_KERNEL_ENABLE	CTRCTL_S_ENABLE
-+#endif
-+
-+/* sctrdepth CSR bits. */
-+#define SCTRDEPTH_MASK		0x7
-+
-+#define SCTRDEPTH_MIN		0x0 /* 16 Entries. */
-+#define SCTRDEPTH_MAX		0x4 /* 256 Entries. */
-+
-+/* ctrsource, ctrtarget and ctrdata CSR bits. */
-+#define CTRSOURCE_VALID		0x1ULL
-+#define CTRTARGET_MISP		0x1ULL
-+
-+#define CTRDATA_TYPE_MASK	0xF
-+#define CTRDATA_CCV		0x8000
-+#define CTRDATA_CCM_MASK	0xFFF0000
-+#define CTRDATA_CCE_MASK	0xF0000000
-+
-+#define CTRDATA_TYPE_NONE			0
-+#define CTRDATA_TYPE_EXCEPTION			1
-+#define CTRDATA_TYPE_INTERRUPT			2
-+#define CTRDATA_TYPE_TRAP_RET			3
-+#define CTRDATA_TYPE_NONTAKEN_BRANCH		4
-+#define CTRDATA_TYPE_TAKEN_BRANCH		5
-+#define CTRDATA_TYPE_RESERVED_6			6
-+#define CTRDATA_TYPE_RESERVED_7			7
-+#define CTRDATA_TYPE_INDIRECT_CALL		8
-+#define CTRDATA_TYPE_DIRECT_CALL		9
-+#define CTRDATA_TYPE_INDIRECT_JUMP		10
-+#define CTRDATA_TYPE_DIRECT_JUMP		11
-+#define CTRDATA_TYPE_CO_ROUTINE_SWAP		12
-+#define CTRDATA_TYPE_RETURN			13
-+#define CTRDATA_TYPE_OTHER_INDIRECT_JUMP	14
-+#define CTRDATA_TYPE_OTHER_DIRECT_JUMP		15
-+
-+#define CTR_ENTRIES_FIRST	0x200
-+#define CTR_ENTRIES_LAST	0x2ff
-+
- #define CSR_SSTATUS		0x100
- #define CSR_SIE			0x104
- #define CSR_STVEC		0x105
-@@ -353,6 +432,8 @@
- /* Supervisor-Level Window to Indirectly Accessed Registers (AIA) */
- #define CSR_SISELECT		0x150
- #define CSR_SIREG		0x151
-+#define CSR_SIREG2		0x152
-+#define CSR_SIREG3		0x153
+ 	hwc->flags = 0;
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 400de6bed369..684f02122f68 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -650,6 +650,9 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
+ 	 */
+ 	flush_work(&check_std_events_work);
  
- /* Supervisor-Level Interrupts (AIA) */
- #define CSR_STOPEI		0x15c
-@@ -508,6 +589,8 @@
- # define CSR_TOPEI	CSR_MTOPEI
- # define CSR_TOPI	CSR_MTOPI
- 
-+# define CSR_CTRCTL	CSR_MCTRCTL
++	if (needs_branch_stack(event) && !riscv_pmu_ctr_valid(event))
++		return -EOPNOTSUPP;
 +
- # define SR_IE		SR_MIE
- # define SR_PIE		SR_MPIE
- # define SR_PP		SR_MPP
-@@ -533,6 +616,8 @@
- # define CSR_TOPEI	CSR_STOPEI
- # define CSR_TOPI	CSR_STOPI
+ 	return riscv_pmu_get_event_info(type, config, econfig);
+ }
  
-+# define CSR_CTRCTL	CSR_SCTRCTL
+@@ -798,10 +801,14 @@ static void pmu_sbi_reset_scounteren(void *arg)
+ 
+ static void pmu_sbi_ctr_add(struct perf_event *event, int flags)
+ {
++	if (needs_branch_stack(event))
++		riscv_pmu_ctr_add(event);
+ }
+ 
+ static void pmu_sbi_ctr_del(struct perf_event *event, int flags)
+ {
++	if (needs_branch_stack(event))
++		riscv_pmu_ctr_del(event);
+ }
+ 
+ static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
+@@ -818,6 +825,10 @@ static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
+ 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, hwc->idx,
+ 			1, flag, ival, 0, 0);
+ #endif
 +
- # define SR_IE		SR_SIE
- # define SR_PIE		SR_SPIE
- # define SR_PP		SR_SPP
++	if (needs_branch_stack(event))
++		riscv_pmu_ctr_enable(event);
++
+ 	if (ret.error && (ret.error != SBI_ERR_ALREADY_STARTED))
+ 		pr_err("Starting counter idx %d failed with error %d\n",
+ 			hwc->idx, sbi_err_map_linux_errno(ret.error));
+@@ -835,6 +846,9 @@ static void pmu_sbi_ctr_stop(struct perf_event *event, unsigned long flag)
+ 	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
+ 	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
+ 
++	if (needs_branch_stack(event) && flag != RISCV_PMU_STOP_FLAG_RESET)
++		riscv_pmu_ctr_disable(event);
++
+ 	if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
+ 	    (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
+ 		pmu_sbi_reset_scounteren((void *)event);
+@@ -866,7 +880,7 @@ static void pmu_sbi_ctr_stop(struct perf_event *event, unsigned long flag)
+ static void pmu_sbi_sched_task(struct perf_event_pmu_context *pmu_ctx, struct task_struct *task,
+ 			       bool sched_in)
+ {
+-       /* Call CTR specific Sched hook. */
++	riscv_pmu_ctr_sched_task(pmu_ctx, task, sched_in);
+ }
+ 
+ static int pmu_sbi_find_num_ctrs(void)
+@@ -1140,6 +1154,12 @@ static irqreturn_t pmu_sbi_ovf_handler(struct cpu_hw_events *cpu_hw_evt,
+ 		hw_evt->state |= PERF_HES_UPTODATE;
+ 		perf_sample_data_init(&data, 0, hw_evt->last_period);
+ 		if (riscv_pmu_event_set_period(event)) {
++			if (needs_branch_stack(event)) {
++				riscv_pmu_ctr_consume(cpu_hw_evt, event);
++				perf_sample_save_brstack(&data, event,
++							 &cpu_hw_evt->branches->branch_stack, NULL);
++			}
++
+ 			/*
+ 			 * Unlike other ISAs, RISC-V don't have to disable interrupts
+ 			 * to avoid throttling here. As per the specification, the
+@@ -1228,6 +1248,8 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+ 		enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
+ 	}
+ 
++	riscv_pmu_ctr_starting_cpu();
++
+ 	if (sbi_pmu_snapshot_available())
+ 		return pmu_sbi_snapshot_setup(pmu, cpu);
+ 
+@@ -1243,6 +1265,8 @@ static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
+ 	/* Disable all counters access for user mode now */
+ 	csr_write(CSR_SCOUNTEREN, 0x0);
+ 
++	riscv_pmu_ctr_dying_cpu();
++
+ 	if (sbi_pmu_snapshot_available())
+ 		return pmu_sbi_snapshot_disable();
+ 
+@@ -1369,6 +1393,29 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
+ 	cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
+ }
+ 
++static int branch_records_alloc(struct riscv_pmu *pmu)
++{
++	struct branch_records __percpu *tmp_alloc_ptr;
++	struct branch_records *records;
++	struct cpu_hw_events *events;
++	int cpu;
++
++	if (!riscv_pmu_ctr_supported(pmu))
++		return 0;
++
++	tmp_alloc_ptr = alloc_percpu_gfp(struct branch_records, GFP_KERNEL);
++	if (!tmp_alloc_ptr)
++		return -ENOMEM;
++
++	for_each_possible_cpu(cpu) {
++		events = per_cpu_ptr(pmu->hw_events, cpu);
++		records = per_cpu_ptr(tmp_alloc_ptr, cpu);
++		events->branches = records;
++	}
++
++	return 0;
++}
++
+ static void pmu_sbi_event_init(struct perf_event *event)
+ {
+ 	/*
+@@ -1381,6 +1428,9 @@ static void pmu_sbi_event_init(struct perf_event *event)
+ 		event->hw.flags |= PERF_EVENT_FLAG_USER_ACCESS;
+ 	else
+ 		event->hw.flags |= PERF_EVENT_FLAG_LEGACY;
++
++	if (branch_sample_call_stack(event))
++		event->attach_state |= PERF_ATTACH_TASK_DATA;
+ }
+ 
+ static void pmu_sbi_event_mapped(struct perf_event *event, struct mm_struct *mm)
+@@ -1519,6 +1569,15 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 
+ 	pmu->pmu.attr_groups = riscv_pmu_attr_groups;
+ 	pmu->pmu.parent = &pdev->dev;
++
++	ret = riscv_pmu_ctr_init(pmu);
++	if (ret)
++		goto out_free;
++
++	ret = branch_records_alloc(pmu);
++	if (ret)
++		goto out_ctr_finish;
++
+ 	pmu->cmask = cmask;
+ 	pmu->ctr_add = pmu_sbi_ctr_add;
+ 	pmu->ctr_del = pmu_sbi_ctr_del;
+@@ -1535,6 +1594,10 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 	pmu->csr_index = pmu_sbi_csr_index;
+ 	pmu->sched_task = pmu_sbi_sched_task;
+ 
++	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
++	if (ret)
++		goto out_ctr_finish;
++
+ 	ret = riscv_pm_pmu_register(pmu);
+ 	if (ret)
+ 		goto out_unregister;
+@@ -1584,6 +1647,9 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ out_unregister:
+ 	riscv_pmu_destroy(pmu);
+ 
++out_ctr_finish:
++	riscv_pmu_ctr_finish(pmu);
++
+ out_free:
+ 	kfree(pmu);
+ 	return ret;
 -- 
 2.43.0
 
