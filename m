@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76761606A334
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 07:15:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1A66606A32F
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 07:15:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kCyrV/ix;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=ZuBzeCHm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZxmySp/m;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=kyWtLpC+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,29 +14,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=16VnNq2Rz1oyDlU1cAYk6p8hLOTV7hZtkfGXu90wWH0=; b=kCyrV/ixV5IiF99hmaqk0HetXL
-	GT4dv5MVaQv9NcgrEaMOPoxxoGAgiBIpxUuKw9zjDeFBGD9JWHdAs4lf+O7sQCFe276gt51yuQCLX
-	10+1JPcCAjHIuLZy3OcGTN7bYHGQaVBvC2HzwQRaUe2hJ8suPUhESQXv3Y6U7R6SBEORIEZEMXjBb
-	MxPyopap3nHKowsHlXWoX2Us0U62CAZZgYKEno2aC2ZOaoLIBH2wpDYzzmJj2u3WdpU6j8w0Apd0A
-	iZixMabG6vBLFd1Who2bFazSO/cUL7BnW4awnKIXexkvyaPLRyGXEgaLo5F5EYl4xhH+sKO8ogbUX
-	jPfBVY7g==;
+	bh=NETzVg4WcV0thtrNL75/5WkCDnfj+CRRIs9B6fpzrr0=; b=ZxmySp/m4YsEL1oCUZB3hey2mx
+	mNweGy4SyvaqvtPYDpIgRGuugHg+7EPQhdsgSnKgjiSZNjngHwfnZ5VFv9xg5nHPFTiB7dOo2EeZp
+	H2cJm6sSn1yH1m39jnT4y/d6cpJI57WEfMDUrHZSVTDy7O5UHgztzkK4tjOOL1lTEu7MQIMZ9eceE
+	7snLSkAmGR1BDnG+2HObWf5JrzEwP2C4xNEptt13NOcj1Evx77Sa32ukXUOZh7mQuSpPJhvs0+CJx
+	+T4dlP2xHPeouipGXPBkijP8cngqumD6HhCup370A2QXlRdoo6XviS/OzeUl2REQHI8F9TRDSQkCg
+	dn4RwJdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPEAO-0000000BPxq-1ZS2;
-	Fri, 06 Nov 2026 07:15:16 +0000
-Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
+	id 1xPEAK-0000000BPsm-2V7z;
+	Fri, 06 Nov 2026 07:15:12 +0000
+Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPEAH-0000000BPpx-3iec;
-	Fri, 06 Nov 2026 07:15:11 +0000
+	id 1xPEAH-0000000BPpR-18A1;
+	Fri, 06 Nov 2026 07:15:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1793949307; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=WHFpp4e9/46UoCbTdVt0BUwdiaUS8B1AQ+AAM13FSjw=;
-	b=ZuBzeCHmKTrVKFZSjUKqVfaccHI+xUwuo72JFPRvbINfiBNelmeQWxgCLyQgQFiIcndzI9GRIrOemhJDtfzruxEoEvDlBq9Fu8Dm5Pwxzq/ZRCTNbNIJU4kTubki6sPtEAzTvHIWg3uVxSX52vIj2icfOS3SPKZEsVn3krg3phQ=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=14;SR=0;TI=SMTPD_---0XEAtjNn_1793949306;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XEAtjNn_1793949306 cluster:ay36)
+	t=1793949305; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=jJG+oWzeBiYTOj3RU2JHcsvV/qqXp37vXx+hYTPpTbg=;
+	b=kyWtLpC++GGMYwZOyrC80s33E13MFo8+fwxj+sja6iO3A7zAzooPvb9xGOK9s7hrVyd9jHlwD7T09Bnb+LW9g97wrbFK0iYL7Tx3jyQEmZOs+i0/B7wt3zQIaH4QxZi9mBDkFuggJhZhRRjF35Bit6gGwD3NFymttSsNHYOA12s=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=14;SR=0;TI=SMTPD_---0XEAtjN9_1793949304;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XEAtjN9_1793949304 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Fri, 06 Nov 2026 15:15:06 +0800
+          Fri, 06 Nov 2026 15:15:05 +0800
 From: Chen Pei <cp0613@linux.alibaba.com>
 To: pjw@kernel.org,
 	palmer@dabbelt.com,
@@ -52,17 +52,18 @@ Cc: guoren@kernel.org,
 	linux-mm@kvack.org,
 	linux-kselftest@vger.kernel.org,
 	kexec@lists.infradead.org
-Subject: [PATCH v3 4/4] selftests: liveupdate: Add riscv support
-Date: Fri,  6 Nov 2026 15:14:59 +0800
-Message-ID: <20261106071459.2003-5-cp0613@linux.alibaba.com>
+Subject: [PATCH v3 2/4] riscv: Add support for kexec handover (KHO)
+Date: Fri,  6 Nov 2026 15:14:57 +0800
+Message-ID: <20261106071459.2003-3-cp0613@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261106071459.2003-1-cp0613@linux.alibaba.com>
 References: <20261106071459.2003-1-cp0613@linux.alibaba.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_231510_083082_B3908F38 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20261105_231509_492965_1E66F00C 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,100 +85,34 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Teach the live update vmtest runners about riscv64, so the LUO tests can
-be run on this architecture.
+The generic handover paths are already in place on RISC-V: the outgoing
+kernel publishes the handover FDT and the bootmem list in /chosen of the
+DTB built by of_kexec_alloc_and_setup_fdt(), and the incoming kernel
+picks both up while scanning that node. Only the architecture symbol is
+missing.
 
-LIVEUPDATE depends only on KEXEC_HANDOVER, enabled for riscv64 by the
-previous commit, so nothing in the tests stood in the way.
+Set it to 64BIT && MMU: ARCH_SUPPORTS_KEXEC_FILE is already 64BIT only,
+and KEXEC_HANDOVER selects CMA, which depends on MMU.
 
 Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 ---
+ arch/riscv/Kconfig | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Test: qemu-system-riscv64 (virt, -cpu max, -m 1G, -smp 2, TCG), in-tree
-runner "tools/testing/selftests/liveupdate/vmtest.sh -t riscv64 -T <suite>",
-all four suites:
-
-  ok 1 luo_kexec_simple succeeded
-  ok 1 luo_multi_session succeeded
-  ok 1 luo_stress_files succeeded
-  ok 1 luo_stress_sessions succeeded
-
-each with "# Totals: pass:1 fail:0 xfail:0 xpass:0 skip:0 error:0". The
-simple suite's serial log shows the handover round trip:
-
-  KHO: found kexec handover data.
-  luo: Retrieved live update data, liveupdate number: 1
-  # [STAGE 2] Test data verified successfully.
-  --- SIMPLE KEXEC TEST PASSED ---
-
- tools/testing/selftests/liveupdate/config.riscv64 | 3 +++
- tools/testing/selftests/liveupdate/run-vmtests.sh | 2 +-
- tools/testing/selftests/liveupdate/vmtest.sh      | 8 +++++++-
- 3 files changed, 11 insertions(+), 2 deletions(-)
- create mode 100644 tools/testing/selftests/liveupdate/config.riscv64
-
-diff --git a/tools/testing/selftests/liveupdate/config.riscv64 b/tools/testing/selftests/liveupdate/config.riscv64
-new file mode 100644
-index 000000000000..edbc551199b0
---- /dev/null
-+++ b/tools/testing/selftests/liveupdate/config.riscv64
-@@ -0,0 +1,3 @@
-+CONFIG_SERIAL_8250=y
-+CONFIG_SERIAL_8250_CONSOLE=y
-+CONFIG_SERIAL_OF_PLATFORM=y
-diff --git a/tools/testing/selftests/liveupdate/run-vmtests.sh b/tools/testing/selftests/liveupdate/run-vmtests.sh
-index 6f592aec0f85..c3d828cfd63b 100755
---- a/tools/testing/selftests/liveupdate/run-vmtests.sh
-+++ b/tools/testing/selftests/liveupdate/run-vmtests.sh
-@@ -4,7 +4,7 @@
- SCRIPT_DIR=$(dirname "$(realpath "$0")")
- TEST_RUNNER="$SCRIPT_DIR/vmtest.sh"
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index bde1f1885038..bffef6b903e1 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -1125,6 +1125,9 @@ config ARCH_SELECTS_KEXEC_FILE
+ config ARCH_SUPPORTS_KEXEC_PURGATORY
+ 	def_bool ARCH_SUPPORTS_KEXEC_FILE
  
--TARGETS=("x86_64" "aarch64")
-+TARGETS=("x86_64" "aarch64" "riscv64")
++config ARCH_SUPPORTS_KEXEC_HANDOVER
++	def_bool 64BIT && MMU
++
+ config ARCH_SUPPORTS_CRASH_DUMP
+ 	def_bool y
  
- GREEN='\033[0;32m'
- RED='\033[0;31m'
-diff --git a/tools/testing/selftests/liveupdate/vmtest.sh b/tools/testing/selftests/liveupdate/vmtest.sh
-index dea5a6fb2abc..70a8d978077a 100755
---- a/tools/testing/selftests/liveupdate/vmtest.sh
-+++ b/tools/testing/selftests/liveupdate/vmtest.sh
-@@ -25,6 +25,10 @@ function get_arch_conf() {
- 		QEMU_CMD="qemu-system-x86_64"
- 		KERNEL_IMAGE="bzImage"
- 		KERNEL_CMDLINE="console=ttyS0"
-+	elif [[ "$arch" == "riscv" ]]; then
-+		QEMU_CMD="qemu-system-riscv64 -M virt -cpu max"
-+		KERNEL_IMAGE="Image"
-+		KERNEL_CMDLINE="console=ttyS0"
- 	else
- 		echo "Unsupported architecture: $arch"
- 		exit 1
-@@ -37,7 +41,7 @@ $0 [-d build_dir] [-j jobs] [-t target_arch] [-T test_name] [-w workspace_dir] [
- Options:
- 	-d)	path to the kernel build directory (default: .luo_test_build.<arch>)
- 	-j)	number of jobs for compilation
--	-t)	run test for target_arch (aarch64, x86_64)
-+	-t)	run test for target_arch (aarch64, x86_64, riscv64)
- 	-T)	test name to run (default: luo_kexec_simple)
- 	-w)	custom workspace directory (default: creates temp dir)
- 	-k)	keep workspace directory
-@@ -87,6 +91,7 @@ function detect_cross_compile() {
- 	case "$target" in
- 		aarch64) candidate="aarch64-linux-gnu-" ;;
- 		x86_64)  candidate="x86_64-linux-gnu-" ;;
-+		riscv64) candidate="riscv64-linux-gnu-" ;;
- 		*)       skip "Auto-detection for target '$target' not supported. Please set CROSS_COMPILE manually." ;;
- 	esac
- 
-@@ -194,6 +199,7 @@ function target_to_arch() {
- 	case $target in
- 	     aarch64) echo "arm64" ;;
- 	     x86_64) echo "x86" ;;
-+	     riscv64) echo "riscv" ;;
- 	     *) skip "architecture $target is not supported"
- 	esac
- }
 -- 
 2.50.1
 
