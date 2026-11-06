@@ -2,69 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C909606A31B
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 03:42:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E2FA606A32C
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 03:45:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TREQiQf5;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=TC+CnXRP
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=22KwCoPH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=9ENCe3PAbZB5GGvc50mZ9bWRfr84qPr0MIoAmRacca0=; b=TREQiQf5drc5xjoFVjL3qAsJjm
-	kVVKKeMXy0oertMbCFPTxu6OpUq1kpAcybkDaHNZMW1LozDd5x2Om+6Qwz0XMaGPD0t+eQS7qsU64
-	7NWXAgEBNhUhW3nokmw7K62OU4B02GfGN2MG54d/ZLg1Wd0jfREea1nYceyZV0ierdkW3MXfC+pI4
-	D5G0rCg43128j5iEtKbOGfFYQNREnHzfHqAHJsu5tdy8LC+84WGJrrUWIr1Osl0eKOXgVYmyhvYzg
-	RXEmaI0IybojFRS3h/t5xpoKpqZfpPWDTva8CB2zQvltLjB8Y4hMDS/NDZrTHAG5eZ8nla7z6BRU5
-	Gym03bnA==;
+	bh=oxqXYsVxJFdtdbhSumFOoFKRmut6WYDM1uSeCu66RxY=; b=22KwCoPHrMFcqinh7dQF9xqYMd
+	6C9EUix/b6fXq+qecZeqUDbOpGpkwC8XkOh0SluuqQ2xpVvAt8FCTbS3DUc486uyFKj/rxDpSMTV9
+	+Bn3wKZA8r7vxUcahxpDN3fxcv95NZfPqx7afyGIYIGlrWgZMo/aBl4Uiep4Vi55DRPi4t7oslRUb
+	8qKiAiZAZD28TOnOoFFr1++i5OgSN53xxhPNJ1Ddjiz7xb2c8xfr2QaM7qJyRRhYR2UppRubvVwNu
+	m+xx7Pkh+APWRQCbFDeuNBsvNT9N0oM/PGdZEJnVYjZZR5u/3iRZFGdiGAiRP8mBdCTyV40Dj5ioZ
+	YEOD9xpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPAqR-0000000BBBk-3NtJ;
-	Fri, 06 Nov 2026 03:42:27 +0000
-Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
+	id 1xPAsf-0000000BBNM-0Xir;
+	Fri, 06 Nov 2026 03:44:45 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPAqL-0000000BBAu-1WL8;
-	Fri, 06 Nov 2026 03:42:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1793936536; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=C3bbcV4jOv7yHyE1B1LNNqja0PzYKDvjOLb3BlCeaAM=;
-	b=TC+CnXRPGCtS8jx6esP5Ogbm1K+gBcnD/K54itEsLgXIhnnnPxI6efUxs5sF5wabteu+1sLrmoaG7NH2Mp1Yj1Xm2fRAzyFEfg38PTn6LCji8ldDGQ1Up562XW4u0iUevm55wLpKSG3RnQG/8sPxPyZdhVyOIGQhs6S3HovE2Ss=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=14;SR=0;TI=SMTPD_---0XEAEe5H_1793936513;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XEAEe5H_1793936513 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 06 Nov 2026 11:42:15 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: rppt@kernel.org
-Cc: alex@ghiti.fr,
-	graf@amazon.com,
-	guoren@kernel.org,
-	kexec@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pasha.tatashin@soleen.com,
-	pjw@kernel.org,
-	pratyush@kernel.org,
-	shuah@kernel.org
-Subject: Re: [PATCH v2 1/5] kho: Do not translate the handover FDT address in is_kho_boot()
-Date: Fri,  6 Nov 2026 11:41:40 +0800
-Message-ID: <20261106034153.1462-1-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <aux_dPnvXk3LYDxs@kernel.org>
-References: <20261103080926.2079-1-cp0613@linux.alibaba.com> <20261103080926.2079-2-cp0613@linux.alibaba.com> <aux_dPnvXk3LYDxs@kernel.org>
+	id 1xPAsb-0000000BBMw-1H3o
+	for linux-riscv@lists.infradead.org;
+	Fri, 06 Nov 2026 03:44:44 +0000
+Received: from [172.100.0.8] (unknown [36.110.52.2])
+	by APP-01 (Coremail) with SMTP id qwCowAC33_kjTe1qAOReAA--.15432S2;
+	Fri, 06 Nov 2026 11:44:35 +0800 (CST)
+Subject: Re: [PATCH] soc: microchip: mpfs: Fix flash leak in
+ mpfs_sys_controller_probe()
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: conor.dooley@microchip.com, daire.mcnamara@microchip.com,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ stable@vger.kernel.org, vulab@iscas.ac.cn
+In-Reply-To: <20261008-47741881fb032091ea3d7f0c@squawk>
+References: <20260917153550.2160672-1-vulab@iscas.ac.cn>
+ <20261002-garnish-president-6e8abfdacf4c@spud>
+ <20261008-47741881fb032091ea3d7f0c@squawk>
+Date: Fri, 06 Nov 2026 03:44:44 -0000
+Message-ID: <179393668487.2060453.14381920142402581273@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-CM-TRANSID: qwCowAC33_kjTe1qAOReAA--.15432S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7GF47KryxZF4ktF48AFyrZwb_yoWkJrX_Wa
+	yktFW3u348AFyxJF4FqFy7ZrsrK3y09ryrA3y8Wr45Jry5Ar4IkFZakwnxZr1SvFW0vF1D
+	ur9xJ3y2krnFvjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbs8Fc2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AK
+	wVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20x
+	vE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2z280
+	aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr0_GcWle2I262IYc4CY6c
+	8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jw0_
+	WrylYx0Ex4A2jsIE14v26r4UJVWxJr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI4
+	8JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWUAVWUtwCF04k20xvY0x0E
+	wIxGrwCF04k20xvE74AGY7Cv6cx26r48ZrWUJr1UMxC20s026xCaFVCjc4AY6r1j6r4UMI
+	8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AK
+	xVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI
+	8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280
+	aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43
+	ZEXa7VUbkhL5UUUUU==
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAADA2rtCZf4iQAAsk
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_194222_051502_D4F1EBAE 
-X-CRM114-Status: UNSURE (   7.18  )
+X-CRM114-CacheID: sfid-20261105_194441_748796_35630129 
+X-CRM114-Status: UNSURE (   6.83  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -17.6 (-----------------)
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,47 +78,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7853435297896187744=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
-	USER_AGENT_GIT autolearn=no autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============7853435297896187744==
-Content-Type: text/plain; charset=y
-Content-Transfer-Encoding: 8bit
+Hi Krzysztof, Conor,
 
-> There was very similar patch:
-> https://lore.kernel.org/all/20261023054518.3258350-1-gthelen@google.com
-> and while both Greg's and your patch are correct they both have that wall
-> of text with too many details commit messages that I don't like.
+Thank you both for the detailed review.
 
-Hi Mike,
+Sorry for the late reply, and for the mess it caused.
 
-Thanks for the pointer. Greg's change is the same one，and his post
-predates the fix in my series and already has Pratyush's review tag
-on it. I will drop patch 1 in the next revision.
+This is a v2 of the earlier patch, but I sent it without the v2 prefix,
+without a changelog, and without referring back to Conor's review from
+8 October:
 
-On the commit messages: they do restate what the diff already shows.
-That comes out, and I will trim the other patches in the series the
-same way.
+  https://lore.kernel.org/all/20261008-47741881fb032091ea3d7f0c@squawk/
+
+You are also right that the patches were sent in bulk across unrelated
+subsystems, without being grouped into patchsets, without running checkpatch
+on them, and without documenting what was and was not tested. I am sorry for
+the extra work this has caused you.
+
+In particular, thank you for pointing me to the kernel documentation on
+subsystem identification, patchset organization and testing, and for the
+guidance on how this work should be submitted. This is an important lesson
+for me, and from now on I will go through all the remaining feedback
+manually, one by one, and reply in a timely manner.
+
+Going forward, I will also not send patches in large batches, so that I do
+not exceed my own capacity to respond.
 
 Best regards,
-Chen
+Wentao Liang
 
-
---===============7853435297896187744==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7853435297896187744==--
