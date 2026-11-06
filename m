@@ -2,10 +2,10 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E2FA606A32C
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 03:45:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E190606A31B
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 03:46:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=22KwCoPH
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ye3xUFeN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,60 +13,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:In-Reply-To:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=oxqXYsVxJFdtdbhSumFOoFKRmut6WYDM1uSeCu66RxY=; b=22KwCoPHrMFcqinh7dQF9xqYMd
-	6C9EUix/b6fXq+qecZeqUDbOpGpkwC8XkOh0SluuqQ2xpVvAt8FCTbS3DUc486uyFKj/rxDpSMTV9
-	+Bn3wKZA8r7vxUcahxpDN3fxcv95NZfPqx7afyGIYIGlrWgZMo/aBl4Uiep4Vi55DRPi4t7oslRUb
-	8qKiAiZAZD28TOnOoFFr1++i5OgSN53xxhPNJ1Ddjiz7xb2c8xfr2QaM7qJyRRhYR2UppRubvVwNu
-	m+xx7Pkh+APWRQCbFDeuNBsvNT9N0oM/PGdZEJnVYjZZR5u/3iRZFGdiGAiRP8mBdCTyV40Dj5ioZ
-	YEOD9xpw==;
+	bh=oxqXYsVxJFdtdbhSumFOoFKRmut6WYDM1uSeCu66RxY=; b=ye3xUFeNfDeyhJNplKOyt8Ldn3
+	9Zws29tHhggxzVnz0VrQjx8av5JqSzo43KQ8PNBaM04snuSoBa1y46oBIBXtIOvnBAiLgG7LqSzSJ
+	2p/aNLMjmoOA+Ur1W6eag35lTzQ/w4SjXdGeJdH+scBWIMv09nGofppAQOhShQJooY2T10vloqNgK
+	gvPiix6h13XZAmXDFPLG3FNbmakDE2B68iW5NA2e0f/VRRs9KqZO4BwpH/vILy8UEuzpQYS1Y3FdB
+	mSU1FG0Dn7zVRPkJmOB1XTJzUF4EBlE0AhGkixe7nOztPZ74gIwP5lCa+QxrJFBV17VqoGPHddnkL
+	OfEgdZng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPAsf-0000000BBNM-0Xir;
-	Fri, 06 Nov 2026 03:44:45 +0000
+	id 1xPAuf-0000000BBUd-1vlV;
+	Fri, 06 Nov 2026 03:46:49 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPAsb-0000000BBMw-1H3o
+	id 1xPAuc-0000000BBUJ-2dqD
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Nov 2026 03:44:44 +0000
+	Fri, 06 Nov 2026 03:46:48 +0000
 Received: from [172.100.0.8] (unknown [36.110.52.2])
-	by APP-01 (Coremail) with SMTP id qwCowAC33_kjTe1qAOReAA--.15432S2;
-	Fri, 06 Nov 2026 11:44:35 +0800 (CST)
-Subject: Re: [PATCH] soc: microchip: mpfs: Fix flash leak in
- mpfs_sys_controller_probe()
+	by APP-01 (Coremail) with SMTP id qwCowACXv_mjTe1qG+leAA--.15426S2;
+	Fri, 06 Nov 2026 11:46:43 +0800 (CST)
+Subject: Re: [PATCH] soc: microchip: mpfs-sys-controller: put the flash device
+ reference
 From: Wentao Liang <vulab@iscas.ac.cn>
 To: Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
 Cc: conor.dooley@microchip.com, daire.mcnamara@microchip.com,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- stable@vger.kernel.org, vulab@iscas.ac.cn
-In-Reply-To: <20261008-47741881fb032091ea3d7f0c@squawk>
-References: <20260917153550.2160672-1-vulab@iscas.ac.cn>
- <20261002-garnish-president-6e8abfdacf4c@spud>
- <20261008-47741881fb032091ea3d7f0c@squawk>
-Date: Fri, 06 Nov 2026 03:44:44 -0000
-Message-ID: <179393668487.2060453.14381920142402581273@iscas.ac.cn>
+ valentina.fernandezalanis@microchip.com, linux-riscv@lists.infradead.org,
+ vulab@iscas.ac.cn
+In-Reply-To: <20261105-blandness-smilingly-dd268d223a1a@spud>
+References: <20261104021435.1468301-1-vulab@iscas.ac.cn>
+ <20261104-foamy-toad-of-courtesy-e0907b@quoll>
+ <20261105-blandness-smilingly-dd268d223a1a@spud>
+Date: Fri, 06 Nov 2026 03:46:53 -0000
+Message-ID: <179393681351.2060480.10672001055094269033@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAC33_kjTe1qAOReAA--.15432S2
+X-CM-TRANSID: qwCowACXv_mjTe1qG+leAA--.15426S2
 X-Coremail-Antispam: 1UD129KBjvdXoW7GF47KryxZF4ktF48AFyrZwb_yoWkJrX_Wa
 	yktFW3u348AFyxJF4FqFy7ZrsrK3y09ryrA3y8Wr45Jry5Ar4IkFZakwnxZr1SvFW0vF1D
-	ur9xJ3y2krnFvjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	ur9xJ3y2krnFvjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
 	9fnUUIcSsGvfJTRUUUbs8Fc2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AK
 	wVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20x
 	vE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2z280
 	aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr0_GcWle2I262IYc4CY6c
 	8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jw0_
 	WrylYx0Ex4A2jsIE14v26r4UJVWxJr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI4
-	8JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWUAVWUtwCF04k20xvY0x0E
+	8JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0E
 	wIxGrwCF04k20xvE74AGY7Cv6cx26r48ZrWUJr1UMxC20s026xCaFVCjc4AY6r1j6r4UMI
 	8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AK
-	xVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI
-	8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280
+	xVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI
+	8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280
 	aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43
-	ZEXa7VUbkhL5UUUUU==
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAADA2rtCZf4iQAAsk
+	ZEXa7VUbtl1PUUUUU==
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRMDA2rtB+r-VAAAsb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_194441_748796_35630129 
-X-CRM114-Status: UNSURE (   6.83  )
+X-CRM114-CacheID: sfid-20261105_194647_046269_5BA857E8 
+X-CRM114-Status: UNSURE (   6.93  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
