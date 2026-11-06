@@ -2,65 +2,123 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC1ED606A32C
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 17:37:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE41A606A329
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2026 17:40:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=leOeBrsS;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O83jgpIh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=s1j4N+dN;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=B4BWXdQS
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=LJTyz89N9TMefU8tUlR/EzumicZa+ZB/mKyu12TYhHw=; b=leOeBrsSA8AErfebtoT066wVtS
-	f2hkbciy1Ml2rHyp5STPZ8eU7QfyDj3iyd1UNRFu1mMX9qt8KVLpN2ymtKRVH39PAc3kMejJLizku
-	oQfEzN+QcUfCvHxGEokauJ6ZXBSDBvduWm5Zy1nJZNv1SXXThIsWkpGM/FvxfdwJBfGMX5VoG9OLX
-	896BulSIZv+DbMFyBKksyQhJupXl7an258+5HazDnYvIPhL2ct6jcwx+iNLNnSyjBXdXKeizOH9A0
-	fvm2za59fSaBGl4v5FHQHv7jeYRRnQlBVz1R7YIN5evp5cAtSiPAHJt9CWoZeAO7rrWHYhb6UbSzd
-	DoMrLF4Q==;
+	bh=ezk1i+8wOqp2kOiPboqhV07sZDJ0d6k5lqinMQJl3+Q=; b=s1j4N+dNuegtUJHEVtwLIjvUN7
+	/h/jwSWlw8mKgFOB798AmWLVd9TFKIJK6WjnyNAY3+2UhJuY87pHQdbJK9KSZyxt9y61VdXFQmNHn
+	UYOaN5H8h+WQwMoAYT81gUNtstJtraviQlDxEIDpsT4DDLFXQ8bdPkYbkiHLOIqaQnExwKBo1F8w4
+	xxvA0an8PB2vmT54ziMEt7cfMrIvh5ZX8qIHQGRWrcj6nrUkzaMfYXQW9NuAnz6JmStNB5Sd08E/0
+	q/0jHjOgghnJ105/pj3nFPZpvXh68mrn8lz4dyf0vlwArvIFhIayOLX95MaZEeJYsvhF8DAtkWXRa
+	15zMeuUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPNsr-0000000DFky-2BvA;
-	Fri, 06 Nov 2026 17:37:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xPNvj-0000000DGax-2A2b;
+	Fri, 06 Nov 2026 17:40:48 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPNsq-0000000DFkf-3VRT
-	for linux-riscv@lists.infradead.org;
-	Fri, 06 Nov 2026 17:37:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D489A601BF;
-	Fri,  6 Nov 2026 17:37:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8895E1F0089F;
-	Fri,  6 Nov 2026 17:37:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793986667;
-	bh=gzXUUp+3kGXCL2KE4Dw9AAUPV/Re3Wk69iRm3DbCkyo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=O83jgpIhzzEHm/1SdA1olTRMRaDxmsP1ThiOE0mx5MfOzyJycbPWGBZP0ay0GJZHl
-	 4mJPDcjr4ShzQWmb3O9H8tuDW7FvjdV5wJtPqduJFtkY6Fi/K1T+z7NO+NcIAxKfxO
-	 yZrG1Y4qJ4cCR3Mba1fo5L8y1gYjtXgynoDubpib8Xc66UJJb5DibAJCUN0p9Ealkj
-	 r/qZmvV2gKExI/3wsBtSvDou98UlQHG7wYaasg3EDBpg/SgooMXH8mLP/Zb6hCc4v0
-	 MEKCSMDqk7COOIDUcgvWMtUJE5w8v/XoF18GFIc2RZ+0ZN4JauHhrLDBrNmKrlM65U
-	 pU+cblhjJpjHQ==
-Date: Fri, 6 Nov 2026 17:37:42 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Jiayu Du <duge1256@gmail.com>
-Cc: srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, dlan@kernel.org,
-	troy.mitchell@linux.spacemit.com, pjw@kernel.org,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	p.zabel@pengutronix.de, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: nvmem: Add SpacemiT K3 eFuse controller
-Message-ID: <20261106-cartload-percent-138747dcd4ad@spud>
-References: <20261106060525.346873-1-duge1256@gmail.com>
- <20261106060525.346873-2-duge1256@gmail.com>
+	id 1xPNvf-0000000DGYR-3c2v;
+	Fri, 06 Nov 2026 17:40:45 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A6Exw5w3722896;
+	Fri, 6 Nov 2026 17:40:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=FPRuH7qzdqQGMCK0jcZ+GIXGwO/WWgLOpsO
+	vQkYd/CU=; b=B4BWXdQSLUV4CvbQBXS3gNFJJOQ0jV1Cy7+JrUiw86zpoDkh8DS
+	FRzCL1vimQ6WgQpGDRVRvT4xNkM7WgDUBsfFSfOrs34njgu/gLZ6mFBk9FmCmJyT
+	MiYGGwHfKZj24Kgq771OhVgwolgejfOcSnkXXwVszPrNJW5BBx3RnrB6pH+nL301
+	YobNt+y7KGEP3ysFMEpjf2zi5V0kcV9Hq6pZiL1vOcFVXKT9iN+3RM846q2To4oN
+	cor4lvn3s8+9QAW+WtFCKvBPKNabxTTiQcu/iBCdoNME7QbAnVd3F+jTRdLu+e0O
+	JtWGXXVnNQWy+V08leh0uTvlPmqI48UAnZA==
+Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hs3p9kwhk-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 06 Nov 2026 17:40:21 +0000 (GMT)
+Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6A6HeII73084411;
+	Fri, 6 Nov 2026 17:40:18 GMT
+Received: from hu-devc-blr-u24-a.qualcomm.com (hu-vikrsi-blr.qualcomm.com [10.190.111.249])
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 6A6HeIdB3084365
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 06 Nov 2026 17:40:18 +0000 (GMT)
+Received: by hu-devc-blr-u24-a.qualcomm.com (Postfix, from userid 4853235)
+	id DF724248A1; Fri,  6 Nov 2026 23:10:17 +0530 (+0530)
+From: Vikram Singh <vikram.singh3@oss.qualcomm.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+        Arnaldo Carvalho de Melo <acme@kernel.org>,
+        Namhyung Kim <namhyung@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+        Adrian Hunter <adrian.hunter@intel.com>,
+        "Liang, Kan" <kan.liang@linux.intel.com>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Alexandre Ghiti <alex@ghiti.fr>,
+        Atish Kumar Patra <atishp@rivosinc.com>,
+        Anup Patel <anup.patel@oss.qualcomm.com>,
+        Will Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Beeman Strong <beeman@rivosinc.com>
+Cc: Vikram Singh <vikram.singh3@oss.qualcomm.com>,
+        linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+        Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>,
+        devicetree@vger.kernel.org
+Subject: [PATCH v4 0/7] riscv: pmu: Add support for Control Transfer Records Ext. 
+Date: Fri,  6 Nov 2026 23:09:35 +0530
+Message-ID: <20261106173942.3175069-1-vikram.singh3@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20261106060525.346873-2-duge1256@gmail.com>
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-ORIG-GUID: AJ0EHmOcNbLN-b8h9eCfXKlOwzIMKLgz
+X-Proofpoint-GUID: AJ0EHmOcNbLN-b8h9eCfXKlOwzIMKLgz
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA2MDA3MCBTYWx0ZWRfX1eAcMBD/3LQz
+ QA8vgbedlMA183wbSDF90jTmbm/90TW5Y1J6arWVM3Qt1gXAT5WBfgzJpciu6bugOE7Y3zxewwY
+ 8MaomBGDQblMMOARG7y04PC3AQNOklY=
+X-Authority-Analysis: v=2.4 cv=XvNvqlF9 c=1 sm=1 tr=0 ts=6aee1106 cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=_K5XuSEh1TEqbUxoQ0s3:22 a=xvfqbYfxAAAA:20 a=O76HWA22AAAA:20
+ a=VwQbUJbxAAAA:8 a=h0uksLzaAAAA:8 a=NEAV23lmAAAA:8 a=JfrnYn6hAAAA:8
+ a=20KFwNOVAAAA:8 a=7CQSdrXTAAAA:8 a=QyXUC8HyAAAA:8 a=1XWaLZrsAAAA:8
+ a=pFyQfRViAAAA:8 a=_O3DOGVWAAAA:8 a=EUspDBNiAAAA:8 a=Epjr2bh0dWxRFF0fu90A:9
+ a=MSi_79tMYmZZG2gvAgS0:22 a=1CNFftbPRP8L7MoqJWF3:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+ a=oJz5jJLG1JtSoe7EL652:22 a=2TKV-7w1aU1AVAwN0oqT:22 a=bA3UWDv6hWIuX7UZL3qL:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA2MDA3MCBTYWx0ZWRfX9JApodlP6pYo
+ SVRlEm5qDmj5G2MtthGqH+XNw9G08jm0qZHMVXT0qmxukoEu2sQAf6v02UzeaNBVb7EyV3xQebj
+ zW40+PA52odB1YhbLHIJJymj7W0HS03b1KpXKhpwegKrHTRHvpsdqiwEnAL62KswMaH0wUCN6VZ
+ 5/OO4ssxlwy/0e3uU0of0j42RkPwJE1Y9U2YUKj+b4GUd5puNYG00j0yx2I77oON7XaFK06zSYO
+ oGjZJnYrV6EdTyY9pFO88RwTdd2OUJtzYhvAsXo8DnfgzoGhWYBftMY8OiMaldOL+h8NB2FILgK
+ MUwmm8SvzpvNesFQVhCEkEX68att32jieJxrHHRu1l58azrglXQbEiSvufjdnGJpWZV6NUWC/dJ
+ eh1TftiZok6M1Tus+guHvRSMK6t5eBAuclVJPo+DfHgHjH35ucC5eu+4ome8YjZSOMJselDCD6i
+ p4j+AQo2L1T6hdGS9Qw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-06_05,2026-11-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 suspectscore=0 adultscore=0 malwarescore=0 impostorscore=0
+ phishscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611060070
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261106_094043_922719_262C36F4 
+X-CRM114-Status: GOOD (  24.60  )
+X-Spam-Score: -2.7 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,51 +128,130 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0940703540108012542=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============0940703540108012542==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Ee509AZx53jUEgBj"
-Content-Disposition: inline
+This series enables Control Transfer Records extension support on riscv
+architecture. This extension is similar to Arch LBR in x86 and BRBE in ARM.
+The Extension has been ratified and latest release can be found here [0]
 
---Ee509AZx53jUEgBj
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+CTR extension depends on both the implementation of S-mode and Sscsrind
+extension v1.0.0 [1]. CTR access ctrsource, ctrtartget and ctrdata CSRs
+using sscsrind extension.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+The series is based on Smcdeleg/Ssccfg counter delegation extension [2]
+patches [3]. CTR itself doesn't depend on counter delegation support. This
+rebase is basically to include the Smcsrind patches.
 
---Ee509AZx53jUEgBj
-Content-Type: application/pgp-signature; name=signature.asc
+The last patch is in the perf tool to allow processing 256 entries. Without
+this perf seems to consider that sample as corrupted and discards it.
 
------BEGIN PGP SIGNATURE-----
+Here is the link to a quick guide [4] to setup and run a basic perf demo on
+Linux to use CTR Ext.
 
-iHQEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCau4QZgAKCRB4tDGHoIJi
-0jyOAPi8fHRhLGVqM182Gzy3UpQvIry4Uqap4X2Fotqw5kA7AQCwcUH4NOyFCqIf
-ggKPhUszL9Fc0yu8kWw4SOYoDjz/AA==
-=q0C3
------END PGP SIGNATURE-----
+Qemu patches are merged upstream and is available with latest version
 
---Ee509AZx53jUEgBj--
+Opensbi patch is merged upstream and is available with latest version
 
+[0]: https://github.com/riscv/riscv-control-transfer-records/releases/tag/v1.0
+[1]: https://github.com/riscvarchive/riscv-indirect-csr-access/releases/tag/v1.0.0
+[2]: https://github.com/riscvarchive/riscv-smcdeleg-ssccfg/releases/tag/v1.0.0
+[3]: https://lore.kernel.org/lkml/20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com/
+[4]: https://github.com/rajnesh-kanwal/linux/wiki/Running-CTR-basic-demo-on-QEMU-RISC%E2%80%90V-Virt-machine
 
---===============0940703540108012542==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+To: Peter Zijlstra <peterz@infradead.org>
+To: Ingo Molnar <mingo@redhat.com>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Namhyung Kim <namhyung@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+To: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+To: Jiri Olsa <jolsa@kernel.org>
+To: Ian Rogers <irogers@google.com>
+To: Adrian Hunter <adrian.hunter@intel.com>
+To: Liang, Kan <kan.liang@linux.intel.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+To: Albert Ou <aou@eecs.berkeley.edu>
+To: Alexandre Ghiti <alex@ghiti.fr>
+To: Atish Kumar Patra <atishp@rivosinc.com>
+To: Anup Patel <anup.patel@oss.qualcomm.com>
+To: Will Deacon <will@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Beeman Strong <beeman@rivosinc.com>
+Cc: linux-perf-users@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: Palmer Dabbelt <palmer@sifive.com>
+Cc: Conor Dooley <conor@kernel.org>
+Cc: devicetree@vger.kernel.org
+
+---
+Changelog:
+v4:
+- Ported CTR driver and support files from kernel version 6.14 to kernel version 7.2
+- Added CSR indirect access header file to be used by CTR driver
+- Changes in sched_task call back signature to accomodate new kernel headers
+- Minor clean up
+
+v3:
+- Added missing To/Cc, especially devicetree@vger.kernel.org
+- Changed the commit description to better describe the need of
+  perf tool change that increases max sample size processing
+  capacity of remove_loops function.
+- Minor fixes found while doing a virtualization PoC.
+- Added the missing commit and repository information to dt-bindings,
+  indicating where the extension was ratified.
+
+v2
+- Added context save/restore support for tasks using CTR feature.
+- https://lore.kernel.org/lkml/20250116230955.867152-1-rkanwal@rivosinc.com/ 
+
+v1:
+- https://lore.kernel.org/lkml/20240529185337.182722-1-rkanwal@rivosinc.com/
+---
+
+Vikram Singh (7):
+  perf: Increase the maximum number of branches remove_loops() can
+    process.
+  riscv: pmu: Add Control transfer records CSR definations.
+  riscv: Add Control Transfer Records extension parsing
+  riscv: pmu: Add infrastructure for Control Transfer Record
+  riscv: pmu: Add driver for Control Transfer Records Ext
+  riscv: pmu: Integrate CTR Ext support in riscv_pmu_dev driver
+  dt-bindings: riscv: add Sxctr ISA extension description
+
+ .../devicetree/bindings/riscv/extensions.yaml |  29 +
+ MAINTAINERS                                   |   4 +
+ arch/riscv/include/asm/csr.h                  |  85 +++
+ arch/riscv/include/asm/csr_indirect.h         |  50 ++
+ arch/riscv/include/asm/hwcap.h                |   9 +-
+ arch/riscv/kernel/cpufeature.c                |   2 +
+ drivers/perf/Kconfig                          |  16 +
+ drivers/perf/Makefile                         |   1 +
+ drivers/perf/riscv_ctr.c                      | 609 ++++++++++++++++++
+ drivers/perf/riscv_pmu.c                      |  21 +-
+ drivers/perf/riscv_pmu_legacy.c               |   2 +
+ drivers/perf/riscv_pmu_sbi.c                  |  85 +++
+ include/linux/perf/riscv_pmu.h                |  55 +-
+ tools/perf/util/machine.c                     |  21 +-
+ 14 files changed, 979 insertions(+), 10 deletions(-)
+ create mode 100644 arch/riscv/include/asm/csr_indirect.h
+ create mode 100644 drivers/perf/riscv_ctr.c
+
+-- 
+2.43.0
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0940703540108012542==--
-
