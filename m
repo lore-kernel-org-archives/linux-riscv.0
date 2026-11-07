@@ -2,95 +2,96 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8F29606A32C
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2026 02:40:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A6DE606A32F
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2026 02:40:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fNKJoQHH;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=prQuEx/r;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=M0Pd9hIV
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Xej5p5PK;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Ba1yRdRP;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HI3cg07k
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Z5bw4QRQ8nrO3CE8j27uyi6thW7sQr6sOUc3iG3w57c=; b=fNKJoQHHR5CTWJ4BE/f6uFwPp7
-	3MWLz2GD5tJBSCyadK8AE5+ZTj+7I4G6+cwddB6zAfCSB2mu9W7e7BQA+GIl6Vc7nnLP5M4VhD7VR
-	E+ss93CVStiqudQ54xU+VvKaEjXLSVpdg9Io4U9imWzuicqwt5THTtfNzOU1OUbrYoRQ018ee//mu
-	qOa0YNhEse1LcZIRwvbS7COQLTRdADo8hTD8gOFKbubpo61e7cu2inpbL88MeIDu3xWheqlcO5cME
-	Jyg2UdhqK0O7RcK+DDWfjRqNS5IqM6gsjIN/y1WfYuxhvaPjvbZqcVBd/NWzg1uoRXRBWNGUoZdZ8
-	YYsy3BLw==;
+	bh=8iyx3d3f/x769J4b/gE7e9xkJtA4sfujsrMSXhZs92w=; b=Xej5p5PKKx0BCY7xWbxXFzw/h/
+	kFtyxxCqbaWrXB9wxo/xNOYUOKpZWkKEPQsHvw2Mq/avTlBwy9GoQzZFPyqpJCvKZeZJvnctrtTHH
+	kvb76H+LsxnOCMHKgxaoVBUieEi4sVKad8Jp1/iswDvmIBBX2hctbTNce+2C1cOGC39W8IZqud9JW
+	yDxWC/QG7pXlAX2RXMywvCa0/pRuvF8OnOP4RfCDUy/yabsnJ+LJoZn9E1pSWEBagUk1MbrEq2IKZ
+	ahoTWBa5ll7FsMnd8sqNQzBFowvi1WQeaxIjiYa8wuTRy+PbjcUWExo1Ej1QXZP17le6MKYCATchR
+	H5oGwrKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPWLv-0000000E5VB-3tX5;
-	Sat, 07 Nov 2026 02:40:23 +0000
+	id 1xPWLw-0000000E5VZ-0J0k;
+	Sat, 07 Nov 2026 02:40:25 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPWLN-0000000E5Ob-3atc
+	id 1xPWLV-0000000E5PN-00Wa
 	for linux-riscv@lists.infradead.org;
-	Sat, 07 Nov 2026 02:40:11 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A72B7Ne2152458
-	for <linux-riscv@lists.infradead.org>; Sat, 7 Nov 2026 02:39:33 GMT
+	Sat, 07 Nov 2026 02:40:14 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A72Xun11237688
+	for <linux-riscv@lists.infradead.org>; Sat, 7 Nov 2026 02:39:56 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=yPqS9+jjib1sxM+lashj/lPQvrYKSiMhFD5
-	RdhnO7D0=; b=prQuEx/rq64IvGjKtB6ZhmV3sHxdSim4xZlwhchPEwZk9dCeAhW
-	6wq4vss9cQEzzvbBiUFcavNg/55mtjMFdkL7yTnfk7DdRQU8ib40vIgMvtRSKel1
-	du8vGjdJXtkdGXU3VLV8eJdvRU9c0mWi3bGd1xfAFhwnqAoW05/n+jIQcUWQwI59
-	AP+oJfOH5JT5l2ag+lVDGj6FnaLUR0HQfX/DQ5Gc3cOkgQsegAcMsR98NR1KqcZL
-	5qlz0xq31NJrMmWl9yXnpxGS/dBwApzyjkikODk4y0oHfnd+AfNSVQjDgjUFV2aS
-	BgSMpAZj+6OTfvE/SIUj4h4NwH1P2HKsH5g==
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=FtJbi3TLd6U
+	zkLX1SyCMRPTJn7wcbqfY9cqjaOspDjk=; b=Ba1yRdRPm31IuQ/0NDxRWHBNdCu
+	QQTW5Pi0gPLVfCmSxZpy31SZOsXuc39z/164Cj0hvtPOFPypGUoJsljC5ElSpchm
+	NYod7pwBoKcdXlxwh9dsDzpTkkAPXGVhmIBxZOo2hH1VCkwvjKcLpwN2RVRYzqAY
+	vAiU5knJ4vv2pGp4p0/iiYi/Tu+E4XKdlJzz3Xqyny6iPweXa7JH/su1A7aitSeQ
+	IjNvZ4Hgqlo1EqUmNbM22dXMxh+pVr1F56s8dSNTdWiL/owlzhSkriDcZzzmn3Nz
+	eqoyoZpZbukHailS6OeGs9Qj1jKr3Jah5eqTVLGxzkvJEvAWMYkzydYS4LQ==
 Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hsn0e15pp-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hsuagr0fc-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Sat, 07 Nov 2026 02:39:33 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3700be873ebso307344eec.1
-        for <linux-riscv@lists.infradead.org>; Fri, 06 Nov 2026 18:39:33 -0800 (PST)
+	for <linux-riscv@lists.infradead.org>; Sat, 07 Nov 2026 02:39:55 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-370230d93efso1883375eec.1
+        for <linux-riscv@lists.infradead.org>; Fri, 06 Nov 2026 18:39:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794019172; x=1794623972; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yPqS9+jjib1sxM+lashj/lPQvrYKSiMhFD5RdhnO7D0=;
-        b=M0Pd9hIVPO6JtF3iSs5sIG2f3m33PZbkY5jrttqFMfO5j/lpXPs0H3PhmPOdIrwgVV
-         HHz5RLKP6riq9yuXlnCIGIm0uKSkue2ppQ0lfKvo3lsME+iEAoimLEpZ7lolCx/zK0et
-         PcaooMDWcvpPrFL2nkTTe6BbBXtuErXaR4TxZCQizIkzYYcg+GzJw/lzlN6z7Sz0CIvH
-         ZaMpURGTBurTNioE9JFqLq+vfIr0vAssb527PN1GC5Iurd25wDxzZ8Ar+fywLhtadn2n
-         fGalbHs64YYGt2H8qUR56xn+gSIMwoDnKhR3OmFQ9ku7oUtDd31mxNN9caPyzpYrQKDF
-         bEvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794019172; x=1794623972;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=oss.qualcomm.com; s=google; t=1794019195; x=1794623995; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=yPqS9+jjib1sxM+lashj/lPQvrYKSiMhFD5RdhnO7D0=;
-        b=Bk12gE01nauROcr8ZvePwm4K+mzm20UT0nTMLXZFrEWwathlcIV1II6df6f66eis+y
-         xMFoCZkVq+jQ1yhwADmZ6TfxB9pjkbvQK9H3pLJ/foHqXfuOVDTjPQEaIIPJvdgyHyWR
-         zpPDMc89bwskoFIu/oaHRg+j+fWfr1wooK1tzZQFWoIq7YcEl7aIKnZjqRygGtujaAIs
-         JGtIL2Q7tdUnzfFpT8lChDGqhSS4RVsDw8FhsoJm0piK9tLeqD2qytKIXc9tqMdEoE4O
-         xlKY1KdkgbmQDZ78fYcb8omqb0DkQepvbUscPEY/zeAUeOgtdNJM9M6ZgZjTyUtpj8yr
-         US0w==
-X-Forwarded-Encrypted: i=1; AL+hErFTUerNJTM2HaB46x6SZH4knGzt41SMN3piUPU6ZAaxXyHDXlKk8KsctfNSaKK9aTj5AmoPGTkPzQNIMA==@lists.infradead.org
-X-Gm-Message-State: APuU4Z+cuNYQtIcENwhk17tDqm7U6tWp+zsWz3PpS+5aUVz892sjiFWg
-	9EZYfVXuo8bdsO7iiNIxQ0MQc0MP2niuX8CTMED7cs5IYpPq8f0Yg+8ljQihWR98quEqcETOJkV
-	bso+9zp4FD1KDm2+C9Zzmx9moezMdO7cx1oRKPKpe+Dwgh0BFibZLbwFyuV5szZOlWMh6QIc=
-X-Gm-Gg: AYBFou2MCsPWwHa2atUShj5E98W+yLUGkJLJvmMuXCmryaSBz6Y2BQ4gD1m/izJCXqt
-	PqNfYRjbQgbLrhNjOLNm+vGQZFF5Gy/oHm2MvGA8U/sPm3EKj77li7hCv7++tzOkMMEtVxdeuoN
-	wixL+/IFe3f9TZi/9lTgf+oAL7hSSax66o4UGIT28Uu/Y0ioGNsLvJd5d7iQiK4Km1dCQDcMJ+P
-	nXE0uGW5k5RB6ZX6azAxIq86tM7OQCyWFFJZkSWQZXsm4RU2Y7ccmWXeoGilytHEYqwHKgTsCgm
-	Pja+D6tHVBFvLvUl12in4Q45B4zgQVLQkqP+F1EDfQ2i1iYD84eH4S/tMNdQvdrPb28ytWzqa68
-	ec7Yq+pdsgb/k/GSTMyEoTVWROv4JLejtHnIe5s+Ij2pLvQoJ+cj0GYc514n9D4njXmcpoGDgq6
-	23bl7wTD8yT/QUbaR4x7gdwfaITk77v6qRPtOwsFr9QInDF50yMrWn2ojYBpRtx12cs9U5rt9AZ
+        bh=FtJbi3TLd6UzkLX1SyCMRPTJn7wcbqfY9cqjaOspDjk=;
+        b=HI3cg07kBT2ltEiAjfBCcFBNJKjPPWtvScg5F3wbEZlxzks6Ya/idTT0+7OpnKeOlg
+         JMcX7S5lrKDePWKGlO1OBimQrq71x44Hz1GcW5GTMwr/P4vos/GPRK/GDbDt3XK5dzPG
+         CMOYXAv1EgV/peqFHKZr+gIObJrN/dmDkc5jHQoo1BzehF6DWfp4bwi8UjNMY5Nq2OQG
+         B8BZ88kGyoVlE8/QAnGCGvPzQYhV8MIVXGDjFTaQuIa0pMhuO7NAqibLNB4787Mbu93L
+         v1VS3AFcRrGrAYtt8nlUpYIL6JR0k852kTgm9k9MJr+cGv0t3w36Z5x5FfQC2gictyHw
+         MHWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794019195; x=1794623995;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=FtJbi3TLd6UzkLX1SyCMRPTJn7wcbqfY9cqjaOspDjk=;
+        b=ZJ+GFPZAPexKXpDv/O5/djyhy4G6301mUfba7CZ3sKnCNwwBzrXIkfygru0QVDoy1w
+         giSuMj6guGjF6U7ds6nGCo+16dXnik+kATXqkG6Dy/okJ1D8sKoHZxlatvyLm2PArwY0
+         bwNqY+yxr+Y3VPrR2JdDc1pQiJPh+NnKafs5SnkMx9hZSoJ8g51KAflyiHKDofsBxISx
+         +KMYXe8m+yZUlAxwDIsg1MJXfRIb8gVwS/ioyRGN/dbe57OkAUK0atNkOvWRclGyi0jS
+         l+5lqLyj2fV8rD5UDwQQwG3/6q+p6k8hMxd1X6jfy62RAQowRIgU8YVe2KaoscqBjZe3
+         mOig==
+X-Forwarded-Encrypted: i=1; AL+hErGQ+eRhVb7Pib0xytWNjXisvmgGSq5V0w4XySBZSeu5TWcvCguaUu75BejpVAgoqHPlSfM5qJdtfEJDMg==@lists.infradead.org
+X-Gm-Message-State: APuU4Z96zzKbGC48FEG76gD6CSN8PdR5G2LgK4L9SqwLOXqh+kZt0fHd
+	ssHoj8QZsMeq5iX0xjw5ko1AX3pfPDGdY0WTBjsMEGnYtgL96p7lTfw5bb6SKl8/X+ed+oru5A1
+	l/bnc0QTwSdS58zYMVCPdQsAxKP2+d/dTfXotdM4SdaPrGYapXxytZPRPfuFljF5Se3NTh1k=
+X-Gm-Gg: AYBFou0M1DBqCoEMkSNzJwYKxPomXOoGHwPAPWoFuZGl73vw5GVWCLwRMpTNx4GWV9E
+	LOG2tS6o+kvtmPb9bdf1f+LkCe6wZ2cOOEngVsSHRAyE97120oPJBkZ1KtCgbqGe0DyqAvtIyG0
+	uwaAC5+PTVk1t+BpdMavqqIoBMjznVmAqy/Kc2gxcHLsw1KGtZeXMUsvWoA1v++yaR+kp2Z5g4d
+	dKMkD2+A/3bsbrhhdryin/UxSSYJRX7QjcER2cU1kY0D/sGCyFDCO3TjmaNLWAJyERQVkZNarcG
+	ffZQdtOnL8i7BC2uCQXEx1JpBkpyMliX9Ld6JJpmg2LXNOmKNbyEnabcez7QsjB/3SptHeuKohj
+	O/JTQ+4Jb3dLXPkyroQdKGiRYe7SQnSJY/8Bnom+U7xnhSvctorDGhlEfpkSzlxmDFNQe76SvjN
+	ncXJuhmJEt/Rftg1fNwxpZBMROYS+HudEzjdKWxSeylOkwRrQ4fIOW99vnxJFAvT9XMnXrCF9Bd
 	A==
-X-Received: by 2002:a05:693c:8819:20b0:36c:dbfc:ee6f with SMTP id 5a478bee46e88-370f6ec412cmr1169926eec.14.1794019172296;
-        Fri, 06 Nov 2026 18:39:32 -0800 (PST)
-X-Received: by 2002:a05:693c:8819:20b0:36c:dbfc:ee6f with SMTP id 5a478bee46e88-370f6ec412cmr1169834eec.14.1794019171274;
-        Fri, 06 Nov 2026 18:39:31 -0800 (PST)
+X-Received: by 2002:a05:7301:78c3:b0:36a:1904:60a3 with SMTP id 5a478bee46e88-36f75a2ae65mr5260144eec.15.1794019194674;
+        Fri, 06 Nov 2026 18:39:54 -0800 (PST)
+X-Received: by 2002:a05:7301:78c3:b0:36a:1904:60a3 with SMTP id 5a478bee46e88-36f75a2ae65mr5260125eec.15.1794019194141;
+        Fri, 06 Nov 2026 18:39:54 -0800 (PST)
 Received: from hu-himchau-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36faac86a96sm11069040eec.29.2026.11.06.18.39.23
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36faac86a96sm11069040eec.29.2026.11.06.18.39.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Nov 2026 18:39:30 -0800 (PST)
+        Fri, 06 Nov 2026 18:39:53 -0800 (PST)
 From: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
         Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
@@ -107,42 +108,43 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>, Jesse Taube <jtaubepe@redhat.com>,
         linux-kernel@vger.kernel.org, linux-mm@kvack.org,
         linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
         Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-Subject: [PATCH v8 0/8] riscv: Introduce support for hardware break/watchpoints
-Date: Sat,  7 Nov 2026 08:09:09 +0530
-Message-ID: <20261107023917.40606-1-himanshu.chauhan@oss.qualcomm.com>
+Subject: [PATCH v8 3/8] riscv: add ptrace requests for hardware breakpoints
+Date: Sat,  7 Nov 2026 08:09:12 +0530
+Message-ID: <20261107023917.40606-4-himanshu.chauhan@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261107023917.40606-1-himanshu.chauhan@oss.qualcomm.com>
+References: <20261107023917.40606-1-himanshu.chauhan@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Proofpoint-GUID: WkyOUCK4h4v0G0IFiqEZH--HzN5HJt3u
-X-Authority-Analysis: v=2.4 cv=ffA4WEQF c=1 sm=1 tr=0 ts=6aee8f65 cx=c_pps
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA3MDAwOSBTYWx0ZWRfX+eU1hHiy+bra
+ SWcppT6Ew7HWixGxfOVTLytpKmVojY4oBMLPbJ3TE7MEBoE/UivWozxCSlqaVaJrelm2X7Jh6Bf
+ 0ojKH/nYZnIlFk9a0MGCveTtzJcqE/wEoGwmqYPe3/GpYkSNsNuzXJzokOLea7MCdgoL2mPKht+
+ gh5tanEmpNHRKCm8Nv//Or8XyKTNkCY+dSA8bvPy1XXPz8doj+aqdT+mM7AvEu3ttpeqmeNIlSw
+ KnJCld0S1H4bWYNjjPWJCdw/RupdLolmxn9bYYLJsDTXDudKUVz+4smxsiqQz2kAJypniwAvFyP
+ 9hbiTCDPbVVbdM+5YZD0GZsPcydv+GrI+i7eVndLU7b1vJD5tpMzstvXDzw/JgwBQM8ZH5T3cuV
+ IIf1pR24nT2Oy3qe9sbebqLpZjyVI2rOO29gI/dWMnwkFcaWFPPJvmpmdJVTSNJrQDVVElmlE/d
+ 4WwNvLK+ZggWQPevrZg==
+X-Proofpoint-ORIG-GUID: dPg5waYyCCpmnAM8h30gT_eg-ujY33gQ
+X-Proofpoint-GUID: dPg5waYyCCpmnAM8h30gT_eg-ujY33gQ
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA3MDAwOSBTYWx0ZWRfXxnu1Z9+JR1EP
+ KnJL2c09RtPdLu4Q13ZZK3IL93g3dfV/Nc4eFczkRIyYxf+fPbQqIjzrp8i0FQXw8F3u38KycY0
+ PxGcwZY920vghR88zOVhdQvCv3eDD0o=
+X-Authority-Analysis: v=2.4 cv=V8LoQuni c=1 sm=1 tr=0 ts=6aee8f7b cx=c_pps
  a=cFYjgdjTJScbgFmBucgdfQ==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
  a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=NEAV23lmAAAA:8
- a=HwFc7jivAAAA:8 a=_NFv3PjsgsRmLWfyS6wA:9 a=scEy_gLbYbu1JhEsrz4S:22
- a=kr7TZk85JJIQSqC0cl8G:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA3MDAxMCBTYWx0ZWRfX4RS5PX6sLvC8
- MKj2J45hnDJ7AP8pQA3tRFLkupwm0ZwGWbGySQyGUwlHA1MXEgozlyle/jDtNl/5peQAjkhUL48
- O2TBzoXOkXfGz8JToMYbj5+Qz4vQODoVfNZWOpg0O7CAqarNZpeCSj78phwd4Y3jaFMNAYduXYg
- lwSMOARaPZd5mL+ZmBCqOujjYMGnOfoFqpMptX44w/AwC7E5LnNPn5VJ0Oc1+5QCOPpzlyPEwxY
- uQVhQjFnMLcVyLEwVr3y5/8vZgdi7N7grbcZZM9+JNL18uUEwgYWHL0Zz6CdWE8daOjolyr1wPs
- n9h3bIbndfDyZbzv7/xuhoth0ub7D68mpM+gqECUG+S5D6bPNtQb52DY4wYWChQCESQnMG9nJtb
- 8jqVAYmhG5N+fEp5rj6/EE8Iwx3P9fIlwqEpX1a29HJydBRJWiD33HW50vePyAobcAZ3a0i34/l
- 7j61kyHcsIXYVXu07HQ==
-X-Proofpoint-ORIG-GUID: WkyOUCK4h4v0G0IFiqEZH--HzN5HJt3u
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA3MDAxMCBTYWx0ZWRfX0vaIN8uqywc3
- 7P9waqYpb201QYEuVuHOMwMSwq08JfPcT9FF1HKk1BWOqbvj2FrQmI1yS4pLKaPYrJKSvqRDjSP
- a7OIuqRB0kbbf9xtYQ+3qVdAsunRHHo=
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=EUspDBNiAAAA:8
+ a=4WprEUycQGGDspryc_kA:9 a=scEy_gLbYbu1JhEsrz4S:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-07_01,2026-11-06_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 malwarescore=0 spamscore=0 phishscore=0 priorityscore=1501
- adultscore=0 suspectscore=0 clxscore=1015 lowpriorityscore=0 impostorscore=0
+ suspectscore=0 clxscore=1015 malwarescore=0 bulkscore=0 impostorscore=0
+ phishscore=0 adultscore=0 lowpriorityscore=0 priorityscore=1501 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611070010
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611070009
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_184002_559638_7229FE37 
-X-CRM114-Status: GOOD (  25.28  )
+X-CRM114-CacheID: sfid-20261106_184003_127391_BCFBE39B 
+X-CRM114-Status: GOOD (  28.52  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -158,240 +160,530 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This patchset adds support for hardware breakpoints and watchpoints in the
-RISC-V architecture. The framework is built on top of the perf/ptrace subsystem
-and the SBI debug trigger extension (Sdtrig).
+Add support for the RISC-V PTRACE_GETHBPREGS and PTRACE_SETHBPREGS
+requests. A tracer can use these requests to read or program one
+hardware breakpoint or watchpoint slot at a time.
 
-Single stepping uses icount when it is available. The software stepping path is
-kept as a fallback for systems where icount is not available.
+Store the ptrace-owned breakpoints in the traced task and use perf
+hardware breakpoint events to program the trigger. Report hits as
+SIGTRAP/TRAP_HWBKPT. Clear the events when a thread is flushed or copied
+so breakpoints do not survive execve() or fork().
 
-The icount path depends on a QEMU fix so that, when an icount trigger fires,
-the exception PC follows the Sdtrig action rule: "xepc must contain the virtual
-address of the next instruction that must be executed to preserve the program
-flow." For QEMU testing, please use:
-  https://github.com/hschauhan/qemu/tree/hschauhan/sdtrig-icount-fix
+Signed-off-by: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
+---
+ arch/riscv/include/asm/hw_breakpoint.h |  13 +
+ arch/riscv/include/asm/processor.h     |  15 ++
+ arch/riscv/include/uapi/asm/ptrace.h   |   9 +
+ arch/riscv/kernel/hw_breakpoint.c      |   2 -
+ arch/riscv/kernel/process.c            |   2 +
+ arch/riscv/kernel/ptrace.c             | 321 +++++++++++++++++++++++++
+ 6 files changed, 360 insertions(+), 2 deletions(-)
 
-Virtualization of debug triggers is pending. The patch set is ready but needs
-testing.
-
-Changes from v7:
-  - Rebased to v7.4-rc1 and folded maintainer entries into the patches that
-    add the maintained files.
-  - Reworked the patch structure:
-    - one patch for the direct single-slot ptrace requests
-    - one patch for the register set interface
-    - debug trigger encoding details kept internal from the introductory patch
-  - Tightened breakpoint and watchpoint handling:
-    - trigger setup, update, uninstall, cleanup, and error paths
-    - debug trap races with trigger programming
-    - hit state cleanup so stale hardware state is not reused
-    - cleanup across program replacement and fork
-    - bounds, overflow, and wider-access watchpoint matching
-  - Improved ptrace support:
-    - both ptrace interfaces now share the same breakpoint/watchpoint storage
-    - 32-bit traced tasks are supported on 64-bit kernels
-    - partial writes and bad indexes are rejected more carefully
-  - Improved single stepping:
-    - icount is used when available, so the hardware reports the next PC and
-      the kernel does not have to decode the stepped instruction
-    - software stepping remains as the fallback and now handles indirect
-      branches, kernel-address instruction fetches, and mode-specific temporary
-      triggers more carefully
-    - unsafe software-step cases are rejected instead of looping on the same
-      address, and the original breakpoint is restored if stepping lands
-      somewhere unexpected
-    - CPU-wide software stepping is rejected when icount is unavailable; there
-      is no task to follow, and the fallback needs per-task state
-    - unused saved trigger state was removed, and the QEMU icount fix needed for
-      testing is documented
-  - Improved selftests:
-    - icount stepping over a taken branch
-    - cleanup of failed child processes
-    - failure propagation to the process exit status
-    - bounded waits for expected signals
-    - breakpoint/watchpoint readback validation
-    - native riscv64 build handling and RISC-V-only test flags
-  - Built and tested QEMU, OpenSBI, Linux, the breakpoint selftest, perf tests,
-    RV32 compat ptrace tests, icount stepping, and software-step fallback
-
-Changes from v6:
-  - Rebased to v7.3-rc5
-  - Added HIT0/1 bit check/clear in breakpoint handler with EPC/Bp address check
-  - Removed dbtr_shmem null check as pointed by Qinfang Deng
-  - Fixed MEM_HI/MEM_LO macros to work both on rv64/32
-  - Changed unsigned long to __u64 from hwdebug state struct and dropped packing
-  - Gated HAVE_MIXED_BREAKPOINT_REGS with PERF_EVENTS
-  - Software base single stepping with mcontrol6 trigger type.
-  - icount is still under development.
-  - Moved and and reworked instruction decoding code to a common file.
-  - perf test suite now supported.
-	- Breakpoint overflow signal handler
-	- Breakpoint overflow sampling
-	- Breakpoint accounting (needs sudo)
-	- Watchpoint
-	  - Read Only Watchpoint
-	  - Write Only Watchpoint
-	  - Read / Write Watchpoint
-	  - Modify Watchpoint
-  - __test_function in "Breakpoint overflow signal handler" is name noinline
-  - Fixed warnings from checkpatch.pl --strict
-
-Changes from v5:
-  - Rebased to v7.2-rc6
-  - Simplified Macros in hw_breakpoint.h
-  - Took care of the review comments
-  - Added ptrace support for hardware break/watchpoints (new patch)
-    - PTRACE_GETREGSET/SETREGSET via NT_RISCV_HW_BREAK / NT_RISCV_HW_WATCH
-    - PTRACE_GETHBPREGS / SETHBPREGS for direct single-trigger access
-    - HAVE_MIXED_BREAKPOINTS_REGS selected (break/watch share trigger pool)
-    - flush_ptrace_hw_breakpoint / ptrace_hw_copy_thread wired up
-  - Extended selftest to cover ptrace-based hw break/watchpoint paths (new patch)
-
-Changes from v4:
-  - Rebased to v7.2-rc4
-  - Fixed rv32 build error
-  - Added pr_fmt to print KBUILD_MODNAME
-  - Changed type of shmem_pa to phys_addr_t
-  - Use per_cpu_ptr_to_phys instead of __pa for per-cpu allocated memory
-  - Print successful registration/unregistration message when no error
-  - Added RISC-V DEBUGGING section in MAINTAINERS and added myself as maintainer
-  - Fixed warnings from checkpatch.pl --strict run
-
-Changes from v3:
-  - Rebased to v7.1-rc3
-  - For watchpoints, check tdata1.hit via SBI_EXT_DBTR_TRIG_READ and keep
-    STVAL-based matching as fallback
-  - Improved watchpoint matching when STVAL reports the lowest accessed address
-    for wider memory accesses
-  - Program execute breakpoints with SIZE=0 (match any size) to avoid misses
-    with 16-bit/compressed instruction addresses
-  - Updated selftest to avoid deadlock by replacing unbounded sem_wait() with
-    sem_timedwait() timeout handling
-  - Updated selftest breakpoint function so it cannot be inlined or optimized away
-
-Changes from v2:
-  - Rebased to v7.0-rc1
-  - Fixed warnings from checkpatch.pl --strict run
-
-Changes from v1:
-  - The patch adding the SBI extension and function IDs is already merged; this
-    series builds on top of that
-  - Added breakpoint selftest in tools/testing/selftests/breakpoints/
-
-Specifications:
-~~~~~~~~~~~~~~
-The SBI debug trigger extension is specified in the SBI specification:
-  https://docs.riscv.org/reference/sbi/v3.0/ext-debug-triggers.html
-
-The Sdtrig ISA is part of the RISC-V debug specification:
-  https://github.com/riscv/riscv-debug-spec
-
-How to use:
-~~~~~~~~~~~
-OpenSBI:
-  https://github.com/riscv-software-src/opensbi.git
-
-QEMU:
-  https://github.com/hschauhan/qemu/tree/hschauhan/sdtrig-icount-fix
-
-Linux Kernel:
-  Apply these patches on top of v7.4-rc1
-
-How to test:
-~~~~~~~~~~~
->From the Linux kernel directory, first install the UAPI headers (required on a
-fresh tree so the compiler can locate <asm/ptrace.h> and the new
-NT_RISCV_HW_BREAK/WATCH definitions via KHDR_INCLUDES):
-
-  make headers
-
-Then build the selftest:
-
-  make -C tools/testing/selftests/breakpoints/
-
-This produces breakpoint_test_riscv under the same directory. Load it on the
-target and run. Sample output:
-
-  # /apps/breakpoint_test_riscv
-  # [perf_event]: Breakpoint test passed!
-  # [perf_event]: Watchpoint test passed!
-  # [ptrace]: Breakpoint test passed!
-  # ptrace(PTRACE_GETREGSET): Number of watchpoints: 2
-  # ptrace(PTRACE_GETREGSET): addr: 0x82888 control: 0x8080
-  # [ptrace]: Watchpoint test passed!
-  # [hbpregs] breakpoint readback: addr=0x10472 type=4 len=4 ctrl=0
-  # [hbpregs]: Breakpoint test passed!
-  # [hbpregs] watchpoint readback: addr=0x82888 type=2 len=8 ctrl=0
-  # [hbpregs]: Watchpoint test passed!
-  # Icount taken branch PC test passed!
-
-Perf Test Suite:
-~~~~~~~~~~~~~~~
-Run these perf tests sequentially. On this perf tree, the watchpoint tests share
-one watched variable and the default parallel mode can make the subtests
-interfere with each other.
-
-~ # /apps/perf test -S -v 16 17 18 19 20
- 16: Breakpoint overflow signal handler           : Ok
- 17: Breakpoint overflow sampling                 : Ok
- 18: Event re-armed with PERF_EVENT_IOC_REFRESH   :
- 18.1: Software event                             : Ok
- 18.2: Tracepoint event                           : Skip (permissions)
- 19: Breakpoint accounting                        : Ok
- 20: Watchpoint                                   :
- 20.1: Read Only Watchpoint                       : Ok
- 20.2: Write Only Watchpoint                      : Ok
- 20.3: Read / Write Watchpoint                    : Ok
- 20.4: Modify Watchpoint                          : Ok
-
-=== Test Summary ===
-Passed main tests : 3
-Passed subtests   : 5
-Skipped tests     : 1
-Failed tests      : 0
-
-Himanshu Chauhan (8):
-  riscv: Introduce support for hardware break/watchpoints
-  riscv: Add breakpoint and watchpoint test for riscv
-  riscv: add ptrace requests for hardware breakpoints
-  riscv: add regset access for hardware breakpoints
-  selftests/breakpoints: extend riscv test for ptrace hw
-    break/watchpoints
-  riscv: Add shared instruction fetch and decode helpers
-  riscv: Add software supported single stepping with mc/mc6 triggers
-  perf tests: keep bp_signal memory accesses visible
-
- MAINTAINERS                                   |   12 +
- arch/riscv/Kconfig                            |    2 +
- arch/riscv/include/asm/hw_breakpoint.h        |   78 ++
- arch/riscv/include/asm/insn.h                 |   16 +
- arch/riscv/include/asm/kdebug.h               |    3 +-
- arch/riscv/include/asm/processor.h            |   15 +
- arch/riscv/include/uapi/asm/ptrace.h          |   50 +
- arch/riscv/kernel/Makefile                    |    1 +
- arch/riscv/kernel/hw_breakpoint.c             | 1182 +++++++++++++++++
- arch/riscv/kernel/process.c                   |    2 +
- arch/riscv/kernel/ptrace.c                    |  661 +++++++++
- arch/riscv/kernel/traps.c                     |    6 +
- arch/riscv/kernel/traps_misaligned.c          |   52 +-
- arch/riscv/lib/Makefile                       |    1 +
- arch/riscv/lib/insn.c                         |  279 ++++
- include/uapi/linux/elf.h                      |    4 +
- tools/include/uapi/linux/elf.h                |    2 +
- tools/perf/tests/bp_signal.c                  |   14 +-
- tools/testing/selftests/breakpoints/Makefile  |    8 +
- .../breakpoints/breakpoint_test_riscv.c       |  867 ++++++++++++
- 20 files changed, 3197 insertions(+), 58 deletions(-)
- create mode 100644 arch/riscv/include/asm/hw_breakpoint.h
- create mode 100644 arch/riscv/kernel/hw_breakpoint.c
- create mode 100644 arch/riscv/lib/insn.c
- create mode 100644 tools/testing/selftests/breakpoints/breakpoint_test_riscv.c
-
+diff --git a/arch/riscv/include/asm/hw_breakpoint.h b/arch/riscv/include/asm/hw_breakpoint.h
+index dcce20ba3faa..6e8913d69df2 100644
+--- a/arch/riscv/include/asm/hw_breakpoint.h
++++ b/arch/riscv/include/asm/hw_breakpoint.h
+@@ -12,10 +12,17 @@ struct task_struct;
+ 
+ #include <uapi/linux/hw_breakpoint.h>
+ 
++/* Maximum number of hardware breakpoints supported */
++#define RISCV_MAX_BP		16
++
+ struct arch_hw_breakpoint {
+ 	unsigned long address;
+ 	unsigned long len;
+ 	unsigned int type;
++	unsigned int match;
++	unsigned int chain;
++	unsigned int select;
++	unsigned int time;
+ 
+ 	/* Trigger configuration data */
+ 	unsigned long tdata1;
+@@ -42,8 +49,14 @@ void arch_disable_hw_breakpoint(struct perf_event *bp);
+ int arch_install_hw_breakpoint(struct perf_event *bp);
+ void arch_uninstall_hw_breakpoint(struct perf_event *bp);
+ void hw_breakpoint_pmu_read(struct perf_event *bp);
++void clear_ptrace_hw_breakpoint(struct task_struct *tsk);
++void flush_ptrace_hw_breakpoint(struct task_struct *tsk);
++void ptrace_hw_copy_thread(struct task_struct *task);
+ 
+ #else
+ 
++static inline void flush_ptrace_hw_breakpoint(struct task_struct *task) { }
++static inline void ptrace_hw_copy_thread(struct task_struct *task) { }
++
+ #endif /* CONFIG_HAVE_HW_BREAKPOINT */
+ #endif /* __RISCV_HW_BREAKPOINT_H */
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index e9d339bcb7e9..a124ea48d805 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -15,6 +15,7 @@
+ #include <asm/ptrace.h>
+ #include <asm/insn-def.h>
+ #include <asm/alternative-macros.h>
++#include <asm/hw_breakpoint.h>
+ #include <asm/hwcap.h>
+ #include <asm/usercfi.h>
+ #include <asm/errata_list.h>
+@@ -111,6 +112,19 @@ struct pt_regs;
+ #define RISCV_PREEMPT_V_NEED_RESTORE	0x40000000
+ #define RISCV_PREEMPT_V_IN_SCHEDULE	0x20000000
+ 
++struct debug_info {
++#ifdef CONFIG_HAVE_HW_BREAKPOINT
++	/* Have we suspended stepping by a debugger? */
++	int			suspended_step;
++	/* Allow breakpoints and watchpoints to be disabled for this thread. */
++	int			bp_disabled;
++	int			wp_disabled;
++	/* Hardware breakpoints pinned to this task. */
++	struct perf_event	*hbp_break[RISCV_MAX_BP];
++	struct perf_event	*hbp_watch[RISCV_MAX_BP];
++#endif
++};
++
+ /* CPU-specific state of a task */
+ struct thread_struct {
+ 	/* Callee-saved registers */
+@@ -135,6 +149,7 @@ struct thread_struct {
+ #ifdef CONFIG_RISCV_ISA_SSQOSID
+ 	u32 srmcfg;
+ #endif
++	struct debug_info debug;
+ };
+ 
+ /* Whitelist the fstate from the task_struct for hardened usercopy */
+diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
+index 3de2b7124aff..373a1c14f207 100644
+--- a/arch/riscv/include/uapi/asm/ptrace.h
++++ b/arch/riscv/include/uapi/asm/ptrace.h
+@@ -15,6 +15,8 @@
+ 
+ #define PTRACE_GETFDPIC_EXEC	0
+ #define PTRACE_GETFDPIC_INTERP	1
++#define PTRACE_GETHBPREGS	0x4210
++#define PTRACE_SETHBPREGS	0x4211
+ 
+ /*
+  * User-mode register state for core dumps, ptrace, sigcontext
+@@ -164,6 +166,13 @@ struct user_cfi_state {
+ 	__u64 shstk_ptr;
+ };
+ 
++struct __riscv_hwdebug_state {
++	__u64 addr;
++	__u64 type;
++	__u64 len;
++	__u64 ctrl;
++};
++
+ #endif /* __ASSEMBLER__ */
+ 
+ #endif /* _UAPI_ASM_RISCV_PTRACE_H */
+diff --git a/arch/riscv/kernel/hw_breakpoint.c b/arch/riscv/kernel/hw_breakpoint.c
+index 421ecd8549d9..4231170d4901 100644
+--- a/arch/riscv/kernel/hw_breakpoint.c
++++ b/arch/riscv/kernel/hw_breakpoint.c
+@@ -846,8 +846,6 @@ EXPORT_SYMBOL_GPL(arch_disable_hw_breakpoint);
+ 
+ void hw_breakpoint_pmu_read(struct perf_event *bp) { }
+ 
+-void flush_ptrace_hw_breakpoint(struct task_struct *tsk) { }
+-
+ static int __init arch_hw_breakpoint_init(void)
+ {
+ 	unsigned int cpu;
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index 34c1d498d1ca..083c45e657b6 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -204,6 +204,7 @@ void flush_thread(void)
+ 	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM))
+ 		envcfg_update_bits(current, ENVCFG_PMM, ENVCFG_PMM_PMLEN_0);
+ #endif
++	flush_ptrace_hw_breakpoint(current);
+ }
+ 
+ void arch_release_task_struct(struct task_struct *tsk)
+@@ -283,6 +284,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 	p->thread.riscv_v_flags = 0;
+ 	if (has_vector() || has_xtheadvector())
+ 		riscv_v_thread_alloc(p);
++	ptrace_hw_copy_thread(p);
+ 	p->thread.sp = (unsigned long)childregs; /* kernel sp */
+ 	return 0;
+ }
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index a0055743d3ba..be076865d02d 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -18,8 +18,10 @@
+ #include <linux/elf.h>
+ #include <linux/regset.h>
+ #include <linux/sched.h>
++#include <linux/sched/signal.h>
+ #include <linux/sched/task_stack.h>
+ #include <asm/usercfi.h>
++#include <linux/hw_breakpoint.h>
+ 
+ enum riscv_regset {
+ 	REGSET_X,
+@@ -380,6 +382,152 @@ static int riscv_cfi_set(struct task_struct *target,
+ }
+ #endif
+ 
++#ifdef CONFIG_HAVE_HW_BREAKPOINT
++enum riscv_hbp_type {
++	RISCV_HBP_BREAK,
++	RISCV_HBP_WATCH,
++};
++
++/*
++ * Handle hitting a HW-breakpoint.
++ */
++static void riscv_ptrace_hbptriggered(struct perf_event *bp,
++				      struct perf_sample_data *data,
++				      struct pt_regs *regs)
++{
++	struct arch_hw_breakpoint *bkpt = counter_arch_bp(bp);
++
++	force_sig_fault(SIGTRAP, TRAP_HWBKPT, (void __user *)bkpt->address);
++}
++
++/*
++ * Unregister breakpoints from this task and reset the pointers in
++ * the thread_struct.
++ */
++void flush_ptrace_hw_breakpoint(struct task_struct *tsk)
++{
++	int i;
++	struct thread_struct *t = &tsk->thread;
++
++	for (i = 0; i < RISCV_MAX_BP; i++) {
++		if (t->debug.hbp_break[i]) {
++			unregister_hw_breakpoint(t->debug.hbp_break[i]);
++			t->debug.hbp_break[i] = NULL;
++		}
++	}
++
++	for (i = 0; i < RISCV_MAX_BP; i++) {
++		if (t->debug.hbp_watch[i]) {
++			unregister_hw_breakpoint(t->debug.hbp_watch[i]);
++			t->debug.hbp_watch[i] = NULL;
++		}
++	}
++}
++
++void ptrace_hw_copy_thread(struct task_struct *tsk)
++{
++	memset(&tsk->thread.debug, 0, sizeof(struct debug_info));
++}
++
++static struct perf_event *ptrace_hbp_get_event(enum riscv_hbp_type hbp_type,
++					       struct task_struct *tsk,
++					       unsigned long idx)
++{
++	struct perf_event *bp = ERR_PTR(-EINVAL);
++
++	switch (hbp_type) {
++	case RISCV_HBP_BREAK:
++		if (idx >= RISCV_MAX_BP)
++			goto out;
++		idx = array_index_nospec(idx, RISCV_MAX_BP);
++		bp = tsk->thread.debug.hbp_break[idx];
++		break;
++	case RISCV_HBP_WATCH:
++		if (idx >= RISCV_MAX_BP)
++			goto out;
++		idx = array_index_nospec(idx, RISCV_MAX_BP);
++		bp = tsk->thread.debug.hbp_watch[idx];
++		break;
++	}
++
++out:
++	return bp;
++}
++
++static int ptrace_hbp_set_event(enum riscv_hbp_type hbp_type,
++				struct task_struct *tsk,
++				unsigned long idx,
++				struct perf_event *bp)
++{
++	int err = -EINVAL;
++
++	switch (hbp_type) {
++	case RISCV_HBP_BREAK:
++		if (idx >= RISCV_MAX_BP)
++			goto out;
++		idx = array_index_nospec(idx, RISCV_MAX_BP);
++		tsk->thread.debug.hbp_break[idx] = bp;
++		err = 0;
++		break;
++	case RISCV_HBP_WATCH:
++		if (idx >= RISCV_MAX_BP)
++			goto out;
++		idx = array_index_nospec(idx, RISCV_MAX_BP);
++		tsk->thread.debug.hbp_watch[idx] = bp;
++		err = 0;
++		break;
++	}
++
++out:
++	return err;
++}
++
++static struct perf_event *ptrace_hbp_create(enum riscv_hbp_type hbp_type,
++					    struct task_struct *tsk,
++					    unsigned long idx)
++{
++	struct perf_event *bp;
++	struct perf_event_attr attr;
++	int err, type;
++
++	switch (hbp_type) {
++	case RISCV_HBP_BREAK:
++		type = HW_BREAKPOINT_X;
++		break;
++	case RISCV_HBP_WATCH:
++		type = HW_BREAKPOINT_RW;
++		break;
++	default:
++		return ERR_PTR(-EINVAL);
++	}
++
++	ptrace_breakpoint_init(&attr);
++
++	/*
++	 * Initialise fields to sane defaults
++	 * (i.e. values that will pass validation).
++	 */
++	attr.bp_addr	= 0;
++	attr.bp_len	= HW_BREAKPOINT_LEN_4;
++	attr.bp_type	= type;
++	attr.disabled	= 1;
++
++	bp = register_user_hw_breakpoint(&attr, riscv_ptrace_hbptriggered, NULL, tsk);
++	if (IS_ERR(bp))
++		return bp;
++
++	err = ptrace_hbp_set_event(hbp_type, tsk, idx, bp);
++	if (err) {
++		/* Drop the event if it cannot be published in the task slot. */
++		unregister_hw_breakpoint(bp);
++		return ERR_PTR(err);
++	}
++
++	return bp;
++}
++
++#endif	/* CONFIG_HAVE_HW_BREAKPOINT */
++
+ static struct user_regset riscv_user_regset[] __ro_after_init = {
+ 	[REGSET_X] = {
+ 		USER_REGSET_NOTE_TYPE(PRSTATUS),
+@@ -549,12 +697,173 @@ void ptrace_disable(struct task_struct *child)
+ {
+ }
+ 
++#ifdef CONFIG_HAVE_HW_BREAKPOINT
++static int riscv_ptrace_bp_type_to_hbp(u64 type, enum riscv_hbp_type *hbp_type)
++{
++	switch (type) {
++	case HW_BREAKPOINT_X:
++		*hbp_type = RISCV_HBP_BREAK;
++		return 0;
++	case HW_BREAKPOINT_R:
++	case HW_BREAKPOINT_W:
++	case HW_BREAKPOINT_RW:
++		*hbp_type = RISCV_HBP_WATCH;
++		return 0;
++	default:
++		return -EINVAL;
++	}
++}
++
++static int riscv_ptrace_bp_clear_event(struct task_struct *child,
++				       enum riscv_hbp_type hbp_type,
++				       unsigned long idx)
++{
++	struct perf_event *bp = ptrace_hbp_get_event(hbp_type, child, idx);
++
++	if (IS_ERR(bp))
++		return PTR_ERR(bp);
++	if (!bp)
++		return 0;
++
++	unregister_hw_breakpoint(bp);
++	return ptrace_hbp_set_event(hbp_type, child, idx, NULL);
++}
++
++static int riscv_ptrace_bp_get(struct task_struct *child, unsigned long idx,
++			       struct __riscv_hwdebug_state *state)
++{
++	struct perf_event *bp;
++
++	if (idx >= RISCV_MAX_BP)
++		return -EINVAL;
++
++	idx = array_index_nospec(idx, RISCV_MAX_BP);
++
++	/*
++	 * PTRACE_GETHBPREGS is a compact view keyed only by index.  The real
++	 * storage is split by type, so search both arrays.
++	 */
++	bp = ptrace_hbp_get_event(RISCV_HBP_BREAK, child, idx);
++	if (IS_ERR(bp))
++		return PTR_ERR(bp);
++	if (!bp) {
++		bp = ptrace_hbp_get_event(RISCV_HBP_WATCH, child, idx);
++		if (IS_ERR(bp))
++			return PTR_ERR(bp);
++	}
++	if (!bp)
++		return -ENOENT;
++
++	state->addr = bp->attr.bp_addr;
++	state->len  = bp->attr.bp_len;
++	state->type = bp->attr.bp_type;
++	state->ctrl = bp->attr.disabled == 1;
++
++	return 0;
++}
++
++static int riscv_ptrace_bp_set(struct task_struct *child, unsigned long idx,
++			       struct __riscv_hwdebug_state *state)
++{
++	struct perf_event *bp;
++	struct perf_event_attr attr;
++	enum riscv_hbp_type hbp_type, other_hbp_type;
++	int ret;
++	bool created = false;
++
++	if (idx >= RISCV_MAX_BP)
++		return -EINVAL;
++
++	idx = array_index_nospec(idx, RISCV_MAX_BP);
++
++	ret = riscv_ptrace_bp_type_to_hbp(state->type, &hbp_type);
++	if (ret)
++		return ret;
++
++	/* The legacy request exposes ctrl as a disabled/enabled boolean. */
++	if (state->ctrl > 1)
++		return -EINVAL;
++
++	other_hbp_type = hbp_type == RISCV_HBP_BREAK ?
++			 RISCV_HBP_WATCH : RISCV_HBP_BREAK;
++
++	bp = ptrace_hbp_get_event(hbp_type, child, idx);
++	if (IS_ERR(bp))
++		return PTR_ERR(bp);
++	if (!bp) {
++		bp = ptrace_hbp_create(hbp_type, child, idx);
++		if (IS_ERR(bp))
++			return PTR_ERR(bp);
++		created = true;
++	}
++
++	attr = bp->attr;
++
++	attr.bp_addr = state->addr;
++	attr.bp_len  = state->len;
++	attr.bp_type = state->type;
++	/* Enable or disable as requested by ctrl (0 = enabled, 1 = disabled) */
++	attr.disabled = state->ctrl == 1;
++	ret = modify_user_hw_breakpoint(bp, &attr);
++	if (ret) {
++		/* Drop only events allocated by this failed request. */
++		if (created)
++			riscv_ptrace_bp_clear_event(child, hbp_type, idx);
++		return ret;
++	}
++
++	/*
++	 * If the same index changed from breakpoint to watchpoint, or back,
++	 * clear the old opposite-type slot after the new event is valid so a
++	 * failed update does not destroy the previous state.
++	 */
++	return riscv_ptrace_bp_clear_event(child, other_hbp_type, idx);
++}
++
++static long riscv_ptrace_gethbpregs(struct task_struct *child, unsigned long idx,
++				    unsigned long __user *datap)
++{
++	struct __riscv_hwdebug_state state;
++	long ret;
++
++	ret = riscv_ptrace_bp_get(child, idx, &state);
++	if (ret)
++		return ret;
++	if (copy_to_user(datap, &state, sizeof(state)))
++		return -EFAULT;
++
++	return 0;
++}
++
++static long riscv_ptrace_sethbpregs(struct task_struct *child, unsigned long idx,
++				    unsigned long __user *datap)
++{
++	struct __riscv_hwdebug_state state;
++
++	if (copy_from_user(&state, datap, sizeof(state)))
++		return -EFAULT;
++
++	return riscv_ptrace_bp_set(child, idx, &state);
++}
++#endif /* CONFIG_HAVE_HW_BREAKPOINT */
++
+ long arch_ptrace(struct task_struct *child, long request,
+ 		 unsigned long addr, unsigned long data)
+ {
+ 	long ret = -EIO;
++#ifdef CONFIG_HAVE_HW_BREAKPOINT
++	unsigned long __user *datap = (unsigned long __user *)data;
++#endif
+ 
+ 	switch (request) {
++#ifdef CONFIG_HAVE_HW_BREAKPOINT
++	case PTRACE_GETHBPREGS:
++		ret = riscv_ptrace_gethbpregs(child, addr, datap);
++		break;
++	case PTRACE_SETHBPREGS:
++		ret = riscv_ptrace_sethbpregs(child, addr, datap);
++		break;
++#endif
+ 	default:
+ 		ret = ptrace_request(child, request, addr, data);
+ 		break;
+@@ -623,8 +932,20 @@ long compat_arch_ptrace(struct task_struct *child, compat_long_t request,
+ 			compat_ulong_t caddr, compat_ulong_t cdata)
+ {
+ 	long ret = -EIO;
++#ifdef CONFIG_HAVE_HW_BREAKPOINT
++	/* cdata is a compat user pointer for the legacy HBP requests. */
++	unsigned long __user *datap = compat_ptr(cdata);
++#endif
+ 
+ 	switch (request) {
++#ifdef CONFIG_HAVE_HW_BREAKPOINT
++	case PTRACE_GETHBPREGS:
++		ret = riscv_ptrace_gethbpregs(child, caddr, datap);
++		break;
++	case PTRACE_SETHBPREGS:
++		ret = riscv_ptrace_sethbpregs(child, caddr, datap);
++		break;
++#endif
+ 	default:
+ 		ret = compat_ptrace_request(child, request, caddr, cdata);
+ 		break;
 -- 
 2.43.0
 
