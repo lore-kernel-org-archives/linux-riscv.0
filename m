@@ -2,10 +2,10 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D900A606A326
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2026 03:13:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11495606A32D
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2026 03:13:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rPgG224F
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kjuorEjX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,28 +13,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=X+QyTtaBdvru4sMWElSFJoskGqC2zcEJdXrw2le4rkk=; b=rPgG224FYU8sV35pz8voCVZvCe
-	dk9J1zThvS6XDKVNmtt+pHx1lgRdPWdULuPwFiLaNacNZWrYYj0f86cZy5gR+ps+L7PTfC6YIfowa
-	bj6YQhK+gSLJ+/FNBDJX6FZe70tMvyzx9qejD4pQmRzD3c4bCgbsM/FT8tJk123liwmhyFVQlGvfJ
-	AYuKtYoVBEI4GzZXbAp8E7vqUKjwOCZThNQ4m5cJTK5+as4Dc649Uacp4yiqye47xHoxbMfoT7Cex
-	UqtqbDYo3iLMI4EBn5x2wBq0SpcvfUIWItMEVRa6S2zx6LFN1uDB2yfVCSo19RRXbwudmJsEKZ5NE
-	iyM4/G2w==;
+	bh=Mq/LAbhDKrOPp7s5BU+9YqdV3XgmXus9yhUv7/MSY/s=; b=kjuorEjXzXHj9sv/+CrwR6axgI
+	avPR9X0R+gUN9nK6rJhDzlgRIEY887Yxnebp+TKI45H78vnXGoHb1X0PsJooajFE9LtPjfPvgSbjj
+	I/owlnolOAp7GNksxew98/JHSb0uTkfSINCLAXZ5SvfkMg31NtSBWWFgOjdKm1AoEmM8yQeYUbQnl
+	3KyOOH9DSM/kXEowiEPQTPw1RrzcWYgfH8e4wEI8IyQbi3fbPgsnRE8UK9B/XaFtl8LLSnC0cdVBa
+	IwmhB24jTY9RCLxTQUGaGbD+NieIcCvHFc7uWVSRCh8XM44mxTt41l4cQ8Jgql9E6HKPdPSoY850t
+	HEGMjXig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPWrt-0000000E7Nn-0Pyp;
-	Sat, 07 Nov 2026 03:13:25 +0000
+	id 1xPWrq-0000000E7Ms-02Ti;
+	Sat, 07 Nov 2026 03:13:22 +0000
 Received: from [2406:e500:4420:2::717] (helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPWrp-0000000E7Lk-3q14
+	id 1xPWrn-0000000E7Lk-3iwj
 	for linux-riscv@lists.infradead.org;
-	Sat, 07 Nov 2026 03:13:24 +0000
+	Sat, 07 Nov 2026 03:13:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=CxulMbm4+u6wLJU9yfTtEcNRTQ8cn6Pkj8gTgwQsOXg6gmdpwZdMHAGDHcWaeFiTYhPpqv9/dOlbIIxOuXigFrD52e1m5Z/w1bHseMNIAjLZIFmOeUL+XQtUfQT6fONuOsiEZaAfrLvM4KI8B0E4JIFQdpiuT/ea7Rf8Kn0Rj+FEJqLI/+ZnAMO41eVoyU7Q79Kz6xyBcuwI1M+RhiRtuAAo6NKRNY20H/27SfjunlhuHSp1JGMM9Fo/oEA1qZMv2+XlX4eW0/HbBOsMZ6+lCdoBqJSY89LzzRpShaCvp4IPKhAXYD6tJrEFG9M3dpX50suwoC8yarO2tW5tPFv6IQ==
+ b=eSxba/n1yyTnH0Fzb879nfKfzuurKfO4Pyx/C92WaHTLiRDCdjXEasJuUtUMVBnX8JFBqBWHRW3fatfkiEqqIbi0s7kO+1IKX5ux5zgUgwr+yebl7RqDOKWVW2g3MiVc3CDUw5zm8+IP1LmAWP81eO351POU27SNmn71fdgxju1oKPSfwxUEeT3b//WVfshF7rIlP2WLrJs2/Kg42utzm+3vBJjvcWHppEsEH9bCxkiWZqZkWck6k4XLjlON4ADvjsapKl2oUxVe1+v0PJPYVVuANx0yFhvUBlPJlwdrjJTTVfdN2pVJOwdoNFrinAMwk4W3qqdwJDw03AHEdqyYyQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SHAzL+eNDi8il9BCB8sIWw0OBMqm6rq051HBYUDpF+I=;
- b=NGsYvXD2nAIGd8d1JzkHYJglT/1FXRjPzlPgirWCQzzxvNCP+SKjGZ3qQ7SHL3eem7tNgQusY2j+sqohdIMlaAcdq1EQ90xvQ9sGeMirWGoZRM7gocEpZE28c6aSbPgbJhEQnktp1eNvaBKMjwYlIZfrL3NBDcOotV5xMYqh8pUe9xD+TlQJ+4OfyvW/tUlWH3UWeyN6fuYgI9ItKo2N0iejEv0lWxauu6GRfHi/grQLRmV6jnW3aGG1XQ9DLPQQ8V/ioAkKx8NtQywqXdxhMomq0CQuXeL5pSeAspJsHxUXuk1qflQJdD998kqu0919iBU5tRiJ4Inow2yoHHgASg==
+ bh=rSd6C4xO1YZ395Te9Gzj1wSUeBxODnJJn+nUgxBV6c8=;
+ b=YpJp3R9fNUsHdwdBBzwSCuD4VoSfNlDR5I22A5ua81y+WIDbobX/iekDlJgpV269fH+WPDml0Et/aoToKN98YGNPT/GXY6j4TNB4i12ZkVRqTnzltDCL11+ARlI5H+fNUOjmrdQI2PaGfa5D/XIHHhbxSsKBHI7CRKpBW3pcFd6/Pi8vqFUd5PSCamOmEshdG3ZBd+AaAZi6uG+A82YgJcmGvgEW7YtKDAz6MfM/innc4USIQS/063OzILvkmUoAsXhlUrY/iuHeoz7BMVMmhcP03rLZf/5H91LXbNtdVFEyQ8N9PKsljBVQTsKfJZp3CMhgIOYTbkM4qRT/P1WBbw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -65,9 +65,9 @@ Cc: Maud Spierings <maud_spierings@hotmail.com>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v24 2/2] pwm: Add OpenCores PTC PWM driver
-Date: Sat,  7 Nov 2026 11:12:51 +0800
-Message-ID: <20261107031251.98972-3-hal.feng@starfivetech.com>
+Subject: [PATCH v24 1/2] dt-bindings: pwm: opencores: Update compatibles, examples and maintainers
+Date: Sat,  7 Nov 2026 11:12:50 +0800
+Message-ID: <20261107031251.98972-2-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.43.2
 In-Reply-To: <20261107031251.98972-1-hal.feng@starfivetech.com>
 References: <20261107031251.98972-1-hal.feng@starfivetech.com>
@@ -78,56 +78,57 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: NT0PR01MB1102:EE_|NT0PR01MB1261:EE_
-X-MS-Office365-Filtering-Correlation-Id: faa3366a-09b1-4ea1-81de-08df3c7d08d9
+X-MS-Office365-Filtering-Correlation-Id: 0c934686-3380-4413-5b19-08df3c7d0867
 X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|23010399003|1800799024|376014|366016|13003099007|261026140227099003|38350700014|56012099006|261022105027099003|261021121427099003|261009221227099003|261009223027099003|261022075727099003|261026121527099003|261028144727099003|261102123227099003|22082099003|18002099003|3023799007|10067099003;
-X-Microsoft-Antispam-Message-Info: +G4XqqnxaurnTuS4lOxXQ2V1T+xwwgSZ4RpFEHSExOD88z1vB7ZDx0ZGObj4/RATvhhkHeej+WPuDsTUSh9WDPOwxirnE+vGgvhPj0JVllp5OPnBaWxm/F56lh3RbIds91A9iR5IPjkRbOOOOG7+quVFm68xIDvmdhKURDh4I4wy/skGIES6ORPuUZmImvDWnHRKQZp+Fh4kYpRuUCxMksNjXlOlee0bwzD9fgNMRXSU6uYdJAJKXN2hpEjq2+qfPOmMXcUvJAExKb2bFq0YVMyA3GwZU8uA83DJbqFovv/JKYko0XEuK/PpOxkRshHf9rAGs9gZiLd9Djm/zDQ4GmSUQ2Z6inaNGDFDHuLZJa4HRCxaMxE2BJLK+IWRLVmYsqC7gW/BPV6XJzOVwhUypCPzknFr6TeMLH+GvREsY8Xcy2XlszFdYBeZc0vV2tDHDiVj46apleiYZUiTDAEUbDEK6VyM3ePsBG6ks4m/NXd1AQoiqv/d0KJMLNA3HWRKa2ESPLlksSCA4lRBwtM6/Bv244utO2NttRuLymVokGGRYHZzqioHeM5fj1+RyuEe
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(23010399003)(1800799024)(376014)(366016)(13003099007)(261026140227099003)(38350700014)(56012099006)(261022105027099003)(261021121427099003)(261009221227099003)(261009223027099003)(261022075727099003)(261026121527099003)(261028144727099003)(261102123227099003)(22082099003)(18002099003)(3023799007)(10067099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|23010399003|1800799024|376014|366016|261026140227099003|38350700014|260925021311599003|260925021911599003|260925022911599003|56012099006|261022105027099003|261021123027099003|261021121427099003|261009223027099003|261022075727099003|261026121527099003|261028144727099003|261102123227099003|22082099003|18002099003|3023799007|10067099003;
+X-Microsoft-Antispam-Message-Info: AZJEYvxIAvo7phPSG+WwpCC/pS/9aqK4LTdvmvs8dX/66PlGo4R6wVE60EtY1KE83vsnZJ0Q9cumax2GpY5MeKQOmDpTJFekkmifuL0jttWwaBnTzqYizr7LhkrBiK2axQUsuXlCy2ihmSY7IOtAN2s2niBCJW6r8LrtIX6vclhYe/+rmFFbggFsm3sL/er3cl2jhmvAfjPRNEM14WyZ3Ep/wKqpp8Try6K7loeZRfpXx/Dhig0A8BzjC7cJ6LO2GOfx/71aKNXUyL3uG3yMQcCaNxa6cVD3PGyCdLzOIRjZvP7gzawHTNszthJmCHc1pDU9P6WEACOGiU2zaVsn54/pvzB19Kkq8B+aj58fS9fgS0d+uPORNGsxerLyLPROGvk9vWFRSmtuun0gWeZB0Wt3iqckp91UyBrSF/PnomeOiLfujuV4UA2PMkUYNwWGyBOpcME4z507N3ZXgLtya7PPfzksrFt8i08pocbfbdmtfvaulrz9aH+6Q6cTSLxT8qBFpKj6j0Vnuvvg7SK/88uWmiaZNggaSl6oGE6V0n/vZP8E8+9cGvpJnv9GkBfj
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(23010399003)(1800799024)(376014)(366016)(261026140227099003)(38350700014)(260925021311599003)(260925021911599003)(260925022911599003)(56012099006)(261022105027099003)(261021123027099003)(261021121427099003)(261009223027099003)(261022075727099003)(261026121527099003)(261028144727099003)(261102123227099003)(22082099003)(18002099003)(3023799007)(10067099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cg8jnZpD0I8I0YXN79ODiRxswkKWxhXuNiP357VsjvFuiQRewiXXtYPLqqEH?=
- =?us-ascii?Q?dfvnwn5jRza9m30Qy40Ia4mVEQ8+7hppYo5OVpy+ggEkG8Bc3f4uYGhVMMUr?=
- =?us-ascii?Q?GKN3B8SqvNi6AYvMe+DRHMdePuWKtH9Yx2jxBynuAs+dY7OoxXddBxVoos1m?=
- =?us-ascii?Q?a2ao4rcI4Q3ARHXW4WPr532rPxdHyxZD58DgXHoWHYSFM/a0GtWXaNKspUxK?=
- =?us-ascii?Q?cZuHG6Xm3GktEnCU85bZe56nY2Y3axW8+Wgqv8YMXMSvGDHDMBKsPSdoJORM?=
- =?us-ascii?Q?3E6Kqql82B9BDK74VRJ/O2pL5fJNnENz1qNmEocIiAqkngU2KUoiuOqEh51e?=
- =?us-ascii?Q?0zdJdELd9BtYFQ1r7ysIOkCuE2SBCKf+KIkf70ru/yWY+6Zd/psSLlBkbESv?=
- =?us-ascii?Q?TkwuCyCeMG+FyDM3g8rtwwfNFHOBWX4bZnwuQOWHwiEpCLXKd4UZyeQNXoh6?=
- =?us-ascii?Q?7iXfBjkb3/EHZY9b5biBu2XB3uewycDQQ0MId3uIdK5YZU+WgTGOosYSOHXb?=
- =?us-ascii?Q?aQNVA3BhX20a19pXSA5+cZvz4pCtwypoiGChOuBNy0UfYua7NS9ebfeVpQ4K?=
- =?us-ascii?Q?nqZO7vJHmjL82sAQs5g/MTCt/LlJjM7Gqzdg3V4Au54dtHXEDrfidLPM++NR?=
- =?us-ascii?Q?sf2Ow7F9V1wgcUOmeyzbJ2R9O1U40RjCVkL9vBL4tbf4ojA4NNK5azttjRS/?=
- =?us-ascii?Q?OQLhlDgwAwYiIbgI4CDxuUYsynAxceF4k22Fp/DaqiR9zNMoH1iytbc2uWz7?=
- =?us-ascii?Q?UAfZAoZa5SaS2dXtHnQGkzxVpzjNd6UL8nCiD7jaCC7YSQPWFK5zy2Fs7HNA?=
- =?us-ascii?Q?7dEA3JClNCugZk8mp0tDMQKpH+ojIl2L3/5XD8tkZ19eWRDpbOrYTgjIVYef?=
- =?us-ascii?Q?OlZl6rQG/TAtDpRXLGQWu5sNb5c3SjuP364SJrmOYyvFAw2121cScBQQGyZa?=
- =?us-ascii?Q?rZ6TiaQ5rQBmPe03DS8x09Mh+hz5gmiwtKYIIDCvMmDHJ2TlNIGH0KGgXOGn?=
- =?us-ascii?Q?ccYxISY6k791dRa8efQd2w46/BRk3GmiyGRVXV74e9jxhtTQzXAP3x2gOkRw?=
- =?us-ascii?Q?sX5Dm6bEICCBWqvdNLzggbmxWP4sLqy54skX9pD7BmFfLkfmmnrjmpQCxmDb?=
- =?us-ascii?Q?Ev7x5jPRuWgQjca9RReHhMQNx9olnQiqMpe6GTNcMtsR23ZeNwfexy/Fwt/C?=
- =?us-ascii?Q?MlP1uHWw8mZWAO7zdTDRK2k9eYoUAF7idOtjPP72TAOE2SOr7pZ3wcaPxQrk?=
- =?us-ascii?Q?OyLhsoHPXtco5ZjaEfma0FaXn2JR3V0ZICDRpWkPJB7FpGK990zwtKdZ0PbY?=
- =?us-ascii?Q?0X5mnYhjRfSYLMeNt5Mu6Uw0a0bZoxCWso+e5HUxnevckJfYpwIpluTtM2NF?=
- =?us-ascii?Q?GDWYhcncttFs9J7vfVEhVoj010vCHKOK65VZwNC8F+knE5bzTO6ovI9Zv0sH?=
- =?us-ascii?Q?Vz8Wqearsx3hvOJ9oxdt7hBHvza7bhRtAzFgZLEVIfGChleIcCldhD/9LhjN?=
- =?us-ascii?Q?YzshMAnRrUssPTEKclL8MQKrCfTi2u07MVE1AU+f5ns4ecmEjCzedZElWBFC?=
- =?us-ascii?Q?20GqrIkzJPJhVRqZSJGJ6d90+djKFuXsYWIid1Khl5rM7+LtSJqT1jXmb+oO?=
- =?us-ascii?Q?Ni9J5kLGYApBRDcedmFx2XEV3u/zju+MVx3TSIuxrAsbmzJlQ4D+Z2yaSZW2?=
- =?us-ascii?Q?mEC1kiV76gfI1QOtvWkkfK8qMedzDZ0FNcn/WIM2s/WNG/Yej2nNrsP5HpA5?=
- =?us-ascii?Q?rCOgeUZQJ8Iy+2TR4RcC0Hjj+k5J9w8=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?t4FAr4AWs8q3DmeMBYupzx7duhLMTb5hA7Wu7zkxGipHmahqnW6vCh0inxH1?=
+ =?us-ascii?Q?uOMhqrt5PqraS2UC+8gMWT5lVjV8hQlJx/LhRnZIjlmfoFDXs1vb72U3WFKL?=
+ =?us-ascii?Q?8d8EgygRuFDveexpW2mU8zj45dxbLH3nvK8WsNJDPm/8ppdPS1hKtEWQJgMp?=
+ =?us-ascii?Q?X3deF+k00T17TSnU9MuC0EYjuNthHjKpuRxbdYC/1dSrjvU7eIsdT2vAFfXG?=
+ =?us-ascii?Q?0naAfyyNTlY9WqDRkw58cbjum+jSAUYryL84bjFDwCsc6wO4iPjccysT1t56?=
+ =?us-ascii?Q?PxDissQQx1P+jGjMNes2nd29+xWmGEHU1WUblz4/R3RA8k+AI86sYt6MI94F?=
+ =?us-ascii?Q?Xho0GISg2P7BL5NyOtz55Te+26IKVryW1f9ix50KxDaugR/fPJ2e18HPqGZ/?=
+ =?us-ascii?Q?4CyBQUsDE/P95JxAQIJNGZlolI1Vu9pzMNhCvOPgGg+QhzGPfdNrEwtQ6VxD?=
+ =?us-ascii?Q?zIe+NcQyQOAPT1J5kYTlphBlJHCJREI4ZwGcSF1dDa3mVYI0LRH4V6/F18sk?=
+ =?us-ascii?Q?TFDKrEt/Fx7VLNxMpwkie5PswAdCS5jNMqEblagU0lGo9nB2nvu0KZfEsYvI?=
+ =?us-ascii?Q?rs54kbN5U/tE5/C+tXmMcCCyOKMG2J796X/g7PWgkJkX8MI9N4u3T5tlOmj5?=
+ =?us-ascii?Q?OQgPmJrO5VbQ6bAG5ewxWF7+5Tq79tsehxAneUuHpJWeWc2sUiSgHRlzY+aM?=
+ =?us-ascii?Q?45A1bEFgKPjdub/nrcFpAtkKVJ1uX22rR8U7SrdnEOIeikajttq8NjIk7Ra9?=
+ =?us-ascii?Q?IWQ2tIU70S5bqOT6IeebI421uJMslNHXXEg21K7zI1hSk9yNYm0Hf5uRgSYK?=
+ =?us-ascii?Q?7DwdxDjl/mVIySrwpvtDICiS5y/UwKkdna4K7nzwQShyNc+Lxy4tsf4Y8ySZ?=
+ =?us-ascii?Q?bS7H7SCPk2aucSsE4PPAPkeojB7ik8gjw8/aJ6sw4oL5HIu+hlrwnMTCwJ2G?=
+ =?us-ascii?Q?R9YU/hs6zclqWlb22Dbck+Yo6TBZmKV5FVhcoAd+kpjpNE1KntoiwUUd5BFJ?=
+ =?us-ascii?Q?PNhWHDq9h214R+vDJL8TtEI/lw7gWl+KCQMjua0tky2PvRi4mD9HBi3wabke?=
+ =?us-ascii?Q?6Ec7DvZL773r8DodoI5a+HM4/ymUlj60umDndxMUGOV/0Vfdx6Q6NCjX9N7d?=
+ =?us-ascii?Q?yBYxXybrilxVrSqWQmQVNLPgQnw272K6V7hBaL1FclGqyMLG7TbtmhSPMMju?=
+ =?us-ascii?Q?01pB9VWTlnhX9IJBO8fL39Hkxb/KD6Dxe7BFLj3iT6nA/kcXF7ddkA5Jssh6?=
+ =?us-ascii?Q?4YcydwQ9P3Ex5SlNlQtI+LvozfdcCGCbHUihZaXC4wBtYYUvs6RVRbbIwEl8?=
+ =?us-ascii?Q?FEkZh4TOW9u8XutsNHrDuXK3fuRBTjYY3ZAUOXMJEu9SIybC8U3iXgKIdD+J?=
+ =?us-ascii?Q?LUxLtL/cYX6Yc/7fxkVozCj9sr2qMfXopCpgpA97R8EQUvIBORj7hAwE9ZRQ?=
+ =?us-ascii?Q?HyMoAZtK84U99EB1qaGVagWwPbzTRHIB+yazpKA0oj1kH2jk7OeolJhED2KS?=
+ =?us-ascii?Q?42lSsUUu5DcFX1psjhHBVEA5YkLa0ghWVuUOPL4fAth/FTO0UPE8iF2KOKYs?=
+ =?us-ascii?Q?s0Kxk+g/8LXrb6Bj2ZRCzKrXysyQqtZRImM8DS1xU6eEL74jX2LV037GFfCx?=
+ =?us-ascii?Q?NpFj6z0W4g+nN00U2Tc0/9QLphxfcHCnREqcOz4cjHl7YeUaGDB7jNUzTfFM?=
+ =?us-ascii?Q?gX0r7k2gHww6QaMutm+jYXg1fyfQPDzB4n71VabWXqfNgWSrjdRuGIUOKJ3T?=
+ =?us-ascii?Q?YPqhOPcgV3lCQGlW3WA1I9iVbQTQrcA=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: faa3366a-09b1-4ea1-81de-08df3c7d08d9
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0c934686-3380-4413-5b19-08df3c7d0867
 X-MS-Exchange-CrossTenant-AuthSource: NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2026 03:13:02.7991
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2026 03:13:02.0690
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vSEsaARGC6rcoHmzFIUIUPz2ElHRC4ghBA3aMgMFdqL0ZcpvwgjPZCeUYANhPnMtxnOxDz8tIzuRqZiD+oXLUngGs9TZTRtCTXfX67x2MEs=
+X-MS-Exchange-CrossTenant-UserPrincipalName: GSWo3bpqO9JZ+0uQ5HqHWntrCv8fl2GewnR2krLfs1VX/mpLSNMAVJ654KNaQriSikRCL1DlaV/eg5obtbw4ekXmsCWo3b8+2gUIeb7uzqA=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: NT0PR01MB1261
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_191321_968202_10F53C64 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20261106_191319_954378_F7BA6AEF 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -1.1 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -148,375 +149,51 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add PWM driver for OpenCores PTC IP core.
+Remove the jh8100 compatible since the JH8100 SoC has been canceled and
+will not be released.
 
-Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+Change the register size in examples to 0x10, since an OpenCores PTC IP
+has only 4 32-bit registers: CNTR, HRC, LRC and CTRL.
+
+I will maintain this pwm module in place of William.
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Fixes: 2529085831b0 ("dt-bindings: pwm: Add bindings for OpenCores PWM Controller")
 Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- MAINTAINERS              |   6 +
- drivers/pwm/Kconfig      |  12 ++
- drivers/pwm/Makefile     |   1 +
- drivers/pwm/pwm-ocores.c | 299 +++++++++++++++++++++++++++++++++++++++
- 4 files changed, 318 insertions(+)
- create mode 100644 drivers/pwm/pwm-ocores.c
+ Documentation/devicetree/bindings/pwm/opencores,pwm.yaml | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b2eaee98852f..7935ff64b95e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21082,6 +21082,12 @@ F:	Documentation/i2c/busses/i2c-ocores.rst
- F:	drivers/i2c/busses/i2c-ocores.c
- F:	include/linux/platform_data/i2c-ocores.h
+diff --git a/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+index 52a59d245cdb..b15468f97b59 100644
+--- a/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
++++ b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+@@ -7,7 +7,7 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ title: OpenCores PWM controller
  
-+OPENCORES PWM DRIVER
-+M:	Hal Feng <hal.feng@starfivetech.com>
-+S:	Supported
-+F:	Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
-+F:	drivers/pwm/pwm-ocores.c
-+
- OPENRISC ARCHITECTURE
- M:	Jonas Bonn <jonas@southpole.se>
- M:	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
-diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-index 729776086879..138e7cd6e991 100644
---- a/drivers/pwm/Kconfig
-+++ b/drivers/pwm/Kconfig
-@@ -546,6 +546,18 @@ config PWM_NTXEC
- 	  controller found in certain e-book readers designed by the original
- 	  design manufacturer Netronix.
+ maintainers:
+-  - William Qiu <william.qiu@starfivetech.com>
++  - Hal Feng <hal.feng@starfivetech.com>
  
-+config PWM_OCORES
-+	tristate "OpenCores PTC PWM support"
-+	depends on HAS_IOMEM && OF
-+	depends on COMMON_CLK
-+	depends on ARCH_STARFIVE || COMPILE_TEST
-+	help
-+	  PWM driver for OpenCores PTC IP core.
-+	  For details see https://opencores.org/projects/ptc.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called pwm-ocores.
-+
- config PWM_OMAP_DMTIMER
- 	tristate "OMAP Dual-Mode Timer PWM support"
- 	depends on OF
-diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-index 5630a521a7cf..4d2d14c4852f 100644
---- a/drivers/pwm/Makefile
-+++ b/drivers/pwm/Makefile
-@@ -48,6 +48,7 @@ obj-$(CONFIG_PWM_MICROCHIP_CORE)	+= pwm-microchip-core.o
- obj-$(CONFIG_PWM_MTK_DISP)	+= pwm-mtk-disp.o
- obj-$(CONFIG_PWM_MXS)		+= pwm-mxs.o
- obj-$(CONFIG_PWM_NTXEC)		+= pwm-ntxec.o
-+obj-$(CONFIG_PWM_OCORES)	+= pwm-ocores.o
- obj-$(CONFIG_PWM_OMAP_DMTIMER)	+= pwm-omap-dmtimer.o
- obj-$(CONFIG_PWM_PCA9685)	+= pwm-pca9685.o
- obj-$(CONFIG_PWM_PXA)		+= pwm-pxa.o
-diff --git a/drivers/pwm/pwm-ocores.c b/drivers/pwm/pwm-ocores.c
-new file mode 100644
-index 000000000000..4c7e87cb009f
---- /dev/null
-+++ b/drivers/pwm/pwm-ocores.c
-@@ -0,0 +1,299 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * OpenCores PTC PWM Driver
-+ *
-+ * https://opencores.org/projects/ptc
-+ *
-+ * Copyright (C) 2018-2026 StarFive Technology Co., Ltd.
-+ *
-+ * Limitations:
-+ * - The hardware only supports inverted polarity.
-+ * - The hardware minimum period / non-zero duty_cycle is (1 / pwm_apb clock frequency).
-+ * - The hardware maximum period / duty_cycle of PWM is (U32_MAX / pwm_apb clock frequency).
-+ * - The output is immediately set to low when the module is disabled.
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/pwm.h>
-+#include <linux/reset.h>
-+
-+#define OCPWM_HRC	0x4
-+#define OCPWM_LRC	0x8
-+#define OCPWM_CTRL	0xC
-+
-+#define OCPWM_CTRL_EN	BIT(0)
-+#define OCPWM_CTRL_OE	BIT(3)
-+#define OCPWM_CTRL_RST	BIT(7)
-+
-+#define OCPWM_NUM_SAVED_REGS	3
-+
-+struct ocores_pwm_device {
-+	void __iomem *base;
-+	struct clk *clk;
-+	unsigned long clk_rate;
-+	struct reset_control *rst;
-+	u32 saved_regs[OCPWM_NUM_SAVED_REGS];
-+};
-+
-+static int ocores_pwm_get_state(struct pwm_chip *chip,
-+				struct pwm_device *pwm,
-+				struct pwm_state *state)
-+{
-+	struct ocores_pwm_device *ddata = pwmchip_get_drvdata(chip);
-+	u32 period_data, duty_data, ctrl_data;
-+	int ret;
-+
-+	ret = pm_runtime_resume_and_get(pwmchip_parent(chip));
-+	if (ret < 0)
-+		return ret;
-+
-+	period_data = readl(ddata->base + OCPWM_LRC);
-+	duty_data = readl(ddata->base + OCPWM_HRC);
-+	ctrl_data = readl(ddata->base + OCPWM_CTRL);
-+
-+	state->period = DIV_ROUND_UP_ULL((u64)period_data * NSEC_PER_SEC, ddata->clk_rate);
-+	state->duty_cycle = DIV_ROUND_UP_ULL((u64)duty_data * NSEC_PER_SEC, ddata->clk_rate);
-+	if (state->duty_cycle > state->period)
-+		state->duty_cycle = state->period;
-+
-+	state->polarity = PWM_POLARITY_INVERSED;
-+	state->enabled = (ctrl_data & OCPWM_CTRL_EN) ? true : false;
-+
-+	pm_runtime_put(pwmchip_parent(chip));
-+
-+	return 0;
-+}
-+
-+static int ocores_pwm_apply(struct pwm_chip *chip,
-+			    struct pwm_device *pwm,
-+			    const struct pwm_state *state)
-+{
-+	struct ocores_pwm_device *ddata = pwmchip_get_drvdata(chip);
-+	bool was_enabled = pwm_is_enabled(pwm);
-+	u64 period_data, duty_data;
-+	int ret;
-+
-+	if (!state->enabled) {
-+		if (was_enabled) {
-+			writel(0, ddata->base + OCPWM_CTRL);
-+			pm_runtime_put(pwmchip_parent(chip));
-+		}
-+		return 0;
-+	}
-+
-+	if (state->polarity != PWM_POLARITY_INVERSED)
-+		return -EINVAL;
-+
-+	period_data = mul_u64_u32_div(state->period, ddata->clk_rate, NSEC_PER_SEC);
-+	if (period_data > U32_MAX)
-+		period_data = U32_MAX;
-+
-+	duty_data = mul_u64_u32_div(state->duty_cycle, ddata->clk_rate, NSEC_PER_SEC);
-+	if (duty_data > U32_MAX)
-+		duty_data = U32_MAX;
-+
-+	if (!period_data)
-+		return -EINVAL;
-+
-+	if (!was_enabled) {
-+		ret = pm_runtime_resume_and_get(pwmchip_parent(chip));
-+		if (ret < 0)
-+			return ret;
-+	}
-+
-+	writel(0, ddata->base + OCPWM_CTRL);
-+	writel(OCPWM_CTRL_RST, ddata->base + OCPWM_CTRL);
-+
-+	writel(period_data, ddata->base + OCPWM_LRC);
-+	writel(duty_data, ddata->base + OCPWM_HRC);
-+	writel(OCPWM_CTRL_OE | OCPWM_CTRL_EN, ddata->base + OCPWM_CTRL);
-+
-+	return 0;
-+}
-+
-+static const struct pwm_ops ocores_pwm_ops = {
-+	.get_state = ocores_pwm_get_state,
-+	.apply = ocores_pwm_apply,
-+};
-+
-+static int ocores_pwm_runtime_suspend(struct device *dev)
-+{
-+	struct ocores_pwm_device *ddata = dev_get_drvdata(dev);
-+
-+	clk_disable_unprepare(ddata->clk);
-+
-+	return 0;
-+}
-+
-+static int ocores_pwm_runtime_resume(struct device *dev)
-+{
-+	struct ocores_pwm_device *ddata = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = clk_prepare_enable(ddata->clk);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to enable clock\n");
-+
-+	return 0;
-+}
-+
-+static int __maybe_unused ocores_pwm_suspend(struct device *dev)
-+{
-+	struct ocores_pwm_device *ddata = dev_get_drvdata(dev);
-+	int ret, i;
-+
-+	ret = pm_runtime_resume_and_get(dev);
-+	if (ret < 0)
-+		return ret;
-+
-+	for (i = 0; i < OCPWM_NUM_SAVED_REGS; i++)
-+		ddata->saved_regs[i] = readl(ddata->base + 4 + 4 * i);
-+
-+	pm_runtime_put_sync(dev);
-+
-+	return pm_runtime_force_suspend(dev);
-+}
-+
-+static int __maybe_unused ocores_pwm_resume(struct device *dev)
-+{
-+	struct ocores_pwm_device *ddata = dev_get_drvdata(dev);
-+	int ret, i;
-+
-+	ret = pm_runtime_force_resume(dev);
-+	if (ret)
-+		return ret;
-+
-+	ret = pm_runtime_resume_and_get(dev);
-+	if (ret < 0)
-+		return ret;
-+
-+	writel(0, ddata->base + OCPWM_CTRL);
-+	writel(OCPWM_CTRL_RST, ddata->base + OCPWM_CTRL);
-+	for (i = 0; i < OCPWM_NUM_SAVED_REGS; i++)
-+		writel(ddata->saved_regs[i], ddata->base + 4 + 4 * i);
-+
-+	pm_runtime_put_sync(dev);
-+
-+	return 0;
-+}
-+
-+static const struct dev_pm_ops ocores_pwm_pm_ops = {
-+	RUNTIME_PM_OPS(ocores_pwm_runtime_suspend,
-+		       ocores_pwm_runtime_resume, NULL)
-+	SYSTEM_SLEEP_PM_OPS(ocores_pwm_suspend, ocores_pwm_resume)
-+};
-+
-+static void ocores_pwm_pm_disable(void *data)
-+{
-+	struct device *dev = data;
-+	struct ocores_pwm_device *ddata = dev_get_drvdata(dev);
-+
-+	pm_runtime_disable(dev);
-+
-+	if (!pm_runtime_status_suspended(dev)) {
-+		/* Balance the reference held while the PWM is enabled. */
-+		if (readl(ddata->base + OCPWM_CTRL) & OCPWM_CTRL_EN)
-+			pm_runtime_put_noidle(dev);
-+
-+		ocores_pwm_runtime_suspend(dev);
-+	}
-+
-+	reset_control_assert(ddata->rst);
-+}
-+
-+static int ocores_pwm_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct ocores_pwm_device *ddata;
-+	struct pwm_chip *chip;
-+	int ret;
-+
-+	chip = devm_pwmchip_alloc(dev, 1, sizeof(*ddata));
-+	if (IS_ERR(chip))
-+		return PTR_ERR(chip);
-+
-+	chip->ops = &ocores_pwm_ops;
-+	ddata = pwmchip_get_drvdata(chip);
-+
-+	ddata->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(ddata->base))
-+		return dev_err_probe(dev, PTR_ERR(ddata->base),
-+				     "Failed to map IO resources\n");
-+
-+	ddata->clk = devm_clk_get(dev, NULL);
-+	if (IS_ERR(ddata->clk))
-+		return dev_err_probe(dev, PTR_ERR(ddata->clk),
-+				     "Failed to get clock\n");
-+
-+	ddata->clk_rate = clk_get_rate(ddata->clk);
-+	if (!ddata->clk_rate || ddata->clk_rate > NSEC_PER_SEC)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "Invalid clock rate: %lu\n", ddata->clk_rate);
-+
-+	ddata->rst = devm_reset_control_get_optional_shared(dev, NULL);
-+	if (IS_ERR(ddata->rst))
-+		return dev_err_probe(dev, PTR_ERR(ddata->rst),
-+				     "Failed to get reset\n");
-+
-+	platform_set_drvdata(pdev, ddata);
-+
-+	ret = ocores_pwm_runtime_resume(dev);
-+	if (ret)
-+		return ret;
-+
-+	ret = reset_control_deassert(ddata->rst);
-+	if (ret)
-+		goto err_clk_disable;
-+
-+	ret = pm_runtime_set_active(dev);
-+	if (ret)
-+		goto err_reset_assert;
-+
-+	pm_runtime_get_noresume(dev);
-+	pm_runtime_enable(dev);
-+
-+	/* Keep the reference only if the PWM is already enabled. */
-+	if (!(readl(ddata->base + OCPWM_CTRL) & OCPWM_CTRL_EN))
-+		pm_runtime_put_sync(dev);
-+
-+	ret = devm_add_action_or_reset(dev, ocores_pwm_pm_disable, dev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to add pm disable action\n");
-+
-+	ret = devm_pwmchip_add(dev, chip);
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "Could not register PWM chip\n");
-+
-+	return 0;
-+
-+err_reset_assert:
-+	reset_control_assert(ddata->rst);
-+err_clk_disable:
-+	ocores_pwm_runtime_suspend(dev);
-+	return dev_err_probe(dev, ret, "Failed to init pwm power\n");
-+}
-+
-+static const struct of_device_id ocores_pwm_of_match[] = {
-+	{ .compatible = "opencores,pwm-v1" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, ocores_pwm_of_match);
-+
-+static struct platform_driver ocores_pwm_driver = {
-+	.probe = ocores_pwm_probe,
-+	.driver = {
-+		.name = "ocores-pwm",
-+		.of_match_table = ocores_pwm_of_match,
-+		.pm = pm_ptr(&ocores_pwm_pm_ops),
-+	},
-+};
-+module_platform_driver(ocores_pwm_driver);
-+
-+MODULE_AUTHOR("Jieqin Chen");
-+MODULE_AUTHOR("Hal Feng <hal.feng@starfivetech.com>");
-+MODULE_DESCRIPTION("OpenCores PTC PWM driver");
-+MODULE_LICENSE("GPL");
+ description:
+   The OpenCores PTC ip core contains a PWM controller. When operating in PWM
+@@ -23,7 +23,6 @@ properties:
+       - enum:
+           - starfive,jh7100-pwm
+           - starfive,jh7110-pwm
+-          - starfive,jh8100-pwm
+       - const: opencores,pwm-v1
+ 
+   reg:
+@@ -49,7 +48,7 @@ examples:
+   - |
+     pwm@12490000 {
+         compatible = "starfive,jh7110-pwm", "opencores,pwm-v1";
+-        reg = <0x12490000 0x10000>;
++        reg = <0x12490000 0x10>;
+         clocks = <&clkgen 181>;
+         resets = <&rstgen 109>;
+         #pwm-cells = <3>;
 -- 
 2.43.2
 
