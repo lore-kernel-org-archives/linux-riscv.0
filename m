@@ -2,75 +2,112 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17056606A31C
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2026 10:57:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 443B8606A31C
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2026 11:04:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hwRIF30e;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=seu.edu.cn header.i=@seu.edu.cn header.a=rsa-sha256 header.s=default header.b=TkyLtaea
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bsOrU0p9;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dEexgGVA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=D/O8nA2MPtuUKBrPPqMxFEDbAE740BEHQbeuGwC+ltM=; b=hwRIF30e1Af5sifyqmKRVNLaLv
-	KwpSDmG97HRzfcTo1YtsASllmHBJyncx/CiC8Op8wagMu6MFmTSvPy2rZfrk1dcKnzrcPjJhHjxVS
-	nf/F9QMIAzyEmnixi3dBBx9EDgDUh0Ptp3wLIv4eXqmRfId80eqJfosyxqWjvvCFGBST74JTBG7NB
-	DuSicnH+cjufqdo1gR2i8CSZx8BIjQKQjJfoRd3YUJxAA91kGFy2Pb+TNbO1CGz8WrO8RE2+7bBby
-	Od1teNgQDDplM9EypIP2whLf/D6wZ9Zxj069A3muD4qUNnsdsjeEibB8AzMtJ6/V45+JYBWwnAfl+
-	hA/cQRtg==;
+	bh=SKQslW1gSvxsyxzQE53oF9qnAwq5GRWbAfTn5YQ9ZVw=; b=bsOrU0p9Wpwl4zmG8PV/9wjOOU
+	DZvXi742It4WwpSPJgbwnrj6Uhza8/NCCrHnu8cVZ/MUBI9sAB1I7purSHDV5BSl4ZaJlCPyXzxYn
+	avu+/+RqK9a/Z8nS2omDT6c2qpXbpa6vtw5Yx9F+bRHWmIE3FYQcvBEbfyH06/jLdQILne4GBoUKI
+	1y8+9j6FSczBwIKqOZILaU5Lf2FXe8MYOOBMlyyB8e9CV4KsVYh72L/VI36MFG/TVo1cnRj2JN9MN
+	pRll2mHKXrzUsuuasUwL1KQOWi4234jbi93XwUl4Aqa65O03qMjLyIdLWt0d/tVs77DkW8tB5Vhkn
+	Smqa2jjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQ0a3-0000000G0Q3-1yNZ;
-	Sun, 08 Nov 2026 10:56:59 +0000
-Received: from mail-m49197.qiye.163.com ([45.254.49.197])
+	id 1xQ0gy-0000000G1OA-1Ewn;
+	Sun, 08 Nov 2026 11:04:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQ0Zy-0000000G0Ml-1M4F;
-	Sun, 08 Nov 2026 10:56:56 +0000
-Received: from LAPTOP-99KJFSET (unknown [223.75.64.82])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 53e3dfdda;
-	Sun, 8 Nov 2026 18:56:43 +0800 (GMT+08:00)
-From: Hongyan Xu <getshell@seu.edu.cn>
-To: Bjorn Helgaas <bhelgaas@google.com>,
-	linux-pci@vger.kernel.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Robert Richter <rric@kernel.org>,
-	Zhou Wang <wangzhou1@hisilicon.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Hongyan Xu <getshell@seu.edu.cn>
-Subject: [PATCH 1/3] PCI: apple: Fix ECAM config window use-after-free
-Date: Sun,  8 Nov 2026 18:56:37 +0800
-Message-ID: <20261108105640.875-2-getshell@seu.edu.cn>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <20261108105640.875-1-getshell@seu.edu.cn>
-References: <20261108105640.875-1-getshell@seu.edu.cn>
+	id 1xQ0gw-0000000G1Nj-1w8f;
+	Sun, 08 Nov 2026 11:04:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 770FA6183E;
+	Sun,  8 Nov 2026 11:04:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 033291F008A1;
+	Sun,  8 Nov 2026 11:04:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794135845;
+	bh=NOH9rvmKBnbMuVpOzvlihPh29ou5uq8gMNkmR0u8PDU=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=dEexgGVAuXucoF8ixDFMhBHOti4RPHfHMPBIu8ZrG+1LDuvZ9LNT/0RN5xd6p7PDy
+	 TDOp68Zoc6KEktnZCGJM+6nzB3TK8l49ElfnK0hEXRmmicbFYo4V8exj/LVm8A2YPS
+	 /0VuJACkvM3ROI5CssnA7MVw0H87HKQ3/2wCfWl5qvidILOFgZxUn04Nnq8yMKQxQ9
+	 HakXOca2pq4l/4Vpz2OMORvhzRalck+q+IbsiWfjqzktw3kdPX43rcc5LUK9ggcq/R
+	 hO0SJpX5J4xrGfiDv2fRvVkI/FevUQCm5mY44Ny4G7bh3St9+n070F650Ak2/vJUKU
+	 olkHcTdlwi3ow==
+Received: from traversing.sirena.org.uk (localhost [IPv6:::1])
+	by traversing.sirena.org.uk (Postfix) with ESMTP id 4426D2BF8D29;
+	Sun, 08 Nov 2026 11:04:03 +0000 (GMT)
+From: Mark Brown <broonie@kernel.org>
+To: Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Radu Pirea <radu_nicolae.pirea@upb.ro>, CL Wang <cl634@andestech.com>, 
+ Ryan Wanner <ryan.wanner@microchip.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Vladimir Oltean <olteanv@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Han Xu <han.xu@nxp.com>, 
+ Haibo Chen <haibo.chen@nxp.com>, Linus Walleij <linusw@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
+ Robert Jarzmik <robert.jarzmik@free.fr>, Heiko Stuebner <heiko@sntech.de>, 
+ Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+ Andi Shyti <andi.shyti@kernel.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Yixun Lan <dlan@kernel.org>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Alain Volmat <alain.volmat@foss.st.com>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Laxman Dewangan <ldewangan@nvidia.com>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Sowjanya Komatineni <skomatineni@nvidia.com>, 
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, linux-spi@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, imx@lists.linux.dev, 
+ linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, 
+ linux-tegra@vger.kernel.org, Frank.Li@oss.nxp.com
+Cc: imx@lists.linux.dev, 
+ Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>, 
+ Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+ Thierry Reding <treding@nvidia.com>
+In-Reply-To: <20261104152253.3279052-1-Frank.Li@oss.nxp.com>
+References: <20261104152253.3279052-1-Frank.Li@oss.nxp.com>
+Subject: Re: [PATCH v2 1/1] spi: use dmaengine_desc_set_callback()
+Message-Id: <179406311622.3424803.2869752670970173307.b4-ty@b4>
+Date: Sat, 07 Nov 2026 14:51:56 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-HM-Tid: 0aa1bacdac5103a1kunm546e4281ce699
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaSU1CVhpMGUJPSxhMThhCS1YeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJSUhVTE5VTU9VQ0lZV1kWGg8SFR0UWUFZT0tIVUpLSUJDQk
-	pVSktLVUtZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=TkyLtaeaGRYaWaR08vym002xhqiPJty9Igz67U9WHKDH1KRi5m4YECuVnF87xHBMvmRijKYmt1SsdDcbQcsSO6ezhfRTl0Vbn8aOZ1F9/KLgLpLf1IjsgD9T52MrZN8E15wtVobzquPYDHYYwUPuqBb11d3SESEw7482kYZ8Q4k=; s=default; c=relaxed/relaxed; d=seu.edu.cn; v=1;
-	bh=LQfWZFMR9WFMzlyRF7ueDqFRTYrzGXVUt1ZgeBbyRAQ=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261108_025654_595254_39B42C41 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1098; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=e27pH1DOpyvi3Vl4RSGr4H2h6BdkO4/LpSXv3m1TiX4=;
+ b=kA0DAAoWL+9zsLPQOIkByyZiAGrwVyOjdTCE9S9OBFZY60d2uXkflutXeLj+hAPbkWGUWWQYj
+ Ih1BAAWCgAdFiEEXmoL6X9066wOwaGGL+9zsLPQOIkFAmrwVyMACgkQL+9zsLPQOInk9AEApusX
+ E0SNmJSb6PhRBdjP0Qw+zpKfW7o8VMCTkcooCtUA/ith6wDGE8iMhCBn3VujoltYF1KmR9Xr6Al
+ rgHg/wDwA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +120,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DATE_IN_PAST_12_24,
+	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-pcie-apple.c has no ->remove for pci_host_common_init(), so unbinding only
-runs devres_release_all(): gen_pci_unmap_cfg() -> pci_ecam_free() frees the
-ECAM config window while the bus tree stays registered - only
-pci_remove_bus() unlinks a bus, and only pci_host_common_remove() reaches
-it for a root bus.  The next config access is a use-after-free in
-pci_ecam_map_bus(), which reads cfg->ops->bus_shift.
-Trigger: CONFIG_PCIE_APPLE=m; as root, one command: # rmmod apple_pcie
+On Wed, 04 Nov 2026 10:22:45 -0500, Frank.Li@oss.nxp.com wrote:
+> spi: use dmaengine_desc_set_callback()
 
-Fix: add .remove = pci_host_common_remove, as pci-host-generic.c does since
-commit 01fcb7f777a9 ("PCI: Add support for unbinding the generic PCI host
-controller"), so pci_remove_root_bus() unlinks the bus before devres frees
-cfg.  Scope: cfg lifetime only; its IRQ handlers stay unreleased, so the
-module is still unsafe to unload.
+Applied to
 
-Fixes: 1e33888fbe44 ("PCI: apple: Add initial hardware bring-up")
-Cc: stable@vger.kernel.org
-Signed-off-by: Hongyan Xu <getshell@seu.edu.cn>
----
- drivers/pci/controller/pcie-apple.c | 1 +
- 1 file changed, 1 insertion(+)
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.5
 
-diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-index 2d92fc79f6dd..805171551e01 100644
---- a/drivers/pci/controller/pcie-apple.c
-+++ b/drivers/pci/controller/pcie-apple.c
-@@ -884,6 +884,7 @@ MODULE_DEVICE_TABLE(of, apple_pcie_of_match);
- 
- static struct platform_driver apple_pcie_driver = {
- 	.probe	= apple_pcie_probe,
-+	.remove	= pci_host_common_remove,
- 	.driver	= {
- 		.name			= "pcie-apple",
- 		.of_match_table		= apple_pcie_of_match,
--- 
-2.50.1.windows.1
+Thanks!
+
+[1/1] spi: use dmaengine_desc_set_callback()
+      https://git.kernel.org/broonie/spi/c/29fcd5d436c4
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
 _______________________________________________
