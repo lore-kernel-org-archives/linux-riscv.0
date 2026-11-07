@@ -2,150 +2,131 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EB48606A32D
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2026 02:41:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12A8E606A32F
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2026 03:13:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rgX8MviW;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=L1gmG5pY;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ds5tQrlr
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rRJWLmYC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=tl5BW3bMukPREJKZPWrk8z1LJsZfIkvSELm+5cGku/Q=; b=rgX8MviWTUy1uvGZsFro0WkIwp
-	l0ygK4yuK8iMHTAS1faM4npWtNd//wLhlQs24SnWf6TYgTjqFB+KFMMYlyv1A0bJEIdLkgE1wdFvI
-	qGOYSR8E/ukWTZ3bsSW0XdmFnFIR+Jwk39KHtsaDEo0XUjZ4B4SUbJ1yl0NVfuO/w7CoZNsHaUoch
-	fV24rCJ8mO+vBI2/2ddrD8eDOMz7cotOTVd1LXhW7kcjT79wsSqO1ig+dbS2rzVbLRjSfjZ2rXTGK
-	djoSVVfx3ilOz/Rfg+DqqHR9DGmMjMdIaUbBQm1rE5wQgP7MRYnJMWFVWdp0cDU4ScXhTpCKpph+Z
-	+pW8zOwA==;
+	bh=+ZX5eI9GVF2Udj+6KHf7QR+Zyobgy3+EEPlqcpP0OmY=; b=rRJWLmYCWfd6QKcbou8xfar0Q7
+	IzCxDa4OnLI8ALVstgX6fwx8fw/3pYHw3Kz44G+EaKpEP7LT0Hks20KXzYyCENe8fWj+5bm7G4UDF
+	sheba3LFUSGwT8hnacIxy+W2AvLZ/L/FoNfy/Za27wWGhQqQFtVo8PfMRfsZd26qCPbFvIYZ0vtMZ
+	TbHSPEs7PduqCf9uwGrsTokxWvg3AGSjmV6dQwCDWhYQN16hM8J8qPPcUBOSyzftIm0vGOjEdi0MG
+	WMwD1gEHAGfP9x4nNLi+6qiSWP++uP+kJ5P5H7iglIlIr9wy/8xudySYFSUusWg13ouHsZyVqdGva
+	5VVKQMfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPWMh-0000000E5mI-3ovH;
-	Sat, 07 Nov 2026 02:41:11 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xPWro-0000000E7MV-3rVP;
+	Sat, 07 Nov 2026 03:13:20 +0000
+Received: from [2406:e500:4420:2::717] (helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPWLz-0000000E5WS-2fdy
+	id 1xPWrj-0000000E7Lk-0uuh
 	for linux-riscv@lists.infradead.org;
-	Sat, 07 Nov 2026 02:40:40 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A72BqVk2138087
-	for <linux-riscv@lists.infradead.org>; Sat, 7 Nov 2026 02:40:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=sxv5EqtnYWU
-	COVJkYUviHmwxoOD0vd5Ri8oexCtFYW4=; b=L1gmG5pYYAgjaDrzkHaVi16Gsq6
-	/LL/bdPzdAX+2q1kcDuvVuYbcHTP9YzU9jn16oZISlObiwgRlIxwbZW9kJI9vQUj
-	WVGtlB3lCpDLs2sRw5F137AbZn8tqtHCfw1DoysxFjVKjoM/HCiWHUnWVF9YvRF8
-	q4DeiWs7kiZTohtW0hA9dT/QPrJnvSPDnMNQDBD8/F2eKDk448Wx6S3wG7/cBwSs
-	IO/cNrdrg8zXPxmdC79q77wGkr5uVdPkdfVXICkT9OltUFRUPjMJ3fchFLYcaMa7
-	ZUltcETQFkaXmYGOJNKXt7SiZ6PyJs2iYJLoKbueD3CNUN5AosrUJ+Nol9A==
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hsu06r2ku-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Sat, 07 Nov 2026 02:40:26 +0000 (GMT)
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-30bcb065bfdso2111197eec.0
-        for <linux-riscv@lists.infradead.org>; Fri, 06 Nov 2026 18:40:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794019226; x=1794624026; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=sxv5EqtnYWUCOVJkYUviHmwxoOD0vd5Ri8oexCtFYW4=;
-        b=ds5tQrlrjbbFIjjlpnNLzq8tBT2yfpSLVXaAdhBLwJcbct/IIJzKc90DYpjtJBiAUs
-         c6b8LIst2GIoIPjFZOg6GlupoCybcaaVi7zTzLJdvvXXDiKlRf3+DC2zfbEnIcRKhgwZ
-         adqIteTkC4jbu/OvnAOqNzIgWvhwnXr19GA72gezNxev8uYjPj8MpkNtCfF0Or0V01cE
-         +NuVTzXl/LPCgvtNkI7ZaMqZCDrzvyMEQm7kih3tfzKxIyYspLnbzGo5yHc8qaCVrVgX
-         ySjTlTW5BBpgKYFJA9FPojZWh78LKOw3Qnf4aKsGJLiwxVS7pC7p3LSJSj9oQ8s1S29b
-         fiJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794019226; x=1794624026;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=sxv5EqtnYWUCOVJkYUviHmwxoOD0vd5Ri8oexCtFYW4=;
-        b=D2gBjLwE2nYiNAxm4EFg5k2hQJxWi2jzTgjBBAs6PXQOgAbF0Ea1MbL4gxcwY1e5le
-         UOHjMFfIfI5B9w2cv/6RufbVoUex9zGR1CsYTbaHrgx+tQv+gUixyMoVqSOKi/RpY3kS
-         IAjVcNyilFrhkQwMI3GDoKvGFhNBd9EqjtVoycBuaexDJvEf1KyfKX1RKt8pX45W6tZT
-         7nfV+52Vgg3kLaVFvwIAMmxrCpbUo4WQMldRVfpK4N2OPWsaXXLmGQHIYBDUMzCavbuf
-         REjyb3kD7wNfhDMmhnisFTaKhBfth4vkE6B2q+PArL0JqcRtDK1CmOTl/njChTl9KrxM
-         ZzTQ==
-X-Forwarded-Encrypted: i=1; AKwUvByQ3gOh+HKzmJqvwU51az5AJCXYl8QYgTs5/1RF7xdAnWMYgudkm3UjCsaHigoEi0iFzNm5h/egWzPjJA==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9hrjv+BdzyYqLDiIOZykNwsZaTQCPEzMlv5k2F9SW8CYP7muGo
-	x789T94uqiet+B3QVLgH8h43JS8uK1hUej1UXc5b1e2bPhij6j1i738bN3otxW6x+ZKzR9rOMev
-	wbgHmT+YQYFx/yZwfXdSsFlgSVaeKxD803MFOBh5MsvoGWuaZKQjnJ2u2hIokJ28FIzccegA=
-X-Gm-Gg: AYBFou0srxEasVdat1ip59fkDW5zAWfyaeNSszITZYRe0Fx8SFii2TS5qeQjOut6NI1
-	V0V0+cTOatyyoADCrCiIe1WhnKobrunbnjUXn+yJVldU1qNF6XJiXkUlXOo49BFOwSR9RqO3Wz9
-	ohmJZvwnUjt2634tnm5Z2Nqalp+rUGkTQt+n/h/qySvQsjqNek74rtbaTdTyJm411mKdP0PSrsF
-	84jyGOESjOVjDPwz5s+7mj7HE2pyK+DyiHGkDJvX8in1Pqb/qJeo54LwjBozqaXO4thjl62LciL
-	43tPPu4eoQFcW4Ahx4qQpkqvt90eCVxJWShqTbNGAm2o3XKAeLX8N4pryc56Ner/yfddxRLkWA4
-	hrcBxBNdsIEKEgG5h2jJjw6bbYccCChw9uZIhaNntfJ/phmfMf+TnJHLIXYECaSwEdAIt0bsVcV
-	rjyAEE2MEu6d+embph+41UBn8a/7dfSSQY/iiwHVP2skOulPzybtURjRj6+O6NgQLw4PV89yTAV
-	Q==
-X-Received: by 2002:a05:7301:6190:20b0:36a:1089:9836 with SMTP id 5a478bee46e88-36f75839295mr5734758eec.15.1794019225359;
-        Fri, 06 Nov 2026 18:40:25 -0800 (PST)
-X-Received: by 2002:a05:7301:6190:20b0:36a:1089:9836 with SMTP id 5a478bee46e88-36f75839295mr5734715eec.15.1794019224581;
-        Fri, 06 Nov 2026 18:40:24 -0800 (PST)
-Received: from hu-himchau-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36faac86a96sm11069040eec.29.2026.11.06.18.40.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Nov 2026 18:40:24 -0800 (PST)
-From: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Jesse Taube <jtaubepe@redhat.com>,
-        Oleg Nesterov <oleg@redhat.com>, Kees Cook <kees@kernel.org>,
-        Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-        Arnaldo Carvalho de Melo <acme@kernel.org>,
-        Namhyung Kim <namhyung@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-        Adrian Hunter <adrian.hunter@intel.com>,
-        James Clark <james.clark@linaro.org>, Shuah Khan <shuah@kernel.org>,
-        linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-        linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
-        Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-Subject: [PATCH v8 7/8] riscv: Add software supported single stepping with mc/mc6 triggers
-Date: Sat,  7 Nov 2026 08:09:16 +0530
-Message-ID: <20261107023917.40606-8-himanshu.chauhan@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261107023917.40606-1-himanshu.chauhan@oss.qualcomm.com>
-References: <20261107023917.40606-1-himanshu.chauhan@oss.qualcomm.com>
+	Sat, 07 Nov 2026 03:13:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=jmczVPkNfoYsic0DEExHQ3ltq7g4fP8Tc9kp04W22EOvp+8Tf2yY7qUEQk51ecqMwXvN80Oo8k8RB00u7uH5gNwc4dzxiiU6qsW8L7++TH9xSwtAHK83+qJ/lr5WMkrUJv23w6PbF3TsGs1gupqpxv2v80TjL5PEnuA3d5lXKi/jwWyhUepHAALgw1kJitJjF2sh3+4fkjVydvqVvjWmy4Yx1JHVrckN4lS/daqYDJWcHUSmu8wXxXgz2zHBieY1LU09BcSOOdEHJZTGDdzaP4xSXDTr7ZTXnAG9Du1cl8W/ARyFMo3UVFnSsNPFju0fFhHtqda0uc4LUUYsXISWHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bo/Tes2xcYfXAlGyDrW4jGQyky6Sv4aVFFc0VxLtbr4=;
+ b=Pym0m512FN30QcgIb3CeLfT1sn2YNsTSFqVAw9X3/T7iAuzrY/0PwgJoHukgcmL3HLvACo4Hj61A8Tj79JntHfHJo+8Flj2OvZYSuRkNWQJo5vAGRqFGw7TCuat4aOmtKn+lMkf8KkxjMQDg/bud2BxWlbWTC0b57anYP+GxBkrbj9S0SoMuIFfn7dwXKrnpvno/tICj4aVjZe32tBrvSYCFSXXLVzSoKvXhVNMK66DXZIgeHQ7NUvIjgQJN/VlvUiKmg/r5OWSDGptfKquHh2fS6/yLHXNn0lqFaPuzu8qQJAjMvDMsrO32648Gw5vxHwS9BCfJxVYeFnpAgjwREQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:7::10) by NT0PR01MB1261.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:e::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.11; Sat, 7 Nov
+ 2026 03:13:01 +0000
+Received: from NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn
+ ([fe80::be4a:d29e:5188:b37e]) by
+ NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn ([fe80::be4a:d29e:5188:b37e%3])
+ with mapi id 15.21.0592.010; Sat, 7 Nov 2026 03:13:01 +0000
+From: Hal Feng <hal.feng@starfivetech.com>
+To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Maud Spierings <maud_spierings@hotmail.com>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v24 0/2] Add OpenCores PTC PWM support
+Date: Sat,  7 Nov 2026 11:12:49 +0800
+Message-ID: <20261107031251.98972-1-hal.feng@starfivetech.com>
+X-Mailer: git-send-email 2.43.2
+X-ClientProxiedBy: NT0PR01CA0007.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510::14) To NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:7::10)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA3MDAxMCBTYWx0ZWRfX/+an9xM4kGib
- 7oyB2AEFXTQlKmvnlkbksSjXHcSsoKMp1i9hdCc84vIrcCBWRvkdMP+Ll/wt0OtFQMso+pm1SfV
- i3A8CVfV6Wb9ijKxdF/HJZtDzkHS1moybvHq9KD+2N5UjFlEM9rq0u9HZS+jNCfiiqFkU9JVtHv
- 9PPoJ/UwEQhGznUJK2s1Usov+6c07lXhnThZcnA9CV5MVHLg42rrDw/qywo9Go3cOcsFznK4Ogm
- oOaEtjRtHhlIgkOYV8vZaYK2GIdc6oErF++cXxK/FC4AtfP1kU+u+kG/j6NQqo9GV4p4kqKAj4Z
- l2M/cD6RT6T3YuRHNhYjE2Vgi4tnAnhTQmo6ZIGMwmu1XLiC3xLe7VW/g/WI38+0iRi5kPEVEM8
- Nlle33Tl2O3KMRgy37iU0y4enFSNOdjDQeLuR3HkIQKXxvRTuSlZ18rqS+x0cf/owrxg789u9nO
- jguJA1iB+e/k+fDZyiQ==
-X-Proofpoint-GUID: tw0zyt4djx9G0NkYZD2HXn1fTMNPXCyp
-X-Authority-Analysis: v=2.4 cv=IJGXmQvG c=1 sm=1 tr=0 ts=6aee8f9a cx=c_pps
- a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
- a=m8l0dXrX7-G3mt2yGekA:9 a=6Ab_bkdmUrQuMsNx7PHu:22
-X-Proofpoint-ORIG-GUID: tw0zyt4djx9G0NkYZD2HXn1fTMNPXCyp
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA3MDAxMCBTYWx0ZWRfX/eQjxL30m3f2
- wwM+ClfpfH6ERaHGs4CoaEyNsJK3X/0LGqz668UGktsaj/yvZtc7xVFrpYBqH9yaYH79OYBY+eg
- CuDDNciemSz46Q4+9yVQ4r8719piQPc=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-07_01,2026-11-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 spamscore=0 impostorscore=0 suspectscore=0 malwarescore=0
- priorityscore=1501 lowpriorityscore=0 bulkscore=0 phishscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611070010
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: NT0PR01MB1102:EE_|NT0PR01MB1261:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8f81ab1b-ac1e-41f9-436d-08df3c7d07ef
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|23010399003|1800799024|376014|366016|261026140227099003|38350700014|56012099006|261022105027099003|261021123027099003|261021121427099003|261009223027099003|261022075727099003|261026121527099003|261028144727099003|261102123227099003|18002099003|10067099003;
+X-Microsoft-Antispam-Message-Info: +Ne01/veRTgpzYM1FyW0BdsyZ47OBHa8gsTLS0BKpeTHiA1CXOaO/RQnwlKMq5aTw393PCKdGWPWFXFjQ8YA0/xu9O1b7lCa3vblGvaRkScu/jUFw/YWgojjDuRV9Djgpbve4wfDn8ErHE8cf+ECkNQZRNL+i3cR4k2v/yIPbTYUnTcZ/hjxbTFWjCvX/AVJWeaiJ0xgKHgFLkbgGHCNw977nZxYzMBblnyuvxX4eYfD7neRgFGLAy4jWzlT1JzABMGyyCq+rWpyMjcUt9D5drYbyUMQQdVPaq5UJYmyParlc4W9Duh0aSruNOaCu0X1Ewf9GvUCrz9PNv8jkI/kwmZXq/OEvQWpvARVudCVbjt9g0uByMyblwAWBhZ/Ik6w41bFjzSVaE/9zPr+5+cDVH0CslHjM/vwUfiHqwKWR9giimWj+guHhegwBxsyhMM4L1qllFG48WCCCsIZv+qlr0HHzl8qsoNhfOfauewRr/+yXHw4dWffGXSO336L1Xmx8YwIw3mbQJDa7d332JoEq4vo+Gg8Yi7TMPklEd0V/I+K6YSLtOvO149brwP4S4k7
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(23010399003)(1800799024)(376014)(366016)(261026140227099003)(38350700014)(56012099006)(261022105027099003)(261021123027099003)(261021121427099003)(261009223027099003)(261022075727099003)(261026121527099003)(261028144727099003)(261102123227099003)(18002099003)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8ZTm54q4xZg2HUiGhsrICNrIlGAsLnM+X3qxTSO91xXQVh64EM6WP8JAFx4n?=
+ =?us-ascii?Q?1wtFZBAvuzmllzgxPKagI0qimaR8U+QNyKmEgvq8UAkw7dng8EPpQwGuw2H1?=
+ =?us-ascii?Q?/xtmL1/KkPnwbm2Eubh5uHkNbfeTWdNy0HyVMpLGVgciG3n+Qit7HE65+QkG?=
+ =?us-ascii?Q?KP43DZQdtb1mrav/aIlJG4Hdr5h/XAVgsLmAfHPiwpw1REfwR4/Ep0pPno8b?=
+ =?us-ascii?Q?joSZn0pYVcfjEVHlbL5OfPEG5DlZNcrt6U8PEy6nYW+J5Js1/qDKyXVLwV6A?=
+ =?us-ascii?Q?WjEo9NqzehnkKCBAtD1M1rUdiT1g51LX4ZI6uukpnZz4lvKlflFgJRLx8rqT?=
+ =?us-ascii?Q?HtEg7CsazdJo0Lo7nY4IM2RBZ8zGSCyS8meixqRhQcyN0X5luM4WJ9NYwezH?=
+ =?us-ascii?Q?xTXQub+Y+eZlwgJ9UQpVmpe9JcDQmaiYfEveKo6CYCtF/zOTT3EP48ZQ/7ud?=
+ =?us-ascii?Q?Ahj7iz/2Njla0V1RUHtkrLM8/nGr4Zr9CkHtUsEoIdCRVv5SJnZ6FmluzAWe?=
+ =?us-ascii?Q?ereQk1FSA1kF1PDxh1FHWpBJJ57pqsEziIIfLCf3wDIZ9OZkc/ubkRaOPLu2?=
+ =?us-ascii?Q?LVo++XYPoIjcsa6wvRr316uL31RpOIaoLe+8aoKlUE57mSS6WIRjE73rDAGe?=
+ =?us-ascii?Q?v04HDmFtV/WCxECW3v1eWbtkM0qrsr+7leXBnIzGSkhMMEB+/e2ZEJ1sj1J3?=
+ =?us-ascii?Q?jmWYouv4jaRLzZ7k+NX+J6iVTqwOWmfQ2e52ZHgGoxH751RRghwVFisXB3/j?=
+ =?us-ascii?Q?KKUWO8fmgAULOknXPvmv6H6UilxbYOAjzt4PhQ5aoxFC0SikAZoaGKJgqdTi?=
+ =?us-ascii?Q?iWegTdf0/lSbDlT7Utiqgy+7Mzq7pATLWiPq1LaC9FgayxVb7au8eg5WCE9q?=
+ =?us-ascii?Q?HNmfC0yqdH/vc1fvpGs/lgr9YnUaMDHn4Ac+OKDj26oJm7htSYpy2h4pkSUw?=
+ =?us-ascii?Q?BHXq+liyndOmRiGpykWBO6nQTqUbnOp00L/hCGjsw/Sap8fRyP/Vs9iQDV0x?=
+ =?us-ascii?Q?amm6r0nLZQgXedJIQiKZEoabzxPyu9OqUBKIWWaNGG4gGo1P02XxkjdI7oWf?=
+ =?us-ascii?Q?HVx84IJrC3g45kq75iceX5cpIhC12JSEBpU6OHP47SmbgVcMQI+oPXJRQ+lc?=
+ =?us-ascii?Q?hu+tQLGPUVDnmFxdD2hljCQtZA4DVpGfyvimQzRxSjkOiiFWBrutMdlI7vMm?=
+ =?us-ascii?Q?gTCck3l7zqah/2Pl5G8a7d1o75jhXq8kAluJKiBEDr2w3Q004UvNwuXZ9zA5?=
+ =?us-ascii?Q?HxN9dv70G+y9bNB85BCjUo7fggz+DNKZ3IlUKRJ+CltARvlJokhA8qN/AMXW?=
+ =?us-ascii?Q?oeD7O+xQlK1qVqtxL7Y4J/JS+KFTtjgtgqyS97HPGDlnhXpOdtt++3jMaWag?=
+ =?us-ascii?Q?hug+L3Ie9o0ehNm56jIheEFtmRqNViiyxAmpGlxbmfuAzFC07M+gHcijfyx8?=
+ =?us-ascii?Q?ylapX72DQ2xvKsusLOHhDHFBRNNPSyTmjlKX+gAYjxuvKJPfLpa5JaklSu7+?=
+ =?us-ascii?Q?xs/gg+kI4ZIrk52Ehj8rX/s6wZ3ZZTCmGohFGCDVXqmcEx6hbNDD6MLjt2kz?=
+ =?us-ascii?Q?YLpaN/2UwWBXDpLIGZjhS751R2EyCPedonss1EuOjtFl6LgJZ659Hss7jPU5?=
+ =?us-ascii?Q?MoHZbxy+E6vdgMx8ddcgagxuVa0uE6JuCBTbP1KFCYa2Zwk5a3Lv9aR9BF9K?=
+ =?us-ascii?Q?+5APFKh9JDnNO9a1v2/GdJhXGTLxvX6QL52IaTAfRgOrKWUAcp8iHWITVnrT?=
+ =?us-ascii?Q?KILODC4L/tQyqxoZB0A01h8PCO8wdj0=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8f81ab1b-ac1e-41f9-436d-08df3c7d07ef
+X-MS-Exchange-CrossTenant-AuthSource: NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2026 03:13:01.3272
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kso1DsazM++sajzyk0RXG1oR9C4dclg1s7zXSSNRXQCAFavB542+V/XOCn45v1SRSArWMpUt5gFQdE+NCM4H5GQJQZ1CYOWW6iZfDpfGMlw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: NT0PR01MB1261
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_184027_849003_1EB9F6A8 
-X-CRM114-Status: GOOD (  28.23  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261106_191316_008138_698A79B5 
+X-CRM114-Status: GOOD (  15.43  )
+X-Spam-Score: -1.1 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,445 +139,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-With mc/mc6 triggers, after handling breakpoint at current pc, there
-is no way to tell trigger to skip same breakpoint after the handler
-returns. This can cause loop of breakpoints at the same address until
-the trigger is disabled or uninstalled. Debugger may keep the breakpoints
-enabled and if kernel disables it, there is a loss of state coherency.
+Add OpenCores PTC PWM driver which is used in StarFive
+JH7100/JH7110/JHB100 SoC.
 
-To avoid the loop, software disables the current breakpoint, finds the
-next instruction that would be executed after pc and puts a breakpoint
-at that address. When this breakpoint hits, old breakpoint is reinstalled.
+I will maintain this pwm module in place of William.
 
-Signed-off-by: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
----
- arch/riscv/include/asm/hw_breakpoint.h |  16 ++
- arch/riscv/kernel/hw_breakpoint.c      | 297 ++++++++++++++++++++++++-
- 2 files changed, 308 insertions(+), 5 deletions(-)
+Changes since v23:
+- Drop the Tested-by tag for the dt-bindings patch.
 
-diff --git a/arch/riscv/include/asm/hw_breakpoint.h b/arch/riscv/include/asm/hw_breakpoint.h
-index 6e8913d69df2..b3ccebb5185e 100644
---- a/arch/riscv/include/asm/hw_breakpoint.h
-+++ b/arch/riscv/include/asm/hw_breakpoint.h
-@@ -15,10 +15,26 @@ struct task_struct;
- /* Maximum number of hardware breakpoints supported */
- #define RISCV_MAX_BP		16
- 
-+enum riscv_hw_bp_step_method {
-+	RISCV_HW_BP_STEP_DISABLED,
-+	RISCV_HW_BP_STEP_ICOUNT,
-+	RISCV_HW_BP_STEP_SW,
-+};
-+
- struct arch_hw_breakpoint {
- 	unsigned long address;
- 	unsigned long len;
- 	unsigned int type;
-+
-+	/*
-+	 * Single-step callback state.  While step_method is enabled, the
-+	 * hardware slot is temporarily programmed as either an icount trigger
-+	 * or an execute trigger at next_addr, and the original trigger config
-+	 * is restored when that temporary trigger fires.
-+	 */
-+	unsigned long next_addr;
-+	enum riscv_hw_bp_step_method step_method;
-+	bool pending_perf_event;
- 	unsigned int match;
- 	unsigned int chain;
- 	unsigned int select;
-diff --git a/arch/riscv/kernel/hw_breakpoint.c b/arch/riscv/kernel/hw_breakpoint.c
-index 4231170d4901..72be50943937 100644
---- a/arch/riscv/kernel/hw_breakpoint.c
-+++ b/arch/riscv/kernel/hw_breakpoint.c
-@@ -15,6 +15,7 @@
- #include <linux/cpu.h>
- #include <linux/cpuhotplug.h>
- 
-+#include <asm/insn.h>
- #include <asm/sbi.h>
- 
- #define RISCV_HW_BP_NUM_MAX	32
-@@ -62,6 +63,9 @@ enum {
- #define RISCV_DBTR_MC6_HIT1		BIT(25)
- #define RISCV_DBTR_MC6_HIT_MASK	(RISCV_DBTR_MC6_HIT | RISCV_DBTR_MC6_HIT1)
- 
-+#define RISCV_DBTR_ICOUNT_U		BIT(6)
-+#define RISCV_DBTR_ICOUNT_COUNT_MASK	GENMASK(23, 10)
-+
- #define RISCV_DBTR_MC6_HIT_FALSE	0
- #define RISCV_DBTR_MC6_HIT_BEFORE	1
- #define RISCV_DBTR_MC6_HIT_AFTER	2
-@@ -77,6 +81,7 @@ static union sbi_dbtr_shmem_entry __percpu *sbi_dbtr_shmem;
- /* number of debug triggers on this cpu . */
- static int dbtr_total_num __ro_after_init;
- static int dbtr_type __ro_after_init;
-+static bool dbtr_icount_available __ro_after_init;
- static unsigned long dbtr_init __ro_after_init;
- 
- #define MEM_HI(_m)		\
-@@ -194,6 +199,17 @@ static void init_sbi_dbtr(void)
- 		return;
- 	}
- 
-+	tdata1 = dbtr_tdata1_type(RISCV_DBTR_TRIG_ICOUNT);
-+
-+	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
-+			tdata1, 0, 0, 0, 0, 0);
-+	if (ret.error) {
-+		pr_warn("Failed to detect icount triggers\n");
-+	} else if (ret.value) {
-+		dbtr_icount_available = 1;
-+		pr_warn("Icount trigger available.\n");
-+	}
-+
- 	tdata1 = dbtr_tdata1_type(RISCV_DBTR_TRIG_MCONTROL6);
- 
- 	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
-@@ -397,6 +413,9 @@ int hw_breakpoint_arch_parse(struct perf_event *bp,
- 	hw->tdata1 = 0;
- 	hw->tdata2 = attr->bp_addr;
- 	hw->tdata3 = 0x0;
-+	hw->next_addr = 0x0;
-+	hw->step_method = RISCV_HW_BP_STEP_DISABLED;
-+	hw->pending_perf_event = false;
- 
- 	switch (dbtr_type) {
- 	case RISCV_DBTR_TRIG_MCONTROL:
-@@ -414,6 +433,168 @@ int hw_breakpoint_arch_parse(struct perf_event *bp,
- 	return ret;
- }
- 
-+static ulong get_step_address(struct pt_regs *regs, ulong insn)
-+{
-+	return get_next_insn_address(regs, insn, regs->epc);
-+}
-+
-+static int dbtr_update_event_tdata(struct perf_event *event,
-+				   unsigned long tdata1,
-+				   unsigned long tdata2,
-+				   unsigned long tdata3, bool wait);
-+
-+static bool hw_breakpoint_event_active(struct perf_event *event)
-+{
-+	return READ_ONCE(event->state) == PERF_EVENT_STATE_ACTIVE;
-+}
-+
-+static void clear_singlestep_state(struct arch_hw_breakpoint *bp)
-+{
-+	bp->step_method = RISCV_HW_BP_STEP_DISABLED;
-+	bp->next_addr = 0;
-+	bp->pending_perf_event = false;
-+}
-+
-+static void disable_unhandled_singlestep(struct perf_event *event,
-+					 struct pt_regs *regs, bool deliver_event,
-+					 int err)
-+{
-+	struct arch_hw_breakpoint *bp = counter_arch_bp(event);
-+
-+	/*
-+	 * If the temporary step trigger cannot be installed or restored, leave
-+	 * the CPU with no active trigger instead of re-entering the same debug
-+	 * exception forever.
-+	 */
-+	pr_warn("single-step setup failed for bp_addr=0x%lx epc=0x%lx: %d; disabling event\n",
-+		bp->address, regs->epc, err);
-+	clear_singlestep_state(bp);
-+	if (deliver_event && hw_breakpoint_event_active(event))
-+		perf_bp_event(event, regs);
-+	if (hw_breakpoint_event_active(event))
-+		perf_event_disable_inatomic(event);
-+}
-+
-+static unsigned long icount_step_tdata1(void)
-+{
-+	return dbtr_tdata1_type(RISCV_DBTR_TRIG_ICOUNT) |
-+	       FIELD_PREP(RISCV_DBTR_ICOUNT_COUNT_MASK, 1) |
-+	       RISCV_DBTR_ICOUNT_U;
-+}
-+
-+static int restore_original_breakpoint(struct perf_event *event)
-+{
-+	struct arch_hw_breakpoint *bp = counter_arch_bp(event);
-+	int ret;
-+
-+	/*
-+	 * Rebuild the original trigger from the perf attributes instead of
-+	 * keeping a second copy of the trigger data.  Do not update the
-+	 * temporary trigger in place when changing back from icount/software-step
-+	 * mode: uninstall/install gives the original breakpoint a fresh hardware
-+	 * slot and clears any transient hit state.
-+	 */
-+	arch_uninstall_hw_breakpoint(event);
-+
-+	ret = hw_breakpoint_arch_parse(NULL, &event->attr, bp);
-+	if (ret)
-+		return ret;
-+
-+	return arch_install_hw_breakpoint(event);
-+}
-+
-+/*
-+ * setup_singlestep - Set the breakpoint to next instruction after current breakpoint.
-+ */
-+static int setup_singlestep(struct perf_event *event, struct pt_regs *regs)
-+{
-+	struct arch_hw_breakpoint *bp = counter_arch_bp(event);
-+	unsigned long insn, next_addr = 0;
-+	int ret;
-+	struct arch_hw_breakpoint tmp = {};
-+
-+	clear_singlestep_state(bp);
-+
-+	if (dbtr_icount_available && !arch_check_bp_in_kernelspace(bp)) {
-+		/*
-+		 * User breakpoints can use an icount trigger to retire exactly
-+		 * one instruction.  The sdtrig icount path reports EPC after the
-+		 * counted instruction, so the callback sees the post-step PC
-+		 * without decoding the original instruction here.
-+		 */
-+		tmp.tdata1 = icount_step_tdata1();
-+
-+		ret = dbtr_update_event_tdata(event, tmp.tdata1, 0, 0, false);
-+		if (ret)
-+			return ret;
-+
-+		bp->step_method = RISCV_HW_BP_STEP_ICOUNT;
-+		bp->next_addr = 0;
-+		return 0;
-+	}
-+
-+	if (!event->hw.target) {
-+		/*
-+		 * A CPU-wide software-step trigger follows one task's decoded
-+		 * next PC.  If that task migrates, the per-CPU slot may wait
-+		 * forever for an address the CPU will not execute.
-+		 */
-+		return -EOPNOTSUPP;
-+	}
-+
-+	ret = get_insn_safe(regs, regs->epc, &insn);
-+	if (ret < 0)
-+		return ret;
-+
-+	next_addr = get_step_address(regs, insn);
-+	if (next_addr == regs->epc) {
-+		/*
-+		 * Some control transfers, notably SRET, cannot be represented
-+		 * as an execute breakpoint at a different decoded PC.  Refuse
-+		 * the software step rather than programming the same address
-+		 * and looping on the original breakpoint.
-+		 */
-+		return -EOPNOTSUPP;
-+	}
-+
-+	/*
-+	 * Software path: update the trigger in-place to an execute
-+	 * breakpoint at next_addr.  Build the tdata directly without
-+	 * calling hw_breakpoint_arch_parse() so that bp->len and bp->address
-+	 * remain valid for the handler's matching logic after restore.
-+	 */
-+	tmp.tdata2 = next_addr;
-+	tmp.tdata3 = 0;
-+	switch (dbtr_type) {
-+	case RISCV_DBTR_TRIG_MCONTROL6:
-+		tmp.tdata1 = dbtr_tdata1_type(RISCV_DBTR_TRIG_MCONTROL6) |
-+			     RISCV_DBTR_MC6_EXEC;
-+		if (user_mode(regs))
-+			tmp.tdata1 |= RISCV_DBTR_MC6_U;
-+		else
-+			tmp.tdata1 |= RISCV_DBTR_MC6_S;
-+		break;
-+	case RISCV_DBTR_TRIG_MCONTROL:
-+		tmp.tdata1 = dbtr_tdata1_type(RISCV_DBTR_TRIG_MCONTROL) |
-+			     RISCV_DBTR_MC_EXEC;
-+		if (user_mode(regs))
-+			tmp.tdata1 |= RISCV_DBTR_MC_U;
-+		else
-+			tmp.tdata1 |= RISCV_DBTR_MC_S;
-+		break;
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+
-+	ret = dbtr_update_event_tdata(event, tmp.tdata1, next_addr, 0, false);
-+	if (ret)
-+		return ret;
-+
-+	bp->step_method = RISCV_HW_BP_STEP_SW;
-+	bp->next_addr = next_addr;
-+	return 0;
-+}
-+
- static void dbtr_encode_update(union sbi_dbtr_shmem_entry *shmem,
- 			       unsigned long idx, unsigned long tdata1,
- 			       unsigned long tdata2, unsigned long tdata3)
-@@ -574,12 +755,43 @@ static unsigned int mc6_read_and_clear_hit(int idx)
- 	return hit;
- }
- 
-+static int handle_triggered_breakpoint(struct perf_event *event,
-+				       struct pt_regs *regs)
-+{
-+	struct arch_hw_breakpoint *bp = counter_arch_bp(event);
-+	bool defer_perf;
-+	int ret;
-+
-+	/*
-+	 * Report user breakpoints after the temporary step trigger advances
-+	 * past the armed instruction.  Otherwise signal delivery can re-enter
-+	 * the same execute trigger before the PC has moved.
-+	 */
-+	defer_perf = !arch_check_bp_in_kernelspace(bp);
-+	if (!defer_perf) {
-+		perf_bp_event(event, regs);
-+		if (!hw_breakpoint_event_active(event))
-+			return NOTIFY_STOP;
-+	}
-+
-+	ret = setup_singlestep(event, regs);
-+	if (ret < 0) {
-+		disable_unhandled_singlestep(event, regs, defer_perf, ret);
-+		return NOTIFY_STOP;
-+	}
-+
-+	bp->pending_perf_event = defer_perf;
-+	return NOTIFY_STOP;
-+}
-+
- /*
-  * HW Breakpoint/watchpoint handler
-  */
- static int hw_breakpoint_handler(struct die_args *args)
- {
--	int i, bp_ret = NOTIFY_DONE;
-+	int i, ret = 0, bp_ret = NOTIFY_DONE;
-+	struct perf_event *deferred_step_event = NULL;
-+	struct arch_hw_breakpoint *deferred_step_bp = NULL;
- 	struct arch_hw_breakpoint *bp;
- 	struct perf_event *event;
- 
-@@ -590,6 +802,74 @@ static int hw_breakpoint_handler(struct die_args *args)
- 
- 		bp = counter_arch_bp(event);
- 
-+		if (bp->step_method != RISCV_HW_BP_STEP_DISABLED) {
-+			bool pending_perf_event;
-+
-+			/*
-+			 * This trap is for the temporary trigger installed by
-+			 * setup_singlestep().  Software stepping must match the
-+			 * decoded next_addr; icount already reports the post-step
-+			 * PC and can restore the original trigger immediately.
-+			 */
-+			if (bp->step_method == RISCV_HW_BP_STEP_SW &&
-+			    args->regs->epc != bp->next_addr) {
-+				/*
-+				 * A nested breakpoint can fire before this
-+				 * event reaches its decoded next_addr, for
-+				 * example when perf delivers a signal handler
-+				 * with its own breakpoint.  Let the later slot
-+				 * handle that trap and keep this temporary step
-+				 * armed.  If nobody handles the trap, restore
-+				 * below so a real divergence does not lose the
-+				 * original breakpoint indefinitely.
-+				 */
-+				deferred_step_event = event;
-+				deferred_step_bp = bp;
-+				continue;
-+			}
-+
-+			if (bp->step_method == RISCV_HW_BP_STEP_ICOUNT &&
-+			    args->regs->epc == bp->address) {
-+				unsigned long tdata1 = icount_step_tdata1();
-+
-+				/*
-+				 * A trap can be observed before the original
-+				 * user instruction retires, leaving EPC on the
-+				 * armed breakpoint.  Delivering the deferred
-+				 * perf event here would account the same
-+				 * breakpoint twice, so rearm icount and wait for
-+				 * a callback with a post-instruction EPC.
-+				 */
-+				ret = dbtr_update_event_tdata(event, tdata1, 0, 0, false);
-+				if (ret) {
-+					disable_unhandled_singlestep(event,
-+								     args->regs,
-+								     bp->pending_perf_event,
-+								     ret);
-+					bp_ret = NOTIFY_STOP;
-+					goto exit;
-+				}
-+				bp_ret = NOTIFY_STOP;
-+				goto exit;
-+			}
-+
-+			pending_perf_event = bp->pending_perf_event;
-+
-+			ret = restore_original_breakpoint(event);
-+			if (ret) {
-+				clear_singlestep_state(bp);
-+				perf_event_disable_inatomic(event);
-+				bp_ret = NOTIFY_STOP;
-+				goto exit;
-+			}
-+
-+			clear_singlestep_state(bp);
-+			if (pending_perf_event && hw_breakpoint_event_active(event))
-+				perf_bp_event(event, args->regs);
-+			bp_ret = NOTIFY_STOP;
-+			goto exit;
-+		}
-+
- 		switch (event->attr.bp_type) {
- 		/* Breakpoint */
- 		case HW_BREAKPOINT_X:
-@@ -603,8 +883,7 @@ static int hw_breakpoint_handler(struct die_args *args)
- 					       RISCV_DBTR_MC6_HIT_FALSE;
- 
- 				if (hit) {
--					perf_bp_event(event, args->regs);
--					bp_ret = NOTIFY_STOP;
-+					bp_ret = handle_triggered_breakpoint(event, args->regs);
- 					goto exit;
- 				}
- 			}
-@@ -640,8 +919,7 @@ static int hw_breakpoint_handler(struct die_args *args)
- 				hit |= ranges_overlap(bp_start, bp_len, stval,
- 						      sizeof(long));
- 				if (hit) {
--					perf_bp_event(event, args->regs);
--					bp_ret = NOTIFY_STOP;
-+					bp_ret = handle_triggered_breakpoint(event, args->regs);
- 					goto exit;
- 				}
- 			}
-@@ -653,6 +931,15 @@ static int hw_breakpoint_handler(struct die_args *args)
- 		}
- 	}
- 
-+	if (deferred_step_event) {
-+		bp = deferred_step_bp;
-+		ret = restore_original_breakpoint(deferred_step_event);
-+		if (ret)
-+			perf_event_disable_inatomic(deferred_step_event);
-+		clear_singlestep_state(bp);
-+		bp_ret = NOTIFY_STOP;
-+	}
-+
- exit:
- 	return bp_ret;
- }
+Changes since v22:
+- Drop patch 2 since it is already merged.
+- Drop the starfive,jhb100-pwm compatible from the dt-bindings, as the pwm
+  module of JHB100 SoC differs slightly from the OpenCores PTC PWM module
+  in polarity handling. The support for JHB100 SoC will be added in a
+  separate patch.
+- Move the polarity check later in .apply().
+- Add comments for keeping the reference when the pwm is already enabled.
+- Rebase on linux-next.
+
+Changes since v21:
+- Allow non-zero duty cycles shorter than one clock tick to round down to
+  zero.
+- Drop the .free() callback to preserve the PWM hardware state after
+  pwm_put().
+- Update the comment.
+
+Changes since v20:
+- Fix 0% duty cycle support.
+
+Changes since v19:
+- Drop the oneOf construct in dt-bindings.
+- Address Sashiko AI review comments for the OpenCores PWM driver.
+  In ocores_pwm_apply(), handling disable requests first, then calculating
+  and validating period/duty for enable requests before taking a runtime
+  PM reference or touching the hardware registers.
+
+Changes since v18:
+- Address Sashiko AI review comments for the OpenCores PWM driver.
+- Fix runtime PM usage count handling on probe, error paths, PWM release
+  and driver teardown.
+- Reject period or duty cycle values below the hardware minimum.
+- Restore PWM registers across system sleep resume.
+- Return the real error from devm_pwmchip_alloc().
+- Preserve bootloader-configured PWM state during probe and keep runtime
+  PM active if the PWM is already enabled.
+- Use synchronous runtime PM put before possible teardown.
+
+Changes since v17:
+- Simplify the code. Make it more readable.
+- Restructure the driver to register the pwm chip for one pwm channel,
+  because each OpenCores PTC IP core only supports one PWM channel.
+  Drop starfive compatibles.
+  Add patches to fix the dt-bindings and device tree.
+- Support runtime pm and system sleep pm.
+- Disable the pwm module and reset the pwm counter before updating the
+  period and duty cycle.
+- Improve the descriptions.
+- Update the dt-bindings maintainer to Hal Feng.
+
+History:
+v23: https://lore.kernel.org/all/20261014110429.52762-1-hal.feng@starfivetech.com/
+v22: https://lore.kernel.org/all/20260810030714.48100-1-hal.feng@starfivetech.com/
+v21: https://lore.kernel.org/all/20260701074442.7714-1-hal.feng@starfivetech.com/
+v20: https://lore.kernel.org/all/20260629063601.63917-1-hal.feng@starfivetech.com/
+v19: https://lore.kernel.org/all/20260615155759.129210-1-hal.feng@starfivetech.com/
+v18: https://lore.kernel.org/all/20260515054723.25024-1-hal.feng@starfivetech.com/
+v17: https://lore.kernel.org/all/20250106103540.10079-1-william.qiu@starfivetech.com/
+
+Hal Feng (2):
+  dt-bindings: pwm: opencores: Update compatibles, examples and
+    maintainers
+  pwm: Add OpenCores PTC PWM driver
+
+ .../bindings/pwm/opencores,pwm.yaml           |   5 +-
+ MAINTAINERS                                   |   6 +
+ drivers/pwm/Kconfig                           |  12 +
+ drivers/pwm/Makefile                          |   1 +
+ drivers/pwm/pwm-ocores.c                      | 299 ++++++++++++++++++
+ 5 files changed, 320 insertions(+), 3 deletions(-)
+ create mode 100644 drivers/pwm/pwm-ocores.c
+
+
+base-commit: d48723711bae9b8cdc56719c448ba42fef28cbee
 -- 
-2.43.0
+2.43.2
 
 
 _______________________________________________
