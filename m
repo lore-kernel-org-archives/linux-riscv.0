@@ -2,62 +2,61 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CD18606A33A
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2026 14:06:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85193606A32E
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2026 14:10:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EHt5UYJ7;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WOfL5CB5
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TGBfRE1d;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RyiJEHB7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ap1sReFvaf8bMvfxmiUSc7gSTQefuTUqP9V5UHntzuE=; b=EHt5UYJ73PTplq6ib+9cn8Hcct
-	8DVjhy6+8zqeRdKaAa1oKZdBt8XWsvZqK1JTIdM6qW8CxXDD3Zgzth4h8TLw035FObWCoUgrbMIvv
-	JiVzey8gW9RtQNwEN/NuwKvBWbD5kWpCZtMc5uSrm46gaHOhm2wfQJdWbe3coMGVpdfrYAqRR1/qI
-	W0XGl3toeWFCcFA30VJN9xoqeUyfjpOHX6Kql/a0PnviXYSUTau+aSq1JyUMj1q+Rn+3Dzpjb4CbR
-	UGefdbxTYUb2kvYQfswrWNiDEDpAft/XOqm1w68kKiLkIo9sJEa/RLieF9+TYOnaJrc4Zy1HXpJB5
-	IgJDCg6w==;
+	bh=g0VMM0yMuDjxJcEFzOE9hYJWBVujqs1xuC9L+cnfD+4=; b=TGBfRE1d/5dF4OmYS/tPy1kiwV
+	df4lTOIjP6lv9hzN42kK7r0HjTRQQQHchh2hDzKRYKpHrqxaTZGPLnlBIeMpG/8EHjropo5wjoLVS
+	x4MPSFvlw4JABV0/Rt76NIgXo1osG9FIbm3gcnK/RYHiJP4usIEt/eAjL0CijzLYjjdnxRop5Rln2
+	g0Dv5A1OjUBXNEYH0fhi+mgHfrH9TxTp76dg9cKd5neuNet6fGWvW6q3QSgAis/SgD74Iw2DL97x1
+	YigaQ51TPOmc36A2NcmxuWXMWcWvunNYxPJ3w5r0egO3aDU7IPXGm4qDG7ZTLcJI8XHXqWxeOge9k
+	Y/kqFI9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPh3v-0000000EmsT-07el;
-	Sat, 07 Nov 2026 14:06:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xPh7M-0000000Enb6-2Cfa;
+	Sat, 07 Nov 2026 14:10:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPh3t-0000000Ems5-3fNC
+	id 1xPh7M-0000000Enax-0Uqj
 	for linux-riscv@lists.infradead.org;
-	Sat, 07 Nov 2026 14:06:29 +0000
+	Sat, 07 Nov 2026 14:10:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5913E41493;
-	Sat,  7 Nov 2026 14:06:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 581C91F008A5;
-	Sat,  7 Nov 2026 14:06:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6703540329;
+	Sat,  7 Nov 2026 14:10:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E48881F008A1;
+	Sat,  7 Nov 2026 14:10:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794060389;
-	bh=lN6MEVTLqxQZaRhIMVGcckvM4AhB2Yd9HdbNbDtVrlA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=WOfL5CB5L+dz7EAp/U9cZKaHOfkSdSte8r9Zl9PdDINIP8kqdNTpe9gExHHcQdRc+
-	 pWa71RHtpZkQnijX8QDtR2sxvZOhw1XJkuunIrkapyy0Z8G5lX5rR+TBc8EeSF7Xy9
-	 hjCn13ZaUNKh0ITroHRosAmPLqHjCFjMi5XJ+ObKs8ooJxToGY1umSXSxx8je0ZoAy
-	 IIVg1V9cmBbuPf2ZZfF2NJe0VTF88QYAXA/0mB5gY3NCSBa5YKjf/5bZhLIu5hwBYW
-	 em7cxjInqAzt3gc4VjceyoSAIgauthcJrM5S0I8SCsCkzdvi3NnGj/v89tvYNe0gS9
-	 XyXH2FrSoeR8A==
+	s=k20260515; t=1794060603;
+	bh=5Ry17mQiFCxfToY1zGA6QNTErIMgHFsdYh7nrM2aQsw=;
+	h=From:To:Cc:Subject:Date;
+	b=RyiJEHB7lS0LiNtkVjtDoPXFxdwk6maa2hAlrDqeoL5j8lCY9sPJVX1AEUaRnGTr4
+	 Sz4jFreYzYNLAvcL7XNynl+JUWMXHS6rxFpWbaEhv90lqGJCqe1k0yt00JOXsh82gm
+	 UkL7epm4Jbd2FnzZulDgIezcaemh12jukhfjloD83xw+TgL3FGJ6gMSc1M8cu2I1rf
+	 l7GndeIStOtzmzSTeHlnW/EwHHq7l2ThTsc2nM92Kkak7GXoE6dFMqNNNgo1rUE642
+	 LTvVnbTWRuYgug5VA/WOs4+tIEesNuf0MM2pbRxtRp6/Z2jsWST2IdFWNb9meAD/XU
+	 sTOUAUIwfu86A==
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>,
+To: Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Nam Cao <namcao@linutronix.de>
-Subject: [PATCH RESEND v5 2/3] riscv: word-at-a-time: improve find_zero() for RV32
-Date: Sat,  7 Nov 2026 21:46:12 +0800
-Message-ID: <20261107134613.17830-3-jszhang@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH RESEND] clocksource/timer-riscv: use riscv_has_extension_likely
+Date: Sat,  7 Nov 2026 21:49:52 +0800
+Message-ID: <20261107134952.17873-1-jszhang@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261107134613.17830-1-jszhang@kernel.org>
-References: <20261107134613.17830-1-jszhang@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -79,30 +78,69 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-To remove non-necessary zero bits couting on RV32, replace the
-'fls64(mask) >> 3' with '!mask ? 0 : ((__fls(mask) + 1) >> 3);'
+Instead of static branch, use riscv_has_extension_likely() to check
+whether SSTC is supported or not. For one thing, this is straight
+forward, no need to add and enable/disable a static branch during
+probe; For another, riscv_has_extension_likely() is based on
+alternative mechanism, it avoid some downsides of static branch, for
+example static branch's metadata in the __jump_table section, which is
+not discarded after ISA extensions are finalized, wastes some space.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Reviewed-by: Nam Cao <namcao@linutronix.de>
 ---
- arch/riscv/include/asm/word-at-a-time.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/clocksource/timer-riscv.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
 
-diff --git a/arch/riscv/include/asm/word-at-a-time.h b/arch/riscv/include/asm/word-at-a-time.h
-index ce04d6a088f6..f2d16c1eea8d 100644
---- a/arch/riscv/include/asm/word-at-a-time.h
-+++ b/arch/riscv/include/asm/word-at-a-time.h
-@@ -67,7 +67,7 @@ static inline unsigned long find_zero(unsigned long mask)
- {
- 	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB) &&
- 	    riscv_has_extension_likely(RISCV_ISA_EXT_ZBB))
--		return fls64(mask) >> 3;
-+		return !mask ? 0 : ((__fls(mask) + 1) >> 3);
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index b310e6721fac..151f4f0cfd6c 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -29,12 +29,11 @@
+ #include <asm/sbi.h>
+ #include <asm/timex.h>
  
- 	return count_masked_bytes(mask);
- }
+-static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
+ static bool riscv_timer_cannot_wake_cpu;
+ 
+ static void riscv_clock_event_stop(void)
+ {
+-	if (static_branch_likely(&riscv_sstc_available)) {
++	if (riscv_has_extension_likely(RISCV_ISA_EXT_SSTC)) {
+ 		csr_write(CSR_STIMECMP, ULONG_MAX);
+ 		if (IS_ENABLED(CONFIG_32BIT))
+ 			csr_write(CSR_STIMECMPH, ULONG_MAX);
+@@ -48,7 +47,7 @@ static int riscv_clock_next_event(unsigned long delta,
+ {
+ 	u64 next_tval = get_cycles64() + delta;
+ 
+-	if (static_branch_likely(&riscv_sstc_available)) {
++	if (riscv_has_extension_likely(RISCV_ISA_EXT_SSTC)) {
+ #if defined(CONFIG_32BIT)
+ 		csr_write(CSR_STIMECMP, ULONG_MAX);
+ 		csr_write(CSR_STIMECMPH, next_tval >> 32);
+@@ -112,7 +111,7 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
+ 	ce->irq = riscv_clock_event_irq;
+ 	if (riscv_timer_cannot_wake_cpu)
+ 		ce->features |= CLOCK_EVT_FEAT_C3STOP;
+-	if (static_branch_likely(&riscv_sstc_available))
++	if (riscv_has_extension_likely(RISCV_ISA_EXT_SSTC))
+ 		ce->rating = 450;
+ 	clockevents_config_and_register(ce, riscv_timebase, 100, ULONG_MAX);
+ 
+@@ -186,10 +185,8 @@ static int __init riscv_timer_init_common(void)
+ 		return error;
+ 	}
+ 
+-	if (riscv_isa_extension_available(NULL, SSTC)) {
++	if (riscv_isa_extension_available(NULL, SSTC))
+ 		pr_info("Timer interrupt in S-mode is available via sstc extension\n");
+-		static_branch_enable(&riscv_sstc_available);
+-	}
+ 
+ 	error = cpuhp_setup_state(CPUHP_AP_RISCV_TIMER_STARTING,
+ 			 "clockevents/riscv/timer:starting",
 -- 
-2.51.0
+2.53.0
 
 
 _______________________________________________
