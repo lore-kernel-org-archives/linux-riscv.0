@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30CE1606A31A
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2026 02:15:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07B4C606A31A
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2026 02:28:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nexlHm4l;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=frPVn++X
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=acwlImwr;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bciaoLia
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,53 +14,114 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=DIt7s24yVPzwmjoJxmaDYVAvJmGwn8csX28hkuikEjI=; b=nexlHm4luZnfAifdr8ANpglorX
-	xlKikaEld87YSGPckIT7jKmdXFTR/eoEGKVBeHroXjU6MMIFSDwCkEDSzaLkhcfamO6uRsetYrFUU
-	xTS6TJlw4+aUqCx3BWFxRm7AZFnp4yUYLIWYOf0NLF7ht1DKQ6EHHnhlMm75WdHIpBuIk6UYViLj5
-	SvnO6wkXo1YRETnkN9ruG9kddbNMaAWJR1DLd4V8Y5QD0lPV0wS1D65ep9TuCyUOJ3RQExC+DaymU
-	DOLqo1AsbRXaj3CI9ITue65keFEyRF1vG5k4dwMyBU/eIPZqImWQUm2iFITLHoCqh9SJqHgspXckN
-	viZ138Bw==;
+	bh=ZqOgB3DbM89FGb87SKxIyPg1cHPWD8ELhOpIbLK1XQs=; b=acwlImwrLuVOXJSBixFLrPheAc
+	i0OhHnM0grRyI2L4XNiYatqjV1VGHKQt+1B61K3067WxV2xeyzoHiyqrTWH7c/mK4K/mv9GRRjLJ5
+	x2huAYLd6aeIkZDEaPFVGlqNb8S1/7leFjWRWHpcr27Cpp6nlk9Yca5Ed760gY+8nvYQpWzGQrM6h
+	017vhvfSqvZSgCmO0EFhwfzYQKRybDfEY5BU0m4YM1jXW2a2iU5HcFofbuUC0HWk148njcLDmpW75
+	1N2cFsxd039LuzWMXCc/h3aPfwdBQtWitr0IefEVHasDqo2BT27loT3aZ4FpKKuXljWFFdVoOdF/j
+	RnU0kRAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPsRR-0000000FbK8-2NoA;
-	Sun, 08 Nov 2026 02:15:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xPsdV-0000000FcLM-3kjL;
+	Sun, 08 Nov 2026 02:28:01 +0000
+Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPsRP-0000000FbK0-40CV
+	id 1xPsdT-0000000FcE1-1D6n
 	for linux-riscv@lists.infradead.org;
-	Sun, 08 Nov 2026 02:15:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A83643BA4;
-	Sun,  8 Nov 2026 02:15:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E54961F0089F;
-	Sun,  8 Nov 2026 02:15:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794104131;
-	bh=oQEbe3DigURkbbZBKljnP0hlfAkUpqtqIvMCZNdUxiM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=frPVn++X2TPro6F5ja2r6Amed4YVGwNsgDtwgGFkOlrdu5KdM44suvzp++cHqGi2m
-	 irbKuG0FFG3EamocARcVdHSqH1HvycXKu2U6rLPRCuuduYSnYOU0vT+rqhQE0kUiXM
-	 NJXPJKmiKVAWrCtGTPQM7UpY2FltTXCTAcQf2wrJcdq9iIoT/hWmICgJuMZ2GcMcgx
-	 iKQNvB8h/C8v1eAeQxj5F2ley1UXvj9ZmKA255A7UPP9661c+mTn3OppsnutDPzFeJ
-	 fprNzd2Qua9ophL9r1lnh10WtpR/Na8gu3uGFMHjYVyjLu3gfTIpXzXhaihrLbvYMZ
-	 oyg/H6st3Xl5w==
-Date: Sun, 8 Nov 2026 09:55:20 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: entry: Mark ret_from_fork_kernel() and
- ret_from_fork_user() noinstr
-Message-ID: <au_WiGUxh1mROgKY@xhacker>
-References: <20261107194931.69176-1-kmehltretter@gmail.com>
+	Sun, 08 Nov 2026 02:28:00 +0000
+Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-1b2513decc3so100397c88.1
+        for <linux-riscv@lists.infradead.org>; Sat, 07 Nov 2026 18:27:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794104878; x=1794709678; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=CgFyMsoiKO2B1HX2AvfFumGFOpktUiaDt0kSWOji51M=;
+        b=bciaoLiaEsXEbrSYA9jeCKUJBkPTObBvAVg/g66uQIDt7NlwZJT/yTqWiuROU4YRDh
+         Khy+LdPRB4JJF951TOlT2zO6DFqLvzBahcvyfDtrReuYT2/5LcLWD8xfcmnWFfhgjFo0
+         Csxncp9v5Ebw9BZlIqta0XIt/H+QNfEwNub1uicpBUz1Hv5+IQ9wM0Zz7SN1RoRO0TAr
+         bfvjmqUOblugB+3XWm49oT6UhE8lrWxPMaVytwmTixG/e+02H74VWXryl9ZGpfHOq+SK
+         P81QqfQadpCqzwktb1DKMwoaFeN6qM/ZUQbEZunWAED0DjLqsTxFI2FS7uorWTJv70CJ
+         bfrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794104878; x=1794709678;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CgFyMsoiKO2B1HX2AvfFumGFOpktUiaDt0kSWOji51M=;
+        b=sHoZMn60MloUtQgf4EkvBQX2veP+almOq+0wEUi4h3Mk34bGSQvjDQDwageLTqKjlb
+         Q5dTKg5dLFLnnqbyn7VY6x30hTaKq53JBNHqcWRBdMtdtROZU4LT47IqVKQu8Iep9sOb
+         GRBCwFaVn9OtF6IYBmZXksmRlbgEcGKpoveGXA2++NDZpJXQdAn6xLh+Ck8IdWlu4RP7
+         2px3QVrEVoXa9JLIHJogyRHjL+ypAcY6Dhbwvd90KdZJmG/APh1CbTyXiHGyYhhZiDDd
+         BK94HWnQCMU8yTY73RS6vODizfKRVjXTSOkHwB8pY5THjqs3g0EfPd+gx/1kY3TzAX7W
+         BqyA==
+X-Forwarded-Encrypted: i=1; AKwUvBw9LzgteJc5s/MpJEeu44EWfpcZj65WV5TPE1GYRhPdBCnve/4PQ1gaoiDAGG3Bb9bma9xcgBvMRbky9Q==@lists.infradead.org
+X-Gm-Message-State: APuU4Z+5pD2fOOX7N6jtZ7afwwmXqJl6ZK8n9LCBtjB5Y6Acb+t6SkQa
+	oTzQVchhKN1WbGSLadPbH//NCLWKzP7nYoDXPjuRR5jfF5aG5uYnYeoh
+X-Gm-Gg: AYBFou14VUpMYqaKGj/MwTK96WkgTBLU6Qd/yQN585D38yxppEQwi0B6Wdpk3lkFK+2
+	QJs2q+uqx3Q+mpSVFW/CRjwIKx8cDE9rj1S+4pbuvSL8AgvkXEv2PWZ02ePu+TqzLOYCev0jYKz
+	yPTLhl1PotEPs2GFHONATyO/XnyVYoVP6z7lgYY4aSjMkxq1Od5SXNMHIpgwCxc7/Z4+t72jMIw
+	tCiJ5HG7jOoaLn+W01SEHcrZd6sGSP6ViEkTDDT5Ob9Asldqx4h6KxxGO3e/j/B2n4cwtgFpwvX
+	0Es2H4eLbaSHDieKnf0sKnnYI1MRtzJTv4MBltnMFoUztMQo4gcCCqgvHtk7hLg/7wcrortpRTI
+	hvpHUPmb0XnxaJpxBquJNCQBiZL1MptUf4rsmcyx+hRzsGrKPm5GQMqAqZ1k5p7b+9NemDRHrNH
+	Pmuoj53F3ZB6fPSfHfBhAPjd838WrpwFOsM8bPHa2r1frKq6G9Fnp4AECULp6ANsGSgRcrWVWPk
+	MrX6Hr67HweGZKejlL2M/MMDx1QY820wFAwratbQcNgPS7bM02SNWsL3/0Re61oEX/b3RBjOrtL
+	vP9nsF2yoNQYhUxD2yIm
+X-Received: by 2002:a05:7022:b0c6:b0:190:d0d9:3110 with SMTP id a92af1059eb24-1b39ff2dademr463410c88.45.1794104877934;
+        Sat, 07 Nov 2026 18:27:57 -0800 (PST)
+Received: from debian ([169.211.140.146])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b3771ea85bsm2390172c88.18.2026.11.07.18.27.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 07 Nov 2026 18:27:57 -0800 (PST)
+Date: Sat, 7 Nov 2026 21:27:32 -0500
+From: Kwanghoon Son <asdfkwang@gmail.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+	Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org
+Subject: Re: [PATCH RFC 12/12] MAINTAINERS: Add Bouffalo Lab BL808 support
+Message-ID: <au_eFNCt54nlCafy@debian>
+References: <20261029-rust-bl808-console-v1-0-b736ee920078@gmail.com>
+ <20261029-rust-bl808-console-v1-12-b736ee920078@gmail.com>
+ <20261029-spyglass-evasion-772697094cb9@spud>
+ <20261029-amuser-savior-6a6ab062f471@spud>
+ <auSDJH9V31wmbrYv@debian>
+ <20261030-slider-finished-360b10521e0b@spud>
+ <auXQaY25XfYzxEb1@debian>
+ <20261102-throng-botanical-b244058ecc37@spud>
+ <auqC9jOIQTyieQUJ@debian>
+ <20261106-dislike-despise-91106ac848dd@spud>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261107194931.69176-1-kmehltretter@gmail.com>
+In-Reply-To: <20261106-dislike-despise-91106ac848dd@spud>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261107_182759_359114_C4AE1717 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,82 +134,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-0.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, Nov 07, 2026 at 08:49:31PM +0100, Karl Mehltretter wrote:
-> ret_from_fork_kernel() and ret_from_fork_user() are traceable and
-> return after syscall_exit_to_user_mode() enters the RCU extended
-> quiescent state via user_enter_irqoff() on NO_HZ_FULL CPUs. When
-> function_graph tracing is enabled with
-> FTRACE_VALIDATE_RCU_IS_WATCHING, the return hook runs after RCU stops
-> watching and triggers the ftrace_return_to_handler() warning.
+On Fri, Nov 06, 2026 at 06:00:13PM +0000, Conor Dooley wrote:
 > 
-> Mark ret_from_fork_kernel() and ret_from_fork_user() noinstr and bracket
-> the kernel thread callback with instrumentation_begin() and
-> instrumentation_end().
-> 
-> Fixes: f955aa8723a6 ("riscv: entry: Convert ret_from_fork() to C")
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
-> Assisted by an LLM.
-> 
-> Tested on v7.4-rc1 (d48723711bae) under QEMU riscv64 (-smp 4) with
-> NO_HZ_FULL, FTRACE_VALIDATE_RCU_IS_WATCHING, PROVE_LOCKING,
-> nohz_full=1-3 rcu_nocbs=1-3 on the kernel command line, and
-> function_graph tracing during parallel fork bursts across CPUs 0-3.
-> Without this patch, two consecutive runs trigger:
->   RCU not on for: ret_from_fork_user+0x4/0x368
->   WARNING: include/linux/trace_recursion.h:132 at ftrace_return_to_handler+0x2e0/0x2f0, CPU#2
-> followed by an observed kernel paging request Oops in
-> ftrace_graph_ret_addr() while unwinding the warning backtrace.
-> With this patch, two consecutive runs complete without the
-> ftrace_return_to_handler() warning or unwind fault.
-> 
->  arch/riscv/kernel/process.c | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index 34c1d498d1cad..10c1bee77145f 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -225,14 +225,17 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
->  	return 0;
->  }
->  
-> -asmlinkage void ret_from_fork_kernel(void *fn_arg, int (*fn)(void *), struct pt_regs *regs)
-> +asmlinkage void noinstr ret_from_fork_kernel(void *fn_arg, int (*fn)(void *),
-> +					     struct pt_regs *regs)
->  {
-> +	instrumentation_begin();
+> Cool. One thing that I noticed, and felt it was a bit odd actually is
+> that the uarts are fed directly from the crystal oscillator. Jisheng had
+> that in his original series though so I assume that's actually how the
+> hardware works?
 
-since riscv has no objtool support, this can be removed.
+I carried over the direct crystal reference from Jisheng's series.
+But will change in v2.
 
->  	fn(fn_arg);
-> +	instrumentation_end();
->  
->  	syscall_exit_to_user_mode(regs);
->  }
->  
-> -asmlinkage void ret_from_fork_user(struct pt_regs *regs)
-> +asmlinkage void noinstr ret_from_fork_user(struct pt_regs *regs)
->  {
->  	syscall_exit_to_user_mode(regs);
->  }
-> base-commit: d48723711bae9b8cdc56719c448ba42fef28cbee
-> 
-> -- 
-> 2.39.5 (Apple Git-154)
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+UART3's baud clock passes through a mux and divider. The current M1s
+firmware selects the 40 MHz crystal via MM_XCLK, while the APB register
+interface runs at 160 MHz.
+
+Following your feedback, the UART node in my v2 work now describes
+complete form of clock itself.
+two clock inputs:
+
+clocks = <&uart_apb>, <&uart_baud>;
+clock-names = "apb", "baud";
+
+uart_apb: clock-uart-apb {
+    compatible = "fixed-clock";
+    #clock-cells = <0>;
+    clock-frequency = <160000000>;
+};
+
+The fixed-clock providers currently reflect the firmware settings.
+I'll add proper clock-controller support before submitting the DTS.
+
+Best regards,
+kwang.
 
 _______________________________________________
 linux-riscv mailing list
