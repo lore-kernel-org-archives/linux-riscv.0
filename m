@@ -2,116 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 225BD606A32A
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2026 15:24:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50A37606A323
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2026 21:28:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gqnY8M2z;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=G9nW/SDb
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2kjiL3WR;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uQ7jomlq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=yLbYx/mlvZk+ZAYWi33dYjWh3w2ReiBvYrnLKySbvPg=; b=gqnY8M2zGGXDwo5i6CZ1BLWQpf
-	j4WTTpInXbrdUYpwGMIns/wE6YWaNICZRlWP4ygU4qlHX3xBkomOmRYdtyYuUFdvWFbRJaC72zRli
-	vG9G/O7ev7GYV/rUOKXUODEVOjo3sk2h8xL/HcGjJdBTkAz85yRaLqpR4dU+OF25vVDNFGc4k4XEL
-	wqw1FZjjX6cCvLjuhAAfbcpqbSNJLkfV5sWpe9rAmEv0LudhwxDkRtFS8YP7Ot6x/V8XJeRwtm+eZ
-	GKCacir1Up/kEnpbxjkI/tUrqNJ/x0o2ODYAqS1E86b96dcxg6OfZnM0/HEya+5ghwit7GtlG+hnm
-	gEYruxiw==;
+	bh=EEPqybI197hJvMB/JZOaaojBXU/0QmPCF0AnUi+bfAc=; b=2kjiL3WR5HwY43Pr0FMLL2M5V2
+	YdbzvzPE1CkgJ0zr4bL0pWmbNGupZTDdT2ok1PeGunER0soZn7L00sptDGMHWqCqw22cuBIAfbXiV
+	Q2xf3+e2GBuj3oys+4bgbxuHZ/bZyV9/IKToaSxMZ+akY+woxU7ZK53BkZGo8gEuWF5wh3okQiS+5
+	x4EchQv8TZbXr6ieMLLEfuusoalpIO+YSDoOSDZvgK+s0nLFVHlsD49EtRYmcXuy4k7qksZk6aMps
+	rXKw9hcKX1Q12U+dq5m7aRrvodGYbd+7rd4AAKRdbXOjUbwxPIHkK9BLWF2qu6EiMTr7fp5k7+krY
+	08tYmxQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQ4ku-0000000GIxm-0GBE;
-	Sun, 08 Nov 2026 15:24:28 +0000
-Received: from mail-vs1-xe2c.google.com ([2607:f8b0:4864:20::e2c])
+	id 1xQARN-0000000GiqD-0RCG;
+	Sun, 08 Nov 2026 21:28:41 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQ4kp-0000000GItR-2E5E
+	id 1xQARG-0000000GinL-3R87
 	for linux-riscv@lists.infradead.org;
-	Sun, 08 Nov 2026 15:24:24 +0000
-Received: by mail-vs1-xe2c.google.com with SMTP id ada2fe7eead31-7ce6cb4c6faso68971137.0
-        for <linux-riscv@lists.infradead.org>; Sun, 08 Nov 2026 07:24:23 -0800 (PST)
+	Sun, 08 Nov 2026 21:28:40 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-48e4831c028so322210f8f.0
+        for <linux-riscv@lists.infradead.org>; Sun, 08 Nov 2026 13:28:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soleen.com; s=google; t=1794151462; x=1794756262; darn=lists.infradead.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=wks6IuPqWWMlFcHqYGHAoryyAYjkkjwfVtcF5N3uln4=;
-        b=G9nW/SDbK9QVJkwqUZg/hDWGOYG1F+tt0/vI4Juw1jc3HJFGJFdNAxKzCJoh1JDXMU
-         4efiUzxXh/SvCFhFCYDSNZa3TRwK0syENrpVyu17jPmhXmWMgRgEcm/FYEBPFSTCF1hL
-         IOumfMexjUqvTeSvMhacWSGOR41F0rPYP68g0Ksea5GGlUZm3O3fOReUT+LpFaQK4b8X
-         RmjlR2G7hSixqZ7Ld8IM3Iz4uHVRel44MOUPywgTArr74g4IGdS0NSYz/IguZEmSLcGo
-         WIbQbXuR+gY4+ziHORpB9MD6uXpZ3YowK3aYDx8WThtsDKaWH91ESTs3v7jzg5YVDd1D
-         StAQ==
+        d=gmail.com; s=20260707; t=1794173313; x=1794778113; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=QXRVCJ6p53mhv78a1V9znscskgidqnRubCEiNV0CGUQ=;
+        b=uQ7jomlqpeP1Jrjekiv45MRYvRX9p05ep12hSGm8a6vie4GQK42y9q1pmgFn3JD64r
+         o0Q7mV3o7/OQDEwhizHHvaGBKhojM7WERGHPi9NSRlVELEbfP1UIJsB29N9sQFzN74EA
+         Nt6mNQFJrXJGrGnbDYMXfp+UXsotjwxjhVogC8+WIb1zpU9jkLXKEeXSxgBs5NjA1FLU
+         8zgF3rZXN1tSfgVu4hkzvldo8acahUyRFyyMgf4m56INfvC42Ny5PnDYDdLVrOOn5T+T
+         UGnkYTVFO7DFOUmniw48XZa+7PbRhV5yp+ApGWWnUc/oSF7ChbRKfi/H+O2J/haEo9Ev
+         X6ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794151462; x=1794756262;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wks6IuPqWWMlFcHqYGHAoryyAYjkkjwfVtcF5N3uln4=;
-        b=GAf+QGuFgiYB0ToJ4R4OyCBa9xZPfOKWyoDTkOvDkDOxqW0+ibSQc0Osynwyxna8pN
-         Wl0HBUz/QJbScGhzZrCm+/KnHKMAZ75bt0DOGuH0sNc88O6/ceHA7AvRL781PSQSR/eq
-         ceHgh5D6ZbJnqvWKJnSyYv1225vj3s+32MwZK2Z3uKK7NpsC40SJbcFwoeSLPbbDikIl
-         ECob2wuE21+q8zhPua8WD+7jnqk2/rqCvHftWdCiB/cG4P1sJnATryYrod2MEQOHg6f4
-         cybgT3DqF28XTqW5YQb9nHEXuQhbs9zhpOVhZgwES4J32d7K5zVHvWAXxDw9XCKiNOFD
-         /GoQ==
-X-Forwarded-Encrypted: i=1; AL+hErGCDpBUKfiMlLjYT7PGc7OaEnazQ2UR5qnNW3QIVl8uK2g3VcIwDPrgmo9Lfh2b74swDMbubWjhuEJ9TQ==@lists.infradead.org
-X-Gm-Message-State: APuU4Z//TGxsqUJacPhvf4rrHEIXThS5JH6WusMkBmkHOYWhwxLm4kRW
-	J7bWziiYnmk+2eotbstC3VUq6nZ8qCk8n1/+gEEdTaqPrrAf5z5XmKoV99/NcacrMRE=
-X-Gm-Gg: AYBFou0EqRLdC1RS4dTgIpxkxvoLJOhpv/jwprGzr+YH5udl/vkKNesaxLoFTqZPiFg
-	nd7hkcjAaFtjqMqnw4J24xOrb5S33AEQjdtaiQFGM2kiYOBPrXFlRmyvqMbhrK9QxFfN6mIAyLQ
-	TpDVusmxNv3CI0ZrRciKuNPorJ8WiwP1qqftXisHXRxL92ywRGsrVqxYUXHsJQfV1UaQR8hQWbs
-	Q5DTqJ9eC3yTC/28ucvQdObt2BlW2ek+EQnmFDtxNFEWRl+NjK+sYr86KQ1/H9pJkhQuoR6zGGB
-	YJkqdy3FROM41R7PuG/QMxk2PQ5cMWFPdpiqgb2xICWKzCBbCkMJVpcMl0GZViJhrcL6EjjrMJR
-	5yZLprrCN6AMG6AAFRnIm6C4EUToFAUNqaymlkOE84viyDyY077JgrGY+XWh0Xt4fZWTfonnM3/
-	2eOTXKZiQas46MAHxnf3Kg0/K3mhkXsR+ED596QTQsu7V50UwTo7QNQLEQaaK9qgt8oKLm2PGBb
-	JrCAf7qq/z0KackWDv7+C1t8k/EiI2XyUo+m4xgEQ0nZiizN/hR3FLQylheOKnuIBnF3KbrNmA+
-	09qhsbnyMA53yvKh9521qWtBd4Dbr2uA0g4vdOwRRyzi+TSzpVFD3uAmux+hxmRwiwAXu7tM21B
-	29xkaaIGelLna+AXGq6dub9FR3rZmv4tAwwrgkRXg9RpiHBny
-X-Received: by 2002:a05:6102:d92:b0:7ad:3ad3:997a with SMTP id ada2fe7eead31-7d2daa685bbmr485125137.5.1794151462168;
-        Sun, 08 Nov 2026 07:24:22 -0800 (PST)
-Received: from soleen.c.googlers.com (64.167.245.35.bc.googleusercontent.com. [35.245.167.64])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ece60c1adfsm2166205e0c.8.2026.11.08.07.24.20
+        d=1e100.net; s=20260707; t=1794173313; x=1794778113;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=QXRVCJ6p53mhv78a1V9znscskgidqnRubCEiNV0CGUQ=;
+        b=a/u4EsqJ1vDSS49RyrfvRLVWSp5vyE2ZFGzKperEtO5zIe/EN5kvCxQSYGGin/e/ED
+         SfUmJG1uQs7p33LdbjsUhGuIutiSsXO3KCgAZcdkUxDLToSXR+FjcPD4ppvlpJP38Wn/
+         f7bxThei+v0ExlQSMtJmBJ3eDzRt3FsJ7QWc8KxBOK/8SoqEAG8KFsqI/moPWHF7RWPZ
+         kjXADrp5ZtGZKye35kknvQY0AsmxNC8NpibJiI5ZwycRXrYTEzkTJNQu/x3XUpzeikLZ
+         zCrtGtUaBbwTsABee6xhvTzizjwIuTw99SBlhNeQFtZ2JQaWP9GpkpCBisiCyFzFUEeQ
+         ilaQ==
+X-Forwarded-Encrypted: i=1; AL+hErECUhd0GuDdELwiVQfJ/pwSgH0l/TM7pLyui21RMn2rNi2rswcN2sBOkM3cYMkAA4fCbokOeqnNfVctuQ==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8bB63uaqItuJptIf1XIGGiq59l6C+ekEvphbuNdYgIMilr6P7z
+	BRBqNCICRfm69TBDJLSwkUBZRFBDDxELguk9pkJPgQg0ebrUoacuNraw
+X-Gm-Gg: AYBFou2t3M7TE0+xnuVeaS7vGEqodM6E9PrJfHUJ5JY4HDZZ+Xx9WNgTszZyrP/6J0k
+	3/etYWFywJC8iEgv76fB5Wab6vJce5Ig3cqkkABNKx/IL0mtM9lv2bhLU28i2t/FInyU20sFWRL
+	VXYCleD958IV0cEHt4iKo/HAp8PEbBFVlJw94DvsW9JE22aRWX9pqnUtU6r9v+2cAWmE5tlIi5t
+	2HhlvkO1H6h/JpQwNdCqOA1HkQcdqxLNZhTUSMHotc0mfWICnh2CElofQHdYzZ6ExnAJvYh7F53
+	nlA+Sdve7MIHWXk9iZujxYf0N4nqOsWmdLsx/qdNkpX8JmV+EIijCfOPmPWrezWv3KoDHExxPDU
+	E+9RCZrIrx28MHE20/BbnSmZYV19iGWBaIc0vJ3H3AhF4nyXWBeRGcXiu1BPw8B6F6mwa8l7jv6
+	3tQz5LfEij42PKrva6gdHXNmeHpQgreyxPG0z6afadsV/9QM+f1F0YRoeVQu8VjJgQTh3tVz6Ld
+	WPnUymBexMw3svxOpOOI+400MUEmPIXSEASWvY8i+J+xTUyaFiqbJ+e2ZsBz+D3nCCs/JlyjPpi
+	IjqxQy5aqBme3/hpFz6lGYFjhKuV+QfVZw==
+X-Received: by 2002:a05:6000:260b:b0:48b:108:48cf with SMTP id ffacd0b85a97d-495844a312emr4255528f8f.25.1794173312645;
+        Sun, 08 Nov 2026 13:28:32 -0800 (PST)
+Received: from hp-z640.fritz.box ([109.76.148.69])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49597091400sm5692050f8f.32.2026.11.08.13.28.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Nov 2026 07:24:21 -0800 (PST)
+        Sun, 08 Nov 2026 13:28:30 -0800 (PST)
+From: Owen O'Hehir <oo.hehir@gmail.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	linux-rtc@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Hal Feng <hal.feng@starfivetech.com>,
+	"ziv.xu" <ziv.xu@starfivetech.com>,
+	Conor Dooley <conor@kernel.org>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Subject: [PATCH v2 1/4] dt-bindings: rtc: Add StarFive JH7110 RTC
+Date: Sun,  8 Nov 2026 21:28:23 +0000
+Message-ID: <20261108212826.15890-2-oo.hehir@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261108212826.15890-1-oo.hehir@gmail.com>
+References: <20261108212826.15890-1-oo.hehir@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 3/4] selftests: kho: Add riscv support
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-To: Chen Pei <cp0613@linux.alibaba.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, alex@ghiti.fr, rppt@kernel.org, 
- pasha.tatashin@soleen.com, pratyush@kernel.org, graf@amazon.com, 
- shuah@kernel.org, guoren@kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
- linux-kselftest@vger.kernel.org, kexec@lists.infradead.org
-In-Reply-To: <20261106071459.2003-4-cp0613@linux.alibaba.com>
-References: <20261106071459.2003-1-cp0613@linux.alibaba.com>
- <20261106071459.2003-4-cp0613@linux.alibaba.com>
-Date: Sun, 08 Nov 2026 10:24:13 -0500
-Message-Id: <179415145358.358073.2579925146371313024.b4-review@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=279;
- i=pasha.tatashin@soleen.com; h=from:subject:message-id;
- bh=2foYgeRjtLhgriBAFewI3QB5zsYy+0XWNuIAF3mfsnE=;
- b=owEBbQKS/ZANAwAKAbt3KEzbc3reAcsmYgBq8JQhKpBPG9CWddYheCPGKD+kNOAaT7Q0REO8/
- X0Xg5z+ESOJAjMEAAEKAB0WIQRBMaqT7LRvGvB/NmK7dyhM23N63gUCavCUIQAKCRC7dyhM23N6
- 3is6D/0UINh3QpPKiI0oOOWcH4They0T6KUWUtHH8paLMyiZTEZkaScs0phm5xLc845Ic9LxgmV
- Ob9G+SV8Wxahy4a/rO74Z83XKMVJDWYIpisVHoHivOtAWR+j/G79uLhwjA8WzmN5yO47Bk2nvkh
- ZzBpJEvC9rwTiftW3gZFajEGLRiM49GUVyVv//8qqXJ9Ikppz4DVWRb5Ym4oX6AGzPcIAbONe1A
- nh4nvYGHDQ8lBVPB66a6NO3U6WyIEfh6uZgSQ/++97wJ9wqMTtCfxkBkGLmKL0Yk1AOYpy90QwL
- CDTFSiHMVtve/xrQqdf0EWmvioVf5R+GdmTUyZYuD7pGWDiWkeuLrx8Fp9X79izbp51wQNuYxdM
- JdUKLm2Yg50CclKLaZ1Kfbx5gj3v9DkMLC70EqXxhq5F043Wk9G+Eja6C5cARA3buxzkWeBKNcT
- Ucgnb2XSQM/ctZe6Hg7U78wNzRetTB3KrvVsXeS8Bs4gsKjqptzAokRR3Ta5gTl3eFhb78CfB+0
- 0xjt0yhEuEToGjrrg9yY6+cQe1olAah0ZoAIy3V59Ld0EoWxxy3a6V1KwMfNYvm1seTYH704eJi
- iPUZenreJsXOKLLBV3GO4GQh7ruky0RLLEMmdisjXOsYgfKc8xta8jxJJBAUKw1MxbYd41s0ZpX
- dEAw+5VN3pA4i9Q==
-X-Developer-Key: i=pasha.tatashin@soleen.com; a=openpgp;
- fpr=CAAAB722DD22A081F0D49F35633A6A993D43B569
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261108_072423_589570_61BAA6E0 
-X-CRM114-Status: UNSURE (   4.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261108_132834_898407_0FE9E950 
+X-CRM114-Status: GOOD (  11.63  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,21 +116,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, 06 Nov 2026 15:14:58 +0800, Chen Pei <cp0613@linux.alibaba.com> wrote:
-> Describe the machine the KHO vmtest runner needs to boot riscv64, so the
-> test stops being skipped on this architecture.
+Describe the RTC in the always-on domain of the StarFive JH7110 SoC.
 
-Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+Signed-off-by: Owen O'Hehir <oo.hehir@gmail.com>
+---
+ .../bindings/rtc/starfive,jh7110-rtc.yaml     | 85 +++++++++++++++++++
+ 1 file changed, 85 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/rtc/starfive,jh7110-rtc.yaml
 
+diff --git a/Documentation/devicetree/bindings/rtc/starfive,jh7110-rtc.yaml b/Documentation/devicetree/bindings/rtc/starfive,jh7110-rtc.yaml
+new file mode 100644
+index 000000000..a88ab91ab
+--- /dev/null
++++ b/Documentation/devicetree/bindings/rtc/starfive,jh7110-rtc.yaml
+@@ -0,0 +1,85 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/rtc/starfive,jh7110-rtc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 Real Time Clock
++
++maintainers:
++  - Owen O'Hehir <oo.hehir@gmail.com>
++
++description:
++  The RTC in the always-on domain of the StarFive JH7110 SoC. It counts BCD
++  time and date from a 32.768 kHz clock and has an alarm, a frequency offset
++  adjustment and millisecond and one-second pulse outputs.
++
++allOf:
++  - $ref: rtc.yaml#
++
++properties:
++  compatible:
++    const: starfive,jh7110-rtc
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    items:
++      - description: Millisecond pulse
++      - description: One-second pulse
++      - description: Alarm and calibration events
++
++  interrupt-names:
++    items:
++      - const: ms-pulse
++      - const: sec-pulse
++      - const: rtc
++
++  clocks:
++    items:
++      - description: APB bus clock
++      - description: Calibration reference clock
++      - description: 32.768 kHz counter clock
++
++  clock-names:
++    items:
++      - const: apb
++      - const: cal
++      - const: 32k
++
++  resets:
++    items:
++      - description: 32.768 kHz counter domain reset
++      - description: APB bus reset
++      - description: Calibration reset
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - interrupt-names
++  - clocks
++  - clock-names
++  - resets
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/starfive,jh7110-crg.h>
++    #include <dt-bindings/reset/starfive,jh7110-crg.h>
++
++    rtc@17040000 {
++        compatible = "starfive,jh7110-rtc";
++        reg = <0x17040000 0x10000>;
++        interrupts = <10>, <11>, <12>;
++        interrupt-names = "ms-pulse", "sec-pulse", "rtc";
++        clocks = <&aoncrg JH7110_AONCLK_RTC_APB>,
++                 <&aoncrg JH7110_AONCLK_RTC_CAL>,
++                 <&aoncrg JH7110_AONCLK_RTC_32K>;
++        clock-names = "apb", "cal", "32k";
++        resets = <&aoncrg JH7110_AONRST_RTC_32K>,
++                 <&aoncrg JH7110_AONRST_RTC_APB>,
++                 <&aoncrg JH7110_AONRST_RTC_CAL>;
++    };
 -- 
-Pasha
+2.43.0
 
 
 _______________________________________________
