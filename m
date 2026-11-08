@@ -2,146 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B83A606A31C
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2026 10:05:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62ABB606A320
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2026 10:11:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=W7lp/OFG;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=G+bU4NIF;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=irfWvB1J
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Pk4+oRTG;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oI+6Xik+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=BlFvSBJ8j85OS7opN+1uXM0uozGE9JLTUQE5A8Iam/Y=; b=W7lp/OFGKvNJl3a+l90NAvWS14
-	vglpaivgwCEfs9hMlPVLFeUuVtqdJ4d4neU4uKbl90r1148Ys/93Urjy/iConrKbrpFrMkhsqJ+VE
-	6P8VhJcDsRVCOvbXDTzBkSGEoLrFZ0Juk31m3mQLVS5fnJm3/UbGby7Dh11/HrJnIEdjd3k975lKJ
-	lsKXQKOrXgGRg9O1QgAWCL39KQ1t96f96wVddfWNZX+3r0l4eWtodjohNdudJ52yHuwGX+R/Qlfhf
-	DmjoS3uqTRng3pGmeBBmGCJ8RcOqQT3AYzP02yihzcj0h6cr+gMACFz+4fryN0giPg2CN7q+YlOqG
-	ttrKfZYg==;
+	bh=sXx5EYZnWPB4VoJhvtBVGzt4S2vY1GZh10TOiwJv4H4=; b=Pk4+oRTGKKy2/1gU4QyP5/12QJ
+	XHhyT1xZDG1hl1/uxZx+6/kc6POHx9cGREmh7Vhc+kwEage4XtPQCYN3eeftY4PL48ZyB+UVYcwcG
+	VgU6XO686r1CADo/foyfY7CqvFndaVoCwrByBtB5aD04GIIP/5Zi0Zk9E68GEtaaNMo74CDWbnXwq
+	eKPYfUtn9iwL6ziHYKFznYPjHkBMx48TitjzoEoKSOHxojuqYwrhDOU1DVcxUG7bXucUGe82mUcKz
+	BmZJv3375kAbLNc2AdLHcPX1zd7cZX+q0RNNeUBfnvfvkWW9ON2t+QMjvRUUV/Q4NG5oOBvDTnJwG
+	0Qv1zMfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPzm7-0000000FwBj-42lY;
-	Sun, 08 Nov 2026 10:05:23 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xPzrg-0000000Fwt2-3qwO;
+	Sun, 08 Nov 2026 10:11:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPzm5-0000000FwBL-1y0Y
+	id 1xPzrf-0000000Fwso-2xz0
 	for linux-riscv@lists.infradead.org;
-	Sun, 08 Nov 2026 10:05:22 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A87eQlw835890
-	for <linux-riscv@lists.infradead.org>; Sun, 8 Nov 2026 10:05:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	lI2bMSw3JcTh5t2gsFtQ1Aa7uR3op4ozHoeuaAFPwP4=; b=G+bU4NIFUyi4VeRw
-	l1JKeJEaokuq16H6Dz3DilBsqmWTfBkYpiD1RvS1Iw7Kw1CbnvE8ZRkvVDeKGXRl
-	1c1F949sXoczIFeHU8IdVWog3tsrZ3oi3JipxewtltWw5bJSaj7WlOBKAHME5E1x
-	tlYv/WYQf5hQtsYhZ8aqr00Y+WB0c1QDTiOfOMwOkdj69F40CeQPxbaA5J7Amm9H
-	3TkpTHvaxevQrZuSHbcB4oI9XDQCapR1K5hkMdeGyYzBV2Vj7cSFhj0dUlsmXVmb
-	nb98ai8RK3qJ7pYZzdEtjcJfStRfPWU+pM4hAD82XDXJGr1morsi360ftdxDesXT
-	hqNcsA==
-Received: from mail-yw1-f199.google.com (mail-yw1-f199.google.com [209.85.128.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hsv732mv3-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Sun, 08 Nov 2026 10:05:19 +0000 (GMT)
-Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-836c416b236so3974987b3.0
-        for <linux-riscv@lists.infradead.org>; Sun, 08 Nov 2026 02:05:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794132319; x=1794737119; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lI2bMSw3JcTh5t2gsFtQ1Aa7uR3op4ozHoeuaAFPwP4=;
-        b=irfWvB1Jeh6BwAzP6HVTc+6rvVQxGOqnAOUgDUH6gT8TUSRzRX/RKd5Np6k3YlYlv7
-         +x+z50pq9jmZcCClnvrWCLc446phmjbPgC9NIpeGZdqrvW/2v3Cy4urHpvkzZuL36Ja8
-         JRQmdNWUu0FHTsZjXusWTf0TJzsS+CTwJDGB+N30RvRt0JXZ6ThtyJ/G1hX01nn9aDRQ
-         YF90uHO6454nwNmj1GxhjzCZgwjNBZPf4CMClNhMIVCcs8FL9L90+f1PbbHHPJgwJ9EQ
-         2QVPXBwNldU/CkCqcjELYY8t6YZDqlr5ZmxWQ/07f0a8+BTmCDhbafZ/1yIyWv3zT0va
-         pJGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794132319; x=1794737119;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=lI2bMSw3JcTh5t2gsFtQ1Aa7uR3op4ozHoeuaAFPwP4=;
-        b=gRVYT9aUDeaqb/X+zKCAIJUhAIqCaZ43EoQEisejlSA5LTZohECMvWC8WUlU4eL3Bx
-         Cc2tCdjCx1KNHmcjtRUk2l9/XtuyxSBCQ3GwPrsskBeIv54zO9FC6Ov2EFqk5rXD71XK
-         Qmc7ocnshlqVcWc010eWQp4fHB6/3ZxUKlqMzt8hWu536+1IzXdzuoDqKG8dK4tfDel8
-         h9t1ityH/6J997/Djp/rQR9A2RWEezkeO5+v8UU30JqATkLWJY1xm5v1glw2qxopP0io
-         0qqcMV3TLDevuB35E6TXep//3Brwx/QxzMoA08Liw4JJLeqyKLlTH+5BliS0TlaO+LsD
-         U5jA==
-X-Gm-Message-State: APuU4Z+GNm7sIycAi77MaPDahPTGENcBNu/RONx0FlR7O+OcJVVXSdGh
-	Zs+8Nh2280ieAt0QrnvO57pJc/ioV3VuEY6M/+vnuTCXb9fcI0fwB8EoLCot+7M5LjUGuVs6SZQ
-	xIba1lnIbdZMjrImAuwQRaNxo2DGru79BVuJZHRJ9UMGLbxriCgpDAdrGRTpNnu+P/WQx/PE=
-X-Gm-Gg: AYBFou14QVtBGual0GaccznDyeEuHKVGMA9RuKdOWFcVOWFH/C9AAP45n1Sty6zGI0A
-	zvOyFVa5TRLWzre33gXWHSyiwIexJ4xC6tgYGGD6RyAF/bO10ypeCVMQiVq0YMkj0d6YwjLq2M/
-	bw6pJiHTkJZbcBI0kgZ8Rk6SYhRXaRrr7iiHoMajJ5vBOWtb+itDpiIAsPt2W4lgnGoamyBkHvB
-	GEauSow2z682olMPfUdrfj/sdHTtI139RMl6m1s7n1DTpcgUmiKZSjqhhRTkpztAXC/XQ73vYa1
-	8nS5rP4VyEkYp/mGTIFdBl94KNRrwLJGqn+AKrM6R06CX4TlQg1jJ564I+z+0bjRNW0k00739S7
-	b7d9kwtvr7g18CSIpdp27zkjkbsgHIrSJZg1OYF52SDOv8994VuJz2LTz/XXAkzc4XhIIzb4qD7
-	NWm/OSxEjz
-X-Received: by 2002:a53:ba4e:0:b0:677:b670:bc2 with SMTP id 956f58d0204a3-67c3da757a5mr413285d50.131.1794132318585;
-        Sun, 08 Nov 2026 02:05:18 -0800 (PST)
-X-Received: by 2002:a53:ba4e:0:b0:677:b670:bc2 with SMTP id 956f58d0204a3-67c3da757a5mr413280d50.131.1794132318040;
-        Sun, 08 Nov 2026 02:05:18 -0800 (PST)
-Received: from localhost ([120.244.9.94])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b36bc2c768sm11777827b3.30.2026.11.08.02.05.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Nov 2026 02:05:17 -0800 (PST)
-Date: Sun, 8 Nov 2026 05:05:11 -0500
-From: Guodong Xu <guodong.xu@oss.qualcomm.com>
-To: Radim =?utf-8?B?S3LEjW3DocWZ?= <radim.krcmar@oss.qualcomm.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Alexandre Ghiti <alex@ghiti.fr>,
-        Samuel Holland <samuel.holland@sifive.com>,
-        Andy Chiu <andybnac@gmail.com>, Guodong Xu <guodong@riscstar.com>,
-        Zong Li <zong.li@sifive.com>,
-        Charlie Jenkins <thecharlesjenkins@gmail.com>
-Subject: Re: [PATCH 3/6] riscv: hwprobe: Report Zicfilp and Zicfiss only when
- available
-Message-ID: <w7pia2wy5enxvv74erxbx7qcghh4acf5ljfzdoqo5jy6gxwm2n@p2eh5rtlta7q>
-References: <20261006075303.205216-1-radim.krcmar@oss.qualcomm.com>
- <20261006075303.205216-4-radim.krcmar@oss.qualcomm.com>
+	Sun, 08 Nov 2026 10:11:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E46F1611E7;
+	Sun,  8 Nov 2026 10:11:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0441F1F0089F;
+	Sun,  8 Nov 2026 10:11:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794132666;
+	bh=60o/q0vImuKetKVKrTKOZ9rHINZBX/j7ahoQlV0VAdI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=oI+6Xik+eXY8NIXF2d//hjVuRmMCYb3PcXNNpskrqU2Hsx9nanKl4+wwFstWABMsP
+	 VFre2gQ0lTUmfpH99jj49gPre8vJiDAba9e4iSWIA1aclUgtyuTb5ac0RcsbctvnmE
+	 k4dVL/j8Y0tk8Z9gIGIFS7BGUt3XmGGFoEn0RVTXe5pivetVSWliXgLRFCcDqlFEaQ
+	 3NcFeFmzKioN2+i2RJk0q4jgGr8hxeQUnT+OPfUtgkRmEvn5kzkMRxsp3XWa+kfT/x
+	 MKXxxpmZcTTBcrporu6MMNY1VUCh5cKmocf9zbz4zJy5RK1Xa78ySUqqKVDbnY1xHB
+	 0A4XLw2bvAyww==
+Date: Sun, 8 Nov 2026 17:50:54 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Guodong Xu <guodong.xu@oss.qualcomm.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] riscv: remove RISCV_ISA_EXT_BUNDLE[_VALIDATE]
+Message-ID: <avBF_mFk-qW-IJ2Q@xhacker>
+References: <20261106190559.1906130-3-conor@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261006075303.205216-4-radim.krcmar@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA4MDA0MCBTYWx0ZWRfX1K3omiKF/Z1y
- 4GjOytf4wnR1y7Pq0R+zi7N0XZ8Oik/LNAWGpIZqIBBpPpzNl+dDNAERSnhAYSluVS02tInirxn
- FSug9jCtv/39TZfRcl3vtb2xE0b9gBOVvyjC8UNbkynzj5Aeh28QM0LY3gYd8TcAhOidR5iGNIL
- jQ6V0sy5IdiNZ9tIwUAkzItjZzF/iZufvJROYAV3uQrXCELlrbwenxStjlBQHvUZyXu3Ogihpmt
- bClxhgYlhFdQUU4d+ASkx/Yigd2yPv011TOg0ViB8zbreT7f+cxucLrCXpIMzQs3Uqkbeh6o8Dn
- 3c3/sGgIXKabeluB34JvHETTd0vlba9R0Tf22XnA8LDkpSYdXXqjG+xDOYadOMyHP54oVYdxbnA
- 4bpAaIT+iXA9nM72R3JuI0qPJonVDln8jIhqISFfCW88wwB883I/UlRnSt53R9kMhh9xrQp3+Ik
- Z3scs4e2jOZo1i3fJ2Q==
-X-Proofpoint-ORIG-GUID: t2kpDLQOciH-DSaiciHkgLwfgrJtoVjs
-X-Authority-Analysis: v=2.4 cv=bcb+w+PB c=1 sm=1 tr=0 ts=6af0495f cx=c_pps
- a=72HoHk1woDtn7btP4rdmlg==:117 a=ZvHX9x23NDWH3CQeJ2oX1w==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=yKTjZOk7vXKTgSIRYZQA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=kA6IBgd4cpdPkAWqgNAz:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA4MDA0MCBTYWx0ZWRfXxtg6wLP/KMnv
- oDSL3Q7jNcBYYOM8BdYE2fV6tSXZGE1hHxyKGQdEgQAp9hTUUpzv9iIRa4xmga17cXOFLye2HQS
- xvYkZBGHjWzZm2cxXHQEZGgava44iVU=
-X-Proofpoint-GUID: t2kpDLQOciH-DSaiciHkgLwfgrJtoVjs
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-08_03,2026-11-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 suspectscore=0 spamscore=0 clxscore=1015
- phishscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611080040
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261108_020521_542037_AAA1DB04 
-X-CRM114-Status: GOOD (  12.89  )
-X-Spam-Score: -2.8 (--)
+In-Reply-To: <20261106190559.1906130-3-conor@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,37 +71,290 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-SGkgUmFkaW0sCgpPbiAyMDI2LTEwLTA2IDA5OjUzLCBSYWRpbSBLcsSNbcOhxZkgd3JvdGU6Cj5V
-c2VyLW1vZGUgdXNlIG9mIFppY2ZpbHAgYW5kIFppY2Zpc3MgcmVxdWlyZXMgc2VudmNmZy5MUEUg
-YW5kCj5zZW52Y2ZnLlNTRSwgcmVzcGVjdGl2ZWx5LCB3aGljaCB3ZSBzZXQgb25seSB3aGVuIGlz
-X3VzZXJfbHBhZF9lbmFibGVkKCkKPmFuZCBpc191c2VyX3Noc3RrX2VuYWJsZWQoKSAoQ09ORklH
-X1JJU0NWX1VTRVJfQ0ZJLCB0aGUgZXh0ZW5zaW9uIG9uIGFsbAo+aGFydHMsIGFuZCBub3QgZGlz
-YWJsZWQgYnkgcmlzY3Zfbm91c2VyY2ZpKS4gIGh3cHJvYmUgcmVwb3J0cyB0aGUKPmV4dGVuc2lv
-bnMgZnJvbSB0aGUgcGVyLWhhcnQgSVNBIGJpdG1hcHMgYWxvbmUsIHNvIGl0IGNhbiBhZHZlcnRp
-c2UKPmV4dGVuc2lvbnMgdGhhdCBhcmUgYWx3YXlzIGRpc2FibGVkIGluIHVzZXItbW9kZS4KPgo+
-UmVwb3J0IGNvcnJlY3QgZW52aXJvbm1lbnQgdG8gdXNlci1tb2RlLgo+Cj5UaGUgY2hhbmdlcyB0
-byBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3VzZXJjZmkuaCBhdm9pZAo+SVNfRU5BQkxFRChDT05G
-SUdfUklTQ1ZfVVNFUl9DRkkpIGd1YXJkcyBpbiB0aGUgY29uZGl0aW9ucy4KPgo+Rml4ZXM6IDMw
-YzMwOTkwMzZhOSAoInJpc2N2L2h3cHJvYmU6IGFkZCB6aWNmaWxwIC8gemljZmlzcyBlbnVtZXJh
-dGlvbiBpbiBod3Byb2JlIikKPlNpZ25lZC1vZmYtYnk6IFJhZGltIEtyxI1tw6HFmSA8cmFkaW0u
-a3JjbWFyQG9zcy5xdWFsY29tbS5jb20+CgpSZXZpZXdlZC1ieTogR3VvZG9uZyBYdSA8Z3VvZG9u
-Zy54dUBvc3MucXVhbGNvbW0uY29tPgoKRm9yIHRoZSByZWNvcmQsIHdoaWxlIGxvb2tpbmcgYXQg
-dGhlIHJpc2N2X25vdXNlcmNmaSBwYXJ0IG9mIHRoaXMgSQpmb3VuZCB0aGF0IHRoZSBvcHRpb24g
-aXMgcGFyc2VkIHRvbyBsYXRlIGZvciB0aGUgSVNBIHZhbGlkYXRvcnMuIEkgc2VudAphIGZpeCBz
-ZXBhcmF0ZWx5IFsxXS4gUnVuLXRpbWUgY2hlY2tpbmcgYXMgZG9uZSBoZXJlIGlzIHN0aWxsIGNv
-cnJlY3QgYW5kCnRoYXQgZml4IGRvZXNuJ3QgY2hhbmdlIGFueXRoaW5nIGluIHRoaXMgcGF0Y2gu
-CgpbMV0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8yMDI2MTEwOC1ub3VzZXJjZmktZWFy
-bHktcGFyYW0tdjEtMS1lYTIyZDNhNjA2ODNAb3NzLnF1YWxjb21tLmNvbS8KCkJSLApHdW9kb25n
-IFh1CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, Nov 06, 2026 at 07:05:59PM +0000, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> RISCV_ISA_EXT_BUNDLE actually made sense when it was originally added,
+> since it presented a simple interface where users (be that in kernel or
+> userspace via things they are presented by the kernel) would check the
+> exact extension needed for a feature, rather than muddying the water
+> with parent extensions. As a result, the kernel does not track the
+> status of the parent extension in the bundle, nor expose it to
+> userspace.
+> 
+> This is in comparison to RISCV_ISA_EXT_SUPERSET,
+> where the parent extension provided some explicit value, and would have
+> to be checked for itself for some potential feature, and therefore we
+> actually track the status of both child and parent extensions, and let
+> userspace detect them independently.
+> 
+> Since we added this stuff, there's been some retroactive extension
+> releases by RVI that have made previous monolithic extensions into pure
+> wrappers that we intended using RISCV_ISA_EXT_BUNDLE for. Since we
+> previously tracked that as one extension, and exported it to users as
+> one extension, we can't just use RISCV_ISA_EXT_BUNDLE, and have to use
+> RISCV_ISA_EXT_SUPERSET instead and nobody seems to know what to use each
+> actually for anymore.
+> 
+> Just delete RISCV_ISA_EXT_BUNDLE for the sake of consistency between
+> things that were always a bundle from ratification and for those
+> retroactively made into bundles, with the side benefit of being less
+> confusing for those adding extensions to the kernel.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+> Not 100% on if my comments on the initial rationale are right, they're
+> just my recollection...
+> 
+> This is a rebase of the rfc, I didn't change anything functionally I
+> just ran it on a board in the interim.
+> 
+> Cheers,
+> Conor
+> 
+> CC: Paul Walmsley <pjw@kernel.org>
+> CC: Palmer Dabbelt <palmer@dabbelt.com>
+> CC: Alexandre Ghiti <alex@ghiti.fr>
+> CC: Conor Dooley <conor.dooley@microchip.com>
+> CC: Jisheng Zhang <jszhang@kernel.org>
+> CC: Andrew Jones <andrew.jones@linux.dev>
+> CC: Charlie Jenkins <thecharlesjenkins@gmail.com>
+> CC: Guodong Xu <guodong.xu@oss.qualcomm.com>
+> CC: linux-riscv@lists.infradead.org
+> CC: linux-kernel@vger.kernel.org
+> ---
+>  arch/riscv/include/asm/cpufeature.h |  8 ---
+>  arch/riscv/include/asm/hwcap.h      | 13 +++-
+>  arch/riscv/kernel/cpufeature.c      | 97 ++++++++++++++++-------------
+>  3 files changed, 64 insertions(+), 54 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+> index 99799cc6c198..4be952a41bba 100644
+> --- a/arch/riscv/include/asm/cpufeature.h
+> +++ b/arch/riscv/include/asm/cpufeature.h
+> @@ -58,14 +58,6 @@ void riscv_clear_hypervisor_csr(void);
+>  #define __RISCV_ISA_EXT_DATA_VALIDATE(_name, _id, _validate) \
+>  			_RISCV_ISA_EXT_DATA(_name, _id, NULL, 0, _validate)
+>  
+> -/* Used to declare pure "lasso" extension (Zk for instance) */
+> -#define __RISCV_ISA_EXT_BUNDLE(_name, _bundled_exts) \
+> -	_RISCV_ISA_EXT_DATA(_name, RISCV_ISA_EXT_INVALID, _bundled_exts, \
+> -			    ARRAY_SIZE(_bundled_exts), NULL)
+> -#define __RISCV_ISA_EXT_BUNDLE_VALIDATE(_name, _bundled_exts, _validate) \
+> -	_RISCV_ISA_EXT_DATA(_name, RISCV_ISA_EXT_INVALID, _bundled_exts, \
+> -			    ARRAY_SIZE(_bundled_exts), _validate)
+> -
+>  /* Used to declare extensions that are a superset of other extensions (Zvbb for instance) */
+>  #define __RISCV_ISA_EXT_SUPERSET(_name, _id, _sub_exts) \
+>  	_RISCV_ISA_EXT_DATA(_name, _id, _sub_exts, ARRAY_SIZE(_sub_exts), NULL)
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index b5952db9259f..a1cf9a935519 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -126,10 +126,19 @@
+>  #define RISCV_ISA_EXT_ZIC64B		116
+>  #define RISCV_ISA_EXT_SV48		117
+>  #define RISCV_ISA_EXT_SV57		118
+> +#define RISCV_ISA_EXT_ZK		119
+> +#define RISCV_ISA_EXT_ZKN		120
+> +#define RISCV_ISA_EXT_ZKS		121
+> +#define RISCV_ISA_EXT_ZVKN		122
+> +#define RISCV_ISA_EXT_ZVKNC		123
+> +#define RISCV_ISA_EXT_ZVKNG		124
+> +#define RISCV_ISA_EXT_ZVKS		125
+> +#define RISCV_ISA_EXT_ZVKSC		126
+> +#define RISCV_ISA_EXT_ZVKSG		127
+>  
+> -#define RISCV_ISA_EXT_XLINUXENVCFG	127
+> +#define RISCV_ISA_EXT_XLINUXENVCFG	255
+>  
+> -#define RISCV_ISA_EXT_MAX		128
+> +#define RISCV_ISA_EXT_MAX		256
+>  #define RISCV_ISA_EXT_INVALID		U32_MAX
+>  
+>  #ifdef CONFIG_RISCV_M_MODE
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 72bce616491f..b4ce5221a26c 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -340,14 +340,6 @@ static const unsigned int riscv_a_exts[] = {
+>  	RISCV_ISA_EXT_ZALRSC,
+>  };
+>  
+> -#define RISCV_ISA_EXT_ZKN	\
+> -	RISCV_ISA_EXT_ZBKB,	\
+> -	RISCV_ISA_EXT_ZBKC,	\
+> -	RISCV_ISA_EXT_ZBKX,	\
+> -	RISCV_ISA_EXT_ZKND,	\
+> -	RISCV_ISA_EXT_ZKNE,	\
+> -	RISCV_ISA_EXT_ZKNH
+> -
+>  static int riscv_ext_smcdeleg_validate(const struct riscv_isa_ext_data *data,
+>  				       const unsigned long *isa_bitmap)
+>  {
+> @@ -369,60 +361,77 @@ static int riscv_ext_ssccfg_validate(const struct riscv_isa_ext_data *data,
+>  	return -EPROBE_DEFER;
+>  }
+>  
+> -static const unsigned int riscv_zk_bundled_exts[] = {
+> -	RISCV_ISA_EXT_ZKN,
+> +static const unsigned int riscv_zk_sub_exts[] = {
+> +	RISCV_ISA_EXT_ZBKB,
+> +	RISCV_ISA_EXT_ZBKC,
+> +	RISCV_ISA_EXT_ZBKX,
+> +	RISCV_ISA_EXT_ZKND,
+> +	RISCV_ISA_EXT_ZKNE,
+> +	RISCV_ISA_EXT_ZKNH,
+>  	RISCV_ISA_EXT_ZKR,
+>  	RISCV_ISA_EXT_ZKT
+>  };
+>  
+> -static const unsigned int riscv_zkn_bundled_exts[] = {
+> -	RISCV_ISA_EXT_ZKN
+> +static const unsigned int riscv_zkn_sub_exts[] = {
+> +	RISCV_ISA_EXT_ZBKB,
+> +	RISCV_ISA_EXT_ZBKC,
+> +	RISCV_ISA_EXT_ZBKX,
+> +	RISCV_ISA_EXT_ZKND,
+> +	RISCV_ISA_EXT_ZKNE,
+> +	RISCV_ISA_EXT_ZKNH
+>  };
+>  
+> -static const unsigned int riscv_zks_bundled_exts[] = {
+> +static const unsigned int riscv_zks_sub_exts[] = {
+>  	RISCV_ISA_EXT_ZBKB,
+>  	RISCV_ISA_EXT_ZBKC,
+>  	RISCV_ISA_EXT_ZKSED,
+>  	RISCV_ISA_EXT_ZKSH
+>  };
+>  
+> -#define RISCV_ISA_EXT_ZVKN	\
+> -	RISCV_ISA_EXT_ZVKNED,	\
+> -	RISCV_ISA_EXT_ZVKNHB,	\
+> -	RISCV_ISA_EXT_ZVKB,	\
+> -	RISCV_ISA_EXT_ZVKT
+>  
+> -static const unsigned int riscv_zvkn_bundled_exts[] = {
+> -	RISCV_ISA_EXT_ZVKN
+> +static const unsigned int riscv_zvkn_sub_exts[] = {
+> +	RISCV_ISA_EXT_ZVKNED,
+> +	RISCV_ISA_EXT_ZVKNHB,
+> +	RISCV_ISA_EXT_ZVKB,
+> +	RISCV_ISA_EXT_ZVKT
+>  };
+>  
+> -static const unsigned int riscv_zvknc_bundled_exts[] = {
+> -	RISCV_ISA_EXT_ZVKN,
+> +static const unsigned int riscv_zvknc_sub_exts[] = {
+> +	RISCV_ISA_EXT_ZVKNED,
+> +	RISCV_ISA_EXT_ZVKNHB,
+> +	RISCV_ISA_EXT_ZVKB,
+> +	RISCV_ISA_EXT_ZVKT,
+>  	RISCV_ISA_EXT_ZVBC
+>  };
+>  
+> -static const unsigned int riscv_zvkng_bundled_exts[] = {
+> -	RISCV_ISA_EXT_ZVKN,
+> +static const unsigned int riscv_zvkng_sub_exts[] = {
+> +	RISCV_ISA_EXT_ZVKNED,
+> +	RISCV_ISA_EXT_ZVKNHB,
+> +	RISCV_ISA_EXT_ZVKB,
+> +	RISCV_ISA_EXT_ZVKT,
+>  	RISCV_ISA_EXT_ZVKG
+>  };
+>  
+> -#define RISCV_ISA_EXT_ZVKS	\
+> -	RISCV_ISA_EXT_ZVKSED,	\
+> -	RISCV_ISA_EXT_ZVKSH,	\
+> -	RISCV_ISA_EXT_ZVKB,	\
+> +static const unsigned int riscv_zvks_sub_exts[] = {
+> +	RISCV_ISA_EXT_ZVKSED,
+> +	RISCV_ISA_EXT_ZVKSH,
+> +	RISCV_ISA_EXT_ZVKB,
+>  	RISCV_ISA_EXT_ZVKT
+> -
+> -static const unsigned int riscv_zvks_bundled_exts[] = {
+> -	RISCV_ISA_EXT_ZVKS
+>  };
+>  
+> -static const unsigned int riscv_zvksc_bundled_exts[] = {
+> -	RISCV_ISA_EXT_ZVKS,
+> +static const unsigned int riscv_zvksc_sub_exts[] = {
+> +	RISCV_ISA_EXT_ZVKSED,
+> +	RISCV_ISA_EXT_ZVKSH,
+> +	RISCV_ISA_EXT_ZVKB,
+> +	RISCV_ISA_EXT_ZVKT,
+>  	RISCV_ISA_EXT_ZVBC
+>  };
+>  
+> -static const unsigned int riscv_zvksg_bundled_exts[] = {
+> -	RISCV_ISA_EXT_ZVKS,
+> +static const unsigned int riscv_zvksg_sub_exts[] = {
+> +	RISCV_ISA_EXT_ZVKSED,
+> +	RISCV_ISA_EXT_ZVKSH,
+> +	RISCV_ISA_EXT_ZVKB,
+> +	RISCV_ISA_EXT_ZVKT,
+>  	RISCV_ISA_EXT_ZVKG
+>  };
+>  
+> @@ -606,13 +615,13 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+>  	__RISCV_ISA_EXT_DATA(zbkc, RISCV_ISA_EXT_ZBKC),
+>  	__RISCV_ISA_EXT_DATA(zbkx, RISCV_ISA_EXT_ZBKX),
+>  	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
+> -	__RISCV_ISA_EXT_BUNDLE(zk, riscv_zk_bundled_exts),
+> -	__RISCV_ISA_EXT_BUNDLE(zkn, riscv_zkn_bundled_exts),
+> +	__RISCV_ISA_EXT_SUPERSET(zk, RISCV_ISA_EXT_ZK, riscv_zk_sub_exts),
+> +	__RISCV_ISA_EXT_SUPERSET(zkn, RISCV_ISA_EXT_ZKN, riscv_zkn_sub_exts),
+>  	__RISCV_ISA_EXT_DATA(zknd, RISCV_ISA_EXT_ZKND),
+>  	__RISCV_ISA_EXT_DATA(zkne, RISCV_ISA_EXT_ZKNE),
+>  	__RISCV_ISA_EXT_DATA(zknh, RISCV_ISA_EXT_ZKNH),
+>  	__RISCV_ISA_EXT_DATA(zkr, RISCV_ISA_EXT_ZKR),
+> -	__RISCV_ISA_EXT_BUNDLE(zks, riscv_zks_bundled_exts),
+> +	__RISCV_ISA_EXT_SUPERSET(zks, RISCV_ISA_EXT_ZKS, riscv_zks_sub_exts),
+>  	__RISCV_ISA_EXT_DATA(zkt, RISCV_ISA_EXT_ZKT),
+>  	__RISCV_ISA_EXT_DATA(zksed, RISCV_ISA_EXT_ZKSED),
+>  	__RISCV_ISA_EXT_DATA(zksh, RISCV_ISA_EXT_ZKSH),
+> @@ -632,17 +641,17 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+>  	__RISCV_ISA_EXT_DATA(zvfhmin, RISCV_ISA_EXT_ZVFHMIN),
+>  	__RISCV_ISA_EXT_DATA_VALIDATE(zvkb, RISCV_ISA_EXT_ZVKB, riscv_ext_vector_crypto_validate),
+>  	__RISCV_ISA_EXT_DATA_VALIDATE(zvkg, RISCV_ISA_EXT_ZVKG, riscv_ext_vector_crypto_validate),
+> -	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvkn, riscv_zvkn_bundled_exts, riscv_ext_vector_crypto_validate),
+> -	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvknc, riscv_zvknc_bundled_exts, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zvkn, RISCV_ISA_EXT_ZVKN, riscv_zvkn_sub_exts, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zvknc, RISCV_ISA_EXT_ZVKNC, riscv_zvknc_sub_exts, riscv_ext_vector_crypto_validate),
+>  	__RISCV_ISA_EXT_DATA_VALIDATE(zvkned, RISCV_ISA_EXT_ZVKNED, riscv_ext_vector_crypto_validate),
+> -	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvkng, riscv_zvkng_bundled_exts, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zvkng, RISCV_ISA_EXT_ZVKNG, riscv_zvkng_sub_exts, riscv_ext_vector_crypto_validate),
+>  	__RISCV_ISA_EXT_DATA_VALIDATE(zvknha, RISCV_ISA_EXT_ZVKNHA, riscv_ext_vector_crypto_validate),
+>  	__RISCV_ISA_EXT_DATA_VALIDATE(zvknhb, RISCV_ISA_EXT_ZVKNHB, riscv_ext_vector_crypto_validate),
+> -	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvks, riscv_zvks_bundled_exts, riscv_ext_vector_crypto_validate),
+> -	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvksc, riscv_zvksc_bundled_exts, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zvks, RISCV_ISA_EXT_ZVKS, riscv_zvks_sub_exts, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zvksc, RISCV_ISA_EXT_ZVKSC, riscv_zvksc_sub_exts, riscv_ext_vector_crypto_validate),
+>  	__RISCV_ISA_EXT_DATA_VALIDATE(zvksed, RISCV_ISA_EXT_ZVKSED, riscv_ext_vector_crypto_validate),
+>  	__RISCV_ISA_EXT_DATA_VALIDATE(zvksh, RISCV_ISA_EXT_ZVKSH, riscv_ext_vector_crypto_validate),
+> -	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvksg, riscv_zvksg_bundled_exts, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zvksg, RISCV_ISA_EXT_ZVKSG, riscv_zvksg_sub_exts, riscv_ext_vector_crypto_validate),
+>  	__RISCV_ISA_EXT_DATA_VALIDATE(zvkt, RISCV_ISA_EXT_ZVKT, riscv_ext_vector_crypto_validate),
+>  	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
+>  	__RISCV_ISA_EXT_DATA_VALIDATE(smcdeleg, RISCV_ISA_EXT_SMCDELEG,
+> -- 
+> 2.53.0
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
