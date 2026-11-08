@@ -2,79 +2,143 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 131AD606A320
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2026 10:36:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20430606A31C
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2026 10:46:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Pmd0gdRo;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hmPE5n5L
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3lT52gJQ;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ICc+l5m+;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=J68+rggU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
-	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=aNk4OAxh0vX5l2kgV0Vz3Vy5ljqjaF5Ax39sWw9kjEs=; b=Pmd0gdRoSZO9+phot6iHmLeBub
-	0kVWOmOMqsEAYb3s3Oa1oZWgLf/BtFDPwtf8QdMkDPKNxn/I7m0Mri2HxAgF8DjnRmglUqCiEkNgP
-	d15J420v8C/b1tHpmF65Z8h41IR/IVaNmabeTse1ZKNSev5EzQTcpEGsvI9MhZF9u0qqBgjzomAHF
-	x4lN33DTXEKU4AtwjmDLr7UDPGPPVia2oDbug3yV7l1+/lkro+FE9lTUFUtnTyJaXJv8zfksGNkHX
-	1alWwgGaowIyjVf1AybiDvhFIxdlI4qVFAopJlm04+K0tszXGEcYowjoBaXzlaUOY4j6dZg5QS8l8
-	6SonRJmQ==;
+	bh=9Vbn9kSGCu+nvqQi4t048oj/9wF6liM6y6wjNWzApL0=; b=3lT52gJQSWnHh76GDMltDHEjcq
+	qhjpQ/I6aKGQIypKFOC28YelZV07O/0wgV+3UVQPz851RvkNGR+BYEw9QiHSiFhZVqPh8+F8+XjYH
+	yz9DrSVjHJUt9KwZRfSdLL8ulsfa8YZF77Mye5p5M1aum14fFslp3cPxhGiAzu9XbdqBuviZsyG1i
+	FtPSLXA/0eqsXqih5bNg48CFmfwFQph3jIRpF8kH7A+O2HsmQQo4oiS8h1dgd0CYwhNdEhMJ1ETsq
+	crQbWR+vma0Z435tVZNRp+g1BOy0rhZEeIlEnEW3CxFHjHhTKGCSkV8M13ImYqGofPg9jhhBjlree
+	4s0JTV5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQ0GB-0000000Fz54-0QgH;
-	Sun, 08 Nov 2026 10:36:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xQ0Pf-0000000G03l-0BIu;
+	Sun, 08 Nov 2026 10:46:15 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQ0G9-0000000Fz4X-1gNk
+	id 1xQ0Pb-0000000G03D-3H7C
 	for linux-riscv@lists.infradead.org;
-	Sun, 08 Nov 2026 10:36:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2B16A433C5;
-	Sun,  8 Nov 2026 10:36:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6D3C1F0089F;
-	Sun,  8 Nov 2026 10:36:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794134185;
-	bh=VBo8fjSNHmRxzWet6KHRueSq/iTXqSt9fGiagb0DQGs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=hmPE5n5LhvtyZEKccS1IGbEuBvpVvDr9liN6ChjmQSTkOM1E+ivpAGv1hCVZBRgt2
-	 heI2Ccz4890ihw2VxS2TniEuaEbJKON5sLDvgyMXMts90z6dR05Hhk1UOnwOi6+RZ7
-	 wkea1SpzGJKF5ef7MLzD0AMYXSjGFHPgHMDopMBCrm0okZMH3bmiFhoOWoYOP9jckq
-	 jwNLm9JlTVxmqDh+Hd/dOnLhsfDyxpx0Jp+GbJdYxz3ie99JnfplkeQ2wWxL9r7zX1
-	 KneyPIS//8tiyICN/gJE4upzrEj2snUTJmK5ZMDJCaMf1QMpGlqk2vH1y6JKyep5Z0
-	 oVZwxIYv4WiEw==
-From: Yixun Lan <dlan@kernel.org>
-Date: Sun, 08 Nov 2026 10:36:02 +0000
-Subject: [PATCH v3 2/2] pmdomain: spacemit: Add power domain driver
+	Sun, 08 Nov 2026 10:46:13 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A8AgIrU903728
+	for <linux-riscv@lists.infradead.org>; Sun, 8 Nov 2026 10:46:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	2y1zP+2Iv01LMq7qQF4cYVebYl9REU89f4HGpMK7Ppg=; b=ICc+l5m+pY5tpSrZ
+	ImKh3a/FI+7u1IUTMilvwcWXcJikvmfDnarNobPEE3BQJ46JVsg10TFmSba+pQOS
+	bP9Rq2nEbjyb3eZssVLssBjtNCr6yYuF/7SQZRzxBp7JcPibY4M4V0L34aLzNyZH
+	EtYEkRfQZQAqkfkgOyc5Ja+Du0/zxrppAxJD0SgT7FKgEZcO03r4xedi8Elkl3Wg
+	K5OMAkRVgqyRN9dki4f6wxQTKOgCNNABTi4EZDAQCR0js1QxVh/c0yg2gdd1ITEX
+	pc0zAUIG76I2H6AI2G29MXhg7PgEnudVc25K9dYlrOeWazdoLkQjMBwYehTqcU61
+	nXvsEg==
+Received: from mail-yx1-f71.google.com (mail-yx1-f71.google.com [74.125.224.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hsuagtu77-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Sun, 08 Nov 2026 10:46:10 +0000 (GMT)
+Received: by mail-yx1-f71.google.com with SMTP id 956f58d0204a3-67c041acd09so577896d50.3
+        for <linux-riscv@lists.infradead.org>; Sun, 08 Nov 2026 02:46:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1794134770; x=1794739570; darn=lists.infradead.org;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=2y1zP+2Iv01LMq7qQF4cYVebYl9REU89f4HGpMK7Ppg=;
+        b=J68+rggUgddLxg8ZUyXWgNuQT+xTU8xuJdThB4BHmBBRNGpz9YPrOQUlH2FHxtRzfN
+         /igkInPf20ou6/WJ8xS15NHJGeCqEm3vX2sLt1OJzi4LB5eqTACEtXqpdxxt/aCthYEI
+         QHwyMVaGbw+lqLC/iH5fJ29UOXDJpvXnP3AzT8WuKLZRRYqNmfkCSmGfH4FeIOpkfmZ8
+         066718kqEYpQr1C4X4MreM8scXs7RiwuXhtLZ6ZUxDlvv47mzKzQlXSIOILtfntKXUJr
+         PIlMuT9z+ZhhNmXfz56RWsAmflb+YeIjzZBNQ6ABVhdMh+9kLWOduVeW7hb4t1+5Qvyp
+         LUtg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794134770; x=1794739570;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2y1zP+2Iv01LMq7qQF4cYVebYl9REU89f4HGpMK7Ppg=;
+        b=X0kBHohqoD6awbuXuTv5P68GzDLPHUkWLLxt+3y2ixWcz5YRh/26CY8gGBU8+Bf5BE
+         aRZy8Nxak2kc5fvpfxGqy2ANU7a7VjcrJ6xPe9rGf1eSnVO16k9xgM0yJ/ixbRkrn8Nv
+         NDTnEUGudzY3SJMF86zFC/rlEPoIhXlCUo/dSIIJ2K3mmaxAlS90bLVNBoobbcVXycTF
+         uDCxZmF4OdxzX+pQ3xqdhdds2wCpdpizEL4Fg+h+NE+H965B2MYUg7Bx79t3hWf+yt8b
+         zIzIp7UWATWwWfqxKum6XPcZxIzCJNFRRoSKwRXUkkG1hpET3z+IIz94AlWSKsu7jEhJ
+         RjZg==
+X-Gm-Message-State: APuU4Z+JPbOiiObUroJbVa0sOV9lpPVf8/e+f1zto2q5t3HNfKej8aL+
+	goPetotqo1tEqed2lH0gygysOXDPdaxzv4ClJkjQSZwPu2S03cXXorhEO+xfJ7p/XgDNvSVbsTE
+	ZmfbUG5Lt+J2T7vyvpU22Z0RMxxaHJJQ66uS5XZph2moA7Tbv8qC8axdfSol1poF3DJdqqZQ=
+X-Gm-Gg: AYBFou16XKY6gk/V4pMrDQ7CaBSoghJReGOV3J1DDeU+9xJIKXZAsDeA7mwLLlnjvAT
+	jPWkX6YnvDJVb9NcP5/d7JoKEmWuXsEhBZq/yEwQvagX2GI0EPdu8hVuqXhS6IxbmAgOD1jGT2O
+	CNsgUSQX9RSmPE4CYFffRlzqWNt2GpjClrpkAt5VbEPeNZlv/77HPVf4TfA7ML8mVMARnHWZ4Q1
+	Tcl5IWGGmQfx3IWHIrpsU4DRrpQ2lcV3O5PGZLKH5hiuZqlzT3MPODKzvMrNKLcjRsDaaESMl9k
+	bBQEtb++0K5K6l4ZHcneDWzq2q5wsIcXEZrhQ7QqxrP4jX32TuQigm6wzoH5bd5tsQy2+fNJ8kT
+	fm4GBChMnDWrdBMcWFmpk1v9+iu4/YNVJXwcx+CfDcEGJqulBnMXxBlsH06Mx3m/x4zS4dRz+Nv
+	eF8jwil0mAOQ==
+X-Received: by 2002:a05:690e:134b:b0:67c:3162:810b with SMTP id 956f58d0204a3-67c3d7ccbb4mr694348d50.4.1794134769988;
+        Sun, 08 Nov 2026 02:46:09 -0800 (PST)
+X-Received: by 2002:a05:690e:134b:b0:67c:3162:810b with SMTP id 956f58d0204a3-67c3d7ccbb4mr694343d50.4.1794134769325;
+        Sun, 08 Nov 2026 02:46:09 -0800 (PST)
+Received: from localhost ([120.244.9.94])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b36bb45d0asm12198977b3.9.2026.11.08.02.46.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 08 Nov 2026 02:46:09 -0800 (PST)
+Date: Sun, 08 Nov 2026 05:45:55 -0500
+Message-ID: <db17b70b6b6e4da56513d8886a5ef51b.guodong.xu@oss.qualcomm.com>
+From: Guodong Xu <guodong.xu@oss.qualcomm.com>
+To: Radim =?utf-8?b?S3LEjW3DocWZ?= <radim.krcmar@oss.qualcomm.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Alexandre Ghiti <alex@ghiti.fr>,
+        Samuel Holland <samuel.holland@sifive.com>,
+        Andy Chiu <andybnac@gmail.com>, Zong Li <zong.li@sifive.com>,
+        Charlie Jenkins <thecharlesjenkins@gmail.com>
+Subject: Re: [PATCH 2/6] riscv: hwprobe: Report Zicbom and Zicboz only when available
+In-Reply-To: <20261006075303.205216-3-radim.krcmar@oss.qualcomm.com>
+References: <20261006075303.205216-1-radim.krcmar@oss.qualcomm.com> <20261006075303.205216-3-radim.krcmar@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261108-04-k3-pm-support-v3-2-b9dc0857039b@kernel.org>
-References: <20261108-04-k3-pm-support-v3-0-b9dc0857039b@kernel.org>
-In-Reply-To: <20261108-04-k3-pm-support-v3-0-b9dc0857039b@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=14583; i=dlan@kernel.org;
- h=from:subject:message-id; bh=Vw+TWc+uk5jMy+oaSH7nF/5G1aKNMWVOMUxFePRRoog=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBq8FCZVHndzrFMi0zB6QIQdghIh8uU5Uw4ZkUVo
- NQM7UdjxyiJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCavBQmRsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
- maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+1AlhAAlei6ep6Z+r/Peve+Y5HV2+YguSPk/MA3caC1SmjqKrpvKYyUJmOFz
- WzXelYydOg9XCeN+v7atLiN1rlfye1R098aI32231k8SsCUybDmN+ohMwLTsLmzv02LVCiRMaKt
- wfDlHMWWQIrB9j4lABLxbplgL1rKcc6km2ia9pTbyzyJRJoPQ7ZTW6xbOsw+R8X0dFKa871rude
- toiPxDVT09wKik+X5/EBPP0clfviHouxlljnO+h4b9r/xoS6xtN/t87V3J4g5RkAP/VvPAQFSg3
- NthgHelk5dUCmYzK8fDFy2P+DNw0FHMTkAL5n9q35kGoyZxOOrcOyJhChL1FCOhtt4eagNv5GRj
- gQj0n1d1p/2EyqaZeXRHPdBfc0GtM/RZKRRitBLG2BwJZtrv0C9ICtTpesREG5e6uIl68OTEJBb
- TpmuzWAHbkvp9hGLuFopS+Sng00jTOV9DCZi486sDr1/sEd9v11ub1Q4WV/jFiqugsr4EK9omKR
- Xe1z92B4MZFggPNItH452inLc60//SKg4e8VPRsTzsT5bCl/HhPUASzEIo2spIsvo5RP8LUhGPI
- Jvb9YgAenFQsrwYVnd9Wt8yoHl63+Gy7kr5VCDY+cWf3ggwq1DdprRM3TU9kmY6zu7r32cUeNTx
- Pi0EOX4z58Jiku38+saSjK/wePPzrY=
-X-Developer-Key: i=dlan@kernel.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA4MDA0MiBTYWx0ZWRfXyDb0g4I5WOpH
+ y7IR4yrqOp0RoCRe5HeC8786CsRFnV0Y27R+jg7LvjN7iJKTqfJyN0bavSqSSPbiOs+ApwaftIS
+ AfcUCJge+2Wu7DoV7NyRhPp1fNTQpT45X7xQ+qaob0dtcIE2rHNi4LM1Lnnor3/IXYgPQVXcHqG
+ L9Xnpxjn0zHUKvk+IauNLeMwX7w4Hwbg4EelL9J1BAhkLuVRJN/llh3mYZvgVNEhW3R/MgsQTCq
+ yRNRnMkT7v5x/OGM+CV3PY95tagSy8a+6oQO5ZU82XVE7PD31FHBuNk5qWfQLa+n0cujVyq2y94
+ LbFrj5DquXeIvyI12flFUtzOYYC0M70NOftOXWVOR6ECae91xikF4KJM/aMqxDuvSeoxviZ02W7
+ V8vJPjVd5lJkZt9BR0XUW8QT4+wQZH5rfR4BDln5oCgLPIQaRbNHk8otKC2pB8pcaHBWiDk/Dpd
+ 4zeyBJ/QPeSqvQuIFKw==
+X-Proofpoint-ORIG-GUID: BBwkiXraxkNVC4RH5LtOL1TFEp3slzco
+X-Proofpoint-GUID: BBwkiXraxkNVC4RH5LtOL1TFEp3slzco
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA4MDA0MiBTYWx0ZWRfX1agaPSth3u3f
+ qm7adjDoDoz8xMA6Q8gA9oGfku3T7C2/zlDNNf/bzrVVhifQsFduScdsDwrkC+wSBhoeShUIBlL
+ jueyqQ6gsWo5sZSNeL8MXXvOCJY6wlU=
+X-Authority-Analysis: v=2.4 cv=V8LoQuni c=1 sm=1 tr=0 ts=6af052f2 cx=c_pps
+ a=ngMg22mHWrP7m7pwYf9JkA==:117 a=ZvHX9x23NDWH3CQeJ2oX1w==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=EUspDBNiAAAA:8 a=dPE2jY588YNDLkUElm8A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=yHXA93iunegOHmWoMUFd:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-08_04,2026-11-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 clxscore=1015 malwarescore=0 bulkscore=0 impostorscore=0
+ phishscore=0 adultscore=0 lowpriorityscore=0 priorityscore=1501 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611080042
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261108_024611_941620_1328AB49 
+X-CRM114-Status: UNSURE (   7.50  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.5 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,539 +148,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, Iker Pedrosa <ikerpedrosam@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-  SpacemiT's PMU (Power Management Unit) consist of several power domains
-which can be managed independently, depending on different application
-scenario, each domain can be powered on/off for saving power.
-
-  The driver is implemented based on Linux Generic PM Domain framework.
-From a hardware perspective, either of two distinct power-on sequences
-are supported, in software mode (SW mode), the driver is responsible for
-controlling the states of bits such as sleep1, sleep2, isolation and
-pwr_state, while in hardware mode (HW mode), the PMU hardware will complete
-the sequence automatically without requiring software intervention.
-
-Tested-by: Iker Pedrosa <ikerpedrosam@gmail.com>
-Signed-off-by: Yixun Lan <dlan@kernel.org>
----
- drivers/pmdomain/Kconfig                        |   1 +
- drivers/pmdomain/Makefile                       |   1 +
- drivers/pmdomain/spacemit/Kconfig               |  21 ++
- drivers/pmdomain/spacemit/Makefile              |   1 +
- drivers/pmdomain/spacemit/spacemit-pm-domains.c | 431 ++++++++++++++++++++++++
- 5 files changed, 455 insertions(+)
-
-diff --git a/drivers/pmdomain/Kconfig b/drivers/pmdomain/Kconfig
-index 5341dff669be..20aea5fe94b2 100644
---- a/drivers/pmdomain/Kconfig
-+++ b/drivers/pmdomain/Kconfig
-@@ -14,6 +14,7 @@ source "drivers/pmdomain/renesas/Kconfig"
- source "drivers/pmdomain/riscv/Kconfig"
- source "drivers/pmdomain/rockchip/Kconfig"
- source "drivers/pmdomain/samsung/Kconfig"
-+source "drivers/pmdomain/spacemit/Kconfig"
- source "drivers/pmdomain/st/Kconfig"
- source "drivers/pmdomain/starfive/Kconfig"
- source "drivers/pmdomain/sunxi/Kconfig"
-diff --git a/drivers/pmdomain/Makefile b/drivers/pmdomain/Makefile
-index d7aee13ae571..25238576f8a3 100644
---- a/drivers/pmdomain/Makefile
-+++ b/drivers/pmdomain/Makefile
-@@ -12,6 +12,7 @@ obj-y					+= renesas/
- obj-y					+= riscv/
- obj-y					+= rockchip/
- obj-y					+= samsung/
-+obj-y					+= spacemit/
- obj-y					+= st/
- obj-y					+= starfive/
- obj-y					+= sunxi/
-diff --git a/drivers/pmdomain/spacemit/Kconfig b/drivers/pmdomain/spacemit/Kconfig
-new file mode 100644
-index 000000000000..0dce5eef8da8
---- /dev/null
-+++ b/drivers/pmdomain/spacemit/Kconfig
-@@ -0,0 +1,21 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+menu "SpacemiT PM Domains"
-+
-+config SPACEMIT_PM_DOMAINS
-+	tristate "PM Domain driver for SpacemiT SoC"
-+	depends on ARCH_SPACEMIT || COMPILE_TEST
-+	depends on PM && OF
-+	select PM_GENERIC_DOMAINS
-+	select PM_GENERIC_DOMAINS_OF
-+	select AUXILIARY_BUS
-+	help
-+	  This driver enables power domain management for the SpacemiT
-+	  SoC. On the SoC there are number of power domains available,
-+	  which can be managed independently. For example VPU, GPU, LCD,
-+	  and Audio reside in their own power domains which can be
-+	  turned on/off.
-+
-+	  Say y to enable device power management through PM domains.
-+
-+endmenu
-diff --git a/drivers/pmdomain/spacemit/Makefile b/drivers/pmdomain/spacemit/Makefile
-new file mode 100644
-index 000000000000..d0bd77a520c0
---- /dev/null
-+++ b/drivers/pmdomain/spacemit/Makefile
-@@ -0,0 +1 @@
-+obj-$(CONFIG_SPACEMIT_PM_DOMAINS)	+= spacemit-pm-domains.o
-diff --git a/drivers/pmdomain/spacemit/spacemit-pm-domains.c b/drivers/pmdomain/spacemit/spacemit-pm-domains.c
-new file mode 100644
-index 000000000000..ae87ead9024e
---- /dev/null
-+++ b/drivers/pmdomain/spacemit/spacemit-pm-domains.c
-@@ -0,0 +1,431 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Spacemit Generic power domain support.
-+ *
-+ * Copyright (c) 2026 SpacemiT Technology Co. Ltd
-+ */
-+
-+#include <linux/io.h>
-+#include <linux/err.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_domain.h>
-+#include <linux/regmap.h>
-+#include <linux/auxiliary_bus.h>
-+#include <dt-bindings/power/spacemit,k1-power.h>
-+#include <dt-bindings/power/spacemit,k3-power.h>
-+#include <soc/spacemit/ccu.h>
-+
-+#define APMU_POWER_STATUS_REG	0xf0
-+#define APMU_POWER_TIMEOUT_US	10000
-+
-+struct spacemit_pm_domain_param {
-+	unsigned int reg_pwr_ctrl;
-+	u8 bit_hw_mode;
-+	u8 bit_sleep2;
-+	u8 bit_sleep1;
-+	u8 bit_isolation;
-+	u8 bit_auto_pwr_on;
-+	u8 bit_hw_pwr_stat;
-+	u8 bit_pwr_stat;
-+	bool use_hw;
-+	unsigned int flags;
-+	const char *name;
-+};
-+
-+struct spacemit_pm_domain {
-+	struct generic_pm_domain genpd;
-+	struct spacemit_pmu *pmu;
-+	int pm_index;
-+	const struct spacemit_pm_domain_param *param;
-+};
-+
-+struct spacemit_pmu {
-+	struct device *dev;
-+	struct regmap *regmap;
-+	struct genpd_onecell_data genpd_data;
-+	struct generic_pm_domain *domains[];
-+};
-+
-+struct spacemit_pm_aux_data {
-+	int num_domains;
-+	const struct spacemit_pm_domain_param *param;
-+};
-+
-+#define to_spacemit_pd(gpd) container_of(gpd, struct spacemit_pm_domain, genpd)
-+
-+static int spacemit_pd_power_off(struct generic_pm_domain *domain)
-+{
-+	struct spacemit_pm_domain *pd = to_spacemit_pd(domain);
-+	struct spacemit_pmu *pmu = pd->pmu;
-+	const struct spacemit_pm_domain_param *p = pd->param;
-+	unsigned int val;
-+	int ret;
-+
-+	if (!pd->param->use_hw) {
-+		regmap_clear_bits(pmu->regmap, p->reg_pwr_ctrl, BIT(p->bit_isolation));
-+		fsleep(15);
-+
-+		val = BIT(p->bit_sleep1) | BIT(p->bit_sleep2);
-+		regmap_clear_bits(pmu->regmap, p->reg_pwr_ctrl, val);
-+		fsleep(15);
-+
-+		ret = regmap_read_poll_timeout(pmu->regmap,
-+					       APMU_POWER_STATUS_REG,
-+					       val,
-+					       !(val & BIT(p->bit_pwr_stat)),
-+					       5,
-+					       APMU_POWER_TIMEOUT_US);
-+	} else {
-+		val = BIT(p->bit_auto_pwr_on) | BIT(p->bit_hw_mode);
-+		regmap_clear_bits(pmu->regmap, p->reg_pwr_ctrl, val);
-+		fsleep(15);
-+
-+		ret = regmap_read_poll_timeout(pmu->regmap,
-+					       APMU_POWER_STATUS_REG,
-+					       val,
-+					       !(val & BIT(p->bit_hw_pwr_stat)),
-+					       5,
-+					       APMU_POWER_TIMEOUT_US);
-+	}
-+
-+	if (ret) {
-+		dev_err(&domain->dev, "failed to power off domain %s: %d\n",
-+			p->name, pd->pm_index);
-+		return -EBUSY;
-+	}
-+
-+	return 0;
-+}
-+
-+static int spacemit_pd_power_on(struct generic_pm_domain *domain)
-+{
-+	struct spacemit_pm_domain *pd = to_spacemit_pd(domain);
-+	struct spacemit_pmu *pmu = pd->pmu;
-+	const struct spacemit_pm_domain_param *p = pd->param;
-+	unsigned int val;
-+	int ret = 0;
-+
-+	if (!p->use_hw) {
-+		regmap_set_bits(pmu->regmap, p->reg_pwr_ctrl, BIT(p->bit_sleep1));
-+		fsleep(20);
-+
-+		val = BIT(p->bit_sleep2) | BIT(p->bit_sleep1);
-+		regmap_set_bits(pmu->regmap, p->reg_pwr_ctrl, val);
-+		fsleep(20);
-+
-+		regmap_set_bits(pmu->regmap, p->reg_pwr_ctrl, BIT(p->bit_isolation));
-+		fsleep(15);
-+
-+		ret = regmap_read_poll_timeout(pmu->regmap,
-+					       APMU_POWER_STATUS_REG,
-+					       val,
-+					       (val & BIT(p->bit_pwr_stat)),
-+					       5,
-+					       APMU_POWER_TIMEOUT_US);
-+	} else {
-+		val = BIT(p->bit_auto_pwr_on) | BIT(p->bit_hw_mode);
-+		regmap_set_bits(pmu->regmap, p->reg_pwr_ctrl, val);
-+		fsleep(300);
-+
-+		ret = regmap_read_poll_timeout(pmu->regmap,
-+					       APMU_POWER_STATUS_REG,
-+					       val,
-+					       (val & BIT(p->bit_hw_pwr_stat)),
-+					       5,
-+					       APMU_POWER_TIMEOUT_US);
-+	}
-+
-+	if (ret < 0) {
-+		dev_err(&domain->dev, "failed to power on domain %s: %d\n",
-+			p->name, pd->pm_index);
-+		return -EBUSY;
-+	}
-+
-+	return 0;
-+}
-+
-+static bool spacemit_pm_is_off_state(struct spacemit_pmu *pmu,
-+				     struct spacemit_pm_domain *pd)
-+{
-+	const struct spacemit_pm_domain_param *p = pd->param;
-+	u32 reg = 0, bit;
-+
-+	regmap_read(pmu->regmap, APMU_POWER_STATUS_REG, &reg);
-+
-+	bit = p->use_hw ? BIT(p->bit_hw_pwr_stat) : BIT(p->bit_pwr_stat);
-+
-+	return (reg & bit) ? false : true;
-+}
-+
-+static int spacemit_pm_add_one_domain(struct spacemit_pmu *pmu, int id,
-+				      const struct spacemit_pm_domain_param *param)
-+{
-+	struct spacemit_pm_domain *pd;
-+	int ret;
-+
-+	pd = devm_kzalloc(pmu->dev, sizeof(*pd), GFP_KERNEL);
-+	if (!pd)
-+		return -ENOMEM;
-+
-+	pd->pm_index        = id;
-+	pd->param           = param;
-+	pd->pmu             = pmu;
-+	pd->genpd.name      = param->name;
-+	pd->genpd.flags     = param->flags;
-+	pd->genpd.power_off = spacemit_pd_power_off;
-+	pd->genpd.power_on  = spacemit_pd_power_on;
-+
-+	ret = pm_genpd_init(&pd->genpd, NULL, spacemit_pm_is_off_state(pmu, pd));
-+	if (ret)
-+		return ret;
-+
-+	pmu->domains[id] = &pd->genpd;
-+
-+	return 0;
-+}
-+
-+static void spacemit_pm_domain_cleanup(struct spacemit_pmu *pmu)
-+{
-+	struct spacemit_pm_domain *pd;
-+	int i, ret;
-+
-+	for (i = 0; i < pmu->genpd_data.num_domains; i++) {
-+		if (!pmu->domains[i])
-+			continue;
-+
-+		pd = to_spacemit_pd(pmu->domains[i]);
-+		ret = pm_genpd_remove(pmu->domains[i]);
-+		if (ret)
-+			dev_err(pmu->dev, "failed to remove domain %s: %d - state may be inconsistent\n",
-+				pd->param->name, ret);
-+	}
-+}
-+
-+static int spacemit_pm_domain_probe(struct auxiliary_device *adev,
-+				    const struct auxiliary_device_id *id)
-+{
-+	struct spacemit_ccu_adev *spdev = to_spacemit_ccu_adev(adev);
-+	const struct spacemit_pm_domain_param *p;
-+	const struct spacemit_pm_aux_data *data;
-+	struct device *dev = &adev->dev;
-+	struct spacemit_pmu *pmu;
-+	int err, i;
-+
-+	data = (const struct spacemit_pm_aux_data *)id->driver_data;
-+
-+	pmu = devm_kzalloc(dev,
-+			   struct_size(pmu, domains, data->num_domains),
-+			   GFP_KERNEL);
-+	if (!pmu)
-+		return -ENOMEM;
-+
-+	auxiliary_set_drvdata(adev, pmu);
-+
-+	pmu->dev = dev;
-+	pmu->regmap = spdev->regmap;
-+	pmu->genpd_data.num_domains = data->num_domains;
-+	pmu->genpd_data.domains     = pmu->domains;
-+
-+	for (i = 0; i < data->num_domains; i++) {
-+		p = &data->param[i];
-+		err = spacemit_pm_add_one_domain(pmu, i, p);
-+		if (err) {
-+			dev_err(dev, "failed to add domain %s: %d\n", p->name, err);
-+			goto err_out;
-+		}
-+	}
-+
-+	err = of_genpd_add_provider_onecell(dev->of_node, &pmu->genpd_data);
-+	if (err) {
-+		dev_err(dev, "failed to add provider: %d\n", err);
-+		goto err_out;
-+	}
-+
-+	return 0;
-+
-+err_out:
-+	spacemit_pm_domain_cleanup(pmu);
-+	return err;
-+}
-+
-+static void spacemit_pm_domain_remove(struct auxiliary_device *adev)
-+{
-+	struct spacemit_pmu *pmu = auxiliary_get_drvdata(adev);
-+	struct device *dev = &adev->dev;
-+
-+	of_genpd_del_provider(dev->of_node);
-+	spacemit_pm_domain_cleanup(pmu);
-+}
-+
-+static const struct spacemit_pm_domain_param k1_domain_params[] = {
-+	[K1_PMDOMAIN_VPU] = {
-+		.reg_pwr_ctrl		= 0xa8,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_pwr_stat		= 1,
-+		.bit_hw_pwr_stat	= 9,
-+		.name			= "vpu",
-+	},
-+	[K1_PMDOMAIN_GPU] = {
-+		.reg_pwr_ctrl		= 0xd0,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_pwr_stat		= 0,
-+		.name			= "gpu",
-+	},
-+	[K1_PMDOMAIN_LCD] = {
-+		.reg_pwr_ctrl		= 0x380,
-+		.bit_hw_mode		= 4,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_auto_pwr_on	= 0,
-+		.bit_pwr_stat		= 4,
-+		.bit_hw_pwr_stat	= 12,
-+		.use_hw			= true,
-+		.name			= "lcd",
-+	},
-+	[K1_PMDOMAIN_ISP] = {
-+		.reg_pwr_ctrl		= 0x37c,
-+		.bit_hw_mode		= 4,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_auto_pwr_on	= 0,
-+		.bit_pwr_stat		= 2,
-+		.bit_hw_pwr_stat	= 10,
-+		.name			= "isp",
-+	},
-+	[K1_PMDOMAIN_AUDIO] = {
-+		.reg_pwr_ctrl		= 0x378,
-+		.bit_hw_mode		= 4,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_auto_pwr_on	= 0,
-+		.bit_pwr_stat		= 3,
-+		.bit_hw_pwr_stat	= 11,
-+		.use_hw			= true,
-+		.name			= "audio",
-+	},
-+	[K1_PMDOMAIN_GNSS] = {
-+		.reg_pwr_ctrl		= 0x13c,
-+		.bit_hw_mode		= 4,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_auto_pwr_on	= 0,
-+		.bit_pwr_stat		= 6,
-+		.bit_hw_pwr_stat	= 14,
-+		.name			= "gnss",
-+	},
-+	[K1_PMDOMAIN_HDMI] = {
-+		.reg_pwr_ctrl		= 0x3f4,
-+		.bit_hw_mode		= 4,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_auto_pwr_on	= 0,
-+		.bit_pwr_stat		= 7,
-+		.bit_hw_pwr_stat	= 15,
-+		.use_hw			= true,
-+		.name			= "hdmi",
-+	},
-+};
-+
-+static const struct spacemit_pm_domain_param k3_domain_params[] = {
-+	[K3_PMDOMAIN_VPU] = {
-+		.bit_auto_pwr_on	= 0,
-+		.bit_isolation		= 1,
-+		.bit_sleep1		= 2,
-+		.bit_sleep2		= 3,
-+		.bit_hw_mode		= 4,
-+		.bit_pwr_stat		= 2,
-+		.bit_hw_pwr_stat	= 9,
-+		.use_hw			= true,
-+		.reg_pwr_ctrl		= 0xa8,
-+		.name			= "vpu",
-+	},
-+	[K3_PMDOMAIN_GPU] = {
-+		.bit_auto_pwr_on	= 0,
-+		.bit_isolation		= 1,
-+		.bit_sleep1		= 2,
-+		.bit_sleep2		= 3,
-+		.bit_hw_mode		= 4,
-+		.bit_pwr_stat		= 0,
-+		.bit_hw_pwr_stat	= 8,
-+		.use_hw			= true,
-+		.reg_pwr_ctrl		= 0xd0,
-+		.name			= "gpu",
-+	},
-+	[K3_PMDOMAIN_AUDIO] = {
-+		.bit_auto_pwr_on	= 0,
-+		.bit_isolation		= 1,
-+		.bit_sleep1		= 2,
-+		.bit_sleep2		= 3,
-+		.bit_hw_mode		= 4,
-+		.bit_pwr_stat		= 3,
-+		.reg_pwr_ctrl		= 0x378,
-+		.flags			= GENPD_FLAG_ALWAYS_ON,
-+		.name			= "audio",
-+	},
-+	[K3_PMDOMAIN_LCD0] = {
-+		.bit_auto_pwr_on	= 0,
-+		.bit_isolation		= 1,
-+		.bit_sleep1		= 2,
-+		.bit_sleep2		= 3,
-+		.bit_hw_mode		= 4,
-+		.bit_pwr_stat		= 4,
-+		.bit_hw_pwr_stat	= 12,
-+		.use_hw			= true,
-+		.reg_pwr_ctrl		= 0x380,
-+		.name			= "lcd0",
-+	},
-+	[K3_PMDOMAIN_LCD1] = {
-+		.bit_auto_pwr_on	= 0,
-+		.bit_isolation		= 1,
-+		.bit_sleep1		= 2,
-+		.bit_sleep2		= 3,
-+		.bit_hw_mode		= 4,
-+		.bit_pwr_stat		= 5,
-+		.bit_hw_pwr_stat	= 15,
-+		.use_hw			= true,
-+		.reg_pwr_ctrl		= 0x3f4,
-+		.name			= "lcd1",
-+	},
-+};
-+
-+static const struct spacemit_pm_aux_data k1_of_data = {
-+	.num_domains	= ARRAY_SIZE(k1_domain_params),
-+	.param		= k1_domain_params,
-+};
-+
-+static const struct spacemit_pm_aux_data k3_of_data = {
-+	.num_domains	= ARRAY_SIZE(k3_domain_params),
-+	.param		= k3_domain_params,
-+};
-+
-+static const struct auxiliary_device_id spacemit_pm_domain_ids[] = {
-+	{
-+		.name = "spacemit_ccu.k1-apmu-pmdomain",
-+		.driver_data = (kernel_ulong_t)&k1_of_data,
-+	},
-+	{
-+		.name = "spacemit_ccu.k3-apmu-pmdomain",
-+		.driver_data = (kernel_ulong_t)&k3_of_data,
-+	},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(auxiliary, spacemit_pm_domain_ids);
-+
-+static struct auxiliary_driver spacemit_pm_domain_driver = {
-+	.probe          = spacemit_pm_domain_probe,
-+	.remove         = spacemit_pm_domain_remove,
-+	.id_table       = spacemit_pm_domain_ids,
-+};
-+module_auxiliary_driver(spacemit_pm_domain_driver);
-+
-+MODULE_DESCRIPTION("SpacemiT Generic Power Domains driver");
-+MODULE_LICENSE("GPL");
-
--- 
-2.56.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjAyNi0xMC0wNiAwOTo1MiwgUmFkaW0gS3LEjW3DocWZIHdyb3RlOgo+VXNlci1tb2RlIHVz
+ZSBvZiBaaWNib20gYW5kIFppY2JveiByZXF1aXJlcyBzZW52Y2ZnLkNCQ0ZFIGFuZAo+c2VudmNm
+Zy5DQlpFLCByZXNwZWN0aXZlbHksIHdoaWNoIHdlIHNldCBvbmx5IHdoZW4gYWxsIGhhcnRzIGhh
+dmUgdGhlCj5leHRlbnNpb24uICBod3Byb2JlIHJlcG9ydHMgdGhlIGV4dGVuc2lvbnMgZnJvbSB0
+aGUgcGVyLWhhcnQgSVNBIGJpdG1hcHMKPmFsb25lLCBzbyBpdCBjYW4gYWR2ZXJ0aXNlIGV4dGVu
+c2lvbnMgdGhhdCBhcmUgYWx3YXlzIGRpc2FibGVkIGluCj51c2VyLW1vZGUuCj4KPlJlcG9ydCBj
+b3JyZWN0IGVudmlyb25tZW50IHRvIHVzZXItbW9kZS4KPgo+Rml4ZXM6IDFiNTc3NDdlOTc4ZiAo
+InJpc2N2OiBFbmFibGUgY2JvLnplcm8gb25seSB3aGVuIGFsbCBoYXJ0cyBzdXBwb3J0IFppY2Jv
+eiIpCj5GaXhlczogZWIxMDAzOTcwOTQwICgiUklTQy1WOiBod3Byb2JlOiBFeHBvc2UgWmljYm9t
+IGV4dGVuc2lvbiBhbmQgaXRzIGJsb2NrIHNpemUiKQo+U2lnbmVkLW9mZi1ieTogUmFkaW0gS3LE
+jW3DocWZIDxyYWRpbS5rcmNtYXJAb3NzLnF1YWxjb21tLmNvbT4KClJldmlld2VkLWJ5OiBHdW9k
+b25nIFh1IDxndW9kb25nLnh1QG9zcy5xdWFsY29tbS5jb20+CgooUmVzZW5kaW5nOiB0aGUgZmly
+c3QgY29weSBvZiB0aGlzIG1haWwgYm91bmNlZCBmcm9tIHRoZSBsaXN0cyBiZWNhdXNlCm9mIGEg
+Y29ycnVwdGVkIENjIGhlYWRlci4pCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
