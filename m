@@ -2,84 +2,62 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A92F1606A322
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 11:34:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C526606A332
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 11:39:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lyAeTnjK;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=QOsdKTOv
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DAxyS4pG;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=qNy6ipdZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:Mime-Version
+	:In-Reply-To:Cc:To:Subject:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=9R9odl75bA86+2xfIEoGoOXPI7laid9IA1emQ2UXhU0=; b=lyAeTnjKHOAj6AdAmOT27crZ8s
-	tlvGvqhGUaq4MF7aGFHTSqJ35WCpXfLjfn8j3znQwrKvo/U4ozAbpov6errgeMh2KFvtfDC6nyBD9
-	SU1R5QfOp4NRSqs74EFuSoSvuZOESt91nAjcmOqe6ZPk2Phg5u6jYoiwLJ6swAp0u3H1svwkGUuMJ
-	cKNFZqC/ZqG2PttLyCfWmVxneUpuYnw3Cfo68K/yy7++PsJ0TuLL5fijcI1nqrUkYrpIhlXHhWL9q
-	JIZbp5Z+z0NigbuBr7jTllNl4PmM625rCeKnU9zWFO7WUh+qF9r2VLcggxWvBFNT9xwN2MrzB8lkn
-	yGO5v20w==;
+	bh=wz9iFzbAkHLgrgzHFxH0YNKp0w/RRPFaQQAegGTCENg=; b=DAxyS4pGM9BR4oSZ4zPGEYB4V7
+	qMaDbbcTiPo4DY0nPFsGeFqHFlYwBFC4fvAjMVa4SaJqB3AM4fWXMK4vb8ZSKqg2e67bGyRQ9hrwp
+	y/0linzigB6O1wBUIflIiHZcsKEta7LHuPSbSUPRvt9FHTxXSfQzme1JBLGaZO5u5h8HQXfPZrkE8
+	N3pOSopIVMb6F+h5MDHMWI5NV2XcrvZG2ibCAJKQ6r6w7XnSs8EpLuMj4MS2kv5JSuGiTd6xNGseW
+	Pl2negqsQEdTRuchQYSDajOV49Ck22PLF8GamZarMLv8hIruEKjfC1EdnL8OKsH1XvYNPU9Ho6oIu
+	ZE33S/UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQNdx-00000000XGA-3dTc;
-	Mon, 09 Nov 2026 11:34:33 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1xQNit-00000000Yll-3NL0;
+	Mon, 09 Nov 2026 11:39:39 +0000
+Received: from va-1-112.ptr.blmpb.com ([209.127.230.112])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQNdu-00000000XFX-2D6P
+	id 1xQNir-00000000Ykd-3Abs
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Nov 2026 11:34:32 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261109113425euoutp01bea5cae00f6d43583748bfd8414d2c34~mXUgIdsbc2413424134euoutp01d
-	for <linux-riscv@lists.infradead.org>; Mon,  9 Nov 2026 11:34:25 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261109113425euoutp01bea5cae00f6d43583748bfd8414d2c34~mXUgIdsbc2413424134euoutp01d
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1794224065;
-	bh=cMSBSauqbPIE/ZS7qOVOkPsVpLXl08SzTSg0ECffbco=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=QOsdKTOvcEXJjFIVPtBXVB7EkA7Ikgde4s4uRTLilHEFAE/r/EC+evymPeqfY/VPN
-	 nQ1TKx2DddFAJNF45VwroaRECbJSigX+8a/jHR8cAivTxUYaCtehmY36ryp3+VnBwN
-	 ZRcqoTptiZleuWijLhncsvJm3oLfP9aT/qkTwSTM=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261109113424eucas1p108cb7261add005a44da39d455ce78c8b~mXUfeJBUJ1552515525eucas1p1e;
-	Mon,  9 Nov 2026 11:34:24 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261109113423eusmtip1f076461a2dfd87689abe6a70506e3d63~mXUeio9gN1550415504eusmtip1U;
-	Mon,  9 Nov 2026 11:34:23 +0000 (GMT)
-Message-ID: <529993dc-343e-40ff-af88-aa1a91cab25f@samsung.com>
-Date: Mon, 9 Nov 2026 12:34:23 +0100
+	Mon, 09 Nov 2026 11:39:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1794224371; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=lQIeejudNR+LgX8DU2NR6RfogGGv5rkhMFHUUDdCJtw=;
+ b=qNy6ipdZCdUulsOs20KlgsVNdsW+Nc3NgXiRq/sl8nL2CfFwMyi1hEDetadjFhZvMwSnqy
+ Gi06EJ+EW8C5Zixcr8n/xgiRmgPehYCF7f24g0AFsFHDCPunD1iBSHWdBnjsyeFNpVZVQu
+ 7XlV6xhk342ZjQNKNdzMePKr+EKVLV6bscy47NlMrrcDkrCqD3AGdCnfrZ0P2U1ot1x4oh
+ ZwnVIe1v8Zoa9jtb6OrsOvv+9JJR0CiPnxmWrsGTSxhkff5GSNAzXcy4trfB8EsRZI4/qW
+ RSze6MBPXKTozPxHe57K7aj3f9Nn1a+pJPEP3fvqQNZDPMnrZtK2dbUFxsX9ag==
+X-Lms-Return-Path: <lba+26af1b0f1+e843bf+lists.infradead.org+zhaogongyi@bytedance.com>
+From: "Zhao Gongyi" <zhaogongyi@bytedance.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+Subject: [PATCH v2] perf/riscv: Guard PMU counter indices and user access
+To: <atish.patra@linux.dev>
+Cc: <anup@brainfault.org>, <mark.rutland@arm.com>, <palmer@dabbelt.com>, 
+	<linux-riscv@lists.infradead.org>, <linux-perf-users@vger.kernel.org>, 
+	<linux-kernel@vger.kernel.org>, "Zhao Gongyi" <zhaogongyi@bytedance.com>
+In-Reply-To: <20261103093709.81605-1-zhaogongyi@bytedance.com>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] rust: pwm: track the owner module when registering
- `Chip`
-To: Priya Bala Govindasamy <pgovind2@uci.edu>, fustini@kernel.org,
-	guoren@kernel.org, wefu@redhat.com, ukleinek@kernel.org
-Cc: ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net,
-	bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org,
-	aliceryhl@google.com, tmgross@umich.edu, dakr@kernel.org,
-	daniel.almeida@collabora.com, tamird@kernel.org, acourbot@nvidia.com,
-	work@onurozkan.dev, elle@weathered-steel.dev,
-	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org,
-	rust-for-linux@vger.kernel.org, ardalan@uci.edu, zhiyunq@cs.ucr.edu,
-	dzueck@uci.edu
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <f9cf8f0d897f22888134b2b17f1b0f86bcda311a.1793150685.git.pgovind2@uci.edu>
-X-CMS-MailID: 20261109113424eucas1p108cb7261add005a44da39d455ce78c8b
-X-Msg-Generator: CA
-X-RootMTR: 20261028222851eucas1p160ae9a88fe903d5947ab6b7a75078ced
-X-EPHeader: CA
-X-CMS-RootMailID: 20261028222851eucas1p160ae9a88fe903d5947ab6b7a75078ced
-References: <cover.1793150685.git.pgovind2@uci.edu>
-	<CGME20261028222851eucas1p160ae9a88fe903d5947ab6b7a75078ced@eucas1p1.samsung.com>
-	<f9cf8f0d897f22888134b2b17f1b0f86bcda311a.1793150685.git.pgovind2@uci.edu>
+Mime-Version: 1.0
+References: <20261103093709.81605-1-zhaogongyi@bytedance.com>
+X-Original-From: Zhao Gongyi <zhaogongyi@bytedance.com>
+Date: Mon,  9 Nov 2026 19:39:09 +0800
+Message-Id: <20261109113909.38153-1-zhaogongyi@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261109_033431_180376_621E11D5 
-X-CRM114-Status: GOOD (  23.12  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261109_033937_872865_46B38C4D 
+X-CRM114-Status: GOOD (  21.00  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,103 +70,304 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+A disabled event may be mmaped before hw.idx is assigned; a userpage
+update with that invalid index can make pmu_sbi_csr_index() access
+pmu_ctr_list[] out of bounds.
 
-On 10/28/26 23:28, Priya Bala Govindasamy wrote:
-> `UnregisteredChip::register` calls the C function `__pwmchip_add`
-> to register a PWM chip with the PWM core.
-> `__pwmchip_add` documents that its `owner` argument is supposed to
-> be `THIS_MODULE`, but `UnregisteredChip::register` passes
-> `core::ptr::null_mut()`. This is acceptable for built-in drivers.
-> 
-> However, for loadable drivers, registering the chip with a null owner
-> prevents the PWM core from taking a reference to the owner module when
-> a PWM is requested or its character device is opened.
-> This means that the owner module can be unloaded while references to the
-> chip remain. This can lead to use-after-free and
-> kernel panic.
-> 
-> Fix this by marking PwmOps as a `#[vtable]` trait so each implementation
-> exposes its actual OwnerModule, then pass that to `__pwmchip_add()`.
-> 
-> Fixes: d8046cd50879 ("rust: pwm: Add complete abstraction layer")
-> Reported-by: Dylan Zueck <dzueck@uci.edu>
-> Assisted-by: LLM
-> Signed-off-by: Priya Bala Govindasamy <pgovind2@uci.edu>
-> ---
->  drivers/pwm/pwm_th1520.rs |  1 +
->  rust/kernel/pwm.rs        | 11 +++++++++--
->  2 files changed, 10 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
-> index 728993998446..6a1f4219d6fa 100644
-> --- a/drivers/pwm/pwm_th1520.rs
-> +++ b/drivers/pwm/pwm_th1520.rs
-> @@ -94,6 +94,7 @@ struct Th1520PwmDriverData {
->      clk: Clk,
->  }
->  
-> +#[vtable]
->  impl pwm::PwmOps for Th1520PwmDriverData {
->      type WfHw = Th1520WfHw;
->  
-> diff --git a/rust/kernel/pwm.rs b/rust/kernel/pwm.rs
-> index 8aa47304bec3..ae7b449d67e4 100644
-> --- a/rust/kernel/pwm.rs
-> +++ b/rust/kernel/pwm.rs
-> @@ -12,6 +12,7 @@
->      device::{self, Bound},
->      devres,
->      error::{self, to_result},
-> +    module::this_module,
->      prelude::*,
->      sync::aref::{ARef, AlwaysRefCounted},
->      types::Opaque, //
-> @@ -175,6 +176,7 @@ pub struct RoundedWaveform<WfHw> {
->  }
->  
->  /// Trait defining the operations for a PWM driver.
-> +#[vtable]
->  pub trait PwmOps: 'static + Send + Sync + Sized {
->      /// The driver-specific hardware representation of a waveform.
->      ///
-> @@ -673,9 +675,14 @@ impl<T: PwmOps> UnregisteredChip<'_, T> {
->      pub fn register(self) -> Result<ARef<Chip<T>>> {
->          let c_chip_ptr = self.chip.as_raw();
->  
-> -        // SAFETY: `c_chip_ptr` points to a valid chip with its ops initialized.
-> +        let owner = this_module::<T::OwnerModule>().as_ptr();
-> +
-> +        // SAFETY:
-> +        // - `c_chip_ptr` points to a valid chip with its ops initialized.
-> +        // - `owner` is the module implementing `PwmOps`. It is null for a built-in
-> +        //   implementation or a valid module pointer for a loadable implementation.
->          // `__pwmchip_add` is the C function to register the chip with the PWM core.
-> -        to_result(unsafe { bindings::__pwmchip_add(c_chip_ptr, core::ptr::null_mut()) })?;
-> +        to_result(unsafe { bindings::__pwmchip_add(c_chip_ptr, owner) })?;
->  
->          let registration = Registration {
->              chip: ARef::clone(&self.chip),
+Validate indices before publishing or using a CSR, and reject
+out-of-range SBI results before accessing counter state. Keep mmap
+authorization independent of assignment for disabled events.
 
-I have managed to reproduce this issue and can confirm it's fixing the
-problem.
+Reject a zero SBI counter count before allocating counter state. A
+zero-length pmu_ctr_list[] would be dereferenced when a non-sampling
+event selects its initial counter width.
 
-Code wise seems OK.
+Fixes: cc4c07c89aad ("drivers: perf: Implement perf event mmap support in the SBI backend")
+Signed-off-by: Zhao Gongyi <zhaogongyi@bytedance.com>
+---
+Changes since v1:
+- Reject a zero SBI counter count before allocating pmu_ctr_list[], as
+  reported by Sashiko.
 
-Reviewed-by: Michal Wilczynski <m.wilczynski@samsung.com>
-Tested-by: Michal Wilczynski <m.wilczynski@samsung.com>
+The v1 RISC-V QEMU/KASAN syzkaller run completed 300 seconds (62,069
+programs) without the original out-of-bounds report.
+The v2 PMU driver objects built with RISC-V GCC 12.2 and defconfig.
 
-Best regards,
+ drivers/perf/riscv_pmu.c        | 29 ++++++++++-----
+ drivers/perf/riscv_pmu_legacy.c |  7 ++--
+ drivers/perf/riscv_pmu_sbi.c    | 62 +++++++++++++++++++++++++--------
+ include/linux/perf/riscv_pmu.h  |  7 +++-
+ 4 files changed, 79 insertions(+), 26 deletions(-)
+
+diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+index 8e3cd0f..adb64b3 100644
+--- a/drivers/perf/riscv_pmu.c
++++ b/drivers/perf/riscv_pmu.c
+@@ -18,13 +18,17 @@
+ 
+ #include <asm/sbi.h>
+ 
+-static bool riscv_perf_user_access(struct perf_event *event)
++static bool riscv_perf_user_access(struct perf_event *event, int idx)
+ {
++	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
++
+ 	return ((event->attr.type == PERF_TYPE_HARDWARE) ||
+ 		(event->attr.type == PERF_TYPE_HW_CACHE) ||
+ 		(event->attr.type == PERF_TYPE_RAW)) &&
+ 		!!(event->hw.flags & PERF_EVENT_FLAG_USER_READ_CNT) &&
+-		(event->hw.idx != -1);
++		riscv_pmu_ctr_idx_valid(idx) &&
++		rvpmu->csr_index &&
++		rvpmu->csr_index(event, idx) >= 0;
+ }
+ 
+ void arch_perf_update_userpage(struct perf_event *event,
+@@ -32,12 +36,13 @@ void arch_perf_update_userpage(struct perf_event *event,
+ {
+ 	struct clock_read_data *rd;
+ 	unsigned int seq;
++	int idx = READ_ONCE(event->hw.idx);
+ 	u64 ns;
+ 
+ 	userpg->cap_user_time = 0;
+ 	userpg->cap_user_time_zero = 0;
+ 	userpg->cap_user_time_short = 0;
+-	userpg->cap_user_rdpmc = riscv_perf_user_access(event);
++	userpg->cap_user_rdpmc = riscv_perf_user_access(event, idx);
+ 
+ 	/*
+ 	 * The counters are 64-bit but the priv spec doesn't mandate all the
+@@ -45,7 +50,7 @@ void arch_perf_update_userpage(struct perf_event *event,
+ 	 * the cpu vendor.
+ 	 */
+ 	if (userpg->cap_user_rdpmc)
+-		userpg->pmc_width = to_riscv_pmu(event->pmu)->ctr_get_width(event->hw.idx) + 1;
++		userpg->pmc_width = to_riscv_pmu(event->pmu)->ctr_get_width(idx) + 1;
+ 
+ 	do {
+ 		rd = sched_clock_read_begin(&seq);
+@@ -148,7 +153,7 @@ u64 riscv_pmu_ctr_get_width_mask(struct perf_event *event)
+ 	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
+ 	struct hw_perf_event *hwc = &event->hw;
+ 
+-	if (hwc->idx == -1)
++	if (!riscv_pmu_ctr_idx_valid(hwc->idx))
+ 		/* Handle init case where idx is not initialized yet */
+ 		cwidth = rvpmu->ctr_get_width(0);
+ 	else
+@@ -264,6 +269,8 @@ static int riscv_pmu_add(struct perf_event *event, int flags)
+ 	idx = rvpmu->ctr_get_idx(event);
+ 	if (idx < 0)
+ 		return idx;
++	if (!riscv_pmu_ctr_idx_valid(idx))
++		return -ENOENT;
+ 
+ 	hwc->idx = idx;
+ 	cpuc->events[idx] = event;
+@@ -353,12 +360,18 @@ static int riscv_pmu_event_init(struct perf_event *event)
+ static int riscv_pmu_event_idx(struct perf_event *event)
+ {
+ 	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
++	int idx = READ_ONCE(event->hw.idx);
++	int csr_idx;
+ 
+-	if (!(event->hw.flags & PERF_EVENT_FLAG_USER_READ_CNT))
++	if (!(event->hw.flags & PERF_EVENT_FLAG_USER_READ_CNT) ||
++	    !riscv_pmu_ctr_idx_valid(idx))
+ 		return 0;
+ 
+-	if (rvpmu->csr_index)
+-		return rvpmu->csr_index(event) + 1;
++	if (rvpmu->csr_index) {
++		csr_idx = rvpmu->csr_index(event, idx);
++		if (csr_idx >= 0)
++			return csr_idx + 1;
++	}
+ 
+ 	return 0;
+ }
+diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
+index 1b8e478..7f778b1 100644
+--- a/drivers/perf/riscv_pmu_legacy.c
++++ b/drivers/perf/riscv_pmu_legacy.c
+@@ -76,9 +76,12 @@ static void pmu_legacy_ctr_start(struct perf_event *event, u64 ival)
+ 	local64_set(&hwc->prev_count, initial_val);
+ }
+ 
+-static uint8_t pmu_legacy_csr_index(struct perf_event *event)
++static int pmu_legacy_csr_index(struct perf_event *event, int idx)
+ {
+-	return event->hw.idx;
++	if (!riscv_pmu_ctr_idx_valid(idx))
++		return -ENOENT;
++
++	return idx;
+ }
+ 
+ static void pmu_legacy_event_mapped(struct perf_event *event, struct mm_struct *mm)
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 21a2078..543970b 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -434,6 +434,24 @@ static bool pmu_sbi_ctr_is_fw(int cidx)
+ 	return info->type == SBI_PMU_CTR_TYPE_FW;
+ }
+ 
++static int pmu_sbi_ctr_hw_csr_index(int idx)
++{
++	union sbi_pmu_ctr_info *info;
++
++	if (!riscv_pmu_ctr_idx_valid(idx) || !test_bit(idx, cmask))
++		return -ENOENT;
++
++	info = &pmu_ctr_list[idx];
++	if (info->type != SBI_PMU_CTR_TYPE_HW)
++		return -ENOENT;
++
++	if (info->csr != CSR_CYCLE && info->csr != CSR_INSTRET &&
++	    (info->csr < CSR_HPMCOUNTER3 || info->csr > CSR_HPMCOUNTER31))
++		return -ENOENT;
++
++	return info->csr - CSR_CYCLE;
++}
++
+ int riscv_pmu_get_event_info(u32 type, u64 config, u64 *econfig)
+ {
+ 	int ret = -ENOENT;
+@@ -530,9 +548,9 @@ int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr)
+ }
+ EXPORT_SYMBOL_GPL(riscv_pmu_get_hpm_info);
+ 
+-static uint8_t pmu_sbi_csr_index(struct perf_event *event)
++static int pmu_sbi_csr_index(struct perf_event *event, int idx)
+ {
+-	return pmu_ctr_list[event->hw.idx].csr - CSR_CYCLE;
++	return pmu_sbi_ctr_hw_csr_index(idx);
+ }
+ 
+ static unsigned long pmu_sbi_get_filter_flags(struct perf_event *event)
+@@ -605,6 +623,9 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+ 		return sbi_err_map_linux_errno(ret.error);
+ 	}
+ 
++	if (ret.value < 0 || ret.value >= RISCV_MAX_COUNTERS)
++		return -ENOENT;
++
+ 	idx = ret.value;
+ 	if (!test_bit(idx, rvpmu->cmask) || !pmu_ctr_list[idx].value)
+ 		return -ENOENT;
+@@ -810,19 +831,25 @@ static u64 pmu_sbi_ctr_read(struct perf_event *event)
+ static void pmu_sbi_set_scounteren(void *arg)
+ {
+ 	struct perf_event *event = (struct perf_event *)arg;
++	int idx = READ_ONCE(event->hw.idx);
++	int csr_idx;
+ 
+-	if (event->hw.idx != -1)
++	csr_idx = pmu_sbi_ctr_hw_csr_index(idx);
++	if (csr_idx >= 0)
+ 		csr_write(CSR_SCOUNTEREN,
+-			  csr_read(CSR_SCOUNTEREN) | BIT(pmu_sbi_csr_index(event)));
++			  csr_read(CSR_SCOUNTEREN) | BIT(csr_idx));
+ }
+ 
+ static void pmu_sbi_reset_scounteren(void *arg)
+ {
+ 	struct perf_event *event = (struct perf_event *)arg;
++	int idx = READ_ONCE(event->hw.idx);
++	int csr_idx;
+ 
+-	if (event->hw.idx != -1)
++	csr_idx = pmu_sbi_ctr_hw_csr_index(idx);
++	if (csr_idx >= 0)
+ 		csr_write(CSR_SCOUNTEREN,
+-			  csr_read(CSR_SCOUNTEREN) & ~BIT(pmu_sbi_csr_index(event)));
++			  csr_read(CSR_SCOUNTEREN) & ~BIT(csr_idx));
+ }
+ 
+ static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
+@@ -890,10 +917,18 @@ static int pmu_sbi_find_num_ctrs(void)
+ 	struct sbiret ret;
+ 
+ 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_NUM_COUNTERS);
+-	if (!ret.error)
+-		return ret.value;
+-	else
++	if (ret.error)
+ 		return sbi_err_map_linux_errno(ret.error);
++
++	if (ret.value <= 0)
++		return -EINVAL;
++	if (ret.value > RISCV_MAX_COUNTERS) {
++		pr_info("SBI returned too many counters, limiting to %d\n",
++			RISCV_MAX_COUNTERS);
++		return RISCV_MAX_COUNTERS;
++	}
++
++	return ret.value;
+ }
+ 
+ static int pmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
+@@ -902,6 +937,9 @@ static int pmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
+ 	int i, num_hw_ctr = 0, num_fw_ctr = 0;
+ 	union sbi_pmu_ctr_info cinfo;
+ 
++	if (nctr <= 0 || nctr > RISCV_MAX_COUNTERS)
++		return -EINVAL;
++
+ 	pmu_ctr_list = kzalloc_objs(*pmu_ctr_list, nctr);
+ 	if (!pmu_ctr_list)
+ 		return -ENOMEM;
+@@ -1485,12 +1523,6 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 		goto out_free;
+ 	}
+ 
+-	/* It is possible to get from SBI more than max number of counters */
+-	if (num_counters > RISCV_MAX_COUNTERS) {
+-		num_counters = RISCV_MAX_COUNTERS;
+-		pr_info("SBI returned more than maximum number of counters. Limiting the number of counters to %d\n", num_counters);
+-	}
+-
+ 	/* cache all the information about counters now */
+ 	if (pmu_sbi_get_ctrinfo(num_counters, cmask))
+ 		goto out_free;
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+index ecaa403..219e3a8 100644
+--- a/include/linux/perf/riscv_pmu.h
++++ b/include/linux/perf/riscv_pmu.h
+@@ -28,6 +28,11 @@
+ 
+ #define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
+ 
++static inline bool riscv_pmu_ctr_idx_valid(int idx)
++{
++	return idx >= 0 && idx < RISCV_MAX_COUNTERS;
++}
++
+ struct cpu_hw_events {
+ 	/* currently enabled events */
+ 	int			n_events;
+@@ -66,7 +71,7 @@ struct riscv_pmu {
+ 	void		(*event_init)(struct perf_event *event);
+ 	void		(*event_mapped)(struct perf_event *event, struct mm_struct *mm);
+ 	void		(*event_unmapped)(struct perf_event *event, struct mm_struct *mm);
+-	uint8_t		(*csr_index)(struct perf_event *event);
++	int		(*csr_index)(struct perf_event *event, int idx);
+ 
+ 	struct cpu_hw_events	__percpu *hw_events;
+ 	struct hlist_node	node;
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+2.39.5 (Apple Git-154)
 
 _______________________________________________
 linux-riscv mailing list
