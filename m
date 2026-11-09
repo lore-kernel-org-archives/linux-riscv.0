@@ -2,106 +2,201 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60278606A31C
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 05:11:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 775DC606A325
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 05:16:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3dcERWRm;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Qsy8h98J
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ys6LIP+A;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=GSunXXBe;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=IMGTecCRM.onmicrosoft.com header.i=@IMGTecCRM.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-IMGTecCRM-onmicrosoft-com header.b=qzyA9XRp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=4iB5AH4XTbVXSHyiodDji0dFdQ73zrK0g2B2+02/fC8=; b=3dcERWRmkb0+fUYdfUq0EW0MBL
-	qHT94cnuFN9L+XK06Ru2apCItTpMt6Qpju0tJi4haXpWvunv+nn56xZhVTRfF485ba/TA3LDLyQGp
-	q0fZ13dYF+XKbAIl+aLu5+2zo70vvR5CLbsfXRT3g38zHkIQLz6/ncIWLV/iTL/saxEOxrjzcA+nf
-	Glxmj8sSwGtYjeFtac8sdk/FEGjn7PkwOVpOAR2Sc5r//2g6R9kshtDS1VZKFZmmkkpXdQ/YGQ5u2
-	zhXsWFDTIEvjXQtRjQ+TDDZHpsNduwtM+lWybKHbVRxtnua/j8wfaHUr/O7f+dtuddRdc+dYXENZb
-	gelilGZg==;
+	bh=cGwKhsv6G1L/0olumf5EH+8WQTyWAdUt569ku5K4fN8=; b=ys6LIP+AS+xoGqaonOQO73vDq6
+	tPSQWAHvywArzhxqZB+4VHEYTyl/YE9bgW/VONEzGEjhWlOg0puVVLwazcK1l3DagrZb1b98kDj+l
+	LUruyYdKmlvJiW5NvwUPDU3VkZAdllSwmfDR4OOnKmVKYLHaiBShnQxESx1ZETrcnNFMAlUPtS9O4
+	w5xwVompmPmCjdMYJ760pqAFm615TfhZeW8ocr6LKYyIw2IxD77aVJJG3BnlAbo/jbQnK/pKZ+hlr
+	O+QqtHclOXOSqwM2WX0M+nX4hIgiVMpXHQY2RKLSMSc21tvYwkjMAWz7ezgjTOF/k4JgQ+qphsjBw
+	C33IaqeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQHfW-0000000HNmP-3CDv;
-	Mon, 09 Nov 2026 05:11:46 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1xQHkN-0000000HOTm-1xKp;
+	Mon, 09 Nov 2026 05:16:47 +0000
+Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQHfT-0000000HNjf-2N3z
+	id 1xQHkK-0000000HOSb-3aGO
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Nov 2026 05:11:45 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-cc758830601so250332a12.2
-        for <linux-riscv@lists.infradead.org>; Sun, 08 Nov 2026 21:11:43 -0800 (PST)
+	Mon, 09 Nov 2026 05:16:46 +0000
+Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
+	by mx07-00376f01.pphosted.com (8.18.1.12/8.18.1.12) with ESMTP id 6A958AF41800571;
+	Mon, 9 Nov 2026 05:16:11 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-id:content-transfer-encoding:content-type:date:from
+	:in-reply-to:message-id:mime-version:references:subject:to; s=
+	dk201812; bh=E+Z+qFK8Y8vbo4Ex+NtaoiTKKpT5yrfUO/5tj1ZLrI0=; b=GSu
+	nXXBeZvVMkPweVQ+3eLa/jWHhFrtxeeLRzIYKR4gsn54nKW7Wcy1/qiuK7M3Lfr0
+	LCBtesQg+J373Tu2/apkQtBmopJi6B/+gg8EH29baSaDuINDJXpuej9afrTT5Vpl
+	YLvnAij3RYIa7GdchmvSoJhfeUS0OOnbr00uLMVFS7ULSfImVXHYqBPP2AG/CmW2
+	3OxE5rTYEpad+BzZMd2ru1D9P567zHdHunO6AVju3009VX7lui1iJ+8yqn0zcmYj
+	jsHAxJYmEabaNl37FiPEQxLfhr8MfSaRQ7LE6w00QVC6NmCp8rSKfvGBqD/DpnzV
+	FfJaXWEHEtdo96IDJEg==
+Received: from lo2p265cu024.outbound.protection.outlook.com (mail-uksouthazon11021128.outbound.protection.outlook.com [52.101.95.128])
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 4hsvxx18gx-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT key_exchange=secp256r1);
+	Mon, 09 Nov 2026 05:16:10 +0000 (GMT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CGM8iuV+UCYqBwSBLd0T2QbrOSS4sXRYKxqM51XSqAY8YDRNaixpwf5+XDr2bqZxDHaW5f+adTKY0pmaPX9L5E33Gojm9MYmr2AbqCQ3Rq/iWoajfQ5mVdysG2Mq2wtFlwqo7/shWBdC9hcO0RMWSJAOnSrCb4/g5m07UWgdlKVvQp6LzFCYK9d2CmTfrAkj2etslTr8r0wajweS5XnVicuiykHNlEq5mL9j/fU82tyfES2BmAmubgwdbcPqsd696E2TyclJG+XbUdkP2MrHrd/lf6mfqEo8byB7+3mbI2Dqtqfe3F4zzBTCSrjuO+sEt3gD/oHz2LKU9vB0DL0ZyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E+Z+qFK8Y8vbo4Ex+NtaoiTKKpT5yrfUO/5tj1ZLrI0=;
+ b=xi6CXAI3TjuJqrvhLduBOuzmFBBg3nq9kz+kH3zI93ty1Vqs/hc5UgzmcdfGuqY4MeDBnQdL12ygIiTdy11BlSn9r/wkm21rtaTE2Br3FKn3QdSJ3yCVBJLsz8klYRfSF8TminFECiBG1/PKaDTB1VvqvIQO4zGmO4MiCR/BrwvYnQlSFw5CFuSJrCH+q9jdqI9CYiiEZy9shtE9XhGhu5ubLeAI4guSErqzD/Ix7yMHHfhf605iT7GtcbhGmadQLhdaPt157ruDij/qbi2S5KVDsPQFimmhv+2Z+COsheSQjdrGn8G3UM1b4l0x7Zr3WekXR81Wl5iBBeuJudNndg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=imgtec.com; dmarc=pass action=none header.from=imgtec.com;
+ dkim=pass header.d=imgtec.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794201102; x=1794805902; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1sFiIXdYvIMEEVDfpTbotRJnqNCeZpgzlN3EY6gBPm8=;
-        b=Qsy8h98JL/Htf6WxCEavwzVatOOqVcbnQWt8/iMmr0gaOp8lVj5+FQM8rOUppt2nO0
-         tSY86rOBNA9RQnDobzzCPRUdVybkh57ysQd6iuNq4F6aPyF41Qh3yzqzEXqfTfbHNXyq
-         k1BMV287rprwKvQf0558QE2/0uJE8ORWZatLhuX8xAXJA8/6sruemEZ4anUZkIJCVabE
-         Le1bF/UNwgHbC8lqfw7dyw/qe3QdohhcPtj403/K5xR2u2W3p2iqyw/f+IrbkOcJKbb7
-         7lTZuf4qC61w3OWiaTjM2871z0p3mWinau0Rg4CVcMJRmNXhDXXOgTlGZl2pN/luuPCr
-         qG4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794201102; x=1794805902;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1sFiIXdYvIMEEVDfpTbotRJnqNCeZpgzlN3EY6gBPm8=;
-        b=2YMV25ILzN6WVNj2Zvzvz4KY6o0IobK6rfdW5do3TjN7Zn6G7YyYyU4T8vjpZ7Sdzd
-         W2Us/QRBkS741d32+S5e4AQybRy23U8LAwWRhaLTlW3Df4tkm5T2XnJaiTGWc95WxNX+
-         ADWekrMVjqeGna4OWqAqzYC82yvMAWvLKMOByfmK1Bmd8C5w4URjbwZ7qO0KWyJGINVs
-         4p1UG3gbwBOdN+ItVVe08R3LcNqVmNK7gZbOveqbHIYNP9SPA1Hbj+f5iMYs4tP70m/n
-         f8zxBpWQHCoQ4UHvLxD/CaiaVEg4P0ivwF6fybJ7c282Q5/x5wRFhAwX0IGCYz2WlChN
-         Er0g==
-X-Forwarded-Encrypted: i=1; AL+hErEmCGI8zBABXCN1tKfVdtDC7UItwtqSCOHALr7Ku/+TJ1zXKYZ4lICjozIqJU2FP8lSvkf/UJf2Kyn5DA==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9OcXdFCHLAb4J0o63nZwN4q8vTlUVeS3p8rgNCPs09BwY9XMgv
-	CZleZzJsNWhe+Lf/dKcJVfblYJ/Yu/x1bHoMvn6BnD077+KLB2ytzdSN
-X-Gm-Gg: AYBFou3c0JO1StxDN97OW23IGyXPRKoaYRQ0+HU3eKUohDPmroMAI8CqHAXuhjr/38G
-	DLp9W7euJjZousOv8U20FQnfU/g9B1kWqK8gN9ZIgCePQ69qzQ1kWWYH5P/d0b/JjHUkjCo6wCH
-	QxvcjDb9tKMQYlxyBQIYEF2U5jjwqxwQkwDcpFNigBIX3H8x0wkrZAlU4DNBpBxwPcAq2gDmSdc
-	a0QcaEMeQbtXI8V/z6NT0/4J2K/u0ZPJaJ4kGmXtexzLHOJslf6YFv88Ius43uv/Khhh4YEZSED
-	hHUQxg9U25AUVZYfUBsbz4pdVtsh6GudGjBApNVvIJBG7FFKIZqF3/uMCX3S8fGo1gHW/oNEOd2
-	b7WSWjVHa0TMPh1PkNrSCpx9xPCv1RM/jj0/qUCBtKmgqEzyQodGmwSga4AFIhf+A7lGJUwhn+a
-	eOMHSM0xdBq4VEvZ1XWMJQKHkTFymAXbSrpFUNU0iQeT1g7zCFfb7dcQFByEm5P1OQ0ykyBcHhH
-	/mMog+W4KEO47mJPXDvmmaxuGtnZko4OOEWsFweChMx/J4ncYKk4Ka5YPTRszDsxzyKVGCzPywM
-	hQWiOo+h/hMsNWIHZuOSAPD32CIuUXKj+wIQ5BaAcQsc2TjPsrWsvZDK6675ohPkjX62vDiohdB
-	PvfYTrY7B/lbevkC/y20FvcUN/hN/cy3RvhQH2JRZmXKkJtmfW+eWOR+O6Q==
-X-Received: by 2002:a17:90b:2805:b0:3ad:eb4c:26fb with SMTP id 98e67ed59e1d1-3b12d3c8af6mr2603277a91.23.1794201102472;
-        Sun, 08 Nov 2026 21:11:42 -0800 (PST)
-Received: from donnager-debian.. ([180.150.112.169])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b12790befasm5247652a91.13.2026.11.08.21.11.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Nov 2026 21:11:42 -0800 (PST)
-From: Joel Stanley <joel@jms.id.au>
-To: Paul Walmsley <pjw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Anup Patel <anup@brainfault.org>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Michael Ellerman <mpe@kernel.org>,
-	Drew Fustini <fustini@kernel.org>,
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v3 7/7] riscv: dts: tenstorrent: Add Atlantis platform
-Date: Mon,  9 Nov 2026 15:40:47 +1030
-Message-ID: <20261109051050.105623-8-joel@jms.id.au>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261109051050.105623-1-joel@jms.id.au>
-References: <20261109051050.105623-1-joel@jms.id.au>
+ d=IMGTecCRM.onmicrosoft.com; s=selector2-IMGTecCRM-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E+Z+qFK8Y8vbo4Ex+NtaoiTKKpT5yrfUO/5tj1ZLrI0=;
+ b=qzyA9XRpOx6guUJm18dyRoCmAIzuQrbpgM08Li7PwPNYsVvmjaG4GMMbkFA5PpWAuwCMzwJqr61fYiBLkgnBKB3qmJ/ztZXeoq0zZDpLq46KGn1k9XUnR+B3O7s7LXNAbq3K+//SU6JV6rPkWHGveZovaeE5eDildXqrsVgL50g=
+Received: from LOCP265MB8661.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:4b5::14)
+ by LOFP265MB469462.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:705::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.12; Mon, 9 Nov
+ 2026 05:16:08 +0000
+Received: from LOCP265MB8661.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::6b99:94f7:a14f:a722]) by LOCP265MB8661.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::6b99:94f7:a14f:a722%4]) with mapi id 15.21.0592.012; Mon, 9 Nov 2026
+ 05:16:08 +0000
+From: Brajesh Gupta <Brajesh.Gupta@imgtec.com>
+To: Luigi Santivetti <Luigi.Santivetti@imgtec.com>,
+        "aou@eecs.berkeley.edu"
+	<aou@eecs.berkeley.edu>,
+        "tzimmermann@suse.de" <tzimmermann@suse.de>,
+        "simona@ffwll.ch" <simona@ffwll.ch>, "pjw@kernel.org" <pjw@kernel.org>,
+        "alex@ghiti.fr" <alex@ghiti.fr>,
+        "airlied@gmail.com" <airlied@gmail.com>,
+        Alessio Belle <Alessio.Belle@imgtec.com>,
+        "maarten.lankhorst@linux.intel.com"
+	<maarten.lankhorst@linux.intel.com>,
+        Alexandru Dadu
+	<Alexandru.Dadu@imgtec.com>,
+        "mripard@kernel.org" <mripard@kernel.org>,
+        "palmer@dabbelt.com" <palmer@dabbelt.com>
+CC: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+        "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+        "opensource@mtcoster.net" <opensource@mtcoster.net>,
+        "imagination@lists.freedesktop.org" <imagination@lists.freedesktop.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v4 0/5] drm/imagination: RISC-V and META firmware
+ interface updates
+Thread-Topic: [PATCH v4 0/5] drm/imagination: RISC-V and META firmware
+ interface updates
+Thread-Index: AQHdcAls8U4gjmf0MkOg7NFzeoTFmw==
+Date: Mon, 9 Nov 2026 05:16:07 +0000
+Message-ID: <651cb4c2e4bb7568d6dea4c7b0dd8fe44b783a99.camel@imgtec.com>
+References: <20261103-prep-meta-fw-arch-independent-v4-0-513d1c51f458@imgtec.com>
+In-Reply-To: <20261103-prep-meta-fw-arch-independent-v4-0-513d1c51f458@imgtec.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=imgtec.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: LOCP265MB8661:EE_|LOFP265MB469462:EE_
+x-ms-office365-filtering-correlation-id: c56779a1-9b97-409a-69aa-08df3e208f96
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|10070799003|23010399003|7416014|376014|366016|1800799024|921020|38070700021|56012099006|261021121427099003|261021123027099003|261022115727099003|261022075727099003|261022105027099003|261009223027099003|261026140227099003|261028144727099003|261102123227099003|10067099003|22082099003|18002099003;
+x-microsoft-antispam-message-info: E2dMrzBHOnp0kJP3kX6m+QTTpnJZHxsEohpssGVWTcjG4pKS3QY19N9Xe2m5euqsO12eIqV7dACoO1zNCpVYOzjDKPwh4KvesEBN5PZMFdXpI+LzZhshODYZtbWkcBEPSrMSOpZ5ZLhyQ/WiGweZGcxFmoI1VybINB90B3jVYVhvKVOwCaJ/FrV0JITIxb7uklv9jEiitzB5rKE+Xym1nGsHfCpe9DTevw3XqmyuuhPBZHq/KI1oRYDY8NumRg7bJbXsj14T/qgPchOZNye3Ae+MJ9hJsgrlr6KxPdEwN+rATSPP9HrdpsnCjtOhl+85Z9N4yVgfrXhuJWAt1mnms82L3IVYFW0t1eFZYKjlIQkfZaMnVkSu4nTKiPan6sQHD9yqAB8YJrVBw8TniwxzH3O9/rYWl65C7cD403N6MAG4tP8lCqL9OCUcaVehr/iqP63hgYiG8eo5qGOWo4xnoUpULB2Nru7kPrVxJYSTo6EHdiFFv4BnjmTVk2We2EtbISZriX0RbChn9I/qg2HuyOUg82kc04QxED63Leg72sb32bFQo8Rah1aSPpOn/6VWwQ1CzAshksDxh1ZGG3s+ZtzM/EgnHnMX6cUDOBNXZqUeTdxPHWP7YGrYqstG7GVYao1gUhZ0N2aiawdhab4Q9awavs61jvBOUq8iJ3Lnft2O0XTVwl7Kfz18ltPq9S4V
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOCP265MB8661.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(23010399003)(7416014)(376014)(366016)(1800799024)(921020)(38070700021)(56012099006)(261021121427099003)(261021123027099003)(261022115727099003)(261022075727099003)(261022105027099003)(261009223027099003)(261026140227099003)(261028144727099003)(261102123227099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 2
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?L2Y0SmhpUVJvNmxOdDZUNk12cW9kVFk0eHJFVW1qU0hNZzg3Qkp6WnN3a2dh?=
+ =?utf-8?B?WGtwcHhya2hKRTErUGtFQnlkZlNzQlBWQythZTJVRmVxOVhraHhvaHA3eDhV?=
+ =?utf-8?B?dVJqZjBGNVllU25sb05ZQWVlaVNpS1dTU0JRRVQ3TlEzTXBsbEdlUVFyTk5W?=
+ =?utf-8?B?TDZhYTRtWEMzelZ1Qk0yMndHSVZyNm5PajZORXlGdEZYRWFGemtscU5ZTXpT?=
+ =?utf-8?B?NXRGdzFpWmpFUnJIL09xZldTNW5WVjVCWUplWjROamFlTjZrSXpHeW9Md3JH?=
+ =?utf-8?B?RzF4NlZURHlKc3YzUmlLZjZONzRJb0tsNWtxaHRpWmpZMUtrOGpCWG9adS90?=
+ =?utf-8?B?OHZXSUNBcnBGTTVuSmY4THNNd0N3b1J5dlhXVk5BNjZPMW9vZnh2MW94Q2cx?=
+ =?utf-8?B?RkJxVldOcndxcU5oTE4yTHN5RSsreThwTVpmWklUM1NPWDloSzkzcWVEY0ZH?=
+ =?utf-8?B?VDVwb2d0amN5OGlURVRHTkxIMHdTaS9mUDVabTBaVTcwWllwV1MyUW43MWM3?=
+ =?utf-8?B?ckljaENBUG9kTUNCNUdqRmp1ZFd4K3NucVNHazB2UnVFY0YwcUl6aHhsYlhB?=
+ =?utf-8?B?RVBPWjJsL29mR0IySFR6LzR5cUQ0S090OHk5L0w3Mkp5WVpiVnBiMHRUaFZE?=
+ =?utf-8?B?aFRkNkRFU0o0TE54ZVpRY01UR1VNV1V2WnF3WEpxOU5qSUtNOTBiaTZNYXZD?=
+ =?utf-8?B?dGZadWlxN0g1WENXT0QyanAzL0I1U1VzblJVOGhwSVNic09HMStwYUI0VGY3?=
+ =?utf-8?B?REQ3cVBWSVluSnBMUU9SaXk1bGZIWUFTOHhsZVF4QURpM3h4UmNhWjEreTJF?=
+ =?utf-8?B?OS9BOFg4d2daUGlJYitEZHJTdXlkOUlnNkR4akxhVEs2dmVsd0V2THNNOERz?=
+ =?utf-8?B?SmRXK1J6WFZIdlRRWngwSkwvWjJKWmhoZnRuYko4SVVRWjUzRzlVSGZxckJq?=
+ =?utf-8?B?YXRBcVphMVhRQUc3L0tBZEM3V0lVSlZablpsWndwemRzUVQyNDVTZmNtZm83?=
+ =?utf-8?B?MEpJNkw4aDBjZHBDalA4WUZoSUNtSk9hRG1rU09iRjRaYTBkWURUd0tvV3R1?=
+ =?utf-8?B?bkR2MlhnMkUxUnc1R2RENkVSak92QmNrY29QMG4vTzRjSDdqUEN1Zit6NWhJ?=
+ =?utf-8?B?UFcxWDVndElFZTlBZ2oxUVI5ZkJjL0diU1RtbE85bGxNdEZFU25lNHNURXpN?=
+ =?utf-8?B?STdkMU02YlBCVCtYak1iUFY0UW1aUUQ3YWUyLzFwU2piZzd0dlQyUUtaTGR3?=
+ =?utf-8?B?aUIyRVhmTnZkY0FUdWVSMXZuWHp5VXRZMFArT3gzeU9nL1RIdzNSMnBoVitD?=
+ =?utf-8?B?WUxsUDVaOWJOMXJ0Wk1OaGlhU0hsZjdNcld2YXBZNTE5RWwxYTAwTUFUU1Fu?=
+ =?utf-8?B?eXpqcG1RajkxdVNja2swaFFtcDhrSEV3V3Q5b1NuYTBvbFlvUkdvNEM1Zk9K?=
+ =?utf-8?B?VytzOUNlbHliNWZIYXJmZGpudEI1KzNEdWE3RFV4TURMa1lOa1NrWlh4VXNK?=
+ =?utf-8?B?bnFsNDFtOEF0SlFZM2RBeVI4eE9BQkZpNE45VVg2bkowWU5PUlV4RjFCUDBQ?=
+ =?utf-8?B?bHVwS1hDZ3VpZmZmMyt3YWtWdDBrS0dUVlpOalhXYUVhaFhlb0tYdFo5TFJ3?=
+ =?utf-8?B?ZkNPOGJ5Y1N4SHJVdzAyMVRaV2J4c0FEOVZBU2FIMmkzdlNpN0ZFaUowKzRG?=
+ =?utf-8?B?cHBTaVdqeWI4bStHYzBEUmxFTml4MVhJWnJIL2E1bXVrUTY2Y2M1WG0wU0VC?=
+ =?utf-8?B?UkVrY3h1Q1pCbW1jcXU3cURvOGV1STF6QStWMHhLZ0o2TUVtZW1CZjFtV2Iw?=
+ =?utf-8?B?VWljd3JzdXVITUdBOVEvbFRLbGd5Z1RNMUZxQ0lCWm5yRE9DazBxcHI1RE1j?=
+ =?utf-8?B?WDBrc0NFRUtwM0hkUm8wcmpVRHExWlU1Q2IrR2JTYkZJWmlYelVjRS8rclRD?=
+ =?utf-8?B?bDBxdGpjTjl2S2VWbG9RZ3djQVZZazZ6VE5NUHZPT2hoTEV6L3hpdWZIcE1s?=
+ =?utf-8?B?dHhmNmpncEtGVXpOY2hDZ2JlOWxUY2padnJNN3hZNG1IdHppSklhZjJ1UDVF?=
+ =?utf-8?B?dzhmWVZSNnIzWWVtYjN1MWdHN29IQm1sUFd2UjAvUms1MVNoWWlGbjYzVkNq?=
+ =?utf-8?B?ODd4bm5Db2xJYUdlNStEMGdlcHdHcEpJNlVJN0hndDEvcXA4b3J3VFR6WDdF?=
+ =?utf-8?B?czZkUWQ3bThzemdRZW1QaTRSNW9tb0UwSzBpcU5FMFJwWERuakJmZG0yRVpV?=
+ =?utf-8?B?bE4rOWFneTdKRVlzWFNZOXphQTNBVlFaYldKazFIQk9hZmdMYXcyenYySmdV?=
+ =?utf-8?B?Smp4QVI4K3J3OWRVdEVha3dscUVYSytXdDN5aUUyaExpVHorbGU3RktKUWJn?=
+ =?utf-8?Q?Ryh7/mXwHfVHQr3CajCGaLxZKPkQYN9Gf+RJogwJ1AFoL?=
+x-ms-exchange-antispam-messagedata-1: ux9Rdzn4qtR52DwX3x0AgMEdgifIxCmztRw=
+Content-ID: <FF47A29D90ACF54799EBFEE94594E605@GBRP265.PROD.OUTLOOK.COM>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: 4x49p91z6LyvY7rD9e+tsgN8nM8mlt+kgH72KPFmsjcIOnRZzVgVg7jSPZW1UGe5N7XQV4OCkziJIPZGgd7jv2HbjGTtFmdXlSdHFCINgxhBK+esUCrBP8DofZ30cAA6lSph284CnrCsue/wrwoksDKLcP8p6Ii9EGbQM91LHCV5ygoQraE+Y3eYkUxE7KdFPNroP0Gp8i+H6jqgDQPDAUTI5Eydeh6GAJEhED/Rro+MFHEcQUzxJuDuM07XN33BkEMSBuLDgAi9DM+ZIwceHnnCUId9lDjQsO0ktyBDdU9nxN4fpqA5KDr/nSymTCzo2UcEIjngGcUMBKsu6G4pig==
+X-OriginatorOrg: imgtec.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: LOCP265MB8661.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: c56779a1-9b97-409a-69aa-08df3e208f96
+X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Nov 2026 05:16:07.8180
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 0d5fd8bb-e8c2-4e0a-8dd5-2c264f7140fe
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: JKJg/L0XSvakKglec8g5RCxfC2rRmmEIOyNRZuHoxW5fV1dTq3/Ay9mzQCKzq1s98GYf8ofHX6f3aMi+TbywH0hBQNwIibO+iE3UwYRECa8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LOFP265MB469462
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA5MDAyMCBTYWx0ZWRfX1HjZ09RnkO90
+ i4hMnGpEu1GsoUXgDEg5p4Vap0M+VLAQvhWtMKcJAwUgbs4cy2T136Spc1sTYVMlzL4qfzyKeHY
+ zqkPo0hajV4mrPZlnyLVGy5o7v1FGe0=
+X-Proofpoint-ORIG-GUID: djoisqfMlc1gGi24wBJct7q5FH7uDr_e
+X-Authority-Analysis: v=2.4 cv=H+JOUOYi c=1 sm=1 tr=0 ts=6af1571a cx=c_pps
+ a=GYKJVqjP5HEJ3kJlCgcxTw==:117 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=zJRp6_cAMcgA:10 a=NgoYpvdbvlAA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=kQ-hrUj2-E3RCbRHssb7:22 a=7RYWX5rxfSByPNLylY2M:22 a=bC-a23v3AAAA:8
+ a=r_1tXGB3AAAA:8 a=QyXUC8HyAAAA:8 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8
+ a=_O3DOGVWAAAA:8 a=e5mUnYsNAAAA:8 a=JfrnYn6hAAAA:8 a=XWCimdJHYoRkDFDAc14A:9
+ a=QEXdDO2ut3YA:10 a=FO4_E8m0qiDe52t0p3_H:22 a=t8nPyN_e6usw4ciXM-Pk:22
+ a=2TKV-7w1aU1AVAwN0oqT:22 a=Vxmtnl_E_bksehYqCbjh:22 a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA5MDAyMCBTYWx0ZWRfXxpKrlKZUUvLa
+ bWLOtexwgNxmP2YRMZiWb93OTfb2nYDE2vIZmV2Bt400aDoI8+P/lbA5jdvqbywV/SH8dSCtbdn
+ 7xd6bmdyTBC2l+7aRE4i3k/zkTyZ5dBGKO6nqq/OeQr1eyzTBzczQGqrAbXP7Pk8M4qakLJL1CL
+ BAv/uYw+P9orQMaEfbl68rjiaHPIAM+XwWTZE7/FymjyKfQa9UiZb2YhVtFhe1ofc/jTyiUtZeu
+ FikEfKnq1mA6jrHSAOegmnv8qdlNUleZANfRw+lghHleYvVBvhfGXflnGwWe1bfbmoOVNZP6+Wf
+ hPPE6ynf8ujIHKzGeSG07jrfnYEp54ilQuQe7tgSWneQOFVq2SL0dM1axO6rR7pLUCh5g7maRZ/
+ zxssuA+kNr5Z4Pv/kSnfv42uV5Uua4kETirr5vzQHXIeRu9ztNo+cJITXjTrT+BdkBPy6U8GcpM
+ mtqpw38VgAADKl+8Zhw==
+X-Proofpoint-GUID: djoisqfMlc1gGi24wBJct7q5FH7uDr_e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261108_211143_662715_ED04D21C 
-X-CRM114-Status: GOOD (  15.89  )
-X-Spam-Score: -1.7 (-)
+X-CRM114-CacheID: sfid-20261108_211645_226758_DCB0F51E 
+X-CRM114-Status: GOOD (  14.89  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,580 +209,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add initial support for the Tenstorrent Atlantis platform, based on the
-Atlantis SoC featuring 8x RVA23-compliant Tenstorrent Ascalon-XG cores.
+On Tue, 2026-11-03 at 11:00 +0200, Alexandru Dadu wrote:
+Hi Dadu,
+> Refactor RISC-V and META firmware interface headers to have a more
+> generic and architecture independent approach:
+> 1. Limits access to the RISC-V and META firmware respective interfaces.
+> 2. Aligns RISC-V and META firmware headers with the other processor
+> headers.
+> 3. Add "_fw_" component to the headers filename.
+> 
+> Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
+> ---
+> Changes in v4:
+> - Fixed a bug introduced by the previous update to layout_is_mars().
+> - Link to v3: https://patch.msgid.link/20261103-prep-meta-fw-arch-independent-v3-0-563dbaf1b779@imgtec.com
+> 
+> Changes in v3:
+> - Fixed remarks raised by Sashiko in pvr_fw_startstop.c.
+> - Link to v2: https://patch.msgid.link/20261029-prep-meta-fw-arch-independent-v2-0-b9f5d69b7a52@imgtec.com
+> 
+> Changes in v2:
+> - Update the commit messages to better describe the changes.
+> - Link to v1: https://patch.msgid.link/20261028-prep-meta-fw-arch-independent-v1-0-73e116f02172@imgtec.com
+> 
+> To: Alessio Belle <alessio.belle@imgtec.com>
+> To: Luigi Santivetti <luigi.santivetti@imgtec.com>
+> To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> To: Maxime Ripard <mripard@kernel.org>
+> To: Thomas Zimmermann <tzimmermann@suse.de>
+> To: David Airlie <airlied@gmail.com>
+> To: Simona Vetter <simona@ffwll.ch>
+> To: Paul Walmsley <pjw@kernel.org>
+> To: Palmer Dabbelt <palmer@dabbelt.com>
+> To: Albert Ou <aou@eecs.berkeley.edu>
+> To: Alexandre Ghiti <alex@ghiti.fr>
+> Cc: imagination@lists.freedesktop.org
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-riscv@lists.infradead.org
+> 
+> ---
+> Alessio Belle (4):
+>       drm/imagination: Limit access to the RISC-V firmware interface
+>       drm/imagination: Make the RISC-V firmware header arch-independent
+>       drm/imagination: Limit access to the META firmware interface
+>       drm/imagination: Make the META firmware header arch-independent
+> 
+> Alexandru Dadu (1):
+>       drm/imagination: Prepare heap config header for multi-arch support
+> 
+For the whole series, 
+Reviewed-by: Brajesh Gupta <brajesh.gupta@imgtec.com>
 
-The evb machine represents an internal bringup vehicle with just the
-interrupt controllers and a UART. This will be updated in time with a
-full featured machine once details are available.
-
-The chosen node sets bootargs to earlycon=sbi to aid debugging early
-boot, as the platform may not have a bootloader to fill out the chosen
-node.
-
-The m-mode IMSIC setting riscv,guest-index-bits looks strange, as m-mode
-devices don't have guest interrupt files. The spacing (stride) between
-m-mode files is the same 256KB as s-mode on Atlantis, so we set the
-property so software (eg OpenSBI) can derive the layout.
-
-The SoC has a 8-way 64KB L1I, 4-way 256KB L1D, and a 24-way 12MB last
-level cache shared across all cores.
-
-Co-developed-by: Drew Fustini <fustini@kernel.org>
-Signed-off-by: Drew Fustini <fustini@kernel.org>
-Signed-off-by: Joel Stanley <joel@jms.id.au>
----
-v3:
- - Fix prcm_rcpu parent
- - Delegate all aplic irqs
- - Drop uart1 clock override
- - Use earlycon=sbi, document rationale
- - Fix mistakes in cache info
-
-v2:
- - Update mtimer compatible
- - Add Drew's co-developed-by
- - Correct aplic num-sources count
----
- arch/riscv/boot/dts/tenstorrent/Makefile      |   1 +
- .../boot/dts/tenstorrent/atlantis-evb.dts     |  29 ++
- .../boot/dts/tenstorrent/atlantis-soc.dtsi    | 473 ++++++++++++++++++
- 3 files changed, 503 insertions(+)
- create mode 100644 arch/riscv/boot/dts/tenstorrent/atlantis-evb.dts
- create mode 100644 arch/riscv/boot/dts/tenstorrent/atlantis-soc.dtsi
-
-diff --git a/arch/riscv/boot/dts/tenstorrent/Makefile b/arch/riscv/boot/dts/tenstorrent/Makefile
-index 2c81faaba462..92d8bb1a683f 100644
---- a/arch/riscv/boot/dts/tenstorrent/Makefile
-+++ b/arch/riscv/boot/dts/tenstorrent/Makefile
-@@ -1,2 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_ARCH_TENSTORRENT) += blackhole-card.dtb
-+dtb-$(CONFIG_ARCH_TENSTORRENT) += atlantis-evb.dtb
-diff --git a/arch/riscv/boot/dts/tenstorrent/atlantis-evb.dts b/arch/riscv/boot/dts/tenstorrent/atlantis-evb.dts
-new file mode 100644
-index 000000000000..839a63dc9507
---- /dev/null
-+++ b/arch/riscv/boot/dts/tenstorrent/atlantis-evb.dts
-@@ -0,0 +1,29 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+// Copyright 2026 Tenstorrent
-+/dts-v1/;
-+
-+#include "atlantis-soc.dtsi"
-+
-+/ {
-+	model = "Tenstorrent Atlantis development platform";
-+	compatible = "tenstorrent,atlantis-evb", "tenstorrent,atlantis";
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x00000000 0x0 0x80000000>,
-+		      <0x1 0x80000000 0x0 0x80000000>;
-+	};
-+
-+	aliases {
-+		serial0 = &uart1;
-+	};
-+
-+	chosen {
-+		bootargs = "earlycon=sbi";
-+		stdout-path = "serial0:115200";
-+	};
-+};
-+
-+&uart1 {
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/tenstorrent/atlantis-soc.dtsi b/arch/riscv/boot/dts/tenstorrent/atlantis-soc.dtsi
-new file mode 100644
-index 000000000000..085b0ab90bbe
---- /dev/null
-+++ b/arch/riscv/boot/dts/tenstorrent/atlantis-soc.dtsi
-@@ -0,0 +1,473 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+// Copyright 2026 Tenstorrent
-+/dts-v1/;
-+
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/clock/tenstorrent,atlantis-prcm-rcpu.h>
-+
-+/ {
-+	model = "Tenstorrent Atlantis";
-+	compatible = "tenstorrent,atlantis";
-+
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		timebase-frequency = <1000000000>;
-+
-+		cpu0: cpu@0 {
-+			compatible = "tenstorrent,ascalon-xg", "tenstorrent,ascalon", "riscv";
-+			reg = <0>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "zicbom", "zicbop", "zicboz", "ziccamoa", "ziccif",
-+					       "zicclsm", "ziccrse", "zicntr", "zicond", "zicsr",
-+					       "zifencei", "zihintntl", "zihintpause", "zihpm",
-+					       "zimop", "za64rs", "zawrs", "zfa", "zfbfmin", "zfh",
-+					       "zfhmin", "zca", "zcb", "zcmop", "zba", "zbb",
-+					       "zbs", "zkr", "zkt", "zvbb", "zvbc", "zvfbfmin",
-+					       "zvfbfwma", "zvfh", "zvfhmin", "zvkt", "sha",
-+					       "shcounterenw", "shgatpa", "shtvala", "shvsatpa",
-+					       "shvstvala", "shvstvecd", "smaia", "smmpm", "smnpm",
-+					       "smrnmi", "smstateen", "ssaia", "ssccptr",
-+					       "sscofpmf", "sscounterenw", "ssnpm", "ssstateen",
-+					       "sstc", "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <0x10000>;
-+			i-cache-sets = <128>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <0x40000>;
-+			d-cache-sets = <1024>;
-+			next-level-cache = <&l2_cache>;
-+			mmu-type = "riscv,sv57";
-+
-+			cpu0_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		cpu1: cpu@1 {
-+			compatible = "tenstorrent,ascalon-xg", "tenstorrent,ascalon", "riscv";
-+			reg = <1>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "zicbom", "zicbop", "zicboz", "ziccamoa", "ziccif",
-+					       "zicclsm", "ziccrse", "zicntr", "zicond", "zicsr",
-+					       "zifencei", "zihintntl", "zihintpause", "zihpm",
-+					       "zimop", "za64rs", "zawrs", "zfa", "zfbfmin", "zfh",
-+					       "zfhmin", "zca", "zcb", "zcmop", "zba", "zbb",
-+					       "zbs", "zkr", "zkt", "zvbb", "zvbc", "zvfbfmin",
-+					       "zvfbfwma", "zvfh", "zvfhmin", "zvkt", "sha",
-+					       "shcounterenw", "shgatpa", "shtvala", "shvsatpa",
-+					       "shvstvala", "shvstvecd", "smaia", "smmpm", "smnpm",
-+					       "smrnmi", "smstateen", "ssaia", "ssccptr",
-+					       "sscofpmf", "sscounterenw", "ssnpm", "ssstateen",
-+					       "sstc", "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <0x10000>;
-+			i-cache-sets = <128>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <0x40000>;
-+			d-cache-sets = <1024>;
-+			next-level-cache = <&l2_cache>;
-+			mmu-type = "riscv,sv57";
-+
-+			cpu1_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		cpu2: cpu@2 {
-+			compatible = "tenstorrent,ascalon-xg", "tenstorrent,ascalon", "riscv";
-+			reg = <2>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "zicbom", "zicbop", "zicboz", "ziccamoa", "ziccif",
-+					       "zicclsm", "ziccrse", "zicntr", "zicond", "zicsr",
-+					       "zifencei", "zihintntl", "zihintpause", "zihpm",
-+					       "zimop", "za64rs", "zawrs", "zfa", "zfbfmin", "zfh",
-+					       "zfhmin", "zca", "zcb", "zcmop", "zba", "zbb",
-+					       "zbs", "zkr", "zkt", "zvbb", "zvbc", "zvfbfmin",
-+					       "zvfbfwma", "zvfh", "zvfhmin", "zvkt", "sha",
-+					       "shcounterenw", "shgatpa", "shtvala", "shvsatpa",
-+					       "shvstvala", "shvstvecd", "smaia", "smmpm", "smnpm",
-+					       "smrnmi", "smstateen", "ssaia", "ssccptr",
-+					       "sscofpmf", "sscounterenw", "ssnpm", "ssstateen",
-+					       "sstc", "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <0x10000>;
-+			i-cache-sets = <128>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <0x40000>;
-+			d-cache-sets = <1024>;
-+			next-level-cache = <&l2_cache>;
-+			mmu-type = "riscv,sv57";
-+
-+			cpu2_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		cpu3: cpu@3 {
-+			compatible = "tenstorrent,ascalon-xg", "tenstorrent,ascalon", "riscv";
-+			reg = <3>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "zicbom", "zicbop", "zicboz", "ziccamoa", "ziccif",
-+					       "zicclsm", "ziccrse", "zicntr", "zicond", "zicsr",
-+					       "zifencei", "zihintntl", "zihintpause", "zihpm",
-+					       "zimop", "za64rs", "zawrs", "zfa", "zfbfmin", "zfh",
-+					       "zfhmin", "zca", "zcb", "zcmop", "zba", "zbb",
-+					       "zbs", "zkr", "zkt", "zvbb", "zvbc", "zvfbfmin",
-+					       "zvfbfwma", "zvfh", "zvfhmin", "zvkt", "sha",
-+					       "shcounterenw", "shgatpa", "shtvala", "shvsatpa",
-+					       "shvstvala", "shvstvecd", "smaia", "smmpm", "smnpm",
-+					       "smrnmi", "smstateen", "ssaia", "ssccptr",
-+					       "sscofpmf", "sscounterenw", "ssnpm", "ssstateen",
-+					       "sstc", "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <0x10000>;
-+			i-cache-sets = <128>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <0x40000>;
-+			d-cache-sets = <1024>;
-+			next-level-cache = <&l2_cache>;
-+			mmu-type = "riscv,sv57";
-+
-+			cpu3_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		cpu4: cpu@4 {
-+			compatible = "tenstorrent,ascalon-xg", "tenstorrent,ascalon", "riscv";
-+			reg = <4>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "zicbom", "zicbop", "zicboz", "ziccamoa", "ziccif",
-+					       "zicclsm", "ziccrse", "zicntr", "zicond", "zicsr",
-+					       "zifencei", "zihintntl", "zihintpause", "zihpm",
-+					       "zimop", "za64rs", "zawrs", "zfa", "zfbfmin", "zfh",
-+					       "zfhmin", "zca", "zcb", "zcmop", "zba", "zbb",
-+					       "zbs", "zkr", "zkt", "zvbb", "zvbc", "zvfbfmin",
-+					       "zvfbfwma", "zvfh", "zvfhmin", "zvkt", "sha",
-+					       "shcounterenw", "shgatpa", "shtvala", "shvsatpa",
-+					       "shvstvala", "shvstvecd", "smaia", "smmpm", "smnpm",
-+					       "smrnmi", "smstateen", "ssaia", "ssccptr",
-+					       "sscofpmf", "sscounterenw", "ssnpm", "ssstateen",
-+					       "sstc", "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <0x10000>;
-+			i-cache-sets = <128>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <0x40000>;
-+			d-cache-sets = <1024>;
-+			next-level-cache = <&l2_cache>;
-+			mmu-type = "riscv,sv57";
-+
-+			cpu4_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		cpu5: cpu@5 {
-+			compatible = "tenstorrent,ascalon-xg", "tenstorrent,ascalon", "riscv";
-+			reg = <5>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "zicbom", "zicbop", "zicboz", "ziccamoa", "ziccif",
-+					       "zicclsm", "ziccrse", "zicntr", "zicond", "zicsr",
-+					       "zifencei", "zihintntl", "zihintpause", "zihpm",
-+					       "zimop", "za64rs", "zawrs", "zfa", "zfbfmin", "zfh",
-+					       "zfhmin", "zca", "zcb", "zcmop", "zba", "zbb",
-+					       "zbs", "zkr", "zkt", "zvbb", "zvbc", "zvfbfmin",
-+					       "zvfbfwma", "zvfh", "zvfhmin", "zvkt", "sha",
-+					       "shcounterenw", "shgatpa", "shtvala", "shvsatpa",
-+					       "shvstvala", "shvstvecd", "smaia", "smmpm", "smnpm",
-+					       "smrnmi", "smstateen", "ssaia", "ssccptr",
-+					       "sscofpmf", "sscounterenw", "ssnpm", "ssstateen",
-+					       "sstc", "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <0x10000>;
-+			i-cache-sets = <128>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <0x40000>;
-+			d-cache-sets = <1024>;
-+			next-level-cache = <&l2_cache>;
-+			mmu-type = "riscv,sv57";
-+
-+			cpu5_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		cpu6: cpu@6 {
-+			compatible = "tenstorrent,ascalon-xg", "tenstorrent,ascalon", "riscv";
-+			reg = <6>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "zicbom", "zicbop", "zicboz", "ziccamoa", "ziccif",
-+					       "zicclsm", "ziccrse", "zicntr", "zicond", "zicsr",
-+					       "zifencei", "zihintntl", "zihintpause", "zihpm",
-+					       "zimop", "za64rs", "zawrs", "zfa", "zfbfmin", "zfh",
-+					       "zfhmin", "zca", "zcb", "zcmop", "zba", "zbb",
-+					       "zbs", "zkr", "zkt", "zvbb", "zvbc", "zvfbfmin",
-+					       "zvfbfwma", "zvfh", "zvfhmin", "zvkt", "sha",
-+					       "shcounterenw", "shgatpa", "shtvala", "shvsatpa",
-+					       "shvstvala", "shvstvecd", "smaia", "smmpm", "smnpm",
-+					       "smrnmi", "smstateen", "ssaia", "ssccptr",
-+					       "sscofpmf", "sscounterenw", "ssnpm", "ssstateen",
-+					       "sstc", "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <0x10000>;
-+			i-cache-sets = <128>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <0x40000>;
-+			d-cache-sets = <1024>;
-+			next-level-cache = <&l2_cache>;
-+			mmu-type = "riscv,sv57";
-+
-+			cpu6_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		cpu7: cpu@7 {
-+			compatible = "tenstorrent,ascalon-xg", "tenstorrent,ascalon", "riscv";
-+			reg = <7>;
-+			device_type = "cpu";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "h",
-+					       "zicbom", "zicbop", "zicboz", "ziccamoa", "ziccif",
-+					       "zicclsm", "ziccrse", "zicntr", "zicond", "zicsr",
-+					       "zifencei", "zihintntl", "zihintpause", "zihpm",
-+					       "zimop", "za64rs", "zawrs", "zfa", "zfbfmin", "zfh",
-+					       "zfhmin", "zca", "zcb", "zcmop", "zba", "zbb",
-+					       "zbs", "zkr", "zkt", "zvbb", "zvbc", "zvfbfmin",
-+					       "zvfbfwma", "zvfh", "zvfhmin", "zvkt", "sha",
-+					       "shcounterenw", "shgatpa", "shtvala", "shvsatpa",
-+					       "shvstvala", "shvstvecd", "smaia", "smmpm", "smnpm",
-+					       "smrnmi", "smstateen", "ssaia", "ssccptr",
-+					       "sscofpmf", "sscounterenw", "ssnpm", "ssstateen",
-+					       "sstc", "sstvala", "sstvecd", "ssu64xl", "svade",
-+					       "svinval", "svnapot", "svpbmt";
-+			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
-+			riscv,cboz-block-size = <64>;
-+			i-cache-block-size = <64>;
-+			i-cache-size = <0x10000>;
-+			i-cache-sets = <128>;
-+			d-cache-block-size = <64>;
-+			d-cache-size = <0x40000>;
-+			d-cache-sets = <1024>;
-+			next-level-cache = <&l2_cache>;
-+			mmu-type = "riscv,sv57";
-+
-+			cpu7_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		l2_cache: l2-cache {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-size = <0xc00000>;
-+			cache-sets = <8192>;
-+			cache-unified;
-+		};
-+	};
-+
-+	clocks {
-+		osc_24m: clock-24m {
-+			compatible = "fixed-clock";
-+			clock-frequency = <24000000>;
-+			clock-output-names = "osc_24m";
-+			#clock-cells = <0>;
-+		};
-+	};
-+
-+	soc {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		compatible = "simple-bus";
-+		interrupt-parent = <&aplic_s>;
-+		ranges;
-+
-+		imsic_m: interrupt-controller@a0000000 {
-+			compatible = "tenstorrent,atlantis-imsics", "riscv,imsics";
-+			reg = <0x0 0xa0000000 0x0 0x200000>;
-+			riscv,num-ids = <255>;
-+			riscv,guest-index-bits = <6>;
-+			interrupts-extended = <&cpu0_intc 11>, <&cpu1_intc 11>,
-+					      <&cpu2_intc 11>, <&cpu3_intc 11>,
-+					      <&cpu4_intc 11>, <&cpu5_intc 11>,
-+					      <&cpu6_intc 11>, <&cpu7_intc 11>;
-+			msi-controller;
-+			#msi-cells = <0>;
-+			interrupt-controller;
-+			#interrupt-cells = <0>;
-+		};
-+
-+		mtimer: timer@a2180000 {
-+			compatible = "tenstorrent,atlantis-aclint-mtimer", "riscv,aclint-mtimer";
-+			reg = <0x0 0xa2180000 0x0 0x8000>, <0x0 0xa2188000 0x0 0x8000>;
-+			reg-names = "mtime", "mtimecmp";
-+			interrupts-extended = <&cpu0_intc 7>, <&cpu1_intc 7>,
-+					      <&cpu2_intc 7>, <&cpu3_intc 7>,
-+					      <&cpu4_intc 7>, <&cpu5_intc 7>,
-+					      <&cpu6_intc 7>, <&cpu7_intc 7>;
-+		};
-+
-+		imsic_s: interrupt-controller@a4000000 {
-+			compatible = "tenstorrent,atlantis-imsics", "riscv,imsics";
-+			reg = <0x0 0xa4000000 0x0 0x200000>;
-+			riscv,num-ids = <255>;
-+			riscv,guest-index-bits = <6>;
-+			interrupts-extended = <&cpu0_intc 9>, <&cpu1_intc 9>,
-+					      <&cpu2_intc 9>, <&cpu3_intc 9>,
-+					      <&cpu4_intc 9>, <&cpu5_intc 9>,
-+					      <&cpu6_intc 9>, <&cpu7_intc 9>;
-+			msi-controller;
-+			#msi-cells = <0>;
-+			interrupt-controller;
-+			#interrupt-cells = <0>;
-+		};
-+
-+		aplic_m: interrupt-controller@cc000000 {
-+			compatible = "tenstorrent,atlantis-aplic", "riscv,aplic";
-+			reg = <0x0 0xcc000000 0x0 0x4000000>;
-+			msi-parent = <&imsic_m>;
-+			riscv,delegation = <&aplic_s 1 128>;
-+			riscv,children = <&aplic_s>;
-+			riscv,num-sources = <128>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			#address-cells = <0>;
-+		};
-+
-+		prcm_rcpu: clock-controller@d0000000 {
-+			compatible = "tenstorrent,atlantis-prcm-rcpu";
-+			reg = <0x0 0xd0000000 0x0 0x10000>;
-+			clocks = <&osc_24m>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+			assigned-clocks = <&prcm_rcpu CLK_RCPU_ROOT>, <&prcm_rcpu CLK_NOCC_CLK>;
-+			assigned-clock-parents = <&prcm_rcpu CLK_RCPU_PLL>,
-+						 <&prcm_rcpu CLK_NOC_PLL>;
-+		};
-+
-+		uart0: serial@d4100000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0xd4100000 0x0 0x10000>;
-+			interrupts = <38 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&prcm_rcpu CLK_UART0_PCLK>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			status = "disabled";
-+		};
-+
-+		uart1: serial@d4110000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0xd4110000 0x0 0x10000>;
-+			interrupts = <39 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&prcm_rcpu CLK_UART1_PCLK>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			status = "disabled";
-+		};
-+
-+		uart2: serial@d4120000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0xd4120000 0x0 0x10000>;
-+			interrupts = <40 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&prcm_rcpu CLK_UART2_PCLK>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			status = "disabled";
-+		};
-+
-+		uart3: serial@d4130000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0xd4130000 0x0 0x10000>;
-+			interrupts = <41 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&prcm_rcpu CLK_UART3_PCLK>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			status = "disabled";
-+		};
-+
-+		uart4: serial@d4140000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0xd4140000 0x0 0x10000>;
-+			interrupts = <42 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&prcm_rcpu CLK_UART4_PCLK>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			status = "disabled";
-+		};
-+
-+		aplic_s: interrupt-controller@e8000000 {
-+			compatible = "tenstorrent,atlantis-aplic", "riscv,aplic";
-+			reg = <0x0 0xe8000000 0x0 0x4000000>;
-+			msi-parent = <&imsic_s>;
-+			riscv,num-sources = <128>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			#address-cells = <0>;
-+		};
-+	};
-+};
--- 
-2.47.3
-
+Thanks,
+Brajesh
+>  drivers/gpu/drm/imagination/pvr_fw.c               |   7 +-
+>  drivers/gpu/drm/imagination/pvr_fw.h               |  26 +++
+>  drivers/gpu/drm/imagination/pvr_fw_meta.c          | 104 +++++++-----
+>  drivers/gpu/drm/imagination/pvr_fw_meta.h          |  14 --
+>  .../{pvr_rogue_meta.h => pvr_fw_meta_internal.h}   | 175 +++++++++++----------
+>  drivers/gpu/drm/imagination/pvr_fw_mips.c          |   1 +
+>  drivers/gpu/drm/imagination/pvr_fw_riscv.c         |  13 +-
+>  .../gpu/drm/imagination/pvr_fw_riscv_internal.h    |  43 +++++
+>  drivers/gpu/drm/imagination/pvr_fw_startstop.c     |  61 +++----
+>  drivers/gpu/drm/imagination/pvr_gem.h              |   3 +-
+>  .../{pvr_rogue_heap_config.h => pvr_heap_config.h} |  26 +--
+>  drivers/gpu/drm/imagination/pvr_rogue_riscv.h      |  39 -----
+>  drivers/gpu/drm/imagination/pvr_vm.c               |  18 +--
+>  13 files changed, 289 insertions(+), 241 deletions(-)
+> ---
+> base-commit: 6e375de99d0c420169481fcd36064177ab55b09d
+> change-id: 20261028-prep-meta-fw-arch-independent-ffd6dcd626d0
+> 
+> Best regards,
+> --  
+> Alexandru Dadu <alexandru.dadu@imgtec.com>
+> 
 
 _______________________________________________
 linux-riscv mailing list
