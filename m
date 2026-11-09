@@ -2,85 +2,102 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EFFA606A321
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 07:59:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06BFB606A333
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 08:12:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FWcRqs45
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dUCkc+/z;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=PltO8V7e
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=XfB9KeNfvzLK4EOdM24cW/wfK4GhUsUcTtuhCXxUaRY=; b=FWcRqs45wXkb19+R8oWSv9a76Y
-	0k46I6Kdj/AZ6iszNopY18J67vzUsO1wUsqhZr2zPwSc94+y2cyGbObe9CiCiGz1TddiTtTshU6n2
-	+3RK/SF1qCQ6k/fC0XvKXiaobBvYRoqjbiNN26EPsqiQ83hVjZaQ0MKPaQ2+pDRaF8L1m34TS/g9r
-	+JBbOOoplhY0oyF3xnFvDvpXpRbLW57UmZP5meeDzjIeyucVIi5BrE6XlUZNxllWAHfHhTmVK+e5y
-	Ph/2qvG9XkMBgX6aK9itJzNmq4vI6s5T/lE3GIkiVrCU26/Hm5OzNlaBdybeTG9gciwS0suKYrGuE
-	79rOLU6w==;
+	bh=MGsfFV6+dOXKg8W/7bhsy3ythAtLg2zHJRWWUrZE9Pk=; b=dUCkc+/zUqM8X5BCJ3dorkWmDP
+	5vkLyJgAM0ZvQfOQa05j/HWQVq8nNfH7i7SoKFW/U8hhtefn39MA9N6nzB3JxNBNK4UuCDoEF6wLt
+	YRpjrgHKYCEIsWSosMLOxvLWxvGkbssCVfSgdVhXyj5axxb5nnAxKg7OHhRQ7kUSTmd09042c20zL
+	h3AQMzQ6k/e4ELJnmUnJsCxH0MlcihLs5SzPNiAX/+MYvOj8LXiXPZZwyZId19tY2HzlZad/qk75C
+	2cYcilO1dVwi32GR2Cj9vg3MRnSVfMnuWpu+GN/in8VHbunt5TVATO060OzPyQ3VvdPcJB6BeRZJP
+	EIR9dueA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQKHs-000000000qp-0ink;
-	Mon, 09 Nov 2026 07:59:32 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1xQKUD-00000000212-07JU;
+	Mon, 09 Nov 2026 08:12:17 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQKHn-000000000qQ-3qC2
+	id 1xQKU8-000000001zy-2xtx
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Nov 2026 07:59:30 +0000
-Received: from [192.168.0.106] (unknown [123.116.51.226])
-	by APP-01 (Coremail) with SMTP id qwCowACHdf9LffFq0NycAA--.589S2;
-	Mon, 09 Nov 2026 15:59:08 +0800 (CST)
-Message-ID: <ee3f414c-fffa-41e6-8bec-6af7ce676c4b@iscas.ac.cn>
-Date: Mon, 9 Nov 2026 15:59:07 +0800
+	Mon, 09 Nov 2026 08:12:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1794211866;
+	bh=rorBGLAsniE2vG3yATMjVG80a6o5W4YIh5/81HTrjZo=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=PltO8V7e05fEme6ODZcHf8hfiTft5tk2vK4EC1PgIiwTKZH15rTA6ykEg1glJvQO/
+	 5MYiEqgrLMFtNMGMcPHSp3nTVmhqt+wCQHhThb8nBe78IZhJB0G4O3Ay7dmZz65x4v
+	 D/FdwY8NGfx5uOfhTXwTHknGU/QfYuTOu4bC1UwU=
+X-QQ-mid: zesmtpgz7t1794211858t8407dd36
+X-QQ-Originating-IP: ttxQFy42B6HOpJChlAzs7cKsMszT5V8pJkxIGpqntUU=
+Received: from = ( [58.254.68.27])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 09 Nov 2026 16:10:55 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 9920573175547933257
+EX-QQ-RecipientCnt: 20
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+Mime-Version: 1.0
+Date: Mon, 09 Nov 2026 08:10:54 +0000
+Message-Id: <DMQJ0R4QTE6R.2I492KA9N85CB@linux.spacemit.com>
+Cc: "Vadim Fedorenko" <vadim.fedorenko@linux.dev>, <netdev@vger.kernel.org>,
+ "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, "Eric Dumazet" <edumazet@kernel.org>, "Jakub
+ Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Yixun Lan"
+ <dlan@kernel.org>, "Chukun Pan" <amadeus@jmu.edu.cn>, "Siddharth Vadapalli"
+ <s-vadapalli@ti.com>, "Tomas Hlavacek" <tmshlvck@gmail.com>, "Muhammad
+ Bilal" <meatuni001@gmail.com>, "Maxime Chevallier"
+ <maxime.chevallier@bootlin.com>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
 Subject: Re: [PATCH net] net: spacemit: Hold RTNL lock in emac_resume() and
  emac_suspend()
-To: Ali Tariq <alitariq45892@gmail.com>,
- Troy Mitchell <troy.mitchell@linux.spacemit.com>,
- Andrew Lunn <andrew@lunn.ch>
-Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>, netdev@vger.kernel.org,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Yixun Lan <dlan@kernel.org>, Chukun Pan <amadeus@jmu.edu.cn>,
- Siddharth Vadapalli <s-vadapalli@ti.com>, Tomas Hlavacek
- <tmshlvck@gmail.com>, Muhammad Bilal <meatuni001@gmail.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Vivian Wang" <wangruikang@iscas.ac.cn>, "Ali Tariq"
+ <alitariq45892@gmail.com>, "Troy Mitchell"
+ <troy.mitchell@linux.spacemit.com>, "Andrew Lunn" <andrew@lunn.ch>
+X-Mailer: aerc 0.21.0-reader-ipc4
 References: <20261105123441.2524171-1-alitariq45892@gmail.com>
  <DMO13SWAGZAN.NYISGLGI7Y5A@linux.spacemit.com>
  <c55c5878-d9c1-4863-bc55-99d334ba2ede@gmail.com>
  <12a95b3a-9c8b-4a2d-9b81-12b3839e64a9@lunn.ch>
  <DMPNAPNEGQ5I.XYUIB7Y8HDCA@linux.spacemit.com>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <DMPNAPNEGQ5I.XYUIB7Y8HDCA@linux.spacemit.com>
-X-CM-TRANSID: qwCowACHdf9LffFq0NycAA--.589S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Kr4kAF1fGFyDtr13ArWDArb_yoW8WrWUp3
-	43KayYyayqva42vrsI9w4UKF1Utr12q3WkZr1kGa9YyF98KF1agrWUK34Fga4xCr1xCF47
-	ZF4jgayxuayDArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
-	UI43ZEXa7IUnOyCJUUUUU==
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+ <ee3f414c-fffa-41e6-8bec-6af7ce676c4b@iscas.ac.cn>
+In-Reply-To: <ee3f414c-fffa-41e6-8bec-6af7ce676c4b@iscas.ac.cn>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MVxas+91YiZt1KmADi2maYROyRQuzgddueoNjN4kXwICpOCBkJ1IrWH2
+	B+pMIObRohj1+81FimdV72smmi1TYIdwPGItGUzsl2TVZOI3nYGvlrvArmFhpaNoqlSKBnU
+	SZ1+BN+F5Swv5UC4HQIXcNAx8kT6toDburJDiTxY1Ua2iWhoDOLrA1CwcWiCFh//YtLTfWf
+	3rKNqz1jL272GqnMFcPZhiyWQDhTnpI+RWW6iOtxMKElrtmf0z1Oa0tRHgrXUqQ2CzoFvYt
+	nOuZiw7E2ILNXrVZh1YnaUQPj6tFalxMYUK6vjdhQBzHl+r+YYETx2Nb7BS4HgMBesItL7U
+	iXTLe5XbT/pf9GpOrhUwNgTJ78bhDAWhL1GJH4xtW1MGPpDXVntABJJ0nIBG7E0dcTxOWFw
+	z8UPPsWc7S+sko3RJAmidX2yNcXDooiVRbb8hqU64d0na88mpLGVFy3wIUpgHvmNMn97n5y
+	UFLhkaOuVi0DemjgRM8fZ2IUpnZgJmGuWINTMO7x16+KtLjhqm/JDxzfjb6ZmqJzQ7BeT9Z
+	vrWB2ql4xbt5AKRuDjLatsbOB1U9nzXbeHwEldz+src8J1CUQtcm8MPsyhmExlit4KxDDsE
+	10F3DL/bQR7jQxOpxmYKekblvpM4V+RSjjz+CMZ6/d+6X6Dunm7QaQUIAvEZzBkSJNsgtZz
+	9EgPsVj5dmVByPGY4c44MfN32AoRi2Nd7f3K7bummbsRUL2ktaX/XyohcTZ1pZSEQS7/h9K
+	qv83d9nDdxiuqGlQ53MmbVNZeRPURDDdr4DkTw8aSSknt2KbXv5xZewyk5NyF6/ZDVTTzjU
+	UYavO1CUmEgoAflwdt95vpwXsHHGzqt2QYTNidOK231ytLMGCeyqmEYkIwVOf2Y9Sv8RN2N
+	YWge54F+whXv9QBfAH9MkGJXswxkiZWoBYcg/yvzbx+Q56JRt/RNK7etTQrUNzF0uTs/jsP
+	JwYRVvoIx9fpNylOOXVdag0R+JD2s5xREVk8TwAYq/Z40dwpIMBttZGl1tEaOpDSn5SNSDO
+	p8dLUlD9AD/MKUmo4wUQH6eOGlzl1deRBzsdkBwPquGlTw89MimByMP61OXgpugr8MiaOG/
+	AxW4e4KCMwJaAoS3ec2x9YyvxoHTSTt5z/Lo8y/nGbxZYdh3jIGDnAey7yga5Nuk9vd3rtG
+	w5Da
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261108_235928_351867_6E782C57 
-X-CRM114-Status: GOOD (  11.99  )
-X-Spam-Score: -4.2 (----)
+X-CRM114-CacheID: sfid-20261109_001214_728969_7E971796 
+X-CRM114-Status: GOOD (  19.46  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,58 +107,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1204743469594282303=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/8/26 15:19, Troy Mitchell wrote:
+--===============1204743469594282303==
+Content-Type: multipart/signed;
+ boundary=451327d1c3297fa83e6d3c22c14fc23d5eeb61071de10435f2daa7ad48fb;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
 
-> On Sat Nov 7, 2026 at 5:32 PM GMT, Andrew Lunn wrote:
->> On Fri, Nov 06, 2026 at 03:44:50PM +0500, Ali Tariq wrote:
->>>
->>> On 11/6/26 2:43 PM, Troy Mitchell wrote:
->>>> On Thu,  5 Nov 2026 17:34:37 +0500, Ali Tariq wrote:
->>>>> @@ -2056,7 +2059,9 @@ static int emac_suspend(struct device *dev)
->>>>>   		return 0;
->>>>>   	}
->>>>> +	rtnl_lock();
->>>>>   	emac_stop(ndev);
->>>>> +	rtnl_unlock();
->>>>>   	clk_disable_unprepare(priv->bus_clk);
->>>>>   	netif_device_detach(ndev);
->>>> This can deadlock. emac_stop() -> emac_down() calls
->>>> cancel_work_sync(&priv->tx_timeout_task) with RTNL now held, while
->>>> emac_tx_timeout_task() starts with rtnl_lock().
->>>>
->>> Thanks Troy, that makes sense.
->>>
->>> For the deadlock, I think the correct function to call is rtnl_trylock()
->>> inside the emac_tx_timeout_task(), which would return if the lock is already
->>> held and will hold the lock if it is not.
->> rtnl_trylock() is generally a workaround needed for badly written
->> code. Please try to avoid it.
-> Agreed. If the reset is done in place, the work does not need RTNL at all,
-> so .ndo_stop can keep cancel_work_sync() as is.
+--451327d1c3297fa83e6d3c22c14fc23d5eeb61071de10435f2daa7ad48fb
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+
+On Mon Nov 9, 2026 at 7:59 AM GMT, Vivian Wang wrote:
+> On 11/8/26 15:19, Troy Mitchell wrote:
 >
-Thanks for the diagnosis and suggestions.
+>> On Sat Nov 7, 2026 at 5:32 PM GMT, Andrew Lunn wrote:
+>>> On Fri, Nov 06, 2026 at 03:44:50PM +0500, Ali Tariq wrote:
+>>>>
+>>>> On 11/6/26 2:43 PM, Troy Mitchell wrote:
+>>>>> On Thu,  5 Nov 2026 17:34:37 +0500, Ali Tariq wrote:
+>>>>>> @@ -2056,7 +2059,9 @@ static int emac_suspend(struct device *dev)
+>>>>>>   		return 0;
+>>>>>>   	}
+>>>>>> +	rtnl_lock();
+>>>>>>   	emac_stop(ndev);
+>>>>>> +	rtnl_unlock();
+>>>>>>   	clk_disable_unprepare(priv->bus_clk);
+>>>>>>   	netif_device_detach(ndev);
+>>>>> This can deadlock. emac_stop() -> emac_down() calls
+>>>>> cancel_work_sync(&priv->tx_timeout_task) with RTNL now held, while
+>>>>> emac_tx_timeout_task() starts with rtnl_lock().
+>>>>>
+>>>> Thanks Troy, that makes sense.
+>>>>
+>>>> For the deadlock, I think the correct function to call is rtnl_trylock=
+()
+>>>> inside the emac_tx_timeout_task(), which would return if the lock is a=
+lready
+>>>> held and will hold the lock if it is not.
+>>> rtnl_trylock() is generally a workaround needed for badly written
+>>> code. Please try to avoid it.
+>> Agreed. If the reset is done in place, the work does not need RTNL at al=
+l,
+>> so .ndo_stop can keep cancel_work_sync() as is.
+>>
+> Thanks for the diagnosis and suggestions.
+>
+> Although, maybe we could simply avoid cancel_work_sync() in emac_down()?
+> emac_tx_timeout_task() checks for !netif_running and does nothing if
+> already down so it should be safe. The task cancel_work_sync() in
+> emac_remove() does cleanup on unbind so the task is not leaked.
+>
+> This seems to be the pattern in other drivers as well. What do you think?
+That was my first thought too, but I'm not sure netif_running() is
+enough here. emac_suspend() calls emac_stop() directly, so
+netif_running() is still true and a pending work would stop the device
+a second time. And since the netdev is devm-registered, emac_remove()
+runs before unregister_netdev(), so the work could be requeued after
+the cancel there.
 
-Although, maybe we could simply avoid cancel_work_sync() in emac_down()?
-emac_tx_timeout_task() checks for !netif_running and does nothing if
-already down so it should be safe. The task cancel_work_sync() in
-emac_remove() does cleanup on unbind so the task is not leaked.
+So we'd still need to cancel it in suspend and remove, and at that
+point resetting in place looks simpler to me. What do you think?
 
-This seems to be the pattern in other drivers as well. What do you think?
 
-Vivian "dramforever" Wang
+--=20
+Troy Mitchell
 
+
+--451327d1c3297fa83e6d3c22c14fc23d5eeb61071de10435f2daa7ad48fb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCavGADiEcdHJveS5taXRj
+aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC+e2gD/YgsXO0i+wbp0
+YbJpT9nglIg76qI/eZv+U64XzNFHF5YBAJh+8gKVh4eYAy2JDB7r0FgzWcGReBGG
+GbVSaS7QWJkO
+=YcRX
+-----END PGP SIGNATURE-----
+
+--451327d1c3297fa83e6d3c22c14fc23d5eeb61071de10435f2daa7ad48fb--
+
+
+--===============1204743469594282303==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1204743469594282303==--
+
