@@ -2,91 +2,115 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 417D4606A321
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 15:20:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6F5A606EEA8
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 15:45:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2xXdmDWO;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=BuctK3Du
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1mvKEIEI;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=F564/QOY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:References:Subject:Cc:To:From:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bzXZRT3VWuRIPwucXki4UN+s9rJ3feFM2HbcvgXitTg=; b=2xXdmDWOa8UfTQNzrhcwWkUK/i
-	XilC6JPi+maSEXPJlsMNCeypnQ7h3ZoeMxU1KuBZhNuUaHjYoDWFtSTZEKWaQ6dAqEXu+AY1Qjw6X
-	+3QUMp8gtVy5Uuc/JZYzjXxtDlYsT3gApSAK9W23k7Jk0FA1eGYJ/lDRDvsbyU12UocMmMX9EpPGC
-	1TJsaoGTsQC5YqMHfjW1nM5eZeJ9G6PCOiOGouGi8ab39NvbApOUHzV3kY+D+TUAbcp8ldVYnV/V0
-	eAoyPirTqqa7DejRYVmsAf/6hq7dGGJWWy4ExR4koe2cFFXIvJgxQ0L3SIWcfCOna5Ij32kc5LCSH
-	L02asrFQ==;
+	bh=wcSVYMYfjGEzbdayXWy36pS2CxmYoo0mO7+8loV8Rk0=; b=1mvKEIEIeGv3+xMMY9zJ8cmMRN
+	08xNX7cC4QXjcVyzAtyOPMItq/lPOVDzMbQJw0n8qKadUaP7Xe14HKgVb72GHLtV4I2wY8H5148kQ
+	M39sJLR9QYHVVaBKm7IC2j+lkc0oKi1/hwmA2crAUoplkeovAZeR8iy0tbHLIrUldvfKAhzlKnQV+
+	Z0a/md+xIF5pAxtxnoZy4vxIzY0wAJHtRcumJWF3N5VSFN+QTZqFGAPj6DZwWrM50NSGYWbBRFj5G
+	+iOeGgqk6K0obx71SVl4RxpOuL4NwIo39B+gAVltxYi2yMc1ynX7+rwIeFjE6oDkb1wRNlrfKY0+5
+	NU+RE34g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQRA7-000000011iT-3fSg;
-	Mon, 09 Nov 2026 15:19:59 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1xQRYO-000000013y1-2Iv4;
+	Mon, 09 Nov 2026 15:45:05 +0000
+Received: from mail-dy1-x132c.google.com ([2607:f8b0:4864:20::132c])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQRA4-000000011i6-2TTj
+	id 1xQRYJ-000000013x9-01CO
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Nov 2026 15:19:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1794237582;
-	bh=vsIPcLDMIXTyEwRreAWLcBzGkN1NpY74ZgulLKfOydY=;
-	h=Mime-Version:Date:Message-Id:From:To:Subject;
-	b=BuctK3DuIvKekUC2uSyt5xjib4q/GmO0uwTGUHxT/c6/EcpvDNSkWVJmdhWrxz+Jr
-	 c2C0sd5txupCJKleL/ut0ezyjGKHjkKfePU0zqqIWqz6s18BIHB7C9BZX3oci8e6fM
-	 iLPEdzqmyFscqSXqupQv8I9A2uwz5P7zi/IuJ8pI=
-X-QQ-mid: esmtpsz17t1794237576tb0683395
-X-QQ-Originating-IP: Zc/gz7/geC3Mn7EbL4LCmN3uWkfa4QiL7HNG6KBXuGI=
-Received: from = ( [58.254.68.27])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 09 Nov 2026 23:19:34 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 7132004335593761603
-EX-QQ-RecipientCnt: 17
+	Mon, 09 Nov 2026 15:45:03 +0000
+Received: by mail-dy1-x132c.google.com with SMTP id 5a478bee46e88-36f6295304dso1256047eec.1
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Nov 2026 07:44:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794239098; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ILsxYW5G/NQyRFD9rpQrx7xVqfmclSguiB7iXMIwlo+Dsi+TmyfsEt/JqZSBJHJ8os
+         rz2UoyUlaITiDVAmpPEDNc6IoftrXskGho6VrZddye2DWH3f1RraKVtL0ZE0xU8Xe2Hw
+         ubr086swoEeB5ItcVCG5HyzqhNicyNVNy1x89UryMCDhTzKIw4yTXTG9xGEOvHD7FKiX
+         4sWtxS+EaQde0K97fYUpT04nmE9/tfGBiK2vrYsQ1ou00qJA3O+Rjzk50qDU3kS0pEiB
+         LCKiZEdcZ/FkjSdrEN/kwQ+DwJH7i4fqlepxN9BeNdBwW6kPfWEna+fJwxNKZS4jEVnG
+         kBVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=NUErs7NoE/3bV36QmlDjG5zSS9BL+CCDMLSs4x6fzbQ=;
+        fh=MWl09FjsLuUvUdJ7g5tGQrD2kLgNgLoAXHmLAGslwxM=;
+        b=OMeAVKIiC7Oq4ZhNP7GMB0vaca2ZANmsnhnwQyZMHVhSNuhUDcGPIAsSm2jKBZQAzH
+         xMBQl0qPx70RCeH3fkQntOfE0wVn9pxNb4hwBoPVUci+Mb6AT8E2IsZ+4LVSdoBpa7Aa
+         y+hzjH2K731a9QCe847LijQ9gS+DmtpdWabLSnDqbMxaBdjIXz1ERlu0lDCpKn4QPu2A
+         TKgajq88Cxjo96fMGqYnFX1k/KG5j1vUgok5swx/Baz7JQFmu1DWnO++inbjKwHlL4Jd
+         ciRwbVb1X4eZBbEhD8b3IdWJhZxn6nktREiVUmEiuLoruTh8Ky4+JYrGNVOQqHvASBTA
+         re2w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794239098; x=1794843898; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NUErs7NoE/3bV36QmlDjG5zSS9BL+CCDMLSs4x6fzbQ=;
+        b=F564/QOY5bA9lXcOyXbBGcHoy5P//0i9IF2Iks2s2cvKDikGGJNpG7pZxfjKnLWD51
+         vRh3qp1QkcQ885ULoMIzpKHxk5tueo4dZCqjD7O2oRaljkZq299M/evlodzUWlE9i53G
+         2KQN2l7wv9aFClkbR+cFU3D2rVNl6B9YOmbZgUFBcKrXNB0+Z+rlBYJoqglyqb4f0H6R
+         GlrJA2UkzJX4JqXbpc3gC3dDNoxbYUwBuauluSpK8/Acwm2rFpnpbUNB4qzGNuso856B
+         WvlP+KVJ2JRgmFsIMkOi/31syZXnTxHI+j4hWZIyaDsy6S3MSjzTA2RKohC8egQ+k8HO
+         wS/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794239098; x=1794843898;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=NUErs7NoE/3bV36QmlDjG5zSS9BL+CCDMLSs4x6fzbQ=;
+        b=QTULiv0fYQA8yE23HBPeaUZ/FuZNMy3sqPObbzCMCWuWQelVxhL/RBrw8h4QGeZZu+
+         vYsqik9tQtoF+9WY/ItguyCxndsGWpu+1dyUmMIuUVRksFsX91YsKy0vTsneQelBTjkq
+         0dTKW28/nYJXnWqF3WtpgBEX7gJXRzek/fTYoVkFbXVgLERJ2dXW+k5AQZFBKsT5sWC4
+         buqY394UgeccNfTEQCtIp4PEcl548umJGvVImi/8//wZ1uIbmTQ89coumiLbtRunuuJj
+         4Tw20VF+eZ/IGEplRTJV4gys6z5ecXErQ64OJ5pER9wO2GZuHr6ItLmzwgvV6Xt/hRrv
+         ZREg==
+X-Forwarded-Encrypted: i=1; AL+hErGiPmc7pZb6e80zao4L+gh+2C0rlnJaI8nLV1IciQspoT+fb19QuHrj1aSsBt2Oer2lVjlQNJY368+n1A==@lists.infradead.org
+X-Gm-Message-State: APuU4Z9tNYvQ2dd33Vu7M7dUcQsc4mqs/FxWR6rv0e/xu2uhzNX6uy71
+	FvFfh29H0SYfrlHe/eykdXMYcWaR+du++qXE6vTJBlToO3WIAk7cAiYjlxXwCDA07ZjvBZwNqkm
+	NXTs+azLzcpiTq8YaAqyu3ihXpNWM8Kc=
+X-Gm-Gg: AYBFou1Ax1WaFInR6P6Oav9MrgIf1Rb4Y5OWTTsa4ClcBlNsblOniEb5b04QOMOWk4F
+	3EpbB+Zq/6SKVefWuUfV8ZRR1XoYKPEYFU+saJA0p2ma5ULMSJxQVOHwY6099cPqwCITfbiMsqw
+	Xw1MDQ3j7urtM1LeNx14QfaSELOgZTq7aC0dZBoFVb3ceCw8l/L/NEIw3F8EFSNnmoJW0Pjjvuq
+	QnhmBrH74p/Dv/YEW1c3aNNsWgWYSFfcyM8SI5z0pWWnV0SYpwjk9nBawhSB2SPLH63BLrEwqjV
+	mQUGyJP05xcCtN5qARp2tIBuuH8wsQiNykBNK7cqlCGB5gLPS+LXDfHUHvpqMDkzQ7eup148a7z
+	C8gpXK42DL/14bBPuRv/MJYh8lll3zuXL3oBN
+X-Received: by 2002:a05:7301:da8b:b0:36f:4d62:2884 with SMTP id
+ 5a478bee46e88-372575c62b8mr8103918eec.30.1794239097992; Mon, 09 Nov 2026
+ 07:44:57 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-Date: Mon, 09 Nov 2026 15:19:33 +0000
-Message-Id: <DMQS4Y2FACDA.3T8ZB1OUW5HCP@linux.spacemit.com>
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Yao Zi" <me@ziyao.cc>, "Jiayu Du" <duge1256@gmail.com>,
- <srini@kernel.org>
-Cc: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
- <dlan@kernel.org>, <troy.mitchell@linux.spacemit.com>, <pjw@kernel.org>,
- <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
- <p.zabel@pengutronix.de>, <devicetree@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/3] nvmem: Add read-only SpacemiT K3 eFuse support
-X-Mailer: aerc 0.21.0-reader-ipc4
-References: <20261106060525.346873-1-duge1256@gmail.com>
- <20261106060525.346873-3-duge1256@gmail.com> <au6niF5xiqj7cqJ4@pie>
-In-Reply-To: <au6niF5xiqj7cqJ4@pie>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MvGpJ04VJ1WqcVvjUaJwKh/8a0Sruq22nabdpa4Ch2nhBmsG9191jPHo
-	URs0twg4d4WTWV/hAUKx9RFx9IDZgvvDiyJoCkNXL30Cn/uCbaosYm4sjwM6QNVy+bXTw8v
-	+E2VLca19foQMm97iharwmVSvvAw0HnFehzME/kaM/5wqbb6ffguHuGhGHOWhhs++BBzWtJ
-	WuqTI65StKnZPO/oOlDPpyDnKWeYdS1/4EPovO1zWfSf6QMU98cc3HXjYkE7d1fdxHBjO4C
-	dcEvpScNleFMNOGDr8hEg2DxlmK8SLpece0AgBPfuq/QZRfcOmUR411GD/HFY2Avc/3oMZC
-	/9F0vmA8McswPQkFXeef3UhW7kY5ZFenfuiD97DEczp77/JM2OLoGtuD9HkBvXEqu3La5wE
-	d2qwIoWroWxuE4LMw84fB5aLz1+3Tct+Ex8qc+ZnR1z619/hhl4lIp07x1RHpxY+zAFaHW1
-	Ns7ekr9Hrjx3ZXc/jtPhIrkwvBS0IxM89xnfBhwPlgwEGsn3od1A9ApN0mQLOg/sgrPUsCi
-	gk32gxbQ8ctEk1iwkvi506Pl9cRkYn6J8NZotdNY435mTy5589KxyLviWfazFVGDW2vJN6t
-	ggm7DGpfu5J4n5Yl1Q+fccsma1v+wYYewiTCGNuyLHKKExLpgLYHwwc6hg5kIBSvY33YNxw
-	fm94p5zWDXzEBGQVOR488juE9gHqG/zGcLIbpQRKdz2T+lgPAglj1c/LGW508B/HTwvtr5S
-	dnp6xeED+iqjHWtba8ojixV2aaqkNb4j+IpZiKPCmfFuKj7Cm+P/h/oo8aTrV1nj/r0LWuW
-	gRpi0UW+Fx0FQ3UZRmsw0ylR2xgmNhT8Ztd7mKBV8TiXqabjanUszw2pQfGOe+d/58JMU55
-	taBY/eHOHfiRi805etPbKTjAAe2iJZlWEu7KDGG1mO37AXwErPZQDJLb1bwpIklbzlj2oXu
-	Xl6+TxzRbVPMusX3hOaEBQvp9wSIsgOPhOzrGGopUMAiFth7hx8gcKwHwDUI8i5NCJ79V7U
-	NMurUIMEvgKtbg99uX4r3AK0vMH77AtX3FQt4tzZ9Maijh4uaS7D6vAWZzTRHy5nLZsLFNF
-	/vS+MzqDtfgEqnsnUM3ut7RrpjlrNZhjw==
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-RECHKSPAM: 0
+MIME-Version: 1.0
+References: <20261108212826.15890-1-oo.hehir@gmail.com> <20261108212826.15890-5-oo.hehir@gmail.com>
+ <d9f4a750-5f9d-4749-929e-330c8776971e@freeshell.de>
+In-Reply-To: <d9f4a750-5f9d-4749-929e-330c8776971e@freeshell.de>
+From: "Owen O'Hehir" <oo.hehir@gmail.com>
+Date: Mon, 9 Nov 2026 15:44:20 +0000
+X-Gm-Features: AclHuK9x9EpRxZ7OnBIKVHuPQ20ucbS7TGPBTpDY5y8PK69Mzss7MIfYBHErfIg
+Message-ID: <CALp3LZ6HRs9pxPHj-4TYPS483cEaVBJ_kOGYmaWr--MhfQ6hCQ@mail.gmail.com>
+Subject: Re: [PATCH v2 4/4] riscv: dts: starfive: jh7110: Add the RTC node
+To: E Shattow <e@freeshell.de>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-rtc@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Hal Feng <hal.feng@starfivetech.com>, "ziv.xu" <ziv.xu@starfivetech.com>, 
+	Conor Dooley <conor@kernel.org>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261109_071957_598345_00EF60F2 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20261109_074459_071265_54BFDE27 
+X-CRM114-Status: GOOD (  10.94  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,101 +121,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8116135641895948603=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-0.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============8116135641895948603==
-Content-Type: multipart/signed;
- boundary=54f102bc4fad2f6519c1e85625df03a1f0d11fed53a9ec5e8b7d6b0e8a4d;
- micalg=pgp-sha512; protocol="application/pgp-signature"
+Hi E,
 
---54f102bc4fad2f6519c1e85625df03a1f0d11fed53a9ec5e8b7d6b0e8a4d
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+> Is status property applicable to SoC rtc? If not, then is 'rtc' label
+> appropriate when there's no status applicable?
 
-On Sat Nov 7, 2026 at 4:22 AM GMT, Yao Zi wrote:
-> On Fri, Nov 06, 2026 at 02:05:24PM +0800, Jiayu Du wrote:
->> Add read-only NVMEM access to bank 0 and bank 7 of the SpacemiT K3 eFuse
->> controller. These banks contain temperature calibration parameters and
->> other configuration data.
->>=20
->> Snapshot the shadow registers with aligned 32-bit reads and expose the
->> data in little-endian order at controller-relative offsets. Serve reads
->> from the snapshot and use keepouts for the remaining register ranges.
->> Keep the AES_WTM clock enabled and its shared reset deasserted while the
->> provider is registered.
->>=20
->> Signed-off-by: Jiayu Du <duge1256@gmail.com>
->> ---
->>  MAINTAINERS                       |   1 +
->>  drivers/nvmem/Kconfig             |  14 +++
->>  drivers/nvmem/Makefile            |   1 +
->>  drivers/nvmem/spacemit-k3-efuse.c | 151 ++++++++++++++++++++++++++++++
->>  4 files changed, 167 insertions(+)
->>  create mode 100644 drivers/nvmem/spacemit-k3-efuse.c
->
-> ...
->
->> diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
->> index d2f5bb236663..28d6c59fbd74 100644
->> --- a/drivers/nvmem/Kconfig
->> +++ b/drivers/nvmem/Kconfig
->> @@ -476,6 +476,20 @@ config NVMEM_SNVS_LPGPR
->>  	  This driver can also be built as a module. If so, the module
->>  	  will be called nvmem-snvs-lpgpr.
->> =20
->> +config NVMEM_SPACEMIT_K3_EFUSE
->> +	tristate "SpacemiT K3 eFuse support"
->> +	depends on ARCH_SPACEMIT || COMPILE_TEST
->> +	depends on OF && HAS_IOMEM
->> +	depends on COMMON_CLK && RESET_CONTROLLER
->> +	help
->> +	  Say Y here to read configuration and calibration data from the
->> +	  SpacemiT K3 eFuse shadow banks. The boot firmware must have loaded
->> +	  the shadow registers before Linux starts. Programming and reloading
->> +	  the fuses are not supported.
->
-> I didn't read K3's TRM, but is there a reason to depend on the
-> bootloader to do so? We should depend on the state set up by bootloaders
-> as less as possible, I think.
-The GEU hardware loads the shadow after reset. So YES, we don't need to
-rely on bootloader.
+The RTC is in the SoC always-on domain and its clocks come from aoncrg;
+the 32 kHz oscillator is set in jh7110-common.dtsi, which every JH7110
+board includes, so no board needs to enable it. It is left enabled in
+the dtsi like the other always-on nodes (aoncrg, aongpio, pwrc). Other
+SoC RTCs do the same, e.g. Allwinner (including the D1), Sophgo CV180x
+and i.MX snvs_rtc; the ones disabled by default, such as STM32, depend
+on board parts that not every board has.
 
---=20
-Troy Mitchell
+An alias is only needed when a board has more than one RTC, and none of
+the JH7110 boards in the tree do. A board can still disable the node or
+alias it through the label.
+
+> Note that Mars CM / CM-Lite System-on-Modules may be used commonly with
+> board carriers which implement a battery-backed RTC on the I2C bus, and
+> so another 'rtc' label may be applicable, something to consider.
+
+Good point. v3 renames the label to soc_rtc, leaving rtc free for a
+carrier board's RTC.
 
 
---54f102bc4fad2f6519c1e85625df03a1f0d11fed53a9ec5e8b7d6b0e8a4d
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCavHkhSEcdHJveS5taXRj
-aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC9AggD+Mnv5Zg61NgXz
-ZDjIUJwrW/PSgOH3CWNzSHDOpq+DrYUBAOfObntacDDKXGuGn1wmRp6Qp8QY8cAv
-pn30xGwgyhMG
-=ZrI5
------END PGP SIGNATURE-----
-
---54f102bc4fad2f6519c1e85625df03a1f0d11fed53a9ec5e8b7d6b0e8a4d--
-
-
---===============8116135641895948603==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Owen
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8116135641895948603==--
-
