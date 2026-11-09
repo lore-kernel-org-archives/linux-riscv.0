@@ -2,95 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8CAC606A31C
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 02:38:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3DFC606A31C
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 03:13:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=v97n4oA3;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=ultrarisc.com header.i=@ultrarisc.com header.a=rsa-sha256 header.s=dkim header.b=Px2vhO8F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GklzgBpn;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=freeshell.de header.i=@freeshell.de header.a=rsa-sha256 header.s=s2025 header.b=WOI+pE5n
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=v//EnI0vO4xj3qPLFJtbxKMBw86FL9srjSa8JWt26rU=; b=v97n4oA3XjQ/kI6HkaKP3BNbdS
-	FaMDhHNW4YC4QbeGJiUGp9yr9vmDlkMtdeyDd0PcEJ1rPSyJBT/fnrdzdEUizAPvpXbHjQfpO0z4w
-	QM1Kw0oth2wqPtzpKezY0BaqUGR1XPnWxZn1JQKkQYsjx0mJX6mCkGPznzxh0VZytOlIO5ZYHjoPs
-	dYOjcNosfxrEvxTec1FFDySUQUSaMqzjANae6ResmcOM+4EptntN+K3IuwSBTaQPsy81LN0NKIx3L
-	Y9ZSr0E3I85MZxLeqqyPoIbSJDG1vZdS8XQSAUgLl30N4UTs+JogbxOMrXVIKpFNhc+8SI86FvOAA
-	kJ/18peg==;
+	bh=SPzSs/gJzw0RXOoUsSs1Z5QTdb5WluYjti5coa6N7Tk=; b=GklzgBpnNi4dzfqudHRwHBwQ52
+	6XRS/v3fAFlujN+U7Ft0R10+7gDvWEqEEl5S+xC1rsrZ+Vj2ocWD3PvBw+VbnEB0zOhPIiW34QhEo
+	OBvB+pLIGgBISwryX2hWvmEKUIYKpUwXDi34nWilu+P7kMyiZT0uYEh7+2RATLF7V8k9EQ7io+Pmw
+	Q8tvqZdF9PylrR/11jednwGZIldmw6NY+Nik+68b9hCf2vQmUF02MmdB5cCB5n9TPsqPZIKs4W6lg
+	e3luJrtDz3SxXwfxuIPV3Zrd2d4PvUSTd3bXwH91j1LVKnHee50jTc66mapoHFaQwiXYO9VCnZ64w
+	rkaDg7vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQFGi-0000000H8xL-42W1;
-	Mon, 09 Nov 2026 02:38:00 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQFGf-0000000H8wf-0C1i
+	id 1xQFpO-0000000HAlm-47z0;
+	Mon, 09 Nov 2026 03:13:50 +0000
+Received: from freeshell.de ([2a01:4f8:231:482b::2])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xQFpL-0000000HAlQ-1LPy
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Nov 2026 02:37:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	References:Date:Message-Id; bh=62e392DU1DrlXWGc+bil/alPKZVCZVrzv
-	976HNSepMA=; b=Px2vhO8FXHHr1QlFO973/QQANWpEe4IAD/gF7DMuHn4a7vONw
-	oVPic8PtO8TBwagdKzIgwSrkZWKPaaICe+9l2OlmqEXGzv9NJfCzbTRJjbSq7LHm
-	cMPuyseC7EofnQpSU4+xAhXwoQdySMgIg3F2c3j3Zzt6Rdbmz0k9BpA2kY=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwDnrwbVMfFqCawDAA--.1441S2;
-	Mon, 09 Nov 2026 10:37:15 +0800 (CST)
+	Mon, 09 Nov 2026 03:13:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
+	s=s2025; t=1794193988;
+	bh=WB4Tk+0qVOcehtG5BkeFj5O+C0eJXoghgiyEgzDXsx8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WOI+pE5np5gTU+/FpMWvUnZFT82v4R51t1A44b11gVdC6wCMbzLdv6Kh8qG9iYEpp
+	 eBfWBYguxteb4L/98eOFqCE2g8PHjaTazHRlc/IaiCeSB+gBi47yqRNbvUlTsQ/LFs
+	 X7LB4+VEWihy7s/2zY/hq0ahq+8+HeTl3KMvLddlz+W2ye1q+njlg39V4jjnSBN28o
+	 VQQPKKXafYSZWryWBmMiYV98MS3P/7N7XYIJT3nd0XxdQcApakcIKKm0gQ2eQlAG97
+	 h/RMOIspD2iEnhikvNE/OdLZeNjzekJiZIyI8QGdzjhDjWcylpAzTK+S5dsZ5lmdN7
+	 TriKfPz8CibQg==
+Received: from [IPV6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc] (unknown [IPv6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id CF7A0B220204;
+	Mon,  9 Nov 2026 04:13:04 +0100 (CET)
+Message-ID: <ff0906c3-478e-4ad6-ac30-1e0a7cc35a41@freeshell.de>
+Date: Sun, 8 Nov 2026 19:12:58 -0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v7 0/7] riscv: Add device tree support for UltraRISC
- DP1000
-From: Xincheng Ji <jixincheng@ultrarisc.com>
-To: Xincheng Ji <jixincheng@ultrarisc.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Andrew Lunn <andrew@lunn.ch>, 
- Jia Wang <wangjia@ultrarisc.com>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Anup Patel <anup@brainfault.org>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
- linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
-In-Reply-To: <20261025-ultrarisc-dts-v7-0-621eca2b8790@ultrarisc.com>
-References: <20261025-ultrarisc-dts-v7-0-621eca2b8790@ultrarisc.com>
-Date: Mon, 09 Nov 2026 10:37:13 +0800
-Message-Id: <179419183382.2791817.17305257804227954338.b4-reply@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794191834; l=353;
- i=jixincheng@ultrarisc.com; s=20260922; h=from:subject:message-id;
- bh=RT6SE3Lf2ZsuoPOTBdd55N72LgL+cuUbZ1aU9KTXVIQ=;
- b=d3YO63Kc7223iJpymiMjOHrM2CsJ/6HY+c/2ndCo0DfQBhfFXkdTAVK+vuVOh8zvIvMoep0Js
- jrROUzMyFN+A5Y3H6aGA4DCFZaKAg45OzAIcbhqr2/qLhSd9y1XM5eR
-X-Developer-Key: i=jixincheng@ultrarisc.com; a=ed25519;
- pk=n848dcS5D6g0vLad/rjp4Gf/1eedTe1a3pYUrkt2260=
-X-CM-TRANSID: AQAAfwDnrwbVMfFqCawDAA--.1441S2
-X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUO17AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E
-	6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28Cjx
-	kF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0cI8I
-	cVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z280aV
-	CY1x0267AKxVW8JVW8Jr1l0xvY67AC8VAFwI0_Jr0_Jr4le2I262IYc4CY6c8Ij28IcVAa
-	Y2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4
-	A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F
-	5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc2xSY4AK6svPMxAIw2
-	8IcxkI7VAKI48JMxAqzxv26xkF7I0En4kS14v26r4a6rW5MxC20s026xCaFVCjc4AY6r1j
-	6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7
-	AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE
-	2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcV
-	C2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2Kfnx
-	nUUI43ZEXa7VUUq-e7UUUUU==
-X-CM-SenderInfo: pml0x0xfkh0wg6xo325dul2uoofrz/1tbiAQATDmrm4a4ABAATsI
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] rtc: Add StarFive JH7110 RTC driver
+To: Owen O'Hehir <oo.hehir@gmail.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-rtc@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Hal Feng <hal.feng@starfivetech.com>, "ziv.xu" <ziv.xu@starfivetech.com>,
+ Conor Dooley <conor@kernel.org>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+References: <20261108212826.15890-1-oo.hehir@gmail.com>
+ <20261108212826.15890-3-oo.hehir@gmail.com>
+Content-Language: en-US
+From: E Shattow <e@freeshell.de>
+In-Reply-To: <20261108212826.15890-3-oo.hehir@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261108_183757_836430_A8066C07 
-X-CRM114-Status: UNSURE (   5.35  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.3 (-)
+X-CRM114-CacheID: sfid-20261108_191348_007602_957362A6 
+X-CRM114-Status: GOOD (  41.14  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,28 +81,422 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 2026-10-25 20:24 +0800, Xincheng Ji wrote:
-Hi all,
+Hi Owen,
 
-A gentle ping on this series adding device tree support for the
-UltraRISC DP1000 SoC and the Shenzhen Rongda M0 and Milk-V Titan boards.
+On 11/8/26 13:28, Owen O'Hehir wrote:
+> From: "ziv.xu" <ziv.xu@starfivetech.com>
+> 
+> Add a driver for the RTC in the always-on domain of the StarFive JH7110
+> SoC. It supports time, alarm with wakeup, and the frequency offset.
+> 
+> Signed-off-by: ziv.xu <ziv.xu@starfivetech.com>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> [Owen: rework of the StarFive vendor driver for mainline: drop hardware
+>  calibration & the default time set in probe, use the generic wake IRQ
+>  helpers, wait for the update bit in set_time, re-read a time that rolls
+>  over during the read, round the offset to the nearest step & follow the
+>  sysfs offset sign, enable the 32k counter clock]
+> Co-developed-by: Owen O'Hehir <oo.hehir@gmail.com>
+> Signed-off-by: Owen O'Hehir <oo.hehir@gmail.com>
+> ---
+>  drivers/rtc/Kconfig      |  11 ++
+>  drivers/rtc/Makefile     |   1 +
+>  drivers/rtc/rtc-jh7110.c | 323 +++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 335 insertions(+)
+>  create mode 100644 drivers/rtc/rtc-jh7110.c
+> 
+> diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
+> index 73ec9230e..332f2e022 100644
+> --- a/drivers/rtc/Kconfig
+> +++ b/drivers/rtc/Kconfig
+> @@ -1807,6 +1807,17 @@ config RTC_DRV_MPC5121
+>  	  This driver can also be built as a module. If so, the module
+>  	  will be called rtc-mpc5121.
+>  
+> +config RTC_DRV_JH7110
+> +	tristate "StarFive JH7110 RTC"
+> +	depends on ARCH_STARFIVE || COMPILE_TEST
+> +	help
+> +	  If you say yes here you get support for the RTC in the always-on
+> +	  domain of StarFive JH7110 SoCs, with alarm and frequency offset
+> +	  support.
+> +
+> +	  This driver can also be built as a module. If so, the module
+> +	  will be called rtc-jh7110.
+> +
+>  config RTC_DRV_JZ4740
+>  	tristate "Ingenic JZ4740 SoC"
+>  	depends on MIPS || COMPILE_TEST
+> diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
+> index 46f1a0fc2..a5cddb8d8 100644
+> --- a/drivers/rtc/Makefile
+> +++ b/drivers/rtc/Makefile
+> @@ -82,6 +82,7 @@ obj-$(CONFIG_RTC_DRV_IMX_BBM_SCMI)	+= rtc-imx-sm-bbm.o
+>  obj-$(CONFIG_RTC_DRV_ISL12022)	+= rtc-isl12022.o
+>  obj-$(CONFIG_RTC_DRV_ISL12026)	+= rtc-isl12026.o
+>  obj-$(CONFIG_RTC_DRV_ISL1208)	+= rtc-isl1208.o
+> +obj-$(CONFIG_RTC_DRV_JH7110)	+= rtc-jh7110.o
+>  obj-$(CONFIG_RTC_DRV_JZ4740)	+= rtc-jz4740.o
+>  obj-$(CONFIG_RTC_DRV_LOONGSON)	+= rtc-loongson.o
+>  obj-$(CONFIG_RTC_DRV_LP8788)	+= rtc-lp8788.o
+> diff --git a/drivers/rtc/rtc-jh7110.c b/drivers/rtc/rtc-jh7110.c
+> new file mode 100644
+> index 000000000..d2d89cdd4
+> --- /dev/null
+> +++ b/drivers/rtc/rtc-jh7110.c
+> @@ -0,0 +1,323 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * RTC driver for the StarFive JH7110 SoC
+> + *
+> + * Copyright (C) 2021 StarFive Technology Co., Ltd.
+> + */
 
-Are there any remaining issues I should address before the series can
-be picked up?
+Is this copyrighted work from previous year 2021 being imported without
+modification?
 
-Thanks,
-Xincheng
+If there is modification then I would assume it needs appended your
+authorship and the current year 2026.
 
--- 
-Xincheng Ji <jixincheng@ultrarisc.com>
+> +
+> +#include <linux/bcd.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/clk.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/math64.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_wakeirq.h>
+> +#include <linux/reset.h>
+> +#include <linux/rtc.h>
+> +
+> +#define JH7110_RTC_CFG			0x00
+> +#define  JH7110_RTC_CFG_ENABLE		BIT(0)
+> +#define  JH7110_RTC_CFG_CAL_SEL_HW	BIT(2)
+> +#define  JH7110_RTC_CFG_HOUR_24H	BIT(3)
+> +#define JH7110_RTC_SW_CAL_VALUE		0x04
+> +#define JH7110_RTC_IRQ_EN		0x10
+> +#define JH7110_RTC_IRQ_EVENT		0x14
+> +#define  JH7110_RTC_IRQ_ALARM		BIT(4)
+> +#define  JH7110_RTC_IRQ_ALL		GENMASK(4, 0)
+> +#define  JH7110_RTC_EVENT_UPDATE	BIT(31)
+> +#define JH7110_RTC_CAL_VALUE		0x24
+> +#define JH7110_RTC_CFG_TIME		0x28
+> +#define JH7110_RTC_CFG_DATE		0x2c
+> +#define JH7110_RTC_ACT_TIME		0x34
+> +#define JH7110_RTC_ACT_DATE		0x38
+> +#define JH7110_RTC_TIME			0x3c
+> +#define JH7110_RTC_DATE			0x40
+> +
 
+Align 8-char tab stops per Linux coding style, and then tidy up the
+extra junk clearspace on some of the defines
+
+> +#define JH7110_RTC_TIME_SEC		GENMASK(6, 0)
+> +#define JH7110_RTC_TIME_MIN		GENMASK(13, 7)
+> +#define JH7110_RTC_TIME_HOUR		GENMASK(20, 14)
+> +#define JH7110_RTC_DATE_DAY		GENMASK(5, 0)
+> +#define JH7110_RTC_DATE_MON		GENMASK(10, 6)
+> +#define JH7110_RTC_DATE_YEAR		GENMASK(18, 11)
+> +
+> +#define JH7110_RTC_CAL_MASK		GENMASK(15, 0)
+> +#define JH7110_RTC_TICKS_PER_SEC	32768
+> +
+> +#define JH7110_RTC_SYNC_TIMEOUT_US	1000
+> +
+> +struct jh7110_rtc {
+> +	struct rtc_device *rtc;
+> +	void __iomem *base;
+> +};
+> +
+> +static void jh7110_rtc_reg2tm(struct rtc_time *tm, u32 time, u32 date)
+> +{
+> +	tm->tm_sec = bcd2bin(FIELD_GET(JH7110_RTC_TIME_SEC, time));
+> +	tm->tm_min = bcd2bin(FIELD_GET(JH7110_RTC_TIME_MIN, time));
+> +	tm->tm_hour = bcd2bin(FIELD_GET(JH7110_RTC_TIME_HOUR, time));
+> +	tm->tm_mday = bcd2bin(FIELD_GET(JH7110_RTC_DATE_DAY, date));
+> +	tm->tm_mon = bcd2bin(FIELD_GET(JH7110_RTC_DATE_MON, date)) - 1;
+> +	tm->tm_year = bcd2bin(FIELD_GET(JH7110_RTC_DATE_YEAR, date)) + 100;
+> +}
+> +
+> +static u32 jh7110_rtc_tm2time(struct rtc_time *tm)
+> +{
+> +	return FIELD_PREP(JH7110_RTC_TIME_SEC, bin2bcd(tm->tm_sec)) |
+> +	       FIELD_PREP(JH7110_RTC_TIME_MIN, bin2bcd(tm->tm_min)) |
+> +	       FIELD_PREP(JH7110_RTC_TIME_HOUR, bin2bcd(tm->tm_hour));
+> +}
+> +
+> +static u32 jh7110_rtc_tm2date(struct rtc_time *tm)
+> +{
+> +	return FIELD_PREP(JH7110_RTC_DATE_DAY, bin2bcd(tm->tm_mday)) |
+> +	       FIELD_PREP(JH7110_RTC_DATE_MON, bin2bcd(tm->tm_mon + 1)) |
+> +	       FIELD_PREP(JH7110_RTC_DATE_YEAR, bin2bcd(tm->tm_year - 100));
+> +}
+> +
+> +static int jh7110_rtc_read_time(struct device *dev, struct rtc_time *tm)
+> +{
+> +	struct jh7110_rtc *jrtc = dev_get_drvdata(dev);
+> +	u32 time, date;
+> +
+> +	/*
+> +	 * re-read if the time rolled over between reading TIME & DATE, since
+> +	 * that rollover can also change the date.
+> +	 */
+> +	do {
+> +		time = readl(jrtc->base + JH7110_RTC_TIME);
+> +		date = readl(jrtc->base + JH7110_RTC_DATE);
+> +	} while (time != readl(jrtc->base + JH7110_RTC_TIME));
+> +
+> +	jh7110_rtc_reg2tm(tm, time, date);
+> +
+> +	return 0;
+> +}
+> +
+> +static int jh7110_rtc_set_time(struct device *dev, struct rtc_time *tm)
+> +{
+> +	struct jh7110_rtc *jrtc = dev_get_drvdata(dev);
+> +	u32 val;
+> +
+> +	writel(jh7110_rtc_tm2time(tm), jrtc->base + JH7110_RTC_CFG_TIME);
+> +	writel(jh7110_rtc_tm2date(tm), jrtc->base + JH7110_RTC_CFG_DATE);
+> +
+> +	/*
+> +	 * The counter loads CFG_TIME & CFG_DATE on this pulse; the bit appears
+> +	 * to read back as 1 until the load is done.
+> +	 */
+> +	writel(JH7110_RTC_EVENT_UPDATE, jrtc->base + JH7110_RTC_IRQ_EVENT);
+> +
+> +	return readl_poll_timeout(jrtc->base + JH7110_RTC_IRQ_EVENT, val,
+> +				  !(val & JH7110_RTC_EVENT_UPDATE), 10,
+> +				  JH7110_RTC_SYNC_TIMEOUT_US);
+> +}
+> +
+> +static int jh7110_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
+> +{
+> +	struct jh7110_rtc *jrtc = dev_get_drvdata(dev);
+> +	u32 val;
+> +
+> +	val = readl(jrtc->base + JH7110_RTC_IRQ_EN);
+> +	if (enabled)
+> +		val |= JH7110_RTC_IRQ_ALARM;
+> +	else
+> +		val &= ~JH7110_RTC_IRQ_ALARM;
+> +	writel(val, jrtc->base + JH7110_RTC_IRQ_EN);
+> +
+> +	return 0;
+> +}
+> +
+> +static int jh7110_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alrm)
+> +{
+> +	struct jh7110_rtc *jrtc = dev_get_drvdata(dev);
+> +
+> +	jh7110_rtc_reg2tm(&alrm->time, readl(jrtc->base + JH7110_RTC_ACT_TIME),
+> +			  readl(jrtc->base + JH7110_RTC_ACT_DATE));
+> +	alrm->enabled = !!(readl(jrtc->base + JH7110_RTC_IRQ_EN) & JH7110_RTC_IRQ_ALARM);
+> +
+> +	return 0;
+> +}
+> +
+> +static int jh7110_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alrm)
+> +{
+> +	struct jh7110_rtc *jrtc = dev_get_drvdata(dev);
+> +	u32 val;
+> +	int ret;
+> +
+> +	jh7110_rtc_alarm_irq_enable(dev, 0);
+> +	writel(jh7110_rtc_tm2time(&alrm->time), jrtc->base + JH7110_RTC_ACT_TIME);
+> +	writel(jh7110_rtc_tm2date(&alrm->time), jrtc->base + JH7110_RTC_ACT_DATE);
+> +	writel(JH7110_RTC_IRQ_ALARM, jrtc->base + JH7110_RTC_IRQ_EVENT);
+> +
+> +	ret = readl_poll_timeout(jrtc->base + JH7110_RTC_IRQ_EVENT, val,
+> +				 !(val & JH7110_RTC_IRQ_ALARM), 10,
+> +				 JH7110_RTC_SYNC_TIMEOUT_US);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return jh7110_rtc_alarm_irq_enable(dev, alrm->enabled);
+> +}
+> +
+> +/*
+> + * 1 sec for the RTC = CAL_VALUE + 1 cycles of the 32.768 kHz clock.
+> + * Default of 0x7fff = exactly one second.
+> + * Each step of CAL_VALUE changes the rate by 1/32768, about 30.5 ppm.
+> + */
+> +static int jh7110_rtc_read_offset(struct device *dev, long *offset)
+> +{
+> +	struct jh7110_rtc *jrtc = dev_get_drvdata(dev);
+> +	s64 ticks;
+> +
+> +	ticks = (readl(jrtc->base + JH7110_RTC_CAL_VALUE) & JH7110_RTC_CAL_MASK) + 1;
+> +	*offset = DIV_S64_ROUND_CLOSEST((ticks - JH7110_RTC_TICKS_PER_SEC) * NSEC_PER_SEC,
+> +					JH7110_RTC_TICKS_PER_SEC);
+> +
+> +	return 0;
+> +}
+> +
+> +static int jh7110_rtc_set_offset(struct device *dev, long offset)
+> +{
+> +	struct jh7110_rtc *jrtc = dev_get_drvdata(dev);
+> +	s64 ticks;
+> +	u32 val;
+> +
+> +	if (offset < -NSEC_PER_SEC || offset > NSEC_PER_SEC)
+> +		return -ERANGE;
+> +
+> +	ticks = JH7110_RTC_TICKS_PER_SEC +
+> +		DIV_S64_ROUND_CLOSEST((s64)offset * JH7110_RTC_TICKS_PER_SEC, NSEC_PER_SEC);
+> +	if (ticks < 1 || ticks > JH7110_RTC_CAL_MASK + 1)
+> +		return -ERANGE;
+> +
+> +	writel(ticks - 1, jrtc->base + JH7110_RTC_SW_CAL_VALUE);
+> +	val = readl(jrtc->base + JH7110_RTC_CFG);
+> +	writel(val & ~JH7110_RTC_CFG_CAL_SEL_HW, jrtc->base + JH7110_RTC_CFG);
+> +
+> +	return 0;
+> +}
+> +
+> +static irqreturn_t jh7110_rtc_irq(int irq, void *data)
+> +{
+> +	struct jh7110_rtc *jrtc = data;
+> +	u32 events, val;
+> +
+> +	events = readl(jrtc->base + JH7110_RTC_IRQ_EVENT) &
+> +		 readl(jrtc->base + JH7110_RTC_IRQ_EN) & JH7110_RTC_IRQ_ALL;
+> +	if (!events)
+> +		return IRQ_NONE;
+> +
+> +	writel(events, jrtc->base + JH7110_RTC_IRQ_EVENT);
+> +	if (readl_poll_timeout_atomic(jrtc->base + JH7110_RTC_IRQ_EVENT, val,
+> +				      !(val & events), 0, JH7110_RTC_SYNC_TIMEOUT_US))
+> +		dev_warn_ratelimited(&jrtc->rtc->dev, "interrupt events 0x%x not cleared\n",
+> +				     events);
+> +
+> +	if (events & JH7110_RTC_IRQ_ALARM)
+> +		rtc_update_irq(jrtc->rtc, 1, RTC_AF | RTC_IRQF);
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static const struct rtc_class_ops jh7110_rtc_ops = {
+> +	.read_time		= jh7110_rtc_read_time,
+> +	.set_time		= jh7110_rtc_set_time,
+> +	.read_alarm		= jh7110_rtc_read_alarm,
+> +	.set_alarm		= jh7110_rtc_set_alarm,
+> +	.alarm_irq_enable	= jh7110_rtc_alarm_irq_enable,
+> +	.read_offset		= jh7110_rtc_read_offset,
+> +	.set_offset		= jh7110_rtc_set_offset,
+> +};
+> +
+> +static int jh7110_rtc_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct reset_control *rst;
+> +	struct jh7110_rtc *jrtc;
+> +	struct clk *clk;
+> +	int irq, ret;
+> +	u32 val;
+> +
+> +	jrtc = devm_kzalloc(dev, sizeof(*jrtc), GFP_KERNEL);
+> +	if (!jrtc)
+> +		return -ENOMEM;
+> +
+> +	jrtc->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(jrtc->base))
+> +		return PTR_ERR(jrtc->base);
+> +
+> +	clk = devm_clk_get_enabled(dev, "apb");
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable apb clock\n");
+> +
+> +	clk = devm_clk_get_enabled(dev, "cal");
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable cal clock\n");
+> +
+> +	clk = devm_clk_get_enabled(dev, "32k");
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable 32k clock\n");
+> +
+> +	/* Never asserted again, as that would stop the clock & lose the time */
+> +	rst = devm_reset_control_array_get_exclusive(dev);
+> +	if (IS_ERR(rst))
+> +		return dev_err_probe(dev, PTR_ERR(rst), "failed to get resets\n");
+> +
+> +	ret = reset_control_deassert(rst);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to deassert resets\n");
+> +
+> +	irq = platform_get_irq_byname(pdev, "rtc");
+> +	if (irq < 0)
+> +		return irq;
+> +
+> +	jrtc->rtc = devm_rtc_allocate_device(dev);
+> +	if (IS_ERR(jrtc->rtc))
+> +		return PTR_ERR(jrtc->rtc);
+> +
+> +	platform_set_drvdata(pdev, jrtc);
+> +
+> +	jrtc->rtc->ops = &jh7110_rtc_ops;
+> +	jrtc->rtc->range_min = RTC_TIMESTAMP_BEGIN_2000;
+> +	jrtc->rtc->range_max = RTC_TIMESTAMP_END_2099;
+> +
+> +	val = readl(jrtc->base + JH7110_RTC_CFG);
+> +	writel(val | JH7110_RTC_CFG_HOUR_24H | JH7110_RTC_CFG_ENABLE,
+> +	       jrtc->base + JH7110_RTC_CFG);
+> +
+> +	ret = devm_request_irq(dev, irq, jh7110_rtc_irq, 0, dev_name(dev), jrtc);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to request irq\n");
+> +
+> +	ret = devm_device_init_wakeup(dev);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to init wakeup\n");
+> +
+> +	ret = devm_pm_set_wake_irq(dev, irq);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to set wake irq\n");
+> +
+> +	return devm_rtc_register_device(jrtc->rtc);
+> +}
+> +
+> +static const struct of_device_id jh7110_rtc_of_match[] = {
+> +	{ .compatible = "starfive,jh7110-rtc" },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, jh7110_rtc_of_match);
+> +
+> +static struct platform_driver jh7110_rtc_driver = {
+> +	.driver = {
+> +		.name = "jh7110-rtc",
+> +		.of_match_table = jh7110_rtc_of_match,
+> +	},
+> +	.probe = jh7110_rtc_probe,
+> +};
+> +module_platform_driver(jh7110_rtc_driver);
+
+I note that JH7100 does not mention RTC in its datasheet. Does JH7110
+RTC have any commonality with JHB100 and if so then would rtc-starfive
+be a more suitable name for the code filename and module?
+
+> +
+> +MODULE_AUTHOR("Samin Guo <samin.guo@starfivetech.com>");
+> +MODULE_AUTHOR("Hal Feng <hal.feng@starfivetech.com>");
+
+Review use of authorship macros as appropriate. This may be okay as-is.
+
+> +MODULE_DESCRIPTION("StarFive JH7110 RTC driver");
+> +MODULE_LICENSE("GPL");
+
+-E
 
 _______________________________________________
 linux-riscv mailing list
