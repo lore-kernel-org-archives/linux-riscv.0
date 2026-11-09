@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 310C2606A339
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 20:27:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F121606A321
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 20:28:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GDAtcizP;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UHhjktSL
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=S9tOR1I/;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A8FIBdKP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,42 +14,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=g3hTENcRaILdW4w708JdlsaVX7mtKtfOrWWXIauCh2E=; b=GDAtcizPh9vmbwkqDzMtJEg7My
-	WMS5gM89HnAFcrx7/kTGcgoGZ1gLVPwsSetvESxCxIcUnoCNn3ULkVR4W6pR/+KhzaGSW1NB9obqn
-	8oC6ZZR3+shFg8YIY36c6mxkUJA6LGeLza7h8cBmWE3qwxejuqtu6edWeWy72SECABSiET91fLXQw
-	Gy/lJEI2F5eSkmo6JtHf1QXFkMGK9lBXjY89VJfh7YExqF4zNb8OOsKca1xlY/9BEyCTOlD2dJpHz
-	tHt43iqnQJMFUs7eqDGQXer1vM809ZRcFK378taoNb5OqRBbPpGOW1p+6suyO0u7EyWgAeLzMFYB6
-	1SzdrjCQ==;
+	bh=iVIfbjJS4evP0oOlDui/oI6oWtFhKQmtvhNz730sT/o=; b=S9tOR1I/byPUBxOywY4kQxDnWm
+	FDNOzgt+lhDaAJVXqs+hKz6gsRDB9Vk24csm2am6DPRnEUSbiioPMgiYznbVRNHsSaUzmY0VhsFsU
+	oZBSSKdWySW6/raZNuAelPZ78lxWqco7iIiaIFBvUUMD+c7DrDY92Q3el60x8YMdbnzj/gM8k0WCP
+	fRQRJy9PFqVtP089mTf5kX0x0dhiqW7kDAcxwTV4gt3ghbhrKbv4mq2io6fW+90M4BKl0ExhhoVL5
+	+NXU8Awp8czrGip1L2/ClU+vRkXzJLtqW7KJJM/i1LXvmppx8+CR88BA17tEmpCavX3gNVWaeMtws
+	tKRtvzFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQVxu-00000001eJK-3AqY;
-	Mon, 09 Nov 2026 20:27:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xQVy5-00000001eNI-4A7c;
+	Mon, 09 Nov 2026 20:27:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQVxt-00000001eIm-39Ie;
-	Mon, 09 Nov 2026 20:27:41 +0000
+	id 1xQVy2-00000001eLu-28Zh;
+	Mon, 09 Nov 2026 20:27:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1233C40220;
-	Mon,  9 Nov 2026 20:27:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07F871F0089F;
-	Mon,  9 Nov 2026 20:27:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 007DE42B6D;
+	Mon,  9 Nov 2026 20:27:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7830A1F008A1;
+	Mon,  9 Nov 2026 20:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794256060;
-	bh=bSSYE7l0m2Lbw/z8BOO6ZEg+OH6DFPR1Glr9kdGiV3o=;
+	s=k20260515; t=1794256069;
+	bh=uSmqEwTPBCw7yv/vu+RoTvS1k78wUQRDkeFSllXkLKI=;
 	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=UHhjktSLeWOD/tGVNplwVa0Q7ggxUXoT+CFNoInRKLbMWeiez8pFUyYitGWg6ovNU
-	 VOwffa3R/xHzJicPyIc5nq74rMgvFCS0+CtaEV84fcbnBujX62vJwfo7KGlFEirqrC
-	 IAsEG2nMr4Cc3tE3AWsRg0FfDIIK64O+rATx34ZmMW/+Hzmym7Wtve4DsDgOe1ctSJ
-	 H5tm4RyGfxiUOwpQaBEH8xocAiGmI0UBh0ShCpF+RzgYRY0tdvwITFo7iKgAOqXX7P
-	 D5QNIOKBBvk1ACSUXqRuTg2mrrd8qsH5GrTWgM8uSyP1Vxu3oRqfvh/btaNz1wKCDi
-	 Iv35oDyaakI8g==
+	b=A8FIBdKPcoGsNZlhGhiZxSuNdfssvT5PPZ6PrGGJaBdnGlh1o1Uoc3D7idyPnLDiT
+	 opYuDkhI6iTo2Dkz+j/2fqI0v2JoKsTponThIl770h6qo0JswzOFpuPxvcoISfhMLO
+	 96j3RJ4LE5aydnXA6E3B6PD9yMVvYhuO+YDa7DOayKR1+meLwulbZPWOyrGw/Zy9XR
+	 15iPrvzzJn0jCEPLUw84HtOy53ejShG6QX23kJRYzSx+whednhH04vvje3HVr3t+Dm
+	 nW4yxHSm4PYTVRKI2m50h9lbf4d2syeJKmb9gnxqIi/Ac3TCjiT0EH0AYw5cSRm0nW
+	 MzROyVWkrB9Sw==
 Received: from traversing.sirena.org.uk (localhost [IPv6:::1])
-	by traversing.sirena.org.uk (Postfix) with ESMTP id 7722730216A6;
+	by traversing.sirena.org.uk (Postfix) with ESMTP id 7B1B130216A7;
 	Mon, 09 Nov 2026 20:27:04 +0000 (GMT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/5] spi: sifive: fix division by zero in clock divisor
- calculation
+Subject: Re: [PATCH 5/5] spi: atmel: fix division by zero when transfer
+ speed is zero
 From: Mark Brown <broonie@kernel.org>
 To: shao.mingyin@zte.com.cn
 Cc: broonie@kernel.org, linux-spi@vger.kernel.org, 
@@ -62,18 +62,18 @@ Cc: broonie@kernel.org, linux-spi@vger.kernel.org,
  neal@gompa.dev, asahi@lists.linux.dev, ryan.wanner@microchip.com, 
  nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
  claudiu.beznea@tuxon.dev
-In-Reply-To: <20261106234756882V9wUQNCEZAYUGTAbexMSL@zte.com.cn>
+In-Reply-To: <20261106234803459Z94udUX-Ai29-OfBFRND6@zte.com.cn>
 References: 20261106234751020Egf42VCVVlsSC_Msov4HO@zte.com.cn
- <20261106234756882V9wUQNCEZAYUGTAbexMSL@zte.com.cn>
+ <20261106234803459Z94udUX-Ai29-OfBFRND6@zte.com.cn>
 Date: Mon, 09 Nov 2026 20:27:03 +0000
-Message-Id: <179425602306.3711751.12136281369535948110.b4-review@b4>
+Message-Id: <179425602307.3711751.7845465463671042950.b4-review@b4>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=763; i=broonie@kernel.org;
- h=from:subject:message-id; bh=5xd3GS5/MG9NcUE+L6KjqXG6YKTxSTMJYectNTsrnko=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLI+6Ux/lKFcMGP9nyZxi7W/mg7N3VBZbPJdrk1e23q73
- 7FDvwwsOkpYGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjARLxOG/4GPfmTnXbhjyrhD
- 4H1v0cUCwZ+tBXy7C+346q498LbaepLhx1KmWkOhWQHH7rhFPMsx+LjCJv615P293RUu+zPzzRO
- YAQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=913; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=5Ht5M+VjLA+M4Oeg4Wh7v9V7rBg4ioA0/PuJ6uvdihU=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLI+6cwo4GpdvnHDs+b2EqXGWWmFbOv3bLGv27Gy+iRXw
+ +xl6+0CO0pZGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjAR/XKG/+mKh+SPln9/OHVZ
+ iTCL3Tnj7mVTVhZfq9utt/jr8s0KtXMY/udUHd3KsWHVo+SciZ4KfYlxvJ7TO/hbzxa9OPSEs/v
+ IY04A
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -95,21 +95,24 @@ X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-> Clamp the divisor to 1 Hz so the divider calculation is well defined.
+> atmel_spi_one_transfer() calls atmel_spi_set_xfer_speed() for every
+> transfer.  A device whose max_speed_hz is zero (no spi-max-frequency
+> property, or created through the spidev sysfs new_device interface
+> without a speed) leaves the transfer speed at zero, and the divider
+> calculation divides by it.  spi_setup() would only clamp the speed if
+> host->max_speed_hz was set, which this driver does not do.
 
-> +	/* A device with max_speed_hz == 0 must not divide by zero */
-> +	speed_hz = max_t(u32, t->speed_hz, 1);
-> +
->  	/* Calculate and program the clock rate */
-> -	cr = DIV_ROUND_UP(clk_get_rate(spi->clk) >> 1, t->speed_hz) - 1;
-> +	cr = DIV_ROUND_UP(clk_get_rate(spi->clk) >> 1, speed_hz) - 1;
->  	cr &= SIFIVE_SPI_SCKDIV_DIV_MASK;
->  	sifive_spi_write(spi, SIFIVE_SPI_REG_SCKDIV, cr);
+...
 
-If we did genuinely end up with a speed of 1Hz this results in only
-dividing by 2, and we then truncate this to 12 bits to fit in the
-register which feels a bit risky.  We should probably handle the
-overflow if the result doesn't fit in the mask.
+> Clamp the divisor to 1 Hz so the zero never reaches the division.
+
+> -	scbr = DIV_ROUND_UP(bus_hz, xfer->speed_hz);
+> +	scbr = DIV_ROUND_UP(bus_hz, max_t(u32, xfer->speed_hz, 1));
+
+This has a similar issue with limiting, in this case even worse as we
+generate an invalid SCBR value and then validate it later in the
+function.  We should just set the maximum instead of bothering with the
+division if we're subsituting a default here.
 
 -- 
 Mark Brown <broonie@kernel.org>
