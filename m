@@ -2,70 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8E98606A31C
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 03:34:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B923F606A322
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 03:38:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xajcWTvB;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=23VbAndK
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UmvWkTHM;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=freeshell.de header.i=@freeshell.de header.a=rsa-sha256 header.s=s2025 header.b=GMalY5k0
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Message-Id:References:Mime-Version:
-	Cc:In-Reply-To:Date:From:Subject:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bOCxfnjEWkHyd43BOeE3QGmfM7j2uDru+f3+5uiLPKA=; b=xajcWTvBS3m34pXmAR4l2EBx3L
-	G2yfeXIBJ2cZYxX6W8ZLH/MebiC4E147vw+KsMg5OTRAXke1v1Fneiz+WebzoTPL2IYGfd6T8JOmf
-	df7mMNuH3kFqB7cSGSkHp6GxECXZgqbr3CEA6sfnld7irSpCrXgcVuR/cdUc5h/hv5DfQdZk6mq20
-	FkCvQafIIbrLeyDCWxSGYnz5fzrnTATCHhkYBqX7OVVAUwagFNEbvdbGUNrgh5HUl49yUSuLX1xLG
-	a0lkxgETKR58jBjf//B3cKKl2pSrZrUr4VPU275J9yVjZQzhS+wfq3b4sU6Wzi9i2hmT9xF+xqdUU
-	3g2TNUqw==;
+	bh=Wh4Kh/v7r5nd3me03LiD0TeGU9zmktXI6wCNCWauyfU=; b=UmvWkTHMUXRqeeMntrmQK395SC
+	lQBtMZcyVsJcDe4VpId9UTg6P+ZqnC8XeN4FbbEErWAif29Uwj133tdJsKvsJybBHPppfAR8gypQW
+	v//U6FUop/u9mn8nuajuUgmoE/4gvrpWfQ05aSvyDN+PpI1JQ0TPBEMqPxBe2ByMCPRz4t957W4Q8
+	lt9WY5nWjs9rIzksTzaFpOu4pP/H0in1oC4PuSfQBjvgJ8Ir3dSOBRhT/J8efDQ9MFK7FnFHPvi9B
+	/EZWaQN8AAgAM9nVf1DHTB81AcbzbZzQjB9N0OiQePokL9vYTWY26Cx5l2ccALYn581W4VD96M/QV
+	6FPu9j+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQG8z-0000000HESP-0RfL;
-	Mon, 09 Nov 2026 03:34:07 +0000
-Received: from va-2-38.ptr.blmpb.com ([209.127.231.38])
+	id 1xQGCq-0000000HF9c-19ol;
+	Mon, 09 Nov 2026 03:38:04 +0000
+Received: from freeshell.de ([116.202.128.144])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQG8w-0000000HEOF-4646
+	id 1xQGCn-0000000HF91-0mRK
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Nov 2026 03:34:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1794195237;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=DSfjtHSZUsSyQaOs06LHZoC4jG8cLJJQqat7HHI0wIg=;
- b=23VbAndKn2vzgoyV8Rt3mY6dm38eeUzPdCuGHqwWHrcezmWVtX4TtaAG+0S8ll59IZa0V0
- 6wD8KQUI30OFafQNqWDANEt6BX9DTSbQbZ6qresxEpC9H6DOVmjRIELJTaI2y8ajXvcYRO
- 2gCA6fyQE7WObssu2ho/KuQvAFuQksEf+2YeresvP//ke/HmDrZsrG7Z6IBg8onOQL8oub
- vDFiLkJH3bxsrZ7M0ihQdcHiiITFsNLCHMIqqD+YKiZhxVAKgToszzI8WQKgUOoK5AgBKL
- YNqR891AkbClFc0Z6oWutu7TeoX1rQc0NUhihwMw3SjDhGNdpM68jAlDRYFJKQ==
-Subject: [PATCH v4 3/3] riscv: dts: spacemit: k3-deepcomputing-fml13v05: Enable SD card support
-From: "Sandie Cao" <sandie.cao@deepcomputing.io>
-Date: Mon,  9 Nov 2026 11:33:48 +0800
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261109033154.361399-1-sandie.cao@deepcomputing.io>
-Cc: "Alexandre Ghiti" <alex@ghiti.fr>, <devicetree@vger.kernel.org>, 
-	<linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>, 
-	<linux-kernel@vger.kernel.org>, 
-	"Sandie Cao" <sandie.cao@deepcomputing.io>
+	Mon, 09 Nov 2026 03:38:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
+	s=s2025; t=1794195460;
+	bh=r9ZKzXuZtQWjeq42Wbv24eyX0v+3OyYtV/ft7hHMkhQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GMalY5k0UDK0UJgj4WPBefvGt7gSR1qoGF3Bcu57NvUhYCAnjfq7rF7JFZ5uBBZpT
+	 Xoie046+rfwvm5AqLWRz5Iw0j/A6NPzVdLJxJI2Y2kuc6dRXGu4neDmZabJ+w4Sx6L
+	 jJu6+RLtvbgieuWeR7fqVxQ63I9EswAqRbrWki0f/7rZfDlWZ4x6xJ3ERgeqAwD4+x
+	 lVChlnpQvjkU+mYttBRzEz6Kh/2aMcx2U8kY3gtra/jzFYudTCqT7Kz7mFztnSNWXx
+	 A8SQAkMUJ17/83EWtbzkQqD1st/4rF9XD24fev2qy1idrMQ1WlcRqEt8zzkFAAezsF
+	 9kdYMLC1Fk08Q==
+Received: from [IPV6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc] (unknown [IPv6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id 88606B221A6B;
+	Mon,  9 Nov 2026 04:37:36 +0100 (CET)
+Message-ID: <d9f4a750-5f9d-4749-929e-330c8776971e@freeshell.de>
+Date: Sun, 8 Nov 2026 19:37:34 -0800
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-References: <20261109033154.361399-1-sandie.cao@deepcomputing.io>
-X-Lms-Return-Path: <lba+26af13f23+f4d813+lists.infradead.org+sandie.cao@deepcomputing.io>
-Message-Id: <20261109033348.361452-1-sandie.cao@deepcomputing.io>
-X-Original-From: Sandie Cao <sandie.cao@deepcomputing.io>
-Received: from roma-Laptop-12th-Gen-Intel-Core.lan ([218.17.141.187]) by smtp.feishu.cn with ESMTPS; Mon, 09 Nov 2026 11:33:54 +0800
-To: "Yixun Lan" <dlan@kernel.org>, 
-	"Troy Mitchell" <troy.mitchell@linux.spacemit.com>, 
-	"Conor Dooley" <conor+dt@kernel.org>, "Rob Herring" <robh@kernel.org>, 
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
-	"Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, 
-	"Albert Ou" <aou@eecs.berkeley.edu>
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/4] riscv: dts: starfive: jh7110: Add the RTC node
+To: Owen O'Hehir <oo.hehir@gmail.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-rtc@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Hal Feng <hal.feng@starfivetech.com>, "ziv.xu" <ziv.xu@starfivetech.com>,
+ Conor Dooley <conor@kernel.org>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+References: <20261108212826.15890-1-oo.hehir@gmail.com>
+ <20261108212826.15890-5-oo.hehir@gmail.com>
+Content-Language: en-US
+From: E Shattow <e@freeshell.de>
+In-Reply-To: <20261108212826.15890-5-oo.hehir@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261108_193403_109474_6DB81E87 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261108_193801_724668_9ED1ACAA 
+X-CRM114-Status: GOOD (  12.33  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,56 +81,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add the device tree node SDHCI-0 controller for onboard Micro SD card slot.
+Hi Owen,
 
-Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
----
- .../spacemit/k3-deepcomputing-fml13v05.dts    | 22 +++++++++++++++++++
- 1 file changed, 22 insertions(+)
+On 11/8/26 13:28, Owen O'Hehir wrote:
+> Tested on a VisionFive 2 v1.3B.
+> 
+> Signed-off-by: Owen O'Hehir <oo.hehir@gmail.com>
+> ---
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> index 82ea63f71..14f92b942 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -1206,6 +1206,20 @@ pwrc: power-controller@17030000 {
+>  			#power-domain-cells = <1>;
+>  		};
+>  
+> +		rtc: rtc@17040000 {
+> +			compatible = "starfive,jh7110-rtc";
+> +			reg = <0x0 0x17040000 0x0 0x10000>;
+> +			interrupts = <10>, <11>, <12>;
+> +			interrupt-names = "ms-pulse", "sec-pulse", "rtc";
+> +			clocks = <&aoncrg JH7110_AONCLK_RTC_APB>,
+> +				 <&aoncrg JH7110_AONCLK_RTC_CAL>,
+> +				 <&aoncrg JH7110_AONCLK_RTC_32K>;
+> +			clock-names = "apb", "cal", "32k";
+> +			resets = <&aoncrg JH7110_AONRST_RTC_32K>,
+> +				 <&aoncrg JH7110_AONRST_RTC_APB>,
+> +				 <&aoncrg JH7110_AONRST_RTC_CAL>;
+> +		};
+> +
+>  		csi2rx: csi@19800000 {
+>  			compatible = "starfive,jh7110-csi2rx", "cdns,csi2rx";
+>  			reg = <0x0 0x19800000 0x0 0x10000>;
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts b/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
-index bcd533484a73..051046fe90b2 100644
---- a/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
-+++ b/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
-@@ -177,6 +177,28 @@ &combophy {
- 	status = "okay";
- };
- 
-+/*
-+ * Onboard SD card slot:
-+ * Please insert or remove the SD card while the device is powered off.
-+ * It works as a boot media. so set it to non-removable.
-+ */
-+&sdhci0 {
-+	pinctrl-names = "default","uhs";
-+	pinctrl-0 = <&mmc1_cfg>;
-+	pinctrl-1 = <&mmc1_uhs_cfg>;
-+	bus-width = <4>;
-+	non-removable;
-+	no-mmc;
-+	no-sdio;
-+	disable-wp;
-+	cap-sd-highspeed;
-+	vqmmc-supply = <&aldo1>;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	status = "okay";
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_0_cfg>;
--- 
-2.43.0
+Is status property applicable to SoC rtc? If not, then is 'rtc' label
+appropriate when there's no status applicable?
+
+Note that Mars CM / CM-Lite System-on-Modules may be used commonly with
+board carriers which implement a battery-backed RTC on the I2C bus, and
+so another 'rtc' label may be applicable, something to consider. The
+initial Mars CM / CM-Lite dts ignores this because there is an
+inconvenient I2C bus device address conflict of the SoM EEPROM and some
+carrier boards' RTC, and the SoC RTC driver was not then present;
+problems for a future self.
+
+-E
 
 _______________________________________________
 linux-riscv mailing list
