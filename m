@@ -2,70 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C21A5606A31C
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 19:30:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 310C2606A339
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 20:27:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nAaaOkr/;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OiMOuThd
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GDAtcizP;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UHhjktSL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=yn2xNia0gp0QjInqR/j/7bl9FvoJ3DJ6Hvs3JOxi2LE=; b=nAaaOkr/f0jDb37EGJNYR1UL0S
-	JKZsK2i8uOqWXGkpvCC4/PEmfo8e9YIumFKPCpqWoPxooRrZ83oPC2RJlISUkni3Ctvwa/qFX4RWW
-	tNvnldWZ2egm25ai8aJFpk/VoZDDaTKV8IHVlR3ZoUGP0SSLkdKp9O/UDeZOI+uMVu6K9WL9Kh179
-	zhwvAQ9oF2aSX0Va7Fi5dt0OegE789J7YmY67bKWWGwbW3jtDHRguuC5O30eCgv/ygGvkeHGIjLtY
-	PaK30F4B5XoBvlyKjMlgtJ3DnQMWdDozeKvNHYschgi1Wlium1cex3VRnJ8E+ydXVhkBtYgDo1WxT
-	dbnl4bQg==;
+	bh=g3hTENcRaILdW4w708JdlsaVX7mtKtfOrWWXIauCh2E=; b=GDAtcizPh9vmbwkqDzMtJEg7My
+	WMS5gM89HnAFcrx7/kTGcgoGZ1gLVPwsSetvESxCxIcUnoCNn3ULkVR4W6pR/+KhzaGSW1NB9obqn
+	8oC6ZZR3+shFg8YIY36c6mxkUJA6LGeLza7h8cBmWE3qwxejuqtu6edWeWy72SECABSiET91fLXQw
+	Gy/lJEI2F5eSkmo6JtHf1QXFkMGK9lBXjY89VJfh7YExqF4zNb8OOsKca1xlY/9BEyCTOlD2dJpHz
+	tHt43iqnQJMFUs7eqDGQXer1vM809ZRcFK378taoNb5OqRBbPpGOW1p+6suyO0u7EyWgAeLzMFYB6
+	1SzdrjCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQV4G-00000001YFm-0zTo;
-	Mon, 09 Nov 2026 19:30:12 +0000
+	id 1xQVxu-00000001eJK-3AqY;
+	Mon, 09 Nov 2026 20:27:42 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQV4E-00000001YF4-1Zen
-	for linux-riscv@lists.infradead.org;
-	Mon, 09 Nov 2026 19:30:11 +0000
+	id 1xQVxt-00000001eIm-39Ie;
+	Mon, 09 Nov 2026 20:27:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DD3F34170C;
-	Mon,  9 Nov 2026 19:30:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB7EE1F008A2;
-	Mon,  9 Nov 2026 19:30:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1233C40220;
+	Mon,  9 Nov 2026 20:27:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07F871F0089F;
+	Mon,  9 Nov 2026 20:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794252609;
-	bh=L6VfwYpY8IxdSh1G+DlU88baaChUFV7ZxIByH+ynFzQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OiMOuThdsthnJ9VU+xpKTAMeJ9EWOEszQjTp1Upl7BWC2k488CbLmt89PxrYQiQrL
-	 3x3qgIuzS9/S3TancSeDeJmc7tk2kZPjA5Sq9Vr4v7Oj3Yhq7Fj3jl1ib04f9mh1N0
-	 sRFI/rYtTkN5liUT5nhce4JF7drT0njI5NnPCOlv5wXWlClPqavH1Zibn9q0Irlquv
-	 A50d8zvZoubOXOV/1E/CiiEw2OKBUs6nNHIDvHyx4GoRFEXwP/Y8QlXRtqNRAYe+BA
-	 GED0b8p/aTrp8lcYoxy5r8sZK6Xzbnqoxjl+zD1qw3GVfmbAuN4QT/VutT0FvPICNh
-	 zNcmRBdCloTeA==
-Date: Mon, 9 Nov 2026 19:30:05 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Joel Stanley <joel@jms.id.au>
-Cc: Paul Walmsley <pjw@kernel.org>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Anup Patel <anup@brainfault.org>, Alexandre Ghiti <alex@ghiti.fr>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Michael Ellerman <mpe@kernel.org>,
-	Drew Fustini <fustini@kernel.org>,
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 1/7] dt-bindings: aplic: Add Tenstorrent Atlantis
- compatible
-Message-ID: <20261109-implosive-saxophone-2f278afdd759@spud>
-References: <20261109051050.105623-1-joel@jms.id.au>
- <20261109051050.105623-2-joel@jms.id.au>
+	s=k20260515; t=1794256060;
+	bh=bSSYE7l0m2Lbw/z8BOO6ZEg+OH6DFPR1Glr9kdGiV3o=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=UHhjktSLeWOD/tGVNplwVa0Q7ggxUXoT+CFNoInRKLbMWeiez8pFUyYitGWg6ovNU
+	 VOwffa3R/xHzJicPyIc5nq74rMgvFCS0+CtaEV84fcbnBujX62vJwfo7KGlFEirqrC
+	 IAsEG2nMr4Cc3tE3AWsRg0FfDIIK64O+rATx34ZmMW/+Hzmym7Wtve4DsDgOe1ctSJ
+	 H5tm4RyGfxiUOwpQaBEH8xocAiGmI0UBh0ShCpF+RzgYRY0tdvwITFo7iKgAOqXX7P
+	 D5QNIOKBBvk1ACSUXqRuTg2mrrd8qsH5GrTWgM8uSyP1Vxu3oRqfvh/btaNz1wKCDi
+	 Iv35oDyaakI8g==
+Received: from traversing.sirena.org.uk (localhost [IPv6:::1])
+	by traversing.sirena.org.uk (Postfix) with ESMTP id 7722730216A6;
+	Mon, 09 Nov 2026 20:27:04 +0000 (GMT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20261109051050.105623-2-joel@jms.id.au>
+Subject: Re: [PATCH 1/5] spi: sifive: fix division by zero in clock divisor
+ calculation
+From: Mark Brown <broonie@kernel.org>
+To: shao.mingyin@zte.com.cn
+Cc: broonie@kernel.org, linux-spi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ pjw@kernel.org, samuel.holland@sifive.com, william.zhang@broadcom.com, 
+ kursad.oney@broadcom.com, jonas.gorski@gmail.com, 
+ bcm-kernel-feedback-list@broadcom.com, anand.gore@broadcom.com, 
+ florian.fainelli@broadcom.com, rafal@milecki.pl, 
+ linux-arm-kernel@lists.infradead.org, sven@kernel.org, j@jannau.net, 
+ neal@gompa.dev, asahi@lists.linux.dev, ryan.wanner@microchip.com, 
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
+ claudiu.beznea@tuxon.dev
+In-Reply-To: <20261106234756882V9wUQNCEZAYUGTAbexMSL@zte.com.cn>
+References: 20261106234751020Egf42VCVVlsSC_Msov4HO@zte.com.cn
+ <20261106234756882V9wUQNCEZAYUGTAbexMSL@zte.com.cn>
+Date: Mon, 09 Nov 2026 20:27:03 +0000
+Message-Id: <179425602306.3711751.12136281369535948110.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=763; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=5xd3GS5/MG9NcUE+L6KjqXG6YKTxSTMJYectNTsrnko=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLI+6Ux/lKFcMGP9nyZxi7W/mg7N3VBZbPJdrk1e23q73
+ 7FDvwwsOkpYGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjARLxOG/4GPfmTnXbhjyrhD
+ 4H1v0cUCwZ+tBXy7C+346q498LbaepLhx1KmWkOhWQHH7rhFPMsx+LjCJv615P293RUu+zPzzRO
+ YAQ==
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,51 +85,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3126485829994128854=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============3126485829994128854==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jYkxKq0oK3oBwCOD"
-Content-Disposition: inline
+> Clamp the divisor to 1 Hz so the divider calculation is well defined.
 
---jYkxKq0oK3oBwCOD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> +	/* A device with max_speed_hz == 0 must not divide by zero */
+> +	speed_hz = max_t(u32, t->speed_hz, 1);
+> +
+>  	/* Calculate and program the clock rate */
+> -	cr = DIV_ROUND_UP(clk_get_rate(spi->clk) >> 1, t->speed_hz) - 1;
+> +	cr = DIV_ROUND_UP(clk_get_rate(spi->clk) >> 1, speed_hz) - 1;
+>  	cr &= SIFIVE_SPI_SCKDIV_DIV_MASK;
+>  	sifive_spi_write(spi, SIFIVE_SPI_REG_SCKDIV, cr);
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+If we did genuinely end up with a speed of 1Hz this results in only
+dividing by 2, and we then truncate this to 12 bits to fit in the
+register which feels a bit risky.  We should probably handle the
+overflow if the result doesn't fit in the mask.
 
---jYkxKq0oK3oBwCOD
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCavIfPAAKCRB4tDGHoIJi
-0rcCAP4ouz5K4oFu9QOK+AKf3XtURfpWVq2lqDQg90quvAqzOwD/b12aM/hP9T5t
-WjUp258JZ/CXrFdjz8LxMLrBgug1KgA=
-=McSo
------END PGP SIGNATURE-----
-
---jYkxKq0oK3oBwCOD--
-
-
---===============3126485829994128854==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Mark Brown <broonie@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3126485829994128854==--
-
