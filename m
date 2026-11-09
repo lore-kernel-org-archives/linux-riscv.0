@@ -2,94 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93DBB606A31C
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 06:38:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFB45606A33B
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 07:14:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3ZDxmXz0;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=tNUoeoqN
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vhIzcADK;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=RzuplUmV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:References:Subject:Cc:To:From:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	References:In-Reply-To:Subject:To:From:Message-Id:Date:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=fnUkKWFrUeUZ+LiWRxay+0WlEEP7jPSn/cmKD7AYcEo=; b=3ZDxmXz0htCl2UUz7+OkiwClJ4
-	q7lhTTD0UNLn1Dbcwnq5YD80CywmAZpcS1VMipcvFvsDjmGt2sg35Ul1vnrgnFQhnd50F9uKcW9KH
-	aAl4EPt8gFXxKRfwzV2ttv6Hj3przyP3vgljb9zbyOyWqehjB2Nxj4kmpj/kd5cpURRepiwJvcgMk
-	8facksFLw6bJzr9kR8+yk+bS6EfE8Ft96e8o0Rnbl/xnxs/ekhhJTrI7j6Hlse2Z8Ny4D4qkITMFs
-	da/RkMXkKLDD4EUo7dQOnWypEBiaWqv2MwkgBl1BJ/c5o74/BWDwBgw16VLQ2K/eDHF5CuZ7GU/1F
-	OcJB+xNg==;
+	bh=eop4tL2KMfzO3sErvEtx4diqBP6m4tiPkOhjZITBEsk=; b=vhIzcADKw4AlB7ecKRm6KUNYfn
+	YjY/j/PU4rm3AmSMW8Jo26nv69bie0XWNs5Hpl196CDGKjQTeaY2UYpP07SuYe0WRcLQL4c3gqvlE
+	KrM2LGgyOK3rJ0WiYiWtumQbD1nU37VnWwYU47JZZbfdoSddoOd1XEwz1kP+irEcduQpyn53FNHfF
+	GNuRU+IBfCcvzkYFZBvbBqxNA6oNWLBmLvSclBVEytpuAllpOoVtPLjkNMRHBLLtvh2VDP3cU5ItA
+	9OMdYDhxXqt5DseuuVugP/oy2HzlGSLgh22MHURtbyPeIExBL/8Xn8ZKzrzAL6nYQBJhSOZTGFuyF
+	jeCigpPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQJ1m-0000000HW0r-2504;
-	Mon, 09 Nov 2026 06:38:50 +0000
-Received: from smtpbgeu1.qq.com ([52.59.177.22])
+	id 1xQJZc-0000000HYDg-2Meb;
+	Mon, 09 Nov 2026 07:13:48 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQJ1h-0000000HVyK-1e6V
+	id 1xQJZZ-0000000HYCt-0UcO
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Nov 2026 06:38:49 +0000
+	Mon, 09 Nov 2026 07:13:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1794206287;
-	bh=CR3tvAfi/vhuKX2kubcVJ3VNLkta73TBFdrMFqobo34=;
+	s=mxsw2412; t=1794208403;
+	bh=kJVLZj1Pk3xwWcg8tK9L4RRH3pYszRMc7fN60jkYOvc=;
 	h=Mime-Version:Date:Message-Id:From:To:Subject;
-	b=tNUoeoqNa4wA9S9m4DBhVEGO5Cpv558U6ybNvQ0TQzFl7XXVHvCc1nmfmy9I9WlnG
-	 M+HsP60llAOcGqLthINaxrlJCQNwAV/R83zWhVvChmHpdipYQcqpwWgkC9zGNLgBHb
-	 AlESYVbztRdVcRdxWz8L3bEQ8hoKnjBFs3WBKxKM=
-X-QQ-mid: zesmtpgz9t1794206285t825dde49
-X-QQ-Originating-IP: IwUfJm6QB9d8NP+i4b6UrZEEoyyhvenPAmFqfQ3k46w=
-Received: from = ( [120.237.158.181])
+	b=RzuplUmVenoVBR2noYVOzk8sONCpodCMQ/wb13eFDN3vf3VLIFTBSngZ+yzt/KBbU
+	 VqMr2aDeQ1j9hVrT2Y8s4gnDUChgjte8U9T+PkOKVGslVRE7pR/G/uZNA0Enjzmo5y
+	 hlKlIXYjLz3imXPZkgbytCWZiLsubur8qeqGdoGY=
+X-QQ-mid: esmtpgz10t1794208400t3ad1583a
+X-QQ-Originating-IP: qo40GlWADYFxTR7NC+gq0T9seFJa2UapBBDpklvpw/U=
+Received: from = ( [58.254.68.27])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 09 Nov 2026 14:38:03 +0800 (CST)
+	id ; Mon, 09 Nov 2026 15:13:17 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 15929030815488421648
-EX-QQ-RecipientCnt: 14
+X-BIZMAIL-ID: 14165528735187761627
+EX-QQ-RecipientCnt: 17
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
-Date: Mon, 09 Nov 2026 06:38:02 +0000
-Message-Id: <DMQH1N9VV1IY.2Q1NMMIKR2MIN@linux.spacemit.com>
+Date: Mon, 09 Nov 2026 07:12:57 +0000
+Message-Id: <DMQHSDTR177I.1HWHAF4FWTFQ5@linux.spacemit.com>
 From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Sandie Cao" <sandie.cao@deepcomputing.io>, "Yixun Lan"
- <dlan@kernel.org>, "Troy Mitchell" <troy.mitchell@linux.spacemit.com>,
- "Conor Dooley" <conor+dt@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Paul Walmsley"
- <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
- <aou@eecs.berkeley.edu>
-Cc: "Alexandre Ghiti" <alex@ghiti.fr>, <devicetree@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 1/3] riscv: dts: spacemit: k3-deepcomputing-fml13v05:
- add P1 PMIC regulator tree
-X-Mailer: aerc 0.21.0-reader-ipc4
-References: <20261109033154.361399-1-sandie.cao@deepcomputing.io>
- <20261109033240.361416-1-sandie.cao@deepcomputing.io>
-In-Reply-To: <20261109033240.361416-1-sandie.cao@deepcomputing.io>
+To: "Yixun Lan" <dlan@kernel.org>
+Subject: Re: [PATCH v3 2/2] pmdomain: spacemit: Add power domain driver
+In-Reply-To: <20261108-04-k3-pm-support-v3-2-b9dc0857039b@kernel.org>
+References: <20261108-04-k3-pm-support-v3-0-b9dc0857039b@kernel.org>
+	<20261108-04-k3-pm-support-v3-2-b9dc0857039b@kernel.org>
 X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NSHCtT0FCjNonoUS38tup7qoV7fkZLU4pU9zA2YNDpCpPph1p4IGfk8z
-	VfNYiSjWB9BuK/wb16J2gXqNhWGcGDEBu0bzyEMkZhyzNWzzlgzUE4TPZVr/W7kxEb3s8Oj
-	hD9RPNou+7en59iP6vGNpY4Oyf/EMV4+lF23rBqSOLXZzD4epYoNqhN3NWrQz747OYl6NaD
-	Vc+ryZkmP2mD7C56lMmzKHXCwRuIYnm/gnM5Q9ASwv8thhK75RDxtbnJsJ8iYP9TUhKvpz4
-	P8iolNnCEG0lJi1TzUJ+0OS9wFONTqMZatJsZwePeJ2GC9xq4C3yfPO2qXzGx/35Y+mncpn
-	KjIFySMiax5YXgwEl6Anig6joTK8EKXu07pbq2GLnhEka3zlUE/FgciQEyypd02de3frakG
-	jDorUBxI4SuoCe+HRw0qjwrluJsxTlZ6oZIs/X6DIsApVcSVfhVKsAcFbr8lYMvSBnkbe/r
-	RFdISNni4sgw+6Kxjn3EvgMKhAYof7RS8WVnnEmIB5L6jv2/97YeYeZxb625uPCNSj7ayet
-	TzibmdJ2d4vB11uEolR6uSQ1dZ6peIw3p3lRSFl1yrea/YSQEiY8WRDc/X1+Pu/PMq6o9Rh
-	8wKBhaG5gNhWgRhvucsaoEwGpe4YZCzI84pThNhSuskcXT6++3JVbZF/huNc/oG2yBOtzBy
-	W0B4VqTVwrTUB/p+0i0l5dxig8IQJnPmiI/YPlQX5GYsdEkRdOdtCOuy2XwDbI1WE2KnVC9
-	GGC26Q3g8UTxDrvszHYgONSmem1/io8ycg0av1nb6YeiL7V8z48vH8QtmD/GGQN9VMBGUIi
-	otRR4qYJjn/ea0YaB6QVfYzaiY6NDK3fkUsx44KpSo6gd9j23QjI6auR3TxFND1uBm9shhn
-	MYoc3lIRtMrkGbo8b9evmbIFn3CYfLflKlN0Q404lnKdEPEXcbf7fIzqNsJeK6XsJfPAA4V
-	jbg91SgdR5zCH45W4LavaS4WTpsVSI3ks4mi7C5JvmkKsGamcYKttSv7zZMhGNry4mCp73A
-	acyUjh2oJjBiNsgAa9OgZCHcIpXwzDigHpnUvTN7GfzJKU+O7QeekjHO956G9zFZ5h2xSIN
-	bqIQCamVHq5gOnXEs9VEDAg59X4eErx/bDlbEja24KN
-X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MIODS64eMatOtLYkCYprGJLH8gStOTN7ayneCZEb7cAqjI18Lf7bOP+S
+	R4U+GuZxC4R65LKC2xE6bBE7HXg4bZOgeCJFKRInnBN8Q7K4xF3nUtUFh7l0uctRu1ivNnh
+	pBU6oDfmtYDNa9Qhw/Ijc/TTAgIDVSBdrtZiPcyOIrJ8a53hf5j5WsHMT/GSFQaK5p6M777
+	VMnI3IVLHQc+OM/bqX+MA4V20izD/ZZKAgE5oKnVe/rJDAPuYXH7OWLZ09W4yDo6IHTwV8H
+	X+7WEW8Abyxn7AcEXt/9E4LNgpKpliHRZrwB3Nb4Tcb2A07q9yiX0I5qYPV2UgJ/KHw7wHj
+	/rxkbECA+TaNPWAGp54XsGcI9XDsU3AFm2siCkPcsmcsN+9pt3HYT7daSf9O9+4I49Z89cV
+	BlhNTr8tjo1m5ltBI3s5hUPQdk9P65rC8bHIXUWrIWyrqOJ8AQTpOeJQLgaLJIJv4DISIss
+	3I8DuYT8oDFNWr3nSGSBF00rKDucMtovTIbAVEQT7KipGOXMvcYBBfzLO2ij9EL+XYd1BDk
+	+L6kAbw3vT+aKV+YnQ+ymOA6+gVuQWcs/Mn1teZutlnTd91SxUbCsmWUJ+OniyNDSCKyM0S
+	udNaZO2gGXwgwswcv+1dhz94t0YEbJKV5TVWP6Mg3EPtdqLkPcRMGVouNJNglS2gjTx0IkZ
+	VoexwHmdMaf+nxIjBhWiEcc6iqZAoAQ7Vu6Hxs9tHsN3D3ySzv1ZyWqzUJh7tj1P4ETmP4d
+	uG0HMnN3ctNAbUAG0lgEft+ZkQu/AY8BOuWnrjdsMEj6nWP8Nx6EJCukr5mefs57368aLvT
+	Ha7ldmpfuxI4dFO5k9r6czpeghO1kG1vpbgRpIcyaIZs+0L94mGrwYFZePPoWHzWNHokk6+
+	jjWBFNI5F0q+vBOdT5qgXZxdJ9Z/TRCKUIxyuuTeIk5smXXWniTz5ewk07vqJUfGaB7RyjN
+	41QZgA6Yv2c2fiVmgAkxfVj6FHQCss2U3EKST7fJApCIu3/2nKNjYp5kYpSLNKrPnoTN4Bc
+	YF2NxxMj0xOg/W09EwpeVBq053aFQtBkbyvDPZ1GK9rkCGRB8oyFe2DCbQsf/+ZE+POrtUa
+	4fX2XLlZit3
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261108_223846_089924_C1B10A01 
-X-CRM114-Status: UNSURE (   4.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261108_231346_341863_4C5DE5A1 
+X-CRM114-Status: GOOD (  12.57  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,52 +89,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3964256454985440266=="
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Ulf Hansson <ulfh@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Troy Mitchell <troy.mitchell@linux.spacemit.com>, Paul Walmsley <pjw@kernel.org>, spacemit@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>, Iker Pedrosa <ikerpedrosam@gmail.com>
+Content-Type: multipart/mixed; boundary="===============8235340349708844571=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============3964256454985440266==
+--===============8235340349708844571==
 Content-Type: multipart/signed;
- boundary=a45515cc26bb2c3e16f7ddb138529dcefe17028f2f8a02fc6d43a5237aa2;
+ boundary=e332fbce858a9fc00b10f2e696db37e3970b3372689d66af046121bcb587;
  micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Transfer-Encoding: 8bit
 
---a45515cc26bb2c3e16f7ddb138529dcefe17028f2f8a02fc6d43a5237aa2
+--e332fbce858a9fc00b10f2e696db37e3970b3372689d66af046121bcb587
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
 
-On Mon Nov 9, 2026 at 3:32 AM GMT, Sandie Cao wrote:
-> Add the P1 PMIC's regulator topology tree for DeepComputing FML13V05 boar=
-d
->
-> Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Hi Yixun,
 
+On Sun, 08 Nov 2026 10:36:02 +0000, Yixun Lan wrote:
+> +config SPACEMIT_PM_DOMAINS
+> +	tristate "PM Domain driver for SpacemiT SoC"
+[...]
+> +	  Say y to enable device power management through PM domains.
+This is tristate now, so "Say Y or M".
+
+[...]
+> +#include <linux/io.h>
+> +#include <linux/err.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_domain.h>
+> +#include <linux/regmap.h>
+> +#include <linux/auxiliary_bus.h>
+io.h, err.h and platform_device.h are not used right now.
+
+[...]
+> +static int spacemit_pd_power_off(struct generic_pm_domain *domain)
+[...]
+> +	if (ret) {
+> +		dev_err(&domain->dev, "failed to power off domain %s: %d\n",
+> +			p->name, pd->pm_index);
+> +		return -EBUSY;
+> +	}
+
+-EBUSY drops the -ETIMEDOUT returned by regmap_read_poll_timeout();
+why not print ret and return it? Same in spacemit_pd_power_on().
+
+[...]
+> +static bool spacemit_pm_is_off_state(struct spacemit_pmu *pmu,
+> +				     struct spacemit_pm_domain *pd)
+[...]
+> +	return (reg & bit) ? false : true;
+return !(reg & bit);
+
+[...]
+> +static void spacemit_pm_domain_cleanup(struct spacemit_pmu *pmu)
+> +{
+> +	struct spacemit_pm_domain *pd;
+> +	int i, ret;
+> +
+> +	for (i =3D 0; i < pmu->genpd_data.num_domains; i++) {
+> +		if (!pmu->domains[i])
+> +			continue;
+> +
+> +		pd =3D to_spacemit_pd(pmu->domains[i]);
+> +		ret =3D pm_genpd_remove(pmu->domains[i]);
+> +		if (ret)
+> +			dev_err(pmu->dev, "failed to remove domain %s: %d - state may be inco=
+nsistent\n",
+> +				pd->param->name, ret);
+> +	}
+> +}
+[...]
+> +static void spacemit_pm_domain_remove(struct auxiliary_device *adev)
+> +{
+> +	struct spacemit_pmu *pmu =3D auxiliary_get_drvdata(adev);
+> +	struct device *dev =3D &adev->dev;
+> +
+> +	of_genpd_del_provider(dev->of_node);
+> +	spacemit_pm_domain_cleanup(pmu);
+> +}
+pm_genpd_remove() fails with -EBUSY while a consumer is still attached,
+but pd is freed by devres anyway. Set suppress_bind_attrs like most
+pmdomain drivers?
 
 --=20
 Troy Mitchell
 
-
---a45515cc26bb2c3e16f7ddb138529dcefe17028f2f8a02fc6d43a5237aa2
+--e332fbce858a9fc00b10f2e696db37e3970b3372689d66af046121bcb587
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCavFqSiEcdHJveS5taXRj
-aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC+cawEAmuTbJIBqSbKS
-j8uuHL7iWjyMcnsLj7MKWkndH8HZa/IBANz9W4bE/oiXueScqETBLZGFyktM9kC8
-/G7QkwtLUPUD
-=s9s9
+iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCavFyeSEcdHJveS5taXRj
+aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC9MtQD/aDe7GEsQxXem
+tqumpi4bxtTDHQPVsbj5Wnjdb4MV1uIBAM48sFNsLNa4JF/Fk4zZ+5Dmf0vEjAGt
++OkFbGjc5/oK
+=gTan
 -----END PGP SIGNATURE-----
 
---a45515cc26bb2c3e16f7ddb138529dcefe17028f2f8a02fc6d43a5237aa2--
+--e332fbce858a9fc00b10f2e696db37e3970b3372689d66af046121bcb587--
 
 
---===============3964256454985440266==
+--===============8235340349708844571==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -156,5 +207,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3964256454985440266==--
+--===============8235340349708844571==--
 
