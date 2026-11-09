@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71CD0606A325
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 05:11:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D3F6606A31C
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 05:11:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uF1sRZtD;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gtcwSkht
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mth8lL3y;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gmpce19D
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,67 +14,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=QerJDhJxX0R70wzsbMX/mH+9bLx3hGT57NSKMSKOQFU=; b=uF1sRZtDwokvKto+8H4SfPF119
-	8WRVmgWNQFWMBCQfeMOV8A1DhQzABuEDqFhGA3I3D6egRqrInUN+3pZKVzKH4SY5/fR33AboaiBKr
-	FEFiLVTrFkWX7yV/BzU4bXzjtRB7rlPyM1YI+imw6biDMX3y2rKzKXO2FPVzIWRtLO7Oey0KJSEJA
-	G7GPZXPNHOtUSMM6XBGANGTn1jBuSR3wjpFPgkE1eaYs6SBtMZ7mKQdjtScf11EzoJXohWOsjW5/D
-	vnXcaCFvNSdreXXqh41V/71m7Djv4bYCCRePTjAynlaActNmSO73oqKJ5lMGlHmZcAjuaBqYKx7jW
-	3Ww8qlOw==;
+	bh=za214Eq9CVZ0pANGZ1oTW8XKkcVw2xssJHen/TLHOjs=; b=mth8lL3yH1yS00gMddH1i5WYIi
+	6l6l0B4cRV+4hh5XEtgK7XQg6rFGau97Z81osnZJj8EQt/oY0LID9mRKZTTu8y8xWvqOx0ZJ7ejss
+	+YQxTs82U3ph/jZW1Rp0Pmmll0zqV9601aXzk5kDKVfcwjRzkUqvRAIhX0HfpKHoZWstuIHIVtBrm
+	W9QLTThY4Y16YsQ6gDJgK6SbFIsX8E73NXJdSBnPdQz8zEoK6WUcZObAirC/EEYRC3K2rEiSuFKJO
+	LYSpYjcLlXZdLJGAG1IQu/u/3CcGNRgy6sFLZHCY2unbUS31DuO/vu2LC35KyM201ZLfv7cMpcVtP
+	m9gtPF6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQHez-0000000HNY7-0Rb1;
-	Mon, 09 Nov 2026 05:11:13 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1xQHf5-0000000HNZD-0uof;
+	Mon, 09 Nov 2026 05:11:19 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQHex-0000000HNXN-1GaI
+	id 1xQHf2-0000000HNYU-2UpC
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Nov 2026 05:11:12 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-3ad2b3b1c02so261704a91.1
-        for <linux-riscv@lists.infradead.org>; Sun, 08 Nov 2026 21:11:11 -0800 (PST)
+	Mon, 09 Nov 2026 05:11:17 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-cc147d86bebso210968a12.0
+        for <linux-riscv@lists.infradead.org>; Sun, 08 Nov 2026 21:11:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794201070; x=1794805870; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1794201075; x=1794805875; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=PViKVEDNl7eyaV98kB7k3kA6zBpmDGrpBaq9x9jFABc=;
-        b=gtcwSkht4vZJtjw/JJlCpXCnXQuNqI9UWgPxAfDLoaufT3Js8fbKnsuRKEAw8UyvmN
-         DadQcXMqw4zrw9ctYlSZamV/dhYK6MTxYjMhVH5clxxP6p+wYmtfYI45beCjJmWvuNQ2
-         autn2+LVommgbg88sx2kMf3DzxyoPZGGGLgHNxQIub5dW0UZtuozWIuqnR99CFrIRXen
-         8GmKpNeGJ+I7tGjmqXZhdVEN7IYXX/sEtGSPjBk4MWuqufhvdVepV8P3UhJllz82mmEA
-         Dm3Yj5/dFHXUsCRcahMjGx7HV90xyg3czQ561mOcd+9lUQFI34o5WSSonKObWCFIOIyF
-         SsWw==
+        bh=G+rCZlZvpLUe3/sSBMNpNP5w4u7bZtndPiMGg+R0D5I=;
+        b=gmpce19DEjjo5NdEhSNIs20bbS+RZhzZ0tN9HCbD3uXFVkTZ8D4Ajrco2sm7sEWeSC
+         UHdSATjghRq+IIP2PMLy1pLP81fwZl26FvK161W9MzIbDCS6PF87wbieIppFODK2icyS
+         CLNV8RI1tZMvwuuNvJZ7YxX64Mu+8y+OlwQzHP2paDzLDbj1YSYJ6VheO6IMbxiNlSis
+         RYJpbrmH6JnT2+md/vm47bMkV0dpwM23JOtIjy9Sn3w17Y8RWjjQqEaPpPyYnaCG8jVO
+         7WPuWBNhfHwBSXTfxJNzxd9UKzeSRk5OOpZdSahj7oxw3c7CbAyP+QfzUaiMxBCa2fZq
+         dmgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794201070; x=1794805870;
+        d=1e100.net; s=20260707; t=1794201075; x=1794805875;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PViKVEDNl7eyaV98kB7k3kA6zBpmDGrpBaq9x9jFABc=;
-        b=B3wQcw2E1htqabUHCrTibmfHhK5yIKwbJlwyrT2P/sV506EGlyHGAX+930FPg6KUVY
-         KKnOPFXP3K0JxXH3EDgjpZ0e9RO/HRH+j4GvJT1XovaCll47XiDX8CO1IMpWH0ssw6YX
-         yBFUIRG1bGa7Hqy+y65y5lunjkr+vvDRR8YCdiijx9eaoPuTrCy2a0My7ebhptfDprh3
-         u6gm4qj5nbEyIhVHPUWdcUo4ORP/LhaMlLrL6+iX7ifqYvC9u/bVuY3VNFBJBfnoTnYS
-         ALmTkawWTOnkN6ZAQVVTPzg7V6weP5UiM3+UamkyxFjJ5MjmXA0TsZUHExDAZ5q8/xtc
-         XvPA==
-X-Forwarded-Encrypted: i=1; AL+hErFSxnjVL1rh57aZM6VOS/CxMx45heQkwETh7c9aFt8Jx9DWwdEJUHOZu7JmZe4moGS13c/tzQVxVQ3F1A==@lists.infradead.org
-X-Gm-Message-State: APuU4Z/97bg1UPywSjmLyolRfnyil1yfpmoOZDQwW+AMmReVZ+YTQ81i
-	q0y9DZAwsBvqiIvOHXpgGIzn97G6LBXSpsGeUTFqJVUTKS8tLWLdq2NG
-X-Gm-Gg: AYBFou32P+6t5/UAJBB1+tBC88HAaWTSKyV7KhLwoI9jK/Db+cFkoXmuaRqSiHJkIfs
-	0yakn0T0fMf+AP6qgSWVliEfQBrWGuH3V+ZM1CumYQdWN9IjmzZGCwudxKZBCshgLvRC0ylzjaT
-	j59b7+H9Rwh9ukacgixV38LfOR/dVxxP5Ka9hAOhvhc9Lx8mMRRdMpHQ67H3ZpRtQdIOkGa+voU
-	1ZXtk1Qk01FtotSbau2W4sMK+dzBvMS7UUUnehEgLKkzx0ILsr1ZXf6eDzKKc8BuTy7NWcgeA/b
-	eX2wuCodFZEFphNHqclLZezegane9ihD/F65zu0th2W99ay7paD3uf9/X6rAPzQMhxufVRXOQ3X
-	3Eo5x2X3psgr/tz3I2zK6EUSrHZ4CZbkc3dGETtiQxwTvihZWWsLr1x0z5252HGsOMTOZ/4te8f
-	nNYYOuGpn1SK0wIX6cPO/OhnSIE9p7DBWzbWgvIpvQKF7V6e30yUUv8+sSGucXUtKqLMPKhR7/L
-	JCJ9hyRNy+lMq2KdbONA6kwKSMrMoDhhVkevv6uAyOWltf1O37Bm2pLFMbTI8nXisBJrfLkIBW+
-	46ctCmOJ7v0N9K0AQZgq+/wkIJ6tl2fGULItXRcZKHUNrJPCs0MhnQ4zN7olcSuzMj5s7OZy4c4
-	5QF7Df5JhJosBYsamr9YnW0tDFudMcJdJI8Vet5viw+Cl3OqHfU5ia2Tj2Q==
-X-Received: by 2002:a17:90b:5804:b0:3ab:33b6:2c27 with SMTP id 98e67ed59e1d1-3b12d4207d4mr2878398a91.23.1794201070121;
-        Sun, 08 Nov 2026 21:11:10 -0800 (PST)
+        bh=G+rCZlZvpLUe3/sSBMNpNP5w4u7bZtndPiMGg+R0D5I=;
+        b=VfnUYu3GskCByN3IqDUfWAHeN6Bn1R9W0VNwT+S50c1+MvFTsTnRho8MrhN0PMAUeL
+         iQTQWtZx7LM9Y9ooicBs5krSCK4PHpqVTOyiMgLeLLcW7bU8oc8JArre41ouHLvcmgZd
+         PWzGho6ud21KJ7c/89tSQWJxsSQymivNfPc6MXQavO94K+KpUDnZW1hLbTRV5AEgzC94
+         Pd4Q7Goy45NHmpc+yDkmpm38Bwez7FP+nbzepcYWhR3aaF52kQgIscygrafVtN9PiIjX
+         fPpb53C9TlVX4/Y9QYOPd0OAOz6mTqyq/8Bhrq8fCRwbAsicYH3W+bNb3SwJMQyrKYYJ
+         azTQ==
+X-Forwarded-Encrypted: i=1; AL+hErEJ3EAC/xXSaHW4SkUxjlPcf1vYrP7XQMP4HNmuWl8G9NaMAGmyWcRuc7DEhgl/KkbfQg8sSS5zwNl0cA==@lists.infradead.org
+X-Gm-Message-State: APuU4Z9i37bAuntyy2SE1Q5mFW8Ut7ihAGWYF1OXzq4CCei2QeSUX70Y
+	mStcD03Kh5AD6OZJ5SFu4rVY+qDHCe5OxgK822nXEyrpFxqJdcMuKj1Z
+X-Gm-Gg: AYBFou0zeqJ3DFUrGa5lpZfmrhbeRK4xb68PVLy8mjvX9i2b38kxJqfL4bYNDQJQ+iU
+	XLGTF8y0GycVMQzcPvAGXUVP04P0/E6Gucmx01YTh74U2C0A4E4n7OVMN6OSDh5rZAM5YZR0HE6
+	+hSx2Tq4NQdGgJ56IBwvGrc3UBcLn/N12BaiAXvyYGjrUdnmfszcYH8ZIVicuqtRIzEzCCD2cFt
+	CdL311oxc59lIKGEP77QptiNSDo1j+5YV+WS5wzAN+n8Ar527iFIjgkY+f1IWfGPoaTJwWyyO6X
+	Hn5cCfjCVcdV7YvPRR+rIgHG02ulrH88g7VwlOmN7k6ogqqGCWVV2JhNuOSfNKLht9bYSylvuwm
+	OwpBNrlWMm1ovIzkaeg4eZaufdr4RzQNv+m7gcwHhbFz1PcPBbTnFzNZZQWga/KNcz97v3US/R/
+	ym8/Np5jpc7U+zPdgtt6QbQ/Y0E65yANHXYTO0QtWx6+ueZBG4PzBqAafT+bJpoQ+L5Y1XE2nmb
+	cxaG9L94nMmoio+ygYOtsxvU0CLytgbChG+GuRN6vFw/rl+nHTo3GMeZeClgLyolcDCwGYIZdOn
+	8jbVedImRB83laOHdU1BYGSHd5Re7blDjTAn8I+8UfzHBth1QnIhiR9bclu0NGYRywqvwv9JtJg
+	u5cR30zpmkuMGS5HYyNhkLwNgJmm+HKERNBFrZnwfZ3Ap3yoKyExjyX1m/meBK7HUud4yFEBB0a
+	MMvgi9
+X-Received: by 2002:a17:90b:4b8f:b0:3a0:cca0:4a8c with SMTP id 98e67ed59e1d1-3b12d3fdbf6mr1750088a91.7.1794201075584;
+        Sun, 08 Nov 2026 21:11:15 -0800 (PST)
 Received: from donnager-debian.. ([180.150.112.169])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b12790befasm5247652a91.13.2026.11.08.21.11.05
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b12790befasm5247652a91.13.2026.11.08.21.11.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Nov 2026 21:11:09 -0800 (PST)
+        Sun, 08 Nov 2026 21:11:15 -0800 (PST)
 From: Joel Stanley <joel@jms.id.au>
 To: Paul Walmsley <pjw@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -89,18 +90,19 @@ Cc: Anup Patel <anup@brainfault.org>,
 	Drew Fustini <fustini@kernel.org>,
 	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
 	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v3 1/7] dt-bindings: aplic: Add Tenstorrent Atlantis compatible
-Date: Mon,  9 Nov 2026 15:40:41 +1030
-Message-ID: <20261109051050.105623-2-joel@jms.id.au>
+	devicetree@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v3 2/7] dt-bindings: imsics: Add Tenstorrent Atlantis compatible
+Date: Mon,  9 Nov 2026 15:40:42 +1030
+Message-ID: <20261109051050.105623-3-joel@jms.id.au>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261109051050.105623-1-joel@jms.id.au>
 References: <20261109051050.105623-1-joel@jms.id.au>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261108_211111_360978_C0FE1501 
-X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-CacheID: sfid-20261108_211116_637253_2AB3116F 
+X-CRM114-Status: UNSURE (   8.18  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -1.7 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -122,27 +124,28 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add compatible for APLIC in Tenstorrent Atlantis SoC.
+Add compatible for IMSICS in Tenstorrent Atlantis SoC.
 
 Reviewed-by: Anup Patel <anup@brainfault.org>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: Drew Fustini <fustini@kernel.org>
 Signed-off-by: Joel Stanley <joel@jms.id.au>
 ---
-v3: No changes, pick up review tag
+v3: No changes, pick up review tags
 ---
- .../devicetree/bindings/interrupt-controller/riscv,aplic.yaml    | 1 +
+ .../devicetree/bindings/interrupt-controller/riscv,imsics.yaml   | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-index 0718071444d2..d4e17861eda4 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-@@ -29,6 +29,7 @@ properties:
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
+index feec122bddde..442b8870f9c5 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
+@@ -49,6 +49,7 @@ properties:
        - enum:
-           - qemu,aplic
-           - spacemit,k3-aplic
-+          - tenstorrent,atlantis-aplic
-       - const: riscv,aplic
+           - qemu,imsics
+           - spacemit,k3-imsics
++          - tenstorrent,atlantis-imsics
+       - const: riscv,imsics
  
    reg:
 -- 
