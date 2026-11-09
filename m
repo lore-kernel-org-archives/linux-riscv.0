@@ -2,80 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6514D606A31C
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 03:17:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D81AD606A31C
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 03:32:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2qkIEsf5;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=E4aXrlQ4
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t4+A+4gI;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=mazc4Bmw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Cc:Mime-Version:From:To:
+	Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=GFOF8pMkRxh33zfdDl2bkC1HF9/ZQJDB9LOpwB0wlhY=; b=2qkIEsf5P9Y4jNznGTGqcqr3AM
-	MM7IizX5vPf9flNLEWMVAlfbvks3iDhtfp77pjHDN3xGkoGkQEnpWlvqWJd3c51mPupE0tOkUOJ0Z
-	Jb+3KA47MeCIFUvnBopv5nef7i2W5idNYu3Uvx66rhWUqXm9QvPYnFPcM+AmGieWLstUUwUO5Id04
-	T86uuiWRyx7tHfHVO2TPF9iigloTzhLnrPKdA5ZtV6xoQKaPTWBEDEmW3bgUg5Nz99LGOXzfIYaQ6
-	tIqHqGN/bvR9vWiDPgccE29t8yRgSQPYQ2tzHtSizxviCjyhrkl3dqOzzKDFZqA/hdWUY9MLtpn85
-	ivYuyo1w==;
+	bh=E9YOJPECle+LeqoFdW4UftsvfEK514/QKzavHMVR2pA=; b=t4+A+4gIOb/pVGxjH/Pwmuc2Zr
+	Pd4FDSxaf36KJEWqwK9tSEuJszLVIR9KannRN6mQzuSegRCL89n5qXgmpD4FzMmYzgfmVZ2irdXQT
+	54UK2fpto71nWN1rCK82gxFk6CPldko3k1/cjAATDOEXer6/RgO4/whcoqdXpWg6fKH+VVlG9tgsF
+	zwBT5B/teV4EtRQ8idSqzaTGXCeOtvy+oQfqh8uXOTixVvViCxybJmHNcWD2PHKh9qxZBeBBwefoJ
+	1Gq9fi0H1Ly4tjaVWI4FrTeka1Mm4BLGuCYNohqZl6whCjFUnpy5N79YCXI5sCKYu+/pBcKw+B4it
+	RA45aang==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQFsU-0000000HAw2-2cQs;
-	Mon, 09 Nov 2026 03:17:02 +0000
-Received: from sender5-pp-e108.zoho.com ([165.173.182.108])
+	id 1xQG7L-0000000HCiL-0sxZ;
+	Mon, 09 Nov 2026 03:32:23 +0000
+Received: from va-2-37.ptr.blmpb.com ([209.127.231.37])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQFsR-0000000HAva-2CBA;
-	Mon, 09 Nov 2026 03:17:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1794194189; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=L0MjgcqXPJitlOVyDqAKTd5p+9n9JBhQ+dGSFjhfNlVdklM9BiPhXCsr0Nc4SJrK76EzvVfdE9QeJrPXYS6Z/EV9n+YyRJVAskDgnwcVs0knngMBwCriIn4bt5ojg5RiwyVa8qcwj2PfzPI3ocxId48jDBcRXW900Z951pdo2qc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1794194189; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=wkPpP6AwZpMNKZU0R11NpMOQrwHOhcED5088KBtaDHA=; 
-	b=n5RjKUI4/T8o/eLGpOfchAZ9Xusey+v+/5oWqXYbsV1HXGH34vH//WqWreXqa+lrIxXEfZfAxxSNHohcvJo3pkW42s0Jjvcd/19wdDIPlpI/+Sdn8JFV/Ahr8KzSaNKDk8Oh++yLyVwcFKJOkVfr+uOLDlhLYpe8jVHLN56mrwg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: a=rsa-sha256; b=E4aXrlQ4V6gCj/NHcpw5zGo8qbS90mcj/GoM4hGCu8r8HhWeiKaagUo7Rth+K1/nQVg0UWV1ak3XKCiW8w8JPCnqxJptgCQ0vFWhEoP9bDXguXxDyCOTuc3Afk0puDsGvj8yBS0QMYi2evneze7XziX+9qqNc+AM+48Ow3x317U=; c=relaxed/relaxed; s=zmail; d=pigmoral.tech; v=1; bh=wkPpP6AwZpMNKZU0R11NpMOQrwHOhcED5088KBtaDHA=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1794194187174866.5006536015394;
-	Sun, 8 Nov 2026 19:16:27 -0800 (PST)
+	id 1xQG7F-0000000HCcB-2Lvk
+	for linux-riscv@lists.infradead.org;
+	Mon, 09 Nov 2026 03:32:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1794195129;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=YzDaYCBdSlrb9LFHCCjVU8KX83BPN0Qfxpy4gBXOK+o=;
+ b=mazc4BmwyxscUch6uiRgmt/4eFAe3sxKGToaNVbJvQVveZgFoCoM4xkGtNJMUT2WOctWyW
+ s8V6uikNfzU7SdeF2SUGB32Z34b0wLjmXmNvss1JC0K4BX+H/GPXrPWVIzGfh3L0eToMYy
+ mzOsJe+rHfQIO7EsErS3EVIG0toDoLRhbrsEeTbhmkcMgDuzjfWlLSIbs13EM7XMBmVSc9
+ OWrML56W/AlCwhrfvsKmXPPWKAAzeqguLrsR/S43lYNhvKW3kHUa7b8bWZVLaG60MAeASZ
+ enC0EKytx5p/ddAv1+kFXfgHN/54RA4WfiWypnTFmbJZXDM7JWsvdt7JxqfnSA==
+Message-Id: <20261109033154.361399-1-sandie.cao@deepcomputing.io>
+X-Lms-Return-Path: <lba+26af13eb7+43f0ad+lists.infradead.org+sandie.cao@deepcomputing.io>
+To: "Yixun Lan" <dlan@kernel.org>, 
+	"Troy Mitchell" <troy.mitchell@linux.spacemit.com>, 
+	"Conor Dooley" <conor+dt@kernel.org>, "Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>
+From: "Sandie Cao" <sandie.cao@deepcomputing.io>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
-Date: Mon, 09 Nov 2026 11:16:17 +0800
-Message-Id: <DMQCR64N88M9.GCX83LKYT3IE@pigmoral.tech>
-Cc: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <netdev@vger.kernel.org>, "Jerome Brunet" <jbrunet@baylibre.com>, "Enzo
- Adriano" <enzo.adriano.code@gmail.com>, "Norman Herms"
- <dockseed@proton.me>, "Vinicius Pedrosa"
- <vinicius.eduardo.pedrosa@gmail.com>
-Subject: Re: [PATCH v6 6/8] clk: sunxi-ng: a733: Add mod clocks support
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: "Andre Przywara" <andre.przywara@arm.com>, "Junhui Liu"
- <junhui.liu@pigmoral.tech>, "Stephen Boyd" <sboyd@kernel.org>, "Brian
- Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
- <jbrunet+clk@baylibre.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Chen-Yu Tsai" <wens@kernel.org>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>,
- "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
- <richardcochran@gmail.com>
-X-Mailer: aerc 0.22.0
-References: <20261009-a733-clk-v6-0-ae8178fce7e8@pigmoral.tech>
- <20261009-a733-clk-v6-6-ae8178fce7e8@pigmoral.tech>
- <30e43e84-e6e8-4024-b415-dedf67070c4f@arm.com>
-In-Reply-To: <30e43e84-e6e8-4024-b415-dedf67070c4f@arm.com>
-X-ZohoMailClient: External
+X-Mailer: git-send-email 2.43.0
+Cc: "Alexandre Ghiti" <alex@ghiti.fr>, <devicetree@vger.kernel.org>, 
+	<linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>, 
+	<linux-kernel@vger.kernel.org>, 
+	"Sandie Cao" <sandie.cao@deepcomputing.io>
+X-Original-From: Sandie Cao <sandie.cao@deepcomputing.io>
+Received: from roma-Laptop-12th-Gen-Intel-Core.lan ([218.17.141.187]) by smtp.feishu.cn with ESMTPS; Mon, 09 Nov 2026 11:32:06 +0800
+Subject: [PATCH v4 0/3] Enable USB and SD for Deepcomputing FML13V05 board
+Date: Mon,  9 Nov 2026 11:31:54 +0800
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261108_191659_913794_9A18BB94 
-X-CRM114-Status: GOOD (  28.80  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261108_193217_683103_B486D3DF 
+X-CRM114-Status: UNSURE (   5.41  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,501 +76,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Andre,
+This series updates Deepcomputing FML13V05 Device Tree: Add P1 PMIC 
+regulator tree, add USB controller and USB phy, Enable SD card.
 
-Thanks for your patient review.
+This series is rebased on next-20261105.
 
-Besides the issues you pointed out, I also found a few other places that
-don't match the manual. I'll fix those in the next version as well.
+---
+Changes in v4:
+- [patch1]
+  - Remove unused reg_aux_vcc3v3.
+  - Rename p1@41 to pmic@41.
+  - Add regulator-always-on for dldo4.
+- [patch3]
+  - Correct Onboard SD Card comment.
+- Link to v3: https://lore.kernel.org/all/20261102060012.100623-1-
+sandie.cao@deepcomputing.io/
 
-On Mon Nov 2, 2026 at 11:32 PM CST, Andre Przywara wrote:
-> Hi,
->
-> judging from the "fun" this is to review, I very much appreciate your 
-> efforts in putting this together ;-)
->
-> On 10/9/26 17:52, Junhui Liu wrote:
->> Add the module clocks found in the Allwinner A733 SoC, including video,
->> storage, interfaces and others. While most of these clocks are similar
->> to those in the A523 SoC, this implementation accounts for changes in
->> register offsets and introduces support for new modules.
->> 
->> Tested-by: Jerome Brunet <jbrunet@baylibre.com>
->> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
->> ---
->>   drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 1103 ++++++++++++++++++++++++++++++++
->>   1 file changed, 1103 insertions(+)
->> 
+Changes in v3:
+- Remove useless gpio header.
+- Add Onboard SD Card comment.
+- Link to v2: https://lore.kernel.org/all/20261020081633.3673704-1-
+sandie.cao@deepcomputing.io/
 
-[...]
+Changes in v2:
+- Remove usb3b, usb3c node define in k3.dtsi, it's already uploaded by 
+other patch.
+- Add phys and phys-name define for usb3b, usb3c, usb3d in 
+k3-deepcomputing-fml13v05.
+- Remove cd-gpios, use non-removable for sdhci0. 
+- Remove vmmc-supply for sdhci0.
+- Link to v1: https://lore.kernel.org/all/20260922110231.3426011-1-
+sandie.cao@deepcomputing.io/
 
->> +
->> +/* Undocumented, taken from the vendor kernel. */
->> +static const struct clk_parent_data avs_parents[] = {
->> +	{ .hw = &sys_24M_clk.hw },
->> +	{ .fw_name = "hosc" },
->> +};
->
-> Those two parents appear two more times below (usb01_ref_parents and 
-> hdmi_sfr_parents). Please rename this array to something more generic 
-> and reuse it below.
+---
 
-Okay, I'll rename it to sys_24M_hosc_parents and reuse it for those
-clocks.
+Sandie Cao (3):
+  riscv: dts: spacemit: k3-deepcomputing-fml13v05: add P1 PMIC regulator
+    tree
+  riscv: dts: spacemit: k3-deepcomputing-fml13v05: add USB controller
+    and USB phy support
+  riscv: dts: spacemit: k3-deepcomputing-fml13v05: Enable SD card
+    support
 
->
->> +static SUNXI_CCU_MUX_DATA_WITH_GATE(avs_clk, "avs-clk", avs_parents, 0x880,
->> +				    24, 3,		/* mux */
->> +				    BIT(31),		/* gate */
->> +				    0);
->> +
->> +static const struct clk_hw *de_parents[] = {
->> +	&pll_de_3x_clk.common.hw,
->> +	&pll_de_4x_clk.common.hw,
->> +	&pll_periph0_480M_clk.common.hw,
->> +	&pll_periph0_400M_clk.hw,
->> +	&pll_periph0_300M_clk.hw,
->> +	&pll_video0_4x_clk.common.hw,
->> +	&pll_video2_4x_clk.common.hw,
->> +};
->> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(de0_clk, "de0", de_parents, 0xa00,
->> +				    0, 5,	/* M */
->> +				    24, 3,	/* mux */
->> +				    BIT(31),	/* gate */
->> +				    CLK_SET_RATE_PARENT);
->> +
->> +static const struct clk_hw *di_parents[] = {
->> +	&pll_periph0_600M_clk.hw,
->> +	&pll_periph0_480M_clk.common.hw,
->> +	&pll_periph0_400M_clk.hw,
->> +	&pll_video0_4x_clk.common.hw,
->> +	&pll_video2_4x_clk.common.hw,
->> +};
->> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(di_clk, "di", di_parents, 0xa20,
->> +				    0, 5,	/* M */
->> +				    24, 3,	/* mux */
->> +				    BIT(31),	/* gate */
->> +				    CLK_SET_RATE_PARENT);
->> +
->> +static const struct clk_hw *g2d_parents[] = {
->> +	&pll_periph0_400M_clk.hw,
->> +	&pll_periph0_300M_clk.hw,
->
-> My copy of the manual puts the 300MHz clock first, then the 400 MHz one. 
-> Can you please check this?
+ .../spacemit/k3-deepcomputing-fml13v05.dts    | 220 ++++++++++++++++++
+ 1 file changed, 220 insertions(+)
 
-Yes, I checked the manual, and the first parent is indeed 300MHz.
 
-The last parent should also be pll_video2_4x rather than pll_video1_4x.
-I'll fix both.
-
-[...]
-
->> +
->> +/*
->> + * GPU_CLK = ClockSource * ((16 - M) / 16)
->> + * Here we use a div_table to select M values that result in integer divisors.
->> + */
->> +static struct clk_div_table gpu_div_table[] = {
->> +	{ .val = 0, .div = 1 },
->> +	{ .val = 8, .div = 2 },
->> +	{ .val = 12, .div = 4 },
->> +	{ .val = 14, .div = 8 },
->> +	{ .val = 15, .div = 16 },
->> +	{ /* sentinel */ },
->> +};
->> +static const struct clk_parent_data gpu_parents[] = {
->> +	{ .hw = &pll_gpu0_clk.common.hw, },
->> +	{ .hw = &pll_periph0_800M_clk.common.hw, },
->> +	{ .hw = &pll_periph0_600M_clk.hw, },
->> +	{ .hw = &pll_periph0_400M_clk.hw, },
->> +	{ .hw = &pll_periph0_300M_clk.hw, },
->> +	{ .hw = &pll_periph0_200M_clk.hw, },
->> +};
->> +static struct ccu_div gpu0_clk = {
->> +	.enable		= BIT(31),
->> +	.div		= _SUNXI_CCU_DIV_TABLE(0, 4, gpu_div_table),
->> +	.mux		= _SUNXI_CCU_MUX(24, 3),
->> +	.common		= {
->> +		.reg		= 0xb20,
->> +		.features	= CCU_FEATURE_UPDATE_BIT,
->
-> Just a heads up: in my A523 CPU clocks series, I reworked the update bit 
-> handling, so depending on the order of merging this might need some rework.
-
-I've seen that. I'd prefer to keep this series independent of your A523
-CPU clocks series for now. Once your series has settled, I'll send a
-separate patch to adapt the A733 update bit handling, or update this
-series if yours lands first.
-
->
->> +		.hw.init	= CLK_HW_INIT_PARENTS_DATA("gpu0", gpu_parents,
->> +							   &ccu_div_ops, 0),
->> +	}
->> +};
->> +
->> +static const struct clk_parent_data dram_parents[] = {
->> +	{ .hw = &pll_ddr_clk.common.hw, },
->> +	{ .hw = &pll_periph0_800M_clk.common.hw, },
->> +	{ .hw = &pll_periph0_600M_clk.hw, },
->> +	{ .hw = &pll_de_clk.common.hw, },
->
-> Should this be pll_de_3x instead?
-
-You're right. The second and third parents should also be periph1 rather
-than periph0. I'll fix them together.
-
-[...]
-
->> +
->> +static const struct clk_parent_data irtx_parents[] = {
->> +	{ .fw_name = "losc"},
->
-> I think this clock should be sys_24M_clk.
-
-You're right. I'll fix it.
-
->
->> +	{ .hw = &pll_periph1_600M_clk.hw },
->> +	{ .fw_name = "hosc"},
->> +};
->> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(irtx_clk, "irtx", irtx_parents, 0x1008,
->> +				      0, 5,	/* M */
->> +				      24, 3,	/* mux */
->> +				      BIT(31),	/* gate */
->> +				      0);
->> +
->> +/* Undocumented, taken from the vendor kernel. */
->> +static const struct clk_parent_data sgpio_parents[] = {
->> +	{ .fw_name = "losc"},
->> +	{ .hw = &sys_24M_clk.hw },
->> +};
->> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(sgpio_clk, "sgpio", sgpio_parents, 0x1060,
->> +				      0, 5,	/* M */
->> +				      24, 3,	/* mux */
->> +				      BIT(31),	/* gate */
->> +				      0);
->> +
->> +/* Undocumented, taken from the vendor kernel. */
->> +static const struct clk_hw *lpc_parents[] = {
->> +	&pll_video0_3x_clk.common.hw,
->> +	&pll_video1_3x_clk.common.hw,
->> +	&pll_video2_3x_clk.common.hw,
->> +	&pll_periph0_300M_clk.hw,
->> +};
->> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(lpc_clk, "lpc", lpc_parents, 0x1080,
->> +				    0, 5,	/* M */
->> +				    24, 3,	/* mux */
->> +				    BIT(31),	/* gate */
->> +				    0);
->> +
->> +static const struct clk_hw *i2spcm_parents[] = {
->> +	&pll_audio0_4x_clk.common.hw,
->> +	&pll_audio1_div2_clk.hw,
->> +	&pll_audio1_div5_clk.hw,
->> +	&pll_periph0_200M_clk.hw,
->> +};
->> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(i2spcm0_clk, "i2spcm0", i2spcm_parents, 0x1200,
->> +				    0, 5,	/* M */
->> +				    24, 3,	/* mux */
->> +				    BIT(31),	/* gate */
->> +				    0);
->> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(i2spcm1_clk, "i2spcm1", i2spcm_parents, 0x1210,
->> +				    0, 5,	/* M */
->> +				    24, 3,	/* mux */
->> +				    BIT(31),	/* gate */
->> +				    0);
->> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(i2spcm2_clk, "i2spcm2", i2spcm_parents, 0x1220,
->> +				    0, 5,	/* M */
->> +				    24, 3,	/* mux */
->> +				    BIT(31),	/* gate */
->> +				    0);
->> +
->> +static const struct clk_hw *i2spcm2_asrc_parents[] = {
->> +	&pll_audio0_4x_clk.common.hw,
->> +	&pll_audio1_div2_clk.hw,
->> +	&pll_audio1_div5_clk.hw,
->> +	&pll_periph0_300M_clk.hw,
->> +	&pll_periph1_300M_clk.hw,
->> +};
->> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(i2spcm2_asrc_clk, "i2spcm2_asrc", i2spcm2_asrc_parents, 0x1224,
->> +				    0, 5,	/* M */
->> +				    24, 3,	/* mux */
->> +				    BIT(31),	/* gate */
->> +				    0);
->> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(i2spcm3_clk, "i2spcm3", i2spcm_parents, 0x1230,
->> +				    0, 5,	/* M */
->> +				    24, 3,	/* mux */
->> +				    BIT(31),	/* gate */
->> +				    0);
->> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(i2spcm4_clk, "i2spcm4", i2spcm_parents, 0x1240,
->> +				    0, 5,	/* M */
->> +				    24, 3,	/* mux */
->> +				    BIT(31),	/* gate */
->> +				    0);
->> +
->> +static const struct clk_hw *spdif_tx_parents[] = {
->> +	&pll_audio0_4x_clk.common.hw,
->> +	&pll_audio1_div2_clk.hw,
->> +	&pll_audio1_div5_clk.hw,
->> +};
->> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(spdif_tx_clk, "spdif-tx", spdif_tx_parents, 0x1280,
->> +				    0, 5,	/* M */
->> +				    24, 3,	/* mux */
->> +				    BIT(31),	/* gate */
->> +				    0);
->> +
->> +static const struct clk_hw *spdif_rx_parents[] = {
->> +	&pll_periph0_200M_clk.hw,
->> +	&pll_periph0_300M_clk.hw,
->
-> The manual I am looking at says those two muxes are "Reserved". So are 
-> those parents from the BSP? Can you please add a comment about it then?
-
-Yes, I took them from the vendor BSP. I'll add a comment explaining that.
-
-[...]
-
->> +
->> +static const struct clk_parent_data usb01_ref_parents[] = {
->> +	{ .hw = &sys_24M_clk.hw },
->> +	{ .fw_name = "hosc" },
->> +};
->> +static SUNXI_CCU_MUX_DATA(usb01_ref_clk, "usb01-ref", usb01_ref_parents, 0x1340, 24, 3, 0);
->> +
->> +static SUNXI_CCU_MUX_DATA(usb2_u2_ref_clk, "usb2-u2-ref", usb01_ref_parents, 0x1348, 24, 3, 0);
->
-> Don't these two clocks miss the gate at bit 31? So it should be 
-> SUNXI_CCU_MUX_DATA_WITH_GATE instead?
-
-Oops, I missed them. I'll add them.
-
->
->  > +
->> +static const struct clk_parent_data usb2_suspend_parents[] = {
->> +	{ .fw_name = "losc" },
->> +	{ .hw = &sys_24M_clk.hw },
->> +};
->> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(usb2_suspend_clk, "usb2-suspend", usb2_suspend_parents,
->> +				      0x1350,
->> +				      0, 5,	/* M */
->> +				      24, 1,	/* mux */
->> +				      BIT(31),	/* gate */
->> +				      0);
->> +
->> +static const struct clk_parent_data usb2_mf_parents[] = {
->> +	{ .hw = &sys_24M_clk.hw },
->> +	{ .hw = &pll_periph0_300M_clk.hw },
->> +	{ .fw_name = "hosc" },
->> +};
->> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(usb2_mf_clk, "usb2-mf", usb2_mf_parents,
->> +				      0x1354,
->> +				      0, 5,	/* M */
->> +				      24, 3,	/* mux */
->> +				      BIT(31),	/* gate */
->> +				      0);
->> +
->> +static const struct clk_parent_data usb2_u3_utmi_parents[] = {
->> +	{ .hw = &sys_24M_clk.hw },
->> +	{ .hw = &pll_periph0_300M_clk.hw },
->> +	{ .fw_name = "hosc" },
->
-> Aren't those parents exactly the same as the usb2_mf_parents[] above?
-
-Yes, I'll reuse the array.
-
-[...]
-
->> +
->> +static const struct clk_hw *edp_tv_parents[] = {
->> +	&pll_video0_4x_clk.common.hw,
->> +	&pll_video1_4x_clk.common.hw,
->> +	&pll_video2_4x_clk.common.hw,
->> +	&pll_periph0_2x_clk.common.hw,
->> +};
->> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(edp_tv_clk, "edp-tv", edp_tv_parents, 0x1640,
->> +				    0, 5,	/* M */
->> +				    24, 3,	/* mux */
->> +				    BIT(31),	/* gate */
->> +				    0);
->
-> There is a second divider range from bits [12:8].
-
-Okay, I'll switch this to SUNXI_CCU_DUALDIV_MUX_GATE.
-
->
->> +
->> +static SUNXI_CCU_GATE_HWS_WITH_PREDIV(hdmi_cec_32k_clk, "hdmi-cec-32k", pll_periph0_2x_hws, 0x1680,
->> +				      BIT(30),	/* gate */
->> +				      36621,	/* pre div */
->> +				      0);
->> +
->> +static const struct clk_parent_data hdmi_cec_parents[] = {
->> +	{ .fw_name = "losc" },
->> +	{ .hw = &hdmi_cec_32k_clk.common.hw },
->> +};
->> +static SUNXI_CCU_MUX_DATA_WITH_GATE(hdmi_cec_clk, "hdmi-cec", hdmi_cec_parents, 0x1680,
->> +				    24, 1,	/* mux */
->
-> Even though there are indeed only two choices, the manual still 
-> specifies the mux bits as ranging from [26:24] (as for many other clocks).
-
-Okay, I'll update the mux width.
-
->
->> +				    BIT(31),	/* gate */
->> +				    0);
->> +
->> +static const struct clk_parent_data hdmi_tv_parents[] = {
->> +	{ .hw = &pll_video0_4x_clk.common.hw },
->> +	{ .hw = &pll_video1_4x_clk.common.hw },
->> +	{ .hw = &pll_video2_4x_clk.common.hw },
->> +	{ .hw = &pll_periph0_2x_clk.common.hw },
->> +};
->> +static SUNXI_CCU_DUALDIV_MUX_GATE(hdmi_tv_clk, "hdmi-tv", hdmi_tv_parents, 0x1684,
->> +				  0, 5,		/* M */
->> +				  8, 5,		/* N */
->> +				  24, 3,	/* mux */
->> +				  BIT(31),	/* gate */
->> +				  0);
->> +
->> +static const struct clk_parent_data hdmi_sfr_parents[] = {
->> +	{ .hw = &sys_24M_clk.hw },
->> +	{ .fw_name = "hosc" },
->> +};
->> +static SUNXI_CCU_MUX_DATA_WITH_GATE(hdmi_sfr_clk, "hdmi-sfr", hdmi_sfr_parents, 0x1690,
->> +				    24, 1,	/* mux */
->> +				    BIT(31),	/* gate */
->> +				    0);
->> +
->> +static SUNXI_CCU_GATE_HWS(hdcp_esm_clk, "hdcp-esm", pll_periph0_300M_hws, 0x1694, BIT(31), 0);
->> +
->> +static const struct clk_parent_data ledc_parents[] = {
->> +	{ .hw = &sys_24M_clk.hw },
->> +	{ .hw = &pll_periph0_600M_clk.hw },
->> +	{ .fw_name = "hosc" },
->> +};
->> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(ledc_clk, "ledc", ledc_parents, 0x1700,
->> +				      0, 5,	/* M */
->> +				      24, 3,	/* mux */
->> +				      BIT(31),	/* gate */
->> +				      0);
->> +
->> +static const struct clk_parent_data csi_master_parents[] = {
->> +	{ .hw = &sys_24M_clk.hw },
->> +	{ .hw = &pll_video0_4x_clk.common.hw },
->> +	{ .hw = &pll_video0_3x_clk.common.hw },
->> +	{ .hw = &pll_video1_4x_clk.common.hw },
->> +	{ .hw = &pll_video1_3x_clk.common.hw },
->> +	{ .hw = &pll_video2_4x_clk.common.hw },
->> +	{ .hw = &pll_video2_3x_clk.common.hw },
->> +};
->> +static SUNXI_CCU_DUALDIV_MUX_GATE(csi_master0_clk, "csi_master0", csi_master_parents, 0x1800,
->> +				  0, 5,		/* M */
->> +				  8, 5,		/* N */
->> +				  24, 3,	/* mux */
->> +				  BIT(31),	/* gate */
->> +				  0);
->> +static SUNXI_CCU_DUALDIV_MUX_GATE(csi_master1_clk, "csi_master1", csi_master_parents, 0x1804,
->> +				  0, 5,		/* M */
->> +				  8, 5,		/* N */
->> +				  24, 3,	/* mux */
->> +				  BIT(31),	/* gate */
->> +				  0);
->> +static SUNXI_CCU_DUALDIV_MUX_GATE(csi_master2_clk, "csi_master2", csi_master_parents, 0x1808,
->> +				  0, 5,		/* M */
->> +				  8, 5,		/* N */
->> +				  24, 3,	/* mux */
->> +				  BIT(31),	/* gate */
->> +				  0);
->> +
->> +static const struct clk_hw *csi_parents[] = {
->> +	&pll_video2_4x_clk.common.hw,
->> +	&pll_de_4x_clk.common.hw,
->> +	&pll_periph0_480M_clk.common.hw,
->> +	&pll_periph0_400M_clk.hw,
->> +	&pll_periph0_600M_clk.hw,
->
-> My manual lists two more parents: video0_4x and video1_4x.
-
-I missed them. I'll add them.
-
->
->> +};
->> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(csi_clk, "csi", csi_parents, 0x1840,
->> +				    0, 5,	/* M */
->> +				    24, 3,	/* mux */
->> +				    BIT(31),	/* gate */
->> +				    0);
->> +
->> +static const struct clk_hw *isp_parents[] = {
->> +	&pll_video2_4x_clk.common.hw,
->> +	&pll_periph0_480M_clk.common.hw,
->> +	&pll_periph0_400M_clk.hw,
->> +	&pll_periph0_600M_clk.hw,
->> +	&pll_video0_4x_clk.common.hw,
->> +	&pll_video1_4x_clk.common.hw,
->> +};
->> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(isp_clk, "isp", isp_parents, 0x1860,
->> +				    0, 5,	/* M */
->> +				    24, 3,	/* mux */
->> +				    BIT(31),	/* gate */
->> +				    0);
->> +
->> +static SUNXI_CCU_GATE_DATA(res_dcap_24m_clk, "res-dcap-24m", hosc, 0x1a00, BIT(3), 0);
->> +
->> +static const struct clk_parent_data apb2jtag_parents[] = {
->> +	{ .hw = &sys_24M_clk.hw },
->> +	{ .fw_name = "losc" },
->> +	{ .fw_name = "iosc" },
->> +	{ .hw = &pll_periph0_480M_clk.common.hw },
->> +	{ .hw = &pll_periph1_480M_clk.common.hw },
->> +	{ .hw = &pll_periph0_200M_clk.hw },
->> +	{ .hw = &pll_periph1_200M_clk.hw },
->> +};
->> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(apb2jtag_clk, "apb2jtag", apb2jtag_parents, 0x1c00,
->> +				      0, 5,	/* M */
->> +				      24, 3,	/* mux */
->> +				      BIT(31),	/* gate */
->> +				      0);
->> +
->> +static SUNXI_CCU_GATE_HWS(fanout_24M_clk, "fanout-24M", sys_24M_hws, 0x1f30, BIT(0), 0);
->> +static SUNXI_CCU_GATE_HWS_WITH_PREDIV(fanout_12M_clk, "fanout-12M", sys_24M_hws, 0x1f30,
->> +				      BIT(1), 2, 0);
->> +static SUNXI_CCU_GATE_HWS_WITH_PREDIV(fanout_16M_clk, "fanout-16M", pll_periph0_480M_hws, 0x1f30,
->> +				      BIT(2), 30, 0);
->> +static SUNXI_CCU_GATE_HWS_WITH_PREDIV(fanout_25M_clk, "fanout-25M", pll_periph0_2x_hws, 0x1f30,
->> +				      BIT(3), 48, 0);
->
-> Where do those parents come from? My manual just lists the frequencies.
-> Is that matching the 0x1f3c register sources?
-
-Yes, these match the sources listed in CCMU_FAN_REG (0x1f3c).
-
-The current definitions fold the intermediate fixed dividers:
-PERI0_160M / 10 becomes PERI0_480M / 30, and PERI0_150M / 6 becomes
-PERI0PLL2X / 48.
-
-I'll use PERI0_160M / 10 and PERI0_150M / 6 in the next revision to match
-the documented clock tree more directly.
-
->
-> The rest seems to be correct, as far as my mostly manual comparison goes.
->
-> Cheers,
-> Andre
->
-
+base-commit: ddfe51b0a0f5dc9e415cc2c8ad8db17532dd426b
 -- 
-Best regards,
-Junhui Liu
+2.43.0
 
 _______________________________________________
 linux-riscv mailing list
