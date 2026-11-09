@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D3F6606A31C
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 05:11:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6A01606A31C
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 05:11:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mth8lL3y;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gmpce19D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4mtes+f/;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TGW4oX3H
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,68 +14,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=za214Eq9CVZ0pANGZ1oTW8XKkcVw2xssJHen/TLHOjs=; b=mth8lL3yH1yS00gMddH1i5WYIi
-	6l6l0B4cRV+4hh5XEtgK7XQg6rFGau97Z81osnZJj8EQt/oY0LID9mRKZTTu8y8xWvqOx0ZJ7ejss
-	+YQxTs82U3ph/jZW1Rp0Pmmll0zqV9601aXzk5kDKVfcwjRzkUqvRAIhX0HfpKHoZWstuIHIVtBrm
-	W9QLTThY4Y16YsQ6gDJgK6SbFIsX8E73NXJdSBnPdQz8zEoK6WUcZObAirC/EEYRC3K2rEiSuFKJO
-	LYSpYjcLlXZdLJGAG1IQu/u/3CcGNRgy6sFLZHCY2unbUS31DuO/vu2LC35KyM201ZLfv7cMpcVtP
-	m9gtPF6A==;
+	bh=FKNW34yVxQ/dUzV6uwVhy98uL0Svh3Zq1anYAIl/fRI=; b=4mtes+f/F8Yru7FADhOJX5p5b5
+	w9242YpKv748454HLWl0yDDIGNIaHIxHGQX+sTnYOoi8p+h7+vqm4suyG4+v1WB7ObfXPb5IewFaw
+	U6brJ4p4zqKu9mCY8xQYV4N2ZkVhKj6wHdLaowACG7Gs8/vXTZNyHNtWgHygZYyrgqkrjHevfG/SU
+	G6+lX1l4L8StSxpCRu2krf57F3o18fT/y2c1TYnbvy8OQFAXwsvzLijhL5LnPmJPopJTy5UCzMGwM
+	w1JqhQDZc1iyZ4Z/Wh+mB30dXB5WUpyWTq2Oy6RLOcUxGYeNoFj2wjvBikfL9Cx3TPqZ6KVaoKiwq
+	jaRuWXMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQHf5-0000000HNZD-0uof;
-	Mon, 09 Nov 2026 05:11:19 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1xQHfA-0000000HNan-1HxN;
+	Mon, 09 Nov 2026 05:11:24 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQHf2-0000000HNYU-2UpC
+	id 1xQHf7-0000000HNZr-3chN
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Nov 2026 05:11:17 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-cc147d86bebso210968a12.0
-        for <linux-riscv@lists.infradead.org>; Sun, 08 Nov 2026 21:11:16 -0800 (PST)
+	Mon, 09 Nov 2026 05:11:23 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-cc147d86bebso210993a12.0
+        for <linux-riscv@lists.infradead.org>; Sun, 08 Nov 2026 21:11:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794201075; x=1794805875; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1794201081; x=1794805881; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=G+rCZlZvpLUe3/sSBMNpNP5w4u7bZtndPiMGg+R0D5I=;
-        b=gmpce19DEjjo5NdEhSNIs20bbS+RZhzZ0tN9HCbD3uXFVkTZ8D4Ajrco2sm7sEWeSC
-         UHdSATjghRq+IIP2PMLy1pLP81fwZl26FvK161W9MzIbDCS6PF87wbieIppFODK2icyS
-         CLNV8RI1tZMvwuuNvJZ7YxX64Mu+8y+OlwQzHP2paDzLDbj1YSYJ6VheO6IMbxiNlSis
-         RYJpbrmH6JnT2+md/vm47bMkV0dpwM23JOtIjy9Sn3w17Y8RWjjQqEaPpPyYnaCG8jVO
-         7WPuWBNhfHwBSXTfxJNzxd9UKzeSRk5OOpZdSahj7oxw3c7CbAyP+QfzUaiMxBCa2fZq
-         dmgg==
+        bh=lgRGsEIxSdF7se1kH5ZKybJwqIiFvQpOJpHKAYNwocs=;
+        b=TGW4oX3HP8gSCPpx+vWeGJg+j9LcVQ+aj3S05BOa5LWizmrRKGMc72goixARFj1H47
+         bsEAPGVyUByg516wczu9xfOjG8IhH0DoEeQh0wR8zbRExrY58QkFgCXvEh+kjbCSGUD4
+         WR4T9aBuWK/KNgUCq5HAAZSXQJEeJwhlz0ZW8pZaiDbB740BJ0/0pOKihh0V9HY+3FA+
+         5wiwoIks54/K30pLjE0IDC54XDFeYW4hLNMCQBS5/Cxld57KBv8RjjbT9+IthzaJrkKu
+         P2hFnfLW2/ZySiIaGziTcPiIJY5JLsCKl2FMkCq1nD/jkVg3b2EDjeTtZe2RptrUs4He
+         XhuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794201075; x=1794805875;
+        d=1e100.net; s=20260707; t=1794201081; x=1794805881;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=G+rCZlZvpLUe3/sSBMNpNP5w4u7bZtndPiMGg+R0D5I=;
-        b=VfnUYu3GskCByN3IqDUfWAHeN6Bn1R9W0VNwT+S50c1+MvFTsTnRho8MrhN0PMAUeL
-         iQTQWtZx7LM9Y9ooicBs5krSCK4PHpqVTOyiMgLeLLcW7bU8oc8JArre41ouHLvcmgZd
-         PWzGho6ud21KJ7c/89tSQWJxsSQymivNfPc6MXQavO94K+KpUDnZW1hLbTRV5AEgzC94
-         Pd4Q7Goy45NHmpc+yDkmpm38Bwez7FP+nbzepcYWhR3aaF52kQgIscygrafVtN9PiIjX
-         fPpb53C9TlVX4/Y9QYOPd0OAOz6mTqyq/8Bhrq8fCRwbAsicYH3W+bNb3SwJMQyrKYYJ
-         azTQ==
-X-Forwarded-Encrypted: i=1; AL+hErEJ3EAC/xXSaHW4SkUxjlPcf1vYrP7XQMP4HNmuWl8G9NaMAGmyWcRuc7DEhgl/KkbfQg8sSS5zwNl0cA==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9i37bAuntyy2SE1Q5mFW8Ut7ihAGWYF1OXzq4CCei2QeSUX70Y
-	mStcD03Kh5AD6OZJ5SFu4rVY+qDHCe5OxgK822nXEyrpFxqJdcMuKj1Z
-X-Gm-Gg: AYBFou0zeqJ3DFUrGa5lpZfmrhbeRK4xb68PVLy8mjvX9i2b38kxJqfL4bYNDQJQ+iU
-	XLGTF8y0GycVMQzcPvAGXUVP04P0/E6Gucmx01YTh74U2C0A4E4n7OVMN6OSDh5rZAM5YZR0HE6
-	+hSx2Tq4NQdGgJ56IBwvGrc3UBcLn/N12BaiAXvyYGjrUdnmfszcYH8ZIVicuqtRIzEzCCD2cFt
-	CdL311oxc59lIKGEP77QptiNSDo1j+5YV+WS5wzAN+n8Ar527iFIjgkY+f1IWfGPoaTJwWyyO6X
-	Hn5cCfjCVcdV7YvPRR+rIgHG02ulrH88g7VwlOmN7k6ogqqGCWVV2JhNuOSfNKLht9bYSylvuwm
-	OwpBNrlWMm1ovIzkaeg4eZaufdr4RzQNv+m7gcwHhbFz1PcPBbTnFzNZZQWga/KNcz97v3US/R/
-	ym8/Np5jpc7U+zPdgtt6QbQ/Y0E65yANHXYTO0QtWx6+ueZBG4PzBqAafT+bJpoQ+L5Y1XE2nmb
-	cxaG9L94nMmoio+ygYOtsxvU0CLytgbChG+GuRN6vFw/rl+nHTo3GMeZeClgLyolcDCwGYIZdOn
-	8jbVedImRB83laOHdU1BYGSHd5Re7blDjTAn8I+8UfzHBth1QnIhiR9bclu0NGYRywqvwv9JtJg
-	u5cR30zpmkuMGS5HYyNhkLwNgJmm+HKERNBFrZnwfZ3Ap3yoKyExjyX1m/meBK7HUud4yFEBB0a
-	MMvgi9
-X-Received: by 2002:a17:90b:4b8f:b0:3a0:cca0:4a8c with SMTP id 98e67ed59e1d1-3b12d3fdbf6mr1750088a91.7.1794201075584;
-        Sun, 08 Nov 2026 21:11:15 -0800 (PST)
+        bh=lgRGsEIxSdF7se1kH5ZKybJwqIiFvQpOJpHKAYNwocs=;
+        b=rsZenARasTQ4kt33pY5+NAPC/Eq8E6Apcwk6NYSJI4yCRWF80kS3OtVXbmAbIeSGXw
+         qT85ioKbXI4RiUR7uvwd6mISsjMaA62WQYPgSExig4mplu7u3LnfLM6m37HCZnBK2ztl
+         Cx8Ksq3/venQohH92fVZ2kY6ikzAV/Qq9vO35Scd73v/UldxTkBS4ArKhl17V+/wo6CN
+         Rz6r83AMPUFBFREw8tsFQzlVv8uIu9OAQDMUENQlLrkz3fODq97LRAuGhGmAAqMw5pW8
+         U+N72lxKPE9dSkmkm63rFN7k2ziz1voBeRX7YXSjqzmGaJCeGHAGXmQJLtQ47Z03DxXx
+         wDfw==
+X-Forwarded-Encrypted: i=1; AL+hErECyaFBkyKTUc/36lRLupRX1znblr3YLyvmTLTG/aD5P8BmFsE19xMdFDjDx57l/agQ/KSMf1pT0EAiJg==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/OGiVlTItlMtUVgsa2CnqcDWPiqStCudTvvvbYOVB6pAD7M/NM
+	ayFFhY+775H7YIsDq0E199pGor1hlH2p5tv1pEtoVPGKF+cvyqyL0H2Q
+X-Gm-Gg: AYBFou1X742Ay4tO3DNp7aQF90U70YpqEIDoythc+4J+ncD6V5lksu2HxcI8MkH8s17
+	QRt3Cf5gyb0LPCRtKO0LC8XyIlSEZnWLJZ6vJ9gsznfRvt5+YBfT7C1n6VZUnF9GTo8w+ry+4vg
+	vNViVzXky8kl9/JqVXCNfi6pkFqDvBVDOSdbQXMrxpi0jUiRkutLx5XzocGXHN3hVUteni7uk4o
+	vGqciEJdFTevirt1f2+omPJTznBSj336ADdG0ajmMWPMTZe3Axt0YAwmvwpcYYNzlcmPZjHVkjG
+	2r7BOH16+mxEiM4uqfXK5c2JIcNIXWDMJnN5J1aezVqUheyPl4aFmAX0MOGQKcUVRm58kCUtM/N
+	zx5LyNFfDXasr9BT6dSxD3o7KrRlU0sMacblJhQpTIh/5LJ1lU7GqyBh28DlvWaPySaSuTQwa8v
+	CPGgkF9C9U+3O49PhGuU6abOrbLq80n9nOOkGymSzs1gtq817hc2B5j/gns55j7P2gtP0G5IgPs
+	JcgBkurp4KjDkXHjq5ZXLssLAX2D+9RbWT6Fw5/pOs/x7WmFbFCM3zVqZ8My/3joXknH3/AvaBU
+	3jqpUBVC286cR9XTEHCCbI/JmirKWk3ImUIimF6ixAF2ZlmE8y7jflEaJ4JUK31G2SQv/PNorMq
+	+Gjux+Ug3ZS3jj7IYYIGWZj2yF66M872n86pTZcvttcUXidSorwghqaIwcg==
+X-Received: by 2002:a17:90b:1e47:b0:3ac:a6a5:5757 with SMTP id 98e67ed59e1d1-3b12d3fc296mr2052368a91.11.1794201081003;
+        Sun, 08 Nov 2026 21:11:21 -0800 (PST)
 Received: from donnager-debian.. ([180.150.112.169])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b12790befasm5247652a91.13.2026.11.08.21.11.10
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b12790befasm5247652a91.13.2026.11.08.21.11.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Nov 2026 21:11:15 -0800 (PST)
+        Sun, 08 Nov 2026 21:11:20 -0800 (PST)
 From: Joel Stanley <joel@jms.id.au>
 To: Paul Walmsley <pjw@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -92,17 +91,17 @@ Cc: Anup Patel <anup@brainfault.org>,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v3 2/7] dt-bindings: imsics: Add Tenstorrent Atlantis compatible
-Date: Mon,  9 Nov 2026 15:40:42 +1030
-Message-ID: <20261109051050.105623-3-joel@jms.id.au>
+Subject: [PATCH v3 3/7] dt-bindings: riscv: cpus: Add Tenstorrent Ascalon
+Date: Mon,  9 Nov 2026 15:40:43 +1030
+Message-ID: <20261109051050.105623-4-joel@jms.id.au>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261109051050.105623-1-joel@jms.id.au>
 References: <20261109051050.105623-1-joel@jms.id.au>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261108_211116_637253_2AB3116F 
-X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-CacheID: sfid-20261108_211121_905209_FD126C31 
+X-CRM114-Status: UNSURE (   8.28  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -1.7 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -124,30 +123,34 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add compatible for IMSICS in Tenstorrent Atlantis SoC.
+Add Tenstorrent Ascalon microarchitecture and the Tenstorrent Ascalon-XG
+core.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: Drew Fustini <fustini@kernel.org>
 Signed-off-by: Joel Stanley <joel@jms.id.au>
 ---
 v3: No changes, pick up review tags
 ---
- .../devicetree/bindings/interrupt-controller/riscv,imsics.yaml   | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
-index feec122bddde..442b8870f9c5 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
-@@ -49,6 +49,7 @@ properties:
-       - enum:
-           - qemu,imsics
-           - spacemit,k3-imsics
-+          - tenstorrent,atlantis-imsics
-       - const: riscv,imsics
- 
-   reg:
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index 0da219ae6769..2d2e4606a53e 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -75,6 +75,11 @@ properties:
+               - sifive,x280
+           - const: sifive,rocket0
+           - const: riscv
++      - items:
++          - enum:
++              - tenstorrent,ascalon-xg
++          - const: tenstorrent,ascalon
++          - const: riscv
+       - const: riscv    # Simulator only
+     description:
+       Identifies that the hart uses the RISC-V instruction set
 -- 
 2.47.3
 
