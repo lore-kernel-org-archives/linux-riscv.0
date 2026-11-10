@@ -2,67 +2,78 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ECA3606B176
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 09:51:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07F77606A325
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 10:04:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RP2zG3Ki;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=picoheart.com header.i=@picoheart.com header.a=rsa-sha256 header.s=feishu2604151535 header.b=U3GMeqWf
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0Vf8tbIJ;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QT0hLtk9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Cc:Mime-Version:To:Message-Id:
-	Subject:References:From:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=GQFIum1T4Q4jCMLbswkU/VkoBOFHVPzO4K6/cEg/HNI=; b=RP2zG3KiIA449KnhUXpm1VOANC
-	p/v+88RHZ0T8ZgaH0cnk5DtHUR07Ba/HmsRU1XZ2QqujzNjw83zN4PLGI4ZPD7n3tuiknKUa/1K4c
-	KKR0mc/Ox2XdbflOmOzayJeZ8Fx9TtRZSS/T5txORHY9+rjMZkNoXShuR7fKG7WeCUK6x7cFxt6Wp
-	3h79ECXEjN9IDGAux9yiSbdrh1FsA+hN0ZoOPvjZg9zdKc43RfODYnal5aLoDPCjBXUR1iW/REZzB
-	Pp3c1PfwhU3e4NAGjaEfYtkOHPtfSQh2FGqhYUUQT8lSx7JaYQhZoRmMOwqy8Rd/oLhFzoY1H71nb
-	tB2ZFewg==;
+	bh=OU1RPcaC3yynl5OYGnJYDeBrbjgMKi8EMZapEQgQ8bc=; b=0Vf8tbIJA2lwtTsIAhCCHxUGDE
+	jNSIgeu0SDOm96p9AF0jg3V5XofxtQIBVw4GIQal1Qwv69ZdGUfQcJSoQ/guImP/B1BH/vhn7tmtn
+	cPbm+gG3L075Xk9UvfVGMtvvERWRd/rmfk4IY6rvj6jR3NRY4+xv4Hfc584i4/m4vA68O2enllVdq
+	JoZ9Dxhe3Z9vjriaRpG4wCk+O/2srg79fylslyRpGwbEDmHJjyqVEMgOXMUaCtFvaW5nETwyy2UCy
+	RtVW+Zr1mXmk6YQ1M6d/+sQVo5hYYRV0xDNPkehQ7go7noOL1/NnEaWoaZD/KPbwhJeE4aVumeT3t
+	kgEutT8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQiVQ-00000003Lkx-3v4O;
-	Tue, 10 Nov 2026 09:51:08 +0000
-Received: from va-2-29.ptr.blmpb.com ([209.127.231.29])
+	id 1xQiiJ-00000003NxD-3MYc;
+	Tue, 10 Nov 2026 10:04:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQiVH-00000003LZ3-3CJ4
-	for linux-riscv@lists.infradead.org;
-	Tue, 10 Nov 2026 09:51:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1794304251; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=tov/KRfFLyoryGndFDZgxuh28jQmqz+jwKFgzTU/bmw=;
- b=U3GMeqWfRm6YADg8Quwk9/vnsObJDjRhsqNBLFIJ6CqK172UyAfEb9I3HPnhG+czt6+wwp
- PZgNOI4Se2shTuq5UPF4NA0B2cCtAp8WjJ2ea453GNPPvGQ9tIJp472Vrr4JUq2s+53psc
- jUmZU/IoqxE/CV01KCTDfuUcDfzfGsSvW9joVwKgSx3lPS1senfg/tmas6lf2u83lVU4tR
- IIv5w0xU4NmcOSRroL7KT97hhpd/x7fCMOKNGa1qGPAY+DP2g3Te5xplBQe40Tsw43Gmo/
- HZBpNKHwlAf6YEqgdqz3UUe+K2OU+o7RI6i3FdAB70p1E2iCJG9oHPZlRxXgEw==
-In-Reply-To: <au_RXLzPSdarFI-c@xhacker>
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-X-Lms-Return-Path: <lba+26af2e8f9+a93a01+lists.infradead.org+yang.yicong@picoheart.com>
-User-Agent: Mozilla Thunderbird
-Received: from [100.86.214.79] ([58.250.106.113]) by smtp.feishu.cn with ESMTPS; Tue, 10 Nov 2026 17:50:48 +0800
-References: <20261104075706.73657-1-yang.yicong@picoheart.com> <20261104075706.73657-6-yang.yicong@picoheart.com> <au8oyDjRJuSL9mj_@xhacker> <dd751ace-72a0-48c1-bcd2-7a131300a6f1@picoheart.com> <au_RXLzPSdarFI-c@xhacker>
-Subject: Re: [PATCH v6 5/5] riscv: errata: picoheart: Add workaround for AMOCASQ errata
-Message-Id: <4386b8e0-c2a8-4898-8d6e-4a23a5045f27@picoheart.com>
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-To: "Jisheng Zhang" <jszhang@kernel.org>
+	id 1xQiiG-00000003Nvx-03f3;
+	Tue, 10 Nov 2026 10:04:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 68EBE42EB0;
+	Tue, 10 Nov 2026 10:04:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A80651F0089F;
+	Tue, 10 Nov 2026 10:04:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794305063;
+	bh=eY1DjQBxx9pGJujq6jDGfkVxNU4BxXGTTLJbRN2wf4U=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=QT0hLtk9QO9NQkSAMafK//Ctz1CLu6QbM11Rc9ypRgZvHyr5B908aYtoNJaavFGGr
+	 0fInfPXPrGa6TWHGLogzkkxJ+Xx00GGNu+4+rA8qxV1XsW1X1hTqN6DD16TSa3JAKp
+	 zFkHqXG9t7lCkgbbuWrsooy4xekpacKz3RZeGeb/jw/+M3qMTK0+w0JDpZwYMFWKGh
+	 gQ6rTH8699FKSbnCwHqDJJrCqVSQyUMdoE56xaNNnc1h9qrqjX4Oq+tJRybK9TVJke
+	 XsntNYFGeRI83Yhcix3xoAuRHe6qn+3qze9Zkb5x2CzaRLiQXjUBcD/HiBTyyy2Dku
+	 wT9SVixRtBFow==
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-Cc: <yang.yicong@picoheart.com>, <pjw@kernel.org>, <palmer@dabbelt.com>, 
-	<aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>, 
-	<conor@kernel.org>, <wangruikang@iscas.ac.cn>, <ganboing@gmail.com>, 
-	<alex@ghiti.fr>, <cleger@meta.com>, <geshijian@picoheart.com>, 
-	<niehaitao@picoheart.com>, <cuiyunhui@bytedance.com>, 
-	<gaohan@iscas.ac.cn>
-Date: Tue, 10 Nov 2026 17:50:46 +0800
-Content-Language: en-US
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261110_015100_007734_871BD378 
-X-CRM114-Status: GOOD (  24.36  )
-X-Spam-Score: -2.1 (--)
+MIME-Version: 1.0
+Subject: Re: [PATCH v7 12/15] kexec: Add kexec_load_other_segments() helper
+From: Mike Rapoport <rppt@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
+ chenhuacai@kernel.org, kernel@xen0n.name, maddy@linux.ibm.com, 
+ mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org, 
+ ritesh.list@gmail.com, sshegde@linux.ibm.com, pjw@kernel.org, 
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org, 
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com, 
+ akpm@linux-foundation.org, baoquan.he@linux.dev, rppt@kernel.org, 
+ pasha.tatashin@soleen.com, pratyush@kernel.org, thuth@redhat.com, 
+ leitao@debian.org, yeoreum.yun@arm.com, robh@kernel.org, 
+ sourabhjain@linux.ibm.com, kees@kernel.org, coiby.xu@gmail.com, 
+ Yeking@Red54.com, tangyouling@kylinos.cn, maqianga@uniontech.com, 
+ zhangtianyang@loongson.cn, guodongtai@kylinos.cn, blum@kernel.org, 
+ adityag@linux.ibm.com, hui.wang@canonical.com, sohammetha01@gmail.com, 
+ guoren@kernel.org, gaohan@iscas.ac.cn, kai.huang@intel.com, kas@kernel.org, 
+ vishal.l.verma@intel.com, piliu@redhat.com, jbouron@amazon.com, 
+ mclapinski@google.com, me@linux.beauty, graf@amazon.com, bgwin@google.com, 
+ x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+ kexec@lists.infradead.org
+In-Reply-To: <20261026075201.699550-13-ruanjinjie@huawei.com>
+References: <20261026075201.699550-1-ruanjinjie@huawei.com>
+ <20261026075201.699550-13-ruanjinjie@huawei.com>
+Date: Tue, 10 Nov 2026 12:04:05 +0200
+Message-Id: <179430504583.425130.15302016434972990362.b4-review@b4>
+X-Mailer: b4 0.16.1-dev
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,156 +83,233 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-SGkgSmlzaGVuZywKCk9uIDExLzgvMjYgOTozMyBBTSwgSmlzaGVuZyBaaGFuZyB3cm90ZToKPiBP
-biBTYXQsIE5vdiAwNywgMjAyNiBhdCAxMToxMDo1OVBNICswODAwLCBZaWNvbmcgWWFuZyB3cm90
-ZToKPj4gT24gMTEvNy8yNiA5OjM0IFBNLCBKaXNoZW5nIFpoYW5nIHdyb3RlOgo+Pj4gT24gV2Vk
-LCBOb3YgMDQsIDIwMjYgYXQgMDM6NTc6MDZQTSArMDgwMCwgWWljb25nIFlhbmcgd3JvdGU6Cj4+
-Pj4gU29tZSBQaWNvaGVhcnQgQ1BVcyBpbXBsZW1lbnQgWmFjYXMgZXh0ZW5zaW9uIGJ1dCBsYWNr
-IHN1cHBvcnQKPj4+PiBmb3IgQU1PQ0FTUSBQTUEgYXR0cmlidXRlLiBUaHVzIG1ha2VzIHRoZSBD
-QVNRIGluc3RydWN0aW9uIGRlCj4+Pj4gZmFjdG8gdW5hdmFpbGFibGUuIFNpbmNlIGN1cnJlbnRs
-eSBubyB3YXlzIHRvIHJldHJpZXZlIHRoZSBQTUEKPj4+PiBpbmZvcm1hdGlvbiBhbmQgdGhlIHJp
-c2N2IGtlcm5lbCB3aWxsIGRlY2xhcmUgY21weGNoZzEyOCBzdXBwb3J0Cj4+Pj4gaWYgcGxhdGZv
-cm0gZGVjbGFyZSBzdXBwb3J0IG9mIFphY2FzLCB0aGUgdXNlIG9mIGNtcHhjaGcxMjggd2lsbAo+
-Pj4+IGxlYWQgdG8gUE1BIHZpb2xhdGlvbiBhbmQgY3Jhc2ggdGhlIGtlcm5lbC4gQWRkIHRoZSBl
-cnJhdGEKPj4+PiB3b3JrYXJvdW5kIHRvIGRpc2FibGUgdGhlIHVzZSBvZiBjbXB4Y2hnMTI4IG9u
-IHRoZSBhZmZlY3RlZCBDUFVzLgo+Pj4+Cj4+Pj4gVGVzdGVkLWJ5OiBIYW4gR2FvIDxnYW9oYW5A
-aXNjYXMuYWMuY24+Cj4+Pj4gU2lnbmVkLW9mZi1ieTogWWljb25nIFlhbmcgPHlhbmcueWljb25n
-QHBpY29oZWFydC5jb20+Cj4+Pj4gLS0tCj4+Pj4gIGFyY2gvcmlzY3YvS2NvbmZpZy5lcnJhdGEg
-ICAgICAgICAgICAgICAgICAgIHwgMTIgKysrKysrKysrKwo+Pj4+ICBhcmNoL3Jpc2N2L2VycmF0
-YS9waWNvaGVhcnQvZXJyYXRhLmMgICAgICAgICB8IDI1ICsrKysrKysrKysrKysrKysrKystCj4+
-Pj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY21weGNoZy5oICAgICAgICAgICAgIHwgMTggKysr
-KysrKysrKysrKy0KPj4+PiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9lcnJhdGFfbGlzdF92ZW5k
-b3JzLmggfCAgMyArKy0KPj4+PiAgNCBmaWxlcyBjaGFuZ2VkLCA1NSBpbnNlcnRpb25zKCspLCAz
-IGRlbGV0aW9ucygtKQo+Pj4+Cj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZy5l
-cnJhdGEgYi9hcmNoL3Jpc2N2L0tjb25maWcuZXJyYXRhCj4+Pj4gaW5kZXggYzc1ZGVjNGIwYmE3
-Li40ZTY1MTZiYTNhNDIgMTAwNjQ0Cj4+Pj4gLS0tIGEvYXJjaC9yaXNjdi9LY29uZmlnLmVycmF0
-YQo+Pj4+ICsrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZy5lcnJhdGEKPj4+PiBAQCAtMjAyLDQgKzIw
-MiwxNiBAQCBjb25maWcgRVJSQVRBX1BJQ09IRUFSVF9DQk9fQ0xFQU4KPj4+PiAgCj4+Pj4gIAkg
-ICBJZiB5b3UgZG9uJ3Qga25vdyB3aGF0IHRvIGRvIGhlcmUsIHNheSAiWSIuCj4+Pj4gIAo+Pj4+
-ICtjb25maWcgRVJSQVRBX1BJQ09IRUFSVF9BTU9DQVNRCj4+Pj4gKwlib29sICJBcHBseSBQaWNv
-aGVhcnQgQU1PQ0FTUSBlcnJhdGEiCj4+Pj4gKwlkZXBlbmRzIG9uIEVSUkFUQV9QSUNPSEVBUlQg
-JiYgUklTQ1ZfSVNBX1pBQ0FTCj4+Pj4gKwlkZWZhdWx0IHkKPj4+PiArCWhlbHAKPj4+PiArCSAg
-U29tZSBQaWNvaGVhcnQgQ1BVcyBpbXBsZW1lbnQgdGhlIFphY2FzIGV4dGVuc2lvbiBidXQgbGFj
-ayBzdXBwb3J0Cj4+Pj4gKwkgIGZvciBBTU9DQVNRIFBNQSBhdHRyaWJ1dGUuIFRodXMgbWFrZXMg
-dGhlIENBU1EgaW5zdHJ1Y3Rpb24gZGUgZmFjdG8KPj4+PiArCSAgdW5hdmFpbGFibGUuIEVuYWJs
-ZSB0aGlzIGVycmF0YSB3b3JrYXJvdW5kIHRvIGRpc2FibGUgdGhlIHVzZSBvZgo+Pj4+ICsJICBD
-QVNRIGluIHRoZSBrZXJuZWwgKGNtcHhjaGcxMjgpLgo+Pj4+ICsKPj4+PiArCSAgSWYgeW91IGRv
-bid0IGtub3cgd2hhdCB0byBkbyBoZXJlLCBzYXkgIlkiLgo+Pj4+ICsKPj4+PiAgZW5kbWVudSAj
-ICJDUFUgZXJyYXRhIHNlbGVjdGlvbiIKPj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9lcnJh
-dGEvcGljb2hlYXJ0L2VycmF0YS5jIGIvYXJjaC9yaXNjdi9lcnJhdGEvcGljb2hlYXJ0L2VycmF0
-YS5jCj4+Pj4gaW5kZXggYzk0NWFlNjk0Mzk2Li5hNjU4ZjM4Y2Y0ZGUgMTAwNjQ0Cj4+Pj4gLS0t
-IGEvYXJjaC9yaXNjdi9lcnJhdGEvcGljb2hlYXJ0L2VycmF0YS5jCj4+Pj4gKysrIGIvYXJjaC9y
-aXNjdi9lcnJhdGEvcGljb2hlYXJ0L2VycmF0YS5jCj4+Pj4gQEAgLTE3NCwxMSArMTc0LDM0IEBA
-IHN0YXRpYyB2b2lkIHBpY29oZWFydF9lcnJhdGFfcHJvYmVfY2JvX2NsZWFuKHVuc2lnbmVkIGlu
-dCBzdGFnZSwKPj4+PiAgCXN0YXRpY19icmFuY2hfZW5hYmxlKCZoYXNfcGljb2hlYXJ0X2Nib19j
-bGVhbl9lcnJhdGEpOwo+Pj4+ICB9Cj4+Pj4gIAo+Pj4+ICtzdGF0aWMgYm9vbCBwaWNvaGVhcnRf
-ZXJyYXRhX3Byb2JlX2Ftb2Nhc3EodW5zaWduZWQgaW50IHN0YWdlLAo+Pj4+ICsJCQkJCSAgIHVu
-c2lnbmVkIGxvbmcgYXJjaGlkLAo+Pj4+ICsJCQkJCSAgIHVuc2lnbmVkIGxvbmcgaW1waWQpCj4+
-Pj4gK3sKPj4+PiArCWlmICghSVNfRU5BQkxFRChDT05GSUdfRVJSQVRBX1BJQ09IRUFSVF9BTU9D
-QVNRKSkKPj4+PiArCQlyZXR1cm4gZmFsc2U7Cj4+Pj4gKwo+Pj4+ICsJaWYgKCFJU19FTkFCTEVE
-KENPTkZJR19SSVNDVl9JU0FfWkFDQVMpIHx8Cj4+Pj4gKwkgICAgIXJpc2N2X2lzYV9leHRlbnNp
-b25fYXZhaWxhYmxlKE5VTEwsIFpBQ0FTKSkKPj4+PiArCQlyZXR1cm4gZmFsc2U7Cj4+Pj4gKwo+
-Pj4+ICsJaWYgKGFyY2hpZCAhPSAweDgwNGE1NTUwNDk1NDQ1NTIgfHwgaW1waWQgIT0gMHgxMDAp
-Cj4+Pj4gKwkJcmV0dXJuIGZhbHNlOwo+Pj4+ICsKPj4+PiArCXJldHVybiB0cnVlOwo+Pj4+ICt9
-Cj4+Pj4gKwo+Pj4+ICBzdGF0aWMgdTMyIHBpY29oZWFydF9lcnJhdGFfcHJvYmUodW5zaWduZWQg
-aW50IHN0YWdlLCB1bnNpZ25lZCBsb25nIGFyY2hpZCwKPj4+PiAgCQkJCSAgdW5zaWduZWQgbG9u
-ZyBpbXBpZCkKPj4+PiAgewo+Pj4+ICsJdTMyIGNwdV9yZXFfZXJyYXRhID0gMDsKPj4+PiArCj4+
-Pj4gIAlwaWNvaGVhcnRfZXJyYXRhX3Byb2JlX2Nib19jbGVhbihzdGFnZSwgYXJjaGlkLCBpbXBp
-ZCk7Cj4+Pj4gLQlyZXR1cm4gMDsKPj4+PiArCj4+Pj4gKwlpZiAocGljb2hlYXJ0X2VycmF0YV9w
-cm9iZV9hbW9jYXNxKHN0YWdlLCBhcmNoaWQsIGltcGlkKSkKPj4+PiArCQljcHVfcmVxX2VycmF0
-YSB8PSBCSVQoRVJSQVRBX1BJQ09IRUFSVF9BTU9DQVNRKTsKPj4+PiArCj4+Pj4gKwlyZXR1cm4g
-Y3B1X3JlcV9lcnJhdGE7Cj4+Pj4gIH0KPj4+PiAgCj4+Pj4gIHZvaWQgcGljb2hlYXJ0X2VycmF0
-YV9wYXRjaF9mdW5jKHN0cnVjdCBhbHRfZW50cnkgKmJlZ2luLCBzdHJ1Y3QgYWx0X2VudHJ5ICpl
-bmQsCj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY21weGNoZy5oIGIv
-YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jbXB4Y2hnLmgKPj4+PiBpbmRleCA2NjJlMTYwYjA1MjIu
-LjA0ODhiOTMxNGMxMyAxMDA2NDQKPj4+PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nt
-cHhjaGcuaAo+Pj4+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY21weGNoZy5oCj4+Pj4g
-QEAgLTMyOSw3ICszMjksMjMgQEAKPj4+PiAgCj4+Pj4gICNpZiBkZWZpbmVkKENPTkZJR182NEJJ
-VCkgJiYgZGVmaW5lZChDT05GSUdfUklTQ1ZfSVNBX1pBQ0FTKSAmJiBkZWZpbmVkKENPTkZJR19U
-T09MQ0hBSU5fSEFTX1pBQ0FTKQo+Pj4+ICAKPj4+PiAtI2RlZmluZSBzeXN0ZW1faGFzX2NtcHhj
-aGcxMjgoKSAgICAgICAgcmlzY3ZfaGFzX2V4dGVuc2lvbl91bmxpa2VseShSSVNDVl9JU0FfRVhU
-X1pBQ0FTKQo+Pj4+ICsjZGVmaW5lIHN5c3RlbV9oYXNfY21weGNoZzEyOCBzeXN0ZW1faGFzX2Nt
-cHhjaGcxMjgKPj4+PiArc3RhdGljIF9fYWx3YXlzX2lubGluZSBib29sIHN5c3RlbV9oYXNfY21w
-eGNoZzEyOCh2b2lkKQo+Pj4+ICt7Cj4+Pj4gKwkvKiBUaGUgdmVuZG9yIGVycmF0dW0gb3ZlcnJp
-ZGVzIHRoZSBzdGFuZGFyZCBaYWNhcyBhbHRlcm5hdGl2ZS4gKi8KPj4+PiArCWFzbSBnb3RvKEFM
-VEVSTkFUSVZFXzIoCj4+Pj4gKwkJCSJub3AiLAo+Pj4+ICsJCQkiaiAlbFtsX3llc10iLAo+Pj4+
-ICsJCQlTVEFOREFSRF9FWFQsIFJJU0NWX0lTQV9FWFRfWkFDQVMsIDEsCj4+Pj4gKwkJCSJub3Ai
-LAo+Pj4+ICsJCQlQSUNPSEVBUlRfVkVORE9SX0lELCBFUlJBVEFfUElDT0hFQVJUX0FNT0NBU1Es
-Cj4+Pj4gKwkJCUNPTkZJR19FUlJBVEFfUElDT0hFQVJUX0FNT0NBU1EpCj4+Pj4gKwkJOiA6IDog
-OiBsX3llcyk7Cj4+Pgo+Pj4gVGhpcyBtYWtlcyB0aGUgZ2VuZXJpYyBjb2RlIHVnbHksIGFkZHMg
-c29tZSBtYWludGFpbiBlZmZvcnQuCj4+PiB3aHkgbm90IGRpc2NhcmRpbmcgInphY2FzIiBpbiB0
-aGUgZHRzPyBJdCdzIG11Y2ggc2ltcGxlcgo+Pgo+PiBpdCdsbCBwcmV2ZW50IHRoZSB1c2FnZSBv
-ZiBvdGhlciBtb3JlIHdpZGVseSB1c2VkIENBUyBpbnN0cnVjdGlvbnMKPj4gaW4gYm90aCB1c2Vy
-IGFuZCBrZXJuZWwgc3BhY2UuIHdlJ2QgbGlrZSB0byByZXRhaW4gdGhlIHBlcmZvcm1hbmNlCj4+
-IGJlbmVmaXQgb2YgQ0FTIG92ZXIgTFIvU0MgZm9yIHByaW1pdGl2ZXMgc3VjaCBhcyBjbXB4Y2hn
-KCkgb24gb3VyCj4+IHNlcnZlciBhcyB3ZWxsLgo+IAo+IElmIHRoZSBaYWNhcyBjYW4ndCBiZSBz
-YWZlbHkgZXhwb3NlZCBvbiB0aGlzIHBsYXRmb3JtLCB0aGUgSVNBIGV4dGVuc2lvbgo+IHNob3Vs
-ZCBiZSBkaXNhYmxlZCwgcmF0aGVyIHRoYW4gYWRkaW5nIHZlbmRvciBzcGVjaWZpYyBleGNlcHRp
-b25zIHRvCj4gZ2VuZXJpYyBjYXAgZGV0ZWNpb24gd2hpY2ggYWRkcyB1bm5lY2Vzc2FyeSBjb21w
-bGV4aXR5IGFuZCBtYWludGVuYW5jZQo+IGJ1cmRlbiB0byBnZW5lcmljIGNvZGUuIEl0IGFsc28g
-c2V0cyBhbiB1bmRlc2lyYWJsZSBwcmVjZWRlbnQgZm9yCj4gaGFuZGxpbmcgc2ltaWxhciBlcnJh
-dGEgaW4gdGhlIGZ1dHVyZS4gSW1hZ2luZSBpZiB2YXJpb3VzIHZlbmRvcnMgZG9uJ3QKPiBpbXBs
-ZW1lbnQgdmFyaW91cyBleHRlbnNpb25zIGNvcnJlY3RseSwgdGhlbiB0aGUgcmlzY3YgYXJjaCBj
-b2RlIHdpbGwKPiBiZSBmdWxsIG9mIHRoaXMga2luZCBvZiBzcGVjaWZpYyBleGNlcHRpb25zIGhl
-cmUgYW5kIHRoZXJlLCB3aGljaCBtYWtlCj4gdGhlcyBmcmFnbWVudGF0aW9uIGluIFJJU0MtViBs
-YW5kIHNpdHVhdGlvbiB3b3JzZS4KPiAKCkkgdG90YWxseSB1bmRlcnN0YW5kIHRoZSBjb25jZXJu
-cy4gVGhlIHNpbGljb24gZXJyYXRhIGlzIHVuZXhwZWN0ZWQgYnV0CnRoZSByaXNjdidzIGVycmF0
-YSBmcmFtZXdvcmsgYW5kIGFsdGVybmF0aXZlcyBwcm92aWRlcyB0aGUgbWVhbnMgdG8gc2F2ZQp0
-aGUgY2FzZS4gSSdkIGxpa2UgdG8ga2VlcCB0aGUgZXJyYXR1bSBoYW5kbGluZyBhcyBzbWFsbCBh
-cyBwb3NzaWJsZSBhbmQKb3BlbiB0byBiZXR0ZXIgc29sdXRpb25zLi4KCkRpc2FibGluZyB0aGUg
-ZW50aXJlIGV4dGVuc2lvbiBiZWNhdXNlIG9mIHRoZSBBTU9DQVMuUSBlcnJhdHVtIHdvdWxkIGFs
-c28KbG9zZSB0aGUgYmVuZWZpdHMgb2YgdGhlIHdvcmtpbmcgQU1PQ0FTLlcvRCBpbnN0cnVjdGlv
-bnMuIFByZXNlcnZpbmcgdGhlaXIKcGVyZm9ybWFuY2UgYmVuZWZpdCBpbiB0aGUga2VybmVsIGlz
-IG15IG1haW4gbW90aXZhdGlvbi4gT3VyIG1lYXN1cmVtZW50cyAgCnNob3cgc3Vic3RhbnRpYWwg
-Z2FpbnMgZm9yIHNvbWUgY21weGNoZygpIHdvcmtsb2FkcywgcGFydGljdWxhcmx5IHVuZGVyCmNv
-bnRlbnRpb24gb24gb3VyIHNlcnZlciBwbGF0Zm9ybS4gVGhlIGZvbGxvd2luZyByZXN1bHRzIGNv
-bXBhcmUga2VybmVsCmNtcHhjaGcoKSB1c2luZyBDQVMgYW5kIExSL1NDOgoKQ0FTIHdpbGwgcmVk
-dWNlIHRoZSBsYXRlbmN5IGJ5IGFib3V0IDIwfjIxJToKV2lkdGggICAgICAgTFIvU0MgICAgICAg
-Q0FTICAgIEltcHJvdmVtZW50CjMyLWJpdCAgICAgMS4wMDDDlyAgICAxLjI1M8OXICAgICAgICAg
-KzI1LjMlCjY0LWJpdCAgICAgMS4wMDDDlyAgICAxLjI3MMOXICAgICAgICAgKzI3LjAlCgphbmQg
-aW5jcmVhc2UgdGhlIHRocm91Z2hwdXQgYnkgYXQgbW9zdCA2eCBhdCBoaWdoIGNvbnRlbnRpb24u
-CldpZHRoIENvbnRlbmRlcnMgICAgICAgTFIvU0MgICAgICAgQ0FTICAgIEltcHJvdmVtZW50CjMy
-LWJpdCAgICAgICAgIDIgICAgICAxLjAwMMOXICAgIDAuOTgyw5cgICAgICAgICAgLTEuOCUKMzIt
-Yml0ICAgICAgICAgNCAgICAgIDEuMDAww5cgICAgMi4xMTXDlyAgICAgICAgKzExMS41JQozMi1i
-aXQgICAgICAgICA4ICAgICAgMS4wMDDDlyAgICA0LjEwMsOXICAgICAgICArMzEwLjIlCjMyLWJp
-dCAgICAgICAgMTYgICAgICAxLjAwMMOXICAgIDYuOTgxw5cgICAgICAgICs1OTguMSUKMzItYml0
-ICAgICAgICAzMCAgICAgIDEuMDAww5cgICAgNC44MDjDlyAgICAgICAgKzM4MC44JQo2NC1iaXQg
-ICAgICAgICAyICAgICAgMS4wMDDDlyAgICAxLjA4OMOXICAgICAgICAgICs4LjglCjY0LWJpdCAg
-ICAgICAgIDQgICAgICAxLjAwMMOXICAgIDEuNTU0w5cgICAgICAgICArNTUuNCUKNjQtYml0ICAg
-ICAgICAgOCAgICAgIDEuMDAww5cgICAgMi45MDfDlyAgICAgICAgKzE5MC43JQo2NC1iaXQgICAg
-ICAgIDE2ICAgICAgMS4wMDDDlyAgICA0Ljk3MMOXICAgICAgICArMzk3LjAlCjY0LWJpdCAgICAg
-ICAgMzAgICAgICAxLjAwMMOXICAgIDUuMjYyw5cgICAgICAgICs0MjYuMiUKCj4+Cj4+IHNpbmNl
-IGtlcm5lbCBhbHJlYWR5IHByb3ZpZGVzIHN5c3RlbV9oYXNfY21weGNoZzEyOCgpIGFzIGEKPj4g
-c2VwYXJhdGUgY2FwYWJpbGl0eSBjaGVjaywgZGlzYWJsaW5nIDEyOC1iaXQgQ0FTIGhlcmUgbGV0
-cyB1cwo+PiBsaW1pdCB0aGUgd29ya2Fyb3VuZCB0byBjbXB4aGcxMjggb25seSBhbmQgY291bGQg
-YmUgYSByZWFzb25hYmxlCj4gCj4gVGhlIHdvcmthcm91bmQgb25seSBhZmZlY3RzIGtlcm5lbCdz
-IGNhcCBjaGVjaywgYnV0IGRvZXNuJ3QgcHJldmVudAo+IHVzZXJzcGFjZSBmcm9tIGV4ZWN1dGlu
-ZyB0aGUgYWZmZWN0ZWQgaW5zdHJ1Y3Rpb24gaWYgdXNlcnNwYWNlIHVzZXMKPiBod3Byb2JlIGV0
-Yy4gdG8gZHluYW1pY2FsbHkgZGV0ZWN0IHRoZSB1bmRlcmx5aW5nIGh3IHN1cHBvcnRlZAo+IGV4
-dGVuc2lvbnMuIFRoZXJlZm9yZSwgdGhpcyB3b3JrYXJvdW5kIGRvZXMgbm90IGZ1bGx5IGFkZHJl
-c3MgdGhlCj4gZXJyYXRhIGFuZCBjb3VsZCBsZWF2ZSB1c2Vyc3BhY2UgZXhwb3NlZCB0byB0aGUg
-c2FtZSBpc3N1ZS4KCmluZGVlZC4gd2UgaW5pdGlhbGx5IGRlY2lkZWQgdG8gcmV0YWluIHRoZSBh
-ZHZlcnRpc2VtZW50IG9mIFphY2FzIHRvCnVzZXJzcGFjZSBhcyBBTU9DQVMuUSBpcyBub3QgZnJl
-cXVlbnRseSB1c2VkIGFuZCB0aGUgYWNjZXNzIGZhdWx0IGJ5CkFNT0NBUy5RIGlzIGxlc3MgZmF0
-YWwgY29tcGFyZWQgdG8gdGhlIGtlcm5lbC4gdGhlIGFjY2VzcyBmYXVsdCBpbgprZXJuZWwgd2ls
-bCBjcmFzaCB0aGUgc3lzdGVtLgoKPiAKPiBEaXNhYmxpbmcgdGhlIGFmZmVjdGVkIGV4dGVuc2lv
-biBhdCB0aGUgcGxhdGZvcm0gbGV2ZWwgaXMgYSBtb3JlCj4gY29uc2lzdGVudCBhcHByb2FjaC4K
-CndoYXQgYWJvdXQgcmV0YWluaW5nIEFNT0NBUy5XL0QgZm9yIGtlcm5lbCB1c2UsIHdoaWxlIGtl
-ZXBpbmcKY21weGNoZzEyOCgpIGRpc2FibGVkIGFuZCB3aXRoaG9sZGluZyBaYWNhcyBmcm9tIHVz
-ZXJzcGFjZSBjYXBhYmlsaXR5CmFkdmVydGlzZW1lbnQ/IFRoYXQgd291bGQgcHJlc2VydmUgdGhl
-IG1lYXN1cmVkIGtlcm5lbCBwZXJmb3JtYW5jZQpiZW5lZml0IHdpdGhvdXQgYWR2ZXJ0aXNpbmcg
-ZnVsbCBaYWNhcyBzdXBwb3J0IHRvIGFwcGxpY2F0aW9ucy4KCnRoYW5rcy4KCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Jinjie,
+
+> arm64, LoongArch and RISC-V duplicate the elf core header and initrd
+> loading.  Move it into a common helper with one arch hook for the boot
+> parameters; a failure releases everything added for the attempt.
+
+I like the idea of pulling out the common code, but I'm not convinced
+that the split you suggest is right.
+
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Baoquan He <baoquan.he@linux.dev>
+> Cc: Mike Rapoport <rppt@kernel.org>
+> Suggested-by: Mike Rapoport <rppt@kernel.org>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  include/linux/kexec.h | 15 ++++++++
+>  kernel/kexec_file.c   | 90 +++++++++++++++++++++++++++++++++++++++++++
+>  2 files changed, 105 insertions(+)
+>
+> diff --git a/include/linux/kexec.h b/include/linux/kexec.h
+> index faba26f871a4a..de1d83ddc38bd 100644
+> --- a/include/linux/kexec.h
+> +++ b/include/linux/kexec.h
+> @@ -259,6 +259,21 @@ int kexec_kernel_verify_pe_sig(const char *kernel, unsigned long kernel_len);
+>  extern int kexec_add_buffer(struct kexec_buf *kbuf);
+>  int kexec_locate_mem_hole(struct kexec_buf *kbuf);
+>  
+> +struct kexec_load_params {
+> +	unsigned long kernel_load_addr;
+> +	unsigned long kernel_size;
+> +	char *initrd;
+> +	unsigned long initrd_len;
+> +	char *cmdline;
+> +	unsigned long cmdline_len;
+> +};
+
+initrd and cmdline are already in image->initrd_buf, initrd_buf_len,
+cmdline_buf and cmdline_buf_len, that's where fops->load() gets them from.
+
+And the outputs are scattered: elf_load_addr goes to the image, the initrd
+address is passed as a separate argument to the hook, and LoongArch infers
+"there is an initrd" from initrd_load_addr != 0.
+
+
+
+> +
+> +int arch_kexec_setup_other_segments(struct kimage *image,
+> +				    struct kexec_load_params *params,
+> +				    unsigned long initrd_load_addr);
+> +int kexec_load_other_segments(struct kimage *image,
+> +			      struct kexec_load_params *params, bool top_down);
+> +
+
+The call chain is now fops->load() in arch -> kexec_load_other_segments()
+in core -> arch_kexec_setup_other_segments() back in arch. That's a
+midlayer: the core helper owns the sequence and the arch fills a hole in
+the middle of it.
+
+The weak default is never used, all three users override it, and x86,
+powerpc and s390 build a helper and a hook that nothing calls.
+
+>  #ifndef arch_kexec_locate_mem_hole
+>  /**
+>   * arch_kexec_locate_mem_hole - Find free memory to place the segments.
+> diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
+> index 62d4cba278a57..8b80f1186875b 100644
+> --- a/kernel/kexec_file.c
+> +++ b/kernel/kexec_file.c
+> @@ -1295,3 +1295,93 @@ int kexec_purgatory_get_set_symbol(struct kimage *image, const char *name,
+>  	return 0;
+>  }
+>  #endif /* CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY */
+> +
+> +int __weak arch_kexec_setup_other_segments(struct kimage *image,
+> +					   struct kexec_load_params *params,
+> +					   unsigned long initrd_load_addr)
+> +{
+> +	return 0;
+> +}
+> +
+> +int kexec_load_other_segments(struct kimage *image,
+> +			      struct kexec_load_params *params, bool top_down)
+> +{
+> +	struct kexec_buf kbuf = {
+> +		.image = image,
+> +		/* Do not allocate anything below the kernel */
+> +		.buf_min = params->kernel_load_addr + params->kernel_size,
+> +		.buf_max = top_down ? PFN_PHYS(max_low_pfn) : ULONG_MAX,
+> +	};
+
+top_down does not describe a direction, it selects "RISC-V policy" vs
+"arm64 policy": the upper limit for all buffers, the initrd direction and
+the 32G initrd window.
+
+These are boot protocol constraints and they belong to the architecture.
+The 32G window comes from arm64 booting.rst and the SZ_64K alignment below
+is "largest supported page size" on arm64 and LoongArch. With this patch
+they become generic and RISC-V silently switches from
+ELF_CORE_HEADER_ALIGN to 64K in 15/15.
+
+
+> +
+> +	unsigned long orig_segments = image->nr_segments;
+> +	unsigned long initrd_load_addr = 0;
+> +	int ret = 0;
+> +
+> +#ifdef CONFIG_CRASH_DUMP
+> +	if (image->type == KEXEC_TYPE_CRASH) {
+> +		ret = crash_prepare_headers(true, &kbuf.buffer, &kbuf.bufsz, NULL);
+> +		if (ret) {
+> +			pr_err("Preparing elf core header failed\n");
+> +			goto out_err;
+> +		}
+> +
+> +		if (unlikely(image->elf_headers))
+> +			vfree(image->elf_headers);
+
+The headers don't depend on where the kernel is placed, yet they are
+rebuilt on every iteration of the arm64 and LoongArch retry loops. That's
+why the vfree() above is needed, and with the out_err path freeing them
+it's now dead code.
+
+Building the headers once and only placing them in the loop removes the
+leak instead of fixing it.
+
+
+> +
+> +		image->elf_headers = kbuf.buffer;
+> +		image->elf_headers_sz = kbuf.bufsz;
+> +
+> +		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
+> +		kbuf.memsz = kbuf.bufsz;
+> +		kbuf.buf_align = SZ_64K; /* largest supported page size */
+> +		kbuf.top_down = true;
+> +
+> +		ret = kexec_add_buffer(&kbuf);
+> +		if (ret)
+> +			goto out_err;
+> +
+> +		image->elf_load_addr = kbuf.mem;
+> +
+> +		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+> +			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
+> +	}
+> +#endif
+> +
+> +	if (params->initrd) {
+> +		kbuf.buffer = params->initrd;
+> +		kbuf.bufsz = params->initrd_len;
+> +		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
+> +		kbuf.memsz = params->initrd_len;
+> +		kbuf.buf_align = 0;
+> +		/* within 1GB-aligned window of up to 32GB in size */
+> +		if (!top_down)
+> +			kbuf.buf_max = round_down(params->kernel_load_addr, SZ_1G) +
+> +					(unsigned long)SZ_1G * 32;
+> +		kbuf.top_down = top_down;
+> +
+> +		ret = kexec_add_buffer(&kbuf);
+> +		if (ret)
+> +			goto out_err;
+> +		initrd_load_addr = kbuf.mem;
+> +
+> +		kexec_dprintk("Loaded initrd at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+> +			      initrd_load_addr, kbuf.bufsz, kbuf.memsz);
+> +	}
+> +
+> +	ret = arch_kexec_setup_other_segments(image, params,
+> +					      initrd_load_addr);
+> +	if (ret)
+> +		goto out_err;
+> +
+> +	return 0;
+> +
+> +out_err:
+> +	while (image->nr_segments > orig_segments) {
+> +		kexec_free_segment_cma(image, image->nr_segments - 1);
+> +		image->nr_segments--;
+> +	}
+> +
+> +	kexec_free_elf_headers(image);
+
+This drops segments added by the arch hook (DTB, RISC-V purgatory, arm64
+dm-crypt keys) without knowing anything about the state attached to them,
+like image->dm_crypt_keys_addr or the purgatory info. The hook, in turn,
+frees its buffers but not its segments.
+
+Nobody owns the unwind, so "a failure releases everything added for the
+attempt" is not quite what happens.
+
+The conversions also bury ordering changes in "simplify" patches: on arm64
+dm-crypt keys move after the initrd, and on RISC-V the initrd moves before
+the purgatory. And dm-crypt keys loading is not an arm64 boot parameter,
+x86 and powerpc use it as well.
+
+> +
+> +	return ret;
+> +}
+
+
+What I had in mind was to make the core provide building blocks and let
+the architectures compose them, e.g. a common rollback function that
+frees CMAs and drops segments above nr. The retry loops in arm64 and
+LoongArch image loaders can use it instead of open coding
+kexec_free_segment_cma() and nr_segments--. There also could be a helper
+for adding FDT for example and maybe some other common parts, like, say,
+efl headers.
+
+Arch's load_other_segments() could use these helpers and still define
+their own policy for segment placement.
+
+-- 
+Sincerely yours,
+Mike.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
