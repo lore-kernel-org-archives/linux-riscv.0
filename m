@@ -2,101 +2,109 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86FEC60A2601
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 19:03:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F14A0606A31C
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 19:18:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NTYbiLMa;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ta3ME0TX
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=R5q7J2+Z;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aAugQkvc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=yfCzxYQKAcbP9OO4ytwmHJwZMMI4w0ItzZRnkf7gCVI=; b=NTYbiLMasSP3SuJHN6PEEEfALZ
-	3vkr9zXGmKqABQpFTG74gR+pnaJfpmnJiPJ2yra0klREGHVADHer9kYRPbQ1DiSRM/8S6swVE+7e/
-	q6cet9dXTSQyJ2B+Ie2SWw7VU12ZWll+bXpyD+0lAQvCx+XDWSN31qP5TTWlEWaF4vdzsDfv7WneH
-	OIvZOVtfppTsn08LLJ+5Ho4Yry1WNI8FEnLti48qMt0/fr8G/BSFDahwBirrKXerP1zHESD6L9HYD
-	i/vXf2zPVAHpBHKP5vUAkfv/Zs0eHuftM+M5KJfJo4KUFrSo/PYTW3BvbruawMlQdOD4wXDJi6iSw
-	0vTHgwcw==;
+	bh=1KTgUHxAxuqKAFEOlt+HU/lcDlk2HaqW6vze/07TLq4=; b=R5q7J2+ZyHXKpm9eH8aLz9SFl1
+	ytGIoiB3WcNA3wJhVdUw3Zxwn7b3S1CRtt0UAcC8SdZ/e7IAqqYkYYJNSkqXyJHQJj+/c1RMXUWrQ
+	+WjKp9+8cuENy539F8+eNi946ZjXkOTnSeKG8oXpcZ3XQPoyp5oybCmo5bnztK+bcyv+NzwyAPW9L
+	fp8oI7sXYY0SI1IqJAW8rZlLNcb9layyCnh9gcaqu20eiA1G4FRsBgTm6RawocUteIvIVZ5Niuxp5
+	eysLFtzoyLdlM7eT95M1zoRCgxL9+Gcog25MPbQ1DnKPeb/T5vh/0br83i9lX26BuPPQMoiiYm6w/
+	c6VD7E4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQr7V-00000004rmN-3QjE;
-	Tue, 10 Nov 2026 19:03:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xQrM1-00000004srl-0fgT;
+	Tue, 10 Nov 2026 19:18:01 +0000
+Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQr7U-00000004rmA-35c0
+	id 1xQrLx-00000004srP-1cNp
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Nov 2026 19:03:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 39EF146947;
-	Tue, 10 Nov 2026 19:03:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A3691F008A1;
-	Tue, 10 Nov 2026 19:02:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794337380;
-	bh=0Nen3DE75lFZ06p2iNZ1cFUOV53MmCW0/dJJQgl8Lz8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ta3ME0TXdyjvWLI8RTl/D/KZ8OX9eIxFE8UPaKUmoHdPpjemp7tE5UYSsEA2L6CRW
-	 cgwohAtvbGVrQJIfaEdZBgeoaeRENsZIBNBiAOa3T2ub/q7g2ZlDykuscP9cTSI9pC
-	 30iE+bW6Rah/0lNVSndbLQYrMidX0okCN6w+9u/kEVQliehneqd0xc97QGwKo7BhXA
-	 Sn3Zr4b7fX5qYWipbipSYJ15Avc4tik8tcKOdsXEzBxQvy0CI6ip7NTIJpyreEieBV
-	 b6CIolTXu7DrA7wTUQrNO6nM+BgPe4fWWpweg2ZgH48TkJJf+s0yAhdgAhifNidIOw
-	 9qjcOvdQJmqhg==
-Date: Tue, 10 Nov 2026 19:02:48 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>, Gary Guo <gary@garyguo.net>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Chao-ying Fu <chao-ying.fu@globalfoundries.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	torvalds@linux-foundation.org, olof@lixom.net,
-	aleksa.paunovic@htecgroup.com, arikalo@gmail.com,
-	Boqun Feng <boqun@kernel.org>, Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Pu Lehui <pulehui@huawei.com>, Puranjay Mohan <puranjay@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>, Miguel Ojeda <ojeda@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Nam Cao <namcao@linutronix.de>, rust-for-linux@vger.kernel.org
-Subject: Re: [PATCH v6 2/6] riscv: build kernel atomics from LR/SC when Zaamo
- is disabled
-Message-ID: <20261110-revivable-saint-9bcfaa2fd0e7@spud>
-References: <20261110-lrsc-only-v6-0-bafc3cc0fcae@mobileye.com>
- <20261110-lrsc-only-v6-2-bafc3cc0fcae@mobileye.com>
+	Tue, 10 Nov 2026 19:17:59 +0000
+Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-8b0cf2c0785so25290777b3.3
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Nov 2026 11:17:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794338275; cv=none;
+        d=google.com; s=arc-20260327;
+        b=G3DTwLZzEj0ZPtCroXcdnbt/kXI4iO2Dea3EQ2baqMgro7kFQTPGclfQvV06xYYMYJ
+         2Tqbq6XyDWRJSQWPxvPEB3JLyjJQThWbNV1iGjfQioiiWaBz1h6+IpLQcJWpTf2RH2yf
+         OYzIwpo5XgEBiD9xzjTwHwm3RMrjfh1VClmafF5hdgCUSsBG6D5cJBj/b3NeVgR+Z0uY
+         bmRs6a5yD6gDqf0kY3Mvzey38Mi8q4WSgthjOm/eQGkDCglZBovxIjsEqDkynopQJYo6
+         RjZQ7cPn0CSW8SwGK28WD82mr5ZHIJKQ7ejlKIvSNVngq8or2RB4VsucczQm5Pz0o+yQ
+         4NYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=puDDZt/C2f5Dzo58o7lKVRrUWtH4KzZHgOy66M1m2I0=;
+        fh=N57CrQMaqmaGjvO47HiAdQ9E7ft1RqyGLkde95MNV7Q=;
+        b=Hmlm0rQUFpfMPpITmZgHs3y3GL6DnFlVgBzBjp1zfTYmo+09F5N+z9++9LkSM0k3wB
+         l/QFgYs78ZN/lR7KZL7fKajtB/yLJd3UwK8x0Zzx07MZVeL2WuumA6IkPB2eKxtH+cGf
+         s7e47i4TNXfyF5yIn7eHjFXclKRVVfuxy5sr1/ufg1Dq9OjkVSvUT7podt3vTRCfpr5x
+         tv4QpnNE/UcFdDsG/N787JxUqn2eg4bqIAK2gSkai5vyT/4fXEbnG7jgzRH88hVxJD1F
+         ETeVN/7F9Q3pXdX5vAnRSVhliMw3bHBnHMCzR2qGHMfn0z0l91mbXSj9iK3G0A7AT+CH
+         SuYA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794338275; x=1794943075; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=puDDZt/C2f5Dzo58o7lKVRrUWtH4KzZHgOy66M1m2I0=;
+        b=aAugQkvcWG34t6656rL4BXHEFVwTf51rYGYk9HunTXxYQBPOOPnNmyEx6+VlEidKrU
+         7IKwUBqmmfUuvkCRJYlU0OYlBR8REFRFXZEiNElFwpqKfACRShi7Rii0dh2DhpMwqXen
+         We1GDCYUz/4eyf7BU9O9g3tFUvg5Ztv/QN1WZVSRyA2Z5ZmETdGXAx0szCdUcoTVCLz3
+         kzItkH1D52PVPouffAmZdpw5Yq40/PPwapVujr2qm+p9LEF2vfP1+6oRj9qCaG99T6EO
+         96Tuk7E/FW/+X626R9zsMUV8jQSx/KsHmDbVg8v+YD7v/hoJ5bowoG+dpS76ME6vvk21
+         5l3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794338275; x=1794943075;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=puDDZt/C2f5Dzo58o7lKVRrUWtH4KzZHgOy66M1m2I0=;
+        b=kK8KAvgoNuWiirbHJ3XNUdMFVM1Ld5NTHWJEodx2qI2FIJ+Ut6BdLKGXSgSYC4LZgY
+         VqlxXAZNw4ESqQypbGpjBRElU5rLNz1wQGb6W7lJfT1eLL9SJ14BCCOgk7PIWAZqtEBl
+         IN2UvntJ0YrasE3MYSrV9osLckp18Yh8TIwec8SUe9D6rDMXMrNixxpy0ZnleycF6p0t
+         cMv/OVShynQQZWW3YvgmrNQjB3Km0pYVlAKT3zTLKGijwG08zu7wEB743/D/WtrPFsOs
+         hLTfl4dc5bXSos0R1gI0wKsmUJZa9JtFVBCERPAL8zOdasS9+aY//wo+TaJHiMpWAs/K
+         MRdQ==
+X-Forwarded-Encrypted: i=1; AL+hErGAiXjGu0crhbrKt2Nrlhh7FZX2Y4igz94jLVzgSybh2jHN/t8xhMfwb9S+IEps9TF+TJrHFrs28PgfUQ==@lists.infradead.org
+X-Gm-Message-State: APuU4Z+SGjpDBSbUitZclq0Lql6fRmbVBHEdL+s07h937xzWIasVfLoo
+	9ddqJoXCehIVy3Rtr8OayTnZxGKz//zT8dtpT5tUHnhORZre4D4FdfpBEpwVqjkjPzi2L2uw28A
+	w/1NTg26EcfCCpE6M1WSHv3Ux+2vKhuM=
+X-Gm-Gg: AYBFou2MC1J4TPycX9XCZQwGvVG6pKljCtpLdCtyczd9EDszTRLB49BDKRJgP5vl4Xr
+	44p2G9BSc0ESV9ZV0QDyEWqEKizIaL8hxeyEOo9HRuO1tyII1WYT1Z8c3QXOEwduHCePDnM3xN5
+	sBxLhKDAXVd9nad3IFxZFQgPvFHZmoQBlBrP8I8+rDvDQDjUQYw6ZuaLEbTPGgd+Dj/CEtsAESQ
+	LMnjbGRZACzsmaynNho9ELorgDZZ391bMjN1LDH4W3TEY/EOZ1aJnIlIERZxq3Zl98vopr2HkYS
+	IDt4X15fUHFEAJWRO+JGqe7/qxqXS/i6caclao2q7Uffj9aL8AO1WEPs2Kg6S1p5DbQtrJQXtQx
+	QsnggkdzMWxy3moAGw5yB4aqIjS1fqWyycuBTpQ==
+X-Received: by 2002:a05:690c:a045:b0:8b3:59dd:11bb with SMTP id
+ 00721157ae682-8b3a80904bbmr1548667b3.32.1794338275490; Tue, 10 Nov 2026
+ 11:17:55 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20261110-lrsc-only-v6-2-bafc3cc0fcae@mobileye.com>
+References: <20261108-04-k3-pm-support-v3-0-b9dc0857039b@kernel.org> <20261108-04-k3-pm-support-v3-1-b9dc0857039b@kernel.org>
+In-Reply-To: <20261108-04-k3-pm-support-v3-1-b9dc0857039b@kernel.org>
+From: Iker Pedrosa <ikerpedrosam@gmail.com>
+Date: Tue, 10 Nov 2026 20:16:00 +0100
+X-Gm-Features: AclHuK8pMvnG1Q-j9dHb2iJ_gKQ1ShQm5guoJXhhleP_Gp1CskmuEJKcLhqrA_k
+Message-ID: <CABdCQ=NCwHn_Qtg-KZCRYWrruDWrP5Fdpeq_Ci_vtcbm92hEkw@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: power: spacemit: Add power domain
+ controller IDs
+To: Yixun Lan <dlan@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261110_111757_429683_2371F16A 
+X-CRM114-Status: UNSURE (   4.63  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,121 +114,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0999698426307256111=="
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Ulf Hansson <ulfh@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, spacemit@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============0999698426307256111==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="yEOv5UU3yImNGsK0"
-Content-Disposition: inline
+Patch 1/2 is unchanged from v2.
 
---yEOv5UU3yImNGsK0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Nov 10, 2026 at 03:20:59PM +0200, Vladimir Kondratiev wrote:
-> The A extension is Zaamo plus Zalrsc. On some CPUs Zaamo is present
-> only formally. MIPS P8700 traps every AMO instruction into M-mode and
-> emulates it there, so the extension is supported but very slow. A
-> typical uncontended atomic increment costs:
->=20
->   native AMO                                     2..5 cycles
->   LR/SC, private L1 reservation monitor         6..12 cycles
->   LR/SC, PoC (L2) reservation monitor       about 40 cycles
->   AMO emulated by an M-mode trap           about 600 cycles
->=20
-> The last two were measured on the eyeq7h hardware. On such a CPU the
-> kernel must use LR/SC for every atomic.
->=20
-> Add RISCV_ISA_ZAAMO, default y. The default keeps "a" in -march and
-> the generated code unchanged. When it is disabled, -march carries
-> _zalrsc instead of "a", and atomic_*, bitops, xchg, futex and the
-> early boot code use LR/SC loops. The sequence is chosen with the
-> preprocessor, on CONFIG_RISCV_ISA_ZAAMO like the other ISA options in
-> the headers, because the assembler rejects AMO mnemonics once -march
-> lacks Zaamo. A kernel built this way runs on any hart that implements
-> A; it just does not use AMO. It is therefore a plain option, not a
-> NONPORTABLE one, and the hart keeps advertising "a" to userspace,
-> which is true.
->=20
-> The LR/SC loops follow the ordering convention of the existing ones
-> in cmpxchg.h, from commit 5ce6c1f3535f ("riscv/atomic: Strengthen
-> implementations with fences") and commit 1d84afaf0252 ("riscv: Fix
-> fully ordered LR/SC xchg[8|16]() implementations"): a fully ordered
-> operation is lr, sc.rl and a trailing fence rw,rw; acquire is lr.aq
-> with a plain sc; release is a plain lr with sc.rl. The futex loop is
-> bounded to 128 retries and returns -EAGAIN after that, as arm64 does,
-> because userspace can keep the word changing from another thread and
-> futex_wake_op() retries on -EAGAIN anyway.
->=20
-> Zabha, Zacas and the ssamoswap instruction of Zicfiss are AMO
-> instructions, so RISCV_ISA_ZABHA, RISCV_ISA_ZACAS and RISCV_USER_CFI
-> depend on RISCV_ISA_ZAAMO. The riscv64imac Rust target emits AMO too,
-> so RUSTC_SUPPORTS_RISCV depends on it as well.
->=20
-> The choice is made at compile time rather than with alternatives.
-> Nearly every CPU has a native A extension, and an alternative would
-> inflate all those kernels with the nops needed to pad one AMO to the
-> size of an LR/SC loop, at every atomic site, for the benefit of a few.
->=20
-> Turning Zaamo off needs a compiler that accepts _zaamo and _zalrsc in
-> -march. GCC 15.1 is the first release that does.
-> TOOLCHAIN_HAS_ZALRSC_ZAAMO checks for it; with an older compiler the
-> option stays at y.
->=20
-> Three sets of extensions provide every atomic Linux needs. "a" is what
-> the kernel supports today. Zalrsc plus Ziccrse is what this patch adds:
-> every atomic is a constrained LR/SC loop, and Ziccrse is the
-> forward-progress guarantee for such loops. Zaamo plus Zacas would do
-> as well, with CAS loops in place of LR/SC as on x86, and is left for
-> whoever has such hardware.
->=20
-> Suggested-by: Chao-ying Fu <chao-ying.fu@globalfoundries.com>
-> Nacked-by: Conor Dooley <conor.dooley@microchip.com>
-> Link: https://lore.kernel.org/linux-riscv/20261106-smock-headband-d6a7d56=
-8c228@spud/
-
-I had a quick glance at this revision, and I think you've at least tried
-to resolve the things I was pointing out. Did I miss something, or why
-have you kept the NAK after having resolved the things that I was
-objecting to?
-
-Thanks,
-Conor.
-
-> Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-
---yEOv5UU3yImNGsK0
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCavNqVwAKCRB4tDGHoIJi
-0vCIAPwI9tv4/veY1c2lX/x6cUlucNBdIPbCVw9jI0m16SyQIwEAwvrqq4Gw4cdE
-G3N4rmccRtmc+qeZKgNCaWp7/G74kQ4=
-=vYmX
------END PGP SIGNATURE-----
-
---yEOv5UU3yImNGsK0--
-
-
---===============0999698426307256111==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Tested-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+Reviewed-by: Iker Pedrosa <ikerpedrosam@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0999698426307256111==--
-
