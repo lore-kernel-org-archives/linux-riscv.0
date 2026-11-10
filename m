@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 280E9606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E89FC606A325
 	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 12:17:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=B5YSWa49;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=RMsvTuBO
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LTUMOhWS;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZoEF7GAp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,73 +14,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
-	bh=HsX9mwXiHcI3+Bf75dOMyVedibgdeLZs+sEx7enP2R0=; b=B5YSWa49dv9PIFgv4KP6O1bjQ5
-	KIyAEJEA8yKNWrTlyh04hFxU5ip1n9mX6jBhwyyxR+RUMQ0u2pkmHqnioQwsaJROhHLGdwBk5L4GQ
-	fkPViss34b/3x0YpPc+wak6sD9LfwtvIVYLhEXUoz6KdvM3JxuHdIpmll/NpFHQPkDUa565Am5gnr
-	FvjdkKNWp6NpDUK9MFq+HULyclnirfy+nzLYgKjdG9t9fCmhT9AZEfPWLOGC02QNK5BdnCXXsIzzp
-	DvR4kKtH/Rue6OzsMLJrsz3P+/WBlIgVoFC0478lCIkLUq3vMeiQI9x/4z5P5pJ/HTm10QYagG801
-	KKzz4/qw==;
+	bh=dGniS+zDFmZhil5XHcOEH90JnyE3cW/lNzwCf9ci4Yc=; b=LTUMOhWSvLFcLn3mUCBrYwv6yF
+	t+98NQ4HZC+n61iNG+c6f2nJol7Bzpgk8aKxl6tptxa10urenn0HFUenYV+jr3qDLxDUXWZ+MAY/p
+	GgmTTc0AcT55zSnAt3/6Qgu3u9wf12aVQM1D8UnBgf8SiGo556IMp33lq3vQFxwEBPDRJSUgIalAp
+	8tnOhtBnq3JZlOXupJ3sN8nOW14LkasGjIi/7pMyxwyi/FOqdzjxkjZ7WKM9ljNVKJRjjWsOhavDc
+	ZaoEwa7y9FnDwQaE+uvW7w5hWwiCHKvtU6MaC3rtZ30Sht+iE/Pb22/n+/jtKnV/geYtxMt69OUT0
+	jTvsbxzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQknK-00000003mxN-0TAP;
-	Tue, 10 Nov 2026 12:17:46 +0000
-Received: from mail-wm1-x346.google.com ([2a00:1450:4864:20::346])
+	id 1xQknN-00000003n1q-2srw;
+	Tue, 10 Nov 2026 12:17:49 +0000
+Received: from mail-wr1-x447.google.com ([2a00:1450:4864:20::447])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQknG-00000003muL-2G8A
+	id 1xQknI-00000003mvQ-3XTV
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Nov 2026 12:17:44 +0000
-Received: by mail-wm1-x346.google.com with SMTP id 5b1f17b1804b1-4a1fdde384cso12420075e9.3
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Nov 2026 04:17:41 -0800 (PST)
+	Tue, 10 Nov 2026 12:17:46 +0000
+Received: by mail-wr1-x447.google.com with SMTP id ffacd0b85a97d-48e011829easo1297884f8f.3
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Nov 2026 04:17:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794313060; x=1794917860; darn=lists.infradead.org;
+        d=google.com; s=20260707; t=1794313062; x=1794917862; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PjRDWUymC+7EL3JaTKRije1yqTzPKOHWaJhKCJD3MI0=;
-        b=RMsvTuBObzecIWcgIe5UiAwkLFlzOMNnJ57iFgQv2csnGGsWg7U7Zxh3isGPJm8y3s
-         7evjtuoy/03sNSSy/RgYNstGCeH+3170FgQMnzkJbw+5cnJNuGi8aFmU99yMLc+iwVs0
-         fzv9YwW8kkh+lvAkM2c99mrZwDnCPX6loyYZAdJiyzzYKBbustdZ/1SzMigA9zBGhjd/
-         5ALJgRBeDw2yV9K3D6M3EkA/++ENj+biut65jDZTjgw6/kpPNNs/4Bcuwj2UfpRjNfmh
-         o4mOuCm6fI5aoc5HjNwlScQyHpFScyI7LYACACt7JeN4KNiJpWRuPx3PrFQqKRIcZ2bl
-         o0tg==
+        bh=Gy+owdWhI9aq49SvOXumwy6C5wawdvH/TU7Zgbh6cFQ=;
+        b=ZoEF7GApyFNrkkrVD5sQvSnLYC+ExxuFctL4QY6knuYEM7Pev96eK/c4+Te7cEd5ch
+         IX9nqXVTYvzRQnPnXlNatp5LC3IPrxDrjLYW4R+sBALAZwSqzwruSmVwCH6bgW+n7d4t
+         v7XIn+SjQLZWR2a4kIwmmORwenv35IXqxy2t0TUszb0MyUDBjO4haA1gxu7kYol+keys
+         5oyHJHU1Pmnq/Q/sqZpi95TOMN0Y7GJ2L99oNkkmrWMuCfVRprl8isvO8nSDHCpblT4P
+         KEvCyKd5hjxvusbJda2ydBLIMFFIp259IRX+FvzgIDIwJ1lNBBq55/YhmPhH/buInVa5
+         oIdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794313060; x=1794917860;
+        d=1e100.net; s=20260707; t=1794313062; x=1794917862;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=PjRDWUymC+7EL3JaTKRije1yqTzPKOHWaJhKCJD3MI0=;
-        b=A/irETsSXBfcwdDS7jtyQwII1en+gfzTK+kexVPQj8yMnEIOdHPyu3ucLwF6paZIh0
-         ODIcfJvTL4r9OWhT1edlzyyh+hu1483Jy6fv4xJcAv34TzDj351xNRXxxjR2cE80vt8l
-         HTGQqeqirpC3vjri93QHmrQ5HSpknQ4xyjAWbYm1Ucw5Nff+LUHE0Uq8psLVsnCObLuL
-         QRomfmfOquQea0FwP5d4ZyfSNeMF71l5a4zi5iy4HlXDWA3DhmUtfhh2zQDglrk5Yqux
-         BYs1gj93a+ax8b9DlYaZkibfWaKmKncnYN4CM4iQH5r+whqMvU1DPD0dZMeYJSs896uO
-         CVkA==
-X-Forwarded-Encrypted: i=1; AL+hErG7oxVcir3bF1ysA13kl35CmieNU7QbZ91dcHB/sneuRJR7nArB8VkDZVnUpmGlXIgOYBqobS3G4gCyNQ==@lists.infradead.org
-X-Gm-Message-State: APuU4Z+u84hguwPwFbHkJzNhJ1ttprju0/tLyKe4fcscWdsrwNSn803S
-	oWhl5mBF1Am3n/iKQsATu948idG78yqC8Aq537H4AukerPDsuOIdEpa27HwKWaSZ20MHIE0+QA=
+        bh=Gy+owdWhI9aq49SvOXumwy6C5wawdvH/TU7Zgbh6cFQ=;
+        b=MJBosX/wCPLPmWFtjYz91t2JEnbe6WqyhraL+GBGXvMP+v78dE1f4J/UR3bKYpP5Nj
+         d6ZGF9/G4aRkqrKfck+pxnDIsf6GrLy3xSN7Vmbmf/govzBRa+/6cWWezolC4EaOIV01
+         DXrxYpiOdO9a2in8GcXqNdHnj3Ic/gp3wt18MGABiXRl8GzRkUFHjWqmZgz5sx5A0Qez
+         7qqDJKcYN9mp4lmsM+VbbPqErUHdtsBGWbR2XZFgQqH0IdyKzqThP0pJ4TkXGOGVl3TC
+         qtvemKAkEPwJxPzVkT7TRUAdB4X89dQHslZTlH+TcVATdc4mGJoc6l7tXAVlT+xavKl2
+         RYdw==
+X-Forwarded-Encrypted: i=1; AL+hErFgZ+NqhGJ+p3g6nmem5MBmIY5Qirqu7JN0K3zuRnwDNY0MnfSbGye+LVWKOwxQoVIZ6CubkjbWOeWViQ==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/us4MBXRqLLKS0cdfePM8LOWEGQ1OnI1BAEGUBLJStanShQ8fZ
+	CSwbUwCi6kCP2JEvrCjgogGOMyD2kGgUqSyu8kEx92xQSRofSUuTjS0GtJl7/UYRGlVZwD8ngg=
 	=
-X-Received: from wmbc22.prod.google.com ([2002:a7b:c016:0:b0:4a1:8bbb:59bd])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:19c9:b0:4a7:c366:d791
- with SMTP id 5b1f17b1804b1-4ba02308537mr40596315e9.1.1794313060140; Tue, 10
- Nov 2026 04:17:40 -0800 (PST)
-Date: Tue, 10 Nov 2026 13:17:33 +0100
+X-Received: from wrxp4.prod.google.com ([2002:a05:6000:184:b0:495:feb9:bf43])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:298d:20b0:48e:202:6718
+ with SMTP id ffacd0b85a97d-4982ecf6701mr3321662f8f.25.1794313062387; Tue, 10
+ Nov 2026 04:17:42 -0800 (PST)
+Date: Tue, 10 Nov 2026 13:17:35 +0100
 In-Reply-To: <20261110121731.2728824-12-ardb+git@google.com>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
 References: <20261110121731.2728824-12-ardb+git@google.com>
 X-Mailer: git-send-email 2.56.0.542.g3ef89b7020-goog
-Message-ID: <20261110121731.2728824-13-ardb+git@google.com>
-Subject: [PATCH v2 01/10] efi/zboot: arm64: Add missing barrier after cache maintenance
+Message-ID: <20261110121731.2728824-15-ardb+git@google.com>
+Subject: [PATCH v2 03/10] efi/libstub: Avoid _end section marker in library code
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-efi@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>, 
 	Jason Gunthorpe <jgg@nvidia.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, stable@vger.kernel.org
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261110_041742_586813_F626E401 
-X-CRM114-Status: UNSURE (   8.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261110_041744_939078_8A67D4B5 
+X-CRM114-Status: GOOD (  13.43  )
 X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,29 +103,31 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Prevent the I-cache from fetching stale data by issuing a barrier after
-the data cache maintenance completes but before performing the I-cache
-maintenance.
+The _end marker could point to the end of the kernel image being loaded,
+or to the _end of the zboot decompressor image, and so it should only be
+used in code that is obviously only intended for the former case.
 
-Cc: <stable@vger.kernel.org>
+So instead, use kernel_memsize and the image address to obtain the same
+quantity.
+
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- drivers/firmware/efi/libstub/arm64.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/firmware/efi/libstub/kaslr.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/efi/libstub/arm64.c b/drivers/firmware/efi/libstub/arm64.c
-index e57cd3de0a00..62fc8e53c8a0 100644
---- a/drivers/firmware/efi/libstub/arm64.c
-+++ b/drivers/firmware/efi/libstub/arm64.c
-@@ -107,6 +107,8 @@ void efi_cache_sync_image(unsigned long image_base,
- 			base += lsize;
- 			size -= lsize;
- 		} while (size >= lsize);
-+
-+		dsb(ish);
- 	}
- 
- 	asm("ic ialluis");
+diff --git a/drivers/firmware/efi/libstub/kaslr.c b/drivers/firmware/efi/libstub/kaslr.c
+index 8f8dc335b3b3..b34e4599f0f6 100644
+--- a/drivers/firmware/efi/libstub/kaslr.c
++++ b/drivers/firmware/efi/libstub/kaslr.c
+@@ -125,7 +125,7 @@ efi_status_t efi_kaslr_relocate_kernel(unsigned long *image_addr,
+ 		if (!check_image_region(*image_addr, kernel_memsize)) {
+ 			efi_err("FIRMWARE BUG: Image BSS overlaps adjacent EFI memory region\n");
+ 		} else if (IS_ALIGNED(*image_addr, min_kimg_align) &&
+-			   (unsigned long)_end < EFI_ALLOC_LIMIT) {
++			   (*image_addr + kernel_memsize) < EFI_ALLOC_LIMIT) {
+ 			/*
+ 			 * Just execute from wherever we were loaded by the
+ 			 * UEFI PE/COFF loader if the placement is suitable.
 -- 
 2.56.0.542.g3ef89b7020-goog
 
