@@ -2,90 +2,129 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A187C606A31C
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 23:18:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9D57606A31C
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 23:43:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sjcik4d8;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WJS6b8KC
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rob3KtrQ;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=alistair23.me header.i=@alistair23.me header.a=rsa-sha256 header.s=fm3 header.b=SLTRwptr;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=LvIryW+U
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=RQL3E3lPnKQGy8iwHE6vRPmdZI11QaGrPB3xyOGFtqs=; b=sjcik4d82zqldw3SpicQAHNle3
-	jhu7F706YFW3y4I1HTlJcPw+2E9shJkqYiortZrkMmeaaIqEQnIgULKYjp6D6s1iw3Bq2GFUJ7DI/
-	90Y8g1N/QOWFlOSSevCnMlrFp1LBG5MnO/SqepS5czkio76+O99mj95UFlwN5g7f3DPvQsntt9iBB
-	fdGWtmKCH9dNt0i2zId8N3n6h+B744vCFdpb+PkhewhdxGgHbZ8p0f145h7OFOENUDNVIX50tW6CR
-	jtrnZ+YblyImZc3yMGwk633kNDyYRbY6Vlg63v5tQmkScGfC/fSbhr+Gj8nHd2Z0GfUUDjFp3Tet1
-	3+6Zo0oA==;
+	bh=XpN5snmQqKVMbemXOS4o0xRQXjOccaormykMX/Mb3Dk=; b=rob3KtrQ3s8F6kh5nnu5PLOwUi
+	DMhp5qgQbLgCNo40Jap1F0wLBVqCQ84wdT7ahqcrMoDUtOudwjyFQMipYsPKeavaDsrYxOHH2i8BC
+	zOxMalSsUIMGD4ptozAxFQSDANZwImaZ7RwJTrMxbeuQ9a3SERIht+mbD0nX826N2Te2xr6lAnYA0
+	MTExflHAAZujCTErGbFqLpGeVONb27yHFy6VzHw5emgC0RhL7tMgBmAgTikpoUUk03OKHcOe+zaIy
+	hs7koYcB55AnVmsspRbu5vaJQwziPXahSlX1RGlfNj4K0BnzNjpIe7EIKh03CE5MB2GhNH8H9LO+q
+	mS7aypEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQv68-00000005E7b-1MxW;
-	Tue, 10 Nov 2026 23:17:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xQvUr-00000005G7l-3ISv;
+	Tue, 10 Nov 2026 23:43:25 +0000
+Received: from fout-a2-smtp.messagingengine.com ([103.168.172.145])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQv67-00000005E7E-1Bll
+	id 1xQvUo-00000005G7A-2zEK
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Nov 2026 23:17:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 47E23635B9;
-	Tue, 10 Nov 2026 23:17:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65F361F0093C;
-	Tue, 10 Nov 2026 23:17:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794352670;
-	bh=gbmiIYRmaOIY16FesNo5fSYIqv3eyHrsXkU16JRHHC8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WJS6b8KC1LJY2RUo9wiF5fL7kLRtABCnBxnzmLOUAlldosxNl2+W+GTjJBDvaRBvm
-	 Fu2jpwZwDfWPJ2Hqn4VF1ipfVWnrZzCXNFfVTAjGpVQco5nVz9fomH48P07U7gOa7Y
-	 rBitF4k71S7d2mXqcdSux3x4V1b5ZJdWi4ALo3+PHFAcr6ya/VnZyaxd6lTF/6eJsF
-	 qfI6EJ+cBIAy9kjD8xtvz7qV+Zsgv9AZwwuA6BYoRf/yZmlEI1gbohNlcix4uQCcYY
-	 1FlJW2JOxAPpUPmbEibgKU0ZWnYf5FOSUaMZ43Jyjnk11EMXIN9uy4Uu56EJ+DVAey
-	 To4C8xAa7SnNQ==
-Date: Tue, 10 Nov 2026 15:17:48 -0800
-From: Drew Fustini <fustini@kernel.org>
-To: Adrien Ricciardi <aricciardi@baylibre.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atish.patra@linux.dev>,
-	Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
-	Borislav Petkov <bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dave Martin <Dave.Martin@arm.com>, Fenghua Yu <fenghuay@nvidia.com>,
-	Gong Shuai <gong.shuai@sanechips.com.cn>,
-	Gong Shuai <gsh517@gmail.com>, guo.wenjia23@zte.com.cn,
-	James Morse <james.morse@arm.com>,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn,
-	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Peter Newman <peternewman@google.com>,
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <radim.krcmar@oss.qualcomm.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Sunil V L <sunilvl@oss.qualcomm.com>,
-	Tony Luck <tony.luck@intel.com>, Weiwei Li <liwei1518@gmail.com>,
-	yunhui cui <cuiyunhui@bytedance.com>,
-	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Zeng Heng <zengheng@picoheart.com>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org,
-	devicetree@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v11 2/5] riscv_cbqri: resctrl: Add cache allocation via
- capacity block mask
-Message-ID: <avOmHFcy/yFOr9YX@x1>
-References: <20261108-dfustini-atl-sc-cbqri-dt-v11-0-33a1bf0cf01c@kernel.org>
- <20261108-dfustini-atl-sc-cbqri-dt-v11-2-33a1bf0cf01c@kernel.org>
+	Tue, 10 Nov 2026 23:43:24 +0000
+Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
+	by mailfout.phl.internal (Postfix) with ESMTP id 01648EC05F5
+	for <linux-riscv@lists.infradead.org>; Tue, 10 Nov 2026 18:43:21 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-07.internal (MEProxy); Tue, 10 Nov 2026 18:43:21 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alistair23.me;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm3;
+	 t=1794354200; x=1794440600; bh=0x6QN9wo/gIl6u/ONE+WuFx2SJWN+x0p
+	CIuLNaVpstw=; b=SLTRwptregmi5YgLcqMIJr1XNTmok1drjTOQY8r7bwcZnPJY
+	e3WMsgkDUiQBxSB6DEYNqLWcK4F8oo8eJw9LTPyiJBn4PZMWJ7YTPHQrrDiRgejZ
+	CP8gY++zNgjuAAkDbIxIatPrnGggdEiamfEIqb72zQ1bvwbj0Lqbw2GBr4Sm3vA2
+	DwEeNElmboQe3Kn//Rfhkx84HRAH3wIE637Glo5jhbRXbLkdjoM9liT6PIGCZH7A
+	vHxB9KthZ6mV8pQToL9FokWuKrFFXLZQmD24ZLWR513xzcglC/eJYuiL3+t67YQL
+	vYsRF/O2EbsacqFxAAOihJwY/dHgqsZTTi9ySw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1794354200; x=
+	1794440600; bh=0x6QN9wo/gIl6u/ONE+WuFx2SJWN+x0pCIuLNaVpstw=; b=L
+	vIryW+Uc//8KT1///hSFZ5BUkFs5DKzbZtv9/CNM/3k3Q6wDtjwFMcPnN8OwxQNm
+	EUtTpvdIjQvFZfDX5b4qK1ECoJQ4+EQ3VLSlswSlJy/BVEzw6MPcrCi5ahBowtH6
+	NBEbzAzU/LW1xHdP3pSi6zsLtoOgL7KfyetPbw7ycGdn68Ee/I4qjv20rQLyWO70
+	DDHZ72z8+l8u6dcm+6EgsZdLlxMq93ONZZXmXBtpayNSw4GNV8cjIeu6aAZ9ePxa
+	O/G/7WYKnBDnU1fN3y3ltodBRa52YcfOMKeYaizTOpafz6CnSJmNJdrGMS7K0giG
+	sJKYHRYvfEP2pIE2rPk3w==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=alistair23.me a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1794354200; d=alistair23.me;
+	mf=PGFsaXN0YWlyQGFsaXN0YWlyMjMubWU+;
+	rt=PGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmc+;
+	s=fm3:rsa-sha256:BbIEiHWhSOc6EFbOQrT4NAX19sEbiG/jf9O3wXwkSo7CHhD
+	cIacwZ34d+SNauLY0EWHSwkcaHpiSzx2mV0rkRmx2qOngHP/DxSlHhaexgYOmJjF
+	+h96NGd2U2b6O5Mq8zrCzisfP73RG4dV5GrTSTdM6X+Jr3pGh1+7FFG7IpQgYcLI
+	xvxFixzl1HWxqxCE6Wtp2k8rhMj2qfL7EiBbdSjKhsn6uX0VvIzpb08qKm67wzDE
+	o3dI8TH1lNgimQTm3QefgD0z6YLaV7ORMLDSxPy1ACDa7jE1PY4rN2ch+sf7EUh7
+	QzthZ6uNF4qZJrCXjQ6OXVbp6J5jWfkICkjnJ/Q==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to,
+	user-agent;
+Message-Instance: m=1; h=sha256:Qk7gK0IsGB1Q6aMT9k9ePKHHzrDKj/tmy1PB+LqXS+8=:0x6QN9wo/gIl6u/ONE+WuFx2SJWN+x0pCIuLNaVpstw=;
+X-ME-Sender: <xms:Fqzzav6CaRv0CZbpxaOaxI427YxzI0JXQeiBEP_FEXoTduxxdSW9KA>
+    <xme:Fqzzar1XqJKXDv2fua0IUkpihguiZF-Qx6aLA8ONrbsGVXIzDnDN0ErOEiEGSkTC8
+    5UTtqjBatuyRVNJiI8mNr5ZKRIrqVfut_k589jJma_ZL-ZRH4N2wHXP>
+X-ME-Received: <xmr:Fqzzarh7rCqzpoW2_Ze1VXOpeFiDtFZ-HYgAXPzeAZFzbk2Tybau9VCEwHTuwtDUvv27UKLQLcHDpk8j1Rcp>
+X-ME-Proxy-Cause: dmFkZTFEX2UJcgpQyiNt+GxCdCP+sn8sCJSYmF1dP9IOYwinxKt8hHWepJE33Bo25oa75j
+    7gYdW9w0WbI1jJmzHwxrRwYH/Xkjfzj1yd9rLQkOTNeYP831KcvJRlyXTPGSQntqNX989A
+    rJ1Zv+fbrOEP/F1XVyGYnhaIFK2xhP3dYOl1BebBb9gXvOcQfiXrvc3yExHxVmuC3DQ3S0
+    IrX3U95+MFySpqTExrClQ99RERJLeLlqG5NK7HRE2QLNSdmp1C7JQGLx7RRqoYYPQlFJZy
+    fYNjsLgymWFoiNeFxev51sYd0FUYH6bv6duka8km9mkgrCBoXVpgMooGzQuArczz/S0zjF
+    89VpIcB+8BgGiEqNTOMqmqWpArDL00KPCSx2ZdPUXc2L4Exmfoj+27+VnHOZBbu8Ac7HgB
+    q2YkjksWafyjGGs9Iu95Z32qXKTMWdJEvixQ+ByAd7GSyLoimQrcIjtICLp45ZWR3PmevI
+    yVO0bxLh2ji5bMhtqUzh9YIuA9OPL1cyhZVLmRX5XKYJV4zQI7u1J2o6xCBPHxRtziYFY3
+    DG/t4hLh+MjwNGQIZUcbiThQqLn4C3EvgJ84tcb2sALmQ7YX3iQ1ionCAt1bLwaJqwXChL
+    2wN4nvBvJshvhI8X+7wZIyqrpMHa/3jL2PaDkVTIvrcRpGOUSTIj5VcN2L1Q
+X-ME-Proxy: <xmx:FqzzanQ17uTRRiZOYy9o-IGG0nlVQclLbKF8PHhe7VVHf3OGtWQJaQ>
+    <xmx:Fqzzat7uwXYoFXrH1gMhNdWKIwL6bfq7JMDDnbN8p_6ymoRAN1feVw>
+    <xmx:Fqzzavz_pwLK_ml4Tho34EuPc1x8Jg81BmUW6ftWq9xEgWr89JhJtw>
+    <xmx:FqzzatCuIMkDsSetXx98vgWYEBIUs-IEK98FOma_PsVTFHQXUUwr0w>
+    <xmx:GKzzasWECsVibloWQs9MRGueFVep43cowMHxf1hnUYg2YjXDMRaTJ1dM>
+Feedback-ID: ifd214418:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 10 Nov 2026 18:43:13 -0500 (EST)
+Message-ID: <7ba76316996d17efab87a180c88da4c3300f075c.camel@alistair23.me>
+Subject: Re: [PATCH 1/2] dt-bindings: net: bluetooth: realtek: Add RTL8852BS
+From: Alistair <alistair@alistair23.me>
+To: =?ISO-8859-1?Q?Fr=E9d=E9ric_Mah=E9?= <frederic.mahe@cirad.fr>, Marcel
+ Holtmann <marcel@holtmann.org>, Luiz Augusto von Dentz
+ <luiz.dentz@gmail.com>, Rob Herring	 <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley	 <conor+dt@kernel.org>, Yixun Lan
+ <dlan@kernel.org>
+Cc: Vasily Khoruzhick <anarsoul@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Troy Mitchell
+ <troy.mitchell@linux.spacemit.com>, linux-bluetooth@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Date: Wed, 11 Nov 2026 09:43:10 +1000
+In-Reply-To: <20261110074607.363918-2-frederic.mahe@cirad.fr>
+References: <20261110074607.363918-1-frederic.mahe@cirad.fr>
+	 <20261110074607.363918-2-frederic.mahe@cirad.fr>
+User-Agent: Evolution 3.62.1 (by Flathub.org) 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261108-dfustini-atl-sc-cbqri-dt-v11-2-33a1bf0cf01c@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261110_154323_148988_2B6B050B 
+X-CRM114-Status: GOOD (  13.23  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,51 +134,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sun, Nov 08, 2026 at 03:20:51PM -0800, Drew Fustini wrote:
-> Wire CBQRI capacity controllers into resctrl as the L2 and L3 cache
-> resources.
-> 
-> resctrl exposes a single capacity mask per resource, so when more than
-> one capacity controller backs a cache level they must report the same
-> number of capacity blocks. The same holds for the other capabilities
-> resctrl exposes once per resource. A level whose controllers disagree
-> is left unexposed. Other levels are unaffected.
-> 
-> The set of controllers backing each level is fixed when resctrl is set
-> up at late_initcall. Control domains are created in the cpuhp online
-> callback and keyed on the onlining CPU's cache id from cacheinfo, so a
-> CPU that is offline at probe time still joins its domain once it comes
-> online, provided a controller for its cache is in that set.
-> 
-> A CPU whose cache has no controller, or whose domain cannot be created,
-> still comes online. It is left out of that level and a warning is
-> logged, since bringing the CPU up matters more than controlling its
-> cache traffic. A domain is published on the ctrl_domains RCU list only
-> after it is fully initialized and brought online, and removed from the
-> list before it is taken offline, following the documented safe
-> traversal rules.
-> 
-> Tested-by: Chen Pei <cp0613@linux.alibaba.com>
-> Acked-by: Reinette Chatre <reinette.chatre@intel.com>
-
-Hi Reinette, I still need to get more reviews on this series, but I
-wanted to check if your expectation is that all the patches in this
-series should be merged through arch/riscv?
-
-Thanks,
-Drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCAyMDI2LTExLTEwIGF0IDA4OjQ2ICswMTAwLCBGcsOpZMOpcmljIE1haMOpIHdyb3Rl
+Ogo+IFRoZSBSVEw4ODUyQlMgaXMgYSBXaS1GaSA2ICsgQmx1ZXRvb3RoIDUuMiBjaGlwIHdpdGgg
+V2ktRmkgb24gU0RJTwo+IGFuZCBCbHVldG9vdGggb24gVUFSVCAoSDUpLiBJdHMgQmx1ZXRvb3Ro
+IHBhcnQgd29ya3Mgd2l0aCB0aGUKPiBSVEw4ODIyQ1MgZHJpdmVyIGRhdGEsIHNvIHVzZSByZWFs
+dGVrLHJ0bDg4MjJjcy1idCBhcyBmYWxsYmFjay4KPiAKPiBUaGlzIHBhdGNoIHdhcyBwcmVwYXJl
+ZCB3aXRoIHRoZSBoZWxwIG9mIGFuIEFJIGFzc2lzdGFudCAoQ2xhdWRlKSwKPiB3aGljaCBhbHNv
+IHJhbiB0aGUgdGVzdHMuCj4gCj4gU2lnbmVkLW9mZi1ieTogRnLDqWTDqXJpYyBNYWjDqSA8ZnJl
+ZGVyaWMubWFoZUBjaXJhZC5mcj4KClJldmlld2VkLWJ5OiBBbGlzdGFpciBGcmFuY2lzIDxhbGlz
+dGFpckBhbGlzdGFpcjIzLm1lPgoKQWxpc3RhaXIKCj4gLS0tCj4gwqAuLi4vYmluZGluZ3MvbmV0
+L2JsdWV0b290aC9yZWFsdGVrLGJsdWV0b290aC55YW1swqDCoMKgwqAgfCAxMSArKysrKysrLS0K
+PiAtLQo+IMKgMSBmaWxlIGNoYW5nZWQsIDcgaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkK
+PiAKPiBkaWZmIC0tZ2l0Cj4gYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvbmV0
+L2JsdWV0b290aC9yZWFsdGVrLGJsdWV0b290aC55Cj4gYW1sCj4gYi9Eb2N1bWVudGF0aW9uL2Rl
+dmljZXRyZWUvYmluZGluZ3MvbmV0L2JsdWV0b290aC9yZWFsdGVrLGJsdWV0b290aC55Cj4gYW1s
+Cj4gaW5kZXggN2Q1NjcxMjJiLi5mZmRmMTNiMDUgMTAwNjQ0Cj4gLS0tCj4gYS9Eb2N1bWVudGF0
+aW9uL2RldmljZXRyZWUvYmluZGluZ3MvbmV0L2JsdWV0b290aC9yZWFsdGVrLGJsdWV0b290aC55
+Cj4gYW1sCj4gKysrCj4gYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvbmV0L2Js
+dWV0b290aC9yZWFsdGVrLGJsdWV0b290aC55Cj4gYW1sCj4gQEAgLTQsMTYgKzQsMTYgQEAKPiDC
+oCRpZDoKPiBodHRwOi8vZGV2aWNldHJlZS5vcmcvc2NoZW1hcy9uZXQvYmx1ZXRvb3RoL3JlYWx0
+ZWssYmx1ZXRvb3RoLnlhbWwjCj4gwqAkc2NoZW1hOiBodHRwOi8vZGV2aWNldHJlZS5vcmcvbWV0
+YS1zY2hlbWFzL2NvcmUueWFtbCMKPiDCoAo+IC10aXRsZTogUlRMODcyM0JTL1JUTDg3MjNDUy9S
+VEw4ODIxQ1MvUlRMODgyMkNTIEJsdWV0b290aAo+ICt0aXRsZTogUlRMODcyM0JTL1JUTDg3MjND
+Uy9SVEw4ODIxQ1MvUlRMODgyMkNTL1JUTDg4NTJCUyBCbHVldG9vdGgKPiDCoAo+IMKgbWFpbnRh
+aW5lcnM6Cj4gwqDCoCAtIFZhc2lseSBLaG9ydXpoaWNrIDxhbmFyc291bEBnbWFpbC5jb20+Cj4g
+wqDCoCAtIEFsaXN0YWlyIEZyYW5jaXMgPGFsaXN0YWlyQGFsaXN0YWlyMjMubWU+Cj4gwqAKPiDC
+oGRlc2NyaXB0aW9uOgo+IC3CoCBSVEw4NzIzQlMvUlRMODcyM0NTL1JUTDg4MjFDUy9SVEw4ODIy
+Q1MgaXMgYSBXaUZpICsgQlQgY2hpcC4gV2lGaQo+IHBhcnQKPiAtwqAgaXMgY29ubmVjdGVkIG92
+ZXIgU0RJTywgd2hpbGUgQlQgaXMgY29ubmVjdGVkIG92ZXIgc2VyaWFsLiBJdAo+IHNwZWFrcwo+
+IC3CoCBINSBwcm90b2NvbCB3aXRoIGZldyBleHRyYSBjb21tYW5kcyB0byB1cGxvYWQgZmlybXdh
+cmUgYW5kIGNoYW5nZQo+ICvCoCBSVEw4NzIzQlMvUlRMODcyM0NTL1JUTDg4MjFDUy9SVEw4ODIy
+Q1MvUlRMODg1MkJTIGlzIGEgV2lGaSArIEJUCj4gY2hpcC4KPiArwqAgV2lGaSBwYXJ0IGlzIGNv
+bm5lY3RlZCBvdmVyIFNESU8sIHdoaWxlIEJUIGlzIGNvbm5lY3RlZCBvdmVyCj4gc2VyaWFsLiBJ
+dAo+ICvCoCBzcGVha3MgSDUgcHJvdG9jb2wgd2l0aCBmZXcgZXh0cmEgY29tbWFuZHMgdG8gdXBs
+b2FkIGZpcm13YXJlIGFuZAo+IGNoYW5nZQo+IMKgwqAgbW9kdWxlIHNwZWVkLgo+IMKgCj4gwqBw
+cm9wZXJ0aWVzOgo+IEBAIC0yOCw2ICsyOCw5IEBAIHByb3BlcnRpZXM6Cj4gwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgLSBlbnVtOgo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSByZWFsdGVr
+LHJ0bDg4MjFjcy1idAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gY29uc3Q6IHJlYWx0ZWsscnRs
+ODcyM2JzLWJ0Cj4gK8KgwqDCoMKgwqAgLSBpdGVtczoKPiArwqDCoMKgwqDCoMKgwqDCoMKgIC0g
+Y29uc3Q6IHJlYWx0ZWsscnRsODg1MmJzLWJ0Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoCAtIGNvbnN0
+OiByZWFsdGVrLHJ0bDg4MjJjcy1idAo+IMKgCj4gwqDCoCBkZXZpY2Utd2FrZS1ncGlvczoKPiDC
+oMKgwqDCoCBtYXhJdGVtczogMQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
