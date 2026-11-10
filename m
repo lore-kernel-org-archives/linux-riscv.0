@@ -2,78 +2,116 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07F77606A325
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 10:04:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6D5360A260F
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 10:41:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0Vf8tbIJ;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QT0hLtk9
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eerh6fF7;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OTrfXiUE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=OU1RPcaC3yynl5OYGnJYDeBrbjgMKi8EMZapEQgQ8bc=; b=0Vf8tbIJA2lwtTsIAhCCHxUGDE
-	jNSIgeu0SDOm96p9AF0jg3V5XofxtQIBVw4GIQal1Qwv69ZdGUfQcJSoQ/guImP/B1BH/vhn7tmtn
-	cPbm+gG3L075Xk9UvfVGMtvvERWRd/rmfk4IY6rvj6jR3NRY4+xv4Hfc584i4/m4vA68O2enllVdq
-	JoZ9Dxhe3Z9vjriaRpG4wCk+O/2srg79fylslyRpGwbEDmHJjyqVEMgOXMUaCtFvaW5nETwyy2UCy
-	RtVW+Zr1mXmk6YQ1M6d/+sQVo5hYYRV0xDNPkehQ7go7noOL1/NnEaWoaZD/KPbwhJeE4aVumeT3t
-	kgEutT8w==;
+	bh=CRY6/DWAv3FHJLZ8NZBQ+g59r/S7jTtnrmRr3M9PQck=; b=eerh6fF70wKyCOo5HUAgTS2SGN
+	M9T9kSEUosJuJ+CR8zhfDET4ISgbGv6NqnzUwlJn4aFSfMeAUljocRwiW98zUCHMWUt2vCzYe3sut
+	XFttIhBQLpdXtctRyk3vFENTgTU33HYSeg0Ez9lZhBL0ScW2aVXAQPbtZF2bpfib4uUxGDIpss30f
+	HEkTEwgqEtXN/Lt7pqoBKFovvwIz22U68oVX2mNwi/SYGjCrWSP/ez+5Mlo3qw9ilOk1pV2PC08tg
+	sivShua5VJgqjflxxjOVrk178Dhocc2nviYPAB6d9AVTdPoOrn1eZVOcRMEH2k3LJtsXTiua/Cib5
+	Gvb0xHbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQiiJ-00000003NxD-3MYc;
-	Tue, 10 Nov 2026 10:04:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xQjIR-00000003UOc-19cn;
+	Tue, 10 Nov 2026 10:41:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQiiG-00000003Nvx-03f3;
-	Tue, 10 Nov 2026 10:04:24 +0000
+	id 1xQjIP-00000003UN9-2DhX
+	for linux-riscv@lists.infradead.org;
+	Tue, 10 Nov 2026 10:41:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 68EBE42EB0;
-	Tue, 10 Nov 2026 10:04:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A80651F0089F;
-	Tue, 10 Nov 2026 10:04:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2EFCA44F2F;
+	Tue, 10 Nov 2026 10:41:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56DF31F008A2;
+	Tue, 10 Nov 2026 10:41:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794305063;
-	bh=eY1DjQBxx9pGJujq6jDGfkVxNU4BxXGTTLJbRN2wf4U=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=QT0hLtk9QO9NQkSAMafK//Ctz1CLu6QbM11Rc9ypRgZvHyr5B908aYtoNJaavFGGr
-	 0fInfPXPrGa6TWHGLogzkkxJ+Xx00GGNu+4+rA8qxV1XsW1X1hTqN6DD16TSa3JAKp
-	 zFkHqXG9t7lCkgbbuWrsooy4xekpacKz3RZeGeb/jw/+M3qMTK0+w0JDpZwYMFWKGh
-	 gQ6rTH8699FKSbnCwHqDJJrCqVSQyUMdoE56xaNNnc1h9qrqjX4Oq+tJRybK9TVJke
-	 XsntNYFGeRI83Yhcix3xoAuRHe6qn+3qze9Zkb5x2CzaRLiQXjUBcD/HiBTyyy2Dku
-	 wT9SVixRtBFow==
+	s=k20260515; t=1794307305;
+	bh=TrUCkLH/luW4Lq8qxENFCmJBtDYj2YjkTU7I0UeIPkY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=OTrfXiUErQbonlOA/WsjAetIgyIbgZqKQoipPvgALRJVYDpgVI65lYLgQArSIJ69z
+	 ScvOSlKfS/3iCZE08WSDRRURPLzRIWu6N8LROrY474CApSRHySQikM6TcNwsQEUnXC
+	 1UJeYMBHZpV82Q5LFACMhy4MioMHbhC6pSjIHjZb/HGrvyHJjzZ8UQctqmtMXPzC4h
+	 O76vWqsrv5Cf+YVug4jDJ+F635VJUR6/BfKIJKRfJ7B4VT7RTg9OCW+0QrNvZh2hHk
+	 7ru498g7/6AhrjlZ9K77t9leDHEjz/J3/xK4CY1pkAHGMDzHLPNDqqP1l/hAXc+g8S
+	 hK4ZOIGTauXVg==
+Message-ID: <2e878ad2-1a20-4ee7-8460-64e0d9774ff5@kernel.org>
+Date: Tue, 10 Nov 2026 11:41:37 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v7 12/15] kexec: Add kexec_load_other_segments() helper
-From: Mike Rapoport <rppt@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
- chenhuacai@kernel.org, kernel@xen0n.name, maddy@linux.ibm.com, 
- mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org, 
- ritesh.list@gmail.com, sshegde@linux.ibm.com, pjw@kernel.org, 
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org, 
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com, 
- akpm@linux-foundation.org, baoquan.he@linux.dev, rppt@kernel.org, 
- pasha.tatashin@soleen.com, pratyush@kernel.org, thuth@redhat.com, 
- leitao@debian.org, yeoreum.yun@arm.com, robh@kernel.org, 
- sourabhjain@linux.ibm.com, kees@kernel.org, coiby.xu@gmail.com, 
- Yeking@Red54.com, tangyouling@kylinos.cn, maqianga@uniontech.com, 
- zhangtianyang@loongson.cn, guodongtai@kylinos.cn, blum@kernel.org, 
- adityag@linux.ibm.com, hui.wang@canonical.com, sohammetha01@gmail.com, 
- guoren@kernel.org, gaohan@iscas.ac.cn, kai.huang@intel.com, kas@kernel.org, 
- vishal.l.verma@intel.com, piliu@redhat.com, jbouron@amazon.com, 
- mclapinski@google.com, me@linux.beauty, graf@amazon.com, bgwin@google.com, 
- x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
- kexec@lists.infradead.org
-In-Reply-To: <20261026075201.699550-13-ruanjinjie@huawei.com>
-References: <20261026075201.699550-1-ruanjinjie@huawei.com>
- <20261026075201.699550-13-ruanjinjie@huawei.com>
-Date: Tue, 10 Nov 2026 12:04:05 +0200
-Message-Id: <179430504583.425130.15302016434972990362.b4-review@b4>
-X-Mailer: b4 0.16.1-dev
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/4] riscv: dts: sophgo: Enable USB role switch on Huashan
+ PI
+To: Inochi Amaoto <inochiama@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen Wang <chen.wang@linux.dev>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Minas Harutyunyan <hminas@synopsys.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Longbin Li <looong.bin@gmail.com>,
+ Dinh Nguyen <dinguyen@opensource.altera.com>,
+ Paul Zimmerman <paulz@synopsys.com>, Felipe Balbi <balbi@ti.com>
+Cc: devicetree@vger.kernel.org, sophgo@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-usb@vger.kernel.org, Yixun Lan <dlan@gentoo.org>
+References: <20261110070627.217946-1-inochiama@gmail.com>
+ <20261110070627.217946-5-inochiama@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
+ /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
+ s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
+ EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
+ rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
+ DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
+ IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
+ vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
+ oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
+ sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
+ vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
+ Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
+ BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
+ 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
+ f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
+ WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
+ XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
+ IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
+ YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
+ p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
+ GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
+ YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
+ vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
+ ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
+ QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
+ +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
+ wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
+ c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
+ K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
+ n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
+ qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
+In-Reply-To: <20261110070627.217946-5-inochiama@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,228 +124,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Jinjie,
-
-> arm64, LoongArch and RISC-V duplicate the elf core header and initrd
-> loading.  Move it into a common helper with one arch hook for the boot
-> parameters; a failure releases everything added for the attempt.
-
-I like the idea of pulling out the common code, but I'm not convinced
-that the split you suggest is right.
-
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Baoquan He <baoquan.he@linux.dev>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Suggested-by: Mike Rapoport <rppt@kernel.org>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+On 10/11/2026 08:06, Inochi Amaoto wrote:
+> As current the DWC2 support role switch on CV18XX SoCs. Enable it
+> on Huashan PI.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 > ---
->  include/linux/kexec.h | 15 ++++++++
->  kernel/kexec_file.c   | 90 +++++++++++++++++++++++++++++++++++++++++++
->  2 files changed, 105 insertions(+)
->
-> diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-> index faba26f871a4a..de1d83ddc38bd 100644
-> --- a/include/linux/kexec.h
-> +++ b/include/linux/kexec.h
-> @@ -259,6 +259,21 @@ int kexec_kernel_verify_pe_sig(const char *kernel, unsigned long kernel_len);
->  extern int kexec_add_buffer(struct kexec_buf *kbuf);
->  int kexec_locate_mem_hole(struct kexec_buf *kbuf);
->  
-> +struct kexec_load_params {
-> +	unsigned long kernel_load_addr;
-> +	unsigned long kernel_size;
-> +	char *initrd;
-> +	unsigned long initrd_len;
-> +	char *cmdline;
-> +	unsigned long cmdline_len;
-> +};
+>  arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 
-initrd and cmdline are already in image->initrd_buf, initrd_buf_len,
-cmdline_buf and cmdline_buf_len, that's where fops->load() gets them from.
-
-And the outputs are scattered: elf_load_addr goes to the image, the initrd
-address is passed as a separate argument to the hook, and LoongArch infers
-"there is an initrd" from initrd_load_addr != 0.
+DTS cannot be combined in this patchset and must be split. Don't mix
+patches from independent subsystems when you send something explicitly
+targeting only one subsystem.
+See also: Documentation/devicetree/bindings/submitting-patches.rst
 
 
-
-> +
-> +int arch_kexec_setup_other_segments(struct kimage *image,
-> +				    struct kexec_load_params *params,
-> +				    unsigned long initrd_load_addr);
-> +int kexec_load_other_segments(struct kimage *image,
-> +			      struct kexec_load_params *params, bool top_down);
-> +
-
-The call chain is now fops->load() in arch -> kexec_load_other_segments()
-in core -> arch_kexec_setup_other_segments() back in arch. That's a
-midlayer: the core helper owns the sequence and the arch fills a hole in
-the middle of it.
-
-The weak default is never used, all three users override it, and x86,
-powerpc and s390 build a helper and a hook that nothing calls.
-
->  #ifndef arch_kexec_locate_mem_hole
->  /**
->   * arch_kexec_locate_mem_hole - Find free memory to place the segments.
-> diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
-> index 62d4cba278a57..8b80f1186875b 100644
-> --- a/kernel/kexec_file.c
-> +++ b/kernel/kexec_file.c
-> @@ -1295,3 +1295,93 @@ int kexec_purgatory_get_set_symbol(struct kimage *image, const char *name,
->  	return 0;
->  }
->  #endif /* CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY */
-> +
-> +int __weak arch_kexec_setup_other_segments(struct kimage *image,
-> +					   struct kexec_load_params *params,
-> +					   unsigned long initrd_load_addr)
-> +{
-> +	return 0;
-> +}
-> +
-> +int kexec_load_other_segments(struct kimage *image,
-> +			      struct kexec_load_params *params, bool top_down)
-> +{
-> +	struct kexec_buf kbuf = {
-> +		.image = image,
-> +		/* Do not allocate anything below the kernel */
-> +		.buf_min = params->kernel_load_addr + params->kernel_size,
-> +		.buf_max = top_down ? PFN_PHYS(max_low_pfn) : ULONG_MAX,
-> +	};
-
-top_down does not describe a direction, it selects "RISC-V policy" vs
-"arm64 policy": the upper limit for all buffers, the initrd direction and
-the 32G initrd window.
-
-These are boot protocol constraints and they belong to the architecture.
-The 32G window comes from arm64 booting.rst and the SZ_64K alignment below
-is "largest supported page size" on arm64 and LoongArch. With this patch
-they become generic and RISC-V silently switches from
-ELF_CORE_HEADER_ALIGN to 64K in 15/15.
-
-
-> +
-> +	unsigned long orig_segments = image->nr_segments;
-> +	unsigned long initrd_load_addr = 0;
-> +	int ret = 0;
-> +
-> +#ifdef CONFIG_CRASH_DUMP
-> +	if (image->type == KEXEC_TYPE_CRASH) {
-> +		ret = crash_prepare_headers(true, &kbuf.buffer, &kbuf.bufsz, NULL);
-> +		if (ret) {
-> +			pr_err("Preparing elf core header failed\n");
-> +			goto out_err;
-> +		}
-> +
-> +		if (unlikely(image->elf_headers))
-> +			vfree(image->elf_headers);
-
-The headers don't depend on where the kernel is placed, yet they are
-rebuilt on every iteration of the arm64 and LoongArch retry loops. That's
-why the vfree() above is needed, and with the out_err path freeing them
-it's now dead code.
-
-Building the headers once and only placing them in the loop removes the
-leak instead of fixing it.
-
-
-> +
-> +		image->elf_headers = kbuf.buffer;
-> +		image->elf_headers_sz = kbuf.bufsz;
-> +
-> +		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
-> +		kbuf.memsz = kbuf.bufsz;
-> +		kbuf.buf_align = SZ_64K; /* largest supported page size */
-> +		kbuf.top_down = true;
-> +
-> +		ret = kexec_add_buffer(&kbuf);
-> +		if (ret)
-> +			goto out_err;
-> +
-> +		image->elf_load_addr = kbuf.mem;
-> +
-> +		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
-> +			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
-> +	}
-> +#endif
-> +
-> +	if (params->initrd) {
-> +		kbuf.buffer = params->initrd;
-> +		kbuf.bufsz = params->initrd_len;
-> +		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
-> +		kbuf.memsz = params->initrd_len;
-> +		kbuf.buf_align = 0;
-> +		/* within 1GB-aligned window of up to 32GB in size */
-> +		if (!top_down)
-> +			kbuf.buf_max = round_down(params->kernel_load_addr, SZ_1G) +
-> +					(unsigned long)SZ_1G * 32;
-> +		kbuf.top_down = top_down;
-> +
-> +		ret = kexec_add_buffer(&kbuf);
-> +		if (ret)
-> +			goto out_err;
-> +		initrd_load_addr = kbuf.mem;
-> +
-> +		kexec_dprintk("Loaded initrd at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
-> +			      initrd_load_addr, kbuf.bufsz, kbuf.memsz);
-> +	}
-> +
-> +	ret = arch_kexec_setup_other_segments(image, params,
-> +					      initrd_load_addr);
-> +	if (ret)
-> +		goto out_err;
-> +
-> +	return 0;
-> +
-> +out_err:
-> +	while (image->nr_segments > orig_segments) {
-> +		kexec_free_segment_cma(image, image->nr_segments - 1);
-> +		image->nr_segments--;
-> +	}
-> +
-> +	kexec_free_elf_headers(image);
-
-This drops segments added by the arch hook (DTB, RISC-V purgatory, arm64
-dm-crypt keys) without knowing anything about the state attached to them,
-like image->dm_crypt_keys_addr or the purgatory info. The hook, in turn,
-frees its buffers but not its segments.
-
-Nobody owns the unwind, so "a failure releases everything added for the
-attempt" is not quite what happens.
-
-The conversions also bury ordering changes in "simplify" patches: on arm64
-dm-crypt keys move after the initrd, and on RISC-V the initrd moves before
-the purgatory. And dm-crypt keys loading is not an arm64 boot parameter,
-x86 and powerpc use it as well.
-
-> +
-> +	return ret;
-> +}
-
-
-What I had in mind was to make the core provide building blocks and let
-the architectures compose them, e.g. a common rollback function that
-frees CMAs and drops segments above nr. The retry loops in arm64 and
-LoongArch image loaders can use it instead of open coding
-kexec_free_segment_cma() and nr_segments--. There also could be a helper
-for adding FDT for example and maybe some other common parts, like, say,
-efl headers.
-
-Arch's load_other_segments() could use these helpers and still define
-their own policy for segment placement.
-
--- 
-Sincerely yours,
-Mike.
-
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
