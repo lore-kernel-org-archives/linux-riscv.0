@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70FA960A5BC2
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AEE160A262F
 	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 01:38:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xGmObqBc;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=MsihZXQH
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BSDltmDS;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=d4l7ZaYo
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,30 +14,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=3vZ5dHgVbnzgeI2DXqEfcnRMwmkNtuRAekLSZY1UGkY=; b=xGmObqBcfah2euBbsw5w1IHN0M
-	XJlJGmoI83io64iZaS51CCFJoCc2rrfQsWDTpjzwPvjoM5aNfb4HL2x/RZ4kSlGITB8aDJ6XSuU6k
-	QqTkTX6HQ+r4G+G/exy/rHb8AZRAo5lS4NpB5ear9Q1Lsca43NxyRkjKzpKe1h/fOu+MDSuX5sGk7
-	DkfFdpuKT3usNSPhpRrvw3+Ukvip0cHoolkS8P/kwXIMZdYTRkqce/xTNw6np952gI258SEAiiBKI
-	CnfGrz9g/tOyb2hRFncQMs0TfXiudyW7MxHAJumymXa9o4BuuY0lCTwuLYNGfqmMnOJHrWH76EFyo
-	VEK0mtiQ==;
+	bh=KWXWuuqvpyo38C8YN5x5SQlmVLI9yFqb1ozmkgzdMpA=; b=BSDltmDS8wL/rnSS0CvMMMPPVo
+	IUoMAirw1TbNSsPDgSUalZovJ59fg10mseZrZgUxTcXdI49K0tgqgBWA18Xf7KAlVdR3/8dBXwae0
+	AhTbxRxHS02O9q/q2rSON/TvaYkPzSNvvsWQI32sLNY34NG1/FZ8YZEKgQ2rtr8usNW39b2V6qG1D
+	TuU0xKfKkQ8GJxGesF6DtF5MSpiei28LC7JPfSpxDYqfxDrg2y9gnQQ5Y+c99jrYPdwLwlUikBOyU
+	5LcP1oNUts1drSU1Lx0ITRS/BW+eohubYXABaJEElHppUVen0SOWu5WYPfJER+OmrHBnMl/A8IsVl
+	NGjC/qYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQaoT-000000026HS-2LRW;
-	Tue, 10 Nov 2026 01:38:17 +0000
-Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
+	id 1xQaoJ-000000026Do-3wy2;
+	Tue, 10 Nov 2026 01:38:07 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQaoP-000000026FB-2qFg
+	id 1xQaoH-000000026Cc-2hDM
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Nov 2026 01:38:14 +0000
+	Tue, 10 Nov 2026 01:38:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1794274692; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=+/j56V+Dn6hnNsHW1N9gcti2dwgaRWtnAvBsP9OENaw=;
-	b=MsihZXQHv+X9oY5qUlmI+XvUU1fq/ziqqJ77ImZOw8uiw2fVqhBMWFEIR8WUuQZwva53ZsGYdGwz/E+4Azv1n1cly0gsxg8PS0i8nwRP/oGBiTNC1XVd8scA5ksqqR2wXDlk6ztSThmA9eQ7+usB9qlCqbnmKctYLXnUg0mDFVA=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=36;SR=0;TI=SMTPD_---0XETOX7H_1794274688;
-Received: from localhost.localdomain(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0XETOX7H_1794274688 cluster:ay36)
+	t=1794274678; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=gxJalAltFJ+mzwybO3QEc8bbloiNp6J964VtBr6AK/M=;
+	b=d4l7ZaYo2DtEK8kYTAca12mqQ2CZhYxlTdTbfQ0o8sMq9pNsMJWeuEaEhaIeXDE6HPuyV8dqn2FnqV1wAoyjASolMbc3Aa1U5oPN60Jom+2uNkBR/jwggZ0qm2vETAtauEPdf5lEKmVU0MufI3AuRSfUxGXxVW89LJ/xZ9cs9GY=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=36;SR=0;TI=SMTPD_---0XETOX1E_1794274674;
+Received: from localhost.localdomain(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0XETOX1E_1794274674 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 10 Nov 2026 09:38:10 +0800
+          Tue, 10 Nov 2026 09:37:56 +0800
 From: Shuai Xue <xueshuai@linux.alibaba.com>
 To: palmer@dabbelt.com,
 	pjw@kernel.org,
@@ -75,9 +75,9 @@ Cc: alex@ghiti.fr,
 	linux-perf-users@vger.kernel.org,
 	live-patching@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH v7 06/10] riscv: ftrace: always preserve s0 in dynamic ftrace register frame
-Date: Tue, 10 Nov 2026 09:37:46 +0800
-Message-Id: <20261110013750.36800-7-xueshuai@linux.alibaba.com>
+Subject: [PATCH v7 01/10] riscv: stacktrace: do not report the walker's own frame from arch_stack_walk()
+Date: Tue, 10 Nov 2026 09:37:41 +0800
+Message-Id: <20261110013750.36800-2-xueshuai@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20261110013750.36800-1-xueshuai@linux.alibaba.com>
 References: <20260914092648.51254-1-xueshuai@linux.alibaba.com>
@@ -85,9 +85,8 @@ References: <20260914092648.51254-1-xueshuai@linux.alibaba.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261109_173813_874676_E81D79F1 
-X-CRM114-Status: UNSURE (   7.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261109_173805_931228_66D9A165 
+X-CRM114-Status: GOOD (  15.24  )
 X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,63 +108,132 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Wang Han <wanghan@linux.alibaba.com>
+From: Karl Mehltretter <kmehltretter@gmail.com>
 
-struct __arch_ftrace_regs declares s0 unconditionally, and both
-ftrace_regs_get_frame_pointer() and ftrace_partial_regs() read it
-unconditionally. But the SAVE_ABI_REGS / RESTORE_ABI_REGS macros in
-mcount-dyn.S only stored s0 under HAVE_FUNCTION_GRAPH_FP_TEST
-(CONFIG_FUNCTION_GRAPH_TRACER && CONFIG_FRAME_POINTER). With
-CONFIG_FRAME_POINTER=n the slot held whatever was on the stack before,
-so any callback going through ftrace_partial_regs() saw a garbage
-regs->s0. RISC-V kernels default to FRAME_POINTER=y, which is why this
-has not bitten in practice.
+stack_trace_save() uses skipnr + 1 because arch_stack_walk() is expected
+to first report the return into stack_trace_save(). With FRAME_POINTER,
+the RISC-V arch_stack_walk() calls walk_stackframe(), which starts from
+its own frame and first reports the return into arch_stack_walk().
+stack_trace_save() therefore starts one frame too early. For example,
+page_owner records begin at __set_page_owner() instead of the allocation
+site.
 
-Save and restore s0 unconditionally in the dynamic ftrace ABI register
-frame. This fixes the latent garbage-s0 case, brings the dynamic ftrace
-path in line with the static _mcount path (mcount.S SAVE_ABI_STATE
-already saves s0 unconditionally), and matches the frame layout already
-documented in the comment above SAVE_ABI_REGS. It is also a prerequisite
-for the upcoming reliable unwinder, which reads
-ftrace_regs_get_frame_pointer(fregs) directly.
+Move the walker into an always-inlined helper and call it directly from
+arch_stack_walk(). Keep walk_stackframe() as a wrapper for its existing
+callers.
 
-The cost is one extra REG_S/REG_L pair per traced call, negligible
-compared to the overall ftrace cost; the existing FREGS_SIZE_ON_STACK
-already reserved the slot, so no extra stack space is used.
+return_address() skips level + 3 entries, while the arm64 implementation
+skips level + 2. After removing the extra frame, use level + 2 so
+ftrace_return_address() and CALLER_ADDR results do not shift by one caller.
 
+Fixes: 6a00ef449370 ("riscv: eliminate unreliable __builtin_frame_address(1)")
+Link: https://lore.kernel.org/r/20261010132712.46931-1-kmehltretter@gmail.com
 Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
-Reviewed-by: Martin Kaiser <martin@kaiser.cx>
-Tested-by: Martin Kaiser <martin@kaiser.cx>
-Signed-off-by: Wang Han <wanghan@linux.alibaba.com>
+Tested-by: Shuai Xue <xueshuai@linux.alibaba.com>
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
 ---
- arch/riscv/kernel/mcount-dyn.S | 4 ----
- 1 file changed, 4 deletions(-)
+ arch/riscv/kernel/return_address.c |  2 +-
+ arch/riscv/kernel/stacktrace.c     | 40 ++++++++++++++++++++++++++----
+ 2 files changed, 36 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-index 082fe0b0e3c0..26c55fba8fec 100644
---- a/arch/riscv/kernel/mcount-dyn.S
-+++ b/arch/riscv/kernel/mcount-dyn.S
-@@ -85,9 +85,7 @@
- 	addi	sp, sp, -FREGS_SIZE_ON_STACK
- 	REG_S	t0,  FREGS_EPC(sp)
- 	REG_S	x1,  FREGS_RA(sp)
--#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
- 	REG_S	x8,  FREGS_S0(sp)
--#endif
- 	REG_S	x6,  FREGS_T1(sp)
- #ifdef CONFIG_CC_IS_CLANG
- 	REG_S	x7,  FREGS_T2(sp)
-@@ -113,9 +111,7 @@
- 	.macro RESTORE_ABI_REGS
- 	REG_L	t0, FREGS_EPC(sp)
- 	REG_L	x1, FREGS_RA(sp)
--#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
- 	REG_L	x8, FREGS_S0(sp)
--#endif
- 	REG_L	x6,  FREGS_T1(sp)
- #ifdef CONFIG_CC_IS_CLANG
- 	REG_L	x7,  FREGS_T2(sp)
+diff --git a/arch/riscv/kernel/return_address.c b/arch/riscv/kernel/return_address.c
+index c8115ec8fb30..4da1cfd249d3 100644
+--- a/arch/riscv/kernel/return_address.c
++++ b/arch/riscv/kernel/return_address.c
+@@ -33,7 +33,7 @@ noinline void *return_address(unsigned int level)
+ {
+ 	struct return_address_data data;
+ 
+-	data.level = level + 3;
++	data.level = level + 2;
+ 	data.addr = NULL;
+ 
+ 	arch_stack_walk(save_return_addr, &data, current, NULL);
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index c7555447149b..28c5744889ba 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -45,8 +45,16 @@ static inline int fp_is_valid(unsigned long fp, unsigned long sp)
+ 	return !(fp < low || fp > high || fp & 0x07);
+ }
+ 
+-void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+-			     bool (*fn)(void *, unsigned long), void *arg)
++/*
++ * Always inlined so that the frame the walk starts from is the caller's own,
++ * and the first entry reported for the current task is the caller's return
++ * address.  arch_stack_walk() relies on that to report the same frames as
++ * the other architectures, see the comment there.
++ */
++static __always_inline void __walk_stackframe(struct task_struct *task,
++					      struct pt_regs *regs,
++					      bool (*fn)(void *, unsigned long),
++					      void *arg)
+ {
+ 	unsigned long fp, sp, pc;
+ 	int graph_idx = 0;
+@@ -59,6 +67,7 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 	} else if (task == NULL || task == current) {
+ 		fp = (unsigned long)__builtin_frame_address(0);
+ 		sp = current_stack_pointer;
++		/* Placeholder for the frame the walk starts from, never reported. */
+ 		pc = (unsigned long)walk_stackframe;
+ 		level = -1;
+ 	} else {
+@@ -102,10 +111,18 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 	}
+ }
+ 
++void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
++			     bool (*fn)(void *, unsigned long), void *arg)
++{
++	__walk_stackframe(task, regs, fn, arg);
++}
++
+ #else /* !CONFIG_FRAME_POINTER */
+ 
+-void notrace walk_stackframe(struct task_struct *task,
+-	struct pt_regs *regs, bool (*fn)(void *, unsigned long), void *arg)
++static __always_inline void __walk_stackframe(struct task_struct *task,
++					      struct pt_regs *regs,
++					      bool (*fn)(void *, unsigned long),
++					      void *arg)
+ {
+ 	unsigned long sp, pc;
+ 	unsigned long *ksp;
+@@ -133,6 +150,12 @@ void notrace walk_stackframe(struct task_struct *task,
+ 	}
+ }
+ 
++void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
++			     bool (*fn)(void *, unsigned long), void *arg)
++{
++	__walk_stackframe(task, regs, fn, arg);
++}
++
+ #endif /* CONFIG_FRAME_POINTER */
+ 
+ static bool print_trace_address(void *arg, unsigned long pc)
+@@ -176,10 +199,17 @@ unsigned long __get_wchan(struct task_struct *task)
+ 	return pc;
+ }
+ 
++/*
++ * The generic code expects the first entry for the current task to be the
++ * return address of arch_stack_walk() itself, the way x86 and arm64 report
++ * it, and stack_trace_save() sizes its skip count accordingly.  Walking from
++ * inside a called walk_stackframe() adds that function's own frame on top,
++ * so inline the walker here and start from this frame instead.
++ */
+ noinline noinstr void arch_stack_walk(stack_trace_consume_fn consume_entry, void *cookie,
+ 		     struct task_struct *task, struct pt_regs *regs)
+ {
+-	walk_stackframe(task, regs, consume_entry, cookie);
++	__walk_stackframe(task, regs, consume_entry, cookie);
+ }
+ 
+ /*
 -- 
 2.39.3
 
