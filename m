@@ -2,86 +2,62 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B801560A5BD7
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 15:35:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76D19606A323
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 16:04:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kXWRiyRP;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=guDkJoXd
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EV2JQSxi;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AIA++qQz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=uiNPpqP8HsITrgMd1lfpTrTTP68LocvM0fK3Lyx2plE=; b=kXWRiyRPFddx0qh6S3mfHSPR01
-	bQK20AyFs5Rzu5kLgVb8nfX7hXSiD+EH5PFIqmzcKMN0y9ejEEMFNG2gNV4X9BNzy1C8g7fbQJ1qt
-	FPoptF4t32upRFfRhAM6XUgdB24EA7Vz5TL+ClugcoKwisQI5gQCOeGKsfNp0p8RFhPjVwQ/gbZwM
-	krwwINBVtL2qd2175N0Ns0l6Oijn3sSI106IKlwWP4kecHQCpYBqmobtvuLDMqlfWtjYdRiFfzkao
-	0l8Rxq8nTwXmIR2SY9kUDowIy0rUcV5KQt8bMAZm4BDGgG0i9fUuiMaHVlidWwQnQvgvf/AXw7Dgu
-	68Fy8zAQ==;
+	bh=qnTibcnww/DM2nnGps1HA9R6a6f2UzkU6D55taOAw6E=; b=EV2JQSxiDQfBcit6e0SdGVdWxk
+	v5uPrPGIqgpaiTRSA7hJStpZq+cw8XXeHIygCr2rioEreP4AwrtrzNyMD7+/uSo8fZF4zjvW1AFkH
+	6XJLmlKTqTDZ9s7wknOALqEGrnbY2qW02idBbtsplkqbk9H5VjjqWehgaMTo7X2t4PzjylU7d7AeM
+	5q+DV1DssFXi69CTVOhcUPGph9xdtFN0XcwCK3Ea8VwB6V5XYwVc8ZVRw05iXWHWr3JjJrpf9PbmG
+	Imh4Ih+TiqjrHwRlDWh1T5YlvEy4Yyg5akB5Mfg6l7w9Xmnf+OpJeWyRyWRNK+oUYaMEBBWVokoSz
+	EnAPxB6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQnsG-00000004PCX-1FRy;
-	Tue, 10 Nov 2026 15:35:04 +0000
-Received: from mxct.zte.com.cn ([183.62.165.209])
+	id 1xQoKS-00000004TUa-2kC7;
+	Tue, 10 Nov 2026 16:04:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQnsD-00000004P75-09Fa;
-	Tue, 10 Nov 2026 15:35:02 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4jP9gs1vMxz57HS3;
-	Tue, 10 Nov 2026 23:34:49 +0800 (CST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zte.com.cn;
-	s=z202610; t=1794324889;
-	bh=HCWfuzAN+AMe0nrrXGOghlVGYDRgVDFTNAe2SncsUIs=;
-	h=Date:From:To:Cc:Subject;
-	b=guDkJoXdJQvEWIe1CHP4KnQVolrmBcYfXSvRHr3Cekn82jHtDB1AQJYSD03Cttgbf
-	 tpPGK2eAtixqtLlANiOHc4KyygrMATpmh0SVfmjX+I1F/CHnWVW5GMb7esYE6TXv1U
-	 RAVqSjHsDPILBRbuHjlGSYVKe9b5Kxv6ybTwzTE7leRjE1N8+Ep19Wkwdnp3LP8F4o
-	 yStuzEI7pk0/40Fl6MyMsEY/fDGDd2SeUqJxf1D8JtLCG6cpIcMT+FYfeAZeYbz7M2
-	 sAe9l6h21VAKODQzZEkLYOPjNodP7Qdc9MPnykkSGVq8XU3z4iqHwb+fOAldP66rxv
-	 Ixl+GkKsYieJg==
-Received: from xaxapp04.zte.com.cn ([10.99.98.157])
-	by mse-fl2.zte.com.cn with SMTP id 6AAFYkPO047648;
-	Tue, 10 Nov 2026 23:34:46 +0800 (+08)
-	(envelope-from shao.mingyin@zte.com.cn)
-Received: from mapi (xaxapp04[null])
-	by mapi (Zmail) with MAPI id mid32;
-	Tue, 10 Nov 2026 23:34:50 +0800 (CST)
-X-Zmail-TransId: 2afb6af3399a6e7-27d05
-X-Mailer: Zmail v1.0
-Message-ID: <20261110233450305Smji446Uhvoxa7r8SHEgl@zte.com.cn>
-Date: Tue, 10 Nov 2026 23:34:50 +0800 (CST)
+	id 1xQoKR-00000004TUT-1WKz
+	for linux-riscv@lists.infradead.org;
+	Tue, 10 Nov 2026 16:04:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 79AC163A53;
+	Tue, 10 Nov 2026 16:04:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA32D1F0089F;
+	Tue, 10 Nov 2026 16:04:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794326650;
+	bh=xKekDk65ciGsHWTkKV1pMmbrXvFgDyBbXHhz+tAUJ3M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AIA++qQzu27iDtqtghDQXe3eEMEtfW0pUmP1pw87hOPcbha/du/cYArpw3l9qOsQr
+	 u6fuI8ol3G/cmTB7H0eq3cIZXkNRoak+psa1ttDOEBXrQ2XqbhBAzb6+Xi+xLPBqJ+
+	 vdq62d3xZ808Gpm3yT0qE39ickLYELwfVwHjod2sH/2WuJQj1Wmcb1zuVo5IpVsHpN
+	 fzsAA5EiJ77pKhwrDbnizdsWb2eW+bXCHwWYertEV0c1pCWX1KA4ZPVNfgsXCDcNmM
+	 YfPXVjPGubGdfRRQWNMfUcJmFhhL2khzvsZ/cpado/dtESG+T+jyf0Hf9KhV/VnCkK
+	 AHgdAarCDLtPw==
+Date: Tue, 10 Nov 2026 16:04:06 +0000
+From: Mark Brown <broonie@kernel.org>
+To: shao.mingyin@zte.com.cn
+Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, pjw@kernel.org,
+	samuel.holland@sifive.com
+Subject: Re: [PATCH v2] spi: sifive: clamp the clock divider to the register
+ range
+Message-ID: <b3828c22-e7ea-4858-96b3-51ecdfee3a89@sirena.org.uk>
+References: <20261110225741763HzyrdGiR7ZOAU1NiFmCCZ@zte.com.cn>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-From: <shao.mingyin@zte.com.cn>
-To: <broonie@kernel.org>, <linux-spi@vger.kernel.org>
-Cc: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-        <pjw@kernel.org>, <samuel.holland@sifive.com>,
-        <william.zhang@broadcom.com>, <kursad.oney@broadcom.com>,
-        <jonas.gorski@gmail.com>, <bcm-kernel-feedback-list@broadcom.com>,
-        <anand.gore@broadcom.com>, <florian.fainelli@broadcom.com>,
-        <rafal@milecki.pl>, <linux-arm-kernel@lists.infradead.org>,
-        <sven@kernel.org>, <j@jannau.net>, <neal@gompa.dev>,
-        <asahi@lists.linux.dev>, <ryan.wanner@microchip.com>,
-        <nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-        <claudiu.beznea@tuxon.dev>
-Subject: =?UTF-8?B?W1BBVENIIHYyIDAvNV0gc3BpOiBmaXggZGl2aXNpb24gYnkgemVybyB3aXRoIGEgemVybyB0cmFuc2ZlciBzcGVlZA==?=
-X-MAIL: mse-fl2.zte.com.cn 6AAFYkPO047648
-X-TLS: YES
-X-ENVELOPE-SENDER: shao.mingyin@zte.com.cn
-X-SOURCE-IP: 10.5.228.133 unknown Tue, 10 Nov 2026 23:34:49 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6AF33999.000/4jP9gs1vMxz57HS3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261110_073501_416319_5A8F28BA 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -4.4 (----)
+MIME-Version: 1.0
+In-Reply-To: <20261110225741763HzyrdGiR7ZOAU1NiFmCCZ@zte.com.cn>
+X-Cookie: You can't take damsel here now.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,68 +67,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4063457531128285148=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	UNPARSEABLE_RELAY autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Five SPI controller drivers compute a clock divider from the transfer
-speed without checking that it is non-zero.  A SPI device whose
-max_speed_hz is zero (a DT node without spi-max-frequency, or a device
-created through the spidev sysfs new_device interface without a speed)
-therefore reaches the division with speed_hz == 0.  The SPI core clamps
-such a device to the controller limit only when host->max_speed_hz is
-set, and none of these five drivers sets it.
 
-The series is organized by driver and is independent patch-by-patch;
-each patch can be applied and reviewed on its own, and taking a subset
-is fine:
+--===============4063457531128285148==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ris94nVe1DPqFLM3"
+Content-Disposition: inline
 
-  1/5 spi: sifive: clamp the clock divider to the register range
-  2/5 spi: bcm63xx-hsspi: fix division by zero for devices without a max speed
-  3/5 spi: bcmbca-hsspi: fix division by zero for devices without a max speed
-  4/5 spi: apple: fix division by zero in clock divisor calculation
-  5/5 spi: atmel: use the maximum divider for an unspecified speed
 
-1/5 and 5/5 program the slowest clock directly when no speed is supplied;
-2/5-4/5 clamp the requested rate to 1 Hz.  The division does not trap on
-the SoCs these drivers run on: depending on the architecture it produces
-a bogus divider, a zero quotient or an undefined value, so the patches
-remove undefined arithmetic rather than a crash.
+--ris94nVe1DPqFLM3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Changes in v2:
-- 1/5: use the maximum SCKDIV for a zero speed and saturate an excessive
-  divider instead of masking away the high bits (Mark Brown).
-- 5/5: select SCBR=255 directly for a zero speed instead of dividing a
-  substituted 1 Hz and then failing the range check (Mark Brown).
-- 2/5, 3/5 and 4/5: unchanged.
-- This series replaces the two standalone v2 patches posted on 10 Nov for
-  1/5 and 5/5.
-Link to v1: https://lore.kernel.org/all/20261106234751020Egf42VCVVlsSC_Msov4HO@zte.com.cn/
+On Tue, Nov 10, 2026 at 10:57:41PM +0800, shao.mingyin@zte.com.cn wrote:
+> From: Shao Mingyin <shao.mingyin@zte.com.cn>
+>=20
+> sifive_spi_prep_transfer() divides by t->speed_hz, which can remain
+> zero when neither the device nor the controller provides a maximum
+> speed. For a nonzero but very low speed, masking the divider to 12 bits
+> can also wrap it to a small value and program a much faster clock.
 
-Shao Mingyin (5):
-  spi: sifive: clamp the clock divider to the register range
-  spi: bcm63xx-hsspi: fix division by zero for devices without a max speed
-  spi: bcmbca-hsspi: fix division by zero for devices without a max speed
-  spi: apple: fix division by zero in clock divisor calculation
-  spi: atmel: use the maximum divider for an unspecified speed
+This was previously part of a series of five patches, I see you've
+resent two of them as independent patches when I was expecting the
+standard workflow which would be to revise the series.  This makes
+things difficult to track, I'd discarded the old version waiting for the
+new one.
 
- drivers/spi/spi-apple.c         | 6 +++++-
- drivers/spi/spi-atmel.c         | 5 ++++-
- drivers/spi/spi-bcm63xx-hsspi.c | 3 +++
- drivers/spi/spi-bcmbca-hsspi.c  | 3 +++
- drivers/spi/spi-sifive.c        | 9 ++++++---
- 5 files changed, 21 insertions(+), 5 deletions(-)
+--ris94nVe1DPqFLM3
+Content-Type: application/pgp-signature; name="signature.asc"
 
----
-base-commit: ddfe51b0a0f5dc9e415cc2c8ad8db17532dd426b
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmrzQHUACgkQJNaLcl1U
+h9B8tAf/WW4JG4AfkqK+sYp6AE8ZYaj60LYNZSkeWChcZGOTaQE/osIvlFkxcZ6W
+M+czT7towwaX009L5ftrxgXGY7174plvvZn00TiNaiCLFxN3DxehTVLZDR19P2Pm
+3imwmP5nt4B7k5HD4P/0DUnitMuFyKz8HxwNN25qieX94aYnfIdphFn0PGsZbtVY
+1FWhLrVfWUAZFzIy/AU97OWp+2I3PGQ1za5MJmEY83lsgf/yiFtYqqtReK5TkdU8
+JkPDTCDGpWsW8kw4mh6uwFTnimbyPNYXohW/4chQliouicGCnCo90RwS2rAnr5sS
+QBYzgJfkucGlInyzQS6qtHeeaWYL6Q==
+=aqqg
+-----END PGP SIGNATURE-----
+
+--ris94nVe1DPqFLM3--
+
+
+--===============4063457531128285148==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4063457531128285148==--
+
