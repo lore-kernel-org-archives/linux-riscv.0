@@ -2,105 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F891606A33C
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 11:22:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7528A606B592
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 11:52:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IzRb6bdt;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RkFkfoGS
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=40EHzfuO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Gun4jB78eojPh4G+PeG2uXvo3PqsPvm0MPkFc4UXWgE=; b=IzRb6bdtR+rEnBAvIGP1me8uEs
-	4uTEJ5UCpBOJJDcVd0ZzL1WcEJmeYF2yA8clMB7JBxjQLeis4A9tK/2Vb2TCJgHPB0aXlk46XNVgd
-	0cZZ7jlokYWnxt26qc4PB7d6j6icIVq9DOSEMmMrJw92jjAuaqURuCUn7ITmfutn3hYmuexghV2Em
-	uGod2OtEi775wVv9NVgopHRIt8ZuRQm54pltjJAuQNoriiYINGmBcuXfwEwsCesl+Cs1qmnmQdWLy
-	llDp10xzAfDisH3IcQoY/4L60finYudbC87RgP5EHZJFuzvPYbjiP2wWfGIKdagQZERnQGkiB2whV
-	nLhGXF0g==;
+	bh=dUjBD7x+yyDqSc7XpHnG/kYmdT1q0vpBJl+YQAsL86M=; b=40EHzfuOnhQS8dol86NwZZbqLE
+	tpF9+igzrLCt9DB23GUw3NKefpx+3ZPGUA6o9STkuMWaJb39Vp3vIi/5I8fxBWTqaJqjzLGnuwz48
+	eecNSsjElXsjYqxzIjgG+VempdEnCR+/uPBzMjFPEFg3RjXU8CJJOvopMqys1xaF+XexnUlftQLJ4
+	Xz3XzkIOyiUMgn34o7Vywlnvyx77iwx+Ux+0uC1bkkw2enWOeMz28ltFWzRt1a9zXpzFO76J9Lc4/
+	hhaYgVq4pIZ4SR/b34+zDZAS2IYY50mdmwCJOu8pevZKG/lfzDEjE+whAGH1uFL+NUGCxTXFETLij
+	Py3jwSPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQjva-00000003cAx-0VJ4;
-	Tue, 10 Nov 2026 11:22:14 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1xQkOU-00000003hwG-261L;
+	Tue, 10 Nov 2026 11:52:06 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.35])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQjvX-00000003c9z-0H2P
-	for linux-riscv@lists.infradead.org;
-	Tue, 10 Nov 2026 11:22:12 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-cd6acc50b8dso853315a12.3
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Nov 2026 03:22:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794309730; x=1794914530; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=w1281HNKMHRY/p1WTqMav+kPZ7qzyo5uCTwzSETBiXI=;
-        b=RkFkfoGSlwdoKkzs40F+VIFHdiTm6JyBeQS0pz7UYH64X8hIWFM2rWUjHRK6fFY75m
-         oGcuhitku0R8Rrsj2o6pv5TyEPevOx2oY7nui7jqpJTIzonCbULSyBxXw1I/JMe9tpLs
-         nEkYsLp+RzRCaF6bRoxg0R4GMbaSz9T21Xq1OiODYFzfFME4gNBq02W7vlSxiTLdkD+B
-         sk6fnwLRXtiTBs08bvoSDm6UKTO3+pyQyp0g/jKiJu90q6gxFA/wjEiQd1oY5CaRqCXu
-         w27A4xQ6CyKLPVekYuS47E/hlNgqFyAEz2szlFchqObFsdBbw3pW2mCeYmob3SEonUOL
-         6S1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794309730; x=1794914530;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=w1281HNKMHRY/p1WTqMav+kPZ7qzyo5uCTwzSETBiXI=;
-        b=S/yzWCiCmSs+UY3USSHxeYEOJ3yjQ4913WbKR2addLEOK9iU3evxiYpHzrxbsvEtKQ
-         x1N/5NBsPpEV9mjR6ZoDKLaNaAbT7ihvZaL2sWH/mQ/Z8lIlmF6R/8eZez21BValPRGD
-         s3jzB/p+sZdmLTrKZD7KaLWoKheB5oFG4MOD/m0oFdntbmCix+QK+CwJxTUyzkOLR5B1
-         YJbg3on7+iPQu1tG9f3Bp1WZY9Sf3EryX6jOWuH03Q5yg5v4xurp2FjD9UibEUvo7smF
-         xuU9MgX1QgdobZlg6c+vMDDsIjFIkw1VNs9rK65Vz+W2+LIDK973Z/7OtaDxUlvSJItz
-         9leg==
-X-Forwarded-Encrypted: i=1; AL+hErFxFgT8TqWg0zXXhmiSqEzLSInXaWh5sSyJ+6PMlGcpjRVgew20W2UNePaenngQYNlCGWQLizCWPn6h0A==@lists.infradead.org
-X-Gm-Message-State: APuU4Z84oFhj14EdvudJOwIv/P6vOASdcQUfpsiUvoVjdmQ5ezG3gSfR
-	Qp6MP7C7bgyl+guHThwe9NCOpBdUdEUBJhV/6ff5LoyhuQbsjKqHxdm4
-X-Gm-Gg: AYBFou2eFHevWOD2gCVhL518dCD7kpV1LorcLIVpFuFLMX96ScbSh040AKoqKz2iWpd
-	O882KuLS8GIXftRzv52SMLdw6aB+Z3jLhl1VUAOX85iZj7+gcVfmKnWAU6N59R+K41X2J+/tZIY
-	IUx+ZLaGOHcskLuchWym/b9pZ6xIXZZ3FbTfSvgcxfku/FpOnQmE6I1f8l4Z3/EAmWiHEYZ9Ivf
-	8D/yT+Fi9NPMfcYVhyVVUnqhH833TxdaLbEq+BxLYDktZc9H0zLlhELDAYQaX4UVg2fpuajPm0J
-	NX9dFYQRHt8Ipmb+zicKg3L83OXQ8iLpzCN9a7TpEXdDyWBO3cyKuTyNYsK8VgS4N60tHTDUkjG
-	fOCE0YznMO9FQqM+Sqzkdb8PqihQjbIOikGFKAjEhjeyY6OOTYGxcaS0Hg/9gD8OUXbat3Ig2iI
-	fmip+MjqLF8rmfjOgwIM+Ai1RAIs71FUwS0nrDpwv3Jk7YNMtyu2vyG7UzvGKtc7vzcYKkkPNkH
-	Y5GnTouv5VI4XL1RUeYodH4KaSExA9eC9VuvMC5DW4l8ZZFBXTXRdBlmM9LBfPcx1G+dW5yBXFZ
-	cAdNxtB4BFpre+w1hRHLWarWibo=
-X-Received: by 2002:a17:90b:1641:b0:3ab:c674:cad1 with SMTP id 98e67ed59e1d1-3b166ce8601mr2382151a91.50.1794309729892;
-        Tue, 10 Nov 2026 03:22:09 -0800 (PST)
-Received: from localhost ([2001:19f0:8000:3bef:5400:6ff:fef9:667])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b1678d1c0csm3413913a91.6.2026.11.10.03.22.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Nov 2026 03:22:09 -0800 (PST)
-Date: Tue, 10 Nov 2026 19:21:50 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
-	Inochi Amaoto <inochiama@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <chen.wang@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Minas Harutyunyan <hminas@synopsys.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Longbin Li <looong.bin@gmail.com>, 
-	Dinh Nguyen <dinguyen@opensource.altera.com>, Paul Zimmerman <paulz@synopsys.com>, Felipe Balbi <balbi@ti.com>
-Cc: devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
-	Yixun Lan <dlan@gentoo.org>
-Subject: Re: [PATCH 4/4] riscv: dts: sophgo: Enable USB role switch on
- Huashan PI
-Message-ID: <avL-KigWPepz-Z2A@inochi.infowork>
-References: <20261110070627.217946-1-inochiama@gmail.com>
- <20261110070627.217946-5-inochiama@gmail.com>
- <2e878ad2-1a20-4ee7-8460-64e0d9774ff5@kernel.org>
+	id 1xQkOR-00000003htD-2rX4;
+	Tue, 10 Nov 2026 11:52:05 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4jP4kc0NQRz8XrrX;
+	Tue, 10 Nov 2026 19:51:52 +0800 (CST)
+Received: from szxl2zmapp06.zte.com.cn ([10.1.32.108])
+	by mse-fl2.zte.com.cn with SMTP id 6AABpdZk005559;
+	Tue, 10 Nov 2026 19:51:39 +0800 (+08)
+	(envelope-from gong.shuai@sanechips.com.cn)
+Received: from ubuntu-35-gs (unknown [10.230.214.35])
+	by smtp (Zmail) with SMTP;
+	Tue, 10 Nov 2026 19:51:42 +0800
+X-Zmail-TransId: 3e816af3054502b-e4c51
+X-Zmail-LocalSMTP: 1
+X-Zmail-RealSender: gong.shuai@sanechips.com.cn
+From: Gong Shuai <gong.shuai@sanechips.com.cn>
+To: tanchi25@mails.ucas.ac.cn
+Cc: alex@ghiti.fr, andrew.jones@oss.qualcomm.com, anup@brainfault.org,
+        aou@eecs.berkeley.edu, atish.patra@linux.dev,
+        fangyu.yu@linux.alibaba.com, gong.shuai@sanechips.com.cn,
+        gsh517025@gmail.com, iommu@lists.linux.dev, jgg@ziepe.ca,
+        joro@8bytes.org, kevin.tian@intel.com, kvm-riscv@lists.infradead.org,
+        kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+        pbonzini@redhat.com, pjw@kernel.org, robin.murphy@arm.com,
+        seanjc@google.com, tomasz.jeznach@linux.dev, will@kernel.org,
+        wu.fei9@sanechips.com.cn, zhao.qingye@sanechips.com.cn
+Subject: Re: [RFC PATCH v2 9/9] iommu/riscv: Add riscv_iommu_attach_dev_nested
+Date: Tue, 10 Nov 2026 19:51:37 +0800
+Message-ID: <20261110115137.184160-1-gong.shuai@sanechips.com.cn>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261105144944.10193-1-tanchi25@mails.ucas.ac.cn>
+References: <20261105144944.10193-1-tanchi25@mails.ucas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <2e878ad2-1a20-4ee7-8460-64e0d9774ff5@kernel.org>
+X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
+X-MAIL: mse-fl2.zte.com.cn 6AABpdZk005559
+X-TLS: YES
+X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
+X-SOURCE-IP: 10.5.228.133 unknown Tue, 10 Nov 2026 19:51:52 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6AF30558.000/4jP4kc0NQRz8XrrX
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261110_032211_116853_D7739E8C 
-X-CRM114-Status: GOOD (  14.88  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261110_035204_063085_673B9486 
+X-CRM114-Status: GOOD (  19.74  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,38 +87,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Nov 10, 2026 at 11:41:37AM +0100, Krzysztof Kozlowski wrote:
-> On 10/11/2026 08:06, Inochi Amaoto wrote:
-> > As current the DWC2 support role switch on CV18XX SoCs. Enable it
-> > on Huashan PI.
-> > 
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > ---
-> >  arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts | 4 +++-
-> >  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> DTS cannot be combined in this patchset and must be split. Don't mix
-> patches from independent subsystems when you send something explicitly
-> targeting only one subsystem.
-> See also: Documentation/devicetree/bindings/submitting-patches.rst
-> 
-> 
-> Best regards,
-> Krzysztof
+Hi Tan Chi,
 
+Thanks for your review and for pointing these out.
 
-Sorry for this mistake, I will spilt them in the next patch. Thanks.
+> Hi Shuai and Fei,
+> 
+> I noticed a potential issue with fixing the physical DC's PSCID to 0.
+> 
+> In QEMU, different VFIO devices can have separate stage-1 HWPTs while
+> sharing the same vIOMMU and stage-2 parent. This means two devices may
+> have different first-stage page table roots but the same host GSCID
+> and PSCID=0.
+> 
+> According to the RISC-V IOMMU specification, DC.ta.PSCID identifies
+> the first-stage address space when PDTV=0 and the first stage is not
+> Bare. Could this cause the physical IOMMU to reuse cached translations
+> across different stage-1 address spaces? Even broader invalidations
+> would not prevent such cache aliasing.
 
-Regards,
-Inochi
+You are right. We kept PSCID at zero as a simplification for the RFC,
+but this was based on a misunderstanding of the PSCID semantics. When
+PDTV=0 and stage 1 is not Bare, DC.ta.PSCID identifies the S1
+address space. Sharing it across different page tables can cause cached
+translations to alias.
+
+> 
+> There also seems to be a related issue in patch 6.
+> riscv_viommu_cache_invalidate() unconditionally forces PSCV=1 and
+> PSCID=0. However, an IOTINVAL.VMA with PSCV=0 also invalidates global
+> mappings, while PSCV=1 excludes them. This appears to narrow the
+> guest's requested invalidation scope and could leave stale global
+> translations cached.
+
+Agreed.
+
+> 
+> One possible approach might be to use the PSCID from the guest-provided
+> DC.ta when allocating the nested domain, and preserve the guest's PSCID
+> and PSCV settings during invalidation while substituting the host GSCID.
+> I'm not sure whether additional considerations are needed for PSCID
+> reuse or domain lifetime, though.
+
+Thanks for the suggestion. While analyzing this issue, we found that
+using the guest PSCID is the right direction, but preserving it alone
+is not sufficient when multiple vIOMMUs share the same host GSCID.
+Different vIOMMUs may have independent guest PSCID namespaces, so two
+vIOMMUs sharing an S2 parent may use the same guest PSCID for different
+S1 address spaces.
+
+My understanding is that the ultimate goal is to ensure that the
+(GSCID, PSCID) pair programmed into the physical DC uniquely identifies
+the correct nested address space, and therefore the cached translations
+belonging to it.
+
+So far, we have identified three possible approaches:
+
+  1. Share the S2 parent's GSCID and use the guest PSCID directly.
+
+     This requires PSCID uniqueness across all vIOMMUs sharing that S2
+     parent, so that different S1 address spaces cannot be assigned the
+     same (GSCID, PSCID) pair. This uniqueness can be provided by the
+     guest itself or through VMM/guest coordination.
+
+     The current ARM mainline model similarly uses the guest ASID directly
+     while inheriting the VMID from the S2 parent. For Linux guests, the
+     SMMUv3 driver's global ASID allocator can provide ASID uniqueness
+     across vSMMUs. The Linux RISC-V driver also uses a global PSCID
+     allocator. The main question is whether we want to rely on this
+     guest implementation property.
+
+  2. Use the guest PSCID directly, but allocate a separate host GSCID for
+     each vIOMMU.
+
+     This allows independent vIOMMUs to reuse the same guest PSCID without
+     aliasing, even when they share an S2 parent.
+
+     The proposed ARM series follows this model by moving VMID allocation
+     from the S2 domain to the vSMMU [1].
+
+  3. Share the GSCID and maintain a per-vIOMMU mapping from each guest
+     PSCID to a host-allocated PSCID.
+
+     AMD mainline uses an analogous model for DomID. It maintains a
+     per-vIOMMU gDomID-to-hDomID mapping and programs the mapped hDomID
+     into the physical DTE.
+
+Option 2 seems better because it gives each vIOMMU its own GSCID, which
+isolates the PSCID namespace of each vIOMMU without requiring a mapping
+table or relying on a guest implementation property such as a global
+PSCID allocator. Its main costs are additional GSCID consumption and the
+need to invalidate each vIOMMU's GSCID whenever the shared S2 parent
+changes. I would appreciate your thoughts on which approach we should
+take.
+
+[1] https://lore.kernel.org/lkml/05dd00dcb2f0d077f59bcbccac1820534ad7b5cf.1773949042.git.nicolinc@nvidia.com/
+
+Thanks,
+Shuai
+
+> 
+> Thanks,
+> Tan Chi
+> 
 
 _______________________________________________
 linux-riscv mailing list
