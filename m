@@ -2,105 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF03F606A321
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 06:35:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B81F606A32E
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 06:42:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Arv647/G;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tsCVCYPn
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FNA6k2gy;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=SfTTZ+nW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	References:In-Reply-To:Subject:Cc:To:From:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=UMTJFIcZx9fFWUbVU0WCzl0f0MtZyX274J7hVq0KhlY=; b=Arv647/GroC+FElYlUAf4+c5CP
-	cY8qSdmbxdhI6/T6jqKHKQcaiG1zkI6f7s/AFJK0iv00M3HEPQvXaDozJbcfyMAXETYc/oY0VRlok
-	mWECZT+KoO+bQkdgyxO6sd5fjKLQd38q6QSINb5z3xEX4m5Feu4A5fN7ikt1b8dP2ZKvnw1k5VnV2
-	hi5CCkLuB4TNKaGSqYnrgQNjMBYbZKlEBLWMG/5UrUTzOT2AOk3yKuK8mJPliHW/jwgH9urgdAug5
-	NkY2PK/iOTiNxrN02i7f9+C+v7cBJursXOWDT73/Fm5WnLskwhjFNaRh2f5q6apdNJMGHTZMBREq8
-	lJckj7EA==;
+	bh=8BwXCjgsn1guJaNExvm/+qYHeaNuEjKJODaqn+yCy2o=; b=FNA6k2gyxPVan2IHEbuPPCwEqP
+	JDSJguI6tl9I2sLYy9NwdtSoem8Y5xpsymwOfSLCZfWmz8tR1zPepcBP844HmjDr7JCnFzmXKY685
+	QftTaQA4htISt3m9v2Uu9MBBrbY9uOl/VarGx99pQZ6wPZt+zpgFOsn9OGrxOpKvsnaBm5kYqnTfj
+	5yy6r+P2Z5LbAVekqmuQyFpcLyyBbWTZPVqQqgkvpQmvbePCZ2+OVcEDOg0x/h6hBRGhL2u98SWIS
+	71hpvNxdTT8zTNkZ1ylSoCAM/8tWXk2BAfshdlNAbTdZmpg9Eehm11uiLivyJ3AJQKDbwxCGS8ydI
+	BAvpCNJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQfRs-00000002f72-1OaD;
-	Tue, 10 Nov 2026 06:35:16 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1xQfZ4-00000002h89-1YOY;
+	Tue, 10 Nov 2026 06:42:42 +0000
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQfRp-00000002f5r-1YxZ
+	id 1xQfZ0-00000002h5e-1SOt
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Nov 2026 06:35:14 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-49465892f7bso1120905f8f.1
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Nov 2026 22:35:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794292511; x=1794897311; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=SrAtUp9emSKSwdDhGVp75ycz8yJkKPQkr0AQDP+R5XY=;
-        b=tsCVCYPnNFErOpVg6cl8WqT1X72MRbblT9wNfU56gZ/9k0YkgqGinTrgsRbDJ6cQoz
-         Tn/ZEPdx1QnEkYbzJeIdkF0ZRDYEpieP3EiocVM8gZPthhOeOBkT4w/wblVlI7+mgV50
-         Dar8jEU6mYZyolI/uPOsXX+fheGjTUy4A2lqylhJG/Ww/Z3A167RqSF3PmxkaoVToLQ4
-         iXh7Dpti20CQMZqskFKSXR+0dxTR+dlZq3850ZikCGVYkaM46KT56RHG0ZU7y00TtHHs
-         1gcLSoITCJ01D2qO9MHthZd+i9h7py7r8hJcuQg6vA48A8I2DOZcow1oQjiCBVzbEA7x
-         eYTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794292511; x=1794897311;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SrAtUp9emSKSwdDhGVp75ycz8yJkKPQkr0AQDP+R5XY=;
-        b=BMNVdTxLNLQXeWcuAwdEkF5H1JvCBT+9DdRTUKcLOMRik8yonCV84pyTf8kJ61Du9D
-         4KT+HaJsZ5Xz4fQ1cs2n5lwmQ+qcfPWg7GKJgBwiMIK6APw8/E5WSEgdZjkgous/YgH1
-         cc9RWH4Rpz4EnXZ/lWhcMHzGtYnsYUpM8D5/d+7Cmv8f8WzpG6WrRImCv0Tspo/Gzpdg
-         wwNfh0JSMYBeLnZ3gSQ+jcFiTQb/UPGwRR1g31QQO0Rb51XGDd+NcQvBV4D4KZEo4gQL
-         pGdozBwsc4jzvRFvKjLrcNx77D+vVXa9vty6d0NjI9vUWX14ap5guTPuao52jixM1SOf
-         ZBFw==
-X-Forwarded-Encrypted: i=1; AL+hErGlUHfivVmeBrcg4W2AP38Q3jREGBkz+Si+vJJfxAxN7xVF1MauOFekVQ4XbhgYkRdxjzgrmXRr2c01uw==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8CMhT3FWW6iaZkL7BIqW89XMEammkyDA2I1HoAYSPMnG69pJmv
-	EQ1Pa7mmKWFfaSaCErEE0bv2f6qkDHrSKJklQBADjTaOo5xZ6WFRq56K
-X-Gm-Gg: AYBFou3tqg6nxCRnN2MRr9lNSKneu/HRf9iU92rH+5NqtlvIszkteS8zWYJE9D14jGQ
-	zr9apO9138lu3PYQEWvkq0kwoes1A6aFe0UuIYs3Rhv7P6Wqzxei5txgDntuW/BWNalj7Xg+Zjb
-	vlgJJR7ugXUDMDDYwa7I/LWXFN3ovUePGKDz1+S1QIl1DwqIQeXeB7uBwsX41ibH4CpQj8TG3TM
-	hku3PbJFZGInqCVbEyXg46FuxYeahDtvLBYdzDXGagZHhy4Rhu84HZPAm64d5CbJVhT5szqLCax
-	QiAxA1/BR3oIL4sjNFjhFEk4+VAfzjyaRZBaOA8HIFEOJQlTNbGlCjb8jjzMOXXf8zZwT5pUVVb
-	h4g+fr3QZ3ThsV7LnVo9SQ0n5Ibr3jWHXnzLFqJjVsz25VkILcNksUIH5OZDiI7P2yuXkRlx/Ny
-	iig37i8QheAGeJ6OQZZkGxDCH0JYVEP4mEJyHt2PXSPPRee6eX8dUA4/uVwIzNmBrUbvJtMwS4q
-	p3x+kgbxlTbH8L9JvEW7rOBjY03ZNplbwbjgkCWQxuBtLkqKS0pyEgGmrKcJ5EKsxrHfMD93qjp
-	tLnFrEzV7uefJgjmH++und0G+9UJVfVXDmNiDyjXiNYCKk3vSumKl4PA6zfpxN9YyUWwkhXT+Ca
-	ny2dhnPuAvlFKElgdA6zvWe3Acqj0F8Obz/mLzWck9X5bdLQWsvJ/NnRddrQPbkB0QwTA5H+Zc1
-	EFQaw0x55jbRkqDCz5riDWBSP0QgjSStQ=
-X-Received: by 2002:a05:6000:288f:b0:48e:3cec:b852 with SMTP id ffacd0b85a97d-498306d02e3mr2957082f8f.40.1794292510590;
-        Mon, 09 Nov 2026 22:35:10 -0800 (PST)
-Received: from MacBook-Pro-von-Karl (dynamic-2a02-3100-a0e9-dc01-c402-36c1-c306-953c.310.pool.telefonica.de. [2a02:3100:a0e9:dc01:c402:36c1:c306:953c])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-498366c500asm3241156f8f.48.2026.11.09.22.35.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Nov 2026 22:35:09 -0800 (PST)
-Date: Tue, 10 Nov 2026 07:35:07 +0100
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Shuai Xue <xueshuai@linux.alibaba.com>
-Cc: palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, linux-riscv@lists.infradead.org, oleg@redhat.com, 
-	rostedt@goodmis.org, mhiramat@kernel.org, mark.rutland@arm.com, peterz@infradead.org, 
-	mingo@redhat.com, acme@kernel.org, namhyung@kernel.org, 
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com, 
-	james.clark@linaro.org, jpoimboe@kernel.org, jikos@kernel.org, mbenes@suse.cz, 
-	pmladek@suse.com, joe.lawrence@redhat.com, shuah@kernel.org, mpdesouza@suse.com, 
-	martin@kaiser.cx, oliver.yang@linux.alibaba.com, zhuo.song@linux.alibaba.com, 
-	jkchen@linux.alibaba.com, linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, live-patching@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v7 00/10] riscv: Add reliable stack unwinding for
- livepatch
-Message-ID: <avK6oydgmtsa_Sjg@gmail.com>
-References: <20260914092648.51254-1-xueshuai@linux.alibaba.com>
- <20261110013750.36800-1-xueshuai@linux.alibaba.com>
+	Tue, 10 Nov 2026 06:42:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1794292913;
+	bh=KDDnULezz0lYOy8E8UC/jFsEQulCu5gvg3BMNhfnq08=;
+	h=Mime-Version:Date:Message-Id:From:To:Subject;
+	b=SfTTZ+nWCSvOOeAwOUskOv5JEMPVZjLIQCCbrbwhyiMgneIi7FR77dN84F0fJcrer
+	 GzwtqFl11fTwd3QAxdzT2Lva41y+s4P0waKJTuWDjCxRWp7Xxg6m7ruxxR8RJ4FaWg
+	 5/ypBkWJ1doLlZ4hurRBAhIgoLxhwo9cjzlhEmJ0=
+X-QQ-mid: zesmtpsz1t1794292906t134bec0a
+X-QQ-Originating-IP: oveHQlJZS5x70FgvyEUxF/FxqKq+xrb9z38Pxn3Oj8M=
+Received: from = ( [183.48.247.17])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 10 Nov 2026 14:41:44 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4058580149435769383
+EX-QQ-RecipientCnt: 12
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261110013750.36800-1-xueshuai@linux.alibaba.com>
+Mime-Version: 1.0
+Date: Tue, 10 Nov 2026 06:41:43 +0000
+Message-Id: <DMRBR0ARCU5N.1WRTDA5GN4OG5@linux.spacemit.com>
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Anand Moon" <linux.amoon@gmail.com>
+Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, "Andi Shyti"
+ <andi.shyti@kernel.org>, "Sebastian Reichel" <sre@kernel.org>, "Yixun Lan"
+ <dlan@kernel.org>, "Aurelien Jarno" <aurelien@aurel32.net>,
+ <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-pm@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, "Alex Elder" <elder@riscstar.com>
+Subject: Re: [PATCH v1 1/2] i2c: spacemit: Avoid sleeping during bus reset
+ in atomic context
+In-Reply-To: <20261110061429.2036-1-linux.amoon@gmail.com>
+References: <20261110061429.2036-1-linux.amoon@gmail.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: M75I2DDAzREFGJVAK34Vsh2hoI4LWS+DRTezaCk976dM47Snl/iyjo46
+	CwL4ODDoBRITs4ehM/pdaQ+dvbp+H5KF/+NjV632gkX0jJpqHFG6RVU15O1hddOG7EEA5AH
+	b3WiV5FPDbHIxURxuKjWhlULWewILpd26Yt3YMoTYg7yQza0jADBfq2Jk74+/WjyjEUl8du
+	+oNwl+hyhikcePPslM8dpEZh7sMk3MsDFOG0qpzorOs+jBGoQN0C80VeAdEMUORmKXrajob
+	U/09UOk0ElwPvGvq81Cm+TDHcBYN3Pc6YPqP3IwnQQbIvvPMtsrsM9Xp5QVCmFAxFW+OGpW
+	8gxQbk4usL9rtWEF3qjRl85/CTMHoDZ32DlAIHTYFvAmu1wRaATybVO9JAJfQm8u4Rsgj/r
+	lPRCniGWohwo+DueAlWCZJXpFlb9Jqe+0a5tYrHJCsAVsB7OrtPbNa9H+/xbp1UsW1w2gCS
+	aQ1inlizQ+y6soiI5pCJMEv5GH+1NL+jWpDd33udAiM6MR3LUY20jb4RSCR1zLvAbtCZ10z
+	0lltyKvYQ+RzrpYJKwEO7H3h2eB6uZh7A2YzfrL6CkgyIkiNrjCAJ2oYWNIQ+68G/f7rYC2
+	D04GEkRHvP0UaDRUSP0wLHMbnb4dToS4Zzp6O7VVvXNI0AydwkQOvt4z4lM+kWE7g9sKAqK
+	gJj3nwmC56jiBJtl5M7eY29ZYRFHvt40W+0hn0aR3NowcZcNVzKly/jUYnGsUOFNwvPdXAi
+	FudLyrG5jUdOnaWczQce62oJAb99e3vXZ5AV1YanBVnLyPhOcTnvem/A6tV6EtlolO11K8I
+	Wwv5spG19PShk2dk/d4L65X/1FYDyBAcROk7SU6dNvYFemPr/PnLbNOPRUHeYr0KpDB55wc
+	8B2KXwcJt8CSoZ0cNCxYZYNIcMyB+s2Bur3WF8wFGx6dJ6VanZs+kguVxAkw1naOdg+SFEm
+	8AbNHfgQAq4ZDLrUJqaS2LkorQ2EHPh0s1cD9s8bb/wcofxBCe5fefbPRlt1qVla4ceqtLn
+	/AQPxGS4E9RCS1xGH6sFMAFfsQ9jvyi+rX257gUgtE3uon6MD5jWHpvsAxdDe2IKcOPmjO2
+	Q==
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261109_223513_450730_723A2B27 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20261109_224239_236619_0A930D6B 
+X-CRM114-Status: UNSURE (   7.52  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,40 +96,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6034725548820295417=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-0.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Nov 10, 2026 at 09:37:40AM +0100, Shuai Xue wrote:
-> Changes since v6:
-> 
-> * Rebase onto the current riscv/for-next (based on 7.4-rc1).
-> 
-> * Fold in Karl Mehltretter's two patches [1] as 1/10 and 2/10. Patch
->   1/10 stops arch_stack_walk() from reporting the walker's own frame as
->   the first entry, which corrupts the skip-frame accounting of
->   stack_trace_save() users (page_owner, perf), and adjusts
->   return_address() level accounting accordingly. Patch 2/10 adds a KUnit
->   test for the start frames. Both patches keep their original authorship;
->   I added my Reviewed-by/Tested-by and sign-off. I asked Karl on
->   3 November whether he would like to see his patches folded into this
->   series; he has not replied so far. Since 8/10 reuses the walker
->   extraction from 1/10 for its !CONFIG_FRAME_POINTER fallback, his
->   patches are included here to keep the series self-contained.
-> 
+--===============6034725548820295417==
+Content-Type: multipart/signed;
+ boundary=8b303d3f581878ca74b7956765d7a47b0d4702373ae20e17a1f1330f5a6e;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Transfer-Encoding: 8bit
 
-Thank you for folding those patches in. I'm fine with that.
+--8b303d3f581878ca74b7956765d7a47b0d4702373ae20e17a1f1330f5a6e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Regards,
-Karl
+On Tue, 10 Nov 2026 11:44:26 +0530, Anand Moon wrote:
+> The spacemit_i2c_conditionally_reset_bus() function uses usleep_range()
+> to wait after triggering a bus reset request. However, this function can
+> be invoked during atomic I2C transfers (such as power-off or restart
+> handlers running in atomic notifier chains), where sleeping is illegal.
+>
+> Replace the sleep operation with the driver's internal helper,
+> spacemit_i2c_delay(), which conditionally uses udelay() when running in
+> an atomic context, avoiding "scheduling while atomic" bugs.
+This usleep_range() was left behind when the PIO path and
+spacemit_i2c_delay() were added, so please add:
+Fixes: 5dd75dac1b35 ("i2c: spacemit: introduce pio for k1")
+
+Otherwise, LGTM.
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+
+--=20
+Troy Mitchell
+
+--8b303d3f581878ca74b7956765d7a47b0d4702373ae20e17a1f1330f5a6e
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCavK8pyEcdHJveS5taXRj
+aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC9IdAD/cSnhy/8EVYiM
+iOg2ZBk126QEPmIPly5ZvxvY7dIXMt8A/3F0j9wcXPKP/DGUvY9SzSto1m3OYAr8
+vnOgFrFuFiAE
+=GBnh
+-----END PGP SIGNATURE-----
+
+--8b303d3f581878ca74b7956765d7a47b0d4702373ae20e17a1f1330f5a6e--
+
+
+--===============6034725548820295417==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6034725548820295417==--
+
