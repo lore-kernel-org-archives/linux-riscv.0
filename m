@@ -2,102 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B63B606A325
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 13:47:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAA0A606A332
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 13:56:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZoTg9ovC;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QUeaehTf
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eYSz+TnU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=dTHVfb1QE9vdZq4pvrJGucAeiX/4g2R4/FYIznJATkU=; b=ZoTg9ovCllFqqQwQxlnAyypKGL
-	+xrz54B4LIRsGzS2bjybp1lWTpqiteie3FdO24HdmdAUq3PC6hfORg+pI3YKK4Y+r+2DGQxu6e68s
-	vrksKXF/zuN7IMEKaJD+iV5a9VC0T0XVBRTvRzW1PJYz8COs7T0qcRTMhnjZSRigd+CH4kUxLz1yr
-	+789Muu6+nrv1wYUXwqOjsIMmIXXfCcrVARfcUUXWrF27HPrrChQ2B3kHO6uKNOqtwwGMlYdWXyzi
-	fGk2o5y0AObZ5O0Uoo/HQmHyY50j7WD6ORK/LiRExnObtLtLHT638a1/p0iv0vfx3dblRW87JNs5p
-	4SEzEBqg==;
+	bh=MmnkFMVGZJ3gr6lC4RvprpgeUsZoJ5FEAmIB4gzp83k=; b=eYSz+TnUDriz+VQM7XltL9V4sG
+	ulN5/GAHPAQe43TaMKW5LkW8fF74jLHNtrF+in971ea2HDENMghrPvAE4ZHPHtbFaXld7KShZYVpI
+	99aecMDH88Lia4crwiBsJelEWwHk+v+alihLWeERzvurHuwQNdgVT8xJheZSMb+KWLyw+CVNEMbje
+	7RKz/Ssx4NRR1H8Jryuz7Ca4k075x09sQvnW+kWkeuZX3CdsiLBaG7vLDJsEYOHA5jiRQkGYYq/SX
+	uQKPmHH2pzskRarCIrvCpsjYICg4xU692HZkDCsKhdpTyoZTyTBX55wIDt67CJ61jCN8CSqBREvoe
+	6mG+JMBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQmC0-000000046zU-2W2j;
-	Tue, 10 Nov 2026 13:47:20 +0000
-Received: from mail-pj2-x02.google.com ([2607:f8b0:4864:39::2])
+	id 1xQmLB-000000048ME-1RLh;
+	Tue, 10 Nov 2026 13:56:49 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQmBx-000000046y8-2beO
-	for linux-riscv@lists.infradead.org;
-	Tue, 10 Nov 2026 13:47:19 +0000
-Received: by mail-pj2-x02.google.com with SMTP id d9443c01a7336-2ed408b0d0bso11562625ad.0
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Nov 2026 05:47:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794318436; x=1794923236; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=GnZf5t7UPSoR7hVFC72+KtUOhGomuwzXct79OPnbGl4=;
-        b=QUeaehTfSfMBHpwxSiRryy0ec/AA6Yu0uhfyQXNAGBxXqeXNACHdxTPcxxp0fUZO1o
-         4EkvdjRdKdvLfrVOKJxUJx3hCtAvOFNJ8TT0YwSf79Gvc//RYxQEvKInOAL3ffHuqiIw
-         dmaH8Za1zqYD8WqWUTLXadDLoZgoASRUzeOoHrKL+dPSQ6dTXdlLWrSSI5Yr9PtKjL0b
-         UUUedKiy49SQWb2SJToi14H4nw8XUqZDSt/0Yqa37LALIh+L+o2+UdmhMiKsoTplpzW1
-         4c9sPSEfyI60ZzzRjBHjQZGwbj4cM2wTEdm3j6lJAwk+hf/hHhgoXHEqlL5BArsUAz+U
-         skHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794318436; x=1794923236;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GnZf5t7UPSoR7hVFC72+KtUOhGomuwzXct79OPnbGl4=;
-        b=R0RmMigLgwEhzE04HSzw99G29EVuooAmU4PjNPyw/XAOSRZ4roHWdc43a3bLm3lTtu
-         RTdfQY10aQ96rd8c729n2uXlARZLx4UBdaU/W9A1BAZyx0uBatf37dp337dWLmHUhFz6
-         vc974jaU87b6xosvsFZrkDlcSjBFAvZ4hvr98K9J+w8VUL5OKNBx4caWYCNmcRp13iKI
-         hvk4cD/jjfM9CrRCbZfr3W0A4DDu0IIHKmglEdCp1+V3Wlblg2cMjXwyfb101EHrfe4p
-         hI5CtEnp8szUHuoTqcUOcbR2TrCa/ZhwaXTMLQEqMU6dmYB7CfpSFJBBWNnKXbx5Ojqw
-         Cs2Q==
-X-Forwarded-Encrypted: i=1; AL+hErFxUDQdl1lmdbKw45vIiM0t71RjjuROlyG7vWf+0oUu6k2WC3GU+Nlug3QPJr2fpPIT2a/3NXgC+OTaWw==@lists.infradead.org
-X-Gm-Message-State: APuU4Z87uwX5mb7t5XIY5WOpCMrKfnpdsLhEn5vpnR0lJUPDozm7PFGT
-	NZPeF3ATuPxd3yGur8Dba98FWOq1EroZ/cgZtYLkcNrwoTIlgzwWf178
-X-Gm-Gg: AYBFou3P+JrTsH5lo5MQk7t+zChcH0u23t5LNLZP+X9Z9rv+vczvX4hx3CaNnWqTzMg
-	0gxP1u2lb3WyFdQgYtfSlxOVDTd93DVCBMGi40Wg9O1BQpZyb6iQj7YrbOZqtXcKoCKXt16Km8K
-	FAUDqcCTRiYWCEaR7tPVbRJca4vvkblRJpobBTlpPyC8gFPPhPBdpBOVGWCQo7GAmqxMX1yJUAe
-	+s0MpCdqSHIlaw5msGqWtaYGSy8jpXIf5GuCsLN/2mafCLaqrfsuBTKqVC+crG4D4e+mFNNANPi
-	QQbw+nJ7YnXg2tg3xKzm33wM+lFis8a7q0w+fpC4neoh77co3LjHLR4Dutb/zz07t+Ba3gQoRvS
-	OgcsF2ktYB1Y9hpn08O1B6vUA/5zE+LLdS/i1/NwUM1Wx5Wu89yOkX9f1bx8wS2uO22OAOVIKat
-	z4RoJEEE+sNsdlks9thda+hKmxxBWQ6W5ljlGSVtA5SYPhdVaJ82e3iSWGgPCcYkquTxmVAYrnK
-	yepmcDWBd9A1FjaRdwwj931Odl8mNtlevb1StDJ2EanHQ0uBWWyg2Znqn0difOej4jBpHWjfHvf
-	dX2ObQzkkzsy7/jSmzeN1ET2gmqqwEw1KEYrPeTPAhWkzSg=
-X-Received: by 2002:a05:6300:210f:b0:3de:48e4:c37d with SMTP id adf61e73a8af0-3f18f0b86e1mr2622791637.26.1794318435879;
-        Tue, 10 Nov 2026 05:47:15 -0800 (PST)
-Received: from [192.168.50.100] ([114.252.97.9])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8baaae3e110sm867486b3a.36.2026.11.10.05.47.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Nov 2026 05:47:15 -0800 (PST)
-Message-ID: <42ce73bc-0fb5-46d9-bc45-34a5bef25cb2@gmail.com>
-Date: Tue, 10 Nov 2026 21:47:05 +0800
+	id 1xQmL5-000000048L8-29cf;
+	Tue, 10 Nov 2026 13:56:46 +0000
+Received: from k3-03 (unknown [159.226.43.8])
+	by APP-01 (Coremail) with SMTP id qwCowADnEPuAIvNqimC3AA--.4018S2;
+	Tue, 10 Nov 2026 21:56:17 +0800 (CST)
+From: Tan Chi <tanchi25@mails.ucas.ac.cn>
+To: gong.shuai@sanechips.com.cn
+Cc: jgg@ziepe.ca,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev,
+	anup@brainfault.org,
+	atish.patra@linux.dev,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	tomasz.jeznach@linux.dev,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	pbonzini@redhat.com,
+	seanjc@google.com,
+	kevin.tian@intel.com,
+	andrew.jones@oss.qualcomm.com,
+	fangyu.yu@linux.alibaba.com,
+	wu.fei9@sanechips.com.cn,
+	zhao.qingye@sanechips.com.cn,
+	gsh517025@gmail.com
+Subject: Re: [RFC PATCH v2 9/9] iommu/riscv: Add riscv_iommu_attach_dev_nested
+Date: Tue, 10 Nov 2026 21:56:15 +0800
+Message-ID: <20261110135615.8073-1-tanchi25@mails.ucas.ac.cn>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261110115137.184160-1-gong.shuai@sanechips.com.cn>
+References: <20261110115137.184160-1-gong.shuai@sanechips.com.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 9/9] iommu/riscv: Add riscv_iommu_attach_dev_nested
-To: Jason Gunthorpe <jgg@ziepe.ca>, Gong Shuai <gong.shuai@sanechips.com.cn>
-Cc: tanchi25@mails.ucas.ac.cn, alex@ghiti.fr, andrew.jones@oss.qualcomm.com,
- anup@brainfault.org, aou@eecs.berkeley.edu, atish.patra@linux.dev,
- fangyu.yu@linux.alibaba.com, iommu@lists.linux.dev, joro@8bytes.org,
- kevin.tian@intel.com, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- palmer@dabbelt.com, pbonzini@redhat.com, pjw@kernel.org,
- robin.murphy@arm.com, seanjc@google.com, tomasz.jeznach@linux.dev,
- will@kernel.org, wu.fei9@sanechips.com.cn, zhao.qingye@sanechips.com.cn
-References: <20261105144944.10193-1-tanchi25@mails.ucas.ac.cn>
- <20261110115137.184160-1-gong.shuai@sanechips.com.cn>
- <20261110131658.GW663069@ziepe.ca>
-From: Gong Shuai <gsh517025@gmail.com>
-In-Reply-To: <20261110131658.GW663069@ziepe.ca>
+X-CM-TRANSID: qwCowADnEPuAIvNqimC3AA--.4018S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUOb7k0a2IF6F4UM7kC6x804xWl14x267AK
+	xVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGw
+	A2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26F1j
+	6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1l84ACjcxK6I8E87Iv67AKxV
+	W0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1lnxkEFVAIw20F6cxK64vIFxWl
+	e2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI
+	8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8JwAC
+	jcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY02Avz4vE14v_Xr4l42xK82
+	IYc2Ij64vIr41l4c8EcI0Ec7CjxVAaw2AFwI0_GFv_Wryl4I8I3I0E4IkC6x0Yz7v_Jr0_
+	Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17
+	CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0
+	I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I
+	8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73
+	UjIFyTuYvjxU4QJ5UUUUU
+X-CM-SenderInfo: pwdquxrlsvqzpdlo2hpxfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261110_054717_677153_0A274889 
-X-CRM114-Status: GOOD (  10.10  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261110_055643_936415_6D778DB3 
+X-CRM114-Status: UNSURE (   4.72  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,43 +95,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-2.3 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
+X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Jason,
+Hi Shuai,
 
-On 11/10/2026 9:16 PM, Jason Gunthorpe wrote:
-> On Tue, Nov 10, 2026 at 07:51:37PM +0800, Gong Shuai wrote:
-> 
->>   2. Use the guest PSCID directly, but allocate a separate host GSCID for
->>      each vIOMMU.
-> 
-> This is the right model. The viommu should allocate the GSCID directly
-> and keep it for the lifetime of the VM.
+On Tue, Nov 10, 2026 at 07:51:37PM +0800, Gong Shuai wrote:
+>   2. Use the guest PSCID directly, but allocate a separate host
+>      GSCID for each vIOMMU.
 
-Thanks for the confirmation. The new version will use this scheme.
+I agree with option 2 as well. My earlier suggestion did not account
+for independent PSCID namespaces across multiple vIOMMUs sharing the
+same S2 parent.
 
-> 
->>   3. Share the GSCID and maintain a per-vIOMMU mapping from each guest
->>      PSCID to a host-allocated PSCID.
-> 
-> AMD is doing this because they don't have something like a GSCID.
-
-Understood. This approach makes sense.
+Allocating a separate GSCID for each vIOMMU seems simpler than
+maintaining an additional PSCID mapping table.
 
 Thanks,
-Shuai
-
-> 
-> Jason
+Tan Chi
 
 
 _______________________________________________
