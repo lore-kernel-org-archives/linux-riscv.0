@@ -2,138 +2,91 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A39A0606A32A
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2026 22:41:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEDEB60A3812
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 01:38:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Nutc9Gar;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=HtB2pbs3
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SG2snSIj;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=CywNxalX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=cAek90k2CYtVK3JPzzWq9oJgLVUIHU4GS6JvRvgWbLQ=; b=Nutc9GardzUcz9+1ygLQxUK8ug
-	QrXA2RwZFSpmR5NnNzTui5YeCb3sSu129GAhsFBz9EOwqwSIZRZv59Kp0W2VtWZ5vQLKPjiwyUlk8
-	zXCjIWrbKPPyGg2LcTwRzT2of0ullvDbGdJUmJLZV460HWjWpkI0wh1n1DMiXfIo/+5MI/qlOaX7/
-	EwVMGYGdxddP/7zbX349s6wglCYOe5kOB+5L1W6Mvj//IzmPrSPNL51uBVSf5dnDSGFJaluuTUkiw
-	MDvT6pXB11GydH0uTcu3GgK8kXOADpkq9b1wCvl1Uxi90I3N5M/zaLgNS+OSjV1zdKO3nVZtdgqwf
-	3Bz0PDPQ==;
+	bh=Zeu5cnUQENmnQwva7pweZ0ES/iX5jJwO7gHTISbWnh8=; b=SG2snSIjXokwouDCKl6Zl/ZX4L
+	0PUaoZikm+smKuuHC54pIY6KcWOzYjbrjzMIuipsK8I4isRCQ9FNh5suj+SsMPX75fdkTE+Pxe/gL
+	vxpBa+gUYImhPUg84+fFlZ6sR8NosLdlCkEODsNv/9KoAlWxVKVS5QrRe5bdLLdUCWB6z1WqoQiiO
+	GZ3h5PIWLpk1ZxOxQ8mg9yrrGT0pj/5zDymsAma64QVSiJFuqyWLJme9uxxVOw7PRmNgynB5BEuZR
+	c1tdyrKiRv2By17ErmWtEBd8UuFKM9DGiV0LRffAR0wiYyskBCrCs4EdELyXH6hwJwmBeH8sDLqbx
+	d1dmE8Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQY3S-00000001tkh-1x8y;
-	Mon, 09 Nov 2026 22:41:34 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1xQaoL-000000026EC-04ou;
+	Tue, 10 Nov 2026 01:38:09 +0000
+Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQY3O-00000001tjp-2gbW;
-	Mon, 09 Nov 2026 22:41:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794264091; x=1825800091;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=loGujMBTdlkfiQk5hWwMHTl07E+9259CEaRMomFVuEY=;
-  b=HtB2pbs3j9bq9RYFc5YlLG2J7mvJKrNiegXVTnjUqza3i+LTCODvGwlC
-   zA2XBquYw2YN8C9u0RdZhduNct/8L/04ynwsU/93Wz44UxoaT4pWcne9t
-   ONFSNimyjHCwbrzoK04UcMbfsKxOl+W9we4AUb9iJLLwCwaQAaqctfoLd
-   4oR7YS1DnzjR+nX0u6+mgGh1u0MV6SPcKXWH/6rDqDDjO05vYDeWi6NOs
-   7htVcy+yCpj8Umac5XvZncAdwdu5NhtiRc+u0gHcNvNXgOM0NiO/rpQFg
-   AtYKi5rwOmDxVA9QGlnAmDPF4gzXWdvwoYocU2Ovk+h+fksO+RuhKk8NP
-   A==;
-X-CSE-ConnectionGUID: XohXc1L6Qwy+xrQtMneqUQ==
-X-CSE-MsgGUID: mZR+HVFPRgSogijA70J2gQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11961"; a="3012360"
-X-IronPort-AV: E=Sophos;i="6.27,204,1787036400"; 
-   d="scan'208";a="3012360"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Nov 2026 14:41:29 -0800
-X-CSE-ConnectionGUID: WiiU066RQsK4uk0B5ylzZQ==
-X-CSE-MsgGUID: 0Xjwhd9LQHC9A95XLjHjGw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,204,1787036400"; 
-   d="scan'208";a="8169672"
-Received: from amilburn-desk.amilburn-desk (HELO localhost) ([10.245.244.144])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Nov 2026 14:41:16 -0800
-Date: Tue, 10 Nov 2026 00:41:14 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Frank.Li@oss.nxp.com, Mark Brown <broonie@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Radu Pirea <radu_nicolae.pirea@upb.ro>,
-	CL Wang <cl634@andestech.com>,
-	Ryan Wanner <ryan.wanner@microchip.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Vladimir Oltean <olteanv@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Han Xu <han.xu@nxp.com>,
-	Haibo Chen <haibo.chen@nxp.com>, Linus Walleij <linusw@kernel.org>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, Yixun Lan <dlan@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Laxman Dewangan <ldewangan@nvidia.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Sowjanya Komatineni <skomatineni@nvidia.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	"open list:SPI SUBSYSTEM" <linux-spi@vger.kernel.org>,
-	"moderated list:ARM/Microchip (AT91) SoC support" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
-	"open list:FREESCALE DSPI DRIVER" <imx@lists.linux.dev>,
-	"open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>,
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
-	"open list:RENESAS RZ/V2H(P) RSPI DRIVER" <linux-renesas-soc@vger.kernel.org>,
-	"open list:SAMSUNG SPI DRIVERS" <linux-samsung-soc@vger.kernel.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>,
-	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>,
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
-	"open list:TEGRA ARCHITECTURE SUPPORT" <linux-tegra@vger.kernel.org>,
-	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Thierry Reding <treding@nvidia.com>
-Subject: Re: [PATCH v2 1/1] spi: use dmaengine_desc_set_callback()
-Message-ID: <avJMCrlbmV6uq9NK@ashevche-desk.local>
-References: <autqC143h7Qf1R9H@ashevche-desk.local>
- <9e39502a-dd17-4fa2-98a3-9019523cb5e8@kernel.org>
- <auuYcS7-YqJKcUbE@ashevche-desk.local>
- <63c24437-4261-4a51-be7e-31ac0759a095@kernel.org>
- <auxGom0XR-Hax9b3@ashevche-desk.local>
- <00390a20-7630-4066-9779-06c8f915a176@kernel.org>
- <auxNmE8yZVP-wL2e@ashevche-desk.local>
- <3dc7277e-2f6b-44a6-9085-2e33d989c1c9@kernel.org>
- <avIJhv7p2v30U8H9@ashevche-desk.local>
- <78833267-f204-4387-9f8c-c7e0d5df59a5@kernel.org>
+	id 1xQaoH-000000026CZ-2Kwf
+	for linux-riscv@lists.infradead.org;
+	Tue, 10 Nov 2026 01:38:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1794274676; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=hparW8e8dCEdVdkvsPSYalHwRzpVNFBZ+OuZJj5uJX0=;
+	b=CywNxalXjvZi2M6RYiN7lM0nrQKXS0r23rhDdAU/fk0v/vLJ5i8ij9JPW+H75ix01IXn9PNtEwW7CGQ0OU2hdtfx6McGrDGdIpMQ+osxLMcvou+rKb1esQSJcQ2kAcdjOyB/e7rVKCeT949zzzsMPV+s6d2CBHsmrgLfusO/7p0=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=36;SR=0;TI=SMTPD_---0XETOX.U_1794274671;
+Received: from localhost.localdomain(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0XETOX.U_1794274671 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 10 Nov 2026 09:37:53 +0800
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+To: palmer@dabbelt.com,
+	pjw@kernel.org,
+	aou@eecs.berkeley.edu
+Cc: alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	oleg@redhat.com,
+	rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mark.rutland@arm.com,
+	peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	irogers@google.com,
+	adrian.hunter@intel.com,
+	james.clark@linaro.org,
+	jpoimboe@kernel.org,
+	jikos@kernel.org,
+	mbenes@suse.cz,
+	pmladek@suse.com,
+	joe.lawrence@redhat.com,
+	shuah@kernel.org,
+	mpdesouza@suse.com,
+	martin@kaiser.cx,
+	kmehltretter@gmail.com,
+	oliver.yang@linux.alibaba.com,
+	zhuo.song@linux.alibaba.com,
+	xueshuai@linux.alibaba.com,
+	jkchen@linux.alibaba.com,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	live-patching@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH v7 00/10] riscv: Add reliable stack unwinding for livepatch
+Date: Tue, 10 Nov 2026 09:37:40 +0800
+Message-Id: <20261110013750.36800-1-xueshuai@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+In-Reply-To: <20260914092648.51254-1-xueshuai@linux.alibaba.com>
+References: <20260914092648.51254-1-xueshuai@linux.alibaba.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <78833267-f204-4387-9f8c-c7e0d5df59a5@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261109_144130_735759_65B86694 
-X-CRM114-Status: GOOD (  17.08  )
-X-Spam-Score: -4.2 (----)
+X-CRM114-CacheID: sfid-20261109_173805_931374_D6653BD9 
+X-CRM114-Status: GOOD (  16.60  )
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,43 +99,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 09, 2026 at 11:10:38PM +0100, Krzysztof Kozlowski wrote:
-> On 09/11/2026 18:57, Andy Shevchenko wrote:
-> > On Fri, Nov 06, 2026 at 08:20:33AM +0100, Krzysztof Kozlowski wrote:
-> >>>>
-> >>>> Statement of oversight DOES NOT include "part of the patch".
-> >>>
-> >>> So, it means I MUST from now on REQUIRE a split before reviewing.
-> >>> Right?
-> >>
-> >> Why "from now on"? The reviewer's statement of oversight is worded like
-> >> that since beginning? Also nothing stops you from reviewing parts. We
-> >> discuss the statement of oversight and its result: giving Rb tag. The Rb
-> >> tag is not output of some review, but agreement with statement of
-> >> oversight and performing what is stated there.
-> >>
-> >> You can review parts, but you do not provide Rb tag.
-> > 
-> > No, I'm not going to review something that I may not put Rb tag on.
-> > I can NAK or ignore (or Ack without viewing, but it equals to ignore to me).
-> 
-> That's your call, but you put it on yourself, so do not blame us for "I
-> MUST from now on REQUIRE"...
+Hi,
 
-No, I don't blame you. It's purely documentation and terminology issue in my
-opinion.
+This is v7 of the RISC-V reliable stack unwinding series for livepatch.
 
+The series starts with three standalone fixes for the existing stack
+walkers: Karl Mehltretter's fix for arch_stack_walk() reporting the
+walker's own frame, its KUnit test, and a fix for the function-graph
+return-address cookie that Martin Kaiser asked to be split out. The
+main part of the series then adds explicit frame-record metadata,
+preserves the frame pointer through dynamic ftrace, replaces the
+open-coded stack walker with a conservative frame-pointer based
+unwinder, enables the RISC-V livepatch capability and adds the
+syscall-wrapper selftest prefix.
+
+Changes since v6:
+
+* Rebase onto the current riscv/for-next (based on 7.4-rc1).
+
+* Fold in Karl Mehltretter's two patches [1] as 1/10 and 2/10. Patch
+  1/10 stops arch_stack_walk() from reporting the walker's own frame as
+  the first entry, which corrupts the skip-frame accounting of
+  stack_trace_save() users (page_owner, perf), and adjusts
+  return_address() level accounting accordingly. Patch 2/10 adds a KUnit
+  test for the start frames. Both patches keep their original authorship;
+  I added my Reviewed-by/Tested-by and sign-off. I asked Karl on
+  3 November whether he would like to see his patches folded into this
+  series; he has not replied so far. Since 8/10 reuses the walker
+  extraction from 1/10 for its !CONFIG_FRAME_POINTER fallback, his
+  patches are included here to keep the series self-contained.
+
+* Split the function-graph return-address cookie change out of the old
+  5/7, as suggested by Martin Kaiser. It is now a separate patch (3/10)
+  that also fixes the old walker's cookie key, so it stands on its own
+  without the rest of the series and can be picked independently; it is
+  marked Fixes: and Cc: stable.
+
+* Reworked the !CONFIG_FRAME_POINTER fallback of the unwinder switch
+  patch (8/10) to use the __always_inline __walk_stackframe() helper
+  from 1/10, so both walkers report the same start frame.
+
+* Collected tags from the v6 review thread: Reviewed-by and Tested-by:
+  Martin Kaiser for the patches carried over from v6 (rv64 QEMU and
+  rv64 CHERI builds, livepatch working on both).
+
+The patches carried over from v6 are unchanged, except for the
+reworked !CONFIG_FRAME_POINTER fallback in 8/10, so the v6 validation
+results still apply to them. The v7-specific changes were covered by
+the fresh build and boot runs described below:
+
+* Built with riscv64-unknown-linux-gnu-gcc 15.2.0 and binutils 2.46,
+  including a CONFIG_IRQ_STACKS=n variant.
+* QEMU 8.2.2, 1 and 4 CPUs: livepatch selftests PASS: 7, SKIP: 1,
+  FAIL: 0; ftrace function graph 3 passed, 0 failed, 3 unsupported.
+* No BUG, WARNING, Oops, panic, unreliable stack or Call Trace found by
+  the validation log scans.
+
+Patches 1-2/10 were tested by Karl with the KUnit suite from 2/10 on
+QEMU's virt machine with clang 22 (LLVM=1) and GCC 15.2, and on a
+BeagleV Ahead (TH1520), where all five test cases pass.
+
+In addition, the combined v7 tree was freshly built and booted:
+
+* Built with riscv64-unknown-linux-gnu-gcc 16.2.0 on top of 7.4-rc1:
+  a full livepatch configuration (CONFIG_LIVEPATCH=y with dynamic ftrace
+  and function graph tracer) and a !CONFIG_FRAME_POINTER variant both
+  link successfully.
+* QEMU 11.1.1, rv64 virt, 4 CPUs: the KUnit suite from 2/10 passes
+  5/5 on the frame-pointer build; the !CONFIG_FRAME_POINTER build boots
+  and its panic backtrace (no initramfs, by design) unwinds cleanly.
+
+Base:
+riscv/for-next 6628e7d4c6b2 ("Linux 7.4-rc1")
+
+Previous versions:
+v6: https://lore.kernel.org/r/20260914092648.51254-1-xueshuai@linux.alibaba.com
+v5: https://lore.kernel.org/r/20260804103626.2803112-1-wanghan@linux.alibaba.com
+v4 RESEND: https://lore.kernel.org/r/20260629072713.3273743-1-wanghan@linux.alibaba.com
+v3: https://lore.kernel.org/r/cover.194d76e3a15b.v3.riscv-livepatch.wanghan@linux.alibaba.com
+v2: https://lore.kernel.org/r/20260528082310.1994388-1-wanghan@linux.alibaba.com
+v1: https://lore.kernel.org/r/20260527123530.2593918-1-wanghan@linux.alibaba.com
+
+[1] https://lore.kernel.org/r/20261010132712.46931-1-kmehltretter@gmail.com
+
+Karl Mehltretter (2):
+  riscv: stacktrace: do not report the walker's own frame from
+    arch_stack_walk()
+  riscv: Add KUnit test for stack trace start frames
+
+Shuai Xue (1):
+  riscv: ftrace: use the frame pointer as the function graph
+    return-address cookie
+
+Wang Han (7):
+  riscv: stacktrace: Add frame record metadata
+  riscv: stacktrace: disable KASAN and KCOV instrumentation for
+    stacktrace.o
+  riscv: ftrace: always preserve s0 in dynamic ftrace register frame
+  riscv: stacktrace: introduce stack-bound tracking helpers
+  riscv: stacktrace: switch to frame-pointer based unwinder
+  riscv: Kconfig: enable HAVE_RELIABLE_STACKTRACE and HAVE_LIVEPATCH
+  selftests/livepatch: Add RISC-V syscall wrapper prefix
+
+ arch/riscv/Kconfig                            |   4 +
+ arch/riscv/include/asm/ptrace.h               |   9 +
+ arch/riscv/include/asm/stacktrace.h           |  67 ++-
+ arch/riscv/include/asm/stacktrace/common.h    | 159 +++++
+ arch/riscv/include/asm/stacktrace/frame.h     |  53 ++
+ arch/riscv/kernel/Makefile                    |   6 +
+ arch/riscv/kernel/asm-offsets.c               |   6 +
+ arch/riscv/kernel/entry.S                     |  39 +-
+ arch/riscv/kernel/ftrace.c                    |   6 +-
+ arch/riscv/kernel/head.S                      |  23 +
+ arch/riscv/kernel/mcount-dyn.S                |   4 -
+ arch/riscv/kernel/perf_callchain.c            |   2 +-
+ arch/riscv/kernel/process.c                   |  33 +-
+ arch/riscv/kernel/return_address.c            |   2 +-
+ arch/riscv/kernel/stacktrace.c                | 583 +++++++++++++++---
+ arch/riscv/kernel/tests/Kconfig.debug         |  12 +
+ arch/riscv/kernel/tests/Makefile              |   1 +
+ arch/riscv/kernel/tests/stacktrace_test.c      | 142 +++++
+ .../livepatch/test_modules/test_klp_syscall.c |    2 +
+ 19 files changed, 1043 insertions(+), 110 deletions(-)
+ create mode 100644 arch/riscv/include/asm/stacktrace/common.h
+ create mode 100644 arch/riscv/include/asm/stacktrace/frame.h
+ create mode 100644 arch/riscv/kernel/tests/stacktrace_test.c
+
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.39.3
 
 
 _______________________________________________
