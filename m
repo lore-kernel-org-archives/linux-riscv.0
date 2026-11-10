@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E462A60A380D
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 07:07:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A082606A33B
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 07:07:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FyovdeOU;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vGzkyScb
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=F1j/khJ2;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Jlcl2b+c
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,65 +14,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=GLU+8T+UGvJeoMcdoBGrc6CPvtF8b/FoXLcrmdpiqd0=; b=FyovdeOUJ65VXzeQWEHUijGhuX
-	wcsUhMNKK6a47zMykugRbqqmLmGwheT4jHd2UxL4wiCs4DJ1SJr+ZTJUzACpItTbYMs3z3d6JdjY3
-	zUiiX/q3Ge9a7pzBJ/hFON7ZBqM2QEVD83JPgyzkropfhbu66R7bp0GcsRCK6pP/hPsk1Fnzs3LA0
-	QTOwdVunZC8L00QiPBSBZ+wEYMBK0lCR3uFcWm3SA8irXLBjoYN1PmHj0psfQQHS7C+bldh7u3VFf
-	uPLNPPWDBZQiCqS/d8r76fZha8BItcezsbGs8aIkfcVsVbcRMdfU20BVUA1cHsSXKA/A0i4bvYUVy
-	t9MxOjng==;
+	bh=ckoSyRdhdNEEgi+LAtr9ipNJLn3KY+7lAQ1km/asINQ=; b=F1j/khJ2Ao2f9/6lNLor+dQ6QT
+	9xQrEVvwnAeNk2qJZAY+ZN9e2WpZAcRBkz8bEA/YqbYdvYdCMzYiHYBcRbUITQfXGcx1mX/MGe0Df
+	MtpPD6xm84x1TtYZcpblUyWW+nSC5LIrecjltSFjW8kiP80zCaIQsaqnfaUms85SaBFXHxhiIhdcf
+	zgnpmua7yHRxlwjN6l0M2mGp7+QVQwF3v75TfNjfTJQYrxbXPglc0541YKeI26oPA7IlL/oRr7NIg
+	rgKQGkA6r8lLYA0q0uU2ngaLPLkLa5WdyClwTQtuFASq2O4It3tITz/JS33S/BMLZEj+FLq0/kCQm
+	/A/F8QCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQfwd-00000002jo4-0Kk6;
-	Tue, 10 Nov 2026 07:07:03 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1xQfwY-00000002jll-0LuV;
+	Tue, 10 Nov 2026 07:06:58 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQfwa-00000002jmV-12r7
+	id 1xQfwW-00000002jkz-0xAC
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Nov 2026 07:07:01 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-8a9f9473029so1374082b3a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Nov 2026 23:06:59 -0800 (PST)
+	Tue, 10 Nov 2026 07:06:57 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-cc758830601so1065907a12.2
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Nov 2026 23:06:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794294419; x=1794899219; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1794294415; x=1794899215; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=SkuuZSEDVNHqi2MBZkKa5e63wBL2AMVSTh4uSF9XF7s=;
-        b=vGzkyScbbHtXBgn88a4K8zPCU5jQN5WNedHLW1N4b8yreTaG8d9zpcovUc/6vRvFHC
-         514n/u4rQw6nY7p3MzOFYGRaZ7pYdbu3FvLjOZvx1AGqigE9NQsM7HYtq3fZipK+YxV4
-         0hl+R8jK86l9FMW+img+VK0GK+y8trG6uS/ZdegclH+61BGt4ZxYFBHXb2JJRE+bDoi2
-         7Zcl/6tLiLwJaqKLVr+2qXy1gkEkK4JzXagD1q78ho9SvTxYwZr0mm62Ihlv8BpCRA3r
-         ScIANWJ0O36QS9Q38YPiQuqpJ2k4wMxZ7jr4bW6K9wtlpv3BhadJe7GV4rWEeo/uGISK
-         DTLA==
+        bh=c6zK+GaiWFIPNNFR8ZSdROw2IY+x8dIA3wZEKaYc0CA=;
+        b=Jlcl2b+cDlvDUAvyxPP/+bP+zmc04KaMOTkOb85TtUiMsGfnRaD6T5yPJzPVxCLCZU
+         LtuZKE1Oswf2Ii8rOgh4keTlZXfE1f1Pthdr3aDa80zC5GMUqyFVEOXAAogcetx70nHP
+         fGobQssW29dQix7qMTLMBXa/Yz4iaY6WXwU8Aba3949rdByArjCp5o9OfdCuos0uT5hj
+         I2j9CQb8LpC/EHjSi5M4QCQ94fOzSgMzCeWgxIplwkxssPhgd5uF6/AJPbg+iksvhq2/
+         1nM9g//rsFODfqT5SRYb8Qx1zk6utFaWHvomopZOm1HL19W4dFzjHj9KrVKiWLKahfVc
+         UU8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794294419; x=1794899219;
+        d=1e100.net; s=20260707; t=1794294415; x=1794899215;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SkuuZSEDVNHqi2MBZkKa5e63wBL2AMVSTh4uSF9XF7s=;
-        b=uQCv2aFjv360UnpXxKX8eLBe9EHrm+guviC8URT21vMjtT8Fh+cKztkiyxIREhPqJw
-         7LDonDV5LhvfZeacvcScOhHpXQbG/eUFXLOLoq50ay0iLoUt00AG4xymQZ9aaCkkWUJG
-         LYzmZKFBDZTA/7cIvy/0jEr1IbC2m/oJ47WBVxpIl+C0alP/PoVLSM1xAYS1IHidjLLi
-         EhGxpwmrE6G8Av9Btvql42NTu3TMvVcQgAfH9WptSeV1H4BLvTnJc20BEUNOy8up/6Bd
-         AtsculASRpgFSt37p5ocDF7N4fbZxjCV+/jKVGRWq5vTrR5kc5m74zY1BI1Ce4rntSM/
-         1hNw==
-X-Forwarded-Encrypted: i=1; AL+hErEuLk4OdilNX8JgVSADRKrmzagHbZOfsVnCDBP0gxQIl/k4iKH+1+8fkjtm26AhJHfN1jpUiswJhoa92w==@lists.infradead.org
-X-Gm-Message-State: APuU4Z+LkS2Tvh2F3ixBBuHRdOeTYFU5dyX/Hb6p1rf2UhWprrfZ3a1S
-	EtfaBfjL3EefyvSW80v/IHDDb1Wk3lAd7KS4msqSwCPk3V+xJz+aJLdc
-X-Gm-Gg: AYBFou0CxxP4Iyyoeb6fkjR5wIU1gby7GxdWDGt59VHA/b0W6DbcM591pbpjRvpbmFU
-	uhnVI60v9HzdRgoatbT/dE4RNVlJLbTqr+PCI/BfefCSqBdDUFFbaE6IrugPXdggFFtlA9hp9yc
-	VPRbYm1O9YJSKm5pRDY2vOwltq4molvaKVwzO4WwA0329V3bmioIUemAjj2Aj11D3Dg3e26T1x0
-	OBMATBnQYFgFI5TDNinm9p4wl6AQrWPK380/q2uygegAyQOXFakIoVd2Q0gEjhd6NIkO+KUOGYe
-	hjuOGLWFZgb5qRvr4yW60L8DeyyVS4L478sj+OVmi8cBb/jFFtyH1nfWerD69rcu89i6Naz02tm
-	ZvwqsEv5yHylfHIBVj8UZzawkO0eAix2ZUesBy1VC2XMfBU+Vt/rYVdr0CzBojuPKF+m/NK4aYM
-	1XC1G8foyTyZDRxTeVdialBR6Ui4MWhjlZf1gUmrVVt3WPvzZUOIvw0xWqsipeQky94IGJF1ZuU
-	oD+GO4TLxdrr2MaZYgDCMd7JrQj6g68JYkMX15QzCVUMGQterNtXvnDCRHd0isQFQ53iHA3U5xJ
-	NMhH7Ts9ot9ua3OT4uFvo/uzwvc=
-X-Received: by 2002:a05:6a00:a85:b0:8b6:12fd:7285 with SMTP id d2e1a72fcca58-8ba83bd70ddmr2045184b3a.2.1794294419027;
-        Mon, 09 Nov 2026 23:06:59 -0800 (PST)
+        bh=c6zK+GaiWFIPNNFR8ZSdROw2IY+x8dIA3wZEKaYc0CA=;
+        b=H2ivVBuvLecwFADmZMeeJ3DesA+3DTNIAQpWJjJ3wVWP11nodDHYrA41oT43kDVJh/
+         0l6QHviPz/BcC5EPgiz5tB4OJAL6xIkiERH+9tTHkMiEptgp4grr7R9YVmnPfUhRDovq
+         WtsOLZMPePgU/uG6jMuiJnwA2i1a1n4+i3I1zNr1h8oWRVYA4bq7M2RVZfrIaJsgdL7V
+         Fnccq8YJN+ni8rzrgUVev4RsaZQJpskLPO6EG5NbmhdaS6ALCF3TJqIZEFXkBap4Q6oj
+         yzHxMv3m1b58WbnLeX+hm6Ws6FqVxstPXnOz35e5ij7fL547crHO50IbSO0MJaZxbkoN
+         WbhQ==
+X-Forwarded-Encrypted: i=1; AL+hErGUbWPM4ViTS+7B2sxNbAgyPmZ/TJLdHdGzTFqcYvUEPbz21wOju2v4oK21hAkAGqv9c6dwiZO2NcSCCw==@lists.infradead.org
+X-Gm-Message-State: APuU4Z+8reSN5mxqBWdFcTUnBtigqKPzxT6JDILWGWMF570ikdq4dSqF
+	dc2am/50I3qJDaWDrHLwrDHqVxLoNALNC6K8bsUEOPnopEUenboTR8hy
+X-Gm-Gg: AYBFou301Ih/3F0O/urT8vaNavDSVV5VhYLPkqQaVLhRWjfO+uaPthWzJr5grCc+TlU
+	EkUtWthP6vBv/3acFeSigutvHVnZBfkvUocVMjaFEvt+blmI6D0l3+XCaNdmJQsCgeusihQVnPQ
+	p2uKhgzOVkmRQhDdnDwbSS/OEJXmA1dijwHiy7y71aJRhH/5VgNcJJECQpa5CK6Zp48eX4Q2fBe
+	LMXQN1+EwIsGk+jT50rCCfUlINiQFwi+5i4IleRFg4V2+5zQ46v88vmLrMeh7RueQpXBM59dtcf
+	uhamGfVm1TbLT/W7bHlylfD9b3DeDic16+KllqrTvvLTQ6L6pRj3PMM3299YJN3YNcLc4h6LocY
+	IV4wqB7mLpamOlYvNiGPdVTMmKZKVmigxc/fQvMLXEZskF5qe85YztirXqbWScKUePXManvGXlO
+	Ug7g7Bh11Z7CcGOBDDkTdlngFEwYnSaanlaBuCGGsgDw0sE6qKvvzixDt8l2Tu51yt62UqTGl2I
+	hpOEIsOUwYxBScoVG92Oh2Dj2uBGwp8Y5ZXQaWYpM+RCC47SFB5GlDHgMVG+1Hmu6aoHUDSS4fS
+	q7uc9ZQFQAWKABwtDUM/RcCGRAA=
+X-Received: by 2002:a17:90b:5101:b0:3b1:12ba:867e with SMTP id 98e67ed59e1d1-3b166c817c9mr2153597a91.13.1794294415185;
+        Mon, 09 Nov 2026 23:06:55 -0800 (PST)
 Received: from localhost ([2001:19f0:8000:3bef:5400:6ff:fef9:667])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8baab8dffb5sm498961b3a.55.2026.11.09.23.06.58
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b16797069bsm2551932a91.14.2026.11.09.23.06.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Nov 2026 23:06:58 -0800 (PST)
+        Mon, 09 Nov 2026 23:06:54 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -95,17 +95,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-usb@vger.kernel.org,
 	Yixun Lan <dlan@gentoo.org>
-Subject: [PATCH 3/4] usb: dwc2: Add USB DRD support on CV1800 series SoC
-Date: Tue, 10 Nov 2026 15:06:24 +0800
-Message-ID: <20261110070627.217946-4-inochiama@gmail.com>
+Subject: [PATCH 2/4] usb: dwc2: drd: Sync the generic PHY mode with role requests
+Date: Tue, 10 Nov 2026 15:06:23 +0800
+Message-ID: <20261110070627.217946-3-inochiama@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261110070627.217946-1-inochiama@gmail.com>
 References: <20261110070627.217946-1-inochiama@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261109_230700_295630_1C6E70CD 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20261109_230656_276301_43229579 
+X-CRM114-Status: GOOD (  22.86  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -127,119 +127,180 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On CV1800 series SoC, it has a problem that it enters the role switch
-with a persistent Session End Detected interrupt. As a result, GOTGINT
-bit 2 remains set after write-one-to-clear accesses and prevents a
-normal boot.
+The USB DRD does not reply on a OTG phy, which means the controller
+should not reply on the switch behavior from PHY. Instead, it should
+sync the phy state to avoid a brolen role.
 
-Keeping the BVALID override asserted in host mode avoids the observed
-interrupt storm while allowing host enumeration and device operation.
-As the BVALOVAL field is device only in the datasheet, this change is
-added as a quirk.
+Set the generic PHY mode after resolving the default role and before
+updating the controller. And disable the controller clock if there
+is a failure and it is disabled.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- drivers/usb/dwc2/core.h   |  3 +++
- drivers/usb/dwc2/drd.c    | 29 +++++++++++++++++++++--------
- drivers/usb/dwc2/params.c |  1 +
- 3 files changed, 25 insertions(+), 8 deletions(-)
+ drivers/usb/dwc2/core.h     |  2 +-
+ drivers/usb/dwc2/drd.c      | 48 ++++++++++++++++++++++++++++++-------
+ drivers/usb/dwc2/platform.c |  4 +++-
+ 3 files changed, 43 insertions(+), 11 deletions(-)
 
 diff --git a/drivers/usb/dwc2/core.h b/drivers/usb/dwc2/core.h
-index 298b418e6859..52ac64f67f41 100644
+index 015a5fb7842d..298b418e6859 100644
 --- a/drivers/usb/dwc2/core.h
 +++ b/drivers/usb/dwc2/core.h
-@@ -357,6 +357,8 @@ enum dwc2_ep0_state {
-  *                      case.
-  *                      0 - No (default)
-  *                      1 - Yes
-+ * @force_bvalid_in_host: Set the BVALID override value to 1 in host mode to
-+ *                       avoid persistent Session End Detected interrupts.
-  * @power_down:         Specifies whether the controller support power_down.
-  *			If power_down is enabled, the controller will enter
-  *			power_down in both peripheral and host mode when
-@@ -460,6 +462,7 @@ struct dwc2_core_params {
- 	bool reload_ctl;
- 	bool uframe_sched;
- 	bool external_id_pin_ctl;
-+	bool force_bvalid_in_host;
+@@ -1400,7 +1400,7 @@ static inline int dwc2_is_device_mode(struct dwc2_hsotg *hsotg)
  
- 	int power_down;
- #define DWC2_POWER_DOWN_PARAM_NONE		0
+ int dwc2_drd_init(struct dwc2_hsotg *hsotg);
+ void dwc2_drd_suspend(struct dwc2_hsotg *hsotg);
+-void dwc2_drd_resume(struct dwc2_hsotg *hsotg);
++int dwc2_drd_resume(struct dwc2_hsotg *hsotg);
+ void dwc2_drd_exit(struct dwc2_hsotg *hsotg);
+ 
+ /*
 diff --git a/drivers/usb/dwc2/drd.c b/drivers/usb/dwc2/drd.c
-index 1ad3804cbc80..4f7441a87c85 100644
+index 1ad8fa3f862a..1ad3804cbc80 100644
 --- a/drivers/usb/dwc2/drd.c
 +++ b/drivers/usb/dwc2/drd.c
-@@ -28,10 +28,13 @@ static void dwc2_ovr_init(struct dwc2_hsotg *hsotg)
- 	gotgctl = dwc2_readl(hsotg, GOTGCTL);
- 	dwc2_ovr_gotgctl(gotgctl);
- 	gotgctl &= ~(GOTGCTL_BVALOVAL | GOTGCTL_AVALOVAL | GOTGCTL_VBVALOVAL);
--	if (hsotg->role_sw_default_mode == USB_DR_MODE_HOST)
-+	if (hsotg->role_sw_default_mode == USB_DR_MODE_HOST) {
- 		gotgctl |= GOTGCTL_AVALOVAL | GOTGCTL_VBVALOVAL;
--	else if (hsotg->role_sw_default_mode == USB_DR_MODE_PERIPHERAL)
-+		if (hsotg->params.force_bvalid_in_host)
-+			gotgctl |= GOTGCTL_BVALOVAL;
-+	} else if (hsotg->role_sw_default_mode == USB_DR_MODE_PERIPHERAL) {
- 		gotgctl |= GOTGCTL_BVALOVAL | GOTGCTL_VBVALOVAL;
+@@ -9,6 +9,7 @@
+ 
+ #include <linux/clk.h>
+ #include <linux/iopoll.h>
++#include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
+ #include <linux/usb/role.h>
+ #include "core.h"
+@@ -88,6 +89,7 @@ static int dwc2_drd_role_sw_set(struct usb_role_switch *sw, enum usb_role role)
+ 	struct dwc2_hsotg *hsotg = usb_role_switch_get_drvdata(sw);
+ 	unsigned long flags;
+ 	int already = 0;
++	int ret = 0;
+ 
+ 	/* Skip session not in line with dr_mode */
+ 	if ((role == USB_ROLE_DEVICE && hsotg->dr_mode == USB_DR_MODE_HOST) ||
+@@ -111,14 +113,11 @@ static int dwc2_drd_role_sw_set(struct usb_role_switch *sw, enum usb_role role)
+ 	 * mode and sessions. It is the case if cable is plugged at boot.
+ 	 */
+ 	if (!hsotg->ll_hw_enabled && hsotg->clk) {
+-		int ret = clk_prepare_enable(hsotg->clk);
+-
++		ret = clk_prepare_enable(hsotg->clk);
+ 		if (ret)
+ 			return ret;
+ 	}
+ 
+-	spin_lock_irqsave(&hsotg->lock, flags);
+-
+ 	if (role == USB_ROLE_NONE) {
+ 		/* default operation mode when usb role is USB_ROLE_NONE */
+ 		if (hsotg->role_sw_default_mode == USB_DR_MODE_HOST)
+@@ -127,6 +126,15 @@ static int dwc2_drd_role_sw_set(struct usb_role_switch *sw, enum usb_role role)
+ 			role = USB_ROLE_DEVICE;
+ 	}
+ 
++	if (role == USB_ROLE_HOST || role == USB_ROLE_DEVICE) {
++		ret = phy_set_mode(hsotg->phy, role == USB_ROLE_HOST ?
++				   PHY_MODE_USB_HOST : PHY_MODE_USB_DEVICE);
++		if (ret)
++			goto out_clk;
 +	}
- 	dwc2_writel(hsotg, gotgctl, GOTGCTL);
++
++	spin_lock_irqsave(&hsotg->lock, flags);
++
+ 	if ((IS_ENABLED(CONFIG_USB_DWC2_PERIPHERAL) ||
+ 	     IS_ENABLED(CONFIG_USB_DWC2_DUAL_ROLE)) &&
+ 	     dwc2_is_device_mode(hsotg) &&
+@@ -160,26 +168,40 @@ static int dwc2_drd_role_sw_set(struct usb_role_switch *sw, enum usb_role role)
+ 		/* This will raise a Connector ID Status Change Interrupt */
+ 		dwc2_force_mode(hsotg, role == USB_ROLE_HOST);
  
- 	spin_unlock_irqrestore(&hsotg->lock, flags);
-@@ -45,18 +48,26 @@ static int dwc2_ovr_avalid(struct dwc2_hsotg *hsotg, bool valid)
- 	u32 gotgctl = dwc2_readl(hsotg, GOTGCTL);
+-	if (!hsotg->ll_hw_enabled && hsotg->clk)
+-		clk_disable_unprepare(hsotg->clk);
+-
+ 	dev_dbg(hsotg->dev, "%s-session valid\n",
+ 		role == USB_ROLE_NONE ? "No" :
+ 		role == USB_ROLE_HOST ? "A" : "B");
  
- 	/* Check if A-Session is already in the right state */
--	if ((valid && (gotgctl & GOTGCTL_ASESVLD)) ||
-+	if ((valid && (gotgctl & GOTGCTL_ASESVLD) &&
-+	     (!hsotg->params.force_bvalid_in_host ||
-+	      (dwc2_is_host_mode(hsotg) && (gotgctl & GOTGCTL_BVALOVAL) &&
-+	       (gotgctl & GOTGCTL_AVALOVAL)))) ||
- 	    (!valid && !(gotgctl & GOTGCTL_ASESVLD)))
- 		return -EALREADY;
+-	return 0;
++out_clk:
++	if (!hsotg->ll_hw_enabled && hsotg->clk)
++		clk_disable_unprepare(hsotg->clk);
++
++	return ret;
+ }
  
- 	/* Always enable overrides to handle the resume case */
- 	dwc2_ovr_gotgctl(gotgctl);
- 
--	gotgctl &= ~GOTGCTL_BVALOVAL;
--	if (valid)
-+	if (valid) {
- 		gotgctl |= GOTGCTL_AVALOVAL | GOTGCTL_VBVALOVAL;
--	else
--		gotgctl &= ~(GOTGCTL_AVALOVAL | GOTGCTL_VBVALOVAL);
-+		if (hsotg->params.force_bvalid_in_host)
-+			gotgctl |= GOTGCTL_BVALOVAL;
-+		else
-+			gotgctl &= ~GOTGCTL_BVALOVAL;
-+	} else {
-+		gotgctl &= ~(GOTGCTL_BVALOVAL | GOTGCTL_AVALOVAL |
-+			     GOTGCTL_VBVALOVAL);
-+	}
- 	dwc2_writel(hsotg, gotgctl, GOTGCTL);
- 
- 	return 0;
-@@ -67,7 +78,9 @@ static int dwc2_ovr_bvalid(struct dwc2_hsotg *hsotg, bool valid)
- 	u32 gotgctl = dwc2_readl(hsotg, GOTGCTL);
- 
- 	/* Check if B-Session is already in the right state */
--	if ((valid && (gotgctl & GOTGCTL_BSESVLD)) ||
-+	if ((valid && (gotgctl & GOTGCTL_BSESVLD) &&
-+	     (!hsotg->params.force_bvalid_in_host ||
-+	      (dwc2_is_device_mode(hsotg) && !(gotgctl & GOTGCTL_AVALOVAL)))) ||
- 	    (!valid && !(gotgctl & GOTGCTL_BSESVLD)))
- 		return -EALREADY;
- 
-diff --git a/drivers/usb/dwc2/params.c b/drivers/usb/dwc2/params.c
-index 091bfcfef753..16db9c3c1991 100644
---- a/drivers/usb/dwc2/params.c
-+++ b/drivers/usb/dwc2/params.c
-@@ -222,6 +222,7 @@ static void dwc2_set_cv1800_params(struct dwc2_hsotg *hsotg)
+ int dwc2_drd_init(struct dwc2_hsotg *hsotg)
  {
- 	struct dwc2_core_params *p = &hsotg->params;
+ 	struct usb_role_switch_desc role_sw_desc = {0};
+ 	struct usb_role_switch *role_sw;
++	bool is_host;
+ 	int ret;
  
-+	p->force_bvalid_in_host = true;
- 	p->otg_caps.hnp_support = false;
- 	p->otg_caps.srp_support = false;
- 	p->host_dma = false;
+ 	if (!device_property_read_bool(hsotg->dev, "usb-role-switch"))
+ 		return 0;
+ 
+ 	hsotg->role_sw_default_mode = usb_get_role_switch_default_mode(hsotg->dev);
++
++	if (hsotg->role_sw_default_mode != USB_DR_MODE_UNKNOWN)
++		is_host = hsotg->dr_mode == USB_DR_MODE_HOST;
++	else
++		is_host = hsotg->role_sw_default_mode == USB_DR_MODE_HOST;
++
++	ret = phy_set_mode(hsotg->phy,
++			   is_host ? PHY_MODE_USB_HOST : PHY_MODE_USB_DEVICE);
++	if (ret)
++		return dev_err_probe(hsotg->dev, ret,
++				     "failed to set default PHY mode\n");
++
+ 	role_sw_desc.driver_data = hsotg;
+ 	role_sw_desc.fwnode = dev_fwnode(hsotg->dev);
+ 	role_sw_desc.set = dwc2_drd_role_sw_set;
+@@ -214,10 +236,11 @@ void dwc2_drd_suspend(struct dwc2_hsotg *hsotg)
+ 	}
+ }
+ 
+-void dwc2_drd_resume(struct dwc2_hsotg *hsotg)
++int dwc2_drd_resume(struct dwc2_hsotg *hsotg)
+ {
+ 	u32 gintsts, gintmsk;
+ 	enum usb_role role;
++	int ret;
+ 
+ 	if (hsotg->role_sw) {
+ 		/* get last known role (as the get ops isn't implemented by this driver) */
+@@ -230,6 +253,11 @@ void dwc2_drd_resume(struct dwc2_hsotg *hsotg)
+ 				role = USB_ROLE_DEVICE;
+ 		}
+ 
++		ret = phy_set_mode(hsotg->phy, role == USB_ROLE_HOST ?
++				   PHY_MODE_USB_HOST : PHY_MODE_USB_DEVICE);
++		if (ret)
++			return ret;
++
+ 		/* restore last role that may have been lost */
+ 		if (role == USB_ROLE_HOST)
+ 			dwc2_ovr_avalid(hsotg, true);
+@@ -250,6 +278,8 @@ void dwc2_drd_resume(struct dwc2_hsotg *hsotg)
+ 		gintmsk |= GINTSTS_CONIDSTSCHNG;
+ 		dwc2_writel(hsotg, gintmsk, GINTMSK);
+ 	}
++
++	return 0;
+ }
+ 
+ void dwc2_drd_exit(struct dwc2_hsotg *hsotg)
+diff --git a/drivers/usb/dwc2/platform.c b/drivers/usb/dwc2/platform.c
+index ef0d73077034..ab39d6b36b19 100644
+--- a/drivers/usb/dwc2/platform.c
++++ b/drivers/usb/dwc2/platform.c
+@@ -783,7 +783,9 @@ static int __maybe_unused dwc2_resume(struct device *dev)
+ 		/* Need to restore FORCEDEVMODE/FORCEHOSTMODE */
+ 		dwc2_force_dr_mode(dwc2);
+ 	} else {
+-		dwc2_drd_resume(dwc2);
++		ret = dwc2_drd_resume(dwc2);
++		if (ret)
++			return ret;
+ 	}
+ 
+ 	if (dwc2_is_device_mode(dwc2))
 -- 
 2.56.0
 
