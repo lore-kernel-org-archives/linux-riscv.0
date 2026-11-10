@@ -2,97 +2,78 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72EA6606A333
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 14:22:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C80E3606A32D
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Nov 2026 14:58:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bc8y11LD;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dHvhQour
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mr2ZGepf;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=f4QB4h7/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=qSpfqE9hJqIyn7ufXhUWbVlU/G+lpWsT0RygzF5Zd1Q=; b=bc8y11LDvHVmUriu6Wt7kpgHFR
-	EVb0lhhYUOTvMLy/ntjAG1SYIiMTG6AYdwvuJ/Z9AmAR/crxK0QnS7Y92JmJgAxpWwWU+U1kUn4fa
-	Qm46E0foRJhpSBHyF+11P3PC20/cuEDqjmnmqT8YeXU8fcjq7V2QrcvIKUvrWI70TbQGaRv+hal0O
-	WCKJ3i0WcZRRj8q3YhLUrQSlRQKNZMcVieDXiTwXBJMjZJNPqbzSkbFvDDhH15GdTy6+oZy98PRRj
-	3i+0tBSUZ3kAUKEl4fIHSS2AON8kkxzIMdUcEWcJabmQsyajRyhhAZ6WX4DezGorNubHJtumoFQz3
-	3B7dO+RA==;
+	bh=ao1cxKx3V2IX369kQQuLeBTUKAE9r57tn/SerIX4RAQ=; b=mr2ZGepf1EaUM0QZjAclNJpQEa
+	KB+OtkLocq95LEyT75ht8UMQf5L2dwT+dYXaupvnyfeMf6uKcVgbvE9z8yfeNm/K9N3aacuRwpSLz
+	3keDqiSbtIbRkujPlln+TSqVsIZQHtjog3/iCHPbcvMfNfIgBROA8EphYOXHrj32xJ2/Zoh9nWWEt
+	OtaDTblXeupCnb42H3LgHabOER9eOm0Q+K9gJJORGY9E+vESS/WkxMXr/MfuI2mOEKCb7KWw81Ts9
+	r8HsW+TFdNuFlejVeBWXaWd4GDbJ8BAhZs2pmnpxGI9jbMo8+vHIsN2ITXDnKNl2rFhkOKRxb/cvc
+	rHi2qUlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQmkE-00000004BJw-3B3e;
-	Tue, 10 Nov 2026 14:22:42 +0000
-Received: from mail-pj2-x04.google.com ([2607:f8b0:4864:39::4])
+	id 1xQnIM-00000004IDI-03Gf;
+	Tue, 10 Nov 2026 14:57:58 +0000
+Received: from mxct.zte.com.cn ([183.62.165.209])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xQmkC-00000004BIg-0AuP
+	id 1xQnIJ-00000004IBr-2e52
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Nov 2026 14:22:41 +0000
-Received: by mail-pj2-x04.google.com with SMTP id 98e67ed59e1d1-3b0d11b85f0so1250860a91.0
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Nov 2026 06:22:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794320559; x=1794925359; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=vW6Me650CnRCbqpTMm9ScZes8RV1bkmpcr+ZWjp/+oI=;
-        b=dHvhQourcefQEe+JE3xWmUbKha+rhu7lnPEioJZ+ueb3Y4F37RQ7KJTwSZhBS7LblC
-         z0s21PKom3CWoEX8KwSRUqLN2wpXGpmfWiiQWojy5rDnqfqfVGR+MblYawzFOHGEpWSo
-         um9UAZ2mwu1PwltYsYC+h8Buph1543KQ/8yAXM94GKPYDHtUR1/iCj1hlobGbsuMyISs
-         AVVvaB1fRHK26Mm/fvnsxRLpG1S2R+gJD+3NhyqMmCQ+bkIiyK7z+MzS82i1LWbkfCr3
-         m4DseGRxofvbiYPy5R1aeAxVVZCkU7dWNTJ4KdqTTGMvXLReVKfD8YUF/9yall1vjbT1
-         KISQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794320559; x=1794925359;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vW6Me650CnRCbqpTMm9ScZes8RV1bkmpcr+ZWjp/+oI=;
-        b=pDUVqmzW6V7K5Vea2mTsP5cStoYfd/aqBemQX6ei2wAlgVKalCgJ9eGvNBB7M03rcU
-         KG5OnhWH+jTQMqb5M4JZ2j4euIqPUhNFxg6gArwbW25kuhhvphdYV2SI2hVQV7tBnuNe
-         Jkb/JwG/ybR2FVqSlRztb6Kklm16IpSWUAlvx0YcLaz70WXgm+E5eUrKuCCT0t7kXx48
-         fFrZS5cvryTWTxlw2xPDLgxVuQqDMVEn4v6wtcDgNc3WRM3LGeh5/6N2tAx9amwCVxE0
-         ChhM0UJfLkOnaaFkN4xOAG/hSH6PdHtB/nn/Q8kkMx6W2A3eGGwNAHmX9JZ/J53TMHjM
-         wqeQ==
-X-Forwarded-Encrypted: i=1; AL+hErFESc6KRbxzsDfphV9FBK+tFt+Zm2Dcz8SU2S35oITmeXyV4tE5DrO6zhrCHdH5X4FSXyy0VXOA/osL7A==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9K9tfqKrgXpHXOH3Vz0CV4FcPUIWRYGINtm/kkgX2c4rz+bcCJ
-	r0gwZvCYhoBUYdp8p8Uh75u6CDol8MyPHuQ4QCeUAzz0yrB/c20ASC2F
-X-Gm-Gg: AYBFou236RtdsqzbbHCWoF9X9/OUtUr5xuJKwL9Mxk9tpctNLwnLnkoaLbm5p3fiBFI
-	+Pn4aZFqUfeJ32fGJMmPB/9wS+RLMDhU1TD4taTvhUCZ0FcIeQnUPqvvwWwvafzGSJqtpZv3cZW
-	eqiRdCfeLI2A58yv4xnQ6pQ46og/HoqLxSX0VsOx093gnv8M9dH/daLOM1uYiXQ+bWPPNTz9E17
-	VyYn+YYvUxlqdvrL/3gLLwk/y80ehxgfSK/P3QtzFJTci2qK3TQVIX4vjsj+7UtonGxN5evPHOS
-	bojI6tMmnccs1r5MV1Z7QDy6rxMam4rPYlpU7sucP6X8kV+taXbLo19cP6aWnmkk/L3uhCuuinm
-	Ga4FBtOGOaf1g0bZ/E+VhrzNVQG4PPIXgSZsRr8m9z6AY8LzFDZvVaAa+GahYgGyOhcXnFP8ZSR
-	wxFlXuV2dgFJSVZbXJy0fsXoej8jmE8tugTb016GYAp2/hA4Pybjx/+OseTB7vnEWcHqV9zJXbO
-	Lq5RRFB64w/FwECtbVIYNWSnH04grRaGyJTN552N4mY+PdwZT+amGA4cf/Xv0RjXFTp/eRnqkAC
-	LlovAI7Jdg9Jf/9fDRMHfNtarWHxtPD5erMsNyyz+aKBN1JP6duaNNUhfoRH7zEzTtRH
-X-Received: by 2002:a17:90b:562d:b0:3b0:968f:fdef with SMTP id 98e67ed59e1d1-3b166cda37emr3135880a91.49.1794320558504;
-        Tue, 10 Nov 2026 06:22:38 -0800 (PST)
-Received: from [192.168.50.100] ([114.252.97.9])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b17db9d1fbsm70817a91.15.2026.11.10.06.22.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Nov 2026 06:22:38 -0800 (PST)
-Message-ID: <ce2231cc-e554-44fd-b931-5627219b534c@gmail.com>
-Date: Tue, 10 Nov 2026 22:22:33 +0800
+	Tue, 10 Nov 2026 14:57:57 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4jP8s03SYJz57HS4;
+	Tue, 10 Nov 2026 22:57:40 +0800 (CST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zte.com.cn;
+	s=z202610; t=1794322660;
+	bh=dqn1Jn0ErHB9uH7HxkRYY60ypmSrxKKbjunp47DpHy4=;
+	h=Date:From:To:Cc:Subject;
+	b=f4QB4h7/bBxOaZXy4RRZ9CqpyvvG297hfMUEd/oG0oL1vR358k34wTwIkY5YAXvl2
+	 95sz63C/oli27FLOi57ErEIMrfZyavuJzXAYr+W8cdk42+omq0SP3nk3RHzuTDhwuA
+	 PmuGWqzKOZCXTxLgGTbdjueuWh6jWcPkYkXbDRsagnokloGzElRq5igCiNEGOgQ+II
+	 VtbCpJut6n3adQ/2IAnIGJbGPyTIb7dAximdvsTIDXCwNx8ZOifwcmM3klZoBIBijj
+	 HYdFDkKNqxAO1uldmxDUyupw918hnIx08HAa/Fg+KdpBJWKFq842niDJ+vhEgp3Tra
+	 Ywv/7xPxhsqog==
+Received: from xaxapp02.zte.com.cn ([10.88.97.241])
+	by mse-fl1.zte.com.cn with SMTP id 6AAEvcma005940;
+	Tue, 10 Nov 2026 22:57:38 +0800 (+08)
+	(envelope-from shao.mingyin@zte.com.cn)
+Received: from mapi (xaxapp01[null])
+	by mapi (Zmail) with MAPI id mid32;
+	Tue, 10 Nov 2026 22:57:41 +0800 (CST)
+X-Zmail-TransId: 2af96af330e5ccb-fc314
+X-Mailer: Zmail v1.0
+Message-ID: <20261110225741763HzyrdGiR7ZOAU1NiFmCCZ@zte.com.cn>
+Date: Tue, 10 Nov 2026 22:57:41 +0800 (CST)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 9/9] iommu/riscv: Add riscv_iommu_attach_dev_nested
-To: Tan Chi <tanchi25@mails.ucas.ac.cn>, gong.shuai@sanechips.com.cn
-Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- iommu@lists.linux.dev
-References: <20261110115137.184160-1-gong.shuai@sanechips.com.cn>
- <20261110135615.8073-1-tanchi25@mails.ucas.ac.cn>
-From: Gong Shuai <gsh517025@gmail.com>
-In-Reply-To: <20261110135615.8073-1-tanchi25@mails.ucas.ac.cn>
+Mime-Version: 1.0
+From: <shao.mingyin@zte.com.cn>
+To: <broonie@kernel.org>, <linux-spi@vger.kernel.org>
+Cc: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <pjw@kernel.org>, <samuel.holland@sifive.com>
+Subject: =?UTF-8?B?W1BBVENIIHYyXSBzcGk6IHNpZml2ZTogY2xhbXAgdGhlIGNsb2NrIGRpdmlkZXIgdG8gdGhlIHJlZ2lzdGVyIHJhbmdl?=
+X-MAIL: mse-fl1.zte.com.cn 6AAEvcma005940
+X-TLS: YES
+X-ENVELOPE-SENDER: shao.mingyin@zte.com.cn
+X-SOURCE-IP: 10.5.228.132 unknown Tue, 10 Nov 2026 22:57:40 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6AF330E4.000/4jP8s03SYJz57HS4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261110_062240_081514_4F40F13F 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261110_065755_839074_6A18A8FE 
+X-CRM114-Status: GOOD (  11.91  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,28 +83,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-2.3 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,UNPARSEABLE_RELAY autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-SGkgVGFuIENoaSwKCk9uIDExLzEwLzIwMjYgOTo1NiBQTSwgVGFuIENoaSB3cm90ZToKPiBIaSBT
-aHVhaSwKPiAKPiBPbiBUdWUsIE5vdiAxMCwgMjAyNiBhdCAwNzo1MTozN1BNICswODAwLCBHb25n
-IFNodWFpIHdyb3RlOgo+PiAgIDIuIFVzZSB0aGUgZ3Vlc3QgUFNDSUQgZGlyZWN0bHksIGJ1dCBh
-bGxvY2F0ZSBhIHNlcGFyYXRlIGhvc3QKPj4gICAgICBHU0NJRCBmb3IgZWFjaCB2SU9NTVUuCj4g
-Cj4gSSBhZ3JlZSB3aXRoIG9wdGlvbiAyIGFzIHdlbGwuIE15IGVhcmxpZXIgc3VnZ2VzdGlvbiBk
-aWQgbm90IGFjY291bnQKPiBmb3IgaW5kZXBlbmRlbnQgUFNDSUQgbmFtZXNwYWNlcyBhY3Jvc3Mg
-bXVsdGlwbGUgdklPTU1VcyBzaGFyaW5nIHRoZQo+IHNhbWUgUzIgcGFyZW50Lgo+IAo+IEFsbG9j
-YXRpbmcgYSBzZXBhcmF0ZSBHU0NJRCBmb3IgZWFjaCB2SU9NTVUgc2VlbXMgc2ltcGxlciB0aGFu
-Cj4gbWFpbnRhaW5pbmcgYW4gYWRkaXRpb25hbCBQU0NJRCBtYXBwaW5nIHRhYmxlLgoKQWdyZWVk
-LiBJ4oCZbGwgd29yayBvbiB0aGUgbmV3IHZlcnNpb24gc29vbi4KClRoYW5rcywKU2h1YWkKCj4g
-Cj4gVGhhbmtzLAo+IFRhbiBDaGkKPiAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2Cg==
+From: Shao Mingyin <shao.mingyin@zte.com.cn>
+
+sifive_spi_prep_transfer() divides by t->speed_hz, which can remain
+zero when neither the device nor the controller provides a maximum
+speed. For a nonzero but very low speed, masking the divider to 12 bits
+can also wrap it to a small value and program a much faster clock.
+
+Use the maximum divider when no speed is supplied, and saturate an
+out-of-range divider to the same value. Keep the calculation in an
+unsigned long until it has been clamped, so it is not truncated to u32
+before the range check.
+
+Fixes: 484a9a68d669 ("spi: sifive: Add driver for the SiFive SPI controller")
+Suggested-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
+---
+This patch supersedes 1/5 of the v1 series; 2/5, 3/5 and 4/5 are
+unchanged, and 5/5 is posted separately.
+
+v2:
+  - use the maximum SCKDIV directly for a zero speed, and saturate an
+    excessive divider instead of masking away high bits (Mark Brown)
+  - keep the divider wide until after the range check
+v1: https://lore.kernel.org/all/20261106234756882V9wUQNCEZAYUGTAbexMSL@zte.com.cn/
+
+Validation on x86-64 with GCC 13 and UBSAN: the verbatim preparation
+function ran with clock/register stubs over all representable SCKDIV
+values and the first overflow. A zero speed bypassed division and
+programmed 0xfff. A 1 Hz request needing divider 4096 programmed 0xfff
+instead of wrapping to zero; a divider exceeding u32 also saturated.
+In-range requests retained their original register values.
+
+ drivers/spi/spi-sifive.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/spi/spi-sifive.c b/drivers/spi/spi-sifive.c
+index cee4d92e46f437319fa40f6377e5511e692d12c7..ca7b04520a682c3fffb070169ab0e3c485e323de 100644
+--- a/drivers/spi/spi-sifive.c
++++ b/drivers/spi/spi-sifive.c
+@@ -167,12 +167,15 @@ static int
+ sifive_spi_prep_transfer(struct sifive_spi *spi, struct spi_device *device,
+ 			 struct spi_transfer *t)
+ {
++	unsigned long div = SIFIVE_SPI_SCKDIV_DIV_MASK;
+ 	u32 cr;
+ 	unsigned int mode;
+ 
+-	/* Calculate and program the clock rate */
+-	cr = DIV_ROUND_UP(clk_get_rate(spi->clk) >> 1, t->speed_hz) - 1;
+-	cr &= SIFIVE_SPI_SCKDIV_DIV_MASK;
++	/* Use the slowest clock if no speed is specified. */
++	if (t->speed_hz)
++		div = DIV_ROUND_UP(clk_get_rate(spi->clk) >> 1,
++				   t->speed_hz) - 1;
++	cr = min_t(unsigned long, div, SIFIVE_SPI_SCKDIV_DIV_MASK);
+ 	sifive_spi_write(spi, SIFIVE_SPI_REG_SCKDIV, cr);
+ 
+ 	mode = max_t(unsigned int, t->rx_nbits, t->tx_nbits);
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
