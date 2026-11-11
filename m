@@ -2,79 +2,118 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A511606A326
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2026 11:49:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A659C606A894
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2026 11:53:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qiW0sv89;
-	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=KLW0IQJ0
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WbaoZBxm;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=FFq+5+SG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ZspZUAaeM6i9AROb3L849dZvaTQ86Cnel/Z/wNGFONU=; b=qiW0sv89WJy7gT9Kc2qLyDwuUU
-	McRn578KGWYZ4YJEKXAP4coq1P4NClkmE94Cyk1Bc8czgbNhpSZkSk4p/aiKB8hs2PdNsVxyTcUe2
-	3+mZRcc8Q6K847YcKp/9sqjvQtClL2rfLOOAQkf16RypBAZED35N0N4jnT5fl19yMXeg8UBCifgRR
-	IiK0x0ni6KxLEhguYup0Uhg307xaNmwJFm7QdXv6P16+qCNva2NBN9CbH6cqdA67biNXpRq5IqgZg
-	E5KVLp85AdM9PlmufExQLlrvvnl+CltEqX3hta+axJ39IdaDTjmdnIGVQShBcvZ/Y33GZvnWiQ168
-	Z2mJXz9g==;
+	bh=JpGjF0+q90+CxSz6OB2RCD1BhgBLcQ5Ddct3+02lT80=; b=WbaoZBxmmgELUI30XnWrCfuL3R
+	nY3yQ2BdopQxtr79vu9kQPPxFKLvEctuS1fFopubVSEKpRlXfVaAnT1+Q0vzvFCFdt2VsZFylpgZa
+	Jyo+dNJqaGHBdAN0z247yi1x7HGAxUt+iJwSmwch8B6GMsYsPtpVFiy7Yw+yYuB6EGR531jOkAo2a
+	tY26c+nRQ7DZCJapNC4BLU0LKqmVjv1bBhNQ39OD6iIB0py7zu+m4UgIQ2dIud/pKl9OVPnJWQOmb
+	oqwh8sgu7/x0qEbt8bInw38Xl9ibkabxDmD2tZ7AcmedGa43iTCqJoRjea6JzOFMxxVGgUDL4O9im
+	QRsuY31Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xR6pf-00000006XdI-3Yjy;
-	Wed, 11 Nov 2026 11:49:39 +0000
-Received: from esa3.hc555-34.eu.iphmx.com ([207.54.77.50])
+	id 1xR6tN-00000006YBN-2YpN;
+	Wed, 11 Nov 2026 11:53:29 +0000
+Received: from esa2.hc1455-7.c3s2.iphmx.com ([207.54.90.48])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xR6pc-00000006Xcw-1I2v
-	for linux-riscv@lists.infradead.org;
-	Wed, 11 Nov 2026 11:49:39 +0000
+	id 1xR6tK-00000006YAh-0Dgv;
+	Wed, 11 Nov 2026 11:53:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1794397776; x=1825933776;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=L2a7nExC2z86Qnhy47FoaR6BXCbomY2s2Fi/+eTEDyc=;
-  b=KLW0IQJ0gu4I0KIksSjHHCNNUGlnYSGmrQPTzH07afBhdOeZmAE2OeIz
-   bwYD6eOg5wS6/iNi1eBSrrDKfz+M5Bx9/3mMUwaL1jS7ReS0QXMPkFtdG
-   qvaGopqXdCXMg/MA3uLlB2I/5uMxPztduAt3YmAfYa88bpnRC/mMBKG7+
-   M2TpZgqXbLyzlP1ok0F4rER5wZqJjIHuM58UFvLJL8tmAFEBFxoiuNU7E
-   E8PS/es4DPQ2fdMR4nT09TCEN2UOPr6DU/JlgSDHu8+vJT09D/RlaYfC7
-   xNe1xSDyDYQRTcV7J3VAWl4PxKnPc9oI3OOPUXSCa5T137U2lpeuGiOho
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1794398014; x=1825934014;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=HCCipxtjnPjwYW8DIXAeMVHDqScHm74Hg2zPPlBSipM=;
+  b=FFq+5+SG7mwgjZWSf3NUjdF+nrRr2enhu3SJXYAl/5a5HeblDaDJdMt3
+   lXJbE0YmgvRbo8YRCg9CZg/MIXd90BR+My9DacBt2JvB79JWOS0ck73Kc
+   NmS4bBMbTIkqjLrSWiHgg/ONBpp1aNHsdtblHjs3As+jn7JFFA6qAQE8N
+   lvO/iH1fU9A3wbRfhy/SIHKORVJDNwMOvmWR1sey07Lxlie/cHh7baWpq
+   yFhUXsXdtuolGVi2w5pss3l1dJWG0YQa5Gl+kS3019WBKLrAbAutAUiM7
+   pH5WXN8AB+kTkpEYXT/VXTEBJVuAjUj+Z63oPOqi6AGhtaBor7lrTiQH2
    g==;
-X-CSE-ConnectionGUID: uHrLkOKLTaawA1yBYXS/lQ==
-X-CSE-MsgGUID: GzHVTY2RTX+GICdiGl5ocA==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces03_data.me-corp.lan) ([146.255.191.134])
-  by esa3.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Nov 2026 13:49:34 +0200
-X-CSE-ConnectionGUID: 68jUftE0SgWoaK0IhxFirA==
-X-CSE-MsgGUID: 1cy0EvXjThm3JgMIONJ1gA==
-Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.2])
-  by ces03_data.me-corp.lan with SMTP; 11 Nov 2026 13:57:29 +0200
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Wed, 11 Nov 2026 13:49:32 +0200
-From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Date: Wed, 11 Nov 2026 13:49:19 +0200
-Subject: [PATCH] riscv: probes: reject probes inside an LR/SC sequence
+X-CSE-ConnectionGUID: ZdtrVOsCQmytxX8fH02Z0g==
+X-CSE-MsgGUID: qIyBpLAURR+wRMR6lLs3AA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11962"; a="261420800"
+X-IronPort-AV: E=Sophos;i="6.27,207,1786978800"; 
+   d="scan'208";a="261420800"
+Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
+  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Nov 2026 20:53:30 +0900
+Received: from az2nlsmgm4.fujitsu.com (unknown [10.150.26.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 7ED3B3FD0;
+	Wed, 11 Nov 2026 11:53:22 +0000 (UTC)
+Received: from az2nlsmom3.fujitsu.com (unknown [10.150.26.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm4.fujitsu.com (Postfix) with ESMTPS id 3653510001FC;
+	Wed, 11 Nov 2026 11:53:22 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.9.86.149])
+	by az2nlsmom3.fujitsu.com (Postfix) with SMTP id 52B3F101BB7F;
+	Wed, 11 Nov 2026 11:53:02 +0000 (UTC)
+Date: Wed, 11 Nov 2026 20:53:00 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Robin Murphy <robin.murphy@arm.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>, 
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>, Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	Mostafa Saleh <smostafa@google.com>, Petr Tesarik <ptesarik@suse.com>, 
+	Alexey Kardashevskiy <aik@amd.com>, Dan Williams <dan.j.williams@intel.com>, 
+	Xu Yilun <yilun.xu@linux.intel.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
+	Shrikanth Hegde <sshegde@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Stefano Stabellini <sstabellini@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Jiaxun Yang <jiaxun.yang@flygoat.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Andy Lutomirski <luto@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	x86@kernel.org
+Subject: Re: [PATCH v6 6/8] dma: swiotlb: Centralize memory-encryption pool
+ sizing
+Message-ID: <avRKiCBs81XSYMqW@FCCLS0092175.localdomain>
+References: <20260924060756.1325156-7-aneesh.kumar@kernel.org>
+ <asVs3doaJ4WrT3M2@willie-the-truck>
+ <asYZFXGyafRjjBS0@arm.com>
+ <asYiOgskwi8JYLe_@willie-the-truck>
+ <yq5awlrt3dwo.fsf@kernel.org>
+ <yq5av77c92oo.fsf@kernel.org>
+ <aseRzPshcoys7AJS@arm.com>
+ <yq5ao6d48dqr.fsf@kernel.org>
+ <auR0fT1yrKQ9wbm8@FCCLS0092175.localdomain>
+ <yq5a8q3d9oe6.fsf@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261111-probes-in-lrsc-v1-1-4f99ddea5f68@mobileye.com>
-X-B4-Tracking: v=1; b=H4sIAD9W9GoC/yXMMQ7CMAyF4atUnrFES5SBqyAG4rrFCCWRDRVSl
- bvXLW/7hvevYKzCBtduBeVFTEp29KcO6PnIM6OMbhjOQ+x9WLUkNpSMbzXCQDRypDSFSwQ/VeV
- Jfkfwdv/bvunF9Nkr0NoG7tE8N3IAAAA=
-X-Change-ID: 20261111-probes-in-lrsc-4ccde6cbf436
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
- Peter Zijlstra <peterz@infradead.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-trace-kernel@vger.kernel.org, 
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-X-Mailer: b4 0.16.0
+Content-Disposition: inline
+In-Reply-To: <yq5a8q3d9oe6.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261111_034936_981623_7873B70F 
-X-CRM114-Status: GOOD (  35.10  )
-X-Spam-Score: -4.0 (----)
+X-CRM114-CacheID: sfid-20261111_035326_389970_7A7DA267 
+X-CRM114-Status: GOOD (  27.14  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,366 +126,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A kprobe or uprobe replaces an instruction with a breakpoint. The trap
-clears the hart's reservation, so if the breakpoint sits on the lr, on
-the sc, or on any instruction between them, the sc fails, the loop
-branches back to the lr and the probe fires again. The sequence never
-completes.
+Hi Aneesh,
 
-This has always been possible on RISC-V, because cmpxchg and the
-conditional atomics are LR/SC loops. arm64 has the same problem and
-rejects probes inside an exclusive-load/store-exclusive region.
+On 11/01 09:47, Aneesh Kumar K.V wrote:
+[...]
+> >
+> > Hi Aneesh,
+> >
+> > I can reproduce the CCA regression discussed in this thread:
+> >   https://lore.kernel.org/all/yq5azeyxyfol.fsf@kernel.org/#t
+> >
+> > The guest runs out of SWIOTLB slots, causing disk I/O to fail and
+> > preventing the guest from booting.
+> >
+> > I would like to test the fix on real CCA hardware. Could you please Cc
+> > me when you respin the series? I follow LKML, but I may still miss the
+> > posting by chance.
+> >
+> 
+> The conclusion was to either use CONFIG_SWIOTLB_DYNAMIC or swiotlb kernel command line
+> option
 
-Teach the shared instruction decoder to reject lr and sc themselves.
-This covers both kprobes and uprobes.
+Thanks for the clarification.
 
-For the instructions between them, use the rules for a constrained
-LR/SC sequence: at most 16 instructions between lr and sc, all base
-integer instructions other than loads, stores, JALR, FENCE, SYSTEM and
-backward jumps or branches, or their compressed forms. Scan forward
-from the probed instruction. Reaching an sc through permitted
-instructions only means the probe sits inside a sequence; any other
-instruction, an lr, the end of the window or the end of the readable
-text means it does not. Only a sequence that follows these rules is
-guaranteed to make progress, so a probe inside any other one is
-already on unsupported ground. Scanning forward rather than tracking
-state from the start of the function also keeps an lr that has no sc,
-such as the one in __cmpwait() before wrs.nto, from affecting probes
-later in the same function.
+After reading this whole thread, I agree that dynamic sizing would be
+appropriate.
 
-kprobes scan the kernel text up to the end of the enclosing symbol.
-uprobes have only the probed instruction copied, so they read the
-text that follows it from the task, which the caller's mmap_lock
-allows.
+However, currently some distributions do not enable
+CONFIG_SWIOTLB_DYNAMIC. Users of such distributions would therefore need
+to rebuild their kernels with the option enabled. This is not a
+practical solution for many users, particularly cloud users who use
+kernels provided by their distributions or cloud providers.
 
-Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
----
-This commit was submitted as patch 1 of the series [1].
-Detaching it from that series with slightly edited commit message,
-because it is not depending on other stuff.
+Specifying swiotlb= on the kernel command line is also not particularly
+user-friendly. It requires users or cloud providers to choose a fixed
+value in advance, without automatically taking into account properties
+of the VM, such as its memory size or whether it is a confidential
+guest.
 
-[1] https://patch.msgid.link/20261110-lrsc-only-v6-0-bafc3cc0fcae@mobileye.com
----
- arch/riscv/include/asm/insn.h          | 28 ++++++++++
- arch/riscv/kernel/probes/decode-insn.c | 94 ++++++++++++++++++++++++++++++++++
- arch/riscv/kernel/probes/decode-insn.h |  7 +++
- arch/riscv/kernel/probes/kprobes.c     | 15 ++++--
- arch/riscv/kernel/probes/uprobes.c     | 31 +++++++++++
- 5 files changed, 172 insertions(+), 3 deletions(-)
+I do not think the existing heuristic used for x86 CoCo guests is
+necessarily optimal, but a fixed swiotlb= value chosen by each user may
+be even less appropriate.
 
-diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-index c3005573e8c9..f5de81753bec 100644
---- a/arch/riscv/include/asm/insn.h
-+++ b/arch/riscv/include/asm/insn.h
-@@ -10,11 +10,16 @@
- 
- #define RV_INSN_FUNCT3_MASK	GENMASK(14, 12)
- #define RV_INSN_FUNCT3_OPOFF	12
-+#define RV_INSN_FUNCT5_MASK	GENMASK(31, 27)
-+#define RV_INSN_FUNCT5_OPOFF	27
-+#define RV_INSN_FUNCT7_MASK	GENMASK(31, 25)
-+#define RV_INSN_FUNCT7_OPOFF	25
- #define RV_INSN_OPCODE_MASK	GENMASK(6, 0)
- #define RV_INSN_OPCODE_OPOFF	0
- #define RV_INSN_FUNCT12_OPOFF	20
- 
- #define RV_ENCODE_FUNCT3(f_)	(RVG_FUNCT3_##f_ << RV_INSN_FUNCT3_OPOFF)
-+#define RV_ENCODE_FUNCT5(f_)	(RVG_FUNCT5_##f_ << RV_INSN_FUNCT5_OPOFF)
- #define RV_ENCODE_FUNCT12(f_)	(RVG_FUNCT12_##f_ << RV_INSN_FUNCT12_OPOFF)
- 
- /* The bit field of immediate value in I-type instruction */
-@@ -136,7 +141,13 @@
- 
- /* parts of opcode for RVG*/
- #define RVG_OPCODE_FENCE	0x0f
-+#define RVG_OPCODE_OP_IMM	0x13
- #define RVG_OPCODE_AUIPC	0x17
-+#define RVG_OPCODE_OP_IMM_32	0x1b
-+#define RVG_OPCODE_AMO		0x2f
-+#define RVG_OPCODE_OP		0x33
-+#define RVG_OPCODE_LUI		0x37
-+#define RVG_OPCODE_OP_32	0x3b
- #define RVG_OPCODE_BRANCH	0x63
- #define RVG_OPCODE_JALR		0x67
- #define RVG_OPCODE_JAL		0x6f
-@@ -188,6 +199,17 @@
- #define RVG_FUNCT12_EBREAK	0x1
- #define RVG_FUNCT12_SRET	0x102
- 
-+/* parts of funct5 code for A extension */
-+#define RVG_FUNCT5_LR		0x02
-+#define RVG_FUNCT5_SC		0x03
-+
-+/*
-+ * The AMO funct3 field holds the access width: 010 for .w, 011 for .d.
-+ * Matching bits 14:13 alone accepts both and nothing else.
-+ */
-+#define RVG_AMO_WIDTH_MASK	GENMASK(14, 13)
-+#define RVG_AMO_WIDTH_WD	BIT(13)
-+
- #define RVG_MATCH_AUIPC		(RVG_OPCODE_AUIPC)
- #define RVG_MATCH_JALR		(RV_ENCODE_FUNCT3(JALR) | RVG_OPCODE_JALR)
- #define RVG_MATCH_JAL		(RVG_OPCODE_JAL)
-@@ -200,6 +222,8 @@
- #define RVG_MATCH_BGEU		(RV_ENCODE_FUNCT3(BGEU) | RVG_OPCODE_BRANCH)
- #define RVG_MATCH_EBREAK	(RV_ENCODE_FUNCT12(EBREAK) | RVG_OPCODE_SYSTEM)
- #define RVG_MATCH_SRET		(RV_ENCODE_FUNCT12(SRET) | RVG_OPCODE_SYSTEM)
-+#define RVG_MATCH_LR		(RV_ENCODE_FUNCT5(LR) | RVG_AMO_WIDTH_WD | RVG_OPCODE_AMO)
-+#define RVG_MATCH_SC		(RV_ENCODE_FUNCT5(SC) | RVG_AMO_WIDTH_WD | RVG_OPCODE_AMO)
- #define RVC_MATCH_C_BEQZ	(RVC_ENCODE_FUNCT3(C_BEQZ) | RVC_OPCODE_C1)
- #define RVC_MATCH_C_BNEZ	(RVC_ENCODE_FUNCT3(C_BNEZ) | RVC_OPCODE_C1)
- #define RVC_MATCH_C_J		(RVC_ENCODE_FUNCT3(C_J) | RVC_OPCODE_C1)
-@@ -227,6 +251,8 @@
- #define RVC_MASK_C_EBREAK	0xffff
- #define RVG_MASK_EBREAK		0xffffffff
- #define RVG_MASK_SRET		0xffffffff
-+#define RVG_MASK_LR		(RV_INSN_FUNCT5_MASK | RVG_AMO_WIDTH_MASK | RV_INSN_OPCODE_MASK)
-+#define RVG_MASK_SC		(RV_INSN_FUNCT5_MASK | RVG_AMO_WIDTH_MASK | RV_INSN_OPCODE_MASK)
- 
- #define __INSN_LENGTH_MASK	_UL(0x3)
- #define __INSN_LENGTH_GE_32	_UL(0x3)
-@@ -262,6 +288,8 @@ __RISCV_INSN_FUNCS(c_ebreak, RVC_MASK_C_EBREAK, RVC_MATCH_C_EBREAK)
- __RISCV_INSN_FUNCS(ebreak, RVG_MASK_EBREAK, RVG_MATCH_EBREAK)
- __RISCV_INSN_FUNCS(sret, RVG_MASK_SRET, RVG_MATCH_SRET)
- __RISCV_INSN_FUNCS(fence, RVG_MASK_FENCE, RVG_MATCH_FENCE);
-+__RISCV_INSN_FUNCS(lr, RVG_MASK_LR, RVG_MATCH_LR)
-+__RISCV_INSN_FUNCS(sc, RVG_MASK_SC, RVG_MATCH_SC)
- 
- /* special case to catch _any_ system instruction */
- static __always_inline bool riscv_insn_is_system(u32 code)
-diff --git a/arch/riscv/kernel/probes/decode-insn.c b/arch/riscv/kernel/probes/decode-insn.c
-index 433d9035b888..6a4f55b07d04 100644
---- a/arch/riscv/kernel/probes/decode-insn.c
-+++ b/arch/riscv/kernel/probes/decode-insn.c
-@@ -4,11 +4,99 @@
- #include <linux/kprobes.h>
- #include <linux/module.h>
- #include <linux/kallsyms.h>
-+#include <linux/bug.h>
- #include <asm/sections.h>
- 
- #include "decode-insn.h"
- #include "simulate-insn.h"
- 
-+/*
-+ * Can insn sit between the lr and the sc of a constrained LR/SC sequence?
-+ * The ISA allows base integer instructions there, except loads, stores,
-+ * JALR, FENCE, SYSTEM, backward jumps and taken backward branches, plus
-+ * their compressed forms. Backward branches are treated as not allowed:
-+ * the retry branch follows the sc, so one inside the body is not a
-+ * constrained sequence.
-+ */
-+static bool __kprobes riscv_insn_is_lrsc_body(u32 insn)
-+{
-+	u32 funct3;
-+
-+	if (GET_INSN_LENGTH(insn) == 2) {
-+		switch (insn & RVC_INSN_OPCODE_MASK) {
-+		case RVC_OPCODE_C0:
-+			/* c.addi4spn; the rest of the quadrant is loads and stores */
-+			return (insn & RVC_INSN_FUNCT3_MASK) == 0;
-+		case RVC_OPCODE_C1:
-+			/* Arithmetic, c.j, c.jal and branches, bit 12 is the offset sign */
-+			if (riscv_insn_is_c_j(insn) || riscv_insn_is_c_jal(insn) ||
-+			    riscv_insn_is_c_beqz(insn) || riscv_insn_is_c_bnez(insn))
-+				return !(insn & BIT(12));
-+			return true;
-+		case RVC_OPCODE_C2:
-+			funct3 = (insn & RVC_INSN_FUNCT3_MASK) >> RVC_INSN_FUNCT3_OPOFF;
-+			if (funct3 == 0)	/* c.slli */
-+				return true;
-+			if (funct3 == 4)	/* c.mv, c.add, but not c.jr, c.jalr, c.ebreak */
-+				return !riscv_insn_is_c_jr(insn) &&
-+				       !riscv_insn_is_c_jalr(insn) &&
-+				       !riscv_insn_is_c_ebreak(insn);
-+			return false;	/* stack loads and stores */
-+		}
-+		return false;
-+	}
-+
-+	switch (insn & RV_INSN_OPCODE_MASK) {
-+	case RVG_OPCODE_OP_IMM:
-+	case RVG_OPCODE_OP_IMM_32:
-+	case RVG_OPCODE_LUI:
-+	case RVG_OPCODE_AUIPC:
-+		return true;
-+	case RVG_OPCODE_OP:
-+	case RVG_OPCODE_OP_32:
-+		/* funct7 0 or 0x20 is base I; anything else is M, B or another extension */
-+		return !((insn & RV_INSN_FUNCT7_MASK) & ~(0x20U << RV_INSN_FUNCT7_OPOFF));
-+	case RVG_OPCODE_BRANCH:
-+	case RVG_OPCODE_JAL:
-+		/* forward only, bit 31 is the offset sign */
-+		return !(insn & BIT(31));
-+	}
-+	return false;
-+}
-+
-+/*
-+ * Does the instruction at the start of buf lie inside a constrained LR/SC
-+ * sequence? Such a sequence holds at most RISCV_LRSC_MAX_BODY instructions
-+ * between the lr and the sc, all from the set above. Walk forward from the
-+ * probed instruction: reaching an sc through permitted instructions only
-+ * means the probe sits in the body; anything else, including an lr that
-+ * opens a new sequence, means it does not. The walk stops at the end of
-+ * buf, so a short buffer only makes the answer more permissive.
-+ */
-+bool __kprobes riscv_probe_in_lrsc_body(const u16 *buf, size_t len)
-+{
-+	size_t off = 0;
-+	u32 insn;
-+	int n;
-+
-+	for (n = 0; n <= RISCV_LRSC_MAX_BODY; n++) {
-+		if (off + 2 > len)
-+			return false;
-+		insn = buf[off / 2];
-+		if (GET_INSN_LENGTH(insn) == 4) {
-+			if (off + 4 > len)
-+				return false;
-+			insn |= (u32)buf[off / 2 + 1] << 16;
-+		}
-+		if (riscv_insn_is_sc(insn))
-+			return true;
-+		if (!riscv_insn_is_lrsc_body(insn))
-+			return false;
-+		off += GET_INSN_LENGTH(insn);
-+	}
-+	return false;
-+}
-+
- /* Return:
-  *   INSN_REJECTED     If instruction is one not allowed to kprobe,
-  *   INSN_GOOD_NO_SLOT If instruction is supported but doesn't use its slot.
-@@ -23,6 +111,12 @@ riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *api)
- 	 */
- 	RISCV_INSN_REJECTED(system,		insn);
- 	RISCV_INSN_REJECTED(fence,		insn);
-+	/*
-+	 * The breakpoint trap drops the reservation, so a probe on either
-+	 * end of an LR/SC sequence makes the SC fail on every retry.
-+	 */
-+	RISCV_INSN_REJECTED(lr,			insn);
-+	RISCV_INSN_REJECTED(sc,			insn);
- 
- 	/*
- 	 * Simulate instructions list:
-diff --git a/arch/riscv/kernel/probes/decode-insn.h b/arch/riscv/kernel/probes/decode-insn.h
-index 42269a7d676d..aa1b0d363545 100644
---- a/arch/riscv/kernel/probes/decode-insn.h
-+++ b/arch/riscv/kernel/probes/decode-insn.h
-@@ -15,4 +15,11 @@ enum probe_insn {
- enum probe_insn __kprobes
- riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *asi);
- 
-+/* A constrained LR/SC sequence has at most this many instructions between lr and sc */
-+#define RISCV_LRSC_MAX_BODY	16
-+/* Bytes from the probed instruction through the farthest possible sc */
-+#define RISCV_LRSC_SCAN_BYTES	((RISCV_LRSC_MAX_BODY + 1) * 4)
-+
-+bool __kprobes riscv_probe_in_lrsc_body(const u16 *buf, size_t len);
-+
- #endif /* _RISCV_KERNEL_KPROBES_DECODE_INSN_H */
-diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
-index 9e2afabf94e8..1ade363910c9 100644
---- a/arch/riscv/kernel/probes/kprobes.c
-+++ b/arch/riscv/kernel/probes/kprobes.c
-@@ -49,19 +49,28 @@ static void __kprobes arch_simulate_insn(struct kprobe *p, struct pt_regs *regs)
- 	post_kprobe_handler(p, kcb, regs);
- }
- 
-+/*
-+ * Walk the instructions from the enclosing symbol up to addr to check that
-+ * addr is an instruction boundary. Then reject a probe inside an LR/SC
-+ * sequence: the breakpoint trap drops the reservation, so the SC would fail
-+ * and the loop would hit the probe again on every retry. The sequence is
-+ * recognised by a forward scan with the constrained-sequence rules, as for
-+ * uprobes, so an lr that is not followed by an sc (as in __cmpwait()) does
-+ * not taint the rest of the function.
-+ */
- static bool __kprobes arch_check_kprobe(unsigned long addr)
+Overall, I would prefer the dynamic sizing approach. However, I believe
+the initial pool size still matters.
+
+Also, as Catalin pointed out earlier in the following message:
+
+    https://lore.kernel.org/all/ann6noRzoPLL9kDY@arm.com/
+
+the arm64 adjustment also reduces the target size used for dynamic
+pool allocation, since both the initial pool and dynamic allocation
+currently use default_nslabs.
+
+I am testing the patch below to decouple the initial pool size from the
+dynamic allocation target. It adds swiotlb_adjust_initial_size() for
+callers that only want to reduce the initial allocation, while keeping
+the existing swiotlb_adjust_size() semantics for callers that want to
+adjust both sizes.
+
+Thanks,
+Kohei
+
+--->8---
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index 4e7682dfe366..80a2c171895f 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -349,7 +349,7 @@ void __init arch_mm_preinit(void)
+                unsigned long size =
+                        DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
+
+-               swiotlb_adjust_size(min(swiotlb_default_pool_size(), size));
++               swiotlb_adjust_initial_size(min(swiotlb_default_pool_size(), size));
+        }
+
+        swiotlb_init(true, flags);
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 070ee69eabb3..7dd9fcec90a5 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -189,7 +189,7 @@ void __init arch_mm_preinit(void)
+                 */
+                unsigned long size =
+                        DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
+-               swiotlb_adjust_size(min(swiotlb_default_pool_size(), size));
++               swiotlb_adjust_initial_size(min(swiotlb_default_pool_size(), size));
+                swiotlb = true;
+                swiotlb_flags |= SWIOTLB_ANY;
+        }
+diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
+index 5f24edf47b68..c1984ee12355 100644
+--- a/include/linux/swiotlb.h
++++ b/include/linux/swiotlb.h
+@@ -190,6 +190,7 @@ size_t swiotlb_max_mapping_size(struct device *dev);
+ bool is_swiotlb_allocated(void);
+ bool is_swiotlb_active(struct device *dev);
+ void __init swiotlb_adjust_size(unsigned long size);
++void __init swiotlb_adjust_initial_size(unsigned long size);
+ phys_addr_t default_swiotlb_base(void);
+ phys_addr_t default_swiotlb_limit(void);
+ #else
+@@ -232,6 +233,10 @@ static inline void swiotlb_adjust_size(unsigned long size)
  {
--	unsigned long tmp, offset;
-+	unsigned long tmp, size, offset;
- 
- 	/* start iterating at the closest preceding symbol */
--	if (!kallsyms_lookup_size_offset(addr, NULL, &offset))
-+	if (!kallsyms_lookup_size_offset(addr, &size, &offset))
- 		return false;
- 
- 	tmp = addr - offset;
- 
- 	while (tmp <= addr) {
- 		if (tmp == addr)
--			return true;
-+			return !riscv_probe_in_lrsc_body((u16 *)addr, size - offset);
- 
- 		tmp += GET_INSN_LENGTH(*(u16 *)tmp);
- 	}
-diff --git a/arch/riscv/kernel/probes/uprobes.c b/arch/riscv/kernel/probes/uprobes.c
-index eb177d0ce8ab..d97a10262166 100644
---- a/arch/riscv/kernel/probes/uprobes.c
-+++ b/arch/riscv/kernel/probes/uprobes.c
-@@ -28,6 +28,34 @@ unsigned long uprobe_get_swbp_addr(struct pt_regs *regs)
- 	return instruction_pointer(regs);
  }
- 
-+/*
-+ * Is the instruction at addr inside a constrained LR/SC sequence? Only the
-+ * probed instruction was copied, so read the text that follows it from the
-+ * task. The caller holds mmap_lock, as uprobe_write_opcode() requires too.
-+ * Text that cannot be read ends the scan early, which accepts the probe.
-+ */
-+static bool uprobe_in_lrsc_body(struct mm_struct *mm, unsigned long addr)
+
++static inline void swiotlb_adjust_initial_size(unsigned long size)
 +{
-+	u16 buf[RISCV_LRSC_SCAN_BYTES / sizeof(u16)];
-+	struct vm_area_struct *vma;
-+	struct page *page;
-+	size_t got = 0;
-+	int len;
-+
-+	while (got < sizeof(buf)) {
-+		len = min_t(size_t, sizeof(buf) - got,
-+			    PAGE_SIZE - offset_in_page(addr + got));
-+		page = get_user_page_vma_remote(mm, addr + got, FOLL_FORCE, &vma);
-+		if (IS_ERR(page))
-+			break;
-+		uprobe_copy_from_page(page, addr + got, (void *)buf + got, len);
-+		put_page(page);
-+		got += len;
-+	}
-+
-+	return riscv_probe_in_lrsc_body(buf, got);
 +}
 +
- int arch_uprobe_analyze_insn(struct arch_uprobe *auprobe, struct mm_struct *mm,
- 			     unsigned long addr)
+ static inline phys_addr_t default_swiotlb_base(void)
  {
-@@ -53,6 +81,9 @@ int arch_uprobe_analyze_insn(struct arch_uprobe *auprobe, struct mm_struct *mm,
- 		return -EINVAL;
- 	}
- 
-+	if (uprobe_in_lrsc_body(mm, addr))
-+		return -EINVAL;
-+
- 	return 0;
+        return 0;
+diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+index 2c57b49ac7c0..211fefb32fb5 100644
+--- a/kernel/dma/swiotlb.c
++++ b/kernel/dma/swiotlb.c
+@@ -99,6 +99,7 @@ static struct io_tlb_mem io_tlb_default_mem;
+ #endif /* CONFIG_SWIOTLB_DYNAMIC */
+
+ static unsigned long default_nslabs = IO_TLB_DEFAULT_SIZE >> IO_TLB_SHIFT;
++static unsigned long dynamic_nslabs = IO_TLB_DEFAULT_SIZE >> IO_TLB_SHIFT;
+ static unsigned long default_nareas;
+ static bool swiotlb_cmdline_size_set __initdata;
+
+@@ -152,6 +153,8 @@ static void swiotlb_adjust_nareas(unsigned int nareas)
+                nareas = roundup_pow_of_two(nareas);
+
+        default_nareas = nareas;
++       dynamic_nslabs =
++               swiotlb_calc_nslabs(dynamic_nslabs << IO_TLB_SHIFT, nareas);
+
+        pr_info("area num %d.\n", nareas);
+        nslabs = swiotlb_calc_nslabs(default_nslabs << IO_TLB_SHIFT, nareas);
+@@ -254,6 +257,7 @@ setup_io_tlb_npages(char *str)
+                /* avoid tail segment of size < IO_TLB_SEGSIZE */
+                default_nslabs =
+                        ALIGN(simple_strtoul(str, &str, 0), IO_TLB_SEGSIZE);
++               dynamic_nslabs = default_nslabs;
+                swiotlb_cmdline_size_set = true;
+        }
+        if (*str == ',')
+@@ -290,7 +294,7 @@ unsigned long swiotlb_default_pool_size(void)
+        return default_nslabs << IO_TLB_SHIFT;
  }
- 
 
----
-base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
-change-id: 20261111-probes-in-lrsc-4ccde6cbf436
+-void __init swiotlb_adjust_size(unsigned long size)
++void __init swiotlb_adjust_initial_size(unsigned long size)
+ {
+        /*
+         * If swiotlb parameter has not been specified, give a chance to
+@@ -305,6 +309,12 @@ void __init swiotlb_adjust_size(unsigned long size)
+        pr_info("SWIOTLB bounce buffer size adjusted to %luMB", size >> 20);
+ }
 
-Best regards,
---  
-Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
++void __init swiotlb_adjust_size(unsigned long size)
++{
++       swiotlb_adjust_initial_size(size);
++       dynamic_nslabs = default_nslabs;
++}
++
+ void swiotlb_print_info(void)
+ {
+        struct io_tlb_pool *mem = &io_tlb_default_mem.defpool;
+@@ -507,6 +517,7 @@ void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
+                pr_info("SWIOTLB bounce buffer size adjusted %lu -> %lu slabs",
+                        default_nslabs, nslabs);
+                default_nslabs = nslabs;
++               dynamic_nslabs = default_nslabs;
+        }
+
+        alloc_size = PAGE_ALIGN(array_size(sizeof(*mem->slots), nslabs));
+@@ -889,7 +900,7 @@ static void swiotlb_dyn_alloc(struct work_struct *work)
+                container_of(work, struct io_tlb_mem, dyn_alloc);
+        struct io_tlb_pool *pool;
+
+-       pool = swiotlb_alloc_pool(NULL, mem, IO_TLB_MIN_SLABS, default_nslabs,
++       pool = swiotlb_alloc_pool(NULL, mem, IO_TLB_MIN_SLABS, dynamic_nslabs,
+                                  default_nareas, mem->phys_limit, GFP_KERNEL);
+        if (!pool) {
+                pr_warn_ratelimited("Failed to allocate new pool");
 
 
 _______________________________________________
