@@ -2,98 +2,108 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7568E606A32A
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2026 19:01:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DA23606A324
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2026 19:01:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SbxoPnTr;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=tenstorrent.com header.i=@tenstorrent.com header.a=rsa-sha256 header.s=google header.b=U/3B6+fM
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=F4Sr+p9R;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=tenstorrent.com header.i=@tenstorrent.com header.a=rsa-sha256 header.s=google header.b=gq2p2Eyy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=7phIzGnTaEd1GfhtOld4rcmCYg7zBuMtQXOyqUC9tqk=; b=SbxoPnTrgWMJPRBeZwNjj8oH08
-	XVk25EAyJzheGbkS8dh7Bpr4KSZ8/p2+3FqETUtKj1fxUWSr7ZSX7cWs5KiWoNm2Jfe2ilIqvzy33
-	+uTNdrZu4vYqy9BdDhZXIwa8wOmIUUgLiLb1zveIhx7lnlW9Ag/NbXsN6jxNhAotyKnCls9EgMLe1
-	6A/BmjJFaIjjQuT77v6o16/3Z5ha/2S9WRT/nexUhL84aEMT66E8TU/tqlj0ITgulGA1IMy/23Dt3
-	P6qMlO4gWZatjgBfZVgWdxCVhY548HWIMSVYVt9NTDJl1A7LXoJQQB3pLsrW57qw0uPo9ik2IB+mW
-	TDX3Ixcw==;
+	bh=DlYJnnrsKyk2ZvYIyT9DKQMqfd1W0sBc2hGZtccXSgk=; b=F4Sr+p9RS3RpNtJ7kb6cnzIQeI
+	QNKEcbLMqqxvMuhQkstLYt1Lq6IysEkpunoAcnZzSP+S+IM+S2Ri/9oCiXA7eDYR9fuqXFarqs+mI
+	5C3pQZuYp+MLsZvHc3fTqa5aOe+f3hQi7RyrV8LFkfWu+P98XG2laTZWGFVic6vG84Ruke73DzAEQ
+	r/D6pdY6k8u/838YNXFEE3yDcsjeulnOCWpqVmBS3wgk0DkhVnd/b8P8e8HROMBzcYLx/ULHVdRty
+	qHZH8n2jiOcb4X68RGAU5dsV9pgznSfVSwLMVM0hTHuJwYHLIMo0QwrH5Li/rFVSvW7RC3SZWZQPG
+	RPq8rzPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRDZ1-00000007Sfl-1JNL;
-	Wed, 11 Nov 2026 19:00:55 +0000
-Received: from mail-yx1-xb129.google.com ([2607:f8b0:4864:20::b129])
+	id 1xRDZB-00000007SjI-2b0W;
+	Wed, 11 Nov 2026 19:01:05 +0000
+Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRDYw-00000007SfQ-2Dk7
+	id 1xRDZ8-00000007SiG-42Iw
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Nov 2026 19:00:54 +0000
-Received: by mail-yx1-xb129.google.com with SMTP id 956f58d0204a3-67be6030c9fso3090570d50.3
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Nov 2026 11:00:50 -0800 (PST)
+	Wed, 11 Nov 2026 19:01:04 +0000
+Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-8b32b2e691aso1726797b3.0
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Nov 2026 11:01:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1794423649; x=1795028449; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=KLrwOHZ1vOGAPfvTBTgw9NT45opR0v5Or24JcyLWJp0=;
-        b=U/3B6+fMvfnAvcBR2D7HhI3RPnkusF+EuLeRtMz+FvhIq0g2RR8kmbT3Kcn8EThS1g
-         IsXXEJZx7EXM2da7l+ans4FeH0IKQRMC83u8ykuPGKe79Z+6eB7Zv79vmpnt/Ql218WL
-         us9IPzzvmojnzKJjGwKzLdZlMUL2VpVPEcwo97EDSnQ5EOBsq8Y/elVjfMV9jFtMR3je
-         k3YeOqmInKLYaIQWmYMHva9o0DXKGV7oZO2a0QHgzKUGMWSl+dpSNJG2NCQ03mM8pF82
-         8b0E7dFost1tWSMLR3u208Sk7dcl+dq2hIA2oVApXI7UjxzEen8fC9djqf82wkQ7ySa9
-         MCgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794423649; x=1795028449;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=tenstorrent.com; s=google; t=1794423661; x=1795028461; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=KLrwOHZ1vOGAPfvTBTgw9NT45opR0v5Or24JcyLWJp0=;
-        b=eAdjwY7KGxcGnWc6Fuvv7yimhQ/CGzfUMM75mmkBZuuL8i85q/8LBINkyiWZiPCTpl
-         rMWuG8tz5A98KXyfkJ5OpudHixPopfxwShHrGbigXEjjWgEEBO0pcuwCzfqJQuCWCuHo
-         jNIcyvRzZQqN8EOK8XqmraYBjsLiPo5xNjEqvl9gDJQWdJD8Y+5HRWQZdR49pzDZWQUI
-         +9fSh7zdeFTGSfeeVGk+T+DjWho7fZ9CfNojDciVIccXRuRKXMvfgqRCb+Xo74ljWCcL
-         J+pPmdU+GHBZnJhpKS7eeNdYd0h2CU5Wnbz6GiOoumwRTVo0SBU+25ml6/rCFhAdrf9N
-         WDgQ==
-X-Forwarded-Encrypted: i=1; AL+hErE33xPaSWQFDu9LD1DaErpW+5guQaFXY15NCltnzFuDBz+wF4dYX8sUbiowm26/JfW++8upC6KOwN4ljA==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8Ayk+teKNobVBj4TLQwKE3l/1E3SENZqsGozrATBHmx7u4qPpp
-	+7TmrAezNbknvTKvPMlJiDmwyMQTdrTuPuPRRRMqtIU4VhtGDd7MsC5Qa3cRY5mFUb4=
-X-Gm-Gg: AYBFou2fs7Z7xKoOgoLL3+wq5K5HcFCErRNd8tx8YSmTn05/B+JvqwtACI8au01NQt3
-	WzabFppdhsULa5nccrdg9UJJTRen6YL9On/lVjlC/e5NQAxPUYOB0rNEo3MrU6I032XT22qx0BL
-	ChSnybfOV6n1rbHPwRsvoWFhcigDT2EoOt1DxYQjEDNp30UxzBrFng/ay3WuefRdRR/OA5fF2a2
-	c2naJx0xZpMAPyiJXhnPn2rx6CBMRrgqQlLVr6z5SjM5iWbEHf8vyrq+qZ+lKM79jP6Ei5t12VL
-	PS4UxmTcJwmdizHMjZW4mL5sbR91zHcfHpYD/WhVm5/DjKq3mOAnYyhpBNn2xWSzP79Tu7VEs1P
-	bb+da9T+3DBbPep+xES7e6AR/+OMhNwfKp3OvWgT6KOstVyX/MeJShLrCNwQLgXqQ53R/gVCZp/
-	nndAV5kON7ej/5sFIU6F5MNLpOVs0ApYUjGH8i4Uw5KGpWS/CmpMYr2KIXVMO1GoWT5cxsk1Ga2
-	wn3VB4HAayNGr2W2GwQibhIpWBPDJYkNQMHuRU53yYGSuprPvorTb7xnOkB20Sh8OWFDOGsZ5Em
-	3bRRblgfBGWBUKmBkU/OIKOpYnpQZHgBoJUYJf36haZiz5mehKaleOGkd5kR2m7/IJndJB8O9cV
-	PgIfEFBS2yI5unhsC5ksS7Eotr+gTcPRa1xJDgwdD13MOU9J117/0neTiryJ8CI0DH20e
-X-Received: by 2002:a05:690e:11c1:b0:67b:eb7a:e62a with SMTP id 956f58d0204a3-67c67a48a3amr2377800d50.0.1794423648748;
-        Wed, 11 Nov 2026 11:00:48 -0800 (PST)
+        bh=WYFHQWZ/MsfvHC59O3vSeTxBC3BwdGpolCicla4nLjk=;
+        b=gq2p2EyySPrEsa7/7E7qP4kkwcCX1oUViZfMdO2RlreAur1uRf3UuaU5SnPzUMibXC
+         R0HpsE73EraHX6Gw0Yulqc26xhJ12jM8MtPy71AHAX/UOAPA3hpoU4WiV8gUPEpPuwGr
+         QbRZm4h8OiraEz6A9xiZG8o5tsg36jOpNz26xtMOqeNUsYdcH7ADMpitm8wjXvgiKuBC
+         sgRxeaQv7gLU1h4D7pyR6aZNigE1lM+FxDbneSsYZO0K/NarsYR9srOuaLXH+zHQlOf7
+         EhmuEJGjfrjyTmbXMvI29tiTR2+bW0MIFgz59QTGnGrmxtGOIAmWInae6jajDiQzYt33
+         qyqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794423661; x=1795028461;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=WYFHQWZ/MsfvHC59O3vSeTxBC3BwdGpolCicla4nLjk=;
+        b=Su0G+ULIRB2XT4mjC3olnY2cX6ntluOTDt0KyrtMENjVeooDpAgtQoR3zxUg2sk6E/
+         QQ7xZCNs2R6TFjRqVkW64QP7zCKgGL6wYsjThT2Lpt2YPbyvTbVelv/iDBnUM7YG8VoU
+         vn9zvLXKhGMCp/UXwTgM77g4de+H0/HLrXmBLh8rtuMkWRRJAF31s2MNJpJL1/e0SUd6
+         ylpZd29AVZbsXv9MXmFa1eFZXQGR4D6j/NbbPRoDGD56aHsIQSs5Jz9adw6V9uK5gMlz
+         s2FotpnQLJzqHb0ttDgK25ytopUdwABEbBQpdR/wxCniTHiC01RedMqpXqpAsApV4EYk
+         8/wA==
+X-Forwarded-Encrypted: i=1; AL+hErG3rnvtFMjQsqY8WV/IrFbcTTUvrgDbvav790GR4Kqx0QyztzagTrVLfmy5eEVVvkQghmqMhEjqjj/5CA==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/EvjSQ2JWyER8GxqkvwsI1gN+9Z4aiu0X91jIcvEASmUE17kRl
+	Z05cNTQkcgFFIWjTUWB1F3H6fFqciZpBMW3nj/8X959puTjgmEk1pezUwTxUkD7dqgs=
+X-Gm-Gg: AYBFou0LrDzsHx9e17Dn29wZvCoo55wUkAJD5d2O8RNANSx4FnS8Q6W+S2qwjMZzzOG
+	Kwgg+UDrwiypNGtsfX2T2sGb+CJRWJgz5BG814+TD1IKOxFsILniiPhYjHs5tCm3Uuf3/Ai6Bku
+	ctSuUmdUruyrz333QI6uXbCpngncQDk9nMelfTjhTlBd2stHtOyR9Y/i9mJs1UF5RC3V6iIHtyf
+	PJ6GEPNPJjtkSkor/5gChRmqFc34PGg1z+frMZoDbh7Y0cpTY5fgSIjGsqtP5lOItv1PIudXx+W
+	H1UAk1nohVc2guLq9N6uzbM4DFuzW7/BPPSCYLuR7mOIy/YWWKNHHfHc5ufcJ8LYdMEJtOHMHis
+	5oS+duMyeFfNk7mTrFh3vfIIXnNdNIyVe67rr1UG9/TRL/qNeI8T8Mn9KySRk9BvUPqEfof1hx2
+	I97ffs+O7+PStGq0VJ82OuVuRjbFHM4p4RH1pE1TrvjpyYQfKKvp/ETTOs1vMpa1LBRqmHxXUwB
+	XJiAbETx8onEYwh+4kF+kmBOnZaXhWp+q7NDPZJjXwgkEV/VW8NkRN6OSPWWO0NROIF6/pbcKLw
+	zGpliEwiJm+4mL6S1QTx4QNvn+I5VRkaaIONGwFpvltr01g7+a6FKZAeruvvZhftrrEsloyGrQP
+	I7VHM1gwxkeJxdNyNYaoWBh+c6SGYAdtoWJjgPBnrODxTmoo=
+X-Received: by 2002:a05:690c:1d:b0:8b0:9e7c:7b11 with SMTP id 00721157ae682-8b3bb274adbmr2738117b3.32.1794423661002;
+        Wed, 11 Nov 2026 11:01:01 -0800 (PST)
 Received: from lima-default.tail89d63.ts.net (108-196-157-19.lightspeed.austtx.sbcglobal.net. [108.196.157.19])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67c589a2354sm5209197d50.6.2026.11.11.11.00.47
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67c589a2354sm5209197d50.6.2026.11.11.11.00.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Nov 2026 11:00:48 -0800 (PST)
+        Wed, 11 Nov 2026 11:01:00 -0800 (PST)
 From: Andy Chiu <tchiu@tenstorrent.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
+	Oleg Nesterov <oleg@redhat.com>,
 	linux-riscv@lists.infradead.org
 Cc: andybnac@gmail.com,
 	Andy Chiu <tchiu@tenstorrent.com>,
 	dfustini@oss.tenstorrent.com,
 	greentime.hu@sifive.com,
-	linux-kernel@vger.kernel.org,
-	olof@lixom.net
-Subject: [PATCH v7 0/6] riscv: optimize mode switch latency for Vector
-Date: Wed, 11 Nov 2026 12:43:22 -0600
-Message-ID: <20261111184359.1239821-1-tchiu@tenstorrent.com>
+	Aurelien Jarno <aurelien@aurel32.net>,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+	Anup Patel <anup@brainfault.org>,
+	daichengrong <daichengrong@iscas.ac.cn>,
+	Guobin Zhang <guobin.zhang@intel.com>,
+	Troy Mitchell <troy.mitchell@linux.dev>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Sergey Matyukevich <geomatsi@gmail.com>
+Subject: [PATCH v7 2/6] riscv: introduce riscv_v_ucontext_save() for signal and ptrace
+Date: Wed, 11 Nov 2026 12:43:24 -0600
+Message-ID: <20261111184359.1239821-3-tchiu@tenstorrent.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261111184359.1239821-1-tchiu@tenstorrent.com>
+References: <20261111184359.1239821-1-tchiu@tenstorrent.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261111_110050_607722_68C5D939 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20261111_110103_024677_CDE2407C 
+X-CRM114-Status: GOOD (  14.22  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,119 +119,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This series provide several optimizations targeting system call latency
-regarding vector context management. Before the series, the kernel
-handled user's vector context in an conservative way, where registers
-were null out and VS is tracked as DIRTY. This introduce excess context
-saving and restoring when there is a context swicth.  Also, the kernel
-turned off Vector at the exception entry, making all in-kernel vector
-usecase take the serialization cost, which includes context switch and
-user copies. The cost is not easy to hide as vector code are usually sit
-right after enabling V.
+Add a centralized user context saving function for the next patch. As we
+are preparing for the optimization that skip saving on VS==INITIAL, user
+context saving in ptrace and signal both need to account for such case,
+and they are handled in a similar way.
 
-Since vector register are set to a known state at syscall exit, the
-series set VS to INIT at syscall entry and null out the vector register
-at the exit, skipping unnecessary saves and restores. The series also
-introduce riscv_novstateopt, when unset, enables vector in the kernel
-mode, and do not perform register nulling on the syscall fast path,
-where there is no context switch or kernel-mode vector during the
-syscall.
+This is a preparatory patch, the next patch folds in the actual handling
+for exporting the user context when VS is at INITIAL state.
 
-With the whole series, nginx request throughput vs base on a four-core
-Ascalon-S, by served page size (* = statistically distinct):
-
-       86B     1KB     2KB     4KB     8KB     16KB    32KB
-  v5   +0.79%* +1.36%* +2.33%* +2.02%* +0.14%  +0.93%  +2.42%*
-  v6   +0.33%* -0.23%  +2.88%* +2.19%* +1.02%  +1.14%  +1.40%*
-
-This series depends on [1], which is now queued in the
-linux-riscv/fixes. For those who prefer git, the series is also available
-at [3].
-
-Patch summary:
- - New patches: 2, 6
- - Modified patches: 3
- - Unchanged patches: 1, 4, 5
-
+Signed-off-by: Andy Chiu <tchiu@tenstorrent.com>
+---
 Changelog v7:
- - Resend the series based on unmerged patches from v6
- - Rearange patches so that it does not introduce bug mid-series (2,3)
- - Add a KVM patch that skips duplicate context operations on host vector
-   context (6)
+ - new patch since v7 (splited out from v6 to maintain git bisectability)
+---
+ arch/riscv/include/asm/vector.h |  2 ++
+ arch/riscv/kernel/ptrace.c      |  6 +-----
+ arch/riscv/kernel/signal.c      |  4 +---
+ arch/riscv/kernel/vector.c      | 12 ++++++++++++
+ 4 files changed, 16 insertions(+), 8 deletions(-)
 
-Changelog v6:
- - Refactor the context switch of preemptible kernel-mode vector (2)
- - Address checkpatch warnings by reformatting patch 7
- - Drive the optimization with an alternative instead of
-   CONFIG_RISCV_VSTATE_OPT, enable it by default (8)
- - Link to v5: https://lore.kernel.org/all/20260810172255.1532787-1-tchiu@tenstorrent.com/
-
-Changelog v5:
- - Rebase on top of the kvm fix
- - Do not read sstatus in vector context swicth (1)
- - Add a test for vectorized user copy (2)
- - Enable vector in the kernel-mode and skip nulling at syscall fast
-   path, gurad the optimization in a new config (7)
- - Link to v4: https://patchwork.kernel.org/project/linux-riscv/cover/20260528190927.886558-1-tchiu@tenstorrent.com/
-
-Changelog v4:
- - Fix a build warning (1)
- - Prevent setting INIT when it is already and provide performance
-   meassurements (2)
- - Address comments from sashiko (4)
- - Link to v3: https://lore.kernel.org/all/20260521162521.188629-1-tchiu@tenstorrent.com/
-
-Changelog v3:
- - Refactor function names. (1, 2)
- - Merge daichengrong's patch, with a fix and optimzation. (2)
- - Fix ptrace GETREGSET failure. (3)
- - Strengthen ptrace SETREGSET semantics and add a test to cover it. (3,
-   4)
- - Fix a potential ABI break in signal and add a test to prevent future
-   breaks. (3, 4)
- - Link to v2: https://lore.kernel.org/linux-riscv/20260402043414.2421916-1-andybnac@gmail.com/
-
-Changelog v2: rebase on top of for-next
-
-[1] https://patch.msgid.link/20261020-vector_fpu_regs_status_rmw_fix-v2-1-474a59155e96@intel.com
-[3] https://github.com/tchiu-TT/linux/commits/vctxopt/v7/
-
-Andy Chiu (5):
-  riscv: vector: refactor vector context operations
-  riscv: introduce riscv_v_ucontext_save() for signal and ptrace
-  selftests: riscv: Extend vector tests for sigreturn and ptrace
-  riscv: vector: optimize vstate operations
-  riscv: KVM: do not save host vector context for vcpu
-
-daichengrong (1):
-  riscv: clarify vector state semantics on syscall and context switch
-
- .../admin-guide/kernel-parameters.txt         |  13 ++
- arch/riscv/include/asm/alternative-macros.h   |   6 +
- arch/riscv/include/asm/alternative.h          |   3 -
- arch/riscv/include/asm/cpufeature-macros.h    |   6 +-
- arch/riscv/include/asm/kvm_vcpu_vector.h      |  17 ++-
- arch/riscv/include/asm/vector.h               |  68 +++++++----
- arch/riscv/kernel/cpufeature.c                |  18 +++
- arch/riscv/kernel/entry.S                     |  15 ++-
- arch/riscv/kernel/kernel_mode_vector.c        |   4 +
- arch/riscv/kernel/process.c                   |   3 +
- arch/riscv/kernel/ptrace.c                    |  13 +-
- arch/riscv/kernel/signal.c                    |  11 +-
- arch/riscv/kernel/vector.c                    |  56 ++++++++-
- arch/riscv/kvm/vcpu.c                         |   5 +-
- arch/riscv/kvm/vcpu_vector.c                  |  22 +---
- .../selftests/riscv/sigreturn/sigreturn.c     |  71 +++++++++++
- .../selftests/riscv/vector/vstate_ptrace.c    | 111 +++++++++++++++++-
- 17 files changed, 364 insertions(+), 78 deletions(-)
-
-
-base-commit: d1a8d411533d6be16ac79796c02a9bfc7d7958f1
+diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+index 8c88a2258e61..7cd20f661596 100644
+--- a/arch/riscv/include/asm/vector.h
++++ b/arch/riscv/include/asm/vector.h
+@@ -52,6 +52,7 @@ void riscv_v_thread_free(struct task_struct *tsk);
+ void __init riscv_v_setup_ctx_cache(void);
+ void riscv_v_thread_alloc(struct task_struct *tsk);
+ void __init update_regset_vector_info(unsigned long size);
++void riscv_v_ucontext_save(struct task_struct *tsk);
+ 
+ static inline u32 riscv_v_flags(void)
+ {
+@@ -434,6 +435,7 @@ static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return false; }
+ #define riscv_v_thread_alloc(tsk)		do {} while (0)
+ #define get_cpu_vector_context()		do {} while (0)
+ #define put_cpu_vector_context()		do {} while (0)
++#define riscv_v_ucontext_save(tsk)		do {} while (0)
+ #define riscv_v_vstate_set_restore(task, regs)	do {} while (0)
+ 
+ #endif /* CONFIG_RISCV_ISA_V */
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index a0055743d3ba..88442ac4f6ae 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -109,11 +109,7 @@ static int riscv_vr_get(struct task_struct *target,
+ 	 * Ensure the vector registers have been saved to the memory before
+ 	 * copying them to membuf.
+ 	 */
+-	if (target == current) {
+-		get_cpu_vector_context();
+-		riscv_v_vstate_save(&current->thread.vstate, task_pt_regs(current));
+-		put_cpu_vector_context();
+-	}
++	riscv_v_ucontext_save(target);
+ 
+ 	ptrace_vstate.vstart = vstate->vstart;
+ 	ptrace_vstate.vl = vstate->vl;
+diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+index 6f6f3315bc09..50c77bcf2b09 100644
+--- a/arch/riscv/kernel/signal.c
++++ b/arch/riscv/kernel/signal.c
+@@ -89,9 +89,7 @@ static long save_v_state(struct pt_regs *regs, void __user *sc_vec)
+ 	/* datap is designed to be 16 byte aligned for better performance */
+ 	WARN_ON(!IS_ALIGNED((unsigned long)datap, 16));
+ 
+-	get_cpu_vector_context();
+-	riscv_v_vstate_save(&current->thread.vstate, regs);
+-	put_cpu_vector_context();
++	riscv_v_ucontext_save(current);
+ 
+ 	/* Copy everything of vstate but datap. */
+ 	err = __copy_to_user(&state->v_state, &current->thread.vstate,
+diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+index b112166d51e9..924baa71af7e 100644
+--- a/arch/riscv/kernel/vector.c
++++ b/arch/riscv/kernel/vector.c
+@@ -29,6 +29,18 @@ static struct kmem_cache *riscv_v_kernel_cachep;
+ unsigned long riscv_v_vsize __read_mostly;
+ EXPORT_SYMBOL_GPL(riscv_v_vsize);
+ 
++void riscv_v_ucontext_save(struct task_struct *tsk)
++{
++	struct __riscv_v_ext_state *vstate = &tsk->thread.vstate;
++	struct pt_regs *regs = task_pt_regs(tsk);
++
++	if (tsk == current) {
++		get_cpu_vector_context();
++		riscv_v_vstate_save(vstate, regs);
++		put_cpu_vector_context();
++	}
++}
++
+ int riscv_v_setup_vsize(void)
+ {
+ 	unsigned long this_vsize;
 -- 
 2.43.0
 
