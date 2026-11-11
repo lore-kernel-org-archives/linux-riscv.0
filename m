@@ -2,64 +2,113 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B025606A324
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2026 11:41:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 080CE606A324
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2026 11:46:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OzFX26G3;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=picoheart.com header.i=@picoheart.com header.a=rsa-sha256 header.s=feishu2604151535 header.b=QGBSj5SW
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Drmh2LVK;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=erdBYlPt
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:From:References:In-Reply-To:
-	Mime-Version:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	Mime-Version:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=btKJLR3UPBBmetTaAmx4n2qvDQQuTbIrkIifH50SSck=; b=OzFX26G375/JjSDHQUS4Ne73Qx
-	PppsDYQX0A8SvOqPankwuD18Q1d/fIS68nXNR1tkzj3x/umqf2AzTblb0cTcxw2vXDBUak4S/1d9V
-	RQBXO9fKXf+PRocd5B7KYE++q3oHndacQ8IxgVkEb1xzB13W7aZmQADurJ0WIKIZOaRHOIs6kOW3p
-	dKARRPtk7v1kZhVLjPWyvcBAV5ow3+WlIptoHSV3wFAuwDrsvhEKkL/Reig22E3f8gVm2en1wU+CQ
-	CQrcW8zlsviOv40KCnEDX4wK5aOjCCQQAhJ3hXDkwRC/1Lm2IH8oTfC6rOOKvcq0kMsAUFFp05sIt
-	TL1r1Duw==;
+	bh=kEUBY/CGb3S91vzemSRQkKSFI5XvHD/XR/3eRhIzKQg=; b=Drmh2LVKoF0Mw+OHYo60qcoUgE
+	i9LtSpmGDdrv4jabD8j6IhJYDLOVkMJTxz2dJTbXtbrdPwm1MO+gKGXHVFE3vhWQAMN8Y0vZdgZsU
+	achLD59nWgM47BKjK9C45o0j0/VkDNJDrZt1rXa7zXtuXSXZLtyG2QWtVlC79rR+SYM3N8Gbrtl+t
+	Rg/SnVYIBKD/IP01usG9ARt3QP+Do9V67RSjjYTsLBB1SPCY56/sGbTceTbALsPwGsLu9BWi6DfAW
+	LjX1fEmFTwJTZeg1C/kzD1bMI7fGzxYuDtrleChldzzC0okLM91TX9IvkQOejwzVwSA/7YjEL6wyk
+	lQ/9Bwxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xR6hX-00000006VLM-1RMc;
-	Wed, 11 Nov 2026 11:41:15 +0000
-Received: from va-2-27.ptr.blmpb.com ([209.127.231.27])
+	id 1xR6mO-00000006XAa-13pK;
+	Wed, 11 Nov 2026 11:46:16 +0000
+Received: from mail-yx1-xb12d.google.com ([2607:f8b0:4864:20::b12d])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xR6hS-00000006VK9-0ymX
+	id 1xR6mM-00000006X95-2Iov
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Nov 2026 11:41:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1794397260; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=zVvZBV6suQrnzsiHL0fsmvRL+1EnY1VOLR3pQOW7cuk=;
- b=QGBSj5SWW/tNmQGgEVryANpsNR7fxnlSkJ0jMqrnww6f8/65uQub60tFUdOqVqUU7Rx4ai
- 1u59gmjC+EZq7ctngGnHTsST3aCVaEuFhy0jQw+CvoU7MAZSJ+LG7HZ+GjVk+exJhoteaH
- yXnI5MCNR4Yf+w3z3+9I+XQ+VkMu60Wyc2VucAVELwKGCpwRgaoRDxosIksEhGlLbo6Rmm
- k+lcgKQ3vDbWI2i3jD1CtKKEfi62TkZts1a2Wn2j7a+mocWKtGPbCf6Fc8E8vmAbCM23s9
- 34VKoZAsGmzDcb6TPvWeq+5O8D1PX5rYAox/8mObW13TXKlLB0uPXbmxKHYaqA==
-Content-Language: en-US
-Date: Wed, 11 Nov 2026 19:40:55 +0800
-Message-Id: <a767f8c1-a568-42bf-8dd2-0b05d32686ec@picoheart.com>
+	Wed, 11 Nov 2026 11:46:15 +0000
+Received: by mail-yx1-xb12d.google.com with SMTP id 956f58d0204a3-67c6a0abc2eso686629d50.0
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Nov 2026 03:46:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794397573; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ZF1OpjRvnHnbHEp9E6qQ1a1vfmOC30IgKVoY0KwRqTCjl0/aBk+8i8M9pCBKgUqt9f
+         ma6q+YY6MvrgVfy2iwdO3DaKc09CAglYDlV6ixqW8IkSEBuA7SAkr2TrNSm63h5ejdLM
+         Ldn4Qe4F4xRcQmzz8z3GgPq0GDAgOeUDxhZfuA5DiCMmeKcXSx1fUWHsdmopBSbvujLm
+         /ktUgaicdN+GN9AiwhLfbASX0DYs3RxKQp2XZ3FHCzwHx0klWQFkEBXeOQLUlsDOh+r4
+         u4ktnV/TdXuVVR7nfjJbo4BRq1cpj6orjqT33T3r93ME09+1ivy8mQOFDgpurUBaSSpl
+         xuMg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:references
+         :user-agent:in-reply-to:dkim-signature;
+        bh=sxD02/BBheMAurw06u7jeipcoPrAv0FPorNrk8HrBgA=;
+        fh=TXClwARJvg1bq+DfLs+54sQ9DfjBX9c41yEnDxKTU5o=;
+        b=MYsGF9qjEsaBxTGOIT19q8cwuNenNcs1/1E/ZInZT9LsrWsSBw9eY8nNdSA8h4NM0C
+         6xlKGYP4yrFnQ5ATfENUWxoiomEPnEXdVsBh79MzywkIVIwsPCfh+8COw8XPybnqETfP
+         La9QIFfgLMmn0kQAfPQ/lY5eTrlVwFpZsEUZlhQHz43WBGcL/vJqQgzAkoTJ2NNghfh4
+         eEjH979vVTvlPVMnVD/Pmn2cFcQj/yWV8RZBzAwDEJAZWoMOkd1vkSAAYNfGvrgcBG33
+         m+UAl5+p0mO5x35u+gwmExrogl/CQ07o7mWJe3g/3jMUhIySW2xeoiOoS0v08Z3gVuFW
+         rmLw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1794397573; x=1795002373; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :references:user-agent:in-reply-to:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sxD02/BBheMAurw06u7jeipcoPrAv0FPorNrk8HrBgA=;
+        b=erdBYlPti8bACQ1Ze5gFeH6jB5wOKuv5zqKpFlsFuPJoWN4MbCTpPYSvylUTXGTVkT
+         OqTsilttO/csgrA1CD9mQ2DwFIttYWa6aeuaSRWIHSFF3qpOWuYpkyHi9/5+Wb25OwNy
+         /dxW3TZBDInXdNRVBhY+Q+AhyOBkM4qX5OFz5Ui2V2d31iu+WF7/Um6CZTgzqizV5L8b
+         kBh17wMFkWrBxTrh/rdJDuKp4piLAmtsXMMyocGfTBxN4meLRG6T0qWQmP9U5U0Gs2ia
+         xSsFQXIgYSFcurKrslzGkh8Gbna1VrOVGE6NGKukA1dwyW4h/Fz8FMT0qzWXh3esr4St
+         Co1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794397573; x=1795002373;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :references:user-agent:in-reply-to:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=sxD02/BBheMAurw06u7jeipcoPrAv0FPorNrk8HrBgA=;
+        b=N1TD0i6Ixo7TBO46Xax4wppGdeEYJl81h6WWMySa9/MNE7OBqIgvu8IzNouU2Y+rBe
+         024L6Zl89e+Sd5Isfh7mamUhG2mV+oBbH99uEyOyKu/TaWDEcpCNmaA2e04RVva3dZpi
+         C34CmQ3Ts30m9vb3CxSMgtnSjGGkUV/fFBZtwZTaYbmzEQ0pyhLp50gtJ9Vmj/ybQ24f
+         Uq2+BMmmXZCB5bd5MS9juZV2eNUufawO2wmFXicdS3cPOUqAFfpxHBo/3fY3+7rABX1D
+         wt1OmvjxmIV2iO/O90DH/1JBSmhode4jP8kmElkjEdvcKRDKCSxwYIsW6f2hUDGO3Kmw
+         pb+Q==
+X-Forwarded-Encrypted: i=1; AL+hErGuBacYxwlK3cJxSSD70dr0gpnz1BTGkVT5vI/lFSEB51H2BIU4jnHUzMf+QDD0+Kxgkzj+s8s0OkRVRA==@lists.infradead.org
+X-Gm-Message-State: APuU4Z+bx7qylZTOT2XT9L3ndDNQ+qJWpx3zNhqGX0Lrm9ShYvTmASpp
+	MFVrkpGMl7KFSR/h+b0Dz8Tc9o4MIkjknv6OIiVQFwKXqBQLVs2k8YZSK5YVTm/C+E6aAipq3Nr
+	FY0m8Lek5/sOfpL8/PCieu749ND/txGHp7osQk5delA==
+X-Gm-Gg: AYBFou1SMJWrp7ljigUitInPoAh+7WZic2TvYNtqU90ta55slVNPo7zh/Gx2A2+cala
+	8p8ml0zVsk7jqun6LgZat32W6NGASQQgQCtCim7rPq9L9ZKTgJUPq56TehIoV0SVkIwqfA6wmPx
+	oUOSJ2VDE67biwG7udjKR59bJnGUgh9ZPka+uVZWxb2nc4K2SSNrkwbf0ettD8me/5PsWchDrHt
+	OMIbxCidpJ6tC1nvBQ9FPoa0In28/CT6+0rHoky60fhTX6FEiCpxTtgdChEUbvIG2xI2q5gnKmt
+	aRZhUaTYc0IuLCY3DlGAxH00BrNzEl/CNjw6qd/DmYn81gb0eIbKyL3/Y8LuHj+I/BJL8NHY/gf
+	R+qH0VXExYsD0MCshdWFEmLhmjC17Y4nKIT0=
+X-Received: by 2002:a05:690c:4:b0:8ab:2f89:32e0 with SMTP id
+ 00721157ae682-8b3a81199f4mr13471067b3.57.1794397572467; Wed, 11 Nov 2026
+ 03:46:12 -0800 (PST)
+Received: from 44278815321 named unknown by gmailapi.google.com with HTTPREST;
+ Wed, 11 Nov 2026 05:46:11 -0600
+In-Reply-To: <20261104161512.883885-2-anup.patel@oss.qualcomm.com>
+X-Original-From: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+User-Agent: Mozilla Thunderbird
+References: <20261104161512.883885-1-anup.patel@oss.qualcomm.com> <20261104161512.883885-2-anup.patel@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
-User-Agent: Mozilla Thunderbird
-In-Reply-To: <CACnXVnfFWF8h+o0=nSb9JESOxYsdVMO+BJKMT7t=K=XVgVwx2g@mail.gmail.com>
-References: <20261104161512.883885-1-anup.patel@oss.qualcomm.com> <20261104161512.883885-2-anup.patel@oss.qualcomm.com> <CACnXVnfFWF8h+o0=nSb9JESOxYsdVMO+BJKMT7t=K=XVgVwx2g@mail.gmail.com>
-Received: from [100.86.214.79] ([58.250.106.117]) by smtp.feishu.cn with ESMTPS; Wed, 11 Nov 2026 19:40:57 +0800
-X-Lms-Return-Path: <lba+26af4544a+2a7a02+lists.infradead.org+yang.yicong@picoheart.com>
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-Subject: Re: [PATCH v7 1/1] RISC-V: Add common csr_read_num() and csr_write_num() functions
-To: "Zhanpeng Zhang" <zhangzhanpeng.jasper@bytedance.com>, 
-	"Anup Patel" <anup.patel@oss.qualcomm.com>, 
-	"Sunil V L" <sunilvl@oss.qualcomm.com>, 
+From: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+Date: Wed, 11 Nov 2026 05:46:11 -0600
+X-Gm-Features: AclHuK8VD5zdhvsTYmRtyJzXAXUoripQo7x0P6Es21hMYyxTa4lv3D3kijFwJg8
+Message-ID: <CACnXVnfokcEnSgQS_wLN=LZ=jztisuusft6nC8Z--+o+xCC1tA@mail.gmail.com>
+Subject: Re: [PATCH v7 1/1] RISC-V: Add common csr_read_num() and
+ csr_write_num() functions
+To: Anup Patel <anup.patel@oss.qualcomm.com>, Sunil V L <sunilvl@oss.qualcomm.com>, 
 	"Rafael J . Wysocki" <rafael@kernel.org>
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261111_034110_583881_C94316E8 
-X-CRM114-Status: GOOD (  18.86  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261111_034614_685544_454B84FC 
+X-CRM114-Status: GOOD (  12.83  )
+X-Spam-Score: 0.2 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,93 +118,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Anup Patel <apatel@ventanamicro.com>, Yuanzhu <yuanzhu@bytedance.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>, yang.yicong@picoheart.com, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, Yunhui Cui <cuiyunhui@bytedance.com>, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nutty Liu <nutty.liu@hotmail.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>, Will Deacon <will@kernel.org>, Len Brown <lenb@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Anup Patel <apatel@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nutty Liu <nutty.liu@hotmail.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>, Will Deacon <will@kernel.org>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FORGED_MUA_MOZILLA,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
 	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/11/26 5:15 PM, Zhanpeng Zhang wrote:
-> Hi Anup,
-> 
-> On 11/5/26 12:15 AM, Anup Patel wrote:
->> From: Anup Patel <apatel@ventanamicro.com>
->>
->> In RISC-V, there is no CSR read/write instruction which takes CSR
->> number via register so add common csr_read_num() and csr_write_num()
->> functions which allow accessing certain CSRs by passing CSR number
->> as parameter. These common functions will be first used by the
->> ACPI CPPC driver and RISC-V PMU driver.
->>
->> Also, the RISC-V ACPI FFH specification allows arbitrary CSR number
->> as CPPC register and the RISC-V SBI specification allows arbitrary
->> CSR number as PMU hardware counter. This means ACPI CPPC driver and
->> RISC-V PMU driver no longer need to do sanity checks on CSR number
->> which are now done by the common csr_read_num() and csr_write_num()
->> functions.
->>
->> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
->> Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
->> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
->> Reviewed-by: Atish Patra <atishp@rivosinc.com>
->> Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
->> ---
->>   arch/riscv/include/asm/csr.h |   3 +
->>   arch/riscv/kernel/Makefile   |   1 +
->>   arch/riscv/kernel/csr.c      | 165 +++++++++++++++++++++++++++++++++++
->>   drivers/acpi/riscv/cppc.c    |  17 ++--
->>   drivers/perf/riscv_pmu.c     |  54 ++----------
->>   5 files changed, 184 insertions(+), 56 deletions(-)
->>   create mode 100644 arch/riscv/kernel/csr.c
->>
->> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
->> index 621f84d1898f..ebd82043430b 100644
->> --- a/arch/riscv/include/asm/csr.h
->> +++ b/arch/riscv/include/asm/csr.h
->>
->> [...]
->>   /*
->>    * Read the CSR of a corresponding counter.
->>    */
->>   unsigned long riscv_pmu_ctr_read_csr(unsigned long csr)
->>   {
->> -	if (csr < CSR_CYCLE || csr > CSR_HPMCOUNTER31H ||
->> -	   (csr > CSR_HPMCOUNTER31 && csr < CSR_CYCLEH)) {
-> 
-> 
-> Could we keep the existing CSR range check in riscv_pmu_ctr_read_csr()
-> when switching it to csr_read_num()?
-> 
-> The SBI PMU driver still assumes the architectural counter layout. For
-> example, if SBI assigns an event to a custom counter at CSR 0x800,
-> pmu_sbi_csr_index() truncates 0x800 - CSR_CYCLE to zero. The perf mmap
-> page then advertises index 1, so userspace reads cycle while the kernel
-> reads 0x800. The same index is used to set and clear scounteren.
+Hi Anup,
 
-I think it's an existing problem that current SBI PMU doesn't support
-custom counters, but only rejects the custom counters in riscv_pmu_ctr_read_csr().
-the index truncation and scounteren issue should still exist even if we
-add back the check in riscv_pmu_ctr_read_csr().
+On 11/5/26 12:15 AM, Anup Patel wrote:
+> From: Anup Patel <apatel@ventanamicro.com>
+>
+> In RISC-V, there is no CSR read/write instruction which takes CSR
+> number via register so add common csr_read_num() and csr_write_num()
+> functions which allow accessing certain CSRs by passing CSR number
+> as parameter. These common functions will be first used by the
+> ACPI CPPC driver and RISC-V PMU driver.
+>
+> Also, the RISC-V ACPI FFH specification allows arbitrary CSR number
+> as CPPC register and the RISC-V SBI specification allows arbitrary
+> CSR number as PMU hardware counter. This means ACPI CPPC driver and
+> RISC-V PMU driver no longer need to do sanity checks on CSR number
+> which are now done by the common csr_read_num() and csr_write_num()
+> functions.
+>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> Reviewed-by: Atish Patra <atishp@rivosinc.com>
+> Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+> ---
+>   arch/riscv/include/asm/csr.h |   3 +
+>   arch/riscv/kernel/Makefile   |   1 +
+>   arch/riscv/kernel/csr.c      | 165 +++++++++++++++++++++++++++++++++++
+>   drivers/acpi/riscv/cppc.c    |  17 ++--
+>   drivers/perf/riscv_pmu.c     |  54 ++----------
+>   5 files changed, 184 insertions(+), 56 deletions(-)
+>   create mode 100644 arch/riscv/kernel/csr.c
+>
+> [...]
+> +	switch (csr_num) {
+> +	switchcase_csr_read_32(CSR_CYCLE);
+> +	switchcase_csr_read_32(CSR_CYCLEH);
 
-but you're right that remove the check here changes the existing
-behaviour and should be retained.
+Could we guard the CYCLEH cases with CONFIG_32BIT? They're RV32-only.
 
-thanks.
+> [...]
 
-> 
-> Non-snapshot overflow handling and RV32 high-half reads also assume the
-> architectural layout. Could we keep the PMU conversion
-> behavior-preserving and handle custom counters separately?
-> 
->> [...]
-> Thanks,
-> Zhanpeng
+Thanks,
+Zhanpeng
 
 _______________________________________________
 linux-riscv mailing list
