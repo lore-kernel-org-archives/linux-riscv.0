@@ -2,92 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 656A3606A888
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2026 15:04:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69C0F606A337
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2026 15:28:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ovElqMMO
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bYY4gybE;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SR3+ZIZC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=WkXcXKFN68q10dpWJVTO0uVYimd0AaSMzxneEJvh3DA=; b=ovElqMMOWomQoFSJekEGNeWa+N
-	BiobvC3hmMfIhWIZu2iD83tcyqfcAjop4foPZ6gHH6xiHDqbyDaiU/IVdc9UMcCm+Sr7/AgqnIyB2
-	XecXG9j/IoomEI4zvQnetzZc0w3ulABqtn+azQeey5KGOGNWXvcEXFS4VoFrZQ9A9U8nkXVHlt6TE
-	2bIhYFQCv1rmrRKj/JOfr2vHaTLZmxN6N1U4T8hjTy/ZBdGy+jGLrfjJv/CGbZbhv+PZ/Iu2KNzmv
-	o9Tu4GdHB/VeHPeIVsVHB3dB2D8G1cqAOJin1efStxySPFeLwMGr9jPzPzgsG/51odPKX95SxK2sB
-	+b4Hz59Q==;
+	bh=zgxxPccZDke1KY8cmLImtKrHZvW6NMuXhFFL+wk9amE=; b=bYY4gybEqaz+t6nMDwWZhjgUvf
+	J/jac0ruZG+RhRoyyPnTZdyVuZPslgu7XKcNRHL97PNZ0Q8JWCSI4zoSk5KDYCV6Uuafjh0Dk4tVf
+	n6qnEK/Ytvp9Lww75T3qbu1yY8OIhCj3ejvw3yhS6GynZaGoHC6uiPPkgN5uXAF6Uu9t1m/qHptyD
+	jjXKzSgY/WmyBEzbnPo8zJ285Uiej+Ahi5zenf8wXTuXKQsRmgKsTnDRBz/uxv3EDj4Q4JtxGHzsk
+	6P1E5ExYazTvZZ/PuwP1gJz7ffoqIedjgfxpZT/Ew6LvL2ZzUkt/0cZaP0wRE/fODE/osZePbxICb
+	21tJsYRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xR9rZ-000000072mq-1xoS;
-	Wed, 11 Nov 2026 15:03:49 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1xRAFe-000000075BK-0V2i;
+	Wed, 11 Nov 2026 15:28:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xR9rV-000000072mB-1pef;
-	Wed, 11 Nov 2026 15:03:48 +0000
-Received: from k3-03 (unknown [159.226.43.8])
-	by APP-01 (Coremail) with SMTP id qwCowADn1f+Zg_RqA8XNAA--.3086S2;
-	Wed, 11 Nov 2026 23:03:13 +0800 (CST)
-From: Tan Chi <tanchi25@mails.ucas.ac.cn>
-To: fangyu.yu@linux.alibaba.com
-Cc: tomasz.jeznach@linux.dev,
-	joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	baolu.lu@linux.intel.com,
-	jroedel@suse.de,
-	zong.li@sifive.com,
-	andrew.jones@linux.dev,
-	anup@brainfault.org,
-	jgg@nvidia.com,
-	jgg@ziepe.ca,
-	kevin.tian@intel.com,
-	atish.patra@linux.dev,
-	skhawaja@google.com,
-	vasant.hegde@amd.com,
-	joerg.roedel@amd.com,
-	gong.shuai@sanechips.com.cn,
-	guoren@kernel.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org
-Subject: Re: [PATCH v7 00/10] iommu/riscv: Add hardware dirty tracking for second-stage domains
-Date: Wed, 11 Nov 2026 23:02:49 +0800
-Message-ID: <20261111150249.13262-1-tanchi25@mails.ucas.ac.cn>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261103120236.53474-1-fangyu.yu@linux.alibaba.com>
-References: <20261103120236.53474-1-fangyu.yu@linux.alibaba.com>
+	id 1xRAFc-000000075BE-41q3
+	for linux-riscv@lists.infradead.org;
+	Wed, 11 Nov 2026 15:28:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7D0D844F67;
+	Wed, 11 Nov 2026 15:28:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5F7E1F00A05;
+	Wed, 11 Nov 2026 15:28:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794410920;
+	bh=bjSv1XsBMujaNhaJRh9MvS8t1Brl66ZxiWLhcECWri0=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=SR3+ZIZCLdtTnoVy//GrCC4HXOm4Jn40gO8H9g6khWGHLAjdEjn6U0vog36o98TGw
+	 9E7usnl2pOjHGDdTvkjfK9zCVEYLeZ/4w8mr535nxFe2in4nZqNmIIyuObNVNH1I3s
+	 it86FSoPdpfICOVMty+Qdl6KzeVWzKZu/3TmIWkmlb9Sym6zbA+w/YYoR7NQ7ek5vs
+	 Kx7pg3d5e7lJmvQ0IRK9rFspqC3V+r04vqvlvCCL2dGFbTDD0UCcH3hJTxs3jCNc/h
+	 6fG+6gRY36AoK7F57pTXMY4k9sWAxjXrRwm+mXaWDa4vIQgAK63jtoBEwUBeuLsE9l
+	 GwSbwxE5Z11IQ==
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowADn1f+Zg_RqA8XNAA--.3086S2
-X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUOU7k0a2IF6F4UM7kC6x804xWl14x267AK
-	xVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGw
-	A2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26ryj
-	6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2z280aVAFwI0_Gc
-	CE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2vYz4IE04k24VAvwVAKI4IrM2AI
-	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
-	vE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
-	r2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc2xSY4AK67AK6ryrMxAIw28Icx
-	kI7VAKI48JMxAqzxv26xkF7I0En4kS14v26r4a6rW5MxC20s026xCaFVCjc4AY6r1j6r4U
-	MI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67
-	AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0
-	cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z2
-	80aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI
-	43ZEXa7IU0zwZ3UUUUU==
-X-CM-SenderInfo: pwdquxrlsvqzpdlo2hpxfd2hldfou0/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261111_070345_920852_04CA4089 
-X-CRM114-Status: UNSURE (   5.03  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -4.2 (----)
+Subject: Re: [PATCH] clk: eswin: Keep the TCU AXI clock enabled
+From: Brian Masney <masneyb@kernel.org>
+To: Han Gao <gaohan@iscas.ac.cn>
+Cc: Yifeng Huang <huangyifeng@eswincomputing.com>, 
+ Xuyang Dong <dongxuyang@eswincomputing.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Brian Masney <bmasney@redhat.com>, 
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Min Lin <linmin@eswincomputing.com>, 
+ Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>, 
+ Pritesh Patel <pritesh.patel@einfochips.com>, 
+ Han Gao <rabenda.cn@gmail.com>, Brian Masney <masneyb@kernel.org>
+In-Reply-To: <20261110-eic7700-tcu-aclk-v1-1-72db82bf59c1@iscas.ac.cn>
+References: <20261110-eic7700-tcu-aclk-v1-1-72db82bf59c1@iscas.ac.cn>
+Date: Wed, 11 Nov 2026 10:28:34 -0500
+Message-Id: <179441091475.1131744.8859651362389020365.b4-review@b4>
+X-Mailer: b4 0.17-dev-7ca47
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1040; i=masneyb@kernel.org;
+ s=20250903; h=from:subject:message-id;
+ bh=z+HGmtMUdWM1EKWRhHoD6bQsx34aIiCc8r72ukWTyvU=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLK+dC6+2HQo5w7397Nqgvdum63l+3covdpWYYJRy7Gmp
+ GlSD9tudZSyMIhxMciKKbIsyTUqiEhdZXvvjiYLzBxWJpAhDFycAjCRo2qMDKvm2ba+Sfn04c46
+ OwbbLd5d95KuOfvzrC9tTM3R2RjcHsLIsEl1W2qs27z4/uTOU5tzKyeriFZcD+x75/7mzvddTod
+ /MAEA
+X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
+ fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,27 +84,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Fangyu,
+Hi Han,
 
-The following QEMU patch series adds support for automatic PTE A/D updates through AMO_HWAD:
+> The SMMU TCU needs its AXI clock for DMA, even in bypass mode. No driver
+> claims this clock, so clk_disable_unused() gates it and DMA through the
+> SMMU stalls. On the HiFive Premier P550, this hangs firmware loading of
+> an RX550 graphics card.
+> 
+> Mark the clock as critical.
+> 
+> Fixes: cd44f127c1d4 ("clk: eswin: Add eic7700 clock driver")
+> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 
-https://lore.kernel.org/qemu-devel/20261108143934.129923-1-tanchi25@mails.ucas.ac.cn/
+Cc: stable
 
-It may be useful for the end-to-end dirty tracking tests mentioned in your follow-up work,
-particularly for testing G-stage dirty-bit updates triggered by DMA writes.
+> ---
+> Tested on the HiFive Premier P550 with an RX550 graphics card:
+> 
+> - Without this patch, amdgpu stalls while loading the RX550 firmware
+>   and CPUs can no longer be halted.
+> - With only the TCU AXI clock kept enabled (the TCU configuration clock
+>   is still managed normally), amdgpu initializes and the IB ring tests
+>   pass without any manual register writes.
 
-If you notice any issues with the implementation, feedback would be very welcome.
+Please include these details in the commit message above the ---.
 
-Thanks,
-Tan Chi
+I can take this patch, however I'd ideally like to see a review from
+Xuyang or someone at eswin first.
 
+Brian
+
+-- 
+Brian Masney <masneyb@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
