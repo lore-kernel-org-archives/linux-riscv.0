@@ -2,76 +2,63 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69C0F606A337
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2026 15:28:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCC78606A321
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2026 15:34:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bYY4gybE;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SR3+ZIZC
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ygX6Wowv;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fFcBSnlX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=zgxxPccZDke1KY8cmLImtKrHZvW6NMuXhFFL+wk9amE=; b=bYY4gybEqaz+t6nMDwWZhjgUvf
-	J/jac0ruZG+RhRoyyPnTZdyVuZPslgu7XKcNRHL97PNZ0Q8JWCSI4zoSk5KDYCV6Uuafjh0Dk4tVf
-	n6qnEK/Ytvp9Lww75T3qbu1yY8OIhCj3ejvw3yhS6GynZaGoHC6uiPPkgN5uXAF6Uu9t1m/qHptyD
-	jjXKzSgY/WmyBEzbnPo8zJ285Uiej+Ahi5zenf8wXTuXKQsRmgKsTnDRBz/uxv3EDj4Q4JtxGHzsk
-	6P1E5ExYazTvZZ/PuwP1gJz7ffoqIedjgfxpZT/Ew6LvL2ZzUkt/0cZaP0wRE/fODE/osZePbxICb
-	21tJsYRA==;
+	bh=W4nD3EPiOlg3/o57qVcmXMlViM/ciZxZ2InGZbY+1l0=; b=ygX6WowvAH2/4j4tDW/DYxMTQ/
+	9BljgSFDNTPQkvawo4d8fdHEpeDPP3QldWIiMjDZ6Rhlq30MKpIcNSlqXzB2KhfnUeIyY9MODI3Cp
+	BErOkxNM38eqYmuuh1fgldcrUqqE1bSitDZrwFm+uSoxPQCmWRhlB1EG4J4Vtr38KXLppA/WQYZdO
+	trEZ17U6xKhP0t8nOH6g10dVFj+q0/+IodU0lD+xETBmG0sRdwIsgNhx4+3xYTo92p2gZzTlNhxmT
+	CBjnfuFMKEDsudNb0Hr3yjd2+KfbEmUV+ktz/OpFpBWn1V7me3UlZQ8VJCgNAqWYjVBwsE9eQbU60
+	BCRcV3mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRAFe-000000075BK-0V2i;
-	Wed, 11 Nov 2026 15:28:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xRAKv-000000075uK-0R7C;
+	Wed, 11 Nov 2026 15:34:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRAFc-000000075BE-41q3
+	id 1xRAKu-000000075u8-11Mf
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Nov 2026 15:28:40 +0000
+	Wed, 11 Nov 2026 15:34:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7D0D844F67;
-	Wed, 11 Nov 2026 15:28:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5F7E1F00A05;
-	Wed, 11 Nov 2026 15:28:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 676C56303A;
+	Wed, 11 Nov 2026 15:34:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8CB91F00A05;
+	Wed, 11 Nov 2026 15:34:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794410920;
-	bh=bjSv1XsBMujaNhaJRh9MvS8t1Brl66ZxiWLhcECWri0=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=SR3+ZIZCLdtTnoVy//GrCC4HXOm4Jn40gO8H9g6khWGHLAjdEjn6U0vog36o98TGw
-	 9E7usnl2pOjHGDdTvkjfK9zCVEYLeZ/4w8mr535nxFe2in4nZqNmIIyuObNVNH1I3s
-	 it86FSoPdpfICOVMty+Qdl6KzeVWzKZu/3TmIWkmlb9Sym6zbA+w/YYoR7NQ7ek5vs
-	 Kx7pg3d5e7lJmvQ0IRK9rFspqC3V+r04vqvlvCCL2dGFbTDD0UCcH3hJTxs3jCNc/h
-	 6fG+6gRY36AoK7F57pTXMY4k9sWAxjXrRwm+mXaWDa4vIQgAK63jtoBEwUBeuLsE9l
-	 GwSbwxE5Z11IQ==
+	s=k20260515; t=1794411247;
+	bh=9JlNjHirCVWH99wFwQH2LJGXZe/SnOsVPEb5Vf7MsSk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fFcBSnlXYX/jbfgbOjSy9lvwBVycfb+t/SDn+CgujFi6jt3tMpWdDfw5sgx15UUFl
+	 u0FASPIdqlGwtdkRulmIzDYBjz3quHjv9/VkHcgUfIV9W1JRKhN1PuBzKPD//+shlf
+	 gOGMDB0HFxDyGi30RW3j2yBIPNcF7Vfqk8OIS0NIEyVDjgQUE9MUqjBdUMDpMRyF5N
+	 RHE4Udii2LwV72hD0yRwLgkXBMKqUIVq7dv951W5gl/lRxe+zJg/f1lDcf4fLy4rYq
+	 lu28cY7bm86Mu1iYMsvdmNcKYQAO2AX1jLjOwHu8IpvOBOYmgUc1qdI665JO8kVVH4
+	 fz+c2paIzvCDw==
+Date: Wed, 11 Nov 2026 23:13:54 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Andy Chiu <tchiu@tenstorrent.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	linux-riscv@lists.infradead.org, andybnac@gmail.com,
+	dfustini@oss.tenstorrent.com, greentime.hu@sifive.com
+Subject: Re: [PATCH v1] riscv: kconfig: enable -mtune built kernel
+Message-ID: <avSGMnFGCw-oKdsP@xhacker>
+References: <20261110200800.1073859-1-tchiu@tenstorrent.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH] clk: eswin: Keep the TCU AXI clock enabled
-From: Brian Masney <masneyb@kernel.org>
-To: Han Gao <gaohan@iscas.ac.cn>
-Cc: Yifeng Huang <huangyifeng@eswincomputing.com>, 
- Xuyang Dong <dongxuyang@eswincomputing.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Brian Masney <bmasney@redhat.com>, 
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, Min Lin <linmin@eswincomputing.com>, 
- Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>, 
- Pritesh Patel <pritesh.patel@einfochips.com>, 
- Han Gao <rabenda.cn@gmail.com>, Brian Masney <masneyb@kernel.org>
-In-Reply-To: <20261110-eic7700-tcu-aclk-v1-1-72db82bf59c1@iscas.ac.cn>
-References: <20261110-eic7700-tcu-aclk-v1-1-72db82bf59c1@iscas.ac.cn>
-Date: Wed, 11 Nov 2026 10:28:34 -0500
-Message-Id: <179441091475.1131744.8859651362389020365.b4-review@b4>
-X-Mailer: b4 0.17-dev-7ca47
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1040; i=masneyb@kernel.org;
- s=20250903; h=from:subject:message-id;
- bh=z+HGmtMUdWM1EKWRhHoD6bQsx34aIiCc8r72ukWTyvU=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLK+dC6+2HQo5w7397Nqgvdum63l+3covdpWYYJRy7Gmp
- GlSD9tudZSyMIhxMciKKbIsyTUqiEhdZXvvjiYLzBxWJpAhDFycAjCRo2qMDKvm2ba+Sfn04c46
- OwbbLd5d95KuOfvzrC9tTM3R2RjcHsLIsEl1W2qs27z4/uTOU5tzKyeriFZcD+x75/7mzvddTod
- /MAEA
-X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
+Content-Disposition: inline
+In-Reply-To: <20261110200800.1073859-1-tchiu@tenstorrent.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,45 +71,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Han,
-
-> The SMMU TCU needs its AXI clock for DMA, even in bypass mode. No driver
-> claims this clock, so clk_disable_unused() gates it and DMA through the
-> SMMU stalls. On the HiFive Premier P550, this hangs firmware loading of
-> an RX550 graphics card.
+On Tue, Nov 10, 2026 at 02:07:59PM -0600, Andy Chiu wrote:
+> On a machine that supports native unaligned access, enabling unaligned
+> access code-gen can result in a significant speedup on certain workloads.
+> As the adoption of application-level core increases, it has become
+> essential to build a kernel utilizing what's available on the platform.
 > 
-> Mark the clock as critical.
+> Here are the examples of throughput improvement when the build is
+> configured to utilize misaligned access code-gen:
 > 
-> Fixes: cd44f127c1d4 ("clk: eswin: Add eic7700 clock driver")
-> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> LZ4 compress: +90.6% (Ascalon-X), +35.1% (K3-X100)
+> LZ4 decompress: +9.8% (Ascalon-X), +76.6% (K3-X100)
+> ZSTD compress: +35.4% (Ascaloon-X), +19.4% (K3-X100)
+> ZSTD decompress: +26.0% (Ascalon-X), +7.5% (K3-X100)
+> 
+> btrfs create: +7.4% (Ascalon-X), +4.5% (K3-X100)
+> btrfs unlink: +7.2% (Ascalon-X), +2.6% (K3-X100)
 
-Cc: stable
+how much improvement is from unaliagned access, and how much is from
+-mtune. So these numbers don't explain why -mtune is neceesary.
+> 
+> To enable such code-gen, the build system not only has to remove
+> -mstrict-align restriction, but also needs to set the proper -mtune cost
+> model to emit such accesses. -mstrict-align is gated by NONPORTABLE and
+> RISCV_EFFICIENT_UNALIGNED_ACCESS, and -mtune=generic-ooo enables the
 
+
+Following the same reason as arm64, I don't think we should introduce
+per-cpu -mtune options into arch/riscv/Kconfig.
+
+IIRC, arm64 intentionally avoided adding -mtune options to Kconfig to
+prevent endless per-vendor or even per-cpu option bloat, toolchain
+flag churn, and fragmention away from a sigle Image.
+
+From another side, when someone needs a custom -mtune for a fixed
+target, they can pass the already well supported KCFLAGS="-mtune ..."
+at build time without needing dedicated Kconfig symbols for every
+core.
+
+Furthermore, having an -mtune option silently select NONPORTABLE and
+RISCV_EFFICIENT_UNALIGNED_ACCESS breaks user expectations. NONPORTABLE
+breaks cross platform compatibility, while -mtune is just a compiler
+scheduling hint
+
+thanks
+
+> code-gen to emit misaligned accesses.
+> 
+> Add an entry in Kconfig so it allows the build system to select different
+> mtune options. Also, select NONPORTABLE and
+> RISCV_EFFICIENT_UNALIGNED_ACCESS when building with "generic-ooo", and
+> "tt-ascalon-d8".
+> 
+> Signed-off-by: Andy Chiu <tchiu@tenstorrent.com>
 > ---
-> Tested on the HiFive Premier P550 with an RX550 graphics card:
+>  arch/riscv/Kconfig  | 62 +++++++++++++++++++++++++++++++++++++++++++++
+>  arch/riscv/Makefile | 14 ++++++++++
+>  2 files changed, 76 insertions(+)
 > 
-> - Without this patch, amdgpu stalls while loading the RX550 firmware
->   and CPUs can no longer be halted.
-> - With only the TCU AXI clock kept enabled (the TCU configuration clock
->   is still managed normally), amdgpu initializes and the IB ring tests
->   pass without any manual register writes.
-
-Please include these details in the commit message above the ---.
-
-I can take this patch, however I'd ideally like to see a review from
-Xuyang or someone at eswin first.
-
-Brian
-
--- 
-Brian Masney <masneyb@kernel.org>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index e7891a2a89da..d53225fead4a 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -980,8 +980,67 @@ config RISCV_SBI_FWFT_DELEGATE_MISALIGNED
+>  
+>  	  If you don't know what to do here, say N.
+>  
+> +config TOOLCHAIN_HAS_MTUNE_TT_ASCALON_D8
+> +	def_bool $(cc-option,-mtune=tt-ascalon-d8)
+> +
+> +choice
+> +	prompt "CPU tuning (-mtune)"
+> +	default RISCV_MTUNE_TOOLCHAIN_DEFAULT
+> +	help
+> +	  Select the microarchitecture the compiler should tune the kernel
+> +	  for. This only affects instruction scheduling and cost models, not
+> +	  the ISA, but some choices also assume fast unaligned accesses and
+> +	  therefore result in a non-portable kernel.
+> +
+> +config RISCV_MTUNE_TOOLCHAIN_DEFAULT
+> +	bool "Toolchain default"
+> +	help
+> +	  Do not pass -mtune; use whatever the toolchain was configured with.
+> +
+> +config RISCV_MTUNE_GENERIC_OOO
+> +	bool "generic-ooo"
+> +	depends on $(cc-option,-mtune=generic-ooo)
+> +	select NONPORTABLE
+> +	select RISCV_MTUNE_FAST_UNALIGNED
+> +	help
+> +	  Tune for a generic out-of-order core (-mtune=generic-ooo). This
+> +	  also assumes fast unaligned scalar accesses.
+> +
+> +config RISCV_MTUNE_TT_ASCALON
+> +	bool "Tenstorrent Ascalon"
+> +	depends on TOOLCHAIN_HAS_MTUNE_TT_ASCALON_D8
+> +	select NONPORTABLE
+> +	select RISCV_MTUNE_FAST_UNALIGNED
+> +	help
+> +	  Tune for the Tenstorrent Ascalon core (-mtune=tt-ascalon-d8). This
+> +	  also assumes fast unaligned scalar accesses.
+> +
+> +config RISCV_MTUNE_CUSTOM
+> +	bool "Custom"
+> +	help
+> +	  Pass -mtune=<RISCV_MTUNE> to the compiler.
+> +
+> +endchoice
+> +
+> +config RISCV_MTUNE
+> +	string "Custom -mtune value" if RISCV_MTUNE_CUSTOM
+> +	default "generic-ooo" if RISCV_MTUNE_GENERIC_OOO
+> +	default "tt-ascalon-d8" if RISCV_MTUNE_TT_ASCALON
+> +	default ""
+> +	help
+> +	  The value passed to -mtune=, e.g. "sifive-7-series". Only
+> +	  editable when the "Custom" CPU tuning is selected, in which case
+> +	  it must not be empty or the build will fail.
+> +
+> +config RISCV_MTUNE_FAST_UNALIGNED
+> +	bool
+> +	help
+> +	  Selected by -mtune choices that imply fast unaligned scalar
+> +	  accesses. Forces RISCV_EFFICIENT_UNALIGNED_ACCESS.
+> +
+>  choice
+>  	prompt "Unaligned Accesses Support"
+> +	default RISCV_EFFICIENT_UNALIGNED_ACCESS if RISCV_MTUNE_FAST_UNALIGNED
+>  	default RISCV_PROBE_UNALIGNED_ACCESS
+>  	help
+>  	  This determines the level of support for unaligned accesses. This
+> @@ -991,6 +1050,7 @@ choice
+>  
+>  config RISCV_PROBE_UNALIGNED_ACCESS
+>  	bool "Probe for hardware unaligned access support"
+> +	depends on !RISCV_MTUNE_FAST_UNALIGNED
+>  	select RISCV_SCALAR_MISALIGNED
+>  	help
+>  	  During boot, the kernel will run a series of tests to determine the
+> @@ -1002,6 +1062,7 @@ config RISCV_PROBE_UNALIGNED_ACCESS
+>  
+>  config RISCV_EMULATED_UNALIGNED_ACCESS
+>  	bool "Emulate unaligned access where system support is missing"
+> +	depends on !RISCV_MTUNE_FAST_UNALIGNED
+>  	select RISCV_SCALAR_MISALIGNED
+>  	help
+>  	  If unaligned memory accesses trap into the kernel as they are not
+> @@ -1012,6 +1073,7 @@ config RISCV_EMULATED_UNALIGNED_ACCESS
+>  config RISCV_SLOW_UNALIGNED_ACCESS
+>  	bool "Assume the system supports slow unaligned memory accesses"
+>  	depends on NONPORTABLE
+> +	depends on !RISCV_MTUNE_FAST_UNALIGNED
+>  	help
+>  	  Assume that the system supports slow unaligned memory accesses. The
+>  	  kernel and userspace programs may not be able to run at all on systems
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 44f5a439741a..08f1a32228ef 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -89,6 +89,11 @@ CC_FLAGS_FPU  := -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64i
+>  
+>  KBUILD_CFLAGS += -mno-save-restore
+>  
+> +riscv-mtune := $(CONFIG_RISCV_MTUNE:"%"=%)
+> +ifneq ($(riscv-mtune),)
+> +KBUILD_CFLAGS += -mtune=$(riscv-mtune)
+> +endif
+> +
+>  ifeq ($(CONFIG_CMODEL_MEDLOW),y)
+>  	KBUILD_CFLAGS += -mcmodel=medlow
+>  endif
+> @@ -149,6 +154,15 @@ KBUILD_IMAGE				:= $(boot)/$(boot-image-y)
+>  libs-y += arch/riscv/lib/
+>  libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
+>  
+> +archprepare: checkmtune
+> +PHONY += checkmtune
+> +checkmtune:
+> +ifeq ($(CONFIG_RISCV_MTUNE_CUSTOM)$(riscv-mtune),y)
+> +	@echo '*** CONFIG_RISCV_MTUNE_CUSTOM is set but CONFIG_RISCV_MTUNE is empty.' >&2
+> +	@echo '*** Set the custom -mtune value or pick another CPU tuning.' >&2
+> +	@false
+> +endif
+> +
+>  ifeq ($(KBUILD_EXTMOD),)
+>  ifeq ($(CONFIG_MMU),y)
+>  prepare: vdso_prepare
+> -- 
+> 2.43.0
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
