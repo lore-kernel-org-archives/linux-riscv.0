@@ -2,96 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE9CB606A327
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2026 09:52:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B10760A2614
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2026 10:02:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VkWWze+N;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=mjG/+kMn
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Vw4q6g4b;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G5yT/8Ip
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=HOVL5F0b6OGhwhtDAhT9d/kxOfs9ukeZQpl0mYNqY8Y=; b=VkWWze+NsDz3pBifdIX/o9WLOk
-	+UK+pXDkMPen0Xy37gFEHC5ZfaFiGyytTuKk8gZWY3mUOhxaTzKejusCr6SZwQAGmC+7QnHAuQ/bt
-	VfH2Iwiq3V00NG2syBaf877nyynUTNiL1FL7qv98iFhdIGBGPJ9m3iyCZpAJp5Mnb5L1UeZvYxmZt
-	S+gApSnCOU0Q5ow2BwWAZjhZyNGuohLaA4/HFS37/469vShd5Eep0d27or3XCvZQdbJXylvEX9Sjp
-	QYtrScHH68DB3hjp511Hv6dmEZ9WPzRTagD8sAEWjJ/bcLZIPBeQqhrrenUAo0bLxg05YslfJZmCs
-	Ywg6sD9g==;
+	bh=5Cnjz9E4gHa2zNHO8KA4K+qrvMcxfS6rsQPXcaMZEFU=; b=Vw4q6g4banBzRcOVeRB4dMQoZs
+	t/fU92yBu/eb4CG3jCRgLznmIwwEUzbHHMWoWtkygAZ53GnP+Uk8DXJgVevLaba8gXbJKMuE00Abe
+	4l3Rs29eMixmDYTxscZG1c0YLHlF3A+cL4m2NDqN+mv3g7INU8AWvIWFfVLvPO4BoI37bjn4FXUDw
+	gidn/qQMhezikm4b7PbGJS/X0KqAZWqy3m9ONVjCFt6RqYsbH9Pb9T7Qd7wQhGlPNUNOlN4r0tsts
+	4AleWm4exjTc+e1zD/F33Z0IiutgQt7GD2Nsx7fpihyqwxhxcLmTT4NdKROl1Rn/bDwRZe4V4j4gk
+	xlzctyEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xR50K-00000006Fth-2Lbc;
-	Wed, 11 Nov 2026 09:52:32 +0000
-Received: from smtpbgjp3.qq.com ([54.92.39.34])
+	id 1xR59I-00000006Hm6-11s5;
+	Wed, 11 Nov 2026 10:01:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xR50G-00000006Fr0-2CWl
+	id 1xR59H-00000006HlO-0jBp
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Nov 2026 09:52:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1794390726;
-	bh=DG1BenR9t2CnTlPb8/ogURcL1e6BMKuUq7sc1gbDGHo=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=mjG/+kMnUZWetaFV2Vgby66+o7QHCPRGnJHM+Bh/iaW6tWiRlrgQtd2xeCaAP0gzZ
-	 j4KvD70sugn679HzzhTC/Izg5XFeaR4rjKNu0b7IuYdxgeddjVIdqJ13P3Xj2oNdZ3
-	 3n3ngqxTuJ3xejINVe1W681A6WlVncjidL7IbWUA=
-X-QQ-mid: esmtpsz20t1794390724t563d4722
-X-QQ-Originating-IP: fXB4PNbNwEfDwLguUILLu5oL1M0xcKGD1gmFw5eQsO8=
-Received: from = ( [183.48.246.46])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 11 Nov 2026 17:52:02 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1931649316664943864
-EX-QQ-RecipientCnt: 19
+	Wed, 11 Nov 2026 10:01:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4048F62FB6;
+	Wed, 11 Nov 2026 10:01:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B0591F00A05;
+	Wed, 11 Nov 2026 10:01:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794391306;
+	bh=9wY75Oc5XbeR6DiKMFgRwxqRRRSUa+hCgjs5NUnDR1I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=G5yT/8IpmexBC4a6ZeCP8iFuSEnAegRPglJylD2ZuNq+WQ4ttUX5Owmvck3me/4Ux
+	 /53O+tAA/jkOfFaWhA3gJDNKjHsG6lfPj7drficGxFiou/BP/Il2tMleOxP5M7cp3/
+	 rcsjAKlOuIteoaqBkPKiMvCA/gLcPfh96AYjS5+ccn3ed+KdZTAvzjXwuRrq6jw1sQ
+	 OEXBXb/y+p4jf5M1fgpfnuWOY/fx1QiBcMSUVA7URnkyqrS3oyQ68fqbTyGcQux0Dr
+	 WCFvd06RIPEFZfWzS600pd+cMkirOjfxYfBih3d1Pz1T6LP4UG2dGr4ET3LqMD+IB5
+	 FhHe9hbc8Fbjg==
+Date: Wed, 11 Nov 2026 10:01:39 +0000
+From: Conor Dooley <conor@kernel.org>
+To: aleksa.paunovic@htecgroup.com
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Djordje Todorovic <djordje.todorovic@htecgroup.com>,
+	Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@sifive.com>
+Subject: Re: [PATCH v2 6/8] dt-bindings: timer: Add MIPS P8700 ACLINT MTIMER
+Message-ID: <20261111-underage-distant-87bff35745b9@spud>
+References: <20261103-p8700-dts-v2-0-3ac5d49f2c37@htecgroup.com>
+ <20261103-p8700-dts-v2-6-3ac5d49f2c37@htecgroup.com>
+ <20261103-charm-ending-efe2b7081ca7@spud>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-Date: Wed, 11 Nov 2026 09:52:01 +0000
-Message-Id: <DMSAF9BN11D0.IDM8IS01DE6B@linux.spacemit.com>
-Cc: "Vasily Khoruzhick" <anarsoul@gmail.com>, "Alistair Francis"
- <alistair@alistair23.me>, "Paul Walmsley" <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>, <linux-bluetooth@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 2/2] riscv: dts: spacemit: enable Bluetooth on BPI-F3
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: =?utf-8?q?Fr=C3=A9d=C3=A9ric_Mah=C3=A9?= <frederic.mahe@cirad.fr>,
- "Marcel Holtmann" <marcel@holtmann.org>, "Luiz Augusto von Dentz"
- <luiz.dentz@gmail.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Yixun Lan" <dlan@kernel.org>
-X-Mailer: aerc 0.21.0-reader-ipc4
-References: <20261111094557.443481-1-frederic.mahe@cirad.fr>
- <20261111094557.443481-3-frederic.mahe@cirad.fr>
-In-Reply-To: <20261111094557.443481-3-frederic.mahe@cirad.fr>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MQATRXU0qUVPtMJGdV/qYTqHVHYqtOb/+8WoFrBTaqq+ETn+zwvGt12e
-	jAap32TdQuikSDDRXc0uznT5uAUwCr2P/ZUlr8iJ2rwGTb6V8BgJE+iFrPcBHulhC4X9EbE
-	D3u5LQXFmzXULkNAyslr77brZ2cFoUDzPRXgamKRGyyoWlhhe5fbSty5LYarOKSnmkWdEVC
-	YqHnsSZ+VopkKAGHvPFLpUT/UMGwQoyu4WSnuS6JHbVKJ7mxQ0ZQv+9M3mSLTsaBhUBrP4e
-	CLy5s6grLFbF7VtffsL01J2w/q6XcoSIOOrc1hBzG8dO743sWUb0YtFDBn9+12MT4gHDnfB
-	lFv/gbBFWilS8far+1/DVtLzzMEWGs/NKPE+zniTOnL3ePPLutoRh00fXYFbf3XCfFimA0T
-	Y0TN7KRfLh7GuyIzrLyUqxpmbiSn8nuPnfet1Z7wsrB22XY5UdbQsMXAw1EHONLgXc0KY3Q
-	/DknF6ft5eBBTr2fAVx1ui7OdzE9SVDOfXW/LNzqfTEXwzAWBIgLVhq9sfN90l2MbJ2Cjay
-	63BJJWLVFrefBmXYCfr+dIzGdR2GxY/iN1y/SNlcpHTicnZkjp38Gvr78G6v7snFLvVV3L5
-	pJui0ETk8VGkhBXBRMfnPL1gx1HihvLz7gJM8eLXpMDVVJtz0K9XBzVbbYodB8pliGyS487
-	Z/4DF8i/G0CIWQgNzTrvDz0RfmFa3+4OPdL9G45kaUCd4XbSoyIZ9Yg+r4PJuCN/DKnShAv
-	VlXu5JNP7eCS61AwCGOrCZV4jbywshcnD1r5ccA3N6+ToABYB6awhv9xUV1oNfuxJ81m9MF
-	mQmKXS2kOgH6o7eqd7vbhnFA9dxB/hTrJp8qEU8CT8cbbybKPq3HFIy77BNVa6MfuaA2qz+
-	pn6tO+0UmnPRBN23OlKh/q+o88sBmF/p2KijUYWuhftFrRXRFT3YFWFGXVHHw5+YxmW0jWM
-	mqpkrX+6kJC7oSyCFdwYYGF8VSgfufvomqgF3xN51P+ZU/X3yZQdvPSpuR+nfimVLUYRCv4
-	YKdwFdW5aJO061sef03Y+2+nk25uNf+44pNE3ZK+19rmWVJViKlnfThxZMEZ1XXTAYd3WS8
-	wt5nFb17B84g7MNTSISy8Q=
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261111_015229_520991_777B3A25 
-X-CRM114-Status: GOOD (  10.20  )
-X-Spam-Score: -2.1 (--)
+MIME-Version: 1.0
+In-Reply-To: <20261103-charm-ending-efe2b7081ca7@spud>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,63 +78,149 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6132221111097204620=="
+Content-Type: multipart/mixed; boundary="===============1742868842327280209=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============6132221111097204620==
-Content-Type: multipart/signed;
- boundary=6359a66ba761be3e5a04adee6e9d479520c40fb2731af54d02b8be3e9469;
- micalg=pgp-sha512; protocol="application/pgp-signature"
+--===============1742868842327280209==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="RLV/GgZW92MgkbBk"
+Content-Disposition: inline
 
---6359a66ba761be3e5a04adee6e9d479520c40fb2731af54d02b8be3e9469
+--RLV/GgZW92MgkbBk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
 
-On Wed Nov 11, 2026 at 9:45 AM GMT, Fr=C3=A9d=C3=A9ric Mah=C3=A9 wrote:
-> The BPI-F3 has an RTL8852BS module whose Bluetooth part is on UART2,
-> with hardware flow control. GPIO 63 powers Bluetooth on and GPIO 64
-> is the device wake line.
->
-> The firmware config switches the UART to 1.5 Mbaud, so take the UART2
-> clock from slow_uart2, set to 48 MHz.
->
-> Tested with a laptop: scan, pairing, and l2ping in both directions,
-> including incoming connections while the UART is runtime suspended.
-> An 8-hour soak (an HCI command every 20 s) showed no errors.
->
-> This patch was prepared with the help of an AI assistant (Claude),
-> which also ran the tests.
->
-> Signed-off-by: Fr=C3=A9d=C3=A9ric Mah=C3=A9 <frederic.mahe@cirad.fr>
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+On Tue, Nov 03, 2026 at 09:49:22PM +0000, Conor Dooley wrote:
+> On Tue, Nov 03, 2026 at 04:11:30PM +0100, Aleksa Paunovic via B4 Relay wr=
+ote:
+> > From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+> >=20
+> > Document the MIPS P8700 ACLINT MTIMER.
+> > Extend support for both mtimecmp and mtime registers
+> > within the ACLINT MTIMER, identified via reg-names.
+> >=20
+> > Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+>=20
+> Same comments here too.
+>=20
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> pw-bot: not-applicable
+
+On second thoughts, we probably need to be careful about the reg
+ordering here. This binding has always required that mtimecmp be "first"
+because it was the only let me rescind my ack for now and think about
+what the correct thing to do is...
+
+Cheers,
+Conor.
+
+>=20
+> > ---
+> >  .../bindings/timer/thead,c900-aclint-mtimer.yaml   | 35 ++++++++++++++=
+++++++++
+> >  1 file changed, 35 insertions(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/timer/thead,c900-aclint-=
+mtimer.yaml b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mti=
+mer.yaml
+> > index cf7c82e980f674afcf59fc726742dc4f49c1a820..40acb651c27b7eaa8a20caa=
+8bbc225b350088810 100644
+> > --- a/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.=
+yaml
+> > +++ b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.=
+yaml
+> > @@ -21,14 +21,19 @@ properties:
+> >            - enum:
+> >                - anlogic,dr1v90-aclint-mtimer
+> >            - const: nuclei,ux900-aclint-mtimer
+> > +      - const: gf,mips-p8700-aclint-mtimer
+> > =20
+> >    reg:
+> > +    minItems: 1
+> >      items:
+> >        - description: MTIMECMP Registers
+> > +      - description: MTIME Registers
+> > =20
+> >    reg-names:
+> > +    minItems: 1
+> >      items:
+> >        - const: mtimecmp
+> > +      - const: mtime
+> > =20
+> >    interrupts-extended:
+> >      minItems: 1
+> > @@ -42,6 +47,25 @@ required:
+> >    - reg-names
+> >    - interrupts-extended
+> > =20
+> > +allOf:
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          contains:
+> > +            const: gf,mips-p8700-aclint-mtimer
+> > +    then:
+> > +      properties:
+> > +        reg:
+> > +          minItems: 2
+> > +        reg-names:
+> > +          minItems: 2
+> > +    else:
+> > +      properties:
+> > +        reg:
+> > +          maxItems: 1
+> > +        reg-names:
+> > +          maxItems: 1
+> > +
+> >  examples:
+> >    - |
+> >      timer@ac000000 {
+> > @@ -53,4 +77,15 @@ examples:
+> >        reg =3D <0xac000000 0x00010000>;
+> >        reg-names =3D "mtimecmp";
+> >      };
+> > +
+> > +  - |
+> > +    timer@16154000 {
+> > +        compatible =3D "gf,mips-p8700-aclint-mtimer";
+> > +        reg =3D <0x16154000 0x7ff8>, <0x16108050 0x8>;
+> > +        reg-names =3D "mtimecmp", "mtime";
+> > +        interrupts-extended =3D <&cpu1intc 7>,
+> > +                              <&cpu2intc 7>,
+> > +                              <&cpu3intc 7>,
+> > +                              <&cpu4intc 7>;
+> > +    };
+> >  ...
+> >=20
+> > --=20
+> > 2.43.0
+> >=20
+> >=20
 
 
---=20
-Troy Mitchell
 
-
---6359a66ba761be3e5a04adee6e9d479520c40fb2731af54d02b8be3e9469
-Content-Type: application/pgp-signature; name="signature.asc"
+--RLV/GgZW92MgkbBk
+Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCavQ6wSEcdHJveS5taXRj
-aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC+EYAD+PVfe6aNSkOPl
-AkTo/K9XuL9d/7QM1aSnDy4F1QOkuwsA/36C73njG07WkyEjw5wg2ulhtMmt7wNc
-2/e/DVeUUG4B
-=v4s2
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCavQ9AwAKCRB4tDGHoIJi
+0jb4AP0WjuVNWtVw7MnmG1rHlM3rJmBgGeKnCIAo1DZytJr2HgEAia3oReDA58wC
+DWF/Y2M0nU4hg4g67ukM8mfRsKffTgw=
+=GaSR
 -----END PGP SIGNATURE-----
 
---6359a66ba761be3e5a04adee6e9d479520c40fb2731af54d02b8be3e9469--
+--RLV/GgZW92MgkbBk--
 
 
---===============6132221111097204620==
+--===============1742868842327280209==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -168,5 +231,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6132221111097204620==--
+--===============1742868842327280209==--
 
