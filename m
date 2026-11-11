@@ -2,67 +2,95 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BACD60A5BE5
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2026 19:40:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54965606A326
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2026 23:00:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kjDLNgOu;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hJPq/ZFh
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LqZ0IVcG;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GglSYSj/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=BaNVNpyv3sMZTKn1PWmGUBVEqBx4DEwEMgXIGrKsxdo=; b=kjDLNgOuP6AZhCcLmjwLx/COLs
-	PIcZSkDcBKa1mCqDj3v01PzIYtdduV0GGngMbNm5qq6mkroEH0B8flieRJlyYmA0U91HAfP2APcTK
-	1ud6t0EKTg8Rl9viXVv4UZr6/1HgdW8oKqTlFD8GhG4p1YPjj7M3QCMb4KBXupbeb2EqgrK2IFJLx
-	Zer7337Lo/XQhZbDB8Ny88Jy8mdgpOAeMDSy+kDq672yLYtBg5scpccFbiIi2jZ8Wuv0z8BAHJDRb
-	iDKeAjtzBnKu62+WFcAET9NcKfMB569D2CFM/myomorQP6YmZNA72Wq1nfH8+PXPAQOL1Ytqj/Mjg
-	Bokb6pRw==;
+	bh=HMicAR+N3GADTqkaXzBgp9T5thrCiqnEM+L0DnBUUBI=; b=LqZ0IVcGNYeGxOp6CvEKEnWjDr
+	MWkVT8rK4J5MYgMiIBPS8ALcYbOpP9M09Q+zeLp4TixlWf1IOaT5VlFbQuCTu1jHE7OVALRNO6akE
+	6UMHV5/WklvxYFzNLR/nChVKyyKtz5HmVLWV308RgMlMdjtHyarVyCsnWZNAWSVyyvSm+y+7eTfCF
+	1XxDpS84Bsfiu+txxPVdhEoxyjXUGyL6sCXIYaz2WRuBIQrjfZ1skKPWRBmVP0cBrrtwVkieguEBC
+	ET8D8i0HxP5mQtONXmfSkeL/jVI0ITfNwVWr5eBjKewk623Uj3AxgtNyLvAIDOdnMZbXUGQjL5wkT
+	I3hMvmWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xREBC-00000007XTb-3hR1;
-	Wed, 11 Nov 2026 19:40:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xRHIn-000000085Qj-1zZX;
+	Wed, 11 Nov 2026 23:00:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xREBB-00000007XTV-1guH
+	id 1xRHIm-000000085Qa-1Rgp
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Nov 2026 19:40:21 +0000
+	Wed, 11 Nov 2026 23:00:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C6E474325C;
-	Wed, 11 Nov 2026 19:40:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A63E01F00A05;
-	Wed, 11 Nov 2026 19:40:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 67F8A62E33;
+	Wed, 11 Nov 2026 23:00:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB5F21F00A14;
+	Wed, 11 Nov 2026 23:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794426020;
-	bh=6HWQUpM3PjW8+BhL116w3GjQjvGNhoMy2Dx/tVTVrDk=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=hJPq/ZFhM5A2mQhaliriYcks2OFyKkFI3KDY17+DL4ys/X3o6mEx8JuSxcsg8g/VB
-	 FxnoAIUWchI9BGiaChl89VpQTW/NXpTOxkUIwu4LSZ/THK46BTxbjDfwSVVnrpMDYR
-	 rGzLqMS2jgjJWzGfU48dbeSp/O1CgXkzNHOGaxX9Uv6g7QYnyq7q6W5siHEBzOoPiw
-	 /XliB9j5i+3fTwujeLL8CLlfXZ3EOUEHB2kBVCIdTpVszdz1Qg6HY7KMot3UO/lCzS
-	 tDOTI8iuTL2eZwHpTCmdZlKPxx7CLfkfH/DeknfbR1d/GiQRJzi/+wIZeGdLyUTo5B
-	 U4Io/xBcrKAFQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 9B26838003BF;
-	Wed, 11 Nov 2026 19:40:20 +0000 (UTC)
+	s=k20260515; t=1794438023;
+	bh=OQeaV0w4tb0J6j8SWQvY9CmlhiytbgVdcb+fFsFpy8E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GglSYSj/h2ZHOvWNRVPwdEX6MI+8RwWzWXrbraSx4wqgT2Jz1iIQ38GXbRL+joYJZ
+	 xkucejQH73qj/cQ7Pa+CXczkyG3R6nS81BL4Z4AUU7Hqc9s5sXpUrRJ1uXiVKJ/oTP
+	 3HIi/WBJBZE07QJCBuFi3JTn4JMMU4QC0DaY2ygSzUhwTrPuc3JFsg9WKC3nU24iMI
+	 xdFWSuQxJ7S4c4tUxtM5Cor0AjFxGeiGPxfVkY0VKyop/AEhQBhsYreKBbNSiZgF1w
+	 VkCYWe16Q08zIpwP1d2f+zcSQLgm4RsO2AvvKs7yF4LenJqxkZR4q2qSN8S/0NBEWy
+	 0WyeR8Fe0941Q==
+Date: Wed, 11 Nov 2026 23:00:13 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Andy Chiu <tchiu@tenstorrent.com>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	andybnac@gmail.com, dfustini@oss.tenstorrent.com,
+	greentime.hu@sifive.com,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Karl Mehltretter <kmehltretter@gmail.com>,
+	"Borislav Petkov (AMD)" <bp@alien8.de>,
+	Dapeng Mi <dapeng1.mi@linux.intel.com>,
+	Marco Elver <elver@google.com>,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Jeff Layton <jlayton@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+	Anup Patel <anup@brainfault.org>,
+	Aurelien Jarno <aurelien@aurel32.net>,
+	daichengrong <daichengrong@iscas.ac.cn>,
+	Troy Mitchell <troy.mitchell@linux.dev>,
+	Guobin Zhang <guobin.zhang@intel.com>,
+	Guodong Xu <docular.xu@gmail.com>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Hui Wang <hui.wang@canonical.com>,
+	Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>,
+	Zong Li <zong.li@sifive.com>, Vivian Wang <wangruikang@iscas.ac.cn>,
+	Rui Qi <qirui.001@bytedance.com>,
+	Yunhui Cui <cuiyunhui@bytedance.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Zishun Yi <vulab@iscas.ac.cn>,
+	Sergey Matyukevich <geomatsi@gmail.com>
+Subject: Re: [PATCH v7 5/6] riscv: vector: optimize vstate operations
+Message-ID: <20261111-perplexed-encircle-af05cda3dc9c@spud>
+References: <20261111184359.1239821-1-tchiu@tenstorrent.com>
+ <20261111184359.1239821-6-tchiu@tenstorrent.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/2] Bluetooth for the RTL8852BS on BPI-F3
-From: patchwork-bot+bluetooth@kernel.org
-Message-Id: <179442601916.1604530.1705197925952408060.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Nov 2026 19:40:19 +0000
-References: <20261111094557.443481-1-frederic.mahe@cirad.fr>
-In-Reply-To: <20261111094557.443481-1-frederic.mahe@cirad.fr>
-To: =?utf-8?b?RnLDqWTDqXJpYyBNYWjDqSA8ZnJlZGVyaWMubWFoZUBjaXJhZC5mcj4=?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: marcel@holtmann.org, luiz.dentz@gmail.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, dlan@kernel.org, anarsoul@gmail.com,
- alistair@alistair23.me, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, troy.mitchell@linux.spacemit.com,
- linux-bluetooth@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
+In-Reply-To: <20261111184359.1239821-6-tchiu@tenstorrent.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,45 +100,457 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4094611726652194699=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hello:
+--===============4094611726652194699==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="3ubzUPwuD85SzVnU"
+Content-Disposition: inline
 
-This series was applied to bluetooth/bluetooth-next.git (master)
-by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
+--3ubzUPwuD85SzVnU
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, 11 Nov 2026 10:45:55 +0100 you wrote:
-> The BPI-F3 (SpacemiT K1) carries an RTL8852BS Wi-Fi + Bluetooth module.
-> Wi-Fi (SDIO) has no upstream driver, but Bluetooth on UART works with
-> the existing hci_h5/btrtl code and linux-firmware's rtl8852bs files.
-> 
-> Patch 1 documents the compatible, with rtl8822cs-bt as fallback, so no
-> driver change is needed. Patch 2 enables it on the BPI-F3.
-> 
-> [...]
+On Wed, Nov 11, 2026 at 12:43:27PM -0600, Andy Chiu wrote:
+> Introduce the riscv_novstateopt to control the optimization of vector
+> state operations in the kernel space.
+>=20
+> The optimization enables vector in kernel mode and bypasses vector
+> register nulling for user space on the syscall fast path when the boot
+> argument "riscv_novstateopt" is not set
+>=20
+> Enabling this optimization yields the following performance benefits:
+>  - Cut 80 cycles latency for getpid on Ascalon.
+>  - 1.1% ~ 4.09% request throughput improvment on nginx workload with web
+>    serving size under 4KB
+>=20
+> Signed-off-by: Andy Chiu <tchiu@tenstorrent.com>
+> ---
+> Changelog v6:
+>  - upgrade it to use alternative and change default to enable the
+>    optimization
 
-Here is the summary with links:
-  - [v2,1/2] dt-bindings: net: bluetooth: realtek: Add RTL8852BS
-    https://git.kernel.org/bluetooth/bluetooth-next/c/c21f8cff7503
-  - [v2,2/2] riscv: dts: spacemit: enable Bluetooth on BPI-F3
-    https://git.kernel.org/bluetooth/bluetooth-next/c/df348a0d065c
+Why? Argument for the default being like this needs to be in the commit
+message.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+> Changelog v5:
+>  - new patch since v5
+> ---
+>  .../admin-guide/kernel-parameters.txt          | 13 +++++++++++++
+>  arch/riscv/include/asm/alternative-macros.h    |  6 ++++++
+>  arch/riscv/include/asm/alternative.h           |  3 ---
+>  arch/riscv/include/asm/cpufeature-macros.h     |  6 ++++--
+>  arch/riscv/include/asm/vector.h                | 16 +++++++++++++++-
+>  arch/riscv/kernel/cpufeature.c                 | 18 ++++++++++++++++++
+>  arch/riscv/kernel/entry.S                      | 15 +++++++++++++--
+>  arch/riscv/kernel/process.c                    |  3 +++
+>  arch/riscv/kernel/vector.c                     | 17 +++++++++++++++--
+>  9 files changed, 87 insertions(+), 10 deletions(-)
+>=20
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentat=
+ion/admin-guide/kernel-parameters.txt
+> index 0b3c140babd9..e1146ee6ab1e 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -6722,6 +6722,19 @@ Kernel parameters
+>  		fcfi	Disable user forward CFI ABI to userspace even if the
+>  			landing pad extension is available.
+> =20
+> +	riscv_novstateopt [RISCV,EARLY]
+> +			Disable the vector state optimization. By default the
+> +			kernel keeps Vector enabled while running in kernel
+> +			space, rather than toggling sstatus.VS on every use of
+> +			the kernel-mode vector, and skips nulling the vector
+> +			registers for user space. Pass this option to restore the
+> +			conservative behavior, which catches illegal use of
+> +			Vector in kernel code. The optimization roughly cuts
+> +			30 ns of getpid() latency on a Blackhole x280 and gives
+> +			a 4.09% request throughput improvement for an nginx
+> +			workload serving a 2KB web page on a four-core
+> +			Ascalon-S.
+> +
+>  	ro		[KNL] Mount root device read-only on boot
+> =20
+>  	rodata=3D		[KNL,EARLY]
+> diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/inc=
+lude/asm/alternative-macros.h
+> index 629d884578da..45d9ae1e0aa8 100644
+> --- a/arch/riscv/include/asm/alternative-macros.h
+> +++ b/arch/riscv/include/asm/alternative-macros.h
+> @@ -2,6 +2,12 @@
+>  #ifndef __ASM_ALTERNATIVE_MACROS_H
+>  #define __ASM_ALTERNATIVE_MACROS_H
+> =20
+> +#include <linux/wordpart.h>
+> +#define PATCH_ID_CPUFEATURE_ID(p)		lower_16_bits(p)
+> +#define PATCH_ID_CPUFEATURE_VALUE(p)		upper_16_bits(p)
+> +
+> +#define RISCV_CPUFEAT_VSTATEOPT	0x1
+
+This isn't a cpu feature at all though, so it should not be named like that.
+
+> +
+>  #ifdef __ASSEMBLER__
+> =20
+>  .macro ALT_ENTRY oldptr newptr vendor_id patch_id new_len
+> diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/as=
+m/alternative.h
+> index 6be7b2b6ade9..bc2ecaa9125a 100644
+> --- a/arch/riscv/include/asm/alternative.h
+> +++ b/arch/riscv/include/asm/alternative.h
+> @@ -16,9 +16,6 @@
+>  #include <linux/stddef.h>
+>  #include <asm/hwcap.h>
+> =20
+> -#define PATCH_ID_CPUFEATURE_ID(p)		lower_16_bits(p)
+> -#define PATCH_ID_CPUFEATURE_VALUE(p)		upper_16_bits(p)
+> -
+>  #define RISCV_ALTERNATIVES_BOOT		0 /* alternatives applied during regula=
+r boot */
+>  #define RISCV_ALTERNATIVES_MODULE	1 /* alternatives applied during modul=
+e-init */
+>  #define RISCV_ALTERNATIVES_EARLY_BOOT	2 /* alternatives applied before m=
+mu start */
+> diff --git a/arch/riscv/include/asm/cpufeature-macros.h b/arch/riscv/incl=
+ude/asm/cpufeature-macros.h
+> index adaf9e3fb25c..7bd900899bb0 100644
+> --- a/arch/riscv/include/asm/cpufeature-macros.h
+> +++ b/arch/riscv/include/asm/cpufeature-macros.h
+> @@ -45,14 +45,16 @@ static __always_inline bool __riscv_has_extension_unl=
+ikely(const unsigned long v
+> =20
+>  static __always_inline bool riscv_has_extension_unlikely(const unsigned =
+long ext)
+>  {
+> -	compiletime_assert(ext < RISCV_ISA_EXT_MAX, "ext must be < RISCV_ISA_EX=
+T_MAX");
+> +	int realext =3D PATCH_ID_CPUFEATURE_ID(ext);
+> +	compiletime_assert(realext < RISCV_ISA_EXT_MAX, "ext must be < RISCV_IS=
+A_EXT_MAX");
+> =20
+>  	return __riscv_has_extension_unlikely(STANDARD_EXT, ext);
+>  }
+
+Please don't abuse riscv_has_extension_*() for things that are not
+extensions. I don't mind if you do something that wraps
+__riscv_has_extension_*() to make use of the underlying infrastructure
+but I am against muddying the standard extension space with linux internal
+stuff - particularly in this manner because this:
+> +static __always_inline bool has_vstate_opt(void)
+> +{
+> +	return riscv_has_extension_likely((RISCV_CPUFEAT_VSTATEOPT << 16) | RIS=
+CV_ISA_EXT_ZVE32X);
+> +}
+is incredibly confusing and error prone.
+
+Recently enough I talked about something very very similar with Jisheng,
+in the context of using an alternative for misaligned access, and I
+said:
+| ...I'd rather see __riscv_has_extension_*() get renamed
+| to __riscv_has_cap*(), so that things like unaligned access speed get a
+| different namespace to standard and vendor extensions. IOW you'd end up
+| with
+|=20
+| static __always_inline bool riscv_has_extension_unlikely(const unsigned l=
+ong ext)
+| {
+| 	compiletime_assert(ext < RISCV_ISA_EXT_MAX, "ext must be < RISCV_ISA_EXT=
+_MAX");
+|=20
+| 	return __riscv_has_cap_unlikely(STANDARD_EXT, ext);
+| }
+|=20
+| static __always_inline bool riscv_has_vendor_extension_unlikely(const uns=
+igned long vendor,
+| 								const unsigned long ext)
+| {
+| 	if (!IS_ENABLED(CONFIG_RISCV_ISA_VENDOR_EXT))
+| 		return false;
+|=20
+| 	return __riscv_has_cap_unlikely(vendor, ext + RISCV_VENDOR_EXT_ALTERNATI=
+VES_BASE);
+| }
+|=20
+| static __always_inline bool riscv_has_cap_unlikely(const unsigned long ca=
+p)
+| {
+| 	return __riscv_has_cap_unlikely(LINUX_CAP, cap);
+| }
+|=20
+| Currently standard extensions use 0 as the vendor, perhaps we could then
+| use -1 (the value is an unsigned long) for non extension related caps?
+
+What's here, with this realext business definitely looks like a hack.
+Doing what I suggest above allows you to have a real key that you can
+set, just like the vendor extensions do. You can call a function from
+riscv_fill_hwcap() to populate the bitmap and modify
+_apply_alternatives() to additionally patch this sort of thing.
+
+Cheers,
+Conor.
+
+pw-bot: changes-requested
+
+> =20
+>  static __always_inline bool riscv_has_extension_likely(const unsigned lo=
+ng ext)
+>  {
+> -	compiletime_assert(ext < RISCV_ISA_EXT_MAX, "ext must be < RISCV_ISA_EX=
+T_MAX");
+> +	int realext =3D PATCH_ID_CPUFEATURE_ID(ext);
+> +	compiletime_assert(realext < RISCV_ISA_EXT_MAX, "ext must be < RISCV_IS=
+A_EXT_MAX");
+> =20
+>  	return __riscv_has_extension_likely(STANDARD_EXT, ext);
+>  }
+> diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vec=
+tor.h
+> index e83f9e0046a9..745ac3ca67b7 100644
+> --- a/arch/riscv/include/asm/vector.h
+> +++ b/arch/riscv/include/asm/vector.h
+> @@ -49,6 +49,7 @@
+>  	_res;								\
+>  })
+> =20
+> +extern bool riscv_v_vstate_opt;
+>  extern unsigned long riscv_v_vsize;
+>  int riscv_v_setup_vsize(void);
+>  bool insn_is_vector(u32 insn_buf);
+> @@ -78,6 +79,11 @@ static __always_inline bool has_vector(void)
+>  	return riscv_has_extension_unlikely(RISCV_ISA_EXT_ZVE32X);
+>  }
+> =20
+> +static __always_inline bool has_vstate_opt(void)
+> +{
+> +	return riscv_has_extension_likely((RISCV_CPUFEAT_VSTATEOPT << 16) | RIS=
+CV_ISA_EXT_ZVE32X);
+> +}
+> +
+>  static __always_inline bool has_xtheadvector_no_alternatives(void)
+>  {
+>  	if (IS_ENABLED(CONFIG_RISCV_ISA_XTHEADVECTOR))
+> @@ -122,6 +128,9 @@ static inline bool riscv_v_vstate_query(struct pt_reg=
+s *regs)
+> =20
+>  static __always_inline void riscv_v_enable(void)
+>  {
+> +	if (has_vstate_opt())
+> +		return;
+> +
+>  	if (has_xtheadvector())
+>  		csr_set(CSR_SSTATUS, SR_VS_THEAD);
+>  	else
+> @@ -130,6 +139,9 @@ static __always_inline void riscv_v_enable(void)
+> =20
+>  static __always_inline void riscv_v_disable(void)
+>  {
+> +	if (has_vstate_opt())
+> +		return;
+> +
+>  	if (has_xtheadvector())
+>  		csr_clear(CSR_SSTATUS, SR_VS_THEAD);
+>  	else
+> @@ -336,7 +348,8 @@ static inline void riscv_v_vstate_set_restore(struct =
+task_struct *task,
+>  static inline void riscv_v_vstate_discard(struct pt_regs *regs)
+>  {
+>  	if (__riscv_v_vstate_check_gt(regs->status, INITIAL)) {
+> -		riscv_v_vstate_set_restore(current, regs);
+> +		if (!has_vstate_opt())
+> +			riscv_v_vstate_set_restore(current, regs);
+>  		riscv_v_vstate_init(regs);
+>  	}
+>  }
+> @@ -422,6 +435,7 @@ struct pt_regs;
+> =20
+>  static inline int riscv_v_setup_vsize(void) { return -EOPNOTSUPP; }
+>  static __always_inline bool has_vector(void) { return false; }
+> +static __always_inline bool has_vstate_opt(void) { return false; }
+>  static __always_inline bool insn_is_vector(u32 insn_buf) { return false;=
+ }
+>  static __always_inline bool has_xtheadvector_no_alternatives(void) { ret=
+urn false; }
+>  static __always_inline bool has_xtheadvector(void) { return false; }
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
+e.c
+> index 72bce616491f..041f6a35fba3 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -1294,6 +1294,19 @@ void riscv_clear_hypervisor_csr(void)
+>  	csr_clear(CSR_HSTATUS, HSTATUS_HU);
+>  }
+> =20
+> +/*
+> + * Leaving Vector enabled while in the kernel relies on the vstate alter=
+natives
+> + * being patched in. It can be turned off on the command line to catch i=
+llegal
+> + * use of Vector in kernel code.
+> + */
+> +bool riscv_v_vstate_opt =3D true;
+> +static int __init riscv_novstateopt_setup(char *__unused)
+> +{
+> +	riscv_v_vstate_opt =3D false;
+> +	return 0;
+> +}
+> +early_param("riscv_novstateopt", riscv_novstateopt_setup);
+> +
+>  /*
+>   * Alternative patch sites consider 48 bits when determining when to pat=
+ch
+>   * the old instruction sequence with the new. These bits are broken into=
+ a
+> @@ -1322,6 +1335,11 @@ static bool riscv_cpufeature_patch_check(u16 id, u=
+16 value)
+>  		 * then the alternative cannot be applied.
+>  		 */
+>  		return riscv_cboz_block_size <=3D (1U << value);
+> +	case RISCV_ISA_EXT_ZVE32X:
+> +		if (value =3D=3D RISCV_CPUFEAT_VSTATEOPT)
+> +			return riscv_v_vstate_opt;
+> +
+> +		return true;
+>  	}
+> =20
+>  	return false;
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index 628b85e3915a..bb4787711f2c 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -6,6 +6,7 @@
+> =20
+>  #include <linux/init.h>
+>  #include <linux/linkage.h>
+> +#include <linux/stringify.h>
+> =20
+>  #include <asm/alternative-macros.h>
+>  #include <asm/asm.h>
+> @@ -175,10 +176,13 @@ SYM_CODE_START(handle_exception)
+>  	 * Disable user-mode memory access as it should only be set in the
+>  	 * actual user copy routines.
+>  	 *
+> -	 * Disable the FPU/Vector to detect illegal usage of floating point
+> +	 * Disable the FPU to detect illegal usage of floating point
+>  	 * or vector in kernel space.
+>  	 */
+> -	li t0, SR_SUM | SR_FS_VS
+> +	li t0, SR_SUM | SR_FS
+> +	ALTERNATIVE(__stringify(ori t0, t0, SR_VS), "nop", 0,
+> +		    (RISCV_CPUFEAT_VSTATEOPT << 16) | RISCV_ISA_EXT_ZVE32X,
+> +		    CONFIG_RISCV_ISA_V)
+>  #ifdef CONFIG_64BIT
+>  	li t1, SR_ELP
+>  	or t0, t0, t1
+> @@ -186,6 +190,13 @@ SYM_CODE_START(handle_exception)
+> =20
+>  	REG_L s0, TASK_TI_USER_SP(tp)
+>  	csrrc s1, CSR_STATUS, t0
+> +	ALTERNATIVE("j .Lskip_v_enable", __stringify(andi t0, s1, SR_VS), 0,
+> +		    (RISCV_CPUFEAT_VSTATEOPT << 16) | RISCV_ISA_EXT_ZVE32X,
+> +		    CONFIG_RISCV_ISA_V)
+> +	bnez t0, .Lskip_v_enable
+> +	li a0, SR_VS_INITIAL
+> +	csrs CSR_STATUS, a0
+> +.Lskip_v_enable:
+>  	save_userssp s2, s1
+>  	csrr s2, CSR_EPC
+>  	csrr s3, CSR_TVAL
+> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+> index 34c1d498d1ca..27146b3fa738 100644
+> --- a/arch/riscv/kernel/process.c
+> +++ b/arch/riscv/kernel/process.c
+> @@ -258,6 +258,9 @@ int copy_thread(struct task_struct *p, const struct k=
+ernel_clone_args *args)
+>  		/* Supervisor/Machine, irqs on: */
+>  		childregs->status =3D SR_PP | SR_PIE;
+> =20
+> +		if (has_vstate_opt())
+> +			riscv_v_vstate_init(childregs);
+> +
+>  		p->thread.s[0] =3D (unsigned long)args->fn;
+>  		p->thread.s[1] =3D (unsigned long)args->fn_arg;
+>  		p->thread.ra =3D (unsigned long)ret_from_fork_kernel_asm;
+> diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+> index 6fd541f5d5cb..eec9deff8da7 100644
+> --- a/arch/riscv/kernel/vector.c
+> +++ b/arch/riscv/kernel/vector.c
+> @@ -12,6 +12,7 @@
+>  #include <linux/prctl.h>
+> =20
+>  #include <asm/thread_info.h>
+> +#include <asm/cpufeature.h>
+>  #include <asm/processor.h>
+>  #include <asm/insn.h>
+>  #include <asm/vector.h>
+> @@ -69,6 +70,16 @@ void riscv_v_ucontext_save(struct task_struct *tsk)
+>  int riscv_v_setup_vsize(void)
+>  {
+>  	unsigned long this_vsize;
+> +	bool v_always_on =3D false;
+> +
+> +	/*
+> +	 * has_vstate_opt() cannot be used here if called from riscv_fill_hwcap=
+(), before
+> +	 * apply_boot_alternatives(),
+> +	 */
+> +	if (__riscv_isa_extension_available(NULL, RISCV_ISA_EXT_ZVE32X) && risc=
+v_v_vstate_opt) {
+> +		v_always_on =3D true;
+> +		csr_set(CSR_SSTATUS, SR_VS_INITIAL);
+> +	}
+> =20
+>  	/*
+>  	 * There are 32 vector registers with vlenb length.
+> @@ -81,9 +92,11 @@ int riscv_v_setup_vsize(void)
+>  		return 0;
+>  	}
+> =20
+> -	riscv_v_enable();
+> +	if (!v_always_on)
+> +		riscv_v_enable();
+>  	this_vsize =3D csr_read(CSR_VLENB) * 32;
+> -	riscv_v_disable();
+> +	if (!v_always_on)
+> +		riscv_v_disable();
+> =20
+>  	if (!riscv_v_vsize) {
+>  		riscv_v_vsize =3D this_vsize;
+> --=20
+> 2.43.0
+>=20
+
+--3ubzUPwuD85SzVnU
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCavTzfQAKCRB4tDGHoIJi
+0ndnAQCKzecachS9T5ZG9WIZP+gS6AEsnCkQ6kui9SbEafTRSQD+Lh9wwdapFarD
+hHhgB7Tfpuhk3A6bH15wbiexqUiZtAQ=
+=uiDG
+-----END PGP SIGNATURE-----
+
+--3ubzUPwuD85SzVnU--
 
 
+--===============4094611726652194699==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4094611726652194699==--
+
