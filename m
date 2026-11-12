@@ -2,96 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A61AB606A31C
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 01:08:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 339FB606A33B
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 01:12:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PpZkdde2;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=HdNusHGw
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mc9UwImC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=aERfTP0d1fu47Y/yH1DQ3U+GPdb7DTCOnzDGVbI9ExQ=; b=PpZkdde2WRJbYBXmclormNuPz3
-	HGXO5R84yBUv2ltnuTSn/hGdpxegPt/zzlErrFRRpk9AfARhlnjk9ilsD44/cdSrDgxxFEgTxzJP6
-	rUaLZ1MxxxX/kQDDkfNOKEOoMQmsIepUxmFPfd8QQD3CS+EdbGUuVAxJFNkKApqIOHXJaBjELOrhD
-	zs6rypBmWIRfrGP5/vc+dHBF1UowjUbXmP7dKfmIbTe29e4ufYHAhH4zY6/hjVW3r0jc3dSKYJScR
-	EAXfEO+L/4GqOGIbnjjR3jyquTuHuy0loOXx1mkAnAIyfYoQj7mCk3TI6T3AS3aEDQPA/DDIrw9fz
-	p/JlnuJw==;
+	bh=nf7mnAS7upMzSLDP6OjiUmTbt1g5TVapPaHosDrdPaM=; b=mc9UwImCo427SFwrmhXDllAhzt
+	Pji9EHiuRmyAbXhGiIJS5Qry1Pldv6CgAHBVkd2+MbOnwHp2eLtL2qh2q/mtTkM/uljRH1DAQP0ci
+	bMHBhcA36nkCzAshE7yeVN/Qgohzx3IsBxCDr6QpxJg84mFfmb75bAuT2THzncscEgYwe9q9pFAbx
+	0dKITWTTrSdG+cN2+yYu5VWHEX+l6Le3h/rAfeq0zLl+ZdNjGDpnG6ytuvUNVtDtGWfCV2FEaAyoB
+	WZscOHNambP6K8X377fwAxEINpgYg99PlYW6YTirDjH/tx09hflof3m9Wldpg6awNfcXpillxbC8i
+	wJJs+03A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRJIQ-00000008JYL-05Sh;
-	Thu, 12 Nov 2026 01:08:10 +0000
-Received: from mout.gmx.net ([212.227.15.18])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRJIN-00000008JWx-3Fhs
+	id 1xRJMZ-00000008Jqj-2IyH;
+	Thu, 12 Nov 2026 01:12:27 +0000
+Received: from azure-sdnproxy.icoremail.net ([207.46.229.174])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xRJMW-00000008Jq9-1N4m
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 01:08:09 +0000
-DKIM2-Signature: i=1; m=1; t=1794445682;
- mf=PFdfQXJtaW5AZ214LmRlPg==;
- rt=PGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmc+;
- d=gmx.de;
- s=s31663417:rsa-sha256:KWZrjN5dEvQAGFLs0UcQ/4P3+NQO
-   /UUR5z9z/sBqPsO1sy2AC82OT3BQH5UdA6pjVEk1hiV01vX5vtvRnyVIvXSKaP8gS1a4DuXRbej
-   DZ8+C6Y9sL44o56DSNsAK1OnZig5OqzRrKNJLDo7ln3FW8am0SfOMOo/yWIb8WvKRjF2L8UKsdh
-   JngSiLgd+UY3epXtiT1ECiJTT9vPe8WzrBBmzJhMZLmn0Fi2xHUn5KxLxF1hh1ff9lqhL4kgdRh
-   hIFzYSeiwD/JUaajCF/zYjrZcJsNSBh29fUOnbsn1W6vrq0wNty5+P2HFPUKN056LRRuJ+p5Wnm
-   9ud9ZSoZYpaGvQ==;
-Message-Instance: m=1;
- h=sha256:
-   rc+Iq0T5tApvxLzSzkWc5oFIxOsCiCsstOmP4j7balg=:
-   eu4gZ3uDQKSa4n0wG92y4Fr150IO/F8JML82px7DvQk=,
-  sha512:
-   k2xlbNuovF5uL9jiw5gwnk6EPeH98LxWn0z4tHz4U6MPcN+QNvn/VxQ53DOo2QMgDxCy0CFk1c3ITSOpfbeq2Q==:
-   AO6xr5hKyccYgo3k0gFhbASVR23CMSrDd0eQuRq8Ben6s2W2HF5D19yzHtuYemcURW08ZIqoieQC7cV8ak5zlQ==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1794445660; x=1795050460; i=w_armin@gmx.de;
-	bh=BkdWKi37cNQtdND3czz3bHcTKvEyEK3UxzuEQK+SOCk=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=HdNusHGwcxhZSeTkgZBrZgNxWeFDlDJxfX7Q+OXasDYAvYM08NMpzYL955cxfBM+
-	 svqIkHeG/7sdMn0Y7AF8/T0dl7vBYclKIaLghEFolC9OWqQ7uAk/OorfYGug+jC2P
-	 zzn4WbeGcB++1s4vINGofvcwLpW6nrLrn/jFr/hUGveONPTRCm2jxo7GpwUxv2Bp3
-	 9g6pluluokc/f4SlNAGG4MkjYGey+DkjD1py89OBYVK+B0NJnUu76P6QchUuDorEA
-	 isPopQFrd2d5VNSnJ51GvUFqgmNv4MzbTSSodCLldNLjeBgkCQpPEkyA8mM4cgf8c
-	 BNUAcRAf1iT/ICv8OA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MplXz-1wfuBV2KQn-00iQEO; Thu, 12
- Nov 2026 02:07:40 +0100
-Message-ID: <7614bfa8-4072-4695-81cc-ae3e95a7a7de@gmx.de>
-Date: Thu, 12 Nov 2026 02:07:37 +0100
+	Thu, 12 Nov 2026 01:12:26 +0000
+Received: from dongxuyang$eswincomputing.com ( [10.12.96.41] ) by
+ ajax-webmail-app2 (Coremail) ; Thu, 12 Nov 2026 09:12:05 +0800 (GMT+08:00)
+Date: Thu, 12 Nov 2026 09:12:05 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: "Xuyang Dong" <dongxuyang@eswincomputing.com>
+To: "Han Gao" <gaohan@iscas.ac.cn>,
+	"Yifeng Huang" <huangyifeng@eswincomputing.com>,
+	"Stephen Boyd" <sboyd@kernel.org>,
+	"Brian Masney" <bmasney+clk@redhat.com>,
+	"Jerome Brunet" <jbrunet+clk@baylibre.com>
+Cc: "Brian Masney" <bmasney@redhat.com>, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	"Min Lin" <linmin@eswincomputing.com>,
+	"Pinkesh Vaghela" <pinkesh.vaghela@einfochips.com>,
+	"Pritesh Patel" <pritesh.patel@einfochips.com>,
+	"Han Gao" <rabenda.cn@gmail.com>
+Subject: Re: [PATCH] clk: eswin: Keep the TCU AXI clock enabled
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
+ 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
+ mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
+In-Reply-To: <20261110-eic7700-tcu-aclk-v1-1-72db82bf59c1@iscas.ac.cn>
+References: <20261110-eic7700-tcu-aclk-v1-1-72db82bf59c1@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] platform/wmi: Allow wmi module to load when acpi_disabled
- is set
-To: Hans de Goede <johannes.goede@oss.qualcomm.com>,
- Patrik Jakobsson <patrik.r.jakobsson@gmail.com>, Han Gao
- <gaohan@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
- platform-driver-x86@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20261111131613.6290-1-johannes.goede@oss.qualcomm.com>
-Content-Language: en-US
-From: Armin Wolf <W_Armin@gmx.de>
-In-Reply-To: <20261111131613.6290-1-johannes.goede@oss.qualcomm.com>
-X-Provags-ID: V03:K1:wdNj9+np7QfCe9C8auQsYLWAOBYQYkYODyHg90x63SwHiyY513Z
- A72icqaBz3g/BOYqNPuxmElh8kS3/RJ1bMR2tySQyXAe6zkrB6HvZKR+zBxg8sl7X2vbOmy
- LR4YSgqthIxBa4lg13fnjt94KuEmMvZ2wk7ZcvgJUJkBRIymfcUtzQKmJfaUDwwfjayQKfU
- 3wibN0scHFfh6tlagDISg==
-UI-OutboundReport: notjunk:1;M01:P0:kWvP1Ah2QXY=;CuVfkByJflQSCDYgL+9DL5YloKI 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 REdhGk+ogu3ysGOFGhrbzdgPc3HcMbuz10Qg==
+Message-ID: <b81e73b.6e7.1a1cd4fdbb8.Coremail.dongxuyang@eswincomputing.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: TQJkCgAnPqFlEvVqyMiJAA--.15625W
+X-CM-SenderInfo: pgrqw5xx1d0w46hv4xpqfrz1xxwl0woofrz/1tbiAgEJAmr0mS0Ic
+	gAAsY
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261111_170808_113829_6608F579 
-X-CRM114-Status: GOOD (  20.20  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261111_171224_743534_0C516B5E 
+X-CRM114-Status: GOOD (  13.16  )
+X-Spam-Score: -2.6 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,78 +74,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Am 11.11.26 um 14:16 schrieb Hans de Goede:
-
-> The core wmi module provides symbols which may be used by other modules.
-> These other modules may still function when acpi_disabled is set, but
-> the current behavior of acpi_wmi_init() returning -ENODEV when it is set
-> causes loading these modules to fail because the wmi module these depend
-> on fails to load with -ENODEV.
->
-> One example of this is booting a kernel with both DT and ACPI/WMI support
-> on an arm64 systems with devicetree which will lead to acpi_disabled being
-> set. Trying to load the amdgpu module will fail in this case because it
-> uses symbols from the drivers/acpi/video module which in turn uses symbols
-> from the wmi module. Note the video module itself already contains handling
-> to still load when acpi_disables is set for similar reasons.
->
-> Fix this by allowing the wmi module to still load and also register
-> the class and bus instances since some exported functions like
-> wmi_driver_register() rely on these being valid.
-
-Reviewed-by: Armin Wolf <W_Armin@gmx.de>
-
-> Signed-off-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
+> 
+> The SMMU TCU needs its AXI clock for DMA, even in bypass mode. No driver
+> claims this clock, so clk_disable_unused() gates it and DMA through the
+> SMMU stalls. On the HiFive Premier P550, this hangs firmware loading of
+> an RX550 graphics card.
+> 
+> Mark the clock as critical.
+> 
+> Fixes: cd44f127c1d4 ("clk: eswin: Add eic7700 clock driver")
+> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 > ---
->   drivers/platform/wmi/core.c | 9 +++++----
->   1 file changed, 5 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/platform/wmi/core.c b/drivers/platform/wmi/core.c
-> index 529825dcfbfe..412f2e23b01d 100644
-> --- a/drivers/platform/wmi/core.c
-> +++ b/drivers/platform/wmi/core.c
-> @@ -1573,9 +1573,6 @@ static int __init acpi_wmi_init(void)
->   {
->   	int error;
->   
-> -	if (acpi_disabled)
-> -		return -ENODEV;
-> -
->   	error = class_register(&wmi_bus_class);
->   	if (error)
->   		return error;
-> @@ -1584,6 +1581,9 @@ static int __init acpi_wmi_init(void)
->   	if (error)
->   		goto err_unreg_class;
->   
-> +	if (acpi_disabled)
-> +		return 0;
-> +
->   	error = platform_driver_register(&acpi_wmi_driver);
->   	if (error) {
->   		pr_err("Error loading mapper\n");
-> @@ -1603,7 +1603,8 @@ static int __init acpi_wmi_init(void)
->   
->   static void __exit acpi_wmi_exit(void)
->   {
-> -	platform_driver_unregister(&acpi_wmi_driver);
-> +	if (!acpi_disabled)
-> +		platform_driver_unregister(&acpi_wmi_driver);
->   	bus_unregister(&wmi_bus_type);
->   	class_unregister(&wmi_bus_class);
->   }
+> Tested on the HiFive Premier P550 with an RX550 graphics card:
+> 
+> - Without this patch, amdgpu stalls while loading the RX550 firmware
+>   and CPUs can no longer be halted.
+> - With only the TCU AXI clock kept enabled (the TCU configuration clock
+>   is still managed normally), amdgpu initializes and the IB ring tests
+>   pass without any manual register writes.
+> ---
+>  drivers/clk/eswin/clk-eic7700.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/clk/eswin/clk-eic7700.c b/drivers/clk/eswin/clk-eic7700.c
+> index 43a47fe16ab14ae1d1cacc3a0da0203e412541c0..7c95055f13eb782a03723e4475d63060d37711aa 100644
+> --- a/drivers/clk/eswin/clk-eic7700.c
+> +++ b/drivers/clk/eswin/clk-eic7700.c
+> @@ -832,8 +832,10 @@ static struct eswin_clk_info eic7700_clks[] = {
+>  	ESWIN_GATE_TYPE(EIC7700_CLK_GATE_D2D_CFG_CLK, "gate_d2d_cfg_clk",
+>  			EIC7700_CLK_MUX_SYSCFG_CLK_ROOT_2MUX1_GFREE,
+>  			CLK_SET_RATE_PARENT, EIC7700_REG_OFFSET_D2D_CFG, 31, 0),
+> +	/* DMA through the SMMU still needs the TCU AXI clock in bypass mode. */
+>  	ESWIN_GATE_TYPE(EIC7700_CLK_GATE_TCU_ACLK, "gate_tcu_aclk",
+> -			EIC7700_CLK_DIV_DDR_ACLK_DYNM, CLK_SET_RATE_PARENT,
+> +			EIC7700_CLK_DIV_DDR_ACLK_DYNM,
+> +			CLK_SET_RATE_PARENT | CLK_IS_CRITICAL,
+>  			EIC7700_REG_OFFSET_TCU_ACLK, 31, 0),
+>  	ESWIN_GATE_TYPE(EIC7700_CLK_GATE_TCU_CFG_CLK, "gate_tcu_cfg_clk",
+>  			EIC7700_CLK_MUX_SYSCFG_CLK_ROOT_2MUX1_GFREE,
+> 
 
+Acked-by: Xuyang Dong <dongxuyang@eswincomputing.com>
+
+Thanks,
+Xuyang Dong
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
