@@ -2,93 +2,60 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56FD3606A8A3
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 11:21:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6D3D606A896
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 11:30:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MiscQKqO;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=KJquWBYd
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oYCyetgn;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dHY9/lJM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=5raC0Ij70oVr4vjiGtZ0G8h8WFt3Zq3PPPr5e70TbBE=; b=MiscQKqOxnDzXXU16NEu8E+DJb
-	Qkgx1Pa/GnmmnKbQ++BQVkxyjWWkKb2sojTOyXPjqOmTUBlJPgtpNCdM/vZEdGYZ1NeHv7nOmCPM2
-	XIX8mjg0hy5+bxaDAK527aYiWh5Xgml0uQI5rLLQ47CrAtIHGzB16gn/r14dWP7W0rDIiCwHnmVtE
-	LkbgC1IjsBz5L5vAHf4YiKb6qFspoACRocjkkpCiOUGHEsUAUq0MxqNBxkTtwJ8UFlXFFmVpRSsEo
-	kfPmXtaBYBCBF3t52HjZueImCdpNr6utMW7g5+9DzJaNOXkHvxVFUig4M8EIRnG/GV4GJMRhgUmRq
-	8zmTZahg==;
+	bh=0hrlob84biiO93cXG6S8fcRq7u4oElnk/QXAOL5cYb0=; b=oYCyetgnunkhkFEgoSU8PNzfj5
+	zpxvAC+fzO8BTlHYOC776mI9E+W8z3zPoblJPmwRt/aEOkDfPRuH2H17o8Oq5MfQSY9gF1qGML7wu
+	sTyquDOEp29Em9uZbw37NysmD/owldYTOh5OhWHmzsmcmlxQ+HlxuxzIU79oe4o+16TiDgYgIgZbX
+	7MVD0BES1HsQFOdG+tXUDpFvHzfF4SP5lMb6TaLKHpJ0ip6U7/WGclQdbJy/1nXFnBuepxXB5EoFe
+	DcW+2n6wII/Ces7x8Am4hqsh1vCo4dTjJzoFo3EuUb1wbTu3jEzTxnV+KIypmjugmHk9DOiHQMWKi
+	myLOHmKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRSrq-00000009fWS-2Us2;
-	Thu, 12 Nov 2026 11:21:22 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1xRT0x-00000009jBH-2p6g;
+	Thu, 12 Nov 2026 11:30:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRSre-00000009fQX-3bdR
+	id 1xRT0u-00000009jAg-11sR
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 11:21:19 +0000
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 0529D202C92;
-	Thu, 12 Nov 2026 12:21:09 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794482469;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JAI4OUL2TrWY37F5xvd0X+8qNL/eL8wyTrg+ONCjoEs=;
-	b=KJquWBYdNO1p925AQ2jlEP1Br5a9Mv2C66vC3uv2eUhDSMbM9gunU33rBNI0DT90fdgjQ3
-	xrSx7CTPKVmyBq47XMOpD1/V02W673G1jKnu6OFLCxi4ts9Xpy7laauDW/QR2yPQaYNtaH
-	a79bqRMYx0qC2AkMzITaUxMytkLC2j5GeerenUqYjlwNSFT+OMwPtkB/TVnznRN9leoHQy
-	snA3fHwYVC+aqQvLlrfx5qlRFezAV+dIFr7vUN3AYVcad3S2L/F8ZtkuzzMbzrm2m8GXej
-	hbItJV4XXuUdcF/2jMI/EPKkXqEQOw7CEakVrrlUqVv2JbVqieghKr2N3lcaMg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794482469;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JAI4OUL2TrWY37F5xvd0X+8qNL/eL8wyTrg+ONCjoEs=;
-	b=PES9tuqo9Rc2Gnym6fcwG8dfYWu1DGmo17wmPa9qqTQHjTS8hP1WW4PtkxX/r6LYy9gBJN
-	8BjLO3tCeaspT9vRtBWGmvXnCUOZIJ5qkHZHVH+jJJixfA2BQnm/XP0XCN/1QLylEiJYXU
-	qql9Icoea27xCOmdNq5cMMNEKsmhJsZOpIWXoi1Y0MMj6kLVX8h4F4lZEzY1HAFR30KY/j
-	OesXXmzpix65Q3jzfj1n3JYRVVHe5/7uEi3iQ9dDSTfbeAEGZ6eginhNJqqOL8W2K9pDqM
-	3rLyN8RORqpJoKlf2ALWPtOkz7St8mngyFDx99Jb1E4ReWoUfbvR1iwdw8osyA==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794482469; a=rsa-sha256;
-	cv=none;
-	b=RbCN62QjvVPGiuIyH0q18mcoTd+ZabtKUJhZO45YrUSkyoQ6yXvhc1+ZXSREh4PTcVW+xs
-	wd+E6hGHT/NVYmp2Qpd1gpM+oIhO7xlNSFe4qaJFvqbZe4nw2XPPryzAgYeK+sm0A6SqO9
-	Rbso7sB5rtOBbsPaGLShEzL4rp6jPnVFeINhHKK7maTw/xLtEthnCQI++w0uiiwgPi/cFz
-	lEYIxx0iuudGCyVAkhqN5NbJKuY1C65yxKZvtsehYVdxTwq5RZkrpZikDCJJ1wbrV1tyub
-	hFqGdrca+Pb8ByyB5dJwMjaxTV9rVPeDPcpkW2sc14Rezd0u5i057oJIBsj1Sw==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
-Message-ID: <45683ba0cf239f394b621d84cbd5535f7eae410f.camel@pengutronix.de>
-Subject: Re: [PATCH v6 14/15] reset: starfive: jh71x0: Support discontiguous
- reset IDs
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>, Brian Masney	
- <bmasney@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, Stephen
- Boyd	 <sboyd@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-riscv@lists.infradead.org, Hal Feng
- <hal.feng@starfivetech.com>
-Date: Thu, 12 Nov 2026 12:21:08 +0100
-In-Reply-To: <20261008123338.11081-15-changhuang.liang@starfivetech.com>
-References: <20261008123338.11081-1-changhuang.liang@starfivetech.com>
-	 <20261008123338.11081-15-changhuang.liang@starfivetech.com>
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Thu, 12 Nov 2026 11:30:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B582E4180A;
+	Thu, 12 Nov 2026 11:30:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 797931F00A0B;
+	Thu, 12 Nov 2026 11:30:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794483042;
+	bh=TH0+wCv5ifM8REH9nQg/3agFqlZ5DUFIscm/3LxWRo0=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=dHY9/lJMFRTkdoK0UtBygoZvi0viJvrQDXFX2s5FvKi786pb0Fxhon1g90q0LAJNn
+	 PENqDFIZIbjRAr6env65rzcSprlxQbjXkDe0p4+7/+w1cPdM9UvcoaclCxkmEnvx/L
+	 oE9DKvkZ2ClL78AeiJ7MU1YcU2e6+Dliu2fKS7trzQcaY8LOeI391uTkm+viM/MxVy
+	 WDMDLV/0R+iz9jXmxmDqgcXL1XCSVSjY8aMO+Og+0+8IwKBzCv70WgbblclOZGVhak
+	 6d/l5yZ3gEYyAKuzNgCi7t9AcEuUPoxh/sg66l5EHUZ40X4td6nIxtPKl+gGBVsMFH
+	 3yeE/40xoNEGw==
+Content-Type: multipart/mixed; boundary="===============1184916852212940912=="
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261112_032112_958038_75C61E15 
-X-CRM114-Status: GOOD (  23.03  )
-X-Spam-Score: -2.1 (--)
+Message-Id: <a0cf14f466cffe1ae1e1138e7ea4466152c96c1b89ba8268a5923a0d13534f28@mail.kernel.org>
+In-Reply-To: <20261112104149.38589-6-cuiyunhui@bytedance.com>
+References: <20261112104149.38589-6-cuiyunhui@bytedance.com>
+Subject: Re: [PATCH v10 5/9] riscv: implement preemptible this_cpu add_return operations
+From: bot+bpf-ci@kernel.org
+To: cuiyunhui@bytedance.com,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,dennis@kernel.org,tj@kernel.org,cl@gentwo.org,oleg@redhat.com,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,bjorn@kernel.org,pulehui@huawei.com,puranjay@kernel.org,broonie@kernel.org,cuiyunhui@bytedance.com,dave@stgolabs.net,david.laight.linux@gmail.com,jszhang@kernel.org,tglx@kernel.org,conor.dooley@microchip.com,thuth@redhat.com,ajones@ventanamicro.com,ben.dooks@codethink.co.uk,rkrcmar@ventanamicro.com,samuel.holland@sifive.com,zong.li@sifive.com,debug@rivosinc.com,seanwascoding@gmail.com,andybnac@gmail.com,menglong8.dong@gmail.com,cyrilbur@tenstorrent.com,wangruikang@iscas.ac.cn,atishp@rivosinc.com,apatel@ventanamicro.com,arnd@arndb.de,nathan@kernel.org,nick.desaulniers+lkml@gmail.com,morbo@google.com,justinstitt@google.c
+ om,qingfang.deng@siflower.com.cn,linux-riscv@lists.infradead.org,linux-kernel@vger.kernel.org,linux-mm@kvack.org,bpf@vger.kernel.org,linux-arch@vger.kernel.org,llvm@lists.linux.dev
+Cc: ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Thu, 12 Nov 2026 11:30:37 +0000 (UTC)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,170 +65,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
 	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Do, 2026-10-08 at 05:33 -0700, Changhuang Liang wrote:
-> The reset IDs exposed to consumers of the StarFive JHB100 reset
-> controllers do not map one-to-one to the hardware reset bits.
-> 
-> Add struct jh71x0_reset_info, which describes the number of resets, the
-> assert/status register offsets and, for discontiguous controllers, a
-> table mapping reset IDs to hardware bits. Add
-> reset_starfive_jh71x0_register_with_info() to register such a
-> controller, and translate the reset ID in the update and status
-> callbacks when a map is provided.
-> 
-> Existing users of reset_starfive_jh71x0_register() are unaffected.
-> 
-> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-> ---
->  .../reset/starfive/reset-starfive-jh71x0.c    | 99 ++++++++++++++++---
->  .../reset/starfive/reset-starfive-jh71x0.h    | 19 ++++
->  2 files changed, 107 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/reset/starfive/reset-starfive-jh71x0.c b/drivers/reset/starfive/reset-starfive-jh71x0.c
-> index 29ce3486752f..fd1c755a0017 100644
-> --- a/drivers/reset/starfive/reset-starfive-jh71x0.c
-> +++ b/drivers/reset/starfive/reset-starfive-jh71x0.c
-[...]
-> @@ -29,19 +36,40 @@ jh71x0_reset_from(struct reset_controller_dev *rcdev)
->  	return container_of(rcdev, struct jh71x0_reset, rcdev);
->  }
->  
-> +static unsigned long
-> +jh71x0_reset_id_to_hw_id(const struct jh71x0_reset_map *map, unsigned int nr_resets,
-> +			 unsigned long reset_id)
+--===============1184916852212940912==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+> riscv: implement preemptible this_cpu add_return operations
+
+TL;DR: Nit only: the riscv this_cpu add_return helpers duplicate the 32/64 and
+8/16 code and the field mask; could they use the existing macro-generated
+pattern like neighbouring ops? Not a bug.
+
+> diff --git a/arch/riscv/include/asm/percpu.h b/arch/riscv/include/asm/percpu.h
+> --- a/arch/riscv/include/asm/percpu.h
+> +++ b/arch/riscv/include/asm/percpu.h
+
+[ ... ]
+
+> +static __always_inline u32
+> +__percpu_add_return_amo_case_32(void __percpu *pcp, unsigned long val)
 > +{
-> +	for (u32 i = 0; i < nr_resets; i++) {
-> +		if (map[i].reset_id == reset_id)
-> +			return map[i].hw_id;
-> +	}
-> +
-> +	return JH71X0_RESET_ID_INVALID;
+[ ... ]
+> +	return ret + (u32)val;
 > +}
 > +
->  static int jh71x0_reset_update(struct reset_controller_dev *rcdev,
->  			       unsigned long id, bool assert)
->  {
->  	struct jh71x0_reset *data = jh71x0_reset_from(rcdev);
-> -	unsigned long offset = id / 32;
-> -	u32 mask = BIT(id % 32);
-> -	void __iomem *reg_assert = data->assert + offset * sizeof(u32);
-> -	void __iomem *reg_status = data->status + offset * sizeof(u32);
-> -	u32 done = data->asserted ? data->asserted[offset] & mask : 0;
-> -	u32 value;
-> -	unsigned long flags;
-> +	unsigned long offset, flags;
-> +	void __iomem *reg_assert;
-> +	void __iomem *reg_status;
-> +	u32 mask, done, value;
->  	int ret;
->  
-> +	if (data->info && data->info->discontiguous) {
-> +		id = jh71x0_reset_id_to_hw_id(data->info->map, data->info->nr_resets, id);
-> +		if (id == JH71X0_RESET_ID_INVALID)
-> +			return -EINVAL;
-> +	}
-
-Why is this lookup done in the ops?
-It should be done once in fwnode_xlate instead.
-
-> +
-> +	offset = id / 32;
-> +	mask = BIT(id % 32);
-> +	reg_assert = data->assert + offset * sizeof(u32);
-> +	reg_status = data->status + offset * sizeof(u32);
-> +	done = data->asserted ? data->asserted[offset] & mask : 0;
-> +
->  	if (!assert)
->  		done ^= mask;
->  
-> 
-[...]
-> @@ -132,3 +170,42 @@ int reset_starfive_jh71x0_register(struct device *dev, struct device_node *of_no
->  	return devm_reset_controller_register(dev, &data->rcdev);
->  }
->  EXPORT_SYMBOL_GPL(reset_starfive_jh71x0_register);
-> +
-> +int reset_starfive_jh71x0_register_with_info(struct device *dev, struct device_node *of_node,
-> +					     void __iomem *assert, void __iomem *status,
-> +					     const u32 *asserted,
-> +					     const struct jh71x0_reset_info *info,
-> +					     struct module *owner)
+> +#ifdef CONFIG_64BIT
+> +static __always_inline u64
+> +__percpu_add_return_amo_case_64(void __percpu *pcp, unsigned long val)
 > +{
-> +	struct jh71x0_reset *data;
-> +	int ret;
-> +
-> +	if (info->discontiguous && (!info->map || !info->nr_resets))
-> +		return dev_err_probe(dev, -EINVAL,
-> +				     "discontiguous controller without a valid ID map\n");
-> +
-> +	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
-> +	if (!data)
-> +		return -ENOMEM;
-> +
-> +	data->rcdev.ops = &jh71x0_reset_ops;
-> +	data->rcdev.owner = owner;
-> +	data->rcdev.nr_resets = info->nr_resets;
-> +	data->rcdev.dev = dev;
-> +	data->rcdev.of_node = of_node;
+[ ... ]
+> +static __always_inline unsigned long
+> +__percpu_add_return_8_16(void __percpu *pcp, unsigned long val,
+> +			 unsigned int bits)
+> +{
+> +	__PCPU_OP_CONTEXT();
+> +	const u32 field_mask = GENMASK(bits - 1, 0);
 
-You can add a custom fwnode_xlate that does the
-jh71x0_reset_id_to_hw_id() translation if info->map is set.
+This isn't a bug, but the add_return helpers repeat code that the rest of
+this header generates with macros.
 
-> +
-> +	spin_lock_init(&data->lock);
-> +	data->assert = assert;
-> +	data->status = status;
-> +	data->asserted = asserted;
-> +	data->info = info;
-> +
-> +	ret = devm_reset_controller_register(dev, &data->rcdev);
-> +	if (ret < 0)
-> +		return dev_err_probe(dev, ret, "Failed to register reset controller\n");
-> +
-> +	dev_info(dev, "Registered %u resets\n", data->rcdev.nr_resets);
-> +
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(reset_starfive_jh71x0_register_with_info);
-> diff --git a/drivers/reset/starfive/reset-starfive-jh71x0.h b/drivers/reset/starfive/reset-starfive-jh71x0.h
-> index db7d39a87f87..36f198139602 100644
-> --- a/drivers/reset/starfive/reset-starfive-jh71x0.h
-> +++ b/drivers/reset/starfive/reset-starfive-jh71x0.h
-> @@ -6,9 +6,28 @@
->  #ifndef __RESET_STARFIVE_JH71X0_H
->  #define __RESET_STARFIVE_JH71X0_H
->  
-> +struct jh71x0_reset_map {
-> +	unsigned long reset_id;
-> +	unsigned long hw_id;
-> +};
-> +
-> +struct jh71x0_reset_info {
-> +	unsigned int nr_resets;
-> +	unsigned int assert_offset;
-> +	unsigned int status_offset;
-> +	bool discontiguous;
+__percpu_add_return_amo_case_32() and __percpu_add_return_amo_case_64() are
+identical apart from the width and the .w/.d suffix.  Inside
+__percpu_add_return_8_16(), the amoadd.b and amoadd.h asm blocks are
+identical apart from the suffix and the (u8)/(u16) casts.  The field mask is
+rebuilt with GENMASK(bits - 1, 0) even though PERCPU_8_16_GET_MASK(sz)
+already exists.
 
-This seems superfluous, (map != NULL) means discontiguous already.
+The neighbouring __PERCPU_AMO_OP_CASE and __PERCPU_8_16_OP_CASE helpers take
+the width and suffix as macro parameters.
 
-> +	const struct jh71x0_reset_map *map;
-> +};
-> +
+Could the add_return variants be generated the same way (taking sz/sfx, and
+using PERCPU_8_16_GET_MASK), so the 32/64 and 8/16 copies don't need to be
+kept in sync by hand?
 
-regards
-Philipp
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/43205409812
+--===============1184916852212940912==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1184916852212940912==--
+
