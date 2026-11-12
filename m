@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4BE2606A31C
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 04:42:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A16E0606A321
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 04:55:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NXOAqx8G;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oKLFmGC3
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0O2B3DSQ;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kqhr12Mt
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,50 +14,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=SNLXTSXSx0rfLy3TT2xPeX37Up01G9XGaJo6eutpyRk=; b=NXOAqx8GWDQEohfwa2HVcGbbFz
-	CpRD8tkueggkoE3kqumpGfBut/Uw3CIbsOme/XgCU0/9R28HSyukl2iY4Qj+BmDkpNRrBbCWnWr9i
-	6pzzq2PgTrA+kX3rgr3Iwv2lBL/ZKaSuFZFb0T4/PbTGAhEwmF5zI2cZUomaNYk+sotG5jSAxOdby
-	Q6CccoPqh6rJ7Vca+5buOm7jjmFINPyLlWVBNeievbkKyCj2ms80icy/psxnovQP0UaA4b5v+ENnA
-	XbwqMonmq+34cuxXKJ6bk9Nc65fJBUYYFht/QttWH/bNC9aUJPk1WTPNeBwpmzJakXDfI9UIVfeUJ
-	S9OrstqA==;
+	bh=Je32Bbuw9obEIQqnXo1aFMYh3Bn1RMTNJg6mO1VLKzg=; b=0O2B3DSQmq3S45sMnR7qn263qt
+	qn2yguX/6oZPzSlr3lTlAdHV7QML3bbWcFP/n0T5QQc47M/HDgt22eDTBVZQm8RXfS7VmQXTS58Gu
+	yaUUEMmn14dXQBV8OMOPUH4BglHH8zKZRjJtRRJT6W7ttMsOuyCbtKQSpP0JodY67i5eJhadeE2wl
+	cX7CInTJv96PAYa2NaDn/V+zjLtmnc16I7AMugCVzWo3WzsbWD1ex68yZ/v4gzo2mi5MAO5gs5614
+	XHRa8LZ5OxoaGl/7WomehNm6AmAMrxsl8YgDDhMWH+unagruWzORO3dF9rTjOd9zdeBrtboHlsizs
+	KRUg/euQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRMdf-00000008hRh-0gNf;
-	Thu, 12 Nov 2026 04:42:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xRMqX-00000008i5N-27MD;
+	Thu, 12 Nov 2026 04:55:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRMdd-00000008hRY-3sof
-	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 04:42:18 +0000
+	id 1xRMqT-00000008i50-1Jbw;
+	Thu, 12 Nov 2026 04:55:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 01A736144B;
-	Thu, 12 Nov 2026 04:42:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CA731F00A05;
-	Thu, 12 Nov 2026 04:42:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A354745AD1;
+	Thu, 12 Nov 2026 04:55:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D8501F00A05;
+	Thu, 12 Nov 2026 04:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794458536;
-	bh=o/qgiXuzgvovjEKL8rovshVCvJVWXh8SFxbVTEJ1seg=;
+	s=k20260515; t=1794459332;
+	bh=f6DiOKeltQeZ7TB+jtdmAXbFdrOValtxf9JywtD8Mbs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oKLFmGC3CBj77IN8R53zS/qL4a9ihAyCGK4U17EoaCbrRh/OFRePeoLEaQ9UIRXFV
-	 W+MhiXrz9hcC1OgXhmJ8pcH1BiEjHXRV2vI4Sj33UP/CLyE0ZUafwI2F8yOz1rl9pO
-	 R+QEB/6cWdVzm7EvYpsVHHKvTNCGa6BDyUG0bEvu67xeJj0FXb5YFLtKEUXM2EW0tA
-	 Tc72WNyZFLo/p5rdV29LJmowivAqevjWwW3UhAGgXOEjYoF0UGJyYfls/77o5KyvrP
-	 qenHsmKsSNvi9E6UjCdftqprbzkCEN9k6yix/ab0BzaycSjd6zYYtbXc1yEKZOGJGN
-	 fAklX1TBxLtBQ==
-Date: Thu, 12 Nov 2026 12:22:03 +0800
+	b=kqhr12MtulG4W3Vc40BFXJtR0kQMtkn1mqf98BGsC4FszMgVRPpUN92TefGOGvpZV
+	 I8L67cCs2G66T+YINMKUjD2x6g6E9OhPOPrIMTo6KHNB703QJ2HAT8yiAl0WQLjg1T
+	 szZmTQD7/klIr5UIaaXM+2HgcQVgeK5fpRP+zErU6uDJO4HPJbjW/apy1ZYpBMAdlJ
+	 2RtXhHRTRBFGYJjqC8b3P6Pxvp14yzWR0gjW1S3fCte+hq7LGKKwSRzT2g/b1czpZR
+	 +6wSryMNVkJ9hkrBarxUSWOovh0+MPpz0ecB+E/uiOaZsSItVxmn/TKaznO32pCcmi
+	 /o/YTkQkzRGlQ==
+Date: Thu, 12 Nov 2026 12:35:18 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: unaligned: fix __setup handlers
-Message-ID: <avU-62EVrL341rL5@xhacker>
-References: <20261111-fix-riscv-unaligned-v1-1-0722514fc1e4@mobileye.com>
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 0/3] riscv: Align section markers with other archs
+Message-ID: <avVCBs57OqqH7kVI@xhacker>
+References: <20261111164345.4059964-5-ardb+git@google.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261111-fix-riscv-unaligned-v1-1-0722514fc1e4@mobileye.com>
+In-Reply-To: <20261111164345.4059964-5-ardb+git@google.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,55 +76,51 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 11, 2026 at 12:41:21PM +0200, Vladimir Kondratiev wrote:
-> Returning -EINVAL from a __setup() callback cause invalid
-> unaligned_scalar_speed= and unaligned_vector_speed=
-> values to be treated as handled. obsolete_checksetup() treats any
-> non-zero return value from setup_func() as success, so an unrecognized
-> argument is silently accepted instead of being reported as an unknown
-> boot option.
+On Wed, Nov 11, 2026 at 05:43:46PM +0100, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
 > 
-> __setup() handlers return 0 on failure.
+> Patch #3 of this series was sent out as part of a EFI series [0] that
+> implements generic support for carrying image info data inside the stub,
+> and after Sashiko found another related issue, I decided to break it out
+> into this series. IOW, patch #3 is a resend.
 > 
-> Fixes: aecb09e091dc ("riscv: Add parameter for skipping access speed tests")
-> Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+> The point of these changes is to harmonize all architectures that
+> support EFI in terms of the section markers, so that generic zboot code
+> can refer to them without arch specific #ifdefs. Other generic tools
+> probably benefit from this too. 
+> 
+> If the maintainers are onboard with this, kindly put it on a stable
+> topic branch so I can refer to it from the EFI tree.
+> 
+> [0] https://lore.kernel.org/all/20261110121731.2728824-12-ardb+git@google.com/
+> 
+> Cc: Paul Walmsley <pjw@kernel.org>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: Alexandre Ghiti <alex@ghiti.fr>
+> Cc: linux-riscv@lists.infradead.org
+
+For the series:
 
 Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
 
-> ---
->  arch/riscv/kernel/unaligned_access_speed.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-> index 67f1a0371659..323ccfcfbbb7 100644
-> --- a/arch/riscv/kernel/unaligned_access_speed.c
-> +++ b/arch/riscv/kernel/unaligned_access_speed.c
-> @@ -322,7 +322,7 @@ static int __init set_unaligned_scalar_speed_param(char *str)
->  	else if (!strcmp(str, speed_str[RISCV_HWPROBE_MISALIGNED_SCALAR_UNSUPPORTED]))
->  		unaligned_scalar_speed_param = RISCV_HWPROBE_MISALIGNED_SCALAR_UNSUPPORTED;
->  	else
-> -		return -EINVAL;
-> +		return 0;
->  
->  	return 1;
->  }
-> @@ -337,7 +337,7 @@ static int __init set_unaligned_vector_speed_param(char *str)
->  	else if (!strcmp(str, speed_str[RISCV_HWPROBE_MISALIGNED_VECTOR_UNSUPPORTED]))
->  		unaligned_vector_speed_param = RISCV_HWPROBE_MISALIGNED_VECTOR_UNSUPPORTED;
->  	else
-> -		return -EINVAL;
-> +		return 0;
->  
->  	return 1;
->  }
+> Ard Biesheuvel (3):
+>   riscv: Use _stext not _text to denote the start of kernel code
+>   riscv: Make _text point to the start of the kernel image
+>   riscv: Rename __init_text_end to __inittext_end like other archs
 > 
-> ---
-> base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
-> change-id: 20261111-fix-riscv-unaligned-e2df80509e0f
+>  arch/riscv/include/asm/sections.h         | 2 +-
+>  arch/riscv/kernel/image-vars.h            | 2 +-
+>  arch/riscv/kernel/setup.c                 | 2 +-
+>  arch/riscv/kernel/vmlinux.lds.S           | 6 +++---
+>  drivers/firmware/efi/libstub/riscv-stub.c | 2 +-
+>  5 files changed, 7 insertions(+), 7 deletions(-)
 > 
-> Best regards,
-> --  
-> Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+> 
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+> -- 
+> 2.56.0.611.g1030f0b940-goog
 > 
 > 
 > _______________________________________________
