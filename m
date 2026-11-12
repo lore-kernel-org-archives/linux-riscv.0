@@ -2,99 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C153606A883
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 09:06:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AC5F606A32A
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 10:02:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0t3l5BFK;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=KW/OtKqt
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sc19r2Ch;
+	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=hBfgAfpv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ldQxGdrRdmio4viNEWSwEG23fFQ3Qcnp8IoFbeYeuG0=; b=0t3l5BFKh5NCdabRqF+5tmUVV5
-	syX4d6TX+V56WFRJ/32ta8gIGKPEUbIgqT7GaGBCkKZ4pnlRzwTmnkemA/TRTe9bz8D22SYlO8/3o
-	Q61h07Qh6m2h8iVBJ4xRI57g+ghz9l8wKAv/TBTeAbQCxgBO/VM6F9TG+vcozEnscJDiiCol/DtV8
-	gMelzdf0Ny8B2JaeO2zCWAECU8f3fMvY6UGyCT+z3iAz/Wi6Mt93+8QV58gtY3cvYc0H4gDilLe+q
-	NlpJhx/q5wQ8e7MtN+tnaaSksUcBIXqIloFjcOoRc+CC5mPDN8iCJb+7RlIgDTdzIjjycaeZO+5fK
-	Picu+33Q==;
+	bh=YEmoz0tCrn02bYodGzG+yqjq9xrhSutYMF98zUa1o4A=; b=sc19r2ChwgO1u6xWLW64I6rz8R
+	yQJ1FBOmHBJemJAaQR8ohOhAgCUCnAWjOjPB1PQjHtLdn6+wsoGLI1ZJ1Ch3Qt5158rxkSZGmgqJE
+	AjJzKiWREO02dk9vgUMb3C24yPLRpb2ccbbEYY1M4rckDuQcZNa2BUAWu+qr++Q8CWrhnbLdM3SKz
+	UqvTS7c+o/aZmTSHkvRCLbjr1O57dmrhBFCwZ0/q0jhdSy7E1leb6VroNkFFTEnRqGU4WXDy0iIs1
+	rRdMWWZNdBVn9L+ALy77D/tSUHOj7tMxg3fGVLqFb9MA367kj5aEFRRDWHK6jDCH00w44QBS4sTuG
+	QEh1DPJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRQlU-00000009I9I-2yKa;
-	Thu, 12 Nov 2026 09:06:40 +0000
-Received: from smtpbgeu2.qq.com ([18.194.254.142])
+	id 1xRRdN-00000009Rwi-3YwO;
+	Thu, 12 Nov 2026 10:02:21 +0000
+Received: from esa2.hc555-34.eu.iphmx.com ([23.90.104.147])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRQl1-00000009I1E-0LD1
+	id 1xRRd8-00000009Rum-40XL
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 09:06:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1794474344;
-	bh=tRjCHW5JmHRNfYMVVQ7cTaxvP6E3n7AN8iMMHkTyP+0=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=KW/OtKqtEoK1lsY4m8IpSlY8BhiL7cv5ru/UgX2vN7ctVpvEeFKyN7mBEPDZtSf/X
-	 Y5qD1AaQaYz9eCfxVLJ9z0dpLbogF7UujjGh+Lbo8d4EKHlpf+xRFFQV7xU+TEKNaW
-	 qojewXUaoN6p6iUeMF+Mw95S7ab1zbWvzvmAmsIY=
-X-QQ-mid: zesmtpsz7t1794474342t162cc61d
-X-QQ-Originating-IP: IlA0oIyOsGcenbBY3KwfaIG3ySBqnU3pDSZoMsU2a7s=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 12 Nov 2026 17:05:40 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5635266169473473892
-EX-QQ-RecipientCnt: 20
+	Thu, 12 Nov 2026 10:02:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
+  t=1794477727; x=1826013727;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=YpC0OEjDp61x4WrPRvwkNA3r5ASkUlU6edCKs+rSt+c=;
+  b=hBfgAfpvnlGimK00RzjihpPa8U/hE6yNo+pzwvsddB3plchwE3CkmEsl
+   5qR/uy+lC05ScpJdimdSZPxh8MBwJ9xudlPEqnE9n7vvolmKvARpZwgwK
+   S5ZoYrr+j9aHroHC6ZmZQM0eFSZ9IbfdbvwqyVup9MO8a+S/nzaruo4/H
+   b9fTEDLmqPUenCrccpSYjWNmJpFlwK/RTbPy6tHLaQsxSlhPk4ycHLAcJ
+   v7b1LQ9TKqGnRBRpsmfVMeuDURw23L54GXPneITHWHeR93Vgc+NVApz9M
+   yY4EAcQYxamSWlNna+a2nwWdzIQPcehhFOgdcNUKDoCOM3rOgcJKvtLOw
+   A==;
+X-CSE-ConnectionGUID: rUNqhAMySHap40T7AiPgZQ==
+X-CSE-MsgGUID: 0clbdBTOQ1WmaGRPGlUU4g==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from unknown (HELO ces03_data.me-corp.lan) ([146.255.191.134])
+  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Nov 2026 12:01:59 +0200
+X-CSE-ConnectionGUID: SjyM7SAtQ+OlhWgK67J13Q==
+X-CSE-MsgGUID: hU6RHL/aQ0qgRa4niEPqMA==
+Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.2])
+  by ces03_data.me-corp.lan with SMTP; 12 Nov 2026 12:09:56 +0200
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Thu, 12 Nov 2026 12:01:58 +0200
+From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Date: Thu, 12 Nov 2026 12:01:44 +0200
+Subject: [PATCH v3 1/2] riscv: kprobes: fix out-of-bounds read in
+ riscv_probe_decode_insn
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-Date: Thu, 12 Nov 2026 17:05:37 +0800
-Message-Id: <DMT42A4ZNEL8.29E9VX1NOTPSE@linux.spacemit.com>
-Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>,
- <marcel@holtmann.org>, <luiz.dentz@gmail.com>, <robh@kernel.org>,
- <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <anarsoul@gmail.com>,
- <alistair@alistair23.me>, <pjw@kernel.org>, <palmer@dabbelt.com>,
- <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
- <linux-bluetooth@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 0/2] Bluetooth for the RTL8852BS on BPI-F3
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: =?utf-8?q?Fr=C3=A9d=C3=A9ric_Mah=C3=A9?= <frederic.mahe@cirad.fr>,
- "Yixun Lan" <dlan@kernel.org>, "Luiz Augusto von Dentz"
- <luiz.von.dentz@intel.com>
-X-Mailer: aerc 0.21.0-reader-ipc4
-References: <20261111094557.443481-1-frederic.mahe@cirad.fr>
- <179442601916.1604530.1705197925952408060.git-patchwork-notify@kernel.org>
- <DMSUPKS0VL8N.1RUUESQVU8FMF@linux.spacemit.com>
- <20261112061951-GKA62271@kernel.org>
- <20261112085617.516945-1-frederic.mahe@cirad.fr>
-In-Reply-To: <20261112085617.516945-1-frederic.mahe@cirad.fr>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NxDjMro7FujaZjwbpQQFZrocKL1ZPj9tYsZJZb22KtIlWGb/PMJNxnNn
-	ZqTIwiNj10Ki+AEigic7v9bbvThNpflGlEqG3Az/NXT8ZAiCaKSWNRcEQj9XdVmnY8Biwj9
-	c0H1OZylVDd6yzxnb8ehKGE1aIa31dwR16fAr88/3b9drLZUXTOnu3XPLEJT8Ndx24heVly
-	mGh3VCdKdRhpv8tOa8ppFfKmc1MIzV2vWod+RZBrrBYHz/9/OuKvcaDoVb7J6IbgbUap/FH
-	UuoOXOFlQdb4HaGWRtZYZjvSoSUr6dupsTEeg4JZpMJfmi+oI8lf6BNnK5KONFr650j+jBK
-	1hn5Bhs/jqyXVQMXAdcNQFX5TxlpMR6HiF2QI/wwwEaEUtiWOWcjR8WvYS8e5FRvpHTA6Fq
-	xIxQffBosTmO/Z3jM+AHkS79PC04btih8qyIjfixgnmBtx1ZvBhhHFpiscBrvmybzv7qP96
-	sVqNWRxuklX0Gdx0p1mVYIF5hYGGzGp9gykJqYzZFlN9tV9v1TE6C/KidEt0tFdlxK7f3C8
-	QwAjRC9DT+VqzHXtz8td7n1Eq0wwphT9/f3LrIwqJ8E+N8SAKntezGwId8YS7Uy1t4wGsqt
-	/IZ4vijTd1kykG8bkp9q2pkcLYVAfGuifEbcKYiD3TtzKZzb6nvRmd3Vgywh/lUp03owjuu
-	x4TVhVerZaCNRE6Pi6y7+y2z75uQuSFxSyZKzgnIdEI/041XzmfmKgnfS2+DKjWpQPPPdVo
-	Gg5USb1Lk6e/oQy4yt7obleXU6LD0RYIDqg01MlX/i4/LAnt7dKU1ZsXclgxVZFUNBuKRno
-	kimHabaxyCYIf978iyat9PEAUo6XkSMRFpvt8L1uR7XMf/yEZoZ2wL/JbCA72A6O9iFM3N/
-	SPf6bYylwB6uGnyHj9CPMnaKwXrd+DoD8glK5nnW7bDuw99FJV+fOS2ID+ewXmobozKejj3
-	10WJdWbmrpXQUWXanhDp1qgzkJL25tykt+eagnYwgjV2LeC7B4WEk6PsBCtrH+/+vDdkEf0
-	cMgHt2m720gEsA6vcW5ElqgtmmmCtni9RdnBH/sTtxLg9GOkFZPsW+zETEA/oFVNt2etXmQ
-	hNHiuyuj8juXJHeL/9omO0=
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
+MIME-Version: 1.0
+Message-Id: <20261112-probes-in-lrsc-v3-1-a95089852a17@mobileye.com>
+References: <20261112-probes-in-lrsc-v3-0-a95089852a17@mobileye.com>
+In-Reply-To: <20261112-probes-in-lrsc-v3-0-a95089852a17@mobileye.com>
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
+ Peter Zijlstra <peterz@infradead.org>, Guo Ren <guoren@kernel.org>, 
+ Pekka Enberg <penberg@kernel.org>, 
+ =?utf-8?q?Patrick_St=C3=A4hlin?= <me@packi.ch>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-trace-kernel@vger.kernel.org, 
+ Palmer Dabbelt <palmerdabbelt@google.com>, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+ Sashiko <sashiko-bot@kernel.org>
+X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261112_010615_782459_A1389CFE 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261112_020208_991121_DB1EEF61 
+X-CRM114-Status: GOOD (  13.98  )
+X-Spam-Score: -4.0 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,69 +87,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2447712079833707157=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============2447712079833707157==
-Content-Type: multipart/signed;
- boundary=c32ee5a21c6b100d441d9006521f571ae297a6e48585a5c8ae4e444b3749;
- micalg=pgp-sha512; protocol="application/pgp-signature"
+riscv_probe_decode_insn() can trigger an out-of-bounds page fault
+when probing a 16-bit compressed instruction at the end of a page.
 
---c32ee5a21c6b100d441d9006521f571ae297a6e48585a5c8ae4e444b3749
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+arch_prepare_kprobe() safely reads 16-bit parcels into p->opcode, but then
+passes p->addr to riscv_probe_decode_insn(), which unconditionally
+dereferences *addr as a 32-bit probe_opcode_t
 
-Hi Fr=C3=A9d=C3=A9ric,
+If a 16-bit instruction sits in the last two bytes of a mapped page next
+to an unmapped page, the 32-bit read of *addr crosses the page boundary
+and faults.
 
-On Thu Nov 12, 2026 at 4:56 PM +08, Fr=C3=A9d=C3=A9ric Mah=C3=A9 wrote:
-> Hi Luiz, Yixun,
->
-> Sorry, I should have said in the cover letter which tree each patch
-> was meant for.
->
-> The split is fine with me: binding in bluetooth-next, DTS through
-> Yixun's tree. I can resend patch 2/2 on its own, rebased on the
-> SpacemiT tree, if that helps.
-Nothing to apologize for. Which tree takes which patch is for Luiz
-and Yixun to sort out, not you. No need to resend.
+Passing &p->opcode instead of p->addr to riscv_probe_decode_insn()
+(as arch_uprobe_analyze_insn() already does) avoid reading past the
+instruction.
 
-Thanks for your contributions :)
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/bug/linux-812af091-20d1-4915-97a6-741f51e07022
+Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
+Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+---
+ arch/riscv/kernel/probes/kprobes.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+index 9e2afabf94e8..63ee5066def5 100644
+--- a/arch/riscv/kernel/probes/kprobes.c
++++ b/arch/riscv/kernel/probes/kprobes.c
+@@ -85,7 +85,7 @@ int __kprobes arch_prepare_kprobe(struct kprobe *p)
+ 		p->opcode |= (kprobe_opcode_t)(*insn) << 16;
+ 
+ 	/* decode instruction */
+-	switch (riscv_probe_decode_insn(p->addr, &p->ainsn.api)) {
++	switch (riscv_probe_decode_insn(&p->opcode, &p->ainsn.api)) {
+ 	case INSN_REJECTED:	/* insn not supported */
+ 		return -EINVAL;
+ 
 
---=20
-Troy Mitchell
+-- 
+2.43.0
 
-
---c32ee5a21c6b100d441d9006521f571ae297a6e48585a5c8ae4e444b3749
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iIYEABYKAC4WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCavWBYRAcdHJveUBrZXJu
-ZWwub3JnAAoJEJgJ74D5MzQvtFEA/1OZjuWJIgwA06HIk6xYdeBFMff3E7qYiKdj
-v2lOmwOuAQDOFj0BJUXyYaSBUKsihcqMPFi3X1LWjkUMgbppoOnQAw==
-=uEhc
------END PGP SIGNATURE-----
-
---c32ee5a21c6b100d441d9006521f571ae297a6e48585a5c8ae4e444b3749--
-
-
---===============2447712079833707157==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2447712079833707157==--
-
