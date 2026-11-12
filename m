@@ -2,76 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF6CF606A327
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 08:15:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C81B606A330
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 08:22:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EdgV8m4q;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AnvzJ1ZF
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VqtuOQHs;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=picoheart.com header.i=@picoheart.com header.a=rsa-sha256 header.s=feishu2604151535 header.b=ubtI/Adm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:In-Reply-To:Mime-Version:Message-Id:
+	Date:To:References:Subject:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=kawARf6kUS3kx97I21TRnsGsZhfYOnxVqrCAEsO8lCc=; b=EdgV8m4qZr1ZRHQnBpzZKr7Tz2
-	DKBkugueav/85YQGxbc1RBb1Px+Oi47J5/mVXaC8slukAOZWWrGbIZ4xzbHJmkt0i4Ic2FdOVi3/y
-	CvaLTvIWtByZWKsz4AFIWxzfXs7UxqqEGRoAE9RNSomtFnRH0tvao57Htcrv/cvmLR6rWywtygGvZ
-	YUxrpZVhCUtvdszJZ0UXsoTQE8y4YAGId62/SMbEPqC38q5cbRJV4oc/ZQaNNfXIK1GtB1kxTGN4Y
-	UZpA3KHL7KdeTnS/8JwXCdeDT/OiEjvWsxh8TzyrE4GHsgAll0rStFRnyGaP1LVNaJH81oYfCpNdw
-	W4ai9/Gg==;
+	bh=RHzpqlM539cFzbIwsRixfJvi3mabliuHgKs8mVzzYz8=; b=VqtuOQHsGdtBRlEKwb5F90W/Qd
+	897KpbydmtVd0eUK8aMkfWBOeFBXDPxa5J+lGKO+/E5lt3rFqCeR7WR9d+HX+KliBnkDIJVRL11fo
+	Ecixl4pH/rEGke5/4etHMUQWfxYADLLhOnEzGYwaEpOh9EOaRSdIXiJn2ch6GaQi8shq4bnphI/ZN
+	tB1AW8hyaHM/idldXV0OkUnNtoMnE8svMVV1uOk9uAq1WwsOYEI7KjedexAv54hVCYlrltN3wi9d7
+	XDpggxxr5mcwWGWK0Jzn6KF5OBpr19gQWsHTKCNAdso0Zig1qMko7fb0tGRGyQFCVcv7P/5TArZjH
+	ih2LTiyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRPxw-000000093Y9-0yS5;
-	Thu, 12 Nov 2026 08:15:28 +0000
-Received: from out-231.mta1.migadu.com ([2001:41d0:203:375::e7] helo=mta1.migadu.com)
+	id 1xRQ4H-000000094rX-1GLe;
+	Thu, 12 Nov 2026 08:22:02 +0000
+Received: from va-2-40.ptr.blmpb.com ([209.127.231.40])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRPxn-000000093W8-15Ik
+	id 1xRQ3n-000000094e7-08Yc
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 08:15:23 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=sOgtWAxcrlGbQSoX1V5yIO89uZD0ppP6b0dzshzQZsc=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794471317; v=1; x=1795076117;
- b=AnvzJ1ZFCaCiZnIDtP1SZ+ImD/TpS6sCyMtYC5n3CFRJqvwBimRi6F2+fE96Mzx5aW0m1H50
- 08XHc86yjCchFn/DHCDkZNab4AbGyYrvvsVXT1XEvJlgPFbcMeOmNXIQfiSSa0thk/fewpLBcb4
- bb0eWUzCE+GMAiM6erXd4R40=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by mta12.migadu.com with ESMTPS id d04481d91be052fc;
-	Thu, 12 Nov 2026 08:15:15 +0000
-X-Mizu-Trace-ID: d04481d91be052fc
-X-Migadu-Flow: FLOW_OUT
-From: Troy Mitchell <troy.mitchell@linux.dev>
-Date: Thu, 12 Nov 2026 08:14:43 +0000
-Subject: [PATCH v3 2/2] irqchip/riscv-aplic: Apply pending affinity changes
- for level MSI sources
+	Thu, 12 Nov 2026 08:21:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=feishu2604151535; d=picoheart.com; t=1794471685; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=mBIfK3o4iKarK872/zHsbPwNjbdGsJJ2EGo7hkRryuo=;
+ b=ubtI/AdmuWch873AWa+G6EF2nNJhGeIaaVqOj9IGrCaMnm73By8PtP7pXJBLljxlWdvot9
+ XfyTaZU1eGFkxOd+anZJfbyADN+VaX9WqaVyY/Nxr/0mlJf/f1hs8pltbxPqSmgX3D1pcu
+ 2fCa1cW3P/HsnWTbQaLcFh0f+iRwf2UwzmY/aNFr9KxvvaJNwIk+izEcMqE9TmNU85169F
+ 259Ld23Nl+Rm+svYwNDfddYCqeq/HBKPuX3o9/Hn3qGWHVP+7lTBsCoQsR3EFg1U3Vc8yJ
+ ahzBhMzk/os3ONtV5WUHrVc2bQx5VKxhm/V0e8Q2keuuEhkamszHQLqDj+IacQ==
+From: "Yicong Yang" <yang.yicong@picoheart.com>
+Subject: Re: [PATCH] riscv: mm: Limit per-page TLB flushes for large PTE batches
+References: <20261112110525378dgDlKhA-G74_y3b6ZeZkz@zte.com.cn>
+To: <hu.shengming@zte.com.cn>, <pjw@kernel.org>, <palmer@dabbelt.com>, 
+	<aou@eecs.berkeley.edu>
+Date: Thu, 12 Nov 2026 16:21:19 +0800
+Message-Id: <c125c25d-c7be-4116-9837-09dd7fa91a91@picoheart.com>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Message-Id: <20261112-aplic-affinity-fix-v3-2-943d25cfbfad@linux.dev>
-References: <20261112-aplic-affinity-fix-v3-0-943d25cfbfad@linux.dev>
-In-Reply-To: <20261112-aplic-affinity-fix-v3-0-943d25cfbfad@linux.dev>
-To: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@kernel.org>, 
- Radu Rendec <radu@rendec.net>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, 
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>
-Cc: Anup Patel <apatel@ventanamicro.com>, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Troy Mitchell <troy.mitchell@linux.dev>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2666;
- i=troy.mitchell@linux.dev; h=from:subject:message-id;
- bh=sOgtWAxcrlGbQSoX1V5yIO89uZD0ppP6b0dzshzQZsc=;
- b=owGbwMvMwCU2g/N9w09jE33G02pJDFlfS5vsPBxTf2U+i7f0VfvNnhT69+J0683+CR+F1ywyf
- HfYdN3ljlIWBjEuBlkxRZbuBzzbCnyibAsECn1h5rAygQxh4OIUgImcfMLI8Kz1jhDD/xhGWes0
- X9/l6tcMhCc2NLu8zWOyupC6JNFTkOGfscHKrKWLbfu4Yrd2rKs+m32xPiqqteWcpEj0O+Xg0uP
- MAA==
-X-Developer-Key: i=troy.mitchell@linux.dev; a=openpgp;
- fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
+Mime-Version: 1.0
+In-Reply-To: <20261112110525378dgDlKhA-G74_y3b6ZeZkz@zte.com.cn>
+User-Agent: Mozilla Thunderbird
+X-Lms-Return-Path: <lba+26af57703+7f9998+lists.infradead.org+yang.yicong@picoheart.com>
+Received: from [100.86.214.79] ([58.250.106.102]) by smtp.feishu.cn with ESMTPS; Thu, 12 Nov 2026 16:21:22 +0800
+Cc: <yang.yicong@picoheart.com>, <alex@ghiti.fr>, 
+	<akpm@linux-foundation.org>, <baolin.wang@linux.alibaba.com>, 
+	<wangruikang@iscas.ac.cn>, <linux-riscv@lists.infradead.org>, 
+	<linux-kernel@vger.kernel.org>, <zhang.run@zte.com.cn>, 
+	<luo.haiyang@zte.com.cn>
+Content-Language: en-US
+X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261112_001519_455307_9A789D76 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20261112_002132_148715_C051AD98 
+X-CRM114-Status: GOOD (  14.82  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,82 +75,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-IMSIC rejects an affinity change with -EBUSY while a previous vector
-move is still in flight, and the IRQ core then records the new mask as
-pending. The change is applied by irq_move_irq() in the IMSIC irq_ack
-callback, but level-triggered APLIC MSI interrupts are handled by
-handle_fasteoi_irq(), which never calls irq_ack.
+On 11/12/26 11:05 AM, hu.shengming@zte.com.cn wrote:
+> From: Shengming Hu <hu.shengming@zte.com.cn>
+> 
+> On systems without Svvptc, update_mmu_cache_range() performs one local
+> TLB invalidation per PTE. With 4 KiB pages, installing a PTE-mapped
+> 1 MiB anonymous folio requires 256 SFENCE.VMA instructions, or 256
+> SINVAL.VMA instructions bracketed by SFENCE.W.INVAL and
+> SFENCE.INVAL.IR.
+> 
+> Apply the existing local TLB range-flush policy to PTE batch updates.
+> When nr exceeds tlb_flush_all_threshold, use local_flush_tlb_all_asid()
+> to replace per-page invalidations with a single ASID-wide SFENCE.VMA.
+> This orders the PTE writes before subsequent implicit page-table
+> accesses and invalidates translations for the entire batch. As with
+> range flushes, this may also evict unrelated translations for the same
+> ASID.
+> 
+> Benchmark results from will-it-scale's page_fault1_processes under
+> QEMU 9.1.93 (qemu-9.2.0-0.3.rc3.fc40), with svvptc=false and
+> CONFIG_TRANSPARENT_HUGEPAGE=y (higher is better):
+> 
+> Folio size      Before       After     Change
+> =============================================
+> 4 KiB           116537      113503      -2.6%
+> 512 KiB        1431962     1977519     +38.1%
+> 1 MiB          1528457     2208209     +44.5%
+> 
+> Signed-off-by: Shengming Hu <hu.shengming@zte.com.cn>
+> ---
+>  arch/riscv/include/asm/pgtable.h | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 2ebd5fa5adc5..ebe42fcf35ae 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -571,6 +571,11 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+>  	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SVVPTC))
+>  		return;
+> 
+> +	if (nr > tlb_flush_all_threshold) {
+> +		local_flush_tlb_all_asid(asid);
+> +		return;
+> +	}
+> +
 
-The pending change is therefore never applied. While it is pending,
-later affinity changes only update the pending mask, so the interrupt
-stays on its old CPU.
+could we reuse local_flush_tlb_range_threshold_asid() or
+local_flush_tlb_range_asid()? now the logic is exactly
+the same.
 
-Use handle_fasteoi_ack_irq() for level-triggered sources. It acks the
-interrupt before invoking the handler, so a pending affinity change is
-applied on the next interrupt, and the EOI retrigger then targets the
-new CPU.
+thanks.
 
-Fixes: 58d868b67a9a ("RISC-V: Select CONFIG_GENERIC_PENDING_IRQ")
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
----
- drivers/irqchip/Kconfig               | 1 +
- drivers/irqchip/irq-riscv-aplic-msi.c | 7 +++++--
- 2 files changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index 136bab41f801..a639a0c2f3d2 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -645,6 +645,7 @@ config RISCV_APLIC_MSI
- 	bool
- 	depends on RISCV_APLIC
- 	select GENERIC_MSI_IRQ
-+	select IRQ_FASTEOI_HIERARCHY_HANDLERS
- 	default RISCV_APLIC
- 
- config RISCV_IMSIC
-diff --git a/drivers/irqchip/irq-riscv-aplic-msi.c b/drivers/irqchip/irq-riscv-aplic-msi.c
-index 5aa9607fbd83..7a8e569002c1 100644
---- a/drivers/irqchip/irq-riscv-aplic-msi.c
-+++ b/drivers/irqchip/irq-riscv-aplic-msi.c
-@@ -75,13 +75,16 @@ static int aplic_msi_irq_set_type(struct irq_data *d, unsigned int type)
- 	 * acknowledged before the handler runs. The edge flow handler also
- 	 * replays an interrupt which arrives while the previous one is
- 	 * still being handled on another CPU after an affinity change.
-+	 *
-+	 * Level-triggered sources use the fasteoi flow, but still need the
-+	 * ack so that the IMSIC parent applies deferred affinity changes.
- 	 */
- 	if (type & IRQ_TYPE_EDGE_BOTH) {
- 		irq_set_chip_handler_name_locked(d, irq_data_get_irq_chip(d),
- 						 handle_edge_irq, "edge");
- 	} else {
- 		irq_set_chip_handler_name_locked(d, irq_data_get_irq_chip(d),
--						 handle_fasteoi_irq, "fasteoi");
-+						 handle_fasteoi_ack_irq, "fasteoi");
- 	}
- 
- 	/*
-@@ -182,7 +185,7 @@ static const struct msi_domain_template aplic_msi_template = {
- 	.info = {
- 		.bus_token		= DOMAIN_BUS_WIRED_TO_MSI,
- 		.flags			= MSI_FLAG_USE_DEV_FWNODE,
--		.handler		= handle_fasteoi_irq,
-+		.handler		= handle_fasteoi_ack_irq,
- 		.handler_name		= "fasteoi",
- 	},
- };
-
--- 
-2.56.0
-
+>  	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SVINVAL)) {
+>  		local_sfence_w_inval();
+>  		while (nr--)
 
 _______________________________________________
 linux-riscv mailing list
