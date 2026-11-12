@@ -2,82 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCB1C606A31C
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 07:46:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4420D606A331
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 07:55:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Y3AA7dgH;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HXfc0DEV
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KX8jFF0T;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gCeQCAUq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Message-Id:MIME-Version:Subject:Date
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=dmG32PC5WuWosM4FNhW2q23fKrBYsOXBObrkaazf6is=; b=Y3AA7dgHNWcVkfH7DJk3OqTFMl
-	B9PlGsMOH03vCneiIK4UuOwC2SeVc4Oix2Oj+LBBqa5C/QZSyUTgtX1G4Utog6akgzRYkeo9aOovN
-	IgtOrWUY8GW3DBy7vhB1qKZeJpp4I+hac8r70UcvYMbBi7JHZu3dDKOou19RX/bJP4LbfUeYuFA6g
-	OChLRYDWlPo53C6iAWlNQEIsaNyarNOhHELoiszwVUiNkj9MVsYz4pWhozA0FthWasjoF8Hbq4Hrv
-	y0BUH/8w/0MRoiQi2n2FRs0kSUkq+nc3PrOL+FvRdFjW87Vzaa6LFR9OvvhfxVyauTjhcgKAuiGuO
-	9UkzK6qw==;
+	bh=q1oaSCK2K+2E1+/XuYnTbuTceZD50UatSVCc4BGIogk=; b=KX8jFF0Tnap4+i66Tmo4qslHNd
+	cwkO1JdLQP2NC7te+QDjUeQElqmOOZ5SpFrZdcVsWaF1rT9gW4XxxZzFFFZIlgArUhF9ptR71wVQD
+	EpXBYnlkAMtJVEvSX2dI5J0tx5l5h7MVBAPOIFpSWpETMN+AJ0UePXCD9tAB94YtRWd2j8lG9nTCU
+	vWB1laLqTJJbTQieTG6O6uuRHrjss+A5oxAHtv9C0pkKawjDJjeRsH2dl206wKqM/TDAyttz7Ldq7
+	hipcre2no80bgYY4Q4vLCxnChSCkDMnO4RBqDbsZaCeufPBOqDLMCnNNqjJlXlTH9Wsw2syJgZSKA
+	KARHto5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRPVL-00000008wuP-0vYq;
-	Thu, 12 Nov 2026 07:45:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xRPeF-00000008zFH-1J2P;
+	Thu, 12 Nov 2026 07:55:07 +0000
+Received: from out-96.mta0.migadu.com ([2001:41d0:1004:224b::60] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRPVJ-00000008wu4-1yrL
+	id 1xRPds-00000008z71-1ioh
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 07:45:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8339A61608;
-	Thu, 12 Nov 2026 07:45:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D7231F00A05;
-	Thu, 12 Nov 2026 07:45:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794469552;
-	bh=IKKC/UM4m3qaxcA+tytyNl/vCPkOElZC3udRKzR6ZA4=;
-	h=From:Date:Subject:To:Cc;
-	b=HXfc0DEVWKfH6VyNWACNMJn9Gor/zzB9+VjvpAasAU4qUw/qcCh84P5WA9gVLqKWV
-	 +uroVi0brDy7u7r7yMo9UnNBDiGhZgVXt4vhE/EOVfR/3vxCrOdMFqNX6LkYYQqo2/
-	 qSNBZoFdh3GLCWHanNyaLB6JvQ+bpzs8dWIhimqOsVj5vMph6LrDtFujWYaiMbD0jD
-	 85gd//NB9j/Ospi6KccfkGzQCU50GeDgo9HRS2yj8t1QiNNfnFuSOAv22x/OkptWT/
-	 STzOj7bTWumh/8WWZbHgJlBEwjPCj4ZPxmIExkKsh/ohLZnwH90OKPTruHmp2XtpF3
-	 tDzCkb/87CnDg==
-From: Yixun Lan <dlan@kernel.org>
-Date: Thu, 12 Nov 2026 07:45:43 +0000
-Subject: [PATCH] pmdomain: core: connect consumer with supplier via device
- link
+	Thu, 12 Nov 2026 07:54:57 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=+64NsR6ul3OZ/C2gNEoQRkSF05SWBVdC/PV5wsbpHBI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794470080; v=1; x=1795074880;
+ b=gCeQCAUqrK9rD27CpGVLGtePt+9dgReeb/a0KsLnvGEV0B+bLM871z7QXVooQb7tijXQs4Ps
+ gCMMlLIpnMeyp8Q0BfiH226MyZix3eFkaGEoB+W3KW8HiDr6jhXrxGoBnY6XRK6jEL1EIqZHUB9
+ s7IZx3iFYq/rz8E8/i0b/bXQ=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by mta10.migadu.com with ESMTPS id 149ddc421f06301b;
+	Thu, 12 Nov 2026 07:54:40 +0000
+X-Mizu-Trace-ID: 149ddc421f06301b
+X-Migadu-Flow: FLOW_OUT
+From: Troy Mitchell <troy.mitchell@linux.dev>
+Subject: [PATCH v2 0/2] irqchip/riscv-imsic: Synchronize remote state with
+ IRQ work
+Date: Thu, 12 Nov 2026 07:54:31 +0000
+Message-Id: <20261112-imsic-remote-sync-irqwork-v2-0-680f65b24ff6@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261112-01-pm-device-link-v1-1-8932e0862378@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBCF4avIrDuQCSqkVyldaDLR0TaVREUQ7
- 26syw/e+3dIHIUTPIsdIq+S5Bcy6FGA7ZvQMYrLBq10TUQaFeH0RZenlvEjYUTjnVOeK9OUBvJ
- viuxl+zdf79tpaQe28xWC4zgBE5L2HnUAAAA=
-X-Change-ID: 20261112-01-pm-device-link-9fdd0fe59a49
-To: Ulf Hansson <ulfh@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NQQ6CMBBFr0K6dgytQsSV9zAsYBhkVFqdQoUQ7
+ i7gBVy+5P33J+VJmLw6R5MSCuzZ2QXMLlLYFPZGwNXCysQm1To+ALeeEYRa1xH40SKwvD9OHpB
+ hTZjiUccVqWX/Eqp52NrX/Me+L++E3RpcjYZ952TczoNevX9+ggYNpzLBLNE1pqa4PNn2w76io
+ PJ5nr+1GDbq1AAAAA==
+X-Change-ID: 20261103-imsic-remote-sync-irqwork-9cfec6c410de
+To: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
+ Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
  Alexandre Ghiti <alex@ghiti.fr>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5218; i=dlan@kernel.org;
- h=from:subject:message-id; bh=rCIzxjBGzLtWtA/9HuxoKy2Z3j8sZKgmeE7iPstfpdY=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBq9W6q20YqcaI2cKi+EUxMpYAxUUj1aqNY5HHt9
- ekY0IzYDqiJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCavVuqhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
- maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+3E/w/+KpA3MUqhFe9/TlB+f3FW1Yn75TK5DzrNAzbFHwqqZ8KwhEBoAuAe/
- 42J+ZaAunZXVbhEh4rRrppVozgWC74G30uUaoHfAORvQq9dYtwHFQTu8kZSH18zrxLkTEx/tpOq
- lcGSrmw0G6eX4sbkfG/H5xTAvniqk2e60uDxTB00hDQ1AeekjW33JWCs8IPbYcqFn1DkxB57K1j
- FOUGugg8FGTvmtPaPIPGdKzEFM28X7la3SijJtBGz5jjefKeJMD4V3dW7BqIoX3l53srPSHtO6C
- n6BuDG5i3BwCOvoB27WYOlsOM8ftHEZhAG/X7YaYSoCESIf/PfP9ztjcwUyDgwTOYCtcJjpN+WW
- 7UjTp1rP/YEo3h9J3NwvrgfLihw1ijUdt/DFrqkEIonEgxNK4cTBMbm+LRNY5/uL8lSH8xVGAc8
- DpR4I/VnZXfx57GjLvaRyIHDdYbAIbj/fztaKUcFcO1F0AR/YcNtNREEeN3JQgC8SshJqtuCvKn
- tN2vH8OIkIEC37FZw8gORV6W7pdtdMSxaJ3g60nCm7DRiDVW6PgseOe3lzQPhitxUXjH+xPz+rU
- U5FowduMY3UkhPLeAuZPEMPNKPV0k72X2P/AQmP8GcmRrwR5xeJAolLO46PF7u3UPBCywndjVuo
- yseDsBi9ykxxEagT5oYV63KUnl1IA0=
-X-Developer-Key: i=dlan@kernel.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>
+Cc: Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-rt-devel@lists.linux.dev, 
+ Troy Mitchell <troy.mitchell@linux.dev>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2978;
+ i=troy.mitchell@linux.dev; h=from:subject:message-id;
+ bh=+64NsR6ul3OZ/C2gNEoQRkSF05SWBVdC/PV5wsbpHBI=;
+ b=owGbwMvMwCU2g/N9w09jE33G02pJDFlfC3Z2yDi8s/mQfCX9haPbr5++Z2Mavr0NWrxhD59t/
+ arZqxz9OkpZGMS4GGTFFFm6H/BsK/CJsi0QKPSFmcPKBDKEgYtTACZiFsrwz+ao57trPa8emWn/
+ vM0c9+8pU11n8fI8R25ze8fr27+aazL80/p8rV5vrcns7/cvxq7yfNCl42EeYxm61HGyy/QLe+I
+ s+AE=
+X-Developer-Key: i=troy.mitchell@linux.dev; a=openpgp;
+ fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261111_235444_799278_F5FE89F5 
+X-CRM114-Status: GOOD (  13.46  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,124 +87,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Connect downstream Power Domain consumer with the supplier through
-the device link API, So when the pmdomain driver is unloaded or unbinded,
-the consumer can be automatically notified and purged gracefully.
-
-Signed-off-by: Yixun Lan <dlan@kernel.org>
----
-The power domain drivers under pmdomain subystem suffer fom
-the problem that unable to notify the downstream consumer with
-module unload or unlink event, left with stale sysfs interface.
- Curently, the solution is a) use builtin_platform_driver() API
-to disable the module unloading b) adding suppress_bind_attrs flag
-to disable the unlink interface, which prevent it from being 
-triggered from user space.
-
-Take spacemit K3 platform [1] for example, without this patch,
-Removing spacemit_pm_domains module will trigger a failure to
-remove power domain, access pm_genpd_summary will result an
-kernel oops, See detail log below
-
-domain                          status          children        performance
-    /device                         runtime status                  managed by
-------------------------------------------------------------------------------
-lcd1                            on                              0
-    cac88000.dp                     unsupported                 0           SW
-lcd0                            off-0                           0
-audio                           on                              0
-gpu                             on                              0
-    cac00000.gpu                    active                      0           SW
-vpu                             off-0                           0
-
-gpu  lcd1  pm_genpd_summary
-
-(gpu and lcd1 isn't clean up)
-
-[  181.353671] spacemit_pm_domains spacemit_ccu.k3-apmu-pmdomain.3: failed to remove domain gpu: -16 - state may be inconsistent
-[  181.353889] PM: genpd_remove: unable to remove lcd1
-[  181.353896] spacemit_pm_domains spacemit_ccu.k3-apmu-pmdomain.3: failed to remove domain lcd1: -16 - state may be inconsistent
-
-[  206.228045] CPU: 5 UID: 0 PID: 2560 Comm: cat Not tainted 7.3.0-rc12 #81 PREEMPTLAZY
-[  206.238002] Hardware name: SpacemiT K3 Pico-ITX (DT)
-[  206.243027] epc : summary_show+0xaa/0x308
-[  206.247081]  ra : summary_show+0x264/0x308
-[  206.251224] epc : ffffffff809f50fa ra : ffffffff809f52b4 sp : ffffffc601273a80
-[  206.258542]  gp : ffffffff82333b98 tp : ffffffd601d5ec80 t0 : ffffffff80026b38
-[  206.265859]  t1 : ffffffd6092d3cb0 t2 : ffffffff81601810 s0 : ffffffc601273b10
-[  206.273177]  s1 : ffffffd601b92470 a0 : ffffffd601b92588 a1 : 000000000000000a
-[  206.280494]  a2 : ffffffd609ae8000 a3 : 0000000000000000 a4 : ffffffd601d5ec80
-[  206.287811]  a5 : 0000000000000000 a6 : ffffffffffffe000 a7 : 0000000000000000
-[  206.295128]  s2 : ffffffd6092d3cb0 s3 : ffffffd601b92470 s4 : ffffffd601b94040
-[  206.302447]  s5 : 0000000000000000 s6 : 0000000000000003 s7 : ffffffff8221e3a8
-[  206.309764]  s8 : 0000000000000001 s9 : ffffffff8172b8c8 s10: 0000000000000004
-[  206.317082]  s11: 0000000000000000 t3 : 000000000000017a t4 : 0000000000000002
-[  206.324399]  t5 : 0000000000000000 t6 : ffffffd609ae7178 ssp : 0000000000000000
-[  206.331804] status: 0000000200000120 badaddr: 0000000000000010 cause: 000000000000000d
-[  206.339829] [<ffffffff809f50fa>] summary_show+0xaa/0x308
-[  206.345206] [<ffffffff804b67f8>] seq_read_iter+0xe0/0x390
-[  206.350671] [<ffffffff804b6b86>] seq_read+0xde/0x158
-[  206.355697] [<ffffffff8063dee4>] full_proxy_read+0x54/0x88
-[  206.361250] [<ffffffff8047a03e>] vfs_read+0xae/0x380
-[  206.366275] [<ffffffff8047adc2>] ksys_read+0x6a/0xf0
-[  206.371301] [<ffffffff8047ae68>] __riscv_sys_read+0x20/0x30
-[  206.376944] [<ffffffff8101fa6a>] do_trap_ecall_u+0x19a/0x518
-[  206.382674] [<ffffffff81033acc>] handle_exception+0x16c/0x178
-[  206.388503] Code: 0a13 c00a 4c05 4b0d 3783 540a 3823 f804 3423 f804 (6b9c) 8552
-[  206.396050] ---[ end trace 0000000000000000 ]---
-Segmentation fault         cat /sys/kernel/debug/pm_genpd/pm_genpd_summary
-
-====================================================================================
-
-With this patch applied, either unload the module or trigger an
-unbind operation, the downstream gpu, lcd1 will exit gracefully
-
-or
-
-domain                          status          children        performance
-    /device                         runtime status                  managed by
-------------------------------------------------------------------------------
-
-Link: https://patch.msgid.link/20261108-04-k3-pm-support-v3-0-b9dc0857039b@kernel.org [1]
----
- drivers/pmdomain/core.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-index 964e44c2f78f..870fc8083bca 100644
---- a/drivers/pmdomain/core.c
-+++ b/drivers/pmdomain/core.c
-@@ -3543,6 +3543,8 @@ static int __genpd_dev_pm_attach(struct device *dev, struct device *base_dev,
- 		return -EPROBE_DEFER;
- 	}
- 
-+	device_link_add(dev, &pd->dev, DL_FLAG_AUTOREMOVE_CONSUMER);
-+
- 	return 1;
- 
- err:
-
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261112-01-pm-device-link-9fdd0fe59a49
-
-Best regards,
---  
-Yixun Lan <dlan@kernel.org>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhpcyB3YXMgZm91bmQgd2hpbGUgYnJpbmdpbmcgdXAgdGhlIFNvQyB0aW1lciBvbiBTcGFjZW1p
+VCBLMyBhcyBhIHRpY2sKYnJvYWRjYXN0IGRldmljZS4KCldpdGhvdXQgYSByZWFsIGJyb2FkY2Fz
+dCBkZXZpY2UsIHRoZSB0aWNrIGNvZGUgZmFsbHMgYmFjayB0byB0aGUgaHJ0aW1lcgpiYXNlZCBi
+cm9hZGNhc3QsIHdoaWNoIGtlZXBzIG9uZSBDUFUncyBsb2NhbCB0aW1lciBydW5uaW5nLiBPbmNl
+IHRoZSBTb0MKdGltZXIgaXMgcmVnaXN0ZXJlZCBpdCByZXBsYWNlcyB0aGUgaHJ0aW1lciBicm9h
+ZGNhc3QsIGFuZCBldmVyeSBDUFUgbWF5CnN0b3AgaXRzIGxvY2FsIHRpbWVyIGluIGlkbGUuCgpP
+biBLMyB0aGUgU29DIHRpbWVyIGludGVycnVwdCBnb2VzIHRocm91Z2ggQVBMSUMgaW4gTVNJIG1v
+ZGUgdG8gSU1TSUMuCldoZW4gdGhlIENQVSBvd25pbmcgaXQgZ29lcyBvZmZsaW5lLCB0aGUgaW50
+ZXJydXB0IGlzIG1vdmVkIHRvIGEgQ1BVCnRoYXQgbWF5IGFscmVhZHkgYmUgaWRsZSB3aXRoIGl0
+cyBsb2NhbCB0aW1lciBzdG9wcGVkLiBJTVNJQyBsZWF2ZXMgdGhlCmVuYWJsZSBvbiB0aGUgbmV3
+IHRhcmdldCB0byBhIHRpbWVyIG9uIHRoYXQgQ1BVLCBhbmQgdGhhdCB0aW1lciBjYW4gb25seQpm
+aXJlIHRocm91Z2ggdGhlIGJyb2FkY2FzdCBpbnRlcnJ1cHQsIHdoaWNoIGlzIG5vdCBlbmFibGVk
+IHlldC4gVGhlCnN5c3RlbSBzdGFsbHMuCgpQYXRjaCAxIG1ha2VzIHJlbW90ZSBzeW5jaHJvbml6
+YXRpb24gdXNlIGhhcmQgSVJRIHdvcmssIHdoaWNoIGZpeGVzIHRoZQpzdGFsbC4KCkEgdmVjdG9y
+IG1vdmUgY2FuIHN0aWxsIHRha2UgbG9uZyB0byBmaW5pc2guIFRoZSBDUFUgZW50ZXJpbmcgaWRs
+ZQp0YWtlcyBvdmVyIHRoZSBicm9hZGNhc3QgaW50ZXJydXB0IGFuZCBzeW5jcyB0aGUgbmV3IHZl
+Y3RvciBiZWZvcmUgdGhlCm9sZCBDUFUgaGFzIHJlbGVhc2VkIHRoZSBvbGQgb25lLCBzbyBpdCBh
+cm1zIGEgcmV0cnkgdGltZXIgb24gaXRzZWxmCndpdGggaXRzIHRpY2sgYWxyZWFkeSBzdG9wcGVk
+LiBUaGUgbW92ZSB0aGVuIGNvbXBsZXRlcyBvbmx5IG9uIGl0cyBuZXh0CmludGVycnVwdCwgdXAg
+dG8gMC41cyBsYXRlciBvbiBhbiBpZGxlIEszLCBhbmQgYWZmaW5pdHkgY2hhbmdlcyBvZiB0aGUK
+SVJRIHJldHVybiAtRUJVU1kgdW50aWwgdGhlbi4gUGF0Y2ggMiBsZXRzIHRoZSBvbGQgQ1BVIGtp
+Y2sgdGhlIG5ldyBDUFUKaW5zdGVhZCBhbmQgcmVtb3ZlcyB0aGUgcmV0cnkgdGltZXIuCgotLS0K
+Q2hhbmdlcyBpbiB2MjoKLSBQYXRjaCAxIHVuY2hhbmdlZC4KLSBOZXcgcGF0Y2ggMjogb25jZSB0
+aGUgb2xkIENQVSBoYXMgcmVsZWFzZWQgdGhlIG9sZCB2ZWN0b3IgaXQgcXVldWVzIHRoZQogIHN5
+bmMgd29yayBvbiB0aGUgbmV3IENQVSwgd2hpY2ggdGhlbiBjb21wbGV0ZXMgdGhlIG1vdmUgZnJv
+bSBpdHMgb3duCiAgSVJRIHdvcmsuIFRoZSBwZXItQ1BVIHJldHJ5IHRpbWVyIGlzIGRyb3BwZWQs
+IHNpbmNlIGEgbW92ZSB0aGF0IGhhcyB0bwogIHdhaXQgZm9yIHRoZSBvbGQgQ1BVIGNvdWxkIG9u
+bHkgY29tcGxldGUgb24gYW4gaW50ZXJydXB0IGRyaXZlbiBieSBhCiAgdGltZXIgdGhhdCBtYXkg
+aXRzZWxmIGJlIHN0b3BwZWQuCi0gTGluayB0byB2MTogaHR0cHM6Ly9wYXRjaC5tc2dpZC5saW5r
+LzIwMjYxMTAzLWltc2ljLXJlbW90ZS1zeW5jLWlycXdvcmstdjEtMS04YjVjOTUxZmM2MmFAbGlu
+dXguZGV2CgpUbzogVGhvbWFzIEdsZWl4bmVyIDx0Z2x4QGtlcm5lbC5vcmc+ClRvOiBSYWR1IFJl
+bmRlYyA8cmFkdUByZW5kZWMubmV0PgpUbzogQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9y
+Zz4KVG86IFBhdWwgV2FsbXNsZXkgPHBqd0BrZXJuZWwub3JnPgpUbzogUGFsbWVyIERhYmJlbHQg
+PHBhbG1lckBkYWJiZWx0LmNvbT4KVG86IEFsYmVydCBPdSA8YW91QGVlY3MuYmVya2VsZXkuZWR1
+PgpUbzogQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPgpUbzogU2ViYXN0aWFuIEFuZHJ6
+ZWogU2lld2lvciA8YmlnZWFzeUBsaW51dHJvbml4LmRlPgpUbzogQ2xhcmsgV2lsbGlhbXMgPGNs
+cmt3bGxtc0BrZXJuZWwub3JnPgpUbzogU3RldmVuIFJvc3RlZHQgPHJvc3RlZHRAZ29vZG1pcy5v
+cmc+ClRvOiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+CkNjOiBBbnVwIFBhdGVs
+IDxhcGF0ZWxAdmVudGFuYW1pY3JvLmNvbT4KQ2M6IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5v
+cmcKQ2M6IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKQ2M6IGxpbnV4LXJ0LWRldmVs
+QGxpc3RzLmxpbnV4LmRldgoKLS0tClRyb3kgTWl0Y2hlbGwgKDIpOgogICAgICBpcnFjaGlwL3Jp
+c2N2LWltc2ljOiBTeW5jaHJvbml6ZSByZW1vdGUgc3RhdGUgd2l0aCBJUlEgd29yawogICAgICBp
+cnFjaGlwL3Jpc2N2LWltc2ljOiBDb21wbGV0ZSB2ZWN0b3IgbW92ZXMgd2l0aG91dCBhIHRpbWVy
+CgogZHJpdmVycy9pcnFjaGlwL0tjb25maWcgICAgICAgICAgICAgICAgIHwgIDEgKwogZHJpdmVy
+cy9pcnFjaGlwL2lycS1yaXNjdi1pbXNpYy1lYXJseS5jIHwgIDUgKy0KIGRyaXZlcnMvaXJxY2hp
+cC9pcnEtcmlzY3YtaW1zaWMtc3RhdGUuYyB8IDg3ICsrKysrKysrKysrKysrLS0tLS0tLS0tLS0t
+LS0tLS0tLQogZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbXNpYy1zdGF0ZS5oIHwgIDYgKy0t
+CiA0IGZpbGVzIGNoYW5nZWQsIDQyIGluc2VydGlvbnMoKyksIDU3IGRlbGV0aW9ucygtKQotLS0K
+YmFzZS1jb21taXQ6IDY2MjhlN2Q0YzZiMjVjOGQxOGYxMzQ1ZTNhMjBkMjE4MjlhYWU3ZTQKY2hh
+bmdlLWlkOiAyMDI2MTEwMy1pbXNpYy1yZW1vdGUtc3luYy1pcnF3b3JrLTljZmVjNmM0MTBkZQoK
+QmVzdCByZWdhcmRzLAotLSAgClRyb3kgTWl0Y2hlbGwgPHRyb3kubWl0Y2hlbGxAbGludXguZGV2
+PgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
