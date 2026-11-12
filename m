@@ -2,135 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74C96606A31C
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 21:04:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14FF4606A333
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 21:38:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JOQsI+6p;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=CyX94klC
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4mjRcrQG;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KSFRAyX9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=VZoAY9gjPqnjqUTZFAHFOgIUUqmh8kd8hDBUtNm/w/0=; b=JOQsI+6pNFizo/a31VmOFToOdc
-	JY02vK0c8NmMr5Y85ykZzoc3PJ0kHbwApSEbDm7SgDW44V54qetW0meJEx5ykpQvkElOeEH4QzKno
-	zCt0dtSaqUPNNl91j7zokXEueqJ8tUVlIJJ9zGgphdrwp1ak331Qk+IPIS4/ZVHjQSGe5u7Ic0/u+
-	+Qm9Rag3QMUj66oCtJ3Myy8pGl3kFQmPLq2H0xBWSM3SLClEtxaIDJffizIGdPWGYnJyBVZ0wY1bU
-	vnjnpCwUJpvyVm080598NDGm8h8hFZ5uuMqYXyzjGW6Zca8K+fzTTlHj4S9gjSNUbsg/0612QiO/J
-	KovRps0A==;
+	bh=E55VlnTpxbEQ/xiAX9KxDF1Bw83KMuwt+vtCrJ+ynao=; b=4mjRcrQG6S3MShM4qcxTUXqD2M
+	uEabbwzQSROMm48FbVKe0tbclGrMSfKg8IV06HhD76C/fzcfTTG0+sjyiGwIue32Z+Wfexhopmy1w
+	9bXAr64K5weVOy3p6XtNf9lk+9fqrTD0MKHfW7VM8u91ua0ovOG3ZUCTe6GKtESB9caBCf73YXw5W
+	q9hFGu/PYfgSqrMlpQBo7yQAPqxXVVzkvK9LEIJ2ESduAQOGQpJ5rxffbgBGFassk2UN+xoIPiWHM
+	tYT3Jk8/QN7CpcTTVdkfpvxqOJvuFUdYvRhurxRpUFeIk3+txhvAFBUjfe9yNa599xf8FmeMbCKpM
+	IkILQZ1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRby9-0000000B2zZ-36Gw;
-	Thu, 12 Nov 2026 21:04:29 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1xRcUq-0000000B7K0-26z5;
+	Thu, 12 Nov 2026 21:38:16 +0000
+Received: from mail-oo1-xc32.google.com ([2607:f8b0:4864:20::c32])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRbxf-0000000B2xO-30p0;
-	Thu, 12 Nov 2026 21:04:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YNgC3/BrWlii+yiJmDwc8aHPgZCEXgWdfx24IEGRMI4s89vmCD1jlrS3hXtM3JegPe5YDy37kQG+EkdhYF1catylv3++CHM5OZhTuajCfYoRKeHcnIaOnUqiaiD7ANU0s1L2/txXpxVvznbfYdPNIzOp2eOjNZ2w5WlTX+acm5fOSZkiIvorpE+lq+bRhPz0fNQIz5ISoGKQCwXMgH8smwji3Z5UuzdoCci80/qlKZJAlH9yESKxkM7bEV2wgJd7qbau6YHM8pX2xKX7PXskcjPAD7U4Ww0cCZ8/sxx5v9DdJYmH+QfxG8p/onVaYj8d2dBBX20zOIObyIsOm+FhqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IYZBVQt2cpCHLIr5IDzlFgEVBIZ4QCoZS7uavLK58mA=;
- b=Sfy2FFYeLHbxi3YSKCUaFC+EiEd6xWifM2k/MjM4BCwCVjeXoygw3pnUXOGCu5XdWlX6bEwo6+UFKxSzGrM5Bf1Pj0YEhdL95Orlxth0BDiGedvmjVBRLPPes90Ra4Yjb+R4R+3D72/xqLPuf9G8/o4P8jt6U9oi3WeuwRddM/GW3dDO3PjLAU/oBswg5qXFGBNUmaTYz3KEDI4Ha6nA8KK9Glmco8NBmLtwp3DQrLDYDjxOH58cqA0HF/nUUsNVB7OucqYlaIfOw3SCNKQLZsGNdXknYY2IjarfmBO66rs7DPwCZSdhKscbWL9rE2KOVkD0GKfUgHMCX0dtQ/cdGg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IYZBVQt2cpCHLIr5IDzlFgEVBIZ4QCoZS7uavLK58mA=;
- b=CyX94klC16tA02cvyjwP7qjR2jexXCtL27RQUkAE/a4nHtK/jIhpDVqCjV5V0THUfILd96fgz3BykPpzm+ZA9Xzo1d/bD/hEpiahpY5Ml1Ops2S40GL8htX/XUqwV1TbM5WZw+mm1d+wnPFxljJfQHKLwMkyPGcJel6yM1sMlDJTLHHW5h+k8FCHMYy0vJzJdYZXai/wZs0rCbxkJd4MR4hB4A9MbYfuoz7bSm2dJwy+WWLQkOwAFz8yM4ltwAEXL7/iC1HU7lRniHqOLrbF86gpc/3KIZeDuW/2Tc+bWU+sI4lVYDMrA+hwjIzzVYz1gkjYMkUnLu9jc/9myAtVBg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by BR0PR04MB715228.eurprd04.prod.outlook.com (2603:10a6:2c8:44::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.9; Thu, 12 Nov
- 2026 21:03:55 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.009; Thu, 12 Nov 2026
- 21:03:55 +0000
-Date: Thu, 12 Nov 2026 15:03:38 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
-	imx@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] dmaengine: Convert to subsys_platform_driver()
-Message-ID: <avYpkpoqf9NInTA6@SMW015318>
-References: <20261104113302.1634102-1-peng.fan@oss.nxp.com>
-Content-Disposition: inline
-In-Reply-To: <20261104113302.1634102-1-peng.fan@oss.nxp.com>
-X-ClientProxiedBy: VI1PR04CA0111.eurprd04.prod.outlook.com
- (2603:10a6:803:64::46) To AMBPR04MB12445.eurprd04.prod.outlook.com
- (2603:10a6:20b:75e::21)
+	id 1xRcUo-0000000B7JL-0S8B
+	for linux-riscv@lists.infradead.org;
+	Thu, 12 Nov 2026 21:38:15 +0000
+Received: by mail-oo1-xc32.google.com with SMTP id 006d021491bc7-6f8a519e215so480979eaf.1
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2026 13:38:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794519493; x=1795124293; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=EaGxXuKjbqWsjiNJFFTn53rRjYcJvhNf+ZE9bk47lFk=;
+        b=KSFRAyX9JMwAXnLiyytR20s94wXqhX/H6yquBKrTa6i8N8UtQb2OOmDYl5X3btQIzP
+         6y7hqzdFD+ftTKY7IzSpB7M60CHeV5N2srx3uGHbzaOokiY8fM52PMiIusFBxeiQyvRf
+         CqwC7tOsnLD6SElsusp4f96eKdYpjGaSkTYMAH9vXaBvsH88n1U21tvFsm75JKyTGixU
+         eghOfWf7LYpk4UgcrEgtRzVEdXyIyl91ep4uXmT/LxI+v311tN67EwQ6o2WT1TbzUuuC
+         i3/UqIhOc0o90GBeVRzNZ3VFgjSVNEvsh60pKB/Pdnky2Z/nRFPTZuhMFIMEJEPMO5Bb
+         +3ow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794519493; x=1795124293;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=EaGxXuKjbqWsjiNJFFTn53rRjYcJvhNf+ZE9bk47lFk=;
+        b=RK09feepFO1h932Sj1cNvH2yCPOn5o3GshS8ht0vsrV76j+ek6qiN3CS6bRAkXV9TC
+         iN2wnFSbpjVQdGkKhH0BZc027rYdIq/OthNnVJ+36B7J4pQ8nHtt/znDvdOit2eLu9eJ
+         QIMAqOig6wwWXElXrcm9EpJ+YMlVGJcz5kaKraECfiFfGH4pqiU8gDVIzKmhOVfsdGfs
+         yhfnnLHnuTsOwXpYepn07ZUoQMngerebHbw0PR7VIGwsePan7jxijHrbDrY2Fi8BEooD
+         0bloiSZNTHNxylT7MrEumdZNPjQcTR3IdlyJU5fxDZohLQUoDDiuAxKNCOvHBgN9K0K2
+         rGhA==
+X-Forwarded-Encrypted: i=1; AL+hErGR2aOibZtb7zSlFqvi90cfzX2adkzcCvU189OhyyUFK5XTIosCYrSb5Zhra2w67mA5SUITvd0MStpz/Q==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/gPSk8G0A1n5sjn/bETSowP3XHrPsM6wH1xCiAUcLGbwCmKbKJ
+	azKigNpoFfbmfj1ZgL9FbugDo4cCcOtt/aMV8UO23lW3snW75HeCkoNi
+X-Gm-Gg: AYBFou3Ohr21tuAUEHGuWzJ3R4K58kenoZbz7LtJ6GVI/KX+2BK0hzuZoTLRV8eO403
+	YlwAad3/BaHpoZyoNkODHEUh7+tD7wht5L8fW+CP9xxnZtXKFlDs9GRiYBvJmaKq684MT4Wv0Pp
+	7oYxlbUgtv2N7688joOHQujXmJcZyZH6UP+FS1/aOoTiNG4ZdjiC4kfMOQD49YVKa025w8BFS9/
+	eiMqUkZMsXabOetfSCXInAXoVxtcWXpJP60CBhblRfkfyGMBVHS9p8WcFH4MLpL+14cRebV0Kwz
+	in1+DY52/1mLw0ca8wIGoMZszNJMw2cvdyRn2lJxkNSd773WnnAEH75ng1A+VwzeHGC0rpCdl0E
+	uwPjQg0MKnxCc+E1JU2isOHo/CztX4GtWYZrJRdqPVVOL0B2fs6Q7ioqEH3kFcJdjnVHeEkPX40
+	bL1Dbcey7koykoKIgzb8hQ413xhuKuef58cdvGUmp+gwB+DrKh/4s4B0jKABWgGMatjxPlklZ/H
+	uGVKJ+5x3o7RCOHt/c1rH4szcFxHxRqp3JSDPh1b48gbISBo1YlylmwAXIekH2LNM45eEpTjYge
+	ZtowbDzhlwF69iKM2BtrGam0KMm07Dbh1TEVjRNM3XEK2bQLokfGmbEOqkPmseZP+4N6mNwQLp8
+	Gror2
+X-Received: by 2002:a05:6820:f02d:b0:6d3:abd1:9b8e with SMTP id 006d021491bc7-7197cf224d0mr2811908eaf.52.1794519492651;
+        Thu, 12 Nov 2026 13:38:12 -0800 (PST)
+Received: from AMD.home.internal (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4afe229b9d1sm234017fac.11.2026.11.12.13.38.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Nov 2026 13:38:11 -0800 (PST)
+From: Enzo Adriano <enzo.adriano.code@gmail.com>
+To: sboyd@kernel.org,
+	bmasney+clk@redhat.com,
+	jbrunet+clk@baylibre.com,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org
+Cc: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+Subject: [PATCH v2] clk: sunxi-ng: a733: Keep SCP firmware bus clocks enabled
+Date: Thu, 12 Nov 2026 16:38:09 -0500
+Message-ID: <20261112-a733-fwclk-v2@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|BR0PR04MB715228:EE_
-X-MS-Office365-Filtering-Correlation-Id: 337b04f2-1dac-4d74-aa9f-08df410075c0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|23010399003|7416014|376014|22082099003|18002099003|56012099006|10067099003|11063799006|261102130727099003|261028144727099003|261026121527099003|261026140227099003|261022105027099003|261021123027099003|261021135927099003|261009223027099003|261022075727099003|261021121427099003|261102123227099003;
-X-Microsoft-Antispam-Message-Info: vhuOxMon8a4QdCncetJsnKE5ESdqzbKbfpy3Hq867EQOMCpfeKbQqWrcI5vjL99CS5LGG7MYauAppxBfkEC/i2U0+/CCNIM2VJ/DYEWnMdPtUK3ZX+gqP/5DZ9mxfq3ruRNFcb5bTo8Jpv/zuhug7T7C9FVRXhR5kjhQpWtVTwTQSj134Tpv/8BBcY2T0dK3QsCmjlpCqKm12AGwlt/eaj7veAQuv9QUQa8zSVGa/4YPDLBUQkU+7ZMNjOiZYto9cAmRmGZR9EnahYOK9bA6S3t2uBBwo3E41/CzDe0l+Hu+prrEtSsoU8wMqvd7tpVoxmQr/or9DRUhWAvI4Vca1esWaCqWInIAMLCoK95s8LKznkjGMHPWhtoYWvFFqb/foTuxi7bFQFuYzna0etd/pKGf3TJNIvIVXBtiLvE6rdgFjwV4P9vEyFxxoU9fthDkReGBtdt9vYSeaw4Qa/XqB7tY14UBWqrrUA6e/+YssobT29o2Y/dNuQgyE0SbVieIbQeg8ilvwvh6DjVpvH6jIA4Oicn2zFyMEphzDFnTWYRNSGlDp53oIT2fERlRfAXrXhdFyZPaXIB9YpOWu86b7AjyU2OY+CCbtSy32oFocny7qoE97COB7RUoqkYA9BvXM2ixujpmD8yVBNd9kx5EZgIysoirL0YgaB/Qu9nkBMo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(23010399003)(7416014)(376014)(22082099003)(18002099003)(56012099006)(10067099003)(11063799006)(261102130727099003)(261028144727099003)(261026121527099003)(261026140227099003)(261022105027099003)(261021123027099003)(261021135927099003)(261009223027099003)(261022075727099003)(261021121427099003)(261102123227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lkm+qluc+7yw5OKn+s0Yh3U/oV/uOR6iKcsQgIBVBa+fgv9xLuS1AvK9FRLV?=
- =?us-ascii?Q?AhBX8KIGX9nWr+G5rLxNjCp6loYHXAIJokzy7XUTXnkmwHe30XGXEc+KaFBo?=
- =?us-ascii?Q?VMiFQOQSkOGGrGprWhV8tQWIiiU24v1LCl1yXCsQPKq9DAL6UPOpR3lT8Ng7?=
- =?us-ascii?Q?TBBwYYVblEMomdqu4i0VjRYHpu6rd74F1phDF25AHrf5SjIcNkBekoIghgYp?=
- =?us-ascii?Q?XU7x+gCNGUGVh/LU0nVfl32vW8oDZDFsAxgkfVCfXqM7nYBa7gb9q2IC7kFn?=
- =?us-ascii?Q?OowQMasoInScnhm3FlippYaoRH8ZB5mA5zve52IixSK6CpbtT+GReyM4U6UL?=
- =?us-ascii?Q?sPaz67anhK+ucox6bjvm+wqLPwTEmRJi80IL6OoN+uMEFjlA2l0o4q9RPAwr?=
- =?us-ascii?Q?mMx+tZxjv6g7MDkHLrvrtWbvTWGek9EcrrWM4CaQi3hnqDxuWoYArdNlDkO7?=
- =?us-ascii?Q?S7IGLK662UfE403yI0XJa6wMNmwBLlCSjhdiC6fmtRzXjaqBuqPyih3aFXrN?=
- =?us-ascii?Q?3jyoQh6uaixYEZy7+hVElYE9/mBEoMzz2aBB9f9mNIehxLegfIQmD41oHrIK?=
- =?us-ascii?Q?kcga1d1uIe6cGwW26hWKwtB7ry5fbT94UVG9iKkQ6+bRU6NU/y6YPzrvwm9r?=
- =?us-ascii?Q?Xq5iJVl+queTLo2KmWJ+dfSuKxIijUNmTZiHJQPw7m2Y/ho3GdmyTt6hghn2?=
- =?us-ascii?Q?qwIb4LJZ4svGEM1LcvL7RswcHSJnsT0HIYrTJiZo+GszeTim4eI+GXsek3jU?=
- =?us-ascii?Q?9uw9gl2Qvuib0ywl3fVjtg15G1cNaNZ9VX/ZCkaN2bmeJyg1erVJCTJJudcD?=
- =?us-ascii?Q?g3bmolkO7iXvobrlxTBlW5/RVSty/HL6PiUz44K9QHa4bp2jW1GiEPobAkBA?=
- =?us-ascii?Q?dc0gxMnvGDqK3VWWscBvDOUJw8W4E+3FOAkWhXSe/8CQK5amjIQMkYvBqlOp?=
- =?us-ascii?Q?5hWlmj6McuAiNhsBhhyptxzIPgDNb7R7HuUdwydgcV0u6s9/R0KnBfeGVR+6?=
- =?us-ascii?Q?qq6Tkmg2dxCoPWfPRipsGeHt7NqTg62OqgIT36FtGp9itFaJMAVV4L8yG4so?=
- =?us-ascii?Q?f9Mbo5DCs1LzqA3HernRgtxPWRBYNEOIr3kdU9enCDvOQLswWPPuib8qdh3t?=
- =?us-ascii?Q?Q4J2pNBQeLbwpvH9MPqUcnaSe36VJgC5pWu9yZPdVKeDIOP9YBSdE7MqXgt5?=
- =?us-ascii?Q?qKpzB9bLnM6xwY8frL9K7g3qb6elGxaB2rJLFPc4bo9a09JHlEQkTxEcbsfR?=
- =?us-ascii?Q?9ZFXj8riKqntlCP5I03SYxY0WKURQVpX4bK1L8fwmMgs0BWy+l5DNqGqOacV?=
- =?us-ascii?Q?o3jlYM6kJ6CaIeeNedMFyBOn5x4isDDzYEChW7mdrQsTyBdi/O8SohP4qRD1?=
- =?us-ascii?Q?HO/fa85pSSq8KvDcbqyJq4BSj+dUxV5S5lo+JhDnWcA4GSWlDhtOLG4bx0Je?=
- =?us-ascii?Q?PHDmx+n2tc4qoHjeUzYeRnEZOrKTdVQs+GJuEUwxMZwkkPPHgAwJjh8SnvmA?=
- =?us-ascii?Q?ugeTTBmET8HIaaFbuNPs05ZIjb+vAXqoWoNDNbhfwHXTbp7OOChDW/Xr7H29?=
- =?us-ascii?Q?jlH5qvpvMHZXcCd5Mz4P70iYtoDL74wUeNljXsbjto7bk/PgNXavQAPmkzuv?=
- =?us-ascii?Q?HiMf3FdHkVbJ8MOZSYl1kGHO8XZ40P1QKBDJdJJmNfVGBEMDoH1Ac+tXeN1S?=
- =?us-ascii?Q?CNwWME+bBYuGocI4hSeHCFToa6AMRjWTtbD8ByGudvn1MU/k6eDTlFtBJqq8?=
- =?us-ascii?Q?LLIrbD8BuuuCU7SqvNW9v6u8YCsKN9Qto4oPg0OlVLHoMqp7jb2d?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 337b04f2-1dac-4d74-aa9f-08df410075c0
-X-MS-Exchange-CrossTenant-AuthSource: AMBPR04MB12445.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2026 21:03:54.9428
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3OZsGrz/vcViGpyqG4hUhrcTdDUl0p9xM6aqMMsXmveyfKpxsYnOJVf4ducCvTQgChHQ2iz7XS28Q5py3NCgeXVUdAKBe45gupHaO7nTCqTO7XBdhla8FGxNe2UCAazK
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR04MB715228
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261112_130400_015864_7DC37A58 
-X-CRM114-Status: GOOD (  16.93  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261112_133814_168003_B0D1ACF5 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,242 +115,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 04, 2026 at 07:33:02PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
->
-> Replace the open-coded subsys_initcall()/module_exit() platform driver
-> registration with subsys_platform_driver().
->
-> No functional change.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
+The A733 PRCM's bus-r-riscv and bus-r-msgbox gates have no Linux
+consumers, so unused-clock cleanup gates them. With vendor SCP firmware
+running on the E902 as shipped on Cubie A7S, warm reboot then stalls.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Keep both critical until remoteproc/mailbox drivers can claim them.
+This follows A523 bus-r-cpucfg in commit 1dba74abf3e2 ("clk: sunxi-ng:
+Mark A523 bus-r-cpucfg clock as critical") and the temporary SCPI firmware
+clock protection for Meson AXG fclk_div3 in drivers/clk/meson/axg.c.
 
->  drivers/dma/at_xdmac.c          | 13 +------------
->  drivers/dma/bestcomm/bestcomm.c | 20 +-------------------
->  drivers/dma/dma-jz4780.c        | 13 +------------
->  drivers/dma/dw/platform.c       | 13 +------------
->  drivers/dma/fsl-edma-main.c     | 13 +------------
->  drivers/dma/mcf-edma-main.c     | 13 +------------
->  drivers/dma/sa11x0-dma.c        | 13 +------------
->  drivers/dma/sf-pdma/sf-pdma.c   | 13 +------------
->  8 files changed, 8 insertions(+), 103 deletions(-)
->
-> diff --git a/drivers/dma/at_xdmac.c b/drivers/dma/at_xdmac.c
-> index d40a8b40dddc..3e83883cc17d 100644
-> --- a/drivers/dma/at_xdmac.c
-> +++ b/drivers/dma/at_xdmac.c
-> @@ -2487,18 +2487,7 @@ static struct platform_driver at_xdmac_driver = {
->  		.pm		= pm_ptr(&atmel_xdmac_dev_pm_ops),
->  	}
->  };
-> -
-> -static int __init at_xdmac_init(void)
-> -{
-> -	return platform_driver_register(&at_xdmac_driver);
-> -}
-> -subsys_initcall(at_xdmac_init);
-> -
-> -static void __exit at_xdmac_exit(void)
-> -{
-> -	platform_driver_unregister(&at_xdmac_driver);
-> -}
-> -module_exit(at_xdmac_exit);
-> +subsys_platform_driver(at_xdmac_driver);
->
->  MODULE_DESCRIPTION("Atmel Extended DMA Controller driver");
->  MODULE_AUTHOR("Ludovic Desroches <ludovic.desroches@atmel.com>");
-> diff --git a/drivers/dma/bestcomm/bestcomm.c b/drivers/dma/bestcomm/bestcomm.c
-> index 241a91936fe8..1ec700c2c996 100644
-> --- a/drivers/dma/bestcomm/bestcomm.c
-> +++ b/drivers/dma/bestcomm/bestcomm.c
-> @@ -469,28 +469,10 @@ static struct platform_driver mpc52xx_bcom_of_platform_driver = {
->  	},
->  };
->
-> -
-> -/* ======================================================================== */
-> -/* Module                                                                   */
-> -/* ======================================================================== */
-> -
-> -static int __init
-> -mpc52xx_bcom_init(void)
-> -{
-> -	return platform_driver_register(&mpc52xx_bcom_of_platform_driver);
-> -}
-> -
-> -static void __exit
-> -mpc52xx_bcom_exit(void)
-> -{
-> -	platform_driver_unregister(&mpc52xx_bcom_of_platform_driver);
-> -}
-> -
->  /* If we're not a module, we must make sure everything is setup before  */
->  /* anyone tries to use us ... that's why we use subsys_initcall instead */
->  /* of module_init. */
-> -subsys_initcall(mpc52xx_bcom_init);
-> -module_exit(mpc52xx_bcom_exit);
-> +subsys_platform_driver(mpc52xx_bcom_of_platform_driver);
->
->  MODULE_DESCRIPTION("Freescale MPC52xx BestComm DMA");
->  MODULE_AUTHOR("Sylvain Munaut <tnt@246tNt.com>");
-> diff --git a/drivers/dma/dma-jz4780.c b/drivers/dma/dma-jz4780.c
-> index ac2094e65ecf..57ab0f621105 100644
-> --- a/drivers/dma/dma-jz4780.c
-> +++ b/drivers/dma/dma-jz4780.c
-> @@ -1128,18 +1128,7 @@ static struct platform_driver jz4780_dma_driver = {
->  		.of_match_table = jz4780_dma_dt_match,
->  	},
->  };
-> -
-> -static int __init jz4780_dma_init(void)
-> -{
-> -	return platform_driver_register(&jz4780_dma_driver);
-> -}
-> -subsys_initcall(jz4780_dma_init);
-> -
-> -static void __exit jz4780_dma_exit(void)
-> -{
-> -	platform_driver_unregister(&jz4780_dma_driver);
-> -}
-> -module_exit(jz4780_dma_exit);
-> +subsys_platform_driver(jz4780_dma_driver);
->
->  MODULE_AUTHOR("Alex Smith <alex@alex-smith.me.uk>");
->  MODULE_DESCRIPTION("Ingenic JZ4780 DMA controller driver");
-> diff --git a/drivers/dma/dw/platform.c b/drivers/dma/dw/platform.c
-> index 5c1c97eb28a4..95a36af613e8 100644
-> --- a/drivers/dma/dw/platform.c
-> +++ b/drivers/dma/dw/platform.c
-> @@ -194,18 +194,7 @@ static struct platform_driver dw_driver = {
->  		.acpi_match_table = ACPI_PTR(dw_dma_acpi_id_table),
->  	},
->  };
-> -
-> -static int __init dw_init(void)
-> -{
-> -	return platform_driver_register(&dw_driver);
-> -}
-> -subsys_initcall(dw_init);
-> -
-> -static void __exit dw_exit(void)
-> -{
-> -	platform_driver_unregister(&dw_driver);
-> -}
-> -module_exit(dw_exit);
-> +subsys_platform_driver(dw_driver);
->
->  MODULE_LICENSE("GPL v2");
->  MODULE_DESCRIPTION("Synopsys DesignWare DMA Controller platform driver");
-> diff --git a/drivers/dma/fsl-edma-main.c b/drivers/dma/fsl-edma-main.c
-> index 630285c85482..0feb878a03ff 100644
-> --- a/drivers/dma/fsl-edma-main.c
-> +++ b/drivers/dma/fsl-edma-main.c
-> @@ -977,18 +977,7 @@ static struct platform_driver fsl_edma_driver = {
->  	.probe          = fsl_edma_probe,
->  	.remove		= fsl_edma_remove,
->  };
-> -
-> -static int __init fsl_edma_init(void)
-> -{
-> -	return platform_driver_register(&fsl_edma_driver);
-> -}
-> -subsys_initcall(fsl_edma_init);
-> -
-> -static void __exit fsl_edma_exit(void)
-> -{
-> -	platform_driver_unregister(&fsl_edma_driver);
-> -}
-> -module_exit(fsl_edma_exit);
-> +subsys_platform_driver(fsl_edma_driver);
->
->  MODULE_DESCRIPTION("Freescale eDMA engine driver");
->  MODULE_LICENSE("GPL v2");
-> diff --git a/drivers/dma/mcf-edma-main.c b/drivers/dma/mcf-edma-main.c
-> index 9e1c6400c77b..5b72af393ec3 100644
-> --- a/drivers/dma/mcf-edma-main.c
-> +++ b/drivers/dma/mcf-edma-main.c
-> @@ -281,18 +281,7 @@ bool mcf_edma_filter_fn(struct dma_chan *chan, void *param)
->  	return false;
->  }
->  EXPORT_SYMBOL(mcf_edma_filter_fn);
-> -
-> -static int __init mcf_edma_init(void)
-> -{
-> -	return platform_driver_register(&mcf_edma_driver);
-> -}
-> -subsys_initcall(mcf_edma_init);
-> -
-> -static void __exit mcf_edma_exit(void)
-> -{
-> -	platform_driver_unregister(&mcf_edma_driver);
-> -}
-> -module_exit(mcf_edma_exit);
-> +subsys_platform_driver(mcf_edma_driver);
->
->  MODULE_ALIAS("platform:mcf-edma");
->  MODULE_DESCRIPTION("Freescale eDMA engine driver, ColdFire family");
-> diff --git a/drivers/dma/sa11x0-dma.c b/drivers/dma/sa11x0-dma.c
-> index a6fa431530e3..6a7a519910ec 100644
-> --- a/drivers/dma/sa11x0-dma.c
-> +++ b/drivers/dma/sa11x0-dma.c
-> @@ -1079,18 +1079,7 @@ static struct platform_driver sa11x0_dma_driver = {
->  	.probe		= sa11x0_dma_probe,
->  	.remove		= sa11x0_dma_remove,
->  };
-> -
-> -static int __init sa11x0_dma_init(void)
-> -{
-> -	return platform_driver_register(&sa11x0_dma_driver);
-> -}
-> -subsys_initcall(sa11x0_dma_init);
-> -
-> -static void __exit sa11x0_dma_exit(void)
-> -{
-> -	platform_driver_unregister(&sa11x0_dma_driver);
-> -}
-> -module_exit(sa11x0_dma_exit);
-> +subsys_platform_driver(sa11x0_dma_driver);
->
->  MODULE_AUTHOR("Russell King");
->  MODULE_DESCRIPTION("SA-11x0 DMA driver");
-> diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
-> index 6f79cc28703e..c7d6774d0970 100644
-> --- a/drivers/dma/sf-pdma/sf-pdma.c
-> +++ b/drivers/dma/sf-pdma/sf-pdma.c
-> @@ -639,19 +639,8 @@ static struct platform_driver sf_pdma_driver = {
->  	},
->  };
->
-> -static int __init sf_pdma_init(void)
-> -{
-> -	return platform_driver_register(&sf_pdma_driver);
-> -}
-> -
-> -static void __exit sf_pdma_exit(void)
-> -{
-> -	platform_driver_unregister(&sf_pdma_driver);
-> -}
-> -
->  /* do early init */
-> -subsys_initcall(sf_pdma_init);
-> -module_exit(sf_pdma_exit);
-> +subsys_platform_driver(sf_pdma_driver);
->
->  MODULE_LICENSE("GPL v2");
->  MODULE_DESCRIPTION("SiFive Platform DMA driver");
-> --
-> 2.51.0
->
+On Cubie A7S with vendor boot0/BL31/SCP/U-Boot and without
+clk_ignore_unused, warm reboot returns with both clocks critical and
+stalls without them. Vinicius found either flag alone insufficient on
+Cubie A7Z. Power-off, suspend, single flags on A7S, other
+boards/firmware and upstream TF-A were not tested.
+
+Link: https://lore.kernel.org/r/20261005183038.417798-1-vinicius.eduardo.pedrosa@gmail.com
+Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
+---
+Changes in v2:
+- Drop r-timer0, bus-r-timer and bus-msgbox0: A7S warm reboot works with
+  these at 0/0. Keep only the two E902/mailbox bus gates after Junhui's
+  review, pending remoteproc/mailbox ownership.
+- Rebase on CCU v7; its PRCM clock definitions are unchanged from v6.
+
+v1:
+https://lore.kernel.org/r/20261031020640-263f7b05-a7s-clock@gmail.com
+
+Base: v7.4-rc1. Depends on CCU v7 (all eight patches):
+https://lore.kernel.org/r/20261112-a733-clk-v7-0-db7c5451ffa2@pigmoral.tech
+
+November 12 board test: two RAM boots and warm reboot -f returns on
+Cubie A7S with vendor boot0/BL31/SCP/U-Boot, without clk_ignore_unused.
+Both retained clocks were 1/1; all three dropped clocks were 0/0.
+The no-flag stall was observed with CCU v6 on Nov 10; PRCM code is
+byte-identical in v7, where the no-flag control was not repeated.
+Runtime used DT v3 and its dependencies (all four UART v2 patches),
+with the PMIC identifier and pinctrl IRQ-map context adapted to the base:
+https://lore.kernel.org/r/cover.1794227241.git.enzo.adriano.code@gmail.com
+
+ drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c
+index b8f6e8c6e507..f2965daba0d3 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c
++++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c
+@@ -108,7 +108,9 @@ static SUNXI_CCU_DUALDIV_MUX_GATE(r_spi_clk, "r-spi", r_spi_parents, 0x150,
+ 				  0);
+ static SUNXI_CCU_GATE_HW(bus_r_spi_clk, "bus-r-spi", &r_ahb_clk.common.hw, 0x15c, BIT(0), 0);
+ 
+-static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox", &r_ahb_clk.common.hw, 0x17c, BIT(0), 0);
++/* Vendor SCP firmware on E902 needs this until a remoteproc/mailbox driver claims it. */
++static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox", &r_ahb_clk.common.hw,
++			 0x17c, BIT(0), CLK_IS_CRITICAL);
+ 
+ static SUNXI_CCU_GATE_HW(bus_r_uart0_clk, "bus-r-uart0", &r_apb1_clk.common.hw, 0x18c, BIT(0), 0);
+ static SUNXI_CCU_GATE_HW(bus_r_uart1_clk, "bus-r-uart1", &r_apb1_clk.common.hw, 0x18c, BIT(1), 0);
+@@ -146,8 +148,9 @@ static SUNXI_CCU_MUX_DATA_WITH_GATE(r_riscv_clk, "r-riscv", r_riscv_parents, 0x2
+ 				  24, 2,	/* mux */
+ 				  BIT(31),	/* gate */
+ 				  0);
++/* Vendor SCP firmware on E902 needs this until a remoteproc/mailbox driver claims it. */
+ static SUNXI_CCU_GATE_HW(bus_r_riscv_clk, "bus-r-riscv", &r_apb0_clk.common.hw,
+-			 0x21c, BIT(0), 0);
++			 0x21c, BIT(0), CLK_IS_CRITICAL);
+ static SUNXI_CCU_GATE_HW(bus_r_riscv_cfg_clk, "bus-r-riscv-cfg", &r_apb0_clk.common.hw,
+ 			 0x21c, BIT(1), 0);
+ 
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+-- 
+2.53.0
+
 
 _______________________________________________
 linux-riscv mailing list
