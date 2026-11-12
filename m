@@ -2,79 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F04F606A321
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 08:02:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03F3B606A321
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 08:12:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kFFKAWoz;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BFfe51m6
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ana8cer2;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l/zM27bh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
-	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=s/XZVchKKGzyMEG7i1gm+lClOMCd6TelKoSpmgECy30=; b=kFFKAWozsXwcsClw5pyJ0yfxaU
-	J1G1Xut03F+C2vvUIBWUZGPSI5CYgFCHhBSD2ninWFindq57U4xfGIEFwFKjjjLWaecWvi4l6ACtZ
-	aZjz1vMmBtnfawN9Ln73czg77q8eIihtQN2ymPKneIIwc/5kQLoS5PlEvzpClO6pOQ+x9Zf+DK0lW
-	E0b/fDK34m9KBKGyCvCEbfm1Wbf/HXwVSw5EHN126HJ9zw7eJvP/FjvCDRGgwqd7lB4v68+KAWwyI
-	VvoNK1D8Be9yUYZd6RGt5KwSv1XOeqpjoD/SfAZs7Nh3CLgeIn/GPmZptIfte6a5IabwyGGpDq5sA
-	0jj/dzpg==;
+	bh=TNU8YJHVqZbLtwTdfUhuupSLg45drQ+YC19qEaPGofo=; b=ana8cer2McLDxZYC3WSOMaZxVJ
+	pyTf2DzBlbXVnL6YZjy2srahFraAPP6INLeTp80IYVNNtAtm+S80L+O8egaT5SFtwbmE2K7358hzC
+	gRRzadTTxPbDh0VcdQU1gtveLB/HrfooeBMVQkB13T73QuU+uDkWpgg2E7NV7FXUqzji2bipM1e0l
+	7g2OEoAUCoVLRSLF5M2DV4IENXM//BXmycaPiIcHaXADcwV2k8fgXAixDeIoPtAtP25XotXZRa5J2
+	2RpIXD+O7WtdLzF8eSXtiC3dwrtniLGBhUlOvjovx1shxnaEUJas4Ueoh30/TYuwY+KNov0ha6ZJN
+	DKDxt1/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRPl6-000000090lf-44NZ;
-	Thu, 12 Nov 2026 08:02:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xRPvF-000000092va-0Xgo;
+	Thu, 12 Nov 2026 08:12:41 +0000
+Received: from mail-pi2-x09.google.com ([2607:f8b0:4864:3a::9])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRPkO-000000090XR-44Sg
+	id 1xRPvA-000000092tD-2Dws
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 08:01:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 91FF4424CA;
-	Thu, 12 Nov 2026 08:01:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E75C21F00A05;
-	Thu, 12 Nov 2026 08:01:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794470488;
-	bh=qHgeoSf9WrMcSZDv9tgIKMaQF4nPDBzl46aeP6wToXs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=BFfe51m6dCWOi+yxzf9PNDC6w9Kq30W8TNv7R98fCswCXMQ2Tc3X5u/mwlEce5aYB
-	 NCGafC7UR/5fpiJrmXpwxNv5UwbLJquop1ERXRZB1SdXMLgVlLg0O/RVirIosd6cuf
-	 pcFGvkRrvrtiQbmD8+t8XlfpN4jmrO22580ukn0jKll0B5BqSOZCjbfeUXuBMPQDzp
-	 AukRKte+mHbgWVlBquwz7jr54UDIF8RKwAbjLPh0NFogfmrh5JBbxmSk0iNIsoq7BQ
-	 uaXfOdrfXEWmyHBuds+/EN7sfNkTPPz61UlbAPX21S5WC4ZdX+mVgZAkeRxswNjiGe
-	 4k2IgCqPsFYgQ==
-From: Yixun Lan <dlan@kernel.org>
-Date: Thu, 12 Nov 2026 08:00:57 +0000
-Subject: [PATCH v4 2/2] pmdomain: spacemit: Add power domain driver
+	Thu, 12 Nov 2026 08:12:39 +0000
+Received: by mail-pi2-x09.google.com with SMTP id 41be03b00d2f7-cdd769c49dbso2164188a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2026 00:12:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794471155; x=1795075955; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=i4Usv198qCvT1xdnr9OKW5ZLVCsGku8RkLVQlQ2znC0=;
+        b=l/zM27bh+pnLukA9MOxsSbqUwMRJ1GkfDt6uxw1f9X8+E0utEPG4HnsKydIe0RXSsL
+         k7b07QY2fXebirI9Hq9p9qkc4NnmU6dmPJxEgMCDmexPPNyYFfJlpMkwcmLgP9qnxtXK
+         8LRLQD2a5Z+RjdJVXDSgXl8ybe1vCY9Omgvd0KYGPEWmlEV80qlbLiS7MuMSdkdT0k1J
+         Rqgg3Scdc38UnBoS8V3WzMbXS8ypjMWeumz7qJmrROClKgwVoeaxZBYDfVZiIr33jq1V
+         ujhGYoYOSvkh0bXMWu5QTwL0iP7eB9ULEOFeiGlvtMO1NnBVcqi77FTW0qIKZF9Dl99W
+         EsgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794471155; x=1795075955;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=i4Usv198qCvT1xdnr9OKW5ZLVCsGku8RkLVQlQ2znC0=;
+        b=kJxPNc+R4osx2tiGgMp8XzCOFDoYQeQWpwYw8tOZuggMfy2xS1SKwHPAt1t5oBQPVe
+         3tbJgHjzTWo/pZX7EeDUVBQ5IRBvXTz6292FNRWIcbhVYgzkOLSShfzJcORnSUifw9p1
+         WdfBF8xXJvNJ2eRUWSdQJzD9N4ZQnEYrbfYlU0rKvECrJNIJSr17nObdZo2pzO2Sg0hV
+         qH2SeNTGyqBdGhFOZSLAxUzPZAsBN4nga4q0q4quxIOHc8sW8SjN7jEg7UrCti0+ylhq
+         A7dch4/B8WrcvPhh9D75fZrcLNRn/GdPBLTCUlQwAwN0MR/d77qz/NDIQae+f+KaWVAI
+         mm6A==
+X-Forwarded-Encrypted: i=1; AL+hErFrrZAHNmE58g751P9gV/DEluOEEbz7zBzOHnMlSomrilrSf16LfF2ApVEivegthVHf6FJa5mM9z4BCpQ==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8l/HXBd6c3xrQ8bPSbaLfZWjRnpxgdbf/3RhCu/XluuK9gmDUI
+	qkmmsJtfLxxBeZRYM1RY4SjQUN6Ed4B/sVye9hGZ3M+6XBVnZoHCFdxd
+X-Gm-Gg: AYBFou1BYWsn5a2Okthp7YAWkcByGbQjVL5zeKemuvawCx9us4m8di9OGWN7AtCZRO+
+	LwLBWm0E3SR3+AI6/QHrHsqyO76keRBIfnUtELXZjm71nBlv2JroCCHvWddXn487eHYXe9rEKOW
+	vmNBYj/xRCvWhUh1l55Cef4NIvKpGG+x4oPO1Wov5I/VaF3294yf4OQWOQVXp4BiVCK0RJJjHMR
+	tkYnrJiC6Z9IKNn2nD5Qt9AdQPqAoi4zIoeU19VNgpHb/i+Isj3iDW6V5VKcNryEWwJtRP5C53i
+	vxuoGESf2AmH+aWNU/+65GPuZoIcBr/NEgXp+nEvCtd+dwiQirWEofNWRTYtrYYBb1EuGpmAZaS
+	RUUqSWNf7LI0i9s/mm9cwBzQX6cZNiG9ZemAPoWD2FCmmtbGSmd19JiNDE+WDBxIWkSnpqRZA2D
+	wKHy9AO6Lc9Ta2u7byorsN4hTBGEAw5P+N/GgOxFFkpaiLoL6SD/xm0ibc/vWSjxZMi6QEZFyOo
+	6XDg78JpLog+Z5xX3Biu7eQMUUTkPDeMMVrshIuTCR/Xz3RVGRUGu0yo2xyH6HtwD4ZNk0VJ8ss
+	SjzW7PSx1r7DscRbY4Pk8Z5ohwFfnYtuRxetqw==
+X-Received: by 2002:a05:6a00:1893:b0:89e:37b0:d1bc with SMTP id d2e1a72fcca58-8bc1cd62e03mr5111050b3a.28.1794471154695;
+        Thu, 12 Nov 2026 00:12:34 -0800 (PST)
+Received: from [10.125.112.22] ([122.11.210.25])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8baa7de3eecsm3105447b3a.1.2026.11.12.00.12.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Nov 2026 00:12:33 -0800 (PST)
+Message-ID: <210ff30c-17a1-4bd1-b943-34a1d0688e43@gmail.com>
+Date: Thu, 12 Nov 2026 16:12:18 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261112-04-k3-pm-support-v4-2-de3931aa5153@kernel.org>
-References: <20261112-04-k3-pm-support-v4-0-de3931aa5153@kernel.org>
-In-Reply-To: <20261112-04-k3-pm-support-v4-0-de3931aa5153@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=14488; i=dlan@kernel.org;
- h=from:subject:message-id; bh=Omk7jHeQz5s4BEG7rQbr0lYThaX7AsiQQ2TOVrOYjnY=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBq9XJIHIqscR32ityk7ZlIlmG99AiAFspJM+6yv
- RBzYiJYh0OJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCavVySBsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
- maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+1FEhAAjXNMryRJToN9mqPw7CUNBjgJu/UXUnXP/PFbeiZiQJvHIghkwG2We
- D0CRtMjb7ADSX1dH3+KWtUqx1YUGqYNhiX/Ycd6htDrG3bP82nmuDYKs/hLuGcsJStux2iiNERz
- V5RQ0781AZNRIGlyQ5JqgH70GAHQKQuH4DoOTRQHFY1HcuGufbQWhrhMsK/ahpefBIgLjGtnUYh
- Id+2VOZ2IC18slVKl+edlt01D4uoxlD7AwaRjxdSj/hp1WTt0G1BuqW9MvBnBlc6p2tbUMCGwGF
- aXHD/vNpUoOSbkfofSGo2dLDiahVZVzHMr5a/Enn88vES5mwvu8BKzUQaV4AwIQKLjOcd5Nf2uv
- 7f5n4uA3KunzFzbf/iN349p1Z1cpmeRWtuSjKJ2K8sZdzNwUKP5AtI8Wf7SySh5VO6znoTjE8mS
- M/cGDGlOlzboQmm3iXdLI6S3LihFHp8pr8LSsIgmj3UZlvNfI2xqk9jSmRh2ZwLLp8vOfAgIpUM
- DbfFUh1eivak6j2oAjqgZmRtR4TewNrCj/sc1jjdaaN8HRq/G3xsHz9XdzYnmZHmakjbfxJ/jpN
- YjMepSaSAuwLJF3iGPxamQLpM9u2ggVkZrtMvLx6RntTojS0FXZKMYAkUxnOIVwiNEtWMoBEfr/
- zA0aiqBScjpSUcSkaqRnbiJKwbe7XY=
-X-Developer-Key: i=dlan@kernel.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 0/8] kdump: reduce vmcore size and capture time
+To: Mike Rapoport <rppt@kernel.org>, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu
+Cc: robh@kernel.org, baoquan.he@linux.dev, m.szyprowski@samsung.com,
+ catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+ chenhuacai@kernel.org, kernel@xen0n.name, alex@ghiti.fr, tglx@kernel.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+ hpa@zytor.com, saravanak@kernel.org, akpm@linux-foundation.org,
+ pasha.tatashin@soleen.com, pratyush@kernel.org, ruirui.yang@linux.dev,
+ robin.murphy@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ kexec@lists.infradead.org, linux-mm@kvack.org, iommu@lists.linux.dev
+References: <20261021083011.2170525-1-chenwandun1@gmail.com>
+ <7773d026-4aef-4169-866a-71ec9a91da21@gmail.com>
+ <avLaJxIrrnMQngO9@kernel.org>
+Content-Language: en-US
+From: Wandun <chenwandun1@gmail.com>
+In-Reply-To: <avLaJxIrrnMQngO9@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261112_001236_587821_0DA1CFC3 
+X-CRM114-Status: GOOD (  33.16  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,530 +112,222 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, Iker Pedrosa <ikerpedrosam@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-7.3 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-  SpacemiT's PMU (Power Management Unit) consist of several power domains
-which can be managed independently, depending on different application
-scenario, each domain can be powered on/off for saving power.
 
-  The driver is implemented based on Linux Generic PM Domain framework.
-From a hardware perspective, either of two distinct power-on sequences
-are supported, in software mode (SW mode), the driver is responsible for
-controlling the states of bits such as sleep1, sleep2, isolation and
-pwr_state, while in hardware mode (HW mode), the PMU hardware will complete
-the sequence automatically without requiring software intervention.
+On 11/10/26 16:47, Mike Rapoport wrote:
+> Hi Wandun,
+> 
+> On Mon, Nov 09, 2026 at 08:23:16PM +0800, Wandun wrote:
+>>
+>> On 10/21/26 16:30, Wandun Chen wrote:
+>>> From: Wandun Chen <chenwandun@lixiang.com>
+>>>
+>>> On SoCs that carve out large firmware-owned reserved memory (GPU,
+>>> camera ISP, ...), kdump currently dumps those carveouts as part of
+>>> system RAM even though their contents are firmware state that is not
+>>> useful for kernel crash analysis.
+>>>
+>>> ACPI systems already filter reserved memory out of the vmcore through
+>>> their existing path: firmware reports those carveouts as unusable in
+>>> the EFI memory map, they get MEMBLOCK_NOMAP set in memblock.memory
+>>> (is_usable_memory(), efi-init.c), and the ELF header builder has
+>>> always skipped nomap regions; only DT-based systems currently fail
+>>> to filter these regions, which is what this series addresses.
+>>>
+>>> This series introduces a MEMBLOCK_NODUMP flag (suggested by Rob) in
+>>> memblock to filter reserved memory on DT-based architectures. A new
+>>> flag is needed because MEMBLOCK_NOMAP can only express regions without
+>>> a linear mapping, while MEMBLOCK_NODUMP can filter regions that are
+>>> linearly mapped. Reserved regions are marked MEMBLOCK_NODUMP by default
+>>> so kdump omits them; reusable CMA regions are different because their
+>>> pages are handed back to the buddy allocator and may carry crash-relevant
+>>> data.
+>>>
+>>> Since the reserved memory regions are filtered out, the vmcore is
+>>> smaller in size and faster to produce.
+>>>
+>>> The series is based on linux-next and is organized as follows:
+>>>
+>>> Patches 1-3: Preparation and bugfixes: switch riscv crash_mem to
+>>>              memblock, fold the duplicated per-arch memblock walks
+>>>              into the weak defaults, and serialize crash header
+>>>              preparation against memory hotplug.
+>>> Patches 4-7: NODUMP infrastructure: switch crash_core to
+>>>              for_each_mem_region(), introduce the MEMBLOCK_NODUMP
+>>>              flag, add a dumpable flag to struct reserved_mem, and
+>>>              mark /reserved-memory entries with MEMBLOCK_NODUMP.
+>>> Patch 8:     Skip MEMBLOCK_NODUMP regions when building the vmcore
+>>>              ELF header.
+>>
+>> Hi all,
+>>
+>> A gentle ping on this series.
+>>
+>> I'd appreciate any further feedback, particularly on the
+>> MEMBLOCK_NODUMP discussion and the issues raised in the Sashiko
+>> review.
+> 
+> I'm fine with MEMBLOCK_NODUMP.
+> The issue Sashiko raised about bound check against cmem->max_nr_ranges
+> seems valid. 
 
-Tested-by: Iker Pedrosa <ikerpedrosam@gmail.com>
-Reviewed-by: Iker Pedrosa <ikerpedrosam@gmail.com>
-Signed-off-by: Yixun Lan <dlan@kernel.org>
----
- drivers/pmdomain/Kconfig                        |   1 +
- drivers/pmdomain/Makefile                       |   1 +
- drivers/pmdomain/spacemit/Kconfig               |  21 ++
- drivers/pmdomain/spacemit/Makefile              |   1 +
- drivers/pmdomain/spacemit/spacemit-pm-domains.c | 424 ++++++++++++++++++++++++
- 5 files changed, 448 insertions(+)
+Hi Mike,
 
-diff --git a/drivers/pmdomain/Kconfig b/drivers/pmdomain/Kconfig
-index 5341dff669be..20aea5fe94b2 100644
---- a/drivers/pmdomain/Kconfig
-+++ b/drivers/pmdomain/Kconfig
-@@ -14,6 +14,7 @@ source "drivers/pmdomain/renesas/Kconfig"
- source "drivers/pmdomain/riscv/Kconfig"
- source "drivers/pmdomain/rockchip/Kconfig"
- source "drivers/pmdomain/samsung/Kconfig"
-+source "drivers/pmdomain/spacemit/Kconfig"
- source "drivers/pmdomain/st/Kconfig"
- source "drivers/pmdomain/starfive/Kconfig"
- source "drivers/pmdomain/sunxi/Kconfig"
-diff --git a/drivers/pmdomain/Makefile b/drivers/pmdomain/Makefile
-index d7aee13ae571..25238576f8a3 100644
---- a/drivers/pmdomain/Makefile
-+++ b/drivers/pmdomain/Makefile
-@@ -12,6 +12,7 @@ obj-y					+= renesas/
- obj-y					+= riscv/
- obj-y					+= rockchip/
- obj-y					+= samsung/
-+obj-y					+= spacemit/
- obj-y					+= st/
- obj-y					+= starfive/
- obj-y					+= sunxi/
-diff --git a/drivers/pmdomain/spacemit/Kconfig b/drivers/pmdomain/spacemit/Kconfig
-new file mode 100644
-index 000000000000..8e2808e92be3
---- /dev/null
-+++ b/drivers/pmdomain/spacemit/Kconfig
-@@ -0,0 +1,21 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+menu "SpacemiT PM Domains"
-+
-+config SPACEMIT_PM_DOMAINS
-+	tristate "PM Domain driver for SpacemiT SoC"
-+	depends on ARCH_SPACEMIT || COMPILE_TEST
-+	depends on PM && OF
-+	select PM_GENERIC_DOMAINS
-+	select PM_GENERIC_DOMAINS_OF
-+	select AUXILIARY_BUS
-+	help
-+	  This driver enables power domain management for the SpacemiT
-+	  SoC. On the SoC there are number of power domains available,
-+	  which can be managed independently. For example VPU, GPU, LCD,
-+	  and Audio reside in their own power domains which can be
-+	  turned on/off.
-+
-+	  Say Y or M to enable device power management through PM domains.
-+
-+endmenu
-diff --git a/drivers/pmdomain/spacemit/Makefile b/drivers/pmdomain/spacemit/Makefile
-new file mode 100644
-index 000000000000..d0bd77a520c0
---- /dev/null
-+++ b/drivers/pmdomain/spacemit/Makefile
-@@ -0,0 +1 @@
-+obj-$(CONFIG_SPACEMIT_PM_DOMAINS)	+= spacemit-pm-domains.o
-diff --git a/drivers/pmdomain/spacemit/spacemit-pm-domains.c b/drivers/pmdomain/spacemit/spacemit-pm-domains.c
-new file mode 100644
-index 000000000000..dd0613c1912a
---- /dev/null
-+++ b/drivers/pmdomain/spacemit/spacemit-pm-domains.c
-@@ -0,0 +1,424 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Spacemit Generic power domain support.
-+ *
-+ * Copyright (c) 2026 SpacemiT Technology Co. Ltd
-+ */
-+
-+#include <linux/pm_domain.h>
-+#include <linux/regmap.h>
-+#include <linux/auxiliary_bus.h>
-+#include <dt-bindings/power/spacemit,k1-power.h>
-+#include <dt-bindings/power/spacemit,k3-power.h>
-+#include <soc/spacemit/ccu.h>
-+
-+#define APMU_POWER_STATUS_REG	0xf0
-+#define APMU_POWER_TIMEOUT_US	10000
-+
-+struct spacemit_pm_domain_param {
-+	unsigned int reg_pwr_ctrl;
-+	u8 bit_hw_mode;
-+	u8 bit_sleep2;
-+	u8 bit_sleep1;
-+	u8 bit_isolation;
-+	u8 bit_auto_pwr_on;
-+	u8 bit_hw_pwr_stat;
-+	u8 bit_pwr_stat;
-+	bool use_hw;
-+	unsigned int flags;
-+	const char *name;
-+};
-+
-+struct spacemit_pm_domain {
-+	struct generic_pm_domain genpd;
-+	struct spacemit_pmu *pmu;
-+	int pm_index;
-+	const struct spacemit_pm_domain_param *param;
-+};
-+
-+struct spacemit_pmu {
-+	struct device *dev;
-+	struct regmap *regmap;
-+	struct genpd_onecell_data genpd_data;
-+	struct generic_pm_domain *domains[];
-+};
-+
-+struct spacemit_pm_aux_data {
-+	int num_domains;
-+	const struct spacemit_pm_domain_param *param;
-+};
-+
-+#define to_spacemit_pd(gpd) container_of(gpd, struct spacemit_pm_domain, genpd)
-+
-+static int spacemit_pd_power_off(struct generic_pm_domain *domain)
-+{
-+	struct spacemit_pm_domain *pd = to_spacemit_pd(domain);
-+	struct spacemit_pmu *pmu = pd->pmu;
-+	const struct spacemit_pm_domain_param *p = pd->param;
-+	unsigned int val;
-+	int ret;
-+
-+	if (!pd->param->use_hw) {
-+		regmap_clear_bits(pmu->regmap, p->reg_pwr_ctrl, BIT(p->bit_isolation));
-+		fsleep(15);
-+
-+		val = BIT(p->bit_sleep1) | BIT(p->bit_sleep2);
-+		regmap_clear_bits(pmu->regmap, p->reg_pwr_ctrl, val);
-+		fsleep(15);
-+
-+		ret = regmap_read_poll_timeout(pmu->regmap,
-+					       APMU_POWER_STATUS_REG,
-+					       val,
-+					       !(val & BIT(p->bit_pwr_stat)),
-+					       5,
-+					       APMU_POWER_TIMEOUT_US);
-+	} else {
-+		val = BIT(p->bit_auto_pwr_on) | BIT(p->bit_hw_mode);
-+		regmap_clear_bits(pmu->regmap, p->reg_pwr_ctrl, val);
-+		fsleep(15);
-+
-+		ret = regmap_read_poll_timeout(pmu->regmap,
-+					       APMU_POWER_STATUS_REG,
-+					       val,
-+					       !(val & BIT(p->bit_hw_pwr_stat)),
-+					       5,
-+					       APMU_POWER_TIMEOUT_US);
-+	}
-+
-+	if (ret)
-+		dev_err(&domain->dev, "failed to power off domain %s: %d\n",
-+			p->name, pd->pm_index);
-+
-+	return ret;
-+}
-+
-+static int spacemit_pd_power_on(struct generic_pm_domain *domain)
-+{
-+	struct spacemit_pm_domain *pd = to_spacemit_pd(domain);
-+	struct spacemit_pmu *pmu = pd->pmu;
-+	const struct spacemit_pm_domain_param *p = pd->param;
-+	unsigned int val;
-+	int ret = 0;
-+
-+	if (!p->use_hw) {
-+		regmap_set_bits(pmu->regmap, p->reg_pwr_ctrl, BIT(p->bit_sleep1));
-+		fsleep(20);
-+
-+		val = BIT(p->bit_sleep2) | BIT(p->bit_sleep1);
-+		regmap_set_bits(pmu->regmap, p->reg_pwr_ctrl, val);
-+		fsleep(20);
-+
-+		regmap_set_bits(pmu->regmap, p->reg_pwr_ctrl, BIT(p->bit_isolation));
-+		fsleep(15);
-+
-+		ret = regmap_read_poll_timeout(pmu->regmap,
-+					       APMU_POWER_STATUS_REG,
-+					       val,
-+					       (val & BIT(p->bit_pwr_stat)),
-+					       5,
-+					       APMU_POWER_TIMEOUT_US);
-+	} else {
-+		val = BIT(p->bit_auto_pwr_on) | BIT(p->bit_hw_mode);
-+		regmap_set_bits(pmu->regmap, p->reg_pwr_ctrl, val);
-+		fsleep(300);
-+
-+		ret = regmap_read_poll_timeout(pmu->regmap,
-+					       APMU_POWER_STATUS_REG,
-+					       val,
-+					       (val & BIT(p->bit_hw_pwr_stat)),
-+					       5,
-+					       APMU_POWER_TIMEOUT_US);
-+	}
-+
-+	if (ret)
-+		dev_err(&domain->dev, "failed to power on domain %s: %d\n",
-+			p->name, pd->pm_index);
-+
-+	return ret;
-+}
-+
-+static bool spacemit_pm_is_off_state(struct spacemit_pmu *pmu,
-+				     struct spacemit_pm_domain *pd)
-+{
-+	const struct spacemit_pm_domain_param *p = pd->param;
-+	u32 reg = 0, bit;
-+
-+	regmap_read(pmu->regmap, APMU_POWER_STATUS_REG, &reg);
-+
-+	bit = p->use_hw ? BIT(p->bit_hw_pwr_stat) : BIT(p->bit_pwr_stat);
-+
-+	return !(reg & bit);
-+}
-+
-+static int spacemit_pm_add_one_domain(struct spacemit_pmu *pmu, int id,
-+				      const struct spacemit_pm_domain_param *param)
-+{
-+	struct spacemit_pm_domain *pd;
-+	int ret;
-+
-+	pd = devm_kzalloc(pmu->dev, sizeof(*pd), GFP_KERNEL);
-+	if (!pd)
-+		return -ENOMEM;
-+
-+	pd->pm_index        = id;
-+	pd->param           = param;
-+	pd->pmu             = pmu;
-+	pd->genpd.name      = param->name;
-+	pd->genpd.flags     = param->flags;
-+	pd->genpd.power_off = spacemit_pd_power_off;
-+	pd->genpd.power_on  = spacemit_pd_power_on;
-+
-+	ret = pm_genpd_init(&pd->genpd, NULL, spacemit_pm_is_off_state(pmu, pd));
-+	if (ret)
-+		return ret;
-+
-+	pmu->domains[id] = &pd->genpd;
-+
-+	return 0;
-+}
-+
-+static void spacemit_pm_domain_cleanup(struct spacemit_pmu *pmu)
-+{
-+	struct spacemit_pm_domain *pd;
-+	int i, ret;
-+
-+	for (i = 0; i < pmu->genpd_data.num_domains; i++) {
-+		if (!pmu->domains[i])
-+			continue;
-+
-+		pd = to_spacemit_pd(pmu->domains[i]);
-+		ret = pm_genpd_remove(pmu->domains[i]);
-+		if (ret)
-+			dev_err(pmu->dev, "failed to remove domain %s: %d - state may be inconsistent\n",
-+				pd->param->name, ret);
-+	}
-+}
-+
-+static int spacemit_pm_domain_probe(struct auxiliary_device *adev,
-+				    const struct auxiliary_device_id *id)
-+{
-+	struct spacemit_ccu_adev *spdev = to_spacemit_ccu_adev(adev);
-+	const struct spacemit_pm_domain_param *p;
-+	const struct spacemit_pm_aux_data *data;
-+	struct device *dev = &adev->dev;
-+	struct spacemit_pmu *pmu;
-+	int err, i;
-+
-+	data = (const struct spacemit_pm_aux_data *)id->driver_data;
-+
-+	pmu = devm_kzalloc(dev,
-+			   struct_size(pmu, domains, data->num_domains),
-+			   GFP_KERNEL);
-+	if (!pmu)
-+		return -ENOMEM;
-+
-+	auxiliary_set_drvdata(adev, pmu);
-+
-+	pmu->dev = dev;
-+	pmu->regmap = spdev->regmap;
-+	pmu->genpd_data.num_domains = data->num_domains;
-+	pmu->genpd_data.domains     = pmu->domains;
-+
-+	for (i = 0; i < data->num_domains; i++) {
-+		p = &data->param[i];
-+		err = spacemit_pm_add_one_domain(pmu, i, p);
-+		if (err) {
-+			dev_err(dev, "failed to add domain %s: %d\n", p->name, err);
-+			goto err_out;
-+		}
-+	}
-+
-+	err = of_genpd_add_provider_onecell(dev->of_node, &pmu->genpd_data);
-+	if (err) {
-+		dev_err(dev, "failed to add provider: %d\n", err);
-+		goto err_out;
-+	}
-+
-+	return 0;
-+
-+err_out:
-+	spacemit_pm_domain_cleanup(pmu);
-+	return err;
-+}
-+
-+static void spacemit_pm_domain_remove(struct auxiliary_device *adev)
-+{
-+	struct spacemit_pmu *pmu = auxiliary_get_drvdata(adev);
-+	struct device *dev = &adev->dev;
-+
-+	of_genpd_del_provider(dev->of_node);
-+	spacemit_pm_domain_cleanup(pmu);
-+}
-+
-+static const struct spacemit_pm_domain_param k1_domain_params[] = {
-+	[K1_PMDOMAIN_VPU] = {
-+		.reg_pwr_ctrl		= 0xa8,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_pwr_stat		= 1,
-+		.bit_hw_pwr_stat	= 9,
-+		.name			= "vpu",
-+	},
-+	[K1_PMDOMAIN_GPU] = {
-+		.reg_pwr_ctrl		= 0xd0,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_pwr_stat		= 0,
-+		.name			= "gpu",
-+	},
-+	[K1_PMDOMAIN_LCD] = {
-+		.reg_pwr_ctrl		= 0x380,
-+		.bit_hw_mode		= 4,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_auto_pwr_on	= 0,
-+		.bit_pwr_stat		= 4,
-+		.bit_hw_pwr_stat	= 12,
-+		.use_hw			= true,
-+		.name			= "lcd",
-+	},
-+	[K1_PMDOMAIN_ISP] = {
-+		.reg_pwr_ctrl		= 0x37c,
-+		.bit_hw_mode		= 4,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_auto_pwr_on	= 0,
-+		.bit_pwr_stat		= 2,
-+		.bit_hw_pwr_stat	= 10,
-+		.name			= "isp",
-+	},
-+	[K1_PMDOMAIN_AUDIO] = {
-+		.reg_pwr_ctrl		= 0x378,
-+		.bit_hw_mode		= 4,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_auto_pwr_on	= 0,
-+		.bit_pwr_stat		= 3,
-+		.bit_hw_pwr_stat	= 11,
-+		.use_hw			= true,
-+		.name			= "audio",
-+	},
-+	[K1_PMDOMAIN_GNSS] = {
-+		.reg_pwr_ctrl		= 0x13c,
-+		.bit_hw_mode		= 4,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_auto_pwr_on	= 0,
-+		.bit_pwr_stat		= 6,
-+		.bit_hw_pwr_stat	= 14,
-+		.name			= "gnss",
-+	},
-+	[K1_PMDOMAIN_HDMI] = {
-+		.reg_pwr_ctrl		= 0x3f4,
-+		.bit_hw_mode		= 4,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_auto_pwr_on	= 0,
-+		.bit_pwr_stat		= 7,
-+		.bit_hw_pwr_stat	= 15,
-+		.use_hw			= true,
-+		.name			= "hdmi",
-+	},
-+};
-+
-+static const struct spacemit_pm_domain_param k3_domain_params[] = {
-+	[K3_PMDOMAIN_VPU] = {
-+		.bit_auto_pwr_on	= 0,
-+		.bit_isolation		= 1,
-+		.bit_sleep1		= 2,
-+		.bit_sleep2		= 3,
-+		.bit_hw_mode		= 4,
-+		.bit_pwr_stat		= 2,
-+		.bit_hw_pwr_stat	= 9,
-+		.use_hw			= true,
-+		.reg_pwr_ctrl		= 0xa8,
-+		.name			= "vpu",
-+	},
-+	[K3_PMDOMAIN_GPU] = {
-+		.bit_auto_pwr_on	= 0,
-+		.bit_isolation		= 1,
-+		.bit_sleep1		= 2,
-+		.bit_sleep2		= 3,
-+		.bit_hw_mode		= 4,
-+		.bit_pwr_stat		= 0,
-+		.bit_hw_pwr_stat	= 8,
-+		.use_hw			= true,
-+		.reg_pwr_ctrl		= 0xd0,
-+		.name			= "gpu",
-+	},
-+	[K3_PMDOMAIN_AUDIO] = {
-+		.bit_auto_pwr_on	= 0,
-+		.bit_isolation		= 1,
-+		.bit_sleep1		= 2,
-+		.bit_sleep2		= 3,
-+		.bit_hw_mode		= 4,
-+		.bit_pwr_stat		= 3,
-+		.reg_pwr_ctrl		= 0x378,
-+		.flags			= GENPD_FLAG_ALWAYS_ON,
-+		.name			= "audio",
-+	},
-+	[K3_PMDOMAIN_LCD0] = {
-+		.bit_auto_pwr_on	= 0,
-+		.bit_isolation		= 1,
-+		.bit_sleep1		= 2,
-+		.bit_sleep2		= 3,
-+		.bit_hw_mode		= 4,
-+		.bit_pwr_stat		= 4,
-+		.bit_hw_pwr_stat	= 12,
-+		.use_hw			= true,
-+		.reg_pwr_ctrl		= 0x380,
-+		.name			= "lcd0",
-+	},
-+	[K3_PMDOMAIN_LCD1] = {
-+		.bit_auto_pwr_on	= 0,
-+		.bit_isolation		= 1,
-+		.bit_sleep1		= 2,
-+		.bit_sleep2		= 3,
-+		.bit_hw_mode		= 4,
-+		.bit_pwr_stat		= 5,
-+		.bit_hw_pwr_stat	= 15,
-+		.use_hw			= true,
-+		.reg_pwr_ctrl		= 0x3f4,
-+		.name			= "lcd1",
-+	},
-+};
-+
-+static const struct spacemit_pm_aux_data k1_of_data = {
-+	.num_domains	= ARRAY_SIZE(k1_domain_params),
-+	.param		= k1_domain_params,
-+};
-+
-+static const struct spacemit_pm_aux_data k3_of_data = {
-+	.num_domains	= ARRAY_SIZE(k3_domain_params),
-+	.param		= k3_domain_params,
-+};
-+
-+static const struct auxiliary_device_id spacemit_pm_domain_ids[] = {
-+	{
-+		.name = "spacemit_ccu.k1-apmu-pmdomain",
-+		.driver_data = (kernel_ulong_t)&k1_of_data,
-+	},
-+	{
-+		.name = "spacemit_ccu.k3-apmu-pmdomain",
-+		.driver_data = (kernel_ulong_t)&k3_of_data,
-+	},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(auxiliary, spacemit_pm_domain_ids);
-+
-+static struct auxiliary_driver spacemit_pm_domain_driver = {
-+	.probe          = spacemit_pm_domain_probe,
-+	.remove         = spacemit_pm_domain_remove,
-+	.id_table       = spacemit_pm_domain_ids,
-+};
-+module_auxiliary_driver(spacemit_pm_domain_driver);
-+
-+MODULE_DESCRIPTION("SpacemiT Generic Power Domains driver");
-+MODULE_LICENSE("GPL");
+Thanks a lot for the review.
 
--- 
-2.56.0
+Some analysis and plan about "bound check against cmem->max_nr_ranges":
+
+After patch 3, the remaining race is x86-specific. The weak defaults are
+safe: every runtime modification of memblock.memory, hot-add and hot-remove
+alike, happens under device_hotplug_lock, so with the lock held the count
+and populate passes walk a stable snapshot.
+
+x86 instead walks iomem_resource, and Xen balloon inserts its new System RAM
+resource before taking device_hotplug_lock() (reserve_additional_memory),
+which is the one remaining hole.
+
+The issue is also pre-existing: before patch 3 there was no locking at all,
+every hotplug path could race the two passes.
+
+The proper fix is to switch x86 over to the memblock-based weak defaults,
+as patch 2 already did for arm64/loongarch/riscv. Would you prefer to have
+it in this series, or as a separate follow-up? Both work fine for me.
+
+> 
+> I didn't check the reserved mem one.
+
+The two Sashiko findings on the reserved-mem (patch 7) will also be addressed
+in next version.
+
+>  
+>> Please let me know if there are any other concerns or suggestions
+>> before I prepare the next revision.
+> 
+> I believe that should be rebased to account for reserved memory changes.
+
+Sure, the next verison will be rebased on latest linux-next.
+
+> The riscv change from resources to memblock needs an Ack from riscv
+> maintainers.
+
+Hi Paul, Palmer, Albert,
+
+Patch 1 builds the crash_mem ranges for the vmcore ELF header from
+memblock instead of the resource tree, so the later MEMBLOCK_NODUMP
+patches can filter reserved memory from the vmcore on the memblock
+side. With this, the vmcore size reduction the series brings also
+applies to riscv.
+
+Could you take a look when you have a chance?
+
+
+Best regards,
+Wandun
+
+> 
+> And with all that I can take the next version via kexec tree.
+>  
+>> Thanks,
+>> Wandun
+>>
+>>>
+>>> v8 --> v9:
+>>> 1. Patch 7: Avoid a potential boot panic on SH when NODUMP marking requires
+>>>    memblock resizing before it is allowed, found by Sashiko in [1]. SH supports
+>>>    neither CONFIG_KEXEC_FILE nor CONFIG_CRASH_HOTPLUG, so skip marking when
+>>>    both are disabled.
+>>>
+>>> v6 --> v8 (v7 mainly tried to fix the initrd issue on release in v6,
+>>> that approach is superseded here):
+>>> 1. Stop marking /memreserve/ regions with NODUMP. v6 marked
+>>>    /memreserve/ regions with NODUMP. But a bootloader may specify
+>>>    a /memreserve/ entry for memory that the kernel later frees
+>>>    (e.g. the initrd), and those pages would then be wrongly
+>>>    filtered out of the vmcore after being reused as normal memory.
+>>>    The v7 fix (clearing the flag in free_reserved_area()) caused
+>>>    a lockless runtime mutation of memblock.memory [2]. Better solutions
+>>>    exist but need extra preparation, so temporarily dropped the patch
+>>>    that introduced the problem to keep this series simple in v8.
+>>> 2. Fix a build failure in patch 2 with both ARCH_KEEP_MEMBLOCK and
+>>>    MEMORY_HOTPLUG are unset. There the memblock arrays live in
+>>>    .init.data, and the weak defaults referencing them create section
+>>>    mismatches, which turn into build errors when SECTION_MISMATCH_WARN_ONLY
+>>>    is also unset.
+>>> 3. RISCV recently gained crash hotplug support, so adapt its handler
+>>>    like x86 in patch 3: use __crash_prepare_headers() instead of
+>>>    crash_prepare_headers() to avoid self-deadlock.
+>>> 4. Update the cover letter per review feedback: describe how ACPI
+>>>    systems filter reserved memory and why a new flag is needed
+>>>    instead of reusing NOMAP.
+>>>
+>>> v6 --> v7:
+>>> 1. Fix a stale MEMBLOCK_NODUMP flag issue [3]. Memory reserved and
+>>>    marked as NODUMP may later be freed (the initrd, for example),
+>>>    so the NODUMP flag must be cleared accordingly. Since the fix is
+>>>    part of the NODUMP infrastructure introduced by patch 5, it has
+>>>    been folded into that patch.
+>>> 2. Drop the "generic" related description in the cover letter.
+>>> 3. Collect the Acked-by and Reviewed-by tags received during the v6
+>>>    review (thanks to Baoquan, Mike, Rob and Marek). Patch 5 is the
+>>>    only one without a tag, as its Reviewed-by was dropped when the
+>>>    fix was folded in.
+>>> 4. Drop patch 1 of v6, which has been merged separately.
+>>>
+>>>
+>>> v5 --> v6:
+>>> 1. Serialize crash header preparation against memory hotplug to avoid
+>>>    out-of-bounds or use-after-free issues.
+>>> 2. MEMBLOCK_NODUMP marking is now done after memblock allows resizing,
+>>>    avoiding a panic from too few regions before resize is permitted.
+>>> 3. Reordered the patches, put pre-existing bugfixes earlier in the series.
+>>>
+>>> [1] https://sashiko.dev/#/patchset/20261016061549.4181390-1-chenwandun1@gmail.com?part=7
+>>> [2] https://lore.kernel.org/lkml/20260922090252.B01541F000FF@smtp.kernel.org/
+>>> [3] https://sashiko.dev/#/message/20260917220750.GA4013814-robh%40kernel.org
+>>>
+>>> v5: https://lore.kernel.org/lkml/20260806093519.2907771-1-chenwandun1@gmail.com/
+>>> v4: https://lore.kernel.org/lkml/20260630074715.4126796-1-chenwandun1@gmail.com/
+>>>
+>>> Wandun Chen (8):
+>>>   riscv: build crash_mem ranges from memblock instead of resource tree
+>>>   crash_core: fold duplicated memblock arch hooks into the weak default
+>>>   crash_core: serialize crash header preparation against hotplug
+>>>   crash_core: replace for_each_mem_range() with for_each_mem_region()
+>>>   memblock: introduce MEMBLOCK_NODUMP flag
+>>>   of: reserved_mem: add dumpable flag to opt-in vmcore
+>>>   of: reserved_mem: mark /reserved-memory entries with MEMBLOCK_NODUMP
+>>>   crash_core: skip MEMBLOCK_NODUMP regions when building vmcore ELF
+>>>     header
+>>>
+>>>  arch/arm64/kernel/machine_kexec_file.c     | 29 ------------
+>>>  arch/loongarch/kernel/machine_kexec_file.c | 27 -----------
+>>>  arch/riscv/Kconfig                         |  2 +-
+>>>  arch/riscv/kernel/crash.c                  |  2 +-
+>>>  arch/riscv/kernel/machine_kexec_file.c     | 33 --------------
+>>>  arch/x86/kernel/crash.c                    |  2 +-
+>>>  drivers/of/fdt.c                           |  1 +
+>>>  drivers/of/of_private.h                    |  1 +
+>>>  drivers/of/of_reserved_mem.c               | 18 ++++++++
+>>>  include/linux/crash_core.h                 |  2 +
+>>>  include/linux/memblock.h                   |  9 ++++
+>>>  include/linux/of_reserved_mem.h            |  1 +
+>>>  kernel/crash_core.c                        | 53 +++++++++++++++++++++-
+>>>  kernel/dma/contiguous.c                    |  1 +
+>>>  mm/memblock.c                              | 16 +++++++
+>>>  15 files changed, 103 insertions(+), 94 deletions(-)
+>>>
+>>
+> 
 
 
 _______________________________________________
