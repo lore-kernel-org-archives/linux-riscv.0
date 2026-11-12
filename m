@@ -2,60 +2,89 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69053606A330
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 11:31:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA52A606A884
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 11:42:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xtHOQv0I;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Lv0uE8rD
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KM5CrfNI;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SIijVHf/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=TJzzriB5MD7A9TvXcY0MlK+rb15j79VL6m3eAZHAG3M=; b=xtHOQv0IhvLBpeCu37e25lmQiN
-	Kux31V3EPPZV19cUPB+ZPVFiGDY56puAHOkOUUDEJ7ibo0Bk2KeMSdAJ0Tk1oihfZ3v01lJ0R9ajn
-	blcfsVouADOKF30rwqFegrvTcx98gX9ucTKOaZm6KBFlpOKeYWItihJ8m9D3UDHKoV2iD/gVpTiEv
-	2Qa2lkQJxDNV9HFOzZMmgxGgxZnKp0oj9L126RKMgHDZia7bJ75MqihCTntwNBDx0Klebtpn8e++X
-	Cqj3vtoSTZcAdDTACODIanZ4RPQbxRecy9p/KhyXeK3Hrpm3Qq4FlgtpsZVIa+iR3ulkzGBS2Sxrm
-	eN6GCdaA==;
+	bh=ZBTRzCxt7mFp6siVQJBVPb0zdjaF9Clsi2rmUy0s8S0=; b=KM5CrfNIiGphIzCHrhNOUWV/6r
+	C7q+9+wMOwdNQ1KqV7qDAFKfOiwr7xKwCVv/cYGUVC969Lfp0K/rVS1/fC/Bj9yWE8Sf7LQhM73vb
+	gqf00/insiiKaDCzTeobcYmbwbY260VFLWLr7GqT74QshuEhClLKmusJO1RNJLNPl8Jko+7IIo7PH
+	WKmooBgT9gN/KAyffB9sjY9qacwWOb+ane5b0xbemhXOS0BrxOHVbFtUR8Y1ir3yCsU33ZW4VjfjG
+	DoTI8uPj+XiniFCXhjFNhhmVdydZsvDh3EhEhksmDS+1OzkTLfNb77NpOjNiD4zqDiS8zUPdaEtTK
+	dMfbQt4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRT16-00000009jFR-3iFK;
-	Thu, 12 Nov 2026 11:30:56 +0000
+	id 1xRTCh-00000009lLx-0j3f;
+	Thu, 12 Nov 2026 11:42:55 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRT10-00000009jC3-1MG2
+	id 1xRTCf-00000009lLE-2pkp
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 11:30:53 +0000
+	Thu, 12 Nov 2026 11:42:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B6BEA40AE9;
-	Thu, 12 Nov 2026 11:30:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 758841F00A09;
-	Thu, 12 Nov 2026 11:30:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with UTF8SMTP id D199B47214;
+	Thu, 12 Nov 2026 11:42:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 43F8A1F00A07;
+	Thu, 12 Nov 2026 11:42:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794483049;
-	bh=4VQE+wCw+63cnThzXfE5m3Wkr677M0OSU+v7x8jQn64=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=Lv0uE8rD32wyRfV5sPXfxmly+/H4WSct6DgNgB+borGLOHQHrPLIX+nDFWq8WIR5a
-	 6AtC7CnbNeLwvde/cSjhKEvSpenf4t0Wu4NTtXot75V8BVGl2rFunUOcGyNsN4UI68
-	 wNERe8a2KaEWMchf+DBb8Bs1DvhulbUFaoAuvnrKGZEac6tb6LCixMCO2ciI45WqCn
-	 5rzApcOojjQxqR7Be5XjATEt71gD58xH7QXIWmI8trxikOKPyX7zLM0t/f/t7TwpTp
-	 molNGWnrHSHxcdMFd0azahw83gPRaA1oGx6MU/a7XQjmmEtHkAo1P+T8dMYcy21pbm
-	 BNy/IJvPTGAsw==
-Content-Type: multipart/mixed; boundary="===============8011434571142281874=="
+	s=k20260515; t=1794483772;
+	bh=yBDSrz0rU0DnRkMjKw+YlslHT/Bdl8TFcwbvYkOH9kc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SIijVHf/6S9PX5Y0aCOMGOz2Vl6lijH5dTGNQgaiJkvoVxp2rXOIUpvBdcuMLMEpc
+	 vc6pOfDpl3mtDzLjIkcPL9fMNUaboYnSQp0ZZriyAt7VMYr+pLp/sc6UWy19CD5loR
+	 5b/OvSc1hJ9LIij+KM7rROKyTFblQsPgWMNjUfMMmJbcAgZwSF8C4+X756fVlrfmJP
+	 L4lbmWhMUPoHDas/afVpjdZ2OohiQn1d56TP7UjHRFlaWUTzyunPsqF21Ecava8BnG
+	 UFZCozyja/o025Qt2sAGxqd6MDBygofYwzlUSZdzDDrnvysMM/eg+WuCxR4u3SfPYb
+	 ep+C4q2/gYBgA==
+Date: Thu, 12 Nov 2026 12:34:50 +0100
+From: Nicolas Schier <nsc@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Julian Braha <julianbraha@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	llvm@lists.linux.dev, Linus Torvalds <torvalds@linuxfoundation.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 5/6] Eliminate CONFIG_CC_HAS_ASM_GOTO_TIED_OUTPUT
+Message-ID: <avWkWm1N5rv52GG4@levanger>
+Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Julian Braha <julianbraha@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	llvm@lists.linux.dev, Linus Torvalds <torvalds@linuxfoundation.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org
+References: <20261111-kconfig-toolchain-updates-v2-0-b2d9415c1757@kernel.org>
+ <20261111-kconfig-toolchain-updates-v2-5-b2d9415c1757@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <9c88485e232da5a503d56c83b14b7765e672fd0c4ccc92686c342cec03c8e350@mail.kernel.org>
-In-Reply-To: <20261112104149.38589-10-cuiyunhui@bytedance.com>
-References: <20261112104149.38589-10-cuiyunhui@bytedance.com>
-Subject: Re: [PATCH v10 9/9] riscv: select HAVE_CMPXCHG_LOCAL
-From: bot+bpf-ci@kernel.org
-To: cuiyunhui@bytedance.com,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,dennis@kernel.org,tj@kernel.org,cl@gentwo.org,oleg@redhat.com,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,bjorn@kernel.org,pulehui@huawei.com,puranjay@kernel.org,broonie@kernel.org,cuiyunhui@bytedance.com,dave@stgolabs.net,david.laight.linux@gmail.com,jszhang@kernel.org,tglx@kernel.org,conor.dooley@microchip.com,thuth@redhat.com,ajones@ventanamicro.com,ben.dooks@codethink.co.uk,rkrcmar@ventanamicro.com,samuel.holland@sifive.com,zong.li@sifive.com,debug@rivosinc.com,seanwascoding@gmail.com,andybnac@gmail.com,menglong8.dong@gmail.com,cyrilbur@tenstorrent.com,wangruikang@iscas.ac.cn,atishp@rivosinc.com,apatel@ventanamicro.com,arnd@arndb.de,nathan@kernel.org,nick.desaulniers+lkml@gmail.com,morbo@google.com,justinstitt@google.c
- om,qingfang.deng@siflower.com.cn,linux-riscv@lists.infradead.org,linux-kernel@vger.kernel.org,linux-mm@kvack.org,bpf@vger.kernel.org,linux-arch@vger.kernel.org,llvm@lists.linux.dev
-Cc: ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Thu, 12 Nov 2026 11:30:44 +0000 (UTC)
+Content-Disposition: inline
+In-Reply-To: <20261111-kconfig-toolchain-updates-v2-5-b2d9415c1757@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,67 +94,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============8011434571142281874==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+On Wed, Nov 11, 2026 at 05:52:07PM -0700, Nathan Chancellor wrote:
+> Commit 1aa0e8b144b6 ("Kconfig: Add option for asm goto w/ tied outputs
+> to workaround clang-13 bug") added CONFIG_CC_HAS_ASM_GOTO_TIED_OUTPUT to
+> avoid a bug in clang's asm goto with outputs support when a tied output
+> was used. The fix in clang was to match GCC's documented behavior.
+> 
+> Now that the minimum supported version of clang has long been bumped
+> past the version where the fix landed (clang-14), any compiler that
+> satisfies the dependencies of CONFIG_CC_HAS_ASM_GOTO_OUTPUT will support
+> tied outputs properly. Eliminate CONFIG_CC_HAS_ASM_GOTO_TIED_OUTPUT in
+> favor of just checking for CONFIG_CC_HAS_ASM_GOTO_OUTPUT directly.
+> 
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
 
-> riscv: select HAVE_CMPXCHG_LOCAL
+[...]
+> diff --git a/scripts/Kconfig.toolchain b/scripts/Kconfig.toolchain
+> index 6520a06a9103..9454ef5294d5 100644
+> --- a/scripts/Kconfig.toolchain
+> +++ b/scripts/Kconfig.toolchain
+> @@ -120,11 +120,6 @@ config CC_HAS_ASM_GOTO_OUTPUT
+>  	depends on !GCC_ASM_GOTO_OUTPUT_BROKEN
+>  	depends on $(success,echo 'int foo(int x) { asm goto ("": "=r"(x) ::: bar); return x; bar: return 0; }' | $(CC) -x c - -c -o /dev/null)
+>  
+> -config CC_HAS_ASM_GOTO_TIED_OUTPUT
+> -	depends on CC_HAS_ASM_GOTO_OUTPUT
+> -	# Detect buggy gcc and clang, fixed in gcc-11 clang-14.
+> -	def_bool $(success,echo 'int foo(int *x) { asm goto (".long (%l[bar]) - .": "+m"(*x) ::: bar); return *x; bar: return 0; }' | $CC -x c - -c -o /dev/null)
 
-TL;DR: Nit only, no runtime problem: selecting HAVE_CMPXCHG_LOCAL on riscv may
-need the cmpxchg-local arch-support.txt feature table updated from TODO to ok
-in the same patch.
+The comments reads as if gcc 8 to 10 are affected.  Is the comment
+somehow misleading, or should we still keep this until gcc-10 is the
+minimum gcc version?
 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -155,6 +155,7 @@ config RISCV
->  	select HAVE_ARCH_VMAP_STACK if MMU && 64BIT
->  	select HAVE_ASM_MODVERSIONS
->  	select HAVE_BUILDTIME_MCOUNT_SORT
-> +	select HAVE_CMPXCHG_LOCAL
->  	select HAVE_CONTEXT_TRACKING_USER
-
-This isn't a runtime problem, but should the feature table be updated in
-this patch as well?
-
-Documentation/features/locking/cmpxchg-local/arch-support.txt is keyed on
-this Kconfig symbol and still lists riscv as TODO:
-
-    |       riscv: | TODO |
-
-Nothing later in the series changes it.  Other riscv patches that select a
-feature symbol update the matching arch-support.txt in the same commit, for
-example d1f014012571 ("riscv: enable HAVE_IOREMAP_PROT").  LoongArch
-selected the same symbol without updating the table, and it needed a
-follow-up in 0c4c9abbf68b ("Documentation/features: Mark cmpxchg-local as
-supported on loongarch").  Would changing the riscv row to "ok" here keep
-the table accurate?
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/43205409812
---===============8011434571142281874==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Nicolas
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8011434571142281874==--
-
