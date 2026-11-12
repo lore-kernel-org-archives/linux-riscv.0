@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50D22606A32A
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 17:48:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ED5B606A323
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 18:02:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uNamtvkr;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=anQ8uJbK
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dTdWzF0k;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PFuogju2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
@@ -14,67 +14,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=gv0xmYPte+c2kLS6XmqoJ3MvLk5h0QeXCELwysLzBnI=; b=uNamtvkr7bVWJYB6SRBVb+ROEL
-	j2u2NwLDYTP59+ChhVEdUjCdY5Uqj8naOA4tfGBcCHeank5jMzP723Ln/jAva/Avw3bb7XAOHJ4Ja
-	s7RWxSsuMMpU/EGeIBCEHFoAPkPZT3oGLGi6bJq31gDH49i4mrUTdNswlWjSjaKnjmQWxm/RHnd9P
-	S8GLBAoffKH4nelh3LPpW7B6up6VAVhEUr5hdyqaasCLaDHR+LbLPAG8Z8Pm/USSqzUK7abt09pe1
-	ID5Jy5Kydl/rT7WBtpBFCVy1Byju7Kl1Uwa7/YIH5C6uY2XcH5Dzp8OMi+4lrXozVeh7tbZE2m5xy
-	zz48mtGQ==;
+	bh=aD4WuFEOMxTrTzy/XXMHekwdP2sPBslgEKRcowCD0UQ=; b=dTdWzF0kVz0vqfljokKUijXtXz
+	Ff/Mw1JpagKqAbelXU88VhYo/S9naLHQ/cIeeYF4UVPWheGPnuOQdghUyLYlYgHozyRKsSm7Cgvzh
+	Y8feiAQiLTPkMvDkfbQoNGTKfDJOgzpua6NehTLxO5qrn5cqfMFgJb5QiJ3uDtu6oibJQwUI/nJ3t
+	/Y+5I+aqCi2tCtyoOjAopMAV2CwxPi0PaS6kgipVvnqs9fTdDzdZ0wfJ7LAyYShF2MwNOe0kvamr8
+	YEWVxc5a2EZVOumEpYJWUUlYgDpCpUXfqlp6lUitndyOLErXI7Ep5r5E72PJdeoIjPXkA9iShrLHo
+	QPp5J1xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRYu8-0000000AncX-2Elg;
-	Thu, 12 Nov 2026 17:48:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xRZ7U-0000000AplU-0kSv;
+	Thu, 12 Nov 2026 18:01:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRYu7-0000000AncB-20GE
+	id 1xRZ7T-0000000AplN-007a
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 17:48:07 +0000
+	Thu, 12 Nov 2026 18:01:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F17F40766;
-	Thu, 12 Nov 2026 17:48:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44DCA1F000C4;
-	Thu, 12 Nov 2026 17:48:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5DA5842E60;
+	Thu, 12 Nov 2026 18:01:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AF221F000C4;
+	Thu, 12 Nov 2026 18:01:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794505687;
-	bh=dJGiQetIHbX3as0TuDaMvVbVCAeT6MoF+8H6BEDLMFQ=;
+	s=k20260515; t=1794506514;
+	bh=3tBrz/qTKCl8kHYKF1k44T05Oj35LdC3Rckp4CQoOnU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=anQ8uJbK8rPg585XVLaNrJkPYarEORnUTJwMzHfRUoE9iLw/md2ZNg/Qu7P7KucXS
-	 UH3FsxQWthpGXaKvGJRc9x+68SImM5CwX1R08wUgwddecPu6cYOpWwGaJ+vRs2xnyU
-	 3d2s1cdRDBV3q+5N+HN3+Ulk4FDerSNlImbKorsF4pFEZo4M72UCP2XPX9ImKSB7DD
-	 TcsxksvFkHLXDwKQWWQvAzxA80z+/YDnCGq6zMw0pFCttcLaN3Ul7ZYetDHriS+FZd
-	 zMtwh8qy5DVJOg6iUvH+9W1p0gilWBZu5xDTNXIhJK0yM2aMs+EmySqNit+zVQDt08
-	 +Rwu0L9ri857g==
-Date: Thu, 12 Nov 2026 17:48:00 +0000
+	b=PFuogju2+6xQYvoQzKAtvb5SarIO5nr0rUWh6myOALVIM1rJad5DJrSFDZKuBtV0A
+	 qOv9IahSawunvpu4u73fPlzKdh205snWLl409Mq65WSwdU+lxCR6RyxfjI8sAVCziZ
+	 hfdOtIdszsL8s3wIwRKXCAROZmhXRvuE6BG/+RUny7BbIt8lNmMDm2DvY8l14MvHCO
+	 aODyNaDsn88e85OEJxub5G/nhNTGcJLhcKLd0YnNcfpT1msKcMnEM9J48BCdPLOV2V
+	 fxOMTtKZtu5GfP4dRbDzfiURw/QrtRZnFoZdRZR9xL+YwrDPFSSqbr9rkRNyHmfzu0
+	 QkoOFZvGquRbw==
+Date: Thu, 12 Nov 2026 18:01:48 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-Cc: "alex@ghiti.fr" <alex@ghiti.fr>,
-	"anup@brainfault.org" <anup@brainfault.org>,
-	"asrinivasan@oss.tenstorrent.com" <asrinivasan@oss.tenstorrent.com>,
-	"chen.wang@linux.dev" <chen.wang@linux.dev>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"dlan@kernel.org" <dlan@kernel.org>,
-	"fustini@kernel.org" <fustini@kernel.org>,
-	"guoren@kernel.org" <guoren@kernel.org>,
-	"inochiama@gmail.com" <inochiama@gmail.com>,
-	"joel@jms.id.au" <joel@jms.id.au>,
-	"junhui.liu@pigmoral.tech" <junhui.liu@pigmoral.tech>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"mpe@kernel.org" <mpe@kernel.org>,
-	"npiggin@gmail.com" <npiggin@gmail.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"pjw@kernel.org" <pjw@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"tglx@kernel.org" <tglx@kernel.org>
-Subject: Re: [PATCH v3 4/7] dt-bindings: timer: Add RISC-V ACLINT mtimer
- bindings
-Message-ID: <20261112-nutty-sculpture-79ef0610ab4f@spud>
-References: <20261111-paralyze-ellipse-dfc194dbe39f@spud>
- <1605ed3f-8078-4ea6-a3a5-b4a3227c0961@htecgroup.com>
+To: jixincheng@ultrarisc.com
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Lunn <andrew@lunn.ch>, Jia Wang <wangjia@ultrarisc.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <anup@brainfault.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@sifive.com>, linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v8 0/8] riscv: Add device tree support for UltraRISC
+ DP1000
+Message-ID: <20261112-legend-outcast-c2226b5e02a1@spud>
+References: <20261112-ultrarisc-dts-v8-0-14fa0834cac4@ultrarisc.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <1605ed3f-8078-4ea6-a3a5-b4a3227c0961@htecgroup.com>
+In-Reply-To: <20261112-ultrarisc-dts-v8-0-14fa0834cac4@ultrarisc.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,7 +76,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3225602844185786644=="
+Content-Type: multipart/mixed; boundary="===============1188491159567816586=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
@@ -93,50 +85,61 @@ X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============3225602844185786644==
+--===============1188491159567816586==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zmXmMzYYtSgWjbEt"
+	protocol="application/pgp-signature"; boundary="AAvjLHGtMxNpSGMB"
 Content-Disposition: inline
 
---zmXmMzYYtSgWjbEt
-Content-Type: text/plain; charset=iso-8859-1
+--AAvjLHGtMxNpSGMB
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 12, 2026 at 03:44:24PM +0000, Aleksa Paunovic wrote:
+On Thu, Nov 12, 2026 at 10:00:59AM +0800, Xincheng Ji via B4 Relay wrote:
 
-> >>> MIPS has it, as per their patch[2]:
-> >>>
-> >>>  - gf,mips-p8700-aclint-mtimer
-> >>>
-> >>> Note that MIPS have mips,p8700-aclint-mtimer in opensbi.
-> > /sigh. Aleksa, can we sort this out please as part of whatever revision
-> > is made to the mtimer patch in your series?
-> Right. I was hoping to address this in a separate OpenSBI series
-> by extending the corresponding drivers with the new gf,p8700-* compatible=
-s,
-> without touching the mips,p8700 ones that are currently in use. Does that=
- work?=A0
+> base-commit: 704340f1cd0dcef829eb62f5b48ae95a2ce17bdf
+> change-id: 20260522-ultrarisc-dts-9dab3a2316b6
+> prerequisite-message-id: <20260907-dwmac-ultrarisc-v2-0-9a39bf8db313@ultrarisc.com>
+> prerequisite-patch-id: 92e6cf1352d54e283d7721dc1542b580b8a41be1
+> prerequisite-patch-id: 875c2058e9d8a983d785d7447374758f994dc847
+> prerequisite-patch-id: 060a9b129c32c623a52ab1ba66f7a357e54575ff
+> prerequisite-patch-id: 9aafbac6d2531a378b2057bf57787c814523f9d3
+> prerequisite-patch-id: d75120a112276bd966d37441bd4d631e1539d0e8
+> prerequisite-patch-id: f526d36e1a4adb659a812fd4145dca2e69b19453
+> prerequisite-patch-id: 7d5e12085468dba34526d9047c62b357f874f91e
 
-Pretty sure that Rob said not to add the "gf,mips" compatibles for
-things that had "mips," ones already and I would put this in that
-category.
+I applied the set.
 
---zmXmMzYYtSgWjbEt
+Please do not include this prerequisite-patch-id stuff in the future,
+none of it is actually required for this series as far as I can tell and
+even if it was, I couldn't apply any of them anyway since they don't
+belong to my tree.
+
+I squashed the maintainers patch, since it didn't make sense to add it
+incorrectly and then replace it.
+
+There's a bunch more maintainers entries with your former colleague in
+them for the dp1000 so you should probably also update all of those.
+Perhaps it would be wise to have more than one maintainer in case you
+leave too!
+
+Cheers,
+Conor.
+
+--AAvjLHGtMxNpSGMB
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCavX7zQAKCRB4tDGHoIJi
-0nbAAP9WAex5D/k3nhtu5yovuBxVX6b+28SKurpmeRZBcoJL/wEAwnhPWFVHHAF7
-IFlKj4079gOnDxMitVEtHvPcOupclQk=
-=E7RY
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCavX/DAAKCRB4tDGHoIJi
+0kHXAQCHsEZuICkoZqQBiO88zqYy/ARdSRp4K6/n3R3c/9OjLwEAnDzQG62+DFdx
+/zSXcAmVDWwEVsElJwZWjwkwjkJGJQo=
+=5fsO
 -----END PGP SIGNATURE-----
 
---zmXmMzYYtSgWjbEt--
+--AAvjLHGtMxNpSGMB--
 
 
---===============3225602844185786644==
+--===============1188491159567816586==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -147,5 +150,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3225602844185786644==--
+--===============1188491159567816586==--
 
