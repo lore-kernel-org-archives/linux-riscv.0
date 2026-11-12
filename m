@@ -2,79 +2,155 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15FFB606A886
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 12:31:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29F4D606A323
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 12:55:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3+REyXoK;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZoZIiH6H
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wv5JTmHD;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Mpz5ENUg;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=K/EHAGQh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=nSRFHbMCCJqT94pwYmbcIsuYuD+tE+7VQM0fpdP20MM=; b=3+REyXoKFnokOwmaWAiPXAb9Wy
-	viuhDDN05OANmbwysJuNmZ0VvXJ/S48IAmsnedGBO0rJocW69YoVUR9G5uwu8E/iQZfimHa6cEfyg
-	5PfE07sw/yUDE0MpJg0LU6n+fKsgqkmUdFXnL9b3SsROvQ3fn68uHYxhu+x5HnBkQgd4BbyYBTy5f
-	mIkSK6ERaA48Wpvh5i/iekaqkjvl7W2DjIbP4oYFDqVtBDr3wFJVOj+5q1VB+YRtr4i9ZSAjxYK8o
-	aJ81c8BVrnywoSkOgtL9m6QO2D+kJJMsTqxMMrHgH39iC2Dk21ngaB+46u7RoMiIcmtnvoVNbQkIB
-	0VAybjGA==;
+	bh=iPHngFzN/x1Nh4LSIw87Wo+9hsn5IAoXvQtCiGjnKBg=; b=wv5JTmHD1U8xPj6Sp58kz0j4MT
+	Av+y3nThhzAnxgJ+Mubh/SRn5hWA25glBfiT1jmhKtui5oGBCR2f8SJgL+6V7dtQ1NVy0dMAz8vNs
+	uXJZ5EnC6HRVEqhFu9XsFwNN7bXDnPTUsI1yAdTar9p4E7zlf/Q3csLLouLAbzezcP5BO3SfkvqxY
+	4vse+uhBS6j0apWUaE1uyPojWscx9l59m2RMaOHq51KhKlpuFQy4R8p7nOXvcFR16GxtpWrrronzb
+	icwggsFubNx7EhSmUmZNPPxXPYnuKWWJ3ly98dsyi4U2UxhCc1/xuYI6V8/sgbUkXOxPRxOtzK6bC
+	B/Ebd1QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRTxC-00000009sqd-1xY3;
-	Thu, 12 Nov 2026 12:31:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xRUKa-00000009wIC-0lZi;
+	Thu, 12 Nov 2026 12:55:08 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRTxB-00000009spo-1akR
+	id 1xRUKX-00000009wHb-3GaG
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 12:30:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5901260CFA;
-	Thu, 12 Nov 2026 12:30:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 554231F00A05;
-	Thu, 12 Nov 2026 12:30:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794486656;
-	bh=HuB4RVeq47mAjcl8ywAJJuIZDoqz1GrNEVj9QlG7uxw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZoZIiH6HBScetwa2i+/gfRsMRzPNjlnFzRYqX614RkGLYaIh7eisZ0UhSXVmOzNkq
-	 iiX272073T1ij5rPy8CibUmRnV1euz0tpzgcXVIx3eDcITIHhL8T66yZ1MsaEHAhaK
-	 a6D6I9NwEaJtBwtFhozHjPzWWHNkBYwBOyqqHH2TWyhLsNN85OQdDlNcrEplKV/JIi
-	 QmRjxma+0DfCvJ+JIiYdEw8hVEyHxRtOCm3IIz+MLH5ddk/lEvVakgRBdVH/KEoXWL
-	 iDBeL+N7Ky7AyH4Ra0Lx20gvqYfQ/7PjHolDfUdoDHRcRVE0t8wq3FuDEDN0EFeo8G
-	 8DktUMMfP136w==
-Date: Thu, 12 Nov 2026 20:10:33 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Yunhui Cui <cuiyunhui@bytedance.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, dennis@kernel.org, tj@kernel.org, cl@gentwo.org,
-	oleg@redhat.com, ast@kernel.org, daniel@iogearbox.net,
-	andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
-	martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
-	jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
-	bjorn@kernel.org, pulehui@huawei.com, puranjay@kernel.org,
-	broonie@kernel.org, dave@stgolabs.net, david.laight.linux@gmail.com,
-	tglx@kernel.org, conor.dooley@microchip.com, thuth@redhat.com,
-	ajones@ventanamicro.com, ben.dooks@codethink.co.uk,
-	rkrcmar@ventanamicro.com, samuel.holland@sifive.com,
-	zong.li@sifive.com, debug@rivosinc.com, seanwascoding@gmail.com,
-	andybnac@gmail.com, menglong8.dong@gmail.com,
-	cyrilbur@tenstorrent.com, wangruikang@iscas.ac.cn,
-	atishp@rivosinc.com, apatel@ventanamicro.com, arnd@arndb.de,
-	nathan@kernel.org, nick.desaulniers+lkml@gmail.com,
-	morbo@google.com, justinstitt@google.com,
-	qingfang.deng@siflower.com.cn, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v10 0/9] riscv: optimize percpu access
-Message-ID: <avWsuYF7R5Qiowp_@xhacker>
-References: <20261112104149.38589-1-cuiyunhui@bytedance.com>
+	Thu, 12 Nov 2026 12:55:07 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AC9AKom4092474
+	for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2026 12:55:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	FJWBGylPd+TUvS4fg6aAHxRIHS3fTwweS5Rmh/QZp8M=; b=Mpz5ENUgcqRabHUP
+	PD3J3yeBOVQuO3lto59EUpQ+arQ2gq2AwvPOsTfYA95ODC3Rd2VWtXnNMSumVmxn
+	IX7m2D4pTpCsNVLNR6W+VCpIfjV5z02Ym5UXkWfYDRbj0W3lmSde+LMcM/Y03e3J
+	pT3c5m/VovkQTPynUrjPx12qtGwROyoAbSXISgQC62QVKXPDyK95qTCf2JLdji07
+	G6XQGZWPa+cs0PVEDzxhTuHVELhXyASTkjc036K/YUv4UBbKkRAsWHD02P9D1rCY
+	7OgLvVZe12vQOHcS6cQaLqmZ/VomqPit472dY/vnqmfJ4jE9DbqRmpCw+0V28/XS
+	XdG5Eg==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hw0m8jvw9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2026 12:55:04 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cd5fd34fee0so2566785a12.3
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2026 04:55:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1794488104; x=1795092904; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FJWBGylPd+TUvS4fg6aAHxRIHS3fTwweS5Rmh/QZp8M=;
+        b=K/EHAGQhAsjxRbOtF32Ze3G1Mof8zw/DpsgARw4tH9GeXo1bsHc2SoFeXXwYZQGQmx
+         5Jy4FAiQSWOpD24ZsE7uDXRF7d/rSLe5wVgoy9ZSxD3LsSOouxCKfect+IPX/kS/6ubz
+         vccZSC1rFYqD0DPrjxjHBE3+/O8mvX9YoyLltTEOHweDB3TEF6Ch6J8NlR352XL1sBrg
+         Op4sZ7/NHATKSHPzxwvArsjz4ELHmjltNkIMwVaYvzqzqcQigl9d9xN6Ht9VJFdbELNl
+         Rv1ceItFCFYL2Ug0CpWDCJ4wQfea31QZ24RvGmDfkxepqvMP4ErVZCPsWxD8tEasB7vz
+         5gow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794488104; x=1795092904;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FJWBGylPd+TUvS4fg6aAHxRIHS3fTwweS5Rmh/QZp8M=;
+        b=MagnQZ0PlMfrMaM9JXsqHf5Nx/oUE9U6640gm3TWtegVhsmQB5ht8JRqhlnijt10rV
+         YDO8B1WVBZeKOOfbQvYP+q8238k9l5RXGsidjXQheFmmjdT2zdy5d15WOBzInyowEoxO
+         Rib5y0nk1clwfI+BsxlUzns1dV4Lr1SXfzEkXIgeBYsDIOT5lSM3GQlawEGSyp44/FFH
+         SQsOj+mp9dG1lNtYJ35lDJ43gAQfCO5M1PB7iclslE3NmQAl7b2NxWTWalMYBHzWd+IM
+         4U7TtblsYHyJjhAhzhcZvEsiEb+IivaVgiIr20ytl/a5cOj1AB+v/YEXcYkid4TQVsnF
+         A4WQ==
+X-Forwarded-Encrypted: i=1; AL+hErHBrZUBIpKUgwB6O4F2NcS01Yu+duARzHRR295Ja1IYIhB7hrj/GHkvwI6fD+9Zu9DLqxid7vFzYYJ7lw==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8YV3+jEBE7bSYSWZYyz9Arl00FLPLeJFnLDtCDjZeVRqrfwzFp
+	pqYQA6E4Kqha+2TUO4bSbMdfccwcw9QRTFCSxoOwdKs+1Ci7fpB5CUCPPMPgpQIhG4rXc3UMVPe
+	5u3H4j+Ndu3k53fw124zBAtmfBGxc6D1TGG9ISEH+Mxhcld3Rae3qJFzDJ5OvWyYG72vrXxw=
+X-Gm-Gg: AYBFou3Dnxs27ySMHCjo4cZ7Vizd5UCFPanUuvFdav8N+Qu6g77GNv0xX1X12C5LUL7
+	C1qFiix8L4QvDW8LdshycALlSwDA2HudCh1DZy9my9XMyfzIm7g9mAiO63RqCzK4P+KKihPbgXE
+	md8B2YIf7VGCgkgOmVzF2EG5ezLmtRazpnw3kbh4optKyFcZaFI3863LlmJ7mrnqxVOenobsNy5
+	IfXy8ZCrHnNhj908TxS8NFm4yFaHqcJzg2MRFaht/TRv5gYBi8QYmoVcDYJ8i/H/0AWQaUC/1HN
+	T9xzq0smeRaU+Vc8fcL63xiNjKf1A59BhI6pqgFox0qgJsq7MElok1AWobjfUHae89l2pTWZF/N
+	wj36UGVcvxRaFF3sc2dS6Sf0rTAahIE2LIIxoXXOtuvGfb7gyxYxqsBJBQPu4yOF7H7u2H/Ypd1
+	V9ojfxdjwJf/ZKbpv+ZnwUb6Kn+pcKERQ0YvcbwAf8010x
+X-Received: by 2002:a05:6a20:ef01:b0:3e2:2fb7:844a with SMTP id adf61e73a8af0-3f2ff7caf1cmr4970700637.61.1794488104061;
+        Thu, 12 Nov 2026 04:55:04 -0800 (PST)
+X-Received: by 2002:a05:6a20:ef01:b0:3e2:2fb7:844a with SMTP id adf61e73a8af0-3f2ff7caf1cmr4970682637.61.1794488103530;
+        Thu, 12 Nov 2026 04:55:03 -0800 (PST)
+Received: from [10.133.33.220] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8baaa9631absm3493088b3a.28.2026.11.12.04.54.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Nov 2026 04:55:03 -0800 (PST)
+Message-ID: <755d7440-28f1-4c9d-bcef-33beb25c71bf@oss.qualcomm.com>
+Date: Thu, 12 Nov 2026 20:54:57 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261112104149.38589-1-cuiyunhui@bytedance.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] cpufreq: dt: Set the initial OPP to apply its voltage
+ constraints
+To: Natanael Copa <ncopa@alpinelinux.org>,
+        "Rafael J . Wysocki" <rafael@kernel.org>,
+        Viresh Kumar <viresh.kumar@linaro.org>
+Cc: Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>,
+        =?UTF-8?Q?Milan_P_=2E_Stani=C4=87?= <mps@arvanta.net>,
+        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Yixun Lan <dlan@kernel.org>,
+        Troy Mitchell
+ <troy.mitchell@linux.spacemit.com>,
+        Shuwei Wu <shuwei.wu@mailbox.org>,
+        Aurelien Jarno <aurelien@aurel32.net>, spacemit@lists.linux.dev,
+        linux-riscv@lists.infradead.org, stable@vger.kernel.org,
+        Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
+References: <20261111130430.10359-1-ncopa@alpinelinux.org>
+Content-Language: en-US
+From: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
+In-Reply-To: <20261111130430.10359-1-ncopa@alpinelinux.org>
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTEyMDA1MSBTYWx0ZWRfX1nAh86FY4wFW
+ 5d/kVRQxhy8SFVA27n3JQCzuoR3C8PlNFviH4WVLqb4D/JjmMDJw/hUwgczzzxHgMXJKH0l470Q
+ m6B+lG8O8kc27BHq3FYiplOwD75vjK8=
+X-Proofpoint-GUID: C007CpwQ6VrS_ccKjume0suaQRVlN0mi
+X-Proofpoint-ORIG-GUID: C007CpwQ6VrS_ccKjume0suaQRVlN0mi
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTEyMDA1MSBTYWx0ZWRfX4DAbzDp89Tew
+ u2Sa8reNwePFUtWpX2AA66sP909rzXYlAGUilzVaYikdtX5pg79BbR2EULW60JDn2VURlnnwsI9
+ /qP+HKeeMNjPMuOpKuXfr55i88OHaHJXRHJNk78lW/CLkgF3uft9SP6odVBROuKyBaD1oFUabz0
+ J0rWnmUjOqpHZuvX2ATO8sivG09mxnIlQoGtu8sAR/NXOGVrV3wl5T9HXkQe4b/3HHev3aNhEdC
+ ddtvHPvkzgBOAgpBNjzGD7X8lo6Uw97X1nz8jAVOqPf78NlXGkKLaJqrFqpGw5yRKySo3Bp8wrf
+ UDp85BU1QGbBcysob4Ve/CR6IjC8uWK1gUb9JcSfTc3HwiTKNVhLeVfdxsQmtGUd5Ee3DvbsaDR
+ /EAEi396UCz9XybtzoBc99SOCmFriY8KC/kqbAeRZIm4chrsdfwVnsuiAGOHvETBdm7mFxkGmcG
+ tA2Mrv1hqXnDR840G9Q==
+X-Authority-Analysis: v=2.4 cv=Q9dHcI2a c=1 sm=1 tr=0 ts=6af5b728 cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=c92rfblmAAAA:8 a=kmYkUENqAAAA:8 a=VwQbUJbxAAAA:8 a=OUwkjY6KL-vEgWlMa8UA:9
+ a=QEXdDO2ut3YA:10 a=bFCP_H2QrGi7Okbo017w:22 a=GvGzcOZaWPEFPQC_NcjD:22
+ a=p9kz6gysRiz6SGr9lVkz:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-12_01,2026-11-11_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 phishscore=0 impostorscore=0 adultscore=0 bulkscore=0
+ suspectscore=0 priorityscore=1501 spamscore=0 clxscore=1011
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611120051
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261112_045505_831914_1EB68B0A 
+X-CRM114-Status: GOOD (  32.97  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,146 +160,130 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Nov 12, 2026 at 06:41:40PM +0800, Yunhui Cui wrote:
-> RISC-V has no asm/percpu.h, so this_cpu_*() read-modify-write
-> operations use generic fallbacks that disable local interrupts. Per-CPU
-> addressing also derives the current offset from the CPU number and
-> __per_cpu_offset[].
-> 
-> Cache the per-CPU offset in thread_info and implement preemptible this_cpu
-> operations using recoverable GPR critical sections. Each operation records
-> the registers used to form its per-CPU address so exception return can
-> repair them if the task resumes on a different CPU. Use AMOs for
-> native-width operations. Use Zabha for 8-bit and 16-bit operations when
-> available, or a 32-bit LR/SC fallback otherwise. Finally, select
-> HAVE_CMPXCHG_LOCAL so common per-CPU counter users can use
-> this_cpu_try_cmpxchg().
-> 
-> The recoverable-GPR scheme follows the arm64 design. Only the protocol is
-> common, however: RISC-V uses a cached offset in thread_info, its own GPR
-> encoding and exception entry code, and AMO/LR/SC operation sequences.
-> Factoring these pieces into generic code would share little beyond the
-> field layout while coupling architecture entry paths, so keep the
-> implementation under arch/riscv.
-> 
-> As with arm64's SDEI path, independent NMI-like entry paths must
-> participate in the entry-state protocol directly. Keep the save, clear and
-> restore operations in common RISC-V assembly macros so SBI Supervisor
-> Software Events (SSE) can preserve an interrupted per-CPU operation. SBI
-> SSE support is developed separately and is not a dependency of this
-> series.
-> 
-> With CONFIG_PREEMPT_LAZY=y, GCC 15, the same linux-next base and
-> configuration, an in-kernel microbenchmark pinned to one CPU ran each
-> operation 2,000,000 times for 15 rounds. The table reports the median
-> empty-loop-adjusted time; lower is better.
-> 
->   operation                 v9 (ns/op)   v10 (ns/op)   change
->   this_cpu_read(u64)            5.668         0.333     -94.1%
->   this_cpu_write(u64)           5.668         0.395     -93.0%
->   this_cpu_add(u64)             8.002         8.004      +0.0%
->   this_cpu_add_return(u64)      8.335         8.004      -4.0%
->   this_cpu_xchg(u64)            8.278         8.004      -3.3%
->   this_cpu_cmpxchg(u64)        18.713        16.133     -13.8%
+Hi Natanael,
+Thanks for the patch.
 
-Hi Yunhui,
+On 11/11/2026 9:04 PM, Natanael Copa wrote:
+> The cpufreq core skips requests for the current frequency, so a policy
+> has no voltage constraint on its supply until its first frequency
+> change. Another policy sharing the supply can then lower the voltage
+> too far.
+> 
+> On the SpacemiT K1, both clusters share one supply and boot at 1.6 GHz.
+> When policy0 scales down, the supply drops to 0.95 V while policy4
+> still runs at 1.6 GHz, causing random crashes during boot.
+> 
+> Set the OPP for the current clock rate of all CPUs before registering
+> the driver.
+> 
+> Fixes: 3b9c34556fc1 ("riscv: dts: spacemit: Add cpu scaling for K1 SoC")
+> Cc: stable@vger.kernel.org
+> Assisted-by: Claude:claude-opus-5-5
+> Assisted-by: Claude:claude-fable-5-2
+> Signed-off-by: Natanael Copa <ncopa@alpinelinux.org>
+> ---
+> Reproducer, booted with cpufreq.default_governor=performance:
+> 
+>    # echo 614400 > /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
+> 
+> buck1 drops to 950000 uV while policy4 is still at 1600000 kHz, which
+> crashed my board within seconds.
+> 
+> Tested on a Banana Pi BPI-F3 with v7.3.3 and v7.4-rc2. Without the
+> patch, v7.3.3 crashed on every boot with schedutil (three). With the
+> patch, the reproducer keeps buck1 at 1050000 uV, and five boots with
+> schedutil were clean on each kernel. Not tested on other SoCs.
+> 
+> Other OPP users that never set their current OPP have the same gap. If
+> you would rather fix this in the OPP core, I can rework it.
 
-Thanks for this series. Could you plz run some benchmark to compare the
-performance between v9 and v10? We can use some benchmarks used in arm64
-version:
-https://lore.kernel.org/linux-arm-kernel/28978498-348e-4cfd-af72-1146a106e96b@arm.com/
-
-Something in my mind: hackbench, kernbench, sysbench-cpu, sysbench-mutex,
-sysbench-thread, perf/futex , perf/sched and perf/syscall.
-
-I will read the code during this weekend.
-
-Thanks
+Which other users do you have in mind? Apart from K1 I couldn't find
+another in-tree cpufreq-dt platform where several policies share one
+cpu-supply. MediaTek CPU/CCI has the similar issue, and
+mtk_cpufreq_set_target() handles it by not going below the boot
+voltage until the CCI driver is ready, so I'd keep this in cpufreq-dt.
+But I'll defer to Viresh on this.
 
 > 
-> With the same configuration, vmlinux .text decreased from 14,369,618 to
-> 14,212,882 bytes (-156,736 bytes, -1.09%). percpu_counter_add_batch()
-> decreased from 330 to 228 bytes.
+> Found and fixed with the help of an AI assistant (Claude). I reviewed
+> and tested the result.
 > 
-> Changes since v9:
+>   drivers/cpufreq/cpufreq-dt.c | 26 ++++++++++++++++++++++++++
+>   1 file changed, 26 insertions(+)
 > 
-> - Rework the this_cpu operations to remain preemptible using recoverable
->   GPR critical sections, as suggested by David Laight and Jisheng Zhang.
-> - Put the cached per-CPU offset first, then split the exception/fixup
->   infrastructure and operation classes into independently reviewable
->   patches.
-> - Keep GPR-state save and restore in reusable assembly macros for NMI-like
->   entry paths such as SBI SSE.
-> - Keep masked LR/SC cmpxchg operands XLEN-wide so RV64 high-byte and
->   high-halfword comparisons are not affected by LR.W sign extension.
-> - Force both halves of the AMOCAS.Q new value into fixed registers so the
->   implicit register pair remains valid when either half is zero.
-> - Use TYPEOF_UNQUAL() in wrappers and fully parenthesize this_cpu_write()
->   values.
+> diff --git a/drivers/cpufreq/cpufreq-dt.c b/drivers/cpufreq/cpufreq-dt.c
+> index eb15650f99bf..2646dda10aac 100644
+> --- a/drivers/cpufreq/cpufreq-dt.c
+> +++ b/drivers/cpufreq/cpufreq-dt.c
+> @@ -153,6 +153,30 @@ static struct cpufreq_driver dt_cpufreq_driver = {
+>   	.suspend = cpufreq_generic_suspend,
+>   };
+>   
+> +/*
+> + * Set the OPP for the current clock rate, so that its voltage constraints
+> + * apply before any policy can change frequency. Otherwise another policy
+> + * sharing the supply could lower the voltage below what this one needs.
+> + */
+> +static void dt_cpufreq_set_initial_opp(struct device *cpu_dev)
+> +{
+> +	struct clk *clk = clk_get(cpu_dev, NULL);
+> +	unsigned long rate;
+> +	int ret;
+> +
+> +	if (IS_ERR(clk))
+> +		return;
+> +
+> +	rate = clk_get_rate(clk);
+> +	clk_put(clk);
+> +	if (!rate)
+> +		return;
+> +
+> +	ret = dev_pm_opp_set_rate(cpu_dev, rate);
+> +	if (ret)
+> +		dev_warn(cpu_dev, "failed to set initial OPP: %d\n", ret);
+> +}
+> +
+>   static int dt_cpufreq_early_init(struct device *dev, int cpu)
+>   {
+>   	struct private_data *priv;
+> @@ -251,6 +275,8 @@ static int dt_cpufreq_early_init(struct device *dev, int cpu)
+>   		goto out;
+>   	}
+>   
+> +	dt_cpufreq_set_initial_opp(cpu_dev);
+
+Does this need to apply to all cpufreq-dt platforms? Could we detect
+this dynamically by checking whether the policies share the same cpu
+supply, and only do it then?
+
+
+> +
+>   	list_add(&priv->node, &priv_list);
+>   	return 0;
+>   
 > 
-> Changes since v8:
-> 
-> - Drop the PIO helper patch, which has already been merged.
-> - Rename the first patch and update its changelog as suggested by
->   Davidlohr Bueso.
-> - Use value-returning AMOs instead of rd=x0 for CPU-local operations.
-> - Remove unnecessary memory clobbers from the new relaxed AMO and LR/SC
->   code.
-> - Use .option arch,+zabha for the Zabha inline asm, matching the
->   existing RISC-V cmpxchg implementation.
-> - Isolate arch_cmpxchg_relaxed() behind typed always-inline helpers to
->   avoid macro variable capture while preserving atomic instrumentation.
-> - Make the cmpxchg128 fallback use the already resolved per-CPU pointer,
->   avoiding the same macro variable capture.
-> - Copy the cached per-CPU offset from prev to next during context switch,
->   as suggested by Thomas Gleixner.
-> - Initialize secondary idle tasks in the common startup path, covering
->   parallel bringup and CPU hotplug, and remove the duplicate initialization
->   from smp_callin(), as reported by Sashiko.
-> - Select HAVE_CMPXCHG_LOCAL in a separate patch.
-> 
-> Yunhui Cui (9):
->   riscv: store percpu offset into thread_info
->   riscv: add infrastructure for preemptible this_cpu operations
->   riscv: implement preemptible this_cpu read and write operations
->   riscv: implement preemptible this_cpu void RMW operations
->   riscv: implement preemptible this_cpu add_return operations
->   riscv: implement preemptible this_cpu xchg operations
->   riscv: implement preemptible this_cpu cmpxchg operations
->   riscv: implement preemptible this_cpu cmpxchg128
->   riscv: select HAVE_CMPXCHG_LOCAL
-> 
->  arch/riscv/Kconfig                   |   1 +
->  arch/riscv/include/asm/asm.h         |  25 +-
->  arch/riscv/include/asm/percpu.h      | 701 +++++++++++++++++++++++++++
->  arch/riscv/include/asm/ptrace.h      |  15 +
->  arch/riscv/include/asm/switch_to.h   |   9 +
->  arch/riscv/include/asm/thread_info.h |   4 +-
->  arch/riscv/kernel/Makefile           |   1 +
->  arch/riscv/kernel/asm-offsets.c      |   4 +-
->  arch/riscv/kernel/entry-common.c     |  32 ++
->  arch/riscv/kernel/entry.S            |  10 +
->  arch/riscv/kernel/smpboot.c          |  10 +-
->  arch/riscv/net/bpf_jit_comp64.c      |   9 +-
->  12 files changed, 805 insertions(+), 16 deletions(-)
->  create mode 100644 arch/riscv/include/asm/percpu.h
->  create mode 100644 arch/riscv/kernel/entry-common.c
-> 
-> 
-> base-commit: ddfe51b0a0f5dc9e415cc2c8ad8db17532dd426b
-> -- 
-> 2.39.5
-> 
+> base-commit: 067c5c24cef23d913b67eaaf71ae67e7169a6620
+
+
+Besides, Sashiko reported some issues, would you please have a look?
+
+https://sashiko.dev/#/patchset/20261111130430.10359-1-ncopa%40alpinelinux.org
+
+
+-- 
+Thx and BRs,
+Zhongqiu Han
 
 _______________________________________________
 linux-riscv mailing list
