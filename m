@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A935606A324
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 02:01:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7700606A33A
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 02:01:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ynG4L50E;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G+xdcIxX
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=q1luyypw;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ey898JLY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,72 +14,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=S80OpsIgPqh0Js6FeyVGyRFNhu+X0WXAsWgRqNhpafE=; b=ynG4L50EHEafSEv+buQnV3agQ+
-	Ha+hDTYVj+/3kGIbkQUf99/eJgBRqakT9McMUuURxbEpzlpFAPGTDE/qz5M4MxhfedWQhYB3pJmwA
-	Tao4D8RrgGTB4x/CBCA7lXEWPY1W1b2PeFgSbJDl5q1McgADGbc3PRAw70YtusQC7s2k4VU48n5iS
-	F4sKuueUfkJP+zTQOUuHXoGQNl0SWHC3sVZjsYE3OL7I8o4KwTZrCYy0iHzUAdzO4mUiVvQCXF1gw
-	CuD/LXOBM5YKLRW5LaBG3QGgjIyO0lChx2U4HNhk8lMIbuLrEhCZEEo3QMe3PNHXkeKgepKojRpNn
-	1jnWXpiQ==;
+	bh=u6uDQHh0QAwo3/pThHYwO4yuj2m8l5kKqruU0TZNh50=; b=q1luyypwii1j+XK/Sxl1TOUcd4
+	t/v07TvNmGHhYZAdhv2Om/u4p+LjXxL9ZS27x/qRdxfxranYdFeO58zbgjjkpiTy/o0gMKtC/26oG
+	UC71GPFYE9QuugIOS3eFZTcjS6Bm5+2SY/qpuMBuoHefQmDBa2q9e/VagYeg830lAYiC1zRVLRndV
+	x/A7rH1lDM2MoTLZe0A7qd+ly/YNK6k9kMadfOj0bgAARXZA+lajXb/Ez6PcqdxZg30lXP9o8dWTn
+	eYi2Nx7diklTPuXNK1CE7EvJAPH8+22/GwE87Ed3+AFOgmaXYsn4Y2+h3DfZ+yaNgFBDZvtH/pOJT
+	Ql9B2wYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRK7u-00000008T1N-1R2U;
-	Thu, 12 Nov 2026 02:01:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xRK7m-00000008Szr-11FF;
+	Thu, 12 Nov 2026 02:01:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRK7l-00000008SzE-2LrD
+	id 1xRK7k-00000008Sz9-2r6X
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 02:01:13 +0000
+	Thu, 12 Nov 2026 02:01:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9285C6349E;
+	by tor.source.kernel.org (Postfix) with ESMTP id 250D06112D;
 	Thu, 12 Nov 2026 02:01:12 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794448872;
-	b=gL8JasT9JUNwQLYbnWjuoQmb5RabbYW2jKrjEAa/ZNDgSk9tWvYnLrALfIz2SsuelgRz
-	 HugB2N3o+WWjlhg5Broibvf5fo9lXCiFlusvcQ6Bt12fVyCbk1R9mDuTFOmU+xQWuDaL4
-	 Cl2g/kJhBUXWbJp0V0vvnqhu9+oWNEsd49NfFSgk5AOJ4YfcXVD9qaH8efplclIPxsreb
-	 NHLYP4gPr4vMMiQ3yNHH6hsOoqNLEzVjYm/dUaR9e5ZWk26DYtY1asrdXbRScEYaIUT+Y
-	 buvgicQQ6ikLMV97YNUpvxFH4NJp9XH6zCLhI5qW16rOxSgZlTPKkNkwoxUqk8BOaVQ==
+	t=1794448871;
+	b=HcAAE1RUN2m3BMtxB9BXLg+zBJ1DYbiC1RJAmzKpxR1FDT6P0PUXTl6sin2nviYWcidh
+	 aizy55VUzrk0ebIc53DnptOVeeDmA6BFDOEqo/56GoWGalUSoHBnWMFXYAYhJRCmmM3P0
+	 CeeTLS2irkPvcIZrnhvW5CA+nbx1tjCHzVDoLsO72K3izIqhPQD9wIHCNSXFzTm6YK+46
+	 iFx52rJzXhIgr2xEfD1cNNN7I9ky3AqF8+wq7J8RzVp712lfXz0HCoqzaKfZlXt21Cx0V
+	 9R+0+qE+FbK11c/ATOYmd8SH9lhoE/WmMvcMRJ6QX37iHK4faxS11gkwHvnKR0V4UsQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794448872;
+	c=relaxed/relaxed; t=1794448871;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To;
-	bh=0UzY1m+EAyJWVSs3KsoWgdS/aUibFQ3ee2IxYj8gwaw=;
-	b=L0o2SdoaluqN8zNOgL4v+ibl2I0XtPAIvF1hkLjcLRB3hTc34BOxOn0blzyXA9DmSJb/
-	 uHdjuNwKSUx/uKb4ZM+CFlSjbY7hWB4Pmn8CFv0S2KrgSy8++XNLjTnKi0Ug2vLJxXYtH
-	 eE6hMCn+MSWyIHafeJUe+2Y2QxJDwbUmtVjQdTqSrmySGQpktK9xQqQqB0DmpMmafV4Xd
-	 /92gsZdR7lPy9aH94zMUISN4S4sNX/NmiWCn3S3IMwIdDnWJo9zPRotNg4Vou9nyPH7vT
-	 +BjO3qkGh3XbEoILdgAkQdmCZ+KtAVMf3lmkUu5Syc2aOive0EIcUQcosJmJc+5Tf3Q==
+	bh=asQFsxgQNnggINI+MiaVE3YX0MoEnfTw/ot13XBv/9c=;
+	b=MatjYWG5eLK6Q52TD0XLIpPLgfN5Uc4+vsI+UKWJcyRmenqN3Xern5L84X6CyVbpT3vQ
+	 4NcuXCHM+lqmlvJTTJqJ8Aal0BEgTRzFR50wbARkrVnHxvr2EYRxF3zBv4DUyWPMRRPO5
+	 xpFDSdFOG0OYvRNSaGinBy+Empk4ujP55urrWJfYFvipIF+4rriqTCCj4Ri6DuB8nex76
+	 JAjZMdwj2oYVTPQd511LP7FrXGobbsdtNGNl7QFIys4etiIvpZcA9wgfeWZ6ES1nvG9bj
+	 oD7SCoZ4rsAsQtI6WG/h30mI0tmBHJgmLHRm+OWEEfFcxHHzxN8Fgsqe8jAtE3ODrkw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 3297D1F00A05;
+	by smtp.kernel.org (Postfix) with ESMTPS id 32BD51F00A07;
 	Thu, 12 Nov 2026 02:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794448872;
-	bh=0UzY1m+EAyJWVSs3KsoWgdS/aUibFQ3ee2IxYj8gwaw=;
+	s=k20260515; t=1794448871;
+	bh=asQFsxgQNnggINI+MiaVE3YX0MoEnfTw/ot13XBv/9c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=G+xdcIxXkCUhSU/GoDcV4EVXitGUj7p4a9INZ4G51L2t5TJVAVlOiLuVuYXIKGfxJ
-	 9yhhcY/Ah3hKF44WmCfyrvI/odBWtfxiwySAgsSlWCM8F/nm9QvzFlUyRycTH/whz+
-	 BEPYHvocnOxMGGtRibRh6nKw8BO46w+STbUUgDsuFt4xeyD7wa0aPGBaQi+f5kNVkW
-	 jMA36z4Sq9C0n8cxKMeWN97dtW0N1uIq4pzZ2SMpU4iZH/rlkH73o7wm2IbYarMk6Z
-	 2yT47fgpI/JpckhB0ygOZIl/MRA3iTW2cEjzciwJbtjgwNQhF3A875PckcRC5sl1a2
-	 QzhYt/wewGp7w==
+	b=Ey898JLYklsWS1uOlpMOkk4razn62k46S79XR/GPzEvXdjAf5AWGuV6jnO0VjF/FS
+	 /w6m7BKa+k7s44+Ym9Zcg4PtvEkAap6XgTXiHxWwgPhBsfsDL646c5yO0U5nXybGZ3
+	 2GZhhq+LMjxrGOFtKWiLQ9/1hBsgmxU5n1lTJJp5QAsKEpdKowaRpvPQ/0f2k3OygX
+	 EnfcLwY2XI6SzYB0rfYt5x9KFcruaGpC5DuB5u8aHeAA+2WeUoYUPPNloomcchOMx+
+	 h80q2WY73LtQbFgpYem7VCFvCvfyiJNrq22y8tPzD+llI2Qf8JzfEy7mlPZO84vgQ/
+	 OJjpDMKyglinw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id AFE70491F6;
+	by lkml.kernel.org (Postfix) with ESMTP id 9C8AB491FA;
 	Thu, 12 Nov 2026 02:01:10 +0000 (UTC)
 From: Xincheng Ji via B4 Relay <devnull+jixincheng.ultrarisc.com@kernel.org>
-Date: Thu, 12 Nov 2026 10:01:01 +0800
-Subject: [PATCH v8 2/8] dt-bindings: riscv: cpus: Add UltraRISC CP100
- compatible
+Date: Thu, 12 Nov 2026 10:01:00 +0800
+Subject: [PATCH v8 1/8] dt-bindings: vendor-prefixes: Add shenrongda
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261112-ultrarisc-dts-v8-2-14fa0834cac4@ultrarisc.com>
+Message-Id: <20261112-ultrarisc-dts-v8-1-14fa0834cac4@ultrarisc.com>
 References: <20261112-ultrarisc-dts-v8-0-14fa0834cac4@ultrarisc.com>
 In-Reply-To: <20261112-ultrarisc-dts-v8-0-14fa0834cac4@ultrarisc.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -96,11 +95,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
  linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794448869; l=804;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794448869; l=887;
  i=jixincheng@ultrarisc.com; s=20260922; h=from:subject:message-id;
- bh=4TAyfkBcv/s6Kdb5vlK3fVOCoBkGrwHfHTtS6V/To4w=;
- b=c0dNroODbCa+STlk7O4ZJ+FBbjEw5h2Z76V44KpxyNvjRgYe3dOx+MNK9x1EVwsc1uzkrZQ3h
- 4teTpvPfqSwDGVJ5Y5ETi+tbqc8HHOj/0MYvGCeVhdVG3tQAhsNdycM
+ bh=e/Kow+cCHmWBpSOP+t1oxwgy4BH4snNIyYRmuufij+E=;
+ b=eza2T70a3lNyQpWiQMizBKy/7QSqm5B2i33Uqhd342GLcNBEwd//GSAHbPDzgDNrcG0DIwthp
+ ey84uCMUgMuAGuubsWaTVPeHPMrhS8Bj7l5C7UVBnjf48rlWGwGRyb4
 X-Developer-Key: i=jixincheng@ultrarisc.com; a=ed25519;
  pk=n848dcS5D6g0vLad/rjp4Gf/1eedTe1a3pYUrkt2260=
 X-Endpoint-Received: by B4 Relay for jixincheng@ultrarisc.com/20260922 with
@@ -128,28 +127,28 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Jia Wang <wangjia@ultrarisc.com>
 
-Document the UltraRISC CP100 CPU compatible.
+Add Shenzhen Rongda Computer Co., Ltd. to the vendor prefixes.
 
-The CP100 CPU is used in the UltraRISC DP1000 SoC.
-
+Link: http://www.shenrongda.com/
 Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index 0da219ae6769..85adf72899c9 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -67,6 +67,7 @@ properties:
-               - thead,c908
-               - thead,c910
-               - thead,c920
-+              - ultrarisc,cp100
-           - const: riscv
-       - items:
-           - enum:
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index ba2002969373..e100f3993e57 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1507,6 +1507,8 @@ patternProperties:
+     description: SGX Sensortech
+   "^sharp,.*":
+     description: Sharp Corporation
++  "^shenrongda,.*":
++    description: Shenzhen Rongda Computer Co., Ltd.
+   "^shift,.*":
+     description: SHIFT GmbH
+   "^shimafuji,.*":
 
 -- 
 2.34.1
