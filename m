@@ -2,79 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C55F6606A331
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 07:55:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA802606A32A
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 08:01:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=F3zj625A;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GLjLahCD
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bKZzDfQf;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IX86yE0i
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
+	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=jLTBNEmT1EU7tuUk3EtU2ev/g05oon5w+GYbFsagaWg=; b=F3zj625A8xeMCoT+QD964NskMk
-	Y4DJrhDpf0qzRY8XdmQzR1k1NMHXjdTu30bx/6sqdRonaRX/EGtKRP1Um3mVpEsJlQgI8Friv8EgP
-	PItEQmOtIojMr/z0g9Nd9Yrh/n6hDJciVXEsLuiVqYiDu3m6p7M8Uq/9LtUd+t0vRRAQ5R7txjv0E
-	3uAabd/0nda2S8EtNXIitSeoHcPJ5vqc6UsQ6shJ5hFFChnO6joWXQYWi0infhMrsxnwfpYTaYY1+
-	olylhSR+FFVY7SwJDRuKx0+6Ja/RzNDmDffPDM4eBlBvD+tE5T66y3XcNP4ZTsoN+0mB3HQtYUYj4
-	ARvflZiA==;
+	bh=m1BKElI5vzS1HbNRYvG6NG44IUEtHnc1PmIX5hdyHTg=; b=bKZzDfQfOBu/KGY6yM7uL6sMyM
+	IVY9XUwIyqU1mY7uevPGCYN7Rt+Ws2TmXVlqI7XDUN6fZ5xtqffF2PncdM3U3vcqAMuR1XxeeeK53
+	tyda55RaFFNG9rAcY/o8VcsTiF88DNRCeD7ewnUWA1ZQtnq+80nzu50/KTAHY1ZkL+2/nzg5LMf1o
+	XWbUc33371Bif/9WxlP+gVxCzedU7dtVzPNs+jIbPf+Ttl1LDHbq/V4IgMipkSQ27Po8k9HbFD4SR
+	5/6WSmACwfKxJhf+s4S8kEMyyc/nlSPmWziSJDkcgAQu1dhAHsTiI5FdnzwKOrfuzzVr4VNLgUVD4
+	khJOURiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRPeH-00000008zHR-1Yxt;
-	Thu, 12 Nov 2026 07:55:09 +0000
-Received: from out-69.mta1.migadu.com ([2001:41d0:203:375::45] helo=mta1.migadu.com)
+	id 1xRPkX-000000090a6-2Skd;
+	Thu, 12 Nov 2026 08:01:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRPdt-00000008z7j-2Ij6
+	id 1xRPkL-000000090Wc-2Cr3
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 07:55:07 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=jCIzZyd444ha6pslVm1boveaGld0krXHIpLGnhI5FvQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794470083; v=1; x=1795074883;
- b=GLjLahCDBTChpUkJhgsQMhRmqaPDKVCWTZTJjtj7UThn8K+2SHfiH7hUxFclnWUTzdN/1t3l
- FNTuYmXdTx1a4PR+7DKBSxNQwNVtRiCjHvbuywz8QSgN86Gs1O0h4/+wTvJkfnFt80aL9EOc+IA
- eFPEre/EiXDgbrhNsMj0odvA=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by mta10.migadu.com with ESMTPS id 6cba420a238a3506;
-	Thu, 12 Nov 2026 07:54:43 +0000
-X-Mizu-Trace-ID: 6cba420a238a3506
-X-Migadu-Flow: FLOW_OUT
-From: Troy Mitchell <troy.mitchell@linux.dev>
-Date: Thu, 12 Nov 2026 07:54:32 +0000
-Subject: [PATCH v2 1/2] irqchip/riscv-imsic: Synchronize remote state with
- IRQ work
+	Thu, 12 Nov 2026 08:01:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CA37E63768;
+	Thu, 12 Nov 2026 08:01:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 233F11F00A06;
+	Thu, 12 Nov 2026 08:01:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794470484;
+	bh=Ho/SJRRXKfR8E8InR6yIipzjTEX73uVp+KDQpwqfDkg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=IX86yE0iZxcEtAHfeuJL5JpOZ67UmXFn4xmBbABbBa0UsO+e4sJcaDr9iM2WfqGHN
+	 o288DfoA0kbfws9DDfgZkNQOVndsS2O40l0a1HdoXRAgwyb67U/6q6nOxVRXh9GI/p
+	 0GR9BPeQZ9WCriYLfb7f7Jd644e+U6WvkZjHxk75KuwE/eOawKSvRQIL8Z+qrTPuOD
+	 nEhm7jVmQ/hMokN+4rI9924j55yBPxw3sf+LgcaDaYVhFN/hWGOuw0hjEaHKnYHU1Y
+	 1EByIWY9rj5y5xt1xKalYhi+KdNX90cjFcHLaV1JuHX7inDwhkBbynOlwxkfgSkE4L
+	 U7uXoaJpMPX2Q==
+From: Yixun Lan <dlan@kernel.org>
+Date: Thu, 12 Nov 2026 08:00:56 +0000
+Subject: [PATCH v4 1/2] dt-bindings: power: spacemit: Add power domain
+ controller IDs
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261112-imsic-remote-sync-irqwork-v2-1-680f65b24ff6@linux.dev>
-References: <20261112-imsic-remote-sync-irqwork-v2-0-680f65b24ff6@linux.dev>
-In-Reply-To: <20261112-imsic-remote-sync-irqwork-v2-0-680f65b24ff6@linux.dev>
-To: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
- Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>
-Cc: Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-rt-devel@lists.linux.dev, 
- Troy Mitchell <troy.mitchell@linux.dev>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3849;
- i=troy.mitchell@linux.dev; h=from:subject:message-id;
- bh=jCIzZyd444ha6pslVm1boveaGld0krXHIpLGnhI5FvQ=;
- b=owGbwMvMwCU2g/N9w09jE33G02pJDFlfC3aKyj4/JyrC1W9WF3ju0dx9fxIV1vz4fjlbWrpl5
- ewppqsnd5SyMIhxMciKKbJ0P+DZVuATZVsgUOgLM4eVCWQIAxenAExE/BvDP9vq3w+NPpbsuCd0
- +UvGrFlqXNwHj08952U7v+u3lObSBglGhoON+ysDBdxfaX1yY2IqNljaJC3533vZnS81W25I7uC
- x5QAA
-X-Developer-Key: i=troy.mitchell@linux.dev; a=openpgp;
- fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261111_235445_745753_C79DC65F 
-X-CRM114-Status: GOOD (  18.62  )
-X-Spam-Score: -2.1 (--)
+Message-Id: <20261112-04-k3-pm-support-v4-1-de3931aa5153@kernel.org>
+References: <20261112-04-k3-pm-support-v4-0-de3931aa5153@kernel.org>
+In-Reply-To: <20261112-04-k3-pm-support-v4-0-de3931aa5153@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1980; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=ZGjBATuMj77MYSRucrBFIOVycrvyLdzdato4w2GM7iQ=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBq9XJFJRHeM+96J1XxoxUDOhiZQ7PxNdW2PQ0Sn
+ IJLqlh44QSJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCavVyRRsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+1DuxAAhE9s65q1bXYp1hReThKLBqb8GyA6p3Y7+JDedJPLBUFOdOzfc6ugT
+ h2Mylgd3QbT3c3oO4D2rQhfNuVJ2fXyTfHmtug08hhGrt0L9cQjA0399GU2DbOUBKKbLoNw3vaY
+ WyxAuVWVILwsARTWT+uXm/kRnNtyVZAPqcEBXjk5lznKtuPlrLX15/mnxwIIb5+WISuEY6in04b
+ pQFRfUNcl7mH4F06NpAQ96Z3IzoyaK+JRDVPvyEKzqG390giTDO3KDaH8rkTInT2+DpX4oRsqiW
+ W8VRFbgRIK3NvVRIphReMKdJJYopq/vIw4etLrFYek8xMzA/tDaqUl/78AjL360/HPShcll+//F
+ u52/F7UL9NV07kMc30ESQ8lbI/jKUy2mK0xSEZJSRunf6CnxkGpQzY9ftmfZYJFRxlcK4OgYoxS
+ WOFkfvX4p7xGjLJn/hENvzqFgPA8PNu/BiFO/HRvQGHjCh/n7Ha4erRnCq09INyEt9VBbWqzc3r
+ ghBqbSYd6f9frZZUEUb4AIf/NBOBSWzFC4nOTKbAUdGzvs82kmRBwKqYb+cW2+znMFzab2Mwxn1
+ Yb1ny/FBX4DhSLCAqL1Z/KMjgxVRdcN3/U3kfUlDXbURuAhv1TNitOW5TpViUtklJjMA64u0b1R
+ rhm9+gWVKzgGFmOjpof0ocGEPNhaEI=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,6 +85,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Yixun Lan <dlan@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, Iker Pedrosa <ikerpedrosam@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -94,109 +96,61 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Remote IMSIC state updates are deferred to a timer on the target CPU.
-If that CPU has stopped its local clockevent and is waiting for a
-broadcast interrupt, enabling the broadcast IRQ can depend on delivery
-of that same interrupt. This can stall timer delivery when the broadcast
-IRQ is unmasked or moved to another CPU, including during CPU hotplug.
+Add initial power domain driver support for SpacemiT K1/K3 SoC, The Power
+Domain Controller is SoC internal module which is part of APMU (Advanced
+Power Management Unit), it is responsible for managing power across multi
+power domains, which includes power on/off, isolation, power-on sequence.
 
-Queue hard IRQ work to synchronize remote state independently of timer
-delivery. Keep synchronous updates on the local CPU and the timer retry
-for an unfinished vector move. Hard IRQ work also avoids depending on a
-schedulable worker when PREEMPT_RT is enabled.
+The DT documentation for the power domains already exists in file of
+spacemit,k1-syscon.yaml.
 
-Fixes: 21a8f8a0eb35 ("irqchip: Add RISC-V incoming MSI controller early driver")
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Tested-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+Reviewed-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
- drivers/irqchip/Kconfig                 |  1 +
- drivers/irqchip/irq-riscv-imsic-state.c | 19 +++++++++++++------
- drivers/irqchip/irq-riscv-imsic-state.h |  4 ++++
- 3 files changed, 18 insertions(+), 6 deletions(-)
+ include/dt-bindings/power/spacemit,k1-power.h | 14 ++++++++++++++
+ include/dt-bindings/power/spacemit,k3-power.h | 12 ++++++++++++
+ 2 files changed, 26 insertions(+)
 
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index 136bab41f801..5cdc3f52198c 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -651,6 +651,7 @@ config RISCV_IMSIC
- 	bool
- 	depends on RISCV
- 	select IRQ_DOMAIN_HIERARCHY
-+	select IRQ_WORK if SMP
- 	select GENERIC_IRQ_MATRIX_ALLOCATOR
- 	select GENERIC_MSI_IRQ
- 	select IRQ_MSI_LIB
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
-index 01620373b43a..f6373e4019a2 100644
---- a/drivers/irqchip/irq-riscv-imsic-state.c
-+++ b/drivers/irqchip/irq-riscv-imsic-state.c
-@@ -252,6 +252,11 @@ void imsic_local_delivery(bool enable)
- }
- 
- #ifdef CONFIG_SMP
-+static void imsic_local_sync_work(struct irq_work *work)
-+{
-+	imsic_local_sync_all(false);
-+}
+diff --git a/include/dt-bindings/power/spacemit,k1-power.h b/include/dt-bindings/power/spacemit,k1-power.h
+new file mode 100644
+index 000000000000..41ef540b5c44
+--- /dev/null
++++ b/include/dt-bindings/power/spacemit,k1-power.h
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
 +
- static void imsic_local_timer_callback(struct timer_list *timer)
- {
- 	imsic_local_sync_all(false);
-@@ -268,18 +273,19 @@ static void __imsic_remote_sync(struct imsic_local_priv *lpriv, unsigned int cpu
- 	 */
- 
- 	/*
--	 * We schedule a timer on the target CPU if the target CPU is not
--	 * same as the current CPU. An offline CPU will unconditionally
--	 * synchronize IDs through imsic_starting_cpu() when the
--	 * CPU is brought up.
-+	 * A remote CPU may have stopped its local timer and be waiting for
-+	 * the broadcast interrupt whose IMSIC state needs updating. Use an
-+	 * IPI-backed work item so enabling that interrupt does not depend on
-+	 * its delivery. An offline CPU synchronizes IDs in imsic_starting_cpu().
- 	 */
- 	if (cpu_online(cpu)) {
- 		if (cpu == smp_processor_id()) {
- 			if (__imsic_local_sync(lpriv))
- 				return;
-+			__imsic_local_timer_start(lpriv, cpu);
-+		} else {
-+			irq_work_queue_on(&lpriv->sync_work, cpu);
- 		}
--
--		__imsic_local_timer_start(lpriv, cpu);
- 	}
- }
- #else
-@@ -510,6 +516,7 @@ static int __init imsic_local_init(void)
- #ifdef CONFIG_SMP
- 		/* Setup lazy timer for synchronization */
- 		timer_setup(&lpriv->timer, imsic_local_timer_callback, TIMER_PINNED);
-+		lpriv->sync_work = IRQ_WORK_INIT_HARD(imsic_local_sync_work);
- #endif
- 
- 		/* Allocate vector array */
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.h b/drivers/irqchip/irq-riscv-imsic-state.h
-index 189829b8673a..a36b9f0ef840 100644
---- a/drivers/irqchip/irq-riscv-imsic-state.h
-+++ b/drivers/irqchip/irq-riscv-imsic-state.h
-@@ -9,6 +9,7 @@
- 
- #include <linux/irqchip/riscv-imsic.h>
- #include <linux/irqdomain.h>
-+#include <linux/irq_work.h>
- #include <linux/fwnode.h>
- #include <linux/timer.h>
- 
-@@ -34,6 +35,9 @@ struct imsic_local_priv {
- 	unsigned long				*dirty_bitmap;
- 
- #ifdef CONFIG_SMP
-+	/* Remote synchronization must not depend on a timer interrupt. */
-+	struct irq_work				sync_work;
++#ifndef _DT_BINDINGS_SPACEMIT_K1_POWER_H_
++#define _DT_BINDINGS_SPACEMIT_K1_POWER_H_
 +
- 	/* Local timer for synchronization */
- 	struct timer_list			timer;
- #endif
++#define K1_PMDOMAIN_VPU		0
++#define K1_PMDOMAIN_GPU		1
++#define K1_PMDOMAIN_LCD		2
++#define K1_PMDOMAIN_ISP		3
++#define K1_PMDOMAIN_AUDIO	4
++#define K1_PMDOMAIN_GNSS	5
++#define K1_PMDOMAIN_HDMI	6
++
++#endif
+diff --git a/include/dt-bindings/power/spacemit,k3-power.h b/include/dt-bindings/power/spacemit,k3-power.h
+new file mode 100644
+index 000000000000..519fbf946312
+--- /dev/null
++++ b/include/dt-bindings/power/spacemit,k3-power.h
+@@ -0,0 +1,12 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++
++#ifndef _DT_BINDINGS_SPACEMIT_K3_POWER_H_
++#define _DT_BINDINGS_SPACEMIT_K3_POWER_H_
++
++#define K3_PMDOMAIN_VPU		0
++#define K3_PMDOMAIN_GPU		1
++#define K3_PMDOMAIN_AUDIO	2
++#define K3_PMDOMAIN_LCD0	3
++#define K3_PMDOMAIN_LCD1	4
++
++#endif
 
 -- 
 2.56.0
