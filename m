@@ -2,112 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AF1E606A323
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 13:34:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62A92606A893
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 13:34:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CqTzvtNt;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KTjp3CZY
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VvbTcKg/;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=WXo9wn0N
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=UKr7owS1XldvCQ6sDwEx/6yT7laOYZo+5eMnN376tjY=; b=CqTzvtNtaHaPRHnOfaSZhV6PBr
-	vV8Kt4xrZeT6AeJqAPBWnXTlYAeA+RbG6SjZmazpyM30R+hEbEybSJnbrEIOFjFYItheXenDoqrjj
-	ZCOiM6SJ4PXwRmpbPFGaoalnoKvFDigV9ltZcT7xy6jvuiIZkcL7G+9sRCBr3LXSMkNoGHlrYllx3
-	E/kd6oUsgOBqCx3mVB6RXSvV5QbJW/YAaVP7fuamtGBD4YJ0AgO/Sp1IH3KlmLfDSPHeMxH0wQnGf
-	R69f+Y6mcSLFBKkfwqmfrfovRujPLK/vOxtzoh7PK2KBMAYiXLXVJ0IwSi2VjeDy+wZUREevKIkG/
-	cEeR28ag==;
+	bh=TR8xXj0Ts1tTwpjv9hsb3CzEuW4XKdi8CR4gMiYSovs=; b=VvbTcKg/nsKQ6IrcMOV2XX1ORA
+	x9rI+HAu/fxwkvZxD2qCuQ+SJyY76GGS1biHzpAfGpKSYmTA/dsghsgJo0vVYsucP3wIZwEdaYd4S
+	PBZY4p8yHSGf1o9Tylq5M3Kj1BvRpNKfwyiq18eOnMl2yyfD6G2clCoHZo5Gx6CtPz5xwuJJxsd1v
+	FiqxzDv8bR65cyXREfbrpoS9twBb63yYdw52tnUQW90p2chRtcSrkI0VxRYj0dcif8Ucp5ZGOcxqk
+	k26w9yeUFDOHK6rguBMF+499MOHl8x4VhXUxz3B6GXefMUX9Sgn41388hdkLdwnG5QFTMypauXF8K
+	aRE2MYFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRUwD-0000000A58o-3hgS;
-	Thu, 12 Nov 2026 13:34:01 +0000
-Received: from mail-ej2-x05.google.com ([2a00:1450:4864:34::5])
+	id 1xRUx3-0000000A5Oe-3SbZ;
+	Thu, 12 Nov 2026 13:34:53 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRUwB-0000000A57x-1xo3
-	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 13:34:00 +0000
-Received: by mail-ej2-x05.google.com with SMTP id a640c23a62f3a-c50485c0cb8so171691666b.0
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2026 05:33:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794490437; x=1795095237; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FwL/KWXkezDHAFArKAWV6uoJFctTAPwUR8TBzgDQZkM=;
-        b=KTjp3CZYq50AKy3rEYKPv1T4wmXC6SdbojAaQAc0waY1CiiH7ZK6PwArhVKJKGWS69
-         fbmn9FJQ7GpiGx7pfN418SfuUYPcZzrspqBcIObCV8AmH4w8DfzJBM/0XmqEabNg2D+t
-         N9LNxyFlqCCjd60QS2DcmDUpmhFdDhLUG943CkUd/XfDDjtg1vA6sj/oLGoJ6bYrGNRY
-         mk3ylW/b+XOJgePEh6Ry2xq0BuzgS61llG3ifGgL6UxrZOuNf0THKtyEhCK56bTmiOew
-         JSdp7FxqGltoGEKrwA+3dw+XICMuEU9y/VwHvpdVbfTA6ldTZklETUM0A3vwEpYKJ2Pb
-         2BeQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794490437; x=1795095237;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=FwL/KWXkezDHAFArKAWV6uoJFctTAPwUR8TBzgDQZkM=;
-        b=UOvDkkfNH6k0S2ju2RfvoEAa0sZHe+CQoTptGyfY2Qdiaj3sBJReOtG+WzxaKTquTs
-         P6PtTf2NhaW3EGEZqKTlnV3DBMzYfotoTyt+aYK/Y4wz1WkGYz43mFxqFCZwgiSd2pfB
-         D3hBwHYS35YFzB7XLWXITL/TEOnJ4PRPdqfiDcvSa/rSfspap+RUi7fQ7cBBO6fbYAwj
-         YPzaFzBY34pezrDkG9CZN+vzdeE/T5fYX+u6a45XvzKOMojQ/ERlkoJETeRJ/X46OtbU
-         gIomWq3Y8Fz4X94FZjZklM8fPNQAfTQlFJqfCyNCrv8AK2fviRYB9ykAGmN4BLQMTp5f
-         FJ/Q==
-X-Forwarded-Encrypted: i=1; AL+hErEHYV5QZpov4cA+9S4HyKJ14wwNpZ4Hp/y1EcwTEsN72qbhW8jodx7ee4bLvMZ30Nt+91NM1B52DftZcQ==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9VlsBleayOGbEee8KFYqSmC81cK/zWfI6cA5QqaZxMWVYUpDm1
-	INNbKVkCOOXi6gmr/3a17IOiRgtS6adpnZ4eKJQzx7Qv+wawM7CbGjHH
-X-Gm-Gg: AYBFou3A9hxMj1AZfLXiBCl+lrLtKoItgVCy87hDPqo8B5g+Mvg0xfJH5gMmlRdFvZn
-	KgWxNBt/wZCEmou1+Wzhau3rNREDZzRU54BHChVb2oGMaTcf9r6O/MuywDRkf8eSnTdtKmt/3on
-	8t2LUU8lpHEmDAqdXvEWNtraCJtFDT1XuS4DswyeKqPHQtYvvmKPTPuXo+bStAbfc+ohW39ISlA
-	WRHHT7g6wYSIPB447B+uJVExhcLx3OjZO56x+oBf7DmyzM/GAA9uWWCAslDMeSWZ2qvNESy5t7m
-	CmEA9J7oKFkwrN1IAB+ljXFh+cssN3Go8P+Jihk9xnhwncpoApMMQBvy0I0gPR5399QDuvvvsYT
-	wJptjhBGnpGAfVemaA0yO1nOAQplzD1iF/97PuqjAaECsYJgskU3xlgCAxNcrVVixX9AXHhjx3z
-	QpGDcutwAg5Tz7RGztXAJ4VfN2cCwJes2nRvwZmBpDcKKg8feqKPVfyzKsUkk+LNRZdVxBSw7P5
-	XyHGtye2gNtM3dGSVEVGv1X9yCNvEEurVBGlSpcztvYHcLB3IzNhQmWeJrgMxK1tiUsEQutkmql
-	fLc/B+U9kDjcJxrJ/G3l3PUt3Lt9Zuyv0Sh8xw==
-X-Received: by 2002:a17:907:868a:b0:c3e:34fa:611d with SMTP id a640c23a62f3a-c5066b51879mr464464066b.35.1794490437222;
-        Thu, 12 Nov 2026 05:33:57 -0800 (PST)
-Received: from [192.168.100.182] ([45.249.9.114])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c504a3a6947sm353760066b.10.2026.11.12.05.33.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Nov 2026 05:33:56 -0800 (PST)
-Message-ID: <e11f1ba6-6e56-4bac-a0cb-f9258a53f34e@gmail.com>
-Date: Thu, 12 Nov 2026 18:33:51 +0500
+	id 1xRUww-0000000A5GG-003p;
+	Thu, 12 Nov 2026 13:34:49 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=ZBHTfkePstkdhYPStihPwpZhe6evYsJ4HxGFWI7xQIQ=;
+	b=WXo9wn0NXhZX7pp7ZUMh/iOPIRLVlUIH2p8LTgXE7ANDOBqTMLMcJn+ioAx56LEYcQClNy3LR
+	fhpJPlEmx97/Kbdl53DCIYli9z7cMxKnOY197T93hS34sNl3vH29acpUDwGroc1TguVRSPeD6C6
+	amzAd2VIz8neRJeZS5pH9T0=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4jQLvT1RGbzpSt9;
+	Thu, 12 Nov 2026 21:33:57 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id B50E040579;
+	Thu, 12 Nov 2026 21:34:36 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 12 Nov
+ 2026 21:34:35 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <maddy@linux.ibm.com>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <chleroy@kernel.org>,
+	<ritesh.list@gmail.com>, <sshegde@linux.ibm.com>, <pjw@kernel.org>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <akpm@linux-foundation.org>,
+	<baoquan.he@linux.dev>, <rppt@kernel.org>, <pasha.tatashin@soleen.com>,
+	<pratyush@kernel.org>, <ruanjinjie@huawei.com>, <leitao@debian.org>,
+	<yeoreum.yun@arm.com>, <mpilaniy@redhat.com>, <robh@kernel.org>,
+	<coiby.xu@gmail.com>, <Yeking@Red54.com>, <prudo@redhat.com>,
+	<brads@mainlining.org>, <sourabhjain@linux.ibm.com>, <mkchauras@gmail.com>,
+	<blum@kernel.org>, <adityag@linux.ibm.com>, <qirui.001@bytedance.com>,
+	<hui.wang@canonical.com>, <sohammetha01@gmail.com>, <guoren@kernel.org>,
+	<gaohan@iscas.ac.cn>, <ionut.nechita@windriver.com>,
+	<vishal.l.verma@intel.com>, <seanjc@google.com>, <ardb@kernel.org>,
+	<richard.lyu@suse.com>, <arnd@arndb.de>, <tzimmermann@suse.de>,
+	<rick.p.edgecombe@intel.com>, <kai.huang@intel.com>, <kas@kernel.org>,
+	<piliu@redhat.com>, <thuth@redhat.com>, <shradhagupta@linux.microsoft.com>,
+	<ebiggers@kernel.org>, <jbouron@amazon.com>, <me@linux.beauty>,
+	<mclapinski@google.com>, <graf@amazon.com>, <tangyouling@kylinos.cn>,
+	<x86@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+	<kexec@lists.infradead.org>
+Subject: [PATCH v8 00/11] kexec: Rework segment loading and fix CMA retries
+Date: Thu, 12 Nov 2026 21:34:07 +0800
+Message-ID: <20261112133418.4044428-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: spacemit: Hold RTNL lock in emac_resume() and
- emac_suspend()
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
- Vivian Wang <wangruikang@iscas.ac.cn>, Andrew Lunn <andrew@lunn.ch>
-Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>, netdev@vger.kernel.org,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Yixun Lan <dlan@kernel.org>, Chukun Pan <amadeus@jmu.edu.cn>,
- Siddharth Vadapalli <s-vadapalli@ti.com>, Tomas Hlavacek
- <tmshlvck@gmail.com>, Muhammad Bilal <meatuni001@gmail.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20261105123441.2524171-1-alitariq45892@gmail.com>
- <DMO13SWAGZAN.NYISGLGI7Y5A@linux.spacemit.com>
- <c55c5878-d9c1-4863-bc55-99d334ba2ede@gmail.com>
- <12a95b3a-9c8b-4a2d-9b81-12b3839e64a9@lunn.ch>
- <DMPNAPNEGQ5I.XYUIB7Y8HDCA@linux.spacemit.com>
- <ee3f414c-fffa-41e6-8bec-6af7ce676c4b@iscas.ac.cn>
- <DMQJ0R4QTE6R.2I492KA9N85CB@linux.spacemit.com>
-Content-Language: en-US
-From: Ali Tariq <alitariq45892@gmail.com>
-In-Reply-To: <DMQJ0R4QTE6R.2I492KA9N85CB@linux.spacemit.com>
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261112_053359_553923_A7C35F59 
-X-CRM114-Status: GOOD (  21.63  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261112_053446_463927_E36EA27B 
+X-CRM114-Status: GOOD (  13.52  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,100 +92,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.3 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+ARM64, LoongArch, RISC-V, x86 and powerpc build the elf core header
+and place it together with the initrd and the DTB with almost identical
+code.
 
+This series reworks that path into common helpers that the architectures
+reuse, and fixes the CMA page and elf core header leaks in the arm64
+and LoongArch placement retry loops.
 
-On 11/9/26 1:10 PM, Troy Mitchell wrote:
-> On Mon Nov 9, 2026 at 7:59 AM GMT, Vivian Wang wrote:
->> On 11/8/26 15:19, Troy Mitchell wrote:
->>
->>> On Sat Nov 7, 2026 at 5:32 PM GMT, Andrew Lunn wrote:
->>>> On Fri, Nov 06, 2026 at 03:44:50PM +0500, Ali Tariq wrote:
->>>>>
->>>>> On 11/6/26 2:43 PM, Troy Mitchell wrote:
->>>>>> On Thu,  5 Nov 2026 17:34:37 +0500, Ali Tariq wrote:
->>>>>>> @@ -2056,7 +2059,9 @@ static int emac_suspend(struct device *dev)
->>>>>>>    		return 0;
->>>>>>>    	}
->>>>>>> +	rtnl_lock();
->>>>>>>    	emac_stop(ndev);
->>>>>>> +	rtnl_unlock();
->>>>>>>    	clk_disable_unprepare(priv->bus_clk);
->>>>>>>    	netif_device_detach(ndev);
->>>>>> This can deadlock. emac_stop() -> emac_down() calls
->>>>>> cancel_work_sync(&priv->tx_timeout_task) with RTNL now held, while
->>>>>> emac_tx_timeout_task() starts with rtnl_lock().
->>>>>>
->>>>> Thanks Troy, that makes sense.
->>>>>
->>>>> For the deadlock, I think the correct function to call is rtnl_trylock()
->>>>> inside the emac_tx_timeout_task(), which would return if the lock is already
->>>>> held and will hold the lock if it is not.
->>>> rtnl_trylock() is generally a workaround needed for badly written
->>>> code. Please try to avoid it.
->>> Agreed. If the reset is done in place, the work does not need RTNL at all,
->>> so .ndo_stop can keep cancel_work_sync() as is.
->>>
->> Thanks for the diagnosis and suggestions.
->>
->> Although, maybe we could simply avoid cancel_work_sync() in emac_down()?
->> emac_tx_timeout_task() checks for !netif_running and does nothing if
->> already down so it should be safe. The task cancel_work_sync() in
->> emac_remove() does cleanup on unbind so the task is not leaked.
->>
->> This seems to be the pattern in other drivers as well. What do you think?
-> That was my first thought too, but I'm not sure netif_running() is
-> enough here. emac_suspend() calls emac_stop() directly, so
-> netif_running() is still true and a pending work would stop the device
-> a second time. And since the netdev is devm-registered, emac_remove()
-> runs before unregister_netdev(), so the work could be requeued after
-> the cancel there.
-> 
-> So we'd still need to cancel it in suspend and remove, and at that
-> point resetting in place looks simpler to me. What do you think?
-> 
-> 
+The patch organization is as follows:
 
-Thanks Troy, Vivian and Andrew. I'll drop rtnl_trylock().
+- Patch 1 moves the release of the elf core header into the generic
+  post-load cleanup, so that the architectures no longer free it
+  themselves.
 
-I think a simpler approach here will be to go with Vivian's suggestion
-of dropping cancel_work_sync() from emac_down(), and handle Troy's two
-cases by disabling the work where the device is stopped without the core:
+- Patch 2 adds the common helpers
 
-1. Suspend: emac_suspend() calls disable_work_sync() before stopping
-    the device, and emac_resume() calls enable_work(). So the work
-    can't run while the device is suspended.
+- Patches 3-7 convert arm64, LoongArch, RISC-V, X86 and Powerpc to
+  reuse the common helpers
 
-2. Remove: emac_remove() uses disable_work_sync() instead of
-    cancel_work_sync(), so the work can't be queued again before the
-    devm unregister_netdev().
+- Patches 8-11 fix the CMA pages leaked by the retry loops and
+  the loop that makes no progress
 
-For a normal close, the work's existing netif_running() check is
-enough, because the core clears it before calling .ndo_stop.
+Tested with kexec_file_load() on arm64, LoongArch, RISC-V, X86 and
+Powerpc under QEMU, including the CMA retry paths, loading a crash
+kernel and booting the second kernel, with the agent help.
 
-With this, nothing waits for the work while holding RTNL, and the
-work doesn't wait for itself.
+This series is also available at:
+	https://github.com/ruanjinjie-eng/linux/tree/kexec_rework_cma_bugfx_v9
 
-v2 will have two patches. First the TX timeout fix (reported by Troy) 
-then the suspend/resume patch, which will take
-RTNL after disable_work_sync() and before the netif_running() checks.
+Changes in v8:
+- Rework the common code as Mike suggested: the core provides building
+  blocks and the architectures uses them (Mike)
+- Build the elf core header once and only place it on the retries (Mike)
+- Keep the segment order and the arch placement policy unchanged (Mike)
+- Convert x86 and powerpc as well
+- Move the CMA fixes to the end of the series (Mike)
+- Link to v7: https://lore.kernel.org/all/20261026075201.699550-1-ruanjinjie@huawei.com/
 
-If you still prefer resetting in place, please let me know.
+Previous Versions are as below:
+- v6: https://lore.kernel.org/all/20260921090450.807575-1-ruanjinjie@huawei.com/
+- v5: https://lore.kernel.org/all/20260918100442.3841135-1-ruanjinjie@huawei.com/
+- v4: https://lore.kernel.org/all/20260907125404.922123-1-ruanjinjie@huawei.com/
+- v3: https://lore.kernel.org/all/20260826092541.3905933-1-ruanjinjie@huawei.com/
+- v2: https://lore.kernel.org/all/20260729031235.2840255-1-ruanjinjie@huawei.com/
+- v1: https://lore.kernel.org/all/20260723131242.1537633-1-ruanjinjie@huawei.com/#t
 
-Regards,
-Ali
+Jinjie Ruan (11):
+  kexec: Free the elf core header in kimage_file_post_load_cleanup()
+  kexec: Add helpers to load the elf core header, initrd and FDT
+  arm64: kexec_file: Load the other segments with common helpers
+  LoongArch: kexec_file: Load the other segments with common helpers
+  riscv: kexec_file: Load the extra segments with common helpers
+  x86: kexec_file: Use the common segment helpers
+  powerpc: kexec_file: Use the common segment helpers
+  kexec: Extract kexec_free_segment_cma() from kimage_free_cma()
+  kexec: Add kexec_rollback_segments() helper
+  arm64: kexec_file: Fix CMA segment placement retries
+  LoongArch: kexec_file: Fix CMA segment placement retries
 
-pw-bot: cr
+ arch/arm64/include/asm/kexec.h             |   4 +-
+ arch/arm64/kernel/kexec_image.c            |  15 ++-
+ arch/arm64/kernel/machine_kexec_file.c     |  87 ++++----------
+ arch/loongarch/include/asm/kexec.h         |   3 +-
+ arch/loongarch/kernel/kexec_efi.c          |  15 ++-
+ arch/loongarch/kernel/kexec_elf.c          |   3 +-
+ arch/loongarch/kernel/machine_kexec_file.c |  80 +++++--------
+ arch/powerpc/kexec/elf_64.c                |   9 +-
+ arch/powerpc/kexec/file_load_64.c          |  18 +--
+ arch/riscv/include/asm/kexec.h             |   4 +-
+ arch/riscv/kernel/kexec_elf.c              |   3 +-
+ arch/riscv/kernel/kexec_image.c            |   3 +-
+ arch/riscv/kernel/machine_kexec_file.c     |  83 ++++----------
+ arch/x86/kernel/crash.c                    |  25 +----
+ arch/x86/kernel/kexec-bzimage64.c          |   8 +-
+ arch/x86/kernel/machine_kexec_64.c         |   4 -
+ include/linux/kexec.h                      |  14 +++
+ kernel/kexec_core.c                        |  25 +++--
+ kernel/kexec_file.c                        | 125 +++++++++++++++++++++
+ 19 files changed, 254 insertions(+), 274 deletions(-)
+
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
