@@ -2,58 +2,56 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8ADD860A383A
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 16:38:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 368FA606A8BE
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 16:39:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tarMK1zj;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j2ksWvqT
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=k28a3diH;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lCDGyKKY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=tfO/EG/EJfpJbxNgBwiliJw+JomoXEUsFk4oLoXPLjw=; b=tarMK1zjpn7JqYh0AY97ANUpJW
-	Zp4IAZfykykYFcj4hPRPOg2nyPMX8KKIXUM1cqj79JGEX8YzFyfw7AgT+AQqgHZg/IN1FyVR3YVu5
-	noNCYGT5Mzb/HoxM8lddI6bSolw1M8WseXl5Hwfopv3y/M0b2v0TeDDdJ4ZbBTbBK5ibI75v9NH+x
-	/MRZwDzZ6N4+hggiTJiEGWKRgCv90gBuGsrjSoxrbFgIOQrbuqzCblXscwois9ATMNscwVSQpGFpI
-	6Zlt12WjZJcGnKt9DdbJdkCVvL7AEa89pTqBlcQc2P+FDsCNw/hqub2DnplNZGKU9yuJ33j0Cb1jr
-	LMJ4OzTg==;
+	bh=GYByu9mcnBZyP7WW1HyoTJbsjH0YKyWFaU24WiwDDgg=; b=k28a3diHa9SjkQBzVcYO7Q4wKU
+	OAB6XWm57FCJuJquk3ZfNUGa3OkJM1hP1Cvsph3qVUzemShyZRCl67/AZbagDNQVOGitZU8tTHgGW
+	aAyJa4Ot9OHDU2QFs721z0ONTB4FHFgFE9FTmybMbBCLODGaN8NRd4pXxioXsXdJ93vujrGxP54lr
+	gklzaGNSJcRlApPF0uk/VuZJWTB7uN+V7r9Swl83AEywnEH3Eu2zPrpm2fOFsdTe/UpIK20HXQajb
+	rp/SvZAJDpXCC1qiNL4ncTuZo6odffqRRlgJ+BDuZZ/yoVrA8wtUBLv1sMff/9qmSUxDhF02rEack
+	F/8geFuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRXoh-0000000Aco5-0vB7;
-	Thu, 12 Nov 2026 16:38:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xRXp4-0000000Ad0T-3gOU;
+	Thu, 12 Nov 2026 16:38:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRXoB-0000000AcVt-3aZK;
-	Thu, 12 Nov 2026 16:37:58 +0000
+	id 1xRXoJ-0000000AcaA-0kyb;
+	Thu, 12 Nov 2026 16:38:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 055C861D33;
-	Thu, 12 Nov 2026 16:37:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 527B61F000C5;
-	Thu, 12 Nov 2026 16:37:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DE86445050;
+	Thu, 12 Nov 2026 16:38:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 460611F000C6;
+	Thu, 12 Nov 2026 16:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794501474;
-	bh=jCZcwaVbEXSO6fmP+AQbtigP75VIYTb9aAjDi7oBhe8=;
-	h=From:Subject:Date:To:Cc;
-	b=j2ksWvqTjSpZRpEsyTzmS8gn1fYVO4+77jjtVD2TTFlIgfkVQlOk4zXryc2kB9+JC
-	 T3OtQ+rN/tMSqHZomvQ/G5Cx/WXIMv3mMEYGQ4qvgX8LiABhA8sQK0N6QYHi7Fsp4e
-	 Hk2pUwIxYgFmsDpRsRCOCGb79e9HTkdNFz9F9ThBcu/ofn6qdF/vOYMyi0NhEk2ePx
-	 zyjSDNgbA4HYZWd2NgF4NUeouIylYH4zt8BRnBbYz8tK66jZQcBHuvxyulHFFfvNoQ
-	 HvYmM4CcWOgiMGC6XGwj7KPtbncI/6XyGlUbOREprjSfMgxNUVuKQRC+//pxEYh94L
-	 81/mSZ987PGpA==
+	s=k20260515; t=1794501482;
+	bh=P2GAXQL+CRALZ6ktolsI+wkJgETtKYVg5/S1WwdnjP8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=lCDGyKKYBC8Fs6CZs83hFW2kfQvIWzrbx55R2xhY23bPVejs4jP03UhTMbPYwkdFq
+	 6QnSYzu3WeVqWx+Ar0edjh2cqOYYgzZqe/DZ5+wO5as7ByI7SvXh6bulOXMCzm12Eu
+	 kASOJRtSewIDlEzyPzzCY1AdAWX/EVv1Af43bEp/TzGRyu8tlqudESjSsVdhjFBpbc
+	 gPakCksrVRPklHGcZFFoijOXgWwbOd12WzoiKbEcn8WBWaclGOUWPLB0E7xNqJ2ACq
+	 pLxZ0JI0ySEeRWv9k3TGyTyi5fx1EhNiDCo/FW3wSZW06JeHOMYn6a8E5q27+Wxlkv
+	 sJ5MuJnwBIRmA==
 From: Christian Brauner <brauner@kernel.org>
-Subject: [PATCH RFC 0/4] crash_dump: recover from machine checks in
+Date: Thu, 12 Nov 2026 17:37:08 +0100
+Subject: [PATCH RFC 2/4] sh/crash_dump: check ioremap() in
  copy_oldmem_page()
-Date: Thu, 12 Nov 2026 17:37:06 +0100
-Message-Id: <20261112-work-procfs-oldmem-v1-0-ecdcafd99265@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMSw7CMAxEr1J5jasmC35bJA7AFrGIU5cGaFLZ/
- KSqdyehy3kz8yZQlsAK+2oC4XfQkGIOZlWB7128MoY2Z7CNXRtjLH6S3HGU5DvF9GgHHnDH28Z
- bJkcbgnwchbvw/UvPcDoe4LJAfdGN/bPoyoycMpK46PuCirhexHWpYJ5/L4zYOZ4AAAA=
-X-Change-ID: 20261112-work-procfs-oldmem-9e80c2ebab7b
+Message-Id: <20261112-work-procfs-oldmem-v1-2-ecdcafd99265@kernel.org>
+References: <20261112-work-procfs-oldmem-v1-0-ecdcafd99265@kernel.org>
+In-Reply-To: <20261112-work-procfs-oldmem-v1-0-ecdcafd99265@kernel.org>
 To: linux-fsdevel@vger.kernel.org
 Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
  Breno Leitao <leitao@debian.org>, Chris Mason <mason@kernel.org>, 
@@ -65,12 +63,12 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
  David Hildenbrand <david@kernel.org>, 
  "Christian Brauner (Amutable)" <brauner@kernel.org>, stable@vger.kernel.org
 X-Mailer: b4 0.17-dev-ce4c1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2874; i=brauner@kernel.org;
- h=from:subject:message-id; bh=sqtljLIH8KoO+/k7KE1Gt/hrphFZnwIFPTrrlrdZ//8=;
- b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWR9fR2u/02Pnzf6SneSIY/3/COb93oukuRYOudztZZ0u
- oHTlZwPHaUsDGJcDLJiiiwO7Sbhcst5KjYbZWrAzGFlAhnCwMUpABO5G8jwP0xmhXO+VVRl/K9S
- y+eKH67dmLyl77jre1aL/4d5T4k1eDIyXFQTW+N5kUUj5zrH27dnf60ybtdbuU7Bn/07Y+aJqU7
- lTAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1003; i=brauner@kernel.org;
+ h=from:subject:message-id; bh=q6FpWygcFHpF/XYp2OeRsrvJ/y8aBzOdxnvKzJI5CUg=;
+ b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWR9fR2ZXPfx+k0nz9UdCcufZi5bEfNP4/gkpZxGBe7ty
+ U5mqhMMO0pZGMS4GGTFFFkc2k3C5ZbzVGw2ytSAmcPKBDKEgYtTACbCX8DIsO3Srhdppo67Nmsn
+ CMzvSEg8stFmw5lYXa2tcWbPH7+Ou8Pwv/BN4KTdgsEMAr8vHor9ftTa73Deda0PH0/LeesVzJZ
+ gZQIA
 X-Developer-Key: i=brauner@kernel.org; a=openpgp;
  fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -92,69 +90,37 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A capture kernel reads the memory of the crashed kernel. That memory
-may have uncorrectable errors in it. Which is likely also what murdered
-the first kernel.
+copy_oldmem_page() maps a page of the old kernel with ioremap() and
+copies from it without checking whether the mapping worked. If it
+didn't, the copy reads from an offset into the NULL page.
 
-On x86 a machine check in the copy that /proc/vmcore does out of an old
-page panics the capture kernel. On book3s64 the read() comes up short
-and splice() panics. Breno has observed that on a fleet iiuc. The first
-kernel dies of a machine check and then there's no vmcore either.
+Return -ENOMEM like the other architectures do. read_from_oldmem() turns
+that into -EFAULT like any other short copy.
 
-I had the powerpc half of this as a fix in part 1 of the procfs series
-because Chris ran into it there. Breno pointed out that x86 has the same
-hole.
-
-I think that likely makes this a kdump problem and not a procfs problem.
-So I moved this out together with the ioremap_cache() fix.
-
-The first two patches make powerpc's and sh's copy_oldmem_page() check
-whether mapping the old page worked.
-
-Every architecture that maps a page of the old kernel copies it out with
-copy_to_iter(). The third patch puts that copy into a new
-copy_oldmem_to_iter() helper. It's just copy_to_iter() with
-_copy_mc_to_iter() underneath.
-
-On x86_64 (and book3s64 - whatever that is) that's the machine check
-safe copy and the machine check turns into a short read and -EFAULT.
-Everywhere else it's copy_to_iter() under another name.
-
-I then convert the remaining architectures so the copy lives in one
-place and any new architecture with ARCH_HAS_COPY_MC later gets this for
-free.
-
-I reproduced the x86 panic in a kdump VM by injecting a machine check
-into the copy. Without it the capture kernel is gone, with it the read()
-fails with EFAULT and the kernel logs the event and keeps going.
-
-The helper is a static inline in crash_dump.h and that pulls uio.h into
-it. If people would rather have it out of line it can go into
-kernel/crash_core.c, which builds for CRASH_DUMP just like the arch
-crash_dump.c files do.
-
+Fixes: 4d5ade5b29c6 ("sh: kdump support.")
+Cc: stable@vger.kernel.org
 Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
 ---
-Christian Brauner (4):
-      powerpc/crash_dump: check ioremap_cache() in copy_oldmem_page()
-      sh/crash_dump: check ioremap() in copy_oldmem_page()
-      crash_dump: recover from a machine check in copy_oldmem_page()
-      crash_dump: use copy_oldmem_to_iter() everywhere
+ arch/sh/kernel/crash_dump.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
- arch/arm/kernel/crash_dump.c       |  2 +-
- arch/arm64/kernel/crash_dump.c     |  2 +-
- arch/loongarch/kernel/crash_dump.c |  2 +-
- arch/mips/kernel/crash_dump.c      |  2 +-
- arch/powerpc/kernel/crash_dump.c   |  6 ++++--
- arch/riscv/kernel/crash_dump.c     |  2 +-
- arch/sh/kernel/crash_dump.c        |  5 ++++-
- arch/x86/kernel/crash_dump_32.c    |  2 +-
- arch/x86/kernel/crash_dump_64.c    |  2 +-
- include/linux/crash_dump.h         | 22 ++++++++++++++++++++++
- 10 files changed, 37 insertions(+), 10 deletions(-)
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261112-work-procfs-oldmem-9e80c2ebab7b
+diff --git a/arch/sh/kernel/crash_dump.c b/arch/sh/kernel/crash_dump.c
+index 19ce6a950aaca..85c0e58f1a59f 100644
+--- a/arch/sh/kernel/crash_dump.c
++++ b/arch/sh/kernel/crash_dump.c
+@@ -20,6 +20,9 @@ ssize_t copy_oldmem_page(struct iov_iter *iter, unsigned long pfn,
+ 		return 0;
+ 
+ 	vaddr = ioremap(pfn << PAGE_SHIFT, PAGE_SIZE);
++	if (!vaddr)
++		return -ENOMEM;
++
+ 	csize = copy_to_iter(vaddr + offset, csize, iter);
+ 	iounmap(vaddr);
+ 
+
+-- 
+2.53.0
 
 
 _______________________________________________
