@@ -2,107 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14FF4606A333
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 21:38:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E9D3606A323
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 22:14:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4mjRcrQG;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KSFRAyX9
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Br4EbRnR;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YvwMMI7P
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=E55VlnTpxbEQ/xiAX9KxDF1Bw83KMuwt+vtCrJ+ynao=; b=4mjRcrQG6S3MShM4qcxTUXqD2M
-	uEabbwzQSROMm48FbVKe0tbclGrMSfKg8IV06HhD76C/fzcfTTG0+sjyiGwIue32Z+Wfexhopmy1w
-	9bXAr64K5weVOy3p6XtNf9lk+9fqrTD0MKHfW7VM8u91ua0ovOG3ZUCTe6GKtESB9caBCf73YXw5W
-	q9hFGu/PYfgSqrMlpQBo7yQAPqxXVVzkvK9LEIJ2ESduAQOGQpJ5rxffbgBGFassk2UN+xoIPiWHM
-	tYT3Jk8/QN7CpcTTVdkfpvxqOJvuFUdYvRhurxRpUFeIk3+txhvAFBUjfe9yNa599xf8FmeMbCKpM
-	IkILQZ1w==;
+	bh=98HMYIgfHL6nWo4Xc4trhqY+Fhso08LzNIPWiCw2SxE=; b=Br4EbRnRoIajRcrXp9OlEP++mN
+	hF17kTTCNvQvx7iiEzM4lLq6ernWBoD0uEQry+JGSXcW4i7I0EUJ8bInfpzDLl+h1w/0jQDANQsKl
+	A2o0BPSEb4IaObI7IMwXiw3dcvxqPSCnz+91gE4p26qZumeWndgft30vBb4UwzjeQO73SIHb0CKBr
+	sDgh5kXK8oIhEypnNNbBwSpGVqozEeOxHOfIX2q8zu/CWzKXkYbnoO2/KG4S0pujsRnYlo9ubKyAe
+	fnFEhRkAoz6I/vtmFAGz/OgcZszh3KamMFRUKcKzsOG+ZH1K0XXGwm+gIkcfLx36agHdkQ+aQ8RBA
+	D+5qBTzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRcUq-0000000B7K0-26z5;
-	Thu, 12 Nov 2026 21:38:16 +0000
-Received: from mail-oo1-xc32.google.com ([2607:f8b0:4864:20::c32])
+	id 1xRd3j-0000000B9NA-2mh9;
+	Thu, 12 Nov 2026 22:14:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRcUo-0000000B7JL-0S8B
+	id 1xRd3h-0000000B9N0-2nfD
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 21:38:15 +0000
-Received: by mail-oo1-xc32.google.com with SMTP id 006d021491bc7-6f8a519e215so480979eaf.1
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2026 13:38:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794519493; x=1795124293; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EaGxXuKjbqWsjiNJFFTn53rRjYcJvhNf+ZE9bk47lFk=;
-        b=KSFRAyX9JMwAXnLiyytR20s94wXqhX/H6yquBKrTa6i8N8UtQb2OOmDYl5X3btQIzP
-         6y7hqzdFD+ftTKY7IzSpB7M60CHeV5N2srx3uGHbzaOokiY8fM52PMiIusFBxeiQyvRf
-         CqwC7tOsnLD6SElsusp4f96eKdYpjGaSkTYMAH9vXaBvsH88n1U21tvFsm75JKyTGixU
-         eghOfWf7LYpk4UgcrEgtRzVEdXyIyl91ep4uXmT/LxI+v311tN67EwQ6o2WT1TbzUuuC
-         i3/UqIhOc0o90GBeVRzNZ3VFgjSVNEvsh60pKB/Pdnky2Z/nRFPTZuhMFIMEJEPMO5Bb
-         +3ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794519493; x=1795124293;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EaGxXuKjbqWsjiNJFFTn53rRjYcJvhNf+ZE9bk47lFk=;
-        b=RK09feepFO1h932Sj1cNvH2yCPOn5o3GshS8ht0vsrV76j+ek6qiN3CS6bRAkXV9TC
-         iN2wnFSbpjVQdGkKhH0BZc027rYdIq/OthNnVJ+36B7J4pQ8nHtt/znDvdOit2eLu9eJ
-         QIMAqOig6wwWXElXrcm9EpJ+YMlVGJcz5kaKraECfiFfGH4pqiU8gDVIzKmhOVfsdGfs
-         yhfnnLHnuTsOwXpYepn07ZUoQMngerebHbw0PR7VIGwsePan7jxijHrbDrY2Fi8BEooD
-         0bloiSZNTHNxylT7MrEumdZNPjQcTR3IdlyJU5fxDZohLQUoDDiuAxKNCOvHBgN9K0K2
-         rGhA==
-X-Forwarded-Encrypted: i=1; AL+hErGR2aOibZtb7zSlFqvi90cfzX2adkzcCvU189OhyyUFK5XTIosCYrSb5Zhra2w67mA5SUITvd0MStpz/Q==@lists.infradead.org
-X-Gm-Message-State: APuU4Z/gPSk8G0A1n5sjn/bETSowP3XHrPsM6wH1xCiAUcLGbwCmKbKJ
-	azKigNpoFfbmfj1ZgL9FbugDo4cCcOtt/aMV8UO23lW3snW75HeCkoNi
-X-Gm-Gg: AYBFou3Ohr21tuAUEHGuWzJ3R4K58kenoZbz7LtJ6GVI/KX+2BK0hzuZoTLRV8eO403
-	YlwAad3/BaHpoZyoNkODHEUh7+tD7wht5L8fW+CP9xxnZtXKFlDs9GRiYBvJmaKq684MT4Wv0Pp
-	7oYxlbUgtv2N7688joOHQujXmJcZyZH6UP+FS1/aOoTiNG4ZdjiC4kfMOQD49YVKa025w8BFS9/
-	eiMqUkZMsXabOetfSCXInAXoVxtcWXpJP60CBhblRfkfyGMBVHS9p8WcFH4MLpL+14cRebV0Kwz
-	in1+DY52/1mLw0ca8wIGoMZszNJMw2cvdyRn2lJxkNSd773WnnAEH75ng1A+VwzeHGC0rpCdl0E
-	uwPjQg0MKnxCc+E1JU2isOHo/CztX4GtWYZrJRdqPVVOL0B2fs6Q7ioqEH3kFcJdjnVHeEkPX40
-	bL1Dbcey7koykoKIgzb8hQ413xhuKuef58cdvGUmp+gwB+DrKh/4s4B0jKABWgGMatjxPlklZ/H
-	uGVKJ+5x3o7RCOHt/c1rH4szcFxHxRqp3JSDPh1b48gbISBo1YlylmwAXIekH2LNM45eEpTjYge
-	ZtowbDzhlwF69iKM2BtrGam0KMm07Dbh1TEVjRNM3XEK2bQLokfGmbEOqkPmseZP+4N6mNwQLp8
-	Gror2
-X-Received: by 2002:a05:6820:f02d:b0:6d3:abd1:9b8e with SMTP id 006d021491bc7-7197cf224d0mr2811908eaf.52.1794519492651;
-        Thu, 12 Nov 2026 13:38:12 -0800 (PST)
-Received: from AMD.home.internal (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4afe229b9d1sm234017fac.11.2026.11.12.13.38.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Nov 2026 13:38:11 -0800 (PST)
-From: Enzo Adriano <enzo.adriano.code@gmail.com>
-To: sboyd@kernel.org,
-	bmasney+clk@redhat.com,
-	jbrunet+clk@baylibre.com,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org
-Cc: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Junhui Liu <junhui.liu@pigmoral.tech>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-Subject: [PATCH v2] clk: sunxi-ng: a733: Keep SCP firmware bus clocks enabled
-Date: Thu, 12 Nov 2026 16:38:09 -0500
-Message-ID: <20261112-a733-fwclk-v2@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Thu, 12 Nov 2026 22:14:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 119C743EEA;
+	Thu, 12 Nov 2026 22:14:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C2F61F000C9;
+	Thu, 12 Nov 2026 22:14:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794521657;
+	bh=9KhTxx7Zr4hjfg7KTdE7MstkrdgDZypeK0mfiKIhiOs=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=YvwMMI7PRXhf6+j5PUnskPlwa1Pr/RJadLUItvSSBIdcs8RK3zRJWfO29isaqQexw
+	 yAtNMEL0ShxpoIssQl5RabhaGraEMnCn8iJAMbfDG9SjO2kUOIFCTvCXTtJlSyFAxM
+	 fkPGCto0+AbuEup2wNJtIa6Z6kjuwrGxAKYK+6439yi0LQd7It47fH5X92uNOeNGbN
+	 bBwiY+HXzfYdUIwtfQIafDLRUcGpaEvBc2N3h2MNXb47NLuOUrmVIJH0t5c5iQPxD5
+	 jXmLyz0Zzf7eZ+NHFHVzDDs/6kzGGnvrjXvbDSUy0EATKpe0oMlsZewfoWB404oFav
+	 4egUNxy+AEXNQ==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Troy Mitchell <troy.mitchell@linux.dev>, Radu Rendec <radu@rendec.net>,
+ Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt
+ <rostedt@goodmis.org>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>
+Cc: Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-rt-devel@lists.linux.dev, Troy
+ Mitchell <troy.mitchell@linux.dev>
+Subject: Re: [PATCH v2 2/2] irqchip/riscv-imsic: Complete vector moves
+ without a timer
+In-Reply-To: <20261112-imsic-remote-sync-irqwork-v2-2-680f65b24ff6@linux.dev>
+References: <20261112-imsic-remote-sync-irqwork-v2-0-680f65b24ff6@linux.dev>
+ <20261112-imsic-remote-sync-irqwork-v2-2-680f65b24ff6@linux.dev>
+Date: Thu, 12 Nov 2026 23:14:13 +0100
+Message-ID: <87v761snnu.ffs@fw13>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261112_133814_168003_B0D1ACF5 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,86 +76,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The A733 PRCM's bus-r-riscv and bus-r-msgbox gates have no Linux
-consumers, so unused-clock cleanup gates them. With vendor SCP firmware
-running on the E902 as shipped on Cubie A7S, warm reboot then stalls.
+On Thu, Nov 12 2026 at 07:54, Troy Mitchell wrote:
+> When a vector moves, the new CPU clears move_prev only after the old CPU
+> has released the old vector. If the new CPU syncs first, it arms a timer
+> on itself and retries a jiffy later. That CPU is often the one entering
+> idle and taking over the broadcast interrupt, with its tick already
+> stopped, so the timer is not programmed.
 
-Keep both critical until remoteproc/mailbox drivers can claim them.
-This follows A523 bus-r-cpucfg in commit 1dba74abf3e2 ("clk: sunxi-ng:
-Mark A523 bus-r-cpucfg clock as critical") and the temporary SCPI firmware
-clock protection for Meson AXG fclk_div3 in drivers/clk/meson/axg.c.
+When that timer expires _before_ the earliest programmed timer on the
+remote CPU then that remote CPU is kicked out of idle to reevaluate.
 
-On Cubie A7S with vendor boot0/BL31/SCP/U-Boot and without
-clk_ignore_unused, warm reboot returns with both clocks critical and
-stalls without them. Vinicius found either flag alone insufficient on
-Cubie A7Z. Power-off, suspend, single flags on A7S, other
-boards/firmware and upstream TF-A were not tested.
+So your problem description does not make any sense at all.
 
-Link: https://lore.kernel.org/r/20261005183038.417798-1-vinicius.eduardo.pedrosa@gmail.com
-Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
----
-Changes in v2:
-- Drop r-timer0, bus-r-timer and bus-msgbox0: A7S warm reboot works with
-  these at 0/0. Keep only the two E902/mailbox bus gates after Junhui's
-  review, pending remoteproc/mailbox ownership.
-- Rebase on CCU v7; its PRCM clock definitions are unchanged from v6.
+If the timer code fails to kick that remote CPU out for re-evaluation
+then this needs to be fixed and not worked around somewhere else with
+dubious claims.
 
-v1:
-https://lore.kernel.org/r/20261031020640-263f7b05-a7s-clock@gmail.com
+> The move then completes only on the next interrupt of that CPU, which
+> took up to 0.5s on an idle SpacemiT K3. Until then the IRQ is still
+> marked as moving and further affinity changes of it return -EBUSY.
 
-Base: v7.4-rc1. Depends on CCU v7 (all eight patches):
-https://lore.kernel.org/r/20261112-a733-clk-v7-0-db7c5451ffa2@pigmoral.tech
+What's the problem with that? The notification to cleanup can be
+arbitrarily long delayed. See below.
 
-November 12 board test: two RAM boots and warm reboot -f returns on
-Cubie A7S with vendor boot0/BL31/SCP/U-Boot, without clk_ignore_unused.
-Both retained clocks were 1/1; all three dropped clocks were 0/0.
-The no-flag stall was observed with CCU v6 on Nov 10; PRCM code is
-byte-identical in v7, where the no-flag control was not repeated.
-Runtime used DT v3 and its dependencies (all four UART v2 patches),
-with the PMIC identifier and pinctrl IRQ-map context adapted to the base:
-https://lore.kernel.org/r/cover.1794227241.git.enzo.adriano.code@gmail.com
+> Let the old CPU queue the sync work on the new CPU once it has released
+> the old vector, and remove the retry timer. Wait only while the old
+> vector still points to the new vector, since a released old vector may
+> already belong to another move.
 
- drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+That's even more bogus. The old CPU does not queue anything.
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c
-index b8f6e8c6e507..f2965daba0d3 100644
---- a/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c
-@@ -108,7 +108,9 @@ static SUNXI_CCU_DUALDIV_MUX_GATE(r_spi_clk, "r-spi", r_spi_parents, 0x150,
- 				  0);
- static SUNXI_CCU_GATE_HW(bus_r_spi_clk, "bus-r-spi", &r_ahb_clk.common.hw, 0x15c, BIT(0), 0);
- 
--static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox", &r_ahb_clk.common.hw, 0x17c, BIT(0), 0);
-+/* Vendor SCP firmware on E902 needs this until a remoteproc/mailbox driver claims it. */
-+static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox", &r_ahb_clk.common.hw,
-+			 0x17c, BIT(0), CLK_IS_CRITICAL);
- 
- static SUNXI_CCU_GATE_HW(bus_r_uart0_clk, "bus-r-uart0", &r_apb1_clk.common.hw, 0x18c, BIT(0), 0);
- static SUNXI_CCU_GATE_HW(bus_r_uart1_clk, "bus-r-uart1", &r_apb1_clk.common.hw, 0x18c, BIT(1), 0);
-@@ -146,8 +148,9 @@ static SUNXI_CCU_MUX_DATA_WITH_GATE(r_riscv_clk, "r-riscv", r_riscv_parents, 0x2
- 				  24, 2,	/* mux */
- 				  BIT(31),	/* gate */
- 				  0);
-+/* Vendor SCP firmware on E902 needs this until a remoteproc/mailbox driver claims it. */
- static SUNXI_CCU_GATE_HW(bus_r_riscv_clk, "bus-r-riscv", &r_apb0_clk.common.hw,
--			 0x21c, BIT(0), 0);
-+			 0x21c, BIT(0), CLK_IS_CRITICAL);
- static SUNXI_CCU_GATE_HW(bus_r_riscv_cfg_clk, "bus-r-riscv-cfg", &r_apb0_clk.common.hw,
- 			 0x21c, BIT(1), 0);
- 
+The issue with these completely misdesigned interrupt controllers is
+that the only safe way to migrate an interrupt is to do the following:
 
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
--- 
-2.53.0
+   1) Defer the affinity change to the interrupt context of the original
+      target CPU.
+
+   2) When the next interrupt arrives on the original target CPU switch
+      the affinity over to the new target CPU (carefully...)
+
+   3) If the interrupt is pending again on the original target CPU after
+      switching affinity send an IPI to the new target to kick that
+      vector.
+
+   4) When the new target CPU receives the first interrupt (it does not
+      matter whether it's from the device or from the IPI in #3) it
+      tells the original target CPU to cleanup the stale
+      associations. That's what the timer is for.
+
+So the requirement is that the new target CPU has to receive an
+interrupt to be able to release the associations on the original target
+CPU and to re-enable affinity settings. This can obviously cause
+arbitrarily long delays if #3 is not the case as the cleanup has to wait
+for #4.
+
+That has absolutely nothing to do with the timer and changing that to an
+IPI as that only shortens the cleanup delay from _ONE_ jiffies to almost
+instant. Who the hell cares?
+
+Why is that requirement there in the first place?
+
+  Because there neither is a guarantee that the affinity change takes
+  place immediately when the update happens nor there is a guarantee
+  that an interrupt message which was sent to the old CPU is delivered
+  before the pending check in #3 happens. There are arbitrary device
+  specific delays between the point where the device reads the target
+  message and the point where it is sent and fabrics have delays too.
+
+A lot of people spent a massive amount of time and head scratching to
+come up with a solution for that especially for non-maskable MSI
+interrupts.
+
+Coming back to your change.
+
+Of course this can be done with an IPI from the _new_ target CPU to
+the _old_ target CPU, but only under one condition:
+
+    The IPI vector cannot be higher prioritized than the to be cleaned
+    up device vector.
+
+Why?
+
+Contrary to level interrupts which stay asserted until the interrupt
+handler resets the condition, edge interrupts (e.g. PCI/MSI[-X]) are
+from a device POV fire and forget. There is no guarantee that a device
+waits for handler response before sending the next one.
+
+So due to this and the arbitrary hardware (device/fabric) delays you can
+end up in a situation where there is an interrupt pending either in the
+old target or in the new target after #3 above or on both.
+
+For the on both case assume that the new target CPU wins the race to
+handle it and it sends the IPI to the old target CPU, which is currently
+in an interupt disabled region. Once the old target CPU re-enables
+interrupts it handles the highest priority interrupt first, which is the
+IPI. Now the IPI handler detects that the lower priority device interrupt is
+pending and retriggers the cleanup IPI on itself ---> livelock.
+
+Sure, you can make that so that it ignores that situation and waits for
+the new target CPU to re-issue the clenaup IPI on the next interrupt,
+but that's still not solving the arbitrary delay problem, i.e. waiting
+for that next interrupt which might take forever....
+
+I'm still puzzled that at least _two_ decades after it was publicly
+known that the x86 APIC is a design disaster hardware people still
+insisted on making the same mistakes over and over. It's not only RISCV
+folks, there are more insanities like that in other architectures...
+
+But please read back on the initial IMSIC discussion which led up to
+merging this driver. There is a ton of more context there which I'm not
+going to repeat.
+
+Thanks,
+
+        tglx
+
+
 
 
 _______________________________________________
