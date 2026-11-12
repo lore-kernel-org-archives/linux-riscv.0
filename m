@@ -2,59 +2,57 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84EC5606A330
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 13:42:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76DDE606A31C
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 13:42:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=G7R3p4Wh;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lhPbTrDF
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=h3lgsbis;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h8uPEVg5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Z2bWVLPQOeIgeLLfAmWazaSIbSMYdyW8bU1w++kYIhw=; b=G7R3p4WhbQi2DRBhP3TxtWz6Cx
-	JV+HM5PYW2IoLP8sn/RFADUggbC5METArRs5ctjUiuNEHJMgU7SMufi3x5HJTCPHYRChxuUzAhGJP
-	VJiwN+/A/wYITq+rAEVbVDBX2f7NlUuVWotl2KJPo2ncahQZ2DAq4U8cyDV3otSYybMEZfKeLKx1T
-	iOb+NPmH1uN/wAX634VavJc+zr8+abmCyuePx1sigY7m9O1b5mm2FDPP52wO50iBbPPxmhb65K3n1
-	L6sV7XWiSmokZZofrc0OtpNjIa8MT82yQeb8Hh44dsLPPKGputtdl5cPKCpyRD/y7Ys8s1iarxP+v
-	ko6zPzkQ==;
+	bh=UuUZ2EPlUIC2BaAQfDRKJGrSe9xXIJ5cDQCqQ5ZtQDs=; b=h3lgsbisYje9QmBByoB3VCsaHZ
+	vt2KrJlejRTeO84ve9l0oahYftk4Csk3XKySQpvuhglhcZkmLBpeNsQgsn+wjPYq4F//UQ43js0fR
+	MhfZwmo85neA39oYbMSVMgCoos/mCv0gRDRRwX55Zn8dhqFbR10l7eEHUN9Ag7pQ1OIgWrOeadq1Z
+	tRjoi/87/o8w+ambmeop33twefSYt9+GHD71giyagw7HmfAQcOtvKZcuZhZZTxC++VvyO55naW2cO
+	G30JD+nzDagzMMOgsrPcJ14xR4AJXksNw69ikha8M0xVDwbMokl9KlXuUKSQhttzwAjRGS+GHl56U
+	FK3bzosw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRV4L-0000000A7mt-3zxJ;
-	Thu, 12 Nov 2026 13:42:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xRV4S-0000000A7pB-0blM;
+	Thu, 12 Nov 2026 13:42:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRV4K-0000000A7mc-48rm
+	id 1xRV4P-0000000A7o2-1TTf
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 13:42:25 +0000
+	Thu, 12 Nov 2026 13:42:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4B21C60D4A;
-	Thu, 12 Nov 2026 13:42:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 599E61F00A05;
-	Thu, 12 Nov 2026 13:42:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 936AD61407;
+	Thu, 12 Nov 2026 13:42:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3B721F00A08;
+	Thu, 12 Nov 2026 13:42:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794490944;
-	bh=GQHgVl+ihyM808NJI/QLfdnJArapHyJNzZCISd5OzbQ=;
-	h=From:Subject:Date:To:Cc;
-	b=lhPbTrDFNBESSdw7RB77EgLeLRSKn5Am3YuXHmEbfAR+08//MYeB2W0em10nXm8eM
-	 52cWEXS15V2hgIorhB9XNcgw6eHv78caUrV9hAJU2PwBVlELq2AF8iC/5rsCGkLX/+
-	 SzvHZYq9GofFyxxXXI946+AUJaj50fnotH0lYUcnViLRONINxdSDUJqx9HKhwD4DjB
-	 lF5C/c3fZRHeugZ8dNJEfoyRX4SNNqhN48KWJ76/VzldYJ/d7goChCbZHHUjpvwsqJ
-	 ELHdHJcf8zgvLDS6QayI15+54pbWp5/RD3T5/5EeodBpbBvZ/fnrwfkCH3CTLHANK8
-	 okZDqmTDsmSDQ==
+	s=k20260515; t=1794490948;
+	bh=dqbquVni/DMcAyJArGqCAVcIns69uQDK2R6VFLb3mps=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=h8uPEVg5/1VEkawZC7BHaxlQMaekT/tQlfN9hKtYXU1g+YP0qKcGKdVof/sA5bx4A
+	 QWkJw8J7z6Wtc6krH+2hJGBzWRFbY2zxuAo+SEDHx9zBKBZ1HkoU0XDW+x0z2iyHj5
+	 wvRwRR1kpvnWPGr1j5NFRUm7MBTrZwCCHQ+ABgouxA6N1yc93pOKJgQLueP1KYRYo+
+	 jG7VAEhdpw1aWvuIKELc6eD21Nao+tU/RCKTuqsq7522eqSNgHFqrhoJjOxrmH3lUV
+	 J2xS+yqX7LZTiGn8IjCUK5nWATF3jm2d6amqHG1O3bZIEWkqoGbg9KBEAhcYtbX2qK
+	 cVKXnMPNe4m/g==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Subject: [PATCH 0/2] riscv: mm: fix set_memory_x() and
+Date: Thu, 12 Nov 2026 15:42:19 +0200
+Subject: [PATCH 2/2] riscv: mm: check the valid bit in
  kernel_page_present()
-Date: Thu, 12 Nov 2026 15:42:17 +0200
-Message-Id: <20261112-fixes-riscv-v1-0-1caac19897b5@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMSw7CMBBDr1LNmggSfhFXQSyS4LSDRIpmSoVU9
- e4ksHy2nxdSCEPp0i0kmFl5LBXspqM0hNLD8L0yuZ07WWudyfyBGmFNs9nj4M/e56PPoGq8BL+
- 6Ctfbn/UdH0hTu2iLGBQmSihpaNEo3HPZPoNOEFrXLy+NU0aPAAAA
-X-Change-ID: 20261112-fixes-riscv-3e48788f58fe
+Message-Id: <20261112-fixes-riscv-v1-2-1caac19897b5@kernel.org>
+References: <20261112-fixes-riscv-v1-0-1caac19897b5@kernel.org>
+In-Reply-To: <20261112-fixes-riscv-v1-0-1caac19897b5@kernel.org>
 To: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
  Paul Walmsley <pjw@kernel.org>
 Cc: Alexandre Ghiti <alex@ghiti.fr>, Mike Rapoport <rppt@kernel.org>, 
@@ -72,37 +70,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-These are two riscv fixes I found while working on a generic
-implementation of the set_memory APIs.
+set_direct_map_invalid_noflush() clears _PAGE_PRESENT, but the kernel
+mappings keep _PAGE_PROT_NONE set: it used to be _PAGE_READ and now it is
+the same bit as _PAGE_GLOBAL. pte_present() and pmd_present() still
+return true for the invalidated entry. kernel_page_present() then reports
+that an unmapped page is mapped, and hibernation copies it without
+remapping it first.
 
-The first one stops set_memory_x() from making the linear map alias of
-module and BPF text executable.
+Test _PAGE_PRESENT directly for PMD and PTE leaves.
 
-The second one makes kernel_page_present() report the pages removed from
-the direct map as not present. Today it says they are mapped, and
-hibernation could copy them without mapping them first.
-
+Fixes: 32a0de886eb3 ("arch, mm: make kernel_page_present() always available")
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
-Mike Rapoport (Microsoft) (2):
-      riscv: do not make the linear map alias executable in set_memory_*()
-      riscv: mm: check the valid bit in kernel_page_present()
+ arch/riscv/mm/pageattr.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
- arch/riscv/mm/pageattr.c | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261112-fixes-riscv-3e48788f58fe
+diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+index b138113755359..62fbcf7cf36b6 100644
+--- a/arch/riscv/mm/pageattr.c
++++ b/arch/riscv/mm/pageattr.c
+@@ -453,8 +453,9 @@ bool kernel_page_present(struct page *page)
+ 	if (!pmd_present(pmdp_get(pmd)))
+ 		return false;
+ 	if (pmd_leaf(pmdp_get(pmd)))
+-		return true;
++		return pmd_val(pmdp_get(pmd)) & _PAGE_PRESENT;
+ 
++	/* pte_present() is true for PAGE_KERNEL with _PAGE_PRESENT cleared */
+ 	pte = pte_offset_kernel(pmd, addr);
+-	return pte_present(ptep_get(pte));
++	return pte_val(ptep_get(pte)) & _PAGE_PRESENT;
+ }
 
---
-Sincerely yours,
-Mike.
+-- 
+2.53.0
 
 
 _______________________________________________
