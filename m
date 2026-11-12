@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1583D606A31C
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 13:33:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AF1E606A323
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 13:34:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aJcbaoYQ;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=w6rz.net header.i=@w6rz.net header.a=rsa-sha256 header.s=default header.b=YNYfiyZq
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CqTzvtNt;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KTjp3CZY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
@@ -14,97 +14,100 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=CBCtlXeUy+CCBW0gPFVIV27gozoNzo7aGkTb3Qn/1qA=; b=aJcbaoYQA1Fwm9FuNkBOL/gVok
-	OpgS8PR4HdYf5S8z1HC3UYedZ2ZlKK7EKiAU5qDCRzQHMYEeIaB+49sSkXZNjN4p+rZgHB5LEF4B4
-	FO6gR2duzmHfYQG0O4vZYToqnGV3NypEK7AgruutJOL+0fXXewle0SY8p9TN45+06PMeboxcJd1ON
-	GyHnkb7GzfOA0IjPf5whiCv6dGGAHhSdfuir8w4n2D66WAY+UI6NMDQ1dGZI4KWY2yyO9wnFYxG09
-	istnM4tljQpKoi44ALX+CGtoKPtMEb+9j1Ipu0KQM8eNhmoaKTHcCuUMf02FzrjzhewYLE1elpJmj
-	zoLkIU6g==;
+	bh=UKr7owS1XldvCQ6sDwEx/6yT7laOYZo+5eMnN376tjY=; b=CqTzvtNtaHaPRHnOfaSZhV6PBr
+	vV8Kt4xrZeT6AeJqAPBWnXTlYAeA+RbG6SjZmazpyM30R+hEbEybSJnbrEIOFjFYItheXenDoqrjj
+	ZCOiM6SJ4PXwRmpbPFGaoalnoKvFDigV9ltZcT7xy6jvuiIZkcL7G+9sRCBr3LXSMkNoGHlrYllx3
+	E/kd6oUsgOBqCx3mVB6RXSvV5QbJW/YAaVP7fuamtGBD4YJ0AgO/Sp1IH3KlmLfDSPHeMxH0wQnGf
+	R69f+Y6mcSLFBKkfwqmfrfovRujPLK/vOxtzoh7PK2KBMAYiXLXVJ0IwSi2VjeDy+wZUREevKIkG/
+	cEeR28ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRUvr-0000000A55V-3BaB;
-	Thu, 12 Nov 2026 13:33:39 +0000
-Received: from omta036.useast.a.cloudfilter.net ([44.202.169.35])
+	id 1xRUwD-0000000A58o-3hgS;
+	Thu, 12 Nov 2026 13:34:01 +0000
+Received: from mail-ej2-x05.google.com ([2a00:1450:4864:34::5])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRUvo-0000000A53G-0JSq
+	id 1xRUwB-0000000A57x-1xo3
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 13:33:38 +0000
-Received: from eig-obgw-6007b.ext.cloudfilter.net ([10.0.30.166])
-	by cmsmtp with ESMTPS
-	id RK6gx388N4vCDRUvcxe0qB; Thu, 12 Nov 2026 13:33:24 +0000
-Received: from box5620.bluehost.com ([162.241.219.59])
-	by cmsmtp with ESMTPS
-	id RUvaxtJZD3nNNRUvaxV3YV; Thu, 12 Nov 2026 13:33:23 +0000
-X-Authority-Analysis: v=2.4 cv=TuLmhCXh c=1 sm=1 tr=0 ts=6af5c023
- a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=7vwVE5O1G3EA:10 a=JfrnYn6hAAAA:8
- a=SRrdq9N9AAAA:8 a=20KFwNOVAAAA:8 a=HaFmDPmJAAAA:8 a=dieMQkrgBA8TE_BiV8UA:9
- a=QEXdDO2ut3YA:10 a=O8hF6Hzn-FEA:10 a=1CNFftbPRP8L7MoqJWF3:22
- a=nmWuMzfKamIsx3l42hEX:22 a=L5EjiQpGQaFGZdqT14z7:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=xkqkpIt1plIFnGyOUK6a5uhEcdFmWHTHz+38OI/2VXQ=; b=YNYfiyZqmGVTl0GoZfbx6Nqy2U
-	dvVh6v7SqvLKXSdykc4wDKN1OHmCl5PB0+kzx5VSwu6Qkiko0JdI5ZfA1MIJTTYbFEnnPDs9MzN7L
-	+V3AnEE2ePPr8G52XJqGLbT+RXPQCC2FR+fuFXJRQj6ey+fh//6sjGpEEcMQ47dsrF6snYPNSJqWX
-	P3T7nYVUTdVZzlkImTKoh4ccP5wUDtp9vAS1OiZUMqncDHLX8XbB5WO5CBHpdq8wbdxSTFGqX9M/V
-	LWxxd3Hfa1fIj5l7gnU49Uhr+CaSmOPGs56N2MOi5cTH8ZdAc1qzbyidhySog+02CCgXpLOGbXeFp
-	a39ycTjg==;
-Received: from c-73-162-206-103.hsd1.ca.comcast.net ([73.162.206.103]:49516 helo=[10.0.1.180])
-	by box5620.bluehost.com with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
-	(Exim 4.100.1)
-	(envelope-from <re@w6rz.net>)
-	id 1xRUvW-00000003BR4-1yMX;
-	Thu, 12 Nov 2026 06:33:18 -0700
-Message-ID: <34f2ff11-8156-4c32-91dc-e4576807cf3b@w6rz.net>
-Date: Thu, 12 Nov 2026 05:33:16 -0800
+	Thu, 12 Nov 2026 13:34:00 +0000
+Received: by mail-ej2-x05.google.com with SMTP id a640c23a62f3a-c50485c0cb8so171691666b.0
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2026 05:33:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794490437; x=1795095237; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FwL/KWXkezDHAFArKAWV6uoJFctTAPwUR8TBzgDQZkM=;
+        b=KTjp3CZYq50AKy3rEYKPv1T4wmXC6SdbojAaQAc0waY1CiiH7ZK6PwArhVKJKGWS69
+         fbmn9FJQ7GpiGx7pfN418SfuUYPcZzrspqBcIObCV8AmH4w8DfzJBM/0XmqEabNg2D+t
+         N9LNxyFlqCCjd60QS2DcmDUpmhFdDhLUG943CkUd/XfDDjtg1vA6sj/oLGoJ6bYrGNRY
+         mk3ylW/b+XOJgePEh6Ry2xq0BuzgS61llG3ifGgL6UxrZOuNf0THKtyEhCK56bTmiOew
+         JSdp7FxqGltoGEKrwA+3dw+XICMuEU9y/VwHvpdVbfTA6ldTZklETUM0A3vwEpYKJ2Pb
+         2BeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794490437; x=1795095237;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FwL/KWXkezDHAFArKAWV6uoJFctTAPwUR8TBzgDQZkM=;
+        b=UOvDkkfNH6k0S2ju2RfvoEAa0sZHe+CQoTptGyfY2Qdiaj3sBJReOtG+WzxaKTquTs
+         P6PtTf2NhaW3EGEZqKTlnV3DBMzYfotoTyt+aYK/Y4wz1WkGYz43mFxqFCZwgiSd2pfB
+         D3hBwHYS35YFzB7XLWXITL/TEOnJ4PRPdqfiDcvSa/rSfspap+RUi7fQ7cBBO6fbYAwj
+         YPzaFzBY34pezrDkG9CZN+vzdeE/T5fYX+u6a45XvzKOMojQ/ERlkoJETeRJ/X46OtbU
+         gIomWq3Y8Fz4X94FZjZklM8fPNQAfTQlFJqfCyNCrv8AK2fviRYB9ykAGmN4BLQMTp5f
+         FJ/Q==
+X-Forwarded-Encrypted: i=1; AL+hErEHYV5QZpov4cA+9S4HyKJ14wwNpZ4Hp/y1EcwTEsN72qbhW8jodx7ee4bLvMZ30Nt+91NM1B52DftZcQ==@lists.infradead.org
+X-Gm-Message-State: APuU4Z9VlsBleayOGbEee8KFYqSmC81cK/zWfI6cA5QqaZxMWVYUpDm1
+	INNbKVkCOOXi6gmr/3a17IOiRgtS6adpnZ4eKJQzx7Qv+wawM7CbGjHH
+X-Gm-Gg: AYBFou3A9hxMj1AZfLXiBCl+lrLtKoItgVCy87hDPqo8B5g+Mvg0xfJH5gMmlRdFvZn
+	KgWxNBt/wZCEmou1+Wzhau3rNREDZzRU54BHChVb2oGMaTcf9r6O/MuywDRkf8eSnTdtKmt/3on
+	8t2LUU8lpHEmDAqdXvEWNtraCJtFDT1XuS4DswyeKqPHQtYvvmKPTPuXo+bStAbfc+ohW39ISlA
+	WRHHT7g6wYSIPB447B+uJVExhcLx3OjZO56x+oBf7DmyzM/GAA9uWWCAslDMeSWZ2qvNESy5t7m
+	CmEA9J7oKFkwrN1IAB+ljXFh+cssN3Go8P+Jihk9xnhwncpoApMMQBvy0I0gPR5399QDuvvvsYT
+	wJptjhBGnpGAfVemaA0yO1nOAQplzD1iF/97PuqjAaECsYJgskU3xlgCAxNcrVVixX9AXHhjx3z
+	QpGDcutwAg5Tz7RGztXAJ4VfN2cCwJes2nRvwZmBpDcKKg8feqKPVfyzKsUkk+LNRZdVxBSw7P5
+	XyHGtye2gNtM3dGSVEVGv1X9yCNvEEurVBGlSpcztvYHcLB3IzNhQmWeJrgMxK1tiUsEQutkmql
+	fLc/B+U9kDjcJxrJ/G3l3PUt3Lt9Zuyv0Sh8xw==
+X-Received: by 2002:a17:907:868a:b0:c3e:34fa:611d with SMTP id a640c23a62f3a-c5066b51879mr464464066b.35.1794490437222;
+        Thu, 12 Nov 2026 05:33:57 -0800 (PST)
+Received: from [192.168.100.182] ([45.249.9.114])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c504a3a6947sm353760066b.10.2026.11.12.05.33.53
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Nov 2026 05:33:56 -0800 (PST)
+Message-ID: <e11f1ba6-6e56-4bac-a0cb-f9258a53f34e@gmail.com>
+Date: Thu, 12 Nov 2026 18:33:51 +0500
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] sched: move stack_canary to the start of the
- randomizable region
-To: Valentin Schneider <vschneid@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Ruidong Tian <tianruidong@linux.alibaba.com>
-Cc: mingo@redhat.com, juri.lelli@redhat.com, vincent.guittot@linaro.org,
- dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
- mgorman@suse.de, kprateek.nayak@amd.com, linux-kernel@vger.kernel.org,
- oliver.yang@linux.alibaba.com, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
- linux-riscv@lists.infradead.org
-References: <20260509035014.2220372-1-tianruidong@linux.alibaba.com>
- <20261106160730.GJ1779021@noisy.programming.kicks-ass.net>
- <xhsmhy0b2ntmh.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+Subject: Re: [PATCH net] net: spacemit: Hold RTNL lock in emac_resume() and
+ emac_suspend()
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+ Vivian Wang <wangruikang@iscas.ac.cn>, Andrew Lunn <andrew@lunn.ch>
+Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>, netdev@vger.kernel.org,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Yixun Lan <dlan@kernel.org>, Chukun Pan <amadeus@jmu.edu.cn>,
+ Siddharth Vadapalli <s-vadapalli@ti.com>, Tomas Hlavacek
+ <tmshlvck@gmail.com>, Muhammad Bilal <meatuni001@gmail.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20261105123441.2524171-1-alitariq45892@gmail.com>
+ <DMO13SWAGZAN.NYISGLGI7Y5A@linux.spacemit.com>
+ <c55c5878-d9c1-4863-bc55-99d334ba2ede@gmail.com>
+ <12a95b3a-9c8b-4a2d-9b81-12b3839e64a9@lunn.ch>
+ <DMPNAPNEGQ5I.XYUIB7Y8HDCA@linux.spacemit.com>
+ <ee3f414c-fffa-41e6-8bec-6af7ce676c4b@iscas.ac.cn>
+ <DMQJ0R4QTE6R.2I492KA9N85CB@linux.spacemit.com>
 Content-Language: en-US
-From: Ron Economos <re@w6rz.net>
-In-Reply-To: <xhsmhy0b2ntmh.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - box5620.bluehost.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - w6rz.net
-X-BWhitelist: no
-X-Source-IP: 73.162.206.103
-X-Source-L: No
-X-Exim-ID: 1xRUvW-00000003BR4-1yMX
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: c-73-162-206-103.hsd1.ca.comcast.net ([10.0.1.180]) [73.162.206.103]:49516
-X-Source-Auth: re@w6rz.net
-X-Email-Count: 1
-X-Org: HG=bhshared;ORG=bluehost;
-X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfBsCA0zpY7hR16Poqv0QBIFI1q7cQ7bpZGeb0EhGQBqf9oYNaTS14yweXSF7A1r83P9XUzaXIK18jqnFZqnmOA21p1Ba4O+zgncxhc1qegTeYqUTR8Nl
- 5B7ho+HitGst6pm/BVGCRnCRUV+ottvqhht6cNdjYbhxrJqxPFOXR/Z2Kv7lapGFatc9QL76ROlfkUqWCzRc9e0lOl8hBSO8Yoo=
+From: Ali Tariq <alitariq45892@gmail.com>
+In-Reply-To: <DMQJ0R4QTE6R.2I492KA9N85CB@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261112_053336_206069_9D9BC5E1 
-X-CRM114-Status: GOOD (  29.88  )
-X-Spam-Score: -0.8 (/)
+X-CRM114-CacheID: sfid-20261112_053359_553923_A7C35F59 
+X-CRM114-Status: GOOD (  21.63  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,231 +120,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-7.3 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/9/26 03:15, Valentin Schneider wrote:
 
-> On 06/11/26 17:07, Peter Zijlstra wrote:
->> On Sat, May 09, 2026 at 11:50:14AM +0800, Ruidong Tian wrote:
->>> @@ -848,9 +848,15 @@ struct task_struct {
->>>   
->>>   	int				on_cpu;
->>>   	struct __call_single_node	wake_entry;
->>> -	unsigned int			wakee_flips;
->>> +
->>> +#ifdef CONFIG_STACKPROTECTOR
->>> +	/* Canary value for the -fstack-protector GCC feature: */
->>> +	unsigned long			stack_canary;
->>> +#endif
->>> +
->>>   	unsigned long			wakee_flip_decay_ts;
->>>   	struct task_struct		*last_wakee;
->>> +	unsigned int			wakee_flips;
->>>   
->>>   	/*
->>>   	 * recent_used_cpu is initially set as the last CPU used by a task
->>> @@ -1060,10 +1066,6 @@ struct task_struct {
->>>   	pid_t				pid;
->>>   	pid_t				tgid;
->>>   
->>> -#ifdef CONFIG_STACKPROTECTOR
->>> -	/* Canary value for the -fstack-protector GCC feature: */
->>> -	unsigned long			stack_canary;
->>> -#endif
->>>   	/*
->>>   	 * Pointers to the (original) parent process, youngest child, younger sibling,
->>>   	 * older sibling, respectively.  (p->father can be replaced with
->> This seems exceedingly random; and very prone to also randomly breaking
->> as task_struct is further modified.
+
+On 11/9/26 1:10 PM, Troy Mitchell wrote:
+> On Mon Nov 9, 2026 at 7:59 AM GMT, Vivian Wang wrote:
+>> On 11/8/26 15:19, Troy Mitchell wrote:
 >>
->> Why not do something a little more structured; like so?
->> until someone smarter can come with a risc-v specific improvement
-> See :-)
->
-> How's this? I fluffed the changelog and added a comment to that
-> stack_canary helper
->
-> ---
-> From: Peter Zijlstra <peterz@infradead.org>
-> Date: Fri, 6 Nov 2026 17:07:30 +0100
-> Subject: [PATCH] riscv, sched: move stack_canary to thread_info
->
-> task_struct keeps growing over time. On architectures that compute the
-> per-task stack canary offset from asm-offsets.h and pass it to the
-> compiler via -mstack-protector-guard-offset=, this growth eventually
-> pushes stack_canary beyond what the target ISA can encode.
->
-> On RISC-V, canary loads are emitted as
->
->      ld	t0, TSK_STACK_CANARY(tp)
->
-> where TSK_STACK_CANARY must fit into a 12-bit signed immediate, i.e.
-> [-2048, 2047].  Once stack_canary sits past byte 2047 of task_struct,
-> the build fails with
->
->      cc1: error: '<N>' is not a valid offset in
-> 	'-mstack-protector-guard-offset='
->
-> On RISC-V, CONFIG_STACKPROTECTOR_PER_TASK depends on !RANDSTRUCT, thus
-> stack_canary does not benefit from being in the task_struct randomized
-> region.
->
-> Move the RISC-V stack_canary to thread_info, and introduce an access macro
-> to point to the right stack_canary location. Other archs are unaffected.
->
-> Not-signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
-> Not-signed-off-by: Peter Zijlstra <peterz@infradead.org>
-> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
-> ---
->   arch/riscv/include/asm/stackprotector.h |  4 ++--
->   arch/riscv/include/asm/thread_info.h    | 16 ++++++++++++++++
->   arch/riscv/kernel/asm-offsets.c         |  7 +++----
->   drivers/misc/lkdtm/bugs.c               |  4 ++--
->   include/linux/sched.h                   |  6 +++++-
->   kernel/fork.c                           |  2 +-
->   6 files changed, 29 insertions(+), 10 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/stackprotector.h b/arch/riscv/include/asm/stackprotector.h
-> index 43895b90fe3f6..b56e49ce0580e 100644
-> --- a/arch/riscv/include/asm/stackprotector.h
-> +++ b/arch/riscv/include/asm/stackprotector.h
-> @@ -15,8 +15,8 @@ static __always_inline void boot_init_stack_canary(void)
->   {
->   	unsigned long canary = get_random_canary();
->   
-> -	current->stack_canary = canary;
-> +	tsk_stack_canary(current) = canary;
->   	if (!IS_ENABLED(CONFIG_STACKPROTECTOR_PER_TASK))
-> -		__stack_chk_guard = current->stack_canary;
-> +		__stack_chk_guard = tsk_stack_canary(current);
->   }
->   #endif /* _ASM_RISCV_STACKPROTECTOR_H */
-> diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-> index 55019fdfa9eca..b3a1e1ddbfb0e 100644
-> --- a/arch/riscv/include/asm/thread_info.h
-> +++ b/arch/riscv/include/asm/thread_info.h
-> @@ -73,6 +73,9 @@ struct thread_info {
->   	 */
->   	unsigned long		a0, a1, a2;
->   #endif
-> +#ifdef CONFIG_STACKPROTECTOR
-> +	unsigned long		stack_canary;
-> +#endif
->   #ifdef CONFIG_RISCV_USER_CFI
->   	struct cfi_state	user_cfi_state;
->   #endif
-> @@ -86,6 +89,19 @@ struct thread_info {
->   #define INIT_SCS
->   #endif
->   
-> +#ifdef CONFIG_STACKPROTECTOR
-> +/*
-> + * The canary is loaded via
-> + *
-> + *   ld	t0, TSK_STACK_CANARY(tp)
-> + *
-> + * This imposes a 2047 byte (12-bit signed immediate) limit for the stack_canary
-> + * offset, which is a RISC-V specific limit. Because of that, we keep the
-> + * stack_canary high up in task_struct, in thread_info itself.
-> + */
-> +#define tsk_stack_canary(p) ((p)->thread_info.stack_canary)
-> +#endif
-> +
->   /*
->    * macros/functions for gaining access to the thread information structure
->    *
-> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-> index a75f0cfea1e9f..eb694e1215bbb 100644
-> --- a/arch/riscv/kernel/asm-offsets.c
-> +++ b/arch/riscv/kernel/asm-offsets.c
-> @@ -49,7 +49,9 @@ void asm_offsets(void)
->   	OFFSET(TASK_TI_A1, task_struct, thread_info.a1);
->   	OFFSET(TASK_TI_A2, task_struct, thread_info.a2);
->   #endif
-> -
-> +#ifdef CONFIG_STACKPROTECTOR
-> +	OFFSET(TSK_STACK_CANARY, task_struct, thread_info.stack_canary);
-> +#endif
->   	OFFSET(TASK_TI_CPU_NUM, task_struct, thread_info.cpu);
->   #ifdef CONFIG_RISCV_USER_CFI
->   	OFFSET(TASK_TI_CFI_STATE, task_struct, thread_info.user_cfi_state);
-> @@ -88,9 +90,6 @@ void asm_offsets(void)
->   	OFFSET(TASK_THREAD_F30, task_struct, thread.fstate.f[30]);
->   	OFFSET(TASK_THREAD_F31, task_struct, thread.fstate.f[31]);
->   	OFFSET(TASK_THREAD_FCSR, task_struct, thread.fstate.fcsr);
-> -#ifdef CONFIG_STACKPROTECTOR
-> -	OFFSET(TSK_STACK_CANARY, task_struct, stack_canary);
-> -#endif
->   
->   	DEFINE(PT_SIZE, sizeof(struct pt_regs));
->   	OFFSET(PT_EPC, pt_regs, epc);
-> diff --git a/drivers/misc/lkdtm/bugs.c b/drivers/misc/lkdtm/bugs.c
-> index 2761685cf4f87..977ee75842490 100644
-> --- a/drivers/misc/lkdtm/bugs.c
-> +++ b/drivers/misc/lkdtm/bugs.c
-> @@ -247,9 +247,9 @@ static noinline void __lkdtm_REPORT_STACK_CANARY(void *stack)
->   	for (i = 1; i < 16; i++) {
->   		canary = (unsigned long *)stack + i;
->   #ifdef CONFIG_STACKPROTECTOR
-> -		if (*canary == current->stack_canary)
-> +		if (*canary == tsk_stack_canary(current))
->   			current_offset = i;
-> -		if (*canary == init_task.stack_canary)
-> +		if (*canary == tsk_stack_canary(&init_task))
->   			init_offset = i;
->   #endif
->   	}
-> diff --git a/include/linux/sched.h b/include/linux/sched.h
-> index e4f6323d78555..b7702fefed635 100644
-> --- a/include/linux/sched.h
-> +++ b/include/linux/sched.h
-> @@ -1083,7 +1083,7 @@ struct task_struct {
->   	pid_t				pid;
->   	pid_t				tgid;
->   
-> -#ifdef CONFIG_STACKPROTECTOR
-> +#if defined(CONFIG_STACKPROTECTOR) && !defined(tsk_stack_canary)
->   	/* Canary value for the -fstack-protector GCC feature: */
->   	unsigned long			stack_canary;
->   #endif
-> @@ -1697,6 +1697,10 @@ struct task_struct {
->   	randomized_struct_fields_end
->   } __attribute__ ((aligned (64)));
->   
-> +#if defined(CONFIG_STACKPROTECTOR) && !defined(tsk_stack_canary)
-> +#define tsk_stack_canary(p) ((p)->stack_canary)
-> +#endif
-> +
->   #ifdef CONFIG_SCHED_PROXY_EXEC
->   DECLARE_STATIC_KEY_TRUE(__sched_proxy_exec);
->   static inline bool sched_proxy_exec(void)
-> diff --git a/kernel/fork.c b/kernel/fork.c
-> index 5efceb8d58a78..878d586bda256 100644
-> --- a/kernel/fork.c
-> +++ b/kernel/fork.c
-> @@ -964,7 +964,7 @@ static struct task_struct *dup_task_struct(struct task_struct *orig, int node)
->   	clear_syscall_work_syscall_user_dispatch(tsk);
->   
->   #ifdef CONFIG_STACKPROTECTOR
-> -	tsk->stack_canary = get_random_canary();
-> +	tsk_stack_canary(tsk) = get_random_canary();
->   #endif
->   	if (orig->cpus_ptr == &orig->cpus_mask)
->   		tsk->cpus_ptr = &tsk->cpus_mask;
+>>> On Sat Nov 7, 2026 at 5:32 PM GMT, Andrew Lunn wrote:
+>>>> On Fri, Nov 06, 2026 at 03:44:50PM +0500, Ali Tariq wrote:
+>>>>>
+>>>>> On 11/6/26 2:43 PM, Troy Mitchell wrote:
+>>>>>> On Thu,  5 Nov 2026 17:34:37 +0500, Ali Tariq wrote:
+>>>>>>> @@ -2056,7 +2059,9 @@ static int emac_suspend(struct device *dev)
+>>>>>>>    		return 0;
+>>>>>>>    	}
+>>>>>>> +	rtnl_lock();
+>>>>>>>    	emac_stop(ndev);
+>>>>>>> +	rtnl_unlock();
+>>>>>>>    	clk_disable_unprepare(priv->bus_clk);
+>>>>>>>    	netif_device_detach(ndev);
+>>>>>> This can deadlock. emac_stop() -> emac_down() calls
+>>>>>> cancel_work_sync(&priv->tx_timeout_task) with RTNL now held, while
+>>>>>> emac_tx_timeout_task() starts with rtnl_lock().
+>>>>>>
+>>>>> Thanks Troy, that makes sense.
+>>>>>
+>>>>> For the deadlock, I think the correct function to call is rtnl_trylock()
+>>>>> inside the emac_tx_timeout_task(), which would return if the lock is already
+>>>>> held and will hold the lock if it is not.
+>>>> rtnl_trylock() is generally a workaround needed for badly written
+>>>> code. Please try to avoid it.
+>>> Agreed. If the reset is done in place, the work does not need RTNL at all,
+>>> so .ndo_stop can keep cancel_work_sync() as is.
+>>>
+>> Thanks for the diagnosis and suggestions.
+>>
+>> Although, maybe we could simply avoid cancel_work_sync() in emac_down()?
+>> emac_tx_timeout_task() checks for !netif_running and does nothing if
+>> already down so it should be safe. The task cancel_work_sync() in
+>> emac_remove() does cleanup on unbind so the task is not leaked.
+>>
+>> This seems to be the pattern in other drivers as well. What do you think?
+> That was my first thought too, but I'm not sure netif_running() is
+> enough here. emac_suspend() calls emac_stop() directly, so
+> netif_running() is still true and a pending work would stop the device
+> a second time. And since the netdev is devm-registered, emac_remove()
+> runs before unregister_netdev(), so the work could be requeued after
+> the cancel there.
+> 
+> So we'd still need to cancel it in suspend and remove, and at that
+> point resetting in place looks simpler to me. What do you think?
+> 
+> 
 
-I'm seeing this build failure on RISC-V with gcc 16 and CONFIG_SCHED_CLASS_EXT=y. The build does not fail with gcc 14. I've tested 
-the proposed patch with gcc 16 and it builds and boots (on real hardware) just fine. So for what it's worth:
+Thanks Troy, Vivian and Andrew. I'll drop rtnl_trylock().
 
-Tested-by: Ron Economos <re@w6rz.net>
+I think a simpler approach here will be to go with Vivian's suggestion
+of dropping cancel_work_sync() from emac_down(), and handle Troy's two
+cases by disabling the work where the device is stopped without the core:
 
-Also re-adding the RISC-V folks.
+1. Suspend: emac_suspend() calls disable_work_sync() before stopping
+    the device, and emac_resume() calls enable_work(). So the work
+    can't run while the device is suspended.
 
+2. Remove: emac_remove() uses disable_work_sync() instead of
+    cancel_work_sync(), so the work can't be queued again before the
+    devm unregister_netdev().
+
+For a normal close, the work's existing netif_running() check is
+enough, because the core clears it before calling .ndo_stop.
+
+With this, nothing waits for the work while holding RTNL, and the
+work doesn't wait for itself.
+
+v2 will have two patches. First the TX timeout fix (reported by Troy) 
+then the suspend/resume patch, which will take
+RTNL after disable_work_sync() and before the netif_running() checks.
+
+If you still prefer resetting in place, please let me know.
+
+Regards,
+Ali
+
+pw-bot: cr
 
 _______________________________________________
 linux-riscv mailing list
