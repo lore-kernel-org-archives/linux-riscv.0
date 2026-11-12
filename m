@@ -2,100 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81A4160703A5
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 14:25:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CD9D606A333
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 14:49:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=C7stV+yU
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BCmm22EB;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=eE3ubBA3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:References:Cc:To:From:Subject:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=5Ptc9r1S0ac0I0U+bp2Iwy36tN+eu5CJ7kCs42QRM6U=; b=C7stV+yU3ZI5gu3tyQt7Xk/hKg
-	ApfqfnXWgvOAn4yL7ib1uEUwW8+qM6x4VPHlDBW+arIa8ZPFmcHH2pXBT4jbYzlsSq4ODvWf3L63H
-	X1+Fu+Y4YIE22Z7+7F1Ehqqbg7Lbh/WV04BVJ2h3dfyAwG/e6rgw1e+uqxY+RewaYkBFV9p3JHF7L
-	zXprqubfFO6zv5bpRQwfJKuZcTuD5lDhsdPz+VClbItxRX2ypzWP8H8PFH2D0Ol3jAgCEjzJb1MsM
-	/Xpy4tgeafulJQndA7IdFF6sZDwQ7m1fWhntlED3ZqYCx78uWn6iciu3ubZUxsz0NqP7myb8VAAXw
-	y2N1Osrw==;
+	bh=TQc7Yp7UiOvGc8Kp/QTWIl22nA3UcGj6pgwKqT2rNZo=; b=BCmm22EBTyPz/uypAsP7EAEQU1
+	O3zr3gxLHqJsQ5Mgyhk+0Ktzda8DySubKDhFSvCBsPuB0AyRtAZrZtllqcrMIadDDnh1VOOmnSevc
+	fZMihAZ49dtPI1x9OjlT++DlVCtH4FexdtNzJQ1fhVNvPlRITsNR+1NJj6SZr+NZnXmaS3ZcbbBP5
+	hFk1IhA1CVrSvnEHIcQNkGJneMTWGKEEZSI53BRN4sTByOy30e8DCl49sxr8pFJK5X3hoWJq9O9Q+
+	Mz23pcG0yhlkhl/xa3nXJ+AQYHMmmZVbRFF5dFwpASxy3YrW5lzqO80kRw+Fc0WAfLcKji/F8u5aL
+	D59JQcgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRVkH-0000000AFCh-3Cwk;
-	Thu, 12 Nov 2026 14:25:45 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1xRW7V-0000000AJvB-1cdo;
+	Thu, 12 Nov 2026 14:49:45 +0000
+Received: from smtpbgsg2.qq.com ([54.254.200.128])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRVkD-0000000AF7R-11vg
+	id 1xRW7S-0000000AJsn-00eN
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 14:25:42 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id B0A701F7A3;
-	Thu, 12 Nov 2026 14:25:39 +0000 (UTC)
-Authentication-Results: smtp-out2.suse.de;
-	none
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5BE6013432;
-	Thu, 12 Nov 2026 14:25:38 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id w9GzDFnM9WoAPwAAD6G6ig:T7
-	(envelope-from <clopez@suse.de>); Thu, 12 Nov 2026 14:25:38 +0000
-From: =?UTF-8?q?Carlos=20L=C3=B3pez?= <clopez@suse.de>
-To: kvm@vger.kernel.org,
-	linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	seanjc@google.com,
-	pbonzini@redhat.com,
-	akpm@linux-foundation.org,
-	david@kernel.org,
-	peterx@redhat.com,
-	ljs@kernel.org,
-	imbrenda@linux.ibm.com,
-	borntraeger@linux.ibm.com,
-	frankja@linux.ibm.com,
-	=?UTF-8?q?Carlos=20L=C3=B3pez?= <clopez@suse.de>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	Oscar Salvador <osalvador@suse.de>,
-	Jann Horn <jannh@google.com>,
-	Pedro Falcato <pfalcato@suse.de>
-Subject: [PATCH v3 6/9] mm/mmu_notifier: add MMU_NOTIFIER_RANGE_PERM_UPGRADE
-Date: Thu, 12 Nov 2026 15:20:35 +0100
-Message-ID: <20261112142039.907090-8-clopez@suse.de>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20261112142039.907090-2-clopez@suse.de>
-References: <20261112142039.907090-2-clopez@suse.de>
+	Thu, 12 Nov 2026 14:49:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1794494916;
+	bh=zjGNu9iJUY6tRHH5ZIf6zaOe5ITdcxUbrHIdm2i7RUM=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=eE3ubBA3X0MpCogcaANxkRVGRDUfVO+FpsUIcpRjTj/wv/pjP1/j2TEZb8dG6WTep
+	 i9S9cPYnMuICpBAoeKDRCmYXPQ2u9FcYTPbrXogorP6HfRNJxpgE/W+IM/wQoJ4Ah/
+	 8Q71nK/uxm6JPfI84cfFnMoxCjMPpd+oklXoU56E=
+X-QQ-mid: zesmtpgz6t1794494909t187aaf4b
+X-QQ-Originating-IP: Js536/AgtVk23vBPAsP9wENuhTH6rx7T9W8Qieg91IY=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 12 Nov 2026 22:48:27 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 5432486051573447005
+EX-QQ-RecipientCnt: 20
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Queue-Id: B0A701F7A3
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Spam-Level: 
-X-Spamd-Result: default: False [-4.00 / 50.00];
-	REPLY(-4.00)[]
-X-Spam-Score: -4.00
+Mime-Version: 1.0
+Date: Thu, 12 Nov 2026 14:48:26 +0000
+Message-Id: <DMTBCR706MJ6.23YJ33SOJOGV2@linux.spacemit.com>
+Subject: Re: [PATCH net] net: spacemit: Hold RTNL lock in emac_resume() and
+ emac_suspend()
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Ali Tariq" <alitariq45892@gmail.com>, "Troy Mitchell"
+ <troy.mitchell@linux.spacemit.com>, "Vivian Wang"
+ <wangruikang@iscas.ac.cn>, "Andrew Lunn" <andrew@lunn.ch>
+Cc: "Vadim Fedorenko" <vadim.fedorenko@linux.dev>, <netdev@vger.kernel.org>,
+ "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, "Eric Dumazet" <edumazet@kernel.org>, "Jakub
+ Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Yixun Lan"
+ <dlan@kernel.org>, "Chukun Pan" <amadeus@jmu.edu.cn>, "Siddharth Vadapalli"
+ <s-vadapalli@ti.com>, "Tomas Hlavacek" <tmshlvck@gmail.com>, "Muhammad
+ Bilal" <meatuni001@gmail.com>, "Maxime Chevallier"
+ <maxime.chevallier@bootlin.com>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+X-Mailer: aerc 0.21.0-reader-ipc4
+References: <20261105123441.2524171-1-alitariq45892@gmail.com>
+ <DMO13SWAGZAN.NYISGLGI7Y5A@linux.spacemit.com>
+ <c55c5878-d9c1-4863-bc55-99d334ba2ede@gmail.com>
+ <12a95b3a-9c8b-4a2d-9b81-12b3839e64a9@lunn.ch>
+ <DMPNAPNEGQ5I.XYUIB7Y8HDCA@linux.spacemit.com>
+ <ee3f414c-fffa-41e6-8bec-6af7ce676c4b@iscas.ac.cn>
+ <DMQJ0R4QTE6R.2I492KA9N85CB@linux.spacemit.com>
+ <e11f1ba6-6e56-4bac-a0cb-f9258a53f34e@gmail.com>
+In-Reply-To: <e11f1ba6-6e56-4bac-a0cb-f9258a53f34e@gmail.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NLi1mgTFjGdmJKOnjnU1dcj96CS7m087g6q8eBa2g8j00V22DQXGl1K7
+	mQz3vJ4ziV8zd5+DvAPLaPDv47QyuuOJH1XkoTEljW6h70ugGwgkaK1gFkEchnhuL9yF6f7
+	yK8HJsjiVHV9hqMmyDoJGoPKytHl8L2L3Jw057ah7Yil0ZyTL0tq4EDr4nxjzv5ciH8uF7z
+	fxQ7N4gdJLtpxk8jQljMZutUvq+7ltRdxQXtn1pmR3sIH62Gz3ISLyvk4GXRzuivsXmg4Cw
+	8/Ec7wHB1/onWNecC3GFu8UWjXAm2yzalDxRpOUrL8r62zOKpIQ7m5cq/a2nQNbn5iH+9qr
+	fGtjs4PBK0q9Zieg/Z7vF5LhMkwaUOVNTAXJuK6OoyN4TXFrpLehP2cf33OGRUXwLe79xY9
+	Ms27eX4NHEafYTazY4O/ZaF4eIIRPozXBdxFCo4PK33SrDnkH1jX5OTjsIfP5Ww6ROk7KbX
+	tHeX9IlZVhkGLknQgg3F+oDfsHepokVTxlq2CkqNb0wT3GJl9ZS4qmI5JdbykP9pBGt+si5
+	V2p8Pk/AMRYT/LaHSl7TFP/Iw2KgKNRwu/rMuGMI6R99rbpPgFfYpvnCQ0bELauNORc7eM1
+	1MlIsTj1y3nahpLlkqfOGQGIJbSps9koNlp6tpv3mwngbh9ZTBHpA3sQ35mY7potVEMCQ6F
+	oi5lolhtutXU63M+l63BAx4NXjSf2cqb53BGHDzydcGNHcOeEm0cvBKZ6fTJwujAweBCpeO
+	r0sI92g92Oi+OAx/qpoSzRQkirPuKb1mOsEeD551NVHk+vZ79v8qE49VN1VWbEZpDua/T+k
+	IFa28lJgH68fFHHoJu65+l1JcnagD1ZNppeChJgB9vvtnoeHVOT2PmJoGBAgjtOOykqCi1Z
+	a4VXXA46une/fpAPWASON1sesNUSq05E1WlpzvZjdYHKpUpGE8DH9AvjZVpWKWal2xubVcp
+	flSpw3dCzgWZ7DCHmndGy14pmnjtoM2X7I1Eny7trfDfDyo/fw/TEIgS+GqWR3BRk8OwHZ2
+	8ToeW3Xv2pz9Uhtv6mHzy/t9g/CC6UNpUU73IArqG5yeRzf24ChXE0AqdDcb2q/Xa0FBpzg
+	W4dKKl0iTb1SlXGzrz/EAqnSxADRBp6wmQNi0N75nZhW7ytt7RkIXQ=
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261112_062541_487975_DBE59458 
-X-CRM114-Status: GOOD (  15.75  )
-X-Spam-Score: -4.2 (----)
+X-CRM114-CacheID: sfid-20261112_064942_477416_2E868C6F 
+X-CRM114-Status: GOOD (  23.75  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,77 +108,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============1517741210154777204=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-QWRkIGEgcmFuZ2UgZmxhZyBmb3IgaW52YWxpZGF0aW9ucyB0aGF0IG9ubHkgdXBncmFkZSBwZXJt
-aXNzaW9ucywgc28KdGhhdCBzZWNvbmRhcnkgTU1VcyBjYW4ga2VlcCB0aGVpciBtYXBwaW5ncyBy
-YXRoZXIgdGhhbiB6YXAgdGhlbS4KY2hhbmdlX3Byb3RlY3Rpb24oKSBzZXRzIGl0IGZvciBNTV9D
-UF9QRVJNX1VQR1JBREUgYW5kIGZvciB0aGUKdXNlcmZhdWx0ZmQgcmVzb2x2ZXMsIHdoaWNoIG9u
-bHkgcmVzdG9yZSBhY2Nlc3MuCgpOb3cgdGhhdCBjaGFuZ2VfcHJvdGVjdGlvbigpIGtlZXBzIHdy
-aXRhYmxlIGVudHJpZXMgd3JpdGFibGUgb24gdGhlc2UKY2hhbmdlcywgbm8gcHJlc2VudCBlbnRy
-eSBsb3NlcyBhY2Nlc3MuIFdyaXRhYmxlIG1pZ3JhdGlvbiBhbmQKZGV2aWNlLXByaXZhdGUgZW50
-cmllcyBhcmUgc3RpbGwgbWFkZSByZWFkLW9ubHksIHdoaWNoIGRvZXMgbm90IGFmZmVjdApzZWNv
-bmRhcnkgTU1Vcy4gTWlncmF0aW9uIGVudHJpZXMgYXJlIG9ubHkgaW5zdGFsbGVkIGFmdGVyIHNl
-Y29uZGFyeQpNTVVzIGFyZSBpbnZhbGlkYXRlZCwgYW5kIGRldmljZS1wcml2YXRlIHBhZ2VzIGFy
-ZSBtaWdyYXRlZCBiYWNrLCB3aXRoCmFuIGludmFsaWRhdGlvbiwgYmVmb3JlIHRoZSBDUFUgY2Fu
-IGFjY2VzcyB0aGVtLgoKaHVnZXRsYl9jaGFuZ2VfcHJvdGVjdGlvbigpIG5ldmVyIHNldHMgdGhl
-IGZsYWcsIGFzIGh1Z2V0bGIgZG9lcyBub3QKcmVzdG9yZSB0aGUgd3JpdGUgYml0IGFuZCBtYXkg
-dW5zaGFyZSBwYWdlIHRhYmxlcy4KClNpZ25lZC1vZmYtYnk6IENhcmxvcyBMw7NwZXogPGNsb3Bl
-ekBzdXNlLmRlPgotLS0KIGluY2x1ZGUvbGludXgvbW11X25vdGlmaWVyLmggfCA1ICsrKysrCiBt
-bS9odWdldGxiLmMgICAgICAgICAgICAgICAgIHwgNCArKysrCiBtbS9pbnRlcm5hbC5oICAgICAg
-ICAgICAgICAgIHwgNyArKysrKysrCiBtbS9tcHJvdGVjdC5jICAgICAgICAgICAgICAgIHwgNSAr
-KystLQogNCBmaWxlcyBjaGFuZ2VkLCAxOSBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQoK
-ZGlmZiAtLWdpdCBhL2luY2x1ZGUvbGludXgvbW11X25vdGlmaWVyLmggYi9pbmNsdWRlL2xpbnV4
-L21tdV9ub3RpZmllci5oCmluZGV4IDVkYjc4ZTU3NjFjNS4uYjJmMTg2ZWJhY2Y5IDEwMDY0NAot
-LS0gYS9pbmNsdWRlL2xpbnV4L21tdV9ub3RpZmllci5oCisrKyBiL2luY2x1ZGUvbGludXgvbW11
-X25vdGlmaWVyLmgKQEAgLTYwLDYgKzYwLDExIEBAIGVudW0gbW11X25vdGlmaWVyX2V2ZW50IHsK
-IH07CiAKICNkZWZpbmUgTU1VX05PVElGSUVSX1JBTkdFX0JMT0NLQUJMRSAoMSA8PCAwKQorLyoK
-KyAqIFNldCBvbiBhbiBpbnZhbGlkYXRpb24gdGhhdCBvbmx5IGV4cGFuZHMgcGVybWlzc2lvbnMg
-d2l0aG91dAorICogcmV2b2tpbmcgYW55IGV4aXN0aW5nIGFjY2Vzcywgbm9yIGZyZWVpbmcvbW92
-aW5nIHRoZSB1bmRlcmx5aW5nIHBhZ2UuCisgKi8KKyNkZWZpbmUgTU1VX05PVElGSUVSX1JBTkdF
-X1BFUk1fVVBHUkFERSAoMSA8PCAxKQogCiBzdHJ1Y3QgbW11X25vdGlmaWVyX29wcyB7CiAJLyoK
-ZGlmZiAtLWdpdCBhL21tL2h1Z2V0bGIuYyBiL21tL2h1Z2V0bGIuYwppbmRleCBjZTljOGU1N2I4
-ZTUuLjA2ZmQzMWI4ZmJjNCAxMDA2NDQKLS0tIGEvbW0vaHVnZXRsYi5jCisrKyBiL21tL2h1Z2V0
-bGIuYwpAQCAtNjYzMiw2ICs2NjMyLDEwIEBAIGxvbmcgaHVnZXRsYl9jaGFuZ2VfcHJvdGVjdGlv
-bihzdHJ1Y3Qgdm1fYXJlYV9zdHJ1Y3QgKnZtYSwKIAkgKiBJbiB0aGUgY2FzZSBvZiBzaGFyZWQg
-UE1EcywgdGhlIGFyZWEgdG8gZmx1c2ggY291bGQgYmUgYmV5b25kCiAJICogc3RhcnQvZW5kLiAg
-U2V0IHJhbmdlLnN0YXJ0L3JhbmdlLmVuZCB0byBjb3ZlciB0aGUgbWF4aW11bSBwb3NzaWJsZQog
-CSAqIHJhbmdlIGlmIFBNRCBzaGFyaW5nIGlzIHBvc3NpYmxlLgorCSAqCisJICogTU1VX05PVElG
-SUVSX1JBTkdFX1BFUk1fVVBHUkFERSBpcyBuZXZlciBzZXQgaGVyZS4gaHVnZXRsYiBkb2VzIG5v
-dAorCSAqIHJlc3RvcmUgdGhlIHdyaXRlIGJpdCwgYW5kIGh1Z2VfcG1kX3Vuc2hhcmUoKSBtYXkg
-ZHJvcCB0aGUgbWFwcGluZywKKwkgKiBzbyB0aGlzIGlzIG5vdCBhIHN0cmljdCBwZXJtaXNzaW9u
-IHVwZ3JhZGUuCiAJICovCiAJbW11X25vdGlmaWVyX3JhbmdlX2luaXQoJnJhbmdlLCBNTVVfTk9U
-SUZZX1BST1RFQ1RJT05fVk1BLAogCQkJCTAsIG1tLCBzdGFydCwgZW5kKTsKZGlmZiAtLWdpdCBh
-L21tL2ludGVybmFsLmggYi9tbS9pbnRlcm5hbC5oCmluZGV4IGUzZjkyODgzYmYyMy4uYjc0ZWEx
-OGM2MTAzIDEwMDY0NAotLS0gYS9tbS9pbnRlcm5hbC5oCisrKyBiL21tL2ludGVybmFsLmgKQEAg
-LTE0NTMsNiArMTQ1MywxMyBAQCBzdGF0aWMgaW5saW5lIGJvb2wgcHRlX25lZWRzX3NvZnRfZGly
-dHlfd3Aoc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsIHB0ZV90IHB0ZQogCXJldHVybiB2bWFf
-c29mdF9kaXJ0eV9lbmFibGVkKHZtYSkgJiYgIXB0ZV9zb2Z0X2RpcnR5KHB0ZSk7CiB9CiAKKy8q
-IFdoZXRoZXIgYSBjaGFuZ2VfcHJvdGVjdGlvbigpIG9ubHkgYWRkcyBwZXJtaXNzaW9ucy4gKi8K
-K3N0YXRpYyBpbmxpbmUgYm9vbCBtbV9jcF9pc19wZXJtX3VwZ3JhZGUodW5zaWduZWQgbG9uZyBj
-cF9mbGFncykKK3sKKwlyZXR1cm4gY3BfZmxhZ3MgJiAoTU1fQ1BfUEVSTV9VUEdSQURFIHwgTU1f
-Q1BfVUZGRF9XUF9SRVNPTFZFIHwKKwkJCSAgIE1NX0NQX1VGRkRfUldQX1JFU09MVkUpOworfQor
-CiAvKiBzaHJpbmtlciByZWxhdGVkIGZ1bmN0aW9ucyAqLwogdW5zaWduZWQgbG9uZyBzaHJpbmtf
-c2xhYihnZnBfdCBnZnBfbWFzaywgaW50IG5pZCwgc3RydWN0IG1lbV9jZ3JvdXAgKm1lbWNnLAog
-CQkJICBpbnQgcHJpb3JpdHkpOwpkaWZmIC0tZ2l0IGEvbW0vbXByb3RlY3QuYyBiL21tL21wcm90
-ZWN0LmMKaW5kZXggOGMwZmNkMTBmNWEzLi5iN2FjY2Y2MGMzZDQgMTAwNjQ0Ci0tLSBhL21tL21w
-cm90ZWN0LmMKKysrIGIvbW0vbXByb3RlY3QuYwpAQCAtNjA4LDggKzYwOCw5IEBAIHN0YXRpYyBp
-bmxpbmUgbG9uZyBjaGFuZ2VfcHVkX3JhbmdlKHN0cnVjdCBtbXVfZ2F0aGVyICp0bGIsCiAJCQlj
-b250aW51ZTsKIAogCQlpZiAoIXJhbmdlLnN0YXJ0KSB7Ci0JCQltbXVfbm90aWZpZXJfcmFuZ2Vf
-aW5pdCgmcmFuZ2UsCi0JCQkJCQlNTVVfTk9USUZZX1BST1RFQ1RJT05fVk1BLCAwLAorCQkJbW11
-X25vdGlmaWVyX3JhbmdlX2luaXQoJnJhbmdlLCBNTVVfTk9USUZZX1BST1RFQ1RJT05fVk1BLAor
-CQkJCQkJbW1fY3BfaXNfcGVybV91cGdyYWRlKGNwX2ZsYWdzKSA/CisJCQkJCQlNTVVfTk9USUZJ
-RVJfUkFOR0VfUEVSTV9VUEdSQURFIDogMCwKIAkJCQkJCXZtYS0+dm1fbW0sIGFkZHIsIGVuZCk7
-CiAJCQltbXVfbm90aWZpZXJfaW52YWxpZGF0ZV9yYW5nZV9zdGFydCgmcmFuZ2UpOwogCQl9Ci0t
-IAoyLjUxLjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+--===============1517741210154777204==
+Content-Type: multipart/signed;
+ boundary=4b60170ac85986e157bd72089ccd51b2afc8a5789b706b54e2b49f94448f;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+
+--4b60170ac85986e157bd72089ccd51b2afc8a5789b706b54e2b49f94448f
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+
+Hi Ali,
+
+On Thu Nov 12, 2026 at 1:33 PM GMT, Ali Tariq wrote:
+>
+>
+> On 11/9/26 1:10 PM, Troy Mitchell wrote:
+>> On Mon Nov 9, 2026 at 7:59 AM GMT, Vivian Wang wrote:
+>>> On 11/8/26 15:19, Troy Mitchell wrote:
+>>>
+>>>> On Sat Nov 7, 2026 at 5:32 PM GMT, Andrew Lunn wrote:
+>>>>> On Fri, Nov 06, 2026 at 03:44:50PM +0500, Ali Tariq wrote:
+>>>>>>
+>>>>>> On 11/6/26 2:43 PM, Troy Mitchell wrote:
+>>>>>>> On Thu,  5 Nov 2026 17:34:37 +0500, Ali Tariq wrote:
+>>>>>>>> @@ -2056,7 +2059,9 @@ static int emac_suspend(struct device *dev)
+>>>>>>>>    		return 0;
+>>>>>>>>    	}
+>>>>>>>> +	rtnl_lock();
+>>>>>>>>    	emac_stop(ndev);
+>>>>>>>> +	rtnl_unlock();
+>>>>>>>>    	clk_disable_unprepare(priv->bus_clk);
+>>>>>>>>    	netif_device_detach(ndev);
+>>>>>>> This can deadlock. emac_stop() -> emac_down() calls
+>>>>>>> cancel_work_sync(&priv->tx_timeout_task) with RTNL now held, while
+>>>>>>> emac_tx_timeout_task() starts with rtnl_lock().
+>>>>>>>
+>>>>>> Thanks Troy, that makes sense.
+>>>>>>
+>>>>>> For the deadlock, I think the correct function to call is rtnl_trylo=
+ck()
+>>>>>> inside the emac_tx_timeout_task(), which would return if the lock is=
+ already
+>>>>>> held and will hold the lock if it is not.
+>>>>> rtnl_trylock() is generally a workaround needed for badly written
+>>>>> code. Please try to avoid it.
+>>>> Agreed. If the reset is done in place, the work does not need RTNL at =
+all,
+>>>> so .ndo_stop can keep cancel_work_sync() as is.
+>>>>
+>>> Thanks for the diagnosis and suggestions.
+>>>
+>>> Although, maybe we could simply avoid cancel_work_sync() in emac_down()=
+?
+>>> emac_tx_timeout_task() checks for !netif_running and does nothing if
+>>> already down so it should be safe. The task cancel_work_sync() in
+>>> emac_remove() does cleanup on unbind so the task is not leaked.
+>>>
+>>> This seems to be the pattern in other drivers as well. What do you thin=
+k?
+>> That was my first thought too, but I'm not sure netif_running() is
+>> enough here. emac_suspend() calls emac_stop() directly, so
+>> netif_running() is still true and a pending work would stop the device
+>> a second time. And since the netdev is devm-registered, emac_remove()
+>> runs before unregister_netdev(), so the work could be requeued after
+>> the cancel there.
+>>=20
+>> So we'd still need to cancel it in suspend and remove, and at that
+>> point resetting in place looks simpler to me. What do you think?
+>>=20
+>>=20
+>
+> Thanks Troy, Vivian and Andrew. I'll drop rtnl_trylock().
+>
+> I think a simpler approach here will be to go with Vivian's suggestion
+> of dropping cancel_work_sync() from emac_down(), and handle Troy's two
+> cases by disabling the work where the device is stopped without the core:
+>
+> 1. Suspend: emac_suspend() calls disable_work_sync() before stopping
+>     the device, and emac_resume() calls enable_work(). So the work
+>     can't run while the device is suspended.
+>
+> 2. Remove: emac_remove() uses disable_work_sync() instead of
+>     cancel_work_sync(), so the work can't be queued again before the
+>     devm unregister_netdev().
+>
+> For a normal close, the work's existing netif_running() check is
+> enough, because the core clears it before calling .ndo_stop.
+>
+> With this, nothing waits for the work while holding RTNL, and the
+> work doesn't wait for itself.
+>
+> v2 will have two patches. First the TX timeout fix (reported by Troy)=20
+> then the suspend/resume patch, which will take
+> RTNL after disable_work_sync() and before the netif_running() checks.
+Sounds good :)
+
+
+--=20
+Troy Mitchell
+
+
+--4b60170ac85986e157bd72089ccd51b2afc8a5789b706b54e2b49f94448f
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCavXRuiEcdHJveS5taXRj
+aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC/PdwD8DO7z3cbgb16T
+doImdDC4h5bI5kgpf0udTdwgsfv+jDgA/iBx0Shg3fNGZonovHhDnPSigl1PzAZx
+DoQpm0TbFXIC
+=2L/5
+-----END PGP SIGNATURE-----
+
+--4b60170ac85986e157bd72089ccd51b2afc8a5789b706b54e2b49f94448f--
+
+
+--===============1517741210154777204==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1517741210154777204==--
+
