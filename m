@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B931F606A31C
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 12:20:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15FFB606A886
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 12:31:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xSlz2gD6;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QNcnWw8J
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3+REyXoK;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZoZIiH6H
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,52 +14,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=IVNTXu0vUHqtEg38cUy8Wk3B+Frzy+V8I0A30wJSwTY=; b=xSlz2gD6q88zHjYupZq5Hetmw/
-	rymuWLcUPUgisdw3UbpFD51XJ7CTA/p+sZr5pRu5/yIqOIGwJIhTHp3c1cS/blaCE56COb4IuJ2+7
-	VgiwMwNPVdW2ols9zf7D00zWWMtYeVx19adyB3XCXNkuAbG0LgLh7tkH1zd4BjlPS28fvyS/ettZF
-	00cZtMs1xXtnaJvVPln9UaznohFbkMG1rS75rlmkuDo1qQ45riE+Ys2k9eIyPOqVZG0TU7Ys4q0y7
-	rcnpEe0VhnlznXBx1HtBb00zH61v0Gb2IXiNG7nxVYkBP7VRGVCgwH0rpHCXoloZpLLmBlEsKfBW7
-	Ocbs3CAw==;
+	bh=nSRFHbMCCJqT94pwYmbcIsuYuD+tE+7VQM0fpdP20MM=; b=3+REyXoKFnokOwmaWAiPXAb9Wy
+	viuhDDN05OANmbwysJuNmZ0VvXJ/S48IAmsnedGBO0rJocW69YoVUR9G5uwu8E/iQZfimHa6cEfyg
+	5PfE07sw/yUDE0MpJg0LU6n+fKsgqkmUdFXnL9b3SsROvQ3fn68uHYxhu+x5HnBkQgd4BbyYBTy5f
+	mIkSK6ERaA48Wpvh5i/iekaqkjvl7W2DjIbP4oYFDqVtBDr3wFJVOj+5q1VB+YRtr4i9ZSAjxYK8o
+	aJ81c8BVrnywoSkOgtL9m6QO2D+kJJMsTqxMMrHgH39iC2Dk21ngaB+46u7RoMiIcmtnvoVNbQkIB
+	0VAybjGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRTmz-00000009qTn-0oJN;
-	Thu, 12 Nov 2026 12:20:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xRTxC-00000009sqd-1xY3;
+	Thu, 12 Nov 2026 12:31:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRTmw-00000009qTg-3rbW
+	id 1xRTxB-00000009spo-1akR
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 12:20:23 +0000
+	Thu, 12 Nov 2026 12:30:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 07C5063358;
-	Thu, 12 Nov 2026 12:20:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A33E41F00A05;
-	Thu, 12 Nov 2026 12:20:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5901260CFA;
+	Thu, 12 Nov 2026 12:30:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 554231F00A05;
+	Thu, 12 Nov 2026 12:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794486020;
-	bh=VG4ibvh6nxXQ0qIYLiGl4aEGTtxF3L9vWHyMTCZCIEQ=;
+	s=k20260515; t=1794486656;
+	bh=HuB4RVeq47mAjcl8ywAJJuIZDoqz1GrNEVj9QlG7uxw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QNcnWw8JP2dYKGfFeDoCDIndoy7/rNnerrfu+gun40tmG2sSLwGEU9mhoYzr2U+EK
-	 RftKsXs3JlU4GPq1/eAxOPvBk1NS/9UfjZHnTb7MIXRimM9h9pIgq/hRXGghZdtcjH
-	 +QDW1OP1UUEk90b09h/4j/Nf4O/ASSbrbW57jBkytbxBLt05NF7DO9WaafuHQzGTLh
-	 9l9mt0hbLZJzZB6gWiPcjZm/EppxzIQESchHyRvRp74OuRu4w1foOR+dGrZIlAsfWF
-	 S3uDpySOkQ7sdmlFw+j/nz2Qmwp36uIBUphnPf/klYEnHg/U3oJuq/ec/3DixfpQSE
-	 BtUKnQcutr+3g==
-Date: Thu, 12 Nov 2026 20:00:06 +0800
+	b=ZoZIiH6HBScetwa2i+/gfRsMRzPNjlnFzRYqX614RkGLYaIh7eisZ0UhSXVmOzNkq
+	 iiX272073T1ij5rPy8CibUmRnV1euz0tpzgcXVIx3eDcITIHhL8T66yZ1MsaEHAhaK
+	 a6D6I9NwEaJtBwtFhozHjPzWWHNkBYwBOyqqHH2TWyhLsNN85OQdDlNcrEplKV/JIi
+	 QmRjxma+0DfCvJ+JIiYdEw8hVEyHxRtOCm3IIz+MLH5ddk/lEvVakgRBdVH/KEoXWL
+	 iDBeL+N7Ky7AyH4Ra0Lx20gvqYfQ/7PjHolDfUdoDHRcRVE0t8wq3FuDEDN0EFeo8G
+	 8DktUMMfP136w==
+Date: Thu, 12 Nov 2026 20:10:33 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: hu.shengming@zte.com.cn
+To: Yunhui Cui <cuiyunhui@bytedance.com>
 Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, akpm@linux-foundation.org,
-	baolin.wang@linux.alibaba.com, wangruikang@iscas.ac.cn,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	zhang.run@zte.com.cn, luo.haiyang@zte.com.cn
-Subject: Re: [PATCH] riscv: mm: Limit per-page TLB flushes for large PTE
- batches
-Message-ID: <avWqRtXhDwSDqlgs@xhacker>
-References: <20261112110525378dgDlKhA-G74_y3b6ZeZkz@zte.com.cn>
+	alex@ghiti.fr, dennis@kernel.org, tj@kernel.org, cl@gentwo.org,
+	oleg@redhat.com, ast@kernel.org, daniel@iogearbox.net,
+	andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+	martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
+	jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+	bjorn@kernel.org, pulehui@huawei.com, puranjay@kernel.org,
+	broonie@kernel.org, dave@stgolabs.net, david.laight.linux@gmail.com,
+	tglx@kernel.org, conor.dooley@microchip.com, thuth@redhat.com,
+	ajones@ventanamicro.com, ben.dooks@codethink.co.uk,
+	rkrcmar@ventanamicro.com, samuel.holland@sifive.com,
+	zong.li@sifive.com, debug@rivosinc.com, seanwascoding@gmail.com,
+	andybnac@gmail.com, menglong8.dong@gmail.com,
+	cyrilbur@tenstorrent.com, wangruikang@iscas.ac.cn,
+	atishp@rivosinc.com, apatel@ventanamicro.com, arnd@arndb.de,
+	nathan@kernel.org, nick.desaulniers+lkml@gmail.com,
+	morbo@google.com, justinstitt@google.com,
+	qingfang.deng@siflower.com.cn, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v10 0/9] riscv: optimize percpu access
+Message-ID: <avWsuYF7R5Qiowp_@xhacker>
+References: <20261112104149.38589-1-cuiyunhui@bytedance.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261112110525378dgDlKhA-G74_y3b6ZeZkz@zte.com.cn>
+In-Reply-To: <20261112104149.38589-1-cuiyunhui@bytedance.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,78 +87,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Nov 12, 2026 at 11:05:25AM +0800, hu.shengming@zte.com.cn wrote:
-> From: Shengming Hu <hu.shengming@zte.com.cn>
+On Thu, Nov 12, 2026 at 06:41:40PM +0800, Yunhui Cui wrote:
+> RISC-V has no asm/percpu.h, so this_cpu_*() read-modify-write
+> operations use generic fallbacks that disable local interrupts. Per-CPU
+> addressing also derives the current offset from the CPU number and
+> __per_cpu_offset[].
 > 
-> On systems without Svvptc, update_mmu_cache_range() performs one local
-> TLB invalidation per PTE. With 4 KiB pages, installing a PTE-mapped
-> 1 MiB anonymous folio requires 256 SFENCE.VMA instructions, or 256
-> SINVAL.VMA instructions bracketed by SFENCE.W.INVAL and
-> SFENCE.INVAL.IR.
+> Cache the per-CPU offset in thread_info and implement preemptible this_cpu
+> operations using recoverable GPR critical sections. Each operation records
+> the registers used to form its per-CPU address so exception return can
+> repair them if the task resumes on a different CPU. Use AMOs for
+> native-width operations. Use Zabha for 8-bit and 16-bit operations when
+> available, or a 32-bit LR/SC fallback otherwise. Finally, select
+> HAVE_CMPXCHG_LOCAL so common per-CPU counter users can use
+> this_cpu_try_cmpxchg().
 > 
-> Apply the existing local TLB range-flush policy to PTE batch updates.
-> When nr exceeds tlb_flush_all_threshold, use local_flush_tlb_all_asid()
-> to replace per-page invalidations with a single ASID-wide SFENCE.VMA.
-> This orders the PTE writes before subsequent implicit page-table
-> accesses and invalidates translations for the entire batch. As with
-> range flushes, this may also evict unrelated translations for the same
-> ASID.
+> The recoverable-GPR scheme follows the arm64 design. Only the protocol is
+> common, however: RISC-V uses a cached offset in thread_info, its own GPR
+> encoding and exception entry code, and AMO/LR/SC operation sequences.
+> Factoring these pieces into generic code would share little beyond the
+> field layout while coupling architecture entry paths, so keep the
+> implementation under arch/riscv.
 > 
-> Benchmark results from will-it-scale's page_fault1_processes under
-> QEMU 9.1.93 (qemu-9.2.0-0.3.rc3.fc40), with svvptc=false and
-> CONFIG_TRANSPARENT_HUGEPAGE=y (higher is better):
+> As with arm64's SDEI path, independent NMI-like entry paths must
+> participate in the entry-state protocol directly. Keep the save, clear and
+> restore operations in common RISC-V assembly macros so SBI Supervisor
+> Software Events (SSE) can preserve an interrupted per-CPU operation. SBI
+> SSE support is developed separately and is not a dependency of this
+> series.
+> 
+> With CONFIG_PREEMPT_LAZY=y, GCC 15, the same linux-next base and
+> configuration, an in-kernel microbenchmark pinned to one CPU ran each
+> operation 2,000,000 times for 15 rounds. The table reports the median
+> empty-loop-adjusted time; lower is better.
+> 
+>   operation                 v9 (ns/op)   v10 (ns/op)   change
+>   this_cpu_read(u64)            5.668         0.333     -94.1%
+>   this_cpu_write(u64)           5.668         0.395     -93.0%
+>   this_cpu_add(u64)             8.002         8.004      +0.0%
+>   this_cpu_add_return(u64)      8.335         8.004      -4.0%
+>   this_cpu_xchg(u64)            8.278         8.004      -3.3%
+>   this_cpu_cmpxchg(u64)        18.713        16.133     -13.8%
 
-Can you test on real hw rather than on qemu to get the performance numbers?
+Hi Yunhui,
+
+Thanks for this series. Could you plz run some benchmark to compare the
+performance between v9 and v10? We can use some benchmarks used in arm64
+version:
+https://lore.kernel.org/linux-arm-kernel/28978498-348e-4cfd-af72-1146a106e96b@arm.com/
+
+Something in my mind: hackbench, kernbench, sysbench-cpu, sysbench-mutex,
+sysbench-thread, perf/futex , perf/sched and perf/syscall.
+
+I will read the code during this weekend.
+
+Thanks
 
 > 
-> Folio size      Before       After     Change
-> =============================================
-> 4 KiB           116537      113503      -2.6%
-> 512 KiB        1431962     1977519     +38.1%
-> 1 MiB          1528457     2208209     +44.5%
-
-Since one page is the most case, if we really regressed about 2.6%, then I
-think we need to evaluate whether the gain deserves the pay.
-
+> With the same configuration, vmlinux .text decreased from 14,369,618 to
+> 14,212,882 bytes (-156,736 bytes, -1.09%). percpu_counter_add_batch()
+> decreased from 330 to 228 bytes.
 > 
-> Signed-off-by: Shengming Hu <hu.shengming@zte.com.cn>
-> ---
->  arch/riscv/include/asm/pgtable.h | 5 +++++
->  1 file changed, 5 insertions(+)
+> Changes since v9:
 > 
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 2ebd5fa5adc5..ebe42fcf35ae 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -571,6 +571,11 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
->  	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SVVPTC))
->  		return;
+> - Rework the this_cpu operations to remain preemptible using recoverable
+>   GPR critical sections, as suggested by David Laight and Jisheng Zhang.
+> - Put the cached per-CPU offset first, then split the exception/fixup
+>   infrastructure and operation classes into independently reviewable
+>   patches.
+> - Keep GPR-state save and restore in reusable assembly macros for NMI-like
+>   entry paths such as SBI SSE.
+> - Keep masked LR/SC cmpxchg operands XLEN-wide so RV64 high-byte and
+>   high-halfword comparisons are not affected by LR.W sign extension.
+> - Force both halves of the AMOCAS.Q new value into fixed registers so the
+>   implicit register pair remains valid when either half is zero.
+> - Use TYPEOF_UNQUAL() in wrappers and fully parenthesize this_cpu_write()
+>   values.
 > 
-> +	if (nr > tlb_flush_all_threshold) {
-
-unlikely(...)
-
-> +		local_flush_tlb_all_asid(asid);
-> +		return;
-> +	}
-> +
->  	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SVINVAL)) {
->  		local_sfence_w_inval();
->  		while (nr--)
+> Changes since v8:
+> 
+> - Drop the PIO helper patch, which has already been merged.
+> - Rename the first patch and update its changelog as suggested by
+>   Davidlohr Bueso.
+> - Use value-returning AMOs instead of rd=x0 for CPU-local operations.
+> - Remove unnecessary memory clobbers from the new relaxed AMO and LR/SC
+>   code.
+> - Use .option arch,+zabha for the Zabha inline asm, matching the
+>   existing RISC-V cmpxchg implementation.
+> - Isolate arch_cmpxchg_relaxed() behind typed always-inline helpers to
+>   avoid macro variable capture while preserving atomic instrumentation.
+> - Make the cmpxchg128 fallback use the already resolved per-CPU pointer,
+>   avoiding the same macro variable capture.
+> - Copy the cached per-CPU offset from prev to next during context switch,
+>   as suggested by Thomas Gleixner.
+> - Initialize secondary idle tasks in the common startup path, covering
+>   parallel bringup and CPU hotplug, and remove the duplicate initialization
+>   from smp_callin(), as reported by Sashiko.
+> - Select HAVE_CMPXCHG_LOCAL in a separate patch.
+> 
+> Yunhui Cui (9):
+>   riscv: store percpu offset into thread_info
+>   riscv: add infrastructure for preemptible this_cpu operations
+>   riscv: implement preemptible this_cpu read and write operations
+>   riscv: implement preemptible this_cpu void RMW operations
+>   riscv: implement preemptible this_cpu add_return operations
+>   riscv: implement preemptible this_cpu xchg operations
+>   riscv: implement preemptible this_cpu cmpxchg operations
+>   riscv: implement preemptible this_cpu cmpxchg128
+>   riscv: select HAVE_CMPXCHG_LOCAL
+> 
+>  arch/riscv/Kconfig                   |   1 +
+>  arch/riscv/include/asm/asm.h         |  25 +-
+>  arch/riscv/include/asm/percpu.h      | 701 +++++++++++++++++++++++++++
+>  arch/riscv/include/asm/ptrace.h      |  15 +
+>  arch/riscv/include/asm/switch_to.h   |   9 +
+>  arch/riscv/include/asm/thread_info.h |   4 +-
+>  arch/riscv/kernel/Makefile           |   1 +
+>  arch/riscv/kernel/asm-offsets.c      |   4 +-
+>  arch/riscv/kernel/entry-common.c     |  32 ++
+>  arch/riscv/kernel/entry.S            |  10 +
+>  arch/riscv/kernel/smpboot.c          |  10 +-
+>  arch/riscv/net/bpf_jit_comp64.c      |   9 +-
+>  12 files changed, 805 insertions(+), 16 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/percpu.h
+>  create mode 100644 arch/riscv/kernel/entry-common.c
+> 
+> 
+> base-commit: ddfe51b0a0f5dc9e415cc2c8ad8db17532dd426b
 > -- 
-> 2.25.1
+> 2.39.5
 > 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
