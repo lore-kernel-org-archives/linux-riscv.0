@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB6C4606A31C
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 12:13:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B931F606A31C
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 12:20:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EkByR5hs;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=BC2+2iOV
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xSlz2gD6;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QNcnWw8J
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,80 +14,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Ifp8UfVviu/i/GwxCHMkera6jplXawUckngfZ6H2Rwc=; b=EkByR5hsady8poTERytxzdIPjX
-	FrApslsoLW3/N5Khr+ii51J3Rej686wezTTgpfAyXP57y0UadWrc30MlSOKGzC7+pz0MP2BFSNE/F
-	5SVlf4p6Vw7L/hO56LkiLJcYyKONurLBYSIuwwnByeXyIBpRgVyC/w3sX0omOBDH6Ka7FWs137+ej
-	/1bDau7gQZxUMf/exXxeqWXGAuIlhJSXOEx3Lc/7U+ER/uafBoy5GzfWCa7TNtXh+FpbtCyA7bQr8
-	2ELk09E872YNzgn3xrapi2KFgPvdgERqtY9mQGPbfVbVqAofszaXKPxj7r+R56maP7z+xjK5BNBG7
-	GKCewZsQ==;
+	bh=IVNTXu0vUHqtEg38cUy8Wk3B+Frzy+V8I0A30wJSwTY=; b=xSlz2gD6q88zHjYupZq5Hetmw/
+	rymuWLcUPUgisdw3UbpFD51XJ7CTA/p+sZr5pRu5/yIqOIGwJIhTHp3c1cS/blaCE56COb4IuJ2+7
+	VgiwMwNPVdW2ols9zf7D00zWWMtYeVx19adyB3XCXNkuAbG0LgLh7tkH1zd4BjlPS28fvyS/ettZF
+	00cZtMs1xXtnaJvVPln9UaznohFbkMG1rS75rlmkuDo1qQ45riE+Ys2k9eIyPOqVZG0TU7Ys4q0y7
+	rcnpEe0VhnlznXBx1HtBb00zH61v0Gb2IXiNG7nxVYkBP7VRGVCgwH0rpHCXoloZpLLmBlEsKfBW7
+	Ocbs3CAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRTfr-00000009pNT-23OP;
-	Thu, 12 Nov 2026 12:13:03 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1xRTmz-00000009qTn-0oJN;
+	Thu, 12 Nov 2026 12:20:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRTfn-00000009pMY-3DOj
+	id 1xRTmw-00000009qTg-3rbW
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 12:13:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794485579; x=1826021579;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=jUEzBgnghcvibNTjFO0S5WBM3pHNMSH0GtLNmn73Fl4=;
-  b=BC2+2iOV2rnk4aEaX+xcDTlWxFhBDcNQ9AaeEwALKOGRiMaRrdVCaJp8
-   7nH39P3jbkaNI7HmzQoxdxNkHnzwwk6Ejh1Eve3VDEfTTAa5DlTSNHAb3
-   qZBojtyptuyUTEoKWlt2SeiT4wTgTJnf5Hci94Cb+5+hNQNysZWtNpF/7
-   REyukBiN3yfP7TTKtmE/ocF2H2QeVHnpkYghN91Ql7Cn0kISzSgpWsOVl
-   JEkKaWj7purGvCxVLruyk+4og/8llmsol69FoH/SAQfdiGb4IcSMJ3qf5
-   6HrjKZ5wh3ZWXP+txqtuXoQQzWwwDjH8DF2crbrFBMaR2KeCrDv2Fa+py
-   g==;
-X-CSE-ConnectionGUID: 43npjyRhSQ6L6miB7mTDOA==
-X-CSE-MsgGUID: jsuqdcBSS2evvGq3MmCmcA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11963"; a="3366522"
-X-IronPort-AV: E=Sophos;i="6.27,209,1787036400"; 
-   d="scan'208";a="3366522"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Nov 2026 04:12:59 -0800
-X-CSE-ConnectionGUID: CVltBxJqR1af0Fr3Zx6Iyw==
-X-CSE-MsgGUID: +BZJ4MbYS4+JcdJtiUisaQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,209,1787036400"; 
-   d="scan'208";a="9081723"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa007.fm.intel.com with ESMTP; 12 Nov 2026 04:12:55 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xRTff-000000011GV-1MMO;
-	Thu, 12 Nov 2026 12:12:51 +0000
-Date: Thu, 12 Nov 2026 20:12:29 +0800
-From: kernel test robot <lkp@intel.com>
-To: Andy Chiu <tchiu@tenstorrent.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Oleg Nesterov <oleg@redhat.com>, linux-riscv@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, andybnac@gmail.com,
-	daichengrong <daichengrong@iscas.ac.cn>, gdb@sourceware.org,
-	Andy Chiu <tchiu@tenstorrent.com>, dfustini@oss.tenstorrent.com,
-	greentime.hu@sifive.com, Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	Anup Patel <anup@brainfault.org>,
-	Guobin Zhang <guobin.zhang@intel.com>,
-	Troy Mitchell <troy.mitchell@linux.dev>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Sergey Matyukevich <geomatsi@gmail.com>
-Subject: Re: [PATCH v7 3/6] riscv: clarify vector state semantics on syscall
- and context switch
-Message-ID: <202611122049.91BrkXTs-lkp@intel.com>
-References: <20261111184359.1239821-4-tchiu@tenstorrent.com>
+	Thu, 12 Nov 2026 12:20:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 07C5063358;
+	Thu, 12 Nov 2026 12:20:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A33E41F00A05;
+	Thu, 12 Nov 2026 12:20:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794486020;
+	bh=VG4ibvh6nxXQ0qIYLiGl4aEGTtxF3L9vWHyMTCZCIEQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QNcnWw8JP2dYKGfFeDoCDIndoy7/rNnerrfu+gun40tmG2sSLwGEU9mhoYzr2U+EK
+	 RftKsXs3JlU4GPq1/eAxOPvBk1NS/9UfjZHnTb7MIXRimM9h9pIgq/hRXGghZdtcjH
+	 +QDW1OP1UUEk90b09h/4j/Nf4O/ASSbrbW57jBkytbxBLt05NF7DO9WaafuHQzGTLh
+	 9l9mt0hbLZJzZB6gWiPcjZm/EppxzIQESchHyRvRp74OuRu4w1foOR+dGrZIlAsfWF
+	 S3uDpySOkQ7sdmlFw+j/nz2Qmwp36uIBUphnPf/klYEnHg/U3oJuq/ec/3DixfpQSE
+	 BtUKnQcutr+3g==
+Date: Thu, 12 Nov 2026 20:00:06 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: hu.shengming@zte.com.cn
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, akpm@linux-foundation.org,
+	baolin.wang@linux.alibaba.com, wangruikang@iscas.ac.cn,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	zhang.run@zte.com.cn, luo.haiyang@zte.com.cn
+Subject: Re: [PATCH] riscv: mm: Limit per-page TLB flushes for large PTE
+ batches
+Message-ID: <avWqRtXhDwSDqlgs@xhacker>
+References: <20261112110525378dgDlKhA-G74_y3b6ZeZkz@zte.com.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261111184359.1239821-4-tchiu@tenstorrent.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261112_041259_823549_9C277BFD 
-X-CRM114-Status: GOOD (  11.14  )
-X-Spam-Score: -4.4 (----)
+In-Reply-To: <20261112110525378dgDlKhA-G74_y3b6ZeZkz@zte.com.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,90 +72,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Andy,
+On Thu, Nov 12, 2026 at 11:05:25AM +0800, hu.shengming@zte.com.cn wrote:
+> From: Shengming Hu <hu.shengming@zte.com.cn>
+> 
+> On systems without Svvptc, update_mmu_cache_range() performs one local
+> TLB invalidation per PTE. With 4 KiB pages, installing a PTE-mapped
+> 1 MiB anonymous folio requires 256 SFENCE.VMA instructions, or 256
+> SINVAL.VMA instructions bracketed by SFENCE.W.INVAL and
+> SFENCE.INVAL.IR.
+> 
+> Apply the existing local TLB range-flush policy to PTE batch updates.
+> When nr exceeds tlb_flush_all_threshold, use local_flush_tlb_all_asid()
+> to replace per-page invalidations with a single ASID-wide SFENCE.VMA.
+> This orders the PTE writes before subsequent implicit page-table
+> accesses and invalidates translations for the entire batch. As with
+> range flushes, this may also evict unrelated translations for the same
+> ASID.
+> 
+> Benchmark results from will-it-scale's page_fault1_processes under
+> QEMU 9.1.93 (qemu-9.2.0-0.3.rc3.fc40), with svvptc=false and
+> CONFIG_TRANSPARENT_HUGEPAGE=y (higher is better):
 
-kernel test robot noticed the following build errors:
+Can you test on real hw rather than on qemu to get the performance numbers?
 
-[auto build test ERROR on d1a8d411533d6be16ac79796c02a9bfc7d7958f1]
+> 
+> Folio size      Before       After     Change
+> =============================================
+> 4 KiB           116537      113503      -2.6%
+> 512 KiB        1431962     1977519     +38.1%
+> 1 MiB          1528457     2208209     +44.5%
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Andy-Chiu/riscv-vector-refactor-vector-context-operations/20261111-124323
-base:   d1a8d411533d6be16ac79796c02a9bfc7d7958f1
-patch link:    https://lore.kernel.org/r/20261111184359.1239821-4-tchiu%40tenstorrent.com
-patch subject: [PATCH v7 3/6] riscv: clarify vector state semantics on syscall and context switch
-config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20261112/202611122049.91BrkXTs-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 16.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261112/202611122049.91BrkXTs-lkp@intel.com/reproduce)
+Since one page is the most case, if we really regressed about 2.6%, then I
+think we need to evaluate whether the gain deserves the pay.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611122049.91BrkXTs-lkp@intel.com/
+> 
+> Signed-off-by: Shengming Hu <hu.shengming@zte.com.cn>
+> ---
+>  arch/riscv/include/asm/pgtable.h | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 2ebd5fa5adc5..ebe42fcf35ae 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -571,6 +571,11 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+>  	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SVVPTC))
+>  		return;
+> 
+> +	if (nr > tlb_flush_all_threshold) {
 
-All errors (new ones prefixed by >>):
+unlikely(...)
 
-   arch/riscv/kernel/signal.c: In function '__restore_v_state':
->> arch/riscv/kernel/signal.c:130:9: error: implicit declaration of function '__riscv_v_vstate_clean'; did you mean 'riscv_v_vstate_query'? [-Wimplicit-function-declaration]
-     130 |         __riscv_v_vstate_clean(regs);
-         |         ^~~~~~~~~~~~~~~~~~~~~~
-         |         riscv_v_vstate_query
-
-
-vim +130 arch/riscv/kernel/signal.c
-
-   107	
-   108	/*
-   109	 * Restore Vector extension context from the user's signal frame. This function
-   110	 * assumes a valid extension header. So magic and size checking must be done by
-   111	 * the caller.
-   112	 */
-   113	static long __restore_v_state(struct pt_regs *regs, void __user *sc_vec)
-   114	{
-   115		long err;
-   116		struct __sc_riscv_v_state __user *state = sc_vec;
-   117		void __user *datap;
-   118	
-   119		/*
-   120		 * Mark the vstate as clean prior performing the actual copy,
-   121		 * to avoid getting the vstate incorrectly clobbered by the
-   122		 * discarded vector state.
-   123		 *
-   124		 * This also allows user to modify vregs through the signal
-   125		 * interface at a syscall stop. e.g. to support user space
-   126		 * context switching.
-   127		 */
-   128		preempt_disable();
-   129		riscv_v_vstate_set_restore(current, regs);
- > 130		__riscv_v_vstate_clean(regs);
-   131		preempt_enable();
-   132	
-   133		/* Copy everything of __sc_riscv_v_state except datap. */
-   134		err = __copy_from_user(&current->thread.vstate, &state->v_state,
-   135				       offsetof(struct __riscv_v_ext_state, datap));
-   136		if (unlikely(err))
-   137			return err;
-   138	
-   139		/* Copy the pointer datap itself. */
-   140		err = __get_user(datap, &state->v_state.datap);
-   141		if (unlikely(err))
-   142			return err;
-   143		/*
-   144		 * Copy the whole vector content from user space datap. Use
-   145		 * copy_from_user to prevent information leak.
-   146		 */
-   147		return copy_from_user(current->thread.vstate.datap, datap, riscv_v_vsize);
-   148	}
-   149	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> +		local_flush_tlb_all_asid(asid);
+> +		return;
+> +	}
+> +
+>  	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SVINVAL)) {
+>  		local_sfence_w_inval();
+>  		while (nr--)
+> -- 
+> 2.25.1
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
