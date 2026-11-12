@@ -2,155 +2,186 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50F43606A31C
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 15:51:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A0A7606A335
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 16:15:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zL6ABIuN;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=htecgroup.com header.i=@htecgroup.com header.a=rsa-sha256 header.s=selector1 header.b=WoHyZ8W9
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RNztjnx6;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=KMK6QB0C;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=EGIE1gQ8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc:Subject:
+	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=YfBkbQX4Dl5oNI3kpHGQYARlxrkTuOl/l7wtFrZ2e8g=; b=zL6ABIuND5pkoC69rbiIyDMNAL
-	HQJCMW2s8m5eiJDwfm01g7E/bD94Pe+wRzmmM4wP90784aegMZLFJ2BOiZwLjaKMRDqtXsZz+99iE
-	3qVGyj54fRUP+juDJ9MJUTD74I20yTeuvzjyV9ypSLHSayPFWCxuoonQVcC5yMb2tfN4ZkVRvumvT
-	yusSr/VxsjCGhgcgMIh/IjORT724TyyEkC6KmIgp8b7+aieTpkS6pCBUfnam2nYkXjsJ7repRBvsV
-	gBdWJ99MFXofGLSupF0yg6Daxhhd0PimrCJUpT1wnaFPPz1k01kRdfh4TVtJ76SMpV2cALcMV0X8C
-	3LqeFIcQ==;
+	bh=T38au4hEhmLZhhQln0ZeHBrH10oOO/Svf8s06ildSLw=; b=RNztjnx6r2B+6o1441KheQ3vm5
+	o/hCNQ4oRQ449Qx9DzASj+5Nc/G/IpqTIr3MCK4Jb7FeieO4KJ1jV0JcOvAlqDZ4w28WmGSuB1R4M
+	cLM7/JvBMYg5zrQD5FbbUHkScMCxUOf/ZmjOiB7ZiYaIGW7n40PLKTWBozLY7m7Fnq6wLFIRQ3LLq
+	UZCJ2I7GaBX7avwrjyjUOvy/J1zM1Nd5IaqdeZSMCey6hmiRwlS1Z8h2qARh0eiG3Tqk1YDKmiZDA
+	koNKEJm0w1Ufa020zguCJAt43MLwmUlJmkzC6oFMPAqVqj96XA3PUQYiRAptvR6zsN9CwSvSPSres
+	JHg+Rjow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRX5Y-0000000AWCw-29Fa;
-	Thu, 12 Nov 2026 15:51:48 +0000
-Received: from mail-norwayeastazon11023118.outbound.protection.outlook.com ([40.107.159.118] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1xRXS5-0000000AYyf-05UF;
+	Thu, 12 Nov 2026 16:15:06 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRX5T-0000000AWBu-3oUn
+	id 1xRXRy-0000000AYwe-08vF
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 15:51:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fFQjYR9IO2yTlyTNrZZefyDKpeOLZ+0F5h4EY7QXF3Z/pPwZc/wdwq04fiteQCL4ro/SN913ttmpgZEmF0xPbZncAgzilK5iVgWjl0PQ8URyAPjaTLh9yCdffiaIGImPsmX9ocfVKaF7/6LNFlC1EGXK97rvJ4norUK8HM0D4TQlwXGXQgRklQXxuVWuCBBTj0ycbxHZ7N6nQOvbOMHNM4Ye8gdGnZTx/DdvXpcmz+W5PrwaVOXspLily3lE/13n1+UStFUHki9d6owvLX8I1QkgGtq/ngHnv0rzcwg5WYP7g2xMA7fUo7HGzpAParXdYbqWB+ECEmgFwKR0UeGwWQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cG+fkKv/SnyVehzUt0wDIGIvyrN0MNADD00XoizUHD0=;
- b=aRQ8Vvl3HOmyt/Yy+XfL/TS8MjeN/DsKvhFA8athbEBlZ4XekzwPUt7xk89EAmBn03m/YBZm1jW8X1Kenl06R7kLBL92uVSzgFNiF6l7NLQ+6+Qt9EfvQsPAFyOelmOiIQU6XM7qRO/Nu83lFdDue+Xre71AFpa3yqLD9XP0sGOjuTRUtt2ot5zQqsN/kIJDr5qHBb3hH2bcgmGC8v07a0a3T6ynM+/K5dIncrcbg37F/DK9iFjQzEQjb0u4BCOnAWfivdMrUEWfdrv9OF/IaLd62VSRwDVugmR5XFj1Ro8s8k6hX3ruu5KOqt7fk3yIHxjQqGPmv4HK/RlpEI8CwQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=htecgroup.com; dmarc=pass action=none
- header.from=htecgroup.com; dkim=pass header.d=htecgroup.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=htecgroup.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cG+fkKv/SnyVehzUt0wDIGIvyrN0MNADD00XoizUHD0=;
- b=WoHyZ8W9J8iXUkqHzhi6qkyjGFTeLaECgjzt1TqejfNmfwXSo+HSdKDqjgah5lqPtL47PG/bcC0q4hVzi37Vvjrq7ZhUWcHb+22qeir/j5NLBYIjG88qpQtLglo6kjX/8lH5nidK3PcAuRWKf1+IIyFpmlFn1sAUX+SrxIYGtFW7TFaXoVh8rV63xOmxz1jsn0pgccIsFW2Qkp/HFBcCYL78I2sC1LWTUjRKZ76FgH6TLMZpMLHsHq+bh+i7iCxJJlKSK/b3saTtR7OLc2M5XkCjzA6+D3C+mRj5K106lCWClJNP6BBg5gniIyF7PrFItGslbwWtmGCk+C0XQmVqJw==
-Received: from MIWPR09MB510283.eurprd09.prod.outlook.com
- (2603:10a6:290:de::18) by AS8PR09MB5854.eurprd09.prod.outlook.com
- (2603:10a6:20b:573::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.14; Thu, 12 Nov
- 2026 15:51:37 +0000
-Received: from MIWPR09MB510283.eurprd09.prod.outlook.com
- ([fe80::b132:b89e:3800:bc14]) by MIWPR09MB510283.eurprd09.prod.outlook.com
- ([fe80::b132:b89e:3800:bc14%5]) with mapi id 15.21.0615.007; Thu, 12 Nov 2026
- 15:51:37 +0000
-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-To: "conor@kernel.org" <conor@kernel.org>
-CC: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, "alex@ghiti.fr"
-	<alex@ghiti.fr>, "anup@brainfault.org" <anup@brainfault.org>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "daniel.lezcano@kernel.org"
-	<daniel.lezcano@kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, Djordje Todorovic
-	<Djordje.Todorovic@htecgroup.com>, "inochiama@outlook.com"
-	<inochiama@outlook.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "palmer@sifive.com"
-	<palmer@sifive.com>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"pjw@kernel.org" <pjw@kernel.org>, "radu@rendec.net" <radu@rendec.net>,
-	"robh@kernel.org" <robh@kernel.org>, "tglx@kernel.org" <tglx@kernel.org>,
-	"vladimir.kondratiev@mobileye.com" <vladimir.kondratiev@mobileye.com>
-Subject: Re: [PATCH v2 6/8] dt-bindings: timer: Add MIPS P8700 ACLINT MTIMER
-Thread-Topic: [PATCH v2 6/8] dt-bindings: timer: Add MIPS P8700 ACLINT MTIMER
-Thread-Index: AQHda6WlvwfN8s5mzUCrb+uxiI8exrcc4xMAgAvM64CAAfQbAA==
-Date: Thu, 12 Nov 2026 15:51:36 +0000
-Message-ID: <066f69f8-51f0-44e2-afae-1889b952eb4d@htecgroup.com>
-References: <20261111-underage-distant-87bff35745b9@spud>
-In-Reply-To: <20261111-underage-distant-87bff35745b9@spud>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=htecgroup.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MIWPR09MB510283:EE_|AS8PR09MB5854:EE_
-x-ms-office365-filtering-correlation-id: ab9a9b25-3e19-4129-36a2-08df40d4d592
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|22082099003|18002099003|261009223027099003|56012099006|11063799006|261026121527099003|10067099003|38070700021;
-x-microsoft-antispam-message-info: Pvf7Zz8BhzkzrCH77loVSNDIjVRE1PGhvpBaXlryQEvBmyeherYW3qAWpuDRLV0yasef+dSRTgi7xVmThdtNS8/47GdChCZM3gxS/pfORSqNNzWmb5pxqBpZ1Eq/0Ozl2DXTS2jnw8K10rsJAaYqVOVYd0A48FhHH8fxBAqZzgSmarQpAJG3EmbNyVPPLdc9cqJtD/l/22ADIsMHVzGn15IIb2t6qKbo7Wt88mCO13cxlybCrSAigCTY41lxkhnxnG5V6zhf1nbqnx7JKXsR/SeFckkf+4zYDZsxR7vmed+5dawnyFoMwkgVfX2UCMqAmKEh8X1BwB8PynL2/FPT5qJoHBxvHXOPq5Dh6E3bmTXKvymNwQgvl75ZouHrzXL45jH6OI0BY7Bi4tGqez9MNkHp7ilJ3jt8mKsWCPVJImAYhSADjhQAjUwMt8UBuACiohZ4liT5oTxZaSzWE+KnwHkc00BVyYOWXf73ukQPOerJjh68AoTrMYFHi+Xb59dAzmYrZYu1Xc8KefLzDuxR2GAWthcmdNlseIgKmP1GA2YPZF/tqDAsjIFNtWLW6zLrJzkZBVruyRLI0ew5a/zdxbQ3V2lIS1AZwa//epmOV51GjaTs3DuGgIYVkTMLxKZWgDfo2zr02UXx/RQhWy4XPAyFIWs1VNIt/K8XxROpHqk=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MIWPR09MB510283.eurprd09.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(22082099003)(18002099003)(261009223027099003)(56012099006)(11063799006)(261026121527099003)(10067099003)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SkJTd2dCRTg5Tk0xcFo0enAzOG9lUGZ0anhWeU53ZFhTUWV4bENlOVhMcmg3?=
- =?utf-8?B?UjF0ejFmamhsUDAyZ2dJenY2UW1TZHA4LzVkNjFrQjZHK050OHBqZTlTU216?=
- =?utf-8?B?c2dsbnJ5dkhHYk9rRE1UV2dFVy9heEFUam1KUmVJU1k0T0pSZit6bFNPL21p?=
- =?utf-8?B?Y1NaeHJrRFV1T2FwdzFScVJXQS9RNVZUWjU2cUFlL3ZzaVZsZUJNWFdZQVND?=
- =?utf-8?B?Z3FBa0kwMWFLVFp4eldJWTZpUk93aC95eFNzKy9ESnlDYWt4N2FCM1FDcDd3?=
- =?utf-8?B?ejlyU0tWWmJUWW9zR1RISHBTaTJkdVBrK3BFbVhad2JmVzVhK1dMczh6aVRv?=
- =?utf-8?B?UndyT3FvdFVxYTJWL0YrOE91NTRZQ205Wk51WFJ2Ti81TU9GMkRQRlc2OHB5?=
- =?utf-8?B?WWlRalA1Qzk5QllWWDd6T21oWVA1SFRTN3FkQyt0a0xqYk5HWlg2N283Vzhj?=
- =?utf-8?B?Vkhid0EvTEF6Q0JsZnRQenNiaDJOcktlR3V6clNENlJIQzJ6WU1vdzJ5Ry9R?=
- =?utf-8?B?c0w0OHBCYXBhbS82T1A4NVQ5SUNRRC9pYVhMQUg2Y25obzE1RmF5OVZ6ZkYx?=
- =?utf-8?B?ZDRaVTZjeThlNDdhSitNN3RQUkxVRlBkdjBDR0x4MGRJbmE3Vi9Wb1YrOWRh?=
- =?utf-8?B?WGtHUS92dWQzMjdQaXVsNTEzMXEzanRkL1JRWTY0NnoxVTQyblJYTFljL1ND?=
- =?utf-8?B?ZEdCVG1TVU5iSlRKelVzS0FDeDk3elhidkJ0MXVMRVZTZ1JuY29CM0FYODNa?=
- =?utf-8?B?VXlDNVhNdDl6MUdmamhEQVB4di9RRjlEb2dkTFdyQkJMcXJzU09jU1g5UFhB?=
- =?utf-8?B?S2Q2ZENNemFaY2ZIMEFKaTl0TkJPRHYwNytjWktGSFpnR05IUVhweHZUSXh6?=
- =?utf-8?B?QXlSNXEvcHhlcDhTMldFZllORGd1T05ldExVK0tSTTJ5dXpmUnVYZGphbTdk?=
- =?utf-8?B?SHJrVEVCU0gwNFpGNmpWOSs5T3lkK0dGT0VBRm40WjJnOHRxZU5iWW0wb2pt?=
- =?utf-8?B?MzZsR3d5N1hmSmhQOXdGdDdGRnZyTTBDbXp2MlNTYWlGVnJGNVRLeGJ2cXRv?=
- =?utf-8?B?UTBXMXBPMVhvaFFmQ2g0WVhRRmVJWHV0L2R5aDRWa0xVeGhWU3hiV1VPMmNI?=
- =?utf-8?B?dFdlQkxjQjVvY1lPNEN2U1dEZW9qR3FMbzFydnhraHhaYTBFcC9EWld4ZWlx?=
- =?utf-8?B?Z1JsamtjbE9rc3BVV3h1TXdXZ1dEa3A2U3VsbmNEZ2dHc2gzRlRIU3l1UEtK?=
- =?utf-8?B?L1lycFhPVHJJUlljYXJIMkNNc0hWQUVjQnhmTERVTENYUzJVekdsaDE3WVgw?=
- =?utf-8?B?R3BPMzFjaDEyY2NzUDhHMWw0dEhyeFg0VjBrb2RRT1V2dDdmK2J4UlJlbHRk?=
- =?utf-8?B?aVNSUDlnZ0s3YU9XQkNoNW1qL3JaOEdHbTZxR0M5Q09HWTRJeEhpZUZ5ZUhG?=
- =?utf-8?B?M3hzQnlLTTZkT3lDa1oxVm5FZDlFRENBQXVnT0FrSWEzbzlOcmE0RU5LSlMr?=
- =?utf-8?B?bFUwa0hkZnZrZ25HUDVuNTkwOU4wZzVRdCtLSkhpMUlPdkVtdjdZL0hObThM?=
- =?utf-8?B?dkJxbXhQejFIMjlBdi84VGRGSXowSkVHdURZTHdlN0I3VmtPSlBqYURJeitZ?=
- =?utf-8?B?Q0hNUlJuSHF1MTBjTjB5SFNRTkFUV21BdDd2dnB2TUl5ZEdCcFRhMk5JQ2ZT?=
- =?utf-8?B?Q21uNFFISzNpUjY1TUxWc214ZlhqbnJPc0FXRk9rcGgyZFRjQ2RYMUhBN0Fi?=
- =?utf-8?B?VWhxRU8yUFdLQUlZWnc3V2VCM3ljQzBiMVpoWVFnV3lSYkNrcVR3MXVUbmQv?=
- =?utf-8?B?ZTlLOGdreldpN0ZPcUx5UWxDR0UyVEx0THZHSEZJVldyVDdHUDZaRzh1NEJo?=
- =?utf-8?B?NWFJbzRLMmNpTVJ4U0JKTU1DSXJTUEYwU2hlYmhrZ0RoaXRoSXVUMURzTXZT?=
- =?utf-8?B?d0JzOC9IMUtwdzhEZ0JPM1IzYkFlV3FtRjRPTUcvOEJ1RlNFTXVpeGprSEtF?=
- =?utf-8?B?b3Jwc2IxVTRUc1NOOXhVY2lzL21QSFVYbTMvV0o3WEJQQ2VWK3RWYjZqQTRS?=
- =?utf-8?B?TzN1cFpzYk9mOExmeGlCNTFsaUFnZXBpS2Y0TTdwdXVxTjM4TTNTdkwrWUVT?=
- =?utf-8?B?V0M4QmlGU0hXWjZJUEhhQ2VUS3ZHMXA1dmE4cnJEbUxLUCtnTGNkNnV3RzVW?=
- =?utf-8?B?dm5nRC9zeE50S2NtSm5aUytQdmVyUUQ5cXF1dGZlcVhRSUlBYWdkdSsxTVQx?=
- =?utf-8?B?OE1WbWFxMm1EYjR1WUk2Zno1VE1LVzl4N1pxVjRIcE5iSWJpK2xVVlR3TEZB?=
- =?utf-8?B?eU9rc2tWemhIaUdicEFDa3ZlNXQwUTB6SGJHdGZ0eWhJTm1CSW85NTFIOTJq?=
- =?utf-8?Q?UnIDDGuOOoJdQLd8=3D?=
-Content-ID: <43C82DA38DB77346869BB761922741C8@eurprd09.prod.outlook.com>
+	Thu, 12 Nov 2026 16:15:03 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ACFa8sG1309448
+	for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2026 16:14:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	VFyW3FlcFVuCcTw1UrnIFaWy9gAZYFzgF43VrM5oqOQ=; b=KMK6QB0C53FsJS4C
+	tFzPmI8KYZXPG9YLJzFIHsq2h7uTULHaITsbeYFUIXrtAyTo9VDxZNrFSqDkzJpq
+	mC8m8R/fymWFTkZR+zYJufGcFbmWp/MxWX76MlvAFLbG9FoP2f+z+rKCIxe+RYZp
+	fNg29Szh9iFitCyIbL9cy/C2Vl7m85c3g6TI51EIbHfLC9h8O0jJ6fgHrtpY4rGL
+	08kayBMDGukcYg/QNo/plpZ072zNL/DySCmPjrKsTCznHdBeN8UXVE0looqITHXV
+	CSjb2q9owW+uO5CsIU7QdGzYYy2A7CSYd9P6FRWnSeZKPdrXY2GcO5p65ofbSXCx
+	kI4SBw==
+Received: from mail-vs1-f71.google.com (mail-vs1-f71.google.com [209.85.217.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hwan4sgd8-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2026 16:14:56 +0000 (GMT)
+Received: by mail-vs1-f71.google.com with SMTP id ada2fe7eead31-7d2d60a8bf5so944794137.1
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2026 08:14:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1794500095; x=1795104895; darn=lists.infradead.org;
+        h=in-reply-to:references:to:cc:subject:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=VFyW3FlcFVuCcTw1UrnIFaWy9gAZYFzgF43VrM5oqOQ=;
+        b=EGIE1gQ8gLaGdHkCqZhg4uTt0G3jh4Jtb8dc2TCaqn9Y0/bK2mZJpMYtiUpP4QBJpK
+         Lmc8IeiMm0ZE9Zj7c8bmchXNd+mHppQIedMyYvGfff4jtBxU1AlaZGLm6QQXUy87yA0L
+         xhovLBgVONeHIraFlLcC02PGu9/reCDnHBkz68ZOizZu3YKnFzPWkXwttl/Fvsw0TqBK
+         pMCFWclbJhoThno60/ktOWXuP9x6yAhodVUj5+xHbrsi3TJmbtbdFBg8kEbL6QEvxNSP
+         h+XI/o7olZnMLPNUWAUiOn+cXLrG0DGU7Ps49aA0jt1lGEgu5jqKUKxoxZEI62nFj1GI
+         wXFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794500095; x=1795104895;
+        h=in-reply-to:references:to:cc:subject:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VFyW3FlcFVuCcTw1UrnIFaWy9gAZYFzgF43VrM5oqOQ=;
+        b=HgG6ZbU9Ta1Pwy9r74AzUuncRFQmUD8tvPNsBg8NYHO0JWE2okT8upmztYR5OASZOK
+         WxGb1ulphBEJfsoisPqCPVxFHWwNjTV6rfIHxbAPrkDATf16mLfRRose/364uA+Q2Ya+
+         m0g7OYVNJEXl3EimCCpQ+u9JPcoMddK7DXmouiHNQE0N4BqcHEi9RjFYuv6xRNNNyfMD
+         +DlE2FFX5MIq5DDpTkLSfqxDh17ogl2ViB0YzvfajFtTvIFGkSD6XlJm5vNsI17hY1XQ
+         vPurxeaNNLNiNjn5R670yS80Z2pAFc8mIqRoBFi3ArgTFQ19LvBDBJfqG0QzSs2jBwyb
+         iOYA==
+X-Forwarded-Encrypted: i=1; AL+hErEPi0BXn8qMFF42FqQ5EjGMjwZHhOQAi56OhL0na2iOFE7XWJGhy3LJ4vukQT6frrhMr8bUlLIpCsm5TQ==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/n8yS/E6o/4cDhqNbtY6QKGr4zqjGZpZUWzkaZtzi+X1jtV4FQ
+	b3VSkB4fJQKFzKsU2NXMiFgkd+AytGRkUQuT3usup1EO7MKfsAOTHaGmk1OoSail1jdfQQB7NNw
+	cyaWYSXC3oY+RCqeDBcPrI+YhdxIg+Cmh9vGH3efFfRBB79vjiVSbqqpvPsvehVxjwkIph9A=
+X-Gm-Gg: AYBFou0TAT3VnEXqGu0KRTDzOYSPH2kiD1jotrO6Uy+5mUhpfsR/hKkh1AYaxF0sP5C
+	HM0/crkZa2zcIG4WDYR3TQiOe+o/QRLQpBfFPLoing23HJqWQX8HmCoBnJbNC/AJ5qNhHkFMYj9
+	3J9s6HJhWxBuZOXJdpy59g6HfY64Q4TbbxuLIfhEPPStkslenDofqDxlXZpIQQgsr73TXUqaYpS
+	2vWkvzd2DIoDEOyoRDkihPLrBrtwBpYe1Znph/whRmPkfGDeCyrueqZ1PRcdDlRjtatzbA/3rXD
+	68HN1Ncc1vc113uLGKe1m9Kn712AQ4Bku5Y1Yb+qmVcp7PMkHl6Fch/w3VAiUYG2X1zvEGJ5Vd3
+	84mu81auRTdFXiucEyZZQhq+sBGVLkDtsG1QVJXepJE08bye4CrFUv0AZNtkfQYsIYNEq7+Hq8e
+	XGT3XFDkNcolc=
+X-Received: by 2002:a67:e109:0:b0:7ae:c2ca:8e1 with SMTP id ada2fe7eead31-7d4fb25077cmr1920110137.11.1794500094867;
+        Thu, 12 Nov 2026 08:14:54 -0800 (PST)
+X-Received: by 2002:a67:e109:0:b0:7ae:c2ca:8e1 with SMTP id ada2fe7eead31-7d4fb25077cmr1920099137.11.1794500094134;
+        Thu, 12 Nov 2026 08:14:54 -0800 (PST)
+Received: from localhost (ip-86-49-245-11.bb.vodafone.cz. [86.49.245.11])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb4e2842e6sm78783665e9.4.2026.11.12.08.14.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Nov 2026 08:14:53 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-X-OriginatorOrg: htecgroup.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MIWPR09MB510283.eurprd09.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ab9a9b25-3e19-4129-36a2-08df40d4d592
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Nov 2026 15:51:37.0055
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 9f85665b-7efd-4776-9dfe-b6bfda2565ee
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: hM+e6fOCuDDT/kmSxP15+Q4RIAOT+UOAtWg356H4kwMH1m6jpq79dDrEOydSbj9NXFKmSV6/1VdaryoVZ6K7vi4QweuaBv10/ftgM/xSH7I=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR09MB5854
+Mime-Version: 1.0
+Date: Thu, 12 Nov 2026 17:14:50 +0100
+Message-Id: <DMTD6WT2DU30.AX3QK44UUYB3@oss.qualcomm.com>
+From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?=
+ <radim.krcmar@oss.qualcomm.com>
+Subject: Re: [PATCH v11 1/5] riscv_cbqri: Add capacity controller core
+Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
+        "Jonathan Cameron"
+ <jic23@kernel.org>,
+        "Shaopeng Tan" <tan.shaopeng@jp.fujitsu.com>,
+        "Zeng
+ Heng" <zengheng@picoheart.com>, <linux-kernel@vger.kernel.org>,
+        <linux-riscv@lists.infradead.org>, <x86@kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-doc@vger.kernel.org>
+To: "Drew Fustini" <fustini@kernel.org>,
+        "Adrien Ricciardi"
+ <aricciardi@baylibre.com>,
+        "Alexandre Ghiti" <alex@ghiti.fr>,
+        "Albert Ou"
+ <aou@eecs.berkeley.edu>,
+        "Atish Patra" <atish.patra@linux.dev>,
+        "Babu
+ Moger" <babu.moger@amd.com>, "Ben Horgan" <ben.horgan@arm.com>,
+        "Borislav
+ Petkov" <bp@alien8.de>,
+        "Chen Pei" <cp0613@linux.alibaba.com>,
+        "Conor
+ Dooley" <conor.dooley@microchip.com>,
+        "Conor Dooley" <conor+dt@kernel.org>,
+        "Dave Hansen" <dave.hansen@linux.intel.com>,
+        "Dave Martin"
+ <Dave.Martin@arm.com>,
+        "Fenghua Yu" <fenghuay@nvidia.com>,
+        "Gong Shuai"
+ <gong.shuai@sanechips.com.cn>,
+        "Gong Shuai" <gsh517@gmail.com>, <guo.wenjia23@zte.com.cn>,
+        "James Morse" <james.morse@arm.com>,
+        =?utf-8?q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>,
+        "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, <liu.qingtao2@zte.com.cn>,
+        "Liu Zhiwei"
+ <zhiwei_liu@linux.alibaba.com>,
+        "Palmer Dabbelt" <palmer@dabbelt.com>,
+        "Paul Walmsley" <pjw@kernel.org>,
+        "Peter Newman" <peternewman@google.com>,
+        "Reinette Chatre" <reinette.chatre@intel.com>,
+        "Rob Herring"
+ <robh@kernel.org>,
+        "Samuel Holland" <samuel.holland@sifive.com>,
+        "Sunil V
+ L" <sunilvl@oss.qualcomm.com>,
+        "Tony Luck" <tony.luck@intel.com>, "Weiwei
+ Li" <liwei1518@gmail.com>,
+        "yunhui cui" <cuiyunhui@bytedance.com>,
+        "Zhanpeng Zhang" <zhangzhanpeng.jasper@bytedance.com>
+References: <20261108-dfustini-atl-sc-cbqri-dt-v11-0-33a1bf0cf01c@kernel.org> <20261108-dfustini-atl-sc-cbqri-dt-v11-1-33a1bf0cf01c@kernel.org>
+In-Reply-To: <20261108-dfustini-atl-sc-cbqri-dt-v11-1-33a1bf0cf01c@kernel.org>
+X-Proofpoint-GUID: 0H-Lytz0Zv4zrzyJUpH4_9EVn7wNFto0
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTEyMDA2NCBTYWx0ZWRfX7yqXRDY9m5zr
+ CrKavRF+pSE4z5RnQ70Rb6HJIdSvmL/1otbja1vbWNq/D7Rl9eDI6PY7CvofieFykscViID4HFB
+ uoRxJpVLGRXiwDsTr6qmfFhCQM44XIM=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTEyMDA2NCBTYWx0ZWRfX1GbEe5I5J9mm
+ LbEhMsJsnAHEfQVGwdWxg79zSuVVyBA0J2GdBtWKHmr1t4tygN9orVm28oQPnim87IF0dcVdOfv
+ KiS9DgUJby3xQ3GDMOmowLkTm3cTzrjIYueEOHZmOJ+YuZtr+xUTFnItu849W2vMoqbm5nwzXFU
+ VGDHRAZC1OP/q3ySViGSG623YOGcaozTb4s6t2eWF0cbBeMn0ArxSGzKxFZxPFRkJ3n2nmrNbTH
+ v/kbt+L7DWkIIEJVD52SOiRZu/oF9zqlHtGJ02PzcngXg03vU42KDvKn7DnAquyLKfAkmTt5o4v
+ BXSwNCZ9wxTsuTXyAyVuBkf8LORmEfHqTQlL3zW0QtvCWdS18j2Os57gyl4oh8Gyk6k0cYvvgoY
+ E38GxT6GT6yY0bXC7az02oW5tCUrcOy3UdAg58elAx3Rbagmv29QuUvb1lH2USEl24gndLxzolp
+ 1Gm7qGkl/mpkzr8+ddQ==
+X-Proofpoint-ORIG-GUID: 0H-Lytz0Zv4zrzyJUpH4_9EVn7wNFto0
+X-Authority-Analysis: v=2.4 cv=Gd+CDgXL c=1 sm=1 tr=0 ts=6af5e600 cx=c_pps
+ a=P2rfLEam3zuxRRdjJWA2cw==:117 a=4CXLxsOAgPM/krjtHEZQyA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M51BFTxLslgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=VwQbUJbxAAAA:8 a=IpJZQVW2AAAA:8 a=MPNzcpqd3dBX2N5RN88A:9 a=QEXdDO2ut3YA:10
+ a=ODZdjJIeia2B_SHc_B0f:22 a=IawgGOuG5U0WyFbmm1f5:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-12_02,2026-11-11_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 lowpriorityscore=0 priorityscore=1501 spamscore=0 clxscore=1015
+ malwarescore=0 phishscore=0 suspectscore=0 impostorscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611120064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261112_075144_405936_244CB36D 
-X-CRM114-Status: UNSURE (   7.48  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261112_081458_319745_DADB4666 
+X-CRM114-Status: GOOD (  32.11  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,28 +194,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Conor,
+2026-11-08T15:20:50-08:00, Drew Fustini <fustini@kernel.org>:
+> Add the core for RISC-V CBQRI capacity controllers: the register
+> layout, the capability probe, and the allocation operations that
+> program a capacity block mask for an RCID and read it back.
+>
+> A discovery layer maps the register block and describes the controller
+> in a cbqri_controller_info descriptor. riscv_cbqri_register_cc() probes
+> the controller from that descriptor and adds it to the controller list,
+> which stays private to the core. The core owns the controller state
+> after registration, so nothing in it depends on how the controller was
+> discovered. The caller keeps the register mapping alive.
+>
+> Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+> Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+> Signed-off-by: Drew Fustini <fustini@kernel.org>
+> ---
+> diff --git a/drivers/resctrl/cbqri_devices.c b/drivers/resctrl/cbqri_devices.c
+> +static u64 cbqri_readq(void __iomem *addr)
+> +{
+> +	return lo_hi_readq(addr);
+> +}
+> +
+> +static void cbqri_clear_cunits(struct cbqri_controller *ctrl)
+> +{
+> +	if (ctrl->cc.cunits) {
+> +		writel(0, ctrl->base + CBQRI_CC_CUNITS_OFF);
+> +		writel(0, ctrl->base + CBQRI_CC_CUNITS_OFF + 4);
 
-On 11/11/26 11:01, Conor Dooley wrote:
-> On second thoughts, we probably need to be careful about the reg
-> ordering here. This binding has always required that mtimecmp be "first"
-> because it was the only let me rescind my ack for now and think about
-> what the correct thing to do is...
-I'll send the v3 with the enum approach you proposed in Joel's thread [1].
-Also, I'll be changing the compatibles from gf,mips-p8700-* to gf,p8700-*, as discussed.
+nit: lo_hi_writeq?
 
-Links:
-[1] https://lore.kernel.org/linux-riscv/20261111-paralyze-ellipse-dfc194dbe39f@spud/
+> +int cbqri_apply_cache_config(struct cbqri_controller *ctrl, u32 closid,
+> +			     const struct cbqri_cc_config *cfg)
+> +{
+> [...]
+> +	mutex_lock(&ctrl->lock);
+> [...]
+> +out:
+> +	mutex_unlock(&ctrl->lock);
+> +	return err;
 
-Best regards,
-Aleksa
+nit: guard the mutex?
+
+> +static int cbqri_probe_feature(struct cbqri_controller *ctrl, int reg_offset,
+> +			       int operation, int *status, bool *access_type_supported)
+> +{
+> +	const u64 active_mask = CBQRI_CONTROL_REGISTERS_OP_MASK |
+> +				CBQRI_CONTROL_REGISTERS_AT_MASK |
+> +				CBQRI_CONTROL_REGISTERS_RCID_MASK;
+> +	u64 reg, saved_reg;
+> +	int at;
+> +
+> +	/*
+> +	 * Default the output to false so the status==0 (feature not
+> +	 * implemented) path returns a deterministic value to the caller
+> +	 * rather than leaving an uninitialized bool.
+> +	 */
+> +	*access_type_supported = false;
+> +
+> +	/* Keep the initial register value to preserve the WPRI fields */
+> +	reg = cbqri_readq(ctrl->base + reg_offset);
+> +	saved_reg = reg;
+> +
+> +	/* Drain any in-flight firmware op before issuing our own write. */
+> +	if (cbqri_wait_busy_flag(ctrl, reg_offset, &saved_reg) < 0) {
+> +		pr_err("BUSY timeout before probe operation\n");
+> +		return -EIO;
+> +	}
+> +
+> +	/*
+> +	 * Execute the requested operation with all active fields
+> +	 * (OP/AT/RCID) zeroed except OP itself. Every bit not in
+> +	 * active_mask is WPRI and gets carried over from saved_reg.
+> +	 */
+> +	reg = (saved_reg & ~active_mask) |
+> +	      FIELD_PREP(CBQRI_CONTROL_REGISTERS_OP_MASK, operation);
+> +	writel(lower_32_bits(reg), ctrl->base + reg_offset);
+> +	if (cbqri_wait_busy_flag(ctrl, reg_offset, &reg) < 0) {
+> +		pr_err_ratelimited("BUSY timeout during operation\n");
+> +		return -EIO;
+> +	}
+> +
+> +	/* Get the operation status */
+> +	*status = FIELD_GET(CBQRI_CONTROL_REGISTERS_STATUS_MASK, reg);
+> +
+> +	/*
+> +	 * Check for AT support if the register is implemented
+> +	 * (if not, the status value will remain 0)
+> +	 */
+> +	if (*status != 0) {
+> +		/*
+> +		 * Re-issue operation with AT=CODE so the controller
+> +		 * latches AT=CODE on supported hardware (or resets it to 0
+> +		 * on hardware that doesn't). OP must be a defined CBQRI op
+> +		 * here. OP=0 is a no-op and would silently disable CDP.
+
+OP=0 is a reserved for future standard use.
+(Hopefully just fails, but it could be worse if it gets implemented as
+ something other than no-op.)
+
+> +		 */
+> +		reg = (saved_reg & ~active_mask) |
+> +		      FIELD_PREP(CBQRI_CONTROL_REGISTERS_OP_MASK, operation) |
+> +		      FIELD_PREP(CBQRI_CONTROL_REGISTERS_AT_MASK,
+> +				 CBQRI_CONTROL_REGISTERS_AT_CODE);
+> +		writel(lower_32_bits(reg), ctrl->base + reg_offset);
+> +		if (cbqri_wait_busy_flag(ctrl, reg_offset, &reg) < 0) {
+> +			pr_err("BUSY timeout setting AT field\n");
+> +			return -EIO;
+> +		}
+> +
+> +		/*
+> +		 * If the AT field value has been reset to zero,
+> +		 * then AT support is not present
+> +		 */
+> +		at = FIELD_GET(CBQRI_CONTROL_REGISTERS_AT_MASK, reg);
+
+I think it would be safer to also check the status field.
+
+I'm not too clear whether the spec actually allows returning 5 (invalid
+AT) when the AT is invalid, but an implementation that does that
+wouldn't surprise me.
+
+(For example when an implementation supports data AT and a custom AT, so
+code AT isn't supported, but AT in general is -- it could keep the
+failing code AT and just report the error.)
+
+> +		if (at == CBQRI_CONTROL_REGISTERS_AT_CODE)
+> +			*access_type_supported = true;
+> +	}
+> +
+> +	/*
+> +	 * Restore the original register value.
+> +	 * Clear OP to avoid re-triggering the probe op.
+> +	 */
+> +	saved_reg &= ~CBQRI_CONTROL_REGISTERS_OP_MASK;
+> +	writel(lower_32_bits(saved_reg), ctrl->base + reg_offset);
+
+It would be better to do nothing than trigger an illegal OP.
+All our writes should modify the non-WPRI bits anyway, so restoring them
+does nothing.
+
+> +	if (cbqri_wait_busy_flag(ctrl, reg_offset, NULL) < 0) {
+> +		pr_err("BUSY timeout restoring register value\n");
+> +		return -EIO;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int cbqri_probe_cc(struct cbqri_controller *ctrl)
+> +{
+> [...]
+> +
+> +	/*
+> +	 * The driver programs the v1.0 register layout. Controllers that
+> +	 * report 0.x differ only in capability bits that read as zero, so
+> +	 * they are accepted. Anything newer than 1.0 may move fields.
+> +	 */
+> +	if (ver_major > 1 || (ver_major == 1 && ver_minor > 0)) {
+
+I think we could accept ver_major == 1 even with ver_minor > 0 since the
+minor specifications shouldn't be doing backward-incompatible changes.
+
+(If we fix the OP=0, we shouldn't be invoking any other behavior that
+ might change.)
+
+I'd be more careful about accepting anything pre-1.0, since I would
+expect there was a breaking change in the spec somewhere, and we could
+program it incorrectly...  Do we even care about pre-1.0 hardware?
+
+> +		pr_warn("CC at %pa reports CBQRI version %d.%d, skipping\n",
+> +			&ctrl->addr, ver_major, ver_minor);
+> +		return -ENODEV;
+> +	}
+
+Thanks.
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
