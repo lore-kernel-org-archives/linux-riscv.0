@@ -2,174 +2,134 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 152D9606A8AA
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AECFC606A33B
 	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 13:20:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=C3bTl/VG;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=R2wXxCT7;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=XmIhOPf0
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KXLT6epb;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=EnxNh76r
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=LJf//DEWUuo3cgYLfYylV5qG5UqlDhkfzUnAsno45Rg=; b=C3bTl/VGm9BYa/Z1YeQsOa20lG
-	risCpTcvsb6y3F6a9r0CqE/clrJGvrxG1miIr5uL7+aKAeq90LC5E6ww1QeQLXrPJnBBG25QfEupV
-	5cnnZfo/QiPOj6ZAgF1VcHwUQIaZUZwrkAuiH1MLW0H/x/4zJgSmdlPQMeIiiPv3yEjxbSzWZ6xP8
-	NrmytfGL8c9i+w+jNme1hGyWNACpSnkr76hHpE7gS/8QJAxd4i0OvGSRx07Py2N0/4XUMnAR8+ctK
-	Vdsgt8RxuFWfDzlQ3ueAwtaRao5MZ6q5MLym5p0yeqoNxrs3XZZ2S53ao5yO4rZMxZCDn3zq56cQK
-	lEiVB27w==;
+	bh=YmSEUJw6tKIUbhx9vhOyvrE7G4Asr/3PBCPuihqZjFs=; b=KXLT6epbR78j43UyWEvmOCZWPv
+	wX/o4zscuemPgASTFgojPHoad2ToQfc6l5/P5mdWMrPCayEvH0Apb+XN5kY9YNWwUGfJ+gQq7Iyh9
+	aFgbTkT77huzJ0KobQFb1klYfRDvxjE+blvF9WEYxCwx4xBlrNtq6d5DHjeetGryzKBIWW9dulQNC
+	F30Ahf9Iglpyx2stdEZ/FrkVFIXc0g+XKUbWOi9NOzWJIPTm5PgpqLbin+fZAJjcbYEbCGJzvWdEO
+	R97BCakVAwV1ju3mcKnRSbLbBrOJsRqkSEkXiFgBlHs3bEEnfCeFw4nOXRYJsKFjO8f+JlA40Fnbi
+	MfnQsXAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRrC8-0000000CsQK-1mZX;
-	Fri, 13 Nov 2026 13:19:56 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1xRrC5-0000000CsNH-1b7v;
+	Fri, 13 Nov 2026 13:19:53 +0000
+Received: from smtpout.efficios.com ([2607:5300:400:ed00::31e5])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRrBl-0000000Cs4k-4C0o;
-	Fri, 13 Nov 2026 13:19:36 +0000
-Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ADCWaCo2027891;
-	Fri, 13 Nov 2026 07:18:02 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=proofpoint-05-2026; bh=nPp3tgjH3+3CX
-	XrzYC5sLcWdnJG8JyAXnsch+Wdxas4=; b=R2wXxCT72uJJxLRkogj4g+NRIUspx
-	I3HIMIH2qrrZnRWIw6TEiQA0uk59A8xNZtsz143vnJBqGVJ0qsqzIfQZ9bFfQ8xJ
-	FwjY0JEt1YKukK9owiyTQZpEWy8S04hZrYUD/ukNZKfbO7DL6WEHDPx+krVWXpyl
-	v6KOiXsJxAIZpfoffG8tHWawolmmHWuerDtPS1nsfOAK6Fw9vy6BxVgLfNkH6UzZ
-	KAYdJIlFboXClTEecQHkoIMXTJ1D2tltLVv4Ku3xv7RFhPjaemOSSUcRm8ZI//TV
-	BKQfLiCxjMyTpc5VReQ7CoJ4mELGopsKGKdbKWGehUrof5nyKTpdwK8FA==
-Received: from dm5pr21cu001.outbound.protection.outlook.com (mail-centralusazon11011034.outbound.protection.outlook.com [52.101.62.34])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4hwg9rwkxc-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 13 Nov 2026 07:18:02 -0600 (CST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YAAMV3mPqrk7JbboBW5K5z3lDvfAwQ0VTJi+YkYr0x4+zSYZMgeCG1Lztti9ecjpyhi2uRVprQxxZYX/duA41aShvzl5yt5+sG3Av1eU1+PwsQH/m459vR+FTXCGT5/EwGIdcSe7HNUEJmW9PruRF1Y6ZKssbNKZVJG66LpKWZDbeYFWvFbZBoA3Qx25qggeFRPgp94OGgftAlk7yc/jMNFrr34uyIWZ0x6F9IZMtxH6DU4sUuxrmAxQKg76uUCtrsSeUvwm9RZK+M93MJuTx7omonswKkMmr2EMPrBEiTkHlGoUGPZ+DrlTzW4r48q6IpXy8XvwGwkTp4Tfk/wSpg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nPp3tgjH3+3CXXrzYC5sLcWdnJG8JyAXnsch+Wdxas4=;
- b=QYvZgmnF3vVqJZQ/uwU0IwBXc9yw50QPR4RPSlmdWrSGOzOyFYXs6IUOoa1f3AKKvXJbeFP4/NiWxHzkkOk4QhT8GCWSODpbtmRvhwZ3d2lwwCMJ5aFDxMKwCx6Mg84u9AxIt5y7/zSboTRG3XgBh7nTVKH1IowyGyMWRxoUaDeG3sejUtvXP2fr8oP6dGI6wrhyOA4ZOaSDmwJkRKoZlgEaYvlNc7rGkrQaIOznxVL1xlLTcUGI/3hvZOSveYZBUzdLI+Ha+zjLCJfx3Z1CORxpwK6vPAhGojvcwPa7MCtH1441e2zegCXDN5pv+Mvw/cgPXuLi9JRZAiNP9E4lVg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nPp3tgjH3+3CXXrzYC5sLcWdnJG8JyAXnsch+Wdxas4=;
- b=XmIhOPf0DKYuuez5f1Qtgc9EaiVF43IdV63t5KyUF3n+k6bdN10aZbdMKMNuYwNGOJhY8Ou0F5cPiGrMpB4IFs946SmSI6p0Sk/k7Gzw28lf7CAo7+qdVndA3/I4sYjbcDyMrnwz/3glHqLCBEO90bctiJY+PvzS/2DRvmY2+9A=
-Received: from MW4PR04CA0135.namprd04.prod.outlook.com (2603:10b6:303:84::20)
- by PH7PR10MB6252.namprd10.prod.outlook.com (2603:10b6:510:210::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.9; Fri, 13 Nov
- 2026 13:17:52 +0000
-Received: from SJ1PEPF000037B5.namprd05.prod.outlook.com
- (2603:10b6:303:84:cafe::9c) by MW4PR04CA0135.outlook.office365.com
- (2603:10b6:303:84::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.9 via Frontend Transport; Fri, 13
- Nov 2026 13:17:52 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.21.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- SJ1PEPF000037B5.mail.protection.outlook.com (10.167.244.200) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Fri, 13 Nov 2026 13:17:51 +0000
-Received: from DFLE211.ent.ti.com (10.64.6.69) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 12 Nov
- 2026 15:42:24 -0600
-Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 12 Nov
- 2026 15:42:23 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Thu, 12 Nov 2026 15:42:23 -0600
-Received: from ula0226330.lan ([10.249.37.26])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6ACLgN2v1653138;
-	Thu, 12 Nov 2026 15:42:23 -0600
-From: Andrew Davis <afd@ti.com>
-To: Russell King <linux@armlinux.org.uk>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Mark Rutland
-	<mark.rutland@arm.com>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        "Paul Walmsley" <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert
- Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Philipp Zabel
-	<p.zabel@pengutronix.de>, Arnd Bergmann <arnd@arndb.de>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-mips@vger.kernel.org>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        "Andrew
- Davis" <afd@ti.com>
-Subject: [PATCH] reset: Remove ARCH_HAS_RESET_CONTROLLER Kconfig symbol
-Date: Thu, 12 Nov 2026 15:42:22 -0600
-Message-ID: <20261112214223.765100-1-afd@ti.com>
-X-Mailer: git-send-email 2.43.0
+	id 1xRrBc-0000000CrxR-0Kj0;
+	Fri, 13 Nov 2026 13:19:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+	s=smtpout1; t=1794575952;
+	bh=6K5+1bJFXUKUg3IFl6qgg/BC25Z/G5ULg9pbLn4UPTA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=EnxNh76rEx+TrhUSzsnsZ3F3UT4G7JmFnAvOLo6y79PyIBiGOXO4WqcvtgE72z/My
+	 XLC2uBUfs5RuTsJHWD7upDrBo2yWHu2qw00ST7Al48W+unxLZ8BcO64rq5v44UaUJG
+	 ceddhO7H2rLjQWrMw6RoD3eygdTLKoWz6eaak4Nt3rN4oMAZ0/bzVhrBGx2A3X9WZ+
+	 ed2zb6dOBn8sZzAi/6MdgfCFQyoG+LKrByO4Fd9u7jJvYSBqp5Sy5AJPSeeVkDdLO0
+	 0lE7M6E5Wvw5G12zAdr1LZyZj/Q2uCcfbdxMx/wltow8YbrqtXEvHcy6UpX9CT5M4a
+	 sRsxvpkpqemUA==
+Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jQyX04hD8zPxN;
+	Fri, 13 Nov 2026 08:19:12 -0500 (EST)
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+To: Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>
+Cc: linux-kernel@vger.kernel.org,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Michal Clapinski <mclapinski@google.com>,
+	Andrei Vagin <avagin@gmail.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Aniket Gattani <aniketgattani@google.com>,
+	linux-kselftest@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Chris Gellermann <christian.gellermann@codasip.com>,
+	Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>,
+	Wei Yang <richard.weiyang@gmail.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	loongarch@lists.linux.dev,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	John David Anglin <dave.anglin@bell.net>,
+	linux-parisc@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Guo Ren <guoren@kernel.org>,
+	linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	linux-openrisc@vger.kernel.org,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	linux-sh@vger.kernel.org,
+	Chris Zankel <chris@zankel.net>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	linux-arch@vger.kernel.org,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Andy Lutomirski <luto@kernel.org>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Andrea Parri <parri.andrea@gmail.com>,
+	Boqun Feng <boqun@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	David Howells <dhowells@redhat.com>,
+	Jade Alglave <j.alglave@ucl.ac.uk>,
+	Luc Maranget <luc.maranget@inria.fr>,
+	Akira Yokosawa <akiyks@gmail.com>,
+	Daniel Lustig <dlustig@nvidia.com>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	lkmm@lists.linux.dev,
+	bpf@vger.kernel.org,
+	Naveen N Rao <naveen@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	linux-trace-kernel@vger.kernel.org
+Subject: [RFC PATCH 16/16] selftests/membarrier: Check the core serialization of the sync core command
+Date: Fri, 13 Nov 2026 08:19:03 -0500
+Message-Id: <20261113131903.157186-17-mathieu.desnoyers@efficios.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20261113131903.157186-1-mathieu.desnoyers@efficios.com>
+References: <20261113131903.157186-1-mathieu.desnoyers@efficios.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000037B5:EE_|PH7PR10MB6252:EE_
-X-MS-Office365-Filtering-Correlation-Id: b212a7e7-de74-40f8-07b9-08df418884f5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|1800799024|376014|82310400026|36860700016|921020|56012099006|261028144727099003|261022105027099003|261026140227099003|261021121427099003|261102123227099003|261026121527099003|261021123027099003|261009223027099003|18002099003|10067099003;
-X-Microsoft-Antispam-Message-Info: 8AB3GqfYfmYtBedxT+Ft5STN4tg3cWRwaLsBa6coAMS0YGTEmZ0aRzUy/p7yA7/R8HgpaDKtH6B9fiE2gHpZsvsu/zgjRNmjcT3QcAbxdr+l6DtcFLWaJ03+EOzWcuEZiW6QBsuUfrOv3H9SIUW49WBfoImC9zCBCeen0zktzEz8An11Se1OmC6ONpST1jH2PFnq/SnKskUQ3ONf5oTfd7f65qIxfkVDRMQEXzKDkMmG1oI7ykYMNJNw/wCIGUs95DrtWun5p9AaJChkltJ9CTk0MLO30LmpWr7qlxqNCVwtY7NLNmPOXKuGpH1FipBsNDueN823AMyYj08WetGU+XO1Gp/oEI9IUyi8xnvfIuwMch1/TofPY2PeWwbrWlvf7czJ8KBXybfYRUDjAgYqZNsgZUZSxjqRENWdV4uCz8iQtrZNqWXD17vd/t3TbDaq0DxzSaiZAKyq2JX+BaLrD5O87yYPGw18gWeCA9Id+XL15CInv/fwtUu1mhu5aef2hetaMFeSQ7E2l39tIZ7vj9eZ/GNaUpICDuIaPilQKRBI6iKNVadJviK4usQ6W4ippCkjHbmAZq78t+b6G4AmGikpSpwBV2R+UMEYmX/4i2wIGuSBGZGE7sFICgPFjqBdkBmzCvWP39rixm2a5l2f5GBDxA0mFuDwGw49JdYXEvBb0A5o+EY3UIaS8Bk0y/0pON5CWKjQwnupiQH0EmGW1HOeZucVQIc9MODI8xYF0ppu6PSlFlXE5TvYF83v/4kL
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(1800799024)(376014)(82310400026)(36860700016)(921020)(56012099006)(261028144727099003)(261022105027099003)(261026140227099003)(261021121427099003)(261102123227099003)(261026121527099003)(261021123027099003)(261009223027099003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: SXy0sylydb1nx8sWTujDu1QbASNu5DBpIu4qQb+uo6BXFc/1q2YKl9ELZ72y9oEGkX+zbdhWfq8XsK7N+o1J9NQZ5liH8Qlx8TKs+g4tcbWgTQ0wbtqR79UtOjccRo+rdHVqVLm/P3gYmcT5sknSswYDd9gHzcY/MUFmmPE3DHaaV0E7glHqye+PjCDyIP1NqBnxts3jClWfsBItXvgU2TLGsZbbWPIivQ+qUp3fQPVJPY2khcrxu4WfUebxUajMtIIEOy3gh5i6d4F3ELCsTUCaLMUMvkEmnMyE9GQAhXgALG7oHtJeDu+0ThShdW80FyG+gm8LJ01bvY927yeUU71tK/BcKG7o22RHETFHcu9GuIjmL9FzBz7vq6LpLeD+Eib6/Jtr9v5F7w8t2aRG8r8F9NrgRPlV0q/mt0WU3c5teJdCisU4IvCjaUtt7F1v
-X-Exchange-RoutingPolicyChecked: M7cIDMaGgHNx3Xuuq1qFCXyoHZ72ezqXcHNHYhHieDDpXQ1OET/5WtX0mrskQ49ZMb4DgX9puwtAiDGAkRikCNDCiqgaAh/TuVMyjPLULpwlO0sZBGX9oysrLadJLq3CtsAbBkghn0gb2v3JpWajWJzV08ybk9sWqwLberqkjqiU50Qak/kCe7aOHtmtcnOV7SCd9iOjr7+aXrrhKcdWsm54aFeEH4WVvQ3/Fjoa77j1c6J2arcaZcLXirLzDIZBoa2PCmlbJqcOmbJXtWxpCAVCq2ZurSJW1Cv72ZetRINyPnOQDKugZMEHJIXSawlUL9LCvuFV613hwQr3JT5bxQ==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2026 13:17:51.0594
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b212a7e7-de74-40f8-07b9-08df418884f5
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000037B5.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB6252
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTEzMDA1MiBTYWx0ZWRfX56QVT0GYKW7Z
- ckzpDT3yaj1mVt2EG+2vkivUHbecVfEp5JrN3kU91lYhIdwFI8THc9RXfkg1UWSQnMg0CHF6rfD
- Y2TxIHDPgNoxny4YyCY6sDH93wz3xfvEcO1N31laCrnL5P1n7at5EwNQc21ghl3GZMeVj/IRVy1
- wayYzxKG16XbntV5nlD2AA5077xbepv42J6KN4CB418sbs8WL/kf+CrtrA2jQkrYef0+ezXO4tQ
- +0PoQrbnOJXQDmmzngcyDhxTQ9LqUG5tvt16Ak/Mu4/bNHxxFusrZewtpbxPtFSK/K3zMpY7ihm
- 9gd2xNtx5ADkjaTcxz7AobNUfAnFk/INgm+KeA55PhALWWo/pZelKFRBYrMiLezwlxueh3zfTzG
- WnXidD4xra7OF4vDzkFhOLhR5RZpfQE+hxa5nrNVemQWL1XNAgEdzlqeO1Nz5LYPYWnCiLuut26
- lk4Xo2eFB+J6TwhLnfg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTEzMDA1MiBTYWx0ZWRfX7kLz+/qrWPXr
- 80aL6D1/wCWRoUheylBCyU/Sy87u0axewZC2mkwKNjXl6DUNN+2pukhs88JddhxR4lOsqb3RL5d
- om511w0NTwUUODOZcndB3RRIHfsSil4=
-X-Proofpoint-ORIG-GUID: XDqTlLgjspKs7yzx3UQoUPXeolzNGWW_
-X-Authority-Analysis: v=2.4 cv=b7oncdGx c=1 sm=1 tr=0 ts=6af70e0a cx=c_pps
- a=5k1muW5XIJfqWNzrwyhXkQ==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=zJRp6_cAMcgA:10 a=AlMIdn_sM9wA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22
- a=sozttTNsAAAA:8 a=2QSx6drZsS2ta5UW6hwA:9 a=XAbBb_B534XbvIaE:21
-X-Proofpoint-GUID: XDqTlLgjspKs7yzx3UQoUPXeolzNGWW_
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-13_04,2026-11-11_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 bulkscore=0 clxscore=1011 adultscore=0 phishscore=0
- lowpriorityscore=0 spamscore=0 suspectscore=0 malwarescore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611130052
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261113_051934_357519_9C274587 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20261113_051924_306055_695004C4 
+X-CRM114-Status: GOOD (  32.97  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -190,412 +150,349 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Many ARCH_HAS_* symbols change some behavior based on what an ARCH
-supports, but ARCH_HAS_RESET_CONTROLLER is used only to set a default
-for RESET_CONTROLLER. Those ARCH symbols that select this can skip the
-middleman and directly select RESET_CONTROLLER, and many already do.
+MEMBARRIER_CMD_PRIVATE_EXPEDITED_SYNC_CORE promises more than a
+memory barrier. Each running sibling thread of the caller executes a
+core serializing instruction after the call starts, and before it
+runs user-space code again. A thread which is not running executes
+one before it resumes user-space. This supports memory reclaim by a
+JIT compiler.
 
-Replace all selection of this symbol with a direct selection of
-RESET_CONTROLLER when it is not already in the selection list. In the
-latter case when RESET_CONTROLLER is also already selected we can simply
-remove the ARCH_HAS_RESET_CONTROLLER without changing existing behavior.
+On x86, the kernel serializes the core in the IPI handler and in the
+scheduler. membarrier_test_barrier counts the memory barriers of each
+thread, but not these instructions.
 
-Some ARCHs "select" this symbol when they actually "depend on" the
-RESET_CONTROLLER framework to build, in those cases the indirect select
-could lead to broken randconfig builds. In cases when it is not needed
-for building the ARCH code, these selections can be switched to the weaker
-"imply" to allow it deselected for minimal builds without reset support.
-Additional checking will be needed to find such cases.
+Count them as well. These are the instructions, for x86-64:
 
-Signed-off-by: Andrew Davis <afd@ti.com>
+ - sync_core() in ipi_sync_core(),
+ - the writes to CR3 in switch_mm_irqs_off(),
+ - sync_core() in finish_task_switch().
+
+sync_core() issues SERIALIZE or IRET. An IRET cannot be probed, so the
+instruction before it is probed instead.
+
+The sync core test case then checks two more things:
+
+ - A call makes each target execute a core serializing instruction
+   in the IPI handler. A check where the target was scheduled out is
+   dropped.
+
+ - A target can be scheduled in after a task of another mm or after
+   a kernel thread. The scheduler then executes a core serializing
+   instruction before the target is scheduled out again.
+
+These checks are skipped with page table isolation. The kernel then
+serializes the core with the write to CR3 of each return to
+user-space, in entry code which cannot be probed.
+
+Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 ---
- arch/arm/Kconfig               | 2 +-
- arch/arm/Kconfig.platforms     | 1 -
- arch/arm/mach-bcm/Kconfig      | 4 ++--
- arch/arm/mach-berlin/Kconfig   | 2 +-
- arch/arm/mach-ep93xx/Kconfig   | 2 +-
- arch/arm/mach-gemini/Kconfig   | 2 +-
- arch/arm/mach-imx/Kconfig      | 2 +-
- arch/arm/mach-keystone/Kconfig | 2 +-
- arch/arm/mach-mmp/Kconfig      | 6 +++---
- arch/arm/mach-omap2/Kconfig    | 1 -
- arch/arm/mach-rockchip/Kconfig | 2 +-
- arch/arm/mach-socfpga/Kconfig  | 1 -
- arch/arm/mach-sti/Kconfig      | 1 -
- arch/arm/mach-stm32/Kconfig    | 1 -
- arch/arm/mach-sunxi/Kconfig    | 1 -
- arch/arm/mach-tegra/Kconfig    | 1 -
- arch/arm/mach-zynq/Kconfig     | 2 +-
- arch/arm64/Kconfig.platforms   | 9 +++------
- arch/mips/Kconfig              | 6 ++----
- arch/riscv/Kconfig.socs        | 2 +-
- drivers/reset/Kconfig          | 4 ----
- 21 files changed, 19 insertions(+), 35 deletions(-)
+ .../membarrier/membarrier_test_barrier.bpf.c  |  11 +-
+ .../membarrier/membarrier_test_barrier.c      | 102 +++++++++++++++++-
+ .../membarrier/membarrier_test_barrier.h      |   6 ++
+ 3 files changed, 112 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 0cc289a7184ab..dd039f349e45e 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -473,7 +473,7 @@ source "arch/arm/mach-zynq/Kconfig"
- config ARCH_LPC18XX
- 	bool "NXP LPC18xx/LPC43xx (DEPRECATED)"
- 	depends on ARM_SINGLE_ARMV7M
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select ARM_AMBA
- 	select CLKSRC_LPC32XX
- 	select PINCTRL
-diff --git a/arch/arm/Kconfig.platforms b/arch/arm/Kconfig.platforms
-index 2e118b65f93b4..e89d515c0c378 100644
---- a/arch/arm/Kconfig.platforms
-+++ b/arch/arm/Kconfig.platforms
-@@ -191,7 +191,6 @@ endif
- config ARCH_UNIPHIER
- 	bool "Socionext UniPhier SoCs"
- 	depends on ARCH_MULTI_V7
--	select ARCH_HAS_RESET_CONTROLLER
- 	select ARM_AMBA
- 	select ARM_GLOBAL_TIMER
- 	select ARM_GIC
-diff --git a/arch/arm/mach-bcm/Kconfig b/arch/arm/mach-bcm/Kconfig
-index 24bc6e18d8067..d91629f4ffc8d 100644
---- a/arch/arm/mach-bcm/Kconfig
-+++ b/arch/arm/mach-bcm/Kconfig
-@@ -182,7 +182,7 @@ config ARCH_BCM_53573
- config ARCH_BRCMSTB
- 	bool "Broadcom BCM7XXX based boards"
- 	depends on ARCH_MULTI_V7
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select ARM_AMBA
- 	select ARM_GIC
- 	select ARM_GIC_V3
-@@ -229,7 +229,7 @@ config ARCH_BCMBCA_CORTEXA9
- 	bool "Cortex-A9 SoCS"
- 	select ARM_ERRATA_754322
- 	select ARM_ERRATA_764369 if SMP
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select ARM_GLOBAL_TIMER
- 	select CACHE_L2X0
- 	select HAVE_ARM_TWD if SMP
-diff --git a/arch/arm/mach-berlin/Kconfig b/arch/arm/mach-berlin/Kconfig
-index 01861fa72c971..2447f62da52ab 100644
---- a/arch/arm/mach-berlin/Kconfig
-+++ b/arch/arm/mach-berlin/Kconfig
-@@ -2,7 +2,7 @@
- menuconfig ARCH_BERLIN
- 	bool "Marvell Berlin SoCs"
- 	depends on ARCH_MULTI_V7
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select ARM_GIC
- 	select DW_APB_ICTL
- 	select DW_APB_TIMER_OF
-diff --git a/arch/arm/mach-ep93xx/Kconfig b/arch/arm/mach-ep93xx/Kconfig
-index 812b71dcf60e0..5573a8e90a8b5 100644
---- a/arch/arm/mach-ep93xx/Kconfig
-+++ b/arch/arm/mach-ep93xx/Kconfig
-@@ -5,7 +5,7 @@ menuconfig ARCH_EP93XX
- 	depends on ARCH_MULTI_V4T
- 	# CONFIG_ARCH_MULTI_V7 is not set
- 	depends on CPU_LITTLE_ENDIAN
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select ARCH_SPARSEMEM_ENABLE
- 	select ARM_AMBA
- 	select ARM_VIC
-diff --git a/arch/arm/mach-gemini/Kconfig b/arch/arm/mach-gemini/Kconfig
-index f436a2009eca3..11e0e966c3bb6 100644
---- a/arch/arm/mach-gemini/Kconfig
-+++ b/arch/arm/mach-gemini/Kconfig
-@@ -3,7 +3,7 @@ menuconfig ARCH_GEMINI
- 	bool "Cortina Systems Gemini"
- 	depends on ARCH_MULTI_V4
- 	depends on CPU_LITTLE_ENDIAN
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select ARM_AMBA
- 	select ARM_APPENDED_DTB # Old Redboot bootloaders deployed
- 	select COMMON_CLK_GEMINI
-diff --git a/arch/arm/mach-imx/Kconfig b/arch/arm/mach-imx/Kconfig
-index 3f0521c652cb0..d3b603a4a8b3c 100644
---- a/arch/arm/mach-imx/Kconfig
-+++ b/arch/arm/mach-imx/Kconfig
-@@ -33,7 +33,7 @@ config HAVE_IMX_MMDC
+diff --git a/tools/testing/selftests/membarrier/membarrier_test_barrier.bpf.c b/tools/testing/selftests/membarrier/membarrier_test_barrier.bpf.c
+index 46cfba13f00f..ce18089f8dab 100644
+--- a/tools/testing/selftests/membarrier/membarrier_test_barrier.bpf.c
++++ b/tools/testing/selftests/membarrier/membarrier_test_barrier.bpf.c
+@@ -1,7 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0
+ /*
+- * Count the memory barriers which membarrier relies on, for each
+- * registered thread.
++ * Count the memory barriers and the core serializing instructions which
++ * membarrier relies on, for each registered thread.
+  *
+  * See membarrier_test_barrier.c.
+  */
+@@ -40,6 +40,7 @@ struct {
  
- config HAVE_IMX_SRC
- 	def_bool y if SMP
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
+ /* What the scheduler owes to the thread which it switched to. */
+ #define OWES_BARRIER	1
++#define OWES_SYNC_CORE	2
  
- if ARCH_MULTI_V6
+ struct cpu_state {
+ 	/* Slot, plus one, of the thread which this CPU last switched to. */
+@@ -111,6 +112,8 @@ int barrier_site(struct pt_regs *ctx)
+ 		slot = state->slot;
+ 		if (mask & (1U << MBT_SWITCH_MM))
+ 			state->owed &= ~OWES_BARRIER;
++		if (mask & (1U << MBT_SYNC_CORE_SWITCH))
++			state->owed &= ~OWES_SYNC_CORE;
+ 	} else {
+ 		slot = slot_of(bpf_get_current_task_btf());
+ 	}
+@@ -131,13 +134,15 @@ int BPF_PROG(sched_switch, bool preempt, struct task_struct *prev,
+ 	/* The CPU leaves the thread which it last switched to. */
+ 	if (state->owed & OWES_BARRIER)
+ 		count(state->slot, 1U << MBT_SCHED_IN_MISSED);
++	if (state->owed & OWES_SYNC_CORE)
++		count(state->slot, 1U << MBT_SYNC_CORE_IN_MISSED);
+ 	count(slot_of(prev), 1U << MBT_SCHED_OUT);
+ 	slot = slot_of(next);
+ 	state->slot = slot;
+ 	state->owed = 0;
+ 	/* The cases which need a barrier after the store to rq->curr. */
+ 	if (slot && next->mm && prev->mm != next->mm) {
+-		state->owed = OWES_BARRIER;
++		state->owed = OWES_BARRIER | OWES_SYNC_CORE;
+ 		count(slot, 1U << MBT_SCHED_IN);
+ 	}
+ 	return 0;
+diff --git a/tools/testing/selftests/membarrier/membarrier_test_barrier.c b/tools/testing/selftests/membarrier/membarrier_test_barrier.c
+index 46502d271242..a8152ec4eecd 100644
+--- a/tools/testing/selftests/membarrier/membarrier_test_barrier.c
++++ b/tools/testing/selftests/membarrier/membarrier_test_barrier.c
+@@ -36,6 +36,9 @@
+  * must then execute a memory barrier after the store to rq->curr,
+  * before the target is scheduled out again.
+  *
++ * The sync core command is checked in the same way, with the core
++ * serializing instructions.
++ *
+  * The instructions are found by their bytes in the kernel text, which
+  * is read from /proc/kcore. The list is for x86-64. It depends on what
+  * the compiler inlines into the functions it names.
+@@ -94,6 +97,10 @@ struct target_stats {
+ 	atomic_ulong sched_in;
+ 	/* Scheduled in without a barrier after the store to rq->curr. */
+ 	atomic_ulong sched_in_missed;
++	/* Checks where the target did not serialize its core. */
++	atomic_ulong sync_core_missed;
++	/* Scheduled in without a core serializing instruction. */
++	atomic_ulong sync_core_in_missed;
+ };
  
-diff --git a/arch/arm/mach-keystone/Kconfig b/arch/arm/mach-keystone/Kconfig
-index de69cc2dd4831..aeadb7a57ec1e 100644
---- a/arch/arm/mach-keystone/Kconfig
-+++ b/arch/arm/mach-keystone/Kconfig
-@@ -5,7 +5,7 @@ config ARCH_KEYSTONE
- 	select ARM_GIC
- 	select HAVE_ARM_ARCH_TIMER
- 	select KEYSTONE_TIMER
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select ARM_ERRATA_798181 if SMP
- 	select COMMON_CLK_KEYSTONE
- 	select ZONE_DMA if ARM_LPAE
-diff --git a/arch/arm/mach-mmp/Kconfig b/arch/arm/mach-mmp/Kconfig
-index 8c1d4402fd693..d709d2b603a5b 100644
---- a/arch/arm/mach-mmp/Kconfig
-+++ b/arch/arm/mach-mmp/Kconfig
-@@ -18,7 +18,7 @@ config MACH_MMP_DT
- 	depends on ARCH_MULTI_V5
- 	select PINCTRL
- 	select PINCTRL_SINGLE
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select CPU_MOHAWK
- 	help
- 	  Include support for Marvell MMP2 based platforms using
-@@ -30,7 +30,7 @@ config MACH_MMP2_DT
- 	depends on ARCH_MULTI_V7
- 	select PINCTRL
- 	select PINCTRL_SINGLE
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select CPU_PJ4
- 	select PM_GENERIC_DOMAINS if PM
- 	select PM_GENERIC_DOMAINS_OF if PM && OF
-@@ -47,7 +47,7 @@ config MACH_MMP3_DT
- 	select CACHE_L2X0
- 	select PINCTRL
- 	select PINCTRL_SINGLE
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select CPU_PJ4B
- 	select PM_GENERIC_DOMAINS if PM
- 	select PM_GENERIC_DOMAINS_OF if PM && OF
-diff --git a/arch/arm/mach-omap2/Kconfig b/arch/arm/mach-omap2/Kconfig
-index 79f8afe3a6bfa..65fbaa63a79b3 100644
---- a/arch/arm/mach-omap2/Kconfig
-+++ b/arch/arm/mach-omap2/Kconfig
-@@ -97,7 +97,6 @@ config SOC_DRA7XX
- config ARCH_OMAP2PLUS
- 	bool
- 	select ARCH_HAS_BANDGAP
--	select ARCH_HAS_RESET_CONTROLLER
- 	select ARCH_OMAP
- 	select CLKSRC_MMIO
- 	select GENERIC_IRQ_CHIP
-diff --git a/arch/arm/mach-rockchip/Kconfig b/arch/arm/mach-rockchip/Kconfig
-index c90193dd39283..3dc3b5581947e 100644
---- a/arch/arm/mach-rockchip/Kconfig
-+++ b/arch/arm/mach-rockchip/Kconfig
-@@ -4,7 +4,7 @@ config ARCH_ROCKCHIP
- 	depends on ARCH_MULTI_V7
- 	select PINCTRL
- 	select PINCTRL_ROCKCHIP
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select ARM_AMBA
- 	select ARM_GIC
- 	select CACHE_L2X0
-diff --git a/arch/arm/mach-socfpga/Kconfig b/arch/arm/mach-socfpga/Kconfig
-index 528c5c1368c37..fc4a56291bd78 100644
---- a/arch/arm/mach-socfpga/Kconfig
-+++ b/arch/arm/mach-socfpga/Kconfig
-@@ -2,7 +2,6 @@
- menuconfig ARCH_INTEL_SOCFPGA
- 	bool "Altera SOCFPGA family"
- 	depends on ARCH_MULTI_V7
--	select ARCH_HAS_RESET_CONTROLLER
- 	select ARM_AMBA
- 	select ARM_GIC
- 	select CACHE_L2X0
-diff --git a/arch/arm/mach-sti/Kconfig b/arch/arm/mach-sti/Kconfig
-index e58699e13e1a5..22d169a2277e5 100644
---- a/arch/arm/mach-sti/Kconfig
-+++ b/arch/arm/mach-sti/Kconfig
-@@ -9,7 +9,6 @@ menuconfig ARCH_STI
- 	select PINCTRL
- 	select PINCTRL_ST
- 	select MFD_SYSCON
--	select ARCH_HAS_RESET_CONTROLLER
- 	select HAVE_ARM_SCU if SMP
- 	select GPIOLIB
- 	select ARM_ERRATA_754322
-diff --git a/arch/arm/mach-stm32/Kconfig b/arch/arm/mach-stm32/Kconfig
-index 4ac3384e397aa..00dab551bcce2 100644
---- a/arch/arm/mach-stm32/Kconfig
-+++ b/arch/arm/mach-stm32/Kconfig
-@@ -7,7 +7,6 @@ menuconfig ARCH_STM32
- 	select ARM_GIC if ARCH_MULTI_V7
- 	select ARM_PSCI if ARCH_MULTI_V7
- 	select ARM_AMBA
--	select ARCH_HAS_RESET_CONTROLLER
- 	select CLKSRC_STM32
- 	select PINCTRL
- 	select RESET_CONTROLLER
-diff --git a/arch/arm/mach-sunxi/Kconfig b/arch/arm/mach-sunxi/Kconfig
-index e015f2497111a..9d0e7d8dc5d95 100644
---- a/arch/arm/mach-sunxi/Kconfig
-+++ b/arch/arm/mach-sunxi/Kconfig
-@@ -2,7 +2,6 @@
- menuconfig ARCH_SUNXI
- 	bool "Allwinner SoCs"
- 	depends on (CPU_LITTLE_ENDIAN && ARCH_MULTI_V5) || ARCH_MULTI_V7
--	select ARCH_HAS_RESET_CONTROLLER
- 	select CLKSRC_MMIO
- 	select GPIOLIB
- 	select PINCTRL
-diff --git a/arch/arm/mach-tegra/Kconfig b/arch/arm/mach-tegra/Kconfig
-index 3a06ba263e345..c85d8c6d34954 100644
---- a/arch/arm/mach-tegra/Kconfig
-+++ b/arch/arm/mach-tegra/Kconfig
-@@ -2,7 +2,6 @@
- menuconfig ARCH_TEGRA
- 	bool "NVIDIA Tegra"
- 	depends on ARCH_MULTI_V7
--	select ARCH_HAS_RESET_CONTROLLER
- 	select ARM_AMBA
- 	select ARM_GIC
- 	select CLKSRC_MMIO
-diff --git a/arch/arm/mach-zynq/Kconfig b/arch/arm/mach-zynq/Kconfig
-index 05be5aa9b4028..e3d7649b9899a 100644
---- a/arch/arm/mach-zynq/Kconfig
-+++ b/arch/arm/mach-zynq/Kconfig
-@@ -2,7 +2,7 @@
- config ARCH_ZYNQ
- 	bool "Xilinx Zynq ARM Cortex A9 Platform"
- 	depends on ARCH_MULTI_V7
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select ARM_AMBA
- 	select ARM_GIC
- 	select ARM_GLOBAL_TIMER
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index 49dcd7be82cef..bee8766c1312b 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -17,7 +17,6 @@ config ARCH_AIROHA
+ struct shared {
+@@ -126,6 +133,9 @@ struct target {
+ static struct shared *shared;
+ static int shared_fd;
  
- config ARCH_SUNXI
- 	bool "Allwinner sunxi 64-bit SoC Family"
--	select ARCH_HAS_RESET_CONTROLLER
- 	select PINCTRL
- 	select RESET_CONTROLLER
- 	select SUN4I_TIMER
-@@ -99,7 +98,7 @@ config ARCH_BCMBCA
++/* The targets of this process also check the sync core guarantee. */
++static bool check_sync_core;
++
+ static int sys_membarrier(int cmd, unsigned int flags, int cpu_id)
+ {
+ 	return syscall(__NR_membarrier, cmd, flags, cpu_id);
+@@ -190,6 +200,11 @@ enum match {
+ 	MATCH_CR3,
+ 	/* Instruction with a LOCK prefix. */
+ 	MATCH_LOCK,
++	/*
++	 * SERIALIZE or IRET, as issued by sync_core(). An IRET cannot be
++	 * probed: the instruction before it is probed instead.
++	 */
++	MATCH_SYNC_CORE,
+ };
  
- config ARCH_BRCMSTB
- 	bool "Broadcom Set-Top-Box SoCs"
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select GENERIC_IRQ_CHIP
- 	select PINCTRL
- 	help
-@@ -353,7 +352,7 @@ config ARCH_RENESAS
+ struct site {
+@@ -205,15 +220,21 @@ struct site {
+ #define IPI		(1U << MBT_IPI)
+ #define SYSCALL		(1U << MBT_SYSCALL)
+ #define SWITCH_MM	(1U << MBT_SWITCH_MM)
++#define SYNC_CORE	(1U << MBT_SYNC_CORE)
++#define SYNC_CORE_SWITCH (1U << MBT_SYNC_CORE_SWITCH)
  
- config ARCH_ROCKCHIP
- 	bool "Rockchip Platforms"
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select PINCTRL
- 	select PM
- 	select ROCKCHIP_TIMER
-@@ -376,7 +375,7 @@ config ARCH_INTEL_SOCFPGA
+ static const struct site sites[] = {
+ 	{ "ipi_mb", MATCH_MB, IPI },
+ 	{ "ipi_sync_core", MATCH_MB, IPI },
++	{ "ipi_sync_core", MATCH_SYNC_CORE, SYNC_CORE },
+ 	{ "ipi_rseq", MATCH_MB, IPI },
+ 	{ "membarrier_global_expedited", MATCH_MB, SYSCALL },
+ 	{ "membarrier_private_expedited", MATCH_MB, SYSCALL },
+-	/* Switch to another mm: write to CR3. It is a full barrier. */
+-	{ "switch_mm_irqs_off", MATCH_CR3, SWITCH_MM, true },
++	/*
++	 * Switch to another mm: write to CR3. It is a full barrier and
++	 * it is core serializing.
++	 */
++	{ "switch_mm_irqs_off", MATCH_CR3, SWITCH_MM | SYNC_CORE_SWITCH, true },
+ 	/* Switch to the mm which the CPU kept in lazy TLB mode: smp_mb(). */
+ 	{ "switch_mm_irqs_off", MATCH_MB, SWITCH_MM, true },
+ 	/*
+@@ -221,6 +242,8 @@ static const struct site sites[] = {
+ 	 * locked instruction of this function counts as well.
+ 	 */
+ 	{ "finish_task_switch", MATCH_LOCK, SWITCH_MM, true },
++	/* membarrier_mm_sync_core_before_usermode() */
++	{ "finish_task_switch", MATCH_SYNC_CORE, SYNC_CORE_SWITCH, true },
+ };
  
- config ARCH_SOPHGO
- 	bool "Sophgo SoCs"
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	help
- 	  This enables support for Sophgo SoC platform hardware.
+ struct probe {
+@@ -319,6 +342,7 @@ static void scan_function(const struct site *site, const struct ksym *sym,
+ {
+ 	unsigned char *text;
+ 	size_t i, left;
++	int32_t imm;
  
-@@ -405,7 +404,6 @@ config ARCH_SYNQUACER
+ 	text = malloc(size);
+ 	if (!text || !read_kernel(sym->addr, text, size)) {
+@@ -350,6 +374,24 @@ static void scan_function(const struct site *site, const struct ksym *sym,
+ 			if (insn[0] == 0xf0)
+ 				probe_insn(site, sym, addr);
+ 			break;
++		case MATCH_SYNC_CORE:
++			/* SERIALIZE is 0f 01 e8. */
++			if (left >= 3 && insn[0] == 0x0f && insn[1] == 0x01 &&
++			    insn[2] == 0xe8) {
++				probe_insn(site, sym, addr);
++				break;
++			}
++			/*
++			 * iret_to_self() is "pushq $1f; iretq; 1:". Probe the
++			 * push.
++			 */
++			if (left < 7 || insn[0] != 0x68 || insn[5] != 0x48 ||
++			    insn[6] != 0xcf)
++				break;
++			memcpy(&imm, insn + 1, sizeof(imm));
++			if (imm == (int32_t)(addr + 7))
++				probe_insn(site, sym, addr);
++			break;
+ 		}
+ 	}
+ 	free(text);
+@@ -624,8 +666,9 @@ static bool check_call(const uint64_t *counters, struct target_stats *stats)
+ 	unsigned long done = atomic_load(&shared->done);
+ 	uint64_t ipi = counter(counters, MBT_IPI);
+ 	uint64_t sched_out = counter(counters, MBT_SCHED_OUT);
++	uint64_t sync_core = counter(counters, MBT_SYNC_CORE);
+ 	unsigned long started = atomic_load(&shared->started);
+-	bool by_ipi, scheduled;
++	bool by_ipi, scheduled, serialized;
+ 	int spins = 0;
  
- config ARCH_TEGRA
- 	bool "NVIDIA Tegra SoC Family"
--	select ARCH_HAS_RESET_CONTROLLER
- 	select ARM_GIC_PM
- 	select CLKSRC_MMIO
- 	select TIMER_OF
-@@ -442,7 +440,6 @@ config ARCH_THUNDER2
+ 	/* A call is in flight. */
+@@ -637,6 +680,7 @@ static bool check_call(const uint64_t *counters, struct target_stats *stats)
+ 	}
+ 	by_ipi = counter(counters, MBT_IPI) != ipi;
+ 	scheduled = counter(counters, MBT_SCHED_OUT) != sched_out;
++	serialized = counter(counters, MBT_SYNC_CORE) != sync_core;
+ 	if (scheduled) {
+ 		atomic_fetch_add(&stats->by_sched, 1);
+ 		return true;
+@@ -648,6 +692,8 @@ static bool check_call(const uint64_t *counters, struct target_stats *stats)
+ 		atomic_fetch_add(&stats->by_ipi, 1);
+ 	else
+ 		atomic_fetch_add(&stats->missed, 1);
++	if (check_sync_core && !serialized)
++		atomic_fetch_add(&stats->sync_core_missed, 1);
+ 	return true;
+ }
  
- config ARCH_UNIPHIER
- 	bool "Socionext UniPhier SoC Family"
--	select ARCH_HAS_RESET_CONTROLLER
- 	select PINCTRL
- 	select RESET_CONTROLLER
- 	help
-diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index dac3ec5120a34..53bde6032076c 100644
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -228,7 +228,7 @@ config ATH25
+@@ -658,7 +704,8 @@ static void run_target(const struct target *target)
+ 	const uint64_t *counters;
+ 	long deadline = now_ms() + target->ms;
+ 	unsigned long checks = 0;
+-	uint64_t first_ipi, first_sched_in;
++	uint64_t first_ipi, first_sched_in, first_sync_core_missed;
++	uint64_t first_sched_out;
  
- config ATH79
- 	bool "Atheros AR71XX/AR724X/AR913X based boards"
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select BOOT_RAW
- 	select CEVT_R4K
- 	select CSRC_R4K
-@@ -250,7 +250,7 @@ config ATH79
+ 	if (target->cpu >= 0 && pin_to_cpu(target->cpu))
+ 		setup_error("sched_setaffinity");
+@@ -671,6 +718,18 @@ static void run_target(const struct target *target)
+ 	atomic_fetch_add(&shared->ready, 1);
+ 	while (!atomic_load(&shared->registered) && !atomic_load(&shared->stop))
+ 		sched_yield();
++	/*
++	 * The scheduler serializes the core of a registered process
++	 * only. The target may have been scheduled in before the
++	 * registration. So wait until it is scheduled out, and count
++	 * from there.
++	 */
++	first_sched_out = counter(counters, MBT_SCHED_OUT);
++	while (check_sync_core &&
++	       counter(counters, MBT_SCHED_OUT) == first_sched_out &&
++	       !atomic_load(&shared->stop))
++		usleep(1000);
++	first_sync_core_missed = counter(counters, MBT_SYNC_CORE_IN_MISSED);
+ 	first_ipi = counter(counters, MBT_IPI);
+ 	first_sched_in = counter(counters, MBT_SCHED_IN);
+ 	while (!atomic_load(&shared->stop)) {
+@@ -690,6 +749,10 @@ static void run_target(const struct target *target)
+ 			 counter(counters, MBT_SCHED_IN) - first_sched_in);
+ 	atomic_fetch_add(&stats->sched_in_missed,
+ 			 counter(counters, MBT_SCHED_IN_MISSED));
++	if (check_sync_core)
++		atomic_fetch_add(&stats->sync_core_in_missed,
++				 counter(counters, MBT_SYNC_CORE_IN_MISSED) -
++				 first_sync_core_missed);
+ }
  
- config BMIPS_GENERIC
- 	bool "Broadcom Generic BMIPS kernel"
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select ARCH_HAS_SYNC_DMA_FOR_CPU_ALL
- 	select BOOT_RAW
- 	select NO_EXCEPT_FILL
-@@ -472,7 +472,6 @@ config LANTIQ
- 	select USE_OF
- 	select PINCTRL
- 	select PINCTRL_LANTIQ
--	select ARCH_HAS_RESET_CONTROLLER
- 	select RESET_CONTROLLER
+ static void *target_thread(void *arg)
+@@ -816,6 +879,9 @@ static void sum_stats(int first, int nr, struct target_stats *sum)
+ 		sum->ipis += atomic_load(&stats->ipis);
+ 		sum->sched_in += atomic_load(&stats->sched_in);
+ 		sum->sched_in_missed += atomic_load(&stats->sched_in_missed);
++		sum->sync_core_missed += atomic_load(&stats->sync_core_missed);
++		sum->sync_core_in_missed +=
++			atomic_load(&stats->sync_core_in_missed);
+ 	}
+ }
  
- config MACH_LOONGSON32
-@@ -690,7 +689,6 @@ config RALINK
- 	select SYS_SUPPORTS_MIPS16
- 	select SYS_SUPPORTS_ZBOOT
- 	select SYS_HAS_EARLY_PRINTK
--	select ARCH_HAS_RESET_CONTROLLER
- 	select RESET_CONTROLLER
+@@ -828,6 +894,8 @@ static void sum_stats(int first, int nr, struct target_stats *sum)
+ 	       __sum.by_ipi, __sum.by_sched, __sum.ipis);		\
+ 	EXPECT_EQ(__sum.missed, 0);					\
+ 	EXPECT_EQ(__sum.sched_in_missed, 0);				\
++	EXPECT_EQ(__sum.sync_core_missed, 0);				\
++	EXPECT_EQ(__sum.sync_core_in_missed, 0);			\
+ 	EXPECT_GT(__sum.by_ipi + __sum.by_sched + __sum.missed, 0);			\
+ } while (0)
  
- config MACH_REALTEK_RTL
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index cecbce0c49838..723761037d0d5 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -112,7 +112,7 @@ config ARCH_CANAAN
- config SOC_CANAAN_K210
- 	bool "Canaan Kendryte K210 SoC"
- 	depends on !MMU && ARCH_CANAAN
--	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
- 	select PINCTRL
- 	select COMMON_CLK
- 	help
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index eda9c698a95f3..4e37c432823da 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -1,10 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0-only
--config ARCH_HAS_RESET_CONTROLLER
--	bool
--
- menuconfig RESET_CONTROLLER
- 	bool "Reset Controller Support"
--	default y if ARCH_HAS_RESET_CONTROLLER
- 	help
- 	  Generic Reset Controller support.
+@@ -902,8 +970,34 @@ TEST(private_expedited)
+ 		     MEMBARRIER_CMD_PRIVATE_EXPEDITED);
+ }
+ 
++/*
++ * With page table isolation, the kernel serializes the core with the
++ * write to CR3 of each return to user-space. This write is in the entry
++ * code, which cannot be probed.
++ */
++static bool page_table_isolation(void)
++{
++	char *line = NULL;
++	bool pti = false;
++	size_t len = 0;
++	FILE *f;
++
++	f = fopen("/proc/cpuinfo", "r");
++	if (!f)
++		return false;
++	while (!pti && getline(&line, &len, f) >= 0)
++		pti = !strncmp(line, "flags", 5) &&
++		      (strstr(line, " pti ") || strstr(line, " pti\n"));
++	free(line);
++	fclose(f);
++	return pti;
++}
++
+ TEST(private_expedited_sync_core)
+ {
++	check_sync_core = !page_table_isolation();
++	if (!check_sync_core)
++		TH_LOG("page table isolation: core serialization not checked");
+ 	test_private(_metadata,
+ 		     MEMBARRIER_CMD_REGISTER_PRIVATE_EXPEDITED_SYNC_CORE,
+ 		     MEMBARRIER_CMD_PRIVATE_EXPEDITED_SYNC_CORE);
+diff --git a/tools/testing/selftests/membarrier/membarrier_test_barrier.h b/tools/testing/selftests/membarrier/membarrier_test_barrier.h
+index d615ad1d9e8a..7c31d8cba544 100644
+--- a/tools/testing/selftests/membarrier/membarrier_test_barrier.h
++++ b/tools/testing/selftests/membarrier/membarrier_test_barrier.h
+@@ -24,6 +24,12 @@ enum {
+ 	 * the scheduler executed no memory barrier in between.
+ 	 */
+ 	MBT_SCHED_IN_MISSED,
++	/* Core serializing instruction of the membarrier IPI handler. */
++	MBT_SYNC_CORE,
++	/* Core serializing instruction of the scheduler. */
++	MBT_SYNC_CORE_SWITCH,
++	/* Like MBT_SCHED_IN_MISSED, for a core serializing instruction. */
++	MBT_SYNC_CORE_IN_MISSED,
+ 	MBT_NR_COUNTERS,
+ };
  
 -- 
-2.43.0
+2.47.3
 
 
 _______________________________________________
