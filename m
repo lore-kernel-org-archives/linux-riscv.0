@@ -2,64 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C379606A335
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 21:00:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8140B606A8A3
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 21:40:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=izFywXPK;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EfCt/jkE
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sRg3Q3oq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=RPgRIED8x5lw1kgUpIF6dKvJQMgD7IQvR9ZizcVxUqI=; b=izFywXPKEOkes0Gc+9ZV6fupUl
-	yPaVBsLbCg10vj0FMsn1AcqcmMJs6gLm3T65q1wVQhGqMTVc/TgLVVW7OV9lH+ZmD3QPN377pv9oa
-	rKlmDvPE0FEA+YXj4ZCNpjizgrxgpeuQCZPs67FmIpOhoOLV28gR+vT9qC/I8sLYJ8s/Us0dznbsA
-	Ywx6GxS04cfoy37tQ32L+oCraqOjKVnTenMYSMOUgulHLfWP1OdJ3xSY/qEdPp7pAV841decGtZPU
-	z2C+Mu1J4yOWeR70RxmRUyQcK48na7Iwp5MwKrzRTQlDIh/XZ0jSnbQ4nF1/QoL1k7Zd7kxBAxuHe
-	ONFOxWkw==;
+	bh=deuXakXJaL8WU5UnYMJClO1YPUsRAp4qv5TylNCUZA4=; b=sRg3Q3oq/6dr18kRq2plej62V3
+	mRY8oV7LAftcO9ncdjCWXcJur54LRRBbDfyS9KiHgYPxGHjgFbTdJ5b1jIE3g3vRDwnF86mJe9JHU
+	7WVjNrKyWe03G87Sa3XTE/NVsT5gWVt1K50UU5KBbqGHgIeiHA+kyStuKXS0SZlfHTIgKarfakDkY
+	HdxzcZs/4QRzHIuxJITkb1+IDsP2zLsFbzqB15D8ea6hhKtQ4rmBeebaHqtrptP+utaEAqIOdEiY/
+	q2AitRwwZmOL00akaJiiyhk5ihBDZClDvhLQsuoKqt64/WcdC3vxpI3pRi4Qz1t8MUb+mrH7iN/2l
+	D6dLw8RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRyND-0000000EVTL-3WVq;
-	Fri, 13 Nov 2026 20:59:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xRz0e-0000000Ebzy-34cq;
+	Fri, 13 Nov 2026 21:40:36 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRyNB-0000000EVT5-0G7o
+	id 1xRz0Z-0000000Ebyq-38yQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Nov 2026 20:59:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9465A448B2;
-	Fri, 13 Nov 2026 20:59:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37F951F000C5;
-	Fri, 13 Nov 2026 20:59:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794603588;
-	bh=gVxBLZX6lQzckB6AIbX2pQJru5dIfjw9YVDcZIdu890=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EfCt/jkEInFzOANdOTJJt6IXsNytJX76wHVHRjNrF88Xjw3qp6MqJvxVq0PDoGQid
-	 HqvdYMbEdN2obhqGDYDFJojlub4fnNPZJ9U6j8sGvuMtgJAcJYJFKs2Qz44cw4RLcI
-	 o3RbslRdMuWZOtId3qgp6zZyQESV4Se91+5ZGEBshlKorXhB8sG6T+/l44w7rZME58
-	 0e/97s29kipqBUVU+icJTEC19aN6eGp44UBq0S/kxYuXWjwxzXQZldSIhlPYj5G+y0
-	 oV0hi0WdohvhJftm39HJNM/uH2AUVFNv4JQ/P5qHhRkj/03UVRKTtC7bn/zMsPkp2q
-	 MRBAcCm7m0NGg==
-Date: Fri, 13 Nov 2026 20:59:41 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Carlos =?utf-8?B?TMOzcGV6?= <clopez@suse.de>
-Cc: kvm@vger.kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	linux-s390@vger.kernel.org, linux-riscv@lists.infradead.org, seanjc@google.com, 
-	pbonzini@redhat.com, akpm@linux-foundation.org, david@kernel.org, peterx@redhat.com, 
-	imbrenda@linux.ibm.com, borntraeger@linux.ibm.com, frankja@linux.ibm.com, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH v3 0/9] KVM: don't zap secondary MMU on permission upgrade
-Message-ID: <avd4MOhiTCw0I_e1@gremlin>
-References: <20261112142039.907090-2-clopez@suse.de>
+	Fri, 13 Nov 2026 21:40:34 +0000
+Received: from [192.168.0.104] (unknown [123.116.51.226])
+	by APP-03 (Coremail) with SMTP id rQCowAD3yZq4g_dqwtv5AA--.12651S2;
+	Sat, 14 Nov 2026 05:40:10 +0800 (CST)
+Message-ID: <0b6a04d7-d15d-4362-8e75-4f7120b277cd@iscas.ac.cn>
+Date: Sat, 14 Nov 2026 05:40:09 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261112142039.907090-2-clopez@suse.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2 0/2] net: spacemit: Fix TX timeout work deadlock
+ and RTNL in PM callbacks
+To: Ali Tariq <alitariq45892@gmail.com>, netdev@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Yixun Lan <dlan@kernel.org>, Troy Mitchell
+ <troy.mitchell@linux.spacemit.com>, Chukun Pan <amadeus@jmu.edu.cn>,
+ Tomas Hlavacek <tmshlvck@gmail.com>, Muhammad Bilal <meatuni001@gmail.com>,
+ Siddharth Vadapalli <s-vadapalli@ti.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org, leitao@debian.org
+References: <20261113132435.434615-1-alitariq45892@gmail.com>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <20261113132435.434615-1-alitariq45892@gmail.com>
+X-CM-TRANSID: rQCowAD3yZq4g_dqwtv5AA--.12651S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Cw1fJr4fKry3Cw15Ar1UJrb_yoW8XFyrpa
+	yag390kw40gr4Ivr42vFs2yF18Cw4xt3yUJrsagrWrZ3ZxuF1xCry2gw15Xr17ur1fJryj
+	vFWjya18GFWqvrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvGb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
+	wI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
+	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
+	17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
+	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
+	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
+	73UjIFyTuYvjxU30PfDUUUU
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261113_134032_192802_250E79B1 
+X-CRM114-Status: GOOD (  10.65  )
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,41 +88,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Sorry but as I said to David I really question what you're doing with this
-series on the mm side, and I wonder whether we should even consider it for
-this cycle, frankly, given [0].
+On 11/13/26 21:24, Ali Tariq wrote:
+> This series fixes two locking problems in the SpacemiT K1 Ethernet
+> driver.
+>
+> Patch 1 fixes the TX timeout work, which ends up waiting for itself
+> through cancel_work_sync() in emac_down(), so every TX timeout leaves
+> RTNL held forever.
+>
+> Patch 2 takes RTNL in emac_suspend() and emac_resume(), which fixes the
+> "suspicious RCU usage" warning from phy_disconnect() on suspend. It
+> depends on patch 1: suspend disables the TX timeout work before taking
+> RTNL, so it never waits for the work while holding the lock.
+>
+> Tested on Orange Pi RV2 (SpacemiT K1) with a lockdep kernel: 12
+> suspend/resume cycles without the warning. The board loses its network
+> after about a dozen cycles with or without this series; that is a
+> separate issue.
+>
+> Changes in v2:
+> - New patch 1 to fix the TX timeout work deadlock (reported by Troy,
+>   approach suggested by Vivian)
+> - Patch 2: take RTNL before the netif_running() checks
+> - Patch 2: drop Breno's Reviewed-by, since the patch changed
+>
+> v1: https://lore.kernel.org/netdev/20261105123441.2524171-1-alitariq45892@gmail.com/
+>
+> Ali Tariq (2):
+>   net: spacemit: Fix TX timeout work deadlocking on itself
+>   net: spacemit: Hold RTNL lock in emac_resume() and emac_suspend()
+>
+>  drivers/net/ethernet/spacemit/k1_emac.c | 19 ++++++++++++++++---
+>  1 file changed, 16 insertions(+), 3 deletions(-)
 
-And, myself being the fool who is engaged in the Sisyphean task of
-converting VMA flags everywhere, you can imagine my delight when I saw that
-you (seemingly quite knowingly!) chose to abuse that API, writing code that
-I'll personally have to rewrite later.
+Much appreciated. This series is:
 
-Don't do that please :)
+Reviewed-by: Vivian Wang <wangruikang@iscas.ac.cn>
 
-Please also do not keep respinning based on sashiko feedback. FIRST get a
-clear understanding of what maintainers want.
+Thanks,
+Vivian "dramforever" Wang
 
-Sashiko is a bug finder, not a reviewer.
-
-And see [1]:
-
-"Wait for a minimum of one week before resubmitting or pinging reviewers -
-possibly longer during busy times like merge windows."
-
-Please only respin once a week at the minimum.
-
---
-Cheers, Lorenzo
-
-[0]: https://lore.kernel.org/linux-mm/a2f584f6-e382-4876-aa6d-d5a34de6ee59@kernel.org/
-[1]:https://docs.kernel.org/process/submitting-patches.html#don-t-get-discouraged-or-impatient
 
 _______________________________________________
 linux-riscv mailing list
