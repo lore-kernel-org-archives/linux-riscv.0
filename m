@@ -2,68 +2,98 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E9D3606A323
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2026 22:14:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D36960A380F
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 00:15:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Br4EbRnR;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YvwMMI7P
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=l+roG8WA;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=feQDu8a/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=98HMYIgfHL6nWo4Xc4trhqY+Fhso08LzNIPWiCw2SxE=; b=Br4EbRnRoIajRcrXp9OlEP++mN
-	hF17kTTCNvQvx7iiEzM4lLq6ernWBoD0uEQry+JGSXcW4i7I0EUJ8bInfpzDLl+h1w/0jQDANQsKl
-	A2o0BPSEb4IaObI7IMwXiw3dcvxqPSCnz+91gE4p26qZumeWndgft30vBb4UwzjeQO73SIHb0CKBr
-	sDgh5kXK8oIhEypnNNbBwSpGVqozEeOxHOfIX2q8zu/CWzKXkYbnoO2/KG4S0pujsRnYlo9ubKyAe
-	fnFEhRkAoz6I/vtmFAGz/OgcZszh3KamMFRUKcKzsOG+ZH1K0XXGwm+gIkcfLx36agHdkQ+aQ8RBA
-	D+5qBTzg==;
+	bh=SvQzAbRds9OcdHpv7Ct06v3nVy6fFWU09iyUfLx4Oq0=; b=l+roG8WArwoolqgKeagllhFpvM
+	s03boNUmeMtZCq9Rjai9Pnx4x8XEX9zTflLX2qu/OmkPFyEEsLPP3ugHL2V2Vc/S1rBMSE6JJEklD
+	eonTlVFYwGTxBot46ls4WwpeWbNqxo8ejoUIdrC0GAyLyhFTAkCtMiug4PwEBPY35H6fDe5KzHHfb
+	LtX0tbBgCJVx8txfVUISZaT+IJ4UjJtWE7ZRlYDP5BEL5QxcFctNHLdz2Ib79IKhQ26rr0xR7ieY0
+	6m8Q+M2kqJGz3ydlJ8veUptJw0V87E12bFa5/I+kiv32+YMy24XJqqcyK7OJle1hiYhaizd04EStS
+	9LcxC+cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRd3j-0000000B9NA-2mh9;
-	Thu, 12 Nov 2026 22:14:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xRewu-0000000BI9v-42im;
+	Fri, 13 Nov 2026 00:15:24 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRd3h-0000000B9N0-2nfD
+	id 1xRewt-0000000BI8x-03Xw
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Nov 2026 22:14:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 119C743EEA;
-	Thu, 12 Nov 2026 22:14:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C2F61F000C9;
-	Thu, 12 Nov 2026 22:14:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794521657;
-	bh=9KhTxx7Zr4hjfg7KTdE7MstkrdgDZypeK0mfiKIhiOs=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=YvwMMI7PRXhf6+j5PUnskPlwa1Pr/RJadLUItvSSBIdcs8RK3zRJWfO29isaqQexw
-	 yAtNMEL0ShxpoIssQl5RabhaGraEMnCn8iJAMbfDG9SjO2kUOIFCTvCXTtJlSyFAxM
-	 fkPGCto0+AbuEup2wNJtIa6Z6kjuwrGxAKYK+6439yi0LQd7It47fH5X92uNOeNGbN
-	 bBwiY+HXzfYdUIwtfQIafDLRUcGpaEvBc2N3h2MNXb47NLuOUrmVIJH0t5c5iQPxD5
-	 jXmLyz0Zzf7eZ+NHFHVzDDs/6kzGGnvrjXvbDSUy0EATKpe0oMlsZewfoWB404oFav
-	 4egUNxy+AEXNQ==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.dev>, Radu Rendec <radu@rendec.net>,
- Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
- Ghiti <alex@ghiti.fr>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt
- <rostedt@goodmis.org>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>
-Cc: Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-rt-devel@lists.linux.dev, Troy
- Mitchell <troy.mitchell@linux.dev>
-Subject: Re: [PATCH v2 2/2] irqchip/riscv-imsic: Complete vector moves
- without a timer
-In-Reply-To: <20261112-imsic-remote-sync-irqwork-v2-2-680f65b24ff6@linux.dev>
-References: <20261112-imsic-remote-sync-irqwork-v2-0-680f65b24ff6@linux.dev>
- <20261112-imsic-remote-sync-irqwork-v2-2-680f65b24ff6@linux.dev>
-Date: Thu, 12 Nov 2026 23:14:13 +0100
-Message-ID: <87v761snnu.ffs@fw13>
+	Fri, 13 Nov 2026 00:15:24 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-3ae25c846edso3737621fa.2
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2026 16:15:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794528921; x=1795133721; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=J2LkBRUVTRexRTSqdlSVNAYuG65U41LgIRZGkSwqN8Y=;
+        b=feQDu8a/YgDQvmasZR0RBJhRYkZFDAhV1IjdFbMOOT1OHnEx95w0ecPfoI31LTOrlk
+         b7LQkEHdFS3o4zoijMTdpZtYGw2Q+oPiwr6VqhPPJCe7QiaofIdVIN+8kCqL/woXMvzh
+         iqnbGe8lpliM/p2x0tWHGrH9QCqJhZqHzTsTJvpVrpmdrXmkerzY5TDBQifyMsCqgE9b
+         laLYoD3HaKYAkhAgp48ovCj/xbhUT8jRWSIXxSvb6D+YEOybYvdjneNgH5w5I2+aZTZ0
+         tPxfJOwwMMrpQzW29cguDdLvx8f+t1UfkJvlW3T/yefF9C6mdQmHhYuW4g7Qh+yCgmrp
+         +loA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794528921; x=1795133721;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=J2LkBRUVTRexRTSqdlSVNAYuG65U41LgIRZGkSwqN8Y=;
+        b=qHO7oKd4Bvd2ktxtyP9cv43QvMuHYo4PFwkvXvtlb1oPHC7fgnI4lUIUye8XIZuhzF
+         vNWjS721M3Jq3+MdrvD18ZOnpcEt8LGYpJ0PE2TPtb66E7/VNjAHE26Cw+ehksHncMO/
+         qF/YObVWL4T6Vv7PCVXxzHijQXSKwJfMjrTj5EF2gqEib8E4i4BEbbQdrIlBk0mq4pYT
+         FPq9R6y2fRu8MkBlcHaRWmp973JQArBvesAO7fhWkwq65Ub7zDaxE8A/Ub5mce6IEk45
+         WtthtYuGBva88anU1jE/TsYrwCdEkjTynv+C+fQoSQcMQq1NjHK88WDhcHLfWgzLzlbt
+         x78g==
+X-Forwarded-Encrypted: i=1; AL+hErEx5k6/ifyzz4J+PyYeROTRNaRH2G2S/1B8saBrSTX/ffSoIzB0jAqys2ZSydFPT8MlQpEMPoqeGOayig==@lists.infradead.org
+X-Gm-Message-State: APuU4Z+DMdGMudpWFKCKIq9hMWYs8OVzdWYIh0vpVcfH9p64o9gKd1FY
+	2ixudPyyjafbk+XgzzNp1Dp/KOeAVy01BbX9bl/TZ8D60I5dcYQyq1j4
+X-Gm-Gg: AYBFou0MeNqkBv0WgEz+1nXo9DTWpAoG++CxbYTPiD9KvjipXjz5FSLg2TMmc2IrR9I
+	Wi2c2k5pJ3mdkF20Rb4GWkVlrIqz8N78dxLSrkjw6rW3fdUNXJ/E3NM6LLVNUwkH4eX036sQzXn
+	U8Ho3aJfee9HrKMynAwDlUDaf3Gasy5Ru95Alw58V0OuS8dZSNTP3uSAfgX/OhE5DX1Rwpe154g
+	HPaiv9HOh00+Fm+wDt+doLg5mT09PGkU4r74X6XdcvD6pZIFvDDKMAorYfNnFuLA8FKSnr34Fw+
+	9BgqFd0x2iRPqlA2qxmPSY6W84rXhKxeiC5sCND80mEfA2vxgzXbukoaDz8QPql5QiD2R4i94m/
+	4hFmfUhBCzM6gDK8U/kpfgnQgOHNJ2D2ZLlOVO9CpIot8erDdnU/nB9NVrG3IEWduHC8ebfd5aQ
+	/MVkJYzsSINHzA0WaBS8/ClIC2OtGGKQ/lSqUmmmdM9DEe5337MLaSiv09i/U1mhuKavfn+qP29
+	0TJk1ZFaFSRMIBnx6sxF9Ky28EeFcBHtgylvwe/9W1ogIBeiby5tLTk9weG6olXKdh0egdnp0HS
+	tJCMuJbCAgAdCR9aQ7Afbn4Z60KdL0jb4+8mxr4nVDvgBhdVpvGaU3AvfaoWtajbHFIVcpR4m1L
+	o2zYPJp/XAg==
+X-Received: by 2002:a05:6512:32d6:b0:5bc:ddf0:d96 with SMTP id 2adb3069b0e04-5c170a0dcc9mr397802e87.59.1794528920769;
+        Thu, 12 Nov 2026 16:15:20 -0800 (PST)
+Received: from SafoStation ([31.40.65.49])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c17133ca01sm200968e87.36.2026.11.12.16.15.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Nov 2026 16:15:20 -0800 (PST)
+From: Safocl Stollmannovic <safocl88@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH 06/10] riscv: fix duplicate extern declarations
+Date: Fri, 13 Nov 2026 04:14:12 +0400
+Message-ID: <20261113001432.128201-7-safocl88@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261113001432.128201-1-safocl88@gmail.com>
+References: <20261113001432.128201-1-safocl88@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261112_161523_087519_311866AD 
+X-CRM114-Status: GOOD (  11.25  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,135 +103,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Nov 12 2026 at 07:54, Troy Mitchell wrote:
-> When a vector moves, the new CPU clears move_prev only after the old CPU
-> has released the old vector. If the new CPU syncs first, it arms a timer
-> on itself and retries a jiffy later. That CPU is often the one entering
-> idle and taking over the broadcast interrupt, with its tick already
-> stopped, so the timer is not programmed.
-
-When that timer expires _before_ the earliest programmed timer on the
-remote CPU then that remote CPU is kicked out of idle to reevaluate.
-
-So your problem description does not make any sense at all.
-
-If the timer code fails to kick that remote CPU out for re-evaluation
-then this needs to be fixed and not worked around somewhere else with
-dubious claims.
-
-> The move then completes only on the next interrupt of that CPU, which
-> took up to 0.5s on an idle SpacemiT K3. Until then the IRQ is still
-> marked as moving and further affinity changes of it return -EBUSY.
-
-What's the problem with that? The notification to cleanup can be
-arbitrarily long delayed. See below.
-
-> Let the old CPU queue the sync work on the new CPU once it has released
-> the old vector, and remove the retry timer. Wait only while the old
-> vector still points to the new vector, since a released old vector may
-> already belong to another move.
-
-That's even more bogus. The old CPU does not queue anything.
-
-The issue with these completely misdesigned interrupt controllers is
-that the only safe way to migrate an interrupt is to do the following:
-
-   1) Defer the affinity change to the interrupt context of the original
-      target CPU.
-
-   2) When the next interrupt arrives on the original target CPU switch
-      the affinity over to the new target CPU (carefully...)
-
-   3) If the interrupt is pending again on the original target CPU after
-      switching affinity send an IPI to the new target to kick that
-      vector.
-
-   4) When the new target CPU receives the first interrupt (it does not
-      matter whether it's from the device or from the IPI in #3) it
-      tells the original target CPU to cleanup the stale
-      associations. That's what the timer is for.
-
-So the requirement is that the new target CPU has to receive an
-interrupt to be able to release the associations on the original target
-CPU and to re-enable affinity settings. This can obviously cause
-arbitrarily long delays if #3 is not the case as the cleanup has to wait
-for #4.
-
-That has absolutely nothing to do with the timer and changing that to an
-IPI as that only shortens the cleanup delay from _ONE_ jiffies to almost
-instant. Who the hell cares?
-
-Why is that requirement there in the first place?
-
-  Because there neither is a guarantee that the affinity change takes
-  place immediately when the update happens nor there is a guarantee
-  that an interrupt message which was sent to the old CPU is delivered
-  before the pending check in #3 happens. There are arbitrary device
-  specific delays between the point where the device reads the target
-  message and the point where it is sent and fabrics have delays too.
-
-A lot of people spent a massive amount of time and head scratching to
-come up with a solution for that especially for non-maskable MSI
-interrupts.
-
-Coming back to your change.
-
-Of course this can be done with an IPI from the _new_ target CPU to
-the _old_ target CPU, but only under one condition:
-
-    The IPI vector cannot be higher prioritized than the to be cleaned
-    up device vector.
-
-Why?
-
-Contrary to level interrupts which stay asserted until the interrupt
-handler resets the condition, edge interrupts (e.g. PCI/MSI[-X]) are
-from a device POV fire and forget. There is no guarantee that a device
-waits for handler response before sending the next one.
-
-So due to this and the arbitrary hardware (device/fabric) delays you can
-end up in a situation where there is an interrupt pending either in the
-old target or in the new target after #3 above or on both.
-
-For the on both case assume that the new target CPU wins the race to
-handle it and it sends the IPI to the old target CPU, which is currently
-in an interupt disabled region. Once the old target CPU re-enables
-interrupts it handles the highest priority interrupt first, which is the
-IPI. Now the IPI handler detects that the lower priority device interrupt is
-pending and retriggers the cleanup IPI on itself ---> livelock.
-
-Sure, you can make that so that it ignores that situation and waits for
-the new target CPU to re-issue the clenaup IPI on the next interrupt,
-but that's still not solving the arbitrary delay problem, i.e. waiting
-for that next interrupt which might take forever....
-
-I'm still puzzled that at least _two_ decades after it was publicly
-known that the x86 APIC is a design disaster hardware people still
-insisted on making the same mistakes over and over. It's not only RISCV
-folks, there are more insanities like that in other architectures...
-
-But please read back on the initial IMSIC discussion which led up to
-merging this driver. There is a ton of more context there which I'm not
-going to repeat.
-
-Thanks,
-
-        tglx
-
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q29tcGlsaW5nIGEga2VybmVsIG1vZHVsZSB3aXRoIGEgQysrIGNvbXBpbGVyIHJlc3VsdHMgaW4g
+YSBkdXBsaWNhdGUKZWNobyDigJhleHRlcm7igJkgc3BlY2lmaWVyIGVycm9yLgpUaGlzIG9jY3Vy
+cyBiZWNhdXNlIHRoZSBjb2RlIGNvbnRhaW5zICwgYW5kCmV4cGFuZHMgdG8gIHdoZW4gcHJvY2Vz
+c2VkIGJ5IGEgQysrIGNvbXBpbGVyLgpUaGUgIHNwZWNpZmllciBtdXN0IGJlIHJlbW92ZWQuCmh0
+dHBzOi8vYnVnemlsbGEua2VybmVsLm9yZy9zaG93X2J1Zy5jZ2k/aWQ9MjIyMjU3CgpTaWduZWQt
+b2ZmLWJ5OiBTYWZvY2wgU3RvbGxtYW5ub3ZpYyA8c2Fmb2NsODhAZ21haWwuY29tPgotLS0KIGFy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vc3RyaW5nLmggfCAyNCArKysrKysrKysrKystLS0tLS0tLS0t
+LS0KIGFyY2gvcmlzY3Yva2VybmVsL3Byb2Nlc3MuYyAgICAgfCAgNCArKy0tCiBhcmNoL3Jpc2N2
+L2tlcm5lbC9zdGFja3RyYWNlLmMgIHwgIDIgKy0KIDMgZmlsZXMgY2hhbmdlZCwgMTUgaW5zZXJ0
+aW9ucygrKSwgMTUgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9zdHJpbmcuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3RyaW5nLmgKaW5kZXggNzY0
+ZmZlOGY2Li5hYzg5NTM1OGMgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3Ry
+aW5nLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zdHJpbmcuaApAQCAtMTAsMzMgKzEw
+LDMzIEBACiAjaW5jbHVkZSA8bGludXgvbGlua2FnZS5oPgogCiAjZGVmaW5lIF9fSEFWRV9BUkNI
+X01FTVNFVAotZXh0ZXJuIGFzbWxpbmthZ2Ugdm9pZCAqbWVtc2V0KHZvaWQgKiwgaW50LCBzaXpl
+X3QpOwotZXh0ZXJuIGFzbWxpbmthZ2Ugdm9pZCAqX19tZW1zZXQodm9pZCAqLCBpbnQsIHNpemVf
+dCk7Cithc21saW5rYWdlIHZvaWQgKm1lbXNldCh2b2lkICosIGludCwgc2l6ZV90KTsKK2FzbWxp
+bmthZ2Ugdm9pZCAqX19tZW1zZXQodm9pZCAqLCBpbnQsIHNpemVfdCk7CiAjZGVmaW5lIF9fSEFW
+RV9BUkNIX01FTUNQWQotZXh0ZXJuIGFzbWxpbmthZ2Ugdm9pZCAqbWVtY3B5KHZvaWQgKiwgY29u
+c3Qgdm9pZCAqLCBzaXplX3QpOwotZXh0ZXJuIGFzbWxpbmthZ2Ugdm9pZCAqX19tZW1jcHkodm9p
+ZCAqLCBjb25zdCB2b2lkICosIHNpemVfdCk7Cithc21saW5rYWdlIHZvaWQgKm1lbWNweSh2b2lk
+ICosIGNvbnN0IHZvaWQgKiwgc2l6ZV90KTsKK2FzbWxpbmthZ2Ugdm9pZCAqX19tZW1jcHkodm9p
+ZCAqLCBjb25zdCB2b2lkICosIHNpemVfdCk7CiAjZGVmaW5lIF9fSEFWRV9BUkNIX01FTU1PVkUK
+LWV4dGVybiBhc21saW5rYWdlIHZvaWQgKm1lbW1vdmUodm9pZCAqLCBjb25zdCB2b2lkICosIHNp
+emVfdCk7Ci1leHRlcm4gYXNtbGlua2FnZSB2b2lkICpfX21lbW1vdmUodm9pZCAqLCBjb25zdCB2
+b2lkICosIHNpemVfdCk7Cithc21saW5rYWdlIHZvaWQgKm1lbW1vdmUodm9pZCAqLCBjb25zdCB2
+b2lkICosIHNpemVfdCk7Cithc21saW5rYWdlIHZvaWQgKl9fbWVtbW92ZSh2b2lkICosIGNvbnN0
+IHZvaWQgKiwgc2l6ZV90KTsKIAogI2lmICEoZGVmaW5lZChDT05GSUdfS0FTQU5fR0VORVJJQykg
+fHwgZGVmaW5lZChDT05GSUdfS0FTQU5fU1dfVEFHUykpCiAjZGVmaW5lIF9fSEFWRV9BUkNIX1NU
+UkNNUAotZXh0ZXJuIGFzbWxpbmthZ2UgaW50IHN0cmNtcChjb25zdCBjaGFyICpjcywgY29uc3Qg
+Y2hhciAqY3QpOworYXNtbGlua2FnZSBpbnQgc3RyY21wKGNvbnN0IGNoYXIgKmNzLCBjb25zdCBj
+aGFyICpjdCk7CiAKICNkZWZpbmUgX19IQVZFX0FSQ0hfU1RSTEVOCi1leHRlcm4gYXNtbGlua2Fn
+ZSBfX2tlcm5lbF9zaXplX3Qgc3RybGVuKGNvbnN0IGNoYXIgKik7Cithc21saW5rYWdlIF9fa2Vy
+bmVsX3NpemVfdCBzdHJsZW4oY29uc3QgY2hhciAqKTsKIAogI2RlZmluZSBfX0hBVkVfQVJDSF9T
+VFJOQ01QCi1leHRlcm4gYXNtbGlua2FnZSBpbnQgc3RybmNtcChjb25zdCBjaGFyICpjcywgY29u
+c3QgY2hhciAqY3QsIHNpemVfdCBjb3VudCk7Cithc21saW5rYWdlIGludCBzdHJuY21wKGNvbnN0
+IGNoYXIgKmNzLCBjb25zdCBjaGFyICpjdCwgc2l6ZV90IGNvdW50KTsKIAogI2RlZmluZSBfX0hB
+VkVfQVJDSF9TVFJOTEVOCi1leHRlcm4gYXNtbGlua2FnZSBfX2tlcm5lbF9zaXplX3Qgc3Rybmxl
+bihjb25zdCBjaGFyICosIHNpemVfdCk7Cithc21saW5rYWdlIF9fa2VybmVsX3NpemVfdCBzdHJu
+bGVuKGNvbnN0IGNoYXIgKiwgc2l6ZV90KTsKIAogI2RlZmluZSBfX0hBVkVfQVJDSF9TVFJDSFIK
+LWV4dGVybiBhc21saW5rYWdlIGNoYXIgKnN0cmNocihjb25zdCBjaGFyICosIGludCk7Cithc21s
+aW5rYWdlIGNoYXIgKnN0cmNocihjb25zdCBjaGFyICosIGludCk7CiAKICNkZWZpbmUgX19IQVZF
+X0FSQ0hfU1RSUkNIUgotZXh0ZXJuIGFzbWxpbmthZ2UgY2hhciAqc3RycmNocihjb25zdCBjaGFy
+ICosIGludCk7Cithc21saW5rYWdlIGNoYXIgKnN0cnJjaHIoY29uc3QgY2hhciAqLCBpbnQpOwog
+I2VuZGlmCiAKIC8qIEZvciB0aG9zZSBmaWxlcyB3aGljaCBkb24ndCB3YW50IHRvIGNoZWNrIGJ5
+IGthc2FuLiAqLwpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvY2Vzcy5jIGIvYXJj
+aC9yaXNjdi9rZXJuZWwvcHJvY2Vzcy5jCmluZGV4IDM0YzFkNDk4ZC4uM2U1MzFiNmQwIDEwMDY0
+NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9jZXNzLmMKKysrIGIvYXJjaC9yaXNjdi9rZXJu
+ZWwvcHJvY2Vzcy5jCkBAIC0zOSw4ICszOSw4IEBAIHVuc2lnbmVkIGxvbmcgX19zdGFja19jaGtf
+Z3VhcmQgX19yZWFkX21vc3RseTsKIEVYUE9SVF9TWU1CT0woX19zdGFja19jaGtfZ3VhcmQpOwog
+I2VuZGlmCiAKLWV4dGVybiBhc21saW5rYWdlIHZvaWQgcmV0X2Zyb21fZm9ya19rZXJuZWxfYXNt
+KHZvaWQpOwotZXh0ZXJuIGFzbWxpbmthZ2Ugdm9pZCByZXRfZnJvbV9mb3JrX3VzZXJfYXNtKHZv
+aWQpOworYXNtbGlua2FnZSB2b2lkIHJldF9mcm9tX2Zvcmtfa2VybmVsX2FzbSh2b2lkKTsKK2Fz
+bWxpbmthZ2Ugdm9pZCByZXRfZnJvbV9mb3JrX3VzZXJfYXNtKHZvaWQpOwogCiB2b2lkIG5vaW5z
+dHIgYXJjaF9jcHVfaWRsZSh2b2lkKQogewpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwv
+c3RhY2t0cmFjZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc3RhY2t0cmFjZS5jCmluZGV4IGM3NTU1
+NDQ3MS4uNmNhNjBjZDNkIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zdGFja3RyYWNl
+LmMKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvc3RhY2t0cmFjZS5jCkBAIC0zMiw3ICszMiw3IEBA
+CiAJdmFsOwkJCQkJCVwKIH0pCiAKLWV4dGVybiBhc21saW5rYWdlIHZvaWQgaGFuZGxlX2V4Y2Vw
+dGlvbih2b2lkKTsKK2FzbWxpbmthZ2Ugdm9pZCBoYW5kbGVfZXhjZXB0aW9uKHZvaWQpOwogZXh0
+ZXJuIHVuc2lnbmVkIGxvbmcgcmV0X2Zyb21fZXhjZXB0aW9uX2VuZDsKIAogc3RhdGljIGlubGlu
+ZSBpbnQgZnBfaXNfdmFsaWQodW5zaWduZWQgbG9uZyBmcCwgdW5zaWduZWQgbG9uZyBzcCkKLS0g
+CjIuNTYuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
