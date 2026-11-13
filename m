@@ -2,91 +2,78 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75DCE606A8A3
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 16:16:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1F56606A330
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 16:21:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hiUeRLr9;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m9cRC5y4
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LoogDqcu;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=cirad.fr header.i=@cirad.fr header.a=rsa-sha256 header.s=573E3878-7916-11F1-BF4B-F68474317960 header.b=VuzJTDnk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
-	bh=rGnQ5nHW5xVogbYerYtW99ewB6EO3fzNfBlcU7XMruY=; b=hiUeRLr9k/z6mcvTOVHsXcpvkP
-	y+VBDYXZH4a5jOmbQE4tbkirKAeyCauGVJWaNIszeQGjt/1aqK/Dzi/yiyVf+oiHVKpumyNLRMHhk
-	Zxax3M6NEpQ5iiB07CnRpgIt28NNYIXI75YOPTqr8kA3iHh2BCfezbNkg48S+uzJygsWM8ooNZPVm
-	DYAdOZfSjNz8g96VrxYOxNA/dFjdaZg6HlVkZvzXth28AXa8wgC6zkEkRWGruewmmA2BSBN6qrMDC
-	nLg2VEBY3Dg4YiucbfFpl6bWaLnLJLYyT06SdbGxhA22EUQzAaZSewzXiuirEEOaXMXIMjNWgehay
-	PuFFUdlg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=lOgHKf33YMTiuI0phTYZ+0cCMP6lGfim5mjR7UOx2S8=; b=LoogDqcufUtNcUTyj36/B9x5jZ
+	IB4MBDQDff404xJ3EbWK2jE30rk4/AC3Toue+sClCw4aQ3PupL+yYuN8sh7SD5UiHUln+sOQ/Iw7w
+	fWQaq7pdVxPaETuNOha8O/EMxIZf/smuV1WVXtCKWFH5y9pD/faSuxIGOok80Q2C6dIj2u1+IEd8c
+	dRX3p/nV5Uis3n7YteSQKPVifaUpRaNgcXGHvdEIFg69z7RBhHH1fUm3WYyL4mXKAMrjGyf3Vh7Lr
+	vSdqFcnqo3wowYBz8aFEWvL6VEDnQ9yLkKXTakse96HPu0xCJDLIK1DZv+reOf1qhbjcM6AFgQLY5
+	V+Wbg2vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRtwU-0000000DWGu-2zhr;
-	Fri, 13 Nov 2026 16:15:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xRu1N-0000000DX99-3sMD;
+	Fri, 13 Nov 2026 16:21:01 +0000
+Received: from retz.cirad.fr ([194.199.235.221])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRtwS-0000000DWGQ-1Mr2
+	id 1xRu1K-0000000DX8D-0rY6
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Nov 2026 16:15:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B05E045045;
-	Fri, 13 Nov 2026 16:15:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA2881F000C4;
-	Fri, 13 Nov 2026 16:15:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794586555;
-	bh=UvoCI+F3UN/r+kCCyYEcI97wbIPvzPchSwyBMSLm3Yw=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=m9cRC5y4jEqyeUfTSiVv1SHJ/FydJ1utrE8vOHrzFWXR2EPMNSdg41+mwBMikFNz4
-	 /MBj2cfNiV7S/OblzgS4W3wbSJAbURSzCfBuqgPpiaX+qPtP4pUftzY10ikl0jP4JU
-	 DxQ+ryIydfzMgIC9Jld37fyVF36gJIHuIZmjOzN1BpYWEYtejmGT2rHBltgVVY43A3
-	 YTtv4eMONGxHzrpotvKXTcqaOOssYWGYUboJiWiwCJrPOMTz05fkPkfxH7m+yfEpo2
-	 zpX9c2q+5rgsDzx48oYn5q8rjdufVgTLIDNnnCpjdKszr5Pp9WnCLmwtw1hr7/aNi2
-	 3+n20jkvBiauA==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 0240D198003A;
-	Fri, 13 Nov 2026 11:15:53 -0500 (EST)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Fri, 13 Nov 2026 11:15:53 -0500
-X-ME-Sender: <xms:tjf3anI-XrM1rzyEKV3TsVn0tQkQzK2XUXBxRhJP5kB-KddizlLQ0w>
-    <xme:tjf3akk4lCV2YgUyysfOinfbMl0AeVuHNAC_TQGRnH4c7vErfaPMU63i_RYmyECVR
-    cmHz6vQlxJXJZKRdm4TljeAYvoPcntPZ4L4Vn961g_nqmsamp1ivLSO>
-X-ME-Proxy-Cause: dmFkZTFAQfv4vgc59PJfnI7+gnjbFo5pjWqPci2q637Dc+jTlN98BS3SOu191Kx5oeX5zT
-    cpsU4696TXwbo6E9T70+3zgZ4ZQT4u2WZYZrLNrdudOZVkNXMyzUwvt29gWlqjMBSeCuS9
-    xWLhKpKLiLkYBm/I4/mkEe9fPCWkZoThd9No+pzePTALJyZz0DWj5omvVUsTJm/N8GHQYm
-    DOd8INghd05soloR06GFbIa7ZzhmJnA5LN2JEN1zSxA5iEYfypiw5rdG7NEX58RL/EvMbS
-    7slEaTvIn0pajVNLktDqnig4nTGsVfUSIfAs0Ux0u7J4sDsFCJhyhxUP6Frqsgl8B1A/CG
-    s/j6i18iK4vWXI1FdcRk9LnIkKn74i9Yhk81YCSMJfEnMcLY20EVMRM/6UGEolaZOYQCzg
-    ZvC+RNRsBxv3IJxnLtOn70i8xsFr9xBrv/ED+iFr2bHy4x+BpbFRBEf7SfIb8XLr6hK8kF
-    Baaop2OXhbUjF5ZuU5duB/0k6jn1CPCJdS4dvDXPS3Bt8iXz9s6WH1dFfnVd7zGCchXAQG
-    E2n7fVlr1OZ0/+MDkpS4Kv5tFhlIodvqjId3+7qOGwlktbRSBVu8JWi6yCOMroglq/vqEM
-    4wP+wSNywxxU1uJBN1CbH4i7HphUnvs7PZo4+opuiJE8SPFkwU3I+VU4lUQA
-X-ME-Proxy: <xmx:uDf3ajCoYN_KPZOMcB6qtN-R6od7UDzch01jyl6v8tk6cBQxj2Cj4Q>
-    <xmx:uDf3avEbNlME5ubNM4a2O4OrZanjSXdVtBK6BowjWnUXilDqtk7mXA>
-    <xmx:uDf3aoLzod8yEADhATBJWWS2gEZOnq8dAHTLTmA0h7i_jo60t5MVIg>
-    <xmx:uDf3amq4GdBo6Xpqdf1_bUNO_PW5EFSPUTAP7JF17vb9ewtylzlYhg>
-    <xmx:uDf3avjcVhpjhgRD-idErmSAru7l6xJZID9o6TemQcneI_udBuOohP9R>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 768CAF80093; Fri, 13 Nov 2026 11:15:50 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 13 Nov 2026 16:21:00 +0000
+Received: from retz.cirad.fr (localhost [127.0.0.1])
+	by retz.cirad.fr (Postfix) with ESMTPS id 52E7820DCBFA;
+	Fri, 13 Nov 2026 17:20:52 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by retz.cirad.fr (Postfix) with ESMTP id 2D62020E172C;
+	Fri, 13 Nov 2026 17:20:52 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.10.3 retz.cirad.fr 2D62020E172C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirad.fr;
+	s=573E3878-7916-11F1-BF4B-F68474317960; t=1794586852;
+	bh=VuYNdjcP+NSrgdXQwlnxBvm5XkcyWUAws/4TPn94cTk=;
+	h=From:To:Date:Message-ID:MIME-Version;
+	b=VuzJTDnkhG4lX5iDdfoY9RykmYfW8bDuSO1O2oK11OFtrsh1O4+9Wn0O37AsQCot4
+	 7kg3t1kR4uV31K3wpPI+ICE2cbePhYI5Gj/rpexhmIpxX5bdnYEHdCW8+fBaps7NWM
+	 rz3Q+pMY+XlurPIwqzp2p5+9i/aYEldEowfsCVNIYwpHSvnvkB0ZnT+8fP9Ap+RCU6
+	 gu0MKtmAWj7u94Xf2lsiHaBwSKYJHUAx0bRpulktASxS4brN8zR0o3b7EfoPUW275S
+	 SYm1KzV5MO267hYcuaPJaibZLe/Ot8YgXQkBKS2xNVOPDuClezUP4R0H97D9SByyAo
+	 IqqTwczox9y8A==
+X-Virus-Scanned: amavis at retz.cirad.fr
+Received: from retz.cirad.fr ([127.0.0.1])
+ by localhost (retz.cirad.fr [127.0.0.1]) (amavis, port 10026) with ESMTP
+ id 7S_o8nZNM0CP; Fri, 13 Nov 2026 17:20:52 +0100 (CET)
+Received: from localhost.localdomain (unknown [78.196.243.100])
+	by retz.cirad.fr (Postfix) with ESMTPSA id A987420DCBFA;
+	Fri, 13 Nov 2026 17:20:51 +0100 (CET)
+From: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Mah=C3=A9?= <frederic.mahe@cirad.fr>
+To: Aurelien Jarno <aurelien@aurel32.net>
+Cc: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Mah=C3=A9?= <frederic.mahe@cirad.fr>,
+	kevin zhang <zhangmeng.kevin@linux.spacemit.com>,
+	Vivian Wang <wangruikang@iscas.ac.cn>,
+	Karl Mehltretter <kmehltretter@gmail.com>,
+	Andy Chiu <tchiu@tenstorrent.com>,
+	spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Subject: Re: Random corruption on SpacemiT K1 (and K3) with RVV
+Date: Fri, 13 Nov 2026 17:20:10 +0100
+Message-ID: <20261113162011.643861-1-frederic.mahe@cirad.fr>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <avb_p4b7C21aZqNG@aurel32.net>
+References: <apSYF5x1Tu7PlyL1@aurel32.net> <ap-SIQ9DLt-CfAx6@aurel32.net> <aqGNGp8PInSV4vty@aurel32.net> <arL0QBe_XYLO8Yy7@Tao-Chiu's-Mac> <auulITfR8BrabdVF@aurel32.net> <47902FCAC1DDFAB2+525255ac-cc05-4a57-bd83-a4a29edcbe01@linux.spacemit.com> <avSWseBxLUyf5X0t@aurel32.net> <20261113080209.606179-1-frederic.mahe@cirad.fr> <avb_p4b7C21aZqNG@aurel32.net>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Date: Fri, 13 Nov 2026 17:15:29 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Jason Gunthorpe" <jgg@nvidia.com>, "Ard Biesheuvel" <ardb+git@google.com>
-Cc: linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, "Huacai Chen" <chenhuacai@kernel.org>,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
-Message-Id: <274609cc-2c17-4bde-bcf3-f309655f0594@app.fastmail.com>
-In-Reply-To: <179458262195.3625095.6692761412463057203.b4-review@b4>
-References: <20261110121731.2728824-12-ardb+git@google.com>
- <20261110121731.2728824-16-ardb+git@google.com>
- <179458262195.3625095.6692761412463057203.b4-review@b4>
-Subject: Re: [PATCH v2 04/10] efi/libstub: Capture loaded image information in struct
- efi_image_info
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261113_082058_864954_4A633746 
+X-CRM114-Status: GOOD (  26.63  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,210 +86,353 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Hi Aurelien,
 
-On Fri, 13 Nov 2026, at 16:10, Jason Gunthorpe wrote:
->> [ ... 131 lines skipped ... ]
->> @@ -80,7 +87,8 @@ efi_status_t __efiapi efi_pe_entry(efi_handle_t handle,
->>  
->>  	kernel_image_offset = image_addr - (unsigned long)image->image_base;
->>  
->> -	status = efi_stub_common(handle, image, image_addr, cmdline_ptr);
->> +	status = efi_stub_common(handle, image, image_addr, cmdline_ptr,
->> +				 efistub_get_image_info());
->
-> efistub_get_image_info() always returns the pointer from the EFI stubs
-> location, but at this point the kernel has been relocated and now we
-> are passing an info pointer that is outside image to everything else
-> while the zboot path passes an info inside the image.
->
-> It would be better if info is always pointing inside the final
-> image. Then you can use info to always get a pointer inside the
-> ultimate kernel, which is what all the DRTM values need.
->
-> Having efistub_get_image_info() take in image_base, and then using
-> weak to overlay it with zboot's version would give a consistent
-> interface.
->
-> The adjustment can be calculated like this:
->
-> 	return (const void *)(image_base - efistub_image_info._text_offset);
->
-> That would allow cleaning up the primary_entry() flow to just use
-> info, and remove the weak functions:
->
-> void __noreturn efi_enter_kernel(const struct efi_image_info *image_info,
-> 				 unsigned long fdt_addr,
-> 				 unsigned long fdt_size)
-> {
-> 	void (* __noreturn enter_kernel)(u64, u64, u64, u64) =
->                  efistub_kernel_ptr(image_info, entry);
-> 	enter_kernel(fdt_addr, 0, 0, 0);
-> }
->
-> (see below for macro)
->
-> You could do the same by passing image_base and image_info everywhere,
-> but that seems less nice.
->
+On 2026-11-13 13:16, Aurelien Jarno wrote:
+> You mention "all", but you sent the mail only to Kevin and me. Is it
+> wanted?
 
-I'd prefer to handle this by adding another offset, and an API to update
-it after moving the image. That way, the EFI stub code can still grab the
-info struct pointer without threading it through the API, while it will
-always remain valid.
+No, a mistake in my git send-email options, sorry. Adding everyone back.
+For the lists: my first mail had a userspace reproducer (again at the end
+of this one): two threads do vle8.v (e8, m8) from a shared memfd mapping
+while two other threads madvise(MADV_DONTNEED) it. Some loads retire
+with only their first 16*n bytes written, without a trap. Its "k" mode
+does the same through write() and gives Aurelien's usercopy signature on
+a stock 6.18 kernel. Aurelien can reproduce both on his side; not (yet)
+on the K3.
 
->> [ ... 20 lines skipped ... ]
->> +++ b/drivers/firmware/efi/libstub/efistub.h
->> @@ -1148,11 +1148,53 @@ efi_status_t handle_kernel_image(unsigned long *image_addr,
->>  				 efi_loaded_image_t *image,
->>  				 efi_handle_t image_handle);
->>  
->> +struct efi_image_info {
->> +	s32	_text_offset;
->> +	s32	__inittext_end_offset;
->> +	s32	_edata_offset;
->> +	s32	_end_offset;
->> +	s32	entry_offset;
->> +};
->
-> This ends up in a cross-arch header.. It seems OK, the x86 voffset.h
-> parts can fit cross-arch like this too.
->
-> For DRTM I will do it like this:
->
-> #ifdef CONFIG_EFI_STUB_DRTM
-> 	s32	__drtm_measured_start_offset;
-> 	s32	__drtm_measured_end_offset;
-> 	s32	drtm_entry_offset;
-> 	s32	drtm_handoff_offset;
-> #endif
->
-> Which should be fine, every DRTM will need those four things at least.
->
+> I am not sure you can conclude anything from vstart != 0. The RVV spec
+> leaves a lot of freedom on the vstart mechanism.
 
-I think that is fine. We could add an arch substruct once we need it
-but that seems premature at this point.
+Agreed. All it shows is that the kernel never resumed one of these loads
+with a nonzero vstart. A restart from vstart = 0 reloads everything, so
+either way the S-mode trap handling can't produce a partial load.
 
->> +
->> +const struct efi_image_info *efistub_get_image_info(void);
->> +const struct efi_image_info *zboot_get_image_info(unsigned long image_base);
->> +
->> +static inline
->> +unsigned long efistub_kernel_base(const struct efi_image_info *image_info)
->> +{
->> +	return (unsigned long)offset_to_ptr(&image_info->_text_offset);
->> +}
->> +
->> +static inline
->> +unsigned long efistub_kernel_size(const struct efi_image_info *image_info)
->> +{
->> +	return image_info->_edata_offset - image_info->_text_offset;
->> +}
->> +
->> +static inline
->> +unsigned long efistub_kernel_memsize(const struct efi_image_info *image_info)
->> +{
->> +	return image_info->_end_offset - image_info->_text_offset;
->> +}
->> +
->> +static inline
->> +unsigned long efistub_kernel_codesize(const struct efi_image_info *image_info)
->> +{
->> +	return image_info->__inittext_end_offset - image_info->_text_offset;
->> +}
->> +
->> +static inline
->> +unsigned long efistub_kernel_entry_offset(const struct efi_image_info *image_info)
->> +{
->> +	return image_info->entry_offset - image_info->_text_offset;
->> +}
->
-> As above a little helper to get a void * would be useful:
->
->   static inline void *
->   __efistub_kernel_entry_ptr(const struct efi_image_info *image_info, 
-> s32 offset)
->   {
-> 	  return (void *)((offset - image_info->_text_offset) +
-> 			  efistub_kernel_base(image_info));
->   }
->   #define efistub_kernel_ptr(image_info, ptr) \
-> 	  __efistub_kernel_entry_ptr(image_info, (image_info)->ptr##_offset)
->
-> If the rework above is done this would replace
-> efistub_kernel_entry_offset()
->
->> [ ... 15 lines skipped ... ]
->> +++ b/drivers/firmware/efi/libstub/image_info.S
->> @@ -0,0 +1,12 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +
->> +#define REL_REF(sym)	.long	sym - 0b
->
-> The code could consistently use the offset_to_ptr() macro if the label was
-> included in the macro?
-> 
->   #define REL_REF(sym)	0: .long	sym - 0b
->
-> It would make the efistub_kernel_ptr() simpler, and the three size
-> calculations would look like:
->
-> 	return efistub_kernel_ptr(image_info, __inittext_end) - 
-> 	       efistub_kernel_ptr(image_info, _text);
->
+> Have you been able to trace that further at the SBI level?
 
-Again, probably cleaner to just refer to the copy of the struct once
-it exists.
+No. The kernel here does remote fences through SBI, so I can't remove
+M-mode from the path on the K1.
 
->> +
->> +	.globl		__efistub_efistub_image_info
->> +	.p2align	3
->> +__efistub_efistub_image_info:
->> +0:	REL_REF(_text)
->> +	REL_REF(__inittext_end)
->> +	REL_REF(_edata)
->> +	REL_REF(_end)
->> +	REL_REF(efi_primary_entry)
->
-> Can you put a
->
-> +	.section	".init.rodata", "a"
->
-> Here?
->
+> The remote TLB shootdown causes an M-mode IPI on the hart where the
+> vector load instruction is running, but on that hart it doesn't run
+> concurrently with the vector load instruction.
 
-Ack
+Agreed for the IPI. But the PTE is cleared in memory before the IPI is
+sent. If the later beats of the load are translated again (e.g. a
+micro-TLB miss inside the instruction) and the walk sees the cleared
+PTE, the load should fault with vstart > 0; dropping the fault and
+retiring would match your trace (no fault on the bad load, a fault on
+the next iteration on the same page). Only zapping the page being read
+triggers it here; zapping all the other pages of the mapping doesn't.
 
-> The DRTM patch points this to various things in .init. sections and
-> modpost will complain. I think nothing outside the efi stub should
-> touch this stuct and it should be freed as init data right?
->
+I tried to test this by timing an immediate retry of a bad load (a page
+fault makes it slow), but the probe itself suppresses the problem: on
+v7.4-rc1 + THP, adding two rdtime, or one extra vle8.v, after each batch
+of 4096 loads takes the rate from 25/240 process runs to 0/360. rdtime
+is native here (~8 ns), so no M-mode trap. Moving a vector store in the
+same place gives 3/120. The bad state seems to depend on the exact
+instruction stream, which also points below the kernel.
 
-Yes.
+> I even have the *feeling* that once the problem happened, it then
+> happens more often.
 
->> [ ... 18 lines skipped ... ]
->> @@ -93,9 +100,15 @@ efi_zboot_entry(efi_handle_t handle, efi_system_table_t *systab)
->>  	}
->>  
->>  	// Decompress the payload into the newly allocated buffer
->> -	status = efi_zboot_decompress((void *)image_base, alloc_size) ?:
->> -	         efi_stub_common(handle, image, image_base, cmdline_ptr);
->> +	status = efi_zboot_decompress((void *)image_base, alloc_size);
->> +	if (status != EFI_SUCCESS)
->> +		goto error;
->>  
->> +	auto image_info = zboot_get_image_info(image_base);
->
-> auto is allowed in the kernel now?
->
+Same here: a process either never hits, or enters a state where one
+page keeps hitting (up to ~100/s per thread) while the zapping goes on.
+It stops when the zapping pauses and resumes with it. Fresh exec'd
+processes enter it ~10x more often than forked ones, mostly in their
+first seconds. I haven't compared reboots.
 
-Yes.
+> Did you chose to pin the two process on a different clusters as it
+> doesn't reproduce at all when on the same cluster?
+
+No, each process keeps its 4 threads on one cluster; the second process
+is only there for throughput. Zappers on the other cluster: 6/80 runs,
+vs 7/80 with everything on one cluster ("k" mode, 20 s runs). So the
+cluster doesn't matter.
+
+Frederic
+
+(Claude, an AI assistant, helped write and run these tests.)
+
+---8<--- k1-vload-repro.c ---
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * k1-vload-repro: RVV unit-stride loads that retire without writing all
+ * their elements (seen on SpacemiT K1), while another hart zaps the PTE
+ * of the page being read.
+ *
+ * Each round runs two fresh processes at once (fork + exec of this
+ * binary), one per 4-CPU cluster. In each process, 2 pinned workers load
+ * 32*LMUL bytes (vle8.v, e8) from a 16-page shared memfd mapping into a
+ * v16 group that they first fill with 0xa5, and compare with the
+ * expected bytes in vector registers. 2 other pinned threads call
+ * madvise(MADV_DONTNEED) on the mapping in a loop (the page cache keeps
+ * the data, so every refault returns the same bytes).
+ *
+ * A hit is a load whose tail still holds the 0xa5 fill: the instruction
+ * retired without writing its last elements, and no trap was taken.
+ * A process either never hits or enters a state where it hits often,
+ * usually within its first seconds, hence many short runs.
+ *
+ * Build: gcc -O2 -march=rv64gcv -pthread -o k1-vload-repro k1-vload-repro.c
+ * Run:   ./k1-vload-repro [rounds [seconds [lmul|k]]]   (default 60 5 8)
+ *        "k": the workers write() 4 KiB from the mapping into a pipe and
+ *        read it back instead, i.e. the kernel's vector copy_from_user
+ *        does the loads (a bad copy holds stale register contents).
+ *        On a BPI-F3: ~1-15 % of process runs hit with m8 (more on
+ *        v7.4-rc1 with THP than on 6.18), ~10 % with "k" and 20 s runs.
+ */
+#define _GNU_SOURCE
+#include <pthread.h>
+#include <sched.h>
+#include <stdatomic.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/mman.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+#define PG	4096
+#define NPAGES	16
+#define LEN	(NPAGES * PG)
+#define FILL	0xa5
+
+static uint8_t *src, ref[LEN];
+static _Atomic int stop;
+static _Atomic unsigned long hits;
+static int base_cpu, lmul = 8;
+
+static void pin(int cpu)
+{
+	cpu_set_t s;
+
+	CPU_ZERO(&s);
+	CPU_SET(cpu % 8, &s);
+	sched_setaffinity(0, sizeof(s), &s);
+}
+
+/*
+ * 'iters' loads of 32 * LMUL bytes from s, each into a v16 group filled
+ * with FILL first; returns the failing iteration (v16 stored to out) or -1.
+ */
+#define VCHECK(NAME, LMUL)						\
+static long NAME(const uint8_t *s, const uint8_t *r, long iters, uint8_t *out) \
+{									\
+	long left = iters, bad;						\
+	size_t vl;							\
+									\
+	asm volatile("vsetvli %[vl], %[n], e8, " LMUL ", ta, ma\n\t"	\
+		     "vle8.v v8, (%[r])\n\t"				\
+		     "1:\n\t"						\
+		     "vmv.v.x v16, %[fill]\n\t"				\
+		     "vle8.v v16, (%[s])\n\t"				\
+		     "vmsne.vv v0, v16, v8\n\t"				\
+		     "vcpop.m %[bad], v0\n\t"				\
+		     "bnez %[bad], 2f\n\t"				\
+		     "addi %[left], %[left], -1\n\t"			\
+		     "bnez %[left], 1b\n\t"				\
+		     "j 3f\n"						\
+		     "2:\n\t"						\
+		     "vse8.v v16, (%[out])\n"				\
+		     "3:\n"						\
+		     : [vl] "=&r"(vl), [left] "+r"(left), [bad] "=&r"(bad) \
+		     : [n] "r"((size_t)256), [s] "r"(s), [r] "r"(r),	\
+		       [out] "r"(out), [fill] "r"((long)FILL)		\
+		     : "memory", "v0", "v8", "v9", "v10", "v11", "v12", "v13", \
+		       "v14", "v15", "v16", "v17", "v18", "v19", "v20", "v21", \
+		       "v22", "v23");					\
+	return bad ? iters - left : -1;					\
+}
+VCHECK(vcheck_m1, "m1")
+VCHECK(vcheck_m2, "m2")
+VCHECK(vcheck_m4, "m4")
+VCHECK(vcheck_m8, "m8")
+
+static long vcheck(const uint8_t *s, const uint8_t *r, long iters, uint8_t *out)
+{
+	switch (lmul) {
+	case 1: return vcheck_m1(s, r, iters, out);
+	case 2: return vcheck_m2(s, r, iters, out);
+	case 4: return vcheck_m4(s, r, iters, out);
+	default: return vcheck_m8(s, r, iters, out);
+	}
+}
+
+static void *worker(void *arg)
+{
+	int w = (int)(long)arg, nb = 32 * lmul;
+	unsigned int seed = 12345 + w;
+	uint8_t out[256];
+
+	pin(base_cpu + w);
+	while (!stop) {
+		/* 256 B inside one page, 16 B aligned */
+		size_t o = (size_t)(rand_r(&seed) % (NPAGES - 1)) * PG +
+			   ((size_t)(rand_r(&seed) % (PG - 256 + 16)) & ~(size_t)15);
+
+		if (vcheck(src + o, ref + o, 4096, out) < 0)
+			continue;
+		int first = -1, nfill = 0, nother = 0;
+
+		for (int i = 0; i < nb; i++) {
+			if (out[i] == ref[o + i])
+				continue;
+			if (first < 0)
+				first = i;
+			if (out[i] == FILL)
+				nfill++;
+			else
+				nother++;
+		}
+		if (atomic_fetch_add(&hits, 1) < 5)
+			printf("  HIT cpu %d va %p: elements %d..%d not loaded "
+			       "(%d bytes still 0x%02x, %d other)\n",
+			       sched_getcpu(), (void *)(src + o), first, nb - 1,
+			       nfill, FILL, nother);
+	}
+	return NULL;
+}
+
+/*
+ * Kernel mode: write() 4 KiB from the mapping into a pipe and read it back.
+ * The kernel's copy_from_user uses vector loads above 768 bytes. A bad
+ * copy holds whatever was in the vector registers instead of the data:
+ * 0xff if the thread had live vector state (poisoned at syscall entry by
+ * __riscv_v_vstate_discard()), otherwise stale data from an earlier copy.
+ */
+static uint8_t kfill = 0xff;
+
+static void *kworker(void *arg)
+{
+	int w = (int)(long)arg, p[2];
+	unsigned int seed = 12345 + w;
+	static __thread uint8_t buf[4096];
+
+	pin(base_cpu + w);
+	if (pipe(p))
+		return NULL;
+	while (!stop) {
+		size_t o = (size_t)(rand_r(&seed) % ((NPAGES - 1) * PG)) & ~(size_t)15;
+
+		if (write(p[1], src + o, 4096) != 4096 || read(p[0], buf, 4096) != 4096)
+			break;
+		if (!memcmp(buf, ref + o, 4096))
+			continue;
+		int first = -1, last = 0, nff = 0;
+
+		for (int i = 0; i < 4096; i++)
+			if (buf[i] != ref[o + i]) {
+				if (first < 0)
+					first = i;
+				last = i;
+				nff += buf[i] == kfill;
+			}
+		if (atomic_fetch_add(&hits, 1) < 5)
+			printf("  HIT cpu %d va %p: write() copied wrong bytes %d..%d "
+			       "(%d of them 0x%02x, the rest stale data)\n",
+			       sched_getcpu(), (void *)(src + o), first, last, nff,
+			       kfill);
+	}
+	return NULL;
+}
+
+static void *zapper(void *arg)
+{
+	pin(base_cpu + 2 + (int)(long)arg);
+	while (!stop)
+		madvise(src, LEN, MADV_DONTNEED);
+	return NULL;
+}
+
+static int child(int secs)
+{
+	int fd = memfd_create("k1-vload", 0);
+
+	if (fd < 0 || write(fd, ref, LEN) != LEN) {
+		perror("memfd");
+		return 2;
+	}
+	src = mmap(NULL, LEN, PROT_READ, MAP_SHARED, fd, 0);
+	if (src == MAP_FAILED) {
+		perror("mmap");
+		return 2;
+	}
+	pthread_t t[4];
+
+	for (long i = 0; i < 2; i++)
+		pthread_create(&t[i], NULL, lmul ? worker : kworker, (void *)i);
+	for (long i = 0; i < 2; i++)
+		pthread_create(&t[2 + i], NULL, zapper, (void *)i);
+	sleep(secs);
+	stop = 1;
+	for (int i = 0; i < 4; i++)
+		pthread_join(t[i], NULL);
+	return hits ? 1 : 0;
+}
+
+int main(int argc, char **argv)
+{
+	setvbuf(stdout, NULL, _IOLBF, 0);
+	for (int i = 0; i < LEN; i++)
+		ref[i] = (uint8_t)(((i * 2654435761u) >> 13) ^ i);
+	/* child: k1-vload-repro --child CPU SECONDS LMUL */
+	if (argc == 5 && !strcmp(argv[1], "--child")) {
+		base_cpu = atoi(argv[2]);
+		lmul = argv[4][0] == 'k' ? 0 : atoi(argv[4]);
+		return child(atoi(argv[3]));
+	}
+
+	int rounds = argc > 1 ? atoi(argv[1]) : 60;
+	int secs = argc > 2 ? atoi(argv[2]) : 5;
+	const char *lm = argc > 3 ? argv[3] : "8";
+	int bad_runs = 0;
+
+	printf("%d rounds of %d s, %s%s\n", rounds, secs,
+	       lm[0] == 'k' ? "kernel copy_from_user" : "LMUL=", lm[0] == 'k' ? "" : lm);
+	for (int r = 0; r < rounds; r++) {
+		pid_t p[2];
+
+		/*
+		 * A fresh exec'd process per run: forked children (sharing the
+		 * parent's layout) hit about 10x less often.
+		 */
+		for (int c = 0; c < 2; c++) {
+			char cb[8], sb[16];
+
+			snprintf(cb, sizeof(cb), "%d", c * 4);
+			snprintf(sb, sizeof(sb), "%d", secs);
+			p[c] = fork();
+			if (p[c] == 0) {
+				execl("/proc/self/exe", argv[0], "--child", cb, sb, lm,
+				      (char *)NULL);
+				_exit(2);
+			}
+		}
+		for (int c = 0; c < 2; c++) {
+			int st;
+
+			waitpid(p[c], &st, 0);
+			int bad = WIFEXITED(st) && WEXITSTATUS(st) == 1;
+
+			bad_runs += bad;
+			if (bad)
+				printf("round %d, cpus %d-%d: CORRUPTED LOADS\n",
+				       r + 1, c * 4, c * 4 + 3);
+		}
+	}
+	printf("%d of %d process runs had corrupted vector loads\n",
+	       bad_runs, 2 * rounds);
+	return bad_runs ? 1 : 0;
+}
 
 _______________________________________________
 linux-riscv mailing list
