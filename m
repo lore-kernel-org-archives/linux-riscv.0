@@ -2,112 +2,99 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A4B9606A880
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 13:09:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36C03606A33E
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 13:14:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gslgz5Z9;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=w6rz.net header.i=@w6rz.net header.a=rsa-sha256 header.s=default header.b=YIxnZC8p
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Tz/V5olV;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HmnvZQ5M
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=9eC1IxJMkKBg3QfWcQNMcQmwAYqg4b8GGkqzcZuh1E8=; b=gslgz5Z966go7hyEAhZ7W7IIid
-	HyWobNOh3Kt1oHfhcOAI1/3Pl+ZekGnw39sNFXvyvre0Cm5ZgjhnnkDXuirNAQCyYsMsk2p5lzEo5
-	VO7cxKyWzHB0+ypYT6rF17/othTRjsgL09qwrkmyGi1qg8Gs619PyKv9Y28xcdJ4wXkdF9ioM4ro+
-	VB/VWMYDoAG5B+xPkB3R1xaEvOzPZbFZV2EPwgiV7hGlZ44F39TVc9tLniF4cTkTi3XPKpJLnYxTp
-	XtrEJyObtyxvHzFQ+0/JWkJDmbGcRljho9Zvvi8hqFeVUedxoKqsczWBH1vAcH0P68PqI6IlEphfo
-	YNYhHF6w==;
+	bh=5YTw3xyxlVuI2ERx6Lr7dgDbxakBej9xx7p3NfBiVNs=; b=Tz/V5olVPd873ABEFaPmzTvSlI
+	D1JHMP7yaHtIJ9pNTezSlsanQoBgDL0lJG/w9bjtPn4sfDUhL58lT/m2VqNE2fzhpy7RK5eZ5aVbf
+	wmbB7RbqhztIijx/QsmZKvIe42dzkKZ+jNb86Omod+qqvSDVNZFB4xlrK5XZkgLaC9Fw5ZUMW/qS/
+	BZcnxeryuMviasyvHSuGpxbQM1JjVsY0idGDUb5ZHMWd1Z8018Uqk81X/cr6m1GENP+HmIgMy5lUe
+	N/7LoR5q96QRXHQ8z2pey4MI7yBnjuCTcDe8524CwOCQMOytLtUUo0B/eqOFp+Q0T+JXno8kBeOqP
+	08eqmf4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRr1u-0000000CqAF-2K3z;
-	Fri, 13 Nov 2026 13:09:22 +0000
-Received: from omta40.uswest2.a.cloudfilter.net ([35.89.44.39])
+	id 1xRr6J-0000000Cr2R-2WBa;
+	Fri, 13 Nov 2026 13:13:55 +0000
+Received: from mail-dy1-x1334.google.com ([2607:f8b0:4864:20::1334])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRr1o-0000000Cq8b-3Jqt
+	id 1xRr6E-0000000Cr0i-0j5Q
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Nov 2026 13:09:20 +0000
-Received: from eig-obgw-5006b.ext.cloudfilter.net ([10.0.29.217])
-	by cmsmtp with ESMTPS
-	id RdnSxWRCdyb4YRr1nxX4RQ; Fri, 13 Nov 2026 13:09:15 +0000
-Received: from box5620.bluehost.com ([162.241.219.59])
-	by cmsmtp with ESMTPS
-	id Rr1mxATZcSeuLRr1mxEbc1; Fri, 13 Nov 2026 13:09:15 +0000
-X-Authority-Analysis: v=2.4 cv=NYvm13D4 c=1 sm=1 tr=0 ts=6af70bfb
- a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=7vwVE5O1G3EA:10 a=VwQbUJbxAAAA:8
- a=JfrnYn6hAAAA:8 a=SRrdq9N9AAAA:8 a=20KFwNOVAAAA:8 a=HaFmDPmJAAAA:8
- a=FU8A8_eJsoxy1Wi2mmAA:9 a=QEXdDO2ut3YA:10 a=1CNFftbPRP8L7MoqJWF3:22
- a=nmWuMzfKamIsx3l42hEX:22 a=L5EjiQpGQaFGZdqT14z7:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=tSkb2PWbNxaCrUril715HAPYdAX5Cw4kojWt6qrT5aM=; b=YIxnZC8pDNq20OVPYmgUw2Tqy2
-	lLZy3k0/ooflpBT2nuJUS4ibYuAJ9r0Krpn2uKSstJbkXuoWOZE1WyPS2be/ba6icdWQV7bN4UeZp
-	xjI7nI42PX/0sh/UrzKpntVwCIanrHVc17r3zlCP0nWn9VY4IjFn0iVQxhnStqtcQPgBqq4FwOMOL
-	3WvHzCPSsrQSw4EKW4nuUeX2VUgDE4t5vOehJ5K0xTxLZb1EPOawhy5UUdod8tr47idXKirn6EtjF
-	0WeXjDyv2+iU92eGsVEZpehhIpWuIiOr3FHlp35PnmRK3i5taHJ8Di5xMPk0p9y8LXRpXPnx90x/X
-	ipjJ1zjA==;
-Received: from c-73-162-206-103.hsd1.ca.comcast.net ([73.162.206.103]:46158 helo=[10.0.1.180])
-	by box5620.bluehost.com with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
-	(Exim 4.100.1)
-	(envelope-from <re@w6rz.net>)
-	id 1xRr1i-00000004CiO-2UVW;
-	Fri, 13 Nov 2026 06:09:10 -0700
-Message-ID: <972e8d28-62cf-4f47-9524-5641a9ebfff3@w6rz.net>
-Date: Fri, 13 Nov 2026 05:09:09 -0800
+	Fri, 13 Nov 2026 13:13:54 +0000
+Received: by mail-dy1-x1334.google.com with SMTP id 5a478bee46e88-3704d30b84fso1233043eec.1
+        for <linux-riscv@lists.infradead.org>; Fri, 13 Nov 2026 05:13:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794575629; x=1795180429; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=fQV6O29CWbHJCWsUDVgERrsRMlGpm6PoDt5lhgxHvyo=;
+        b=HmnvZQ5MU0k/kqJ9KkfIrEwyI6vvHuLefjKnlncfhIkKJS2iv2vQ/SUbaleO3p6oIZ
+         +bmAHeO8sfhcDfKDN0YFCgqbVne4nkLrXzeBaeUs16xrcX9SnXb0+OcFKtC4jcQaeusb
+         esl9LTFGIL8ANE3RyCJMbhMmDXMKSfezmFQR46xfOf3ETH3hTN51lldvgJQ4wJqoDWna
+         8oo7WRP/s1OZfUVnZuJkto6YCtpNCLZ1UrM5yXQyFdwzD2Aq4lr37cqL9AnqWtkohKY3
+         PPi1nlsLHNlHySjZbLlYL5IY1nnzKtFlcIpl4nLUOFoN6WG9QIWDDcATxsPDNTWqJjVD
+         3AYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794575629; x=1795180429;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fQV6O29CWbHJCWsUDVgERrsRMlGpm6PoDt5lhgxHvyo=;
+        b=SAVQaX34zWNKFFsqQL7Bd1/NOoxsnAM3oWGy66jjNhggKToXU7KLOKcYM3NBv2sXH5
+         AQm5FkJ6mO29yPHqy7MPFLccz/o7r8+JRH4spgW4nnOE/DuFuXlPxy2F7Pcv3vYvI+Bb
+         X5QJ9aywPZUU8Ywtum4wlIG6wwDq2ffBNdz+9Dow/iKTJGBveWqv8Wa5EEqGhaNOy6v5
+         fSmT2H0LuU35TTaXWa0sUzf0yj6+F94A3N2sqSvxPUTvoXQJWCRMTXqYS3I+pnv0U/O6
+         HBDT+Pq+hfy+VXhxAwGzw6HAoeFlNLfgb9CjigZG9E9WibOclOwPMNMFzfJbmk6HSZkl
+         6N/g==
+X-Forwarded-Encrypted: i=1; AL+hErGtkuUiUR1hsrCm40v5QwojKWvV29fneHfaQxVQYK1Ix8k6zfcBdUsJy9vuLAJ8Q4jbLGk/GHXKZrcung==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8l7oD1eTl4rD2lJKlJBLlvgfnf5pZAuPDHb1npPmbx5NcBYShL
+	UD5nX0ykyn0tzpIgHgNqZwn7eDmE7VyUCdNOJskLHbhf8niQaCVvirYS
+X-Gm-Gg: AYBFou1K/dZIYoENQka/geqch59JNNit59Cfu6Jj0N6eX90njrC9Txttq+J228jbM2K
+	js+ohLP66G+aw2MtlREbdXXvUrod1cmzsyLUa2ppCjSl8fF3uG6KMgudjp7MjhkkH1VQTQm/Ii/
+	tpAkkBb7sc3QRLXdK6mSYEpIvaRNkkr9bFd8Ephbu1NrqHufg2n2BJa/ImHHHGRNYuZ326o12eA
+	4ed7sFnf3ZBHmTs2Bc4AxqU0uLMj3V1RgyMEkEd8DQF7MvY1zEezY7iQvVGRr16EaFN3Y2r31Z5
+	Hpg9/6D4omi+l9V0KgOQ43wMueUhXELfRw+SAsv8oDcFWDIWhIpFWYmjAW31eCW4dhnd9XfWeRQ
+	88XEVgm8evFkEhPzzh4srPcOmpJ0K+vw9dkS2okq8TW/O6h40O0LLtwjsaD4crh29WsjS5Uysg3
+	Ke2ewZ2ttgWiDOGF0OdpLWYg3cZmhHDwzufJ/9/VqvGEKZ1nuHsYVj4vsJvvZWBLRQrGDX9hKmh
+	MjNewr7fkgrYp/O9aWOHJz48F0kv1BcnYJA03laKq81oNe+hmFCsdy3OXC1tK2mW8RtoPDM0ref
+	aXUwq3Mi0+neuwIPzQ5p7ytSkqKsYQ==
+X-Received: by 2002:a05:7300:de01:b0:369:daea:812a with SMTP id 5a478bee46e88-379682c2053mr1777573eec.30.1794575628817;
+        Fri, 13 Nov 2026 05:13:48 -0800 (PST)
+Received: from duge-G3-3500 ([183.192.220.187])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-37956bb0919sm7834718eec.29.2026.11.13.05.13.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Nov 2026 05:13:48 -0800 (PST)
+Date: Fri, 13 Nov 2026 21:13:38 +0800
+From: Jiayu Du <duge1256@gmail.com>
+To: Yao Zi <me@ziyao.cc>
+Cc: srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, dlan@kernel.org, troy.mitchell@linux.spacemit.com, 
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	p.zabel@pengutronix.de, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] nvmem: Add read-only SpacemiT K3 eFuse support
+Message-ID: <zya3wt4zziflg25y6grnvfcbfa6mnetn4o5c2khj2cii2wh7s6@ymjmxqyn37ks>
+References: <20261106060525.346873-1-duge1256@gmail.com>
+ <20261106060525.346873-3-duge1256@gmail.com>
+ <au6niF5xiqj7cqJ4@pie>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] sched: move stack_canary to the start of the
- randomizable region
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Valentin Schneider <vschneid@redhat.com>,
- Ruidong Tian <tianruidong@linux.alibaba.com>, mingo@redhat.com,
- juri.lelli@redhat.com, vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
- rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
- kprateek.nayak@amd.com, linux-kernel@vger.kernel.org,
- oliver.yang@linux.alibaba.com, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
- linux-riscv@lists.infradead.org
-References: <20260509035014.2220372-1-tianruidong@linux.alibaba.com>
- <20261106160730.GJ1779021@noisy.programming.kicks-ass.net>
- <xhsmhy0b2ntmh.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
- <34f2ff11-8156-4c32-91dc-e4576807cf3b@w6rz.net>
- <20261112153427.GV1779021@noisy.programming.kicks-ass.net>
-Content-Language: en-US
-From: Ron Economos <re@w6rz.net>
-In-Reply-To: <20261112153427.GV1779021@noisy.programming.kicks-ass.net>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - box5620.bluehost.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - w6rz.net
-X-BWhitelist: no
-X-Source-IP: 73.162.206.103
-X-Source-L: No
-X-Exim-ID: 1xRr1i-00000004CiO-2UVW
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: c-73-162-206-103.hsd1.ca.comcast.net ([10.0.1.180]) [73.162.206.103]:46158
-X-Source-Auth: re@w6rz.net
-X-Email-Count: 1
-X-Org: HG=bhshared;ORG=bluehost;
-X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfFX04G/Ji9Y1rU0nzUibTvNIIRkR6ZC6iC6+C9014soZ5jYObkzb9WujVwpwTwHLmGq2yMgGBfVHPQVBIlCI94A8YGpgQFWOfvyo5roPNZcU+2sFLSkq
- rgNhOeeaE2Xc2k/c+dDCKRaHWMnaeoJVUWW/sdCyPRnnMMZn7EdOQNjBwFv4u9f5VxCKgIf/aHx30iNjLOu3h6Dgc6lzUsUM6fI=
+Content-Disposition: inline
+In-Reply-To: <au6niF5xiqj7cqJ4@pie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261113_050916_884341_D6EADE78 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.8 (/)
+X-CRM114-CacheID: sfid-20261113_051350_217198_3CD07C9E 
+X-CRM114-Status: GOOD (  33.11  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,68 +104,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/12/26 07:34, Peter Zijlstra wrote:
-> On Thu, Nov 12, 2026 at 05:33:16AM -0800, Ron Economos wrote:
->
->>> ---
->>> From: Peter Zijlstra <peterz@infradead.org>
->>> Date: Fri, 6 Nov 2026 17:07:30 +0100
->>> Subject: [PATCH] riscv, sched: move stack_canary to thread_info
->>>
->>> task_struct keeps growing over time. On architectures that compute the
->>> per-task stack canary offset from asm-offsets.h and pass it to the
->>> compiler via -mstack-protector-guard-offset=, this growth eventually
->>> pushes stack_canary beyond what the target ISA can encode.
->>>
->>> On RISC-V, canary loads are emitted as
->>>
->>>       ld	t0, TSK_STACK_CANARY(tp)
->>>
->>> where TSK_STACK_CANARY must fit into a 12-bit signed immediate, i.e.
->>> [-2048, 2047].  Once stack_canary sits past byte 2047 of task_struct,
->>> the build fails with
->>>
->>>       cc1: error: '<N>' is not a valid offset in
->>> 	'-mstack-protector-guard-offset='
->>>
->>> On RISC-V, CONFIG_STACKPROTECTOR_PER_TASK depends on !RANDSTRUCT, thus
->>> stack_canary does not benefit from being in the task_struct randomized
->>> region.
->>>
->>> Move the RISC-V stack_canary to thread_info, and introduce an access macro
->>> to point to the right stack_canary location. Other archs are unaffected.
->>>
->>> Not-signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
-> Signed-off-by: Peter Zijlstra <peterz@infradead.org>
->
->>> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
->>> ---
->> I'm seeing this build failure on RISC-V with gcc 16 and
->> CONFIG_SCHED_CLASS_EXT=y. The build does not fail with gcc 14. I've tested
->> the proposed patch with gcc 16 and it builds and boots (on real hardware)
->> just fine. So for what it's worth:
->>
->> Tested-by: Ron Economos <re@w6rz.net>
->>
->> Also re-adding the RISC-V folks.
-> Hmm, they went walk-about? Do they need a re-sent? I'm thinking this out
-> to perhaps go through their tree, given they're actually seeing the
-> problem.
+On Sat, Nov 07, 2026 at 04:22:32AM +0000, Yao Zi wrote:
+> On Fri, Nov 06, 2026 at 02:05:24PM +0800, Jiayu Du wrote:
+> > Add read-only NVMEM access to bank 0 and bank 7 of the SpacemiT K3 eFuse
+> > controller. These banks contain temperature calibration parameters and
+> > other configuration data.
+> > 
+> > Snapshot the shadow registers with aligned 32-bit reads and expose the
+> > data in little-endian order at controller-relative offsets. Serve reads
+> > from the snapshot and use keepouts for the remaining register ranges.
+> > Keep the AES_WTM clock enabled and its shared reset deasserted while the
+> > provider is registered.
+> > 
+> > Signed-off-by: Jiayu Du <duge1256@gmail.com>
+> > ---
+> >  MAINTAINERS                       |   1 +
+> >  drivers/nvmem/Kconfig             |  14 +++
+> >  drivers/nvmem/Makefile            |   1 +
+> >  drivers/nvmem/spacemit-k3-efuse.c | 151 ++++++++++++++++++++++++++++++
+> >  4 files changed, 167 insertions(+)
+> >  create mode 100644 drivers/nvmem/spacemit-k3-efuse.c
+> 
+> ...
+> 
+> > diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
+> > index d2f5bb236663..28d6c59fbd74 100644
+> > --- a/drivers/nvmem/Kconfig
+> > +++ b/drivers/nvmem/Kconfig
+> > @@ -476,6 +476,20 @@ config NVMEM_SNVS_LPGPR
+> >  	  This driver can also be built as a module. If so, the module
+> >  	  will be called nvmem-snvs-lpgpr.
+> >  
+> > +config NVMEM_SPACEMIT_K3_EFUSE
+> > +	tristate "SpacemiT K3 eFuse support"
+> > +	depends on ARCH_SPACEMIT || COMPILE_TEST
+> > +	depends on OF && HAS_IOMEM
+> > +	depends on COMMON_CLK && RESET_CONTROLLER
+> > +	help
+> > +	  Say Y here to read configuration and calibration data from the
+> > +	  SpacemiT K3 eFuse shadow banks. The boot firmware must have loaded
+> > +	  the shadow registers before Linux starts. Programming and reloading
+> > +	  the fuses are not supported.
+> 
+> I didn't read K3's TRM, but is there a reason to depend on the
+> bootloader to do so? We should depend on the state set up by bootloaders
+> as less as possible, I think.
 
-Yes, a re-send with the new subject line would be good. That way, the patch at least gets queued in the RISC-V patchwork.
+The Kconfig wording was incorrect: GEU loads the shadow registers in
+hardware when it leaves reset. I will remove that requirement from the
+help text. For the READY check requested by Troy, I will also trigger a
+software reload in probe, since READY is only set after a software reload.
 
-https://patchwork.kernel.org/project/linux-riscv/list/
 
+> > +	  This driver can also be built as a module. If so, the module will
+> > +	  be called spacemit-k3-efuse.
+> > +
+> 
+> ...
+> 
+> > diff --git a/drivers/nvmem/spacemit-k3-efuse.c b/drivers/nvmem/spacemit-k3-efuse.c
+> > new file mode 100644
+> > index 000000000000..d106053beae8
+> > --- /dev/null
+> > +++ b/drivers/nvmem/spacemit-k3-efuse.c
+> 
+> ...
+> 
+> > +static int k3_efuse_probe(struct platform_device *pdev)
+> > +{
+> 
+> ...
+> 
+> > +	for (bank = 0; bank < ARRAY_SIZE(k3_efuse_bank_offsets); bank++) {
+> > +		for (i = 0; i < K3_EFUSE_BANK_SIZE; i += sizeof(u32)) {
+> > +			u32 val = readl(base + k3_efuse_bank_offsets[bank] + i);
+> > +
+> > +			put_unaligned_le32(val, efuse->data[bank] + i);
+> 
+> Does memcpy_fromio() works for the device? Otherwise, you could define
+> efuse->data as an array of u32 instead of u8, so it keeps aligned and
+> you could do a simple assignment here. Reading from efuse->data is
+> always ok since memcpy() is used.
+
+I will use your aligned-array alternative to preserve 32-bit MMIO reads.
+The cache will be an __le32 array filled with cpu_to_le32(readl(...));
+the read callback will keep using memcpy() with byte offsets.
+
+Best regards,
+Jiayu Du
+
+> 
+> > +		}
+> > +	}
+> 
+> Regards,
+> Yao Zi
 
 _______________________________________________
 linux-riscv mailing list
