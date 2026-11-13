@@ -2,98 +2,109 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F058606A327
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 16:58:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71CCD606A88C
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 17:13:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PpmtbGFa;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=tenstorrent.com header.i=@tenstorrent.com header.a=rsa-sha256 header.s=google header.b=J0ckW4To
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2i9fBJXi;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=osyx-tech.20260707.gappssmtp.com header.i=@osyx-tech.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=gfjbPL0q
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bkn8f3uS3apVHQ95BzdeFmugIWa7lvo21rf/7iN+j6U=; b=PpmtbGFaf5zqXNCCgBciW5yjtr
-	UWXS4+loYjMeF5M2ljehNOogiEXS5DgohBI01O1dDIsgkoLhOUBmXofni1LE5C88iu7VKOgSjbsa4
-	CPkRyuXuvQR4pVHA/+xViwMBre6wUAbvY4UhsiRlVqO7gsSzN1dV/8JI0zrONWESOZ3JhG5R/D06+
-	zMZYlgsJ4vngsp3o+PD4DL52ZQxUn1QspZKiQTA8mj4ZaH2g5bmYu4HhSb8njmrv9fKpdU8SRAZt5
-	VMBoJBzzOV+hmGvLhhOPFduSKxU8b9cyH4SNC5QjhKs8b/yn0aflqVAFBAoSA3yyQMcYbjUV23L4q
-	zejaEQ0Q==;
+	bh=W9wQ9dDTGlcd+lnWkqGWx7LNc/pYEfG57WCOWXRShYE=; b=2i9fBJXiNGSsYw34Q8WY3VF9mR
+	f/MTXpi34N3kLJDWs+XSdQ5MWvUKecu90veFeZV6wMciUcfEXzkaxK/1Ze5gb/Jmg0qSg8cK3Q5f3
+	nlByTZEhMo59O1Q29SzsRBeAMywyyPLROiaWjkTunA3O21pLchlvKtnUVbzfCxaTjYNj6ePnxKyAR
+	1UEXKB24WadjGVImTFS87Cug6ep6MMfLioB3/fsVmIHx58Zn+MhM2chBOJszvYiKhQ4gXmsRn+3+E
+	IZMvExCBv5E9e4HS6Ft158n2+S58b7a1W5ujggUfefdlnYiaI+359WpFG1hPYfaAW0ejhQyVU4sxk
+	gTmBxATQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRubV-0000000DgDo-18pB;
-	Fri, 13 Nov 2026 16:58:21 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1xRupn-0000000DhUJ-0T9h;
+	Fri, 13 Nov 2026 17:13:07 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRubS-0000000DgDE-3xuj
+	id 1xRupi-0000000DhRq-0UWB
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Nov 2026 16:58:20 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-8b336de3d38so9270167b3.2
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Nov 2026 08:58:18 -0800 (PST)
+	Fri, 13 Nov 2026 17:13:05 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4bb5f49a61bso1403725e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 13 Nov 2026 09:13:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1794589097; x=1795193897; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=YBmE8Vf3e5sMIeBmzI8V6l5q3TEI2ajfxFS8vljHizw=;
-        b=J0ckW4ToiHJBCJRp1grG/ii/KrtgELo/QrJv65ABsn7gBcpvm78K86q4yiAObXer0j
-         kXEaQUAtPHOF94M0/+JsjsFo38VYWBCySCcfCcWaLhuragYZCoF3rgRdjZBJ4Ann2GQH
-         QUxhAnsuF2z3St2HJGOroRRXaxyi1PUiz2AlKNgUR+6Ls1Q3dCi6Vwfvy8SXmdHwcKjg
-         YHF2esgyeanxMCKJTaFO2BhD38R8ib54tVjUMoxULpEHj6/iBcVzTOifC8+FpS4fZfFv
-         bxIJs4rtcJLs0tbGixojsVw2QawgCy9HuqFXC/6wiCowUzEaHZ3GtNLQ+O2inWmDiSqt
-         fKJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794589097; x=1795193897;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=osyx-tech.20260707.gappssmtp.com; s=20260707; t=1794589980; x=1795194780; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=YBmE8Vf3e5sMIeBmzI8V6l5q3TEI2ajfxFS8vljHizw=;
-        b=n7d/yLMZ+rjA6KRwi5NsG/Mxz+GLVflKv9GvYfmLQ128IpFdhVXjFOoepXF2fE1RMZ
-         k/BtBMY3dFyUmFd0x2Lxg6UM7PzA+ZjdFysIfMXjYp/dIfvvR0wvzpyiWTDk4mzSBAyX
-         T9iVwiGhJ9ryHjjCuu1+7TztrMQBi0kmJf9f5D/eYUlKgyV8BexZwd4Emma7WZ7mEvRw
-         RozggVe+NsaQOz4d/B1muAFmIEJfHBwII5s5yx8cswX0kem/x2g3XIMgA0Ei8g2iHJVS
-         b7oOgtCG02pHIxZKb8CyOu9HKA7yD/wQoh3T1WYrc+qnBMjcRiaRI//ZGVEsaVKTHR/f
-         GjWw==
-X-Forwarded-Encrypted: i=1; AL+hErHdDNjjvjRrF/yP+9+b5LjMRVVq3jVjEQOfiO8en+53VK7U0XiWKdRXGuTDT64gB/Pwxp1ipLjSHd6uDg==@lists.infradead.org
-X-Gm-Message-State: APuU4Z/I5py0a2OPeH/h2kGaCU3lVfdpprGT6Wtd+DHZwnunxZIhbZdL
-	Z/MYChk9HDPu1VDfnUmsM0jOizyPqAk6A8DFZzN9Q0mkL5u5q3lXiHLc0tU2oHNTm3I=
-X-Gm-Gg: AYBFou2BBX3r/5oBbrwNNoc9uM28jia0dldFqjwDX6/RPQa//LR6gyEOg6vbU0794vs
-	h/NRwBHuFAVztDNqe5rjBHfy6wRdtSpSWSmvOfNPT+qPMzqXqHxHtV0zm7kHTRc2ZjDsF/oy0QW
-	Bu6CPggeET9gKmVfIkCiSQ0xnBN8mYrW0MeFQm+Fvo0LzfnR25wQCBhCtyjgxIT5LixqZbb4ybk
-	AtYaAC2fUsb5d7Tc4/dmwQvrP3Y2d8CoZ8D3R/OohdNWtrPceLok2mJwft6fm7cz6FhyctDkoSZ
-	Wk9meG624cexnjEEI7l+MtDODgtPUqxJR04m83xHbtUbGE4Gv0em5jBaeNAoDD+ewhg6ISrWfWx
-	u8Zq/XOwOv/eZN4vKjtFhiroxlrCAYBt8MlGs4bKbUgz1+tF7DsR+enXq/DAlvr5A406dFXqLoH
-	Imn5ING3KLrMtlnmCwkA9Of50Iv5WdL9sGAKavsns4V1ydhHaedaY2XXF4LFl3KXA2/mRljZK/b
-	D8J9E+C7dvXpJgmbbCfp9imLilYJLWezRP5RwehLe7/CfpTTkfEtDIXe3fhUBZU3AjflonEr/3+
-	b7qKcLq9kjzHkUtxXE7ZC53JVUOvhHqrdbtLX5F1njpArJ+ADjLQ
-X-Received: by 2002:a05:690c:d8b:b0:8b3:b06d:68b3 with SMTP id 00721157ae682-8b4aa23fe5amr17230507b3.18.1794589097198;
-        Fri, 13 Nov 2026 08:58:17 -0800 (PST)
-Received: from localhost ([2600:1700:220:5c80:dd1e:1850:73da:bf0b])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b4aa9549fasm24431307b3.21.2026.11.13.08.58.16
+        bh=K4XNZiwrr0RJRpeWG5dfP2Kz0D1CmXeE6JJQJUjjjck=;
+        b=gfjbPL0qB7ez2MEOOyTjmrqEpNjltI89Sc0baCkJQJZrJszOPvvlkbrIx0kMOvtAyf
+         4K/3TVShTE+HcvyXkSiMmip3CZw7i5UAQEuxnGZdPK+baoGEodEex66o1hCY1VAvokFS
+         zIIp/Him/FMkeUUuYnL6+7NingetfccD7wMY8XSRB7fWdAWBYQLrXX7ZH380TQxjtYz9
+         c9U7tB9WByfzyxKXv2NMdTdUcPyqw7mvehzyX+5hJ7kcwlX27CguzFqp8+JOdHX2+j/x
+         xfPjcTzVfyY2DD8kgRWtcV3tufDqOgrlavmJ4eCbHlHuSOLnKP7xnsoU21Ktkijw1tRK
+         QuWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794589980; x=1795194780;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=K4XNZiwrr0RJRpeWG5dfP2Kz0D1CmXeE6JJQJUjjjck=;
+        b=sh1SgyrOgzg++KzRRlnOn0rcBB8bWo/lwR5643GerqXdsRNHWEhH3r3KcWfDzcoGHq
+         YjHpo087nXmuAT4ty7x0VqyVToOudge0TbM+00Rz9i7jSqhZOv0/hOTl5Nn/3BvX0Cr+
+         H67O/abCT+nir/RDPxb6aiRXKqStIeuxX0I4vH2tgKhqat++ouYjBOX+Mu00b+Gfd0SH
+         4aZmX8g7J9FvelQ1IjWIOzSHsiW0bT9OmUlLIkAMzWsJ0Ls8R2VhLSB9IWY0qvJr7NTP
+         wRyIHtpGJGRFn46ZsisoQSpygsyD00umyX58vrGkbdnpF1iPZHbhOSfC4Y5naG60veud
+         vtiA==
+X-Forwarded-Encrypted: i=1; AL+hErFpBTVmJOSCk0HgS/N8Niq3ytFErpgyUDtAK1BOZmibSVshoRRIChxhmzpkwekXi8RYVtlEzQMh5gXZHA==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/an3PMsNZljLc05G6d0g80UXosb+9FYyj/iWy/h4sYmvi9ly1l
+	4YuDHwONBKzOxsUvItMWsQvR/Q+LJsp5jmurPKA/1scR6kdejtWMnuAfQSqRTcUXUcVI
+X-Gm-Gg: AYBFou34XVmalzDqpm6h0Cv8Jmb1ZDrrdCTCfYqSZ1FzP94S89ZnSshgIXccagnYjbt
+	OsZcHgrA53S+OUn3s967GdfGv15mdh+vJ8oXQmEG7JYrAqGcrNSfqqGoI4MJyPTC+Eu9wyxRU75
+	BG/Q8KR3rcmHrv2gOossSDILnRzYC3xkoSX3ONYLO7sjzAdKX9dQSoiCnbtjor4VfyjOVfDBcTE
+	xDsweB8R4085Z1GTteK9pSLkWyCz9F/7GkL8tYoLPcLfP9jX5yKxk0/3xm1RLtizWkooysEUOil
+	6XT+t4UNz1iNLuAlGBfIDddK8e/WWI4wWHcJOcLW9OXpASZx3xv3Et5gFGaSWr8h+RIlGNJYpVb
+	YXnzt31mwFBYXTOsvUx2jJbW70AoR7nZBmibO74aZParOuGx3bk3NeFDu4Ns34VMxWIXEgH+WZE
+	OW0yFj6LFys0m78I3nFFFu8gvqTNJ1qiJTtCcjYRR2uy5ewm/ZzAdzeo5uD3EFbzEYAyo/VWxY5
+	14Gh7CuZ/yhwqOrl9Jiw6kyfL0Q65B019hEfhs+a6Ozn0Sz0HlwgT6btHFCHJo1Zuu/XFUPDrin
+	pQJVW8/1C5I5uEPhtReya4zWfUnEyZgzTw==
+X-Received: by 2002:a05:600c:4ecd:b0:4a1:e6a9:4086 with SMTP id 5b1f17b1804b1-4bb5599a73fmr77020185e9.0.1794589979643;
+        Fri, 13 Nov 2026 09:12:59 -0800 (PST)
+Received: from jp-linux.Home ([2001:8a0:f59c:a900:b5a2:ed52:66a7:3ac7])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c69406640sm6001643f8f.12.2026.11.13.09.12.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Nov 2026 08:58:16 -0800 (PST)
-Date: Fri, 13 Nov 2026 10:58:15 -0600
-From: Andy Chiu <tchiu@tenstorrent.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	linux-riscv@lists.infradead.org, andybnac@gmail.com,
-	dfustini@oss.tenstorrent.com, greentime.hu@sifive.com
-Subject: Re:  riscv: kconfig: enable -mtune built kernel
-Message-ID: <avdBp6PzfgEAUJs0@Tao-Chiu's-Mac>
-References: <20261110200800.1073859-1-tchiu@tenstorrent.com>
- <avSGMnFGCw-oKdsP@xhacker>
+        Fri, 13 Nov 2026 09:12:58 -0800 (PST)
+From: =?UTF-8?q?Jo=C3=A3o=20Peixoto?= <jpeixoto@osyx.tech>
+To: gregkh@linuxfoundation.org,
+	will@kernel.org
+Cc: catalin.marinas@arm.com,
+	andrew.jones@oss.qualcomm.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	conor+dt@kernel.org,
+	corbet@lwn.net,
+	skhan@linuxfoundation.org,
+	rdunlap@infradead.org,
+	jose@osyx.tech,
+	davidmcerdeira@osyx.tech,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH v6 0/3] virt: bao: add Bao hypervisor IPC and I/O dispatcher drivers
+Date: Fri, 13 Nov 2026 17:12:52 +0000
+Message-ID: <cover.1794589639.git.jpeixoto@osyx.tech>
+X-Mailer: git-send-email 2.53.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <avSGMnFGCw-oKdsP@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261113_085819_046637_414193E5 
-X-CRM114-Status: GOOD (  45.96  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261113_091302_557127_8B2C08B5 
+X-CRM114-Status: GOOD (  27.10  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,255 +114,161 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 11, 2026 at 11:13:54PM +0800, Jisheng Zhang wrote:
-> On Tue, Nov 10, 2026 at 02:07:59PM -0600, Andy Chiu wrote:
-> > On a machine that supports native unaligned access, enabling unaligned
-> > access code-gen can result in a significant speedup on certain workloads.
-> > As the adoption of application-level core increases, it has become
-> > essential to build a kernel utilizing what's available on the platform.
-> > 
-> > Here are the examples of throughput improvement when the build is
-> > configured to utilize misaligned access code-gen:
-> > 
-> > LZ4 compress: +90.6% (Ascalon-X), +35.1% (K3-X100)
-> > LZ4 decompress: +9.8% (Ascalon-X), +76.6% (K3-X100)
-> > ZSTD compress: +35.4% (Ascaloon-X), +19.4% (K3-X100)
-> > ZSTD decompress: +26.0% (Ascalon-X), +7.5% (K3-X100)
-> > 
-> > btrfs create: +7.4% (Ascalon-X), +4.5% (K3-X100)
-> > btrfs unlink: +7.2% (Ascalon-X), +2.6% (K3-X100)
-> 
-> how much improvement is from unaliagned access, and how much is from
-> -mtune. So these numbers don't explain why -mtune is neceesary.
-
-Native unaligned access is enabled only by selecting the -mtune that
-assumes fast misaliged access. E.g. there is no single flag that turns
-on native unaligned access code-gen alone. The detailed options are coded
-in the compiler's souce code under gcc/config/riscv/riscv.cc
-
-> > 
-> > To enable such code-gen, the build system not only has to remove
-> > -mstrict-align restriction, but also needs to set the proper -mtune cost
-> > model to emit such accesses. -mstrict-align is gated by NONPORTABLE and
-> > RISCV_EFFICIENT_UNALIGNED_ACCESS, and -mtune=generic-ooo enables the
-> 
-> 
-> Following the same reason as arm64, I don't think we should introduce
-> per-cpu -mtune options into arch/riscv/Kconfig.
-
-Unfortunately we are not like arm64 where it has the ecosyetem authority
-to mandate all platform to support fast misaligned access. Fragmentation
-is destined in riscv and, though not personally convinced, people
-celebrate it.
-
-> 
-> IIRC, arm64 intentionally avoided adding -mtune options to Kconfig to
-> prevent endless per-vendor or even per-cpu option bloat, toolchain
-> flag churn, and fragmention away from a sigle Image.
-> 
-
-Software that runs on embedded core can perform poorly on a more
-advanced hardware. That is the nature of how optimization works.
-
-With the availability of RVA23 hardware and the increasing supports from
-distro vendors, I don't see a reason why we should hold back the
-ecosystem progression under the illusion of harmony.
-
-> >From another side, when someone needs a custom -mtune for a fixed
-> target, they can pass the already well supported KCFLAGS="-mtune ..."
-> at build time without needing dedicated Kconfig symbols for every
-> core.
-> 
-> Furthermore, having an -mtune option silently select NONPORTABLE and
-> RISCV_EFFICIENT_UNALIGNED_ACCESS breaks user expectations. NONPORTABLE
-> breaks cross platform compatibility, while -mtune is just a compiler
-> scheduling hint
-> 
-
-Again following the adoption of RVA23 profile, we foresee that it is
-going to have a clear split of the software ecosystem and it is not
-*portable* by design. On the distro end of the world, there is a need
-for native misaligned access support, which turns off -mstrict-align and
-kicks in generic-ooo mtune, whether it is defined in KCFLAGS or set as
-the toolchain default.
-
-We do not forbid people from building software that runs extremely slow in
-order to support *all* hardware, and we don't see enabling native
-misaligned access would break any hardware that is supposed to run
-distro-level applications.
-
-Cheers,
-Andy
-
-> thanks
-> 
-> > code-gen to emit misaligned accesses.
-> > 
-> > Add an entry in Kconfig so it allows the build system to select different
-> > mtune options. Also, select NONPORTABLE and
-> > RISCV_EFFICIENT_UNALIGNED_ACCESS when building with "generic-ooo", and
-> > "tt-ascalon-d8".
-> > 
-> > Signed-off-by: Andy Chiu <tchiu@tenstorrent.com>
-> > ---
-> >  arch/riscv/Kconfig  | 62 +++++++++++++++++++++++++++++++++++++++++++++
-> >  arch/riscv/Makefile | 14 ++++++++++
-> >  2 files changed, 76 insertions(+)
-> > 
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index e7891a2a89da..d53225fead4a 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -980,8 +980,67 @@ config RISCV_SBI_FWFT_DELEGATE_MISALIGNED
-> >  
-> >  	  If you don't know what to do here, say N.
-> >  
-> > +config TOOLCHAIN_HAS_MTUNE_TT_ASCALON_D8
-> > +	def_bool $(cc-option,-mtune=tt-ascalon-d8)
-> > +
-> > +choice
-> > +	prompt "CPU tuning (-mtune)"
-> > +	default RISCV_MTUNE_TOOLCHAIN_DEFAULT
-> > +	help
-> > +	  Select the microarchitecture the compiler should tune the kernel
-> > +	  for. This only affects instruction scheduling and cost models, not
-> > +	  the ISA, but some choices also assume fast unaligned accesses and
-> > +	  therefore result in a non-portable kernel.
-> > +
-> > +config RISCV_MTUNE_TOOLCHAIN_DEFAULT
-> > +	bool "Toolchain default"
-> > +	help
-> > +	  Do not pass -mtune; use whatever the toolchain was configured with.
-> > +
-> > +config RISCV_MTUNE_GENERIC_OOO
-> > +	bool "generic-ooo"
-> > +	depends on $(cc-option,-mtune=generic-ooo)
-> > +	select NONPORTABLE
-> > +	select RISCV_MTUNE_FAST_UNALIGNED
-> > +	help
-> > +	  Tune for a generic out-of-order core (-mtune=generic-ooo). This
-> > +	  also assumes fast unaligned scalar accesses.
-> > +
-> > +config RISCV_MTUNE_TT_ASCALON
-> > +	bool "Tenstorrent Ascalon"
-> > +	depends on TOOLCHAIN_HAS_MTUNE_TT_ASCALON_D8
-> > +	select NONPORTABLE
-> > +	select RISCV_MTUNE_FAST_UNALIGNED
-> > +	help
-> > +	  Tune for the Tenstorrent Ascalon core (-mtune=tt-ascalon-d8). This
-> > +	  also assumes fast unaligned scalar accesses.
-> > +
-> > +config RISCV_MTUNE_CUSTOM
-> > +	bool "Custom"
-> > +	help
-> > +	  Pass -mtune=<RISCV_MTUNE> to the compiler.
-> > +
-> > +endchoice
-> > +
-> > +config RISCV_MTUNE
-> > +	string "Custom -mtune value" if RISCV_MTUNE_CUSTOM
-> > +	default "generic-ooo" if RISCV_MTUNE_GENERIC_OOO
-> > +	default "tt-ascalon-d8" if RISCV_MTUNE_TT_ASCALON
-> > +	default ""
-> > +	help
-> > +	  The value passed to -mtune=, e.g. "sifive-7-series". Only
-> > +	  editable when the "Custom" CPU tuning is selected, in which case
-> > +	  it must not be empty or the build will fail.
-> > +
-> > +config RISCV_MTUNE_FAST_UNALIGNED
-> > +	bool
-> > +	help
-> > +	  Selected by -mtune choices that imply fast unaligned scalar
-> > +	  accesses. Forces RISCV_EFFICIENT_UNALIGNED_ACCESS.
-> > +
-> >  choice
-> >  	prompt "Unaligned Accesses Support"
-> > +	default RISCV_EFFICIENT_UNALIGNED_ACCESS if RISCV_MTUNE_FAST_UNALIGNED
-> >  	default RISCV_PROBE_UNALIGNED_ACCESS
-> >  	help
-> >  	  This determines the level of support for unaligned accesses. This
-> > @@ -991,6 +1050,7 @@ choice
-> >  
-> >  config RISCV_PROBE_UNALIGNED_ACCESS
-> >  	bool "Probe for hardware unaligned access support"
-> > +	depends on !RISCV_MTUNE_FAST_UNALIGNED
-> >  	select RISCV_SCALAR_MISALIGNED
-> >  	help
-> >  	  During boot, the kernel will run a series of tests to determine the
-> > @@ -1002,6 +1062,7 @@ config RISCV_PROBE_UNALIGNED_ACCESS
-> >  
-> >  config RISCV_EMULATED_UNALIGNED_ACCESS
-> >  	bool "Emulate unaligned access where system support is missing"
-> > +	depends on !RISCV_MTUNE_FAST_UNALIGNED
-> >  	select RISCV_SCALAR_MISALIGNED
-> >  	help
-> >  	  If unaligned memory accesses trap into the kernel as they are not
-> > @@ -1012,6 +1073,7 @@ config RISCV_EMULATED_UNALIGNED_ACCESS
-> >  config RISCV_SLOW_UNALIGNED_ACCESS
-> >  	bool "Assume the system supports slow unaligned memory accesses"
-> >  	depends on NONPORTABLE
-> > +	depends on !RISCV_MTUNE_FAST_UNALIGNED
-> >  	help
-> >  	  Assume that the system supports slow unaligned memory accesses. The
-> >  	  kernel and userspace programs may not be able to run at all on systems
-> > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> > index 44f5a439741a..08f1a32228ef 100644
-> > --- a/arch/riscv/Makefile
-> > +++ b/arch/riscv/Makefile
-> > @@ -89,6 +89,11 @@ CC_FLAGS_FPU  := -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64i
-> >  
-> >  KBUILD_CFLAGS += -mno-save-restore
-> >  
-> > +riscv-mtune := $(CONFIG_RISCV_MTUNE:"%"=%)
-> > +ifneq ($(riscv-mtune),)
-> > +KBUILD_CFLAGS += -mtune=$(riscv-mtune)
-> > +endif
-> > +
-> >  ifeq ($(CONFIG_CMODEL_MEDLOW),y)
-> >  	KBUILD_CFLAGS += -mcmodel=medlow
-> >  endif
-> > @@ -149,6 +154,15 @@ KBUILD_IMAGE				:= $(boot)/$(boot-image-y)
-> >  libs-y += arch/riscv/lib/
-> >  libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
-> >  
-> > +archprepare: checkmtune
-> > +PHONY += checkmtune
-> > +checkmtune:
-> > +ifeq ($(CONFIG_RISCV_MTUNE_CUSTOM)$(riscv-mtune),y)
-> > +	@echo '*** CONFIG_RISCV_MTUNE_CUSTOM is set but CONFIG_RISCV_MTUNE is empty.' >&2
-> > +	@echo '*** Set the custom -mtune value or pick another CPU tuning.' >&2
-> > +	@false
-> > +endif
-> > +
-> >  ifeq ($(KBUILD_EXTMOD),)
-> >  ifeq ($(CONFIG_MMU),y)
-> >  prepare: vdso_prepare
-> > -- 
-> > 2.43.0
-> > 
-> > 
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhpcyBzZXJpZXMgYWRkcyBndWVzdC1zaWRlIGRyaXZlcnMgZm9yIHRoZSBCYW8gc3RhdGljLXBh
+cnRpdGlvbmluZwpoeXBlcnZpc29yOiBhbiBJUEMgc2hhcmVkLW1lbW9yeSBkcml2ZXIsIGFuIEkv
+TyBkaXNwYXRjaGVyIHRoYXQgbGV0cyBhCmJhY2tlbmQgZ3Vlc3Qgc2VydmljZSBWaXJ0SU8gSS9P
+IGZvciBmcm9udGVuZCBndWVzdHMsIHRoZWlyIFVBUEkgYW5kIGEKTUFJTlRBSU5FUlMgZW50cnku
+CgpCYW8gaXMgYSBsaWdodHdlaWdodCBzdGF0aWMtcGFydGl0aW9uaW5nIGh5cGVydmlzb3IgZm9y
+IGVtYmVkZGVkIGFuZApzYWZldHktY3JpdGljYWwgc3lzdGVtcyAoaHR0cHM6Ly9naXRodWIuY29t
+L2Jhby1wcm9qZWN0KS4KCi0gVGhlIElQQyBzaGFyZWQtbWVtb3J5IGRyaXZlciBsZXRzIEJhbyBn
+dWVzdHMgZXhjaGFuZ2UgZGF0YSB0aHJvdWdoIGEKICBzaGFyZWQtbWVtb3J5IHJlZ2lvbiBzcGxp
+dCBpbnRvIGEgcmVhZCBhbmQgYSB3cml0ZSBjaGFubmVsLCBleHBvc2VkCiAgYXMgYSBtaXNjIGNo
+YXJhY3RlciBkZXZpY2UgKHJlYWQoKSwgd3JpdGUoKSwgbW1hcCgpKS4gVGhlIGNoYW5uZWxzCiAg
+YXJlIGRlY2xhcmVkIG9uIHRoZSBrZXJuZWwgY29tbWFuZCBsaW5lLgotIFRoZSBJL08gZGlzcGF0
+Y2hlciBicmlkZ2VzIEJhbydzIFJlbW90ZSBJL08gbWVjaGFuaXNtIHRvIGEgdXNlcnNwYWNlCiAg
+Vk1NOiB0aGUgVk1NIGNyZWF0ZXMgZWFjaCBkZXZpY2UgbW9kZWwgZnJvbSAvZGV2L2JhbywgcmVj
+ZWl2ZXMgdGhlCiAgZnJvbnRlbmQncyBNTUlPIGFjY2Vzc2VzIGFuZCBjb21wbGV0ZXMgdGhlbSwg
+d2l0aCBpb2V2ZW50ZmQvaXJxZmQKICBzdXBwb3J0IGZvciB0aGUgZmFzdCBwYXRocy4KCkNoYW5n
+ZXMgc2luY2UgdjUKLS0tLS0tLS0tLS0tLS0tLQpBbGwgZmluZGluZ3Mgb2YgdGhlIFNhc2hpa28g
+cmV2aWV3IG9mIHY1IGFyZSBhZGRyZXNzZWQuIFRoZXkgYXJlIGFsbCBpbgp0aGUgSS9PIGRpc3Bh
+dGNoZXI7IHBhdGNoZXMgMSBhbmQgMyBhcmUgdW5jaGFuZ2VkLgotIEEgZGV2aWNlIG1vZGVsIGlz
+IHRvcm4gZG93biBpbiBvcmRlcjogZGlzcGF0Y2hpbmcgc3RvcHMgZmlyc3QsIGV2ZXJ5CiAgSS9P
+IGNsaWVudCBpcyBzdG9wcGVkIGJlZm9yZSBhbnkgaXMgZGVzdHJveWVkICh0aGUgaW9ldmVudGZk
+cyBhcmUKICByZWxlYXNlZCBvbmx5IG9uY2UgdGhlaXIgdGhyZWFkIGlzIGdvbmUpLCB0aGVuIHRo
+ZSBxdWV1ZWQsIGluLWZsaWdodAogIGFuZCBzdGlsbCBwZW5kaW5nIHJlcXVlc3RzIGFyZSBjb21w
+bGV0ZWQuIFRoZSBkaXNwYXRjaGVyIGlzIG5vIGxvbmdlcgogIHBhdXNlZCBhbmQgcmVzdW1lZCBw
+ZXIgY2xpZW50LCB3aGljaCByZS1xdWV1ZWQgZGlzcGF0Y2ggd29yayBkdXJpbmcKICB0ZWFyZG93
+biBhbmQgaXNzdWVkIGh5cGVyY2FsbHMgd2hlbiBCQU9fSU9DVExfQ1JFQVRFX0RNIGZhaWxlZC4K
+LSBJT19DTElFTlRfQVRUQUNIIHB1Ymxpc2hlcyBhIHJlcXVlc3Qgb25seSBvbmNlIGl0IGhhcyBi
+ZWVuIGNvcGllZCB0bwogIHVzZXJzcGFjZSwgc28gYSBjb25jdXJyZW50IElPX1JFUVVFU1RfQ09N
+UExFVEUgY2Fubm90IGNvbXBsZXRlIGl0CiAgdHdpY2UuCi0gaW9ldmVudGZkcyBmb2xsb3cgS1ZN
+OiB0d28gb2YgdGhlbSBjb25mbGljdCB3aGVuIGEgd3JpdGUgY291bGQgbWF0Y2gKICBib3RoLCB3
+aGF0ZXZlciBldmVudGZkIHRoZXkgdXNlOyBhIHJlcXVlc3QgbWF0Y2hlcyBvbmx5IHRoZSBleGFj
+dAogIGxlbmd0aDsgcmVhZHMsIGFuZCB3cml0ZXMgdGhhdCBubyBpb2V2ZW50ZmQgbWF0Y2hlcywg
+YXJlIGhhbmRlZCB0bwogIHRoZSBWTU0gaW5zdGVhZCBvZiBiZWluZyBhbnN3ZXJlZCBvciBkcm9w
+cGVkIGJ5IHRoZSBrZXJuZWwuCi0gTWF0Y2hpbmcgYSByZXF1ZXN0IGFnYWluc3QgYW4gSS9PIHJh
+bmdlIHJlamVjdHMgemVybyBvciBvdmVyc2l6ZWQKICBhY2Nlc3Mgd2lkdGhzIGFuZCB3cmFwLWFy
+b3VuZC4KLSBBbiBpcnFmZCBjb25zdW1lcyB0aGUgZXZlbnRmZCBjb3VudGVyIHdoZW4gc2lnbmFs
+ZWQsIGFuZCBkZWFzc2lnbmluZwogIGFuIHVua25vd24gaXJxZmQgZmFpbHMgd2l0aCAtRU5PRU5U
+LgotIFRoZSBJL08gZGlzcGF0Y2hlciBpcyA2NC1iaXQgb25seTogdGhlIFJlbW90ZSBJL08gZmll
+bGRzIGRpZCBub3QgZml0CiAgdGhlIFJWMzIgaHlwZXJjYWxsIHJlZ2lzdGVycy4KQWxzbywgcmVx
+dWVzdHMgYWxyZWFkeSBwZW5kaW5nIHdoZW4gYSBkZXZpY2UgbW9kZWwgaXMgY3JlYXRlZCAoYQpm
+cm9udGVuZCB0aGF0IHN0YXJ0ZWQgZmlyc3QsIGEgVk1NIHRoYXQgcmVzdGFydGVkKSBhcmUgcGlj
+a2VkIHVwIGF0CmNyZWF0aW9uIGluc3RlYWQgb2Ygd2FpdGluZyBmb3IgYSBub3RpZmljYXRpb24g
+dGhhdCBkb2VzIG5vdCBjb21lCmFnYWluLgoKQ2hhbmdlcyBzaW5jZSB2NAotLS0tLS0tLS0tLS0t
+LS0tCi0gQkFPX0lPQ1RMX0NSRUFURV9ETSByZXF1aXJlcyBDQVBfU1lTX1JBV0lPLCBpcyByZWZ1
+c2VkIHVuZGVyIGxvY2tkb3duCiAgYW5kIGNsYWltcyBhIG5vbi1SQU0gcmVnaW9uIHdpdGggcmVx
+dWVzdF9tZW1fcmVnaW9uKCksIG1pcnJvcmluZwogIC9kZXYvbWVtLiBUaGUgbm90aWZpY2F0aW9u
+IGxpbmUgaXMgY2hlY2tlZCBhZ2FpbnN0IHRoZSBpbnRlcnJ1cHQKICBjb250cm9sbGVyIGFuZCBy
+ZXF1ZXN0ZWQgZXhjbHVzaXZlbHksIGFuZCBpdHMgbWFwcGluZyBpcyBuZXZlcgogIGRpc3Bvc2Vk
+LCBzaW5jZSBpdCBtYXkgYmUgc2hhcmVkIHdpdGggd2hvZXZlciBvd25zIHRoZSBsaW5lLgotIFJl
+cXVlc3RzIHRoYXQgY2Fubm90IGJlIGRlbGl2ZXJlZCBhcmUgY29tcGxldGVkIGluc3RlYWQgb2Yg
+c3RyYW5kZWQuCiAgVGhlIHJlcXVlc3RzIGhhbmRlZCB0byB0aGUgVk1NIGFyZSB0cmFja2VkOiBh
+IGNvbXBsZXRpb24gb25seQogIHByb3ZpZGVzIHRoZSB2YWx1ZSwgYW5kIGEgVk1NIHRoYXQgZXhp
+dHMgbGVhdmVzIG5vdGhpbmcgYmVoaW5kLgotIGlvZXZlbnRmZHMgYW5kIGlycWZkcyBhcmUgYm91
+bmRlZCBwZXIgZGV2aWNlIG1vZGVsLCBhbmQgYSBkZXZpY2UKICBtb2RlbCBpZCBpcyBib3VuZCB0
+byBvbmUgZmlsZSBkZXNjcmlwdG9yIGF0IGEgdGltZS4KLSBSSVNDLVY6IHRoZSBoeXBlcmNhbGwg
+c3RhdHVzIGlzIHRoZSBTQkkgdmFsdWUgKGExKSwgYW5kIGJvdGggZHJpdmVycwogIGRlcGVuZCBv
+biBSSVNDVl9TQkkuCi0gbW1hcCBnb2VzIHRocm91Z2ggLm1tYXBfcHJlcGFyZSBhbmQgb25seSBh
+bGxvd3Mgc2hhcmVkIG1hcHBpbmdzOwogIC5jb21wYXRfaW9jdGwgaXMgc2V0OyB0aGUgSVBDIGRy
+aXZlciBuZXZlciB1bndpbmRzIGEgcmVnaXN0ZXJlZAogIGRldmljZTsgYmFvX2lwY3NobWVtLmNo
+YW5uZWxzPSBpcyBkb2N1bWVudGVkIGluIGtlcm5lbC1wYXJhbWV0ZXJzLnR4dDsKICByZWJhc2Vk
+IG9uIHY3LjQtcmMxLgoKQ2hhbmdlcyBzaW5jZSB2MwotLS0tLS0tLS0tLS0tLS0tCi0gTm8gZGV2
+aWNlIHRyZWUgKEtyenlzenRvZiBLb3psb3dza2kpOiB0aGUgSVBDIGNoYW5uZWxzIGFyZSBkZWNs
+YXJlZAogIG9uIHRoZSBrZXJuZWwgY29tbWFuZCBsaW5lIGFuZCwgZm9sbG93aW5nIGRyaXZlcnMv
+dmlydC9hY3JuLCB0aGUgVk1NCiAgY3JlYXRlcyBlYWNoIGRldmljZSBtb2RlbCB0aHJvdWdoIC9k
+ZXYvYmFvIChCQU9fSU9DVExfQ1JFQVRFX0RNKSwKICB3aGljaCByZXR1cm5zIGEgcGVyLWRldmlj
+ZS1tb2RlbCBmaWxlIGRlc2NyaXB0b3IuCi0gTm8gYXJjaGl0ZWN0dXJlIGNvZGUgKFdpbGwgRGVh
+Y29uKTogdGhlIGh5cGVyY2FsbHMgdXNlCiAgYXJtX3NtY2NjX2h2YygpL2FybV9zbWNjY18xXzJf
+aHZjKCkgYW5kIHNiaV9lY2FsbCgpIGZyb20gYQogIGRyaXZlci1wcml2YXRlIGhlYWRlci4KLSBU
+aGUgImNvbnNvbGlkYXRlIHRoZSBJUEMgaHlwZXJjYWxsIElEIiBwYXRjaCBpcyBmb2xkZWQgaW4g
+KEFuZHJldwogIEpvbmVzKSwgYW5kIHRoZSBpb2N0bCB0eXBlIGlzIDB4QTcuCgpUZXN0aW5nCi0t
+LS0tLS0KQnVpbHQgb24gdjcuNC1yYzEgd2l0aCBHQ0MgMTUgKFc9MSkgZm9yIGFybTY0LCBhcm0g
+YW5kIHJpc2N2IChSVjY0IGFuZApSVjMyKSwgYXQgZXZlcnkgY29tbWl0LCBhbmQgd2l0aCBjbGFu
+ZyAyMSAoVz0xKSBmb3IgYXJtNjQgYW5kIHJpc2N2LgpSdW4tdGltZSB0ZXN0ZWQgdW5kZXIgQmFv
+IHYyLjAuMCBvbiBRRU1VIGFhcmNoNjQgdmlydCBhbmQgUUVNVSByaXNjdjY0CnZpcnQgd2l0aCB0
+aGUgYmFvLWRlbW9zIGRlbW9zOiB0aGUgSVBDIGRyaXZlciBleGNoYW5naW5nIG1lc3NhZ2VzIGlu
+CmJvdGggZGlyZWN0aW9ucyBiZXR3ZWVuIGEgTGludXggZ3Vlc3QgYW5kIGEgRnJlZVJUT1MgZ3Vl
+c3QsIGFuZCB0aGUgSS9PCmRpc3BhdGNoZXIgd2l0aCBhIExpbnV4IGJhY2tlbmQgc2VydmluZyBj
+b25zb2xlLCBuZXR3b3JrIGFuZCBibG9jawpkZXZpY2UgbW9kZWxzIHRvIGEgRnJlZVJUT1MgZ3Vl
+c3QgYW5kIHRvIExpbnV4IGd1ZXN0cywgaW5jbHVkaW5nCmtpbGxpbmcgYW5kIHJlc3RhcnRpbmcg
+dGhlIFZNTXMsIHBsdXMgYSB1c2Vyc3BhY2UgdGVzdCBvZiB0aGUgL2Rldi9iYW8KZXJyb3IgcGF0
+aHMgKHByaXZpbGVnZSwgcmVnaW9uIGFuZCBsaW5lIGNoZWNrcywgZHVwbGljYXRlIGlkcywgbGlt
+aXRzLApjb21wbGV0aW9ucywgaW9ldmVudGZkIGFuZCBpcnFmZCBydWxlcykgcnVuIG5leHQgdG8g
+dGhlIGxpdmUgVk1Ncy4KMzItYml0IEFybSBpcyBjb21waWxlLXRlc3RlZCBvbmx5LgoKT3BlbiBp
+dGVtcwotLS0tLS0tLS0tCi0gUklTQy1WOiB0aGUgQmFvIFNCSSBleHRlbnNpb24gc3RpbGwgdXNl
+cyB0aGUgZXhwZXJpbWVudGFsIGV4dGVuc2lvbgogIHNwYWNlICgweDA4MDAwYmEwKSwgYW5kIHRo
+ZSBSZW1vdGUgSS9PIGh5cGVyY2FsbCByZXR1cm5zIHRoZSByZXF1ZXN0CiAgaW4gYTItYTcsIHdo
+aWNoIGRvZXMgbm90IGZvbGxvdyB0aGUgU0JJIGNhbGxpbmcgY29udmVudGlvbiAoQW5kcmV3CiAg
+Sm9uZXMsIHYyKS4gQ2hhbmdpbmcgdGhhdCBtZWFucyBhIGh5cGVydmlzb3IgQUJJIGNoYW5nZSAo
+c3RhdHVzIGluCiAgYTAvYTEsIHJlcXVlc3QgdGhyb3VnaCBzaGFyZWQgbWVtb3J5KTsgdGhlIFJJ
+U0MtViBzdXBwb3J0IGlzCiAgZXhwZXJpbWVudGFsIHVudGlsIHRoZW4sIG9yIGl0IGNhbiBiZSBz
+cGxpdCBvdXQgb2YgdGhpcyBzZXJpZXMgaWYKICBwcmVmZXJyZWQuCi0gQmFvIGRvZXMgbm90IGlt
+cGxlbWVudCB0aGUgU01DQ0MgdmVuZG9yLWh5cGVydmlzb3IgVUlEIGNhbGwsIHNvIHRoZQogIGRy
+aXZlcnMgY2Fubm90IGRldGVjdCB0aGUgaHlwZXJ2aXNvciB5ZXQ7IGFkZGluZyBpdCBpcyBwbGFu
+bmVkIG9uIHRoZQogIGh5cGVydmlzb3Igc2lkZS4KLSBUaGUgbm90aWZpY2F0aW9uIGxpbmUgaXMg
+YSBsaW5lIG9mIHRoZSBpbnRlcnJ1cHQgY29udHJvbGxlciB0aGUgZGV2aWNlCiAgdHJlZSdzIHJv
+b3Qgbm9kZSBwb2ludHMgYXQgdGhyb3VnaCBpbnRlcnJ1cHQtcGFyZW50OyBhIGd1ZXN0IHdob3Nl
+CiAgcm9vdCBub2RlIGhhcyBub25lIGNhbm5vdCB1c2UgdGhlIEkvTyBkaXNwYXRjaGVyIHlldC4K
+CnY1OiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvY292ZXIuMTc5NDAzODM5MC5naXQuanBl
+aXhvdG9Ab3N5eC50ZWNoLwp2NDogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsL2NvdmVyLjE3
+OTAzNTc3MzUuZ2l0LmpwZWl4b3RvQG9zeXgudGVjaC8KdjM6IGh0dHBzOi8vbG9yZS5rZXJuZWwu
+b3JnL2FsbC9jb3Zlci4xNzg2MDEwNTEyLmdpdC5qcGVpeG90b0Bvc3l4LnRlY2gvCgpKb8OjbyBQ
+ZWl4b3RvICgzKToKICB2aXJ0OiBiYW86IGFkZCBJUEMgc2hhcmVkLW1lbW9yeSBkcml2ZXIKICB2
+aXJ0OiBiYW86IGFkZCBJL08gZGlzcGF0Y2hlciBkcml2ZXIKICBNQUlOVEFJTkVSUzogYWRkIEJh
+byBoeXBlcnZpc29yIGVudHJ5CgogLi4uL2FkbWluLWd1aWRlL2tlcm5lbC1wYXJhbWV0ZXJzLnR4
+dCAgICAgICAgIHwgIDE1ICsKIC4uLi91c2Vyc3BhY2UtYXBpL2lvY3RsL2lvY3RsLW51bWJlci5y
+c3QgICAgICB8ICAgMiArCiBNQUlOVEFJTkVSUyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCAgIDggKwogZHJpdmVycy92aXJ0L0tjb25maWcgICAgICAgICAgICAgICAgICAgICAg
+ICAgIHwgICAyICsKIGRyaXZlcnMvdmlydC9NYWtlZmlsZSAgICAgICAgICAgICAgICAgICAgICAg
+ICB8ICAgMSArCiBkcml2ZXJzL3ZpcnQvYmFvL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAg
+fCAgIDUgKwogZHJpdmVycy92aXJ0L2Jhby9NYWtlZmlsZSAgICAgICAgICAgICAgICAgICAgIHwg
+ICA0ICsKIGRyaXZlcnMvdmlydC9iYW8vYmFvX2h5cGVyY2FsbC5oICAgICAgICAgICAgICB8IDIx
+MCArKysrKysrKwogZHJpdmVycy92aXJ0L2Jhby9pby1kaXNwYXRjaGVyL0tjb25maWcgICAgICAg
+IHwgIDIwICsKIGRyaXZlcnMvdmlydC9iYW8vaW8tZGlzcGF0Y2hlci9NYWtlZmlsZSAgICAgICB8
+ICAgNCArCiBkcml2ZXJzL3ZpcnQvYmFvL2lvLWRpc3BhdGNoZXIvYmFvX2Rydi5oICAgICAgfCA0
+MjEgKysrKysrKysrKysrKysrKwogZHJpdmVycy92aXJ0L2Jhby9pby1kaXNwYXRjaGVyL2RtLmMg
+ICAgICAgICAgIHwgNDYwICsrKysrKysrKysrKysrKysrCiBkcml2ZXJzL3ZpcnQvYmFvL2lvLWRp
+c3BhdGNoZXIvZHJpdmVyLmMgICAgICAgfCAgNzEgKysrCiBkcml2ZXJzL3ZpcnQvYmFvL2lvLWRp
+c3BhdGNoZXIvaW50Yy5jICAgICAgICAgfCAxODYgKysrKysrKwogZHJpdmVycy92aXJ0L2Jhby9p
+by1kaXNwYXRjaGVyL2lvX2NsaWVudC5jICAgIHwgNDc1ICsrKysrKysrKysrKysrKysrKwogLi4u
+L3ZpcnQvYmFvL2lvLWRpc3BhdGNoZXIvaW9fZGlzcGF0Y2hlci5jICAgIHwgMTg0ICsrKysrKysK
+IGRyaXZlcnMvdmlydC9iYW8vaW8tZGlzcGF0Y2hlci9pb2V2ZW50ZmQuYyAgICB8IDM1OSArKysr
+KysrKysrKysrCiBkcml2ZXJzL3ZpcnQvYmFvL2lvLWRpc3BhdGNoZXIvaXJxZmQuYyAgICAgICAg
+fCAzMzAgKysrKysrKysrKysrCiBkcml2ZXJzL3ZpcnQvYmFvL2lwY3NobWVtL0tjb25maWcgICAg
+ICAgICAgICAgfCAgMTYgKwogZHJpdmVycy92aXJ0L2Jhby9pcGNzaG1lbS9NYWtlZmlsZSAgICAg
+ICAgICAgIHwgICAzICsKIGRyaXZlcnMvdmlydC9iYW8vaXBjc2htZW0vaXBjc2htZW0uYyAgICAg
+ICAgICB8IDQyMSArKysrKysrKysrKysrKysrCiBpbmNsdWRlL3VhcGkvbGludXgvYmFvLmggICAg
+ICAgICAgICAgICAgICAgICAgfCAxMjYgKysrKysKIDIyIGZpbGVzIGNoYW5nZWQsIDMzMjMgaW5z
+ZXJ0aW9ucygrKQogY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvdmlydC9iYW8vS2NvbmZpZwog
+Y3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvdmlydC9iYW8vTWFrZWZpbGUKIGNyZWF0ZSBtb2Rl
+IDEwMDY0NCBkcml2ZXJzL3ZpcnQvYmFvL2Jhb19oeXBlcmNhbGwuaAogY3JlYXRlIG1vZGUgMTAw
+NjQ0IGRyaXZlcnMvdmlydC9iYW8vaW8tZGlzcGF0Y2hlci9LY29uZmlnCiBjcmVhdGUgbW9kZSAx
+MDA2NDQgZHJpdmVycy92aXJ0L2Jhby9pby1kaXNwYXRjaGVyL01ha2VmaWxlCiBjcmVhdGUgbW9k
+ZSAxMDA2NDQgZHJpdmVycy92aXJ0L2Jhby9pby1kaXNwYXRjaGVyL2Jhb19kcnYuaAogY3JlYXRl
+IG1vZGUgMTAwNjQ0IGRyaXZlcnMvdmlydC9iYW8vaW8tZGlzcGF0Y2hlci9kbS5jCiBjcmVhdGUg
+bW9kZSAxMDA2NDQgZHJpdmVycy92aXJ0L2Jhby9pby1kaXNwYXRjaGVyL2RyaXZlci5jCiBjcmVh
+dGUgbW9kZSAxMDA2NDQgZHJpdmVycy92aXJ0L2Jhby9pby1kaXNwYXRjaGVyL2ludGMuYwogY3Jl
+YXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvdmlydC9iYW8vaW8tZGlzcGF0Y2hlci9pb19jbGllbnQu
+YwogY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvdmlydC9iYW8vaW8tZGlzcGF0Y2hlci9pb19k
+aXNwYXRjaGVyLmMKIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL3ZpcnQvYmFvL2lvLWRpc3Bh
+dGNoZXIvaW9ldmVudGZkLmMKIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL3ZpcnQvYmFvL2lv
+LWRpc3BhdGNoZXIvaXJxZmQuYwogY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvdmlydC9iYW8v
+aXBjc2htZW0vS2NvbmZpZwogY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvdmlydC9iYW8vaXBj
+c2htZW0vTWFrZWZpbGUKIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL3ZpcnQvYmFvL2lwY3No
+bWVtL2lwY3NobWVtLmMKIGNyZWF0ZSBtb2RlIDEwMDY0NCBpbmNsdWRlL3VhcGkvbGludXgvYmFv
+LmgKCgpiYXNlLWNvbW1pdDogNjYyOGU3ZDRjNmIyNWM4ZDE4ZjEzNDVlM2EyMGQyMTgyOWFhZTdl
+NAotLSAKMi41My4wCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
