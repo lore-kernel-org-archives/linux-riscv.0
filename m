@@ -2,99 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50B80606A338
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 13:49:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3349F60A381C
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 13:53:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=T8sjeT1T;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xFLd/QbJ
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3YvBV7GL;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BJ2BZ3MG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=DbhBQgBmPTuRi7JBoqBLT2VNUxot/V5VCscyjzWXZI4=; b=T8sjeT1T40lS9xWt8rtrY/tDAP
-	gechsnE8RYpQsfVcrACFZHY0xKDTWh+BEruQEjtt8u1BVp648jxOufXhyR/GhaEcp6IIBMq1oaV7a
-	CPMNQnmV5w1UloQ7J1fYGCm8K7ktPf+7ZltRPa9+y1wyJqAWqEcFVw9k6rih9cIzhBDzEo5kAcdPZ
-	p/DCOwb+rImC3bzPjvPp5W0K4d+BMgcKzvDEcQqj8YZ9N2Jq6Pcm7QcsbxKFp3RO6rWiwBKpnHXmN
-	sU22VeDpOKrtmYgZKv2GOZ/+CKNtfFSK/NEe/994yN8E8Nv5+qyAmiZR/fCsLpGXeYR1YnG2NHY5D
-	7E30Adcg==;
+	bh=aaaLGEqj5BOCiIDo5O1tzaJ7dinGFd4I+PLhzlp4R1M=; b=3YvBV7GLfD5YwMFboY8SAJBilT
+	J0TLJL1jC4poJhcdVy4bUloLZuQuMI2ML03e6et5Iq4iLWPWPeiJJW0Gdmzc3QU3z66ktP1Gva5lz
+	2d9DJeR8e02nSsF2HDHkcAOYWJh8UIGHke1pDkrHEdLPpg1RKxm/wH2tUw+Nbq9+7lY/spWnvOY8W
+	E490dbVYINBNwvC7loleL9J0xVYOF+6KkoHrXVWU8vH65QDUlXjWt/+aNqKZXpWwPLWp3594JO3H8
+	9fP7S/ajX7wToLxUUcVdEAOaDqnndqxxPiKA514f7OEHWEdw1t3iopZDOuQ0ywaJ06IpVBdTgkpGH
+	OA5uvIUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRree-0000000D1Bq-2HeI;
-	Fri, 13 Nov 2026 13:49:24 +0000
-Received: from mail-dy1-x132a.google.com ([2607:f8b0:4864:20::132a])
+	id 1xRrij-0000000D2nI-07sU;
+	Fri, 13 Nov 2026 13:53:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRreY-0000000D1A5-2QUv
+	id 1xRrii-0000000D2mu-0h4c
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Nov 2026 13:49:22 +0000
-Received: by mail-dy1-x132a.google.com with SMTP id 5a478bee46e88-3712b6d9843so926083eec.1
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Nov 2026 05:49:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794577758; x=1795182558; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Puay+wpYVMEbOLRsus5utO7vcdPRYNMhn4l2tkGm58A=;
-        b=xFLd/QbJp6b7HyIt/ygE5cmAWshRUSXzSr5MJTNiqjPjD2RQzriLaoda1Jk6yFVNMT
-         YhqrE/xX7wtSockgcaPStDe5CiMVXJUbeV/xbVN1zwu7GAu7IKAOJH8BG/CvMFlCghUr
-         YuCcVDWIk2UvEFxUktwNvW1vPcPecqNn60P3l8D1lsDTpq0aA133nwD/TFZV69RYJg2F
-         7HvukEzxN4TR/69xrzgD6tXe5KFgn8auALRiGpgakX6ucsBUeOChc+IndQVM1Ok0SYAB
-         Vj29mR0tV/sBeLVark8xOvMBHfMSNsGql4vs/CVAKlynCkVsvcyNBrZ0Qi+PaIbwGZ5F
-         sxnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794577758; x=1795182558;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Puay+wpYVMEbOLRsus5utO7vcdPRYNMhn4l2tkGm58A=;
-        b=LG6/PkgzWbiIEkhHik1arIPJdCtdMcbp+dPTTI7/vlBZ8+HukinBhsftMrGdjJodLf
-         g5bJ2eRUuzg4R7iFRdquRHIxvZRayCveBcNgW7UoxHcN6wUoDoI6fbfa2EwMKtRKoVPl
-         oO3vAkcU2zVV5rJB8cq9+Ci8UoHbi4Fg0s0+CSNuFfyudh1BhNheVoAlnoV/Z/70bzcy
-         ui2Bh/D7Mgb2WIKSi5wZhI7HBOs84auUHvTu/Ee2VkMRNO9pnqA6VBAF0upZRu9vst+v
-         wgJvm5JMwvD9fDpxnkVsTp5un+fsC0+nnBof7YrRLomtCjiJeOjJLSdB/Q6nn0ElVO2b
-         ClUg==
-X-Forwarded-Encrypted: i=1; AL+hErHN6UKESD2A4dnjxNPW6WHHPznAuB+vNg1vjrKpHpklcoc92N5VxLaQocJnlOlbmVGdkw6z8hYvPyoX+A==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8p+dvplWhrkqf2fl55ur4V/MZOpfZIIU/SnLk1GAEQtzvcHwsL
-	Q23s4mnt6TCiC/QG+aIY1Va1EkcHzGmM4ok0UKDgdbBMeT/uLpb6Hdkn
-X-Gm-Gg: AYBFou1uXZgVMIKm0KSPH516y9t/WEC/qfsUf9KLyvC9YWUnGYqsl3v3JfgwcTlReJY
-	ziQBaVUfSBaIE8R0aP8wjkrQxgqma8JMnr9Czs9xqOtg5trxWw6IgimCyOy9wPJ9tr43NnAZQEg
-	9OBQswADkE6HeRbgVzfZOsylUUrUac1IpPBxiplD9sEUMCEc+jpSp9grgWUp7KELW7v8kPDiZPc
-	Ec6OHZECE7BoVLKZXHcX7FJ+xNwSELWEi/pT4lhgZJTCiXnDOzk5+yJD0TF4qvK2BEqcf98J6Nw
-	iS7SqJQT0s6FYrXFtb+jkNondANPMnXPssniVZdi8QrN/K060XFDzL7l2zofDyOy3g3egyCEATg
-	+M7+lLQ7gN5zBMFucDj99se4X5yJxHbnDbycZP5lMP8Gc1AGvUry9UR9ZIq9JxjyGsIo00EUUW8
-	poFVcd/ANMC0wz141YYMoAzC1MSJofDEx70j3Y5Ipq24NVeRyoqLJd1kNPxchzZx0BCPVN07ybS
-	ju6QM/V5AiIV7kL5uQlg/kOqPywhGj4blZMawkcwQ2GbLWEJ8MLo9ihWCEYoNPnVwVTZxeLidXi
-	AMx6c77eF1COM6H2rXMT3X72/RjzBg==
-X-Received: by 2002:a05:693c:88db:20b0:36a:1e9e:ae61 with SMTP id 5a478bee46e88-379684ae78cmr2170730eec.38.1794577757517;
-        Fri, 13 Nov 2026 05:49:17 -0800 (PST)
-Received: from duge-G3-3500 ([183.192.220.187])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3795533170csm8381252eec.7.2026.11.13.05.49.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Nov 2026 05:49:17 -0800 (PST)
-Date: Fri, 13 Nov 2026 21:49:04 +0800
-From: Jiayu Du <duge1256@gmail.com>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, dlan@kernel.org, pjw@kernel.org, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] nvmem: Add read-only SpacemiT K3 eFuse support
-Message-ID: <7xzpzkw5qmt3xb3ezo2sii6tnfraetwooh2l6dl4svclvbn43o@uvm7uyhz4bck>
-References: <20261106060525.346873-1-duge1256@gmail.com>
- <20261106060525.346873-3-duge1256@gmail.com>
- <DMO4CP89Q1AA.17HKYA50DLY8L@linux.spacemit.com>
+	Fri, 13 Nov 2026 13:53:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6A491412D0;
+	Fri, 13 Nov 2026 13:53:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A96DE1F000C4;
+	Fri, 13 Nov 2026 13:53:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794578015;
+	bh=F+S1OY2DdV1BNoaCvOeQiRudx9V3jy52LLaoOUct0hw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BJ2BZ3MGUjHrpJK2WU7o4+s+G1Vt2Y3ele2N7f2wYl9cj2J5BiJa4dMJkE7R9m2+i
+	 5fP4GK1XegErUtYmoejk1Z2beYCrpbFjIZ3EtUVilM//iFmgMf6c432nHQkfoOjGbl
+	 kGW1rlQv8mNOiNqDBoJ7lotLP+4/AheWVE3ARwYeegbVxUP721CMGTMNMHmlaTsObT
+	 sZdKSXNfJWPZ6e8FtjOz2zOqbirBpUBmH4BvyygHEcGQxXgK+QMb+QZDADgdDR9N9C
+	 hsTa8ePQNvbfRNPfRYSivlL/IFI7ChHHEU68sPRHiBlu9mp7ESvWaMGTxHx2t1ykOI
+	 mqEt74VWGywBw==
+Date: Fri, 13 Nov 2026 13:53:29 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Mina Hui-Min Chou <minachou@andestech.com>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, jic23@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, geert+renesas@glider.be,
+	magnus.damm@gmail.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	randolph@andestech.com, cyyang772@andestech.com,
+	tim609@andestech.com, az70021@gmail.com
+Subject: Re: [PATCH v2 18/19] riscv: errata: andes: limit the IOCP workaround
+ to RZ/Five
+Message-ID: <20261113-helping-elsewhere-cbcf0c8f67ce@spud>
+References: <20261113071143.1446167-1-minachou@andestech.com>
+ <20261113071143.1446167-19-minachou@andestech.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <DMO4CP89Q1AA.17HKYA50DLY8L@linux.spacemit.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261113_054918_634801_4CCC834F 
-X-CRM114-Status: GOOD (  24.36  )
-X-Spam-Score: -1.9 (-)
+In-Reply-To: <20261113071143.1446167-19-minachou@andestech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,113 +72,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8241760141764326803=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-0.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Nov 06, 2026 at 12:15:54PM +0000, Troy Mitchell wrote:
-> On Fri, 6 Nov 2026 14:05:24 +0800, Jiayu Du wrote:
-> > Add read-only NVMEM access to bank 0 and bank 7 of the SpacemiT K3
-> > eFuse controller. These banks contain temperature calibration
-> > parameters and other configuration data.
-> The rest of the window holds the root key and the SSK, which is why
-> only these two banks are exposed. Please say so here and in a comment
-> above k3_efuse_keepouts.
+--===============8241760141764326803==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="IzdCK0dvvo63ja0a"
+Content-Disposition: inline
 
-I will add this explanation to the commit message and above
-k3_efuse_keepouts.
+--IzdCK0dvvo63ja0a
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> > Snapshot the shadow registers with aligned 32-bit reads and expose the
-> > data in little-endian order at controller-relative offsets. Serve
-> > reads from the snapshot and use keepouts for the remaining register
-> > ranges. Keep the AES_WTM clock enabled and its shared reset deasserted
-> > while the provider is registered.
-> Why keep the clock on? Reads are served from the snapshot and nothing
-> touches the hardware after probe.
-> 
-> Tested on CoM260:
-> - clock on only around the snapshot: probe and unbind/bind work, the
->   clock stays off (AES_CLK_RES_CTRL 0x00c30050), same bank 0/7 data.
-> - this patch: unbind gates the clock and asserts the reset
->   (0x00c30070 -> 0x00c30040), rebind reads the same data.
-> - this patch: 3s of WTM_RST or of clock gating leaves the shadow
->   values and FUSE_READY unchanged.
+On Fri, Nov 13, 2026 at 03:11:42PM +0800, Mina Hui-Min Chou wrote:
+> The SBI-based IOCP check was added for Renesas RZ/Five (R9A07G043F),
+> the only upstream-supported SoC whose AX45MP has no IOCP. It matches
+> the AX45MP marchid and the mimpid of the RZ/Five core, but it is built
+> into every kernel with ERRATA_ANDES_CMO, so the SBI call is issued even
+> when the kernel does not support RZ/Five.
+>=20
+> Move the match into soc_is_r9a07g043f() and make it also require
+> ARCH_R9A07G043. Kernels without RZ/Five support then skip the SBI call
+> and take the generic Andes cache errata path. No other upstream-
+> supported SoC uses this AX45MP mimpid, so their behavior does not
+> change.
 
-I will disable the clock after taking the snapshot, before registering
-NVMEM. It only needs to be enabled while accessing the hardware in probe.
+But a device using this soc that doesn't have a dts in mainline won't
+function properly, so this is fragile. Why not just do it properly and
+check for RZ/Five specifically?
+Can check for of_machine_is_compatible() probably?
 
-> 
-> [...]
-> >
-> > +	depends on COMMON_CLK && RESET_CONTROLLER
-> Not needed, both APIs have stubs.
+>=20
+> While at it, rename ax45mp_iocp_sw_workaround() to
+> r9a07g043f_iocp_sw_workaround(), as the check is only used for RZ/Five.
+>=20
+> Signed-off-by: Mina Hui-Min Chou <minachou@andestech.com>
+> ---
+>  arch/riscv/errata/andes/errata.c | 13 ++++++++++---
+>  1 file changed, 10 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/arch/riscv/errata/andes/errata.c b/arch/riscv/errata/andes/e=
+rrata.c
+> index 530d2df216e0..f2535a81b1e2 100644
+> --- a/arch/riscv/errata/andes/errata.c
+> +++ b/arch/riscv/errata/andes/errata.c
+> @@ -25,7 +25,7 @@
+> =20
+>  #define ANDES_SBI_EXT_IOCP_SW_WORKAROUND	1
+> =20
+> -static long ax45mp_iocp_sw_workaround(void)
+> +static long r9a07g043f_iocp_sw_workaround(void)
+>  {
+>  	struct sbiret ret;
+> =20
+> @@ -39,6 +39,13 @@ static long ax45mp_iocp_sw_workaround(void)
+>  	return ret.error ? 0 : ret.value;
+>  }
+> =20
+> +static bool soc_is_r9a07g043f(unsigned long arch_id, unsigned long impid)
+> +{
+> +	return IS_ENABLED(CONFIG_ARCH_R9A07G043) &&
+> +	       arch_id =3D=3D ANDES_AX45MP_MARCHID &&
+> +	       impid =3D=3D ANDES_AX45MP_MIMPID;
+> +}
+> +
+>  static void errata_probe_andes_cache(unsigned int stage, unsigned long a=
+rch_id, unsigned long impid)
+>  {
+>  	static bool done;
+> @@ -51,8 +58,8 @@ static void errata_probe_andes_cache(unsigned int stage=
+, unsigned long arch_id,
+> =20
+>  	done =3D true;
+> =20
+> -	if (arch_id =3D=3D ANDES_AX45MP_MARCHID && impid =3D=3D ANDES_AX45MP_MI=
+MPID) {
+> -		if (!ax45mp_iocp_sw_workaround())
+> +	if (soc_is_r9a07g043f(arch_id, impid)) {
+> +		if (!r9a07g043f_iocp_sw_workaround())
+>  			return;
+>  	} else if (riscv_isa_extension_available(NULL, ZICBOM)) {
+>  		return;
+> --=20
+> 2.34.1
+>=20
 
-I will remove these dependencies.
+--IzdCK0dvvo63ja0a
+Content-Type: application/pgp-signature; name=signature.asc
 
-> 
-> [...]
-> >
-> > +#define K3_EFUSE_REG_SIZE		0x400
-> > +#define K3_EFUSE_BANK_SIZE		0x20
-> > +#define K3_EFUSE_BANK0_OFFSET	0x104
-> > +#define K3_EFUSE_BANK7_OFFSET	0x190
-> Nit: the last two are not aligned with the others.
+-----BEGIN PGP SIGNATURE-----
 
-I will align them with the other definitions.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCavcWWQAKCRB4tDGHoIJi
+0qzAAQC7B7sPqS4BTa1bnyUteSZr78QNByD/8OtF59kGw57czQD8CYG7GE3WQIFL
+BKxtBdTljwnjq94bH8XP/9L5YptDHwU=
+=+VjA
+-----END PGP SIGNATURE-----
 
-> 
-> [...]
-> >
-> > +	if (resource_size(res) != K3_EFUSE_REG_SIZE ||
-> > +	    res->start % sizeof(u32))
-> No need to validate DT here. Drop it and use
-> devm_platform_ioremap_resource().
-
-I will drop the resource checks and use devm_platform_ioremap_resource().
-
-> 
-> [...]
-> >
-> > +	reset = devm_reset_control_get_shared_deasserted(dev, NULL);
-> This asserts the reset on unbind, rmmod and probe failure. The fuse
-> data survives, but WTM_RST resets the whole GEU (FUSE_SCLK_DIV_CNTR
-> went back to its boot value). The driver does not need the block after
-> the snapshot, so use devm_reset_control_get_shared() and only
-> deassert it.
-
-I will use devm_reset_control_get_shared() followed by an explicit
-reset_control_deassert(), leaving the shared reset deasserted on teardown.
-
-> 
-> [...]
-> >
-> > +		for (i = 0; i < K3_EFUSE_BANK_SIZE; i += sizeof(u32)) {
-> [...]
-> > +			put_unaligned_le32(val, efuse->data[bank] + i);
-> Please poll FUSE_READY (GEU_FUSE_STATUS bit 1, offset 0x184) before
-> taking the snapshot, and fail the probe if it never sets.
-
-As you clarified, the automatic shadow load at power-on does not set
-FUSE_READY; it is only set after a software-triggered reload. I will
-trigger a reload through GEU_CONFIG bit 22 before polling READY, and
-fail probe if the poll times out.
-
-I tested this sequence on my COM260 Kit: probe succeeds and both banks
-match the data read with v1.
-
-Thanks,
-Jiayu Du
+--IzdCK0dvvo63ja0a--
 
 
+--===============8241760141764326803==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8241760141764326803==--
+
