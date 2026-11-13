@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA84F606A55A
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 22:34:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2EA5606A32E
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 22:34:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SJ6ch+5U;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fyd4+BWo
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YXzJ/zYv;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BCXHdLRw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,71 +14,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=T0hCotwnwZRQG+dF1xo5bIQpupGOychYCsl7TXv+BwE=; b=SJ6ch+5UFf/5V68Dz/2HTfQJwS
-	3wz7OtIiF6EoSQZwrCCPiyRYEdiFslN79zGC1Ef9T4CQaqVwI44DEbfN8Cbh0p2uCqq/Q3gtOxaPq
-	WtDWL9qPknNbS4NAm3Guirxk8NN5iDB1SqimoBcwPR68h3/g/75vs648R9WHtLuwpXsDFXcXcFngg
-	wVpBZF8PWoA5qwvY3l4X1gc8q+kFVPAqj/WfijY7WunbEQpEPuglbGrsiXwuuDB3GgbEe0lrF3nmV
-	7Mluyynx3Hy4Y04UCf/fksF8KyUW/ojR4MbdlxWJIsoZW04DICiJCDZm6tCmQM9cizcGRY+FLqxWN
-	QR0FCEuw==;
+	bh=XKcKnw0qAMvGRQZZMIGLKOdMw3bAuuEwV169TKl5f/w=; b=YXzJ/zYvdlz/eMjTULiTGHz4jf
+	DL+BoR+Q3qARbpAnTEFFgEtvGjhh0etvDA7e9zCymCl6Fp69fo3YtOYq1+SwlgRPOjgTxRAoiml4A
+	TpVo76vwxIk8ruW+AeVLMcMoKqRUhAW0VblmXWUM+q28MiQp2nSx84ADZ4UcFACj5zuLxFFX5IyNK
+	Pv1mQFuaAP0xXf5K8w/a0fK9iAL4JQWcdLQ+bRL7NpliDsqINFUN11mtJtoTB92KxNcPC+0kFO38G
+	lBaBsj5poXOTD38P7nriO5jDWoayXgRiwIuvQIVydIiV7iEGZNje74tgFuYVdKpsZZo4nDBaR3h0H
+	YbeeV0sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRzqd-0000000Eiie-26zs;
-	Fri, 13 Nov 2026 22:34:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xRzqj-0000000Eiy8-1GMv;
+	Fri, 13 Nov 2026 22:34:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRzq2-0000000EhnZ-2PbR;
-	Fri, 13 Nov 2026 22:33:42 +0000
+	id 1xRzq3-0000000EhpO-2aOs;
+	Fri, 13 Nov 2026 22:33:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 04C3C634D8;
-	Fri, 13 Nov 2026 22:33:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 58AEC46C45;
+	Fri, 13 Nov 2026 22:33:43 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794609221;
-	b=ixXZyX6PNaFH4FrMFF2i7WsHjvAc23Yx3BPq41Mg5Jqj9kYtllKpGrBwJ4pW0m8u9bjv
-	 sJTKkiJ1qb5VNJeaftulTfGTVw7eOrN8GUzOUVP8GnGI9/zCp5LGnr20DjkV1gnWKTe5N
-	 5Ps+JPcetfh5sq719Ooj7D0HAjkyHmWMK8ORLNJe+6KqcH4HOLeOx0vzEY4FjcMEz/miC
-	 9uuLsYi0/UuynrMHFkT4ZHz+5SMpchOo6X6v8lTZUnkdqjexq8ybSHnnC8cV2nppm3Id7
-	 MPbWrUyYNFJpuRgdNKB6ykp3jQ3UgEjUXxcTwqy2asJxz/BkFA3TZwBbQA5/OWhgshA==
+	t=1794609223;
+	b=Cfqnq+VgQvnXxMtuSt2tP8cGIX+dAfsjkA2Srd1L0c9wTNZNchp7vYjf0oTMIapor+3X
+	 b8g2rgiL2bBEnbo7pm0DcbjF5akbOYiU4IaaIj0sPqJaVXJ/xaNf9va9439IgkLurTfbg
+	 7mBR8Hf/Z2Pdn9GerIE8P7YVkpgEF1DNmWok4HUTDLetogwlsqNGJrDzW3DpLlwH0ptvy
+	 HWiLg9qRwJk5FL+2UxI6hrO0KwwwVgbf5tw29e11BrbFQ8DuqqspoV19ZYTtIyNAoLJ4D
+	 tzdtsc0nwY7UzigQ9ppcLFywWr1qDtQ2wYXKZSw1elXLqSc17gfC6rOfX+bNOgB2DxA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794609221;
+	c=relaxed/relaxed; t=1794609223;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=tAMzkHW3x619qcSE6ghe9OxhnYf9AsPfwmmVyuti68Q=;
-	b=SMRh+U51g4jzVdRWM55LG3pe3X4WEfzIcyhhu0usWl8oYSR1HIh+eeMOOxnZZLiutTs5
-	 LGcTbn7auv65H0DTaeDuiHZwT+Qc5LsulEwQVY8F3Jm3qESK4N7CSLpUaZq1XjQ2bVxiR
-	 H47ZIj/aBgM0IcOVl9DIMFpONDwPUyQvTnr+ScGzDTZfT5DKhzFpWrNnDXeuvy2KHfSdf
-	 EBKDdhMEeYwuASl36zHZPnvS9xms3S3iWqK9NBI9KXK5UVgvrK3H6atr3S5hEVBXJR6er
-	 P5tQMY20OD40AumDBt/IIUyvGhHczNYkkWhNwnpIQK2mf15xM2UCcZ+9x/8L7feY8zA==
+	bh=JwFqOKP20g0aC7yp0dMF04OjCxUKgcRvU9TaC/BzR80=;
+	b=Ilq0WS7++QBMXINskeTfkv1BRozYHiKek1828s4fG8AcLv5qg8vmGx7zQiVXEN98MPOP
+	 Fn72XvMfU2c6MoLfUez+idaHWqO+VgYLIVdt1Sp3Oghb+V4pl6nP/y/AB+799bEz2UwLo
+	 gV9qDq2vej2g1//Q5IwWjVQ2ctM3xeEeX4YpA6fNHSrGxbFqvX7TeTfbRk6MZnNA7uPT/
+	 yuSSEBOuwWNBaHzGQCujCN19WHzPY36Ef631xviA9rFNx8a2OyReq8ccinlOnbOH95LCB
+	 A1QyYWrckhCUAc8zmE7AIaLzivxdWVyc3G+MQpuAwC8bpY0mr7MrL0d/RptavreXd2w==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 543BE1F0182E;
-	Fri, 13 Nov 2026 22:33:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794609221;
-	bh=tAMzkHW3x619qcSE6ghe9OxhnYf9AsPfwmmVyuti68Q=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Fyd4+BWo9SAEAgTUcWSfp2jxVvQglhZmUdq5m0HhB9GSHbPHNJ4hy0bQfcI1UrD6s
-	 VT6t9XNz+rWbIr6EEM8YzAMtMKHq0py10+BDgugqm22w/9LBy32gek518/jq/5WmTx
-	 KcXgfVQPQBlKYO+9DwIyztRbPZSpPG3oGaiYG8YAdMW1AG8i63CrpB+BKngj6VMNir
-	 zc3HfNLLzho1gNekNo/GrNLbTXeKc4UdRSBZpK2xKMqIYx8oijBdKMRUFQbC5rhS2l
-	 TlueSpQIxt7bC0vM/DugKKZsIfl2Byyw8j26Dir8fDdnMdUwOJ7zDJDDGJj6sepsR1
-	 b/ZEuSqXBBMSg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 1DCB049B9A;
+	by smtp.kernel.org (Postfix) with ESMTPS id F2B8E1F000C5;
 	Fri, 13 Nov 2026 22:33:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794609223;
+	bh=JwFqOKP20g0aC7yp0dMF04OjCxUKgcRvU9TaC/BzR80=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=BCXHdLRwmqWlF/2aUfKDVB12YsuvDfKHRE1C18YiVLHjVW/+mmHRU6orZ74ECnR1U
+	 lxq1xB9k9rl8Eg9BpLEPGXr+KoquFd3OK33orrD5XGQjXWhD7ayucjBywtP3TTYfRT
+	 Ry14g4FmqpBrgWegX9nEyANQQ+29wTQyk0knFG3gqAu+20/ANUmenv1tSjZmV94ZgW
+	 jKRaMOAmiRUso0ZreHUn1Tzp+JzWhDgbYPs0DL77Xa5Yv0JLpMereIiLvThLAyiT+B
+	 njE//EK8LLvTXrXgk5e615fUqRnsy4OcQG5vyeiGEmzYI02j3ErU92yk6sOEVyObim
+	 Q0hVAGjWIg8iw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 3E14A49B74;
+	Fri, 13 Nov 2026 22:33:33 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Sat, 14 Nov 2026 06:33:44 +0800
-Subject: [PATCH 18/19] riscv: dts: allwinner: add the YuzukiHD Avaota F2
- board
+Date: Sat, 14 Nov 2026 06:33:34 +0800
+Subject: [PATCH 08/19] dt-bindings: rtc: sun6i: add the Allwinner V861 RTC
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261114-v861-v1-18-eb71ec3ee523@iscas.ac.cn>
+Message-Id: <20261114-v861-v1-8-eb71ec3ee523@iscas.ac.cn>
 References: <20261114-v861-v1-0-eb71ec3ee523@iscas.ac.cn>
 In-Reply-To: <20261114-v861-v1-0-eb71ec3ee523@iscas.ac.cn>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -105,11 +104,11 @@ Cc: Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
  linux-gpio@vger.kernel.org
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794609209; l=2024;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794609209; l=902;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=KqCPsLCb1dJ4aF8ZRP+gwHxIPe0+kCAp6k+KqhGB/tU=;
- b=JAcotxw+M6j30G6Y+hS6IIthgJBH9a0dFcYqiLwL8VfrQYXbseALNWB7FyvsQlLFdrq1ifsfd
- XTqr4BlvW/tAFUhX0NaT1c1hZjH3ZcIUsvJ3w2wYbmlHtGbMZ+QCYs9
+ bh=F1GNhVpodsXAYlEoyOMPo+2vHXQnhpYEkGTEEAeJ24U=;
+ b=r31usjU0JpNBnyAaJ6yw0tFh3sM1hAcG8U6aEklPoM93eVC8D7WYOsDVfP5Z8K5DzDKgfP/GZ
+ KiiBLhKjRvSDJAPRwJ137YPvrIo1pzy5Oun+vZaS+OGZA1VItVeH/QU
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -137,73 +136,26 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Han Gao <gaohan@iscas.ac.cn>
 
-Add the YuzukiHD Avaota F2, a V861 board, with its memory and serial
-console.
+The V861 RTC is compatible with the R329 one. Add a compatible with the
+R329 one as fallback.
 
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- arch/riscv/boot/dts/allwinner/Makefile             |  1 +
- .../boot/dts/allwinner/sun252i-v861-avaota-f2.dts  | 43 ++++++++++++++++++++++
- 2 files changed, 44 insertions(+)
+ Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/boot/dts/allwinner/Makefile b/arch/riscv/boot/dts/allwinner/Makefile
-index 1c91be38ea16..725919d9a4af 100644
---- a/arch/riscv/boot/dts/allwinner/Makefile
-+++ b/arch/riscv/boot/dts/allwinner/Makefile
-@@ -9,3 +9,4 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-lichee-rv.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-mangopi-mq-pro.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-nezha.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1s-mangopi-mq.dtb
-+dtb-$(CONFIG_ARCH_SUNXI) += sun252i-v861-avaota-f2.dtb
-diff --git a/arch/riscv/boot/dts/allwinner/sun252i-v861-avaota-f2.dts b/arch/riscv/boot/dts/allwinner/sun252i-v861-avaota-f2.dts
-new file mode 100644
-index 000000000000..e3f5e6c8d350
---- /dev/null
-+++ b/arch/riscv/boot/dts/allwinner/sun252i-v861-avaota-f2.dts
-@@ -0,0 +1,43 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
-+/* Copyright (c) 2026 Han Gao <gaohan@iscas.ac.cn> */
-+
-+/dts-v1/;
-+
-+#include "sun252i-v861.dtsi"
-+
-+/ {
-+	model = "Avaota F2";
-+	compatible = "yuzukihd,avaota-f2", "allwinner,sun252i-v861";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	/* U-Boot updates this node with the detected DRAM capacity. */
-+	memory@40000000 {
-+		device_type = "memory";
-+		reg = <0 0x40000000 0 0x08000000>;
-+	};
-+
-+	reg_vcc3v3: regulator-vcc3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+	};
-+};
-+
-+&pio {
-+	vcc-ph-supply = <&reg_vcc3v3>;
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_ph_pins>;
-+	status = "okay";
-+};
+diff --git a/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml b/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
+index ebe35f893f8c..9d05b61acedd 100644
+--- a/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
++++ b/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
+@@ -33,6 +33,7 @@ properties:
+       - items:
+           - enum:
+               - allwinner,sun20i-d1-rtc
++              - allwinner,sun252i-v861-rtc
+               - allwinner,sun55i-a523-rtc
+               - allwinner,sun60i-a733-rtc
+           - const: allwinner,sun50i-r329-rtc
 
 -- 
 2.55.0
