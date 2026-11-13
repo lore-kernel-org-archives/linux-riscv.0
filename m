@@ -2,97 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D36960A380F
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 00:15:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0B08606A321
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 00:44:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=l+roG8WA;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=feQDu8a/
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NFzuncmm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=SvQzAbRds9OcdHpv7Ct06v3nVy6fFWU09iyUfLx4Oq0=; b=l+roG8WArwoolqgKeagllhFpvM
-	s03boNUmeMtZCq9Rjai9Pnx4x8XEX9zTflLX2qu/OmkPFyEEsLPP3ugHL2V2Vc/S1rBMSE6JJEklD
-	eonTlVFYwGTxBot46ls4WwpeWbNqxo8ejoUIdrC0GAyLyhFTAkCtMiug4PwEBPY35H6fDe5KzHHfb
-	LtX0tbBgCJVx8txfVUISZaT+IJ4UjJtWE7ZRlYDP5BEL5QxcFctNHLdz2Ib79IKhQ26rr0xR7ieY0
-	6m8Q+M2kqJGz3ydlJ8veUptJw0V87E12bFa5/I+kiv32+YMy24XJqqcyK7OJle1hiYhaizd04EStS
-	9LcxC+cA==;
+	bh=iKLoGl0GizjZM8UoGiDI9KWIhoHIa07U2U8YYlcsTnE=; b=NFzuncmm38s19dRvjSanwe/daB
+	N62HwJcuXR3hAhIIdea1MVNv1SvmH1UR0pyTJjygLpAIq87RdjDf1Q6dPzsBPF2F2aMqNoqVMKtCV
+	pRjc3Vdu/aAJG5ox26G5k2ye2FV/DV3lmiSn/OiI00yDRJTMhglvTpnpT368kdF82jxLJoZ4S9IaH
+	DvX2gd4mz7ScGYamaMaOSJXA3FQBzVczDlf6YTNFea8ftwj7gsSGwFhKcLxx9pFk4VDQBEKQoMqeZ
+	RDFjhIiD1ChvNIRnhLkCUIIRwABTdCXJE3K2eLBsg/vP8U6VnAmhxVsx8U+jzxf860LXTBQZ8tGC+
+	i6FPgUcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRewu-0000000BI9v-42im;
-	Fri, 13 Nov 2026 00:15:24 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1xRfPC-0000000BNOz-3ufy;
+	Fri, 13 Nov 2026 00:44:38 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRewt-0000000BI8x-03Xw
+	id 1xRfP8-0000000BNJV-01JW
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Nov 2026 00:15:24 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-3ae25c846edso3737621fa.2
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2026 16:15:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794528921; x=1795133721; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=J2LkBRUVTRexRTSqdlSVNAYuG65U41LgIRZGkSwqN8Y=;
-        b=feQDu8a/YgDQvmasZR0RBJhRYkZFDAhV1IjdFbMOOT1OHnEx95w0ecPfoI31LTOrlk
-         b7LQkEHdFS3o4zoijMTdpZtYGw2Q+oPiwr6VqhPPJCe7QiaofIdVIN+8kCqL/woXMvzh
-         iqnbGe8lpliM/p2x0tWHGrH9QCqJhZqHzTsTJvpVrpmdrXmkerzY5TDBQifyMsCqgE9b
-         laLYoD3HaKYAkhAgp48ovCj/xbhUT8jRWSIXxSvb6D+YEOybYvdjneNgH5w5I2+aZTZ0
-         tPxfJOwwMMrpQzW29cguDdLvx8f+t1UfkJvlW3T/yefF9C6mdQmHhYuW4g7Qh+yCgmrp
-         +loA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794528921; x=1795133721;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=J2LkBRUVTRexRTSqdlSVNAYuG65U41LgIRZGkSwqN8Y=;
-        b=qHO7oKd4Bvd2ktxtyP9cv43QvMuHYo4PFwkvXvtlb1oPHC7fgnI4lUIUye8XIZuhzF
-         vNWjS721M3Jq3+MdrvD18ZOnpcEt8LGYpJ0PE2TPtb66E7/VNjAHE26Cw+ehksHncMO/
-         qF/YObVWL4T6Vv7PCVXxzHijQXSKwJfMjrTj5EF2gqEib8E4i4BEbbQdrIlBk0mq4pYT
-         FPq9R6y2fRu8MkBlcHaRWmp973JQArBvesAO7fhWkwq65Ub7zDaxE8A/Ub5mce6IEk45
-         WtthtYuGBva88anU1jE/TsYrwCdEkjTynv+C+fQoSQcMQq1NjHK88WDhcHLfWgzLzlbt
-         x78g==
-X-Forwarded-Encrypted: i=1; AL+hErEx5k6/ifyzz4J+PyYeROTRNaRH2G2S/1B8saBrSTX/ffSoIzB0jAqys2ZSydFPT8MlQpEMPoqeGOayig==@lists.infradead.org
-X-Gm-Message-State: APuU4Z+DMdGMudpWFKCKIq9hMWYs8OVzdWYIh0vpVcfH9p64o9gKd1FY
-	2ixudPyyjafbk+XgzzNp1Dp/KOeAVy01BbX9bl/TZ8D60I5dcYQyq1j4
-X-Gm-Gg: AYBFou0MeNqkBv0WgEz+1nXo9DTWpAoG++CxbYTPiD9KvjipXjz5FSLg2TMmc2IrR9I
-	Wi2c2k5pJ3mdkF20Rb4GWkVlrIqz8N78dxLSrkjw6rW3fdUNXJ/E3NM6LLVNUwkH4eX036sQzXn
-	U8Ho3aJfee9HrKMynAwDlUDaf3Gasy5Ru95Alw58V0OuS8dZSNTP3uSAfgX/OhE5DX1Rwpe154g
-	HPaiv9HOh00+Fm+wDt+doLg5mT09PGkU4r74X6XdcvD6pZIFvDDKMAorYfNnFuLA8FKSnr34Fw+
-	9BgqFd0x2iRPqlA2qxmPSY6W84rXhKxeiC5sCND80mEfA2vxgzXbukoaDz8QPql5QiD2R4i94m/
-	4hFmfUhBCzM6gDK8U/kpfgnQgOHNJ2D2ZLlOVO9CpIot8erDdnU/nB9NVrG3IEWduHC8ebfd5aQ
-	/MVkJYzsSINHzA0WaBS8/ClIC2OtGGKQ/lSqUmmmdM9DEe5337MLaSiv09i/U1mhuKavfn+qP29
-	0TJk1ZFaFSRMIBnx6sxF9Ky28EeFcBHtgylvwe/9W1ogIBeiby5tLTk9weG6olXKdh0egdnp0HS
-	tJCMuJbCAgAdCR9aQ7Afbn4Z60KdL0jb4+8mxr4nVDvgBhdVpvGaU3AvfaoWtajbHFIVcpR4m1L
-	o2zYPJp/XAg==
-X-Received: by 2002:a05:6512:32d6:b0:5bc:ddf0:d96 with SMTP id 2adb3069b0e04-5c170a0dcc9mr397802e87.59.1794528920769;
-        Thu, 12 Nov 2026 16:15:20 -0800 (PST)
-Received: from SafoStation ([31.40.65.49])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c17133ca01sm200968e87.36.2026.11.12.16.15.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Nov 2026 16:15:20 -0800 (PST)
-From: Safocl Stollmannovic <safocl88@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 06/10] riscv: fix duplicate extern declarations
-Date: Fri, 13 Nov 2026 04:14:12 +0400
-Message-ID: <20261113001432.128201-7-safocl88@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261113001432.128201-1-safocl88@gmail.com>
-References: <20261113001432.128201-1-safocl88@gmail.com>
+	Fri, 13 Nov 2026 00:44:37 +0000
+X-UUID: 5dd0f284defb11f19a56ed5b684f684d-20261113
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:201c943b-613b-42aa-a102-655a3e16884c,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
+	ON:release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:d47035176f9f8d75a6a0c96e5a45fcbf,BulkI
+	D:nil,BulkQuantity:0,SF:102|850|865|898,TC:nil,Content:0|15|50|99,EDM:5,IP
+	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
+	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 5dd0f284defb11f19a56ed5b684f684d-20261113
+X-User: luriwen@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <luriwen@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 343206682; Fri, 13 Nov 2026 08:44:21 +0800
+From: Riwen Lu <luriwen@kylinos.cn>
+To: rafael@kernel.org
+Cc: luriwen@kylinos.cn,
+	lenb@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v7] ACPI: PM: Make s2idle available on HW-reduced ACPI platforms
+Date: Fri, 13 Nov 2026 08:44:19 +0800
+Message-Id: <20261113004419.1877837-1-luriwen@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261112_161523_087519_311866AD 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20261112_164434_516909_A9749F51 
+X-CRM114-Status: GOOD (  35.42  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,79 +77,530 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Q29tcGlsaW5nIGEga2VybmVsIG1vZHVsZSB3aXRoIGEgQysrIGNvbXBpbGVyIHJlc3VsdHMgaW4g
-YSBkdXBsaWNhdGUKZWNobyDigJhleHRlcm7igJkgc3BlY2lmaWVyIGVycm9yLgpUaGlzIG9jY3Vy
-cyBiZWNhdXNlIHRoZSBjb2RlIGNvbnRhaW5zICwgYW5kCmV4cGFuZHMgdG8gIHdoZW4gcHJvY2Vz
-c2VkIGJ5IGEgQysrIGNvbXBpbGVyLgpUaGUgIHNwZWNpZmllciBtdXN0IGJlIHJlbW92ZWQuCmh0
-dHBzOi8vYnVnemlsbGEua2VybmVsLm9yZy9zaG93X2J1Zy5jZ2k/aWQ9MjIyMjU3CgpTaWduZWQt
-b2ZmLWJ5OiBTYWZvY2wgU3RvbGxtYW5ub3ZpYyA8c2Fmb2NsODhAZ21haWwuY29tPgotLS0KIGFy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vc3RyaW5nLmggfCAyNCArKysrKysrKysrKystLS0tLS0tLS0t
-LS0KIGFyY2gvcmlzY3Yva2VybmVsL3Byb2Nlc3MuYyAgICAgfCAgNCArKy0tCiBhcmNoL3Jpc2N2
-L2tlcm5lbC9zdGFja3RyYWNlLmMgIHwgIDIgKy0KIDMgZmlsZXMgY2hhbmdlZCwgMTUgaW5zZXJ0
-aW9ucygrKSwgMTUgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS9zdHJpbmcuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3RyaW5nLmgKaW5kZXggNzY0
-ZmZlOGY2Li5hYzg5NTM1OGMgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3Ry
-aW5nLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zdHJpbmcuaApAQCAtMTAsMzMgKzEw
-LDMzIEBACiAjaW5jbHVkZSA8bGludXgvbGlua2FnZS5oPgogCiAjZGVmaW5lIF9fSEFWRV9BUkNI
-X01FTVNFVAotZXh0ZXJuIGFzbWxpbmthZ2Ugdm9pZCAqbWVtc2V0KHZvaWQgKiwgaW50LCBzaXpl
-X3QpOwotZXh0ZXJuIGFzbWxpbmthZ2Ugdm9pZCAqX19tZW1zZXQodm9pZCAqLCBpbnQsIHNpemVf
-dCk7Cithc21saW5rYWdlIHZvaWQgKm1lbXNldCh2b2lkICosIGludCwgc2l6ZV90KTsKK2FzbWxp
-bmthZ2Ugdm9pZCAqX19tZW1zZXQodm9pZCAqLCBpbnQsIHNpemVfdCk7CiAjZGVmaW5lIF9fSEFW
-RV9BUkNIX01FTUNQWQotZXh0ZXJuIGFzbWxpbmthZ2Ugdm9pZCAqbWVtY3B5KHZvaWQgKiwgY29u
-c3Qgdm9pZCAqLCBzaXplX3QpOwotZXh0ZXJuIGFzbWxpbmthZ2Ugdm9pZCAqX19tZW1jcHkodm9p
-ZCAqLCBjb25zdCB2b2lkICosIHNpemVfdCk7Cithc21saW5rYWdlIHZvaWQgKm1lbWNweSh2b2lk
-ICosIGNvbnN0IHZvaWQgKiwgc2l6ZV90KTsKK2FzbWxpbmthZ2Ugdm9pZCAqX19tZW1jcHkodm9p
-ZCAqLCBjb25zdCB2b2lkICosIHNpemVfdCk7CiAjZGVmaW5lIF9fSEFWRV9BUkNIX01FTU1PVkUK
-LWV4dGVybiBhc21saW5rYWdlIHZvaWQgKm1lbW1vdmUodm9pZCAqLCBjb25zdCB2b2lkICosIHNp
-emVfdCk7Ci1leHRlcm4gYXNtbGlua2FnZSB2b2lkICpfX21lbW1vdmUodm9pZCAqLCBjb25zdCB2
-b2lkICosIHNpemVfdCk7Cithc21saW5rYWdlIHZvaWQgKm1lbW1vdmUodm9pZCAqLCBjb25zdCB2
-b2lkICosIHNpemVfdCk7Cithc21saW5rYWdlIHZvaWQgKl9fbWVtbW92ZSh2b2lkICosIGNvbnN0
-IHZvaWQgKiwgc2l6ZV90KTsKIAogI2lmICEoZGVmaW5lZChDT05GSUdfS0FTQU5fR0VORVJJQykg
-fHwgZGVmaW5lZChDT05GSUdfS0FTQU5fU1dfVEFHUykpCiAjZGVmaW5lIF9fSEFWRV9BUkNIX1NU
-UkNNUAotZXh0ZXJuIGFzbWxpbmthZ2UgaW50IHN0cmNtcChjb25zdCBjaGFyICpjcywgY29uc3Qg
-Y2hhciAqY3QpOworYXNtbGlua2FnZSBpbnQgc3RyY21wKGNvbnN0IGNoYXIgKmNzLCBjb25zdCBj
-aGFyICpjdCk7CiAKICNkZWZpbmUgX19IQVZFX0FSQ0hfU1RSTEVOCi1leHRlcm4gYXNtbGlua2Fn
-ZSBfX2tlcm5lbF9zaXplX3Qgc3RybGVuKGNvbnN0IGNoYXIgKik7Cithc21saW5rYWdlIF9fa2Vy
-bmVsX3NpemVfdCBzdHJsZW4oY29uc3QgY2hhciAqKTsKIAogI2RlZmluZSBfX0hBVkVfQVJDSF9T
-VFJOQ01QCi1leHRlcm4gYXNtbGlua2FnZSBpbnQgc3RybmNtcChjb25zdCBjaGFyICpjcywgY29u
-c3QgY2hhciAqY3QsIHNpemVfdCBjb3VudCk7Cithc21saW5rYWdlIGludCBzdHJuY21wKGNvbnN0
-IGNoYXIgKmNzLCBjb25zdCBjaGFyICpjdCwgc2l6ZV90IGNvdW50KTsKIAogI2RlZmluZSBfX0hB
-VkVfQVJDSF9TVFJOTEVOCi1leHRlcm4gYXNtbGlua2FnZSBfX2tlcm5lbF9zaXplX3Qgc3Rybmxl
-bihjb25zdCBjaGFyICosIHNpemVfdCk7Cithc21saW5rYWdlIF9fa2VybmVsX3NpemVfdCBzdHJu
-bGVuKGNvbnN0IGNoYXIgKiwgc2l6ZV90KTsKIAogI2RlZmluZSBfX0hBVkVfQVJDSF9TVFJDSFIK
-LWV4dGVybiBhc21saW5rYWdlIGNoYXIgKnN0cmNocihjb25zdCBjaGFyICosIGludCk7Cithc21s
-aW5rYWdlIGNoYXIgKnN0cmNocihjb25zdCBjaGFyICosIGludCk7CiAKICNkZWZpbmUgX19IQVZF
-X0FSQ0hfU1RSUkNIUgotZXh0ZXJuIGFzbWxpbmthZ2UgY2hhciAqc3RycmNocihjb25zdCBjaGFy
-ICosIGludCk7Cithc21saW5rYWdlIGNoYXIgKnN0cnJjaHIoY29uc3QgY2hhciAqLCBpbnQpOwog
-I2VuZGlmCiAKIC8qIEZvciB0aG9zZSBmaWxlcyB3aGljaCBkb24ndCB3YW50IHRvIGNoZWNrIGJ5
-IGthc2FuLiAqLwpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvY2Vzcy5jIGIvYXJj
-aC9yaXNjdi9rZXJuZWwvcHJvY2Vzcy5jCmluZGV4IDM0YzFkNDk4ZC4uM2U1MzFiNmQwIDEwMDY0
-NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9jZXNzLmMKKysrIGIvYXJjaC9yaXNjdi9rZXJu
-ZWwvcHJvY2Vzcy5jCkBAIC0zOSw4ICszOSw4IEBAIHVuc2lnbmVkIGxvbmcgX19zdGFja19jaGtf
-Z3VhcmQgX19yZWFkX21vc3RseTsKIEVYUE9SVF9TWU1CT0woX19zdGFja19jaGtfZ3VhcmQpOwog
-I2VuZGlmCiAKLWV4dGVybiBhc21saW5rYWdlIHZvaWQgcmV0X2Zyb21fZm9ya19rZXJuZWxfYXNt
-KHZvaWQpOwotZXh0ZXJuIGFzbWxpbmthZ2Ugdm9pZCByZXRfZnJvbV9mb3JrX3VzZXJfYXNtKHZv
-aWQpOworYXNtbGlua2FnZSB2b2lkIHJldF9mcm9tX2Zvcmtfa2VybmVsX2FzbSh2b2lkKTsKK2Fz
-bWxpbmthZ2Ugdm9pZCByZXRfZnJvbV9mb3JrX3VzZXJfYXNtKHZvaWQpOwogCiB2b2lkIG5vaW5z
-dHIgYXJjaF9jcHVfaWRsZSh2b2lkKQogewpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwv
-c3RhY2t0cmFjZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc3RhY2t0cmFjZS5jCmluZGV4IGM3NTU1
-NDQ3MS4uNmNhNjBjZDNkIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zdGFja3RyYWNl
-LmMKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvc3RhY2t0cmFjZS5jCkBAIC0zMiw3ICszMiw3IEBA
-CiAJdmFsOwkJCQkJCVwKIH0pCiAKLWV4dGVybiBhc21saW5rYWdlIHZvaWQgaGFuZGxlX2V4Y2Vw
-dGlvbih2b2lkKTsKK2FzbWxpbmthZ2Ugdm9pZCBoYW5kbGVfZXhjZXB0aW9uKHZvaWQpOwogZXh0
-ZXJuIHVuc2lnbmVkIGxvbmcgcmV0X2Zyb21fZXhjZXB0aW9uX2VuZDsKIAogc3RhdGljIGlubGlu
-ZSBpbnQgZnBfaXNfdmFsaWQodW5zaWduZWQgbG9uZyBmcCwgdW5zaWduZWQgbG9uZyBzcCkKLS0g
-CjIuNTYuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+The ACPI s2idle code in sleep.c is only compiled when
+ACPI_SYSTEM_POWER_STATES_SUPPORT is set, which is selected by x86 and
+loongarch alone, so ACPI platforms using HW-reduced ACPI (like arm64
+or riscv) have no ACPI s2idle support at all and cannot handle ACPI
+wakeup events (power button, lid, GPEs) during suspend-to-idle.
+
+The majority of that code, however, is specific to systems with full
+ACPI HW support: the SCI IRQ handling, the wakeup device and global
+GPE management, the wakeup arbitration loop and the EC event draining
+are all not configured on HW-reduced platforms, so those platforms
+should not compile them at all.
+
+Therefore move the s2idle code into a new s2idle.c with the parts
+usable on every ACPI platform (scan lock, event draining) provided
+under a new hidden ACPI_S2IDLE symbol that is enabled by default
+whenever suspend support is there.  The HW-specific parts are only
+built for CONFIG_ACPI_SYSTEM_POWER_STATES_SUPPORT and the reduced
+callbacks do not install a wake() one at all: with nothing to
+arbitrate there, the PM core's default pm_wakeup_pending() check is
+the desired wakeup rule.
+
+x86 and loongarch builds are not affected and the LPS0 path in
+drivers/acpi/x86/s2idle.c keeps working as before.
+
+Signed-off-by: Riwen Lu <luriwen@kylinos.cn>
+---
+v1 -> v2:
+ - Fix acpi_s2idle_setup() declaration error when SUSPEND is disabled in
+   x86 builds.
+
+v2 -> v3:
+ - Select ACPI_S2IDLE if SUSPEND is enabled for
+   ACPI_SYSTEM_POWER_STATES_SUPPORT, so the select no longer violates the
+   ACPI_S2IDLE dependency on SUSPEND.
+
+v3 -> v4:
+ - Add pr_fmt() in s2idle.c so log messages keep the "ACPI: PM: " prefix
+   that sleep.c used; without it the moved pr_info/pr_warn would lose the
+   subsystem prefix.
+ - Drop the redundant #ifdef CONFIG_SUSPEND / #else wrapper in s2idle.c.
+   The !SUSPEND branch was dead code, because CONFIG_ACPI_S2IDLE itself
+   depends on SUSPEND, so s2idle.c is only compiled when SUSPEND is set.
+ - Make acpi_s2idle_init() return void.  The int return value was always 0
+   in the real implementation and -ENXIO in the stub, and the only caller
+   (acpi_bus_init()) ignores it; a void interface is honest and the stub
+   becomes a clean no-op.
+ - Mark the weak acpi_s2idle_setup() default __init, matching the x86
+   override (which is already __init) and allowing the code to be discarded
+   after init.
+ - Use SPDX-License-Identifier: GPL-2.0-only in s2idle.c for consistency
+   with sleep.c (the file the code was split out from).
+ - Trivial cleanups: remove a double blank line in the Makefile and drop
+   the redundant "Warning: " prefix from a pr_warn() message.
+
+v4 -> v5:
+ - Add #include <linux/interrupt.h> to s2idle.c.  enable_irq_wake(),
+   disable_irq_wake() and rearm_wake_irq() are declared there.
+
+v5 -> v6:
+ - Turn ACPI_S2IDLE into a hidden bool with default y, following the
+   ACPI_LPIT pattern, instead of a user-visible option selected by
+   ACPI_SYSTEM_POWER_STATES_SUPPORT.  No prompt, no conditional select
+   and no arch-specific changes: x86 and loongarch builds stay as they
+   are and arm64 gets s2idle automatically.
+
+v6 -> v7:
+ - Keep the code split, but stop compiling the HW-specific parts of it
+   unconditionally: the SCI IRQ wakeup, the fixed event and EC GPE
+   arbitration, the EC event draining, the wakeup device handling and
+   the global GPE list switch over are now built only when
+   CONFIG_ACPI_SYSTEM_POWER_STATES_SUPPORT is set, following the review
+   feedback that none of them is configured on HW-reduced platforms.
+ - HW-reduced platforms get a reduced set of callbacks which does not
+   install a wake() one at all: with nothing to arbitrate there, the
+   PM core's default pm_wakeup_pending() check is the desired wakeup
+   rule.
+
+
+ drivers/acpi/Kconfig    |   5 ++
+ drivers/acpi/Makefile   |   1 +
+ drivers/acpi/bus.c      |   3 +
+ drivers/acpi/internal.h |  10 ++-
+ drivers/acpi/s2idle.c   | 178 ++++++++++++++++++++++++++++++++++++++++
+ drivers/acpi/sleep.c    | 145 --------------------------------
+ 6 files changed, 195 insertions(+), 147 deletions(-)
+ create mode 100644 drivers/acpi/s2idle.c
+
+diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
+index fa3eb52b22cd..21b7aa68346d 100644
+--- a/drivers/acpi/Kconfig
++++ b/drivers/acpi/Kconfig
+@@ -113,6 +113,11 @@ config ACPI_SLEEP
+ 	depends on ACPI_SYSTEM_POWER_STATES_SUPPORT
+ 	default y
+ 
++config ACPI_S2IDLE
++	bool
++	depends on SUSPEND
++	default y
++
+ config ACPI_REV_OVERRIDE_POSSIBLE
+ 	bool "Allow supported ACPI revision to be overridden"
+ 	depends on X86
+diff --git a/drivers/acpi/Makefile b/drivers/acpi/Makefile
+index 91584a3c1e01..d51207e52741 100644
+--- a/drivers/acpi/Makefile
++++ b/drivers/acpi/Makefile
+@@ -35,6 +35,7 @@ acpi-$(CONFIG_ACPI_SYSTEM_POWER_STATES_SUPPORT) += sleep.o
+ acpi-y				+= device_sysfs.o device_pm.o
+ acpi-$(CONFIG_ACPI_SLEEP)	+= proc.o
+ 
++acpi-$(CONFIG_ACPI_S2IDLE)	+= s2idle.o
+ 
+ #
+ # ACPI Bus and Device Drivers
+diff --git a/drivers/acpi/bus.c b/drivers/acpi/bus.c
+index 1d6867dec925..59979d862889 100644
+--- a/drivers/acpi/bus.c
++++ b/drivers/acpi/bus.c
+@@ -1412,6 +1412,9 @@ static int __init acpi_bus_init(void)
+ 	/* Initialize sleep structures */
+ 	acpi_sleep_init();
+ 
++	/* Initialize default acpi s2idle ops */
++	acpi_s2idle_init();
++
+ 	/*
+ 	 * Get the system interrupt model and evaluate \_PIC.
+ 	 */
+diff --git a/drivers/acpi/internal.h b/drivers/acpi/internal.h
+index 011da4ed6a80..05a576610822 100644
+--- a/drivers/acpi/internal.h
++++ b/drivers/acpi/internal.h
+@@ -268,13 +268,19 @@ static inline bool acpi_ec_dispatch_gpe(void)
+                                   Suspend/Resume
+   -------------------------------------------------------------------------- */
+ #ifdef CONFIG_ACPI_SYSTEM_POWER_STATES_SUPPORT
+-extern bool acpi_s2idle_wakeup(void);
+ extern int acpi_sleep_init(void);
+ #else
+-static inline bool acpi_s2idle_wakeup(void) { return false; }
+ static inline int acpi_sleep_init(void) { return -ENXIO; }
+ #endif
+ 
++#ifdef CONFIG_ACPI_S2IDLE
++extern bool acpi_s2idle_wakeup(void);
++extern void acpi_s2idle_init(void);
++#else
++static inline bool acpi_s2idle_wakeup(void) { return false; }
++static inline void acpi_s2idle_init(void) {}
++#endif
++
+ #ifdef CONFIG_ACPI_SLEEP
+ void acpi_sleep_proc_init(void);
+ int suspend_nvs_alloc(void);
+diff --git a/drivers/acpi/s2idle.c b/drivers/acpi/s2idle.c
+new file mode 100644
+index 000000000000..22cd7416ac56
+--- /dev/null
++++ b/drivers/acpi/s2idle.c
+@@ -0,0 +1,178 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * s2idle.c - ACPI suspend-to-idle support.
++ *
++ */
++
++#define pr_fmt(fmt) "ACPI: PM: " fmt
++
++#include <linux/acpi.h>
++#include <linux/device.h>
++#include <linux/interrupt.h>
++#include <linux/irq.h>
++#include <linux/suspend.h>
++
++#include "internal.h"
++#include "sleep.h"
++
++static bool s2idle_wakeup;
++
++int acpi_s2idle_begin(void)
++{
++	acpi_scan_lock_acquire();
++	return 0;
++}
++
++int acpi_s2idle_prepare(void)
++{
++#ifdef CONFIG_ACPI_SYSTEM_POWER_STATES_SUPPORT
++	if (acpi_sci_irq_valid()) {
++		int error;
++
++		error = enable_irq_wake(acpi_sci_irq);
++		if (error)
++			pr_warn("Failed to enable wakeup from IRQ %d: %d\n",
++				acpi_sci_irq, error);
++
++		acpi_ec_set_gpe_wake_mask(ACPI_GPE_ENABLE);
++	}
++
++	acpi_enable_wakeup_devices(ACPI_STATE_S0);
++
++	/* Change the configuration of GPEs to avoid spurious wakeup. */
++	acpi_enable_all_wakeup_gpes();
++#endif /* CONFIG_ACPI_SYSTEM_POWER_STATES_SUPPORT */
++	acpi_os_wait_events_complete();
++
++	s2idle_wakeup = true;
++	return 0;
++}
++
++#ifdef CONFIG_ACPI_SYSTEM_POWER_STATES_SUPPORT
++bool acpi_s2idle_wake(void)
++{
++	if (!acpi_sci_irq_valid())
++		return pm_wakeup_pending();
++
++	while (pm_wakeup_pending()) {
++		/*
++		 * If IRQD_WAKEUP_ARMED is set for the SCI at this point, the
++		 * SCI has not triggered while suspended, so bail out (the
++		 * wakeup is pending anyway and the SCI is not the source of
++		 * it).
++		 */
++		if (irqd_is_wakeup_armed(irq_get_irq_data(acpi_sci_irq))) {
++			pm_pr_dbg("Wakeup unrelated to ACPI SCI\n");
++			return true;
++		}
++
++		/*
++		 * If the status bit of any enabled fixed event is set, the
++		 * wakeup is regarded as valid.
++		 */
++		if (acpi_any_fixed_event_status_set()) {
++			pm_pr_dbg("ACPI fixed event wakeup\n");
++			return true;
++		}
++
++		/* Check wakeups from drivers sharing the SCI. */
++		if (acpi_check_wakeup_handlers()) {
++			pm_pr_dbg("ACPI custom handler wakeup\n");
++			return true;
++		}
++
++		/*
++		 * Check non-EC GPE wakeups and if there are none, cancel the
++		 * SCI-related wakeup and dispatch the EC GPE.
++		 */
++		if (acpi_ec_dispatch_gpe()) {
++			pm_pr_dbg("ACPI non-EC GPE wakeup\n");
++			return true;
++		}
++
++		acpi_os_wait_events_complete();
++
++		/*
++		 * The SCI is in the "suspended" state now and it cannot produce
++		 * new wakeup events till the rearming below, so if any of them
++		 * are pending here, they must be resulting from the processing
++		 * of EC events above or coming from somewhere else.
++		 */
++		if (pm_wakeup_pending()) {
++			pm_pr_dbg("Wakeup after ACPI Notify sync\n");
++			return true;
++		}
++
++		pm_pr_dbg("Rearming ACPI SCI for wakeup\n");
++
++		pm_wakeup_clear(acpi_sci_irq);
++		rearm_wake_irq(acpi_sci_irq);
++	}
++
++	return false;
++}
++#endif /* CONFIG_ACPI_SYSTEM_POWER_STATES_SUPPORT */
++
++void acpi_s2idle_restore(void)
++{
++	/*
++	 * Drain pending events; on systems with full ACPI HW support the
++	 * working-state GPE configuration is also restored below.
++	 */
++	acpi_os_wait_events_complete(); /* synchronize GPE processing */
++#ifdef CONFIG_ACPI_SYSTEM_POWER_STATES_SUPPORT
++	acpi_ec_flush_work(); /* flush the EC driver's workqueues */
++	acpi_os_wait_events_complete(); /* synchronize Notify handling */
++#endif /* CONFIG_ACPI_SYSTEM_POWER_STATES_SUPPORT */
++
++	s2idle_wakeup = false;
++
++#ifdef CONFIG_ACPI_SYSTEM_POWER_STATES_SUPPORT
++	acpi_enable_all_runtime_gpes();
++
++	acpi_disable_wakeup_devices(ACPI_STATE_S0);
++
++	if (acpi_sci_irq_valid()) {
++		acpi_ec_set_gpe_wake_mask(ACPI_GPE_DISABLE);
++		disable_irq_wake(acpi_sci_irq);
++	}
++#endif /* CONFIG_ACPI_SYSTEM_POWER_STATES_SUPPORT */
++}
++
++void acpi_s2idle_end(void)
++{
++	acpi_scan_lock_release();
++}
++
++/*
++ * No wake() callback on HW-reduced platforms: there is nothing to
++ * arbitrate there, so the PM core's default pm_wakeup_pending()
++ * check applies.
++ */
++static const struct platform_s2idle_ops acpi_s2idle_ops = {
++	.begin = acpi_s2idle_begin,
++	.prepare = acpi_s2idle_prepare,
++#ifdef CONFIG_ACPI_SYSTEM_POWER_STATES_SUPPORT
++	.wake = acpi_s2idle_wake,
++#endif
++	.restore = acpi_s2idle_restore,
++	.end = acpi_s2idle_end,
++};
++
++void __init __weak acpi_s2idle_setup(void)
++{
++	if (acpi_gbl_FADT.flags & ACPI_FADT_LOW_POWER_S0)
++		pr_info("Efficient low-power S0 idle declared\n");
++
++	s2idle_set_ops(&acpi_s2idle_ops);
++}
++
++bool acpi_s2idle_wakeup(void)
++{
++	return s2idle_wakeup;
++}
++
++void __init acpi_s2idle_init(void)
++{
++	acpi_s2idle_setup();
++}
+diff --git a/drivers/acpi/sleep.c b/drivers/acpi/sleep.c
+index a94bac4422d4..b588629fb22e 100644
+--- a/drivers/acpi/sleep.c
++++ b/drivers/acpi/sleep.c
+@@ -723,143 +723,6 @@ static const struct platform_suspend_ops acpi_suspend_ops_old = {
+ 	.recover = acpi_pm_finish,
+ };
+ 
+-static bool s2idle_wakeup;
+-
+-int acpi_s2idle_begin(void)
+-{
+-	acpi_scan_lock_acquire();
+-	return 0;
+-}
+-
+-int acpi_s2idle_prepare(void)
+-{
+-	if (acpi_sci_irq_valid()) {
+-		int error;
+-
+-		error = enable_irq_wake(acpi_sci_irq);
+-		if (error)
+-			pr_warn("Warning: Failed to enable wakeup from IRQ %d: %d\n",
+-				acpi_sci_irq, error);
+-
+-		acpi_ec_set_gpe_wake_mask(ACPI_GPE_ENABLE);
+-	}
+-
+-	acpi_enable_wakeup_devices(ACPI_STATE_S0);
+-
+-	/* Change the configuration of GPEs to avoid spurious wakeup. */
+-	acpi_enable_all_wakeup_gpes();
+-	acpi_os_wait_events_complete();
+-
+-	s2idle_wakeup = true;
+-	return 0;
+-}
+-
+-bool acpi_s2idle_wake(void)
+-{
+-	if (!acpi_sci_irq_valid())
+-		return pm_wakeup_pending();
+-
+-	while (pm_wakeup_pending()) {
+-		/*
+-		 * If IRQD_WAKEUP_ARMED is set for the SCI at this point, the
+-		 * SCI has not triggered while suspended, so bail out (the
+-		 * wakeup is pending anyway and the SCI is not the source of
+-		 * it).
+-		 */
+-		if (irqd_is_wakeup_armed(irq_get_irq_data(acpi_sci_irq))) {
+-			pm_pr_dbg("Wakeup unrelated to ACPI SCI\n");
+-			return true;
+-		}
+-
+-		/*
+-		 * If the status bit of any enabled fixed event is set, the
+-		 * wakeup is regarded as valid.
+-		 */
+-		if (acpi_any_fixed_event_status_set()) {
+-			pm_pr_dbg("ACPI fixed event wakeup\n");
+-			return true;
+-		}
+-
+-		/* Check wakeups from drivers sharing the SCI. */
+-		if (acpi_check_wakeup_handlers()) {
+-			pm_pr_dbg("ACPI custom handler wakeup\n");
+-			return true;
+-		}
+-
+-		/*
+-		 * Check non-EC GPE wakeups and if there are none, cancel the
+-		 * SCI-related wakeup and dispatch the EC GPE.
+-		 */
+-		if (acpi_ec_dispatch_gpe()) {
+-			pm_pr_dbg("ACPI non-EC GPE wakeup\n");
+-			return true;
+-		}
+-
+-		acpi_os_wait_events_complete();
+-
+-		/*
+-		 * The SCI is in the "suspended" state now and it cannot produce
+-		 * new wakeup events till the rearming below, so if any of them
+-		 * are pending here, they must be resulting from the processing
+-		 * of EC events above or coming from somewhere else.
+-		 */
+-		if (pm_wakeup_pending()) {
+-			pm_pr_dbg("Wakeup after ACPI Notify sync\n");
+-			return true;
+-		}
+-
+-		pm_pr_dbg("Rearming ACPI SCI for wakeup\n");
+-
+-		pm_wakeup_clear(acpi_sci_irq);
+-		rearm_wake_irq(acpi_sci_irq);
+-	}
+-
+-	return false;
+-}
+-
+-void acpi_s2idle_restore(void)
+-{
+-	/*
+-	 * Drain pending events before restoring the working-state configuration
+-	 * of GPEs.
+-	 */
+-	acpi_os_wait_events_complete(); /* synchronize GPE processing */
+-	acpi_ec_flush_work(); /* flush the EC driver's workqueues */
+-	acpi_os_wait_events_complete(); /* synchronize Notify handling */
+-
+-	s2idle_wakeup = false;
+-
+-	acpi_enable_all_runtime_gpes();
+-
+-	acpi_disable_wakeup_devices(ACPI_STATE_S0);
+-
+-	if (acpi_sci_irq_valid()) {
+-		acpi_ec_set_gpe_wake_mask(ACPI_GPE_DISABLE);
+-		disable_irq_wake(acpi_sci_irq);
+-	}
+-}
+-
+-void acpi_s2idle_end(void)
+-{
+-	acpi_scan_lock_release();
+-}
+-
+-static const struct platform_s2idle_ops acpi_s2idle_ops = {
+-	.begin = acpi_s2idle_begin,
+-	.prepare = acpi_s2idle_prepare,
+-	.wake = acpi_s2idle_wake,
+-	.restore = acpi_s2idle_restore,
+-	.end = acpi_s2idle_end,
+-};
+-
+-void __weak acpi_s2idle_setup(void)
+-{
+-	if (acpi_gbl_FADT.flags & ACPI_FADT_LOW_POWER_S0)
+-		pr_info("Efficient low-power S0 idle declared\n");
+-
+-	s2idle_set_ops(&acpi_s2idle_ops);
+-}
+-
+ static void __init acpi_sleep_suspend_setup(void)
+ {
+ 	bool suspend_ops_needed = false;
+@@ -874,20 +737,12 @@ static void __init acpi_sleep_suspend_setup(void)
+ 	if (suspend_ops_needed)
+ 		suspend_set_ops(old_suspend_ordering ?
+ 				&acpi_suspend_ops_old : &acpi_suspend_ops);
+-
+-	acpi_s2idle_setup();
+ }
+ 
+ #else /* !CONFIG_SUSPEND */
+-#define s2idle_wakeup		(false)
+ static inline void acpi_sleep_suspend_setup(void) {}
+ #endif /* !CONFIG_SUSPEND */
+ 
+-bool acpi_s2idle_wakeup(void)
+-{
+-	return s2idle_wakeup;
+-}
+-
+ #ifdef CONFIG_PM_SLEEP
+ static u32 saved_bm_rld;
+ 
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
