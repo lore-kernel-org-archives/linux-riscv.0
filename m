@@ -2,10 +2,10 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 211F1606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99A82606A334
 	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 07:14:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aGwRnP9F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rxvbJ9Gt
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,30 +13,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=kw43JTu/ybynpIHlwjds3yKEVO/gEAC7vcICB8j+0l0=; b=aGwRnP9FNOsEv13xWYNcSkF4Ui
-	askcQUjziQyWiWA3F61Y/PmZfFnEr8IJtPWMMSghOf+2L/rdw8JXCLdHEG1nVwxn5KYZkdadOL5rz
-	daOzjcaJ7MvfWKKmLnXjVTwG+E/5TajizOqUlINemXEILhoucwo6LStR6GJRjyh175+Ep3ZNxcITv
-	kp4GyXbNJIr52qKhAxbTY2PhjQ6m/0jUrtV39+RZEi+zuKlWLkiFnh/kTy2r20SEQab+6qk+TtF9R
-	lBaXXqC4GsSwp7a/YY/vbb6iMTzcQfWgqyQKMO1HxD9GkLZ5u+3ouyMbN4pNLhAvOKmFqsRqZxR4N
-	1lALKp+A==;
+	bh=UOczTVNy9XAxcwH4+Nzoi3ScwRRO3qC5Z/Hqek7hbks=; b=rxvbJ9GtVhRlQJ79JNe+c1r6j9
+	pIRGOTM9VTCDR5rILysDfAaA6xoZ/KZ9r0vqXJjzZctcncu2b1VmnI8l82PM+nKWwVZqEMvyoo2Up
+	b25rwNvzhuNY/8cREflauOzxNZpqVIyfkI9JZSZHn141xP7GpE0nyEZhhIXdcMOYEcEtn+OwbJn+1
+	jJeiENdgaSM8dWuO8GG16Vy8WLsgRJLuU/n09s4euBIXOn/tZD55GdEQKf6Aiwt3WSJmTow5j3u9j
+	If9vvCv+vnbEeKMJr++GR/fFl2Xmv7eBPHmsOcUSdmU4N8YtqeV1QZ1yuL8zY8gZ4tuMlsh6jUXjE
+	bqwA1qmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRlUR-0000000BrBD-3kh4;
-	Fri, 13 Nov 2026 07:14:28 +0000
+	id 1xRlUT-0000000BrCc-1odT;
+	Fri, 13 Nov 2026 07:14:29 +0000
 Received: from atcsqr.andestech.com ([220.128.198.184])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRlTv-0000000BquX-2Vxg
+	id 1xRlTv-0000000BquP-2d3Y
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Nov 2026 07:14:10 +0000
-Received: from mail.andestech.com (atcpcs53.andestech.com [10.0.1.153])
-	by Atcsqr.andestech.com with ESMTPS id 6AD7CTvT059148
+	Fri, 13 Nov 2026 07:14:11 +0000
+Received: from mail.andestech.com (atcpcs55.andestech.com [10.0.1.155])
+	by Atcsqr.andestech.com with ESMTPS id 6AD7CR5K059129
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
 	Fri, 13 Nov 2026 15:12:29 +0800 (+08)
 	(envelope-from minachou@andestech.com)
-Received: from ATCPCS34.andestech.com (10.0.1.134) by atcpcs53.andestech.com
- (10.0.1.153) with Microsoft SMTP Server (version=TLS1_2,
+Received: from ATCPCS34.andestech.com (10.0.1.134) by atcpcs55.andestech.com
+ (10.0.1.155) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Fri, 13 Nov
- 2026 15:12:29 +0800
+ 2026 15:12:28 +0800
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS34.andestech.com
  (10.0.1.134) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 13 Nov
@@ -51,9 +51,9 @@ To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
         <linux-renesas-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
 CC: <randolph@andestech.com>, <cyyang772@andestech.com>,
         <tim609@andestech.com>, <minachou@andestech.com>, <az70021@gmail.com>
-Subject: [PATCH v2 10/19] cache: andes_llcache: register cache ops only when the errata needs them
-Date: Fri, 13 Nov 2026 15:11:34 +0800
-Message-ID: <20261113071143.1446167-11-minachou@andestech.com>
+Subject: [PATCH v2 03/19] cache: ax45mp_cache: rename L2 identifiers to LLC
+Date: Fri, 13 Nov 2026 15:11:27 +0800
+Message-ID: <20261113071143.1446167-4-minachou@andestech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261113071143.1446167-1-minachou@andestech.com>
 References: <20261113071143.1446167-1-minachou@andestech.com>
@@ -61,13 +61,13 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-ClientProxiedBy: ATCPCS33.andestech.com (10.0.1.100) To
  ATCPCS34.andestech.com (10.0.1.134)
-X-DKIM-Results: atcpcs53.andestech.com; dkim=none;
+X-DKIM-Results: atcpcs55.andestech.com; dkim=none;
 X-DNSRBL: 
 X-SPAM-SOURCE-CHECK: pass
-X-MAIL: Atcsqr.andestech.com 6AD7CTvT059148
+X-MAIL: Atcsqr.andestech.com 6AD7CR5K059129
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261112_231401_198401_A295035F 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20261112_231401_786872_E426A23D 
+X-CRM114-Status: GOOD (  13.63  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,65 +88,177 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The driver registers its CCTL-based cache ops whenever
-riscv_cbom_block_size is non-zero. On Andes cores with Zicbom, it holds
-the Zicbom block size, so the CCTL ops would override the standard
-Zicbom CMO.
+Rename all L2-related identifiers to LLC to accurately reflect the
+cache's role as the system's last-level cache.
 
-Only register them when riscv_cbom_block_size is 1, the value the Andes
-errata sets when the core needs CCTL-based cache maintenance.
-
-Do this check before looking up the LLC node, so the driver does
-nothing on platforms that do not need it. Once the errata has asked for
-the CCTL ops, the LLC node is required to provide them, so report a
-missing node with an error instead of failing silently.
+This is a mechanical rename with no functional change:
+- macros: ANDES_L2C_* -> ANDES_LLC_*
+- struct: l2c_base -> llc_base
+- function: andes_*_l2_*() -> andes_*_llc_*()
+- comments: L2 cache -> LLC
 
 Signed-off-by: Mina Hui-Min Chou <minachou@andestech.com>
 ---
- drivers/cache/andes_llcache.c | 22 +++++++++++-----------
- 1 file changed, 11 insertions(+), 11 deletions(-)
+ drivers/cache/ax45mp_cache.c | 80 ++++++++++++++++++------------------
+ 1 file changed, 40 insertions(+), 40 deletions(-)
 
-diff --git a/drivers/cache/andes_llcache.c b/drivers/cache/andes_llcache.c
-index bf49dbcb080b..80c55616ab10 100644
---- a/drivers/cache/andes_llcache.c
-+++ b/drivers/cache/andes_llcache.c
-@@ -176,25 +176,25 @@ static int __init andes_cache_init(void)
- 	struct resource res;
+diff --git a/drivers/cache/ax45mp_cache.c b/drivers/cache/ax45mp_cache.c
+index 4f9b8a9ad969..0ee8218d5a82 100644
+--- a/drivers/cache/ax45mp_cache.c
++++ b/drivers/cache/ax45mp_cache.c
+@@ -13,36 +13,36 @@
+ 
+ #include <asm/dma-noncoherent.h>
+ 
+-/* L2 cache registers */
+-#define ANDES_L2C_REG_CTL_OFFSET		0x8
++/* LLC registers */
++#define ANDES_LLC_REG_CTL_OFFSET		0x8
+ 
+-#define ANDES_L2C_REG_C0_CMD_OFFSET		0x40
+-#define ANDES_L2C_REG_C0_ACC_OFFSET		0x48
+-#define ANDES_L2C_REG_STATUS_OFFSET		0x80
++#define ANDES_LLC_REG_C0_CMD_OFFSET		0x40
++#define ANDES_LLC_REG_C0_ACC_OFFSET		0x48
++#define ANDES_LLC_REG_STATUS_OFFSET		0x80
+ 
+ /* D-cache operation */
+ #define ANDES_CCTL_L1D_VA_INVAL		0 /* Invalidate an L1 cache entry */
+ #define ANDES_CCTL_L1D_VA_WB			1 /* Write-back an L1 cache entry */
+ 
+-/* L2 CCTL status */
+-#define ANDES_CCTL_L2_STATUS_IDLE		0
++/* LLC CCTL status */
++#define ANDES_CCTL_LLC_STATUS_IDLE		0
+ 
+-/* L2 CCTL status cores mask */
+-#define ANDES_CCTL_L2_STATUS_C0_MASK		0xf
++/* LLC CCTL status cores mask */
++#define ANDES_CCTL_LLC_STATUS_C0_MASK		0xf
+ 
+-/* L2 cache operation */
+-#define ANDES_CCTL_L2_PA_INVAL			0x8 /* Invalidate an L2 cache entry */
+-#define ANDES_CCTL_L2_PA_WB			0x9 /* Write-back an L2 cache entry */
++/* LLC operation */
++#define ANDES_CCTL_LLC_PA_INVAL			0x8 /* Invalidate an LLC entry */
++#define ANDES_CCTL_LLC_PA_WB			0x9 /* Write-back an LLC entry */
+ 
+-#define ANDES_L2C_REG_PER_CORE_OFFSET		0x10
+-#define ANDES_CCTL_L2_STATUS_PER_CORE_OFFSET	4
++#define ANDES_LLC_REG_PER_CORE_OFFSET		0x10
++#define ANDES_CCTL_LLC_STATUS_PER_CORE_OFFSET	4
+ 
+-#define ANDES_L2C_REG_CN_CMD_OFFSET(n)	\
+-	(ANDES_L2C_REG_C0_CMD_OFFSET + ((n) * ANDES_L2C_REG_PER_CORE_OFFSET))
+-#define ANDES_L2C_REG_CN_ACC_OFFSET(n)	\
+-	(ANDES_L2C_REG_C0_ACC_OFFSET + ((n) * ANDES_L2C_REG_PER_CORE_OFFSET))
+-#define ANDES_CCTL_L2_STATUS_CN_MASK(n)	\
+-	(ANDES_CCTL_L2_STATUS_C0_MASK << ((n) * ANDES_CCTL_L2_STATUS_PER_CORE_OFFSET))
++#define ANDES_LLC_REG_CN_CMD_OFFSET(n)	\
++	(ANDES_LLC_REG_C0_CMD_OFFSET + ((n) * ANDES_LLC_REG_PER_CORE_OFFSET))
++#define ANDES_LLC_REG_CN_ACC_OFFSET(n)	\
++	(ANDES_LLC_REG_C0_ACC_OFFSET + ((n) * ANDES_LLC_REG_PER_CORE_OFFSET))
++#define ANDES_CCTL_LLC_STATUS_CN_MASK(n)	\
++	(ANDES_CCTL_LLC_STATUS_C0_MASK << ((n) * ANDES_CCTL_LLC_STATUS_PER_CORE_OFFSET))
+ 
+ #define ANDES_CCTL_REG_UCCTLBEGINADDR_NUM	0x80b
+ #define ANDES_CCTL_REG_UCCTLCOMMAND_NUM	0x80c
+@@ -50,23 +50,23 @@
+ #define ANDES_CACHE_LINE_SIZE			64
+ 
+ struct andes_priv {
+-	void __iomem *l2c_base;
++	void __iomem *llc_base;
+ 	u32 andes_cache_line_size;
+ };
+ 
+ static struct andes_priv andes_priv;
+ 
+-/* L2 Cache operations */
+-static inline uint32_t andes_cpu_l2c_get_cctl_status(void)
++/* LLC operations */
++static inline uint32_t andes_cpu_llc_get_cctl_status(void)
+ {
+-	return readl(andes_priv.l2c_base + ANDES_L2C_REG_STATUS_OFFSET);
++	return readl(andes_priv.llc_base + ANDES_LLC_REG_STATUS_OFFSET);
+ }
+ 
+ static void andes_cpu_cache_operation(unsigned long start, unsigned long end,
+-				      unsigned int l1_op, unsigned int l2_op)
++				      unsigned int l1_op, unsigned int llc_op)
+ {
+ 	unsigned long line_size = andes_priv.andes_cache_line_size;
+-	void __iomem *base = andes_priv.l2c_base;
++	void __iomem *base = andes_priv.llc_base;
+ 	int mhartid = smp_processor_id();
+ 	unsigned long pa;
+ 
+@@ -75,29 +75,29 @@ static void andes_cpu_cache_operation(unsigned long start, unsigned long end,
+ 		csr_write(ANDES_CCTL_REG_UCCTLCOMMAND_NUM, l1_op);
+ 
+ 		pa = virt_to_phys((void *)start);
+-		writel(pa, base + ANDES_L2C_REG_CN_ACC_OFFSET(mhartid));
+-		writel(l2_op, base + ANDES_L2C_REG_CN_CMD_OFFSET(mhartid));
+-		while ((andes_cpu_l2c_get_cctl_status() &
+-			ANDES_CCTL_L2_STATUS_CN_MASK(mhartid)) !=
+-			ANDES_CCTL_L2_STATUS_IDLE)
++		writel(pa, base + ANDES_LLC_REG_CN_ACC_OFFSET(mhartid));
++		writel(llc_op, base + ANDES_LLC_REG_CN_CMD_OFFSET(mhartid));
++		while ((andes_cpu_llc_get_cctl_status() &
++			ANDES_CCTL_LLC_STATUS_CN_MASK(mhartid)) !=
++			ANDES_CCTL_LLC_STATUS_IDLE)
+ 			;
+ 
+ 		start += line_size;
+ 	}
+ }
+ 
+-/* Write-back L1 and L2 cache entry */
++/* Write-back L1 and LLC entry */
+ static inline void andes_cpu_dcache_wb_range(unsigned long start, unsigned long end)
+ {
+ 	andes_cpu_cache_operation(start, end, ANDES_CCTL_L1D_VA_WB,
+-				  ANDES_CCTL_L2_PA_WB);
++				  ANDES_CCTL_LLC_PA_WB);
+ }
+ 
+-/* Invalidate the L1 and L2 cache entry */
++/* Invalidate the L1 and LLC entry */
+ static inline void andes_cpu_dcache_inval_range(unsigned long start, unsigned long end)
+ {
+ 	andes_cpu_cache_operation(start, end, ANDES_CCTL_L1D_VA_INVAL,
+-				  ANDES_CCTL_L2_PA_INVAL);
++				  ANDES_CCTL_LLC_PA_INVAL);
+ }
+ 
+ static void andes_dma_cache_inv(phys_addr_t paddr, size_t size)
+@@ -146,7 +146,7 @@ static void andes_dma_cache_wback_inv(phys_addr_t paddr, size_t size)
+ 	andes_dma_cache_inv(paddr, size);
+ }
+ 
+-static int andes_get_l2_line_size(struct device_node *np)
++static int andes_get_llc_line_size(struct device_node *np)
+ {
  	int ret;
  
-+	/*
-+	 * The Andes errata sets riscv_cbom_block_size to 1 only when the
-+	 * core needs CCTL-based cache maintenance. Otherwise this driver is
-+	 * not needed, so return without probing it any further.
-+	 */
-+	if (riscv_cbom_block_size != 1)
-+		return 0;
-+
- 	struct device_node *np __free(device_node) =
- 		of_find_matching_node(NULL, andes_cache_ids);
--	if (!of_device_is_available(np))
-+	if (!of_device_is_available(np)) {
-+		pr_err("No Andes LLC node found, cache ops not registered\n");
- 		return -ENODEV;
-+	}
+@@ -200,13 +200,13 @@ static int __init andes_cache_init(void)
+ 	if (!riscv_cbom_block_size)
+ 		return 0;
  
- 	ret = of_address_to_resource(np, 0, &res);
- 	if (ret)
- 		return ret;
- 
--	/*
--	 * If IOCP is present on the Andes core riscv_cbom_block_size
--	 * will be 0 for sure, so we can definitely rely on it. If
--	 * riscv_cbom_block_size = 0 we don't need to handle CMO using SW any
--	 * more so we just return success here and only if its being set we
--	 * continue further in the probe path.
--	 */
--	if (!riscv_cbom_block_size)
--		return 0;
--
- 	andes_priv.llc_base = ioremap(res.start, resource_size(&res));
- 	if (!andes_priv.llc_base)
+-	andes_priv.l2c_base = ioremap(res.start, resource_size(&res));
+-	if (!andes_priv.l2c_base)
++	andes_priv.llc_base = ioremap(res.start, resource_size(&res));
++	if (!andes_priv.llc_base)
  		return -ENOMEM;
+ 
+-	ret = andes_get_l2_line_size(np);
++	ret = andes_get_llc_line_size(np);
+ 	if (ret) {
+-		iounmap(andes_priv.l2c_base);
++		iounmap(andes_priv.llc_base);
+ 		return ret;
+ 	}
+ 
 -- 
 2.34.1
 
