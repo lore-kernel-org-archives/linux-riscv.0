@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E657606D488
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 22:33:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 762B4606B79B
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 22:33:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BEYzlPhz;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NkfHNVQ2
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ubzO72vl;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nbs63U4M
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,70 +14,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=yKJfCX+5xaHP2i//U+z2RMtuuTGo52qxXrUCYk2PMJs=; b=BEYzlPhzkcoeo8UdHAV9rOeDFU
-	g6Y/PuLAjiMI6PEYub6lKJws4bxOkjVbPV3fIk7Oi90Dik8IbYpDKogWYNhi7ZPFgVOMMXr0kv5kj
-	APbzcIKJT4CraZW4Z4E2lUyAOsNqhqdVR+aDkj1wEGYnp85H8Z+aaCtgkMBKxXpSO1BqI8J/96CQ7
-	lz1oBjHP3LKZVRxbMFGlwRBlEW5/Vune2nzcRpNO3Cpy3YC91vLADzK7idSk0AHmZgOUaBPhRimjD
-	vBCKD2sG6Bqsh0uFR6VDahFbdKUOYBw7QU2w+9MWIpb1+UlJyMSALdEG2q3KRwemIdMZQek3yRZAd
-	WQYd+OdA==;
+	bh=l9KnWMZIU7orNyTT3oOEkKe6Is3OvMFraa38SaIHCgE=; b=ubzO72vlTfFApiGvasNU7bVICT
+	Lbw3Wk59BqryWTLbg/rT+9vB9DL/c+FOjeqVEi0FHgYf3D1z7DHImTB7uJGyx9KggYaaIAzFxAfzc
+	W54pBGzwAh1qR9GdA9I6UFdyr7DHW7rFrs+FkgA6HzQ4Be7i5vYWhcp84IUxQ+Gr9puasl1i5hltV
+	uH0OwTjP7ldfa7vRxla0G53avdKT70F+BPq8LHauM4dG3FUAy2DV48+nQFxh9WgDc33SmEYS8xi5j
+	G3YIv8NQAFwcg2UX2J8uylzRWWyvnmW+6MUn5qsHHnwlQeK+Kx7YbBr6NktGAHa/BmWmLdbmoP7CS
+	yNDac3YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRzpx-0000000EhiU-16rP;
-	Fri, 13 Nov 2026 22:33:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xRzq2-0000000EhoR-30Uq;
+	Fri, 13 Nov 2026 22:33:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRzpv-0000000EhhL-1rC9;
-	Fri, 13 Nov 2026 22:33:35 +0000
+	id 1xRzpy-0000000Ehj2-0k40;
+	Fri, 13 Nov 2026 22:33:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A65C262279;
-	Fri, 13 Nov 2026 22:33:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7E36E60E34;
+	Fri, 13 Nov 2026 22:33:37 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794609214;
-	b=X7Nk/tZ7GonNx2KBw/8y4OaHJ5i7FCx8F7Vj1hsZFRhpxGtoYW59w76uQgBX493EgOCd
-	 mD87NDzx6MTRA9HakTlPL0MpVUgtKBofSunRxLAkVv4BVHyryv3IAFgmQ2aiauMZjMmqK
-	 B1oAgi/gO0Jn5zoQkb5hxY/EUVZ3J/H/lAcwYFr/dHkG5tcr0yRCTrlAyEM1Nj2o+sjiL
-	 GRADLAPwSr70itdqlRIQilL0GFehQ1QnDQefOA+0FdMsGuHh7baLdd5fGisnmsorRd/AR
-	 +lBLlGDJP/nJXSYptVvEr2aCOOfOtUyz9l9Vpwf08x5O1AL+WYEsvrdQkfzSSkRQCBA==
+	t=1794609217;
+	b=rm3gq3VaqNmbUVDuF6cC3EJdz+5iPw78YnNODPIdvKPJGsDnhPRRI5dWUlxf0Tv8On8O
+	 BsyTMBZ2/aBJUu54xUb1G05pW0sUIZ4ABvvzp3HLo28T0cz4mohIS3ZYH8BE3tlKJErhB
+	 1SzryVarflM/qo/MtIBjRnedVaULams3hWNDJ3KJqPpLA9E8trX576LitMPDhDXPNEaWe
+	 m/StjAP88Hy0oJu9vR6F9iF1lNie4YfyRkx8AVq2fxDD4t+RF+SMUXxZLoIngBVon8Zhy
+	 UJpIIQrRE2rOhHI9qfDk7004Ucqkq3FsDB0mOId9AdxlgNlX6JSh7qrGCkI2lmqHHPA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794609214;
+	c=relaxed/relaxed; t=1794609217;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=TOlclL4YMcO1403e1qiCF3GU/nuLdoHldjlrv0LH3a8=;
-	b=d0GE6jupYk62y2sKYS/5FpGJDkn42D0xd7bDk5SFe65Vv4ghP6InG7lhVSEBgjaaVVaK
-	 /1vcSRm5xlZvFjRi5dzKWUuUYOYUqn1DA15py6vxIxD+fm+mfL85lHj7hP4+gH7Rj32rG
-	 oUq6qz/I8ffNvPbgiQyYImr94+tbK4tigRXWAM3aDCJXfN3EuiPIsUzSzM2AlEDc6TqRg
-	 W1/dMSKvKdcl2vVmpteLEVFzGzip4NwKtomYPir7B48thsIMPAh/mCb9aHkgbMAslElBO
-	 nr4VKmdPJUvInZc2GBIs90JF+tPCcxbqPkjUMCuj77yUmgRC3rqg3xFPPIoyovmlxIg==
+	bh=+LYiK/955nfnWYhkJP54cSbyAVpIlwPTqmzMMmypLBQ=;
+	b=hYy+2mRa69+MNmWzlv/k3vZZCWLKqB4d72cbQEng7EFtT8976hKztYLpnbkuw8wNI2eR
+	 W648pndhdJEpHXj1PKLYuuHnLqo9Z8GmZdzD3TUahuUcuu2bjLyUe6KM1jLN+VymgBvkt
+	 pF2OmKwmDZ344ApoO/p/2n04+sNOmNucYeIZwR2i6PgXiDVJpD1myN83Ew7lw0rFSBlV7
+	 k9epVYe4Grl05DPD7QIr6/z1vnDrFvzDWKP0bqwrKBO45lI9vh2GTNOSC+4or647RMilG
+	 Xowe0W60L4gnIP9b1aHA/h4CSA7zsZMtCevZm0LVNQArxcoDt3H3CMce5tZ72kpP7SA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 3286A1F000C5;
-	Fri, 13 Nov 2026 22:33:33 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 035961F000C8;
+	Fri, 13 Nov 2026 22:33:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794609214;
-	bh=TOlclL4YMcO1403e1qiCF3GU/nuLdoHldjlrv0LH3a8=;
+	s=k20260515; t=1794609217;
+	bh=+LYiK/955nfnWYhkJP54cSbyAVpIlwPTqmzMMmypLBQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=NkfHNVQ2TMvbmMXE6fHwvBl9xcmpq9ky0p9rvXKU8tCScCglkZl3L/h/IS23zeIgj
-	 4WlapfQCcG63cdRxJkgHoUa5ta94XtV1YB0VFKL9QwsIp5QJ+dERlhTaFOxLamvr7G
-	 +6DTAQpTDl4xbvdR9Ts/X3fBIEtNJRg6CVdQDuGSuuKUHOFj6sbeUk8caDwbC/65Cd
-	 JGsdB/alXmyDqQpNl5OphsA9VvGmaJ+qZiAcBKqCQkRTOvNC6MdY6FWiI8N+N6Hhhb
-	 J10jihh2o7g0l0tzyewbVoYhZEyQh9DqYYNC6DHFWtEhFNQxipo7I7UdmqmJz9D0Vz
-	 S2OJKXYUweEzg==
+	b=Nbs63U4MikP4u7GXTWu/Yh05G7PSpAOzdZ2YwMuL/uvPyy1bnfrGQGlkhz1B375bt
+	 Lok75LO1oo5DXupGOvpeHeBeSb8aSFKEawx3QGQj32wdywbMIAmy/W9Mbt2fMqcFNB
+	 IYH5bpflUx9C2xWueOSonWLM3YV0Lfe66fsx/IUUnPwXvUpN+OHrwHwZDcOz4czthQ
+	 ErmXMQKFt58/G0Y2Cr8Rsx0IQrMq9ueYf3g/F8osAT0i0OKNDP/GlIqToQA/Av/ZIk
+	 53DM960oWCTAwUPKQuY8cJ77+2hxDM0YqSYw4UWKMZalr81YkBvlpZQjH8qrGuZD7u
+	 uptEuZlat6ncA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id B1FFB49B5C;
-	Fri, 13 Nov 2026 22:33:32 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 5352949B78;
+	Fri, 13 Nov 2026 22:33:33 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Sat, 14 Nov 2026 06:33:28 +0800
-Subject: [PATCH 02/19] dt-bindings: riscv: cpus: add the XuanTie C907
+Date: Sat, 14 Nov 2026 06:33:35 +0800
+Subject: [PATCH 09/19] clk: sunxi-ng: sun6i-rtc: allow variants without a
+ 32k fanout mux
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261114-v861-v1-2-eb71ec3ee523@iscas.ac.cn>
+Message-Id: <20261114-v861-v1-9-eb71ec3ee523@iscas.ac.cn>
 References: <20261114-v861-v1-0-eb71ec3ee523@iscas.ac.cn>
 In-Reply-To: <20261114-v861-v1-0-eb71ec3ee523@iscas.ac.cn>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -104,11 +105,11 @@ Cc: Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
  linux-gpio@vger.kernel.org
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794609209; l=986;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794609209; l=1175;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=Cm+aoOEvEdfEXFBW81kE8hGffN29ckzRUH816nQCB7k=;
- b=mWoK/d3s7E1yljsgEDG5AOvjeGoZNBwoSoucC5cXcDHH1Ezvl8ge/m6Rc2ZMX+fXR9/JUk6Cd
- sgDp+kyX4ikACJQQaTT68CWvbDPAa7lgh8Bv3nSSLDGn7sHbxhQnbqQ
+ bh=IjLpSZK52EbD2RXTMonjExKRJ8v5cc72rNy+1BJSluw=;
+ b=u4Lz8S44b3ToLaBsujWDUTqNOl1o4PgdcDpKDa/XwGcMxJt8sFC/p1XpwLiV3n6qI2MWpZyKs
+ moCFg0R6xxABDqHcZkHiY1smc7VBl2uZEKHM2N3ESxOzRNNPALUPA2A
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -136,32 +137,33 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Han Gao <gaohan@iscas.ac.cn>
 
-Add the XuanTie C907, used in the Allwinner V861.
-
-XuanTie is a brand of C-SKY Microsystems [1], whose JEP106 ID 0x5b7 [2]
-is what the C907 reports in mvendorid, so use the csky prefix rather
-than thead.
-
-[1] https://www.xrvm.com/declaration
-[2] https://www.jedec.org/standards-documents/docs/jep-106ab
+Some RTC clock blocks have no 32 kHz fanout mux. Do not register the
+fanout clock for variants whose match data lists no fanout parents.
 
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index 0da219ae6769..bdb119ab8ee0 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -48,6 +48,7 @@ properties:
-               - amd,mbv64
-               - andestech,ax45mp
-               - canaan,k210
-+              - csky,c907
-               - nuclei,ux900
-               - sifive,bullet0
-               - sifive,e5
+diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
+index 98ae10307f43..0e40fd5fa624 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
++++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
+@@ -436,8 +436,12 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
+ 	if (data->rtc_32k_single_parent)
+ 		rtc_32k_init_data.num_parents = 1;
+ 
+-	osc32k_fanout_init_data.parent_data = data->osc32k_fanout_parents;
+-	osc32k_fanout_init_data.num_parents = data->osc32k_fanout_nparents;
++	if (data->osc32k_fanout_nparents) {
++		osc32k_fanout_init_data.parent_data = data->osc32k_fanout_parents;
++		osc32k_fanout_init_data.num_parents = data->osc32k_fanout_nparents;
++	} else {
++		sun6i_rtc_ccu_hw_clks.hws[CLK_OSC32K_FANOUT] = NULL;
++	}
+ 
+ 	if (data->have_dcxo_status)
+ 		sun6i_rtc_ccu_hw_clks.hws[CLK_OSC24M_32K_DIV] =
 
 -- 
 2.55.0
