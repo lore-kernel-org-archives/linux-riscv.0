@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6361F606A54E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45169606A887
 	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 22:34:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zcMMxDpr;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PCk/d6YQ
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MlrebMea;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FV2QCBUk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,71 +14,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ZQKP8NXlDlsMBVP/MvKP50c4DRYm1nNlAZhkLq6W3bA=; b=zcMMxDpr18wYxgAunXE6LPSDgU
-	yzyH7BFPHFQy63NMYUYsPd/rN9GrJL3pbkhqoUWib9CyP4UJDdYzNA5QTM3Vpy+FgzmwoN4TFOiOB
-	ztRmbhX6cjFvC1R3CWhOU/9EiI9gfZEkrf1/nf638sMGk/JDie2hhyFFYVleUd6YO5pO9hGBksOz8
-	18HIOm4us1MVxZ4j2cGbVoVlO9qLCBQTkf067Rcz1JG1MiK3ebt8guOuV6FBN4e/AXVFzvguxePFr
-	h1g0D3IVr38Lm7MdoNaVqKYGnDTMXxQbivtV0+gyiEXiQ5suQiHaSnBFheIsUt6b2QKxjKU4Nsowe
-	WQD4gEfA==;
+	bh=Tifk8gfCltcVWZSaPqvKh20S8fi8dwSSxlWhkjsidJY=; b=MlrebMeaweFUfQYrLeb22MDI1K
+	z9gcBD0F4Ztxgf3jURI/pPE4ih+wzpLtR7WipBrdqIHR8hx2CRQOFERQW5e9Il0V4ufIfF/RyHZ02
+	n6x0YLgBGNPPYkF4vo5w+deMWZuLpfMFPR7FQO/wTbHvFc8ShBXiyzhnOnYk97ARWPHjzIL7MqQQf
+	AsqWVx9cfeqyy15rWch8URqM4INAu8jTyiqpbEBcS5JzSpiLIsJshLxGDdGO2b5V7tzTrx9CR9tJ4
+	ECSiWLzClY7HXLe7BHlE9qGZ1/tMQ+5g1YAPuCApt+FNwLJJ3ZTLKTjnBL9Gx8Py8mIJ2ywEP4XdT
+	0GOCLM9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRzqI-0000000Ei9x-2JCi;
+	id 1xRzqI-0000000EiAM-3RPq;
 	Fri, 13 Nov 2026 22:33:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRzpy-0000000Ehk6-3wxw;
+	id 1xRzpz-0000000Ehk4-0BBe;
 	Fri, 13 Nov 2026 22:33:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ADAB946A0E;
-	Fri, 13 Nov 2026 22:33:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 778CD62411;
+	Fri, 13 Nov 2026 22:33:38 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794609217;
-	b=Lw80/v2VkspQrval8nmgEQp22tTaecaFR5kKpDMuV0O59LxmBfOXTCmBbknzoocMcovy
-	 OkMv617+ZDJYtTgD9UbPG8X4f5DvbbfjHpmjkFLGmCW11yI3H+0UggCflDWQ7vNYsMaC2
-	 JAkDI4iSOg94iM1WaKvLZ8veIYClW5JpoVw4aCxDk2ogXDohRMZSWcaY9dALRgPPYlVXz
-	 KiLRu1Thvz0Y0aVL0NJ+BTmI/BqL088iRolvTrXEWPC0QGEfQRIdkvOFnt+ssLbncQfZ0
-	 agQ1goGuYzrhDSFXW/rf0Kmd4/rR7ZmrY/8/q9WClEYwfLqFM8pnZL8i4OV7nEWLwjA==
+	t=1794609218;
+	b=dzzmXe6EOZUnCWCtCyX6KvaZZaIqecjvSw7Ihx+zuBvWbgLp6gh64xyKX8TpcHXvjvw9
+	 v76KpEGQ5KwrM9KjwjFczpr7r9p2d9Bc+rKZY4nuQx86unFW/JG0KQxh76wWozyyw20Bh
+	 IBoAzxPvDb8O7C8PnVqBroByWv5+M8CijlDTt8bTke3UpPx0GzRu2TpvLbyAmPWS4r/Au
+	 1LfHnALVFJw925Z6S6z2U//9BtiJ877BBlRqM81JeVHhDGEt6hSN4mbD4YddwsncRNtNN
+	 SeXQogDJc8npcvFZvmcbuZR/US9JKdABR6pCL+W5tFUzW+SwMo+7cUMKZbKkaUZ/qmg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794609217;
+	c=relaxed/relaxed; t=1794609218;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ayF6vBRvkksclTHjPSyWasOw4KoXplwINp671BmeISE=;
-	b=V4GUySn69WcZUh7ubDZKaYOhzfL2yQi6ocyS7OO2kNzg7fWEb4kVjH/Gtgg6RgnMG1j2
-	 JwCQz80fQb9lplCTnGFkzVA6D+do7ddI8hkazKFuB43EaV7JaEoSaW1o/S5zp9W3o7Lht
-	 hL2kf0UTUyURKlTj5eYZTQ1hChHJCkgG+TZZ8hCC98Fd2hPmtGtiAb7ThakbV5dqPz5VK
-	 0UktpfaTOWwiKVhWZklFNiWcCdfjsPC21tl5PsFH38i1zwre5c6I2o3/pgK/wOgRYDq5Z
-	 gSvCsmY7Bc1eWMxUI5A+x02/aLmtovF7EZv88DQPyKO6DfWeJzh0cCpfP79Q+dRoJRw==
+	bh=2hAcwHHxwsuzZBb2Xr9VuIK0jqUogfFZXLMnVu53bds=;
+	b=zkdvl/0ZFb1FpxlIGKUO7fJ149Hb8jHBh3fjEDiS+tlD+6Bm9yVWE0pc+CIAyGAObLHB
+	 wkUkfOTEZDjnrUNLLH0VRplDT7PvTkcjp5RByloPTX01PJR63jYuO26QKH0EfBtboSvAL
+	 sW5g7GUxkInSp7HUe/Ixhu4AkEOj4/3M+rMBEddznGcKAgGjD5IU5AGlPPNxZcsZUnZt4
+	 vmeVMJD5Z+Fn4YjmTdZnfSHiPsnmXhb7vBE6MYjp4Drgc1lk5JytVbI1KX88QK34Qn7kX
+	 9LiyzDmDKUIur/nZDByJJKecbyn4vGw+VHUV5qCGCTjhhamqLVZKj2Gtb929+g9hDgw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 0614E1F000CD;
+	by smtp.kernel.org (Postfix) with ESMTPS id 359C41F0089E;
 	Fri, 13 Nov 2026 22:33:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794609217;
-	bh=ayF6vBRvkksclTHjPSyWasOw4KoXplwINp671BmeISE=;
+	s=k20260515; t=1794609218;
+	bh=2hAcwHHxwsuzZBb2Xr9VuIK0jqUogfFZXLMnVu53bds=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=PCk/d6YQSWF7We7dBRL29c+DHY1FupE7tjodyOmNBtMaXeqmb0k8QnARUpuTPDw2d
-	 ybjOiX2SX7n743zJaikT//Ojxp3GlQ1eH6jRIdYAYvMbHaODrsvQlnLn5tfECjjB+k
-	 ypnvCitXhCID3LYzsyDfHvCHnd0b1qfdKvOjW+BpbtgC4yJ6NaU03s1Gao1nd6PZAg
-	 3Ez7P9HyXAGTFO7hLTLSaUajMowr+xXZLzHDoSinpevqLttNWsmmbdmew1MIU3g/0A
-	 h76EowCWGQZTkURZU+vkEXrp8GfanBwt3aFDA6eVyAbStCiTMwX6TivGXe+I0ztd/c
-	 SKIN9bCMyoNsQ==
+	b=FV2QCBUk2dFIqW9Sn4MhR5LOeAQRxbIE+193UXDCtDilblOtjVZQX+pjVDAu+XwtV
+	 9VgSVlAhu8ZSOkTKE4r4jxC/PuTMcu05YxHbiE/o2xhMHZ8tFFalM5sJJnIsuvMTz2
+	 XlkOYVkefUoz4DukDyaLwYyRI2SvzBUnJD6OfOpfHrhLTZP455+y2WilPeyHpFfANd
+	 SZ4MN2BNr+UjHclc+2wsrCMV9wKFVR1cvv5iGkVUT7M43u0hoiZARcjPne5SrlaoGk
+	 4C+0yT60mFBEQyJz5U+rG31MOjFxtqA+odRqx+fQ0GIEARrHcFqISuP40NlsGzrvBD
+	 ro/5salgoOc/Q==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 689E449B7C;
+	by lkml.kernel.org (Postfix) with ESMTP id 937C549B84;
 	Fri, 13 Nov 2026 22:33:33 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Sat, 14 Nov 2026 06:33:36 +0800
-Subject: [PATCH 10/19] clk: sunxi-ng: sun6i-rtc: allow another 24 MHz to
- 32k divider ratio
+Date: Sat, 14 Nov 2026 06:33:38 +0800
+Subject: [PATCH 12/19] dt-bindings: pinctrl: add the Allwinner V861 pin
+ controllers
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261114-v861-v1-10-eb71ec3ee523@iscas.ac.cn>
+Message-Id: <20261114-v861-v1-12-eb71ec3ee523@iscas.ac.cn>
 References: <20261114-v861-v1-0-eb71ec3ee523@iscas.ac.cn>
 In-Reply-To: <20261114-v861-v1-0-eb71ec3ee523@iscas.ac.cn>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -105,11 +105,11 @@ Cc: Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
  linux-gpio@vger.kernel.org
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794609209; l=1317;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794609209; l=2426;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=4J4UFeD/eghp455M83eHVDqg8JSEWGJn1Ho+53uK9kw=;
- b=bxWPhg/JyaODgEHvYWbpaZH47om1EuJoYhcMyIKsswhKOxOfeMIeHT2Vc0XRwXRU3X7LU3/uc
- m6Q1MIe7JxADYv5O0YTn0lRP85QuG5yZexTgEa7RBlOQGEcBUeb3z0M
+ bh=OVFVAovojWhCjL1CcvpMpyxRiwB/0HvBnEwl/vSd8Os=;
+ b=I8y5zq/wfjE0lbgnncurtQ07hgFzNrVSMhKq4SHgkIBrpZNMZEux/+meGG5waFVfmHGj730hC
+ i4FabMIA2qFD386KAufZP4MB4on1RyqcbMFigp86/eUPgTrGQwyuMCx
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -137,39 +137,85 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Han Gao <gaohan@iscas.ac.cn>
 
-The fixed 24 MHz to 32 kHz divider does not divide by 750 on all
-variants. Allow the match data to override its multiplier and divider.
+The V861 main and always-on pin controllers follow the A523 binding.
+The always-on one has a single interrupt bank, so also allow a single
+debounce value.
 
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ .../pinctrl/allwinner,sun55i-a523-pinctrl.yaml     | 31 +++++++++++++++++++---
+ 1 file changed, 28 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-index 0e40fd5fa624..b3619222fef0 100644
---- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-@@ -54,6 +54,8 @@ struct sun6i_rtc_match_data {
- 	bool				have_dcxo_status	: 1;
- 	bool				have_phy_ref_gates	: 1;
- 	bool				rtc_32k_single_parent	: 1;
-+	unsigned int			osc24M_32k_mult;
-+	unsigned int			osc24M_32k_div;
- 	const struct clk_parent_data	*osc32k_fanout_parents;
- 	u8				osc32k_fanout_nparents;
- };
-@@ -436,6 +438,11 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
- 	if (data->rtc_32k_single_parent)
- 		rtc_32k_init_data.num_parents = 1;
+diff --git a/Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.yaml
+index d7d0ba32ced4..3c2924df17b9 100644
+--- a/Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.yaml
+@@ -4,7 +4,7 @@
+ $id: http://devicetree.org/schemas/pinctrl/allwinner,sun55i-a523-pinctrl.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
  
-+	if (data->osc24M_32k_div) {
-+		osc24M_32k_div_clk.mult = data->osc24M_32k_mult;
-+		osc24M_32k_div_clk.div = data->osc24M_32k_div;
-+	}
+-title: Allwinner A523 & A733 Pin Controller
++title: Allwinner A523, A733 & V861 Pin Controller
+ 
+ maintainers:
+   - Andre Przywara <andre.przywara@arm.com>
+@@ -26,6 +26,8 @@ properties:
+ 
+   compatible:
+     enum:
++      - allwinner,sun252i-v861-pinctrl
++      - allwinner,sun252i-v861-r-pinctrl
+       - allwinner,sun55i-a523-pinctrl
+       - allwinner,sun55i-a523-r-pinctrl
+       - allwinner,sun60i-a733-pinctrl
+@@ -35,7 +37,7 @@ properties:
+     maxItems: 1
+ 
+   interrupts:
+-    minItems: 2
++    minItems: 1
+     maxItems: 11
+     description:
+       One interrupt per external interrupt bank supported on the
+@@ -62,7 +64,7 @@ properties:
+       Debouncing periods in microseconds, one period per interrupt
+       bank found in the controller
+     $ref: /schemas/types.yaml#/definitions/uint32-array
+-    minItems: 2
++    minItems: 1
+     maxItems: 11
+ 
+ patternProperties:
+@@ -149,6 +151,29 @@ allOf:
+           minItems: 2
+           maxItems: 2
+ 
++  - if:
++      properties:
++        compatible:
++          const: allwinner,sun252i-v861-pinctrl
++    then:
++      properties:
++        interrupts:
++          minItems: 7
++          maxItems: 7
++        input-debounce:
++          maxItems: 7
 +
- 	if (data->osc32k_fanout_nparents) {
- 		osc32k_fanout_init_data.parent_data = data->osc32k_fanout_parents;
- 		osc32k_fanout_init_data.num_parents = data->osc32k_fanout_nparents;
++  - if:
++      properties:
++        compatible:
++          const: allwinner,sun252i-v861-r-pinctrl
++    then:
++      properties:
++        interrupts:
++          maxItems: 1
++        input-debounce:
++          maxItems: 1
++
+ additionalProperties: false
+ 
+ examples:
 
 -- 
 2.55.0
