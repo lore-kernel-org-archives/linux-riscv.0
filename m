@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFCC3606A89A
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 18:56:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 671F260A2610
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 18:58:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RqZ+W0IN;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AaE1y4q+
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0gVGU9AL;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cFHMfohK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,58 +14,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Gg56CPoJfd+HrDXz9IYsblSD7sfRmEWTkFEdxqmX+QU=; b=RqZ+W0INUvOymIV9MkbLM2njGS
-	tY8aote8ak2hhFGvclZ0SUNfbk3N6q4zAz+ujIjMpx1wDMP84ROz87tm4JKXk0y2Rfywq+eH8Su6y
-	Q2xXDIEkW3yoyPwth4WRn6qQPajHIJcs1zuExCVlRWbQETalh9L5eMSZuIAHG/hf5WwNgrZID7em3
-	Lfw/dsJS3xoF9wfzsJUuI8KAta7I4Ckk0XUvupikVW4M/dSxqZ3Koorf+Zzumdrnz98ilKIW78KkL
-	fyVMNTXKYTyJIjjF5aDjNqH919yMEJgxfVSYQlSSVztdPR4EkL7vSw/VSL2CORRdU9CdTbl9yX2ZC
-	6m3zWdUw==;
+	bh=OxYglwxDIpdBD5q9Hpst7g1uJPLjvJM06567kVDGCb8=; b=0gVGU9ALIlNQxvQkIR8SmebbSp
+	Ts8hPnI2h573By2Sas/EuaPIBLfnyzmFLKAyvIcwjkk+JGTlCm0hfDWz+lL8sYNSsR5Y523t/m0r+
+	Z7M0MJAEb/Zx8kxi+BmLEji3kE1Wj7IRnFYD4oyGw5k4nNf5HkyNj08So/Bg+4UJ/rmGU9e9y+uxl
+	/yM+AHaEoFfvrNtlHpdZmAidRv7vzm0sT6ukXrb4gIHp8a1imtvE9+2XRC38bp78t+nds7UoCQ6cS
+	m0IF+mLWqAYIcdZszAaHPu02m+jfXoe2BNDt6aZivtwm8CKb1QTAHrIOOYGON0whNl/hExhxFRlGm
+	gnORXJ3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRwSA-0000000E34k-1q9E;
-	Fri, 13 Nov 2026 18:56:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xRwTh-0000000E3Rj-3fKR;
+	Fri, 13 Nov 2026 18:58:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRwS8-0000000E33Q-30cD
+	id 1xRwTc-0000000E3Q1-2WQ2
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Nov 2026 18:56:48 +0000
+	Fri, 13 Nov 2026 18:58:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0307F46637;
-	Fri, 13 Nov 2026 18:56:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 240ED1F000C6;
-	Fri, 13 Nov 2026 18:56:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C6A8C623FB;
+	Fri, 13 Nov 2026 18:58:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45A6C1F000C4;
+	Fri, 13 Nov 2026 18:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794596207;
-	bh=EaBAv/H8BT4vm7qZdZm8f+J1eyq2A3r6KggVt6sufuE=;
+	s=k20260515; t=1794596299;
+	bh=plduXl+R6cqY32R5PgJwlwqrejdYEcZNDX1tD+foFH4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=AaE1y4q++14YE+IhwkDHq526uKCelbaOwgasfvvC4nM/4hAhiYAO7UK+ijyX/ar2K
-	 RcF9z3EyMuug76TE2MqnPN2zWnCcm8jTzvzD51ZgEqYsfg4/t8IDDX/GqFCDl1vhrC
-	 lS03Ce5DsUfiByziqXEoTJGp4FyelH9mFjJ21U3K8rzL71dB1L5jvKvnw29yWtG/k5
-	 oYaPu+ChzIYEEiYVssqHg9c1J3lM2qqyA0QQlJtW1QlWTTSRsyYTAN3TebDz5DbyaE
-	 mgC+QvXuFWfDMfwcVSWr1BdmY9ZPFHBKLQBXw41STjLTQz9S41ytt6jjSxenfIWl17
-	 oTSsNoPlU4QMQ==
-Message-ID: <603cd8e0-c2c5-4c1e-85c4-d0a5ceda8d4c@kernel.org>
-Date: Fri, 13 Nov 2026 19:56:37 +0100
+	b=cFHMfohKIP9bZkMX3RyFr/Ll4R+czW78WJbfwmAUJfkYxKrc3F5eycBDUkXneLE5J
+	 zLmy7f4T3SKuWAbJfOjW4wASWun1i2hpcPsSRgg6sNBUSxm7CxmKMEGeUPM1hXAMIH
+	 3GKF4t/5yePvyYKMcZlLAbEjrBlxqOByEOlVcR5r7Uvpv4RTQO4oZnVFlQUkxtsBTt
+	 Qanw4sSGu2xtFHluqWwh/ghF1SF7encSXNNqYrl7JksRhjnMYE4wNSfAafURUA57/X
+	 GrydL0T9XVbUhYn6/7nrHwJRG8DZESnJdoN6m6Bg1l6eWdIuolgbk3ZPEpxgXtYvEL
+	 husZdF7uzgD7Q==
+Message-ID: <136002e1-646d-4607-be3f-b6a6a869bbec@kernel.org>
+Date: Fri, 13 Nov 2026 19:58:08 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/9] mm: keep writable entries writable on protection
- changes
+Subject: Re: [PATCH v3 3/9] mm/huge_memory: honor MM_CP_TRY_CHANGE_WRITABLE in
+ change_huge_pud()
 To: =?UTF-8?Q?Carlos_L=C3=B3pez?= <clopez@suse.de>, kvm@vger.kernel.org,
  linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
  linux-riscv@lists.infradead.org, seanjc@google.com, pbonzini@redhat.com,
  akpm@linux-foundation.org, peterx@redhat.com, ljs@kernel.org,
  imbrenda@linux.ibm.com, borntraeger@linux.ibm.com, frankja@linux.ibm.com,
- Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>,
- "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
- Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
- Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Zi Yan <ziy@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
+ Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+ Kiryl Shutsemau <kas@kernel.org>
 References: <20261112142039.907090-2-clopez@suse.de>
- <20261112142039.907090-6-clopez@suse.de>
+ <20261112142039.907090-5-clopez@suse.de>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -112,7 +113,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20261112142039.907090-6-clopez@suse.de>
+In-Reply-To: <20261112142039.907090-5-clopez@suse.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,18 +137,17 @@ T24gMTEvMTIvMjYgMTU6MjAsIENhcmxvcyBMw7NwZXogd3JvdGU6Cj4gY2hhbmdlX3Byb3RlY3Rp
 b24oKSBhcHBsaWVzIHZtYS0+dm1fcGFnZV9wcm90LCB3aGljaCBsYWNrcyB0aGUgd3JpdGUgYml0
 Cj4gZm9yIENvVyBhbmQgd3JpdGUtbm90aWZpZWQgbWFwcGluZ3MuIE1NX0NQX1RSWV9DSEFOR0Vf
 V1JJVEFCTEUgbWFrZXMKPiBlbnRyaWVzIHdyaXRhYmxlIGFnYWluIGlmIGEgd3JpdGUgZmF1bHQg
-d291bGQgb25seSBzZXQgdGhlIHdyaXRlIGJpdC4KPiBJbiBzaGFyZWQgbWFwcGluZ3MsIGl0IHJl
-bGllcyBvbiB0aGUgZGlydHkgYml0IGZvciB0aGlzLCBhcyBhIGNsZWFuCj4gZW50cnkgbWlnaHQg
-c3RpbGwgbmVlZCBhIHdyaXRlIGZhdWx0IHRvIG5vdGlmeSB0aGUgRlMuCj4gCj4gSG93ZXZlciwg
-dGhpcyBtaXNzZXMgY2xlYW4gZW50cmllcyB0aGF0IHdlcmUgYWxyZWFkeSB3cml0YWJsZS4gRm9y
-Cj4gZXhhbXBsZSwgYSB1ZmZkLXdwIHVucHJvdGVjdCBtYWtlcyBzaG1lbSBQVEVzIHJlYWQtb25s
-eSBpZiB0aGV5IHdlcmUKPiBtYXBwZWQgYnkgYSByZWFkIGZhdWx0IGJlZm9yZSB1ZmZkLXdwIHdh
-cyByZWdpc3RlcmVkLCBzbyB0aGUgbmV4dCB3cml0ZQo+IHRvIGVhY2ggb2YgdGhlbSBmYXVsdHMu
-CgpTZWUgbXkgb3RoZXIgcmVwbHksIGFkZGluZyBzdWNoIG9wdGltaXphdGlvbnMgd2l0aG91dCBh
-bnkgbW90aXZhdGlvbiB3aHkgd2UKc2hvdWxkIGV2ZW4gY2FyZSBpcyBub3QgcmVhbGx5IHdoYXQg
-d2Ugd2FudC4KCkRyb3AgaXQgZnJvbSB5b3VyIHNlcmllcyBhbmQga2VlcCB0aGUgTU0gY2hhbmdl
-cyB0byBhIGJhcmUgbWluaW11bSBwbGVhc2UuCgpPciBpcyB0aGVyZSBhIHJlYWwgZGVwZW5kZW5j
-eSBmb3IgeW91ciB3b3JrPwoKLS0gCkNoZWVycywKCkRhdmlkCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+d291bGQgb25seSBzZXQgdGhlIHdyaXRlIGJpdC4KPiAKPiBIb3dldmVyLCBjaGFuZ2VfaHVnZV9w
+dWQoKSBpZ25vcmVzIHRoZSBmbGFnLiBGb3IgZXhhbXBsZSwgZGV2aWNlIERBWAo+IG1hcHBpbmdz
+IGFyZSB3cml0ZS1ub3RpZmllZCBvbmNlIHNvZnQtZGlydHkgdHJhY2tpbmcgaXMgYXJtZWQgdGhy
+b3VnaAo+IC9wcm9jL3BpZC9jbGVhcl9yZWZzLCBhbmQgYSBwcm90ZWN0aW9uIGNoYW5nZSB0aGVu
+IGxlYXZlcyBkaXJ0eSBQVURzCj4gcmVhZC1vbmx5LCBzbyB0aGUgbmV4dCB3cml0ZSB0byBlYWNo
+IG9mIHRoZW0gZmF1bHRzLgo+IAo+IEZpeCB0aGlzIGJ5IGFkZGluZyBjYW5fY2hhbmdlX3B1ZF93
+cml0YWJsZSgpLCBiYXNlZCBvbgo+IGNhbl9jaGFuZ2VfcG1kX3dyaXRhYmxlKCkuIEl0IG9taXRz
+IHRoZSBOVU1BIGFuZCB1ZmZkLXdwIGNoZWNrcywgYXMKPiBjaGFuZ2VfaHVnZV9wdWQoKSBiYWls
+cyBvdXQgb24gdGhvc2UgY2hhbmdlcy4KCkFnYWluLCBwbGVhc2Uga2VlcCBNTSBjaGFuZ2VzIHRv
+IGEgYmFyZSBtaW5pbXVtIGZvciB5b3VyIHdvcmsuCgpJZiB0aGlzIGlzIG5vdCByZXF1aXJlZCBm
+b3IgeW91ciB3b3JrLCBwbGVhc2UgZHJvcCBpdC4KCi0tIApDaGVlcnMsCgpEYXZpZAoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
