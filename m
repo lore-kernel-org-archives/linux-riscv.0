@@ -2,111 +2,93 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 806DD606A337
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 08:38:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0675C606A88B
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 08:40:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ezYvIWsB;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=PErNCUXT;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=Y9v4pOya
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VV4AwwWp;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=ZFErvSkU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	References:In-Reply-To:Subject:Cc:To:From:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bNlpEhNZ5WjUsShhB87uCEdaJNkybim/mbc7YMJT078=; b=ezYvIWsBeHYrieOLd/TnVrccP4
-	tGywK4H/+NeidoozcRFVMJU/bjxQxdBbrwDdw3rQeR/Z9ID4wH+DXO6jmVvSV/VRztSXNZyzB+9Hv
-	JBLwpurBeOR4DI/y+qLdbbID2RbcnwuSOzv20dKxEFYqG3zXgIFlwD1KXAiysffpGiL7NQTW341qU
-	/khLwcvoKMd5+pScxOmFhmTjcViXVQDWXY/Tb7lA/RSvtRMtC9kBjoOIy3jrT+juv0DIDm1tEoBkW
-	cL9nt5K0gP0NE3O8mGXsJ5LQFwV6VdLmrEttcouR3/G0/AsGWLDPBPXhsPSabY48WQqmaavMEA1YP
-	qYmP+UcA==;
+	bh=PqEmXvgjMA9Reyz0zdBJtALxXRClMVqGah7xEc1FKGM=; b=VV4AwwWpvhcGSoLPlynSb364J8
+	ui84m4PIpks1ycleGsOHZDenzy8Raq7KLuAv8NNjqp175ADAgUUhlZITpB0k7mi7nTRqScfM/iWLK
+	HpOhGiCXRXBsso9VeJtw3KaLOHCVx5rQZkmxYf06C0HH7A3uYwYGncBYlQkq/P/fKswTSWCBRt1Td
+	SH3FdMGhWMv2IZNN9TkYOtIsAV6NvUcbhV9e9mG0FYuMJ6vn59FzPahtzSus4ADHhSnqpOtzpSVJN
+	WAxmqrJhrEkGj15AwYeRI199I7xeIFWvOIoE9MMped6D+fRSxajEhoWfvAUSxiS77l6+/8fQ2oVFy
+	4hdQQqFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRmni-0000000C5no-1vNj;
-	Fri, 13 Nov 2026 08:38:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xRmpd-0000000C6Tq-3kVG;
+	Fri, 13 Nov 2026 08:40:26 +0000
+Received: from smtpbgsg1.qq.com ([54.254.200.92])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRmmz-0000000C5PR-1DRW
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 13 Nov 2026 08:37:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Message-ID:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=yst+eH4qPHKZ+Mz1qLQUp8ASMlTj1NxEgEqc21eSWaw=; b=PErNCUXT0VkmNYNBwwoNPxJnoG
-	Xq+QQraDqx6wGLgO5EhrMdcIErvasF5Kll8LX4NIzc/YqnBn+q2W0ad8EB+gN6WGyatyre9C1Scn+
-	HFKxnOZ0tW1QFs36nI/HgB+RAWeK4oMIxCZsnSJe0/3b1RWDK4iLk/T9Yx23LeEpn+GhpieSZU0dh
-	lmeiDeV0ygwKKcnItE4sKYrgHbapf30Kpg7ivt2F6Vx1J8kAQlq7CG0WYUMpGyia+Yg/+Cg8YBWaH
-	KCGb5En1kDS+fWSBcnRKYq3b0X1/r89pxZc+rRYTUd9CY4eLAo7EPAwGurs8NDtgwISz6xc0DQZXa
-	RMI1Y0sg==;
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRmmu-0000000B4r5-0eGD
+	id 1xRmpT-0000000C6OF-3R0k
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Nov 2026 08:37:39 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2e9ae391a05so3618995ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Nov 2026 00:37:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chrisdown.name; s=google; t=1794559053; x=1795163853; darn=lists.infradead.org;
-        h=user-agent:message-id:content-disposition:content-type:mime-version
-         :references:in-reply-to:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=yst+eH4qPHKZ+Mz1qLQUp8ASMlTj1NxEgEqc21eSWaw=;
-        b=Y9v4pOyaS9lemRIxNyGFz+asVqMohjPnn7Xe9Nnfv8rdpelqkiVoRzaDr0hy0mEIMy
-         LDe2ufX/INSGliHQx1R2ill/YQ5i/yeOWIuvgLP6feWaTFItUXoQtIVySpvQlGXhRAna
-         FROSSOKZ0XkuDGe97ppHOXgwhVOaEd45OGWg4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794559053; x=1795163853;
-        h=user-agent:message-id:content-disposition:content-type:mime-version
-         :references:in-reply-to:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yst+eH4qPHKZ+Mz1qLQUp8ASMlTj1NxEgEqc21eSWaw=;
-        b=Me5DwYv+kKNHLnuGXCXw+3K1t3/x506ZwKyClu042bAWebYhtKX0+smkH/o9h0U34s
-         S2LK6g4XCF/J07PepDfcc78nLymh24R4Om3fqROeLifBKatzo4OgR7ICxogf9qbLUCbb
-         ICpRNIKW4KfAIXbBntJsGel8sgNyJIha4UQtUyl95DEBHXAn795t+tQBkZjZLCw7YGB+
-         3luO5985zdtsD9+9S3iOnhWYi8tiuRYEzBmbhDayM0CqdoCMvUF4yHYjW9iIOsRi7ADJ
-         JhEXIkGMqlCIw5sJbHRBoWD6KuobJbk67tI0cn4l9l8c+uF8RwhOeHCoMsjBmkAbat0f
-         Vcyg==
-X-Forwarded-Encrypted: i=1; AL+hErH8R0EMh4lVG8qORFJUDnbXdgmQaqkPPtRTTAM16VnDTfa7NUNEwIOglJnkNnHs3Big530FFd36LSNR/g==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8HRifb7QyYypcm51j0NXrJVbjUdKUwQUZIZVvSM6OS70KkhR+G
-	JoDfkgxg0sx8XIg9tVfWhY6m+RI9n+xn7x6uElmZGuQmzl7C4KWF1IKLgGV1z5U2/Zo=
-X-Gm-Gg: AYBFou3fMxmjUPdlXeKQ0yG/sHqF3xSDUhPPJCQVPUsuyO+gyvsyDvS6rt+a8ayk3WJ
-	HQ71EPG+z0wNE92iQS33tzyZYj5VtRy7G0QybuKYieuu38VLEsDP4emu63SfJZvKDfX+Cpl/O1C
-	T5M/ODJ+FN8lqms0fsxdl3zcI9Y6HYxnyPqWBUqjD09jQi7TMT6Fqu87FZtoRAqiuUIrX0QCc1c
-	kYw17Ed3CjaWs3vcnUr4phRdk907Rg6j0yH0kPIe8GCV5Rx1i5bNfEwOe2+W9ib0ijVQ6xD+MnA
-	nk5YLIPLxW8eFlHC1NxMX0jf9M5GzbEinH9Ks7LpXzPzMQgNk7Be5X9YsaieVETyFqmkl5kWisa
-	maLo2ogNvKbmqKI3lq7ZqFZeFLzy6bMI8b4fNNNKV3poyLXO/4H/+rjxnGG7ySvigA+GLBOZXX1
-	EvGwP3N9H+16fjZiwa7nc10eRNkRafZdyy32OqTserFgBSJIxTxdJcV2rrO+xdYXcOVkGtmy3oz
-	Yrg0QDsNoFFgvISh1c184URLTtXeo/Dkkv+4Hkmf4PCi2EJP9IpfbI7YflXdm3PEOLmSyQqVlxQ
-	LKLKG2s8+uBhan0oaZ1bXc1rgL7JAWha7entAc9zFIwhc0EeXmoum8Uvm7VGkhGXlQCAotbnAFn
-	TUZ6tPtBYP+29QcXoMFyi74+Woc6QT8D8OsR3yBYEOIRsZyM4/LS+1WwEvkxccs7+e/3inofV+m
-	1EsMxiY/F4ha3tT2cuE8BUl/vSglYaLPlQlDsoFD2ma7GWfbNL4sSXyqVRq3F4G9dkAFe/uHWeP
-	g1nk2G8
-X-Received: by 2002:a17:903:3c6e:b0:2e9:8202:508a with SMTP id d9443c01a7336-2edf1ed6cdemr37400075ad.16.1794559053599;
-        Fri, 13 Nov 2026 00:37:33 -0800 (PST)
-Received: from [172.22.0.2] ([50.175.87.158])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ee0f75ebbcsm6475845ad.26.2026.11.13.00.37.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Nov 2026 00:37:32 -0800 (PST)
-Date: Fri, 13 Nov 2026 00:37:31 -0800
-From: Chris Down <chris@chrisdown.name>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Kees Cook <kees@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, Ard Biesheuvel <ardb@kernel.org>, Will Deacon <will@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH 2/3] sched/core: Add sched_stack_end_check= boot parameter
-In-Reply-To: <099dc59b-0699-4c2d-875e-289cf6d32cce@infradead.org>
-References: <cover.1793082868.git.chris@chrisdown.name> <3d2bb6a8508b9d801878bb82c88165a1b1ff5f40.1793082868.git.chris@chrisdown.name> <099dc59b-0699-4c2d-875e-289cf6d32cce@infradead.org>
+	Fri, 13 Nov 2026 08:40:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1794559203;
+	bh=6WNAQRBi98h2rRNmIF3+dEJhZIMUbBlpuSNyCZ2B0FQ=;
+	h=Mime-Version:Date:Message-Id:From:To:Subject;
+	b=ZFErvSkUbS3LmhGaWhpJdq1IjdBCSR/6zPNUAC3l+L0tLTKOqLVM6BDnx39jwwaXY
+	 yb18dmnqL8hPJ38VzHXpPWhQde0QBNGpQGkUQ0OIoAEqZcctjHcsEFVUPh2BuQ5aav
+	 bP2CX4hsWCB6zMe9UQMKazg4kRB+RCBkG9QzX2Fw=
+X-QQ-mid: zesmtpgz9t1794559202t4bdadd69
+X-QQ-Originating-IP: Ipks7jxgs1sprA9x/MuqmIpTxP//z84Adf3qIwSonO0=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 13 Nov 2026 16:39:59 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 7073859681775993480
+EX-QQ-RecipientCnt: 16
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-Message-ID: <20261113003731.5754ed6732d351dc@chrisdown.name>
-User-Agent: Mutt/2.4.3 (cc9e3943) (2026-10-09)
+Mime-Version: 1.0
+Date: Fri, 13 Nov 2026 08:39:58 +0000
+Message-Id: <DMTY56PU7CP2.JGIZ9XDXII9E@linux.spacemit.com>
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Sarah Emery" <sarah.emery@canonical.com>
+Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley"
+ <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
+ <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Yixun Lan"
+ <dlan@kernel.org>, "Guodong Xu" <docular.xu@gmail.com>, "Yangyu Chen"
+ <cyy@cyyself.name>, "Troy Mitchell" <troy.mitchell@linux.spacemit.com>,
+ <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/2] riscv: dts: spacemit: Add K3 CoM260 IFX TQ support
+In-Reply-To: <fcd2fc41-5af8-4256-8296-a5435fdf41db@canonical.com>
+References: <20261105-k3-tq-dts-based-on-com260-v1-0-aa0b7714aed0@linux.spacemit.com>
+ <20261105-k3-tq-dts-based-on-com260-v1-2-aa0b7714aed0@linux.spacemit.com>
+ <fcd2fc41-5af8-4256-8296-a5435fdf41db@canonical.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: Mrv4zYML0Tu4yumLMt0nupP/qBAqfxMj8/Fw8NU3nD+/lmX5NHUiHtFo
+	38UkHWXQGKC+7IZix+ESGTLRL+14d0shIfwLfjCZ3QBWC4yjmRSEVYpJGtUIsyvJXvUQgzw
+	EJ6tDA4zoc0jss7bo30jkHEkl0f4XO4kAvKxNg+cO6M4m1084C64NLTg0RprcQ+1lmRxBx5
+	6jc8TDnMCrNK7hV0DW9WCEY7sLh7EBRTnnfXLzHVGACHHsW7f0iHW0botrE2nA8R5gzi1Yc
+	31OjCN2TEyDHU8QiciuvTmXoRJESz3JOACkHE+jluCG3EK6X7JwQ5d3OKRxduRvgytujNmb
+	nko1nlRCZiAubc2c6Q7H1VvQyMKIkPLTuSCDxE+XI3xfVZUqnCMXGfmgTb08uU7DHDrsHV/
+	U5d8x2R/wF9h4/7bOEUEo2CePCOrHI5ET2l9gDDTe1CLhkMzwgK1VWyxpC501FtK0Mh8DZs
+	Remhb9HwZMfnqQwxiIz/r+TG9S7nbyQDpfSmvz02GjyCBA8eBsjWkCFNlaern0CCAYvw3qb
+	OgTZ1Dd81nixqOXb0lp6kSErVx04qoOqjWYFdS3KpI6yy22tqxdlelmRC6J5UWdBCLRI4aK
+	z9pmP2/EyGkXLe1+lzYyjWJS1ApzCg0I40fW32r2bW3WoTI/vURah7orc7j4Jt5tDucAdxW
+	tu+smF3Tdrn7SKG0A4ijHK+SOgrIH0COn/VXwzEhJgrhFpiACVaxiHBySPMkVCNXKjYN5AU
+	ZIbiWseOxqILhL+ClVKyod1ogvgJLiS8lDSEQfuABC7jJhxUjhaQcH5JJmnmtp9njQq+05d
+	VIMmDToBcDOKpfQlVI62hnEjs7EVj+0/mA6qIwBcILn5MXJPFE1MH9FEMhnCV8MwMcaCKNf
+	OXdUjryQxU7ipzeeGjBzsxK53Z2NmNOK95xCUGC0LXuUm9ovqE3ehfMi0ArBbeeIBZb3bso
+	14xrOrq0xwg2FgS8IypoFxiwhetl4wrhfccIXNiXWK57eTW5kE008g80Cn1JzyPM0e26Laz
+	h+N2+BcrCrXyjiXKpeaZYlgNTQb8k+IQFqlZ3cgG+lovDvooVLxyQmtSPlm9IXd3uVs/N+a
+	4fiEtxPbQ0mzXVMx76Vm4dRzdXEGvVSi86wXVrZXLh4
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261113_083736_160290_CAA3A8A9 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20261113_004016_647656_F2AF8523 
+X-CRM114-Status: GOOD (  17.13  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,32 +98,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============4649732497355610544=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Randy,
+--===============4649732497355610544==
+Content-Type: multipart/signed;
+ boundary=75fec2531929259e420737857d2eefd1ef8c8ecf6776076da3f66f382a1e;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Transfer-Encoding: quoted-printable
 
-Randy Dunlap writes:
->This error branch should return 1 since it handled the command
->line parameter -- it just didn't like the "value."
+--75fec2531929259e420737857d2eefd1ef8c8ecf6776076da3f66f382a1e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+
+On Tue, Nov 10, 2026 at 01:46:28PM +0100, Sarah Emery wrote:
+> My understanding is that the nodes from CSB1-N10SPK3, the "K3 CoM260 TQ"
+> and the "K3 CoM260 IFX TQ" are all the same: a "K3 CoM260" module on a
+> "TQ" or "IFX TQ" carrier board.
 >
->Returning 0 causes the option string to be added to init's
->environment, which is not wanted in this case.
+> Is there two different carrier boards name "TQ" and "IFX TQ"? Or is it
+> just the same thing, called differently in this patch and in the EEPROM?
 
-Good catch. I've fixed that for v2.
+They are the same carrier board. The only difference is the power scheme
+of the CPU clusters. The bootloader programs those regulators at boot,
+and upstream Linux currently keeps the voltages it leaves. Support for
+the regulators is not upstream yet, so the two boards cannot be told
+apart in the device tree for now.
 
-Thanks!
+> I'm not sure how devices out there are referencing themselves. But if it
+> is in fact one device and the EEPROM calls it "k3-com260-tq", this patch
+> will not work for device-tree matching.
+>
+> What do you think? Can you clarify the situation?
 
-Chris
+You are right, thanks for pointing this out. I only had an IFX TQ board
+when I sent the series, so I did not notice that the TQ nodes identify
+themselves as k3_com260_tq in the EEPROM.
+
+I will restructure the series as k3-com260-tq.dtsi holding the shared
+carrier description, with k3-com260-tq.dts and k3-com260-ifx-tq.dts on
+top of it that only set model and compatible. I will add
+k3-com260-tq-power.dtsi and k3-com260-ifx-tq-power.dtsi for the two
+power schemes later.
+
+Yixun, what do you think?
+
+--=20
+Troy Mitchell
+
+--75fec2531929259e420737857d2eefd1ef8c8ecf6776076da3f66f382a1e
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCavbM3iEcdHJveS5taXRj
+aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC+OFAD8DkzKg77z108s
+t6A5affx343Q8qDBLdDgmzx1/Gg82koBAP6j03pnTUgvYXaOreMfsh84OOdsFZp4
+i2lB8WgqVg0B
+=mVsV
+-----END PGP SIGNATURE-----
+
+--75fec2531929259e420737857d2eefd1ef8c8ecf6776076da3f66f382a1e--
+
+
+--===============4649732497355610544==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4649732497355610544==--
+
