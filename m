@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C409606B57C
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 13:28:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A9B1606A332
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 13:29:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qCx4VPbY;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZfJeOk79
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2Zf6vh+/;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a03QJM4V
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,65 +14,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=b8QSzDeeF+kF15ouqKmQxcG1Bxb6e0n6utYCtVyPdDI=; b=qCx4VPbYNr3DTNjGtga4QgBjvI
-	2y7rPJn8ss9iIb+mdjZWAjpsWRUMKqMmSfu3p89ibE2qrqBq372zzLcfevxzpBOd4azo7jUAJwCsk
-	tsZOm5UoBeqh0/hy8Npwci9Pw9RivL6Xwc3felP//QM97IUonaLjJP7pgxjwYYKSY+yETqxDY2kUz
-	CbMdeyisfYc3WDBOg+CebblF/3aWSYZ7aGUa973ViMaJzcxp/OLfUJXgUXhm6lv+RX6vNapiXlR1e
-	iuI+f6vIchxnqvEDOBeNwMYlg7lCokkgOlR+85cYXox74rXXcBsOhPPfJ4wGEJYvB2HgudVyV226P
-	yJtVXBPw==;
+	bh=a9iuwxMUcbdDgvy59tUjr4tIQsgVImPSkRx+Rn6hhy0=; b=2Zf6vh+/tf24wodsk6/iCWbgve
+	LdTNrf0IkwWxz580T/N2aseDNTLuQxodT3rANCdPEtFF+/6xzzMU2VY7r0WC5oU3EpWAAmBfJLSI3
+	cOXJEe2IZ7QFB+AI+qKMAhDuxWIioaEjxOKMhANtWcqNq4VaTFh/3quiYNqNsQtVKjKr058pB6ZUG
+	LLKmxrszqVw9gHHSqNZz9WsCE1hxg5714oC1SpN8yBH5Jn/vu5pZFQjuCv8cfxRNhhp8gPTl4WRpV
+	5WAs/JmRIuemME2uCbx5kA9ipLXJtPcA/OBPwRTp7tSMBtYGIktMy5uKS+8beyvWLaU+at7J4uYDB
+	CQxSmVaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRrKd-0000000Cwux-2MpK;
-	Fri, 13 Nov 2026 13:28:43 +0000
-Received: from mail-wr2-x01.google.com ([2a00:1450:4864:30::1])
+	id 1xRrKl-0000000Cwy8-2mKF;
+	Fri, 13 Nov 2026 13:28:51 +0000
+Received: from mail-wm2-x0b.google.com ([2a00:1450:4864:31::b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRrKb-0000000CwsX-1ONK
+	id 1xRrKj-0000000CwxH-11mI
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Nov 2026 13:28:42 +0000
-Received: by mail-wr2-x01.google.com with SMTP id ffacd0b85a97d-490dad2342fso346565f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Nov 2026 05:28:40 -0800 (PST)
+	Fri, 13 Nov 2026 13:28:50 +0000
+Received: by mail-wm2-x0b.google.com with SMTP id 5b1f17b1804b1-49ff9833fedso1577215e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 13 Nov 2026 05:28:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794576519; x=1795181319; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1794576527; x=1795181327; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=LFUlowHkykBA07bzno9+ZZz7Tclr3AiMw/Mxprm1brE=;
-        b=ZfJeOk7983OAz9IKzTZwxJjCuSmHwriGfxKM01bwRzZZoD25ojxbiZnPbsBNULRA1p
-         o1yhYbUzb4u8VH3WUDF7DKwAV4EbSHKfIn96j+ZPerjXKAF6Oi+1jPN64A6tzEfHfuo2
-         ZlLJTBaIWs2FWfEPq5hyjDrA0DBCNAgG6lhqrVF7d26cnBsHx1nLfacTpv40Vr/D2maG
-         GbOju4AabWPfBpOK+jh2gDOiUnvMZTPcm2RWxquRTBN2HIWnZGDy14me+txXFyfNb5ps
-         LuS/8pwyDEPZQw25qxYz4KwgGWO3B7DaPThTjD0g/bDFU/bBxShRjfyXMPEu1WrSvRdH
-         x5Ag==
+        bh=MRo7HIV8yZ/AJq7Hb5Yi36jH8E/ybOv5u/YJ01l5Ztw=;
+        b=a03QJM4VfIwNlCPgfZhjDA0zYbq/jLpfzdATZcx5Jw2YOj1NykEgHzOo4shGmBXVk7
+         vRprWTxpnjyeHH1l7ZZAi30AkcZyFs/Dg/HhJrICH1xruBkAv8BdKSpTzBRe4h0Yj6fD
+         N5n78GEh6JFDdE3n8oULzGRmxEiZMO8Mcx0DYE3NIRNnFmMRahClwDrJO8x5WZElE+BM
+         RBKxNkGIb68ceiOTkmx+X73cUayKveqJ7PoE44/N6oZnWS5KBXQEk8GU0xokc0t2b4+b
+         jjzmcWbIQpFumI2NpnCLf+meOnBYMvV6HijMMeeIFxhllWBMx6UfnDGMlzRc1R1oiffF
+         xZaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794576519; x=1795181319;
+        d=1e100.net; s=20260707; t=1794576527; x=1795181327;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LFUlowHkykBA07bzno9+ZZz7Tclr3AiMw/Mxprm1brE=;
-        b=03hGoTm7IEEUB33w1F6WOumcbO0nyKdEoK7G/H9gEqoLxptKweMXTXQBPG78RLq/S7
-         rrfOpVCMjLzpyC+rwg722e+N939wUelFAFF37RzfVp4RIT92fnPFcq3pAXY6WwGTf+V0
-         1K+6gwWE6yIDecGYFBnrW7Gu7QMi9TKtjQc5ywesu+f7eJo+LCBW6WTfoQnXG2hkkIH0
-         vJbBwvYgH1bQYOjWwVGOdQLK53S7IYdQoOGshIYt2xeFkQU8GgXNxYNrgFFxqwkYBbF6
-         shAgJ7rhizRyoTAXsP/lUkd3SIMQE4+g21Bf19Vd77bHlcIqDEo7n+zBgZFZDiH/4zBL
-         IFpQ==
-X-Forwarded-Encrypted: i=1; AL+hErEfuror9KFv1bjOIG57r+4o0DXI86doZbhdxBEqoIx90/kpJq1r7QjM01dXPtZNmJApRQsYBN0ZrUSS4g==@lists.infradead.org
-X-Gm-Message-State: APuU4Z+qFvkXqfIrKvhOYg8dxnJtJKGrgG0R/GFDISlhvK3BRAbdyGgh
-	r4bCIjOCXgYkxMw038uTyiolSTx6pO8LILZGUMa01ZV1j7mKl7O/qTzDUOyMtl1BDmk=
-X-Gm-Gg: AYBFou1LVckl1lxzn9ogOFfTnWW0aIhBf4ZUD6R2crBwsVMnZC8jsr50oiPRI6t6B2G
-	rmig5YCFFdbJ4yNfAKS5nAHX+imoyxuomlll6wGj5b707kxV7R9YIH2M73xlnNB/NPpdqfEY7EC
-	idAHyo5sntfw2k+wABDA6v8Hu+Iv6kTxLLSVXghLUGiQi4nb8LpUrcfKA7oEram5qDpr9TFKeRG
-	58+NksdPQwjefq7z4W3Ck1eO5nlCXWW+RwzcZV8mBD+M8NA9WSjiXAC5PBBv9xEWwMIg1F/jxAL
-	ZeBaF8GJ8/RKjODkuGzbKn9QbErXCyCEMg93jpYWOpBzp2B8/ob5YlcM2xyqO5c2/4y8gXbSjOd
-	+qNpANeTmiEzDDmC0xIMGs+UscRbZa+bgi1svxSTc9T8bgftVo0FLY21OWtq5Vp02MUJWDCwaT8
-	llKw7bCEiJ/U3hxuzDrgDCJs7XLTBhvSTFz2D12UpfLVpqa8JoxRkpcv+4eqe7tSaK/zAdmPtCo
-	afgNeROSEy7xW47zS5DBWFdmNpfXCK2afM6NC4zy6MyQIghZuLzYslGGdRvUrZs5ZSJBhGZumR3
-	BWYhopvFRq0jKRzPI1cgRL/MyaDa8mE8TtCX4h6RXmO/UbqtGy0dOdw=
-X-Received: by 2002:adf:e18f:0:b0:491:895b:4c02 with SMTP id ffacd0b85a97d-49c713ae4d2mr5232726f8f.23.1794576519158;
-        Fri, 13 Nov 2026 05:28:39 -0800 (PST)
+        bh=MRo7HIV8yZ/AJq7Hb5Yi36jH8E/ybOv5u/YJ01l5Ztw=;
+        b=MvGE7fvUckbQa2jqDgjWzK3GmdQKkjjfx8PI1j5N6XCVTEcU5s4Xxt57QAV7t+9Zi8
+         cfVuR9rmxlsBN6pWO3ItCT43otO7WfWarUFVatGZKJhi7Vz0l8Tqtn0N650kDY9ri5ti
+         LLaNBp1vbe7B9X3Nci5MGoOnTNuhNzErarlJASzorFFR/Ib+QRQtLMGGdIoIIHdcBHVy
+         C297XmALYP1kq3a2kw2OGO6KNqcFket+1Vl8Z22/PZmmbPO/a8gQLaiH8Bu/C5f8SpxH
+         ci9kJAFbmT0oN5WSUZUl57Th2FhpJHWtQyIySmFHwZ+Q8DIK0+BYSXLMvrpAxx+5OFfu
+         9Big==
+X-Forwarded-Encrypted: i=1; AL+hErGozbAjlXH4r1p7Gh2ohyZ2FL1oxN54YkuPqWoXHYHsYIUZ5SsZ8LQLTB78XcpwIfV4xcGJpwdp6CFv4g==@lists.infradead.org
+X-Gm-Message-State: APuU4Z9SXjp7z77b5vuQweHBOOuEsqwA169suLJ+eDDiOBBEf1gPzBnb
+	slrsN7iPLOc2u1v1vUtDN4npYEPIXAnFv/TdhP/VBcswoLKwBF3mPnkf
+X-Gm-Gg: AYBFou2wbiupdhdkaE3zL4SZKBqB9ofACyuj98Ipl6J4dQKfOFhup1SwZOuBt6XCRZW
+	KzIvoFjrUj4J/dc5uX9e333Jr7jPS4DiuVDO2e+3sDXgjPlepLvDxac3EYC8k9MR9KH1XBoqibI
+	LMNxGofZa02Y0JU7uegZz+0DK8BpcdZjamyNacMu6eoClLj604JDuZ7CxXwLPjR44z3k0uD5pew
+	hrcXsVFUU5orzLqTqZZrycm7ZXq7fe1kuZ2g+gYSdLBX2ZYkK9viUqDLmjKAmzO0XAsnBqXZdoN
+	ThyNY8iXxlDkdXsUNM2UG4key9dy6oXmjhaSxjuXFWlXCSPkYsuBTkTnPuoTywV9EfDwYE1wX0T
+	cOZuRiw2kmOkv3mfVDuwAdfmMbC/4p0Qy7uLbuzTHiDuhIxjVIB3ahcTb5JthGIOzbdYgWOdlb5
+	WjLLnVTT6o+DQDjn9vJNhF2dvlUtit8JzY1Azp1/pjSU2+fTqTvwnIICbwVvsJNuT3E4ts0QFQP
+	+Oqs9E6KfG6mZvF6uT9Y9i1KYY6SbGwnB5dqVUBSWsLarf4qim8eKYY1+R5qFsBWvqMhcNqR3x9
+	o+eb5E/2CWzvlAhwy8YQM5mHoRVEg9Cn
+X-Received: by 2002:a05:600c:e557:20b0:4b2:61e5:b2f4 with SMTP id 5b1f17b1804b1-4bb55a583bbmr34500945e9.11.1794576527138;
+        Fri, 13 Nov 2026 05:28:47 -0800 (PST)
 Received: from workstation.. ([45.249.9.114])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c5fe370f8sm4802673f8f.27.2026.11.13.05.28.32
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c5fe370f8sm4802673f8f.27.2026.11.13.05.28.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Nov 2026 05:28:36 -0800 (PST)
+        Fri, 13 Nov 2026 05:28:45 -0800 (PST)
 From: Ali Tariq <alitariq45892@gmail.com>
 To: netdev@vger.kernel.org
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -94,18 +94,18 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	leitao@debian.org
-Subject: [PATCH net v2 1/2] net: spacemit: Fix TX timeout work deadlocking on itself
-Date: Fri, 13 Nov 2026 18:24:34 +0500
-Message-Id: <20261113132435.434615-2-alitariq45892@gmail.com>
+Subject: [PATCH net v2 2/2] net: spacemit: Hold RTNL lock in emac_resume() and emac_suspend()
+Date: Fri, 13 Nov 2026 18:24:35 +0500
+Message-Id: <20261113132435.434615-3-alitariq45892@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261113132435.434615-1-alitariq45892@gmail.com>
 References: <20261113132435.434615-1-alitariq45892@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261113_052841_391352_C6172926 
-X-CRM114-Status: GOOD (  12.46  )
-X-Spam-Score: -0.8 (/)
+X-CRM114-CacheID: sfid-20261113_052849_301562_B2D6449B 
+X-CRM114-Status: GOOD (  13.85  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,86 +118,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FORGED_GMAIL_RCVD,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-emac_tx_timeout_task() takes RTNL and calls dev_close(), which ends up
-waiting for the work itself. The function call hierarchy is as follows
+The emac_resume() calls the emac_open() and emac_suspend() calls
+emac_stop() functions directly without holding the lock through
+rtnl_lock(). These functions rely on phy_disconnect() which reads pointer
+with rtnl_dereference(). But since no lock is being held,
+rtnl_dereference throws a suspicious RCU usage on
+Orange Pi RV2 (SpacemiT K1) warning when lockdep is enabled.
 
-emac_tx_timeout_task()
-    dev_close()
-      emac_stop()
-        emac_down()
-          cancel_work_sync(&priv->tx_timeout_task)
+WARNING: suspicious RCU usage
+drivers/net/phy/phy_device.c:1831 suspicious rcu_dereference_protected() usage!
+Call Trace:
+phy_detach_internal+0x490/0x5f2
+phy_disconnect+0x90/0xc0
+emac_stop+0x114/0x626
+emac_suspend+0xac/0x126
+platform_pm_suspend+0x72/0xe4
 
-The work never finishes and keeps RTNL held, so after a TX timeout
-everything that needs RTNL hangs.
+Take RTNL in emac_suspend() and emac_resume() before the netif_running()
+checks, so the interface can't be opened or closed between the check and
+emac_stop() or emac_open().
 
-Remove cancel_work_sync() from emac_down(). Disable the work in
-emac_suspend() instead, and enable it again in emac_resume(). emac_remove()
-runs before the devm-managed unregister_netdev(), so use
-disable_work_sync() there to stop the work from being queued again.
-
-Found by code inspection. Not reproduced on hardware. Tested on Orange
-Pi RV2 (SpacemiT K1) with suspend/resume cycles and kselftest, with
-lockdep enabled.
+Found by CI suspend tests on Orange Pi RV2 (SpacemiT K1). Tested on the
+same board with lockdep enabled: 12 suspend/resume cycles without the
+warning, and kselftest with no new failures.
 
 Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
-Reported-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Closes: https://lore.kernel.org/all/DMO74K2MG3D7.15UUOU1O66K6N@linux.spacemit.com/
-Suggested-by: Vivian Wang <wangruikang@iscas.ac.cn>
 Signed-off-by: Ali Tariq <alitariq45892@gmail.com>
 ---
- drivers/net/ethernet/spacemit/k1_emac.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+Changes in v2:
+- Moved the rtnl_lock() before the 'running' flag check
+Warning Log: https://kernelci.cloud-v.co/scheduler/job/549#L2168
+Fixed Log: https://kernelci.cloud-v.co/scheduler/job/589
+---
+ drivers/net/ethernet/spacemit/k1_emac.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
-index 71a80838bffd..51edc95f54c8 100644
+index 51edc95f54c8..d07d8a1aa5ee 100644
 --- a/drivers/net/ethernet/spacemit/k1_emac.c
 +++ b/drivers/net/ethernet/spacemit/k1_emac.c
-@@ -1732,7 +1732,6 @@ static int emac_down(struct emac_priv *priv)
- 	napi_disable(&priv->napi);
- 
- 	timer_delete_sync(&priv->txtimer);
--	cancel_work_sync(&priv->tx_timeout_task);
- 
- 	timer_delete_sync(&priv->stats_timer);
- 
-@@ -2010,8 +2009,9 @@ static void emac_remove(struct platform_device *pdev)
- {
- 	struct emac_priv *priv = platform_get_drvdata(pdev);
- 
-+	disable_work_sync(&priv->tx_timeout_task);
-+
- 	timer_shutdown_sync(&priv->txtimer);
--	cancel_work_sync(&priv->tx_timeout_task);
- 
- 	timer_shutdown_sync(&priv->stats_timer);
- 
-@@ -2024,6 +2024,8 @@ static int emac_resume(struct device *dev)
- 	struct net_device *ndev = priv->ndev;
- 	int ret;
- 
-+	enable_work(&priv->tx_timeout_task);
-+
- 	ret = clk_prepare_enable(priv->bus_clk);
- 	if (ret < 0) {
+@@ -2031,11 +2031,16 @@ static int emac_resume(struct device *dev)
  		dev_err(dev, "Failed to enable bus clock: %d\n", ret);
-@@ -2051,6 +2053,8 @@ static int emac_suspend(struct device *dev)
- 	struct emac_priv *priv = dev_get_drvdata(dev);
- 	struct net_device *ndev = priv->ndev;
+ 		return ret;
+ 	}
++	rtnl_lock();
  
-+	disable_work_sync(&priv->tx_timeout_task);
+-	if (!netif_running(ndev))
++	if (!netif_running(ndev)) {
++		rtnl_unlock();
+ 		return 0;
++	}
+ 
+ 	ret = emac_open(ndev);
++	rtnl_unlock();
++
+ 	if (ret) {
+ 		clk_disable_unprepare(priv->bus_clk);
+ 		return ret;
+@@ -2055,12 +2060,16 @@ static int emac_suspend(struct device *dev)
+ 
+ 	disable_work_sync(&priv->tx_timeout_task);
+ 
++	rtnl_lock();
 +
  	if (!ndev || !netif_running(ndev)) {
++		rtnl_unlock();
  		clk_disable_unprepare(priv->bus_clk);
  		return 0;
+ 	}
+ 
+ 	emac_stop(ndev);
++	rtnl_unlock();
+ 
+ 	clk_disable_unprepare(priv->bus_clk);
+ 	netif_device_detach(ndev);
 -- 
 2.34.1
 
