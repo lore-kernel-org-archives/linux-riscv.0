@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 762B4606B79B
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 22:33:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66CC3606A55A
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 22:33:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ubzO72vl;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nbs63U4M
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BdOyHwcC;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Uz3Gf3IO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,71 +14,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=l9KnWMZIU7orNyTT3oOEkKe6Is3OvMFraa38SaIHCgE=; b=ubzO72vlTfFApiGvasNU7bVICT
-	Lbw3Wk59BqryWTLbg/rT+9vB9DL/c+FOjeqVEi0FHgYf3D1z7DHImTB7uJGyx9KggYaaIAzFxAfzc
-	W54pBGzwAh1qR9GdA9I6UFdyr7DHW7rFrs+FkgA6HzQ4Be7i5vYWhcp84IUxQ+Gr9puasl1i5hltV
-	uH0OwTjP7ldfa7vRxla0G53avdKT70F+BPq8LHauM4dG3FUAy2DV48+nQFxh9WgDc33SmEYS8xi5j
-	G3YIv8NQAFwcg2UX2J8uylzRWWyvnmW+6MUn5qsHHnwlQeK+Kx7YbBr6NktGAHa/BmWmLdbmoP7CS
-	yNDac3YQ==;
+	bh=yyqEFE+CYCjOkqtOrZcPo928VbO5dbOq/oZfhO9O3BQ=; b=BdOyHwcCcKBsbLDwmw2V5hsls+
+	YvUbTbWRNLmjqUQGQ32x+keVOZriwIWmJCo5CQxB+R4zbt+HfU2DYoCdrTP/SiSA237Yi38+pmCoU
+	hzaSJxhAD4G33WHZ6EBQfRfoQJcidVYwUdzgTWdE83/DH71kyjELNcNNq8XigcLy2Pmzp7fbxTqRh
+	Xa/YnrTZxWjGbSPHOLYTxHMV5xVxZmLBRdqjZL7Z22o3Sknje0WkcsTj8nsONBwUVsT1UHJSED7C5
+	Rphdhq88FXRrvOm5yeZFSmITXaiVz0gMxUqjy+RtXXuDKBf9B9956xYegvlZCqCLRZrH3HKdHSJgF
+	9sEfIy4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRzq2-0000000EhoR-30Uq;
-	Fri, 13 Nov 2026 22:33:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xRzpw-0000000EhiI-404f;
+	Fri, 13 Nov 2026 22:33:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRzpy-0000000Ehj2-0k40;
-	Fri, 13 Nov 2026 22:33:38 +0000
+	id 1xRzpv-0000000EhhM-0r2f;
+	Fri, 13 Nov 2026 22:33:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7E36E60E34;
-	Fri, 13 Nov 2026 22:33:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AF8F14688C;
+	Fri, 13 Nov 2026 22:33:34 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794609217;
-	b=rm3gq3VaqNmbUVDuF6cC3EJdz+5iPw78YnNODPIdvKPJGsDnhPRRI5dWUlxf0Tv8On8O
-	 BsyTMBZ2/aBJUu54xUb1G05pW0sUIZ4ABvvzp3HLo28T0cz4mohIS3ZYH8BE3tlKJErhB
-	 1SzryVarflM/qo/MtIBjRnedVaULams3hWNDJ3KJqPpLA9E8trX576LitMPDhDXPNEaWe
-	 m/StjAP88Hy0oJu9vR6F9iF1lNie4YfyRkx8AVq2fxDD4t+RF+SMUXxZLoIngBVon8Zhy
-	 UJpIIQrRE2rOhHI9qfDk7004Ucqkq3FsDB0mOId9AdxlgNlX6JSh7qrGCkI2lmqHHPA==
+	t=1794609214;
+	b=f1AsNJRCs4doNRyApKQvZhVKnCBInawI7GNr7S1NWhOtencxJrCq04OL6n58VXy/FHOa
+	 Hrs4VgZRrrNRLEWT3H3/+ivImqecNK/OtOHs4TxrxiCEtdYx+CbDJxV2KkLQkTxuOJgDb
+	 NnJtpZQB9ujbNnlL2X0IL7A1Xn88EdfpwUQ+88Gr69gZcS5JOM45iatW89nz/0g3yHxjr
+	 t52+5nd6zC2FoyvcCeUH+3iwaUpKNi/nfmK7QzCIti8qy3Q0/ofOC+u9Qq5B49sOjbfRv
+	 S8xcbPHrzOrL07er9+2Ez+MuZryJ6Vr27OjkZYogIyFLayhxAnECqIV7+3IYKhbp2XA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794609217;
+	c=relaxed/relaxed; t=1794609214;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=+LYiK/955nfnWYhkJP54cSbyAVpIlwPTqmzMMmypLBQ=;
-	b=hYy+2mRa69+MNmWzlv/k3vZZCWLKqB4d72cbQEng7EFtT8976hKztYLpnbkuw8wNI2eR
-	 W648pndhdJEpHXj1PKLYuuHnLqo9Z8GmZdzD3TUahuUcuu2bjLyUe6KM1jLN+VymgBvkt
-	 pF2OmKwmDZ344ApoO/p/2n04+sNOmNucYeIZwR2i6PgXiDVJpD1myN83Ew7lw0rFSBlV7
-	 k9epVYe4Grl05DPD7QIr6/z1vnDrFvzDWKP0bqwrKBO45lI9vh2GTNOSC+4or647RMilG
-	 Xowe0W60L4gnIP9b1aHA/h4CSA7zsZMtCevZm0LVNQArxcoDt3H3CMce5tZ72kpP7SA==
+	bh=SVUoyJCmjOfWaoa4/ZIG/PW30Z2w09I5kCJhkQJiNH4=;
+	b=11C6K67yUaccJLUD9wIQ4lylCgGspnmCielY/w9ClpfhXtzdPxBKNXS9GiQUL18hoVR6
+	 C2z93CEyYaoTHf7bw/+PHhFg9yfvxa7SW+kbAVJZVVz1rx9vwfsJ4DY+PDY8hDUG6HLWZ
+	 Lx2b7lcN/ezgZrSgq0EOXUsHo1g0NKZ9EmokHSKfEnCt3D9GfAXcIj8mvht2Z+f3XA29P
+	 AjIdq+sei+yahJANaFkItj16ecooRMtVgJSs8+l39031SSwFVioqr0OALcX4e0TK83a0I
+	 JA+PpbLkgeA2FZJRjUgNbcaRQW40xPFTeCxxIPZ1Ni7599R0/wPgMP8NROQtGKBxHtQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 035961F000C8;
-	Fri, 13 Nov 2026 22:33:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794609217;
-	bh=+LYiK/955nfnWYhkJP54cSbyAVpIlwPTqmzMMmypLBQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Nbs63U4MikP4u7GXTWu/Yh05G7PSpAOzdZ2YwMuL/uvPyy1bnfrGQGlkhz1B375bt
-	 Lok75LO1oo5DXupGOvpeHeBeSb8aSFKEawx3QGQj32wdywbMIAmy/W9Mbt2fMqcFNB
-	 IYH5bpflUx9C2xWueOSonWLM3YV0Lfe66fsx/IUUnPwXvUpN+OHrwHwZDcOz4czthQ
-	 ErmXMQKFt58/G0Y2Cr8Rsx0IQrMq9ueYf3g/F8osAT0i0OKNDP/GlIqToQA/Av/ZIk
-	 53DM960oWCTAwUPKQuY8cJ77+2hxDM0YqSYw4UWKMZalr81YkBvlpZQjH8qrGuZD7u
-	 uptEuZlat6ncA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 5352949B78;
+	by smtp.kernel.org (Postfix) with ESMTPS id 457661F000C7;
 	Fri, 13 Nov 2026 22:33:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794609214;
+	bh=SVUoyJCmjOfWaoa4/ZIG/PW30Z2w09I5kCJhkQJiNH4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=Uz3Gf3IOKNKbUDyvkF5yaDg8wQsDqi0rMBuduIekeoCD/6A9UioyqL7rVKrZWmlU8
+	 FPl/GU+zv7gx4EJSnDFcwHjbqhaOClEIgUe2nWh4h2pM5ac6BUYUWEOwFaWQnzBs1p
+	 A/+U8KCS3QGNcuu3eBCtdPxGnKIvHYH0lXJyPEdqPGCefT4Vgx6gAZ2/kpl/yRUg8b
+	 FmdzAGoGQ2de11gM7oYElfJWc3dwWStWBbjj5PwezeDNoX1qx71pACm1jKbjLXNBcL
+	 aFWX3O2lNarTBWsEsFRxgKhMrXWyoqyp/MNRbpaZ8xOMohCJOC1TFF1CbUo8wNpLA0
+	 EL/bAMhFVWQFA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id C646149B60;
+	Fri, 13 Nov 2026 22:33:32 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Sat, 14 Nov 2026 06:33:35 +0800
-Subject: [PATCH 09/19] clk: sunxi-ng: sun6i-rtc: allow variants without a
- 32k fanout mux
+Date: Sat, 14 Nov 2026 06:33:29 +0800
+Subject: [PATCH 03/19] dt-bindings: interrupt-controller: add the Allwinner
+ V861 PLIC
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261114-v861-v1-9-eb71ec3ee523@iscas.ac.cn>
+Message-Id: <20261114-v861-v1-3-eb71ec3ee523@iscas.ac.cn>
 References: <20261114-v861-v1-0-eb71ec3ee523@iscas.ac.cn>
 In-Reply-To: <20261114-v861-v1-0-eb71ec3ee523@iscas.ac.cn>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -105,11 +105,11 @@ Cc: Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
  linux-gpio@vger.kernel.org
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794609209; l=1175;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794609209; l=972;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=IjLpSZK52EbD2RXTMonjExKRJ8v5cc72rNy+1BJSluw=;
- b=u4Lz8S44b3ToLaBsujWDUTqNOl1o4PgdcDpKDa/XwGcMxJt8sFC/p1XpwLiV3n6qI2MWpZyKs
- moCFg0R6xxABDqHcZkHiY1smc7VBl2uZEKHM2N3ESxOzRNNPALUPA2A
+ bh=cSnoa1dpGjZSXjdnCsHi40WSrs62RIT7HSiX9HoaPgc=;
+ b=iUCPT/4oCEjTnz7lZ0cOcZBIisCUgfbo9jK2u2Xc9FyQvXvPzQoULCXlDT0a+Q1dNOOOi9xgL
+ MKKxhwkgxw9CXLKvgiG+vXeQx0tfqqYzy1tVyBu4gG6x4SKQKLVJ3ZW
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -137,33 +137,26 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Han Gao <gaohan@iscas.ac.cn>
 
-Some RTC clock blocks have no 32 kHz fanout mux. Do not register the
-fanout clock for variants whose match data lists no fanout parents.
+The V861 uses the XuanTie C900 PLIC implementation, like the D1. Add an
+SoC-specific compatible with "thead,c900-plic" as the fallback.
 
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ .../devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml      | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-index 98ae10307f43..0e40fd5fa624 100644
---- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-@@ -436,8 +436,12 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
- 	if (data->rtc_32k_single_parent)
- 		rtc_32k_init_data.num_parents = 1;
- 
--	osc32k_fanout_init_data.parent_data = data->osc32k_fanout_parents;
--	osc32k_fanout_init_data.num_parents = data->osc32k_fanout_nparents;
-+	if (data->osc32k_fanout_nparents) {
-+		osc32k_fanout_init_data.parent_data = data->osc32k_fanout_parents;
-+		osc32k_fanout_init_data.num_parents = data->osc32k_fanout_nparents;
-+	} else {
-+		sun6i_rtc_ccu_hw_clks.hws[CLK_OSC32K_FANOUT] = NULL;
-+	}
- 
- 	if (data->have_dcxo_status)
- 		sun6i_rtc_ccu_hw_clks.hws[CLK_OSC24M_32K_DIV] =
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+index cde4bb691897..6178fea9bbdc 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+@@ -72,6 +72,7 @@ properties:
+       - items:
+           - enum:
+               - allwinner,sun20i-d1-plic
++              - allwinner,sun252i-v861-plic
+               - canaan,k230-plic
+               - sophgo,cv1800b-plic
+               - sophgo,cv1812h-plic
 
 -- 
 2.55.0
