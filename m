@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFAE7606D4AA
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 22:33:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E657606D488
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 22:33:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kewTkf35;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oOWJEzdx
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BEYzlPhz;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NkfHNVQ2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,71 +14,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=jXAUv1KpvL0yQPFLvJnl/T5p67VcmdY5wwYy+d5ZILA=; b=kewTkf353qLzYUKKX00d5CJln/
-	YmyYBx8WHoZrS7KacN7qrcBXicibUanyCpQIUiTaAgMBViKs6l/8sSSfN3mYAjZEDEwSRwQ/d9OYg
-	DVBPBTZRc756Ori94/ieWtn2FvnA79ptz5Upf1KoVj3ftzzeWEYdK0FutbL4xmD0t7Xhm45KIZKUP
-	FdawN+14sFKj5irocDo5be8QwidhmyLPgmpcj87qE0eKSO/K8/ySvsRiKrudoGCGBFsFMm6A1XMX8
-	hWjPFqFdOqIs/LPbdqmc+zitjos/cSj2MQpTh3Z+yjuvwOnKZcYmPQ8rsWRm3XUpwL6sNjuIc3G0D
-	85SIAEjQ==;
+	bh=yKJfCX+5xaHP2i//U+z2RMtuuTGo52qxXrUCYk2PMJs=; b=BEYzlPhzkcoeo8UdHAV9rOeDFU
+	g6Y/PuLAjiMI6PEYub6lKJws4bxOkjVbPV3fIk7Oi90Dik8IbYpDKogWYNhi7ZPFgVOMMXr0kv5kj
+	APbzcIKJT4CraZW4Z4E2lUyAOsNqhqdVR+aDkj1wEGYnp85H8Z+aaCtgkMBKxXpSO1BqI8J/96CQ7
+	lz1oBjHP3LKZVRxbMFGlwRBlEW5/Vune2nzcRpNO3Cpy3YC91vLADzK7idSk0AHmZgOUaBPhRimjD
+	vBCKD2sG6Bqsh0uFR6VDahFbdKUOYBw7QU2w+9MWIpb1+UlJyMSALdEG2q3KRwemIdMZQek3yRZAd
+	WQYd+OdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRzq8-0000000Ehwn-0utC;
-	Fri, 13 Nov 2026 22:33:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xRzpx-0000000EhiU-16rP;
+	Fri, 13 Nov 2026 22:33:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRzpy-0000000Ehk5-3xzM;
-	Fri, 13 Nov 2026 22:33:39 +0000
+	id 1xRzpv-0000000EhhL-1rC9;
+	Fri, 13 Nov 2026 22:33:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E1B3043D35;
-	Fri, 13 Nov 2026 22:33:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A65C262279;
+	Fri, 13 Nov 2026 22:33:34 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794609217;
-	b=bCVhZy8HnEYWGbBZH8HNZErHk5Pgj1+7eBZ4XoIB6pRvEN9iCRg3rFFn+00TSr8QAzDm
-	 11XTDwTY0tgHlyUSNajPWWcic2+IQdMQvzwmvz1pKt9Sz7Q92xXWwbBzfFHcNNchePWX9
-	 5ra67SQ2cR6x5ZSRJF5yVajI8rES219E7RwSKi++JXzwpmohjBq4e037liX3Of1fWkZLj
-	 n+yBmjr8Mt0kLQPBvZnFj2jqR7OxAtyBCk5sgd5QUmMy1CqydRc35qnSPJDbgWfif59RH
-	 jXrtio1njZKs1C4Rrr5X/8rgdNRGdxZdGX6baMvJHQxbeUvEeLRzhe+pzhq68IBVmIg==
+	t=1794609214;
+	b=X7Nk/tZ7GonNx2KBw/8y4OaHJ5i7FCx8F7Vj1hsZFRhpxGtoYW59w76uQgBX493EgOCd
+	 mD87NDzx6MTRA9HakTlPL0MpVUgtKBofSunRxLAkVv4BVHyryv3IAFgmQ2aiauMZjMmqK
+	 B1oAgi/gO0Jn5zoQkb5hxY/EUVZ3J/H/lAcwYFr/dHkG5tcr0yRCTrlAyEM1Nj2o+sjiL
+	 GRADLAPwSr70itdqlRIQilL0GFehQ1QnDQefOA+0FdMsGuHh7baLdd5fGisnmsorRd/AR
+	 +lBLlGDJP/nJXSYptVvEr2aCOOfOtUyz9l9Vpwf08x5O1AL+WYEsvrdQkfzSSkRQCBA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794609217;
+	c=relaxed/relaxed; t=1794609214;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=wpbbKA4ajLzIsgcmiI1L7FK42JRHT9STO33kEE3TcR8=;
-	b=xGGJ+yRDLk/vdnDU+pMunghfA3rYoYMV1ULMReHGZyEB0NngMVtVbuuoVhsR47BYxnxr
-	 TjJrj/AJvifAxCGeamdsr+xL7MrNQKHI76+xRUB/2uNNvcoJixnGa36IeZ69dvAQq0Mzp
-	 uwnKaGyNQu56X8XB5B4kt1T1YW0RqaPA72Fl9AghLlypvW5YHogf1XCsGBWtYvrO6M6dk
-	 Uz3Vl8x+2XWNmS21zR5+/YQ69TXpy0fxHIskMsRRfmfkOiNZUi2lIBQ8EdoSGLAcDMgQG
-	 DWJDjN2Wc4o2ZmyrSd358xfv0DFlonPVg2WeA3NVPb4ZmAY+DNEqPdHiu8PGAaPXQ+g==
+	bh=TOlclL4YMcO1403e1qiCF3GU/nuLdoHldjlrv0LH3a8=;
+	b=d0GE6jupYk62y2sKYS/5FpGJDkn42D0xd7bDk5SFe65Vv4ghP6InG7lhVSEBgjaaVVaK
+	 /1vcSRm5xlZvFjRi5dzKWUuUYOYUqn1DA15py6vxIxD+fm+mfL85lHj7hP4+gH7Rj32rG
+	 oUq6qz/I8ffNvPbgiQyYImr94+tbK4tigRXWAM3aDCJXfN3EuiPIsUzSzM2AlEDc6TqRg
+	 W1/dMSKvKdcl2vVmpteLEVFzGzip4NwKtomYPir7B48thsIMPAh/mCb9aHkgbMAslElBO
+	 nr4VKmdPJUvInZc2GBIs90JF+tPCcxbqPkjUMCuj77yUmgRC3rqg3xFPPIoyovmlxIg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id D5BE71F00932;
-	Fri, 13 Nov 2026 22:33:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794609217;
-	bh=wpbbKA4ajLzIsgcmiI1L7FK42JRHT9STO33kEE3TcR8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=oOWJEzdxtLc85ptJmPiOIx2OlKkXvseUVIqkJZeoV9Kiluiw3t0Ux51rwp9eU8JTw
-	 N8qjiHD/HfYvCCVF+Z5z6J+eri2cn62tx+AvpJ5RZZMg9VrW3clYTvEUGAc5tNYNoo
-	 705xgno9SArazNBRzKTjpIdy7Gsd6JzCfX4Gd5dXWlnvMUP48ZESvdArOA+PnYWndc
-	 Vudfb23lZ0UjqZh2PLMZGZefDEyLJNmWEpcKfRqylxrboVROo8KuiyB5GG5i9BlMqj
-	 T9rr6i5oy+kI7wCuh7I80L+vfIXMOJsUcDzly3ak+CLCvpykl2ze4i8x/M6pIc9gwA
-	 1dTSpjp/GDM8Q==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id A8E7B49B88;
+	by smtp.kernel.org (Postfix) with ESMTPS id 3286A1F000C5;
 	Fri, 13 Nov 2026 22:33:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794609214;
+	bh=TOlclL4YMcO1403e1qiCF3GU/nuLdoHldjlrv0LH3a8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=NkfHNVQ2TMvbmMXE6fHwvBl9xcmpq9ky0p9rvXKU8tCScCglkZl3L/h/IS23zeIgj
+	 4WlapfQCcG63cdRxJkgHoUa5ta94XtV1YB0VFKL9QwsIp5QJ+dERlhTaFOxLamvr7G
+	 +6DTAQpTDl4xbvdR9Ts/X3fBIEtNJRg6CVdQDuGSuuKUHOFj6sbeUk8caDwbC/65Cd
+	 JGsdB/alXmyDqQpNl5OphsA9VvGmaJ+qZiAcBKqCQkRTOvNC6MdY6FWiI8N+N6Hhhb
+	 J10jihh2o7g0l0tzyewbVoYhZEyQh9DqYYNC6DHFWtEhFNQxipo7I7UdmqmJz9D0Vz
+	 S2OJKXYUweEzg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id B1FFB49B5C;
+	Fri, 13 Nov 2026 22:33:32 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Sat, 14 Nov 2026 06:33:39 +0800
-Subject: [PATCH 13/19] pinctrl: sunxi: allow a per-controller IRQ register
- base
+Date: Sat, 14 Nov 2026 06:33:28 +0800
+Subject: [PATCH 02/19] dt-bindings: riscv: cpus: add the XuanTie C907
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261114-v861-v1-13-eb71ec3ee523@iscas.ac.cn>
+Message-Id: <20261114-v861-v1-2-eb71ec3ee523@iscas.ac.cn>
 References: <20261114-v861-v1-0-eb71ec3ee523@iscas.ac.cn>
 In-Reply-To: <20261114-v861-v1-0-eb71ec3ee523@iscas.ac.cn>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -105,11 +104,11 @@ Cc: Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
  linux-gpio@vger.kernel.org
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794609209; l=1288;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794609209; l=986;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=Q5nKbDPfL5bIJRudVipL8eRl+Sf6kVk4l+UGPGRoSrU=;
- b=grvbJPn/+R2MO+DEgByDUFTZtLVCqIBwHkLAL0ulBtY+dR3+FlP1mIhHsm4whuN7dLMvBp/6p
- +ihd2LdEuONA/g6geIuOhI8/hEPyOVjToZchKiHiT7GGOnYmqJ2XUOA
+ bh=Cm+aoOEvEdfEXFBW81kE8hGffN29ckzRUH816nQCB7k=;
+ b=mWoK/d3s7E1yljsgEDG5AOvjeGoZNBwoSoucC5cXcDHH1Ezvl8ge/m6Rc2ZMX+fXR9/JUk6Cd
+ sgDp+kyX4ikACJQQaTT68CWvbDPAa7lgh8Bv3nSSLDGn7sHbxhQnbqQ
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -137,39 +136,32 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Han Gao <gaohan@iscas.ac.cn>
 
-The V861 always-on pin controller has its interrupt registers at 0x40
-instead of 0x200. Let the descriptor override the base.
+Add the XuanTie C907, used in the Allwinner V861.
+
+XuanTie is a brand of C-SKY Microsystems [1], whose JEP106 ID 0x5b7 [2]
+is what the C907 reports in mvendorid, so use the csky prefix rather
+than thead.
+
+[1] https://www.xrvm.com/declaration
+[2] https://www.jedec.org/standards-documents/docs/jep-106ab
 
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- drivers/pinctrl/sunxi/pinctrl-sunxi.h | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-index 7c2f29e75519..a0f5eac5c914 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-+++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-@@ -152,6 +152,11 @@ struct sunxi_pinctrl_desc {
- 	unsigned			pin_base;
- 	unsigned			irq_banks;
- 	const unsigned int		*irq_bank_map;
-+	/*
-+	 * Interrupt register base, where zero selects the traditional 0x200.
-+	 * Not used with the NCAT3 register layout.
-+	 */
-+	u32				irq_reg_base;
- 	bool				irq_read_needs_mux;
- 	bool				disable_strict_mode;
- 	enum sunxi_desc_bias_voltage	io_bias_cfg_variant;
-@@ -261,7 +266,7 @@ static inline u32 sunxi_irq_base_reg(const struct sunxi_pinctrl *pctl, u16 bank)
- 		return pctl->bank_offset + bank * pctl->bank_mem_size +
- 		       A733_IRQ_REGS_OFFSET;
- 
--	return IRQ_REGS_OFFSET +
-+	return (pctl->desc->irq_reg_base ?: IRQ_REGS_OFFSET) +
- 	       sunxi_irq_hw_bank_num(pctl->desc, bank) * IRQ_MEM_SIZE;
- }
- 
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index 0da219ae6769..bdb119ab8ee0 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -48,6 +48,7 @@ properties:
+               - amd,mbv64
+               - andestech,ax45mp
+               - canaan,k210
++              - csky,c907
+               - nuclei,ux900
+               - sifive,bullet0
+               - sifive,e5
 
 -- 
 2.55.0
