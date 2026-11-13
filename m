@@ -2,72 +2,64 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E37F6606A321
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 09:38:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 780AA606A31C
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 10:14:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XI2SBz+L;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=UpCRHb2K
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MOXgVY9P;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lanxincomputing-com.20200927.dkim.feishu.cn header.i=@lanxincomputing-com.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=CS5T5Imy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Mime-Version:Message-Id:
+	From:Cc:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=A1XVOdSM7KkFOX8CnmCjNjMptCoV9HvA3n7CjYNFYww=; b=XI2SBz+LrL31v2Sw/LyC2HKh61
-	ZCgLxQoxAGIeerwzdYf3bHD5Wajl6S7mUKeQhHpLJ4YwN9iwz5bTa6SRdVuWDE5nqB4RSyPFYvheN
-	87WnS65ufVcZb+vUyS6QUPpmmqoSG50SmvzsvShGYBMdOuBt7qCWFZJxcOHb+plqAi4tngRE9N2Bk
-	2EhDegxh60tsYwmWeNqs7C/tHK084+M+AENyvNcIdfvOUK4Nb9G09gGiVE6L0N152N0PbsfevqFYe
-	VaI1GuyX2JHgby3AM/UQktubrxsAE7iU04F/8E0w5mSlgJlNqzKYVJunDPtSpSmS/ZHXuhxmoVL+K
-	g59Yw3og==;
+	bh=ivn65HwSWRotVgoMYhBXzGIOyED9RxOMc5DPrdriBzc=; b=MOXgVY9PsgJ3BkZ3Z4xGS2icYQ
+	o6QPEVgjFdpULTELnG8g17l3UaqA8GYtXF+01C6Jh7JKwqwvKlOUhiR632PhO180YTUlRUi1X0X1a
+	fnSoSS05OLVX7grCrCUVs7tjYcYhoTNSiupTdXeCas8dE1RtyZ6e8O25cE8ZBH3l9wItr8WTaXugF
+	6Mwr3lZ6S5Sa5iibqMPHxdZ8Hqq3dKDcpTq8mR4m77DkzfRAPoyd3EtHSSU4JcpOfUKu3LMzWIwB0
+	Ao+SexD18/iFTNM0HX04a75G9HrEw46yAsbXFgUuY8ZLDmyPGlOUw5En0FugWPcKSUP7dzHGnPqNu
+	+t5sIGvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRnk2-0000000CEqD-0qmr;
-	Fri, 13 Nov 2026 09:38:42 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1xRoIf-0000000CJzI-1ayn;
+	Fri, 13 Nov 2026 10:14:29 +0000
+Received: from va-2-29.ptr.blmpb.com ([209.127.231.29])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRnjz-0000000CEnk-1CE1;
-	Fri, 13 Nov 2026 09:38:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=8Pc1VZfIDVGJzZNtwuo8QG46Hbc/13m3DgBGkiUdd+o=; b=UpCRHb2KbmBJPwtI+DbP0LaL8d
-	sOk0q8WFr88S3iAMSHj2p/NnbWVzQGiNdZN3nNdO1zLyJsTHzDT2AYpDsszvlBsPXovwNFHmP0hr1
-	SY9lV829yFxFIN3zvj63ln8CFFNj2wJUNMYIHBmKmY/JsW4XoVGlDKbDaDwxxN5mWJ+s4cUXlOuR/
-	42UfaRA1qiSu2ICNxybe2yLc35tfTycNpZWbHnjQ/jcxlqy6tYUcS/Bi6fkLYSwXtlLGPpV1jMI8t
-	xnhOZeXq4yQ0FVHQXpu6b4xvxJ6oAklL5bw8J+RqC+cFo9eyWVg+5AE204arB4mOGXs0IEiF0Nobe
-	Yc0NfHCw==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1xRnjp-00Eeb5-2V;
-	Fri, 13 Nov 2026 09:38:30 +0000
-Date: Fri, 13 Nov 2026 01:38:22 -0800
-From: Breno Leitao <leitao@debian.org>
-To: Christian Brauner <brauner@kernel.org>
-Cc: linux-fsdevel@vger.kernel.org, 
-	Linus Torvalds <torvalds@linux-foundation.org>, Chris Mason <mason@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, x86@kernel.org, kexec@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linux-sh@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	David Hildenbrand <david@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH RFC 3/4] crash_dump: recover from a machine check in
- copy_oldmem_page()
-Message-ID: <avbagwxWrmFrjrtV@gmail.com>
-References: <20261112-work-procfs-oldmem-v1-0-ecdcafd99265@kernel.org>
- <20261112-work-procfs-oldmem-v1-3-ecdcafd99265@kernel.org>
+	id 1xRoIa-0000000CJwq-1O1q
+	for linux-riscv@lists.infradead.org;
+	Fri, 13 Nov 2026 10:14:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1794564858;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=I1JA9FJ/SP/+WEbDXsjWk6ef9MGFbfHr+CbxzhoP4+E=;
+ b=CS5T5ImyRIr7b9g1zL7JIDLKYCSNavpZovZeZfKFsTTz2qkF/fSo8VehDdsombFhc6eYHE
+ VT/Vy8AtKrp7Y2kWdb0r4O3KHbTOqTIgZyx0XeW/a6jTVre4IbBkv9TJ+NcPYp7TBtLebv
+ /07cA6xrKMm0ra52s58PBUlnXG6LZm4+Dj5M37R81jkuM7rw8niYpJ1jZ3OZXPEPBsi+1C
+ ssZOA4iWHlNErtVNNvLdB3HZg2vafSuagslKjhx85ZOhA2w7U0BFFCEU52IKtj/Ev22iF7
+ U2/0S7mJHhb3waclcFl4jmNxbfHGYCyG63f//zRIcuQNCtWmMrdk12UnaBVqcw==
+To: <anup@brainfault.org>
+Cc: <xb@ultrarisc.com>, <atish.patra@linux.dev>, <pjw@kernel.org>, 
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, 
+	<pbonzini@redhat.com>, <graf@amazon.com>, 
+	<kvm-riscv@lists.infradead.org>, <kvm@vger.kernel.org>, 
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
+	<xiangwencheng@lanxincomputing.com>
+From: "BillXiang" <xiangwencheng@lanxincomputing.com>
+Message-Id: <20261113101358.3007601-1-xiangwencheng@lanxincomputing.com>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261112-work-procfs-oldmem-v1-3-ecdcafd99265@kernel.org>
-X-Debian-User: leitao
+Mime-Version: 1.0
+X-Original-From: BillXiang <xiangwencheng@lanxincomputing.com>
+Subject: [PATCH v4] RISC-V: KVM: Serialize and atomize the IMSIC's TOPEI read-and-clear operation
+Received: from lanxin-ThinkBook-16-G5-IRH.lan ([123.120.4.67]) by smtp.feishu.cn with ESMTP; Fri, 13 Nov 2026 18:14:16 +0800
+X-Mailer: git-send-email 2.53.0
+Date: Fri, 13 Nov 2026 18:13:57 +0800
+X-Lms-Return-Path: <lba+26af6e2f8+719607+lists.infradead.org+xiangwencheng@lanxincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261113_013839_356303_688AC177 
-X-CRM114-Status: GOOD (  23.83  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261113_021424_953046_6DD5A504 
+X-CRM114-Status: GOOD (  11.86  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,105 +72,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Nov 12, 2026 at 05:37:09PM +0100, Christian Brauner wrote:
-> A capture kernel reads the memory of the crashed kernel, and that memory
-> may well have uncorrectable errors. That is after all what the first
-> kernel often died of. Every architecture that maps a page of the old
-> kernel and copies it out does so with copy_to_iter(), and a machine
-> check in that copy takes the capture kernel down.
-> 
-> On x86 a machine check in the kernel is only recovered from if the
-> instruction that took it has a machine check safe exception table entry
-> or copies from userspace (cf. error_context()). The copy of an old page
-> is neither. Its source is kernel memory, whether it goes to the buffer
-> of a read() or, since commit 4a22fd20379c ("vmcore: convert
-> __read_vmcore to use an iov_iter"), into a kernel page for splice(),
-> sendfile() and copy_file_range(). So a read of /proc/vmcore that runs
-> into a poisoned page panics the capture kernel, and so do vmcore's own
-> reads of the ELF headers and notes. Breno sees the result on a fleet:
-> the first kernel dies of a machine check and the capture kernel produces
-> no usable vmcore at all (cf. [1]).
-> 
-> On book3s64 a machine check in the kernel is recovered from if the
-> instruction that took it has an exception table entry (cf.
-> mce_common_process_ue()). The user copy has them, so a read() comes up
-> short there and read_from_oldmem() returns -EFAULT. The copies into
-> kernel pages have none and panic the same way. Other powerpc platforms
-> don't recover from a machine check in such a copy at all.
-> 
-> Copy with _copy_mc_to_iter() instead. x86_64 and PPC64 select
-> ARCH_HAS_COPY_MC, and on x86_64 and book3s64 the machine check safe copy
-> turns the machine check into a short copy, which read_from_oldmem()
-> turns into -EFAULT like any other short copy. On x86 that holds for the
-> fragile and the enhanced fast string variant, a CPU with neither gets
-> the plain copy it has today. Everywhere else _copy_mc_to_iter() is
-> _copy_to_iter(). Put the call into a helper, copy_oldmem_to_iter(), so
-> that the copy of a page of the old kernel lives in one place and an
-> architecture that gains a machine check safe copy later gets this for
-> free. The helper does the same check_copy_size() as copy_to_iter(), so
-> hardened usercopy keeps checking the copy.
-> 
-> With a v7.4-rc1 capture kernel reading /proc/vmcore and a machine check
-> injected into the copy of an old page the capture kernel is gone. A
-> machine check panic prints no trace of its own, this one comes from
-> panic_sys_info=all_bt:
-> 
-> [    0.580568] mce: [Hardware Error]: CPU 0: Machine Check Exception: 7 Bank 1: bd80000000000134
-> [    0.580574] mce: [Hardware Error]: RIP 10:<ffffffff81909b11> {_copy_to_iter+0x81/0x850}
-> [    0.580584] mce: [Hardware Error]: TSC 202f2117f ADDR 10000000 MISC 8c
-> [    0.580587] mce: [Hardware Error]: PROCESSOR 2:aa0f02 TIME 1794493617 SOCKET 0 APIC 0 microcode aa0021c
-> [    0.580589] mce: [Hardware Error]: Machine check: Uncorrected unrecoverable error in kernel context
-> [    0.580591] Kernel panic - not syncing: Fatal local machine check
-> [    0.582587] CPU: 0 UID: 0 PID: 1 Comm: init Not tainted 7.4.0-rc1-g6628e7d4c6b2 #1 PREEMPT(lazy)
-> [    0.583101] Call Trace:
-> [    0.583198]  <#MC>
-> [    0.583279]  dump_stack_lvl+0x4d/0x70
-> [    0.583419]  nmi_cpu_backtrace.cold+0x18/0x6e
-> [    0.583584]  ? __pfx_nmi_raise_cpu_backtrace+0x10/0x10
-> [    0.583772]  nmi_trigger_cpumask_backtrace+0xba/0xf0
-> [    0.583955]  sys_info+0x83/0xb0
-> [    0.584075]  vpanic+0x1b4/0x303
-> [    0.584197]  panic+0x66/0x70
-> [    0.584488]  mce_panic+0x19e/0x290
-> [    0.584799]  do_machine_check+0x627/0x9a0
-> [    0.584953]  ? _copy_to_iter+0x81/0x850
-> [    0.585099]  exc_machine_check+0x68/0xb0
-> [    0.585246]  asm_exc_machine_check+0x1e/0x40
-> [    0.587747]  </#MC>
-> [    0.587831]  <TASK>
-> [    0.588092]  ? iomem_map_sanity_check+0x98/0xb0
-> [    0.588430]  ? __ioremap_caller.isra.0+0x1a9/0x300
-> [    0.588604]  ? __copy_oldmem_page+0x3d/0xb0
-> [    0.588928]  __copy_oldmem_page+0x5e/0xb0
-> [    0.589079]  read_from_oldmem.part.0+0xe3/0x140
-> [    0.589247]  read_vmcore+0x137/0x280
-> [    0.589381]  proc_reg_read_iter+0x49/0x90
-> [    0.589533]  vfs_read+0x348/0x490
-> [    0.589666]  ksys_read+0x76/0x100
-> [    0.589792]  do_syscall_64+0xde/0x4b0
-> [    0.590103]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
-> 
-> With this patch the same injection ends the read() with -EFAULT, the
-> capture kernel logs the machine check and keeps running.
-> 
-> [1]: https://lore.kernel.org/all/avRXzzCSzT9Qj2FC@gmail.com/
-> 
-> Reported-by: Chris Mason <mason@kernel.org>
-> Suggested-by: Breno Leitao <leitao@debian.org>
-> Fixes: 4ae362be5093 ("[PATCH] kdump: read previous kernel's memory")
-> Fixes: 54c32021eb6f ("[PATCH] powerpc: Add arch-dependent copy_oldmem_page")
-> Fixes: 4a22fd20379c ("vmcore: convert __read_vmcore to use an iov_iter")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+The TOPEI read-and-clear must be atomic with respect to
+interrupt injection (set_bit in EIP). Otherwise an
+interrupt injected between the topei read and the
+clear_bit could be silently dropped.
 
-Reviewed-by: Breno Leitao <leitao@debian.org>
+Signed-off-by: BillXiang <xiangwencheng@lanxincomputing.com>
+---
+v4:
+ - pass topei value to __imsic_swfile_extirq_update()
+
+v3:
+ - fix undefined eflags
+
+v2:
+ - fix patch file curruption
+
+v1: https://lore.kernel.org/kvm-riscv/20260923070332.1376132-1-xiangwencheng@lanxincomputing.com/
+---
+ arch/riscv/kvm/aia_imsic.c | 47 +++++++++++++++++++++++++-------------
+ 1 file changed, 31 insertions(+), 16 deletions(-)
+
+diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
+index c1af23e79ae0..0a6b20f3a28d 100644
+--- a/arch/riscv/kvm/aia_imsic.c
++++ b/arch/riscv/kvm/aia_imsic.c
+@@ -607,26 +607,25 @@ static void imsic_vsfile_cleanup(struct imsic *imsic)
+ 		kvm_riscv_aia_free_hgei(old_vsfile_cpu, old_vsfile_hgei);
+ }
+ 
+-static void imsic_swfile_extirq_update(struct kvm_vcpu *vcpu)
++static void __imsic_swfile_extirq_update(struct kvm_vcpu *vcpu, u32 topei)
+ {
+ 	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
+ 	struct imsic_mrif *mrif = imsic->swfile;
+-	unsigned long flags;
+-
+-	/*
+-	 * The critical section is necessary during external interrupt
+-	 * updates to avoid the risk of losing interrupts due to potential
+-	 * interruptions between reading topei and updating pending status.
+-	 */
+-
+-	raw_spin_lock_irqsave(&imsic->swfile_extirq_lock, flags);
+ 
+-	if (imsic_mrif_atomic_read(mrif, &mrif->eidelivery) &&
+-	    imsic_mrif_topei(mrif, imsic->nr_eix, imsic->nr_msis))
++	if (imsic_mrif_atomic_read(mrif, &mrif->eidelivery) && topei)
+ 		kvm_riscv_vcpu_set_interrupt(vcpu, IRQ_VS_EXT);
+ 	else
+ 		kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_EXT);
++}
++
++static void imsic_swfile_extirq_update(struct kvm_vcpu *vcpu)
++{
++	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
++	struct imsic_mrif *mrif = imsic->swfile;
++	unsigned long flags;
+ 
++	raw_spin_lock_irqsave(&imsic->swfile_extirq_lock, flags);
++	__imsic_swfile_extirq_update(vcpu, imsic_mrif_topei(mrif, imsic->nr_eix, imsic->nr_msis));
+ 	raw_spin_unlock_irqrestore(&imsic->swfile_extirq_lock, flags);
+ }
+ 
+@@ -912,12 +911,15 @@ int kvm_riscv_vcpu_aia_imsic_rmw(struct kvm_vcpu *vcpu, unsigned long isel,
+ 	struct imsic_mrif_eix *eix;
+ 	int r, rc = KVM_INSN_CONTINUE_NEXT_SEPC;
+ 	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
++	unsigned long flags;
+ 
+ 	/* If IMSIC vCPU state not initialized then forward to user space */
+ 	if (!imsic)
+ 		return KVM_INSN_EXIT_TO_USER_SPACE;
+ 
+ 	if (isel == KVM_RISCV_AIA_IMSIC_TOPEI) {
++		raw_spin_lock_irqsave(&imsic->swfile_extirq_lock, flags);
++
+ 		/* Read pending and enabled interrupt with highest priority */
+ 		topei = imsic_mrif_topei(imsic->swfile, imsic->nr_eix,
+ 					 imsic->nr_msis);
+@@ -934,16 +936,20 @@ int kvm_riscv_vcpu_aia_imsic_rmw(struct kvm_vcpu *vcpu, unsigned long isel,
+ 					  eix->eip);
+ 			}
+ 		}
++		if (wr_mask)
++			__imsic_swfile_extirq_update(vcpu, topei);
++
++		raw_spin_unlock_irqrestore(&imsic->swfile_extirq_lock, flags);
+ 	} else {
+ 		r = imsic_mrif_rmw(imsic->swfile, imsic->nr_eix, isel,
+ 				   val, new_val, wr_mask);
+ 		/* Forward unknown IMSIC register to user-space */
+ 		if (r)
+ 			rc = (r == -ENOENT) ? 0 : KVM_INSN_ILLEGAL_TRAP;
+-	}
+ 
+-	if (wr_mask)
+-		imsic_swfile_extirq_update(vcpu);
++		if (wr_mask)
++			imsic_swfile_extirq_update(vcpu);
++	}
+ 
+ 	return rc;
+ }
+@@ -1034,6 +1040,7 @@ int kvm_riscv_vcpu_aia_imsic_inject(struct kvm_vcpu *vcpu,
+ 	unsigned long flags;
+ 	struct imsic_mrif_eix *eix;
+ 	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
++	struct imsic_mrif *mrif = imsic->swfile;
+ 
+ 	/* We only emulate one IMSIC MMIO page for each Guest VCPU */
+ 	if (!imsic || !iid || guest_index ||
+@@ -1050,9 +1057,17 @@ int kvm_riscv_vcpu_aia_imsic_inject(struct kvm_vcpu *vcpu,
+ 	if (imsic->vsfile_cpu >= 0) {
+ 		writel(iid, imsic->vsfile_va + IMSIC_MMIO_SETIPNUM_LE);
+ 	} else {
++		/*
++		 * Serialize the EIP set + external-irq update against the
++		 * TOPEI read-and-clear path so that an injected interrupt
++		 * cannot be silently lost when the guest acknowledges a
++		 * different (or the same) interrupt concurrently.
++		 */
++		raw_spin_lock(&imsic->swfile_extirq_lock);
+ 		eix = &imsic->swfile->eix[iid / BITS_PER_TYPE(u64)];
+ 		set_bit(iid & (BITS_PER_TYPE(u64) - 1), eix->eip);
+-		imsic_swfile_extirq_update(vcpu);
++		__imsic_swfile_extirq_update(vcpu, imsic_mrif_topei(mrif, imsic->nr_eix, imsic->nr_msis));
++		raw_spin_unlock(&imsic->swfile_extirq_lock);
+ 	}
+ 
+ 	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
+-- 
+2.53.0
 
 _______________________________________________
 linux-riscv mailing list
