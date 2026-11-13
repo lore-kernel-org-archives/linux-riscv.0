@@ -2,66 +2,178 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82EC7606B5D6
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 16:22:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 834CA606A323
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 16:34:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Pouswsee;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i5EelJRB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=buVmAOtz;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=ao6iHF0f;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=sjMepTuh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=thIFP7YZeej7K1xllR4qwHfV7RjelSd4QNkmtkY5IGM=; b=PouswseePCahIq5gABMUwlHH9C
-	3DRu54hPNA/vVSpm0mANyyGuqdtc6kcqINRd2syTOu45268tPNSOWRP1OFJZb5O40wtd7BqUnuqYr
-	nfXv2DRO3u1ugp3557Lfe9yipqNzCwwvxmyHaEe04Y4tV8hd3X8pVHh+3fEWplocU7VsMt7mWB5S1
-	uITlVuuhi+7/SuL4SkhCbRg1Oo2ZcXCOs4PufSgNNIPpHW2pXJrEsZz7pLF0jhGxEYNvgDPbpln1y
-	/bJjC2X8mB83BxhU6svTI45XeZXxghPFQvbYS/aQ2BzYyO/4xiW0D+wRw4K6fdGEW7p4bummQm06G
-	l5HroPtA==;
+	bh=FiASgR6M6dKfz81lv1iL5DAMxTpvEUpErMb9lV7B9BE=; b=buVmAOtznUvj1FaVu3pKKBBZyS
+	AvA6QBMi/QZlv7lDsXQpHMq1jmnsNl4ulR3lsaahYAqGsXcjHvRBiWjkn8GOof6CanLVwk07v5iPO
+	98b5VbDRJGVmL+dxtxNmqC2Cemza6bi6ziOwXG6Cpb/hCMJE1Y46JDTuyYGS1qhcEx+LY2NaWaw+l
+	7ot8MZJlEVwWIMtlOdh5rZqrceSAR1ty3mpOV1SNNe7eueLzJcrRVM9Mxt9O0fXNxe5rM9sCT4zIb
+	Z3ECwRpNhW7RzxQGCk/SzhM3YjbjSKlyh07fv1LG07ISYUCfFd1XN3Em5VFmnR8N4cJdNfo0yszN8
+	9jCatUHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRu2K-0000000DXIK-0K3h;
-	Fri, 13 Nov 2026 16:22:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xRuEB-0000000DYcx-3rUF;
+	Fri, 13 Nov 2026 16:34:15 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRu2J-0000000DXI7-1Ecf
-	for linux-riscv@lists.infradead.org;
-	Fri, 13 Nov 2026 16:21:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BFDA343CCD;
-	Fri, 13 Nov 2026 16:21:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E07C1F000C4;
-	Fri, 13 Nov 2026 16:21:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794586918;
-	bh=fIXPmzhR4Ap9kSK0s1ZKRTXuiT+xn9k/ZdxjDpdymhs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=i5EelJRBHORAp13IHkBsq3E84S2AkEYzM9L5ugnwkXXka+PDWQ+ZldHoj5Y5UDlJg
-	 bubhAGlj7FnjrVRDytr8ShilLe/HCl8H7nYzpL29zcPNBH2WFKVbHswekM/W3Shlt+
-	 ivhTMgzcIxY/maB8AwarXYoQmvsIntqZ+iOlguNADPyR9npSBV3IIpuATleWJiztaS
-	 8uZn+a4uhvMAdh/PzvXMeL63oCgmeVq3PSqq+RPxIqEQalI0FVc/40Dp1Jn9MUmqSv
-	 Jdtcd4aXMeQzxdhVVY3dc8l5lxqakYyYPjweUonx4rqUEz4JQ9HyTUJK7SK5Pn94Vj
-	 MxKY60igbNkQQ==
-Date: Fri, 13 Nov 2026 16:21:53 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Mina Hui-Min Chou <minachou@andestech.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, jic23@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, geert+renesas@glider.be,
-	magnus.damm@gmail.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	randolph@andestech.com, cyyang772@andestech.com,
-	tim609@andestech.com, az70021@gmail.com
-Subject: Re: [PATCH v2 00/19] riscv: andes: make the LLC driver and cache
- errata generic
-Message-ID: <20261113-overcoat-facedown-fcac3e162931@spud>
-References: <20261113071143.1446167-1-minachou@andestech.com>
+	id 1xRuE7-0000000DYbi-1Wda;
+	Fri, 13 Nov 2026 16:34:13 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 6ADFRlbD2031413;
+	Fri, 13 Nov 2026 10:33:49 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=wrv6WxaSkcIQhwvdW2KW5j9DQg5a7d1eob3zqTapf
+	Pg=; b=ao6iHF0ffEGOANxHmkLkWjSvXdn54KjVTQxVGpn9GLCxI5E3eV/4PY96T
+	7/O+w8pg2N104xxNCf7m9GCTkT+OaqrPLzU1zIEm2+oJHr7AJK6dCpQ/dWVHLvOJ
+	lYqdUqCwJI0qeZmpmQ0V4S2r3A6nXs0sLRYQ1oMTHiH5eSIFdkGRQI59m7FsClzm
+	y/5W+ij1Y7m+iDck85Qq4OtfUG1nIn1milSOJUi2VDZ3FIchygIp/rBfEG3xoydE
+	xPVyZ+RTUQoYKyyy+/zRtQreAj9TqDvsHrF7zQQF+zfb6DemWUEzRsFVt1pYM/vH
+	JJgXaGq1vef3GKHbFj+7NtTjeb7Vg==
+Received: from sa9pr02cu001.outbound.protection.outlook.com (mail-southcentralusazon11013012.outbound.protection.outlook.com [40.93.196.12])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4hwytcjkhf-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 13 Nov 2026 10:33:49 -0600 (CST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fGe8O5jCPmINCZ4ZuFt9KVFhfWJDZAiVfrLcsQZDevGSaRTTVCIxXRoYgG2gb0i9L4OW+yfJQJX5gYbR4Wothtg4H9yCfWLT5GZkhQDwvX/CB8f7QuGSrwQ3wAB/3VFrky1wXr0jCLnVHRv0/Bn/xRozmk7oFts3xeA6bgswfnV23tUtWzInTGxs6rsQSfRPZwFDWQak1knazMmDE0+0trtGGIwm5gX8a3zG9GTNfJL5OXFaERnOca4MyfwPPzuWJDexNY/fCC6NYDH81BPpf8cOBgqwEN5O40akpGevIfD0AiJ8/j3PbqnDCDGLTnihTpYBjfp15xd9GWvvDaSm/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wrv6WxaSkcIQhwvdW2KW5j9DQg5a7d1eob3zqTapfPg=;
+ b=wJxrJjTX6GYg74vpnUlk58PKQ4VBM/svI9VWqUrB9rH/B3T243wm38phwIRw4YqBgaqLeyc3NHG25FYwSvFdC/7mwYoRegktDpQjNvSDeR2UEswj/4VWWoqQwwx/tKoegKVg9fHCxZsVwP7T2CUjzT8U/ONkjFt5sXY8G3TuNJ5Rs7ed08CArNL8TtE7cxR8dJQCKkkTFBtoS3ldUAEpKvJNBfC5PiXsZ2InfritZQaemt2+Kd4BLiocu3/SFdeqPwSLyCSXnlD2kfy2L0rdpNzx9K6TlyQh6oaRXZI+5FkGCPH2rynwWjQDJ831m+3WT3wShrElfY7y2LXvLIaCfg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wrv6WxaSkcIQhwvdW2KW5j9DQg5a7d1eob3zqTapfPg=;
+ b=sjMepTuh1FlF15OKOxlRZ6lXFXt2UFCIFxsChQ5AL1nAxi8qQj9Vi9jynZZYHkD5fHgxFiI4SsKj1cQ2yu1+xDPlxiZjfzMjA3tZnUOB9tdOMWqBDcKqMZncS95O+q5vyb4pcnDHRhj8P3mNI63b71EHvHG3I4HePmwXkCSXf08=
+Received: from BN9PR03CA0057.namprd03.prod.outlook.com (2603:10b6:408:fb::32)
+ by IA1PR10MB6219.namprd10.prod.outlook.com (2603:10b6:208:3a4::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Fri, 13 Nov
+ 2026 16:28:15 +0000
+Received: from BN3PEPF0000B36D.namprd21.prod.outlook.com
+ (2603:10b6:408:fb:cafe::42) by BN9PR03CA0057.outlook.office365.com
+ (2603:10b6:408:fb::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.8 via Frontend Transport; Fri, 13
+ Nov 2026 16:28:15 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BN3PEPF0000B36D.mail.protection.outlook.com (10.167.243.164) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.0 via Frontend Transport; Fri, 13 Nov 2026 16:28:15 +0000
+Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 13 Nov
+ 2026 10:27:48 -0600
+Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 13 Nov
+ 2026 10:27:48 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE206.ent.ti.com
+ (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Fri, 13 Nov 2026 10:27:48 -0600
+Received: from [10.249.34.41] ([10.249.34.41])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6ADGRlW7299612;
+	Fri, 13 Nov 2026 10:27:47 -0600
+Message-ID: <736331db-8599-46fe-afb2-85b1fd1c5954@ti.com>
+Date: Fri, 13 Nov 2026 10:27:47 -0600
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20261113071143.1446167-1-minachou@andestech.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] reset: Remove ARCH_HAS_RESET_CONTROLLER Kconfig symbol
+To: Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Thomas Bogendoerfer
+	<tsbogend@alpha.franken.de>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
+	<alex@ghiti.fr>,
+        Philipp Zabel <p.zabel@pengutronix.de>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-mips@vger.kernel.org>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20261112214223.765100-1-afd@ti.com>
+ <c7d332ad-09df-42ca-a73d-2dc48ff2c245@app.fastmail.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <c7d332ad-09df-42ca-a73d-2dc48ff2c245@app.fastmail.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B36D:EE_|IA1PR10MB6219:EE_
+X-MS-Office365-Filtering-Correlation-Id: d579d914-a0e9-4588-a3ce-08df41a31e90
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|36860700016|23010399003|82310400026|10067099003|921020|261026121527099003|261022105027099003|4143699003|56012099006|261009223027099003|261028144727099003|261026140227099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: +XCbO+y4YSs7Mapf4oZno3dshZ2a0ifytNzv1GxoYrerjVU8JI8/icW58leftFchOsK88I/EoJWNbWADZwn5Tr+yjgqfG+xvRdyWIPcj+LoyzrI+MKJe8qRhS/a3j/bpa0H5DfeW7XjMjKUKLgMPTs6hnTKN/9nhG8Qp0IGgM4IPdMPjohSmUanOZ+dD9E5uj0RIKGQbfkWT1vOiBrnh/wF+ho07HqG4H5HsxKnvur9mCl8jRt+3VRd1w8rLFt3pYQlUD+9f6JoOtvp+ANmBPhVQmqYBtSOGhZ26JY/sCXcOfzOP3esXbo7+233uHBhO3jVKxVjj7z55jNTYlP1FANXnQ59HJ5nuZH4XphnJdIRrpr1Pyg5De3E5y2mUlFDiEr7EH3mGwgj+qsKaWBNiKuDI8AnqMK+Ue2WYUkrKu94AOWc5GxxanV3gdZ7IpZkDy60/q+xNI5JfdMK1ML5RNcHiPbASCSpd3deXiiDFH9xxSpa09yO4NWllh0BsY6qrPu7zclVAtZd3PuQ8DNiWLhdCV4M+vUf1wit9UndgBwyHMjADfbOKO3NGdTFQdvISQn9/iNSPkO5ebFaPGuRDlACeV7pEvB+FeEdLhQHzK+H2WucdVwSNcTE3QmGNsGIG/AtPwzdDCFbIZEtIPLI4oDNSCJUHlCQjFhFVvzt3wZpXfKrPVDHPmYtL220jmWieu3lAg1CLHgxVYtPwzuiFFmhujZ+jXZv3Gj7Xtb7wOduYoivZybStcL6Aq+B0C5tE
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(36860700016)(23010399003)(82310400026)(10067099003)(921020)(261026121527099003)(261022105027099003)(4143699003)(56012099006)(261009223027099003)(261028144727099003)(261026140227099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: oZmXJsbZWWLCHfr6ep/pu9JimLrSAYm6hbydyqwgE2ONXzIeHV2OXKwlAPK73AoUC+GMSLW4KcPDnfVu3PPs+Qvb6ppVFCBaf5U01IJ8/7nKuDPtZkrjcQMo49Jkgof0PiA9cmxEixsyo715vzHTN9cY+DoVe2xGnHU2iVmSdJaSYcWUQ7l8ARcoeYxpuDmq+HW4/CD8IARmCUTysJQZs8CtQHLNQ1fpeVbPCfm1YjXAJZunJFgmjBDdDOySEv7zwdxNjXiE+6s4wF0h5FagK/A0kHu5sMnwsmU3IyBmhA7mW/4gmFsyaOk0NRMYPu/jt/jMwlAL4hhWGHh4uJPiWGTa9x8tdDVHW1ZEjzouSwkJEyGZ6+VyMGDHeSLS5Gp/1C2CjCld4PthYYLxaEzICHfIx/yFnVWiBzX4R+O//NVwx7f6pq/bCeP2EJ2kk7kU
+X-Exchange-RoutingPolicyChecked: OO2e0/gc6sxMDG1iM3g7jUDMxcUPIq28sbbZgkyFtth8cClmPXWyJHSk9SFDmHyZHcmgO4KylgLRND9Q2zRg5YmnUOTK4X8P0i5ynkJpDiIBkqAykU5SP+9DFA5IrwKmenGkrL9HjV+EjOllEtC2eDnHiwltmAaD1j6euqpCLvuIkW9ZG6tWERY/4MG6bHyMXJduxlb3oGMKsKnAUcHZ5lt9wkN33vI9bgce/CzpWPDeD23QL9Y1X9t4tc5JPiIOS6rGSS0WwgD7Lcj7a17DYMZTw+u1s5Y2ZmIdZjPKmknnBWg0XBFHTNVw8I5RYHBaVEbfP7lpHpPq+GUXkylHWw==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2026 16:28:15.6940
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d579d914-a0e9-4588-a3ce-08df41a31e90
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B36D.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB6219
+X-Proofpoint-ORIG-GUID: dWvqKsPsBItZLRkCdRFzeCayVCfX5dqP
+X-Authority-Analysis: v=2.4 cv=fYI4WEQF c=1 sm=1 tr=0 ts=6af73bed cx=c_pps
+ a=ck9HhUZGATh9INII0mabYg==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=s63m1ICgrNkA:10 a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22 a=a_2n-ALZ5GMI-ur_ftUA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTEzMDA2NSBTYWx0ZWRfX6gHmfHOVAJjv
+ MZTdApMepr6D6hJ1T6/hT+GSySlS2PK6mXNsPt1kcNH6SCvEmIcz/AL8oai4tDSF9J0ffuex/gq
+ pJp/P/0u0SjvtkvVGTUKXVusW6JOkME=
+X-Proofpoint-GUID: dWvqKsPsBItZLRkCdRFzeCayVCfX5dqP
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTEzMDA2NSBTYWx0ZWRfX5eeQOYQKfrIj
+ S2Tvx4x90Ht4k/oqor3axiXJsaTX005jmEaFdVCmKxNDmvMqj8x6fJEfTp0M/XgH2EF9Tr76+vp
+ Sega8gJavuTtBDyJNVbPaTdij9RN82/JAdMykrz0Ab0igJQ++5MJ5nXgDtGoFWQTZk6pDO39/gN
+ a31P+Or3VyYH9ux3AWs5GgwyNe5DFVFAummEbMQgz0W2GnnWUOauQ2u8R/tDhYeDAyS3M08aJrt
+ Q5Bqxsia81ttA/5P5VLifVUz8qAhtvaV/EFSbjw9GhD2NHgc8/9vb/ltE0qS3VbNe4xFqxvyfJh
+ mN1kSq2eSodxDRa1Lvh/S0dejjlQnNhCYacUByQtS74h8+VOvzcyFZabDFhZpT2XxcpBvxNzIdr
+ 0iuU5YWiftxL4zUqT2w89N5U7xscAELTult+2BkczXGyMX45DeX/onrylnW01otV+jbslXCPC/4
+ 2ZvDY/OsCG90g4RGi7w==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-13_05,2026-11-11_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 priorityscore=1501 impostorscore=0 lowpriorityscore=0
+ phishscore=0 bulkscore=0 suspectscore=0 clxscore=1015 adultscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611130065
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261113_083411_711215_98676D28 
+X-CRM114-Status: GOOD (  19.63  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,90 +183,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4697558192943755033=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============4697558192943755033==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lRtlk1dXxjMUQU+8"
-Content-Disposition: inline
+On 11/13/26 7:27 AM, Arnd Bergmann wrote:
+> On Thu, Nov 12, 2026, at 22:42, Andrew Davis wrote:
+>> Many ARCH_HAS_* symbols change some behavior based on what an ARCH
+>> supports, but ARCH_HAS_RESET_CONTROLLER is used only to set a default
+>> for RESET_CONTROLLER. Those ARCH symbols that select this can skip the
+>> middleman and directly select RESET_CONTROLLER, and many already do.
+>>
+>> Replace all selection of this symbol with a direct selection of
+>> RESET_CONTROLLER when it is not already in the selection list. In the
+>> latter case when RESET_CONTROLLER is also already selected we can simply
+>> remove the ARCH_HAS_RESET_CONTROLLER without changing existing behavior.
+> 
+> This is fine
+> 
+>> Some ARCHs "select" this symbol when they actually "depend on" the
+>> RESET_CONTROLLER framework to build, in those cases the indirect select
+>> could lead to broken randconfig builds. In cases when it is not needed
+>> for building the ARCH code, these selections can be switched to the weaker
+>> "imply" to allow it deselected for minimal builds without reset support.
+>> Additional checking will be needed to find such cases.
+> 
+> Please don't recommend the use of 'imply', this is rarely what you
+> want and everyone misunderstands what it does.
+> 
 
---lRtlk1dXxjMUQU+8
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Fair enough, I'll drop this suggestion for v2.
 
-On Fri, Nov 13, 2026 at 03:11:24PM +0800, Mina Hui-Min Chou wrote:
-> The Andes last level cache (LLC) driver and the Andes cache errata were
-> written for the AX45MP core in the Renesas RZ/Five. Other Andes cores use
-> the same LLC controller and need the same CCTL-based cache maintenance,
-> but the driver, its binding and the errata only handle AX45MP.
->=20
-> This series makes them generic, in preparation for the Allwinner V821
-> SoC [1][2], which uses the Andes A27L2 core [3]. The A27L2 has neither
-> IOCP nor Zicbom, so it relies on the LLC driver for DMA cache
-> maintenance.
->=20
-> The series is organized as follows:
->=20
-> - Patches 2-6 rename the AX45MP and L2 identifiers to generic Andes and
->   LLC names, move the Andes CSR definitions to a shared header, and
->   rename ax45mp_cache.c to andes_llcache.c. No functional change.
->=20
-> - Patches 1, 7 and 8 are small cleanups. No functional change.
->=20
-> - Patches 9-11 fix issues that do not show up on RZ/Five but affect
->   other Andes platforms:
->   - write the full physical address to the 64-bit CCTL registers,
->   - register the CCTL cache ops only when the errata asks for them, so
->     that they do not override Zicbom CMO,
->   - index the per-core CCTL registers by hart ID, not logical CPU
->     number.
->=20
-> - Patches 12-15 add andestech,llcache as a generic compatible, keep
->   andestech,ax45mp-cache for existing devicetrees, and add a
->   MAINTAINERS entry for the driver.
->=20
-> - Patches 16-18 make the Andes cache errata usable on any Andes SoC:
->   ERRATA_ANDES_CMO no longer depends on ARCH_R9A07G043, Andes cores
->   other than AX45MP use the CCTL ops when they do not implement Zicbom,
->   and the SBI-based IOCP check is limited to RZ/Five.
+> If you want to have a default, please add another symbol and use
+> that as the default value, such as
+> 
+> config ARCH_WANT_RESET_CONTROLLER
+>        bool
+> 
 
-> - Patch 19 adds the andestech,a27l2 CPU compatible. The V821 devicetree
->   will be submitted separately by Allwinner.
+Could work, but in this case most of these ARCH don't actually "want"
+the reset controller, at least not more than they want any other
+random subsystem for which they have drivers like GPIO, NET, etc..
 
-This patch is missing.
+In a few cases there is an actual hard dependency as some ARCH code
+calls into the reset controller framework, and in those cases directly
+selecting RESET_CONTROLLER seems more correct than going through some
+a "ARCH_WANT" symbol.
 
---lRtlk1dXxjMUQU+8
-Content-Type: application/pgp-signature; name=signature.asc
+Andrew
 
------BEGIN PGP SIGNATURE-----
+> 
+> 
+>         Arnd
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCavc5IAAKCRB4tDGHoIJi
-0moEAQDVBv655Pk8FJSiHbmcw6iWuP15bwLdSG7Or5clXJmJvgD+LbkpwW05yW5Z
-7PSdKmrUiXFApjw40K1A9GLE1AmDSgk=
-=fCFy
------END PGP SIGNATURE-----
-
---lRtlk1dXxjMUQU+8--
-
-
---===============4697558192943755033==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4697558192943755033==--
-
