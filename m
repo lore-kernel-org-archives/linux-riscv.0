@@ -2,97 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E7DA60A261C
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 01:07:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96B17606A321
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2026 02:32:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZLNzmzWv;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yQbRwKos
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NCt5Nx+c;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=H0JCasRD
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=DKPYE4ELjnR2VYNW61Cyn0uva6Nc/xVVW6nxD7k43sk=; b=ZLNzmzWvz+AzG9qQjRzJd3buE3
-	2l4D9Bkcke6C7tOcgfnhicXWsoVjSOj4lzP0RVWbVvfKO3wQSXil+bJbgn3twuA4Ez1PvkCn05DPC
-	VZ+4oKhmKSwghWTy/f3yCPwPFedKQZqvJxUpzkwVdllJelBwJlxAAGgsvh28fPG64BJGfMEH1ZfQd
-	uoGxF5O6UzvVYWG6qjsqJuT55/RW1GNgNd2nD+iXz4WUmSrM+hyOpbsfEPeuhkE+CfMMYyVwP8kPO
-	4CRrReA7PL+5GwGRT8eM9OiI752cUqEjCEu6OyrVohfl6EofRb6k3mz9CF920+maqC9tdcbHtUyAJ
-	xy7ueFpg==;
+	bh=L4YaKk33Ep4lcon1FTV4n0dGXmEs7GRIZI4h71N8Kkk=; b=NCt5Nx+cfhCRyonai4Q2tUDgG6
+	9aMDc8iU4KO9cpK37wTee/fgzdXmQmk7o9I0S/CrNIGYrxUG3XgIVrWQXGOu+w50BhN0nKJNkgYkN
+	fROv+ECB40cK2epxMSpDTH3fOw7+daNstcSnv4PdmC/Z5QJ3zDu8Wo/koWTm1JHBAkZ/9IIYW++1U
+	+CTbLGP4qZWC9GsnwClVdgYTjBmY2EjWcfXt/CcqEAm7ycgd2awXOS9PAhGlQ6EDLXw83V6/EGB23
+	HWNRh2xtfpbPbAaKJNefWVZO+FKfPOCqcZ34WiimiSpFi1XWdLW0P00uZa9dUvF3dBT6bcs3wvvin
+	Av+vOHbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRfl6-0000000BPOO-1QrI;
-	Fri, 13 Nov 2026 01:07:16 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1xRh5N-0000000BV1u-40Bm;
+	Fri, 13 Nov 2026 02:32:17 +0000
+Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xRfl4-0000000BPNx-0QBJ
+	id 1xRh5K-0000000BV1Q-3nkx
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Nov 2026 01:07:15 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-3a49a022221so4317021fa.3
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2026 17:07:13 -0800 (PST)
+	Fri, 13 Nov 2026 02:32:16 +0000
+Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-53644ab1f7bso5997191cf.3
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2026 18:32:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794532032; x=1795136832; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aKwOL7gGfUnR/4FiMNley7wGOgKp+Q8U8I3EBmgYU4E=;
-        b=yQbRwKosiME6z9XBJBtdKqeq6OcBMBk8sGrAj+rB8ImKgqOyQ/Dg9eKE++dfYv/5NX
-         cMTMGX7DsDy2+RRC/Niw8s0pO/XXGyyWNw8xqk0Gbf8fGAdpGhPjFSwtT0cVnStAx+M4
-         pozubXWCVF0Op8y5BUbIgD5RXDj4YHLMt/PdGSfNaCcSsCFLMCzOEceWTiRgjQ7sZ9rG
-         bi8Euu1+8KaqDqrg9FZIW3e1c4pFEYOGkxGke0FitB2AOpA9BcMvatb1wzEpNGWzILHR
-         v9LV+2IqoaxZUrcQG9GZcgxkDENJQ/A+Kze2egrAWlqmW/9Md67tvIaTyXMMd8UNyL1z
-         F68w==
+        d=gmail.com; s=20260707; t=1794537133; x=1795141933; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=nMxjreD4y0QHP2JtQOEuC4CITCprzlNYUq02BXC432Y=;
+        b=H0JCasRDDYRpuZAH7a/Po9Z9mknvmK8iWu0F9S41GBkfve0Te8rZw7ESPyKx02Mq7P
+         k93ld6OlbNN/Ek/HI/0MX8sSxZa5jlm4XdtLijPEDdOjTVeiLJ4Py4cNfR3cQ/RSsr0u
+         BYEkBr3sDk5+5VrbDnTRVCQX01zIAlmZiZF+HV2b0lg8IG8fgDNFsMkIjUemXQ/vnrM0
+         H85gA7X0bA/IXHwzwJvG4hRoOFvG6/IQOelj0zt5sRLdPY6FbyM3VpgjyPNfEXtzChRS
+         I38Yx2B2rEaaGDgFfqsFt32bTjOunCj8PN22tdXsudYL+BUC+0wnTW1o+1qh498Wav4Q
+         ydAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794532032; x=1795136832;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aKwOL7gGfUnR/4FiMNley7wGOgKp+Q8U8I3EBmgYU4E=;
-        b=mWvgrOLlDm+40pFGVMT7RVKb+UecKxJNIJTqEJblraSlP2E0Uy//OKyfAVrMJumWYA
-         iYkjEquj4GYIBsV8NmU8LHGiOcO2d9vKOOCoVuzJHPxHLEnxIZyj6TJSkHhGgEVDI2Cv
-         UK5I8dv54AcGQ3KtFivau11wI5D3KJCAoHJUI5Uace4qjY3DMeNYq9v0BMPPIS6y8YvX
-         evSSOufByPqsacKCVjREaOntsazBd/mc4TiMnBoYLw8PQKkYJnEa2rZ2fNDceKKdaaSr
-         XzpsDeiPjsxeuur7xZTWh9O8TJnu1k1tz0A+M8OSVPodep1Md9Qw5zjBqKaKNweHJAD+
-         xMqA==
-X-Forwarded-Encrypted: i=1; AL+hErGNsxtlFrPm+iNcSrSpfz0X142Xn1O1oEHaOeNGFjaZtRltfFpMduwVqLEBNbzqylJ/madwRyEI6QcyHg==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9lIBh+FJJb5NPbn9NTu+sydt5nWFHUMf3FhwDV6hPxIpCPHSyq
-	mO/89pD4WbkaC9fOVxXrvQIpag461qS75qjtUKfDLIFiqllIbnJjJoL2QpU9iEtIF00=
-X-Gm-Gg: AYBFou3TPrs7eEk8/uSGLA/9h77S4epziVpKVRVc+rCQ8jLfQQdq1IcL1ZZpIBgGcni
-	OkhnZgnTGUc9N04d7RW5ULoaIA9Id/0Z0qVpVmiudNoylM5Zto6UsFgycR3uEp4xtBjuJ0A6l9G
-	KSN8QMlHcqS7sXaBIoeMigDB2+YIusQnLobArYhmc9/t+axR35cQfiErSrxKsepc6s5UqnnJNmX
-	oLLDtC2pcIzNEhDH9qB3cXufz+73WRAPQcWORDke/Dduun7REbvfGcKQaxxXlykhXwMNPRkhrdg
-	uUvFk4gj417DPk8hsV0/8NVD7I1w+i11Sdhsfu+zS+2FHgp995JUrHEea4LeDESK0v9xXwZGe0u
-	wTMA4zQTbPQgSvgJiNOzLduW4Y3zh3te8xzpjgdaSqiGRqpg0mkIC05/+6bW+0qBjU6LRqb18p4
-	sfAdsq75814O9UAUPvd8uDu80SUOitmdryd0dJeQ2NsPUOntkNO5qk6hAApR6OrOxpa9ohsNnaf
-	nfnswbmS2j0U2srKRgvB+LmSmYMR28nV2sbvWO5IcJiz81tiiBnobdr6DYtxoPFwxjWIh9csOSI
-	sKEcMzg0AIiien/TwLtujyf8Fe0RlncmRfNff9YKSNE43c3repvYQ2mXEah78NXkbh1sBFDOs/J
-	/c4JkqnErLQ==
-X-Received: by 2002:a05:651c:41cf:b0:3a7:6d4a:1c9f with SMTP id 38308e7fff4ca-3ae2b4f54f0mr3050361fa.15.1794532031836;
-        Thu, 12 Nov 2026 17:07:11 -0800 (PST)
-Received: from SafoStation ([31.40.65.49])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae2b7d183bsm3133941fa.31.2026.11.12.17.07.10
+        d=1e100.net; s=20260707; t=1794537133; x=1795141933;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=nMxjreD4y0QHP2JtQOEuC4CITCprzlNYUq02BXC432Y=;
+        b=YJnC+PmkpAmqii5cFwM8+GSGpOxgcGIoIIyJy/UseSv7yxkDAST3+LSaaDSpW+evto
+         MHCWx+vhfZQpOEzj5hMngWRI38761tyrpDlxOFutRmwGVVbWLgtUySyEz1wFgryp9eG0
+         8GEDS7nNTOfwEb6N4nR11XfseyoKOJdDq/cglBejnQc8J78gRtf5+FrtDkiSBBvAf6mI
+         2ghdEA119EgRwk+IuYYc4Uyrq69K6G/BHSPwORcFPNGmpZP5pEfrjflW4d+8V2Aa9EhR
+         nZn4Yqa6nbbDhQkodsNudLgNM1IBSZOI0y396mW7U6GefXInkNOt6Rd1JAEDBNDv9wsc
+         jPDA==
+X-Forwarded-Encrypted: i=1; AL+hErE9I/osZmkvSQ0uOvUQoqRzdgIK0lFXttTmZI7y2wEVTycTN/6tI6x/vafrmeRnWxkh9A8pVUErtiHlnQ==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8wS/2bnyscf6ZuRY6h83mScdG0RWE+gEr8+SvgyhXe+vQOeNoq
+	DYE/RRezgHMBO98un3WAetZT4b8+He+Lab2Il5rUF9eRI5NKmnt48hw=
+X-Gm-Gg: AYBFou37TTCR2tBABhL4GFvXp/9OMS674QYkxUpaOxMO8HB02vUVmAORvZpmOHbRSU8
+	BDFNs4PhbwH42xgY2eO6k73SXV7QiCAUFB+ZzGpBNQ4UnqN4I1ci8Bn859V3K6JSxnkdEshN9yC
+	FsSOsiZav1nWnTRWDVWqPKYFuNqsKhu4I+fp26Dyn0CEinPpvvAfmZgKC4upRpowMxE+xDNcM62
+	G141jbNfJvkxOpMlb7zB44K2X/XiLtMu66i2eW4Qn/n7euwfuaFMfEJrExjZNT/eGMAJwBNylva
+	TTkqoo2dpmPJNWboFYGV5xR0J3XJlVzgQG6g74eirBTfwTBViIkyK6Rbb7GZ13bWnF6UTu5CBTy
+	lLWUhgivLpjkUgXzIFQcZ9J0SLkO6Kb+R3PTXzqLXZ83AH9rf4IC9PK3IIv+H5mlGJyrZ2maCGH
+	TiAs1n6wvJ/vMXgun+vieui3BjBhhW5xP9/csmnrc4HguJjWxO+0/JXUaswhJbRykqtm135JdOj
+	wtgwgdNnoXaSIjdq0CRy/3Fqs4Iq6u+p1PtadIvrfsV6EzzexDqlO4sbAR45dxmmx9N1+iK7TuY
+	GVggAUbf/Ab3+bbBzhy8h9uB4q0T
+X-Received: by 2002:a05:622a:180b:b0:535:87c3:79e5 with SMTP id d75a77b69052e-55ac7568907mr20793741cf.39.1794537133164;
+        Thu, 12 Nov 2026 18:32:13 -0800 (PST)
+Received: from Ixchel.lan ([70.49.63.180])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91f23dbf30dsm9688926d6.44.2026.11.12.18.32.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Nov 2026 17:07:11 -0800 (PST)
-From: Safocl Stollmannovic <safocl88@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 06/10] riscv: fix duplicate extern declarations
-Date: Fri, 13 Nov 2026 05:06:11 +0400
-Message-ID: <20261113010631.139191-7-safocl88@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261113010631.139191-1-safocl88@gmail.com>
-References: <20261113010631.139191-1-safocl88@gmail.com>
+        Thu, 12 Nov 2026 18:32:12 -0800 (PST)
+From: Vlad Banea <montrealtango@gmail.com>
+To: Yixun Lan <dlan@kernel.org>
+Cc: troy.mitchell@linux.spacemit.com,
+	wangruikang@iscas.ac.cn,
+	guodong.xu@oss.qualcomm.com,
+	jyc0019@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] riscv: dts: spacemit: k1: give each PCIe port its own DMA window
+Date: Thu, 12 Nov 2026 21:31:58 -0500
+Message-ID: <20261113023158.2872492-1-montrealtango@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261112_170714_176029_5A5B3962 
-X-CRM114-Status: GOOD (  11.71  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261112_183214_953195_29DCB50F 
+X-CRM114-Status: GOOD (  10.08  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,104 +119,95 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Compiling a kernel module with a C++ compiler results in a "duplicate
-extern specifier" error.
-This occurs because the code contains `extern asmlinkage`, and `asmlinkage`
-expands to `extern C` when processed by a C++ compiler.
-Since the code already contains sections that respond to a C++ compiler,
-I believe it is a perfectly valid approach to gradually move toward a state
-where kernel modules can be compiled by a C++ compiler without any issues.
-The `extern` specifier must be removed.
+On K1 a PCIe master only sees DDR: bus addresses 0-2 GB map to CPU
+0-2 GB and bus 2-16 GB to CPU 4-18 GB. A root port does not forward
+upstream an inbound access that falls inside its own memory window, so
+dma-ranges must skip each port's own outbound window; the other ports'
+windows reach memory.
 
-Link: https://bugzilla.kernel.org/show_bug.cgi?id=222257
+The shared pcie-bus skips all three windows, bus 0x8000_0000-0xb7ff_ffff,
+which leaves CPU addresses 0x1_0000_0000-0x1_37ff_ffff unreachable from
+every port. Give each port its own bus that skips only its own window.
+On boards with more than 2 GB of RAM, each port can then reach another
+512-640 MB without SWIOTLB bouncing.
 
-Signed-off-by: Safocl Stollmannovic <safocl88@gmail.com>
+Signed-off-by: Vlad Banea <montrealtango@gmail.com>
 ---
- arch/riscv/include/asm/string.h | 24 ++++++++++++------------
- arch/riscv/kernel/process.c     |  4 ++--
- arch/riscv/kernel/stacktrace.c  |  2 +-
- 3 files changed, 15 insertions(+), 15 deletions(-)
 
-diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
-index 764ffe8f6..ac895358c 100644
---- a/arch/riscv/include/asm/string.h
-+++ b/arch/riscv/include/asm/string.h
-@@ -10,33 +10,33 @@
- #include <linux/linkage.h>
+Notes:
+    Changes in v2:
+    - describe the K1 PCIe address map instead of citing the vendor DT (Troy)
+    - "more than 2 GB" instead of 4 GB (Troy)
+    - drop the RFC tag
+    - RFC: https://lore.kernel.org/all/20261112015148.3911178-1-montrealtango@gmail.com/
+    
+    Tested on an OrangePi R2S (8 GB, RTL8125B on pcie1 and pcie2): SWIOTLB
+    use under load went from up to 87 slots to none.
+
+ arch/riscv/boot/dts/spacemit/k1.dtsi | 27 +++++++++++++++++++++++++--
+ 1 file changed, 25 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+index 3fabfd34114b..949843bb7789 100644
+--- a/arch/riscv/boot/dts/spacemit/k1.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+@@ -1152,13 +1152,14 @@ eth1: ethernet@cac81000 {
+ 			};
+ 		};
  
- #define __HAVE_ARCH_MEMSET
--extern asmlinkage void *memset(void *, int, size_t);
--extern asmlinkage void *__memset(void *, int, size_t);
-+asmlinkage void *memset(void *, int, size_t);
-+asmlinkage void *__memset(void *, int, size_t);
- #define __HAVE_ARCH_MEMCPY
--extern asmlinkage void *memcpy(void *, const void *, size_t);
--extern asmlinkage void *__memcpy(void *, const void *, size_t);
-+asmlinkage void *memcpy(void *, const void *, size_t);
-+asmlinkage void *__memcpy(void *, const void *, size_t);
- #define __HAVE_ARCH_MEMMOVE
--extern asmlinkage void *memmove(void *, const void *, size_t);
--extern asmlinkage void *__memmove(void *, const void *, size_t);
-+asmlinkage void *memmove(void *, const void *, size_t);
-+asmlinkage void *__memmove(void *, const void *, size_t);
+-		pcie-bus {
++		pcie0-bus {
+ 			compatible = "simple-bus";
+ 			ranges;
+ 			#address-cells = <2>;
+ 			#size-cells = <2>;
++			/* skips pcie0's own window, bus 0x8000_0000-0x8fff_ffff */
+ 			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
+-				     <0x0 0xb8000000 0x1 0x38000000 0x3 0x48000000>;
++				     <0x0 0x90000000 0x1 0x10000000 0x3 0x70000000>;
  
- #if !(defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS))
- #define __HAVE_ARCH_STRCMP
--extern asmlinkage int strcmp(const char *cs, const char *ct);
-+asmlinkage int strcmp(const char *cs, const char *ct);
+ 			pcie0: pcie@ca000000 {
+ 				device_type = "pci";
+@@ -1203,6 +1204,17 @@ pcie0_port: pcie@0 {
+ 					ranges;
+ 				};
+ 			};
++		};
++
++		pcie1-bus {
++			compatible = "simple-bus";
++			ranges;
++			#address-cells = <2>;
++			#size-cells = <2>;
++			/* skips pcie1's own window, bus 0x9000_0000-0x9fff_ffff */
++			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
++				     <0x0 0x80000000 0x1 0x00000000 0x0 0x10000000>,
++				     <0x0 0xa0000000 0x1 0x20000000 0x3 0x60000000>;
  
- #define __HAVE_ARCH_STRLEN
--extern asmlinkage __kernel_size_t strlen(const char *);
-+asmlinkage __kernel_size_t strlen(const char *);
+ 			pcie1: pcie@ca400000 {
+ 				device_type = "pci";
+@@ -1247,6 +1259,17 @@ pcie1_port: pcie@0 {
+ 					ranges;
+ 				};
+ 			};
++		};
++
++		pcie2-bus {
++			compatible = "simple-bus";
++			ranges;
++			#address-cells = <2>;
++			#size-cells = <2>;
++			/* skips pcie2's own window, bus 0xa000_0000-0xb7ff_ffff */
++			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
++				     <0x0 0x80000000 0x1 0x00000000 0x0 0x20000000>,
++				     <0x0 0xb8000000 0x1 0x38000000 0x3 0x48000000>;
  
- #define __HAVE_ARCH_STRNCMP
--extern asmlinkage int strncmp(const char *cs, const char *ct, size_t count);
-+asmlinkage int strncmp(const char *cs, const char *ct, size_t count);
- 
- #define __HAVE_ARCH_STRNLEN
--extern asmlinkage __kernel_size_t strnlen(const char *, size_t);
-+asmlinkage __kernel_size_t strnlen(const char *, size_t);
- 
- #define __HAVE_ARCH_STRCHR
--extern asmlinkage char *strchr(const char *, int);
-+asmlinkage char *strchr(const char *, int);
- 
- #define __HAVE_ARCH_STRRCHR
--extern asmlinkage char *strrchr(const char *, int);
-+asmlinkage char *strrchr(const char *, int);
- #endif
- 
- /* For those files which don't want to check by kasan. */
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 34c1d498d..3e531b6d0 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -39,8 +39,8 @@ unsigned long __stack_chk_guard __read_mostly;
- EXPORT_SYMBOL(__stack_chk_guard);
- #endif
- 
--extern asmlinkage void ret_from_fork_kernel_asm(void);
--extern asmlinkage void ret_from_fork_user_asm(void);
-+asmlinkage void ret_from_fork_kernel_asm(void);
-+asmlinkage void ret_from_fork_user_asm(void);
- 
- void noinstr arch_cpu_idle(void)
- {
-diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-index c75554471..6ca60cd3d 100644
---- a/arch/riscv/kernel/stacktrace.c
-+++ b/arch/riscv/kernel/stacktrace.c
-@@ -32,7 +32,7 @@
- 	val;						\
- })
- 
--extern asmlinkage void handle_exception(void);
-+asmlinkage void handle_exception(void);
- extern unsigned long ret_from_exception_end;
- 
- static inline int fp_is_valid(unsigned long fp, unsigned long sp)
+ 			pcie2: pcie@ca800000 {
+ 				device_type = "pci";
+
+base-commit: d05c6236496071916e19012cda7149465f15e66e
 -- 
-2.56.1
+2.53.0
 
 
 _______________________________________________
