@@ -2,81 +2,63 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83026606A880
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 12:39:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13B42606A31A
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 13:36:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nD3EYM+C;
-	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=mIj4XrE1
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QWylf6Bx;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Snqw70sr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=KtNhOpIHJDslQYC8bz6h5TM0gBzzliFFUB03RlNhPxE=; b=nD3EYM+CSXktHQaxk+uCyt1weI
-	JVGCjAyxIy4Gi195i8UidvloApaK1eSkz1yO1Yoyeb8ATcTaGV4DMKiBP1Q3u4N99MltiM7SmyrNv
-	1aadpVLma9eRIovW7DivkrP0BTQ29TqIobZaHfJ5iWjeRrMOcTvZ0r8VGKxQ6A2YnHp32M5bygfGX
-	fNPoo94s+2c1YVc+G/A02qqS3rIz3CgDuhMiasmxvvBnnzkeUW1IukLz2JdKDvAz32b6wQi6XuUPU
-	ypVEMNa7b1woEWjXPlAdZURW6Dj8tGqL5sgkGFspkQ3KfKI+ZiTcQZQ8YeV/DKTd1kkISIMJOqlWc
-	KvdbBjkQ==;
+	bh=r/QP4gzp5A4q59LOLGIGMWEFmzgFEHW9mtFV75BpGQ4=; b=QWylf6BxEHAYzmxrUaBNAjdvHb
+	tIMjZjP0g4dBpy8aOLo1ka2ndLvHUUUAjoxpWarHa/DnonVEgHo1DB1syu0CYF+/g++C977s79OEf
+	++zf11yYt2/L1SzIvKmDak5x1soX0QN46+LQJqYcWxTOlO0G5S/W0v+ymkG1KP3e5+aUEWVk4P1An
+	UNJ1bb0C/Wv16Lc4xO9V49bqAuAu8Z2NvaiYhbdymqozfiIiFVIteNiuQwZShRQVtPR0Hlq2xav8s
+	etddBZAaj9+IDM1rnPpWMOiuH7S5IL7D6rAxI5944YZUzyAd/XtFhkFkratydamiiGUcZS/XWCbOp
+	Nom+idMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSZVW-0000000HWTm-31aa;
-	Sun, 15 Nov 2026 12:38:54 +0000
-Received: from esa4.hc555-34.eu.iphmx.com ([207.54.77.171])
+	id 1xSaP2-0000000HaDC-1uex;
+	Sun, 15 Nov 2026 13:36:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSZVQ-0000000HWQo-1U3n
+	id 1xSaP1-0000000HaCQ-0TcB
 	for linux-riscv@lists.infradead.org;
-	Sun, 15 Nov 2026 12:38:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1794746336; x=1826282336;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=9DyDMXXc2nexheiIOtv8+JiEvWe9V1uNoBX1+X1uiuA=;
-  b=mIj4XrE1mYVAnm3rMS2kj0ejPIXinJK14cD67XzU9uQ54h5NLAIsXo54
-   KfNNTDi6S2SalIlaUH9/XruSCvmenw8fD5TNR9P9u0d8DasmeNiyIOX32
-   9VPg98/5a9yGYGjOKSdYmo8WdC/njHn7GI05824rF/Al8j9AFLEcTFW6Z
-   Q0ZYnEwbDy16VCYT218UEUAqiJmQ3OPmW0krK55GGS+w0Ae+VWGQtDTR3
-   XW/K2sNdfjPyBtycvKwRQBWKgVtfgbkng751jpdn2OQm6CFBFZpmnklia
-   dgJmrcKkcZk7+LI/AdbHwxEl081iE6gb9xnQ7FEwByPLIyvLCb1yywI78
-   A==;
-X-CSE-ConnectionGUID: phvj/SogRMi5Iz4Yob4KJg==
-X-CSE-MsgGUID: Yuu64kgQQ/uffwYD1awnEQ==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces02_data.me-corp.lan) ([146.255.191.134])
-  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Nov 2026 14:38:52 +0200
-X-CSE-ConnectionGUID: oxi2+6nIQYWWxb+HBdoGXA==
-X-CSE-MsgGUID: VAAET0QJRGWh2D0lZJZinw==
-Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.3])
-  by ces02_data.me-corp.lan with SMTP; 15 Nov 2026 14:46:55 +0200
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Sun, 15 Nov 2026 14:38:43 +0200
-From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Date: Sun, 15 Nov 2026 14:37:34 +0200
-Subject: [PATCH v4 2/3] riscv: probes: reject probes inside an LR/SC
- sequence
+	Sun, 15 Nov 2026 13:36:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 01AA1618BF;
+	Sun, 15 Nov 2026 13:36:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24EF01F000C4;
+	Sun, 15 Nov 2026 13:36:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794749773;
+	bh=9e6OmEAnqWbjzLHCKKsv84JklwVJ8NC6NYkY8/hHdTo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Snqw70srUBsDiPj0zDExRjLpznGGJOqGIBDMhIL+rlIy0RTHPt0RW0gen1S1uIXzD
+	 QTnCD4JXzQJh1r1+PPrgca3KW4gKyRYXQ+UAwLtnECG3ghBmfQLGrIf7RKGSI935gp
+	 EP4t0w7M8b/KEfLi5aITguxi416bR7NN4F84g+C3b89VMOI4IbHT/C2uhrE2r/W3H9
+	 KwC7JnxPU8fdL/2ToRZlQsRkRHYQOj3vHa/D9sZu5311NqD1rRb5kPqFTWuTSRVfXW
+	 I7pAycrtkBGTnD2Ez9QpD+ZHMtOt3ohpsiJBVdyRUV1RXDC8lXPTtb4u4NMEPqfHFl
+	 W76a4v1WZmgrA==
+Date: Sun, 15 Nov 2026 21:15:54 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/2] riscv: mm: check the valid bit in
+ kernel_page_present()
+Message-ID: <avmwinvQyS_X0G7o@xhacker>
+References: <20261112-fixes-riscv-v1-0-1caac19897b5@kernel.org>
+ <20261112-fixes-riscv-v1-2-1caac19897b5@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261115-probes-in-lrsc-v4-2-48b9b036bd1d@mobileye.com>
-References: <20261115-probes-in-lrsc-v4-0-48b9b036bd1d@mobileye.com>
-In-Reply-To: <20261115-probes-in-lrsc-v4-0-48b9b036bd1d@mobileye.com>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
- Peter Zijlstra <peterz@infradead.org>, Guo Ren <guoren@kernel.org>, 
- Pekka Enberg <penberg@kernel.org>, 
- =?utf-8?q?Patrick_St=C3=A4hlin?= <me@packi.ch>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-trace-kernel@vger.kernel.org, 
- Palmer Dabbelt <palmerdabbelt@google.com>, 
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-X-Mailer: b4 0.16.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261115_043848_816533_519C168C 
-X-CRM114-Status: GOOD (  35.59  )
-X-Spam-Score: -4.0 (----)
+Content-Disposition: inline
+In-Reply-To: <20261112-fixes-riscv-v1-2-1caac19897b5@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,373 +71,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A kprobe or uprobe replaces an instruction with a breakpoint. The trap
-clears the hart's reservation, so if the breakpoint sits on the lr, on
-the sc, or on any instruction between them, the sc fails, the loop
-branches back to the lr and the probe fires again. The sequence never
-completes.
+On Thu, Nov 12, 2026 at 03:42:19PM +0200, Mike Rapoport (Microsoft) wrote:
+> set_direct_map_invalid_noflush() clears _PAGE_PRESENT, but the kernel
+> mappings keep _PAGE_PROT_NONE set: it used to be _PAGE_READ and now it is
+> the same bit as _PAGE_GLOBAL. pte_present() and pmd_present() still
+> return true for the invalidated entry. kernel_page_present() then reports
+> that an unmapped page is mapped, and hibernation copies it without
+> remapping it first.
+> 
+> Test _PAGE_PRESENT directly for PMD and PTE leaves.
+> 
+> Fixes: 32a0de886eb3 ("arch, mm: make kernel_page_present() always available")
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> ---
+>  arch/riscv/mm/pageattr.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+> index b138113755359..62fbcf7cf36b6 100644
+> --- a/arch/riscv/mm/pageattr.c
+> +++ b/arch/riscv/mm/pageattr.c
+> @@ -453,8 +453,9 @@ bool kernel_page_present(struct page *page)
+>  	if (!pmd_present(pmdp_get(pmd)))
+>  		return false;
+>  	if (pmd_leaf(pmdp_get(pmd)))
+> -		return true;
+> +		return pmd_val(pmdp_get(pmd)) & _PAGE_PRESENT;
 
-This has always been possible on RISC-V, because cmpxchg and the
-conditional atomics are LR/SC loops. arm64 has the same problem and
-rejects probes inside an exclusive-load/store-exclusive region.
+so we call pmdp_get() up to 3 times, could we save its result
+and reuse it?
 
-On the other hand, if lr is not paired with sc, breakpoit at lr or
-after it is OK. lr/wrs sequence is an example - breakpoint can be set
-anywhere
-
-For the instructions between LR and SC, use the rules for a constrained
-LR/SC sequence: at most 16 instructions between lr and sc, all base
-integer instructions other than loads, stores, JALR, FENCE, SYSTEM and
-backward jumps or branches, or their compressed forms. Scan forward
-from the probed instruction. Reaching an sc through permitted
-instructions only means the probe sits inside a sequence; any other
-instruction, an lr, the end of the window or the end of the readable
-text means it does not. Only a sequence that follows these rules is
-guaranteed to make progress, so a probe inside any other one is
-already on unsupported ground. Scanning forward rather than tracking
-state from the start of the function also keeps an lr that has no sc,
-such as the one in __cmpwait() before wrs.nto, from affecting probes
-later in the same function.
-
-kprobes scan the kernel text up to the end of the enclosing symbol.
-uprobes have only the probed instruction copied, so they read the
-text that follows it from the task, which the caller's mmap_lock
-allows.
-
-Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
-Fixes: 74784081aac8 ("riscv: Add uprobes supported")
-Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
----
- arch/riscv/include/asm/insn.h          | 28 +++++++++++
- arch/riscv/kernel/probes/decode-insn.c | 91 ++++++++++++++++++++++++++++++++++
- arch/riscv/kernel/probes/decode-insn.h |  7 +++
- arch/riscv/kernel/probes/kprobes.c     | 26 +++++++---
- arch/riscv/kernel/probes/uprobes.c     | 31 ++++++++++++
- 5 files changed, 177 insertions(+), 6 deletions(-)
-
-diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-index c3005573e8c9..f5de81753bec 100644
---- a/arch/riscv/include/asm/insn.h
-+++ b/arch/riscv/include/asm/insn.h
-@@ -10,11 +10,16 @@
- 
- #define RV_INSN_FUNCT3_MASK	GENMASK(14, 12)
- #define RV_INSN_FUNCT3_OPOFF	12
-+#define RV_INSN_FUNCT5_MASK	GENMASK(31, 27)
-+#define RV_INSN_FUNCT5_OPOFF	27
-+#define RV_INSN_FUNCT7_MASK	GENMASK(31, 25)
-+#define RV_INSN_FUNCT7_OPOFF	25
- #define RV_INSN_OPCODE_MASK	GENMASK(6, 0)
- #define RV_INSN_OPCODE_OPOFF	0
- #define RV_INSN_FUNCT12_OPOFF	20
- 
- #define RV_ENCODE_FUNCT3(f_)	(RVG_FUNCT3_##f_ << RV_INSN_FUNCT3_OPOFF)
-+#define RV_ENCODE_FUNCT5(f_)	(RVG_FUNCT5_##f_ << RV_INSN_FUNCT5_OPOFF)
- #define RV_ENCODE_FUNCT12(f_)	(RVG_FUNCT12_##f_ << RV_INSN_FUNCT12_OPOFF)
- 
- /* The bit field of immediate value in I-type instruction */
-@@ -136,7 +141,13 @@
- 
- /* parts of opcode for RVG*/
- #define RVG_OPCODE_FENCE	0x0f
-+#define RVG_OPCODE_OP_IMM	0x13
- #define RVG_OPCODE_AUIPC	0x17
-+#define RVG_OPCODE_OP_IMM_32	0x1b
-+#define RVG_OPCODE_AMO		0x2f
-+#define RVG_OPCODE_OP		0x33
-+#define RVG_OPCODE_LUI		0x37
-+#define RVG_OPCODE_OP_32	0x3b
- #define RVG_OPCODE_BRANCH	0x63
- #define RVG_OPCODE_JALR		0x67
- #define RVG_OPCODE_JAL		0x6f
-@@ -188,6 +199,17 @@
- #define RVG_FUNCT12_EBREAK	0x1
- #define RVG_FUNCT12_SRET	0x102
- 
-+/* parts of funct5 code for A extension */
-+#define RVG_FUNCT5_LR		0x02
-+#define RVG_FUNCT5_SC		0x03
-+
-+/*
-+ * The AMO funct3 field holds the access width: 010 for .w, 011 for .d.
-+ * Matching bits 14:13 alone accepts both and nothing else.
-+ */
-+#define RVG_AMO_WIDTH_MASK	GENMASK(14, 13)
-+#define RVG_AMO_WIDTH_WD	BIT(13)
-+
- #define RVG_MATCH_AUIPC		(RVG_OPCODE_AUIPC)
- #define RVG_MATCH_JALR		(RV_ENCODE_FUNCT3(JALR) | RVG_OPCODE_JALR)
- #define RVG_MATCH_JAL		(RVG_OPCODE_JAL)
-@@ -200,6 +222,8 @@
- #define RVG_MATCH_BGEU		(RV_ENCODE_FUNCT3(BGEU) | RVG_OPCODE_BRANCH)
- #define RVG_MATCH_EBREAK	(RV_ENCODE_FUNCT12(EBREAK) | RVG_OPCODE_SYSTEM)
- #define RVG_MATCH_SRET		(RV_ENCODE_FUNCT12(SRET) | RVG_OPCODE_SYSTEM)
-+#define RVG_MATCH_LR		(RV_ENCODE_FUNCT5(LR) | RVG_AMO_WIDTH_WD | RVG_OPCODE_AMO)
-+#define RVG_MATCH_SC		(RV_ENCODE_FUNCT5(SC) | RVG_AMO_WIDTH_WD | RVG_OPCODE_AMO)
- #define RVC_MATCH_C_BEQZ	(RVC_ENCODE_FUNCT3(C_BEQZ) | RVC_OPCODE_C1)
- #define RVC_MATCH_C_BNEZ	(RVC_ENCODE_FUNCT3(C_BNEZ) | RVC_OPCODE_C1)
- #define RVC_MATCH_C_J		(RVC_ENCODE_FUNCT3(C_J) | RVC_OPCODE_C1)
-@@ -227,6 +251,8 @@
- #define RVC_MASK_C_EBREAK	0xffff
- #define RVG_MASK_EBREAK		0xffffffff
- #define RVG_MASK_SRET		0xffffffff
-+#define RVG_MASK_LR		(RV_INSN_FUNCT5_MASK | RVG_AMO_WIDTH_MASK | RV_INSN_OPCODE_MASK)
-+#define RVG_MASK_SC		(RV_INSN_FUNCT5_MASK | RVG_AMO_WIDTH_MASK | RV_INSN_OPCODE_MASK)
- 
- #define __INSN_LENGTH_MASK	_UL(0x3)
- #define __INSN_LENGTH_GE_32	_UL(0x3)
-@@ -262,6 +288,8 @@ __RISCV_INSN_FUNCS(c_ebreak, RVC_MASK_C_EBREAK, RVC_MATCH_C_EBREAK)
- __RISCV_INSN_FUNCS(ebreak, RVG_MASK_EBREAK, RVG_MATCH_EBREAK)
- __RISCV_INSN_FUNCS(sret, RVG_MASK_SRET, RVG_MATCH_SRET)
- __RISCV_INSN_FUNCS(fence, RVG_MASK_FENCE, RVG_MATCH_FENCE);
-+__RISCV_INSN_FUNCS(lr, RVG_MASK_LR, RVG_MATCH_LR)
-+__RISCV_INSN_FUNCS(sc, RVG_MASK_SC, RVG_MATCH_SC)
- 
- /* special case to catch _any_ system instruction */
- static __always_inline bool riscv_insn_is_system(u32 code)
-diff --git a/arch/riscv/kernel/probes/decode-insn.c b/arch/riscv/kernel/probes/decode-insn.c
-index 433d9035b888..78a6f2ac6808 100644
---- a/arch/riscv/kernel/probes/decode-insn.c
-+++ b/arch/riscv/kernel/probes/decode-insn.c
-@@ -4,11 +4,102 @@
- #include <linux/kprobes.h>
- #include <linux/module.h>
- #include <linux/kallsyms.h>
-+#include <linux/bug.h>
- #include <asm/sections.h>
- 
- #include "decode-insn.h"
- #include "simulate-insn.h"
- 
-+/*
-+ * Can insn sit between the lr and the sc of a constrained LR/SC sequence?
-+ * The ISA allows base integer instructions there, except loads, stores,
-+ * JALR, FENCE, SYSTEM, backward jumps and taken backward branches, plus
-+ * their compressed forms. Backward branches are treated as not allowed:
-+ * the retry branch follows the sc, so one inside the body is not a
-+ * constrained sequence.
-+ */
-+static bool __kprobes riscv_insn_is_lrsc_body(u32 insn)
-+{
-+	u32 funct3;
-+
-+	if (GET_INSN_LENGTH(insn) == 2) {
-+		switch (insn & RVC_INSN_OPCODE_MASK) {
-+		case RVC_OPCODE_C0:
-+			/* c.addi4spn; the rest of the quadrant is loads and stores */
-+			return (insn & RVC_INSN_FUNCT3_MASK) == 0;
-+		case RVC_OPCODE_C1:
-+			/* Arithmetic, c.j, c.jal and branches, bit 12 is the offset sign */
-+			if (riscv_insn_is_c_j(insn) || riscv_insn_is_c_jal(insn) ||
-+			    riscv_insn_is_c_beqz(insn) || riscv_insn_is_c_bnez(insn))
-+				return !(insn & BIT(12));
-+			return true;
-+		case RVC_OPCODE_C2:
-+			funct3 = (insn & RVC_INSN_FUNCT3_MASK) >> RVC_INSN_FUNCT3_OPOFF;
-+			if (funct3 == 0)	/* c.slli */
-+				return true;
-+			if (funct3 == 4)	/* c.mv, c.add, but not c.jr, c.jalr, c.ebreak */
-+				return !riscv_insn_is_c_jr(insn) &&
-+				       !riscv_insn_is_c_jalr(insn) &&
-+				       !riscv_insn_is_c_ebreak(insn);
-+			return false;	/* stack loads and stores */
-+		}
-+		return false;
-+	}
-+
-+	switch (insn & RV_INSN_OPCODE_MASK) {
-+	case RVG_OPCODE_OP_IMM:
-+	case RVG_OPCODE_OP_IMM_32:
-+	case RVG_OPCODE_LUI:
-+	case RVG_OPCODE_AUIPC:
-+		return true;
-+	case RVG_OPCODE_OP:
-+	case RVG_OPCODE_OP_32:
-+		/* funct7 0 or 0x20 is base I; anything else is M, B or another extension */
-+		return !((insn & RV_INSN_FUNCT7_MASK) & ~(0x20U << RV_INSN_FUNCT7_OPOFF));
-+	case RVG_OPCODE_BRANCH:
-+	case RVG_OPCODE_JAL:
-+		/* forward only, bit 31 is the offset sign */
-+		return !(insn & BIT(31));
-+	}
-+	return false;
-+}
-+
-+/*
-+ * Does the instruction at the start of buf lie inside a constrained LR/SC
-+ * sequence? Such a sequence holds at most RISCV_LRSC_MAX_BODY instructions
-+ * between the lr and the sc, all from the set above. Walk forward from the
-+ * probed instruction: reaching an sc through permitted instructions only
-+ * means the probe sits in the body; anything else, including an lr that
-+ * opens a new sequence, means it does not. The walk stops at the end of
-+ * buf, so a short buffer only makes the answer more permissive.
-+ */
-+bool __kprobes riscv_probe_in_lrsc_body(const u16 *buf, size_t len)
-+{
-+	u32 insn;
-+
-+	/* 2 instructions for LR and SC itself */
-+	for (size_t n = 0, off = 0; n < RISCV_LRSC_MAX_BODY + 2 && off + 2 <= len;
-+			n++, off += GET_INSN_LENGTH(insn)) {
-+		insn = buf[off / 2];
-+		if (GET_INSN_LENGTH(insn) == 4) {
-+			if (off + 4 > len)
-+				return false;
-+			insn |= (u32)buf[off / 2 + 1] << 16;
-+		}
-+		if (n == 0) {
-+			if (riscv_insn_is_lr(insn))
-+				continue; /* 1-st instruction lr is OK */
-+			else
-+				n++; /* if it's not lr, scan one instruction less */
-+		}
-+		if (riscv_insn_is_sc(insn))
-+			return true;
-+		if (!riscv_insn_is_lrsc_body(insn))
-+			return false;
-+	}
-+	return false;
-+}
-+
- /* Return:
-  *   INSN_REJECTED     If instruction is one not allowed to kprobe,
-  *   INSN_GOOD_NO_SLOT If instruction is supported but doesn't use its slot.
-diff --git a/arch/riscv/kernel/probes/decode-insn.h b/arch/riscv/kernel/probes/decode-insn.h
-index 42269a7d676d..0ea952cc7595 100644
---- a/arch/riscv/kernel/probes/decode-insn.h
-+++ b/arch/riscv/kernel/probes/decode-insn.h
-@@ -15,4 +15,11 @@ enum probe_insn {
- enum probe_insn __kprobes
- riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *asi);
- 
-+/* A constrained LR/SC sequence has at most this many instructions between lr and sc */
-+#define RISCV_LRSC_MAX_BODY	16
-+/* Bytes from the probed instruction (can be lr) through the farthest possible sc */
-+#define RISCV_LRSC_SCAN_BYTES	((RISCV_LRSC_MAX_BODY + 2) * 4)
-+
-+bool __kprobes riscv_probe_in_lrsc_body(const u16 *buf, size_t len);
-+
- #endif /* _RISCV_KERNEL_KPROBES_DECODE_INSN_H */
-diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
-index 63ee5066def5..b8df722ac19f 100644
---- a/arch/riscv/kernel/probes/kprobes.c
-+++ b/arch/riscv/kernel/probes/kprobes.c
-@@ -49,35 +49,49 @@ static void __kprobes arch_simulate_insn(struct kprobe *p, struct pt_regs *regs)
- 	post_kprobe_handler(p, kcb, regs);
- }
- 
--static bool __kprobes arch_check_kprobe(unsigned long addr)
-+/*
-+ * Walk the instructions from the enclosing symbol up to addr to check that
-+ * addr is an instruction boundary. Then reject a probe inside an LR/SC
-+ * sequence: the breakpoint trap drops the reservation, so the SC would fail
-+ * and the loop would hit the probe again on every retry. The sequence is
-+ * recognised by a forward scan with the constrained-sequence rules, as for
-+ * uprobes, so an lr that is not followed by an sc (as in __cmpwait()) does
-+ * not taint the rest of the function.
-+ */
-+static int __kprobes arch_check_kprobe(unsigned long addr)
- {
- 	unsigned long tmp, offset;
- 
- 	/* start iterating at the closest preceding symbol */
- 	if (!kallsyms_lookup_size_offset(addr, NULL, &offset))
--		return false;
-+		return -EILSEQ;
- 
- 	tmp = addr - offset;
- 
- 	while (tmp <= addr) {
- 		if (tmp == addr)
--			return true;
-+			if (riscv_probe_in_lrsc_body((u16 *)addr, RISCV_LRSC_SCAN_BYTES))
-+				return -EINVAL;
-+			else
-+				return 0;
- 
- 		tmp += GET_INSN_LENGTH(*(u16 *)tmp);
- 	}
- 
--	return false;
-+	return -EILSEQ;
- }
- 
- int __kprobes arch_prepare_kprobe(struct kprobe *p)
- {
- 	u16 *insn = (u16 *)p->addr;
-+	int ret;
- 
- 	if ((unsigned long)insn & 0x1)
- 		return -EILSEQ;
- 
--	if (!arch_check_kprobe((unsigned long)p->addr))
--		return -EILSEQ;
-+	ret = arch_check_kprobe((unsigned long)p->addr);
-+	if (ret)
-+		return ret;
- 
- 	/* copy instruction */
- 	p->opcode = (kprobe_opcode_t)(*insn++);
-diff --git a/arch/riscv/kernel/probes/uprobes.c b/arch/riscv/kernel/probes/uprobes.c
-index eb177d0ce8ab..d97a10262166 100644
---- a/arch/riscv/kernel/probes/uprobes.c
-+++ b/arch/riscv/kernel/probes/uprobes.c
-@@ -28,6 +28,34 @@ unsigned long uprobe_get_swbp_addr(struct pt_regs *regs)
- 	return instruction_pointer(regs);
- }
- 
-+/*
-+ * Is the instruction at addr inside a constrained LR/SC sequence? Only the
-+ * probed instruction was copied, so read the text that follows it from the
-+ * task. The caller holds mmap_lock, as uprobe_write_opcode() requires too.
-+ * Text that cannot be read ends the scan early, which accepts the probe.
-+ */
-+static bool uprobe_in_lrsc_body(struct mm_struct *mm, unsigned long addr)
-+{
-+	u16 buf[RISCV_LRSC_SCAN_BYTES / sizeof(u16)];
-+	struct vm_area_struct *vma;
-+	struct page *page;
-+	size_t got = 0;
-+	int len;
-+
-+	while (got < sizeof(buf)) {
-+		len = min_t(size_t, sizeof(buf) - got,
-+			    PAGE_SIZE - offset_in_page(addr + got));
-+		page = get_user_page_vma_remote(mm, addr + got, FOLL_FORCE, &vma);
-+		if (IS_ERR(page))
-+			break;
-+		uprobe_copy_from_page(page, addr + got, (void *)buf + got, len);
-+		put_page(page);
-+		got += len;
-+	}
-+
-+	return riscv_probe_in_lrsc_body(buf, got);
-+}
-+
- int arch_uprobe_analyze_insn(struct arch_uprobe *auprobe, struct mm_struct *mm,
- 			     unsigned long addr)
- {
-@@ -53,6 +81,9 @@ int arch_uprobe_analyze_insn(struct arch_uprobe *auprobe, struct mm_struct *mm,
- 		return -EINVAL;
- 	}
- 
-+	if (uprobe_in_lrsc_body(mm, addr))
-+		return -EINVAL;
-+
- 	return 0;
- }
- 
-
--- 
-2.43.0
-
+>  
+> +	/* pte_present() is true for PAGE_KERNEL with _PAGE_PRESENT cleared */
+>  	pte = pte_offset_kernel(pmd, addr);
+> -	return pte_present(ptep_get(pte));
+> +	return pte_val(ptep_get(pte)) & _PAGE_PRESENT;
+>  }
+> 
+> -- 
+> 2.53.0
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
