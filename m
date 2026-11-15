@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6052F606A31D
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 14:18:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3EEC606A329
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 14:18:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kpPDRr0V;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=AX3h+Vsj
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fq9Rgfe1;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=K0FuNXMK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,70 +14,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=0O+9ebM0XKtz3e679e/zXT7a8qswE0OiQo16GTtStS8=; b=kpPDRr0V6Hd7KWv5ZhzMOViIUa
-	38gSmVIJJhqdDkT/4DuAchZVNCIbs6ZvBvFNl4Pizh2JbzI2ogyijVwJJmBOPitE/+5bpsBWp03X4
-	TiWooS1v6yHvhaVdvz6P7RqsjRl93/s3cj8Vw9uPXRAHUfUxFBk8Q8u1Hm/4wzK4Q4OnrzRnuFQ0f
-	1HZ3wYAIzEhmGwTZ1DWNeHBB4yfdQWaYPL5M/U9QuiCNYXo46cCXsycvPEndGyAoAHQ7DI60NN7H5
-	L47YRtPjSNOcvlD4J4iDFkKij6Y0jIdCZxb0+1JER8eIgTrlOYEOGcV01EkGEYXwMem+viWQB+0k9
-	0fMQgtog==;
+	bh=Qx4EnrlDp1t7TMxy47Urrp+qVD4opn9YV/q0rADxbcM=; b=fq9Rgfe1mh31sC/UZaiu93kn4V
+	ycemziIDFRtaQ+2z61T1XCnDXuagwgNaLkSon4WzLqIody7x3PwIRv19qsqWQak3XdPnLfuvoNAlV
+	tA3oNG3XxVtKSC+ROqacw050W8w2WhbU5Xx3aBHSwZ4YbWfT5rNtHNILbdtKBOsz1N/1sYI0zx/zm
+	qvK5plXXoPF1wg6Li5Bhk2lOeeF/lT+rZ+frDo13fjzzCjzZjiMhmOj/tjGFVq22S/aXZyfZ1xhIj
+	LZBSAfysSqH8Xl+//8P+MkKxT2MiwDk/9Otmu8Ec7aZre37ZgGx8KCfhGJgFUAnVl5KZ8JljAyTa5
+	sT4CgErg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSb47-000000001qR-2enM;
+	id 1xSb47-000000001qV-313d;
 	Sun, 15 Nov 2026 14:18:43 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSb43-000000001od-1l6v
+	id 1xSb44-000000001ot-2cbN
 	for linux-riscv@lists.infradead.org;
 	Sun, 15 Nov 2026 14:18:41 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so1272514f8f.2
-        for <linux-riscv@lists.infradead.org>; Sun, 15 Nov 2026 06:18:38 -0800 (PST)
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a140e7405dso28108865e9.3
+        for <linux-riscv@lists.infradead.org>; Sun, 15 Nov 2026 06:18:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1794752317; x=1795357117; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1794752319; x=1795357119; darn=lists.infradead.org;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=eRXocFNPHTDFcDxqvK37Nsoc4c3iJpE3zFJQsev+8wc=;
-        b=AX3h+Vsjj9mwwXeqUaQF7qv2GRMKXFnSfcic2CZFnq4P8cKWZ22iKziEj/j9e6cJvT
-         fC7KepzB9s+A1eFWWs0KU47VapxAjgeg3t9THDTlj/UsFQerNXiy8UKVEKikXslE7h/A
-         LnatdcM7XN9nkFUW8qplNFonVyAV/opUlORbdPDUYQdml5NvR4C6EKjZG6HgBrnij12c
-         uj5LnvkJwVyms1c2ku0+8pCC2FWF0E8P4jYvh8GaLzwAjwfCBof9w4bEqE5mZSKYKsVv
-         TSlfOaSgLEfNVHuLKPV89W9HOqnp/bYQ4TLY+TxytXOx3R9KTE0x2hPhkC2qd2T7tcy5
-         dYuA==
+        bh=pFpKrbiTZjZmz91L9EOjNJDX0CfJgVxIe1sWhAPFRts=;
+        b=K0FuNXMKeaFRBA1SufZ0UlDx3Rf/PTEIQmXUrSwxSjs0DCALIcUzb3tipNYzeAftOB
+         DITXRQ+5lnGycA0JGhPZ97x+HbyHbqFfDROZoNXx0dIKeZWpx4gDE0fopedJ3a9toJV4
+         L460vP7rl6uPPVoL+3FJwyUfr75niBHZ/4+vMoTUi1pGLZBkAFy3DiwjvNpcGu/zYD+W
+         g18u6ctCLSjYRqN/qpDsasGuNbZc4wq+RHGrrTEotsuBJbl3MhX6ngMxDudXr/d8P8bl
+         BKyuBRBM2AH66Ixl/sXrcMmAfbyn3Ui5lycRKv66dNqTNYJCar+f81C44iv11UDLx11Z
+         1SYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794752317; x=1795357117;
+        d=1e100.net; s=20260707; t=1794752319; x=1795357119;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=eRXocFNPHTDFcDxqvK37Nsoc4c3iJpE3zFJQsev+8wc=;
-        b=0W/dzqzmBQ+JYFcvCBt21bjhhC250CllRQQfLM3U01o+J+xs+v1Zw0IVmAoAVYFDVi
-         7BhQgIRFgeLp2lj7xCuBsBZO3fIiAt7tY3Wpk5LBCYWcrFqrOe4iakqyWYYHV6S12hHC
-         8Q/XmSJXa/mRITKpvpg3bq1xHgvjvxH0aYY0dhBBJgrZaE/0IhZCBkCR8Tt+jAVuyY7X
-         Zg8V2xlHXAKCpzB18vtA10gQc7fL5a0yvTLZw/TkZetiQposEUn8wKWlY5rIAugUMFgm
-         ZDM3IiZwI2Q9CuvDP78STjyefXfN551AA20KW/lQksnvhoP5R3WJp5/oRZTMHfc3GlNf
-         4PbQ==
-X-Forwarded-Encrypted: i=1; AL+hErHImJXkQiAdqKUW8/V3yhTroiLOq+Z2P1GjclDGk5dV8VlV3uMcvwxKyHVP2KrgjqvQvodSFmvi42INhQ==@lists.infradead.org
-X-Gm-Message-State: APuU4Z/sZ4ucn7guy/leexwAxpw/oxpfWC13xPkHnx4AnLdTy6beztgI
-	5C4hgqbOO/DtoP7AUY9nc3QakFFkgJlSwb8Pxo/VOCZ1uFQ516JoEVF2mRtFGLWVnJ4=
-X-Gm-Gg: AYBFou1eK3QQX881o2PgK3uDCBKJiUSufkryQSiSofsGGlSRm4NMrpbPR7ZjdYsyIR5
-	RlvZSlXI97HZd6AWF6KYa6wh/qtWVHiochnGoxqucxavTNC9W6ry5F6JjSAdon4gPBk9fPH0Oa1
-	0Wq3Bh6lZUBN2mHFw9VH3FnSwyquHRKb7Nem+4gQajD5BV83ri+xZHJFmK5kai3VNzEiq321npn
-	9E6qO30pybJ4BZLXEx5kmPa2VJQeJcuEH91L3FmLJIJrb4NscA09C7gDicYJTjgqocAJb3TMOvS
-	axCXon0bKpvtKD8wnf7Gjy36FPeis+8Te2WefgyoDK79HOJE1LigKzVfemQttglHoahM0MSKJRg
-	4wcDVWomkPxaxVrq0BVZGDUw2lIX3C68oQ0lqW8BqQDtJEjFHX7Avh+uxWs/OqjA8TgkKFZ4i10
-	aGD9OA+9yBDhJGSk/33oPkcKcx4+s+W/Y9d4mFWDxHLbms/CDnFcLdGIFMBSnhvyttPDGwtv7Vr
-	kKcwHTzd5yExMrOeaTL//s4sSC3JFGNu1ilkHfoRCkXYE0KdHRr5uGC2Ibaic2PC+T3l+sgSn87
-	Z8CZ/tl/+zlZwXlKi//FKnPcT6UWj1ULLWUQOoRCxa30opjK
-X-Received: by 2002:a05:6000:18ac:b0:48e:68d5:818d with SMTP id ffacd0b85a97d-49c70ed9222mr16798800f8f.16.1794752317494;
-        Sun, 15 Nov 2026 06:18:37 -0800 (PST)
+        bh=pFpKrbiTZjZmz91L9EOjNJDX0CfJgVxIe1sWhAPFRts=;
+        b=1ULQ0oF7Bowbij2Oqt6fVtDjaFGaNKh3XX6dhdFQiufItaudBARV89JvNt9nl6+Gdv
+         lf18KdvTQMhep95bJ09oYk95Dov/IMm/oh+2WgmoEk7gp+q5m59U67De2bbi4VDKOacu
+         wBUXzohrZyY9RDkgWg7Zdex7+QvqqGjcIkNvmFwhW5pLzOCNsV1VQthzCQ66KkJxxdgG
+         otCtxlOu9vPhZJP4ofnB0Cj/8d5NVYR+RsS/Ti1X+1iaPCTbQgIZhKVMZ3024lmIo6Tv
+         jRSr1fGSdfP+rXk7x2avfM3/uhZYf9BCrGfBiD+/+TwfHDP7tH6FE8C/qhLlFxkN8mV6
+         F54Q==
+X-Forwarded-Encrypted: i=1; AL+hErEQZaCukcJEZU8SBTsEq8zEgrNcSN8HKF1ScyImV6P2z/z7Taiwf61bs6zXnUk6fpF/MojfuxaQJg+jyA==@lists.infradead.org
+X-Gm-Message-State: APuU4Z9anWwuLlTGeYlmHA2Gva96QlG59nMAToYor+wq9o07HJ058sTD
+	n0ubC4nSIcG4f5FrSVu7jQjcg8yFjOev/keTMg6MBgWXD3UNNN2KwRWthVuNbqQ3s40=
+X-Gm-Gg: AYBFou16W1uxJY7JHrFMUAKFfUMEgrdTnYt+GA9wYolGe2Yhbrpu89oqSIANxlR3DB7
+	68WP2wbOkw6hi7o2maQ9rayyP/tPh56SbrI2MEsnvnyoV65G9Q02nhjW0x/5R9qo5jDYUE+RRg3
+	MEazTm8Vc2RbMkh+f1firW3k5Q9Wzbn5qMU9ClhWBVaSMVx2JNSzB5dsagmTpU0A1MxQLYXjpGj
+	PaWKxJcTs7QP3hwOmlUZKEHLK92KAzMZ5SJzOoXbJjYmO5+uoDUsanPhHnb4NLK1EVhg44UI7ys
+	Cwmdd8qqJvoHU28TRqXb7J58qH31smjrzObJIOJTzo+Qk7FJXzOqdm89267IDml7oWYZ9Lo23eY
+	UiFFIg3Gn1YqRmAr9T5l7keDV002yHChPJB5LdYm3el47XczNUoFYHeYdVkrHL+kL1WwLjiIwAm
+	wfajgbUTh/+w1PVtUHRoVtbOIXwvBD/Jq2c16OV72xIZR4bZ6JCFyMWriRfoqZ+21fKKIxG1xCz
+	DG85g8liEclu8kufoTDNXJ5+mIom8KtqrjPWNdmzCP8+oaimgsZJqq8rClU0nYbKEF5EDhukeY3
+	u1u1jJozgpIFyPLL8mBt9SBwJgZlNx595Une7kjtvdeb0lG9emk2LPc6TO59FAX+z5Z6ww==
+X-Received: by 2002:a05:600c:6308:b0:4b7:6942:39bf with SMTP id 5b1f17b1804b1-4bb55a68492mr181804715e9.28.1794752318812;
+        Sun, 15 Nov 2026 06:18:38 -0800 (PST)
 Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c609c6934sm16286752f8f.48.2026.11.15.06.18.36
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb6dc30b3asm30018475e9.13.2026.11.15.06.18.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Nov 2026 06:18:37 -0800 (PST)
+        Sun, 15 Nov 2026 06:18:38 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v1 4/6] clk: starfive: Add JHB100 System-0 clock
- generator driver
+Subject: Re: [PATCH v1 5/6] reset: starfive: jh71x0: Support discontiguous
+ reset IDs
 From: Jerome Brunet <jbrunet@baylibre.com>
 To: Changhuang Liang <changhuang.liang@starfivetech.com>
 Cc: Brian Masney <bmasney@redhat.com>, 
@@ -88,23 +88,23 @@ Cc: Brian Masney <bmasney@redhat.com>,
  Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <20261013102707.9207-5-changhuang.liang@starfivetech.com>
+In-Reply-To: <20261013102707.9207-6-changhuang.liang@starfivetech.com>
 References: <20261013102707.9207-1-changhuang.liang@starfivetech.com>
- <20261013102707.9207-5-changhuang.liang@starfivetech.com>
+ <20261013102707.9207-6-changhuang.liang@starfivetech.com>
 Date: Sun, 15 Nov 2026 15:18:28 +0100
-Message-Id: <179475230833.3873592.8310507156583636155.b4-review@b4>
+Message-Id: <179475230833.3873592.11095887430765466229.b4-review@b4>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8368; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=TxbedSC4eUXLevyLtulFrGyDmY5zaUcSjNZDAxD2f5s=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFk/95uXva9fbZTEol5vsL2et+fTt40MLvvvLzzdOSt/E
- 7N6gahhRykLgxgXg6yYIksNd7X4O0mtL7Om69yGmcPKBDKEgYtTACbiJ83wh9tgx62r1x/0HPul
- KDrNh9M+8s1b1ulZF2e5dFxZ0PgiaAojw70re5WL5PYwvuHQ0zxU9OYyp0IoGwO7RMukZ60vayv
- rOQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6485; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=4YSHPxWGTuc3EuidS03239lOVJ2/QKGIZgU/mBp8vys=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFk/95szbVDuXvm6sc7DoW66jeWS1j17l/HIL1h27lLXm
+ U9Hlycf6ShlYRDjYpAVU2Sp4a4Wfyep9WXWdJ3bMHNYmUCGMHBxCsBEnk9k+GfuPzvb4vsF2aOr
+ 3hle709gauBg5IqbHv9x9kcrHoXnW84y/M8y7fu6sUw8ITh8/sKcFzcV26emdsqFrVv41fDoL2/
+ GCG4A
 X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
  fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261115_061839_514012_FBD7FDEF 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20261115_061840_737261_B3F81E14 
+X-CRM114-Status: GOOD (  27.31  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,200 +125,189 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-> Add support for JHB100 System-0 clock generator (SYS0CRG).
+> The reset IDs exposed to consumers of the StarFive JHB100 reset
+> controllers do not map one-to-one to the hardware reset bits.
+> 
+> Add struct jh71x0_reset_info, which describes the number of resets, the
+> assert/status register offsets and, for discontiguous controllers, a
+> table mapping reset IDs to hardware bits. Add
+> reset_starfive_jh71x0_register_with_info() to register such a
+> controller, and translate the reset ID in the update and status
+> callbacks when a map is provided.
+> 
+> Existing users of reset_starfive_jh71x0_register() are unaffected.
 > 
 > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 > ---
->  MAINTAINERS                                   |   7 +
->  drivers/clk/starfive/Kconfig                  |  10 ++
->  drivers/clk/starfive/Makefile                 |   2 +
->  .../clk/starfive/clk-starfive-jhb100-sys0.c   | 148 ++++++++++++++++++
->  4 files changed, 167 insertions(+)
->  create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-sys0.c
+>  .../reset/starfive/reset-starfive-jh71x0.c    | 99 ++++++++++++++++---
+>  .../reset/starfive/reset-starfive-jh71x0.h    | 19 ++++
+>  2 files changed, 107 insertions(+), 11 deletions(-)
 >
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 93abbb315065..f66998e8eb64 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -26837,6 +26837,13 @@ F:	Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
->  F:	drivers/phy/starfive/phy-jh7110-pcie.c
->  F:	drivers/phy/starfive/phy-jh7110-usb.c
+> diff --git a/drivers/reset/starfive/reset-starfive-jh71x0.c b/drivers/reset/starfive/reset-starfive-jh71x0.c
+> index 29ce3486752f..fd1c755a0017 100644
+> --- a/drivers/reset/starfive/reset-starfive-jh71x0.c
+> +++ b/drivers/reset/starfive/reset-starfive-jh71x0.c
+> @@ -14,6 +14,8 @@
 >  
-> +STARFIVE JHB100 CLOCK DRIVERS
-> +M:	Changhuang Liang <changhuang.liang@starfivetech.com>
-> +S:	Supported
-> +F:	Documentation/devicetree/bindings/clock/starfive,jhb1*.yaml
-> +F:	drivers/clk/starfive/clk-starfive-jhb1*
-> +F:	include/dt-bindings/clock/starfive,jhb1*.h
+>  #include "reset-starfive-jh71x0.h"
+>  
+> +#define JH71X0_RESET_ID_INVALID	ULONG_MAX
 > +
->  STARFIVE JHB100 EXTERNAL INTERRUPT CONTROLLER DRIVER
->  M:	Changhuang Liang <changhuang.liang@starfivetech.com>
->  S:	Supported
-> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-> index 51716655554f..cb246ae12c08 100644
-> --- a/drivers/clk/starfive/Kconfig
-> +++ b/drivers/clk/starfive/Kconfig
-> @@ -72,3 +72,13 @@ config CLK_STARFIVE_JH7110_VOUT
->  	help
->  	  Say yes here to support the Video-Output clock controller
->  	  on the StarFive JH7110 SoC.
+>  struct jh71x0_reset {
+>  	struct reset_controller_dev rcdev;
+>  	/* protect registers against concurrent read-modify-write */
+> @@ -21,6 +23,11 @@ struct jh71x0_reset {
+>  	void __iomem *assert;
+>  	void __iomem *status;
+>  	const u32 *asserted;
 > +
-> +config CLK_STARFIVE_JHB100_SYS0
-> +	bool "StarFive JHB100 system-0 clock support"
-> +	depends on ARCH_STARFIVE || COMPILE_TEST
-> +	select CLK_STARFIVE_JH71X0
-> +	imply RESET_STARFIVE_JHB100
-> +	default ARCH_STARFIVE
-> +	help
-> +	  Say yes here to support the system-0 clock controller on the
-> +	  StarFive JHB100 SoC.
-> diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
-> index 199ac0f37a2f..d2ba83d7d02c 100644
-> --- a/drivers/clk/starfive/Makefile
-> +++ b/drivers/clk/starfive/Makefile
-> @@ -10,3 +10,5 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)	+= clk-starfive-jh7110-aon.o
->  obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)	+= clk-starfive-jh7110-stg.o
->  obj-$(CONFIG_CLK_STARFIVE_JH7110_ISP)	+= clk-starfive-jh7110-isp.o
->  obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+= clk-starfive-jh7110-vout.o
+> +	/* Only exists in reset controllers that use the
+> +	 * reset_starfive_jh71x0_register_with_info helper.
+> +	 */
+> +	const struct jh71x0_reset_info *info;
+>  };
+>  
+>  static inline struct jh71x0_reset *
+> @@ -29,19 +36,40 @@ jh71x0_reset_from(struct reset_controller_dev *rcdev)
+>  	return container_of(rcdev, struct jh71x0_reset, rcdev);
+>  }
+>  
+> +static unsigned long
+> +jh71x0_reset_id_to_hw_id(const struct jh71x0_reset_map *map, unsigned int nr_resets,
+> +			 unsigned long reset_id)
+> +{
+> +	for (u32 i = 0; i < nr_resets; i++) {
+> +		if (map[i].reset_id == reset_id)
+> +			return map[i].hw_id;
+> +	}
 > +
-> +obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS0)		+= clk-starfive-jhb100-sys0.o
-> diff --git a/drivers/clk/starfive/clk-starfive-jhb100-sys0.c b/drivers/clk/starfive/clk-starfive-jhb100-sys0.c
-> new file mode 100644
-> index 000000000000..dd4d65f4e682
-> --- /dev/null
-> +++ b/drivers/clk/starfive/clk-starfive-jhb100-sys0.c
-> @@ -0,0 +1,148 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * StarFive JHB100 System-0 Clock Driver
-> + *
-> + * Copyright (C) 2024 StarFive Technology Co., Ltd.
-> + *
-> + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
-> + *
-> + */
+> +	return JH71X0_RESET_ID_INVALID;
+> +}
 > +
-> +#include <dt-bindings/clock/starfive,jhb100-crg.h>
-> +#include <linux/init.h>
-> +#include <linux/platform_device.h>
+>  static int jh71x0_reset_update(struct reset_controller_dev *rcdev,
+>  			       unsigned long id, bool assert)
+>  {
+>  	struct jh71x0_reset *data = jh71x0_reset_from(rcdev);
+> -	unsigned long offset = id / 32;
+> -	u32 mask = BIT(id % 32);
+> -	void __iomem *reg_assert = data->assert + offset * sizeof(u32);
+> -	void __iomem *reg_status = data->status + offset * sizeof(u32);
+> -	u32 done = data->asserted ? data->asserted[offset] & mask : 0;
+> -	u32 value;
+> -	unsigned long flags;
+> +	unsigned long offset, flags;
+> +	void __iomem *reg_assert;
+> +	void __iomem *reg_status;
+> +	u32 mask, done, value;
+>  	int ret;
+>  
+> +	if (data->info && data->info->discontiguous) {
+> +		id = jh71x0_reset_id_to_hw_id(data->info->map, data->info->nr_resets, id);
+> +		if (id == JH71X0_RESET_ID_INVALID)
+> +			return -EINVAL;
+> +	}
 > +
-> +#include "clk-starfive-jh71x0.h"
+> +	offset = id / 32;
+> +	mask = BIT(id % 32);
+> +	reg_assert = data->assert + offset * sizeof(u32);
+> +	reg_status = data->status + offset * sizeof(u32);
+> +	done = data->asserted ? data->asserted[offset] & mask : 0;
 > +
-> +/* external clocks */
-> +#define JHB100_SYS0CLK_OSC			JH71X0_EXT_CLK(0)
-> +#define JHB100_SYS0CLK_PLL0			JH71X0_EXT_CLK(1)
-> +#define JHB100_SYS0CLK_PLL1			JH71X0_EXT_CLK(2)
-> +#define JHB100_SYS0CLK_PLL2			JH71X0_EXT_CLK(3)
+>  	if (!assert)
+>  		done ^= mask;
+>  
+> @@ -89,10 +117,20 @@ static int jh71x0_reset_status(struct reset_controller_dev *rcdev,
+>  			       unsigned long id)
+>  {
+>  	struct jh71x0_reset *data = jh71x0_reset_from(rcdev);
+> -	unsigned long offset = id / 32;
+> -	u32 mask = BIT(id % 32);
+> -	void __iomem *reg_status = data->status + offset * sizeof(u32);
+> -	u32 value = readl(reg_status);
+> +	void __iomem *reg_status;
+> +	unsigned long offset;
+> +	u32 mask, value;
 > +
-> +static const char * const jhb100_sys0_ext_clk[] = {
-> +	"osc",
-> +	"pll0",
-> +	"pll1",
-> +	"pll2",
-> +};
+> +	if (data->info && data->info->discontiguous) {
+> +		id = jh71x0_reset_id_to_hw_id(data->info->map, data->info->nr_resets, id);
+> +		if (id == JH71X0_RESET_ID_INVALID)
+> +			return -EINVAL;
+> +	}
+> +
+> +	offset = id / 32;
+> +	mask = BIT(id % 32);
+> +	reg_status = data->status + offset * sizeof(u32);
+> +	value = readl(reg_status);
+>  
+>  	if (!data->asserted)
+>  		return !(value & mask);
+> @@ -132,3 +170,42 @@ int reset_starfive_jh71x0_register(struct device *dev, struct device_node *of_no
+>  	return devm_reset_controller_register(dev, &data->rcdev);
+>  }
+>  EXPORT_SYMBOL_GPL(reset_starfive_jh71x0_register);
+> +
+> +int reset_starfive_jh71x0_register_with_info(struct device *dev, struct device_node *of_node,
+> +					     void __iomem *assert, void __iomem *status,
+> +					     const u32 *asserted,
+> +					     const struct jh71x0_reset_info *info,
+> +					     struct module *owner)
+> +{
+> +	struct jh71x0_reset *data;
+> +	int ret;
+> +
+> +	if (info->discontiguous && (!info->map || !info->nr_resets))
+> +		return dev_err_probe(dev, -EINVAL,
+> +				     "discontiguous controller without a valid ID map\n");
+> +
+> +	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
+> +	if (!data)
+> +		return -ENOMEM;
+> +
+> +	data->rcdev.ops = &jh71x0_reset_ops;
+> +	data->rcdev.owner = owner;
+> +	data->rcdev.nr_resets = info->nr_resets;
+> +	data->rcdev.dev = dev;
+> +	data->rcdev.of_node = of_node;
+> +
+> +	spin_lock_init(&data->lock);
+> +	data->assert = assert;
+> +	data->status = status;
+> +	data->asserted = asserted;
+> +	data->info = info;
+> +
+> +	ret = devm_reset_controller_register(dev, &data->rcdev);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "Failed to register reset controller\n");
+> +
+> +	dev_info(dev, "Registered %u resets\n", data->rcdev.nr_resets);
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(reset_starfive_jh71x0_register_with_info);
+> diff --git a/drivers/reset/starfive/reset-starfive-jh71x0.h b/drivers/reset/starfive/reset-starfive-jh71x0.h
+> index db7d39a87f87..36f198139602 100644
+> --- a/drivers/reset/starfive/reset-starfive-jh71x0.h
+> +++ b/drivers/reset/starfive/reset-starfive-jh71x0.h
+> @@ -6,9 +6,28 @@
+>  #ifndef __RESET_STARFIVE_JH71X0_H
+>  #define __RESET_STARFIVE_JH71X0_H
+>  
+> +struct jh71x0_reset_map {
+> +	unsigned long reset_id;
 
-These are the hackish part I was referring to.
+you don't really need the reset_id, it could just be the entry index in your table ...
 
-> +
-> +static const struct jh71x0_clk_data jhb100_sys0crg_clk_data[] = {
-> +	/* bmcpcierp */
-> +	JH71X0__DIV(JHB100_SYS0CLK_BMCPCIERP_NCNOC_MAIN, "bmcpcierp_ncnoc_main", 6,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	JH71X0__DIV(JHB100_SYS0CLK_BMCPCIERP_NCNOC_CFG, "bmcpcierp_ncnoc_cfg", 12,
-> +		    JHB100_SYS0CLK_PLL1),
-> +	JH71X0__DIV(JHB100_SYS0CLK_PCIE_REF_CML, "pcie_ref_cml", 24,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	JH71X0_GATE(JHB100_SYS0CLK_BMCPCIERP_NCNOC_DATA_INIT, "bmcpcierp_ncnoc_data_init",
-> +		    0, JHB100_SYS0CLK_BMCPCIERP_NCNOC_MAIN),
-
-I think the v6 that came before this had a bunch of critical clocks. None of those were critical after all ?
-You did test without passing clk_ignore_unused in the boot arguments ?
-
-> +	JH71X0_GATE(JHB100_SYS0CLK_BMCPCIERP_NCNOC_CFG_INIT, "bmcpcierp_ncnoc_cfg_init",
-> +		    0, JHB100_SYS0CLK_BMCPCIERP_NCNOC_CFG),
-> +	JH71X0_GATE(JHB100_SYS0CLK_BMCPCIERP_NCNOC_TARG, "bmcpcierp_ncnoc_targ",
-> +		    0, JHB100_SYS0CLK_BMCPCIERP_NCNOC_MAIN),
-> +	JH71X0_GATE(JHB100_SYS0CLK_BMCPCIERP_PCU, "bmcpcierp_pcu", 0, JHB100_SYS0CLK_OSC),
-> +	/* hostss0 */
-> +	JH71X0__DIV(JHB100_SYS0CLK_HOSTSS0_NCNOC_CFG, "hostss0_ncnoc_cfg", 12,
-> +		    JHB100_SYS0CLK_PLL1),
-> +	JH71X0__DIV(JHB100_SYS0CLK_HOSTSS0_NCNOC_DATA, "hostss0_ncnoc_data", 6,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	JH71X0__DIV(JHB100_SYS0CLK_HOSTSS0_PHY_SCAN_400, "hostss0_phy_scan_400", 6,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	JH71X0__DIV(JHB100_SYS0CLK_GPIO_ESPI0_EXT, "gpio_espi0_ext", 14,
-> +		    JHB100_SYS0CLK_PLL2),
-> +	/* bmcusb */
-> +	JH71X0__DIV(JHB100_SYS0CLK_BMCUSB_NCNOC_INIT, "bmcusb_ncnoc_init", 6,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	JH71X0__DIV(JHB100_SYS0CLK_BMCUSB_NCNOC_TARG, "bmcusb_ncnoc_targ", 6,
-> +		    JHB100_SYS0CLK_PLL1),
-> +	JH71X0__DIV(JHB100_SYS0CLK_BMCUSB_SCANCLK, "bmcusb_scanclk", 5,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	JH71X0_GATE(JHB100_SYS0CLK_BMCUSB_480M_SCANCLK, "bmcusb_480m_scanclk",
-> +		    0, JHB100_SYS0CLK_BMCUSB_SCANCLK),
-> +	/* vce */
-> +	JH71X0__DIV(JHB100_SYS0CLK_VCE_NCNOC_INIT, "vce_ncnoc_init", 10,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	JH71X0__DIV(JHB100_SYS0CLK_VCE_NCNOC_TARG, "vce_ncnoc_targ", 12,
-> +		    JHB100_SYS0CLK_PLL1),
-> +	/* bmcperiph2 */
-> +	JH71X0__DIV(JHB100_SYS0CLK_BMCPER2_NCNOC_INIT, "bmcper2_ncnoc_init", 6,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	JH71X0__DIV(JHB100_SYS0CLK_BMCPER2_NCNOC_TARG, "bmcper2_ncnoc_targ", 12,
-> +		    JHB100_SYS0CLK_PLL1),
-> +	JH71X0__DIV(JHB100_SYS0CLK_BMCPER2_CFG_400, "bmcper2_cfg_400", 8,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	JH71X0__DIV(JHB100_SYS0CLK_BMCPER2_CFG_125, "bmcper2_cfg_125", 10,
-> +		    JHB100_SYS0CLK_PLL1),
-> +	/* hostss1 */
-> +	JH71X0__DIV(JHB100_SYS0CLK_HOSTSS1_NCNOC_DATA, "hostss1_ncnoc_data", 6,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	JH71X0__DIV(JHB100_SYS0CLK_HOSTSS1_PHY_SCAN_400, "hostss1_phy_scan_400", 6,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	JH71X0_GATE(JHB100_SYS0CLK_HOSTSS1_PHY_SCAN_400_ICG_BUF,
-> +		    "hostss1_phy_scan_400_icg_buf", 0,
-> +		    JHB100_SYS0CLK_HOSTSS1_PHY_SCAN_400),
-> +	/* npu */
-> +	JH71X0__DIV(JHB100_SYS0CLK_NPU_NCNOC_INIT, "npu_ncnoc_init", 6,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	/* vout */
-> +	JH71X0__DIV(JHB100_SYS0CLK_VOUT_NCNOC_INIT, "vout_ncnoc_init", 6,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	JH71X0__DIV(JHB100_SYS0CLK_VOUT_AUX, "vout_aux", 150,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	/* bmcperiph3 */
-> +	JH71X0__DIV(JHB100_SYS0CLK_BMCPER3_NCNOC_INIT, "bmcper3_ncnoc_init", 6,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	/* hostusb */
-> +	JH71X0__DIV(JHB100_SYS0CLK_HOSTUSB_NCNOC_INIT, "hostusb_ncnoc_init", 6,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	/* hostusbcmn */
-> +	JH71X0__DIV(JHB100_SYS0CLK_HOSTUSBCMN_CFG_480, "hostusbcmn_cfg_480", 5,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	/* bmcperiph1 */
-> +	JH71X0__DIV(JHB100_SYS0CLK_BMCPER1_NCNOC_INIT, "bmcper1_ncnoc_init", 6,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	JH71X0__DIV(JHB100_SYS0CLK_BMCPER1_CFG_800, "bmcper1_cfg_800", 4,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	/* bmcperiph0 */
-> +	JH71X0__DIV(JHB100_SYS0CLK_BMCPER0_NCNOC_INIT, "bmcper0_ncnoc_init", 6,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	JH71X0__DIV(JHB100_SYS0CLK_BMCPER0_CFG_400, "bmcper0_cfg_400", 8,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	JH71X0__DIV(JHB100_SYS0CLK_BMCPER0_CFG_800, "bmcper0_cfg_800", 8,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	/* gpu0 */
-> +	JH71X0__DIV(JHB100_SYS0CLK_GPU0_NCNOC_INIT, "gpu0_ncnoc_init", 10,
-> +		    JHB100_SYS0CLK_PLL0),
-> +	/* gpu1 */
-> +	JH71X0__DIV(JHB100_SYS0CLK_GPU1_NCNOC_INIT, "gpu1_ncnoc_init", 10,
-> +		    JHB100_SYS0CLK_PLL0),
+> +	unsigned long hw_id;
 > +};
 > +
-> +static_assert(ARRAY_SIZE(jhb100_sys0crg_clk_data) <= JH71X0_EXT_CLK_FLAG);
+> +struct jh71x0_reset_info {
+> +	unsigned int nr_resets;
+> +	unsigned int assert_offset;
+> +	unsigned int status_offset;
+> +	bool discontiguous;
 
-This could go away too with the rework I have suggested.
+
+... and this would not be necessary, as Philipp already noted on the previous version.
 
 -- 
 Jerome
