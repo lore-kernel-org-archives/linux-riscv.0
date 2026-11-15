@@ -2,103 +2,111 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B6F9606A330
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 08:12:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82876606A31E
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 08:25:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lK/0/FnS;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=i62iclQZ
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Uu7wyU7C;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=A19YeoTS
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=9QCrTAk7ItsZtAmPddTbClAF3C3D9uvfQ3VIdcxmsgQ=; b=lK/0/FnSE7g6IomCPbpIcVUpxJ
-	RttVBGKUvmnKQCdmEp/HOPj+XzNZmCbunJuFescFSSaUsL8epdaODC0xnQAORzbtkuuKfeQxKm/8F
-	7BKGZCgk2L66Nyf3zSaOz9DSp8vJLZl6IKMTdojRFZ9RrQrXKyqev1qlE/Ef4hEz3dZsGSkGmtKZM
-	KqNGfLnLw/CsfkZFPgSKsp0iByQNIt1jXAXejR+AmL20hnMxTQB4cM4HDOq7kiMNoLaswKm/UdTuC
-	FzfE2GaFQRhEwl7tMdfiLvags46EliJv6SzfXfPQOuy1bzcV2HQpapFqq+2/LMkyDjK6FBM0J2G2s
-	A2NPlmeg==;
+	bh=IKFVR6PkDNpRD8IDbjh37/tsz2kowToAJylydJHCptM=; b=Uu7wyU7C2edNOl/h4Ba7FaU21B
+	sDL5FIhK02mqBiWg3ouQ7fQTJhSEcPE20OTr6m4yVAAz1AbLOmbMeuqrohMisNOyCvFsHnMRzX9Jp
+	ZPJCbDKVXrJ4VQqATsQwvOEwsU4jwAEob4ArnmK8ffcwokKHUdrG7RPp3rp2zskvoENS80Nnhg8Yw
+	pz66H79T9x+u/tss7F0EWPIKQl+QAd7BkiVp7j99BdXH4+mcswpGcWMP1tt7bVCWaN4XIhmALK6YY
+	SbqL3i5br9N7tChr0aGUHywKUtlAKeAn8POKbbfOate6yupe0npJWRlguPrJesK79nBhDnmkL43mo
+	b9rEWyPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSVLM-0000000HDKf-3Xxy;
-	Sun, 15 Nov 2026 08:12:08 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xSVXx-0000000HE9o-3JVP;
+	Sun, 15 Nov 2026 08:25:09 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSVLH-0000000HDKH-3abk;
-	Sun, 15 Nov 2026 08:12:05 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AF7vviY2205269;
-	Sun, 15 Nov 2026 08:11:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=fUa0H0ztFNFxbRvfr5CH/40+4HwV2xqZXcX
-	OuIDf7nY=; b=i62iclQZDxxp/ozqj9EOgfArEp6xpaFMkgRosd357rXah9VU2B+
-	5YLPQsPLWAY0pHLsE7E6f1Za6/2pMl869w2nUWtF1YX5AA0VYP4jobldKnoco8Lw
-	iJ099NgEiUEs0iIZAtfG0/zUN2EieojtjJ3TFnwjRaBmqo00/baibTMpRbnC+YTi
-	4gK9sZkzD4EhyRv0ijGw3ROrdnWoD5k1pRDvSlX9IsYhx6nqROObMANqZYo5WwZX
-	1w1FdUQ8mJfthy706N3cqgcyDSaEzIMCs8q8KTyx0uwdp1BQDVEr1TzpOc4srtsL
-	OEQvdts+6FpzLmhbNwzl4HD0uHtzC3GK+IA==
-Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hxhk22k1m-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sun, 15 Nov 2026 08:11:53 +0000 (GMT)
-Received: from pps.filterd (apblrppmta02.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA02.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AF8BofP2472710;
-	Sun, 15 Nov 2026 08:11:50 GMT
-Received: from hu-devc-blr-u24-a.qualcomm.com (hu-anuppate-blr.qualcomm.com [10.131.36.165])
-	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 6AF8Bo7n2472702
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sun, 15 Nov 2026 08:11:50 +0000 (GMT)
-Received: by hu-devc-blr-u24-a.qualcomm.com (Postfix, from userid 486687)
-	id ACC01248E2; Sun, 15 Nov 2026 13:41:49 +0530 (+0530)
-From: Anup Patel <anup.patel@oss.qualcomm.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-        Atish Patra <atish.patra@linux.dev>,
-        Andrew Jones <andrew.jones@linux.dev>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Anup Patel <anup@brainfault.org>,
-        kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Anup Patel <anup.patel@oss.qualcomm.com>
-Subject: [PATCH v2] RISC-V: KVM: Convert IMSIC vsfile_lock to a raw spinlock
-Date: Sun, 15 Nov 2026 13:41:49 +0530
-Message-ID: <20261115081149.901590-1-anup.patel@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
+	id 1xSVXu-0000000HE9P-2n5c
+	for linux-riscv@lists.infradead.org;
+	Sun, 15 Nov 2026 08:25:08 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-498f5fa4f70so2740603f8f.0
+        for <linux-riscv@lists.infradead.org>; Sun, 15 Nov 2026 00:25:06 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794731105; cv=none;
+        d=google.com; s=arc-20260327;
+        b=DlaCguSQvQEM2sFcZcFlkI4pQB8JYxhUkl0doFLyG093+oabVuenBBbgczURhF5xJS
+         cdj/lVemTTdYBRXUPD/tar80IuWWPpI+B3vhqnZiIm3LkE8uLUNZxd5K23L+jjYGgrvt
+         j9ko5H75b3/ERDjf0Av1hntjougYcLAa3P+hnJJWDSzYUjz4zh+eXc9wuexvl//wlHFY
+         nEpo+RBFaFMXt60IioZBfOJlFRk9qJJUX09mC5nFZKEpE1B8g92Ou4Txa2Z42ba9oP24
+         lFO3JqmcOWWKY+DbJSkhU7zH+SWDLVmafMqQGDqAPVEBis6moQeHob3N1ZNoIyQRWze/
+         I6Fw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=/Px0VIJUlGzeZ9LUedxi9YmXr5Pv4gH8RZcOXqIrVUQ=;
+        fh=em/6jX7Fa05fgZ7cejrQvXcgaZkMVeWaJmNtSwdlbW4=;
+        b=e/nJ56othzGViWO2jhERYidl5mpsbHSHfvIFn5FBMICY0cjFVYuJzcx6q61cqr/60N
+         1+siDB19E/0CG5bQ9C1TO4NAdnpPO6917CH6Ix8pNOPTFrsiSeiYyKGoiQ+6whgoBsqZ
+         /UKQj5Q2+LRbb3Yy+5+Dl0FzEN3lP9j9OxLRzZFprVaXmUcvNUZyjwGZoFGD1Yx/0JCB
+         aDeEI+lbQIM/dp0uaoQ1+UklEFwgzLIphDe+3EoiswaWtDJ9J2et8/i9whwXMcPPimqu
+         HzOREkMWIzU8JYsxWMzgqyTCSWyiCmd/G702pHigOwmDkbgwbB1fQjV9TUfzJEu+jWoi
+         y7lg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault.org; s=google; t=1794731105; x=1795335905; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/Px0VIJUlGzeZ9LUedxi9YmXr5Pv4gH8RZcOXqIrVUQ=;
+        b=A19YeoTS008ETO1NP48gS1IlqWAp6nYqZExdF2SvHcXhwSPA5hCYPAA5hrxQuS6sIy
+         1AbGZXpLZRPop39XJnvMgY2ufUapMUiBpnP4FfLPDP152Oiy/S/pvwCuiT350TCHo8n+
+         yc2ZV0iWyJXPFC0gLZOkv9UnTseVulEeWcuLmXVygyM2F6cOAdpfYScI23eHCjEIbAtD
+         1vHwkTJwAxSbWJqHVKtx+Ocsg7kxrejH7FM/OtPw7kAwJgpgWMDs4DRZrdCmsSrdHNrD
+         U266TjSU5wThp+K6beBlR8mSRBhP6hiaYOBMnQUn63GXV3qrZbmUzsSxBv8FL5edhKC7
+         Or1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794731105; x=1795335905;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/Px0VIJUlGzeZ9LUedxi9YmXr5Pv4gH8RZcOXqIrVUQ=;
+        b=ucqJQlMme00P3P61wVRn8eGEIzGrs25CLQjf1PzRoQDaiTJ1vvLI12yOB+E+E4qjD9
+         CZUoLohdF6Pfp6ucOQGe+U/YHVyDImzQxaP+N8DqT7ozBgfuwg2QVe5hU0UNHDL6TyWU
+         5U0snu/gBJZYeWmBkVCqgjMbTmWJi8nLXPNMrdeLT/cSmB7XDqzBcU9fU24E4zTUprzC
+         TP+6mvC1ylL6Q6ZKYjxxAhnh+CIjUIGvbCernKE35fjW2LKv7rYJ7RGm9LWSp4zsic2B
+         BohPLefC013SmD+55pvSArV371wcW/J1DGbrpXYZKlbZ6Sk2ZR2jLi4GS9sCvsAEhEHd
+         M8LQ==
+X-Forwarded-Encrypted: i=1; AL+hErFiXpAa9cVMYmyMlLM05rviVcmIr4Ge5KXHnsVtHma3HaL4/fq+4L6W6HoJ4aTSGHPhvI6s/R7L5MKfig==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8EZ7X5VMIO6bAZk3vwHycarpfN34I7K5zP04Gkbl8xN4l1E/74
+	an4fIzTZ2FNoWQIopD27bDNSxKuuGGC2BNAtHm8+J9dLLmzsNYcZ+ycB0CnJVHOksQ36Obqjw2X
+	a1s8algg/0AUHqitxRodUPirdele7yPldWV0ovQQY9Q==
+X-Gm-Gg: AYBFou0SdMidZ/wPQjteiuM8aq3hQRjVTuAFP8tpcJSQUJAnBUUg1azafe7+Vhw6Tf1
+	Q97gaGHe00MFARQuLwNILDkak9F0vBbta0onPkzWi8fIcZj+gAddUITRuRbaBQapOmlnz3l0S7O
+	bQEpm1cs2LdqBub3WA41tc9eksyKFHvW+CxCDNopt0GESMDbUMolBaEEYfV0uxEWLyxAR7szRos
+	TaNGkhoXsYoPFVUoKYRBWvj/MnfqUI0t0E1dJXo1bPm5/Ayq0iVrdK1v7nMgttm+Z4taAFDaqKL
+	aJD/pJgmESVyDUhgGUd4qr3/CfqToXcGGdiBi06A2nTYNV7CmfMG0se+O82i9yAu2vmKpOFGStH
+	ZGVpMmLfzLiYiP8R8z2B3cgr7+mFvQBdFca2fViKjLK9PcIyi+//tjsmJm59xyQl7uPlQtunZ1E
+	/hdAdM81+V+1lHlHOVRHEP2j4jC3LGubUU33T3NMFZvOAiwl1QdX/2
+X-Received: by 2002:a05:6000:2012:b0:49c:9e8a:31a9 with SMTP id
+ ffacd0b85a97d-49c9e8a3296mr14948320f8f.57.1794731104324; Sun, 15 Nov 2026
+ 00:25:04 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-ORIG-GUID: rt763E9qN95eSkS-VYNd9oSGTjgbV9Q0
-X-Authority-Analysis: v=2.4 cv=QanzLcbv c=1 sm=1 tr=0 ts=6af96949 cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=gowsoOTTUOVcmtlkKump:22 a=EUspDBNiAAAA:8 a=tOZApgkiDm8jHLQLuvUA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE1MDAzMiBTYWx0ZWRfXz1twMmDAI67m
- 93+/0v6JlKlCoh9rmjAH1fvgHno6x2LVMfHHASHeEV7BYpW7GFoZEM1ttkPwHCrleT6I2fXozfZ
- RrvqRJk8bo/lLD5QEqM4oEoMKvTuZhD6YtimpgA9qgmzxC2JW0sKUhwE9h26jBp6WnJWxdug7bz
- yPWSXkra1QuKRjyiFja0VN3GB6dbivXDUz6Icn2C1o/1MutYcPEWP2BWnlGekXvVIgLzLkdNgEY
- VB05jYVka7Yy7bSMT/8BUgG3CNbUJ8xTkI3yfeJcWvfi2RiwhyFe+yOLPMaU+fQPJBKzBpb3HiZ
- GKoCih61Wb+Vtban2dvFj6T2nk2xkjO20yFPGXt1u9G0ARYuWmFYn1fnJL2d/vw8qNp5umE/cST
- mxsY0AD4tBrTXjFXMBlaEIXG1oX6yF7ZB1nSEYrG+P7+ZS1XPbxyLY6Wfz9UqAyBXxTDjtlvoVx
- Xz5afzp2X4+GAbIeG+g==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE1MDAzMiBTYWx0ZWRfXwqyJ1ELKz4x6
- I4FanG0zWiT1K4AG9vRxrUMSP/84aMn2lttNHR5QHdX8jkYqSiOasuoC0Y6RNRKOlTtG83SQ8fZ
- h44F1PfQiFrm42oQY+bKCzKuAYkgblk=
-X-Proofpoint-GUID: rt763E9qN95eSkS-VYNd9oSGTjgbV9Q0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-15_03,2026-11-11_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 lowpriorityscore=0 clxscore=1015 malwarescore=0 impostorscore=0
- bulkscore=0 priorityscore=1501 suspectscore=0 spamscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611150032
+References: <20261104161512.883885-1-anup.patel@oss.qualcomm.com>
+ <20261104161512.883885-2-anup.patel@oss.qualcomm.com> <CACnXVnfFWF8h+o0=nSb9JESOxYsdVMO+BJKMT7t=K=XVgVwx2g@mail.gmail.com>
+In-Reply-To: <CACnXVnfFWF8h+o0=nSb9JESOxYsdVMO+BJKMT7t=K=XVgVwx2g@mail.gmail.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Sun, 15 Nov 2026 13:54:53 +0530
+X-Gm-Features: AclHuK-mOIV-pplZYU_DZWul_INV3rWFbYVSrvzZgzVjhgWpo6FzAMokpkZQVIs
+Message-ID: <CAAhSdy0ec6MdgrXWAe_AZT2aHEZeL-muj1EpadjCfseZVBy3qQ@mail.gmail.com>
+Subject: Re: [PATCH v7 1/1] RISC-V: Add common csr_read_num() and
+ csr_write_num() functions
+To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261115_001204_039176_EEBF5972 
-X-CRM114-Status: GOOD (  22.40  )
-X-Spam-Score: -2.7 (--)
+X-CRM114-CacheID: sfid-20261115_002506_736839_36B47C6E 
+X-CRM114-Status: GOOD (  24.57  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,282 +116,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Mark Rutland <mark.rutland@arm.com>, Anup Patel <apatel@ventanamicro.com>, Yicong Yang <yang.yicong@picoheart.com>, Yuanzhu <yuanzhu@bytedance.com>, Alexandre Ghiti <alex@ghiti.fr>, "Rafael J . Wysocki" <rafael@kernel.org>, Anup Patel <anup.patel@oss.qualcomm.com>, Atish Patra <atish.patra@linux.dev>, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, Yunhui Cui <cuiyunhui@bytedance.com>, Sunil V L <sunilvl@oss.qualcomm.com>, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nutty Liu <nutty.liu@hotmail.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>, Will Deacon <will@kernel.org>, Len Brown <lenb@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The kvm_riscv_vcpu_aia_imsic_put() runs from the scheduler preemption
-notifier with the raw runqueue lock held, so it must not take vsfile_lock,
-an rwlock_t, which sleeps on PREEMPT_RT. All vsfile_lock critical sections
-are short, so a raw spinlock is fine.
-
-In addition, converting vsfile_lock to raw spinlock allows us to drop
-the vsfile_hgei_lock and the raw_spin_unlock() will internally call
-mmiowb_spin_unlock() which in-turn drains the write-buffer at the time
-of releasing vsfile_lock.
-
-Co-developed-by: Andrew Jones <andrew.jones@linux.dev>
-Signed-off-by: Andrew Jones <andrew.jones@linux.dev>
-Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
----
-Changes since v1:
- - Use writel() instead of writel_relaxed() because mmiowb_spin_unlock()
-   will be only called by raw_spin_unlock() when writel() is called from
-   critical section.
- - Use swfile_extirq_lock in imsic_swfile_read() to serialize clearing
-   IRQ_VS_EXT.
----
- arch/riscv/kvm/aia_imsic.c | 82 +++++++++++++++++++++-----------------
- 1 file changed, 45 insertions(+), 37 deletions(-)
-
-diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
-index 302938972aa0..c5966019cd1f 100644
---- a/arch/riscv/kvm/aia_imsic.c
-+++ b/arch/riscv/kvm/aia_imsic.c
-@@ -47,9 +47,7 @@ struct imsic {
- 	 */
- 
- 	/* IMSIC VS-file */
--	rwlock_t vsfile_lock;
--	/* Writers hold both locks; scheduler-out only takes vsfile_hgei_lock. */
--	raw_spinlock_t vsfile_hgei_lock;
-+	raw_spinlock_t vsfile_lock;
- 	int vsfile_cpu;
- 	int vsfile_hgei;
- 	void __iomem *vsfile_va;
-@@ -490,17 +488,6 @@ static void imsic_vsfile_local_update(int vsfile_hgei, u32 nr_eix,
- 	csr_write(CSR_VSISELECT, old_vsiselect);
- }
- 
--static void imsic_vsfile_set_hgei(struct imsic *imsic, int cpu, int hgei)
--{
--	unsigned long flags;
--
--	/* Serialize the CPU/HGEI pair with scheduler-out's wakeup setup. */
--	raw_spin_lock_irqsave(&imsic->vsfile_hgei_lock, flags);
--	imsic->vsfile_cpu = cpu;
--	imsic->vsfile_hgei = hgei;
--	raw_spin_unlock_irqrestore(&imsic->vsfile_hgei_lock, flags);
--}
--
- static void imsic_vsfile_cleanup(struct imsic *imsic)
- {
- 	int old_vsfile_hgei, old_vsfile_cpu;
-@@ -512,13 +499,14 @@ static void imsic_vsfile_cleanup(struct imsic *imsic)
- 	 * VCPU is being destroyed.
- 	 */
- 
--	write_lock_irqsave(&imsic->vsfile_lock, flags);
-+	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
- 	old_vsfile_hgei = imsic->vsfile_hgei;
- 	old_vsfile_cpu = imsic->vsfile_cpu;
--	imsic_vsfile_set_hgei(imsic, -1, -1);
-+	imsic->vsfile_cpu = -1;
-+	imsic->vsfile_hgei = -1;
- 	imsic->vsfile_va = NULL;
- 	imsic->vsfile_pa = 0;
--	write_unlock_irqrestore(&imsic->vsfile_lock, flags);
-+	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
- 
- 	memset(imsic->swfile, 0, sizeof(*imsic->swfile));
- 
-@@ -553,6 +541,7 @@ static void imsic_swfile_read(struct kvm_vcpu *vcpu, bool clear,
- 			      struct imsic_mrif *mrif)
- {
- 	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
-+	unsigned long flags;
- 
- 	/*
- 	 * We don't use imsic_mrif_atomic_xyz() functions to read and
-@@ -561,11 +550,15 @@ static void imsic_swfile_read(struct kvm_vcpu *vcpu, bool clear,
- 	 * a temporary MRIF on stack.
- 	 */
- 
-+	raw_spin_lock_irqsave(&imsic->swfile_extirq_lock, flags);
-+
- 	memcpy(mrif, imsic->swfile, sizeof(*mrif));
- 	if (clear) {
- 		memset(imsic->swfile, 0, sizeof(*imsic->swfile));
- 		kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_EXT);
- 	}
-+
-+	raw_spin_unlock_irqrestore(&imsic->swfile_extirq_lock, flags);
- }
- 
- static void imsic_swfile_update(struct kvm_vcpu *vcpu,
-@@ -606,7 +599,7 @@ bool kvm_riscv_vcpu_aia_imsic_has_interrupt(struct kvm_vcpu *vcpu)
- 	 * only check for interrupt when IMSIC VS-file is being used.
- 	 */
- 
--	read_lock_irqsave(&imsic->vsfile_lock, flags);
-+	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
- 	if (imsic->vsfile_cpu > -1) {
- 		/*
- 		 * This function is typically called from kvm_vcpu_block() via
-@@ -621,7 +614,7 @@ bool kvm_riscv_vcpu_aia_imsic_has_interrupt(struct kvm_vcpu *vcpu)
- 		else
- 			ret = !!(csr_read(CSR_HGEIP) & BIT(imsic->vsfile_hgei));
- 	}
--	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
-+	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
- 
- 	return ret;
- }
-@@ -646,10 +639,10 @@ void kvm_riscv_vcpu_aia_imsic_put(struct kvm_vcpu *vcpu)
- 	if (!kvm_vcpu_is_blocking(vcpu))
- 		return;
- 
--	raw_spin_lock_irqsave(&imsic->vsfile_hgei_lock, flags);
-+	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
- 	if (imsic->vsfile_cpu > -1)
- 		csr_set(CSR_HGEIE, BIT(imsic->vsfile_hgei));
--	raw_spin_unlock_irqrestore(&imsic->vsfile_hgei_lock, flags);
-+	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
- }
- 
- void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu)
-@@ -663,13 +656,14 @@ void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu)
- 		return;
- 
- 	/* Read and clear IMSIC VS-file details */
--	write_lock_irqsave(&imsic->vsfile_lock, flags);
-+	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
- 	old_vsfile_hgei = imsic->vsfile_hgei;
- 	old_vsfile_cpu = imsic->vsfile_cpu;
--	imsic_vsfile_set_hgei(imsic, -1, -1);
-+	imsic->vsfile_cpu = -1;
-+	imsic->vsfile_hgei = -1;
- 	imsic->vsfile_va = NULL;
- 	imsic->vsfile_pa = 0;
--	write_unlock_irqrestore(&imsic->vsfile_lock, flags);
-+	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
- 
- 	/* Do nothing, if no IMSIC VS-file to release */
- 	if (old_vsfile_cpu < 0)
-@@ -726,10 +720,10 @@ int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu)
- 		return 1;
- 
- 	/* Read old IMSIC VS-file details */
--	read_lock_irqsave(&imsic->vsfile_lock, flags);
-+	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
- 	old_vsfile_hgei = imsic->vsfile_hgei;
- 	old_vsfile_cpu = imsic->vsfile_cpu;
--	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
-+	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
- 
- 	/* Do nothing if we are continuing on same CPU */
- 	if (old_vsfile_cpu == vcpu->cpu)
-@@ -779,11 +773,12 @@ int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu)
- 	/* TODO: Update the IOMMU mapping ??? */
- 
- 	/* Update new IMSIC VS-file details in IMSIC context */
--	write_lock_irqsave(&imsic->vsfile_lock, flags);
--	imsic_vsfile_set_hgei(imsic, vcpu->cpu, new_vsfile_hgei);
-+	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
-+	imsic->vsfile_cpu = vcpu->cpu;
-+	imsic->vsfile_hgei = new_vsfile_hgei;
- 	imsic->vsfile_va = new_vsfile_va;
- 	imsic->vsfile_pa = new_vsfile_pa;
--	write_unlock_irqrestore(&imsic->vsfile_lock, flags);
-+	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
- 
- 	/*
- 	 * At this point, all interrupt producers have been moved
-@@ -874,6 +869,7 @@ int kvm_riscv_aia_imsic_rw_attr(struct kvm *kvm, unsigned long type,
- 	struct imsic *imsic;
- 	struct kvm_vcpu *vcpu;
- 	int rc, vsfile_hgei, vsfile_cpu;
-+	bool swfile_update = false;
- 
- 	if (!kvm_riscv_aia_initialized(kvm))
- 		return -ENODEV;
-@@ -893,7 +889,7 @@ int kvm_riscv_aia_imsic_rw_attr(struct kvm *kvm, unsigned long type,
- 	}
- 	isel = KVM_DEV_RISCV_AIA_IMSIC_GET_ISEL(type);
- 
--	read_lock_irqsave(&imsic->vsfile_lock, flags);
-+	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
- 
- 	rc = 0;
- 	vsfile_hgei = imsic->vsfile_hgei;
-@@ -902,13 +898,16 @@ int kvm_riscv_aia_imsic_rw_attr(struct kvm *kvm, unsigned long type,
- 		if (write) {
- 			rc = imsic_mrif_rmw(imsic->swfile, imsic->nr_eix,
- 					    isel, NULL, *val, -1UL);
--			imsic_swfile_extirq_update(vcpu);
-+			swfile_update = true;
- 		} else
- 			rc = imsic_mrif_rmw(imsic->swfile, imsic->nr_eix,
- 					    isel, val, 0, 0);
- 	}
- 
--	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
-+	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
-+
-+	if (swfile_update)
-+		imsic_swfile_extirq_update(vcpu);
- 
- 	if (!rc && vsfile_cpu >= 0)
- 		rc = imsic_vsfile_rw(vsfile_hgei, vsfile_cpu, imsic->nr_eix,
-@@ -959,6 +958,7 @@ int kvm_riscv_vcpu_aia_imsic_inject(struct kvm_vcpu *vcpu,
- 	unsigned long flags;
- 	struct imsic_mrif_eix *eix;
- 	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
-+	bool swfile_update = false;
- 
- 	/* We only emulate one IMSIC MMIO page for each Guest VCPU */
- 	if (!imsic || !iid || guest_index ||
-@@ -970,17 +970,26 @@ int kvm_riscv_vcpu_aia_imsic_inject(struct kvm_vcpu *vcpu,
- 	if (imsic->nr_msis <= iid)
- 		return -EINVAL;
- 
--	read_lock_irqsave(&imsic->vsfile_lock, flags);
-+	raw_spin_lock_irqsave(&imsic->vsfile_lock, flags);
- 
- 	if (imsic->vsfile_cpu >= 0) {
-+		/*
-+		 * We must use writel() over here because the raw_spin_unlock()
-+		 * below will do mmiowb_spin_unlock() which in-turn drains the
-+		 * write-buffer ensuring the write is visible to the CPU owning
-+		 * the target IMSIC VS-file.
-+		 */
- 		writel(iid, imsic->vsfile_va + IMSIC_MMIO_SETIPNUM_LE);
- 	} else {
- 		eix = &imsic->swfile->eix[iid / BITS_PER_TYPE(u64)];
- 		set_bit(iid & (BITS_PER_TYPE(u64) - 1), eix->eip);
--		imsic_swfile_extirq_update(vcpu);
-+		swfile_update = true;
- 	}
- 
--	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
-+	raw_spin_unlock_irqrestore(&imsic->vsfile_lock, flags);
-+
-+	if (swfile_update)
-+		imsic_swfile_extirq_update(vcpu);
- 
- 	return 0;
- }
-@@ -1036,8 +1045,7 @@ int kvm_riscv_vcpu_aia_imsic_init(struct kvm_vcpu *vcpu)
- 
- 	/* Setup IMSIC context  */
- 	imsic->nr_msis = kvm->arch.aia.nr_ids + 1;
--	rwlock_init(&imsic->vsfile_lock);
--	raw_spin_lock_init(&imsic->vsfile_hgei_lock);
-+	raw_spin_lock_init(&imsic->vsfile_lock);
- 	imsic->nr_eix = BITS_TO_U64(imsic->nr_msis);
- 	imsic->nr_hw_eix = BITS_TO_U64(kvm_riscv_aia_max_ids);
- 	imsic->vsfile_hgei = imsic->vsfile_cpu = -1;
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBOb3YgMTEsIDIwMjYgYXQgMjo0NeKAr1BNIFpoYW5wZW5nIFpoYW5nCjx6aGFuZ3po
+YW5wZW5nLmphc3BlckBieXRlZGFuY2UuY29tPiB3cm90ZToKPgo+IEhpIEFudXAsCj4KPiBPbiAx
+MS81LzI2IDEyOjE1IEFNLCBBbnVwIFBhdGVsIHdyb3RlOgo+ID4gRnJvbTogQW51cCBQYXRlbCA8
+YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+Cj4gPgo+ID4gSW4gUklTQy1WLCB0aGVyZSBpcyBubyBD
+U1IgcmVhZC93cml0ZSBpbnN0cnVjdGlvbiB3aGljaCB0YWtlcyBDU1IKPiA+IG51bWJlciB2aWEg
+cmVnaXN0ZXIgc28gYWRkIGNvbW1vbiBjc3JfcmVhZF9udW0oKSBhbmQgY3NyX3dyaXRlX251bSgp
+Cj4gPiBmdW5jdGlvbnMgd2hpY2ggYWxsb3cgYWNjZXNzaW5nIGNlcnRhaW4gQ1NScyBieSBwYXNz
+aW5nIENTUiBudW1iZXIKPiA+IGFzIHBhcmFtZXRlci4gVGhlc2UgY29tbW9uIGZ1bmN0aW9ucyB3
+aWxsIGJlIGZpcnN0IHVzZWQgYnkgdGhlCj4gPiBBQ1BJIENQUEMgZHJpdmVyIGFuZCBSSVNDLVYg
+UE1VIGRyaXZlci4KPiA+Cj4gPiBBbHNvLCB0aGUgUklTQy1WIEFDUEkgRkZIIHNwZWNpZmljYXRp
+b24gYWxsb3dzIGFyYml0cmFyeSBDU1IgbnVtYmVyCj4gPiBhcyBDUFBDIHJlZ2lzdGVyIGFuZCB0
+aGUgUklTQy1WIFNCSSBzcGVjaWZpY2F0aW9uIGFsbG93cyBhcmJpdHJhcnkKPiA+IENTUiBudW1i
+ZXIgYXMgUE1VIGhhcmR3YXJlIGNvdW50ZXIuIFRoaXMgbWVhbnMgQUNQSSBDUFBDIGRyaXZlciBh
+bmQKPiA+IFJJU0MtViBQTVUgZHJpdmVyIG5vIGxvbmdlciBuZWVkIHRvIGRvIHNhbml0eSBjaGVj
+a3Mgb24gQ1NSIG51bWJlcgo+ID4gd2hpY2ggYXJlIG5vdyBkb25lIGJ5IHRoZSBjb21tb24gY3Ny
+X3JlYWRfbnVtKCkgYW5kIGNzcl93cml0ZV9udW0oKQo+ID4gZnVuY3Rpb25zLgo+ID4KPiA+IFNp
+Z25lZC1vZmYtYnk6IEFudXAgUGF0ZWwgPGFwYXRlbEB2ZW50YW5hbWljcm8uY29tPgo+ID4gUmV2
+aWV3ZWQtYnk6IFN1bmlsIFYgTCA8c3VuaWx2bEB2ZW50YW5hbWljcm8uY29tPgo+ID4gUmV2aWV3
+ZWQtYnk6IEFuZHJldyBKb25lcyA8YWpvbmVzQHZlbnRhbmFtaWNyby5jb20+Cj4gPiBSZXZpZXdl
+ZC1ieTogQXRpc2ggUGF0cmEgPGF0aXNocEByaXZvc2luYy5jb20+Cj4gPiBSZXZpZXdlZC1ieTog
+TnV0dHkgTGl1IDxudXR0eS5saXVAaG90bWFpbC5jb20+Cj4gPiAtLS0KPiA+ICAgYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS9jc3IuaCB8ICAgMyArCj4gPiAgIGFyY2gvcmlzY3Yva2VybmVsL01ha2Vm
+aWxlICAgfCAgIDEgKwo+ID4gICBhcmNoL3Jpc2N2L2tlcm5lbC9jc3IuYyAgICAgIHwgMTY1ICsr
+KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gPiAgIGRyaXZlcnMvYWNwaS9yaXNj
+di9jcHBjLmMgICAgfCAgMTcgKystLQo+ID4gICBkcml2ZXJzL3BlcmYvcmlzY3ZfcG11LmMgICAg
+IHwgIDU0ICsrLS0tLS0tLS0tLQo+ID4gICA1IGZpbGVzIGNoYW5nZWQsIDE4NCBpbnNlcnRpb25z
+KCspLCA1NiBkZWxldGlvbnMoLSkKPiA+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yv
+a2VybmVsL2Nzci5jCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+Y3NyLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oCj4gPiBpbmRleCA2MjFmODRkMTg5
+OGYuLmViZDgyMDQzNDMwYiAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+Y3NyLmgKPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmgKPiA+Cj4gPiBbLi4u
+XQo+ID4gICAvKgo+ID4gICAgKiBSZWFkIHRoZSBDU1Igb2YgYSBjb3JyZXNwb25kaW5nIGNvdW50
+ZXIuCj4gPiAgICAqLwo+ID4gICB1bnNpZ25lZCBsb25nIHJpc2N2X3BtdV9jdHJfcmVhZF9jc3Io
+dW5zaWduZWQgbG9uZyBjc3IpCj4gPiAgIHsKPiA+IC0gICAgIGlmIChjc3IgPCBDU1JfQ1lDTEUg
+fHwgY3NyID4gQ1NSX0hQTUNPVU5URVIzMUggfHwKPiA+IC0gICAgICAgIChjc3IgPiBDU1JfSFBN
+Q09VTlRFUjMxICYmIGNzciA8IENTUl9DWUNMRUgpKSB7Cj4KPgo+IENvdWxkIHdlIGtlZXAgdGhl
+IGV4aXN0aW5nIENTUiByYW5nZSBjaGVjayBpbiByaXNjdl9wbXVfY3RyX3JlYWRfY3NyKCkKPiB3
+aGVuIHN3aXRjaGluZyBpdCB0byBjc3JfcmVhZF9udW0oKT8KPgo+IFRoZSBTQkkgUE1VIGRyaXZl
+ciBzdGlsbCBhc3N1bWVzIHRoZSBhcmNoaXRlY3R1cmFsIGNvdW50ZXIgbGF5b3V0LiBGb3IKPiBl
+eGFtcGxlLCBpZiBTQkkgYXNzaWducyBhbiBldmVudCB0byBhIGN1c3RvbSBjb3VudGVyIGF0IENT
+UiAweDgwMCwKPiBwbXVfc2JpX2Nzcl9pbmRleCgpIHRydW5jYXRlcyAweDgwMCAtIENTUl9DWUNM
+RSB0byB6ZXJvLiBUaGUgcGVyZiBtbWFwCj4gcGFnZSB0aGVuIGFkdmVydGlzZXMgaW5kZXggMSwg
+c28gdXNlcnNwYWNlIHJlYWRzIGN5Y2xlIHdoaWxlIHRoZSBrZXJuZWwKPiByZWFkcyAweDgwMC4g
+VGhlIHNhbWUgaW5kZXggaXMgdXNlZCB0byBzZXQgYW5kIGNsZWFyIHNjb3VudGVyZW4uCj4KPiBO
+b24tc25hcHNob3Qgb3ZlcmZsb3cgaGFuZGxpbmcgYW5kIFJWMzIgaGlnaC1oYWxmIHJlYWRzIGFs
+c28gYXNzdW1lIHRoZQo+IGFyY2hpdGVjdHVyYWwgbGF5b3V0LiBDb3VsZCB3ZSBrZWVwIHRoZSBQ
+TVUgY29udmVyc2lvbgo+IGJlaGF2aW9yLXByZXNlcnZpbmcgYW5kIGhhbmRsZSBjdXN0b20gY291
+bnRlcnMgc2VwYXJhdGVseT8KPgoKT2theSwgSSB3aWxsIGtlZXAgdGhlIENTUiByYW5nZSBjaGVj
+ayBpbiByaXNjdl9wbXVfY3RyX3JlYWRfY3NyKCkuCgpSZWdhcmRzLApBbnVwCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
