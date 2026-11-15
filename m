@@ -2,110 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE876606A339
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 15:43:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1568606A323
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 18:39:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=48F0gxeI;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=GwUzGXw6
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=az91bdT+;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PWPpc8v9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=gAXBEBs1K3nhTR+FWrMwTI7MO2XIskQvdi7L0+xiKOc=; b=48F0gxeIdlKlmeCJHjrv6sm0Fl
-	XWvkebIbw+y3UVGGaQ81/9qkFLC3KsAh/6vrwQ451DmUZczjVlfh5hnT62IhKPxT4uOJ8JFE3eRSc
-	OsicWiYoOaSJkGA2L9dUwl58RNDeRFJGxMxw16Q9YS3Qrmx8miUrn1Dysf8NV7eHspmKjW+73WnLB
-	FOoQJmOvDv0FG3+THQ1vi5/gW46R16bI3+98hKgF16b4VZw3U+HXtxX9bBPSJul8T3wkOQK1GBxiv
-	1TYx8uDQ2gGUoZoNtKprhm3hIjCfOFMwOI5abTVxX/NwMte0DS4dEkcIpcHnJf91CTK9oJ6uHLU61
-	L8NlmqAg==;
+	bh=hnxYNnSvm6jK9xbtgHXVUPeaJBfAJ57VzSS23EVCppo=; b=az91bdT+t6uSee9eqNwbRkNy6i
+	BiBkWOF9Eg10Lb+msS6sr3ubnwETMHXIUWW3mL3Jy6L0x5qRhDcJ+PmHhdh+OWUBE6bYztmhp20Mt
+	uypghoRiI3PPn9GjVygYKynwJWz+XbG9wovrReAryb+5rFQ0Jbc3PRKFm1n63HTs6K1kdIqRTFULt
+	tHS8UpAxwpeCu99giOgm7mUIijCVjXlF0sxpnWtmYeZkH+DU34x8wx/GTHyafMnAR4Lgh85wDVbWJ
+	ZpRNBBpJB/lvoqG/YPDTEFB++4wbJSg76RGQlsynvmA/jFhySS8tr/tTO0Wg1FSMq5sV2OeSvNQxj
+	9jMSFeXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xScO3-000000009ov-09XY;
-	Sun, 15 Nov 2026 15:43:23 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1xSf7q-00000000LVE-2RPT;
+	Sun, 15 Nov 2026 18:38:50 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xScO0-000000009o3-3gJo
+	id 1xSf7o-00000000LTn-0w1b
 	for linux-riscv@lists.infradead.org;
-	Sun, 15 Nov 2026 15:43:22 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4b467581b98so20204735e9.0
-        for <linux-riscv@lists.infradead.org>; Sun, 15 Nov 2026 07:43:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1794757399; x=1795362199; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=hziuiiMUYFT/Qu2Fwgb6Sb0cIY/xqbSxPRQl/HG5KA0=;
-        b=GwUzGXw6+s0+Q1HAk9i4JsxMQ3U6gHPdxIt5r19IYynejirg7PjsNjXUZYXAtet4zd
-         aV3gnODGChy3e2pJj7hjMx66Wx8LiekldDyxzzc5XiGQa8lcbn/MySiFw0ffT7jRdHw0
-         oF+wBLKll2aaEwCaOpGAkpS4qlEppVbBwOW8nfNmt9sS+nEIdm47IFlHKThbu2lFXPXF
-         Gli93YDuJRJpPo68g8e+l+dh/o7JF9Es38kqZvChVS+S5+2eFKiehJHKQvgwBV6j7VPD
-         1gP7g68qvHnx00LUVnd/CcK7iNOlDhYxk66EPoghlB5JGnHmCCOnyPsq5IfFmMJFlF9r
-         rLgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794757399; x=1795362199;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hziuiiMUYFT/Qu2Fwgb6Sb0cIY/xqbSxPRQl/HG5KA0=;
-        b=Fp3zYLBgnMhL8Wb5ptR6fw9fcV1qsFNx/WkiMAMeD/O+oDpamVji1KK3O1M/Fpq04k
-         VyHWoIy3Ycktosxu63WSyY/ezdm1/7TDwvsaICWwpwZP+LomCLjKxBgIE6CYfJ/r4S+m
-         E80CHc71yPEk/txL87c7PcTi/moPWt+HK0laNIjayxZoXXh3GWW1XVgnqE3pdYF/c0t3
-         mCbAXGouhNf45/nLdZ78AnbxreVQw3bDwIJTDzj/7aL8A5MVjIA3aHyRdEKWu/iWsAlb
-         CRHh2lMD8I7mCoVSH4YZwMYbAf+Xq1W6U2mTfRhi5zcz8odmlSAGp8pQpEwnGzpwkJLX
-         CheA==
-X-Forwarded-Encrypted: i=1; AL+hErE8TWFt/88KGFh7KuiqliFRc9npkpTtNAM9FEP9eky3UQKNnxDyRa+N/3U58IRsYUhRXlrAT5PZGI5fQg==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8mhgb5T6RI7Ox77b4lRjdC7imS/0oDbbze5KQo9ez1vBfjdMvh
-	YV+cwKvxp0NuKsL7S2yaKiTCMCoqOXgeYbO5z04/ai8dYLbGdkihiw92QYZp90nKvLg=
-X-Gm-Gg: AYBFou05fkgg67Ds/jCLX5KnUPZMF/qTMyDgHWsVR053oEb/bTZ3waw7Lr5h7m9tlsR
-	QY7fJXxCulUAhrcLc/TVrC1rN3rj1JjYfIDj4xWHImTYYtKIJY0rD1gU9d0z5jFSLgzckPtgznb
-	TqDzDp9Kq7dP1BKUvz1M8LfNlIV7uVg30U+gCcaaZysWklW+0rqgVY/Dn2F0YS+unph1EDWHfp7
-	/+Md5Bo9Y3Ov+8yQ07J3fPWVKqUKYbFP03ZPQX1OO+gLkuQrFaESbHSxX7JSPo60GO/CPF0KZ2m
-	4u4KglHy0feJpbXNaW1PvCu28+0NP5U8R2toTLRuU+Qq2NSYPEmZNQGAhHTpvwkL7VpNMkc8El2
-	6Hk3rPtAJVJQcjZElyEmiCKyDQvqY6MNC5n76RhGhmtEUbhJSAQKM5GP24Ps4YlWrVSOTqRxDlT
-	b+MF7GyCLyFc2RzjeSBR9uAgBy2C1MEDt3tP+D48d2JvHMPyynV7a1pkgw3QAJ4wdaEpijNzogl
-	Qox8F0ugX7S0bHtDJ9IfoMQMNF0bmaaW5l8KVRW70EvHL6uw7fA5pwip9/+Et8XqTEFcwlHBDzK
-	0142m2kWnuXe9/P7vymvmgbn4d0D39bXB6iO/xwTiq6j/VjOkmkO2x9Y
-X-Received: by 2002:a05:600c:608c:b0:4bb:680f:9a3 with SMTP id 5b1f17b1804b1-4bb680f0a64mr77590835e9.2.1794757398894;
-        Sun, 15 Nov 2026 07:43:18 -0800 (PST)
-Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb68c00b10sm52646085e9.0.2026.11.15.07.43.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Nov 2026 07:43:17 -0800 (PST)
-Date: Sun, 15 Nov 2026 16:43:16 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: gaohan@iscas.ac.cn
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Guo Ren <guoren@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
-	Samuel Holland <samuel.holland@sifive.com>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Maxime Ripard <mripard@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Andre Przywara <andre.przywara@arm.com>, 
-	Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@sifive.com>, 
-	Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, linux-csky@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rtc@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH 15/19] pinctrl: sunxi: add support for the Allwinner V861
- R-PIO
-Message-ID: <avnSl53KHJWGrBcE@monoceros>
-References: <20261114-v861-v1-0-eb71ec3ee523@iscas.ac.cn>
- <20261114-v861-v1-15-eb71ec3ee523@iscas.ac.cn>
+	Sun, 15 Nov 2026 18:38:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794767928; x=1826303928;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ho9p6bSo8pi1QrenazGvesf4HhUNwYmhTsTzMNwIz5w=;
+  b=PWPpc8v9wuWuUQd/mGlRblIC6Z39upTInKfSshMXSibsdCxMwFctkljF
+   new8rJp0SjLEghvOHrv81o2O6Od4d7BVTOWWyqGS/L9w4yOvLokopvCoP
+   +s19EHL9IEiVu7vNfOukaFfJMvt8f3Ai1lmFShkJP+ZE3rfcovL+Qk4Lu
+   8cBEVQNruP7OfJEiz2a9imx4VB5x6mailoRjgG7es8lwNtAqxb7bWmJNn
+   Gr6elVwdu8icibNdjzjqYvdWv4uc7sknbRYIy0zypFje6vWyLF1g1FiLd
+   2WsL57KLKb0mWpRGBonidsJlrMe8LU1NN5hUYSqv/WCdy29RVmPUb8A9R
+   g==;
+X-CSE-ConnectionGUID: FiXfSefUROOX1AmAXA6b9Q==
+X-CSE-MsgGUID: toazdAXaRSK6qpe6qr44xw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11967"; a="3498588"
+X-IronPort-AV: E=Sophos;i="6.27,215,1787036400"; 
+   d="scan'208";a="3498588"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Nov 2026 10:38:47 -0800
+X-CSE-ConnectionGUID: xgioXYEnTiuMMwCr8er90g==
+X-CSE-MsgGUID: i+uioB1WQR2VnUR4b4a0wQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,215,1787036400"; 
+   d="scan'208";a="9372476"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 15 Nov 2026 10:38:44 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xSf7g-000000017C8-1yn4;
+	Sun, 15 Nov 2026 18:38:40 +0000
+Date: Mon, 16 Nov 2026 02:37:57 +0800
+From: kernel test robot <lkp@intel.com>
+To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Guo Ren <guoren@kernel.org>,
+	Pekka Enberg <penberg@kernel.org>,
+	Patrick =?iso-8859-1?Q?St=E4hlin?= <me@packi.ch>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Subject: Re: [PATCH v4 2/3] riscv: probes: reject probes inside an LR/SC
+ sequence
+Message-ID: <202611160252.d58noD11-lkp@intel.com>
+References: <20261115-probes-in-lrsc-v4-2-48b9b036bd1d@mobileye.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20261114-v861-v1-15-eb71ec3ee523@iscas.ac.cn>
+Content-Disposition: inline
+In-Reply-To: <20261115-probes-in-lrsc-v4-2-48b9b036bd1d@mobileye.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261115_074320_935492_4F6DDC25 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261115_103848_315146_956A54F7 
+X-CRM114-Status: GOOD (  13.70  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,63 +95,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8323630653427295880=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Hi Vladimir,
 
---===============8323630653427295880==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="nd4yu7xpyaelhc7q"
-Content-Disposition: inline
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on c03c1a14507dfaf8b856c2608f9ac216021fc222]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Vladimir-Kondratiev/riscv-kprobes-fix-out-of-bounds-read-in-riscv_probe_decode_insn/20261115-143733
+base:   c03c1a14507dfaf8b856c2608f9ac216021fc222
+patch link:    https://lore.kernel.org/r/20261115-probes-in-lrsc-v4-2-48b9b036bd1d%40mobileye.com
+patch subject: [PATCH v4 2/3] riscv: probes: reject probes inside an LR/SC sequence
+config: riscv-randconfig-1000-20261115 (https://download.01.org/0day-ci/archive/20261116/202611160252.d58noD11-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project ca14e3d05c4e63d6e8103945c86b958ed2f55d5f)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261116/202611160252.d58noD11-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611160252.d58noD11-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from arch/riscv/kernel/probes/kprobes.c:5:
+   In file included from include/linux/kprobes.h:28:
+   In file included from include/linux/ftrace.h:10:
+   In file included from include/linux/trace_recursion.h:5:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:11:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:12:
+   In file included from arch/riscv/include/asm/io.h:148:
+   include/asm-generic/io.h:1209:55: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+    1209 |         return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
+         |                                                   ~~~~~~~~~~ ^
+>> arch/riscv/kernel/probes/kprobes.c:75:4: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+      75 |                         else
+         |                         ^
+   2 warnings generated.
 
 
---nd4yu7xpyaelhc7q
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH 15/19] pinctrl: sunxi: add support for the Allwinner V861
- R-PIO
-MIME-Version: 1.0
+vim +75 arch/riscv/kernel/probes/kprobes.c
 
-Same feedback as for patch #14: Don't include <linux/mod_devicetable.h>
-and please fix the spacing in the of_device_id array.
+    51	
+    52	/*
+    53	 * Walk the instructions from the enclosing symbol up to addr to check that
+    54	 * addr is an instruction boundary. Then reject a probe inside an LR/SC
+    55	 * sequence: the breakpoint trap drops the reservation, so the SC would fail
+    56	 * and the loop would hit the probe again on every retry. The sequence is
+    57	 * recognised by a forward scan with the constrained-sequence rules, as for
+    58	 * uprobes, so an lr that is not followed by an sc (as in __cmpwait()) does
+    59	 * not taint the rest of the function.
+    60	 */
+    61	static int __kprobes arch_check_kprobe(unsigned long addr)
+    62	{
+    63		unsigned long tmp, offset;
+    64	
+    65		/* start iterating at the closest preceding symbol */
+    66		if (!kallsyms_lookup_size_offset(addr, NULL, &offset))
+    67			return -EILSEQ;
+    68	
+    69		tmp = addr - offset;
+    70	
+    71		while (tmp <= addr) {
+    72			if (tmp == addr)
+    73				if (riscv_probe_in_lrsc_body((u16 *)addr, RISCV_LRSC_SCAN_BYTES))
+    74					return -EINVAL;
+  > 75				else
+    76					return 0;
+    77	
+    78			tmp += GET_INSN_LENGTH(*(u16 *)tmp);
+    79		}
+    80	
+    81		return -EILSEQ;
+    82	}
+    83	
 
-Best regards
-Uwe
-
---nd4yu7xpyaelhc7q
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmr50xEACgkQj4D7WH0S
-/k7FQQf9GMWHvRPfVzE3vnOHAT8nN1+INki1D4kL4uwlHr3JU4yutcwFkaHKLsQU
-b4DbnyStL4d7i466zTUN7GaSuTfs5LByLE0hKNibeGI5Wa+bHdhPXZw6poTITVON
-f2BwjcuK+Zq5YQKqimrjo/4tbchvvRaJ2tX4FrpWxIYNSEVPVDu3Ku1FTeQTjQiW
-q3iSJsE9FH4VZAUg2tViVg4jIzTIj6ncm2+HvaOFr/vv8gwncEBYp0IlMVPyqH3A
-a+UAaIoEVNFvPPDDjTGrnHlPAjkkKoP4p3OAxBnC1l6qyEx0qCChV2gqtkPof0ba
-XuoM97TKUIIJOGjYertizBLa8GJ32A==
-=5u67
------END PGP SIGNATURE-----
-
---nd4yu7xpyaelhc7q--
-
-
---===============8323630653427295880==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8323630653427295880==--
-
