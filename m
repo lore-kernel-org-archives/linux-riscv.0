@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A61A7606A329
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 19:53:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D369606A336
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 19:53:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fOxb8dSL;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=freeshell.de header.i=@freeshell.de header.a=rsa-sha256 header.s=s2025 header.b=Qo7L399l
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gM3eztHn;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=freeshell.de header.i=@freeshell.de header.a=rsa-sha256 header.s=s2025 header.b=cZ2PH9iF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,61 +14,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=5QOYN5jUDhpbOoELQATfR8BkyjlB4e+p2MiQf0mrTuY=; b=fOxb8dSLAsqhcmmk+NyWQie0lX
-	CzMC93AhO+mD8IQjmdDtsUUnw18FVC9r5TfCq2TcGLex6IfsmPUVmrGq7ik/zc1+dqxcIxYEqIfUw
-	eEuZl7EkkCUzoTNAtoCFrhtowtp/5BwqT/4mXWW4Pf0pK2S80YcE+USpOF9QJxRz7bsr21SXaMKp9
-	TsMSZ2oEAKujWVQkX2GarN4b6bMEUKl35OklMvr/RrwODubLXYMZ8sSdYq3q47SS3dWzfNh7EMH47
-	xSMvxLePjyR9npGtdo2gLr6bVBOdBshPxPcBhyjgR0+QeBKkk38/0XLo6ikoNbi2qq7abxNAIYkV2
-	c9z5cjXQ==;
+	bh=bsZ3wOzL0+ywRIaHr7SLNMakin84g6dxagL5XZNWe7k=; b=gM3eztHnvGjIS4zNf1ki3DmrMR
+	1HvFueDD2Z3vCVvU4GuZQZrwuy7JmPglxixxRDLs62ui7qjJ6241Qpx8cUsEizXYEjOyc8764jP2P
+	A6DUZzcEi5qvUGttziZ0VU/cZfkyuxmQ218jt3gzhJSj8Kf+r5OYUc+IgmaHicvSbMa3DoW4bQV4T
+	U8M52ffnjgt0cyGhVCQmN60b10Q+jmquQRIgI8lmqM7amdOcAQ2V+WPTdywfRXaiVFeTxhgk57rSD
+	WDbcfdoVy9uZNWnzPaNRxyCuQPfHiUCjs5AknM9wXCaL4/p5xXCWO5J9ygJrGbG7lCL9es+Ge8ZAF
+	ljlT2oeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSgHX-00000000Ovx-2Zkt;
-	Sun, 15 Nov 2026 19:52:55 +0000
-Received: from freeshell.de ([116.202.128.144])
+	id 1xSgHv-00000000P0O-36uE;
+	Sun, 15 Nov 2026 19:53:19 +0000
+Received: from freeshell.de ([2a01:4f8:231:482b::2])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSgHU-00000000Ov8-08eO
+	id 1xSgHt-00000000OzK-01po
 	for linux-riscv@lists.infradead.org;
-	Sun, 15 Nov 2026 19:52:54 +0000
+	Sun, 15 Nov 2026 19:53:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
-	s=s2025; t=1794772319;
-	bh=XE3u2B+pN0Clq+eTAS8Vx72LY4D/+Nfyr3FEdeu11rA=;
+	s=s2025; t=1794772326;
+	bh=z8Udy+gpKS3X/0jkZQA4Y95ag0ehIFXEGZWv/GeBkw8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Qo7L399l9NleUXCjnlQXkzYIlH8zOC8RAfz2zIV7GAeI4Xu9xnbXqPK48kq+nadTM
-	 WvHdHm8lRIuMherfpTsMGpX33q4LXZKgV2fmz4s/NhrLpvAl7H1C6w8Iz14VBmomZ/
-	 8GPkp+Ym0XpN7Lh2+Ypslp5Vil6YKcqY+QlT51ekbBtbBxAO1edNyvTr1qSTeVfoZ2
-	 Hc+f22wkhvJ0aEmgrXKnVLQ1yZV+s31YaCCgJyOOXKK/KVlshSy0WOfBsQeXlxbFnp
-	 frBxiSsPMbHGw9KOSewDiL+F9VbXwHb6DlCZtKhDCx+Vaa3BOloWJ5V6OwxOzgW44v
-	 p00aaLIywnLoA==
+	b=cZ2PH9iFTQ+VBRORVMazOMTts1QCCspB2vi1ekqjU7ulTotDrWL0V/vxpVwTyazPf
+	 PGGnG1ooq8tKWntpZZsSq+1DfyP0euayW6/VY+pYx1YONH9K7GFlKBMRpZWpse9rmf
+	 4dne2atDuWxKvKPkAQJt2ftQ2s9++5mFD3NsX2leEx0nUYDHiCsOoXA109nQoBNnD2
+	 +WCk+pY6RoOBAw75TuPS/ktgY9skbEL8aByrzTOlKnbTf764Xc7ImcVyhl+dsj48LI
+	 gY4KXZ+aVIBUw94/O+mVKmVppT1vCgBT8Xz5SYhnxPR8osj7pKg/6aYVQSPZUAhrAt
+	 E7oE0KQmU29Qw==
 Received: from hay.lan (unknown [IPv6:2605:59ca:364f:d400:6ecf:39ff:fe00:8375])
 	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 371DEB220212;
-	Sun, 15 Nov 2026 20:51:56 +0100 (CET)
+	by freeshell.de (Postfix) with ESMTPSA id 55773B2202E6;
+	Sun, 15 Nov 2026 20:52:03 +0100 (CET)
 From: E Shattow <e@freeshell.de>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Yixun Lan <dlan@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
 Cc: linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev,
 	E Shattow <e@freeshell.de>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] riscv: dts: spacemit: k3: use com260 8gb memory configuration
-Date: Sun, 15 Nov 2026 11:50:59 -0800
-Message-ID: <20261115195112.32120-2-e@freeshell.de>
+Subject: [PATCH 2/2] riscv: dts: spacemit: k3: use pico-itx 8gb memory configuration
+Date: Sun, 15 Nov 2026 11:51:00 -0800
+Message-ID: <20261115195112.32120-3-e@freeshell.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261115195112.32120-1-e@freeshell.de>
 References: <20261115195112.32120-1-e@freeshell.de>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261115_115252_220868_78DE9488 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20261115_115317_213230_152531E9 
+X-CRM114-Status: GOOD (  10.02  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,14 +95,14 @@ configuration of 8gb is the most compatible option.
 
 Signed-off-by: E Shattow <e@freeshell.de>
 ---
- arch/riscv/boot/dts/spacemit/k3-com260.dtsi | 2 +-
+ arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-index 054bfff7413a..c18680b963a4 100644
---- a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-@@ -14,7 +14,7 @@ / {
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+index dda420900aa2..8d1cd468cf8c 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
++++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+@@ -25,7 +25,7 @@ chosen {
  
  	memory@100000000 {
  		device_type = "memory";
@@ -110,7 +110,7 @@ index 054bfff7413a..c18680b963a4 100644
 +		reg = <0x1 0x00000000 0x2 0x00000000>;
  	};
  
- 	reg_5v_sys: regulator-5v-sys {
+ 	reg_aux_vcc3v3: regulator-aux-vcc3v3 {
 -- 
 2.53.0
 
