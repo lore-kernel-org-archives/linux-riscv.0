@@ -2,103 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94388606A31E
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 08:42:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEBFD606A31A
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 08:55:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=H2XBuMym;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=AX4X5vsP
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nS+KX899;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YJHEcccR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=KqioslkZrapM23kC8UvQKrEGIHX/rvvVOX7oCcH3dQQ=; b=H2XBuMymh+NQKEFJrExPx46oCd
-	RHV03HSMelmoXzlI/E/MmwH7msyBHPq9G+38Yxu3ALAORW1UWt9sSFLPDQCR3RUoIINW3dL+Hk2FI
-	C2Ud37D/q5mVIqxnOD1AqOYQWNDIR7LnPgtG5Cqh8+Hj8soPajet0wrFwq3/ynkuxsndTmEc+3Gif
-	vTCV3vlnsWOq2qQQjTyGeDGbm+svT9iMQY60UPyWt/opR6hhm/vfwSqPtGLBnOs3WyFa0WopNMOgY
-	MItXuXNMEsZNJZ0Fv/mIRTBzkLICe9BmpNPG+Ez+UEQJGMJnCs+ZFniO+h6OQQNMKkViwZpuoLJph
-	cuREfZYQ==;
+	bh=8NSz8HNwjYRkj2jff2muNuk1ldtaBfyeqOTJFgmrRCE=; b=nS+KX899Bk04rT38WTGurTAiQf
+	AHFfo/t6DTMouKuU68KluHGC/Ri7ddS6G5TEIawsXA229rWQcM4iDxA8du2jxi08A9mDI3bwEvXi+
+	BriTz3Oll/K8ddvkYvmPZKnRum4ND2run15Du6+4ElOxV2Npgwl11LLRECdMCZx8WrPNdx15trkHG
+	lXBSaxUUdJr23pfssREO/tLGShETnZQ/PFmurDe830/oC24l29/V53RwDmJCdwVwfVUdbFjzgmGQp
+	IsBmX/ln5kxicseY40qOuU6vyttmBYF4DhLbgO1izwrPPbdM5E4R09eTx2VYiTev8MTbrt/NCJixY
+	Q983hCOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSVox-0000000HFmt-2IUr;
-	Sun, 15 Nov 2026 08:42:43 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xSW13-0000000HH0k-0Zjs;
+	Sun, 15 Nov 2026 08:55:13 +0000
+Received: from mail-pj2-x01.google.com ([2607:f8b0:4864:39::1])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSVou-0000000HFmD-4A61
+	id 1xSW10-0000000HGzz-2grk
 	for linux-riscv@lists.infradead.org;
-	Sun, 15 Nov 2026 08:42:42 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AF7wFaP1656451;
-	Sun, 15 Nov 2026 08:42:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=Zgm6AC9G8rN
-	Qus0O+sw5aFP5DMV+Di7wzQY+MS72Gh4=; b=AX4X5vsPuPrZEB3VrkteijDwYVB
-	WzFB+wj0Wnv0Z3AUjij6RgaqIoNIIX3Gj6lEoXDNblLzRmMB0SwEdckQvNwsG7vl
-	peAfNkuVmdr5UHHRjjx4EOOJMX/bapNN8h8P6F+4Lco/T07STFu8y7mVPht/vBhr
-	TyFJBg1B3QUu2ITmljVMGeBFOCIMqmBU2qLwFnjjsumrg8XaxnhH/e2RO//e0s2G
-	xH3aqot84U0yygVRKTtVcrZqI8mGcIx3hiYQ9vsz3+U8/MzfDCPpyGBFPYDlihXy
-	2xGABwAHnUu4WoaaJUfYaWVPwtFaWxctq2X67psU9G4D49IYEMw9eB9jLwA==
-Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hxhkwahg3-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sun, 15 Nov 2026 08:42:22 +0000 (GMT)
-Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AF8gKIZ113008;
-	Sun, 15 Nov 2026 08:42:20 GMT
-Received: from hu-devc-blr-u24-a.qualcomm.com (hu-anuppate-blr.qualcomm.com [10.131.36.165])
-	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 6AF8gJFZ113000
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sun, 15 Nov 2026 08:42:20 +0000 (GMT)
-Received: by hu-devc-blr-u24-a.qualcomm.com (Postfix, from userid 486687)
-	id 4F9B522B8E; Sun, 15 Nov 2026 14:12:19 +0530 (+0530)
-From: Anup Patel <anup.patel@oss.qualcomm.com>
-To: Sunil V L <sunilvl@oss.qualcomm.com>,
-        "Rafael J . Wysocki" <rafael@kernel.org>,
-        Atish Patra <atish.patra@linux.dev>
-Subject: [PATCH v8 1/1] RISC-V: Add common csr_read_num() and csr_write_num() functions
-Date: Sun, 15 Nov 2026 14:12:18 +0530
-Message-ID: <20261115084218.951411-2-anup.patel@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261115084218.951411-1-anup.patel@oss.qualcomm.com>
-References: <20261115084218.951411-1-anup.patel@oss.qualcomm.com>
+	Sun, 15 Nov 2026 08:55:11 +0000
+Received: by mail-pj2-x01.google.com with SMTP id d9443c01a7336-2e96b8bfb43so7617995ad.0
+        for <linux-riscv@lists.infradead.org>; Sun, 15 Nov 2026 00:55:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794732909; x=1795337709; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=2W9g589hYI/qXRjeFg9GTGFNeMUzzFOuJrEl7Zvx7OU=;
+        b=YJHEcccRscmBEwBnvhlhyrbxX0hLF8wcvDZO04YehqhAagG4Ez7issk8viMdfsYlV7
+         5xWYuCJJ+NHFaj58V2aFF262opAhEQVGRs7qjnksTZDatT8gLkkwMkNPWGwoa/jkHBsz
+         SoG1jfKd7NNrGv1QiTJJkwvhhNfh/uMVu1SH9zkdAxt9FLQWAQTYDvXf0k7JvbjoJNxv
+         3oU2OqBStWmp3zUJVQQNRyT+y2w10oLPT9l0LhDOCsBJVn4g83eIBOUBJgAAECscocxA
+         KYjXO4lUCOWWCaHEp2LedTS4PBCpw1HX00KUTjhOF2mhfH+Wj+3P+GUYe/sLQm8Xn+S1
+         35jw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794732909; x=1795337709;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2W9g589hYI/qXRjeFg9GTGFNeMUzzFOuJrEl7Zvx7OU=;
+        b=pFc0wxEn9dSkskUbawmYSDSJl29Hz+zKG37/4MjeMAruuXHd5D6RPlPoK1hhldW8e4
+         5yv6kq0kvLgE55PBGsUCXXyvMdJTSqLrMqz9v2ESaVfijY13jwWzxSx/xWmLwmLCCFJb
+         V3hKeg0xHS0xqFFcpWCNUsr/CsdI5vfrLrhhELWHjFkw4dgOZ8ViUv7QPdqYhc9j0OLJ
+         ZQZGNsAhwPz/b6nv3Y1n9eE9a2HuNNvjZJIWhz89HOLgpDX9JhlWrQgQz0GAh+z/l1az
+         /QUvhETLznoKFL8ELXA1dcN392khuXgTK7AFts5dcYucJHG0tUFESKUl0jqAAi8/uzEl
+         T70g==
+X-Forwarded-Encrypted: i=1; AL+hErFPD1SijMmSXTHTb2B3A54HQso3gCXOJ4/hWBYe0K8/Aii5wQY/B9CO4pc1gzL6NiYocYGDmqW3BuJGLQ==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/FkVrR9VVi1xxiW74YSvvf1P5vSx19cXaGCSwO9WpWEcRzW/+v
+	vYeiPrKBjA8E2PpQJYciM48dmzgRc8WwdbRcCIMC3R/gktFJv19mGnGW
+X-Gm-Gg: AYBFou1Y3rw6EJIv85TPxd78Nz599BjivQCUmdpQnjXRyuZ8rARxUvPSKsDoLCPBdJi
+	hfYPnsTVKvQhR6zysc5pnNnZWiF5F04Dq3oTJyy6WU7fXKld1QQLL2CoN4j7eSP6ox8RFnZH0Mx
+	Rij77UZgV68c5kns8cFFPjBHyJO7bNHFFnJsGoy9rx9L4jfNn9lYZVnsS6ZYbhFucY0YVBJCE27
+	2Q4fKNhyHmrp0b256Kyrz0TOffX2Jygp/w0F9bSUasWSB8swACFEcQhSizKoFMv+ypdLYf2um0f
+	MlxaiT2Bl2yIvD0Gn14yHOcSbx/uUmSDqNJqFi7KKPEi/UFIxg8r+TCAIkpMPXqmwdygf4uISVZ
+	BZRBdokzA3QxRbAJoF+zCZD2ax2/sfcp83tHd9RA9qIzw/7kRiB2HqT0ecxtPqh5wSkNgxbJnf4
+	dOiKTEX+aeSn3AnatXO/xNuAJoTNiRvKlmKH8gHcK/0BaxxhHp4A1HMq9Lr1Ig3BSHeGaAKBbgN
+	36kO9NViMYjDJ1WFAW6ya4EoEdh0wFxwKcOnVbTtCbUrwXXyYFBc1WtHiKV1FFf9zScRxg9TKCo
+	okhHX4nYverug/ei5HwUrkaiW8fbZ/saRNrDtgNu48w=
+X-Received: by 2002:a17:90b:48c3:b0:3b0:b36b:66fc with SMTP id 98e67ed59e1d1-3b1b0cac932mr7318329a91.63.1794732908821;
+        Sun, 15 Nov 2026 00:55:08 -0800 (PST)
+Received: from q-Legion-Y7000-IRX9.. ([113.54.187.246])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cddc160a190sm2879089a12.2.2026.11.15.00.55.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Nov 2026 00:55:08 -0800 (PST)
+From: "Bingyu.Xian" <shanbeeyoo@gmail.com>
+To: anup@brainfault.org
+Cc: atish.patra@linux.dev,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	zhouquan@iscas.ac.cn,
+	shanbeeyoo@gmail.com,
+	linux-kselftest@vger.kernel.org,
+	shuah@kernel.org,
+	pbonzini@redhat.com,
+	seanjc@google.com
+Subject: [PATCH] KVM: selftests: riscv: Test the SBI STA shared memory lifecycle
+Date: Sun, 15 Nov 2026 16:54:57 +0800
+Message-Id: <20261115085457.889873-1-shanbeeyoo@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE1MDAzNCBTYWx0ZWRfX/gwAe1XYk3FM
- bfof2rBWyf5uERL0C8y0zuuOtoHup/KaIof/uDDAZHlX3ii1jWtc/FJeYStybzrmUn1GSxKr5Ls
- E3cQ3WdxCjQA8rwbWpzKbw/0nS7TzgY9tCRhBFtmz2sg8xXmtrWvf5y2jLpy7Di95tXLnU1aQwn
- XGKwQ3+JJYvZgrezGzivLh0vy0gjN+hZnm5SvHvdyfw3v+03E0kseJnEZXCAJyAiWSpbqbfE453
- lZqpS21+9t8gANGxxuUpOza3U1thoHjVOq4Qi4p9Bs/Xay4tx4oVvMu4vRU0EhODyLW6zVFZsJu
- Rs7uuKURGYCLn6usKAvdf//8/crOhYf8ds2Tkr2ChS3F5DS4BhgogogYlTEZRbWR5RTNsMLuaPp
- l2ZNh2qlihIiudCICmMdD1RcnZ1cwiO5Law1e+iSL6xh3Kxr9f4OJymn/BEDHNYqC0yv6QXE8zq
- kbyJlw34TWV8R0CXWSA==
-X-Authority-Analysis: v=2.4 cv=YPYKWhGx c=1 sm=1 tr=0 ts=6af9706f cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=_K5XuSEh1TEqbUxoQ0s3:22 a=bDdBU3oEAAAA:8 a=h0uksLzaAAAA:8 a=69EAbJreAAAA:8
- a=CXTO6nDrRgnfr-njzm8A:9 a=DN7SgORnOiO7RqxRx1GC:22 a=MSi_79tMYmZZG2gvAgS0:22
-X-Proofpoint-GUID: UIC4YMuhqyNf7_6TYddJu8XSNiH3cLHZ
-X-Proofpoint-ORIG-GUID: TFZgPfOICaKl5ePm9VH4_LDu84JYx22w
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE1MDAzNCBTYWx0ZWRfX7QiqJgB1REBW
- F4rzMCdtkOJGzN8J95EIJM68264S194Nz1d3rbUjkQLRibx9aiHNIs/IINqFfsH6sgtaAgBzs1Z
- tvRMabndb2kR2EsMdrdZB3YiM4P4DDY=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-15_03,2026-11-11_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 clxscore=1015 spamscore=0 adultscore=0
- lowpriorityscore=0 impostorscore=0 phishscore=0 bulkscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611150034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261115_004241_064931_45B15DE1 
-X-CRM114-Status: GOOD (  23.77  )
-X-Spam-Score: -2.7 (--)
+X-CRM114-CacheID: sfid-20261115_005510_689648_D22D95FD 
+X-CRM114-Status: GOOD (  15.59  )
+X-Spam-Score: -0.1 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,363 +108,244 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Anup Patel <apatel@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nutty Liu <nutty.liu@hotmail.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>, Will Deacon <will@kernel.org>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	HK_RANDOM_FROM,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Anup Patel <apatel@ventanamicro.com>
+The RISC-V steal-time test checks the UAPI alignment constraints and
+compares stolen time with the host run delay. It does not exercise
+changes to the shared page after accounting has been enabled.
 
-In RISC-V, there is no CSR read/write instruction which takes CSR
-number via register so add common csr_read_num() and csr_write_num()
-functions which allow accessing certain CSRs by passing CSR number
-as parameter. These common functions will be first used by the
-ACPI CPPC driver and RISC-V PMU driver.
+Extend the existing test to check that disabling STA stops shared-page
+updates and that reconfiguring it leaves the old shared page unchanged.
+Place the second STA structure at the end of another page and verify
+that updates mark the appropriate page dirty.
 
-Also, the RISC-V ACPI FFH specification allows arbitrary CSR number
-as CPPC register and the RISC-V SBI specification allows arbitrary
-CSR number as PMU hardware counter. This means ACPI CPPC driver and
-RISC-V PMU driver no longer need to do sanity checks on CSR number
-which are now done by the common csr_read_num() and csr_write_num()
-functions.
+Discard the second backing page with MADV_DONTNEED and check that a
+subsequent KVM_RUN resumes STA updates on the replacement page and
+marks it dirty. Read the replacement page before KVM_RUN so that a
+stale write into the old backing page cannot satisfy the assertions.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
-Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+Keep these checks in steal_time instead of adding another test binary.
+The test does not depend on a gfn-to-pfn cache implementation.
+
+Assisted-by: YuanSheng: deepseek-v4-pro
+Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: bingyu.xian <shanbeenyoo@gmail.com>
 ---
- arch/riscv/include/asm/csr.h |   3 +
- arch/riscv/kernel/Makefile   |   1 +
- arch/riscv/kernel/csr.c      | 167 +++++++++++++++++++++++++++++++++++
- drivers/acpi/riscv/cppc.c    |  17 ++--
- drivers/perf/riscv_pmu.c     |  52 +++--------
- 5 files changed, 188 insertions(+), 52 deletions(-)
- create mode 100644 arch/riscv/kernel/csr.c
+Tested with a freshly built RISC-V kernel and KVM module from the base
+commit below, running as a QEMU TCG guest with H extension enabled:
+  - steal_time: 4 lifecycle checks and the existing 4 vCPU cases pass
+  - CONFIG_DEBUG_ATOMIC_SLEEP=y and CONFIG_PROVE_LOCKING=y
+  - no kernel diagnostics observed
+  - x86 steal_time build also passes (not run)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 621f84d1898f..ebd82043430b 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -672,6 +672,9 @@
- 			      : "memory");			\
- })
+This exercises baseline STA behavior and does not depend on an STA
+caching implementation. The lifecycle checks also apply cleanly to
+riscv_kvm_next at 633b3931a87438282d6454646ff40c669a6896cb.
+
+Test logs (verbatim excerpt from the 2026-11-15 QEMU run):
+  STA_LIFECYCLE_KERNEL=7.4.0-rc2-sta-lifecycle+
+  Random seed: 0x35d6f94c
+  TAP version 13
+  1..8
+  ok 1 STA shared page updates and is marked dirty
+  ok 2 STA disable stops shared page updates
+  ok 3 STA reconfiguration updates only the new page
+  ok 4 STA updates recover after backing page invalidation
+  # VCPU0: total-stolen-time=3269800 test-stolen-time=3269800
+  VCPU0:
+      sequence:  6
+      flags:     0
+      steal:     3269800
+      preempted: 0
+      pad:      00000000000000000000000000000000000000000000000
+  ok 5 vcpu0
+  # VCPU1: total-stolen-time=898700 test-stolen-time=898700 (BONUS: guest test-stolen-time even exactly matches test-run_delay)
+  VCPU1:
+      sequence:  4
+      flags:     0
+      steal:     898700
+      preempted: 0
+      pad:      00000000000000000000000000000000000000000000000
+  ok 6 vcpu1
+  # VCPU2: total-stolen-time=654000 test-stolen-time=654000 (BONUS: guest test-stolen-time even exactly matches test-run_delay)
+  VCPU2:
+      sequence:  4
+      flags:     0
+      steal:     654000
+      preempted: 0
+      pad:      00000000000000000000000000000000000000000000000
+  ok 7 vcpu2
+  # VCPU3: total-stolen-time=800700 test-stolen-time=800700 (BONUS: guest test-stolen-time even exactly matches test-run_delay)
+  VCPU3:
+      sequence:  4
+      flags:     0
+      steal:     800700
+      preempted: 0
+      pad:      00000000000000000000000000000000000000000000000
+  ok 8 vcpu3
+  # Totals: pass:8 fail:0 xfail:0 xpass:0 skip:0 error:0
+  STA_LIFECYCLE_STATUS=0
+  STA_LIFECYCLE_PASS
+
+ tools/testing/selftests/kvm/steal_time.c | 113 +++++++++++++++++++++++
+ 1 file changed, 113 insertions(+)
+
+diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
+index 82b94a82d..059f7fa60 100644
+--- a/tools/testing/selftests/kvm/steal_time.c
++++ b/tools/testing/selftests/kvm/steal_time.c
+@@ -8,6 +8,7 @@
+ #include <time.h>
+ #include <sched.h>
+ #include <pthread.h>
++#include <sys/mman.h>
+ #include <linux/kernel.h>
+ #include <asm/kvm.h>
+ #ifdef __riscv
+@@ -329,6 +330,111 @@ static void steal_time_dump(struct kvm_vm *vm, u32 vcpu_idx)
+ 	pr_info("\n");
+ }
  
-+unsigned long csr_read_num(unsigned long csr_num, int *out_err);
-+void csr_write_num(unsigned long csr_num, unsigned long val, int *out_err);
++static gpa_t lifecycle_second_gpa;
 +
- #endif /* __ASSEMBLER__ */
- 
- #endif /* _ASM_RISCV_CSR_H */
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index f54c336bf547..7f52ae724225 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -51,6 +51,7 @@ obj-y	+= soc.o
- obj-y	+= alternative.o
- obj-y	+= cpu.o
- obj-y	+= cpufeature.o
-+obj-y	+= csr.o
- obj-y	+= entry.o
- obj-y	+= irq.o
- obj-y	+= process.o
-diff --git a/arch/riscv/kernel/csr.c b/arch/riscv/kernel/csr.c
-new file mode 100644
-index 000000000000..8413055abf3f
---- /dev/null
-+++ b/arch/riscv/kernel/csr.c
-@@ -0,0 +1,167 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2025 Ventana Micro Systems Inc.
-+ */
-+
-+#include <linux/err.h>
-+#include <linux/export.h>
-+#include <linux/types.h>
-+#include <asm/csr.h>
-+
-+#define CSR_CUSTOM0_U_RW_BASE		0x800
-+#define CSR_CUSTOM0_U_RW_COUNT		0x100
-+
-+#define CSR_CUSTOM1_U_RO_BASE		0xCC0
-+#define CSR_CUSTOM1_U_RO_COUNT		0x040
-+
-+#define CSR_CUSTOM2_S_RW_BASE		0x5C0
-+#define CSR_CUSTOM2_S_RW_COUNT		0x040
-+
-+#define CSR_CUSTOM3_S_RW_BASE		0x9C0
-+#define CSR_CUSTOM3_S_RW_COUNT		0x040
-+
-+#define CSR_CUSTOM4_S_RO_BASE		0xDC0
-+#define CSR_CUSTOM4_S_RO_COUNT		0x040
-+
-+#define CSR_CUSTOM5_HS_RW_BASE		0x6C0
-+#define CSR_CUSTOM5_HS_RW_COUNT		0x040
-+
-+#define CSR_CUSTOM6_HS_RW_BASE		0xAC0
-+#define CSR_CUSTOM6_HS_RW_COUNT		0x040
-+
-+#define CSR_CUSTOM7_HS_RO_BASE		0xEC0
-+#define CSR_CUSTOM7_HS_RO_COUNT		0x040
-+
-+#define CSR_CUSTOM8_M_RW_BASE		0x7C0
-+#define CSR_CUSTOM8_M_RW_COUNT		0x040
-+
-+#define CSR_CUSTOM9_M_RW_BASE		0xBC0
-+#define CSR_CUSTOM9_M_RW_COUNT		0x040
-+
-+#define CSR_CUSTOM10_M_RO_BASE		0xFC0
-+#define CSR_CUSTOM10_M_RO_COUNT		0x040
-+
-+unsigned long csr_read_num(unsigned long csr_num, int *out_err)
++static void sta_lifecycle_guest(void)
 +{
-+#define switchcase_csr_read(__csr_num)				\
-+	case (__csr_num):					\
-+		return csr_read(__csr_num)
-+#define switchcase_csr_read_2(__csr_num)			\
-+	switchcase_csr_read(__csr_num + 0);			\
-+	switchcase_csr_read(__csr_num + 1)
-+#define switchcase_csr_read_4(__csr_num)			\
-+	switchcase_csr_read_2(__csr_num + 0);			\
-+	switchcase_csr_read_2(__csr_num + 2)
-+#define switchcase_csr_read_8(__csr_num)			\
-+	switchcase_csr_read_4(__csr_num + 0);			\
-+	switchcase_csr_read_4(__csr_num + 4)
-+#define switchcase_csr_read_16(__csr_num)			\
-+	switchcase_csr_read_8(__csr_num + 0);			\
-+	switchcase_csr_read_8(__csr_num + 8)
-+#define switchcase_csr_read_32(__csr_num)			\
-+	switchcase_csr_read_16(__csr_num + 0);			\
-+	switchcase_csr_read_16(__csr_num + 16)
-+#define switchcase_csr_read_64(__csr_num)			\
-+	switchcase_csr_read_32(__csr_num + 0);			\
-+	switchcase_csr_read_32(__csr_num + 32)
-+#define switchcase_csr_read_128(__csr_num)			\
-+	switchcase_csr_read_64(__csr_num + 0);			\
-+	switchcase_csr_read_64(__csr_num + 64)
-+#define switchcase_csr_read_256(__csr_num)			\
-+	switchcase_csr_read_128(__csr_num + 0);			\
-+	switchcase_csr_read_128(__csr_num + 128)
++	sta_set_shmem(ST_GPA_BASE, 0);
++	GUEST_SYNC(0);
++	/* The first update takes place on the next KVM_RUN. */
++	GUEST_SYNC(1);
 +
-+	*out_err = 0;
-+	switch (csr_num) {
-+	switchcase_csr_read_32(CSR_CYCLE);
-+#if defined(CONFIG_32BIT)
-+	switchcase_csr_read_32(CSR_CYCLEH);
-+#endif
-+	switchcase_csr_read_256(CSR_CUSTOM0_U_RW_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM1_U_RO_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM2_S_RW_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM3_S_RW_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM4_S_RO_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM5_HS_RW_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM6_HS_RW_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM7_HS_RO_BASE);
-+#ifdef CONFIG_RISCV_M_MODE
-+	switchcase_csr_read_64(CSR_CUSTOM8_M_RW_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM9_M_RW_BASE);
-+	switchcase_csr_read_64(CSR_CUSTOM10_M_RO_BASE);
-+#endif
-+	default:
-+		*out_err = -EINVAL;
-+		break;
-+	}
++	sta_set_shmem(INVALID_GPA, 0);
++	GUEST_SYNC(2);
++	GUEST_SYNC(3);
 +
-+	return 0;
-+#undef switchcase_csr_read_256
-+#undef switchcase_csr_read_128
-+#undef switchcase_csr_read_64
-+#undef switchcase_csr_read_32
-+#undef switchcase_csr_read_16
-+#undef switchcase_csr_read_8
-+#undef switchcase_csr_read_4
-+#undef switchcase_csr_read_2
-+#undef switchcase_csr_read
++	sta_set_shmem(lifecycle_second_gpa, 0);
++	GUEST_SYNC(4);
++	GUEST_SYNC(5);
++
++	/* Userspace discards the second backing page before resuming us. */
++	GUEST_SYNC(6);
++	sta_set_shmem(INVALID_GPA, 0);
++	GUEST_DONE();
 +}
-+EXPORT_SYMBOL_GPL(csr_read_num);
 +
-+void csr_write_num(unsigned long csr_num, unsigned long val, int *out_err)
++static void sta_lifecycle_run(struct kvm_vcpu *vcpu, unsigned int stage)
 +{
-+#define switchcase_csr_write(__csr_num, __val)			\
-+	case (__csr_num):					\
-+		csr_write(__csr_num, __val);			\
-+		break
-+#define switchcase_csr_write_2(__csr_num, __val)		\
-+	switchcase_csr_write(__csr_num + 0, __val);		\
-+	switchcase_csr_write(__csr_num + 1, __val)
-+#define switchcase_csr_write_4(__csr_num, __val)		\
-+	switchcase_csr_write_2(__csr_num + 0, __val);		\
-+	switchcase_csr_write_2(__csr_num + 2, __val)
-+#define switchcase_csr_write_8(__csr_num, __val)		\
-+	switchcase_csr_write_4(__csr_num + 0, __val);		\
-+	switchcase_csr_write_4(__csr_num + 4, __val)
-+#define switchcase_csr_write_16(__csr_num, __val)		\
-+	switchcase_csr_write_8(__csr_num + 0, __val);		\
-+	switchcase_csr_write_8(__csr_num + 8, __val)
-+#define switchcase_csr_write_32(__csr_num, __val)		\
-+	switchcase_csr_write_16(__csr_num + 0, __val);		\
-+	switchcase_csr_write_16(__csr_num + 16, __val)
-+#define switchcase_csr_write_64(__csr_num, __val)		\
-+	switchcase_csr_write_32(__csr_num + 0, __val);		\
-+	switchcase_csr_write_32(__csr_num + 32, __val)
-+#define switchcase_csr_write_128(__csr_num, __val)		\
-+	switchcase_csr_write_64(__csr_num + 0, __val);		\
-+	switchcase_csr_write_64(__csr_num + 64, __val)
-+#define switchcase_csr_write_256(__csr_num, __val)		\
-+	switchcase_csr_write_128(__csr_num + 0, __val);		\
-+	switchcase_csr_write_128(__csr_num + 128, __val)
++	struct ucall uc;
 +
-+	*out_err = 0;
-+	switch (csr_num) {
-+	switchcase_csr_write_256(CSR_CUSTOM0_U_RW_BASE, val);
-+	switchcase_csr_write_64(CSR_CUSTOM2_S_RW_BASE, val);
-+	switchcase_csr_write_64(CSR_CUSTOM3_S_RW_BASE, val);
-+	switchcase_csr_write_64(CSR_CUSTOM5_HS_RW_BASE, val);
-+	switchcase_csr_write_64(CSR_CUSTOM6_HS_RW_BASE, val);
-+#ifdef CONFIG_RISCV_M_MODE
-+	switchcase_csr_write_64(CSR_CUSTOM8_M_RW_BASE, val);
-+	switchcase_csr_write_64(CSR_CUSTOM9_M_RW_BASE, val);
-+#endif
-+	default:
-+		*out_err = -EINVAL;
++	vcpu_run(vcpu);
++	switch (get_ucall(vcpu, &uc)) {
++	case UCALL_SYNC:
++		TEST_ASSERT_EQ(uc.args[1], stage);
 +		break;
++	case UCALL_DONE:
++		TEST_ASSERT_EQ(stage, 7);
++		break;
++	case UCALL_ABORT:
++		REPORT_GUEST_ASSERT(uc);
++	default:
++		TEST_FAIL("Unexpected STA lifecycle exit at stage %u", stage);
 +	}
-+#undef switchcase_csr_write_256
-+#undef switchcase_csr_write_128
-+#undef switchcase_csr_write_64
-+#undef switchcase_csr_write_32
-+#undef switchcase_csr_write_16
-+#undef switchcase_csr_write_8
-+#undef switchcase_csr_write_4
-+#undef switchcase_csr_write_2
-+#undef switchcase_csr_write
 +}
-+EXPORT_SYMBOL_GPL(csr_write_num);
-diff --git a/drivers/acpi/riscv/cppc.c b/drivers/acpi/riscv/cppc.c
-index 74a5e484f809..da1a849ddc29 100644
---- a/drivers/acpi/riscv/cppc.c
-+++ b/drivers/acpi/riscv/cppc.c
-@@ -65,24 +65,19 @@ static void sbi_cppc_write(void *write_data)
- static void cppc_ffh_csr_read(void *read_data)
- {
- 	struct sbi_cppc_data *data = (struct sbi_cppc_data *)read_data;
-+	int err;
- 
--	switch (data->reg) {
--	/* Support only TIME CSR for now */
--	case CSR_TIME:
--		data->ret.value = csr_read(CSR_TIME);
--		data->ret.error = 0;
--		break;
--	default:
--		data->ret.error = -EINVAL;
--		break;
--	}
-+	data->ret.value = csr_read_num(data->reg, &err);
-+	data->ret.error = err;
- }
- 
- static void cppc_ffh_csr_write(void *write_data)
- {
- 	struct sbi_cppc_data *data = (struct sbi_cppc_data *)write_data;
-+	int err;
- 
--	data->ret.error = -EINVAL;
-+	csr_write_num(data->reg, data->val, &err);
-+	data->ret.error = err;
- }
- 
- /*
-diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
-index 8e3cd0f35336..f85264b7eb5c 100644
---- a/drivers/perf/riscv_pmu.c
-+++ b/drivers/perf/riscv_pmu.c
-@@ -16,6 +16,7 @@
- #include <linux/smp.h>
- #include <linux/sched_clock.h>
- 
-+#include <asm/csr.h>
- #include <asm/sbi.h>
- 
- static bool riscv_perf_user_access(struct perf_event *event)
-@@ -88,58 +89,27 @@ void arch_perf_update_userpage(struct perf_event *event,
- 	userpg->cap_user_time_short = 1;
- }
- 
--static unsigned long csr_read_num(int csr_num)
--{
--#define switchcase_csr_read(__csr_num, __val)		{\
--	case __csr_num:					\
--		__val = csr_read(__csr_num);		\
--		break; }
--#define switchcase_csr_read_2(__csr_num, __val)		{\
--	switchcase_csr_read(__csr_num + 0, __val)	 \
--	switchcase_csr_read(__csr_num + 1, __val)}
--#define switchcase_csr_read_4(__csr_num, __val)		{\
--	switchcase_csr_read_2(__csr_num + 0, __val)	 \
--	switchcase_csr_read_2(__csr_num + 2, __val)}
--#define switchcase_csr_read_8(__csr_num, __val)		{\
--	switchcase_csr_read_4(__csr_num + 0, __val)	 \
--	switchcase_csr_read_4(__csr_num + 4, __val)}
--#define switchcase_csr_read_16(__csr_num, __val)	{\
--	switchcase_csr_read_8(__csr_num + 0, __val)	 \
--	switchcase_csr_read_8(__csr_num + 8, __val)}
--#define switchcase_csr_read_32(__csr_num, __val)	{\
--	switchcase_csr_read_16(__csr_num + 0, __val)	 \
--	switchcase_csr_read_16(__csr_num + 16, __val)}
--
--	unsigned long ret = 0;
--
--	switch (csr_num) {
--	switchcase_csr_read_32(CSR_CYCLE, ret)
--	switchcase_csr_read_32(CSR_CYCLEH, ret)
--	default :
--		break;
--	}
--
--	return ret;
--#undef switchcase_csr_read_32
--#undef switchcase_csr_read_16
--#undef switchcase_csr_read_8
--#undef switchcase_csr_read_4
--#undef switchcase_csr_read_2
--#undef switchcase_csr_read
--}
--
- /*
-  * Read the CSR of a corresponding counter.
-  */
- unsigned long riscv_pmu_ctr_read_csr(unsigned long csr)
- {
-+	unsigned long val;
-+	int rc;
 +
- 	if (csr < CSR_CYCLE || csr > CSR_HPMCOUNTER31H ||
- 	   (csr > CSR_HPMCOUNTER31 && csr < CSR_CYCLEH)) {
- 		pr_err("Invalid performance counter csr %lx\n", csr);
- 		return -EINVAL;
- 	}
- 
--	return csr_read_num(csr);
-+	val = csr_read_num(csr, &rc);
-+	if (rc) {
-+		pr_err("Failed to read performance counter csr %lx (error %d)\n", csr, rc);
-+		return rc;
-+	}
++static void check_sta_page(struct sta_struct *st)
++{
++	TEST_ASSERT(st->sequence && !(st->sequence & 1),
++		    "Expected a completed STA update, sequence=%u", st->sequence);
++	TEST_ASSERT_EQ(st->flags, 0);
++	TEST_ASSERT_EQ(st->preempted, 0);
++}
 +
-+	return val;
- }
++static void check_sta_lifecycle(void)
++{
++	struct sta_struct snapshot, *first, *second;
++	struct kvm_vcpu *vcpu;
++	struct kvm_vm *vm;
++	unsigned long dirty = 0;
++	void *second_page;
++
++	vm = vm_create_with_one_vcpu(&vcpu, sta_lifecycle_guest);
++	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE,
++				    1, 2, KVM_MEM_LOG_DIRTY_PAGES);
++	/* Also exercise an STA structure ending exactly at a page boundary. */
++	WRITE_AND_SYNC_TO_GUEST(vm, lifecycle_second_gpa,
++				ST_GPA_BASE + 2 * vm->page_size - sizeof(struct sta_struct));
++	first = addr_gpa2hva(vm, ST_GPA_BASE);
++	second = addr_gpa2hva(vm, lifecycle_second_gpa);
++	second_page = addr_gpa2hva(vm, ST_GPA_BASE + vm->page_size);
++
++	sta_lifecycle_run(vcpu, 0);
++	sta_lifecycle_run(vcpu, 1);
++	check_sta_page(first);
++	kvm_vm_get_dirty_log(vm, 1, &dirty);
++	TEST_ASSERT(dirty & BIT(0), "STA update did not dirty the first page");
++	ksft_test_result_pass("STA shared page updates and is marked dirty\n");
++
++	sta_lifecycle_run(vcpu, 2);
++	snapshot = *first;
++	sta_lifecycle_run(vcpu, 3);
++	TEST_ASSERT(!memcmp(first, &snapshot, sizeof(snapshot)),
++		    "Disabled STA shared page was modified");
++	ksft_test_result_pass("STA disable stops shared page updates\n");
++
++	sta_lifecycle_run(vcpu, 4);
++	sta_lifecycle_run(vcpu, 5);
++	check_sta_page(second);
++	TEST_ASSERT(!memcmp(first, &snapshot, sizeof(snapshot)),
++		    "Old STA shared page was modified after reconfiguration");
++	dirty = 0;
++	kvm_vm_get_dirty_log(vm, 1, &dirty);
++	TEST_ASSERT(dirty & BIT(1), "STA update did not dirty the new page");
++	ksft_test_result_pass("STA reconfiguration updates only the new page\n");
++
++	TEST_ASSERT_EQ(madvise(second_page, vm->page_size, MADV_DONTNEED), 0);
++	TEST_ASSERT_EQ(second->sequence, 0);
++	sta_lifecycle_run(vcpu, 6);
++	check_sta_page(second);
++	dirty = 0;
++	kvm_vm_get_dirty_log(vm, 1, &dirty);
++	TEST_ASSERT(dirty & BIT(1), "Recovered STA update did not dirty the page");
++	ksft_test_result_pass("STA updates recover after backing page invalidation\n");
++
++	sta_lifecycle_run(vcpu, 7);
++	kvm_vm_free(vm);
++}
++
+ static void check_steal_time_uapi(void)
+ {
+ 	struct kvm_vm *vm;
+@@ -535,9 +641,16 @@ int main(int ac, char **av)
  
- u64 riscv_pmu_ctr_get_width_mask(struct perf_event *event)
+ 	ksft_print_header();
+ 	TEST_REQUIRE(is_steal_time_supported(vcpus[0]));
++#ifdef __riscv
++	ksft_set_plan(NR_VCPUS + 4);
++#else
+ 	ksft_set_plan(NR_VCPUS);
++#endif
+ 
+ 	check_steal_time_uapi();
++#ifdef __riscv
++	check_sta_lifecycle();
++#endif
+ 
+ 	/* Run test on each VCPU */
+ 	for (i = 0; i < NR_VCPUS; ++i) {
+
+base-commit: 23c62304dde29abe92013d85910d03a77dada35d
 -- 
-2.43.0
+2.34.1
 
 
 _______________________________________________
