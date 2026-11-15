@@ -2,74 +2,89 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D369606A336
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 19:53:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53B4C606A32C
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 20:14:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gM3eztHn;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=freeshell.de header.i=@freeshell.de header.a=rsa-sha256 header.s=s2025 header.b=cZ2PH9iF
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PQ9/Lvjg;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=iwJla2XW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bsZ3wOzL0+ywRIaHr7SLNMakin84g6dxagL5XZNWe7k=; b=gM3eztHnvGjIS4zNf1ki3DmrMR
-	1HvFueDD2Z3vCVvU4GuZQZrwuy7JmPglxixxRDLs62ui7qjJ6241Qpx8cUsEizXYEjOyc8764jP2P
-	A6DUZzcEi5qvUGttziZ0VU/cZfkyuxmQ218jt3gzhJSj8Kf+r5OYUc+IgmaHicvSbMa3DoW4bQV4T
-	U8M52ffnjgt0cyGhVCQmN60b10Q+jmquQRIgI8lmqM7amdOcAQ2V+WPTdywfRXaiVFeTxhgk57rSD
-	WDbcfdoVy9uZNWnzPaNRxyCuQPfHiUCjs5AknM9wXCaL4/p5xXCWO5J9ygJrGbG7lCL9es+Ge8ZAF
-	ljlT2oeQ==;
+	bh=YLDOtLmybatjlhR45aL59ixUG8VmfP46dkXjKExRiIU=; b=PQ9/Lvjgtxa+7m6OKOzU/0Rxeu
+	B1W9pmGHTlIIrQzgN2Ia678vaKXYalSosqYxOU2uIS4qtZOI1pLdsHFMEE/Bq02LXoWoSOo7EbJhF
+	2wiXBJmnjHAXdmVbVicm1oFmd7TAv/A+g97c8qjeHeaQvq8QN7i9spUTmf5JjMhqnQ+UC/9Tm2lbt
+	N/EToB3fIOxIYkriOVZg1COBSqfi3MAsnsoZvcI2LVlbgg7z6jDHOOmf9We1JCHsAPIgehESiRVIk
+	XxurIdcIWyLZlwQY6QFwkv1obgXGtfLuLWSkyB2cOu7m6BIXE5KdwEZpM029VL/eDpuNyWUPEHwRf
+	YW5jH/jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSgHv-00000000P0O-36uE;
-	Sun, 15 Nov 2026 19:53:19 +0000
-Received: from freeshell.de ([2a01:4f8:231:482b::2])
+	id 1xSgbt-00000000PwD-0w0x;
+	Sun, 15 Nov 2026 20:13:57 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSgHt-00000000OzK-01po
+	id 1xSgbp-00000000Pvr-2NQh
 	for linux-riscv@lists.infradead.org;
-	Sun, 15 Nov 2026 19:53:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
-	s=s2025; t=1794772326;
-	bh=z8Udy+gpKS3X/0jkZQA4Y95ag0ehIFXEGZWv/GeBkw8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cZ2PH9iFTQ+VBRORVMazOMTts1QCCspB2vi1ekqjU7ulTotDrWL0V/vxpVwTyazPf
-	 PGGnG1ooq8tKWntpZZsSq+1DfyP0euayW6/VY+pYx1YONH9K7GFlKBMRpZWpse9rmf
-	 4dne2atDuWxKvKPkAQJt2ftQ2s9++5mFD3NsX2leEx0nUYDHiCsOoXA109nQoBNnD2
-	 +WCk+pY6RoOBAw75TuPS/ktgY9skbEL8aByrzTOlKnbTf764Xc7ImcVyhl+dsj48LI
-	 gY4KXZ+aVIBUw94/O+mVKmVppT1vCgBT8Xz5SYhnxPR8osj7pKg/6aYVQSPZUAhrAt
-	 E7oE0KQmU29Qw==
-Received: from hay.lan (unknown [IPv6:2605:59ca:364f:d400:6ecf:39ff:fe00:8375])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 55773B2202E6;
-	Sun, 15 Nov 2026 20:52:03 +0100 (CET)
-From: E Shattow <e@freeshell.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	E Shattow <e@freeshell.de>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] riscv: dts: spacemit: k3: use pico-itx 8gb memory configuration
-Date: Sun, 15 Nov 2026 11:51:00 -0800
-Message-ID: <20261115195112.32120-3-e@freeshell.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261115195112.32120-1-e@freeshell.de>
-References: <20261115195112.32120-1-e@freeshell.de>
+	Sun, 15 Nov 2026 20:13:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794773634; x=1826309634;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=4EUxz6kYyIg485rNagv9WP+UBIapCrWnWFgWZ0hpUOI=;
+  b=iwJla2XWBSFkT2yA0L95JM/pJfRn46844mPogglSXdMjTHVHDy2otiak
+   7BCrXcOLktahyRpRmUFIWORDZyS5bLLptVU0zks/j+1PLYHGIeh1g62So
+   O34gyrygkiAQ217aPG4p5vn2/aC0WO/t05+om1lmL+S3oiP62C7ytCDum
+   awAHKKOFktfM1mHsEoiyGsR1S0EVRfwFdUaehPiFKbU5WqEEuOWh+fGh4
+   92HLTwQApP22wvhYdyS5/7qYoJO8Vp8rmBi6pbYzRIhCh/73WIAMwDNW4
+   3iIwq+Y6xUkoqOLuMbtJPxihFRx0O2ul8/Uv62+XeGYkkLcpe1hwGSxmF
+   A==;
+X-CSE-ConnectionGUID: k0RS6dFESuiyBQbh1310cQ==
+X-CSE-MsgGUID: epbKAZQDTna0o4rR95LPMA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11967"; a="3429181"
+X-IronPort-AV: E=Sophos;i="6.27,215,1787036400"; 
+   d="scan'208";a="3429181"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Nov 2026 12:13:52 -0800
+X-CSE-ConnectionGUID: Hh+oXZIfQaK56gV3BeGD+Q==
+X-CSE-MsgGUID: mU3PirwFTAe18BsffREvew==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,215,1787036400"; 
+   d="scan'208";a="9713891"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 15 Nov 2026 12:13:49 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xSgbh-000000017G4-2KLl;
+	Sun, 15 Nov 2026 20:13:45 +0000
+Date: Mon, 16 Nov 2026 04:12:52 +0800
+From: kernel test robot <lkp@intel.com>
+To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Guo Ren <guoren@kernel.org>,
+	Pekka Enberg <penberg@kernel.org>,
+	Patrick =?iso-8859-1?Q?St=E4hlin?= <me@packi.ch>
+Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Subject: Re: [PATCH v4 2/3] riscv: probes: reject probes inside an LR/SC
+ sequence
+Message-ID: <202611160417.wVX1is4j-lkp@intel.com>
+References: <20261115-probes-in-lrsc-v4-2-48b9b036bd1d@mobileye.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20261115-probes-in-lrsc-v4-2-48b9b036bd1d@mobileye.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261115_115317_213230_152531E9 
-X-CRM114-Status: GOOD (  10.02  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261115_121354_216902_5B35BB3B 
+X-CRM114-Status: GOOD (  12.34  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,38 +97,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The boot loader may override this configuration based on stored ID value
-in EEPROM TLV and if it does not then the smallest common sold
-configuration of 8gb is the most compatible option.
+Hi Vladimir,
 
-Signed-off-by: E Shattow <e@freeshell.de>
----
- arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+kernel test robot noticed the following build warnings:
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-index dda420900aa2..8d1cd468cf8c 100644
---- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-+++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-@@ -25,7 +25,7 @@ chosen {
- 
- 	memory@100000000 {
- 		device_type = "memory";
--		reg = <0x1 0x00000000 0x4 0x00000000>;
-+		reg = <0x1 0x00000000 0x2 0x00000000>;
- 	};
- 
- 	reg_aux_vcc3v3: regulator-aux-vcc3v3 {
--- 
-2.53.0
+[auto build test WARNING on c03c1a14507dfaf8b856c2608f9ac216021fc222]
 
+url:    https://github.com/intel-lab-lkp/linux/commits/Vladimir-Kondratiev/riscv-kprobes-fix-out-of-bounds-read-in-riscv_probe_decode_insn/20261115-143733
+base:   c03c1a14507dfaf8b856c2608f9ac216021fc222
+patch link:    https://lore.kernel.org/r/20261115-probes-in-lrsc-v4-2-48b9b036bd1d%40mobileye.com
+patch subject: [PATCH v4 2/3] riscv: probes: reject probes inside an LR/SC sequence
+config: riscv-randconfig-1000-20261116 (https://download.01.org/0day-ci/archive/20261116/202611160417.wVX1is4j-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 15.3.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261116/202611160417.wVX1is4j-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611160417.wVX1is4j-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   arch/riscv/kernel/probes/kprobes.c: In function 'arch_check_kprobe':
+>> arch/riscv/kernel/probes/kprobes.c:72:20: warning: suggest explicit braces to avoid ambiguous 'else' [-Wdangling-else]
+      72 |                 if (tmp == addr)
+         |                    ^
+
+
+vim +/else +72 arch/riscv/kernel/probes/kprobes.c
+
+c22b0bcb1dd024 Guo Ren             2020-12-17  51  
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  52  /*
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  53   * Walk the instructions from the enclosing symbol up to addr to check that
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  54   * addr is an instruction boundary. Then reject a probe inside an LR/SC
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  55   * sequence: the breakpoint trap drops the reservation, so the SC would fail
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  56   * and the loop would hit the probe again on every retry. The sequence is
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  57   * recognised by a forward scan with the constrained-sequence rules, as for
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  58   * uprobes, so an lr that is not followed by an sc (as in __cmpwait()) does
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  59   * not taint the rest of the function.
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  60   */
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  61  static int __kprobes arch_check_kprobe(unsigned long addr)
+87f48c7ccc73af Guo Ren             2023-01-31  62  {
+9e68bd803fac49 Fabian Vogt         2025-09-10  63  	unsigned long tmp, offset;
+9e68bd803fac49 Fabian Vogt         2025-09-10  64  
+9e68bd803fac49 Fabian Vogt         2025-09-10  65  	/* start iterating at the closest preceding symbol */
+9e68bd803fac49 Fabian Vogt         2025-09-10  66  	if (!kallsyms_lookup_size_offset(addr, NULL, &offset))
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  67  		return -EILSEQ;
+9e68bd803fac49 Fabian Vogt         2025-09-10  68  
+9e68bd803fac49 Fabian Vogt         2025-09-10  69  	tmp = addr - offset;
+87f48c7ccc73af Guo Ren             2023-01-31  70  
+87f48c7ccc73af Guo Ren             2023-01-31  71  	while (tmp <= addr) {
+87f48c7ccc73af Guo Ren             2023-01-31 @72  		if (tmp == addr)
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  73  			if (riscv_probe_in_lrsc_body((u16 *)addr, RISCV_LRSC_SCAN_BYTES))
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  74  				return -EINVAL;
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  75  			else
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  76  				return 0;
+87f48c7ccc73af Guo Ren             2023-01-31  77  
+87f48c7ccc73af Guo Ren             2023-01-31  78  		tmp += GET_INSN_LENGTH(*(u16 *)tmp);
+87f48c7ccc73af Guo Ren             2023-01-31  79  	}
+87f48c7ccc73af Guo Ren             2023-01-31  80  
+c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  81  	return -EILSEQ;
+87f48c7ccc73af Guo Ren             2023-01-31  82  }
+87f48c7ccc73af Guo Ren             2023-01-31  83  
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
