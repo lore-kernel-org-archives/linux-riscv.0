@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B063606A31A
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 14:18:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15F4E606A31A
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 14:18:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=h3yCRhee;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=j/ixKd6R
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TpIHZZhy;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=kwM2M/u/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,70 +14,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=4L7vzizQAaJLkcU12GThCZip94j1VON/3MWrlsI16uI=; b=h3yCRheeyoop/T2ZeLVVHMk1UG
-	QWNGyH+49z/fXD1/P1ODywERMTYL9gNWJLAKNouQOd28hKVDPkjDjQBP+ih9kCoCXH7CI4RoYw4/H
-	d3lH9jOYEd2LsSXt6q36FHAfC4hg+sbaBygKcbqCR4u+X8wWWsY0KRioqNMfM1wV07cgMt2rUb+Cn
-	IxPgsSZrvSvNLRxSzoESjDLL6oYcwmpCFUUBWO77+T+Udd1KIzwSknw04Z+3uqZoCqei8G2uc8m2N
-	Y2sMg5SZ+YfJsBgOj3PxZ9MJ39Gnkbn0y/ZvNtjGZGZe/+lCvbizYfDpKyhSYNEQm5xbK4yBkOjz6
-	3K839DbQ==;
+	bh=tQVULJdxujoCKASH/Ut2FU72BwVD3YRSNCZc09vVSsw=; b=TpIHZZhyT7fzE50QOeArkO0imv
+	j1S4jVp5TsIUxzD7nkqPC6SLi15KHIEaZ4h2tUJEHQIh5VOfzFd1QjP5SnVvIX1nLol1wl+w0TbYq
+	UUUCL4LLs4bNINhmlPjSPSHLRAZVqSsiBbcaeE65FaOXrLIaPnHd7UP+k7xiEH/403HhwyVoU3ceN
+	HhryLFQhtFNc3+TeE48Ip05OLCuTnJfaYaAj7gDpB2gyUqFpA9TOXXKmvf2j/FOGA62rBdOoGY3hf
+	RV6/hP4YKH211hrW3HLHjCvA3+aN54RnL2iho3yyPaL+nt1nk1UWD1njkvMl7sXBjs6uAtrxciWGg
+	cH+/T4kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSb46-000000001q1-1g32;
-	Sun, 15 Nov 2026 14:18:42 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1xSb47-000000001qa-3OEB;
+	Sun, 15 Nov 2026 14:18:43 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSb41-000000001oL-1hyB
+	id 1xSb45-000000001pM-3cjm
 	for linux-riscv@lists.infradead.org;
-	Sun, 15 Nov 2026 14:18:40 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so1188095e9.0
-        for <linux-riscv@lists.infradead.org>; Sun, 15 Nov 2026 06:18:36 -0800 (PST)
+	Sun, 15 Nov 2026 14:18:43 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-490d59c3f0aso925511f8f.1
+        for <linux-riscv@lists.infradead.org>; Sun, 15 Nov 2026 06:18:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1794752315; x=1795357115; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1794752320; x=1795357120; darn=lists.infradead.org;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=WQoftNx1+ky9AuggiK3VoWKz8ajkaLtdnex4l8Hd7yE=;
-        b=j/ixKd6RkFzgZaMiiVJ6zjPfyWYu08HmwmbOZN6gkM0kZVOe398JRfq+n+uHZsUSTR
-         HYge0fbCJmFS6+Hrle6IIwg0Obkd/8TCsGWHOTjIlGtCIc9Arbq/Wy1qSGmwBp4qHfiJ
-         YFMk0Nzn2O9DteiSDzw1mTS/4SJWVErMwUZJhlMSymhqAE6dbIsvBi1N/cXRyv8eLY95
-         HBC4KQNaniN+xnJVxLgDQJ236hC8dsdpSMsJY2Lfep8mKrw/DkNgMny7XgYGFyePDsrO
-         Q1dZ1ENoOTFal31qA7og+tUx+Aw5ljlGheaaPt5/pzbtcVR0gTUc63zOw4pa4Z6XsszF
-         /tIA==
+        bh=yg+6x1taFPz1aG2RIqr++6bIa3IK0w7NjTUlcchGBio=;
+        b=kwM2M/u/R5vpqgoUGa3Cc1HN+4gMbJKhucrnUfgOfz0igY/h7oRCRWcl3XRB/O4rS5
+         v1hAklUGzQV7bp7ZkM4JTouhWiQ7fZ6D/WUZ3hPCM2lTQAH9u/uFI+96VG3xFS6qxhxF
+         8+miwe/LtD7u9qBuxi3EqNxfg4gnrksLKsLc8xawq+/QBNskZfz2KruZWR5vP/jRAAhd
+         Zkiwj5c1VIATHWLR1S8ycmOR5pbxrGgq3a0Vwmf8bYZ+0n55mFpp0wsKIGQzPeH5nubQ
+         oQ6JXvpNKeOBJUdzTIi5uO/FOthrYCDROrbAmFfaTDp1X8mNxn+6IidhNcqr3njNNYrN
+         SRlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794752315; x=1795357115;
+        d=1e100.net; s=20260707; t=1794752320; x=1795357120;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=WQoftNx1+ky9AuggiK3VoWKz8ajkaLtdnex4l8Hd7yE=;
-        b=XlDvLOADQPye6ePWPmMweUbogjTLdzv7mkUB3vnS65RmFLgMLxTFTr0D0vpovPrZHG
-         Mi2sXEumiGo8/hJRHqr1izdfjWJOMeVdU9BDPtiFSfonmcBAKS1FWL/zAVWq2nD6WfHL
-         HT44h8bUnc30iDNi/csft14FUILfIQfkvGpYSHNjzQ6ItDKpYsp4Ca7J/62Pc0DMzg1V
-         WTeBPKjfGuVd6DRIlqQa62t67OFsB5njEJW324zsX+lQqlxE/RaQNO4ey7uk99XoGhKW
-         57TqNOX2xtWL7DHcBgVnP/VnjQQZ7uSgAB5GH8QdFUB07XAG8TPXChj4K+CLsWPNMd5d
-         koYQ==
-X-Forwarded-Encrypted: i=1; AL+hErH7RFfbwYFcCYaGObvXy0z8bz8g1pQA1qSwbhrAyNmFjNYhI1iEojLNinS+CDIR8C1+hngQFnZFBCG75Q==@lists.infradead.org
-X-Gm-Message-State: APuU4Z/pTMy1QiTu43AjRLvcO9bNkkIrVQMKVjnjFZdPsYH+qQV1C+9k
-	5wXXLqMLI6S8aZdqnMEty0PjKEk4FxZVkbJkp/XvNkFNdzBeKexIPsE7BDqxVxOsGlU=
-X-Gm-Gg: AYBFou2Xu326uXpCLNWLXr6GaijXhWpwshQNF6Y31M7NYVHoTLY8Azxy6jsH6i7teKQ
-	2UA8cv+scNKuEkjoA/MyNddbxTBf1SjNGjtHAaNUNWnGIONtsAb6c8k831RxT9tJ40DJfHEkezD
-	KSOuk1mTTwOmBkmB/G6niX3OhezgdhlqlrwpvI2DSZyXBo6Oe8ASw/kIXFNtxKkWnRHczDZj78E
-	OdDm8+op+HVFcHDRitFaz16bLldv/sdW4oK5eo/TJikpBueglYZc0ceJXXL6ybtT9biUbR8R6XI
-	fxVA6ZfY/qNy7cL6+rCdxzyciTFLRTud9vf2gooOv4HLrfH+IKKYwq29zo1eLg23Av+AlrlR0mZ
-	MyWI5cSAsEnyVGiB6EQFtwe1yGJmP9xKcN/EBiBUGPdYeC7Mv8kQNbzJPisdOkWGinCK6jTTyvU
-	idDgSqKV5EE/lRWmFzna28cTyRNEI31eXjI9ONLReutvicYM30eW0Jed8vTAV8mwXapsM1bRO0q
-	YbwyxAjjREz24rkBZug3GmsEXvAmnTShTY7h4oWUtVX9IjoYUOynGlDlCtCsc6vjqx5sSESPPD/
-	lYNWy7nl7uxtcVtI4Xn/qCr3Uqwxd5uk69Or0gxzUsbgsdUb
-X-Received: by 2002:a05:600c:4e43:b0:4a7:c366:d791 with SMTP id 5b1f17b1804b1-4bb559f24ffmr166728745e9.1.1794752315503;
-        Sun, 15 Nov 2026 06:18:35 -0800 (PST)
+        bh=yg+6x1taFPz1aG2RIqr++6bIa3IK0w7NjTUlcchGBio=;
+        b=buGA3OIm4GzWjuWAHp+7CPzH2bxKdtNdwk5o6L0y4AzpJ8vy/ZCIb296RPt8jdMxXU
+         Y5fy8CdUDzDopSjiSQ/W+F1Tf4jU/QSpJVd+PITGEI29xfdjlw7FGdw8dffRv+e500CB
+         l7xAdIa1iRUG1tW3cXwRSCx+bAGXuQN+mPlArbFsotwYL1Z6bRIIpaeqb7tciSJ0P1tk
+         SO9lSVdiJBx1WgLLnTQUY3F/dYVaH1/kcRZ/nMoDAjTocotlnq1V2Po/cmeMccU2awmA
+         Fx3qj35FdQ8ZCGipdS5ek3/7z/0UBsGRCD0HY0bqwX0t0NYgz70S7HGuvMXZVUD3rJLi
+         x2Lg==
+X-Forwarded-Encrypted: i=1; AL+hErGGZjpp6mhZcVS1Ficb2rBCVvDMRg9QIF9hg1LvbCyHEV/a9YywotknjQzyQjQAa+nUd8BpbmZpGZTWJQ==@lists.infradead.org
+X-Gm-Message-State: APuU4Z+EMi5MqNcs5C9yAI1jDr21Pf5HTcsSqy+h2uKQyAk7omwBxxGP
+	u8Nz9ZG8UPRRcBPGaANut7htA9w0/sWCIsPWlNF8Llc3cZSGGdfCIt8Bx/CcTSJrnA4=
+X-Gm-Gg: AYBFou3GPGEjH5/Ja1d9hsE94UtJzoraW+ftiZw+0kfuSNq6rpAvMLbgXfZArjLyL/4
+	Xk0Z5ZNifP0zbqJZlDrX3SOI0uBq3B21ZmgY89tp5aFVYfuFn8lvdGkRpkTqlQ0L/RJr3VAMJd0
+	lu6g9X6aZQFZ4DpBjxIpiMpk1Rk3J4tIakOsK1jBokUKFiyil5mPFYmZMjsarKQdHrHVG5OXKNc
+	A8LgQ1HWa8g9SzC+wMSZ+F/U9Kba5YPIUiL29brAZm6J1ATqrnVPHzyXzeGDmnE9AoscW96YCjF
+	6FR+HHAJIOzkhKwTXxoof/CZCpGar1BJXTGl5HtWChiVPGPU1mZ9ZyaYL2JOj9vP2PSUUuGMjzu
+	eFT6wgGPQz2mv8T2ia2v2OIGR46/qlOyTcNXPEK+8uCD5ReRLPReb4Ap5geqYu9ZckaBXjtkTSg
+	K+ILu7xettetZKkGk5HB6MFGkChy729HKaCqYped4odYMUN8338iZ6Gyb+EazMYYdteVyMLz+VK
+	vSBZ64F+N+/WMqb+PZLdktnMWAD4G10ypeIUjfOoirMZuNFZ8u8uuESp3Ek/9PGj7r0Ys/gIT6h
+	HssEcxXrwO3CblrrZot0JYThTjkTtO8y+mUo8ri0DSHpv4CK
+X-Received: by 2002:a05:6000:26c7:b0:492:f563:cfa1 with SMTP id ffacd0b85a97d-49c73ed0ba9mr17977136f8f.55.1794752320034;
+        Sun, 15 Nov 2026 06:18:40 -0800 (PST)
 Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb56f97257sm137451805e9.4.2026.11.15.06.18.34
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c5d223a29sm17400553f8f.8.2026.11.15.06.18.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Nov 2026 06:18:34 -0800 (PST)
+        Sun, 15 Nov 2026 06:18:39 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v1 3/6] clk: starfive: jh71x0: Add generic CRG probe
- helper
+Subject: Re: [PATCH v1 6/6] reset: starfive: Add StarFive JHB100 System-0
+ reset driver
 From: Jerome Brunet <jbrunet@baylibre.com>
 To: Changhuang Liang <changhuang.liang@starfivetech.com>
 Cc: Brian Masney <bmasney@redhat.com>, 
@@ -88,23 +88,23 @@ Cc: Brian Masney <bmasney@redhat.com>,
  Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <20261013102707.9207-4-changhuang.liang@starfivetech.com>
+In-Reply-To: <20261013102707.9207-7-changhuang.liang@starfivetech.com>
 References: <20261013102707.9207-1-changhuang.liang@starfivetech.com>
- <20261013102707.9207-4-changhuang.liang@starfivetech.com>
+ <20261013102707.9207-7-changhuang.liang@starfivetech.com>
 Date: Sun, 15 Nov 2026 15:18:28 +0100
-Message-Id: <179475230833.3873592.10035326269756392801.b4-review@b4>
+Message-Id: <179475230833.3873592.14107280802504551112.b4-review@b4>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6706; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=VtBrKLm2TGieOwhTBnDIxjnhWjQzoOwdJZi+yiLRkd8=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFk/95vPYUsyZ/7yQy20T9Joyetv7rvPOPozxi4JOp3Q4
- 7L08PygjlIWBjEuBlkxRZYa7mrxd5JaX2ZN17kNM4eVCWQIAxenAEyk+DDD//CnhTkpiXPL93+f
- ueJR2HcFJf5vL036zX4qGTRPDXS/5MDIcMDvy+VbPzd6fk0rdHtUvzTgu8N1zS28M/+xvN9ps8t
- 1BQsA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2441; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=Apxx3Ov1ydC3jlD163T+qDu/ZuqndG5aUGB/PTRcBEc=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFk/95snLg5eWf6gfN/cd7eNeK+7ct2XeLhA9fyZ2Ifdw
+ aUXGnamdpSyMIhxMciKKbLUcFeLv5PU+jJrus5tmDmsTCBDGLg4BWAi3zUYGd79iDxWUNy96YPo
+ jLWvixQltj48/ErwXcDMiA5r1t3qoZkMf8VXaTvsaJ0547OP7Yxb39Ws+j6E33qolafOZLHo8CP
+ LY4wA
 X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
  fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261115_061839_167084_33308DA1 
-X-CRM114-Status: GOOD (  34.35  )
+X-CRM114-CacheID: sfid-20261115_061841_930834_DBACF5AE 
+X-CRM114-Status: GOOD (  19.18  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,190 +125,63 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-> The StarFive JHB100 SoC has several clock and reset generators (CRGs)
-> which share the same probe flow: map the registers, register all the
-> clocks described by a table, add the clock provider and register the
-> auxiliary reset device.
+> Add the auxiliary reset driver for the StarFive JHB100 SoC. It binds to
+> the auxiliary devices registered by the JHB100 clock generator drivers
+> and uses the register base handed over as platform data.
 > 
-> Add jh71x0_crg_probe() together with struct jh71x0_crg_domain_info so
-> that each CRG driver only needs to provide its clock table, external
-> clock names and reset auxiliary device name. The reset auxiliary device
-> is registered with jh71x0_reset_controller_register().
+> Start with the System-0 clock and reset generator (SYS0CRG). Its reset
+> IDs do not map one-to-one to the hardware reset bits, so the controller
+> is registered with a reset ID map.
 > 
-> Parents that refer to an external clock are tagged with
-> JH71X0_EXT_CLK_FLAG in the parent index, so the external clock indexes
-> of a driver do not depend on how many clocks the CRG provides and do
-> not shift when a clock is added to the binding.
-> 
-> The clock index space of these CRGs is sparse, so also make
-> jh71x0_clk_get() reject indexes that were never registered when the
-> domain info is available.
+> The other JHB100 reset controllers are added by follow-up patches, each
+> right after the clock driver of the same CRG.
 > 
 > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 > ---
->  drivers/clk/starfive/clk-starfive-jh71x0.c | 96 +++++++++++++++++++++-
->  drivers/clk/starfive/clk-starfive-jh71x0.h | 21 +++++
->  2 files changed, 114 insertions(+), 3 deletions(-)
+>  MAINTAINERS                                   |  6 ++
+>  drivers/reset/starfive/Kconfig                |  9 +++
+>  drivers/reset/starfive/Makefile               |  1 +
+>  .../reset/starfive/reset-starfive-jhb100.c    | 75 +++++++++++++++++++
+>  4 files changed, 91 insertions(+)
+>  create mode 100644 drivers/reset/starfive/reset-starfive-jhb100.c
 >
-> diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.c b/drivers/clk/starfive/clk-starfive-jh71x0.c
-> index 37bab563c5e0..52c5ae737dbd 100644
-> --- a/drivers/clk/starfive/clk-starfive-jh71x0.c
-> +++ b/drivers/clk/starfive/clk-starfive-jh71x0.c
-> @@ -10,6 +10,7 @@
->  #include <linux/debugfs.h>
->  #include <linux/device.h>
->  #include <linux/io.h>
-> +#include <linux/property.h>
->  #include <soc/starfive/reset-starfive-jh71x0.h>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index f66998e8eb64..c2ab9cbccf49 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -26858,6 +26858,12 @@ S:	Maintained
+>  F:	Documentation/devicetree/bindings/pinctrl/starfive,jhb1*.yaml
+>  F:	drivers/pinctrl/starfive/pinctrl-starfive-jhb1*
 >  
->  #include "clk-starfive-jh71x0.h"
-> @@ -333,10 +334,14 @@ struct clk_hw *jh71x0_clk_get(struct of_phandle_args *clkspec, void *data)
->  	struct jh71x0_clk_priv *priv = data;
->  	unsigned int idx = clkspec->args[0];
->  
-> -	if (idx < priv->num_reg)
-> -		return &priv->reg[idx].hw;
-> +	if (idx >= priv->num_reg)
-> +		return ERR_PTR(-EINVAL);
->  
-> -	return ERR_PTR(-EINVAL);
-> +	/* Index space is sparse: reject holes that were never registered. */
-> +	if (priv->info && !priv->info->clk_data[idx].name)
-> +		return ERR_PTR(-ENOENT);
+> +STARFIVE JHB100 RESET CONTROLLER DRIVERS
+> +M:	Changhuang Liang <changhuang.liang@starfivetech.com>
+> +S:	Supported
+> +F:	drivers/reset/starfive/reset-starfive-jhb1*
+> +F:	include/dt-bindings/reset/starfive,jhb1*.h
 > +
-> +	return &priv->reg[idx].hw;
->  }
->  EXPORT_SYMBOL_GPL(jh71x0_clk_get);
->  
-> @@ -361,3 +366,88 @@ int jh71x0_reset_controller_register(struct jh71x0_clk_priv *priv,
->  	return 0;
->  }
->  EXPORT_SYMBOL_GPL(jh71x0_reset_controller_register);
+>  STATIC BRANCH/CALL
+>  M:	Peter Zijlstra <peterz@infradead.org>
+>  M:	Josh Poimboeuf <jpoimboe@kernel.org>
+> diff --git a/drivers/reset/starfive/Kconfig b/drivers/reset/starfive/Kconfig
+> index d832339f61bc..84baefbaee14 100644
+> --- a/drivers/reset/starfive/Kconfig
+> +++ b/drivers/reset/starfive/Kconfig
+> @@ -19,3 +19,12 @@ config RESET_STARFIVE_JH7110
+>  	default ARCH_STARFIVE
+>  	help
+>  	  This enables the reset controller driver for the StarFive JH7110 SoC.
 > +
-> +int jh71x0_crg_probe(struct platform_device *pdev)
-> +{
-> +	const struct jh71x0_crg_domain_info *info;
-> +	struct jh71x0_clk_priv *priv;
-> +	unsigned int idx;
-> +	int ret;
-> +
-> +	info = device_get_match_data(&pdev->dev);
-> +	if (!info)
-> +		return -ENODEV;
-> +
-> +	priv = devm_kzalloc(&pdev->dev, struct_size(priv, reg, info->num_clk),
-> +			    GFP_KERNEL);
-> +	if (!priv)
-> +		return -ENOMEM;
-> +
-> +	spin_lock_init(&priv->rmw_lock);
-> +	priv->info = info;
-> +	priv->num_reg = info->num_clk;
-> +	priv->dev = &pdev->dev;
-> +	priv->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(priv->base))
-> +		return PTR_ERR(priv->base);
-> +
-> +	for (idx = 0; idx < info->num_clk; idx++) {
-> +		u32 max = info->clk_data[idx].max;
-> +		struct clk_parent_data parents[4] = {};
-> +		struct clk_init_data init = {
-> +			.name = info->clk_data[idx].name,
-> +			.ops = starfive_jh71x0_clk_ops(max),
-> +			.parent_data = parents,
-> +			.num_parents =
-> +				((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
-> +			.flags = info->clk_data[idx].flags,
-> +		};
-> +		struct jh71x0_clk *clk = &priv->reg[idx];
-> +		unsigned int i;
-> +
-> +		if (!init.name)
-> +			continue;
-> +
-> +		if (init.num_parents > ARRAY_SIZE(parents))
-> +			return dev_err_probe(priv->dev, -EINVAL,
-> +					     "clock %s: too many parents (%u > %zu)\n",
-> +					     init.name, init.num_parents, ARRAY_SIZE(parents));
-> +
-> +		for (i = 0; i < init.num_parents; i++) {
-> +			unsigned int pidx = info->clk_data[idx].parents[i];
-> +
-> +			if (pidx & JH71X0_EXT_CLK_FLAG) {
-> +				pidx &= ~JH71X0_EXT_CLK_FLAG;
-> +				if (pidx >= info->num_ext_clk)
-> +					return dev_err_probe(priv->dev, -EINVAL,
-> +							     "clock %s: invalid external parent %u\n",
-> +							     init.name, pidx);
-> +
-> +				parents[i].fw_name = info->ext_clk[pidx];
-> +			} else {
-> +				if (pidx >= info->num_clk)
-> +					return dev_err_probe(priv->dev, -EINVAL,
-> +							     "clock %s: invalid parent index %u\n",
-> +							     init.name, pidx);
-> +
-> +				parents[i].hw = &priv->reg[pidx].hw;
-> +			}
-> +		}
-> +
-> +		clk->hw.init = &init;
-> +		clk->idx = idx;
-> +		clk->max_div = max & JH71X0_CLK_DIV_MASK;
-> +
-> +		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
-> +		if (ret)
-> +			return dev_err_probe(priv->dev, ret, "Failed to register clock %s\n",
-> +					     init.name);
-> +	}
-> +
-> +	ret = devm_of_clk_add_hw_provider(&pdev->dev, jh71x0_clk_get, priv);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return jh71x0_reset_controller_register(priv, info->rst_name);
-> +}
-> +EXPORT_SYMBOL_GPL(jh71x0_crg_probe);
-> diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.h b/drivers/clk/starfive/clk-starfive-jh71x0.h
-> index 322a05157faf..666d44e6a752 100644
-> --- a/drivers/clk/starfive/clk-starfive-jh71x0.h
-> +++ b/drivers/clk/starfive/clk-starfive-jh71x0.h
-> @@ -5,6 +5,7 @@
->  #include <linux/bits.h>
->  #include <linux/clk-provider.h>
->  #include <linux/device.h>
-> +#include <linux/platform_device.h>
->  #include <linux/spinlock.h>
->  
->  /* register fields */
-> @@ -29,6 +30,16 @@ struct jh71x0_clk_data {
->  	u8 parents[4];
->  };
->  
-> +/*
-> + * Parent indexes with this bit set refer to an external clock, i.e. an entry
-> + * of jh71x0_crg_domain_info::ext_clk, instead of a clock provided by the CRG
-> + * itself. This keeps the external clock indexes independent of the number of
-> + * clocks the CRG provides, which in turn must stay below the flag; drivers
-> + * check this with a static_assert() on their clock table.
-> + */
-> +#define JH71X0_EXT_CLK_FLAG	BIT(7)
+> +config RESET_STARFIVE_JHB100
+> +	bool "StarFive JHB100 Reset Driver"
+> +	depends on CLK_STARFIVE_JH71X0 || COMPILE_TEST
 
-I'm really not a fan of this hack.
-In addition to being hackish it will limit your controllers to 127 internal clocks
-which I'm pretty sure is a limit you'll hit eventually.
+This would mean it can't build without the starfive clock being compiled too.
+There should just be a shared header, unless I'm missing something and the
+clock already imply this driver, that should be enough ? no ?
 
-I'd prefer if a parent was defined by a struct of yours, something like
+If so, 'default ARCH_STARFIVE' can go too. and just
 
-struct jh71x0_parent_data {
-	const char *fw_name; // <= external if not NULL
-	unsigned int internal_id; // <= id in your table if the above is NULL
-}
-
-With this, the bit, the macro that goes with and the table of external clock
-can all go away.
-
-I suppose it means some change in your existing drivers too
+depends on ARCH_STARFIVE || COMPILE_TEST
 
 -- 
 Jerome
