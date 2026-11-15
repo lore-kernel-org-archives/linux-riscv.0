@@ -2,95 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A530B606A32E
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Nov 2026 22:06:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D125F606A885
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 05:12:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WOob1fil;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Od3NKH12
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JaOIaQdH;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=icenowy.me header.i=@icenowy.me header.a=rsa-sha256 header.s=zmail2 header.b=Shf9I945
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=j+Dc938qdazkLZ20v5kROGN15ydcHq1G8vuEhh8CrZA=; b=WOob1fil9kH/0PipMqlm4xOX2v
-	1kA9Riqiqc/YHZG/dRXqsPjZA0xiKEzl9eF8YtkOMHHYOuOjRyDxOsn57I+galAuvEMcq6+yUQple
-	6mQgOu3i3t5WTLanV0bdJJNmxc7j6JXp3NeyAzu4nnJgRS/qKskAxcJjeDOxZBPjkW46Fi6AfoBSg
-	MDwoAqVr312CJfDsdAhAZvwBD4A99I6NqtlC7TjbhZhjvT8H85Q9QMA7/MjLgyMHd2MxgQ0evtFRM
-	DUFMCLOYtRD/EbrqJvwyc2eIL7YMCdzv6OwN2hAYzJw7qEYeVJh143GsG3ZWw08au+dZaMe8NBN9G
-	SBAPFacg==;
+	bh=TdoyFOWedPsB0OMKltHd1p+1exp2wkBGBLeUKhRcW7w=; b=JaOIaQdHkY0Pc2VhWJ82LCZlsR
+	FHhaLHTXpWeVp899lIEkT4w0KfxiyW/0ngXDwCmNIBRHkR4KWbaEtYITqhvQzufqbn17mYY7NOVVn
+	4R39zPULjLG4OoEQXSvk5pa4AtwRWdUMBDO90Tznbh3cMz/EaTEWZhpPNqKddrXred65ZzHh/L0TH
+	cN2lkGH3bHjTQkEGBc/cly0AyYWLuTvGIt/6zTgXv2gjRB/A76zqHQsj9wkIfaerWPZaJy77NmWnE
+	AMzTuBFYfrbFVQu/Sm9eflCfSB7z4RtnffWdfa4sA8l94pd9zCnfbLQVyNfNH2RW1qQR2wq88nLie
+	SQtculVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSLtK-0000000GoHv-2JCz;
-	Sat, 14 Nov 2026 22:06:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xSSXl-0000000H4us-0AwW;
+	Sun, 15 Nov 2026 05:12:45 +0000
+Received: from sender5-op-o15.zoho.com ([165.173.182.15])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSLtH-0000000GoGy-21UA
-	for linux-riscv@lists.infradead.org;
-	Sat, 14 Nov 2026 22:06:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8D3D160E04;
-	Sat, 14 Nov 2026 22:06:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C266A1F000C6;
-	Sat, 14 Nov 2026 22:06:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794693990;
-	bh=GwKej1T3BOoQPomvPN4YWkh5UASqK9UKMcPoRc5lP9Q=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Od3NKH129FmKbRGsP7XekQUZflwcRBY11ZrcWbuIXq/NSdOzZGg05mRKu8P8w715d
-	 cSgNZ9H9RCkhvvAmVFP3staDYd3tjZGTmCLJVuDGsElAOlpM8ZrQJkgPzS+nNXNSre
-	 0DzkfVKYQyVNj5/XAfVIJhsR9nZcg/uwUqySM4u7B+NLKn8i/AwosQfOf0eEPZF9GD
-	 yDhJ2SqTk2NmFtPPSHCEqCjOI8zpRuKyn6xkydob2rSUd0w1QLtgx20aG/bTNMN93x
-	 1j9/MvS7+hegB/J1IPZcEKyh+W/L8BwEIDub2CLr6rrjLpGRF+GkZbIVYhxN+6zSay
-	 lOeX69ebArauw==
-From: Drew Fustini <fustini@kernel.org>
-Date: Sat, 14 Nov 2026 14:06:24 -0800
-Subject: [PATCH v12 4/5] dt-bindings: riscv: Add binding for CBQRI
- controllers
+	id 1xSSXg-0000000H4uP-3x3C;
+	Sun, 15 Nov 2026 05:12:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1794719509; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=JOGlxjHP0/DLspL53khKYZ0SgtKL6wuFzI00xEcjsX2X0naxDeDwG+mN0JTsz+5zf0ZCsFsBMFVqrfaYnQkAUR3t8lbRG8f1BqRhvEj48tV95ZrVQTmeVdXAt/QIi6mKdxRQO4HSe+Y2wYyGGmY5++jbPgiD+NxssVDB9aWoBjQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1794719509; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=sxOBPrCyzV/VX68JlD+bnzHrsOO/mwcMVPnkr3sQCJE=; 
+	b=JTenAkqIMAIIKYfr7QF4ukYjfy4yNh7djxPijM5gJBR3O9VQkxjSsfcuEF+p9XA5MdQEuNgbt7oMj340d21QTX0xU1gbejcKMOP0wnSw4pDSpshTztxX0p8eRsiJSxdrfO19Rmjh226WJc5Bx5ELVWdzILkLoI3UZafzszEw3oM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: a=rsa-sha256; b=Shf9I945a9oA67J+8Ds7UcvmrKj5kNlbGheeRhdtymi+TrNqZRK6TwdNA0v0w0R1b75OQzmI+Pyn/9GuzyrrZRQfM0JQGmkR68MafrCHVXz++GT9O2md5umoQoi44aXHOxbY6STIXDFBFIAEQXgeWQUE//D0QAsCIq6o9b5zNPUZt+5+wuziXnY35ZuNhZHvxU7OHkjnTNRyt2a3mSonSL2WllJDuNrDRkoqTTG0IN5p2Lc+cTSCHPlIF9dSfOHF+TkdKAJJrJV1uxIjEm7+Zqpjmq88uP2UTLimDIQ3QB1f6xrpwLEoaunTnY0SDU7qEWPeTq0v3mNjL5iZ6ia4tA==; c=relaxed/relaxed; s=zmail2; d=icenowy.me; v=1; bh=sxOBPrCyzV/VX68JlD+bnzHrsOO/mwcMVPnkr3sQCJE=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1794719506138787.2843822660936;
+	Sat, 14 Nov 2026 21:11:46 -0800 (PST)
+Message-ID: <45f41ca4bcc76a6c5d0b9180c6492308ec3e85c9.camel@icenowy.me>
+Subject: Re: [PATCH 19/19] MAINTAINERS: add an entry for the Allwinner V861
+ SoC
+From: Icenowy Zheng <uwu@icenowy.me>
+To: gaohan@iscas.ac.cn, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt	
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti	
+ <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Guo Ren	
+ <guoren@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Radu Rendec	
+ <radu@rendec.net>, Samuel Holland <samuel.holland@sifive.com>, Daniel
+ Lezcano	 <daniel.lezcano@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Stephen Boyd	 <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet	 <jbrunet+clk@baylibre.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec	 <jernej.skrabec@gmail.com>, Samuel Holland
+ <samuel@sholland.org>, Philipp Zabel	 <p.zabel@pengutronix.de>, Alexandre
+ Belloni <alexandre.belloni@bootlin.com>,  Maxime Ripard
+ <mripard@kernel.org>, Linus Walleij <linusw@kernel.org>, Andre Przywara
+ <andre.przywara@arm.com>
+Cc: Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>,
+ devicetree@vger.kernel.org, 	linux-csky@vger.kernel.org,
+ linux-sunxi@lists.linux.dev, 	linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-rtc@vger.kernel.org,
+ linux-gpio@vger.kernel.org
+Date: Sun, 15 Nov 2026 13:11:31 +0800
+In-Reply-To: <20261114-v861-v1-19-eb71ec3ee523@iscas.ac.cn>
+References: <20261114-v861-v1-0-eb71ec3ee523@iscas.ac.cn>
+	 <20261114-v861-v1-19-eb71ec3ee523@iscas.ac.cn>
+User-Agent: Evolution 3.58.3 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261114-dfustini-atl-sc-cbqri-dt-v12-4-6ef1f627072d@kernel.org>
-References: <20261114-dfustini-atl-sc-cbqri-dt-v12-0-6ef1f627072d@kernel.org>
-In-Reply-To: <20261114-dfustini-atl-sc-cbqri-dt-v12-0-6ef1f627072d@kernel.org>
-To: Adrien Ricciardi <aricciardi@baylibre.com>, 
- Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>, 
- Atish Patra <atish.patra@linux.dev>, Babu Moger <babu.moger@amd.com>, 
- Ben Horgan <ben.horgan@arm.com>, Borislav Petkov <bp@alien8.de>, 
- Chen Pei <cp0613@linux.alibaba.com>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- Dave Martin <Dave.Martin@arm.com>, Fenghua Yu <fenghuay@nvidia.com>, 
- Gong Shuai <gong.shuai@sanechips.com.cn>, Gong Shuai <gsh517@gmail.com>, 
- guo.wenjia23@zte.com.cn, James Morse <james.morse@arm.com>, 
- =?utf-8?q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn, 
- Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
- Peter Newman <peternewman@google.com>, 
- =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <radim.krcmar@oss.qualcomm.com>, 
- Reinette Chatre <reinette.chatre@intel.com>, Rob Herring <robh@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Sunil V L <sunilvl@oss.qualcomm.com>, Tony Luck <tony.luck@intel.com>, 
- Weiwei Li <liwei1518@gmail.com>, yunhui cui <cuiyunhui@bytedance.com>, 
- Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>, 
- Drew Fustini <fustini@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
- Jonathan Cameron <jic23@kernel.org>, 
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, 
- Zeng Heng <zengheng@picoheart.com>, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, x86@kernel.org, devicetree@vger.kernel.org, 
- linux-doc@vger.kernel.org
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4819; i=fustini@kernel.org;
- h=from:subject:message-id; bh=sKXr4EexR1L1i1sCn1FNTJvR16635O+nA1JRFhfXrew=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWT9uJ18W1ylcOqyLXcN6w0LZZr1bPpmb7f6qdReaJj89
- lVe0FPPjlIWBjEuBlkxRZZNH/IuLPEK/bpg/ottMHNYmUCGMHBxCsBE4qwYGT56M2c/bfxglbf0
- nkz+4ulHjZcdTbk0caPD9OnvZjrNSDdlZLjvb8ff/EDk5iIu3/Whdd+iZpgppJ+Qsbl8Jrhdx3V
- DDgsA
-X-Developer-Key: i=fustini@kernel.org; a=openpgp;
- fpr=1B6F948213EA489734F3997035D5CD577C1E6010
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261114_211241_069936_E72A5644 
+X-CRM114-Status: GOOD (  10.17  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,156 +88,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Document the device tree binding for RISC-V CBQRI capacity and bandwidth
-controllers. Each controller is named by a device-specific compatible
-followed by the generic compatible. The binding also describes the
-common riscv,cbqri-rcid and riscv,cbqri-mcid properties, and the
-riscv,cbqri-cache phandle, required for capacity controllers, that
-links a capacity controller to the cache whose capacity it allocates.
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Zeng Heng <zengheng@picoheart.com>
-Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
-Signed-off-by: Drew Fustini <fustini@kernel.org>
----
- .../devicetree/bindings/riscv/riscv,cbqri.yaml     | 98 ++++++++++++++++++++++
- MAINTAINERS                                        |  1 +
- 2 files changed, 99 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml b/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
-new file mode 100644
-index 000000000000..160b0bc797b1
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
-@@ -0,0 +1,98 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/riscv,cbqri.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RISC-V Capacity and Bandwidth QoS Register Interface (CBQRI) controller
-+
-+description: |
-+  The RISC-V CBQRI specification defines capacity-controller and
-+  bandwidth-controller register blocks that allocate cache capacity and memory
-+  bandwidth to resource-control IDs (RCIDs) and monitor usage per
-+  monitoring-counter ID (MCID):
-+  https://github.com/riscv-non-isa/riscv-cbqri/blob/main/riscv-cbqri.pdf
-+
-+  Allocation and monitoring share one register block, and a controller may
-+  implement either or both. A driver discovers which at runtime from the
-+  capabilities register, so the compatible names only the controller type. It
-+  does not distinguish allocation-only, monitoring-only or combined
-+  controllers, and no property declares monitoring support.
-+
-+maintainers:
-+  - Drew Fustini <fustini@kernel.org>
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - tenstorrent,ascalon-shared-cache-controller
-+          - const: riscv,cbqri-capacity-controller
-+      - items:
-+          - not: {}
-+            description: Needs a vendor-specific compatible
-+          - const: riscv,cbqri-bandwidth-controller
-+
-+  reg:
-+    maxItems: 1
-+    description:
-+      The CBQRI controller register block.
-+
-+  riscv,cbqri-rcid:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      The maximum number of RCIDs the controller supports. RCIDs are the
-+      resource-control IDs that allocation operations target.
-+
-+  riscv,cbqri-mcid:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      The maximum number of MCIDs the controller supports. MCIDs are the
-+      monitoring-counter IDs that usage-monitoring operations target. Present
-+      on controllers that implement monitoring.
-+
-+  riscv,cbqri-cache:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle to the cache node whose capacity this controller allocates.
-+      Applies to capacity controllers that back a CPU cache. The cache level
-+      and the harts sharing it are taken from that node's cache topology.
-+
-+required:
-+  - compatible
-+  - reg
-+
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: riscv,cbqri-capacity-controller
-+    then:
-+      required:
-+        - riscv,cbqri-rcid
-+        - riscv,cbqri-cache
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    l2_cache: l2-cache {
-+        compatible = "cache";
-+        cache-level = <2>;
-+        cache-unified;
-+        cache-size = <0xc00000>;
-+        cache-sets = <8192>;
-+        cache-block-size = <64>;
-+    };
-+
-+    qos-controller@a21a00c0 {
-+        compatible = "tenstorrent,ascalon-shared-cache-controller",
-+                     "riscv,cbqri-capacity-controller";
-+        reg = <0xa21a00c0 0xf40>;
-+        riscv,cbqri-rcid = <16>;
-+        riscv,cbqri-cache = <&l2_cache>;
-+    };
-+
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 1ba75a57c77b..636835e313ee 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -24137,6 +24137,7 @@ M:	Drew Fustini <fustini@kernel.org>
- R:	yunhui cui <cuiyunhui@bytedance.com>
- L:	linux-riscv@lists.infradead.org
- S:	Supported
-+F:	Documentation/devicetree/bindings/riscv/riscv,cbqri.yaml
- F:	arch/riscv/include/asm/qos.h
- F:	arch/riscv/include/asm/resctrl.h
- F:	arch/riscv/kernel/qos.c
-
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjYtMTEtMTTlha3nmoQgMDY6MzMgKzA4MDDvvIxIYW4gR2FvIHZpYSBCNCBSZWxheeWG
+memBk++8mgo+IEZyb206IEhhbiBHYW8gPGdhb2hhbkBpc2Nhcy5hYy5jbj4KPiAKPiBBZGQgbXlz
+ZWxmIGFzIG1haW50YWluZXIgZm9yIHRoZSBWODYxIGJpbmRpbmdzLCBjbG9jayBhbmQgcGluIGNv
+bnRyb2wKPiBkcml2ZXJzIGFuZCBkZXZpY2UgdHJlZXMuCgpJIHRoaW5rIHRyYWRpdGlvbmFsbHkg
+c3VueGkgZG8gbm90IGFkZCBtYWludGFpbmVycyBmb3Igc3BlY2lmaWMgU29Dcy4KCk1heWJlIHlv
+dSBzaG91bGQgcGF0Y2ggdGhlIHJlZ2V4cCBvZiAiQVJNL0FsbHdpbm5lciBzdW5YaSBTb0Mgc3Vw
+cG9ydCIKaXRlbSBpbnN0ZWFkLgoKVGhhbmtzLApJY2Vub3d5Cgo+IAo+IFNpZ25lZC1vZmYtYnk6
+IEhhbiBHYW8gPGdhb2hhbkBpc2Nhcy5hYy5jbj4KPiAtLS0KPiDCoE1BSU5UQUlORVJTIHwgMTIg
+KysrKysrKysrKysrCj4gwqAxIGZpbGUgY2hhbmdlZCwgMTIgaW5zZXJ0aW9ucygrKQo+IAo+IGRp
+ZmYgLS1naXQgYS9NQUlOVEFJTkVSUyBiL01BSU5UQUlORVJTCj4gaW5kZXggOTNhYmJiMzE1MDY1
+Li5kZmMzMDBkYzFlYjIgMTAwNjQ0Cj4gLS0tIGEvTUFJTlRBSU5FUlMKPiArKysgYi9NQUlOVEFJ
+TkVSUwo+IEBAIC0yNDAzMSw2ICsyNDAzMSwxOCBAQCBGOglkcml2ZXJzL2lycWNoaXAvaXJxLXJp
+c2N2LWludGMuYwo+IMKgRjoJaW5jbHVkZS9saW51eC9pcnFjaGlwL3Jpc2N2LWFwbGljLmgKPiDC
+oEY6CWluY2x1ZGUvbGludXgvaXJxY2hpcC9yaXNjdi1pbXNpYy5oCj4gwqAKPiArUklTQy1WIEFM
+TFdJTk5FUiBWODYxIFNvQyBTVVBQT1JUCj4gK006CUhhbiBHYW8gPGdhb2hhbkBpc2Nhcy5hYy5j
+bj4KPiArTDoJbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+ICtMOglsaW51eC1zdW54
+aUBsaXN0cy5saW51eC5kZXYKPiArUzoJTWFpbnRhaW5lZAo+ICtGOglEb2N1bWVudGF0aW9uL2Rl
+dmljZXRyZWUvYmluZGluZ3MvY2xvY2svYWxsd2lubmVyLHN1bjI1MmktCj4gdjg2MS1jY3UueWFt
+bAo+ICtGOglhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FsbHdpbm5lci9zdW4yNTJpLXY4NjEqCj4gK0Y6
+CWRyaXZlcnMvY2xrL3N1bnhpLW5nL2NjdS1zdW4yNTJpLXY4NjEqLmMKPiArRjoJZHJpdmVycy9w
+aW5jdHJsL3N1bnhpL3BpbmN0cmwtc3VuMjUyaS12ODYxKi5jCj4gK0Y6CWluY2x1ZGUvZHQtYmlu
+ZGluZ3MvY2xvY2svc3VuMjUyaS12ODYxKi5oCj4gK0Y6CWluY2x1ZGUvZHQtYmluZGluZ3MvcmVz
+ZXQvc3VuMjUyaS12ODYxKi5oCj4gKwo+IMKgUklTQy1WIEFOREVTIFNvQyBTdXBwb3J0Cj4gwqBN
+OglCZW4gWm9uZy1Zb3UgWGllIDxiZW43MTdAYW5kZXN0ZWNoLmNvbT4KPiDCoFM6CU1haW50YWlu
+ZWQKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
