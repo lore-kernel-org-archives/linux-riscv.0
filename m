@@ -2,111 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 550AB606A31E
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 08:27:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70F64606A327
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 08:42:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=am2cQOFf;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=leoJihDx
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BEq7l0y6;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=VjtatNVy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=dYha04MGGVkltI6Q8A+Go4W7sZDJO4HiZABaFmNhPNo=; b=am2cQOFfcg9OGZX1YfAaY3jMxu
-	8WGySmUpDCZL3P0y4MezQyHDZjgBNbYwVySSTnBDxVBYty0jZHa0A8xDOybHdbqrWzOkrjlaJlpeX
-	CWi2DB99cSug9Ek5XMPyxd5ap+Dj1t9MdR9fYX3YryAPqgeg1Hp5FpeSnBIC3qnRuCFAYK8eJOr8b
-	hp2e+dkxIDS2V4yZUbCAQsuKouxhEUlWuDSdOy9eLEd5grZmOgrLJBJHyzP0zntvRXTPqQ2/Obxtc
-	xVhUKwDYOGstjftk1gRkn9frDeaFOBBpWcFhbPfQmsm2dXjAXTsWpvdwPkG0DED2TqDXxmmtDszp1
-	lsYCGg7g==;
+	bh=AE/v9xcbgYIwsJtXO+/g3p07UfNKapk0jH1Gfc+4XxI=; b=BEq7l0y6P4q/3jnWoCWvrbU6Sh
+	aY7lVm4PpZFqx2B3yVxvntQbBUTe3lpyQrPravUEmUU2cMgoqBJibMVXhCRbNPdPQpG6v5xiqIay1
+	D7JwxSD+4QxQF16nHFfEhncIkrn+D3eiKgLKgA7keeikhLAq2v5J62PoBpWY54XfeO2eTCG2Y2+X6
+	GZcbvw5Q3E5Vez6F1vupzLniQPdzVzibKsQGlBYzOmnDEdmp/3jKOsu2nYOarNX8Z2Qv3itgNFuHn
+	ES8Xaa+e13UzG/fmCsGrApyYXmjlOHnSMd3dHl6ykO8txGtA2NKmeYFPPn1Eo/Qz85QGVcbkEBavA
+	6MkIothw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSVaI-0000000HEeJ-1ER1;
-	Sun, 15 Nov 2026 08:27:34 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1xSVoy-0000000HFmy-2gNx;
+	Sun, 15 Nov 2026 08:42:44 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSVaG-0000000HEdC-38fI
+	id 1xSVov-0000000HFmT-3Ni3
 	for linux-riscv@lists.infradead.org;
-	Sun, 15 Nov 2026 08:27:33 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso12849835e9.1
-        for <linux-riscv@lists.infradead.org>; Sun, 15 Nov 2026 00:27:32 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794731251; cv=none;
-        d=google.com; s=arc-20260327;
-        b=bfIdJTKCQUvxaYJpAM1jiV9SVZDmWPZiGzKfY9ji98TSL0t9icdrZS59VtI+h4xnEs
-         gCyZM/N00Bkx9yxVFGCbmcitxWpWwkTuufe5T2Zpd2A3Bb9uWIUL4UnB61/A45pbWmIt
-         33clckwuZs3xblZhZZ6C7cm2LkNgDN/WZLdmm7HrHpG54PaPI7XJf30yDxmTELTbpQ3j
-         7gC22Kj+7ar+WU2aITwdPIO30BBteUBV7y7q4usS9CUr2uis0ooNjNuPoSAgPXZFmcsx
-         bk38L0nVH4GDtydPIjonPkjqDfm/wRQbSFxoq0jAlRfJxkw5N/xRywrQKAt1EeRm1VLp
-         sanw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=aiSvnartFRsxRkzyDYAtms10TvAxc9fqqCfE0o7gA2A=;
-        fh=4gp7N2CtRd12uX1R7p+wJ1QzLgBDYfMRRDrgQtCjqFw=;
-        b=LD3GvAQreU8Xah6RFKBMFFhUeBTRRwkdFbAHIk0jzdbBMdLmjzA43I8hyexpnVZ/6H
-         2FkjUGwcxuY228S5n9ziQbaFzTWBA7KXNJdzY924P1vC0yVSPVcqUO2NYjoahUGRme4l
-         WerKNwjSAn0ffm+F+/LKVeQHD9prLEEHZHiRNMxIae30Snp+7RHXvp8H+ap0zTOJQHDz
-         3DQuEeJGxnU/USj91BYW5rBViIc2r6fw/YaTPLVxdTgU2XWc12VTb+NJQgWDWCypEs2u
-         m0BVrdxBq9svMgsKVZaWFoUSeBx49DgPkS01TPSd+2qfNT0AhMbWVKM5a79DyZ4bL8Br
-         ISKg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault.org; s=google; t=1794731251; x=1795336051; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=aiSvnartFRsxRkzyDYAtms10TvAxc9fqqCfE0o7gA2A=;
-        b=leoJihDxI8oZ3M2SsXuB7mwhP7lbstU6W2D/n4qj3jvNtiqYPual2wcYTU5CbX75sS
-         YZTZppkgn2sAtjdcnG76wYda6k0CqLDaYxGrpzJ8OIXiKyQwarMnt5BlU0poN6yuD923
-         mmY9KNqPCCdKfnjVv3m/hD2uj1kL0ejjZfO93ScOZ+0b52RHqySgfmINhZ7KssL8P8yC
-         GUkNdhpGGV5PO9/u2chJBolxq83Nl1raugz4R+hDF9JmurRFIG9B4OYbh2ni1EyYD3Qk
-         6wfpf1V3945sFdd99WdThbg+YlghR1pt57chbrfGY1OHy3Lh+B1VFdclBl1iVOxzGZxN
-         BhCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794731251; x=1795336051;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aiSvnartFRsxRkzyDYAtms10TvAxc9fqqCfE0o7gA2A=;
-        b=TIKoQu/WBMnIYGtdQpqsHlHOwJtgIlEmfV9mUQb99ifgCJFPV686OI8f8LfRpcrPph
-         kC5ENy1xBu6KUhAvz7pJC6QQY0Dq22c1uTKufdCcL8wPJWt26JRoMXhXg9eTHPKIAVWO
-         F0k+COwe9Cw63aS3Vhnt5eRnSujfD58eOwvmlORtRkUJDGuRkBoP5ZgD2KUrz57gODVa
-         2LSTvNWQloKVehWh68AJWxCd75BYUL35efzQdN+WYpShcQloJCCM25twDFODKN1Dnfey
-         4Ocl3cgSyeUpQR9osaL7hEhJMNARbE/Sed2BK5Mbek8aD75eHk8Qz4npImZ+S8VMmkJ9
-         hGBw==
-X-Forwarded-Encrypted: i=1; AL+hErEWzEuWlYXZTX2zfOPAer9dGk1nP5j1s/ETNmR3xZ6J1eXqD169soL+ON2HqZqw3utViuGx8zfztwj2qw==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8h7xDXs2V06lZVHfwgcDL8kqULzxo0oj2GYlGprfXPnXnN35rZ
-	3xe9VtV33yX+vHrd3ibU3Zr+jfyc4NGUCwp0YeecLM2q+c7IZVAhX7RUhL70lEQfEegJJSkqVc2
-	CdV1jZVcAYWvL0jRxOtWza2i8JkGq++oLFzT94A+DeQ==
-X-Gm-Gg: AYBFou2koUgg/TJInGYM72FCALNnJtcR3mNUUsO3qGys8/e4Yn46bkXk7HhhvZhvtkC
-	1RQKjTZE053BnVXWOKJ6zE4/EG1C2rNt5+DZ+kGi5cW8kRd77gYvbqFRTAL6C04U3SKpeq9Utao
-	KmelV605j0X7IuEvWqfC5B7kzjuihl+jUABjz1MOT86S9D7lYUa1e9YbgYpE5zNTbWLKTPxCpgw
-	GSym0HzpBd+jKm68u5NIw781Ph4+LOo2pXzDXNSDJtQqGSTFJFx3SgmBU1nuhqO0Yh//RLfXFzH
-	AKQF6UR6Q+npf9OPCQRwOEpm8txu56WBfXCfBpcfiw5bXGwOaW8ocGdyTYI77gDHzYX1ag9pry+
-	T+fTSYrOl58omAdK7Qxv+GjEW04zWlkxPSqJPJG6HrMnKTcJyuitBW39DaN5pcgo7ExwJREWsvL
-	jIM8r4ug6kpHs0JPLJehrLQ9hPcz3xUO4b5oH0AX49DJDf2JHjkvFb
-X-Received: by 2002:a05:600c:6208:b0:4a4:fc8c:cfd9 with SMTP id
- 5b1f17b1804b1-4bb55a66467mr149044985e9.25.1794731250698; Sun, 15 Nov 2026
- 00:27:30 -0800 (PST)
+	Sun, 15 Nov 2026 08:42:43 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AF7w6PT2139781;
+	Sun, 15 Nov 2026 08:42:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=J0LNhcS3twbB9Ya/CltyDMpIsNPzAzolhCj
+	KnYk9xMA=; b=VjtatNVyDZhHOVTCkPyatQe1NwohGti/dVNiwvXCuuTpXovgXVx
+	sjHvP+JQfPeJOv5C6zM3OIhiWEB532o19ZG816kH+WhkTIo5xF9Orf9A1/bu5gZH
+	GSuj0uxSW2HDjIIW1HVG7RUgU+zLZn4vQ4qG7lauftMcdxvBCOoTzypGZS+9S/+h
+	pEFBnTbmOP4Nw/pG48t4qUTWpkHVqcbLxCwDK91/xzleNibdMbIbXUYdl1OYNCB7
+	/eecTBg5fyP7bAjbf6O2soYJcrZMxBI2K5xj2WBW25pZO8kabRN4wEhBujVqoHfX
+	jNY4S8pDjD5x+Qq4Qm+1hUgwQnDEgDLyTDw==
+Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hxhhjtqgh-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sun, 15 Nov 2026 08:42:23 +0000 (GMT)
+Received: from pps.filterd (apblrppmta02.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA02.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AF8gKFh2516207;
+	Sun, 15 Nov 2026 08:42:20 GMT
+Received: from hu-devc-blr-u24-a.qualcomm.com (hu-anuppate-blr.qualcomm.com [10.131.36.165])
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 6AF8gJBH2516198
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sun, 15 Nov 2026 08:42:19 +0000 (GMT)
+Received: by hu-devc-blr-u24-a.qualcomm.com (Postfix, from userid 486687)
+	id 4DAE022C67; Sun, 15 Nov 2026 14:12:19 +0530 (+0530)
+From: Anup Patel <anup.patel@oss.qualcomm.com>
+To: Sunil V L <sunilvl@oss.qualcomm.com>,
+        "Rafael J . Wysocki" <rafael@kernel.org>,
+        Atish Patra <atish.patra@linux.dev>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Alexandre Ghiti <alex@ghiti.fr>, Len Brown <lenb@kernel.org>,
+        Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>, linux-acpi@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Anup Patel <anup.patel@oss.qualcomm.com>
+Subject: [PATCH v8 0/1] Common csr_read_num() and csr_write_num() for RISC-V
+Date: Sun, 15 Nov 2026 14:12:17 +0530
+Message-ID: <20261115084218.951411-1-anup.patel@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261104161512.883885-1-anup.patel@oss.qualcomm.com>
- <20261104161512.883885-2-anup.patel@oss.qualcomm.com> <CACnXVnfokcEnSgQS_wLN=LZ=jztisuusft6nC8Z--+o+xCC1tA@mail.gmail.com>
-In-Reply-To: <CACnXVnfokcEnSgQS_wLN=LZ=jztisuusft6nC8Z--+o+xCC1tA@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Sun, 15 Nov 2026 13:57:19 +0530
-X-Gm-Features: AclHuK_i7RtARhSnEV4JaRu_cVL19f5fuKwJ5a_U31KgZmQUYeTFRxuQRxn9Ppk
-Message-ID: <CAAhSdy0+bdkTutXEL-0FKa7meg51wEsJxB9M=kuNLUNEaCVaRA@mail.gmail.com>
-Subject: Re: [PATCH v7 1/1] RISC-V: Add common csr_read_num() and
- csr_write_num() functions
-To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE1MDAzNCBTYWx0ZWRfX1oZ2TSV9Li3M
+ kVNk1aarmZO+9PqanKNI7ranfeS73xZwwJiCpLovGlFxyczeLhd6SAW1+2hc0zHIzZkpSz4m+u1
+ zMVQLE/oAEceWd6FcbGS985WmjgUM/75EHkLUoE7wRs6I3j9Tl2STlToP33zOVpMQX12mFUcWBw
+ IVHyQaSdMjC4LsDJ1/4BThI9Hd9Kh1YhndBWW/C4WyhDhZ9vkZ/7Vz3QHCHrD46Tubijq74vZDl
+ o4sxj86MTwsi8z9wF+n2ygrcUEtXJEuVKJCFt5L64YdufAjQ3Vv8dRNz2DEM782Mz2NXzXoYI2J
+ HboapCfnX8I1AuBz1rs1ZrPovDO5FZm1PfBZOBkTKejnLKtmfNRLSqmcRfyny0WQs9aq46ajtis
+ 1gmsQTmyRIc2rRie3kY7Zfd0fktxgwI/Gxm+3Xgc7477nIHlWn8GzsP5YfsyYha/77AQGkb7Yzx
+ /buYouWz+LzzpxkidfA==
+X-Proofpoint-ORIG-GUID: CD2fYL8w91xyA3ycraO2rOy8cY8pqc4E
+X-Proofpoint-GUID: CD2fYL8w91xyA3ycraO2rOy8cY8pqc4E
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE1MDAzNCBTYWx0ZWRfX5BfEk3q1S+D/
+ GMFCpX3OOPm9McfSd4NvEWdCL0ciR/Y33uOZONNtE5CBDAdspD+C6wiD4JzMwMSZF4cNDhOQktE
+ 0GazZAaL41h7igcu6T7u4mbJSA+siJk=
+X-Authority-Analysis: v=2.4 cv=X9rHu2Te c=1 sm=1 tr=0 ts=6af9706f cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=yOCtJkima9RkubShWh1s:22 a=NEAV23lmAAAA:8 a=97VCTQuGHz7arqyciaAA:9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-15_03,2026-11-11_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 impostorscore=0 bulkscore=0 clxscore=1015 priorityscore=1501
+ adultscore=0 malwarescore=0 lowpriorityscore=0 suspectscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611150034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261115_002732_803134_45B14E9F 
-X-CRM114-Status: GOOD (  18.20  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261115_004241_848293_4194815E 
+X-CRM114-Status: GOOD (  11.85  )
+X-Spam-Score: -2.7 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,49 +112,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Anup Patel <apatel@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, "Rafael J . Wysocki" <rafael@kernel.org>, Anup Patel <anup.patel@oss.qualcomm.com>, Atish Patra <atish.patra@linux.dev>, linux-kernel@vger.kernel.org, Sunil V L <sunilvl@oss.qualcomm.com>, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nutty Liu <nutty.liu@hotmail.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>, Will Deacon <will@kernel.org>, Len Brown <lenb@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-T24gV2VkLCBOb3YgMTEsIDIwMjYgYXQgNToxNuKAr1BNIFpoYW5wZW5nIFpoYW5nCjx6aGFuZ3po
-YW5wZW5nLmphc3BlckBieXRlZGFuY2UuY29tPiB3cm90ZToKPgo+IEhpIEFudXAsCj4KPiBPbiAx
-MS81LzI2IDEyOjE1IEFNLCBBbnVwIFBhdGVsIHdyb3RlOgo+ID4gRnJvbTogQW51cCBQYXRlbCA8
-YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+Cj4gPgo+ID4gSW4gUklTQy1WLCB0aGVyZSBpcyBubyBD
-U1IgcmVhZC93cml0ZSBpbnN0cnVjdGlvbiB3aGljaCB0YWtlcyBDU1IKPiA+IG51bWJlciB2aWEg
-cmVnaXN0ZXIgc28gYWRkIGNvbW1vbiBjc3JfcmVhZF9udW0oKSBhbmQgY3NyX3dyaXRlX251bSgp
-Cj4gPiBmdW5jdGlvbnMgd2hpY2ggYWxsb3cgYWNjZXNzaW5nIGNlcnRhaW4gQ1NScyBieSBwYXNz
-aW5nIENTUiBudW1iZXIKPiA+IGFzIHBhcmFtZXRlci4gVGhlc2UgY29tbW9uIGZ1bmN0aW9ucyB3
-aWxsIGJlIGZpcnN0IHVzZWQgYnkgdGhlCj4gPiBBQ1BJIENQUEMgZHJpdmVyIGFuZCBSSVNDLVYg
-UE1VIGRyaXZlci4KPiA+Cj4gPiBBbHNvLCB0aGUgUklTQy1WIEFDUEkgRkZIIHNwZWNpZmljYXRp
-b24gYWxsb3dzIGFyYml0cmFyeSBDU1IgbnVtYmVyCj4gPiBhcyBDUFBDIHJlZ2lzdGVyIGFuZCB0
-aGUgUklTQy1WIFNCSSBzcGVjaWZpY2F0aW9uIGFsbG93cyBhcmJpdHJhcnkKPiA+IENTUiBudW1i
-ZXIgYXMgUE1VIGhhcmR3YXJlIGNvdW50ZXIuIFRoaXMgbWVhbnMgQUNQSSBDUFBDIGRyaXZlciBh
-bmQKPiA+IFJJU0MtViBQTVUgZHJpdmVyIG5vIGxvbmdlciBuZWVkIHRvIGRvIHNhbml0eSBjaGVj
-a3Mgb24gQ1NSIG51bWJlcgo+ID4gd2hpY2ggYXJlIG5vdyBkb25lIGJ5IHRoZSBjb21tb24gY3Ny
-X3JlYWRfbnVtKCkgYW5kIGNzcl93cml0ZV9udW0oKQo+ID4gZnVuY3Rpb25zLgo+ID4KPiA+IFNp
-Z25lZC1vZmYtYnk6IEFudXAgUGF0ZWwgPGFwYXRlbEB2ZW50YW5hbWljcm8uY29tPgo+ID4gUmV2
-aWV3ZWQtYnk6IFN1bmlsIFYgTCA8c3VuaWx2bEB2ZW50YW5hbWljcm8uY29tPgo+ID4gUmV2aWV3
-ZWQtYnk6IEFuZHJldyBKb25lcyA8YWpvbmVzQHZlbnRhbmFtaWNyby5jb20+Cj4gPiBSZXZpZXdl
-ZC1ieTogQXRpc2ggUGF0cmEgPGF0aXNocEByaXZvc2luYy5jb20+Cj4gPiBSZXZpZXdlZC1ieTog
-TnV0dHkgTGl1IDxudXR0eS5saXVAaG90bWFpbC5jb20+Cj4gPiAtLS0KPiA+ICAgYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS9jc3IuaCB8ICAgMyArCj4gPiAgIGFyY2gvcmlzY3Yva2VybmVsL01ha2Vm
-aWxlICAgfCAgIDEgKwo+ID4gICBhcmNoL3Jpc2N2L2tlcm5lbC9jc3IuYyAgICAgIHwgMTY1ICsr
-KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gPiAgIGRyaXZlcnMvYWNwaS9yaXNj
-di9jcHBjLmMgICAgfCAgMTcgKystLQo+ID4gICBkcml2ZXJzL3BlcmYvcmlzY3ZfcG11LmMgICAg
-IHwgIDU0ICsrLS0tLS0tLS0tLQo+ID4gICA1IGZpbGVzIGNoYW5nZWQsIDE4NCBpbnNlcnRpb25z
-KCspLCA1NiBkZWxldGlvbnMoLSkKPiA+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yv
-a2VybmVsL2Nzci5jCj4gPgo+ID4gWy4uLl0KPiA+ICsgICAgIHN3aXRjaCAoY3NyX251bSkgewo+
-ID4gKyAgICAgc3dpdGNoY2FzZV9jc3JfcmVhZF8zMihDU1JfQ1lDTEUpOwo+ID4gKyAgICAgc3dp
-dGNoY2FzZV9jc3JfcmVhZF8zMihDU1JfQ1lDTEVIKTsKPgo+IENvdWxkIHdlIGd1YXJkIHRoZSBD
-WUNMRUggY2FzZXMgd2l0aCBDT05GSUdfMzJCSVQ/IFRoZXkncmUgUlYzMi1vbmx5LgoKT2theSwg
-SSB3aWxsIGFkZCAjaWYgZm9yIENPTkZJR18zMkJJVC4KClJlZ2FyZHMsCkFudXAKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Some of the RISC-V drivers (such as RISC-V PMU and ACPI CPPC) need to
+access CSR based on CSR number discovered from somewhere. Add common
+RISC-V csr_read_num() and csr_write_num() functions under arch/riscv
+for such drivers.
+
+These patches can be found in the riscv_csr_read_num_v8 branch at:
+https://github.com/avpatel/linux.git
+
+Changes since v7:
+ - Rebased on Linux-7.4-rc2
+ - Preserve the CSR range check in riscv_pmu_ctr_read_csr().
+ - Added #if CONFIG_32BIT for cycleH CSR in csr_read_num().
+
+Changes since v6:
+ - Rebased on Linux-7.4-rc1
+
+Changes since v5:
+ - Rebased on Linux-7.2-rc5
+
+Changes since v4:
+ - Rebased on Linux-6.19-rc6
+
+Changes since v3:
+ - Rebased on Linux-6.18-rc7
+ - Updated commit decription of PATCH1 to reflect the fact that
+   we are removing sanity checks on CSR number which are already
+   taken care by csr_read_num() and csr_write_num().
+
+Changes since v2:
+ - Rebased on Linux-6.18-rc1
+ - Added reviewed-by tags
+
+Changes since v1:
+ - Make "out_err" mandatory for csr_read_num() and csr_write_num()
+   in PATCH2 as suggested by Sunil and Drew. This also helps further
+   simplify csr_read_num() and csr_write_num().
+
+Anup Patel (1):
+  RISC-V: Add common csr_read_num() and csr_write_num() functions
+
+ arch/riscv/include/asm/csr.h |   3 +
+ arch/riscv/kernel/Makefile   |   1 +
+ arch/riscv/kernel/csr.c      | 167 +++++++++++++++++++++++++++++++++++
+ drivers/acpi/riscv/cppc.c    |  17 ++--
+ drivers/perf/riscv_pmu.c     |  52 +++--------
+ 5 files changed, 188 insertions(+), 52 deletions(-)
+ create mode 100644 arch/riscv/kernel/csr.c
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
