@@ -2,89 +2,63 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53B4C606A32C
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 20:14:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5EBE606A329
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2026 21:04:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PQ9/Lvjg;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=iwJla2XW
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1RneW0JO;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K8vh/Cdp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=YLDOtLmybatjlhR45aL59ixUG8VmfP46dkXjKExRiIU=; b=PQ9/Lvjgtxa+7m6OKOzU/0Rxeu
-	B1W9pmGHTlIIrQzgN2Ia678vaKXYalSosqYxOU2uIS4qtZOI1pLdsHFMEE/Bq02LXoWoSOo7EbJhF
-	2wiXBJmnjHAXdmVbVicm1oFmd7TAv/A+g97c8qjeHeaQvq8QN7i9spUTmf5JjMhqnQ+UC/9Tm2lbt
-	N/EToB3fIOxIYkriOVZg1COBSqfi3MAsnsoZvcI2LVlbgg7z6jDHOOmf9We1JCHsAPIgehESiRVIk
-	XxurIdcIWyLZlwQY6QFwkv1obgXGtfLuLWSkyB2cOu7m6BIXE5KdwEZpM029VL/eDpuNyWUPEHwRf
-	YW5jH/jA==;
+	bh=S9O+ewVinemU/6/c3GjMVMRYhXkQVv6WG7M1F1/M7x4=; b=1RneW0JOF5Zn6Uyp6EbIqQTCey
+	tJhxr2zwa5t/FDK0ZxwaSVXhqSMk+bIbVsj/iTZeIYeLRlbdSMSAYOyeKupyylQJYeTI42kO8QHfM
+	YuqD/9Yo2IC+6PNSIQNVyMOnSM4a+yCtFHFbQsTnZWRRMfVXXYdmFA0g5I6fQQ9OyTBX2jgULqims
+	ucuSbduGOCszQoXawDUSQGrU9X6a4xJBAWDe5wRE48LVYrq7WtcmOLvB2XBKYh32FCdpmzwQNnY4v
+	MrDp8oFbR3jeMDtWoI/6T18cV/psyBmIzLGBeGbSsm5hAyuAR2+BAkaswDeNxZgX8FjUt0XbROR6I
+	4+c7QZZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSgbt-00000000PwD-0w0x;
-	Sun, 15 Nov 2026 20:13:57 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1xShOh-00000000TTl-0n4m;
+	Sun, 15 Nov 2026 21:04:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSgbp-00000000Pvr-2NQh
+	id 1xShOg-00000000TTc-1V6t
 	for linux-riscv@lists.infradead.org;
-	Sun, 15 Nov 2026 20:13:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794773634; x=1826309634;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=4EUxz6kYyIg485rNagv9WP+UBIapCrWnWFgWZ0hpUOI=;
-  b=iwJla2XWBSFkT2yA0L95JM/pJfRn46844mPogglSXdMjTHVHDy2otiak
-   7BCrXcOLktahyRpRmUFIWORDZyS5bLLptVU0zks/j+1PLYHGIeh1g62So
-   O34gyrygkiAQ217aPG4p5vn2/aC0WO/t05+om1lmL+S3oiP62C7ytCDum
-   awAHKKOFktfM1mHsEoiyGsR1S0EVRfwFdUaehPiFKbU5WqEEuOWh+fGh4
-   92HLTwQApP22wvhYdyS5/7qYoJO8Vp8rmBi6pbYzRIhCh/73WIAMwDNW4
-   3iIwq+Y6xUkoqOLuMbtJPxihFRx0O2ul8/Uv62+XeGYkkLcpe1hwGSxmF
-   A==;
-X-CSE-ConnectionGUID: k0RS6dFESuiyBQbh1310cQ==
-X-CSE-MsgGUID: epbKAZQDTna0o4rR95LPMA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11967"; a="3429181"
-X-IronPort-AV: E=Sophos;i="6.27,215,1787036400"; 
-   d="scan'208";a="3429181"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Nov 2026 12:13:52 -0800
-X-CSE-ConnectionGUID: Hh+oXZIfQaK56gV3BeGD+Q==
-X-CSE-MsgGUID: mU3PirwFTAe18BsffREvew==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,215,1787036400"; 
-   d="scan'208";a="9713891"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 15 Nov 2026 12:13:49 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xSgbh-000000017G4-2KLl;
-	Sun, 15 Nov 2026 20:13:45 +0000
-Date: Mon, 16 Nov 2026 04:12:52 +0800
-From: kernel test robot <lkp@intel.com>
-To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Guo Ren <guoren@kernel.org>,
-	Pekka Enberg <penberg@kernel.org>,
-	Patrick =?iso-8859-1?Q?St=E4hlin?= <me@packi.ch>
-Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Subject: Re: [PATCH v4 2/3] riscv: probes: reject probes inside an LR/SC
- sequence
-Message-ID: <202611160417.wVX1is4j-lkp@intel.com>
-References: <20261115-probes-in-lrsc-v4-2-48b9b036bd1d@mobileye.com>
+	Sun, 15 Nov 2026 21:04:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E2D962519;
+	Sun, 15 Nov 2026 21:04:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 511531F000D0;
+	Sun, 15 Nov 2026 21:04:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794776661;
+	bh=PibRXBXiLpEoEbrOvo9EmvvXD/tNRe86o7ZaehpKWYs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=K8vh/CdpYRyzwm0mUWnyI8gQ53va8B51wGcaknHqxStrbFH0AOJs/yiYVXL8vwuAI
+	 u6ABzUdt4hA0NXAYqXMRhgUWePQEbxOpKsqtu1SRm7kQ8/TVz7YwkvaKQuxaa+t03w
+	 /RJuvOkbtP6Z6Kh3pQ07oLA3OqYC988MO2xVJkt+FysoJKxi1B5XengvfhtdMX01vq
+	 oQ/fska3x/C8swtUp9rdcujdL+wX9aeijnkgbB9bp0jm76EuQkC+WslEp4M6SpyHoY
+	 tRJO8ISjjwlNp8WigaBXH3QYsUqBEopsfTUu2vh/TyNo5mMsKbiAj3bhFuKpbTyyTt
+	 MwQAMkhSGpAxw==
+Subject: Re: [PATCH net] net: macb: limit jumbo frames to the RX buffer size
+From: netdev-bot+sashiko@kernel.org
+To: gaohan@iscas.ac.cn
+Cc: theo.lebrun@bootlin.com, conor.dooley@microchip.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ punnaia@xilinx.com, harini.katakam@xilinx.com,
+ linux-riscv@lists.infradead.org, rabenda.cn@gmail.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, zhengjingkun@iscas.ac.cn
+Date: Sun, 15 Nov 2026 21:04:19 +0000
+Message-ID: <179477665987.3136.1735758740648548604@kernel.org>
+In-Reply-To: <20261114-macb-jumbo-jml-v1-1-f501395eaf9e@iscas.ac.cn>
+References: <20261114-macb-jumbo-jml-v1-1-f501395eaf9e@iscas.ac.cn>
+X-sashiko-severity: Medium
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261115-probes-in-lrsc-v4-2-48b9b036bd1d@mobileye.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261115_121354_216902_5B35BB3B 
-X-CRM114-Status: GOOD (  12.34  )
-X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,84 +68,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Vladimir,
-
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on c03c1a14507dfaf8b856c2608f9ac216021fc222]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Vladimir-Kondratiev/riscv-kprobes-fix-out-of-bounds-read-in-riscv_probe_decode_insn/20261115-143733
-base:   c03c1a14507dfaf8b856c2608f9ac216021fc222
-patch link:    https://lore.kernel.org/r/20261115-probes-in-lrsc-v4-2-48b9b036bd1d%40mobileye.com
-patch subject: [PATCH v4 2/3] riscv: probes: reject probes inside an LR/SC sequence
-config: riscv-randconfig-1000-20261116 (https://download.01.org/0day-ci/archive/20261116/202611160417.wVX1is4j-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 15.3.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261116/202611160417.wVX1is4j-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611160417.wVX1is4j-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   arch/riscv/kernel/probes/kprobes.c: In function 'arch_check_kprobe':
->> arch/riscv/kernel/probes/kprobes.c:72:20: warning: suggest explicit braces to avoid ambiguous 'else' [-Wdangling-else]
-      72 |                 if (tmp == addr)
-         |                    ^
-
-
-vim +/else +72 arch/riscv/kernel/probes/kprobes.c
-
-c22b0bcb1dd024 Guo Ren             2020-12-17  51  
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  52  /*
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  53   * Walk the instructions from the enclosing symbol up to addr to check that
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  54   * addr is an instruction boundary. Then reject a probe inside an LR/SC
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  55   * sequence: the breakpoint trap drops the reservation, so the SC would fail
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  56   * and the loop would hit the probe again on every retry. The sequence is
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  57   * recognised by a forward scan with the constrained-sequence rules, as for
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  58   * uprobes, so an lr that is not followed by an sc (as in __cmpwait()) does
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  59   * not taint the rest of the function.
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  60   */
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  61  static int __kprobes arch_check_kprobe(unsigned long addr)
-87f48c7ccc73af Guo Ren             2023-01-31  62  {
-9e68bd803fac49 Fabian Vogt         2025-09-10  63  	unsigned long tmp, offset;
-9e68bd803fac49 Fabian Vogt         2025-09-10  64  
-9e68bd803fac49 Fabian Vogt         2025-09-10  65  	/* start iterating at the closest preceding symbol */
-9e68bd803fac49 Fabian Vogt         2025-09-10  66  	if (!kallsyms_lookup_size_offset(addr, NULL, &offset))
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  67  		return -EILSEQ;
-9e68bd803fac49 Fabian Vogt         2025-09-10  68  
-9e68bd803fac49 Fabian Vogt         2025-09-10  69  	tmp = addr - offset;
-87f48c7ccc73af Guo Ren             2023-01-31  70  
-87f48c7ccc73af Guo Ren             2023-01-31  71  	while (tmp <= addr) {
-87f48c7ccc73af Guo Ren             2023-01-31 @72  		if (tmp == addr)
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  73  			if (riscv_probe_in_lrsc_body((u16 *)addr, RISCV_LRSC_SCAN_BYTES))
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  74  				return -EINVAL;
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  75  			else
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  76  				return 0;
-87f48c7ccc73af Guo Ren             2023-01-31  77  
-87f48c7ccc73af Guo Ren             2023-01-31  78  		tmp += GET_INSN_LENGTH(*(u16 *)tmp);
-87f48c7ccc73af Guo Ren             2023-01-31  79  	}
-87f48c7ccc73af Guo Ren             2023-01-31  80  
-c0b7e72c7a4b06 Vladimir Kondratiev 2026-11-15  81  	return -EILSEQ;
-87f48c7ccc73af Guo Ren             2023-01-31  82  }
-87f48c7ccc73af Guo Ren             2023-01-31  83  
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhhbmsgeW91IGZvciB5b3VyIGNvbnRyaWJ1dGlvbiEgU2FzaGlrbyBBSSByZXZpZXcgZm91bmQg
+MSBwb3RlbnRpYWwKaXNzdWUocykgdG8gY29uc2lkZXIuCgpDcml0aWNhbDogMCDCtyBIaWdoOiAw
+IMK3IE1lZGl1bTogMSDCtyBMb3c6IDAKCklmIHlvdSBiZWxpZXZlIG5vbmUgb2YgdGhlIGlzc3Vl
+cyBhcmUgbGVnaXRpbWF0ZSwgcGxlYXNlIHJlcGx5IHRvIGVhY2gKaXNzdWUgb2YgTWVkaXVtIHNl
+dmVyaXR5IG9yIGhpZ2hlciBhbmQgZXhwbGFpbiB3aHkgdGhlIEFJIGlzIHdyb25nLgpJZiBhbnkg
+b2YgdGhlbSBhcmUgbGVnaXRpbWF0ZSBhbmQgeW91IHBsYW4gdG8gcmVzcGluLCBwbGVhc2UgbGV0
+IHBhdGNod29yawprbm93IGJ5IGluY2x1ZGluZyAicHctYm90OiBjciIgYXMgYSBzZXBhcmF0ZSBs
+aW5lIGF0IHRoZSBlbmQgb2YgeW91ciByZXBseQoob25lIHN1Y2ggcmVwbHkgcGVyIHNlcmllcyBp
+cyBlbm91Z2gpLgoKLSBbTWVkaXVtXSBJbiBkcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21h
+Y2JfbWFpbi5jLAogIGdlbV9qdW1ib19tYXhfbGVuKCkgc2V0cyB0aGUgR0VNIEpNTCByZWdpc3Rl
+ciB0byByeF9idWZmZXJfc2l6ZSAt4oCmCgotLQoKbmV0OiBtYWNiOiBsaW1pdCBqdW1ibyBmcmFt
+ZXMgdG8gdGhlIFJYIGJ1ZmZlciBzaXplCgpUaGlzIGNvbW1pdCBtb3ZlcyB0aGUgSk1MIHJlZ2lz
+dGVyIHdyaXRlIGZyb20gbWFjYl9pbml0X2h3KCkgaW50bwptYWNiX2NvbmZpZ3VyZV9kbWEoKS4g
+SXQgbm93IGRlcml2ZXMgdGhlIEpNTCB2YWx1ZSBmcm9tIHRoZSBSWCBidWZmZXIKc2l6ZSByYXRo
+ZXIgdGhhbiBmcm9tIGp1bWJvX21heF9sZW4uIFdpdGggdGhpcywgdGhlIE1BQyBkcm9wcyBmcmFt
+ZXMgdGhhdAp3b3VsZCBvdGhlcndpc2UgYmUgc3BsaXQgb3ZlciBzZXZlcmFsIFJYIGRlc2NyaXB0
+b3JzIGFuZCB0aGVuIHJlamVjdGVkCmJ5IGdlbV9yeCgpLgoKPiBkaWZmIC0tZ2l0IGEvZHJpdmVy
+cy9uZXQvZXRoZXJuZXQvY2FkZW5jZS9tYWNiX21haW4uYyBiL2RyaXZlcnMvbmV0L2V0aGVybmV0
+L2NhZGVuY2UvbWFjYl9tYWluLmMKPiBpbmRleCA1YWQwZTMyZTJiNDAwLi5lN2M5YmIyNGMzNzdi
+IDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvbmV0L2V0aGVybmV0L2NhZGVuY2UvbWFjYl9tYWluLmMK
+PiArKysgYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2JfbWFpbi5jCj4gQEAgLTMy
+NDAsNiArMzI0MCwxOCBAQCBzdGF0aWMgdTMyIG1hY2JfZGJ3KHN0cnVjdCBtYWNiICpicCkKPiAg
+CX0KPiAgfQo+ICAKPiArLyogTG9uZ2VzdCBmcmFtZSB0aGF0IGZpdHMgaW4gYSBzaW5nbGUgUlgg
+YnVmZmVyICovCj4gK3N0YXRpYyB1MzIgZ2VtX2p1bWJvX21heF9sZW4oc3RydWN0IG1hY2IgKmJw
+KQo+ICt7Cj4gKwl1MzIgbGVuID0gYnAtPmN0eC0+cnhfYnVmZmVyX3NpemU7Cj4gKwo+ICsJLyog
+RnJhbWUgZGF0YSBzdGFydHMgTkVUX0lQX0FMSUdOIGJ5dGVzIGludG8gdGhlIGJ1ZmZlciB3aXRo
+b3V0IFJTQyAqLwo+ICsJaWYgKCEoYnAtPmNhcHMgJiBNQUNCX0NBUFNfUlNDKSkKPiArCQlsZW4g
+LT0gTkVUX0lQX0FMSUdOOwo+ICsKPiArCXJldHVybiBtaW4obGVuLCBicC0+anVtYm9fbWF4X2xl
+bik7Cj4gK30KCltTZXZlcml0eTogTWVkaXVtXQpJcyB0aGUgdmFsdWUgcmV0dXJuZWQgaGVyZSA0
+IGJ5dGVzIHNtYWxsZXIgdGhhbiB0aGUgbG9uZ2VzdCBmcmFtZSB0aGF0CmFjdHVhbGx5IGZpdHMg
+aW4gb25lIFJYIGJ1ZmZlcj8KCm1hY2JfaW5pdF9odygpIGFsd2F5cyBzZXRzIERSRkNTLiBUaGUg
+TUFDIHN0cmlwcyB0aGUgRkNTIGJlZm9yZSBETUEsIHNvCnRoZSBGQ1MgbmV2ZXIgdGFrZXMgdXAg
+c3BhY2UgaW4gdGhlIFJYIGJ1ZmZlcjoKCgljb25maWcgfD0gTUFDQl9CSVQoRFJGQ1MpOwkJLyog
+RGlzY2FyZCBSeCBGQ1MgKi8KClRoZSByZXN0IG9mIHRoZSBkcml2ZXIgdHJlYXRzIGp1bWJvX21h
+eF9sZW4sIGFuZCBzbyBKTUwsIGFzIGFuIG9uLXdpcmUKbGVuZ3RoIHRoYXQgaW5jbHVkZXMgdGhl
+IEZDUy4gRm9yIGV4YW1wbGUsIG1hY2JfcHJvYmUoKSBkb2VzOgoKCW5ldGRldi0+bWF4X210dSA9
+IE1JTihicC0+anVtYm9fbWF4X2xlbiwgUlhfQlVGRkVSX01BWCkgLQoJCQkJRVRIX0hMRU4gLSBF
+VEhfRkNTX0xFTjsKCldpdGhvdXQgUlNDLCB0aGF0IG1ha2VzIHRoZSBsYXJnZXN0IHdpcmUgZnJh
+bWUgdGhhdCBmaXRzIGluIG9uZQpkZXNjcmlwdG9yIHJ4X2J1ZmZlcl9zaXplIC0gTkVUX0lQX0FM
+SUdOICsgRVRIX0ZDU19MRU4uIFdpcmUgZnJhbWVzIGZyb20KcnhfYnVmZmVyX3NpemUgLSAxIHRv
+IHJ4X2J1ZmZlcl9zaXplICsgMiBieXRlcyBmaXQgaW4gYSBzaW5nbGUgYnVmZmVyCmFuZCB3ZXJl
+IHJlY2VpdmVkIGJlZm9yZSB0aGlzIHBhdGNoLiBXaXRoIHRoZSBKTUwgcHJvZ3JhbW1lZCBieQpt
+YWNiX2NvbmZpZ3VyZV9kbWEoKSwgdGhlIE1BQyBub3cgZHJvcHMgdGhlbS4KClNvbWUgY29uY3Jl
+dGUgY2FzZXM6CgpPbiBwaWM2NGhwc2MgKGp1bWJvX21heF9sZW4gPSAxNjM4MyksIG1heF9tdHUg
+aXMKTUlOKDE2MzgzLCAxNjMyMCkgLSAxOCA9IDE2MzAyLiBtYWNiX3J4X2J1ZmZlcl9zaXplKCkg
+cmV0dXJucwpNSU4oMTYzMDIgKyAyMCwgUlhfQlVGRkVSX01BWCkgPSAxNjMyMCwgc28gSk1MIGJl
+Y29tZXMgMTYzMTguIEEKZnVsbC1zaXplIHVudGFnZ2VkIGZyYW1lIGF0IE1UVSAxNjMwMiBpcyAx
+NjMyMCBieXRlcyBvbiB0aGUgd2lyZSwgc28gdGhlCk1BQyBkcm9wcyBpdC4gWWV0IGl0cyAxNjMx
+NiBzdG9yZWQgYnl0ZXMgcGx1cyB0aGUgMiBieXRlIG9mZnNldCBmaXQgaW4KdGhlIGJ1ZmZlci4g
+TVRVIDE2MzAxIGZhaWxzIHRoZSBzYW1lIHdheS4KCm1hY2JfcnhfYnVmZmVyX3NpemUoKSBkb2Vz
+IG5vdCByZXNlcnZlIFZMQU5fSExFTi4gQXQgTVRVIDE1MTMtMTUxNiwKcnhfYnVmZmVyX3NpemUg
+aXMgMTUzNiBhbmQgSk1MIGlzIDE1MzQuIE1UVS1zaXplZCBWTEFOIHRhZ2dlZCBmcmFtZXMKKDE1
+MzUtMTUzOCBieXRlcyBvbiB0aGUgd2lyZSkgYXJlIHRoZXJlZm9yZSBkcm9wcGVkLCBldmVuIHRo
+b3VnaCB0aGV5CmZpdCBpbiB0aGUgYnVmZmVyLiBNVFUgOTAwMS05MDA0IGhhcyB0aGUgc2FtZSBw
+cm9ibGVtLgoKV2l0aCBRaW5RIGF0IE1UVSA5MDAwLCBhIDkwMjYgYnl0ZSBmcmFtZSBpcyBsYXJn
+ZXIgdGhhbiBKTUwgOTAyMiBhbmQgaXMKZHJvcHBlZC4gSXRzIDkwMjIgc3RvcmVkIGJ5dGVzIHBs
+dXMgMiBmaXQgaW4gdGhlIDkwMjQgYnl0ZSBidWZmZXIuCgpTaG91bGQgdGhpcyBhZGQgRVRIX0ZD
+U19MRU4sIHJlbHlpbmcgb24gRFJGQ1MgYWx3YXlzIGJlaW5nIHNldCwgYmVmb3JlCmNsYW1waW5n
+IHRvIGp1bWJvX21heF9sZW4/IFRoZSByZXBvcnRlZCBGVTc0MCBkZWZhdWx0IE1UVSBjYXNlIHdv
+dWxkCnN0aWxsIGJlIGZpeGVkIHdpdGggdGhhdCBjaGFuZ2UuCgpbIC4uLiBdCgotLSAKU2FzaGlr
+byBBSSByZXZpZXcgwrcgaHR0cHM6Ly9uZXRkZXYtYWkuYm90cy5saW51eC5kZXYvc2FzaGlrby8j
+L3BhdGNoc2V0LzIwMjYxMTE0LW1hY2ItanVtYm8tam1sLXYxLTEtZjUwMTM5NWVhZjllJTQwaXNj
+YXMuYWMuY24KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
