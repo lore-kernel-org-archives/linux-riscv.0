@@ -2,74 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50EBD606A890
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2026 06:03:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82F69606A323
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2026 06:50:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FYFr5nyE;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=kWBnjja/
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BF14HXxi;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=Kyz3CbMJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:From:Subject:To:References:In-Reply-To:
+	Mime-Version:Cc:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=udxqFOXZYbSxMukXdO/9C0H+LJbdQ+PImTRlIT09Rvw=; b=FYFr5nyEn9hie/B9H2sx94HTgG
-	m9lQcGeYIS+tBBfLTYSXEjFwbe79C/ZD6L4Z0gmOy648UVvryYlnjBlSv2OqiYoNBNIejoWlqOvFt
-	qN8U5YF4YFcqIOdoEOtQHnScShySkV8s74gdlOF28kaHhZn6MHqIsDODf445KfOEL9wcPk6iKPLTI
-	FV2s0TO9brU6pjU09PnLG0MPZJs42CLm/XCda0BI/tfZh/ZLk2CFLeO7nxO1qGQWu4lCXa++716er
-	LQLneawq7Bl+YcRBqqUtYusOxfqlt7v8My9Z8h0rBmp3I6w+T7gVBwlOfi0Xg0onkIZXuaYdxHD1s
-	8lqbJzKA==;
+	bh=xBkJzsiLgsH8pmFka7Dzy5kBAjV+T8lFRaTEIRqUkDY=; b=BF14HXxi4IjlNjKLSOeRT65Xnv
+	qqNS2aE+wiYGPkJgMvM0F1Gop1xYgyqgy3ncLNQ+iezHqwKWK+V+fjcB1ajmiIhX69j1pGSm1Bkwd
+	Du/6ILO6qMR8VogzrsPJy9esumUMqgkQIyH0klsZU4tdzmYNUr649OKIi1fmdOzYqYhO7KarQmfCf
+	S410wHqnwe5ru7a7WZDpbTwKF1OBCvD2fm6J59T3UDhCB6VaOrtbmYKkpeN8NzNiJ1pwO+0EG0ZGJ
+	Uxc3iLzUGfKTJugq/M0Avy/lempGeE3OeyaNfKJAV8sEZP/sa/udNI0QR7dVWM4CPcCiPrA+SzHx/
+	a8v5kaRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSpoA-00000001CsT-1fgK;
-	Mon, 16 Nov 2026 06:03:14 +0000
-Received: from sender6-op-o15.zoho.com ([165.173.180.15])
+	id 1xSqXF-00000001LBU-0Dq1;
+	Mon, 16 Nov 2026 06:49:49 +0000
+Received: from va-2-37.ptr.blmpb.com ([209.127.231.37])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSpo6-00000001CqE-4Ad2
+	id 1xSqXB-00000001LB2-36YT
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Nov 2026 06:03:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1794808967; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=eO4NunFLfUpjtdqFsInmL6Ig78bKoBisGOClJFqnmNazXN90VGUa48sk5lsIpf4p0ukeqfEn8b9qyekan2mEUDbanjEw64dYjcF/4ocAZrBBrQlYP9CGth3k8l6EmQsKC1Lw9TkNN7mP8Ug49roZYrdHYt1kkbXRafj34pmbqIw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1794808967; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=GjrJKJtHS46OJDZX/DmXEog4SSg8yCUr8jL/qe72nY8=; 
-	b=AbF5OxZjTE08cKKF8c8SjcA6Vc7ZKhI9uufNdP2df+UtdWDkIxaEhOubKmGUhBPT54PbE3ByMKU3gaIwlZJJwwXhyf2hGxXGFvA2ffuVTUQGa9R07DI6hRUsidkFF8cP9sM8LChTZ4yhORUQ+pxa6yuLCAjU6p4RvjKt1vICbFs=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=kWBnjja/3WrebN6d3OTdAS8BWIhdNbHhIM8L+lTCg/Dd/UX+5RJ4udDvkLvKyS3QAUX8FUATz/hWFfrk+MCatFfO1n2CqRUjqEYzUjtCivQRGY8rL6ph+NFHseRfjeOl2RsAFFRje/IWg9AGC32EEaXk1dx0ububurdK6G11Sb8=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=GjrJKJtHS46OJDZX/DmXEog4SSg8yCUr8jL/qe72nY8=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1794808965217229.76632615707183;
-	Sun, 15 Nov 2026 22:02:45 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 20A3C181BF9; Mon, 16 Nov 2026 01:30:41 +0100 (CET)
-Date: Mon, 16 Nov 2026 01:30:41 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
-	Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@kernel.org>, 
-	Aurelien Jarno <aurelien@aurel32.net>, 
-	"open list:I2C SUBSYSTEM HOST DRIVERS" <linux-i2c@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>, 
-	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>, 
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH v1 2/2] power: reset: spacemit-p1: Use atomic I2C
- transfers for power-off and restart
-Message-ID: <avpN-gFOvTBAMY6G@venus>
-References: <20261110061429.2036-1-linux.amoon@gmail.com>
- <20261110061429.2036-2-linux.amoon@gmail.com>
+	Mon, 16 Nov 2026 06:49:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1794811778;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=+t8ZxELPYTH2d5u1GirmDH7jb3H83Y/CovQh+JvDD1k=;
+ b=Kyz3CbMJUWHiXEGQytBuv3c/9QlVwu5zQFSIZicA/mcuuAuWtpgLCQGM6t5mv53ij56X3A
+ TA5wvp/uaCwFhGUA5ehLzIEmE7JbwodCkMMLaPLLcIkez3ADDyu1GE78Xfc5mJvDm9buJg
+ xyjJBp6HVMziD6rVFFz0mpwzFgMR0w3gnLJNs524/xxIqsQPjIQHkRBAvEmCBmDxUteM3g
+ FRJclOA4rs+hsGxB/gWCahDG8loE6sRqsHwMtuzmJ4CX9EA070OsZ6VMh2jSyxYoVEIgov
+ q9wXFXgRMWnBRI3Hb1O42x7Q42DpYC7eRSsNdSaceTtm3bs+eGxJCnNoFDU9xg==
+Date: Mon, 16 Nov 2026 14:49:33 +0800
+Message-Id: <407ce3d77416bb2522b7906b0df3d5adf02c27ee.efc7f10c.ccd0.4025.9bef.e587b1e9e4e8@feishu.cn>
+Cc: "Conor Dooley" <conor+dt@kernel.org>, "Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
+	"devicetree" <devicetree@vger.kernel.org>, 
+	"linux-riscv" <linux-riscv@lists.infradead.org>, 
+	"spacemit" <spacemit@lists.linux.dev>, 
+	"linux-kernel" <linux-kernel@vger.kernel.org>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-In-Reply-To: <20261110061429.2036-2-linux.amoon@gmail.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/294.637.76
-X-ZohoMailClient: External
+Mime-Version: 1.0
+X-Lms-Return-Path: <lba+16afaa77f+ee8887+lists.infradead.org+sandie.cao@deepcomputing.io>
+In-Reply-To: <20261114075506-GKB100523@kernel.org>
+References: <20261109033154.361399-1-sandie.cao@deepcomputing.io> <20261109033348.361452-1-sandie.cao@deepcomputing.io>
+	<20261114075506-GKB100523@kernel.org>
+To: "Yixun Lan" <dlan@kernel.org>
+Subject: Re: [PATCH v4 3/3] riscv: dts: spacemit: k3-deepcomputing-fml13v05: Enable SD card support
+From: "Sandie Cao" <sandie.cao@deepcomputing.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261115_220311_091715_8B44A076 
-X-CRM114-Status: GOOD (  28.80  )
-X-Spam-Score: -0.5 (/)
+X-CRM114-CacheID: sfid-20261115_224945_873663_6B4EF376 
+X-CRM114-Status: GOOD (  19.38  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,261 +71,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8615148743178227559=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.3 required=3.0 tests=BAYES_00,DATE_IN_PAST_03_06,
-	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
---===============8615148743178227559==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="u676w3pv57qxlz5x"
-Content-Disposition: inline
-
-
---u676w3pv57qxlz5x
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v1 2/2] power: reset: spacemit-p1: Use atomic I2C
- transfers for power-off and restart
-MIME-Version: 1.0
-
-Hi,
-
-On Tue, Nov 10, 2026 at 11:44:27AM +0530, Anand Moon wrote:
-> The SpacemiT P1 power-off and restart handlers use regmap_set_bits()
-> to access the PMIC. However, these handlers run in an atomic notifier
-> context (specifically within an rcu_read_lock() critical section), while
-> the I2C-backed regmap uses a sleepable mutex.
->=20
-> This triggers a "WARNING: suspicious RCU usage" warning due to an illegal
-> context switch in the RCU read-side critical section during shutdown on t=
-he
-> Banana Pi BPI-F3:
->=20
-> [  563.803475] WARNING: suspicious RCU usage
-> [  563.807813] 7.3.1-ARCH-RISC-V #1 Not tainted
-> [  563.816614] ./include/linux/rcupdate.h:387 Illegal context switch in R=
-CU read-side critical section!
-> ...
-> [  563.841445] locks held by shutdown/1: 2, last CPU#0:
-> [  563.846694]  #0: ffffffff8404fb20 (system_transition_mutex){+.+.}-{4:4=
-}, at: __do_sys_reboot+0x230/0x29e
-> [  563.856806]  #1: ffffffff84167860 (rcu_read_lock){....}-{1:3}, at: ato=
-mic_notifier_call_chain+0x4a/0x1c2
->=20
-> Replace the regmap operations with atomic I2C transfers to avoid sleeping
-> in an atomic context. Preserve unrelated register bits through
-> read-modify-write operations and check for atomic I2C support before
-> registering the handlers.
->=20
-> Obtain the I2C client from the parent device and verify that the adapter
-> supports atomic transfers before registering the handlers.
->=20
-> Tested on the Banana Pi BPI-F3 (SpacemiT K1).
->=20
-> Assisted-by: LLM
-> Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> Cc: Aurelien Jarno <aurelien@aurel32.net>
-> Fixes: 28124cc0fb8c ("driver: reset: spacemit-p1: add driver for poweroff=
-/reboot")
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> ---
-
-regmap runs i2c_transfer itself and thus also uses the atomic I2C
-transfers. The problem here is regmap itself. But instead of moving
-away from regmap, the atomic use case should be supported properly
-in regmap.
-
-Greetings,
-
--- Sebastian
-
->  drivers/power/reset/spacemit-p1-reboot.c | 86 ++++++++++++++++++++----
->  1 file changed, 74 insertions(+), 12 deletions(-)
->=20
-> diff --git a/drivers/power/reset/spacemit-p1-reboot.c b/drivers/power/res=
-et/spacemit-p1-reboot.c
-> index c0454b547718..8fcb3eadddf3 100644
-> --- a/drivers/power/reset/spacemit-p1-reboot.c
-> +++ b/drivers/power/reset/spacemit-p1-reboot.c
-> @@ -4,8 +4,9 @@
->   */
-> =20
->  #include <linux/bits.h>
-> +#include <linux/errno.h>
-> +#include <linux/i2c.h>
->  #include <linux/platform_device.h>
-> -#include <linux/regmap.h>
->  #include <linux/reboot.h>
-> =20
->  /* Power Control Register 2 */
-> @@ -13,13 +14,68 @@
->  #define PWR_CTRL2_SHUTDOWN	BIT(2)	/* Shutdown request */
->  #define PWR_CTRL2_RST		BIT(1)	/* Reset request */
-> =20
-> +static int spacemit_p1_read_atomic(struct i2c_client *client,
-> +				   u8 reg, u8 *val)
-> +{
-> +	struct i2c_msg msgs[] =3D {
-> +		{
-> +			.addr =3D client->addr,
-> +			.flags =3D client->flags & I2C_M_TEN,
-> +			.len =3D 1,
-> +			.buf =3D &reg,
-> +		},
-> +		{
-> +			.addr =3D client->addr,
-> +			.flags =3D (client->flags & I2C_M_TEN) | I2C_M_RD,
-> +			.len =3D 1,
-> +			.buf =3D val,
-> +		},
-> +	};
-> +	int ret;
-> +
-> +	ret =3D i2c_transfer(client->adapter, msgs, ARRAY_SIZE(msgs));
-> +
-> +	return ret =3D=3D ARRAY_SIZE(msgs) ? 0 : ret < 0 ? ret : -EIO;
-> +}
-> +
-> +static int spacemit_p1_write_atomic(struct i2c_client *client,
-> +				    u8 reg, u8 val)
-> +{
-> +	u8 buf[] =3D { reg, val };
-> +	struct i2c_msg msg =3D {
-> +		.addr =3D client->addr,
-> +		.flags =3D client->flags & I2C_M_TEN,
-> +		.len =3D sizeof(buf),
-> +		.buf =3D buf,
-> +	};
-> +	int ret;
-> +
-> +	ret =3D i2c_transfer(client->adapter, &msg, 1);
-> +
-> +	return ret =3D=3D 1 ? 0 : ret < 0 ? ret : -EIO;
-> +}
-> +
-> +static int spacemit_p1_update_bits_atomic(struct i2c_client *client,
-> +					  u8 reg, u8 mask)
-> +{
-> +	u8 val;
-> +	int ret;
-> +
-> +	ret =3D spacemit_p1_read_atomic(client, reg, &val);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return spacemit_p1_write_atomic(client, reg, val | mask);
-> +}
-> +
->  static int spacemit_p1_pwroff_handler(struct sys_off_data *data)
->  {
-> -	struct regmap *regmap =3D data->cb_data;
-> +	struct i2c_client *client =3D data->cb_data;
->  	int ret;
-> =20
->  	/* Put the PMIC into shutdown state */
-> -	ret =3D regmap_set_bits(regmap, PWR_CTRL2, PWR_CTRL2_SHUTDOWN);
-> +	ret =3D spacemit_p1_update_bits_atomic(client, PWR_CTRL2,
-> +					     PWR_CTRL2_SHUTDOWN);
->  	if (ret) {
->  		dev_err(data->dev, "shutdown failed: %d\n", ret);
->  		return notifier_from_errno(ret);
-> @@ -30,11 +86,12 @@ static int spacemit_p1_pwroff_handler(struct sys_off_=
-data *data)
-> =20
->  static int spacemit_p1_restart_handler(struct sys_off_data *data)
->  {
-> -	struct regmap *regmap =3D data->cb_data;
-> +	struct i2c_client *client =3D data->cb_data;
->  	int ret;
-> =20
->  	/* Put the PMIC into reset state */
-> -	ret =3D regmap_set_bits(regmap, PWR_CTRL2, PWR_CTRL2_RST);
-> +	ret =3D spacemit_p1_update_bits_atomic(client, PWR_CTRL2,
-> +					     PWR_CTRL2_RST);
->  	if (ret) {
->  		dev_err(data->dev, "restart failed: %d\n", ret);
->  		return notifier_from_errno(ret);
-> @@ -46,21 +103,26 @@ static int spacemit_p1_restart_handler(struct sys_of=
-f_data *data)
->  static int spacemit_p1_reboot_probe(struct platform_device *pdev)
->  {
->  	struct device *dev =3D &pdev->dev;
-> -	struct regmap *regmap;
-> +	struct i2c_client *client;
->  	int ret;
-> =20
-> -	regmap =3D dev_get_regmap(dev->parent, NULL);
-> -	if (!regmap)
-> -		return -ENODEV;
-> +	client =3D i2c_verify_client(dev->parent);
-> +	if (!client)
-> +		return dev_err_probe(dev, -ENODEV,
-> +				     "Failed to find parent I2C client\n");
-> +
-> +	if (!client->adapter->algo->xfer_atomic)
-> +		return dev_err_probe(dev, -EOPNOTSUPP,
-> +				     "Atomic I2C transfers not supported\n");
-> =20
-> -	ret =3D devm_register_power_off_handler(dev, &spacemit_p1_pwroff_handle=
-r,
-> -					      regmap);
-> +	ret =3D devm_register_power_off_handler(dev, spacemit_p1_pwroff_handler,
-> +					      client);
->  	if (ret)
->  		return dev_err_probe(dev, ret,
->  				     "Failed to register power off handler\n");
-> =20
->  	ret =3D devm_register_restart_handler(dev, spacemit_p1_restart_handler,
-> -					    regmap);
-> +					    client);
->  	if (ret)
->  		return dev_err_probe(dev, ret,
->  				     "Failed to register restart handler\n");
-> --=20
-> 2.56.0
->=20
-
---u676w3pv57qxlz5x
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmr6Tq0ACgkQ2O7X88g7
-+ponXw//Sp9xpt0dtgwqvDwLyNDq4zBRATYky3jp5RiOzLRMnXPL3xnDkjdgJVYL
-MAFqKnMs4DrZJLtMjVpWPifQ8/oF2WmxwSzWusMeptDo6237HwLwJIpce3AP2XIG
-S4sIK7A3lSTbOqgM/BOMyBtJi0afcgMqT4ElzXZfnfSiT7KyE+rO3KOHHLtxBXGC
-6XTXk6ol53Kv8QA5GTIfj+Gu7EWwUsMxuApFWvo6lINcFObKy7uWeqIpvUuVbViD
-9IPiaFRsQQtjYr9iax7LxbUcRjOz9BcsHaHsJdwWleoCl8wngMicZaNZPlNZa1rS
-lS6bakRDSGfxAbL0UPfWq7D9OTrALgbpprw3AYOkzWeXuvqK4BClbil7cilolz2W
-E4AG8A+etvkHLXIJJyEMfN4Zp2ogpL5lnfYKWbHVWbLQtyUtIMS8kqugI/qbWH/G
-K31uLkvXuQTk1t6SBLDKk9jyw6w6393l/SQhLTD4kReXgEEmUsG7guLRVuO7ki8C
-aBLM5eisYIGDEOjr7b1wAMoOnciy1ZLhUoLc1+aOHhOcHhmGwSvp14LUqg9QozXK
-zhgNvwndRH75DdkEU9Okr2MIDtaqTe4HVygijoNmuvPnqrqbXZi0oI2GpSa5lPPn
-qQR+mA8tx9mKQ95ruAX3WhHannpOiGI9IQh+Hjenc+1F5h5SFNE=
-=5b6q
------END PGP SIGNATURE-----
-
---u676w3pv57qxlz5x--
-
-
---===============8615148743178227559==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8615148743178227559==--
-
+SGksIFlpeHVuOgoKPiBGcm9tOiAiWWl4dW4gTGFuIjxkbGFuQGtlcm5lbC5vcmc+Cj4gRGF0ZTrC
+oCBTYXQsIE5vdiAxNCwgMjAyNiwgMTU6NTUKCj4gSGkgU2FuZGllLAo+wqAKPiBPbiAxMTozMyBN
+b24gMDkgTm92IMKgIMKgICwgU2FuZGllIENhbyB3cm90ZToKPiA+IEFkZCB0aGUgZGV2aWNlIHRy
+ZWUgbm9kZSBTREhDSS0wIGNvbnRyb2xsZXIgZm9yIG9uYm9hcmQgTWljcm8gU0QgY2FyZCBzbG90
+Lgo+ID7CoAo+ID4gU2lnbmVkLW9mZi1ieTogU2FuZGllIENhbyA8c2FuZGllLmNhb0BkZWVwY29t
+cHV0aW5nLmlvPgo+ID4gLS0tCj4gPiDCoC4uLi9zcGFjZW1pdC9rMy1kZWVwY29tcHV0aW5nLWZt
+bDEzdjA1LmR0cyDCoCDCoHwgMjIgKysrKysrKysrKysrKysrKysrKwo+ID4gwqAxIGZpbGUgY2hh
+bmdlZCwgMjIgaW5zZXJ0aW9ucygrKQo+ID7CoAo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
+Ym9vdC9kdHMvc3BhY2VtaXQvazMtZGVlcGNvbXB1dGluZy1mbWwxM3YwNS5kdHMgYi9hcmNoL3Jp
+c2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2szLWRlZXBjb21wdXRpbmctZm1sMTN2MDUuZHRzCj4gPiBp
+bmRleCBiY2Q1MzM0ODRhNzMuLjA1MTA0NmZlOTBiMiAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlz
+Y3YvYm9vdC9kdHMvc3BhY2VtaXQvazMtZGVlcGNvbXB1dGluZy1mbWwxM3YwNS5kdHMKPiA+ICsr
+KyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazMtZGVlcGNvbXB1dGluZy1mbWwxM3Yw
+NS5kdHMKPiA+IEBAIC0xNzcsNiArMTc3LDI4IEBAICZjb21ib3BoeSB7Cj4gPiDCoCDCoCDCoCDC
+oCDCoHN0YXR1cyA9ICJva2F5IjsKPiA+IMKgfTsKPiA+IMKgCj4gLi4KPiA+ICsvKgo+ID4gKyAq
+IE9uYm9hcmQgU0QgY2FyZCBzbG90Ogo+ID4gKyAqIFBsZWFzZSBpbnNlcnQgb3IgcmVtb3ZlIHRo
+ZSBTRCBjYXJkIHdoaWxlIHRoZSBkZXZpY2UgaXMgcG93ZXJlZCBvZmYuCj4gPiArICogSXQgd29y
+a3MgYXMgYSBib290IG1lZGlhLiBzbyBzZXQgaXQgdG8gbm9uLXJlbW92YWJsZS4KPiA+ICsgKi8K
+PiBJcyB0aGVyZSBhbnkgcHVibGljIHNjaGVtYXRpYyBhdmFpbGFibGUgZm9yIEZNTDEzVjA1PyBJ
+IGd1ZXNzIHRoZXJlIGlzCj4gbm8gQ0QgcGluIChDYXJkIERldGVjdCBwaW4pPyBhcyBubyAiY2Qt
+Z3Bpb3MiIHByb3BlcnR5IHNlZW4gaGVyZQo+wqAKPiBUaGUgYWJvdmUgY29tbWVudCBpc24ndCBy
+ZWFsbHkgdXNlZnVsIG9yIGV2ZW4gY29ycmVjdCwgSSdkIHN1Z2dlc3QKPiBkcm9wIGl0LgoKSW4g
+dmVyc2lvbiAxIFsxXSzCoCB0aGUgcGF0Y2ggaXMgY2QtZ3Bpb3MgPSA8JmdwaW8gSzNfR1BJTyg4
+OCkgR1BJT19BQ1RJVkVfTE9XPjsKYnV0IEszX0dQSU8oODgpIGlzIGZha2UgY2QtZ3BpbywgaXQn
+cyB0aWVkIGxvdyBvbiBib2FyZC4KU28gSW4gdmVyc2lvbjIgWzJdLCB0aGUgcGF0Y2ggY2hhbmdl
+cyB0byBub24tcmVtb3ZhYmxlLgpBbmQgSW4gdmVyc2lvbjMgWzNdLCBhZGQgY29tbWVudC7CoAoK
+VGhlIG9wdGlvbnM6IGNkLWdwaW8sIG5vbi1yZW1vdmFibGUsIGJyb2tlbi1jZMKgIGFsbCB3b3Jr
+IG9uIHRoaXMgYm9hcmQuCgpXZSBqdXN0IG5lZWQgdG8gZGV0ZWN0IHRoZSBTRCBjYXJkIHdoZW4g
+Ym9vdHVwLCBkb24ndCBuZWVkIHRoZSBkcml2ZXLCoAp0byBkZXRlY3QgaG90LXBsdWcgZXZlbnQg
+LCBub24tcmVtb3ZhYmxlIHNob3VsZCBiZSBzdWl0YWJsZSBhbmQgZmFzdGVyLMKgCndlIHJlY29t
+bWVudCB0byB1c2Ugbm9uLXJlbW92YWJsZS4KCgpbMV06IGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
+L2FsbC8yMDI2MDkyMjExMDIzMS4zNDI2MDExLTEtc2FuZGllLmNhbwpAZGVlcGNvbXB1dGluZy5p
+by8KWzJdOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNjEwMjAwODE2MzMuMzY3Mzcw
+NC0xLXNhbmRpZS5jYW8KQGRlZXBjb21wdXRpbmcuaW8vClszXTogaHR0cHM6Ly9sb3JlLmtlcm5l
+bC5vcmcvYWxsLzIwMjYxMTAyMDYwMDEyLjEwMDYyMy0xLXNhbmRpZS5jYW8KQGRlZXBjb21wdXRp
+bmcuaW8vCgpCZXN0IHJlZ2FyZHMKU2FuZGllCgo+wqAKPiA+ICsmc2RoY2kwIHsKPiA+ICsgwqAg
+wqAgwqAgwqBwaW5jdHJsLW5hbWVzID0gImRlZmF1bHQiLCJ1aHMiOwo+ID4gKyDCoCDCoCDCoCDC
+oHBpbmN0cmwtMCA9IDwmbW1jMV9jZmc+Owo+ID4gKyDCoCDCoCDCoCDCoHBpbmN0cmwtMSA9IDwm
+bW1jMV91aHNfY2ZnPjsKPiA+ICsgwqAgwqAgwqAgwqBidXMtd2lkdGggPSA8ND47Cj4gLi4KPiA+
+ICsgwqAgwqAgwqAgwqBub24tcmVtb3ZhYmxlOwo+ICJuby1yZW1vdmFibGUiIHByb3BlcnR5IHVz
+dWFsbHkgdXNlZCBmb3IgZW1tYyBjaGlwIHNvbGRlcmVkIG9uIGJvYXJkLAo+IMKgc28gdGhlcmUg
+aXMgbm8gd2F5IGl0IGNhbiBiZSBwaHlzaWNhbGx5IHJlbW92ZWQuLiBjaGVja8KgCj4gRG9jdW1l
+bnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL21tYy9tbWMtY29udHJvbGxlci1jb21tb24ueWFt
+bAo+wqAKPiBGb3IgY2FzZXMgdGhhdCBubyBDRCBwaW4gKG9yIG5vIEdQSU8gQ0QgcGluKSBkZXNp
+Z25lZCBmb3IgU0QgY2FyZCBmcm9tCj4gaGFyZHdhcmUgc2NoZW1hdGljIHBlcnNwZWN0aXZlLCB1
+c2luZyAiYnJva2VuLWNkIiBpcyBhIG1vcmUgcHJvcGVyIHdheSwKPiBpdCB3aWxsIGZhbGxiYWNr
+IHRvIHVzZSBwb2xsIG1lY2hhbmlzbSB0byBkZXRlY3QgdGhlIGNhcmQsIHBsZWFzZSBjaGVjawo+
+wqAKPiA+ICsgwqAgwqAgwqAgwqBuby1tbWM7Cj4gPiArIMKgIMKgIMKgIMKgbm8tc2RpbzsKPiA+
+ICsgwqAgwqAgwqAgwqBkaXNhYmxlLXdwOwo+ID4gKyDCoCDCoCDCoCDCoGNhcC1zZC1oaWdoc3Bl
+ZWQ7Cj4gPiArIMKgIMKgIMKgIMKgdnFtbWMtc3VwcGx5ID0gPCZhbGRvMT47Cj4gPiArIMKgIMKg
+IMKgIMKgc2QtdWhzLXNkcjI1Owo+ID4gKyDCoCDCoCDCoCDCoHNkLXVocy1zZHI1MDsKPiA+ICsg
+wqAgwqAgwqAgwqBzZC11aHMtc2RyMTA0Owo+ID4gKyDCoCDCoCDCoCDCoHN0YXR1cyA9ICJva2F5
+IjsKPiA+ICt9Owo+ID4gKwo+ID4gwqAmdWFydDAgewo+ID4gwqAgwqAgwqAgwqAgwqBwaW5jdHJs
+LW5hbWVzID0gImRlZmF1bHQiOwo+ID4gwqAgwqAgwqAgwqAgwqBwaW5jdHJsLTAgPSA8JnVhcnQw
+XzBfY2ZnPjsKPiA+IC0twqAKPiA+IDIuNDMuMAo+wqAKPiAtLcKgCj4gWWl4dW4gTGFuIChkbGFu
+KQo+wqAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
