@@ -2,86 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 637A760A2633
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2026 11:55:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42B1A606A339
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2026 11:55:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Pfpjrb7k;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bTd2usiH
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=abZ34bab;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DgqSeIMM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
+	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=tNOv3THHgRHuOGvBOjjsvwZVi0LWiprj7IL1uRnuks0=; b=Pfpjrb7k8qFDS4qIcGaYtMyWyd
-	mPN1qNU2cjWa1KoaCPpsTlr/6S+DqIXX96/FfA9w1K/ta5m6KXhB+mvBEFtOSRAI2nWn2hXh8C+yf
-	yP8xG/eTjZ0+v1UDB0Qu8wWB0pYcmpe8VJNUJX/tccAdTt+tpmxVI6sT4iVRht0loLyGmHJ5pvpj4
-	Q4Hr7OuJiWoWKP23Ss9R1jMaCLHVcZV9F8B+khLlTXfJd66AjVsnLUmPdCHn53/rA0Ti0lz9/J80r
-	o8pnx7pgpWfFUCK+YSLsvfRTYrCGePvbLrXVyhe9YIqX+i7TpBW6liAqNEnKOFACP4a+2dRCB0gTF
-	KxTuzGYA==;
+	bh=8XDZldRO/TH4HdxSuZ42EetJ+WOqCrN73VMdYnoxacs=; b=abZ34babq8bfyLYr8UhuBccv8V
+	mt2y1inPQrtCuGAmtE79CFabL/mnxyBsk18MeA8rVnhiEXAGT7fpM8XIX1yexU3NqpLXRf2XrwWoU
+	HS9tvrykqgnF9ezhF598LvB5OmFld2rP7WAv8DPXE0eMf09xh0h56gs92hSf+2P+0vNvv03fLbeSu
+	JmrwxXl7Vk6MuJYOIx7Ae2QLS3T2UPvVQS1AUafnnz3UmbnF915+u9PmbL8eJH/1YDYGyYmADQcO9
+	jtxX3OxX+7kirGxdqER1fEXZ2LtebloJfdYH/E6EPTo3nCaB4TJEPrBbcEnw/AYJlzWBs34BQvvaZ
+	07ESrJdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSvJ9-00000002Flt-2lu5;
-	Mon, 16 Nov 2026 11:55:35 +0000
+	id 1xSvJ8-00000002Fja-07YX;
+	Mon, 16 Nov 2026 11:55:34 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSvJ8-00000002Fjb-0d1I
+	id 1xSvJ6-00000002Fin-409Z
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Nov 2026 11:55:34 +0000
+	Mon, 16 Nov 2026 11:55:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD16746346;
-	Mon, 16 Nov 2026 11:55:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 693F0450B4;
+	Mon, 16 Nov 2026 11:55:32 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794830133;
-	b=pFHJM4pg7yXzy5RAJqo2bP406ebUEB6mj4uWJRB4gsXWCNRzrqWLF3SQ92ai1L1lAZD4
-	 /BUFNb/5rT1L9KWfOsxlJWVrb7IcUVMCNPLKri8lHtuTVd69eAma/jZRIQ7DAFPb/x6pc
-	 btSvmAODWgY2bSrZeVdQ2l/vI5iJEc6Q12WnTrkPKzFkpjEt4f1XdF84aJpjpQpZq919/
-	 6vY7FhHxGpGIHWwf9jU/4FHo+5zwptbBaAyLArgc1uXIpGcWGVHgyd5FKdZcW1ul5ffDh
-	 2MCM9aVyntnMNDp6AYDBaU51D/ls2zEYUfuqLPR9TeqvorlwBHIHEVfg/+AOIgvdh/Q==
+	t=1794830132;
+	b=qNyo02aZiip6AjEGp0KGlBSdWE0NV+PNafc8lpsAZKkjkutBWrZT5gT0t8bakdJCDi2b
+	 WJasRTXdhmgPM4hz3q3gxgBb2VaZI7Y1rp0/4fHnlyvQJmZBvzSND7tOHu+rNX6T2v2uh
+	 nmY1DgurQ1RNCvb67Js2+i6nPwFb78CIeV8SnllVm7wBCFFEmKOOYh44M1WkCGG2RCwM0
+	 hRGpRLPKDA6VLMBn1zGVH5+Swl/U92ZeP+SB6dimj1K1moLV0loQy0xb8Zt4BwBbsquh6
+	 In/UC8htDnX/VLXOXlwYYS1IFcpK1cVH/Ru0GQN00JfobwEbq3YUmlIOdFSLufpYy9w==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794830133;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=MqMWWxFU02V8tEh0sCye8Sx8z8SSh9kfAyIwnHZlbe8=;
-	b=xeTLOtcuFZ5fTnfAlfOo88JyL7sRYg5cqW7PMfMzibNsnfclxqBpN27a5DVhqaduybvO
-	 1bU8LDhwkYHd52U/BuAVQ+yKJDUPeVeej33WKXuxlBSVHWkJqryVP8efQvzxcW939/oMP
-	 TDvjwvbWI1T9K6ghRp4ULdM0xcWToXKn/N0Ggatqx3JCu/mtN6LQGgNljN1VkYw6Zv3kH
-	 iQia/nVh7ExQVBEyBGjlnmQku8G120LXZ3tV4YWmezESmiWe8wv4m75/HwvQPq7rAsC3v
-	 8qP+n96WsELxsGX+QWQxnK13cuE5putfHAo11lT4km2vh0iTQemwnEYpVkueRNp4QzA==
+	c=relaxed/relaxed; t=1794830132;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=gwk+QqSeixXld1qAJw3dEIcBSVOs7JfyvqvGfbY1mxM=;
+	b=ydoGIgcW8wQqw1zlsrzu989qpiQ5/7X0lM2+EvkL/tQnigiSsE7hzfV0ehSDx+y35Smt
+	 8Uezu0Yrwz6EleR2UQWAK7SRu2g6PWq9ZchglqMl1i0F5rG1BC4rF9I6JkFbtBu/DX4NR
+	 xVmwBCcRCeif59KMX2i0IvIubZ8sC4NRg6daPK4hafaPvv3QP76Gc/uZv3TNntTJaJjHA
+	 l30ZOpU2iu97VlgtbxzCjFFuTrvOOb9x4C2wGMOelcK7kQZvyUFghL+80DQ63fwQtU7h8
+	 A0L6x/2DJugZ1g8n2BSPehN0DUMf2d23rLqaSxLR0aOzqtynQ2oOKpugtRp1CHyk6rg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 6B7E51F000D1;
-	Mon, 16 Nov 2026 11:55:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794830133;
-	bh=MqMWWxFU02V8tEh0sCye8Sx8z8SSh9kfAyIwnHZlbe8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=bTd2usiH5oRFt46tnMIjDD+VIllkd2Ipe/GKPSYkMUqz8e0a3XpOKPwtZWdballvw
-	 PwFx2tHVVwTqGPWy/sbuobDSvi2ygGzlSGUKE76G8t/P6zD3LrRyPZWx+b0ERmpDDN
-	 rIYyek5H7NJb67aTbgl13bPl4fuZZrEDCI7bPzWipwHnopcioR7bF6iuznSOZZrPvx
-	 HP7YIOw0GaFMHSD/dudWLL2XflXhQYT9xpuq2K58eeKOBMIiFTbE2QO5Wb6C8lyW56
-	 CPy+IeiRojA7WEnYeFPYZXTW5rUY9lj+75C50SD3SI9JkMprR+G9GxlieC8M4123HA
-	 NZ541awOy5a8Q==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 4455E4A462;
+	by smtp.kernel.org (Postfix) with ESMTPS id 309651F000C4;
 	Mon, 16 Nov 2026 11:55:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794830132;
+	bh=gwk+QqSeixXld1qAJw3dEIcBSVOs7JfyvqvGfbY1mxM=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=DgqSeIMM/t2P9O93Z1AW0W8T5KolXk6Y2qxpuiy7rdemJrTrgcoHK5BZx33R1mAZP
+	 F78Kjg4oroEG+C4Anhl8T4WCT9Qb3mKwQPNi8uZadWbkqPcR7vK/UbBmP8yWL66Oeq
+	 3IuEPmDH+xbtYVrAUDcH1qp7yWBnzYDU1unz4x6FS/NNZGl0HydYwYO1oCc3uvYZIx
+	 jfD2qgtjs0dMd4V9A3RsO+7yqiDs8etaVCUwNicMjHV5d7f5xfZqe6sVN1N10Ihaj2
+	 ge6USQxDdG3zyHtaG79WQtPAvDfzMGZwc/r/iwE3ql3VGfADrfaCaGqbGnu5Eu9tRj
+	 leV5g5fayMmwA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 8A8F44A44E;
+	Mon, 16 Nov 2026 11:55:30 +0000 (UTC)
 From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Date: Mon, 16 Nov 2026 12:55:13 +0100
-Subject: [PATCH v3 6/8] riscv: dts: mips: Initial support for the P8700
- Boston board
+Subject: [PATCH v3 0/8] Add support for MIPS P8700
+Date: Mon, 16 Nov 2026 12:55:07 +0100
+Message-Id: <20261116-p8700-dts-v3-0-ec5d4b7de39f@htecgroup.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261116-p8700-dts-v3-6-ec5d4b7de39f@htecgroup.com>
-References: <20261116-p8700-dts-v3-0-ec5d4b7de39f@htecgroup.com>
-In-Reply-To: <20261116-p8700-dts-v3-0-ec5d4b7de39f@htecgroup.com>
+X-B4-Tracking: v=1; b=H4sIABvv+moC/12MwQ6CMBAFf8X0bE13Wyh48j+MByxb6EFKWmw0h
+ H+3YGKIx3l5MzOLFBxFdj7MLFBy0fkhgzwemOmboSPu2swMBZZCYsHHSgvB2ylyBbqqrACFqFn
+ +j4Gse22t6y1z7+Lkw3tLJ1jXb6UGtask4IJLLLUFRXdDcOknMl3wz/Fk/IOtpYQ/G0DIvY2r3
+ ZiiVbVFI/W/vSzLB+So4GbkAAAA
+X-Change-ID: 20260325-p8700-dts-41788f014227
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -96,13 +98,14 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
  Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@sifive.com>, Joel Stanley <joel@jms.id.au>, 
- Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+ Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794830124; l=7586;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794830124; l=4421;
  i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
- bh=4CsrRToKq+o/OvJBSajhF/y42tUgQSwfIpqwDOD+dQY=;
- b=8zAxDEYYnCXOnaY5QwMbgKpMoMBag/5oq4m0o/zWSK+LcnDvpq58mIfRTh/sNfynC8iDICqDl
- LFLjYxucD+zDqRZhKkG8uh2bLE+V7x6J6dVCAYS4/vxUcN0Ey7yCv8a
+ bh=yMBQcqxirYNOfYKfWqY+jYqV6O5S2DvCDStxOPByMsY=;
+ b=OeNR91oEA6s0OsEjqaqT3C97DuJtiNR6SitaKopZW7aSx5Pt7hqmHDrIoSpwDYrlg/Rqn/S0V
+ kym7xGkGOj1DxGsPtFmALtUblcWSI3IcmrwuVxTyVoLnOzj5quOMgpv
 X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
  pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
 X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
@@ -128,293 +131,92 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+The MIPS P8700 is a multi-core RISC-V microprocessor system, supporting
+both single-cluster and multi-cluster configurations. [1]
+This series adds full description of the platform,
+including the Boston FPGA board configured with a P8700 bitfile.
 
-Add initial device tree for the MIPS P8700 and the device tree
-for the Boston FPGA development board with a MIPS P8700 bitfile.
+The P8700 cores support the RV64GCZba_Zbb (G = IMAFD) Standard ISA,
+with a caveat: the A extension is only partially supported, and all ZAAMO
+extension instructions are emulated on the SBI level. The device tree
+intentionally does not reflect this fact. Vladimir Kondratiev's series
+improves performance by directly substituting AMO instructions with LR/SC. [4]
+The two patchsets do not depend on one another.
 
-Add related Makefile and KCONFIG changes.
+The board itself is the same board as 'img,boston', configured with a different
+bitfile [3]. The Boston board has been supported since commit 6e62a888029b
+("MIPS: generic: Support MIPS Boston development boards") (thanks to Maciej for finding the ref).
 
-Co-developed-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
-Signed-off-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
+I tested this series both on QEMU and a Boston board
+configured with a single P8700 CPU,
+after applying the necessary U-Boot changes.
+We are planning on upstreaming these as well.
+
+Following the discussion in [2], I decided to drop the 'gf' prefix for all compatibles
+and to rework the aclint-mtimer binding.
+
+Links:
+[1] https://mips.com/wp-content/uploads/2025/11/P8700-F_Programmers_Reference_Manual-TM.pdf
+[2] https://lore.kernel.org/linux-riscv/20261109051050.105623-5-joel@jms.id.au/
+[3] https://training.mips.com/cps_mips/Examples/MD00901_Boot-MIPS_Example_Boot_Code_for_MIPS_Cores.pdf
+[4] https://lore.kernel.org/all/20261026-lrsc-only-v3-0-ec29c8190fb1@mobileye.com/
+
 Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 ---
- arch/riscv/Kconfig.socs                   |   6 ++
- arch/riscv/boot/dts/Makefile              |   1 +
- arch/riscv/boot/dts/mips/Makefile         |   2 +
- arch/riscv/boot/dts/mips/p8700-boston.dts | 135 ++++++++++++++++++++++++++++++
- arch/riscv/boot/dts/mips/p8700.dtsi       |  82 ++++++++++++++++++
- 5 files changed, 226 insertions(+)
+Changes in v3:
+- Drop the 'gf' vendor prefix patch. The prefix isn't used anywhere.
+- Replace 'gf,mips-p8700-*' compatibles with 'mips,p8700-*'
+  to match those already present in OpenSBI.
+  Other compatibles are also renamed for consistency.
+  Match the directory structure and binding names,
+  by replacing 'gf' with 'mips' everywhere.
+- Add a MAINTAINERS entry.
+- Change the `aclint-mtimer` binding, reversing the decision made in v2
+  and putting 'mtime' first when both 'mtime' and 'mtimecmp' are present.
+- Link to v2: https://lore.kernel.org/r/20261103-p8700-dts-v2-0-3ac5d49f2c37@htecgroup.com
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 429e0758930687c742c4dd09603e71e90dc096a2..2562b74f85969b52a7e22679322951f5fd8884a9 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -26,6 +26,12 @@ config ARCH_MICROCHIP
- 	help
- 	  This enables support for Microchip SoC platforms.
- 
-+config ARCH_MIPS
-+	bool "MIPS SoCs"
-+	help
-+	  This enables support for MIPS SoC platform hardware,
-+	  including the P8700.
-+
- config ARCH_RENESAS
- 	bool "Renesas RISC-V SoCs"
- 	help
-diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-index 69d8751fb17c803f0efb8003e111ee24144c222b..6669ddd10f1ec3a2b0323cd0b460d48ae56edd2e 100644
---- a/arch/riscv/boot/dts/Makefile
-+++ b/arch/riscv/boot/dts/Makefile
-@@ -5,6 +5,7 @@ subdir-y += anlogic
- subdir-y += canaan
- subdir-y += eswin
- subdir-y += microchip
-+subdir-y += mips
- subdir-y += renesas
- subdir-y += sifive
- subdir-y += sophgo
-diff --git a/arch/riscv/boot/dts/mips/Makefile b/arch/riscv/boot/dts/mips/Makefile
-new file mode 100644
-index 0000000000000000000000000000000000000000..a1f3a8ed427342042a3ec176d3cb41c8dbb8926a
---- /dev/null
-+++ b/arch/riscv/boot/dts/mips/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+dtb-$(CONFIG_ARCH_MIPS) += p8700-boston.dtb
-diff --git a/arch/riscv/boot/dts/mips/p8700-boston.dts b/arch/riscv/boot/dts/mips/p8700-boston.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..4383ef7cec152a6d43aaf24fea9fdf266ee288d8
---- /dev/null
-+++ b/arch/riscv/boot/dts/mips/p8700-boston.dts
-@@ -0,0 +1,135 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/*
-+ * Copyright (C) 2025 MIPS
-+ *
-+ * Boston FPGA development board with a MIPS P8700 bitfile.
-+ */
-+
-+/dts-v1/;
-+
-+#include "p8700.dtsi"
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/* Clock frequency (in Hz) of the FPGA bitfile */
-+#define BITFILE_FREQ	25000000
-+
-+/ {
-+	model = "MIPS P8700 Boston";
-+	compatible = "mips,p8700-boston-rtl-5057225-202410011144",
-+		     "mips,p8700-boston";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	cpus {
-+		timebase-frequency = <BITFILE_FREQ>;
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x80000000 0x80000000>;
-+	};
-+
-+	pci2: pci@14000000 {
-+		compatible = "xlnx,axi-pcie-host-1.00.a";
-+		device_type = "pci";
-+		reg = <0x14000000 0x2000000>;
-+
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		#interrupt-cells = <1>;
-+
-+		interrupt-parent = <&aplic_s0>;
-+		interrupts = <7 IRQ_TYPE_LEVEL_HIGH>;
-+
-+		ranges = <0x02000000 0 0x16000000
-+			  0x16000000 0 0x100000>;
-+
-+		bus-range = <0x00 0xff>;
-+
-+		interrupt-map-mask = <0 0 0 7>;
-+		interrupt-map = <0 0 0 1 &pci2_intc 1>,
-+				<0 0 0 2 &pci2_intc 2>,
-+				<0 0 0 3 &pci2_intc 3>,
-+				<0 0 0 4 &pci2_intc 4>;
-+
-+		pci2_intc: interrupt-controller {
-+			interrupt-controller;
-+			#address-cells = <0>;
-+			#interrupt-cells = <1>;
-+		};
-+
-+		pci2_root@0,0 {
-+			compatible = "pci10ee,7021";
-+			reg = <0x00000000 0 0 0 0>;
-+
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+
-+			eg20t_bridge@1,0,0 {
-+				compatible = "pci8086,8800";
-+				reg = <0x00010000 0 0 0 0>;
-+
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+
-+				eg20t_mac@2,0,1 {
-+					compatible = "pci8086,8802";
-+					reg = <0x00020100 0 0 0 0>;
-+					phy-reset-gpios = <&eg20t_gpio 6 GPIO_ACTIVE_LOW>;
-+				};
-+
-+				eg20t_gpio: eg20t_gpio@2,0,2 {
-+					compatible = "pci8086,8803";
-+					reg = <0x00020200 0 0 0 0>;
-+
-+					gpio-controller;
-+					#gpio-cells = <2>;
-+				};
-+
-+				eg20t_i2c@2,12,2 {
-+					compatible = "pci8086,8817";
-+					reg = <0x00026200 0 0 0 0>;
-+
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					rtc@68 {
-+						compatible = "st,m41t81s";
-+						reg = <0x68>;
-+					};
-+				};
-+			};
-+		};
-+	};
-+
-+	uart0: serial@17ffe000 {
-+		compatible = "ns16550a";
-+		reg = <0x17ffe000 0x1000>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+
-+		interrupt-parent = <&aplic_s0>;
-+		interrupts = <4 IRQ_TYPE_LEVEL_HIGH>;
-+
-+		clock-frequency = <BITFILE_FREQ>;
-+	};
-+
-+	lcd: lcd@17fff000 {
-+		compatible = "img,boston-lcd";
-+		reg = <0x17fff000 0x8>;
-+	};
-+
-+	flash@18000000 {
-+		compatible = "cfi-flash";
-+		reg = <0x18000000 0x8000000>;
-+		bank-width = <2>;
-+	};
-+};
-diff --git a/arch/riscv/boot/dts/mips/p8700.dtsi b/arch/riscv/boot/dts/mips/p8700.dtsi
-new file mode 100644
-index 0000000000000000000000000000000000000000..94536e7e6e87998486f919a2962ee1da4d2c596b
---- /dev/null
-+++ b/arch/riscv/boot/dts/mips/p8700.dtsi
-@@ -0,0 +1,82 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/*
-+ * Copyright (C) 2025 MIPS
-+ */
-+
-+/ {
-+	#address-cells = <1>;
-+	#size-cells = <1>;
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		cpu0: cpu@0 {
-+			device_type = "cpu";
-+			compatible = "mips,p8700", "riscv";
-+			reg = <0x0>;
-+			mmu-type = "riscv,sv39";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
-+					       "zicntr", "zicsr", "zifencei",
-+					       "zihpm", "zba", "zbb",
-+					       "xmipsexectl";
-+
-+			cpu0_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+	};
-+
-+	soc: soc {
-+		compatible = "simple-bus";
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		mtimer0: timer@16108050 {
-+			compatible = "mips,p8700-aclint-mtimer";
-+			reg = <0x16108050 0x8>,
-+			      <0x16154000 0x7ff8>;
-+			reg-names = "mtime", "mtimecmp";
-+			interrupts-extended = <&cpu0_intc 7>;
-+		};
-+
-+		aplic_m0: interrupt-controller@16140000 {
-+			compatible = "mips,p8700-aplic", "riscv,aplic";
-+			reg = <0x16140000 0x8000>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			interrupts-extended = <&cpu0_intc 11>;
-+			riscv,num-sources = <53>;
-+			riscv,children = <&aplic_s0>;
-+			riscv,delegation = <&aplic_s0 1 53>;
-+		};
-+
-+		mswi0: mswi@16150000 {
-+			compatible = "mips,p8700-aclint-mswi";
-+			reg = <0x16150000 0x4000>;
-+			interrupts-extended = <&cpu0_intc 3>;
-+		};
-+
-+		aplic_s0: interrupt-controller@16160000 {
-+			compatible = "mips,p8700-aplic", "riscv,aplic";
-+			reg = <0x16160000 0x8000>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			interrupts-extended = <&cpu0_intc 9>;
-+			riscv,num-sources = <53>;
-+		};
-+
-+		sswi0: interrupt-controller@1616c000 {
-+			compatible = "mips,p8700-aclint-sswi";
-+			reg = <0x1616c000 0x4000>;
-+			interrupt-controller;
-+			#interrupt-cells = <0>;
-+			interrupts-extended = <&cpu0_intc 1>;
-+			riscv,hart-indexes = <0x0>;
-+		};
-+	};
-+};
+Changes in v2:
+- Patch 1: Replace "MIPS Technology" with "MIPS Technologies".
+- Patch 3: Name the FPGA used and add the versioned bitfile compatible.
+- Patch 5: Drop hart indexes from MSWI.
+- Patch 6: Swap mtimecmp and mtime, require reg-names both for mtime and mtimecmp on P8700.
+- Original patch 7: Dropped.
+- Patch 7 (previously 8): Remove additional harts that are not
+  present in the bitfile I have. Reflect changes made in patches 3, 5 and 6.
+  Remove riscv,cbom-block-size. Drop undocumented compatibles. Other minor changes.
+- Link to v1: https://lore.kernel.org/r/20260914-p8700-dts-v1-0-3267f14ebce1@htecgroup.com
 
+---
+Aleksa Paunovic (8):
+      dt-bindings: riscv: cpus: add mips,p8700
+      dt-bindings: riscv: Add MIPS Boston board compatible
+      dt-bindings: interrupt-controller: Add MIPS P8700 APLIC
+      dt-bindings: interrupt-controller: Add MIPS P8700 ACLINT MSWI
+      dt-bindings: timer: Add MIPS P8700 ACLINT MTIMER
+      riscv: dts: mips: Initial support for the P8700 Boston board
+      MAINTAINERS: Add entry for MIPS RISC-V SoC support
+      riscv: defconfig: Enable MIPS SoCs
+
+ .../bindings/interrupt-controller/riscv,aplic.yaml |   1 +
+ .../thead,c900-aclint-mswi.yaml                    |  11 ++
+ Documentation/devicetree/bindings/riscv/cpus.yaml  |   1 +
+ Documentation/devicetree/bindings/riscv/mips.yaml  |  33 +++++
+ .../bindings/timer/thead,c900-aclint-mtimer.yaml   |  37 ++++++
+ MAINTAINERS                                        |   7 ++
+ arch/riscv/Kconfig.socs                            |   6 +
+ arch/riscv/boot/dts/Makefile                       |   1 +
+ arch/riscv/boot/dts/mips/Makefile                  |   2 +
+ arch/riscv/boot/dts/mips/p8700-boston.dts          | 135 +++++++++++++++++++++
+ arch/riscv/boot/dts/mips/p8700.dtsi                |  82 +++++++++++++
+ arch/riscv/configs/defconfig                       |   1 +
+ 12 files changed, 317 insertions(+)
+---
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+change-id: 20260325-p8700-dts-41788f014227
+
+Best regards,
 -- 
-2.43.0
+Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 
 
 
