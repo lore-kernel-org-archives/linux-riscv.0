@@ -2,66 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 726BF606A31C
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2026 08:58:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD388606A32C
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2026 08:59:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=5EdiUlm8;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=FXEdP6im
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YuPEsdIm;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=R15BR0HF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Mime-Version:Date:Subject:
-	Message-Id:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Unsubscribe-Post:List-Owner;
-	bh=5fHkyQaP0ziXCatbZH63sD2uWpEMlZuhErzODDaujoA=; b=5EdiUlm8Whho2M3xrukUEGP8DT
-	ZjndXmZDO4tahxtsFVyOwCJHBEgEBmYSmnTzx4vQb6A0i+p4FCb3TkKbHYC1H36E5S8vSGnMGCjc/
-	icRHUY2q5so4OKtiKTcK3SqATeUESdr0LV5RaVIXo/SUiBN/lbakktmtG4Qo+0Wisovt6mdI/z2R1
-	HRvd4HzQFcEms2Mjr8khQ3fZ8hsV69bF4UERcn6SOpl6gRjVjq07wgsLYeUbaYAXcSi58UKrN59Qn
-	cXTxgYRAVS1+kOTpWB9LnLbHXVb6/kfWdZKiWDJlK6GGGKbOmSwxfx/j4COnPirhwuRLuGao40N4R
-	nDsK+bcw==;
+	List-Archive:List-Unsubscribe:List-Id:From:Subject:To:Date:In-Reply-To:Cc:
+	References:Mime-Version:Message-Id:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=0aco/8mYa6iszFlQlCxc7bO8JQ0T18/LcXNj0Wr0W0k=; b=YuPEsdIml2R6m4QqBIODs6FlzI
+	h7iUDRMMOf3qDQw3vG0x/YkiVMBPGxFL22BcxyOQ+86zLIIf4vICUyBJgie4KJhgJmqMys3YpIWyV
+	hWqufPvGx2uk5D4dk6BrspQJb1fWH2Fp3dB/oceY6ts3bQjZ+QQKG4oeSAtKXv6zkbubZS9Gz1RFO
+	ZqWGI2wkKe5GEZeJyQM4HuoLjHeo/EOYjTRV+c19D8RFWTUlB0jg5TM2Yh0Fh6nATeHJah5vFopNK
+	t6J/eiVJwh92+OQ2um4rezHi4tImRoyz3vCTdFuE8YvPSUEtLlLXOjr0U/O0cEFcKOzTfXoZhfXlK
+	zB4YDH8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSsX8-00000001gdM-1e1n;
-	Mon, 16 Nov 2026 08:57:50 +0000
-Received: from va-2-28.ptr.blmpb.com ([209.127.231.28])
+	id 1xSsYO-00000001gwC-3Vn0;
+	Mon, 16 Nov 2026 08:59:08 +0000
+Received: from va-2-29.ptr.blmpb.com ([209.127.231.29])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSsX4-00000001gc2-3lcJ
+	id 1xSsYM-00000001gum-43Ni
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Nov 2026 08:57:49 +0000
+	Mon, 16 Nov 2026 08:59:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1794819454;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1794819534;
   h=from:subject:mime-version:from:date:message-id:subject:to:cc:
  reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=BTcZk/ysXO+x/psVKKTgMfCcFG9OUCtxSRwx0yIpMrg=;
- b=FXEdP6imxUa80WWfC+36CeHIOP2D7V8thM9xwarmZts2uMZVhoct/Y7OADD7Ck5PPr6Q3D
- xjGB8BJWSsE/W2STuHBeHXve38RtKUI7ocAohE23bUOZkFijUtPn1Y15TvFazNmhFU5gNF
- er+fPmFd8/1AQasJb0jnUzQ6e88/EoJpYcqIskOPWir1+Ng3Wv9eGbNtXVxTmiF23v+qJL
- ZP2cUgAhbGPjLr7ea2cpwU3sDYoZWSX8KwDH6kgbK5EIo4MJAQumJvMJWJWlrk5GtQWgRO
- mXIfAfBx0yIA/q/8WzdFf24ImAlgu3QYwxXs7HjJ8nROVRiFU7hqlPTpJ+0m1A==
-From: "Sandie Cao" <sandie.cao@deepcomputing.io>
-X-Mailer: git-send-email 2.43.0
-Message-Id: <20261116085725.951253-1-sandie.cao@deepcomputing.io>
-X-Lms-Return-Path: <lba+26afac57c+edce75+lists.infradead.org+sandie.cao@deepcomputing.io>
-Subject: [PATCH 0/5] riscv: dts: spacemit: enable WLAN and Bluetooth on DeepComputing FML13V05
-Date: Mon, 16 Nov 2026 16:57:25 +0800
+ bh=XVGuat01xtbGFqMwwAT48i+lQJU6RP1WQYE+osx+dlk=;
+ b=R15BR0HFtk4hmy78Z49KI/+1shzMrm0eVMUcQIuJwrTEsV7qTEjt3LY767PjVu3bjaW+J0
+ zfmnqkcPUQh1cNPtWiZ4kJgLYN3fENeyqjyGrJwb513AHfDdoAW9qLdqllfY3M9bq9rYbQ
+ AS8Ews2c8AmeAtjXZ/GBlhCxa5kw7CKGOmaxVt6dOOiiXMSB1OUt5nu9SuJxy/nbsYgjo6
+ soYd8NOB7VQB9aFLTo/b5rvpREMrVf+0cAsROx/WpiIcDOwfvcOwvUZjqmjW/krosvLdX+
+ 3b56oTsDrejWlLuV1si16nw7uf24qrKXhqdUELNiG02P9cc2zUm4nU7CfF+8lg==
+Message-Id: <20261116085838.951269-1-sandie.cao@deepcomputing.io>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
-Received: from roma-Laptop-12th-Gen-Intel-Core.lan ([183.23.101.74]) by smtp.feishu.cn with ESMTPS; Mon, 16 Nov 2026 16:57:31 +0800
+References: <20261116085725.951253-1-sandie.cao@deepcomputing.io>
+X-Lms-Return-Path: <lba+26afac5cc+b05e07+lists.infradead.org+sandie.cao@deepcomputing.io>
+Cc: "Alexandre Ghiti" <alex@ghiti.fr>, <devicetree@vger.kernel.org>, 
+	<linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>, 
+	<linux-kernel@vger.kernel.org>, 
+	"Sandie Cao" <sandie.cao@deepcomputing.io>
+In-Reply-To: <20261116085725.951253-1-sandie.cao@deepcomputing.io>
+Received: from roma-Laptop-12th-Gen-Intel-Core.lan ([183.23.101.74]) by smtp.feishu.cn with ESMTPS; Mon, 16 Nov 2026 16:58:51 +0800
+X-Original-From: Sandie Cao <sandie.cao@deepcomputing.io>
+Date: Mon, 16 Nov 2026 16:58:38 +0800
 To: "Yixun Lan" <dlan@kernel.org>, 
 	"Troy Mitchell" <troy.mitchell@linux.spacemit.com>, 
 	"Conor Dooley" <conor+dt@kernel.org>, "Rob Herring" <robh@kernel.org>, 
 	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
 	"Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, 
 	"Albert Ou" <aou@eecs.berkeley.edu>
-Cc: "Alexandre Ghiti" <alex@ghiti.fr>, <devicetree@vger.kernel.org>, 
-	<linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>, 
-	<linux-kernel@vger.kernel.org>, 
-	"Sandie Cao" <sandie.cao@deepcomputing.io>
-X-Original-From: Sandie Cao <sandie.cao@deepcomputing.io>
+Subject: [PATCH 1/5] riscv: dts: spacemit: k3-deepcomputing-fml13v05: add 115200n8 to stdout-path
+X-Mailer: git-send-email 2.43.0
+From: "Sandie Cao" <sandie.cao@deepcomputing.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261116_005747_013421_3181668E 
-X-CRM114-Status: UNSURE (   4.11  )
+X-CRM114-CacheID: sfid-20261116_005907_078597_E0B92E7B 
+X-CRM114-Status: UNSURE (   7.40  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -78,47 +80,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This series updates the DeepComputing FML13V05 device tree to describes
-the console UART as 115200n8, add rfkill nodes for WLAN and Bluetooth,
-model the 3.3V supply of the WLAN module, and enable PCIe node.
+Specify the console options in stdout-path so the kernel configures the
+FML13V05 debug UART (uart0) at 115200 baud, 8 data bits and no parity.
 
-The series is based on next-20261113. The DeepComputing FML13V05 
-device tree depends on [1]. The PCIe driver depends on[2], which 
-in turn depends on [3] and [4]. The PCIe node depends on [5].
-
-[1] https://lore.kernel.org/all/20261109033154.361399-1-sandie.cao
-@deepcomputing.io/
-[2] https://lore.kernel.org/all/20260929083755.458238-1-inochiama
-@gmail.com/
-[3] https://github.com/spacemit-com/linux-6.18/commits/k3-br-v1.0.y/
-drivers/pci/controller/dwc/pcie-spacemit-k1.c
-[4] https://lore.kernel.org/linux-phy/20260904083709.425893-1-inochiama
-@gmail.com/
-[5] https://lore.kernel.org/spacemit/20260727094726.890179-3-inochiama
-@gmail.com/
+Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
 ---
-Sandie Cao (5):
-  riscv: dts: spacemit: k3-deepcomputing-fml13v05: add 115200n8 to
-    stdout-path
-  riscv: dts: spacemit: k3-deepcomputing-fml13v05: add rfkill node for
-    WLAN
-  riscv: dts: spacemit: k3-deepcomputing-fml13v05: add rfkill node for
-    Bluetooth
-  riscv: dts: spacemit: k3-deepcomputing-fml13v05: add WLAN power
-    regulator
-  riscv: dts: spacemit: k3-deepcomputing-fml13v05: enable PCIe
+ arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- .../spacemit/k3-deepcomputing-fml13v05.dts    | 60 ++++++++++++++++++-
- 1 file changed, 59 insertions(+), 1 deletion(-)
-
-
-base-commit: 4bc415760dd40fcff23deb073333984dd15d418d
+diff --git a/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts b/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
+index 051046fe90b2..804a9e64cf6e 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
++++ b/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
+@@ -15,7 +15,7 @@ aliases {
+ 	};
+ 
+ 	chosen {
+-		stdout-path = "serial0";
++		stdout-path = "serial0:115200n8";
+ 	};
+ 
+ 	memory@100000000 {
 -- 
 2.43.0
 
