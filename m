@@ -2,84 +2,142 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 643FE606A31C
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2026 18:37:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE039606A31C
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2026 18:52:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QQm6Apsi;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ndEjBJh4
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=k3YyQlAD;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=WmWHOmR7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:References
+	:In-Reply-To:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ZbAD/7eHGKC1AbjeO9WvtdP42BYp5mpJ3UmYjrHoVIE=; b=QQm6Apsiyuh+tPj3h9zE7fhssa
-	oji5IRrJwgOReNiPAzFMw5rRI19TpPhbZAxL2fjrVDLVpT6J0nDxlPDK9g3kbuya5sp6VSC0FSwek
-	DqxRbLQ1GT7bMCFW3hSdtMPPcYMCQcW/YCwpvBWBBg5A50UPd2KRYGYr1bhR4jpMUKkOkEtibWQR8
-	7Gj/Stwf3cKSTEdvFbsCuTbkE38f0cf+4vD/NBrco8QNNT9q/sqafKkzKTTq0aTBoIs2HXOxlVk1/
-	pwNzA6C87Y4N+RQu9rgVaRVu+6U5j7zFUZ89Bhc/fytLJhhqhgqau4WYklW0tmVs+81H9IRUfC7S8
-	z4sarQUQ==;
+	bh=T8NGp0iIcnPadhgw9yCWI1JJ4s29Ve5Ajo1uPWQqs84=; b=k3YyQlADkjymsst56GqiScBuNC
+	4fikA58hv92jI2RngUQlXaTtpLUDaO6XC2XrkpMo5sFwKVqpSIea+PbGJQ1VDPOQOnlvEcuWnEHmy
+	2LruX/ClaTEslt8wcwfoRZpKiLTRc+WFoqcbd56LVLebZ2SqHqLJPcyXAhLyLvJxcOIePDB/MMM5g
+	ljXdq81UeIUOMin1KI4t1DLjfXVy8C5SL/LzaHiewvDbzzcGo80I57EGL9tJLcC/2Vn8jH6jgolPX
+	TUqbYTwntI4CUWD7VCAaYxeX5UuDwcek27VhvQn9I/7nmhw+G0DFsY4tK/fvPaq5xEfDsqOku0QzH
+	fWcX5vcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xT1Zg-00000003bxc-01pZ;
-	Mon, 16 Nov 2026 18:37:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xT1oe-00000003e7W-2OMh;
+	Mon, 16 Nov 2026 18:52:32 +0000
+Received: from mail-westus3azon11012035.outbound.protection.outlook.com ([40.107.209.35] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xT1Ze-00000003bx3-2e3C;
-	Mon, 16 Nov 2026 18:37:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D901B63143;
-	Mon, 16 Nov 2026 18:37:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EC9B1F000C9;
-	Mon, 16 Nov 2026 18:36:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794854221;
-	bh=JG6CA7hF3cK3MbnlBMlTCcJ/avGWqkbsETlXUPBQl38=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ndEjBJh4ItJInOcvAxXux03Rf6tpEY0aWYJTVaMRE/qyOsLT128+uXQ8uOG3HDHp9
-	 ChBqi477ZssuhxtEiLH75iEoGzJY6P83E4z7dKmRH+p8AjK1UugOd4VaCRidUiQy8+
-	 ivCV0SQkBr5DT+toW//ktRk/zd1Ku9RJJeGftspFZ4TqWUpsCi8E53JVEpDbg19Ay0
-	 7HxLxa+dO4hD3sJmTkhEk5DE35FLaw0ic7fnOkJN7LiuHiL9eCekpMed+XOQwsHlA7
-	 JwQ0tdq7fJZ/LczVaXMxWKfzMmdt0PnEA0rfqKNeM5VSl6xv2i0bal3tg3hb5gZh5W
-	 QQmK3hHskdGtg==
-Date: Mon, 16 Nov 2026 18:36:53 +0000
-From: Conor Dooley <conor@kernel.org>
-To: gaohan@iscas.ac.cn
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Anup Patel <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@sifive.com>, devicetree@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rtc@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH 05/19] dt-bindings: clock: sunxi-ng: document the
- Allwinner V861 CCUs
-Message-ID: <20261116-untapped-venomous-10a258880fe4@spud>
-References: <20261114-v861-v1-0-eb71ec3ee523@iscas.ac.cn>
- <20261114-v861-v1-5-eb71ec3ee523@iscas.ac.cn>
+	id 1xT1ob-00000003e6U-2Tlq;
+	Mon, 16 Nov 2026 18:52:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=V13l+X2wzTn4hJh8viS7CKjw0dB4PgvxpNrkpoclRVcNOriXqdGCy8uXtg8epNQf0h9Q9jdiobNfPAnEybNxQ288oQVopXJZdrTp+Mk/i1A/IjbM3AW58bScYCULNqWnTbT4fuPKCtuEhcA0dORM3lEK7zIUNrG6dGoIsguVOTv4UkvxLHnrKdabN6ueFL4+rg/HSkl62YRYKfd7jr29zVBM6QADs0YXTUi2khew6n7yM/IfYObeSr9Zr2xTvzMqcmZQPRsP00MSvP3nTwwrbmWQym1spq480vHo6vjAzmoMC3/YXGJRyE0mwQcFodT3wKX5loBvGpYhHaN8GQh8ng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fne59OLCfzObsqoTcBwjTpqKprh3ztnnwcCbs7+DLs8=;
+ b=DGN+2rh4QsjvQYMTkbbOZj7lHK6QWbrrvQbNzqp+d+f8xxn/ws2PlNIUCfeDd/LKtKPDMeT8/M5ZVHtJmHQiOKn2e2DL2RZUrQ7IZh73w5+nx8rR7CEI1D4JVWgMrAN6yXl3r96E1WaA+zSSoXC1bbKELwy3ucwgAuJd9yG/zqvhLis1pk8e2BLPzFIz3Ue8FrU1ckpGTy7+TlNlLTQf7p3TdQoncLEUg1X22Ef9SR/LJdR+hnT8BV8F0HlaP+sbHwupPovZ8clFSOoT8ztKz0NKju5+T+/P4rXgkt7oMG4Cxpv4LYi1S6lzeo0LTWij3uK8zUdnuBo6NFc8ePMspQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fne59OLCfzObsqoTcBwjTpqKprh3ztnnwcCbs7+DLs8=;
+ b=WmWHOmR7QNNcgFHynsQMFvEGZG/7LcEes2SszPPgxeNunIQSucXMHS7UwGFN9Rbk49B1kekLoSWh12jz8X1OFa33KK9Embx95agjsfbxpJ1yj98tt4fyFZV+oeZ0Le7noGPUx51PuLTP1KK2XyoczNQUWgQKuAC7zkt1S85sBE49Xk0sbSy6N9lNvtw1bhJCxmlI+k5s9MHi97+Fy0SifodRjgh6hBUEkppGPo/ys863qviN03uIb+5cil/sH+OIqvpnxqe/snoEj2K+mxskt53OL6bc9od1P6B29eqvIRCfVnUjpfv3YMVzXigWCJLfLseRinOD8HwAOSYE/hfDVg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by IA1PR12MB9062.namprd12.prod.outlook.com
+ (2603:10b6:208:3aa::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 16 Nov
+ 2026 18:52:22 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0615.013; Mon, 16 Nov 2026
+ 18:52:22 +0000
+Subject: Re: [PATCH v3 15/15] Revert "efi: earlycon: Reprobe after parsing
+ config tables"
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Ard Biesheuvel <ardb@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Huacai Chen <chenhuacai@kernel.org>, 
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
+In-Reply-To: <20261116142618.1687025-32-ardb+git@google.com>
+References: <20261116142618.1687025-17-ardb+git@google.com>
+ <20261116142618.1687025-32-ardb+git@google.com>
+Date: Mon, 16 Nov 2026 14:52:15 -0400
+Message-Id: <179485513576.2274641.4258294521341946928.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-ClientProxiedBy: BN9PR03CA0583.namprd03.prod.outlook.com
+ (2603:10b6:408:10d::18) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20261114-v861-v1-5-eb71ec3ee523@iscas.ac.cn>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|IA1PR12MB9062:EE_
+X-MS-Office365-Filtering-Correlation-Id: 897e503a-401e-485b-8c14-08df4412be6f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|22082099003|18002099003|6133799003|261009223027099003|11063799006|4143699003|56012099006|261028144727099003|261102123227099003|261026140227099003|261022105027099003|261022075727099003|261021121427099003|10067099003;
+X-Microsoft-Antispam-Message-Info: 1C+Z5pdE8qP6pLeXCyWCPXSGnwoNVmrhXOq2/XeeY8F8Dh3dAtCKu4IbTmDF2e34bIl3a7I9o8rlPSlRV2+ywTpXO0IrRZ3K/wgKOPYmuZ+Dr/KxKgB9Xzy4B8XgHW46vP8U5zTn6rHPSOcCzh+r5MLGq6fV95GWgsOjPWtzR1EQy1ODirIznrFv2NcijfC7TNSehlmoh/1mKwKUTWoT2FUi0puCNqsE3H1hIgmeEtecNKy7Vk26WrLzuxHYEVIQhO5/dU7+DJlo96/F3u45gGQNPh7oDSh6t+5R8SO7W7ajNhAi12ytrv0hY6bRwiLLHl3P9q03bqXVFETHzn6uduTT8uYukB1u88J7x8fr1l3rPv2lqs1stub/On4U5v8YIYMXh0xdztDkPCIjIFo4OYIbqJaLtks2eO5ULEpfcQDH6NpIimvZa2Hzsg+Ni1XRdCqtGIk8H15/Jw6r9kCA0vDX2GPf30ZFYBbm8G3JNwd39QD0fW1gcgcF61/mQKNSzR6430FsQ/VYjkTVI/Ib/+nvwOov5oXuXjbh9XTilwJSn0zeXkQkWB1pK4+LCsrS9175svhpbI+Z71ZrVGfeALqbIYxvC460RCFaCzIef91rs8YZwMdA9haUeGfXHctnr80hzZWEbC/+qPpZEACCrSHnn1pshMMzeMvWaU624R4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(22082099003)(18002099003)(6133799003)(261009223027099003)(11063799006)(4143699003)(56012099006)(261028144727099003)(261102123227099003)(261026140227099003)(261022105027099003)(261022075727099003)(261021121427099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Vml5S0NHUm1wY2hKUjhMNHRzbENVcy9GQ05JVWkvR0VUNFZlaTZrUU4wNEx6?=
+ =?utf-8?B?SkxHL24wRFg5L0xLQnlSb0lCVk1aWng3UnhSVlNFM3F6MThHU09aM1hyN1Jz?=
+ =?utf-8?B?UW5lUUJESW11eHpONEV6cUxZaUZiTUMvLzBqZ3gwTVU2R1BTaWw1RFlQcCtw?=
+ =?utf-8?B?Wnlablg2YmVuQ0xyNWFwVmV0clBPMXEyV213S01yc0JNUUVTMGI2b2tJNm9z?=
+ =?utf-8?B?a2pRRDNXWVI3ZWdsVEhGTG5xTk1GaEY2RG9Ra0RiWk5ZZlRpRkhnQWFXRWRs?=
+ =?utf-8?B?bTRkdWptYm5MM0hwRmhPL2lxRDZRS1RxckJEWGlWREZMZldrbVZDUHVlYlc5?=
+ =?utf-8?B?NSt4UGZKbXZ0cDlOZnhCZ2x4MWtsN1VhcU1wZjNVcHNlL0w2L0xSbnE1ekcw?=
+ =?utf-8?B?TERLTUU2UEVJKzF0T1VxRkJpYm9OaEtEcW5UZk1WbERmRVNHZmJqUEFlR1dp?=
+ =?utf-8?B?cDk4aVhKZzF4bCtXdWxGRGg4T2RPMDJCVVptbU5pZFZROXJWelJqOHArdjFL?=
+ =?utf-8?B?MWcwTVVzLzBEYk82NEVXN0FpeEtyUlFiUkh3YkY3TW0raEs0enFpZG1IMmhT?=
+ =?utf-8?B?djZ2aUxDbkN3a2NSTXJXT3NWR2FYZHBwKytyN1pzSVJ2Q0FocG16aU12Z0FF?=
+ =?utf-8?B?bVVYRGNrOVlSRFBnRzhnRW9RMzNvK0F2bUs2L1Q5SnBsNTlmMU9hM2VwQjlQ?=
+ =?utf-8?B?YjhzcDIzT1NkN0RzeTZPRndFemlxK0xVUWJqamVJTDhPa09PNTBUSHNrd2Zy?=
+ =?utf-8?B?TG5SNGxlUGxqUU0zVmhlT09TYllxRkMxZ3d4RW1ueGk1VG5aQ3pJNHFBSDAr?=
+ =?utf-8?B?enU2aFJzaGNiV1pMT2RKV1g4ZzhpUzFOdFZWNFB0RmlxS01DbVBLNkhhdGJU?=
+ =?utf-8?B?N2FXQ210TGdQVk1MYnpWYmZDVHdnejFsSHNhQ2YrbXV1UlpzcDBBWDB1MWlU?=
+ =?utf-8?B?b3BkRkF0WVhWNUF4bW9naDV2Z1lpUTJueHpYbGNYMzBvSklBNUtmQS94RFVh?=
+ =?utf-8?B?Q3htUWRKMlRhWlk4S0xmQ0FqVm5udlZYOURYZW1aOHBqV3lVb01SY1RWQURW?=
+ =?utf-8?B?bEdGOENiRG5jWUpFajNPZC9lL2hNL21SVURNL2JIV3MvcXl4cERHU29TbWZw?=
+ =?utf-8?B?Z2VVcVdWeEdEQUlSNWFZOTZtRVExazJlRzF5U2JGNTdnaUNEUnJ4cWtRWjJh?=
+ =?utf-8?B?YzBXUlNmU2YrdmExelhycHRiMHFUcU00VHRQdTQ5RDFLa1RJK0pDSnJhVzRJ?=
+ =?utf-8?B?ZThVS0tpeW5hVEZ5alpLdzBkbU5XL0l3YWtCVWlxZjZHQktyanQ2S1JpdHk4?=
+ =?utf-8?B?NVpkZ0EyRmlqZ2dMVU9EU3cxOW1rdGRLTXpqU0ZBeHBPOWtYMGhCbGhzQThn?=
+ =?utf-8?B?QjVROFY2cUVwSzJDeHoxWG1BL01NWU15ZUI3YW5GU3lhS3VFSU44Z0k1c2Ra?=
+ =?utf-8?B?TWtEbnZBTEpyTVE3VUJEbzJ5U2FzZXV6aGgvYUE2ek5yZS9ydHphU2FuK01E?=
+ =?utf-8?B?d09kSVFyekZPUHNBZW9iWVEwZVpqQ1VXcTZaNExHU0lONldrZCtvUkJNZ2hv?=
+ =?utf-8?B?UlNSWVpUa2QzcG5ER1JOVXdnK2diUE5OaS9jcEl4T3hTcThnMXVjZU1NTHBl?=
+ =?utf-8?B?d1MxZTJXa09BMi83bVR5eklscWN6Qm9BTnU0Z1M4amZXYUEzeW16eU93Z2JL?=
+ =?utf-8?B?VTRQNmFYNldsY1FsQnZqY2k4RGtrckpNNDNOeGdyNCtQaUpkNU5tQjVkbGgv?=
+ =?utf-8?B?dlVyaXRxU3dyZnhmWlZ5UlcwOFI0ZTdPL1lyR3ZvMjQyeVBUQVhuWDdRQzNr?=
+ =?utf-8?B?UWlrREU3WElaM0UwSDhFeERGazJRdFFldHU0aHVTMXdId2lKb1R2YXVRSHk2?=
+ =?utf-8?B?NVF2MEVNT1F5bkd3ZElnSWNBVjArc2U4Zks1ajZGSm5lMUhodVlnaFpKUDBH?=
+ =?utf-8?B?U3pMMDhSc3BGOGdxTGFxTnVFYVRDVFYxL20zOVJ1VnFXMnUzekdyMlpVY0Zu?=
+ =?utf-8?B?TTN1NTA5VHB3Qzh4U0RQRG9CNTdoQ1ZTVDd6TFVMc1hpdUNqZ2dhNnBkSHc3?=
+ =?utf-8?B?YkxxSmQ1NE0vc2dnanBUWm9ZdTVGTzJ0ejcrVitEaytEYjVhcjd0dVFzR0Rx?=
+ =?utf-8?B?MGVWcWVlelkrUktiNzZKT1UyczNIOWhGeHVpdXZhaUltYWJOTDVheDBZUkxO?=
+ =?utf-8?B?R2EwSFd0N0k2SlRzMEhPYmNCdEZwMm5FYzVkbURkQk56WVh6djV0eE14anZn?=
+ =?utf-8?B?amJwUm1TZGpTdWpHalRMV3R5MUtjR2RpVXdkc0tjRTZFZlZHTi9Cdmdva09u?=
+ =?utf-8?Q?TZ0zAvc6W0MxYl0l2g?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 897e503a-401e-485b-8c14-08df4412be6f
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 18:52:20.5911
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8SqOPO7SFeBg1lzx9zZcIyFYuuyzhgCB/DpQzPJ1I0lOK7Bgr51dHkMzn0iLeDqQ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB9062
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261116_105229_639263_B4CE76EC 
+X-CRM114-Status: UNSURE (   6.00  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,429 +147,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3933330773504290076=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-9.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,UNWANTED_LANGUAGE_BODY autolearn=ham autolearn_force=no
-	version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============3933330773504290076==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jqXi36KkUpYdOM0M"
-Content-Disposition: inline
+On Mon, 16 Nov 2026 15:26:34 +0100, Ard Biesheuvel <ardb+git@google.com> wrote:
+> This reverts commit 8b3a149db461d3286d1e211112de3b44ccaeaf71.
+> 
+> That commit added logic to probe the EFI framebuffer earlycon again after
+> the EFI configuration tables have been parsed, as the primary display
+> information may not have been available yet when the earlycon= early
+> parameter was processed.
+> 
+> [...]
 
---jqXi36KkUpYdOM0M
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-On Sat, Nov 14, 2026 at 06:33:31AM +0800, Han Gao via B4 Relay wrote:
-> From: Han Gao <gaohan@iscas.ac.cn>
->=20
-> The V861 has a main CCU and a PRCM CCU. Add the binding and the clock
-> and reset indices for both.
->=20
-> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
-> ---
->  .../bindings/clock/allwinner,sun252i-v861-ccu.yaml |  99 ++++++++++++++++
->  include/dt-bindings/clock/sun252i-v861-ccu.h       | 127 +++++++++++++++=
-++++++
->  include/dt-bindings/clock/sun252i-v861-r-ccu.h     |  14 +++
->  include/dt-bindings/reset/sun252i-v861-ccu.h       |  55 +++++++++
->  include/dt-bindings/reset/sun252i-v861-r-ccu.h     |  12 ++
->  5 files changed, 307 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun252i-v8=
-61-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun252i-v86=
-1-ccu.yaml
-> new file mode 100644
-> index 000000000000..29fc23ab2401
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/allwinner,sun252i-v861-ccu.=
-yaml
-> @@ -0,0 +1,99 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/allwinner,sun252i-v861-ccu.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allwinner V861 Clock Control Unit
-> +
-> +maintainers:
-> +  - Han Gao <gaohan@iscas.ac.cn>
-> +
-> +properties:
-> +  "#clock-cells":
-> +    const: 1
-> +
-> +  "#reset-cells":
-> +    const: 1
-> +
-> +  compatible:
-> +    enum:
-> +      - allwinner,sun252i-v861-ccu
-> +      - allwinner,sun252i-v861-r-ccu
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    minItems: 3
-> +    maxItems: 4
-> +
-> +  clock-names:
-> +    minItems: 3
-> +    maxItems: 4
-> +
-> +required:
-> +  - "#clock-cells"
-> +  - "#reset-cells"
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-
-reg and compatible should come before other properties, here and above.
-
-> +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          enum:
-> +            - allwinner,sun252i-v861-ccu
-> +
-> +    then:
-> +      properties:
-> +        clocks:
-> +          items:
-> +            - description: High Frequency Oscillator (usually at 24MHz)
-> +            - description: Low Frequency Oscillator (usually at 32kHz)
-> +            - description: Internal Oscillator
-> +
-> +        clock-names:
-> +          items:
-> +            - const: hosc
-> +            - const: losc
-> +            - const: iosc
-
-both devices duplicate this, so it can move to the top level.
-then all you need to do is set maxItems to 3 here and minitems to 4
-below.
-
-pw-bot: changes-requested
-
-Thanks,
-Conor.
-
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          enum:
-> +            - allwinner,sun252i-v861-r-ccu
-> +
-> +    then:
-> +      properties:
-> +        clocks:
-> +          items:
-> +            - description: High Frequency Oscillator (usually at 24MHz)
-> +            - description: Low Frequency Oscillator (usually at 32kHz)
-> +            - description: Internal Oscillator
-> +            - description: Peripherals PLL (200 MHz output)
-> +
-> +        clock-names:
-> +          items:
-> +            - const: hosc
-> +            - const: losc
-> +            - const: iosc
-> +            - const: pll-periph
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    clock-controller@2001000 {
-> +        compatible =3D "allwinner,sun252i-v861-ccu";
-> +        reg =3D <0x02001000 0x1000>;
-> +        clocks =3D <&osc24M>, <&rtc 0>, <&rtc 2>;
-> +        clock-names =3D "hosc", "losc", "iosc";
-> +        #clock-cells =3D <1>;
-> +        #reset-cells =3D <1>;
-> +    };
-> +
-> +...
-> diff --git a/include/dt-bindings/clock/sun252i-v861-ccu.h b/include/dt-bi=
-ndings/clock/sun252i-v861-ccu.h
-> new file mode 100644
-> index 000000000000..1123b894a493
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/sun252i-v861-ccu.h
-> @@ -0,0 +1,127 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-> +/*
-> + * Copyright (c) 2026 Han Gao <gaohan@iscas.ac.cn>
-> + */
-> +
-> +#ifndef _DT_BINDINGS_CLK_SUN252I_V861_CCU_H_
-> +#define _DT_BINDINGS_CLK_SUN252I_V861_CCU_H_
-> +
-> +#define CLK_PLL_DDR		0
-> +#define CLK_PLL_PERIPH0_4X	1
-> +#define CLK_PLL_PERIPH0_2X	2
-> +#define CLK_PLL_PERIPH0_800M	3
-> +#define CLK_PLL_PERIPH0_480M	4
-> +#define CLK_PLL_PERIPH0_600M	5
-> +#define CLK_PLL_PERIPH0_400M	6
-> +#define CLK_PLL_PERIPH0_300M	7
-> +#define CLK_PLL_PERIPH0_200M	8
-> +#define CLK_PLL_PERIPH0_160M	9
-> +#define CLK_PLL_PERIPH0_150M	10
-> +#define CLK_PLL_VIDEO_8X	11
-> +#define CLK_PLL_VIDEO_4X	12
-> +#define CLK_PLL_VIDEO_2X	13
-> +#define CLK_PLL_VIDEO_1X	14
-> +#define CLK_PLL_CSI_8X		15
-> +#define CLK_PLL_CSI_4X		16
-> +#define CLK_PLL_CSI_2X		17
-> +#define CLK_PLL_CSI_1X		18
-> +#define CLK_PLL_AUDIO		19
-> +#define CLK_PLL_AUDIO_DIV2	20
-> +#define CLK_PLL_AUDIO_DIV3	21
-> +#define CLK_PLL_AUDIO_DIV5	22
-> +#define CLK_PLL_AUDIO_4X	23
-> +#define CLK_PLL_AUDIO_1X	24
-> +#define CLK_PLL_NPU_8X		25
-> +#define CLK_PLL_NPU_4X		26
-> +#define CLK_PLL_NPU_2X		27
-> +#define CLK_PLL_NPU_1X		28
-> +#define CLK_AHB			29
-> +#define CLK_APB0		30
-> +#define CLK_APB1		31
-> +#define CLK_APB_UART		32
-> +#define CLK_DE			33
-> +#define CLK_BUS_DE		34
-> +#define CLK_G2D			35
-> +#define CLK_BUS_G2D		36
-> +#define CLK_CE			37
-> +#define CLK_BUS_CE		38
-> +#define CLK_BUS_CE_SYS		39
-> +#define CLK_VE			40
-> +#define CLK_BUS_VE		41
-> +#define CLK_NPU			42
-> +#define CLK_BUS_NPU		43
-> +#define CLK_BUS_SGDMA		44
-> +#define CLK_BUS_NDMA		45
-> +#define CLK_BUS_MSGBOX0		46
-> +#define CLK_BUS_MSGBOX1		47
-> +#define CLK_BUS_SPINLOCK	48
-> +#define CLK_BUS_HSTIMER		49
-> +#define CLK_AVS			50
-> +#define CLK_BUS_TIMER		51
-> +#define CLK_BUS_DBG		52
-> +#define CLK_BUS_PWM		53
-> +#define CLK_DRAM		54
-> +#define CLK_MBUS		55
-> +#define CLK_MBUS_DMA		56
-> +#define CLK_MBUS_VE		57
-> +#define CLK_MBUS_CE		58
-> +#define CLK_MBUS_CSI		59
-> +#define CLK_MBUS_ISP		60
-> +#define CLK_MBUS_G2D		61
-> +#define CLK_BUS_DRAM		62
-> +#define CLK_MMC0		63
-> +#define CLK_MMC1		64
-> +#define CLK_MMC2		65
-> +#define CLK_BUS_MMC0		66
-> +#define CLK_BUS_MMC1		67
-> +#define CLK_BUS_MMC2		68
-> +#define CLK_PSRAM		69
-> +#define CLK_BUS_PSRAM		70
-> +#define CLK_BUS_UART0		71
-> +#define CLK_BUS_UART1		72
-> +#define CLK_BUS_UART2		73
-> +#define CLK_BUS_UART3		74
-> +#define CLK_BUS_I2C0		75
-> +#define CLK_BUS_I2C1		76
-> +#define CLK_BUS_I2C2		77
-> +#define CLK_BUS_I2C3		78
-> +#define CLK_SPI0		79
-> +#define CLK_SPI1		80
-> +#define CLK_SPI2		81
-> +#define CLK_SPIF		82
-> +#define CLK_BUS_SPI0		83
-> +#define CLK_BUS_SPI1		84
-> +#define CLK_BUS_SPI2		85
-> +#define CLK_BUS_SPIF		86
-> +#define CLK_GMAC_25M		87
-> +#define CLK_BUS_GMAC		88
-> +#define CLK_BUS_GPADC		89
-> +#define CLK_BUS_THS		90
-> +#define CLK_I2S0		91
-> +#define CLK_BUS_I2S0		92
-> +#define CLK_AUDIO_CODEC_DAC	93
-> +#define CLK_AUDIO_CODEC_ADC	94
-> +#define CLK_BUS_AUDIO_CODEC	95
-> +#define CLK_USB_OHCI0		96
-> +#define CLK_BUS_OHCI0		97
-> +#define CLK_BUS_EHCI0		98
-> +#define CLK_BUS_OTG		99
-> +#define CLK_BUS_DPSS_TOP	100
-> +#define CLK_TCON_LCD		101
-> +#define CLK_BUS_TCON_LCD	102
-> +#define CLK_CSI			103
-> +#define CLK_CSI_MCLK0		104
-> +#define CLK_CSI_MCLK1		105
-> +#define CLK_CSI_MCLK2		106
-> +#define CLK_BUS_CSI		107
-> +#define CLK_FANOUT_24M		108
-> +#define CLK_FANOUT_12M		109
-> +#define CLK_FANOUT_16M		110
-> +#define CLK_FANOUT_25M		111
-> +#define CLK_FANOUT_27M		112
-> +#define CLK_FANOUT_PCLK		113
-> +#define CLK_FANOUT0		114
-> +#define CLK_FANOUT1		115
-> +#define CLK_FANOUT2		116
-> +
-> +#endif /* _DT_BINDINGS_CLK_SUN252I_V861_CCU_H_ */
-> diff --git a/include/dt-bindings/clock/sun252i-v861-r-ccu.h b/include/dt-=
-bindings/clock/sun252i-v861-r-ccu.h
-> new file mode 100644
-> index 000000000000..41eaf8aab2c0
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/sun252i-v861-r-ccu.h
-> @@ -0,0 +1,14 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-> +/*
-> + * Copyright (c) 2026 Han Gao <gaohan@iscas.ac.cn>
-> + */
-> +
-> +#ifndef _DT_BINDINGS_CLK_SUN252I_V861_R_CCU_H_
-> +#define _DT_BINDINGS_CLK_SUN252I_V861_R_CCU_H_
-> +
-> +#define CLK_R_AHB		0
-> +#define CLK_R_APB0		1
-> +#define CLK_BUS_R_PPU		2
-> +#define CLK_BUS_R_RTC		3
-> +
-> +#endif /* _DT_BINDINGS_CLK_SUN252I_V861_R_CCU_H_ */
-> diff --git a/include/dt-bindings/reset/sun252i-v861-ccu.h b/include/dt-bi=
-ndings/reset/sun252i-v861-ccu.h
-> new file mode 100644
-> index 000000000000..4e0245c6c99a
-> --- /dev/null
-> +++ b/include/dt-bindings/reset/sun252i-v861-ccu.h
-> @@ -0,0 +1,55 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-> +/*
-> + * Copyright (c) 2026 Han Gao <gaohan@iscas.ac.cn>
-> + */
-> +
-> +#ifndef _DT_BINDINGS_RST_SUN252I_V861_CCU_H_
-> +#define _DT_BINDINGS_RST_SUN252I_V861_CCU_H_
-> +
-> +#define RST_MBUS		0
-> +#define RST_BUS_DE		1
-> +#define RST_BUS_G2D		2
-> +#define RST_BUS_CE		3
-> +#define RST_BUS_CE_SYS		4
-> +#define RST_BUS_VE		5
-> +#define RST_BUS_NPU		6
-> +#define RST_BUS_SGDMA		7
-> +#define RST_BUS_NDMA		8
-> +#define RST_BUS_MSGBOX0		9
-> +#define RST_BUS_MSGBOX1		10
-> +#define RST_BUS_SPINLOCK	11
-> +#define RST_BUS_HSTIMER		12
-> +#define RST_BUS_TIMER		13
-> +#define RST_BUS_DBG		14
-> +#define RST_BUS_PWM		15
-> +#define RST_BUS_DRAM		16
-> +#define RST_BUS_MMC0		17
-> +#define RST_BUS_MMC1		18
-> +#define RST_BUS_MMC2		19
-> +#define RST_BUS_PSRAM		20
-> +#define RST_BUS_UART0		21
-> +#define RST_BUS_UART1		22
-> +#define RST_BUS_UART2		23
-> +#define RST_BUS_UART3		24
-> +#define RST_BUS_I2C0		25
-> +#define RST_BUS_I2C1		26
-> +#define RST_BUS_I2C2		27
-> +#define RST_BUS_I2C3		28
-> +#define RST_BUS_SPI0		29
-> +#define RST_BUS_SPI1		30
-> +#define RST_BUS_SPI2		31
-> +#define RST_BUS_SPIF		32
-> +#define RST_BUS_GMAC		33
-> +#define RST_BUS_GPADC		34
-> +#define RST_BUS_THS		35
-> +#define RST_BUS_I2S0		36
-> +#define RST_BUS_AUDIO_CODEC	37
-> +#define RST_USB_PHY0		38
-> +#define RST_BUS_OHCI0		39
-> +#define RST_BUS_EHCI0		40
-> +#define RST_BUS_OTG		41
-> +#define RST_BUS_DPSS_TOP	42
-> +#define RST_BUS_TCON_LCD	43
-> +#define RST_BUS_CSI		44
-> +
-> +#endif /* _DT_BINDINGS_RST_SUN252I_V861_CCU_H_ */
-> diff --git a/include/dt-bindings/reset/sun252i-v861-r-ccu.h b/include/dt-=
-bindings/reset/sun252i-v861-r-ccu.h
-> new file mode 100644
-> index 000000000000..ed0f3063df49
-> --- /dev/null
-> +++ b/include/dt-bindings/reset/sun252i-v861-r-ccu.h
-> @@ -0,0 +1,12 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-> +/*
-> + * Copyright (c) 2026 Han Gao <gaohan@iscas.ac.cn>
-> + */
-> +
-> +#ifndef _DT_BINDINGS_RST_SUN252I_V861_R_CCU_H_
-> +#define _DT_BINDINGS_RST_SUN252I_V861_R_CCU_H_
-> +
-> +#define RST_BUS_R_PPU		0
-> +#define RST_BUS_R_RTC		1
-> +
-> +#endif /* _DT_BINDINGS_RST_SUN252I_V861_R_CCU_H_ */
->=20
-> --=20
-> 2.55.0
->=20
->=20
-
---jqXi36KkUpYdOM0M
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCavtNRAAKCRB4tDGHoIJi
-0s9KAQCX4Bs6wwg+pTycon8WFV2ntH+sKnw+Q81hcKt96NcBzAEA7J6TxHPWsnUN
-XyUZNGs0O+rQmq5NSbKFCG3P8mHbsQE=
-=LJxo
------END PGP SIGNATURE-----
-
---jqXi36KkUpYdOM0M--
-
-
---===============3933330773504290076==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Jason
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3933330773504290076==--
-
