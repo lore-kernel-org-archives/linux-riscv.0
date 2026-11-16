@@ -2,102 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF3DA606A32A
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2026 09:42:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ECDD606A33E
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2026 09:52:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZKnL1Yg/;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=ultrarisc.com header.i=@ultrarisc.com header.a=rsa-sha256 header.s=dkim header.b=f9ipurVX
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kU5tJ5K3;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=j1R36lNw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:From:Cc:To:Date:In-Reply-To:References:
+	Mime-Version:Subject:Message-Id:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=AzCk7IUUIqy4ZxToeo1Xeo/qVGSv5TIbbtoOla4dSSc=; b=ZKnL1Yg/oMC2CQvxxjGXGXE+61
-	wCh2jbbWh1UEUrqAx08mxPciE3ElIeT9qebixuMXiJGJqVelqY4CcH+YgPPwGzxkc+jX13wuLeavp
-	wNDA4W8/scsGtEIEW7l2fXKHWnJXGkeL1xgZsfcdtDF+iM7zRKlGppL/JyVJKC1g7aVs9uAcm6Uen
-	+AwYeWlO5rkl3oPTnoLlSAZ055XRACzNdv+XCZgtHm1B+eixVeUytBopEkX/cuClF7sMwtPaDQ8Sl
-	nJLkFhwd99PkDeuJHjN17+/+mI2VNHSpH0kSX4e56sptRxR3krr9TTlEkepnthKoQAcvGnctanTnd
-	67P4qUsw==;
+	bh=hH+9GaIR3GrSLVXARbWbdWbri/8zpbpU4SvWnH7z14g=; b=kU5tJ5K3sCGXtlx7LkC/3JJg73
+	FogT43ozTjjHl0eKAySLINFQ0Q+azUQh+FNXiES+sg0atC1y6TCNVOMCI7tFYXzquQleFkqfmjXAE
+	aTEAoFhQIIEke2PUX6u8q72iYRmv7Na7DxTr1rngQ9bxJYLH77I8xw12gH9gq1smkL9CfxXTQlkK1
+	9KLmf6hmvv0cc+OjUlamVUUgYqjSOD58bc6WZx9JN/rMR175+dU/lXJAKeNxDJ/IEl5hDO9C8VaQZ
+	8CqF63PaJG0ZgT0sm2CxirylNGz5kvVE2amv3ofwX8oZABgvmHVulR9TogK/FcRs6sBkGkesoY/0m
+	N6UK52eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xStEF-00000001oiX-1OJo;
-	Mon, 16 Nov 2026 09:42:23 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xStEB-00000001ohD-015z
+	id 1xStNt-00000001qUU-36kS;
+	Mon, 16 Nov 2026 09:52:21 +0000
+Received: from va-2-40.ptr.blmpb.com ([209.127.231.40])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xStNp-00000001qSk-45Th
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Nov 2026 09:42:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:From:Date:Subject:
-	MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	To:Cc; bh=An7UuIxp03IASJQVhCkrJ11j5LJvQXg6N+oWMG7q8QQ=; b=f9ipur
-	VX/UghcfN/mb558IYBHJS+c63qswbFranYLmCjgbj/iokuRDa0D2fMmMXEZueWi8
-	4eBZKfLOqSYxXm8kMIeCMGHRmkhN+xGSgrLDdOQiMs/VbJBY5KpGBlRni+TMjA33
-	K+NLZ9kXCoIvYrziIQsGg88KXVcP/SPVFS4sg=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwDnrwbGz_pqSvUDAA--.1734S2;
-	Mon, 16 Nov 2026 17:41:26 +0800 (CST)
-From: Xincheng Ji <jixincheng@ultrarisc.com>
-Date: Mon, 16 Nov 2026 17:41:31 +0800
-Subject: [PATCH] MAINTAINERS: Update UltraRISC driver maintainers
+	Mon, 16 Nov 2026 09:52:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1794822731;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=2iklAlBcpFJxRr/HPLPp4nje7OoKOirn0CCaVROWVsk=;
+ b=j1R36lNwjUJ2addpgThY4YRKGX9vowt87a0A16L4g8HECGOeaVFtirnSJnzZYO2T/lctba
+ bMW5tENiSmXuy4dRDwDsno+bvZOjZfcv1T3TAfvaUpkQ9k6nmwp9+8Fs92F2rx7cfNnEdU
+ i+/wkUrokfrUfeV5JRwqYr/PY2StxwlNDvmVodmBE8wFnSWzi5CVEX9YYLbZ/wu1TrpSzp
+ rsQG4ceW44HekJQLvFCkgM8BXG5DfH1Meurmf3gmzSpke/y5/oySyD+RoeaQ8WTm3tv5qq
+ P7tsZPQFMHHFmqEFcbD32PCALoBReuKOReej/ov+48ydzegHN6EjoJIe29uAcg==
+Message-Id: <407ce3d77416bb2522b7906b0df3d5adf02c27ee.63da97eb.e7e5.488f.8751.a4a1c53db9df@feishu.cn>
+Subject: Re: [PATCH v4 3/3] riscv: dts: spacemit: k3-deepcomputing-fml13v05: Enable SD card support
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Message-Id: <20261116-ultrarisc-maintainer-v1-1-f58706ae438c@ultrarisc.com>
-X-B4-Tracking: v=1; b=H4sIAMrP+moC/yXMQQqDMBCF4avIrBtwIkr1KqWLGEc7oqnMRCmId
- 2/UxVt8i/fvoCRMCk22g9DGyt+QgI8M/MeFgQx3yWBzWyFibtYpihNWb2bHIaaRmLoqu2dZo3V
- FC+m6CPX8u7Kv921d25F8PFtwHH+phzXFeAAAAA==
-X-Change-ID: 20261110-ultrarisc-maintainer-965d85912a3b
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Linus Walleij <linusw@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: Rob Herring <robh@kernel.org>, linux-pci@vger.kernel.org, 
- linux-clk@vger.kernel.org, netdev@vger.kernel.org, 
- linux-gpio@vger.kernel.org, Fei Chen <chenfei@ultrarisc.com>, 
- Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Xincheng Ji <jixincheng@ultrarisc.com>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794822092; l=3017;
- i=jixincheng@ultrarisc.com; s=20260922; h=from:subject:message-id;
- bh=ISg1g4ONyICVsyMrVHbkY7NCHgvfTE297DDq/TSYiOU=;
- b=nczyInXsPH5sXfo1MLZNPno9PuLSKd3gFkJQMiE/xCgmrwPeQuSEY8uiC49TYcn3m9dHbb7IP
- QWW6JkKynTlAaOBT2GxoeMmkYPYBFn/kkvxpTc/A8PIQFWZtE/f5n+S
-X-Developer-Key: i=jixincheng@ultrarisc.com; a=ed25519;
- pk=n848dcS5D6g0vLad/rjp4Gf/1eedTe1a3pYUrkt2260=
-X-CM-TRANSID: AQAAfwDnrwbGz_pqSvUDAA--.1734S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxAFy8ZFWDKrW5JFWxuw1rZwb_yoW5Cw1fpr
-	45CF15Cr97Jr13Wan7Ka4fZas5X3W0krWUCasrKw1jyF1Fkw18Jrs5Kw15u3Wq9F48AFZI
-	yw13urnrta109a7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9l14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I
-	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
-	xVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
-	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8I
-	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
-	4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRM6wCDUUUU
-X-CM-SenderInfo: pml0x0xfkh0wg6xo325dul2uoofrz/1tbiAQAKDmr2s7AAAQALsQ
+Mime-Version: 1.0
+X-Lms-Return-Path: <lba+16afad249+0860e9+lists.infradead.org+sandie.cao@deepcomputing.io>
+References: <20261109033154.361399-1-sandie.cao@deepcomputing.io> <20261109033348.361452-1-sandie.cao@deepcomputing.io> <20261114075506-GKB100523@kernel.org> <407ce3d77416bb2522b7906b0df3d5adf02c27ee.efc7f10c.ccd0.4025.9bef.e587b1e9e4e8@feishu.cn>
+	<20261116082350-GKB100890@kernel.org>
+In-Reply-To: <20261116082350-GKB100890@kernel.org>
+Date: Mon, 16 Nov 2026 17:52:08 +0800
+To: "Yixun Lan" <dlan@kernel.org>
+Cc: "Conor Dooley" <conor+dt@kernel.org>, "Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
+	"devicetree" <devicetree@vger.kernel.org>, 
+	"linux-riscv" <linux-riscv@lists.infradead.org>, 
+	"spacemit" <spacemit@lists.linux.dev>, 
+	"linux-kernel" <linux-kernel@vger.kernel.org>
+From: "Sandie Cao" <sandie.cao@deepcomputing.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261116_014219_533565_C24D3A1C 
-X-CRM114-Status: UNSURE (   8.51  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.3 (-)
+X-CRM114-CacheID: sfid-20261116_015218_249879_9E7A3A04 
+X-CRM114-Status: GOOD (  20.00  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,103 +71,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Jia Wang and Xincheng Zhang have left UltraRISC and are no longer
-maintaining its drivers. Jia's listed company email address is
-no longer available.
-
-Replace Jia Wang with Xincheng Ji and add Fei Chen as a co-maintainer
-for the DP1000 PCIe, clock, DWMAC and pinctrl drivers. Remove
-Xincheng Zhang from the PCIe maintainer entry.
-
-Having two maintainers provides continuity for maintenance and
-patch review when either maintainer is unavailable, as suggested
-by Conor Dooley during the UltraRISC maintenance handover.
-
-Link: https://lore.kernel.org/all/20261112-legend-outcast-c2226b5e02a1@spud/
-
-Signed-off-by: Xincheng Ji <jixincheng@ultrarisc.com>
----
-Hi all,
-
-Jia Wang and Xincheng Zhang have left UltraRISC and no longer
-maintain these drivers. Jia's listed company email address is
-no longer available.
-
-Fei Chen and I will share maintenance and patch review for the
-UltraRISC DP1000 PCIe, clock, DWMAC and pinctrl drivers. Having two
-maintainers provides continuity when either of us is unavailable,
-as suggested by Conor Dooley during the maintenance handover.
-
-Thanks,
-Xincheng
----
- MAINTAINERS | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ccbcdc0799b9..994c3555c423 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21869,8 +21869,8 @@ F:	Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
- F:	drivers/pci/controller/plda/pcie-starfive.c
- 
- PCIE DRIVER FOR ULTRARISC DP1000
--M:	Xincheng Zhang <zhangxincheng@ultrarisc.com>
--M:	Jia Wang <wangjia@ultrarisc.com>
-+M:	Xincheng Ji <jixincheng@ultrarisc.com>
-+M:	Fei Chen <chenfei@ultrarisc.com>
- L:	linux-pci@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
-@@ -28749,7 +28749,8 @@ F:	drivers/usb/common/ulpi.c
- F:	include/linux/ulpi/
- 
- ULTRARISC DP1000 CLOCK DRIVER
--M:	Jia Wang <wangjia@ultrarisc.com>
-+M:	Xincheng Ji <jixincheng@ultrarisc.com>
-+M:	Fei Chen <chenfei@ultrarisc.com>
- L:	linux-clk@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/clock/ultrarisc,dp1000-clk.yaml
-@@ -28757,13 +28758,15 @@ F:	drivers/clk/ultrarisc/*
- F:	include/dt-bindings/clock/ultrarisc,dp1000-clk.h
- 
- ULTRARISC DP1000 DWMAC GLUE LAYER
--M:	Jia Wang <wangjia@ultrarisc.com>
-+M:	Xincheng Ji <jixincheng@ultrarisc.com>
-+M:	Fei Chen <chenfei@ultrarisc.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/net/ultrarisc,dp1000-gmac.yaml
- F:	drivers/net/ethernet/stmicro/stmmac/dwmac-ultrarisc.c
- 
- ULTRARISC DP1000 PINCTRL DRIVER
--M:	Jia Wang <wangjia@ultrarisc.com>
-+M:	Xincheng Ji <jixincheng@ultrarisc.com>
-+M:	Fei Chen <chenfei@ultrarisc.com>
- L:	linux-gpio@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/pinctrl/ultrarisc,dp1000-pinctrl.yaml
-
----
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-change-id: 20261110-ultrarisc-maintainer-965d85912a3b
-
-Best regards,
---  
-Xincheng Ji <jixincheng@ultrarisc.com>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIFlpeHVuOgoKPiBGcm9tOiAiWWl4dW4gTGFuIjxkbGFuQGtlcm5lbC5vcmc+Cj4gRGF0ZTrC
+oCBNb24sIE5vdiAxNiwgMjAyNiwgMTY6MjQKCj4gPsKgCj4gPiBJbiB2ZXJzaW9uIDEgWzFdLMKg
+IHRoZSBwYXRjaCBpcyBjZC1ncGlvcyA9IDwmZ3BpbyBLM19HUElPKDg4KSBHUElPX0FDVElWRV9M
+T1c+Owo+ID4gYnV0IEszX0dQSU8oODgpIGlzIGZha2UgY2QtZ3BpbywgaXQncyB0aWVkIGxvdyBv
+biBib2FyZC4KPiBTbywgdGhlcmUgaXMgZ3BpbyBjZCBwaW4sIGJ1dCBkaWRuJ3Qgd29yaz8gaXQn
+cyBoYXJkIHRvIHNheSB3aXRob3V0Cj4gdGhlIHNjaGVtYXRpYywgYnV0IGNhbiB5b3UgY2hlY2sg
+d2l0aCBoYXJkd2FyZSBwZW9wbGUsIGlmIGl0Cj4gY2FuIGJlIGZpeGVkIHdpdGggU29DJ3MgaW50
+ZXJuYWwgR1BJTyBCSUFTIHB1bGx1cCBvciBwdWxsZG93bj8KPiBTbywgZ3BpbyBwaW4gaXMgYWJs
+ZSB0byByZWZsZWN0IGNhcmQgaW5zZXJ0IHN0YXR1cwo+wqAKPsKgCgpJIGRpZCBjaGVjayB3aXRo
+IG91ciBoYXJkd2FyZSB0ZWFtLCBhbmQgdGhlIGFuc3dlciBpczrCoAp0aGVyZSBpcyBhIENEIG5l
+dCBvbiB0aGUgc2xvdCwgcm91dGVkIHRvIEszX0dQSU8oODgpLCBidXQgaXQgaXMgaGFyZC10aWVk
+CsKgdG8gR05EIG9uIHRoZSBib2FyZC4gKHYxIG9mIHRoaXMgc2VyaWVzIHVzZWTCoApjZC1ncGlv
+cyA9IDwmZ3BpbyBLM19HUElPKDg4KSBHUElPX0FDVElWRV9MT1c+LCB3aGljaCBvZiBjb3Vyc2UK
+YWx3YXlzIHJlcG9ydHMgImNhcmQgcHJlc2VudCIuKSBJdCBpcyBhIGRpcmVjdCBjb25uZWN0aW9u
+IHRvIEdORCwgbm90IGEKc3RyYXAgcmVzaXN0b3IsIHNvIHRoZSBTb0MncyBpbnRlcm5hbCBiaWFz
+IGNhbm5vdCBwdWxsIGl0IHVwLgoKPiA+IFNvIEluIHZlcnNpb24yIFsyXSwgdGhlIHBhdGNoIGNo
+YW5nZXMgdG8gbm9uLXJlbW92YWJsZS4KPiA+IEFuZCBJbiB2ZXJzaW9uMyBbM10sIGFkZCBjb21t
+ZW50LsKgCj4gPsKgCj4gPiBUaGUgb3B0aW9uczogY2QtZ3Bpbywgbm9uLXJlbW92YWJsZSwgYnJv
+a2VuLWNkwqAgYWxsIHdvcmsgb24gdGhpcyBib2FyZC4KPiA+wqAKPiBpdCB3b3JrcywgYnV0IGRv
+ZXMgbm90IHJlZmxlY3QgdGhlIGhhcmR3YXJlIHN0YXR1cwo+wqAKPiA+IFdlIGp1c3QgbmVlZCB0
+byBkZXRlY3QgdGhlIFNEIGNhcmQgd2hlbiBib290dXAsIGRvbid0IG5lZWQgdGhlIGRyaXZlcsKg
+Cj4gPiB0byBkZXRlY3QgaG90LXBsdWcgZXZlbnQgLCBub24tcmVtb3ZhYmxlIHNob3VsZCBiZSBz
+dWl0YWJsZSBhbmQgZmFzdGVyLMKgCj4gPiB3ZSByZWNvbW1lbnQgdG8gdXNlIG5vbi1yZW1vdmFi
+bGUuCj4gPsKgCj4gTm8sIHRoaXMgaXNuJ3QgYSB2YWxpZCByZWFzb24sIGl0J3MgdXNlIGNhc2Ug
+c2hvdWxkIGhhdmUgbm90aGluZyB0byBkbwo+IHdpdGggdGhlIHByb3BlcnR5Lgo+wqAKPiBNeSBw
+b2ludCBpczogaWYgdGhlIGdwaW8gY2QgcGluIHN0aWxsIGRvZXNuJ3Qgd29yaywgYW5kIHRoZSBT
+RCBjYXJkIGlzCj4gYWN0dWFsbHkgcGh5c2ljYWwgcGx1Z2FibGUsIHRoZW4gc2hvdWxkIHVzZSAi
+YnJva2VuLWNkIi4KClRoZSBTRCBjYXJkIHNsb3QgaXMgb25ib2FyZCBbMV0swqAgcHV0IHRoZSBi
+b2FyZCBpbnRvIGNhc2luZywgdGhlcmUgaXMgbm8Kd2F5IHRvIHBsdWdpbi8gcGx1Z291dCB0aGUg
+Y2FyZC4gU28gdGhlcmUgaXMgbm8gY2FyZC1kZXRlY3QgZXZlbnQgdGhhdCBjYW4KZXZlciBoYXBw
+ZW4gYXQgcnVudGltZS4KCklmIHlvdSBzdGlsbCBwcmVmZXIgYnJva2VuLWNkLMKgIEkgd2lsbCBm
+b2xsb3cgaW4gbmV4dCB2ZXJzaW9uLsKgCgpbMV06IGh0dHBzOi8vZGVlcGNvbXB1dGluZy5pby9k
+Yy1yb21hLXJpc2Mtdi1tYWluYm9hcmQtaWlpLXVudmVpbGVkLWF0LWZvc2RlbS1wb3dlcmVkLWJ5
+LXNwYWNlbWl0LWszLWZvci1mcmFtZXdvcmstbGFwdG9wLTEzLwoKQmVzdCByZWdhcmRzClNhbmRp
+ZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
