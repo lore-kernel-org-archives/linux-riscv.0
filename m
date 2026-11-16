@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF362606A31C
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2026 12:20:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9A5F60A3822
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2026 12:59:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Fa7KjpmC;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h6i2kbJu
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AusnyDpR;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z05EBtcw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,51 +14,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=yg02Pv9jYgtjPDZJ1GRSpLmSvL+4Ff3yaQRx9dqASJI=; b=Fa7KjpmCW9UVziU/Rg/MR+H3VD
-	MS+NBwEy+ydarnnSSQ2A3yvGOmAsK+oNLBqUqthn7BGP1M4x3rbgpeOQnDfITHFDGwewSzhgmRpzx
-	j7750UXeaOnvmphK2b3FpoZXmp76kNt9Sm1N814fE9poPMpbRorlnrUMEv/I5lNGASJ+ISzo8WOpt
-	XUsjbk/G8ONrPUx1o4cy6UwR51OGuEMsqf00Cnl0gA07ge1/Fs6qaDN68n4B3l90PoQbtMcFx3hed
-	VaKF5Jx1awR+s4V4+NG7okc89V2g98ow+cTQeOjsYbSRRdJJAoC/99hjhtQTFx2iFwd2q5p99dErB
-	ihO5e5zg==;
+	bh=uNouLSadjSWT5oATEMACgdfAh2+smgvgr5KygIZqo4Q=; b=AusnyDpRX88zRKFvIwyv5o8JR3
+	dek2tR42TJ69BOyGYHMrsKQ+rhoknOltSs+CyXoW/5qAiSp2H1l20J5mdFoIRFzbKiMJhT1Kv4dmL
+	sRyig12iHNqskjj5GwJr34UCQTMPYSZlwjEI3W+GiT5Vhw5MJxwb46IxRKeTAcoGb+FPY8zLm9P6l
+	YOVEcmoSPMEbzLw+Cj5V/zkZ++wCEIl3cGE+1FH9uWCYpS3XBA44n9sajKejIMyaYi7Lbf8OD94uT
+	6oVwNSitzZQ293cZCOcQII+/vG2XumH6zEj+5P1QYoEYJDVKUSo4T7KI8R47Doe67byciQ6ed8Vo9
+	ZNS8aP/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSvgl-00000002Kdn-2F5j;
-	Mon, 16 Nov 2026 12:19:59 +0000
+	id 1xSwJ6-00000002VEq-0AQY;
+	Mon, 16 Nov 2026 12:59:36 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xSvgk-00000002Kdg-0zpj
+	id 1xSwJ4-00000002VEh-2j5q
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Nov 2026 12:19:58 +0000
+	Mon, 16 Nov 2026 12:59:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7053E439ED;
-	Mon, 16 Nov 2026 12:19:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 335D81F000C4;
-	Mon, 16 Nov 2026 12:19:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4C2B044003;
+	Mon, 16 Nov 2026 12:59:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4FE31F000C4;
+	Mon, 16 Nov 2026 12:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794831597;
-	bh=Y+b7pepc+bqSJnjvX8gOa7j05vvfbGVSW+Ko5NDA4NQ=;
+	s=k20260515; t=1794833974;
+	bh=H0ZkNNcZYDe7VlHkuwH0d8aoRRKZdBPLeqP/TuARMR4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=h6i2kbJuFcncsmN96i+B4eX/8pFwpz8E8Mj0REJTflzdzEb762gWULzIIoik2F4KM
-	 pj78evRrW48pcJRQuHXSpbctZ6lrijH0BxBJIdQvPf5MKD7SsQpFX+jvHSBi6ijBro
-	 bn2NqV23Kd9e5AK9NYaISlCfV3uL09YyX1FyxW8VPfRKrZDmxd7oU1kkqtQKUgnzlo
-	 lzWossq90I4NOU9bLdEdu1jKUGxcm8uqOZGYj3WRs/kz0ksSRQH8Ej0avNY3Lmzz08
-	 MaPZKqiAVbboL/9T+JNNSRHEdDUnMEgRN7Q8M16NsmWdo/UDBI8ltiHE50MdGVPSQs
-	 rZGCww+HqQJQQ==
-Date: Mon, 16 Nov 2026 19:59:42 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Zong Li <zong.li@sifive.com>, ivanrwcm25@gmail.com
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, debug@rivosinc.com, samuel.holland@sifive.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Greentime Hu <greentime.hu@sifive.com>
-Subject: Re: [PATCH] riscv: usercfi: Don't inherit parent shadow stack for
- user workers
-Message-ID: <avrwLtiPQWedXpY_@xhacker>
-References: <20261116032558.130928-1-zong.li@sifive.com>
+	b=Z05EBtcwSpXoYHkEF5iaYXC/SUkFKTYxy8n50qUine3tJTmnGMUtZqx2CyqmYlD3g
+	 KpvOznUOSxNVSxLdQjaxPSolgVv9alnguD2E2zeltouNszcEDJkO7o72flqbHAmtDs
+	 CNXEg5ChRbfBWT2utgtNqzUe9qVyoBkJRQEbaxP+cY0cCI9NWWRR6Hq2gHNJF+UegZ
+	 0u4jJaaHpQtvGjwvdq2Y6Zhy4Cs/Qt9nib63N4OM/9Iv/SBYjPqgtn5VThiuy1CKW4
+	 xnXV9FC5mQNBs/4fJY7DS3INYfRN5G17PaWVCoR3cggAivxXLCN9osWWpwDgVUmMcD
+	 LLp5oAL9B1SNQ==
+Date: Mon, 16 Nov 2026 12:59:31 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Sandie Cao <sandie.cao@deepcomputing.io>
+Cc: Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree <devicetree@vger.kernel.org>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	spacemit <spacemit@lists.linux.dev>,
+	linux-kernel <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v4 3/3] riscv: dts: spacemit: k3-deepcomputing-fml13v05:
+ Enable SD card support
+Message-ID: <20261116125931-GKC100890@kernel.org>
+References: <20261109033154.361399-1-sandie.cao@deepcomputing.io>
+ <20261109033348.361452-1-sandie.cao@deepcomputing.io>
+ <20261114075506-GKB100523@kernel.org>
+ <407ce3d77416bb2522b7906b0df3d5adf02c27ee.efc7f10c.ccd0.4025.9bef.e587b1e9e4e8@feishu.cn>
+ <20261116082350-GKB100890@kernel.org>
+ <407ce3d77416bb2522b7906b0df3d5adf02c27ee.63da97eb.e7e5.488f.8751.a4a1c53db9df@feishu.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261116032558.130928-1-zong.li@sifive.com>
+In-Reply-To: <407ce3d77416bb2522b7906b0df3d5adf02c27ee.63da97eb.e7e5.488f.8751.a4a1c53db9df@feishu.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,85 +77,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sun, Nov 15, 2026 at 07:25:58PM -0800, Zong Li wrote:
-> User-space background workers created through the copy_thread() args->fn
-> path (such as io_uring io-wq/SQPOLL threads and vhost workers) share the
-> parent's memory space (CLONE_VM) but never return to userspace.
-> 
-> Currently, these workers inherit the parent's user_cfi_state bookkeeping
-> via dup_task_struct() (e.g., enabling shadow stack and pointing to the
-> parent's live shadow stack base). When such a worker exits, mm_release()
-> invokes shstk_release(), which incorrectly executes vm_munmap() on the
-> parent's active user shadow stack. This triggers a fatal SIGSEGV
-> (SEGV_MAPERR followed by SI_KERNEL) in the parent process during its next
-> function return check (sspopchk).
-> 
-> Fix this by explicitly clearing the inherited shadow stack bookkeeping
-> (setting base and active state to 0) in the user worker branch of
-> copy_thread().
-
-+ Ivan,
-
-I think Ivan has fixed this issue in
-https://lore.kernel.org/linux-riscv/20261028154315.1272705-3-ivanrwcm25@gmail.com/
-
-Besides the issue, he also fixed another bug in riscv. The only
-difference is whether set_active_shstk(p, 0) is needed or not.
-
-And in the same series, a selftest is also added. So IMHO, we'd better
-take Ivan's version.
-Just FYI, arm64 has merged the fixes into linux-7.4-rc3
-
-> 
-> Fixes: 61a0200211d3 ("riscv: Implement arch-agnostic shadow stack prctls")
-> 
-> Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> Signed-off-by: Zong Li <zong.li@sifive.com>
-> ---
->  arch/riscv/kernel/process.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
-> 
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index 34c1d498d1ca..4bc95acc5462 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -261,6 +261,15 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
->  		p->thread.s[0] = (unsigned long)args->fn;
->  		p->thread.s[1] = (unsigned long)args->fn_arg;
->  		p->thread.ra = (unsigned long)ret_from_fork_kernel_asm;
-> +
-> +		/*
-> +		 * User workers (io_uring io-wq/SQPOLL, vhost) share the parent's mm
-> +		 * but never return to userspace. Don't inherit the parent's shadow
-> +		 * stack bookkeeping, otherwise shstk_release() on their exit would
-> +		 * vm_munmap() the parent's live shadow stack.
-> +		 */
-> +		set_shstk_base(p, 0, 0);
-> +		set_active_shstk(p, 0);
->  	} else {
->  		/* allocate new shadow stack if needed. In case of CLONE_VM we have to */
->  		ssp = shstk_alloc_thread_stack(p, args);
-> -- 
-> 2.43.7
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgU2FuZGllLAoKT24gMTc6NTIgTW9uIDE2IE5vdiAgICAgLCBTYW5kaWUgQ2FvIHdyb3RlOgo+
+IEhpLCBZaXh1bjoKPiAKPiA+IEZyb206ICJZaXh1biBMYW4iPGRsYW5Aa2VybmVsLm9yZz4KPiA+
+IERhdGU6wqAgTW9uLCBOb3YgMTYsIDIwMjYsIDE2OjI0Cj4gCj4gPiA+wqAKPiA+ID4gSW4gdmVy
+c2lvbiAxIFsxXSzCoCB0aGUgcGF0Y2ggaXMgY2QtZ3Bpb3MgPSA8JmdwaW8gSzNfR1BJTyg4OCkg
+R1BJT19BQ1RJVkVfTE9XPjsKPiA+ID4gYnV0IEszX0dQSU8oODgpIGlzIGZha2UgY2QtZ3Bpbywg
+aXQncyB0aWVkIGxvdyBvbiBib2FyZC4KPiA+IFNvLCB0aGVyZSBpcyBncGlvIGNkIHBpbiwgYnV0
+IGRpZG4ndCB3b3JrPyBpdCdzIGhhcmQgdG8gc2F5IHdpdGhvdXQKPiA+IHRoZSBzY2hlbWF0aWMs
+IGJ1dCBjYW4geW91IGNoZWNrIHdpdGggaGFyZHdhcmUgcGVvcGxlLCBpZiBpdAo+ID4gY2FuIGJl
+IGZpeGVkIHdpdGggU29DJ3MgaW50ZXJuYWwgR1BJTyBCSUFTIHB1bGx1cCBvciBwdWxsZG93bj8K
+PiA+IFNvLCBncGlvIHBpbiBpcyBhYmxlIHRvIHJlZmxlY3QgY2FyZCBpbnNlcnQgc3RhdHVzCj4g
+PsKgCj4gPsKgCj4gCj4gSSBkaWQgY2hlY2sgd2l0aCBvdXIgaGFyZHdhcmUgdGVhbSwgYW5kIHRo
+ZSBhbnN3ZXIgaXM6wqAKPiB0aGVyZSBpcyBhIENEIG5ldCBvbiB0aGUgc2xvdCwgcm91dGVkIHRv
+IEszX0dQSU8oODgpLCBidXQgaXQgaXMgaGFyZC10aWVkCj4gwqB0byBHTkQgb24gdGhlIGJvYXJk
+LiAodjEgb2YgdGhpcyBzZXJpZXMgdXNlZMKgCj4gY2QtZ3Bpb3MgPSA8JmdwaW8gSzNfR1BJTyg4
+OCkgR1BJT19BQ1RJVkVfTE9XPiwgd2hpY2ggb2YgY291cnNlCj4gYWx3YXlzIHJlcG9ydHMgImNh
+cmQgcHJlc2VudCIuKSBJdCBpcyBhIGRpcmVjdCBjb25uZWN0aW9uIHRvIEdORCwgbm90IGEKPiBz
+dHJhcCByZXNpc3Rvciwgc28gdGhlIFNvQydzIGludGVybmFsIGJpYXMgY2Fubm90IHB1bGwgaXQg
+dXAuCj4gCk9rLCBzbyB0aGVyZSBpcyBDRCBwaW4sIGJ1dCB3aXRoIGhhcmR3YXJlIGRlc2lnbiBm
+bGF3LCBpdCdzIGluZGVlZCBicm9rZW4sCnRoYXQncyAiYnJva2VuLWNkIiBwcm9wZXJ0eSBmb3IK
+Cj4gPiA+IFNvIEluIHZlcnNpb24yIFsyXSwgdGhlIHBhdGNoIGNoYW5nZXMgdG8gbm9uLXJlbW92
+YWJsZS4KPiA+ID4gQW5kIEluIHZlcnNpb24zIFszXSwgYWRkIGNvbW1lbnQuwqAKPiA+ID7CoAo+
+ID4gPiBUaGUgb3B0aW9uczogY2QtZ3Bpbywgbm9uLXJlbW92YWJsZSwgYnJva2VuLWNkwqAgYWxs
+IHdvcmsgb24gdGhpcyBib2FyZC4KPiA+ID7CoAo+ID4gaXQgd29ya3MsIGJ1dCBkb2VzIG5vdCBy
+ZWZsZWN0IHRoZSBoYXJkd2FyZSBzdGF0dXMKPiA+wqAKPiA+ID4gV2UganVzdCBuZWVkIHRvIGRl
+dGVjdCB0aGUgU0QgY2FyZCB3aGVuIGJvb3R1cCwgZG9uJ3QgbmVlZCB0aGUgZHJpdmVywqAKPiA+
+ID4gdG8gZGV0ZWN0IGhvdC1wbHVnIGV2ZW50ICwgbm9uLXJlbW92YWJsZSBzaG91bGQgYmUgc3Vp
+dGFibGUgYW5kIGZhc3RlcizCoAo+ID4gPiB3ZSByZWNvbW1lbnQgdG8gdXNlIG5vbi1yZW1vdmFi
+bGUuCj4gPiA+wqAKPiA+IE5vLCB0aGlzIGlzbid0IGEgdmFsaWQgcmVhc29uLCBpdCdzIHVzZSBj
+YXNlIHNob3VsZCBoYXZlIG5vdGhpbmcgdG8gZG8KPiA+IHdpdGggdGhlIHByb3BlcnR5Lgo+ID7C
+oAo+ID4gTXkgcG9pbnQgaXM6IGlmIHRoZSBncGlvIGNkIHBpbiBzdGlsbCBkb2Vzbid0IHdvcmss
+IGFuZCB0aGUgU0QgY2FyZCBpcwo+ID4gYWN0dWFsbHkgcGh5c2ljYWwgcGx1Z2FibGUsIHRoZW4g
+c2hvdWxkIHVzZSAiYnJva2VuLWNkIi4KPiAKPiBUaGUgU0QgY2FyZCBzbG90IGlzIG9uYm9hcmQg
+WzFdLMKgIHB1dCB0aGUgYm9hcmQgaW50byBjYXNpbmcsIHRoZXJlIGlzIG5vCj4gd2F5IHRvIHBs
+dWdpbi8gcGx1Z291dCB0aGUgY2FyZC4gU28gdGhlcmUgaXMgbm8gY2FyZC1kZXRlY3QgZXZlbnQg
+dGhhdCBjYW4KPiBldmVyIGhhcHBlbiBhdCBydW50aW1lLgo+IApObywgaWYgb3BlbiB0aGUgY2Fz
+ZSwgdGhlIGNhcmQgaXMgc3RpbGwgcGx1Z2FibGUuLiAKCj4gSWYgeW91IHN0aWxsIHByZWZlciBi
+cm9rZW4tY2QswqAgSSB3aWxsIGZvbGxvdyBpbiBuZXh0IHZlcnNpb24uwqAKPiAKWWVzLCBwbGVh
+c2UgdXBkYXRlCgo+IFsxXTogaHR0cHM6Ly9kZWVwY29tcHV0aW5nLmlvL2RjLXJvbWEtcmlzYy12
+LW1haW5ib2FyZC1paWktdW52ZWlsZWQtYXQtZm9zZGVtLXBvd2VyZWQtYnktc3BhY2VtaXQtazMt
+Zm9yLWZyYW1ld29yay1sYXB0b3AtMTMvCj4gCj4gQmVzdCByZWdhcmRzCj4gU2FuZGllCgotLSAK
+WWl4dW4gTGFuIChkbGFuKQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
