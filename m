@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C4D5606A333
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2026 17:15:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99979606A330
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2026 17:21:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hwIIHLAq;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ToaMIdu/
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tEBmgCRe;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kw/RMWwl
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
@@ -14,91 +14,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=MYi71X8+RJPeWZ320tnOv47wvLvV4zhcqi1MVJ/m0xE=; b=hwIIHLAqUPuECnePbmtx+s4/ub
-	FZjo9lscgmkZ+6ZAodIBp5DOdHcth50aKzvrEjvnNhyC6bT+5aHPEHS6Viij1Gr4vHLaKg42bL5h9
-	bkQOkwGTVxaRP5JvwKhR1bo4NHBNFnaM5CyyhXc7QpYtKJOd9yNfIFF0oVU8M9zopGoieKUYn82AU
-	YVcDFW7SpEJFAi71KNwq1Hg2bqMAgkjJPaqRPnP6Z0zjytBkUheWkQHCikMJyBcXTY+kSpgaf0bC8
-	LgUV0OARgsS60xKchjbDtaQWB3Q21UCKlIvcgdq3DZ8ifWeA5qLr3aIr8wMHhiBjvbW3l0nxOCGp7
-	iSRwkb0Q==;
+	bh=C7wVELCkuLn8WWPIIAAMbJ/nNQiC9jr40rhzQd3pEz4=; b=tEBmgCReu2x0oX4I2ky2CBH7Rq
+	RNM0RMT4GEW3xrlES4aDW34jnKZmUh8N/N6z5aKxiTPPZZrUjfQCrZKphcxnnV0QqY1QQwsLb2TJI
+	igSVg0vQi3xnlkhc8RaOQ4YVsk8rgMwpuxozikXuVb3H9loz91zByZ/hAMFXsyQediJT1GNVIilxl
+	U1uOLYFc15uOE31h2fLalP8M23ZjsWaHJcYDQTcOr6g7ueAt+OUwlrP4LlQbanaxja5mDstqlA94w
+	DSTXgTv34x97hiVaovS8s0UzShZ4AfoB0xR+A0F3pf8CLT2xdJ0lTEc0+ImDwszQwPFXlUAgstRZr
+	f1yXGg/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xT0IC-00000003NNR-3Ill;
-	Mon, 16 Nov 2026 17:14:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xT0Nx-00000003ORW-3DQ9;
+	Mon, 16 Nov 2026 17:20:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xT0IB-00000003NN0-0qhA
+	id 1xT0Nw-00000003ORJ-2ZbX
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Nov 2026 17:14:55 +0000
+	Mon, 16 Nov 2026 17:20:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EC4EF43DBB;
-	Mon, 16 Nov 2026 17:14:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADB661F000C4;
-	Mon, 16 Nov 2026 17:14:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 572E443F76;
+	Mon, 16 Nov 2026 17:20:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EFFC1F000C4;
+	Mon, 16 Nov 2026 17:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794849294;
-	bh=R3AayEltuaPaSc8ERAQfW5YeyfzxTpEYZhzgv4GQkHY=;
+	s=k20260515; t=1794849652;
+	bh=scd7KPiRVsbA2XxL7ASc6Bp3Xum97UozhMdMhwjKhPo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ToaMIdu/5Nw6gYTd8dKnI+IbBbxNZgnb4fzduNfFHN9sWkkaCbz70GToCW+nEDm4Z
-	 9uF7aB4TmCTaZug50b7ulcfEcxnEmVk2y6hiNSjA7jeGkGkT/ShZXqpwy4hLr9/aj2
-	 6NNvcIDIQJyhn921LolKVZXRXN1h4Ga0LhQtINeSDy8hIqBMGS+mkousnN6WdK46gS
-	 HsC7Ssh/0Iajvpgfbo3BwuIO222ho/1CZeWVo1XVKShBg67CwppzE5LJyhKkteezT9
-	 hDnjr1Y0MiqO1CP017SxVisOiKTO0ep8ghfKbj8w4YBnPbOdKVd/ClnQqPqoHRyDb7
-	 tFmEJTYAzrZ/Q==
-Date: Mon, 16 Nov 2026 17:14:42 +0000
+	b=kw/RMWwlR/zQZHbAxE2vH0EEg69M0lvUZrH2QSeJ/p7OwB4IE44S09DcNBW6OGVW7
+	 BslOPpjPmEBzBN5LM4qb4E2LckVVJ/euPotGVii4Za5Di878LUagpYKfOa2vWOYGaL
+	 C9fzd2budQoE/3X6VryI5gDUOpCCMn84stoVUffaFkGJ2Lma8Nr8rbN22mnLj0rPRL
+	 DXwCYT2q+omBNLjSWRGj9/Jlu886zo+sh/kIuVLOWyRtpvTYV8EXP2lMNy9RJt1R9a
+	 f2xTO0xrMJnJJtS379Z7d9ROQjOq23aMEtUzMIBw0Y2J+0PjYwhyMDgNIMYpDAXZ1B
+	 9Kuqk6/e/3pgw==
+Date: Mon, 16 Nov 2026 17:20:49 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>, Gary Guo <gary@garyguo.net>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Chao-ying Fu <chao-ying.fu@globalfoundries.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	torvalds@linux-foundation.org, olof@lixom.net,
-	aleksa.paunovic@htecgroup.com, arikalo@gmail.com,
-	Boqun Feng <boqun@kernel.org>, Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Pu Lehui <pulehui@huawei.com>, Puranjay Mohan <puranjay@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>, Miguel Ojeda <ojeda@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Nam Cao <namcao@linutronix.de>, rust-for-linux@vger.kernel.org
-Subject: Re: [PATCH v6 2/6] riscv: build kernel atomics from LR/SC when Zaamo
- is disabled
-Message-ID: <20261116-manifesto-edginess-7f1663f9a76b@spud>
-References: <20261110-lrsc-only-v6-0-bafc3cc0fcae@mobileye.com>
- <20261110-lrsc-only-v6-2-bafc3cc0fcae@mobileye.com>
- <20261110-revivable-saint-9bcfaa2fd0e7@spud>
- <3308062b-9d0f-436f-a22a-217cc1c59aed@mobileye.com>
+To: Avi <thnkslprpt@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] cache: sifive_ccache: skip disabled device tree nodes
+Message-ID: <20261116-dreamlike-uncheck-9eebf91555d6@spud>
+References: <20261028131939.1014720-2-thnkslprpt@gmail.com>
+ <20261105-igloo-stunt-534496ad0518@spud>
+ <CA+jvY9Ft4KKTGD7jM-pBFeN4orRuMs1pQUfcLerKGTW24KDQVQ@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <3308062b-9d0f-436f-a22a-217cc1c59aed@mobileye.com>
+In-Reply-To: <CA+jvY9Ft4KKTGD7jM-pBFeN4orRuMs1pQUfcLerKGTW24KDQVQ@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,55 +65,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1082225012038408562=="
+Content-Type: multipart/mixed; boundary="===============1328648121795708447=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============1082225012038408562==
+--===============1328648121795708447==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Y+J9n/Hla/zwW0HU"
+	protocol="application/pgp-signature"; boundary="nbYSfbusVy/ZW6KP"
 Content-Disposition: inline
 
---Y+J9n/Hla/zwW0HU
-Content-Type: text/plain; charset=us-ascii
+--nbYSfbusVy/ZW6KP
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 11, 2026 at 08:37:23AM +0200, Vladimir Kondratiev wrote:
-> On 11/10/26 21:02, Conor Dooley wrote:
-> > I had a quick glance at this revision, and I think you've at least tried
-> > to resolve the things I was pointing out. Did I miss something, or why
-> > have you kept the NAK after having resolved the things that I was
-> > objecting to?
+On Sat, Nov 14, 2026 at 07:40:42PM +0200, Avi wrote:
+> On Thu, Nov 5, 2026 at 8:24=E2=80=AFPM Conor Dooley <conor@kernel.org> wr=
+ote:
+> >
+> > On Wed, Oct 28, 2026 at 03:19:40PM +0200, Avi Weiss wrote:
+> > > sifive_ccache_init() uses of_find_matching_node_and_match(), which al=
+so
+> > > returns nodes marked as disabled. The initializer can therefore map a=
+nd
+> > > access a cache controller that the device tree marks unavailable.
+> > >
+> > > Select the first available matching node before accessing its registe=
+rs.
+> > > This also handles a disabled node preceding an enabled one.
+> > >
+> > > Fixes: a967a289f169 ("RISC-V: sifive_l2_cache: Add L2 cache controlle=
+r driver for SiFive SoCs")
+> > > Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
+> > > ---
+> > >  drivers/cache/sifive_ccache.c | 4 +++-
+> > >  1 file changed, 3 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/cache/sifive_ccache.c b/drivers/cache/sifive_cca=
+che.c
+> > > index 71d3f94987fa..02878d54381d 100644
+> > > --- a/drivers/cache/sifive_ccache.c
+> > > +++ b/drivers/cache/sifive_ccache.c
+> > > @@ -297,7 +297,9 @@ static int __init sifive_ccache_init(void)
+> > >       unsigned long quirks __maybe_unused;
+> > >       int rc;
+> > >
+> > > -     np =3D of_find_matching_node_and_match(NULL, sifive_ccache_ids,=
+ &match);
+> > > +     for_each_matching_node_and_match(np, sifive_ccache_ids, &match)
+> > > +             if (of_device_is_available(np))
+> >
+> > Are there any devices where this is actually possible? IOW, where there
+> > are 2 ccache instances.
+
+> It's more of a defensive thing. The 2 ccache instance was an example -
+> the issue is also relevant for one disabled ccache node no?
+
+That is true.
+And on the two node front, the driver doesn't support that anyway either
+before or after the patch. Consider what the new code does if there are
+two nodes, both enabled.
+
+But I don't think the ccache or llc-cache successor are intended for
+that kind of situation anyway.
+
+> Since of_find_matching_node_and_match() doesn't check whether a node
+> is enabled, it can return a disabled one.
 >=20
-> I'll be happy to remove it. Was not feeling right to do this without
-> your permission.
+> sifive_ccache_init() then goes ahead and maps and accesses its
+> registers, even though the device tree marks it as disabled and normal
+> OF platform-device creation would skip it.
 
-IMO, if you sort out what the NAK was complaining about, you can drop it
-without permission. Worth calling out in the cover maybe.
+Could we instead drop the loop and just check for availability, while
+retaining of_find_matching_node_and_match()? I kinda feel like the loop
+gives the impression that the driver supports multiple nodes, when it
+realistically does not.
 
-I'll take another look at this later in the week..
+Cheers,
+Conor.
 
---Y+J9n/Hla/zwW0HU
+>=20
+> >
+> > > +                     break;
+> > >       if (!np)
+> > >               return -ENODEV;
+> > >
+> > >
+> > > base-commit: 65ba8f34ec886ec72b2c07ddc8cf3d815c32869d
+> > > --
+> > > 2.43.0
+> > >
+
+--nbYSfbusVy/ZW6KP
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCavs5/gAKCRB4tDGHoIJi
-0kGoAQCWFf5JHxUi2KeNm9DOhemQnYUrlSxe7T4A8/hbZExUSQEA9loerGhdWm8V
-n/SfaKiJfp1FHsN6OT9U8lG0cS4ZPwA=
-=yrBS
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCavs7cQAKCRB4tDGHoIJi
+0pNvAQD5/KJVymuE7qmA071m1fi7a4OINJ983TfXYxTo/6Wq0AEA04ux8cMbfJqI
+BIpTXQuSLQDewZqgUQfZE9C4L2OC2gg=
+=haUZ
 -----END PGP SIGNATURE-----
 
---Y+J9n/Hla/zwW0HU--
+--nbYSfbusVy/ZW6KP--
 
 
---===============1082225012038408562==
+--===============1328648121795708447==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -167,5 +186,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1082225012038408562==--
+--===============1328648121795708447==--
 
