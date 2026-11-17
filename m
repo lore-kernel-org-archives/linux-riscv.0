@@ -2,97 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED623606A8A3
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 14:23:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25B9F606A31C
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 15:52:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Fwp7zUzH;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fxs633Fv
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Gmw6GOdn;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AcPn6yf2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=E0In3oPsei94N0zVLKuvdj2arB6E+x4duiH/YUg1X/s=; b=Fwp7zUzHU/WhXKRp15w19atL1s
-	+U7vQHx194vc7qem132a5Ceg1MF0kZwuPoXOoOp1E1D/eYJ5cPN8Xp97TLpEV4kKRq0CoX87/aMrp
-	Bch2JpyKseAQ4D6VXhjmivNZOsJsOvB3huifng+VEwyHSGh9D4BHL/QyPOa7NstwBGiEmi3n/3dZZ
-	RcDU/jMSW4zaEAeQzxqPq9uIDCoIbYPM07CdrQGNL8Ez+BCP4fS6DTudVambVe+MvwvvVm8Vnv4Jd
-	Xs/PG1LPhUh4s7tMioDLlgS7u1Q8wEPPYDwYjjNZIH2CGfM6QTHvREzf5DtZNBi43ilqYvhxgVjfA
-	zAnH5jaw==;
+	bh=7QNcC2tdKD0Fpzv0LcAaoNlmDNXZwk5+hecKVWqtONo=; b=Gmw6GOdnqGrAbRbgDLi8660OeX
+	5hlPOjD7TDY+48zYVFKvxW8A7XDfdzc3A8JPSp+lf6NyRZjfB20vFv2l2R+Og/M36MDmEMu5q+Cyi
+	pyQ0pYgDk5c/ogDWRn6lHe5BbwJLLzwLVENs6bnaCDQep+ULW4XGd7Kfq5+xbaoCyg57XFXj5dJvT
+	LxJmcyrxBU7Mr3afvbtmBczxT/4Z+YKt830Sjj0llgK1gMSsZUdMR1+aqNeiLf2VLEJJUR2/lJ/Ej
+	cPJ34HcjDqXYYUu57+Ui0IGVj+uuim7vvouVTqAZZeXGDh8kd/gEZpyxvf9eF5IrSz3oc4i9OgUqf
+	Idc39Rsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTK5r-000000066qH-2jyx;
-	Tue, 17 Nov 2026 14:23:31 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1xTLU5-00000006MOW-24sO;
+	Tue, 17 Nov 2026 15:52:37 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTK5k-000000066fR-3DOV
+	id 1xTLU3-00000006MNS-1MiF
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Nov 2026 14:23:26 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-4a5024b3c28so303850f8f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Nov 2026 06:23:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794925402; x=1795530202; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gu6e45ESjZegd8J7v8Vs4ndLsJawc0EC2FemgxWZCFU=;
-        b=fxs633FvVcn1/yZqX2+SlJMlXcJjc7WmvioFNG/tLl40e1iZ3TGAFuJDPof8hEYDWS
-         sqUdGHa6Awu6z9hMyDub0cunZyAOXFBCPUjYXyaITnONzmOIY8Ag0bZ8hkyZGvXMsciB
-         2F4sSYWfo8FIBGSm/Fo04oP8zx0dGdBU27WTFB61dj5u96v7+dXcoMV1U3AqUjXK9qft
-         SwiHVCCC1yfIxz9l3/iUJMtTIV6IDyV72SLbVrKKcCNcSKfGVEK9UEBmtR+3Cx4vJJSJ
-         u2IGFXIQTpI+HKoW5RByvvFEp4mCyylColucYVth5AlGXH+RxnXi+nCTvMOaVVwdwnta
-         aqkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794925402; x=1795530202;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gu6e45ESjZegd8J7v8Vs4ndLsJawc0EC2FemgxWZCFU=;
-        b=ryTJwXLqDnGTRi6TYLQ8mSyHQ5kQKG+dXUqu9fNvb8N5oImvZFfedJPbhOiTcWOfz4
-         an6TTy4ECqf3pNZhP4jtGCpSN2REequeRpUJaN0vu2GHgfkRw3eyuoypMWX35vJlZ3Zv
-         ZlhOh2gQsCaQ/63x9IfL+xHjzys3PT3eYPAcBg7/34boz+gv122J09kq+R5xSjvs6raJ
-         TGNZgIKS2/fHKoWzO8vN+jQLHUxqxejKDf/LgQHkytoZ5twHUNwO6OH68+eTBAAotnck
-         nB2fixL+oe5l6pYZZ1kIovI/3tSaHJ5BhblMZTtH3HQ9hZouP/b6P2PfhTX4DU8LhGmr
-         oMmg==
-X-Forwarded-Encrypted: i=1; AL+hErFRbNQRe5WTDWQ3jBYPQBDeangB9dEHHkhHeN+G3X7DtmMTHy8nNDmLaNPBT+LyM241zs4OPC4POIVrLA==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8tHtcugR/t/p7BF+Sql6TEfBkuxy3nyyH7AmCU7/0GzwmfnlTL
-	8adKDIXOrxr0MV9IFpXZ+BX+BJ/433/Nia8Z9NyVsk6kiLD2SuThXCZ5M9Nx42uz
-X-Gm-Gg: AZFdTZc5S1jH4tz0TRi6SWHhSKrnuwCDyfEw3BqLqW+eNXujedfOYNz8857rIYJZSGE
-	/0uJpnKogq2iTdZ+Pq7zyHyNn8eiSSh9FcvIcKAgns+9SSi33ZEL8FUtg72NWuATA+3O1Vp1/3n
-	LfENCo0w9kmuoAm4YOyjnUTev+axRpVBIy9AkIWMuMEvLZgNDFCF72+DOhejp4ZppX7pLLLbcIi
-	x/hxUNz3f7vVHLUvvFzrPAsJea50H5j94+p1loTEKRRnzsLS/tDuiojuQOwar7eGH0iQCmTqYcN
-	SgYUxv/2Y9PDO3R1ZnoSV75lnJvldpb91LXzA2loHwFGIHBtL5F2y8Tz3Msc0rwvPQXa2wOmdl4
-	mHJuILNulXsNUW6NM5fFXHMaYKWd3zGZQIhblA9K9uhl2tfHV7AIPYg/gfd1MlbVXsPvSAchTUN
-	8Cw2IwBEWa6JbGXcfLkmUUqWl2o+UQl1SQN3Lz0QaKrPOGQYUZbJ5eW0atGG6Wco0lxwXCn+b1S
-	JZkph37FmsaY9NSe5lZL687EqokAHFnp0X9Qh6ls+w1NhMcO0ERboqC5FJBnu2KlmmcSFKILnhg
-	k37Tr9z7fPTMOYgof54zWWMO678gEgi6TjpWN0sdnhnv8A==
-X-Received: by 2002:a05:6000:460d:b0:492:9c9:65de with SMTP id ffacd0b85a97d-4a36bd51e25mr6484255f8f.5.1794925401954;
-        Tue, 17 Nov 2026 06:23:21 -0800 (PST)
-Received: from localhost.localdomain ([2a06:c701:474b:1700:1234:6c4c:cfc6:45ff])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c888b90d4sm28417851f8f.9.2026.11.17.06.23.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 06:23:21 -0800 (PST)
-From: Avi Weiss <thnkslprpt@gmail.com>
-To: conor@kernel.org
-Cc: jic23@kernel.org,
-	pjw@kernel.org,
-	samuel.holland@sifive.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Avi Weiss <thnkslprpt@gmail.com>
-Subject: [PATCH v2] cache: sifive_ccache: skip disabled device tree nodes
-Date: Tue, 17 Nov 2026 16:23:17 +0200
-Message-ID: <20261117142317.1679285-2-thnkslprpt@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261028131939.1014720-2-thnkslprpt@gmail.com>
-References: <20261028131939.1014720-2-thnkslprpt@gmail.com>
+	Tue, 17 Nov 2026 15:52:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794930756; x=1826466756;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=TvP1lwl2p/FoqY4pTZ0m2d7ltv5FWa0x0Go76nDAdas=;
+  b=AcPn6yf2M/eE6WKJtLK0TPIxRruHx9BPlbunMlqGRt1LwKYfNcBsp7vQ
+   onCpaWXoaDXyQzLna52APjcTlmQ1Ghs5iBPlkeu+DR5e2XiNciHKBv1N3
+   4ZfUnJwlvuHYMWmHYH68cxKUWQNLrqvRqI10KDzj0fxnqqpqTbk+tXJao
+   /PgqqMPIoYsL9s3DxuLV6A3s+3oNEj6OkU6+L7wq7rEffVzCeYL04/pnG
+   Sfgcb2yVqHItl2N3WlVvmzBuMEyJGaPH8+agAp2WdItTkxSR539b6YpNw
+   RjVeWGrDNIbwUSR/rrwmWeLpvjMcqRKhmSs/9VT1FRuRxvQjosa9/JJ/Z
+   g==;
+X-CSE-ConnectionGUID: kE81L71NRbmAITqYfQVxug==
+X-CSE-MsgGUID: QGlrLP9bTYOcJ/zCExJrwA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3607155"
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="3607155"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 07:52:33 -0800
+X-CSE-ConnectionGUID: nQJGT9vrTBm78WVKeq8c9g==
+X-CSE-MsgGUID: 4jDXrtXFRI22ZtaMHJz+Fw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="11682989"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa011.fm.intel.com with ESMTP; 17 Nov 2026 07:52:30 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xTLTu-00000001Bwd-1doc;
+	Tue, 17 Nov 2026 15:52:26 +0000
+Date: Tue, 17 Nov 2026 23:51:47 +0800
+From: kernel test robot <lkp@intel.com>
+To: Nylon Chen <nylon.chen@sifive.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Shuah Khan <skhan@linuxfoundation.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Nylon Chen <nylon.chen@sifive.com>
+Subject: Re: [PATCH 1/2] riscv: traps: Add support for vector misalignment
+ handler
+Message-ID: <202611172359.8iKyKE2d-lkp@intel.com>
+References: <20261116-riscv-vector-misaligned-v1-1-6c4d0ca905b7@sifive.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20261116-riscv-vector-misaligned-v1-1-6c4d0ca905b7@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261117_062324_862039_55D054DB 
-X-CRM114-Status: GOOD (  12.24  )
-X-Spam-Score: 0.4 (/)
+X-CRM114-CacheID: sfid-20261117_075235_406550_B32D310F 
+X-CRM114-Status: GOOD (  15.06  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,55 +93,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.3 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,FROM_LOCAL_NOVOWEL,
-	HEADER_FROM_DIFFERENT_DOMAINS,HK_RANDOM_FROM,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-sifive_ccache_init() uses of_find_matching_node_and_match(), which may
-return a device tree node marked disabled. The driver can then map and
-access registers of a cache controller that the device tree marks
-unavailable.
+Hi Nylon,
 
-Check the selected node's availability before accessing its registers.
-Return -ENODEV for a disabled node, releasing the reference through the
-existing error path.
+kernel test robot noticed the following build errors:
 
-Fixes: a967a289f169 ("RISC-V: sifive_l2_cache: Add L2 cache controller driver for SiFive SoCs")
-Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
----
- v2:
-- retain the single-node lookup instead of iterating over matches - as
-  suggested by Conor Dooley
-- use the existing error path to release a disabled node
+[auto build test ERROR on 05441d697f7f9a927264f4058cbbc6a03dfcac9d]
 
-Link to v1: https://lore.kernel.org/r/20261028131939.1014720-2-thnkslprpt@gmail.com
+url:    https://github.com/intel-lab-lkp/linux/commits/Nylon-Chen/riscv-traps-Add-support-for-vector-misalignment-handler/20261116-233837
+base:   05441d697f7f9a927264f4058cbbc6a03dfcac9d
+patch link:    https://lore.kernel.org/r/20261116-riscv-vector-misaligned-v1-1-6c4d0ca905b7%40sifive.com
+patch subject: [PATCH 1/2] riscv: traps: Add support for vector misalignment handler
+config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20261117/202611172359.8iKyKE2d-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 16.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261117/202611172359.8iKyKE2d-lkp@intel.com/reproduce)
 
- drivers/cache/sifive_ccache.c | 5 +++++
- 1 file changed, 5 insertions(+)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611172359.8iKyKE2d-lkp@intel.com/
 
-diff --git a/drivers/cache/sifive_ccache.c b/drivers/cache/sifive_ccache.c
---- a/drivers/cache/sifive_ccache.c
-+++ b/drivers/cache/sifive_ccache.c
-@@ -301,6 +301,11 @@ static int __init sifive_ccache_init(void)
- 	if (!np)
- 		return -ENODEV;
- 
-+	if (!of_device_is_available(np)) {
-+		rc = -ENODEV;
-+		goto err_node_put;
-+	}
-+
- 	quirks = (uintptr_t)match->data;
- 
- 	if (of_address_to_resource(np, 0, &res)) {
+All errors (new ones prefixed by >>):
+
+   arch/riscv/kernel/traps_v_misaligned.c: In function 'misaligned_v_ld_emulator':
+>> arch/riscv/kernel/traps_v_misaligned.c:670:17: error: implicit declaration of function 'kernel_vector_begin' [-Wimplicit-function-declaration]
+     670 |                 kernel_vector_begin();
+         |                 ^~~~~~~~~~~~~~~~~~~
+>> arch/riscv/kernel/traps_v_misaligned.c:676:17: error: implicit declaration of function 'riscv_v_enable'; did you mean 'riscv_ipi_enable'? [-Wimplicit-function-declaration]
+     676 |                 riscv_v_enable();
+         |                 ^~~~~~~~~~~~~~
+         |                 riscv_ipi_enable
+>> arch/riscv/kernel/traps_v_misaligned.c:768:17: error: implicit declaration of function 'kernel_vector_end'; did you mean 'kernel_cred'? [-Wimplicit-function-declaration]
+     768 |                 kernel_vector_end();
+         |                 ^~~~~~~~~~~~~~~~~
+         |                 kernel_cred
+>> arch/riscv/kernel/traps_v_misaligned.c:775:17: error: implicit declaration of function 'riscv_v_disable'; did you mean 'riscv_ipi_disable'? [-Wimplicit-function-declaration]
+     775 |                 riscv_v_disable();
+         |                 ^~~~~~~~~~~~~~~
+         |                 riscv_ipi_disable
+
+
+vim +/kernel_vector_begin +670 arch/riscv/kernel/traps_v_misaligned.c
+
+   643	
+   644	int misaligned_v_ld_emulator(struct pt_regs *regs, unsigned long insn)
+   645	{
+   646		int ret = 0;
+   647		unsigned long vl, vtype, vlenb, vstart, base, stride;
+   648		unsigned long vd, vs2, view, vsew, vlmul, emul, vemul;
+   649		unsigned long len, nf;
+   650		bool illegal, masked;
+   651		bool is_usermode = user_mode(regs);
+   652		u8 mask[VLEN_MAX / 8];
+   653		u8 bytes[8 * sizeof(u64)];
+   654	
+   655		/*
+   656		 * User mode: IRQs are enabled by do_trap_misaligned(), so we can use
+   657		 * kernel_vector_begin() which saves the user's vector state to datap.
+   658		 * We then read CSRs from the saved vstate (not hardware) because
+   659		 * kernel_vector_begin() -> riscv_v_vstate_save() modifies the hw CSRs.
+   660		 *
+   661		 * Kernel mode: IRQs are disabled (NMI-like context), may_use_simd()
+   662		 * returns false, so kernel_vector_begin() cannot be used. Instead we
+   663		 * enable vector directly and read CSRs from hardware; get_vreg/
+   664		 * set_vreg access individual register elements in place via vstart +
+   665		 * vsetvli(tu), without disturbing the rest of the register file.
+   666		 */
+   667		if (is_usermode) {
+   668			struct __riscv_v_ext_state *vstate = &current->thread.vstate;
+   669	
+ > 670			kernel_vector_begin();
+   671			vl = vstate->vl;
+   672			vtype = vstate->vtype;
+   673			vstart = vstate->vstart;
+   674			vlenb = vstate->vlenb;
+   675		} else {
+ > 676			riscv_v_enable();
+   677			vl = csr_read(CSR_VL);
+   678			vtype = csr_read(CSR_VTYPE);
+   679			vstart = csr_read(CSR_VSTART);
+   680			vlenb = csr_read(CSR_VLENB);
+   681		}
+   682	
+   683		base = GET_RS1(insn, regs);
+   684		stride = GET_RS2(insn, regs);
+   685		vd = GET_VD(insn);
+   686		vs2 = GET_VS2(insn);
+   687		view = GET_VIEW(insn);
+   688		vsew = GET_VSEW(vtype);
+   689		vlmul = GET_VLMUL(vtype);
+   690		illegal = GET_MEW(insn);
+   691		masked = IS_MASKED(insn);
+   692		len = GET_LEN(view);
+   693		nf = GET_NF(insn);
+   694		vemul = GET_VEMUL(vlmul, view, vsew);
+   695		emul = GET_EMUL(vemul);
+   696	
+   697		if (IS_UNIT_STRIDE_LOAD(insn) || IS_FAULT_ONLY_FIRST_LOAD(insn)) {
+   698			stride = nf * len;
+   699		} else if (IS_WHOLE_REG_LOAD(insn)) {
+   700			vl = (nf * vlenb) >> view;
+   701			nf = 1;
+   702			vemul = 0;
+   703			emul = 1;
+   704			stride = nf * len;
+   705		} else if (IS_INDEXED_LOAD(insn)) {
+   706			len = 1 << vsew;
+   707			vemul = (vlmul + vsew - vsew) & 7;
+   708			emul = 1 << ((vemul & 4) ? 0 : vemul);
+   709			stride = nf * len;
+   710		}
+   711	
+   712		if (illegal || vlenb > VLEN_MAX / 8) {
+   713			if (is_usermode)
+   714				force_sig_fault(SIGILL, ILL_ILLOPC, (void __user *)regs->epc);
+   715			ret = -EFAULT;
+   716			goto out;
+   717		}
+   718	
+   719		if (masked)
+   720			get_vreg(vlenb, 0, 0, vlenb, mask, is_usermode);
+   721	
+   722		do {
+   723			if (!masked || ((mask[vstart / 8] >> (vstart % 8)) & 1)) {
+   724				unsigned long addr = base + vstart * stride;
+   725	
+   726				if (IS_INDEXED_LOAD(insn)) {
+   727					unsigned long offset = 0;
+   728	
+   729					get_vreg(vlenb, vs2, vstart << view, 1 << view,
+   730						 (u8 *)&offset, is_usermode);
+   731					addr = base + offset;
+   732				}
+   733	
+   734				csr_write(CSR_VSTART, vstart);
+   735	
+   736				for (unsigned long seg = 0; seg < nf; seg++) {
+   737					for (unsigned long i = 0; i < len; i++) {
+   738						u8 *src = (u8 *)(addr + seg * len + i);
+   739	
+   740						if (is_usermode) {
+   741							if (get_user(bytes[seg * len + i],
+   742								     (u8 __user *)src)) {
+   743								if (IS_FAULT_ONLY_FIRST_LOAD(insn) &&
+   744								    vstart != 0) {
+   745									vl = vstart;
+   746									break;
+   747								}
+   748								ret = -EFAULT;
+   749								goto out;
+   750							}
+   751						} else {
+   752							bytes[seg * len + i] = *src;
+   753						}
+   754					}
+   755				}
+   756	
+   757				for (unsigned long seg = 0; seg < nf; seg++)
+   758					set_vreg(vlenb, vd + seg * emul, vstart * len, len,
+   759						 &bytes[seg * len], is_usermode);
+   760			}
+   761		} while (++vstart < vl);
+   762	
+   763	out:
+   764		if (ret == 0)
+   765			regs->epc += 4;
+   766	
+   767		if (is_usermode) {
+ > 768			kernel_vector_end();
+   769		} else {
+   770			/*
+   771			 * Restore vl/vtype clobbered by get_vreg/set_vreg's vsetvli.
+   772			 * vsetvl also resets vstart to 0 (the correct post-insn state).
+   773			 */
+   774			vsetvl(vl, vtype);
+ > 775			riscv_v_disable();
+   776		}
+   777	
+   778		return ret;
+   779	}
+   780	
+
 -- 
-2.47.3
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
