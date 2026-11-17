@@ -2,205 +2,97 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3925606A323
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 13:10:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5C69606A329
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 13:12:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KcJZ1dDh;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=g68O0WDJ
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EC70/Upy;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ELVJJtzR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ii8zmG4NYpWZxee/ssPKuF871SUMn1XSmi8sNTLCYiE=; b=KcJZ1dDhW7DkFrvhkBu3wlzF7n
-	yuif3YVIKH9Bv9z/Z0XUewTPkHx4b74yfbJY1OHrnTJVHQeJgxM66ZzkLvIIqny+V3TGZ89MeH4EB
-	ALYYvAgy0/9VdSXXZmLXwogtY5s+CfWCZRrc0F08t+yKWtQx05C1nrDM5D+Y2dl0gnlYOUlxipBb/
-	5BJDFj1e9CfhB36fH41uE6cRZlYCxMc5j7UgA4uTHOzLC9SugcWNY4sJpaoZ/VJs3lRGvZWUXVYAa
-	4QUJaMrIXjVxBCmZ/0FzmLB4SwwjtDfVPnjK4+nbdtkq5zEl6wp39XXhGxJ3R2X9Gqa3S0FYHsBIy
-	JzePoYsw==;
+	bh=stBNRqAaJwTGmHEpbueLa6bxAUe789fjagsUDPylR04=; b=EC70/Upy1PvSxaiNCC6+emOk10
+	fpxRxSXEbKRuQkcAPyzzyVQfl2sjPXeL86+mchiJ45oPTpYxta4tw4ie8yotzruGB/hPQXwmH8/ZZ
+	lAwcHq/SUu7lkHdyTNOFqfddnIsXdy45cU6OeYLoowAs+87AXD7N0O6mn4x4HKkM7HuR4+JWxPtWP
+	Vf96Fvin70WjDvbPsI/K+ABKKi2tznJTDvgiX1XAdKPL7POFY+N4oHgLOjlc0Ji1W1RcLmq5hwL+v
+	k9WGSelF/JR2r5JfpXTZRK0sXNjtyRZxEwEVoNwi9wxjLy6V3owvmKaQDqOnfbzGgdvVI56UQqsdg
+	35la8mJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTIxY-00000005rVp-2I9J;
-	Tue, 17 Nov 2026 13:10:52 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xTIzD-00000005rw4-1t52;
+	Tue, 17 Nov 2026 13:12:35 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTIxV-00000005rV5-3Rxs;
-	Tue, 17 Nov 2026 13:10:51 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHC10cR3048152;
-	Tue, 17 Nov 2026 13:10:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-id:content-transfer-encoding:content-type:date:from
-	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	qcppdkim1; bh=+9kWJxr11lO+YgJRCHTigsu9Kn69Ixo2swPXgrPw//c=; b=g6
-	8O0WDJ2BOytMxOkpFXMOUjYWHnX455Xf2nnHMb73XKgVp66ApXQk9KOKU3Kmy2FX
-	HjRk1ml19YVOia0GiPtEjNuYbrUnk9KMKmaH7SjFcGa1siyNRNnAPHByNlamBy5y
-	j+bdRANwybfWwIGok47Sf33LyToTI/tr7E3uGXzYfEirXcgoywYyozBGmgGvgvqN
-	wUFvPoF84hrheC9eIF7JyoeYddsvsCHmOj7BkJPw0sIMufHzC95/cEI1B1XgUqVL
-	4jw1TxdebUGGrmkwIUsW3wzZpxsVQw9lWCvvREWqJnb0NYaBg046IhmRZ0/HKdrA
-	nDx44tTWa9cUQmuZ0gkg==
-Received: from ds2pr08cu001.outbound.protection.outlook.com (mail-ds2pr08cu00100.outbound.protection.outlook.com [40.93.13.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0mv10psr-3
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 17 Nov 2026 13:09:58 +0000 (GMT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KD/ctHSQN4Qq23rHXjATog8hJ2DruAIMgRWUKQcoROKLRbHUXdUU/a8HkRXzvx2dwUiLEzuUsCiOEr4mhYrTueCqKNs7R+HrpLotXCZo0GmB2sZ4Or3KO0wD9AMHkCdcjr4Msoi+Apu7PC4kbWk/o2xG4/dVzz2pbL8P4nOUm5zQWi2aDn1t7ciSYdP5S6IbUKGbebDPDO9CCNTtij7UDKInO2JzQW2JZCmGNrRyA2laAuEul3GDyAy/I3kXJTj+Vn5bAUeX8E95scGg5btouK4eHF7+ttVx9+ps5pf5DsyBuptcXe9RDuqIg6XnSrTAV8JYNSlm1398YwXqmRTuOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+9kWJxr11lO+YgJRCHTigsu9Kn69Ixo2swPXgrPw//c=;
- b=JjfB57AijIXEigB+bBCBNyy1zTHQYGFeGpTqeoHvjgTfuM0/L6u7XDVNw8z2JxNAS4OgybO/pMkDWH8P+tlFSFevGLE6VkRJ1+NkpvihDy95EeggeEXF4lBs+gCev6s/fz3TJ2NN84ETHkt21hCZXWOTSQVg/avpExRUIHdcLjMriXEiPJ0eNcl2AKGFi1fkRQgCi5//ah7vyHpqt159dJT63NITuk9wv7+Uf5OuIXl8TmthOIhq0w75KIzOojYSRf8cwVvOT3D3Dy6fEGDV+yW2D5+KeV+mriubMMH0uGmdYB11jxJ62ThZBVGBAv/9pbT/l5njPgAhhrxqsh0peA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=qti.qualcomm.com; dmarc=pass action=none
- header.from=qti.qualcomm.com; dkim=pass header.d=qti.qualcomm.com; arc=none
-Received: from DS7PR02MB9628.namprd02.prod.outlook.com (2603:10b6:8:da::9) by
- DS0PR02MB9151.namprd02.prod.outlook.com (2603:10b6:8:13f::21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.10; Tue, 17 Nov 2026 13:09:47 +0000
-Received: from DS7PR02MB9628.namprd02.prod.outlook.com
- ([fe80::c55e:2187:1013:66d8]) by DS7PR02MB9628.namprd02.prod.outlook.com
- ([fe80::c55e:2187:1013:66d8%5]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
- 13:09:47 +0000
-From: Radim Krcmar <rkrcmar@qti.qualcomm.com>
-To: Guodong Xu <guodong.xu@oss.qualcomm.com>
-CC: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert
- Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Randy Dunlap
-	<rdunlap@infradead.org>,
-        "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>,
-        "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>,
-        "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Conor Dooley <conor@kernel.org>,
-        "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>,
-        Andy Chiu <tchiu@tenstorrent.com>,
-        Florian
- Weimer <fweimer@redhat.com>,
-        Peter Bergner <bergner@oss.tenstorrent.com>,
-        Zihong Yao <zihong.plct@isrc.iscas.ac.cn>,
-        Mark Harris <mark.hsj@gmail.com>,
-        Aurelien Jarno <aurelien@aurel32.net>,
-        Andrew Jones <andrew.jones@linux.dev>,
-        linux-riscv <linux-riscv-bounces@lists.infradead.org>
-Subject: Re: [PATCH v9 3/4] riscv: hwprobe: Introduce rva23u64 base behavior
-Thread-Topic: [PATCH v9 3/4] riscv: hwprobe: Introduce rva23u64 base behavior
-Thread-Index: AQHdcEiWiDRZftbL5ESEOEwGp9ZFobcySUOA
-Date: Tue, 17 Nov 2026 13:09:47 +0000
-Message-ID: <DMXIDXA2V2S5.M1C8TT9U62FQ@qti.qualcomm.com>
-References: <20261109-rva23u64-hwprobe-v2-v9-0-ae846c5c7178@oss.qualcomm.com>
- <20261109-rva23u64-hwprobe-v2-v9-3-ae846c5c7178@oss.qualcomm.com>
-In-Reply-To: <20261109-rva23u64-hwprobe-v2-v9-3-ae846c5c7178@oss.qualcomm.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=qti.qualcomm.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DS7PR02MB9628:EE_|DS0PR02MB9151:EE_
-x-ms-office365-filtering-correlation-id: 8235319d-4501-45b9-c75d-08df44ac0e64
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|1800799024|22082099003|18002099003|6133799003|11063799006|4143699003|56012099006|261026140227099003|261028144727099003|261022075727099003|261009223027099003|10067099003|261021121427099003|261102123227099003|261102124527099003|38070700021|261026121527099003|261022105027099003;
-x-microsoft-antispam-message-info: FWW8nszB0kz5xi+czZAAB3MMfG0SFvRycrW1L8i7nC43/DQQGR/1yywO7VA+nP3+oAlOF7Q5P2dfZmVtbPAe4/QGTSEC7CkyFeYu4LTl+fc+yh9J/6slTlBAMsrX4GsPH25L5D+9TYBK3osacmoBLvwLVpMw9AUlDVBpEm0lUOBlSYNZbviQgGtnZZ0EgRcTj2o/uH0dmUKgeGBkHw/l96V1WgUgR/hb9C0KsNI614CyuF2WkFw+jadkDFnmng2cgluyckjBcbR0htJt9N9pBBrDvAaYhXaG6WZsSQ3UhAyzSsQEnDitwm2qQXbQ7PN9/GxekEzBOXUEilKzfBWm3t4uuOAl+GFUfP314Y9TWmeZidXGweKDT2ey2z8tDzGmmCYdRuaO489Ar4EAAIdUAHe/bPqVvjwv5W4PDxpEGtK1oOy5QqNIap8ndEuZIOx4tOiq3rWREusgAT9srFMnAGkLQ/N2FCU0LAh+YaCkYmGlzj7Yl1OGPxrqvoI73ndtUu+ZXKqJZWR6m0bKjKRx9HFhgAXAvsYyvV95hUkLZP3q92z+vgfilSfDA+Q+/nN5O1c12cZlKM0PD2bnJCZKvD1qE5MZ6fKvP6ZTTWyProNyUwxRg044FFvEL+2MPDJOdjSN5orlZmIphi/pYz2BprhYysTrf4Ff7o65e6mfRhQ=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR02MB9628.namprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(1800799024)(22082099003)(18002099003)(6133799003)(11063799006)(4143699003)(56012099006)(261026140227099003)(261028144727099003)(261022075727099003)(261009223027099003)(10067099003)(261021121427099003)(261102123227099003)(261102124527099003)(38070700021)(261026121527099003)(261022105027099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?YitjeTZhbGl2R1NKTGZ3M3p4dkJwWUJhbUVqd0c5TEhhYlBUdUl1M2xNbW4r?=
- =?utf-8?B?TVY1MWsvOEtQSGxaT2tEVElPL3o5NmNHVVdNbFJTQzRKUUl4My9ZK0FqQnE5?=
- =?utf-8?B?WFF2Q1dxS1ZFWTZVT3c5TXVFYWxnTVNrRHRyMnVKLzZKRENRMFBkKzFKT1Jm?=
- =?utf-8?B?M2djdURiUngya0tUZTFJQzk5bTN1TkpZRGlxVU5jUldEQ1Izbm9sdWwxZGU1?=
- =?utf-8?B?cTlVVlpQdEhUNUZCWHl4YW1BVHYxUXFtenhrR21KUTlMUEs4VG9rZjFFSHZP?=
- =?utf-8?B?S01zNkFvTnVmTW84S2lDWGY3eXM3azc2bk1acThQdVhCbDF3Um9tWlJWNmRC?=
- =?utf-8?B?YlNSMGc3WVZGRDQzWEZlNmdQTmRab29VcWcrSEVKeVpLaEZGbDg3UWdoL2o3?=
- =?utf-8?B?K0VzRXd6aFVVV2lWTEZWN1NoSkNsU3lUZUlFNW9KL1hrR1lQY3lMZ2JGQ1lC?=
- =?utf-8?B?ZXhSTkh1OEozQkFKYVNvR21GS1pzbGtaQnZtdTJWN0k4SXVPZ3Q0R0xhZ01R?=
- =?utf-8?B?Qk1ObDkzYS9tVTNCLzJkeEdDL1YzR0dzcHJRYm5pQ2tucUk4bGZ1N1Iza1M4?=
- =?utf-8?B?bWYyV0t1Z01IMEVsMURjcnZxYXNJNmE5ZmloR3FIN0h2eGwyanlZeWVHbm0v?=
- =?utf-8?B?K2IwbkQ0UFZwV0xOTGZzUlZhTC9QWGZ2d25CWmZBS1RRTjROa3owUUpLQ1Z4?=
- =?utf-8?B?QS96MjdTZUJNaHdSR2JGTE1SdHRHSU54RFBVQnV5UkFIU3ZRMXVqWW1VbzFE?=
- =?utf-8?B?dmExSXZrdGFaSTJmeWVSVll3VytaRnI4bHhvV3gvTWgxM2lqR0FpVm9xWlI5?=
- =?utf-8?B?a3I5YXBYdVhqWXhuaVBTdkwvRERGWkZkT1hUMXpDWlpUN0tJTStvdWhvU2N4?=
- =?utf-8?B?ZUJZSS84cE5yUUwwYmVTZ3ZSdFpheDlyc25ldHN0dWMvWHR2c3NMY3A1am82?=
- =?utf-8?B?QTRtN1R6WGk2ZllmS05vSURIVmcxam5sNWJ5a3E3WG5ZMWVrbitoYW9RMjZu?=
- =?utf-8?B?Y0N2YlAwMHdKbndnNFNaN3NSQXVWYm5GK3VkSFN5ekxwaWZxa1pGendRM2xn?=
- =?utf-8?B?Z1dOdEZzUE9nZjE1b3NtNlc4Vk5lSE5ZVU1mcFJ0OWVTZFRma080a3cydzZE?=
- =?utf-8?B?dE5SaENiYVE2ek1RakhZZkJvYTFzVHB3Wk0vOGpZVk0vWm0yL0Fob3BRcWMv?=
- =?utf-8?B?V0xhdTdFVWFvWVhhcGtrQThPRXRSZUhLNU9Kcm5tN1AyVWFNZGpRdzhYTGF5?=
- =?utf-8?B?eE1WWEt2Q3cyUzN1dnlTUW14T3ZYSk5xU0lmUURXelIvQjg4cmozUHZ2ZFkx?=
- =?utf-8?B?eGNFUTN6UTBad3JHbEFsTkw0OVhGeFV3a3grMFlyUWI5NDY1ei9wNUQ1bW5K?=
- =?utf-8?B?VjVhNVVIaVp2VWFPMENtUTBVVHJRcXpJeVdGdWxPRm50YnB3RDhzekxjQk9a?=
- =?utf-8?B?NlF3emlHRktOR0NIeUt2Q3R4eVVRU0VaNUV2T1pFQU9MdEFRZFM1OTVhMUVt?=
- =?utf-8?B?T3pMUjRqNVNSdGJiSDlBUVlaajRVcHVjTDlTdXdkUG41MnpTU2MxRm5EM3h0?=
- =?utf-8?B?ajQ3ekNnQ0pwcjlQRjBuRSs3ajZra1BNVGFrbmxxZmx0UFBlT001ZHlGeWlZ?=
- =?utf-8?B?VVRJbEtLVGwyKzZrTkJGSW9FZDJIL2VuRG5pOGFlZHpBSXcvRkJPTkh2U245?=
- =?utf-8?B?NHQ0dTA1cVhvSVFoY1cvaHlzd0Z3R1oyS0lKdDRHKzllb1dOUU1XY25qZkZk?=
- =?utf-8?B?a3hWUVdkcFZZcEpjVVo0ek5uclk4aFZXNFZ5bkd6SEpvR0p3VFAyMC9pMGw1?=
- =?utf-8?B?cjlpOE9yV09VWVBLdEQ5NzBIWHBoRkF2VTJqaG5BUUsrNkRSVFFkZ1RrOWdz?=
- =?utf-8?B?OCs1dG1Uc0VFQzlUbGszZkorN2tBdXdTSEwrTmdrWlB4eVJqSUU1ZHY4YjV1?=
- =?utf-8?B?ZFhkM1dIa2VrbGJxa2FLZTFoUldqWnVMSG1vOWQvcnZXbU5EQkkrRUNlK3VQ?=
- =?utf-8?B?aGtneU1GS0gvZFJnUVNiZi9aYXFFUHZjVEVGWEtjOEdyekl4WGUwVVdrREsy?=
- =?utf-8?B?SlpWckFSa0RLeW1yVnB1M2I4OEJRRWZFNzFLSFpxZC9ZemlVWTNNb2c1dFFa?=
- =?utf-8?B?RXNBT2JxQ0QrUERnMFBZYTRwcWFRSlVNMjJCV255K0k4eWl0MEZYYlFlOVhP?=
- =?utf-8?B?ZENNSXEwa3FTc0FLNUNRVmxZT2ExdjAwOVB4bFR0RFJZbXFzVTIzaXI2cDh5?=
- =?utf-8?B?aEUxdWdxcXVOTjV1VUQzcWFZVjN2RGtzS2w3WEF1bmJFUjlhUlRLM2ZoblY1?=
- =?utf-8?B?UndDTDBJWlRqTjIwdU9XQVdia1BFOGc5Wm9VWlpHRy9mUm5ydXdrMVYrT3ZP?=
- =?utf-8?Q?MxRUcUESLVbH3kIc=3D?=
-Content-ID: <17C9CC70F58E2E4EBC28EA7F59E109FD@namprd02.prod.outlook.com>
+	id 1xTIzA-00000005ru7-1erX
+	for linux-riscv@lists.infradead.org;
+	Tue, 17 Nov 2026 13:12:33 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-48e3b22e971so2371266f8f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Nov 2026 05:12:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794921150; x=1795525950; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=G4E5w3vIfYrEz/focXkw7N0ugWTu4zF6SufD8ZnoE6g=;
+        b=ELVJJtzRc2EVK3ymiqeyBLW+Pwapxvc/8TiUAiIrm7txnwgPSNLGm4rAg0aZaH4RKl
+         CTAmNFhgtmOlsLTlkOF9tYM0bUtJJDhgZsI1m2L5mTrWyV4HJ1T/XhXru4yzaAhCQmec
+         T+chT+YFhM0CswcAZ/ycVp1X7JdrplzUlVdjer/08BCKCJNtzqGZBabjCcI6ba7YrPB8
+         fEuTJOxRI0f5euFPgLBhqNOXRnmjCHprDxEOePDPLrJnnlmoxy8btisMJUZKV9Ndzsd8
+         gbOfT1z1KCPt4rbXhFm/UEltIjyCndHKE11ZJkC3L8nBHiF8V+rOcI0mbbLf5IIiOU+Z
+         yeqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794921150; x=1795525950;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=G4E5w3vIfYrEz/focXkw7N0ugWTu4zF6SufD8ZnoE6g=;
+        b=1i8yqnm4/JzRm8t6CHoviBlATqk6DZZbwi6Cx+7W4l+PrAmYv4sp7jn7Wd1vnKJPDG
+         zJ7yOGJ2x1B5DcjwAbMrjLse8Eu2YWHVIuP6YAtSixNBXEHzDr3EKKuXmBeABGVK6SO/
+         rJlfQTss0WJdQApy3PTAdAozD/W5WX98jOC8rjaNCNTddAmNY9ulh1tdCqeSRJ9mmmL9
+         N4r/F+S6XofOfjQ4SSB9D3pO5tcDXgkaM7FAFDJhckZFK+aWlJgoJHSTtuST4YdMolYf
+         MPeJiIleXLTTFXVj3RHf/O+fIx9tmYq6F/MhYMQKx9cMfCqc7wKq77ReVAZNcfXp5FJE
+         /1xQ==
+X-Forwarded-Encrypted: i=1; AL+hErEMPa/ws3j+hQjH2IVoOHQ1UnuVJ5XTBPhfwsZQYXWOF383dsnImDm2ELThZ0yCZvpubXa+I0Z/A28M4g==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/6CHq4TeIATrvhUUoctxcjANGjnEKSETg8FdZino99uxZs52ta
+	3uXzVdCRY4eYnvi3fCsZIU4phvhU884ySj2PMs11UupRqVaYczdzikDO
+X-Gm-Gg: AZFdTZdXl7bjHSxaNK6cjL4JmxPjsTa3k/A3SP0PqN7ldBVkPCzwig3IoWspaG0nbDa
+	Qvj5/aPJPEymdtcLrZGAZOilEdY8ck7xurQDJjlCOdq0th3qlqPc8uUPCQf/Vl5Bxy9gzb+jg7l
+	UFveVzpr/eibR6LJQxvxWBcWYxcPSWWoyI21b8DBhjhSkMzbEx0G94V0Un38PL4E0OBFQ+Ja0Wd
+	ppaKPolU4nqBQ7RtLhmJQ9WYs1k2oEm/zRwN7EXY5fpFJzjPuP0iN6FhScfWvBq94Oy+baaFa6w
+	w+oVjjjZDQV/hijVgyz8QvduzzLFJTI8tkTIRN06FPe4XzeLP0kuROKXc+aj+x2dbJn96yuw21O
+	jBlKygHmovFH0HvMYZCWlzkYwt4dKkIAaV4j8gFbLifRM/00BoiKr9ORe6Xq32Lppl8ctQi9iAr
+	HdyoIxDzWRkTiwnipCZVTE+3PT+DQ82ih3IwUQ4ZzK4pIjOODjXO5pZthbuCbYIuB3vu8c9MDDk
+	kCxCFoOlP6IWy+40h9u4BWyi1DNbkrLQnDV+ce3XjdXWThnlYQYYyFZ6z8niZ796PFEMipkZA8A
+	8IUKfim6buyl8Cj2UxDS3lQnGC7XLa5bfPj4NHTYc5EBJAyBOh4Zqk2vmLZvFmF0ag==
+X-Received: by 2002:a05:6000:178e:b0:490:ae2:b841 with SMTP id ffacd0b85a97d-49c73a05d9amr29331087f8f.30.1794921149776;
+        Tue, 17 Nov 2026 05:12:29 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c81a63b1csm26732407f8f.4.2026.11.17.05.12.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 05:12:29 -0800 (PST)
+Date: Tue, 17 Nov 2026 13:12:27 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Nylon Chen <nylon.chen@sifive.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Shuah
+ Khan <shuah@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, Yeting Kuo
+ <yeting.kuo@sifive.com>
+Subject: Re: [PATCH 0/2] riscv: Add support for vector misaligned load/store
+Message-ID: <20261117131227.3919c5bd@pumpkin>
+In-Reply-To: <20261116-riscv-vector-misaligned-v1-0-6c4d0ca905b7@sifive.com>
+References: <20261116-riscv-vector-misaligned-v1-0-6c4d0ca905b7@sifive.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: g5cLTn4gqQwZl9h+zGH+55gytherLN2Gqlmf/cOTxwQQsQc+NrchbBhcQXtrh0AbE4NqzmC/CHRvLTPgVViSzNQcw2LQY/wGchd3EmkxEPpmCcP/+fODM72wBE3zpT8aiDr5NN+8+YAcuFuNwKHSNrKYwDHC8eyY2d6583GQdDJFbkR5pKEwFkuIqPHq4TUQevhbt/Te4tNFL1Hend1pKEmskmFIPAnTr896KvdpR7ZiupRBxuqCpWNLIDiqmKmR9bmezxSijTOeB6KRWBoDDXTQIgIELvCQS/AQ/QH2wHoLQqJmQoXDamuOAqQPOIySNt5n45HjcBqGgZWe2n/9Uw==
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 5smfjXhnNSoIOmRTrR9CyiRQP45GSYc8nxji2w1gpwPXJ7QCTr298K6p3GJ/bPE2gKjdpGt6EhyHyTXQSkeJPNB9YM7DHgP8p02HLIMSLMva8T2ltJMsSdsL0fB0mOtigyo/9/ePt6QYZgwcGJQePp0tHvFBUwc+LuU0MbdPjTpzJ5b2Hftwg5dkoKUvzQYG7Ny+09v6JEK9ZNuNLfyq7fqVoP74OlqrXTuQXIW6DN+EsbN+2wB8+mAsw8wAaMtSLgnP5NF6ii/RlXG/e1b/7XHAbAHFtDfchRAubAdz8Tknf0j3NngQHNb6MdPng987p1Ff0TsrEwIUe4ijkwIKKgOets8CaXsnmgyCbJdSUj9rW+z38OpAGa4d74xQFid1qb4HnofpbN1Ukwc78rSgqtKSB5HPnn1xjtvaDW37SLD2GxCngAXPW7I2TWGRk5LXVAQsx5fj5elqIrWAsCRI280xxUGD9+NrJFDg8fuC3iBUKDh3mb5q9CxQGLfblavkV4MFwFYnF1dInEDecvEqFfwM8rknBHLAjmeNwb6jmxyiTOclEzfBvLfrlUEC24NK7tJGyQRtw4B++wufFOORWr8hZV8Yp+1lxa7/NRR6rb7yjyIJr9TIFoFot+P8E5Bu
-X-OriginatorOrg: qti.qualcomm.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR02MB9628.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8235319d-4501-45b9-c75d-08df44ac0e64
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Nov 2026 13:09:47.6253
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 98e9ba89-e1a1-4e38-9007-8bdabc25de1d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: B9MMHlr/z4w5M0PKjbbv3mLMUskxwBGFuTROoYLerupxsxzXbWKvBW+Yx4g5x7/HAF3y2MrX4iqOjZrei455S0E5fsEpIXCdI51raIqZ+I8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR02MB9151
-X-Proofpoint-GUID: M57QbB2J1HJKygXvZG1tX_E_62RBbyzV
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA1MiBTYWx0ZWRfXzSJb55pxJpTL
- IqZnnQcYLexyHrIKJza25iax3UMvFwNiFT9OFc8E3cdrlB4x5+Isp3d9GBvxFyBAVchcv1amBfQ
- tM/2jOWlX0lx73T3EsyKSwxuNBRePhw=
-X-Proofpoint-ORIG-GUID: M57QbB2J1HJKygXvZG1tX_E_62RBbyzV
-X-Authority-Analysis: v=2.4 cv=Cuwq4X4D c=1 sm=1 tr=0 ts=6afc5226 cx=c_pps
- a=K3WqU0CFElt1sixC1y5dJg==:117 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=zJRp6_cAMcgA:10 a=f7IdgyKtn90A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=EUspDBNiAAAA:8
- a=5GukrH6rrJpwUPyuye8A:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA1MiBTYWx0ZWRfXzH8LQ2QGSe7W
- jlkxgFs6ceHpVxflUYvA9L6k8N3yM4LnSloyqsOgdOp3a9kYrWwL9PFmQmUVA2oBRwiiPTAqL3Z
- gAI9V5mOxMPjoKmfBOL/RBy24J2DIRinuo9zDICLTsbpBecnaNkBIXpn/o3ZMl+sn156aEQFU5Y
- OPkTzU8ZJlrLFi3xWVjyp0IDXibMNhS++G2Wd76dXRPDLiSjuJk8zB/BDWo1nOJFhm5enKy4bMo
- 5xIs/W+88ycVd93PNk1LqC43z8SGmq6J5xFvVpQDxv3CJ1Aoz8cdfXCsohSUA/6mQv/KtU1BXah
- MGn2sxn7K9rK0kNKvTMEYxfn9Ibnwsnf8Zx2HJojmfhsnVyBTHx7rNko1W1E/I+roLtN78vevI2
- AKFUlzeq1fOY28g2t6BYh9Ctl9vdBTa3ZYMLCC8/lqilVZM/VurxI/jkOo6Rt3hAKTGCEhpM9DO
- H2Y/x/13Hsqf4CkDBNQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-17_02,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 bulkscore=0 adultscore=0 clxscore=1011 priorityscore=1501
- spamscore=0 malwarescore=0 impostorscore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611170052
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261117_051049_880845_9CDEEBB8 
-X-CRM114-Status: GOOD (  17.91  )
-X-Spam-Score: -0.6 (/)
+X-CRM114-CacheID: sfid-20261117_051232_457962_CF3898F1 
+X-CRM114-Status: GOOD (  13.42  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -213,84 +105,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	HK_RANDOM_FROM,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-2.3 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2 autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-2026-11-09T07:47:36-05:00, Guodong Xu <guodong.xu@oss.qualcomm.com>:
-> Provide a hwprobe base-behavior bit, RISCV_HWPROBE_BASE_BEHAVIOR_RVA23U64,
-> so userspace can check RVA23U64 support in one call.  Without it, a
-> consumer has to test more than thirty extension bits across three
-> hwprobe keys, and still cannot confirm that PMLEN=7 is selectable
-> without prctl() calls that change the calling thread's state.
-> Userspace treats RVA23U64 as a new base, so expose it as one.
->
-> The bit is reported for a set of CPUs when each of them has the
-> RVA23U64 mandatory extensions.  F, D, C, V, Zicbom and Zicboz must in
-> addition be present on every hart, as the kernel handles these across
-> all harts.
->
-> Co-developed-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
-> Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
-> Signed-off-by: Guodong Xu <guodong.xu@oss.qualcomm.com>
-> ---
-> v9:
-> - Report RVA23U64 only when F/D, C, V, Zicbom and Zicboz are present on
->   every hart, in line with IMA_FD, IMA_C, IMA_V and the host-wide
->   Zicbom/Zicboz enables (Radim).
-> - Update the RVA23U64 entry in hwprobe.rst.
-> - Reword the commit message.
-> - Revert RISCV_HWPROBE_BASE_BEHAVIOR_IMA to hardcoded; do not compute
->   it from I, M and A.
-> ---
-> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-> +static bool hwprobe_has_isa_base(const struct cpumask *cpus, unsigned int base)
-> +{
-> +	int cpu;
-> +
-> +	/*
-> +	 * F, D, C, V, Zicbom and Zicboz are RVA23U64 mandatory extensions
-> +	 * that the kernel enables for user mode only when every hart has
-> +	 * them, partly because their enable bits (sstatus.FS/VS,
-> +	 * senvcfg.CBCFE/CBZE) are managed across all harts rather than
-> +	 * per hart.
-> +	 */
-> +	if (base == RISCV_ISA_BASE_RVA23U64 &&
-> +	    !(has_fpu() &&
-> +	      riscv_isa_extension_available(NULL, C) &&
-> +	      has_vector() && riscv_isa_extension_available(NULL, V) &&
-> +	      riscv_isa_extension_available(NULL, ZICBOM) &&
-> +	      riscv_isa_extension_available(NULL, ZICBOZ)))
-> +		return false;
-> +
+On Mon, 16 Nov 2026 23:38:36 -0800
+Nylon Chen <nylon.chen@sifive.com> wrote:
 
-Looking at the condition, I feel a bit uneasy about code duplication...
+> This series adds emulation support for misaligned RISC-V vector
+> load/store instructions, which may currently fault/trap without being
+> handled on hardware that does not provide misaligned vector memory
+> access support.
+> 
+> Patch 1 implements the trap handler, with emulators for vector
+> load/store covering unit-stride, strided, indexed (ordered and
+> unordered), segment, whole-register, and fault-only-first forms, for
+> both user and kernel mode traps.
 
-> +	for_each_cpu(cpu, cpus) {
-> +		if (!riscv_isa_base_available(hart_isa[cpu].isa_bases, base))
-> +			return false;
-> +	}
+I'd have thought that the cost of emulation would so high that you
+really don't want to be doing it at all.
+I guess you can't stop userspace (they'll just wonder why their optimised
+vector functions perform so badly), but I cant see any reason for fixing
+up faults in kernel space.
 
-Could we avoid the isa_bases here and just report the base as a function
-of other hwprobe bits (and the awkward PMLEN)?
+David
 
-I think something like the following would directly make use of any
-fixes we apply to the detection of hwprobe features:
+> 
+> Patch 2 adds a kselftest exercising these code paths across the
+> various vector instruction forms and element widths.
 
-  static bool hwprobe_has_rva23u64(const struct cpumask *cpus) {
-  	/* IMA extensions are required by the kernel. */
-  	return riscv_have_user_pmlen(7) &&
-  	       hwprobe_ext0_has(cpus, RVA23U64_EXT0) &&
-  	       hwprobe_ext1_has(cpus, RVA23U64_EXT1); }
-
-Where the two RVA23U64_EXT are hardcoded bitmasks of RVA32U64 extensions
-and hwprobe_ext_has is tweaked slightly to accept a bitmask and return
-true iff all extensions match.
-
-Thanks.
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
