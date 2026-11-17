@@ -2,72 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BF57606A32F
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 05:25:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74406606A31C
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 05:34:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PjaC4lJb
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=o7fpwK+n;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b=t4oNpCg/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Qs8KIZt7qiycfQH21MlRm4QiI7NxOHgAv33j0WyTh5Y=; b=PjaC4lJbyYg3A4SzFSe6JBxJhO
-	CsM5XzssAsk8cJ2QasfswTGMKbNQKAzUcqFhYiOZJUf2LhMnUidIqVd1wDTNgC3d1a/VCHUuzBdxA
-	3k6WV3/QeqEGwPjvLnlXM27IBdCln0Q/zPWKnSnPdAum03b5b+/Z8B9U4rI9JWYubyQTIql8jOODe
-	T3NWP2rYTwr2HtSipDSffmHnXCcJV2EuP558ckRfhm2hs9kQGXYqMJ3pVU2QFxYmfBxVEyx32DRPS
-	2MD41NCo8aC3NrDANxjV4aBfTZ9RBmKWlfDtwx9gu+F19ClRdmxyWnlVCWYidyWpjWQVhhZNZS8rJ
-	wyFfcU8w==;
+	bh=I/SdlJEY3id4jMbhbJHkE868ROPJLrw48j7yY2Tujok=; b=o7fpwK+n5d7kgZb+USfe5sZsfF
+	6Gr0X4G13AMndGFtQxvIVYbM69oaVqoji9gwZG6f+bAL9aWKKyle1Z0njmqqi11Qo3oJMNx68KJ1v
+	vftfZAD6LrC7RgsXy8vY0E+sTCO4QTgP1kSDnotVvIdvOM19bVI2NfLeKwkFnQbLr6SPJYa2OaETq
+	1yOiqzzk3YWuEu4qf2FRir5gIPcnExEWsF8Ar0XQZFCXFnpjuQvBpKJ4O6d7zWgZqyRKgAnah5sQJ
+	VapTtEdAK6h8zCsIvbqAYufd3oGlqOA7Kxa/WalGhsnGitt4h5O9jvrrVd5iyTRsBYFqH2tP+z6wz
+	PPfGpBJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTBgr-00000004b6D-1y6d;
-	Tue, 17 Nov 2026 05:25:09 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1xTBph-00000004bwd-33uZ;
+	Tue, 17 Nov 2026 05:34:17 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTBgl-00000004b5L-3FmF
+	id 1xTBpe-00000004bw9-3Odw
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Nov 2026 05:25:08 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.23])
-	by APP-03 (Coremail) with SMTP id rQCowACntpcp5ftqHrw1AQ--.11450S2;
-	Tue, 17 Nov 2026 13:24:58 +0800 (CST)
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>
-Subject: [PATCH v2] dt-bindings: mfd: syscon: add T-Head TH1520 compatibles
-Date: Tue, 17 Nov 2026 13:24:56 +0800
-Message-ID: <20261117052456.3747585-1-zhengxingda@iscas.ac.cn>
-X-Mailer: git-send-email 2.56.0
+	Tue, 17 Nov 2026 05:34:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=uv0Ajg/ZOj9nmloBlqc5KvujqzinojKoKdNon67mJq8=; b=t4oNpCg/JzIcewr8iMyCEB9uvi
+	XGHUBmQTtxLRh//FgdVeDyVTrvME8RoKx9VfvZF+mAhD6XaxooBF5HYvQfPSxTHzECKUCnrprzbS4
+	diWHSaaPoU8mBzBUhKznCEIM1j5j2HPOvK+PfkEBn33c4JNmrVP070WSHpo72X3hFNa5dzkrOOC3h
+	eq6uXsEXc+UIi0AuBn9QvpSmy4v0G80+EJoU1XSVwxkDqIAv9vYIxT9JhvTV6mNQl4ZYKylDXlyxH
+	jdBKYTH4meTdq1WYPQTCMI8TDIc34WB9ctzotxxawmtORvDzVgAIZ09P5Y/wYkto6FVYNVAa73iT1
+	87qYJCkg==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1xTBpP-0000000Fa7M-0bSc;
+	Tue, 17 Nov 2026 06:33:59 +0100
+Date: Tue, 17 Nov 2026 06:33:58 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@kernel.org>,
+	"open list:I2C SUBSYSTEM HOST DRIVERS" <linux-i2c@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+Subject: Re: [PATCH v1 2/2] power: reset: spacemit-p1: Use atomic I2C
+ transfers for power-off and restart
+Message-ID: <avvnRkK9agPSdzac@aurel32.net>
+Mail-Followup-To: Anand Moon <linux.amoon@gmail.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@kernel.org>,
+	"open list:I2C SUBSYSTEM HOST DRIVERS" <linux-i2c@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+References: <20261110061429.2036-1-linux.amoon@gmail.com>
+ <20261110061429.2036-2-linux.amoon@gmail.com>
+ <avpN-gFOvTBAMY6G@venus>
+ <CANAwSgT_k35_waHL-+iU93f=k3fjFAPXhk=exRz-XHMm2MqREA@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowACntpcp5ftqHrw1AQ--.11450S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrKrWUtFWxCw1DtF45uFy8Zrb_yoWkCFbEgF
-	4xJF4Yya1xAFWrtayvqFs7JF1fJw4ak3srAw18GF43J34SvFyjqFZ7J3yYkrW8uF4fuF17
-	CF97X3y7GanrKjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb3xFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
-	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
-	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
-	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
-	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvf
-	C2KfnxnUUI43ZEXa7VU13ku3UUUUU==
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Content-Disposition: inline
+In-Reply-To: <CANAwSgT_k35_waHL-+iU93f=k3fjFAPXhk=exRz-XHMm2MqREA@mail.gmail.com>
+User-Agent: Mutt/2.4.1 (2026-07-04)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261116_212504_200201_58CD6A53 
-X-CRM114-Status: UNSURE (   6.35  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -4.2 (----)
+X-CRM114-CacheID: sfid-20261116_213414_996010_B67FA594 
+X-CRM114-Status: GOOD (  39.24  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,53 +90,143 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, mfd@lists.linux.dev, linux-kernel@vger.kernel.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-T-Head TH1520 has multiple system controllers for the "subsystems" on
-the chip.
+Hi Anand,
 
-Add them to the syscon binding.
+On 2026-11-16 13:06, Anand Moon wrote:
+> Hi All,
+> 
+> On Mon, 16 Nov 2026 at 11:33, Sebastian Reichel
+> <sebastian.reichel@collabora.com> wrote:
+> >
+> > Hi,
+> >
+> > On Tue, Nov 10, 2026 at 11:44:27AM +0530, Anand Moon wrote:
+> > > The SpacemiT P1 power-off and restart handlers use regmap_set_bits()
+> > > to access the PMIC. However, these handlers run in an atomic notifier
+> > > context (specifically within an rcu_read_lock() critical section), while
+> > > the I2C-backed regmap uses a sleepable mutex.
+> > >
+> > > This triggers a "WARNING: suspicious RCU usage" warning due to an illegal
+> > > context switch in the RCU read-side critical section during shutdown on the
+> > > Banana Pi BPI-F3:
+> > >
+> > > [  563.803475] WARNING: suspicious RCU usage
+> > > [  563.807813] 7.3.1-ARCH-RISC-V #1 Not tainted
+> > > [  563.816614] ./include/linux/rcupdate.h:387 Illegal context switch in RCU read-side critical section!
+> > > ...
+> > > [  563.841445] locks held by shutdown/1: 2, last CPU#0:
+> > > [  563.846694]  #0: ffffffff8404fb20 (system_transition_mutex){+.+.}-{4:4}, at: __do_sys_reboot+0x230/0x29e
+> > > [  563.856806]  #1: ffffffff84167860 (rcu_read_lock){....}-{1:3}, at: atomic_notifier_call_chain+0x4a/0x1c2
+> > >
+> > > Replace the regmap operations with atomic I2C transfers to avoid sleeping
+> > > in an atomic context. Preserve unrelated register bits through
+> > > read-modify-write operations and check for atomic I2C support before
+> > > registering the handlers.
+> > >
+> > > Obtain the I2C client from the parent device and verify that the adapter
+> > > supports atomic transfers before registering the handlers.
+> > >
+> > > Tested on the Banana Pi BPI-F3 (SpacemiT K1).
+> > >
+> > > Assisted-by: LLM
+> > > Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> > > Cc: Aurelien Jarno <aurelien@aurel32.net>
+> > > Fixes: 28124cc0fb8c ("driver: reset: spacemit-p1: add driver for poweroff/reboot")
+> > > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> > > ---
+> >
+> > regmap runs i2c_transfer itself and thus also uses the atomic I2C
+> > transfers. The problem here is regmap itself. But instead of moving
+> > away from regmap, the atomic use case should be supported properly
+> > in regmap.
+> >
+> 
+> On  RISC-V platform, poweroff and reboot are already handled by OpenSBI
+> through the SBI System Reset (SRST) extension. Linux delegates these
+> operations to firmware using SBI_SRST_RESET_TYPE_SHUTDOWN for poweroff
+> and SBI_SRST_RESET_TYPE_COLD_REBOOT or SBI_SRST_RESET_TYPE_WARM_REBOOT
+> for reboot, depending on the supported reset type.
+> 
+> Therefore, there is no need for an additional Linux PMIC poweroff/reboot handler
+> on this platform, as it duplicates functionality already provided by firmware.
+> 
+> While supporting atomic operations in regmap may be useful more generally,
+> it is not necessary to address this platform's shutdown and reboot requirements.
+> 
+> I tested this on the SpacemiT K1 Banana Pi BPI-F3 after removing this PMIC
+> poweroff/reboot driver.
+> 
+> OpenSBI commit which handles this extension
+> 
+> d9637d00bf47 ("lib: utils/reset: add SpacemiT P1 PMIC support")
+> b10e18ec854a ("lib: utils/i2c: add minimal SpacemiT I2C driver")
+> 
+> Similarly, on the StarFive VisionFive 2, poweroff is handled by
+> OpenSBI through the
+> AXP15060 PMIC, so there is no need to register an additional poweroff
+> handler using
+> devm_register_power_off_handler().
+> 
+> OpenSBI commit which handles this extension
+> 
+> 568ea49490d9 ("platform: starfive: add PMIC power ops in JH7110
+> visionfive2 board")
+> 
+> -----8<----------8<----------8<------
+> diff --git a/drivers/mfd/axp20x.c b/drivers/mfd/axp20x.c
+> index 50df66de24e06..069259f7d7c15 100644
+> --- a/drivers/mfd/axp20x.c
+> +++ b/drivers/mfd/axp20x.c
+> @@ -1458,8 +1458,14 @@ int axp20x_device_probe(struct axp20x_dev *axp20x)
+>                 return ret;
+>         }
+> 
+> -       if (axp20x->variant != AXP288_ID)
+> -               devm_register_power_off_handler(axp20x->dev,
+> axp20x_power_off, axp20x);
+> +       /*
+> +        * The VisionFive 2 handles AXP15060 poweroff through OpenSBI.
+> +        * Avoid accessing the I2C PMIC from the atomic poweroff path.
+> +        */
+> +       if (axp20x->variant != AXP288_ID && !(axp20x->variant == AXP15060_ID &&
+> +                               of_machine_is_compatible("starfive,jh7110")))
+> +               devm_register_power_off_handler(axp20x->dev,
+> +                               axp20x_power_off, axp20x);
+> 
+>         dev_info(axp20x->dev, "AXP20X driver loaded\n");
+> 
+> Please let me know if this works on your board?
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
----
-Changes in v2:
-- Added Krzysztof's ACK.
-- Sorted subsystem names.
+Yes, that works, but I don't think this is the correct solution to 
+disable here. Also this won't scale for future boards which might use a 
+different existing PMIC driver with poweroff support and that will also 
+need to be patched.
 
- Documentation/devicetree/bindings/mfd/syscon.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+As pointed out by Troy in an earlier mail, the real problem is the 
+priority at which the handler is registers, 192 for the reset and -256 
+for the poweroff one. I wonder if the SBI SRST extension should also 
+register the poweroff one at 192. It seems it's about replacing the call 
+to register_platform_power_off() by register_sys_off_handler(), which 
+supports using a priority value. And maybe SYS_OFF_PRIO_FIRMWARE = 224 
+should be used there instead of 192.
 
-diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
-index 80ff0e1caca22..35c4c7c2f467a 100644
---- a/Documentation/devicetree/bindings/mfd/syscon.yaml
-+++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
-@@ -126,6 +126,13 @@ properties:
-               - st,spear1340-misc
-               - stericsson,nomadik-pmu
-               - starfive,jh7100-sysmain
-+              - thead,th1520-syscon-ao
-+              - thead,th1520-syscon-ap
-+              - thead,th1520-syscon-dsp
-+              - thead,th1520-syscon-misc
-+              - thead,th1520-syscon-vi
-+              - thead,th1520-syscon-vo
-+              - thead,th1520-syscon-vp
-               - ti,am62-opp-efuse-table
-               - ti,am62-usb-phy-ctrl
-               - ti,am625-dss-oldi-io-ctrl
+Regards
+Aurelien
+
 -- 
-2.56.0
-
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
