@@ -2,85 +2,105 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25B9F606A31C
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 15:52:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 999F3606A31C
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 16:55:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Gmw6GOdn;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AcPn6yf2
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Tm/opez+;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QHqQsfjQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=7QNcC2tdKD0Fpzv0LcAaoNlmDNXZwk5+hecKVWqtONo=; b=Gmw6GOdnqGrAbRbgDLi8660OeX
-	5hlPOjD7TDY+48zYVFKvxW8A7XDfdzc3A8JPSp+lf6NyRZjfB20vFv2l2R+Og/M36MDmEMu5q+Cyi
-	pyQ0pYgDk5c/ogDWRn6lHe5BbwJLLzwLVENs6bnaCDQep+ULW4XGd7Kfq5+xbaoCyg57XFXj5dJvT
-	LxJmcyrxBU7Mr3afvbtmBczxT/4Z+YKt830Sjj0llgK1gMSsZUdMR1+aqNeiLf2VLEJJUR2/lJ/Ej
-	cPJ34HcjDqXYYUu57+Ui0IGVj+uuim7vvouVTqAZZeXGDh8kd/gEZpyxvf9eF5IrSz3oc4i9OgUqf
-	Idc39Rsw==;
+	bh=ez09x75Jua0MLOKYLda39qHxTEekERe3pUBM10ZhM/w=; b=Tm/opez+/hBgExYPSRF0Z4C7fs
+	birmeUdGl2hN4NRFvKN80jLvYC5JB2s2CHaDI4sbnM5dvc0lE7623IX045ybS95W5E7dsBZe6BrcF
+	WMIxN0M046JnPMnEe3ulW+M3GPD1h25hsQE7l9MttpCqvjgQCiCXANL15CKdkhUSsaspm+vE09K0t
+	9yXOfISnypkkHnr+Hhi6UMPfs91Cu2slcts/rjDEfJ2rQsdivOP0iCf724pZZAO8MawV0yBbe5apB
+	z/07jsrX1rDDtpesMS5UOzCCBhSaJNlByOuD0hySsy/WAQDlnSOO9wIxn0/eTV/fzi6147b/XdaYR
+	AceF2Aig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTLU5-00000006MOW-24sO;
-	Tue, 17 Nov 2026 15:52:37 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1xTMSP-00000006TwP-3NKJ;
+	Tue, 17 Nov 2026 16:54:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTLU3-00000006MNS-1MiF
+	id 1xTMSL-00000006Tvn-2OcR
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Nov 2026 15:52:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794930756; x=1826466756;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=TvP1lwl2p/FoqY4pTZ0m2d7ltv5FWa0x0Go76nDAdas=;
-  b=AcPn6yf2M/eE6WKJtLK0TPIxRruHx9BPlbunMlqGRt1LwKYfNcBsp7vQ
-   onCpaWXoaDXyQzLna52APjcTlmQ1Ghs5iBPlkeu+DR5e2XiNciHKBv1N3
-   4ZfUnJwlvuHYMWmHYH68cxKUWQNLrqvRqI10KDzj0fxnqqpqTbk+tXJao
-   /PgqqMPIoYsL9s3DxuLV6A3s+3oNEj6OkU6+L7wq7rEffVzCeYL04/pnG
-   Sfgcb2yVqHItl2N3WlVvmzBuMEyJGaPH8+agAp2WdItTkxSR539b6YpNw
-   RjVeWGrDNIbwUSR/rrwmWeLpvjMcqRKhmSs/9VT1FRuRxvQjosa9/JJ/Z
-   g==;
-X-CSE-ConnectionGUID: kE81L71NRbmAITqYfQVxug==
-X-CSE-MsgGUID: QGlrLP9bTYOcJ/zCExJrwA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3607155"
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="3607155"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 07:52:33 -0800
-X-CSE-ConnectionGUID: nQJGT9vrTBm78WVKeq8c9g==
-X-CSE-MsgGUID: 4jDXrtXFRI22ZtaMHJz+Fw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="11682989"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa011.fm.intel.com with ESMTP; 17 Nov 2026 07:52:30 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xTLTu-00000001Bwd-1doc;
-	Tue, 17 Nov 2026 15:52:26 +0000
-Date: Tue, 17 Nov 2026 23:51:47 +0800
-From: kernel test robot <lkp@intel.com>
-To: Nylon Chen <nylon.chen@sifive.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Shuah Khan <skhan@linuxfoundation.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Nylon Chen <nylon.chen@sifive.com>
-Subject: Re: [PATCH 1/2] riscv: traps: Add support for vector misalignment
- handler
-Message-ID: <202611172359.8iKyKE2d-lkp@intel.com>
-References: <20261116-riscv-vector-misaligned-v1-1-6c4d0ca905b7@sifive.com>
+	Tue, 17 Nov 2026 16:54:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1794934491;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DGDRp2kvtb93Toj3Qe9cR7ofTSqhSOCGBjvMYhNFgBc=;
+	b=QHqQsfjQKtr9LJKCFW64WCyAfWedjSVLliUPZ1Zh85vdoki/F9/VqkoFJU0RMpBOKJ6Xan
+	KUhgcxdDMnHbQ+e46iAJ/IHtsM/vGRRIYXcko7FZK0LuRPalWUoNCLyc4Och2BzsMccoGQ
+	XAu+qvfJ/z8pVAoHeOunYRii3Kf3UE0=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-651-WkJuEegqPxmiu9A1-bht2w-1; Tue, 17 Nov 2026 11:54:49 -0500
+X-MC-Unique: WkJuEegqPxmiu9A1-bht2w-1
+X-Mimecast-MFC-AGG-ID: WkJuEegqPxmiu9A1-bht2w_1794934488
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4a359c7f47bso284105e9.2
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Nov 2026 08:54:49 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794934488; x=1795539288;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DGDRp2kvtb93Toj3Qe9cR7ofTSqhSOCGBjvMYhNFgBc=;
+        b=okeX2/UFK9LVRLXlSAkCqa7RChXltvot1PyDHWqlqGDnEATEW1nG6Kriz+N2nzilYV
+         5jC29uoLCAyV7ccML+IDMSYfyF/P5rLUlhMaPWwY70U9CdmvJXc4EjCWun+AZc+l8LkJ
+         MlJRIJ7OeQaE87BJTgkhvjui4ln5bpU6amQt5BpIIuirzxx2qLoN6B/Fr0rVrXQpBA4H
+         S2KaASQo7sZdRVdH7qp7WC/9Jro7ogtOEkDbkjw8+5yH9xf+SwFzHcqLKK+jXGNCCcoH
+         XIfeExUjiZIl7BeoRS5A+RwkGg6jzbglyJdIrsazSxHl6gG3m9tx+A2J6eatZhjrCqpK
+         0+ew==
+X-Forwarded-Encrypted: i=1; AL+hErHtKYZEioUPh0ToGo65l4qi+J06TEUR5HquNKLRMOY62IDeDs+kkmbG4geINl7epncUFGfMajmmugFShw==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8g4R+tyCCtoX8RXnji86KyuZL3P7J0h4TS7QkLBhIk3OUoNaEH
+	NLuevKzHJNTO9JlWVWb3SrbDg/rLmwXmFknu9Z4LzZHYxjZI/kdXNydFz4fbG/EqOlP59MXndl8
+	EcA0AvEf2wIcrdhRL4G63kZBKGC4Xvv1OK2zpiMFTL2wKqNv7nnHN+jmbo2KtC2WeKh3RPCYphk
+	dSvN/6PMkO4mdaKiMJT/pQW51E+Fqwug5ph1yiaCnjZtyS
+X-Gm-Gg: AYBFou0hkg2M+XEeqhknaQdYnJnuFeN2Etd5IwbvFaUdGA7itNtA3dvB5MEVJqyGH1r
+	1xE7tNsQfHx933chD5j3CaSqj+6vltXg4ogIkkEqbhsnv7gV9TTHfj8H05L7/+g+8nI/hDdBLwZ
+	tlPcbEx0TB3RXa2A7SsaaDaqy39pMlZmgnLdF5AahhcwMtAKuvfs1KRH5Pb1EWRMnvrMwh2nm/H
+	iLNaRG6Gd2pppPHlA==
+X-Received: by 2002:a05:600c:6986:b0:4bb:6a2d:b438 with SMTP id 5b1f17b1804b1-4bb6a2db52fmr178231535e9.0.1794934488497;
+        Tue, 17 Nov 2026 08:54:48 -0800 (PST)
+X-Received: by 2002:a05:600c:6986:b0:4bb:6a2d:b438 with SMTP id
+ 5b1f17b1804b1-4bb6a2db52fmr178231035e9.0.1794934488110; Tue, 17 Nov 2026
+ 08:54:48 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261116-riscv-vector-misaligned-v1-1-6c4d0ca905b7@sifive.com>
+References: <20261107023917.40606-1-himanshu.chauhan@oss.qualcomm.com> <20261107023917.40606-9-himanshu.chauhan@oss.qualcomm.com>
+In-Reply-To: <20261107023917.40606-9-himanshu.chauhan@oss.qualcomm.com>
+From: Jesse Taube <jtaubepe@redhat.com>
+Date: Tue, 17 Nov 2026 11:54:35 -0500
+X-Gm-Features: Aa3M54roB7QDb-4IN47SMi2aVS10SiwVpvGI_zdHUzKl8EZH9k7SzFLp96gzPDI
+Message-ID: <CADRr4bc4v4Uaf2_1ZRFJXoru6a=g+PEYgKKK-vEzXgmV6bXqPQ@mail.gmail.com>
+Subject: Re: [PATCH v8 8/8] perf tests: keep bp_signal memory accesses visible
+To: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>, Ingo Molnar <mingo@redhat.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
+	Alexandre Ghiti <alex@ghiti.fr>, Oleg Nesterov <oleg@redhat.com>, Kees Cook <kees@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+	Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	James Clark <james.clark@linaro.org>, Shuah Khan <shuah@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-perf-users@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: JEiSyxdfm2_Ux5GylDSnhF7W_AL0J4Ptfj1I6R902sE_1794934488
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261117_075235_406550_B32D310F 
-X-CRM114-Status: GOOD (  15.06  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261117_085453_776883_69A42325 
+X-CRM114-Status: GOOD (  22.13  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,201 +110,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Nylon,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on 05441d697f7f9a927264f4058cbbc6a03dfcac9d]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Nylon-Chen/riscv-traps-Add-support-for-vector-misalignment-handler/20261116-233837
-base:   05441d697f7f9a927264f4058cbbc6a03dfcac9d
-patch link:    https://lore.kernel.org/r/20261116-riscv-vector-misaligned-v1-1-6c4d0ca905b7%40sifive.com
-patch subject: [PATCH 1/2] riscv: traps: Add support for vector misalignment handler
-config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20261117/202611172359.8iKyKE2d-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 16.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261117/202611172359.8iKyKE2d-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611172359.8iKyKE2d-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   arch/riscv/kernel/traps_v_misaligned.c: In function 'misaligned_v_ld_emulator':
->> arch/riscv/kernel/traps_v_misaligned.c:670:17: error: implicit declaration of function 'kernel_vector_begin' [-Wimplicit-function-declaration]
-     670 |                 kernel_vector_begin();
-         |                 ^~~~~~~~~~~~~~~~~~~
->> arch/riscv/kernel/traps_v_misaligned.c:676:17: error: implicit declaration of function 'riscv_v_enable'; did you mean 'riscv_ipi_enable'? [-Wimplicit-function-declaration]
-     676 |                 riscv_v_enable();
-         |                 ^~~~~~~~~~~~~~
-         |                 riscv_ipi_enable
->> arch/riscv/kernel/traps_v_misaligned.c:768:17: error: implicit declaration of function 'kernel_vector_end'; did you mean 'kernel_cred'? [-Wimplicit-function-declaration]
-     768 |                 kernel_vector_end();
-         |                 ^~~~~~~~~~~~~~~~~
-         |                 kernel_cred
->> arch/riscv/kernel/traps_v_misaligned.c:775:17: error: implicit declaration of function 'riscv_v_disable'; did you mean 'riscv_ipi_disable'? [-Wimplicit-function-declaration]
-     775 |                 riscv_v_disable();
-         |                 ^~~~~~~~~~~~~~~
-         |                 riscv_ipi_disable
-
-
-vim +/kernel_vector_begin +670 arch/riscv/kernel/traps_v_misaligned.c
-
-   643	
-   644	int misaligned_v_ld_emulator(struct pt_regs *regs, unsigned long insn)
-   645	{
-   646		int ret = 0;
-   647		unsigned long vl, vtype, vlenb, vstart, base, stride;
-   648		unsigned long vd, vs2, view, vsew, vlmul, emul, vemul;
-   649		unsigned long len, nf;
-   650		bool illegal, masked;
-   651		bool is_usermode = user_mode(regs);
-   652		u8 mask[VLEN_MAX / 8];
-   653		u8 bytes[8 * sizeof(u64)];
-   654	
-   655		/*
-   656		 * User mode: IRQs are enabled by do_trap_misaligned(), so we can use
-   657		 * kernel_vector_begin() which saves the user's vector state to datap.
-   658		 * We then read CSRs from the saved vstate (not hardware) because
-   659		 * kernel_vector_begin() -> riscv_v_vstate_save() modifies the hw CSRs.
-   660		 *
-   661		 * Kernel mode: IRQs are disabled (NMI-like context), may_use_simd()
-   662		 * returns false, so kernel_vector_begin() cannot be used. Instead we
-   663		 * enable vector directly and read CSRs from hardware; get_vreg/
-   664		 * set_vreg access individual register elements in place via vstart +
-   665		 * vsetvli(tu), without disturbing the rest of the register file.
-   666		 */
-   667		if (is_usermode) {
-   668			struct __riscv_v_ext_state *vstate = &current->thread.vstate;
-   669	
- > 670			kernel_vector_begin();
-   671			vl = vstate->vl;
-   672			vtype = vstate->vtype;
-   673			vstart = vstate->vstart;
-   674			vlenb = vstate->vlenb;
-   675		} else {
- > 676			riscv_v_enable();
-   677			vl = csr_read(CSR_VL);
-   678			vtype = csr_read(CSR_VTYPE);
-   679			vstart = csr_read(CSR_VSTART);
-   680			vlenb = csr_read(CSR_VLENB);
-   681		}
-   682	
-   683		base = GET_RS1(insn, regs);
-   684		stride = GET_RS2(insn, regs);
-   685		vd = GET_VD(insn);
-   686		vs2 = GET_VS2(insn);
-   687		view = GET_VIEW(insn);
-   688		vsew = GET_VSEW(vtype);
-   689		vlmul = GET_VLMUL(vtype);
-   690		illegal = GET_MEW(insn);
-   691		masked = IS_MASKED(insn);
-   692		len = GET_LEN(view);
-   693		nf = GET_NF(insn);
-   694		vemul = GET_VEMUL(vlmul, view, vsew);
-   695		emul = GET_EMUL(vemul);
-   696	
-   697		if (IS_UNIT_STRIDE_LOAD(insn) || IS_FAULT_ONLY_FIRST_LOAD(insn)) {
-   698			stride = nf * len;
-   699		} else if (IS_WHOLE_REG_LOAD(insn)) {
-   700			vl = (nf * vlenb) >> view;
-   701			nf = 1;
-   702			vemul = 0;
-   703			emul = 1;
-   704			stride = nf * len;
-   705		} else if (IS_INDEXED_LOAD(insn)) {
-   706			len = 1 << vsew;
-   707			vemul = (vlmul + vsew - vsew) & 7;
-   708			emul = 1 << ((vemul & 4) ? 0 : vemul);
-   709			stride = nf * len;
-   710		}
-   711	
-   712		if (illegal || vlenb > VLEN_MAX / 8) {
-   713			if (is_usermode)
-   714				force_sig_fault(SIGILL, ILL_ILLOPC, (void __user *)regs->epc);
-   715			ret = -EFAULT;
-   716			goto out;
-   717		}
-   718	
-   719		if (masked)
-   720			get_vreg(vlenb, 0, 0, vlenb, mask, is_usermode);
-   721	
-   722		do {
-   723			if (!masked || ((mask[vstart / 8] >> (vstart % 8)) & 1)) {
-   724				unsigned long addr = base + vstart * stride;
-   725	
-   726				if (IS_INDEXED_LOAD(insn)) {
-   727					unsigned long offset = 0;
-   728	
-   729					get_vreg(vlenb, vs2, vstart << view, 1 << view,
-   730						 (u8 *)&offset, is_usermode);
-   731					addr = base + offset;
-   732				}
-   733	
-   734				csr_write(CSR_VSTART, vstart);
-   735	
-   736				for (unsigned long seg = 0; seg < nf; seg++) {
-   737					for (unsigned long i = 0; i < len; i++) {
-   738						u8 *src = (u8 *)(addr + seg * len + i);
-   739	
-   740						if (is_usermode) {
-   741							if (get_user(bytes[seg * len + i],
-   742								     (u8 __user *)src)) {
-   743								if (IS_FAULT_ONLY_FIRST_LOAD(insn) &&
-   744								    vstart != 0) {
-   745									vl = vstart;
-   746									break;
-   747								}
-   748								ret = -EFAULT;
-   749								goto out;
-   750							}
-   751						} else {
-   752							bytes[seg * len + i] = *src;
-   753						}
-   754					}
-   755				}
-   756	
-   757				for (unsigned long seg = 0; seg < nf; seg++)
-   758					set_vreg(vlenb, vd + seg * emul, vstart * len, len,
-   759						 &bytes[seg * len], is_usermode);
-   760			}
-   761		} while (++vstart < vl);
-   762	
-   763	out:
-   764		if (ret == 0)
-   765			regs->epc += 4;
-   766	
-   767		if (is_usermode) {
- > 768			kernel_vector_end();
-   769		} else {
-   770			/*
-   771			 * Restore vl/vtype clobbered by get_vreg/set_vreg's vsetvli.
-   772			 * vsetvl also resets vstart to 0 (the correct post-insn state).
-   773			 */
-   774			vsetvl(vl, vtype);
- > 775			riscv_v_disable();
-   776		}
-   777	
-   778		return ret;
-   779	}
-   780	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBOb3YgNiwgMjAyNiBhdCA5OjQw4oCvUE0gSGltYW5zaHUgQ2hhdWhhbgo8aGltYW5z
+aHUuY2hhdWhhbkBvc3MucXVhbGNvbW0uY29tPiB3cm90ZToKPgo+IEluIHRoZSBicmVha3BvaW50
+IHNpZ25hbCBoYW5kbGVyIHRlc3QsIGEgYnJlYWtwb2ludCBpcyBzZXQgb24KPiBfX3Rlc3RfZnVu
+Y3Rpb24uIEtlZXAgdGhhdCBoZWxwZXIgYXMgYSByZWFsIGNhbGwgdGFyZ2V0IHNvIHRoZSBicmVh
+a3BvaW50Cj4gaGFzIGEgc3RhYmxlIGFkZHJlc3MuCj4KPiBUaGUgdGVzdCBhbHNvIHJlbGllcyBv
+biB0aGUgd2F0Y2hlZCB2YXJpYWJsZSBiZWluZyBhY2Nlc3NlZCBhcyBkaXN0aW5jdAo+IG1lbW9y
+eSBvcGVyYXRpb25zLiBVc2UgUkVBRF9PTkNFKCkgYW5kIFdSSVRFX09OQ0UoKSBmb3IgdGhvc2Ug
+YWNjZXNzZXMKPiBpbnN0ZWFkIG9mIG1ha2luZyB0aGUgb2JqZWN0IHZvbGF0aWxlLCBzbyB0aGUg
+c291cmNlIG1hcmtzIHRoZSBleGFjdAo+IG9wZXJhdGlvbnMgdGhhdCBtdXN0IGJlIHByZXNlcnZl
+ZC4KPgo+IFNpZ25lZC1vZmYtYnk6IEhpbWFuc2h1IENoYXVoYW4gPGhpbWFuc2h1LmNoYXVoYW5A
+b3NzLnF1YWxjb21tLmNvbT4KUmV2aWV3ZWQtYnk6IEplc3NlIFRhdWJlIDxqdGF1YmVwZUByZWRo
+YXQuY29tPgoKSSBwZXJzb25hbGx5IHdvdWxkIHNlbmQgdGhpcyBzZXBhcmF0ZWx5IHNvIGl0J3Mg
+Y2xlYXIgdGhhdCBpdCBzaG91bGQKYmUgYXBwbGllZCB0byB0aGUgcGVyZiB0cmVlLgpUaGFua3Ms
+Ckplc3NlIFRhdWJlCgo+IC0tLQo+ICB0b29scy9wZXJmL3Rlc3RzL2JwX3NpZ25hbC5jIHwgMTQg
+KysrKysrKystLS0tLS0KPiAgMSBmaWxlIGNoYW5nZWQsIDggaW5zZXJ0aW9ucygrKSwgNiBkZWxl
+dGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS90b29scy9wZXJmL3Rlc3RzL2JwX3NpZ25hbC5jIGIv
+dG9vbHMvcGVyZi90ZXN0cy9icF9zaWduYWwuYwo+IGluZGV4IGY1ODBiYTc0ODZiMS4uMmU0Zjc3
+NDdkMzJmIDEwMDY0NAo+IC0tLSBhL3Rvb2xzL3BlcmYvdGVzdHMvYnBfc2lnbmFsLmMKPiArKysg
+Yi90b29scy9wZXJmL3Rlc3RzL2JwX3NpZ25hbC5jCj4gQEAgLTM2LDE1ICszNiwxNCBAQCBzdGF0
+aWMgaW50IGZkMzsKPiAgc3RhdGljIGludCBvdmVyZmxvd3M7Cj4gIHN0YXRpYyBpbnQgb3ZlcmZs
+b3dzXzI7Cj4KPiAtc3RhdGljIHZvbGF0aWxlIGxvbmcgdGhlX3ZhcjsKPiAtCj4gK3N0YXRpYyBs
+b25nIHRoZV92YXI7Cj4KPiAgLyoKPiAgICogVXNlIEFTTSB0byBlbnN1cmUgd2F0Y2hwb2ludCBh
+bmQgYnJlYWtwb2ludCBjYW4gYmUgdHJpZ2dlcmVkCj4gICAqIGF0IG9uZSBpbnN0cnVjdGlvbi4K
+PiAgICovCj4gICNpZiBkZWZpbmVkIChfX3g4Nl82NF9fKQo+IC1leHRlcm4gdm9pZCBfX3Rlc3Rf
+ZnVuY3Rpb24odm9sYXRpbGUgbG9uZyAqcHRyKTsKPiArZXh0ZXJuIHZvaWQgX190ZXN0X2Z1bmN0
+aW9uKGxvbmcgKnB0cik7Cj4gIGFzbSAoCj4gICAgICAgICAiLnB1c2hzZWN0aW9uIC50ZXh0OyIK
+PiAgICAgICAgICIuZ2xvYmwgX190ZXN0X2Z1bmN0aW9uXG4iCj4gQEAgLTU0LDE2ICs1MywxOSBA
+QCBhc20gKAo+ICAgICAgICAgInJldFxuIgo+ICAgICAgICAgIi5wb3BzZWN0aW9uXG4iKTsKPiAg
+I2Vsc2UKPiAtc3RhdGljIHZvaWQgX190ZXN0X2Z1bmN0aW9uKHZvbGF0aWxlIGxvbmcgKnB0cikK
+PiArc3RhdGljIG5vaW5saW5lIHZvaWQgX190ZXN0X2Z1bmN0aW9uKGxvbmcgKnB0cikKPiAgewo+
+IC0gICAgICAgKnB0ciA9IDB4MTIzNDsKPiArICAgICAgIFdSSVRFX09OQ0UoKnB0ciwgMHgxMjM0
+KTsKPiAgfQo+ICAjZW5kaWYKPgo+ICBzdGF0aWMgbm9pbmxpbmUgaW50IHRlc3RfZnVuY3Rpb24o
+dm9pZCkKPiAgewo+ICsgICAgICAgbG9uZyB2YWx1ZTsKPiArCj4gICAgICAgICBfX3Rlc3RfZnVu
+Y3Rpb24oJnRoZV92YXIpOwo+IC0gICAgICAgdGhlX3ZhcisrOwo+ICsgICAgICAgdmFsdWUgPSBS
+RUFEX09OQ0UodGhlX3Zhcik7Cj4gKyAgICAgICBXUklURV9PTkNFKHRoZV92YXIsIHZhbHVlICsg
+MSk7Cj4gICAgICAgICByZXR1cm4gdGltZShOVUxMKTsKPiAgfQo+Cj4gLS0KPiAyLjQzLjAKPgoK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
