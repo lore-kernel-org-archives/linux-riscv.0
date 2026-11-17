@@ -2,57 +2,59 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 517A6606A883
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF172606A334
 	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 22:11:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hYe3H+VH;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LGCfrl/U
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BrNcxBSW;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fKrsGAiM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=LeSCSwEn8ZYHQj67aUD3oF5VgXLAsLIfVqqmTgF07uM=; b=hYe3H+VH7vpFYF3Uq6uQibaKdS
-	C54AISzJaG7jyNXn0NJSmdQQJru57X92NM3K+mzjMFk+IAv9KJHN6FukeA7BIX4OweQFYSVSrAQ7o
-	/Wx2IDU8jQGxjYuU3GCVe31DLg9xOYQnhFUI9ahG9Ygpwe4eZ5jNSAky95EnFEUlYnrg22sobQRZD
-	nhsZu8Dvp7KmG8Iu+5ZooF8Qpaqpkp3I+3hai74dxznSAT1RpyQqLUjfWF822i4LnNE+RlGKdWe9W
-	7QvqnEmZ2yG/qTsFqFZysPSAu6FdeQhZddwDlgETlmSCiBQkj+1Rj0RnSYVDqh01Rvti6oimQufMX
-	lt7lKTAw==;
+	bh=ZHdPTY3U1cOPX+HIWn4hQ8nipE1fEEQXWW5ENq69PZI=; b=BrNcxBSWBhNm4gW/Bk1Gv+OWHA
+	fMrPpBjVlzn+v9mER4Wgn7UfhD427ucgfbjA2B+eBbz5/xFWedrlLKCDaXMwNKixChfo+EOJJdWnH
+	GXA0uDhlbb9a8+ix1ZiIMIrdQly0wLBqxBaWnRVTc9xiQVr1L2XPeIByG/kRkfyQONtnCySJ3Pa7A
+	nlhOSrsJSGHXNZOJ3beujc8te3Nutwtp+yd8Ql9Iw3JQ8hRFmrPZJLCFjnW/hCYfpeCalMekc7BqT
+	n3glCS5WY7DUMhfqBotOTGdbDnJvFB7nTarnPgqOfFul9KtfKGkZONHG/gNB4okgiC+N5lFIj7aTA
+	pC4wQGBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTRP3-00000007CJn-0uwd;
-	Tue, 17 Nov 2026 22:11:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xTRP2-00000007CJX-09hS;
+	Tue, 17 Nov 2026 22:11:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTRP1-00000007CJW-3yJc
+	id 1xTRP0-00000007CJJ-2AJR
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Nov 2026 22:11:47 +0000
+	Tue, 17 Nov 2026 22:11:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 98BEF45D68;
-	Tue, 17 Nov 2026 22:11:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C147D1F000CD;
+	by sea.source.kernel.org (Postfix) with ESMTP id 14B33404C1;
 	Tue, 17 Nov 2026 22:11:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F3551F000C4;
+	Tue, 17 Nov 2026 22:11:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794953507;
-	bh=ygV5qjVh+HJDOgZR1o7P1NzmP0UicWQJHq7Y5HypT+8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=LGCfrl/UztGOOU8JYp+0GrVHMZuOnD3k66z4WMnIaKhm//jBCJmDcG9Nkel/6tcUs
-	 ZKQPxmWHiHi8U6GWKpuIr8aUjb8gxyQMXDy8xYFs6EZG1cvCywMsbcwHGMMquSGTwH
-	 8cYfsiqtJNoyjuLp1GUTueYhe9h/DqhyCqFGt+B/kgWNv56XoziLeSEeiuWhWtlQt2
-	 3GPTyQbFbPyo6pjhnI+DiHDc8lj2HEJ/QsnVFsGfsfTwjXmAkEW7wutbr9SIaqhurE
-	 H2x3/2OO9JefoOHR4VCjBpkRMFgwS6tOlgLot71fcz1/2IgMHn94vUHekZRYVQreSc
-	 F5wN48H1yrz6A==
+	s=k20260515; t=1794953506;
+	bh=W76m1kA29m11mitv66UWNu9BvE4/1RWqBsu/ibkYDmo=;
+	h=From:Subject:Date:To:Cc;
+	b=fKrsGAiMFbMXfUQ/82fYhR2PbjROTe5AZKOWMl4Kn4d0oaZl1i1JalNfz2AR6L6R2
+	 WU30jrdH9QsCjoidt1KY110hes1dAPSjJPE+RI4jHGK3H8gWAY8NnApg/xxRtM8IrK
+	 Wz8/KfYFNBBjzuRFJro8ZqlqClk+ptAW3UMIqZz7D1lf3DDAyefZ10sL0k4ZsPCc4R
+	 LvdQB8gbx/gHGmzGkXnP3FY0e91ttQkdWHQ5fA5RmGh/u6JiZKmUCd4TBPI1FL24T1
+	 jrEdBUTWvHsk6OJyV48wDoMFv60pIjGtovSmZUFXH0sDShmNoNbxFrHYQsaulzlooo
+	 96dJNCAEkxNHQ==
 From: "Drew Fustini (Tenstorrent)" <fustini@kernel.org>
-Date: Tue, 17 Nov 2026 14:11:28 -0800
-Subject: [PATCH 2/3] ACPI: RISC-V: Enumerate CBQRI controllers from the
- RQSC table
+Subject: [PATCH 0/3] ACPI: RISC-V: Add support for the RQSC table
+Date: Tue, 17 Nov 2026 14:11:26 -0800
+Message-Id: <20261117-acpi-rqsc-v1-0-381ce645751e@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261117-acpi-rqsc-v1-2-381ce645751e@kernel.org>
-References: <20261117-acpi-rqsc-v1-0-381ce645751e@kernel.org>
-In-Reply-To: <20261117-acpi-rqsc-v1-0-381ce645751e@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAA7R/GoC/0WO0WoDIRBFf2XxuQOOsWr3V0IedBzbKc0mq24oh
+ Px73abQxwOXc+5dNa7CTc3TXVW+SZPLMgBfJkUfcXlnkDxYGW0cog4Q6SpQ10bgcgkeY3I6RDX
+ 218pFvn9dx9OT25Y+mfou+FtUXrcR6c/Zf2Oe9oJ2qCGXrXVZBGL/gtGhtFaB3MGipsDGI+Y83
+ 9DsyhQbA13OZ+nzFDklb7y13ll90Fbn12DIofVhfC02+lTeKB/U6fH4AaFsXGP6AAAA
+X-Change-ID: 20261108-acpi-rqsc-6df871ab608a
 To: Sunil V L <sunilvl@oss.qualcomm.com>
 Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
  Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -80,12 +82,12 @@ Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  "Drew Fustini (Tenstorrent)" <fustini@kernel.org>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8556; i=fustini@kernel.org;
- h=from:subject:message-id; bh=AcTtL2gh59MgYv8NvQNEWmqualurjTfftcDkA1X4XF4=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWT9uaj4KuX7FZYpiWXzVnpa7WM8WFfpbHPxsbLk7yfr+
- lY6zO5/11HKwiDGxSArpsiy6UPehSVeoV8XzH+xDWYOKxPIEAYuTgGYyNvTjAznt7zVTF/ldPse
- Q8ns4NZc8acBa9quPFf5vmKiZ/25NW0mDP99zj3Q4mRNcJFdsYH7QfOZu9KTlk8zal7z9tUKUSe
- r99/ZAQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3888; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=WmnhmP2WahYjVuyNgnoCKqB9zmwoEfibIao2Z1EuyAE=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWT9uSgjPsv6rd1VJXbV1U633gf/XOdycoeLf+1aljWLd
+ deYF0f/7ihlYRDjYpAVU2TZ9CHvwhKv0K8L5r/YBjOHlQlkCAMXpwBMxOcAw19xAbewfXYZKdtE
+ VTy4JBKWl70LszV8a8/KdobFbFkhSxfDP12ZyEcver4zKGuJnxJy6HAPOFfXV3HMtv3xzXq+uT9
+ esQAA
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -100,286 +102,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Walk the RQSC table at ACPI init and create a platform device for each
-CBQRI controller, so one platform driver can serve device tree and ACPI
-systems. Nothing selects ACPI_RQSC until the CBQRI driver can bind to
-these devices.
+Add support for the ACPI RISC-V Quality of Service Controllers (RQSC)
+table [1] that describes the CBQRI controllers [2] present in a system.
+Create a platform device for each controller so that the same CBQRI
+driver can bind on device tree and ACPI systems.
+
+Patch 1 adds the table definitions. They stay in drivers/acpi/riscv
+until ACPICA carries them [3]. Patch 2 parses the table and creates
+the platform devices. It is derived from the large RFC series that
+implemented all of CBQRI [4]. Patch 3 makes the CBQRI capacity driver
+bind to the capacity controller devices. I plan to add support for
+bandwidth controller devices once the resctrl generic schema lands.
+
+This series depends on:
+ - "riscv: Add initial CBQRI resctrl support" v12 [5]
+
+Tested on QEMU virt with the RQSC table support [6], two L2 capacity
+controllers, one L3 capacity controller and one bandwidth controller:
+
+  ACPI: RQSC 0x00000000BDD5B000 0000E0 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+  ACPI: RQSC: 4 CBQRI controllers
+
+  # ls /sys/bus/platform/devices | grep cbqri
+  cbqri-bandwidth.2
+  cbqri-capacity.0
+  cbqri-capacity.1
+  cbqri-capacity.3
+
+  # grep cbqri /proc/iomem
+  04820000-04820fff : cbqri-capacity.0
+    04820000-04820fff : cbqri-capacity.0 cbqri-capacity.0
+  04821000-04821fff : cbqri-capacity.1
+    04821000-04821fff : cbqri-capacity.1 cbqri-capacity.1
+  04828000-04828fff : cbqri-bandwidth.2
+  0482b000-0482bfff : cbqri-capacity.3
+    0482b000-0482bfff : cbqri-capacity.3 cbqri-capacity.3
+
+The capacity driver binds and resctrl shows the L2 and L3 domains:
+
+  cbqri-capacity cbqri-capacity.0: registered L2 capacity controller at 0x0000000004820000 (cache_id=33685504, rcid=64)
+  cbqri-capacity cbqri-capacity.1: registered L2 capacity controller at 0x0000000004821000 (cache_id=33685508, rcid=64)
+  cbqri-capacity cbqri-capacity.3: registered L3 capacity controller at 0x000000000482b000 (cache_id=33751040, rcid=64)
+
+  # mount -t resctrl resctrl /sys/fs/resctrl
+  # cat /sys/fs/resctrl/schemata
+  L2:33685504=fff;33685508=fff
+  L3:33751040=ffff
+
+[1] https://github.com/riscv-non-isa/riscv-rqsc/releases/tag/v1.0.0
+[2] https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
+[3] https://github.com/open-acpica/acpica/pull/1262
+[4] https://lore.kernel.org/all/20260601-ssqosid-cbqri-rqsc-v7-0-v6-0-baf00f50028a@kernel.org/
+[5] https://lore.kernel.org/all/20261114-dfustini-atl-sc-cbqri-dt-v12-0-6ef1f627072d@kernel.org/
+[6] https://lore.kernel.org/qemu-devel/20261113-riscv-rqsc-v2-0-34d47fa4141e@kernel.org/
 
 Signed-off-by: Drew Fustini (Tenstorrent) <fustini@kernel.org>
 ---
- drivers/acpi/riscv/Kconfig  |   3 +
- drivers/acpi/riscv/Makefile |   1 +
- drivers/acpi/riscv/init.c   |   2 +
- drivers/acpi/riscv/init.h   |   1 +
- drivers/acpi/riscv/rqsc.c   | 210 ++++++++++++++++++++++++++++++++++++++++++++
- 5 files changed, 217 insertions(+)
+Drew Fustini (Tenstorrent) (3):
+      ACPI: RISC-V: Add RQSC table definitions
+      ACPI: RISC-V: Enumerate CBQRI controllers from the RQSC table
+      riscv_cbqri: Bind to RQSC platform devices
 
-diff --git a/drivers/acpi/riscv/Kconfig b/drivers/acpi/riscv/Kconfig
-index 046296a18d00..2f2304bf0681 100644
---- a/drivers/acpi/riscv/Kconfig
-+++ b/drivers/acpi/riscv/Kconfig
-@@ -5,3 +5,6 @@
- 
- config ACPI_RIMT
- 	bool
-+
-+config ACPI_RQSC
-+	bool
-diff --git a/drivers/acpi/riscv/Makefile b/drivers/acpi/riscv/Makefile
-index 1284a076fa88..b4bcfa4826d8 100644
---- a/drivers/acpi/riscv/Makefile
-+++ b/drivers/acpi/riscv/Makefile
-@@ -3,3 +3,4 @@ obj-y					+= rhct.o init.o irq.o
- obj-$(CONFIG_ACPI_PROCESSOR_IDLE)	+= cpuidle.o
- obj-$(CONFIG_ACPI_CPPC_LIB)		+= cppc.o
- obj-$(CONFIG_ACPI_RIMT)			+= rimt.o
-+obj-$(CONFIG_ACPI_RQSC)			+= rqsc.o
-diff --git a/drivers/acpi/riscv/init.c b/drivers/acpi/riscv/init.c
-index 7c00f7995e86..9fdd5f1bcc5f 100644
---- a/drivers/acpi/riscv/init.c
-+++ b/drivers/acpi/riscv/init.c
-@@ -12,4 +12,6 @@ void __init acpi_arch_init(void)
- 	riscv_acpi_init_gsi_mapping();
- 	if (IS_ENABLED(CONFIG_ACPI_RIMT))
- 		riscv_acpi_rimt_init();
-+	if (IS_ENABLED(CONFIG_ACPI_RQSC))
-+		riscv_acpi_rqsc_init();
- }
-diff --git a/drivers/acpi/riscv/init.h b/drivers/acpi/riscv/init.h
-index 1680aa2aaf23..176459e356b7 100644
---- a/drivers/acpi/riscv/init.h
-+++ b/drivers/acpi/riscv/init.h
-@@ -3,3 +3,4 @@
- 
- void __init riscv_acpi_init_gsi_mapping(void);
- void __init riscv_acpi_rimt_init(void);
-+void __init riscv_acpi_rqsc_init(void);
-diff --git a/drivers/acpi/riscv/rqsc.c b/drivers/acpi/riscv/rqsc.c
-new file mode 100644
-index 000000000000..262fd5755d29
---- /dev/null
-+++ b/drivers/acpi/riscv/rqsc.c
-@@ -0,0 +1,210 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Create a platform device for each CBQRI controller described by the ACPI
-+ * RISC-V Quality of Service Controllers (RQSC) table.
-+ */
-+
-+#define pr_fmt(fmt) "ACPI: RQSC: " fmt
-+
-+#include <linux/acpi.h>
-+#include <linux/bug.h>
-+#include <linux/cleanup.h>
-+#include <linux/err.h>
-+#include <linux/ioport.h>
-+#include <linux/mm.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/wordpart.h>
-+
-+#include "init.h"
-+#include "rqsc.h"
-+
-+static struct platform_device * __init
-+rqsc_add_device(unsigned int idx, const struct acpi_rqsc_controller *ctrl,
-+		const struct acpi_rqsc_resource *res)
-+{
-+	bool is_cc = ctrl->type == ACPI_RQSC_CONTROLLER_TYPE_CAPACITY;
-+	struct platform_device *pdev __free(platform_device_put) =
-+		platform_device_alloc(is_cc ? "cbqri-capacity" : "cbqri-bandwidth",
-+				      idx);
-+	phys_addr_t addr = ctrl->address.address;
-+	/* The GAS carries no length, so claim up to the end of the page. */
-+	struct resource mem = DEFINE_RES_MEM(addr, PAGE_SIZE - offset_in_page(addr));
-+	/* rcid, mcid, cache id and a sentinel */
-+	struct property_entry props[4] = {};
-+	unsigned int n = 0;
-+	int ret;
-+
-+	if (!pdev)
-+		return ERR_PTR(-ENOMEM);
-+
-+	ret = platform_device_add_resources(pdev, &mem, 1);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	props[n++] = PROPERTY_ENTRY_U32("riscv,cbqri-rcid", ctrl->rcid_count);
-+	props[n++] = PROPERTY_ENTRY_U32("riscv,cbqri-mcid", ctrl->mcid_count);
-+	if (is_cc)
-+		props[n++] = PROPERTY_ENTRY_U32("riscv,cbqri-cache-id",
-+						lower_32_bits(res->id1));
-+	else
-+		set_dev_node(&pdev->dev, pxm_to_node(lower_32_bits(res->id1)));
-+
-+	ret = device_create_managed_software_node(&pdev->dev, props, NULL);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	ret = platform_device_add(pdev);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	return_ptr(pdev);
-+}
-+
-+/*
-+ * Check the one resource the controller is described with. A capacity
-+ * controller names a processor cache by PPTT Cache ID, a bandwidth
-+ * controller a memory range by SRAT proximity domain. Both IDs are
-+ * the low 32 bits of Resource ID 1, the upper half is reserved.
-+ */
-+static bool __init rqsc_resource_ok(const struct acpi_rqsc_controller *ctrl,
-+				    const struct acpi_rqsc_resource *res,
-+				    phys_addr_t addr)
-+{
-+	u8 want_type, want_id_type;
-+
-+	if (ctrl->type == ACPI_RQSC_CONTROLLER_TYPE_CAPACITY) {
-+		want_type = ACPI_RQSC_RESOURCE_TYPE_CACHE;
-+		want_id_type = ACPI_RQSC_RESOURCE_ID_TYPE_PROCESSOR_CACHE;
-+	} else {
-+		want_type = ACPI_RQSC_RESOURCE_TYPE_MEMORY;
-+		want_id_type = ACPI_RQSC_RESOURCE_ID_TYPE_MEMORY_RANGE;
-+	}
-+
-+	if (res->type != want_type || res->id_type != want_id_type) {
-+		pr_warn("controller at %pa: resource type %u id type %u does not match controller type %u, skipping\n",
-+			&addr, res->type, res->id_type, ctrl->type);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+static void __init rqsc_parse(const struct acpi_table_rqsc *rqsc)
-+{
-+	const void *end = (const void *)rqsc + rqsc->header.length;
-+	const struct acpi_rqsc_controller *ctrl = (const void *)(rqsc + 1);
-+	unsigned int idx = 0, added = 0;
-+
-+	while ((const void *)ctrl < end) {
-+		const struct acpi_rqsc_resource *res = (const void *)(ctrl + 1);
-+		struct platform_device *pdev;
-+		phys_addr_t addr;
-+
-+		/*
-+		 * The controller structure must fit and stay inside the
-+		 * table. Anything else is corruption and the remaining
-+		 * entries cannot be trusted.
-+		 */
-+		if ((const void *)ctrl + sizeof(*ctrl) > end ||
-+		    ctrl->length < sizeof(*ctrl) ||
-+		    (const void *)ctrl + ctrl->length > end) {
-+			pr_err("entry %u is malformed, stopping\n", idx);
-+			break;
-+		}
-+
-+		addr = ctrl->address.address;
-+
-+		if (ctrl->type != ACPI_RQSC_CONTROLLER_TYPE_CAPACITY &&
-+		    ctrl->type != ACPI_RQSC_CONTROLLER_TYPE_BANDWIDTH) {
-+			pr_warn("controller at %pa: unknown type %u, skipping\n",
-+				&addr, ctrl->type);
-+			goto next;
-+		}
-+
-+		if (ctrl->address.space_id != ACPI_ADR_SPACE_SYSTEM_MEMORY || !addr) {
-+			pr_warn("entry %u: no usable register interface address, skipping\n",
-+				idx);
-+			goto next;
-+		}
-+
-+		if (!ctrl->rcid_count && !ctrl->mcid_count) {
-+			pr_warn("controller at %pa: no RCIDs and no MCIDs, skipping\n",
-+				&addr);
-+			goto next;
-+		}
-+
-+		if (!ctrl->num_resources ||
-+		    ctrl->length < sizeof(*ctrl) + sizeof(*res) ||
-+		    res->length < sizeof(*res)) {
-+			pr_warn("controller at %pa: no usable resource, skipping\n",
-+				&addr);
-+			goto next;
-+		}
-+
-+		if (ctrl->num_resources > 1)
-+			pr_warn("controller at %pa: %u resources, using the first\n",
-+				&addr, ctrl->num_resources);
-+
-+		if (!rqsc_resource_ok(ctrl, res, addr))
-+			goto next;
-+
-+		pdev = rqsc_add_device(idx, ctrl, res);
-+		if (IS_ERR(pdev)) {
-+			pr_warn("controller at %pa: failed to add device: %pe\n",
-+				&addr, pdev);
-+			goto next;
-+		}
-+
-+		added++;
-+next:
-+		ctrl = (const void *)ctrl + ctrl->length;
-+		idx++;
-+	}
-+
-+	if (idx != rqsc->num_controllers)
-+		pr_warn("table announces %u controllers, found %u\n",
-+			rqsc->num_controllers, idx);
-+
-+	if (added)
-+		pr_info("%u CBQRI controllers\n", added);
-+	else
-+		pr_warn("no usable CBQRI controller\n");
-+}
-+
-+void __init riscv_acpi_rqsc_init(void)
-+{
-+	struct acpi_table_header *table __free(acpi_put_table) = NULL;
-+	acpi_status status;
-+
-+	BUILD_BUG_ON(sizeof(struct acpi_rqsc_resource) != 20);
-+	BUILD_BUG_ON(sizeof(struct acpi_rqsc_controller) != 24);
-+	BUILD_BUG_ON(sizeof(struct acpi_table_rqsc) != 40);
-+
-+	status = acpi_get_table(ACPI_SIG_RQSC, 0, &table);
-+	if (status == AE_NOT_FOUND)
-+		return;
-+
-+	if (ACPI_FAILURE(status)) {
-+		pr_err("failed to get table: %s\n",
-+		       acpi_format_exception(status));
-+		return;
-+	}
-+
-+	/*
-+	 * A later revision could extend the fixed header, which would
-+	 * shift the first controller structure. Stop rather than guess.
-+	 */
-+	if (table->revision != ACPI_RQSC_REVISION) {
-+		pr_err("table revision %u, expected %u\n",
-+		       table->revision, ACPI_RQSC_REVISION);
-+		return;
-+	}
-+
-+	if (table->length < sizeof(struct acpi_table_rqsc)) {
-+		pr_err("table truncated: length %u\n", table->length);
-+		return;
-+	}
-+
-+	rqsc_parse((const struct acpi_table_rqsc *)table);
-+}
+ drivers/acpi/riscv/Kconfig       |   3 +
+ drivers/acpi/riscv/Makefile      |   1 +
+ drivers/acpi/riscv/init.c        |   2 +
+ drivers/acpi/riscv/init.h        |   1 +
+ drivers/acpi/riscv/rqsc.c        | 210 +++++++++++++++++++++++++++++++++++++++
+ drivers/acpi/riscv/rqsc.h        |  67 +++++++++++++
+ drivers/resctrl/Kconfig          |  11 +-
+ drivers/resctrl/cbqri_capacity.c | 111 +++++++++++++++------
+ 8 files changed, 371 insertions(+), 35 deletions(-)
+---
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+change-id: 20261108-acpi-rqsc-6df871ab608a
+prerequisite-change-id: 20260610-dfustini-atl-sc-cbqri-dt-410c8e2711dd:v12
+prerequisite-patch-id: 492fe81aa4f3c885ac5bb48252def2fdc5527275
+prerequisite-patch-id: b4f0bd4bf660c92dbf4ca0c7d871c1550b66df0d
+prerequisite-patch-id: a2e36f0788f8e11c708d162dce653351dd99c4f0
+prerequisite-patch-id: d1d359c5cf89b2b5018d64ca8f320892f6dbcca2
+prerequisite-patch-id: 5b7fea6f1ad8f2137ffe45681d56b83e17f7cb2a
 
--- 
-2.43.0
+Best regards,
+--  
+Drew Fustini (Tenstorrent) <fustini@kernel.org>
 
 
 _______________________________________________
