@@ -2,91 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8919606A31C
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 21:16:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E318606A33E
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 21:23:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cqsWPX6e;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=cirad.fr header.i=@cirad.fr header.a=rsa-sha256 header.s=573E3878-7916-11F1-BF4B-F68474317960 header.b=Gud2wEmi
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TpfFmFkG;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b=T2hjufLh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=7jmiNhNMUx4tNMd5rkMsUQAxFWUM8h20XNboQlAJ5d0=; b=cqsWPX6e9i5pvdNjIx3EqsawAO
-	xtOlN+IuNnWuBjGQn+d+c9HSAzLdM6ZhgZP5pwaRV8SmSYeHTTBF7DQMdFKJqS+4+B2oRrv7tX152
-	ovraM1vqhwqphAFnUYEJYCg5hCGR66vhdmMfU6LoOuZZWKnrqz2N0wUO3s8jlYyz/lSIXwf9jMAHw
-	1u9Yg55qbquyJtESeKG4Quoe7PumQtA2JMb5U+LW765pPDkJhOUa8e8KOtejGMBtpCQVHJuJWb2b5
-	PVyowr63MQ0UzTnT8PGvVrmZ6dwPVmvYqkTV1lRA075CZCDD1SKRhB0grvce3B3e+UsOqOFeYAP80
-	UXLdO1iw==;
+	bh=jPnxbiDrD88R7fxyuWwb5Cns5IgXZT19fnWTStJyLp4=; b=TpfFmFkGFO4W0aumYQfwj8cdDg
+	BmR5JpL5mU+S9Un7ltz/PQX/Go79wlEK2vwkzlR5FZOWOUXLHUcRTdm1DFZQVm4/C0JhpBVgdWpWi
+	y10WZBhpKs+Zi8o7MsGgpfCpeMJGb4Opj3Prk7OXXE0nFaq+02Cg1IaJqeNdYvv2oS93XQewFCmbj
+	RexyGv05g8q+nUaB9D/Z7wntrHcCMlwB108jVEqOvAh8/TQva0wV+Yr7DWWAC9ouxCYXhB9K4iAHG
+	v4SGr2pZsC/oXu/7+Q134iO2SbznkTDNZGpCcTcHxpNFpeF1avPyIoYMYjM7W15XZhKEUJpensRCr
+	Wz0EXrrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTQXk-000000076Vn-1buT;
-	Tue, 17 Nov 2026 21:16:44 +0000
-Received: from retz.cirad.fr ([194.199.235.221])
+	id 1xTQeC-000000076x1-0YOu;
+	Tue, 17 Nov 2026 21:23:24 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTQXi-000000076Uy-001j
+	id 1xTQe8-000000076vn-2UXv
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Nov 2026 21:16:43 +0000
-Received: from retz.cirad.fr (localhost [127.0.0.1])
-	by retz.cirad.fr (Postfix) with ESMTPS id A586E20DC134;
-	Tue, 17 Nov 2026 22:16:39 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by retz.cirad.fr (Postfix) with ESMTP id 7BC4B20D5578;
-	Tue, 17 Nov 2026 22:16:39 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.10.3 retz.cirad.fr 7BC4B20D5578
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirad.fr;
-	s=573E3878-7916-11F1-BF4B-F68474317960; t=1794950199;
-	bh=nRqTMJzShimxvHzfTCPPnMzUFgDsbxOw3020xqbA690=;
-	h=From:To:Date:Message-ID:MIME-Version;
-	b=Gud2wEmiaIQS+G9oDe+ppbi8YJDwz3F5MYC0RXhiJXIjVG2uZgEeHopbDxXr/dlfS
-	 xHP9aurbGcSRBxJLXOJNqTJMYidrOqwxdLKUbzWi14nS90jSWEJ5xtxg8a/x5bztRL
-	 W6PooeL3SZuYaRhzb0ROSZUucanEKf5W7rgicRYBgQ53WSc+6KODHdg6COXrPpYOy3
-	 +jeaLMGWl6CfUt7R5ntrIULj4rOPdlSGAl4rVr51xcmuvaBN4YU/1AnG57ttuBqA3s
-	 ierLl20iJ/xbOJRGXK9nhseC2PthgpWeHVGkOvpiLNBVgHlHST9wazquJXMXBsjS2p
-	 H0JiGtDE7ne0Q==
-X-Virus-Scanned: amavis at retz.cirad.fr
-Received: from retz.cirad.fr ([127.0.0.1])
- by localhost (retz.cirad.fr [127.0.0.1]) (amavis, port 10026) with ESMTP
- id a40u_yxKLD6u; Tue, 17 Nov 2026 22:16:39 +0100 (CET)
-Received: from localhost.localdomain (78-196-243-100.subs.proxad.net [78.196.243.100])
-	by retz.cirad.fr (Postfix) with ESMTPSA id BE8FB20DC134;
-	Tue, 17 Nov 2026 22:16:37 +0100 (CET)
-From: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Mah=C3=A9?= <frederic.mahe@cirad.fr>
-To: Stephen Boyd <sboyd@kernel.org>,
-	Yixun Lan <dlan@kernel.org>
-Cc: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Mah=C3=A9?= <frederic.mahe@cirad.fr>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Haylen Chu <heylenay@4d2.org>,
-	Hung-Chun Tseng <alan.tseng.cs@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
+	Tue, 17 Nov 2026 21:23:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=Przrgbdbv85cvbqLBXsL7DGaaikgzPBDFnvarr+iJb4=; b=T2hjufLh0q4o5/+0lDWEDnqhGD
+	Ah0i8IUkddvpr5lELGxNvbUY4ubRasOnxz5fq9KUXQL//6N1b2FfoDk/Xr/QCTtc+s8VJ9rfP9TRQ
+	bK710C4dGLCWVcCNhs1YG4pOF18tK0noHDDmbSP7FSk0FpF8mp4Sy5uKjTxbBaC60pRy0X5reKqEn
+	P1luZPbnd5+QSUEBCW5kOZROOvSqx2U6k2ZJmDz4EPyRxuAUDxbnEypps5W6+TAr61Iq7E26FDW7w
+	NFkrpgW6FBLEWyBDo8LZxycbEilw3sDg3Mrpclacrp2EK4+c7WZbcvTvn22fmFS621wf5jS+fj38/
+	M/hzmeiw==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1xTQe4-0000000GZBY-0QzT;
+	Tue, 17 Nov 2026 22:23:16 +0100
+Date: Tue, 17 Nov 2026 22:23:15 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Jiayu Du <duge1256@gmail.com>
+Cc: srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, dlan@kernel.org,
+	troy.mitchell@linux.spacemit.com, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	p.zabel@pengutronix.de, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/6] riscv: spacemit: k1: RCPU2 PWM clocks and the BPI-F3 fan
-Date: Tue, 17 Nov 2026 22:16:23 +0100
-Message-ID: <20261117211626.141105-1-frederic.mahe@cirad.fr>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261117205951.140146-1-frederic.mahe@cirad.fr>
-References: <20261117205951.140146-1-frederic.mahe@cirad.fr>
+Subject: Re: [PATCH 3/3] riscv: dts: spacemit: Add K3 eFuse and temperature
+ trim cells
+Message-ID: <avzFw8hydMX-9G1_@aurel32.net>
+Mail-Followup-To: Jiayu Du <duge1256@gmail.com>, srini@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	dlan@kernel.org, troy.mitchell@linux.spacemit.com, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	p.zabel@pengutronix.de, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+References: <20261106060525.346873-1-duge1256@gmail.com>
+ <20261106060525.346873-4-duge1256@gmail.com>
+ <au5Q9lYTUegeEglv@aurel32.net>
+ <uot2mqhilzdfngqcwpipdo5xzncyvesmw2hw6rqk7mnveer57f@6m4cqzotx53k>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <uot2mqhilzdfngqcwpipdo5xzncyvesmw2hw6rqk7mnveer57f@6m4cqzotx53k>
+User-Agent: Mutt/2.4.1 (2026-07-04)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261117_131642_191330_9B5480A9 
-X-CRM114-Status: UNSURE (   4.72  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261117_132320_643724_AEDB4D70 
+X-CRM114-Status: GOOD (  24.92  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,19 +87,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_SANE_1 autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-QWRkaW5nIFRyb3ksIHdob3NlIGFkZHJlc3MgSSBtaXN0eXBlZCBpbiB0aGUgc2VyaWVzIChzb3Jy
-eSkuIFdoZW4KcmVwbHlpbmcsIHBsZWFzZSBkcm9wIHRyb3kubWl0Y2hlbGxAbGludXguc3BhY2Vt
-aXQuY28uCgpGcsOpZMOpcmljCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+Hi,
+
+On 2026-11-13 20:24, Jiayu Du wrote:
+> On Fri, Nov 06, 2026 at 11:13:10PM +0100, Aurelien Jarno wrote:
+> > Hi,
+> > 
+> > On 2026-11-06 14:05, Jiayu Du wrote:
+> > > Add the K3 eFuse controller with its AES_WTM clock and reset. Describe
+> > > fixed-layout cells for the temperature calibration parameters stored in
+> > > bank 0 and bank 7, using controller-relative offsets.
+> > > 
+> > > Leave the controller disabled for board-level enablement.
+> > 
+> > What is the reason for enabling it at the board-level? AFAIU, this is 
+> > part of the SoC and does not require any board level hardware. Therefore 
+> > I believe it should just be enabled by default.
+> 
+> Agreed, there is no board-specific dependency. I'll fix it.
+> 
+> > 
+> > > Signed-off-by: Jiayu Du <duge1256@gmail.com>
+> > > ---
+> > >  arch/riscv/boot/dts/spacemit/k3.dtsi | 25 +++++++++++++++++++++++++
+> > >  1 file changed, 25 insertions(+)
+> 
+> ...
+> 
+> > > +				#size-cells = <1>;
+> > > +
+> > > +				soc_rtemp_trim1: temperature-trim@120 {
+> > > +					reg = <0x120 0x1>;
+> > > +					bits = <0 8>;
+> > > +				};
+> > > +
+> > > +				soc_rtemp_trim: temperature-trim@19a {
+> > > +					reg = <0x19a 0x2>;
+> > > +					bits = <4 8>;
+> > > +				};
+> > 
+> > I have tried this patchset, and while I can see non-zero data in the 
+> > /sys/bus/nvmem/devices/f0702800.efuse, both temperature calibration data 
+> > appear as 0. Is that expected?
+> 
+> I see the same on my COM260 Kit: both banks contain non-zero data, but
+> the two trim fields are zero. The factory 6.18.3 kernel gives the same
+> bank data and temperature calibration data. 
+> 
+> The thermal driver change in [1] reads the bank 7 trim first, tries bank
+> 0 if it is below 8, and uses 0xd8 if both values are below 8. This handles
+> the zero-value case. I don't have an explanation for the zero trim values
+> themselves.
+
+Thanks for the explanations, that make sense. I guess that first 
+versions of the K3 were not temperature calibrated, so the value is 0.
+
+Regards
+Aurelien
+
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
