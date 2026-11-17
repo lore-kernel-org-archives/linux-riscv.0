@@ -2,102 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6668A606A31C
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 07:39:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B425606A33F
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 08:50:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YGwqMmyn;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=j/bqhDGg
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Gbi2/l3+;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=xB11US2y
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=AI8cN1634GFwR1rmg216KUx5q4JNQlT85fQzI5K4PCc=; b=YGwqMmynwUtu7uf/BvvuPr+ZYu
-	ErsJeWRD/UKvegNXAvhJlFWaIo/w63WtY7hX4MPBTXFKIoAXeWrXnrXR7R+kls/A/g9pdaWqutfIp
-	7S55LpNcrlUEd6zSnN3I1ruqocDyg8TR/CPoDyZ4UjSkh39OaP+Ws4Et9IN1jJ0+VSUwIrNn83QWy
-	/JQxCbFtBNnAXpa0ADGjcs0Lzz7cKQZraYOyokPMTn2UDai9WZM2dSE1ckno7cxhYvOTY7Ycmjb+g
-	cr5EcrC3xzAiZueSe4tR9xvcRuDusvBzKVKOht8qFhYmORydCE2atXFLF/a1HLtx646E3K5NpeNy+
-	UtbPKI4A==;
+	bh=PwqWy7xP5rLNY4KV/hf5Y0PaOez0FNi21nLuV+8lF+E=; b=Gbi2/l3+tRkCmao27hYZgTaIFo
+	ZvNMPOVkHZcZUwYG5Hg7gSZis0SNbCpvJtQc24fX8py66Pb6aqUafn8iCVMf7k27tMg7ME9hS+W5l
+	feW5olEa4qxTQD4P+2BAzhffxEEqc/an0ygLaWaPf3KO5sinD7FxXkjZL3F9nBxjRXkfSFgXkHnl1
+	GdJSkY+GUqJbhGdreF7ArE6o14JvHpaV7Mw8x2gFhjBbCzMIvGIMH6hJhAR7gH+TM5g4hdeMJYZ2h
+	9DJOEKDlJGDC3IsizQYokBsi2eTxyE6xIm3VL56SXTVG42U63RizbbIVOBKEbt/PFl55r67X1ZCMK
+	eHznzYhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTDmF-00000004o1T-0U8G;
-	Tue, 17 Nov 2026 07:38:51 +0000
-Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
+	id 1xTEt8-00000004xTG-0n5V;
+	Tue, 17 Nov 2026 08:50:02 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTDm9-00000004nzY-0GQz
+	id 1xTEt4-00000004xQ5-1cat
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Nov 2026 07:38:50 +0000
-Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-380b40312e2so2949697eec.1
-        for <linux-riscv@lists.infradead.org>; Mon, 16 Nov 2026 23:38:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1794901124; x=1795505924; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=z0boLzvMHuvL3Uis33Oz3ziSj0krLfwOkNPIKoetJ0Y=;
-        b=j/bqhDGgEzUkZzRAfK5KIfkXvxyNRCEiJ5/Y2hzZmkpoizuf60qmihazuKLnplWxb/
-         DqmFEJoGHy+YUH1vgNnh0i6gH/SWhYD9K/e83li0dg3jv9sMwQTDo+8jnpsl0gn3LeA+
-         gnUwExn4MbInLSqYU626PMeW6kOaf/MtZluJXoXhuBXCf0V8K31DSkZAmv1C32aD0Bp5
-         8/n4SfXtzZxjLVz+rB825IodQzkSswrG+z8wvmLkI4zvZyMISy2hpEmMKnoiqN453SGq
-         wHp5csbPpGMPaFWgVLyY2kMkDosxWsyYkOPMDejWW52vG/pL9kEtRXUITMr3flzJkMrd
-         4qZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794901124; x=1795505924;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=z0boLzvMHuvL3Uis33Oz3ziSj0krLfwOkNPIKoetJ0Y=;
-        b=a32u4KlKTmW+tjE6tlpY8RZligqa6gJKG0ijQliiJb/Pr0qCNmz96vgw9Feae0cEZY
-         vhfgXidOe4T2Q6qJ2w3/N6DGtQNpSnvuJgCAS1pQRZKVxKOkAkuRFs4UiywtHt16ZJ+1
-         1ltwMTAFoAD9Jc7m9d6HSVYvZUXnZAT5nw/RX2PG5Y+VGUKHOij8rsYdxwirpQatJiHI
-         aK8NXaCu0b96gq9BH1Sb5QISJca6PlZwgv1EHOzNEptbR15pwzndOzk9Vg8Ss160ZGY9
-         X3HLAbcP0b+aOJ6rs+ce1f8RTRtB43JVIyfceg7Z9AeGAAfVNKVNgl4twPlT7oQ11d5b
-         nVng==
-X-Gm-Message-State: APuU4Z8LLdIVd/ccoXm9yTXOkLQhL0IlfptiQRSMmdoza3ASMmXoEqlt
-	pUe9w0YwdtUT3e9EGLVrsUZ1NpE3fooBnYfaYKRuODOmATKyyuNwD7pduBSYeqxPNAk=
-X-Gm-Gg: AZFdTZcVgeHManX/U1RhixQYN1oMVYZd214bvL5GADoVI3NWbzlDbiDDe6gSwVIyNcj
-	xSd1DvsLLZm3s1ou65r/E9StjErwEnaA8NES80hEyaWt08He1+crZWmHZx49NMhbOTSc1nKXWAd
-	OZyfFpEBUGmeaaJ9BQg3JLNMM2XHVzsHs1ihqBbnq1fMSzONCPBCXs/oSbZJDx9aOprEio6ivWd
-	wyqAtiBV6JkCxoi+ZS1wA7yrqVDxn85MvtyIbq/CU6aAlvlTzy8RKa2jVMeEDFvVGKHIkuVbdHP
-	abSfezTLbM8D0SGatRF0b9LraUlzJwkhoWgvZ9Wqz9PkPZ2GSubXOANbMCJi0/N0BjI3DE69GE/
-	7W7MkER3vbqtK64wbbuadolf/2ig4gwPUARXm8snq7StN7t1bXnm3qfZsU8NGAxFQ9cgW2vhZ2q
-	msOwDixMK5BjhgNmtNcbrxUMbqiQjA/U0gh2TcTbBkHY91sOBXTFMuUle0MPKVpfm4SuoP1md7E
-	ynYanKlXFMcYqvHtE+Dkyfmn/nRAqSRAuYw1VV8qF/SAEfui02McOEHuDjlzwuN0qwZqPbYtRhX
-	4wDX7FsbcSiI/nf5qWzD/dUA/wPEXka8umW4g1A6bnD8cv8L8es//smPl7m4AFxu9Ok=
-X-Received: by 2002:a05:7301:c08b:b0:381:c532:3d88 with SMTP id 5a478bee46e88-381c5324042mr306716eec.23.1794901123636;
-        Mon, 16 Nov 2026 23:38:43 -0800 (PST)
-Received: from sw07.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38116afd7f7sm5190967eec.17.2026.11.16.23.38.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 23:38:43 -0800 (PST)
-From: Nylon Chen <nylon.chen@sifive.com>
-Date: Mon, 16 Nov 2026 23:38:37 -0800
-Subject: [PATCH 1/2] riscv: traps: Add support for vector misalignment
- handler
+	Tue, 17 Nov 2026 08:50:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1794905339;
+	bh=zWyRURPu1OxrVx0wsF9VEbECiyatmSf1CoESfSh8E/k=;
+	h=From:Subject:Date:Message-Id:MIME-Version:To;
+	b=xB11US2ydHROwhf488ftOpPL6fPT1gipHiGjGNG2chOEPzup/y/hKfCDKa7I2q+xj
+	 A3cpkmLA8+/iK6NX2bSI7TxyGZC9fvECqOiVwyeX2FI5ZJRP95AHbIe5OPUvoi3UL/
+	 O3H80I8UuuRxJUzcWzKH3FpPlJf2f6gJ7+t8rl6o=
+X-QQ-mid: zesmtpsz2t1794905337t89f735b3
+X-QQ-Originating-IP: R99N8wcVkiTH8aE42GHQGH77icoKGm0a84h5ayh/DHc=
+Received: from = ( [183.48.247.191])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 17 Nov 2026 16:48:54 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 195453335041648402
+EX-QQ-RecipientCnt: 15
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: [PATCH v2 0/2] riscv: dts: spacemit: Add K3 CoM260 TQ support
+Date: Tue, 17 Nov 2026 08:48:50 +0000
+Message-Id: <20261117-k3-tq-dts-based-on-com260-v2-0-68b337bd8938@linux.spacemit.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261116-riscv-vector-misaligned-v1-1-6c4d0ca905b7@sifive.com>
-References: <20261116-riscv-vector-misaligned-v1-0-6c4d0ca905b7@sifive.com>
-In-Reply-To: <20261116-riscv-vector-misaligned-v1-0-6c4d0ca905b7@sifive.com>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Shuah Khan <shuah@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, Nylon Chen <nylon.chen@sifive.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794901121; l=38879;
- i=nylon.chen@sifive.com; s=20260310; h=from:subject:message-id;
- bh=RWgpz5jrpedqDg9gK3P75tl43jsK8DbovsadAwV8pZU=;
- b=NCOqOa+aMl2Jj6lDDt0om7wM1dS+vPWghY/vew+5MegIfjJiEyqyy1WnFIbPPNIzFj1nAQTyS
- 6gK2IxInZQBAUjbINUv6db5WOTDBDUdZF35iB8uGHeLipymiGNjcjMs
-X-Developer-Key: i=nylon.chen@sifive.com; a=ed25519;
- pk=+xtFLLbXfGd50d5UhR9oBzLTh+JLft7T60t3u7YMZPI=
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32Nyw6CMBQFf4V07SVtEQiu/A/Doo+rVKXFthAM4
+ d8tsHc5yZwzCwnoDQZyyRbicTLBOJuAnzKiOmEfCEYnJpzyilFWwquA+AEdA0gRUIOzoFzPKwp
+ FrUvdNILLRpK0Hzzezbx/39qDwyifqOJ2uBmdCdH57x6f2OYdHUb/dSYGFISgsq7ZWaCm17ex4
+ 5yHQSjsTcyTR9p1XX8R4ild3QAAAA==
+X-Change-ID: 20261015-k3-tq-dts-based-on-com260-37d5d99a2b9b
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Guodong Xu <docular.xu@gmail.com>, Yangyu Chen <cyy@cyyself.name>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2089;
+ i=troy.mitchell@linux.spacemit.com; h=from:subject:message-id;
+ bh=cKNI6p0a2FU5oVIDwqYsIH8y/2k6zgLXOKucQO4l7mY=;
+ b=owGbwMvMwCU2g/N9w09jE33G02pJDFl/RL7tV15x5p3kxRs7M1/zzyuLvRLnc0rVnSNEMiHJ0
+ L21NntHRykLgxgXg6yYIkv3A55tBT5RtgUChb4wc1iZQIYwcHEKwETSBRl+Mv6c3C5UknuDvfT8
+ uaLQJ+/PmCVPtVxzPqgh7P/es/aJ9xgZenaLx6bWKC9qWC74sd4w/1jXk+ITgitE9/FUsqwKtbH
+ gAwA=
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=openpgp;
+ fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NdC04oDZj+f2IKe70051Ci0qG8BpBvvmKMTPIcLphf+rKCAnRa8LGcV6
+	2rfenz2kMIu8qYQqNs/Y5Lx8NTLqxKJqYrFCQOIrylCFYhi1Br2P89GjLP41VEuB3PyOeT0
+	Zu+op8rk73g8slqjCSz4ohMoJ+Mb8Na6xJjzk7mqfXm0ex93CeYyq7mJh92V7OeZMNSg8oR
+	FAo0qN69JBg/FPTNz4uWZZVYKav1m7RBDdxcq32s2B/FEZrCTG/5+e12A0wlo+Y9nOiHpKk
+	J15NuyUDiIJhwrM8JcWX8d/pxtdfX+FMSbOoz+SkHKS0FP3tzjHkfVf0OCbjrVTmmiIR/uL
+	S8akvAYhJxZmaGWvzHw6/nwODSpH09MazC42W/urFEGNtvfWZKraLyR2xCx/uFgqeieEY4W
+	RC76mp6+GGNnSDnjq3BJV7qgkQk8poCZ5KXfCUird2I6RhReCqOSGF3VqX/tdRCQJ9TPh/X
+	ts7czFfXYw7TOtplknTDWBuBR5JdG6/v+xJ9zc2+a+5qHBIOq79qLV+/yq6Q2Wa951ogMLg
+	6feSs3h2bYvQ8wLWWRmRBCf+ecVyTtmJyPH2yko0sHiDTAH/lgb9WkGaukueeqf90NoEzWF
+	0SYXu9bsLya3APxKY8tKqYySAegchq7OaCExn/xUle5/Nfc6Hv3eitP+845txW+2Ev+6Y2f
+	hyEIssWhiUvTT4WrNzowFHa7kvbEt6ecPWIORwWKHfil7r/uiu9j4du21P5D67QHrQIlUxF
+	L+awozUX+AKD8P6FcLb+zZ6X0cCmPNxOkheEXkMY2Din03aJ6CBRSbwGscBsEgfrZj6KZ+m
+	uwmzR6VnQtfNBml8bGLnCwX/zWqCwzXc22JPyEqLHkzw1g/FAMnOeRm2JHC4vACEkOIkcHE
+	8riNmPE77/y0Cx/dkcmQnp+thCJSDumSOUgZ5cJzR/Jvc5LFIO6WriDfG1zVh/LmQrHbqRk
+	kn5Y/YcjItwYJnCXl0BRAUjwms82filJYHUi2B0zAwr26coD39H2pNPHUteyJ/IXmYR8cmB
+	3kDfoIHL27Q5w+6oFbNZuXIEtZvr5YMJd9cOGfgifTUoK+gjje6bHq+2lz50B7TUM8H3jof
+	gu3D6eYJ9uUocJC/ziN+B710t1ayWMO1Gant+ug0flUuRzGJjUIHrg3vyryZDJ5mFsYrvMm
+	2oVULVvDfWaE3eI=
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261116_233845_146778_BBD21B4F 
-X-CRM114-Status: GOOD (  21.65  )
+X-CRM114-CacheID: sfid-20261117_004959_246939_91AD2332 
+X-CRM114-Status: GOOD (  11.44  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,1056 +112,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Implement misaligned load/store emulation for RISC-V vector instructions.
-This adds support for handling misaligned memory accesses in vector
-operations, which may occur when the effective address is not naturally
-aligned for the element size.
+This series adds device tree support for the K3 CoM260 TQ board, a
+K3 CoM260 module on the TQ carrier board.
 
-The implementation includes:
-- Vector load emulator (misaligned_v_ld_emulator)
-- Vector store emulator (misaligned_v_st_emulator)
-- Support for various vector instruction formats:
-  - Unit-stride and strided load/store
-  - Indexed load/store
-  - Segment load/store
-  - Whole register load/store
-  - Fault-only-first loads
+The board uses the CoM260 module description for the UART console,
+Ethernet, module EEPROM and PMIC, and describes the carrier's Ethernet
+PHY LEDs.
 
-Both user mode and kernel mode traps are emulated. In user mode, the
-vector register file has already been saved to current->thread.vstate
-by kernel_vector_begin(), so register contents are accessed there. In
-kernel mode the registers are still live in hardware for the duration
-of the trap (IRQs stay disabled, nothing else can touch them), so
-get_vreg()/set_vreg() instead use vstart together with a
-tail-undisturbed vsetvli to read or modify only the target element in
-place, the same technique OpenSBI's M-mode handler uses. This avoids
-depending on CONFIG_RISCV_ISA_V_PREEMPTIVE or any per-task kernel
-vector state allocation.
+The TQ carrier board comes with one of two power schemes for the CPU
+clusters. Both are the same hardware otherwise, and the system currently
+relies on the bootloader to set up the power scheme, so a single
+compatible and device tree cover both variants. Once the regulators are
+supported, the power schemes can be described as overlays applied to
+this device tree at build time.
 
-Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
 ---
- arch/riscv/include/asm/vector.h        |   4 +
- arch/riscv/kernel/Makefile             |   1 +
- arch/riscv/kernel/traps_misaligned.c   |  39 +-
- arch/riscv/kernel/traps_v_misaligned.c | 902 +++++++++++++++++++++++++++++++++
- 4 files changed, 944 insertions(+), 2 deletions(-)
+Changes in v2:
+- Rename the board to K3 CoM260 TQ, which covers both the TQ and the
+  IFX TQ power schemes.
+- Use a single compatible for both power schemes of the TQ carrier.
+- Link to v1: https://patch.msgid.link/20261105-k3-tq-dts-based-on-com260-v1-0-aa0b7714aed0@linux.spacemit.com
 
-diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index cd09f32e1ea3..712c38383998 100644
---- a/arch/riscv/include/asm/vector.h
-+++ b/arch/riscv/include/asm/vector.h
-@@ -51,6 +51,8 @@ void put_cpu_vector_context(void);
- void riscv_v_thread_free(struct task_struct *tsk);
- void __init riscv_v_setup_ctx_cache(void);
- void riscv_v_thread_alloc(struct task_struct *tsk);
-+int misaligned_v_ld_emulator(struct pt_regs *regs, unsigned long insn);
-+int misaligned_v_st_emulator(struct pt_regs *regs, unsigned long insn);
- void __init update_regset_vector_info(unsigned long size);
- 
- static inline u32 riscv_v_flags(void)
-@@ -411,6 +413,8 @@ bool riscv_v_vstate_ctrl_user_allowed(void);
- 
- struct pt_regs;
- 
-+int misaligned_v_ld_emulator(struct pt_regs *regs, unsigned long insn);
-+int misaligned_v_st_emulator(struct pt_regs *regs, unsigned long insn);
- static inline int riscv_v_setup_vsize(void) { return -EOPNOTSUPP; }
- static __always_inline bool has_vector(void) { return false; }
- static __always_inline bool insn_is_vector(u32 insn_buf) { return false; }
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index f54c336bf547..a618b28c21ee 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -76,6 +76,7 @@ obj-$(CONFIG_MMU) += vdso.o vdso/
- obj-$(CONFIG_RISCV_USER_CFI) += vdso_cfi/
- 
- obj-$(CONFIG_RISCV_MISALIGNED)	+= traps_misaligned.o
-+obj-$(CONFIG_RISCV_MISALIGNED)	+= traps_v_misaligned.o
- obj-$(CONFIG_RISCV_MISALIGNED)	+= unaligned_access_speed.o
- obj-$(CONFIG_RISCV_PROBE_UNALIGNED_ACCESS)		+= copy-unaligned.o
- obj-$(CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS)	+= vec-copy-unaligned.o
-diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
-index 6e8ae6c66322..3a16ec91e150 100644
---- a/arch/riscv/kernel/traps_misaligned.c
-+++ b/arch/riscv/kernel/traps_misaligned.c
-@@ -206,15 +206,39 @@ static int handle_vector_misaligned_load(struct pt_regs *regs)
- 		return 0;
- 	}
- 
--	/* If vector instruction we don't emulate it yet */
- 	regs->epc = epc;
--	return -1;
-+	return misaligned_v_ld_emulator(regs, insn);
-+}
-+
-+static int handle_vector_misaligned_store(struct pt_regs *regs)
-+{
-+	unsigned long epc = regs->epc;
-+	unsigned long insn;
-+
-+	if (get_insn(regs, epc, &insn))
-+		return -1;
-+
-+	/* Only return 0 when in check_vector_unaligned_access_emulated */
-+	if (*this_cpu_ptr(&vector_misaligned_access) == RISCV_HWPROBE_MISALIGNED_VECTOR_UNKNOWN) {
-+		*this_cpu_ptr(&vector_misaligned_access) =
-+			RISCV_HWPROBE_MISALIGNED_VECTOR_UNSUPPORTED;
-+		regs->epc = epc + INSN_LEN(insn);
-+		return 0;
-+	}
-+
-+	regs->epc = epc;
-+	return misaligned_v_st_emulator(regs, insn);
- }
- #else
- static int handle_vector_misaligned_load(struct pt_regs *regs)
- {
- 	return -1;
- }
-+
-+static int handle_vector_misaligned_store(struct pt_regs *regs)
-+{
-+	return -1;
-+}
- #endif
- 
- static int handle_scalar_misaligned_load(struct pt_regs *regs)
-@@ -445,6 +469,17 @@ int handle_misaligned_load(struct pt_regs *regs)
- 
- int handle_misaligned_store(struct pt_regs *regs)
- {
-+	unsigned long epc = regs->epc;
-+	unsigned long insn;
-+
-+	if (IS_ENABLED(CONFIG_RISCV_VECTOR_MISALIGNED)) {
-+		if (get_insn(regs, epc, &insn))
-+			return -1;
-+
-+		if (insn_is_vector(insn))
-+			return handle_vector_misaligned_store(regs);
-+	}
-+
- 	if (IS_ENABLED(CONFIG_RISCV_SCALAR_MISALIGNED))
- 		return handle_scalar_misaligned_store(regs);
- 
-diff --git a/arch/riscv/kernel/traps_v_misaligned.c b/arch/riscv/kernel/traps_v_misaligned.c
-new file mode 100644
-index 000000000000..29557a51a347
---- /dev/null
-+++ b/arch/riscv/kernel/traps_v_misaligned.c
-@@ -0,0 +1,902 @@
-+// SPDX-License-Identifier: BSD-2-Clause
-+/*
-+ *
-+ * Copyright (c) 2025 SiFive Inc.
-+ *
-+ * Authors:
-+ *   Nylon Chen <nylon.chen@sifive.com>
-+ *   Zong Li <zong.li@sifive.com>
-+ */
-+
-+#include <linux/kernel.h>
-+#include <linux/init.h>
-+#include <linux/mm.h>
-+#include <linux/module.h>
-+#include <linux/perf_event.h>
-+#include <linux/irq.h>
-+#include <linux/stringify.h>
-+#include <linux/sched/signal.h>
-+
-+#include <linux/processor.h>
-+#include <asm/ptrace.h>
-+#include <asm/csr.h>
-+#include <linux/entry-common.h>
-+#include <asm/hwprobe.h>
-+#include <linux/cpufeature.h>
-+#include <asm/vector.h>
-+#include <asm/simd.h>
-+#include <linux/slab.h>
-+#include <asm/asm-prototypes.h>
-+
-+#define INSN_MASK_VECTOR_UNIT_STRIDE			0xfdf0707f
-+#define INSN_MASK_VECTOR_FAULT_ONLY_FIRST		0xfdf0707f
-+#define INSN_MASK_VECTOR_STRIDE				0xfc00707f
-+#define INSN_MASK_VECTOR_INDEXED			0xfc00707f
-+#define INSN_MASK_VECTOR_WHOLE_REG			0xfff0707f
-+
-+#define VSEW3(bits) ({							\
-+	unsigned long __b = (unsigned long)(bits);			\
-+	(__b == 16UL ? 5UL : (__b == 32UL ? 6UL : 7UL));		\
-+})
-+
-+#define INSN_MATCH_VLUXSEG(n, bits) \
-+	((((unsigned long)(n) - 1UL) << 29) | 0x04000007UL | (VSEW3(bits) << 12))
-+
-+#define INSN_MATCH_VSUXSEG(n, bits) \
-+	((((unsigned long)(n) - 1UL) << 29) | 0x04000027UL | (VSEW3(bits) << 12))
-+
-+#define INSN_MATCH_VLOXSEG(n, bits) \
-+	((((unsigned long)(n) - 1UL) << 29) | 0x0c000007UL | (VSEW3(bits) << 12))
-+
-+#define INSN_MATCH_VSOXSEG(n, bits) \
-+	((((unsigned long)(n) - 1UL) << 29) | 0x0c000027UL | (VSEW3(bits) << 12))
-+
-+#define INSN_MATCH_VLSSEG(n, bits)  \
-+	((((unsigned long)(n) - 1UL) << 29) | 0x08000007UL | (VSEW3(bits) << 12))
-+
-+#define INSN_MATCH_VSSSEG(n, bits)  \
-+	((((unsigned long)(n) - 1UL) << 29) | 0x08000027UL | (VSEW3(bits) << 12))
-+
-+#define INSN_MATCH_VSSEG(n, bits)   \
-+	((((unsigned long)(n) - 1UL) << 29) | 0x00004027UL | (VSEW3(bits) << 12))
-+
-+#define INSN_MATCH_VLSEG(n, bits)   \
-+	((((unsigned long)(n) - 1UL) << 29) | 0x00004007UL | (VSEW3(bits) << 12))
-+
-+#define INSN_MATCH_VLSEGFF(n, bits) \
-+	((((unsigned long)(n) - 1UL) << 29) | 0x01000007UL | (VSEW3(bits) << 12))
-+
-+#define INSN_MATCH_VLE16V		0x00005007
-+#define INSN_MATCH_VLE32V		0x00006007
-+#define INSN_MATCH_VLE64V		0x00007007
-+#define INSN_MATCH_VSE16V		0x00005027
-+#define INSN_MATCH_VSE32V		0x00006027
-+#define INSN_MATCH_VSE64V		0x00007027
-+#define INSN_MATCH_VLSE16V		0x08005007
-+#define INSN_MATCH_VLSE32V		0x08006007
-+#define INSN_MATCH_VLSE64V		0x08007007
-+#define INSN_MATCH_VSSE16V		0x08005027
-+#define INSN_MATCH_VSSE32V		0x08006027
-+#define INSN_MATCH_VSSE64V		0x08007027
-+#define INSN_MATCH_VLOXEI16V		0x0c005007
-+#define INSN_MATCH_VLOXEI32V		0x0c006007
-+#define INSN_MATCH_VLOXEI64V		0x0c007007
-+#define INSN_MATCH_VSOXEI16V		0x0c005027
-+#define INSN_MATCH_VSOXEI32V		0x0c006027
-+#define INSN_MATCH_VSOXEI64V		0x0c007027
-+#define INSN_MATCH_VLUXEI16V		0x04005007
-+#define INSN_MATCH_VLUXEI32V		0x04006007
-+#define INSN_MATCH_VLUXEI64V		0x04007007
-+#define INSN_MATCH_VSUXEI16V		0x04005027
-+#define INSN_MATCH_VSUXEI32V		0x04006027
-+#define INSN_MATCH_VSUXEI64V		0x04007027
-+#define INSN_MATCH_VLE16FFV		0x01005007
-+#define INSN_MATCH_VLE32FFV		0x01006007
-+#define INSN_MATCH_VLE64FFV		0x01007007
-+#define INSN_MATCH_VL1RE8V		0x02800007
-+#define INSN_MATCH_VL1RE16V		0x02805007
-+#define INSN_MATCH_VL1RE32V		0x02806007
-+#define INSN_MATCH_VL1RE64V		0x02807007
-+#define INSN_MATCH_VL2RE8V		0x22800007
-+#define INSN_MATCH_VL2RE16V		0x22805007
-+#define INSN_MATCH_VL2RE32V		0x22806007
-+#define INSN_MATCH_VL2RE64V		0x22807007
-+#define INSN_MATCH_VL4RE8V		0x62800007
-+#define INSN_MATCH_VL4RE16V		0x62805007
-+#define INSN_MATCH_VL4RE32V		0x62806007
-+#define INSN_MATCH_VL4RE64V		0x62807007
-+#define INSN_MATCH_VL8RE8V		0xe2800007
-+#define INSN_MATCH_VL8RE16V		0xe2805007
-+#define INSN_MATCH_VL8RE32V		0xe2806007
-+#define INSN_MATCH_VL8RE64V		0xe2807007
-+#define INSN_MATCH_VS1RV		0x02800027
-+#define INSN_MATCH_VS2RV		0x22800027
-+#define INSN_MATCH_VS4RV		0x62800027
-+#define INSN_MATCH_VS8RV		0xe2800027
-+
-+#define IS_VECTOR_INSN_MATCH(insn, match, mask)					\
-+({										\
-+	u32 _i = (u32)(insn);							\
-+	u32 _m = (u32)(match);							\
-+	u32 _k = (u32)(mask);							\
-+	(((_i & _k) == (_m & _k)));						\
-+})
-+
-+#define IS_UNIT_STRIDE_MATCH(insn, match) \
-+	IS_VECTOR_INSN_MATCH(insn, match, INSN_MASK_VECTOR_UNIT_STRIDE)
-+
-+#define IS_STRIDE_MATCH(insn, match) \
-+	IS_VECTOR_INSN_MATCH(insn, match, INSN_MASK_VECTOR_STRIDE)
-+
-+#define IS_INDEXED_MATCH(insn, match) \
-+	IS_VECTOR_INSN_MATCH(insn, match, INSN_MASK_VECTOR_INDEXED)
-+
-+#define IS_FAULT_ONLY_FIRST_MATCH(insn, match) \
-+	IS_VECTOR_INSN_MATCH(insn, match, INSN_MASK_VECTOR_FAULT_ONLY_FIRST)
-+
-+#define IS_WHOLE_REG_MATCH(insn, match) \
-+	IS_VECTOR_INSN_MATCH(insn, match, INSN_MASK_VECTOR_WHOLE_REG)
-+
-+#define IS_UNIT_STRIDE_LOAD(insn) ({ \
-+	typeof(insn) __insn = (insn); \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLE16V) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLE32V) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLE64V) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(2, 16)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(3, 16)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(4, 16)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(5, 16)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(6, 16)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(7, 16)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(8, 16)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(2, 32)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(3, 32)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(4, 32)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(5, 32)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(6, 32)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(7, 32)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(8, 32)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(2, 64)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(3, 64)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(4, 64)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(5, 64)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(6, 64)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(7, 64)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VLSEG(8, 64)); \
-+})
-+
-+#define IS_UNIT_STRIDE_STORE(insn) ({ \
-+	typeof(insn) __insn = (insn); \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSE16V) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSE32V) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSE64V) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(2, 16)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(3, 16)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(4, 16)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(5, 16)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(6, 16)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(7, 16)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(8, 16)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(2, 32)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(3, 32)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(4, 32)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(5, 32)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(6, 32)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(7, 32)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(8, 32)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(2, 64)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(3, 64)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(4, 64)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(5, 64)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(6, 64)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(7, 64)) || \
-+	IS_UNIT_STRIDE_MATCH(__insn, INSN_MATCH_VSSEG(8, 64)); \
-+})
-+
-+#define IS_STRIDE_LOAD(insn) ({ \
-+	typeof(insn) __insn = (insn); \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSE16V) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSE32V) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSE64V) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(2, 16)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(3, 16)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(4, 16)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(5, 16)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(6, 16)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(7, 16)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(8, 16)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(2, 32)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(3, 32)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(4, 32)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(5, 32)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(6, 32)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(7, 32)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(8, 32)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(2, 64)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(3, 64)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(4, 64)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(5, 64)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(6, 64)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(7, 64)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VLSSEG(8, 64)); \
-+})
-+
-+#define IS_STRIDE_STORE(insn) ({ \
-+	typeof(insn) __insn = (insn); \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSE16V) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSE32V) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSE64V) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(2, 16)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(3, 16)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(4, 16)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(5, 16)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(6, 16)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(7, 16)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(8, 16)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(2, 32)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(3, 32)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(4, 32)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(5, 32)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(6, 32)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(7, 32)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(8, 32)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(2, 64)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(3, 64)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(4, 64)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(5, 64)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(6, 64)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(7, 64)) || \
-+	IS_STRIDE_MATCH(__insn, INSN_MATCH_VSSSEG(8, 64)); \
-+})
-+
-+#define IS_INDEXED_LOAD(insn) ({ \
-+	typeof(insn) __insn = (insn); \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXEI16V) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXEI32V) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXEI64V) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXEI16V) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXEI32V) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXEI64V) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(2, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(3, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(4, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(5, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(6, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(7, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(8, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(2, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(3, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(4, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(5, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(6, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(7, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(8, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(2, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(3, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(4, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(5, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(6, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(7, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLUXSEG(8, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(2, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(3, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(4, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(5, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(6, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(7, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(8, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(2, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(3, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(4, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(5, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(6, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(7, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(8, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(2, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(3, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(4, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(5, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(6, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(7, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VLOXSEG(8, 64)); \
-+})
-+
-+#define IS_INDEXED_STORE(insn) ({ \
-+	typeof(insn) __insn = (insn); \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXEI16V) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXEI32V) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXEI64V) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXEI16V) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXEI32V) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXEI64V) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(2, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(3, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(4, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(5, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(6, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(7, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(8, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(2, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(3, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(4, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(5, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(6, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(7, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(8, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(2, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(3, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(4, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(5, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(6, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(7, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSUXSEG(8, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(2, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(3, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(4, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(5, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(6, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(7, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(8, 16)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(2, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(3, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(4, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(5, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(6, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(7, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(8, 32)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(2, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(3, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(4, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(5, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(6, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(7, 64)) || \
-+	IS_INDEXED_MATCH(__insn, INSN_MATCH_VSOXSEG(8, 64)); \
-+})
-+
-+#define IS_FAULT_ONLY_FIRST_LOAD(insn) ({ \
-+	typeof(insn) __insn = (insn); \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLE16FFV) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLE32FFV) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLE64FFV) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(2, 16)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(3, 16)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(4, 16)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(5, 16)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(6, 16)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(7, 16)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(8, 16)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(2, 32)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(3, 32)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(4, 32)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(5, 32)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(6, 32)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(7, 32)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(8, 32)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(2, 64)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(3, 64)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(4, 64)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(5, 64)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(6, 64)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(7, 64)) || \
-+	IS_FAULT_ONLY_FIRST_MATCH(__insn, INSN_MATCH_VLSEGFF(8, 64)); \
-+})
-+
-+#define IS_WHOLE_REG_LOAD(insn) ({ \
-+	typeof(insn) __insn = (insn); \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL1RE8V) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL1RE16V) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL1RE32V) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL1RE64V) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL2RE8V) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL2RE16V) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL2RE32V) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL2RE64V) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL4RE8V) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL4RE16V) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL4RE32V) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL4RE64V) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL8RE8V) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL8RE16V) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL8RE32V) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VL8RE64V); \
-+})
-+
-+#define IS_WHOLE_REG_STORE(insn) ({ \
-+	typeof(insn) __insn = (insn); \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VS1RV) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VS2RV) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VS4RV) || \
-+	IS_WHOLE_REG_MATCH(__insn, INSN_MATCH_VS8RV); \
-+})
-+
-+#define VM_MASK				0x1
-+#define VIEW_MASK			0x3
-+#define VSEW_MASK			0x3
-+#define VLMUL_MASK			0x7
-+#define VD_MASK				0x1f
-+#define VS2_MASK			0x1f
-+
-+#define SH_VSEW				3
-+#define SH_VIEW				12
-+#define SH_VD				7
-+#define SH_VS2				20
-+#define SH_VM				25
-+#define SH_MEW				28
-+
-+#define GET_VD(insn)			(((insn) >> SH_VD) & VD_MASK)
-+#define GET_VS2(insn)			(((insn) >> SH_VS2) & VS2_MASK)
-+#define GET_VIEW(insn)			(((insn) >> SH_VIEW) & VIEW_MASK)
-+#define IS_MASKED(insn)			((((insn) >> SH_VM) & VM_MASK) == 0)
-+#define GET_MEW(insn)			(((insn) >> SH_MEW) & 1)
-+#define GET_VSEW(vtype)			(((vtype) >> SH_VSEW) & VSEW_MASK)
-+#define GET_VLMUL(vtype)		((vtype) & VLMUL_MASK)
-+#define GET_LEN(view)			(1UL << (view))
-+#define GET_NF(insn)			(1 + (((insn) >> 29) & 7))
-+#define GET_VEMUL(vlmul, view, vsew)	(((vlmul) + (view) - (vsew)) & 7)
-+#define GET_EMUL(vemul)						\
-+({								\
-+	unsigned long _v = (unsigned long)(vemul);		\
-+	(1UL << (_v >= 4 ? 0 : _v));				\
-+})
-+
-+#if defined(CONFIG_64BIT)
-+#define LOG_REGBYTES		3
-+#else
-+#define LOG_REGBYTES		2
-+#endif
-+
-+#define SH_RS1			15
-+#define SH_RS2			20
-+
-+#define SHIFT_RIGHT(x, y)					\
-+({								\
-+	long _y = (long)(y);					\
-+	__typeof__(x) _x = (x);					\
-+	(_y < 0) ? (_x << (unsigned long)(-_y))			\
-+	: (_x >> (unsigned long)_y);				\
-+})
-+
-+#define REG_MASK                        \
-+	((1 << (5 + LOG_REGBYTES)) - (1 << LOG_REGBYTES))
-+
-+#define REG_OFFSET(insn, pos)           \
-+	(SHIFT_RIGHT((insn), (pos) - LOG_REGBYTES) & REG_MASK)
-+
-+#define REG_PTR(insn, pos, regs)                                               \
-+	((ulong *)((ulong)(regs) + REG_OFFSET(insn, pos)))
-+
-+#define GET_RS1(insn, regs)		(*REG_PTR(insn, SH_RS1, regs))
-+#define GET_RS2(insn, regs)		(*REG_PTR(insn, SH_RS2, regs))
-+
-+/*
-+ * VLEN_MAX defines the maximum vector length supported by the emulator.
-+ * The mask array size must be at least VLEN_MAX / 8 bytes to hold v0 mask.
-+ * Current hardware implementations typically have VLEN of 128-1024 bits.
-+ * We use 4096 bits (512 bytes) as a reasonable upper bound that covers
-+ * known implementations while keeping stack usage manageable.
-+ */
-+#define VLEN_MAX 4096
-+
-+/*
-+ * set_vreg - Write bytes into a vector register at a specific position.
-+ *
-+ * In user mode, kernel_vector_begin() has already saved the hardware
-+ * vector register file into current->thread.vstate.datap, so the target
-+ * bytes are modified there and restored to hardware by kernel_vector_end().
-+ *
-+ * In kernel mode, the vector registers are "live" in hardware for the
-+ * duration of the trap (IRQs are disabled, nothing else can touch them).
-+ * vstart skips elements before @pos, and the tail-undisturbed (tu) policy
-+ * on vsetvli preserves elements after @pos+@size, so only [pos, pos+size)
-+ * is modified without corrupting the rest of the register. This is the
-+ * same technique OpenSBI's M-mode vector misaligned handler uses.
-+ */
-+static inline void set_vreg(ulong vlenb, ulong which, ulong pos, ulong size,
-+			    const u8 *bytes, bool is_usermode)
-+{
-+	if (is_usermode) {
-+		struct __riscv_v_ext_state *vstate = &current->thread.vstate;
-+		unsigned char *vdata = vstate->datap;
-+
-+		if (!vdata)
-+			return;
-+		memcpy(vdata + which * vlenb + pos, bytes, size);
-+		return;
-+	}
-+
-+	/* Kernel mode: directly access the live hardware vector registers. */
-+	pos += (which % 8) * vlenb;
-+	bytes -= pos;
-+
-+	__asm__ __volatile__(
-+		".option push\n\t"
-+		".option arch, +v\n\t"
-+		"vsetvli x0, %0, e8, m8, tu, ma\n\t"
-+		".option pop\n\t"
-+		: : "r"(pos + size));
-+
-+	csr_write(CSR_VSTART, pos);
-+
-+	switch (which / 8) {
-+	case 0:
-+		__asm__ __volatile__(
-+			".option push\n\t"
-+			".option arch, +v\n\t"
-+			"vle8.v v0, (%0)\n\t"
-+			".option pop\n\t"
-+			: : "r"(bytes) : "memory");
-+		break;
-+	case 1:
-+		__asm__ __volatile__(
-+			".option push\n\t"
-+			".option arch, +v\n\t"
-+			"vle8.v v8, (%0)\n\t"
-+			".option pop\n\t"
-+			: : "r"(bytes) : "memory");
-+		break;
-+	case 2:
-+		__asm__ __volatile__(
-+			".option push\n\t"
-+			".option arch, +v\n\t"
-+			"vle8.v v16, (%0)\n\t"
-+			".option pop\n\t"
-+			: : "r"(bytes) : "memory");
-+		break;
-+	case 3:
-+		__asm__ __volatile__(
-+			".option push\n\t"
-+			".option arch, +v\n\t"
-+			"vle8.v v24, (%0)\n\t"
-+			".option pop\n\t"
-+			: : "r"(bytes) : "memory");
-+		break;
-+	}
-+}
-+
-+/*
-+ * get_vreg - Read bytes from a vector register at a specific position.
-+ *
-+ * Same technique as set_vreg but in reverse: uses vse8.v to store register
-+ * contents to memory.
-+ */
-+static inline void get_vreg(ulong vlenb, ulong which, ulong pos, ulong size,
-+			    u8 *bytes, bool is_usermode)
-+{
-+	if (is_usermode) {
-+		struct __riscv_v_ext_state *vstate = &current->thread.vstate;
-+		const unsigned char *vdata = vstate->datap;
-+
-+		if (!vdata) {
-+			memset(bytes, 0, size);
-+			return;
-+		}
-+		memcpy(bytes, vdata + which * vlenb + pos, size);
-+		return;
-+	}
-+
-+	/* Kernel mode: directly access the live hardware vector registers. */
-+	pos += (which % 8) * vlenb;
-+	bytes -= pos;
-+
-+	__asm__ __volatile__(
-+		".option push\n\t"
-+		".option arch, +v\n\t"
-+		"vsetvli x0, %0, e8, m8, tu, ma\n\t"
-+		".option pop\n\t"
-+		: : "r"(pos + size));
-+
-+	csr_write(CSR_VSTART, pos);
-+
-+	switch (which / 8) {
-+	case 0:
-+		__asm__ __volatile__(
-+			".option push\n\t"
-+			".option arch, +v\n\t"
-+			"vse8.v v0, (%0)\n\t"
-+			".option pop\n\t"
-+			: : "r"(bytes) : "memory");
-+		break;
-+	case 1:
-+		__asm__ __volatile__(
-+			".option push\n\t"
-+			".option arch, +v\n\t"
-+			"vse8.v v8, (%0)\n\t"
-+			".option pop\n\t"
-+			: : "r"(bytes) : "memory");
-+		break;
-+	case 2:
-+		__asm__ __volatile__(
-+			".option push\n\t"
-+			".option arch, +v\n\t"
-+			"vse8.v v16, (%0)\n\t"
-+			".option pop\n\t"
-+			: : "r"(bytes) : "memory");
-+		break;
-+	case 3:
-+		__asm__ __volatile__(
-+			".option push\n\t"
-+			".option arch, +v\n\t"
-+			"vse8.v v24, (%0)\n\t"
-+			".option pop\n\t"
-+			: : "r"(bytes) : "memory");
-+		break;
-+	}
-+}
-+
-+/*
-+ * vsetvl - Restore vl and vtype CSRs after get_vreg/set_vreg clobber them.
-+ *
-+ * get_vreg/set_vreg use vsetvli internally, which modifies vl and vtype.
-+ * This must be called after kernel-mode emulation completes to restore the
-+ * original values. vsetvl also implicitly resets vstart to 0, which is the
-+ * correct post-instruction state per the V spec.
-+ */
-+static inline void vsetvl(ulong vl, ulong vtype)
-+{
-+	__asm__ __volatile__(
-+		".option push\n\t"
-+		".option arch, +v\n\t"
-+		"vsetvl x0, %0, %1\n\t"
-+		".option pop\n\t"
-+		: : "r"(vl), "r"(vtype));
-+}
-+
-+int misaligned_v_ld_emulator(struct pt_regs *regs, unsigned long insn)
-+{
-+	int ret = 0;
-+	unsigned long vl, vtype, vlenb, vstart, base, stride;
-+	unsigned long vd, vs2, view, vsew, vlmul, emul, vemul;
-+	unsigned long len, nf;
-+	bool illegal, masked;
-+	bool is_usermode = user_mode(regs);
-+	u8 mask[VLEN_MAX / 8];
-+	u8 bytes[8 * sizeof(u64)];
-+
-+	/*
-+	 * User mode: IRQs are enabled by do_trap_misaligned(), so we can use
-+	 * kernel_vector_begin() which saves the user's vector state to datap.
-+	 * We then read CSRs from the saved vstate (not hardware) because
-+	 * kernel_vector_begin() -> riscv_v_vstate_save() modifies the hw CSRs.
-+	 *
-+	 * Kernel mode: IRQs are disabled (NMI-like context), may_use_simd()
-+	 * returns false, so kernel_vector_begin() cannot be used. Instead we
-+	 * enable vector directly and read CSRs from hardware; get_vreg/
-+	 * set_vreg access individual register elements in place via vstart +
-+	 * vsetvli(tu), without disturbing the rest of the register file.
-+	 */
-+	if (is_usermode) {
-+		struct __riscv_v_ext_state *vstate = &current->thread.vstate;
-+
-+		kernel_vector_begin();
-+		vl = vstate->vl;
-+		vtype = vstate->vtype;
-+		vstart = vstate->vstart;
-+		vlenb = vstate->vlenb;
-+	} else {
-+		riscv_v_enable();
-+		vl = csr_read(CSR_VL);
-+		vtype = csr_read(CSR_VTYPE);
-+		vstart = csr_read(CSR_VSTART);
-+		vlenb = csr_read(CSR_VLENB);
-+	}
-+
-+	base = GET_RS1(insn, regs);
-+	stride = GET_RS2(insn, regs);
-+	vd = GET_VD(insn);
-+	vs2 = GET_VS2(insn);
-+	view = GET_VIEW(insn);
-+	vsew = GET_VSEW(vtype);
-+	vlmul = GET_VLMUL(vtype);
-+	illegal = GET_MEW(insn);
-+	masked = IS_MASKED(insn);
-+	len = GET_LEN(view);
-+	nf = GET_NF(insn);
-+	vemul = GET_VEMUL(vlmul, view, vsew);
-+	emul = GET_EMUL(vemul);
-+
-+	if (IS_UNIT_STRIDE_LOAD(insn) || IS_FAULT_ONLY_FIRST_LOAD(insn)) {
-+		stride = nf * len;
-+	} else if (IS_WHOLE_REG_LOAD(insn)) {
-+		vl = (nf * vlenb) >> view;
-+		nf = 1;
-+		vemul = 0;
-+		emul = 1;
-+		stride = nf * len;
-+	} else if (IS_INDEXED_LOAD(insn)) {
-+		len = 1 << vsew;
-+		vemul = (vlmul + vsew - vsew) & 7;
-+		emul = 1 << ((vemul & 4) ? 0 : vemul);
-+		stride = nf * len;
-+	}
-+
-+	if (illegal || vlenb > VLEN_MAX / 8) {
-+		if (is_usermode)
-+			force_sig_fault(SIGILL, ILL_ILLOPC, (void __user *)regs->epc);
-+		ret = -EFAULT;
-+		goto out;
-+	}
-+
-+	if (masked)
-+		get_vreg(vlenb, 0, 0, vlenb, mask, is_usermode);
-+
-+	do {
-+		if (!masked || ((mask[vstart / 8] >> (vstart % 8)) & 1)) {
-+			unsigned long addr = base + vstart * stride;
-+
-+			if (IS_INDEXED_LOAD(insn)) {
-+				unsigned long offset = 0;
-+
-+				get_vreg(vlenb, vs2, vstart << view, 1 << view,
-+					 (u8 *)&offset, is_usermode);
-+				addr = base + offset;
-+			}
-+
-+			csr_write(CSR_VSTART, vstart);
-+
-+			for (unsigned long seg = 0; seg < nf; seg++) {
-+				for (unsigned long i = 0; i < len; i++) {
-+					u8 *src = (u8 *)(addr + seg * len + i);
-+
-+					if (is_usermode) {
-+						if (get_user(bytes[seg * len + i],
-+							     (u8 __user *)src)) {
-+							if (IS_FAULT_ONLY_FIRST_LOAD(insn) &&
-+							    vstart != 0) {
-+								vl = vstart;
-+								break;
-+							}
-+							ret = -EFAULT;
-+							goto out;
-+						}
-+					} else {
-+						bytes[seg * len + i] = *src;
-+					}
-+				}
-+			}
-+
-+			for (unsigned long seg = 0; seg < nf; seg++)
-+				set_vreg(vlenb, vd + seg * emul, vstart * len, len,
-+					 &bytes[seg * len], is_usermode);
-+		}
-+	} while (++vstart < vl);
-+
-+out:
-+	if (ret == 0)
-+		regs->epc += 4;
-+
-+	if (is_usermode) {
-+		kernel_vector_end();
-+	} else {
-+		/*
-+		 * Restore vl/vtype clobbered by get_vreg/set_vreg's vsetvli.
-+		 * vsetvl also resets vstart to 0 (the correct post-insn state).
-+		 */
-+		vsetvl(vl, vtype);
-+		riscv_v_disable();
-+	}
-+
-+	return ret;
-+}
-+
-+int misaligned_v_st_emulator(struct pt_regs *regs, unsigned long insn)
-+{
-+	int ret = 0;
-+	unsigned long vl, vtype, vlenb, vstart, base, stride;
-+	unsigned long vd, vs2, view, vsew, vlmul, emul, vemul;
-+	unsigned long len, nf;
-+	bool illegal, masked;
-+	bool is_usermode = user_mode(regs);
-+	u8 mask[VLEN_MAX / 8];
-+	u8 bytes[8 * sizeof(u64)];
-+
-+	/*
-+	 * User mode: IRQs are enabled by do_trap_misaligned(), so we can use
-+	 * kernel_vector_begin() which saves the user's vector state to datap.
-+	 *
-+	 * Kernel mode: IRQs are disabled, may_use_simd() returns false. Enable
-+	 * vector directly and access registers via vstart + vsetvli(tu).
-+	 */
-+	if (is_usermode) {
-+		struct __riscv_v_ext_state *vstate = &current->thread.vstate;
-+
-+		kernel_vector_begin();
-+		vl = vstate->vl;
-+		vtype = vstate->vtype;
-+		vstart = vstate->vstart;
-+		vlenb = vstate->vlenb;
-+	} else {
-+		riscv_v_enable();
-+		vl = csr_read(CSR_VL);
-+		vtype = csr_read(CSR_VTYPE);
-+		vstart = csr_read(CSR_VSTART);
-+		vlenb = csr_read(CSR_VLENB);
-+	}
-+
-+	base = GET_RS1(insn, regs);
-+	stride = GET_RS2(insn, regs);
-+	vd = GET_VD(insn);
-+	vs2 = GET_VS2(insn);
-+	view = GET_VIEW(insn);
-+	vsew = GET_VSEW(vtype);
-+	vlmul = GET_VLMUL(vtype);
-+	illegal = GET_MEW(insn);
-+	masked = IS_MASKED(insn);
-+	len = GET_LEN(view);
-+	nf = GET_NF(insn);
-+	vemul = GET_VEMUL(vlmul, view, vsew);
-+	emul = GET_EMUL(vemul);
-+
-+	if (IS_UNIT_STRIDE_STORE(insn)) {
-+		stride = nf * len;
-+	} else if (IS_WHOLE_REG_STORE(insn)) {
-+		vl = (nf * vlenb) >> view;
-+		nf = 1;
-+		vemul = 0;
-+		emul = 1;
-+		stride = nf * len;
-+	} else if (IS_INDEXED_STORE(insn)) {
-+		len = 1 << vsew;
-+		vemul = (vlmul + vsew - vsew) & 7;
-+		emul = 1 << ((vemul & 4) ? 0 : vemul);
-+		stride = nf * len;
-+	}
-+
-+	if (illegal || vlenb > VLEN_MAX / 8) {
-+		if (is_usermode)
-+			force_sig_fault(SIGILL, ILL_ILLOPC, (void __user *)regs->epc);
-+		ret = -EFAULT;
-+		goto out;
-+	}
-+
-+	if (masked)
-+		get_vreg(vlenb, 0, 0, vlenb, mask, is_usermode);
-+
-+	do {
-+		if (!masked || ((mask[vstart / 8] >> (vstart % 8)) & 1)) {
-+			unsigned long addr = base + vstart * stride;
-+
-+			if (IS_INDEXED_STORE(insn)) {
-+				unsigned long offset = 0;
-+
-+				get_vreg(vlenb, vs2, vstart << view, 1 << view,
-+					 (u8 *)&offset, is_usermode);
-+				addr = base + offset;
-+			}
-+
-+			for (unsigned long seg = 0; seg < nf; seg++)
-+				get_vreg(vlenb, vd + seg * emul, vstart * len, len,
-+					 &bytes[seg * len], is_usermode);
-+
-+			csr_write(CSR_VSTART, vstart);
-+			for (unsigned long seg = 0; seg < nf; seg++) {
-+				for (unsigned long i = 0; i < len; i++) {
-+					u8 *dst = (u8 *)(addr + seg * len + i);
-+
-+					if (is_usermode) {
-+						if (put_user(bytes[seg * len + i],
-+							     (u8 __user *)dst)) {
-+							ret = -EFAULT;
-+							goto out;
-+						}
-+					} else {
-+						*dst = bytes[seg * len + i];
-+					}
-+				}
-+			}
-+		}
-+	} while (++vstart < vl);
-+
-+out:
-+	if (ret == 0)
-+		regs->epc += 4;
-+
-+	if (is_usermode) {
-+		kernel_vector_end();
-+	} else {
-+		/* Restore vl/vtype clobbered by get_vreg's vsetvli. */
-+		vsetvl(vl, vtype);
-+		riscv_v_disable();
-+	}
-+
-+	return ret;
-+}
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+To: Albert Ou <aou@eecs.berkeley.edu>
+To: Alexandre Ghiti <alex@ghiti.fr>
+To: Yixun Lan <dlan@kernel.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Guodong Xu <docular.xu@gmail.com>
+To: Yangyu Chen <cyy@cyyself.name>
+Cc: devicetree@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: spacemit@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org
 
--- 
-2.56.0
+---
+Troy Mitchell (2):
+      dt-bindings: riscv: spacemit: Add K3 CoM260 TQ
+      riscv: dts: spacemit: Add K3 CoM260 TQ support
+
+ .../devicetree/bindings/riscv/spacemit.yaml        |  1 +
+ arch/riscv/boot/dts/spacemit/Makefile              |  1 +
+ arch/riscv/boot/dts/spacemit/k3-com260-tq.dts      | 44 ++++++++++++++++++++++
+ 3 files changed, 46 insertions(+)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261015-k3-tq-dts-based-on-com260-37d5d99a2b9b
+
+Best regards,
+--  
+Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
 
 _______________________________________________
