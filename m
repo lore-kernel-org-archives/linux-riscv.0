@@ -2,62 +2,97 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A0D6606A31C
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 14:21:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED623606A8A3
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 14:23:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NtmEvc8E;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ngAn6gaO
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Fwp7zUzH;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fxs633Fv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=TkOA4bTpal2Hicv5aDmZaUWbn3bOK09/9K6pcXc5TQ8=; b=NtmEvc8EyzJ4zVYrcBgEgQss0F
-	Gr4wAdjLAaCEQq97q5DKaJxqp/x9efQG6H8unTeZBuelDc0+ZLtWXaw1VChwq7UFUT7ooPJ459gU1
-	2xTaiFNrLx6UMIcLG+M4qfheWT1aARPWVDIHlNyeeZjEpRseyGKw3LLWjlq61QvSfc805D+8FREqX
-	3hlOvaQmVfzPrn1KeFykS8moR1G0aalS932JwUZ2DWNu+Z8iin3Pn6TtJGPbJhC9/7FRdBTGklabp
-	XEPGaY1gOJ3D7Tq8DA4rsfPufK+VjZIxQVczqaRD/mg9XDEqwDvJVPHTvN9eNPsKiJ6hCH0fsr3Xr
-	YGtKa84w==;
+	bh=E0In3oPsei94N0zVLKuvdj2arB6E+x4duiH/YUg1X/s=; b=Fwp7zUzHU/WhXKRp15w19atL1s
+	+U7vQHx194vc7qem132a5Ceg1MF0kZwuPoXOoOp1E1D/eYJ5cPN8Xp97TLpEV4kKRq0CoX87/aMrp
+	Bch2JpyKseAQ4D6VXhjmivNZOsJsOvB3huifng+VEwyHSGh9D4BHL/QyPOa7NstwBGiEmi3n/3dZZ
+	RcDU/jMSW4zaEAeQzxqPq9uIDCoIbYPM07CdrQGNL8Ez+BCP4fS6DTudVambVe+MvwvvVm8Vnv4Jd
+	Xs/PG1LPhUh4s7tMioDLlgS7u1Q8wEPPYDwYjjNZIH2CGfM6QTHvREzf5DtZNBi43ilqYvhxgVjfA
+	zAnH5jaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTK3R-000000065pL-2Bzk;
-	Tue, 17 Nov 2026 14:21:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xTK5r-000000066qH-2jyx;
+	Tue, 17 Nov 2026 14:23:31 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTK3P-000000065on-1kTG
+	id 1xTK5k-000000066fR-3DOV
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Nov 2026 14:20:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 926E663533;
-	Tue, 17 Nov 2026 14:20:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DFB81F000C5;
-	Tue, 17 Nov 2026 14:20:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794925258;
-	bh=viu1yje4As6OjByhd+biKMvb1JY5yU9tAC8Wwkiiqko=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ngAn6gaOxuvKFm4o5ca0TX7e7f1Ly2G5dtLvAyv4P9a++xAkPCDa+Wuw3cJoXtRJQ
-	 KPuox3JrZXg/M1hFCBWqSwkRK7GMNR8UdPmyUePP1j2WIHAHotnl/FgFN4xGeXa/mQ
-	 Q1+aXz4c2pK2RhSJYALWw1a4DAGDcTugpdniJMKqTsFKziUniavOiOjj/t6E4ryT/v
-	 JaCF0g/UXw7nxy1NysxUlzikBUwJJH/u1JbvSX3G/YGUuw3WpuGk+a7NVJK+1lUzgT
-	 yjWXYyQ+vnmjf8xSssVUxaNfT4HxSULVJuCh6b91K+nKP1uD4bhatBA9p8P42FsJxH
-	 DY0UlueYbDlkg==
-Date: Tue, 17 Nov 2026 22:00:43 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 0/2] riscv: mm: fix set_memory_x() and
- kernel_page_present()
-Message-ID: <avxeCy_ovH1BSyOo@xhacker>
-References: <20261117-fixes-riscv-v2-0-5edc9bdc54fd@kernel.org>
+	Tue, 17 Nov 2026 14:23:26 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-4a5024b3c28so303850f8f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Nov 2026 06:23:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794925402; x=1795530202; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=gu6e45ESjZegd8J7v8Vs4ndLsJawc0EC2FemgxWZCFU=;
+        b=fxs633FvVcn1/yZqX2+SlJMlXcJjc7WmvioFNG/tLl40e1iZ3TGAFuJDPof8hEYDWS
+         sqUdGHa6Awu6z9hMyDub0cunZyAOXFBCPUjYXyaITnONzmOIY8Ag0bZ8hkyZGvXMsciB
+         2F4sSYWfo8FIBGSm/Fo04oP8zx0dGdBU27WTFB61dj5u96v7+dXcoMV1U3AqUjXK9qft
+         SwiHVCCC1yfIxz9l3/iUJMtTIV6IDyV72SLbVrKKcCNcSKfGVEK9UEBmtR+3Cx4vJJSJ
+         u2IGFXIQTpI+HKoW5RByvvFEp4mCyylColucYVth5AlGXH+RxnXi+nCTvMOaVVwdwnta
+         aqkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794925402; x=1795530202;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=gu6e45ESjZegd8J7v8Vs4ndLsJawc0EC2FemgxWZCFU=;
+        b=ryTJwXLqDnGTRi6TYLQ8mSyHQ5kQKG+dXUqu9fNvb8N5oImvZFfedJPbhOiTcWOfz4
+         an6TTy4ECqf3pNZhP4jtGCpSN2REequeRpUJaN0vu2GHgfkRw3eyuoypMWX35vJlZ3Zv
+         ZlhOh2gQsCaQ/63x9IfL+xHjzys3PT3eYPAcBg7/34boz+gv122J09kq+R5xSjvs6raJ
+         TGNZgIKS2/fHKoWzO8vN+jQLHUxqxejKDf/LgQHkytoZ5twHUNwO6OH68+eTBAAotnck
+         nB2fixL+oe5l6pYZZ1kIovI/3tSaHJ5BhblMZTtH3HQ9hZouP/b6P2PfhTX4DU8LhGmr
+         oMmg==
+X-Forwarded-Encrypted: i=1; AL+hErFRbNQRe5WTDWQ3jBYPQBDeangB9dEHHkhHeN+G3X7DtmMTHy8nNDmLaNPBT+LyM241zs4OPC4POIVrLA==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8tHtcugR/t/p7BF+Sql6TEfBkuxy3nyyH7AmCU7/0GzwmfnlTL
+	8adKDIXOrxr0MV9IFpXZ+BX+BJ/433/Nia8Z9NyVsk6kiLD2SuThXCZ5M9Nx42uz
+X-Gm-Gg: AZFdTZc5S1jH4tz0TRi6SWHhSKrnuwCDyfEw3BqLqW+eNXujedfOYNz8857rIYJZSGE
+	/0uJpnKogq2iTdZ+Pq7zyHyNn8eiSSh9FcvIcKAgns+9SSi33ZEL8FUtg72NWuATA+3O1Vp1/3n
+	LfENCo0w9kmuoAm4YOyjnUTev+axRpVBIy9AkIWMuMEvLZgNDFCF72+DOhejp4ZppX7pLLLbcIi
+	x/hxUNz3f7vVHLUvvFzrPAsJea50H5j94+p1loTEKRRnzsLS/tDuiojuQOwar7eGH0iQCmTqYcN
+	SgYUxv/2Y9PDO3R1ZnoSV75lnJvldpb91LXzA2loHwFGIHBtL5F2y8Tz3Msc0rwvPQXa2wOmdl4
+	mHJuILNulXsNUW6NM5fFXHMaYKWd3zGZQIhblA9K9uhl2tfHV7AIPYg/gfd1MlbVXsPvSAchTUN
+	8Cw2IwBEWa6JbGXcfLkmUUqWl2o+UQl1SQN3Lz0QaKrPOGQYUZbJ5eW0atGG6Wco0lxwXCn+b1S
+	JZkph37FmsaY9NSe5lZL687EqokAHFnp0X9Qh6ls+w1NhMcO0ERboqC5FJBnu2KlmmcSFKILnhg
+	k37Tr9z7fPTMOYgof54zWWMO678gEgi6TjpWN0sdnhnv8A==
+X-Received: by 2002:a05:6000:460d:b0:492:9c9:65de with SMTP id ffacd0b85a97d-4a36bd51e25mr6484255f8f.5.1794925401954;
+        Tue, 17 Nov 2026 06:23:21 -0800 (PST)
+Received: from localhost.localdomain ([2a06:c701:474b:1700:1234:6c4c:cfc6:45ff])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c888b90d4sm28417851f8f.9.2026.11.17.06.23.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 06:23:21 -0800 (PST)
+From: Avi Weiss <thnkslprpt@gmail.com>
+To: conor@kernel.org
+Cc: jic23@kernel.org,
+	pjw@kernel.org,
+	samuel.holland@sifive.com,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Avi Weiss <thnkslprpt@gmail.com>
+Subject: [PATCH v2] cache: sifive_ccache: skip disabled device tree nodes
+Date: Tue, 17 Nov 2026 16:23:17 +0200
+Message-ID: <20261117142317.1679285-2-thnkslprpt@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261028131939.1014720-2-thnkslprpt@gmail.com>
+References: <20261028131939.1014720-2-thnkslprpt@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261117-fixes-riscv-v2-0-5edc9bdc54fd@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261117_062324_862039_55D054DB 
+X-CRM114-Status: GOOD (  12.24  )
+X-Spam-Score: 0.4 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,50 +105,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-12.3 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,FROM_LOCAL_NOVOWEL,
+	HEADER_FROM_DIFFERENT_DOMAINS,HK_RANDOM_FROM,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Nov 17, 2026 at 04:00:19PM +0200, Mike Rapoport (Microsoft) wrote:
-> These are two riscv fixes I found while working on a generic
-> implementation of the set_memory APIs.
-> 
-> The first one stops set_memory_x() from making the linear map alias of
-> module and BPF text executable.
-> 
-> The second one makes kernel_page_present() report the pages removed from
-> the linear map as not present. Today it says they are mapped, and
-> hibernation could copy them without mapping them first.
-> 
-> ---
-> Changes in v2:
-> - read the PMD entry once in kernel_page_present() (Jisheng)
-> - Link to v1: https://patch.msgid.link/20261112-fixes-riscv-v1-0-1caac19897b5@kernel.org
+sifive_ccache_init() uses of_find_matching_node_and_match(), which may
+return a device tree node marked disabled. The driver can then map and
+access registers of a cache controller that the device tree marks
+unavailable.
 
-for the series:
+Check the selected node's availability before accessing its registers.
+Return -ENODEV for a disabled node, releasing the reference through the
+existing error path.
 
-Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
+Fixes: a967a289f169 ("RISC-V: sifive_l2_cache: Add L2 cache controller driver for SiFive SoCs")
+Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
+---
+ v2:
+- retain the single-node lookup instead of iterating over matches - as
+  suggested by Conor Dooley
+- use the existing error path to release a disabled node
 
+Link to v1: https://lore.kernel.org/r/20261028131939.1014720-2-thnkslprpt@gmail.com
 
-> 
-> ---
-> Mike Rapoport (Microsoft) (2):
->       riscv: mm: do not make the linear map alias executable in set_memory_*()
->       riscv: mm: check the valid bit in kernel_page_present()
-> 
->  arch/riscv/mm/pageattr.c | 21 ++++++++++++++-------
->  1 file changed, 14 insertions(+), 7 deletions(-)
-> ---
-> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-> change-id: 20261112-fixes-riscv-3e48788f58fe
-> 
-> --
-> Sincerely yours,
-> Mike.
-> 
+ drivers/cache/sifive_ccache.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/cache/sifive_ccache.c b/drivers/cache/sifive_ccache.c
+--- a/drivers/cache/sifive_ccache.c
++++ b/drivers/cache/sifive_ccache.c
+@@ -301,6 +301,11 @@ static int __init sifive_ccache_init(void)
+ 	if (!np)
+ 		return -ENODEV;
+ 
++	if (!of_device_is_available(np)) {
++		rc = -ENODEV;
++		goto err_node_put;
++	}
++
+ 	quirks = (uintptr_t)match->data;
+ 
+ 	if (of_address_to_resource(np, 0, &res)) {
+-- 
+2.47.3
+
 
 _______________________________________________
 linux-riscv mailing list
