@@ -2,77 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15FEE606A888
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 03:29:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BF57606A32F
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 05:25:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cc8ze8Pu
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PjaC4lJb
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=JuDRJHi6+ihpkIHpiPuyJtGBuZrWr9ZfUAwSxmAtetg=; b=cc8ze8PuCdzcOmWCAdQ8JIHKcL
-	3Q6tAjLfgHdSZzRr9GaFq6e8YMFjrpgVQXuusgReEJ6VYfgWAag7SZ34njopECk6OYiM6y10ObV1k
-	yJQVa+OBbvHe7uUolSKBYwWI1yGkFqfmJABJ43lffGWqWpBdK7mzBauBb4i5ZQ2l57BcFgHRmesZL
-	HU28b/jnspPnWNbEjt8FDswwD7gRp6g6y3J7P3vZHPdUv3YoQJt9dRtNq2yqSrb4YMo4ThYpCIZWK
-	v8JsEGxzJ/rQgVsbc+C8vv1lOfvSa4NqjMP62kVxI6xMoUQwboHJc2uGztkpKs5eczvWBTAtactSZ
-	PRM5ODsQ==;
+	bh=Qs8KIZt7qiycfQH21MlRm4QiI7NxOHgAv33j0WyTh5Y=; b=PjaC4lJbyYg3A4SzFSe6JBxJhO
+	CsM5XzssAsk8cJ2QasfswTGMKbNQKAzUcqFhYiOZJUf2LhMnUidIqVd1wDTNgC3d1a/VCHUuzBdxA
+	3k6WV3/QeqEGwPjvLnlXM27IBdCln0Q/zPWKnSnPdAum03b5b+/Z8B9U4rI9JWYubyQTIql8jOODe
+	T3NWP2rYTwr2HtSipDSffmHnXCcJV2EuP558ckRfhm2hs9kQGXYqMJ3pVU2QFxYmfBxVEyx32DRPS
+	2MD41NCo8aC3NrDANxjV4aBfTZ9RBmKWlfDtwx9gu+F19ClRdmxyWnlVCWYidyWpjWQVhhZNZS8rJ
+	wyFfcU8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xT9sG-00000004TQ6-24vX;
-	Tue, 17 Nov 2026 03:28:48 +0000
-Received: from atcsqr.andestech.com ([220.128.198.184])
+	id 1xTBgr-00000004b6D-1y6d;
+	Tue, 17 Nov 2026 05:25:09 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xT9sC-00000004TPG-27Hq
+	id 1xTBgl-00000004b5L-3FmF
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Nov 2026 03:28:47 +0000
-Received: from mail.andestech.com (atcpcs53.andestech.com [10.0.1.153])
-	by Atcsqr.andestech.com with ESMTPS id 6AH3SFac027414
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 17 Nov 2026 11:28:15 +0800 (+08)
-	(envelope-from minachou@andestech.com)
-Received: from ATCPCS34.andestech.com (10.0.1.134) by atcpcs53.andestech.com
- (10.0.1.153) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 17 Nov
- 2026 11:28:15 +0800
-Received: from atcsi01.andestech.com (10.0.15.32) by ATCPCS34.andestech.com
- (10.0.1.134) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 17 Nov
- 2026 11:28:15 +0800
-Date: Tue, 17 Nov 2026 11:28:15 +0800
-From: Mina Chou <minachou@andestech.com>
-To: Conor Dooley <conor@kernel.org>
-CC: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-        <alex@ghiti.fr>, <jic23@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <geert+renesas@glider.be>,
-        <magnus.damm@gmail.com>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-        <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-renesas-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <randolph@andestech.com>, <cyyang772@andestech.com>,
-        <tim609@andestech.com>, <az70021@gmail.com>
-Subject: Re: [PATCH v2 16/19] riscv: errata: andes: allow ERRATA_ANDES_CMO on
- all Andes SoCs
-Message-ID: <avvJz262LYxrlaXU@atcsi01.andestech.com>
-References: <20261113071143.1446167-1-minachou@andestech.com>
- <20261113071143.1446167-17-minachou@andestech.com>
- <20261113-upon-unmarked-8f4a186bb656@spud>
+	Tue, 17 Nov 2026 05:25:08 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.23])
+	by APP-03 (Coremail) with SMTP id rQCowACntpcp5ftqHrw1AQ--.11450S2;
+	Tue, 17 Nov 2026 13:24:58 +0800 (CST)
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>
+Subject: [PATCH v2] dt-bindings: mfd: syscon: add T-Head TH1520 compatibles
+Date: Tue, 17 Nov 2026 13:24:56 +0800
+Message-ID: <20261117052456.3747585-1-zhengxingda@iscas.ac.cn>
+X-Mailer: git-send-email 2.56.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261113-upon-unmarked-8f4a186bb656@spud>
-User-Agent: Mutt/2.1.4 (2021-12-11)
-X-ClientProxiedBy: ATCPCS33.andestech.com (10.0.1.100) To
- ATCPCS34.andestech.com (10.0.1.134)
-X-DKIM-Results: atcpcs53.andestech.com; dkim=none;
-X-DNSRBL: 
-X-SPAM-SOURCE-CHECK: pass
-X-MAIL: Atcsqr.andestech.com 6AH3SFac027414
+X-CM-TRANSID: rQCowACntpcp5ftqHrw1AQ--.11450S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrKrWUtFWxCw1DtF45uFy8Zrb_yoWkCFbEgF
+	4xJF4Yya1xAFWrtayvqFs7JF1fJw4ak3srAw18GF43J34SvFyjqFZ7J3yYkrW8uF4fuF17
+	CF97X3y7GanrKjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb3xFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
+	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
+	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
+	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
+	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvf
+	C2KfnxnUUI43ZEXa7VU13ku3UUUUU==
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261116_192844_902870_958C422B 
-X-CRM114-Status: GOOD (  23.76  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261116_212504_200201_58CD6A53 
+X-CRM114-Status: UNSURE (   6.35  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,83 +77,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, mfd@lists.linux.dev, linux-kernel@vger.kernel.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Nov 13, 2026 at 02:00:46PM +0000, Conor Dooley wrote:
-> [EXTERNAL MAIL]
+T-Head TH1520 has multiple system controllers for the "subsystems" on
+the chip.
 
-> Date: Fri, 13 Nov 2026 14:00:46 +0000
-> From: Conor Dooley <conor@kernel.org>
-> To: Mina Hui-Min Chou <minachou@andestech.com>
-> Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
->  alex@ghiti.fr, jic23@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
->  conor+dt@kernel.org, geert+renesas@glider.be, magnus.damm@gmail.com,
->  prabhakar.mahadev-lad.rj@bp.renesas.com, linux-riscv@lists.infradead.org,
->  devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
->  linux-kernel@vger.kernel.org, randolph@andestech.com,
->  cyyang772@andestech.com, tim609@andestech.com, az70021@gmail.com
-> Subject: Re: [PATCH v2 16/19] riscv: errata: andes: allow ERRATA_ANDES_CMO
->  on all Andes SoCs
-> 
-> On Fri, Nov 13, 2026 at 03:11:40PM +0800, Mina Hui-Min Chou wrote:
-> > ERRATA_ANDES_CMO depends on ARCH_R9A07G043, so it can only be enabled
-> > for the Renesas RZ/Five, although other Andes SoCs such as those built
-> > on the A27L2 need it too. Drop the dependency, and select
-> > ANDES_LLCACHE and CACHEMAINT_FOR_DMA so that the errata always comes
-> > with its cache driver, which ARCH_R9A07G043 used to guarantee.
-> > 
-> > As ERRATA_ANDES_CMO is default y, it is now also enabled in the generic
-> > riscv defconfig. The errata only acts on Andes cores at boot, so other
-> > platforms are not affected.
-> > 
-> > RZ/Five still gets uncached memory for coherent DMA allocations from the
-> > DMA_GLOBAL_POOL that ARCH_R9A07G043 selects. This patch only covers
-> > cache maintenance for streaming DMA; how other platforms provide uncached
-> > memory stays platform specific.
-> > 
-> > Signed-off-by: Mina Hui-Min Chou <minachou@andestech.com>
-> > ---
-> >  arch/riscv/Kconfig.errata | 4 +++-
-> >  1 file changed, 3 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-> > index 4f77b3c6d7fd..3c43e065aa01 100644
-> > --- a/arch/riscv/Kconfig.errata
-> > +++ b/arch/riscv/Kconfig.errata
-> > @@ -12,7 +12,9 @@ config ERRATA_ANDES
-> >  
-> >  config ERRATA_ANDES_CMO
-> >  	bool "Apply Andes cache management errata"
-> > -	depends on ERRATA_ANDES && ARCH_R9A07G043
-> > +	depends on ERRATA_ANDES
-> > +	select ANDES_LLCACHE
-> > +	select CACHEMAINT_FOR_DMA
-> 
-> If you're selecting it here, can you not drop it from the renesas soc
-> Kconfig file?
-> 
+Add them to the syscon binding.
 
-Thanks for catching that! ARCH_R9A07G043 selects ERRATA_ANDES_CMO,
-so the selects there are redundant now. I will drop them in v3, something like:
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+---
+Changes in v2:
+- Added Krzysztof's ACK.
+- Sorted subsystem names.
 
-diff --git a/drivers/soc/renesas/Kconfig b/drivers/soc/renesas/Kconfig
-@@ -465,8 +465,6 @@ config ARCH_R9A07G043
-...
-        select ARCH_RZG2L
--       select ANDES_LLCACHE
--       select CACHEMAINT_FOR_DMA
+ Documentation/devicetree/bindings/mfd/syscon.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Thanks,
-Mina
+diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+index 80ff0e1caca22..35c4c7c2f467a 100644
+--- a/Documentation/devicetree/bindings/mfd/syscon.yaml
++++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+@@ -126,6 +126,13 @@ properties:
+               - st,spear1340-misc
+               - stericsson,nomadik-pmu
+               - starfive,jh7100-sysmain
++              - thead,th1520-syscon-ao
++              - thead,th1520-syscon-ap
++              - thead,th1520-syscon-dsp
++              - thead,th1520-syscon-misc
++              - thead,th1520-syscon-vi
++              - thead,th1520-syscon-vo
++              - thead,th1520-syscon-vp
+               - ti,am62-opp-efuse-table
+               - ti,am62-usb-phy-ctrl
+               - ti,am625-dss-oldi-io-ctrl
+-- 
+2.56.0
+
 
 _______________________________________________
 linux-riscv mailing list
