@@ -2,97 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D14E606A31C
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 09:17:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8349606A323
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 09:21:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZcK+PWoo;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=chWayecA
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TJ3tq2pZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=kBZNU1/HzC5t4ILTI0K57Y7AZS09qN494S9104LAhv8=; b=ZcK+PWooskpBsPhkFgnlWJKWth
-	q73RiXygBpKJv2mno7vI9qGlWz1ObUDBw/yJgQZifwHV1ZV6dgHRFbV+LZGgg7sqI0LW//89XM5ck
-	JCdM/ZvWJphlrwyCgHRBk7SykRENo5/6npGgsgT4GZmj394pSjQounIyZC3HDOAuSf6BXNAMwKCK/
-	u+7DUY0Nyn3CPzo6B/sFcSNGT4+6BMlJXIkhbOlyJUWMuw26yZjLsU5AgO7MQAOknKSleXo4LP4zW
-	wMBFue4cr+kXaGYfIXhizGimbIaq99n6t3kxnF8aLmxQpJD20Aex+2HVYe/AXxJAbK7I9lyuviHZM
-	nwT7ZEag==;
+	bh=1dxmMiJdRf7YyU0DbO9ssEB2u3ftxWlPCDL7hPMLoq0=; b=TJ3tq2pZYrFmrprAMjWII7pwHB
+	gpMGV7g0FcYF8e+/KyfJmuJa34UwyNyXBDGGZy2AdQddzh0G4kj67QCEPZYMA4JJg+oMmBYSL9Qzy
+	MQJxE1S3VvI9r0pR+RCldDWOZQPmbbfj2AJEGh9SIchVUoqfZ8v3Mw+vtKX137vpLM3EvK9bfCb1t
+	oDQN5WpMu3temHcy/NedAR5Obo/JP/vN6yz/cc8lyaxq/WxOmE+mXejYnxxD6kEwe2EAGlgq9W9d3
+	ShvQJbG3s2yZTnBJDnOIg5yBjWI7QlvXfMY+AEJNWxEmC7/w1+Bj5luZ+JR/b2SsqjrErm7MtFqFX
+	/TQwnVvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTFJt-000000052z2-2T0r;
-	Tue, 17 Nov 2026 09:17:41 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1xTFNW-000000053Z9-20EX;
+	Tue, 17 Nov 2026 09:21:26 +0000
+Received: from atcsqr.andestech.com ([220.128.198.184])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTFJT-000000052xU-31zP
+	id 1xTFNT-000000053Xl-0LAX
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Nov 2026 09:17:40 +0000
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id D9B082010F9;
-	Tue, 17 Nov 2026 10:17:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794907032;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=k9mD4d+6c6e9/oQ4Pzb2k3qI5yqg28FGpyq/0WXhWNs=;
-	b=chWayecAi761d/qTajeLnDr8F4kqev3ZHMeFzu8gqUI/mklE4f4fBFC2YZ1QrKsJYW7NRO
-	l/Qu+E3MbNjUFZr6T+exMUJBRwoLcCaXj/aPbr+Drk+LKCKlQe9DJHUzqakiHj+J5+SLwX
-	iK669IpRLB0qevJQ22Wk5E9TTArf6nDNqTCOglwuzLaYq4gRB3sp3ZtyCCCj9zkhbri0k6
-	P69Kg/IMsNChB1MhIBAjnrftXEo8PIfj3gT02gaoOCCUqFd9NS2rmYduGdivTGlOJRKLOB
-	LydMaVl5pVrt9iHrKxFViPN+KMzOXnqdMhlkQTeVf2Bqp88/RG+rM8Z3yIBdYQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794907032;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=k9mD4d+6c6e9/oQ4Pzb2k3qI5yqg28FGpyq/0WXhWNs=;
-	b=cfu4B6QbQ8M/XuEjrajuGubsHXfuJKjqNkbmH53hsr5AgWu/CqfzM227YpnJvC7XNZsw4I
-	mNWsvYhcQnnfi2BEjOypMdG2J+7MclgrVLn0nixcbx8ZjQOpNvYMIq8fbuXPo4sAzgWZR/
-	qgjCz2JxVB/oeBxcZzg699rqeEd/tZ1FXgGTIsbt3Ft4nmRMQFtHWqTES/nj3t3iZo9v8u
-	t20nDUw09UnkoPJVf84jLESWCcIP0r1bnWUXeuOt6RO/OTLMY0e96uLWNYka2HhLqqga58
-	liA1T6U734kx/xfl6eE6vyVKVJ0LyMrL4Bdjbh90T0wc2BRrDYkXB9xPZGFH+Q==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794907032; a=rsa-sha256;
-	cv=none;
-	b=PSzNgg8HJ/BDAI/32V8IDWV82XEzb1aT4jFAzF/UuvBrLVjekLFUz9h4nPSR3wWPG9Gn8l
-	3O0aSA9W6IHOPXqjYRxKctiSS00phHkmGf088elT1+Wpb3nwDWBv+shRpd89RNBrLVHgAb
-	ed/jun/qQC1X44lu2bOgTpBWuKjEDzSrsmxTnnCgCkXeTv01W23V0N+QSbCCa0vKwdP52d
-	mFI5SttflO34wR8RuGWTptEI+dWrx9miesaqVoNxeDmVr896hHjy//SlQILAEZ4++a9S+U
-	+qRCMh+40/8jphc9vJ91iyWzaKPVOHQB9m7cTXbzGGMxc5FGzpcUbrizTWQz4A==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
-Message-ID: <f1b6889a4200720b91296168815533876c907674.camel@pengutronix.de>
-Subject: Re: [PATCH v1 2/6] clk: starfive: jh71x0: Move reset controller
- registration to jh71x0 common code
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Brian Masney <bmasney@redhat.com>, Jerome Brunet
- <jbrunet+clk@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>, Emil Renner
- Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,  Krzysztof
- Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- "linux-clk@vger.kernel.org"	 <linux-clk@vger.kernel.org>,
- "linux-kernel@vger.kernel.org"	 <linux-kernel@vger.kernel.org>,
- "linux-riscv@lists.infradead.org"	 <linux-riscv@lists.infradead.org>, Hal
- Feng <hal.feng@starfivetech.com>,  Jerome Brunet <jbrunet@baylibre.com>
-Date: Tue, 17 Nov 2026 10:17:12 +0100
-In-Reply-To: <ZQ4PR01MB12027C86A7EC92969661032CF27B2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-References: <20261013102707.9207-1-changhuang.liang@starfivetech.com>
-	 <20261013102707.9207-3-changhuang.liang@starfivetech.com>
-	 <179475230833.3873592.13070196353304136001.b4-review@b4>
-	 <ZQ4PR01MB12027C86A7EC92969661032CF27B2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Tue, 17 Nov 2026 09:21:24 +0000
+Received: from mail.andestech.com (atcpcs54.andestech.com [10.0.1.154])
+	by Atcsqr.andestech.com with ESMTPS id 6AH9KrIs066268
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 17 Nov 2026 17:20:53 +0800 (+08)
+	(envelope-from minachou@andestech.com)
+Received: from ATCPCS34.andestech.com (10.0.1.134) by atcpcs54.andestech.com
+ (10.0.1.154) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 17 Nov
+ 2026 17:20:53 +0800
+Received: from atcsi01.andestech.com (10.0.15.32) by ATCPCS34.andestech.com
+ (10.0.1.134) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 17 Nov
+ 2026 17:20:53 +0800
+Date: Tue, 17 Nov 2026 17:20:49 +0800
+From: Mina Chou <minachou@andestech.com>
+To: Conor Dooley <conor@kernel.org>
+CC: Krzysztof Kozlowski <krzk@kernel.org>, <pjw@kernel.org>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+        <jic23@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <geert+renesas@glider.be>,
+        <magnus.damm@gmail.com>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-renesas-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <randolph@andestech.com>, <cyyang772@andestech.com>,
+        <tim609@andestech.com>, <az70021@gmail.com>
+Subject: Re: [PATCH v2 12/19] dt-bindings: cache: andestech: update schema
+ for generic LLC support
+Message-ID: <avwcZfHRZvGMVMkB@atcsi01.andestech.com>
+References: <20261113071143.1446167-1-minachou@andestech.com>
+ <20261113071143.1446167-13-minachou@andestech.com>
+ <20261113-emporium-provolone-0e7b0e39c97a@spud>
+ <20261116-crazy-adventurous-cockatrice-61c62b@quoll>
+ <20261116-deduct-emphasize-b2482186cfcb@spud>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20261116-deduct-emphasize-b2482186cfcb@spud>
+User-Agent: Mutt/2.1.4 (2021-12-11)
+X-ClientProxiedBy: ATCPCS33.andestech.com (10.0.1.100) To
+ ATCPCS34.andestech.com (10.0.1.134)
+X-DKIM-Results: atcpcs54.andestech.com; dkim=none;
+X-DNSRBL: 
+X-SPAM-SOURCE-CHECK: pass
+X-MAIL: Atcsqr.andestech.com 6AH9KrIs066268
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261117_011715_917716_D67233F0 
-X-CRM114-Status: GOOD (  30.76  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261117_012123_603382_5B4FA41B 
+X-CRM114-Status: GOOD (  32.07  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,96 +88,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Changhuang,
-
-On Di, 2026-11-17 at 01:23 +0000, Changhuang Liang wrote:
-> Hi, Philipp
-> 
-> > > jh7110_reset_controller_register() is only tied to the JH7110 system
-> > > clock driver by its location. Its logic is generic: hand the CRG
-> > > register base to the reset driver through an auxiliary device.
-> > > 
-> > > Move it to clk-starfive-jh71x0.c as jh71x0_reset_controller_register()
-> > > so that the clock drivers of other StarFive SoCs can reuse it, and
-> > > make
-> > > CLK_STARFIVE_JH71X0 select AUXILIARY_BUS accordingly.
-> > > 
-> > > While at it, replace the open-coded auxiliary device allocation, init,
-> > > add and release handling with devm_auxiliary_device_create(), which
-> > > already implements all of it. The register base is now passed to the
-> > > reset driver as platform data of the auxiliary device, so struct
-> > > jh71x0_reset_adev and the embedded auxiliary device go away.
-> > > 
-> > > The auxiliary device ID is dropped: every CRG already uses a distinct
-> > > auxiliary device name, so the ID is not needed to keep the device
-> > > names unique, and it is always 0 now.
-> > > 
-> > > Since the helper now lives in clk-starfive-jh71x0.c, the auxiliary
-> > > device names are prefixed with "clk_starfive_jh71x0" instead of
-> > > "clk_starfive_jh7110_sys". Update the auxiliary_device_id table of the
-> > > JH7110 reset driver in the same patch to keep the tree bisectable.
-> > > 
-> > > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-> > > ---
-> > >  drivers/clk/starfive/Kconfig                  |  2 +-
-> > >  .../clk/starfive/clk-starfive-jh7110-aon.c    |  2 +-
-> > >  .../clk/starfive/clk-starfive-jh7110-isp.c    |  2 +-
-> > >  .../clk/starfive/clk-starfive-jh7110-stg.c    |  2 +-
-> > >  .../clk/starfive/clk-starfive-jh7110-sys.c    | 59 +------------------
-> > >  .../clk/starfive/clk-starfive-jh7110-vout.c   |  2 +-
-> > >  drivers/clk/starfive/clk-starfive-jh7110.h    |  4 --
-> > >  drivers/clk/starfive/clk-starfive-jh71x0.c    | 24 ++++++++
-> > >  drivers/clk/starfive/clk-starfive-jh71x0.h    |  2 +
-> > >  .../reset/starfive/reset-starfive-jh7110.c    | 19 +++---
-> > >  include/soc/starfive/reset-starfive-jh71x0.h  | 10 ++--
-> > >  11 files changed, 45 insertions(+), 83 deletions(-)
-> > > 
-> > > diff --git a/drivers/clk/starfive/Kconfig
-> > > b/drivers/clk/starfive/Kconfig index bd29358ffeec..51716655554f 100644
-> > > --- a/drivers/clk/starfive/Kconfig
-> > > +++ b/drivers/clk/starfive/Kconfig
-> > > @@ -2,6 +2,7 @@
-> > > 
-> > >  config CLK_STARFIVE_JH71X0
-> > >  	bool
-> > > +	select AUXILIARY_BUS
-> > > 
-> > >  config CLK_STARFIVE_JH7100
-> > >  	bool "StarFive JH7100 clock support"
-> > > @@ -32,7 +33,6 @@ config CLK_STARFIVE_JH7110_PLL  config
-> > > CLK_STARFIVE_JH7110_SYS
-> > >  	bool "StarFive JH7110 system clock support"
-> > >  	depends on ARCH_STARFIVE || COMPILE_TEST
-> > > -	select AUXILIARY_BUS
-> > >  	select CLK_STARFIVE_JH71X0
-> > >  	select RESET_STARFIVE_JH7110 if RESET_CONTROLLER
+On Mon, Nov 16, 2026 at 06:00:43PM +0000, Conor Dooley wrote:
+> > > >  select:
+> > > > @@ -21,18 +22,23 @@ select:
+> > > >        contains:
+> > > >          enum:
+> > > >            - andestech,ax45mp-cache
+> > > > +          - andestech,llcache
+> > > >  
+> > > >    required:
+> > > >      - compatible
+> > > >  
+> > > >  properties:
+> > > >    compatible:
+> > > > -    items:
+> > > > -      - enum:
+> > > > -          - andestech,qilai-ax45mp-cache
+> > > > -          - renesas,r9a07g043f-ax45mp-cache
+> > > > -      - const: andestech,ax45mp-cache
+> > > > -      - const: cache
+> > > > +    oneOf:
+> > > > +      - items:
+> > > > +          - enum:
+> > > > +              - andestech,qilai-ax45mp-cache
+> > > > +              - renesas,r9a07g043f-ax45mp-cache
+> > > > +          - const: andestech,ax45mp-cache
+> > > > +          - const: cache
 > > 
-> > You've switched to imply for the new controller you are introducing later in
-> > this series.
-> > You should probably be consistent and align this one too. Not in this change
-> > though, it would be unrelated.
+> > Illogical split of patches. If this was to stay, then THIS commit is the
+> > reason to rename so rename would happen here, not in some time in the
+> > future. Same for everything you do.
 > > 
-> > This change otherwise looks good to me. It requires Philipp's opinion as it is
-> > touching reset too.
+> > Organize your patches correctly, not doing things half-baked... but
+> > anyway do not rename files just because you added one compatible.
+
+Hi Krzysztof, Conor,
+
+Thanks for the reviews.
+
+My understanding is that the file should not be renamed at all, rather
+than having the rename squashed into this patch, so I will keep
+andestech,ax45mp-cache.yaml in v3. Please let me know if I misread
+that.
+
+> > 
+> > 
+> > > > +      - items:
+> > > > +          - const: andestech,llcache
+> > > > +          - const: cache
+> > > 
+> > > Device specific compatibles are mandatory. I would accept this patch
+> > > with a
+> > >           - not: {}
+> > >             description: Need a SoC specific compatible
+> > > like the safexcel eip binding.
+> > 
+> > But why all others cannot use ax45mp as fallback? Is this really a
+> > generic block among multiple generations of SoCs?
 > 
-> This patch touches the reset subsystem. Could you please take a look
-> and give your opinion?
+> I think it's fairly likely that it is.
+> I do like having constraints that restrict cache-sets etc to what the
+> device can actually do, but using ax45mp as a fallback doesn't prevent
+> that, since the constraints are really set by the soc.
+> > 
+> > What sort of arguments from contributors are to support that?
+> > 
+> > 
 
-struct jh71x0_reset_adev is misnamed now that it doesn't contain an
-auxiliary_device anymore. I'd call it jh71x0_reset_platform_data or
-similar. Otherwise,
+The L2 cache controllers of the Andes 25/27 series (A27L2, AX25MP, ...)
+and of the 45 series are separate implementations, but they follow a
+common Andes register interface: the configuration, control, error,
+CCTL command, access line and status are at the same offsets and
+behave the same way. The driver is written against this common
+interface only. All the SoCs this series targets use it:
+the AX45MP in RZ/Five and QiLai, and the A27L2 in Allwinner V821.
 
-Acked-by: Philipp Zabel <p.zabel@pengutronix.de>
+The A27L2 does not have the AX45MP's controller, so using
+andestech,ax45mp-cache as its fallback would suggest that it does.
+andestech,llcache is meant to describe the common interface instead,
+and the driver only needs to match it.
 
-regards
-Philipp
+Would it be fine to keep andestech,llcache if I add the "not: {}"
+placeholder for the SoC specific compatible, as Conor suggested? If so,
+I will do that in v3, and the V821 cache compatible will come with the
+V821 devicetree series from Allwinner.
+
+> > > >  
+> > > >    reg:
+> > > >      maxItems: 1
+> > > > @@ -44,13 +50,11 @@ properties:
+> > > >      const: 64
+> > > >  
+> > > >    cache-level:
+> > > > -    const: 2
+> > > > +    enum: [2, 3]
+> > > >  
+> > > > -  cache-sets:
+> > > > -    enum: [1024, 2048]
+> > > > +  cache-sets: true
+> > > >  
+> > > > -  cache-size:
+> > > > -    enum: [131072, 262144, 524288, 1048576, 2097152]
+> > > > +  cache-size: true
+> > 
+> > 
+> > See writing bindings. Widest constraints stay here.
+> 
+> I think how this should be done probably depends on just how much
+> variance there is intended to be. How many more configurations do you
+> envisage here Mina, and do they follow a similar scheme of being
+> multiples of 128 KiB?
+> 
+> 
+
+Yes, the cache size is configured per SoC as a power of two multiple of
+128 KiB, up to 8 MiB on the AX45MP and up to 2 MiB on the A27L2, and
+the number of sets ranges from 128 to 8192. So there is a fixed, small
+set of configurations, and in v3 I will list these values at the top
+level.
+
+Best regards,
+Mina
 
 _______________________________________________
 linux-riscv mailing list
