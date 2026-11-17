@@ -2,91 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78064606A32C
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 22:12:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74718606A334
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2026 22:26:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SM7ujbKz;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e9W3LMxe
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Dne53cHT;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b=iq9RgePl
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=1VthU7146jrXAN8sZEploM6RGXOMCkzL70n/2IY7lgg=; b=SM7ujbKze+sQaGb+0cH1LldLIV
-	8azYhqf6CZfvla8Ua1R/ChprPOE7OTq992OA0XHnq04TPha3sKJfGqo24R6db1T006Abq2bleRPZM
-	oycocYuNRtTh6DDrLBXDESf0xhxqbbERy2OP80oikwVj2gESAC3+QobIzwT1aspGxanPqOX5UMh4n
-	cV5BJODZc3HMWo+uo/mI9WVkD9Q8Uj75w0Nmrdhak8lRSKBmZRLspAksxec5k2iRltPCJhGrBtd05
-	rfGxn7LtCQUT9vqLASWMVoerSC6XPhRikKCvhlur2udash4Vvgmlyck1jX5hSuY3HqrXRolmm3n+U
-	jdgJCQCw==;
+	bh=ljy0riVTu7VLKJeD2Fhgr2jO2tr4vAMZ7zFkp/Rvg1w=; b=Dne53cHTZVnEl2IEV1a4PXZPHY
+	szq5MqoRFYYydYCYOXECMI0AuMMLc7lg+je2mNkv83cwlfE378Yx4+kyv6fLFlxKBPDYjyH0bhpJH
+	Dr1cTDToOC6MoT6fHzapbUTsCmYhPCBwYHmsRr+IRQG8gj7Tz7wQJ0pA2SSzvSrp8hfeIkR/3f1ok
+	kH2euUSO8xl2oG25vNTJK3xZUGG4l81OubhGW1s9EV6BGmapPgLP6NwNBO/KYdsqylVSoSPzPpZXZ
+	Cjy8U0Yi15Rv3/WQIoU9v4P0XNgPpGc694cfWfWQl+uszwm3JYU8GQnwylfuRFMlUaPaxsByzUsAy
+	/LtLkMeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTRP6-00000007CKf-1IgX;
-	Tue, 17 Nov 2026 22:11:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xTRdL-00000007Dvg-1aqf;
+	Tue, 17 Nov 2026 22:26:35 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTRP3-00000007CJh-1o8i
+	id 1xTRdI-00000007Dv0-07L6
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Nov 2026 22:11:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B506361B44;
-	Tue, 17 Nov 2026 22:11:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8FE51F000C7;
-	Tue, 17 Nov 2026 22:11:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794953508;
-	bh=cunW1Leskp2/ovidYACJ0+k0VRx49i91WrRF3nADF10=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=e9W3LMxeQeERg2rjPrcvNqVvfVvL6hNuK1Vg2WVzG1qI6s+8W6UKIBzcw4hU/MDI2
-	 licPONDf8nfNDyHL/yGdllET2Tn47m+vYKmLUsosQ2F4mZuUgSh+rnGHRTmbdXqUil
-	 OUyxuyWRRI3iadIB4isKuo1xy0P1SuyV5YNkYf6AhLBTSy3VbGKL9fSp0wWVooDAsE
-	 6iMSDQLRT6dnswwCRsKXuVo+zP4MQKby041MmVpWnRFvuKmkBh9KFYmvtuKM9JGPVh
-	 orJsKMUSg1WCS/6pxcGkhWiFKFAwLJQzXhBLY/oFIUfDGtRA1awzwDVPh4ey8rv98m
-	 UMRGO/YziudPQ==
-From: "Drew Fustini (Tenstorrent)" <fustini@kernel.org>
-Date: Tue, 17 Nov 2026 14:11:29 -0800
-Subject: [PATCH 3/3] riscv_cbqri: Bind to RQSC platform devices
+	Tue, 17 Nov 2026 22:26:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=r2D5y0TucYSUwiHZr4B77hB+E7SQhof22iJyDH7secY=; b=iq9RgePlfoRm2/Rn/figPr5cci
+	0M9Cel/iQ1ZPTKWizBnjAgnX9MT83uto5w979hbcwm/ohp4AuL/KY0Ow76i6g1svUCE3SGrcJkJBn
+	asLiX9l81U4OL9wbkiykhO57N0CSkOYItcWh9U2tqkHyNmFTahFvusQP7R4l0xivd6eCOnSp9BF9O
+	hC4x72cLSOYYs0WSv2zDqL36XqB2mGSoG1FmtEvJciqbVZuEaeWuGRWlLutMLBzyxsKJOzlczsMlB
+	2BAtE1fBoWTEU6CgcAgolkhSsFPdmaivlJxEe67JIQS91M3MNanGk1BTwj34JzqTt/38znLb8s9/Q
+	NdNc1Urg==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1xTRd9-0000000GdbW-2P8h;
+	Tue, 17 Nov 2026 23:26:23 +0100
+Date: Tue, 17 Nov 2026 23:26:22 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@kernel.org>,
+	"open list:I2C SUBSYSTEM HOST DRIVERS" <linux-i2c@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+Subject: Re: [PATCH v1 2/2] power: reset: spacemit-p1: Use atomic I2C
+ transfers for power-off and restart
+Message-ID: <avzUjsZzhky4krEV@aurel32.net>
+Mail-Followup-To: Anand Moon <linux.amoon@gmail.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@kernel.org>,
+	"open list:I2C SUBSYSTEM HOST DRIVERS" <linux-i2c@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+References: <20261110061429.2036-1-linux.amoon@gmail.com>
+ <20261110061429.2036-2-linux.amoon@gmail.com>
+ <avpN-gFOvTBAMY6G@venus>
+ <CANAwSgT_k35_waHL-+iU93f=k3fjFAPXhk=exRz-XHMm2MqREA@mail.gmail.com>
+ <avvnRkK9agPSdzac@aurel32.net>
+ <CANAwSgSXP1bZVVrX71jfgi1iR9AY4TpM0pk07ke+oeLvcX1fEQ@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261117-acpi-rqsc-v1-3-381ce645751e@kernel.org>
-References: <20261117-acpi-rqsc-v1-0-381ce645751e@kernel.org>
-In-Reply-To: <20261117-acpi-rqsc-v1-0-381ce645751e@kernel.org>
-To: Sunil V L <sunilvl@oss.qualcomm.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Atish Patra <atish.patra@linux.dev>, 
- Anup Patel <anup.patel@oss.qualcomm.com>, 
- Chen Pei <cp0613@linux.alibaba.com>, yunhui cui <cuiyunhui@bytedance.com>, 
- Reinette Chatre <reinette.chatre@intel.com>, 
- =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <radim.krcmar@oss.qualcomm.com>, 
- Zeng Heng <zengheng@picoheart.com>, 
- Conor Dooley <conor.dooley@microchip.com>, Ben Horgan <ben.horgan@arm.com>, 
- James Morse <james.morse@arm.com>, Tony Luck <tony.luck@intel.com>, 
- Adrien Ricciardi <aricciardi@baylibre.com>, 
- Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>, 
- Gong Shuai <gong.shuai@sanechips.com.cn>, Gong Shuai <gsh517@gmail.com>, 
- Weiwei Li <liwei1518@gmail.com>, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, 
- =?utf-8?q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>, 
- Samuel Holland <samuel.holland@sifive.com>, guo.wenjia23@zte.com.cn, 
- liu.qingtao2@zte.com.cn, Dave Martin <Dave.Martin@arm.com>, 
- Babu Moger <babu.moger@amd.com>, Fenghua Yu <fenghuay@nvidia.com>, 
- Peter Newman <peternewman@google.com>, 
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, 
- Jonathan Cameron <jic23@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, linux-acpi@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- "Drew Fustini (Tenstorrent)" <fustini@kernel.org>
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7565; i=fustini@kernel.org;
- h=from:subject:message-id; bh=aYgoa7KXLUK+oRj4yg5rNhVW5cvj32VihPir+GkzWTk=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWT9uagoaXQ8LE/tTWyyTcwVvgbr812yDxifppXxzq5yO
- vFK74pmRykLgxgXg6yYIsumD3kXlniFfl0w/8U2mDmsTCBDGLg4BWAiMg6MDIcCly7+161Q3Fnz
- YVI98/1vd7g2Hejqi+BiiJ0iFOZ83JuRYXPjNUWFpZMdd/2IWhznN/uw8/bJT7rm1/O3X17u/bK
- hlgEA
-X-Developer-Key: i=fustini@kernel.org; a=openpgp;
- fpr=1B6F948213EA489734F3997035D5CD577C1E6010
+Content-Disposition: inline
+In-Reply-To: <CANAwSgSXP1bZVVrX71jfgi1iR9AY4TpM0pk07ke+oeLvcX1fEQ@mail.gmail.com>
+User-Agent: Mutt/2.4.1 (2026-07-04)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261117_142632_213799_DBD43A7B 
+X-CRM114-Status: GOOD (  62.02  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,244 +95,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Let the capacity controller driver probe the "cbqri-capacity" platform
-devices created from the RQSC table. The cache is named by its PPTT
-Cache ID and the PPTT gives its level. Select ACPI_RQSC so the table is
-parsed and drop the OF dependency.
+Hi Anand,
 
-No change for device tree systems.
+On 2026-11-17 18:04, Anand Moon wrote:
+> Hi Aurelien,
+> 
+> On Tue, 17 Nov 2026 at 11:04, Aurelien Jarno <aurelien@aurel32.net> wrote:
+> >
+> > Hi Anand,
+> >
+> > On 2026-11-16 13:06, Anand Moon wrote:
+> > > Hi All,
+> > >
+> > > On Mon, 16 Nov 2026 at 11:33, Sebastian Reichel
+> > > <sebastian.reichel@collabora.com> wrote:
+> > > >
+> > > > Hi,
+> > > >
+> > > > On Tue, Nov 10, 2026 at 11:44:27AM +0530, Anand Moon wrote:
+> > > > > The SpacemiT P1 power-off and restart handlers use regmap_set_bits()
+> > > > > to access the PMIC. However, these handlers run in an atomic notifier
+> > > > > context (specifically within an rcu_read_lock() critical section), while
+> > > > > the I2C-backed regmap uses a sleepable mutex.
+> > > > >
+> > > > > This triggers a "WARNING: suspicious RCU usage" warning due to an illegal
+> > > > > context switch in the RCU read-side critical section during shutdown on the
+> > > > > Banana Pi BPI-F3:
+> > > > >
+> > > > > [  563.803475] WARNING: suspicious RCU usage
+> > > > > [  563.807813] 7.3.1-ARCH-RISC-V #1 Not tainted
+> > > > > [  563.816614] ./include/linux/rcupdate.h:387 Illegal context switch in RCU read-side critical section!
+> > > > > ...
+> > > > > [  563.841445] locks held by shutdown/1: 2, last CPU#0:
+> > > > > [  563.846694]  #0: ffffffff8404fb20 (system_transition_mutex){+.+.}-{4:4}, at: __do_sys_reboot+0x230/0x29e
+> > > > > [  563.856806]  #1: ffffffff84167860 (rcu_read_lock){....}-{1:3}, at: atomic_notifier_call_chain+0x4a/0x1c2
+> > > > >
+> > > > > Replace the regmap operations with atomic I2C transfers to avoid sleeping
+> > > > > in an atomic context. Preserve unrelated register bits through
+> > > > > read-modify-write operations and check for atomic I2C support before
+> > > > > registering the handlers.
+> > > > >
+> > > > > Obtain the I2C client from the parent device and verify that the adapter
+> > > > > supports atomic transfers before registering the handlers.
+> > > > >
+> > > > > Tested on the Banana Pi BPI-F3 (SpacemiT K1).
+> > > > >
+> > > > > Assisted-by: LLM
+> > > > > Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> > > > > Cc: Aurelien Jarno <aurelien@aurel32.net>
+> > > > > Fixes: 28124cc0fb8c ("driver: reset: spacemit-p1: add driver for poweroff/reboot")
+> > > > > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> > > > > ---
+> > > >
+> > > > regmap runs i2c_transfer itself and thus also uses the atomic I2C
+> > > > transfers. The problem here is regmap itself. But instead of moving
+> > > > away from regmap, the atomic use case should be supported properly
+> > > > in regmap.
+> > > >
+> > >
+> > > On  RISC-V platform, poweroff and reboot are already handled by OpenSBI
+> > > through the SBI System Reset (SRST) extension. Linux delegates these
+> > > operations to firmware using SBI_SRST_RESET_TYPE_SHUTDOWN for poweroff
+> > > and SBI_SRST_RESET_TYPE_COLD_REBOOT or SBI_SRST_RESET_TYPE_WARM_REBOOT
+> > > for reboot, depending on the supported reset type.
+> > >
+> > > Therefore, there is no need for an additional Linux PMIC poweroff/reboot handler
+> > > on this platform, as it duplicates functionality already provided by firmware.
+> > >
+> > > While supporting atomic operations in regmap may be useful more generally,
+> > > it is not necessary to address this platform's shutdown and reboot requirements.
+> > >
+> > > I tested this on the SpacemiT K1 Banana Pi BPI-F3 after removing this PMIC
+> > > poweroff/reboot driver.
+> > >
+> > > OpenSBI commit which handles this extension
+> > >
+> > > d9637d00bf47 ("lib: utils/reset: add SpacemiT P1 PMIC support")
+> > > b10e18ec854a ("lib: utils/i2c: add minimal SpacemiT I2C driver")
+> > >
+> > > Similarly, on the StarFive VisionFive 2, poweroff is handled by
+> > > OpenSBI through the
+> > > AXP15060 PMIC, so there is no need to register an additional poweroff
+> > > handler using
+> > > devm_register_power_off_handler().
+> > >
+> > > OpenSBI commit which handles this extension
+> > >
+> > > 568ea49490d9 ("platform: starfive: add PMIC power ops in JH7110
+> > > visionfive2 board")
+> > >
+> > > -----8<----------8<----------8<------
+> > > diff --git a/drivers/mfd/axp20x.c b/drivers/mfd/axp20x.c
+> > > index 50df66de24e06..069259f7d7c15 100644
+> > > --- a/drivers/mfd/axp20x.c
+> > > +++ b/drivers/mfd/axp20x.c
+> > > @@ -1458,8 +1458,14 @@ int axp20x_device_probe(struct axp20x_dev *axp20x)
+> > >                 return ret;
+> > >         }
+> > >
+> > > -       if (axp20x->variant != AXP288_ID)
+> > > -               devm_register_power_off_handler(axp20x->dev,
+> > > axp20x_power_off, axp20x);
+> > > +       /*
+> > > +        * The VisionFive 2 handles AXP15060 poweroff through OpenSBI.
+> > > +        * Avoid accessing the I2C PMIC from the atomic poweroff path.
+> > > +        */
+> > > +       if (axp20x->variant != AXP288_ID && !(axp20x->variant == AXP15060_ID &&
+> > > +                               of_machine_is_compatible("starfive,jh7110")))
+> > > +               devm_register_power_off_handler(axp20x->dev,
+> > > +                               axp20x_power_off, axp20x);
+> > >
+> > >         dev_info(axp20x->dev, "AXP20X driver loaded\n");
+> > >
+> > > Please let me know if this works on your board?
+> >
+> > Yes, that works, but I don't think this is the correct solution to
+> > disable here. Also this won't scale for future boards which might use a
+> > different existing PMIC driver with poweroff support and that will also
+> > need to be patched.
+> >
+> No changes needed over here, reboot and power-off priority will
+> work fine.
+> > As pointed out by Troy in an earlier mail, the real problem is the
+> > priority at which the handler is registers, 192 for the reset and -256
+> > for the poweroff one. I wonder if the SBI SRST extension should also
+> > register the poweroff one at 192. It seems it's about replacing the call
+> > to register_platform_power_off() by register_sys_off_handler(), which
+> > supports using a priority value. And maybe SYS_OFF_PRIO_FIRMWARE = 224
+> > should be used there instead of 192.
+> >
+> Thanks for your input; with the changes below.
+> It works fine on Spacemit k1 and Starfive Vision 2 for reboot and power-off.
+> 
+>  arch/riscv/kernel/sbi.c | 51 +++++++++++++++++++++++++++++++----------
+>  1 file changed, 39 insertions(+), 12 deletions(-)
 
-Signed-off-by: Drew Fustini (Tenstorrent) <fustini@kernel.org>
----
- drivers/resctrl/Kconfig          |  11 ++--
- drivers/resctrl/cbqri_capacity.c | 111 ++++++++++++++++++++++++++++-----------
- 2 files changed, 87 insertions(+), 35 deletions(-)
+Thanks for this patch. It sounds good overall, and it's always good to 
+switch to the newest API.
 
-diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-index 844dfd75e2aa..491c867f8c5c 100644
---- a/drivers/resctrl/Kconfig
-+++ b/drivers/resctrl/Kconfig
-@@ -35,6 +35,7 @@ config ARM64_MPAM_RESCTRL_FS
- menuconfig RISCV_CBQRI
- 	bool "RISC-V CBQRI support"
- 	depends on RISCV && RISCV_ISA_SSQOSID
-+	select ACPI_RQSC if ACPI
- 	select ARCH_HAS_CPU_RESCTRL
- 	default y
- 	help
-@@ -47,14 +48,14 @@ if RISCV_CBQRI
- 
- config RISCV_CBQRI_CAPACITY
- 	bool "RISC-V CBQRI cache capacity-allocation controller"
--	depends on OF
- 	help
- 	  Enable driver for a RISC-V CBQRI capacity controller that
--	  governs a CPU cache, matching the "riscv,cbqri-capacity-controller"
--	  compatible. The controller's cache phandle gives the cache level and
--	  id, which the driver registers as a resctrl cache-allocation resource.
-+	  governs a CPU cache, described in device tree by the
-+	  "riscv,cbqri-capacity-controller" compatible or in ACPI by the RQSC
-+	  table. The firmware description gives the cache level and id, which
-+	  the driver registers as a resctrl cache-allocation resource.
- 
--	  Say N unless your device tree describes a CBQRI capacity controller.
-+	  Say N unless your firmware describes a CBQRI capacity controller.
- 
- endif
- 
-diff --git a/drivers/resctrl/cbqri_capacity.c b/drivers/resctrl/cbqri_capacity.c
-index 6f3d06c4f74b..7013f1a50ffd 100644
---- a/drivers/resctrl/cbqri_capacity.c
-+++ b/drivers/resctrl/cbqri_capacity.c
-@@ -3,11 +3,14 @@
-  * Platform driver for a RISC-V CBQRI capacity controller that backs a CPU
-  * cache. The controller is described in device tree by the generic
-  * "riscv,cbqri-capacity-controller" compatible together with a phandle to the
-- * cache node it governs. The driver hands it to the CBQRI core, which probes
-- * the capabilities register and exposes a controller that supports allocation
-- * as the resctrl cache allocation resource for that cache.
-+ * cache node it governs, or in ACPI by the RQSC table, whose parser creates a
-+ * "cbqri-capacity" platform device that carries the PPTT Cache ID of the
-+ * cache. The driver hands it to the CBQRI core, which probes the capabilities
-+ * register and exposes a controller that supports allocation as the resctrl
-+ * cache allocation resource for that cache.
-  */
- 
-+#include <linux/acpi.h>
- #include <linux/cacheinfo.h>
- #include <linux/cpu.h>
- #include <linux/device-id/of.h>
-@@ -15,45 +18,32 @@
- #include <linux/ioport.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/property.h>
- #include <linux/riscv_cbqri.h>
- #include <linux/types.h>
- 
--static int cbqri_capacity_probe(struct platform_device *pdev)
-+static int cbqri_capacity_of_cache(struct device *dev, u32 *cache_level,
-+				   u32 *cache_id)
- {
--	struct device *dev = &pdev->dev;
--	struct cbqri_controller_info info = {};
- 	struct device_node *cache_np;
--	struct resource *res;
--	void __iomem *base;
--	u32 rcid_count, cache_level, cache_id;
- 	bool found = false;
- 	int cpu, ret;
- 
--	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
--	if (IS_ERR(base))
--		return PTR_ERR(base);
--
--	ret = of_property_read_u32(dev->of_node, "riscv,cbqri-rcid", &rcid_count);
--	if (ret) {
--		dev_err(dev, "missing riscv,cbqri-rcid\n");
--		return ret;
--	}
--
- 	cache_np = of_parse_phandle(dev->of_node, "riscv,cbqri-cache", 0);
- 	if (!cache_np) {
- 		dev_err(dev, "missing riscv,cbqri-cache phandle\n");
- 		return -EINVAL;
- 	}
- 
--	ret = of_property_read_u32(cache_np, "cache-level", &cache_level);
-+	ret = of_property_read_u32(cache_np, "cache-level", cache_level);
- 	if (ret) {
- 		dev_err(dev, "%pOF: missing cache-level\n", cache_np);
- 		goto out_put;
- 	}
- 
--	if (cache_level != 2 && cache_level != 3) {
-+	if (*cache_level != 2 && *cache_level != 3) {
- 		dev_err(dev, "%pOF: unsupported cache-level %u\n",
--			cache_np, cache_level);
-+			cache_np, *cache_level);
- 		ret = -EINVAL;
- 		goto out_put;
- 	}
-@@ -73,10 +63,10 @@ static int cbqri_capacity_probe(struct platform_device *pdev)
- 	 */
- 	cpus_read_lock();
- 	for_each_online_cpu(cpu) {
--		struct cacheinfo *ci = get_cpu_cacheinfo_level(cpu, cache_level);
-+		struct cacheinfo *ci = get_cpu_cacheinfo_level(cpu, *cache_level);
- 
- 		if (ci && ci->fw_token == cache_np) {
--			cache_id = ci->id;
-+			*cache_id = ci->id;
- 			found = true;
- 			break;
- 		}
-@@ -85,11 +75,74 @@ static int cbqri_capacity_probe(struct platform_device *pdev)
- 
- 	if (!found) {
- 		dev_err(dev, "%pOF: no online hart reports an L%u cache with a cache id for this node\n",
--			cache_np, cache_level);
-+			cache_np, *cache_level);
- 		ret = -ENODEV;
--		goto out_put;
- 	}
- 
-+out_put:
-+	of_node_put(cache_np);
-+	return ret;
-+}
-+
-+/*
-+ * The RQSC table names the cache by its PPTT Cache ID, which the table parser
-+ * passes on in the riscv,cbqri-cache-id property. cacheinfo takes the cache
-+ * id from the same PPTT field, and the PPTT gives the level of the cache.
-+ */
-+static int cbqri_capacity_acpi_cache(struct device *dev, u32 *cache_level,
-+				     u32 *cache_id)
-+{
-+	int level, ret;
-+
-+	ret = device_property_read_u32(dev, "riscv,cbqri-cache-id", cache_id);
-+	if (ret) {
-+		dev_err(dev, "missing riscv,cbqri-cache-id\n");
-+		return ret;
-+	}
-+
-+	level = find_acpi_cache_level_from_id(*cache_id);
-+	if (level < 0) {
-+		dev_err(dev, "no PPTT cache with Cache ID %u\n", *cache_id);
-+		return level;
-+	}
-+
-+	if (level != 2 && level != 3) {
-+		dev_err(dev, "unsupported cache level %d for Cache ID %u\n",
-+			level, *cache_id);
-+		return -EINVAL;
-+	}
-+
-+	*cache_level = level;
-+
-+	return 0;
-+}
-+
-+static int cbqri_capacity_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct cbqri_controller_info info = {};
-+	struct resource *res;
-+	void __iomem *base;
-+	u32 rcid_count, cache_level, cache_id;
-+	int ret;
-+
-+	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	ret = device_property_read_u32(dev, "riscv,cbqri-rcid", &rcid_count);
-+	if (ret) {
-+		dev_err(dev, "missing riscv,cbqri-rcid\n");
-+		return ret;
-+	}
-+
-+	if (dev->of_node)
-+		ret = cbqri_capacity_of_cache(dev, &cache_level, &cache_id);
-+	else
-+		ret = cbqri_capacity_acpi_cache(dev, &cache_level, &cache_id);
-+	if (ret)
-+		return ret;
-+
- 	info.type = CBQRI_CONTROLLER_TYPE_CAPACITY;
- 	info.base = base;
- 	info.addr = res->start;
-@@ -101,15 +154,13 @@ static int cbqri_capacity_probe(struct platform_device *pdev)
- 	ret = riscv_cbqri_register_cc(&info);
- 	if (ret) {
- 		dev_err(dev, "failed to register capacity controller: %d\n", ret);
--		goto out_put;
-+		return ret;
- 	}
- 
- 	dev_info(dev, "registered L%u capacity controller at %pa (cache_id=%u, rcid=%u)\n",
- 		 cache_level, &info.addr, cache_id, rcid_count);
- 
--out_put:
--	of_node_put(cache_np);
--	return ret;
-+	return 0;
- }
- 
- static const struct of_device_id cbqri_capacity_of_match[] = {
+I have been able to test it successfully on VisionFive 2 and Banana-Pi 
+F3. Please find a few comments below.
+
+> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> index af1ccea222f1..32a3d2df9032 100644
+> --- a/arch/riscv/kernel/sbi.c
+> +++ b/arch/riscv/kernel/sbi.c
+> @@ -512,23 +512,55 @@ static void sbi_srst_reset(unsigned long type,
+> unsigned long reason)
+>                 __func__, type, reason);
+>  }
+> 
+> -static int sbi_srst_reboot(struct notifier_block *this,
+> -                          unsigned long mode, void *cmd)
+> +static int sbi_srst_reboot(struct sys_off_data *data)
+>  {
+> -       sbi_srst_reset((mode == REBOOT_WARM || mode == REBOOT_SOFT) ?
+> +       sbi_srst_reset((reboot_mode == REBOOT_WARM ||
+> +                       reboot_mode == REBOOT_SOFT) ?
+>                        SBI_SRST_RESET_TYPE_WARM_REBOOT :
+>                        SBI_SRST_RESET_TYPE_COLD_REBOOT,
+>                        SBI_SRST_RESET_REASON_NONE);
+> +
+>         return NOTIFY_DONE;
+>  }
+> 
+> -static struct notifier_block sbi_srst_reboot_nb;
+> -
+> -static void sbi_srst_power_off(void)
+> +static int sbi_srst_power_off(struct sys_off_data *data)
+>  {
+>         sbi_srst_reset(SBI_SRST_RESET_TYPE_SHUTDOWN,
+>                        SBI_SRST_RESET_REASON_NONE);
+> +
+> +       return NOTIFY_DONE;
+> +}
+> +
+> +static bool srst_power_off;
+> +static bool sbi_srst_available;
+
+Not sure we want global variables for this, as they are not used anymore 
+once the initialisation is done.
+> +
+> +static int __init sbi_srst_sys_off_init(void)
+> +{
+> +       struct sys_off_handler *handler;
+> +
+> +       if (!sbi_srst_available)
+> +               return 0;
+> +
+> +       handler = register_sys_off_handler(SYS_OFF_MODE_RESTART,
+> +                                          SYS_OFF_PRIO_HIGH,
+
+I think you should use SYS_OFF_PRIO_FIRMWARE for both entry. It 
+corresponds to the reboot provider.
+
+> +                                          sbi_srst_reboot, NULL);
+> +       if (IS_ERR(handler))
+> +               pr_warn("Failed to register SBI SRST restart handler: %ld\n",
+> +                       PTR_ERR(handler));
+> +
+> +       handler = register_sys_off_handler(SYS_OFF_MODE_POWER_OFF,
+> +                                          SYS_OFF_PRIO_FIRMWARE,
+> +                                          sbi_srst_power_off, NULL);
+> +       if (IS_ERR(handler)) {
+> +               pr_warn("Failed to register SBI SRST poweroff handler: %ld\n",
+> +                       PTR_ERR(handler));
+> +       } else {
+> +               srst_power_off = true;
+> +       }
+> +
+> +       return 0;
+>  }
+> +device_initcall(sbi_srst_sys_off_init);
+
+Any reason to use a device_initcall as opposed to just calling the 
+fuunction from the sbi_init function below? If so, please provide the 
+reason in the commit message when submitting the final patch.
+
+>  /**
+>   * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
+> @@ -643,7 +675,6 @@ int sbi_debug_console_read(char *bytes, unsigned
+> int num_bytes)
+> 
+>  void __init sbi_init(void)
+>  {
+> -       bool srst_power_off = false;
+>         int ret;
+> 
+>         ret = sbi_get_spec_version();
+> @@ -677,11 +708,7 @@ void __init sbi_init(void)
+>                 if (sbi_spec_version >= sbi_mk_version(0, 3) &&
+>                     sbi_probe_extension(SBI_EXT_SRST)) {
+>                         pr_info("SBI SRST extension detected\n");
+> -                       register_platform_power_off(sbi_srst_power_off);
+> -                       srst_power_off = true;
+> -                       sbi_srst_reboot_nb.notifier_call = sbi_srst_reboot;
+> -                       sbi_srst_reboot_nb.priority = 192;
+> -                       register_restart_handler(&sbi_srst_reboot_nb);
+> +                       sbi_srst_available = true;
+>                 }
+>                 if (sbi_spec_version >= sbi_mk_version(2, 0) &&
+>                     sbi_probe_extension(SBI_EXT_DBCN) > 0) {
+
+Regards
+Aurelien
 
 -- 
-2.43.0
-
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
