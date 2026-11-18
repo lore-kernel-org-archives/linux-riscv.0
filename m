@@ -2,74 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 214BF606A31C
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 08:45:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B3B9606A32A
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 08:58:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YqyY3bRz;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XEXixdfx
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uMI2lpZc;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=S1bK5FtW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:From:Message-Id:Mime-Version
+	:Cc:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Pqrt5+i22PQoMXdCqB26Z9Jc1ILGp0whKyQ/ican4yM=; b=YqyY3bRzf7xtDwZn63zgQAdjYa
-	ElVmDRMJ6V4Sf3Px0wZ2WPFWfCOt19Ipv1w1+Wcbra5vexUttTxN51cxfeFZEGMX7NIQi2Rv8a8Ab
-	X4anxvVwGxN8xgdQar1mVlrCEqbCEDnL0CWQ/WVxGq1CswD9nR01/pQ+xK8zDQZdw9hrxjQoUbZhp
-	m+HVDnBtBZ2yxN8TXiroITGSnecTXjUF9cWLQr6Cc0ClScU/23x1ALNgZ5ClphEindG4AGdxEs99F
-	TTB3uyCYMEXNHNiXJbX3yfvnF+vJYZ6GfczYmPG21ZXz1R6/Q3yhEbXrX3zHYQRkCuArivNJYeIzf
-	DOatrJiw==;
+	bh=ad53w7FoDSsiCWO6NBvBEK1oPJUGSw8hGQP1Ouw4qts=; b=uMI2lpZcJAgXEDW4M4rhpuqHGc
+	XDYuZgbqkG4RHGco0ygfxXfDgezRCOCEK0aMsQRz6KG+lsaPzyq7oaONr93TPbaqUmHkvAEzHD9jm
+	LITZKUwElHP2QjUxzY27gFamKbStQeGSaH+nrG2IjzgoJ1NZxqK60RTibh5MfkBEO+B1mPx+2ot9i
+	DWPuywiHXBKyLMe2el45S7qrB1o6YQP9yt/t6ZuwZV87znTfCdp4RePYm/psQVYlBOwahl788g5W/
+	AEZyiGpfKLy60kSmEq5uFdlU21Vvt/pJlH+x+HdUy8NxZORufo2umslFmUxmqzJmhyW+2gFuUZRQ7
+	Au6jbS3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTbID-00000008D4v-2cWL;
-	Wed, 18 Nov 2026 08:45:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xTbUT-00000008Fb8-0E73;
+	Wed, 18 Nov 2026 08:58:05 +0000
+Received: from va-2-55.ptr.blmpb.com ([209.127.231.55])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTbIA-00000008D2x-3JEh;
-	Wed, 18 Nov 2026 08:45:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9B37F60DF7;
-	Wed, 18 Nov 2026 08:45:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13FF81F000C4;
-	Wed, 18 Nov 2026 08:45:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794991521;
-	bh=pwLw1PN0N5G0/zB/Y6J6/hvuDTRFVTY/2ACWaIVrQfg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=XEXixdfxIzWEjdmYVlLVXQKKC/1OSeLK4Dd2KI/ueBBJ2zsxZdV01ZPnYYNWVPzEW
-	 aKSn5DRrdjMn96VrFDKoBWo3Ev/LzcHi2s7mSQnjtViNEbm+GleedWTNvwp3fG08CN
-	 1CQJJbNAg0dO84aDdBlajIscTmlxNv9LWlsjdZFS7d5lSVLTM1V0u0I9hAGxeXFkxc
-	 OlNJ/zRLaG0REmdXEZ4lNqW8+0MERdiuohXnQQzCK/SidctsNm/jJPr9Ex5b5O4NK6
-	 7iK5eLYGfDfHBYuFeF3s34LutpI/mxoKWZ2XrZBmyPmEsMCjW1AO97sGOfu/9uhrnL
-	 WWoLktO2YGCJQ==
-From: Jiri Olsa <jolsa@kernel.org>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>
-Cc: bpf@vger.kernel.org,
-	x86@kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Will Deacon <will@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	rtm@csail.mit.edu
-Subject: [PATCH bpf 2/2] selftests/bpf: Test which ctx registers a uprobe prog can write
-Date: Wed, 18 Nov 2026 09:44:50 +0100
-Message-ID: <20261118084451.12590-3-jolsa@kernel.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118084451.12590-1-jolsa@kernel.org>
-References: <20261118084451.12590-1-jolsa@kernel.org>
+	id 1xTbUQ-00000008FZw-0l3W
+	for linux-riscv@lists.infradead.org;
+	Wed, 18 Nov 2026 08:58:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1794992272;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=yOxzqLseFUYhYdIECMH6Pr89r6ogqLgHYA2LaD6ZQPI=;
+ b=S1bK5FtWYNSZHZNX0NmS/qx575+gxqKr0uU0DGZ6KoNSLjWC8AdMWE8i+M6rPVG5OVY2Bg
+ woP7owbnzdPKbrNZS1k0pIIYhfMFmaZR0yIdt9QXNJ1bUTTvQ2PXEd1avjQ8KYRW6xqtSt
+ fGJKjiKuOcw8rbFd+4bnXMJDTtQa+RRFMT9cty2VFkwYf0AK4u5AoMW5KNd0e++v/TJmJd
+ rHBM5Xg1oD1tdN3SpFanaXyF9YhOjhxHv1NlToTGKjesIjFEJk50LtLG9chwM/LDM2DRi3
+ 0kNVlBv2/SlBhmBr4qFtx0QYDhknD1bWZQEjV8JhRJgn3qGJ6LpSp1Ij6PjS0w==
+Date: Wed, 18 Nov 2026 16:57:33 +0800
+Received: from ubuntu.. ([183.23.101.74]) by smtp.feishu.cn with ESMTPS; Wed, 18 Nov 2026 16:57:49 +0800
+Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, 
+	"Tzung-Bi Shih" <tzungbi@kernel.org>, 
+	"Guenter Roeck" <groeck@chromium.org>, "Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
+	"Sandie Cao" <sandie.cao@deepcomputing.io>, <devicetree@vger.kernel.org>, 
+	<chrome-platform@lists.linux.dev>, <linux-riscv@lists.infradead.org>, 
+	<spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+X-Original-From: Wang Yang <yang.wang@deepcomputing.io>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
+Mime-Version: 1.0
+X-Lms-Return-Path: <lba+26afd688e+b75892+lists.infradead.org+yang.wang@deepcomputing.io>
+Message-Id: <20261118085742.1817536-1-yang.wang@deepcomputing.io>
+From: "Wang Yang" <yang.wang@deepcomputing.io>
+Subject: [PATCH 0/9] Add SpacemiT K3 FML13V05 EC keyboard support
+To: "Yixun Lan" <dlan@kernel.org>, "Benson Leung" <bleung@chromium.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261118_005802_305551_1DC512D3 
+X-CRM114-Status: GOOD (  13.00  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,259 +76,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A uprobe program can write only the pt_regs fields that ptrace can set
-to any value. Add verifier tests for x86-64, arm64 and riscv:
+The DeepComputing FML13V05 uses a ChromeOS-compatible embedded controller
+connected through the SpacemiT K3 eSPI peripheral channel. Its internal
+keyboard is not available on linux-next without the controller and EC
+transport support described in this series.
 
-  - writes to the general registers, the stack pointer and the
-    instruction pointer load
-  - writes to cs, ss, flags and orig_ax on x86-64, to pstate and
-    orig_x0 on arm64, and to status, badaddr and cause on riscv fail
-    with "invalid bpf_context access"
-  - a 4-byte write to the low half of a read-only field fails too
-  - reading a read-only field still works
-  - on x86-64, a kprobe program that writes ctx->flags fails to load
+The EC host command registers are exposed through a memory-mapped,
+non-linear peripheral window. This interface cannot use the ordinary
+cros_ec_spi message transport directly. Add a K3-specific controller and
+EC transport, and reuse the existing ChromeOS EC protocol, MFD and
+keyboard drivers. Existing EC core, LPC, SPI, protocol and keyboard C
+files and the google,cros-ec binding are unchanged.
 
-Other arches get one test that just loads.
+The series is based on next-20261116. Patches 1-2 document the controller
+and EC bindings; patch 3 adds the controller; patches 4-5 enable Chrome
+platform support on RISC-V and add the EC transport; patches 6-8 describe
+the pins, controller and board keyboard; patch 9 enables the drivers in
+riscv defconfig, with the EC transport and keyboard built as modules.
 
-Signed-off-by: Jiri Olsa <jolsa@kernel.org>
----
- .../selftests/bpf/prog_tests/verifier.c       |   2 +
- .../bpf/progs/verifier_uprobe_write_ctx.c     | 196 ++++++++++++++++++
- 2 files changed, 198 insertions(+)
- create mode 100644 tools/testing/selftests/bpf/progs/verifier_uprobe_write_ctx.c
+The controller implementation is ported from the SpacemiT vendor BSP
+(revision 29b78afb484b, originally authored by goumin
+<min.gou@spacemit.com>). Controller programming and recovery remain
+separate from the EC client. The EC transport and compatible are scoped
+to K3 because the window layout and controller recovery API are specific
+to this hardware. Feedback on the transport split and recovery interface
+is welcome.
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/verifier.c b/tools/testing/selftests/bpf/prog_tests/verifier.c
-index 6a494c381266..5a31f04677e0 100644
---- a/tools/testing/selftests/bpf/prog_tests/verifier.c
-+++ b/tools/testing/selftests/bpf/prog_tests/verifier.c
-@@ -131,6 +131,7 @@
- #include "verifier_unpriv.skel.h"
- #include "verifier_unwind.skel.h"
- #include "verifier_unpriv_perf.skel.h"
-+#include "verifier_uprobe_write_ctx.skel.h"
- #include "verifier_value_adj_spill.skel.h"
- #include "verifier_value.skel.h"
- #include "verifier_value_illegal_alu.skel.h"
-@@ -321,6 +322,7 @@ void test_verifier_uninit(void)               { RUN(verifier_uninit); }
- void test_verifier_unpriv(void)               { RUN(verifier_unpriv); }
- void test_verifier_unwind(void)               { RUN(verifier_unwind); }
- void test_verifier_unpriv_perf(void)          { RUN(verifier_unpriv_perf); }
-+void test_verifier_uprobe_write_ctx(void)     { RUN(verifier_uprobe_write_ctx); }
- void test_verifier_value_adj_spill(void)      { RUN(verifier_value_adj_spill); }
- void test_verifier_value(void)                { RUN(verifier_value); }
- void test_verifier_value_illegal_alu(void)    { RUN(verifier_value_illegal_alu); }
-diff --git a/tools/testing/selftests/bpf/progs/verifier_uprobe_write_ctx.c b/tools/testing/selftests/bpf/progs/verifier_uprobe_write_ctx.c
-new file mode 100644
-index 000000000000..f5ed453b1798
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/verifier_uprobe_write_ctx.c
-@@ -0,0 +1,196 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include "vmlinux.h"
-+#include <bpf/bpf_helpers.h>
-+#include "bpf_misc.h"
-+
-+/*
-+ * A uprobe prog can write only the registers that ptrace can set to any
-+ * value. The fields the kernel restores on the way to user space (segments,
-+ * flags, privilege state) are read-only.
-+ */
-+
-+#define WRITE_CTX(name, field, sz)					\
-+__naked void name(void)							\
-+{									\
-+	asm volatile ("							\
-+	r2 = 0;								\
-+	*(" #sz " *)(r1 + %[off]) = r2;					\
-+	r0 = 0;								\
-+	exit;								\
-+"	:								\
-+	: __imm_const(off, offsetof(struct pt_regs, field))		\
-+	: __clobber_all);						\
-+}
-+
-+#define READ_CTX(name, field)						\
-+__naked void name(void)							\
-+{									\
-+	asm volatile ("							\
-+	r0 = *(u64 *)(r1 + %[off]);					\
-+	r0 = 0;								\
-+	exit;								\
-+"	:								\
-+	: __imm_const(off, offsetof(struct pt_regs, field))		\
-+	: __clobber_all);						\
-+}
-+
-+#if defined(__TARGET_ARCH_x86)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->ax")
-+__success
-+WRITE_CTX(write_ax, ax, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->r15")
-+__success
-+WRITE_CTX(write_r15, r15, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->di")
-+__success
-+WRITE_CTX(write_di, di, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->ip")
-+__success
-+WRITE_CTX(write_ip, ip, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->sp")
-+__success
-+WRITE_CTX(write_sp, sp, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write lower half of ctx->ax")
-+__success
-+WRITE_CTX(write_ax_u32, ax, u32)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->orig_ax")
-+__failure __msg("invalid bpf_context access")
-+WRITE_CTX(write_orig_ax, orig_ax, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->cs")
-+__failure __msg("invalid bpf_context access")
-+WRITE_CTX(write_cs, cs, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write lower half of ctx->cs")
-+__failure __msg("invalid bpf_context access")
-+WRITE_CTX(write_cs_u32, cs, u32)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->flags")
-+__failure __msg("invalid bpf_context access")
-+WRITE_CTX(write_flags, flags, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->ss")
-+__failure __msg("invalid bpf_context access")
-+WRITE_CTX(write_ss, ss, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: read ctx->flags")
-+__success
-+READ_CTX(read_flags, flags)
-+
-+SEC("kprobe")
-+__description("kprobe: write ctx->flags")
-+__failure __msg("invalid bpf_context access")
-+WRITE_CTX(kprobe_write_flags, flags, u64)
-+
-+#elif defined(__TARGET_ARCH_arm64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->regs[0]")
-+__success
-+WRITE_CTX(write_x0, regs[0], u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->regs[30]")
-+__success
-+WRITE_CTX(write_x30, regs[30], u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->sp")
-+__success
-+WRITE_CTX(write_sp, sp, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->pc")
-+__success
-+WRITE_CTX(write_pc, pc, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->pstate")
-+__failure __msg("invalid bpf_context access")
-+WRITE_CTX(write_pstate, pstate, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write lower half of ctx->pstate")
-+__failure __msg("invalid bpf_context access")
-+WRITE_CTX(write_pstate_u32, pstate, u32)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->orig_x0")
-+__failure __msg("invalid bpf_context access")
-+WRITE_CTX(write_orig_x0, orig_x0, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: read ctx->pstate")
-+__success
-+READ_CTX(read_pstate, pstate)
-+
-+#elif defined(__TARGET_ARCH_riscv)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->epc")
-+__success
-+WRITE_CTX(write_epc, epc, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->a0")
-+__success
-+WRITE_CTX(write_a0, a0, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->t6")
-+__success
-+WRITE_CTX(write_t6, t6, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->status")
-+__failure __msg("invalid bpf_context access")
-+WRITE_CTX(write_status, status, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->badaddr")
-+__failure __msg("invalid bpf_context access")
-+WRITE_CTX(write_badaddr, badaddr, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: write ctx->cause")
-+__failure __msg("invalid bpf_context access")
-+WRITE_CTX(write_cause, cause, u64)
-+
-+SEC("uprobe")
-+__description("uprobe: read ctx->status")
-+__success
-+READ_CTX(read_status, status)
-+
-+#else
-+
-+SEC("uprobe")
-+__description("uprobe: ctx writes not checked on this arch")
-+__success
-+__naked void unsupported(void)
-+{
-+	asm volatile ("r0 = 0; exit;" ::: __clobber_all);
-+}
-+
-+#endif
-+
-+char _license[] SEC("license") = "GPL";
+Validation on an FML13V05 with its internal keyboard, 2026-11-18:
+- W=1 cross-build of Image, modules and the board DTB completed. No new
+  warnings came from the added drivers.
+- Both new bindings and their compiled examples passed schema validation;
+  the new examples passed strict DT style checks. The new EC, controller
+  and keyboard nodes in the board DTB also passed validation.
+- Cold boot and module autoload passed all 20 automatic checks.
+- 153 read-only EC queries and three EC module unload/reload cycles
+  succeeded. EC firmware was FML13V05-V01.06.
+- A/B/C/1/2/Enter, all four arrows and Fn+F1/F2/F7/F8 produced the expected
+  28 paired press/release events, with no dropped or held keys and no
+  new EC/eSPI errors in the kernel log.
+
+The running test kernel was
+7.4.0-rc3-next-20261116-fml13v05-k3-espi+.
+Booting the test system required a separate K3 PCIe test module and
+USB/NVMe DT additions, which are outside this EC series. Suspend/resume,
+EC restart fault injection, full-keymap coverage and long-duration
+stability were not tested. A previously observed UEFI reset_system()
+failure was not addressed or retested by this series.
+
+Checkpatch reports no errors or CHECK findings. Its four new-file
+MAINTAINERS reminders were reviewed: the existing SpacemiT N: pattern
+and Chrome EC/DT entries already cover the new paths, so no MAINTAINERS
+change is included.
+
+OpenAI Codex assisted the port, patch preparation, review analysis and
+test tooling. The work was developed through an iterative session to
+port the existing DC-linux/BSP support, keep the common EC implementation
+unchanged, use K3-specific naming and bindings, and verify the result on
+hardware. Human review was completed before submission; the numbered
+patches retain the submitter's existing DCO sign-offs.
+
+Wang Yang (9):
+  dt-bindings: bus: Add SpacemiT K3 eSPI controller
+  dt-bindings: embedded-controller: Add SpacemiT K3 EC window
+  bus: Add SpacemiT K3 eSPI controller support
+  platform/chrome: Allow ChromeOS platform support on RISC-V
+  platform/chrome: Add SpacemiT K3 eSPI EC transport
+  riscv: dts: spacemit: Add K3 eSPI pin group
+  riscv: dts: spacemit: Describe the K3 eSPI controller
+  riscv: dts: spacemit: Enable the FML13V05 EC keyboard
+  riscv: defconfig: Enable the FML13V05 EC keyboard modules
+
+ .../bindings/bus/spacemit,k3-espi.yaml        | 146 ++++
+ .../spacemit,k3-cros-ec.yaml                  |  58 ++
+ .../spacemit/k3-deepcomputing-fml13v05.dts    | 137 +++
+ arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi  |  24 +
+ arch/riscv/boot/dts/spacemit/k3.dtsi          |  31 +
+ arch/riscv/configs/defconfig                  |   5 +
+ drivers/bus/Kconfig                           |  10 +
+ drivers/bus/Makefile                          |   1 +
+ drivers/bus/spacemit-k3-espi.c                | 804 ++++++++++++++++++
+ drivers/platform/chrome/Kconfig               |  13 +-
+ drivers/platform/chrome/Makefile              |   1 +
+ drivers/platform/chrome/cros_ec_spacemit_k3.c | 739 ++++++++++++++++
+ include/linux/spacemit-k3-espi.h              |  20 +
+ 13 files changed, 1988 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/bus/spacemit,k3-espi.yaml
+ create mode 100644 Documentation/devicetree/bindings/embedded-controller/spacemit,k3-cros-ec.yaml
+ create mode 100644 drivers/bus/spacemit-k3-espi.c
+ create mode 100644 drivers/platform/chrome/cros_ec_spacemit_k3.c
+ create mode 100644 include/linux/spacemit-k3-espi.h
+
+
+base-commit: 749a4de370409464cf8501ec5b2451df45c84eb4
 -- 
 2.43.0
-
 
 _______________________________________________
 linux-riscv mailing list
