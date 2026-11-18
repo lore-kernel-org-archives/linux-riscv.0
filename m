@@ -2,78 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0199C606A325
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 16:03:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7AC0606A338
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 16:09:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JH3FTShl;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=cBzRIq3k
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YGY/gsP/;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=X6cEgtil
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=SojR89R5uE8hxRk45nCpxxJ5pZqVkHgnhA3viATOc94=; b=JH3FTShlsIt57pzt198UNQi8K2
-	oAArc+hHB+Fy8rQfQDGcMVc9pHy9cMtfBiwoEtioKfbakdoOtIOMG3xv9rjQk25BW3CItpdcxADdn
-	msN9+SfzqLYpD4SggsmK78lP1uUA36WBojfSI/k6avFT8RFeybStK559ieV9zGxWloXbIAAUQT/Ev
-	nH7Y3X1s6Hs35+qrIwXjtbnk9LphvB92BIE+CFQCpoYRabcdshUUtR9RKHDWFuMWBRWKPufMHM37d
-	tIhGa97YBZE/GPoRR70QMB+KezGMrp2MsPQWnG0aspJb2zV45spEU/LwqKXuTyQeu9YfFM1DPJ60G
-	MaC7Kriw==;
+	bh=wAws3jDDEvl/39Wi808m+3erCIMTW8yxT2iwLyked68=; b=YGY/gsP/4wJD/37T4UAxkvu4PZ
+	bjT6Sxmfjk2P3ODWvOrP4cePQhK+PKxvIRQJO8g7BTCEh/qQUpLnSVLj+gGdfFOevW9pd+BevP8kd
+	MG2VpGGsIdhxhZTnKFmD8+Qk1h4qFLfvfXwJFSKv9Oi1pO6fCsl8B/urz+OBfS2Om2VQ1rsa5fRrc
+	tCcwTaYR1Rgzvj3Qpxbu8odJYVFfGXOd7Aw5p55G08k+TUznSfusXberd5K1yocm+ylyzro3jNWO+
+	DLwHoIYnNpxN2kZP1a/sPbTtC3fk/WWTRrX8gbi82pEPCgi1uQH41HO+zWGC3QueO+y7qDsmfW/0F
+	PTwOJDDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTi80-00000009Otl-45jS;
-	Wed, 18 Nov 2026 16:03:20 +0000
-Received: from sender5-op-o15.zoho.com ([165.173.182.15])
+	id 1xTiDV-00000009Pk0-1iYZ;
+	Wed, 18 Nov 2026 16:09:01 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTi7y-00000009OtF-067f
-	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 16:03:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1795017777; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=DSGObvRuVfYHe9SPWi3DqDIgiYIldCXNqh1t+Zl00inX7x7i4f+eV1cq4wzsvlo86V17Dn23wGvSW1t07EXrholfCFxxPKGaij/5zbn70TAJEb0LBkpdLmQiXDDKQgFHprfMLaziAnTTKCZVVASEMI7uO4iuJvVIVSlFkGWx/h0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795017777; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=SwGyqM8fKkj7sRpo7lsvMTTp7Ch2ClbA8Qn5X5Zgelw=; 
-	b=ZYWXKgyx53JzR0+YODEWbeooFlcwA6c/+xMowA+BxuljXu5YPCzBy6l0pF1y+zb8kI7UTln+6jbKfSEWLrJcAzQYZuQHc3tngfPr6j18V8KfaXfQlLCiYjqqC6f4EAMuw548RDPc36yF3DBDCnKW5ifBohM7I1mjvuSLNdIDkf8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: a=rsa-sha256; b=cBzRIq3kEbo4izYjricXxCxci6PaCtbycrEGqIvCAEKBY0o6AKexzsYMH6bqRdVYgmH6sSUxhWB9tVf5agQD9OynAuwPmFKzxrcP1TcpFUrlEsg2aQsfOczSvBqk1zepyamp4NpdJ7Yl7Eh368529V7T2mO4VzWMvM0oLcZYZIg=; c=relaxed/relaxed; s=zmail; d=ziyao.cc; v=1; bh=lvK9tuIpxKgDgpYO7x8VbuolpPM0n5OGltXSZRjUgJ8=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795017774093467.4763197419518;
-	Wed, 18 Nov 2026 08:02:54 -0800 (PST)
-Date: Wed, 18 Nov 2026 16:02:43 +0000
-From: Yao Zi <me@ziyao.cc>
-To: =?iso-8859-1?Q?Fr=E9d=E9ric_Mah=E9?= <frederic.mahe@cirad.fr>,
-	Stephen Boyd <sboyd@kernel.org>, Yixun Lan <dlan@kernel.org>
-Cc: Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.co>,
-	Haylen Chu <heylenay@4d2.org>,
-	Hung-Chun Tseng <alan.tseng.cs@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Yao Zi <me@ziyao.cc>
-Subject: Re: [PATCH 0/6] riscv: spacemit: k1: RCPU2 PWM clocks and the BPI-F3
- fan
-Message-ID: <av3MI0wgou3pbab8@pie>
-References: <20261117205951.140146-1-frederic.mahe@cirad.fr>
+	id 1xTiDS-00000009Pj6-0qbs;
+	Wed, 18 Nov 2026 16:08:59 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 14695C79A9F;
+	Wed, 18 Nov 2026 16:08:58 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 299BD5FE9B;
+	Wed, 18 Nov 2026 16:08:53 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BD37011BC244F;
+	Wed, 18 Nov 2026 17:08:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795018130; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=NyruYRmBJ333KKsYOsJfBubBYnjFdFekZpcsS68Afoo=;
+	b=X6cEgtil8ijijO0rJLXA2fM6mfOKCqDSKEpQnIZl8O7QDvCmAFq44iTLtGiRg59T6tim+9
+	BkfAmw+/K2LmZlkCdVN2sYKaDDdw/b0/mTAmoK6EDNyam9WvPm2KyqSsK6FFH80ZrBBRbl
+	fOuG3P4fgquqDyFTbuhX5QPxzAzzTotAL3yURPLSCZ75iuwuF5fR7obk1dgbOVKjz5XyHU
+	usLAW0L1/qdVNqF382CZu2aco6xcOyG4qofdf/C4tljy9+Ib67sXLpy0J5bWTKyaLMICZ9
+	hf3TVLYsrb2HPg/gXOz12/t9aAj1TndcLvng+XJYM9BoHm2TlIq0tO3MLsgbzA==
+From: =?UTF-8?B?QmVub8OudA==?= Monin <benoit.monin@bootlin.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Jun Chang <jun.chang@metanoia-comm.com>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Sebastian Reichel <sre@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Ben Zong-You Xie <ben717@andestech.com>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+ Jisheng Zhang <jszhang@kernel.org>, CL Wang <cl634@andestech.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>,
+ Guenter Roeck <linux@roeck-us.net>, Adrian Hunter <adrian.hunter@intel.com>,
+ Minas Harutyunyan <hminas@synopsys.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Randolph Sheng-Kai =?UTF-8?B?TGluKOael+iBluWHsSk=?= <randolph@andestech.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
+ linux-phy@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-mmc@vger.kernel.org, linux-spi@vger.kernel.org,
+ linux-usb@vger.kernel.org, linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH 00/25] riscv: add support for the Metanoia MT2824 SoC and MT5824
+ EVB
+Date: Wed, 18 Nov 2026 17:08:33 +0100
+Message-ID: <tSRWYJl8QRO6qpOrYOmeTA@bootlin.com>
+In-Reply-To: <20261117-calamity-quiver-96d0d568b338@spud>
+References: <20261106-mt2824-v1-0-86087eaf5af4@bootlin.com>
+ <_koitdIgQPmk89LDhlUlJQ@bootlin.com>
+ <20261117-calamity-quiver-96d0d568b338@spud>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261117205951.140146-1-frederic.mahe@cirad.fr>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/294.994.34
-X-ZohoMailClient: External
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261118_080318_107974_79F382AB 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20261118_080858_573323_9001D999 
+X-CRM114-Status: GOOD (  26.43  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,77 +96,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Nov 17, 2026 at 09:59:45PM +0100, Fr=E9d=E9ric Mah=E9 wrote:
-> The BPI-F3 fan header (J27) has a PWM line driven by an RCPU2 PWM
-> (GPIO 79). This series adds the RCPU2 PWM clocks and DT nodes and
-> enables the fan on the BPI-F3.
-> =
-
-> Patch 2 keeps pll1_aud_245p7 enabled: once clk_disable_unused() gates
-> it, accesses to the RCPU2 block hang the CPU (the vendor kernel keeps
-> it on through its RCPU firmware). It may be better tied to a power
-> domain once the K1 power domain driver lands; comments welcome.
-> =
-
-> Tested on a BPI-F3 on v7.4-rc1 (no fan with a PWM input at hand, so
-> with a multimeter on J27 pin 3): 0.86, 1.76, 2.74 and 4.66 V at 25,
-> 50, 75 and 100% duty (0.04 V off), as with the vendor kernel, and
-> the fan goes to level 1 when the package reaches 40 C under load.
-> =
-
-> Trees: 1-3 clk, 4-5 SpacemiT DT (4 needs the IDs from 1), 6 riscv
-> defconfig. Depends on "reset: spacemit: Fix the RCPU2 PWM reset
-> registers" (reset/fixes).
-> =
-
-> Written with help from Claude (Anthropic); reviewed and tested on
-> hardware.
-> =
-
-> Signed-off-by: Fr=E9d=E9ric Mah=E9 <frederic.mahe@cirad.fr>
-> =
-
-> =
-
-> Fr=E9d=E9ric Mah=E9 (6):
->   dt-bindings: clock: spacemit: k1: Add RCPU2 PWM clocks
->   clk: spacemit: k1: Keep pll1_aud_245p7 enabled
->   clk: spacemit: k1: Add RCPU2 PWM clocks
->   riscv: dts: spacemit: k1: Add RCPU2 PWM nodes
->   riscv: dts: spacemit: k1-bananapi-f3: Add PWM fan
->   riscv: defconfig: Enable PWM fan support
-> =
-
->  .../boot/dts/spacemit/k1-bananapi-f3.dts      | 63 +++++++++++++
->  arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi  |  7 ++
->  arch/riscv/boot/dts/spacemit/k1.dtsi          | 91 +++++++++++++++++++
->  arch/riscv/configs/defconfig                  |  1 +
->  drivers/clk/spacemit/ccu-k1.c                 | 45 ++++++++-
->  .../dt-bindings/clock/spacemit,k1-syscon.h    | 12 +++
->  6 files changed, 218 insertions(+), 1 deletion(-)
-
-I think spacemit,k1-syscon.yaml should probably be updated to make
-'#clock-cells' property mandatory for rcpu2 node? And probably also
-the other blocks capable of clock stuff as fix...
-
--- =
-
-Thanks,
-Yao Zi
-
-Meow-mrrp-mrow, I'm a cat.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlc2RheSwgMTcgTm92ZW1iZXIgMjAyNiBhdCAxODozMDo1OCBDRVQsIENvbm9yIERvb2xl
+eSB3cm90ZToKPiBPbiBUdWUsIE5vdiAxNywgMjAyNiBhdCAxMTo0MTo1MkFNICswMTAwLCBCZW5v
+w650IE1vbmluIHdyb3RlOgo+ID4gT24gRnJpZGF5LCA2IE5vdmVtYmVyIDIwMjYgYXQgMTI6MTU6
+MDkgQ0VULCBNYXJrIEJyb3duIHdyb3RlOgo+ID4gPiBPbiBGcmksIE5vdiAwNiwgMjAyNiBhdCAx
+MDoyOTo1N0FNICswMTAwLCBCZW5vw650IE1vbmluIHdyb3RlOgo+ID4gPiAKPiA+ID4gPiBUaGUg
+c2VyaWVzIGlzIG9yZ2FuaXNlZCBhczoKPiA+ID4gCj4gPiA+ID4gLSBwYXRjaGVzIDEtMTQgYWRk
+IHRoZSBkZXZpY2UgdHJlZSBiaW5kaW5ncywgdGhlIE1ldGFub2lhIHZlbmRvciBwcmVmaXgsCj4g
+PiA+ID4gICB0aGUgUklTQy1WIGJvYXJkIHNjaGVtYSBhbmQgdGhlIFNvQyBibG9jayBjb21wYXRp
+Ymxlcwo+ID4gPiA+IC0gcGF0Y2ggMTUgYWRkcyBBUkNIX01FVEFOT0lBIGFuZCBzZWxlY3RzIHRo
+ZSBBWDQ1TVAgZXJyYXRhCj4gPiA+ID4gLSBwYXRjaGVzIDE2LTIzIGFkZCB0aGUgcmVzZXQsIFNQ
+SSwgd2F0Y2hkb2csIE1NQywgUEhZIGFuZCBVU0IgY2hhbmdlcwo+ID4gPiA+ICAgbmVlZGVkIHRv
+IGJ1aWxkIGFuZCBwcm9iZSBvbiB0aGlzIFNvQwo+ID4gPiA+IC0gcGF0Y2ggMjQgYWRkcyB0aGUg
+TVQyODI0IFNvQyBhbmQgTVQ1ODI0IEVWQiBkZXZpY2UgdHJlZXMKPiA+ID4gPiAtIHBhdGNoIDI1
+IGFkZHMgdGhlIE1BSU5UQUlORVJTIGVudHJ5Cj4gPiA+IAo+ID4gPiBUaGlzIHNvcnQgb2YgdGhp
+bmcgdGVuZHMgdG8gd29yayBiZXR0ZXIgaWYgeW91IHN1Ym1pdCB0aGUgcGF0Y2hlcyBmb3IKPiA+
+ID4gc3Vic3lzdGVtcyBhcyBzZXBhcmF0ZSBzZXJpZXNlcywgaXQgYXZvaWRzIGVub3Jtb3VzIEND
+IGxpc3RzIGFuZCBrZWVwcwo+ID4gPiB0aGUgaW5kaXZpZHVhbCBzZXJpZXNlcyBhIG1hbmFnYWJs
+ZSBzaXplLgo+ID4gPiAKPiA+IEkgYWdyZWUsIGFuZCBJIGFtIHJld29ya2luZyB0aGUgc2VyaWVz
+IHRoYXQgd2F5LiBWZXJzaW9uIDEgd2FzIGludGVuZGVkCj4gPiBhcyBhbiBvdmVydmlldyBvZiB0
+aGUgY29tcGxldGUgU29DIHN1cHBvcnQsIGJ1dCBpdCBlbmRlZCB1cCBiZWluZyB0b28KPiA+IGJp
+ZyBmb3IgYSBzaW5nbGUgc2VyaWVzLgo+ID4gCj4gPiBTbyB2ZXJzaW9uIDIgb2YgdGhpcyBjdXJy
+ZW50IHNlcmllcyB3aWxsIGJlIG9ubHkgdGhlIHBsYXRmb3JtIGJhc2ljcwo+ID4gKDIgcGF0Y2hl
+cyk6Cj4gPiAKPiA+ICAgLSBkdC1iaW5kaW5nczogdmVuZG9yLXByZWZpeGVzOiBhZGQgTWV0YW5v
+aWEgQ29tbXVuaWNhdGlvbnMKPiAKPiA+ICAgLSByaXNjdjogYWRkIEFSQ0hfTUVUQU5PSUEgS2Nv
+bmZpZyBlbnRyeQo+IAo+IFJlYWxpc3RpY2FsbHksIHRoaXMgZG9lcyBub3QgbmVlZCB0byBiZSBh
+IHByZXJlcSBlaXRoZXIsIGJlY2F1c2UgeW91J2xsCj4gaGF2ZSAiZGVwZW5kcyBvbiBBUkNIX01F
+VEFOSU9BIHx8IENPTVBJTEVfVEVTVCIuCj4gClRydWUgYnV0IGNoZWNra2NvbmZpZ3N5bWJvbHMu
+cHkgd2lsbCB0aGVuIGNvbXBsYWluIGFib3V0IGEgcmVmZXJlbmNlZCBidXQKdW5kZWZpbmVkIEtj
+b25maWcgc3ltYm9sIGluIHRoZSBmb2xsb3dpbmcgc2VyaWVzLgoKPiA+IAo+ID4gSXQgd2lsbCBh
+Y3QgYXMgYSBwcmVyZXF1aXNpdGUgZm9yIHRoZSBmb2xsb3dpbmcgbmV3IHNlcmllcywgb25lIHBl
+cgo+ID4gc3Vic3lzdGVtOgo+ID4gCj4gPiAgIC0gcmVzZXQ6IGJpbmRpbmcgKyByZXNldC1zaW1w
+bGUgc3VwcG9ydCAodGhlIHNlcGFyYXRlIHJlYm9vdCBiaW5kaW5nCj4gPiAgICAgaXMgZHJvcHBl
+ZDsgdGhlIFJTVCBibG9jayBpcyBkZXNjcmliZWQgYXMgYSBzaW5nbGUgbm9kZSkKPiA+ICAgLSBT
+UEk6IG9wdGlvbmFsIERNQS9JUlEgYmluZGluZywgTVQyODI0IGNvbXBhdGlibGUsIGF0Y3NwaTIw
+MCBJUlEKPiA+ICAgICBzdXBwb3J0ICsgS2NvbmZpZwo+ID4gICAtIHdhdGNoZG9nOiBjb21wYXRp
+YmxlICsgS2NvbmZpZwo+ID4gICAtIE1NQzogY29tcGF0aWJsZSArIE1UMjgyNCBzdXBwb3J0IChz
+cGxpdCBiZXR3ZWVuIFNELCBlTU1DIGFuZAo+ID4gICAgIGF1dG8tZGV0ZWN0aW9uKSArIHR1bmlu
+Zy9IUzQwMAo+ID4gICAtIFBIWTogVVNCMiBQSFkgYmluZGluZyArIGRyaXZlci9LY29uZmlnCj4g
+PiAgIC0gVVNCIERXQzI6IGJpbmRpbmcgKyBwYXJhbXMKPiA+IAo+ID4gRmluYWxseSwgb25jZSB0
+aGUgc3Vic3lzdGVtIGJpbmRpbmdzIGFyZSBhY2NlcHRlZCBhbmQgdGhlIGRyaXZlcnMKPiA+IGFy
+ZSBxdWV1ZWQsIEknbGwgcG9zdCB0aGUgU29DIERUUyBpbiBpdHMgb3duIHNlcmllczogYm9hcmQg
+c2NoZW1hICsKPiA+IGNhY2hlL1BMSUMvUExJQ1NXL1BMTVQgY29tcGF0aWJsZXMgKyB0aGUgTVQy
+ODI0L01UNTgyNCBEVFMgYW5kIHRoZQo+ID4gTUFJTlRBSU5FUlMgZW50cnkKPiA+IAo+ID4gVGhh
+bmtzIGV2ZXJ5b25lIGZvciB0aGUgcmV2aWV3cywgSSB3aWxsIGludGVncmF0ZSB0aGUgZmVlZGJh
+Y2sgaW4gdGhlCj4gPiBuZXh0IGl0ZXJhdGlvbnMgb2YgZWFjaCBzZXJpZXMuCj4gPiAKPiA+IEJl
+c3QgcmVnYXJkcywKPiA+IEJlbm/DrnQKPiA+IAo+ID4gCj4gPiAKPiAKCgoKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
+aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
