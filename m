@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53CEB606A31C
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 08:19:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F3F1606A31C
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 08:19:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kAfWlrBC;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lkE8T8dq
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PUNoDArN;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gpvaxBtF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,43 +14,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=eH1bV2iWAccRaNDbR+Kk2/HhI+2uZQgilzDxuDoxR4M=; b=kAfWlrBCJp9pjX3pygBWbKbapP
-	6ZXtEl8e2pLMGNoRXocoBhhkzjZ66eqs52LMF7WkvC447X0MXpVncA8oCjGsLQb2MNufx30gNfx8Y
-	RUQOTcfCPjDnLL75ZMNR7vsfBE+L2oodOaHKzSFAhivSORgezSB4yLan+pMMNP6ktcHz/zxJcnlZg
-	xtWe3/TfqmUhcC/VVvyCqvUtnMLajU7Sph3zGccJCNucrudxfGiLZVM8Ba8iApADwo2pIVA2DzUbH
-	9z+6CVtynvXt5hTDSlVCIdFgqHZ62oFPjyR3jmcWBKSPlrelSEr3jPhPOMEkazPU7dlgh2dvnB7QO
-	6EeG+Ctg==;
+	bh=rvM4/LRlctwFPR9XQg7fM8mKYq2borQQkQ3SM/JGVEM=; b=PUNoDArNABXKm5wj4ufXVPwXKk
+	yREn7KNIxZrV8Yy9VUjqYDp7q+qKA5uIzVNTQ0e64muiCgQRChs/90u9Q61DDi8C49RcU3PT6qizg
+	RldrK6qW2cl0xKqhJhwZedt7UYqq1JNGaJRyW75QLjtw12i2fh2Z7SfQysQEZs8tgWr/xRluyWr3w
+	oxmMWgIdu/1ClW0bjYf0q7HDRz9zivuT6p8MGAbO77kJeOVonCl9qalkNsINegSUbRT70kR6am1w/
+	Fnspj/xQj4CLyY4vPMSbLzOPZwQZNDqypkOTO7oa5brw9cxDbjMRzqtgl/oDph55/5cOZSjDbX+dp
+	BzgBz8xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTasW-000000089zG-3ZyL;
-	Wed, 18 Nov 2026 08:18:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xTass-00000008A49-093f;
+	Wed, 18 Nov 2026 08:19:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTasV-000000089yi-2NlA
+	id 1xTasq-00000008A3v-0j4A
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 08:18:51 +0000
+	Wed, 18 Nov 2026 08:19:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2662442A78;
-	Wed, 18 Nov 2026 08:18:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CFE01F000C5;
-	Wed, 18 Nov 2026 08:18:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B08114063C;
+	Wed, 18 Nov 2026 08:19:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 688421F000C4;
+	Wed, 18 Nov 2026 08:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794989930;
-	bh=L3PW1JH6C1oo1Lnfr7fyreLZCswUYANXoOL9B9GI3CE=;
+	s=k20260515; t=1794989951;
+	bh=i0h58FryovOYkLTWxhYK2J95YEoNHW/FFrzIBIQ3ikg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=lkE8T8dqTpdb5uOSmDo9s1SGqEhd6pPQvh92fnu4YpVRopSfOsSa53RlqhFbebuIS
-	 1Lhd7/lewDi4Jbmh6gBN+h+CHohlUlmc1lq+XjdBRPPcULGgIl+qpexqiX9YPubbl9
-	 ig/LBq7zu8xxbEFI7i0mwysEOWuSRJWP4GAUV9LUyByNRwAoqdrIEnf6KCRiAPoP4Z
-	 aeBf8slPic9J42q//Njbjpbu8o4EokZBEV8w4xDsnQcwFlESZnXeKYkmftnmfNDwMh
-	 0WlWLJWJ8Xwn9oPQ/eYpQ1wjcl7rdyf9cM3rJ8WXC9mlUSLWnxoVDEP+HKBDLnRW2A
-	 M6J59uxGQ+y8A==
-Message-ID: <448a029f-f93c-443f-bdc8-577ddc929a40@kernel.org>
-Date: Wed, 18 Nov 2026 09:18:42 +0100
+	b=gpvaxBtF7PPky8Iwh7/K9lBt8oqrF57ETJEKDP1/3T6oEXeQtEXX1PZpctwC54kZ3
+	 r42ydpMRVWdp5AdZdMgxhV+Zb0v1D8ZSH6P5zEnlzNeGQWHPik0lRHm6JZAP5cS04/
+	 gR4napakEVudT7GAhI+K1ZY0+NAoX+U+YlgCIXFuuhMwh4Ljc6t0ZyyM8FPR41evJQ
+	 DQnjSTTuQXywWay8SZpZjK/m+79wWrK7LQRsxQY2ix9YQDzguQQmedFiE22UxlPQ8w
+	 G0mS/C5pEMJB/YhWeP9XZ/4lpdZ29Dc9K6Jt/v8ydgPTxq5xPjzo1InjfDfmrP6Wnf
+	 XdmJHdFV/kwYA==
+Message-ID: <18756bf6-3eef-4de8-a091-c5218458fd99@kernel.org>
+Date: Wed, 18 Nov 2026 09:18:58 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 6/9] riscv: dts: spacemit: add USB2.0 controller nodes
- for K1
+Subject: Re: [PATCH v5 7/9] riscv: dts: spacemit: enable USB2.0 controllers on
+ BananaPi F3
 To: Junzhong Pan <panjunzhong@linux.spacemit.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -62,9 +62,9 @@ To: Junzhong Pan <panjunzhong@linux.spacemit.com>,
  Troy Mitchell <troy.mitchell@linux.spacemit.com>
 Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, Ze Huang <huang.ze@linux.dev>
+ spacemit@lists.linux.dev
 References: <20261117-b4-spacemit-k1-usb2-v5-0-52c3829cca69@linux.spacemit.com>
- <20261117-b4-spacemit-k1-usb2-v5-6-52c3829cca69@linux.spacemit.com>
+ <20261117-b4-spacemit-k1-usb2-v5-7-52c3829cca69@linux.spacemit.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,7 +110,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20261117-b4-spacemit-k1-usb2-v5-6-52c3829cca69@linux.spacemit.com>
+In-Reply-To: <20261117-b4-spacemit-k1-usb2-v5-7-52c3829cca69@linux.spacemit.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,13 +131,15 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 On 17/11/2026 13:38, Junzhong Pan wrote:
-> The SpacemiT K1 SoC has two ChipIdea USB2.0 controllers.
-> - USB2.0 Dual-Role
-> - usb2.0 Host Only
+> On BananaPi F3, usb2_0 is connected to a Type-C connector at device
+> mode by default. This port have no VBUS supply capability, thus host
+> mode only works with self-powered device or hub. User could switch the
+> role in sysfs.
 > 
-> Add the controller and PHY nodes.
+> And the usb2_1 is connected to the USB2.0 pins of the Mini PCIe slot to
+> support cellular modules.
 > 
-> Tested-by: Ze Huang <huang.ze@linux.dev>
+> Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 > Reviewed-by: Yixun Lan <dlan@kernel.org>
 > Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
 
