@@ -2,63 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30FFA606A31C
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 03:04:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEF4C606A330
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 03:06:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bozLeaIC;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CocbHXbo
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KVRr92iy;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=ClDhMaZR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=P0oBifV5IKgqzQGMQIoyncK0f7C7xtdmdzbkHYueEz4=; b=bozLeaICvbhWZM9+ISB7hJ1yel
-	YKJ66OedQmaDLNhhUfp/7P2nkAmeGcB7pVV0yJ0lXnr9WXTETlWpXTbKd1kQ+Mft9iaZaiLP+xSo4
-	+TLrhq87IyB8Zi7ohKCe0nrJzD6nInchDuIpc4fkRt3T4vN4RIue0es56zyfuM7YjN9buD2kCvd1w
-	p4sUWlqWd28VzUstPfFy4d6eZhWkQVPXV9ZO625VnFKzsgJYowQOQWqgdoehH2LT6tX/IufogatvV
-	KMBLfTqWpkr+GkUoHU2eZede5bvxzpYnSQjxLvInJ7uCV7bxEu4kUFpTA1sRNVmxqrTiVbVonhSPc
-	Hp4AuPOw==;
+	bh=+9qHf0LRyA1D46BUb/utQAY88umqnkCKw1KZA+XOY2U=; b=KVRr92iywd9ouaN3ijAlUTd0iv
+	uHewm9gB8UjO7kOeoLGv4qakJsHmB59CTt5ZgG0YtYZsE8b1uEw5cbKqeCvGhIBSnj8RuFz/AVNKF
+	yfZ0eaO86plMOXHUsEc/ou8oZIp+TAGkggYVMsiewSSxjB3r5wCpS501OKRl7CdVLDThJWP5hcePa
+	su8ZEHYonYzPLL/kf3ZMUc8l/+wLs+7O7U5OA4cZAPQqu0NOchXs9ueH6tGlC2U7SoC52V6WMQ0o9
+	19PLRhm1kj2gGu1O7kF+Zfo4sVEPxK3brl8nMJjc2jyfJSXle1ei6g2muSWuuoIKxS/Q9kbpiYio+
+	sjNuFraw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTVyE-00000007aL0-0P7Q;
-	Wed, 18 Nov 2026 03:04:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xTW07-00000007abd-0Zey;
+	Wed, 18 Nov 2026 03:06:23 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTVyC-00000007aKX-3gZ0
+	id 1xTW00-00000007aZ0-3dRq
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 03:04:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1A986611A8;
-	Wed, 18 Nov 2026 03:04:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FC441F000C4;
-	Wed, 18 Nov 2026 03:04:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794971063;
-	bh=iDOyOM3pB6qvCaRGy+TLEXidPtXZIfoRsDJEpybu5gE=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=CocbHXbo0ZUBEyaxYbB5z1JIMOXCuDfGmh/zmH4falVsmix3goVWMRlsRn67Pn6jS
-	 hoD5UmuTvWltwNaDcytohStNc+0jarlboevsJI9lOm5EeY5gFdsnDy2EtP9exKjngT
-	 Uwqqyr74pyI7PivDak6FBJN3QU162pwO3B/SFfHFpEpuv0PuqASbdF1AWax3cwpXiP
-	 rjtRyvq1fQQHtVI5SL/jMzvTI2krZKlr1NY7fC5ws9GOwoUPcdkPw56/vTQgj56LDF
-	 72WReKuFkMg8Te62TBLINGYYY8dv5oq3iWaiwM3CJe7HfdhWlrb5etPmWv43/wppQr
-	 Ff/cJZ3aTIh4w==
-Date: Tue, 17 Nov 2026 20:04:21 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-cc: linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>, 
-    Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Alexandre Ghiti <alex@ghiti.fr>, Jisheng Zhang <jszhang@kernel.org>, 
-    Andrew Jones <andrew.jones@linux.dev>, 
-    Charlie Jenkins <thecharlesjenkins@gmail.com>, 
-    Guodong Xu <guodong.xu@oss.qualcomm.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] riscv: remove RISCV_ISA_EXT_BUNDLE[_VALIDATE]
-In-Reply-To: <20261106190559.1906130-3-conor@kernel.org>
-Message-ID: <9edef307-ec94-2475-47e1-e433a2a80dbf@kernel.org>
-References: <20261106190559.1906130-3-conor@kernel.org>
+	Wed, 18 Nov 2026 03:06:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1794971118;
+	bh=JVf5Z4L493biQzcZIUPq5WSeKo5jxSQPgvOHK9iHNbU=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=ClDhMaZR4HNDzWf8gp1p2oOY/dkzabWLPp84r9vKh8WOYIwUOg5e7Kc5aO50Bs1wF
+	 JywNEqxHFGPHf+sQ+TDYIPo04Rng+JidhfGuu33olH2aTnuZfWuT0XzHRSIj9gjyqv
+	 7lhWl39goLdQKk1t0R0IUb16/YuGedMBFkf9fh58=
+X-QQ-mid: zesmtpgz6t1794971117t96746eb8
+X-QQ-Originating-IP: CtE7MWfKIvGwwWKdSM4dsr/RIPUw16t0C8P3Ex/CTfQ=
+Received: from [127.0.1.1] ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 18 Nov 2026 11:05:14 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 18325639032088577285
+EX-QQ-RecipientCnt: 15
+From: Peixin Xie <peixin.xie@linux.spacemit.com>
+Date: Wed, 18 Nov 2026 11:04:33 +0800
+Subject: [PATCH] riscv: cpu: Fix incorrect cached machine IDs on secondary
+ harts
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Message-Id: <20261118-riscv-marchid-fix-v1-1-6d677fcd5461@linux.spacemit.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXM0QqCQBCF4VeRuW7AWcGkVwkvtt1jjpDJTEkgv
+ ntrXX4Hzr+RwxROl2ojw6quz7lAThWlMc53sOZiCnVoRaRjU08rP6KlUTMP+uEGsWnPIQtqUPk
+ thjL/mtf+b3/fJqTXEaJ9/wK1tqKVdQAAAA==
+X-Change-ID: 20261118-riscv-marchid-fix-3ea3672d1e0e
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Yixun Lan <dlan@kernel.org>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Guo Ren <guoren@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
+ Charlie Jenkins <thecharlesjenkins@gmail.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, spacemit@lists.linux.dev, 
+ stable@vger.kernel.org, Peixin Xie <peixin.xie@linux.spacemit.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794971115; l=1952;
+ i=peixin.xie@linux.spacemit.com; s=20260727; h=from:subject:message-id;
+ bh=+XmXptOpB9qNChqNiEmskdTqAu9CpoySFZwuHevOeCA=;
+ b=soX/Y5u/Zof/TqDEPMOha+JkSm85SjmlfwBSkakoCGHxFRfWao9VmVVnZg/ZsWNXcDY7i1z0z
+ b3fqqDc9nfcAoJrWhMbXxEj8Z9BLLAUG8F7K7unoT4HSC/thsDrZNqK
+X-Developer-Key: i=peixin.xie@linux.spacemit.com; a=ed25519;
+ pk=jczO0FmEQZBoClfXslkwCsHKDmSRchQ1hQr8W7yiiXg=
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: MgEbn4EBW630fat+dXVQ53NChTRhvpKaIK6yZeoWdnfX3BjQove+7k1K
+	LVUw15lJWdK7g8fBC+fKKO5gwDem5gkNOUFLcsU3jHAINcidzskjzTSroFXiOBsGKH3KjX3
+	4ZP8kWJOW2QZ7IZ32hRvxV8UU6UR0cHv8bhwaDp32d/1MeRwUIg95wOJheIBM1w54flMV0T
+	MTQNfyi/vWqK89ApYwni0hk6dGwiPdoy7fKw35CvFmmxqT6U7bVJDT8X0kenseOQnz6QYce
+	HSyOPMNpzyaIOiK00eM5snF09Jcug2yqiF7Y90EGJHYbfsjaiesodb1EpOSB3TUpbgPpX4g
+	0ngtKyAgzH7RPugSgnrLoBgud2PLIZssm6W3A8bHiRL8mxoo8IQ6lzSqoDOicrLGu+XH4wy
+	TAeYWviloEIF8VlUOrQpV9vaI1rICzmNfNpmtcNmJPXF1ZqzERB6vKhwvKWTnx5NHSVxkUR
+	3JA2aaKwRhXvlGxQ0cHRHgFXK8iBgY4AY5oDJDkF4ieH5rX1k6ziGw7cgJLka5OwVBqnf/R
+	JVgO+93GBsuqWKHkzL3sKXQnM7frzL3qrkLQ1PSh5XZHX11wlWEebvL+H+RsRqpTRAlEmP3
+	HuvSKV8ne7j9G1fXcrXCg51I3QYWiyj/QGXWf6aZn7aDOBDt276aCyyJCqqQ2HyKwMLOwds
+	Z2VDpGWkRy5lsp/QjgqBtt7FEMEP9azA97Ak259LmxEI+VhDrxRLyjrPm4j7+/kLYoQczRh
+	LQRcd23yVTDMvlKqON1vrir1Ez9Xo5Y80LVYHmLiFNg3+DOoLx0pbi9But9MCLMC+lzWGvJ
+	2FaZKjHZPZBbyteZC8F4OhGwVSu1l05dt1dA2MxaHQrvDWaB5mOqPMDnSEJUzZvPVe0I1l1
+	JWiolGfPMQX0v0LbDFXKZkKOI0fjbPTLc4MFfM4CnROz/46LLk2UZkBPp1FRgaDdHMyCTjg
+	3Zgk5ieqfA0PYhHym8gRGEyqd5OaU7ha+R/pKV+phOOyF91AaykvDIXEUBPk3zBwKyp49g+
+	p7GTjTbWu4xCSKvBMV/Eo6pneFG5tMMpSbg6AW4hvMZA3VtoHaE0IThuy9VfHXQxKwKt0jt
+	urZZqKiNmAkJ+cB7CqIqSI8x+N1n35R0XNslmMgBNN5v6kL5ZPnOg98yHe3bZeuUw==
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261117_190617_710404_34C71CF6 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,50 +111,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, 6 Nov 2026, Conor Dooley wrote:
+During early ISA-string parsing, the boot hart stores its mvendorid
+and marchid in riscv_cpuinfo. This happens before setup_per_cpu_areas(),
+which copies the static per-CPU data to each CPU's allocated area.
 
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> RISCV_ISA_EXT_BUNDLE actually made sense when it was originally added,
-> since it presented a simple interface where users (be that in kernel or
-> userspace via things they are presented by the kernel) would check the
-> exact extension needed for a feature, rather than muddying the water
-> with parent extensions. As a result, the kernel does not track the
-> status of the parent extension in the bundle, nor expose it to
-> userspace.
-> 
-> This is in comparison to RISCV_ISA_EXT_SUPERSET,
-> where the parent extension provided some explicit value, and would have
-> to be checked for itself for some potential feature, and therefore we
-> actually track the status of both child and parent extensions, and let
-> userspace detect them independently.
-> 
-> Since we added this stuff, there's been some retroactive extension
-> releases by RVI that have made previous monolithic extensions into pure
-> wrappers that we intended using RISCV_ISA_EXT_BUNDLE for. Since we
-> previously tracked that as one extension, and exported it to users as
-> one extension, we can't just use RISCV_ISA_EXT_BUNDLE, and have to use
-> RISCV_ISA_EXT_SUPERSET instead and nobody seems to know what to use each
-> actually for anymore.
-> 
-> Just delete RISCV_ISA_EXT_BUNDLE for the sake of consistency between
-> things that were always a bundle from ratification and for those
-> retroactively made into bundles, with the side benefit of being less
-> confusing for those adding extensions to the kernel.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+When riscv_cpuinfo_starting() runs on the other harts, the copied IDs
+are already nonzero, so it skips reading their own IDs. As a result,
+secondary harts can retain the boot hart's IDs.
 
-Thanks, queued for v7.5.
+Read mvendorid and marchid unconditionally on each hart, as already
+done for mimpid.
 
+Fixes: e482eab4d1eb ("riscv: cpufeature: Fix thead vector hwcap removal")
+Cc: stable@vger.kernel.org
+Signed-off-by: Peixin Xie <peixin.xie@linux.spacemit.com>
+---
+ arch/riscv/kernel/cpu.c | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
 
-- Paul
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index af84b97af3a1..64c0c83eff76 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -197,16 +197,12 @@ static int riscv_cpuinfo_starting(unsigned int cpu)
+ 	struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
+ 
+ #if IS_ENABLED(CONFIG_RISCV_SBI)
+-	if (!ci->mvendorid)
+-		ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
+-	if (!ci->marchid)
+-		ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
++	ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
++	ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
+ 	ci->mimpid = sbi_spec_is_0_1() ? 0 : sbi_get_mimpid();
+ #elif IS_ENABLED(CONFIG_RISCV_M_MODE)
+-	if (!ci->mvendorid)
+-		ci->mvendorid = csr_read(CSR_MVENDORID);
+-	if (!ci->marchid)
+-		ci->marchid = csr_read(CSR_MARCHID);
++	ci->mvendorid = csr_read(CSR_MVENDORID);
++	ci->marchid = csr_read(CSR_MARCHID);
+ 	ci->mimpid = csr_read(CSR_MIMPID);
+ #else
+ 	ci->mvendorid = 0;
+
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261118-riscv-marchid-fix-3ea3672d1e0e
+
+Best regards,
+--  
+Peixin Xie <peixin.xie@linux.spacemit.com>
+
 
 _______________________________________________
 linux-riscv mailing list
