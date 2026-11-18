@@ -2,10 +2,10 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61E42606A31C
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 10:06:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1332C606A320
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 10:06:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=y95Sp3a/
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MT1Ij0bW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,28 +13,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=2DHigE8Q0V60dSVF/0LqtvwEDMu0MZMIGE8MYCRHbco=; b=y95Sp3a/yXEtjwZ2YbQiJYdhrm
-	xGpTIbbGETm6Q/m2tMwrdRZpfQa5j/uGg47joyxqnooxdkVbfO+leSHjllDdW73G2V+6nJQ9FPLrJ
-	SpFk8ouK6lfMXoNTOeXj/rxi4REsVhAHqpuvqMY6jRxps7McMmRNI5h1uH21uTuBmyeyCYrVuUrHH
-	WaRXi3a+7admmRpxniWjObmMWJyxr6dCmlI/YK7RnpRPfeM28nF3Vx7tGtDEJhLeiTf2IKOt+s6N/
-	j47TY9RrD4xoPl3SlqaGY0EMAf8dWQaWtaxrdiek6Ay0eScblBhh++5v7judcjlVkTqnEoEjbguHl
-	VhxWQVcQ==;
+	bh=HXj3tepJQlP+AM6nHIMIexIRmHjHysk7MDVxI8faC0k=; b=MT1Ij0bWVvNr0ESJg+36GVk1YJ
+	zLpNAzN5pxLdQnCudXrFYU87CSBPLdwOmSyjzFdOHCp9dshPgl0SPdo1zZAoyrzzH1RbEuWw8jb1v
+	1Td3iLKODjEHL3i1bR9na/zQhWeyC4dBQa8tBpnMGmEEfei3qvsy3kEScv2ghCDBhuzOUHmggbdku
+	ptUZdbiEgQd52JgBtI4Owi/xquHIcpUL2RsAVX+WRC0Z+6N+X8z3SUe2T3u9PMU9NaFe3YyoImNqK
+	xt5taVfmHfv+oCgHQaeRHc4aTjibPn736DVausTX+hvAWulr55CA74y6ZoL6kpUvXxsJiMpGl0NPP
+	VtwK0MMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTcY9-00000008V7X-3uo4;
-	Wed, 18 Nov 2026 10:05:57 +0000
-Received: from mail-sh0chn02on2133.outbound.protection.partner.outlook.cn ([139.219.146.133] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1xTcYD-00000008VAu-1JeV;
+	Wed, 18 Nov 2026 10:06:01 +0000
+Received: from mail-bjschn02on20720.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::720] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTcY3-00000008V5K-0y8U
+	id 1xTcY8-00000008V5j-3t30
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 10:05:55 +0000
+	Wed, 18 Nov 2026 10:05:58 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=XIghoIWR0uixKlBMSvQnZYNa/OjczF70Q7zpkviDP2nE47aWszaYG9aGGRuYJ8hJ3u9I2mDR23P8MnnPFjb1tB+G1stUNClclZvg4DuIAGLF6chE4Rs9mmrc4rNQLvIb7FzXX4+5/LHgNQ5gYhzx6zVid0wLZJZhE3m3XGPLL0DL/D9kQd3kOvTRMotPHB+qnILa1UaRrIQAX0dA5QK8J7X3vEYNJvCCfIKX1hYL1GDMKRjq0hBiKHHfviJnNKo0q4g2RQbTZsLhS8v5ABXSmAzq+gmBw3pClAJZ9EjckUKgomqpMEXhrbW5BRjTjTzBkVIl6EN0i0ptnRuVhTO9YA==
+ b=TFlKbxifMpJF5rbnCqZkdrt/nJO+6rxOSCsyswlKSqttV2E+9Q8tFqqcivizbsMJFVYQJZbAxutiYE0zYwy74t6o0a9wPZfTRd46L99WO0OBzaq8tpUe0lsi5AcTJpNNjkrtnOYNwWcXeVr2ZtUSuH8D1gvyEdhdBr074ldfKXG9ukXDVZzlF/3zn7ym3bTgJyb7EyKrmHkq0V4uiV5jKhIppQQJGpCpbtMhzGtTVQUyrr/75388ex4K1YPyla27Rqz+nGdoFchZn2AKGaLiBfzBeU0iZgRNhxG50TSCSv3kOWKrCDj/cRIK7b+NG2MxKvJ92QaXvyGSyvS/OtnGLg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LSDGKf+yHzDyIxwOga70U0NRoUTGePFr9ciMMxXuWAg=;
- b=OIRz0y31bZsk0n194CQ04e02CtUyxqOdtFo0vyrFK+cOsBe3nC1+KXQG51E+l022ArBKEqTVWTnm1Bdw+u26hedaiM2/r/zAAF+hWNoU7ljXF4VAGxCt8PDdxlKnYrS9oPdjRyxMPCQq408Zxc62dAb1dhJTVGChMdHzAfLIy4TJG3s7axRjW0gvXY3WlZdfbzdI2ppI/B0RHcT17RvAk0UkUjN8rvoTCNej5KIqoHwWLBVZU/EC5/Qhpu0a+oIFpWsjoiTukCVjxOta7x60sSU7kl+jhCiznQRnOWTdXeD512LVAZW49gVBfUSm2v4gSleFId6ycIqBs9wRyYjLUw==
+ bh=y5r09nw85BFCAXXmw7vbVSX4NoE3v+3vs41lvNiylYU=;
+ b=nvsIKvEHOeiN/emTG5tDCZdZlYilUwxrb9EOpKd5JqOy7Sj97DrUT7Zpx1BuVGpcjIwZMjMsv9llYdq4U/dVfVarRogdlgfGESVqL154yG5dAWg3x2smWAA7beTGsaHRV2EfK9hscPbNFVklOsIUrsle5GcaV7yqcCtCAnv5F7HkFFLC1BXddOcqIcnY2DYpoorlKsiekcXOpjw7ahCrqQVv5PTA11iyeCz74vsIlLbFoz63DK8jPihEnJwf2XbNamMk68ztNlMRA2ydtAZx2weVKj3KVisXg2QCr16y02rnOog5+Gh9UVCF6BCN6DAPwZvV6WDV/sjxEv3EohUBMQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -44,11 +44,11 @@ Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:17::6) by ZQ4PR01MB1170.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:17::12) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Wed, 18 Nov
- 2026 10:05:37 +0000
+ 2026 10:05:39 +0000
 Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  ([fe80::e7d4:256c:b066:850d]) by
  ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0615.009; Wed, 18 Nov 2026 10:05:37 +0000
+ with mapi id 15.21.0615.009; Wed, 18 Nov 2026 10:05:39 +0000
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
 To: Brian Masney <bmasney@redhat.com>,
 	Jerome Brunet <jbrunet+clk@baylibre.com>,
@@ -63,9 +63,9 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	Hal Feng <hal.feng@starfivetech.com>,
 	Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: [PATCH v2 1/6] clk: starfive: jh7110-sys: Fix memory leak in reset controller register
-Date: Wed, 18 Nov 2026 02:05:18 -0800
-Message-Id: <20261118100523.11395-2-changhuang.liang@starfivetech.com>
+Subject: [PATCH v2 3/6] clk: starfive: jh71x0: Add generic CRG probe helper
+Date: Wed, 18 Nov 2026 02:05:20 -0800
+Message-Id: <20261118100523.11395-4-changhuang.liang@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261118100523.11395-1-changhuang.liang@starfivetech.com>
 References: <20261118100523.11395-1-changhuang.liang@starfivetech.com>
@@ -76,57 +76,56 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1170:EE_
-X-MS-Office365-Filtering-Correlation-Id: a2990723-ef6e-41a6-543f-08df455b7e55
+X-MS-Office365-Filtering-Correlation-Id: 8af5f7f3-1927-4f06-db9c-08df455b7f88
 X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|23010399003|1800799024|376014|366016|261009223027099003|261026140227099003|38350700014|10067099003|261021121427099003|56012099006|261022105027099003|261102123227099003|261021123027099003|261028144727099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 2MjVzg5Tr+sAJtu3epor+pZm1OIYZI+Q9XZxLz07PaYnZgOXFRRWvGxoFM0ZE4XcIW35RJfxm5xfbpAGYflSqtirHK//tDhMoMCYJO9JFm/l8KZUNu4M39iBJQtCfQENtmSIB1rBM3+HNDYBrjCM+HFLYX60kGFvVVA0T7Pzd1wild7lHvsX4hxtZA5DmxpGEJvOD8U7Dq9qbLBzTAnQbqElY1ChdVJLcPRVswjJb+dAMDT37+Ukoj9n8PxCwPfcoyj9PirbxjgYnCETB5itLbNcsXwysHziJpJG+mrRunYIDtci8fhmY3QlTnPJVr4rqFBS8MXVTPwmlkND1I+2mlFwUaUXGLofoIS7AsyQQ1dacn/q/LulegDaqlOUzYcnJ8Fd+tdi+LMsG/4vH56jUSVAmqGmhjg8rtj9tu6tEbAtTxAorqfI31JfegeKPKxA8f8npYfBsOI/q/Ms/oYOA7TvK/rPAOV7WKsDjrbf9+StdlM1X9d5E5qjxqxxmsU95rojv/2Vy8bZKgzmr4oylvJu8pac5AbNHczACCR0K5ABCYgfBNNI///DeLMn1pwE
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(23010399003)(1800799024)(376014)(366016)(261009223027099003)(261026140227099003)(38350700014)(10067099003)(261021121427099003)(56012099006)(261022105027099003)(261102123227099003)(261021123027099003)(261028144727099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|23010399003|1800799024|376014|366016|261009223027099003|261026140227099003|38350700014|10067099003|261021121427099003|56012099006|261022105027099003|261022113327099003|261102123227099003|261022075727099003|261021123027099003|261028144727099003|261102130727099003|261026121527099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: e1TKYLLlmhkb0GYY/EE54MrGxFd4IqWkzJmqFYKuXcgJF3y5OTNL8u17qqWS0XDc4yh7CGaFG4sFLzyMa1n8TfPf//N+zTwxF8FtWMulsc5JZHT2LWat2uezvHA1EPiHn+Eo2oZ4DKrkf5YU5xJerxLRQtrlUH2ui+ln4f17JptO8EqU0nXjrTqJsSd7WrGWuvqQZWcCg15CqVSK3e+0aQ1F5nRlat/XUcqCRRqsU01ZCpNrdPwp3pwsV1DTXP5X7cbtAqFf+Bp17WBTE+P31DjcCjYsa8BHLTB9Kg2kd6t/nYeFm/WlELrBvIF1GgScgjMG5PEzsj9rLUn8oEdvf5l2bVDeySBuQZ1yhT5PuSnbLglUX2Tvx8krLJIsX5rSrj4z/j6beSCgWRj/nZ6IrrhQO4peMSAyNemG++YV1R/U/C/OdpoZ6NI63ha0e9uHer4Ljpf/tb6z9Tni+l3Rwmwyoz1DQPz3f9601eKO8xAzMdkwEYBVTF4YmULDBChNEO/DakbkVGI3fbN5+R9hl+TqYzDp3L7f7WXzi1WuAtzcyuSz3eh+9fdmVsH4MCfG
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(23010399003)(1800799024)(376014)(366016)(261009223027099003)(261026140227099003)(38350700014)(10067099003)(261021121427099003)(56012099006)(261022105027099003)(261022113327099003)(261102123227099003)(261022075727099003)(261021123027099003)(261028144727099003)(261102130727099003)(261026121527099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cxFzPQVCf3sFPf80nZ/kka37r11CmpjQcif4u4016Z5sd037yDfeRAI4wQJW?=
- =?us-ascii?Q?bb5bdyaYNsYqjF+ojtiejKcGObh2yL3x7lxhy4C4q/FrcUNXHohkHMWUAynw?=
- =?us-ascii?Q?kr41sPfd7PL8YTMQT8dWxnsm7GP+2yxoEvmBfQIkh2ThMpQ+utr/UP4NYdJb?=
- =?us-ascii?Q?3nN/AWwGG/iBao1wX0t3+p54dre8dmj/lHaesF0LkwDcHP1jWfoshemzv0gc?=
- =?us-ascii?Q?Yv/wVHHovCHQOzRo9onJ8LliEyFwMoZDvud0tiGMXWDLJ1h4Ee6oma5LXwfL?=
- =?us-ascii?Q?G+lmKBm4RMApFfglVEYxMUsigW5FeCSSnFfH1OBuDqWiP6ZRV/7Bm9oByfcO?=
- =?us-ascii?Q?DIUuvLme1AODsm1trM98KQnE6ev0DmHDv2VfjUWpiGDKSIiNkGUo3/4/3TK4?=
- =?us-ascii?Q?v88FQkIGdupfk2GfzVMiZcIGMztDUQRQ4PkU8GHRcgxA7CeTjyRDiFM6D3yc?=
- =?us-ascii?Q?zYdKHU/YtwiEkPJjy0Qv7rrJN5gwrf0OVIzLHRD1L5Foog5L1k+KWw8JBYgo?=
- =?us-ascii?Q?Jt0PUKbXrCgS7rBso8T2/1IznzgOMEbkAnFdT3CYUbgBFG36dWaT0OdCkN/r?=
- =?us-ascii?Q?VYUUU2utoJZsbVNG3EHrZRgAYAehTzzFdrIGmqqEg7a1KRml3hX2mzQTZhM5?=
- =?us-ascii?Q?rL9V9iFKNGXshjT5fLFevUU5hG5A6hK5OQly2hxNoHb3+nktG/TSW8vaY2s0?=
- =?us-ascii?Q?7yK9ngjt9hy1uYe3guSS0De8ATmTjhmJo5EXEv9SehyyNCOD6+t7ztNqhDbp?=
- =?us-ascii?Q?WSKgLNylzlDzzC9mcPU88/KC8M5BY0W3T8MpOMIPsv+NuJGiTZ2DN1pVnhPZ?=
- =?us-ascii?Q?0sJIZbDWlcqH3Zz0o5LjzqxX84o0J15B08Us+HZx4tJrccyxD+oOMJ1msDRY?=
- =?us-ascii?Q?rmQBZzwFDy6FVYL4OpRWAUQCQmZKNja9gds/CyYX1VZc5bYKRipJRA7Dinz6?=
- =?us-ascii?Q?Ju/btljsuICZo07n9SD7sGFzKZ0MvhCGQ+mQ0xN75qa+4BRYsOTdCTFcjjCA?=
- =?us-ascii?Q?hGqUi8xItjyBcHjoOICTiIBcAkUbtXtPrFfQ+RB4sEhHZCFZeste5DeRLTeB?=
- =?us-ascii?Q?AnLOcZ6Og+HM2TyVhI1MfyI/wl4pqcmYEZmNNA/P8Oy6GZZ//iK+KQBh/otK?=
- =?us-ascii?Q?EUDFPoE5+YF5/zP5WiMonNQpTYGamw7ignYdnJb4bNjn++5aiRspjfaHU1Dl?=
- =?us-ascii?Q?Tc8AxIKHFMY4ZQYR09QHggKwJaUohPRVl0q9fXpkT0HwQpqSM6fxfT85UClR?=
- =?us-ascii?Q?k5TqvYS9bgq0m5Q8ycd+8xngppfnxdRjdFI1mtVkD9jsKKq95VIEIPRPgrev?=
- =?us-ascii?Q?6nSFSqBZaPeEDcStiktB0LqVjwYBJSXXV4bE1qn4yfA32dPzyLSGnvERydb6?=
- =?us-ascii?Q?kD8crZxNYSzwGh96u2SaaMAauuQ2hyEoDGp1/DWrxHbD1XHb+X6xWSy7DKIk?=
- =?us-ascii?Q?Qez+rHiPz9GwppVZx5z3ij6UYOiwNwNtBobTyUPz3xJD15ZZgkXay4GG5R7V?=
- =?us-ascii?Q?GcD13RoY6R0Hi7BvarH1BzNJjHJFNIxmojSOvQsMHhOyPVXMqz0azIbli9O+?=
- =?us-ascii?Q?lXDCFNKzHYveELIwnBNXDU0na/CR38Fgwuml5zqNssbgbeQjuv7CvugK2G0T?=
- =?us-ascii?Q?Qk57sNLT2sZe2ogOeIzRqP6XXlcIF1gintaJhagYD9lLKLDX6zC+yAh32Opr?=
- =?us-ascii?Q?oLTkZ/YPiLqTwgUllHumZd11ZQ8eOPI36CD20M6H0MKUEOAoBG7wHFIgqqtq?=
- =?us-ascii?Q?prgX2QqJOR3ezE/HkSd6U8bxSn/YA8q/3gILbwHFjD9gjcTz8fop?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4XaAceEmGRnQYe1FQxg6JljGgdivofb9UEDDp9jR6+/CbLUUTsdXuNH/LxnM?=
+ =?us-ascii?Q?RYKXtciAZtt03xnDGd3MJlfzZ6/V4dxMrzY+0U9ZXAH/2AgSf+0PoF7N0eu1?=
+ =?us-ascii?Q?ZV7bYSscWEV7NUchClOHx6eqb/mcYl6RtTTZfkPIXq/GlFEIkHisG1pUG5UY?=
+ =?us-ascii?Q?ZokkS7pDv93nTXT2ZzM+qcIDIKCtcfZV6XItTdB/h10bUfrdqy1kFsmddJqz?=
+ =?us-ascii?Q?5fb5+qNZg52QmxIeHqSMq2FPOKwoRhPkNv1b9a5bmD6SvDqOO64c4R3Dk1B/?=
+ =?us-ascii?Q?vODyAdWqRTWyZFmBQW7Ho5rMZgs73LdoqdUNqZul9zh4L1vwWRXgTIWAFZws?=
+ =?us-ascii?Q?6TJ1aEWzTihdIhtVQmF/js9R+fYdNp+pmMQzbSs6hIgkgd0oF4Z0W6FJ8KSv?=
+ =?us-ascii?Q?Z6RT3p81bkAcyWnyHbXDLe4P2aY1c8vMchDXsa6ZrQWWVJIpfVsLt/zVSAuK?=
+ =?us-ascii?Q?yzTYAPWb/XUACFxHC3gKV9aOPoNtGwSDBmcT77idrLN0QhOe9FgGGJt+CgIv?=
+ =?us-ascii?Q?JiluwOpALRxtp75Up30XGRLEzKiu3Il5rvptfXt6V7dlApve7Ic0sKV6HkTK?=
+ =?us-ascii?Q?WmdilMiSKb45zK+CRBl9+SFf2Q0lZXEEYkYZYuGI81Pdwf0XG6VIZbM8PQR0?=
+ =?us-ascii?Q?XXLR/qMgVjYUgLokJ53ihpmjZC2IJ/WQhHdG0au4Z+bwl9S0x3zWJXa1Ipc2?=
+ =?us-ascii?Q?toqNT/EolisKw6hSicVrp2RuuLUj3WlPD6E2io53soxKDnj/hDTwnqftbcv4?=
+ =?us-ascii?Q?74A1gN7x/fTImoeRMgJpod0XhiiGbKoKoFpk85kvceU6OSfwDt/Enp99sHpV?=
+ =?us-ascii?Q?rqm0yc0tn9TjjS0VbSaPuGi9tVTpdzmOy9ASuRfvR8RyxzyZtZD/3/aXCsre?=
+ =?us-ascii?Q?+POeo7OWTj+20XqqcBhz8O0RmVFf/XZecWZUIBpXJa2abtz6WvWH1POs9oMz?=
+ =?us-ascii?Q?p7LAOJvzH8DRFX5xWittCMy/zOBQcaSq/zZYFv5T8KyQfzlsJoStpdAaf+Sd?=
+ =?us-ascii?Q?8mquyiydqCC0lRlXa7lIudChE4L/2cK3CHHtDqegcMKXbkD53VtsuWywW6ja?=
+ =?us-ascii?Q?2ZFRhTX7ugzXBAtixcFfzRqewFP71QPD4xy69Oc4Whv8tkw5wMnnvCJzh4sg?=
+ =?us-ascii?Q?DmNQ98aYjdj4TD1Kli8X4sa5Xvb1GJa9b9tjEiATDqa9HYHanaQQPZBQkEGV?=
+ =?us-ascii?Q?F8uTy41e2obu8KVIv7k+wDd1RgpYQH2u2q8wxPkweRqp/03fzIiWVuw5qVSF?=
+ =?us-ascii?Q?kGMbpqihEM94d/Xd700hOGXm6y5yFOhwPwcQ4j8FonJ7ESZxd8twwVtfbjwc?=
+ =?us-ascii?Q?67nwcyDeV9C0aE2gag4QtNTkgpEzM2yMPa+ZlozCHaCEGO0wRRX/MR00AFCo?=
+ =?us-ascii?Q?vfIGU4rwhrrF0c+cmmr9aZdFl6DegFoqeNBbKrtybqfh9Fc8hnW0thc9C1WW?=
+ =?us-ascii?Q?L7/IvxlJZk651lMOXZzDbJc7hZpyyZ6CKLg26VzcWOczw+ci/kDb8IVcArbX?=
+ =?us-ascii?Q?h2W0+ukqolmQ+2eguuoHCzDoVuvM0x45yrF9zx67msVgS91rmigHlQLWebmL?=
+ =?us-ascii?Q?c8SWEAebd66WYt8Ybvdq69hbQf3hDYLm/3b614ySxy3c3zgIfZtOh5orRh4g?=
+ =?us-ascii?Q?dRDCTIE2yuLj+FSP55XZ2ZAiACtev9fE+aH1CT/yZ+QHR81AEVtVeH5Vcm8n?=
+ =?us-ascii?Q?mF9721sWljLzQntk79eA89KfrmhYOBnjmnTm/MJ4bgdyC2YeJBh4XExkf3/b?=
+ =?us-ascii?Q?oEJLppBAStdldF1vRUTko57vIC4leMIC7eVT87jCYtnNVCfJ7Cms?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a2990723-ef6e-41a6-543f-08df455b7e55
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8af5f7f3-1927-4f06-db9c-08df455b7f88
 X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 10:05:37.5004
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 10:05:39.5094
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5DjpvFdzp16MDt3pYkqqA9Iugi4HtVzfKGCet7JbL8l9h6shUBzfBYCyY61pAODKWnDpHlTkLfhcSNV5DcEBY1IJIeONPYWHzr01CuysdDW5w3I2CcB1UvjSnMvaf8Ti
+X-MS-Exchange-CrossTenant-UserPrincipalName: PDUSkIWku33TPzwBHf1em372zDG5Hdh8xDxqOzVPSjC5T8YYi3qWS+uzYINRN03YF0zSMqzRz8KKEj9QP+hsU62dk6tEOXdjnBNTs+B4yvhXh6+J0AHzyg6ZsT01HlmK
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1170
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261118_020551_274101_B8AF3C37 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261118_020556_982829_F7B2D560 
+X-CRM114-Status: GOOD (  23.65  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -147,34 +146,224 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-auxiliary_device_init() returns an error before device_initialize() is
-called, so the release callback never runs on this path and the rdev
-allocated in jh7110_reset_controller_register() is leaked.
+The StarFive JHB100 SoC has several clock and reset generators (CRGs)
+which share the same probe flow: map the registers, register all the
+clocks described by a table, add the clock provider and register the
+auxiliary reset device.
 
-Free rdev when auxiliary_device_init() fails.
+Add jh71x0_crg_probe() together with struct jh71x0_crg_domain_info so
+that each CRG driver only needs to provide its clock table and reset
+auxiliary device name. The reset auxiliary device is registered with
+jh71x0_reset_controller_register().
 
-Fixes: edab7204afe5 ("clk: starfive: Add StarFive JH7110 system clock driver")
+The clock table is made of struct jh71x0_crg_clk_data entries, where
+each parent is described by a struct jh71x0_parent_data: either the
+name of an external clock or the index of another clock of the CRG.
+This way the external clocks need no index of their own, and the number
+of clocks a CRG can provide is not limited by the width of a parent
+index. The existing JH71X0_GATE(), JH71X0__DIV(), ... macros can be
+used to fill the table.
+
+The JH7100 and JH7110 drivers keep their own probe functions and the
+index based struct jh71x0_clk_data for now.
+
+The clock index space of these CRGs is sparse, so reject parents that
+refer to an index that is not registered, and also make jh71x0_clk_get()
+reject such indexes when the domain info is available.
+
 Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 ---
- drivers/clk/starfive/clk-starfive-jh7110-sys.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/clk/starfive/clk-starfive-jh71x0.c | 92 +++++++++++++++++++++-
+ drivers/clk/starfive/clk-starfive-jh71x0.h | 34 ++++++++
+ 2 files changed, 123 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-index 44766b094b60..c938c62a863a 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-@@ -360,8 +360,10 @@ int jh7110_reset_controller_register(struct jh71x0_clk_priv *priv,
- 	adev->id = adev_id;
+diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.c b/drivers/clk/starfive/clk-starfive-jh71x0.c
+index db8c3571ea5e..97f8782df211 100644
+--- a/drivers/clk/starfive/clk-starfive-jh71x0.c
++++ b/drivers/clk/starfive/clk-starfive-jh71x0.c
+@@ -10,6 +10,7 @@
+ #include <linux/debugfs.h>
+ #include <linux/device.h>
+ #include <linux/io.h>
++#include <linux/property.h>
+ #include <soc/starfive/reset-starfive-jh71x0.h>
  
- 	ret = auxiliary_device_init(adev);
--	if (ret)
-+	if (ret) {
-+		kfree(rdev);
- 		return ret;
+ #include "clk-starfive-jh71x0.h"
+@@ -333,10 +334,14 @@ struct clk_hw *jh71x0_clk_get(struct of_phandle_args *clkspec, void *data)
+ 	struct jh71x0_clk_priv *priv = data;
+ 	unsigned int idx = clkspec->args[0];
+ 
+-	if (idx < priv->num_reg)
+-		return &priv->reg[idx].hw;
++	if (idx >= priv->num_reg)
++		return ERR_PTR(-EINVAL);
+ 
+-	return ERR_PTR(-EINVAL);
++	/* Index space is sparse: reject holes that were never registered. */
++	if (priv->info && !priv->info->clk_data[idx].name)
++		return ERR_PTR(-ENOENT);
++
++	return &priv->reg[idx].hw;
+ }
+ EXPORT_SYMBOL_GPL(jh71x0_clk_get);
+ 
+@@ -361,3 +366,84 @@ int jh71x0_reset_controller_register(struct jh71x0_clk_priv *priv,
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(jh71x0_reset_controller_register);
++
++int jh71x0_crg_probe(struct platform_device *pdev)
++{
++	const struct jh71x0_crg_domain_info *info;
++	struct jh71x0_clk_priv *priv;
++	unsigned int idx;
++	int ret;
++
++	info = device_get_match_data(&pdev->dev);
++	if (!info)
++		return -ENODEV;
++
++	priv = devm_kzalloc_flex(&pdev->dev, *priv, reg, info->num_clk);
++	if (!priv)
++		return -ENOMEM;
++
++	spin_lock_init(&priv->rmw_lock);
++	priv->info = info;
++	priv->num_reg = info->num_clk;
++	priv->dev = &pdev->dev;
++	priv->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(priv->base))
++		return PTR_ERR(priv->base);
++
++	for (idx = 0; idx < info->num_clk; idx++) {
++		u32 max = info->clk_data[idx].max;
++		struct clk_parent_data parents[4] = {};
++		struct clk_init_data init = {
++			.name = info->clk_data[idx].name,
++			.ops = starfive_jh71x0_clk_ops(max),
++			.parent_data = parents,
++			.num_parents =
++				((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
++			.flags = info->clk_data[idx].flags,
++		};
++		struct jh71x0_clk *clk = &priv->reg[idx];
++		unsigned int i;
++
++		if (!init.name)
++			continue;
++
++		if (init.num_parents > ARRAY_SIZE(parents))
++			return dev_err_probe(priv->dev, -EINVAL,
++					     "clock %s: too many parents (%u > %zu)\n",
++					     init.name, init.num_parents, ARRAY_SIZE(parents));
++
++		for (i = 0; i < init.num_parents; i++) {
++			const struct jh71x0_parent_data *parent =
++				&info->clk_data[idx].parents[i];
++
++			if (parent->fw_name) {
++				parents[i].fw_name = parent->fw_name;
++				continue;
++			}
++
++			if (parent->idx >= info->num_clk ||
++			    !info->clk_data[parent->idx].name)
++				return dev_err_probe(priv->dev, -EINVAL,
++						     "clock %s: invalid parent index %u\n",
++						     init.name, parent->idx);
++
++			parents[i].hw = &priv->reg[parent->idx].hw;
++		}
++
++		clk->hw.init = &init;
++		clk->idx = idx;
++		clk->max_div = max & JH71X0_CLK_DIV_MASK;
++
++		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
++		if (ret)
++			return dev_err_probe(priv->dev, ret, "Failed to register clock %s\n",
++					     init.name);
 +	}
++
++	ret = devm_of_clk_add_hw_provider(&pdev->dev, jh71x0_clk_get, priv);
++	if (ret)
++		return ret;
++
++	return jh71x0_reset_controller_register(priv, info->rst_name);
++}
++EXPORT_SYMBOL_GPL(jh71x0_crg_probe);
+diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.h b/drivers/clk/starfive/clk-starfive-jh71x0.h
+index 322a05157faf..775c1012a889 100644
+--- a/drivers/clk/starfive/clk-starfive-jh71x0.h
++++ b/drivers/clk/starfive/clk-starfive-jh71x0.h
+@@ -5,6 +5,7 @@
+ #include <linux/bits.h>
+ #include <linux/clk-provider.h>
+ #include <linux/device.h>
++#include <linux/platform_device.h>
+ #include <linux/spinlock.h>
  
- 	ret = auxiliary_device_add(adev);
- 	if (ret) {
+ /* register fields */
+@@ -29,6 +30,31 @@ struct jh71x0_clk_data {
+ 	u8 parents[4];
+ };
+ 
++/*
++ * Parent of a clock registered by jh71x0_crg_probe(): either an external clock
++ * of the CRG, looked up by its name in the "clock-names" property, or another
++ * clock provided by the CRG itself.
++ */
++struct jh71x0_parent_data {
++	const char *fw_name;	/* external clock if not NULL */
++	unsigned int idx;	/* index of a clock of this CRG */
++};
++
++#define JH71X0_EXT_PARENT(_fw_name)	{ .fw_name = _fw_name }
++#define JH71X0_INT_PARENT(_idx)		{ .idx = _idx }
++
++/*
++ * Clock data for jh71x0_crg_probe(). The JH71X0_GATE(), JH71X0__DIV(), ...
++ * macros below can be used to fill it, with the parents described by
++ * JH71X0_EXT_PARENT() or JH71X0_INT_PARENT().
++ */
++struct jh71x0_crg_clk_data {
++	const char *name;
++	unsigned long flags;
++	u32 max;
++	struct jh71x0_parent_data parents[4];
++};
++
+ #define JH71X0_GATE(_idx, _name, _flags, _parent)				\
+ [_idx] = {									\
+ 	.name = _name,								\
+@@ -109,6 +135,12 @@ struct jh71x0_clk {
+ 	unsigned int max_div;
+ };
+ 
++struct jh71x0_crg_domain_info {
++	const struct jh71x0_crg_clk_data *clk_data;
++	unsigned int num_clk;
++	const char *rst_name;
++};
++
+ struct jh71x0_clk_priv {
+ 	/* protect clk enable and set rate/parent from happening at the same time */
+ 	spinlock_t rmw_lock;
+@@ -116,6 +148,7 @@ struct jh71x0_clk_priv {
+ 	void __iomem *base;
+ 	struct clk *original_clk;
+ 	struct notifier_block pll_clk_nb;
++	const struct jh71x0_crg_domain_info *info;
+ 	struct clk_hw *pll[3];
+ 	unsigned int num_reg;
+ 	struct jh71x0_clk reg[] __counted_by(num_reg);
+@@ -125,5 +158,6 @@ const struct clk_ops *starfive_jh71x0_clk_ops(u32 max);
+ struct clk_hw *jh71x0_clk_get(struct of_phandle_args *clkspec, void *data);
+ int jh71x0_reset_controller_register(struct jh71x0_clk_priv *priv,
+ 				     const char *adev_name);
++int jh71x0_crg_probe(struct platform_device *pdev);
+ 
+ #endif
 -- 
 2.25.1
 
