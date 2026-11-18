@@ -2,93 +2,99 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04707606A325
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 05:48:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5105606A31C
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 06:15:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hPqHVXFE;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=ZCJ16S+p
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gLto/tvd;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AbaIDOOr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	References:In-Reply-To:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=XZgbXBZZuD4W/S/3MbRt/4kGnTr4dLHWSgxC1uii5dM=; b=hPqHVXFEfDdfrDaTBgErPn7Lzi
-	XjGWFGjgtFx6AUztXzh/sRGFGU0FkF+VBZVbzqaaUcDuG6jDzqBNINPZz+3IZt3yKdinsBo9N8Dwo
-	ZcjQYJ7Em4YiZ2Era/H5x013JiFR/Q04HL23Ktj2Y/Z5KjYg9CiiEcB3jT2mErBALVNTlbrJ4qcJa
-	jBXWlvaLoHiJzsISCvbXHyX2DR+5JXSNGiYXr0eXIefL4SAzFmZbKVSzL0iSXZUJtmV6Ab4K4CI6k
-	8i0Xrm3qMy48iPxNwa6crUI1V9hMe3s3/rhyj23v+9z80KQq+Rz7VNq9ELjQgxLo9xmNO4wUSQ9Tu
-	3+6rIPNQ==;
+	bh=l/oG/23Mx7TIGfRsR31j8Y0cmVWy61DKHhgvgZxeN5I=; b=gLto/tvdrWj0MG5wMxd8bDMB9f
+	MDMsAFE2GqUe96H0tbWdoNsG11aLhMwHp/4ALiFwnc/7UWQl+P134REtz/IFZzdpAL3sshJ3L8xib
+	DyRkEQeEKTrpMMpbZxwetpeqv7Y08PrJPfoYpxfn9LoNWEzisR93WpE24A1/LFezxlYiVsX0bToTH
+	bapNauOPBsPow9doQFauefwpfpsJgTrx2sWf81fI4nO8VmYtup1XY904Dg9Fr1tLyZcdsYiqjihJ2
+	FnbUITL2zdnGVJPk0a7Z1dfsXmv6l0mQRijWT0fNGhiq3We+p551m+rEM6cqUY6vrhNSUFOA/YHN6
+	FWwKrY8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTYWi-00000007lWo-0cMa;
-	Wed, 18 Nov 2026 05:48:12 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1xTYxS-00000007qea-0CFj;
+	Wed, 18 Nov 2026 06:15:51 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTYWe-00000007lVq-0cvX
+	id 1xTYxP-00000007qeC-0p2b
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 05:48:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1794980868;
-	bh=3Ql1Gr7XMzmIYBbEO+a9ghZlVqPmLxdm3zP1UNICVgI=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=ZCJ16S+pRKus4/MhUuggytURC9+Oy87x/0tUm7jmxCA82pieK2ZUEenMnIbBmbkq3
-	 hyLWRAOi8cGUhpwOeSbGMKgbpaoi5AW02jrBpk3v+uKxMxzrsqvFBksbcZUICRtMvJ
-	 vzd8D48c30npOfzXbSuxs0bU5U7umt6oQN5L0XBQ=
-X-QQ-mid: esmtpgz11t1794980867td74787de
-X-QQ-Originating-IP: WqBZLnoXOwmHGTghcgp5ZEgWINbdmL0mzbXNLz00OgM=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 18 Nov 2026 13:47:44 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 13421804356627132485
-EX-QQ-RecipientCnt: 16
+	Wed, 18 Nov 2026 06:15:48 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2e9d7791b00so5929935ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Nov 2026 22:15:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794982546; x=1795587346; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=6Ft0zvq/VRD49+f5G/aOWiZtloif8t23FAw9GoxQw9k=;
+        b=AbaIDOOrvDNe7cJ+iqQqShPX7OLC0Hmwke9Ly9qdcEg73/wzppXCkn7o8TMziRRL9p
+         ZHJiNwG4g8pSNSg0bXeMy1nW3BBupRqYVaNqHyRB1rWIa56k//UMZWrfvoggOs9feM9d
+         bT8l0+FgFfrzr+Y6ho73DBtHXye+Qoh84F2/C3VsSGUdDHZNbXJeJEOUiQyfGh0uH0ir
+         4lgNeAe3VRng0UngUzBL8ePVNuSuVHXQ3UayAVyNomxd+oO3PbWHQqfuOM0ZpYwEviwh
+         H7n3cZkamOSdq4NroeQmZ/I33kn41y029swGA7bWbZSDbPX51DiEwVV/MovrpimMHjjh
+         noUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794982546; x=1795587346;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6Ft0zvq/VRD49+f5G/aOWiZtloif8t23FAw9GoxQw9k=;
+        b=Z+Na42Qfbs0MBEH2jhtGTn+udf4TF6PAST55wpg3BjU8WZO1ecvbxixFJE1Ii5na4Y
+         BRLfNN/wYyFHfZE/8JpkrYiBkXCXydZKFDVqdPod66EPOGht7092EYMw60qkmeO+zKnX
+         NRzQ1n47m0YZZaUC3cC7dDlyjMtw4ae40ydFdCTuKEhY2wEA8x/68LbbsC3vQIieBtxp
+         TUZ1e7xznXMy4Tm/SH5nOpq+MvUKQBwHAoeMAdXWWkhKNpz960vGKIeCLWmnsajbBygY
+         jT9zZr9/PGH2qSXeh5GSyGcdQTG8W8iRT61AaWtLqBrv5/Wc7Gbsq+bwq5zyo9SLk1nQ
+         TxKw==
+X-Forwarded-Encrypted: i=1; AL+hErEEtlxcM8jBFqMeydJxnJDyLYUFaXHjU6hPLwCv66sUzHEDOoDeWqzs/YYp2RcziDNvhwiDBPxpBUJ3xQ==@lists.infradead.org
+X-Gm-Message-State: APuU4Z9qaUoF8e1sxwTX+0nTdfhAWztiRmYL67GLQ5z0zgceJjP9B591
+	PoPe49bE0QpaBLbDrPKsWJ3Esbc2BWGLnLWTN5XTkdIXtM/oEP9wa8jK
+X-Gm-Gg: AZFdTZfbHKERNuIguqhiO9nWwjZ80uYN7kRd2uZwhCcrAp9mn3a8f94Qeo9E7qSa+PL
+	yF6kbOs1kdGMSI0yAuqqKskraVdC0RnikBAPNK7K06teu1VPcCfbqnM6IGRnOp9Zb9IeBRVMu2b
+	8ShGz/GBLkgzdHURcbzii9gk+d3xwKJny5M6iZOFx3sZQ2xUKB/SI88gzDL5ODhHeVfCfnN6v0a
+	a2jGRZD9XWRiXWKAdNhOkM82cr9pu0VF1s+CUUOOTzMb0rydsmKqGUmbkb6z6wjNBtCKVd4zMAO
+	2xFvSpl1a4MD/Zq5DIdEJZ5vuEils71btkvHIb3CrOix+sfErCK/VchJk3JqwhtCJWT4j0D2Wzz
+	Z3+qOEyzeSw0UiGdBmYOwPAnUTTotLQmLrMy6pT/ZqHm38OrT2kdhvKpdERV+tKLWurHBU7g4xI
+	oqx+9kh49dEYPoXXnwd0uNqV35P+a0jNxNVMazsdoLK08N/Ueyxmh3a6yDj8uBmjt6qvH0zSmwh
+	O+6aFS7oFtSVy9bTYAuP3qPQKxwZ1vAfeg9ATdC5ODr1SAvTXOyvIhFKMmtMvipEnWD8xyOAsPy
+	PkZ9jhO55Vp3wr6J171s0Hemupzdzg==
+X-Received: by 2002:a17:903:1205:b0:2e5:a355:56e4 with SMTP id d9443c01a7336-2eff72f4375mr13854935ad.11.1794982546300;
+        Tue, 17 Nov 2026 22:15:46 -0800 (PST)
+Received: from duge-G3-3500 ([183.192.223.84])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff62e1295sm7508955ad.71.2026.11.17.22.15.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 22:15:45 -0800 (PST)
+Date: Wed, 18 Nov 2026 14:15:37 +0800
+From: Jiayu Du <duge1256@gmail.com>
+To: Aurelien Jarno <aurelien@aurel32.net>
+Cc: srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, dlan@kernel.org, troy.mitchell@linux.spacemit.com, me@ziyao.cc, 
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	p.zabel@pengutronix.de, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] nvmem: Add read-only SpacemiT K3 eFuse support
+Message-ID: <ypx2d34mlq2a6juh77hpivaxg7eps33xzc45pvuvc77x4a332g@y4vjvirk3qj7>
+References: <20261116075423.1519438-1-duge1256@gmail.com>
+ <20261116075423.1519438-3-duge1256@gmail.com>
+ <avzCmVhf8tl6hi_B@aurel32.net>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-Date: Wed, 18 Nov 2026 05:47:43 +0000
-Message-Id: <DMY3M0ZQ168B.2V9AQM1FXCHY6@linux.spacemit.com>
-Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, "Daniel Lezcano"
- <daniel.lezcano@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Yixun Lan" <dlan@kernel.org>, "Paul
- Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
- <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>
-Subject: Re: [PATCH v2 2/5] clocksource/drivers/spacemit: Add K1 timer
- support
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Philipp Zabel" <p.zabel@pengutronix.de>
-In-Reply-To: <8b5be415e255b5387099d9f8a9b8f5f05d4cb038.camel@pengutronix.de>
-References: <20261117-spacemit-soc-timer-v2-0-9264d0ea7755@linux.spacemit.com> <20261117-spacemit-soc-timer-v2-2-9264d0ea7755@linux.spacemit.com> <8b5be415e255b5387099d9f8a9b8f5f05d4cb038.camel@pengutronix.de>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: OYpbVsTx4C81k6RhXicVSquGdMhCcixoLt6YOvj7Cv+KZrK6oOMg23T4
-	UFsSreF82J1hoqhkEoW0UxjPrkjPQQ/DRJQ7/DAQ80y3OgoCHGowW/lorBG+DgrvPEODNdh
-	Q4H/j5h8DIeZikQ4+liZCnghL52Wi50wcTrPjLaYiAV+WcPBFUuEDvPDFwBm/pq7e2C5ZCt
-	HfLKZBwpMH313XipgtfSvv2S+eSZjx8sRVKEj7r1wyVll/RkrCkFVppKPGgU3aADWhact1I
-	6VcZO+Wmh/oTEVVxM8jyMMS+1DH4Ty3aJKIO4n4vpcjKcPGwVGBMLGtg+YNt3CJD9vMHbvY
-	H0ymnnIuJyKc19K90yQQpp8T1tdJlFsBPIRvh+cexKjZaxbvKaJov3p1tZTHmrxmoMBPPk1
-	bExk77hPpuCQBEcCGxOF6d/07T6wlxEDv7ThSAokiqAtWfBls0R71t8ee+V2tijdDPbjbcX
-	bsRb2nVltPxELnRYgTzZJOsSxgmqaMDCzRDb9CcGWoftDNVrr46kji1v90KBi0hDYSgIykW
-	Z7Ft2dHfZakh5faZAG421rVsIZjCw+aWXzXkoqHizwFbJd18VZz8YIA3AnB0H5DnEqm8yS6
-	JntgQC3uik49AiEK8qQ2T243zFJrUaSEM/LxQG7CcwRy+Kc/+9Zyk4n2kzuxFKMJ4CJzdaG
-	sxzZyhPAjG/m3npuPYAzatEtnFINcFYiVAyW1ivxM5AGXBbugtOyRdzQaIfxYBlegREwkrP
-	0JhU/sGyStCEG7RhO+Z40NSaxr4qo9OgwxC/CcLmPgHjq3NzvSwnH2ZNhGHnSE4m+5KzlCs
-	dsUE8HuRRBw/RaoY/PE5h24izDIukknP2aZjr1pWQCI0/F4qjjddoHls3kfW8VBnAVodIJx
-	d2Vlu1ezFHqGx+HF187b1kAGprPeXBGUh/WnuXMieYCEDhSjXgD9PC3Ij9vvq3Z+Q8s7yZi
-	9fikNyG5tJN9U3ATmLaOh95Ln3r85Qq+NgNJLR3vQJMhnKeDpkZ8/Nn+qhaw8r+9hijTqWa
-	YicTLCNBsZwfIBFZyeQ0nqBz1ckMamBYtF5vi69UFymRlt3YZ+VRl7R738NMNuZU98h558X
-	A==
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-RECHKSPAM: 0
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <avzCmVhf8tl6hi_B@aurel32.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261117_214809_315578_6821E232 
-X-CRM114-Status: UNSURE (   6.10  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261117_221547_262293_9001E58D 
+X-CRM114-Status: GOOD (  24.70  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,60 +104,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6831474018671263829=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============6831474018671263829==
-Content-Type: multipart/signed;
- boundary=cf9fb9b6f5c1d24682a98b33195572b11c62bd4410fa3cbe45ce94883370;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Content-Transfer-Encoding: 8bit
+On Tue, Nov 17, 2026 at 10:09:45PM +0100, Aurelien Jarno wrote:
+> Hi,
+> 
+> On 2026-11-16 15:54, Jiayu Du wrote:
+> > Add read-only NVMEM access to bank 0 and bank 7 of the SpacemiT K3 eFuse
+> > controller. These banks contain temperature calibration parameters and
+> > other configuration data.
+> > 
+> > Keep the root key and SSK registers outside the exposed bank ranges.
+> > 
+> > FUSE_READY reports completion of a software-triggered reload. Trigger a
+> > reload through GEU_CONFIG bit 22 with a 1 us reset pulse, then poll
+> > FUSE_READY at a 1 us interval with a 10 ms timeout before taking the
+> > snapshot. Fail probe if the reload times out.
+> > 
+> > Snapshot the shadow registers with aligned 32-bit reads and expose the
+> > data in little-endian order at controller-relative offsets. Serve reads
+> > from the snapshot and use keepouts for the remaining register ranges.
+> > 
+> > Enable the AES_WTM clock only while accessing the hardware. Leave its
+> > shared reset deasserted on teardown because WTM_RST resets the entire GEU.
+> > 
+> > Signed-off-by: Jiayu Du <duge1256@gmail.com>
+> > ---
+> >  MAINTAINERS                       |   1 +
+> >  drivers/nvmem/Kconfig             |  11 ++
+> >  drivers/nvmem/Makefile            |   1 +
+> >  drivers/nvmem/spacemit-k3-efuse.c | 199 ++++++++++++++++++++++++++++++
+> >  4 files changed, 212 insertions(+)
+> >  create mode 100644 drivers/nvmem/spacemit-k3-efuse.c
+> 
+> I have been looking at the code with more details. Is there any reason 
+> to "expose" the whole 1024-byte efuse address space in the nvmem layout 
+> (of course with some masking) as opposed to the 16 banks x 32 bytes = 
+> 4096 bits only (still with masking)?
+> 
+> I find strange that user space has to know the address of bank 0 or bank 
+> 7 instead of just looking respectively at addresses 0x000 and 0x0e0.
+> 
+> As the layout exposed to user space also includes status or control 
+> registers (although masked), this might makes difficult to support a 
+> newer version of the efuse controller which have a similar data layout, 
+> but slightly different registers colliding with the bank data.
+> 
 
---cf9fb9b6f5c1d24682a98b33195572b11c62bd4410fa3cbe45ce94883370
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Hi Aurelien,
 
-On Tue, 17 Nov 2026 10:52:27 +0100, Philipp Zabel wrote:
-> > +	depends on OF && COMMON_CLK && RESET_CONTROLLER && HAS_IOMEM
->
-> Drop the unnecessary RESET_CONTROLLER dependency, the reset controller
-> API has stubs for consumers.
-Will drop it in v3, thanks.
+I will use a 512-byte NVMEM space, with bank 0 starting at 0x000
+and bank 7 at 0x0e0. The other banks will remain covered by keepouts.
 
---=20
-Troy Mitchell
+I will also update the temperature calibration cell offsets in the
+device tree to 0x1c and 0xea. The hardware accesses will stay unchanged.
 
---cf9fb9b6f5c1d24682a98b33195572b11c62bd4410fa3cbe45ce94883370
-Content-Type: application/pgp-signature; name="signature.asc"
+Best regards,
+Jiayu Du
 
------BEGIN PGP SIGNATURE-----
-
-iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCav07/yEcdHJveS5taXRj
-aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC+lUQEAthB6oPUi2jXt
-IqbHKSVLLDvTw/RU7hb22TAJ38TsUmcBAMLwBrw6KEtlygOnqJaK3gXV/J5oro6Q
-qQd0Uc3YEowE
-=qCKP
------END PGP SIGNATURE-----
-
---cf9fb9b6f5c1d24682a98b33195572b11c62bd4410fa3cbe45ce94883370--
-
-
---===============6831474018671263829==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6831474018671263829==--
-
