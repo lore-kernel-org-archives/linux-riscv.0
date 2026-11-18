@@ -2,96 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 065A0606A325
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 22:53:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B39E606A33B
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 23:13:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MNY8m3iW;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FEuWXSGr
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lt3OTpC3;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cMpa0cuf
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
+	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=D5JTi+q+npivCJ3y+3HNiemjtvXWORrkRnzrVjGWHhc=; b=MNY8m3iWCFhDWOiZYmgv84BI15
-	nse9D9uEZDWcyE4vwavj+RrX9ejYvUXl3tIdVDv3UmyZm1lxcwoXSpgxACc9AN4ikouP8/ZYyJRWH
-	YEZ3+f6wvKE1AfGCqdtnsHZb9hJ8vdOFwzHAdHVhPXAGz1zzsagKznsPUU+VKFjd2uODXEffd+P1J
-	ULbIyrKN5bPwyCMhR84W6fjZZRVGV9/qhyq00nupM/QbYyQ/bitCcrbeSenzsZRCNmIc2Z+HmVTIN
-	lvVm4A8TyT8ueaHrUAsVknwsW04r7qYoAsKXpToQz1aPafQV0WEfd5U8ArUHVOVBqw191x5hpN65E
-	1pb0LqXQ==;
+	bh=m1BKElI5vzS1HbNRYvG6NG44IUEtHnc1PmIX5hdyHTg=; b=lt3OTpC3x/isvy+g72wgYz5yYf
+	OcIr8SS28EJ59HP0WtVvW5JYkVmh2p0NG2PGoia/+ObdwJJ3sLF/mwCHXOW4+V44XVPj+VpnKW8Hw
+	oPGiVwSpJTq1NnpGKlGmIndQMc7kTDxovoNQpc6fKJmBmdewm0fkZwO52Kq1eYg0ff3w8s2IxWzRu
+	7+UAH9X7m0g3gcOyrrXbKOgQ2CyR18+b8IjGwc9ROg8MTOyf3BcijgdWFwPQAMy9Lb9ixyxNiTUxe
+	DKbBDPRydx3GbViGPOqTY5vJUnz7GJvVIufUc+wBgWFMJ49Mni9UUy2rdPidGWiY6sMaeqz+YI6jR
+	xaDHjJHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xToX4-0000000ARdj-2058;
-	Wed, 18 Nov 2026 22:53:38 +0000
+	id 1xToqW-0000000AScI-0hmG;
+	Wed, 18 Nov 2026 23:13:44 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xToX2-0000000ARdc-3mYK
+	id 1xToqU-0000000ASbe-2bWQ
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 22:53:36 +0000
+	Wed, 18 Nov 2026 23:13:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3FD2F457A1;
-	Wed, 18 Nov 2026 22:53:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA3A91F000C5;
-	Wed, 18 Nov 2026 22:53:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 06C0C43CE9;
+	Wed, 18 Nov 2026 23:13:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6E4E1F000C8;
+	Wed, 18 Nov 2026 23:13:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795042416;
-	bh=ju41tYcaiYxL4W2/W44iKRoLMlO2PoKIBMEkIkLyQg4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=FEuWXSGrYrUQFlhOYDJ8RmqRs+UHxDca+SRQUjzDXuUFDIzfXsVMXV5QW5Nf2O6O2
-	 yMfr+HxTUXuul8S/4nyXH3r2G+T3BUw17R2mKzbzKHGY+Uc9R9TDwQqHP1I07BZL1h
-	 cg0702Dz8taE9mZDR3DpfRWO/zeJGCiWx+2rBpqpU54s60T8l+okiYjuAzmVobBvVi
-	 dd6+0FS6i6GTPI2AAfPqebmA+dM3JxbnmqF0/BCeTJTRMszRnLVvcPbZzh9sXG+JFZ
-	 o1ZEN2SyYFSeAyu5X1TmOKKyuatEEOc8sOmu7NRmXiEDhgDi/YfEZFhXIDZOJ8MUDW
-	 4tZhNsWv93cTQ==
-Received: from ams-compute-01.internal (ams-compute-01.internal [10.64.2.61])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 3BFF5198004A;
-	Wed, 18 Nov 2026 17:53:33 -0500 (EST)
-Received: from ams-frontend-01 ([10.64.2.36])
-  by ams-compute-01.internal (MEProxy); Wed, 18 Nov 2026 17:53:33 -0500
-X-ME-Sender: <xms:bCz-ar165EtE8yP63F8I3TVUVbswPq0W28EX1eVCuvCspJSmMTa8Qw>
-    <xme:bCz-atn1iwnmNoA5-0PrLDlvzW0ZTnKbz2GZQ3leKx2RlYhlnLVsT7tkReavmDM1A
-    jprlM6e1waLYmBAPuXwhj1EENgq8pYksOaNPSQSin3YqtELmQ-f-YmW>
-X-ME-Received: <xmr:bCz-akZKlmfegl2fqaxxh7n91phHwSKnWnj7jZR-kBiy9bXblJLgRgdUKFoWzQiz7xw>
-X-ME-Proxy-Cause: dmFkZTGXIZczXO+q6nTDnnEDvnvxIDawn337UpYr9JBMhqxburbViiiOHKHwmc9THwyxsv
-    mMtxYDhBKJUPw87BPTOS83rVPircW+IuGhNLyHPm29xrQfEd8oB5Y/vOrzLTevOMUpFKll
-    x6IxlXfz5ayiB//GnmAE5vpQukAANDlGGhka8oOoolkp1fJj2KhhfFVrBEpsdxH4aHEJU1
-    OJwIRH+T2juR5qFAkq6C4SQPuquCsk4qcYhWWw49en0FDrCDxplQwmW8234rugaEPwbMb9
-    Vh6m6IDv4fxLik+a76NDGhtqmbm/EIy4mvvwoZjhveJtqosG6m/JLmF964oiBMF+FwXVQg
-    7kxdPhylGkBNQU8VJT7JaepaX3P5UE0pQN6K46BLGwgxuheOetCjapOLVOAncSLUzv8KwQ
-    Eppk1HzLr1HHlN5tseRUNdGBCagPDaIk+9n+oReBnHgypHForZWKDBYOA4YfSvdoEhPVWz
-    jFm2+Il+Uidjg9JeFAfnEtYnL0na1GYilpa68Gj/GbWoXpur4L8d1jlk0+gTg443Oit12n
-    RWtxb8mhnwkKPgWIvnmWHZbrpWTBEZ2aXGtbCO/fLnWrqIPSsnDPIsmOE5h+WH3W+vxpxO
-    I2+wN0UFnaVordnO+YBO8eXixrynfqAIY8xDRpW4eP1pg9upxWW8NNvjnsjg
-X-ME-Proxy: <xmx:bSz-ajogOxzQPsY1lIwvMLSM7QUOTTFOCc8ci-d4zb8D6EfXwkwQ9A>
-    <xmx:bSz-aijI6Seva34_ycm_CItwANcssdiPxnlPJP4hvPVScJgtHVXd2g>
-    <xmx:bSz-atw5apVr4qKkV6OArzTae8CUat8BRMflg8Yo1hrVh84gBP2JZA>
-    <xmx:bSz-ao8aqTnFeyYzoJ7OXE1PVHjQLP9bAjSVEQk5S-E8WJSDn8Dd1Q>
-    <xmx:bSz-aiAi-ZQEQAiZn3Ftu0If-6-NiFKB4AF0UJIc3cqgdSA2nnxOdUnt>
-Feedback-ID: i78584a88:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 18 Nov 2026 17:53:29 -0500 (EST)
-Message-ID: <a7021c7d-4171-4961-b8b5-dea622fb9e9f@kernel.org>
-Date: Wed, 18 Nov 2026 23:53:28 +0100
+	s=k20260515; t=1795043621;
+	bh=Ho/SJRRXKfR8E8InR6yIipzjTEX73uVp+KDQpwqfDkg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=cMpa0cufPC6YaznjOGX3iUfWZXjMd/fGC3mfBNkREFkGVeMe/ADk7NOoTux1FdylL
+	 Qa5KSMD+pB45qc9zcUU3kGCKniViSWI6ya3u5aRy1AbO9RNpWfFMqP5eyHLLe4W//i
+	 Iqh4Zxy6ZQjVjEMPMGMG1+SxDoXvIjO50eusH2zYvWb93bklN2FoSHffz/tPDASoOo
+	 gEw3T57r5Fyk/hEdUjsp5FSKU1bfBImR7VbrFS8OKGcFBD7WalFq5rbLAnIxTwHlFd
+	 cjZMPUzUkYeBX/g3QUypGXWj7tKLqo4ELpiwuDImRH1omRShVSV545fppvwH8w8zuj
+	 7lwjdsxLdm2RQ==
+From: Yixun Lan <dlan@kernel.org>
+Date: Wed, 18 Nov 2026 23:13:09 +0000
+Subject: [PATCH v5 1/2] dt-bindings: power: spacemit: Add power domain
+ controller IDs
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] rust: math: add div64_u64() and
- div64_u64_round_up()
-To: FUJITA Tomonori <tomo@flapping.org>
-Cc: fustini@kernel.org, guoren@kernel.org, ojeda@kernel.org,
- ukleinek@kernel.org, wefu@redhat.com, a.hindborg@kernel.org,
- acourbot@nvidia.com, aliceryhl@google.com, bjorn3_gh@protonmail.com,
- boqun@kernel.org, chenhan0017.work@gmail.com, daniel.almeida@collabora.com,
- gary@garyguo.net, linux-riscv@lists.infradead.org, lossin@kernel.org,
- m.wilczynski@samsung.com, tamird@kernel.org, tmgross@umich.edu,
- work@onurozkan.dev, linux-pwm@vger.kernel.org,
- rust-for-linux@vger.kernel.org, FUJITA Tomonori <fujita.tomonori@gmail.com>
-References: <20261118224826.2491684-1-tomo@flapping.org>
- <20261118224826.2491684-2-tomo@flapping.org>
-From: Danilo Krummrich <dakr@kernel.org>
-Content-Language: en-US
-In-Reply-To: <20261118224826.2491684-2-tomo@flapping.org>
+Message-Id: <20261118-04-k3-pm-support-v5-1-42394acdf3e3@kernel.org>
+References: <20261118-04-k3-pm-support-v5-0-42394acdf3e3@kernel.org>
+In-Reply-To: <20261118-04-k3-pm-support-v5-0-42394acdf3e3@kernel.org>
+To: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1980; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=ZGjBATuMj77MYSRucrBFIOVycrvyLdzdato4w2GM7iQ=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBq/jEYKpohQR0yGCw9uurxNdJ+PnPPuBjTE9t2t
+ t/WMFrC17uJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCav4xGBsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+0AKw/+Me+ttXcHAtQDVIGYrjzbLgVr+AYEkQhZRsOanhjx54j9RiOM8g20W
+ 3IoQTiF9n2QCkHPhbhI0zh9MYN9d9ZMSYlVBUoajkMFnDbAHQuVC/adX60XiFLvEOimIpqywNiV
+ YcsqmI9urhcSUP72Y6ah3jc3yB1LiBnJeAkXBpzb6j1ttEt2dh3h8546lgo3b6nssWC2SxzpYHy
+ WAXOYNaDrCf6tTdu89QrIGagY7nwN51mJNvlz5NULVtAZvfONZdP7YftsWKKYw6bu1awGuMfFVa
+ VolnpcxelgTRaKE5wNnnU33kDDlf4ulS3hrMNsFuII16jmcRc/LL+G1DoP0iPnszP64wgSa10i+
+ faJkdxkZhN7zfYth8bZQha1LoSSHNlwUDuOTAHN8/tplZpAteM86dDlSP6tAT6HnV/ZB1ikSbHs
+ 9AhMCkNhzswoQt8ijdHyXJXRfW9apFO8CcK+ZU+kCeyWQER7yCN/6EN/vQejEDdRfVM5EIc1DgY
+ USRXBOjT7uyYPnlpY2hTKZ1tn2kMBAzxnCULT6RlaCsIGT8hVaUw4mS63+yjsTl7dX5Ti+GBPVn
+ 6fsPYQ7Wmbl/AxEI0rEMUV2WvVQeX/y+rLNx/6uG2wOsxtnPHahJ/MylYNffE4fGH9oPXdLm79Q
+ Nvc9qxLyhl8+kHpnP60Rltfs4xMDrA=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,37 +86,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Yixun Lan <dlan@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, Iker Pedrosa <ikerpedrosam@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/18/26 11:48 PM, FUJITA Tomonori wrote:
-> From: FUJITA Tomonori <fujita.tomonori@gmail.com>
-> 
-> On 32-bit architectures, dividing a u64 by a u64 with the `/` operator
-> makes the compiler emit a call to a compiler runtime function, such as
-> __aeabi_uldivmod() on arm. The kernel does not provide these functions,
-> so the build fails when Rust code that is also built for 32-bit
-> architectures uses `/` on u64.
-> 
-> C code uses the helpers in include/linux/math64.h instead. Add a math
-> module with Rust versions of two of them:
-> 
-> - div64_u64(), the same as div64_u64() in C.
-> - div64_u64_round_up(), the same as DIV64_U64_ROUND_UP() in C.
-> 
-> On 64-bit architectures, both use `/`. On 32-bit architectures,
-> div64_u64() calls the C function. Both panic if the divisor is zero,
-> as `/` does.
-> 
-> Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
-Reviewed-by: Danilo Krummrich <dakr@kernel.org>
+Add initial power domain driver support for SpacemiT K1/K3 SoC, The Power
+Domain Controller is SoC internal module which is part of APMU (Advanced
+Power Management Unit), it is responsible for managing power across multi
+power domains, which includes power on/off, isolation, power-on sequence.
+
+The DT documentation for the power domains already exists in file of
+spacemit,k1-syscon.yaml.
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Tested-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+Reviewed-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+Signed-off-by: Yixun Lan <dlan@kernel.org>
+---
+ include/dt-bindings/power/spacemit,k1-power.h | 14 ++++++++++++++
+ include/dt-bindings/power/spacemit,k3-power.h | 12 ++++++++++++
+ 2 files changed, 26 insertions(+)
+
+diff --git a/include/dt-bindings/power/spacemit,k1-power.h b/include/dt-bindings/power/spacemit,k1-power.h
+new file mode 100644
+index 000000000000..41ef540b5c44
+--- /dev/null
++++ b/include/dt-bindings/power/spacemit,k1-power.h
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++
++#ifndef _DT_BINDINGS_SPACEMIT_K1_POWER_H_
++#define _DT_BINDINGS_SPACEMIT_K1_POWER_H_
++
++#define K1_PMDOMAIN_VPU		0
++#define K1_PMDOMAIN_GPU		1
++#define K1_PMDOMAIN_LCD		2
++#define K1_PMDOMAIN_ISP		3
++#define K1_PMDOMAIN_AUDIO	4
++#define K1_PMDOMAIN_GNSS	5
++#define K1_PMDOMAIN_HDMI	6
++
++#endif
+diff --git a/include/dt-bindings/power/spacemit,k3-power.h b/include/dt-bindings/power/spacemit,k3-power.h
+new file mode 100644
+index 000000000000..519fbf946312
+--- /dev/null
++++ b/include/dt-bindings/power/spacemit,k3-power.h
+@@ -0,0 +1,12 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++
++#ifndef _DT_BINDINGS_SPACEMIT_K3_POWER_H_
++#define _DT_BINDINGS_SPACEMIT_K3_POWER_H_
++
++#define K3_PMDOMAIN_VPU		0
++#define K3_PMDOMAIN_GPU		1
++#define K3_PMDOMAIN_AUDIO	2
++#define K3_PMDOMAIN_LCD0	3
++#define K3_PMDOMAIN_LCD1	4
++
++#endif
+
+-- 
+2.56.0
+
 
 _______________________________________________
 linux-riscv mailing list
