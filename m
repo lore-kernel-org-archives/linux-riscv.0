@@ -2,78 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBEF5606A320
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 18:22:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94459606A32F
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 18:22:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=akaAG1Mn;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=OsrcwvAJ
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=z9yzoMxJ;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=QYVSy7KJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Unsubscribe-Post:List-Owner;
-	bh=Eq/kTeUDQ1s7gvOhv8qxCVd5KB3Va9AgnKoWJl+Cnxk=; b=akaAG1MnJQkI2FybQ9l7OUrzfn
-	cFkT0Xep4mjZwBukCbrIvM9elavypW5KCIgKJI4oGYEdbwJXEWLPmH7BrZ3UaOvlwUhgV3QvWuhKs
-	6DQBpgOc2/AirD0VPMX1Os0/hm7U6F5R3Rkp/liUZIdlg9425/OhNd9W+HAA4CMI04cAQ1iaIRjq6
-	t4SagFq21gXyeKOpRY1/vpcSue1lJ3T29/UnXL5nwl6OoSJE26t/51BjqJ6ZTYiwiPfszwxjkGW5X
-	xzuon/lH8gKJ3smQ++Romw9EkXckeFR4rHBYUEMYcSI9KbLQ6nasUmh045VEdZiiB/JROqlSIvnYL
-	IlKBP7oQ==;
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
+	bh=F9AZFOeBmkljNX/K3Y0tcIWhdk95kJssXfTAjuLFEm8=; b=z9yzoMxJ1Q8sqv3FYmECKfdXcY
+	6dNYLs3VOBN22nHYjrU+qMXxGZSXoqogEK2DhMLFQpDpc3gTXFeNunFCWBO5SgF7kbgSi5dxxBlb8
+	N/rN7dmO8VmhrD/oCd51eaPvj6lFpWQJk3VuGNvtusNROOpbDyRf9LnWeiSUbuhsL6+6Sy9cyi2y5
+	SOsZMRkor+cutqBWzCEoNTCDihqtB4G05dckDanCAehZjaDIiSzv9gz9FbWQ6SZLzwmN08oBXRC0E
+	+3Msg7XkFiKlOfwmOTEVsh/AmsKuO4siLATdvt8TTZuHiILBkUF/HXAdeiucB/EkEVS3XQZvCj7rg
+	WYSVP1Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTkI1-00000009t8N-1olT;
-	Wed, 18 Nov 2026 18:21:49 +0000
-Received: from mail-wm1-x346.google.com ([2a00:1450:4864:20::346])
+	id 1xTkIC-00000009tIr-1srN;
+	Wed, 18 Nov 2026 18:22:00 +0000
+Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTkHy-00000009t6E-1S5w
+	id 1xTkI5-00000009t9c-3FGn
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 18:21:48 +0000
-Received: by mail-wm1-x346.google.com with SMTP id 5b1f17b1804b1-4a4654add56so10875545e9.2
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Nov 2026 10:21:44 -0800 (PST)
+	Wed, 18 Nov 2026 18:21:54 +0000
+Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-4a204f135ffso7654605e9.1
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Nov 2026 10:21:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795026103; x=1795630903; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ltwMOlHQb7KXQHw1z5VBs+MReZmVIy0Qa1qSs/vHRAk=;
-        b=OsrcwvAJcW0gNj/k3CgEiH9uvTjBWqL7+lnOuuinqanoIqSCQZ9JJKERHHyMOfeYn+
-         w1dtQ9AKEDRzMt0yumsRl8J3LQxyJ/MBqTox4dlYy6GSttm6j0psJ5BxxxcpxwkeQL2N
-         dc0ASJOgZqkmPn1o1IyzQfooq1q31JocCjODIErHgS79+syW4TQC9IOH90CgbRIX3E2s
-         3j7TQhptWvn2tZZo2ZHL13u5qv8Se99N8/SmDYMwuRfSJf0dWJkrROa1sv8+8bj9ixqV
-         dBR07OppzqbpG1zcYaeT/h3gX2reBnlk2nWTBYQD5NfLjkq4GtHlFGZDnQ/ZiMbfIZQZ
-         tSoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795026103; x=1795630903;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795026111; x=1795630911; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ltwMOlHQb7KXQHw1z5VBs+MReZmVIy0Qa1qSs/vHRAk=;
-        b=TKemtt3lLnZqZgZJfgnZrD6z1Zyafg0Abbl8c/hnlcXfDrqc2q3F/2r6b3Pqo8U/j5
-         WRAumHPY0Yk1rYmlevT5Wg0+tv5Wwe7wmtyg13ilOi3N1ZvTeduPdGctTDHgXggPX5ad
-         9aSqlLY+LITy/YqKaRwe9CrlIoTuQg88izGZRbIpW5iWR+uVOZhEE5vHLX4KgTUA72mZ
-         76GJIAvB/gmVDVnNRpNv1+vPzFdIu45iHRo7V+SpeVrbhmlt5ulGbsfe6p9P/NYaUvXJ
-         +BgSGklcMCxTbjbEa7MpuH6vaecUnOVbCTvgYhEw9gKkGroMGgrcwgpNkQXwtMMVfiQl
-         PXwQ==
-X-Forwarded-Encrypted: i=1; AL+hErGtjlQlJMkJdxZg4y2Aiorxp6ET89HTGUTCPJnJJERh/evrQmsWTkPwUc6lP3TcTeg+lQcOOjggwplmdQ==@lists.infradead.org
-X-Gm-Message-State: APuU4Z/FC7l4GfnqolTb0vRGvlQOMmFscKPvkSRkak0wqI1z0gsC2qnx
-	Wrf89x2sl3m1Uq0S+8XTlZlMRM5iWhSJjXNKO07qO/F3qa62nicAgw2MVwdUXbbSDTuSFFw3Wg=
+        bh=OIsEMXco2ZhYz3ZqDjy8jJcFD62W77oBBUIsxaXAIKQ=;
+        b=QYVSy7KJzF5D91OJeB2pysp4u6bDJ5eWimRsYzQcnYPjvR3P6C9GIOHQIwHtsZS2G8
+         t21t7bMwplDvBmkSz0kTIGEq+aiFZTfQFJubRZwZXx6rjRRmeIuTtJ5rv84fLYmwq3WH
+         rRSfXdicsv4bwOGtEaLkBmpbjbN6rsdVfdZ1j9hFcrDNcEWwVyXjo4gQRTi1+RdwdtkU
+         ElKV/O3ZjDf8o5XqyZfzeiSTYmLYAPpnA8TQ22izXLPjZIBO8lPaSDO2XYQfZ5yrQZhV
+         qQl4FacR9sW1JzmCHVM5X5G2g3khpmAIkaa/52kejxX4xxQcDTlhkIhMnlksJzr8uPTR
+         OIXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795026111; x=1795630911;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=OIsEMXco2ZhYz3ZqDjy8jJcFD62W77oBBUIsxaXAIKQ=;
+        b=pOnM//PGwIzUgx+RBDJ0UIVuhbq3lAC3lvtNXUWqEEKgXflvOJzaHA5tAiKpM3IAdN
+         CX3W81g5g1QLW1Rl2l6uLg2EmO+kmDdY2Az6rdhwtatFCb0/IWETN8VYOg7qg1ZGn+7A
+         IKulZasP2QwU/Y1r/bjzY6yxOQtTbdQamXxLJseYwJIPjGoPwPWVj4B7RZFEL1CHUVYw
+         EZT1xl6VuoK9vnf9cIusnV5y1BZ8unP2d52/h0HOYHYxTv7GES3UyLoUK6NhdDs5D+lo
+         5uYCE2HHzSTw2F5f0HO8Dx8gB9qXeJ+dpWITjCoQR+YookOrg+lQi1o8NekFRVrBTHxw
+         KiYg==
+X-Forwarded-Encrypted: i=1; AL+hErGFbaeZtTOgkSf5EJkM0HleSYBQnslW3rs1aee223ExHjrlpBkDKimd6wM7pazCGbnwgwS/eSPxzVLxpA==@lists.infradead.org
+X-Gm-Message-State: APuU4Z9phGMcgRu0UJN1I8D7pYlAtd5UBjOFTDzaNEkwM7pTyL22KY9M
+	BHA2/3Yux6byOP9+Jc4EESQyfAF4o3BpaCgtMS1rp7S7ITunLtgE6SVH7E0Y5G9HmHpR022law=
 	=
-X-Received: from wrws4.prod.google.com ([2002:a5d:69c4:0:b0:48e:a88:307b])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:b99:b0:4ba:6d8:dfad
- with SMTP id 5b1f17b1804b1-4bb7da1aa22mr67684765e9.14.1795026102835; Wed, 18
- Nov 2026 10:21:42 -0800 (PST)
-Date: Wed, 18 Nov 2026 19:21:06 +0100
+X-Received: from wmbju10.prod.google.com ([2002:a05:600c:56ca:b0:4a3:5dec:ff72])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:8b6d:b0:4a7:6425:c274
+ with SMTP id 5b1f17b1804b1-4bb7d6d1d71mr71002175e9.2.1795026110241; Wed, 18
+ Nov 2026 10:21:50 -0800 (PST)
+Date: Wed, 18 Nov 2026 19:21:09 +0100
+In-Reply-To: <20261118182105.1633603-21-ardb+git@google.com>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
+References: <20261118182105.1633603-21-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6816; i=ardb@kernel.org;
- h=from:subject; bh=ROU61ckYiXxQPdXaEdC2Y85DXEPZDxapPOtwOwcXvJE=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIevvm0n3E/PsF5oJSmaZ7zQ7bb12mbfH3ITECuZlP6fs8
- rqX7G/SUcrCIMbFICumyCIw+++7nacnStU6z5KFmcPKBDKEgYtTACayt53hf3pgxFmdszM57y/e
- kn9woU3P23jXKe295fNV4zvfrnqxpIzhf36HyiuW8xZpxfw58kdKSiYo7tr7RvHDjatuUjax75Z U8gIA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1576; i=ardb@kernel.org;
+ h=from:subject; bh=tNN7kvvvqrlVm6V6P5FGp3YhgkjQslREMs9fj1wtyFY=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIevvm2n9dqmF22tvpj8prrwkcChNKiwqKunG9i7vLGkGk
+ 5VvOHM7SlkYxLgYZMUUWQRm/3238/REqVrnWbIwc1iZQIYwcHEKwEScZBj+mf9ey6hv/kNuk4P6
+ Ua3fjPfW6spdF5s465ttrbKUheWZyQx/JTOspZ0caqaxyXeG69ewGNybOWHKr0bNpV0dTc9kUzb zAQA=
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261118182105.1633603-21-ardb+git@google.com>
-Subject: [PATCH v4 00/19] efi: Expose loaded image properties via info struct
+Message-ID: <20261118182105.1633603-24-ardb+git@google.com>
+Subject: [PATCH v4 03/19] riscv: Make _text point to the start of the kernel image
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-efi@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>, 
@@ -81,8 +84,8 @@ Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>, Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev, 
 	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261118_102146_478469_2CCDEB02 
-X-CRM114-Status: GOOD (  21.47  )
+X-CRM114-CacheID: sfid-20261118_102153_835835_0F64AAD0 
+X-CRM114-Status: GOOD (  15.23  )
 X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,145 +99,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Clean up the arm64 build script and linker hacks that zboot uses to
-obtain properties of the loaded image (which it cannot access directly
-via a relative reference like the ordinary EFI stub).
+On RISC-V, _text currently refers to the start of the .text output
+section, which is placed after the image header (.head.text), and is
+therefore equal to _stext. On other architectures such as arm64, _text
+refers to the start of the image, and is used as such by generic code,
+e.g., to describe the kernel mapping in /proc/kcore and in the ELF
+headers of the vmcore, and by the EFI stub.
 
-Instead, define a generic struct efi_image_info, and expose its offset
-in the loaded image in a similar manner, but without relying on explicit
-linker script exports.
+Now that arch/riscv no longer uses _text to refer to the start of the
+kernel code, move it to the start of the image so that it is equal to
+_start, and the distinction between _text and _stext is the same as on
+other architectures.
 
-Populate the struct with section markers that all architecture use for
-loading the kernel image at boot, so that all the linker exports can be
-dropped for them.
+This also means that the image header is no longer omitted from the
+/proc/kcore and vmcore kernel text mappings. Other users of _text, such
+as kallsyms and ftrace, only use it as a reference point to calculate
+relative offsets, and are not affected by this change.
 
-Changes since v3:
-- Populate efi_image_info for ARM correctly
-- Fix a pre-existing issue in the ARM allocation logic
-- Simplify the prototype of handle_kernel_image()
-- Pass image_info pointer down to efi_kaslr_relocate_kernel() and
-  simplify the callers
-- Align RISC-V's __inittext_end correctly so it can be remapped.
-- Add some more acks from Jason
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+ arch/riscv/kernel/vmlinux.lds.S | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Changes since v2:
-- Add some additional fixes for RISC-V, which deviates from other
-  architectures wrt its section markers. These patches have been sent
-  out separately as well [0] as they will likely be taken through the
-  RISC-V tree.
-- Pass an efi_image_pointer to efi_stub_common() that points to the
-  version inside the loaded image, so that its relative references
-  accurately describe vmlinux in memory before boot.
-- Avoid weak linkage hacks to derive the kernel entrypoint, and instead,
-  always use the entrypoint passed via efi_image_info
-- Use efi_image_info for sysfb_display_info so that efifb earlycon works
-  much earlier on zboot
-- Drop changes related to the previous bullet that are now no longer
-  needed
-- Add acks from Jason
-
-Changes since v1:
-- drop arm64 image header changes
-- move efi_image_info out of __efistub_ scope so it can access vmlinux
-  symbols directly
-- implement in a generic manner for all architectures that support zboot
-- address Sashiko comments
-
-[0] https://lore.kernel.org/all/20261111164345.4059964-5-ardb+git@google.com/
-
-Cc: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Paul Walmsley <pjw@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Huacai Chen <chenhuacai@kernel.org>
-Cc: loongarch@lists.linux.dev
-Cc: linux-riscv@lists.infradead.org
-Link: https://lore.kernel.org/all/0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com/
-
-Ard Biesheuvel (19):
-  efi/zboot: arm64: Add missing barrier after cache maintenance
-  riscv: Use _stext not _text to denote the start of kernel code
-  riscv: Make _text point to the start of the kernel image
-  efi/riscv: Rename __init_text_end to __inittext_end like other archs
-  efi/libstub: Avoid _end section marker in library code
-  efi/libstub: arm: Size the decompressed kernel allocation precisely
-  efi/libstub: Avoid reserve_addr/_size in efi_kaslr_relocate_kernel()
-  efi/libstub: Capture loaded image information in struct efi_image_info
-  efi/libstub: Pass kernel entrypoint down to efi_enter_kernel()
-  efi/libstub: arm: Simplify handle_kernel_image()
-  efi/libstub: Drop reserve_addr/_size params from handle_kernel_image()
-  efi/libstub: arm64: Use struct efi_image_info to access image
-    properties
-  efi/libstub: loongarch: Use struct efi_image_info to access image
-    properties
-  efi/libstub: riscv: Use struct efi_image_info to access image
-    properties
-  efi/libstub: Make efi_remap_image() return efi_status_t
-  efi/zboot: Disentangle efi_remap_image() from efi_cache_sync_image()
-  efi/libstub: arm64: Drop zboot code_size hack
-  efi: Make config table based primary display handover ARM-only again
-  Revert "efi: earlycon: Reprobe after parsing config tables"
-
- arch/arm/boot/compressed/head.S                      |  3 +-
- arch/arm/include/asm/efi.h                           | 15 +---
- arch/arm/kernel/efi.c                                | 27 ++++++
- arch/arm64/boot/Makefile                             |  3 -
- arch/arm64/include/asm/efi.h                         |  2 -
- arch/arm64/kernel/efi-header.S                       |  2 +
- arch/arm64/kernel/image-vars.h                       | 14 ---
- arch/loongarch/kernel/efi.c                          | 20 +----
- arch/loongarch/kernel/head.S                         |  4 +-
- arch/loongarch/kernel/image-vars.h                   |  6 --
- arch/loongarch/kernel/vmlinux.lds.S                  |  1 -
- arch/riscv/include/asm/efi.h                         |  2 -
- arch/riscv/include/asm/sections.h                    |  2 +-
- arch/riscv/kernel/head.S                             |  1 +
- arch/riscv/kernel/image-vars.h                       |  8 --
- arch/riscv/kernel/setup.c                            |  2 +-
- arch/riscv/kernel/vmlinux.lds.S                      |  6 +-
- drivers/firmware/efi/earlycon.c                      | 16 +---
- drivers/firmware/efi/efi-init.c                      | 24 +-----
- drivers/firmware/efi/efi.c                           |  5 --
- drivers/firmware/efi/libstub/Makefile                |  3 +-
- drivers/firmware/efi/libstub/Makefile.zboot          | 11 ++-
- drivers/firmware/efi/libstub/arm32-stub.c            | 90 +++++++++++++++-----
- drivers/firmware/efi/libstub/arm64-stub.c            | 37 ++------
- drivers/firmware/efi/libstub/arm64.c                 | 23 +----
- drivers/firmware/efi/libstub/efi-stub-entry.c        | 33 +------
- drivers/firmware/efi/libstub/efi-stub-helper.c       | 15 ++--
- drivers/firmware/efi/libstub/efi-stub.c              | 26 ++++--
- drivers/firmware/efi/libstub/efistub.h               | 84 +++++++++++++-----
- drivers/firmware/efi/libstub/fdt.c                   |  5 +-
- drivers/firmware/efi/libstub/image_info.S            | 19 +++++
- drivers/firmware/efi/libstub/kaslr.c                 | 45 +++++-----
- drivers/firmware/efi/libstub/loongarch-stub.c        | 21 ++---
- drivers/firmware/efi/libstub/loongarch-stub.h        |  4 -
- drivers/firmware/efi/libstub/loongarch.c             | 11 +--
- drivers/firmware/efi/libstub/primary_display.c       | 56 ------------
- drivers/firmware/efi/libstub/riscv-stub.c            | 29 +------
- drivers/firmware/efi/libstub/riscv.c                 | 16 +---
- drivers/firmware/efi/libstub/zboot-decompress-gzip.c |  2 -
- drivers/firmware/efi/libstub/zboot-decompress-zstd.c |  2 -
- drivers/firmware/efi/libstub/zboot.c                 | 28 +++++-
- drivers/firmware/efi/libstub/zboot.lds               |  6 +-
- include/linux/efi.h                                  |  1 -
- 43 files changed, 324 insertions(+), 406 deletions(-)
- create mode 100644 drivers/firmware/efi/libstub/image_info.S
- delete mode 100644 drivers/firmware/efi/libstub/loongarch-stub.h
- delete mode 100644 drivers/firmware/efi/libstub/primary_display.c
-
-
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+index 1f4f8496941a..9849a3e4d102 100644
+--- a/arch/riscv/kernel/vmlinux.lds.S
++++ b/arch/riscv/kernel/vmlinux.lds.S
+@@ -28,11 +28,11 @@ SECTIONS
+ 	/* Beginning of code and text segment */
+ 	. = LOAD_OFFSET;
+ 	_start = .;
++	_text = .;
+ 	HEAD_TEXT_SECTION
+ 	. = ALIGN(PAGE_SIZE);
+ 
+ 	.text : {
+-		_text = .;
+ 		_stext = .;
+ 		TEXT_TEXT
+ 		SCHED_TEXT
 -- 
 2.56.1.708.g77570a6a1d-goog
 
