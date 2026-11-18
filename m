@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1310C606A32C
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 16:24:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19D4B606A32C
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 16:24:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=R6f2gGbY;
-	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=m8SKOJKo
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zltU8m3W;
+	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=QKpNjUl5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,52 +14,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=n5xuGytYmVZvbxYma8PBoHfl8zhSpYZQu/Nve/lDLgc=; b=R6f2gGbY+bSL8ghNBIULwC+3l6
-	ot+oFnknPK3vMOitVvktftbajdXnGla9duzGXLNG3EpFPxPQhfZZEWR+E7+duABzl/dGsEtwh2SNJ
-	GxNbsqc7V8jh2+BnIbuRLV/DaCQ2LH0kcEcm8WThquHXax213a56OwBH2m40JT6xY1aPiPta5n3rh
-	8kEwGjgbSOKXyq4bVzxNbN2JKoyvNcmwa22v29hfu8s2BS7f6A3eg123jt+UXBa/Wi745d50x8Dwx
-	FJtJI5ktDzfKtCW8fAZZOmfvxcNgNlFLGBvM1XyEzkPg8sP7ODN7Pzlc8yPCgFJHaODoI/nE6vhMv
-	YuFIyxPg==;
+	bh=jkcigURfSdfs4l58TQDo91mPtuYfu+wGdh5h+eX3u1M=; b=zltU8m3W3BZI/xol9gZlfYv/tR
+	zgcsdPyea0twIfWH2gxmPkKZee5EBvkHryKY4qyT/gfuE2fLlgXXUTZLj1308AnxOOwZDHz9zdWWN
+	60vckzdwDghte+e/N6m0AhLg0nftxbzCJdNkE01DsRsRtgORWZ+XIYxU2gLgXj3DGxhnQw5aZXWZA
+	ADyvg5WbIupsEH5uDwVf4k7kmepgukF1DOHoJ37UqpPiqy6Vx2eQCRBNw4lsjPM8ocLjKArA0aMFr
+	FuSHmsqLfKmPK/BRMo6EbRf6bNm6/B14rERlYGBYfBwH4TlrOM4fF/hHlBQNVmMGQuKjISUC0hXZd
+	7DNl+GCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTiST-00000009Sf3-2psr;
-	Wed, 18 Nov 2026 16:24:30 +0000
-Received: from esa3.hc555-34.eu.iphmx.com ([207.54.77.50])
+	id 1xTiST-00000009Set-1UJC;
+	Wed, 18 Nov 2026 16:24:29 +0000
+Received: from esa2.hc555-34.eu.iphmx.com ([23.90.104.147])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTiSE-00000009SXY-41TS
+	id 1xTiSF-00000009SXp-1hiq
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 16:24:24 +0000
+	Wed, 18 Nov 2026 16:24:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1795019055; x=1826555055;
+  t=1795019063; x=1826555063;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=Y2NXF97jr/EMfkddUR0y1/iyEyI2iou2lHNRhWG3x9A=;
-  b=m8SKOJKo9lr/rROo/dvwSeUW6cxb0aelAA81dsqlHqItYYxeUHT/TApr
-   HNYE91yToQ+h6qzzV9PaaqcMCncM/ZOXGmbK32+fikRwmg/+VklbyayLR
-   t/VZiEh4gAyXwX6nBYxO/fXigjYJ/CdxlyApnba5Be5bEBgCY+kkME2pH
-   NtPQUnYLydc+BmYcWf+5uRvZ/Qx0UOvnrpFLc8bm4E6GwBSNquUa2LWBP
-   yTSvL0szNjpMSwllqEa/D6EbQ+Ag6hqsLum9xWw3mPpUPYAAgMvTtEx1g
-   YXfmwJGvSszvjweoSrKcBgZtU79EkbfZlvGqTdVRCCPuS4uoU0nD7IYe7
-   Q==;
-X-CSE-ConnectionGUID: Q8AzOq5HS6utIxVHT5JVdg==
-X-CSE-MsgGUID: GH6m76iKTh6yMbBW3sTPOw==
+  bh=fcd49kVJzJ12RU3HuvAHngbViD5m3z6w2VosOrnx+qE=;
+  b=QKpNjUl58haW6poYey4e2ctMas618ZZLSPT0+Y86WZi97g3ekB+Fsq/m
+   HhKSksjq0/Kmi0QSi/EXR2UdfbXJbrDPpflclS/2ER57EsGQy0gkWLmx8
+   43goP9xkFXv5p1WXrSeaQsWsPFxkr+Pjr49E0vw9Sp5xTVDx2PcuA4kfk
+   /OD2+QtHYiyadRTDwdEE458i6Fr/MefYwWplxltX7jdfhp1rZSTKBAjkS
+   jjXvua2K7Wiwj6LD5EQ2X0TwCE3p+AgmPY46sT4lZtDGYk88eObXKTTcX
+   oEmL8dDp4iopK5HRJMcXlsALVdbL84rOene3vf5TQGerAyytjLwTdQTBG
+   w==;
+X-CSE-ConnectionGUID: 8vFHnoc4Td+/BfhLNTTBKw==
+X-CSE-MsgGUID: xvb/EZ7zQT2A1Ka7O9jJeQ==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
-  by esa3.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 18:24:12 +0200
-X-CSE-ConnectionGUID: knD40QT9QMWt1KzuzQos8Q==
-X-CSE-MsgGUID: eHI3YtK0SuKlMyZPPZY9ow==
+Received: from unknown (HELO ces03_data.me-corp.lan) ([146.255.191.134])
+  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 18:24:21 +0200
+X-CSE-ConnectionGUID: h3wVPQP9R0CsiHQMMj0RIg==
+X-CSE-MsgGUID: npZIQfbFQJKv35GuVl/X+Q==
 Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.2])
-  by ces04_data.me-crop.lan with SMTP; 18 Nov 2026 18:32:25 +0200
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Wed, 18 Nov 2026 18:24:11 +0200
+  by ces03_data.me-corp.lan with SMTP; 18 Nov 2026 18:32:19 +0200
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Wed, 18 Nov 2026 18:24:12 +0200
 From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Date: Wed, 18 Nov 2026 18:23:59 +0200
-Subject: [PATCH v7 3/6] riscv: report the A extension when Zaamo and Zalrsc
- are both present
+Date: Wed, 18 Nov 2026 18:24:00 +0200
+Subject: [PATCH v7 4/6] riscv, bpf: emit LR/SC loops when Zaamo is disabled
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261118-lrsc-only-v7-3-602dcf4c1921@mobileye.com>
+Message-Id: <20261118-lrsc-only-v7-4-602dcf4c1921@mobileye.com>
 References: <20261118-lrsc-only-v7-0-602dcf4c1921@mobileye.com>
 In-Reply-To: <20261118-lrsc-only-v7-0-602dcf4c1921@mobileye.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -104,8 +103,8 @@ Cc: Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org,
  Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261118_082415_292811_D12A08B0 
-X-CRM114-Status: GOOD (  17.03  )
+X-CRM114-CacheID: sfid-20261118_082415_900892_D029161E 
+X-CRM114-Status: GOOD (  30.38  )
 X-Spam-Score: -4.0 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -126,44 +125,346 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A hart may describe its atomics as "a", or as "zaamo" and "zalrsc".
-The two are the same thing: the A extension is defined as Zaamo plus
-Zalrsc. The kernel already expands "a" into both sub-extensions, but
-not the other way round, so a hart that lists the sub-extensions ends
-up without RISCV_ISA_EXT_A. /proc/cpuinfo then shows rv64imfdc... and
-the A bit is missing from ELF hwcap, although the hardware is the
-same as one that lists "a".
+A kernel built with CONFIG_RISCV_ISA_ZAAMO disabled is meant for a
+hart where AMO instructions are emulated by an M-mode trap. The BPF JIT
+still encodes amo* instructions for the BPF atomic read-modify-write
+operations, so every such operation takes that trap.
 
-Set A in the source ISA bitmap when both Zaamo and Zalrsc are there,
-before the bitmap is resolved, so that hwcap and cpuinfo do not depend
-on how the firmware spelled it. This covers the "riscv,isa" string and
-ACPI as well as "riscv,isa-extensions".
+Emit an LR/SC loop for BPF_ADD, BPF_AND, BPF_OR, BPF_XOR, their
+BPF_FETCH forms and BPF_XCHG when Zaamo is disabled, on RV32 and RV64.
+The sequences follow the Zalrsc variants in
+arch/riscv/include/asm/atomic.h and the existing LR/SC loop of
+emit_cmpxchg(): a relaxed op discards the old value; a fetch op is
+fully ordered with a plain lr, sc.rl and a trailing fence rw,rw, and
+returns the old value. BPF_CMPXCHG is unchanged; it already uses
+amocas with Zacas and an LR/SC loop otherwise.
 
+The JIT encodes instructions as integers, so no assembler constraint
+applies and both paths stay compiled. The choice is a plain
+IS_ENABLED() test, the same compile-time decision the rest of the
+kernel makes. The hart advertises "a" either way, so a runtime
+extension check would not tell the two cases apart.
+
+An arena (BPF_PROBE_ATOMIC) access needs an exception table entry for
+each instruction that may fault. The verifier reserves one entry per
+atomic instruction, but an LR/SC loop can fault on either the lr or the
+sc. Count the extra entries once the instruction offsets converge,
+before the image is allocated, and add an entry for the sc that shares
+the fixup of the lr, so a fault skips the retry and the result move.
+
+Co-developed-by: Chao-ying Fu <chao-ying.fu@globalfoundries.com>
+Signed-off-by: Chao-ying Fu <chao-ying.fu@globalfoundries.com>
 Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 ---
- arch/riscv/kernel/cpufeature.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/riscv/net/bpf_jit.h        |   1 +
+ arch/riscv/net/bpf_jit_comp32.c |  84 +++++++++++++++++++++++++++++--
+ arch/riscv/net/bpf_jit_comp64.c | 109 +++++++++++++++++++++++++++++++++++++++-
+ arch/riscv/net/bpf_jit_core.c   |  29 +++++++++++
+ 4 files changed, 217 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 7329792978cc..45684e129be1 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -682,6 +682,15 @@ static void __init riscv_resolve_isa(unsigned long *source_isa,
- 	int max_loop_count = riscv_isa_ext_count, ret;
- 	unsigned int bit;
+diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+index 419b9d795f2a..8c1301289ea8 100644
+--- a/arch/riscv/net/bpf_jit.h
++++ b/arch/riscv/net/bpf_jit.h
+@@ -79,6 +79,7 @@ struct rv_jit_context {
+ 	int nexentries;
+ 	int ex_insn_off;
+ 	int ex_jmp_off;
++	int ex_sc_off;		/* sc in an lr/sc pair; 0 if unused */
+ 	unsigned long flags;
+ 	int stack_size;
+ 	int tcc_offset;
+diff --git a/arch/riscv/net/bpf_jit_comp32.c b/arch/riscv/net/bpf_jit_comp32.c
+index a9e0bd5cc81d..0fa0c013549a 100644
+--- a/arch/riscv/net/bpf_jit_comp32.c
++++ b/arch/riscv/net/bpf_jit_comp32.c
+@@ -874,11 +874,70 @@ static int emit_load_r64(const s8 *dst, const s8 *src, s16 off,
+ 	return 0;
+ }
  
-+	/*
-+	 * "a" is exactly Zaamo plus Zalrsc. A hart that lists both has A,
-+	 * however the firmware spelled it, so report it the same way in
-+	 * ELF hwcap and /proc/cpuinfo.
-+	 */
-+	if (test_bit(RISCV_ISA_EXT_ZAAMO, source_isa) &&
-+	    test_bit(RISCV_ISA_EXT_ZALRSC, source_isa))
-+		set_bit(RISCV_ISA_EXT_A, source_isa);
+-static int emit_bpf_atomic(s8 dst, const s8 *src, const s8 *rs,
+-			   struct rv_jit_context *ctx,
+-			   const struct bpf_insn *insn)
++/*
++ * Read-modify-write via lr/sc for kernels built without Zaamo. T0 holds
++ * the address. T1/T2 are not BPF registers; the address was copied out of
++ * lo(rd) before this is called, so clobbering T2 is fine. A fetch op
++ * (including XCHG) is fully ordered as in asm/atomic.h: plain lr, sc.rl
++ * and a trailing fence rw,rw.
++ */
++static int emit_bpf_atomic_lrsc(s8 dst, const s8 *rs, s32 imm,
++				struct rv_jit_context *ctx)
++{
++	bool is_fetch = (imm & BPF_FETCH) || (imm == BPF_XCHG);
++	bool xchg = imm == BPF_XCHG;
++	u8 rl = is_fetch ? 1 : 0;
++	u8 old = RV_REG_T1;
++	u8 tmp = RV_REG_T2;
++	int lr_off, jmp_off;
++	s32 op = xchg ? BPF_XCHG : imm & ~BPF_FETCH;
 +
- 	do {
- 		loop = false;
- 		if (max_loop_count-- < 0) {
++	switch (op) {
++	case BPF_ADD:
++	case BPF_AND:
++	case BPF_OR:
++	case BPF_XOR:
++	case BPF_XCHG:
++		break;
++	default:
++		return -1;
++	}
++
++	lr_off = ctx->ninsns;
++	emit(rv_lr_w(old, 0, dst, 0, 0), ctx);
++
++	switch (op) {
++	case BPF_ADD:
++		emit(rv_add(tmp, old, lo(rs)), ctx);
++		break;
++	case BPF_AND:
++		emit(rv_and(tmp, old, lo(rs)), ctx);
++		break;
++	case BPF_OR:
++		emit(rv_or(tmp, old, lo(rs)), ctx);
++		break;
++	case BPF_XOR:
++		emit(rv_xor(tmp, old, lo(rs)), ctx);
++		break;
++	}
++
++	if (xchg)
++		emit(rv_sc_w(tmp, lo(rs), dst, 0, rl), ctx);
++	else
++		emit(rv_sc_w(tmp, tmp, dst, 0, rl), ctx);
++
++	jmp_off = ninsns_rvoff(lr_off - ctx->ninsns);
++	emit(rv_bne(tmp, RV_REG_ZERO, jmp_off >> 1), ctx);
++	if (is_fetch) {
++		emit_fence_rw_rw(ctx);
++		emit(rv_addi(lo(rs), old, 0), ctx);
++	}
++	return 0;
++}
++
++static int emit_bpf_atomic_amo(s8 dst, const s8 *rs, s32 imm,
++			       struct rv_jit_context *ctx)
+ {
+-	s32 imm = insn->imm;
+ 	bool is_fetch = (imm & BPF_FETCH) || (imm == BPF_XCHG);
+ 	s8 fetch_reg = is_fetch ? lo(rs) : RV_REG_ZERO;
+ 	int aq = is_fetch ? 1 : 0;
+@@ -907,6 +966,23 @@ static int emit_bpf_atomic(s8 dst, const s8 *src, const s8 *rs,
+ 	default:
+ 		return -1;
+ 	}
++	return 0;
++}
++
++static int emit_bpf_atomic(s8 dst, const s8 *src, const s8 *rs,
++			   struct rv_jit_context *ctx,
++			   const struct bpf_insn *insn)
++{
++	s32 imm = insn->imm;
++	bool is_fetch = (imm & BPF_FETCH) || (imm == BPF_XCHG);
++	int ret;
++
++	if (IS_ENABLED(CONFIG_RISCV_ISA_ZAAMO))
++		ret = emit_bpf_atomic_amo(dst, rs, imm, ctx);
++	else
++		ret = emit_bpf_atomic_lrsc(dst, rs, imm, ctx);
++	if (ret)
++		return ret;
+ 
+ 	if (is_fetch) {
+ 		emit(rv_addi(hi(rs), RV_REG_ZERO, 0), ctx);
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index 01fe66774f02..4807b5800f62 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -573,6 +573,80 @@ static int emit_atomic_ld_st(u8 rd, u8 rs, const struct bpf_insn *insn,
+ 	return 0;
+ }
+ 
++/*
++ * Read-modify-write via lr/sc for kernels built without Zaamo, matching
++ * the Zalrsc sequences in arch/riscv/include/asm/atomic.h. A relaxed op
++ * discards the old value. A fetch op (including XCHG) is fully ordered
++ * the way emit_cmpxchg() is: plain lr, sc.rl and a trailing fence rw,rw.
++ * It writes the old value back to val. T2/T3 are not BPF registers; addr
++ * may already be T1.
++ */
++static void emit_atomic_lrsc(u8 addr, u8 val, bool is64, s32 imm,
++			     struct rv_jit_context *ctx)
++{
++	bool fetch = imm & BPF_FETCH;
++	u8 rl = fetch ? 1 : 0;
++	u8 old = RV_REG_T2;
++	u8 tmp = RV_REG_T3;
++	int lr_off, jmp_off;
++	s32 op = imm == BPF_XCHG ? BPF_XCHG : imm & ~BPF_FETCH;
++
++	lr_off = ctx->ninsns;
++	ctx->ex_insn_off = ctx->ninsns;
++	emit(is64 ? rv_lr_d(old, 0, addr, 0, 0) :
++	     rv_lr_w(old, 0, addr, 0, 0), ctx);
++
++	if (op != BPF_XCHG) {
++		if (!is64 && op == BPF_ADD)
++			emit(rv_addw(tmp, old, val), ctx);
++		else if (op == BPF_ADD)
++			emit_add(tmp, old, val, ctx);
++		else if (op == BPF_AND)
++			emit_and(tmp, old, val, ctx);
++		else if (op == BPF_OR)
++			emit_or(tmp, old, val, ctx);
++		else if (op == BPF_XOR)
++			emit_xor(tmp, old, val, ctx);
++
++		ctx->ex_sc_off = ctx->ninsns;
++		emit(is64 ? rv_sc_d(tmp, tmp, addr, 0, rl) :
++		     rv_sc_w(tmp, tmp, addr, 0, rl), ctx);
++	} else {
++		ctx->ex_sc_off = ctx->ninsns;
++		emit(is64 ? rv_sc_d(tmp, val, addr, 0, rl) :
++		     rv_sc_w(tmp, val, addr, 0, rl), ctx);
++	}
++
++	/* Branch offset is relative to this instruction, back to the lr. */
++	jmp_off = ninsns_rvoff(lr_off - ctx->ninsns);
++	emit(rv_bne(tmp, RV_REG_ZERO, jmp_off >> 1), ctx);
++
++	if (fetch) {
++		emit_fence_rw_rw(ctx);
++		emit_mv(val, old, ctx);
++		if (!is64)
++			emit_zextw(val, val, ctx);
++	}
++	ctx->ex_jmp_off = ctx->ninsns;
++}
++
++static bool is_atomic_lrsc_op(s32 imm)
++{
++	switch (imm) {
++	case BPF_ADD:
++	case BPF_AND:
++	case BPF_OR:
++	case BPF_XOR:
++	case BPF_ADD | BPF_FETCH:
++	case BPF_AND | BPF_FETCH:
++	case BPF_OR | BPF_FETCH:
++	case BPF_XOR | BPF_FETCH:
++	case BPF_XCHG:
++		return true;
++	}
++	return false;
++}
++
+ static int emit_atomic_rmw(u8 rd, u8 rs, const struct bpf_insn *insn,
+ 			   struct rv_jit_context *ctx)
+ {
+@@ -601,6 +675,12 @@ static int emit_atomic_rmw(u8 rd, u8 rs, const struct bpf_insn *insn,
+ 		rd = RV_REG_T1;
+ 	}
+ 
++	/* Without Zaamo, every op except cmpxchg is an lr/sc loop. */
++	if (!IS_ENABLED(CONFIG_RISCV_ISA_ZAAMO) && is_atomic_lrsc_op(imm)) {
++		emit_atomic_lrsc(rd, rs, is64, imm, ctx);
++		return 0;
++	}
++
+ 	switch (imm) {
+ 	/* lock *(u32/u64 *)(dst_reg + off16) <op>= src_reg */
+ 	case BPF_ADD:
+@@ -732,8 +812,8 @@ bool ex_handler_bpf(const struct exception_table_entry *ex,
+ }
+ 
+ /* For accesses to BTF pointers, add an entry to the exception table */
+-static int add_exception_handler(const struct bpf_insn *insn, int dst_reg,
+-				 struct rv_jit_context *ctx)
++static int add_exception_handler_one(const struct bpf_insn *insn, int dst_reg,
++				     struct rv_jit_context *ctx)
+ {
+ 	struct exception_table_entry *ex;
+ 	unsigned long pc;
+@@ -804,6 +884,31 @@ static int add_exception_handler(const struct bpf_insn *insn, int dst_reg,
+ 	return 0;
+ }
+ 
++/*
++ * An lr/sc pair faults on either instruction. Both entries share the fixup
++ * that follows the loop, so a probe fault skips the retry and the result move.
++ */
++static int add_exception_handler(const struct bpf_insn *insn, int dst_reg,
++				 struct rv_jit_context *ctx)
++{
++	int sc_off = ctx->ex_sc_off;
++	int jmp_off = ctx->ex_jmp_off;
++	int ret;
++
++	ctx->ex_sc_off = 0;
++	/* Offset discovery runs before the image exists. Entries are added later. */
++	if (!ctx->insns)
++		return 0;
++
++	ret = add_exception_handler_one(insn, dst_reg, ctx);
++	if (ret || sc_off <= 0)
++		return ret;
++
++	ctx->ex_insn_off = sc_off;
++	ctx->ex_jmp_off = jmp_off;
++	return add_exception_handler_one(insn, dst_reg, ctx);
++}
++
+ static int gen_jump_or_nops(void *target, void *ip, u32 *insns, bool is_call)
+ {
+ 	s64 rvoff;
+diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+index cbfcd287ea16..cba0d34c3e6f 100644
+--- a/arch/riscv/net/bpf_jit_core.c
++++ b/arch/riscv/net/bpf_jit_core.c
+@@ -16,6 +16,34 @@
+ /* Number of iterations to try until offsets converge. */
+ #define NR_JIT_ITERATIONS	32
+ 
++/*
++ * The verifier reserves one extable slot per BPF_PROBE_ATOMIC. Without
++ * Zaamo a read-modify-write atomic is an lr/sc loop that can fault on
++ * either instruction, so reserve a second slot for the sc.
++ */
++static void rv_jit_add_lrsc_exentries(struct bpf_prog *prog)
++{
++	const struct bpf_insn *insn = prog->insnsi;
++	int i;
++
++	if (IS_ENABLED(CONFIG_RISCV_ISA_ZAAMO) || __riscv_xlen != 64)
++		return;
++
++	for (i = 0; i < prog->len; i++, insn++) {
++		if (BPF_CLASS(insn->code) != BPF_STX ||
++		    BPF_MODE(insn->code) != BPF_PROBE_ATOMIC ||
++		    bpf_atomic_is_load_store(insn))
++			continue;
++		if (BPF_SIZE(insn->code) != BPF_W &&
++		    BPF_SIZE(insn->code) != BPF_DW)
++			continue;
++		/* amocas is a single faulting instruction. */
++		if (insn->imm == BPF_CMPXCHG && rv_ext_enabled(ZACAS))
++			continue;
++		prog->aux->num_exentries++;
++	}
++}
++
+ static int build_body(struct rv_jit_context *ctx, bool extra_pass, int *offset)
+ {
+ 	const struct bpf_prog *prog = ctx->prog;
+@@ -100,6 +128,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
+ 		if (ctx->ninsns == prev_ninsns) {
+ 			if (jit_data->header)
+ 				break;
++			rv_jit_add_lrsc_exentries(prog);
+ 			/* obtain the actual image size */
+ 			extable_size = prog->aux->num_exentries *
+ 				sizeof(struct exception_table_entry);
 
 -- 
 2.43.0
