@@ -2,109 +2,78 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B4AF606A31C
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 15:50:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D005B606A334
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 15:51:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cVHIHqm7;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vDWmnVf5
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2Von/ruZ;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AhFZoIz5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Y3Vl2IDh9/0skJUYOB0a3z1N741ht+4pEWK+zAhkrCc=; b=cVHIHqm7knO9CdKNItXw6+r97R
-	M9Jv3zRpQsju0TN4RtDqi7kTExi8aTP1RgolPptuWbULX6O7iAXLMojw9aBhwKWKn2KY6fLAVGQAB
-	pzQw7kp5hZ4ffnG7+pnA2NjRG85cto7QHKXKo4YQNPg8oHVUVXDh+qzWN2cJer9tWkdhnN+bjUHvj
-	FZ0S6kRU5FiEU8/M1USpkWEPi/pryAw4y9Y9art876EioTVMuE9lD4mZ07hVYGOmFifF9pFg3FTSz
-	vcbd30mN7tFF6r5JB7riZi4gTmYVwEBoH6aQoY4RubKHK5HT+qtw/wiVas9oPONTsb3+qhYRZ0Nvp
-	MteYV2fQ==;
+	bh=oqYFoT0IMwIsQDKunOz+mCcSAM4KhDQo+/A8JIlGukA=; b=2Von/ruZJ+AOxmv7Dqu/rxBhPr
+	82Zhr2fyDdCE/fayxM8egaQyIzh9hfqTw8ihnsbYI2xm8D3RCAB/lFL37L8phoT9Jk4GZqwLEXk2T
+	LGJoWNnBuqAKwkZYkYuUXFoHHXLjILuBiwD63/CcD0RQbXHMexk/dX+uMCYia690EmB+bj3k+DPyt
+	1dOYwkRRv7UZImqy7UcjDqI8FzHYqYeDqJ0Nc/X2MqtOWS4PC5FII6OadX8XkEinw2GNgKDc3k04K
+	ZldsM/kmKU3U23HNak8YBs0ogjD6V0ved/n6ahUS/s9MlIijfhwXnuB04fFMvRJJhGHznyjhysq8G
+	OnQyUtoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xThvb-00000009Mk0-2icl;
-	Wed, 18 Nov 2026 15:50:31 +0000
-Received: from mail-pj2-x0a.google.com ([2607:f8b0:4864:39::a])
+	id 1xThwR-00000009MtQ-3fKF;
+	Wed, 18 Nov 2026 15:51:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xThvY-00000009MjB-3B1N
+	id 1xThwP-00000009Msr-3uSV
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 15:50:30 +0000
-Received: by mail-pj2-x0a.google.com with SMTP id d9443c01a7336-2ed14ad20b8so3239175ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Nov 2026 07:50:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795017028; x=1795621828; darn=lists.infradead.org;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=4lLupD4z98CK9UrD3eQfsjdZUJgyZTecsH4A98HzZRA=;
-        b=vDWmnVf5kiHkwTxS3pqDTbgE+fxPTIyL6ytej94GM6RbkJknUeHVFHeHZndsc4tUxg
-         bo+sSDJS5HRlWASh6n3/jAVYWHBFUFTaDApoXHgbos30z1RZ8MjjYHo4gmO9klQbZDXm
-         1IyWTSK7E11SqjV9mMCj1nhRzVI3PEYZbFAqfmYNJYXsk40Bwx766xNE70M0LdgM4pjt
-         Z14TkppCm66Txfe0Dbpj9SfaIVHkqKX6e1XeqH5vm362G8rS1pWBHEBOpudGp5X/9uNH
-         QqeJScTEDoeQGli3ZwqLJu90lTmYQUYgb9fI+bhxivuRR4t70ZlAPhes3T0ge+unKBqq
-         zBAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795017028; x=1795621828;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4lLupD4z98CK9UrD3eQfsjdZUJgyZTecsH4A98HzZRA=;
-        b=YaDgVE/a56ITyWSi2pKQS3FaK8LFt2y6fyVThRfC5oDJxc6PniXFKbxRN8Q3WEbTuP
-         LGMjQWpcamaRGfJgUryLWsLa400+Az1HVkUHx5viPbAVJ7TIR9nB5sStSARMuDpDTuaU
-         w6CVEReHwPI/RVWssn5mRUCGOBSWq+mR8PLS9cT+wq16SPwapMwHnZHecMxf1ax1WDzb
-         dUgDETK2F640EDPYM5GQWAC95XwEGjhp0+YI4HobPh+Hr/maBih0mU3wj6QbEA0QN5Oo
-         AbAzhy1z4goH6kmSqtLofnoyGYSBDJVrKJ+tMt1Aahn73PCKDFve0o2B1sVx4iKF0y//
-         iQPA==
-X-Forwarded-Encrypted: i=1; AL+hErGO3t39m77Q2HEKxQ/Qy42lZgB2STFr/7PDnQVuyNFD0J92IfEMTpKWcqwsRIUeHuFC+OKJ+Q9yX2Uj1A==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9ZF/TBtvrh09H+4cW0pNOeuQ67ZiK+Nti/+z5kM/VLnitdGwTE
-	qMx/BIzm6ee4e+eju9rSC/2bFzJbiG4mPAxkL3rXvSP/MZmnEXAggsvK
-X-Gm-Gg: AZFdTZexlUcZgZHDKQFcJY86fgT/OaAJrS4JPlRxJzkR22YnocMH9yr6senQP75nKr/
-	wXGPPIX9q6S0dmCMAuZE3aZdAAnb5zb+a1FUZKpkDWdUhRtrAJXmO+FednZCacczboQXTBWTH7L
-	dDRxEYJy4fKHxkQCgzDgwLBTryNtR1j3k15K/sRnXho4EjUD0s5FRCarVgUpsF7pRfQTFx9MNLJ
-	mLDqwNH1gGpMFVHWqr7jhB/mB+bS9PU3uRq+AFCX+auMSG8Lsa7Q0ktg6StZSDUmveibnypfbuW
-	VJ2hjeUnBiXvRXZNEpydBZzVhDhHGCO73vk8e5V7OTHbv2/tlj1lEbx/cN2hP2NwkbvOjQ0zigh
-	aM6ahZACzxQJPuJNObG2MkSSkm4uHllBalpSRV7iI3NE5xOEchMbC5arXupzNyM71BPhZQ8pOwm
-	Dfb4raYMZIELF2tIhN1otdZcKOajYVquaJD1G7c6ZFgpZRXNjbXnpiTSKQFpm4P/RMGN5WuphyJ
-	KFrS8Ity1t2HA/b4CsxXoCDE/Jme9UnLERwhxMpnAvoND93pWw+5h/1rRI1vRzOIvvShfu7LASf
-	9dg=
-X-Received: by 2002:a17:90a:dfcf:b0:3ac:9d14:feb1 with SMTP id 98e67ed59e1d1-3b3d07c9ca5mr3201351a91.43.1795017027692;
-        Wed, 18 Nov 2026 07:50:27 -0800 (PST)
-Received: from localhost ([2403:2c80:6::107b])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde534ae0edsm193214a12.21.2026.11.18.07.50.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 07:50:27 -0800 (PST)
-Date: Wed, 18 Nov 2026 23:50:21 +0800
-Message-ID: <aee275aa2ebf093d8518e53c5d264064.codykang.hk@gmail.com>
-From: Cody Kang <codykang.hk@gmail.com>
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Haylen Chu <heylenay@4d2.org>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Yao Zi <me@ziyao.cc>,
- Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Guodong Xu <docular.xu@gmail.com>, dri-devel@lists.freedesktop.org,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v2 11/17] drm/spacemit: add Saturn DPU DRM device driver
-In-Reply-To: <e492222feabaa5c72229c93ce75f9500e4346da1.camel@icenowy.me>
-References: <20260809-k3-display-v2-0-327d7910bf71@gmail.com>
- <20260809-k3-display-v2-11-327d7910bf71@gmail.com>
- <e492222feabaa5c72229c93ce75f9500e4346da1.camel@icenowy.me>
+	Wed, 18 Nov 2026 15:51:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E0228625F3;
+	Wed, 18 Nov 2026 15:51:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8806E1F000C4;
+	Wed, 18 Nov 2026 15:51:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795017080;
+	bh=qf8B0pWSRob2jQEYRVRkMJrJy+KCpepLoEzVzLVC7JQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AhFZoIz5QPddGxQPSruoErjT8itmH040m+DxUw4Xf9wTElEkeOjtXi5Dz8iLlXf4l
+	 7QZC56tdiGTXLqUQjQM26gTHFMKk1S8CKYdoLT9aHwZowMADj8kh0ga1IwlEsoaHGM
+	 0UADq1Upe/15I96CG175mb9DwM3WKjZ8kcQCnFxtA+tJTN41+ICNOH+xKCFvK8P6En
+	 jSVCE/UjgX5Q3/K5plWFDB26K4I/979XXfMQQ5kfh99EvS1MnfNeUL4hNDuAr2tFJd
+	 +67kLMeYnEI14tgz1tVoyNdnjJht3qETjzczfA9NbUDFVGTdTYu11WcIh3qXkX+bpT
+	 nu2LyjcOLO50A==
+Date: Wed, 18 Nov 2026 15:51:13 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Xincheng Ji <jixincheng@ultrarisc.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Linus Walleij <linusw@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Rob Herring <robh@kernel.org>, linux-pci@vger.kernel.org,
+	linux-clk@vger.kernel.org, netdev@vger.kernel.org,
+	linux-gpio@vger.kernel.org, Fei Chen <chenfei@ultrarisc.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] MAINTAINERS: Update UltraRISC driver maintainers
+Message-ID: <20261118-unimpeded-swapping-6b1b3e5bebba@spud>
+References: <20261116-ultrarisc-maintainer-v1-1-f58706ae438c@ultrarisc.com>
+ <179501112283.639563.5233054429317576626.b4-review@b4>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261118_075028_820771_DE05A941 
-X-CRM114-Status: GOOD (  12.01  )
-X-Spam-Score: -2.1 (--)
+In-Reply-To: <179501112283.639563.5233054429317576626.b4-review@b4>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,34 +83,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============8549738115290868930=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-0.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-SGkgSWNlbm93eSwKCk9uIFRodSwgMDMgU2VwIDIwMjYgMjA6MDc6MzIgKzA4MDAsIEljZW5vd3kg
-Wmhlbmcgd3JvdGU6Cj4g5ZyoIDIwMjYtMDgtMDnml6XnmoQgMjE6MTQgKzA4MDDvvIxDb2R5IEth
-bmcgdmlhIEI0IFJlbGF55YaZ6YGT77yaCj4gPiBGcm9tOiBDb2R5IEthbmcgPGNvZHlrYW5nLmhr
-QGdtYWlsLmNvbT4KWy4uLl0KPiA+ICsJZHJtLT5tb2RlX2NvbmZpZy5taW5fd2lkdGggPSAxOwo+
-ID4gKwlkcm0tPm1vZGVfY29uZmlnLm1pbl9oZWlnaHQgPSAxOwo+ID4gKwkvKiBLMyB1c2VyIG1h
-bnVhbDogZWFjaCBEUFUgc2NhbnMgb3V0IGF0IG1vc3QgMzg0MHgyMTYwQDYwCj4gPiAqLwo+ID4g
-Kwlkcm0tPm1vZGVfY29uZmlnLm1heF93aWR0aCA9IDM4NDA7Cj4gPiArCWRybS0+bW9kZV9jb25m
-aWcubWF4X2hlaWdodCA9IDIxNjA7Cj4KPiBUaGlzIGlzIGZvciB0aGUgYmlnZ2VzdCBwb3NzaWJs
-ZSBmcmFtZWJ1ZmZlciBpbnN0ZWFkIG9mIHRoZSBwb3NzaWJsZQo+IHNjYW5vdXQgcGl4ZWwgY291
-bnQuCj4KPiBUaGUgd2lkdGggaGVyZSBzaG91bGQgYmUgYmFzZWQgb24gdGhlIG1heGltdW0gYWxs
-b3dlZCBwaXRjaCBvZiB0aGUKPiBkaXNwbGF5IGNvbnRyb2xsZXIgaW5zdGVhZCBvZiB0aGUgc2lu
-Z2xlLUdQVSBtYXhpbXVtIHNpemUsIG90aGVyd2lzZSBpdAo+IHdvbid0IGJlIGFibGUgdG8gZHJp
-dmUgdHdvIDM4NDB4MjE2MCBzY3JlZW5zIGluIGEgc2lkZS1ieS1zaWRlCj4gY29uZmlndXJhdGlv
-biBiZWNhdXNlIHRoaXMgd2lsbCBjcmVhdGUgYSA3NjgweDIxNjAgZnJhbWVidWZmZXIuCgpUaGFu
-a3MgZm9yIHRoZSByZXZpZXcuIEFncmVlZDsgd2lsbCBmaXggaW4gdjMuCgp2MyB3aWxsIHRha2Ug
-bWF4X3dpZHRoL21heF9oZWlnaHQgZnJvbSB3aGF0IHRoZSBSRE1BIHJlZ2lzdGVycyBjYW4KYWRk
-cmVzcyAoYSAxNi1iaXQgYnl0ZSBzdHJpZGUgYW5kIDE2LWJpdCBpbWFnZSBkaW1lbnNpb25zKSwg
-YW5kIG1vdmUKdGhlIDM4NDB4MjE2MCBsaW1pdCBpbnRvIHRoZSBDUlRDJ3MgbW9kZV92YWxpZC4K
-CkNvZHkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+--===============8549738115290868930==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="N/uanLs0bA0BfJcj"
+Content-Disposition: inline
+
+--N/uanLs0bA0BfJcj
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Nov 18, 2026 at 03:12:02PM +0100, Jerome Brunet wrote:
+> > Jia Wang and Xincheng Zhang have left UltraRISC and are no longer
+> > maintaining its drivers. Jia's listed company email address is
+> > no longer available.
+> >=20
+> > Replace Jia Wang with Xincheng Ji and add Fei Chen as a co-maintainer
+> > for the DP1000 PCIe, clock, DWMAC and pinctrl drivers. Remove
+> > Xincheng Zhang from the PCIe maintainer entry.
+> >=20
+> > Having two maintainers provides continuity for maintenance and
+> > patch review when either maintainer is unavailable, as suggested
+> > by Conor Dooley during the UltraRISC maintenance handover.
+> >=20
+> > Link: https://lore.kernel.org/all/20261112-legend-outcast-c2226b5e02a1@=
+spud/
+> >=20
+> > Signed-off-by: Xincheng Ji <jixincheng@ultrarisc.com>
+> > ---
+> > Hi all,
+> >=20
+> > Jia Wang and Xincheng Zhang have left UltraRISC and no longer
+> > maintain these drivers. Jia's listed company email address is
+> > no longer available.
+>=20
+> Maintenance is not necessarily tied to an employer.
+
+True, but if the people don't care enough to update their emails they
+probably aren't that interested in staying involved...
+
+> It would be better if the people removed could Ack the change, and let
+> the community know they don't plan on being involved anymore.
+>=20
+> If they do not reply within a reasonable timeframe (a cycle maybe?) I gue=
+ss
+> you can remove them anyway.
+>=20
+> That does not prevent you from adding yourself in the meantime.
+>=20
+> I suppose this would go through a starfive/riscv tree ?
+
+Sure, I can take it if the subsystem folk don't.
+
+>=20
+> For the clock:
+> Acked-by: Jerome Brunet <jbrunet@baylibre.com>
+>=20
+> --=20
+> Jerome
+>=20
+
+--N/uanLs0bA0BfJcj
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCav3JbQAKCRB4tDGHoIJi
+0qBxAQDnNYlzvCuzp3y54+YqWrqv9AdYL7pLR7wQG8oNc1UbhgD+MDe5Ob5AFsHw
+x1lndPqct4ZQjA7FNv/bu6vHGgf/xgE=
+=YLuJ
+-----END PGP SIGNATURE-----
+
+--N/uanLs0bA0BfJcj--
+
+
+--===============8549738115290868930==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8549738115290868930==--
+
